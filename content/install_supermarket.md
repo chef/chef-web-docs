@@ -10,7 +10,7 @@ aliases = ["/install_supermarket.html"]
     identifier = "chef_infra/setup/supermarket/install_supermarket.md Install Private Supermarket"
     parent = "chef_infra/setup/supermarket"
     weight = 20
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/install_supermarket.md)
 
@@ -210,7 +210,7 @@ line interface:
     $ cd my_supermarket_wrapper
     ```
 
-3.  Defines the wrapper cookbook’s dependency on the
+3.  Defines the wrapper cookbook's dependency on the
     `supermarket-omnibus-cookbook` cookbook. Open the metadata.rb file
     of the newly-created cookbook, and then add the following line:
 

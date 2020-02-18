@@ -10,7 +10,7 @@ aliases = ["/release_notes.html", "/release_notes_ohai.html"]
     identifier = "chef_infra/release_notes/release_notes.md Chef Infra Client"
     parent = "chef_infra/release_notes"
     weight = 10
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/release_notes.md)
 
@@ -579,7 +579,7 @@ knife supermarket list Improvements
 
 The `knife supermarket list` command now includes two new options:
 
--   
+-
 
     `--sort-by [recently_updated recently_added most_downloaded most_followed]`:
 
@@ -670,29 +670,29 @@ Security Updates
 Ruby has been updated from 2.6.4 to 2.6.5 in order to resolve the
 following CVEs:
 
--   
+-
 
     [CVE-2019-16255](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-16255):
 
     :   A code injection vulnerability of Shell\#\[\] and Shell\#test
 
--   
+-
 
     [CVE-2019-16254](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-16254):
 
     :   HTTP response splitting in WEBrick (Additional fix)
 
--   
+-
 
     [CVE-2019-15845](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-15845):
 
     :   A NUL injection vulnerability of File.fnmatch and File.fnmatch?
 
--   
+-
 
     [CVE-2019-16201](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-16201):
 
-    :   Regular Expression Denial of Service vulnerability of WEBrick’s
+    :   Regular Expression Denial of Service vulnerability of WEBrick's
         Digest access authentication
 
 What's New in 15.3
@@ -703,7 +703,7 @@ Custom Resource Unified Mode
 
 Chef Infra Client 15.3 introduces an exciting new way to easily write
 custom resources that mix built-in Chef Infra resources with Ruby code.
-Previously custom resources would use Chef Infra’s standard compile and
+Previously custom resources would use Chef Infra's standard compile and
 converge phases, which meant that Ruby would be evaluated first and then
 the resources would be converged. This often results in confusing and
 undesirable behavior when you are trying to mix resources with Ruby
@@ -742,7 +742,7 @@ Interval Mode Now Fails on Windows
 Chef Infra Client 15.3 will now raise an error if you attempt to keep
 the chef-client process running long-term by enabling interval runs.
 Interval runs have already raised failures on non-Windows platforms and
-we’ve suggested that users move away from them on Windows for many
+we've suggested that users move away from them on Windows for many
 years. The long-running chef-client process on Windows will load and
 reload cookbooks over each other in memory. This could produce a running
 state which is not a representation of the cookbook code that the
@@ -778,15 +778,15 @@ compression.
     -   `admin` sets a user to be an admin.
     -   `admin_username` and `admin_password` define the admin user
         credentials required for toggling SecureToken for a user. The
-        value of ‘admin_username’ must correspond to a system user that
-        is part of the ‘admin’ with SecureToken enabled in order to
+        value of 'admin_username' must correspond to a system user that
+        is part of the 'admin' with SecureToken enabled in order to
         toggle SecureToken.
     -   `secure_token` is a boolean property that sets the desired state
         for SecureToken. FileVault requires a SecureToken for full disk
         encryption.
     -   `secure_token_password` is the plaintext password required to
         enable or disable `secure_token` for a user. If no salt is
-        specified we assume the ‘password’ property corresponds to a
+        specified we assume the 'password' property corresponds to a
         plaintext password and will attempt to use it in place of
         secure_token_password if it is not set.
 
@@ -797,7 +797,7 @@ compression.
 
 -   **gid property can now be a string**
 
-    The `gid` property now allows specifying the user’s gid as a string.
+    The `gid` property now allows specifying the user's gid as a string.
     For example:
 
     ``` ruby
@@ -1994,7 +1994,7 @@ and
 nokogori has been updated from 1.10.2 to 1.10.4 in order to resolve
 [CVE-2019-5477](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-5477).
 
-What’s New in 14.13
+What's New in 14.13
 ===================
 
 Updated Resources
@@ -2063,13 +2063,13 @@ Updated Components
 -   openssl 1.0.2r -\> 1.0.2s (bugfix only release)
 -   cacerts 2019-01-23 -\> 2019-05-15
 
-What’s New in 14.12.9
+What's New in 14.12.9
 =====================
 
 License Acceptance Placeholder Flag
 -----------------------------------
 
-In preparation for Chef Infra Client 15.0, we’ve added a placeholder
+In preparation for Chef Infra Client 15.0, we've added a placeholder
 <span class="title-ref">--chef-license</span> flag to the chef-client
 command. This allows you to use the new <span
 class="title-ref">--chef-license</span> flag on both Chef Infra Client
@@ -2084,7 +2084,7 @@ Important Bug Fixes
 -   Resolved a regression introduced in Chef Client 14.12.3 that
     resulted in errors when managing Windows services
 
-What’s New in 14.12
+What's New in 14.12
 ===================
 
 **Updated Resources**
@@ -2109,7 +2109,7 @@ What’s New in 14.12
 -   The unused windows-api gem is no longer bundled with Chef on Windows
     hosts
 
-What’s New in 14.11
+What's New in 14.11
 ===================
 
 **Updated Resources**
@@ -2196,7 +2196,7 @@ What’s New in 14.11
     -   [CVE-2019-8325](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-8325):
         Escape sequence injection vulnerability in errors
 
-What’s New in 14.10
+What's New in 14.10
 ===================
 
 **Updated Resources**
@@ -2249,7 +2249,7 @@ What’s New in 14.10
     same name and were present in both the cookbooks directory and the
     site-cookbooks directory.
 
-What’s New in 14.9
+What's New in 14.9
 ==================
 
 **Updated Resources**
@@ -2341,7 +2341,7 @@ What’s New in 14.9
     bundled with Chef to prevent failures on hosts that lacked the
     runtimes.
 
-What’s New in 14.8
+What's New in 14.8
 ==================
 
 **Updated Resources**
@@ -2455,7 +2455,7 @@ What’s New in 14.8
     -   Timing vulnerability in DSA signature generation
         [CVE-2018-0734](https://nvd.nist.gov/vuln/detail/CVE-2018-0734)
 
-What’s New in 14.7
+What's New in 14.7
 ==================
 
 **New Resources**
@@ -2509,12 +2509,12 @@ What’s New in 14.7
 
 -   **windows_task**
 
-    A regression in Chef 14.6’s windows_task resource which resulted in
+    A regression in Chef 14.6's windows_task resource which resulted in
     tasks being created with the "Run only when user is logged on"
     option being set when created with a specific user other than
     SYSTEM, has been resolved.
 
-What’s New in 14.6
+What's New in 14.6
 ==================
 
 **Smaller Package and Install Size**
@@ -2650,14 +2650,14 @@ and bugs:
 -   [CVE-2018-16396](https://www.ruby-lang.org/en/news/2018/10/17/not-propagated-taint-flag-in-some-formats-of-pack-cve-2018-16396)
 -   [CVE-2018-16395](https://www.ruby-lang.org/en/news/2018/10/17/openssl-x509-name-equality-check-does-not-work-correctly-cve-2018-16395)
 
-What’s New in 14.5
+What's New in 14.5
 ==================
 
 **New Preview Resources**
 
 -   **locale**
 
-    Use the [locale](/resources/locale/) resource to set the system’s
+    Use the [locale](/resources/locale/) resource to set the system's
     locale.
 
     Thank you [@vincentaubert](https://github.com/vincentaubert) for
@@ -2736,7 +2736,7 @@ Security Updates
 -   The rubyzip gem has been updated to 1.2.2 to resolve
     [CVE-2018-1000544](/https://www.cvedetails.com/cve/CVE-2018-1000544/)
 
-What’s New in 14.4
+What's New in 14.4
 ==================
 
 -   **Knife configuration profile management commands**
@@ -2897,7 +2897,7 @@ Security Updates
     and
     [CVE-2018-0737](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-0737)
 
-What’s New in 14.3
+What's New in 14.3
 ==================
 
 **New Preview Resources Concept**
@@ -3000,7 +3000,7 @@ New Deprecations
 :   Chef 15 will remove support for the legacy FreeBSD pkg format. We
     will continue to support the pkgng format introduced in FreeBSD 10.
 
-What’s New in 14.2
+What's New in 14.2
 ==================
 
 -   **ssh-agent support for user keys**
@@ -3025,7 +3025,7 @@ What’s New in 14.2
     You can then load the key into your `ssh-agent` by running
     `ssh-add user_enc.pem`. Make sure you add the `ssh_agent_signing` to
     your configuration, and update your `client_key` to point at the
-    new, encrypted key (and once you’ve verified things are working,
+    new, encrypted key (and once you've verified things are working,
     remember to delete your unencrypted key file).
 
 -   **default_env Property in Execute Resource**
@@ -3055,7 +3055,7 @@ What’s New in 14.2
 -   **Virtualization detection on AWS**
 
     Ohai now detects the virtualization hypervisor amazonec2 when
-    running on Amazon’s new C5/M5 instances.
+    running on Amazon's new C5/M5 instances.
 
 What's New in 14.1.12
 =====================
@@ -3085,13 +3085,13 @@ What's New in 14.1.1
     The [windows_task](/resources/windows_task/) resource has been
     entirely rewritten. This resolves a large number of bugs by allowing
     Chef to correctly set the start time of tasks, adding proper
-    creation and deletion of tasks, and improving Chef’s validation of
+    creation and deletion of tasks, and improving Chef's validation of
     tasks. The rewrite will also solve the idempotency problems that
     users have reported.
 
 -   **Ubuntu 18.04**
 
-    We’re testing Chef on Ubuntu 18.04, which means it's now available
+    We're testing Chef on Ubuntu 18.04, which means it's now available
     on the [downloads](https://downloads.chef.io/chef/14.1.1) page.
 
 -   **build_essential**
@@ -3955,7 +3955,7 @@ What's New in 13.10
 -   **Ohai 13.10 Improvements**
     -   Correctly identifies the `platform_version` on the final release
         of Amazon Linux 2.0
-    -   Detects nodes with the DMI data of “OpenStack Compute” as
+    -   Detects nodes with the DMI data of "OpenStack Compute" as
         OpenStack nodes
 -   **Security Updates**
     -   [CVE-2018-1000201](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-1000201):
@@ -3981,7 +3981,7 @@ Ohai 13.9.2
 -   **Virtualization detection on AWS**
 
     Ohai now detects the virtualization hypervisor amazonec2 when
-    running on Amazon’s new C5/M5 instances.
+    running on Amazon's new C5/M5 instances.
 
 -   **Configurable DMI Whitelist**
 
@@ -4047,18 +4047,18 @@ What's New in 13.9
     repair mode
 -   The [mount](/resources/mount/) resource will now not create
     duplicate entries when the device type differs
--   Ensure we don’t request every remote file when running with lazy
+-   Ensure we don't request every remote file when running with lazy
     loading enabled
--   Don’t crash when getting the access rights for Windows system
+-   Don't crash when getting the access rights for Windows system
     accounts
 
 Custom Resource Improvements
 ----------------------------
 
-We’ve expanded the DSL for custom resources with new functionality to
+We've expanded the DSL for custom resources with new functionality to
 better document your resources and help users with errors and upgrades.
 Many resources in Chef itself are now using this new functionality, and
-you’ll see more updated to take advantage of this it in the future.
+you'll see more updated to take advantage of this it in the future.
 
 Deprecations in Cookbook Resources
 ----------------------------------
@@ -4153,18 +4153,18 @@ What's New in 13.7.16
 
 -   **The windows_task Resource should be better behaved**
 
-    We’ve spent a considerable amount of time testing and fixing the
+    We've spent a considerable amount of time testing and fixing the
     [windows_task](/resources/windows_task/) resource to ensure that
     it is properly idempotent and correct in more situations.
 
 -   **Credentials Handling**
 
     Previously, ChefDK workstations used `knife.rb` or `config.rb` to
-    handle credentials. This didn’t do a great job of interacting with
+    handle credentials. This didn't do a great job of interacting with
     multiple Chef servers, which lead to the need for tools like
-    [knife_block](https://github.com/knife-block/knife-block). We’ve
+    [knife_block](https://github.com/knife-block/knife-block). We've
     added support for a credentials file that contains configuration
-    information for many Chef servers / organizations, and we’ve made it
+    information for many Chef servers / organizations, and we've made it
     easy to indicate which account you mean to use.
 
 -   **Bug Fixes**
@@ -4195,14 +4195,14 @@ Deprecations
 
     We introduced [erl_call](/resources/erlang_call/) to help us to
     manage CouchDB servers back in the olden times of Chef. Since then
-    we’ve noticed that no one uses it, and so `erl_call` will be removed
+    we've noticed that no one uses it, and so `erl_call` will be removed
     in Chef 14. Foodcritic rule [FC105](http://www.foodcritic.io/#FC105)
     has been introduced to detect usage of `erl_call`.
 
 -   **epic_fail**
 
     The original name for the `ignore_failure` property in resources was
-    `epic_fail`. Our documentation hasn’t referred to `epic_fail` for
+    `epic_fail`. Our documentation hasn't referred to `epic_fail` for
     years and out of the 3500 cookbooks on the Supermarket only one uses
     `epic_fail`. In Chef 14 we will remove the `epic_fail` property
     entirely. Foodcritic rule [FC107](http://www.foodcritic.io/#FC107)
@@ -4229,7 +4229,7 @@ Deprecations
 
 -   **:uninstall Action in chocolatey_package**
 
-    The chocolatey cookbook’s `chocolatey_package` resource originally
+    The chocolatey cookbook's `chocolatey_package` resource originally
     contained an `:uninstall` action. When
     [chocolatey_package](/resources/chocolatey_package/) was moved
     into core Chef we made `:uninstall` an alias for `:remove`. In Chef
@@ -4363,7 +4363,7 @@ What's New in 13.5.3
 ====================
 
 -   **The mount resource's password property is now marked as
-    sensitive** Passwords passed to mount won’t show up in logs.
+    sensitive** Passwords passed to mount won't show up in logs.
 -   **The windows_task resource now correctly handles start_day**
     Previously, the resource would accept any date that was formatted
     correctly in the local locale, unlike the Windows cookbook and
@@ -4400,7 +4400,7 @@ It contains no other changes from version 13.4.19.
 {{< note >}}
 
 Due to issues beyond our control, this release is only built for Linux
-(on x86, x86_64 and s390x), FreeBSD, and Windows. We’ll release a new
+(on x86, x86_64 and s390x), FreeBSD, and Windows. We'll release a new
 build with support for our other platforms (AIX, Solaris, and macOS) as
 soon as possible.
 
@@ -5243,7 +5243,7 @@ What's New in 12.22.1
         [CVE-2017-15412](https://access.redhat.com/security/cve/cve-2017-15412)
 -   **Ohai 8.26.1**
     -   Ohai now provides EC2 metadata configuration information on the
-        new C5/M5 instance types running on Amazon’s new hypervisor
+        new C5/M5 instance types running on Amazon's new hypervisor
     -   The new LsPci plugin provides a `node[:pci]` hash with
         information about the PCI bus based on `lspci`. Only runs on
         Linux.
@@ -9150,10 +9150,10 @@ DSL on different operating systems. When multiple custom resources use
 the same DSL, specificity rules are applied to determine the priority,
 from highest to lowest:
 
-1.  provides :resource_name, platform_version: ‘0.1.2’
-2.  provides :resource_name, platform: ‘platform_name’
-3.  provides :resource_name, platform_family: ‘platform_family’
-4.  provides :resource_name, os: ‘operating_system’
+1.  provides :resource_name, platform_version: '0.1.2'
+2.  provides :resource_name, platform: 'platform_name'
+3.  provides :resource_name, platform_family: 'platform_family'
+4.  provides :resource_name, os: 'operating_system'
 5.  provides :resource_name
 
 For example:

@@ -10,7 +10,7 @@ aliases = ["/release_notes_chefdk.html"]
     identifier = "chef_infra/release_notes/release_notes_chefdk.md ChefDK"
     parent = "chef_infra/release_notes"
     weight = 20
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/release_notes_chefdk.md)
 
@@ -274,7 +274,7 @@ following CVEs:
 -   [CVE-2019-15845](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-15845):
     A NUL injection vulnerability of File.fnmatch and File.fnmatch?
 -   [CVE-2019-16201](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-16201):
-    Regular Expression Denial of Service vulnerability of WEBrick’s
+    Regular Expression Denial of Service vulnerability of WEBrick's
     Digest access authentication
 
 What's New in 4.4
@@ -1078,7 +1078,7 @@ following CVEs:
 -   [CVE-2019-15845](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-15845):
     A NUL injection vulnerability of File.fnmatch and File.fnmatch?
 -   [CVE-2019-16201](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-16201):
-    Regular Expression Denial of Service vulnerability of WEBrick’s
+    Regular Expression Denial of Service vulnerability of WEBrick's
     Digest access authentication
 
 What's New in 3.12
@@ -1219,7 +1219,7 @@ following CVEs:
 -   [CVE-2019-15845](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-15845):
     A NUL injection vulnerability of File.fnmatch and File.fnmatch?
 -   [CVE-2019-16201](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-16201):
-    Regular Expression Denial of Service vulnerability of WEBrick’s
+    Regular Expression Denial of Service vulnerability of WEBrick's
     Digest access authentication
 
 ### openssl
@@ -1776,7 +1776,7 @@ What's New in 3.1
 
     ChefDK now ships with Chef 14.2.0. See [Chef 14.2 release
     notes](/release_notes.html#whats-new-in-14-2-0) for more information
-    on what’s new.
+    on what's new.
 
 -   **Habitat Packages**
 
@@ -1844,12 +1844,12 @@ What's New in 3.0
 
     ChefDK now ships with Chef 14.1.1. See the [Chef 14.1 release
     notes](/release_notes.html#what-s-new-in-14-1-1) for more
-    information on what’s new.
+    information on what's new.
 
 -   **Updated Operating System support**
 
     ChefDK now ships packages for Ubuntu 18.04 and Debian 9. In
-    accordance with Chef’s platform End Of Life policy, ChefDK is no
+    accordance with Chef's platform End Of Life policy, ChefDK is no
     longer shipped on macOS 10.10.
 
 -   **Enhanced cookbook archive handling**
@@ -1857,7 +1857,7 @@ What's New in 3.0
     ChefDK now uses an embedded copy of `libarchive` to support
     Policyfile and Berkshelf. This improves overall performance and
     provides a well tested interface to different types of archives. It
-    also resolves the long standing “not an octal string” problem users
+    also resolves the long standing "not an octal string" problem users
     face when depending on certain cookbooks in the supermarket.
 
 -   **Policyfiles: updated include_policy support**
@@ -1929,7 +1929,7 @@ What's New in 3.0
         the same libraries as the Chef Client, ensuring consistent
         behavior - for instance, ensuring that `chefignore` files work
         the same - and enabling a quicker turnaround on bug fixes. The
-        “Actor crashed” failures of celluloid will no longer be produced
+        "Actor crashed" failures of celluloid will no longer be produced
         by Berkshelf.
 
     -   **VMware vSphere support**
@@ -2183,7 +2183,7 @@ for a complete list of changes.
 {{< note >}}
 
 Due to issues beyond our control, this release is only built for Linux
-(x86_64) and Windows. We’ll release a new build with macOS support as
+(x86_64) and Windows. We'll release a new build with macOS support as
 soon as possible.
 
 {{< /note >}}
@@ -2308,7 +2308,7 @@ every version of Chef.
 The release of Foodcritic 11 also marks the creation of the Foodcritic
 org on [GitHub](https://github.com/foodcritic), which makes it easier to
 get involved in writing rules and contributing code. We are excited to
-start building more of a community around Foodcritic, and can’t wait to
+start building more of a community around Foodcritic, and can't wait to
 see what the community cooks up.
 
 InSpec 1.30

@@ -10,7 +10,7 @@ aliases = ["/install_chef_air_gap.html"]
     identifier = "chef_infra/setup/install_chef_air_gap.md Air-gapped Installation"
     parent = "chef_infra/setup"
     weight = 40
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/install_chef_air_gap.md)
 
@@ -343,7 +343,7 @@ Create a Wrapper
     $ cd my_supermarket_wrapper
     ```
 
-3.  Defines the wrapper cookbook’s dependency on the
+3.  Defines the wrapper cookbook's dependency on the
     `supermarket-omnibus-cookbook` cookbook. Open the `metadata.rb` file
     of the newly-created cookbook, and then add the following line:
 
