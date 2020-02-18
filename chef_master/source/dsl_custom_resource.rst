@@ -558,10 +558,10 @@ provides
 
 Use the ``provides`` method to associate a custom resource with the Recipe DSL on different operating systems. When multiple custom resources use the same DSL, specificity rules are applied to determine the priority, from highest to lowest:
 
-#. provides :resource_name, platform_version: ‘0.1.2’
-#. provides :resource_name, platform: ‘platform_name’
-#. provides :resource_name, platform_family: ‘platform_family’
-#. provides :resource_name, os: ‘operating_system’
+#. provides :resource_name, platform_version: '0.1.2'
+#. provides :resource_name, platform: 'platform_name'
+#. provides :resource_name, platform_family: 'platform_family'
+#. provides :resource_name, os: 'operating_system'
 #. provides :resource_name
 
 For example:

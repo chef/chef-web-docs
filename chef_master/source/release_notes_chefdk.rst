@@ -185,7 +185,7 @@ Ruby has been updated from 2.6.4 to 2.6.5 in order to resolve the following CVEs
 * `CVE-2019-16255 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-16255>`_: A code injection vulnerability of Shell#[] and Shell#test
 * `CVE-2019-16254 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-16254>`_: HTTP response splitting in WEBrick (Additional fix)
 * `CVE-2019-15845 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-15845>`_: A NUL injection vulnerability of File.fnmatch and File.fnmatch?
-* `CVE-2019-16201 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-16201>`_: Regular Expression Denial of Service vulnerability of WEBrick’s Digest access authentication
+* `CVE-2019-16201 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-16201>`_: Regular Expression Denial of Service vulnerability of WEBrick's Digest access authentication
 
 What's New in 4.4
 =====================================================
@@ -762,7 +762,7 @@ Ruby has been updated from 2.5.6 to 2.5.7 in order to resolve the following CVEs
 * `CVE-2019-16255 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-16255>`__: A code injection vulnerability of Shell#[] and Shell#test
 * `CVE-2019-16254 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-16254>`__: HTTP response splitting in WEBrick (Additional fix)
 * `CVE-2019-15845 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-15845>`__: A NUL injection vulnerability of File.fnmatch and File.fnmatch?
-* `CVE-2019-16201 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-16201>`__: Regular Expression Denial of Service vulnerability of WEBrick’s Digest access authentication
+* `CVE-2019-16201 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-16201>`__: Regular Expression Denial of Service vulnerability of WEBrick's Digest access authentication
 
 What's New in 3.12
 =====================================================
@@ -853,7 +853,7 @@ Ruby has been updated from 2.5.5 to 2.5.6 in order to resolve the following CVEs
 * `CVE-2019-16255 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-16255>`__: A code injection vulnerability of Shell#[] and Shell#test
 * `CVE-2019-16254 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-16254>`__: HTTP response splitting in WEBrick (Additional fix)
 * `CVE-2019-15845 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-15845>`__: A NUL injection vulnerability of File.fnmatch and File.fnmatch?
-* `CVE-2019-16201 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-16201>`__: Regular Expression Denial of Service vulnerability of WEBrick’s Digest access authentication
+* `CVE-2019-16201 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-16201>`__: Regular Expression Denial of Service vulnerability of WEBrick's Digest access authentication
 
 openssl
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -1323,7 +1323,7 @@ What's New in 3.1
 
 * **Chef 14.2.0**
 
-  ChefDK now ships with Chef 14.2.0. See `Chef 14.2 release notes </release_notes.html#whats-new-in-14-2-0>`__ for more information on what’s new.
+  ChefDK now ships with Chef 14.2.0. See `Chef 14.2 release notes </release_notes.html#whats-new-in-14-2-0>`__ for more information on what's new.
 
 * **Habitat Packages**
 
@@ -1377,15 +1377,15 @@ What's New in 3.0
 
 * **Chef 14.1.1**
 
-  ChefDK now ships with Chef 14.1.1. See the `Chef 14.1 release notes </release_notes.html#what-s-new-in-14-1-1>`__ for more information on what’s new.
+  ChefDK now ships with Chef 14.1.1. See the `Chef 14.1 release notes </release_notes.html#what-s-new-in-14-1-1>`__ for more information on what's new.
 
 * **Updated Operating System support**
 
-  ChefDK now ships packages for Ubuntu 18.04 and Debian 9. In accordance with Chef’s platform End Of Life policy, ChefDK is no longer shipped on macOS 10.10.
+  ChefDK now ships packages for Ubuntu 18.04 and Debian 9. In accordance with Chef's platform End Of Life policy, ChefDK is no longer shipped on macOS 10.10.
 
 * **Enhanced cookbook archive handling**
 
-  ChefDK now uses an embedded copy of ``libarchive`` to support Policyfile and Berkshelf. This improves overall performance and provides a well tested interface to different types of archives. It also resolves the long standing “not an octal string” problem users face when depending on certain cookbooks in the supermarket.
+  ChefDK now uses an embedded copy of ``libarchive`` to support Policyfile and Berkshelf. This improves overall performance and provides a well tested interface to different types of archives. It also resolves the long standing "not an octal string" problem users face when depending on certain cookbooks in the supermarket.
 
 * **Policyfiles: updated include_policy support**
 
@@ -1422,7 +1422,7 @@ What's New in 3.0
 
   * **Berkshelf**
 
-    Berkshelf has been updated to 7.0.2. Berkshelf 7 moves to using the same libraries as the Chef Client, ensuring consistent behavior - for instance, ensuring that ``chefignore`` files work the same - and enabling a quicker turnaround on bug fixes. The “Actor crashed” failures of celluloid will no longer be produced by Berkshelf.
+    Berkshelf has been updated to 7.0.2. Berkshelf 7 moves to using the same libraries as the Chef Client, ensuring consistent behavior - for instance, ensuring that ``chefignore`` files work the same - and enabling a quicker turnaround on bug fixes. The "Actor crashed" failures of celluloid will no longer be produced by Berkshelf.
 
   * **VMware vSphere support**
 
@@ -1621,7 +1621,7 @@ Additionally, the cookbook generator now adds a ``LICENSE`` file when creating a
 
 See the detailed `change log <https://github.com/chef/chef-dk/blob/master/CHANGELOG.md#v231-2017-09-14>`__ for a complete list of changes.
 
-.. note:: Due to issues beyond our control, this release is only built for Linux (x86_64) and Windows. We’ll release a new build with macOS support as soon as possible.
+.. note:: Due to issues beyond our control, this release is only built for Linux (x86_64) and Windows. We'll release a new build with macOS support as soon as possible.
 
 What's New in 2.2.1
 =====================================================
@@ -1700,7 +1700,7 @@ Foodcritic 11
 -----------------------------------------------------
 Foodcritic 11 covers many of the patterns that were removed in Chef Client 13, so you'll get up-front notification that your cookbooks will no longer work with this release. In general, the patterns that were removed enabled dangerous ways of writing cookbooks. Ensuring that you're compliant with Foodcritic 11 means your cookbooks are safer with every version of Chef.
 
-The release of Foodcritic 11 also marks the creation of the Foodcritic org on `GitHub <https://github.com/foodcritic>`__, which makes it easier to get involved in writing rules and contributing code. We are excited to start building more of a community around Foodcritic, and can’t wait to see what the community cooks up.
+The release of Foodcritic 11 also marks the creation of the Foodcritic org on `GitHub <https://github.com/foodcritic>`__, which makes it easier to get involved in writing rules and contributing code. We are excited to start building more of a community around Foodcritic, and can't wait to see what the community cooks up.
 
 InSpec 1.30
 -----------------------------------------------------
