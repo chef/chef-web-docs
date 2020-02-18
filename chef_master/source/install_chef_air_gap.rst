@@ -319,7 +319,7 @@ Create a Wrapper
 
       $ cd my_supermarket_wrapper
 
-#. Defines the wrapper cookbook’s dependency on the ``supermarket-omnibus-cookbook`` cookbook. Open the ``metadata.rb`` file of the newly-created cookbook, and then add the following line:
+#. Defines the wrapper cookbook's dependency on the ``supermarket-omnibus-cookbook`` cookbook. Open the ``metadata.rb`` file of the newly-created cookbook, and then add the following line:
 
    .. code-block:: ruby
 

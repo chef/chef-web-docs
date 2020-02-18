@@ -115,7 +115,7 @@ The following examples show how to use the ``Set-AzureVMChefExtension`` cmdlet:
 
    $vmObj1 = New-AzureVMConfig -Name $vm1 -InstanceSize Small -ImageName $img
 
-   $vmObj1 = Add-AzureProvisioningConfig -VM $vmObj1 -Password $password -AdminUsername $username –Windows
+   $vmObj1 = Add-AzureProvisioningConfig -VM $vmObj1 -Password $password -AdminUsername $username -Windows
 
    # set azure chef extension
    $vmObj1 = Set-AzureVMChefExtension -VM $vmObj1 -ValidationPem "C:\\users\\azure\\msazurechef-validator.pem" -ClientRb

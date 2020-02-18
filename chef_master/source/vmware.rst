@@ -367,7 +367,7 @@ kitchen-vro
 `[Github] <https://github.com/chef-partners/kitchen-vro>`__
 
 * An integration point with vRO and test-kitchen
-* Leverages specific Workflows in vRO if it’s required by VMware admins
+* Leverages specific Workflows in vRO if it's required by VMware admins
 
 Usage Examples
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
