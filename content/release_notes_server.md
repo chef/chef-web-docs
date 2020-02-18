@@ -270,7 +270,7 @@ What's New in 12.17.5
 
 This release fixes a regression that occurs when deploying to
 DigitalOcean and potentially other non-AWS cloud platforms, where the
-`nginx[‘use_implicit_hosts'] = true` setting results in an incorrect
+`nginx['use_implicit_hosts'] = true` setting results in an incorrect
 nginx configuration.
 
 See the [change

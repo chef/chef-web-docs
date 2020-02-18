@@ -778,15 +778,15 @@ compression.
     -   `admin` sets a user to be an admin.
     -   `admin_username` and `admin_password` define the admin user
         credentials required for toggling SecureToken for a user. The
-        value of ‘admin_username' must correspond to a system user that
-        is part of the ‘admin' with SecureToken enabled in order to
+        value of 'admin_username' must correspond to a system user that
+        is part of the 'admin' with SecureToken enabled in order to
         toggle SecureToken.
     -   `secure_token` is a boolean property that sets the desired state
         for SecureToken. FileVault requires a SecureToken for full disk
         encryption.
     -   `secure_token_password` is the plaintext password required to
         enable or disable `secure_token` for a user. If no salt is
-        specified we assume the ‘password' property corresponds to a
+        specified we assume the 'password' property corresponds to a
         plaintext password and will attempt to use it in place of
         secure_token_password if it is not set.
 
@@ -9150,10 +9150,10 @@ DSL on different operating systems. When multiple custom resources use
 the same DSL, specificity rules are applied to determine the priority,
 from highest to lowest:
 
-1.  provides :resource_name, platform_version: ‘0.1.2'
-2.  provides :resource_name, platform: ‘platform_name'
-3.  provides :resource_name, platform_family: ‘platform_family'
-4.  provides :resource_name, os: ‘operating_system'
+1.  provides :resource_name, platform_version: '0.1.2'
+2.  provides :resource_name, platform: 'platform_name'
+3.  provides :resource_name, platform_family: 'platform_family'
+4.  provides :resource_name, os: 'operating_system'
 5.  provides :resource_name
 
 For example:
