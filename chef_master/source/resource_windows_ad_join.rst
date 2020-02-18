@@ -86,7 +86,7 @@ The windows_ad_join resource has the following properties:
 ``reboot``
    **Ruby Type:** Symbol | **Default Value:** ``:immediate``
 
-   Controls the system reboot behavior post domain joining. Reboot immediately, after the Chef Infra Client run completes, or never. Note that a reboot is necessary for changes to take effect.
+   Controls the system reboot behavior post domain joining. Reboot immediately, after the Chef Infra Client run completes, or never. Note that a reboot is necessary for changes to take effect. Possible values are ``:immediate``, ``:delayed``, or ``:never``.
 
 ``sensitive``
    **Ruby Type:** true, false | **Default Value:** ``true``
