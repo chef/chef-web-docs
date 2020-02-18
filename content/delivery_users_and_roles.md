@@ -2,7 +2,7 @@
 title = "Manage Users and Roles"
 draft = false
 
-aliases = "/delivery_users_and_roles.html"
+aliases = ["/delivery_users_and_roles.html", "/release/automate/delivery_users_and_roles.html"]
 
 [menu]
   [menu.docs]

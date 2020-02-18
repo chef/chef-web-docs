@@ -2,7 +2,7 @@
 title = "Install Chef Push Jobs"
 draft = false
 
-aliases = "/install_push_jobs.html"
+aliases = ["/install_push_jobs.html"]
 
 [menu]
   [menu.docs]

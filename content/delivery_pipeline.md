@@ -2,7 +2,7 @@
 title = "About Chef Automate Pipelines"
 draft = false
 
-aliases = "/delivery_pipeline.html"
+aliases = ["/delivery_pipeline.html", "/release/automate/delivery_pipeline.html"]
 
 [menu]
   [menu.docs]

@@ -20,8 +20,11 @@ firewalls that are in use:
 <td><p>80, 443, 9683</p></td>
 <td><p><strong>nginx</strong></p>
 <p>{{ readFile "layouts/shortcodes/server_services_nginx.md" | markdownify }}</p>
-<div class="alert-info">
-<p>Port 9683 is used to internally load balance the <strong>oc_bifrost</strong> service.</p>
+<div class="admonition-note">
+<p class="admonition-note-title">Note</p>
+<div class="admonition-note-text"><p>Port 9683 is used to internally load balance the <strong>oc_bifrost</strong> service.</p>
+
+</div>
 </div></td>
 <td><p>yes</p></td>
 </tr>

@@ -2,7 +2,8 @@
 title: powershell_package resource
 resource: powershell_package
 draft: false
-aliases: /resource_powershell_package.html
+aliases:
+- /resource_powershell_package.html
 menu:
   docs:
     title: powershell_package
@@ -25,15 +26,22 @@ resource_description_list:
 
     command or the
 
-    [powershell_package_source](/resource_powershell_package_source/)
+    [powershell_package_source](/resources/powershell_package_source/)
 
     resource.'
 resource_new_in: '12.16'
 handler_types: false
-syntax_description: 'A **powershell_package** resource block manages a package on
-  a node, typically by installing it. The simplest use of the **powershell_package**
-  resource is:'
-syntax_code_block: powershell_package 'package_name'
+syntax_description: "A **powershell_package** resource block manages a package on\
+  \ a node,\ntypically by installing it. The simplest use of the\n**powershell_package**\
+  \ resource is:\n\n``` ruby\npowershell_package 'package_name'\n```\n\nwhich will\
+  \ install the named package using all of the default options\nand the default action\
+  \ (`:install`).\n\nThe powershell_package resource has the following syntax:\n\n\
+  ``` ruby\npowershell_package 'name' do\n  options                   String, Array\n\
+  \  package_name              String, Array\n  skip_publisher_check      true, false\
+  \ # default value: false\n  source                    String\n  timeout        \
+  \           String, Integer\n  version                   String, Array\n  action\
+  \                    Symbol # defaults to :install if not specified\nend\n```"
+syntax_code_block: null
 syntax_properties_list:
 - '`powershell_package` is the resource.'
 - '`name` is the name given to the resource block.'
@@ -118,7 +126,6 @@ resources_common_guards: true
 common_resource_functionality_multiple_packages: false
 resources_common_guard_interpreter: false
 remote_directory_recursive_directories: false
-directory_recursive_directories: false
 common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false

@@ -2,7 +2,7 @@
 title = "Chef Automate Server Tuning"
 draft = false
 
-aliases = "/delivery_server_tuning.html"
+aliases = ["/delivery_server_tuning.html", "/release/automate/delivery_server_tuning.html"]
 
 [menu]
   [menu.docs]

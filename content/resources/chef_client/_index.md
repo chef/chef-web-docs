@@ -2,7 +2,8 @@
 title: chef_client resource
 resource: chef_client
 draft: false
-aliases: /resource_chef_client.html
+aliases:
+- /resource_chef_client.html
 resource_reference: false
 robots: noindex, nofollow
 resource_description_list:
@@ -12,10 +13,11 @@ resource_description_list:
 - markdown: Use the **chef_client** resource to manage clients.
 resource_new_in: null
 handler_types: false
-syntax_description: 'The syntax for using the **chef_client** resource in a recipe
-  is as follows:'
-syntax_code_block: "chef_client 'name' do\n  attribute 'value' # see properties section\
-  \ below\n  ...\n  action :action # see actions section below\nend"
+syntax_description: "The syntax for using the **chef_client** resource in a recipe\
+  \ is as\nfollows:\n\n``` ruby\nchef_client 'name' do\n  attribute 'value' # see\
+  \ properties section below\n  ...\n  action :action # see actions section below\n\
+  end\n```"
+syntax_code_block: null
 syntax_properties_list:
 - '`chef_client` tells Chef Infra Client to use the `Chef::Provider::ChefClient` provider
   during a Chef Infra Client run'
@@ -199,7 +201,6 @@ resources_common_guards: false
 common_resource_functionality_multiple_packages: false
 resources_common_guard_interpreter: false
 remote_directory_recursive_directories: false
-directory_recursive_directories: false
 common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false

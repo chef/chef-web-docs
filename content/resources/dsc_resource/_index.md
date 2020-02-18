@@ -2,7 +2,8 @@
 title: dsc_resource resource
 resource: dsc_resource
 draft: false
-aliases: /resource_dsc_resource.html
+aliases:
+- /resource_dsc_resource.html
 menu:
   docs:
     title: dsc_resource
@@ -56,14 +57,15 @@ resource_description_list:
       \ command cannot directly use them."
 resource_new_in: null
 handler_types: false
-syntax_description: 'A **dsc_resource** resource block allows DSC resources to be
-  used in a Chef recipe. For example, the DSC `Archive` resource:  ``` powershell
-  Archive ExampleArchive { Ensure = "Present" Path = "C:\Users\Public\Documents\example.zip"
-  Destination = "C:\Users\Public\Documents\ExtractionPath" } ```  and then the same
-  **dsc_resource** with Chef:'
-syntax_code_block: "dsc_resource 'example' do\n   resource :archive\n   property :ensure,\
-  \ 'Present'\n   property :path, \"C:\\Users\\Public\\Documents\\example.zip\"\n\
-  \   property :destination, \"C:\\Users\\Public\\Documents\\ExtractionPath\"\n end"
+syntax_description: "A **dsc_resource** resource block allows DSC resources to be\
+  \ used in a\nChef recipe. For example, the DSC `Archive` resource:\n\n``` powershell\n\
+  Archive ExampleArchive {\n  Ensure = \"Present\"\n  Path = \"C:\\Users\\Public\\\
+  Documents\\example.zip\"\n  Destination = \"C:\\Users\\Public\\Documents\\ExtractionPath\"\
+  \n}\n```\n\nand then the same **dsc_resource** with Chef:\n\n``` ruby\ndsc_resource\
+  \ 'example' do\n   resource :archive\n   property :ensure, 'Present'\n   property\
+  \ :path, \"C:\\Users\\Public\\Documents\\example.zip\"\n   property :destination,\
+  \ \"C:\\Users\\Public\\Documents\\ExtractionPath\"\n end\n```"
+syntax_code_block: null
 syntax_properties_list: null
 syntax_full_code_block: "dsc_resource 'name' do\n  module_name                String\n\
   \  module_version             String\n  property                   Symbol\n  reboot_action\
@@ -76,9 +78,9 @@ syntax_full_properties_list:
 - '`action` identifies which steps Chef Infra Client will take to bring the node into
   the desired state.'
 - '`property` is zero (or more) properties in the DSC resource, where each property
-  is entered on a separate line, `:dsc_property_name` is the case'
-- insensitive name of that property, and `"property_value"` is a Ruby value to be
-  applied by Chef Infra Client
+  is entered on a separate line, `:dsc_property_name` is the case-insensitive name
+  of that property, and `"property_value"` is a Ruby value to be applied by Chef Infra
+  Client'
 - '`module_name`, `module_version`, `property`, `reboot_action`, `resource`, and `timeout`
   are properties of this resource, with the Ruby type shown. See "Properties" section
   below for more information about all of the properties that may be used with this
@@ -90,7 +92,7 @@ nameless_build_essential: false
 resource_package_options: false
 actions_list:
   :nothing:
-    markdown: '> {{% resources_common_actions_nothing %}}'
+    shortcode: resources_common_actions_nothing.md
   :run:
     markdown: Default. Use to run the DSC configuration defined as defined in this
       resource.
@@ -435,7 +437,6 @@ resources_common_guards: true
 common_resource_functionality_multiple_packages: false
 resources_common_guard_interpreter: false
 remote_directory_recursive_directories: false
-directory_recursive_directories: false
 common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false

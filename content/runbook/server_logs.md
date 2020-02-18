@@ -2,7 +2,7 @@
 title = "Log Files"
 draft = false
 
-aliases = "/server_logs.html"
+aliases = ["/server_logs.html"]
 
 runbook_weight = 20
 

@@ -2,7 +2,8 @@
 title: openssl_rsa_public_key resource
 resource: openssl_rsa_public_key
 draft: false
-aliases: /resource_openssl_rsa_public_key.html
+aliases:
+- /resource_openssl_rsa_public_key.html
 menu:
   docs:
     title: openssl_rsa_public_key
@@ -18,13 +19,14 @@ resource_description_list:
     key files for a given RSA private key.'
 resource_new_in: '14.0'
 handler_types: false
-syntax_description: 'The openssl_rsa_public_key resource has the following syntax:'
-syntax_code_block: "openssl_rsa_public_key 'name' do\n  group                    String,\
+syntax_description: "The openssl_rsa_public_key resource has the following syntax:\n\
+  \n``` ruby\nopenssl_rsa_public_key 'name' do\n  group                    String,\
   \ Integer\n  mode                     Integer, String # default value: \"0640\"\n\
   \  owner                    String, Integer\n  path                     String #\
   \ default value: 'name' unless specified\n  private_key_content      String\n  private_key_pass\
   \         String\n  private_key_path         String\n  action                  \
-  \ Symbol # defaults to :create if not specified\nend"
+  \ Symbol # defaults to :create if not specified\nend\n```"
+syntax_code_block: null
 syntax_properties_list:
 - '`openssl_rsa_public_key` is the resource.'
 - '`name` is the name given to the resource block.'
@@ -69,7 +71,7 @@ properties_list:
 - property: path
   ruby_type: String
   required: false
-  default_value: The resource blocks name
+  default_value: The resource block's name
   new_in: null
   description_list:
   - markdown: 'An optional property for specifying the path to the public key if it
@@ -117,7 +119,6 @@ resources_common_guards: true
 common_resource_functionality_multiple_packages: false
 resources_common_guard_interpreter: false
 remote_directory_recursive_directories: false
-directory_recursive_directories: false
 common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false

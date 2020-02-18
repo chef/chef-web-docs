@@ -2,7 +2,7 @@
 title = "Chef for Microsoft Windows"
 draft = false
 
-aliases = "/windows.html"
+aliases = ["/windows.html"]
 
 [menu]
   [menu.docs]
@@ -218,37 +218,37 @@ Windows Resources
 
 Chef Infra provides a growing number of Windows-specific resources.
 
--   [Chocolatey_config](/resource_chocolatey_config/)
--   [Chocolatey_package](/resource_chocolatey_package/)
--   [Chocolatey_source](/resource_chocolatey_package/)
--   [dsc_resource](/resource_dsc_resource/)
--   [resource_registry_key](/resource_registry_key/)
--   [Windows_ad_join](/resource_windows_ad_join/)
--   [Windows_ad_join](/resource_windows_ad_join/)
--   [Windows_auto_run](/resource_windows_auto_run/)
--   [Windows_certificate](/resource_windows_certificate/)
--   [Windows_dfs_folder](/resource_windows_dfs_folder/)
--   [Windows_dfs_namespace](/resource_windows_dfs_namespace/)
--   [Windows_dfs_server](/resource_windows_dfs_server/)
--   [Windows_dns_record](/resource_windows_dns_record/)
--   [Windows_dns_zone](/resource_windows_dns_zone/)
--   [Windows_env](/resource_windows_env/)
--   [Windows_feature_dism](/resource_windows_feature_dism/)
--   [Windows_feature_powershell](/resource_windows_feature_powershell/)
--   [Windows_feature](/resource_windows_feature/)
--   [Windows_firewall_rule](/resource_windows_firewall_rule/)
--   [Windows_font](/resource_windows_font/)
--   [Windows_package](/resource_windows_package/)
--   [Windows_pagefile](/resource_windows_pagefile/)
--   [Windows_path](/resource_windows_path/)
--   [Windows_windows_printer_port](/resource_windows_printer_port/)
--   [Windows_printer](/resource_windows_printer/)
--   [Windows_service](/resource_windows_service/)
--   [Windows_share](/resource_windows_share/)
--   [Windows_shortcut](/resource_windows_shortcut/)
--   [Windows_task](/resource_windows_task/)
--   [Windows_uac](/resource_windows_uac/)
--   [Windows_workgroup](/resource_windows_workgroup/)
+-   [Chocolatey_config](/resources/chocolatey_config/)
+-   [Chocolatey_package](/resources/chocolatey_package/)
+-   [Chocolatey_source](/resources/chocolatey_package/)
+-   [dsc_resource](/resources/dsc_resource/)
+-   [resource_registry_key](/resources/registry_key/)
+-   [Windows_ad_join](/resources/windows_ad_join/)
+-   [Windows_ad_join](/resources/windows_ad_join/)
+-   [Windows_auto_run](/resources/windows_auto_run/)
+-   [Windows_certificate](/resources/windows_certificate/)
+-   [Windows_dfs_folder](/resources/windows_dfs_folder/)
+-   [Windows_dfs_namespace](/resources/windows_dfs_namespace/)
+-   [Windows_dfs_server](/resources/windows_dfs_server/)
+-   [Windows_dns_record](/resources/windows_dns_record/)
+-   [Windows_dns_zone](/resources/windows_dns_zone/)
+-   [Windows_env](/resources/windows_env/)
+-   [Windows_feature_dism](/resources/windows_feature_dism/)
+-   [Windows_feature_powershell](/resources/windows_feature_powershell/)
+-   [Windows_feature](/resources/windows_feature/)
+-   [Windows_firewall_rule](/resources/windows_firewall_rule/)
+-   [Windows_font](/resources/windows_font/)
+-   [Windows_package](/resources/windows_package/)
+-   [Windows_pagefile](/resources/windows_pagefile/)
+-   [Windows_path](/resources/windows_path/)
+-   [Windows_windows_printer_port](/resources/windows_printer_port/)
+-   [Windows_printer](/resources/windows_printer/)
+-   [Windows_service](/resources/windows_service/)
+-   [Windows_share](/resources/windows_share/)
+-   [Windows_shortcut](/resources/windows_shortcut/)
+-   [Windows_task](/resources/windows_task/)
+-   [Windows_uac](/resources/windows_uac/)
+-   [Windows_workgroup](/resources/windows_workgroup/)
 
 Windows Compatible Resources
 ----------------------------
@@ -256,29 +256,29 @@ Windows Compatible Resources
 The most popular core resources in Chef Infra Client work the same way
 in Microsoft Windows as they do on any UNIX- or Linux-based platform.
 
--   [cookbook_file](/resource_cookbook_file/)
--   [directory](/resource_directory/)
--   [env](/resource_env/)
--   [execute](/resource_execute/)
--   [file](/resource_file/)
--   [group](/resource_group/)
--   [http_request](/resource_http_request/)
--   [link](/resource_link/)
--   [mount](/resource_mount/)
--   [package](/resource_package/)
--   [remote_directory](/resource_remote_directory/)
--   [remote_file](/resource_remote_file/)
--   [ruby_block](/resource_ruby_block/)
--   [service](/resource_service/)
--   [template](/resource_template/)
--   [user](/resource_user/)
+-   [cookbook_file](/resources/cookbook_file/)
+-   [directory](/resources/directory/)
+-   [env](/resources/env/)
+-   [execute](/resources/execute/)
+-   [file](/resources/file/)
+-   [group](/resources/group/)
+-   [http_request](/resources/http_request/)
+-   [link](/resources/link/)
+-   [mount](/resources/mount/)
+-   [package](/resources/package/)
+-   [remote_directory](/resources/remote_directory/)
+-   [remote_file](/resources/remote_file/)
+-   [ruby_block](/resources/ruby_block/)
+-   [service](/resources/service/)
+-   [template](/resources/template/)
+-   [user](/resources/user/)
 
 The file-based resources have attributes that support unique
 requirements within the Microsoft Windows platform, including `inherits`
 (for file inheritance), `mode` (for octal modes), and `rights` (for
 access control lists, or ACLs).
 
--   [cookbook_file](/resource_cookbook_file/)
--   [file](/resource_file/)
--   [remote_file](/resource_remote_file/)
--   [template](/resource_template/)
+-   [cookbook_file](/resources/cookbook_file/)
+-   [file](/resources/file/)
+-   [remote_file](/resources/remote_file/)
+-   [template](/resources/template/)

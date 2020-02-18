@@ -2,7 +2,7 @@
 title = "About the Custom Resource DSL"
 draft = false
 
-aliases = "/dsl_custom_resource.html"
+aliases = ["/dsl_custom_resource.html"]
 
 [menu]
   [menu.docs]

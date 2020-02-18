@@ -2,7 +2,7 @@
 title = "chef-solo (executable)"
 draft = false
 
-aliases = "/ctl_chef_solo.html"
+aliases = ["/ctl_chef_solo.html"]
 
 [menu]
   [menu.docs]

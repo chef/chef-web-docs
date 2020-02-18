@@ -2,7 +2,7 @@
 title = "Release Notes: ChefDK 0.19 - 4.6"
 draft = false
 
-aliases = "/release_notes_chefdk.html"
+aliases = ["/release_notes_chefdk.html"]
 
 [menu]
   [menu.docs]

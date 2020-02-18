@@ -71,10 +71,18 @@ FIPS mode. If you ever stop using FIPS mode on the Chef Automate server,
 simply delete the above two lines from your `.delivery/cli.toml` file
 and Delivery CLI will stop running in FIPS mode.
 
-<div class="alert-info">
+<div class="admonition-note">
+
+<p class="admonition-note-title">Note</p>
+
+<div class="admonition-note-text">
 
 You could also pass `--fips` and `--fips-git-port=OPEN_PORT` into
 project specific commands if you do not wish to edit your
 `.delivery/cli.toml`. See list of commands below for details..
+
+
+
+</div>
 
 </div>

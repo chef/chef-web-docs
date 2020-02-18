@@ -2,7 +2,7 @@
 title = "Delivery CLI"
 draft = false
 
-aliases = "/delivery_cli.html"
+aliases = ["/delivery_cli.html", "/ctl_delivery.html"]
 
 [menu]
   [menu.docs]

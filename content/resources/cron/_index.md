@@ -2,7 +2,8 @@
 title: cron resource
 resource: cron
 draft: false
-aliases: /resource_cron.html
+aliases:
+- /resource_cron.html
 menu:
   docs:
     title: cron
@@ -27,14 +28,14 @@ resource_description_list:
       chef-client releases.'
 resource_new_in: null
 handler_types: false
-syntax_description: 'A **cron** resource block manages cron entries. For example,
-  to get a weekly cookbook report from the Chef Supermarket:'
-syntax_code_block: "cron 'cookbooks_report' do\n  action :create\n  minute '0'\n \
-  \ hour '0'\n  weekday '1'\n  user 'getchef'\n  mailto 'sysadmin@example.com'\n \
-  \ home '/srv/supermarket/shared/system'\n  command %W{\n    cd /srv/supermarket/current\
-  \ &&\n    env RUBYLIB=\"/srv/supermarket/current/lib\"\n    RAILS_ASSET_ID=`git\
-  \ rev-parse HEAD` RAILS_ENV=\"#{rails_env}\"\n    bundle exec rake cookbooks_report\n\
-  \  }.join(' ')\nend"
+syntax_description: "A **cron** resource block manages cron entries. For example,\
+  \ to get a\nweekly cookbook report from the Chef Supermarket:\n\n``` ruby\ncron\
+  \ 'cookbooks_report' do\n  action :create\n  minute '0'\n  hour '0'\n  weekday '1'\n\
+  \  user 'getchef'\n  mailto 'sysadmin@example.com'\n  home '/srv/supermarket/shared/system'\n\
+  \  command %W{\n    cd /srv/supermarket/current &&\n    env RUBYLIB=\"/srv/supermarket/current/lib\"\
+  \n    RAILS_ASSET_ID=`git rev-parse HEAD` RAILS_ENV=\"#{rails_env}\"\n    bundle\
+  \ exec rake cookbooks_report\n  }.join(' ')\nend\n```"
+syntax_code_block: null
 syntax_properties_list: null
 syntax_full_code_block: "cron 'name' do\n  command          String\n  day\n  environment\
   \      Hash\n  home             String\n  hour\n  mailto           String\n  minute\n\
@@ -203,7 +204,6 @@ resources_common_guards: true
 common_resource_functionality_multiple_packages: false
 resources_common_guard_interpreter: false
 remote_directory_recursive_directories: false
-directory_recursive_directories: false
 common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false

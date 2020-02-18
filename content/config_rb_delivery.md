@@ -2,7 +2,7 @@
 title = "delivery.rb Settings"
 draft = false
 
-aliases = "/config_rb_delivery.html"
+aliases = ["/config_rb_delivery.html", "/release/automate/config_rb_delivery.html"]
 
 [menu]
   [menu.docs]

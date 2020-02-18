@@ -18,7 +18,7 @@ aliases = "/deprecations_chocolatey_uninstall.html"
 
 The Chocolatey cookbook’s `chocolatey_package` resource originally
 contained an `:uninstall` action. When
-[chocolatey_package](/resource_chocolatey_package/) was moved into
+[chocolatey_package](/resources/chocolatey_package/) was moved into
 core Chef, we made `:uninstall` an alias for `:remove`. In Chef Client
 14, `:uninstall` will no longer be a valid action. Foodcritic rule
 [FC103](http://www.foodcritic.io/#FC103) has been introduced to detect

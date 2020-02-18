@@ -2,7 +2,7 @@
 title = "About Templates"
 draft = false
 
-aliases = "/templates.html"
+aliases = ["/templates.html"]
 
 [menu]
   [menu.docs]

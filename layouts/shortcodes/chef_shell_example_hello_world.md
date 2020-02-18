@@ -11,19 +11,17 @@ message, then the banner, and then the chef-shell prompt:
 
 ``` bash
 $ bin/chef-shell
+
   loading configuration: none (standalone session)
   Session type: standalone
-  Loading..............done.
+  Loading.............done.
 
-  This is the chef-shell.
-   Chef Version: 12.17.44
-   https://www.chef.io/
-   /
+  Welcome to the chef-shell 15.8.23
+  For usage see https://docs.chef.io/chef_shell.html
 
   run `help' for help, `exit' or ^D to quit.
 
-  Ohai2u YOURNAME@!
-  chef (12.17.44)>
+  chef (15.8.23)>
 ```
 
 (Use the help command to print a list of supported commands.) Use the
@@ -75,9 +73,9 @@ yet created the file. To initiate a Chef Infra Client run, use the
 
 ``` bash
 $ chef:recipe_mode > run_chef
-  [Fri, 15 Jan 2010 10:42:47 -0800] DEBUG: Processing file[/tmp/ohai2u_shef]
-  [Fri, 15 Jan 2010 10:42:47 -0800] DEBUG: file[/tmp/ohai2u_shef] using Chef::Provider::File
-  [Fri, 15 Jan 2010 10:42:47 -0800] INFO: Creating file[/tmp/ohai2u_shef] at /tmp/ohai2u_shef
+  [Fri, 15 Jan 2020 10:42:47 -0800] DEBUG: Processing file[/tmp/ohai2u_shef]
+  [Fri, 15 Jan 2020 10:42:47 -0800] DEBUG: file[/tmp/ohai2u_shef] using Chef::Provider::File
+  [Fri, 15 Jan 2020 10:42:47 -0800] INFO: Creating file[/tmp/ohai2u_shef] at /tmp/ohai2u_shef
     => true
 ```
 
@@ -103,11 +101,11 @@ Now, run Chef Infra Client again:
 
 ``` bash
 $ chef:recipe_mode > run_chef
-  [Fri, 15 Jan 2010 10:53:22 -0800] DEBUG: Processing file[/tmp/ohai2u_shef]
-  [Fri, 15 Jan 2010 10:53:22 -0800] DEBUG: file[/tmp/ohai2u_shef] using Chef::Provider::File
-  [Fri, 15 Jan 2010 10:53:22 -0800] DEBUG: Processing file[/tmp/ohai2u-again]
-  [Fri, 15 Jan 2010 10:53:22 -0800] DEBUG: file[/tmp/ohai2u-again] using Chef::Provider::File
-  [Fri, 15 Jan 2010 10:53:22 -0800] INFO: Creating file[/tmp/ohai2u-again] at /tmp/ohai2u-again
+  [Fri, 15 Jan 2020 10:53:22 -0800] DEBUG: Processing file[/tmp/ohai2u_shef]
+  [Fri, 15 Jan 2020 10:53:22 -0800] DEBUG: file[/tmp/ohai2u_shef] using Chef::Provider::File
+  [Fri, 15 Jan 2020 10:53:22 -0800] DEBUG: Processing file[/tmp/ohai2u-again]
+  [Fri, 15 Jan 2020 10:53:22 -0800] DEBUG: file[/tmp/ohai2u-again] using Chef::Provider::File
+  [Fri, 15 Jan 2020 10:53:22 -0800] INFO: Creating file[/tmp/ohai2u-again] at /tmp/ohai2u-again
     => true
   chef:recipe_mode >
 ```

@@ -2,7 +2,8 @@
 title: windows_task resource
 resource: windows_task
 draft: false
-aliases: /resource_windows_task.html
+aliases:
+- /resource_windows_task.html
 menu:
   docs:
     title: windows_task
@@ -25,17 +26,17 @@ resource_description_list:
       to update an existing task.'
 resource_new_in: '13.0'
 handler_types: false
-syntax_description: 'The windows_task resource has the following syntax:'
-syntax_code_block: "windows_task 'name' do\n  command                            \
-  \ String\n  cwd                                 String\n  day                  \
-  \               String, Integer\n  description                         String\n\
-  \  disallow_start_if_on_batteries      true, false # default value: false\n  execution_time_limit\
-  \                String, Integer # default value: \"PT72H\"\n  force           \
-  \                    true, false # default value: false\n  frequency           \
-  \                Symbol\n  frequency_modifier                  Integer, String #\
-  \ default value: 1\n  idle_time                           Integer\n  interactive_enabled\
-  \                 true, false # default value: false\n  minutes_duration       \
-  \             String, Integer\n  minutes_interval                    String, Integer\n\
+syntax_description: "The windows_task resource has the following syntax:\n\n``` ruby\n\
+  windows_task 'name' do\n  command                             String\n  cwd    \
+  \                             String\n  day                                 String,\
+  \ Integer\n  description                         String\n  disallow_start_if_on_batteries\
+  \      true, false # default value: false\n  execution_time_limit              \
+  \  String, Integer # default value: \"PT72H\"\n  force                         \
+  \      true, false # default value: false\n  frequency                         \
+  \  Symbol\n  frequency_modifier                  Integer, String # default value:\
+  \ 1\n  idle_time                           Integer\n  interactive_enabled      \
+  \           true, false # default value: false\n  minutes_duration             \
+  \       String, Integer\n  minutes_interval                    String, Integer\n\
   \  months                              String\n  password                      \
   \      String\n  priority                            Integer # default value: 7\n\
   \  random_delay                        String, Integer\n  run_level            \
@@ -46,7 +47,8 @@ syntax_code_block: "windows_task 'name' do\n  command                           
   \      String # default value: 'name' unless specified\n  user                 \
   \               String # default value: The localized SYSTEM user for the node.\n\
   \  action                              Symbol # defaults to :create if not specified\n\
-  end"
+  end\n```"
+syntax_code_block: null
 syntax_properties_list:
 - '`windows_task` is the resource.'
 - '`name` is the name given to the resource block.'
@@ -100,14 +102,13 @@ properties_list:
   default_value: null
   new_in: null
   description_list:
-  - markdown: "The day(s) on which the task runs.\n\n:   -   Use with frequency `:monthly`\
-      \ and `:weekly` tasks,\n    -   Valid values with frequency `:weekly` are `MON-SUN`\
-      \ or `\\*`.\n    -   \n\n        Valid values with frequency `:monthly` are\
-      \ `1-31` or `MON` to `SUN` and `LASTDAY`.\n\n        :   -   Use `MON-SUN` or\
-      \ `LASTDAY` if you are setting\n                `frequency_modifier` as\n  \
-      \              `\"FIRST, SECOND, THIRD etc.\"` else use `1-31`.\n          \
-      \  -   Multiple days should be comma separated. e.g\n                `\"1, 2,\
-      \ 3\"` or `\"MON, WEN, FRI\"`."
+  - markdown: "The day(s) on which the task runs.\n\n-   Use with frequency `:monthly`\
+      \ and `:weekly` tasks,\n-   Valid values with frequency `:weekly` are `MON-SUN`\
+      \ or `\\*`.\n-   Valid values with frequency `:monthly` are `1-31` or `MON`\
+      \ to\n    `SUN` and `LASTDAY`.\n    -   Use `MON-SUN` or `LASTDAY` if you are\
+      \ setting\n        `frequency_modifier` as `\"FIRST, SECOND, THIRD etc.\"` else\n\
+      \        use `1-31`.\n    -   Multiple days should be comma separated. e.g `\"\
+      1, 2, 3\"` or\n        `\"MON, WEN, FRI\"`."
 - property: description
   ruby_type: String
   required: false
@@ -272,7 +273,7 @@ properties_list:
 - property: task_name
   ruby_type: String
   required: false
-  default_value: The resource blocks name
+  default_value: The resource block's name
   new_in: null
   description_list:
   - markdown: 'An optional property to set the task name if it differs from the
@@ -302,7 +303,6 @@ resources_common_guards: true
 common_resource_functionality_multiple_packages: false
 resources_common_guard_interpreter: false
 remote_directory_recursive_directories: false
-directory_recursive_directories: false
 common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false

@@ -2,7 +2,7 @@
 title = "Chef Manage"
 draft = false
 
-aliases = "/manage.html"
+aliases = ["/manage.html"]
 
 [menu]
   [menu.docs]

@@ -2,7 +2,7 @@
 title = "knife recipe list"
 draft = false
 
-aliases = "/knife_recipe_list.html"
+aliases = ["/knife_recipe_list.html"]
 
 [menu]
   [menu.docs]

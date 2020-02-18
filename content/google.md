@@ -2,7 +2,7 @@
 title = "Chef and Google"
 draft = false
 
-aliases = "/google.html"
+aliases = ["/google.html"]
 
 [menu]
   [menu.docs]

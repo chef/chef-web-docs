@@ -2,7 +2,7 @@
 title = "Common Resource Functionality"
 draft = false
 
-aliases = "/resource_common.html"
+aliases = ["/resource_common.html"]
 
 [menu]
   [menu.docs]

@@ -2,7 +2,8 @@
 title: python resource
 resource: python
 draft: false
-aliases: /resource_python.html
+aliases:
+- /resource_python.html
 menu:
   docs:
     title: python
@@ -33,9 +34,10 @@ resource_description_list:
       executed like other script resources, rather than run inline.'
 resource_new_in: null
 handler_types: false
-syntax_description: 'The python resource has the following syntax:'
-syntax_code_block: "python 'hello world' do\n  code <<-EOH\n    print \"Hello world!\
-  \ From Chef and Python.\"\n    EOH\nend"
+syntax_description: "The python resource has the following syntax:\n\n``` ruby\npython\
+  \ 'hello world' do\n  code <<-EOH\n    print \"Hello world! From Chef and Python.\"\
+  \n    EOH\nend\n```"
+syntax_code_block: null
 syntax_properties_list:
 - '`code` specifies the command to run'
 syntax_full_code_block: "python 'name' do\n  code             String\n  command  \
@@ -288,7 +290,6 @@ resources_common_guards: true
 common_resource_functionality_multiple_packages: false
 resources_common_guard_interpreter: false
 remote_directory_recursive_directories: false
-directory_recursive_directories: false
 common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false

@@ -2,7 +2,7 @@
 title = "Chef Deprecation Warnings"
 draft = false
 
-aliases = "/chef_deprecations_client.html"
+aliases = ["/chef_deprecations_client.html"]
 
 [menu]
   [menu.docs]

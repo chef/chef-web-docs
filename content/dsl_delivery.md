@@ -2,7 +2,7 @@
 title = "About the Workflow DSL"
 draft = false
 
-aliases = "/dsl_delivery.html"
+aliases = ["/dsl_delivery.html", "/release/automate/dsl_delivery.html"]
 
 [menu]
   [menu.docs]

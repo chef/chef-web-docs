@@ -2,7 +2,8 @@
 title: windows_service resource
 resource: windows_service
 draft: false
-aliases: /resource_windows_service.html
+aliases:
+- /resource_windows_service.html
 menu:
   docs:
     title: windows_service
@@ -18,10 +19,10 @@ resource_description_list:
     service on the Microsoft Windows platform.'
 resource_new_in: null
 handler_types: false
-syntax_description: 'A **windows_service** resource block manages the state of a service
-  on a machine that is running Microsoft Windows. For example:'
-syntax_code_block: "windows_service 'BITS' do\n  action :configure_startup\n  startup_type\
-  \ :manual\nend"
+syntax_description: "A **windows_service** resource block manages the state of a service\
+  \ on\na machine that is running Microsoft Windows. For example:\n\n``` ruby\nwindows_service\
+  \ 'BITS' do\n  action :configure_startup\n  startup_type :manual\nend\n```"
+syntax_code_block: null
 syntax_properties_list: null
 syntax_full_code_block: "windows_service 'name' do\n  binary_path_name      String\n\
   \  delayed_start         true, false # default value: false\n  dependencies    \
@@ -205,7 +206,7 @@ properties_list:
 - property: service_name
   ruby_type: String
   required: false
-  default_value: The resource blocks name
+  default_value: The resource block's name
   new_in: null
   description_list:
   - markdown: 'An optional property to set the service name if it differs from the
@@ -298,7 +299,6 @@ resources_common_guards: true
 common_resource_functionality_multiple_packages: false
 resources_common_guard_interpreter: false
 remote_directory_recursive_directories: false
-directory_recursive_directories: false
 common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false

@@ -2,7 +2,8 @@
 title: apt_package resource
 resource: apt_package
 draft: false
-aliases: /resource_apt_package.html
+aliases:
+- /resource_apt_package.html
 menu:
   docs:
     title: apt_package
@@ -20,8 +21,22 @@ resource_description_list:
 resource_new_in: null
 handler_types: false
 syntax_description: 'A **apt_package** resource block manages a package on a node,
-  typically by installing it. The simplest use of the **apt_package** resource is:'
-syntax_code_block: apt_package 'package_name'
+  typically
+
+  by installing it. The simplest use of the **apt_package** resource is:
+
+
+  ``` ruby
+
+  apt_package ''package_name''
+
+  ```
+
+
+  which will install the named package using all of the default options
+
+  and the default action (`:install`).'
+syntax_code_block: null
 syntax_properties_list: null
 syntax_full_code_block: "apt_package 'name' do\n  default_release              String\n\
   \  options                      String, Array\n  overwrite_config_files       true,\
@@ -150,7 +165,6 @@ resources_common_guards: true
 common_resource_functionality_multiple_packages: true
 resources_common_guard_interpreter: false
 remote_directory_recursive_directories: false
-directory_recursive_directories: false
 common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false

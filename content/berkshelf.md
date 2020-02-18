@@ -2,7 +2,7 @@
 title = "About Berkshelf"
 draft = false
 
-aliases = "/berkshelf.html"
+aliases = ["/berkshelf.html"]
 
 [menu]
   [menu.docs]
@@ -603,7 +603,7 @@ This command may run any Kitchen CLI command, such as:
 -   [kitchen test](/ctl_kitchen.html#kitchen-test)
 -   [kitchen verify](/ctl_kitchen.html#kitchen-verify)
 
-See [kitchen (executable)](/ctl_kitchen.html) for descriptions of every
+See [kitchen (executable)](/ctl_kitchen/) for descriptions of every
 Test Kitchen subcommand.
 
 berks show

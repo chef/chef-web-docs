@@ -2,7 +2,7 @@
 title = "Sending Compliance Data to Chef Automate with Audit Cookbook"
 draft = false
 
-aliases = "/audit_cookbook.html"
+aliases = ["/audit_cookbook.html", "/audit_supported_configurations.html"]
 
 [menu]
   [menu.docs]

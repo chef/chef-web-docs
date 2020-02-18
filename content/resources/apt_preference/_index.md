@@ -2,7 +2,8 @@
 title: apt_preference resource
 resource: apt_preference
 draft: false
-aliases: /resource_apt_preference.html
+aliases:
+- /resource_apt_preference.html
 menu:
   docs:
     title: apt_preference
@@ -22,11 +23,12 @@ resource_description_list:
     prioritized during installation.'
 resource_new_in: '13.3'
 handler_types: false
-syntax_description: 'The apt_preference resource has the following syntax:'
-syntax_code_block: "apt_preference 'name' do\n  glob              String\n  package_name\
-  \      String # default value: 'name' unless specified\n  pin               String\n\
+syntax_description: "The apt_preference resource has the following syntax:\n\n```\
+  \ ruby\napt_preference 'name' do\n  glob              String\n  package_name   \
+  \   String # default value: 'name' unless specified\n  pin               String\n\
   \  pin_priority      String, Integer\n  action            Symbol # defaults to :add\
-  \ if not specified\nend"
+  \ if not specified\nend\n```"
+syntax_code_block: null
 syntax_properties_list:
 - '`apt_preference` is the resource.'
 - '`name` is the name given to the resource block.'
@@ -61,7 +63,7 @@ properties_list:
 - property: package_name
   ruby_type: String
   required: false
-  default_value: The resource blocks name
+  default_value: The resource block's name
   new_in: null
   description_list:
   - markdown: 'An optional property to set the package name if it differs from the
@@ -102,7 +104,6 @@ resources_common_guards: true
 common_resource_functionality_multiple_packages: false
 resources_common_guard_interpreter: false
 remote_directory_recursive_directories: false
-directory_recursive_directories: false
 common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false

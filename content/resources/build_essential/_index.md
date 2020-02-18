@@ -2,7 +2,8 @@
 title: build_essential resource
 resource: build_essential
 draft: false
-aliases: /resource_build_essential.html
+aliases:
+- /resource_build_essential.html
 menu:
   docs:
     title: build_essential
@@ -18,10 +19,11 @@ resource_description_list:
     for compiling C software from source.'
 resource_new_in: '14.0'
 handler_types: false
-syntax_description: 'The build_essential resource has the following syntax:'
-syntax_code_block: "build_essential 'name' do\n  compile_time      true, false # default\
-  \ value: false\n  action            Symbol # defaults to :install if not specified\n\
-  end"
+syntax_description: "The build_essential resource has the following syntax:\n\n```\
+  \ ruby\nbuild_essential 'name' do\n  compile_time      true, false # default value:\
+  \ false\n  action            Symbol # defaults to :install if not specified\nend\n\
+  ```"
+syntax_code_block: null
 syntax_properties_list:
 - '`build_essential` is the resource.'
 - '`name` is the name given to the resource block.'
@@ -65,7 +67,6 @@ resources_common_guards: true
 common_resource_functionality_multiple_packages: false
 resources_common_guard_interpreter: false
 remote_directory_recursive_directories: false
-directory_recursive_directories: false
 common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false

@@ -2,7 +2,7 @@
 title = "Manage Roles"
 draft = false
 
-aliases = "/server_manage_roles.html"
+aliases = ["/server_manage_roles.html"]
 
 [menu]
   [menu.docs]

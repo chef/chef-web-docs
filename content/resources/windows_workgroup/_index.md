@@ -2,7 +2,8 @@
 title: windows_workgroup resource
 resource: windows_workgroup
 draft: false
-aliases: /resource_windows_workgroup.html
+aliases:
+- /resource_windows_workgroup.html
 menu:
   docs:
     title: windows_workgroup
@@ -18,12 +19,13 @@ resource_description_list:
     of a Windows host.'
 resource_new_in: '14.5'
 handler_types: false
-syntax_description: 'The windows_workgroup resource has the following syntax:'
-syntax_code_block: "windows_workgroup 'name' do\n  password            String\n  reboot\
-  \              Symbol # default value: :immediate\n  sensitive           true, false\
+syntax_description: "The windows_workgroup resource has the following syntax:\n\n\
+  ``` ruby\nwindows_workgroup 'name' do\n  password            String\n  reboot  \
+  \            Symbol # default value: :immediate\n  sensitive           true, false\
   \ # default value: true\n  user                String\n  workgroup_name      String\
   \ # default value: 'name' unless specified\n  action              Symbol # defaults\
-  \ to :join if not specified\nend"
+  \ to :join if not specified\nend\n```"
+syntax_code_block: null
 syntax_properties_list:
 - '`windows_workgroup` is the resource.'
 - '`name` is the name given to the resource block.'
@@ -76,7 +78,7 @@ properties_list:
 - property: workgroup_name
   ruby_type: String
   required: false
-  default_value: The resource blocks name
+  default_value: The resource block's name
   new_in: null
   description_list:
   - markdown: 'An optional property to set the workgroup name if it differs from
@@ -99,7 +101,6 @@ resources_common_guards: true
 common_resource_functionality_multiple_packages: false
 resources_common_guard_interpreter: false
 remote_directory_recursive_directories: false
-directory_recursive_directories: false
 common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false

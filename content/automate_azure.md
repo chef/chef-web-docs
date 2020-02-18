@@ -2,7 +2,7 @@
 title = "Chef Automate for Microsoft Azure"
 draft = false
 
-aliases = "/automate_azure.html"
+aliases = ["/automate_azure.html"]
 
 [menu]
   [menu.docs]

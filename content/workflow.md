@@ -2,7 +2,7 @@
 title = "An Overview of Workflow in Chef Automate"
 draft = false
 
-aliases = "/workflow.html"
+aliases = ["/workflow.html", "/release/automate/workflow.html"]
 
 [menu]
   [menu.docs]

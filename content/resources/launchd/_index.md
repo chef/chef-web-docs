@@ -2,7 +2,8 @@
 title: launchd resource
 resource: launchd
 draft: false
-aliases: /resource_launchd.html
+aliases:
+- /resource_launchd.html
 menu:
   docs:
     title: launchd
@@ -17,12 +18,12 @@ resource_description_list:
     and per-user services (agents) on the macOS platform.'
 resource_new_in: '12.8'
 handler_types: false
-syntax_description: 'The launchd resource has the following syntax:'
-syntax_code_block: "launchd 'name' do\n  abandon_process_group           true, false\n\
-  \  backup                          Integer, false\n  cookbook                  \
-  \      String\n  debug                           true, false\n  disabled       \
-  \                 true, false # default value: false\n  enable_globbing        \
-  \         true, false\n  enable_transactions             true, false\n  environment_variables\
+syntax_description: "The launchd resource has the following syntax:\n\n``` ruby\n\
+  launchd 'name' do\n  abandon_process_group           true, false\n  backup     \
+  \                     Integer, false\n  cookbook                        String\n\
+  \  debug                           true, false\n  disabled                     \
+  \   true, false # default value: false\n  enable_globbing                 true,\
+  \ false\n  enable_transactions             true, false\n  environment_variables\
   \           Hash\n  exit_timeout                    Integer\n  group           \
   \                String, Integer\n  hard_resource_limits            Hash\n  inetd_compatibility\
   \             Hash\n  init_groups                     true, false\n  keep_alive\
@@ -48,7 +49,9 @@ syntax_code_block: "launchd 'name' do\n  abandon_process_group           true, f
   \ value: \"daemon\"\n  umask                           Integer\n  username     \
   \                   String\n  wait_for_debugger               true, false\n  watch_paths\
   \                     Array\n  working_directory               String\n  action\
-  \                          Symbol # defaults to :create if not specified\nend"
+  \                          Symbol # defaults to :create if not specified\nend\n\
+  ```"
+syntax_code_block: null
 syntax_properties_list:
 - '`launchd` is the resource.'
 - '`name` is the name given to the resource block.'
@@ -137,7 +140,7 @@ properties_list:
 - property: mode
   ruby_type: Integer, String
   required: false
-  default_value: '0755'
+  default_value: '''0755'''
   new_in: null
   description_list:
   - markdown: 'A quoted 3-5 character string that defines the octal mode. For
@@ -574,7 +577,6 @@ resources_common_guards: true
 common_resource_functionality_multiple_packages: false
 resources_common_guard_interpreter: false
 remote_directory_recursive_directories: false
-directory_recursive_directories: false
 common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false

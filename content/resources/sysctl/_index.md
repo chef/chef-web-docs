@@ -2,7 +2,8 @@
 title: sysctl resource
 resource: sysctl
 draft: false
-aliases: /resource_sysctl.html
+aliases:
+- /resource_sysctl.html
 menu:
   docs:
     title: sysctl
@@ -26,12 +27,13 @@ resource_description_list:
     used later.'
 resource_new_in: '14.0'
 handler_types: false
-syntax_description: 'The sysctl resource has the following syntax:'
-syntax_code_block: "sysctl 'name' do\n  comment           Array, String # default\
-  \ value: []\n  conf_dir          String # default value: \"/etc/sysctl.d\"\n  ignore_error\
-  \      true, false # default value: false\n  key               String # default\
-  \ value: 'name' unless specified\n  value             Array, String, Integer, Float\n\
-  \  action            Symbol # defaults to :apply if not specified\nend"
+syntax_description: "The sysctl resource has the following syntax:\n\n``` ruby\nsysctl\
+  \ 'name' do\n  comment           Array, String # default value: []\n  conf_dir \
+  \         String # default value: \"/etc/sysctl.d\"\n  ignore_error      true, false\
+  \ # default value: false\n  key               String # default value: 'name' unless\
+  \ specified\n  value             Array, String, Integer, Float\n  action       \
+  \     Symbol # defaults to :apply if not specified\nend\n```"
+syntax_code_block: null
 syntax_properties_list:
 - '`sysctl` is the resource.'
 - '`name` is the name given to the resource block.'
@@ -80,7 +82,7 @@ properties_list:
 - property: key
   ruby_type: String
   required: false
-  default_value: The resource blocks name
+  default_value: The resource block's name
   new_in: null
   description_list:
   - markdown: 'The kernel parameter key in dotted format if it differs from the
@@ -110,7 +112,6 @@ resources_common_guards: true
 common_resource_functionality_multiple_packages: false
 resources_common_guard_interpreter: false
 remote_directory_recursive_directories: false
-directory_recursive_directories: false
 common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false

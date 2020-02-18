@@ -2,7 +2,8 @@
 title: ifconfig resource
 resource: ifconfig
 draft: false
-aliases: /resource_ifconfig.html
+aliases:
+- /resource_ifconfig.html
 menu:
   docs:
     title: ifconfig
@@ -17,9 +18,10 @@ resource_description_list:
     systems.'
 resource_new_in: null
 handler_types: false
-syntax_description: 'An **ifconfig** resource block manages interfaces, such as a
-  static IP address:'
-syntax_code_block: "ifconfig '33.33.33.80' do\n  device 'eth1'\nend"
+syntax_description: "An **ifconfig** resource block manages interfaces, such as a\
+  \ static IP\naddress:\n\n``` ruby\nifconfig '33.33.33.80' do\n  device 'eth1'\n\
+  end\n```"
+syntax_code_block: null
 syntax_properties_list: null
 syntax_full_code_block: "ifconfig 'name' do\n  bcast             String\n  bonding_opts\
   \      String\n  bootproto         String\n  device            String\n  ethtool_opts\
@@ -197,7 +199,7 @@ properties_list:
 - property: target
   ruby_type: String
   required: false
-  default_value: The resource blocks name
+  default_value: The resource block's name
   new_in: null
   description_list:
   - markdown: 'The IP address that is to be assigned to the network interface. If
@@ -227,7 +229,6 @@ resources_common_guards: true
 common_resource_functionality_multiple_packages: false
 resources_common_guard_interpreter: false
 remote_directory_recursive_directories: false
-directory_recursive_directories: false
 common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false

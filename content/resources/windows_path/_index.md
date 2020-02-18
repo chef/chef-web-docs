@@ -2,7 +2,8 @@
 title: windows_path resource
 resource: windows_path
 draft: false
-aliases: /resource_windows_path.html
+aliases:
+- /resource_windows_path.html
 menu:
   docs:
     title: windows_path
@@ -17,9 +18,10 @@ resource_description_list:
     variable on Microsoft Windows.'
 resource_new_in: '13.4'
 handler_types: false
-syntax_description: 'The windows_path resource has the following syntax:'
-syntax_code_block: "windows_path 'name' do\n  path      String # default value: 'name'\
-  \ unless specified\n  action    Symbol # defaults to :add if not specified\nend"
+syntax_description: "The windows_path resource has the following syntax:\n\n``` ruby\n\
+  windows_path 'name' do\n  path      String # default value: 'name' unless specified\n\
+  \  action    Symbol # defaults to :add if not specified\nend\n```"
+syntax_code_block: null
 syntax_properties_list:
 - '`windows_path` is the resource.'
 - '`name` is the name given to the resource block.'
@@ -44,7 +46,7 @@ properties_list:
 - property: path
   ruby_type: String
   required: false
-  default_value: The resource blocks name
+  default_value: The resource block's name
   new_in: null
   description_list:
   - markdown: 'An optional property to set the path value if it differs from the
@@ -67,7 +69,6 @@ resources_common_guards: true
 common_resource_functionality_multiple_packages: false
 resources_common_guard_interpreter: false
 remote_directory_recursive_directories: false
-directory_recursive_directories: false
 common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false

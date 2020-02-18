@@ -2,7 +2,7 @@
 title = "Server Tuning"
 draft = false
 
-aliases = "/server_tuning.html"
+aliases = ["/server_tuning.html"]
 
 runbook_weight = 60
 

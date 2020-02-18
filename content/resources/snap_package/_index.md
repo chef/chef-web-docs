@@ -2,7 +2,8 @@
 title: snap_package resource
 resource: snap_package
 draft: false
-aliases: /resource_snap_package.html
+aliases:
+- /resource_snap_package.html
 menu:
   docs:
     title: snap_package
@@ -17,12 +18,13 @@ resource_description_list:
     Ubuntu platforms.'
 resource_new_in: '15.0'
 handler_types: false
-syntax_description: 'The snap_package resource has the following syntax:'
-syntax_code_block: "snap_package 'name' do\n  channel           String # default value:\
-  \ \"stable\"\n  options           String, Array\n  package_name      String, Array\n\
-  \  source            String\n  timeout           String, Integer\n  version    \
-  \       String, Array\n  action            Symbol # defaults to :install if not\
-  \ specified\nend"
+syntax_description: "The snap_package resource has the following syntax:\n\n``` ruby\n\
+  snap_package 'name' do\n  channel           String # default value: \"stable\"\n\
+  \  options           String, Array\n  package_name      String, Array\n  source\
+  \            String\n  timeout           String, Integer\n  version           String,\
+  \ Array\n  action            Symbol # defaults to :install if not specified\nend\n\
+  ```"
+syntax_code_block: null
 syntax_properties_list:
 - '`snap_package` is the resource.'
 - '`name` is the name given to the resource block.'
@@ -120,7 +122,6 @@ resources_common_guards: true
 common_resource_functionality_multiple_packages: false
 resources_common_guard_interpreter: false
 remote_directory_recursive_directories: false
-directory_recursive_directories: false
 common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false

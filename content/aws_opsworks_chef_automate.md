@@ -2,7 +2,7 @@
 title = "AWS OpsWorks for Chef Automate"
 draft = false
 
-aliases = "/aws_opsworks_chef_automate.html"
+aliases = ["/aws_opsworks_chef_automate.html"]
 
 [menu]
   [menu.docs]

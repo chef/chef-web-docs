@@ -63,9 +63,17 @@
       ]
     ```
 
-<div class="alert-info">
+<div class="admonition-note">
+
+<p class="admonition-note-title">Note</p>
+
+<div class="admonition-note-text">
 
 The Ohai executable ignores settings in the client.rb file when Ohai is
 run independently of Chef Infra Client.
+
+
+
+</div>
 
 </div>

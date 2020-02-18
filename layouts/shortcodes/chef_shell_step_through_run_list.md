@@ -13,11 +13,11 @@ and then run Chef Infra Client:
 
 ``` bash
 $ chef:recipe > run_chef
-  [Fri, 15 Jan 2010 14:17:49 -0800] DEBUG: Processing file[/tmp/before-breakpoint]
-  [Fri, 15 Jan 2010 14:17:49 -0800] DEBUG: file[/tmp/before-breakpoint] using Chef::Provider::File
-  [Fri, 15 Jan 2010 14:17:49 -0800] INFO: Creating file[/tmp/before-breakpoint] at /tmp/before-breakpoint
-  [Fri, 15 Jan 2010 14:17:49 -0800] DEBUG: Processing [./bin/../lib/chef/mixin/recipe_definition_dsl_core.rb:56:in 'new']
-  [Fri, 15 Jan 2010 14:17:49 -0800] DEBUG: [./bin/../lib/chef/mixin/recipe_definition_dsl_core.rb:56:in 'new'] using Chef::Provider::Breakpoint
+  [Fri, 15 Jan 2020 14:17:49 -0800] DEBUG: Processing file[/tmp/before-breakpoint]
+  [Fri, 15 Jan 2020 14:17:49 -0800] DEBUG: file[/tmp/before-breakpoint] using Chef::Provider::File
+  [Fri, 15 Jan 2020 14:17:49 -0800] INFO: Creating file[/tmp/before-breakpoint] at /tmp/before-breakpoint
+  [Fri, 15 Jan 2020 14:17:49 -0800] DEBUG: Processing [./bin/../lib/chef/mixin/recipe_definition_dsl_core.rb:56:in 'new']
+  [Fri, 15 Jan 2020 14:17:49 -0800] DEBUG: [./bin/../lib/chef/mixin/recipe_definition_dsl_core.rb:56:in 'new'] using Chef::Provider::Breakpoint
 ```
 
 Chef Infra Client ran the first resource before the breakpoint
@@ -29,7 +29,7 @@ Chef Infra Client run:
 
 ``` bash
 $ chef:recipe > chef_run.resume
-  [Fri, 15 Jan 2010 14:27:08 -0800] INFO: Creating file[/tmp/after-breakpoint] at /tmp/after-breakpoint
+  [Fri, 15 Jan 2020 14:27:08 -0800] INFO: Creating file[/tmp/after-breakpoint] at /tmp/after-breakpoint
 ```
 
 A quick view of the `/tmp` directory shows that the following files were
@@ -48,16 +48,16 @@ $ chef:recipe > Chef::Log.level = :debug # debug logging won't turn on automatic
   chef:recipe > chef_run.rewind
     => 0
   chef:recipe > chef_run.step
-  [Fri, 15 Jan 2010 14:40:52 -0800] DEBUG: Processing file[/tmp/before-breakpoint]
-  [Fri, 15 Jan 2010 14:40:52 -0800] DEBUG: file[/tmp/before-breakpoint] using Chef::Provider::File
+  [Fri, 15 Jan 2020 14:40:52 -0800] DEBUG: Processing file[/tmp/before-breakpoint]
+  [Fri, 15 Jan 2020 14:40:52 -0800] DEBUG: file[/tmp/before-breakpoint] using Chef::Provider::File
     => 1
   chef:recipe > chef_run.step
-  [Fri, 15 Jan 2010 14:40:54 -0800] DEBUG: Processing [./bin/../lib/chef/mixin/recipe_definition_dsl_core.rb:56:in 'new']
-  [Fri, 15 Jan 2010 14:40:54 -0800] DEBUG: [./bin/../lib/chef/mixin/recipe_definition_dsl_core.rb:56:in 'new'] using Chef::Provider::Breakpoint
+  [Fri, 15 Jan 2020 14:40:54 -0800] DEBUG: Processing [./bin/../lib/chef/mixin/recipe_definition_dsl_core.rb:56:in 'new']
+  [Fri, 15 Jan 2020 14:40:54 -0800] DEBUG: [./bin/../lib/chef/mixin/recipe_definition_dsl_core.rb:56:in 'new'] using Chef::Provider::Breakpoint
     => 2
   chef:recipe > chef_run.step
-  [Fri, 15 Jan 2010 14:40:56 -0800] DEBUG: Processing file[/tmp/after-breakpoint]
-  [Fri, 15 Jan 2010 14:40:56 -0800] DEBUG: file[/tmp/after-breakpoint] using Chef::Provider::File
+  [Fri, 15 Jan 2020 14:40:56 -0800] DEBUG: Processing file[/tmp/after-breakpoint]
+  [Fri, 15 Jan 2020 14:40:56 -0800] DEBUG: file[/tmp/after-breakpoint] using Chef::Provider::File
     => 3
 ```
 
@@ -77,13 +77,13 @@ results:
 ``` bash
 $ chef:recipe > chef_run.rewind
   chef:recipe > chef_run.resume
-  [Fri, 15 Jan 2010 14:48:56 -0800] DEBUG: Processing file[/tmp/before-breakpoint]
-  [Fri, 15 Jan 2010 14:48:56 -0800] DEBUG: file[/tmp/before-breakpoint] using Chef::Provider::File
-  [Fri, 15 Jan 2010 14:48:56 -0800] INFO: Creating file[/tmp/before-breakpoint] at /tmp/before-breakpoint
-  [Fri, 15 Jan 2010 14:48:56 -0800] DEBUG: Processing [./bin/../lib/chef/mixin/recipe_definition_dsl_core.rb:56:in 'new']
-  [Fri, 15 Jan 2010 14:48:56 -0800] DEBUG: [./bin/../lib/chef/mixin/recipe_definition_dsl_core.rb:56:in 'new'] using Chef::Provider::Breakpoint
+  [Fri, 15 Jan 2020 14:48:56 -0800] DEBUG: Processing file[/tmp/before-breakpoint]
+  [Fri, 15 Jan 2020 14:48:56 -0800] DEBUG: file[/tmp/before-breakpoint] using Chef::Provider::File
+  [Fri, 15 Jan 2020 14:48:56 -0800] INFO: Creating file[/tmp/before-breakpoint] at /tmp/before-breakpoint
+  [Fri, 15 Jan 2020 14:48:56 -0800] DEBUG: Processing [./bin/../lib/chef/mixin/recipe_definition_dsl_core.rb:56:in 'new']
+  [Fri, 15 Jan 2020 14:48:56 -0800] DEBUG: [./bin/../lib/chef/mixin/recipe_definition_dsl_core.rb:56:in 'new'] using Chef::Provider::Breakpoint
   chef:recipe > chef_run.resume
-  [Fri, 15 Jan 2010 14:49:20 -0800] DEBUG: Processing file[/tmp/after-breakpoint]
-  [Fri, 15 Jan 2010 14:49:20 -0800] DEBUG: file[/tmp/after-breakpoint] using Chef::Provider::File
-  [Fri, 15 Jan 2010 14:49:20 -0800] INFO: Creating file[/tmp/after-breakpoint] at /tmp/after-breakpoint
+  [Fri, 15 Jan 2020 14:49:20 -0800] DEBUG: Processing file[/tmp/after-breakpoint]
+  [Fri, 15 Jan 2020 14:49:20 -0800] DEBUG: file[/tmp/after-breakpoint] using Chef::Provider::File
+  [Fri, 15 Jan 2020 14:49:20 -0800] INFO: Creating file[/tmp/after-breakpoint] at /tmp/after-breakpoint
 ```

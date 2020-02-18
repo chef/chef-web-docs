@@ -2,7 +2,7 @@
 title = "Manage Secrets in a build-cookbook"
 draft = false
 
-aliases = "/delivery_manage_secrets.html"
+aliases = ["/delivery_manage_secrets.html", "/release/automate/delivery_manage_secrets.html"]
 
 [menu]
   [menu.docs]

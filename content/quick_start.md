@@ -2,7 +2,7 @@
 title = "Quick Start"
 draft = false
 
-aliases = "/quick_start.html"
+aliases = ["/quick_start.html"]
 
 [menu]
   [menu.docs]

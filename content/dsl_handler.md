@@ -2,7 +2,7 @@
 title = "About the Handler DSL"
 draft = false
 
-aliases = "/dsl_handler.html"
+aliases = ["/dsl_handler.html"]
 
 [menu]
   [menu.docs]

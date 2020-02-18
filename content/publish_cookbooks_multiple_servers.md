@@ -2,7 +2,7 @@
 title = "Publish Cookbooks to Multiple Chef Infra Servers"
 draft = false
 
-aliases = "/publish_cookbooks_multiple_servers.html"
+aliases = ["/publish_cookbooks_multiple_servers.html"]
 
 [menu]
   [menu.docs]

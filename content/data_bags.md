@@ -2,7 +2,7 @@
 title = "About Data Bags"
 draft = false
 
-aliases = "/data_bags.html"
+aliases = ["/data_bags.html"]
 
 [menu]
   [menu.docs]

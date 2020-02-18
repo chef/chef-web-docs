@@ -2,7 +2,8 @@
 title: reboot resource
 resource: reboot
 draft: false
-aliases: /resource_reboot.html
+aliases:
+- /resource_reboot.html
 menu:
   docs:
     title: reboot
@@ -19,10 +20,11 @@ resource_description_list:
     on the Microsoft Windows, macOS, and Linux platforms.'
 resource_new_in: null
 handler_types: false
-syntax_description: 'The reboot resource has the following syntax:'
-syntax_code_block: "reboot 'name' do\n  delay_mins      Integer # default value: 0\n\
-  \  reason          String # default value: \"Reboot by Chef Infra Client\"\n  action\
-  \          Symbol # defaults to :nothing if not specified\nend"
+syntax_description: "The reboot resource has the following syntax:\n\n``` ruby\nreboot\
+  \ 'name' do\n  delay_mins      Integer # default value: 0\n  reason          String\
+  \ # default value: \"Reboot by Chef Infra Client\"\n  action          Symbol # defaults\
+  \ to :nothing if not specified\nend\n```"
+syntax_code_block: null
 syntax_properties_list:
 - '`reboot` is the resource.'
 - '`name` is the name given to the resource block.'
@@ -78,7 +80,6 @@ resources_common_guards: true
 common_resource_functionality_multiple_packages: false
 resources_common_guard_interpreter: false
 remote_directory_recursive_directories: false
-directory_recursive_directories: false
 common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false

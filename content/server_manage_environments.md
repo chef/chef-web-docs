@@ -2,7 +2,7 @@
 title = "Manage Environments"
 draft = false
 
-aliases = "/server_manage_environments.html"
+aliases = ["/server_manage_environments.html"]
 
 [menu]
   [menu.docs]

@@ -2,7 +2,7 @@
 title = "About Nodes"
 draft = false
 
-aliases = "/nodes.html"
+aliases = ["/nodes.html"]
 
 [menu]
   [menu.docs]

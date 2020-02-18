@@ -10,9 +10,17 @@ configurations:
     components
 -   Authentication or authorization
 
-<div class="alert-info">
+<div class="admonition-note">
+
+<p class="admonition-note-title">Note</p>
+
+<div class="admonition-note-text">
 
 chef-solo can be run as a daemon.
+
+
+
+</div>
 
 </div>
 

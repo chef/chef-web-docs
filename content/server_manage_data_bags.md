@@ -2,7 +2,7 @@
 title = "Manage Data Bags"
 draft = false
 
-aliases = "/server_manage_data_bags.html"
+aliases = ["/server_manage_data_bags.html"]
 
 [menu]
   [menu.docs]

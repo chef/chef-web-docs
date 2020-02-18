@@ -1,9 +1,9 @@
-<div class="alert-info">
+<div class="admonition-note"><p class="admonition-note-title">Note</p><div class="admonition-note-text">
 
 In order to add or edit users, you must have root shell access and the
 **Admin** role assigned in Workflow.
 
-</div>
+</div></div>
 
 To add or edit a user to Workflow:
 

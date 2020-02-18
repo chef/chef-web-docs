@@ -2,7 +2,7 @@
 title = "supermarket-ctl (executable)"
 draft = false
 
-aliases = "/ctl_supermarket.html"
+aliases = ["/ctl_supermarket.html"]
 
 [menu]
   [menu.docs]

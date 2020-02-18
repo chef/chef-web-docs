@@ -23,9 +23,17 @@ Started. Job ID: GUID12345abc
   Status: quorum_failed
 ```
 
-<div class="alert-info">
+<div class="admonition-note">
+
+<p class="admonition-note-title">Note</p>
+
+<div class="admonition-note-text">
 
 If quorum had been set at 80% (`--quorum 80%`), then quorum would have
 passed with the previous example.
+
+
+
+</div>
 
 </div>

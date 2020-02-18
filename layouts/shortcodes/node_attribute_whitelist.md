@@ -1,4 +1,4 @@
-<div class="alert-warning">
+<div class="admonition-warning"><p class="admonition-warning-title">Warning</p><div class="admonition-warning-text">
 
 When attribute whitelist settings are used, only the attributes defined
 in a whitelist will be saved and any attribute that is not defined in a
@@ -11,7 +11,7 @@ attributes, default attributes, and override attributes are saved, as
 well as the automatic attributes that were specifically included through
 whitelisting.
 
-</div>
+</div></div>
 
 Attributes that should be saved by a node may be whitelisted in the
 client.rb file. The whitelist is a hash of keys that specifies each
@@ -53,13 +53,21 @@ following settings in the client.rb file:
 </tbody>
 </table>
 
-<div class="alert-warning">
+<div class="admonition-warning">
+
+<p class="admonition-warning-title">Warning</p>
+
+<div class="admonition-warning-text">
 
 The recommended practice is to only use `automatic_attribute_whitelist`
 to whitelist attributes. This is primarily because automatic attributes
 generate the most data, but also that normal, default, and override
 attributes are typically much more important attributes and are more
 likely to cause issues if they are whitelisted incorrectly.
+
+
+
+</div>
 
 </div>
 

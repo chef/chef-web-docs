@@ -1,37 +1,39 @@
 When chef-shell is configured to access a Chef Infra Server, chef-shell
 can list, show, search for and edit cookbooks, clients, nodes, roles,
-environments, and data bags.
+environments, policyfiles, and data bags.
 
 The syntax for managing objects on the Chef Infra Server is as follows:
 
 ``` bash
-$ chef-shell -z named_configuration
+chef-shell -z named_configuration
 ```
 
-where:
+Where:
 
 -   `named_configuration` is an existing configuration file in
     `~/.chef/named_configuration/chef_shell.rb`, such as `production`,
-    `staging`, or `test`
+    `staging`, or `test`.
 
 Once in chef-shell, commands can be run against objects as follows:
 
 ``` bash
-$ chef (preprod) > items.command
+chef (preprod) > items.command
 ```
+
+Where:
 
 -   `items` is the type of item to search for: `cookbooks`, `clients`,
-    `nodes`, `roles`, `environments` or a data bag
--   `command` is the command: `list`, `show`, `find`, or `edit`
+    `nodes`, `roles`, `environments` or a data bag.
+-   `command` is the command: `list`, `show`, `find`, or `edit`.
 
 For example, to list all of the nodes in a configuration named
-"preprod":
+"preprod", enter:
 
 ``` bash
-$ chef (preprod) > nodes.list
+chef (preprod) > nodes.list
 ```
 
-to return something similar to:
+Which will return something similar to:
 
 ``` bash
 => [node[i-f09a939b], node[i-049a936f], node[i-eaaaa581], node[i-9154b1fb],
@@ -47,13 +49,13 @@ to return something similar to:
 ```
 
 The `list` command can take a code block, which will applied (but not
-saved) to each object that is returned from the server. For example:
+saved), to each object that is returned from the server. For example:
 
 ``` bash
-$ chef (preprod) > nodes.list {|n| puts "#{n.name}: #{n.run_list}" }
+chef (preprod) > nodes.list {|n| puts "#{n.name}: #{n.run_list}" }
 ```
 
-to return something similar to:
+will return something similar to:
 
 ``` bash
 => i-f09a939b: role[lb], role[preprod], recipe[aws]
@@ -66,22 +68,22 @@ to return something similar to:
 The `show` command can be used to display a specific node. For example:
 
 ``` bash
-$ chef (preprod) > load_balancer = nodes.show('i-f09a939b')
+chef (preprod) > load_balancer = nodes.show('i-f09a939b')
 ```
 
-to return something similar to:
+will return something similar to:
 
 ``` bash
 => node[i-f09a939b]
 ```
 
-or:
+Or:
 
 ``` bash
-$ chef (preprod) > load_balancer.ec2.public_hostname
+chef (preprod) > load_balancer.ec2.public_hostname
 ```
 
-to return something similar to:
+will return something similar to:
 
 ``` bash
 => "ec2-111-22-333-44.compute-1.amazonaws.com"
@@ -91,16 +93,16 @@ The `find` command can be used to search the Chef Infra Server from the
 chef-shell. For example:
 
 ``` bash
-$ chef (preprod) > pp nodes.find(:ec2_public_hostname => 'ec2*')
+chef (preprod) > pp nodes.find(:ec2_public_hostname => 'ec2*')
 ```
 
-A code block can be used to format the results. For example:
+You can also format the results with a code block. For example:
 
 ``` bash
-$ chef (preprod) > pp nodes.find(:ec2_public_hostname => 'ec2*') {|n| n.ec2.ami_id } and nil
+chef (preprod) > pp nodes.find(:ec2_public_hostname => 'ec2*') {|n| n.ec2.ami_id } and nil
 ```
 
-to return something similar to:
+will return something similar to:
 
 ``` bash
 => ["ami-f8927a91",
@@ -116,11 +118,11 @@ to return something similar to:
 Or:
 
 ``` bash
-$ chef (preprod) > amis = nodes.find(:ec2_public_hostname => 'ec2*') {|n| n.ec2.ami_id }
-$ chef (preprod) > puts amis.uniq.sort
+chef (preprod) > amis = nodes.find(:ec2_public_hostname => 'ec2*') {|n| n.ec2.ami_id }
+chef (preprod) > puts amis.uniq.sort
 ```
 
-to return something similar to:
+will return something similar to:
 
 ``` bash
 => ami-4b4ba522

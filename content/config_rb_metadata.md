@@ -2,7 +2,7 @@
 title = "metadata.rb"
 draft = false
 
-aliases = "/config_rb_metadata.html"
+aliases = ["/config_rb_metadata.html"]
 
 [menu]
   [menu.docs]
@@ -194,7 +194,7 @@ This configuration file has the following settings:
 
     Do not install native gems with the `gem` setting in `metadata.rb` .
     The `gem` setting is not a general purpose replacement for the
-    [chef_gem resource](/resource_chef_gem/), and does not
+    [chef_gem resource](/resources/chef_gem/), and does not
     internally re-use the `chef_gem` resource. Native gems require C
     compilation and must not be installed with `metadata.rb` because
     `metadata.rb` runs before any recipe code runs. Consequently, Chef

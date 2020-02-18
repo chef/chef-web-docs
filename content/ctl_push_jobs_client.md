@@ -2,7 +2,7 @@
 title = "push-jobs-client (executable)"
 draft = false
 
-aliases = "/ctl_push_jobs_client.html"
+aliases = ["/ctl_push_jobs_client.html"]
 
 [menu]
   [menu.docs]

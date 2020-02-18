@@ -2,7 +2,8 @@
 title: windows_firewall_rule resource
 resource: windows_firewall_rule
 draft: false
-aliases: /resource_windows_firewall_rule.html
+aliases:
+- /resource_windows_firewall_rule.html
 menu:
   docs:
     title: windows_firewall_rule
@@ -18,10 +19,10 @@ resource_description_list:
     windows firewall rules.'
 resource_new_in: '14.7'
 handler_types: false
-syntax_description: 'The windows_firewall_rule resource has the following syntax:'
-syntax_code_block: "windows_firewall_rule 'name' do\n  description          String\
-  \ # default value: \"Firewall rule\"\n  direction            Symbol, String # default\
-  \ value: :inbound\n  enabled              true, false # default value: true\n  firewall_action\
+syntax_description: "The windows_firewall_rule resource has the following syntax:\n\
+  \n``` ruby\nwindows_firewall_rule 'name' do\n  description          String # default\
+  \ value: \"Firewall rule\"\n  direction            Symbol, String # default value:\
+  \ :inbound\n  enabled              true, false # default value: true\n  firewall_action\
   \      Symbol, String # default value: :allow\n  interface_type       Symbol, String\
   \ # default value: :any\n  local_address        String\n  local_port           String,\
   \ Integer, Array\n  profile              Symbol, String, Array # default value:\
@@ -29,7 +30,8 @@ syntax_code_block: "windows_firewall_rule 'name' do\n  description          Stri
   \ \"TCP\"\n  remote_address       String\n  remote_port          String, Integer,\
   \ Array\n  rule_name            String # default value: 'name' unless specified\n\
   \  service              String\n  action               Symbol # defaults to :create\
-  \ if not specified\nend"
+  \ if not specified\nend\n```"
+syntax_code_block: null
 syntax_properties_list:
 - '`windows_firewall_rule` is the resource.'
 - '`name` is the name given to the resource block.'
@@ -142,7 +144,7 @@ properties_list:
 - property: rule_name
   ruby_type: String
   required: false
-  default_value: The resource blocks name
+  default_value: The resource block's name
   new_in: null
   description_list:
   - markdown: 'An optional property to set the name of the firewall rule to assign
@@ -172,7 +174,6 @@ resources_common_guards: true
 common_resource_functionality_multiple_packages: false
 resources_common_guard_interpreter: false
 remote_directory_recursive_directories: false
-directory_recursive_directories: false
 common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false

@@ -2,7 +2,7 @@
 title = "config.rb"
 draft = false
 
-aliases = "/config_rb.html"
+aliases = ["/config_rb.html", "/config_rb_knife.html"]
 
 [menu]
   [menu.docs]

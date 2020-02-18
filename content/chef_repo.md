@@ -2,7 +2,7 @@
 title = "About the chef-repo"
 draft = false
 
-aliases = "/chef_repo.html"
+aliases = ["/chef_repo.html"]
 
 [menu]
   [menu.docs]
@@ -47,15 +47,11 @@ The sub-directories in the chef-repo are:
 </tr>
 <tr class="odd">
 <td><code>data_bags/</code></td>
-<td>Stores data bags (and data bag items) in JSON (.json).</td>
+<td>Stores data bags (and data bag items) in JSON (.json) format.</td>
 </tr>
 <tr class="even">
-<td><code>environments/</code></td>
-<td>Stores environment in Ruby (.rb) or JSON (.json).</td>
-</tr>
-<tr class="odd">
-<td><code>roles/</code></td>
-<td>Stores roles in Ruby (.rb) or JSON (.json).</td>
+<td><code>policyfiles/</code></td>
+<td>Stores Policyfiles in Ruby (.rb) format.</td>
 </tr>
 </tbody>
 </table>
@@ -84,22 +80,12 @@ bag item. If a sub-directory does not exist, then create it using SSL
 commands. After a data bag item is created, it can then be uploaded to
 the Chef Infra Server.
 
-environments/
--------------
+policyfiles/
+------------
 
-The `environments/` directory is used to store the files that define the
-environments that are available to the Chef Infra Server. The
-environments files can be Ruby DSL files (.rb) or they can be JSON files
-(.json). Use knife to install environment files to the Chef Infra
-Server.
-
-roles/
-------
-
-The `roles/` directory is used to store the files that define the roles
-that are available to the Chef Infra Server. The roles files can be Ruby
-DSL files (.rb) or they can be JSON files (.json). Use knife to install
-role files to the Chef Infra Server.
+The `policyfiles/` directory is used to store Policyfiles that define
+the set of cookbooks and attributes to apply to specific systems managed
+by the Chef Infra Server.
 
 chefignore Files
 ================
@@ -116,8 +102,8 @@ uses the `File.fnmatch` Ruby syntax to define the ignore patterns using
 -   A pattern may match all files in a directory
 
 The chefignore file can be located in any subdirectory of a chef-repo:
-`/`, `/cookbooks`, `/cookbooks/COOKBOOK_NAME/`, `roles`, etc. It should
-contain sections similar to the following:
+`/`, `/cookbooks`, `/cookbooks/COOKBOOK_NAME/`, etc. It should contain
+sections similar to the following:
 
 ``` none
 # section
@@ -205,11 +191,19 @@ Many Users, Same Repo
 Create the chef-repo
 ====================
 
-To create a chef-repo, run the following command:
+Use the [chef generate repo command](/ctl_chef.html#chef-generate-repo)
+to create your chef-repo directory along with the base folder structure.
+This command uses the `chef` command-line tool that is packaged as part
+of Chef Workstation to create a chef-repo.
 
 ``` bash
 $ chef generate repo REPO_NAME
 ```
 
-This command uses the `chef` command-line tool that is packaged as part
-of Chef Workstation to create a chef-repo.
+{{< note >}}
+
+By default the chef generate repo command generates a base chef-repo
+configured for Policyfiles. To create a repository setup for Roles and
+Environments instead use the `--roles` flag when running the command.
+
+{{< /note >}}

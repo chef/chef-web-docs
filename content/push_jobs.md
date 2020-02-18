@@ -2,7 +2,7 @@
 title = "Chef Push Jobs"
 draft = false
 
-aliases = "/push_jobs.html"
+aliases = ["/push_jobs.html"]
 
 [menu]
   [menu.docs]

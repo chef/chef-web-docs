@@ -2,9 +2,17 @@ Use the `registry_value_exists?` method to find out if a registry key
 value exists. Use `registry_data_exists?` to test for the type and data
 of a registry key value.
 
-<div class="alert-info">
+<div class="admonition-note">
+
+<p class="admonition-note-title">Note</p>
+
+<div class="admonition-note-text">
 
 {{ readFile "layouts/shortcodes/notes_registry_key_not_if_only_if.md" | markdownify }}
+
+
+
+</div>
 
 </div>
 

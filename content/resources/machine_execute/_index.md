@@ -2,7 +2,8 @@
 title: machine_execute resource
 resource: machine_execute
 draft: false
-aliases: /resource_machine_execute.html
+aliases:
+- /resource_machine_execute.html
 resource_reference: false
 robots: noindex, nofollow
 resource_description_list:
@@ -15,10 +16,11 @@ resource_description_list:
     shortcode: EOL_provisioning.md
 resource_new_in: null
 handler_types: false
-syntax_description: 'The syntax for using the **machine_execute** resource in a recipe
-  is as follows:'
-syntax_code_block: "machine_execute 'name' do\n  attribute 'value' # see properties\
-  \ section below\n  ...\n  action :action # see actions section below\nend"
+syntax_description: "The syntax for using the **machine_execute** resource in a recipe\
+  \ is as\nfollows:\n\n``` ruby\nmachine_execute 'name' do\n  attribute 'value' #\
+  \ see properties section below\n  ...\n  action :action # see actions section below\n\
+  end\n```"
+syntax_code_block: null
 syntax_properties_list:
 - '`machine_execute` tells Chef Infra Client to use the `Chef::Provider::MachineExecute`
   provider during a Chef Infra Client run'
@@ -93,7 +95,6 @@ resources_common_guards: false
 common_resource_functionality_multiple_packages: false
 resources_common_guard_interpreter: false
 remote_directory_recursive_directories: false
-directory_recursive_directories: false
 common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false

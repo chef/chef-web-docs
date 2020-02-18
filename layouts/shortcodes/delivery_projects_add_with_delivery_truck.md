@@ -1,10 +1,10 @@
-<div class="alert-info">
+<div class="admonition-note"><p class="admonition-note-title">Note</p><div class="admonition-note-text">
 
 These instructions assume that you will use Chef Automate as your source
 code source of truth and that Chef Automate is not integrated with
 GitHub Enterprise or GitHub.com.
 
-</div>
+</div></div>
 
 This topic describes the recommended setup for a Chef cookbook project
 using Chef Automate.
@@ -27,9 +27,17 @@ privileges on the Chef Automate server, do the following:
     $ delivery setup --server=SERVER --ent=ENTERPRISE --org=ORGANIZATION --user=USERNAME
     ```
 
-    <div class="alert-info">
+    <div class="admonition-note">
+
+    <p class="admonition-note-title">Note</p>
+
+    <div class="admonition-note-text">
 
     The server, enterprise, organization, and user must already exist.
+
+    
+
+    </div>
 
     </div>
 

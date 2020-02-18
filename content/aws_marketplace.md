@@ -2,7 +2,7 @@
 title = "AWS Marketplace"
 draft = false
 
-aliases = "/aws_marketplace.html"
+aliases = ["/aws_marketplace.html"]
 
 [menu]
   [menu.docs]

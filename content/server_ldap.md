@@ -2,7 +2,7 @@
 title = "Active Directory and LDAP"
 draft = false
 
-aliases = "/server_ldap.html"
+aliases = ["/server_ldap.html", "/install_server_post.html"]
 
 [menu]
   [menu.docs]

@@ -2,7 +2,8 @@
 title: chocolatey_config resource
 resource: chocolatey_config
 draft: false
-aliases: /resource_chocolatey_config.html
+aliases:
+- /resource_chocolatey_config.html
 menu:
   docs:
     title: chocolatey_config
@@ -26,10 +27,11 @@ resource_description_list:
       node''s run list.'
 resource_new_in: '14.3'
 handler_types: false
-syntax_description: 'The chocolatey_config resource has the following syntax:'
-syntax_code_block: "chocolatey_config 'name' do\n  config_key      String # default\
-  \ value: 'name' unless specified\n  value           String\n  action          Symbol\
-  \ # defaults to :set if not specified\nend"
+syntax_description: "The chocolatey_config resource has the following syntax:\n\n\
+  ``` ruby\nchocolatey_config 'name' do\n  config_key      String # default value:\
+  \ 'name' unless specified\n  value           String\n  action          Symbol #\
+  \ defaults to :set if not specified\nend\n```"
+syntax_code_block: null
 syntax_properties_list:
 - '`chocolatey_config` is the resource.'
 - '`name` is the name given to the resource block.'
@@ -54,7 +56,7 @@ properties_list:
 - property: config_key
   ruby_type: String
   required: false
-  default_value: The resource blocks name
+  default_value: The resource block's name
   new_in: null
   description_list:
   - markdown: 'An optional property to set the config key name if it differs from
@@ -84,7 +86,6 @@ resources_common_guards: true
 common_resource_functionality_multiple_packages: false
 resources_common_guard_interpreter: false
 remote_directory_recursive_directories: false
-directory_recursive_directories: false
 common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false
@@ -93,7 +94,7 @@ examples_list:
 - example_heading: Set the Chocolatey cacheLocation config
   text_blocks:
   - code_block: "chocolatey_config 'Set cacheLocation config' do\n  config_key 'cacheLocation'\n\
-      \  value 'C:  emp\boco'\nend"
+      \  value 'C:  empoco'\nend"
 - example_heading: Unset a Chocolatey config
   text_blocks:
   - code_block: "chocolatey_config 'BogusConfig' do\n  action :unset\nend"

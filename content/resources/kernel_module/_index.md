@@ -2,7 +2,8 @@
 title: kernel_module resource
 resource: kernel_module
 draft: false
-aliases: /resource_kernel_module.html
+aliases:
+- /resource_kernel_module.html
 menu:
   docs:
     title: kernel_module
@@ -20,12 +21,12 @@ resource_description_list:
     and uninstall modules.'
 resource_new_in: '14.3'
 handler_types: false
-syntax_description: 'The kernel_module resource has the following syntax:'
-syntax_code_block: "kernel_module 'name' do\n  load_dir        String # default value:\
-  \ \"/etc/modules-load.d\"\n  modname         String # default value: 'name' unless\
-  \ specified\n  options         Array\n  unload_dir      String # default value:\
-  \ \"/etc/modprobe.d\"\n  action          Symbol # defaults to :install if not specified\n\
-  end"
+syntax_description: "The kernel_module resource has the following syntax:\n\n``` ruby\n\
+  kernel_module 'name' do\n  load_dir        String # default value: \"/etc/modules-load.d\"\
+  \n  modname         String # default value: 'name' unless specified\n  options \
+  \        Array\n  unload_dir      String # default value: \"/etc/modprobe.d\"\n\
+  \  action          Symbol # defaults to :install if not specified\nend\n```"
+syntax_code_block: null
 syntax_properties_list:
 - '`kernel_module` is the resource.'
 - '`name` is the name given to the resource block.'
@@ -70,7 +71,7 @@ properties_list:
 - property: modname
   ruby_type: String
   required: false
-  default_value: The resource blocks name
+  default_value: The resource block's name
   new_in: null
   description_list:
   - markdown: 'An optional property to set the kernel module name if it differs
@@ -107,7 +108,6 @@ resources_common_guards: true
 common_resource_functionality_multiple_packages: false
 resources_common_guard_interpreter: false
 remote_directory_recursive_directories: false
-directory_recursive_directories: false
 common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false

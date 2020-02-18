@@ -2,7 +2,7 @@
 title = "Integrate Workflow with Slack"
 draft = false
 
-aliases = "/integrate_delivery_slack.html"
+aliases = ["/integrate_delivery_slack.html", "/release/automate/integrate_delivery_slack.html"]
 
 [menu]
   [menu.docs]

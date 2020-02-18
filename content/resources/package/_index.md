@@ -2,7 +2,8 @@
 title: package resource
 resource: package
 draft: false
-aliases: /resource_package.html
+aliases:
+- /resource_package.html
 menu:
   docs:
     title: package
@@ -35,60 +36,66 @@ resource_description_list:
     see the following topics:
 
 
-    -   [apt_package](/resource_apt_package/)
+    -   [apt_package](/resources/apt_package/)
 
-    -   [bff_package](/resource_bff_package/)
+    -   [bff_package](/resources/bff_package/)
 
-    -   [cab_package](/resource_cab_package/)
+    -   [cab_package](/resources/cab_package/)
 
-    -   [chef_gem](/resource_chef_gem/)
+    -   [chef_gem](/resources/chef_gem/)
 
-    -   [chocolatey_package](/resource_chocolatey_package/)
+    -   [chocolatey_package](/resources/chocolatey_package/)
 
-    -   [dmg_package](/resource_dmg_package/)
+    -   [dmg_package](/resources/dmg_package/)
 
-    -   [dnf_package](/resource_dnf_package/)
+    -   [dnf_package](/resources/dnf_package/)
 
-    -   [dpkg_package](/resource_dpkg_package/)
+    -   [dpkg_package](/resources/dpkg_package/)
 
-    -   [freebsd_package](/resource_freebsd_package/)
+    -   [freebsd_package](/resources/freebsd_package/)
 
-    -   [gem_package](/resource_gem_package/)
+    -   [gem_package](/resources/gem_package/)
 
-    -   [homebrew_package](/resource_homebrew_package/)
+    -   [homebrew_package](/resources/homebrew_package/)
 
-    -   [ips_package](/resource_ips_package/)
+    -   [ips_package](/resources/ips_package/)
 
-    -   [macports_package](/resource_macports_package/)
+    -   [macports_package](/resources/macports_package/)
 
-    -   [msu_package](/resource_msu_package/)
+    -   [msu_package](/resources/msu_package/)
 
-    -   [openbsd_package](/resource_openbsd_package/)
+    -   [openbsd_package](/resources/openbsd_package/)
 
-    -   [pacman_package](/resource_pacman_package/)
+    -   [pacman_package](/resources/pacman_package/)
 
-    -   [paludis_package](/resource_paludis_package/)
+    -   [paludis_package](/resources/paludis_package/)
 
-    -   [portage_package](/resource_portage_package/)
+    -   [portage_package](/resources/portage_package/)
 
-    -   [rpm_package](/resource_rpm_package/)
+    -   [rpm_package](/resources/rpm_package/)
 
-    -   [smartos_package](/resource_smartos_package/)
+    -   [smartos_package](/resources/smartos_package/)
 
-    -   [snap_package](/resource_snap_package/)
+    -   [snap_package](/resources/snap_package/)
 
-    -   [solaris_package](/resource_solaris_package/)
+    -   [solaris_package](/resources/solaris_package/)
 
-    -   [windows_package](/resource_windows_package/)
+    -   [windows_package](/resources/windows_package/)
 
-    -   [yum_package](/resource_yum_package/)
+    -   [yum_package](/resources/yum_package/)
 
-    -   [zypper_package](/resource_zypper_package/)'
+    -   [zypper_package](/resources/zypper_package/)'
 resource_new_in: null
 handler_types: false
-syntax_description: 'A **package** resource block manages a package on a node, typically
-  by installing it. The simplest use of the **package** resource is:'
-syntax_code_block: package 'httpd'
+syntax_description: "A **package** resource block manages a package on a node, typically\
+  \ by\ninstalling it. The simplest use of the **package** resource is:\n\n``` ruby\n\
+  package 'httpd'\n```\n\nwhich will install Apache using all of the default options\
+  \ and the\ndefault action (`:install`).\n\nFor a package that has different package\
+  \ names, depending on the\nplatform, use a `case` statement within the **package**:\n\
+  \n``` ruby\npackage 'Install Apache' do\n  case node[:platform]\n  when 'redhat',\
+  \ 'centos'\n    package_name 'httpd'\n  when 'ubuntu', 'debian'\n    package_name\
+  \ 'apache2'\n  end\nend\n```"
+syntax_code_block: null
 syntax_properties_list:
 - '`''redhat'', ''centos''` will install Apache using the `httpd` package
 
@@ -115,61 +122,7 @@ syntax_full_properties_list:
   `options`, `package_name`, `response_file`, `response_file_variables`, `source`,
   `recursive`, `timeout`, and `version` are properties of this resource, with the
   Ruby type shown. See "Properties" section below for more information about all of
-  the properties that may be used with this resource.
-
-
-  Gem Package Options'
-- '{{% resource_package_options %}}
-
-
-  {{< warning >}}
-
-
-  Gem package options should only be used when gems are installed into the
-
-  system'
-- 'wide instance of Ruby, and not the instance of Ruby dedicated to
-
-  Chef Infra Client.
-
-
-  {{< /warning >}}
-
-
-  ### Specify with Hash
-
-
-  {{% resource_package_options_hash %}}
-
-
-  **Example**
-
-
-  {{% resource_package_install_gem_with_hash_options %}}
-
-
-  ### Specify with String
-
-
-  {{% resource_package_options_string %}}
-
-
-  **Example**
-
-
-  {{% resource_package_install_gem_with_options_string %}}
-
-
-  ### Specify with .gemrc File
-
-
-  {{% resource_package_options_gemrc %}}
-
-
-  **Example**
-
-
-  {{% resource_package_install_gem_with_gemrc %}}'
+  the properties that may be used with this resource.'
 syntax_shortcode: null
 registry_key: false
 nameless_apt_update: false
@@ -188,7 +141,7 @@ actions_list:
   :reconfig:
     markdown: Reconfigure a package. This action requires a response file.
   :remove:
-    markdown: action.)
+    markdown: Remove a package.
   :upgrade:
     markdown: Install a package and/or ensure that a package is the latest version.
 properties_list:
@@ -382,7 +335,6 @@ resources_common_guards: false
 common_resource_functionality_multiple_packages: null
 resources_common_guard_interpreter: false
 remote_directory_recursive_directories: false
-directory_recursive_directories: false
 common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false

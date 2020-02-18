@@ -2,7 +2,7 @@
 title = "Upgrading Chef Infra Client"
 draft = false
 
-aliases = "/upgrade_client.html"
+aliases = ["/upgrade_client.html"]
 
 [menu]
   [menu.docs]

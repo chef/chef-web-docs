@@ -2,7 +2,7 @@
 title = "Manage Cookbooks"
 draft = false
 
-aliases = "/server_manage_cookbooks.html"
+aliases = ["/server_manage_cookbooks.html"]
 
 [menu]
   [menu.docs]

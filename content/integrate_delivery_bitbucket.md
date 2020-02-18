@@ -2,7 +2,7 @@
 title = "Integrate Workflow with Bitbucket"
 draft = false
 
-aliases = "/integrate_delivery_bitbucket.html"
+aliases = ["/integrate_delivery_bitbucket.html", "/release/automate/integrate_delivery_bitbucket.html"]
 
 [menu]
   [menu.docs]

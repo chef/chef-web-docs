@@ -2,7 +2,7 @@
 title = "Install Chef in an air-gapped environment"
 draft = false
 
-aliases = "/install_chef_air_gap.html"
+aliases = ["/install_chef_air_gap.html"]
 
 [menu]
   [menu.docs]

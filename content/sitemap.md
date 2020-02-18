@@ -22,7 +22,7 @@ This is the documentation for:
 
 Documentation for other Chef products:
 
--   [Chef Automate 2.0](https://automate.chef.io/docs/quickstart/)
+-   [Chef Automate 2.0](https://automate.chef.io/docs/quickstart)
 -   [Chef Habitat](https://www.habitat.sh/docs/)
 -   [Chef InSpec](https://www.inspec.io/docs/)
 
@@ -79,16 +79,16 @@ Jobs](/release_notes_push_jobs/) |
 Concepts
 --------
 
-[Chef Workstation](/workstation/) | [chef-repo](/chef_repo/) |
-[Nodes](/nodes/) | [Chef Infra Client
-Overview](/chef_client_overview/) | [Chef Infra Server
+[Chef Workstation](/about_workstation/) |
+[chef-repo](/chef_repo.html) | [Nodes](/nodes/) | [Chef Infra
+Client Overview](/chef_client_overview/) | [Chef Infra Server
 Overview](/server_overview/) | [Search](/chef_search/) |
-[Cookbooks](/cookbooks/) | [Handlers](/handlers/) |
+[Cookbooks](/cookbooks/) | [Handlers](/handlers/)
 
 **Policy**: [About Policy](/policy/) | [Data Bags](/data_bags/)
 | [Environments](/environments/) | [Roles](/roles/)
 
-[Push Jobs](/push_jobs/) | [Run-lists](/run_lists/)
+[Push Jobs](/push_jobs/) | [Run-lists](/run_lists.html)
 
 **Security**: [Authentication](/auth.html#authentication) |
 [Authorization](/auth.html#authorization) |
@@ -129,7 +129,7 @@ via Script](/install_omnibus/) | [chef-client
 **Server**: [Hosted Chef Infra
 Server](https://manage.chef.io/signup.html) | [Install
 Standalone](/install_server.html#standalone) | [Chef Infra Server
-Prerequisites](/install_server_pre) | [Tiered
+Prerequisites](/install_server_pre/) | [Tiered
 Installation](/install_server_tiered/) | [Install High
 Availability](/install_server_ha/) | [Upgrade High
 Availability](/upgrade_server_ha_v2/)
@@ -148,7 +148,7 @@ Jobs](/install_push_jobs/)
 Azure](/azure_portal/) | [Google Cloud Platform](/google/) |
 [VMware](/vmware/)
 
-[Air-gapped Installation](/install_chef_air_gap/) | [Microsoft
+[Air-gapped Installation](/install_chef_air_gap.html) | [Microsoft
 Windows](/windows/) | [Uninstall](/uninstall/)
 
 Cookbook Reference
@@ -161,144 +161,143 @@ Cookbook Reference
 Runs](/debug.html)
 
 **Resources**: [About Resources](/resource/) | [Common Resource
-Functionality](/resource_common/) | [Custom
+Functionality](/resources/common/) | [Custom
 Resources](/custom_resources/) | [Converting Definitions to Custom
-Resources](/definitions/) | [All Resources (Single
-Page)](/resource_reference.html) |
+Resources](/definitions/)
 
-[apt_package](/resource_apt_package/) |
-[apt_preference](/resource_apt_preference/) |
-[apt_repository](/resource_apt_repository/) |
-[apt_update](/resource_apt_update/) |
-[archive_file](/resource_archive_file/) |
-[bash](/resource_bash/) | [batch](/resource_batch/) |
-[bff_package](/resource_bff_package/) |
-[breakpoint](/resource_breakpoint/) |
-[build_essential](/resource_build_essential/) |
-[cab_package](/resource_cab_package/) |
-[chef_acl](/resource_chef_acl/) |
-[chef_client](/resource_chef_client/) |
-[chef_container](/resource_chef_container/) |
-[chef_data_bag](/resource_chef_data_bag/) |
-[chef_data_bag_item](/resource_chef_data_bag_item/) |
-[chef_environment](/resource_chef_environment/) |
-[chef_gem](/resource_chef_gem/) |
-[chef_group](/resource_chef_group/) |
-[chef_handler](/resource_chef_handler/) |
-[chef_mirror](/resource_chef_mirror/) |
-[chef_node](/resource_chef_node/) |
-[chef_organization](/resource_chef_organization/) |
-[chef_role](/resource_chef_role/) |
-[chef_sleep](/resource_chef_sleep/) |
-[chef_user](/resource_chef_user/) |
-[chocolatey_config](/resource_chocolatey_config/) |
-[chocolatey_feature](/resource_chocolatey_feature/) |
-[chocolatey_package](/resource_chocolatey_package/) |
-[chocolatey_source](/resource_chocolatey_source/) |
-[cookbook_file](/resource_cookbook_file/) |
-[cron](/resource_cron/) | [cron_d](/resource_cron_d/) |
-[cron_access](/resource_cron_access/) | [csh](/resource_csh/)
-| [deploy](/resource_deploy/) |
-[directory](/resource_directory/) |
-[dmg_package](/resource_dmg_package/) |
-[dnf_package](/resource_dnf_package/) |
-[dpkg_package](/resource_dpkg_package/) |
-[dsc_resource](/resource_dsc_resource/) |
-[dsc_script](/resource_dsc_script/) |
-[erl_call](/resource_erlang_call/) |
-[execute](/resource_execute/) | [file](/resource_file/) |
-[freebsd_package](/resource_freebsd_package/) |
-[gem_package](/resource_gem_package/) | [git](/resource_git/)
-| [group](/resource_group/) |
-[homebrew_cask](/resource_homebrew_cask/) |
-[homebrew_package](/resource_homebrew_package/) |
-[homebrew_tap](/resource_homebrew_tap/) |
-[hostname](/resource_hostname/) |
-[http_request](/resource_http_request/) |
-[ifconfig](/resource_ifconfig/) |
-[ips_package](/resource_ips_package/) |
-[kernel_module](/resource_kernel_module/) |
-[ksh](/resource_ksh/) | [launchd](/resource_launchd/) |
-[link](/resource_link/) | [log](/resource_log/) |
-[locale](/resource_locale/) |
-[macos_userdefaults](/resource_macos_userdefaults/) |
-[macports_package](/resource_macports_package/) |
-[mdadm](/resource_mdadm/) | [mount](/resource_mount/) |
-[msu_package](/resource_msu_package) | [ohai](/resource_ohai/) |
-[ohai_hint](/resource_ohai_hint/) |
-[openbsd_package](/resource_openbsd_package/) |
-[openssl_dhparam](/resource_openssl_dhparam/) |
-[openssl_ec_private_key](/resource_openssl_ec_private_key/) |
-[openssl_ec_public_key](/resource_openssl_ec_public_key/) |
-[openssl_rsa_private_key](/resource_openssl_rsa_private_key/) |
-[openssl_rsa_public_key](/resource_openssl_rsa_public_key/) |
-[openssl_x509_certificate](/resource_openssl_x509_certificate/) |
-[openssl_x509_crl](/resource_openssl_x509_crl/) |
-[openssl_x509_request](/resource_openssl_x509_request/) |
-[osx_profile](/resource_osx_profile/) |
-[package](/resource_package/) |
-[pacman_package](/resource_pacman_package/) |
-[paludis_package](/resource_paludis_package/) |
-[perl](/resource_perl/) |
-[portage_package](/resource_portage_package/) |
-[powershell_package](/resource_powershell_package/) |
-[powershell_package_source](/resource_powershell_package_source/)
-| [powershell_script](/resource_powershell_script/) |
-[private_key](/resource_private_key/) |
-[public_key](/resource_public_key/) |
-[python](/resource_python/) | [reboot](/resource_reboot/) |
-[registry_key](/resource_registry_key/) |
-[remote_directory](/resource_remote_directory/) |
-[remote_file](/resource_remote_file/) |
-[rhsm_errata](/resource_rhsm_errata/) |
-[rhsm_errata_level](/resource_rhsm_errata_level/) |
-[rhsm_register](/resource_rhsm_register/) |
-[rhsm_repo](/resource_rhsm_repo/) |
-[rhsm_subscription](/resource_rhsm_subscription/) |
-[route](/resource_route/) |
-[rpm_package](/resource_rpm_package/) |
-[ruby](/resource_ruby/) | [ruby_block](/resource_ruby_block/)
-| [script](/resource_script/) | [service](/resource_service/)
-| [smartos_package](/resource_smartos_package/) |
-[snap_package](/resource_snap_package/) |
-[solaris_package](/resource_solaris_package/) |
-[ssh_known_hosts_entry](/resource_ssh_known_hosts_entry/) |
-[subversion](/resource_subversion/) | [sudo](/resource_sudo/)
-| [swap_file](/resource_swap_file/) |
-[sysctl](/resource_sysctl/) |
-[systemd_unit](/resource_systemd_unit/) |
-[template](/resource_template/) |
-[timezone](/resource_timezone/) | [user](/resource_user/) |
-[windows_ad_join](/resource_windows_ad_join/) |
-[windows_auto_run](/resource_windows_auto_run/) |
-[windows_certificate](/resource_windows_certificate/) |
-[windows_dfs_folder](/resource_windows_dfs_folder/) |
-[windows_dfs_namespace](/resource_windows_dfs_namespace/) |
-[windows_dfs_server](/resource_windows_dfs_server/) |
-[windows_dns_record](/resource_windows_dns_record/) |
-[windows_dns_zone](/resource_windows_dns_zone/) |
-[windows_env](/resource_windows_env/) |
-[windows_feature](/resource_windows_feature/) |
-[windows_feature_dism](/resource_windows_feature_dism/) |
-[windows_feature_powershell](/resource_windows_feature_powershell/)
-| [windows_firewall_rule](/resource_windows_firewall_rule/) |
-[windows_font](/resource_windows_font/) |
-[windows_package](/resource_windows_package/) |
-[windows_pagefile](/resource_windows_pagefile/) |
-[windows_path](/resource_windows_path/) |
-[windows_printer](/resource_windows_printer/) |
-[windows_printer_port](/resource_windows_printer_port/) |
-[windows_service](/resource_windows_service/) |
-[windows_share](/resource_windows_share/) |
-[windows_shortcut](/resource_windows_shortcut/) |
-[windows_task](/resource_windows_task/) |
-[windows_uac](/resource_windows_uac/) |
-[windows_workgroup](/resource_windows_workgroup/) |
-[yum_package](/resource_yum_package/) |
-[yum_repository](/resource_yum_repository/) |
-[zypper_package](/resource_zypper_package/) |
-[zypper_repository](/resource_zypper_repository/)
-
+[All Resources (Single Page)](/resources/) |
+[apt_package](/resources/apt_package/) |
+[apt_preference](/resources/apt_preference/) |
+[apt_repository](/resources/apt_repository/) |
+[apt_update](/resources/apt_update/) |
+[archive_file](/resources/archive_file/) |
+[bash](/resources/bash/) | [batch](/resources/batch/) |
+[bff_package](/resources/bff_package/) |
+[breakpoint](/resources/breakpoint/) |
+[build_essential](/resources/build_essential/) |
+[cab_package](/resources/cab_package/) |
+[chef_acl](/resources/chef_acl/) |
+[chef_client](/resources/chef_client/) |
+[chef_container](/resources/chef_container/) |
+[chef_data_bag](/resources/chef_data_bag/) |
+[chef_data_bag_item](/resources/chef_data_bag_item/) |
+[chef_environment](/resources/chef_environment/) |
+[chef_gem](/resources/chef_gem/) |
+[chef_group](/resources/chef_group/) |
+[chef_handler](/resources/chef_handler/) |
+[chef_mirror](/resources/chef_mirror/) |
+[chef_node](/resources/chef_node/) |
+[chef_organization](/resources/chef_organization/) |
+[chef_role](/resources/chef_role/) |
+[chef_sleep](/resources/chef_sleep/) |
+[chef_user](/resources/chef_user/) |
+[chocolatey_config](/resources/chocolatey_config/) |
+[chocolatey_feature](/resources/chocolatey_feature/) |
+[chocolatey_package](/resources/chocolatey_package/) |
+[chocolatey_source](/resources/chocolatey_source/) |
+[cookbook_file](/resources/cookbook_file/) |
+[cron](/resources/cron/) | [cron_d](/resources/cron_d/) |
+[cron_access](/resources/cron_access/) | [csh](/resources/csh/)
+| [deploy](/resources/deploy/) |
+[directory](/resources/directory/) |
+[dmg_package](/resources/dmg_package/) |
+[dnf_package](/resources/dnf_package/) |
+[dpkg_package](/resources/dpkg_package/) |
+[dsc_resource](/resources/dsc_resource/) |
+[dsc_script](/resources/dsc_script/) |
+[erl_call](/resources/erlang_call/) |
+[execute](/resources/execute/) | [file](/resources/file/) |
+[freebsd_package](/resources/freebsd_package/) |
+[gem_package](/resources/gem_package/) | [git](/resources/git/)
+| [group](/resources/group/) |
+[homebrew_cask](/resources/homebrew_cask/) |
+[homebrew_package](/resources/homebrew_package/) |
+[homebrew_tap](/resources/homebrew_tap/) |
+[hostname](/resources/hostname/) |
+[http_request](/resources/http_request/) |
+[ifconfig](/resources/ifconfig/) |
+[ips_package](/resources/ips_package/) |
+[kernel_module](/resources/kernel_module/) |
+[ksh](/resources/ksh/) | [launchd](/resources/launchd/) |
+[link](/resources/link/) | [log](/resources/log/) |
+[locale](/resources/locale/) |
+[macos_userdefaults](/resources/macos_userdefaults/) |
+[macports_package](/resources/macports_package/) |
+[mdadm](/resources/mdadm/) | [mount](/resources/mount/) |
+[msu_package](/resources/msu_package/) |
+[ohai](/resources/ohai/) | [ohai_hint](/resources/ohai_hint/) |
+[openbsd_package](/resources/openbsd_package/) |
+[openssl_dhparam](/resources/openssl_dhparam/) |
+[openssl_ec_private_key](/resources/openssl_ec_private_key/) |
+[openssl_ec_public_key](/resources/openssl_ec_public_key/) |
+[openssl_rsa_private_key](/resources/openssl_rsa_private_key/) |
+[openssl_rsa_public_key](/resources/openssl_rsa_public_key/) |
+[openssl_x509_certificate](/resources/openssl_x509_certificate/) |
+[openssl_x509_crl](/resources/openssl_x509_crl/) |
+[openssl_x509_request](/resources/openssl_x509_request/) |
+[osx_profile](/resources/osx_profile/) |
+[package](/resources/package/) |
+[pacman_package](/resources/pacman_package/) |
+[paludis_package](/resources/paludis_package/) |
+[perl](/resources/perl/) |
+[portage_package](/resources/portage_package/) |
+[powershell_package](/resources/powershell_package/) |
+[powershell_package_source](/resources/powershell_package_source/)
+| [powershell_script](/resources/powershell_script/) |
+[private_key](/resources/private_key/) |
+[public_key](/resources/public_key/) |
+[python](/resources/python/) | [reboot](/resources/reboot/) |
+[registry_key](/resources/registry_key/) |
+[remote_directory](/resources/remote_directory/) |
+[remote_file](/resources/remote_file/) |
+[rhsm_errata](/resources/rhsm_errata/) |
+[rhsm_errata_level](/resources/rhsm_errata_level/) |
+[rhsm_register](/resources/rhsm_register/) |
+[rhsm_repo](/resources/rhsm_repo/) |
+[rhsm_subscription](/resources/rhsm_subscription/) |
+[route](/resources/route/) |
+[rpm_package](/resources/rpm_package/) |
+[ruby](/resources/ruby/) | [ruby_block](/resources/ruby_block/)
+| [script](/resources/script/) | [service](/resources/service/)
+| [smartos_package](/resources/smartos_package/) |
+[snap_package](/resources/snap_package/) |
+[solaris_package](/resources/solaris_package/) |
+[ssh_known_hosts_entry](/resources/ssh_known_hosts_entry/) |
+[subversion](/resources/subversion/) | [sudo](/resources/sudo/)
+| [swap_file](/resources/swap_file/) |
+[sysctl](/resources/sysctl/) |
+[systemd_unit](/resources/systemd_unit/) |
+[template](/resources/template/) |
+[timezone](/resources/timezone/) | [user](/resources/user/) |
+[windows_ad_join](/resources/windows_ad_join/) |
+[windows_auto_run](/resources/windows_auto_run/) |
+[windows_certificate](/resources/windows_certificate/) |
+[windows_dfs_folder](/resources/windows_dfs_folder/) |
+[windows_dfs_namespace](/resources/windows_dfs_namespace/) |
+[windows_dfs_server](/resources/windows_dfs_server/) |
+[windows_dns_record](/resources/windows_dns_record/) |
+[windows_dns_zone](/resources/windows_dns_zone/) |
+[windows_env](/resources/windows_env/) |
+[windows_feature](/resources/windows_feature/) |
+[windows_feature_dism](/resources/windows_feature_dism/) |
+[windows_feature_powershell](/resources/windows_feature_powershell/)
+| [windows_firewall_rule](/resources/windows_firewall_rule/) |
+[windows_font](/resources/windows_font/) |
+[windows_package](/resources/windows_package/) |
+[windows_pagefile](/resources/windows_pagefile/) |
+[windows_path](/resources/windows_path/) |
+[windows_printer](/resources/windows_printer/) |
+[windows_printer_port](/resources/windows_printer_port/) |
+[windows_service](/resources/windows_service/) |
+[windows_share](/resources/windows_share/) |
+[windows_shortcut](/resources/windows_shortcut/) |
+[windows_task](/resources/windows_task/) |
+[windows_uac](/resources/windows_uac/) |
+[windows_workgroup](/resources/windows_workgroup/) |
+[yum_package](/resources/yum_package/) |
+[yum_repository](/resources/yum_repository/) |
+[zypper_package](/resources/zypper_package/) |
+[zypper_repository](/resources/zypper_repository/)
 [Templates](/templates/) | [Cookbook Repo](/cookbook_repo/) |
 [metadata.rb](/config_rb_metadata.html) | [Cookbook
 Versioning](/cookbook_versioning/) | [Ruby Guide](/ruby/)
@@ -332,7 +331,7 @@ shell-init](/ctl_chef.html#chef-shell-init)
 **Chef Solo**: [About Chef Solo](/chef_solo/) | [chef-solo
 (executable)](/ctl_chef_solo.html) | [solo.rb](/config_rb_solo.html) |
 [chef-zero (local mode)](/ctl_chef_client.html#run-in-local-mode) |
-[chef-vault](/chef_vault/) | [ChefSpec](/chefspec/)
+[chef-vault](/chef_vault.html) | [ChefSpec](/chefspec/)
 
 **Configuration**: [config.rb](/config_rb.html) | [Optional config.rb
 Settings](/config_rb_optional_settings.html) | [Multiple Config
@@ -341,9 +340,9 @@ Files](/config_rb_client.html#d-directories.html) |
 [Foodcritic](/foodcritic/)
 
 **Kitchen**: [About Kitchen](/kitchen/) | [kitchen
-(executable)](/ctl_kitchen.html) |
+(executable)](/ctl_kitchen/) |
 [kitchen.yml](/config_yml_kitchen.html)
-[kitchen-vagrant](/plugin_kitchen_vagrant/)
+[kitchen-vagrant](/plugin_kitchen_vagrant.html)
 
 **Knife**: [About Knife](/knife/) | [Common
 Options](/knife_options/) | [Setting up Knife](/knife_setup/)
@@ -388,14 +387,14 @@ org user
 remove](/plugin_knife_opc.html#plugin-knife-opc-opc-org-user-remove)
 
 **Ohai**: [About Ohai](/ohai/) | [ohai
-(executable)](/ctl_ohai.html)
+(executable)](/ctl_ohai/)
 
 **Policyfile**: [About Policyfile](/policyfile/) |
 [Policyfile.rb](/config_rb_policyfile.html)
 
 [push-jobs-client (executable)](/ctl_push_jobs_client.html)
 
-**Managing Chef Infra Server**: [Runbook (Single Page)](/runbook.html)
+**Managing Chef Infra Server**: [Runbook (Single Page)](/runbook/)
 | [Backend Cluster Failure Recovery](/backend_failure_recovery/) |
 [Backup and Restore](/server_backup_restore/) | [Firewalls and
 Ports](/server_firewalls_and_ports/) | [Active Directory and
@@ -405,17 +404,17 @@ Groups](/server_orgs/) | [Secrets](/secrets/) |
 [Security](/server_security/) | [Services](/server_services/)
 | [Tuning](/server_tuning/) | [Upgrades](/upgrade_server/) |
 [Upgrade HA Cluster](/upgrade_server_ha_v2/) |
-[Users](/server_users/) | [chef-server-ctl](/ctl_chef_server/)
-| [chef-backend-ctl](/ctl_chef_backend/) |
+[Users](/server_users/) | [chef-server-ctl](/ctl_chef_server.html)
+| [chef-backend-ctl](/ctl_chef_backend.html) |
 [chef-server.rb](/config_rb_server.html) | [Chef Server Optional
 Settings](/config_rb_server_optional_settings/) |
-[opscode-expander-ctl](/ctl_opscode_expander/) | [Chef Infra Server
+[opscode-expander-ctl](/ctl_opscode_expander.html) | [Chef Infra Server
 API](/api_chef_server/)
 
 **FIPS** [FIPS Overview](/fips/)
 
 **Push Jobs**: [knife push jobs](/plugin_knife_push_jobs/) |
-[push-jobs-client](/ctl_push_jobs_client/) |
+[push-jobs-client](/ctl_push_jobs_client.html) |
 [push-jobs-client.rb](/config_rb_push_jobs_client.html) |
 [push-jobs-server.rb](/config_rb_push_jobs_server.html) | [Push Jobs
 API](/api_push_jobs/) | [Server Sent
@@ -426,7 +425,7 @@ Restore](/supermarket_backup_restore/) |
 [Monitoring](/supermarket_monitor/) |
 [supermarket.rb](/config_rb_supermarket.html) | [knife
 supermarket](/knife_supermarket/) |
-[supermarket-ctl](/ctl_supermarket/) | [Supermarket
+[supermarket-ctl](/ctl_supermarket.html) | [Supermarket
 API](/supermarket_api/)
 
 **Management Console**: [Configure SAML](/server_configure_saml/) |
@@ -437,58 +436,69 @@ Bags](/server_manage_data_bags/) |
 [Nodes](/server_manage_nodes/) | [Roles](/server_manage_roles/)
 | [Users](/server_users.html#chef-manage.html) |
 [manage.rb](/config_rb_manage.html) |
-[chef-manage-ctl](/ctl_manage/)
+[chef-manage-ctl](/ctl_manage.html)
 
 Chef Automate
 =============
 
-[Chef Automate Documentation](https://automate.chef.io/docs/) | [Quick
-Start Demo](https://automate.chef.io/docs/quickstart/) | [System
-Requirements](https://automate.chef.io/docs/system-requirements/) |
-[Upgrade from Chef Automate One](https://automate.chef.io/docs/upgrade/)
-| [Installation Guide](https://automate.chef.io/docs/install/) |
-[Backup and Restore](https://automate.chef.io/docs/backup/) |
-[Configuration](https://automate.chef.io/docs/configuration/) | [Data
-Collection](https://automate.chef.io/docs/data-collection/) | [Log
-Management](https://automate.chef.io/docs/log-management/) |
-[Telemetry](https://automate.chef.io/docs/telemetry/) | [Event
-Feed](https://automate.chef.io/docs/event-feed/) | [Client
-Runs](https://automate.chef.io/docs/client-runs/) | [Scan
-Jobs](https://automate.chef.io/docs/scan-jobs/) | [Nodes
-API](https://automate.chef.io/docs/nodes/) | [Cloud
-Integrations](https://automate.chef.io/docs/integrations/) | [Asset
-Store](https://automate.chef.io/docs/asset-store/) | [Admin
-Panel](https://automate.chef.io/docs/admin/) |
-[Credentials](https://automate.chef.io/docs/credentials/) |
-[Notifications](https://automate.chef.io/docs/notifications/) | [Node
-Integrations](https://automate.chef.io/docs/integrations-ui/) |
-[Authorization](https://automate.chef.io/docs/authorization/) | [Users
-and Teams](https://automate.chef.io/docs/users-and-teams/) | [API
-Tokens](https://automate.chef.io/docs/api-tokens/) | [Default
-Policies](https://automate.chef.io/docs/default-policies/) | [LDAP
-Integration](https://automate.chef.io/docs/ldap/) |
-[Architecture](https://automate.chef.io/docs/architectural-overview/) |
-[Chef Automate CLI](https://automate.chef.io/docs/cli-chef-automate/) |
-[ServiceNow
-Integration](https://automate.chef.io/docs/servicenow-integration-install/)
-| [Troubleshooting](https://automate.chef.io/docs/troubleshooting/)
+[Chef Automate Documentation](https://automate.chef.io/docs) | [Quick
+Start Demo](https://automate.chef.io/docs/quickstart) | [System
+Requirements](https://automate.chef.io/docs/system-requirements) |
+[Installation Guide](https://automate.chef.io/docs/install) | [Upgrade
+from Chef Automate One](https://automate.chef.io/docs/upgrade) |
+[Airgapped Installation
+Guide](https://automate.chef.io/docs/airgapped-installation) | [Install
+Chef Habitat on-prem](https://automate.chef.io/docs/on-prem-builder) |
+[Backup and Restore](https://automate.chef.io/docs/backup) |
+[Configuration](https://automate.chef.io/docs/configuration) | [Data
+Lifecycle](https://automate.chef.io/docs/data-lifecycle) | [Data
+Collection](https://automate.chef.io/docs/data-collection) | [LDAP
+Integration](https://automate.chef.io/docs/ldap) | [Log
+Management](https://automate.chef.io/docs/log-management) | [SAML
+Integration](https://automate.chef.io/docs/saml) |
+[Telemetry](https://automate.chef.io/docs/telemetry) | [Setting up the
+Applications
+Dashboard](https://automate.chef.io/docs/applications-setup) | [Event
+Feed](https://automate.chef.io/docs/event-feed) | [Client
+Runs](https://automate.chef.io/docs/client-runs) | [Compliance
+Reports](https://automate.chef.io/docs/reports) | [Scan
+Jobs](https://automate.chef.io/docs/scan-jobs) | [Compliance
+Profiles](https://automate.chef.io/docs/profiles) |
+[Notifications](https://automate.chef.io/docs/notifications) | [Cloud
+Integrations](https://automate.chef.io/docs/node-integrations) | [Node
+Credentials](https://automate.chef.io/docs/node-credentials) | [Node
+Lifecycle](https://automate.chef.io/docs/node-lifecycle) | [API
+Tokens](https://automate.chef.io/docs/api-tokens) |
+[Users](https://automate.chef.io/docs/users) |
+[Teams](https://automate.chef.io/docs/teams) | [API
+Tokens](https://automate.chef.io/docs/api-tokens) | [Chef Automate
+CLI](https://automate.chef.io/docs/cli-chef-automate) |
+[Troubleshooting](https://automate.chef.io/docs/troubleshooting) | [IAM
+Overview](https://automate.chef.io/docs/iam-v2-overview) | [IAM Users
+Guide](https://automate.chef.io/docs/iam-v2-guide) | [IAM API
+Reference](https://automate.chef.io/docs/iam-v2-api-reference) |
+[Architecture](https://automate.chef.io/docs/architectural-overview) |
+[Chef Automate API](https://automate.chef.io/docs/api) | [Chef Automate
+CLI](https://automate.chef.io/docs/cli-chef-automate) | [Monitoring
+Chef Automate](https://automate.chef.io/docs/monitoring) |
+[Troubleshooting](https://automate.chef.io/docs/troubleshooting)
 
 Chef Habitat
 ============
 
 **Documentation**: [Chef Habitat
-Documentation](https://www.habitat.sh/docs/)
+Documentation](https://www.habitat.sh/docs)
 
 **Tutorials**: [Chef Habitat
-Tutorials](https://www.habitat.sh/tutorials/)
+Tutorials](https://www.habitat.sh/tutorials)
 
 Chef InSpec
 ===========
 
 **Documentation**: [Chef InSpec
-Documentation](https://www.inspec.io/docs/)
+Documentation](https://www.inspec.io/docs)
 
-**Tutorials**: [Chef InSpec Tutorials](https://www.inspec.io/tutorials/)
+**Tutorials**: [Chef InSpec Tutorials](https://www.inspec.io/tutorials)
 
 Legacy
 ======
@@ -541,7 +551,7 @@ Resources
 [value_for_platform](/dsl_recipe.html#value-for-platform) |
 [value_for_platform_family](/dsl_recipe.html#value-for-platform-family)
 | [Windows Platform Helpers](/dsl_recipe.html#helpers) | [Custom
-Resource DSL](/dsl_custom_resource) | [Community
+Resource DSL](/dsl_custom_resource/) | [Community
 Resources](https://supermarket.chef.io)
 
 Handlers

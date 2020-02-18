@@ -2,7 +2,8 @@
 title: link resource
 resource: link
 draft: false
-aliases: /resource_link.html
+aliases:
+- /resource_link.html
 menu:
   docs:
     title: link
@@ -39,9 +40,14 @@ resource_description_list:
     used to create directory junction/reparse points.'
 resource_new_in: null
 handler_types: false
-syntax_description: 'A **link** resource block creates symbolic or hard links. For
-  example, to create a hard link from `/tmp/file` to `/etc/file`:'
-syntax_code_block: "link '/tmp/file' do\n  to '/etc/file'\n  link_type :hard\nend"
+syntax_description: "A **link** resource block creates symbolic or hard links. For\
+  \ example,\nto create a hard link from `/tmp/file` to `/etc/file`:\n\n``` ruby\n\
+  link '/tmp/file' do\n  to '/etc/file'\n  link_type :hard\nend\n```\n\nBecause the\
+  \ default value for `link_type` is symbolic, and because\nproperties that are not\
+  \ specified in the resource block will be assigned\ntheir default values, the following\
+  \ example creates a symbolic link:\n\n``` ruby\nlink '/tmp/file' do\n  to '/etc/file'\n\
+  end\n```"
+syntax_code_block: null
 syntax_properties_list: null
 syntax_full_code_block: "link 'name' do\n  group            String, Integer\n  link_type\
   \        String, Symbol # default value: :symbolic\n  mode             Integer,\
@@ -158,7 +164,7 @@ properties_list:
 - property: target_file
   ruby_type: String
   required: false
-  default_value: The resource blocks name
+  default_value: The resource block's name
   new_in: null
   description_list:
   - markdown: 'An optional property to set the target file if it differs from the
@@ -188,7 +194,6 @@ resources_common_guards: true
 common_resource_functionality_multiple_packages: false
 resources_common_guard_interpreter: false
 remote_directory_recursive_directories: false
-directory_recursive_directories: false
 common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false

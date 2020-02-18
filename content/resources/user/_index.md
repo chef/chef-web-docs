@@ -2,7 +2,8 @@
 title: user resource
 resource: user
 draft: false
-aliases: /resource_user.html
+aliases:
+- /resource_user.html
 menu:
   docs:
     title: user
@@ -31,15 +32,16 @@ resource_description_list:
 
       by picking up the values at the start of the (next) Chef Infra Client
 
-      run or by using the [ohai resource](/resource_ohai/) to reload the
+      run or by using the [ohai resource](/resources/ohai/) to reload the
 
       system attributes during the current Chef Infra Client run.'
 resource_new_in: null
 handler_types: false
-syntax_description: 'A **user** resource block manages users on a node:'
-syntax_code_block: "user 'a user' do\n  comment 'A random user'\n  uid 1234\n  gid\
-  \ 'groupname'\n  home '/home/random'\n  shell '/bin/bash'\n  password '$1$JJsvHslasdfjVEroftprNn4JHtDi'\n\
-  end"
+syntax_description: "A **user** resource block manages users on a node:\n\n``` ruby\n\
+  user 'a user' do\n  comment 'A random user'\n  uid 1234\n  gid 'groupname'\n  home\
+  \ '/home/random'\n  shell '/bin/bash'\n  password '$1$JJsvHslasdfjVEroftprNn4JHtDi'\n\
+  end\n```"
+syntax_code_block: null
 syntax_properties_list: null
 syntax_full_code_block: "user 'name' do\n  comment                    String\n  force\
   \                      true, false # see description\n  gid                    \
@@ -100,19 +102,13 @@ properties_list:
 
       action.'
   - warning:
-    - markdown: '
-
-
-        Using this property may leave the system in an inconsistent state.
+    - markdown: 'Using this property may leave the system in an inconsistent state.
 
         For example, a user account will be removed even if the user is
 
         logged in. A user''s home directory will be removed, even if that
 
-        directory is shared by multiple users.
-
-
-        '
+        directory is shared by multiple users.'
 - property: gid
   ruby_type: String, Integer
   required: false
@@ -237,7 +233,6 @@ resources_common_guards: true
 common_resource_functionality_multiple_packages: false
 resources_common_guard_interpreter: false
 remote_directory_recursive_directories: false
-directory_recursive_directories: false
 common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false

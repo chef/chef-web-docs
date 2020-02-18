@@ -2,7 +2,8 @@
 title: ssh_known_hosts_entry resource
 resource: ssh_known_hosts_entry
 draft: false
-aliases: /resource_ssh_known_hosts_entry.html
+aliases:
+- /resource_ssh_known_hosts_entry.html
 menu:
   docs:
     title: ssh_known_hosts_entry
@@ -20,16 +21,17 @@ resource_description_list:
     file if specified.'
 resource_new_in: '14.3'
 handler_types: false
-syntax_description: 'The ssh_known_hosts_entry resource has the following syntax:'
-syntax_code_block: "ssh_known_hosts_entry 'name' do\n  file_location      String #\
-  \ default value: \"/etc/ssh/ssh_known_hosts\"\n  group              String, Integer\n\
-  \  hash_entries       true, false # default value: false\n  host               String\
-  \ # default value: 'name' unless specified\n  key                String\n  key_type\
-  \           String # default value: \"rsa\"\n  mode               String # default\
-  \ value: \"0644\"\n  owner              String, Integer # default value: \"root\"\
-  \n  port               Integer # default value: 22\n  timeout            Integer\
-  \ # default value: 30\n  action             Symbol # defaults to :create if not\
-  \ specified\nend"
+syntax_description: "The ssh_known_hosts_entry resource has the following syntax:\n\
+  \n``` ruby\nssh_known_hosts_entry 'name' do\n  file_location      String # default\
+  \ value: \"/etc/ssh/ssh_known_hosts\"\n  group              String, Integer\n  hash_entries\
+  \       true, false # default value: false\n  host               String # default\
+  \ value: 'name' unless specified\n  key                String\n  key_type      \
+  \     String # default value: \"rsa\"\n  mode               String # default value:\
+  \ \"0644\"\n  owner              String, Integer # default value: \"root\"\n  port\
+  \               Integer # default value: 22\n  timeout            Integer # default\
+  \ value: 30\n  action             Symbol # defaults to :create if not specified\n\
+  end\n```"
+syntax_code_block: null
 syntax_properties_list:
 - '`ssh_known_hosts_entry` is the resource.'
 - '`name` is the name given to the resource block.'
@@ -82,7 +84,7 @@ properties_list:
 - property: host
   ruby_type: String
   required: false
-  default_value: The resource blocks name
+  default_value: The resource block's name
   new_in: null
   description_list:
   - markdown: The host to add to the known hosts file.
@@ -149,7 +151,6 @@ resources_common_guards: true
 common_resource_functionality_multiple_packages: false
 resources_common_guard_interpreter: false
 remote_directory_recursive_directories: false
-directory_recursive_directories: false
 common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false

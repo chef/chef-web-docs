@@ -2,7 +2,7 @@
 title = "Chef Backend Failure Recovery"
 draft = false
 
-aliases = "/backend_failure_recovery.html"
+aliases = ["/backend_failure_recovery.html"]
 
 [menu]
   [menu.docs]

@@ -2,7 +2,7 @@
 title = "Send Feedback"
 draft = false
 
-aliases = "/feedback.html"
+aliases = ["/feedback.html"]
 
 [menu]
   [menu.docs]

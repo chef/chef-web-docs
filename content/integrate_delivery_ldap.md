@@ -2,7 +2,7 @@
 title = "Integrate with LDAP for Authentication"
 draft = false
 
-aliases = "/integrate_delivery_ldap.html"
+aliases = ["/integrate_delivery_ldap.html", "/release/automate/integrate_delivery_ldap.html"]
 
 [menu]
   [menu.docs]

@@ -2,7 +2,8 @@
 title: cab_package resource
 resource: cab_package
 draft: false
-aliases: /resource_cab_package.html
+aliases:
+- /resource_cab_package.html
 menu:
   docs:
     title: cab_package
@@ -17,9 +18,10 @@ resource_description_list:
     cabinet (.cab) packages.'
 resource_new_in: null
 handler_types: false
-syntax_description: 'The cab_package resource has the following syntax:'
-syntax_code_block: "cab_package 'name' do\n  source       String\n  action       Symbol\
-  \ # defaults to :install if not specified\nend"
+syntax_description: "The cab_package resource has the following syntax:\n\n``` ruby\n\
+  cab_package 'name' do\n  source       String\n  action       Symbol # defaults to\
+  \ :install if not specified\nend\n```"
+syntax_code_block: null
 syntax_properties_list:
 - '`cab_package` is the resource.'
 - '`name` is the name given to the resource block.'
@@ -63,7 +65,6 @@ resources_common_guards: true
 common_resource_functionality_multiple_packages: false
 resources_common_guard_interpreter: false
 remote_directory_recursive_directories: false
-directory_recursive_directories: false
 common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false

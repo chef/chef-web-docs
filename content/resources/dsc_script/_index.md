@@ -2,7 +2,8 @@
 title: dsc_script resource
 resource: dsc_script
 draft: false
-aliases: /resource_dsc_script.html
+aliases:
+- /resource_dsc_script.html
 menu:
   docs:
     title: dsc_script
@@ -49,12 +50,13 @@ resource_description_list:
       `Disabled`.'
 resource_new_in: null
 handler_types: false
-syntax_description: 'A **dsc_script** resource block embeds the code that defines
-  a DSC configuration directly within a Chef recipe:'
-syntax_code_block: "dsc_script 'get-dsc-resource-kit' do\n  code <<-EOH\n    Archive\
-  \ reskit\n    {\n      ensure = 'Present'\n      path = \"#{Chef::Config[:file_cache_path]}\\\
-  \\DSCResourceKit620082014.zip\"\n      destination = \"#{ENV['PROGRAMW6432']}\\\\\
-  WindowsPowerShell\\\\Modules\"\n    }\n  EOH\nend"
+syntax_description: "A **dsc_script** resource block embeds the code that defines\
+  \ a DSC\nconfiguration directly within a Chef recipe:\n\n``` ruby\ndsc_script 'get-dsc-resource-kit'\
+  \ do\n  code <<-EOH\n    Archive reskit\n    {\n      ensure = 'Present'\n     \
+  \ path = \"#{Chef::Config[:file_cache_path]}\\\\DSCResourceKit620082014.zip\"\n\
+  \      destination = \"#{ENV['PROGRAMW6432']}\\\\WindowsPowerShell\\\\Modules\"\n\
+  \    }\n  EOH\nend\n```"
+syntax_code_block: null
 syntax_properties_list:
 - 'the **remote_file** resource is first used to download the
 
@@ -191,13 +193,7 @@ properties_list:
   new_in: null
   description_list:
   - warning:
-    - markdown: '
-
-
-        This property **MUST** be used with the `code` attribute.
-
-
-        '
+    - markdown: This property **MUST** be used with the `code` attribute.
   - markdown: 'Use to import DSC resources from a module.
 
 
@@ -269,7 +265,6 @@ resources_common_guards: true
 common_resource_functionality_multiple_packages: false
 resources_common_guard_interpreter: false
 remote_directory_recursive_directories: false
-directory_recursive_directories: false
 common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false

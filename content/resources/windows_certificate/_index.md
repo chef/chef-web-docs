@@ -2,7 +2,8 @@
 title: windows_certificate resource
 resource: windows_certificate
 draft: false
-aliases: /resource_windows_certificate.html
+aliases:
+- /resource_windows_certificate.html
 menu:
   docs:
     title: windows_certificate
@@ -26,12 +27,13 @@ resource_description_list:
     store should still work.'
 resource_new_in: '14.7'
 handler_types: false
-syntax_description: 'The windows_certificate resource has the following syntax:'
-syntax_code_block: "windows_certificate 'name' do\n  cert_path            String\n\
-  \  pfx_password         String\n  private_key_acl      Array\n  source         \
-  \      String # default value: 'name' unless specified\n  store_name           String\
-  \ # default value: \"MY\"\n  user_store           true, false # default value: false\n\
-  \  action               Symbol # defaults to :create if not specified\nend"
+syntax_description: "The windows_certificate resource has the following syntax:\n\n\
+  ``` ruby\nwindows_certificate 'name' do\n  cert_path            String\n  pfx_password\
+  \         String\n  private_key_acl      Array\n  source               String #\
+  \ default value: 'name' unless specified\n  store_name           String # default\
+  \ value: \"MY\"\n  user_store           true, false # default value: false\n  action\
+  \               Symbol # defaults to :create if not specified\nend\n```"
+syntax_code_block: null
 syntax_properties_list:
 - '`windows_certificate` is the resource.'
 - '`name` is the name given to the resource block.'
@@ -85,7 +87,7 @@ properties_list:
 - property: source
   ruby_type: String
   required: false
-  default_value: The resource blocks name
+  default_value: The resource block's name
   new_in: null
   description_list:
   - markdown: 'The source file (for create and acl_add), thumbprint (for delete
@@ -124,7 +126,6 @@ resources_common_guards: true
 common_resource_functionality_multiple_packages: false
 resources_common_guard_interpreter: false
 remote_directory_recursive_directories: false
-directory_recursive_directories: false
 common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false

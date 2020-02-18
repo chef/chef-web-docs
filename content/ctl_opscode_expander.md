@@ -2,7 +2,7 @@
 title = "opscode-expander-ctl (executable)"
 draft = false
 
-aliases = "/ctl_opscode_expander.html"
+aliases = ["/ctl_opscode_expander.html"]
 
 [menu]
   [menu.docs]

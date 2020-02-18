@@ -2,7 +2,7 @@
 title = "Authentication for Elasticsearch and Kibana"
 draft = false
 
-aliases = "/elasticsearch_and_kibana_auth.html"
+aliases = ["/elasticsearch_and_kibana_auth.html"]
 
 [menu]
   [menu.docs]

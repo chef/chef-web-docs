@@ -8,11 +8,19 @@ FIPS-validated software, including certain ciphers and hashing
 algorithms. Any attempt to use any disallowed cryptography will cause
 Chef Infra Client to throw an exception during a Chef Infra Client run.
 
-<div class="alert-info">
+<div class="admonition-note">
+
+<p class="admonition-note-title">Note</p>
+
+<div class="admonition-note-text">
 
 Chef uses MD5 hashes to uniquely identify files that are stored on the
 Chef Infra Server. MD5 is used only to generate a unique hash identifier
 and is not used for any cryptographic purpose.
+
+
+
+</div>
 
 </div>
 

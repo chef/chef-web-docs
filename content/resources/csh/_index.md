@@ -2,7 +2,8 @@
 title: csh resource
 resource: csh
 draft: false
-aliases: /resource_csh.html
+aliases:
+- /resource_csh.html
 menu:
   docs:
     title: csh
@@ -33,9 +34,10 @@ resource_description_list:
       other script resources, rather than run inline.'
 resource_new_in: null
 handler_types: false
-syntax_description: 'A **csh** resource block executes scripts using csh:'
-syntax_code_block: "csh 'hello world' do\n  code <<-EOH\n    echo \"Hello world!\"\
-  \n    echo \"Current directory: \" $cwd\n    EOH\nend"
+syntax_description: "A **csh** resource block executes scripts using csh:\n\n``` ruby\n\
+  csh 'hello world' do\n  code <<-EOH\n    echo \"Hello world!\"\n    echo \"Current\
+  \ directory: \" $cwd\n    EOH\nend\n```"
+syntax_code_block: null
 syntax_properties_list:
 - '`code` specifies the command to run'
 syntax_full_code_block: "csh 'name' do\n  code                       String\n  creates\
@@ -240,7 +242,6 @@ resources_common_guards: true
 common_resource_functionality_multiple_packages: false
 resources_common_guard_interpreter: false
 remote_directory_recursive_directories: false
-directory_recursive_directories: false
 common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false

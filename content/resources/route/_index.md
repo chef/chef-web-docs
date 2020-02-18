@@ -2,7 +2,8 @@
 title: route resource
 resource: route
 draft: false
-aliases: /resource_route.html
+aliases:
+- /resource_route.html
 menu:
   docs:
     title: route
@@ -17,10 +18,10 @@ resource_description_list:
     environment.'
 resource_new_in: null
 handler_types: false
-syntax_description: 'A **route** resource block manages the system routing table in
-  a Linux environment:'
-syntax_code_block: "route '10.0.1.10/32' do\n  gateway '10.0.0.20'\n  device 'eth1'\n\
-  end"
+syntax_description: "A **route** resource block manages the system routing table in\
+  \ a Linux\nenvironment:\n\n``` ruby\nroute '10.0.1.10/32' do\n  gateway '10.0.0.20'\n\
+  \  device 'eth1'\nend\n```"
+syntax_code_block: null
 syntax_properties_list: null
 syntax_full_code_block: "route 'name' do\n  comment         String\n  device     \
   \     String\n  gateway         String\n  metric          Integer\n  netmask   \
@@ -93,7 +94,7 @@ properties_list:
 - property: target
   ruby_type: String
   required: false
-  default_value: The resource blocks name
+  default_value: The resource block's name
   new_in: null
   description_list:
   - markdown: The IP address of the target route.
@@ -114,7 +115,6 @@ resources_common_guards: true
 common_resource_functionality_multiple_packages: false
 resources_common_guard_interpreter: false
 remote_directory_recursive_directories: false
-directory_recursive_directories: false
 common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false

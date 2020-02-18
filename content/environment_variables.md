@@ -2,7 +2,7 @@
 title = "Unix Environment Variables"
 draft = false
 
-aliases = "/environment_variables.html"
+aliases = ["/environment_variables.html"]
 
 [menu]
   [menu.docs]

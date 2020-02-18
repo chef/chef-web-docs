@@ -2,7 +2,8 @@
 title: homebrew_tap resource
 resource: homebrew_tap
 draft: false
-aliases: /resource_homebrew_tap.html
+aliases:
+- /resource_homebrew_tap.html
 menu:
   docs:
     title: homebrew_tap
@@ -17,12 +18,13 @@ resource_description_list:
     repositories to the Homebrew package manager.'
 resource_new_in: '14.0'
 handler_types: false
-syntax_description: 'The homebrew_tap resource has the following syntax:'
-syntax_code_block: "homebrew_tap 'name' do\n  full               true, false # default\
-  \ value: false\n  homebrew_path      String # default value: \"/usr/local/bin/brew\"\
-  \n  owner              String\n  tap_name           String # default value: 'name'\
-  \ unless specified\n  url                String\n  action             Symbol # defaults\
-  \ to :tap if not specified\nend"
+syntax_description: "The homebrew_tap resource has the following syntax:\n\n``` ruby\n\
+  homebrew_tap 'name' do\n  full               true, false # default value: false\n\
+  \  homebrew_path      String # default value: \"/usr/local/bin/brew\"\n  owner \
+  \             String\n  tap_name           String # default value: 'name' unless\
+  \ specified\n  url                String\n  action             Symbol # defaults\
+  \ to :tap if not specified\nend\n```"
+syntax_code_block: null
 syntax_properties_list:
 - '`homebrew_tap` is the resource.'
 - '`name` is the name given to the resource block.'
@@ -69,7 +71,7 @@ properties_list:
 - property: tap_name
   ruby_type: String
   required: false
-  default_value: The resource blocks name
+  default_value: The resource block's name
   new_in: null
   description_list:
   - markdown: 'An optional property to set the tap name if it differs from the
@@ -99,7 +101,6 @@ resources_common_guards: true
 common_resource_functionality_multiple_packages: false
 resources_common_guard_interpreter: false
 remote_directory_recursive_directories: false
-directory_recursive_directories: false
 common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false

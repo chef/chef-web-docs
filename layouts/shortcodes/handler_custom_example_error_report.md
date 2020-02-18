@@ -13,7 +13,7 @@ report_handlers << Chef::Handler::ErrorReport.new()
 exception_handlers << Chef::Handler::ErrorReport.new()
 ```
 
-By using the [chef_handler](/resource_chef_handler/) resource in a
+By using the [chef_handler](/resources/chef_handler/) resource in a
 recipe, similar to the following:
 
 ``` ruby

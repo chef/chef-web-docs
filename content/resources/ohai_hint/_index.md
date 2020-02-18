@@ -2,7 +2,8 @@
 title: ohai_hint resource
 resource: ohai_hint
 draft: false
-aliases: /resource_ohai_hint.html
+aliases:
+- /resource_ohai_hint.html
 menu:
   docs:
     title: ohai_hint
@@ -17,11 +18,11 @@ resource_description_list:
     passing hint data to Ohai.'
 resource_new_in: '14.0'
 handler_types: false
-syntax_description: 'The ohai_hint resource has the following syntax:'
-syntax_code_block: "ohai_hint 'name' do\n  compile_time      true, false # default\
-  \ value: true\n  content           Hash\n  hint_name         String # default value:\
-  \ 'name' unless specified\n  action            Symbol # defaults to :create if not\
-  \ specified\nend"
+syntax_description: "The ohai_hint resource has the following syntax:\n\n``` ruby\n\
+  ohai_hint 'name' do\n  compile_time      true, false # default value: true\n  content\
+  \           Hash\n  hint_name         String # default value: 'name' unless specified\n\
+  \  action            Symbol # defaults to :create if not specified\nend\n```"
+syntax_code_block: null
 syntax_properties_list:
 - '`ohai_hint` is the resource.'
 - '`name` is the name given to the resource block.'
@@ -63,7 +64,7 @@ properties_list:
 - property: hint_name
   ruby_type: String
   required: false
-  default_value: The resource blocks name
+  default_value: The resource block's name
   new_in: null
   description_list:
   - markdown: 'An optional property to set the hint name if it differs from the
@@ -86,7 +87,6 @@ resources_common_guards: true
 common_resource_functionality_multiple_packages: false
 resources_common_guard_interpreter: false
 remote_directory_recursive_directories: false
-directory_recursive_directories: false
 common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false

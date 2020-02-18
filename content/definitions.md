@@ -2,7 +2,7 @@
 title = "Converting Definitions to Custom Resources"
 draft = false
 
-aliases = "/definitions.html"
+aliases = ["/definitions.html"]
 
 [menu]
   [menu.docs]

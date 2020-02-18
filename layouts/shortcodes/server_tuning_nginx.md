@@ -41,11 +41,19 @@ Infra Server to use SSL certificates:
     nginx['ssl_protocols'] = "TLSv1 TLSv1.1 TLSv1.2"
     ```
 
-<div class="alert-info">
+<div class="admonition-note">
+
+<p class="admonition-note-title">Note</p>
+
+<div class="admonition-note-text">
 
 See <https://wiki.mozilla.org/Security/Server_Side_TLS> for more
 information about the values used with the `nginx['ssl_ciphers']` and
 `nginx['ssl_protocols']` settings.
+
+
+
+</div>
 
 </div>
 

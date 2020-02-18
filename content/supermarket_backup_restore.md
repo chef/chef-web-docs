@@ -2,7 +2,7 @@
 title = "Supermarket Backup and Restore"
 draft = false
 
-aliases = "/supermarket_backup_restore.html"
+aliases = ["/supermarket_backup_restore.html"]
 
 [menu]
   [menu.docs]

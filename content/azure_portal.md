@@ -2,7 +2,7 @@
 title = "Microsoft Azure Portal"
 draft = false
 
-aliases = "/azure_portal.html"
+aliases = ["/azure_portal.html"]
 
 [menu]
   [menu.docs]
@@ -142,7 +142,7 @@ machines with Chef using the following steps:
 
     {{< /note >}}
 
-13. Optional. [Use a run-list](/run_lists/) to specify what should
+13. Optional. [Use a run-list](/run_lists.html) to specify what should
     be run when the virtual machine is provisioned, such as using the
     run-list to provision a virtual machine with Internet Information
     Services (IIS). Use the `iis` cookbook and the default recipe to

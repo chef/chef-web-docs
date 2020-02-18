@@ -2,7 +2,7 @@
 title = "Configure Data Collection"
 draft = false
 
-aliases = "/data_collection.html"
+aliases = ["/data_collection.html", "/ingest_data_chef_automate.html", "/release/automate/ingest_data_chef_automate.html", "/release/automate/setup_visibility_chef_automate.html", "/setup_visibility_chef_automate.html"]
 
 [menu]
   [menu.docs]

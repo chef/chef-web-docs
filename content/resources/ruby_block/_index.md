@@ -2,7 +2,8 @@
 title: ruby_block resource
 resource: ruby_block
 draft: false
-aliases: /resource_ruby_block.html
+aliases:
+- /resource_ruby_block.html
 menu:
   docs:
     title: ruby_block
@@ -23,11 +24,11 @@ resource_description_list:
     is compiled.'
 resource_new_in: null
 handler_types: false
-syntax_description: 'A **ruby_block** resource block executes a block of arbitrary
-  Ruby code. For example, to reload the client.rb file during a Chef Infra Client
-  run:'
-syntax_code_block: "ruby_block 'reload_client_config' do\n  block do\n    Chef::Config.from_file(\"\
-  /etc/chef/client.rb\")\n  end\n  action :run\nend"
+syntax_description: "A **ruby_block** resource block executes a block of arbitrary\
+  \ Ruby\ncode. For example, to reload the client.rb file during a Chef Infra\nClient\
+  \ run:\n\n``` ruby\nruby_block 'reload_client_config' do\n  block do\n    Chef::Config.from_file(\"\
+  /etc/chef/client.rb\")\n  end\n  action :run\nend\n```"
+syntax_code_block: null
 syntax_properties_list: null
 syntax_full_code_block: "ruby_block 'name' do\n  block                      Block\n\
   \  block_name                 String # defaults to 'name' if not specified\n  action\
@@ -52,7 +53,7 @@ actions_list:
   :nothing:
     shortcode: resources_common_actions_nothing.md
   :run:
-    markdown: .
+    markdown: Default. Run a Ruby block.
 properties_list:
 - property: block
   ruby_type: Block
@@ -64,7 +65,7 @@ properties_list:
 - property: block_name
   ruby_type: String
   required: false
-  default_value: The resource blocks name
+  default_value: The resource block's name
   new_in: null
   description_list:
   - markdown: 'The name of the Ruby block. Default value: the `name` of the
@@ -130,7 +131,6 @@ resources_common_guards: false
 common_resource_functionality_multiple_packages: false
 resources_common_guard_interpreter: false
 remote_directory_recursive_directories: false
-directory_recursive_directories: false
 common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false

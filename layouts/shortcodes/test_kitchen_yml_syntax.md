@@ -98,16 +98,16 @@ provisioner:
   name: chef_zero
 
 platforms:
-  - name: ubuntu-16.04
-  - name: centos-7
-  - name: debian-9
+  - name: ubuntu-18.04
+  - name: centos-8
+  - name: debian-10
 
 suites:
   - name: default
     run_list:
       - recipe[apache::httpd]
     excludes:
-      - debian-9
+      - debian-10
 ```
 
 This file uses Vagrant as the driver, which requires no additional

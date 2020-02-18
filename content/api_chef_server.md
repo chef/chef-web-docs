@@ -2,7 +2,7 @@
 title = "Chef Infra Server API"
 draft = false
 
-aliases = "/api_chef_server.html"
+aliases = ["/api_chef_server.html"]
 
 [menu]
   [menu.docs]

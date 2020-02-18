@@ -2,7 +2,8 @@
 title: openssl_x509_request resource
 resource: openssl_x509_request
 draft: false
-aliases: /resource_openssl_x509_request.html
+aliases:
+- /resource_openssl_x509_request.html
 menu:
   docs:
     title: openssl_x509_request
@@ -22,8 +23,8 @@ resource_description_list:
     certificate.'
 resource_new_in: '14.4'
 handler_types: false
-syntax_description: 'The openssl_x509_request resource has the following syntax:'
-syntax_code_block: "openssl_x509_request 'name' do\n  city             String\n  common_name\
+syntax_description: "The openssl_x509_request resource has the following syntax:\n\
+  \n``` ruby\nopenssl_x509_request 'name' do\n  city             String\n  common_name\
   \      String\n  country          String\n  email            String\n  group   \
   \         String, Integer\n  key_curve        String # default value: \"prime256v1\"\
   \n  key_file         String\n  key_length       Integer # default value: 2048\n\
@@ -31,7 +32,8 @@ syntax_code_block: "openssl_x509_request 'name' do\n  city             String\n 
   \  mode             Integer, String\n  org              String\n  org_unit     \
   \    String\n  owner            String, Integer\n  path             String # default\
   \ value: 'name' unless specified\n  state            String\n  action          \
-  \ Symbol # defaults to :create if not specified\nend"
+  \ Symbol # defaults to :create if not specified\nend\n```"
+syntax_code_block: null
 syntax_properties_list:
 - '`openssl_x509_request` is the resource.'
 - '`name` is the name given to the resource block.'
@@ -170,7 +172,7 @@ properties_list:
 - property: path
   ruby_type: String
   required: false
-  default_value: The resource blocks name
+  default_value: The resource block's name
   new_in: null
   description_list:
   - markdown: 'An optional property for specifying the path to write the file to if
@@ -200,7 +202,6 @@ resources_common_guards: true
 common_resource_functionality_multiple_packages: false
 resources_common_guard_interpreter: false
 remote_directory_recursive_directories: false
-directory_recursive_directories: false
 common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false
@@ -208,8 +209,18 @@ unit_file_verification: false
 examples_list:
 - example_heading: Create a certificate request file
   text_blocks:
-  - code_block: "openssl_x509_request '/etc/ssl_test/my_ec_request.csr' do\n  common_name\
+  - code_block: "openssl_x509_request '/etc/ssl_files/my_ec_request.csr' do\n  common_name\
       \ 'myecrequest.example.com'\n  org 'Test Kitchen Example'\n  org_unit 'Kitchens'\n\
       \  country 'UK'\nend"
+- example_heading: Create a new certificate request file from an existing ec key
+  text_blocks:
+  - code_block: "openssl_x509_request '/etc/ssl_files/my_ec_request2.csr' do\n   common_name\
+      \ 'myecrequest2.example.com'\n   org 'Test Kitchen Example'\n   org_unit 'Kitchens'\n\
+      \   country 'UK'\n   key_file '/etc/ssl_files/my_ec_request.key'\nend"
+- example_heading: Create both a new rsa key and certificate request file
+  text_blocks:
+  - code_block: "openssl_x509_request '/etc/ssl_files/my_rsa_request.csr' do\n   common_name\
+      \ 'myrsarequest.example.com'\n   org 'Test Kitchen Example'\n   org_unit 'Kitchens'\n\
+      \   country 'UK'\n   key_type 'rsa'\nend"
 
 ---

@@ -2,7 +2,7 @@
 title = "Release Notes: Chef Infra Server 12.0 - 13.0.11"
 draft = false
 
-aliases = "/release_notes_server.html"
+aliases = ["/release_notes_server.html"]
 
 [menu]
   [menu.docs]

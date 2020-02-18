@@ -2,7 +2,8 @@
 title: log resource
 resource: log
 draft: false
-aliases: /resource_log.html
+aliases:
+- /resource_log.html
 menu:
   docs:
     title: log
@@ -15,7 +16,7 @@ resource_description_list:
 - shortcode: resource_log_summary.md
 resource_new_in: null
 handler_types: false
-syntax_description: null
+syntax_description: ''
 syntax_code_block: null
 syntax_properties_list: null
 syntax_full_code_block: null
@@ -35,7 +36,7 @@ properties_resources_common_windows_security: false
 remote_file_prevent_re_downloads: false
 remote_file_unc_path: false
 ps_credential_helper: false
-ruby_style_basics_chef_log: false
+ruby_style_basics_chef_log: true
 debug_recipes_chef_shell: false
 template_requirements: false
 resources_common_properties: true
@@ -44,7 +45,6 @@ resources_common_guards: true
 common_resource_functionality_multiple_packages: false
 resources_common_guard_interpreter: false
 remote_directory_recursive_directories: false
-directory_recursive_directories: false
 common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false

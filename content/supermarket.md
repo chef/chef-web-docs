@@ -2,7 +2,7 @@
 title = "Chef Supermarket"
 draft = false
 
-aliases = "/supermarket.html"
+aliases = ["/supermarket.html"]
 
 [menu]
   [menu.docs]
@@ -246,7 +246,7 @@ supermarket-ctl (executable)
 {{% ctl_supermarket_summary %}}
 
 For more information about the supermarket-ctl command line tool, see
-[supermarket-ctl](/ctl_supermarket/).
+[supermarket-ctl](/ctl_supermarket.html).
 
 supermarket.rb
 --------------

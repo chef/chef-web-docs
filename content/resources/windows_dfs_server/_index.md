@@ -2,7 +2,8 @@
 title: windows_dfs_server resource
 resource: windows_dfs_server
 draft: false
-aliases: /resource_windows_dfs_server.html
+aliases:
+- /resource_windows_dfs_server.html
 menu:
   docs:
     title: windows_dfs_server
@@ -16,14 +17,14 @@ resource_description_list:
 - markdown: The **windows_dfs_server** resource sets system-wide DFS settings.
 resource_new_in: '15.0'
 handler_types: false
-syntax_description: 'The windows_dfs_server resource has the following syntax:'
-syntax_code_block: "windows_dfs_server 'name' do\n  enable_site_costed_referrals \
-  \     true, false # default value: false\n  ldap_timeout_secs                 Integer\
-  \ # default value: 30\n  prefer_login_dc                   true, false # default\
-  \ value: false\n  sync_interval_secs                Integer # default value: 3600\n\
-  \  use_fqdn                          true, false # default value: false\n  action\
-  \                            Symbol # defaults to :configure if not specified\n\
-  end"
+syntax_description: "The windows_dfs_server resource has the following syntax:\n\n\
+  ``` ruby\nwindows_dfs_server 'name' do\n  enable_site_costed_referrals      true,\
+  \ false # default value: false\n  ldap_timeout_secs                 Integer # default\
+  \ value: 30\n  prefer_login_dc                   true, false # default value: false\n\
+  \  sync_interval_secs                Integer # default value: 3600\n  use_fqdn \
+  \                         true, false # default value: false\n  action         \
+  \                   Symbol # defaults to :configure if not specified\nend\n```"
+syntax_code_block: null
 syntax_properties_list:
 - '`windows_dfs_server` is the resource.'
 - '`name` is the name given to the resource block.'
@@ -98,7 +99,6 @@ resources_common_guards: true
 common_resource_functionality_multiple_packages: false
 resources_common_guard_interpreter: false
 remote_directory_recursive_directories: false
-directory_recursive_directories: false
 common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false

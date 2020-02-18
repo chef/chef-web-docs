@@ -40,9 +40,17 @@ The following log levels are supported:
 </tbody>
 </table>
 
-<div class="alert-info">
+<div class="admonition-note">
+
+<p class="admonition-note-title">Note</p>
+
+<div class="admonition-note-text">
 
 The parentheses are optional, e.g. `Chef::Log.info 'string'` may be used
 instead of `Chef::Log.info('string')`.
+
+
+
+</div>
 
 </div>

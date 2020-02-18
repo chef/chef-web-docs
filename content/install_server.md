@@ -2,7 +2,7 @@
 title = "Install the Chef Infra Server"
 draft = false
 
-aliases = "/install_server.html"
+aliases = ["/install_server.html"]
 
 [menu]
   [menu.docs]

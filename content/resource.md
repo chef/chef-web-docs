@@ -2,7 +2,7 @@
 title = "About Resources"
 draft = false
 
-aliases = "/resource.html"
+aliases = ["/resource.html"]
 
 [menu]
   [menu.docs]
@@ -87,11 +87,11 @@ See these guides for additional information about resources:
 </thead>
 <tbody>
 <tr class="odd">
-<td><a href="/resource_common/">Common Properties</a></td>
+<td><a href="/resources/common/">Common Properties</a></td>
 <td>Provides a detailed list of the common properties that are available in all resources.</td>
 </tr>
 <tr class="even">
-<td><a href="/resource_reference/">Resource Reference</a></td>
+<td><a href="/resources/">Resource Reference</a></td>
 <td>A reference guide that lists both the common and individual options available to every resource that is bundled into Chef.</td>
 </tr>
 <tr class="odd">

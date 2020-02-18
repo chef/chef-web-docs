@@ -23,7 +23,11 @@ order:
 where the last attribute in the list is the one that is applied to the
 node.
 
-<div class="alert-info">
+<div class="admonition-note">
+
+<p class="admonition-note-title">Note</p>
+
+<div class="admonition-note-text">
 
 The attribute precedence order for roles and environments is reversed
 for `default` and `override` attributes. The precedence order for
@@ -35,6 +39,10 @@ can be set that are specific to each environment (when required). For
 example, the role for an application server may exist in all
 environments, yet one environment may use a database server that is
 different from other environments.
+
+
+
+</div>
 
 </div>
 

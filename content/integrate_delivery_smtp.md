@@ -2,7 +2,7 @@
 title = "Integrate Workflow with SMTP"
 draft = false
 
-aliases = "/integrate_delivery_smtp.html"
+aliases = ["/integrate_delivery_smtp.html", "/release/automate/integrate_delivery_smtp.html"]
 
 [menu]
   [menu.docs]

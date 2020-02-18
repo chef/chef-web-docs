@@ -2,7 +2,8 @@
 title: execute resource
 resource: execute
 draft: false
-aliases: /resource_execute.html
+aliases:
+- /resource_execute.html
 menu:
   docs:
     title: execute
@@ -25,12 +26,13 @@ resource_description_list:
       interpreter (Ruby, Python, Perl, csh, or Bash).'
 resource_new_in: null
 handler_types: false
-syntax_description: 'An **execute** resource block typically executes a single command
-  that is unique to the environment in which a recipe will run. Some **execute** resource
-  commands are run by themselves, but often they are run in combination with other
-  Chef resources. For example, a single command that is run by itself:'
-syntax_code_block: "execute 'apache_configtest' do\n  command '/usr/sbin/apachectl\
-  \ configtest'\nend"
+syntax_description: "An **execute** resource block typically executes a single command\
+  \ that\nis unique to the environment in which a recipe will run. Some\n**execute**\
+  \ resource commands are run by themselves, but often they are\nrun in combination\
+  \ with other Chef resources. For example, a single\ncommand that is run by itself:\n\
+  \n``` ruby\nexecute 'apache_configtest' do\n  command '/usr/sbin/apachectl configtest'\n\
+  end\n```"
+syntax_code_block: null
 syntax_properties_list:
 - '`''/usr/sbin/apachectl configtest''` is a command that tests if the
 
@@ -277,7 +279,6 @@ resources_common_guards: true
 common_resource_functionality_multiple_packages: false
 resources_common_guard_interpreter: false
 remote_directory_recursive_directories: false
-directory_recursive_directories: false
 common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false

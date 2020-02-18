@@ -2,7 +2,7 @@
 title = "knife ssl check"
 draft = false
 
-aliases = "/knife_ssl_check.html"
+aliases = ["/knife_ssl_check.html"]
 
 [menu]
   [menu.docs]

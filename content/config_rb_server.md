@@ -2,7 +2,7 @@
 title = "chef-server.rb Settings"
 draft = false
 
-aliases = "/config_rb_server.html"
+aliases = ["/config_rb_server.html"]
 
 [menu]
   [menu.docs]

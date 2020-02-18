@@ -2,7 +2,8 @@
 title: service resource
 resource: service
 draft: false
-aliases: /resource_service.html
+aliases:
+- /resource_service.html
 menu:
   docs:
     title: service
@@ -15,8 +16,10 @@ resource_description_list:
 - markdown: Use the **service** resource to manage a service.
 resource_new_in: null
 handler_types: false
-syntax_description: 'The service resource has the following syntax:'
-syntax_code_block: "service \"tomcat\" do\n  action :start\nend"
+syntax_description: "The service resource has the following syntax:\n\n``` ruby\n\
+  service \"tomcat\" do\n  action :start\nend\n```\n\nwill start the Apache Tomcat\
+  \ service."
+syntax_code_block: null
 syntax_properties_list: null
 syntax_full_code_block: "service 'name' do\n  init_command         String\n  options\
   \              Array, String\n  parameters           Hash\n  pattern           \
@@ -102,7 +105,7 @@ properties_list:
 - property: pattern
   ruby_type: String
   required: false
-  default_value: The value provided to service_name or the resource blocks name
+  default_value: The value provided to 'service_name' or the resource block's name
   new_in: null
   description_list:
   - markdown: The pattern to look for in the process table.
@@ -151,7 +154,7 @@ properties_list:
 - property: service_name
   ruby_type: String
   required: false
-  default_value: The resource blocks name
+  default_value: The resource block's name
   new_in: null
   description_list:
   - markdown: 'An optional property to set the service name if it differs from the
@@ -244,7 +247,6 @@ resources_common_guards: true
 common_resource_functionality_multiple_packages: false
 resources_common_guard_interpreter: false
 remote_directory_recursive_directories: false
-directory_recursive_directories: false
 common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false

@@ -8,7 +8,11 @@ be managed on a per-resource basis using the `atomic_update` property
 that is available with the **cookbook_file**, **file**,
 **remote_file**, and **template** resources.
 
-<div class="alert-info">
+<div class="admonition-note">
+
+<p class="admonition-note-title">Note</p>
+
+<div class="admonition-note-text">
 
 On certain platforms, and after a file has been moved into place, Chef
 Infra Client may modify file permissions to support features specific to
@@ -17,5 +21,9 @@ will fix up the security contexts after a file has been moved into the
 correct location by running the `restorecon` command. On the Microsoft
 Windows platform, Chef Infra Client will create files so that ACL
 inheritance works as expected.
+
+
+
+</div>
 
 </div>

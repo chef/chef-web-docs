@@ -8,11 +8,19 @@ available in recipes when they are run with chef-solo; use the
 `data_bag()` and `data_bag_item()` functions to access data bags and
 data bag items.
 
-<div class="alert-info">
+<div class="admonition-note">
+
+<p class="admonition-note-title">Note</p>
+
+<div class="admonition-note-text">
 
 Use the `chef-solo-search` cookbook library (developed by Chef community
 member "edelight" and available from GitHub) to add data bag search
 capabilities to a chef-solo environment:
 <https://github.com/edelight/chef-solo-search>.
+
+
+
+</div>
 
 </div>

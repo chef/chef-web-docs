@@ -2,7 +2,7 @@
 title = "Integrate Chef Automate with SAML for Authentication"
 draft = false
 
-aliases = "/integrate_chef_automate_saml.html"
+aliases = ["/integrate_chef_automate_saml.html"]
 
 [menu]
   [menu.docs]

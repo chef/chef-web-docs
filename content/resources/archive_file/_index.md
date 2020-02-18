@@ -2,7 +2,8 @@
 title: archive_file resource
 resource: archive_file
 draft: false
-aliases: /resource_archive_file.html
+aliases:
+- /resource_archive_file.html
 menu:
   docs:
     title: archive_file
@@ -19,13 +20,14 @@ resource_description_list:
     formats including tar, gzip, bzip, and zip formats.'
 resource_new_in: '15.0'
 handler_types: false
-syntax_description: 'The archive_file resource has the following syntax:'
-syntax_code_block: "archive_file 'name' do\n  destination      String\n  group   \
-  \         String\n  mode             String, Integer # default value: \"755\"\n\
-  \  options          Array, Symbol\n  overwrite        true, false, auto # default\
-  \ value: false\n  owner            String\n  path             String # default value:\
-  \ 'name' unless specified\n  action           Symbol # defaults to :extract if not\
-  \ specified\nend"
+syntax_description: "The archive_file resource has the following syntax:\n\n``` ruby\n\
+  archive_file 'name' do\n  destination      String\n  group            String\n \
+  \ mode             String, Integer # default value: \"755\"\n  options         \
+  \ Array, Symbol\n  overwrite        true, false, auto # default value: false\n \
+  \ owner            String\n  path             String # default value: 'name' unless\
+  \ specified\n  action           Symbol # defaults to :extract if not specified\n\
+  end\n```"
+syntax_code_block: null
 syntax_properties_list:
 - '`archive_file` is the resource.'
 - '`name` is the name given to the resource block.'
@@ -109,7 +111,7 @@ properties_list:
 - property: path
   ruby_type: String
   required: false
-  default_value: The resource blocks name
+  default_value: The resource block's name
   new_in: null
   description_list:
   - markdown: 'An optional property to set the file path to the archive to extract
@@ -132,7 +134,6 @@ resources_common_guards: true
 common_resource_functionality_multiple_packages: false
 resources_common_guard_interpreter: false
 remote_directory_recursive_directories: false
-directory_recursive_directories: false
 common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false

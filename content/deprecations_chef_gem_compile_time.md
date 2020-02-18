@@ -16,7 +16,7 @@ aliases = "/deprecations_chef_gem_compile_time.html"
 
 <meta name="robots" content="noindex">
 
-Originally, the [chef gem](/resource_chef_gem/) resource always ran
+Originally, the [chef gem](/resources/chef_gem/) resource always ran
 during the <span class="title-ref">compile</span> phase (see this
 section on [Chef Infra Client
 runs](/chef_client_overview.html#the-chef-client-run) for further

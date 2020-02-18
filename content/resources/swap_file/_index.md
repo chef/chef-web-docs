@@ -2,7 +2,8 @@
 title: swap_file resource
 resource: swap_file
 draft: false
-aliases: /resource_swap_file.html
+aliases:
+- /resource_swap_file.html
 menu:
   docs:
     title: swap_file
@@ -19,12 +20,12 @@ resource_description_list:
     host.'
 resource_new_in: '14.0'
 handler_types: false
-syntax_description: 'The swap_file resource has the following syntax:'
-syntax_code_block: "swap_file 'name' do\n  path            String # default value:\
-  \ 'name' unless specified\n  persist         true, false # default value: false\n\
-  \  size            Integer\n  swappiness      Integer\n  timeout         Integer\
-  \ # default value: 600\n  action          Symbol # defaults to :create if not specified\n\
-  end"
+syntax_description: "The swap_file resource has the following syntax:\n\n``` ruby\n\
+  swap_file 'name' do\n  path            String # default value: 'name' unless specified\n\
+  \  persist         true, false # default value: false\n  size            Integer\n\
+  \  swappiness      Integer\n  timeout         Integer # default value: 600\n  action\
+  \          Symbol # defaults to :create if not specified\nend\n```"
+syntax_code_block: null
 syntax_properties_list:
 - '`swap_file` is the resource.'
 - '`name` is the name given to the resource block.'
@@ -50,7 +51,7 @@ properties_list:
 - property: path
   ruby_type: String
   required: false
-  default_value: The resource blocks name
+  default_value: The resource block's name
   new_in: null
   description_list:
   - markdown: 'The path where the swap file will be created on the system if it
@@ -101,7 +102,6 @@ resources_common_guards: true
 common_resource_functionality_multiple_packages: false
 resources_common_guard_interpreter: false
 remote_directory_recursive_directories: false
-directory_recursive_directories: false
 common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false

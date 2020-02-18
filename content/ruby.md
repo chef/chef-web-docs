@@ -2,7 +2,7 @@
 title = "Ruby Guide"
 draft = false
 
-aliases = "/ruby.html"
+aliases = ["/ruby.html"]
 
 [menu]
   [menu.docs]

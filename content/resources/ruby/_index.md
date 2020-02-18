@@ -2,7 +2,8 @@
 title: ruby resource
 resource: ruby
 draft: false
-aliases: /resource_ruby.html
+aliases:
+- /resource_ruby.html
 menu:
   docs:
     title: ruby
@@ -33,11 +34,12 @@ resource_description_list:
       other script resources, rather than run inline.'
 resource_new_in: null
 handler_types: false
-syntax_description: 'A **ruby** resource block executes scripts using Ruby:'
-syntax_code_block: "ruby 'extract_module' do\n  cwd ::File.dirname(src_filepath)\n\
-  \  code <<-EOH\n    mkdir -p #{extract_path}\n    tar xzf #{src_filename} -C #{extract_path}\n\
+syntax_description: "A **ruby** resource block executes scripts using Ruby:\n\n```\
+  \ ruby\nruby 'extract_module' do\n  cwd ::File.dirname(src_filepath)\n  code <<-EOH\n\
+  \    mkdir -p #{extract_path}\n    tar xzf #{src_filename} -C #{extract_path}\n\
   \    mv #{extract_path}/*/* #{extract_path}/\n    EOH\n  not_if { ::File.exist?(extract_path)\
-  \ }\nend"
+  \ }\nend\n```"
+syntax_code_block: null
 syntax_properties_list:
 - '`cwd` specifies the directory from which the command is run'
 - '`code` specifies the command to run'
@@ -286,7 +288,6 @@ resources_common_guards: true
 common_resource_functionality_multiple_packages: false
 resources_common_guard_interpreter: false
 remote_directory_recursive_directories: false
-directory_recursive_directories: false
 common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false

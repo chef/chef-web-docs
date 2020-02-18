@@ -2,7 +2,7 @@
 title = "About the delivery-truck Cookbook"
 draft = false
 
-aliases = "/delivery_truck.html"
+aliases = ["/delivery_truck.html", "/release/automate/delivery_truck.html"]
 
 [menu]
   [menu.docs]

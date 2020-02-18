@@ -2,7 +2,8 @@
 title: systemd_unit resource
 resource: systemd_unit
 draft: false
-aliases: /resource_systemd_unit.html
+aliases:
+- /resource_systemd_unit.html
 menu:
   docs:
     title: systemd_unit
@@ -17,20 +18,20 @@ resource_description_list:
     units](https://www.freedesktop.org/software/systemd/man/systemd.html#Concepts).'
 resource_new_in: '12.11'
 handler_types: false
-syntax_description: 'The systemd_unit resource has the following syntax:'
-syntax_code_block: "systemd_unit 'sysstat-collect.timer' do\n  content <<-EOU.gsub(/^\\\
-  s+/, '')\n  [Unit]\n  Description=Run system activity accounting tool every 10 minutes\n\
-  \n  [Timer]\n  OnCalendar=*:00/10\n\n  [Install]\n  WantedBy=sysstat.service\n \
-  \ EOU\n\n  action [:create, :enable]\nend"
+syntax_description: "The systemd_unit resource has the following syntax:\n\n``` ruby\n\
+  systemd_unit 'sysstat-collect.timer' do\n  content <<-EOU.gsub(/^\\s+/, '')\n  [Unit]\n\
+  \  Description=Run system activity accounting tool every 10 minutes\n\n  [Timer]\n\
+  \  OnCalendar=*:00/10\n\n  [Install]\n  WantedBy=sysstat.service\n  EOU\n\n  action\
+  \ [:create, :enable]\nend\n```"
+syntax_code_block: null
 syntax_properties_list: null
 syntax_full_code_block: "systemd_unit 'name.service' do\n  content               \
   \ String or Hash\n  user                   String\n  triggers_reload        Boolean\n\
   end"
 syntax_full_properties_list:
 - '`systemd_unit` is the resource.'
-- '`name` is the name of the unit. Must include the type/suffix (e.g. <span class="title'
-- ref">name.socket</span> or <span class="title
-- ref">name.service</span>).
+- '`name` is the name of the unit. Must include the type/suffix (e.g. <span class="title-ref">name.socket</span>
+  or <span class="title-ref">name.service</span>).'
 - '`user` is the user account that systemd units run under. If not specified, systemd
   units will run under the system account.'
 - '`content` describes the behavior of the unit'
@@ -107,7 +108,7 @@ properties_list:
 - property: unit_name
   ruby_type: String
   required: false
-  default_value: The resource blocks name
+  default_value: The resource block's name
   new_in: '13.7'
   description_list:
   - markdown: 'The name of the unit file if it differs from the resource block''s
@@ -156,7 +157,6 @@ resources_common_guards: true
 common_resource_functionality_multiple_packages: false
 resources_common_guard_interpreter: false
 remote_directory_recursive_directories: false
-directory_recursive_directories: false
 common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false

@@ -2,7 +2,8 @@
 title: rhsm_errata resource
 resource: rhsm_errata
 draft: false
-aliases: /resource_rhsm_errata.html
+aliases:
+- /resource_rhsm_errata.html
 menu:
   docs:
     title: rhsm_errata
@@ -22,10 +23,10 @@ resource_description_list:
     hosts.'
 resource_new_in: '14.0'
 handler_types: false
-syntax_description: 'The rhsm_errata resource has the following syntax:'
-syntax_code_block: "rhsm_errata 'name' do\n  errata_id      String # default value:\
-  \ 'name' unless specified\n  action         Symbol # defaults to :install if not\
-  \ specified\nend"
+syntax_description: "The rhsm_errata resource has the following syntax:\n\n``` ruby\n\
+  rhsm_errata 'name' do\n  errata_id      String # default value: 'name' unless specified\n\
+  \  action         Symbol # defaults to :install if not specified\nend\n```"
+syntax_code_block: null
 syntax_properties_list:
 - '`rhsm_errata` is the resource.'
 - '`name` is the name given to the resource block.'
@@ -48,7 +49,7 @@ properties_list:
 - property: errata_id
   ruby_type: String
   required: false
-  default_value: The resource blocks name
+  default_value: The resource block's name
   new_in: null
   description_list:
   - markdown: 'An optional property for specifying the errata ID if it differs from
@@ -71,7 +72,6 @@ resources_common_guards: true
 common_resource_functionality_multiple_packages: false
 resources_common_guard_interpreter: false
 remote_directory_recursive_directories: false
-directory_recursive_directories: false
 common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false

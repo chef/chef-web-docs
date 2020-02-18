@@ -53,10 +53,14 @@
 												<div class="admonition-note-text">
 													{{ range $subkey, $subvalue := $value }}
 														{{ if eq $subkey "markdown" }}
-															{{- $subvalue | markdownify -}}
+															<p>
+																{{- $subvalue | markdownify -}}
+															</p>
 														{{ end }}
 														{{ if eq $subkey "shortcode" }}
-															{{ readFile (delimit (slice `layouts/shortcodes/` $subvalue ) "") | markdownify }}
+															<p>
+																{{ readFile (delimit (slice `layouts/shortcodes/` $subvalue ) "") | markdownify }}
+															</p>
 														{{ end }}
 													{{ end }}
 												</div>
@@ -64,21 +68,27 @@
 										{{ end }}
 										{{ if eq $key "warning" }}
 										<div class="admonition-warning">
-											<p class="admonition-warning-title">Note</p>
+											<p class="admonition-warning-title">Warning</p>
 											<div class="admonition-warning-text">
 												{{ range $subkey, $subvalue := $value }}
 													{{ if eq $subkey "markdown" }}
-														{{- $subvalue | markdownify -}}
+														<p>
+															{{- $subvalue | markdownify -}}
+														</p>
 													{{ end }}
 													{{ if eq $subkey "shortcode" }}
-														{{ readFile (delimit (slice `layouts/shortcodes/` $subvalue ) "") | markdownify }}
+														<p>
+															{{ readFile (delimit (slice `layouts/shortcodes/` $subvalue ) "") | markdownify }}
+														</p>
 													{{ end }}
 												{{ end }}
 											</div>
 										</div>
 										{{ end }}
 										{{ if eq $key "shortcode" }}
-											{{ readFile (delimit (slice `layouts/shortcodes/` $value ) "") | markdownify }}
+											<p>
+												{{ readFile (delimit (slice `layouts/shortcodes/` $value ) "") | markdownify }}
+											</p>
 										{{ end }}
 									{{ end }}
 								{{ end }}
@@ -119,7 +129,10 @@
               <hr>
 
 							<p>{{ .Params.syntax_description | markdownify }}</p>
-							<p>{{- highlight .Params.syntax_code_block "ruby" "" -}}</p>
+							
+							{{ if .Params.syntax_code_block }}
+								<p>{{- highlight .Params.syntax_code_block "ruby" "" -}}</p>
+							{{ end }}
 							
 							{{ if .Params.syntax_properties_list }}
 								<p>where:</p>
@@ -372,7 +385,6 @@
 										{{ end }}
 	                {{ end }}
 								</dl>
-                <br>
               {{ end }}
 
               <!-------------- Properties ------------------->
@@ -409,10 +421,12 @@
 																	{{ range $value }}
 																		{{ range $subkey, $subvalue := . }}
 																			{{ if eq $subkey "shortcode" }}
-																				{{ readFile (delimit (slice `layouts/shortcodes/` $subvalue ) "") | markdownify }}
+																				<p>
+																					{{ readFile (delimit (slice `layouts/shortcodes/` $subvalue ) "") | markdownify }}
+																				</p>
 																			{{ end }}
 																			{{ if eq $subkey "markdown" }}
-																				{{- $subvalue | markdownify -}}
+																				<p>{{- $subvalue | markdownify -}}</p>
 																			{{ end }}
 																		{{ end }}
 																	{{ end }}
@@ -426,10 +440,14 @@
 																	{{ range $value }}
 																		{{ range $subkey, $subvalue := . }}
 																			{{ if eq $subkey "shortcode" }}
-																				{{ readFile (delimit (slice `layouts/shortcodes/` $subvalue ) "") | markdownify }}
+																				<p>
+																					{{ readFile (delimit (slice `layouts/shortcodes/` $subvalue ) "") | markdownify }}																				
+																				</p>
 																			{{ end }}
 																			{{ if eq $subkey "markdown" }}
-																				{{- $subvalue | markdownify -}}
+																				<p>
+																					{{- $subvalue | markdownify -}}																				
+																				</p>
 																			{{ end }}
 																		{{ end }}
 																	{{ end }}
@@ -437,7 +455,9 @@
 															</div>
 														{{ end }}
 														{{ if eq $key "shortcode" }}
-															{{ readFile (delimit (slice `layouts/shortcodes/` $value ) "") | markdownify }}
+															<p>
+																{{ readFile (delimit (slice `layouts/shortcodes/` $value ) "") | markdownify }}
+															</p>
 														{{ end }}
 													{{ end }}
 												{{ end }}
@@ -518,7 +538,7 @@
               <!-------------- Chef::Log Entries ------------------->
 
               {{ if.Params.ruby_style_basics_chef_log }}
-                <h2 id="ruby_style_basics_chef_log">Chef::Log Entries</h2>
+                <h2 id="ruby_style_basics_chef_log">Log Entries</h2>
                 {{ readFile "layouts/shortcodes/ruby_style_basics_chef_log.md" | markdownify }}
                 {{ readFile "layouts/shortcodes/ruby_class_chef_log_fatal.md" | markdownify }}
                 {{ readFile "layouts/shortcodes/ruby_class_chef_log_multiple.md" | markdownify }}
@@ -636,19 +656,30 @@
 	              {{ if .Params.resources_common_notification }}
 	                <h3 id="resources_common_notifications">Notifications</h3>
 
-	                <code>notifies</code>
-
-	                <p><strong>Ruby Type:</strong> Symbol, 'Chef::Resource[String]'</p>
-
-	                {{ readFile "layouts/shortcodes/resources_common_notification_notifies.md" | markdownify }}
-	                {{ readFile "layouts/shortcodes/resources_common_notification_notifies_syntax.md" | markdownify }}
-
-	                <code>subscribes</code>
-	                <p><strong>Ruby Type:</strong>  Symbol, 'Chef::Resource[String]'</p>
-
-	                {{ readFile "layouts/shortcodes/resources_common_notification_subscribes.md" | markdownify }}
-	                {{ readFile "layouts/shortcodes/resources_common_notification_timers.md" | markdownify }}
-	                {{ readFile "layouts/shortcodes/resources_common_notification_subscribes_syntax.md" | markdownify }}
+									<dl>
+										<dt>
+											<code>notifies</code>
+										</dt>
+										<dd>
+											<p><strong>Ruby Type:</strong> Symbol, 'Chef::Resource[String]'</p>
+											{{ readFile "layouts/shortcodes/resources_common_notification_notifies.md" | markdownify }}
+										</dd>
+									</dl>
+									
+									{{ readFile "layouts/shortcodes/resources_common_notification_timers.md" | markdownify  }}
+									{{ readFile "layouts/shortcodes/resources_common_notification_notifies_syntax.md" | markdownify }}
+									
+									<dl>
+										<dt>
+											<code>subscribes</code>
+										</dt>
+										<dd>
+											<p><strong>Ruby Type:</strong>  Symbol, 'Chef::Resource[String]'</p>
+										</dd>
+									</dl>
+									{{ readFile "layouts/shortcodes/resources_common_notification_subscribes.md" | markdownify }}
+									{{ readFile "layouts/shortcodes/resources_common_notification_timers.md" | markdownify }}
+									{{ readFile "layouts/shortcodes/resources_common_notification_subscribes_syntax.md" | markdownify }}
 
 	              {{ end }}
 
@@ -670,14 +701,24 @@
 
 	              {{ if .Params.resources_common_guard_interpreter }}
 	                <h3 id="guard-interpreter">Guard Interpreter</h3>
-
-	                {{ readFile "layouts/shortcodes/resources_common_guard_interpreter.md" | markdownify }}
+									
+									<p>
+										{{ readFile "layouts/shortcodes/resources_common_guard_interpreter.md" | markdownify }}
+									</p>
 	                <strong>Attributes</strong>
-	                {{ readFile "layouts/shortcodes/resources_common_guard_interpreter_attributes.md" | markdownify }}
+									<p>
+										{{ readFile "layouts/shortcodes/resources_common_guard_interpreter_attributes.md" | markdownify }}
+									</p>
+	                
 	                <strong>Inheritance</strong>
-	                {{ readFile "layouts/shortcodes/resources_common_guard_interpreter_attributes_inherit.md" | markdownify }}
+									<p>
+										{{ readFile "layouts/shortcodes/resources_common_guard_interpreter_attributes_inherit.md" | markdownify }}										
+									</p>
+	                
 	                <strong>Example</strong>
-	                {{ readFile "layouts/shortcodes/resources_common_guard_interpreter_example_default.md" | markdownify }}
+									<p>
+										{{ readFile "layouts/shortcodes/resources_common_guard_interpreter_example_default.md" | markdownify }}
+									</p>
 
 	              {{ end }}
 
@@ -759,13 +800,15 @@
 												<div class="admonition-note">
 													<p class="admonition-note-title">Note</p>
 													<div class="admonition-note-text">
-														{{- $value -}}
+														{{- $value | markdownify -}}
 													</div>
 												</div>
 											{{ end }}
 											
 											{{ if eq $key "shortcode" }}
-												{{ readFile (delimit (slice `layouts/shortcodes/` $value) "") | markdownify }}
+												<p>
+													{{ readFile (delimit (slice `layouts/shortcodes/` $value) "") | markdownify }}
+												</p>
 											{{ end }}
 											
 											{{ if eq $key "markdown" }}

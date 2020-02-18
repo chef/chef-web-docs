@@ -2,7 +2,8 @@
 title: rhsm_register resource
 resource: rhsm_register
 draft: false
-aliases: /resource_rhsm_register.html
+aliases:
+- /resource_rhsm_register.html
 menu:
   docs:
     title: rhsm_register
@@ -18,14 +19,15 @@ resource_description_list:
     Subscription Manager or a local Red Hat Satellite server.'
 resource_new_in: '14.0'
 handler_types: false
-syntax_description: 'The rhsm_register resource has the following syntax:'
-syntax_code_block: "rhsm_register 'name' do\n  activation_key             String,\
-  \ Array\n  auto_attach                true, false # default value: false\n  environment\
-  \                String\n  force                      true, false # default value:\
-  \ false\n  install_katello_agent      true, false # default value: true\n  organization\
-  \               String\n  password                   String\n  satellite_host  \
-  \           String\n  username                   String\n  action              \
-  \       Symbol # defaults to :register if not specified\nend"
+syntax_description: "The rhsm_register resource has the following syntax:\n\n``` ruby\n\
+  rhsm_register 'name' do\n  activation_key             String, Array\n  auto_attach\
+  \                true, false # default value: false\n  environment             \
+  \   String\n  force                      true, false # default value: false\n  install_katello_agent\
+  \      true, false # default value: true\n  organization               String\n\
+  \  password                   String\n  satellite_host             String\n  username\
+  \                   String\n  action                     Symbol # defaults to :register\
+  \ if not specified\nend\n```"
+syntax_code_block: null
 syntax_properties_list:
 - '`rhsm_register` is the resource.'
 - '`name` is the name given to the resource block.'
@@ -157,7 +159,6 @@ resources_common_guards: true
 common_resource_functionality_multiple_packages: false
 resources_common_guard_interpreter: false
 remote_directory_recursive_directories: false
-directory_recursive_directories: false
 common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false

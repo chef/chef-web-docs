@@ -2,7 +2,8 @@
 title: cookbook_file resource
 resource: cookbook_file
 draft: false
-aliases: /resource_cookbook_file.html
+aliases:
+- /resource_cookbook_file.html
 menu:
   docs:
     title: cookbook_file
@@ -25,12 +26,12 @@ resource_description_list:
     update are transferred from the Chef Infra Server to a node.'
 resource_new_in: null
 handler_types: false
-syntax_description: 'A **cookbook_file** resource block manages files by using files
-  that exist within a cookbook''s `/files` directory. For example, to write the home
-  page for an Apache website:'
-syntax_code_block: "cookbook_file '/var/www/customers/public_html/index.php' do\n\
-  \  source 'index.php'\n  owner 'web_admin'\n  group 'web_admin'\n  mode '0755'\n\
-  \  action :create\nend"
+syntax_description: "A **cookbook_file** resource block manages files by using files\
+  \ that\nexist within a cookbook's `/files` directory. For example, to write the\n\
+  home page for an Apache website:\n\n``` ruby\ncookbook_file '/var/www/customers/public_html/index.php'\
+  \ do\n  source 'index.php'\n  owner 'web_admin'\n  group 'web_admin'\n  mode '0755'\n\
+  \  action :create\nend\n```"
+syntax_code_block: null
 syntax_properties_list:
 - '`''/var/www/customers/public_html/index.php''` is path to the file to be created'
 - '`''index.php''` is a file in the `/files` directory in a cookbook that is used
@@ -297,7 +298,7 @@ properties_list:
 - property: source
   ruby_type: String, Array
   required: false
-  default_value: The resource blocks name
+  default_value: The resource block's name
   new_in: null
   description_list:
   - markdown: 'The name of the file in `COOKBOOK_NAME/files/default` or the path to
@@ -323,11 +324,11 @@ properties_list:
       \ do\n  verify { 1 == 1 }\nend\n```\n\nThis should return `true`:\n\n``` ruby\n\
       cookbook_file '/etc/nginx.conf' do\n  verify 'nginx -t -c %{path}'\nend\n```"
   - warning:
-    - markdown: "\n\nFor releases of Chef Infra Client prior to 12.5 (chef-client\
-        \ 12.4\nand earlier) the correct syntax is:\n\n``` ruby\ncookbook_file '/etc/nginx.conf'\
+    - markdown: "For releases of Chef Infra Client prior to 12.5 (chef-client 12.4\n\
+        and earlier) the correct syntax is:\n\n``` ruby\ncookbook_file '/etc/nginx.conf'\
         \ do\n  verify 'nginx -t -c %{file}'\nend\n```\n\nSee GitHub issues <https://github.com/chef/chef/issues/3232>\
         \ and\n<https://github.com/chef/chef/pull/3693> for more information about\n\
-        these differences.\n\n"
+        these differences."
   - markdown: "This should return `true`:\n\n``` ruby\ncookbook_file '/tmp/bar' do\n\
       \  verify { 1 == 1}\nend\n```\n\nAnd this should return `true`:\n\n``` ruby\n\
       cookbook_file '/tmp/foo' do\n  verify do |path|\n    true\n  end\nend\n```\n\
@@ -351,7 +352,6 @@ resources_common_guards: true
 common_resource_functionality_multiple_packages: false
 resources_common_guard_interpreter: false
 remote_directory_recursive_directories: false
-directory_recursive_directories: false
 common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: true

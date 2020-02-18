@@ -2,7 +2,7 @@
 title = "kitchen-vagrant"
 draft = false
 
-aliases = "/plugin_kitchen_vagrant.html"
+aliases = ["/plugin_kitchen_vagrant.html"]
 
 [menu]
   [menu.docs]

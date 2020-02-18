@@ -2,7 +2,7 @@
 title = "knife push jobs"
 draft = false
 
-aliases = "/plugin_knife_push_jobs.html"
+aliases = ["/plugin_knife_push_jobs.html"]
 
 [menu]
   [menu.docs]
