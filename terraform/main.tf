@@ -21,7 +21,6 @@ module "docs_chef_io_site_hugo" {
   subdomain = "docs-${var.dns_suffix}"
 
   pkg_ident   = "${data.external.latest_hab_pkg.result.pkg_ident}"
-  fastly_fqdn = "${var.fastly_fqdn}"
 
   # AWS Tags
   tag_dept    = "CoreEng"
