@@ -3,16 +3,12 @@ Deprecation: DNF Package allow_downgrade Property (CHEF-10)
 ===========================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/deprecations_dnf_package_allow_downgrade.rst>`__
 
-.. meta:: 
-    :robots: noindex 
+.. meta::
+    :robots: noindex
 
-The DNF package provider in the O/S does not require ``--allow-downgrade`` like yum did, and neither does the Chef ``dnf_package`` resource.  This property has no effect on the
-``dnf_resource`` property.
-
-
+The underlying ``dnf`` command in Red Hat based operating systems does not require ``--allow-downgrade`` like the previous ``yum`` command did. This property does not affect the ``dnf_resource`` resource execution and should be removed.
 
 Remediation
 ===============
 
 Remove the ``allow_downgrade`` property on the ``dnf_package`` resource.
-

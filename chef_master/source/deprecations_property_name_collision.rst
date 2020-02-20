@@ -5,10 +5,8 @@ Deprecation: Resource Property Name Collision (CHEF-11)
 
 .. meta::
     :robots: noindex
-    
+
 A resource property, defined with the ``property`` method, conflicts with an already-existing property or method. This could indicate an error that could lead to unintended behavior.
-
-
 
 All Ruby objects have a number of methods that are expected to always be available. When a resource property is created, Ruby methods for setting and getting the property value are created for you. If a resource creates a property which is named the same as an existing method, the original method will be overwritten.
 
