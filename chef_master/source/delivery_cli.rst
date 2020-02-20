@@ -798,7 +798,7 @@ the command
 
 .. code-block:: bash
 
-   $ delivery local lint
+   delivery local lint
 
 will run Cookstyle and execute the following command locally:
 
