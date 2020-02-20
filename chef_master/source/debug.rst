@@ -7,8 +7,7 @@ Elements of good approaches to building cookbooks and recipes that are reliable 
 
 * A consistent syntax pattern when constructing recipes
 * Using the same patterns in Ruby
-* Using platform resources before creating custom ones
-* Using community-authored resources before creating custom ones
+* Using resources included in Chef Infra Client or community cookbooks before creating custom ones
 
 Ideally, the best way to debug a recipe is to not have to debug it in the first place. That said, the following sections discuss various approaches to debugging recipes and failed Chef Infra Client runs.
 
