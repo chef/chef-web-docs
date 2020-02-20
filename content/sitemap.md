@@ -396,13 +396,13 @@ remove](/plugin_knife_opc.html#plugin-knife-opc-opc-org-user-remove)
 
 **Managing Chef Infra Server**: [Runbook (Single Page)](/runbook/)
 | [Backend Cluster Failure Recovery](/backend_failure_recovery/) |
-[Backup and Restore](/server_backup_restore/) | [Firewalls and
-Ports](/server_firewalls_and_ports/) | [Active Directory and
-LDAP](/server_ldap/) | [Log Files](/server_logs/) |
-[Monitor](/server_monitor/) | [Organizations and
+[Backup and Restore]\(/runbook/server_backup_restore/) | [Firewalls and
+Ports]\(/runbook/server_firewalls_and_ports/) | [Active Directory and
+LDAP](/server_ldap/) | [Log Files]\(/runbook/server_logs/) |
+[Monitor]\(/runbook/server_monitor/) | [Organizations and
 Groups](/server_orgs/) | [Secrets](/secrets/) |
-[Security](/server_security/) | [Services](/server_services/)
-| [Tuning](/server_tuning/) | [Upgrades](/upgrade_server/) |
+[Security]\(/runbook/server_security/) | [Services]\(/runbook/server_services/)
+| [Tuning]\(/runbook/server_tuning/) | [Upgrades](/upgrade_server/) |
 [Upgrade HA Cluster](/upgrade_server_ha_v2/) |
 [Users](/server_users/) | [chef-server-ctl](/ctl_chef_server.html)
 | [chef-backend-ctl](/ctl_chef_backend.html) |

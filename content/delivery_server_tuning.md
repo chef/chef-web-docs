@@ -1,6 +1,8 @@
 +++
 title = "Chef Automate Server Tuning"
 draft = false
+robots = "noindex"
+
 
 aliases = ["/delivery_server_tuning.html", "/release/automate/delivery_server_tuning.html"]
 
@@ -14,7 +16,7 @@ aliases = ["/delivery_server_tuning.html", "/release/automate/delivery_server_tu
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/delivery_server_tuning.md)
 
-<meta name="robots" content="noindex">
+
 
 {{% chef_automate_mark %}}
 

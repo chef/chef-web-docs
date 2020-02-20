@@ -14,7 +14,7 @@ runbook_weight = 40
     weight = 100
 +++    
 
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/server_services.md)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/runbook/server_services.md)
 
 The Chef Infra Server has a built in process supervisor, which ensures
 that all of the required services are in the appropriate state at any

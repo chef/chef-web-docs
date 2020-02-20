@@ -1,6 +1,8 @@
 +++
 title = "Configure Data Collection"
 draft = false
+robots = "noindex"
+
 
 aliases = ["/data_collection.html", "/ingest_data_chef_automate.html", "/release/automate/ingest_data_chef_automate.html", "/release/automate/setup_visibility_chef_automate.html", "/setup_visibility_chef_automate.html"]
 
@@ -14,7 +16,7 @@ aliases = ["/data_collection.html", "/ingest_data_chef_automate.html", "/release
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/data_collection.md)
 
-<meta name="robots" content="noindex">
+
 
 {{% chef_automate_mark %}}
 

@@ -238,7 +238,7 @@ How does the Obvious Fix Rule Work?
 -----------------------------------
 
 Any committer may commit fixes without a DCO sign-off for obvious typos,
-grammar mistakes, and formatting problems wherever they may be — in the
+grammar mistakes, and formatting problems wherever they may be - in the
 web pages, API documentation, source code, etc.
 
 Whenever you invoke the "obvious fix" rule, please say so in your commit

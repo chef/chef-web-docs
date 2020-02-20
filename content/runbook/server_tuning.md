@@ -14,7 +14,7 @@ runbook_weight = 60
     weight = 110
 +++    
 
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/server_tuning.md)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/runbook/server_tuning.md)
 
 The server configuration file contains a list of all configuration
 options that are available for the Chef Infra Server. Some of these

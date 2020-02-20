@@ -10,7 +10,7 @@ aliases = ["/install_chef_air_gap.html"]
     identifier = "chef_infra/setup/install_chef_air_gap.md Air-gapped Installation"
     parent = "chef_infra/setup"
     weight = 40
-+++
++++    
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/install_chef_air_gap.md)
 

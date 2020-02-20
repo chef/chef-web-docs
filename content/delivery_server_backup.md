@@ -1,6 +1,8 @@
 +++
 title = "Chef Automate Backups"
 draft = false
+robots = "noindex"
+
 
 aliases = "/delivery_server_backup.html"
 
@@ -14,7 +16,7 @@ aliases = "/delivery_server_backup.html"
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/delivery_server_backup.md)
 
-<meta name="robots" content="noindex">
+
 
 Chef Automate provides tools for creating, managing and restoring backup
 archives and Elasticsearch snapshots of your Chef Automate data.

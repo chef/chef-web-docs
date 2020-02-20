@@ -1,6 +1,8 @@
 +++
 title = "Managing Run-time Dependencies"
 draft = false
+robots = "noindex"
+
 
 aliases = ["/delivery_manage_dependencies.html", "/release/automate/delivery_manage_dependencies.html"]
 
@@ -14,7 +16,7 @@ aliases = ["/delivery_manage_dependencies.html", "/release/automate/delivery_man
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/delivery_manage_dependencies.md)
 
-<meta name="robots" content="noindex">
+
 
 A run-time dependency in Chef Automate is defined as an API-level
 dependency between two distinct pieces of software that occurs after

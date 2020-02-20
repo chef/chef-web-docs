@@ -1,6 +1,8 @@
 +++
 title = "Deprecation: Resource Cloning (CHEF-3694)"
 draft = false
+robots = "noindex"
+
 
 aliases = "/deprecations_resource_cloning.html"
 
@@ -14,7 +16,7 @@ aliases = "/deprecations_resource_cloning.html"
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/deprecations_resource_cloning.md)
 
-<meta name="robots" content="noindex">
+
 
 Chef allows resources to be created with duplicate names, rather than
 treating that as an error. This means that several cookbooks can request

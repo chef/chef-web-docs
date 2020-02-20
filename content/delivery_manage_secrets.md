@@ -1,6 +1,8 @@
 +++
 title = "Manage Secrets in a build-cookbook"
 draft = false
+robots = "noindex"
+
 
 aliases = ["/delivery_manage_secrets.html", "/release/automate/delivery_manage_secrets.html"]
 
@@ -14,7 +16,7 @@ aliases = ["/delivery_manage_secrets.html", "/release/automate/delivery_manage_s
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/delivery_manage_secrets.md)
 
-<meta name="robots" content="noindex">
+
 
 {{% chef_automate_mark %}}
 

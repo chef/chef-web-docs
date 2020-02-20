@@ -1,6 +1,8 @@
 +++
 title = "Integrate with LDAP for Authentication"
 draft = false
+robots = "noindex"
+
 
 aliases = ["/integrate_delivery_ldap.html", "/release/automate/integrate_delivery_ldap.html"]
 
@@ -14,7 +16,7 @@ aliases = ["/integrate_delivery_ldap.html", "/release/automate/integrate_deliver
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/integrate_delivery_ldap.md)
 
-<meta name="robots" content="noindex">
+
 
 {{% chef_automate_mark %}}
 

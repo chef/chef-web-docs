@@ -1,6 +1,8 @@
 +++
 title = "Manage Data Bags"
 draft = false
+robots = "noindex"
+
 
 aliases = ["/server_manage_data_bags.html"]
 
@@ -14,7 +16,7 @@ aliases = ["/server_manage_data_bags.html"]
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/server_manage_data_bags.md)
 
-<meta name="robots" content="noindex">
+
 
 {{% EOL_manage %}}
 

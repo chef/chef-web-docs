@@ -1,6 +1,8 @@
 +++
 title = "Configuring for SAML Authentication"
 draft = false
+robots = "noindex"
+
 
 aliases = ["/server_configure_saml.html", "/release/automate/server_configure_saml.html"]
 
@@ -14,7 +16,7 @@ aliases = ["/server_configure_saml.html", "/release/automate/server_configure_sa
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/server_configure_saml.md)
 
-<meta name="robots" content="noindex">
+
 
 {{% EOL_manage %}}
 

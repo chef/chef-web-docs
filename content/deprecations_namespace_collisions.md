@@ -1,6 +1,8 @@
 +++
 title = "Deprecation: Use of property_name inside of actions (CHEF-19)"
 draft = false
+robots = "noindex"
+
 
 aliases = "/deprecations_namespace_collisions.html"
 
@@ -14,7 +16,7 @@ aliases = "/deprecations_namespace_collisions.html"
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/deprecations_namespace_collisions.md)
 
-<meta name="robots" content="noindex">
+
 
 In Chef Client 12.5.1, the custom resources API allowed specifying
 property names as the short form of `property_name` inside of actions,

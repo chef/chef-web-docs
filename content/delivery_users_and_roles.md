@@ -1,6 +1,8 @@
 +++
 title = "Manage Users and Roles"
 draft = false
+robots = "noindex"
+
 
 aliases = ["/delivery_users_and_roles.html", "/release/automate/delivery_users_and_roles.html"]
 
@@ -14,7 +16,7 @@ aliases = ["/delivery_users_and_roles.html", "/release/automate/delivery_users_a
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/delivery_users_and_roles.md)
 
-<meta name="robots" content="noindex">
+
 
 {{% chef_automate_mark %}}
 

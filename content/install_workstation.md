@@ -16,9 +16,9 @@ aliases = ["/install_workstation.html", "/install_dk.html", "/workstation_window
 
 Start your infrastructure automation quickly and easily with [Chef
 Workstation](https://www.chef.sh/) . Chef Workstation gives you
-everything you need to get started with Chef — ad hoc remote execution,
+everything you need to get started with Chef - ad hoc remote execution,
 remote scanning, configuration tasks, cookbook creation tools as well as
-robust dependency and testing software — all in one easy-to-install
+robust dependency and testing software - all in one easy-to-install
 package.
 
 Chef Workstation includes:

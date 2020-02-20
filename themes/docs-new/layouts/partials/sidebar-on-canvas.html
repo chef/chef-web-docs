@@ -29,14 +29,14 @@
                               <ul class="menu vertical nested{{ if $currentPage.HasMenuCurrent "docs" . }} is-active{{ end }}">
                                 {{ range .Children }}
                                   <li{{ if $currentPage.IsMenuCurrent "docs" . }} class="active" {{ end }}>
-                                    <a href="{{ .URL }}">{{ or .Title .Name }}</a>
+                                    <a href="{{ .URL }}" {{ if hasPrefix .URL "http" }} class="external" target="_blank"{{ end }}>{{ or .Title .Name }}</a>
                                   </li>
                                 {{ end }}
                               </ul>
                             </li>
                           {{ else }}
                             <li{{ if $currentPage.IsMenuCurrent "docs" . }} class="active" {{ end }}>
-                              <a href="{{ .URL }}">{{ or .Title .Name }}</a>
+                              <a href="{{ .URL }}" {{ if hasPrefix .URL "http" }} class="external" target="_blank"{{ end }}>{{ or .Title .Name }}</a>
                             </li>
                           {{ end }}
                         {{ end }}

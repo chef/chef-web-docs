@@ -1,6 +1,8 @@
 +++
 title = "Deprecation: Chef Gem Compile Time (CHEF-3)"
 draft = false
+robots = "noindex"
+
 
 aliases = "/deprecations_chef_gem_compile_time.html"
 
@@ -14,7 +16,7 @@ aliases = "/deprecations_chef_gem_compile_time.html"
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/deprecations_chef_gem_compile_time.md)
 
-<meta name="robots" content="noindex">
+
 
 Originally, the [chef gem](/resources/chef_gem/) resource always ran
 during the <span class="title-ref">compile</span> phase (see this

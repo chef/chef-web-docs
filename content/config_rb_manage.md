@@ -1,6 +1,8 @@
 +++
 title = "manage.rb"
 draft = false
+robots = "noindex"
+
 
 aliases = ["/config_rb_manage.html"]
 
@@ -14,7 +16,7 @@ aliases = ["/config_rb_manage.html"]
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/config_rb_manage.md)
 
-<meta name="robots" content="noindex">
+
 
 {{% chef_automate_mark %}}
 

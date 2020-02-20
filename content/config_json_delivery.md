@@ -1,6 +1,8 @@
 +++
 title = "Configure a Project through config.json"
 draft = false
+robots = "noindex"
+
 
 aliases = ["/config_json_delivery.html", "/release/automate/config_json_delivery.html"]
 
@@ -14,7 +16,7 @@ aliases = ["/config_json_delivery.html", "/release/automate/config_json_delivery
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/config_json_delivery.md)
 
-<meta name="robots" content="noindex">
+
 
 {{% chef_automate_mark %}}
 

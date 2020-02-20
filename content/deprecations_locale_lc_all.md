@@ -1,6 +1,8 @@
 +++
 title = "Deprecation: Deprecation of lc_all from locale resource (CHEF-27)"
 draft = false
+robots = "noindex"
+
 
 aliases = "/deprecations_locale_lc_all.html"
 
@@ -14,7 +16,7 @@ aliases = "/deprecations_locale_lc_all.html"
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/deprecations_locale_lc_all.md)
 
-<meta name="robots" content="noindex">
+
 
 Setting the `LC_ALL` variable is NOT recommended. As a system-wide
 setting, `LANG` should provide the desired behavior. `LC_ALL` is
@@ -24,6 +26,10 @@ of command output in unexpected ways. Use one of the more specific `LC_`
 properties as needed. This deprecation warning was added in Chef Infra
 Client 15.0. Support for property `lc_all` will be removed for Chef
 Infra Client 16.0.
+
+The [Cookstyle](cookstyle.html) cop
+[ChefDeprecations/LocaleDeprecatedLcAllProperty](https://github.com/chef/cookstyle/blob/master/docs/cops_chefdeprecations.md#chefdeprecationslocaledeprecatedlcallproperty)
+has been introduced to detect and autocorrect this deprecation.
 
 Remediation
 ===========

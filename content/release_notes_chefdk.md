@@ -10,7 +10,7 @@ aliases = ["/release_notes_chefdk.html"]
     identifier = "chef_infra/release_notes/release_notes_chefdk.md ChefDK"
     parent = "chef_infra/release_notes"
     weight = 20
-+++
++++    
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/release_notes_chefdk.md)
 

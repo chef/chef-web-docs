@@ -1,6 +1,8 @@
 +++
 title = "Deprecation: Local Mode Listen (CHEF-18)"
 draft = false
+robots = "noindex"
+
 
 aliases = "/deprecations_local_listen.html"
 
@@ -14,7 +16,7 @@ aliases = "/deprecations_local_listen.html"
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/deprecations_local_listen.md)
 
-<meta name="robots" content="noindex">
+
 
 When using <span class="title-ref">chef-client</span> Local Mode, there
 are two ways to launch the internal Chef Zero server. Originally we
@@ -25,10 +27,6 @@ and because Chef Zero has no authentication or authorization systems,
 they could potentially alter data mid-converge. We later added a
 "socketless" mode, which runs the Zero server completely internally and
 never exposes it on a real socket.
-
-This is more secure and safe in most situations, but some users of
-chef-provisioning, specifically those using the Zero tunnel mode, need
-the socket mode as they expose that out to clients via an SSH tunnel.
 
 Remediation
 ===========

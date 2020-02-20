@@ -1,6 +1,8 @@
 +++
 title = "Manage Cookbooks"
 draft = false
+robots = "noindex"
+
 
 aliases = ["/server_manage_cookbooks.html"]
 
@@ -14,7 +16,7 @@ aliases = ["/server_manage_cookbooks.html"]
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/server_manage_cookbooks.md)
 
-<meta name="robots" content="noindex">
+
 
 {{% EOL_manage %}}
 

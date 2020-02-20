@@ -1,6 +1,8 @@
 +++
 title = "Deprecation: Chef::Platform methods (CHEF-13)"
 draft = false
+robots = "noindex"
+
 
 aliases = "/deprecations_chef_platform_methods.html"
 
@@ -14,7 +16,7 @@ aliases = "/deprecations_chef_platform_methods.html"
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/deprecations_chef_platform_methods.md)
 
-<meta name="robots" content="noindex">
+
 
 Several methods under `Chef::Platform` that were previously public APIs
 to control resolution of provider classes were replaced by the dynamic

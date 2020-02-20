@@ -1,6 +1,8 @@
 +++
 title = "Delivery CLI"
 draft = false
+robots = "noindex"
+
 
 aliases = ["/delivery_cli.html", "/ctl_delivery.html"]
 
@@ -14,7 +16,7 @@ aliases = ["/delivery_cli.html", "/ctl_delivery.html"]
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/delivery_cli.md)
 
-<meta name="robots" content="noindex">
+
 
 The Delivery CLI is the command-line interface for the workflow
 capabilities in Chef Automate. It sits in-between a local git repository
@@ -492,7 +494,7 @@ The following example shows how to add a build cookbook after the
 initialization process
 
 ``` bash
-$ delivery init —skip-build-cookbook
+$ delivery init -skip-build-cookbook
 ```
 
 and then update the `config.json` file for the `delivery-truck` cookbook
@@ -746,9 +748,9 @@ Chef Client finished, 2/2 resources updated in 32.770955 seconds
 delivery local
 ==============
 
-Use the `local` subcommand to run a phase or stage of Chef Automate
-locally, based on settings in the `project.toml` file located in the
-project's `.delivery` directory.
+Use the `local` subcommand to run Delivery phase or stage on your local
+Chef Workstation installation, based on settings in the `project.toml`
+file located in the project's `.delivery` directory.
 
 Syntax
 ------
@@ -819,30 +821,30 @@ configured in the local `project.toml`.
 Examples
 --------
 
-**Run Foodcritic**
+**Run Cookstyle**
 
 If the `project.toml` file contains:
 
 ``` ruby
 unit = "rspec spec/"
-lint = "cookstyle"
-syntax = "foodcritic . --exclude spec -f any -t \"~FC064\" -t \"~FC065\""
-provision = "chef exec kitchen create"
-deploy = "chef exec kitchen converge"
-smoke = "chef exec kitchen verify"
-cleanup = "chef exec kitchen destroy"
+lint = "cookstyle --only ChefCorrectness"
+syntax = "echo skipping syntax phase"
+provision = "kitchen create"
+deploy = "kitchen converge"
+smoke = "kitchen verify"
+cleanup = "kitchen destroy"
 ```
 
 the command
 
 ``` bash
-$ delivery local syntax
+delivery local lint
 ```
 
-will run Foodcritic and execute the following command locally:
+will run Cookstyle and execute the following command locally:
 
 ``` bash
-$ foodcritic . --exclude spec -f any -t \"~FC064\" -t \"~FC065\"
+cookstyle --only ChefCorrectness
 ```
 
 **Run Verify Stage**
@@ -851,37 +853,29 @@ If the `project.toml` file contains:
 
 ``` ruby
 unit = "rspec spec/"
-lint = "cookstyle"
-syntax = "foodcritic . --exclude spec -f any -t \"~FC064\" -t \"~FC065\""
-provision = "chef exec kitchen create"
-deploy = "chef exec kitchen converge"
-smoke = "chef exec kitchen verify"
-cleanup = "chef exec kitchen destroy"
+lint = "cookstyle --only ChefCorrectness"
+syntax = "echo skipping syntax phase"
+provision = "kitchen create"
+deploy = "kitchen converge"
+smoke = "kitchen verify"
+cleanup = "kitchen destroy"
 ```
 
 the command
 
 ``` bash
-$ delivery local verify
+delivery local lint
 ```
 
 will run lint, syntax and unit phases in that order:
 
 ``` bash
 Chef Delivery
-Running Verify Stage
 Running Lint Phase
-Inspecting 7 files
-.......
+Inspecting 45 files
+.............................................
 
-7 files inspected, no offenses detected
-Running Syntax Phase
-
-Running Unit Phase
-.........
-
-Finished in 0.35973 seconds (files took 3.96 seconds to load)
-9 example, 0 failures
+45 files inspected, no offenses detected
 ```
 
 delivery review

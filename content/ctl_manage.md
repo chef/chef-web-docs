@@ -1,6 +1,8 @@
 +++
 title = "chef-manage-ctl (executable)"
 draft = false
+robots = "noindex"
+
 
 aliases = ["/ctl_manage.html"]
 
@@ -14,7 +16,7 @@ aliases = ["/ctl_manage.html"]
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/ctl_manage.md)
 
-<meta name="robots" content="noindex">
+
 
 {{% chef_automate_mark %}}
 

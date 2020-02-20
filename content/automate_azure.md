@@ -1,6 +1,8 @@
 +++
 title = "Chef Automate for Microsoft Azure"
 draft = false
+robots = "noindex"
+
 
 aliases = ["/automate_azure.html"]
 
@@ -14,7 +16,7 @@ aliases = ["/automate_azure.html"]
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/automate_azure.md)
 
-<meta name="robots" content="noindex">
+
 
 {{% cloud_azure_portal %}}
 
