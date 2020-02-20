@@ -5,7 +5,6 @@ Prerequisites
 -------------
 
 -   Supported Systems - CentOS or Red Hat Enterprise Linux 6 or later
--   Chef Automate version `0.7.100` or greater
 
 Configuration
 -------------

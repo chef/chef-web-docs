@@ -1,6 +1,8 @@
 +++
 title = "AWS OpsWorks for Chef Automate"
 draft = false
+robots = "noindex"
+
 
 aliases = ["/aws_opsworks_chef_automate.html"]
 
@@ -14,7 +16,7 @@ aliases = ["/aws_opsworks_chef_automate.html"]
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/aws_opsworks_chef_automate.md)
 
-<meta name="robots" content="noindex">
+
 
 [AWS OpsWorks for Chef
 Automate](https://aws.amazon.com/opsworks/chefautomate/) is an AWS

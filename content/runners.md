@@ -1,6 +1,8 @@
 +++
 title = "Runners"
 draft = false
+robots = "noindex"
+
 
 aliases = ["/runners.html", "/job_dispatch.html"]
 
@@ -14,7 +16,7 @@ aliases = ["/runners.html", "/job_dispatch.html"]
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/runners.md)
 
-<meta name="robots" content="noindex">
+
 
 Chef Automate's workflow engine automatically creates phase jobs as
 project code is promoted through the phases of a workflow pipeline.

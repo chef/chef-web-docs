@@ -1,6 +1,8 @@
 +++
 title = "Deprecation: run_command and popen4 helper method removal (OHAI-3)"
 draft = false
+robots = "noindex"
+
 
 aliases = "/deprecations_ohai_run_command_helpers.html"
 
@@ -14,7 +16,7 @@ aliases = "/deprecations_ohai_run_command_helpers.html"
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/deprecations_ohai_run_command_helpers.md)
 
-<meta name="robots" content="noindex">
+
 
 Ohai ships a command mixin for use by plugin authors in shelling out to
 external commands. This mixin originally included `run_command` and

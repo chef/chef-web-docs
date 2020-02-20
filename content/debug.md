@@ -19,8 +19,8 @@ reliable include:
 
 -   A consistent syntax pattern when constructing recipes
 -   Using the same patterns in Ruby
--   Using platform resources before creating custom ones
--   Using community-authored resources before creating custom ones
+-   Using resources included in Chef Infra Client or community cookbooks
+    before creating custom ones
 
 Ideally, the best way to debug a recipe is to not have to debug it in
 the first place. That said, the following sections discuss various
@@ -49,7 +49,9 @@ Use the verbose logging that is built into knife:
 
 `-V`, `--verbose`
 
-:   Set for more verbose outputs. Use `-VV` for maximum verbosity.
+:   Set for more verbose outputs. Use `-VV` for much more verbose
+    outputs. Use `-VVV` for maximum verbosity, which may provide more
+    information than is actually helpful.
 
 {{< note >}}
 

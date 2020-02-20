@@ -10,7 +10,7 @@ aliases = ["/vmware.html"]
     identifier = "chef_infra/setup/integrations/vmware.md VMware"
     parent = "chef_infra/setup/integrations"
     weight = 30
-+++
++++    
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/vmware.md)
 

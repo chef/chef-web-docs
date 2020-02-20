@@ -1,6 +1,8 @@
 +++
 title = "Deprecation: DigitalOcean plugin attribute changes (OHAI-6)"
 draft = false
+robots = "noindex"
+
 
 aliases = "/deprecations_ohai_digitalocean.html"
 
@@ -14,7 +16,7 @@ aliases = "/deprecations_ohai_digitalocean.html"
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/deprecations_ohai_digitalocean.md)
 
-<meta name="robots" content="noindex">
+
 
 Ohai's previous Digital Ocean plugin relied on hint data passed to Ohai
 as well and the drop's internal network interface configuration. The

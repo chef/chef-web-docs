@@ -1,6 +1,8 @@
 +++
 title = "Publish Cookbooks to Multiple Chef Infra Servers"
 draft = false
+robots = "noindex"
+
 
 aliases = ["/publish_cookbooks_multiple_servers.html"]
 
@@ -14,7 +16,7 @@ aliases = ["/publish_cookbooks_multiple_servers.html"]
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/publish_cookbooks_multiple_servers.md)
 
-<meta name="robots" content="noindex">
+
 
 {{% chef_automate_mark %}}
 

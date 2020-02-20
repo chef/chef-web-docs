@@ -450,7 +450,7 @@ where:
 
 -   `parameter` is a comma-separated list, each specifying a platform,
     such as Red Hat, CentOS, or Fedora
--   `platform?` method is typically used with an `if`, `elseif`, or
+-   `platform?` method is typically used with an `if`, `elsif`, or
     `case` statement that contains Ruby code that is specific for the
     platform, if detected
 
@@ -584,7 +584,7 @@ where:
 
 -   `'parameter'` is a comma-separated list, each specifying a platform
     family, such as Debian, or Red Hat Enterprise Linux
--   `platform_family?` method is typically used with an `if`, `elseif`,
+-   `platform_family?` method is typically used with an `if`, `elsif`,
     or `case` statement that contains Ruby code that is specific for the
     platform family, if detected
 

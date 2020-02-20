@@ -14,7 +14,7 @@ runbook_weight = 30
     weight = 40
 +++    
 
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/server_firewalls_and_ports.md)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/runbook/server_firewalls_and_ports.md)
 
 {{% server_firewalls_and_ports_summary %}}
 

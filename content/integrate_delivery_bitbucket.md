@@ -1,6 +1,8 @@
 +++
 title = "Integrate Workflow with Bitbucket"
 draft = false
+robots = "noindex"
+
 
 aliases = ["/integrate_delivery_bitbucket.html", "/release/automate/integrate_delivery_bitbucket.html"]
 
@@ -14,7 +16,7 @@ aliases = ["/integrate_delivery_bitbucket.html", "/release/automate/integrate_de
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/integrate_delivery_bitbucket.md)
 
-<meta name="robots" content="noindex">
+
 
 {{% chef_automate_mark %}}
 

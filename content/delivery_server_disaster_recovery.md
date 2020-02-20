@@ -1,6 +1,8 @@
 +++
 title = "Chef Automate Disaster Recovery"
 draft = false
+robots = "noindex"
+
 
 aliases = "/delivery_server_disaster_recovery.html"
 
@@ -14,7 +16,7 @@ aliases = "/delivery_server_disaster_recovery.html"
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/delivery_server_disaster_recovery.md)
 
-<meta name="robots" content="noindex">
+
 
 {{% chef_automate_mark %}}
 

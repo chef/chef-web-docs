@@ -1,6 +1,8 @@
 +++
 title = "Data Collection without Chef Infra Server"
 draft = false
+robots = "noindex"
+
 
 aliases = ["/data_collection_without_server.html"]
 
@@ -14,7 +16,7 @@ aliases = ["/data_collection_without_server.html"]
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/data_collection_without_server.md)
 
-<meta name="robots" content="noindex">
+
 
 {{< important >}}
 

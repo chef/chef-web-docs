@@ -1,6 +1,8 @@
 +++
 title = "Manage Nodes"
 draft = false
+robots = "noindex"
+
 
 aliases = ["/server_manage_nodes.html"]
 
@@ -14,7 +16,7 @@ aliases = ["/server_manage_nodes.html"]
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/server_manage_nodes.md)
 
-<meta name="robots" content="noindex">
+
 
 {{% EOL_manage %}}
 

@@ -1,6 +1,8 @@
 +++
 title = "Data Collection with a Chef Backend Cluster"
 draft = false
+robots = "noindex"
+
 
 aliases = ["/data_collection_ha.html"]
 
@@ -14,7 +16,7 @@ aliases = ["/data_collection_ha.html"]
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/data_collection_ha.md)
 
-<meta name="robots" content="noindex">
+
 
 {{< important >}}
 

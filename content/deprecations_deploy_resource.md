@@ -1,6 +1,8 @@
 +++
 title = "Deprecation: Deploy Resource (CHEF-20)"
 draft = false
+robots = "noindex"
+
 
 aliases = "/deprecations_deploy_resource.html"
 
@@ -14,7 +16,7 @@ aliases = "/deprecations_deploy_resource.html"
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/deprecations_deploy_resource.md)
 
-<meta name="robots" content="noindex">
+
 
 The `deploy` and `deploy_revision` resources have been deprecated as of
 Chef Client 13.6, and will be removed in Chef Client 14.

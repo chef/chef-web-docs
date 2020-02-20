@@ -36,7 +36,7 @@ you'll need to regenerate the ORGANIZATION-validator.pem file:
 INFO: Client key /etc/chef/client.pem is not present - registering
 INFO: HTTP Request Returned 401 Unauthorized: Failed to authenticate as ORGANIZATION-validator. Ensure that your node_name and client key are correct.
 FATAL: Stacktrace dumped to c:/chef/cache/chef-stacktrace.out
-FATAL: Net::HTTPServerException: 401 "Unauthorized"
+FATAL: Net::HTTPClientException: 401 "Unauthorized"
 ```
 
 **Troubleshooting Steps**
@@ -110,7 +110,7 @@ the following type of error will be shown:
 INFO: Client key /etc/chef/client.pem is not present - registering
 INFO: HTTP Request Returned 401 Unauthorized: Failed to authenticate as ORGANIZATION-validator. Synchronize the clock on your host.
 FATAL: Stacktrace dumped to /var/chef/cache/chef-stacktrace.out
-FATAL: Net::HTTPServerException: 401 "Unauthorized"
+FATAL: Net::HTTPClientException: 401 "Unauthorized"
 ```
 
 To resolve this error, synchronize the clock with an NTP server.
@@ -118,7 +118,7 @@ To resolve this error, synchronize the clock with an NTP server.
 All other 401 errors
 --------------------
 
-The general `Net::HTTPServerException: 401 "Unauthorized"` error will
+The general `Net::HTTPClientException: 401 "Unauthorized"` error will
 usually occur for one of two reasons.
 
 **Troubleshooting Steps**
@@ -187,7 +187,7 @@ If you're seeing output like this:
 
 ``` bash
 FATAL: Stacktrace dumped to /var/chef/cache/chef-stacktrace.out
-FATAL: Net::HTTPServerException: 403 "Forbidden"
+FATAL: Net::HTTPClientException: 403 "Forbidden"
 ```
 
 this is an indication that there is an issue with permissions on the
@@ -248,7 +248,7 @@ To fix object permissions:
 
 HTTP 500 is a non-specific error message. The full error message for the
 error Chef Infra Client is receiving can be found in one of the
-following log ﬁles:
+following log files:
 
 -   `/var/log/opscode/opscode-account/current`
 -   `/var/log/opscode/opscode-erchef/current`

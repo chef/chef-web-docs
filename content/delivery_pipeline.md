@@ -1,6 +1,8 @@
 +++
 title = "About Chef Automate Pipelines"
 draft = false
+robots = "noindex"
+
 
 aliases = ["/delivery_pipeline.html", "/release/automate/delivery_pipeline.html"]
 
@@ -14,7 +16,7 @@ aliases = ["/delivery_pipeline.html", "/release/automate/delivery_pipeline.html"
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/delivery_pipeline.md)
 
-<meta name="robots" content="noindex">
+
 
 {{% chef_automate_mark %}}
 

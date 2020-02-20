@@ -1,6 +1,8 @@
 +++
 title = "Deprecation: Deprecation of run_command (CHEF-14)"
 draft = false
+robots = "noindex"
+
 
 aliases = "/deprecations_run_command.html"
 
@@ -14,7 +16,7 @@ aliases = "/deprecations_run_command.html"
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/deprecations_run_command.md)
 
-<meta name="robots" content="noindex">
+
 
 The old run_command API has been replaced by shell_out (a wrapper
 around Mixlib::ShellOut).

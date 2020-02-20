@@ -14,7 +14,7 @@ runbook_weight = 50
     weight = 90
 +++    
 
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/server_security.md)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/runbook/server_security.md)
 
 This guide covers the security features available in Chef Infra Server.
 

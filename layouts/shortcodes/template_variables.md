@@ -7,7 +7,7 @@ and `%>`. For example:
 <%= "my name is #{$ruby}" %>
 ```
 
-A statement is delimited by a modifier, such as `if`, `elseif`, and
+A statement is delimited by a modifier, such as `if`, `elsif`, and
 `else`. For example:
 
 ``` ruby

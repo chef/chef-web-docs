@@ -14,7 +14,7 @@ runbook_weight = 10
     weight = 70
 +++    
 
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/server_monitor.md)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/runbook/server_monitor.md)
 
 Monitoring the Chef Infra Server involves two types of checks:
 application and system. In addition monitoring the HTTP requests that

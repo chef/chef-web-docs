@@ -98,7 +98,9 @@ properties_list:
 
       immediately, after the Chef Infra Client run completes, or never.
 
-      Note that a reboot is necessary for changes to take effect.'
+      Note that a reboot is necessary for changes to take effect. Possible
+
+      values are `:immediate`, `:delayed`, or `:never`.'
 - property: sensitive
   ruby_type: true, false
   required: false

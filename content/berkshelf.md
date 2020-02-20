@@ -580,32 +580,6 @@ This command has the following options:
 :   The URL at which remote cookbooks are located. Default value:
     `https://supermarket.chef.io`.
 
-berks test
-----------
-
-Use `berks test` to run Test Kitchen from within Berkshelf.
-
-{{< warning >}}
-
-This command is deprecated. Please use `kitchen test` instead.
-
-{{< /warning >}}
-
-### Options
-
-This command may run any Kitchen CLI command, such as:
-
--   [kitchen create](/ctl_kitchen.html#kitchen-create)
--   [kitchen converge](/ctl_kitchen.html#kitchen-converge)
--   [kitchen destroy](/ctl_kitchen.html#kitchen-destroy)
--   [kitchen exec](/ctl_kitchen.html#kitchen-exec)
--   [kitchen list](/ctl_kitchen.html#kitchen-list)
--   [kitchen test](/ctl_kitchen.html#kitchen-test)
--   [kitchen verify](/ctl_kitchen.html#kitchen-verify)
-
-See [kitchen (executable)](/ctl_kitchen/) for descriptions of every
-Test Kitchen subcommand.
-
 berks show
 ----------
 

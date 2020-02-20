@@ -10,7 +10,7 @@ aliases = ["/install_supermarket.html"]
     identifier = "chef_infra/setup/supermarket/install_supermarket.md Install Private Supermarket"
     parent = "chef_infra/setup/supermarket"
     weight = 20
-+++
++++    
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/install_supermarket.md)
 

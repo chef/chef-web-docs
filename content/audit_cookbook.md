@@ -1,6 +1,8 @@
 +++
 title = "Sending Compliance Data to Chef Automate with Audit Cookbook"
 draft = false
+robots = "noindex"
+
 
 aliases = ["/audit_cookbook.html", "/audit_supported_configurations.html"]
 
@@ -14,7 +16,7 @@ aliases = ["/audit_cookbook.html", "/audit_supported_configurations.html"]
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/audit_cookbook.md)
 
-<meta name="robots" content="noindex">
+
 
 {{< note >}}
 

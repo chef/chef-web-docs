@@ -1,6 +1,8 @@
 +++
 title = "Manage Roles"
 draft = false
+robots = "noindex"
+
 
 aliases = ["/server_manage_roles.html"]
 
@@ -14,7 +16,7 @@ aliases = ["/server_manage_roles.html"]
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/server_manage_roles.md)
 
-<meta name="robots" content="noindex">
+
 
 {{% EOL_manage %}}
 

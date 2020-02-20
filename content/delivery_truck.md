@@ -1,6 +1,8 @@
 +++
 title = "About the delivery-truck Cookbook"
 draft = false
+robots = "noindex"
+
 
 aliases = ["/delivery_truck.html", "/release/automate/delivery_truck.html"]
 
@@ -14,7 +16,7 @@ aliases = ["/delivery_truck.html", "/release/automate/delivery_truck.html"]
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/delivery_truck.md)
 
-<meta name="robots" content="noindex">
+
 
 {{% delivery_cookbook_delivery_truck %}}
 

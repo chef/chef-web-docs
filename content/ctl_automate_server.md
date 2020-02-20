@@ -1,6 +1,8 @@
 +++
 title = "automate-ctl (executable)"
 draft = false
+robots = "noindex"
+
 
 aliases = "/ctl_automate_server.html"
 
@@ -14,7 +16,7 @@ aliases = "/ctl_automate_server.html"
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/ctl_automate_server.md)
 
-<meta name="robots" content="noindex">
+
 
 {{% chef_automate_mark %}}
 

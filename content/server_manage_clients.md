@@ -1,6 +1,8 @@
 +++
 title = "Manage Client Keys"
 draft = false
+robots = "noindex"
+
 
 aliases = ["/server_manage_clients.html"]
 
@@ -14,7 +16,7 @@ aliases = ["/server_manage_clients.html"]
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/server_manage_clients.md)
 
-<meta name="robots" content="noindex">
+
 
 {{% EOL_manage %}}
 

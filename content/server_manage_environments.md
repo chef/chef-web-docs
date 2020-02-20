@@ -1,6 +1,8 @@
 +++
 title = "Manage Environments"
 draft = false
+robots = "noindex"
+
 
 aliases = ["/server_manage_environments.html"]
 
@@ -14,7 +16,7 @@ aliases = ["/server_manage_environments.html"]
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/server_manage_environments.md)
 
-<meta name="robots" content="noindex">
+
 
 {{< note >}}
 

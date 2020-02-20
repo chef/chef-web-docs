@@ -1,6 +1,8 @@
 +++
 title = "Integrate Chef Automate with SAML for Authentication"
 draft = false
+robots = "noindex"
+
 
 aliases = ["/integrate_chef_automate_saml.html"]
 
@@ -14,7 +16,7 @@ aliases = ["/integrate_chef_automate_saml.html"]
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/integrate_chef_automate_saml.md)
 
-<meta name="robots" content="noindex">
+
 
 {{% chef_automate_mark %}}
 
@@ -153,7 +155,7 @@ often be found through your Identity Provider's metadata file.
         <KeyInfo>
             <X509Data>
                 <X509Certificate>
-                    MIIC4jCCAcqgAwIBAgIQQNXrmzh…..
+                    MIIC4jCCAcqgAwIBAgIQQNXrmzh...
                 </X509Certificate>
             </X509Data>
         </KeyInfo>

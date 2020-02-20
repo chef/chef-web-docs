@@ -10,7 +10,7 @@ aliases = ["/release_notes.html", "/release_notes_ohai.html"]
     identifier = "chef_infra/release_notes/release_notes.md Chef Infra Client"
     parent = "chef_infra/release_notes"
     weight = 10
-+++
++++    
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/release_notes.md)
 
@@ -579,7 +579,7 @@ knife supermarket list Improvements
 
 The `knife supermarket list` command now includes two new options:
 
--
+-   
 
     `--sort-by [recently_updated recently_added most_downloaded most_followed]`:
 
@@ -670,25 +670,25 @@ Security Updates
 Ruby has been updated from 2.6.4 to 2.6.5 in order to resolve the
 following CVEs:
 
--
+-   
 
     [CVE-2019-16255](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-16255):
 
     :   A code injection vulnerability of Shell\#\[\] and Shell\#test
 
--
+-   
 
     [CVE-2019-16254](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-16254):
 
     :   HTTP response splitting in WEBrick (Additional fix)
 
--
+-   
 
     [CVE-2019-15845](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-15845):
 
     :   A NUL injection vulnerability of File.fnmatch and File.fnmatch?
 
--
+-   
 
     [CVE-2019-16201](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-16201):
 
@@ -3115,7 +3115,7 @@ This release of Chef Client 14 resolves a number of regressions in 14.0:
     loading enabled
 -   The `sysctl` resource correctly handles missing keys when used with
     `ignore_error`
--   `–recipe-url` works with Windows with local files.
+-   `-recipe-url` works with Windows with local files.
 
 **Ohai 14.1**
 

@@ -1,6 +1,8 @@
 +++
 title = "Authentication for Elasticsearch and Kibana"
 draft = false
+robots = "noindex"
+
 
 aliases = ["/elasticsearch_and_kibana_auth.html"]
 
@@ -14,7 +16,7 @@ aliases = ["/elasticsearch_and_kibana_auth.html"]
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/elasticsearch_and_kibana_auth.md)
 
-<meta name="robots" content="noindex">
+
 
 {{% chef_automate_mark %}}
 

@@ -1,6 +1,8 @@
 +++
 title = "An Overview of Workflow in Chef Automate"
 draft = false
+robots = "noindex"
+
 
 aliases = ["/workflow.html", "/release/automate/workflow.html"]
 
@@ -14,7 +16,7 @@ aliases = ["/workflow.html", "/release/automate/workflow.html"]
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/workflow.md)
 
-<meta name="robots" content="noindex">
+
 
 {{% chef_automate_mark %}}
 
@@ -199,7 +201,7 @@ reasons.
 2.  The second reason is that Union, Rehearsal, and Delivered form the
     shared pipeline. In these stages you evaluate a change in the
     context of your system as a whole. Ultimately, it is the health of
-    the entire system—not a particular application—that matters. The
+    the entire system-not a particular application-that matters. The
     Union stage gives you a place to evaluate the impact of a change on
     the consumers of the application being shipped. Each stage in the
     shared pipeline has the same set of phases: provision, deploy,

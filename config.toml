@@ -104,6 +104,7 @@ identifier = "download"
 url = "https://downloads.chef.io/"
 weight = 60
 
+
 ## Docs Menu ##
 
 [[menu.docs]]
@@ -917,4 +918,3 @@ title = "Archive"
 identifier = "archive"
 url = "https://docs-archive.chef.io/"
 weight = 130
-

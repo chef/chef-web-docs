@@ -14,7 +14,7 @@ runbook_weight = 70
     weight = 20
 +++    
 
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/server_backup_restore.md)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/runbook/server_backup_restore.md)
 
 Periodic backups of Chef Infra Server data are an essential part of
 managing and maintaining a healthy configuration and ensuring that

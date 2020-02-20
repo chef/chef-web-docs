@@ -67,9 +67,9 @@ in a custom resource, like "name". For example,
 Example
 -------
 
-This example `site` utilizes Chef's built in `file`, `service` and
+This example `site` utilizes Chef's built-in `file`, `service` and
 `package` resources, and includes `:create` and `:delete` actions. Since
-it uses built in Chef Infra Client resources, besides defining the
+it uses built-in Chef Infra Client resources, besides defining the
 property and actions, the code is very similar to that of a recipe.
 
 ``` ruby
@@ -89,7 +89,7 @@ end
 
 action :delete do
   package 'httpd' do
-    action :delete
+    action :remove
   end
 end
 ```
@@ -104,14 +104,14 @@ where
     `/var/www/html/index.html`
 -   `action :create` is the default resource, because it is listed
     first; `action :delete` must be called specifically (because it is
-    not the default resource)
+    not the default action)
 
-Once built, the custom resource may be used in a recipe just like any of
-the resources that are built into Chef. The resource gets its name from
-the cookbook and from the file name in the `/resources` directory, with
-an underscore (`_`) separating them. For example, a cookbook named
-`exampleco` with a custom resource named `site.rb` is used in a recipe
-like this:
+Once written, the custom resource may be used in a recipe just like any
+of the resources that are built into Chef Infra Client. The resource
+gets its name from the cookbook and from the file name in the
+`/resources` directory, with an underscore (`_`) separating them. For
+example, a cookbook named `exampleco` with a custom resource named
+`site.rb` is used in a recipe like this:
 
 ``` ruby
 exampleco_site 'httpd' do
