@@ -825,7 +825,7 @@ the command
 
 .. code-block:: bash
 
-   $ delivery local lint
+   delivery local lint
 
 will run lint, syntax and unit phases in that order:
 
