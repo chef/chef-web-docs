@@ -17,4 +17,4 @@ The `Cookstyle <cookstyle.html>`__ cop `ChefDeprecations/LaunchdDeprecatedHashPr
 Remediation
 =============
 
-When using the ``launchd`` resource and passing a hash≈ for the launchd property list, use the ``plist_hash`` property instead of the ``hash`` property.
+When using the ``launchd`` resource and passing a hash for the launchd property list, use the ``plist_hash`` property instead of the ``hash`` property.

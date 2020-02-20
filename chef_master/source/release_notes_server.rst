@@ -48,7 +48,7 @@ What's New in 13.0.11
 Chef Server is now Chef Infra Server
 -----------------------------------------------------
 
-Chef Server has a new name, but don’t worry, it’s the same Chef Server you’ve grown used to. You’ll notice new branding throughout the application and documentation but the command `chef-server-ctl` remains the same.
+Chef Server has a new name, but don't worry, it's the same Chef Server you've grown used to. You'll notice new branding throughout the application and documentation but the command `chef-server-ctl` remains the same.
 
 Chef EULA
 -----------------------------------------------------
@@ -69,7 +69,7 @@ Deprecation notice
 
 * `Deprecated PowerPC and s390x platforms <https://blog.chef.io/2018/11/01/end-of-life-announcement-for-chef-server-for-linux-on-ibm-z-and-linux-on-ibm-power-systems/>`__
 * `Deprecated Keepalived/DRBD-based HA <https://blog.chef.io/2018/10/02/end-of-life-announcement-for-drbd-based-ha-support-in-chef-server/>`__
-* Deprecated Ubuntu 14.04 support. (Ubuntu 14 was EoL’d at the end of April 2019)
+* Deprecated Ubuntu 14.04 support. (Ubuntu 14 was EoL'd at the end of April 2019)
 
 Updates and Improvements
 -----------------------------------------------------
@@ -182,7 +182,7 @@ See the detailed `change log <https://github.com/chef/chef-server/blob/master/CH
 
 What's New in 12.17.5
 =====================================================
-This release fixes a regression that occurs when deploying to DigitalOcean and potentially other non-AWS cloud platforms, where the ``nginx[‘use_implicit_hosts’] = true`` setting results in an incorrect nginx configuration.
+This release fixes a regression that occurs when deploying to DigitalOcean and potentially other non-AWS cloud platforms, where the ``nginx['use_implicit_hosts'] = true`` setting results in an incorrect nginx configuration.
 
 See the `change log <https://github.com/chef/chef-server/blob/master/CHANGELOG.md#12175-2017-10-25>`__ for a full list of changes.
 
