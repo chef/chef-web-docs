@@ -38,7 +38,7 @@ As you are working with other members of the community, please keep in mind that
 following guidelines apply equally to founders, mentors, those who submit
 new features/pull requests, and anyone who is seeking help and guidance.
 
-The following list isn’t exhaustive, but these few examples can help all of us
+The following list isn't exhaustive, but these few examples can help all of us
 communicate well, so that the community can work better together:
 
 * Use welcoming and inclusive language
@@ -57,7 +57,7 @@ Please keep in mind that:
 * Your work will be used by other people, and you, in turn, will depend on the work of others.
 * Decisions that you make often will affect others in the community.
 * Disagreements happen, but should not be an excuse for poor behavior and bad 
-  manners. When disagreements do happen, let’s work together to solve them effectively 
+  manners. When disagreements do happen, let's work together to solve them effectively 
   and in a way that ensures that everyone understands what the disagreements were.
 * Our community spans languages, cultures, perspectives (and continents!), and as 
   such people may not understand jokes, sarcasm, and oblique references in the 

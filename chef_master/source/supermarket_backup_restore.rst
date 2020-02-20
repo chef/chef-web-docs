@@ -20,7 +20,7 @@ For example, a cookbook backup command:
 
 .. code-block:: bash
 
-      $ cd /var/opt/supermarket/data/ 
+      $ cd /var/opt/supermarket/data/
       $ tar cvzf ~/supermarket_cookbook_versions.tar.gz cookbook_versions
 
 
@@ -38,7 +38,7 @@ For example, a database export in a .dump format can be made with the following 
 
 where, in a typical installation:
   * ``/opt/supermarket/embedded/bin/pg_dump`` is the path to the database export utility included in the Supermarket installation
-  * ``localhost`` may alternatively be 127.0.0.1 
+  * ``localhost`` may alternatively be 127.0.0.1
   * ``15432`` is the PostgreSQL port number, which may need to be modified
   * ``--format c`` sets the output to PostgreSQL's "custom" binary file format
 
@@ -79,7 +79,7 @@ For example, to restore your cookbook files, run:
 
 .. code-block:: bash
 
-      $ cd /var/opt/supermarket/data/ 
+      $ cd /var/opt/supermarket/data/
       $ tar xvzf /supermarket_cookbook_versions.tar.gz
 
 

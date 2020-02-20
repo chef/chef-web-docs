@@ -229,7 +229,7 @@ To install AppArmor, run the following command:
 
 .. code-block:: bash
 
-   $ sudo apt-get install apparmor-utils —yes
+   $ sudo apt-get install apparmor-utils -yes
 
 If a response other than ``"0 processes are in enforce mode"`` or ``"0 profiles are in enforce mode."`` is returned, AppArmor must be set to ``Complaining`` mode or disabled.
 
@@ -435,7 +435,7 @@ The Chef Infra Server server requires that every node that is under management b
    [Tue, 01 Nov 2011 16:55:24 -0700] INFO: HTTP Request Returned 401 Unauthorized:
        Failed to authenticate as ORGANIZATION-validator. Synchronize the clock on your host.
    [Tue, 01 Nov 2011 16:55:24 -0700] FATAL: Stacktrace dumped to /var/chef/cache/chef-stacktrace.out
-   [Tue, 01 Nov 2011 16:55:24 -0700] FATAL: Net::HTTPServerException: 401 "Unauthorized"
+   [Tue, 01 Nov 2011 16:55:24 -0700] FATAL: Net::HTTPClientException: 401 "Unauthorized"
 
 In this situation, re-synchronize the system clocks with the Network Time Protocol (NTP) server, and then re-run Chef Infra Client.
 

@@ -74,7 +74,7 @@ To validate communication with the Windows system using domain authentication ru
 
 .. code-block:: bash
 
-   $ knife winrm 'node1.domain.com' 'dir' -m -x domain\\administrator -P 'super_secret_password' –p 5986
+   $ knife winrm 'node1.domain.com' 'dir' -m -x domain\\administrator -P 'super_secret_password' -p 5986
 
 cert generate
 =====================================================

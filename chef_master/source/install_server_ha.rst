@@ -331,7 +331,7 @@ To allow other systems to connect, such as members of a frontend group that migh
 
 After setting the ``md5_auth_cidr_addresses`` value and reconfiguring the server, two entries will be created in ``pg_hba.conf`` for each value in the ``md5_auth_cidr_addresses`` array. Existing values in ``pg_hba.conf`` will be overwritten by the values in the array, so we must also specify "samehost" and "samenet", which will continue to allow systems on a local network to connect to PostgreSQL.
 
-For example, if a frontend host at 192.168.1.3 can reach a backend member over the network, but the backend’s local network is 192.168.2.x, you would add the following line to ``/etc/chef-backend/chef-backend.rb``
+For example, if a frontend host at 192.168.1.3 can reach a backend member over the network, but the backend's local network is 192.168.2.x, you would add the following line to ``/etc/chef-backend/chef-backend.rb``
 
 .. code-block:: none
 

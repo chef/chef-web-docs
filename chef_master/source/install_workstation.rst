@@ -3,7 +3,7 @@ Install Chef Workstation
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/install_workstation.rst>`__
 
-Start your infrastructure automation quickly and easily with `Chef Workstation <https://www.chef.sh/>`__ . Chef Workstation gives you everything you need to get started with Chef — ad hoc remote execution, remote scanning, configuration tasks, cookbook creation tools as well as robust dependency and testing software — all in one easy-to-install package.
+Start your infrastructure automation quickly and easily with `Chef Workstation <https://www.chef.sh/>`__ . Chef Workstation gives you everything you need to get started with Chef - ad hoc remote execution, remote scanning, configuration tasks, cookbook creation tools as well as robust dependency and testing software - all in one easy-to-install package.
 
 Chef Workstation includes:
 

@@ -12,9 +12,7 @@ Install Delivery CLI
 =====================================================
 .. tag delivery_cli_install
 
-The Delivery CLI is required for the workstation and for many Chef Automate functions. It is included in Chef Workstation and can be obtained by `installing the latest version </install_workstation.html>`__.
-
-.. note:: You must delete your old Delivery CLI if you installed it prior to it being included in Chef Workstation.
+The Delivery CLI is included in Chef Workstation and can be obtained by `installing the latest version </install_workstation.html>`__.
 
 .. end_tag
 
@@ -57,7 +55,6 @@ How to enable FIPS mode for the Chef Automate server
 Prerequisites
 ------------------------------------------------------------------
 * Supported Systems - CentOS or Red Hat Enterprise Linux 6 or later
-* Chef Automate version ``0.7.100`` or greater
 
 Configuration
 ------------------------------------------------------------------
@@ -503,7 +500,7 @@ The following example shows how to add a build cookbook after the initialization
 
 .. code-block:: bash
 
-   $ delivery init —skip-build-cookbook
+   $ delivery init -skip-build-cookbook
 
 and then update the ``config.json`` file for the ``delivery-truck`` cookbook and the path to the cookbook in a private Chef Supermarket:
 
@@ -714,7 +711,7 @@ which will return output similar to:
 
 delivery local
 =====================================================
-Use the ``local`` subcommand to run a phase or stage of Chef Automate locally, based on settings in the ``project.toml`` file located in the project's ``.delivery`` directory.
+Use the ``local`` subcommand to run Delivery phase or stage on your local Chef Workstation installation, based on settings in the ``project.toml`` file located in the project's ``.delivery`` directory.
 
 Syntax
 -----------------------------------------------------
@@ -780,31 +777,31 @@ Providing the URI through this manner will take precedence over anything configu
 Examples
 -----------------------------------------------------
 
-**Run Foodcritic**
+**Run Cookstyle**
 
 If the ``project.toml`` file contains:
 
 .. code-block:: ruby
 
    unit = "rspec spec/"
-   lint = "cookstyle"
-   syntax = "foodcritic . --exclude spec -f any -t \"~FC064\" -t \"~FC065\""
-   provision = "chef exec kitchen create"
-   deploy = "chef exec kitchen converge"
-   smoke = "chef exec kitchen verify"
-   cleanup = "chef exec kitchen destroy"
+   lint = "cookstyle --only ChefCorrectness"
+   syntax = "echo skipping syntax phase"
+   provision = "kitchen create"
+   deploy = "kitchen converge"
+   smoke = "kitchen verify"
+   cleanup = "kitchen destroy"
 
 the command
 
 .. code-block:: bash
 
-   $ delivery local syntax
+   delivery local lint
 
-will run Foodcritic and execute the following command locally:
+will run Cookstyle and execute the following command locally:
 
 .. code-block:: bash
 
-   $ foodcritic . --exclude spec -f any -t \"~FC064\" -t \"~FC065\"
+   cookstyle --only ChefCorrectness
 
 
 **Run Verify Stage**
@@ -814,37 +811,29 @@ If the ``project.toml`` file contains:
 .. code-block:: ruby
 
    unit = "rspec spec/"
-   lint = "cookstyle"
-   syntax = "foodcritic . --exclude spec -f any -t \"~FC064\" -t \"~FC065\""
-   provision = "chef exec kitchen create"
-   deploy = "chef exec kitchen converge"
-   smoke = "chef exec kitchen verify"
-   cleanup = "chef exec kitchen destroy"
+   lint = "cookstyle --only ChefCorrectness"
+   syntax = "echo skipping syntax phase"
+   provision = "kitchen create"
+   deploy = "kitchen converge"
+   smoke = "kitchen verify"
+   cleanup = "kitchen destroy"
 
 the command
 
 .. code-block:: bash
 
-   $ delivery local verify
+   delivery local lint
 
 will run lint, syntax and unit phases in that order:
 
 .. code-block:: bash
 
    Chef Delivery
-   Running Verify Stage
    Running Lint Phase
-   Inspecting 7 files
-   .......
+   Inspecting 45 files
+   .............................................
 
-   7 files inspected, no offenses detected
-   Running Syntax Phase
-
-   Running Unit Phase
-   .........
-
-   Finished in 0.35973 seconds (files took 3.96 seconds to load)
-   9 example, 0 failures
+   45 files inspected, no offenses detected
 
 delivery review
 =====================================================

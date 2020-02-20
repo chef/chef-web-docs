@@ -98,7 +98,7 @@ During the Acceptance stage, infrastructure is provisioned (if needed), and the 
 When you click the Deliver button, the change begins its final journey into production. This journey consists of three stages: Union, Rehearsal, and Delivered. These three stages are special for two reasons.
 
 #. The first reason is that they are fully automated. Once you ship a change into Union, it will automatically move through the Rehearsal and Delivered stages if all of the automated checks are successful.
-#. The second reason is that Union, Rehearsal, and Delivered form the shared pipeline. In these stages you evaluate a change in the context of your system as a whole. Ultimately, it is the health of the entire system—not a particular application—that matters. The Union stage gives you a place to evaluate the impact of a change on the consumers of the application being shipped. Each stage in the shared pipeline has the same set of phases: provision, deploy, smoke, and functional.
+#. The second reason is that Union, Rehearsal, and Delivered form the shared pipeline. In these stages you evaluate a change in the context of your system as a whole. Ultimately, it is the health of the entire system-not a particular application-that matters. The Union stage gives you a place to evaluate the impact of a change on the consumers of the application being shipped. Each stage in the shared pipeline has the same set of phases: provision, deploy, smoke, and functional.
 
 How stages of the pipeline are associated with actual infrastructure environments is flexible. For example, you can have dedicated infrastructure for each stage. This allows each stage to operate independently.
 
