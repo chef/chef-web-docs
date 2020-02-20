@@ -3,14 +3,14 @@ Deprecation: Chef REST (CHEF-9)
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/deprecations_chef_rest.rst>`__
 
-.. meta:: 
-    :robots: noindex 
-    
+.. meta::
+    :robots: noindex
+
 The ``Chef::REST`` class will be removed.
 
-
-
 ``Chef::REST`` was deprecated in Chef Client 12.7.2, and will be removed in Chef Client 13.
+
+The `Cookstyle <cookstyle.html>`__ cop `ChefDeprecations/UsesChefRESTHelpers <https://github.com/chef/cookstyle/blob/master/docs/cops_chefdeprecations.md#chefdeprecationsuseschefresthelpers>`__ has been introduced to detect this deprecation.
 
 Remediation
 =============
