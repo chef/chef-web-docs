@@ -1,2 +1,2 @@
 channel = "stable"
-dns_suffix = ""
+dns_suffix = "production"
