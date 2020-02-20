@@ -76,7 +76,7 @@ We love getting feedback. You can use:
 - Pull request --- Submit a PR to this repo using either of the two
   methods described above.
 - GitHub issues --- Use the https://github.com/chef/chef/issues page
-  for issues specific to Chef itself. This is a good place for
+  for issues specific to Chef Infra itself. This is a good place for
   "important" documentation bugs that may need visibility among a
   larger group, especially in situations where a doc bug may also
   surface a product bug. You can also use
@@ -98,7 +98,7 @@ will be added for major releases of products/projects or for products/projects/c
 ## Archive of pre-2016 commit history
 
 Commit history of this repo prior to February 12, 2016 has been
-archived to the chef/chef-web-docs-2016 repo to save space. No changes
+archived to the [chef-web-docs-2016 repo](https://github.com/chef-boneyard/chef-web-docs-2016) to save space. No changes
 to the archive repo will be merged; it's just for historical purposes.
 
 ## Questions
