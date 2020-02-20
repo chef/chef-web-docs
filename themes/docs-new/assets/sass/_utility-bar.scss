@@ -201,6 +201,18 @@ nav {
       }
     }
   }
+  ul.top-nav{
+    float: right;
+    margin-top: .5rem;
+    margin-right: 2rem;
+    font-weight: bold;
+    a{
+      color: $charcoal;
+      &:hover {
+        color:$blue-darker;
+      }
+    }
+  }
 }
 
 #left-nav-off-canvas{
