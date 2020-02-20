@@ -804,7 +804,7 @@ will run Cookstyle and execute the following command locally:
 
 .. code-block:: bash
 
-   $ cookstyle --only ChefCorrectness
+   cookstyle --only ChefCorrectness
 
 
 **Run Verify Stage**
