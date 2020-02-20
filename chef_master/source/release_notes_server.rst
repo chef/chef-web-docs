@@ -1,9 +1,9 @@
 =====================================================
-Release Notes: Chef Infra Server 12.0 - 13.0.11
+Release Notes: Chef Infra Server 12.0 - 13.1.13
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/release_notes_server.rst>`__
 
-Chef Server acts as a hub for configuration data by storing cookbooks, the policies that are applied to nodes, and metadata that describes each registered node that is managed by the chef-client.
+Chef Infra Server acts as a hub for configuration data by storing cookbooks, the policies that are applied to nodes, and metadata that describes each registered node that is managed by the Chef Infra Client.
 
 What's New in 13.1.13
 =====================================================
@@ -31,10 +31,8 @@ Deprecation Notice
 Updates and Improvements
 -----------------------------------------------------
 
-* Yard 0.9.19 -> 0.9.20
-* Bundler 1.17.2 -> 1.17.2
 * Postgres 9.6.10 -> 9.6.15
-* Chef v15.3.14 -> v15.4.45
+* Chef Infra Client v15.3.14 -> v15.4.45
 * OpenResty 1.13.6.2 -> 1.15.8.1
 * Nokogiri 1.8.5 -> 1.10.4
 * Rebar3 -> 3.12.0
