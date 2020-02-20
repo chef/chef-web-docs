@@ -711,7 +711,7 @@ which will return output similar to:
 
 delivery local
 =====================================================
-Use the ``local`` subcommand to run a phase or stage of Chef Automate locally, based on settings in the ``project.toml`` file located in the project's ``.delivery`` directory.
+Use the ``local`` subcommand to run Delivery phase or stage on your local Chef Workstation installation, based on settings in the ``project.toml`` file located in the project's ``.delivery`` directory.
 
 Syntax
 -----------------------------------------------------
@@ -777,31 +777,31 @@ Providing the URI through this manner will take precedence over anything configu
 Examples
 -----------------------------------------------------
 
-**Run Foodcritic**
+**Run Cookstyle**
 
 If the ``project.toml`` file contains:
 
 .. code-block:: ruby
 
    unit = "rspec spec/"
-   lint = "cookstyle"
-   syntax = "foodcritic . --exclude spec -f any -t \"~FC064\" -t \"~FC065\""
-   provision = "chef exec kitchen create"
-   deploy = "chef exec kitchen converge"
-   smoke = "chef exec kitchen verify"
-   cleanup = "chef exec kitchen destroy"
+   lint = "cookstyle --only ChefCorrectness"
+   syntax = "echo skipping syntax phase"
+   provision = "kitchen create"
+   deploy = "kitchen converge"
+   smoke = "kitchen verify"
+   cleanup = "kitchen destroy"
 
 the command
 
 .. code-block:: bash
 
-   $ delivery local syntax
+   delivery local lint
 
-will run Foodcritic and execute the following command locally:
+will run Cookstyle and execute the following command locally:
 
 .. code-block:: bash
 
-   $ foodcritic . --exclude spec -f any -t \"~FC064\" -t \"~FC065\"
+   cookstyle --only ChefCorrectness
 
 
 **Run Verify Stage**
@@ -811,37 +811,29 @@ If the ``project.toml`` file contains:
 .. code-block:: ruby
 
    unit = "rspec spec/"
-   lint = "cookstyle"
-   syntax = "foodcritic . --exclude spec -f any -t \"~FC064\" -t \"~FC065\""
-   provision = "chef exec kitchen create"
-   deploy = "chef exec kitchen converge"
-   smoke = "chef exec kitchen verify"
-   cleanup = "chef exec kitchen destroy"
+   lint = "cookstyle --only ChefCorrectness"
+   syntax = "echo skipping syntax phase"
+   provision = "kitchen create"
+   deploy = "kitchen converge"
+   smoke = "kitchen verify"
+   cleanup = "kitchen destroy"
 
 the command
 
 .. code-block:: bash
 
-   $ delivery local verify
+   delivery local lint
 
 will run lint, syntax and unit phases in that order:
 
 .. code-block:: bash
 
    Chef Delivery
-   Running Verify Stage
    Running Lint Phase
-   Inspecting 7 files
-   .......
+   Inspecting 45 files
+   .............................................
 
-   7 files inspected, no offenses detected
-   Running Syntax Phase
-
-   Running Unit Phase
-   .........
-
-   Finished in 0.35973 seconds (files took 3.96 seconds to load)
-   9 example, 0 failures
+   45 files inspected, no offenses detected
 
 delivery review
 =====================================================
