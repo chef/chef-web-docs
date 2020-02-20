@@ -3,6 +3,8 @@ About Foodcritic
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/foodcritic.rst>`__
 
+.. warning:: Foodcritic is deprecated and should no longer be used for cookbook linting. Use `Cookstyle <cookstyle.html>`__ instead which offers additional rules, violation autocorrection, Ruby linting, and a robust configuration system.
+
 Use Foodcritic to check cookbooks for common problems:
 
 * Style
@@ -24,13 +26,13 @@ Foodcritic is run from the command line, typically against a single cookbook and
 
 .. code-block:: bash
 
-   $ foodcritic /path/to/cookbook
+   foodcritic /path/to/cookbook
 
 Foodcritic may also be run from the root of an individual cookbook directory:
 
 .. code-block:: bash
 
-   $ foodcritic .
+   foodcritic .
 
 Foodcritic returns a list, via standard output, that shows the results of the evaluation:
 
@@ -78,13 +80,13 @@ Run the following command to exclude a Foodcritic rule:
 
 .. code-block:: bash
 
-   $ foodcritic . --tags ~RULE
+   foodcritic . --tags ~RULE
 
 For example, to exclude rule ``FC003``:
 
 .. code-block:: bash
 
-   $ foodcritic . --tags ~FC003
+   foodcritic . --tags ~FC003
 
 Foodcritic CLI
 =====================================================
@@ -94,7 +96,7 @@ This command has the following syntax:
 
 .. code-block:: bash
 
-   $ foodcritic COOKBOOK_PATH
+   foodcritic COOKBOOK_PATH
 
 This command has the following options:
 
@@ -118,10 +120,10 @@ This command has the following options:
 
 ``-C``, ``--[no-]context``
    Use to show lines matched against Foodcritic rules, rather than the default summary.
-   
-``-E``, ``--environment-path PATH``      
+
+``-E``, ``--environment-path PATH``
    Environment path(s) to check.
-      
+
 ``-G``, ``--search-gems``
    Search rubygems for rule files with the path ``foodcritic/rules/**/*.rb``.
 
@@ -139,7 +141,7 @@ This command has the following options:
 
 ``-V``, ``--version``
    Use to display the version of Foodcritic.
-   
+
 ``-X``, ``--exclude PATH``
    Exclude path(s) from being linted. PATH is relative to the cookbook, not an absolute PATH.
    Default ``test/**/*,spec/**/*,features/**/*``.
