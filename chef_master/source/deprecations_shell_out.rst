@@ -5,11 +5,9 @@ Deprecation: Deprecation of old shell_out APIs (CHEF-26)
 
 .. meta::
     :robots: noindex
-    
+
 The functionality of mutiple old `shell_out` APIs has been collapsed into the `shell_out` API itself, and the old methods
 have been deprecated.
-
-
 
 The `shell_out_compact` API has been migrated into `shell_out`, so those methods can be renamed.  The functionality of
 `shell_out_compact_timeout` and `shell_out_with_timeout` have been migrated into `shell_out` for internal resources, and will
@@ -18,7 +16,6 @@ be migrated into custom resources and LWRPs in Chef-15, in the meantime consumer
 `default_env: false` flag.
 
 The "banged" versions of those APIs (e.g. `shell_out_compact!`) changes identically to use `shell_out!`.
-
 
 Example
 =====================================================

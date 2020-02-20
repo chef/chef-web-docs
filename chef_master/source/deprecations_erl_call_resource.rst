@@ -3,10 +3,12 @@ Deprecation: Deprecation of the erl_call resource (CHEF-22)
 =================================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/deprecations_erl_call_resource.rst>`__
 
-.. meta:: 
-    :robots: noindex 
-    
+.. meta::
+    :robots: noindex
+
 The erl_call resource was deprecated in Chef Client 13.7 and removed from Chef Client 14.0 (April 2018).
+
+The `Cookstyle <cookstyle.html>`__ cop `ChefDeprecations/ErlCallResource <https://github.com/chef/cookstyle/blob/master/docs/cops_chefdeprecations.md#chefdeprecationserlcallresource>`__ has been introduced to detect this deprecation.
 
 Remediation
 =============
