@@ -80,7 +80,7 @@ Updates and Improvements
 
   * This fixes two CVEs: CVE-2018-9230 and CVE-2017-7529.
   * This version cannot be built on PowerPC and s390x because those platforms are not supported in mainline luajit.
-  
+
 * Updated Ruby version to 2.5.5
 * Updated Chef Infra Client to 14.11.21
 * Updated runit cookbook to 5.1.1
@@ -110,7 +110,7 @@ This release contains some minor improvements and updates to include software:
 
   * Fixed two CVEs CVE-2017-1000385 and CVE-2016-10253. SSL headers got stricter which unfortunately broke LDAP. (Issue #1642)
   * Removed ``et``, ``debugger``, ``gs``, and ``observer`` as they depend on ``wx``, which is not available on all platforms.
-  
+
 * Ruby updated to 2.5.3.
 * Chef Client updated to 14.5.
 * Erchef and Bookshelf can optionally use mTLS protocol for their internal communications.
@@ -121,7 +121,7 @@ This release contains some minor improvements and updates to include software:
   * Removed ``do_end`` function from ``chef-server-ctl`` hab plan.
   * Enhanced ``chef-server-ctl`` to function in more habitat environments.
   * ``chef-server-ctl`` commands pass relevant TLS options during bifrost API calls.
-  
+
 * Used standard ruby-cleanup definition, which shrinks install size by ~5% on disk.
 * Removed unused couchdb configurables.
 
