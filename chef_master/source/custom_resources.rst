@@ -13,7 +13,6 @@ A custom resource:
 
 For example, Chef Infra Client includes built-in resources to manage files, packages, templates, and services, but it does not include a resource that manages websites.
 
-
 Syntax
 =====================================================
 A custom resource is defined as a Ruby file and is located in a cookbook's ``/resources`` directory. This file:
@@ -42,11 +41,9 @@ where the first action listed is the default action.
    Do not use existing keywords from the Chef Infra Client resource system in a custom resource, like "name". For example, ``property :property_name`` in the following invalid syntax:
    ``property :name, String, default: 'thename'``.
 
-
-
 Example
 ----------------------------------------------------
-This example ``site`` utilizes Chef's built in ``file``, ``service`` and ``package`` resources, and includes ``:create`` and ``:delete`` actions. Since it uses built in Chef Infra Client resources, besides defining the property and actions, the code is very similar to that of a recipe.
+This example ``site`` utilizes Chef's built-in ``file``, ``service`` and ``package`` resources, and includes ``:create`` and ``:delete`` actions. Since it uses built-in Chef Infra Client resources, besides defining the property and actions, the code is very similar to that of a recipe.
 
 .. code-block:: ruby
 
@@ -66,7 +63,7 @@ This example ``site`` utilizes Chef's built in ``file``, ``service`` and ``packa
 
    action :delete do
      package 'httpd' do
-       action :delete
+       action :remove
      end
    end
 
@@ -74,9 +71,9 @@ where
 
 * ``homepage`` is a property that sets the default HTML for the ``index.html`` file with a default value of ``'<h1>Hello world!</h1>'``
 * the ``action`` block uses the built-in collection of resources to tell Chef Infra Client how to install Apache, start the service, and then create the contents of the file located at ``/var/www/html/index.html``
-* ``action :create`` is the default resource, because it is listed first; ``action :delete`` must be called specifically (because it is not the default resource)
+* ``action :create`` is the default resource, because it is listed first; ``action :delete`` must be called specifically (because it is not the default action)
 
-Once built, the custom resource may be used in a recipe just like any of the resources that are built into Chef. The resource gets its name from the cookbook and from the file name in the ``/resources`` directory, with an underscore (``_``) separating them. For example, a cookbook named ``exampleco`` with a custom resource named ``site.rb`` is used in a recipe like this:
+Once written, the custom resource may be used in a recipe just like any of the resources that are built into Chef Infra Client. The resource gets its name from the cookbook and from the file name in the ``/resources`` directory, with an underscore (``_``) separating them. For example, a cookbook named ``exampleco`` with a custom resource named ``site.rb`` is used in a recipe like this:
 
 .. code-block:: ruby
 
