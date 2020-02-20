@@ -440,7 +440,7 @@ The syntax for the ``platform?`` method is as follows:
 where:
 
 * ``parameter`` is a comma-separated list, each specifying a platform, such as Red Hat, CentOS, or Fedora
-* ``platform?`` method is typically used with an ``if``, ``elseif``, or ``case`` statement that contains Ruby code that is specific for the platform, if detected
+* ``platform?`` method is typically used with an ``if``, ``elsif``, or ``case`` statement that contains Ruby code that is specific for the platform, if detected
 
 .. future example: step_resource_ruby_block_if_statement_use_with_platform
 .. future example: step_resource_ruby_block_run_specific_blocks_on_specific_platforms
@@ -543,7 +543,7 @@ The syntax for the ``platform_family?`` method is as follows:
 where:
 
 * ``'parameter'`` is a comma-separated list, each specifying a platform family, such as Debian, or Red Hat Enterprise Linux
-* ``platform_family?`` method is typically used with an ``if``, ``elseif``, or ``case`` statement that contains Ruby code that is specific for the platform family, if detected
+* ``platform_family?`` method is typically used with an ``if``, ``elsif``, or ``case`` statement that contains Ruby code that is specific for the platform family, if detected
 
 For example:
 
