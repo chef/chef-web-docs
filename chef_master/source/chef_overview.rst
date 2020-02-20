@@ -76,16 +76,21 @@ Chef Infra has the following major components:
           :width: 100px
           :align: center
 
-     - The Chef Infra Server acts as a hub of information. Cookbooks and policy settings are uploaded to the Chef Infra Server by users from workstations. (Policy settings may also be maintained from the Chef Infra Server itself, via the Chef management console web user interface.)
+     - The Chef Infra Server acts as a hub of information. Cookbooks and policy settings are uploaded to the Chef Infra Server by users from workstations.
 
        The Chef Infra Client accesses the Chef Infra Server from the node on which it's installed to get configuration data, performs searches of historical Chef Infra Client run data, and then pulls down the necessary configuration data. After a Chef Infra Client run is finished, the Chef Infra Client uploads updated run data to the Chef Infra Server.
+
+   * - .. image:: ../../images/icon_chef_automate.svg
+          :width: 100px
+          :align: center
+
+     - Chef Automate provides a single location to view Chef Infra Client runs, compliance reports and provides high availability configurations, and Chef Infra Server replication.
+
    * - .. image:: ../../images/icon_chef_supermarket.svg
           :width: 100px
           :align: center
 
      - Chef Supermarket is the location in which community cookbooks are shared and managed. Cookbooks that are part of the Chef Supermarket may be used by any Chef user. How community cookbooks are used varies from organization to organization.
-
-Chef Infra Client run reporting, compliance reporting, high availability configurations, and Chef Infra Server replication are available as part of Chef Automate.
 
 The following sections discuss these elements (and their various components) in more detail.
 
