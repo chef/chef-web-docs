@@ -12,9 +12,7 @@ Install Delivery CLI
 =====================================================
 .. tag delivery_cli_install
 
-The Delivery CLI is required for the workstation and for many Chef Automate functions. It is included in Chef Workstation and can be obtained by `installing the latest version </install_workstation.html>`__.
-
-.. note:: You must delete your old Delivery CLI if you installed it prior to it being included in Chef Workstation.
+The Delivery CLI is included in Chef Workstation and can be obtained by `installing the latest version </install_workstation.html>`__.
 
 .. end_tag
 
@@ -57,7 +55,6 @@ How to enable FIPS mode for the Chef Automate server
 Prerequisites
 ------------------------------------------------------------------
 * Supported Systems - CentOS or Red Hat Enterprise Linux 6 or later
-* Chef Automate version ``0.7.100`` or greater
 
 Configuration
 ------------------------------------------------------------------
