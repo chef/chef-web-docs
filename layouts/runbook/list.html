@@ -5,6 +5,7 @@
 <body>
   <a class="skip-main" href="#main-content">Skip to main content</a>
   {{ partial "utility-bar" . }}
+  {{ partial "utility-bar-small" . }}
   <div id="left-nav-off-canvas" class="hide-for-medium" data-toggler=".reveal">
     {{ partial "sidebar-off-canvas" . }}
   </div>
@@ -118,6 +119,9 @@
               </div>
             </div>
           </main>
+        </div>
+        <div class="cell off-canvas position-right toc off-canvas-absolute reveal-for-large" id="onCanvasRightTOC" data-off-canvas >
+          {{ partial "runbook-toc" . }}
         </div>
       </div>
     </div>

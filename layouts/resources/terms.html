@@ -4,6 +4,7 @@
 <body>
   <a class="skip-main" href="#main-content-col">Skip to main content</a>
   {{ partial "utility-bar" . }}
+  {{ partial "utility-bar-small" . }}
   <div id="left-nav-off-canvas" class="hide-for-medium" data-toggler=".reveal">
     {{ partial "sidebar-off-canvas" . }}
   </div>
@@ -1165,11 +1166,8 @@
             </div>  
           </main>
         </div>
-        <div class="off-canvas position-right reveal-for-large off-canvas-absolute" id="onCanvasRight" data-off-canvas>
-          <div class="toc sticky" data-sticky data-off-canvas-sticky data-top-anchor="utility-bar:bottom"
-            data-btm-anchor="footer:top" data-margin-top="0" data-margin-bottom="0">
-            {{ partial "resource_terms_toc" . }}
-          </div>
+        <div class="cell off-canvas position-right toc off-canvas-absolute reveal-for-large" id="onCanvasRightTOC" data-off-canvas >
+          {{ partial "resource_terms_toc" . }}
         </div>
       </div>
     </div>

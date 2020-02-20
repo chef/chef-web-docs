@@ -125,3 +125,16 @@
 		}
 	}
 }
+
+.external::after {
+	@include fa-icon;
+	@extend .fas;
+	content: fa-content($fa-var-external-link-alt);
+	font-size: .75em;
+	color: $charcoal;
+	position: relative;
+	left: 4px;
+	bottom: 1px;
+  margin-right: 4px;
+  filter: invert(51%) sepia(0%) saturate(13%) hue-rotate(142deg) brightness(89%) contrast(83%);
+}

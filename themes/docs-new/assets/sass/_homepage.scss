@@ -6,6 +6,9 @@
     max-width: 1000px;
     min-height: 100vh;
     margin-bottom: 30px;
+    &:focus {
+      outline: none;
+    }
 
     a {
       text-decoration: underline;
