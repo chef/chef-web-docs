@@ -8,7 +8,7 @@ Configuring for SAML Authentication
 
 .. tag EOL_manage
 
-.. warning:: Chef Manage is `deprecated </versions.html#deprecated-products-and-versions>`__. The `Chef Enterprise Automation Stack <https://www.chef.io/products/enterprise-automation-stack>`_ allows you to define infrastructure, security policies, and application dependencies as code, deliver the stack via an automated pipeline to any platform, and deploy, observe, and manage the stack over its lifecycle. Chef Automate is included as part of the Chef license agreement and is `available via subscription <https://www.chef.io/pricing/>`_.
+.. warning:: Chef Manage is `deprecated </versions.html#deprecated-products-and-versions>`__ and does not work with Chef Automate 2.0. See our `documentation <https://automate.chef.io/docs/quickstart/>`_ to learn more about Chef Automate 2. This document is no longer maintained.
 
 .. end_tag
 
