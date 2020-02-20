@@ -37,7 +37,7 @@ Knife
 Use the verbose logging that is built into knife:
 
 ``-V``, ``--verbose``
-  et for more verbose outputs. Use ``-VV`` for much more verbose outputs. Use ``-VVV`` for maximum verbosity, which may provide more information than is actually helpful.
+  Set for more verbose outputs. Use ``-VV`` for much more verbose outputs. Use ``-VVV`` for maximum verbosity, which may provide more information than is actually helpful.
 
 .. note:: Plugins do not always support verbose logging.
 
