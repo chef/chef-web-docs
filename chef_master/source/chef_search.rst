@@ -170,7 +170,7 @@ To build a search query to use more than one attribute, use an underscore (``_``
 
 .. code-block:: bash
 
-	knife search node "languages_ruby_version:1.9.3"
+	knife search node "languages_ruby_version:2.7.0"
 
 .. end_tag
 
