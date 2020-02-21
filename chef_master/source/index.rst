@@ -38,11 +38,14 @@ Community
 
 Packages and Platform Support
 -----------------------------------------------------
-`Licensing </chef_license.html>`__ |
 `Packages </packages.html>`__ |
 `Platforms </platforms.html>`__ |
 `Supported Versions </versions.html>`__ |
 `Omnitruck API </api_omnitruck.html>`__
+
+**Licensing**:
+`About Licensing </chef_license.html>`__ |
+`Accepting License </chef_license_accept.html>`__
 
 Chef Infra
 =====================================================
@@ -138,7 +141,6 @@ Cookbook Reference
 `build_essential </resource_build_essential.html>`__ |
 `cab_package </resource_cab_package.html>`__ |
 `chef_acl </resource_chef_acl.html>`__ |
-`chef_client </resource_chef_client.html>`__ |
 `chef_container </resource_chef_container.html>`__ |
 `chef_data_bag </resource_chef_data_bag.html>`__ |
 `chef_data_bag_item </resource_chef_data_bag_item.html>`__ |
@@ -277,12 +279,13 @@ Cookbook Reference
 `Cookbook Versioning </cookbook_versioning.html>`__ |
 `Ruby Guide </ruby.html>`__
 
-**Chef Automate Cookbooks**: `build-cookbook (cookbook) </delivery_build_cookbook.html>`__ | `delivery-truck (cookbook) </delivery_truck.html>`__ | `Publish Cookbooks to Multiple Chef Servers </publish_cookbooks_multiple_servers.html>`__
+**Chef Automate Cookbooks**: `build-cookbook (cookbook) </delivery_build_cookbook.html>`__ | `delivery-truck (cookbook) </delivery_truck.html>`__ | 
 
 Chef Workstation
 -----------------------------------------------------
 
 `About Chef Workstation </about_workstation.html>`__ |
+`Configure Chef Workstation </workstation_setup.html>`_ |
 `Berkshelf </berkshelf.html>`__ |
 `chef-apply (executable) </ctl_chef_apply.html>`__ |
 `chef-shell (executable) </chef_shell.html>`__
@@ -318,7 +321,7 @@ Chef Workstation
 
 **Supermarket**: `Log Files </supermarket_logs.html>`__ | `Backup and Restore </supermarket_backup_restore.html>`__ | `Monitoring </supermarket_monitor.html>`__ | `supermarket.rb </config_rb_supermarket.html>`__ | `knife supermarket </knife_supermarket.html>`__ | `supermarket-ctl </ctl_supermarket.html>`__ | `Supermarket API </supermarket_api.html>`__
 
-**Management Console**: `Configure SAML </server_configure_saml.html>`__ | `Clients </server_manage_clients.html>`__ | `Cookbooks </server_manage_cookbooks.html>`__ | `Data Bags </server_manage_data_bags.html>`__ | `Environments </server_manage_environments.html>`__ | `Nodes </server_manage_nodes.html>`__ | `Roles </server_manage_roles.html>`__ | `Users </server_users.html#chef-manage.html>`__ | `manage.rb </config_rb_manage.html>`__ | `chef-manage-ctl </ctl_manage.html>`__
+**Management Console**: `About the Management Console </manage.html>`_ | `Configure SAML </server_configure_saml.html>`__ | `Clients </server_manage_clients.html>`__ | `Cookbooks </server_manage_cookbooks.html>`__ | `Data Bags </server_manage_data_bags.html>`__ | `Environments </server_manage_environments.html>`__ | `Nodes </server_manage_nodes.html>`__ | `Roles </server_manage_roles.html>`__ | `Users </server_users.html#chef-manage.html>`__ | `manage.rb </config_rb_manage.html>`__ | `chef-manage-ctl </ctl_manage.html>`__
 
 Chef Automate
 =====================================================
@@ -379,7 +382,18 @@ Chef InSpec
 Legacy
 =====================================================
 
-**Workflow**: `Workflow Overview </workflow.html>`_ | `build-cookbook (cookbook) </delivery_build_cookbook.html>`_ | `Delivery Pipeline </delivery_pipeline.html>`_ | `Delivery Server Backup </delivery_server_backup.html>`_ | `Delivery Server Disaster Recovery </delivery_server_disaster_recovery.html>`_ | `Delivery Server Tuning </delivery_server_tuning.html>`_ | `delivery-truck (cookbook) </delivery_truck.html>`_ | `Manage Dependencies </delivery_manage_dependencies.html>`_ | `Manage Secrets </delivery_manage_secrets.html>`_ | `Runners </runners.html>`_ | `Workflow w/Bitbucket </integrate_delivery_bitbucket.html>`_ | `Workflow w/Email (SMTP) </integrate_delivery_smtp.html>`_ | `Workflow w/GitHub </integrate_delivery_github.html>`_ | `Workflow w/LDAP </integrate_delivery_ldap.html>`_ | `Workflow w/Slack </integrate_delivery_slack.html>`_ | `Audit Cookbook </audit_cookbook.html>`_
+Workflow
+-----------------------------------------------------
+
+**Workflow Basics**: `Workflow Overview </workflow.html>`_ | `Configure a Pipeline </delivery_pipeline.html>`_ | `Configure a Project </config_json_delivery.html>`_ | `Configure Data Collection </data_collection.html>`_ | `Data Collection with Chef HA </data_collection_ha.html>`_ | `Data Collection without Chef Infra Server </data_collection_without_server.html>`_ | `Audit Cookbook </audit_cookbook.html>`_
+
+**Managing Workflow**:
+`build-cookbook (cookbook) </delivery_build_cookbook.html>`_ | `delivery-truck (cookbook) </delivery_truck.html>`_ | `Manage Dependencies </delivery_manage_dependencies.html>`_ | `Manage Secrets </delivery_manage_secrets.html>`_ | `Publish Cookbooks to Multiple Chef Servers </publish_cookbooks_multiple_servers.html>`__ | `Runners </runners.html>`_ | `Workflow w/Bitbucket </integrate_delivery_bitbucket.html>`_ | `Workflow w/Email (SMTP) </integrate_delivery_smtp.html>`_ | `Workflow w/GitHub </integrate_delivery_github.html>`_ | `Workflow w/Slack </integrate_delivery_slack.html>`_ | `Users and Roles </delivery_users_and_roles.html>`_ | `Authentication w/LDAP </integrate_delivery_ldap.html>`_ | `Authentication w/SAML </integrate_chef_automate_saml.html>`_ | `Elastic Search and Kibana Auth </elasticsearch_and_kibana_auth.html>`_ | `Tuning </delivery_server_tuning.html>`_
+
+**Reference**:
+`Delivery CLI </delivery_cli.html>`__ | `delivery.rb </config_rb_delivery.html>`_ | `Workflow DSL </dsl_delivery.html>`_
+
+`AWS OpsWorks for Chef Automate </aws_opsworks_chef_automate.html>`_ | `Chef Automate for Microsoft Azure </automate_azure.html>`_ 
 
 Extension APIs
 =====================================================
