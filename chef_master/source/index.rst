@@ -168,7 +168,6 @@ Cookbook Reference
 `dpkg_package </resource_dpkg_package.html>`__ |
 `dsc_resource </resource_dsc_resource.html>`__ |
 `dsc_script </resource_dsc_script.html>`__ |
-`erl_call </resource_erlang_call.html>`__ |
 `execute </resource_execute.html>`__ |
 `file </resource_file.html>`__ |
 `freebsd_package </resource_freebsd_package.html>`__ |
@@ -687,7 +686,6 @@ Addenda
    resource_dpkg_package
    resource_dsc_resource
    resource_dsc_script
-   resource_erlang_call
    resource_execute
    resource_file
    resource_freebsd_package
