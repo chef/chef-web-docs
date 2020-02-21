@@ -38,13 +38,13 @@ will return something similar to:
    8 items found
 
    centos-62-dev
-   opensuse-1203
-   ubuntu-1304-dev
-   ubuntu-1304-orgtest
-   ubuntu-1204-ohai-test
-   ubuntu-1304-ifcfg-test
+   opensuse-15
+   ubuntu-1604-dev
+   ubuntu-1804-orgtest
+   ubuntu-1804-ohai-test
+   ubuntu-1804-ifcfg-test
    ohai-test
-   win2k8-dev
+   win2k19-dev
 
 and is the same search as:
 
