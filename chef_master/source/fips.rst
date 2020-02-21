@@ -90,7 +90,7 @@ default to running in FIPS mode. Otherwise you can add ``fips true`` to the
 
 .. code-block:: bash
 
-   $ knife bootstrap 192.0.2.0 -P vanilla -x root -r 'recipe[apt],recipe[xfs],recipe[vim]' --fips
+   knife bootstrap 192.0.2.0 -P vanilla -x root -r 'recipe[apt],recipe[xfs],recipe[vim]' --fips
 
 which shows something similar to:
 
@@ -143,7 +143,7 @@ If you have a self-signed certificate or a customer certificate authority then y
 
   .. code-block:: none
 
-        $ echo "q" | openssl s_client -showcerts -connect yourautomateserver.com:443 </dev/null 2> /dev/null
+        echo "q" | openssl s_client -showcerts -connect yourautomateserver.com:443 </dev/null 2> /dev/null
 
         CONNECTED(00000003)
         ---
@@ -183,7 +183,7 @@ If you have a self-signed certificate or a customer certificate authority then y
 
   .. code-block:: none
 
-       $ automate-ctl install-runner [server fqdn] [ssh user] --fips-custom-cert-filename path/to/your/certificate-chain.pem [other options...]
+       automate-ctl install-runner [server fqdn] [ssh user] --fips-custom-cert-filename path/to/your/certificate-chain.pem [other options...]
 
 
 Troubleshooting

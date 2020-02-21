@@ -34,7 +34,7 @@ Many people who are new to Ruby often find that it doesn't take very long to get
 
 .. code-block:: bash
 
-   $ ruby -c my_cookbook_file.rb
+   ruby -c my_cookbook_file.rb
 
 to return:
 
@@ -770,6 +770,6 @@ Chef Workstation includes Cookstyle for linting the Ruby-specific and Chef-speci
 
 .. code-block:: bash
 
-   $ cookstyle your-cookbook
+   cookstyle your-cookbook
 
 should return ``no offenses detected``

@@ -5,7 +5,7 @@ Cookstyle
 
 Cookstyle is a code linting tool that helps you write better Chef Infra cookbooks by detecting and automatically correcting style, syntax, and logic mistakes in your code.
 
-Cookstyle is powered by the RuboCop linting engine. RuboCop ships with over three-hundred rules, or cops, designed to detect common Ruby coding mistakes and enforce a common coding style. We've customized Cookstyle with a subset of those cops that we believe are perfectly tailored for cookbook development. We also ship Chef-specific cops that catch common cookbook coding mistakes, cleanup portions of code that are no longer necessary, and detect deprecations that prevent cookbooks from running on the latest releases of Chef Infra Client. 
+Cookstyle is powered by the RuboCop linting engine. RuboCop ships with over three-hundred rules, or cops, designed to detect common Ruby coding mistakes and enforce a common coding style. We've customized Cookstyle with a subset of those cops that we believe are perfectly tailored for cookbook development. We also ship Chef-specific cops that catch common cookbook coding mistakes, cleanup portions of code that are no longer necessary, and detect deprecations that prevent cookbooks from running on the latest releases of Chef Infra Client.
 
 Cookstyle increases code quality by:
 
@@ -29,7 +29,7 @@ Cookbook development differs from traditional Ruby software development, so we m
 New cops
 -----------------------------------------------------
 
-New cops are continuously added to Rubocop. New cops can make existing codebases fail CI tests and force authors to constantly update their code. 
+New cops are continuously added to Rubocop. New cops can make existing codebases fail CI tests and force authors to constantly update their code.
 
 With Cookstyle, we update the RuboCop engine for bug and performance fixes, but we only change the set of cops that will fail tests once a year during Chef Infra's major release in April. All new cops are introduced at RuboCop's "refactor" alert level, meaning they will alert to the screen as you run Cookstyle, but they won't fail a build. This stability means you are free to upgrade releases of Cookstyle without being forced to update your infrastructure code.
 
@@ -40,13 +40,13 @@ Cookstyle is run from the command line, typically against a single cookbook and 
 
 .. code-block:: bash
 
-   $ cookstyle /path/to/cookbook
+   cookstyle /path/to/cookbook
 
 Cookstyle may also be run from the root of an individual cookbook directory:
 
 .. code-block:: bash
 
-   $ cookstyle .
+   cookstyle .
 
 Cookstyle returns a list, via standard output, that shows the results of the evaluation:
 
@@ -124,7 +124,7 @@ Many of the Cookstyle Cops include the ability to autocorrect violations. To aut
 
 .. code-block:: bash
 
-   $ cookstyle -a .
+   cookstyle -a .
 
 
 Take particular care after running this command to make sure that the autocorrection logic resulted in appropriate cookbook code.
@@ -163,6 +163,6 @@ To generate the .rubocop_todo.yml file, run the following command:
 
 .. code-block:: bash
 
-   $ cookstyle --auto-gen-config
+   cookstyle --auto-gen-config
 
 .. note:: Rename this file to .rubocop.yml to adopt this evaluation state as the standard. Include this file in the .rubocop.yml file by adding ``inherit_from: .rubocop_todo.yml`` to the top of the .rubocop.yml file.

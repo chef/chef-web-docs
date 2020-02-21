@@ -29,7 +29,7 @@ To upgrade to Chef Server 12 from a standalone Chef Server, do the following:
 
    .. code-block:: bash
 
-      $ chef-server-ctl reconfigure
+      chef-server-ctl reconfigure
 
 #. Download the desired Chef Infra Server version from the `Chef Infra Server Downloads <https://downloads.chef.io/chef-server>`__ page.
 
@@ -37,7 +37,7 @@ To upgrade to Chef Server 12 from a standalone Chef Server, do the following:
 
    .. code-block:: bash
 
-      $ chef-server-ctl stop
+      chef-server-ctl stop
 
 #. Run dpkg or RPM Package Manager.
 
@@ -45,25 +45,25 @@ To upgrade to Chef Server 12 from a standalone Chef Server, do the following:
 
    .. code-block:: bash
 
-      $ dpkg -i /path/to/chef-server-core-<version>.deb
+      dpkg -i /path/to/chef-server-core-<version>.deb
 
    For RPM Package Manager:
 
    .. code-block:: bash
 
-      $ rpm -Uvh --nopostun /path/to/chef-server-core-<version>.rpm
+      rpm -Uvh --nopostun /path/to/chef-server-core-<version>.rpm
 
 #. Upgrade the server with the following command:
 
    .. code-block:: bash
 
-      $ chef-server-ctl upgrade
+      chef-server-ctl upgrade
 
 #. Start Chef Server 12:
 
    .. code-block:: bash
 
-      $ chef-server-ctl start
+      chef-server-ctl start
 
 #. `Upgrade <upgrade_server.html#upgrading-add-ons>`__ the Chef Infra Server add-ons.
 
@@ -71,7 +71,7 @@ To upgrade to Chef Server 12 from a standalone Chef Server, do the following:
 
    .. code-block:: bash
 
-      $ chef-server-ctl cleanup
+      chef-server-ctl cleanup
 
 High Availability: Chef Backend
 -----------------------------------------------------
@@ -94,7 +94,7 @@ To upgrade to Chef Server 12 from a tiered Chef Infra Server configuration, do t
 
    .. code-block:: bash
 
-      $ chef-server-ctl reconfigure
+      chef-server-ctl reconfigure
 
 #. Download the desired Chef Infra Server version from the `Chef Infra Server Downloads <https://downloads.chef.io/chef-server>`__ page, then copy it to each server.
 
@@ -102,7 +102,7 @@ To upgrade to Chef Server 12 from a tiered Chef Infra Server configuration, do t
 
    .. code-block:: bash
 
-      $ chef-server-ctl stop
+      chef-server-ctl stop
 
 #. Run dpkg or RPM Package Manager on all servers.
 
@@ -110,43 +110,43 @@ To upgrade to Chef Server 12 from a tiered Chef Infra Server configuration, do t
 
    .. code-block:: bash
 
-      $ dpkg -i /path/to/chef-server-core-<version>.deb
+      dpkg -i /path/to/chef-server-core-<version>.deb
 
    For RPM Package Manager:
 
    .. code-block:: bash
 
-      $ rpm -Uvh --nopostun /path/to/chef-server-core-<version>.rpm
+      rpm -Uvh --nopostun /path/to/chef-server-core-<version>.rpm
 
 #. Stop the back end server:
 
    .. code-block:: bash
 
-      $ chef-server-ctl stop
+      chef-server-ctl stop
 
 #. Upgrade the back end server:
 
    .. code-block:: bash
 
-      $ chef-server-ctl upgrade
+      chef-server-ctl upgrade
 
 #. Copy the entire ``/etc/opscode`` directory from the back end server to all front end servers:
 
    .. code-block:: none
 
-      $ scp -r /etc/opscode <each server's IP>:/etc
+      scp -r /etc/opscode <each server's IP>:/etc
 
 #. Upgrade each of the front end servers:
 
    .. code-block:: bash
 
-      $ chef-server-ctl upgrade
+      chef-server-ctl upgrade
 
 #. Run the following command on both the front end, and back end servers:
 
    .. code-block:: bash
 
-      $ chef-server-ctl start
+      chef-server-ctl start
 
 #. `Upgrade <upgrade_server.html#upgrading-add-ons>`__ the Chef Infra Server add-ons on each server.
 
@@ -154,7 +154,7 @@ To upgrade to Chef Server 12 from a tiered Chef Infra Server configuration, do t
 
    .. code-block:: bash
 
-      $ chef-server-ctl cleanup
+      chef-server-ctl cleanup
 
 Upgrading Add-ons
 =====================================================
@@ -179,25 +179,25 @@ The ``install`` subcommand downloads packages from https://packages.chef.io/ by 
 
        .. code-block:: bash
 
-          $ sudo chef-server-ctl install chef-manage
+          sudo chef-server-ctl install chef-manage
 
        then:
 
        .. code-block:: bash
 
-          $ sudo chef-server-ctl reconfigure
+          sudo chef-server-ctl reconfigure
 
        and then:
 
        .. code-block:: bash
 
-          $ sudo chef-manage-ctl reconfigure
+          sudo chef-manage-ctl reconfigure
 
        To accept the `Chef MLSA </chef_license.html>`__:
 
        .. code-block:: bash
 
-          $ sudo chef-manage-ctl reconfigure --accept-license
+          sudo chef-manage-ctl reconfigure --accept-license
 
 .. end_tag
 
@@ -209,13 +209,13 @@ The ``install`` subcommand is used to install premium features of the Chef serve
 
 .. code-block:: bash
 
-   $ sudo chef-server-ctl install PACKAGE_NAME --path /path/to/package/directory
+   sudo chef-server-ctl install PACKAGE_NAME --path /path/to/package/directory
 
 For example:
 
 .. code-block:: bash
 
-   $ sudo chef-server-ctl install chef-manage --path /root/packages
+   sudo chef-server-ctl install chef-manage --path /root/packages
 
 The ``chef-server-ctl`` command will install the first ``chef-manage`` package found in the ``/root/packages`` directory.
 

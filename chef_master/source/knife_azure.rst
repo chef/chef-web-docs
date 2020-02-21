@@ -29,13 +29,13 @@ If Chef Infra Client was installed using RubyGems, install the ``knife azure`` w
 
 .. code-block:: bash
 
-   $ gem install knife-azure
+   gem install knife-azure
 
 If Chef Infra Client was installed from the `Chef Infra Client <https://downloads.chef.io/chef>`__ downloads page or any other method, run:
 
 .. code-block:: bash
 
-   $ /opt/chef/embedded/bin/gem install knife-azure
+   /opt/chef/embedded/bin/gem install knife-azure
 
 where ``/opt/chef/embedded/bin/`` is the path to the location where Chef Infra Client expects knife plugins to be located.
 
@@ -53,12 +53,12 @@ The ``knife azure`` (ASM mode) subcommand uses a management certificate for secu
 
    .. code-block:: bash
 
-      $ base64 -d cert.pfx > cert_decoded.pfx
+      base64 -d cert.pfx > cert_decoded.pfx
 #. Convert the decoded PFX file to a PEM file with the following command:
 
    .. code-block:: bash
 
-      $ openssl pkcs12 -in cert_decoded.pfx -out managementCertificate.pem -nodes
+      openssl pkcs12 -in cert_decoded.pfx -out managementCertificate.pem -nodes
 
 .. note:: It is possible to generate certificates, and then upload them. See the following link for more information: www.windowsazure.com/en-us/manage/linux/common-tasks/manage-certificates/.
 
@@ -75,7 +75,7 @@ This argument has the following syntax:
 
 .. code-block:: bash
 
-   $ knife azure ag create (options)
+   knife azure ag create (options)
 
 Options
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -115,7 +115,7 @@ This argument has the following syntax:
 
 .. code-block:: bash
 
-   $ knife azure ag list (options)
+   knife azure ag list (options)
 
 Options
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -146,7 +146,7 @@ This argument has the following syntax:
 
 .. code-block:: bash
 
-   $ knife azure image list (options)
+   knife azure image list (options)
 
 Options
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -180,7 +180,7 @@ This argument has the following syntax:
 
 .. code-block:: bash
 
-   $ knife azure internal lb create (options)
+   knife azure internal lb create (options)
 
 Options
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -289,7 +289,7 @@ This argument has the following syntax:
 
 .. code-block:: bash
 
-   $ knife azure internal lb create (options)
+   knife azure internal lb create (options)
 
 Options
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -386,7 +386,7 @@ This argument has the following syntax:
 
 .. code-block:: bash
 
-   $ knife azure server create (options)
+   knife azure server create (options)
 
 Options
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -531,7 +531,7 @@ To provision a medium-sized CentOS machine configured as a web server in the ``W
 
 .. code-block:: bash
 
-   $ knife azure server create -r "role[webserver]" --service-location "West US"
+   knife azure server create -r "role[webserver]" --service-location "West US"
      --hosted-service-name webservers --storage-account webservers-storage --ssh-user foo
      --ssh--password password --role-name web-apache-0001 --host-name web-apache
      --tcp-endpoints 80:80,8080:8080 --source-image name_of_source_image --role-size Medium
@@ -542,7 +542,7 @@ To provision a medium-sized CentOS machine configured as a web server in the ``W
 
 .. code-block:: bash
 
-   $ knife azure server create -r "role[webserver]" --service-location "West US" --ssh-user foo
+   knife azure server create -r "role[webserver]" --service-location "West US" --ssh-user foo
      --ssh--password password --role-name web-apache-0001 --host-name web-apache
      --tcp-endpoints 80:80,8080:8080 --source-image name_of_source_image --role-size Medium
 
@@ -556,7 +556,7 @@ This argument has the following syntax:
 
 .. code-block:: bash
 
-   $ knife azure server delete [SERVER...] (options)
+   knife azure server delete [SERVER...] (options)
 
 Options
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -609,7 +609,7 @@ To delete an instance named ``devops12``, enter:
 
 .. code-block:: bash
 
-   $ knife azure server delete devops12
+   knife azure server delete devops12
 
 server list
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -621,7 +621,7 @@ This argument has the following syntax:
 
 .. code-block:: bash
 
-   $ knife azure server list (options)
+   knife azure server list (options)
 
 Options
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -652,7 +652,7 @@ This argument has the following syntax:
 
 .. code-block:: bash
 
-   $ knife azure server show SERVER [SERVER...] (options)
+   knife azure server show SERVER [SERVER...] (options)
 
 Options
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -683,7 +683,7 @@ This argument has the following syntax:
 
 .. code-block:: bash
 
-   $ knife azure vnet create (options)
+   knife azure vnet create (options)
 
 Options
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -726,7 +726,7 @@ This argument has the following syntax:
 
 .. code-block:: bash
 
-   $ knife azure vnet list (options)
+   knife azure vnet list (options)
 
 Options
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

@@ -3,8 +3,8 @@ chef-manage-ctl (executable)
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/ctl_manage.rst>`__
 
-.. meta:: 
-    :robots: noindex 
+.. meta::
+    :robots: noindex
 
 .. tag chef_automate_mark
 
@@ -36,7 +36,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef-manage-ctl cleanse
+   chef-manage-ctl cleanse
 
 help
 =====================================================
@@ -46,7 +46,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef-manage-ctl help
+   chef-manage-ctl help
 
 reconfigure
 =====================================================
@@ -56,7 +56,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef-manage-ctl reconfigure
+   chef-manage-ctl reconfigure
 
 show-config
 =====================================================
@@ -66,7 +66,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef-manage-ctl show-config
+   chef-manage-ctl show-config
 
 uninstall
 =====================================================
@@ -76,4 +76,4 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef-manage-ctl uninstall
+   chef-manage-ctl uninstall

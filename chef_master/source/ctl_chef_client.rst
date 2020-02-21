@@ -37,7 +37,7 @@ This command has the following syntax:
 
 .. code-block:: bash
 
-   $ chef-client OPTION VALUE OPTION VALUE ...
+   chef-client OPTION VALUE OPTION VALUE ...
 
 This command has the following options:
 
@@ -145,7 +145,7 @@ This command has the following options:
 
    .. code-block:: bash
 
-      $ chef-client -j /path/to/file.json
+      chef-client -j /path/to/file.json
 
    where ``/path/to/file.json`` is similar to:
 
@@ -372,7 +372,7 @@ To generate an encrypted data bag item in a JSON file for use when Chef Infra Cl
 
 .. code-block:: bash
 
-   $ knife data bag from file my_data_bag /path/to/data_bag_item.json -z --secret-file /path/to/encrypted_data_bag_secret
+   knife data bag from file my_data_bag /path/to/data_bag_item.json -z --secret-file /path/to/encrypted_data_bag_secret
 
 this will create an encrypted JSON file in::
 
@@ -403,7 +403,7 @@ Notes about FIPS:
 
 .. code-block:: bash
 
-   $ knife bootstrap 192.0.2.0 -P vanilla -x root -r 'recipe[apt],recipe[xfs],recipe[vim]' --fips
+   knife bootstrap 192.0.2.0 -P vanilla -x root -r 'recipe[apt],recipe[xfs],recipe[vim]' --fips
 
 which shows something similar to:
 
@@ -452,7 +452,7 @@ On Linux, the following error sometimes occurs when the permissions used to run 
 
 .. code-block:: bash
 
-   $ chef-client
+   chef-client
    [Tue, 29 Nov 2015 19:46:17 -0800] INFO: *** Chef 12.X.X ***
    [Tue, 29 Nov 2015 19:46:18 -0800] WARN: Failed to read the private key /etc/chef/client.pem: #<Errno::EACCES: Permission denied - /etc/chef/client.pem>
 
@@ -463,7 +463,7 @@ This can be resolved by running the command as root. There are a few ways this c
 
    .. code-block:: bash
 
-      $ su
+      su
 
    and then:
 
@@ -475,7 +475,7 @@ This can be resolved by running the command as root. There are a few ways this c
 
    .. code-block:: bash
 
-      $ sudo chef-client
+      sudo chef-client
 
 * Give a user access to read ``/etc/chef`` and also the files accessed by the Chef Infra Client. This requires super user privileges and, as such, is not a recommended approach
 
@@ -491,7 +491,7 @@ On Microsoft Windows, running without elevated privileges (when they are necessa
 
   .. code-block:: bash
 
-     $ runas /user:Administrator "cmd /C chef-client"
+     runas /user:Administrator "cmd /C chef-client"
 
   This will prompt for the administrator account password.
 
@@ -572,25 +572,25 @@ The out-of-the-box system process limits for maximum process memory size (RSS) a
 
    .. code-block:: bash
 
-      $ chsec -f /etc/security/limits -s default -a "rss=-1"
+      chsec -f /etc/security/limits -s default -a "rss=-1"
 
    and then:
 
    .. code-block:: bash
 
-      $ chsec -f /etc/security/limits -s default -a "data=-1"
+      chsec -f /etc/security/limits -s default -a "data=-1"
 
    and then:
 
    .. code-block:: bash
 
-      $ chsec -f /etc/security/limits -s default -a "nofiles=50000"
+      chsec -f /etc/security/limits -s default -a "nofiles=50000"
 
    .. note:: The previous commands may be run against the root user, instead of default. For example:
 
       .. code-block:: bash
 
-         $ chsec -f /etc/security/limits -s root_user -a "rss=-1"
+         chsec -f /etc/security/limits -s root_user -a "rss=-1"
 
 #. Reboot the logical partition (LPAR) to apply the updated system process limits.
 
@@ -742,7 +742,7 @@ Examples
 
 .. code-block:: bash
 
-   $ sudo chef-client
+   sudo chef-client
 
 **Start a run when the Chef Infra Client is running as a daemon**
 
@@ -750,7 +750,7 @@ A Chef Infra Client that is running as a daemon can be woken up and started by s
 
 .. code-block:: bash
 
-   $ sudo killall -USR1 chef-client
+   sudo killall -USR1 chef-client
 
 **Setting the initial run-list using a JSON file**
 
@@ -760,7 +760,7 @@ A node's initial run-list is specified using a JSON file on the host system. Whe
 
 .. code-block:: bash
 
-   $ chef-client -j /etc/chef/file.json --environment _default
+   chef-client -j /etc/chef/file.json --environment _default
 
 where ``file.json`` is similar to:
 

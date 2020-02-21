@@ -15,7 +15,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ knife diff [PATTERN...] (options)
+   knife diff [PATTERN...] (options)
 
 Options
 =====================================================
@@ -67,7 +67,7 @@ To compare the ``base.json`` role to a ``webserver.json`` role, enter:
 
 .. code-block:: bash
 
-   $ knife diff roles/base.json roles/webserver.json
+   knife diff roles/base.json roles/webserver.json
 
 **Compare the chef-repo and the server**
 
@@ -75,7 +75,7 @@ To compare the differences between the local chef-repo and the files that are on
 
 .. code-block:: bash
 
-   $ knife diff
+   knife diff
 
 **Compare, then return results**
 
@@ -83,7 +83,7 @@ To diff a node named ``node-lb`` and then only return files that have been added
 
 .. code-block:: bash
 
-   $ knife diff --name-status node-lb
+   knife diff --name-status node-lb
 
 to return something like:
 
@@ -97,4 +97,3 @@ to return something like:
    node-lb/files/default/wildcard.node.com.key
    node-lb/.gitignore
    node-lb/Rakefile
-

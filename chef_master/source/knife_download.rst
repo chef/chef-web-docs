@@ -15,7 +15,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ knife download [PATTERN...] (options)
+   knife download [PATTERN...] (options)
 
 Options
 =====================================================
@@ -70,7 +70,7 @@ To download the entire chef-repo from the Chef Infra Server, browse to the top l
 
 .. code-block:: bash
 
-   $ knife download /
+   knife download /
 
 **Download the /cookbooks directory**
 
@@ -78,13 +78,13 @@ To download the ``cookbooks/`` directory from the Chef Infra Server, browse to t
 
 .. code-block:: bash
 
-   $ knife download cookbooks
+   knife download cookbooks
 
 or from anywhere in the chef-repo, enter:
 
 .. code-block:: bash
 
-   $ knife download /cookbooks
+   knife download /cookbooks
 
 **Download the /environments directory**
 
@@ -92,13 +92,13 @@ To download the ``environments/`` directory from the Chef Infra Server, browse t
 
 .. code-block:: bash
 
-   $ knife download environments
+   knife download environments
 
 or from anywhere in the chef-repo, enter:
 
 .. code-block:: bash
 
-   $ knife download /environments
+   knife download /environments
 
 **Download an environment**
 
@@ -106,13 +106,13 @@ To download an environment named "production" from the Chef Infra Server, browse
 
 .. code-block:: bash
 
-   $ knife download environments/production.json
+   knife download environments/production.json
 
 or from the ``environments/`` directory, enter:
 
 .. code-block:: bash
 
-   $ knife download production.json
+   knife download production.json
 
 **Download the /roles directory**
 
@@ -120,13 +120,13 @@ To download the ``roles/`` directory from the Chef Infra Server, browse to the t
 
 .. code-block:: bash
 
-   $ knife download roles
+   knife download roles
 
 or from anywhere in the chef-repo, enter:
 
 .. code-block:: bash
 
-   $ knife download /roles
+   knife download /roles
 
 **Download cookbooks and roles**
 
@@ -134,7 +134,7 @@ To download all cookbooks that start with "apache" and belong to the "webserver"
 
 .. code-block:: bash
 
-   $  knife download cookbooks/apache\* roles/webserver.json
+    knife download cookbooks/apache\* roles/webserver.json
 
 **Download data bags**
 
@@ -142,11 +142,10 @@ To download all data bags from the Chef Infra Server, browse to the top level of
 
 .. code-block:: bash
 
-   $  knife download data_bags
+    knife download data_bags
 
 or from anywhere in the chef-repo, enter:
 
 .. code-block:: bash
 
-   $ knife download /data_bags
-   
+   knife download /data_bags

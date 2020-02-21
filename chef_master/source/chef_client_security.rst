@@ -67,7 +67,7 @@ For example, without downloading the SSL certificate, the following knife comman
 
 .. code-block:: bash
 
-   $ knife client list
+   knife client list
 
 responds with an error similar to:
 
@@ -156,7 +156,7 @@ If the SSL certificate can be verified, the response to
 
 .. code-block:: bash
 
-   $ knife ssl check
+   knife ssl check
 
 is similar to:
 
@@ -175,7 +175,7 @@ If the SSL certificate cannot be verified, the response to
 
 .. code-block:: bash
 
-   $ knife ssl check
+   knife ssl check
 
 is similar to:
 
@@ -230,7 +230,7 @@ The SSL certificate that is downloaded to the ``/.chef/trusted_certs`` directory
 
    .. code-block:: bash
 
-      $ ssh ubuntu@chef-server.example.com sudo sha256sum /var/opt/opscode/nginx/ca/chef-server.example.com.crt
+      ssh ubuntu@chef-server.example.com sudo sha256sum /var/opt/opscode/nginx/ca/chef-server.example.com.crt
 
    The response is similar to:
 
@@ -242,7 +242,7 @@ The SSL certificate that is downloaded to the ``/.chef/trusted_certs`` directory
 
    .. code-block:: bash
 
-      $ gsha256sum .chef/trusted_certs/chef-server.example.com.crt
+      gsha256sum .chef/trusted_certs/chef-server.example.com.crt
 
    The response is similar to:
 

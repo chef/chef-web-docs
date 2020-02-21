@@ -15,7 +15,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ knife xargs [PATTERN...] (options)
+   knife xargs [PATTERN...] (options)
 
 Options
 =====================================================
@@ -85,7 +85,7 @@ The following example will go through all nodes on the server, and then replace 
 
 .. code-block:: bash
 
-   $ knife xargs --pattern /nodes/* "perl -i -pe 's/foobar/baz'"
+   knife xargs --pattern /nodes/* "perl -i -pe 's/foobar/baz'"
 
 **Use output of knife list and Perl**
 
@@ -93,19 +93,19 @@ The following examples show various ways of listing all nodes on the server, and
 
 .. code-block:: bash
 
-   $ knife list 'nodes/*' | knife xargs "perl -i -pe 's/grantmc/gmc'"
+   knife list 'nodes/*' | knife xargs "perl -i -pe 's/grantmc/gmc'"
 
 or without quotes and the backslash escaped:
 
 .. code-block:: bash
 
-   $ knife list /nodes/\* | knife xargs "perl -i -pe 's/grantmc/gmc'"
+   knife list /nodes/\* | knife xargs "perl -i -pe 's/grantmc/gmc'"
 
 or by using the ``--pattern`` option:
 
 .. code-block:: bash
 
-   $ knife xargs --pattern '/nodes.*' "perl -i -pe 's/grantmc/gmc'"
+   knife xargs --pattern '/nodes.*' "perl -i -pe 's/grantmc/gmc'"
 
 **View security groups data**
 
@@ -113,7 +113,7 @@ The following example shows how to display the content of all groups on the serv
 
 .. code-block:: bash
 
-   $ knife xargs --pattern '/groups/*' cat
+   knife xargs --pattern '/groups/*' cat
 
 and will return something like:
 

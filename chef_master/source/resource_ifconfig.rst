@@ -356,7 +356,7 @@ will create the following interface:
 
 .. code-block:: none
 
-   vagrant@default-ubuntu-1204:~$ cat /etc/network/interfaces.d/ifcfg-eth1
+   vagrant@default-ubuntu-1204:~cat /etc/network/interfaces.d/ifcfg-eth1
    iface eth1 inet dhcp
 
 
@@ -409,5 +409,3 @@ will update the interface from ``static`` to ``dhcp``:
 
    iface eth1 inet dhcp
      address 33.33.33.80
-
-

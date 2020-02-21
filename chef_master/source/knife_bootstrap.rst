@@ -30,7 +30,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ knife bootstrap FQDN_or_IP_ADDRESS (options)
+   knife bootstrap FQDN_or_IP_ADDRESS (options)
 
 
 
@@ -246,7 +246,7 @@ To create a node via the USER.pem file, simply delete the ORGANIZATION-validator
 
 .. code-block:: bash
 
-   $ rm -f /home/lamont/.chef/myorg-validator.pem
+   rm -f /home/lamont/.chef/myorg-validator.pem
 
 and then make the following changes in the config.rb file:
 
@@ -297,7 +297,7 @@ Notes about FIPS:
 
 .. code-block:: bash
 
-   $ knife bootstrap 192.0.2.0 -P vanilla -x root -r 'recipe[apt],recipe[xfs],recipe[vim]' --fips
+   knife bootstrap 192.0.2.0 -P vanilla -x root -r 'recipe[apt],recipe[xfs],recipe[vim]' --fips
 
 which shows something similar to:
 
@@ -367,7 +367,7 @@ You can use the ``--bootstrap-template`` option with the ``knife bootstrap`` sub
 
 .. code-block:: bash
 
-   $ knife bootstrap 123.456.7.8 -x username -P password --sudo --bootstrap-template "template"
+   knife bootstrap 123.456.7.8 -x username -P password --sudo --bootstrap-template "template"
 
 Alternatively, you can use the ``knife[:bootstrap_template]`` option within ``config.rb`` to specify the template that ``knife bootstrap`` will use by default when bootstrapping a node. It should point to your custom template within the ``bootstrap`` directory:
 
@@ -385,7 +385,7 @@ The following examples show how to use this knife subcommand:
 
 .. code-block:: bash
 
-   $ knife bootstrap 192.0.2.0 -P vanilla -x root -r 'recipe[apt],recipe[xfs],recipe[vim]'
+   knife bootstrap 192.0.2.0 -P vanilla -x root -r 'recipe[apt],recipe[xfs],recipe[vim]'
 
 which shows something similar to:
 
@@ -398,7 +398,7 @@ Use ``knife node show`` to verify:
 
 .. code-block:: bash
 
-   $ knife node show debian-buster.int.domain.org
+   knife node show debian-buster.int.domain.org
 
 which returns something similar to:
 
@@ -420,7 +420,7 @@ which returns something similar to:
 
 .. code-block:: bash
 
-   $ knife bootstrap 192.0.2.0 -x username -P PASSWORD --sudo
+   knife bootstrap 192.0.2.0 -x username -P PASSWORD --sudo
 
 **Use a file that contains a private key**
 
@@ -428,7 +428,7 @@ which returns something similar to:
 
 .. code-block:: bash
 
-   $ knife bootstrap 192.0.2.0 -x username -i ~/.ssh/id_rsa --sudo
+   knife bootstrap 192.0.2.0 -x username -i ~/.ssh/id_rsa --sudo
 
 **Specify options when using cURL**
 
@@ -436,7 +436,7 @@ which returns something similar to:
 
 .. code-block:: bash
 
-   $ knife bootstrap --bootstrap-curl-options "--proxy http://myproxy.com:8080"
+   knife bootstrap --bootstrap-curl-options "--proxy http://myproxy.com:8080"
 
 **Specify options when using GNU Wget**
 
@@ -444,7 +444,7 @@ which returns something similar to:
 
 .. code-block:: bash
 
-   $ knife bootstrap --bootstrap-wget-options "-e use_proxy=yes -e http://myproxy.com:8080"
+   knife bootstrap --bootstrap-wget-options "-e use_proxy=yes -e http://myproxy.com:8080"
 
 **Specify a custom installation command sequence**
 
@@ -452,4 +452,4 @@ which returns something similar to:
 
 .. code-block:: bash
 
-   $ knife bootstrap --bootstrap-install-command "curl -l http://mycustomserver.com/custom_install_chef_script.sh | sudo bash -s --"
+   knife bootstrap --bootstrap-install-command "curl -l http://mycustomserver.com/custom_install_chef_script.sh | sudo bash -s --"

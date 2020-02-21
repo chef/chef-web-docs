@@ -43,9 +43,9 @@ Chef provides a fully functional Chef Automate server that can be launched from 
 
    .. code-block:: bash
 
-      $ cd ~/Downloads
-      $ unzip starter_kit.zip
-      $ cd starter_kit/chef-repo
+      cd ~/Downloads
+      unzip starter_kit.zip
+      cd starter_kit/chef-repo
 
 #. Run ``knife client list`` to test the connection to the Chef Infra Server. The command should return ``<orgname>-validator``, where ``<orgname>`` is the name of the organization that was created previously.
 
@@ -53,8 +53,8 @@ Chef provides a fully functional Chef Automate server that can be launched from 
 
    .. code-block:: bash
 
-      $ cd ~/Downloads/starter_kit/chef-repo
-      $ knife bootstrap chef-automate-01.eastus.cloudapp.azure.com --ssh-user azure --sudo
+      cd ~/Downloads/starter_kit/chef-repo
+      knife bootstrap chef-automate-01.eastus.cloudapp.azure.com --ssh-user azure --sudo
 
 
 Migrate to Chef Automate on Microsoft Azure
@@ -72,9 +72,9 @@ After verifying that your existing Chef Infra Server installation is up to date,
 
    .. code-block:: bash
 
-      $ mkdir -p /tmp/chef-backup
-      $ /opt/opscode/embedded/bin/knife ec backup /tmp/chef-backup --with-user-sql --with-key-sql
-      $ tar -czvf chef-backup.tgz -C /tmp/chef-backup
+      mkdir -p /tmp/chef-backup
+      /opt/opscode/embedded/bin/knife ec backup /tmp/chef-backup --with-user-sql --with-key-sql
+      tar -czvf chef-backup.tgz -C /tmp/chef-backup
 
 
 
@@ -82,7 +82,7 @@ After verifying that your existing Chef Infra Server installation is up to date,
 
    .. code-block:: bash
 
-      $ scp /tmp/chef-backup.tgz <Admin Username>@<FQDN>:/tmp/
+      scp /tmp/chef-backup.tgz <Admin Username>@<FQDN>:/tmp/
 
    .. note:: You can find the FQDN of the Automate VM by checking the deployment outputs in the Azure portal. Navigate to the resource group, click on the deployment history, select the main template and location the FQDN in the outputs section.
 
@@ -90,24 +90,24 @@ After verifying that your existing Chef Infra Server installation is up to date,
 
    .. code-block:: bash
 
-      $ chef-marketplace-ctl upgrade --server
+      chef-marketplace-ctl upgrade --server
 
 #. Reconfigure Chef Automate and the Chef Infra Server
 
    .. code-block:: bash
 
-      $ sudo automate-ctl reconfigure
-      $ sudo chef-server-ctl reconfigure
+      sudo automate-ctl reconfigure
+      sudo chef-server-ctl reconfigure
 
 #. Restore the backup
 
    .. code-block:: bash
 
-      $ mkdir -p /tmp/chef-backup
-      $ mv /tmp/chef-backup.tgz /tmp/chef-backup
-      $ cd /tmp/chef-backup
-      $ tar -ztf chef-backup.tgz
-      $ /opt/opscode/embedded/bin/knife ec restore /tmp/chef-backup --with-user-sql --with-key-sql
+      mkdir -p /tmp/chef-backup
+      mv /tmp/chef-backup.tgz /tmp/chef-backup
+      cd /tmp/chef-backup
+      tar -ztf chef-backup.tgz
+      /opt/opscode/embedded/bin/knife ec restore /tmp/chef-backup --with-user-sql --with-key-sql
 
 #. Update your workstation knife configuration. Open ``.chef/config.rb`` in a text editor and modify the ``chef_server_url`` with your Azure VM FQDN. For example:
 
@@ -147,4 +147,4 @@ After verifying that your existing Chef Infra Server installation is up to date,
 
    .. code-block:: none
 
-      $ knife ssh name:* 'sudo sed -ie "s/chef_server_url.*/chef_server_url 'https://<FQDN>/organizations/your_org'/" /etc/chef/client.rb
+      knife ssh name:* 'sudo sed -ie "s/chef_server_url.*/chef_server_url 'https://<FQDN>/organizations/your_org'/" /etc/chef/client.rb

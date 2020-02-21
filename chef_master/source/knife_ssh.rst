@@ -15,7 +15,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ knife ssh SEARCH_QUERY SSH_COMMAND (options)
+   knife ssh SEARCH_QUERY SSH_COMMAND (options)
 
 Options
 =====================================================
@@ -71,13 +71,13 @@ This subcommand has the following options:
 
 .. code-block:: bash
 
-   $ knife search ubuntu
+   knife search ubuntu
 
 or:
 
 .. code-block:: bash
 
-   $ knife search node "tags:*ubuntu* OR roles:*ubuntu* OR fqdn:*ubuntu* (etc.)"
+   knife search node "tags:*ubuntu* OR roles:*ubuntu* OR fqdn:*ubuntu* (etc.)"
 
 ``SSH_COMMAND``
    The command to be run against the results of a search query.
@@ -107,7 +107,7 @@ To find the uptime of all of web servers running Ubuntu on the Amazon EC2 platfo
 
 .. code-block:: bash
 
-   $ knife ssh "role:web" "uptime" -x ubuntu -a ec2.public_hostname
+   knife ssh "role:web" "uptime" -x ubuntu -a ec2.public_hostname
 
 to return something like:
 
@@ -125,7 +125,7 @@ to return something like:
 
 .. code-block:: bash
 
-   $ knife ssh 'name:*' 'sudo chef-client'
+   knife ssh 'name:*' 'sudo chef-client'
 
 **Force a Chef Infra Client run**
 
@@ -133,7 +133,7 @@ To force a Chef Infra Client run on all of the web servers running Ubuntu on the
 
 .. code-block:: bash
 
-   $ knife ssh "role:web" "sudo chef-client" -x ubuntu -a ec2.public_hostname
+   knife ssh "role:web" "sudo chef-client" -x ubuntu -a ec2.public_hostname
 
 to return something like:
 
@@ -171,7 +171,7 @@ To query for all nodes that have the ``webserver`` role and then use SSH to run 
 
 .. code-block:: bash
 
-   $ knife ssh "role:webserver" "sudo chef-client"
+   knife ssh "role:webserver" "sudo chef-client"
 
 **Upgrade all nodes**
 
@@ -179,7 +179,7 @@ To query for all nodes that have the ``webserver`` role and then use SSH to run 
 
 .. code-block:: bash
 
-   $ knife ssh name:* "sudo aptitude upgrade -y"
+   knife ssh name:* "sudo aptitude upgrade -y"
 
 **Specify the shell type**
 
@@ -187,7 +187,7 @@ To specify the shell type used on the nodes returned by a search query:
 
 .. code-block:: bash
 
-   $ knife ssh roles:opscode-omnitruck macterm
+   knife ssh roles:opscode-omnitruck macterm
 
 where ``screen`` is one of the following values: ``cssh``, ``interactive``, ``macterm``, ``screen``, or ``tmux``. If the node does not have the shell type installed, knife will return an error similar to the following:
 

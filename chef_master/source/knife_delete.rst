@@ -15,7 +15,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ knife delete [PATTERN...] (options)
+   knife delete [PATTERN...] (options)
 
 Options
 =====================================================

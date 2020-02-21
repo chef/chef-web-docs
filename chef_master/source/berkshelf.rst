@@ -31,7 +31,7 @@ Now, when you run ``berks install``, the apt cookbook will be downloaded from Su
 
 .. code-block:: shell
 
-   $ berks install
+   berks install
    Resolving cookbook dependencies...
    Fetching 'my_first_cookbook' from source at .
    Fetching cookbook index from https://supermarket.chef.io...
@@ -45,7 +45,7 @@ You can now upload all cookbooks to your Chef Infra Server with ``berks upload``
 
 .. code-block:: shell
 
-   $ berks upload
+   berks upload
    Uploaded apt (5.0.0) to: 'https://api.chef.io:443/organizations/example'
    Uploaded compat_resource (12.16.2) to: 'https://api.chef.io:443/organizations/example'
    Uploaded my_first_cookbook (0.1.0) to: 'https://api.chef.io:443/organizations/example'
@@ -222,7 +222,7 @@ To exclude a group when using ``berks``, use the ``--except`` flag:
 
 .. code-block:: bash
 
-   $ berks install --except test
+   berks install --except test
 
 Solver Keyword
 +++++++++++++++
@@ -272,7 +272,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ berks apply ENVIRONMENT (options)
+   berks apply ENVIRONMENT (options)
 
 Options
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -297,7 +297,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ berks contingent COOKBOOK (options)
+   berks contingent COOKBOOK (options)
 
 Options
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -322,7 +322,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ berks info COOKBOOK (options)
+   berks info COOKBOOK (options)
 
 Options
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -347,7 +347,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ berks install (options)
+   berks install (options)
 
 Options
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -372,7 +372,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ berks list (options)
+   berks list (options)
 
 Options
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -397,7 +397,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ berks outdated COOKBOOK (options)
+   berks outdated COOKBOOK (options)
 
 Options
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -422,7 +422,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ berks package PATH (options)
+   berks package PATH (options)
 
 Options
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -447,7 +447,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ berks search QUERY (options)
+   berks search QUERY (options)
 
 Options
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -466,7 +466,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ berks show COOKBOOK (options)
+   berks show COOKBOOK (options)
 
 Options
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -485,7 +485,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ berks update COOKBOOK (options)
+   berks update COOKBOOK (options)
 
 Options
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -510,7 +510,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ berks upload COOKBOOK (options)
+   berks upload COOKBOOK (options)
 
 Options
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -550,7 +550,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ berks vendor PATH (options)
+   berks vendor PATH (options)
 
 Options
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -578,7 +578,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ berks verify (options)
+   berks verify (options)
 
 Options
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -601,7 +601,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ berks viz (options)
+   berks viz (options)
 
 Options
 +++++++++++++++++++++++++++++++++++++++++++++++++++++

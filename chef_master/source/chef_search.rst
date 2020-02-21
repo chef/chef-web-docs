@@ -48,7 +48,7 @@ To search for the IDs of all nodes running on the Amazon EC2 platform, enter:
 
 .. code-block:: bash
 
-   $ knife search node 'ec2:*' -i
+   knife search node 'ec2:*' -i
 
 to return something like:
 
@@ -74,7 +74,7 @@ To search for the instance type (flavor) of all nodes running on the Amazon EC2 
 
 .. code-block:: bash
 
-   $ knife search node 'ec2:*' -a ec2.instance_type
+   knife search node 'ec2:*' -a ec2.instance_type
 
 to return something like:
 
@@ -104,13 +104,13 @@ To search for recipes that are used by a node, use the ``recipes`` attribute to 
 
 .. code-block:: bash
 
-   $ knife search node 'recipes:recipe_name'
+   knife search node 'recipes:recipe_name'
 
 or:
 
 .. code-block:: bash
 
-   $ knife search node '*:*' -a recipes | grep 'recipe_name'
+   knife search node '*:*' -a recipes | grep 'recipe_name'
 
 .. end_tag
 
@@ -122,7 +122,7 @@ To search for cookbooks on a node, use the ``recipes`` attribute followed by the
 
 .. code-block:: bash
 
-   $ knife search node 'recipes:cookbook_name\:\:recipe_name'
+   knife search node 'recipes:cookbook_name\:\:recipe_name'
 
 .. end_tag
 
@@ -134,7 +134,7 @@ To search for all nodes running Ubuntu, enter:
 
 .. code-block:: bash
 
-   $ knife search node 'platform:ubuntu'
+   knife search node 'platform:ubuntu'
 
 .. end_tag
 
@@ -146,7 +146,7 @@ To search for all nodes running CentOS in the production environment, enter:
 
 .. code-block:: bash
 
-   $ knife search node 'chef_environment:production AND platform:centos'
+   knife search node 'chef_environment:production AND platform:centos'
 
 .. end_tag
 
@@ -158,7 +158,7 @@ To find a nested attribute, use a pattern similar to the following:
 
 .. code-block:: bash
 
-   $ knife search node <query_to_run> -a <main_attribute>.<nested_attribute>
+   knife search node <query_to_run> -a <main_attribute>.<nested_attribute>
 
 .. end_tag
 
@@ -170,7 +170,7 @@ To build a search query to use more than one attribute, use an underscore (``_``
 
 .. code-block:: bash
 
-	$ knife search node "languages_ruby_version:1.9.3"
+	knife search node "languages_ruby_version:1.9.3"
 
 .. end_tag
 
@@ -182,7 +182,7 @@ To build a search query that can find a nested attribute:
 
 .. code-block:: bash
 
-   $ knife search node name:<node_name> -a kernel.machine
+   knife search node name:<node_name> -a kernel.machine
 
 .. end_tag
 
@@ -194,7 +194,7 @@ To test a search query that will be used in a ``knife ssh`` subcommand:
 
 .. code-block:: bash
 
-   $ knife search node "role:web NOT name:web03"
+   knife search node "role:web NOT name:web03"
 
 where the query in the previous example will search all servers that have the ``web`` role, but not on the server named ``web03``.
 
@@ -403,7 +403,7 @@ To see the available keys for a node, enter the following (for a node named ``st
 
 .. code-block:: bash
 
-   $ knife node show staging -Fj | less
+   knife node show staging -Fj | less
 
 to return a full JSON description of the node and to view the available keys with which any search query can be based.
 
@@ -415,7 +415,7 @@ To use a question mark (``?``) to replace a single character in a wildcard searc
 
 .. code-block:: bash
 
-   $ knife search node 'platfor?:ubuntu'
+   knife search node 'platfor?:ubuntu'
 
 .. end_tag
 
@@ -425,7 +425,7 @@ To use an asterisk (``*``) to replace zero (or more) characters in a wildcard se
 
 .. code-block:: bash
 
-   $ knife search node 'platfo*:ubuntu'
+   knife search node 'platfo*:ubuntu'
 
 .. end_tag
 
@@ -435,7 +435,7 @@ To find all IP address that are on the same network, enter the following:
 
 .. code-block:: bash
 
-   $ knife search node 'ipaddress:192.168*'
+   knife search node 'ipaddress:192.168*'
 
 where ``192.168*`` is the network address for which the search will be run.
 
@@ -447,7 +447,7 @@ To use a range search to find IP addresses within a subnet, enter the following:
 
 .. code-block:: bash
 
-   $ knife search node 'ipaddress:[192.168.0.* TO 192.0.2.*]'
+   knife search node 'ipaddress:[192.168.0.* TO 192.0.2.*]'
 
 where ``192.168.0.* TO 192.0.2.*`` defines the subnet range.
 
@@ -475,7 +475,7 @@ To search in a specific data bag for a specific data bag item, enter the followi
 
 .. code-block:: bash
 
-   $ knife search admins 'id:charlie'
+   knife search admins 'id:charlie'
 
 where ``admins`` is the name of the data bag and ``charlie`` is the name of the data bag item. Something similar to the following will be returned:
 
@@ -499,7 +499,7 @@ To search in a specific data bag using a string to find any matching data bag it
 
 .. code-block:: bash
 
-   $ knife search admins 'comment:"Charlie the Unicorn"'
+   knife search admins 'comment:"Charlie the Unicorn"'
 
 where ``admins`` is the name of the data bag and ``Charlie the Unicorn`` is the string that will be used during the search. Something similar to the following will be returned:
 
@@ -534,7 +534,7 @@ To search for any node that contains the specified key, enter the following:
 
 .. code-block:: bash
 
-   $ knife search node 'foo:*'
+   knife search node 'foo:*'
 
 where ``foo`` is the name of the node.
 
@@ -546,25 +546,25 @@ To search for a node using a partial name, enter one of the following:
 
 .. code-block:: bash
 
-   $ knife search node 'name:app*'
+   knife search node 'name:app*'
 
 or:
 
 .. code-block:: bash
 
-   $ knife search node 'name:app1*.example.com'
+   knife search node 'name:app1*.example.com'
 
 or:
 
 .. code-block:: bash
 
-   $ knife search node 'name:app?.example.com'
+   knife search node 'name:app?.example.com'
 
 or:
 
 .. code-block:: bash
 
-   $ knife search node 'name:app1.example.???'
+   knife search node 'name:app1.example.???'
 
 to return ``app1.example.com`` (and any other node that matches any of the string searches above).
 
@@ -592,7 +592,7 @@ To search using an inclusive range, enter the following:
 
 .. code-block:: bash
 
-   $ knife search sample "id:[bar TO foo]"
+   knife search sample "id:[bar TO foo]"
 
 where square brackets (``[ ]``) are used to define the range.
 
@@ -606,7 +606,7 @@ To search using an exclusive range, enter the following:
 
 .. code-block:: bash
 
-   $ knife search sample "id:{bar TO foo}"
+   knife search sample "id:{bar TO foo}"
 
 where curly braces (``{ }``) are used to define the range.
 
@@ -632,7 +632,7 @@ To use a fuzzy search pattern enter something similar to:
 
 .. code-block:: bash
 
-   $ knife search client "name:boo~"
+   knife search client "name:boo~"
 
 where ``boo~`` defines the fuzzy search pattern. This will return something similar to:
 
@@ -692,7 +692,7 @@ Operators must be in ALL CAPS. Parentheses can be used to group clauses and to f
 
    .. code-block:: bash
 
-      $ knife search sample "id:foo AND -id:bar"
+      knife search sample "id:foo AND -id:bar"
 
 .. end_tag
 
@@ -704,7 +704,7 @@ To join queries using the ``AND`` boolean operator, enter the following:
 
 .. code-block:: bash
 
-   $ knife search sample "id:b* AND animal:dog"
+   knife search sample "id:b* AND animal:dog"
 
 to return something like:
 
@@ -726,7 +726,7 @@ Or, to find all of the computers running on the Microsoft Windows platform that 
 
 .. code-block:: bash
 
-   $ knife search node 'platform:windows AND roles:jenkins'
+   knife search node 'platform:windows AND roles:jenkins'
 
 to return something like:
 
@@ -764,7 +764,7 @@ To negate search results using the ``NOT`` boolean operator, enter the following
 
 .. code-block:: bash
 
-   $ knife search sample "(NOT id:foo)"
+   knife search sample "(NOT id:foo)"
 
 to return something like:
 
@@ -807,7 +807,7 @@ To join queries using the ``OR`` boolean operator, enter the following:
 
 .. code-block:: bash
 
-   $ knife search sample "id:foo OR id:abc"
+   knife search sample "id:foo OR id:abc"
 
 to return something like:
 
@@ -883,7 +883,7 @@ To search a top-level run-list for a role named ``load_balancer`` use the ``knif
 
 .. code-block:: bash
 
-   $ knife search node role:load_balancer
+   knife search node role:load_balancer
 
 and from within a recipe:
 
@@ -895,7 +895,7 @@ To search an expanded run-list for all nodes with the role ``load_balancer`` use
 
 .. code-block:: bash
 
-   $ knife search node roles:load_balancer
+   knife search node roles:load_balancer
 
 and from within a recipe:
 
@@ -1024,7 +1024,7 @@ Any search for a data bag (or a data bag item) must specify the name of the data
 
 .. code-block:: bash
 
-   $ knife search admin_data "(NOT id:admin_users)"
+   knife search admin_data "(NOT id:admin_users)"
 
 Or, to include the same search query in a recipe, use a code block similar to:
 

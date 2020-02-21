@@ -30,7 +30,7 @@ The following examples show how to use the ``Get-AzureVMChefExtension`` cmdlet:
 
 .. code-block:: bash
 
-   $ Get-AzureVM -ServiceName cloudservice1 -Name azurevm1 | Get-AzureVMExtension
+   Get-AzureVM -ServiceName cloudservice1 -Name azurevm1 | Get-AzureVMExtension
 
 Set-AzureVMChefExtension
 +++++++++++++++++++++++++++++++++++++++++++++++++++++

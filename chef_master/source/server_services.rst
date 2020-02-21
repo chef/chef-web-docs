@@ -23,7 +23,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef-server-ctl hup SERVICE_NAME
+   chef-server-ctl hup SERVICE_NAME
 
 where ``SERVICE_NAME`` represents the name of any service that is listed after running the ``service-list`` subcommand.
 
@@ -39,7 +39,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef-server-ctl int SERVICE_NAME
+   chef-server-ctl int SERVICE_NAME
 
 where ``SERVICE_NAME`` represents the name of any service that is listed after running the ``service-list`` subcommand.
 
@@ -55,7 +55,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef-server-ctl kill SERVICE_NAME
+   chef-server-ctl kill SERVICE_NAME
 
 where ``SERVICE_NAME`` represents the name of any service that is listed after running the ``service-list`` subcommand.
 
@@ -73,7 +73,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef-server-ctl once SERVICE_NAME
+   chef-server-ctl once SERVICE_NAME
 
 where ``SERVICE_NAME`` represents the name of any service that is listed after running the ``service-list`` subcommand.
 
@@ -91,13 +91,13 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef-server-ctl restart SERVICE_NAME
+   chef-server-ctl restart SERVICE_NAME
 
 where ``SERVICE_NAME`` represents the name of any service that is listed after running the ``service-list`` subcommand. When a service is successfully restarted the output should be similar to:
 
 .. code-block:: bash
 
-   $ ok: run: service_name: (pid 12345) 1s
+   ok: run: service_name: (pid 12345) 1s
 
 .. end_tag
 
@@ -111,7 +111,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef-server-ctl service-list
+   chef-server-ctl service-list
 
 .. end_tag
 
@@ -125,13 +125,13 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef-server-ctl start SERVICE_NAME
+   chef-server-ctl start SERVICE_NAME
 
 where ``SERVICE_NAME`` represents the name of any service that is listed after running the ``service-list`` subcommand. When a service is successfully started the output should be similar to:
 
 .. code-block:: bash
 
-   $ ok: run: service_name: (pid 12345) 1s
+   ok: run: service_name: (pid 12345) 1s
 
 The supervisor for the Chef Infra Server is configured to wait seven seconds for a service to respond to a command from the supervisor. If you see output that references a timeout, it means that a signal has been sent to the process, but that the process has yet to actually comply. In general, processes that have timed out are not a big concern, unless they are failing to respond to the signals at all. If a process is not responding, use a command like the ``kill`` subcommand to stop the process, investigate the cause (if required), and then use the ``start`` subcommand to re-enable it.
 
@@ -145,13 +145,13 @@ The ``status`` subcommand is used to show the status of all services available t
 
 .. code-block:: bash
 
-   $ chef-server-ctl status
+   chef-server-ctl status
 
 and will return the status for all services. Status can be returned for individual services by specifying the name of the service as part of the command:
 
 .. code-block:: bash
 
-   $ chef-server-ctl status SERVICE_NAME
+   chef-server-ctl status SERVICE_NAME
 
 where ``SERVICE_NAME`` represents the name of any service that is listed after running the ``service-list`` subcommand.
 
@@ -159,7 +159,7 @@ When service status is requested, the output should be similar to:
 
 .. code-block:: bash
 
-   $ run: service_name: (pid 12345) 12345s; run: log: (pid 1234) 67890s
+   run: service_name: (pid 12345) 12345s; run: log: (pid 1234) 67890s
 
 where
 
@@ -172,7 +172,7 @@ For example:
 
 .. code-block:: bash
 
-   $ down: opscode-erchef: (pid 35546) 10s
+   down: opscode-erchef: (pid 35546) 10s
 
 By default, runit will restart services automatically when the services fail. Therefore, runit may report the status of a service as ``run:`` even when there is an issue with that service. When investigating why a particular service is not running as it should be, look for the services with the shortest uptimes. For example, the list below indicates that the **opscode-erchef** should be investigated further:
 
@@ -226,19 +226,19 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef-server-ctl stop SERVICE_NAME
+   chef-server-ctl stop SERVICE_NAME
 
 where ``SERVICE_NAME`` represents the name of any service that is listed after running the ``service-list`` subcommand. When a service is successfully stopped the output should be similar to:
 
 .. code-block:: bash
 
-   $ ok: down: service_name: 0s, normally up
+   ok: down: service_name: 0s, normally up
 
 For example:
 
 .. code-block:: bash
 
-   $ chef-server-ctl stop
+   chef-server-ctl stop
 
 will return something similar to:
 
@@ -266,7 +266,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef-server-ctl tail SERVICE_NAME
+   chef-server-ctl tail SERVICE_NAME
 
 where ``SERVICE_NAME`` represents the name of any service that is listed after running the ``service-list`` subcommand.
 
@@ -282,7 +282,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef-server-ctl term SERVICE_NAME
+   chef-server-ctl term SERVICE_NAME
 
 where ``SERVICE_NAME`` represents the name of any service that is listed after running the ``service-list`` subcommand.
 
@@ -316,13 +316,13 @@ To view the status for the service:
 
 .. code-block:: bash
 
-   $ chef-server-ctl status bifrost
+   chef-server-ctl status bifrost
 
 to return something like:
 
 .. code-block:: bash
 
-   $ run: bifrost: (pid 1234) 123456s; run: log: (pid 5678) 789012s
+   run: bifrost: (pid 1234) 123456s; run: log: (pid 5678) 789012s
 
 start
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -330,7 +330,7 @@ To start the service:
 
 .. code-block:: bash
 
-   $ chef-server-ctl start bifrost
+   chef-server-ctl start bifrost
 
 stop
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -338,7 +338,7 @@ To stop the service:
 
 .. code-block:: bash
 
-   $ chef-server-ctl stop bifrost
+   chef-server-ctl stop bifrost
 
 restart
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -346,13 +346,13 @@ To restart the service:
 
 .. code-block:: bash
 
-   $ chef-server-ctl restart bifrost
+   chef-server-ctl restart bifrost
 
 to return something like:
 
 .. code-block:: bash
 
-   $ ok: run: bifrost: (pid 1234) 1234s
+   ok: run: bifrost: (pid 1234) 1234s
 
 kill
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -360,7 +360,7 @@ To kill the service (send a ``SIGKILL`` command):
 
 .. code-block:: bash
 
-   $ chef-server-ctl kill bifrost
+   chef-server-ctl kill bifrost
 
 run once
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -368,7 +368,7 @@ To run the service, but not restart it (if the service fails):
 
 .. code-block:: bash
 
-   $ chef-server-ctl once bifrost
+   chef-server-ctl once bifrost
 
 tail
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -376,7 +376,7 @@ To follow the logs for the service:
 
 .. code-block:: bash
 
-   $ chef-server-ctl tail bifrost
+   chef-server-ctl tail bifrost
 
 bookshelf
 -----------------------------------------------------
@@ -392,13 +392,13 @@ To view the status for the service:
 
 .. code-block:: bash
 
-   $ chef-server-ctl status bookshelf
+   chef-server-ctl status bookshelf
 
 to return something like:
 
 .. code-block:: bash
 
-   $ run: bookshelf: (pid 1234) 123456s; run: log: (pid 5678) 789012s
+   run: bookshelf: (pid 1234) 123456s; run: log: (pid 5678) 789012s
 
 start
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -406,7 +406,7 @@ To start the service:
 
 .. code-block:: bash
 
-   $ chef-server-ctl start bookshelf
+   chef-server-ctl start bookshelf
 
 stop
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -414,7 +414,7 @@ To stop the service:
 
 .. code-block:: bash
 
-   $ chef-server-ctl stop bookshelf
+   chef-server-ctl stop bookshelf
 
 restart
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -422,13 +422,13 @@ To restart the service:
 
 .. code-block:: bash
 
-   $ chef-server-ctl restart bookshelf
+   chef-server-ctl restart bookshelf
 
 to return something like:
 
 .. code-block:: bash
 
-   $ ok: run: bookshelf: (pid 1234) 1234s
+   ok: run: bookshelf: (pid 1234) 1234s
 
 kill
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -436,7 +436,7 @@ To kill the service (send a ``SIGKILL`` command):
 
 .. code-block:: bash
 
-   $ chef-server-ctl kill bookshelf
+   chef-server-ctl kill bookshelf
 
 run once
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -444,7 +444,7 @@ To run the service, but not restart it (if the service fails):
 
 .. code-block:: bash
 
-   $ chef-server-ctl once bookshelf
+   chef-server-ctl once bookshelf
 
 tail
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -452,7 +452,7 @@ To follow the logs for the service:
 
 .. code-block:: bash
 
-   $ chef-server-ctl tail bookshelf
+   chef-server-ctl tail bookshelf
 
 nginx
 -----------------------------------------------------
@@ -468,13 +468,13 @@ To view the status for the service:
 
 .. code-block:: bash
 
-   $ chef-server-ctl status nginx
+   chef-server-ctl status nginx
 
 to return something like:
 
 .. code-block:: bash
 
-   $ run: nginx: (pid 1234) 123456s; run: log: (pid 5678) 789012s
+   run: nginx: (pid 1234) 123456s; run: log: (pid 5678) 789012s
 
 start
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -482,7 +482,7 @@ To start the service:
 
 .. code-block:: bash
 
-   $ chef-server-ctl start nginx
+   chef-server-ctl start nginx
 
 stop
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -490,7 +490,7 @@ To stop the service:
 
 .. code-block:: bash
 
-   $ chef-server-ctl stop nginx
+   chef-server-ctl stop nginx
 
 restart
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -498,13 +498,13 @@ To restart the service:
 
 .. code-block:: bash
 
-   $ chef-server-ctl restart nginx
+   chef-server-ctl restart nginx
 
 to return something like:
 
 .. code-block:: bash
 
-   $ ok: run: nginx: (pid 1234) 1234s
+   ok: run: nginx: (pid 1234) 1234s
 
 kill
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -512,7 +512,7 @@ To kill the service (send a ``SIGKILL`` command):
 
 .. code-block:: bash
 
-   $ chef-server-ctl kill nginx
+   chef-server-ctl kill nginx
 
 run once
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -520,7 +520,7 @@ To run the service, but not restart it (if the service fails):
 
 .. code-block:: bash
 
-   $ chef-server-ctl once nginx
+   chef-server-ctl once nginx
 
 tail
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -530,7 +530,7 @@ To follow the logs for the service:
 
 .. code-block:: bash
 
-   $ chef-server-ctl tail nginx
+   chef-server-ctl tail nginx
 
 .. end_tag
 
@@ -556,13 +556,13 @@ To view the status for the service:
 
 .. code-block:: bash
 
-   $ chef-server-ctl status opscode-erchef
+   chef-server-ctl status opscode-erchef
 
 to return something like:
 
 .. code-block:: bash
 
-   $ run: opscode-erchefs: (pid 1234) 123456s; run: log: (pid 5678) 789012s
+   run: opscode-erchefs: (pid 1234) 123456s; run: log: (pid 5678) 789012s
 
 start
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -570,7 +570,7 @@ To start the service:
 
 .. code-block:: bash
 
-   $ chef-server-ctl start opscode-erchef
+   chef-server-ctl start opscode-erchef
 
 stop
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -578,7 +578,7 @@ To stop the service:
 
 .. code-block:: bash
 
-   $ chef-server-ctl stop opscode-erchef
+   chef-server-ctl stop opscode-erchef
 
 restart
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -586,13 +586,13 @@ To restart the service:
 
 .. code-block:: bash
 
-   $ chef-server-ctl restart opscode-erchef
+   chef-server-ctl restart opscode-erchef
 
 to return something like:
 
 .. code-block:: bash
 
-   $ ok: run: opscode-erchef: (pid 1234) 1234s
+   ok: run: opscode-erchef: (pid 1234) 1234s
 
 kill
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -600,7 +600,7 @@ To kill the service (send a ``SIGKILL`` command):
 
 .. code-block:: bash
 
-   $ chef-server-ctl kill opscode-erchef
+   chef-server-ctl kill opscode-erchef
 
 run once
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -608,7 +608,7 @@ To run the service, but not restart it (if the service fails):
 
 .. code-block:: bash
 
-   $ chef-server-ctl once opscode-erchef
+   chef-server-ctl once opscode-erchef
 
 tail
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -616,7 +616,7 @@ To follow the logs for the service:
 
 .. code-block:: bash
 
-   $ chef-server-ctl tail opscode-erchef
+   chef-server-ctl tail opscode-erchef
 
 opscode-expander
 -----------------------------------------------------
@@ -632,13 +632,13 @@ To view the status for the service:
 
 .. code-block:: bash
 
-   $ chef-server-ctl status opscode-expander
+   chef-server-ctl status opscode-expander
 
 to return something like:
 
 .. code-block:: bash
 
-   $ run: opscode-expander: (pid 1234) 123456s; run: log: (pid 5678) 789012s
+   run: opscode-expander: (pid 1234) 123456s; run: log: (pid 5678) 789012s
 
 start
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -646,7 +646,7 @@ To start the service:
 
 .. code-block:: bash
 
-   $ chef-server-ctl start opscode-expander
+   chef-server-ctl start opscode-expander
 
 stop
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -654,7 +654,7 @@ To stop the service:
 
 .. code-block:: bash
 
-   $ chef-server-ctl stop opscode-expander
+   chef-server-ctl stop opscode-expander
 
 restart
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -662,13 +662,13 @@ To restart the service:
 
 .. code-block:: bash
 
-   $ chef-server-ctl restart opscode-expander
+   chef-server-ctl restart opscode-expander
 
 to return something like:
 
 .. code-block:: bash
 
-   $ ok: run: opscode-expander: (pid 1234) 1234s
+   ok: run: opscode-expander: (pid 1234) 1234s
 
 kill
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -676,7 +676,7 @@ To kill the service (send a ``SIGKILL`` command):
 
 .. code-block:: bash
 
-   $ chef-server-ctl kill opscode-expander
+   chef-server-ctl kill opscode-expander
 
 run once
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -684,7 +684,7 @@ To run the service, but not restart it (if the service fails):
 
 .. code-block:: bash
 
-   $ chef-server-ctl once opscode-expander
+   chef-server-ctl once opscode-expander
 
 tail
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -692,7 +692,7 @@ To follow the logs for the service:
 
 .. code-block:: bash
 
-   $ chef-server-ctl tail opscode-expander
+   chef-server-ctl tail opscode-expander
 
 opscode-solr4
 -----------------------------------------------------
@@ -708,13 +708,13 @@ To view the status for the service:
 
 .. code-block:: bash
 
-   $ chef-server-ctl status opscode-solr
+   chef-server-ctl status opscode-solr
 
 to return something like:
 
 .. code-block:: bash
 
-   $ run: opscode-solr: (pid 1234) 123456s; run: log: (pid 5678) 789012s
+   run: opscode-solr: (pid 1234) 123456s; run: log: (pid 5678) 789012s
 
 start
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -722,7 +722,7 @@ To start the service:
 
 .. code-block:: bash
 
-   $ chef-server-ctl start opscode-solr
+   chef-server-ctl start opscode-solr
 
 stop
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -730,7 +730,7 @@ To stop the service:
 
 .. code-block:: bash
 
-   $ chef-server-ctl stop opscode-solr
+   chef-server-ctl stop opscode-solr
 
 restart
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -738,13 +738,13 @@ To restart the service:
 
 .. code-block:: bash
 
-   $ chef-server-ctl restart opscode-solr
+   chef-server-ctl restart opscode-solr
 
 to return something like:
 
 .. code-block:: bash
 
-   $ ok: run: opscode-solr: (pid 1234) 1234s
+   ok: run: opscode-solr: (pid 1234) 1234s
 
 kill
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -752,7 +752,7 @@ To kill the service (send a ``SIGKILL`` command):
 
 .. code-block:: bash
 
-   $ chef-server-ctl kill opscode-solr
+   chef-server-ctl kill opscode-solr
 
 run once
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -760,7 +760,7 @@ To run the service, but not restart it (if the service fails):
 
 .. code-block:: bash
 
-   $ chef-server-ctl once opscode-solr
+   chef-server-ctl once opscode-solr
 
 tail
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -768,7 +768,7 @@ To follow the logs for the service:
 
 .. code-block:: bash
 
-   $ chef-server-ctl tail opscode-solr
+   chef-server-ctl tail opscode-solr
 
 postgresql
 -----------------------------------------------------
@@ -784,13 +784,13 @@ To view the status for the service:
 
 .. code-block:: bash
 
-   $ chef-server-ctl status postgresql
+   chef-server-ctl status postgresql
 
 to return something like:
 
 .. code-block:: bash
 
-   $ run: postgresql: (pid 1234) 123456s; run: log: (pid 5678) 789012s
+   run: postgresql: (pid 1234) 123456s; run: log: (pid 5678) 789012s
 
 start
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -798,7 +798,7 @@ To start the service:
 
 .. code-block:: bash
 
-   $ chef-server-ctl start postgresql
+   chef-server-ctl start postgresql
 
 stop
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -806,7 +806,7 @@ To stop the service:
 
 .. code-block:: bash
 
-   $ chef-server-ctl stop postgresql
+   chef-server-ctl stop postgresql
 
 restart
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -814,13 +814,13 @@ To restart the service:
 
 .. code-block:: bash
 
-   $ chef-server-ctl restart postgresql
+   chef-server-ctl restart postgresql
 
 to return something like:
 
 .. code-block:: bash
 
-   $ ok: run: postgresql: (pid 1234) 1234s
+   ok: run: postgresql: (pid 1234) 1234s
 
 kill
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -828,7 +828,7 @@ To kill the service (send a ``SIGKILL`` command):
 
 .. code-block:: bash
 
-   $ chef-server-ctl kill postgresql
+   chef-server-ctl kill postgresql
 
 run once
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -836,7 +836,7 @@ To run the service, but not restart it (if the service fails):
 
 .. code-block:: bash
 
-   $ chef-server-ctl once postgresqls
+   chef-server-ctl once postgresqls
 
 tail
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -844,7 +844,7 @@ To follow the logs for the service:
 
 .. code-block:: bash
 
-   $ chef-server-ctl tail postgresql
+   chef-server-ctl tail postgresql
 
 rabbitmq
 -----------------------------------------------------
@@ -860,13 +860,13 @@ To view the status for the service:
 
 .. code-block:: bash
 
-   $ chef-server-ctl status rabbitmq
+   chef-server-ctl status rabbitmq
 
 to return something like:
 
 .. code-block:: bash
 
-   $ run: rabbitmq: (pid 1234) 123456s; run: log: (pid 5678) 789012s
+   run: rabbitmq: (pid 1234) 123456s; run: log: (pid 5678) 789012s
 
 start
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -874,7 +874,7 @@ To start the service:
 
 .. code-block:: bash
 
-   $ chef-server-ctl start rabbitmq
+   chef-server-ctl start rabbitmq
 
 stop
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -882,7 +882,7 @@ To stop the service:
 
 .. code-block:: bash
 
-   $ chef-server-ctl stop rabbitmq
+   chef-server-ctl stop rabbitmq
 
 restart
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -890,13 +890,13 @@ To restart the service:
 
 .. code-block:: bash
 
-   $ chef-server-ctl restart rabbitmq
+   chef-server-ctl restart rabbitmq
 
 to return something like:
 
 .. code-block:: bash
 
-   $ ok: run: rabbitmq: (pid 1234) 1234s
+   ok: run: rabbitmq: (pid 1234) 1234s
 
 kill
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -904,7 +904,7 @@ To kill the service (send a ``SIGKILL`` command):
 
 .. code-block:: bash
 
-   $ chef-server-ctl kill rabbitmq
+   chef-server-ctl kill rabbitmq
 
 run once
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -912,7 +912,7 @@ To run the service, but not restart it (if the service fails):
 
 .. code-block:: bash
 
-   $ chef-server-ctl once rabbitmq
+   chef-server-ctl once rabbitmq
 
 tail
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -920,7 +920,7 @@ To follow the logs for the service:
 
 .. code-block:: bash
 
-   $ chef-server-ctl tail rabbitmq
+   chef-server-ctl tail rabbitmq
 
 redis
 -----------------------------------------------------
@@ -936,13 +936,13 @@ To view the status for the service:
 
 .. code-block:: bash
 
-   $ chef-server-ctl status redis
+   chef-server-ctl status redis
 
 to return something like:
 
 .. code-block:: bash
 
-   $ run: redis: (pid 1234) 123456s; run: log: (pid 5678) 789012s
+   run: redis: (pid 1234) 123456s; run: log: (pid 5678) 789012s
 
 start
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -950,7 +950,7 @@ To start the service:
 
 .. code-block:: bash
 
-   $ chef-server-ctl start redis
+   chef-server-ctl start redis
 
 stop
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -958,7 +958,7 @@ To stop the service:
 
 .. code-block:: bash
 
-   $ chef-server-ctl stop redis
+   chef-server-ctl stop redis
 
 restart
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -966,13 +966,13 @@ To restart the service:
 
 .. code-block:: bash
 
-   $ chef-server-ctl restart redis
+   chef-server-ctl restart redis
 
 to return something like:
 
 .. code-block:: bash
 
-   $ ok: run: redis: (pid 1234) 1234s
+   ok: run: redis: (pid 1234) 1234s
 
 kill
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -980,7 +980,7 @@ To kill the service (send a ``SIGKILL`` command):
 
 .. code-block:: bash
 
-   $ chef-server-ctl kill name_of_service
+   chef-server-ctl kill name_of_service
 
 run once
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -988,7 +988,7 @@ To run the service, but not restart it (if the service fails):
 
 .. code-block:: bash
 
-   $ chef-server-ctl once redis
+   chef-server-ctl once redis
 
 tail
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -996,4 +996,4 @@ To follow the logs for the service:
 
 .. code-block:: bash
 
-   $ chef-server-ctl tail name_of_service
+   chef-server-ctl tail name_of_service

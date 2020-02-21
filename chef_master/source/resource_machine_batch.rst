@@ -89,7 +89,7 @@ will show output similar to:
 
 .. code-block:: bash
 
-   $ CHEF_DRIVER=fog:AWS chef-apply cluster.rb
+   CHEF_DRIVER=fog:AWS chef-apply cluster.rb
    ...
    Converging 1 resources
    Recipe: @recipe_files::/Users/jkeiser/oc/environments/metal-test-local/cluster.rb
@@ -365,5 +365,3 @@ The following example destroys an Amazon Elastic Block Store (EBS) volume for th
      ]
      vpc 'provisioning-vpc'
    end
-
-

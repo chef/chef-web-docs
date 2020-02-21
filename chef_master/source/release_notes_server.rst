@@ -695,7 +695,7 @@ The following user accounts exist on the Chef server: ``pivotal`` (a superuser a
 
 .. code-block:: bash
 
-   $ chef-server-ctl user-list
+   chef-server-ctl user-list
 
 and it returns the same list of users:
 
@@ -711,7 +711,7 @@ Alice is a member of the IT team whose responsibilities include day-to-day admin
 
 .. code-block:: bash
 
-   $ knife user list -c ~/.chef/alice.rb
+   knife user list -c ~/.chef/alice.rb
 
 and it returns the following error:
 
@@ -725,7 +725,7 @@ Alice is not a superuser and does not have permissions on other users because us
 
 .. code-block:: bash
 
-   $ chef-server-ctl grant-server-admin-permissions alice
+   chef-server-ctl grant-server-admin-permissions alice
 
 and it returns the following response:
 
@@ -737,7 +737,7 @@ Alice can now create, read, update, and delete user accounts on the Chef server,
 
 .. code-block:: bash
 
-   $ knife user list -c ~/.chef/alice.rb
+   knife user list -c ~/.chef/alice.rb
 
 which now returns:
 
@@ -761,7 +761,7 @@ For example, Alice runs the following command:
 
 .. code-block:: bash
 
-   $ knife user edit carol -c ~/.chef/alice.rb
+   knife user edit carol -c ~/.chef/alice.rb
 
 and the $EDITOR opens in which Alice makes changes, and then saves them.
 
@@ -772,7 +772,7 @@ Superuser accounts may not be managed by users who belong to the ``server-admins
 
 .. code-block:: bash
 
-   $ knife user delete pivotal -c ~/.chef/alice.rb
+   knife user delete pivotal -c ~/.chef/alice.rb
 
 and the following error is returned:
 
@@ -802,7 +802,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef-server-ctl grant-server-admin-permissions USER_NAME
+   chef-server-ctl grant-server-admin-permissions USER_NAME
 
 where ``USER_NAME`` is the user to add to the list of server administrators.
 
@@ -810,7 +810,7 @@ For example:
 
 .. code-block:: bash
 
-   $ chef-server-ctl grant-server-admin-permissions bob
+   chef-server-ctl grant-server-admin-permissions bob
 
 returns:
 
@@ -829,7 +829,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef-server-ctl remove-server-admin-permissions USER_NAME
+   chef-server-ctl remove-server-admin-permissions USER_NAME
 
 where ``USER_NAME`` is the user to remove from the list of server administrators.
 
@@ -837,7 +837,7 @@ For example:
 
 .. code-block:: bash
 
-   $ chef-server-ctl remove-server-admin-permissions bob
+   chef-server-ctl remove-server-admin-permissions bob
 
 returns:
 
@@ -856,7 +856,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef-server-ctl list-server-admins
+   chef-server-ctl list-server-admins
 
 and will return a list of users similar to:
 
@@ -1056,7 +1056,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef-server-ctl backup
+   chef-server-ctl backup
 
 restore
 -----------------------------------------------------
@@ -1085,13 +1085,13 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef-server-ctl restore PATH_TO_BACKUP (options)
+   chef-server-ctl restore PATH_TO_BACKUP (options)
 
 **Examples**
 
 .. code-block:: bash
 
-   $ chef-server-ctl restore /path/to/tar/archive.tar.gz
+   chef-server-ctl restore /path/to/tar/archive.tar.gz
 
 psql
 -----------------------------------------------------
@@ -1109,7 +1109,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef-server-ctl psql SERVICE_NAME (options)
+   chef-server-ctl psql SERVICE_NAME (options)
 
 **Options**
 
@@ -2643,7 +2643,7 @@ The command line tool for the Chef server has been renamed from private-chef-ctl
 
 .. code-block:: bash
 
-   $ chef-server-ctl command
+   chef-server-ctl command
 
 In addition, the ``install`` subcommand is added, plus two new subcommand groupings---``org-*`` and ``user-*``---have been added for managing organizations and users. See below for more information about these new subcommands.
 
@@ -2658,7 +2658,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef-server-ctl install name_of_addon (options)
+   chef-server-ctl install name_of_addon (options)
 
 where ``name_of_addon`` represents the command line value associated with the add-on or premium feature.
 
@@ -2686,19 +2686,19 @@ The ``install`` subcommand downloads packages from https://packages.chef.io/ by 
 
        .. code-block:: bash
 
-          $ sudo chef-server-ctl install chef-manage
+          sudo chef-server-ctl install chef-manage
 
        then:
 
        .. code-block:: bash
 
-          $ sudo chef-server-ctl reconfigure
+          sudo chef-server-ctl reconfigure
 
        and then:
 
        .. code-block:: bash
 
-          $ sudo chef-manage-ctl reconfigure
+          sudo chef-manage-ctl reconfigure
 
        .. note:: Starting with the Chef management console 2.3.0, the `Chef MLSA </chef_license.html>`__ must be accepted when reconfiguring the product. If the Chef MLSA has not already been accepted, the reconfigure process will prompt for a ``yes`` to accept it. Or run ``chef-manage-ctl reconfigure --accept-license`` to automatically accept the license.
 
@@ -2709,13 +2709,13 @@ The ``install`` subcommand downloads packages from https://packages.chef.io/ by 
 
 .. code-block:: bash
 
-   $ sudo chef-server-ctl install PACKAGE_NAME --path /path/to/package/directory
+   sudo chef-server-ctl install PACKAGE_NAME --path /path/to/package/directory
 
 For example:
 
 .. code-block:: bash
 
-   $ sudo chef-server-ctl install chef-manage --path /root/packages
+   sudo chef-server-ctl install chef-manage --path /root/packages
 
 The ``chef-server-ctl`` command will install the first ``chef-manage`` package found in the ``/root/packages`` directory.
 
@@ -2728,7 +2728,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef-server-ctl gather-logs
+   chef-server-ctl gather-logs
 
 user-* Commands
 -----------------------------------------------------
@@ -2745,7 +2745,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef-server-ctl user-create USER_NAME FIRST_NAME [MIDDLE_NAME] LAST_NAME EMAIL 'PASSWORD' (options)
+   chef-server-ctl user-create USER_NAME FIRST_NAME [MIDDLE_NAME] LAST_NAME EMAIL 'PASSWORD' (options)
 
 **Options**
 
@@ -2758,15 +2758,15 @@ This subcommand has the following options:
 
 .. code-block:: bash
 
-   $ chef-server-ctl user-create john_smith John Smith john_smith@example.com p@s5w0rD!
+   chef-server-ctl user-create john_smith John Smith john_smith@example.com p@s5w0rD!
 
 .. code-block:: bash
 
-   $ chef-server-ctl user-create jane_doe Jane Doe jane_doe@example.com p@s5w0rD! -f /tmp/jane_doe.key
+   chef-server-ctl user-create jane_doe Jane Doe jane_doe@example.com p@s5w0rD! -f /tmp/jane_doe.key
 
 .. code-block:: bash
 
-   $ chef-server-ctl user-create waldendude Henry David Thoreau waldendude@example.com excursions
+   chef-server-ctl user-create waldendude Henry David Thoreau waldendude@example.com excursions
 
 user-delete
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -2779,17 +2779,17 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef-server-ctl user-delete USER_NAME
+   chef-server-ctl user-delete USER_NAME
 
 **Examples**
 
 .. code-block:: bash
 
-   $ chef-server-ctl user-delete john_smith
+   chef-server-ctl user-delete john_smith
 
 .. code-block:: bash
 
-   $ chef-server-ctl user-delete jane_doe
+   chef-server-ctl user-delete jane_doe
 
 user-edit
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -2802,17 +2802,17 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef-server-ctl user-edit USER_NAME
+   chef-server-ctl user-edit USER_NAME
 
 **Examples**
 
 .. code-block:: bash
 
-   $ chef-server-ctl user-edit john_smith
+   chef-server-ctl user-edit john_smith
 
 .. code-block:: bash
 
-   $ chef-server-ctl user-edit jane_doe
+   chef-server-ctl user-edit jane_doe
 
 user-list
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -2825,7 +2825,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef-server-ctl user-list (options)
+   chef-server-ctl user-list (options)
 
 **Options**
 
@@ -2845,7 +2845,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef-server-ctl user-show USER_NAME (options)
+   chef-server-ctl user-show USER_NAME (options)
 
 **Options**
 
@@ -2869,7 +2869,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef-server-ctl org-create ORG_NAME "ORG_FULL_NAME" (options)
+   chef-server-ctl org-create ORG_NAME "ORG_FULL_NAME" (options)
 
 where:
 
@@ -2890,15 +2890,15 @@ This subcommand has the following options:
 
 .. code-block:: bash
 
-   $ chef-server-ctl org-create prod Production
+   chef-server-ctl org-create prod Production
 
 .. code-block:: bash
 
-   $ chef-server-ctl org-create staging Staging -a chef-admin
+   chef-server-ctl org-create staging Staging -a chef-admin
 
 .. code-block:: bash
 
-   $ chef-server-ctl org-create dev Development -f /tmp/id-dev.key
+   chef-server-ctl org-create dev Development -f /tmp/id-dev.key
 
 org-delete
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -2911,17 +2911,17 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef-server-ctl org-delete ORG_NAME
+   chef-server-ctl org-delete ORG_NAME
 
 **Examples**
 
 .. code-block:: bash
 
-   $ chef-server-ctl org-delete infra-testing-20140909
+   chef-server-ctl org-delete infra-testing-20140909
 
 .. code-block:: bash
 
-   $ chef-server-ctl org-delete pedant-testing-org
+   chef-server-ctl org-delete pedant-testing-org
 
 org-list
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -2934,7 +2934,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef-server-ctl org-list (options)
+   chef-server-ctl org-list (options)
 
 **Options**
 
@@ -2957,7 +2957,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef-server-ctl org-show ORG_NAME
+   chef-server-ctl org-show ORG_NAME
 
 org-user-add
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -2971,7 +2971,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef-server-ctl org-user-add ORG_NAME USER_NAME (options)
+   chef-server-ctl org-user-add ORG_NAME USER_NAME (options)
 
 **Options**
 
@@ -2984,15 +2984,15 @@ This subcommand has the following options:
 
 .. code-block:: bash
 
-   $ chef-server-ctl org-user-add prod john_smith
+   chef-server-ctl org-user-add prod john_smith
 
 .. code-block:: bash
 
-   $ chef-server-ctl org-user-add preprod testmaster
+   chef-server-ctl org-user-add preprod testmaster
 
 .. code-block:: bash
 
-   $ chef-server-ctl org-user-add dev grantmc --admin
+   chef-server-ctl org-user-add dev grantmc --admin
 
 org-user-remove
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -3006,17 +3006,17 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef-server-ctl org-user-remove ORG_NAME USER_NAME (options)
+   chef-server-ctl org-user-remove ORG_NAME USER_NAME (options)
 
 **Examples**
 
 .. code-block:: bash
 
-   $ chef-server-ctl org-user-remove prod john_smith
+   chef-server-ctl org-user-remove prod john_smith
 
 .. code-block:: bash
 
-   $ chef-server-ctl org-user-remove prod testmaster
+   chef-server-ctl org-user-remove prod testmaster
 
 Configuration Settings
 -----------------------------------------------------
@@ -3091,25 +3091,25 @@ In previous versions of the Chef server, the default permissions allowed data ba
 
 .. code-block:: bash
 
-   $ knife acl add containers data update group clients
+   knife acl add containers data update group clients
 
 For cookbooks that create or delete data bags:
 
 .. code-block:: bash
 
-   $ knife acl add containers data create group clients
+   knife acl add containers data create group clients
 
-   $ knife acl add containers data delete group clients
+   knife acl add containers data delete group clients
 
 For existing organizations that want to remove the **Create**, **Delete**, or **Update** permissions from existing nodes:
 
 .. code-block:: bash
 
-   $ knife acl remove containers data update group clients
+   knife acl remove containers data update group clients
 
-   $ knife acl remove containers data delete group clients
+   knife acl remove containers data delete group clients
 
-   $ knife acl remove containers data create group clients
+   knife acl remove containers data create group clients
 
 See this blog post for more information about the ``knife-acl`` plugin: https://www.chef.io/blog/2014/11/10/security-update-hosted-chef/
 
@@ -3145,7 +3145,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef-server-ctl add-client-key ORG_NAME CLIENT_NAME [--public-key-path PATH] [--expiration-date DATE] [--key-name NAME]
+   chef-server-ctl add-client-key ORG_NAME CLIENT_NAME [--public-key-path PATH] [--expiration-date DATE] [--key-name NAME]
 
 .. warning:: All options for this subcommand must follow all arguments.
 
@@ -3179,7 +3179,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef-server-ctl add-user-key USER_NAME [--public-key-path PATH] [--expiration-date DATE] [--key-name NAME]
+   chef-server-ctl add-user-key USER_NAME [--public-key-path PATH] [--expiration-date DATE] [--key-name NAME]
 
 .. warning:: All options for this subcommand must follow all arguments.
 
@@ -3210,7 +3210,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef-server-ctl delete-client-key ORG_NAME CLIENT_NAME KEY_NAME
+   chef-server-ctl delete-client-key ORG_NAME CLIENT_NAME KEY_NAME
 
 **Options**
 
@@ -3236,7 +3236,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef-server-ctl delete-user-key USER_NAME KEY_NAME
+   chef-server-ctl delete-user-key USER_NAME KEY_NAME
 
 .. warning:: The parameters for this subcommand must be in the order specified above.
 
@@ -3261,7 +3261,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef-server-ctl list-client-keys ORG_NAME CLIENT_NAME [--verbose]
+   chef-server-ctl list-client-keys ORG_NAME CLIENT_NAME [--verbose]
 
 .. warning::  All options for this subcommand must follow all arguments.
 
@@ -3289,7 +3289,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef-server-ctl list-user-keys USER_NAME [--verbose]
+   chef-server-ctl list-user-keys USER_NAME [--verbose]
 
 .. warning:: All options for this subcommand must follow all arguments.
 
@@ -3307,7 +3307,7 @@ This subcommand has the following options:
 
 .. code-block:: bash
 
-   $ chef-server-ctl list-user-keys applejack
+   chef-server-ctl list-user-keys applejack
 
 Returns:
 

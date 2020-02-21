@@ -15,7 +15,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ knife recipe list REGEX
+   knife recipe list REGEX
 
 Options
 =====================================================
@@ -37,7 +37,7 @@ To view a list of recipes:
 
 .. code-block:: bash
 
-   $ knife recipe list 'couchdb::*'
+   knife recipe list 'couchdb::*'
 
 to return:
 

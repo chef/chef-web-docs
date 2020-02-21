@@ -31,7 +31,7 @@ This argument has the following syntax:
 
 .. code-block:: bash
 
-   $ knife environment compare [ENVIRONMENT_NAME...] (options)
+   knife environment compare [ENVIRONMENT_NAME...] (options)
 
 Options
 -----------------------------------------------------
@@ -53,7 +53,7 @@ To compare cookbook versions for a single environment:
 
 .. code-block:: bash
 
-   $ knife environment compare development
+   knife environment compare development
 
 to return something similar to:
 
@@ -69,7 +69,7 @@ To compare cookbook versions for multiple environments:
 
 .. code-block:: bash
 
-   $ knife environment compare development staging
+   knife environment compare development staging
 
 to return something similar to:
 
@@ -86,7 +86,7 @@ To compare all cookbook versions for all environments:
 
 .. code-block:: bash
 
-   $ knife environment compare --all
+   knife environment compare --all
 
 to return something similar to:
 
@@ -131,7 +131,7 @@ This argument has the following syntax:
 
 .. code-block:: bash
 
-   $ knife environment create ENVIRONMENT_NAME -d --description ENVIRONMENT_DESCRIPTION
+   knife environment create ENVIRONMENT_NAME -d --description ENVIRONMENT_DESCRIPTION
 
 Options
 -----------------------------------------------------
@@ -156,7 +156,7 @@ To create an environment named ``dev`` with a description of ``The development e
 
 .. code-block:: bash
 
-   $ knife environment create dev -d --description "The development environment."
+   knife environment create dev -d --description "The development environment."
 
 delete
 =====================================================
@@ -168,7 +168,7 @@ This argument has the following syntax:
 
 .. code-block:: bash
 
-   $ knife environment delete ENVIRONMENT_NAME
+   knife environment delete ENVIRONMENT_NAME
 
 Options
 -----------------------------------------------------
@@ -184,7 +184,7 @@ To delete an environment named ``dev``, enter:
 
 .. code-block:: bash
 
-   $ knife environment delete dev
+   knife environment delete dev
 
 Type ``Y`` to confirm a deletion.
 
@@ -198,7 +198,7 @@ This argument has the following syntax:
 
 .. code-block:: bash
 
-   $ knife environment edit ENVIRONMENT_NAME
+   knife environment edit ENVIRONMENT_NAME
 
 Options
 -----------------------------------------------------
@@ -214,7 +214,7 @@ To edit an environment named ``devops``, enter:
 
 .. code-block:: bash
 
-   $ knife environment edit devops
+   knife environment edit devops
 
 from file
 =====================================================
@@ -226,7 +226,7 @@ This argument has the following syntax:
 
 .. code-block:: bash
 
-   $ knife environment from file FILE (options)
+   knife environment from file FILE (options)
 
 Options
 -----------------------------------------------------
@@ -251,7 +251,7 @@ To add an environment using data contained in a JSON file:
 
 .. code-block:: bash
 
-   $ knife environment from file "path to JSON file"
+   knife environment from file "path to JSON file"
 
 list
 =====================================================
@@ -263,7 +263,7 @@ This argument has the following syntax:
 
 .. code-block:: bash
 
-   $ knife environment list -w
+   knife environment list -w
 
 Options
 -----------------------------------------------------
@@ -282,7 +282,7 @@ To view a list of environments:
 
 .. code-block:: bash
 
-   $ knife environment list -w
+   knife environment list -w
 
 show
 =====================================================
@@ -294,7 +294,7 @@ This argument has the following syntax:
 
 .. code-block:: bash
 
-   $ knife environment show ENVIRONMENT_NAME
+   knife environment show ENVIRONMENT_NAME
 
 Options
 -----------------------------------------------------
@@ -313,7 +313,7 @@ To view information about the ``dev`` environment enter:
 
 .. code-block:: bash
 
-   $ knife environment show dev
+   knife environment show dev
 
 to return:
 
@@ -339,6 +339,6 @@ To view information in JSON format, use the ``-F`` common option as part of the 
 
 .. code-block:: bash
 
-   $ knife environment show devops -F json
+   knife environment show devops -F json
 
 Other formats available include ``text``, ``yaml``, and ``pp``.

@@ -45,7 +45,7 @@ This argument has the following syntax:
 
 .. code-block:: bash
 
-   $ knife opc user list (options)
+   knife opc user list (options)
 
 Options
 -----------------------------------------------------
@@ -58,10 +58,10 @@ Example
 -----------------------------------------------------
 .. code-block:: bash
 
-   $ knife opc user list
+   knife opc user list
    alice
    pivotal
-   $ knife opc user list -w
+   knife opc user list -w
    alice: https://chef-server.fqdn/users/alice
    pivotal: https://chef-server.fqdn/users/pivotal
 
@@ -77,7 +77,7 @@ This argument has the following syntax:
 
 .. code-block:: bash
 
-   $ knife opc user show USER_NAME (options)
+   knife opc user show USER_NAME (options)
 
 Options
 -----------------------------------------------------
@@ -90,7 +90,7 @@ Example
 -----------------------------------------------------
 .. code-block:: bash
 
-   $ knife opc user show alice -l
+   knife opc user show alice -l
    display_name:  Alice Schmidt
    email:         alice@chef.io
    first_name:    Alice
@@ -116,7 +116,7 @@ This argument has the following syntax:
 
 .. code-block:: bash
 
-   $ knife opc user create USER_NAME FIRST_NAME [MIDDLE_NAME] LAST_NAME EMAIL PASSWORD (options)
+   knife opc user create USER_NAME FIRST_NAME [MIDDLE_NAME] LAST_NAME EMAIL PASSWORD (options)
 
 Options
 -----------------------------------------------------
@@ -129,7 +129,7 @@ Example
 -----------------------------------------------------
 .. code-block:: bash
 
-   $ knife opc user create arno arno schmidt arno@chef.io password
+   knife opc user create arno arno schmidt arno@chef.io password
    -----BEGIN RSA PRIVATE KEY-----
    [...]
    -----END RSA PRIVATE KEY-----
@@ -146,7 +146,7 @@ This argument has the following syntax:
 
 .. code-block:: bash
 
-   $ knife opc user delete USER_NAME [-d] [-R]
+   knife opc user delete USER_NAME [-d] [-R]
 
 Options
 -----------------------------------------------------
@@ -163,7 +163,7 @@ Example
 -----------------------------------------------------
 .. code-block:: bash
 
-   $ knife opc user delete arno
+   knife opc user delete arno
    Do you want to delete the user arno? (Y/N) Y
    Checking organization memberships...
    Deleting user arno.
@@ -180,7 +180,7 @@ This argument has the following syntax:
 
 .. code-block:: bash
 
-   $ knife opc user edit USER_NAME
+   knife opc user edit USER_NAME
 
 .. _plugin_knife_opc-opc-user-password:
 
@@ -188,7 +188,7 @@ Example
 -----------------------------------------------------
 .. code-block:: bash
 
-   $ EDITOR=ed knife opc user edit arno
+   EDITOR=ed knife opc user edit arno
    639
    1,%p
    {
@@ -205,7 +205,7 @@ Example
    wq
    643
    Saved arno.
-   $ knife opc user show arno
+   knife opc user show arno
    display_name: arno schmidt
    email:        arno@opscode.io
    first_name:   arno
@@ -229,7 +229,7 @@ This argument has the following syntax:
 
 .. code-block:: bash
 
-   $ knife opc user password USER_NAME [PASSWORD | --enable_external_auth]
+   knife opc user password USER_NAME [PASSWORD | --enable_external_auth]
 
 The last argument should either be a string to use as password or ``--enable_external_auth`` instead of a password to enable external authentication for this user.
 
@@ -238,7 +238,7 @@ Example
 -----------------------------------------------------
 .. code-block:: bash
 
-   $ knife opc user password arno newpassword
+   knife opc user password arno newpassword
    {"username"=>"arno", "email"=>"arno@opscode.com", "display_name"=>"arno schmidt", "first_name"=>"arno", "last_name"=>"schmidt", "middle_name"=>"", "public_key"=>"-----BEGIN PUBLIC KEY-----\n[...]\n-----END PUBLIC KEY-----\n\n", "password"=>"newpassword", "recovery_authentication_enabled"=>true}
    Authentication info updated for arno.
 
@@ -254,7 +254,7 @@ This argument has the following syntax:
 
 .. code-block:: bash
 
-   $ knife opc org list (options)
+   knife opc org list (options)
 
 Options
 -----------------------------------------------------
@@ -270,7 +270,7 @@ Example
 -----------------------------------------------------
 .. code-block:: bash
 
-   $ knife opc org list -w -a
+   knife opc org list -w -a
    acme: https://chef-server.fqdn/organizations/acme
 
 .. _plugin_knife_opc-opc-org-show:
@@ -285,13 +285,13 @@ This argument has the following syntax:
 
 .. code-block:: bash
 
-   $ knife opc org show ORG_NAME
+   knife opc org show ORG_NAME
 
 Example
 -----------------------------------------------------
 .. code-block:: bash
 
-   $ knife opc org show acme
+   knife opc org show acme
    full_name: Acme
    guid:      cc9f9d0d4f6e7e35272e327e22e7affc
    name:      acme
@@ -308,7 +308,7 @@ This argument has the following syntax:
 
 .. code-block:: bash
 
-   $ knife opc org create ORG_NAME ORG_FULL_NAME (options)
+   knife opc org create ORG_NAME ORG_FULL_NAME (options)
 
 Options
 -----------------------------------------------------
@@ -324,7 +324,7 @@ Example
 -----------------------------------------------------
 .. code-block:: bash
 
-   $ knife opc org create acme2 "The Other Acme" -a arno
+   knife opc org create acme2 "The Other Acme" -a arno
    -----BEGIN RSA PRIVATE KEY-----
    [...]
    -----BEGIN RSA PRIVATE KEY-----
@@ -341,13 +341,13 @@ This argument has the following syntax:
 
 .. code-block:: bash
 
-   $ knife opc org delete ORG_NAME
+   knife opc org delete ORG_NAME
 
 Example
 -----------------------------------------------------
 .. code-block:: bash
 
-   $ knife opc org delete acme2
+   knife opc org delete acme2
    Do you want to delete the organization acme2? (Y/N) Y
    full_name: The Other Acme
    guid:      2adec1140cf777a15d82d9099304da71
@@ -365,13 +365,13 @@ This argument has the following syntax:
 
 .. code-block:: bash
 
-   $ knife opc org user add ORG_NAME USER_NAME
+   knife opc org user add ORG_NAME USER_NAME
 
 Example
 -----------------------------------------------------
 .. code-block:: bash
 
-   $ knife opc org user add acme2 alice
+   knife opc org user add acme2 alice
 
 .. _plugin_knife_opc-opc-org-user-remove:
 
@@ -385,10 +385,10 @@ This argument has the following syntax:
 
 .. code-block:: bash
 
-   $ knife opc org user remove ORG_NAME USER_NAME
+   knife opc org user remove ORG_NAME USER_NAME
 
 Example
 -----------------------------------------------------
 .. code-block:: bash
 
-   $ knife opc org user remove acme2 alice
+   knife opc org user remove acme2 alice

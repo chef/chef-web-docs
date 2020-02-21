@@ -155,7 +155,7 @@ Save it as a Ruby script---``chef_server_permissions.rb``, for example---in the 
 
 .. code-block:: bash
 
-   $ knife exec chef_server_permissions.rb
+   knife exec chef_server_permissions.rb
 
 
 
@@ -499,7 +499,7 @@ The following user accounts exist on the Chef Infra Server: ``pivotal`` (a super
 
 .. code-block:: bash
 
-   $ chef-server-ctl user-list
+   chef-server-ctl user-list
 
 and it returns the same list of users:
 
@@ -515,7 +515,7 @@ Alice is a member of the IT team whose responsibilities include day-to-day admin
 
 .. code-block:: bash
 
-   $ knife user list -c ~/.chef/alice.rb
+   knife user list -c ~/.chef/alice.rb
 
 and it returns the following error:
 
@@ -529,7 +529,7 @@ Alice is not a superuser and does not have permissions on other users because us
 
 .. code-block:: bash
 
-   $ chef-server-ctl grant-server-admin-permissions alice
+   chef-server-ctl grant-server-admin-permissions alice
 
 and it returns the following response:
 
@@ -541,7 +541,7 @@ Alice can now create, read, update, and delete user accounts on the Chef Infra S
 
 .. code-block:: bash
 
-   $ knife user list -c ~/.chef/alice.rb
+   knife user list -c ~/.chef/alice.rb
 
 which now returns:
 
@@ -565,7 +565,7 @@ For example, Alice runs the following command:
 
 .. code-block:: bash
 
-   $ knife user edit carol -c ~/.chef/alice.rb
+   knife user edit carol -c ~/.chef/alice.rb
 
 and the $EDITOR opens in which Alice makes changes, and then saves them.
 
@@ -579,7 +579,7 @@ Superuser accounts may not be managed by users who belong to the ``server-admins
 
 .. code-block:: bash
 
-   $ knife user delete pivotal -c ~/.chef/alice.rb
+   knife user delete pivotal -c ~/.chef/alice.rb
 
 and the following error is returned:
 
@@ -615,7 +615,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef-server-ctl grant-server-admin-permissions USER_NAME
+   chef-server-ctl grant-server-admin-permissions USER_NAME
 
 where ``USER_NAME`` is the user to add to the list of server administrators.
 
@@ -623,7 +623,7 @@ For example:
 
 .. code-block:: bash
 
-   $ chef-server-ctl grant-server-admin-permissions bob
+   chef-server-ctl grant-server-admin-permissions bob
 
 returns:
 
@@ -645,7 +645,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef-server-ctl remove-server-admin-permissions USER_NAME
+   chef-server-ctl remove-server-admin-permissions USER_NAME
 
 where ``USER_NAME`` is the user to remove from the list of server administrators.
 
@@ -653,7 +653,7 @@ For example:
 
 .. code-block:: bash
 
-   $ chef-server-ctl remove-server-admin-permissions bob
+   chef-server-ctl remove-server-admin-permissions bob
 
 returns:
 
@@ -675,7 +675,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef-server-ctl list-server-admins
+   chef-server-ctl list-server-admins
 
 and will return a list of users similar to:
 
@@ -713,7 +713,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef-server-ctl org-create ORG_NAME "ORG_FULL_NAME" (options)
+   chef-server-ctl org-create ORG_NAME "ORG_FULL_NAME" (options)
 
 where:
 
@@ -752,7 +752,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef-server-ctl org-delete ORG_NAME
+   chef-server-ctl org-delete ORG_NAME
 
 .. end_tag
 
@@ -772,7 +772,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef-server-ctl org-list (options)
+   chef-server-ctl org-list (options)
 
 .. end_tag
 
@@ -806,7 +806,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef-server-ctl org-show ORG_NAME
+   chef-server-ctl org-show ORG_NAME
 
 .. end_tag
 
@@ -826,7 +826,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef-server-ctl org-user-add ORG_NAME USER_NAME (options)
+   chef-server-ctl org-user-add ORG_NAME USER_NAME (options)
 
 .. end_tag
 
@@ -857,6 +857,6 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef-server-ctl org-user-remove ORG_NAME USER_NAME (options)
+   chef-server-ctl org-user-remove ORG_NAME USER_NAME (options)
 
 .. end_tag

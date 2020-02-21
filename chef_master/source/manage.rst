@@ -277,7 +277,7 @@ Operators must be in ALL CAPS. Parentheses can be used to group clauses and to f
 
    .. code-block:: bash
 
-      $ knife search sample "id:foo AND -id:bar"
+      knife search sample "id:foo AND -id:bar"
 
 .. end_tag
 
@@ -348,25 +348,25 @@ The ``install`` subcommand downloads packages from https://packages.chef.io/ by 
 
        .. code-block:: bash
 
-          $ sudo chef-server-ctl install chef-manage
+          sudo chef-server-ctl install chef-manage
 
        then:
 
        .. code-block:: bash
 
-          $ sudo chef-server-ctl reconfigure
+          sudo chef-server-ctl reconfigure
 
        and then:
 
        .. code-block:: bash
 
-          $ sudo chef-manage-ctl reconfigure
+          sudo chef-manage-ctl reconfigure
 
        To accept the `Chef MLSA </chef_license.html>`__:
 
        .. code-block:: bash
 
-          $ sudo chef-manage-ctl reconfigure --accept-license
+          sudo chef-manage-ctl reconfigure --accept-license
 
 .. end_tag
 
@@ -378,13 +378,13 @@ The ``install`` subcommand is used to install premium features of the Chef serve
 
 .. code-block:: bash
 
-   $ sudo chef-server-ctl install PACKAGE_NAME --path /path/to/package/directory
+   sudo chef-server-ctl install PACKAGE_NAME --path /path/to/package/directory
 
 For example:
 
 .. code-block:: bash
 
-   $ sudo chef-server-ctl install chef-manage --path /root/packages
+   sudo chef-server-ctl install chef-manage --path /root/packages
 
 The ``chef-server-ctl`` command will install the first ``chef-manage`` package found in the ``/root/packages`` directory.
 

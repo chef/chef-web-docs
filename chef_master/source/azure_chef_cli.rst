@@ -19,7 +19,7 @@ This command has the following syntax:
 
 .. code-block:: bash
 
-   $ azure vm extension get-chef VM_NAME
+   azure vm extension get-chef VM_NAME
 
 set-chef
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -31,7 +31,7 @@ This command has the following syntax:
 
 .. code-block:: bash
 
-   $ azure vm extension set-chef VM_NAME (options)
+   azure vm extension set-chef VM_NAME (options)
 
 Options
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -81,19 +81,19 @@ The following examples show how to use this knife subcommand:
 
 .. code-block:: bash
 
-   $ azure vm create your-vm-name MSFT__Windows-Server-2012 yourusername yourpassword --location "West US" -r
+   azure vm create your-vm-name MSFT__Windows-Server-2012 yourusername yourpassword --location "West US" -r
 
 **Set the Chef extension without a run-list**
 
 .. code-block:: bash
 
-   $ azure vm extension set-chef your-vm-name --validation-pem ~/chef-repo/.chef/testorg-validator.pem --client-config ~/chef-repo/.chef/client.rb --version "1201.12"
+   azure vm extension set-chef your-vm-name --validation-pem ~/chef-repo/.chef/testorg-validator.pem --client-config ~/chef-repo/.chef/client.rb --version "1201.12"
 
 **Set the Chef extension with a run-list**
 
 .. code-block:: bash
 
-   $ azure vm extension set-chef your-vm-name --validation-pem ~/chef-repo/.chef/testorg-validator.pem --client-config ~/chef-repo/.chef/client.rb --version "1201.12" -R 'recipe[your_cookbook_name::your_recipe_name]'
+   azure vm extension set-chef your-vm-name --validation-pem ~/chef-repo/.chef/testorg-validator.pem --client-config ~/chef-repo/.chef/client.rb --version "1201.12" -R 'recipe[your_cookbook_name::your_recipe_name]'
 
 
 Azure Resource Manager (ARM) Templates

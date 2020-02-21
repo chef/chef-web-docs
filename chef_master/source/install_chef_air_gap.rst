@@ -71,13 +71,13 @@ In this section you'll install the Chef Infra Server, and create your organizati
 
    .. code-block:: bash
 
-      $ sudo rpm -Uvh /tmp/chef-server-core-<version>.rpm
+      sudo rpm -Uvh /tmp/chef-server-core-<version>.rpm
 
    For Ubuntu:
 
    .. code-block:: bash
 
-      $ sudo dpkg -i /tmp/chef-server-core-<version>.deb
+      sudo dpkg -i /tmp/chef-server-core-<version>.deb
 
    After a few minutes, the Chef Infra Server will be installed.
 
@@ -87,7 +87,7 @@ In this section you'll install the Chef Infra Server, and create your organizati
 
    .. code-block:: bash
 
-      $ sudo chef-server-ctl reconfigure
+      sudo chef-server-ctl reconfigure
 
    Because the Chef Infra Server is composed of many different services that work together to create a functioning system, this step may take a few minutes to complete.
 
@@ -97,7 +97,7 @@ In this section you'll install the Chef Infra Server, and create your organizati
 
    .. code-block:: bash
 
-      $ sudo chef-server-ctl user-create USER_NAME FIRST_NAME LAST_NAME EMAIL 'PASSWORD' --filename FILE_NAME
+      sudo chef-server-ctl user-create USER_NAME FIRST_NAME LAST_NAME EMAIL 'PASSWORD' --filename FILE_NAME
 
    An RSA private key is generated automatically. This is the user's private key and should be saved to a safe location. The ``--filename`` option will save the RSA private key to the specified absolute path.
 
@@ -105,7 +105,7 @@ In this section you'll install the Chef Infra Server, and create your organizati
 
    .. code-block:: bash
 
-      $ sudo chef-server-ctl user-create janedoe Jane Doe janed@example.com 'abc123' --filename /path/to/janedoe.pem
+      sudo chef-server-ctl user-create janedoe Jane Doe janed@example.com 'abc123' --filename /path/to/janedoe.pem
 
    .. end_tag
 
@@ -115,13 +115,13 @@ In this section you'll install the Chef Infra Server, and create your organizati
 
    .. code-block:: bash
 
-      $ sudo chef-server-ctl org-create short_name 'full_organization_name' --association_user user_name --filename ORGANIZATION-validator.pem
+      sudo chef-server-ctl org-create short_name 'full_organization_name' --association_user user_name --filename ORGANIZATION-validator.pem
 
    For example:
 
    .. code-block:: bash
 
-      $ sudo chef-server-ctl org-create 4thcoffee 'Fourth Coffee, Inc.' --association_user janedoe --filename /path/to/4thcoffee-validator.pem
+      sudo chef-server-ctl org-create 4thcoffee 'Fourth Coffee, Inc.' --association_user janedoe --filename /path/to/4thcoffee-validator.pem
 
    The name must begin with a lower-case letter or digit, may only contain lower-case letters, digits, hyphens, and underscores, and must be between 1 and 255 characters. For example: ``4thcoffee``.
 
@@ -289,7 +289,7 @@ First, you'll configure Chef Identity credentials for Supermarket. Chef Identity
 
    .. code-block:: bash
 
-      $ sudo chef-server-ctl reconfigure
+      sudo chef-server-ctl reconfigure
 
 #. Retrieve Supermarket's OAuth 2.0 client credentials:
 
@@ -311,13 +311,13 @@ Create a Wrapper
 
    .. code-block:: bash
 
-      $ chef generate cookbook my_supermarket_wrapper
+      chef generate cookbook my_supermarket_wrapper
 
 #. Change directories into that cookbook:
 
    .. code-block:: bash
 
-      $ cd my_supermarket_wrapper
+      cd my_supermarket_wrapper
 
 #. Defines the wrapper cookbook's dependency on the ``supermarket-omnibus-cookbook`` cookbook. Open the ``metadata.rb`` file of the newly-created cookbook, and then add the following line:
 
@@ -399,7 +399,7 @@ Bootstrap the node on which Chef Supermarket is to be installed. For example, to
 
 .. code-block:: bash
 
-   $ knife bootstrap ip_address -N supermarket-node -x ubuntu --sudo
+   knife bootstrap ip_address -N supermarket-node -x ubuntu --sudo
 
 where:
 
@@ -413,7 +413,7 @@ When the bootstrap operation is finished, do the following:
 
    .. code-block:: bash
 
-      $ knife node run_list set supermarket-node recipe[my_supermarket_wrapper::default]
+      knife node run_list set supermarket-node recipe[my_supermarket_wrapper::default]
 
    where ``supermarket-node`` is the name of the node that was just bootstrapped.
 
@@ -421,13 +421,13 @@ When the bootstrap operation is finished, do the following:
 
    .. code-block:: bash
 
-      $ ssh ubuntu@your-supermarket-node-public-dns
+      ssh ubuntu@your-supermarket-node-public-dns
 
 #. After accessing the Chef Supermarket node, run Chef Infra Client:
 
    .. code-block:: bash
 
-      $ sudo chef-client
+      sudo chef-client
 
 Connect to Supermarket
 -----------------------------------------------------

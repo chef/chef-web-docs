@@ -15,7 +15,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ knife serve (options)
+   knife serve (options)
 
 Options
 =====================================================

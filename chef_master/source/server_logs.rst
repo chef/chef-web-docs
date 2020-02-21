@@ -11,13 +11,13 @@ The Chef Infra Server has built-in support for easily tailing the logs that are 
 
 .. code-block:: bash
 
-   $ chef-server-ctl tail
+   chef-server-ctl tail
 
 To view logs for a specific service:
 
 .. code-block:: bash
 
-   $ chef-server-ctl tail SERVICENAME
+   chef-server-ctl tail SERVICENAME
 
 where ``SERVICENAME`` should be replaced with name of the service for which log files will be viewed.
 
@@ -25,7 +25,7 @@ Another way to view log files is to use the system utility tail:
 
 .. code-block:: bash
 
-   $ tail -50f /var/log/chef-server/opscode-chef/current
+   tail -50f /var/log/chef-server/opscode-chef/current
 
 tail Log Files
 -----------------------------------------------------
@@ -37,7 +37,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef-server-ctl tail SERVICE_NAME
+   chef-server-ctl tail SERVICE_NAME
 
 where ``SERVICE_NAME`` represents the name of any service that is listed after running the ``service-list`` subcommand.
 
@@ -47,7 +47,7 @@ Another common approach to tailing the log files for a service is to use the sys
 
 .. code-block:: bash
 
-   $ tail -50f /var/log/opscode/opscode-chef/current
+   tail -50f /var/log/opscode/opscode-chef/current
 
 Supervisor
 =====================================================
@@ -98,7 +98,7 @@ The **opscode-erchef** service's ``erchef.log`` file contains a history of API r
 
 .. code-block:: bash
 
-   $ ls -lrt /var/log/opscode/opscode-erchef/erchef.log.*
+   ls -lrt /var/log/opscode/opscode-erchef/erchef.log.*
 
 The following is an example log entry:
 
@@ -164,7 +164,7 @@ To follow the logs for the service:
 
 .. code-block:: bash
 
-   $ chef-server-ctl tail nginx
+   chef-server-ctl tail nginx
 
 .. end_tag
 

@@ -78,7 +78,7 @@ To configure Chef Supermarket to use Chef Identity, do the following:
 
    .. code-block:: bash
 
-      $ sudo chef-server-ctl reconfigure
+      sudo chef-server-ctl reconfigure
 
 #. Retrieve Supermarket's OAuth 2.0 client credentials:
 
@@ -135,13 +135,13 @@ On your workstation, generate a new cookbook using the ``chef`` command line int
 
    .. code-block:: bash
 
-      $ chef generate cookbook my_supermarket_wrapper
+      chef generate cookbook my_supermarket_wrapper
 
 #. Change directories into that cookbook:
 
    .. code-block:: bash
 
-      $ cd my_supermarket_wrapper
+      cd my_supermarket_wrapper
 
 #. Defines the wrapper cookbook's dependency on the ``supermarket-omnibus-cookbook`` cookbook. Open the metadata.rb file of the newly-created cookbook, and then add the following line:
 
@@ -221,31 +221,31 @@ To upload the cookbooks necessary to install Chef Supermarket, do the following:
 
    .. code-block:: bash
 
-      $ berks install
+      berks install
 
 #. Change directories into ``~/.berkshelf/cookbooks``:
 
    .. code-block:: bash
 
-      $ cd ~/.berkshelf/cookbooks
+      cd ~/.berkshelf/cookbooks
 
 #. Upload all cookbooks to the Chef Infra Server:
 
    .. code-block:: bash
 
-      $ knife cookbook upload -a
+      knife cookbook upload -a
 
 #. Change directories into the location in which the wrapper cookbook was created:
 
    .. code-block:: bash
 
-      $ cd path/to/wrapper/cookbook/
+      cd path/to/wrapper/cookbook/
 
 #. Upload the wrapper cookbook to the Chef Infra Server:
 
    .. code-block:: bash
 
-      $ knife cookbook upload -a
+      knife cookbook upload -a
 
 Bootstrap Supermarket
 -----------------------------------------------------
@@ -253,7 +253,7 @@ Bootstrap the node on which Chef Supermarket is to be installed. For example, to
 
 .. code-block:: bash
 
-   $ knife bootstrap ip_address -N supermarket-node -x ubuntu --sudo
+   knife bootstrap ip_address -N supermarket-node -x ubuntu --sudo
 
 where
 
@@ -267,7 +267,7 @@ When the bootstrap operation is finished, do the following:
 
    .. code-block:: bash
 
-      $ knife node edit supermarket-node
+      knife node edit supermarket-node
 
    where ``supermarket-node`` is the name of the node that was just bootstrapped.
 
@@ -283,13 +283,13 @@ When the bootstrap operation is finished, do the following:
 
    .. code-block:: bash
 
-      $ ssh ubuntu@your-supermarket-node-public-dns
+      ssh ubuntu@your-supermarket-node-public-dns
 
 #. After accessing the Chef Supermarket node, run Chef Infra Client:
 
    .. code-block:: bash
 
-      $ sudo chef-client
+      sudo chef-client
 
 Install Supermarket Directly (without a cookbook)
 =====================================================

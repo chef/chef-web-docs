@@ -72,13 +72,13 @@ To install Chef Server:
 
    .. code-block:: bash
 
-      $ sudo rpm -Uvh /tmp/chef-server-core-<version>.rpm
+      sudo rpm -Uvh /tmp/chef-server-core-<version>.rpm
 
    For Ubuntu:
 
    .. code-block:: bash
 
-      $ sudo dpkg -i /tmp/chef-server-core-<version>.deb
+      sudo dpkg -i /tmp/chef-server-core-<version>.deb
 
    After a few minutes, the Chef Infra Server will be installed.
 
@@ -88,7 +88,7 @@ To install Chef Server:
 
    .. code-block:: bash
 
-      $ sudo chef-server-ctl reconfigure
+      sudo chef-server-ctl reconfigure
 
    Because the Chef Infra Server is composed of many different services that work together to create a functioning system, this step may take a few minutes to complete.
 
@@ -98,7 +98,7 @@ To install Chef Server:
 
    .. code-block:: bash
 
-      $ sudo chef-server-ctl user-create USER_NAME FIRST_NAME LAST_NAME EMAIL 'PASSWORD' --filename FILE_NAME
+      sudo chef-server-ctl user-create USER_NAME FIRST_NAME LAST_NAME EMAIL 'PASSWORD' --filename FILE_NAME
 
    An RSA private key is generated automatically. This is the user's private key and should be saved to a safe location. The ``--filename`` option will save the RSA private key to the specified absolute path.
 
@@ -106,7 +106,7 @@ To install Chef Server:
 
    .. code-block:: bash
 
-      $ sudo chef-server-ctl user-create janedoe Jane Doe janed@example.com 'abc123' --filename /path/to/janedoe.pem
+      sudo chef-server-ctl user-create janedoe Jane Doe janed@example.com 'abc123' --filename /path/to/janedoe.pem
 
    .. end_tag
 
@@ -116,13 +116,13 @@ To install Chef Server:
 
    .. code-block:: bash
 
-      $ sudo chef-server-ctl org-create short_name 'full_organization_name' --association_user user_name --filename ORGANIZATION-validator.pem
+      sudo chef-server-ctl org-create short_name 'full_organization_name' --association_user user_name --filename ORGANIZATION-validator.pem
 
    For example:
 
    .. code-block:: bash
 
-      $ sudo chef-server-ctl org-create 4thcoffee 'Fourth Coffee, Inc.' --association_user janedoe --filename /path/to/4thcoffee-validator.pem
+      sudo chef-server-ctl org-create 4thcoffee 'Fourth Coffee, Inc.' --association_user janedoe --filename /path/to/4thcoffee-validator.pem
 
    The name must begin with a lower-case letter or digit, may only contain lower-case letters, digits, hyphens, and underscores, and must be between 1 and 255 characters. For example: ``4thcoffee``.
 

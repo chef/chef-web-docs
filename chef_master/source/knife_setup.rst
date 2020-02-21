@@ -149,7 +149,7 @@ If you need to troubleshoot any settings, you can verify the value that knife is
 
 .. code-block:: bash
 
-   $ knife config get chef_server_url
+   knife config get chef_server_url
    Loading from credentials file /home/barney/.chef/credentials
    chef_server_url: https://api.chef-server.dev/organizations/test
 
@@ -161,7 +161,7 @@ Some knife commands, such as ``knife data bag edit``, require that information b
 
 .. code-block:: bash
 
-   $ knife data bag edit admins admin_name
+   knife data bag edit admins admin_name
 
 will open up the text editor with data similar to:
 

@@ -16,13 +16,13 @@ For example: ``/organizations/organization_name/pushy/jobs/ID`` or ``/organizati
 
           .. code-block:: bash
 
-             $ knife exec -E 'api.get("/organizations/ORG_NAME/pushy/jobs/JOB_ID")'
+             knife exec -E 'api.get("/organizations/ORG_NAME/pushy/jobs/JOB_ID")'
 
           For some Push Jobs API endpoints, you need to specify certain headers. To do that you simply pass a hash into the command.
 
           .. code-block:: bash
 
-             $ knife exec -E 'api.get("/organizations/ORG_NAME/pushy/jobs/JOB_ID/output/NODE_NAME/stdout", RAW, {"Accept" => "application/event-stream"})'
+             knife exec -E 'api.get("/organizations/ORG_NAME/pushy/jobs/JOB_ID/output/NODE_NAME/stdout", RAW, {"Accept" => "application/event-stream"})'
 
           where ``RAW`` is a boolean indicating whether you want the raw body returned, or JSON inflated. For Push Jobs API endpoints, we recommend ``false``.
 

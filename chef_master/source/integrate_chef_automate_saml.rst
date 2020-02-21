@@ -222,7 +222,7 @@ The Workflow CLI in Chef Automate (``delivery-cli``) can be used with SAML-authe
 
    .. code-block:: bash
 
-      $ delivery token
+      delivery token
       Chef Chef Automate
       Loading configuration from /path/to/project
       Requesting Token
@@ -281,7 +281,7 @@ You can verify that Chef Automate can read and parse your key by accessing ``htt
 
 .. code-block:: bash
 
-   $ curl https://delivery.corp.com/api/v0/oidc/jwks | jq .
+   curl https://delivery.corp.com/api/v0/oidc/jwks | jq .
     {
       "keys": [
         {

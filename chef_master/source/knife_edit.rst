@@ -15,7 +15,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ knife edit (options)
+   knife edit (options)
 
 Options
 =====================================================
@@ -57,9 +57,8 @@ A user who belongs to the ``admins`` group must be removed from the group before
 
 .. code-block:: bash
 
-   $ EDITOR=vi knife edit /groups/admins.json
+   EDITOR=vi knife edit /groups/admins.json
 
 make the required changes, and then save the file.
 
 .. end_tag
-

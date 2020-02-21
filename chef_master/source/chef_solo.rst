@@ -28,7 +28,7 @@ Using a tar.gz archive is the more common approach, but requires that cookbooks 
 
 .. code-block:: bash
 
-   $ tar zcvf chef-solo.tar.gz ./cookbooks
+   tar zcvf chef-solo.tar.gz ./cookbooks
 
 If multiple cookbook directories are being used, chef-solo expects the tar.gz archive to have a directory structure similar to the following::
 
@@ -43,7 +43,7 @@ The ``cookbook_path`` variable in the solo.rb file must include both directories
 
 .. code-block:: bash
 
-   $ tar zcvf chef-solo.tar.gz ./cookbooks ./site-cookbooks
+   tar zcvf chef-solo.tar.gz ./cookbooks ./site-cookbooks
 
 When the tar.gz archive contains all of the cookbooks required by chef-solo, upload it to the web server from which chef-solo will access the archive.
 

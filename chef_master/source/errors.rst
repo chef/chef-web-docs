@@ -115,17 +115,17 @@ The general ``Net::HTTPClientException: 401 "Unauthorized"`` error will usually 
    .. code-block:: bash
 
       # Dump the current node to JSON
-      $ knife node show NODE_NAME -fJ > NODE_NAME.json
+      knife node show NODE_NAME -fJ > NODE_NAME.json
 
-      $ knife client delete FQDN -y
-      $ knife node delete FQDN -y
+      knife client delete FQDN -y
+      knife node delete FQDN -y
 
    On an affected node (as root):
 
    .. code-block:: bash
 
-      $ rm /etc/chef/client.pem
-      $ chef-client
+      rm /etc/chef/client.pem
+      chef-client
 
    When Chef Infra Client runs, it will register the API client and generate the correct key.
 
@@ -133,7 +133,7 @@ The general ``Net::HTTPClientException: 401 "Unauthorized"`` error will usually 
 
    .. code-block:: bash
 
-      $ knife node from file NODE_NAME.json
+      knife node from file NODE_NAME.json
 
 #. Make sure to use the same ``node_name`` as the initial Chef Infra Client run.
 
@@ -219,19 +219,19 @@ Determine which API service is returning 504s using the Nginx access logs. API r
 
 .. code-block:: bash
 
-   $ grep 'HTTP/1.1" 504' /var/log/opscode/nginx/access.log
+   grep 'HTTP/1.1" 504' /var/log/opscode/nginx/access.log
 
 The following will extract the URLs and sort them by ``uniq`` count:
 
 .. code-block:: bash
 
-   $ grep 'HTTP/1.1" 504' nginx-access.log | cut -d' ' -f8 | sort | uniq -c | sort
+   grep 'HTTP/1.1" 504' nginx-access.log | cut -d' ' -f8 | sort | uniq -c | sort
 
 In a large installation, you may need to restrict this to a subset of the requests:
 
 .. code-block:: bash
 
-   $ tail -10000 nginx-access.log | grep 'HTTP/1.1" 504' | cut -d' ' -f8 | sort | uniq -c | sort
+   tail -10000 nginx-access.log | grep 'HTTP/1.1" 504' | cut -d' ' -f8 | sort | uniq -c | sort
 
 You can also use the ``ntail`` utility.
 
@@ -279,7 +279,7 @@ Solve this by committing the cookbook changes. For example, the following comman
 
 .. code-block:: bash
 
-   $ git commit -am "Updating so I can install a site cookbook"
+   git commit -am "Updating so I can install a site cookbook"
 
 Re-run the ``knife supermarket install`` subcommand again to install the community cookbook.
 
@@ -301,7 +301,7 @@ Work around this issue by supplying the full path to the client.rb file:
 
 .. code-block:: bash
 
-   $ chef-client -c /etc/chef/client.rb
+   chef-client -c /etc/chef/client.rb
 
 Pivotal.rb does not exist
 -----------------------------------------------------
@@ -309,7 +309,7 @@ If you're seeing an error like:
 
 .. code-block:: bash
 
-   $ ERROR: CONFIGURATION ERROR:Specified config file /etc/opscode/pivotal.rb does not exist
+   ERROR: CONFIGURATION ERROR:Specified config file /etc/opscode/pivotal.rb does not exist
 
 **Troubleshooting Steps**
 
@@ -317,7 +317,7 @@ Run the following to restart all of the services:
 
    .. code-block:: bash
 
-      $ chef-server-ctl reconfigure
+      chef-server-ctl reconfigure
 
 Because the Chef Infra Server is composed of many different services that work together to create a functioning system, this step may take a few minutes to complete.
 

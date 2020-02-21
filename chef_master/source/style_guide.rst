@@ -210,7 +210,7 @@ Use this approach to show code blocks that use any type of shell command, such a
 
    .. code-block:: bash
 
-      $ knife data bag create admins
+      knife data bag create admins
 
 Javascript (and JSON)
 -----------------------------------------------------

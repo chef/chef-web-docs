@@ -19,7 +19,7 @@ The following sections describe the various settings that are available in the c
 
           .. code-block:: bash
 
-             $ chef-server-ctl reconfigure
+             chef-server-ctl reconfigure
 
           .. end_tag
 
@@ -415,7 +415,7 @@ This configuration file has the following settings for ``ldap``:
 
    .. code-block:: bash
 
-      $ chef-server-ctl set-secret ldap bind_password
+      chef-server-ctl set-secret ldap bind_password
       Enter ldap bind_password:    (no terminal output)
       Re-enter ldap bind_password: (no terminal output)
 
@@ -423,7 +423,7 @@ This configuration file has the following settings for ``ldap``:
 
    .. code-block:: bash
 
-      $ chef-server-ctl remove-secret ldap bind_password
+      chef-server-ctl remove-secret ldap bind_password
 
 ``ldap['group_dn']``
    The distinguished name for a group. When set to the distinguished name of a group, only members of that group can log in. This feature filters based on the ``memberOf`` attribute and only works with LDAP servers that provide such an attribute. In OpenLDAP, the ``memberOf`` overlay provides this attribute. For example, if the value of the ``memberOf`` attribute is ``CN=abcxyz,OU=users,DC=company,DC=com``, then use:
