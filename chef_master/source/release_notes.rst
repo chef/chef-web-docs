@@ -2921,7 +2921,7 @@ Deprecations
 
 * **erl_call Resource**
 
-  We introduced `erl_call </resource_erlang_call.html>`__ to help us to manage CouchDB servers back in the olden times of Chef. Since then we've noticed that no one uses it, and so ``erl_call`` will be removed in Chef 14. Foodcritic rule `FC105 <http://www.foodcritic.io/#FC105>`__ has been introduced to detect usage of ``erl_call``.
+  We introduced the ``erl_call`` resource to help us to manage CouchDB servers back in the olden times of Chef. Since then we've noticed that no one uses it, and so ``erl_call`` will be removed in Chef 14. Foodcritic rule `FC105 <http://www.foodcritic.io/#FC105>`__ has been introduced to detect usage of ``erl_call``.
 
 * **epic_fail**
 
