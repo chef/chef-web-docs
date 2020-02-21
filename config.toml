@@ -2,6 +2,7 @@ baseURL = "/"
 languageCode = "en-us"
 title = "Chef Web Docs"
 theme = "docs-new"
+enableGitInfo = true
 
 
 [markup]
@@ -54,8 +55,6 @@ theme = "docs-new"
     ordered = false
     startLevel = 1
 
-
-enableGitInfo = true
 
 [params]
   enable_search = true
