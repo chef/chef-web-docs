@@ -35,19 +35,19 @@ To set up an Apt package repository for Debian and Ubuntu platforms:
 
    .. code-block:: bash
 
-      $ sudo apt-get install apt-transport-https
+      sudo apt-get install apt-transport-https
 
 #. Install the public key for Chef Software Inc:
 
    .. code-block:: bash
 
-      $ wget -qO - https://packages.chef.io/chef.asc | sudo apt-key add -
+      wget -qO - https://packages.chef.io/chef.asc | sudo apt-key add -
 
 #. Create the Apt repository source file:
 
    .. code-block:: bash
 
-      $ echo "deb https://packages.chef.io/repos/apt/<CHANNEL> <DISTRIBUTION> main" > chef-<CHANNEL>.list
+      echo "deb https://packages.chef.io/repos/apt/<CHANNEL> <DISTRIBUTION> main" > chef-<CHANNEL>.list
 
    Replace ``<CHANNEL>`` with the release channel: ``stable`` or ``current``.
 
@@ -55,7 +55,7 @@ To set up an Apt package repository for Debian and Ubuntu platforms:
 
    * For Debian 8: ``jessie``
    * For Debian 9: ``stretch``
-   * For Ubuntu 14.04: ``trusty``
+   * For Debian 10: ``buster``
    * For Ubuntu 16.04: ``xenial``
    * For Ubuntu 18.04: ``bionic``
 
@@ -63,13 +63,13 @@ To set up an Apt package repository for Debian and Ubuntu platforms:
 
    .. code-block:: bash
 
-      $ sudo mv chef-stable.list /etc/apt/sources.list.d/
+      sudo mv chef-stable.list /etc/apt/sources.list.d/
 
 #. Update the cache for the package repository:
 
    .. code-block:: bash
 
-      $ sudo apt-get update
+      sudo apt-get update
 
 Enterprise Linux
 -----------------------------------------------------
@@ -79,13 +79,13 @@ To set up a Yum package repository for Enterprise Linux platforms:
 
    .. code-block:: bash
 
-      $ sudo rpm --import https://packages.chef.io/chef.asc
+      sudo rpm --import https://packages.chef.io/chef.asc
 
 #. Create the Yum repository source file:
 
    .. code-block:: bash
 
-      $ cat >chef-<CHANNEL>.repo <<EOL
+      cat >chef-<CHANNEL>.repo <<EOL
       [chef-<CHANNEL>]
       name=chef-<CHANNEL>
       baseurl=https://packages.chef.io/repos/yum/<CHANNEL>/el/<VERSION>/\$basearch/
@@ -101,13 +101,13 @@ To set up a Yum package repository for Enterprise Linux platforms:
 
    .. code-block:: bash
 
-      $ sudo yum-config-manager --add-repo chef-stable.repo
+      sudo yum-config-manager --add-repo chef-stable.repo
 
    Note that the ``yum-config-manager`` command requires the ``yum-utils`` package, which is not installed on CentOS by default. You can install the package by running ``sudo yum install yum-utils``, or you can use the ``mv`` command to add the repository to the ``/etc/yum.repos.d/`` directory:
 
    .. code-block:: bash
 
-      $ sudo mv chef-stable.repo /etc/yum.repos.d/
+      sudo mv chef-stable.repo /etc/yum.repos.d/
 
 Chef Install Script
 =====================================================
@@ -194,11 +194,11 @@ Examples
 
 The following examples show how to use the install script.
 
-To install Chef Client 15.3.14:
+To install Chef Client 15.8.23:
 
 .. code-block:: bash
 
-   $ curl -L https://omnitruck.chef.io/install.sh | sudo bash -s -- -v 15.3.14
+   curl -L https://omnitruck.chef.io/install.sh | sudo bash -s -- -v 15.8.23
 
 To install the latest version of Chef Workstation on Microsoft Windows from the ``current`` channel:
 

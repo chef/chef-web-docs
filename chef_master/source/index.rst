@@ -82,7 +82,7 @@ Concepts
 
 **Supermarket**: `Supermarket <supermarket.html>`__ | `Public Supermarket (overview) </supermarket.html#public-supermarket>`__ | `Private Supermarket (overview) </supermarket.html#private-supermarket>`__ | `Share Cookbooks on the Chef Supermarket </supermarket_share_cookbook.html>`__
 
-**Appendix**: `Env Variables </environment_variables.html>`__ | `Troubleshooting </errors.html>`__ | `Glossary </glossary.html>`__
+**Appendix**: `Troubleshooting </errors.html>`__ | `Glossary </glossary.html>`__
 
 Guides
 -----------------------------------------------------
@@ -168,7 +168,6 @@ Cookbook Reference
 `dpkg_package </resource_dpkg_package.html>`__ |
 `dsc_resource </resource_dsc_resource.html>`__ |
 `dsc_script </resource_dsc_script.html>`__ |
-`erl_call </resource_erlang_call.html>`__ |
 `execute </resource_execute.html>`__ |
 `file </resource_file.html>`__ |
 `freebsd_package </resource_freebsd_package.html>`__ |
@@ -558,7 +557,6 @@ Addenda
    dsl_handler
    dsl_recipe
    elasticsearch_and_kibana_auth
-   environment_variables
    environments
    errors
    feedback
@@ -687,7 +685,6 @@ Addenda
    resource_dpkg_package
    resource_dsc_resource
    resource_dsc_script
-   resource_erlang_call
    resource_execute
    resource_file
    resource_freebsd_package
