@@ -8,8 +8,6 @@ Deprecation: Deprecation of run_command (CHEF-14)
 
 The old run_command API has been replaced by shell_out (a wrapper around Mixlib::ShellOut).
 
-
-
 This deprecation warning was added in Chef Client 12.18.31, and run_command will be removed permanently in Chef Client 13.
 
 Example

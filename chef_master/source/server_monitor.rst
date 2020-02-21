@@ -17,13 +17,13 @@ Use the following commands to monitor global disk usage on a Chef Infra Server w
 
 .. code-block:: bash
 
-   $ du -sh /var/opt/opscode
+   du -sh /var/opt/opscode
 
 and:
 
 .. code-block:: bash
 
-   $ du -sh /var/log/opscode
+   du -sh /var/log/opscode
 
 To keep the Chef Infra Server healthy, both ``/var/opt/opscode`` and ``/var/log/opscode`` should never exceed 80% use. In situations where disk space grows at a rapid pace, it may be preferable to shut down the Chef Infra Server and contact Chef support.
 
@@ -44,7 +44,7 @@ Many components of the Chef Infra Server are written using Erlang and run on the
 
 .. code-block:: bash
 
-   $ cd /opt/opscode/embedded
+   cd /opt/opscode/embedded
      export PATH=$PATH:/opt/opscode/bin:/opt/opscode/embedded/bin
      bin/erl -setcookie service_name -name me@127.0.0.1 -remsh service_name@127.0.0.1
 
@@ -52,7 +52,7 @@ where ``service_name`` is ``bifrost`` or ``erchef``. This command will then open
 
 .. code-block:: bash
 
-   $ Erlang R15B02 (erts-5.9.2) [source] [64-bit] ...
+   Erlang R15B02 (erts-5.9.2) [source] [64-bit] ...
 
 .. warning:: Connecting to the Erlang processes should only be done when directed by Chef support services.
 
@@ -60,13 +60,13 @@ To connect to the **oc_bifrost** service, use the following command:
 
 .. code-block:: bash
 
-   $ erl -setcookie oc_bifrost -name me@127.0.0.1 -remsh oc_bifrost@127.0.0.1
+   erl -setcookie oc_bifrost -name me@127.0.0.1 -remsh oc_bifrost@127.0.0.1
 
 To connect to the **opscode-erchef** service, use the following command:
 
 .. code-block:: bash
 
-   $ erl -setcookie erchef -name me@127.0.0.1 -remsh erchef@127.0.0.1
+   erl -setcookie erchef -name me@127.0.0.1 -remsh erchef@127.0.0.1
 
 To disconnect from the shell, use the following key sequence ``CTRL-g``, ``q``, and then ``ENTER``.
 
@@ -91,7 +91,7 @@ As root on the Chef Infra Server, point to the bundled ``eper`` package of debug
 
 .. code-block:: bash
 
-   $ export ERL_LIB=:/opt/{chef-server,opscode}/embedded/service/{erchef,opscode-erchef}/lib/eper-X.XX.X/ebin/
+   export ERL_LIB=:/opt/{chef-server,opscode}/embedded/service/{erchef,opscode-erchef}/lib/eper-X.XX.X/ebin/
 
 Open an Erlang command shell to begin diagnosing service issues on the Chef Infra Server:
 
@@ -129,19 +129,19 @@ Use Nginx to monitor for services that may be returning 504 errors. Use the foll
 
 .. code-block:: bash
 
-   $ grep 'HTTP/1.1" 504' /var/log/opscode/nginx/access.log
+   grep 'HTTP/1.1" 504' /var/log/opscode/nginx/access.log
 
 and then extract the URLs and sort them by ``uniq`` count:
 
 .. code-block:: bash
 
-   $ grep 'HTTP/1.1" 504' nginx-access.log | cut -d' ' -f8 | sort | uniq -c | sort
+   grep 'HTTP/1.1" 504' nginx-access.log | cut -d' ' -f8 | sort | uniq -c | sort
 
 In a large installation, restricting these results to a subset of results may be necessary:
 
 .. code-block:: bash
 
-   $ tail -10000 nginx-access.log | grep 'HTTP/1.1" 504' | cut -d' ' -f8 | sort | uniq -c | sort
+   tail -10000 nginx-access.log | grep 'HTTP/1.1" 504' | cut -d' ' -f8 | sort | uniq -c | sort
 
 PostgreSQL
 -----------------------------------------------------
@@ -151,7 +151,7 @@ To connect to the PostgreSQL database, run the following command:
 
 .. code-block:: bash
 
-   $ cd /opt/opscode/embedded/service/postgresql/
+   cd /opt/opscode/embedded/service/postgresql/
      export PATH=$PATH:/opt/opscode/bin:/opt/opscode/embedded/bin
      bin/psql -U opscode_chef
 
@@ -165,7 +165,7 @@ To obtain status information for message queues, run the following command:
 
 .. code-block:: bash
 
-   $ export PATH=$PATH:/opt/opscode/bin:/opt/opscode/embedded/bin
+   export PATH=$PATH:/opt/opscode/bin:/opt/opscode/embedded/bin
      rabbitmqctl status
 
 to return something similar to:
@@ -278,7 +278,7 @@ It will also check on the status of other nodes in the cluster, from the current
 
 .. code-block:: bash
 
-   $ chef-backend-ctl status
+   chef-backend-ctl status
    Service Local Status Time in State Distributed Node Status
    leaderl running (pid 1191) 53d 15h 11m 12s leader: 1; waiting: 0; follower: 2;    total: 3
    epmd running (pid 1195) 53d 15h 11m 12s status: local-only
@@ -297,13 +297,13 @@ The authz API provides a high-level view of the health of the **opscode-authz** 
 
 .. code-block:: bash
 
-   $ curl http://localhost:9463/_ping
+   curl http://localhost:9463/_ping
 
 This command typically prints a lot of information. Use Python to use pretty-print output:
 
 .. code-block:: bash
 
-   $ curl http://localhost:9463/_ping | python -mjson.tool
+   curl http://localhost:9463/_ping | python -mjson.tool
 
 opscode-erchef
 -----------------------------------------------------
@@ -311,7 +311,7 @@ The status API provides a high-level view of the health of the system with a sim
 
 .. code-block:: bash
 
-   $ curl http://localhost:8000/_status
+   curl http://localhost:8000/_status
 
 which will return something similar to:
 
@@ -336,7 +336,7 @@ As the queue depth increases it may take longer for updates posted to the Chef I
 
 .. code-block:: bash
 
-   $ cd /opt/opscode/embedded/service/opscode-expander/
+   cd /opt/opscode/embedded/service/opscode-expander/
      export PATH=$PATH:/opt/opscode/bin:/opt/opscode/embedded/bin
 
 Search Indexes
@@ -351,13 +351,13 @@ If the search indexes are not being updated properly, first ensure that the **op
 
 .. code-block:: bash
 
-   $ chef-server-ctl status opscode-expander
+   chef-server-ctl status opscode-expander
 
 and then (if it is not running), start the service:
 
 .. code-block:: bash
 
-   $ chef-server-ctl start opscode-expander
+   chef-server-ctl start opscode-expander
 
 If the **opscode-expander** does not start correctly, then take a look at the ``/var/log/opscode/opscode-expander/current`` log file for error messages.
 
@@ -365,7 +365,7 @@ If the **opscode-expander** is running, check the queue length:
 
 .. code-block:: bash
 
-   $ watch -n1 sudo -E bin/opscode-expanderctl queue-depth
+   watch -n1 sudo -E bin/opscode-expanderctl queue-depth
 
 If the number of total messages continues to increase, increase the number of workers available to the **opscode-expander** service.
 
@@ -405,9 +405,9 @@ For example, to view the aggregate queue backlog, enter the following:
 
 .. code-block:: bash
 
-   $ cd /opt/opscode/embedded/service/opscode-expander/
-   $ export PATH=$PATH:/opt/opscode/bin:/opt/opscode/embedded/bin
-   $ bin/opscode-expander-ctl queue-depth
+   cd /opt/opscode/embedded/service/opscode-expander/
+   export PATH=$PATH:/opt/opscode/bin:/opt/opscode/embedded/bin
+   bin/opscode-expander-ctl queue-depth
 
 to return something similar to:
 

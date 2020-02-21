@@ -44,19 +44,19 @@ The following commands properly set up disk configuration on the backend server:
 
 .. code-block:: bash
 
-   $ pvcreate /dev/sdb
+   pvcreate /dev/sdb
 
 and:
 
 .. code-block:: bash
 
-   $ vgcreate opscode /dev/sdb
+   vgcreate opscode /dev/sdb
 
 and:
 
 .. code-block:: bash
 
-   $ lvcreate -l 80%VG -n tiered opscode
+   lvcreate -l 80%VG -n tiered opscode
 
 Mount Storage Device
 -----------------------------------------------------
@@ -66,19 +66,19 @@ To build and mount the storage device on the backend server, do the following:
 
    .. code-block:: bash
 
-      $ mkfs.ext4 /dev/opscode/tiered
+      mkfs.ext4 /dev/opscode/tiered
 
    then:
 
    .. code-block:: bash
 
-      $ mkdir -p /var/opt/opscode
+      mkdir -p /var/opt/opscode
 
    and then:
 
    .. code-block:: bash
 
-      $ mount /dev/opscode/tiered /var/opt/opscode
+      mount /dev/opscode/tiered /var/opt/opscode
 
 Backend
 =====================================================
@@ -88,13 +88,13 @@ Use the following steps to set up the backend Chef Infra Server:
 
    .. code-block:: bash
 
-      $ rpm -Uvh /tmp/chef-server-core-<version>.rpm
+      rpm -Uvh /tmp/chef-server-core-<version>.rpm
 
    For Ubuntu:
 
    .. code-block:: bash
 
-      $ dpkg -i /tmp/chef-server-core-<version>.deb
+      dpkg -i /tmp/chef-server-core-<version>.deb
 
    After a few minutes, the Chef Infra Server will be installed.
 
@@ -162,7 +162,7 @@ Add the following settings to the chef-server.rb file:
 
    .. code-block:: bash
 
-      $ chef-server-ctl reconfigure
+      chef-server-ctl reconfigure
 
    .. end_tag
 
@@ -174,13 +174,13 @@ For each frontend server, use the following steps to set up the Chef Infra Serve
 
    .. code-block:: bash
 
-      $ rpm -Uvh /tmp/chef-server-core-<version>.rpm
+      rpm -Uvh /tmp/chef-server-core-<version>.rpm
 
    For Ubuntu:
 
    .. code-block:: bash
 
-      $ dpkg -i /tmp/chef-server-core-<version>.deb
+      dpkg -i /tmp/chef-server-core-<version>.deb
 
    After a few minutes, the Chef Infra Server will be installed.
 
@@ -195,7 +195,7 @@ For each frontend server, use the following steps to set up the Chef Infra Serve
 
    .. code-block:: bash
 
-      $ chef-server-ctl reconfigure
+      chef-server-ctl reconfigure
 
    .. end_tag
 
@@ -205,7 +205,7 @@ For each frontend server, use the following steps to set up the Chef Infra Serve
 
    .. code-block:: bash
 
-      $ chef-server-ctl start
+      chef-server-ctl start
 
 
 
@@ -217,7 +217,7 @@ On a single frontend server, create an administrator and an organization:
 
    .. code-block:: bash
 
-      $ sudo chef-server-ctl user-create USER_NAME FIRST_NAME LAST_NAME EMAIL 'PASSWORD' --filename FILE_NAME
+      sudo chef-server-ctl user-create USER_NAME FIRST_NAME LAST_NAME EMAIL 'PASSWORD' --filename FILE_NAME
 
    An RSA private key is generated automatically. This is the user's private key and should be saved to a safe location. The ``--filename`` option will save the RSA private key to the specified absolute path.
 
@@ -225,7 +225,7 @@ On a single frontend server, create an administrator and an organization:
 
    .. code-block:: bash
 
-      $ sudo chef-server-ctl user-create janedoe Jane Doe janed@example.com 'abc123' --filename /path/to/janedoe.pem
+      sudo chef-server-ctl user-create janedoe Jane Doe janed@example.com 'abc123' --filename /path/to/janedoe.pem
 
    .. end_tag
 
@@ -235,13 +235,13 @@ On a single frontend server, create an administrator and an organization:
 
    .. code-block:: bash
 
-      $ sudo chef-server-ctl org-create short_name 'full_organization_name' --association_user user_name --filename ORGANIZATION-validator.pem
+      sudo chef-server-ctl org-create short_name 'full_organization_name' --association_user user_name --filename ORGANIZATION-validator.pem
 
    For example:
 
    .. code-block:: bash
 
-      $ sudo chef-server-ctl org-create 4thcoffee 'Fourth Coffee, Inc.' --association_user janedoe --filename /path/to/4thcoffee-validator.pem
+      sudo chef-server-ctl org-create 4thcoffee 'Fourth Coffee, Inc.' --association_user janedoe --filename /path/to/4thcoffee-validator.pem
 
    The name must begin with a lower-case letter or digit, may only contain lower-case letters, digits, hyphens, and underscores, and must be between 1 and 255 characters. For example: ``4thcoffee``.
 
@@ -268,25 +268,25 @@ Chef Manage
 
    .. code-block:: bash
 
-      $ chef-server-ctl install chef-manage
+      chef-server-ctl install chef-manage
 
    then:
 
    .. code-block:: bash
 
-      $ chef-server-ctl reconfigure
+      chef-server-ctl reconfigure
 
    and then:
 
    .. code-block:: bash
 
-      $ chef-manage-ctl reconfigure
+      chef-manage-ctl reconfigure
 
    To accept the `Chef MLSA </chef_license.html>`__:
-       
+
    .. code-block:: bash
 
-      $ sudo chef-manage-ctl reconfigure --accept-license
+      sudo chef-manage-ctl reconfigure --accept-license
 
    This updates the Chef Infra Server and creates the ``/etc/opscode-manage/secrets.rb`` file. When running the Chef management console 1.11 (or higher), copy the ``secrets.rb`` file in the ``/etc/opscode-manage`` directory on one of the frontend servers to the same directory on each of the other frontend servers, and then rerun ``chef-manage-ctl reconfigure`` so the copied ``/etc/opscode-manage/secrets.rb`` file gets used correctly.
 
@@ -298,13 +298,13 @@ The ``install`` subcommand is used to install premium features of the Chef serve
 
 .. code-block:: bash
 
-   $ sudo chef-server-ctl install PACKAGE_NAME --path /path/to/package/directory
+   sudo chef-server-ctl install PACKAGE_NAME --path /path/to/package/directory
 
 For example:
 
 .. code-block:: bash
 
-   $ sudo chef-server-ctl install chef-manage --path /root/packages
+   sudo chef-server-ctl install chef-manage --path /root/packages
 
 The ``chef-server-ctl`` command will install the first ``chef-manage`` package found in the ``/root/packages`` directory.
 
@@ -387,7 +387,7 @@ All services must be listening on the appropriate ports. Most monitoring systems
 
 .. code-block:: bash
 
-   $ telnet HOST_NAME PORT
+   telnet HOST_NAME PORT
 
 .. end_tag
 

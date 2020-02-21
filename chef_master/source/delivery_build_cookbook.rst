@@ -152,7 +152,7 @@ A ``build-cookbook`` should define the same phases as the recipes included in th
 
 .. code-block:: bash
 
-   $ ls .delivery/build-cookbook/recipes/
+   ls .delivery/build-cookbook/recipes/
 
 the list of recipes should be:
 
@@ -206,13 +206,13 @@ The following example shows how to create a cookbook, with project and pipeline,
 
    .. code-block:: bash
 
-      $ mkdir ~/workspace && cd ~/workspace
+      mkdir ~/workspace && cd ~/workspace
 
 #. Setup the Delivery CLI to, by default, contact the Chef Automate server at SERVER, with a default ENTERPRISE and ORGANIZATION:
 
    .. code-block:: bash
 
-      $ delivery setup --server=SERVER --ent=ENTERPRISE --org=ORGANIZATION --user=USERNAME
+      delivery setup --server=SERVER --ent=ENTERPRISE --org=ORGANIZATION --user=USERNAME
 
    .. note:: The server, enterprise, organization, and user must already exist.
 
@@ -220,11 +220,11 @@ The following example shows how to create a cookbook, with project and pipeline,
 
    .. code-block:: bash
 
-      $ chef generate cookbook NEW-COOKBOOK-NAME
+      chef generate cookbook NEW-COOKBOOK-NAME
 
    .. code-block:: bash
 
-      $ cd NEW-COOKBOOK-NAME
+      cd NEW-COOKBOOK-NAME
 
    This uses Chef Workstation to generate a new cookbook, including a default recipe and default ChefSpec tests.
 
@@ -232,11 +232,11 @@ The following example shows how to create a cookbook, with project and pipeline,
 
    .. code-block:: bash
 
-      $ git add .
+      git add .
 
    .. code-block:: bash
 
-      $ git commit -m 'Initial Commit'
+      git commit -m 'Initial Commit'
 
    Running ``chef generate`` initialized a git repository automatically for this cookbook. If you created the build cookbook manually, initialize the git repository with the ``git init`` command.
 
@@ -244,7 +244,7 @@ The following example shows how to create a cookbook, with project and pipeline,
 
    .. code-block:: bash
 
-      $ delivery init
+      delivery init
 
    This creates a new project in Chef Automate, pushes the master branch, creates a feature branch, generates a default Chef Automate project configuration file, pushes the first change for review, and then opens a browser window that shows the change.
 
@@ -284,7 +284,7 @@ Custom build-cookbook
 
 .. code-block:: bash
 
-   $ chef generate build-cookbook NAME [options]
+   chef generate build-cookbook NAME [options]
 
 The following options are available with ``chef generate build-cookbook``:
 

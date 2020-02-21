@@ -15,7 +15,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ knife deps (options)
+   knife deps (options)
 
 Options
 =====================================================
@@ -61,7 +61,7 @@ The following examples show how to use this knife subcommand:
 
 .. code-block:: bash
 
-   $ knife deps nodes/node_name.json
+   knife deps nodes/node_name.json
 
 **Find dependencies for a role**
 
@@ -69,7 +69,7 @@ The following examples show how to use this knife subcommand:
 
 .. code-block:: bash
 
-   $ knife deps roles/role_name.json
+   knife deps roles/role_name.json
 
 **Find dependencies for a cookbook**
 
@@ -77,7 +77,7 @@ The following examples show how to use this knife subcommand:
 
 .. code-block:: bash
 
-   $ knife deps cookbooks/cookbook_name.json
+   knife deps cookbooks/cookbook_name.json
 
 **Find dependencies for an environment**
 
@@ -85,7 +85,7 @@ The following examples show how to use this knife subcommand:
 
 .. code-block:: bash
 
-   $ knife deps environments/environment_name.json
+   knife deps environments/environment_name.json
 
 **Find dependencies for a combination of nodes, roles, and so on**
 
@@ -93,7 +93,7 @@ To find the dependencies for a combination of nodes, cookbooks, roles, and/or en
 
 .. code-block:: bash
 
-   $ knife deps cookbooks/git.json cookbooks/github.json roles/base.json environments/desert.json nodes/mynode.json
+   knife deps cookbooks/git.json cookbooks/github.json roles/base.json environments/desert.json nodes/mynode.json
 
 **Use a wildcard**
 
@@ -101,7 +101,7 @@ A wildcard can be used to return all of the child nodes. For example, all of the
 
 .. code-block:: bash
 
-   $ knife deps environments/*.json
+   knife deps environments/*.json
 
 **Return as tree**
 
@@ -109,7 +109,7 @@ Use the ``--tree`` option to view the results with structure:
 
 .. code-block::  bash
 
-   $ knife deps roles/webserver.json
+   knife deps roles/webserver.json
 
 to return something like:
 
@@ -128,7 +128,7 @@ The output of ``knife deps`` can be passed to ``knife upload``:
 
 .. code-block:: bash
 
-   $ knife upload `knife deps nodes/*.json
+   knife upload `knife deps nodes/*.json
 
 **Pass knife deps output to knife xargs**
 
@@ -136,4 +136,4 @@ The output of ``knife deps`` can be passed to ``knife xargs``:
 
 .. code-block:: bash
 
-   $ knife deps nodes/*.json | xargs knife upload
+   knife deps nodes/*.json | xargs knife upload

@@ -11,7 +11,7 @@ For the quickest way to get started using Chef Infra:
 
    .. code-block:: bash
 
-      $ chef generate cookbook first_cookbook
+      chef generate cookbook first_cookbook
 
    where ``first_cookbook`` is an arbitrary cookbook name.
 
@@ -29,9 +29,9 @@ For the quickest way to get started using Chef Infra:
 
    .. code-block:: bash
 
-      $ chef-client --local-mode --override-runlist first_cookbook
+      chef-client --local-mode --override-runlist first_cookbook
 
-This will create a file named ``test.txt`` at the home path on your machine. Open that file and it will say ``This file was created by Chef!``.
+This will create a file named ``test.txt`` at the home path on your machine. Open that file and it will say ``This file was created by Chef Infra!``.
 
 * Delete the file, run Chef Infra Client again, and Chef Infra will put the file back.
 * Change the string in the file, run Chef Infra Client again, and Chef Infra will make the string in the file the same as the string in the recipe.
@@ -40,4 +40,4 @@ This will create a file named ``test.txt`` at the home path on your machine. Ope
 There's a lot more that Chef Infra can do, obviously, but that was super easy!
 
 * See https://learn.chef.io/ for more detailed setup scenarios.
-* Keep reading  for more information about setting up a workstation, configuring Test Kitchen to run virtual environments, setting up a more detailed cookbook, resources, and more.
+* Keep reading for more information about setting up a workstation, configuring Test Kitchen to run virtual environments, setting up a more detailed cookbook, resources, and more.

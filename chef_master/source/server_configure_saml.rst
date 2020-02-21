@@ -3,8 +3,8 @@ Configuring for SAML Authentication
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/server_configure_saml.rst>`__
 
-.. meta:: 
-    :robots: noindex 
+.. meta::
+    :robots: noindex
 
 .. tag EOL_manage
 
@@ -28,8 +28,8 @@ Second, store your OIDC client credentials with using the `Secrets Management </
 
 .. code-block:: bash
 
-   $ chef-server-ctl set-secret saml client_id '<CLIENT ID>'
-   $ chef-server-ctl set-secret saml client_secret '<CLIENT SECRET>'
+   chef-server-ctl set-secret saml client_id '<CLIENT ID>'
+   chef-server-ctl set-secret saml client_secret '<CLIENT SECRET>'
 
 The ``issuer_url`` property should be set to something like ``'https://<yourChefAutomateDomain>/api/v0'``. Also, the ``client_id`` must be known to the Chef Automate server. For development purposes only, you may also need to turn off the TLS verification for the OIDC client by adding
 
@@ -42,4 +42,3 @@ to your Chef Manage configuration.
 Finally, run ``chef-manage-ctl reconfigure`` to apply these settings.
 
 .. warning:: You cannot have both LDAP and SAML authentication enabled at the same time. If you do, the reconfigure will fail with an appropriate error message.
-

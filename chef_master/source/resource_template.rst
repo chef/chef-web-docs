@@ -218,7 +218,7 @@ The template resource has the following properties:
 
    A block or a string that returns ``true`` or ``false``. A string, when ``true`` is executed as a system command.
 
-  
+
    A block is arbitrary Ruby defined within the resource block by using the ``verify`` property. When a block is ``true``, Chef Infra Client will continue to update the file as appropriate.
 
    For example, this should return ``true``:
@@ -275,7 +275,7 @@ The template resource has the following properties:
 
    If a string or a block return ``false``, the Chef Infra Client run will stop and an error is returned.
 
-   
+
 
 Atomic File Updates
 -----------------------------------------------------
@@ -742,7 +742,7 @@ An Embedded Ruby (ERB) template allows Ruby code to be embedded inside a text fi
 
    <%= "my name is #{$ruby}" %>
 
-A statement is delimited by a modifier, such as ``if``, ``elseif``, and ``else``. For example:
+A statement is delimited by a modifier, such as ``if``, ``elsif``, and ``else``. For example:
 
 .. code-block:: ruby
 
@@ -1452,4 +1452,3 @@ The recipe then uses the ``variables`` attribute to find the values for ``splunk
    end
 
 This example can be found in the ``client.rb`` recipe and the ``outputs.conf.erb`` template files that are located in the `chef-splunk cookbook <https://github.com/chef-cookbooks/chef-splunk/>`_  that is maintained by Chef.
-

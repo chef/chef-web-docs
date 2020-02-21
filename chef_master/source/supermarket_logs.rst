@@ -15,4 +15,4 @@ Save the file, and then restart the Ruby on Rails service:
 
 .. code-block:: bash
 
-   $ supermarket-ctl restart rails
+   supermarket-ctl restart rails

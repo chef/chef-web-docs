@@ -442,10 +442,6 @@
 </url>
 
 <url>
-  <loc>https://docs.chef.io/environment_variables.html</loc>
-</url>
-
-<url>
   <loc>https://docs.chef.io/environments.html</loc>
 </url>
 
@@ -919,10 +915,6 @@
 
 <url>
   <loc>https://docs.chef.io/resource_dsc_script.html</loc>
-</url>
-
-<url>
-  <loc>https://docs.chef.io/resource_erlang_call.html</loc>
 </url>
 
 <url>

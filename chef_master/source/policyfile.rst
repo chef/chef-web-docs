@@ -88,7 +88,7 @@ The following knife commands used to set the policy group and policy name on the
 
 .. code-block:: bash
 
-   $ knife node policy set test-node 'test-policy-group-name' 'test-policy-name'
+   knife node policy set test-node 'test-policy-group-name' 'test-policy-name'
 
 
 
@@ -390,7 +390,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef clean-policy-cookbooks (options)
+   chef clean-policy-cookbooks (options)
 
 .. end_tag
 
@@ -430,7 +430,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef clean-policy-revisions (options)
+   chef clean-policy-revisions (options)
 
 .. end_tag
 
@@ -470,7 +470,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef delete-policy POLICY_NAME (options)
+   chef delete-policy POLICY_NAME (options)
 
 .. end_tag
 
@@ -510,7 +510,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef delete-policy-group POLICY_GROUP (options)
+   chef delete-policy-group POLICY_GROUP (options)
 
 .. end_tag
 
@@ -550,7 +550,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef diff POLICY_FILE --head | --git POLICY_GROUP | POLICY_GROUP...POLICY_GROUP (options)
+   chef diff POLICY_FILE --head | --git POLICY_GROUP | POLICY_GROUP...POLICY_GROUP (options)
 
 .. end_tag
 
@@ -594,7 +594,7 @@ Examples
 
 .. code-block:: bash
 
-   $ chef diff --git HEAD
+   chef diff --git HEAD
 
 .. end_tag
 
@@ -606,7 +606,7 @@ Examples
 
 .. code-block:: bash
 
-   $ chef diff --git master
+   chef diff --git master
 
 .. end_tag
 
@@ -618,7 +618,7 @@ Examples
 
 .. code-block:: bash
 
-   $ chef diff --git v1.0.0
+   chef diff --git v1.0.0
 
 .. end_tag
 
@@ -630,7 +630,7 @@ Examples
 
 .. code-block:: bash
 
-   $ chef diff --git master...dev
+   chef diff --git master...dev
 
 .. end_tag
 
@@ -642,7 +642,7 @@ Examples
 
 .. code-block:: bash
 
-   $ chef diff --git v1.0.0...master
+   chef diff --git v1.0.0...master
 
 .. end_tag
 
@@ -654,7 +654,7 @@ Examples
 
 .. code-block:: bash
 
-   $ chef diff staging
+   chef diff staging
 
 .. end_tag
 
@@ -666,7 +666,7 @@ Examples
 
 .. code-block:: bash
 
-   $ chef diff production...staging
+   chef diff production...staging
 
 .. end_tag
 
@@ -686,7 +686,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef export POLICY_FILE DIRECTORY (options)
+   chef export POLICY_FILE DIRECTORY (options)
 
 .. end_tag
 
@@ -749,7 +749,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef generate policyfile POLICY_NAME (options)
+   chef generate policyfile POLICY_NAME (options)
 
 .. end_tag
 
@@ -785,7 +785,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef generate repo REPO_NAME (options)
+   chef generate repo REPO_NAME (options)
 
 .. end_tag
 
@@ -828,7 +828,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef install POLICY_FILE (options)
+   chef install POLICY_FILE (options)
 
 .. end_tag
 
@@ -918,7 +918,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef push POLICY_GROUP POLICY_FILE (options)
+   chef push POLICY_GROUP POLICY_FILE (options)
 
 .. end_tag
 
@@ -958,7 +958,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef push-archive POLICY_GROUP ARCHIVE_FILE (options)
+   chef push-archive POLICY_GROUP ARCHIVE_FILE (options)
 
 .. end_tag
 
@@ -998,7 +998,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef show-policy POLICY_NAME POLICY_GROUP (options)
+   chef show-policy POLICY_NAME POLICY_GROUP (options)
 
 .. end_tag
 
@@ -1048,7 +1048,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef undelete (options)
+   chef undelete (options)
 
 When run with no arguments, returns a list of available operations.
 
@@ -1099,7 +1099,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef update POLICY_FILE (options)
+   chef update POLICY_FILE (options)
 
 .. end_tag
 

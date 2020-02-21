@@ -97,7 +97,7 @@ The following platforms are supported only via the community:
      - stable and LTS releases
    * - openSUSE
      -
-     - ``42.x``
+     - ``15.x``
    * - Scientific Linux
      - ``x86_64``
      - ``6.x``, ``7.x``
@@ -216,7 +216,7 @@ The following platforms are supported only via the community:
      - Version
    * - openSUSE
      -
-     - ``42.x``
+     - ``15.x``
    * - Scientific Linux
      - ``x86_64``
      - ``6.x``, ``7.x``

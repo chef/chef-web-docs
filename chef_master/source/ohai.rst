@@ -366,11 +366,11 @@ Optional Plugins
 
 Ohai ships several plugins that are considered optional and can be enabled in the `client.rb configuration file </config_rb_client.html>`__.
 
-- `Lspci` - PCI device information on Linux hosts.
-- `Lsscsi` - SCSI device information on Linux hosts.
-- `Passwd` - User and Group information on non-Windows hosts. This plugin can result in very large node sizes if a system connects to Active Directory or LDAP.
-- `Sessions` - Sessions data from loginctl on Linux hosts.
-- `Sysctl` - All sysctl values on Linux hosts.
+- `:Lspci` - PCI device information on Linux hosts.
+- `:Lsscsi` - SCSI device information on Linux hosts.
+- `:Passwd` - User and Group information on non-Windows hosts. This plugin can result in very large node sizes if a system connects to Active Directory or LDAP.
+- `:Sessions` - Sessions data from loginctl on Linux hosts.
+- `:Sysctl` - All sysctl values on Linux hosts.
 
 Enabling Optional Plugins
 -------------------------
@@ -383,6 +383,8 @@ Optional plugins can be enabled in the `client.rb configuration file </config_rb
      :Sessions,
      :Lspci
    ]
+
+.. note:: The Ohai optional_plugins config array must contain an array of plugin names as Symbols not Strings.
 
 Custom Plugins
 =====================================================
@@ -551,7 +553,7 @@ This command has the following syntax:
 
 .. code-block:: bash
 
-   $ ohai OPTION
+   ohai OPTION
 
 This tool has the following options:
 

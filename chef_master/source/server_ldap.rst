@@ -72,7 +72,7 @@ To configure the Chef Infra Server to use Active Directory or LDAP do the follow
 
       .. code-block:: bash
 
-         $ chef-server-ctl set-secret ldap bind_password
+         chef-server-ctl set-secret ldap bind_password
          Enter ldap bind_password:    (no terminal output)
          Re-enter ldap bind_password: (no terminal output)
 
@@ -80,7 +80,7 @@ To configure the Chef Infra Server to use Active Directory or LDAP do the follow
 
       .. code-block:: bash
 
-         $ chef-server-ctl remove-secret ldap bind_password
+         chef-server-ctl remove-secret ldap bind_password
 
    ``ldap['group_dn']``
       The distinguished name for a group. When set to the distinguished name of a group, only members of that group can log in. This feature filters based on the ``memberOf`` attribute and only works with LDAP servers that provide such an attribute. In OpenLDAP, the ``memberOf`` overlay provides this attribute. For example, if the value of the ``memberOf`` attribute is ``CN=abcxyz,OU=users,DC=company,DC=com``, then use:
@@ -131,7 +131,7 @@ To configure the Chef Infra Server to use Active Directory or LDAP do the follow
 
    .. code-block:: bash
 
-      $ chef-server-ctl reconfigure
+      chef-server-ctl reconfigure
 
    .. end_tag
 
@@ -162,19 +162,19 @@ And then from a front end machine (in a high availability or tiered configuratio
 
 .. code-block:: bash
 
-   $ ldapsearch -LLL -H ldap://HOST:PORT -b 'BASE_DN' -D 'BIND_DN' -W '(LOGIN_ATTRIBUTE=YOUR_LDAP_ACCOUNT_USERNAME)'
+   ldapsearch -LLL -H ldap://HOST:PORT -b 'BASE_DN' -D 'BIND_DN' -W '(LOGIN_ATTRIBUTE=YOUR_LDAP_ACCOUNT_USERNAME)'
 
 For example:
 
 .. code-block:: bash
 
-   $ ldapsearch -LLL -H ldap://win-ad1.chef.co:389 -b 'OU=Employees,OU=Domain users,DC=opscodecorp,DC=com' -D 'CN=Robert Forster,OU=Employees,OU=Domain users,DC=opscodecorp,DC=com' -W '(sAMAccountName=rforster)'
+   ldapsearch -LLL -H ldap://win-ad1.chef.co:389 -b 'OU=Employees,OU=Domain users,DC=opscodecorp,DC=com' -D 'CN=Robert Forster,OU=Employees,OU=Domain users,DC=opscodecorp,DC=com' -W '(sAMAccountName=rforster)'
 
 Output similar to the following is returned:
 
 .. code-block:: bash
 
-   $ ldapsearch -LLL -H ldap://win-ad1.chef.co:389 -b 'OU=Employees,OU=Domain users,DC=opscodecorp,DC=com' -D 'CN=Robert Forster,OU=Employees,OU=Domain users,DC=opscodecorp,DC=com' -W '(sAMAccountName=rforster)'
+   ldapsearch -LLL -H ldap://win-ad1.chef.co:389 -b 'OU=Employees,OU=Domain users,DC=opscodecorp,DC=com' -D 'CN=Robert Forster,OU=Employees,OU=Domain users,DC=opscodecorp,DC=com' -W '(sAMAccountName=rforster)'
    Enter LDAP Password:
 
    dn: CN=Robert Forster,OU=Employees,OU=Domain users,DC=opscodecorp,DC=com
@@ -190,5 +190,3 @@ Output similar to the following is returned:
     =com
 
 .. note:: The ``ldapsearch`` command may need to be installed on the platform. It is not included as part of the Chef Infra Server package.
-
-

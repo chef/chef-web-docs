@@ -6,9 +6,9 @@ delivery.rb Settings
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/config_rb_delivery.rst>`__
 
-.. meta:: 
-    :robots: noindex 
-    
+.. meta::
+    :robots: noindex
+
 .. tag chef_automate_mark
 
 .. image:: ../../images/a2_docs_banner.svg
@@ -122,6 +122,6 @@ Additional settings are available for performance tuning of the Chef Automate se
 
           .. code-block:: bash
 
-             $ delivery-server-ctl reconfigure
+             delivery-server-ctl reconfigure
 
 .. note:: Review the full list of `optional settings </config_rb_delivery_optional_settings.html>`__ that can be added to the ``delivery.rb`` file. Many of these optional settings should not be added without first consulting with Chef support.

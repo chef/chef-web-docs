@@ -15,7 +15,7 @@ All services must be listening on the appropriate ports. Most monitoring systems
 
 .. code-block:: bash
 
-   $ telnet HOST_NAME PORT
+   telnet HOST_NAME PORT
 
 .. end_tag
 

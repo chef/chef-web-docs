@@ -352,13 +352,13 @@ Encrypting a data bag item requires a secret key. A secret key can be created in
 
 .. code-block:: bash
 
-   $ openssl rand -base64 512 | tr -d '\r\n' > encrypted_data_bag_secret
+   openssl rand -base64 512 | tr -d '\r\n' > encrypted_data_bag_secret
 
 where ``encrypted_data_bag_secret`` is the name of the file which will contain the secret key. For example, to create a secret key named "my_secret_key":
 
 .. code-block:: bash
 
-   $ openssl rand -base64 512 | tr -d '\r\n' > my_secret_key
+   openssl rand -base64 512 | tr -d '\r\n' > my_secret_key
 
 The ``tr`` command eliminates any trailing line feeds. Doing so avoids key corruption when transferring the file between platforms with different line endings.
 
@@ -570,7 +570,7 @@ Use knife to add a recipe to the run-list for a node. For example:
 
 .. code-block:: bash
 
-   $ knife node run list add NODENAME "recipe[apache2]"
+   knife node run list add NODENAME "recipe[apache2]"
 
 More than one recipe can be added:
 
@@ -601,7 +601,7 @@ To add the run-list to the node, enter the following:
 
 .. code-block:: bash
 
-   $ sudo chef-solo -j /etc/chef/dna.json
+   sudo chef-solo -j /etc/chef/dna.json
 
 Use Search Results
 -----------------------------------------------------

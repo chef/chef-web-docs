@@ -82,7 +82,7 @@ Use the ``knife exec`` subcommand to add a job to the whitelist. For example:
 
 .. code-block:: bash
 
-   $ knife exec -E 'nodes.transform("name:A_NODE_NAME") do |n|
+   knife exec -E 'nodes.transform("name:A_NODE_NAME") do |n|
        n.set["push_jobs"]["whitelist"]["ntpdate"] = "ntpdate -u time"
      end'
 
@@ -124,7 +124,7 @@ This argument has the following syntax:
 
 .. code-block:: bash
 
-   $ knife job list
+   knife job list
 
 .. end_tag
 
@@ -148,7 +148,7 @@ This argument has the following syntax:
 
 .. code-block:: bash
 
-   $ knife job start (options) COMMAND [NODE, NODE, ...]
+   knife job start (options) COMMAND [NODE, NODE, ...]
 
 .. end_tag
 
@@ -174,7 +174,7 @@ To run a job named ``add-glasses`` against a node named ``ricardosalazar``, run 
 
 .. code-block:: bash
 
-   $ knife job start add-glasses 'ricardosalazar'
+   knife job start add-glasses 'ricardosalazar'
 
 .. end_tag
 
@@ -186,7 +186,7 @@ To search for nodes assigned the role ``webapp``, and where 90% of those nodes m
 
 .. code-block:: bash
 
-   $ knife job start --quorum 90% 'chef-client' --search 'role:webapp'
+   knife job start --quorum 90% 'chef-client' --search 'role:webapp'
 
 .. end_tag
 
@@ -198,7 +198,7 @@ To search for a specific set of nodes (named ``chico``, ``harpo``, ``groucho``, 
 
 .. code-block:: bash
 
-   $ knife job start --quorum 90% 'chef-client' chico harpo groucho gummo zeppo
+   knife job start --quorum 90% 'chef-client' chico harpo groucho gummo zeppo
 
 to return something similar to:
 
@@ -261,7 +261,7 @@ This argument has the following syntax:
 
 .. code-block:: bash
 
-   $ knife job status <job id>
+   knife job status <job id>
 
 .. end_tag
 
@@ -279,7 +279,7 @@ To view the status of a job that has the identifier of ``235``, run the followin
 
 .. code-block:: bash
 
-   $ knife job status 235
+   knife job status 235
 
 to return something similar to:
 
@@ -340,7 +340,7 @@ This argument has the following syntax:
 
 .. code-block:: bash
 
-   $ knife node status [<node> <node> ...]
+   knife node status [<node> <node> ...]
 
 .. end_tag
 

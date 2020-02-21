@@ -40,7 +40,7 @@ Save the file, and then run the following command:
 
 .. code-block:: bash
 
-   $ sudo chef-server-ctl reconfigure
+   sudo chef-server-ctl reconfigure
 
 For more information about the server configuration file, see `chef-server.rb </config_rb_server.html>`__.
 
@@ -61,13 +61,13 @@ Because the FQDN has already been configured, do the following:
 
    .. code-block:: bash
 
-      $ chef-server-ctl reconfigure
+      chef-server-ctl reconfigure
 
 #. Restart the Nginx service to load the new key and certificate:
 
    .. code-block:: bash
 
-      $ chef-server-ctl restart nginx
+      chef-server-ctl restart nginx
 
 .. warning:: The FQDN for the Chef Infra Server should be resolvable, lowercase, and have fewer than 64 characters including the domain suffix, when using OpenSSL, as OpenSSL requires the ``CN`` in a certificate to be no longer than 64 characters.
 
@@ -177,7 +177,7 @@ For example, without downloading the SSL certificate, the following knife comman
 
 .. code-block:: bash
 
-   $ knife client list
+   knife client list
 
 responds with an error similar to:
 
@@ -200,14 +200,14 @@ To use an internal certificate authority, append the server--optionally, any int
 
 .. code-block:: bash
 
-   $ cat server.crt [intermediate.crt] root.crt >> /var/opt/opscode/nginx/ca/FQDN.crt
+   cat server.crt [intermediate.crt] root.crt >> /var/opt/opscode/nginx/ca/FQDN.crt
 
 
 Check your combined certificate's validity on the Chef Infra Server:
 
 .. code-block:: bash
 
-   $ openssl verify -verbose -purpose sslserver -CAfile cacert.pem  /var/opt/opscode/nginx/ca/FQDN.crt
+   openssl verify -verbose -purpose sslserver -CAfile cacert.pem  /var/opt/opscode/nginx/ca/FQDN.crt
 
 The cacert.pem should contain only your root CA's certificate file. This is not the usual treatment, but mimics how Chef Workstation behaves after a ``knife ssl fetch`` followed by a ``knife ssl verify``.
 
@@ -219,7 +219,7 @@ To use an intermediate certificate, append both the server and intermediate cert
 
 .. code-block:: bash
 
-   $ cat server.crt intermediate.crt >> /var/opt/opscode/nginx/ca/FQDN.crt
+   cat server.crt intermediate.crt >> /var/opt/opscode/nginx/ca/FQDN.crt
 
 Verify Certificate Was Signed by Proper Key
 -----------------------------------------------------
@@ -251,13 +251,13 @@ To regenerate SSL certificates:
 
    .. code-block:: bash
 
-      $ chef-server-ctl stop
+      chef-server-ctl stop
 
 #. The Chef Infra Server can regenerate them. These certificates will be located in ``/var/opt/opscode/nginx/ca/`` and will be named after the FQDN for the Chef Infra Server. To determine the FQDN for the server, run the following command:
 
    .. code-block:: bash
 
-      $ hostname -f
+      hostname -f
 
    Please delete the files found in the ca directory with names like this ``$FQDN.crt`` and ``$FQDN.key``.
 
@@ -267,13 +267,13 @@ To regenerate SSL certificates:
 
    .. code-block:: bash
 
-      $ chef-server-ctl reconfigure
+      chef-server-ctl reconfigure
 
 #. Run the following command:
 
    .. code-block:: bash
 
-      $ chef-server-ctl start
+      chef-server-ctl start
 
 Chef Infra Server Credentials Management
 =====================================================

@@ -63,13 +63,13 @@ When running knife from the command prompt, a string should be surrounded by sin
 
 .. code-block:: bash
 
-   $ knife node run_list set test-node 'recipe[iptables]'
+   knife node run_list set test-node 'recipe[iptables]'
 
 When running knife from Windows PowerShell, a string should be surrounded by triple single quotes (``''' '''``). For example:
 
 .. code-block:: bash
 
-   $ knife node run_list set test-node '''recipe[iptables]'''
+   knife node run_list set test-node '''recipe[iptables]'''
 
 .. end_tag
 
@@ -81,7 +81,7 @@ The Chef Client 12.4 release adds an optional feature to the Microsoft Installer
 
 .. code-block:: bash
 
-   $ Import-Module chef
+   Import-Module chef
 
 or add ``Import-Module chef`` to the profile for Windows PowerShell located at:
 
@@ -95,31 +95,31 @@ For example:
 
 .. code-block:: bash
 
-   $ knife exec -E 'puts ARGV' """&s0meth1ng"""
+   knife exec -E 'puts ARGV' """&s0meth1ng"""
 
 is now:
 
 .. code-block:: bash
 
-   $ knife exec -E 'puts ARGV' '&s0meth1ng'
+   knife exec -E 'puts ARGV' '&s0meth1ng'
 
 and:
 
 .. code-block:: bash
 
-   $ knife node run_list set test-node '''role[ssssssomething]'''
+   knife node run_list set test-node '''role[ssssssomething]'''
 
 is now:
 
 .. code-block:: bash
 
-   $ knife node run_list set test-node 'role[ssssssomething]'
+   knife node run_list set test-node 'role[ssssssomething]'
 
 To remove this feature, run the following command from within Windows PowerShell:
 
 .. code-block:: bash
 
-   $ Remove-Module chef
+   Remove-Module chef
 
 .. end_tag
 
@@ -161,7 +161,7 @@ This argument has the following syntax:
 
 .. code-block:: bash
 
-   $ knife node run_list add NODE_NAME RUN_LIST_ITEM (options)
+   knife node run_list add NODE_NAME RUN_LIST_ITEM (options)
 
 .. end_tag
 
@@ -197,7 +197,7 @@ To add a role to a run-list, enter:
 
 .. code-block:: bash
 
-   $ knife node run_list add NODE_NAME 'role[ROLE_NAME]'
+   knife node run_list add NODE_NAME 'role[ROLE_NAME]'
 
 .. end_tag
 
@@ -209,7 +209,7 @@ To add roles and recipes to a run-list, enter:
 
 .. code-block:: bash
 
-   $ knife node run_list add NODE_NAME 'recipe[COOKBOOK::RECIPE_NAME],recipe[COOKBOOK::RECIPE_NAME],role[ROLE_NAME]'
+   knife node run_list add NODE_NAME 'recipe[COOKBOOK::RECIPE_NAME],recipe[COOKBOOK::RECIPE_NAME],role[ROLE_NAME]'
 
 .. end_tag
 
@@ -221,7 +221,7 @@ To add a recipe to a run-list using the fully qualified format, enter:
 
 .. code-block:: bash
 
-   $ knife node run_list add NODE_NAME 'recipe[COOKBOOK::RECIPE_NAME]'
+   knife node run_list add NODE_NAME 'recipe[COOKBOOK::RECIPE_NAME]'
 
 .. end_tag
 
@@ -233,7 +233,7 @@ To add a recipe to a run-list using the cookbook format, enter:
 
 .. code-block:: bash
 
-   $ knife node run_list add NODE_NAME 'COOKBOOK::RECIPE_NAME'
+   knife node run_list add NODE_NAME 'COOKBOOK::RECIPE_NAME'
 
 .. end_tag
 
@@ -245,7 +245,7 @@ To add the default recipe of a cookbook to a run-list, enter:
 
 .. code-block:: bash
 
-   $ knife node run_list add NODE_NAME 'COOKBOOK'
+   knife node run_list add NODE_NAME 'COOKBOOK'
 
 .. end_tag
 
@@ -265,7 +265,7 @@ This argument has the following syntax:
 
 .. code-block:: bash
 
-   $ knife node run_list remove NODE_NAME RUN_LIST_ITEM
+   knife node run_list remove NODE_NAME RUN_LIST_ITEM
 
 .. end_tag
 
@@ -291,7 +291,7 @@ To remove a role from a run-list, enter:
 
 .. code-block:: bash
 
-   $ knife node run_list remove NODE_NAME 'role[ROLE_NAME]'
+   knife node run_list remove NODE_NAME 'role[ROLE_NAME]'
 
 .. end_tag
 
@@ -303,7 +303,7 @@ To remove a recipe from a run-list using the fully qualified format, enter:
 
 .. code-block:: bash
 
-   $ knife node run_list remove NODE_NAME 'recipe[COOKBOOK::RECIPE_NAME]'
+   knife node run_list remove NODE_NAME 'recipe[COOKBOOK::RECIPE_NAME]'
 
 .. end_tag
 
@@ -323,7 +323,7 @@ This argument has the following syntax:
 
 .. code-block:: bash
 
-   $ knife node run_list set NODE_NAME RUN_LIST_ITEM
+   knife node run_list set NODE_NAME RUN_LIST_ITEM
 
 .. end_tag
 
@@ -347,7 +347,7 @@ To include run-lists in the status, enter:
 
 .. code-block:: bash
 
-   $ knife status --run-list
+   knife status --run-list
 
 to return something like:
 
@@ -370,7 +370,7 @@ To show the status of a subset of nodes that are returned by a specific query, e
 
 .. code-block:: bash
 
-   $ knife status "role:web" --run-list
+   knife status "role:web" --run-list
 
 to return something like:
 
@@ -561,7 +561,7 @@ During a ``knife bootstrap`` bootstrap operation, the following happens:
 
    * - Stages
      - Description
-   * - **$ knife bootstrap**
+   * - **knife bootstrap**
      - Enter the ``knife bootstrap`` subcommand from a workstation. Include the hostname, IP address, or FQDN of the target node as part of this command. Knife will establish an SSH or WinRM connection with the target node using port 22 and assemble a shell script using the chef-full.erb file, which is the default bootstrap template.
 
    * - **Get the install script from Chef**

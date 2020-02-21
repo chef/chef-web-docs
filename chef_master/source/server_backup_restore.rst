@@ -43,7 +43,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef-server-ctl backup
+   chef-server-ctl backup
 
 .. end_tag
 
@@ -84,7 +84,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef-server-ctl restore PATH_TO_BACKUP (options)
+   chef-server-ctl restore PATH_TO_BACKUP (options)
 
 .. end_tag
 
@@ -92,7 +92,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef-server-ctl restore /path/to/tar/archive.tar.gz
+   chef-server-ctl restore /path/to/tar/archive.tar.gz
 
 Backup and restore a Chef Backend install
 =====================================================

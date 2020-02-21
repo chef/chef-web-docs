@@ -35,7 +35,7 @@ Usage Examples
 
 .. code-block:: bash
 
-   $ knife google server create test-instance-1 --gce-image centos-7-v20160219 \
+   knife google server create test-instance-1 --gce-image centos-7-v20160219 \
    --gce-machine-type n1-standard-2 --gce-public-ip ephemeral --ssh-user myuser \
    --identity-file /Users/myuser/.ssh/google_compute_engine
 
@@ -43,13 +43,13 @@ Usage Examples
 
 .. code-block:: bash
 
-  $ knife google server delete my-instance-1 my-instance-2 --purge
+  knife google server delete my-instance-1 my-instance-2 --purge
 
 **List all servers:**
 
 .. code-block:: bash
 
-  $ knife google server list
+  knife google server list
 
 kitchen-google
 =====================================================

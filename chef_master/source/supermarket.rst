@@ -96,13 +96,13 @@ To generate a chef-repo, run a command similar to:
 
 .. code-block:: bash
 
-   $ chef generate repo my_chef_repo
+   chef generate repo my_chef_repo
 
 Access the chef-repo using the ``cd`` command:
 
 .. code-block:: bash
 
-   $ cd my_chef_repo
+   cd my_chef_repo
 
 **Generate a cookbook**
 
@@ -112,7 +112,7 @@ To create the ``my_apache2_cookbook`` cookbook, run the following command:
 
 .. code-block:: bash
 
-   $ chef generate cookbook cookbooks/my_apache2_cookbook
+   chef generate cookbook cookbooks/my_apache2_cookbook
 
 **Generate a template**
 
@@ -120,7 +120,7 @@ To generate a template, run a command similar to:
 
 .. code-block:: bash
 
-   $ chef generate template cookbooks/my_apache2_cookbook index.html
+   chef generate template cookbooks/my_apache2_cookbook index.html
 
 This will create a file named ``index.html.etb`` in the ``/cookbooks/my_apache2_cookbook`` directory. Open the file using a text editor to add content. For example, some HTML:
 
@@ -164,26 +164,26 @@ To upload a cookbook to Chef Supermarket, do the following:
 
    .. code-block:: bash
 
-      $ knife ssl fetch https://your-private-supermarket
+      knife ssl fetch https://your-private-supermarket
 
    and then:
 
    .. code-block:: bash
 
-      $ knife ssl check https://your-private-supermarket
+      knife ssl check https://your-private-supermarket
 
 #. Upload the cookbook to Chef Supermarket:
 
    .. code-block:: bash
 
-      $ knife supermarket share mycookbook "Other"
+      knife supermarket share mycookbook "Other"
 
 Share a Cookbook
 -----------------------------------------------------
 
 .. code-block:: bash
 
-   $ knife supermarket share 'my_cookbook'
+   knife supermarket share 'my_cookbook'
 
 Troubleshoot SSL Errors
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -199,13 +199,13 @@ First fetch the SSL certificate for the private Chef Supermarket:
 
 .. code-block:: bash
 
-   $ knife ssl fetch https://your-private-supermarket
+   knife ssl fetch https://your-private-supermarket
 
 and then:
 
 .. code-block:: bash
 
-   $ knife ssl check https://your-private-supermarket
+   knife ssl check https://your-private-supermarket
 
 Re-share the cookbook. This time the message returned should be similar to:
 
@@ -268,7 +268,7 @@ If you are using a private Chef Supermarket, you can activate the Fieri service 
 
    .. code-block:: bash
 
-      (your-supermarket-node) $ sudo supermarket-ctl reconfigure
-      (your-supermarket-node) $ sudo supermarket-ctl restart
+      (your-supermarket-node) sudo supermarket-ctl reconfigure
+      (your-supermarket-node) sudo supermarket-ctl restart
 
 After doing these steps, you should see a "Quality" tab when viewing a cookbook through the Supermarket UI.  Click on this tab and you will see the results of the metrics run by Fieri.

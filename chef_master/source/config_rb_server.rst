@@ -99,7 +99,7 @@ The following settings are often used for performance tuning of the Chef Infra S
 
           .. code-block:: bash
 
-             $ chef-server-ctl reconfigure
+             chef-server-ctl reconfigure
 
           .. end_tag
 
@@ -220,13 +220,13 @@ Use the ``wc`` command to get the byte count of a large node object file. For ex
 
 .. code-block:: bash
 
-   $ wc -c NODE_NAME.json
+   wc -c NODE_NAME.json
 
 and then ensure there is a buffer beyond that value. For example, verify the size of the largest node object file:
 
 .. code-block:: bash
 
-   $ wc -c nodebsp2016.json
+   wc -c nodebsp2016.json
 
 which returns ``154516``. Update the ``opscode_solr4['max_field_length']`` setting to have a value greater than the returned value. For example: ``180000``.
 
@@ -234,7 +234,7 @@ If you don't have a node object file available then you can get an approximate s
 
 .. code-block:: bash
 
-   $ ohai | wc -c
+   ohai | wc -c
 
 .. end_tag
 
@@ -290,4 +290,4 @@ The following setting is often modified from the default as part of the tuning e
 .. end_tag
 
 ``postgresql['sslmode']``
-   SSL encryption mode between the Chef Infra Server and PostgreSQL.  Valid settings are ``'disable'`` and ``'require'``.  Default value: ``'disable'``. 
+   SSL encryption mode between the Chef Infra Server and PostgreSQL.  Valid settings are ``'disable'`` and ``'require'``.  Default value: ``'disable'``.

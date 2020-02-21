@@ -137,10 +137,10 @@ to return something like:
 .. code-block:: none
 
 
-   sha1 e05c7930f1b561c3d1d057a5d5013ea3150374bf
-   sha256 ab107d1b8ee3470aceb3e57edb5fcc220af89c866599ec3d84b5fb3921251d12
-   url https://packages.chef.io/files/stable/chef/15.7.31/ubuntu/18.04/chef_15.7.31-1_amd64.deb
-   version 15.7.31
+   sha1 dc185e713e1dc3a79f699340c4fb169596375b43
+   sha256 d5a616db707690fe52aa90f52c13deb3e37c3b8790feb2c37154ab3c4565fda7
+   url https://packages.chef.io/files/stable/chef/15.8.23/ubuntu/18.04/chef_15.8.23-1_amd64.deb
+   version 15.8.23
 
 **Download Directly**
 
@@ -148,10 +148,10 @@ To use cURL to download a package directly, enter the following:
 
 .. code-block:: bash
 
-   $ curl -LOJ 'https://omnitruck.chef.io/<CHANNEL>/<PRODUCT>/download?p=debian&pv=6&m=x86_64'
+   curl -LOJ 'https://omnitruck.chef.io/<CHANNEL>/<PRODUCT>/download?p=debian&pv=6&m=x86_64'
 
 To use GNU Wget to download a package directly, enter the following:
 
 .. code-block:: bash
 
-   $ wget --content-disposition https://omnitruck.chef.io/<CHANNEL>/<PRODUCT>/download?p=debian&pv=6&m=x86_64
+   wget --content-disposition https://omnitruck.chef.io/<CHANNEL>/<PRODUCT>/download?p=debian&pv=6&m=x86_64

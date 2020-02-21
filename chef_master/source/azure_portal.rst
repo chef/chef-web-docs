@@ -122,7 +122,7 @@ Log files are available from within the Azure portal:
 
    .. code-block:: bash
 
-      $ cd c:\windowsazure\logs
+      cd c:\windowsazure\logs
         ls -r chef*.log
 
 #. This should display the log files, including the Chef Infra Client log file.
@@ -141,13 +141,13 @@ Chef Infra Client can be run interactively by using Windows Remote Desktop to co
 
    .. code-block:: bash
 
-      $ chef-client -l debug
+      chef-client -l debug
 
 #. View the logs. On a linux system, the Chef Infra Client logs are saved to ``/var/log/azure/Chef.Bootstrap.WindowsAzure.LinuxChefClient/<extension-version-number>/chef-client.log`` and can be viewed using the following command:
 
    .. code-block:: bash
 
-      $ tail -f /var/log/azure/Chef.Bootstrap.WindowsAzure.LinuxChefClient/1210.12.102.1000/chef-client.log
+      tail -f /var/log/azure/Chef.Bootstrap.WindowsAzure.LinuxChefClient/1210.12.102.1000/chef-client.log
 
 
 

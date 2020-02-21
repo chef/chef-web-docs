@@ -146,7 +146,7 @@ A ``build-cookbook`` should define the same phases as the recipes included in th
 
 .. code-block:: bash
 
-   $ ls .delivery/build-cookbook/recipes/
+   ls .delivery/build-cookbook/recipes/
 
 the list of recipes should be:
 
@@ -203,13 +203,13 @@ Create a project cookbook. From the project's root directory, do the following:
 
    .. code-block:: bash
 
-      $ delivery checkout BRANCH_NAME
+      delivery checkout BRANCH_NAME
 
 #. Generate a cookbook under ``/cookbooks`` in the project directory:
 
    .. code-block:: bash
 
-      $ chef generate cookbook PROJECT_NAME
+      chef generate cookbook PROJECT_NAME
 
 #. Review the ``metadata.rb`` file. It should be similar to:
 
@@ -239,19 +239,19 @@ To submit changes to Chef Automate, use commands similar to:
 
    .. code-block:: bash
 
-      $ git add -A
+      git add -A
 
 #. Commit the project:
 
    .. code-block:: bash
 
-      $ git commit -m "Let us deploy our app."
+      git commit -m "Let us deploy our app."
 
 #. Review the changes in Chef Automate:
 
    .. code-block:: bash
 
-      $ delivery review
+      delivery review
 
    This command will open the Chef Automate web UI, and then run unit, lint, and syntax tests. After the tests pass, the change may be approved. Once approved, the ``provision.rb`` recipe will deploy the project onto the acceptance stage's infrastructure nodes.
 
@@ -265,13 +265,13 @@ Update a file in the project, and then update the version number in the ``metada
 
    .. code-block:: bash
 
-      $ delivery checkout master
+      delivery checkout master
 
 #. Create a branch:
 
    .. code-block:: bash
 
-      $ delivery checkout BRANCH_NAME
+      delivery checkout BRANCH_NAME
 
 #. Edit the ``version`` in the ``metadata.rb`` file:
 
@@ -285,19 +285,19 @@ Update a file in the project, and then update the version number in the ``metada
 
    .. code-block:: bash
 
-      $ git add -A
+      git add -A
 
 #. Add a commit message:
 
    .. code-block:: bash
 
-      $ git commit -m "Updated our project's code to version 0.2.0."
+      git commit -m "Updated our project's code to version 0.2.0."
 
 #. Review the changes in Chef Automate:
 
    .. code-block:: bash
 
-      $ delivery review
+      delivery review
 
 Multiple Cookbooks
 -----------------------------------------------------
@@ -439,13 +439,13 @@ The following example shows how to create a cookbook, with project and pipeline,
 
    .. code-block:: bash
 
-      $ mkdir ~/workspace && cd ~/workspace
+      mkdir ~/workspace && cd ~/workspace
 
 #. Setup the Delivery CLI to, by default, contact the Chef Automate server at SERVER, with a default ENTERPRISE and ORGANIZATION:
 
    .. code-block:: bash
 
-      $ delivery setup --server=SERVER --ent=ENTERPRISE --org=ORGANIZATION --user=USERNAME
+      delivery setup --server=SERVER --ent=ENTERPRISE --org=ORGANIZATION --user=USERNAME
 
    .. note:: The server, enterprise, organization, and user must already exist.
 
@@ -453,11 +453,11 @@ The following example shows how to create a cookbook, with project and pipeline,
 
    .. code-block:: bash
 
-      $ chef generate cookbook NEW-COOKBOOK-NAME
+      chef generate cookbook NEW-COOKBOOK-NAME
 
    .. code-block:: bash
 
-      $ cd NEW-COOKBOOK-NAME
+      cd NEW-COOKBOOK-NAME
 
    This uses Chef Workstation to generate a new cookbook, including a default recipe and default ChefSpec tests.
 
@@ -465,11 +465,11 @@ The following example shows how to create a cookbook, with project and pipeline,
 
    .. code-block:: bash
 
-      $ git add .
+      git add .
 
    .. code-block:: bash
 
-      $ git commit -m 'Initial Commit'
+      git commit -m 'Initial Commit'
 
    Running ``chef generate`` initialized a git repository automatically for this cookbook. If you created the build cookbook manually, initialize the git repository with the ``git init`` command.
 
@@ -477,7 +477,7 @@ The following example shows how to create a cookbook, with project and pipeline,
 
    .. code-block:: bash
 
-      $ delivery init
+      delivery init
 
    This creates a new project in Chef Automate, pushes the master branch, creates a feature branch, generates a default Chef Automate project configuration file, pushes the first change for review, and then opens a browser window that shows the change.
 

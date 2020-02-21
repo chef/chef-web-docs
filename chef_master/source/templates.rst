@@ -83,7 +83,7 @@ An Embedded Ruby (ERB) template allows Ruby code to be embedded inside a text fi
 
    <%= "my name is #{$ruby}" %>
 
-A statement is delimited by a modifier, such as ``if``, ``elseif``, and ``else``. For example:
+A statement is delimited by a modifier, such as ``if``, ``elsif``, and ``else``. For example:
 
 .. code-block:: ruby
 

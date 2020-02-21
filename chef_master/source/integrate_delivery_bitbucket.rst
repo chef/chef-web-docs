@@ -3,8 +3,8 @@ Integrate Workflow with Bitbucket
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/integrate_delivery_bitbucket.rst>`__
 
-.. meta:: 
-    :robots: noindex 
+.. meta::
+    :robots: noindex
 
 .. tag chef_automate_mark
 
@@ -154,7 +154,7 @@ You can repeat these steps for each Bitbucket project to be added to Workflow:
 
    .. code-block:: bash
 
-      $ delivery setup --ent=$DELIVERY_ENTERPRISE --org=$DELIVERY_ORG --user=$DELIVERY_USER_NAME --server=$DELIVERY_SERVER
+      delivery setup --ent=$DELIVERY_ENTERPRISE --org=$DELIVERY_ORG --user=$DELIVERY_USER_NAME --server=$DELIVERY_SERVER
 
 #. Run ``delivery init`` to push the code to the empty project in Workflow (as created above). After importing the code, this command will generate a ``.delivery/config.json`` file, create a build cookbook, and submit a change to Workflow to initialize a pipeline for the project. Changes are opened in the Workflow web UI. At this point, a corresponding pull request is shown in Bitbucket.
 
@@ -164,13 +164,13 @@ You can repeat these steps for each Bitbucket project to be added to Workflow:
 
    .. code-block:: bash
 
-      $ delivery init --bitbucket PROJECT_KEY -r REPO_NAME
+      delivery init --bitbucket PROJECT_KEY -r REPO_NAME
 
    where ``PROJECT_KEY`` is the name of the project key in Bitbucket and ``REPO_NAME`` is the name of the repository in Bitbucket. For example to initialize the ``anagrams`` repository in Bitbucket with the ``TEST`` project key:
 
    .. code-block:: bash
 
-      $ delivery init --bitbucket TEST -r anagrams
+      delivery init --bitbucket TEST -r anagrams
 
    and returns output similar to:
 
@@ -264,13 +264,13 @@ Perform the following steps to install the Delivery CLI and setup your project:
 
    .. code-block:: bash
 
-      $ delivery setup --ent=$DELIVERY_ENTERPRISE --org=$DELIVERY_ORG --user=$DELIVERY_USER --server=$DELIVERY_SERVER
+      delivery setup --ent=$DELIVERY_ENTERPRISE --org=$DELIVERY_ORG --user=$DELIVERY_USER --server=$DELIVERY_SERVER
 
 #. Create a local clone of the project repository:
 
    .. code-block:: bash
 
-      $ delivery clone $PROJECT
+      delivery clone $PROJECT
 
    If the project is cloned from Bitbucket (or if a pre-existing clone is used), add it using ``delivery remote``. The URL for ``delivery clone`` can be found on the project's page in the Workflow web UI.
 
@@ -278,7 +278,7 @@ Perform the following steps to install the Delivery CLI and setup your project:
 
    .. code-block:: bash
 
-      $ git remote add delivery $DELIVERY_CLONE_URL
+      git remote add delivery $DELIVERY_CLONE_URL
 
 Create a Change
 -----------------------------------------------------

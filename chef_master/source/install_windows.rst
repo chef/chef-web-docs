@@ -46,7 +46,7 @@ Msiexec.exe is used to install Chef Infra Client on a node as part of a bootstra
 
 .. code-block:: bash
 
-   $ msiexec /qn /i "%LOCAL_DESTINATION_MSI_PATH%"
+   msiexec /qn /i "%LOCAL_DESTINATION_MSI_PATH%"
 
 where ``/qn`` is used to set the user interface level to "No UI", ``/i`` is used to define the location in which Chef Infra Client is installed, and ``"%LOCAL_DESTINATION_MSI_PATH%"`` is a variable defined in the default `windows-chef-client-msi.erb <https://github.com/chef/chef/blob/master/lib/chef/knife/bootstrap/templates/windows-chef-client-msi.erb>`_ bootstrap template. See https://docs.microsoft.com/en-us/windows/win32/msi/command-line-options for more information about the options available to Msiexec.exe.
 
@@ -75,7 +75,7 @@ First install Chef Infra Client, and then enable it to run as a scheduled task. 
 
 .. code-block:: bash
 
-   $ msiexec /qn /i C:\inst\chef-client-15.3.14-1-x64.msi ADDLOCAL="ChefClientFeature,ChefSchTaskFeature,ChefPSModuleFeature"
+   msiexec /qn /i C:\inst\chef-client-15.3.14-1-x64.msi ADDLOCAL="ChefClientFeature,ChefSchTaskFeature,ChefPSModuleFeature"
 
 .. end_tag
 
@@ -102,7 +102,7 @@ For example:
 
 .. code-block:: none
 
-   $ SCHTASKS.EXE /CREATE /TN ChefClientSchTask /SC MINUTE /MO 30 /F /RU "System" /RP /RL HIGHEST /TR "cmd /c \"C:\opscode\chef\embedded\bin\ruby.exe C:\opscode\chef\bin\chef-client -L C:\chef\chef-client.log -c C:\chef\client.rb\""
+   SCHTASKS.EXE /CREATE /TN ChefClientSchTask /SC MINUTE /MO 30 /F /RU "System" /RP /RL HIGHEST /TR "cmd /c \"C:\opscode\chef\embedded\bin\ruby.exe C:\opscode\chef\bin\chef-client -L C:\chef\chef-client.log -c C:\chef\client.rb\""
 
 Refer to the `Schtasks documentation <https://docs.microsoft.com/en-us/windows/win32/taskschd/schtasks>`_ for more details.
 

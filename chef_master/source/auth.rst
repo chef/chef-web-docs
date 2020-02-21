@@ -252,7 +252,7 @@ After saving this shell script to a file named ``chef_api_request``, use it simi
 
 .. code-block:: bash
 
-   $ bash chef_api_request GET "/clients"
+   bash chef_api_request GET "/clients"
 
 PyChef
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

@@ -193,7 +193,7 @@ Examples
 
 .. code-block:: bash
 
-   $ chef-solo -c ~/chef/solo.rb
+   chef-solo -c ~/chef/solo.rb
 
 
 
@@ -203,7 +203,7 @@ Examples
 
 .. code-block:: bash
 
-   $ chef-solo -c ~/solo.rb -j ~/node.json -r http://www.example.com/chef-solo.tar.gz
+   chef-solo -c ~/solo.rb -j ~/node.json -r http://www.example.com/chef-solo.tar.gz
 
 The tar.gz is archived into the ``file_cache_path``, and then extracted to ``cookbooks_path``.
 
@@ -215,7 +215,7 @@ The tar.gz is archived into the ``file_cache_path``, and then extracted to ``coo
 
 .. code-block:: bash
 
-   $ chef-solo -c ~/solo.rb -j ~/node.json
+   chef-solo -c ~/solo.rb -j ~/node.json
 
 chef-solo will look in the solo.rb file to determine the directory in which cookbooks are located.
 
@@ -227,8 +227,6 @@ chef-solo will look in the solo.rb file to determine the directory in which cook
 
 .. code-block:: bash
 
-   $ chef-solo -c ~/solo.rb -j http://www.example.com/node.json --recipe-url http://www.example.com/chef-solo.tar.gz
+   chef-solo -c ~/solo.rb -j http://www.example.com/node.json --recipe-url http://www.example.com/chef-solo.tar.gz
 
 where ``--recipe-url`` corresponds to ``recipe_url`` and ``-j`` corresponds to ``json_attribs``, both of which are `configuration options </config_rb_solo.html>`__ in ``solo.rb``.
-
-

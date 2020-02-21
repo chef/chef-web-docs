@@ -3,9 +3,9 @@ Deprecation: Deploy Resource (CHEF-20)
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/deprecations_deploy_resource.rst>`__
 
-.. meta:: 
-    :robots: noindex 
-    
+.. meta::
+    :robots: noindex
+
 The ``deploy`` and ``deploy_revision`` resources have been deprecated as of Chef Client 13.6, and will be removed in Chef Client 14.
 
 Remediation

@@ -15,7 +15,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ knife show [PATTERN...] (options)
+   knife show [PATTERN...] (options)
 
 Options
 =====================================================
@@ -41,7 +41,7 @@ This subcommand has the following options:
 
 ``--repo-mode MODE``
    The layout of the local chef-repo. Possible values: ``static``, ``everything``, or ``hosted_everything``. Use ``static`` for just roles, environments, cookbooks, and data bags. By default, ``everything`` and ``hosted_everything`` are dynamically selected depending on the server type. Default: ``everything`` / ``hosted_everything``.
-   
+
 ``-S SEPARATOR``, ``--field-separator SEPARATOR``
    Character separator used to delineate nesting in --attribute filters. For example, to use a colon as the delimiter, specify ``-S:`` in your ``knife node show`` subcommand. Default is ``.``
 
@@ -55,13 +55,13 @@ To show all cookbooks in the ``cookbooks/`` directory:
 
 .. code-block:: bash
 
-   $ knife show cookbooks/
+   knife show cookbooks/
 
 or, (if already in the ``cookbooks/`` directory in the local chef-repo):
 
 .. code-block:: bash
 
-   $ knife show
+   knife show
 
 **Show roles and environments**
 
@@ -69,4 +69,4 @@ or, (if already in the ``cookbooks/`` directory in the local chef-repo):
 
 .. code-block:: bash
 
-   $ knife show roles/ environments/
+   knife show roles/ environments/

@@ -15,7 +15,7 @@ This command has the following syntax:
 
 .. code-block:: bash
 
-   $ chef-apply name_of_recipe.rb
+   chef-apply name_of_recipe.rb
 
 This tool has the following options:
 
@@ -46,7 +46,7 @@ Run a recipe named ``machinations.rb``:
 
 .. code-block:: bash
 
-   $ chef-apply machinations.rb
+   chef-apply machinations.rb
 
 **Install Emacs**
 
@@ -54,7 +54,7 @@ Run:
 
 .. code-block:: bash
 
-   $ sudo chef-apply -e "package 'emacs'"
+   sudo chef-apply -e "package 'emacs'"
 
 Returns:
 
@@ -70,7 +70,7 @@ Run:
 
 .. code-block:: bash
 
-   $ sudo chef-apply -e "package 'nano'"
+   sudo chef-apply -e "package 'nano'"
 
 Returns:
 
@@ -86,7 +86,7 @@ Run:
 
 .. code-block:: bash
 
-   $ sudo chef-apply -e "package 'vim'"
+   sudo chef-apply -e "package 'vim'"
 
 Returns:
 
@@ -102,7 +102,7 @@ Run:
 
 .. code-block:: bash
 
-   $ sudo chef-apply -e "package 'vim'"
+   sudo chef-apply -e "package 'vim'"
 
 Returns:
 

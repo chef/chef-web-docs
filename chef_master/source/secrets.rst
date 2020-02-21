@@ -29,19 +29,19 @@ knife can be used to create data bags and data bag items when the ``knife data b
 
 .. code-block:: bash
 
-   $ knife data bag create DATA_BAG_NAME (DATA_BAG_ITEM)
+   knife data bag create DATA_BAG_NAME (DATA_BAG_ITEM)
 
 knife can be used to update data bag items using the ``from file`` argument:
 
 .. code-block:: bash
 
-   $ knife data bag from file BAG_NAME ITEM_NAME.json
+   knife data bag from file BAG_NAME ITEM_NAME.json
 
 As long as a file is in the correct directory structure, knife will be able to find the data bag and data bag item with only the name of the data bag and data bag item. For example:
 
 .. code-block:: bash
 
-   $ knife data bag from file BAG_NAME ITEM_NAME.json
+   knife data bag from file BAG_NAME ITEM_NAME.json
 
 will load the following file:
 
@@ -53,13 +53,13 @@ Continuing the example above, if you are in the "admins" directory and make chan
 
 .. code-block:: bash
 
-   $ knife data bag from file admins charlie.json
+   knife data bag from file admins charlie.json
 
 In some cases, such as when knife is not being run from the root directory for the chef-repo, the full path to the data bag item may be required. For example:
 
 .. code-block:: bash
 
-   $ knife data bag from file BAG_NAME /path/to/file/ITEM_NAME.json
+   knife data bag from file BAG_NAME /path/to/file/ITEM_NAME.json
 
 .. end_tag
 
@@ -71,25 +71,25 @@ One or more data bags and data bag items can be created manually under the ``dat
 
 .. code-block:: bash
 
-   $ mkdir data_bags/admins
+   mkdir data_bags/admins
 
 would create a data bag folder named "admins". The equivalent command for using knife is:
 
 .. code-block:: bash
 
-   $ knife data bag create admins
+   knife data bag create admins
 
 A data bag item can be created manually in the same way as the data bag, but by also specifying the file name for the data bag item (this example is using vi, a visual editor for UNIX):
 
 .. code-block:: bash
 
-   $ vi data_bags/admins/charlie.json
+   vi data_bags/admins/charlie.json
 
 would create a data bag item named "charlie.json" under the "admins" sub-directory in the ``data_bags`` directory of the chef-repo. The equivalent command for using knife is:
 
 .. code-block:: bash
 
-  $ knife data bag create admins charlie
+  knife data bag create admins charlie
 
 .. end_tag
 
@@ -239,13 +239,13 @@ Encrypting a data bag item requires a secret key. A secret key can be created in
 
 .. code-block:: bash
 
-   $ openssl rand -base64 512 | tr -d '\r\n' > encrypted_data_bag_secret
+   openssl rand -base64 512 | tr -d '\r\n' > encrypted_data_bag_secret
 
 where ``encrypted_data_bag_secret`` is the name of the file which will contain the secret key. For example, to create a secret key named "my_secret_key":
 
 .. code-block:: bash
 
-   $ openssl rand -base64 512 | tr -d '\r\n' > my_secret_key
+   openssl rand -base64 512 | tr -d '\r\n' > my_secret_key
 
 The ``tr`` command eliminates any trailing line feeds. Doing so avoids key corruption when transferring the file between platforms with different line endings.
 
@@ -259,7 +259,7 @@ A data bag item is encrypted using a knife command similar to:
 
 .. code-block:: bash
 
-   $ knife data bag create passwords mysql --secret-file /tmp/my_data_bag_key
+   knife data bag create passwords mysql --secret-file /tmp/my_data_bag_key
 
 where "passwords" is the name of the data bag, "mysql" is the name of the data bag item, and "/tmp/my_data_bag_key" is the path to the location in which the file that contains the secret-key is located. knife will ask for user credentials before the encrypted data bag item is saved.
 
@@ -273,7 +273,7 @@ When the contents of a data bag item are encrypted, they will not be readable un
 
 .. code-block:: bash
 
-   $ knife data bag show passwords mysql
+   knife data bag show passwords mysql
 
 where "passwords" is the name of the data bag and "mysql" is the name of the data bag item. This will return something similar to:
 
@@ -301,7 +301,7 @@ An encrypted data bag item is decrypted with a knife command similar to:
 
 .. code-block:: bash
 
-   $ knife data bag show --secret-file /tmp/my_data_bag_key passwords mysql
+   knife data bag show --secret-file /tmp/my_data_bag_key passwords mysql
 
 that will return JSON output similar to:
 
@@ -337,7 +337,7 @@ To edit an item named "charlie" that is contained in a data bag named "admins", 
 
 .. code-block:: bash
 
-   $ knife data bag edit admins charlie
+   knife data bag edit admins charlie
 
 to open the $EDITOR. Once opened, you can update the data before saving it to the Chef Infra Server. For example, by changing:
 
@@ -402,7 +402,7 @@ Any search for a data bag (or a data bag item) must specify the name of the data
 
 .. code-block:: bash
 
-   $ knife search admin_data "(NOT id:admin_users)"
+   knife search admin_data "(NOT id:admin_users)"
 
 Or, to include the same search query in a recipe, use a code block similar to:
 

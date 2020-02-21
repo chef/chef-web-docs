@@ -17,7 +17,7 @@ This command has the following syntax:
 
 .. code-block:: bash
 
-   $ ohai OPTION
+   ohai OPTION
 
 This tool has the following options:
 
@@ -75,7 +75,7 @@ To run that plugin from the command line, use the following command:
 
 .. code-block:: bash
 
-   $ ohai --directory /path/to/directory sl
+   ohai --directory /path/to/directory sl
 
 The command will return something similar to:
 
