@@ -36,7 +36,7 @@ The following repositories are the preferred locations for the creation of issue
    * - Chef Habitat
      - https://github.com/habitat-sh/habitat
    * - Chef Automate
-     - please contact `Chef Support <https://www.chef.io/support/>`_
+     - https://github.com/chef/automate
 
 For additional support about Chef products, including documentation, learning, and opening tickets with the support team, see `Chef Support <https://www.chef.io/support/>`_ .
 
