@@ -3,8 +3,8 @@ Integrate with LDAP for Authentication
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/integrate_delivery_ldap.rst>`__
 
-.. meta:: 
-    :robots: noindex 
+.. meta::
+    :robots: noindex
 
 .. tag chef_automate_mark
 
@@ -85,7 +85,7 @@ To configure LDAP for Workflow:
 
    .. code-block:: bash
 
-      $ sudo automate-ctl reconfigure
+      sudo automate-ctl reconfigure
 
 Once Workflow is set up, you will have a usable **LDAP** option in the Workflow **Users** page that allows you to find users through your LDAP database.
 
@@ -166,4 +166,3 @@ To edit LDAP details for a user:
 To check that the user was added properly when using LDAP, click **Edit** and verify that the user details are present.
 
 .. end_tag
-

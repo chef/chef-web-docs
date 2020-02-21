@@ -121,7 +121,7 @@ To verify that the top-level Subversion data is not being uploaded to the Chef I
 
 .. code-block:: bash
 
-   $ knife cookbook show name_of_cookbook cookbook_version | grep .svn
+   knife cookbook show name_of_cookbook cookbook_version | grep .svn
 
 **Ignore all files in a directory**
 
@@ -172,6 +172,6 @@ Use the `chef generate repo command </ctl_chef.html#chef-generate-repo>`__ to cr
 
 .. code-block:: bash
 
-   $ chef generate repo REPO_NAME
+   chef generate repo REPO_NAME
 
 .. note:: By default the chef generate repo command generates a base chef-repo configured for Policyfiles. To create a repository setup for Roles and Environments instead use the ``--roles`` flag when running the command.

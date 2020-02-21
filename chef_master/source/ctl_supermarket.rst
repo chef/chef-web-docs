@@ -17,7 +17,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ sudo -u supermarket supermarket-ctl make-admin USER_NAME
+   sudo -u supermarket supermarket-ctl make-admin USER_NAME
 
 where ``USER_NAME`` represents the name of the user to be granted administrator privileges.
 
@@ -34,7 +34,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ sudo -u supermarket supermarket-ctl qm-flip-admin-only "METRIC_NAME"
+   sudo -u supermarket supermarket-ctl qm-flip-admin-only "METRIC_NAME"
 
 where ``METRIC_NAME`` is the name of the quality metric to make admin only.
 Names containing spaces must be surrounded by quotes.
@@ -49,7 +49,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ sudo -u supermarket supermarket-ctl qm-flip-all-admin-only
+   sudo -u supermarket supermarket-ctl qm-flip-all-admin-only
 
 qm-flip-all-public
 -----------------------------------------------------
@@ -61,7 +61,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ sudo -u supermarket supermarket-ctl qm-flip-all-public
+   sudo -u supermarket supermarket-ctl qm-flip-all-public
 
 qm-flip-public
 -----------------------------------------------------
@@ -73,7 +73,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ sudo -u supermarket supermarket-ctl qm-flip-public "METRIC_NAME"
+   sudo -u supermarket supermarket-ctl qm-flip-public "METRIC_NAME"
 
 where ``METRIC_NAME`` is the name of the quality metric to make public. Names
 containing spaces must be surrounded by quotes.
@@ -88,7 +88,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ sudo -u supermarket supermarket-ctl qm-list
+   sudo -u supermarket supermarket-ctl qm-list
 
 qm-run-all-the-latest
 -----------------------------------------------------
@@ -100,7 +100,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ sudo -u supermarket supermarket-ctl qm-run-all-the-latest
+   sudo -u supermarket supermarket-ctl qm-run-all-the-latest
 
 qm-run-on-latest
 -----------------------------------------------------
@@ -112,7 +112,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ sudo -u supermarket supermarket-ctl qm-run-on-version COOKBOOK_NAME
+   sudo -u supermarket supermarket-ctl qm-run-on-version COOKBOOK_NAME
 
 where ``COOKBOOK_NAME`` is the name of the cookbook on which to run all quality
 metrics on its latest version.
@@ -127,7 +127,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ sudo -u supermarket supermarket-ctl qm-run-on-version COOKBOOK_NAME VERSION
+   sudo -u supermarket supermarket-ctl qm-run-on-version COOKBOOK_NAME VERSION
 
 where ``COOKBOOK_NAME`` and ``VERSION`` are respectively the name and version of
 the cookbook on which to run all quality metrics.
@@ -143,7 +143,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ supermarket-ctl cleanse
+   supermarket-ctl cleanse
 
 help
 -----------------------------------------------------
@@ -153,7 +153,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ supermarket-ctl help
+   supermarket-ctl help
 
 reconfigure
 -----------------------------------------------------
@@ -163,7 +163,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ supermarket-ctl reconfigure
+   supermarket-ctl reconfigure
 
 show-config
 -----------------------------------------------------
@@ -173,7 +173,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ supermarket-ctl show-config
+   supermarket-ctl show-config
 
 uninstall
 -----------------------------------------------------
@@ -183,7 +183,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ supermarket-ctl uninstall
+   supermarket-ctl uninstall
 
 .. note:: To revert the ``uninstall`` subcommand, run the ``reconfigure`` subcommand (because the ``start`` subcommand is disabled by the ``uninstall`` command).
 
@@ -203,7 +203,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ supermarket-ctl hup name_of_service
+   supermarket-ctl hup name_of_service
 
 where ``name_of_service`` represents the name of any service that is listed after running the ``service-list`` subcommand.
 
@@ -215,7 +215,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ supermarket-ctl int name_of_service
+   supermarket-ctl int name_of_service
 
 where ``name_of_service`` represents the name of any service that is listed after running the ``service-list`` subcommand.
 
@@ -227,7 +227,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ supermarket-ctl kill name_of_service
+   supermarket-ctl kill name_of_service
 
 where ``name_of_service`` represents the name of any service that is listed after running the ``service-list`` subcommand.
 
@@ -241,7 +241,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ supermarket-ctl once name_of_service
+   supermarket-ctl once name_of_service
 
 where ``name_of_service`` represents the name of any service that is listed after running the ``service-list`` subcommand.
 
@@ -253,13 +253,13 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ supermarket-ctl restart name_of_service
+   supermarket-ctl restart name_of_service
 
 where ``name_of_service`` represents the name of any service that is listed after running the ``service-list`` subcommand. When a service is successfully restarted the output should be similar to:
 
 .. code-block:: bash
 
-   $ ok: run: service_name: (pid 12345) 1s
+   ok: run: service_name: (pid 12345) 1s
 
 service-list
 -----------------------------------------------------
@@ -269,7 +269,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ supermarket-ctl service-list
+   supermarket-ctl service-list
 
 start
 -----------------------------------------------------
@@ -279,13 +279,13 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ supermarket-ctl start name_of_service
+   supermarket-ctl start name_of_service
 
 where ``name_of_service`` represents the name of any service that is listed after running the ``service-list`` subcommand. When a service is successfully started the output should be similar to:
 
 .. code-block:: bash
 
-   $ ok: run: service_name: (pid 12345) 1s
+   ok: run: service_name: (pid 12345) 1s
 
 The supervisor for Chef Supermarket is configured to wait seven seconds for a service to respond to a command from the supervisor. If you see output that references a timeout, it means that a signal has been sent to the process, but that the process has yet to actually comply. In general, processes that have timed out are not a big concern, unless they are failing to respond to the signals at all. If a process is not responding, use a command like the ``kill`` subcommand to stop the process, investigate the cause (if required), and then use the ``start`` subcommand to re-enable it.
 
@@ -295,13 +295,13 @@ The ``status`` subcommand is used to show the status of all services available t
 
 .. code-block:: bash
 
-   $ supermarket-ctl status
+   supermarket-ctl status
 
 and will return the status for all services. Status can be returned for individual services by specifying the name of the service as part of the command:
 
 .. code-block:: bash
 
-   $ supermarket-ctl status name_of_service
+   supermarket-ctl status name_of_service
 
 where ``name_of_service`` represents the name of any service that is listed after running the ``service-list`` subcommand.
 
@@ -309,7 +309,7 @@ When service status is requested, the output should be similar to:
 
 .. code-block:: bash
 
-   $ run: service_name: (pid 12345) 12345s; run: log: (pid 1234) 67890s
+   run: service_name: (pid 12345) 12345s; run: log: (pid 1234) 67890s
 
 where
 
@@ -322,7 +322,7 @@ For example:
 
 .. code-block:: bash
 
-   $ down: actions: (pid 35546) 10s
+   down: actions: (pid 35546) 10s
 
 By default, runit will restart services automatically when the services fail. Therefore, runit may report the status of a service as ``run:`` even when there is an issue with that service. When investigating why a particular service is not running as it should be, look for the services with the shortest uptimes. For example, the list below indicates that the **actions** should be investigated further:
 
@@ -367,19 +367,19 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ supermarket-ctl stop name_of_service
+   supermarket-ctl stop name_of_service
 
 where ``name_of_service`` represents the name of any service that is listed after running the ``service-list`` subcommand. When a service is successfully stopped the output should be similar to:
 
 .. code-block:: bash
 
-   $ ok: diwb: service_name: 0s, normally up
+   ok: diwb: service_name: 0s, normally up
 
 For example:
 
 .. code-block:: bash
 
-   $ supermarket-ctl stop
+   supermarket-ctl stop
 
 will return something similar to:
 
@@ -398,7 +398,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ supermarket-ctl tail name_of_service
+   supermarket-ctl tail name_of_service
 
 where ``name_of_service`` represents the name of any service that is listed after running the ``service-list`` subcommand.
 
@@ -410,6 +410,6 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ supermarket-ctl term name_of_service
+   supermarket-ctl term name_of_service
 
 where ``name_of_service`` represents the name of any service that is listed after running the ``service-list`` subcommand.

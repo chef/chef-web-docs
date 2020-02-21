@@ -26,7 +26,7 @@ During a ``knife bootstrap`` bootstrap operation, the following happens:
 
    * - Stages
      - Description
-   * - **$ knife bootstrap**
+   * - **knife bootstrap**
      - Enter the ``knife bootstrap`` subcommand from a workstation. Include the hostname, IP address, or FQDN of the target node as part of this command. Knife will establish an SSH or WinRM connection with the target node using port 22 and assemble a shell script using the chef-full.erb file, which is the default bootstrap template.
 
    * - **Get the install script from Chef**
@@ -72,7 +72,7 @@ The ``knife bootstrap`` subcommand is used to run a bootstrap operation that ins
 
    .. code-block:: bash
 
-      $ knife bootstrap 123.45.6.789 -x username -P password --sudo
+      knife bootstrap 123.45.6.789 -x username -P password --sudo
 
    where ``123.45.6.789`` is the IP address or the FQDN for the node. Use the ``--distro`` option to specify a non-default distribution. For more information about the options available to the ``knife bootstrap`` command for Ubuntu- and Linux-based platforms, see `knife bootstrap </knife_bootstrap.html>`__. For Microsoft Windows, the ``knife windows`` plugin is required, see `knife windows </knife_windows.html>`__.
 
@@ -115,7 +115,7 @@ The ``knife bootstrap`` subcommand is used to run a bootstrap operation that ins
 
    .. code-block:: bash
 
-      $ knife client show name_of_node
+      knife client show name_of_node
 
    where ``name_of_node`` is the name of the node that was just bootstrapped. The Chef Infra Server will return something similar to:
 
@@ -155,7 +155,7 @@ To create a node via the USER.pem file, simply delete the ORGANIZATION-validator
 
 .. code-block:: bash
 
-   $ rm -f /home/lamont/.chef/myorg-validator.pem
+   rm -f /home/lamont/.chef/myorg-validator.pem
 
 and then make the following changes in the config.rb file:
 
@@ -204,16 +204,16 @@ The following example shows how to recreate a data bag item:
 
 .. code-block:: bash
 
-   $ knife vault delete sea power
+   knife vault delete sea power
    Do you really want to delete sea/power? (Y/N) Y
    Deleted chef_vault_item[sea/power]
 
-   $ echo "{\"some\":\"content for them\"}" > sea-power-content.json
+   echo "{\"some\":\"content for them\"}" > sea-power-content.json
 
-   $ cat sea-power-content.json
+   cat sea-power-content.json
    {"some":"content for them"}
 
-   $ knife vault create sea power -M client -A sean_horn,angle -J sea-power-content.json
+   knife vault create sea power -M client -A sean_horn,angle -J sea-power-content.json
 
 No clients, because the ``-S`` option was not specified while creating the vault.
 
@@ -221,7 +221,7 @@ At this time, only the users ``sean_horn`` and ``angle`` are authorized to read 
 
 .. code-block:: bash
 
-   $ knife vault show sea power  --mode client -p all
+   knife vault show sea power  --mode client -p all
    admins:
      sean_horn
      angle
@@ -234,7 +234,7 @@ It is definitely an encrypted databag, see?
 
 .. code-block:: bash
 
-   $ knife data_bag show sea power
+   knife data_bag show sea power
    WARNING: Encrypted data bag detected, but no secret provided for decoding.  Displaying encrypted data.
    id:   power
    some:
@@ -253,7 +253,7 @@ Use the ``sea:power`` recreation step above first, to follow the difference in t
 
    echo "{\"sea\":\"power\"}" > sea-power-bootstrap-vault-file.json
 
-   $ knife bootstrap localhost -p 2200 -N ubuntu-12.04 -r 'role[group1]' --ssh-user vagrant --sudo --bootstrap-vault-file sea-power-bootstrap-vault-file.json
+   knife bootstrap localhost -p 2200 -N ubuntu-12.04 -r 'role[group1]' --ssh-user vagrant --sudo --bootstrap-vault-file sea-power-bootstrap-vault-file.json
    Node ubuntu-12.04 exists, overwrite it? (Y/N) Y
    Client ubuntu-12.04 exists, overwrite it? (Y/N) Y
    Creating new client for ubuntu-12.04
@@ -279,7 +279,7 @@ The client ``ubuntu-12.04`` was added to the ``chef-vault`` during the bootstrap
 
 .. code-block:: bash
 
-   $ knife vault show sea power  --mode client -p all
+   knife vault show sea power  --mode client -p all
    admins:
      sean_horn
      angle
@@ -295,7 +295,7 @@ Use the ``sea:power`` re-creation step above first, to follow the difference in 
 
 .. code-block:: bash
 
-   $ knife bootstrap localhost -p 2200 -N ubuntu-12.04 -r 'role[group1]' --ssh-user vagrant --sudo --bootstrap-vault-item sea:power
+   knife bootstrap localhost -p 2200 -N ubuntu-12.04 -r 'role[group1]' --ssh-user vagrant --sudo --bootstrap-vault-item sea:power
    Node ubuntu-12.04 exists, overwrite it? (Y/N) Y
    Client ubuntu-12.04 exists, overwrite it? (Y/N) Y
    Creating new client for ubuntu-12.04
@@ -322,7 +322,7 @@ During the above run, the ``sea:power`` vault item was updated with the ``ubuntu
 
 .. code-block:: bash
 
-   $ knife vault show sea power -p all
+   knife vault show sea power -p all
    admins:
      sean_horn
      angle
@@ -335,7 +335,7 @@ Then, let's check the ``ubuntu-12.04`` client. Install the ``chef-vault`` gem in
 
 .. code-block:: bash
 
-   $ sudo /opt/chef/embedded/bin/gem install chef-vault --no-ri --no-rdoc
+   sudo /opt/chef/embedded/bin/gem install chef-vault --no-ri --no-rdoc
    Fetching: chef-vault-2.6.1.gem (100%)
    Successfully installed chef-vault-2.6.1
    1 gem installed
@@ -344,7 +344,7 @@ The client itself can decrypt and read the encrypted databag contents as well.
 
 .. code-block:: bash
 
-   $ sudo /opt/chef/bin/knife vault show sea power -c /etc/chef/client.rb -M client -p all
+   sudo /opt/chef/bin/knife vault show sea power -c /etc/chef/client.rb -M client -p all
    admins:
      sean_horn
      angle
@@ -361,7 +361,7 @@ Use the ``sea:power`` re-creation step above first, to follow the difference in 
 
 .. code-block:: bash
 
-   $ knife bootstrap localhost -p 2200 -N ubuntu-12.04 -r 'role[group1]' --ssh-user vagrant --sudo --bootstrap-vault-json '{"sea": "power"}'
+   knife bootstrap localhost -p 2200 -N ubuntu-12.04 -r 'role[group1]' --ssh-user vagrant --sudo --bootstrap-vault-json '{"sea": "power"}'
    Node ubuntu-12.04 exists, overwrite it? (Y/N) Y
    Client ubuntu-12.04 exists, overwrite it? (Y/N) Y
    Creating new client for ubuntu-12.04
@@ -386,7 +386,7 @@ Use the ``sea:power`` re-creation step above first, to follow the difference in 
 
 .. code-block:: bash
 
-   $ knife vault show sea power -M client -p all
+   knife vault show sea power -M client -p all
    admins:
      sean_horn
      angle
@@ -508,7 +508,7 @@ A node's initial run-list is specified using a JSON file on the host system. Whe
 
 .. code-block:: bash
 
-   $ chef-client -j /etc/chef/file.json --environment _default
+   chef-client -j /etc/chef/file.json --environment _default
 
 where ``file.json`` is similar to:
 

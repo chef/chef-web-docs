@@ -29,13 +29,13 @@ If Chef Infra Client was installed using RubyGems, install the ``knife azure`` w
 
 .. code-block:: bash
 
-   $ gem install knife-azure
+   gem install knife-azure
 
 If Chef Infra Client was installed from the `Chef Infra Client <https://downloads.chef.io/chef>`__ downloads page or any other method, run:
 
 .. code-block:: bash
 
-   $ /opt/chef/embedded/bin/gem install knife-azure
+   /opt/chef/embedded/bin/gem install knife-azure
 
 where ``/opt/chef/embedded/bin/`` is the path to the location where Chef Infra Client expects knife plugins to be located.
 
@@ -78,7 +78,7 @@ This argument has the following syntax:
 
 .. code-block:: bash
 
-   $ knife azurerm server create (options)
+   knife azurerm server create (options)
 
 Options
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -282,7 +282,7 @@ This argument has the following syntax:
 
 .. code-block:: bash
 
-   $ knife azurerm server delete (options)
+   knife azurerm server delete (options)
 
 Options
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -376,7 +376,7 @@ This argument has the following syntax:
 
 .. code-block:: bash
 
-   $ knife azurerm server list (options)
+   knife azurerm server list (options)
 
 Options
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -461,7 +461,7 @@ This argument has the following syntax:
 
 .. code-block:: bash
 
-   $ knife azurerm server show (options)
+   knife azurerm server show (options)
 
 Options
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

@@ -15,7 +15,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef-server-ctl uninstall
+   chef-server-ctl uninstall
 
 .. note:: To revert the ``uninstall`` subcommand, run the ``reconfigure`` subcommand (because the ``start`` subcommand is disabled by the ``uninstall`` command).
 
@@ -29,7 +29,7 @@ To uninstall the Chef management console, do the following:
 
    .. code-block:: bash
 
-      $ chef-manage-ctl cleanse
+      chef-manage-ctl cleanse
 
 #. Use the package manager for the platform on which the Chef management console is installed, and then uninstall the package named ``chef-manage``.
 
@@ -43,7 +43,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ opscode-analytics-ctl uninstall
+   opscode-analytics-ctl uninstall
 
 .. note:: To revert the ``uninstall`` subcommand, run the ``reconfigure`` subcommand (because the ``start`` subcommand is disabled by the ``uninstall`` command).
 
@@ -55,7 +55,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ opscode-reporting-ctl uninstall
+   opscode-reporting-ctl uninstall
 
 .. note:: To revert the ``uninstall`` subcommand, run the ``reconfigure`` subcommand (because the ``start`` subcommand is disabled by the ``uninstall`` command).
 
@@ -69,7 +69,7 @@ To uninstall Chef Push Jobs, do the following:
 
    .. code-block:: bash
 
-      $ chef-server-ctl reconfigure
+      chef-server-ctl reconfigure
 
 .. note:: This will leave some data in PostgreSQL that is not used by any other Chef application or service.
 
@@ -87,7 +87,7 @@ Use the following command to remove Chef Workstation on Debian-based platforms:
 
 .. code-block:: bash
 
-   $ dpkg -P chef-workstation
+   dpkg -P chef-workstation
 
 macOS
 ----------------------------------------------------
@@ -97,19 +97,19 @@ To remove installed files:
 
 .. code-block:: bash
 
-   $ sudo rm -rf `/opt/chef-workstation
+   sudo rm -rf `/opt/chef-workstation
 
 To remove the system installation entry:
 
 .. code-block:: bash
 
-   $ sudo pkgutil --forget com.getchef.pkg.chef-workstation
+   sudo pkgutil --forget com.getchef.pkg.chef-workstation
 
 To remove symlinks:
 
   .. code-block:: bash
 
-     $ sudo find /usr/local/bin -lname '`/opt/chef-workstation/*' -delete
+     sudo find /usr/local/bin -lname '`/opt/chef-workstation/*' -delete
 
 Red Hat Enterprise Linux
 ----------------------------------------------------
@@ -117,8 +117,8 @@ Use the following commands to remove Chef Workstation on Red Hat Enterprise Linu
 
 .. code-block:: bash
 
-   $ rpm -qa *chef-workstation*
-   $ sudo yum remove -y <package>
+   rpm -qa *chef-workstation*
+   sudo yum remove -y <package>
 
 Microsoft Windows
 ----------------------------------------------------

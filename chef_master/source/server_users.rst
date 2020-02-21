@@ -42,7 +42,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef-server-ctl org-create ORG_NAME "ORG_FULL_NAME" (options)
+   chef-server-ctl org-create ORG_NAME "ORG_FULL_NAME" (options)
 
 where:
 
@@ -81,7 +81,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef-server-ctl org-delete ORG_NAME
+   chef-server-ctl org-delete ORG_NAME
 
 .. end_tag
 
@@ -101,7 +101,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef-server-ctl org-list (options)
+   chef-server-ctl org-list (options)
 
 .. end_tag
 
@@ -135,7 +135,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef-server-ctl org-show ORG_NAME
+   chef-server-ctl org-show ORG_NAME
 
 .. end_tag
 
@@ -157,7 +157,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef-server-ctl org-user-add ORG_NAME USER_NAME (options)
+   chef-server-ctl org-user-add ORG_NAME USER_NAME (options)
 
 .. end_tag
 
@@ -189,7 +189,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef-server-ctl org-user-remove ORG_NAME USER_NAME (options)
+   chef-server-ctl org-user-remove ORG_NAME USER_NAME (options)
 
 .. end_tag
 
@@ -209,7 +209,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef-server-ctl user-create USER_NAME FIRST_NAME [MIDDLE_NAME] LAST_NAME EMAIL 'PASSWORD' (options)
+   chef-server-ctl user-create USER_NAME FIRST_NAME [MIDDLE_NAME] LAST_NAME EMAIL 'PASSWORD' (options)
 
 .. end_tag
 
@@ -240,7 +240,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef-server-ctl user-delete USER_NAME
+   chef-server-ctl user-delete USER_NAME
 
 .. end_tag
 
@@ -260,7 +260,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef-server-ctl user-edit USER_NAME
+   chef-server-ctl user-edit USER_NAME
 
 .. end_tag
 
@@ -280,7 +280,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef-server-ctl user-list (options)
+   chef-server-ctl user-list (options)
 
 .. end_tag
 
@@ -311,7 +311,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef-server-ctl user-show USER_NAME (options)
+   chef-server-ctl user-show USER_NAME (options)
 
 .. end_tag
 

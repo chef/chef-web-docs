@@ -356,7 +356,7 @@ For example, the following command:
 
 .. code-block:: bash
 
-    $ knife hello world
+    knife hello world
 
 will return:
 
@@ -369,7 +369,7 @@ the following command:
 
 .. code-block:: bash
 
-   $ knife hello world chefs
+   knife hello world chefs
 
 will return:
 
@@ -381,7 +381,7 @@ and the following command:
 
 .. code-block:: bash
 
-   $ knife hello world chefs --omg
+   knife hello world chefs --omg
 
 will return:
 
@@ -623,7 +623,7 @@ and is run from the command line using:
 
 .. code-block:: bash
 
-   $ knife hello world
+   knife hello world
 
 Exceptions
 =====================================================

@@ -39,7 +39,7 @@ This argument has the following syntax:
 
 .. code-block:: bash
 
-   $ knife data bag create DATA_BAG_NAME [DATA_BAG_ITEM] (options)
+   knife data bag create DATA_BAG_NAME [DATA_BAG_ITEM] (options)
 
 Options
 -----------------------------------------------------
@@ -70,7 +70,7 @@ To create a data bag named "admins", enter:
 
 .. code-block:: bash
 
-   $ knife data bag create admins
+   knife data bag create admins
 
 to return:
 
@@ -88,7 +88,7 @@ This argument has the following syntax:
 
 .. code-block:: bash
 
-   $ knife data bag delete DATA_BAG_NAME [DATA_BAG_ITEM] (options)
+   knife data bag delete DATA_BAG_NAME [DATA_BAG_ITEM] (options)
 
 Options
 -----------------------------------------------------
@@ -107,7 +107,7 @@ The following examples show how to use this knife subcommand:
 
 .. code-block:: bash
 
-   $ knife data bag delete data_bag_name
+   knife data bag delete data_bag_name
 
 **Delete a data bag item**
 
@@ -115,7 +115,7 @@ To delete an item named "charlie", enter:
 
 .. code-block:: bash
 
-   $ knife data bag delete admins charlie
+   knife data bag delete admins charlie
 
 Type ``Y`` to confirm a deletion.
 
@@ -133,7 +133,7 @@ This argument has the following syntax:
 
 .. code-block:: bash
 
-   $ knife data bag edit DATA_BAG_NAME [DATA_BAG_ITEM] (options)
+   knife data bag edit DATA_BAG_NAME [DATA_BAG_ITEM] (options)
 
 Options
 -----------------------------------------------------
@@ -166,7 +166,7 @@ To edit the contents of a data bag, enter:
 
 .. code-block:: bash
 
-   $ knife data bag edit dogs tibetanspaniel
+   knife data bag edit dogs tibetanspaniel
 
 where ``dogs`` is the name of the data bag and ``tibetanspaniel`` is the name of the data bag item. This will return something similar to the following in the knife editor:
 
@@ -194,7 +194,7 @@ To edit an item named "charlie" that is contained in a data bag named "admins", 
 
 .. code-block:: bash
 
-   $ knife data bag edit admins charlie
+   knife data bag edit admins charlie
 
 to open the $EDITOR. Once opened, you can update the data before saving it to the Chef Infra Server. For example, by changing:
 
@@ -233,7 +233,7 @@ This argument has the following syntax:
 
 .. code-block:: bash
 
-   $ knife data bag from file DATA_BAG_NAME_or_PATH JSON_FILE
+   knife data bag from file DATA_BAG_NAME_or_PATH JSON_FILE
 
 Options
 -----------------------------------------------------
@@ -266,7 +266,7 @@ To create a data bag on the Chef Infra Server from a file:
 
 .. code-block:: bash
 
-   $ knife data bag from file "path to JSON file"
+   knife data bag from file "path to JSON file"
 
 **Create an encrypted data bag from a file**
 
@@ -274,7 +274,7 @@ To create a data bag named "devops_data" that contains encrypted data, enter:
 
 .. code-block:: bash
 
-   $ knife data bag from file devops_data --secret-file "path to decryption file"
+   knife data bag from file devops_data --secret-file "path to decryption file"
 
 **Create an encrypted data bag for use with Chef Infra Client local mode**
 
@@ -284,7 +284,7 @@ To generate an encrypted data bag item in a JSON file for use when Chef Infra Cl
 
 .. code-block:: bash
 
-   $ knife data bag from file my_data_bag /path/to/data_bag_item.json -z --secret-file /path/to/encrypted_data_bag_secret
+   knife data bag from file my_data_bag /path/to/data_bag_item.json -z --secret-file /path/to/encrypted_data_bag_secret
 
 this will create an encrypted JSON file in::
 
@@ -302,7 +302,7 @@ This argument has the following syntax:
 
 .. code-block:: bash
 
-   $ knife data bag list
+   knife data bag list
 
 Options
 -----------------------------------------------------
@@ -321,7 +321,7 @@ The following examples show how to use this knife subcommand:
 
 .. code-block:: bash
 
-   $ knife data bag list
+   knife data bag list
 
 show
 =====================================================
@@ -333,7 +333,7 @@ This argument has the following syntax:
 
 .. code-block:: bash
 
-   $ knife data bag show DATA_BAG_NAME (options)
+   knife data bag show DATA_BAG_NAME (options)
 
 Options
 -----------------------------------------------------
@@ -366,7 +366,7 @@ The following examples show how to use this knife subcommand:
 
 .. code-block:: bash
 
-   $ knife data bag show admins
+   knife data bag show admins
 
 to return something like:
 
@@ -380,7 +380,7 @@ To show the contents of a specific item within data bag, enter:
 
 .. code-block:: bash
 
-   $ knife data bag show admins charlie
+   knife data bag show admins charlie
 
 to return:
 
@@ -398,7 +398,7 @@ To show the contents of a data bag named ``passwords`` with an item that contain
 
 .. code-block:: bash
 
-   $ knife data bag show passwords mysql
+   knife data bag show passwords mysql
 
 to return:
 
@@ -416,7 +416,7 @@ To show the decrypted contents of the same data bag, enter:
 
 .. code-block:: bash
 
-   $ knife data bag show --secret-file /path/to/decryption/file passwords mysql
+   knife data bag show --secret-file /path/to/decryption/file passwords mysql
 
 to return:
 
@@ -434,6 +434,6 @@ To view information in JSON format, use the ``-F`` common option as part of the 
 
 .. code-block:: bash
 
-   $ knife data bag show admins -F json
+   knife data bag show admins -F json
 
 Other formats available include ``text``, ``yaml``, and ``pp``.

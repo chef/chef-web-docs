@@ -129,7 +129,7 @@ This configuration file has the following settings:
 
    .. code-block:: bash
 
-      $ ssh-keygen -f key.pub -e -m pem > key.pem
+      ssh-keygen -f key.pub -e -m pem > key.pem
 
 ``ssh_timeout``
    The amount of time (in seconds) to wait for an SSH connection time out.

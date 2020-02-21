@@ -20,8 +20,8 @@ For example, a cookbook backup command:
 
 .. code-block:: bash
 
-      $ cd /var/opt/supermarket/data/
-      $ tar cvzf ~/supermarket_cookbook_versions.tar.gz cookbook_versions
+      cd /var/opt/supermarket/data/
+      tar cvzf ~/supermarket_cookbook_versions.tar.gz cookbook_versions
 
 
 Database Backup
@@ -33,7 +33,7 @@ For example, a database export in a .dump format can be made with the following 
 
 .. code-block:: bash
 
-      $ /opt/supermarket/embedded/bin/pg_dump --host localhost --username supermarket --dbname supermarket --port 15432 --format c --blobs --verbose --file ~/supermarket_database_backup.dump
+      /opt/supermarket/embedded/bin/pg_dump --host localhost --username supermarket --dbname supermarket --port 15432 --format c --blobs --verbose --file ~/supermarket_database_backup.dump
 
 
 where, in a typical installation:
@@ -79,8 +79,8 @@ For example, to restore your cookbook files, run:
 
 .. code-block:: bash
 
-      $ cd /var/opt/supermarket/data/
-      $ tar xvzf /supermarket_cookbook_versions.tar.gz
+      cd /var/opt/supermarket/data/
+      tar xvzf /supermarket_cookbook_versions.tar.gz
 
 
 Database Restore
@@ -94,4 +94,4 @@ For example, to restore a backup in a .dump format, run:
 
 .. code-block:: bash
 
-      $ pg_restore --host localhost --port 15432 --clean --no-acl --no-owner --dbname supermarket_production --verbose supermarket_database_backup.dump
+      pg_restore --host localhost --port 15432 --clean --no-acl --no-owner --dbname supermarket_production --verbose supermarket_database_backup.dump

@@ -3,8 +3,8 @@ Runners
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/runners.rst>`__
 
-.. meta:: 
-    :robots: noindex 
+.. meta::
+    :robots: noindex
 
 Chef Automate's workflow engine automatically creates phase jobs as project code is promoted through the phases of a workflow pipeline. These phase jobs are dispatched to special nodes, called runners, that automatically execute each job as it is created.
 
@@ -46,13 +46,13 @@ To see a list of runners:
 
 .. code-block:: bash
 
-   $ delivery api get runners
+   delivery api get runners
 
 To delete a runner:
 
 .. code-block:: bash
 
-   $ delivery api delete runners/<runner_hostname>
+   delivery api delete runners/<runner_hostname>
 
 .. _upgrade_dk_runner:
 

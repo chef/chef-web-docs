@@ -32,7 +32,7 @@ This argument has the following syntax:
 
 .. code-block:: bash
 
-   $ knife supermarket download COOKBOOK_NAME [COOKBOOK_VERSION] (options)
+   knife supermarket download COOKBOOK_NAME [COOKBOOK_VERSION] (options)
 
 Options
 -----------------------------------------------------
@@ -60,7 +60,7 @@ To download the cookbook ``mysql``, enter:
 
 .. code-block:: bash
 
-   $ knife supermarket download mysql
+   knife supermarket download mysql
 
 install
 =====================================================
@@ -80,7 +80,7 @@ This argument has the following syntax:
 
 .. code-block:: bash
 
-   $ knife supermarket install COOKBOOK_NAME [COOKBOOK_VERSION] (options)
+   knife supermarket install COOKBOOK_NAME [COOKBOOK_VERSION] (options)
 
 Options
 -----------------------------------------------------
@@ -114,7 +114,7 @@ To install the cookbook ``mysql``, enter:
 
 .. code-block:: bash
 
-   $ knife supermarket install mysql
+   knife supermarket install mysql
 
 list
 =====================================================
@@ -126,7 +126,7 @@ This argument has the following syntax:
 
 .. code-block:: bash
 
-   $ knife supermarket list (options)
+   knife supermarket list (options)
 
 Options
 -----------------------------------------------------
@@ -148,7 +148,7 @@ To view a list of cookbooks at the `Chef Supermarket <https://supermarket.chef.i
 
 .. code-block:: bash
 
-   $ knife supermarket list
+   knife supermarket list
 
 to return a list similar to:
 
@@ -184,7 +184,7 @@ This argument has the following syntax:
 
 .. code-block:: bash
 
-   $ knife supermarket search SEARCH_QUERY (options)
+   knife supermarket search SEARCH_QUERY (options)
 
 Options
 -----------------------------------------------------
@@ -203,7 +203,7 @@ To search for a cookbook, use a command similar to:
 
 .. code-block:: bash
 
-   $ knife supermarket search mysql
+   knife supermarket search mysql
 
 where ``mysql`` is the search term. This will return something similar to:
 
@@ -236,7 +236,7 @@ This argument has the following syntax:
 
 .. code-block:: bash
 
-   $ knife supermarket share COOKBOOK_NAME CATEGORY (options)
+   knife supermarket share COOKBOOK_NAME CATEGORY (options)
 
 
 Options
@@ -262,7 +262,7 @@ To share a cookbook named ``my_apache2_cookbook`` and add it to the ``Web Server
 
 .. code-block:: bash
 
-   $ knife supermarket share "my_apache2_cookbook" "Web Servers"
+   knife supermarket share "my_apache2_cookbook" "Web Servers"
 
 show
 =====================================================
@@ -274,7 +274,7 @@ This argument has the following syntax:
 
 .. code-block:: bash
 
-   $ knife supermarket show COOKBOOK_NAME [COOKBOOK_VERSION] (options)
+   knife supermarket show COOKBOOK_NAME [COOKBOOK_VERSION] (options)
 
 Options
 -----------------------------------------------------
@@ -296,7 +296,7 @@ To show the details for a cookbook named ``mysql``:
 
 .. code-block:: bash
 
-   $ knife supermarket show mysql
+   knife supermarket show mysql
 
 to return something similar to:
 
@@ -335,7 +335,7 @@ To show the details for a cookbook version, run a command similar to:
 
 .. code-block:: bash
 
-   $ knife supermarket show mysql 8.5.1
+   knife supermarket show mysql 8.5.1
 
 where ``mysql`` is the cookbook and ``8.5.1`` is the cookbook version. This will return something similar to:
 
@@ -405,7 +405,7 @@ This argument has the following syntax:
 
 .. code-block:: bash
 
-   $ knife supermarket unshare COOKBOOK_NAME/versions/VERSION (options)
+   knife supermarket unshare COOKBOOK_NAME/versions/VERSION (options)
 
 Options
 -----------------------------------------------------
@@ -424,7 +424,7 @@ To unshare a cookbook named ``my_apache2_cookbook``, enter:
 
 .. code-block:: bash
 
-   $ knife supermarket unshare "my_apache2_cookbook" "Web Servers"
+   knife supermarket unshare "my_apache2_cookbook" "Web Servers"
 
 **Unshare a cookbook version**
 
@@ -432,4 +432,4 @@ To unshare cookbook version ``0.10.0`` for the ``my_apache2_cookbook`` cookbook,
 
 .. code-block:: bash
 
-   $ knife supermarket unshare "my_apache2_cookbook/versions/0.10.0"
+   knife supermarket unshare "my_apache2_cookbook/versions/0.10.0"

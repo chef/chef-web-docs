@@ -19,7 +19,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ knife ssl check (options)
+   knife ssl check (options)
 
 Options
 =====================================================
@@ -40,7 +40,7 @@ If the SSL certificate can be verified, the response to
 
 .. code-block:: bash
 
-   $ knife ssl check
+   knife ssl check
 
 is similar to:
 
@@ -59,7 +59,7 @@ If the SSL certificate cannot be verified, the response to
 
 .. code-block:: bash
 
-   $ knife ssl check
+   knife ssl check
 
 is similar to:
 
@@ -106,16 +106,16 @@ The SSL certificates that are used by Chef Infra Client may be verified by speci
 
 .. code-block:: bash
 
-   $ knife ssl check --config /etc/chef/client.rb
+   knife ssl check --config /etc/chef/client.rb
 
 **Verify an external server's SSL certificate**
 
 .. code-block:: bash
 
-   $ knife ssl check URL_or_URI
+   knife ssl check URL_or_URI
 
 for example:
 
 .. code-block:: bash
 
-   $ knife ssl check https://www.chef.io
+   knife ssl check https://www.chef.io

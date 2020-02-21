@@ -18,7 +18,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef env
+   chef env
 
 Options
 -----------------------------------------------------
@@ -38,7 +38,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef exec SYSTEM_COMMAND (options)
+   chef exec SYSTEM_COMMAND (options)
 
 Options
 -----------------------------------------------------
@@ -64,7 +64,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef gem GEM_COMMAND GEM_OPTIONS (options)
+   chef gem GEM_COMMAND GEM_OPTIONS (options)
 
 Options
 -----------------------------------------------------
@@ -85,7 +85,7 @@ To show a gem, run a command similar to:
 
 .. code-block:: bash
 
-   $ chef gem list cookstyle
+   chef gem list cookstyle
 
 to return something similar to:
 
@@ -101,7 +101,7 @@ To list all of the installed gems on your development environment, use the ``lis
 
 .. code-block:: bash
 
-   $ chef gem list
+   chef gem list
 
 **Search for local gems**
 
@@ -109,7 +109,7 @@ The ``list`` command can also be used to search for locally installed gems. For 
 
 .. code-block:: bash
 
-   $ chef gem list knife
+   chef gem list knife
 
 which returns the following output:
 
@@ -127,7 +127,7 @@ Use the ``search`` command to search for remote gems available for installation:
 
 .. code-block:: bash
 
-   $ chef gem search kitchen
+   chef gem search kitchen
 
 to return something similar to:
 
@@ -148,7 +148,7 @@ To install a gem, run a command similar to:
 
 .. code-block:: bash
 
-   $ chef gem install knife-config
+   chef gem install knife-config
 
 to return something similar to:
 
@@ -163,7 +163,7 @@ To uninstall a gem from Chef Workstation environment:
 
 .. code-block:: bash
 
-   $ chef gem uninstall knife-config
+   chef gem uninstall knife-config
 
 to return something similar to:
 
@@ -177,7 +177,7 @@ To view the contents of a gem, run a command similar to:
 
 .. code-block:: bash
 
-   $ chef gem content knife-config
+   chef gem content knife-config
 
 to return something similar to:
 
@@ -198,7 +198,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef generate attribute COOKBOOK_PATH NAME (options)
+   chef generate attribute COOKBOOK_PATH NAME (options)
 
 Options
 -----------------------------------------------------
@@ -222,7 +222,7 @@ To generate an attribute, run a command similar to:
 
 .. code-block:: bash
 
-   $ chef generate attribute /path/to/cookbook FOO
+   chef generate attribute /path/to/cookbook FOO
 
 will return something similar to:
 
@@ -252,7 +252,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef generate cookbook COOKBOOK_PATH/COOKBOOK_NAME (options)
+   chef generate cookbook COOKBOOK_PATH/COOKBOOK_NAME (options)
 
 Options
 -----------------------------------------------------
@@ -297,7 +297,7 @@ To generate a cookbook, run a command similar to:
 
 .. code-block:: bash
 
-   $ chef generate cookbook chefdocs
+   chef generate cookbook chefdocs
 
 will return something similar to:
 
@@ -353,7 +353,7 @@ If a custom skeleton cookbook is located on a macOS desktop (and in this example
 
 .. code-block:: bash
 
-   $ chef generate cookbook --generator-cookbook ~/Desktop testcookbook
+   chef generate cookbook --generator-cookbook ~/Desktop testcookbook
 
 .. note:: The ``code_generator`` cookbook itself is not specified as part of the path.
 
@@ -397,7 +397,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef generate build-cookbook COOKBOOK_PATH/COOKBOOK_NAME (options)
+   chef generate build-cookbook COOKBOOK_PATH/COOKBOOK_NAME (options)
 
 Options
 -----------------------------------------------------
@@ -438,7 +438,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef generate file COOKBOOK_PATH NAME (options)
+   chef generate file COOKBOOK_PATH NAME (options)
 
 Options
 -----------------------------------------------------
@@ -476,7 +476,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef generate resource COOKBOOK_PATH NAME (options)
+   chef generate resource COOKBOOK_PATH NAME (options)
 
 Options
 -----------------------------------------------------
@@ -505,7 +505,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef generate recipe COOKBOOK_PATH NAME (options)
+   chef generate recipe COOKBOOK_PATH NAME (options)
 
 Options
 -----------------------------------------------------
@@ -540,7 +540,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef generate repo REPO_NAME (options)
+   chef generate repo REPO_NAME (options)
 
 .. end_tag
 
@@ -581,7 +581,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef generate template COOKBOOK_PATH NAME (options)
+   chef generate template COOKBOOK_PATH NAME (options)
 
 Options
 -----------------------------------------------------
@@ -615,7 +615,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef shell-init SHELL_NAME (options)
+   chef shell-init SHELL_NAME (options)
 
 Options
 -----------------------------------------------------
@@ -707,7 +707,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef clean-policy-cookbooks (options)
+   chef clean-policy-cookbooks (options)
 
 .. end_tag
 
@@ -751,7 +751,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef clean-policy-revisions (options)
+   chef clean-policy-revisions (options)
 
 .. end_tag
 
@@ -795,7 +795,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef delete-policy POLICY_NAME (options)
+   chef delete-policy POLICY_NAME (options)
 
 .. end_tag
 
@@ -839,7 +839,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef delete-policy-group POLICY_GROUP (options)
+   chef delete-policy-group POLICY_GROUP (options)
 
 .. end_tag
 
@@ -883,7 +883,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef diff POLICY_FILE --head | --git POLICY_GROUP | POLICY_GROUP...POLICY_GROUP (options)
+   chef diff POLICY_FILE --head | --git POLICY_GROUP | POLICY_GROUP...POLICY_GROUP (options)
 
 .. end_tag
 
@@ -927,7 +927,7 @@ Examples
 
 .. code-block:: bash
 
-   $ chef diff --git HEAD
+   chef diff --git HEAD
 
 .. end_tag
 
@@ -939,7 +939,7 @@ Examples
 
 .. code-block:: bash
 
-   $ chef diff --git master
+   chef diff --git master
 
 .. end_tag
 
@@ -951,7 +951,7 @@ Examples
 
 .. code-block:: bash
 
-   $ chef diff --git v1.0.0
+   chef diff --git v1.0.0
 
 .. end_tag
 
@@ -963,7 +963,7 @@ Examples
 
 .. code-block:: bash
 
-   $ chef diff --git master...dev
+   chef diff --git master...dev
 
 .. end_tag
 
@@ -975,7 +975,7 @@ Examples
 
 .. code-block:: bash
 
-   $ chef diff --git v1.0.0...master
+   chef diff --git v1.0.0...master
 
 .. end_tag
 
@@ -987,7 +987,7 @@ Examples
 
 .. code-block:: bash
 
-   $ chef diff staging
+   chef diff staging
 
 .. end_tag
 
@@ -999,7 +999,7 @@ Examples
 
 .. code-block:: bash
 
-   $ chef diff production...staging
+   chef diff production...staging
 
 .. end_tag
 
@@ -1019,7 +1019,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef export POLICY_FILE DIRECTORY (options)
+   chef export POLICY_FILE DIRECTORY (options)
 
 .. end_tag
 
@@ -1086,7 +1086,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef generate policyfile POLICY_NAME (options)
+   chef generate policyfile POLICY_NAME (options)
 
 .. end_tag
 
@@ -1124,7 +1124,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef install POLICY_FILE (options)
+   chef install POLICY_FILE (options)
 
 .. end_tag
 
@@ -1218,7 +1218,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef push POLICY_GROUP POLICY_FILE (options)
+   chef push POLICY_GROUP POLICY_FILE (options)
 
 .. end_tag
 
@@ -1262,7 +1262,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef push-archive POLICY_GROUP ARCHIVE_FILE (options)
+   chef push-archive POLICY_GROUP ARCHIVE_FILE (options)
 
 .. end_tag
 
@@ -1306,7 +1306,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef show-policy POLICY_NAME POLICY_GROUP (options)
+   chef show-policy POLICY_NAME POLICY_GROUP (options)
 
 .. end_tag
 
@@ -1360,7 +1360,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef undelete (options)
+   chef undelete (options)
 
 When run with no arguments, returns a list of available operations.
 
@@ -1415,7 +1415,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef update POLICY_FILE (options)
+   chef update POLICY_FILE (options)
 
 .. end_tag
 

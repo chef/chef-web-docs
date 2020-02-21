@@ -49,7 +49,7 @@ This argument has the following syntax:
 
 .. code-block:: bash
 
-   $ knife cookbook site download COOKBOOK_NAME [COOKBOOK_VERSION] (options)
+   knife cookbook site download COOKBOOK_NAME [COOKBOOK_VERSION] (options)
 
 Options
 -----------------------------------------------------
@@ -83,7 +83,7 @@ To download the cookbook ``getting-started``, enter:
 
 .. code-block:: bash
 
-   $ knife cookbook site download getting-started
+   knife cookbook site download getting-started
 
 to return something like:
 
@@ -111,7 +111,7 @@ This argument has the following syntax:
 
 .. code-block:: bash
 
-   $ knife cookbook site install COOKBOOK_NAME [COOKBOOK_VERSION] (options)
+   knife cookbook site install COOKBOOK_NAME [COOKBOOK_VERSION] (options)
 
 Options
 -----------------------------------------------------
@@ -151,7 +151,7 @@ To install the cookbook ``getting-started``, enter:
 
 .. code-block:: bash
 
-   $ knife cookbook site install getting-started
+   knife cookbook site install getting-started
 
 to return something like:
 
@@ -196,7 +196,7 @@ This argument has the following syntax:
 
 .. code-block:: bash
 
-   $ knife cookbook site list
+   knife cookbook site list
 
 Options
 -----------------------------------------------------
@@ -218,7 +218,7 @@ To view a list of cookbooks at the `Chef Supermarket <https://supermarket.chef.i
 
 .. code-block:: bash
 
-   $ knife cookbook site list
+   knife cookbook site list
 
 to return a list similar to:
 
@@ -246,7 +246,7 @@ This argument has the following syntax:
 
 .. code-block:: bash
 
-   $ knife cookbook site search SEARCH_QUERY (options)
+   knife cookbook site search SEARCH_QUERY (options)
 
 Options
 -----------------------------------------------------
@@ -265,7 +265,7 @@ To search for all of the cookbooks that can be used with Apache, enter:
 
 .. code-block:: bash
 
-   $ knife cookbook site search 'apache*'
+   knife cookbook site search 'apache*'
 
 to return something like:
 
@@ -298,7 +298,7 @@ This argument has the following syntax:
 
 .. code-block:: bash
 
-   $ knife cookbook site share COOKBOOK_NAME CATEGORY (options)
+   knife cookbook site share COOKBOOK_NAME CATEGORY (options)
 
 Options
 -----------------------------------------------------
@@ -332,7 +332,7 @@ To share a cookbook named ``apache2``:
 
 .. code-block:: bash
 
-   $ knife cookbook site share "apache2" "Web Servers"
+   knife cookbook site share "apache2" "Web Servers"
 
 show
 =====================================================
@@ -344,7 +344,7 @@ This argument has the following syntax:
 
 .. code-block:: bash
 
-   $ knife cookbook site show COOKBOOK_NAME [COOKBOOK_VERSION]
+   knife cookbook site show COOKBOOK_NAME [COOKBOOK_VERSION]
 
 Options
 -----------------------------------------------------
@@ -366,7 +366,7 @@ To show the details for a cookbook named ``haproxy``:
 
 .. code-block:: bash
 
-   $ knife cookbook site show haproxy
+   knife cookbook site show haproxy
 
 to return something like:
 
@@ -405,7 +405,7 @@ To view information in JSON format, use the ``-F`` common option as part of the 
 
 .. code-block:: bash
 
-   $ knife cookbook site show devops -F json
+   knife cookbook site show devops -F json
 
 Other formats available include ``text``, ``yaml``, and ``pp``.
 
@@ -421,7 +421,7 @@ This argument has the following syntax:
 
 .. code-block:: bash
 
-   $ knife cookbook site unshare COOKBOOK_NAME/versions/VERSION
+   knife cookbook site unshare COOKBOOK_NAME/versions/VERSION
 
 Options
 -----------------------------------------------------
@@ -440,7 +440,7 @@ To unshare a cookbook named ``getting-started``, enter:
 
 .. code-block:: bash
 
-   $ knife cookbook site unshare "getting-started"
+   knife cookbook site unshare "getting-started"
 
 **Unshare a cookbook version**
 
@@ -448,4 +448,4 @@ To unshare cookbook version ``0.10.0`` for the ``getting-started`` cookbook, ent
 
 .. code-block:: bash
 
-   $ knife cookbook site unshare "getting-started/versions/0.10.0"
+   knife cookbook site unshare "getting-started/versions/0.10.0"

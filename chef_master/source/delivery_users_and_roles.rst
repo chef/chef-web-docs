@@ -111,7 +111,7 @@ To configure LDAP for Workflow:
 
    .. code-block:: bash
 
-      $ sudo automate-ctl reconfigure
+      sudo automate-ctl reconfigure
 
 Once Workflow is set up, you will have a usable **LDAP** option in the Workflow **Users** page that allows you to find users through your LDAP database.
 
@@ -221,13 +221,13 @@ To onboard a user for an integrated GitHub Enterprise project or one that is hos
 
    .. code-block:: bash
 
-      $ delivery api put users/$AUTOMATE_USERNAME/set-oauth-alias --data='{"app_name":"github-enterprise","alias":"$GITHUB_USERNAME"}'
+      delivery api put users/$AUTOMATE_USERNAME/set-oauth-alias --data='{"app_name":"github-enterprise","alias":"$GITHUB_USERNAME"}'
 
    For GitHub:
 
    .. code-block:: bash
 
-      $ delivery api put users/$AUTOMATE_USERNAME/set-oauth-alias --data='{"app_name":"github","alias":"$GITHUB_USERNAME"}'
+      delivery api put users/$AUTOMATE_USERNAME/set-oauth-alias --data='{"app_name":"github","alias":"$GITHUB_USERNAME"}'
 
    *Or*, as an administrator, run the command line tool ``automate-ctl``. The command uses the enterprise name you set when configuring Chef Automate. The username can be an LDAP username (if LDAP integration has been completed), or an internal username:
 
@@ -235,13 +235,13 @@ To onboard a user for an integrated GitHub Enterprise project or one that is hos
 
    .. code-block:: bash
 
-      $ automate-ctl link-github-enterprise-user $AUTOMATE_ENTERPRISE_NAME $AUTOMATE_USERNAME $GITHUB_USERNAME
+      automate-ctl link-github-enterprise-user $AUTOMATE_ENTERPRISE_NAME $AUTOMATE_USERNAME $GITHUB_USERNAME
 
    For GitHub:
 
    .. code-block:: bash
 
-      $ automate-ctl link-github-user $AUTOMATE_ENTERPRISE_NAME $AUTOMATE_USERNAME $GITHUB_USERNAME
+      automate-ctl link-github-user $AUTOMATE_ENTERPRISE_NAME $AUTOMATE_USERNAME $GITHUB_USERNAME
 
 The associated user can now checkout the repository, make changes on a feature branch and submit the changes for review.
 
@@ -326,7 +326,7 @@ The placement of the ``.delivery`` directory in your file hierarchy is significa
 
 .. code-block:: bash
 
-   $ delivery setup --server=DELIVERY_SERVER_IP_ADDR --ent=ENTERPRISE --org=ORGANIZATION --user=USERNAME
+   delivery setup --server=DELIVERY_SERVER_IP_ADDR --ent=ENTERPRISE --org=ORGANIZATION --user=USERNAME
 
 The following settings may be added to the ``.delivery/cli.toml`` file:
 
@@ -343,7 +343,7 @@ To add SSH keys to Chef Automate, do the following:
 
    .. code-block:: bash
 
-      $ cat .ssh/id_rsa.pub
+      cat .ssh/id_rsa.pub
 
    if it returns:
 
@@ -355,7 +355,7 @@ To add SSH keys to Chef Automate, do the following:
 
    .. code-block:: bash
 
-      $ ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+      ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
 
    The output is similar to:
 
@@ -386,7 +386,7 @@ To add SSH keys to Chef Automate, do the following:
 
    .. code-block:: bash
 
-      $ cat .ssh/id_rsa.pub
+      cat .ssh/id_rsa.pub
 
    The output is similar to:
 
@@ -422,7 +422,7 @@ To add SSH keys to Chef Automate, do the following:
 
    .. code-block:: bash
 
-      $ delivery setup --server SERVER_DNS --user USERNAME --ent ENTERPRISE --org ORGANIZATION
+      delivery setup --server SERVER_DNS --user USERNAME --ent ENTERPRISE --org ORGANIZATION
 
    The output is similar to:
 
@@ -445,7 +445,7 @@ To add SSH keys to Chef Automate, do the following:
 
    .. code-block:: bash
 
-      $  delivery clone PROJECT_REPO
+       delivery clone PROJECT_REPO
 
    The output is similar to:
 

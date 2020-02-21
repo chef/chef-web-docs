@@ -25,7 +25,7 @@ This argument has the following syntax:
 
 .. code-block:: bash
 
-   $ knife client bulk delete REGEX
+   knife client bulk delete REGEX
 
 Options
 -----------------------------------------------------
@@ -51,7 +51,7 @@ This argument has the following syntax:
 
 .. code-block:: bash
 
-   $ knife client create CLIENT_NAME (options)
+   knife client create CLIENT_NAME (options)
 
 Options
 ----------------------------------------------------
@@ -69,7 +69,7 @@ This argument has the following options:
    .. note::
              This option is valid only with Chef Infra Server API, version 1.0, which was released with Chef Server 12.1. If this option or the ``--user-key`` option are not passed in the command, the Chef Infra Server will create a user with a public key named ``default`` and will return the private key. For the Chef Server versions earlier than 12.1, this option will not work; a public key is always generated unless ``--user-key`` is passed in the command.
 
-             
+
 
 ``-p FILE``, ``--public-key FILE``
    The path to a file that contains the public key. This option may not be passed in the same command with ``--prevent-keygen``. When using Chef a default key is generated if this option is not passed in the command. For Chef Server version 12.x, see the ``--prevent-keygen`` option.
@@ -95,7 +95,7 @@ To create a Chef Infra Client that can access the Chef Infra Server API as an ad
 
 .. code-block:: bash
 
-   $ knife client create exampleorg -a -f "/etc/chef/client.pem"
+   knife client create exampleorg -a -f "/etc/chef/client.pem"
 
 delete
 =====================================================
@@ -107,7 +107,7 @@ This argument has the following syntax:
 
 .. code-block:: bash
 
-   $ knife client delete CLIENT_NAME
+   knife client delete CLIENT_NAME
 
 Options
 -----------------------------------------------------
@@ -126,7 +126,7 @@ To delete a client with the name "client_foo", enter:
 
 .. code-block:: bash
 
-   $ knife client delete client_foo
+   knife client delete client_foo
 
 Type ``Y`` to confirm a deletion.
 
@@ -140,7 +140,7 @@ This argument has the following syntax:
 
 .. code-block:: bash
 
-   $ knife client edit CLIENT_NAME
+   knife client edit CLIENT_NAME
 
 Options
 -----------------------------------------------------
@@ -156,7 +156,7 @@ To edit a client with the name "exampleorg", enter:
 
 .. code-block:: bash
 
-   $ knife client edit exampleorg
+   knife client edit exampleorg
 
 key create
 =====================================================
@@ -170,7 +170,7 @@ This argument has the following syntax:
 
 .. code-block:: bash
 
-   $ knife client key create CLIENT_NAME (options)
+   knife client key create CLIENT_NAME (options)
 
 
 
@@ -208,7 +208,7 @@ This argument has the following syntax:
 
 .. code-block:: bash
 
-   $ knife client key delete CLIENT_NAME KEY_NAME
+   knife client key delete CLIENT_NAME KEY_NAME
 
 
 
@@ -228,7 +228,7 @@ This argument has the following syntax:
 
 .. code-block:: bash
 
-   $ knife client key edit CLIENT_NAME KEY_NAME (options)
+   knife client key edit CLIENT_NAME KEY_NAME (options)
 
 
 
@@ -269,7 +269,7 @@ This argument has the following syntax:
 
 .. code-block:: bash
 
-   $ knife client key list CLIENT_NAME (options)
+   knife client key list CLIENT_NAME (options)
 
 
 
@@ -304,7 +304,7 @@ This argument has the following syntax:
 
 .. code-block:: bash
 
-   $ knife client key show CLIENT_NAME KEY_NAME
+   knife client key show CLIENT_NAME KEY_NAME
 
 
 
@@ -322,7 +322,7 @@ This argument has the following syntax:
 
 .. code-block:: bash
 
-   $ knife client list (options)
+   knife client list (options)
 
 Options
 -----------------------------------------------------
@@ -341,7 +341,7 @@ To verify the API client list for the Chef Infra Server, enter:
 
 .. code-block:: bash
 
-   $ knife client list
+   knife client list
 
 to return something similar to:
 
@@ -356,7 +356,7 @@ Chef Infra Server correctly, try getting a list of clients using ``-u`` and ``-k
 
 .. code-block:: bash
 
-   $ knife client list -u ORGNAME -k .chef/ORGNAME.pem
+   knife client list -u ORGNAME -k .chef/ORGNAME.pem
 
 reregister
 =====================================================
@@ -370,7 +370,7 @@ This argument has the following syntax:
 
 .. code-block:: bash
 
-   $ knife client reregister CLIENT_NAME (options)
+   knife client reregister CLIENT_NAME (options)
 
 Options
 -----------------------------------------------------
@@ -395,7 +395,7 @@ To re-register the RSA key pair for a client named "testclient" and save it to a
 
 .. code-block:: bash
 
-   $ knife client reregister testclient -f rsa_key
+   knife client reregister testclient -f rsa_key
 
 show
 =====================================================
@@ -407,7 +407,7 @@ This argument has the following syntax:
 
 .. code-block:: bash
 
-   $ knife client show CLIENT_NAME (options)
+   knife client show CLIENT_NAME (options)
 
 Options
 -----------------------------------------------------
@@ -426,7 +426,7 @@ To view a client named "testclient", enter:
 
 .. code-block:: bash
 
-   $ knife client show testclient
+   knife client show testclient
 
 to return something like:
 
@@ -442,6 +442,6 @@ To view information in JSON format, use the ``-F`` common option as part of the 
 
 .. code-block:: bash
 
-   $ knife client show devops -F json
+   knife client show devops -F json
 
 Other formats available include ``text``, ``yaml``, and ``pp``.

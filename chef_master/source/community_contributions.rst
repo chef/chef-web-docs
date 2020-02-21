@@ -189,25 +189,25 @@ Use the following steps to set up a development repository for Chef:
 
    .. code-block:: bash
 
-      $ git clone git@github.com:yourgithubusername/chef.git
+      git clone git@github.com:yourgithubusername/chef.git
 
 #. From the command line, browse to the ``chef/`` directory:
 
    .. code-block:: bash
 
-      $ cd chef/
+      cd chef/
 
 #. From the ``chef/`` directory, add a remote named ``chef``:
 
    .. code-block:: bash
 
-      $ git remote add chef git://github.com/chef/chef.git
+      git remote add chef git://github.com/chef/chef.git
 
 #. Verify:
 
    .. code-block:: bash
 
-      $ git config --get-regexp "^remote\.chef"
+      git config --get-regexp "^remote\.chef"
 
    which should return something like:
 
@@ -220,7 +220,7 @@ Use the following steps to set up a development repository for Chef:
 
    .. code-block:: bash
 
-      $ git config --get-regexp "^branch\.master"
+      git config --get-regexp "^branch\.master"
 
    which should return something like:
 
@@ -233,7 +233,7 @@ Use the following steps to set up a development repository for Chef:
 
    .. code-block:: bash
 
-      $ git config branch.master.remote chef
+      git config branch.master.remote chef
 
 Keep Master Current
 -----------------------------------------------------
@@ -243,13 +243,13 @@ Use the following steps to keep the master branch up to date.
 
    .. code-block:: bash
 
-      $ git checkout master
+      git checkout master
 
 #. And then run:
 
    .. code-block:: bash
 
-      $ git pull --rebase
+      git pull --rebase
 
 Sync Master
 -----------------------------------------------------
@@ -259,13 +259,13 @@ Use the following steps to synchronize the master branch.
 
    .. code-block:: bash
 
-      $ git fetch chef
+      git fetch chef
 
 #. And then run:
 
    .. code-block:: bash
 
-      $ git rebase chef/master master
+      git rebase chef/master master
 
    .. note:: Use ``rebase`` instead of ``merge`` to ensure that a linear history is maintained that does not include unnecessary merge commits. ``rebase`` will also rewind, apply, and then reapply commits to the ``master`` branch.
 
@@ -279,13 +279,13 @@ Use the following steps to create a topic branch:
 
    .. code-block:: bash
 
-      $ git fetch chef
+      git fetch chef
 
 #. Create an appropriately named tracking branch:
 
    .. code-block:: bash
 
-      $ git checkout --track -b CHEF-XX chef/master
+      git checkout --track -b CHEF-XX chef/master
 
    Set up a topic branch to track ``chef/master``. This allows commits to be easily rebased prior to merging.
 
@@ -293,13 +293,13 @@ Use the following steps to create a topic branch:
 
    .. code-block:: bash
 
-      $ git status
+      git status
 
 #. And then run:
 
    .. code-block:: bash
 
-      $ git commit -s <filespec>
+      git commit -s <filespec>
 
 #. Rebase the commits against ``chef/master``. After work in the topic branch is finished, rebase these commits against the upstream master. Do this manually with ``git fetch`` followed by a ``git rebase`` or use ``git pull --rebase``.
 
@@ -309,25 +309,25 @@ Use the following steps to create a topic branch:
 
    .. code-block:: bash
 
-      $ git fetch chef
+      git fetch chef
 
    followed by:
 
    .. code-block:: bash
 
-      $ git rebase chef/master CHEF-XX
+      git rebase chef/master CHEF-XX
 
    Or:
 
    .. code-block:: bash
 
-      $ git pull --rebase
+      git pull --rebase
 
 #. Push the local topic branch to GitHub:
 
    .. code-block:: bash
 
-      $ git push origin CHEF-XX
+      git push origin CHEF-XX
 
 #. Send a GitHub pull request for the changes, and then update the Chef ticket with the appropriate information.
 
@@ -339,13 +339,13 @@ After work has been merged by the branch maintainer, the topic branch is no long
 
    .. code-block:: bash
 
-      $ git checkout master
+      git checkout master
 
    followed by:
 
    .. code-block:: bash
 
-      $ git pull --rebase
+      git pull --rebase
 
 #. Remove the local branch using ``-d`` to ensure that it has been merged by upstream. This option will not delete a branch that is not an ancestor of the current ``HEAD``. From the git man page:
 
@@ -360,10 +360,10 @@ After work has been merged by the branch maintainer, the topic branch is no long
 
    .. code-block:: bash
 
-      $ git branch -d CHEF-XX
+      git branch -d CHEF-XX
 
    Or remove the remote branch by using the full syntax to ``push`` and by omitting a source branch:
 
    .. code-block:: bash
 
-      $ git push origin :CHEF-XX
+      git push origin :CHEF-XX

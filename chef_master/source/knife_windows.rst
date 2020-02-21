@@ -46,13 +46,13 @@ For example:
 
 .. code-block:: bash
 
-   $ knife winrm web1.cloudapp.net 'dir' -x 'proddomain\webuser' -P 'password'
+   knife winrm web1.cloudapp.net 'dir' -x 'proddomain\webuser' -P 'password'
 
 and:
 
 .. code-block:: bash
 
-   $ knife winrm db1.cloudapp.net 'dir' -x '.\localadmin' -P 'password'
+   knife winrm db1.cloudapp.net 'dir' -x '.\localadmin' -P 'password'
 
 
 Domain Authentication
@@ -74,7 +74,7 @@ To validate communication with the Windows system using domain authentication ru
 
 .. code-block:: bash
 
-   $ knife winrm 'node1.domain.com' 'dir' -m -x domain\\administrator -P 'super_secret_password' -p 5986
+   knife winrm 'node1.domain.com' 'dir' -m -x domain\\administrator -P 'super_secret_password' -p 5986
 
 cert generate
 =====================================================
@@ -86,7 +86,7 @@ This argument has the following syntax:
 
 .. code-block:: bash
 
-   $ knife windows cert generate FILE_PATH (options)
+   knife windows cert generate FILE_PATH (options)
 
 Options
 -----------------------------------------------------
@@ -117,7 +117,7 @@ This argument has the following syntax:
 
 .. code-block:: bash
 
-   $ knife windows cert install CERT [CERT] (options)
+   knife windows cert install CERT [CERT] (options)
 
 Options
 -----------------------------------------------------
@@ -138,7 +138,7 @@ This argument has the following syntax:
 
 .. code-block:: bash
 
-   $ knife windows listener create (options)
+   knife windows listener create (options)
 
 Options
 -----------------------------------------------------
@@ -175,7 +175,7 @@ This argument has the following syntax:
 
 .. code-block:: bash
 
-   $ knife winrm SEARCH_QUERY SSH_COMMAND (options)
+   knife winrm SEARCH_QUERY SSH_COMMAND (options)
 
 
 Options
@@ -249,7 +249,7 @@ To find the uptime of all web servers, enter:
 
 .. code-block:: bash
 
-   $ knife winrm "role:web" "net stats srv" -x Administrator -P password
+   knife winrm "role:web" "net stats srv" -x Administrator -P password
 
 
 **Force a Chef Infra Client run**
@@ -281,7 +281,7 @@ Create the SSL certificate
 
 .. code-block:: bash
 
-   $ knife windows cert generate --domain myorg.org --output-file $env:userprofile/winrmcerts/winrm-ssl
+   knife windows cert generate --domain myorg.org --output-file $env:userprofile/winrmcerts/winrm-ssl
 
 This command may be run on any machine and will output three file types: ``.b64``, ``.pem``, and ``.pfx``.
 
@@ -289,7 +289,7 @@ Next, create the SSL listener:
 
 .. code-block:: bash
 
-   $ knife windows listener create --hostname *.myorg.org --cert-install $env:userprofile/winrmcerts/winrm-ssl.pfx
+   knife windows listener create --hostname *.myorg.org --cert-install $env:userprofile/winrmcerts/winrm-ssl.pfx
 
 This will use the same ``.pfx`` file that was output by the ``cert generate`` argument. If the command is run on a different machine from that which generated the certificates, the required certificate files must first be transferred securely to the system on which the listener will be created. (Use the ``cert install`` argument to install a certificate on a machine.)
 

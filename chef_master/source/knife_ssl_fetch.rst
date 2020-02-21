@@ -17,7 +17,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ knife ssl fetch (options)
+   knife ssl fetch (options)
 
 Options
 =====================================================
@@ -34,7 +34,7 @@ The following examples show how to use this knife subcommand:
 
 .. code-block:: bash
 
-   $ knife ssl fetch
+   knife ssl fetch
 
 The response is similar to:
 
@@ -53,7 +53,7 @@ The response is similar to:
 
 .. code-block:: bash
 
-   $ knife ssl fetch https://www.example.com
+   knife ssl fetch https://www.example.com
 
 **Verify Checksums**
 
@@ -65,7 +65,7 @@ The SSL certificate that is downloaded to the ``/.chef/trusted_certs`` directory
 
    .. code-block:: bash
 
-      $ ssh ubuntu@chef-server.example.com sudo sha256sum /var/opt/opscode/nginx/ca/chef-server.example.com.crt
+      ssh ubuntu@chef-server.example.com sudo sha256sum /var/opt/opscode/nginx/ca/chef-server.example.com.crt
 
    The response is similar to:
 
@@ -77,7 +77,7 @@ The SSL certificate that is downloaded to the ``/.chef/trusted_certs`` directory
 
    .. code-block:: bash
 
-      $ gsha256sum .chef/trusted_certs/chef-server.example.com.crt
+      gsha256sum .chef/trusted_certs/chef-server.example.com.crt
 
    The response is similar to:
 
@@ -88,4 +88,3 @@ The SSL certificate that is downloaded to the ``/.chef/trusted_certs`` directory
 #. Verify that the checksum values are identical.
 
 .. end_tag
-

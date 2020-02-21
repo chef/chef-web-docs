@@ -15,13 +15,13 @@ This subcommand has the following syntax when creating a config.rb file:
 
 .. code-block:: bash
 
-   $ knife configure (options)
+   knife configure (options)
 
 and the following syntax when creating a client.rb file:
 
 .. code-block:: bash
 
-   $ knife configure client DIRECTORY
+   knife configure client DIRECTORY
 
 Options
 =====================================================
@@ -67,7 +67,7 @@ The following examples show how to use this knife subcommand:
 
 .. code-block:: bash
 
-   $ knife configure
+   knife configure
 
 **Configure client.rb**
 
@@ -75,4 +75,4 @@ The following examples show how to use this knife subcommand:
 
 .. code-block:: bash
 
-   $ knife configure client '/directory'
+   knife configure client '/directory'

@@ -15,7 +15,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ knife status (options)
+   knife status (options)
 
 Options
 =====================================================
@@ -31,13 +31,13 @@ This subcommand has the following options:
    The search query used to identify a list of items on a Chef Infra Server. This option uses the same syntax as the ``search`` subcommand.
 
 ``--hide-by-mins``
-   Hide nodes that have performed a successful Chef Infra Client run within the last specified number of minutes. The number of minutes to hide is provided as an integer, such as ``--hide-by-mins 10``. 
+   Hide nodes that have performed a successful Chef Infra Client run within the last specified number of minutes. The number of minutes to hide is provided as an integer, such as ``--hide-by-mins 10``.
 
 ``-H``, ``--hide-healthy``
    Hide nodes on which a Chef Infra Client run has occurred within the previous hour.
 
    Deprecated in favor of the ``--hide-by-mins`` option in Chef Client 12.6 and above.
-   
+
 ``-l``, ``--long``
    Display all attributes in the output and show the output as JSON.
 
@@ -65,7 +65,7 @@ To include run-lists in the status, enter:
 
 .. code-block:: bash
 
-   $ knife status --run-list
+   knife status --run-list
 
 to return something like:
 
@@ -84,13 +84,13 @@ to return something like:
 
 To show the status of nodes on which Chef Infra Client did not run successfully within the past hour, enter:
 
-.. code-block:: bash 
+.. code-block:: bash
 
-   $ knife status --hide-by-mins 60
+   knife status --hide-by-mins 60
 
 to return something like:
 
-.. code-block:: bash 
+.. code-block:: bash
 
    422492 hours ago, runner-1-432.lxc, centos 6.8.
    27 hours ago, union-3-432.lxc, centos 7.3.1611.
@@ -99,7 +99,7 @@ On systems running Chef Client 12.5 or prior:
 
 .. code-block:: bash
 
-   $ knife status --hide-healthy
+   knife status --hide-healthy
 
 to return something like:
 
@@ -116,7 +116,7 @@ To show the status of a subset of nodes that are returned by a specific query, e
 
 .. code-block:: bash
 
-   $ knife status "role:web" --run-list
+   knife status "role:web" --run-list
 
 to return something like:
 
@@ -136,7 +136,7 @@ To view the status of all nodes in the organization, enter:
 
 .. code-block:: bash
 
-   $ knife status
+   knife status
 
 to return something like:
 

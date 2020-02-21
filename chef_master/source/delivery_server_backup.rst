@@ -3,8 +3,8 @@ Chef Automate Backups
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/delivery_server_backup.rst>`__
 
-.. meta:: 
-    :robots: noindex 
+.. meta::
+    :robots: noindex
 
 Chef Automate provides tools for creating, managing and restoring backup archives and Elasticsearch snapshots of your Chef Automate data.
 
@@ -90,7 +90,7 @@ Next, configure Chef Automate to use S3 for both the backups and snapshots. For 
    backup['elasticsearch']['region']   = 'us-west-2'
    backup['elasticsearch']['type']     = 's3'
 
-``$ automate-ctl reconfigure``
+``automate-ctl reconfigure``
 
 .. note:: Using the same bucket for backup archives and snapshots is supported but both must be configured independently.
 
@@ -143,7 +143,7 @@ The ``create-backup`` subcommand is used to create Chef Automate backups. By def
 
 .. code-block:: none
 
-   $ automate-ctl create-backup [NAME] [options]
+   automate-ctl create-backup [NAME] [options]
         --chef-server-config         Backup up the Chef Infra Server config if present
         --digest [int]               The SHA digest length to output. 256, 384, and 512 are valid
         --force                      Agree to all warnings and prompts
@@ -173,13 +173,13 @@ The ``NAME`` value is optional. If omitted, a default name with the current time
 **Examples**
 
 Complete backup:
-  ``$ automate-ctl create-backup``
+  ``automate-ctl create-backup``
 
 Elasticsearch snapshot only:
-  ``$ automate-ctl create-backup --no-census --no-config --no-db --no-license --no-git``
+  ``automate-ctl create-backup --no-census --no-config --no-db --no-license --no-git``
 
 Automate archive only
-  ``$ automate-ctl create-backup --no-elasticsearch``
+  ``automate-ctl create-backup --no-elasticsearch``
 
 .. end_tag
 
@@ -219,7 +219,7 @@ Follow the process below for an example of restoring a Chef Automate cluster fro
 
 4. Restore the backup archive and snapshot:
 
-   ``$ automate-ctl restore-backup /mnt/ephemeral/2016-10-14-08-38-55-chef-automate-backup.zst 2016-10-14-08-38-55-chef-automate-backup --staging-dir /mnt/ephemeral/restore``
+   ``automate-ctl restore-backup /mnt/ephemeral/2016-10-14-08-38-55-chef-automate-backup.zst 2016-10-14-08-38-55-chef-automate-backup --staging-dir /mnt/ephemeral/restore``
 
 .. note:: Specifying a staging directory is not mandatory but when given it will clear **all** existing data from it.
 
@@ -234,7 +234,7 @@ Follow the process below for an example of restoring a Chef Automate cluster fro
 
 2. Restore the backup archive and snapshot by specifying the region, bucket, backup artifact name and snapshot name:
 
-   ``$ automate-ctl restore-backup us-east-1:your-s3-bucket:2016-10-14-08-38-55-chef-automate-backup.zst 2016-10-14-08-38-55-chef-automate-backup``
+   ``automate-ctl restore-backup us-east-1:your-s3-bucket:2016-10-14-08-38-55-chef-automate-backup.zst 2016-10-14-08-38-55-chef-automate-backup``
 
 Partial Restoration
 -----------------------------------------------------
@@ -247,7 +247,7 @@ It is possible to restore only specific data from a Chef Automate backup artifac
 
 2. Restore it
 
-   ``$ automate-ctl restore-backup us-east-1:your-s3-bucket:2016-10-14-08-38-55-chef-automate-backup.zst --no-census --no-license --no-config``
+   ``automate-ctl restore-backup us-east-1:your-s3-bucket:2016-10-14-08-38-55-chef-automate-backup.zst --no-census --no-license --no-config``
 
 It is also possible to restore a functional Chef Automate cluster to a specific Elasticsearch snapshot. Below is an example of restoring only an Elasticsearch snapshot:
 

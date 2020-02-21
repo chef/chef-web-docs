@@ -15,7 +15,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ knife list [PATTERN...] (options)
+   knife list [PATTERN...] (options)
 
 Options
 =====================================================
@@ -70,7 +70,7 @@ For example, to view a list of roles on the Chef Infra Server:
 
 .. code-block:: bash
 
-   $ knife list roles/
+   knife list roles/
 
 **List roles and environments**
 
@@ -78,7 +78,7 @@ To view a list of roles and environments on the Chef Infra Server:
 
 .. code-block:: bash
 
-   $ knife list roles/ environments/
+   knife list roles/ environments/
 
 **List everything**
 
@@ -86,4 +86,4 @@ To view a list of absolutely everything on the Chef Infra Server:
 
 .. code-block:: bash
 
-   $ knife list -R /
+   knife list -R /

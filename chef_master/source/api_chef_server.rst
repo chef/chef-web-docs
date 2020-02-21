@@ -2657,7 +2657,7 @@ For example, run the following command:
 
 .. code-block:: bash
 
-   $ knife raw /data/dogs
+   knife raw /data/dogs
 
 which returns a list of data bags on the server:
 
@@ -2673,7 +2673,7 @@ Run the following command:
 
 .. code-block:: bash
 
-   $ knife raw -m DELETE /data/dogs/shihtzu
+   knife raw -m DELETE /data/dogs/shihtzu
 
 **Response**
 
@@ -2696,7 +2696,7 @@ Run the following command:
 
 .. code-block:: bash
 
-   $ knife raw /data/dogs
+   knife raw /data/dogs
 
 to view an updated list:
 

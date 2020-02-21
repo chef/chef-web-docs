@@ -11,7 +11,7 @@ For the quickest way to get started using Chef Infra:
 
    .. code-block:: bash
 
-      $ chef generate cookbook first_cookbook
+      chef generate cookbook first_cookbook
 
    where ``first_cookbook`` is an arbitrary cookbook name.
 
@@ -29,7 +29,7 @@ For the quickest way to get started using Chef Infra:
 
    .. code-block:: bash
 
-      $ chef-client --local-mode --override-runlist first_cookbook
+      chef-client --local-mode --override-runlist first_cookbook
 
 This will create a file named ``test.txt`` at the home path on your machine. Open that file and it will say ``This file was created by Chef Infra!``.
 

@@ -32,13 +32,13 @@ To set up the Chef Push Jobs client:
 
    .. code-block:: bash
 
-      $ knife node status node_name
+      knife node status node_name
 
    for a specific node and:
 
    .. code-block:: bash
 
-      $ knife node status
+      knife node status
 
    for all nodes.
 
@@ -90,7 +90,7 @@ By default, any attempt to run a Chef Push Jobs command other than ``chef-client
 
 .. code-block:: bash
 
-   $ knife job start some_command my_node
+   knife job start some_command my_node
 
 will return something similar to:
 
@@ -111,7 +111,7 @@ To add commands, simply append them to the whitelist for roles, environments, an
 
 .. code-block:: bash
 
-   $ knife edit environments/dev.json
+   knife edit environments/dev.json
 
 and then update the default attributes to include something like:
 
@@ -135,7 +135,7 @@ after which the following command can be run against nodes in the ``dev`` enviro
 
 .. code-block:: bash
 
-   $ knife job start restart_apache NODE1 NODE2 ...
+   knife job start restart_apache NODE1 NODE2 ...
 
 where ``NODE1 NODE2 ...`` defines a list of individual nodes against which that command is run.
 

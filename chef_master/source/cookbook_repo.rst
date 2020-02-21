@@ -15,7 +15,7 @@ To create a cookbook (including all default components), run the following comma
 
 .. code-block:: bash
 
-   $ chef generate cookbook COOKBOOK_NAME
+   chef generate cookbook COOKBOOK_NAME
 
 where ``COOKBOOK_NAME`` is the name of the cookbook that will be created. Any unneeded directory components can be left unused or deleted, if preferred.
 
@@ -25,7 +25,7 @@ To download a cookbook when git is used for version source control, run the foll
 
 .. code-block:: bash
 
-   $ knife supermarket install COOKBOOK_NAME
+   knife supermarket install COOKBOOK_NAME
 
 where ``COOKBOOK_NAME`` is the name of a cookbook on `Chef Supermarket <https://supermarket.chef.io/>`__. This will start a process that:
 
@@ -43,7 +43,7 @@ To download a cookbook when git is not used for version source control, run the 
 
 .. code-block:: bash
 
-   $ knife supermarket download COOKBOOK_NAME
+   knife supermarket download COOKBOOK_NAME
 
 where ``COOKBOOK_NAME`` is the name of a cookbook on `Chef Supermarket <https://supermarket.chef.io/>`__. This will download the tar.gz file associated with the cookbook and will create a file named ``COOKBOOK_NAME.tar.gz`` in the current directory (e.g., ``~/chef-repo``). Once downloaded, using a version source control system is recommended.
 

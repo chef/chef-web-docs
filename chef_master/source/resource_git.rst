@@ -348,7 +348,7 @@ where the ``branch_name`` variable is set to ``staging`` or ``master``, dependin
 
 .. code-block:: bash
 
-   $ sudo chef-client -l debug
+   sudo chef-client -l debug
 
 
 
@@ -411,5 +411,3 @@ The following example uses the **git** resource to upgrade packages:
      environment 'VAR' => 'whatever'
      action :sync
    end
-
-

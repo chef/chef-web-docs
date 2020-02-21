@@ -15,7 +15,7 @@ For many users of Chef, the version of Ruby that is included in Chef Workstation
 
    .. code-block:: bash
 
-      $ which ruby
+      which ruby
 
    which will return something like ``/usr/bin/ruby``.
 #. To use Chef Workstation-provided Ruby as the default Ruby on your system, edit the ``$PATH`` and ``GEM`` environment variables to include paths to Chef Workstation. For example, on a machine that runs Bash, run:
@@ -98,7 +98,7 @@ To create the ``.chef`` directory:
 
    .. code-block:: bash
 
-      $ echo '.chef' >> ~/chef-repo/.gitignore
+      echo '.chef' >> ~/chef-repo/.gitignore
 
 Install a Code Editor
 -------------------------------------------------------
@@ -174,7 +174,7 @@ On the Chef Infra Server machine create the ``ORGANIZATION-validator.pem`` from 
 
 .. code-block:: bash
 
-   $ chef-server-ctl org-create ORG_NAME ORG_FULL_NAME -f FILE_NAME
+   chef-server-ctl org-create ORG_NAME ORG_FULL_NAME -f FILE_NAME
 
 where
 
@@ -186,7 +186,7 @@ For example, an organization named ``chef``, with a full name of ``Chef Software
 
 .. code-block:: bash
 
-   $ chef-server-ctl org-create chef "Chef Software, Inc." -f /tmp/chef.key
+   chef-server-ctl org-create chef "Chef Software, Inc." -f /tmp/chef.key
 
 Create a User
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -195,7 +195,7 @@ On the Chef Infra Server machine create the ``USER.pem`` from the command line u
 
 .. code-block:: bash
 
-   $ chef-server-ctl user-create USER_NAME FIRST_NAME LAST_NAME EMAIL PASSWORD -f FILE_NAME
+   chef-server-ctl user-create USER_NAME FIRST_NAME LAST_NAME EMAIL PASSWORD -f FILE_NAME
 
 where
 
@@ -205,7 +205,7 @@ For example: a user named ``grantmc``, with a first and last name of ``Grant McL
 
 .. code-block:: bash
 
-   $ chef-server-ctl user-create grantmc Grant McLennan grantmc@chef.io p@s5w0rD! -f /tmp/grantmc.key
+   chef-server-ctl user-create grantmc Grant McLennan grantmc@chef.io p@s5w0rD! -f /tmp/grantmc.key
 
 Move .pem Files
 +++++++++++++++++++++++++++++++++++++++++++++++++++++

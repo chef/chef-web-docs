@@ -19,7 +19,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef-backend-ctl backup (options)
+   chef-backend-ctl backup (options)
 
 
 
@@ -43,7 +43,7 @@ From a follower node, run the following command:
 
 .. code-block:: bash
 
-   $ chef-backend-ctl backup
+   chef-backend-ctl backup
 
 create-cluster
 =====================================================
@@ -57,7 +57,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef-backend-ctl create-cluster (options)
+   chef-backend-ctl create-cluster (options)
 
 
 
@@ -97,7 +97,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef-backend-ctl cleanse
+   chef-backend-ctl cleanse
 
 
 
@@ -128,7 +128,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef-backend-ctl cluster-status (options)
+   chef-backend-ctl cluster-status (options)
 
 
 
@@ -148,7 +148,7 @@ Examples
 
 .. code-block:: bash
 
-   $ chef-backend-ctl cluster-status --json
+   chef-backend-ctl cluster-status --json
 
 demote
 =====================================================
@@ -165,7 +165,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef-backend-ctl demote
+   chef-backend-ctl demote
 
 
 
@@ -198,7 +198,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef-backend-ctl force-leader
+   chef-backend-ctl force-leader
 
 
 
@@ -214,7 +214,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef-backend-ctl gather-logs
+   chef-backend-ctl gather-logs
 
 
 
@@ -232,7 +232,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef-backend-ctl gen-sample-backend-config
+   chef-backend-ctl gen-sample-backend-config
 
 
 
@@ -345,7 +345,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef-backend-ctl gen-server-config FQDN
+   chef-backend-ctl gen-server-config FQDN
 
 
 
@@ -355,7 +355,7 @@ Configure the Front End
 
    .. code-block:: bash
 
-      $ chef-backend-ctl gen-server-config FQDN -f chef-server.rb.fqdn
+      chef-backend-ctl gen-server-config FQDN -f chef-server.rb.fqdn
 
    where ``FQDN`` is the FQDN for the frontend machine. The generated ``chef-server.rb`` file will contain all of the values necessary for any frontend Chef Infra Server to connect to and bootstrap against the backend HA cluster.
 
@@ -365,7 +365,7 @@ Configure the Front End
 
    .. code-block:: bash
 
-      $ chef-server-ctl reconfigure
+      chef-server-ctl reconfigure
 
 
 
@@ -405,7 +405,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef-backend-ctl help
+   chef-backend-ctl help
 
 
 
@@ -434,7 +434,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef-backend-ctl join-cluster PEER_NODE_IP (options)
+   chef-backend-ctl join-cluster PEER_NODE_IP (options)
 
 where ``PEER_NODE_IP`` is the IP address of a peer in the cluster to be joined.
 
@@ -486,7 +486,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef-backend-ctl promote NODE
+   chef-backend-ctl promote NODE
 
 
 
@@ -502,7 +502,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef-backend-ctl reconfigure
+   chef-backend-ctl reconfigure
 
 
 
@@ -520,7 +520,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef-backend-ctl remove-node NODE_NAME
+   chef-backend-ctl remove-node NODE_NAME
 
 
 
@@ -549,7 +549,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef-backend-ctl restore PATH (options)
+   chef-backend-ctl restore PATH (options)
 
 where ``PATH`` is the path to a tar.gz file that was created by the ``chef-backend-ctl backup`` subcommand.
 
@@ -576,7 +576,7 @@ From the leader node, run the following command:
 
 .. code-block:: bash
 
-   $ chef-backend-ctl restore /var/opt/chef-backup/backup_file.tgz
+   chef-backend-ctl restore /var/opt/chef-backup/backup_file.tgz
 
 set-cluster-failover
 =====================================================
@@ -590,7 +590,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef-backend-ctl set-cluster-failover STATE
+   chef-backend-ctl set-cluster-failover STATE
 
 where ``STATE`` may be one of ``on``, ``off``, ``true``, ``false``, ``enabled``, or ``disabled``.
 
@@ -608,7 +608,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef-backend-ctl set-node-failover STATE
+   chef-backend-ctl set-node-failover STATE
 
 where ``STATE`` may be one of ``on``, ``off``, ``true``, ``false``, ``enabled``, or ``disabled``.
 
@@ -622,7 +622,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef-backend-ctl show-config
+   chef-backend-ctl show-config
 
 
 
@@ -632,19 +632,19 @@ Use the ``status`` subcommand to show the status of all services available to a 
 
 .. code-block:: bash
 
-   $ chef-backend-ctl status
+   chef-backend-ctl status
 
 and will return the status for all services. Status can be returned for individual services by specifying the name of the service as part of the command:
 
 .. code-block:: bash
 
-   $ chef-backend-ctl status SERVICE_NAME
+   chef-backend-ctl status SERVICE_NAME
 
 For example, full output:
 
 .. code-block:: bash
 
-   $ chef-backend-ctl status
+   chef-backend-ctl status
 
 is similar to:
 
@@ -666,7 +666,7 @@ Simple output:
 
 .. code-block:: bash
 
-   $ chef-backend-ctl status --simple
+   chef-backend-ctl status --simple
 
 is similar to:
 
@@ -689,7 +689,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef-backend-ctl uninstall
+   chef-backend-ctl uninstall
 
 .. note:: To revert the ``uninstall`` subcommand, run the ``reconfigure`` subcommand (because the ``start`` subcommand is disabled by the ``uninstall`` command).
 
@@ -713,7 +713,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef-backend-ctl hup SERVICE_NAME
+   chef-backend-ctl hup SERVICE_NAME
 
 where ``SERVICE_NAME`` represents the name of any service that is listed after running the ``service-list`` subcommand.
 
@@ -727,7 +727,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef-backend-ctl int SERVICE_NAME
+   chef-backend-ctl int SERVICE_NAME
 
 where ``SERVICE_NAME`` represents the name of any service that is listed after running the ``service-list`` subcommand.
 
@@ -741,7 +741,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef-backend-ctl kill SERVICE_NAME
+   chef-backend-ctl kill SERVICE_NAME
 
 where ``SERVICE_NAME`` represents the name of any service that is listed after running the ``service-list`` subcommand.
 
@@ -757,7 +757,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef-backend-ctl once SERVICE_NAME
+   chef-backend-ctl once SERVICE_NAME
 
 where ``SERVICE_NAME`` represents the name of any service that is listed after running the ``service-list`` subcommand.
 
@@ -773,13 +773,13 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef-backend-ctl restart SERVICE_NAME
+   chef-backend-ctl restart SERVICE_NAME
 
 where ``SERVICE_NAME`` represents the name of any service that is listed after running the ``service-list`` subcommand. When a service is successfully restarted the output should be similar to:
 
 .. code-block:: bash
 
-   $ ok: run: service_name: (pid 12345) 1s
+   ok: run: service_name: (pid 12345) 1s
 
 
 
@@ -791,7 +791,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef-backend-ctl service-list
+   chef-backend-ctl service-list
 
 
 
@@ -803,13 +803,13 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef-backend-ctl start SERVICE_NAME
+   chef-backend-ctl start SERVICE_NAME
 
 where ``SERVICE_NAME`` represents the name of any service that is listed after running the ``service-list`` subcommand. When a service is successfully started the output should be similar to:
 
 .. code-block:: bash
 
-   $ ok: run: service_name: (pid 12345) 1s
+   ok: run: service_name: (pid 12345) 1s
 
 The supervisor for a machine in the Chef Infra Server backend HA cluster is configured to wait seven seconds for a service to respond to a command from the supervisor. If you see output that references a timeout, it means that a signal has been sent to the process, but that the process has yet to actually comply. In general, processes that have timed out are not a big concern, unless they are failing to respond to the signals at all. If a process is not responding, use a command like the ``kill`` subcommand to stop the process, investigate the cause (if required), and then use the ``start`` subcommand to re-enable it.
 
@@ -823,19 +823,19 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef-backend-ctl stop SERVICE_NAME
+   chef-backend-ctl stop SERVICE_NAME
 
 where ``SERVICE_NAME`` represents the name of any service that is listed after running the ``service-list`` subcommand. When a service is successfully stopped the output should be similar to:
 
 .. code-block:: bash
 
-   $ ok: diwb: service_name: 0s, normally up
+   ok: diwb: service_name: 0s, normally up
 
 For example:
 
 .. code-block:: bash
 
-   $ chef-backend-ctl stop
+   chef-backend-ctl stop
 
 will return something similar to:
 
@@ -854,7 +854,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef-backend-ctl tail SERVICE_NAME
+   chef-backend-ctl tail SERVICE_NAME
 
 where ``SERVICE_NAME`` represents the name of any service that is listed after running the ``service-list`` subcommand.
 
@@ -868,8 +868,6 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef-backend-ctl term SERVICE_NAME
+   chef-backend-ctl term SERVICE_NAME
 
 where ``SERVICE_NAME`` represents the name of any service that is listed after running the ``service-list`` subcommand.
-
-

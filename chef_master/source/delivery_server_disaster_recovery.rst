@@ -3,8 +3,8 @@ Chef Automate Disaster Recovery
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/delivery_server_disaster_recovery.rst>`__
 
-.. meta:: 
-    :robots: noindex 
+.. meta::
+    :robots: noindex
 
 .. tag chef_automate_mark
 
@@ -67,7 +67,7 @@ The following steps describe how to manually install a Chef Automate server for 
 
    .. code-block:: bash
 
-      $ sudo mkdir -p /var/opt/delivery/license
+      sudo mkdir -p /var/opt/delivery/license
 
    and then copy the ``delivery.license`` file that exists in the ``/var/opt/delivery/license`` directory on the primary Chef Automate server into the license directory.
 
@@ -75,13 +75,13 @@ The following steps describe how to manually install a Chef Automate server for 
 
    .. code-block:: bash
 
-      $ sudo mkdir -p /etc/delivery
+      sudo mkdir -p /etc/delivery
 
 #. Edit the ``/etc/delivery/delivery.rb`` file:
 
    .. code-block:: bash
 
-      $ sudo vi /etc/delivery/delivery.rb ## you may use any editor you wish
+      sudo vi /etc/delivery/delivery.rb ## you may use any editor you wish
 
    and add the following settings:
 
@@ -105,7 +105,7 @@ The following steps describe how to manually install a Chef Automate server for 
 
    .. code-block:: bash
 
-      $ sudo mkdir -p /opt/delivery/embedded/.ssh
+      sudo mkdir -p /opt/delivery/embedded/.ssh
 
 #. Create a private key on the primary Chef Automate server. This key is used for file synchronization between the two servers. It will be created in ``/opt/delivery/embedded/.ssh`` and must not contain a passphrase.
 
@@ -113,13 +113,13 @@ The following steps describe how to manually install a Chef Automate server for 
 
    .. code-block:: bash
 
-      $ cd /opt/delivery/embedded/.ssh
+      cd /opt/delivery/embedded/.ssh
 
    then generate the key:
 
    .. code-block:: bash
 
-      $ sudo ssh-keygen -t rsa -b 4096 -C "<EMAIL_ADDRESS>"
+      sudo ssh-keygen -t rsa -b 4096 -C "<EMAIL_ADDRESS>"
 
    and then save to a file (don't overwrite anything) and note the filename for later.
 
@@ -127,7 +127,7 @@ The following steps describe how to manually install a Chef Automate server for 
 
    .. code-block:: bash
 
-      $ sudo mkdir -p /opt/delivery/embedded/.ssh/authorized_keys
+      sudo mkdir -p /opt/delivery/embedded/.ssh/authorized_keys
 
 #. Copy the public key (from the key pair created above) to ``/opt/delivery/embedded/.ssh/authorized_keys`` on the standby server:
 
@@ -153,7 +153,7 @@ The following steps describe how to manually install a Chef Automate server for 
 
    .. code-block:: bash
 
-      $ sudo mkdir -p /etc/chef/trusted_certs
+      sudo mkdir -p /etc/chef/trusted_certs
 
 #. Copy all of the files in ``/etc/chef/trusted_certs/`` from the primary Chef Automate server to the same directory on the standby server.
 
@@ -161,7 +161,7 @@ The following steps describe how to manually install a Chef Automate server for 
 
    .. code-block:: bash
 
-      $ sudo mkdir -p /var/opt/delivery/nginx/ca/
+      sudo mkdir -p /var/opt/delivery/nginx/ca/
 
 #. Copy all contents of ``/var/opt/delivery/nginx/ca/`` from the primary Chef Automate server to the same directory on the standby server.
 
@@ -169,13 +169,13 @@ The following steps describe how to manually install a Chef Automate server for 
 
    .. code-block:: bash
 
-      $ sudo automate-ctl reconfigure
+      sudo automate-ctl reconfigure
 
 #. Run the following command on the standby Chef Automate server:
 
    .. code-block:: bash
 
-      $ sudo automate-ctl reconfigure
+      sudo automate-ctl reconfigure
 
 Disaster Recovery
 =====================================================
@@ -189,7 +189,7 @@ To promote a standby Chef Automate server to primary, do the following:
 
    .. code-block:: bash
 
-      $ sudo automate-ctl create-backup
+      sudo automate-ctl create-backup
 
    Move this data to a location that is not on the standby Chef Automate server.
 
@@ -197,7 +197,7 @@ To promote a standby Chef Automate server to primary, do the following:
 
    .. code-block:: bash
 
-      $ automate-ctl stop
+      automate-ctl stop
 
 #. Convert the standby server to a standalone Chef Automate server. Update the ``delivery["primary"]``, ``delivery["primary_ip"]``, and ``postgresql["listen_address"]`` settings in the ``/etc/delivery/delivery.rb`` file to be similar to:
 
@@ -211,7 +211,7 @@ To promote a standby Chef Automate server to primary, do the following:
 
    .. code-block:: bash
 
-      $ automate-ctl reconfigure
+      automate-ctl reconfigure
 
    This will reconfigure the server to become a standalone Chef Automate server, after which a new standby server can be installed and configured to be the new standby.
 
@@ -242,7 +242,7 @@ If provisioning uses the SSH driver, do the following:
 
    .. code-block:: bash
 
-      $ rm .chef/provisioning/ssh/delivery-server-test.json
+      rm .chef/provisioning/ssh/delivery-server-test.json
 
 Reinstall Standby
 +++++++++++++++++++++++++++++++++++++++++++++++++++++

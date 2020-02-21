@@ -136,7 +136,7 @@ The ``netdev_lag`` custom resource is used to to model the properties and to man
 
    .. code-block:: bash
 
-      $ set chassis aggregated-devices ethernet device-count <count-value>
+      set chassis aggregated-devices ethernet device-count <count-value>
 
 Actions
 +++++++++++++++++++++++++++++++++++++++++++++++++++++

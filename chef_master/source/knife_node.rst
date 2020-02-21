@@ -31,7 +31,7 @@ This argument has the following syntax:
 
 .. code-block:: bash
 
-   $ knife node bulk delete REGEX
+   knife node bulk delete REGEX
 
 Options
 -----------------------------------------------------
@@ -47,7 +47,7 @@ Use a regular expression to define the pattern used to bulk delete nodes:
 
 .. code-block:: bash
 
-   $ knife node bulk delete "^[0-9]{3}$"
+   knife node bulk delete "^[0-9]{3}$"
 
 Type ``Y`` to confirm a deletion.
 
@@ -61,7 +61,7 @@ This argument has the following syntax:
 
 .. code-block:: bash
 
-   $ knife node create NODE_NAME
+   knife node create NODE_NAME
 
 Options
 -----------------------------------------------------
@@ -77,7 +77,7 @@ To add a node named ``node1``, enter:
 
 .. code-block:: bash
 
-   $ knife node create node1
+   knife node create node1
 
 In the $EDITOR enter the node data in JSON:
 
@@ -115,7 +115,7 @@ This argument has the following syntax:
 
 .. code-block:: bash
 
-   $ knife node delete NODE_NAME
+   knife node delete NODE_NAME
 
 Options
 -----------------------------------------------------
@@ -131,7 +131,7 @@ To delete a node named ``node1``, enter:
 
 .. code-block:: bash
 
-   $ knife node delete node1
+   knife node delete node1
 
 edit
 =====================================================
@@ -143,7 +143,7 @@ This argument has the following syntax:
 
 .. code-block:: bash
 
-   $ knife node edit NODE_NAME (options)
+   knife node edit NODE_NAME (options)
 
 Options
 -----------------------------------------------------
@@ -162,7 +162,7 @@ To edit the data for a node named ``node1``, enter:
 
 .. code-block:: bash
 
-   $ knife node edit node1 -a
+   knife node edit node1 -a
 
 Update the role data in JSON:
 
@@ -198,7 +198,7 @@ This argument has the following syntax:
 
 .. code-block:: bash
 
-   $ knife node environment_set NODE_NAME ENVIRONMENT_NAME (options)
+   knife node environment_set NODE_NAME ENVIRONMENT_NAME (options)
 
 Options
 -----------------------------------------------------
@@ -218,7 +218,7 @@ This argument has the following syntax:
 
 .. code-block:: bash
 
-   $ knife node from file FILE
+   knife node from file FILE
 
 Options
 -----------------------------------------------------
@@ -234,7 +234,7 @@ To add a node using data contained in a JSON file:
 
 .. code-block:: bash
 
-   $ knife node from file "PATH_TO_JSON_FILE"
+   knife node from file "PATH_TO_JSON_FILE"
 
 list
 =====================================================
@@ -246,7 +246,7 @@ This argument has the following syntax:
 
 .. code-block:: bash
 
-   $ knife node list (options)
+   knife node list (options)
 
 Options
 -----------------------------------------------------
@@ -271,7 +271,7 @@ To verify the list of nodes that are registered with the Chef Infra Server, ente
 
 .. code-block:: bash
 
-   $ knife node list
+   knife node list
 
 to return something similar to:
 
@@ -290,7 +290,7 @@ This argument has the following syntax:
 
 .. code-block:: bash
 
-   $ knife node policy set NODE POLICY_GROUP POLICY_NAME
+   knife node policy set NODE POLICY_GROUP POLICY_NAME
 
 Examples
 -----------------------------------------------------
@@ -298,7 +298,7 @@ Set the policy group and policy name for a node named ``test-node``:
 
 .. code-block:: bash
 
-   $ knife node policy set test-node 'test-group' 'test-name'
+   knife node policy set test-node 'test-group' 'test-name'
 
 run_list add
 =====================================================
@@ -349,7 +349,7 @@ This argument has the following syntax:
 
 .. code-block:: bash
 
-   $ knife node run_list add NODE_NAME RUN_LIST_ITEM (options)
+   knife node run_list add NODE_NAME RUN_LIST_ITEM (options)
 
 .. end_tag
 
@@ -361,13 +361,13 @@ This argument has the following syntax:
 
              .. code-block:: bash
 
-                $ knife node run_list set test-node 'recipe[iptables]'
+                knife node run_list set test-node 'recipe[iptables]'
 
              When running knife from Windows PowerShell, a string should be surrounded by triple single quotes (``''' '''``). For example:
 
              .. code-block:: bash
 
-                $ knife node run_list set test-node '''recipe[iptables]'''
+                knife node run_list set test-node '''recipe[iptables]'''
 
              .. end_tag
 
@@ -377,7 +377,7 @@ This argument has the following syntax:
 
           .. code-block:: bash
 
-             $ Import-Module chef
+             Import-Module chef
 
           or add ``Import-Module chef`` to the profile for Windows PowerShell located at:
 
@@ -391,31 +391,31 @@ This argument has the following syntax:
 
           .. code-block:: bash
 
-             $ knife exec -E 'puts ARGV' """&s0meth1ng"""
+             knife exec -E 'puts ARGV' """&s0meth1ng"""
 
           is now:
 
           .. code-block:: bash
 
-             $ knife exec -E 'puts ARGV' '&s0meth1ng'
+             knife exec -E 'puts ARGV' '&s0meth1ng'
 
           and:
 
           .. code-block:: bash
 
-             $ knife node run_list set test-node '''role[ssssssomething]'''
+             knife node run_list set test-node '''role[ssssssomething]'''
 
           is now:
 
           .. code-block:: bash
 
-             $ knife node run_list set test-node 'role[ssssssomething]'
+             knife node run_list set test-node 'role[ssssssomething]'
 
           To remove this feature, run the following command from within Windows PowerShell:
 
           .. code-block:: bash
 
-             $ Remove-Module chef
+             Remove-Module chef
 
           .. end_tag
 
@@ -451,7 +451,7 @@ To add a role to a run-list, enter:
 
 .. code-block:: bash
 
-   $ knife node run_list add NODE_NAME 'role[ROLE_NAME]'
+   knife node run_list add NODE_NAME 'role[ROLE_NAME]'
 
 .. end_tag
 
@@ -463,7 +463,7 @@ To add roles and recipes to a run-list, enter:
 
 .. code-block:: bash
 
-   $ knife node run_list add NODE_NAME 'recipe[COOKBOOK::RECIPE_NAME],recipe[COOKBOOK::RECIPE_NAME],role[ROLE_NAME]'
+   knife node run_list add NODE_NAME 'recipe[COOKBOOK::RECIPE_NAME],recipe[COOKBOOK::RECIPE_NAME],role[ROLE_NAME]'
 
 .. end_tag
 
@@ -475,7 +475,7 @@ To add a recipe to a run-list using the fully qualified format, enter:
 
 .. code-block:: bash
 
-   $ knife node run_list add NODE_NAME 'recipe[COOKBOOK::RECIPE_NAME]'
+   knife node run_list add NODE_NAME 'recipe[COOKBOOK::RECIPE_NAME]'
 
 .. end_tag
 
@@ -487,7 +487,7 @@ To add a recipe to a run-list using the cookbook format, enter:
 
 .. code-block:: bash
 
-   $ knife node run_list add NODE_NAME 'COOKBOOK::RECIPE_NAME'
+   knife node run_list add NODE_NAME 'COOKBOOK::RECIPE_NAME'
 
 .. end_tag
 
@@ -499,7 +499,7 @@ To add the default recipe of a cookbook to a run-list, enter:
 
 .. code-block:: bash
 
-   $ knife node run_list add NODE_NAME 'COOKBOOK'
+   knife node run_list add NODE_NAME 'COOKBOOK'
 
 .. end_tag
 
@@ -519,7 +519,7 @@ This argument has the following syntax:
 
 .. code-block:: bash
 
-   $ knife node run_list remove NODE_NAME RUN_LIST_ITEM
+   knife node run_list remove NODE_NAME RUN_LIST_ITEM
 
 .. end_tag
 
@@ -545,7 +545,7 @@ To remove a role from a run-list, enter:
 
 .. code-block:: bash
 
-   $ knife node run_list remove NODE_NAME 'role[ROLE_NAME]'
+   knife node run_list remove NODE_NAME 'role[ROLE_NAME]'
 
 .. end_tag
 
@@ -557,7 +557,7 @@ To remove a recipe from a run-list using the fully qualified format, enter:
 
 .. code-block:: bash
 
-   $ knife node run_list remove NODE_NAME 'recipe[COOKBOOK::RECIPE_NAME]'
+   knife node run_list remove NODE_NAME 'recipe[COOKBOOK::RECIPE_NAME]'
 
 .. end_tag
 
@@ -577,7 +577,7 @@ This argument has the following syntax:
 
 .. code-block:: bash
 
-   $ knife node run_list set NODE_NAME RUN_LIST_ITEM
+   knife node run_list set NODE_NAME RUN_LIST_ITEM
 
 .. end_tag
 
@@ -589,13 +589,13 @@ This argument has the following syntax:
 
              .. code-block:: bash
 
-                $ knife node run_list set test-node 'recipe[iptables]'
+                knife node run_list set test-node 'recipe[iptables]'
 
              When running knife from Windows PowerShell, a string should be surrounded by triple single quotes (``''' '''``). For example:
 
              .. code-block:: bash
 
-                $ knife node run_list set test-node '''recipe[iptables]'''
+                knife node run_list set test-node '''recipe[iptables]'''
 
              .. end_tag
 
@@ -605,7 +605,7 @@ This argument has the following syntax:
 
           .. code-block:: bash
 
-             $ Import-Module chef
+             Import-Module chef
 
           or add ``Import-Module chef`` to the profile for Windows PowerShell located at:
 
@@ -619,31 +619,31 @@ This argument has the following syntax:
 
           .. code-block:: bash
 
-             $ knife exec -E 'puts ARGV' """&s0meth1ng"""
+             knife exec -E 'puts ARGV' """&s0meth1ng"""
 
           is now:
 
           .. code-block:: bash
 
-             $ knife exec -E 'puts ARGV' '&s0meth1ng'
+             knife exec -E 'puts ARGV' '&s0meth1ng'
 
           and:
 
           .. code-block:: bash
 
-             $ knife node run_list set test-node '''role[ssssssomething]'''
+             knife node run_list set test-node '''role[ssssssomething]'''
 
           is now:
 
           .. code-block:: bash
 
-             $ knife node run_list set test-node 'role[ssssssomething]'
+             knife node run_list set test-node 'role[ssssssomething]'
 
           To remove this feature, run the following command from within Windows PowerShell:
 
           .. code-block:: bash
 
-             $ Remove-Module chef
+             Remove-Module chef
 
           .. end_tag
 
@@ -665,7 +665,7 @@ This argument has the following syntax:
 
 .. code-block:: bash
 
-   $ knife node show NODE_NAME (options)
+   knife node show NODE_NAME (options)
 
 Options
 -----------------------------------------------------
@@ -696,7 +696,7 @@ To view all data for a node named ``build``, enter:
 
 .. code-block:: bash
 
-   $ knife node show build
+   knife node show build
 
 to return:
 
@@ -751,7 +751,7 @@ To view the FQDN for a node named ``i-12345678``, enter:
 
 .. code-block:: bash
 
-   $ knife node show i-12345678 -a fqdn
+   knife node show i-12345678 -a fqdn
 
 to return:
 
@@ -765,7 +765,7 @@ To view the run-list for a node named ``dev``, enter:
 
 .. code-block:: bash
 
-   $ knife node show dev -r
+   knife node show dev -r
 
 **Show as JSON data**
 
@@ -773,7 +773,7 @@ To view information in JSON format, use the ``-F`` common option; use a command 
 
 .. code-block:: bash
 
-   $ knife node show devops -F json
+   knife node show devops -F json
 
 Other formats available include ``text``, ``yaml``, and ``pp``.
 
