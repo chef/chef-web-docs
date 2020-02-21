@@ -107,8 +107,6 @@ To remove the system installation entry:
 
 To remove symlinks:
 
-* For Chef Client 12.x, under ``/usr/local/bin``:
-
   .. code-block:: bash
 
      $ sudo find /usr/local/bin -lname '`/opt/chef-workstation/*' -delete
