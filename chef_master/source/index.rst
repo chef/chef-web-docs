@@ -82,7 +82,7 @@ Concepts
 
 **Supermarket**: `Supermarket <supermarket.html>`__ | `Public Supermarket (overview) </supermarket.html#public-supermarket>`__ | `Private Supermarket (overview) </supermarket.html#private-supermarket>`__ | `Share Cookbooks on the Chef Supermarket </supermarket_share_cookbook.html>`__
 
-**Appendix**: `Env Variables </environment_variables.html>`__ | `Troubleshooting </errors.html>`__ | `Glossary </glossary.html>`__
+**Appendix**: `Troubleshooting </errors.html>`__ | `Glossary </glossary.html>`__
 
 Guides
 -----------------------------------------------------
@@ -558,7 +558,6 @@ Addenda
    dsl_handler
    dsl_recipe
    elasticsearch_and_kibana_auth
-   environment_variables
    environments
    errors
    feedback
