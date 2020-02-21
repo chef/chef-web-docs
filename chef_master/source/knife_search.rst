@@ -21,7 +21,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ knife search INDEX SEARCH_QUERY
+   knife search INDEX SEARCH_QUERY
 
 where ``INDEX`` is one of ``client``, ``environment``, ``node``, ``role``, or the name of a data bag and ``SEARCH_QUERY`` is the search query syntax for the query that will be executed.
 
@@ -29,7 +29,7 @@ where ``INDEX`` is one of ``client``, ``environment``, ``node``, ``role``, or th
 
 .. code-block:: bash
 
-   $ knife search '*:*' -i
+   knife search '*:*' -i
 
 will return something similar to:
 
@@ -50,19 +50,19 @@ and is the same search as:
 
 .. code-block:: bash
 
-   $ knife search node '*:*' -i
+   knife search node '*:*' -i
 
 If the ``SEARCH_QUERY`` does not contain a colon character (``:``), then the default query pattern is ``tags:*#{@query}* OR roles:*#{@query}* OR fqdn:*#{@query}* OR addresses:*#{@query}*``, which means the following two search queries are effectively the same:
 
 .. code-block:: bash
 
-   $ knife search ubuntu
+   knife search ubuntu
 
 or:
 
 .. code-block:: bash
 
-   $ knife search node "tags:*ubuntu* OR roles:*ubuntu* OR fqdn:*ubuntu* (etc.)"
+   knife search node "tags:*ubuntu* OR roles:*ubuntu* OR fqdn:*ubuntu* (etc.)"
 
 Query Syntax
 -----------------------------------------------------
