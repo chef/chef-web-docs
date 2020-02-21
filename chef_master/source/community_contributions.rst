@@ -33,6 +33,8 @@ The following repositories are the preferred locations for the creation of issue
      - https://github.com/inspec/inspec
    * - Chef Infra Server
      - https://github.com/chef/chef-server
+   * - Chef Habitat
+     - https://github.com/habitat-sh/habitat
    * - Chef Automate
      - please contact `Chef Support <https://www.chef.io/support/>`_
 
@@ -248,23 +250,6 @@ Use the following steps to keep the master branch up to date.
    .. code-block:: bash
 
       $ git pull --rebase
-
-The following ``rakefile`` can be used to update Chef, Ohai, and cookbooks. Edit as necessary:
-
-.. code-block:: ruby
-
-   projects = %w[chef cookbooks ohai]
-   chef = "#{ENV['HOME']}/projects/chef"
-
-   desc 'Update local repositories from upstream'
-   task :update do
-     projects.each do |p|
-       Dir.chdir('#{chef}/#{p}') do
-         sh 'git fetch chef'
-         sh 'git rebase chef/master master'
-       end
-     end
-   end
 
 Sync Master
 -----------------------------------------------------
