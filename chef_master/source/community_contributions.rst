@@ -7,9 +7,10 @@ We're glad you want to contribute to a Chef project! This guide will help answer
 
 Submitting Issues
 =====================================================
+
 Not every contribution comes in the form of code. Submitting, confirming, and triaging issues is an important task for any project. At Chef we use GitHub to track all project issues.
 
-If you are familiar with Chef and know the component, that is causing you a problem, you can file an issue in the corresponding GitHub project. All of our Open Source Software can be found in our GitHub organization at https://github.com/chef. All projects include GitHub issue templates to help gather information needed for a thorough review.
+If you are familiar with Chef projects and know the component that is causing you a problem, you can file an issue in the corresponding GitHub project. All of our Open Source Software can be found in our GitHub organizations at https://github.com/chef, https://github.com/inspec, and https://github.com/habitat-sh. All projects include GitHub issue templates to help gather information needed for a thorough review.
 
 We ask you not to submit security concerns via GitHub. For details on submitting potential security issues please see https://www.chef.io/security/.
 
@@ -46,9 +47,10 @@ For additional support about Chef products, including documentation, learning, a
 
 Contribution Process
 =====================================================
-We have a 3 step process for contributions:
+We have a 4 step process for contributions:
 
-#. Commit changes to a git branch, making sure to sign-off those changes for the Developer Certificate of Origin with ``git commit -s``
+#. Fork the project repository to your own GitHub account.
+#. Commit your changes to your fork, making sure to sign-off those changes for the Developer Certificate of Origin with ``git commit -s``
 #. Create a GitHub Pull Request for your change, following the instructions in the pull request template.
 #. Perform a Code Review with the project maintainers on the pull request.
 
