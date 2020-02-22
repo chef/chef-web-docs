@@ -92,7 +92,7 @@ Nested Fields
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag search_key_nested
 
-A nested field appears deeper in the JSON data structure. For example, information about a network interface might be several layers deep: ``node[:network][:interfaces][:en1]``. When nested fields are present in a JSON structure, Chef Infra Client will extract those nested fields to the top-level, flattening them into compound fields that support wildcard search patterns.
+A nested field appears deeper in the JSON data structure. For example, information about a network interface might be several layers deep: ``node['network']['interfaces']['en1']``. When nested fields are present in a JSON structure, Chef Infra Client will extract those nested fields to the top-level, flattening them into compound fields that support wildcard search patterns.
 
 By combining wildcards with range-matching patterns and wildcard queries, it is possible to perform very powerful searches, such as using the vendor part of the MAC address to find every node that has a network card made by the specified vendor.
 
@@ -847,7 +847,7 @@ To build a search query to use more than one attribute, use an underscore (``_``
 
 .. code-block:: bash
 
-	knife search node "languages_ruby_version:1.9.3"
+	knife search node "languages_ruby_version:2.7.0"
 
 .. end_tag
 
