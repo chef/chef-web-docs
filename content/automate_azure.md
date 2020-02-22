@@ -87,9 +87,9 @@ please contact <amp@chef.io> to obtain a new license.
     directory extracted from the starter kit. For example:
 
     ``` bash
-    $ cd ~/Downloads
-    $ unzip starter_kit.zip
-    $ cd starter_kit/chef-repo
+    cd ~/Downloads
+    unzip starter_kit.zip
+    cd starter_kit/chef-repo
     ```
 
 10. Run `knife client list` to test the connection to the Chef Infra
@@ -100,8 +100,8 @@ please contact <amp@chef.io> to obtain a new license.
 11. Optionally, bootstrap a node using knife.
 
     ``` bash
-    $ cd ~/Downloads/starter_kit/chef-repo
-    $ knife bootstrap chef-automate-01.eastus.cloudapp.azure.com --ssh-user azure --sudo
+    cd ~/Downloads/starter_kit/chef-repo
+    knife bootstrap chef-automate-01.eastus.cloudapp.azure.com --ssh-user azure --sudo
     ```
 
 Migrate to Chef Automate on Microsoft Azure
@@ -145,9 +145,9 @@ to date, do the following to migrate to the Chef Automate Azure VM:
     {{< /note >}}
 
     ``` bash
-    $ mkdir -p /tmp/chef-backup
-    $ /opt/opscode/embedded/bin/knife ec backup /tmp/chef-backup --with-user-sql --with-key-sql
-    $ tar -czvf chef-backup.tgz -C /tmp/chef-backup
+    mkdir -p /tmp/chef-backup
+    /opt/opscode/embedded/bin/knife ec backup /tmp/chef-backup --with-user-sql --with-key-sql
+    tar -czvf chef-backup.tgz -C /tmp/chef-backup
     ```
 
 1.  Using the Admin Username and FQDN that you choose when provisioning
@@ -155,7 +155,7 @@ to date, do the following to migrate to the Chef Automate Azure VM:
     tarball to your Azure VM:
 
     ``` bash
-    $ scp /tmp/chef-backup.tgz <Admin Username>@<FQDN>:/tmp/
+    scp /tmp/chef-backup.tgz <Admin Username>@<FQDN>:/tmp/
     ```
 
     {{< note >}}
@@ -171,24 +171,24 @@ to date, do the following to migrate to the Chef Automate Azure VM:
     latest version of the Chef Infra Server:
 
     ``` bash
-    $ chef-marketplace-ctl upgrade --server
+    chef-marketplace-ctl upgrade --server
     ```
 
 3.  Reconfigure Chef Automate and the Chef Infra Server
 
     ``` bash
-    $ sudo automate-ctl reconfigure
-    $ sudo chef-server-ctl reconfigure
+    sudo automate-ctl reconfigure
+    sudo chef-server-ctl reconfigure
     ```
 
 4.  Restore the backup
 
     ``` bash
-    $ mkdir -p /tmp/chef-backup
-    $ mv /tmp/chef-backup.tgz /tmp/chef-backup
-    $ cd /tmp/chef-backup
-    $ tar -ztf chef-backup.tgz
-    $ /opt/opscode/embedded/bin/knife ec restore /tmp/chef-backup --with-user-sql --with-key-sql
+    mkdir -p /tmp/chef-backup
+    mv /tmp/chef-backup.tgz /tmp/chef-backup
+    cd /tmp/chef-backup
+    tar -ztf chef-backup.tgz
+    /opt/opscode/embedded/bin/knife ec restore /tmp/chef-backup --with-user-sql --with-key-sql
     ```
 
 5.  Update your workstation knife configuration. Open `.chef/config.rb`
@@ -221,5 +221,5 @@ to date, do the following to migrate to the Chef Automate Azure VM:
     FQDN. For example:
 
     ``` none
-    $ knife ssh name:* 'sudo sed -ie "s/chef_server_url.*/chef_server_url 'https://<FQDN>/organizations/your_org'/" /etc/chef/client.rb
+    knife ssh name:* 'sudo sed -ie "s/chef_server_url.*/chef_server_url 'https://<FQDN>/organizations/your_org'/" /etc/chef/client.rb
     ```

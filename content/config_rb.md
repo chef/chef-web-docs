@@ -212,7 +212,7 @@ This configuration file has the following settings:
     example:
 
     ``` bash
-    $ ssh-keygen -f key.pub -e -m pem > key.pem
+    ssh-keygen -f key.pub -e -m pem > key.pem
     ```
 
 `ssh_timeout`

@@ -7,7 +7,7 @@ aliases:
 menu:
   docs:
     title: service
-    identifier: chef_infra/cookbook_reference/resources/resource_service.md service
+    identifier: chef_infra/cookbook_reference/resources/service service
     parent: chef_infra/cookbook_reference/resources
     weight: 950
 resource_reference: true

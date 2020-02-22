@@ -22,7 +22,7 @@ Syntax
 This subcommand has the following syntax:
 
 ``` bash
-$ knife deps (options)
+knife deps (options)
 ```
 
 Options
@@ -84,25 +84,25 @@ The following examples show how to use this knife subcommand:
 **Find dependencies for a node**
 
 ``` bash
-$ knife deps nodes/node_name.json
+knife deps nodes/node_name.json
 ```
 
 **Find dependencies for a role**
 
 ``` bash
-$ knife deps roles/role_name.json
+knife deps roles/role_name.json
 ```
 
 **Find dependencies for a cookbook**
 
 ``` bash
-$ knife deps cookbooks/cookbook_name.json
+knife deps cookbooks/cookbook_name.json
 ```
 
 **Find dependencies for an environment**
 
 ``` bash
-$ knife deps environments/environment_name.json
+knife deps environments/environment_name.json
 ```
 
 **Find dependencies for a combination of nodes, roles, and so on**
@@ -111,7 +111,7 @@ To find the dependencies for a combination of nodes, cookbooks, roles,
 and/or environments:
 
 ``` bash
-$ knife deps cookbooks/git.json cookbooks/github.json roles/base.json environments/desert.json nodes/mynode.json
+knife deps cookbooks/git.json cookbooks/github.json roles/base.json environments/desert.json nodes/mynode.json
 ```
 
 **Use a wildcard**
@@ -120,7 +120,7 @@ A wildcard can be used to return all of the child nodes. For example,
 all of the environments:
 
 ``` bash
-$ knife deps environments/*.json
+knife deps environments/*.json
 ```
 
 **Return as tree**
@@ -128,7 +128,7 @@ $ knife deps environments/*.json
 Use the `--tree` option to view the results with structure:
 
 ``` bash
-$ knife deps roles/webserver.json
+knife deps roles/webserver.json
 ```
 
 to return something like:
@@ -147,7 +147,7 @@ roles/webserver.json
 The output of `knife deps` can be passed to `knife upload`:
 
 ``` bash
-$ knife upload `knife deps nodes/*.json
+knife upload `knife deps nodes/*.json
 ```
 
 **Pass knife deps output to knife xargs**
@@ -155,5 +155,5 @@ $ knife upload `knife deps nodes/*.json
 The output of `knife deps` can be passed to `knife xargs`:
 
 ``` bash
-$ knife deps nodes/*.json | xargs knife upload
+knife deps nodes/*.json | xargs knife upload
 ```

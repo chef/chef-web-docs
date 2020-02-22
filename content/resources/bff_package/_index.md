@@ -7,7 +7,7 @@ aliases:
 menu:
   docs:
     title: bff_package
-    identifier: chef_infra/cookbook_reference/resources/resource_bff_package.md bff_package
+    identifier: chef_infra/cookbook_reference/resources/bff_package bff_package
     parent: chef_infra/cookbook_reference/resources
     weight: 130
 resource_reference: true

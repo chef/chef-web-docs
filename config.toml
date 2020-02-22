@@ -218,7 +218,7 @@ weight = 30
     title = "Supermarket"
     identifier = "chef_infra/concepts/supermarket"
     parent = "chef_infra/concepts"
-    weight = 120
+    weight = 110
 
       [[menu.docs]]
       title = "Public Supermarket"

@@ -204,7 +204,7 @@ Any time this certificate changes you must re-run this process.
     certificate chain around as well. For Example:
 
     ``` none
-    $ echo "q" | openssl s_client -showcerts -connect yourautomateserver.com:443 </dev/null 2> /dev/null
+    echo "q" | openssl s_client -showcerts -connect yourautomateserver.com:443 </dev/null 2> /dev/null
 
     CONNECTED(00000003)
     ---
@@ -249,7 +249,7 @@ Any time this certificate changes you must re-run this process.
     Runner](/ctl_automate_server.html#install-runner).
 
     ``` none
-    $ automate-ctl install-runner [server fqdn] [ssh user] --fips-custom-cert-filename path/to/your/certificate-chain.pem [other options...]
+    automate-ctl install-runner [server fqdn] [ssh user] --fips-custom-cert-filename path/to/your/certificate-chain.pem [other options...]
     ```
 
 Troubleshooting

@@ -3538,7 +3538,7 @@ This method has no request body.
 For example, run the following command:
 
 ``` bash
-$ knife raw /data/dogs
+knife raw /data/dogs
 ```
 
 which returns a list of data bags on the server:
@@ -3554,7 +3554,7 @@ which returns a list of data bags on the server:
 Run the following command:
 
 ``` bash
-$ knife raw -m DELETE /data/dogs/shihtzu
+knife raw -m DELETE /data/dogs/shihtzu
 ```
 
 **Response**
@@ -3577,7 +3577,7 @@ The response is similar to:
 Run the following command:
 
 ``` bash
-$ knife raw /data/dogs
+knife raw /data/dogs
 ```
 
 to view an updated list:

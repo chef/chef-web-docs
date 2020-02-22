@@ -7,8 +7,7 @@ aliases:
 menu:
   docs:
     title: macports_package
-    identifier: chef_infra/cookbook_reference/resources/resource_macports_package.md
-      macports_package
+    identifier: chef_infra/cookbook_reference/resources/macports_package macports_package
     parent: chef_infra/cookbook_reference/resources
     weight: 550
 resource_reference: true

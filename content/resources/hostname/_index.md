@@ -7,7 +7,7 @@ aliases:
 menu:
   docs:
     title: hostname
-    identifier: chef_infra/cookbook_reference/resources/resource_hostname.md hostname
+    identifier: chef_infra/cookbook_reference/resources/hostname hostname
     parent: chef_infra/cookbook_reference/resources
     weight: 440
 resource_reference: true

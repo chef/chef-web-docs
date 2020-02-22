@@ -19,7 +19,7 @@ During a `knife bootstrap` bootstrap operation, the following happens:
 </thead>
 <tbody>
 <tr class="odd">
-<td><strong>$ knife bootstrap</strong></td>
+<td><strong>knife bootstrap</strong></td>
 <td>Enter the <code>knife bootstrap</code> subcommand from a workstation. Include the hostname, IP address, or FQDN of the target node as part of this command. Knife will establish an SSH or WinRM connection with the target node using port 22 and assemble a shell script using the chef-full.erb file, which is the default bootstrap template.</td>
 </tr>
 <tr class="even">

@@ -42,7 +42,7 @@ Syntax
 This argument has the following syntax:
 
 ``` bash
-$ knife user create USERNAME DISPLAY_NAME FIRST_NAME LAST_NAME EMAIL PASSWORD (options)
+knife user create USERNAME DISPLAY_NAME FIRST_NAME LAST_NAME EMAIL PASSWORD (options)
 ```
 
 Options
@@ -82,7 +82,7 @@ The following examples show how to use this knife subcommand:
 **Create a user**
 
 ``` bash
-$ knife user create rbirdman "Radio Birdman" Radio Birdman radio@bird.man -f /keys/radio_birdman
+knife user create rbirdman "Radio Birdman" Radio Birdman radio@bird.man -f /keys/radio_birdman
 ```
 
 delete
@@ -96,7 +96,7 @@ Syntax
 This argument has the following syntax:
 
 ``` bash
-$ knife user delete USER_NAME
+knife user delete USER_NAME
 ```
 
 Options
@@ -112,7 +112,7 @@ The following examples show how to use this knife subcommand:
 **Delete a user**
 
 ``` bash
-$ knife user delete "Steve Danno"
+knife user delete "Steve Danno"
 ```
 
 edit
@@ -128,7 +128,7 @@ Syntax
 This argument has the following syntax:
 
 ``` bash
-$ knife user edit USER_NAME
+knife user edit USER_NAME
 ```
 
 Options
@@ -152,7 +152,7 @@ Syntax
 This argument has the following syntax:
 
 ``` bash
-$ knife user key create USER_NAME (options)
+knife user key create USER_NAME (options)
 ```
 
 Options
@@ -197,7 +197,7 @@ Syntax
 This argument has the following syntax:
 
 ``` bash
-$ knife user key delete USER_NAME KEY_NAME
+knife user key delete USER_NAME KEY_NAME
 ```
 
 Examples
@@ -216,7 +216,7 @@ Syntax
 This argument has the following syntax:
 
 ``` bash
-$ knife user key edit USER_NAME KEY_NAME (options)
+knife user key edit USER_NAME KEY_NAME (options)
 ```
 
 Options
@@ -270,7 +270,7 @@ Syntax
 This argument has the following syntax:
 
 ``` bash
-$ knife user key list USER_NAME (options)
+knife user key list USER_NAME (options)
 ```
 
 Options
@@ -306,7 +306,7 @@ Syntax
 This argument has the following syntax:
 
 ``` bash
-$ knife user key show USER_NAME KEY_NAME
+knife user key show USER_NAME KEY_NAME
 ```
 
 Examples
@@ -325,7 +325,7 @@ Syntax
 This argument has the following syntax:
 
 ``` bash
-$ knife user list (options)
+knife user list (options)
 ```
 
 Options
@@ -362,7 +362,7 @@ Syntax
 This argument has the following syntax:
 
 ``` bash
-$ knife user reregister USER_NAME (options)
+knife user reregister USER_NAME (options)
 ```
 
 Options
@@ -388,7 +388,7 @@ The following examples show how to use this knife subcommand:
 **Regenerate the RSA key-pair**
 
 ``` bash
-$ knife user reregister "Robert Younger"
+knife user reregister "Robert Younger"
 ```
 
 show
@@ -402,7 +402,7 @@ Syntax
 This argument has the following syntax:
 
 ``` bash
-$ knife user show USER_NAME (options)
+knife user show USER_NAME (options)
 ```
 
 Options
@@ -424,7 +424,7 @@ The following examples show how to use this knife subcommand:
 To view a user named `Dennis Teck`, enter:
 
 ``` bash
-$ knife user show "Dennis Teck"
+knife user show "Dennis Teck"
 ```
 
 to return something like:
@@ -442,7 +442,7 @@ To view information in JSON format, use the `-F` common option as part
 of the command like this:
 
 ``` bash
-$ knife user show "Dennis Teck" -F json
+knife user show "Dennis Teck" -F json
 ```
 
 (Other formats available include `text`, `yaml`, and `pp`, e.g.

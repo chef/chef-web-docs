@@ -2,7 +2,7 @@ To initialize a project using a Bitbucket repository, run a command
 similar to:
 
 ``` bash
-$ delivery init --bitbucket PROJECT_KEY -r REPO_NAME
+delivery init --bitbucket PROJECT_KEY -r REPO_NAME
 ```
 
 where `PROJECT_KEY` is the name of the project key in Bitbucket and
@@ -11,7 +11,7 @@ initialize the `anagrams` repository in Bitbucket with the `TEST`
 project key:
 
 ``` bash
-$ delivery init --bitbucket TEST -r anagrams
+delivery init --bitbucket TEST -r anagrams
 ```
 
 and returns output similar to:

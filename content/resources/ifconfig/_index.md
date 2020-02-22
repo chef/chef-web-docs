@@ -7,7 +7,7 @@ aliases:
 menu:
   docs:
     title: ifconfig
-    identifier: chef_infra/cookbook_reference/resources/resource_ifconfig.md ifconfig
+    identifier: chef_infra/cookbook_reference/resources/ifconfig ifconfig
     parent: chef_infra/cookbook_reference/resources
     weight: 460
 resource_reference: true
@@ -243,7 +243,7 @@ examples_list:
 
       ``` none
 
-      vagrant@default-ubuntu-1204:~$ cat /etc/network/interfaces.d/ifcfg-eth1
+      vagrant@default-ubuntu-1204:~cat /etc/network/interfaces.d/ifcfg-eth1
 
       iface eth1 inet dhcp
 

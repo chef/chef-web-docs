@@ -25,11 +25,12 @@ Not every contribution comes in the form of code. Submitting,
 confirming, and triaging issues is an important task for any project. At
 Chef we use GitHub to track all project issues.
 
-If you are familiar with Chef and know the component, that is causing
-you a problem, you can file an issue in the corresponding GitHub
+If you are familiar with Chef projects and know the component that is
+causing you a problem, you can file an issue in the corresponding GitHub
 project. All of our Open Source Software can be found in our GitHub
-organization at <https://github.com/chef>. All projects include GitHub
-issue templates to help gather information needed for a thorough review.
+organizations at <https://github.com/chef>, <https://github.com/inspec>,
+and <https://github.com/habitat-sh>. All projects include GitHub issue
+templates to help gather information needed for a thorough review.
 
 We ask you not to submit security concerns via GitHub. For details on
 submitting potential security issues please see
@@ -76,8 +77,12 @@ of issues and bug reports:
 <td><a href="https://github.com/chef/chef-server">https://github.com/chef/chef-server</a></td>
 </tr>
 <tr class="even">
+<td>Chef Habitat</td>
+<td><a href="https://github.com/habitat-sh/habitat">https://github.com/habitat-sh/habitat</a></td>
+</tr>
+<tr class="odd">
 <td>Chef Automate</td>
-<td>please contact <a href="https://www.chef.io/support/">Chef Support</a></td>
+<td><a href="https://github.com/chef/automate">https://github.com/chef/automate</a></td>
 </tr>
 </tbody>
 </table>
@@ -107,13 +112,14 @@ appropriate for general purpose questions that are not bugs.
 Contribution Process
 ====================
 
-We have a 3 step process for contributions:
+We have a 4 step process for contributions:
 
-1.  Commit changes to a git branch, making sure to sign-off those
+1.  Fork the project repository to your own GitHub account.
+2.  Commit your changes to your fork, making sure to sign-off those
     changes for the Developer Certificate of Origin with `git commit -s`
-2.  Create a GitHub Pull Request for your change, following the
+3.  Create a GitHub Pull Request for your change, following the
     instructions in the pull request template.
-3.  Perform a Code Review with the project maintainers on the pull
+4.  Perform a Code Review with the project maintainers on the pull
     request.
 
 About the Apache License
@@ -298,253 +304,3 @@ likely include stuff like the following:
 -   A new feature;
 -   A translation;
 -   Extensive or creative comments.
-
-Use git
-=======
-
-Chef is maintained on GitHub. To contribute to Chef, such as submitting
-a pull request, requires using GitHub and Git. The sections below
-describe how to use git to set up the Chef repository, keep it current
-and synchronized, and how to use branches to submit pull requests.
-
-Set Up Repo
------------
-
-Use the following steps to set up a development repository for Chef:
-
-1.  Set up a GitHub account.
-
-2.  Fork the <https://github.com/chef/chef> repository to your GitHub
-    account.
-
-3.  Clone the <https://github.com/chef/chef> repository:
-
-    ``` bash
-    $ git clone git@github.com:yourgithubusername/chef.git
-    ```
-
-4.  From the command line, browse to the `chef/` directory:
-
-    ``` bash
-    $ cd chef/
-    ```
-
-5.  From the `chef/` directory, add a remote named `chef`:
-
-    ``` bash
-    $ git remote add chef git://github.com/chef/chef.git
-    ```
-
-6.  Verify:
-
-    ``` bash
-    $ git config --get-regexp "^remote\.chef"
-    ```
-
-    which should return something like:
-
-    ``` bash
-    remote.chef.url git://github.com/chef/chef.git
-    remote.chef.fetch +refs/heads/*:refs/remotes/chef/*
-    ```
-
-7.  Adjust your branch to track the `chef/master` remote branch:
-
-    ``` bash
-    $ git config --get-regexp "^branch\.master"
-    ```
-
-    which should return something like:
-
-    ``` bash
-    branch.master.remote origin
-    branch.master.merge refs/heads/master
-    ```
-
-    and then change it:
-
-    ``` bash
-    $ git config branch.master.remote chef
-    ```
-
-Keep Master Current
--------------------
-
-Use the following steps to keep the master branch up to date.
-
-1.  Run:
-
-    ``` bash
-    $ git checkout master
-    ```
-
-2.  And then run:
-
-    ``` bash
-    $ git pull --rebase
-    ```
-
-The following `rakefile` can be used to update Chef, Ohai, and
-cookbooks. Edit as necessary:
-
-``` ruby
-projects = %w[chef cookbooks ohai]
-chef = "#{ENV['HOME']}/projects/chef"
-
-desc 'Update local repositories from upstream'
-task :update do
-  projects.each do |p|
-    Dir.chdir('#{chef}/#{p}') do
-      sh 'git fetch chef'
-      sh 'git rebase chef/master master'
-    end
-  end
-end
-```
-
-Sync Master
------------
-
-Use the following steps to synchronize the master branch.
-
-1.  Run:
-
-    ``` bash
-    $ git fetch chef
-    ```
-
-2.  And then run:
-
-    ``` bash
-    $ git rebase chef/master master
-    ```
-
-    {{< note >}}
-
-    Use `rebase` instead of `merge` to ensure that a linear history is
-    maintained that does not include unnecessary merge commits. `rebase`
-    will also rewind, apply, and then reapply commits to the `master`
-    branch.
-
-    {{< /note >}}
-
-Use Branch
-----------
-
-Commits to the Chef repositories should never be made against the master
-branch. Use a topic branch instead. A topic branch solves a single and
-unique problem and often maps closely to an issue being tracked in the
-repository. For example, a topic branch to add support for a new init
-system or a topic branch to resolve a bug that occurs in a specific
-version of CentOS. Ideally, a topic branch is named in a way that
-associates it closely with the issue it is attempting to resolve. This
-helps ensure that others may easily find it.
-
-Use the following steps to create a topic branch:
-
-1.  For a brand new clone of the Chef repository (that was created using
-    the steps listed earlier), fetch the `chef` remote:
-
-    ``` bash
-    $ git fetch chef
-    ```
-
-2.  Create an appropriately named tracking branch:
-
-    ``` bash
-    $ git checkout --track -b CHEF-XX chef/master
-    ```
-
-    Set up a topic branch to track `chef/master`. This allows commits to
-    be easily rebased prior to merging.
-
-3.  Make your changes, and then commit them:
-
-    ``` bash
-    $ git status
-    ```
-
-4.  And then run:
-
-    ``` bash
-    $ git commit -s <filespec>
-    ```
-
-5.  Rebase the commits against `chef/master`. After work in the topic
-    branch is finished, rebase these commits against the upstream
-    master. Do this manually with `git fetch` followed by a `git rebase`
-    or use `git pull --rebase`.
-
-    git will let you know if there are any problems. In the event of
-    problems, fix them as directed, and then mark as fixed with a
-    `git add`, and then continue the rebase process using
-    `git rebase --continue`.
-
-    For example:
-
-    ``` bash
-    $ git fetch chef
-    ```
-
-    followed by:
-
-    ``` bash
-    $ git rebase chef/master CHEF-XX
-    ```
-
-    Or:
-
-    ``` bash
-    $ git pull --rebase
-    ```
-
-6.  Push the local topic branch to GitHub:
-
-    ``` bash
-    $ git push origin CHEF-XX
-    ```
-
-7.  Send a GitHub pull request for the changes, and then update the Chef
-    ticket with the appropriate information.
-
-Delete Branch
--------------
-
-After work has been merged by the branch maintainer, the topic branch is
-no longer necessary and should be removed.
-
-1.  Synchronize the local master:
-
-    ``` bash
-    $ git checkout master
-    ```
-
-    followed by:
-
-    ``` bash
-    $ git pull --rebase
-    ```
-
-2.  Remove the local branch using `-d` to ensure that it has been merged
-    by upstream. This option will not delete a branch that is not an
-    ancestor of the current `HEAD`. From the git man page:
-
-    ``` bash
-    -d
-      Delete a branch. The branch must be fully merged in HEAD.
-    -D
-      Delete a branch irrespective of its merged status.
-    ```
-
-3.  Remove the local branch:
-
-    ``` bash
-    $ git branch -d CHEF-XX
-    ```
-
-    Or remove the remote branch by using the full syntax to `push` and
-    by omitting a source branch:
-
-    ``` bash
-    $ git push origin :CHEF-XX
-    ```

@@ -7,8 +7,7 @@ aliases:
 menu:
   docs:
     title: kernel_module
-    identifier: chef_infra/cookbook_reference/resources/resource_kernel_module.md
-      kernel_module
+    identifier: chef_infra/cookbook_reference/resources/kernel_module kernel_module
     parent: chef_infra/cookbook_reference/resources
     weight: 480
 resource_reference: true

@@ -103,7 +103,7 @@ run as the root user or by using `sudo`.
 4.  Create the license directory:
 
     ``` bash
-    $ sudo mkdir -p /var/opt/delivery/license
+    sudo mkdir -p /var/opt/delivery/license
     ```
 
     and then copy the `delivery.license` file that exists in the
@@ -113,13 +113,13 @@ run as the root user or by using `sudo`.
 5.  Create the configuration directory:
 
     ``` bash
-    $ sudo mkdir -p /etc/delivery
+    sudo mkdir -p /etc/delivery
     ```
 
 6.  Edit the `/etc/delivery/delivery.rb` file:
 
     ``` bash
-    $ sudo vi /etc/delivery/delivery.rb ## you may use any editor you wish
+    sudo vi /etc/delivery/delivery.rb ## you may use any editor you wish
     ```
 
     and add the following settings:
@@ -148,7 +148,7 @@ run as the root user or by using `sudo`.
     present--on the primary Chef Automate server:
 
     ``` bash
-    $ sudo mkdir -p /opt/delivery/embedded/.ssh
+    sudo mkdir -p /opt/delivery/embedded/.ssh
     ```
 
 8.  Create a private key on the primary Chef Automate server. This key
@@ -159,13 +159,13 @@ run as the root user or by using `sudo`.
     Move into the directory:
 
     ``` bash
-    $ cd /opt/delivery/embedded/.ssh
+    cd /opt/delivery/embedded/.ssh
     ```
 
     then generate the key:
 
     ``` bash
-    $ sudo ssh-keygen -t rsa -b 4096 -C "<EMAIL_ADDRESS>"
+    sudo ssh-keygen -t rsa -b 4096 -C "<EMAIL_ADDRESS>"
     ```
 
     and then save to a file (don't overwrite anything) and note the
@@ -175,7 +175,7 @@ run as the root user or by using `sudo`.
     `/opt/delivery/embedded/.ssh/authorized_keys`:
 
     ``` bash
-    $ sudo mkdir -p /opt/delivery/embedded/.ssh/authorized_keys
+    sudo mkdir -p /opt/delivery/embedded/.ssh/authorized_keys
     ```
 
 10. Copy the public key (from the key pair created above) to
@@ -211,7 +211,7 @@ run as the root user or by using `sudo`.
     directory:
 
     ``` bash
-    $ sudo mkdir -p /etc/chef/trusted_certs
+    sudo mkdir -p /etc/chef/trusted_certs
     ```
 
 14. Copy all of the files in `/etc/chef/trusted_certs/` from the primary
@@ -221,7 +221,7 @@ run as the root user or by using `sudo`.
     server:
 
     ``` bash
-    $ sudo mkdir -p /var/opt/delivery/nginx/ca/
+    sudo mkdir -p /var/opt/delivery/nginx/ca/
     ```
 
 16. Copy all contents of `/var/opt/delivery/nginx/ca/` from the primary
@@ -230,13 +230,13 @@ run as the root user or by using `sudo`.
 17. Run the following command on the primary Chef Automate server:
 
     ``` bash
-    $ sudo automate-ctl reconfigure
+    sudo automate-ctl reconfigure
     ```
 
 18. Run the following command on the standby Chef Automate server:
 
     ``` bash
-    $ sudo automate-ctl reconfigure
+    sudo automate-ctl reconfigure
     ```
 
 Disaster Recovery
@@ -257,7 +257,7 @@ To promote a standby Chef Automate server to primary, do the following:
     Automate web UI) and make a backup of the data:
 
     ``` bash
-    $ sudo automate-ctl create-backup
+    sudo automate-ctl create-backup
     ```
 
     Move this data to a location that is not on the standby Chef
@@ -267,7 +267,7 @@ To promote a standby Chef Automate server to primary, do the following:
     and run the following command as the root user:
 
     ``` bash
-    $ automate-ctl stop
+    automate-ctl stop
     ```
 
 3.  Convert the standby server to a standalone Chef Automate server.
@@ -284,7 +284,7 @@ To promote a standby Chef Automate server to primary, do the following:
 4.  On the standby server, run the following command as the root user:
 
     ``` bash
-    $ automate-ctl reconfigure
+    automate-ctl reconfigure
     ```
 
     This will reconfigure the server to become a standalone Chef
@@ -323,7 +323,7 @@ If provisioning uses the SSH driver, do the following:
 3.  Run the following command:
 
     ``` bash
-    $ rm .chef/provisioning/ssh/delivery-server-test.json
+    rm .chef/provisioning/ssh/delivery-server-test.json
     ```
 
 ### Reinstall Standby

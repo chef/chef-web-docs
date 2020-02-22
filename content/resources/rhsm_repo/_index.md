@@ -7,7 +7,7 @@ aliases:
 menu:
   docs:
     title: rhsm_repo
-    identifier: chef_infra/cookbook_reference/resources/resource_rhsm_repo.md rhsm_repo
+    identifier: chef_infra/cookbook_reference/resources/rhsm_repo rhsm_repo
     parent: chef_infra/cookbook_reference/resources
     weight: 880
 resource_reference: true

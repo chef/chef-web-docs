@@ -4,7 +4,7 @@ the `server-admins` group. Run the command once per user added.
 This subcommand has the following syntax:
 
 ``` bash
-$ chef-server-ctl grant-server-admin-permissions USER_NAME
+chef-server-ctl grant-server-admin-permissions USER_NAME
 ```
 
 where `USER_NAME` is the user to add to the list of server
@@ -13,7 +13,7 @@ administrators.
 For example:
 
 ``` bash
-$ chef-server-ctl grant-server-admin-permissions bob
+chef-server-ctl grant-server-admin-permissions bob
 ```
 
 returns:

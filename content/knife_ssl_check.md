@@ -22,7 +22,7 @@ Syntax
 This subcommand has the following syntax:
 
 ``` bash
-$ knife ssl check (options)
+knife ssl check (options)
 ```
 
 Options
@@ -56,17 +56,17 @@ by specifying the path to the client.rb file. Use the `--config` option
 (that is available to any knife command) to specify this path:
 
 ``` bash
-$ knife ssl check --config /etc/chef/client.rb
+knife ssl check --config /etc/chef/client.rb
 ```
 
 **Verify an external server's SSL certificate**
 
 ``` bash
-$ knife ssl check URL_or_URI
+knife ssl check URL_or_URI
 ```
 
 for example:
 
 ``` bash
-$ knife ssl check https://www.chef.io
+knife ssl check https://www.chef.io
 ```

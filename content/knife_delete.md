@@ -22,7 +22,7 @@ Syntax
 This subcommand has the following syntax:
 
 ``` bash
-$ knife delete [PATTERN...] (options)
+knife delete [PATTERN...] (options)
 ```
 
 Options

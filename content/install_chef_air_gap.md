@@ -104,7 +104,7 @@ group.
 4.  Run the following to start all of the services:
 
     ``` bash
-    $ sudo chef-server-ctl reconfigure
+    sudo chef-server-ctl reconfigure
     ```
 
     Because the Chef Infra Server is composed of many different services
@@ -308,7 +308,7 @@ Supermarket.
 3.  Reconfigure the Chef Infra Server.
 
     ``` bash
-    $ sudo chef-server-ctl reconfigure
+    sudo chef-server-ctl reconfigure
     ```
 
 4.  Retrieve Supermarket's OAuth 2.0 client credentials:
@@ -334,13 +334,13 @@ Create a Wrapper
 1.  Generate the cookbook:
 
     ``` bash
-    $ chef generate cookbook my_supermarket_wrapper
+    chef generate cookbook my_supermarket_wrapper
     ```
 
 2.  Change directories into that cookbook:
 
     ``` bash
-    $ cd my_supermarket_wrapper
+    cd my_supermarket_wrapper
     ```
 
 3.  Defines the wrapper cookbook's dependency on the
@@ -445,7 +445,7 @@ example, to bootstrap a node running Ubuntu on Amazon Web Services
 (AWS), the command is similar to:
 
 ``` bash
-$ knife bootstrap ip_address -N supermarket-node -x ubuntu --sudo
+knife bootstrap ip_address -N supermarket-node -x ubuntu --sudo
 ```
 
 where:
@@ -462,7 +462,7 @@ When the bootstrap operation is finished, do the following:
     run-list:
 
     ``` bash
-    $ knife node run_list set supermarket-node recipe[my_supermarket_wrapper::default]
+    knife node run_list set supermarket-node recipe[my_supermarket_wrapper::default]
     ```
 
     where `supermarket-node` is the name of the node that was just
@@ -472,13 +472,13 @@ When the bootstrap operation is finished, do the following:
     node. For example, using SSH:
 
     ``` bash
-    $ ssh ubuntu@your-supermarket-node-public-dns
+    ssh ubuntu@your-supermarket-node-public-dns
     ```
 
 3.  After accessing the Chef Supermarket node, run Chef Infra Client:
 
     ``` bash
-    $ sudo chef-client
+    sudo chef-client
     ```
 
 Connect to Supermarket

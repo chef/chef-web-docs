@@ -56,7 +56,7 @@ Syntax
 This subcommand has the following syntax:
 
 ``` bash
-$ delivery api METHOD PATH (options)
+delivery api METHOD PATH (options)
 ```
 
 where:
@@ -125,19 +125,19 @@ command to work.
 **Link a GitHub enterprise user name**
 
 ``` bash
-$ delivery api put users/$DELIVERY_NAME/set-oauth-alias --data='{"app":"github-enterprise","alias":"$GITHUB_NAME"}'
+delivery api put users/$DELIVERY_NAME/set-oauth-alias --data='{"app":"github-enterprise","alias":"$GITHUB_NAME"}'
 ```
 
 **Link a GitHub.com user name**
 
 ``` bash
-$ delivery api put users/$DELIVERY_NAME/set-oauth-alias --data='{"app":"github","alias":"$GITHUB_NAME"}'
+delivery api put users/$DELIVERY_NAME/set-oauth-alias --data='{"app":"github","alias":"$GITHUB_NAME"}'
 ```
 
 **Get list of blocked projects**
 
 ``` bash
-$ delivery api get blocked_projects --ent ENTERPRISE --server URL
+delivery api get blocked_projects --ent ENTERPRISE --server URL
 ```
 
 delivery checkout
@@ -152,7 +152,7 @@ Syntax
 This subcommand has the following syntax:
 
 ``` bash
-$ delivery checkout CHANGE (options)
+delivery checkout CHANGE (options)
 ```
 
 where:
@@ -210,7 +210,7 @@ Syntax
 This subcommand has the following syntax:
 
 ``` bash
-$ delivery clone PROJECT (options)
+delivery clone PROJECT (options)
 ```
 
 where:
@@ -276,7 +276,7 @@ Syntax
 This subcommand has the following syntax:
 
 ``` bash
-$ delivery diff CHANGE (options)
+delivery diff CHANGE (options)
 ```
 
 where:
@@ -336,7 +336,7 @@ Syntax
 This subcommand has the following syntax:
 
 ``` bash
-$ delivery init (options)
+delivery init (options)
 ```
 
 Options
@@ -448,7 +448,7 @@ To initialize a project using a GitHub repository, run a command similar
 to:
 
 ``` bash
-$ delivery init --github ORG_NAME -r REPO_NAME
+delivery init --github ORG_NAME -r REPO_NAME
 ```
 
 where `ORG_NAME` is the name of the GitHub organization and `REPO_NAME`
@@ -456,7 +456,7 @@ is the name of the repository in GitHub. For example to initialize the
 `seapower` repository in GitHub with the `chef-cookbooks` organization:
 
 ``` bash
-$ delivery init --github chef-cookbooks -r seapower
+delivery init --github chef-cookbooks -r seapower
 ```
 
 and returns output similar to:
@@ -494,7 +494,7 @@ The following example shows how to add a build cookbook after the
 initialization process
 
 ``` bash
-$ delivery init -skip-build-cookbook
+delivery init -skip-build-cookbook
 ```
 
 and then update the `config.json` file for the `delivery-truck` cookbook
@@ -518,7 +518,7 @@ To initialize a project using a GitHub repository, run a command similar
 to:
 
 ``` bash
-$ delivery init --generator PATH_TO_COOKBOOK -c PATH_TO_CONFIG -f PIPELINE
+delivery init --generator PATH_TO_COOKBOOK -c PATH_TO_CONFIG -f PIPELINE
 ```
 
 where `PATH_TO_COOKBOOK` is path to the cookbook generator,
@@ -528,7 +528,7 @@ pipeline using the `bc-generator` cookbook generator and the `trunk`
 pipeline:
 
 ``` bash
-$ delivery init --generator https://github.com/albertatom/bc-generator.git -c /Users/albertatom/chef/delivery/.delivery/config.json -f trunk
+delivery init --generator https://github.com/albertatom/bc-generator.git -c /Users/albertatom/chef/delivery/.delivery/config.json -f trunk
 ```
 
 returns output similar to:
@@ -601,7 +601,7 @@ Syntax
 This subcommand has the following syntax:
 
 ``` bash
-$ delivery job STAGE PHASE (options)
+delivery job STAGE PHASE (options)
 ```
 
 where:
@@ -714,7 +714,7 @@ To run your unit tests on your local machine the same way they'd be run
 on Chef Automate, run the following command:
 
 ``` bash
-$ delivery job verify unit --local
+delivery job verify unit --local
 ```
 
 which will return output similar to:
@@ -758,7 +758,7 @@ Syntax
 This subcommand has the following syntax:
 
 ``` bash
-$ delivery local PHASE|STAGE
+delivery local PHASE|STAGE
 ```
 
 where `PHASE` is one of the following:
@@ -812,7 +812,7 @@ the `delivery local` command across many different projects.
 Alternatively, you can provide the URI via the `-r` flag:
 
 ``` bash
-$ delivery local syntax -r https://url-for-my-project.toml
+delivery local syntax -r https://url-for-my-project.toml
 ```
 
 Providing the URI through this manner will take precedence over anything
@@ -895,7 +895,7 @@ Syntax
 This subcommand has the following syntax:
 
 ``` bash
-$ delivery review (options)
+delivery review (options)
 ```
 
 Options
@@ -942,7 +942,7 @@ Examples
 **Bump version metadata automatically**
 
 ``` bash
-$ delivery review --auto-bump
+delivery review --auto-bump
 ```
 
 will return something similar to:
@@ -973,7 +973,7 @@ Syntax
 This subcommand has the following syntax:
 
 ``` bash
-$ delivery setup (options)
+delivery setup (options)
 ```
 
 Options
@@ -1023,7 +1023,7 @@ Syntax
 This subcommand has the following syntax:
 
 ``` bash
-$ delivery status (options)
+delivery status (options)
 ```
 
 Options
@@ -1051,7 +1051,7 @@ Examples
 --------
 
 ``` shell
-$ delivery status
+delivery status
 
 Status information for Automate server automate.example.com...
 
@@ -1097,7 +1097,7 @@ Syntax
 This subcommand has the following syntax:
 
 ``` bash
-$ delivery token (options)
+delivery token (options)
 ```
 
 {{< note >}}
@@ -1108,7 +1108,7 @@ subcommand. If this variable is set, you will not be asked to input your
 password.
 
 ``` bash
-$ AUTOMATE_PASSWORD=secret delivery token -s automate.example.com -e myent -u token
+AUTOMATE_PASSWORD=secret delivery token -s automate.example.com -e myent -u token
 ```
 
 {{< /note >}}
@@ -1148,7 +1148,7 @@ Examples
 **Verify a token**
 
 ``` bash
-$ delivery token --verify
+delivery token --verify
 ```
 
 returns something similar to:

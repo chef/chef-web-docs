@@ -35,7 +35,7 @@ These instructions are intended for macOS and Linux users.
 1.  Open a terminal and enter the following:
 
     ``` bash
-    $ which ruby
+    which ruby
     ```
 
     which will return something like `/usr/bin/ruby`.
@@ -150,7 +150,7 @@ To create the `.chef` directory:
     contents of the `.chef` folder to GitHub. For example:
 
     ``` bash
-    $ echo '.chef' >> ~/chef-repo/.gitignore
+    echo '.chef' >> ~/chef-repo/.gitignore
     ```
 
 Install a Code Editor
@@ -252,7 +252,7 @@ from the command line using `chef-server-ctl`. Run the following
 command:
 
 ``` bash
-$ chef-server-ctl org-create ORG_NAME ORG_FULL_NAME -f FILE_NAME
+chef-server-ctl org-create ORG_NAME ORG_FULL_NAME -f FILE_NAME
 ```
 
 where
@@ -272,7 +272,7 @@ For example, an organization named `chef`, with a full name of
 saved to `/tmp/chef.key`:
 
 ``` bash
-$ chef-server-ctl org-create chef "Chef Software, Inc." -f /tmp/chef.key
+chef-server-ctl org-create chef "Chef Software, Inc." -f /tmp/chef.key
 ```
 
 ### Create a User
@@ -281,7 +281,7 @@ On the Chef Infra Server machine create the `USER.pem` from the command
 line using `chef-server-ctl`. Run the following command:
 
 ``` bash
-$ chef-server-ctl user-create USER_NAME FIRST_NAME LAST_NAME EMAIL PASSWORD -f FILE_NAME
+chef-server-ctl user-create USER_NAME FIRST_NAME LAST_NAME EMAIL PASSWORD -f FILE_NAME
 ```
 
 where
@@ -294,7 +294,7 @@ For example: a user named `grantmc`, with a first and last name of
 password, and a `USER.pem` file saved to `/tmp/grantmc.key`:
 
 ``` bash
-$ chef-server-ctl user-create grantmc Grant McLennan grantmc@chef.io p@s5w0rD! -f /tmp/grantmc.key
+chef-server-ctl user-create grantmc Grant McLennan grantmc@chef.io p@s5w0rD! -f /tmp/grantmc.key
 ```
 
 ### Move .pem Files

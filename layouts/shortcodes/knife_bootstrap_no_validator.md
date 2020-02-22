@@ -10,7 +10,7 @@ To create a node via the USER.pem file, simply delete the
 ORGANIZATION-validator.pem file on the workstation. For example:
 
 ``` bash
-$ rm -f /home/lamont/.chef/myorg-validator.pem
+rm -f /home/lamont/.chef/myorg-validator.pem
 ```
 
 and then make the following changes in the config.rb file:

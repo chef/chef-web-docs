@@ -7,7 +7,7 @@ aliases:
 menu:
   docs:
     title: git
-    identifier: chef_infra/cookbook_reference/resources/resource_git.md git
+    identifier: chef_infra/cookbook_reference/resources/git git
     parent: chef_infra/cookbook_reference/resources
     weight: 390
 resource_reference: true
@@ -297,7 +297,7 @@ examples_list:
 
       ``` bash
 
-      $ sudo chef-client -l debug
+      sudo chef-client -l debug
 
       ```'
 - example_heading: Install an application from git using bash

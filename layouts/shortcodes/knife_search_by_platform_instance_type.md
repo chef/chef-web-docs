@@ -2,7 +2,7 @@ To search for the instance type (flavor) of all nodes running on the
 Amazon EC2 platform, enter:
 
 ``` bash
-$ knife search node 'ec2:*' -a ec2.instance_type
+knife search node 'ec2:*' -a ec2.instance_type
 ```
 
 to return something like:

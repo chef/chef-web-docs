@@ -45,7 +45,7 @@ If Chef Infra Client was installed using RubyGems, install the
 `knife azure` with the following command:
 
 ``` bash
-$ gem install knife-azure
+gem install knife-azure
 ```
 
 If Chef Infra Client was installed from the [Chef Infra
@@ -53,7 +53,7 @@ Client](https://downloads.chef.io/chef) downloads page or any other
 method, run:
 
 ``` bash
-$ /opt/chef/embedded/bin/gem install knife-azure
+/opt/chef/embedded/bin/gem install knife-azure
 ```
 
 where `/opt/chef/embedded/bin/` is the path to the location where Chef
@@ -79,14 +79,14 @@ Azure platform via the REST APIs. To generate the management certificate
 3.  Decode the certificate file with the following command:
 
     ``` bash
-    $ base64 -d cert.pfx > cert_decoded.pfx
+    base64 -d cert.pfx > cert_decoded.pfx
     ```
 
 4.  Convert the decoded PFX file to a PEM file with the following
     command:
 
     ``` bash
-    $ openssl pkcs12 -in cert_decoded.pfx -out managementCertificate.pem -nodes
+    openssl pkcs12 -in cert_decoded.pfx -out managementCertificate.pem -nodes
     ```
 
 {{< note >}}
@@ -109,7 +109,7 @@ Use the `ag create` argument to create an affinity group.
 This argument has the following syntax:
 
 ``` bash
-$ knife azure ag create (options)
+knife azure ag create (options)
 ```
 
 #### Options
@@ -162,7 +162,7 @@ Use the `ag list` argument to get a list of affinity groups.
 This argument has the following syntax:
 
 ``` bash
-$ knife azure ag list (options)
+knife azure ag list (options)
 ```
 
 #### Options
@@ -202,7 +202,7 @@ provisioning.
 This argument has the following syntax:
 
 ``` bash
-$ knife azure image list (options)
+knife azure image list (options)
 ```
 
 #### Options
@@ -245,7 +245,7 @@ balancer within a cloud service.
 This argument has the following syntax:
 
 ``` bash
-$ knife azure internal lb create (options)
+knife azure internal lb create (options)
 ```
 
 #### Options
@@ -391,7 +391,7 @@ balancers.
 This argument has the following syntax:
 
 ``` bash
-$ knife azure internal lb create (options)
+knife azure internal lb create (options)
 ```
 
 #### Options
@@ -521,7 +521,7 @@ communicate with a Chef Infra Server.
 This argument has the following syntax:
 
 ``` bash
-$ knife azure server create (options)
+knife azure server create (options)
 ```
 
 #### Options
@@ -752,7 +752,7 @@ the `West US` data center, while reusing existing hosted service and
 storage accounts, enter something like:
 
 ``` bash
-$ knife azure server create -r "role[webserver]" --service-location "West US"
+knife azure server create -r "role[webserver]" --service-location "West US"
   --hosted-service-name webservers --storage-account webservers-storage --ssh-user foo
   --ssh--password password --role-name web-apache-0001 --host-name web-apache
   --tcp-endpoints 80:80,8080:8080 --source-image name_of_source_image --role-size Medium
@@ -765,7 +765,7 @@ the `West US` data center, while also creating new hosted service and
 storage accounts, enter something like:
 
 ``` bash
-$ knife azure server create -r "role[webserver]" --service-location "West US" --ssh-user foo
+knife azure server create -r "role[webserver]" --service-location "West US" --ssh-user foo
   --ssh--password password --role-name web-apache-0001 --host-name web-apache
   --tcp-endpoints 80:80,8080:8080 --source-image name_of_source_image --role-size Medium
 ```
@@ -784,7 +784,7 @@ delete specific node and client objects.
 This argument has the following syntax:
 
 ``` bash
-$ knife azure server delete [SERVER...] (options)
+knife azure server delete [SERVER...] (options)
 ```
 
 #### Options
@@ -862,7 +862,7 @@ This argument has the following options:
 To delete an instance named `devops12`, enter:
 
 ``` bash
-$ knife azure server delete devops12
+knife azure server delete devops12
 ```
 
 ### server list
@@ -876,7 +876,7 @@ not currently managed by the Chef Infra Server.
 This argument has the following syntax:
 
 ``` bash
-$ knife azure server list (options)
+knife azure server list (options)
 ```
 
 #### Options
@@ -915,7 +915,7 @@ Use the `server show` argument to show the details for the named server
 This argument has the following syntax:
 
 ``` bash
-$ knife azure server show SERVER [SERVER...] (options)
+knife azure server show SERVER [SERVER...] (options)
 ```
 
 #### Options
@@ -953,7 +953,7 @@ Use the `vnet create` argument to create a virtual network.
 This argument has the following syntax:
 
 ``` bash
-$ knife azure vnet create (options)
+knife azure vnet create (options)
 ```
 
 #### Options
@@ -1010,7 +1010,7 @@ Use the `vnet list` argument to get a list of virtual networks.
 This argument has the following syntax:
 
 ``` bash
-$ knife azure vnet list (options)
+knife azure vnet list (options)
 ```
 
 #### Options

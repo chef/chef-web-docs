@@ -61,7 +61,7 @@ Syntax
 This argument has the following syntax:
 
 ``` bash
-$ knife supermarket download COOKBOOK_NAME [COOKBOOK_VERSION] (options)
+knife supermarket download COOKBOOK_NAME [COOKBOOK_VERSION] (options)
 ```
 
 Options
@@ -99,7 +99,7 @@ The following examples show how to use this knife subcommand:
 To download the cookbook `mysql`, enter:
 
 ``` bash
-$ knife supermarket download mysql
+knife supermarket download mysql
 ```
 
 install
@@ -131,7 +131,7 @@ Syntax
 This argument has the following syntax:
 
 ``` bash
-$ knife supermarket install COOKBOOK_NAME [COOKBOOK_VERSION] (options)
+knife supermarket install COOKBOOK_NAME [COOKBOOK_VERSION] (options)
 ```
 
 Options
@@ -177,7 +177,7 @@ The following examples show how to use this knife subcommand:
 To install the cookbook `mysql`, enter:
 
 ``` bash
-$ knife supermarket install mysql
+knife supermarket install mysql
 ```
 
 list
@@ -192,7 +192,7 @@ Syntax
 This argument has the following syntax:
 
 ``` bash
-$ knife supermarket list (options)
+knife supermarket list (options)
 ```
 
 Options
@@ -220,7 +220,7 @@ To view a list of cookbooks at the [Chef
 Supermarket](https://supermarket.chef.io/cookbooks) server, enter:
 
 ``` bash
-$ knife supermarket list
+knife supermarket list
 ```
 
 to return a list similar to:
@@ -260,7 +260,7 @@ Syntax
 This argument has the following syntax:
 
 ``` bash
-$ knife supermarket search SEARCH_QUERY (options)
+knife supermarket search SEARCH_QUERY (options)
 ```
 
 Options
@@ -283,7 +283,7 @@ The following examples show how to use this knife subcommand:
 To search for a cookbook, use a command similar to:
 
 ``` bash
-$ knife supermarket search mysql
+knife supermarket search mysql
 ```
 
 where `mysql` is the search term. This will return something similar to:
@@ -324,7 +324,7 @@ Syntax
 This argument has the following syntax:
 
 ``` bash
-$ knife supermarket share COOKBOOK_NAME CATEGORY (options)
+knife supermarket share COOKBOOK_NAME CATEGORY (options)
 ```
 
 Options
@@ -361,7 +361,7 @@ To share a cookbook named `my_apache2_cookbook` and add it to the
 `Web Servers` category in Chef Supermarket:
 
 ``` bash
-$ knife supermarket share "my_apache2_cookbook" "Web Servers"
+knife supermarket share "my_apache2_cookbook" "Web Servers"
 ```
 
 show
@@ -376,7 +376,7 @@ Syntax
 This argument has the following syntax:
 
 ``` bash
-$ knife supermarket show COOKBOOK_NAME [COOKBOOK_VERSION] (options)
+knife supermarket show COOKBOOK_NAME [COOKBOOK_VERSION] (options)
 ```
 
 Options
@@ -406,7 +406,7 @@ The following examples show how to use this knife subcommand:
 To show the details for a cookbook named `mysql`:
 
 ``` bash
-$ knife supermarket show mysql
+knife supermarket show mysql
 ```
 
 to return something similar to:
@@ -445,7 +445,7 @@ metrics:
 To show the details for a cookbook version, run a command similar to:
 
 ``` bash
-$ knife supermarket show mysql 8.5.1
+knife supermarket show mysql 8.5.1
 ```
 
 where `mysql` is the cookbook and `8.5.1` is the cookbook version. This
@@ -525,7 +525,7 @@ Syntax
 This argument has the following syntax:
 
 ``` bash
-$ knife supermarket unshare COOKBOOK_NAME/versions/VERSION (options)
+knife supermarket unshare COOKBOOK_NAME/versions/VERSION (options)
 ```
 
 Options
@@ -548,7 +548,7 @@ The following examples show how to use this knife subcommand:
 To unshare a cookbook named `my_apache2_cookbook`, enter:
 
 ``` bash
-$ knife supermarket unshare "my_apache2_cookbook" "Web Servers"
+knife supermarket unshare "my_apache2_cookbook" "Web Servers"
 ```
 
 **Unshare a cookbook version**
@@ -557,5 +557,5 @@ To unshare cookbook version `0.10.0` for the `my_apache2_cookbook`
 cookbook, enter:
 
 ``` bash
-$ knife supermarket unshare "my_apache2_cookbook/versions/0.10.0"
+knife supermarket unshare "my_apache2_cookbook/versions/0.10.0"
 ```

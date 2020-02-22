@@ -56,7 +56,7 @@ Now, when you run `berks install`, the apt cookbook will be downloaded
 from Supermarket into the cache:
 
 ``` shell
-$ berks install
+berks install
 Resolving cookbook dependencies...
 Fetching 'my_first_cookbook' from source at .
 Fetching cookbook index from https://supermarket.chef.io...
@@ -76,7 +76,7 @@ You can now upload all cookbooks to your Chef Infra Server with
 `berks upload`:
 
 ``` shell
-$ berks upload
+berks upload
 Uploaded apt (5.0.0) to: 'https://api.chef.io:443/organizations/example'
 Uploaded compat_resource (12.16.2) to: 'https://api.chef.io:443/organizations/example'
 Uploaded my_first_cookbook (0.1.0) to: 'https://api.chef.io:443/organizations/example'
@@ -276,7 +276,7 @@ cookbook "test-cookbook", path: "test/fixtures/test", group: :test
 To exclude a group when using `berks`, use the `--except` flag:
 
 ``` bash
-$ berks install --except test
+berks install --except test
 ```
 
 ### Solver Keyword
@@ -341,7 +341,7 @@ environment on the Chef Infra Server.
 This subcommand has the following syntax:
 
 ``` bash
-$ berks apply ENVIRONMENT (options)
+berks apply ENVIRONMENT (options)
 ```
 
 ### Options
@@ -374,7 +374,7 @@ on the named cookbook.
 This subcommand has the following syntax:
 
 ``` bash
-$ berks contingent COOKBOOK (options)
+berks contingent COOKBOOK (options)
 ```
 
 ### Options
@@ -407,7 +407,7 @@ information for the named cookbook.
 This subcommand has the following syntax:
 
 ``` bash
-$ berks info COOKBOOK (options)
+berks info COOKBOOK (options)
 ```
 
 ### Options
@@ -440,7 +440,7 @@ generates the Berkshelf lock file that ensures consistency.
 This subcommand has the following syntax:
 
 ``` bash
-$ berks install (options)
+berks install (options)
 ```
 
 ### Options
@@ -470,7 +470,7 @@ Use `berks list` to list cookbooks and their dependencies.
 This subcommand has the following syntax:
 
 ``` bash
-$ berks list (options)
+berks list (options)
 ```
 
 ### Options
@@ -502,7 +502,7 @@ that may exist.
 This subcommand has the following syntax:
 
 ``` bash
-$ berks outdated COOKBOOK (options)
+berks outdated COOKBOOK (options)
 ```
 
 ### Options
@@ -535,7 +535,7 @@ Berksfile.
 This subcommand has the following syntax:
 
 ``` bash
-$ berks package PATH (options)
+berks package PATH (options)
 ```
 
 ### Options
@@ -568,7 +568,7 @@ the search query. The query itself will match partial cookbook names.
 This subcommand has the following syntax:
 
 ``` bash
-$ berks search QUERY (options)
+berks search QUERY (options)
 ```
 
 ### Options
@@ -590,7 +590,7 @@ Use `berks show` to show the path to the named cookbook.
 This subcommand has the following syntax:
 
 ``` bash
-$ berks show COOKBOOK (options)
+berks show COOKBOOK (options)
 ```
 
 ### Options
@@ -612,7 +612,7 @@ dependencies).
 This subcommand has the following syntax:
 
 ``` bash
-$ berks update COOKBOOK (options)
+berks update COOKBOOK (options)
 ```
 
 ### Options
@@ -643,7 +643,7 @@ Server.
 This subcommand has the following syntax:
 
 ``` bash
-$ berks upload COOKBOOK (options)
+berks upload COOKBOOK (options)
 ```
 
 ### Options
@@ -701,7 +701,7 @@ name) into a directory.
 This subcommand has the following syntax:
 
 ``` bash
-$ berks vendor PATH (options)
+berks vendor PATH (options)
 ```
 
 ### Options
@@ -738,7 +738,7 @@ cookbooks.
 This subcommand has the following syntax:
 
 ``` bash
-$ berks verify (options)
+berks verify (options)
 ```
 
 ### Options
@@ -765,7 +765,7 @@ Use `berks viz` to generate a dependency graph image file.
 This subcommand has the following syntax:
 
 ``` bash
-$ berks viz (options)
+berks viz (options)
 ```
 
 ### Options

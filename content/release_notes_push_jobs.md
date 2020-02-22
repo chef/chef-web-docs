@@ -154,11 +154,11 @@ to direct the client to capture the job output and return it to the
 server for inspection:
 
 ``` bash
-$ knife job start --capture "echo foobar" node1
+knife job start --capture "echo foobar" node1
 Started. Job ID: 26e98ba162fa7ba6fb2793125553c7ae
 .Complete.
 
-$ knife job output --channel stdout 26e98ba162fa7ba6fb2793125553c7ae node1
+knife job output --channel stdout 26e98ba162fa7ba6fb2793125553c7ae node1
 foobar
 ```
 
@@ -178,11 +178,11 @@ This includes:
 <!-- -->
 
 ``` bash
-$ knife job start --file .chef/config.rb --capture --with-env '{"test": "foo"}' --in-dir "/tmp" --as-user daemon "print_execution_environment" node2
+knife job start --file .chef/config.rb --capture --with-env '{"test": "foo"}' --in-dir "/tmp" --as-user daemon "print_execution_environment" node2
 Started. Job ID: 26e98ba162fac37787292637362808cb
 ...
 
-$ knife job output --channel stdout 26e98ba162fac37787292637362808cb node2
+knife job output --channel stdout 26e98ba162fac37787292637362808cb node2
 {"HOME"=>"/home/vagrant",
 ...
 "CHEF_PUSH_JOB_FILE"=>"/tmp/pushy/pushy_file20150813-14250-125xv4u",

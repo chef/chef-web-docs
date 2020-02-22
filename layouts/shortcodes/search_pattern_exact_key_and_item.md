@@ -2,7 +2,7 @@ To search in a specific data bag for a specific data bag item, enter the
 following:
 
 ``` bash
-$ knife search admins 'id:charlie'
+knife search admins 'id:charlie'
 ```
 
 where `admins` is the name of the data bag and `charlie` is the name of

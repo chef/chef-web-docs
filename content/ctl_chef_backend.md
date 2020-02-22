@@ -34,7 +34,7 @@ Syntax
 This subcommand has the following syntax:
 
 ``` bash
-$ chef-backend-ctl backup (options)
+chef-backend-ctl backup (options)
 ```
 
 Options
@@ -50,7 +50,7 @@ Examples
 From a follower node, run the following command:
 
 ``` bash
-$ chef-backend-ctl backup
+chef-backend-ctl backup
 ```
 
 create-cluster
@@ -67,7 +67,7 @@ Syntax
 This subcommand has the following syntax:
 
 ``` bash
-$ chef-backend-ctl create-cluster (options)
+chef-backend-ctl create-cluster (options)
 ```
 
 Options
@@ -121,7 +121,7 @@ Syntax
 This subcommand has the following syntax:
 
 ``` bash
-$ chef-backend-ctl cleanse
+chef-backend-ctl cleanse
 ```
 
 Options
@@ -147,7 +147,7 @@ Syntax
 This subcommand has the following syntax:
 
 ``` bash
-$ chef-backend-ctl cluster-status (options)
+chef-backend-ctl cluster-status (options)
 ```
 
 Options
@@ -165,7 +165,7 @@ Examples
 **Return cluster health data as JSON**
 
 ``` bash
-$ chef-backend-ctl cluster-status --json
+chef-backend-ctl cluster-status --json
 ```
 
 demote
@@ -188,7 +188,7 @@ Syntax
 This subcommand has the following syntax:
 
 ``` bash
-$ chef-backend-ctl demote
+chef-backend-ctl demote
 ```
 
 Examples
@@ -240,7 +240,7 @@ Syntax
 This subcommand has the following syntax:
 
 ``` bash
-$ chef-backend-ctl force-leader
+chef-backend-ctl force-leader
 ```
 
 Examples
@@ -258,7 +258,7 @@ all of the important log files and system information.
 This subcommand has the following syntax:
 
 ``` bash
-$ chef-backend-ctl gather-logs
+chef-backend-ctl gather-logs
 ```
 
 gen-sample-backend-config
@@ -286,7 +286,7 @@ Syntax
 This subcommand has the following syntax:
 
 ``` bash
-$ chef-backend-ctl gen-sample-backend-config
+chef-backend-ctl gen-sample-backend-config
 ```
 
 Example Output
@@ -406,7 +406,7 @@ Syntax
 This subcommand has the following syntax:
 
 ``` bash
-$ chef-backend-ctl gen-server-config FQDN
+chef-backend-ctl gen-server-config FQDN
 ```
 
 Configure the Front End
@@ -416,7 +416,7 @@ Configure the Front End
     each node in the frontend group:
 
     ``` bash
-    $ chef-backend-ctl gen-server-config FQDN -f chef-server.rb.fqdn
+    chef-backend-ctl gen-server-config FQDN -f chef-server.rb.fqdn
     ```
 
     where `FQDN` is the FQDN for the frontend machine. The generated
@@ -434,7 +434,7 @@ Configure the Front End
     command:
 
     ``` bash
-    $ chef-server-ctl reconfigure
+    chef-server-ctl reconfigure
     ```
 
 Example Output
@@ -482,7 +482,7 @@ chef-backend-ctl commands.
 This subcommand has the following syntax:
 
 ``` bash
-$ chef-backend-ctl help
+chef-backend-ctl help
 ```
 
 join-cluster
@@ -528,7 +528,7 @@ Syntax
 This subcommand has the following syntax:
 
 ``` bash
-$ chef-backend-ctl join-cluster PEER_NODE_IP (options)
+chef-backend-ctl join-cluster PEER_NODE_IP (options)
 ```
 
 where `PEER_NODE_IP` is the IP address of a peer in the cluster to be
@@ -616,7 +616,7 @@ Syntax
 This subcommand has the following syntax:
 
 ``` bash
-$ chef-backend-ctl promote NODE
+chef-backend-ctl promote NODE
 ```
 
 Examples
@@ -635,7 +635,7 @@ services for which the `service_name['enabled']` setting is set to
 This subcommand has the following syntax:
 
 ``` bash
-$ chef-backend-ctl reconfigure
+chef-backend-ctl reconfigure
 ```
 
 remove-node
@@ -658,7 +658,7 @@ Syntax
 This subcommand has the following syntax:
 
 ``` bash
-$ chef-backend-ctl remove-node NODE_NAME
+chef-backend-ctl remove-node NODE_NAME
 ```
 
 Options
@@ -689,7 +689,7 @@ Syntax
 This subcommand has the following syntax:
 
 ``` bash
-$ chef-backend-ctl restore PATH (options)
+chef-backend-ctl restore PATH (options)
 ```
 
 where `PATH` is the path to a tar.gz file that was created by the
@@ -718,7 +718,7 @@ Examples
 From the leader node, run the following command:
 
 ``` bash
-$ chef-backend-ctl restore /var/opt/chef-backup/backup_file.tgz
+chef-backend-ctl restore /var/opt/chef-backup/backup_file.tgz
 ```
 
 set-cluster-failover
@@ -733,7 +733,7 @@ Syntax
 This subcommand has the following syntax:
 
 ``` bash
-$ chef-backend-ctl set-cluster-failover STATE
+chef-backend-ctl set-cluster-failover STATE
 ```
 
 where `STATE` may be one of `on`, `off`, `true`, `false`, `enabled`, or
@@ -751,7 +751,7 @@ Syntax
 This subcommand has the following syntax:
 
 ``` bash
-$ chef-backend-ctl set-node-failover STATE
+chef-backend-ctl set-node-failover STATE
 ```
 
 where `STATE` may be one of `on`, `off`, `true`, `false`, `enabled`, or
@@ -768,7 +768,7 @@ built properly prior to installation.
 This subcommand has the following syntax:
 
 ``` bash
-$ chef-backend-ctl show-config
+chef-backend-ctl show-config
 ```
 
 status
@@ -779,7 +779,7 @@ to a node in the backend HA cluster. This subcommand has the following
 syntax:
 
 ``` bash
-$ chef-backend-ctl status
+chef-backend-ctl status
 ```
 
 and will return the status for all services. Status can be returned for
@@ -787,13 +787,13 @@ individual services by specifying the name of the service as part of the
 command:
 
 ``` bash
-$ chef-backend-ctl status SERVICE_NAME
+chef-backend-ctl status SERVICE_NAME
 ```
 
 For example, full output:
 
 ``` bash
-$ chef-backend-ctl status
+chef-backend-ctl status
 ```
 
 is similar to:
@@ -819,7 +819,7 @@ local state. The `Distributed Node Status` column shows:
 Simple output:
 
 ``` bash
-$ chef-backend-ctl status --simple
+chef-backend-ctl status --simple
 ```
 
 is similar to:
@@ -846,7 +846,7 @@ removing any of the data. This subcommand will shut down all services
 This subcommand has the following syntax:
 
 ``` bash
-$ chef-backend-ctl uninstall
+chef-backend-ctl uninstall
 ```
 
 {{< note >}}
@@ -880,7 +880,7 @@ the command.
 This subcommand has the following syntax:
 
 ``` bash
-$ chef-backend-ctl hup SERVICE_NAME
+chef-backend-ctl hup SERVICE_NAME
 ```
 
 where `SERVICE_NAME` represents the name of any service that is listed
@@ -897,7 +897,7 @@ the command.
 This subcommand has the following syntax:
 
 ``` bash
-$ chef-backend-ctl int SERVICE_NAME
+chef-backend-ctl int SERVICE_NAME
 ```
 
 where `SERVICE_NAME` represents the name of any service that is listed
@@ -914,7 +914,7 @@ service in the command.
 This subcommand has the following syntax:
 
 ``` bash
-$ chef-backend-ctl kill SERVICE_NAME
+chef-backend-ctl kill SERVICE_NAME
 ```
 
 where `SERVICE_NAME` represents the name of any service that is listed
@@ -938,7 +938,7 @@ command.
 This subcommand has the following syntax:
 
 ``` bash
-$ chef-backend-ctl once SERVICE_NAME
+chef-backend-ctl once SERVICE_NAME
 ```
 
 where `SERVICE_NAME` represents the name of any service that is listed
@@ -962,7 +962,7 @@ restarting all services may trigger failover.
 This subcommand has the following syntax:
 
 ``` bash
-$ chef-backend-ctl restart SERVICE_NAME
+chef-backend-ctl restart SERVICE_NAME
 ```
 
 where `SERVICE_NAME` represents the name of any service that is listed
@@ -970,7 +970,7 @@ after running the `service-list` subcommand. When a service is
 successfully restarted the output should be similar to:
 
 ``` bash
-$ ok: run: service_name: (pid 12345) 1s
+ok: run: service_name: (pid 12345) 1s
 ```
 
 service-list
@@ -983,7 +983,7 @@ service that is enabled is labeled with an asterisk (\*).
 This subcommand has the following syntax:
 
 ``` bash
-$ chef-backend-ctl service-list
+chef-backend-ctl service-list
 ```
 
 start
@@ -997,7 +997,7 @@ service in the command.
 This subcommand has the following syntax:
 
 ``` bash
-$ chef-backend-ctl start SERVICE_NAME
+chef-backend-ctl start SERVICE_NAME
 ```
 
 where `SERVICE_NAME` represents the name of any service that is listed
@@ -1005,7 +1005,7 @@ after running the `service-list` subcommand. When a service is
 successfully started the output should be similar to:
 
 ``` bash
-$ ok: run: service_name: (pid 12345) 1s
+ok: run: service_name: (pid 12345) 1s
 ```
 
 The supervisor for a machine in the Chef Infra Server backend HA cluster
@@ -1028,7 +1028,7 @@ individual service by specifying the name of the service in the command.
 This subcommand has the following syntax:
 
 ``` bash
-$ chef-backend-ctl stop SERVICE_NAME
+chef-backend-ctl stop SERVICE_NAME
 ```
 
 where `SERVICE_NAME` represents the name of any service that is listed
@@ -1036,13 +1036,13 @@ after running the `service-list` subcommand. When a service is
 successfully stopped the output should be similar to:
 
 ``` bash
-$ ok: diwb: service_name: 0s, normally up
+ok: diwb: service_name: 0s, normally up
 ```
 
 For example:
 
 ``` bash
-$ chef-backend-ctl stop
+chef-backend-ctl stop
 ```
 
 will return something similar to:
@@ -1063,7 +1063,7 @@ service in the command.
 This subcommand has the following syntax:
 
 ``` bash
-$ chef-backend-ctl tail SERVICE_NAME
+chef-backend-ctl tail SERVICE_NAME
 ```
 
 where `SERVICE_NAME` represents the name of any service that is listed
@@ -1080,7 +1080,7 @@ service in the command.
 This subcommand has the following syntax:
 
 ``` bash
-$ chef-backend-ctl term SERVICE_NAME
+chef-backend-ctl term SERVICE_NAME
 ```
 
 where `SERVICE_NAME` represents the name of any service that is listed

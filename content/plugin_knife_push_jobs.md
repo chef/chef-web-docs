@@ -51,7 +51,7 @@ Syntax
 This argument has the following syntax:
 
 ``` bash
-$ knife job output (options) JOB_ID [NODE_NAME]
+knife job output (options) JOB_ID [NODE_NAME]
 ```
 
 Options
@@ -70,7 +70,7 @@ Examples
 26e98ba162fa7ba6fb2793125553c7ae**
 
 ``` bash
-$ knife job output --channel stdout 26e98ba162fa7ba6fb2793125553c7ae my-node
+knife job output --channel stdout 26e98ba162fa7ba6fb2793125553c7ae my-node
 ```
 
 job start

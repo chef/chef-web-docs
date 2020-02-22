@@ -32,7 +32,7 @@ know how to check the syntax of a Ruby file, such as the contents of a
 cookbook named `my_cookbook.rb`:
 
 ``` bash
-$ ruby -c my_cookbook_file.rb
+ruby -c my_cookbook_file.rb
 ```
 
 to return:
@@ -785,7 +785,7 @@ Chef-specific portions of your cookbook code. All cookbooks should pass
 Cookstyle rules before being uploaded.
 
 ``` bash
-$ cookstyle your-cookbook
+cookstyle your-cookbook
 ```
 
 should return `no offenses detected`

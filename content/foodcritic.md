@@ -14,6 +14,15 @@ aliases = ["/foodcritic.html"]
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/foodcritic.md)
 
+{{< warning >}}
+
+Foodcritic is deprecated and should no longer be used for cookbook
+linting. Use [Cookstyle](cookstyle.html) instead which offers additional
+rules, violation autocorrection, Ruby linting, and a robust
+configuration system.
+
+{{< /warning >}}
+
 Use Foodcritic to check cookbooks for common problems:
 
 -   Style
@@ -53,14 +62,14 @@ Foodcritic is run from the command line, typically against a single
 cookbook and all of the Ruby files contained within it:
 
 ``` bash
-$ foodcritic /path/to/cookbook
+foodcritic /path/to/cookbook
 ```
 
 Foodcritic may also be run from the root of an individual cookbook
 directory:
 
 ``` bash
-$ foodcritic .
+foodcritic .
 ```
 
 Foodcritic returns a list, via standard output, that shows the results
@@ -117,13 +126,13 @@ Exclude Rules
 Run the following command to exclude a Foodcritic rule:
 
 ``` bash
-$ foodcritic . --tags ~RULE
+foodcritic . --tags ~RULE
 ```
 
 For example, to exclude rule `FC003`:
 
 ``` bash
-$ foodcritic . --tags ~FC003
+foodcritic . --tags ~FC003
 ```
 
 Foodcritic CLI
@@ -135,7 +144,7 @@ cookbooks.
 This command has the following syntax:
 
 ``` bash
-$ foodcritic COOKBOOK_PATH
+foodcritic COOKBOOK_PATH
 ```
 
 This command has the following options:

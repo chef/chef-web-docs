@@ -7,8 +7,7 @@ aliases:
 menu:
   docs:
     title: ssh_known_hosts_entry
-    identifier: chef_infra/cookbook_reference/resources/resource_ssh_known_hosts_entry.md
-      ssh_known_hosts_entry
+    identifier: chef_infra/cookbook_reference/resources/ssh_known_hosts_entry ssh_known_hosts_entry
     parent: chef_infra/cookbook_reference/resources
     weight: 990
 resource_reference: true

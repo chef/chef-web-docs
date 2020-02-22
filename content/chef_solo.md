@@ -28,7 +28,7 @@ Using a tar.gz archive is the more common approach, but requires that
 cookbooks be added to an archive. For example:
 
 ``` bash
-$ tar zcvf chef-solo.tar.gz ./cookbooks
+tar zcvf chef-solo.tar.gz ./cookbooks
 ```
 
 If multiple cookbook directories are being used, chef-solo expects the
@@ -45,7 +45,7 @@ The `cookbook_path` variable in the solo.rb file must include both
 directories. For example:
 
 ``` bash
-$ tar zcvf chef-solo.tar.gz ./cookbooks ./site-cookbooks
+tar zcvf chef-solo.tar.gz ./cookbooks ./site-cookbooks
 ```
 
 When the tar.gz archive contains all of the cookbooks required by

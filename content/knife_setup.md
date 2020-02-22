@@ -185,7 +185,7 @@ If you need to troubleshoot any settings, you can verify the value that
 knife is using with the `knife config get KEY` command, for example:
 
 ``` bash
-$ knife config get chef_server_url
+knife config get chef_server_url
 Loading from credentials file /home/barney/.chef/credentials
 chef_server_url: https://api.chef-server.dev/organizations/test
 ```
@@ -198,7 +198,7 @@ information be edited as JSON data using a text editor. For example, the
 following command:
 
 ``` bash
-$ knife data bag edit admins admin_name
+knife data bag edit admins admin_name
 ```
 
 will open up the text editor with data similar to:

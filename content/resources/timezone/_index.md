@@ -7,7 +7,7 @@ aliases:
 menu:
   docs:
     title: timezone
-    identifier: chef_infra/cookbook_reference/resources/resource_timezone.md timezone
+    identifier: chef_infra/cookbook_reference/resources/timezone timezone
     parent: chef_infra/cookbook_reference/resources
     weight: 1060
 resource_reference: true

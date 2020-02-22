@@ -7,8 +7,7 @@ aliases:
 menu:
   docs:
     title: zypper_package
-    identifier: chef_infra/cookbook_reference/resources/resource_zypper_package.md
-      zypper_package
+    identifier: chef_infra/cookbook_reference/resources/zypper_package zypper_package
     parent: chef_infra/cookbook_reference/resources
     weight: 1350
 resource_reference: true

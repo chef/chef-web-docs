@@ -5,7 +5,7 @@ can be searched for using an exclusive search pattern.
 To search using an exclusive range, enter the following:
 
 ``` bash
-$ knife search sample "id:{bar TO foo}"
+knife search sample "id:{bar TO foo}"
 ```
 
 where curly braces (`{ }`) are used to define the range.

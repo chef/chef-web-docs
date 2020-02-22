@@ -7,7 +7,7 @@ aliases:
 menu:
   docs:
     title: log
-    identifier: chef_infra/cookbook_reference/resources/resource_log.md log
+    identifier: chef_infra/cookbook_reference/resources/log log
     parent: chef_infra/cookbook_reference/resources
     weight: 530
 resource_reference: true

@@ -7,8 +7,7 @@ aliases:
 menu:
   docs:
     title: windows_service
-    identifier: chef_infra/cookbook_reference/resources/resource_windows_service.md
-      windows_service
+    identifier: chef_infra/cookbook_reference/resources/windows_service windows_service
     parent: chef_infra/cookbook_reference/resources
     weight: 1270
 resource_reference: true

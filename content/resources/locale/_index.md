@@ -7,7 +7,7 @@ aliases:
 menu:
   docs:
     title: locale
-    identifier: chef_infra/cookbook_reference/resources/resource_locale.md locale
+    identifier: chef_infra/cookbook_reference/resources/locale locale
     parent: chef_infra/cookbook_reference/resources
     weight: 520
 resource_reference: true

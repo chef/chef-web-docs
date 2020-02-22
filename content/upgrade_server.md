@@ -66,7 +66,7 @@ following:
     state.
 
     ``` bash
-    $ chef-server-ctl reconfigure
+    chef-server-ctl reconfigure
     ```
 
 2.  Download the desired Chef Infra Server version from the [Chef Infra
@@ -75,7 +75,7 @@ following:
 3.  Stop the server:
 
     ``` bash
-    $ chef-server-ctl stop
+    chef-server-ctl stop
     ```
 
 4.  Run dpkg or RPM Package Manager.
@@ -83,25 +83,25 @@ following:
     For dpkg:
 
     ``` bash
-    $ dpkg -i /path/to/chef-server-core-<version>.deb
+    dpkg -i /path/to/chef-server-core-<version>.deb
     ```
 
     For RPM Package Manager:
 
     ``` bash
-    $ rpm -Uvh --nopostun /path/to/chef-server-core-<version>.rpm
+    rpm -Uvh --nopostun /path/to/chef-server-core-<version>.rpm
     ```
 
 5.  Upgrade the server with the following command:
 
     ``` bash
-    $ chef-server-ctl upgrade
+    chef-server-ctl upgrade
     ```
 
 6.  Start Chef Server 12:
 
     ``` bash
-    $ chef-server-ctl start
+    chef-server-ctl start
     ```
 
 7.  [Upgrade](upgrade_server.html#upgrading-add-ons) the Chef Infra
@@ -112,7 +112,7 @@ following:
     of the old data:
 
     ``` bash
-    $ chef-server-ctl cleanup
+    chef-server-ctl cleanup
     ```
 
 High Availability: Chef Backend
@@ -157,7 +157,7 @@ configuration, do the following:
     sane state.
 
     ``` bash
-    $ chef-server-ctl reconfigure
+    chef-server-ctl reconfigure
     ```
 
 2.  Download the desired Chef Infra Server version from the [Chef Infra
@@ -167,7 +167,7 @@ configuration, do the following:
 3.  Stop all of the front end servers:
 
     ``` bash
-    $ chef-server-ctl stop
+    chef-server-ctl stop
     ```
 
 4.  Run dpkg or RPM Package Manager on all servers.
@@ -175,45 +175,45 @@ configuration, do the following:
     For dpkg:
 
     ``` bash
-    $ dpkg -i /path/to/chef-server-core-<version>.deb
+    dpkg -i /path/to/chef-server-core-<version>.deb
     ```
 
     For RPM Package Manager:
 
     ``` bash
-    $ rpm -Uvh --nopostun /path/to/chef-server-core-<version>.rpm
+    rpm -Uvh --nopostun /path/to/chef-server-core-<version>.rpm
     ```
 
 5.  Stop the back end server:
 
     ``` bash
-    $ chef-server-ctl stop
+    chef-server-ctl stop
     ```
 
 6.  Upgrade the back end server:
 
     ``` bash
-    $ chef-server-ctl upgrade
+    chef-server-ctl upgrade
     ```
 
 7.  Copy the entire `/etc/opscode` directory from the back end server to
     all front end servers:
 
     ``` none
-    $ scp -r /etc/opscode <each server's IP>:/etc
+    scp -r /etc/opscode <each server's IP>:/etc
     ```
 
 8.  Upgrade each of the front end servers:
 
     ``` bash
-    $ chef-server-ctl upgrade
+    chef-server-ctl upgrade
     ```
 
 9.  Run the following command on both the front end, and back end
     servers:
 
     ``` bash
-    $ chef-server-ctl start
+    chef-server-ctl start
     ```
 
 10. [Upgrade](upgrade_server.html#upgrading-add-ons) the Chef Infra
@@ -225,7 +225,7 @@ configuration, do the following:
     running the following command on each server:
 
     ``` bash
-    $ chef-server-ctl cleanup
+    chef-server-ctl cleanup
     ```
 
 Upgrading Add-ons

@@ -1,3 +1,3 @@
 ``` bash
-$ chef diff production...staging
+chef diff production...staging
 ```

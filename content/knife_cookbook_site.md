@@ -71,7 +71,7 @@ Syntax
 This argument has the following syntax:
 
 ``` bash
-$ knife cookbook site download COOKBOOK_NAME [COOKBOOK_VERSION] (options)
+knife cookbook site download COOKBOOK_NAME [COOKBOOK_VERSION] (options)
 ```
 
 Options
@@ -115,7 +115,7 @@ The following examples show how to use this knife subcommand:
 To download the cookbook `getting-started`, enter:
 
 ``` bash
-$ knife cookbook site download getting-started
+knife cookbook site download getting-started
 ```
 
 to return something like:
@@ -157,7 +157,7 @@ Syntax
 This argument has the following syntax:
 
 ``` bash
-$ knife cookbook site install COOKBOOK_NAME [COOKBOOK_VERSION] (options)
+knife cookbook site install COOKBOOK_NAME [COOKBOOK_VERSION] (options)
 ```
 
 Options
@@ -209,7 +209,7 @@ The following examples show how to use this knife subcommand:
 To install the cookbook `getting-started`, enter:
 
 ``` bash
-$ knife cookbook site install getting-started
+knife cookbook site install getting-started
 ```
 
 to return something like:
@@ -258,7 +258,7 @@ Syntax
 This argument has the following syntax:
 
 ``` bash
-$ knife cookbook site list
+knife cookbook site list
 ```
 
 Options
@@ -286,7 +286,7 @@ To view a list of cookbooks at the [Chef
 Supermarket](https://supermarket.chef.io/cookbooks) server, enter:
 
 ``` bash
-$ knife cookbook site list
+knife cookbook site list
 ```
 
 to return a list similar to:
@@ -320,7 +320,7 @@ Syntax
 This argument has the following syntax:
 
 ``` bash
-$ knife cookbook site search SEARCH_QUERY (options)
+knife cookbook site search SEARCH_QUERY (options)
 ```
 
 Options
@@ -343,7 +343,7 @@ The following examples show how to use this knife subcommand:
 To search for all of the cookbooks that can be used with Apache, enter:
 
 ``` bash
-$ knife cookbook site search 'apache*'
+knife cookbook site search 'apache*'
 ```
 
 to return something like:
@@ -387,7 +387,7 @@ Syntax
 This argument has the following syntax:
 
 ``` bash
-$ knife cookbook site share COOKBOOK_NAME CATEGORY (options)
+knife cookbook site share COOKBOOK_NAME CATEGORY (options)
 ```
 
 Options
@@ -433,7 +433,7 @@ The following examples show how to use this knife subcommand:
 To share a cookbook named `apache2`:
 
 ``` bash
-$ knife cookbook site share "apache2" "Web Servers"
+knife cookbook site share "apache2" "Web Servers"
 ```
 
 show
@@ -448,7 +448,7 @@ Syntax
 This argument has the following syntax:
 
 ``` bash
-$ knife cookbook site show COOKBOOK_NAME [COOKBOOK_VERSION]
+knife cookbook site show COOKBOOK_NAME [COOKBOOK_VERSION]
 ```
 
 Options
@@ -478,7 +478,7 @@ The following examples show how to use this knife subcommand:
 To show the details for a cookbook named `haproxy`:
 
 ``` bash
-$ knife cookbook site show haproxy
+knife cookbook site show haproxy
 ```
 
 to return something like:
@@ -518,7 +518,7 @@ To view information in JSON format, use the `-F` common option as part
 of the command like this:
 
 ``` bash
-$ knife cookbook site show devops -F json
+knife cookbook site show devops -F json
 ```
 
 Other formats available include `text`, `yaml`, and `pp`.
@@ -543,7 +543,7 @@ Syntax
 This argument has the following syntax:
 
 ``` bash
-$ knife cookbook site unshare COOKBOOK_NAME/versions/VERSION
+knife cookbook site unshare COOKBOOK_NAME/versions/VERSION
 ```
 
 Options
@@ -566,7 +566,7 @@ The following examples show how to use this knife subcommand:
 To unshare a cookbook named `getting-started`, enter:
 
 ``` bash
-$ knife cookbook site unshare "getting-started"
+knife cookbook site unshare "getting-started"
 ```
 
 **Unshare a cookbook version**
@@ -575,5 +575,5 @@ To unshare cookbook version `0.10.0` for the `getting-started` cookbook,
 enter:
 
 ``` bash
-$ knife cookbook site unshare "getting-started/versions/0.10.0"
+knife cookbook site unshare "getting-started/versions/0.10.0"
 ```

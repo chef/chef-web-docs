@@ -7,8 +7,7 @@ aliases:
 menu:
   docs:
     title: openssl_ec_public_key
-    identifier: chef_infra/cookbook_reference/resources/resource_openssl_ec_public_key.md
-      openssl_ec_public_key
+    identifier: chef_infra/cookbook_reference/resources/openssl_ec_public_key openssl_ec_public_key
     parent: chef_infra/cookbook_reference/resources
     weight: 640
 resource_reference: true

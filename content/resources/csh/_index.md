@@ -7,7 +7,7 @@ aliases:
 menu:
   docs:
     title: csh
-    identifier: chef_infra/cookbook_reference/resources/resource_csh.md csh
+    identifier: chef_infra/cookbook_reference/resources/csh csh
     parent: chef_infra/cookbook_reference/resources
     weight: 280
 resource_reference: true

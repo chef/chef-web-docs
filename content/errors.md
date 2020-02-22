@@ -132,17 +132,17 @@ usually occur for one of two reasons.
 
     ``` bash
     # Dump the current node to JSON
-    $ knife node show NODE_NAME -fJ > NODE_NAME.json
+    knife node show NODE_NAME -fJ > NODE_NAME.json
 
-    $ knife client delete FQDN -y
-    $ knife node delete FQDN -y
+    knife client delete FQDN -y
+    knife node delete FQDN -y
     ```
 
     On an affected node (as root):
 
     ``` bash
-    $ rm /etc/chef/client.pem
-    $ chef-client
+    rm /etc/chef/client.pem
+    chef-client
     ```
 
     When Chef Infra Client runs, it will register the API client and
@@ -152,7 +152,7 @@ usually occur for one of two reasons.
     `run_list` and node attributes:
 
     ``` bash
-    $ knife node from file NODE_NAME.json
+    knife node from file NODE_NAME.json
     ```
 
 2.  Make sure to use the same `node_name` as the initial Chef Infra
@@ -266,20 +266,20 @@ logs. API requests returning 504 can be found with the following command
 on a frontend:
 
 ``` bash
-$ grep 'HTTP/1.1" 504' /var/log/opscode/nginx/access.log
+grep 'HTTP/1.1" 504' /var/log/opscode/nginx/access.log
 ```
 
 The following will extract the URLs and sort them by `uniq` count:
 
 ``` bash
-$ grep 'HTTP/1.1" 504' nginx-access.log | cut -d' ' -f8 | sort | uniq -c | sort
+grep 'HTTP/1.1" 504' nginx-access.log | cut -d' ' -f8 | sort | uniq -c | sort
 ```
 
 In a large installation, you may need to restrict this to a subset of
 the requests:
 
 ``` bash
-$ tail -10000 nginx-access.log | grep 'HTTP/1.1" 504' | cut -d' ' -f8 | sort | uniq -c | sort
+tail -10000 nginx-access.log | grep 'HTTP/1.1" 504' | cut -d' ' -f8 | sort | uniq -c | sort
 ```
 
 You can also use the `ntail` utility.
@@ -345,7 +345,7 @@ following command would commit all new changes with the message
 "updates".
 
 ``` bash
-$ git commit -am "Updating so I can install a site cookbook"
+git commit -am "Updating so I can install a site cookbook"
 ```
 
 Re-run the `knife supermarket install` subcommand again to install the
@@ -369,7 +369,7 @@ FATAL: Chef::Exceptions::PrivateKeyMissing: I cannot read /etc/chef/validation.p
 Work around this issue by supplying the full path to the client.rb file:
 
 ``` bash
-$ chef-client -c /etc/chef/client.rb
+chef-client -c /etc/chef/client.rb
 ```
 
 Pivotal.rb does not exist
@@ -378,7 +378,7 @@ Pivotal.rb does not exist
 If you're seeing an error like:
 
 ``` bash
-$ ERROR: CONFIGURATION ERROR:Specified config file /etc/opscode/pivotal.rb does not exist
+ERROR: CONFIGURATION ERROR:Specified config file /etc/opscode/pivotal.rb does not exist
 ```
 
 **Troubleshooting Steps**
@@ -386,7 +386,7 @@ $ ERROR: CONFIGURATION ERROR:Specified config file /etc/opscode/pivotal.rb does 
 Run the following to restart all of the services:
 
 > ``` bash
-> $ chef-server-ctl reconfigure
+> chef-server-ctl reconfigure
 > ```
 
 Because the Chef Infra Server is composed of many different services

@@ -1,7 +1,7 @@
 To include run-lists in the status, enter:
 
 ``` bash
-$ knife status --run-list
+knife status --run-list
 ```
 
 to return something like:

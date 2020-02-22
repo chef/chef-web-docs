@@ -22,7 +22,7 @@ Syntax
 This subcommand has the following syntax:
 
 ``` bash
-$ knife raw REQUEST_PATH (options)
+knife raw REQUEST_PATH (options)
 ```
 
 Options
@@ -87,7 +87,7 @@ knife raw /nodes/<node_name>
 To delete a data bag, enter a command similar to:
 
 ``` bash
-$ knife raw -m DELETE /data/foo
+knife raw -m DELETE /data/foo
 ```
 
 to return something similar to:
@@ -105,7 +105,7 @@ to return something similar to:
 To delete a role, enter a command similar to:
 
 ``` bash
-$ knife raw -m DELETE /roles/role-foo.json
+knife raw -m DELETE /roles/role-foo.json
 ```
 
 to return something similar to:

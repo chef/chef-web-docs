@@ -7,8 +7,7 @@ aliases:
 menu:
   docs:
     title: pacman_package
-    identifier: chef_infra/cookbook_reference/resources/resource_pacman_package.md
-      pacman_package
+    identifier: chef_infra/cookbook_reference/resources/pacman_package pacman_package
     parent: chef_infra/cookbook_reference/resources
     weight: 720
 resource_reference: true

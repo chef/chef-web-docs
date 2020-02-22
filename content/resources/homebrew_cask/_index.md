@@ -7,8 +7,7 @@ aliases:
 menu:
   docs:
     title: homebrew_cask
-    identifier: chef_infra/cookbook_reference/resources/resource_homebrew_cask.md
-      homebrew_cask
+    identifier: chef_infra/cookbook_reference/resources/homebrew_cask homebrew_cask
     parent: chef_infra/cookbook_reference/resources
     weight: 410
 resource_reference: true

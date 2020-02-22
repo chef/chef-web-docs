@@ -7,7 +7,7 @@ aliases:
 menu:
   docs:
     title: breakpoint
-    identifier: chef_infra/cookbook_reference/resources/resource_breakpoint.md breakpoint
+    identifier: chef_infra/cookbook_reference/resources/breakpoint breakpoint
     parent: chef_infra/cookbook_reference/resources
     weight: 140
 resource_reference: true

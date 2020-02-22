@@ -7,7 +7,7 @@ aliases:
 menu:
   docs:
     title: swap_file
-    identifier: chef_infra/cookbook_reference/resources/resource_swap_file.md swap_file
+    identifier: chef_infra/cookbook_reference/resources/swap_file swap_file
     parent: chef_infra/cookbook_reference/resources
     weight: 1020
 resource_reference: true

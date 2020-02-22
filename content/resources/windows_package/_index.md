@@ -7,8 +7,7 @@ aliases:
 menu:
   docs:
     title: windows_package
-    identifier: chef_infra/cookbook_reference/resources/resource_windows_package.md
-      windows_package
+    identifier: chef_infra/cookbook_reference/resources/windows_package windows_package
     parent: chef_infra/cookbook_reference/resources
     weight: 1220
 resource_reference: true

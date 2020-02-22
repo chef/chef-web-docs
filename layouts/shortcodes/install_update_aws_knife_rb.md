@@ -2,7 +2,7 @@ Open `.chef/config.rb` in a text editor and modify the `chef_server_url`
 with your new public DNS. For example:
 
 ``` bash
-$ vim ~/chef-repo/.chef/config.rb
+vim ~/chef-repo/.chef/config.rb
 ```
 
 will open a `config.rb` file similar to:

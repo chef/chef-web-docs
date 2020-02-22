@@ -22,13 +22,13 @@ Syntax
 This subcommand has the following syntax when creating a config.rb file:
 
 ``` bash
-$ knife configure (options)
+knife configure (options)
 ```
 
 and the following syntax when creating a client.rb file:
 
 ``` bash
-$ knife configure client DIRECTORY
+knife configure client DIRECTORY
 ```
 
 Options
@@ -85,11 +85,11 @@ The following examples show how to use this knife subcommand:
 **Configure config.rb**
 
 ``` bash
-$ knife configure
+knife configure
 ```
 
 **Configure client.rb**
 
 ``` bash
-$ knife configure client '/directory'
+knife configure client '/directory'
 ```

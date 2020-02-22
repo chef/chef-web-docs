@@ -3,7 +3,7 @@ bootstrap operation. The actual command that is run by the default
 bootstrap script is:
 
 ``` bash
-$ msiexec /qn /i "%LOCAL_DESTINATION_MSI_PATH%"
+msiexec /qn /i "%LOCAL_DESTINATION_MSI_PATH%"
 ```
 
 where `/qn` is used to set the user interface level to "No UI", `/i` is

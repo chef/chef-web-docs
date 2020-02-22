@@ -8,7 +8,7 @@ feature is not enabled by default. To activate this feature, run the
 following command from within Windows PowerShell:
 
 ``` bash
-$ Import-Module chef
+Import-Module chef
 ```
 
 or add `Import-Module chef` to the profile for Windows PowerShell
@@ -24,30 +24,30 @@ tools---chef-client, knife, chef-apply---that are built into Chef.
 For example:
 
 ``` bash
-$ knife exec -E 'puts ARGV' """&s0meth1ng"""
+knife exec -E 'puts ARGV' """&s0meth1ng"""
 ```
 
 is now:
 
 ``` bash
-$ knife exec -E 'puts ARGV' '&s0meth1ng'
+knife exec -E 'puts ARGV' '&s0meth1ng'
 ```
 
 and:
 
 ``` bash
-$ knife node run_list set test-node '''role[ssssssomething]'''
+knife node run_list set test-node '''role[ssssssomething]'''
 ```
 
 is now:
 
 ``` bash
-$ knife node run_list set test-node 'role[ssssssomething]'
+knife node run_list set test-node 'role[ssssssomething]'
 ```
 
 To remove this feature, run the following command from within Windows
 PowerShell:
 
 ``` bash
-$ Remove-Module chef
+Remove-Module chef
 ```

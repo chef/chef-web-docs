@@ -6,7 +6,7 @@ done by comparing the SHA-256 checksums.
 1.  View the checksum on the Chef Infra Server:
 
     ``` bash
-    $ ssh ubuntu@chef-server.example.com sudo sha256sum /var/opt/opscode/nginx/ca/chef-server.example.com.crt
+    ssh ubuntu@chef-server.example.com sudo sha256sum /var/opt/opscode/nginx/ca/chef-server.example.com.crt
     ```
 
     The response is similar to:
@@ -18,7 +18,7 @@ done by comparing the SHA-256 checksums.
 2.  View the checksum on the workstation:
 
     ``` bash
-    $ gsha256sum .chef/trusted_certs/chef-server.example.com.crt
+    gsha256sum .chef/trusted_certs/chef-server.example.com.crt
     ```
 
     The response is similar to:

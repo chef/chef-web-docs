@@ -5,7 +5,7 @@ snapshots.
 **Syntax**
 
 ``` none
-$ automate-ctl create-backup [NAME] [options]
+automate-ctl create-backup [NAME] [options]
      --chef-server-config         Backup up the Chef Infra Server config if present
      --digest [int]               The SHA digest length to output. 256, 384, and 512 are valid
      --force                      Agree to all warnings and prompts
@@ -66,12 +66,12 @@ have problems running with a current working directory owned by root.
 
 Complete backup:
 
-:   `$ automate-ctl create-backup`
+:   `automate-ctl create-backup`
 
 Elasticsearch snapshot only:
 
-:   `$ automate-ctl create-backup --no-census --no-config --no-db --no-license --no-git`
+:   `automate-ctl create-backup --no-census --no-config --no-db --no-license --no-git`
 
 Automate archive only
 
-:   `$ automate-ctl create-backup --no-elasticsearch`
+:   `automate-ctl create-backup --no-elasticsearch`

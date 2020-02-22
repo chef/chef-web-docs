@@ -99,8 +99,8 @@ Overview](/server_overview/) | [Search](/chef_search/) |
 Supermarket (overview)](/supermarket.html#private-supermarket) | [Share
 Cookbooks on the Chef Supermarket](/supermarket_share_cookbook/)
 
-**Appendix**: [Env Variables](/environment_variables/) |
-[Troubleshooting](/errors/) | [Glossary](/glossary/)
+**Appendix**: [Troubleshooting](/errors/) |
+[Glossary](/glossary/)
 
 Guides
 ------
@@ -205,7 +205,6 @@ Resources](/definitions/)
 [dpkg_package](/resources/dpkg_package/) |
 [dsc_resource](/resources/dsc_resource/) |
 [dsc_script](/resources/dsc_script/) |
-[erl_call](/resources/erlang_call/) |
 [execute](/resources/execute/) | [file](/resources/file/) |
 [freebsd_package](/resources/freebsd_package/) |
 [gem_package](/resources/gem_package/) | [git](/resources/git/)

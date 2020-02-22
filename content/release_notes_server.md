@@ -69,8 +69,8 @@ What's New in 13.0.11
 Chef Server is now Chef Infra Server
 ------------------------------------
 
-Chef Server has a new name, but don’t worry, it’s the same Chef Server
-you’ve grown used to. You’ll notice new branding throughout the
+Chef Server has a new name, but don't worry, it's the same Chef Server
+you've grown used to. You'll notice new branding throughout the
 application and documentation but the command <span
 class="title-ref">chef-server-ctl</span> remains the same.
 
@@ -102,7 +102,7 @@ Deprecation notice
     platforms](https://blog.chef.io/2018/11/01/end-of-life-announcement-for-chef-server-for-linux-on-ibm-z-and-linux-on-ibm-power-systems/)
 -   [Deprecated Keepalived/DRBD-based
     HA](https://blog.chef.io/2018/10/02/end-of-life-announcement-for-drbd-based-ha-support-in-chef-server/)
--   Deprecated Ubuntu 14.04 support. (Ubuntu 14 was EoL’d at the end of
+-   Deprecated Ubuntu 14.04 support. (Ubuntu 14 was EoL'd at the end of
     April 2019)
 
 Updates and Improvements
@@ -268,7 +268,7 @@ What's New in 12.17.5
 
 This release fixes a regression that occurs when deploying to
 DigitalOcean and potentially other non-AWS cloud platforms, where the
-`nginx[‘use_implicit_hosts’] = true` setting results in an incorrect
+`nginx['use_implicit_hosts'] = true` setting results in an incorrect
 nginx configuration.
 
 See the [change
@@ -1068,7 +1068,7 @@ superuser account), `alice`, `bob`, `carol`, and `dan`. Run the
 following command to view a list of users on the Chef server:
 
 ``` bash
-$ chef-server-ctl user-list
+chef-server-ctl user-list
 ```
 
 and it returns the same list of users:
@@ -1087,7 +1087,7 @@ user accounts on the Chef server that are used by the rest of the
 organization. From a workstation, Alice runs the following command:
 
 ``` bash
-$ knife user list -c ~/.chef/alice.rb
+knife user list -c ~/.chef/alice.rb
 ```
 
 and it returns the following error:
@@ -1103,7 +1103,7 @@ because user accounts are global to organizations in the Chef server.
 Let's add Alice to the `server-admins` group:
 
 ``` bash
-$ chef-server-ctl grant-server-admin-permissions alice
+chef-server-ctl grant-server-admin-permissions alice
 ```
 
 and it returns the following response:
@@ -1117,7 +1117,7 @@ server, even for organizations to which Alice is not a member. From a
 workstation, Alice re-runs the following command:
 
 ``` bash
-$ knife user list -c ~/.chef/alice.rb
+knife user list -c ~/.chef/alice.rb
 ```
 
 which now returns:
@@ -1142,7 +1142,7 @@ subcommands to manage users on the Chef server:
 For example, Alice runs the following command:
 
 ``` bash
-$ knife user edit carol -c ~/.chef/alice.rb
+knife user edit carol -c ~/.chef/alice.rb
 ```
 
 and the \$EDITOR opens in which Alice makes changes, and then saves
@@ -1155,7 +1155,7 @@ Superuser accounts may not be managed by users who belong to the
 `pivotal` superuser account:
 
 ``` bash
-$ knife user delete pivotal -c ~/.chef/alice.rb
+knife user delete pivotal -c ~/.chef/alice.rb
 ```
 
 and the following error is returned:
@@ -1187,7 +1187,7 @@ the `server-admins` group. Run the command once per user added.
 This subcommand has the following syntax:
 
 ``` bash
-$ chef-server-ctl grant-server-admin-permissions USER_NAME
+chef-server-ctl grant-server-admin-permissions USER_NAME
 ```
 
 where `USER_NAME` is the user to add to the list of server
@@ -1196,7 +1196,7 @@ administrators.
 For example:
 
 ``` bash
-$ chef-server-ctl grant-server-admin-permissions bob
+chef-server-ctl grant-server-admin-permissions bob
 ```
 
 returns:
@@ -1216,7 +1216,7 @@ removed.
 This subcommand has the following syntax:
 
 ``` bash
-$ chef-server-ctl remove-server-admin-permissions USER_NAME
+chef-server-ctl remove-server-admin-permissions USER_NAME
 ```
 
 where `USER_NAME` is the user to remove from the list of server
@@ -1225,7 +1225,7 @@ administrators.
 For example:
 
 ``` bash
-$ chef-server-ctl remove-server-admin-permissions bob
+chef-server-ctl remove-server-admin-permissions bob
 ```
 
 returns:
@@ -1244,7 +1244,7 @@ who are members of the `server-admins` group.
 This subcommand has the following syntax:
 
 ``` bash
-$ chef-server-ctl list-server-admins
+chef-server-ctl list-server-admins
 ```
 
 and will return a list of users similar to:
@@ -1589,7 +1589,7 @@ This subcommand has the following options:
 This subcommand has the following syntax:
 
 ``` bash
-$ chef-server-ctl backup
+chef-server-ctl backup
 ```
 
 restore
@@ -1628,13 +1628,13 @@ This subcommand has the following options:
 This subcommand has the following syntax:
 
 ``` bash
-$ chef-server-ctl restore PATH_TO_BACKUP (options)
+chef-server-ctl restore PATH_TO_BACKUP (options)
 ```
 
 **Examples**
 
 ``` bash
-$ chef-server-ctl restore /path/to/tar/archive.tar.gz
+chef-server-ctl restore /path/to/tar/archive.tar.gz
 ```
 
 psql
@@ -1654,7 +1654,7 @@ associated with the named service. This subcommand:
 This subcommand has the following syntax:
 
 ``` bash
-$ chef-server-ctl psql SERVICE_NAME (options)
+chef-server-ctl psql SERVICE_NAME (options)
 ```
 
 **Options**
@@ -3698,7 +3698,7 @@ available for private-chef-ctl are also available for chef-server-ctl,
 but with an updated syntax:
 
 ``` bash
-$ chef-server-ctl command
+chef-server-ctl command
 ```
 
 In addition, the `install` subcommand is added, plus two new subcommand
@@ -3719,7 +3719,7 @@ replication.
 This subcommand has the following syntax:
 
 ``` bash
-$ chef-server-ctl install name_of_addon (options)
+chef-server-ctl install name_of_addon (options)
 ```
 
 where `name_of_addon` represents the command line value associated with
@@ -3758,11 +3758,11 @@ packages can be installed as described below.
 <td><p>Chef Manage</p></td>
 <td><p>Use Chef management console to manage data bags, attributes, run-lists, roles, environments, and cookbooks from a web user interface.</p>
 <p>On the Chef server, run:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a>$ <span class="fu">sudo</span> chef-server-ctl install chef-manage</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">sudo</span> chef-server-ctl install chef-manage</span></code></pre></div>
 <p>then:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1"></a>$ <span class="fu">sudo</span> chef-server-ctl reconfigure</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu">sudo</span> chef-server-ctl reconfigure</span></code></pre></div>
 <p>and then:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1"></a>$ <span class="fu">sudo</span> chef-manage-ctl reconfigure</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">sudo</span> chef-manage-ctl reconfigure</span></code></pre></div>
 {{< note >}}
 <p>Starting with the Chef management console 2.3.0, the <a href="/chef_license/">Chef MLSA</a> must be accepted when reconfiguring the product. If the Chef MLSA has not already been accepted, the reconfigure process will prompt for a <code>yes</code> to accept it. Or run <code>chef-manage-ctl reconfigure --accept-license</code> to automatically accept the license.</p>
 {{< /note >}}</td>
@@ -3782,13 +3782,13 @@ to a local path, and then run the `install` command using the `--path`
 option to specify the directory in which the package is located:
 
 ``` bash
-$ sudo chef-server-ctl install PACKAGE_NAME --path /path/to/package/directory
+sudo chef-server-ctl install PACKAGE_NAME --path /path/to/package/directory
 ```
 
 For example:
 
 ``` bash
-$ sudo chef-server-ctl install chef-manage --path /root/packages
+sudo chef-server-ctl install chef-manage --path /root/packages
 ```
 
 The `chef-server-ctl` command will install the first `chef-manage`
@@ -3804,7 +3804,7 @@ information.
 This subcommand has the following syntax:
 
 ``` bash
-$ chef-server-ctl gather-logs
+chef-server-ctl gather-logs
 ```
 
 user-\* Commands
@@ -3823,7 +3823,7 @@ user with this command.)
 This subcommand has the following syntax:
 
 ``` bash
-$ chef-server-ctl user-create USER_NAME FIRST_NAME [MIDDLE_NAME] LAST_NAME EMAIL 'PASSWORD' (options)
+chef-server-ctl user-create USER_NAME FIRST_NAME [MIDDLE_NAME] LAST_NAME EMAIL 'PASSWORD' (options)
 ```
 
 **Options**
@@ -3837,15 +3837,15 @@ This subcommand has the following options:
 **Examples**
 
 ``` bash
-$ chef-server-ctl user-create john_smith John Smith john_smith@example.com p@s5w0rD!
+chef-server-ctl user-create john_smith John Smith john_smith@example.com p@s5w0rD!
 ```
 
 ``` bash
-$ chef-server-ctl user-create jane_doe Jane Doe jane_doe@example.com p@s5w0rD! -f /tmp/jane_doe.key
+chef-server-ctl user-create jane_doe Jane Doe jane_doe@example.com p@s5w0rD! -f /tmp/jane_doe.key
 ```
 
 ``` bash
-$ chef-server-ctl user-create waldendude Henry David Thoreau waldendude@example.com excursions
+chef-server-ctl user-create waldendude Henry David Thoreau waldendude@example.com excursions
 ```
 
 ### user-delete
@@ -3857,17 +3857,17 @@ The `user-delete` subcommand is used to delete a user.
 This subcommand has the following syntax:
 
 ``` bash
-$ chef-server-ctl user-delete USER_NAME
+chef-server-ctl user-delete USER_NAME
 ```
 
 **Examples**
 
 ``` bash
-$ chef-server-ctl user-delete john_smith
+chef-server-ctl user-delete john_smith
 ```
 
 ``` bash
-$ chef-server-ctl user-delete jane_doe
+chef-server-ctl user-delete jane_doe
 ```
 
 ### user-edit
@@ -3880,17 +3880,17 @@ data will be made available in the \$EDITOR for editing.
 This subcommand has the following syntax:
 
 ``` bash
-$ chef-server-ctl user-edit USER_NAME
+chef-server-ctl user-edit USER_NAME
 ```
 
 **Examples**
 
 ``` bash
-$ chef-server-ctl user-edit john_smith
+chef-server-ctl user-edit john_smith
 ```
 
 ``` bash
-$ chef-server-ctl user-edit jane_doe
+chef-server-ctl user-edit jane_doe
 ```
 
 ### user-list
@@ -3902,7 +3902,7 @@ The `user-list` subcommand is used to view a list of users.
 This subcommand has the following syntax:
 
 ``` bash
-$ chef-server-ctl user-list (options)
+chef-server-ctl user-list (options)
 ```
 
 **Options**
@@ -3922,7 +3922,7 @@ The `user-show` subcommand is used to show the details for a user.
 This subcommand has the following syntax:
 
 ``` bash
-$ chef-server-ctl user-show USER_NAME (options)
+chef-server-ctl user-show USER_NAME (options)
 ```
 
 **Options**
@@ -3949,7 +3949,7 @@ creating an organization with this command.)
 This subcommand has the following syntax:
 
 ``` bash
-$ chef-server-ctl org-create ORG_NAME "ORG_FULL_NAME" (options)
+chef-server-ctl org-create ORG_NAME "ORG_FULL_NAME" (options)
 ```
 
 where:
@@ -3978,15 +3978,15 @@ This subcommand has the following options:
 **Examples**
 
 ``` bash
-$ chef-server-ctl org-create prod Production
+chef-server-ctl org-create prod Production
 ```
 
 ``` bash
-$ chef-server-ctl org-create staging Staging -a chef-admin
+chef-server-ctl org-create staging Staging -a chef-admin
 ```
 
 ``` bash
-$ chef-server-ctl org-create dev Development -f /tmp/id-dev.key
+chef-server-ctl org-create dev Development -f /tmp/id-dev.key
 ```
 
 ### org-delete
@@ -3998,17 +3998,17 @@ The `org-delete` subcommand is used to delete an organization.
 This subcommand has the following syntax:
 
 ``` bash
-$ chef-server-ctl org-delete ORG_NAME
+chef-server-ctl org-delete ORG_NAME
 ```
 
 **Examples**
 
 ``` bash
-$ chef-server-ctl org-delete infra-testing-20140909
+chef-server-ctl org-delete infra-testing-20140909
 ```
 
 ``` bash
-$ chef-server-ctl org-delete pedant-testing-org
+chef-server-ctl org-delete pedant-testing-org
 ```
 
 ### org-list
@@ -4021,7 +4021,7 @@ currently present on the Chef server.
 This subcommand has the following syntax:
 
 ``` bash
-$ chef-server-ctl org-list (options)
+chef-server-ctl org-list (options)
 ```
 
 **Options**
@@ -4046,7 +4046,7 @@ organization.
 This subcommand has the following syntax:
 
 ``` bash
-$ chef-server-ctl org-show ORG_NAME
+chef-server-ctl org-show ORG_NAME
 ```
 
 ### org-user-add
@@ -4067,7 +4067,7 @@ The `org-user-add` subcommand is used to add a user to an organization.
 This subcommand has the following syntax:
 
 ``` bash
-$ chef-server-ctl org-user-add ORG_NAME USER_NAME (options)
+chef-server-ctl org-user-add ORG_NAME USER_NAME (options)
 ```
 
 **Options**
@@ -4081,15 +4081,15 @@ This subcommand has the following options:
 **Examples**
 
 ``` bash
-$ chef-server-ctl org-user-add prod john_smith
+chef-server-ctl org-user-add prod john_smith
 ```
 
 ``` bash
-$ chef-server-ctl org-user-add preprod testmaster
+chef-server-ctl org-user-add preprod testmaster
 ```
 
 ``` bash
-$ chef-server-ctl org-user-add dev grantmc --admin
+chef-server-ctl org-user-add dev grantmc --admin
 ```
 
 ### org-user-remove
@@ -4110,17 +4110,17 @@ organization.
 This subcommand has the following syntax:
 
 ``` bash
-$ chef-server-ctl org-user-remove ORG_NAME USER_NAME (options)
+chef-server-ctl org-user-remove ORG_NAME USER_NAME (options)
 ```
 
 **Examples**
 
 ``` bash
-$ chef-server-ctl org-user-remove prod john_smith
+chef-server-ctl org-user-remove prod john_smith
 ```
 
 ``` bash
-$ chef-server-ctl org-user-remove prod testmaster
+chef-server-ctl org-user-remove prod testmaster
 ```
 
 Configuration Settings
@@ -4245,26 +4245,26 @@ organizations are created. Use the Chef management console or the
 permissions to data bags as required. For example:
 
 ``` bash
-$ knife acl add containers data update group clients
+knife acl add containers data update group clients
 ```
 
 For cookbooks that create or delete data bags:
 
 ``` bash
-$ knife acl add containers data create group clients
+knife acl add containers data create group clients
 
-$ knife acl add containers data delete group clients
+knife acl add containers data delete group clients
 ```
 
 For existing organizations that want to remove the **Create**,
 **Delete**, or **Update** permissions from existing nodes:
 
 ``` bash
-$ knife acl remove containers data update group clients
+knife acl remove containers data update group clients
 
-$ knife acl remove containers data delete group clients
+knife acl remove containers data delete group clients
 
-$ knife acl remove containers data create group clients
+knife acl remove containers data create group clients
 ```
 
 See this blog post for more information about the `knife-acl` plugin:
@@ -4322,7 +4322,7 @@ Use the `add-client-key` subcommand to add a client key.
 This subcommand has the following syntax:
 
 ``` bash
-$ chef-server-ctl add-client-key ORG_NAME CLIENT_NAME [--public-key-path PATH] [--expiration-date DATE] [--key-name NAME]
+chef-server-ctl add-client-key ORG_NAME CLIENT_NAME [--public-key-path PATH] [--expiration-date DATE] [--key-name NAME]
 ```
 
 {{< warning >}}
@@ -4370,7 +4370,7 @@ Use the `add-user-key` subcommand to add a user key.
 This subcommand has the following syntax:
 
 ``` bash
-$ chef-server-ctl add-user-key USER_NAME [--public-key-path PATH] [--expiration-date DATE] [--key-name NAME]
+chef-server-ctl add-user-key USER_NAME [--public-key-path PATH] [--expiration-date DATE] [--key-name NAME]
 ```
 
 {{< warning >}}
@@ -4414,7 +4414,7 @@ Use the `delete-client-key` subcommand to delete a client key.
 This subcommand has the following syntax:
 
 ``` bash
-$ chef-server-ctl delete-client-key ORG_NAME CLIENT_NAME KEY_NAME
+chef-server-ctl delete-client-key ORG_NAME CLIENT_NAME KEY_NAME
 ```
 
 **Options**
@@ -4443,7 +4443,7 @@ Use the `delete-user-key` subcommand to delete a user key.
 This subcommand has the following syntax:
 
 ``` bash
-$ chef-server-ctl delete-user-key USER_NAME KEY_NAME
+chef-server-ctl delete-user-key USER_NAME KEY_NAME
 ```
 
 {{< warning >}}
@@ -4474,7 +4474,7 @@ Use the `list-client-keys` subcommand to list client keys.
 This subcommand has the following syntax:
 
 ``` bash
-$ chef-server-ctl list-client-keys ORG_NAME CLIENT_NAME [--verbose]
+chef-server-ctl list-client-keys ORG_NAME CLIENT_NAME [--verbose]
 ```
 
 {{< warning >}}
@@ -4509,7 +4509,7 @@ Use the `list-user-keys` subcommand to list client keys.
 This subcommand has the following syntax:
 
 ``` bash
-$ chef-server-ctl list-user-keys USER_NAME [--verbose]
+chef-server-ctl list-user-keys USER_NAME [--verbose]
 ```
 
 {{< warning >}}
@@ -4533,7 +4533,7 @@ This subcommand has the following options:
 **Example**
 
 ``` bash
-$ chef-server-ctl list-user-keys applejack
+chef-server-ctl list-user-keys applejack
 ```
 
 Returns:

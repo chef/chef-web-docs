@@ -5,7 +5,7 @@ named "admin_data" across all items, except for the "admin_users"
 item, enter the following:
 
 ``` bash
-$ knife search admin_data "(NOT id:admin_users)"
+knife search admin_data "(NOT id:admin_users)"
 ```
 
 Or, to include the same search query in a recipe, use a code block

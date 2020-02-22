@@ -7,8 +7,7 @@ aliases:
 menu:
   docs:
     title: rhsm_subscription
-    identifier: chef_infra/cookbook_reference/resources/resource_rhsm_subscription.md
-      rhsm_subscription
+    identifier: chef_infra/cookbook_reference/resources/rhsm_subscription rhsm_subscription
     parent: chef_infra/cookbook_reference/resources
     weight: 890
 resource_reference: true

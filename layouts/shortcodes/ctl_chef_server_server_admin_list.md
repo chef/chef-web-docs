@@ -4,7 +4,7 @@ who are members of the `server-admins` group.
 This subcommand has the following syntax:
 
 ``` bash
-$ chef-server-ctl list-server-admins
+chef-server-ctl list-server-admins
 ```
 
 and will return a list of users similar to:

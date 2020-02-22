@@ -2755,11 +2755,11 @@ What's New in 14.4
     along with summary information on each.
 
     ``` bash
-    $ knife config get-profile
+    knife config get-profile
     staging
-    $ knife config use-profile prod
+    knife config use-profile prod
     Set default profile to prod
-    $ knife config list-profiles
+    knife config list-profiles
      Profile  Client  Key               Server
     -----------------------------------------------------------------------------
      staging  myuser  ~/.chef/user.pem  https://example.com/organizations/staging
@@ -4193,11 +4193,11 @@ Deprecations
 
 -   **erl_call Resource**
 
-    We introduced [erl_call](/resources/erlang_call/) to help us to
-    manage CouchDB servers back in the olden times of Chef. Since then
-    we've noticed that no one uses it, and so `erl_call` will be removed
-    in Chef 14. Foodcritic rule [FC105](http://www.foodcritic.io/#FC105)
-    has been introduced to detect usage of `erl_call`.
+    We introduced the `erl_call` resource to help us to manage CouchDB
+    servers back in the olden times of Chef. Since then we've noticed
+    that no one uses it, and so `erl_call` will be removed in Chef 14.
+    Foodcritic rule [FC105](http://www.foodcritic.io/#FC105) has been
+    introduced to detect usage of `erl_call`.
 
 -   **epic_fail**
 
@@ -5629,7 +5629,7 @@ You can now pass multiple nodes/clients to `knife node delete` or
 `knife client delete` subcommands.
 
 ``` bash
-$ knife client delete client1,client2,client3
+knife client delete client1,client2,client3
 ```
 
 Ohai Enhancements
@@ -5734,11 +5734,11 @@ show us the data we're expecting for the `foo.bar` attribute because of
 the period:
 
 ``` bash
-$ knife node show webapp -a foo.bar
+knife node show webapp -a foo.bar
 webapp:
   foo.bar:
 
-$ knife node show webapp -a alpha.beta
+knife node show webapp -a alpha.beta
 webapp:
   alpha.beta: omega
 ```
@@ -5747,11 +5747,11 @@ However, by specifying a field separator other than `.` we are now able
 to show the data.
 
 ``` bash
-$ knife node show webapp -S: -a foo.bar
+knife node show webapp -S: -a foo.bar
 webapp:
   foo.bar: baz
 
-$ knife node show webapp -S: -a alpha:beta
+knife node show webapp -S: -a alpha:beta
 webapp:
   alpha:beta: omega
 ```
@@ -5895,7 +5895,7 @@ configuration options, simply add additional `--config-option` options
 like in the following example:
 
 ``` bash
-$ chef-client --config-option chef_server_url=http://example --config-option policy_name=web"
+chef-client --config-option chef_server_url=http://example --config-option policy_name=web"
 ```
 
 Updated Dependencies
@@ -6749,7 +6749,7 @@ chef-client executable command:
 **Bootstrap a node using FIPS**
 
 ``` bash
-$ knife bootstrap 192.0.2.0 -P vanilla -x root -r 'recipe[apt],recipe[xfs],recipe[vim]' --fips
+knife bootstrap 192.0.2.0 -P vanilla -x root -r 'recipe[apt],recipe[xfs],recipe[vim]' --fips
 ```
 
 which shows something similar to:
@@ -9459,7 +9459,7 @@ Specify Policy Revision
 Use the following command to specify a policy revision:
 
 ``` bash
-$ chef client -j JSON
+chef client -j JSON
 ```
 
 where the JSON file is similar to:
@@ -9596,7 +9596,7 @@ enable the use of policy files:
     For example, run the following:
 
     ``` bash
-    $ chef-client -j /path/to/file.json
+    chef-client -j /path/to/file.json
     ```
 
     where `/path/to/file.json` is similar to:
@@ -9673,7 +9673,7 @@ activate this feature, run the following command from within Windows
 PowerShell:
 
 ``` bash
-$ Import-Module chef
+Import-Module chef
 ```
 
 or add `Import-Module chef` to the profile for Windows PowerShell
@@ -9689,32 +9689,32 @@ tools---chef-client, knife, chef-apply---that are built into Chef.
 For example:
 
 ``` bash
-$ knife exec -E 'puts ARGV' """&s0meth1ng"""
+knife exec -E 'puts ARGV' """&s0meth1ng"""
 ```
 
 is now:
 
 ``` bash
-$ knife exec -E 'puts ARGV' '&s0meth1ng'
+knife exec -E 'puts ARGV' '&s0meth1ng'
 ```
 
 and:
 
 ``` bash
-$ knife node run_list set test-node '''role[ssssssomething]'''
+knife node run_list set test-node '''role[ssssssomething]'''
 ```
 
 is now:
 
 ``` bash
-$ knife node run_list set test-node 'role[ssssssomething]'
+knife node run_list set test-node 'role[ssssssomething]'
 ```
 
 To remove this feature, run the following command from within Windows
 PowerShell:
 
 ``` bash
-$ Remove-Module chef
+Remove-Module chef
 ```
 
 client.rb Settings
@@ -9831,7 +9831,7 @@ Use the `key create` argument to create a public key.
 This argument has the following syntax:
 
 ``` bash
-$ knife client key create CLIENT_NAME (options)
+knife client key create CLIENT_NAME (options)
 ```
 
 #### Options
@@ -9869,7 +9869,7 @@ Use the `key delete` argument to delete a public key.
 This argument has the following syntax:
 
 ``` bash
-$ knife client key delete CLIENT_NAME KEY_NAME
+knife client key delete CLIENT_NAME KEY_NAME
 ```
 
 ### key edit
@@ -9881,7 +9881,7 @@ Use the `key edit` argument to modify or rename a public key.
 This argument has the following syntax:
 
 ``` bash
-$ knife client key edit CLIENT_NAME KEY_NAME (options)
+knife client key edit CLIENT_NAME KEY_NAME (options)
 ```
 
 #### Options
@@ -9926,7 +9926,7 @@ client.
 This argument has the following syntax:
 
 ``` bash
-$ knife client key list CLIENT_NAME (options)
+knife client key list CLIENT_NAME (options)
 ```
 
 #### Options
@@ -9954,7 +9954,7 @@ Use the `key show` argument to view details for a specific public key.
 This argument has the following syntax:
 
 ``` bash
-$ knife client key show CLIENT_NAME KEY_NAME
+knife client key show CLIENT_NAME KEY_NAME
 ```
 
 knife user key
@@ -9972,7 +9972,7 @@ Use the `key create` argument to create a public key.
 This argument has the following syntax:
 
 ``` bash
-$ knife user key create USER_NAME (options)
+knife user key create USER_NAME (options)
 ```
 
 #### Options
@@ -10009,7 +10009,7 @@ Use the `key delete` argument to delete a public key.
 This argument has the following syntax:
 
 ``` bash
-$ knife user key delete USER_NAME KEY_NAME
+knife user key delete USER_NAME KEY_NAME
 ```
 
 ### key edit
@@ -10021,7 +10021,7 @@ Use the `key edit` argument to modify or rename a public key.
 This argument has the following syntax:
 
 ``` bash
-$ knife user key edit USER_NAME KEY_NAME (options)
+knife user key edit USER_NAME KEY_NAME (options)
 ```
 
 #### Options
@@ -10066,7 +10066,7 @@ user.
 This argument has the following syntax:
 
 ``` bash
-$ knife user key list USER_NAME (options)
+knife user key list USER_NAME (options)
 ```
 
 #### Options
@@ -10094,7 +10094,7 @@ Use the `key show` argument to view details for a specific public key.
 This argument has the following syntax:
 
 ``` bash
-$ knife user key show USER_NAME KEY_NAME
+knife user key show USER_NAME KEY_NAME
 ```
 
 Updated knife Options
@@ -11702,7 +11702,7 @@ To create a node via the USER.pem file, simply delete the
 ORGANIZATION-validator.pem file on the workstation. For example:
 
 ``` bash
-$ rm -f /home/lamont/.chef/myorg-validator.pem
+rm -f /home/lamont/.chef/myorg-validator.pem
 ```
 
 and then make the following changes in the config.rb file:
@@ -13110,19 +13110,19 @@ system process limits:
     root user:
 
     ``` bash
-    $ chsec -f /etc/security/limits -s default -a "rss=-1"
+    chsec -f /etc/security/limits -s default -a "rss=-1"
     ```
 
     and then:
 
     ``` bash
-    $ chsec -f /etc/security/limits -s default -a "data=-1"
+    chsec -f /etc/security/limits -s default -a "data=-1"
     ```
 
     and then:
 
     ``` bash
-    $ chsec -f /etc/security/limits -s default -a "nofiles=50000"
+    chsec -f /etc/security/limits -s default -a "nofiles=50000"
     ```
 
     {{< note >}}
@@ -13131,7 +13131,7 @@ system process limits:
     default. For example:
 
     ``` bash
-    $ chsec -f /etc/security/limits -s root_user -a "rss=-1"
+    chsec -f /etc/security/limits -s root_user -a "rss=-1"
     ```
 
     {{< /note >}}
@@ -14945,7 +14945,7 @@ For example, without downloading the SSL certificate, the following
 knife command:
 
 ``` bash
-$ knife client list
+knife client list
 ```
 
 responds with an error similar to:

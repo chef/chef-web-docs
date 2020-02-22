@@ -7,7 +7,7 @@ aliases:
 menu:
   docs:
     title: reboot
-    identifier: chef_infra/cookbook_reference/resources/resource_reboot.md reboot
+    identifier: chef_infra/cookbook_reference/resources/reboot reboot
     parent: chef_infra/cookbook_reference/resources
     weight: 800
 resource_reference: true

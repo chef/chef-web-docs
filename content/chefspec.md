@@ -27,7 +27,7 @@ Run ChefSpec
 ChefSpec is packaged as part of Chef Workstation. To run ChefSpec:
 
 ``` bash
-$ chef exec rspec
+chef exec rspec
 ```
 
 Unit Tests

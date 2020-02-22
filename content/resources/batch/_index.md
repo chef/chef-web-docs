@@ -7,7 +7,7 @@ aliases:
 menu:
   docs:
     title: batch
-    identifier: chef_infra/cookbook_reference/resources/resource_batch.md batch
+    identifier: chef_infra/cookbook_reference/resources/batch batch
     parent: chef_infra/cookbook_reference/resources
     weight: 120
 resource_reference: true

@@ -7,7 +7,7 @@ aliases:
 menu:
   docs:
     title: windows_path
-    identifier: chef_infra/cookbook_reference/resources/resource_windows_path.md windows_path
+    identifier: chef_infra/cookbook_reference/resources/windows_path windows_path
     parent: chef_infra/cookbook_reference/resources
     weight: 1240
 resource_reference: true

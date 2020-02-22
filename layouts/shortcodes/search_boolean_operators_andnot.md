@@ -18,7 +18,7 @@ Parse error at offset: 38 Reason: Expected one of \ at line 1, column 42 (byte 4
 Use `-` instead of `NOT`. For example:
 
 ``` bash
-$ knife search sample "id:foo AND -id:bar"
+knife search sample "id:foo AND -id:bar"
 ```
 
 

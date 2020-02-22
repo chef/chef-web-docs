@@ -7,7 +7,7 @@ aliases:
 menu:
   docs:
     title: subversion
-    identifier: chef_infra/cookbook_reference/resources/resource_subversion.md subversion
+    identifier: chef_infra/cookbook_reference/resources/subversion subversion
     parent: chef_infra/cookbook_reference/resources
     weight: 1000
 resource_reference: true

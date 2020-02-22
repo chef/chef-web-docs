@@ -3,5 +3,5 @@ by the `cookbook::recipe` pattern, escaping both of the `:` characters.
 For example:
 
 ``` bash
-$ knife search node 'recipes:cookbook_name\:\:recipe_name'
+knife search node 'recipes:cookbook_name\:\:recipe_name'
 ```

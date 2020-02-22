@@ -11,7 +11,7 @@ For example, without downloading the SSL certificate, the following
 knife command:
 
 ``` bash
-$ knife client list
+knife client list
 ```
 
 responds with an error similar to:

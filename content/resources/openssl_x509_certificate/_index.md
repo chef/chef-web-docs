@@ -7,8 +7,7 @@ aliases:
 menu:
   docs:
     title: openssl_x509_certificate
-    identifier: chef_infra/cookbook_reference/resources/resource_openssl_x509_certificate.md
-      openssl_x509_certificate
+    identifier: chef_infra/cookbook_reference/resources/openssl_x509_certificate openssl_x509_certificate
     parent: chef_infra/cookbook_reference/resources
     weight: 670
 resource_reference: true

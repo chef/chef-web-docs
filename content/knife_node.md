@@ -37,7 +37,7 @@ Syntax
 This argument has the following syntax:
 
 ``` bash
-$ knife node bulk delete REGEX
+knife node bulk delete REGEX
 ```
 
 Options
@@ -56,7 +56,7 @@ Use a regular expression to define the pattern used to bulk delete
 nodes:
 
 ``` bash
-$ knife node bulk delete "^[0-9]{3}$"
+knife node bulk delete "^[0-9]{3}$"
 ```
 
 Type `Y` to confirm a deletion.
@@ -73,7 +73,7 @@ Syntax
 This argument has the following syntax:
 
 ``` bash
-$ knife node create NODE_NAME
+knife node create NODE_NAME
 ```
 
 Options
@@ -91,7 +91,7 @@ The following examples show how to use this knife subcommand:
 To add a node named `node1`, enter:
 
 ``` bash
-$ knife node create node1
+knife node create node1
 ```
 
 In the \$EDITOR enter the node data in JSON:
@@ -137,7 +137,7 @@ Syntax
 This argument has the following syntax:
 
 ``` bash
-$ knife node delete NODE_NAME
+knife node delete NODE_NAME
 ```
 
 Options
@@ -155,7 +155,7 @@ The following examples show how to use this knife subcommand:
 To delete a node named `node1`, enter:
 
 ``` bash
-$ knife node delete node1
+knife node delete node1
 ```
 
 edit
@@ -170,7 +170,7 @@ Syntax
 This argument has the following syntax:
 
 ``` bash
-$ knife node edit NODE_NAME (options)
+knife node edit NODE_NAME (options)
 ```
 
 Options
@@ -193,7 +193,7 @@ The following examples show how to use this knife subcommand:
 To edit the data for a node named `node1`, enter:
 
 ``` bash
-$ knife node edit node1 -a
+knife node edit node1 -a
 ```
 
 Update the role data in JSON:
@@ -232,7 +232,7 @@ Syntax
 This argument has the following syntax:
 
 ``` bash
-$ knife node environment_set NODE_NAME ENVIRONMENT_NAME (options)
+knife node environment_set NODE_NAME ENVIRONMENT_NAME (options)
 ```
 
 Options
@@ -257,7 +257,7 @@ Syntax
 This argument has the following syntax:
 
 ``` bash
-$ knife node from file FILE
+knife node from file FILE
 ```
 
 Options
@@ -275,7 +275,7 @@ The following examples show how to use this knife subcommand:
 To add a node using data contained in a JSON file:
 
 ``` bash
-$ knife node from file "PATH_TO_JSON_FILE"
+knife node from file "PATH_TO_JSON_FILE"
 ```
 
 list
@@ -290,7 +290,7 @@ Syntax
 This argument has the following syntax:
 
 ``` bash
-$ knife node list (options)
+knife node list (options)
 ```
 
 Options
@@ -319,7 +319,7 @@ To verify the list of nodes that are registered with the Chef Infra
 Server, enter:
 
 ``` bash
-$ knife node list
+knife node list
 ```
 
 to return something similar to:
@@ -341,7 +341,7 @@ Syntax
 This argument has the following syntax:
 
 ``` bash
-$ knife node policy set NODE POLICY_GROUP POLICY_NAME
+knife node policy set NODE POLICY_GROUP POLICY_NAME
 ```
 
 Examples
@@ -350,7 +350,7 @@ Examples
 Set the policy group and policy name for a node named `test-node`:
 
 ``` bash
-$ knife node policy set test-node 'test-group' 'test-name'
+knife node policy set test-node 'test-group' 'test-name'
 ```
 
 run_list add
@@ -492,7 +492,7 @@ Syntax
 This argument has the following syntax:
 
 ``` bash
-$ knife node show NODE_NAME (options)
+knife node show NODE_NAME (options)
 ```
 
 Options
@@ -530,7 +530,7 @@ The following examples show how to use this knife subcommand:
 To view all data for a node named `build`, enter:
 
 ``` bash
-$ knife node show build
+knife node show build
 ```
 
 to return:
@@ -586,7 +586,7 @@ where `ATTRIBUTE_NAME` is something like `kernel` and
 To view the FQDN for a node named `i-12345678`, enter:
 
 ``` bash
-$ knife node show i-12345678 -a fqdn
+knife node show i-12345678 -a fqdn
 ```
 
 to return:
@@ -600,7 +600,7 @@ fqdn: ip-10-251-75-20.ec2.internal
 To view the run-list for a node named `dev`, enter:
 
 ``` bash
-$ knife node show dev -r
+knife node show dev -r
 ```
 
 **Show as JSON data**
@@ -609,7 +609,7 @@ To view information in JSON format, use the `-F` common option; use a
 command like this for a node named `devops`:
 
 ``` bash
-$ knife node show devops -F json
+knife node show devops -F json
 ```
 
 Other formats available include `text`, `yaml`, and `pp`.

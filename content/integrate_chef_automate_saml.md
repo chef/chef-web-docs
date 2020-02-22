@@ -344,7 +344,7 @@ SAML-authenticated users:
     their browser to login to Chef Automate:
 
     ``` bash
-    $ delivery token
+    delivery token
     Chef Chef Automate
     Loading configuration from /path/to/project
     Requesting Token
@@ -412,7 +412,7 @@ You can verify that Chef Automate can read and parse your key by
 accessing `https://<yourChef AutomateDomain>/api/v0/oidc/jwks`:
 
 ``` bash
-$ curl https://delivery.corp.com/api/v0/oidc/jwks | jq .
+curl https://delivery.corp.com/api/v0/oidc/jwks | jq .
  {
    "keys": [
      {

@@ -2,7 +2,7 @@ To show the status of a subset of nodes that are returned by a specific
 query, enter:
 
 ``` bash
-$ knife status "role:web" --run-list
+knife status "role:web" --run-list
 ```
 
 to return something like:

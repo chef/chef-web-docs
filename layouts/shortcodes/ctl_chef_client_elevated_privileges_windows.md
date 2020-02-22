@@ -11,7 +11,7 @@ Infra Client as the administrator:
     being logged into another account. Run the following command:
 
     ``` bash
-    $ runas /user:Administrator "cmd /C chef-client"
+    runas /user:Administrator "cmd /C chef-client"
     ```
 
     This will prompt for the administrator account password.

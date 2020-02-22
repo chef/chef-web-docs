@@ -5,7 +5,7 @@ of the service in the command.
 This subcommand has the following syntax:
 
 ``` bash
-$ chef-server-ctl kill SERVICE_NAME
+chef-server-ctl kill SERVICE_NAME
 ```
 
 where `SERVICE_NAME` represents the name of any service that is listed

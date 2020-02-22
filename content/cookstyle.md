@@ -6,8 +6,8 @@ aliases = ["/cookstyle.html", "/rubocop.html"]
 
 [menu]
   [menu.docs]
-    title = "cookstyle"
-    identifier = "chef_workstation/chef_workstation_tools/cookstyle.md cookstyle"
+    title = "Cookstyle"
+    identifier = "chef_workstation/chef_workstation_tools/cookstyle.md Cookstyle"
     parent = "chef_workstation/chef_workstation_tools"
     weight = 90
 +++    
@@ -78,14 +78,14 @@ Cookstyle is run from the command line, typically against a single
 cookbook and all of the Ruby files contained within it:
 
 ``` bash
-$ cookstyle /path/to/cookbook
+cookstyle /path/to/cookbook
 ```
 
 Cookstyle may also be run from the root of an individual cookbook
 directory:
 
 ``` bash
-$ cookstyle .
+cookstyle .
 ```
 
 Cookstyle returns a list, via standard output, that shows the results of
@@ -193,7 +193,7 @@ violations. To autocorrect code run the following from the cookbook
 directory:
 
 ``` bash
-$ cookstyle -a .
+cookstyle -a .
 ```
 
 Take particular care after running this command to make sure that the
@@ -259,7 +259,7 @@ then address the ones that are.
 To generate the .rubocop_todo.yml file, run the following command:
 
 ``` bash
-$ cookstyle --auto-gen-config
+cookstyle --auto-gen-config
 ```
 
 {{< note >}}

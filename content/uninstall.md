@@ -30,7 +30,7 @@ To uninstall the Chef management console, do the following:
 1.  Run the following command:
 
     ``` bash
-    $ chef-manage-ctl cleanse
+    chef-manage-ctl cleanse
     ```
 
 2.  Use the package manager for the platform on which the Chef
@@ -54,7 +54,7 @@ shut down all services (including the `runit` process supervisor).
 This subcommand has the following syntax:
 
 ``` bash
-$ opscode-analytics-ctl uninstall
+opscode-analytics-ctl uninstall
 ```
 
 {{< note >}}
@@ -74,7 +74,7 @@ will shut down all services (including the `runit` process supervisor).
 This subcommand has the following syntax:
 
 ``` bash
-$ opscode-reporting-ctl uninstall
+opscode-reporting-ctl uninstall
 ```
 
 {{< note >}}
@@ -96,7 +96,7 @@ To uninstall Chef Push Jobs, do the following:
 3.  Run the following command:
 
     ``` bash
-    $ chef-server-ctl reconfigure
+    chef-server-ctl reconfigure
     ```
 
 {{< note >}}
@@ -125,7 +125,7 @@ Use the following command to remove Chef Workstation on Debian-based
 platforms:
 
 ``` bash
-$ dpkg -P chef-workstation
+dpkg -P chef-workstation
 ```
 
 macOS
@@ -136,22 +136,20 @@ Use the following commands to remove Chef Workstation on macOS.
 To remove installed files:
 
 ``` bash
-$ sudo rm -rf `/opt/chef-workstation
+sudo rm -rf `/opt/chef-workstation
 ```
 
 To remove the system installation entry:
 
 ``` bash
-$ sudo pkgutil --forget com.getchef.pkg.chef-workstation
+sudo pkgutil --forget com.getchef.pkg.chef-workstation
 ```
 
 To remove symlinks:
 
--   For Chef Client 12.x, under `/usr/local/bin`:
-
-    ``` bash
-    $ sudo find /usr/local/bin -lname '`/opt/chef-workstation/*' -delete
-    ```
+> ``` bash
+> sudo find /usr/local/bin -lname '`/opt/chef-workstation/*' -delete
+> ```
 
 Red Hat Enterprise Linux
 ------------------------
@@ -160,8 +158,8 @@ Use the following commands to remove Chef Workstation on Red Hat
 Enterprise Linux-based platforms:
 
 ``` bash
-$ rpm -qa *chef-workstation*
-$ sudo yum remove -y <package>
+rpm -qa *chef-workstation*
+sudo yum remove -y <package>
 ```
 
 Microsoft Windows

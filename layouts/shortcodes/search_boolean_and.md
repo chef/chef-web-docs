@@ -1,7 +1,7 @@
 To join queries using the `AND` boolean operator, enter the following:
 
 ``` bash
-$ knife search sample "id:b* AND animal:dog"
+knife search sample "id:b* AND animal:dog"
 ```
 
 to return something like:
@@ -24,7 +24,7 @@ Or, to find all of the computers running on the Microsoft Windows
 platform that are associated with a role named `jenkins`, enter:
 
 ``` bash
-$ knife search node 'platform:windows AND roles:jenkins'
+knife search node 'platform:windows AND roles:jenkins'
 ```
 
 to return something like:

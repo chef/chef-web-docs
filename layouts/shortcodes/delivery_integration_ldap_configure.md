@@ -20,7 +20,7 @@ To configure LDAP for Workflow:
 2.  Run the following command to complete the configuration process:
 
     ``` bash
-    $ sudo automate-ctl reconfigure
+    sudo automate-ctl reconfigure
     ```
 
 Once Workflow is set up, you will have a usable **LDAP** option in the

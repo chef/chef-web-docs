@@ -22,7 +22,7 @@ Syntax
 This subcommand has the following syntax:
 
 ``` bash
-$ knife list [PATTERN...] (options)
+knife list [PATTERN...] (options)
 ```
 
 Options
@@ -96,7 +96,7 @@ The following examples show how to use this knife subcommand:
 For example, to view a list of roles on the Chef Infra Server:
 
 ``` bash
-$ knife list roles/
+knife list roles/
 ```
 
 **List roles and environments**
@@ -104,7 +104,7 @@ $ knife list roles/
 To view a list of roles and environments on the Chef Infra Server:
 
 ``` bash
-$ knife list roles/ environments/
+knife list roles/ environments/
 ```
 
 **List everything**
@@ -112,5 +112,5 @@ $ knife list roles/ environments/
 To view a list of absolutely everything on the Chef Infra Server:
 
 ``` bash
-$ knife list -R /
+knife list -R /
 ```

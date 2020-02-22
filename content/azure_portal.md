@@ -220,7 +220,7 @@ Log files are available from within the Azure portal:
 4.  Start up a Windows PowerShell command shell.
 
     ``` bash
-    $ cd c:\windowsazure\logs
+    cd c:\windowsazure\logs
       ls -r chef*.log
     ```
 
@@ -241,7 +241,7 @@ Infra Client run:
 3.  Run the following command:
 
     ``` bash
-    $ chef-client -l debug
+    chef-client -l debug
     ```
 
 4.  View the logs. On a linux system, the Chef Infra Client logs are
@@ -250,7 +250,7 @@ Infra Client run:
     and can be viewed using the following command:
 
     ``` bash
-    $ tail -f /var/log/azure/Chef.Bootstrap.WindowsAzure.LinuxChefClient/1210.12.102.1000/chef-client.log
+    tail -f /var/log/azure/Chef.Bootstrap.WindowsAzure.LinuxChefClient/1210.12.102.1000/chef-client.log
     ```
 
 Troubleshoot Log Files

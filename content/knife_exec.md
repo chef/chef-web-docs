@@ -58,7 +58,7 @@ locally on the workstation using chef-shell. These methods have the
 following syntax:
 
 ``` bash
-$ knife exec -E 'api.method(/endpoint)'
+knife exec -E 'api.method(/endpoint)'
 ```
 
 where:
@@ -70,14 +70,14 @@ where:
 For example, to get the data for a node named "Example_Node":
 
 ``` bash
-$ knife exec -E 'puts api.get("/nodes/Example_Node")'
+knife exec -E 'puts api.get("/nodes/Example_Node")'
 ```
 
 and to ensure that the output is visible in the console, add the `puts`
 in front of the API authorization request:
 
 ``` bash
-$ knife exec -E 'puts api.get("/nodes/Example_Node")'
+knife exec -E 'puts api.get("/nodes/Example_Node")'
 ```
 
 where `puts` is the shorter version of the `$stdout.puts` predefined
@@ -88,7 +88,7 @@ the `/clients` endpoint, and then return the private key for that user
 in the console:
 
 ``` bash
-$ client_desc = {
+client_desc = {
     "name"  => "IBM305RAMAC",
     "admin" => false
   }
@@ -122,7 +122,7 @@ Syntax
 This subcommand has the following syntax:
 
 ``` bash
-$ knife exec SCRIPT (options)
+knife exec SCRIPT (options)
 ```
 
 Options
@@ -164,19 +164,19 @@ There are three ways to use `knife exec` to run Ruby script files. For
 example:
 
 ``` bash
-$ knife exec /path/to/script_file
+knife exec /path/to/script_file
 ```
 
 or:
 
 ``` bash
-$ knife exec -E 'RUBY CODE'
+knife exec -E 'RUBY CODE'
 ```
 
 or:
 
 ``` bash
-$ knife exec
+knife exec
 RUBY CODE
 ^D
 ```
@@ -199,7 +199,7 @@ end
 and is located in a directory named `scripts/`, enter:
 
 ``` bash
-$ knife exec scripts/status.rb
+knife exec scripts/status.rb
 ```
 
 **List available free memory**
@@ -207,7 +207,7 @@ $ knife exec scripts/status.rb
 To show the available free memory for all nodes, enter:
 
 ``` bash
-$ knife exec -E 'nodes.all {|n| puts "#{n.name} has #{n.memory.total} free memory"}'
+knife exec -E 'nodes.all {|n| puts "#{n.name} has #{n.memory.total} free memory"}'
 ```
 
 **List available search indexes**
@@ -215,7 +215,7 @@ $ knife exec -E 'nodes.all {|n| puts "#{n.name} has #{n.memory.total} free memor
 To list all of the available search indexes, enter:
 
 ``` bash
-$ knife exec -E 'puts api.get("search").keys'
+knife exec -E 'puts api.get("search").keys'
 ```
 
 **Query for multiple attributes**
@@ -292,7 +292,7 @@ Put this file in the directory of your choice. Run the following
 command:
 
 ``` bash
-$ knife exec shadow-check.rb
+knife exec shadow-check.rb
 ```
 
 and be sure to edit `shadow-check.rb` so that it defines the path to

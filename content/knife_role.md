@@ -45,7 +45,7 @@ Syntax
 This argument has the following syntax:
 
 ``` bash
-$ knife role bulk delete REGEX
+knife role bulk delete REGEX
 ```
 
 Options
@@ -64,7 +64,7 @@ Use a regular expression to define the pattern used to bulk delete
 roles:
 
 ``` bash
-$ knife role bulk delete "^[0-9]{3}$"
+knife role bulk delete "^[0-9]{3}$"
 ```
 
 create
@@ -79,7 +79,7 @@ Syntax
 This argument has the following syntax:
 
 ``` bash
-$ knife role create ROLE_NAME (options)
+knife role create ROLE_NAME (options)
 ```
 
 Options
@@ -108,7 +108,7 @@ The following examples show how to use this knife subcommand:
 To add a role named `role1`, enter:
 
 ``` bash
-$ knife role create role1
+knife role create role1
 ```
 
 In the \$EDITOR enter the role data in JSON:
@@ -142,7 +142,7 @@ Syntax
 This argument has the following syntax:
 
 ``` bash
-$ knife role delete ROLE_NAME
+knife role delete ROLE_NAME
 ```
 
 Options
@@ -158,7 +158,7 @@ The following examples show how to use this knife subcommand:
 **Delete a role**
 
 ``` bash
-$ knife role delete devops
+knife role delete devops
 ```
 
 Type `Y` to confirm a deletion.
@@ -174,7 +174,7 @@ Syntax
 This argument has the following syntax:
 
 ``` bash
-$ knife role edit ROLE_NAME
+knife role edit ROLE_NAME
 ```
 
 Options
@@ -192,7 +192,7 @@ The following examples show how to use this knife subcommand:
 To edit the data for a role named `role1`, enter:
 
 ``` bash
-$ knife role edit role1
+knife role edit role1
 ```
 
 Update the role data in JSON:
@@ -229,7 +229,7 @@ Syntax
 This argument has the following syntax:
 
 ``` bash
-$ knife role from file FILE
+knife role from file FILE
 ```
 
 Options
@@ -253,7 +253,7 @@ The following examples show how to use this knife subcommand:
 To view role details based on the values contained in a JSON file:
 
 ``` bash
-$ knife role from file "path to JSON file"
+knife role from file "path to JSON file"
 ```
 
 list
@@ -268,7 +268,7 @@ Syntax
 This argument has the following syntax:
 
 ``` bash
-$ knife role list
+knife role list
 ```
 
 Options
@@ -291,7 +291,7 @@ To view a list of roles on the Chef Infra Server and display the URI for
 each role returned, enter:
 
 ``` bash
-$ knife role list -w
+knife role list -w
 ```
 
 show
@@ -305,7 +305,7 @@ Syntax
 This argument has the following syntax:
 
 ``` bash
-$ knife role show ROLE_NAME
+knife role show ROLE_NAME
 ```
 
 Options
@@ -334,7 +334,7 @@ To view information in JSON format, use the `-F` common option as part
 of the command like this:
 
 ``` bash
-$ knife role show devops -F json
+knife role show devops -F json
 ```
 
 Other formats available include `text`, `yaml`, and `pp`.

@@ -7,8 +7,7 @@ aliases:
 menu:
   docs:
     title: windows_pagefile
-    identifier: chef_infra/cookbook_reference/resources/resource_windows_pagefile.md
-      windows_pagefile
+    identifier: chef_infra/cookbook_reference/resources/windows_pagefile windows_pagefile
     parent: chef_infra/cookbook_reference/resources
     weight: 1230
 resource_reference: true

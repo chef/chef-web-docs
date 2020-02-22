@@ -22,7 +22,7 @@ Syntax
 This subcommand has the following syntax:
 
 ``` bash
-$ knife show [PATTERN...] (options)
+knife show [PATTERN...] (options)
 ```
 
 Options
@@ -78,17 +78,17 @@ The following examples show how to use this knife subcommand:
 To show all cookbooks in the `cookbooks/` directory:
 
 ``` bash
-$ knife show cookbooks/
+knife show cookbooks/
 ```
 
 or, (if already in the `cookbooks/` directory in the local chef-repo):
 
 ``` bash
-$ knife show
+knife show
 ```
 
 **Show roles and environments**
 
 ``` bash
-$ knife show roles/ environments/
+knife show roles/ environments/
 ```

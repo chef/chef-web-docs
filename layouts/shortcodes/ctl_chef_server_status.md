@@ -4,7 +4,7 @@ configuration of a given server. This subcommand has the following
 syntax:
 
 ``` bash
-$ chef-server-ctl status
+chef-server-ctl status
 ```
 
 and will return the status for all services. Status can be returned for
@@ -12,7 +12,7 @@ individual services by specifying the name of the service as part of the
 command:
 
 ``` bash
-$ chef-server-ctl status SERVICE_NAME
+chef-server-ctl status SERVICE_NAME
 ```
 
 where `SERVICE_NAME` represents the name of any service that is listed
@@ -21,7 +21,7 @@ after running the `service-list` subcommand.
 When service status is requested, the output should be similar to:
 
 ``` bash
-$ run: service_name: (pid 12345) 12345s; run: log: (pid 1234) 67890s
+run: service_name: (pid 12345) 12345s; run: log: (pid 1234) 67890s
 ```
 
 where
@@ -35,7 +35,7 @@ where
 For example:
 
 ``` bash
-$ down: opscode-erchef: (pid 35546) 10s
+down: opscode-erchef: (pid 35546) 10s
 ```
 
 By default, runit will restart services automatically when the services

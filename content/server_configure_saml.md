@@ -42,8 +42,8 @@ Management](/ctl_chef_server.html#ctl-chef-server-secrets-management)
 commands:
 
 ``` bash
-$ chef-server-ctl set-secret saml client_id '<CLIENT ID>'
-$ chef-server-ctl set-secret saml client_secret '<CLIENT SECRET>'
+chef-server-ctl set-secret saml client_id '<CLIENT ID>'
+chef-server-ctl set-secret saml client_secret '<CLIENT SECRET>'
 ```
 
 The `issuer_url` property should be set to something like

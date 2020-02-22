@@ -46,7 +46,7 @@ cmdlet:
 **Get details for a virtual machine**
 
 ``` bash
-$ Get-AzureVM -ServiceName cloudservice1 -Name azurevm1 | Get-AzureVMExtension
+Get-AzureVM -ServiceName cloudservice1 -Name azurevm1 | Get-AzureVMExtension
 ```
 
 ### Set-AzureVMChefExtension

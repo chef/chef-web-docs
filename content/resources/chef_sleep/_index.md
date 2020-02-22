@@ -7,7 +7,7 @@ aliases:
 menu:
   docs:
     title: chef_sleep
-    identifier: chef_infra/cookbook_reference/resources/resource_chef_sleep.md chef_sleep
+    identifier: chef_infra/cookbook_reference/resources/chef_sleep chef_sleep
     parent: chef_infra/cookbook_reference/resources
     weight: 190
 resource_reference: true

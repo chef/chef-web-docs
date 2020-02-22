@@ -7,7 +7,7 @@ aliases:
 menu:
   docs:
     title: http_request
-    identifier: chef_infra/cookbook_reference/resources/resource_http_request.md http_request
+    identifier: chef_infra/cookbook_reference/resources/http_request http_request
     parent: chef_infra/cookbook_reference/resources
     weight: 450
 resource_reference: true

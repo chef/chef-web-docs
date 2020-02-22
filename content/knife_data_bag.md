@@ -37,7 +37,7 @@ Syntax
 This argument has the following syntax:
 
 ``` bash
-$ knife data bag create DATA_BAG_NAME [DATA_BAG_ITEM] (options)
+knife data bag create DATA_BAG_NAME [DATA_BAG_ITEM] (options)
 ```
 
 Options
@@ -79,7 +79,7 @@ The following examples show how to use this knife subcommand:
 To create a data bag named "admins", enter:
 
 ``` bash
-$ knife data bag create admins
+knife data bag create admins
 ```
 
 to return:
@@ -100,7 +100,7 @@ Syntax
 This argument has the following syntax:
 
 ``` bash
-$ knife data bag delete DATA_BAG_NAME [DATA_BAG_ITEM] (options)
+knife data bag delete DATA_BAG_NAME [DATA_BAG_ITEM] (options)
 ```
 
 Options
@@ -120,7 +120,7 @@ The following examples show how to use this knife subcommand:
 **Delete a data bag**
 
 ``` bash
-$ knife data bag delete data_bag_name
+knife data bag delete data_bag_name
 ```
 
 **Delete a data bag item**
@@ -128,7 +128,7 @@ $ knife data bag delete data_bag_name
 To delete an item named "charlie", enter:
 
 ``` bash
-$ knife data bag delete admins charlie
+knife data bag delete admins charlie
 ```
 
 Type `Y` to confirm a deletion.
@@ -144,7 +144,7 @@ Syntax
 This argument has the following syntax:
 
 ``` bash
-$ knife data bag edit DATA_BAG_NAME [DATA_BAG_ITEM] (options)
+knife data bag edit DATA_BAG_NAME [DATA_BAG_ITEM] (options)
 ```
 
 Options
@@ -190,7 +190,7 @@ The following examples show how to use this knife subcommand:
 To edit the contents of a data bag, enter:
 
 ``` bash
-$ knife data bag edit dogs tibetanspaniel
+knife data bag edit dogs tibetanspaniel
 ```
 
 where `dogs` is the name of the data bag and `tibetanspaniel` is the
@@ -239,7 +239,7 @@ Syntax
 This argument has the following syntax:
 
 ``` bash
-$ knife data bag from file DATA_BAG_NAME_or_PATH JSON_FILE
+knife data bag from file DATA_BAG_NAME_or_PATH JSON_FILE
 ```
 
 Options
@@ -285,7 +285,7 @@ The following examples show how to use this knife subcommand:
 To create a data bag on the Chef Infra Server from a file:
 
 ``` bash
-$ knife data bag from file "path to JSON file"
+knife data bag from file "path to JSON file"
 ```
 
 **Create an encrypted data bag from a file**
@@ -294,7 +294,7 @@ To create a data bag named "devops_data" that contains encrypted data,
 enter:
 
 ``` bash
-$ knife data bag from file devops_data --secret-file "path to decryption file"
+knife data bag from file devops_data --secret-file "path to decryption file"
 ```
 
 **Create an encrypted data bag for use with Chef Infra Client local
@@ -314,7 +314,7 @@ Syntax
 This argument has the following syntax:
 
 ``` bash
-$ knife data bag list
+knife data bag list
 ```
 
 Options
@@ -334,7 +334,7 @@ The following examples show how to use this knife subcommand:
 **View a list of data bags**
 
 ``` bash
-$ knife data bag list
+knife data bag list
 ```
 
 show
@@ -348,7 +348,7 @@ Syntax
 This argument has the following syntax:
 
 ``` bash
-$ knife data bag show DATA_BAG_NAME (options)
+knife data bag show DATA_BAG_NAME (options)
 ```
 
 Options
@@ -392,7 +392,7 @@ The following examples show how to use this knife subcommand:
 **Show a data bag**
 
 ``` bash
-$ knife data bag show admins
+knife data bag show admins
 ```
 
 to return something like:
@@ -406,7 +406,7 @@ charlie
 To show the contents of a specific item within data bag, enter:
 
 ``` bash
-$ knife data bag show admins charlie
+knife data bag show admins charlie
 ```
 
 to return:
@@ -425,7 +425,7 @@ To show the contents of a data bag named `passwords` with an item that
 contains encrypted data named `mysql`, enter:
 
 ``` bash
-$ knife data bag show passwords mysql
+knife data bag show passwords mysql
 ```
 
 to return:
@@ -443,7 +443,7 @@ to return:
 To show the decrypted contents of the same data bag, enter:
 
 ``` bash
-$ knife data bag show --secret-file /path/to/decryption/file passwords mysql
+knife data bag show --secret-file /path/to/decryption/file passwords mysql
 ```
 
 to return:
@@ -462,7 +462,7 @@ To view information in JSON format, use the `-F` common option as part
 of the command like this:
 
 ``` bash
-$ knife data bag show admins -F json
+knife data bag show admins -F json
 ```
 
 Other formats available include `text`, `yaml`, and `pp`.

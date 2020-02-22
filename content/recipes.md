@@ -337,7 +337,7 @@ to:
 Use knife to add a recipe to the run-list for a node. For example:
 
 ``` bash
-$ knife node run list add NODENAME "recipe[apache2]"
+knife node run list add NODENAME "recipe[apache2]"
 ```
 
 More than one recipe can be added:
@@ -371,7 +371,7 @@ contains the following details:
 To add the run-list to the node, enter the following:
 
 ``` bash
-$ sudo chef-solo -j /etc/chef/dna.json
+sudo chef-solo -j /etc/chef/dna.json
 ```
 
 Use Search Results

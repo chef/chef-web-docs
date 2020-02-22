@@ -96,7 +96,7 @@ the reconfiguration run.
 To determine the current range of IDs, run the following command:
 
 ``` bash
-$ grep -E '(UID|GID)' /etc/login.defs
+grep -E '(UID|GID)' /etc/login.defs
 ```
 
 The defaults for CentOS and Red Hat Enterprise Linux systems look like
@@ -132,7 +132,7 @@ To allow access to your Chef Infra Server on ports 80 and 443 via the
 iptables firewall, issue the following command with root privileges:
 
 ``` bash
-$ iptables -A INPUT -p tcp -m multiport --destination-ports 80,443 -j ACCEPT
+iptables -A INPUT -p tcp -m multiport --destination-ports 80,443 -j ACCEPT
 ```
 
 Note that you will need to make use of a tool such as
@@ -146,7 +146,7 @@ enabled by default. Issue the following command with root privileges to
 open ports 80 and 443:
 
 ``` bash
-$ firewall-cmd --permanent --zone public --add-service http && firewall-cmd --permanent --zone public --add-service https && firewall-cmd --reload
+firewall-cmd --permanent --zone public --add-service http && firewall-cmd --permanent --zone public --add-service https && firewall-cmd --reload
 ```
 
 ### UFW
@@ -156,7 +156,7 @@ if you wish to use a UFW-based firewall on your Chef Infra Server, issue
 the following command with root privileges to open ports 80 and 443:
 
 ``` bash
-$ ufw allow proto tcp from any to any port 80,443
+ufw allow proto tcp from any to any port 80,443
 ```
 
 Security Modules
@@ -172,7 +172,7 @@ run, SELinux must be disabled or set to `Permissive` mode.
 To determine if SELinux is installed, run the following command:
 
 ``` bash
-$ getenforce
+getenforce
 ```
 
 If a response other than `"Disabled"` or `"Permissive"` is returned,
@@ -181,13 +181,13 @@ SELinux must be disabled.
 To set SELinux to `Permissive` mode, run:
 
 ``` bash
-$ setenforce Permissive
+setenforce Permissive
 ```
 
 and then check the status:
 
 ``` bash
-$ getenforce
+getenforce
 ```
 
 ### AppArmor
@@ -200,13 +200,13 @@ mode or disabled.
 To determine if AppArmor is installed, run the following command:
 
 ``` bash
-$ sudo apparmor_status
+sudo apparmor_status
 ```
 
 To install AppArmor, run the following command:
 
 ``` bash
-$ sudo apt-get install apparmor-utils -yes
+sudo apt-get install apparmor-utils -yes
 ```
 
 If a response other than `"0 processes are in enforce mode"` or
@@ -216,20 +216,20 @@ If a response other than `"0 processes are in enforce mode"` or
 To set AppArmor to `Complaining` mode, run:
 
 ``` bash
-$ sudo aa-complain /etc/apparmor.d/*
+sudo aa-complain /etc/apparmor.d/*
 ```
 
 Or to disable AppArmor entirely, run:
 
 ``` bash
-$ sudo invoke-rc.d apparmor kill
-$ sudo update-rc.d -f apparmor remove
+sudo invoke-rc.d apparmor kill
+sudo update-rc.d -f apparmor remove
 ```
 
 and then check the status:
 
 ``` bash
-$ sudo apparmor_status
+sudo apparmor_status
 ```
 
 Apache Qpid
@@ -243,26 +243,26 @@ protocol, Apache Qpid must be disabled.
 To determine if Apache Qpid is installed, run the following command:
 
 ``` bash
-$ rpm -qa | grep qpid
+rpm -qa | grep qpid
 ```
 
 If Apache Qpid is installed, a response similar to the following is
 displayed:
 
 ``` bash
-$ qpid-cpp-server-0.12-6.el6.x86_64
+qpid-cpp-server-0.12-6.el6.x86_64
 ```
 
 To disable Apache Qpid run:
 
 ``` bash
-$ service qpidd stop
+service qpidd stop
 ```
 
 and then:
 
 ``` bash
-$ chkconfig --del qpidd
+chkconfig --del qpidd
 ```
 
 cron
@@ -273,7 +273,7 @@ servers via cron and the `/etc/cron.d` directory. With certain CentOS 6
 configurations, an additional step is required to install crontab:
 
 ``` bash
-$ yum install crontabs
+yum install crontabs
 ```
 
 Enterprise Linux Updates
@@ -341,13 +341,13 @@ Chef Infra Server.
 To verify if a hostname is a FQDN, run the following command:
 
 ``` bash
-$ hostname
+hostname
 ```
 
 If the hostname is a FQDN, it will return something like:
 
 ``` bash
-$ mychefserver.example.com
+mychefserver.example.com
 ```
 
 If the hostname is not a FQDN, it must be configured so that it is one.
@@ -358,7 +358,7 @@ To verify if the alphabetic parts of a FQDN are all lowercase, run the
 following command:
 
 ``` bash
-$ hostname -f | grep -E '^([[:digit:]]|[[:lower:]]|\.|-|_)+$' && echo yes
+hostname -f | grep -E '^([[:digit:]]|[[:lower:]]|\.|-|_)+$' && echo yes
 ```
 
 If the hostname is all lowercase, it will return something like:
@@ -376,13 +376,13 @@ configured so that they are.
 To verify is a hostname is resolvable, run the following command:
 
 ``` bash
-$ hostname -f
+hostname -f
 ```
 
 If the hostname is resolvable, it will return something like:
 
 ``` bash
-$ mychefserver.example.com
+mychefserver.example.com
 ```
 
 **To change a hostname**
@@ -395,13 +395,13 @@ guidance for a specific platform. The following example shows how a
 hostname can be changed when running Red Hat or CentOS:
 
 ``` bash
-$ sudo hostname 'mychefserver.example.com'
+sudo hostname 'mychefserver.example.com'
 ```
 
 and then:
 
 ``` bash
-$ echo "mychefserver.example.com" | sudo tee /etc/hostname
+echo "mychefserver.example.com" | sudo tee /etc/hostname
 ```
 
 **To add a hostname to /etc/hosts**
@@ -413,7 +413,7 @@ hostname to `/etc/hosts`. The following example shows how a hostname can
 be added to `/etc/hosts` when running Red Hat or CentOS:
 
 ``` bash
-$ echo -e "127.0.0.2 `hostname` `hostname -s`" | sudo tee -a /etc/hosts
+echo -e "127.0.0.2 `hostname` `hostname -s`" | sudo tee -a /etc/hosts
 ```
 
 {{< warning >}}
@@ -447,25 +447,25 @@ be connected to Network Time Protocol (NTP), as the Chef Infra Server is
 particularly sensitive to clock drift. For Red Hat and CentOS 6:
 
 ``` bash
-$ yum install ntp
+yum install ntp
 ```
 
 or:
 
 ``` bash
-$ chkconfig ntpd on
+chkconfig ntpd on
 ```
 
 or:
 
 ``` bash
-$ service ntpd start
+service ntpd start
 ```
 
 For Ubuntu:
 
 ``` bash
-$ apt-get install ntp
+apt-get install ntp
 ```
 
 ### Chef Infra Client

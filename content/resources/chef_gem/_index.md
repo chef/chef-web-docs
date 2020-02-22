@@ -7,7 +7,7 @@ aliases:
 menu:
   docs:
     title: chef_gem
-    identifier: chef_infra/cookbook_reference/resources/resource_chef_gem.md chef_gem
+    identifier: chef_infra/cookbook_reference/resources/chef_gem chef_gem
     parent: chef_infra/cookbook_reference/resources
     weight: 170
 resource_reference: true

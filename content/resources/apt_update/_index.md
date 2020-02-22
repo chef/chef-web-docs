@@ -7,7 +7,7 @@ aliases:
 menu:
   docs:
     title: apt_update
-    identifier: chef_infra/cookbook_reference/resources/resource_apt_update.md apt_update
+    identifier: chef_infra/cookbook_reference/resources/apt_update apt_update
     parent: chef_infra/cookbook_reference/resources
     weight: 90
 resource_reference: true

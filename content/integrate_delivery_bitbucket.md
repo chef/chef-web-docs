@@ -213,7 +213,7 @@ Workflow:
 2.  Create a `.delivery/cli.toml` using `delivery setup`:
 
     ``` bash
-    $ delivery setup --ent=$DELIVERY_ENTERPRISE --org=$DELIVERY_ORG --user=$DELIVERY_USER_NAME --server=$DELIVERY_SERVER
+    delivery setup --ent=$DELIVERY_ENTERPRISE --org=$DELIVERY_ORG --user=$DELIVERY_USER_NAME --server=$DELIVERY_SERVER
     ```
 
 3.  Run `delivery init` to push the code to the empty project in
@@ -291,13 +291,13 @@ project:
     create the `.delivery/cli.toml` file:
 
     ``` bash
-    $ delivery setup --ent=$DELIVERY_ENTERPRISE --org=$DELIVERY_ORG --user=$DELIVERY_USER --server=$DELIVERY_SERVER
+    delivery setup --ent=$DELIVERY_ENTERPRISE --org=$DELIVERY_ORG --user=$DELIVERY_USER --server=$DELIVERY_SERVER
     ```
 
 4.  Create a local clone of the project repository:
 
     ``` bash
-    $ delivery clone $PROJECT
+    delivery clone $PROJECT
     ```
 
     If the project is cloned from Bitbucket (or if a pre-existing clone
@@ -308,7 +308,7 @@ project:
 5.  Create a remote with the following:
 
     ``` bash
-    $ git remote add delivery $DELIVERY_CLONE_URL
+    git remote add delivery $DELIVERY_CLONE_URL
     ```
 
 Create a Change

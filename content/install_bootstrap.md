@@ -50,7 +50,7 @@ describe how to bootstrap a node using knife.
     In a command window, enter the following:
 
     ``` bash
-    $ knife bootstrap 123.45.6.789 -x username -P password --sudo
+    knife bootstrap 123.45.6.789 -x username -P password --sudo
     ```
 
     where `123.45.6.789` is the IP address or the FQDN for the node. Use
@@ -102,7 +102,7 @@ describe how to bootstrap a node using knife.
     just bootstrapped, run the following command:
 
     ``` bash
-    $ knife client show name_of_node
+    knife client show name_of_node
     ```
 
     where `name_of_node` is the name of the node that was just
@@ -178,16 +178,16 @@ Recreate a data bag item
 The following example shows how to recreate a data bag item:
 
 ``` bash
-$ knife vault delete sea power
+knife vault delete sea power
 Do you really want to delete sea/power? (Y/N) Y
 Deleted chef_vault_item[sea/power]
 
-$ echo "{\"some\":\"content for them\"}" > sea-power-content.json
+echo "{\"some\":\"content for them\"}" > sea-power-content.json
 
-$ cat sea-power-content.json
+cat sea-power-content.json
 {"some":"content for them"}
 
-$ knife vault create sea power -M client -A sean_horn,angle -J sea-power-content.json
+knife vault create sea power -M client -A sean_horn,angle -J sea-power-content.json
 ```
 
 No clients, because the `-S` option was not specified while creating the
@@ -197,7 +197,7 @@ At this time, only the users `sean_horn` and `angle` are authorized to
 read and manage the vault.
 
 ``` bash
-$ knife vault show sea power  --mode client -p all
+knife vault show sea power  --mode client -p all
 admins:
   sean_horn
   angle
@@ -210,7 +210,7 @@ some:         content for them
 It is definitely an encrypted databag, see?
 
 ``` bash
-$ knife data_bag show sea power
+knife data_bag show sea power
 WARNING: Encrypted data bag detected, but no secret provided for decoding.  Displaying encrypted data.
 id:   power
 some:
@@ -230,7 +230,7 @@ difference in the vault permissions.
 ``` bash
 echo "{\"sea\":\"power\"}" > sea-power-bootstrap-vault-file.json
 
-$ knife bootstrap localhost -p 2200 -N ubuntu-12.04 -r 'role[group1]' --ssh-user vagrant --sudo --bootstrap-vault-file sea-power-bootstrap-vault-file.json
+knife bootstrap localhost -p 2200 -N ubuntu-12.04 -r 'role[group1]' --ssh-user vagrant --sudo --bootstrap-vault-file sea-power-bootstrap-vault-file.json
 Node ubuntu-12.04 exists, overwrite it? (Y/N) Y
 Client ubuntu-12.04 exists, overwrite it? (Y/N) Y
 Creating new client for ubuntu-12.04
@@ -257,7 +257,7 @@ The client `ubuntu-12.04` was added to the `chef-vault` during the
 bootstrap.
 
 ``` bash
-$ knife vault show sea power  --mode client -p all
+knife vault show sea power  --mode client -p all
 admins:
   sean_horn
   angle
@@ -274,7 +274,7 @@ Use the `sea:power` re-creation step above first, to follow the
 difference in the vault permissions.
 
 ``` bash
-$ knife bootstrap localhost -p 2200 -N ubuntu-12.04 -r 'role[group1]' --ssh-user vagrant --sudo --bootstrap-vault-item sea:power
+knife bootstrap localhost -p 2200 -N ubuntu-12.04 -r 'role[group1]' --ssh-user vagrant --sudo --bootstrap-vault-item sea:power
 Node ubuntu-12.04 exists, overwrite it? (Y/N) Y
 Client ubuntu-12.04 exists, overwrite it? (Y/N) Y
 Creating new client for ubuntu-12.04
@@ -303,7 +303,7 @@ During the above run, the `sea:power` vault item was updated with the
 only had the two admins authorized to view the content
 
 ``` bash
-$ knife vault show sea power -p all
+knife vault show sea power -p all
 admins:
   sean_horn
   angle
@@ -317,7 +317,7 @@ Then, let's check the `ubuntu-12.04` client. Install the `chef-vault`
 gem in the embedded Chef Infra Client:
 
 ``` bash
-$ sudo /opt/chef/embedded/bin/gem install chef-vault --no-ri --no-rdoc
+sudo /opt/chef/embedded/bin/gem install chef-vault --no-ri --no-rdoc
 Fetching: chef-vault-2.6.1.gem (100%)
 Successfully installed chef-vault-2.6.1
 1 gem installed
@@ -327,7 +327,7 @@ The client itself can decrypt and read the encrypted databag contents as
 well.
 
 ``` bash
-$ sudo /opt/chef/bin/knife vault show sea power -c /etc/chef/client.rb -M client -p all
+sudo /opt/chef/bin/knife vault show sea power -c /etc/chef/client.rb -M client -p all
 admins:
   sean_horn
   angle
@@ -347,7 +347,7 @@ Use the `sea:power` re-creation step above first, to follow the
 difference in the vault permissions.
 
 ``` bash
-$ knife bootstrap localhost -p 2200 -N ubuntu-12.04 -r 'role[group1]' --ssh-user vagrant --sudo --bootstrap-vault-json '{"sea": "power"}'
+knife bootstrap localhost -p 2200 -N ubuntu-12.04 -r 'role[group1]' --ssh-user vagrant --sudo --bootstrap-vault-json '{"sea": "power"}'
 Node ubuntu-12.04 exists, overwrite it? (Y/N) Y
 Client ubuntu-12.04 exists, overwrite it? (Y/N) Y
 Creating new client for ubuntu-12.04
@@ -372,7 +372,7 @@ localhost Chef Client finished, 1/1 resources updated in 33.732784033 seconds
 ```
 
 ``` bash
-$ knife vault show sea power -M client -p all
+knife vault show sea power -M client -p all
 admins:
   sean_horn
   angle

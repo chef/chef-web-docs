@@ -7,8 +7,7 @@ aliases:
 menu:
   docs:
     title: windows_certificate
-    identifier: chef_infra/cookbook_reference/resources/resource_windows_certificate.md
-      windows_certificate
+    identifier: chef_infra/cookbook_reference/resources/windows_certificate windows_certificate
     parent: chef_infra/cookbook_reference/resources
     weight: 1100
 resource_reference: true

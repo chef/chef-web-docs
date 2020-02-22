@@ -20,7 +20,7 @@ To just load one recipe from the run-list, go into the recipe and use
 the `include_recipe` command. For example:
 
 ``` bash
-$ chef > recipe_mode
+chef > recipe_mode
   chef:recipe > include_recipe "getting-started"
     => [#< Chef::Recipe:0x10256f9e8 @cookbook_name="getting-started",
   ... output truncated ...

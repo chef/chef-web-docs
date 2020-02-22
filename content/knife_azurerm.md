@@ -45,7 +45,7 @@ If Chef Infra Client was installed using RubyGems, install the
 `knife azure` with the following command:
 
 ``` bash
-$ gem install knife-azure
+gem install knife-azure
 ```
 
 If Chef Infra Client was installed from the [Chef Infra
@@ -53,7 +53,7 @@ Client](https://downloads.chef.io/chef) downloads page or any other
 method, run:
 
 ``` bash
-$ /opt/chef/embedded/bin/gem install knife-azure
+/opt/chef/embedded/bin/gem install knife-azure
 ```
 
 where `/opt/chef/embedded/bin/` is the path to the location where Chef
@@ -109,7 +109,7 @@ then perform a Chef bootstrap.
 This argument has the following syntax:
 
 ``` bash
-$ knife azurerm server create (options)
+knife azurerm server create (options)
 ```
 
 #### Options
@@ -426,7 +426,7 @@ configured in the Azure account.
 This argument has the following syntax:
 
 ``` bash
-$ knife azurerm server delete (options)
+knife azurerm server delete (options)
 ```
 
 #### Options
@@ -553,7 +553,7 @@ account.
 This argument has the following syntax:
 
 ``` bash
-$ knife azurerm server list (options)
+knife azurerm server list (options)
 ```
 
 #### Options
@@ -663,7 +663,7 @@ the Azure account.
 This argument has the following syntax:
 
 ``` bash
-$ knife azurerm server show (options)
+knife azurerm server show (options)
 ```
 
 #### Options

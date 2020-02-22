@@ -92,13 +92,13 @@ Runner can also be removed using the `delivery-cli-api` command.
 To see a list of runners:
 
 ``` bash
-$ delivery api get runners
+delivery api get runners
 ```
 
 To delete a runner:
 
 ``` bash
-$ delivery api delete runners/<runner_hostname>
+delivery api delete runners/<runner_hostname>
 ```
 
 Upgrading the version of ChefDK on a Runner [upgrade_dk_runner]

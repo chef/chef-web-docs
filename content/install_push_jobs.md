@@ -52,13 +52,13 @@ To set up the Chef Push Jobs client:
     service:
 
     ``` bash
-    $ knife node status node_name
+    knife node status node_name
     ```
 
     for a specific node and:
 
     ``` bash
-    $ knife node status
+    knife node status
     ```
 
     for all nodes.
@@ -131,7 +131,7 @@ By default, any attempt to run a Chef Push Jobs command other than
 `chef-client` will be rejected with `nack`. For example:
 
 ``` bash
-$ knife job start some_command my_node
+knife job start some_command my_node
 ```
 
 will return something similar to:
@@ -155,7 +155,7 @@ environments, and nodes. For example, to set all of the nodes in the
 run the following command:
 
 ``` bash
-$ knife edit environments/dev.json
+knife edit environments/dev.json
 ```
 
 and then update the default attributes to include something like:
@@ -180,7 +180,7 @@ after which the following command can be run against nodes in the `dev`
 environment to restart Apache:
 
 ``` bash
-$ knife job start restart_apache NODE1 NODE2 ...
+knife job start restart_apache NODE1 NODE2 ...
 ```
 
 where `NODE1 NODE2 ...` defines a list of individual nodes against which

@@ -10,7 +10,7 @@ chef-shell, just run it without any options. You'll see the loading
 message, then the banner, and then the chef-shell prompt:
 
 ``` bash
-$ bin/chef-shell
+bin/chef-shell
 
   loading configuration: none (standalone session)
   Session type: standalone
@@ -28,7 +28,7 @@ $ bin/chef-shell
 recipe_mode command to switch to recipe context:
 
 ``` bash
-$ chef > recipe_mode
+chef > recipe_mode
   chef:recipe_mode >
 ```
 
@@ -36,7 +36,7 @@ Typing is evaluated in the same context as recipes. Create a file
 resource:
 
 ``` bash
-$ chef:recipe_mode > file "/tmp/ohai2u_shef"
+chef:recipe_mode > file "/tmp/ohai2u_shef"
     => #< Chef::Resource::File:0x1b691ac
        @enclosing_provider=nil,
        @resource_name=:file,
@@ -72,7 +72,7 @@ yet created the file. To initiate a Chef Infra Client run, use the
 `run_chef` command:
 
 ``` bash
-$ chef:recipe_mode > run_chef
+chef:recipe_mode > run_chef
   [Fri, 15 Jan 2020 10:42:47 -0800] DEBUG: Processing file[/tmp/ohai2u_shef]
   [Fri, 15 Jan 2020 10:42:47 -0800] DEBUG: file[/tmp/ohai2u_shef] using Chef::Provider::File
   [Fri, 15 Jan 2020 10:42:47 -0800] INFO: Creating file[/tmp/ohai2u_shef] at /tmp/ohai2u_shef
@@ -83,7 +83,7 @@ chef-shell can also switch to the same context as attribute files. Set
 an attribute with the following syntax:
 
 ``` bash
-$ chef:recipe_mode > attributes_mode
+chef:recipe_mode > attributes_mode
   chef:attributes > set[:hello] = "ohai2u-again"
     => "ohai2u-again"
   chef:attributes >
@@ -92,7 +92,7 @@ $ chef:recipe_mode > attributes_mode
 Switch back to recipe_mode context and use the attributes:
 
 ``` bash
-$ chef:attributes > recipe_mode
+chef:attributes > recipe_mode
     => :attributes
   chef:recipe_mode > file "/tmp/#{node.hello}"
 ```
@@ -100,7 +100,7 @@ $ chef:attributes > recipe_mode
 Now, run Chef Infra Client again:
 
 ``` bash
-$ chef:recipe_mode > run_chef
+chef:recipe_mode > run_chef
   [Fri, 15 Jan 2020 10:53:22 -0800] DEBUG: Processing file[/tmp/ohai2u_shef]
   [Fri, 15 Jan 2020 10:53:22 -0800] DEBUG: file[/tmp/ohai2u_shef] using Chef::Provider::File
   [Fri, 15 Jan 2020 10:53:22 -0800] DEBUG: Processing file[/tmp/ohai2u-again]
@@ -116,7 +116,7 @@ Chef Infra Client doesn't attempt to re-create it. Finally, the files
 were created using the `ls` method:
 
 ``` bash
-$ chef:recipe_mode > ls("/tmp").grep(/ohai/)
+chef:recipe_mode > ls("/tmp").grep(/ohai/)
     => ["ohai2u-again", "ohai2u_shef"]
   Shell Tutorial
 ```

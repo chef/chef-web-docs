@@ -22,7 +22,7 @@ Syntax
 This subcommand has the following syntax:
 
 ``` bash
-$ knife recipe list REGEX
+knife recipe list REGEX
 ```
 
 Options
@@ -46,7 +46,7 @@ The following examples show how to use this knife subcommand:
 To view a list of recipes:
 
 ``` bash
-$ knife recipe list 'couchdb::*'
+knife recipe list 'couchdb::*'
 ```
 
 to return:

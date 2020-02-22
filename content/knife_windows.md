@@ -84,13 +84,13 @@ domain from the user.
 For example:
 
 ``` bash
-$ knife winrm web1.cloudapp.net 'dir' -x 'proddomain\webuser' -P 'password'
+knife winrm web1.cloudapp.net 'dir' -x 'proddomain\webuser' -P 'password'
 ```
 
 and:
 
 ``` bash
-$ knife winrm db1.cloudapp.net 'dir' -x '.\localadmin' -P 'password'
+knife winrm db1.cloudapp.net 'dir' -x '.\localadmin' -P 'password'
 ```
 
 Domain Authentication
@@ -120,7 +120,7 @@ To validate communication with the Windows system using domain
 authentication run:
 
 ``` bash
-$ knife winrm 'node1.domain.com' 'dir' -m -x domain\\administrator -P 'super_secret_password' -p 5986
+knife winrm 'node1.domain.com' 'dir' -m -x domain\\administrator -P 'super_secret_password' -p 5986
 ```
 
 cert generate
@@ -137,7 +137,7 @@ Syntax
 This argument has the following syntax:
 
 ``` bash
-$ knife windows cert generate FILE_PATH (options)
+knife windows cert generate FILE_PATH (options)
 ```
 
 Options
@@ -187,7 +187,7 @@ Syntax
 This argument has the following syntax:
 
 ``` bash
-$ knife windows cert install CERT [CERT] (options)
+knife windows cert install CERT [CERT] (options)
 ```
 
 Options
@@ -217,7 +217,7 @@ Syntax
 This argument has the following syntax:
 
 ``` bash
-$ knife windows listener create (options)
+knife windows listener create (options)
 ```
 
 Options
@@ -264,7 +264,7 @@ Syntax
 This argument has the following syntax:
 
 ``` bash
-$ knife winrm SEARCH_QUERY SSH_COMMAND (options)
+knife winrm SEARCH_QUERY SSH_COMMAND (options)
 ```
 
 Options
@@ -376,7 +376,7 @@ Examples
 To find the uptime of all web servers, enter:
 
 ``` bash
-$ knife winrm "role:web" "net stats srv" -x Administrator -P password
+knife winrm "role:web" "net stats srv" -x Administrator -P password
 ```
 
 **Force a Chef Infra Client run**
@@ -411,7 +411,7 @@ C:\> winrm quickconfig
 Create the SSL certificate
 
 ``` bash
-$ knife windows cert generate --domain myorg.org --output-file $env:userprofile/winrmcerts/winrm-ssl
+knife windows cert generate --domain myorg.org --output-file $env:userprofile/winrmcerts/winrm-ssl
 ```
 
 This command may be run on any machine and will output three file types:
@@ -420,7 +420,7 @@ This command may be run on any machine and will output three file types:
 Next, create the SSL listener:
 
 ``` bash
-$ knife windows listener create --hostname *.myorg.org --cert-install $env:userprofile/winrmcerts/winrm-ssl.pfx
+knife windows listener create --hostname *.myorg.org --cert-install $env:userprofile/winrmcerts/winrm-ssl.pfx
 ```
 
 This will use the same `.pfx` file that was output by the

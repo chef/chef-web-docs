@@ -43,13 +43,13 @@ Use the following commands to monitor global disk usage on a Chef Infra
 Server with a typical installation:
 
 ``` bash
-$ du -sh /var/opt/opscode
+du -sh /var/opt/opscode
 ```
 
 and:
 
 ``` bash
-$ du -sh /var/log/opscode
+du -sh /var/log/opscode
 ```
 
 To keep the Chef Infra Server healthy, both `/var/opt/opscode` and
@@ -97,7 +97,7 @@ ability to interact with the running service using a command shell. For
 example:
 
 ``` bash
-$ cd /opt/opscode/embedded
+cd /opt/opscode/embedded
   export PATH=$PATH:/opt/opscode/bin:/opt/opscode/embedded/bin
   bin/erl -setcookie service_name -name me@127.0.0.1 -remsh service_name@127.0.0.1
 ```
@@ -106,7 +106,7 @@ where `service_name` is `bifrost` or `erchef`. This command will then
 open a shell that is connected to the Erchef processes:
 
 ``` bash
-$ Erlang R15B02 (erts-5.9.2) [source] [64-bit] ...
+Erlang R15B02 (erts-5.9.2) [source] [64-bit] ...
 ```
 
 {{< warning >}}
@@ -119,13 +119,13 @@ Chef support services.
 To connect to the **oc_bifrost** service, use the following command:
 
 ``` bash
-$ erl -setcookie oc_bifrost -name me@127.0.0.1 -remsh oc_bifrost@127.0.0.1
+erl -setcookie oc_bifrost -name me@127.0.0.1 -remsh oc_bifrost@127.0.0.1
 ```
 
 To connect to the **opscode-erchef** service, use the following command:
 
 ``` bash
-$ erl -setcookie erchef -name me@127.0.0.1 -remsh erchef@127.0.0.1
+erl -setcookie erchef -name me@127.0.0.1 -remsh erchef@127.0.0.1
 ```
 
 To disconnect from the shell, use the following key sequence `CTRL-g`,
@@ -154,7 +154,7 @@ debugging tools. Replace the 2nd and 5th path entries and the `X.XX.X`
 value in the following path with the items that occur on the system.
 
 ``` bash
-$ export ERL_LIB=:/opt/{chef-server,opscode}/embedded/service/{erchef,opscode-erchef}/lib/eper-X.XX.X/ebin/
+export ERL_LIB=:/opt/{chef-server,opscode}/embedded/service/{erchef,opscode-erchef}/lib/eper-X.XX.X/ebin/
 ```
 
 Open an Erlang command shell to begin diagnosing service issues on the
@@ -198,20 +198,20 @@ Use Nginx to monitor for services that may be returning 504 errors. Use
 the following command on a front-end machine:
 
 ``` bash
-$ grep 'HTTP/1.1" 504' /var/log/opscode/nginx/access.log
+grep 'HTTP/1.1" 504' /var/log/opscode/nginx/access.log
 ```
 
 and then extract the URLs and sort them by `uniq` count:
 
 ``` bash
-$ grep 'HTTP/1.1" 504' nginx-access.log | cut -d' ' -f8 | sort | uniq -c | sort
+grep 'HTTP/1.1" 504' nginx-access.log | cut -d' ' -f8 | sort | uniq -c | sort
 ```
 
 In a large installation, restricting these results to a subset of
 results may be necessary:
 
 ``` bash
-$ tail -10000 nginx-access.log | grep 'HTTP/1.1" 504' | cut -d' ' -f8 | sort | uniq -c | sort
+tail -10000 nginx-access.log | grep 'HTTP/1.1" 504' | cut -d' ' -f8 | sort | uniq -c | sort
 ```
 
 PostgreSQL
@@ -225,7 +225,7 @@ set appropriate for the version of PostgreSQL being used.
 To connect to the PostgreSQL database, run the following command:
 
 ``` bash
-$ cd /opt/opscode/embedded/service/postgresql/
+cd /opt/opscode/embedded/service/postgresql/
   export PATH=$PATH:/opt/opscode/bin:/opt/opscode/embedded/bin
   bin/psql -U opscode_chef
 ```
@@ -249,7 +249,7 @@ To obtain status information for message queues, run the following
 command:
 
 ``` bash
-$ export PATH=$PATH:/opt/opscode/bin:/opt/opscode/embedded/bin
+export PATH=$PATH:/opt/opscode/bin:/opt/opscode/embedded/bin
   rabbitmqctl status
 ```
 
@@ -391,7 +391,7 @@ It will also check on the status of other nodes in the cluster, from the
 current node's perspective. For example:
 
 ``` bash
-$ chef-backend-ctl status
+chef-backend-ctl status
 Service Local Status Time in State Distributed Node Status
 leaderl running (pid 1191) 53d 15h 11m 12s leader: 1; waiting: 0; follower: 2;    total: 3
 epmd running (pid 1195) 53d 15h 11m 12s status: local-only
@@ -414,14 +414,14 @@ The authz API provides a high-level view of the health of the
 can be accessed using cURL and GNU Wget. For example:
 
 ``` bash
-$ curl http://localhost:9463/_ping
+curl http://localhost:9463/_ping
 ```
 
 This command typically prints a lot of information. Use Python to use
 pretty-print output:
 
 ``` bash
-$ curl http://localhost:9463/_ping | python -mjson.tool
+curl http://localhost:9463/_ping | python -mjson.tool
 ```
 
 opscode-erchef
@@ -432,7 +432,7 @@ with a simple endpoint: `_status`. This endpoint can be accessed using
 cURL and GNU Wget. For example:
 
 ``` bash
-$ curl http://localhost:8000/_status
+curl http://localhost:8000/_status
 ```
 
 which will return something similar to:
@@ -463,7 +463,7 @@ search indexes on the Chef Infra Server. The depth of this queue should
 be monitored using the following command:
 
 ``` bash
-$ cd /opt/opscode/embedded/service/opscode-expander/
+cd /opt/opscode/embedded/service/opscode-expander/
   export PATH=$PATH:/opt/opscode/bin:/opt/opscode/embedded/bin
 ```
 
@@ -475,13 +475,13 @@ If the search indexes are not being updated properly, first ensure that
 the **opscode-expander** service is running on the backend machine:
 
 ``` bash
-$ chef-server-ctl status opscode-expander
+chef-server-ctl status opscode-expander
 ```
 
 and then (if it is not running), start the service:
 
 ``` bash
-$ chef-server-ctl start opscode-expander
+chef-server-ctl start opscode-expander
 ```
 
 If the **opscode-expander** does not start correctly, then take a look
@@ -491,7 +491,7 @@ messages.
 If the **opscode-expander** is running, check the queue length:
 
 ``` bash
-$ watch -n1 sudo -E bin/opscode-expanderctl queue-depth
+watch -n1 sudo -E bin/opscode-expanderctl queue-depth
 ```
 
 If the number of total messages continues to increase, increase the

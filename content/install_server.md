@@ -85,7 +85,7 @@ To install Chef Server:
 4.  Run the following to start all of the services:
 
     ``` bash
-    $ sudo chef-server-ctl reconfigure
+    sudo chef-server-ctl reconfigure
     ```
 
     Because the Chef Infra Server is composed of many different services
