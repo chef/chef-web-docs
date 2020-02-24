@@ -90,7 +90,7 @@ Concepts
 Guides
 -----------------------------------------------------
 
-**Chef on Azure**: `Microsoft Azure Portal </azure_portal.html>`__ | `Chef Workstation in Azure Cloud Shell </azure_cwa_cloud_shell.html>`__ | `Microsoft Azure PowerShell </azure_powershell.html>`__ | `Microsoft Azure Chef Extension </azure_chef_cli>`__ | Knife Azure </knife_azure.html>`__ | `Knife Azurerm </knife_azurerm.html>`__
+**Chef on Azure**: `Microsoft Azure Portal </azure_portal.html>`__ | `Chef Workstation in Azure Cloud Shell </azure_cwa_cloud_shell.html>`__ | `Microsoft Azure PowerShell </azure_powershell.html>`__ | `Microsoft Azure Chef Extension </azure_chef_cli.html>`__ | Knife Azure </knife_azure.html>`__ | `Knife Azurerm </knife_azurerm.html>`__
 
 **Chef on Microsoft Windows**: `Chef for Microsoft Windows </windows.html>`__ | `Chef Infra Client on Windows Nodes </install_windows.html>`__ | `Knife Windows </knife_windows.html>`__
 
@@ -395,7 +395,7 @@ Workflow
 **Reference**:
 `Delivery CLI </delivery_cli.html>`__ | `delivery.rb </config_rb_delivery.html>`_ | `delivery.rb Optional Settings </config_rb_delivery_optional_settings.html>`_ | `Workflow DSL </dsl_delivery.html>`_
 
-`Chef Automate CTL (Deprecated) </chef_automate_ctl>`_ | AWS OpsWorks for Chef Automate </aws_opsworks_chef_automate.html>`_ | `Chef Automate for Microsoft Azure </automate_azure.html>`_
+`Chef Automate CTL (Deprecated) </automate_server_ctl.html>`_ | AWS OpsWorks for Chef Automate </aws_opsworks_chef_automate.html>`_ | `Chef Automate for Microsoft Azure </automate_azure.html>`_
 
 Extension APIs
 =====================================================
