@@ -3,7 +3,7 @@ superuser account), `alice`, `bob`, `carol`, and `dan`. Run the
 following command to view a list of users on the Chef Infra Server:
 
 ``` bash
-$ chef-server-ctl user-list
+chef-server-ctl user-list
 ```
 
 and it returns the same list of users:
@@ -23,7 +23,7 @@ rest of the organization. From a workstation, Alice runs the following
 command:
 
 ``` bash
-$ knife user list -c ~/.chef/alice.rb
+knife user list -c ~/.chef/alice.rb
 ```
 
 and it returns the following error:
@@ -39,7 +39,7 @@ because user accounts are global to organizations in the Chef Infra
 Server. Let's add Alice to the `server-admins` group:
 
 ``` bash
-$ chef-server-ctl grant-server-admin-permissions alice
+chef-server-ctl grant-server-admin-permissions alice
 ```
 
 and it returns the following response:
@@ -53,7 +53,7 @@ Infra Server, even for organizations to which Alice is not a member.
 From a workstation, Alice re-runs the following command:
 
 ``` bash
-$ knife user list -c ~/.chef/alice.rb
+knife user list -c ~/.chef/alice.rb
 ```
 
 which now returns:
@@ -78,7 +78,7 @@ subcommands to manage users on the Chef Infra Server:
 For example, Alice runs the following command:
 
 ``` bash
-$ knife user edit carol -c ~/.chef/alice.rb
+knife user edit carol -c ~/.chef/alice.rb
 ```
 
 and the \$EDITOR opens in which Alice makes changes, and then saves

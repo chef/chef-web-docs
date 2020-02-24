@@ -7,7 +7,7 @@ aliases:
 menu:
   docs:
     title: ips_package
-    identifier: chef_infra/cookbook_reference/resources/resource_ips_package.md ips_package
+    identifier: chef_infra/cookbook_reference/resources/ips_package ips_package
     parent: chef_infra/cookbook_reference/resources
     weight: 470
 resource_reference: true

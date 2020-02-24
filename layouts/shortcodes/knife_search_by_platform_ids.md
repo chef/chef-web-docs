@@ -2,7 +2,7 @@ To search for the IDs of all nodes running on the Amazon EC2 platform,
 enter:
 
 ``` bash
-$ knife search node 'ec2:*' -i
+knife search node 'ec2:*' -i
 ```
 
 to return something like:

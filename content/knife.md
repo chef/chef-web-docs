@@ -277,38 +277,38 @@ Chef Infra Server has data bags named `aardvarks`, `anagrams`, and
 different results:
 
 ``` bash
-$ knife list data_bags/a\*
+knife list data_bags/a\*
 ```
 
 asks the Chef Infra Server for everything starting with the letter "a"
 and will return:
 
 ``` bash
-$ aardvarks/ anagrams/ arp_tables/
+aardvarks/ anagrams/ arp_tables/
 ```
 
 But, the following:
 
 ``` bash
-$ knife list data_bags/a*
+knife list data_bags/a*
 ```
 
 will return:
 
 ``` bash
-$ aardvarks/ anagrams/
+aardvarks/ anagrams/
 ```
 
 Which is the same as entering:
 
 ``` bash
-$ knife list data_bags/aardvarks data_bags/anagrams
+knife list data_bags/aardvarks data_bags/anagrams
 ```
 
 to return:
 
 ``` bash
-$ aardvarks/ anagrams/
+aardvarks/ anagrams/
 ```
 
 Knife Plug-ins

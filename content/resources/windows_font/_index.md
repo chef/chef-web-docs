@@ -7,7 +7,7 @@ aliases:
 menu:
   docs:
     title: windows_font
-    identifier: chef_infra/cookbook_reference/resources/resource_windows_font.md windows_font
+    identifier: chef_infra/cookbook_reference/resources/windows_font windows_font
     parent: chef_infra/cookbook_reference/resources
     weight: 1210
 resource_reference: true

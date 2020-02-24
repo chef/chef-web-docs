@@ -22,7 +22,7 @@ Syntax
 This subcommand has the following syntax:
 
 ``` bash
-$ knife status (options)
+knife status (options)
 ```
 
 Options
@@ -89,7 +89,7 @@ To show the status of nodes on which Chef Infra Client did not run
 successfully within the past hour, enter:
 
 ``` bash
-$ knife status --hide-by-mins 60
+knife status --hide-by-mins 60
 ```
 
 to return something like:
@@ -102,7 +102,7 @@ to return something like:
 On systems running Chef Client 12.5 or prior:
 
 ``` bash
-$ knife status --hide-healthy
+knife status --hide-healthy
 ```
 
 to return something like:
@@ -121,7 +121,7 @@ to return something like:
 To view the status of all nodes in the organization, enter:
 
 ``` bash
-$ knife status
+knife status
 ```
 
 to return something like:

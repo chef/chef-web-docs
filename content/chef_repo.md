@@ -165,7 +165,7 @@ To verify that the top-level Subversion data is not being uploaded to
 the Chef Infra Server, use knife and run a command similar to:
 
 ``` bash
-$ knife cookbook show name_of_cookbook cookbook_version | grep .svn
+knife cookbook show name_of_cookbook cookbook_version | grep .svn
 ```
 
 **Ignore all files in a directory**
@@ -197,7 +197,7 @@ This command uses the `chef` command-line tool that is packaged as part
 of Chef Workstation to create a chef-repo.
 
 ``` bash
-$ chef generate repo REPO_NAME
+chef generate repo REPO_NAME
 ```
 
 {{< note >}}

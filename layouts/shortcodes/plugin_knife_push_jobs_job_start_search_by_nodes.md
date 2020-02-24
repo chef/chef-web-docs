@@ -3,7 +3,7 @@ To search for a specific set of nodes (named `chico`, `harpo`,
 available, run the following command:
 
 ``` bash
-$ knife job start --quorum 90% 'chef-client' chico harpo groucho gummo zeppo
+knife job start --quorum 90% 'chef-client' chico harpo groucho gummo zeppo
 ```
 
 to return something similar to:

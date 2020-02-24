@@ -106,13 +106,13 @@ chef command that is built into Chef Workstation.
 To generate a chef-repo, run a command similar to:
 
 ``` bash
-$ chef generate repo my_chef_repo
+chef generate repo my_chef_repo
 ```
 
 Access the chef-repo using the `cd` command:
 
 ``` bash
-$ cd my_chef_repo
+cd my_chef_repo
 ```
 
 **Generate a cookbook**
@@ -127,7 +127,7 @@ verify that a cookbook name is available.
 To create the `my_apache2_cookbook` cookbook, run the following command:
 
 ``` bash
-$ chef generate cookbook cookbooks/my_apache2_cookbook
+chef generate cookbook cookbooks/my_apache2_cookbook
 ```
 
 **Generate a template**
@@ -135,7 +135,7 @@ $ chef generate cookbook cookbooks/my_apache2_cookbook
 To generate a template, run a command similar to:
 
 ``` bash
-$ chef generate template cookbooks/my_apache2_cookbook index.html
+chef generate template cookbooks/my_apache2_cookbook index.html
 ```
 
 This will create a file named `index.html.etb` in the
@@ -184,26 +184,26 @@ To upload a cookbook to Chef Supermarket, do the following:
     certificate for Chef Supermarket:
 
     ``` bash
-    $ knife ssl fetch https://your-private-supermarket
+    knife ssl fetch https://your-private-supermarket
     ```
 
     and then:
 
     ``` bash
-    $ knife ssl check https://your-private-supermarket
+    knife ssl check https://your-private-supermarket
     ```
 
 3.  Upload the cookbook to Chef Supermarket:
 
     ``` bash
-    $ knife supermarket share mycookbook "Other"
+    knife supermarket share mycookbook "Other"
     ```
 
 Share a Cookbook
 ----------------
 
 ``` bash
-$ knife supermarket share 'my_cookbook'
+knife supermarket share 'my_cookbook'
 ```
 
 ### Troubleshoot SSL Errors
@@ -222,13 +222,13 @@ self-signed certificates by default. Use the `knife ssl fetch` and
 First fetch the SSL certificate for the private Chef Supermarket:
 
 ``` bash
-$ knife ssl fetch https://your-private-supermarket
+knife ssl fetch https://your-private-supermarket
 ```
 
 and then:
 
 ``` bash
-$ knife ssl check https://your-private-supermarket
+knife ssl check https://your-private-supermarket
 ```
 
 Re-share the cookbook. This time the message returned should be similar
@@ -289,8 +289,8 @@ service like this:
 3.  Reconfigure your Supermarket.
 
     ``` bash
-    (your-supermarket-node) $ sudo supermarket-ctl reconfigure
-    (your-supermarket-node) $ sudo supermarket-ctl restart
+    (your-supermarket-node) sudo supermarket-ctl reconfigure
+    (your-supermarket-node) sudo supermarket-ctl restart
     ```
 
 After doing these steps, you should see a "Quality" tab when viewing a

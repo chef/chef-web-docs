@@ -31,7 +31,7 @@ Fuzzy matching can be used with all commands because kitchen uses
 regular expressions to search. For example, a fully qualified name:
 
 ``` bash
-$ kitchen list client-ubuntu-1804 --bare
+kitchen list client-ubuntu-1804 --bare
 ```
 
 will return something similar to:
@@ -43,7 +43,7 @@ client-ubuntu-1804
 A partial name:
 
 ``` bash
-$ kitchen list ubuntu --bare
+kitchen list ubuntu --bare
 ```
 
 will return something similar to:
@@ -56,7 +56,7 @@ server-ubuntu-1804
 A short string:
 
 ``` bash
-$ kitchen list ub --bare
+kitchen list ub --bare
 ```
 
 will return something similar to:
@@ -69,7 +69,7 @@ server-ubuntu-1804
 An integer:
 
 ``` bash
-$ kitchen list 4 --bare
+kitchen list 4 --bare
 ```
 
 will return something similar to:
@@ -82,7 +82,7 @@ server-ubuntu-1804
 A single-quoted Ruby regular expression:
 
 ``` bash
-$ kitchen list '^cli.*-65$' --bare
+kitchen list '^cli.*-65$' --bare
 ```
 
 will return something similar to:
@@ -123,7 +123,7 @@ Syntax
 This subcommand has the following syntax:
 
 ``` bash
-$ kitchen converge PLATFORMS (options)
+kitchen converge PLATFORMS (options)
 ```
 
 Options
@@ -218,7 +218,7 @@ output of the command is similar to:
 To converge the default Ubuntu instance, run the following:
 
 ``` bash
-$ kitchen converge default-ubuntu-1804
+kitchen converge default-ubuntu-1804
 ```
 
 Chef Infra Client is downloaded the first time this command is run. The
@@ -283,7 +283,7 @@ Syntax
 This subcommand has the following syntax:
 
 ``` bash
-$ kitchen create PLATFORMS (options)
+kitchen create PLATFORMS (options)
 ```
 
 Options
@@ -419,7 +419,7 @@ Syntax
 This subcommand has the following syntax:
 
 ``` bash
-$ kitchen destroy PLATFORMS (options)
+kitchen destroy PLATFORMS (options)
 ```
 
 Options
@@ -466,7 +466,7 @@ Syntax
 This subcommand has the following syntax:
 
 ``` bash
-$ kitchen diagnose PLATFORMS (options)
+kitchen diagnose PLATFORMS (options)
 ```
 
 Options
@@ -619,7 +619,7 @@ Syntax
 This subcommand has the following syntax:
 
 ``` bash
-$ kitchen driver create NAME
+kitchen driver create NAME
 ```
 
 Options
@@ -648,7 +648,7 @@ Syntax
 This subcommand has the following syntax:
 
 ``` bash
-$ kitchen exec PLATFORMS (options)
+kitchen exec PLATFORMS (options)
 ```
 
 Options
@@ -690,7 +690,7 @@ Syntax
 This subcommand has the following syntax:
 
 ``` bash
-$ kitchen init
+kitchen init
 ```
 
 Options
@@ -733,7 +733,7 @@ Examples
 **Create the Test Kitchen environment**
 
 ``` bash
-$ kitchen init --driver=kitchen-vagrant
+kitchen init --driver=kitchen-vagrant
 ```
 
 will return something similar to:
@@ -766,7 +766,7 @@ Syntax
 This subcommand has the following syntax:
 
 ``` bash
-$ kitchen list PLATFORMS (options)
+kitchen list PLATFORMS (options)
 ```
 
 Options
@@ -802,7 +802,7 @@ Examples
 To view the list of Test Kitchen instances:
 
 ``` bash
-$ kitchen list
+kitchen list
 ```
 
 A list will be returned, similar to:
@@ -863,7 +863,7 @@ Syntax
 This subcommand has the following syntax:
 
 ``` bash
-$ kitchen login PLATFORM (options)
+kitchen login PLATFORM (options)
 ```
 
 Options
@@ -892,7 +892,7 @@ Examples
 To login to the default Ubuntu instance, run the following:
 
 ``` bash
-$ kitchen login default-ubuntu-1804
+kitchen login default-ubuntu-1804
 ```
 
 to return something similar to:
@@ -916,7 +916,7 @@ Syntax
 This subcommand has the following syntax:
 
 ``` bash
-$ kitchen setup PLATFORMS (options)
+kitchen setup PLATFORMS (options)
 ```
 
 Options
@@ -969,7 +969,7 @@ Syntax
 This subcommand has the following syntax:
 
 ``` bash
-$ kitchen test PLATFORMS (options)
+kitchen test PLATFORMS (options)
 ```
 
 Options
@@ -1081,25 +1081,25 @@ capabilities of the local machine itself. The following examples will
 limit the number of instances to four:
 
 ``` bash
-$ kitchen test --concurrency=4
+kitchen test --concurrency=4
 ```
 
 or:
 
 ``` bash
-$ kitchen test --concurrency 4
+kitchen test --concurrency 4
 ```
 
 or:
 
 ``` bash
-$ kitchen test -c=4
+kitchen test -c=4
 ```
 
 or:
 
 ``` bash
-$ kitchen test -c 4
+kitchen test -c 4
 ```
 
 kitchen verify
@@ -1118,7 +1118,7 @@ Syntax
 This subcommand has the following syntax:
 
 ``` bash
-$ kitchen verify PLATFORMS (options)
+kitchen verify PLATFORMS (options)
 ```
 
 Options
@@ -1173,7 +1173,7 @@ Successfully installed <name of test tool>
 2 tests, 0 failures
      Finished verifying <default-ubuntu-18.04> (2m1.12s).
 -----> Kitchen is finished. (2m3.45s)
-$ echo $?
+echo $?
 0
 ```
 
@@ -1192,7 +1192,7 @@ Successfully installed <name of test tool>
 
 2 tests, 1 failures
 ... exit code was 1
-$ echo $?
+echo $?
 10
 ```
 
@@ -1207,7 +1207,7 @@ Syntax
 This subcommand has the following syntax:
 
 ``` bash
-$ kitchen version
+kitchen version
 ```
 
 Options
@@ -1223,7 +1223,7 @@ Examples
 To view the version of Test Kitchen:
 
 ``` bash
-$ kitchen version
+kitchen version
 ```
 
 will return something similar to:

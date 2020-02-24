@@ -1,7 +1,7 @@
 To use a fuzzy search pattern enter something similar to:
 
 ``` bash
-$ knife search client "name:boo~"
+knife search client "name:boo~"
 ```
 
 where `boo~` defines the fuzzy search pattern. This will return

@@ -8,7 +8,7 @@ aliases:
 menu:
   docs:
     title: windows_env
-    identifier: chef_infra/cookbook_reference/resources/resource_windows_env.md windows_env
+    identifier: chef_infra/cookbook_reference/resources/windows_env windows_env
     parent: chef_infra/cookbook_reference/resources
     weight: 1160
 resource_reference: true

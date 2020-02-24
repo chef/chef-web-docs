@@ -195,13 +195,13 @@ Examples
 **Run chef-solo using solo.rb settings**
 
 ``` bash
-$ chef-solo -c ~/chef/solo.rb
+chef-solo -c ~/chef/solo.rb
 ```
 
 **Use a URL**
 
 ``` bash
-$ chef-solo -c ~/solo.rb -j ~/node.json -r http://www.example.com/chef-solo.tar.gz
+chef-solo -c ~/solo.rb -j ~/node.json -r http://www.example.com/chef-solo.tar.gz
 ```
 
 The tar.gz is archived into the `file_cache_path`, and then extracted to
@@ -210,7 +210,7 @@ The tar.gz is archived into the `file_cache_path`, and then extracted to
 **Use a directory**
 
 ``` bash
-$ chef-solo -c ~/solo.rb -j ~/node.json
+chef-solo -c ~/solo.rb -j ~/node.json
 ```
 
 chef-solo will look in the solo.rb file to determine the directory in
@@ -219,7 +219,7 @@ which cookbooks are located.
 **Use a URL for cookbook and JSON data**
 
 ``` bash
-$ chef-solo -c ~/solo.rb -j http://www.example.com/node.json --recipe-url http://www.example.com/chef-solo.tar.gz
+chef-solo -c ~/solo.rb -j http://www.example.com/node.json --recipe-url http://www.example.com/chef-solo.tar.gz
 ```
 
 where `--recipe-url` corresponds to `recipe_url` and `-j` corresponds to

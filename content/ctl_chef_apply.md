@@ -27,7 +27,7 @@ Options
 This command has the following syntax:
 
 ``` bash
-$ chef-apply name_of_recipe.rb
+chef-apply name_of_recipe.rb
 ```
 
 This tool has the following options:
@@ -68,7 +68,7 @@ Examples
 Run a recipe named `machinations.rb`:
 
 ``` bash
-$ chef-apply machinations.rb
+chef-apply machinations.rb
 ```
 
 **Install Emacs**
@@ -76,7 +76,7 @@ $ chef-apply machinations.rb
 Run:
 
 ``` bash
-$ sudo chef-apply -e "package 'emacs'"
+sudo chef-apply -e "package 'emacs'"
 ```
 
 Returns:
@@ -92,7 +92,7 @@ Recipe: (chef-apply cookbook)::(chef-apply recipe)
 Run:
 
 ``` bash
-$ sudo chef-apply -e "package 'nano'"
+sudo chef-apply -e "package 'nano'"
 ```
 
 Returns:
@@ -108,7 +108,7 @@ Recipe: (chef-apply cookbook)::(chef-apply recipe)
 Run:
 
 ``` bash
-$ sudo chef-apply -e "package 'vim'"
+sudo chef-apply -e "package 'vim'"
 ```
 
 Returns:
@@ -124,7 +124,7 @@ Recipe: (chef-apply cookbook)::(chef-apply recipe)
 Run:
 
 ``` bash
-$ sudo chef-apply -e "package 'vim'"
+sudo chef-apply -e "package 'vim'"
 ```
 
 Returns:

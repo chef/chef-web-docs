@@ -7,12 +7,12 @@ When running knife from the command prompt, a string should be
 surrounded by single quotes (`' '`). For example:
 
 ``` bash
-$ knife node run_list set test-node 'recipe[iptables]'
+knife node run_list set test-node 'recipe[iptables]'
 ```
 
 When running knife from Windows PowerShell, a string should be
 surrounded by triple single quotes (`''' '''`). For example:
 
 ``` bash
-$ knife node run_list set test-node '''recipe[iptables]'''
+knife node run_list set test-node '''recipe[iptables]'''
 ```

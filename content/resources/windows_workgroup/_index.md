@@ -7,8 +7,7 @@ aliases:
 menu:
   docs:
     title: windows_workgroup
-    identifier: chef_infra/cookbook_reference/resources/resource_windows_workgroup.md
-      windows_workgroup
+    identifier: chef_infra/cookbook_reference/resources/windows_workgroup windows_workgroup
     parent: chef_infra/cookbook_reference/resources
     weight: 1320
 resource_reference: true

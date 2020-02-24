@@ -7,8 +7,7 @@ aliases:
 menu:
   docs:
     title: windows_firewall_rule
-    identifier: chef_infra/cookbook_reference/resources/resource_windows_firewall_rule.md
-      windows_firewall_rule
+    identifier: chef_infra/cookbook_reference/resources/windows_firewall_rule windows_firewall_rule
     parent: chef_infra/cookbook_reference/resources
     weight: 1200
 resource_reference: true

@@ -7,8 +7,7 @@ aliases:
 menu:
   docs:
     title: build_essential
-    identifier: chef_infra/cookbook_reference/resources/resource_build_essential.md
-      build_essential
+    identifier: chef_infra/cookbook_reference/resources/build_essential build_essential
     parent: chef_infra/cookbook_reference/resources
     weight: 150
 resource_reference: true

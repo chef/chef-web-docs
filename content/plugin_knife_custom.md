@@ -445,7 +445,7 @@ where
 For example, the following command:
 
 ``` bash
-$ knife hello world
+knife hello world
 ```
 
 will return:
@@ -458,7 +458,7 @@ USAGE: knife hello world WHO
 the following command:
 
 ``` bash
-$ knife hello world chefs
+knife hello world chefs
 ```
 
 will return:
@@ -470,7 +470,7 @@ Hello, Chefs!
 and the following command:
 
 ``` bash
-$ knife hello world chefs --omg
+knife hello world chefs --omg
 ```
 
 will return:
@@ -784,7 +784,7 @@ end
 and is run from the command line using:
 
 ``` bash
-$ knife hello world
+knife hello world
 ```
 
 Exceptions

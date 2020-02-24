@@ -7,7 +7,7 @@ aliases:
 menu:
   docs:
     title: windows_uac
-    identifier: chef_infra/cookbook_reference/resources/resource_windows_uac.md windows_uac
+    identifier: chef_infra/cookbook_reference/resources/windows_uac windows_uac
     parent: chef_infra/cookbook_reference/resources
     weight: 1310
 resource_reference: true

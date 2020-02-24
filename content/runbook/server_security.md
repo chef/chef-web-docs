@@ -68,7 +68,7 @@ nginx['ssl_certificate_key']  = "/etc/pki/tls/private/your-host.key"
 Save the file, and then run the following command:
 
 ``` bash
-$ sudo chef-server-ctl reconfigure
+sudo chef-server-ctl reconfigure
 ```
 
 For more information about the server configuration file, see
@@ -95,13 +95,13 @@ Because the FQDN has already been configured, do the following:
 2.  Reconfigure the Chef Infra Server:
 
     ``` bash
-    $ chef-server-ctl reconfigure
+    chef-server-ctl reconfigure
     ```
 
 3.  Restart the Nginx service to load the new key and certificate:
 
     ``` bash
-    $ chef-server-ctl restart nginx
+    chef-server-ctl restart nginx
     ```
 
 {{< warning >}}
@@ -201,13 +201,13 @@ any intermediate certificate as well--and root certificates into a
 single `.crt` file. For example:
 
 ``` bash
-$ cat server.crt [intermediate.crt] root.crt >> /var/opt/opscode/nginx/ca/FQDN.crt
+cat server.crt [intermediate.crt] root.crt >> /var/opt/opscode/nginx/ca/FQDN.crt
 ```
 
 Check your combined certificate's validity on the Chef Infra Server:
 
 ``` bash
-$ openssl verify -verbose -purpose sslserver -CAfile cacert.pem  /var/opt/opscode/nginx/ca/FQDN.crt
+openssl verify -verbose -purpose sslserver -CAfile cacert.pem  /var/opt/opscode/nginx/ca/FQDN.crt
 ```
 
 The cacert.pem should contain only your root CA's certificate file. This
@@ -223,7 +223,7 @@ To use an intermediate certificate, append both the server and
 intermediate certificates into a single `.crt` file. For example:
 
 ``` bash
-$ cat server.crt intermediate.crt >> /var/opt/opscode/nginx/ca/FQDN.crt
+cat server.crt intermediate.crt >> /var/opt/opscode/nginx/ca/FQDN.crt
 ```
 
 Verify Certificate Was Signed by Proper Key
@@ -270,7 +270,7 @@ To regenerate SSL certificates:
 1.  Run the following command:
 
     ``` bash
-    $ chef-server-ctl stop
+    chef-server-ctl stop
     ```
 
 2.  The Chef Infra Server can regenerate them. These certificates will
@@ -279,7 +279,7 @@ To regenerate SSL certificates:
     server, run the following command:
 
     ``` bash
-    $ hostname -f
+    hostname -f
     ```
 
     Please delete the files found in the ca directory with names like
@@ -297,13 +297,13 @@ To regenerate SSL certificates:
     will automatically be created if necessary:
 
     ``` bash
-    $ chef-server-ctl reconfigure
+    chef-server-ctl reconfigure
     ```
 
 5.  Run the following command:
 
     ``` bash
-    $ chef-server-ctl start
+    chef-server-ctl start
     ```
 
 Chef Infra Server Credentials Management

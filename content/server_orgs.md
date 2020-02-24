@@ -173,7 +173,7 @@ example---in the `.chef/scripts` directory located in the chef-repo, and
 then run a knife command similar to:
 
 ``` bash
-$ knife exec chef_server_permissions.rb
+knife exec chef_server_permissions.rb
 ```
 
 ### Knife ACL

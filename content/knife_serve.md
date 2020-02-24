@@ -22,7 +22,7 @@ Syntax
 This subcommand has the following syntax:
 
 ``` bash
-$ knife serve (options)
+knife serve (options)
 ```
 
 Options

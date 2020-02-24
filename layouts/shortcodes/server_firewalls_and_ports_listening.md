@@ -5,5 +5,5 @@ addition, the generic system tool Telnet can also be used to initiate
 the connection:
 
 ``` bash
-$ telnet HOST_NAME PORT
+telnet HOST_NAME PORT
 ```

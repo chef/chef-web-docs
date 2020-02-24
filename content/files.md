@@ -1,5 +1,5 @@
 +++
-title = "About Files"
+title = "Cookbook Files"
 draft = false
 
 aliases = ["/files.html"]
@@ -14,15 +14,6 @@ aliases = ["/files.html"]
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/files.md)
 
-Files are managed using the following resources:
-
--   Use the [cookbook_file](/resources/cookbook_file/) resource to
-    manage files that are added to nodes based on files that are located
-    in the `/files` directory in a cookbook.
--   Use the [file](/resources/file/) resource to manage files
-    directly on a node.
--   Use the [remote_file](/resources/remote_file/) resource to
-    transfer files to nodes from remote locations.
--   Use the [template](/resources/template/) resource to manage files
-    that are added to nodes based on files that are located in the
-    `/templates` directory in a cookbook.
+The `files` directory in Chef Infra cookbooks stores files that are used
+in your cookbook with the [cookbook_file](/resources/cookbook_file/)
+resource.

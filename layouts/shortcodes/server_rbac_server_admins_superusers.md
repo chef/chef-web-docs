@@ -3,7 +3,7 @@ Superuser accounts may not be managed by users who belong to the
 `pivotal` superuser account:
 
 ``` bash
-$ knife user delete pivotal -c ~/.chef/alice.rb
+knife user delete pivotal -c ~/.chef/alice.rb
 ```
 
 and the following error is returned:

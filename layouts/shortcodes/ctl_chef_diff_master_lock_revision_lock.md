@@ -1,3 +1,3 @@
 ``` bash
-$ chef diff --git master...dev
+chef diff --git master...dev
 ```

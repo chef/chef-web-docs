@@ -6,7 +6,7 @@ build cookbook's recipe directory should contain an identical list of
 recipes. For example, run:
 
 ``` bash
-$ ls .delivery/build-cookbook/recipes/
+ls .delivery/build-cookbook/recipes/
 ```
 
 the list of recipes should be:

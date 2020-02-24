@@ -209,7 +209,7 @@ Launch the BYOL AMI
     with the AWS command line tools and save it. For example:
 
     ``` bash
-    $ aws s3 presign yourbucket/delivery.license
+    aws s3 presign yourbucket/delivery.license
     ```
 
 3.  Configure all fields in the CloudFormation template. Use the
@@ -268,9 +268,9 @@ Configure the workstation
     `chef-repo` directory extracted from the starter kit. For example:
 
     ``` bash
-    $ cd ~/Downloads
-    $ unzip starter_kit.zip
-    $ cd starter_kit/chef-repo
+    cd ~/Downloads
+    unzip starter_kit.zip
+    cd starter_kit/chef-repo
     ```
 
 2.  {{% install_aws_chef_server_knife_client_list %}}
@@ -330,7 +330,7 @@ To update the hostname, do the following:
 3.  Configure the `api_fqdn` in `/etc/chef-marketplace/marketplace.rb`
 
     ``` none
-    $ echo 'api_fqdn "<new.fully.qualified.hostname.com>"' | sudo tee -a /etc/chef-marketplace/marketplace.rb
+    echo 'api_fqdn "<new.fully.qualified.hostname.com>"' | sudo tee -a /etc/chef-marketplace/marketplace.rb
     ```
 
 4.  Run `chef-marketplace-ctl reconfigure` to update Chef Automate and
@@ -365,19 +365,19 @@ To edit the Amazon Machine Images (AMI) instance size, do the following:
     launched. The default user is `ec2-user`. For example:
 
     ``` bash
-    $ ssh -i /path/to/ssh_key.pem ec2-user@<instance IP address>
+    ssh -i /path/to/ssh_key.pem ec2-user@<instance IP address>
     ```
 
 2.  Stop the Chef Infra Server services:
 
     ``` bash
-    $ sudo chef-server-ctl stop
+    sudo chef-server-ctl stop
     ```
 
 3.  Stop then Chef Automate services:
 
     ``` bash
-    $ sudo automate-ctl stop
+    sudo automate-ctl stop
     ```
 
 4.  Navigate to the Amazon Web Services (AWS) instance in the AWS
@@ -403,7 +403,7 @@ To edit the Amazon Machine Images (AMI) instance size, do the following:
     IP address:
 
     ``` bash
-    $ ssh -i /path/to/ssh_key.pem ec2-user@<instance IP address>
+    ssh -i /path/to/ssh_key.pem ec2-user@<instance IP address>
     ```
 
 11. Follow the [instructions for changing the
@@ -447,7 +447,7 @@ To edit the Amazon Machine Images (AMI) instance size, do the following:
     public DNS. For example:
 
     ``` bash
-    $ knife ssh name:* 'sudo sed -ie "s/chef_server_url.*/chef_server_url 'https://ec2-52-6-31-230.compute-1.amazonaws.com/organizations/your_org'/"' /etc/chef/client.rb
+    knife ssh name:* 'sudo sed -ie "s/chef_server_url.*/chef_server_url 'https://ec2-52-6-31-230.compute-1.amazonaws.com/organizations/your_org'/"' /etc/chef/client.rb
     ```
 
     Replace `ec2-52-6-31-230.compute-1.amazonaws.com` with your new
@@ -470,7 +470,7 @@ To upgrade, do one of the following:
 -   Upgrade the Chef Automate package by using the following command:
 
     ``` bash
-    $ sudo chef-marketplace-ctl upgrade --automate
+    sudo chef-marketplace-ctl upgrade --automate
     ```
 
     {{< note >}}
@@ -484,7 +484,7 @@ To upgrade, do one of the following:
     command:
 
     ``` bash
-    $ sudo chef-marketplace-ctl upgrade --server
+    sudo chef-marketplace-ctl upgrade --server
     ```
 
     {{< note >}}
@@ -497,13 +497,13 @@ To upgrade, do one of the following:
 -   Upgrade the Chef Marketplace package by using the following command:
 
     ``` bash
-    $ sudo chef-marketplace-ctl upgrade --marketplace
+    sudo chef-marketplace-ctl upgrade --marketplace
     ```
 
 -   Upgrade all the installed packages by using the following command:
 
     ``` bash
-    $ sudo chef-marketplace-ctl upgrade -y
+    sudo chef-marketplace-ctl upgrade -y
     ```
 
 Migrate to Chef Automate on AWS
@@ -538,40 +538,40 @@ instance:
     stored in shared databases so copying of binary files won't work.
 
     ``` bash
-    $ mkdir -p /tmp/chef-backup
-    $ /opt/opscode/embedded/bin/knife ec backup /tmp/chef-backup --with-user-sql --with-key-sql
-    $ tar -czvf chef-backup.tgz -C /tmp/chef-backup
+    mkdir -p /tmp/chef-backup
+    /opt/opscode/embedded/bin/knife ec backup /tmp/chef-backup --with-user-sql --with-key-sql
+    tar -czvf chef-backup.tgz -C /tmp/chef-backup
     ```
 
 1.  Copy the resulting tarball to your Amazon Machine Images (AMI)
     instance:
 
     ``` bash
-    $ scp /tmp/chef-backup.tgz ec2-user@<MARKETPLACE AMI IP ADDRESS>:/tmp/
+    scp /tmp/chef-backup.tgz ec2-user@<MARKETPLACE AMI IP ADDRESS>:/tmp/
     ```
 
 2.  Login to the Amazon Machine Images (AMI) and ensure that it is
     running the latest version of the Chef Infra Server:
 
     ``` bash
-    $ chef-marketplace-ctl upgrade -y
+    chef-marketplace-ctl upgrade -y
     ```
 
 3.  Reconfigure Chef Automate and the Chef Infra Server:
 
     ``` bash
-    $ sudo automate-ctl reconfigure
-    $ sudo chef-server-ctl reconfigure
+    sudo automate-ctl reconfigure
+    sudo chef-server-ctl reconfigure
     ```
 
 4.  Restore the backup:
 
     ``` bash
-    $ mkdir -p /tmp/chef-backup
-    $ mv /tmp/chef-backup.tgz /tmp/chef-backup
-    $ cd /tmp/chef-backup
-    $ tar -ztf chef-backup.tgz
-    $ /opt/opscode/embedded/bin/knife ec restore /tmp/chef-backup --with-user-sql --with-key-sql
+    mkdir -p /tmp/chef-backup
+    mv /tmp/chef-backup.tgz /tmp/chef-backup
+    cd /tmp/chef-backup
+    tar -ztf chef-backup.tgz
+    /opt/opscode/embedded/bin/knife ec restore /tmp/chef-backup --with-user-sql --with-key-sql
     ```
 
 5.  {{% install_update_aws_knife_rb %}}
@@ -584,7 +584,7 @@ instance:
     public DNS. For example:
 
     ``` none
-    $ knife ssh name:* 'sudo sed -ie "s/chef_server_url.*/chef_server_url 'https://ec2-52-6-31-230.compute-1.amazonaws.com/organizations/your_org'/" /etc/chef/client.rb
+    knife ssh name:* 'sudo sed -ie "s/chef_server_url.*/chef_server_url 'https://ec2-52-6-31-230.compute-1.amazonaws.com/organizations/your_org'/" /etc/chef/client.rb
     ```
 
     Replace `ec2-52-6-31-230.compute-1.amazonaws.com` with your new

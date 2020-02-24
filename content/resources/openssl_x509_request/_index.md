@@ -7,8 +7,7 @@ aliases:
 menu:
   docs:
     title: openssl_x509_request
-    identifier: chef_infra/cookbook_reference/resources/resource_openssl_x509_request.md
-      openssl_x509_request
+    identifier: chef_infra/cookbook_reference/resources/openssl_x509_request openssl_x509_request
     parent: chef_infra/cookbook_reference/resources
     weight: 690
 resource_reference: true

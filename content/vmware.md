@@ -55,7 +55,7 @@ knife[:vsphere_insecure] = true              # Set this if you have self signed 
 options:**
 
 ``` bash
-$ knife vsphere vm clone MACHINENAME --template TEMPLATENAME --bootstrap --cips dhcp
+knife vsphere vm clone MACHINENAME --template TEMPLATENAME --bootstrap --cips dhcp
 ```
 
 **Clone a virtual machine from a VMware template, use a customization
@@ -63,7 +63,7 @@ template called "SPEC" to assist the bootstrapping process, and specify
 the SSH user and password:**
 
 ``` bash
-$ knife vsphere vm clone MACHINENAME --template TEMPLATENAME --bootstrap --cips dhcp \
+knife vsphere vm clone MACHINENAME --template TEMPLATENAME --bootstrap --cips dhcp \
 --cspec SPEC --ssh-user USER --ssh-password PASSWORD
 ```
 
@@ -78,23 +78,23 @@ created in `FOLDERNAME` instead of the root folder.
 **Clone from a folder into the "Datacenter Root" directory:**
 
 ``` bash
-$ knife vsphere vm clone MACHINENAME --template TEMPLATENAME -f /path/to/template \
+knife vsphere vm clone MACHINENAME --template TEMPLATENAME -f /path/to/template \
 --bootstrap --start --cips dhcp --dest-folder /
 ```
 
 **List the available VMware templates:**
 
 ``` bash
-$ knife vsphere template list
+knife vsphere template list
 Template Name: ubuntu16-template
-$ knife vsphere template list -f FOLDERNAME
+knife vsphere template list -f FOLDERNAME
 Template Name: centos7-template
 ```
 
 **Delete a machine:**
 
 ``` bash
-$ knife vsphere vm delete MACHINENAME
+knife vsphere vm delete MACHINENAME
 ```
 
 This command can be used with the `-P` option to remove the machine from
@@ -127,7 +127,7 @@ knife[:vcenter_disable_ssl_verify] = true # if you want to disable SSL checking
 **Clone a machine:**
 
 ``` bash
-$ knife vcenter vm clone example-01 --targethost 172.16.20.3 --folder example --ssh-password \
+knife vcenter vm clone example-01 --targethost 172.16.20.3 --folder example --ssh-password \
 P@ssw0rd! --datacenter Datacenter --template ubuntu16-template -N example-01
 Creating new machine
 Waiting for network interfaces to become available...
@@ -143,7 +143,7 @@ Waiting for sshd to host (10.0.0.167)
 **Delete a machine:**
 
 ``` bash
-$ knife vcenter vm delete example-01 -N example-01 --purge
+knife vcenter vm delete example-01 -N example-01 --purge
 Creating new machine
 Waiting for network interfaces to become available...
 ID: vm-183
@@ -225,7 +225,7 @@ Common parameters to specify are:
 <!-- -->
 
 ``` bash
-$ knife vra server create 5dcd1900-3b89-433d-8563-9606ae1249b8 --cpus 1 --memory 512 \
+knife vra server create 5dcd1900-3b89-433d-8563-9606ae1249b8 --cpus 1 --memory 512 \
 --requested-for devmgr@corp.local --ssh-password 'mypassword' --lease-days 5
 Catalog request d282fde8-6fd2-406c-998e-328d1b659078 submitted.
 Waiting for request to complete.
@@ -239,7 +239,7 @@ Current request status: IN_PROGRESS..
 **Delete a server from vRA:**
 
 ``` bash
-$ knife vra server delete 2e1f6632-1613-41d1-a07c-6137c9639609 --purge
+knife vra server delete 2e1f6632-1613-41d1-a07c-6137c9639609 --purge
 Server ID: 2e1f6632-1613-41d1-a07c-6137c9639609
 Server Name: hol-dev-43
 IP Addresses: 192.168.110.203
@@ -260,7 +260,7 @@ the Chef Infra Server
 **Execute a vRO workflow:**
 
 ``` bash
-$ knife vro workflow execute "knife testing" key1=value1
+knife vro workflow execute "knife testing" key1=value1
 Starting workflow execution...
 Workflow execution 4028eece4effc046014f27da864d0187 started. Waiting for it to complete...
 Workflow execution complete.

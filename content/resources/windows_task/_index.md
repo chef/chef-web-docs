@@ -7,7 +7,7 @@ aliases:
 menu:
   docs:
     title: windows_task
-    identifier: chef_infra/cookbook_reference/resources/resource_windows_task.md windows_task
+    identifier: chef_infra/cookbook_reference/resources/windows_task windows_task
     parent: chef_infra/cookbook_reference/resources
     weight: 1300
 resource_reference: true

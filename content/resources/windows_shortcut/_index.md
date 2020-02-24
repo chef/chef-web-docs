@@ -7,8 +7,7 @@ aliases:
 menu:
   docs:
     title: windows_shortcut
-    identifier: chef_infra/cookbook_reference/resources/resource_windows_shortcut.md
-      windows_shortcut
+    identifier: chef_infra/cookbook_reference/resources/windows_shortcut windows_shortcut
     parent: chef_infra/cookbook_reference/resources
     weight: 1290
 resource_reference: true

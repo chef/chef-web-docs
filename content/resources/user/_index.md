@@ -7,7 +7,7 @@ aliases:
 menu:
   docs:
     title: user
-    identifier: chef_infra/cookbook_reference/resources/resource_user.md user
+    identifier: chef_infra/cookbook_reference/resources/user user
     parent: chef_infra/cookbook_reference/resources
     weight: 1070
 resource_reference: true

@@ -3,7 +3,7 @@ readable until they are decrypted. Encryption can be verified with a
 knife command similar to:
 
 ``` bash
-$ knife data bag show passwords mysql
+knife data bag show passwords mysql
 ```
 
 where "passwords" is the name of the data bag and "mysql" is the name of

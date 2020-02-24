@@ -7,7 +7,7 @@ aliases:
 menu:
   docs:
     title: chef_handler
-    identifier: chef_infra/cookbook_reference/resources/resource_chef_handler.md chef_handler
+    identifier: chef_infra/cookbook_reference/resources/chef_handler chef_handler
     parent: chef_infra/cookbook_reference/resources
     weight: 180
 resource_reference: true

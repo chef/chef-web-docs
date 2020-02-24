@@ -81,7 +81,7 @@ This configuration file has the following settings for `ldap`:
     commands.
 
     ``` bash
-    $ chef-server-ctl set-secret ldap bind_password
+    chef-server-ctl set-secret ldap bind_password
     Enter ldap bind_password:    (no terminal output)
     Re-enter ldap bind_password: (no terminal output)
     ```
@@ -89,7 +89,7 @@ This configuration file has the following settings for `ldap`:
     Remove a set password via
 
     ``` bash
-    $ chef-server-ctl remove-secret ldap bind_password
+    chef-server-ctl remove-secret ldap bind_password
     ```
 
 `ldap['group_dn']`

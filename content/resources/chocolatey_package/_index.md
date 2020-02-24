@@ -7,8 +7,7 @@ aliases:
 menu:
   docs:
     title: chocolatey_package
-    identifier: chef_infra/cookbook_reference/resources/resource_chocolatey_package.md
-      chocolatey_package
+    identifier: chef_infra/cookbook_reference/resources/chocolatey_package chocolatey_package
     parent: chef_infra/cookbook_reference/resources
     weight: 220
 resource_reference: true

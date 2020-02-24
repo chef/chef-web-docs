@@ -179,7 +179,7 @@ development infrastructure.
 For example, to freeze a cookbook version using knife, enter:
 
 ``` bash
-$ knife cookbook upload redis --freeze
+knife cookbook upload redis --freeze
 ```
 
 To return:
@@ -193,7 +193,7 @@ Once a cookbook version is frozen, only by using the `--force` option
 can an update be made. For example:
 
 ``` bash
-$ knife cookbook upload redis --force
+knife cookbook upload redis --force
 ```
 
 Without the `--force` option specified, an error will be returned
@@ -241,7 +241,7 @@ cookbook, and then upload and test it. Repeat this process as required,
 and then upload it using a knife command similar to:
 
 ``` bash
-$ knife cookbook upload my-app
+knife cookbook upload my-app
 ```
 
 When the cookbook is finished, move those changes to the production
@@ -249,7 +249,7 @@ environment and use the `--freeze` option to prevent others from making
 further changes:
 
 ``` bash
-$ knife cookbook upload  my-app -E production --freeze
+knife cookbook upload  my-app -E production --freeze
 ```
 
 Maximum Versions
@@ -274,7 +274,7 @@ cookbook, and then upload and test it. Repeat this process as required,
 and then upload it using a knife command similar to:
 
 ``` bash
-$ knife cookbook upload my-app
+knife cookbook upload my-app
 ```
 
 When the cookbook is finished, move those changes to the production
@@ -282,7 +282,7 @@ environment and use the `--freeze` option to prevent others from making
 further changes:
 
 ``` bash
-$ knife cookbook upload  my-app -E production --freeze
+knife cookbook upload  my-app -E production --freeze
 ```
 
 Then modify the environment so that it prefers the newly uploaded
@@ -295,7 +295,7 @@ version:
 Upload the updated environment:
 
 ``` bash
-$ knife environment from file production.rb
+knife environment from file production.rb
 ```
 
 And then deploy the new cookbook version.

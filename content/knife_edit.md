@@ -22,7 +22,7 @@ Syntax
 This subcommand has the following syntax:
 
 ``` bash
-$ knife edit (options)
+knife edit (options)
 ```
 
 Options

@@ -7,7 +7,7 @@ aliases:
 menu:
   docs:
     title: package
-    identifier: chef_infra/cookbook_reference/resources/resource_package.md package
+    identifier: chef_infra/cookbook_reference/resources/package package
     parent: chef_infra/cookbook_reference/resources
     weight: 710
 resource_reference: true

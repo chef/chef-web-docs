@@ -7,8 +7,7 @@ aliases:
 menu:
   docs:
     title: openssl_x509_crl
-    identifier: chef_infra/cookbook_reference/resources/resource_openssl_x509_crl.md
-      openssl_x509_crl
+    identifier: chef_infra/cookbook_reference/resources/openssl_x509_crl openssl_x509_crl
     parent: chef_infra/cookbook_reference/resources
     weight: 680
 resource_reference: true

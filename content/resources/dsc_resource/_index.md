@@ -7,7 +7,7 @@ aliases:
 menu:
   docs:
     title: dsc_resource
-    identifier: chef_infra/cookbook_reference/resources/resource_dsc_resource.md dsc_resource
+    identifier: chef_infra/cookbook_reference/resources/dsc_resource dsc_resource
     parent: chef_infra/cookbook_reference/resources
     weight: 330
 resource_reference: true

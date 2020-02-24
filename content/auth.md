@@ -193,7 +193,7 @@ After saving this shell script to a file named `chef_api_request`, use
 it similar to the following:
 
 ``` bash
-$ bash chef_api_request GET "/clients"
+bash chef_api_request GET "/clients"
 ```
 
 #### PyChef

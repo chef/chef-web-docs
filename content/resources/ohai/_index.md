@@ -7,7 +7,7 @@ aliases:
 menu:
   docs:
     title: ohai
-    identifier: chef_infra/cookbook_reference/resources/resource_ohai.md ohai
+    identifier: chef_infra/cookbook_reference/resources/ohai ohai
     parent: chef_infra/cookbook_reference/resources
     weight: 600
 resource_reference: true

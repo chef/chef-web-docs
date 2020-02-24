@@ -1,8 +1,8 @@
 A nested field appears deeper in the JSON data structure. For example,
 information about a network interface might be several layers deep:
-`node[:network][:interfaces][:en1]`. When nested fields are present in a
-JSON structure, Chef Infra Client will extract those nested fields to
-the top-level, flattening them into compound fields that support
+`node['network']['interfaces']['en1']`. When nested fields are present
+in a JSON structure, Chef Infra Client will extract those nested fields
+to the top-level, flattening them into compound fields that support
 wildcard search patterns.
 
 By combining wildcards with range-matching patterns and wildcard

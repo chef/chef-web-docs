@@ -17,14 +17,14 @@ privileges on the Chef Automate server, do the following:
 1.  Make a working directory (`workspace` in the example):
 
     ``` bash
-    $ mkdir ~/workspace && cd ~/workspace
+    mkdir ~/workspace && cd ~/workspace
     ```
 
 2.  Setup the Delivery CLI to, by default, contact the Chef Automate
     server at SERVER, with a default ENTERPRISE and ORGANIZATION:
 
     ``` bash
-    $ delivery setup --server=SERVER --ent=ENTERPRISE --org=ORGANIZATION --user=USERNAME
+    delivery setup --server=SERVER --ent=ENTERPRISE --org=ORGANIZATION --user=USERNAME
     ```
 
     <div class="admonition-note">
@@ -44,11 +44,11 @@ privileges on the Chef Automate server, do the following:
 3.  Create a cookbook:
 
     ``` bash
-    $ chef generate cookbook NEW-COOKBOOK-NAME
+    chef generate cookbook NEW-COOKBOOK-NAME
     ```
 
     ``` bash
-    $ cd NEW-COOKBOOK-NAME
+    cd NEW-COOKBOOK-NAME
     ```
 
     This uses Chef Workstation to generate a new cookbook, including a
@@ -58,11 +58,11 @@ privileges on the Chef Automate server, do the following:
     the "master" branch:
 
     ``` bash
-    $ git add .
+    git add .
     ```
 
     ``` bash
-    $ git commit -m 'Initial Commit'
+    git commit -m 'Initial Commit'
     ```
 
     Running `chef generate` initialized a git repository automatically
@@ -72,7 +72,7 @@ privileges on the Chef Automate server, do the following:
 5.  Initialize the cookbook for Chef Automate:
 
     ``` bash
-    $ delivery init
+    delivery init
     ```
 
     This creates a new project in Chef Automate, pushes the master

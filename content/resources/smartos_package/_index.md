@@ -7,8 +7,7 @@ aliases:
 menu:
   docs:
     title: smartos_package
-    identifier: chef_infra/cookbook_reference/resources/resource_smartos_package.md
-      smartos_package
+    identifier: chef_infra/cookbook_reference/resources/smartos_package smartos_package
     parent: chef_infra/cookbook_reference/resources
     weight: 960
 resource_reference: true

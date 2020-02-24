@@ -42,7 +42,7 @@ recreate the default data and configuration files.
 This subcommand has the following syntax:
 
 ``` bash
-$ chef-manage-ctl cleanse
+chef-manage-ctl cleanse
 ```
 
 help
@@ -54,7 +54,7 @@ The `help` subcommand is used to print a list of all available
 This subcommand has the following syntax:
 
 ``` bash
-$ chef-manage-ctl help
+chef-manage-ctl help
 ```
 
 reconfigure
@@ -68,7 +68,7 @@ configuration until after this command is run.
 This subcommand has the following syntax:
 
 ``` bash
-$ chef-manage-ctl reconfigure
+chef-manage-ctl reconfigure
 ```
 
 show-config
@@ -82,7 +82,7 @@ built properly prior to installation.
 This subcommand has the following syntax:
 
 ``` bash
-$ chef-manage-ctl show-config
+chef-manage-ctl show-config
 ```
 
 uninstall
@@ -96,5 +96,5 @@ management console](/uninstall.html#chef-manage) or remove `.rpm` or
 This subcommand has the following syntax:
 
 ``` bash
-$ chef-manage-ctl uninstall
+chef-manage-ctl uninstall
 ```

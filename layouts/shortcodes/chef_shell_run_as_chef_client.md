@@ -10,5 +10,5 @@ same as those in config.rb, and then use the `-z` option as part of the
 command. For example:
 
 ``` bash
-$ chef-shell -z
+chef-shell -z
 ```

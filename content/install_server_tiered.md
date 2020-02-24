@@ -89,19 +89,19 @@ The following commands properly set up disk configuration on the backend
 server:
 
 ``` bash
-$ pvcreate /dev/sdb
+pvcreate /dev/sdb
 ```
 
 and:
 
 ``` bash
-$ vgcreate opscode /dev/sdb
+vgcreate opscode /dev/sdb
 ```
 
 and:
 
 ``` bash
-$ lvcreate -l 80%VG -n tiered opscode
+lvcreate -l 80%VG -n tiered opscode
 ```
 
 Mount Storage Device
@@ -113,19 +113,19 @@ following:
 1.  Create the file system. For example, an `ext4` type named `tiered`:
 
     ``` bash
-    $ mkfs.ext4 /dev/opscode/tiered
+    mkfs.ext4 /dev/opscode/tiered
     ```
 
     then:
 
     ``` bash
-    $ mkdir -p /var/opt/opscode
+    mkdir -p /var/opt/opscode
     ```
 
     and then:
 
     ``` bash
-    $ mount /dev/opscode/tiered /var/opt/opscode
+    mount /dev/opscode/tiered /var/opt/opscode
     ```
 
 Backend
@@ -137,13 +137,13 @@ Use the following steps to set up the backend Chef Infra Server:
     For Red Hat and CentOS 6:
 
     ``` bash
-    $ rpm -Uvh /tmp/chef-server-core-<version>.rpm
+    rpm -Uvh /tmp/chef-server-core-<version>.rpm
     ```
 
     For Ubuntu:
 
     ``` bash
-    $ dpkg -i /tmp/chef-server-core-<version>.deb
+    dpkg -i /tmp/chef-server-core-<version>.deb
     ```
 
     After a few minutes, the Chef Infra Server will be installed.
@@ -235,13 +235,13 @@ Infra Server:
 1.  Install the Chef Infra Server package. For Red Hat and CentOS 6:
 
     ``` bash
-    $ rpm -Uvh /tmp/chef-server-core-<version>.rpm
+    rpm -Uvh /tmp/chef-server-core-<version>.rpm
     ```
 
     For Ubuntu:
 
     ``` bash
-    $ dpkg -i /tmp/chef-server-core-<version>.deb
+    dpkg -i /tmp/chef-server-core-<version>.deb
     ```
 
     After a few minutes, the Chef Infra Server will be installed.
@@ -255,7 +255,7 @@ Infra Server:
 4.  Start the Chef Infra Server:
 
     ``` bash
-    $ chef-server-ctl start
+    chef-server-ctl start
     ```
 
 On a single frontend server, create an administrator and an
@@ -288,25 +288,25 @@ Chef Manage
     run:
 
     ``` bash
-    $ chef-server-ctl install chef-manage
+    chef-server-ctl install chef-manage
     ```
 
     then:
 
     ``` bash
-    $ chef-server-ctl reconfigure
+    chef-server-ctl reconfigure
     ```
 
     and then:
 
     ``` bash
-    $ chef-manage-ctl reconfigure
+    chef-manage-ctl reconfigure
     ```
 
     To accept the [Chef MLSA](/chef_license/):
 
     ``` bash
-    $ sudo chef-manage-ctl reconfigure --accept-license
+    sudo chef-manage-ctl reconfigure --accept-license
     ```
 
     This updates the Chef Infra Server and creates the

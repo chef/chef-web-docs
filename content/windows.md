@@ -37,7 +37,7 @@ Install Chef Infra Client on Windows Nodes
 This command has the following syntax:
 
 ``` bash
-$ chef-client OPTION VALUE OPTION VALUE ...
+chef-client OPTION VALUE OPTION VALUE ...
 ```
 
 This command has the following option specific to Microsoft Windows:

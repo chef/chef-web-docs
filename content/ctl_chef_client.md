@@ -36,7 +36,7 @@ Options
 This command has the following syntax:
 
 ``` bash
-$ chef-client OPTION VALUE OPTION VALUE ...
+chef-client OPTION VALUE OPTION VALUE ...
 ```
 
 This command has the following options:
@@ -173,7 +173,7 @@ This command has the following options:
     For example, run the following:
 
     ``` bash
-    $ chef-client -j /path/to/file.json
+    chef-client -j /path/to/file.json
     ```
 
     where `/path/to/file.json` is similar to:
@@ -592,7 +592,7 @@ On Linux, the following error sometimes occurs when the permissions used
 to run the Chef Infra Client are incorrect:
 
 ``` bash
-$ chef-client
+chef-client
 [Tue, 29 Nov 2015 19:46:17 -0800] INFO: *** Chef 12.X.X ***
 [Tue, 29 Nov 2015 19:46:18 -0800] WARN: Failed to read the private key /etc/chef/client.pem: #<Errno::EACCES: Permission denied - /etc/chef/client.pem>
 ```
@@ -606,7 +606,7 @@ ways this can be done:
     Client. For example:
 
     > ``` bash
-    > $ su
+    > su
     > ```
     >
     > and then:
@@ -618,7 +618,7 @@ ways this can be done:
 -   Use the sudo utility
 
     > ``` bash
-    > $ sudo chef-client
+    > sudo chef-client
     > ```
 
 -   Give a user access to read `/etc/chef` and also the files accessed
@@ -752,19 +752,19 @@ threads. To increase the system process limits:
     root user:
 
     ``` bash
-    $ chsec -f /etc/security/limits -s default -a "rss=-1"
+    chsec -f /etc/security/limits -s default -a "rss=-1"
     ```
 
     and then:
 
     ``` bash
-    $ chsec -f /etc/security/limits -s default -a "data=-1"
+    chsec -f /etc/security/limits -s default -a "data=-1"
     ```
 
     and then:
 
     ``` bash
-    $ chsec -f /etc/security/limits -s default -a "nofiles=50000"
+    chsec -f /etc/security/limits -s default -a "nofiles=50000"
     ```
 
     {{< note >}}
@@ -773,7 +773,7 @@ threads. To increase the system process limits:
     default. For example:
 
     ``` bash
-    $ chsec -f /etc/security/limits -s root_user -a "rss=-1"
+    chsec -f /etc/security/limits -s root_user -a "rss=-1"
     ```
 
     {{< /note >}}
@@ -917,7 +917,7 @@ Examples
 **Run the Chef Infra Client**
 
 ``` bash
-$ sudo chef-client
+sudo chef-client
 ```
 
 **Start a run when the Chef Infra Client is running as a daemon**
@@ -927,7 +927,7 @@ started by sending the process a `SIGUSR1`. For example, to trigger a
 Chef Infra Client run on a machine running Linux:
 
 ``` bash
-$ sudo killall -USR1 chef-client
+sudo killall -USR1 chef-client
 ```
 
 **Setting the initial run-list using a JSON file**

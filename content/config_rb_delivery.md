@@ -156,7 +156,7 @@ When changes are made to the `delivery.rb` file the Chef Automate server
 must be reconfigured by running the following command:
 
 ``` bash
-$ delivery-server-ctl reconfigure
+delivery-server-ctl reconfigure
 ```
 
 {{< /note >}}

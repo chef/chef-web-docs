@@ -22,7 +22,7 @@ Syntax
 This subcommand has the following syntax:
 
 ``` bash
-$ knife ssh SEARCH_QUERY SSH_COMMAND (options)
+knife ssh SEARCH_QUERY SSH_COMMAND (options)
 ```
 
 Options
@@ -109,13 +109,13 @@ This subcommand has the following options:
 <!-- -->
 
 ``` bash
-$ knife search ubuntu
+knife search ubuntu
 ```
 
 or:
 
 ``` bash
-$ knife search node "tags:*ubuntu* OR roles:*ubuntu* OR fqdn:*ubuntu* (etc.)"
+knife search node "tags:*ubuntu* OR roles:*ubuntu* OR fqdn:*ubuntu* (etc.)"
 ```
 
 `SSH_COMMAND`
@@ -152,7 +152,7 @@ To find the uptime of all of web servers running Ubuntu on the Amazon
 EC2 platform, enter:
 
 ``` bash
-$ knife ssh "role:web" "uptime" -x ubuntu -a ec2.public_hostname
+knife ssh "role:web" "uptime" -x ubuntu -a ec2.public_hostname
 ```
 
 to return something like:
@@ -168,7 +168,7 @@ ec2-184-73-60-141.compute-1.amazonaws.com    13:50:48 up 1 day, 23:30,  1 user, 
 **Run Chef Infra Client on all nodes**
 
 ``` bash
-$ knife ssh 'name:*' 'sudo chef-client'
+knife ssh 'name:*' 'sudo chef-client'
 ```
 
 **Force a Chef Infra Client run**
@@ -177,7 +177,7 @@ To force a Chef Infra Client run on all of the web servers running
 Ubuntu on the Amazon EC2 platform, enter:
 
 ``` bash
-$ knife ssh "role:web" "sudo chef-client" -x ubuntu -a ec2.public_hostname
+knife ssh "role:web" "sudo chef-client" -x ubuntu -a ec2.public_hostname
 ```
 
 to return something like:
@@ -216,13 +216,13 @@ To query for all nodes that have the `webserver` role and then use SSH
 to run the command `sudo chef-client`, enter:
 
 ``` bash
-$ knife ssh "role:webserver" "sudo chef-client"
+knife ssh "role:webserver" "sudo chef-client"
 ```
 
 **Upgrade all nodes**
 
 ``` bash
-$ knife ssh name:* "sudo aptitude upgrade -y"
+knife ssh name:* "sudo aptitude upgrade -y"
 ```
 
 **Specify the shell type**
@@ -230,7 +230,7 @@ $ knife ssh name:* "sudo aptitude upgrade -y"
 To specify the shell type used on the nodes returned by a search query:
 
 ``` bash
-$ knife ssh roles:opscode-omnitruck macterm
+knife ssh roles:opscode-omnitruck macterm
 ```
 
 where `screen` is one of the following values: `cssh`, `interactive`,

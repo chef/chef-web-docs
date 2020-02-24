@@ -39,6 +39,6 @@ has been introduced to detect and autocorrect this deprecation.
 Remediation
 ===========
 
-When using the `launchd` resource and passing a hash≈ for the launchd
+When using the `launchd` resource and passing a hash for the launchd
 property list, use the `plist_hash` property instead of the `hash`
 property.

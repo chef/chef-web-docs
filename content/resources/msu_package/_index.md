@@ -7,7 +7,7 @@ aliases:
 menu:
   docs:
     title: msu_package
-    identifier: chef_infra/cookbook_reference/resources/resource_msu_package.md msu_package
+    identifier: chef_infra/cookbook_reference/resources/msu_package msu_package
     parent: chef_infra/cookbook_reference/resources
     weight: 580
 resource_reference: true

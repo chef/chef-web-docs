@@ -2,7 +2,7 @@ To negate search results using the `NOT` boolean operator, enter the
 following:
 
 ``` bash
-$ knife search sample "(NOT id:foo)"
+knife search sample "(NOT id:foo)"
 ```
 
 to return something like:

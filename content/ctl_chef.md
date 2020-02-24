@@ -33,7 +33,7 @@ Syntax
 This subcommand has the following syntax:
 
 ``` bash
-$ chef env
+chef env
 ```
 
 Options
@@ -59,7 +59,7 @@ Syntax
 This subcommand has the following syntax:
 
 ``` bash
-$ chef exec SYSTEM_COMMAND (options)
+chef exec SYSTEM_COMMAND (options)
 ```
 
 Options
@@ -97,7 +97,7 @@ Syntax
 This subcommand has the following syntax:
 
 ``` bash
-$ chef gem GEM_COMMAND GEM_OPTIONS (options)
+chef gem GEM_COMMAND GEM_OPTIONS (options)
 ```
 
 Options
@@ -121,7 +121,7 @@ Examples
 To show a gem, run a command similar to:
 
 ``` bash
-$ chef gem list cookstyle
+chef gem list cookstyle
 ```
 
 to return something similar to:
@@ -138,7 +138,7 @@ To list all of the installed gems on your development environment, use
 the `list` command without any arguments:
 
 ``` bash
-$ chef gem list
+chef gem list
 ```
 
 **Search for local gems**
@@ -147,7 +147,7 @@ The `list` command can also be used to search for locally installed
 gems. For example, to list all of the gems with `knife` in their title:
 
 ``` bash
-$ chef gem list knife
+chef gem list knife
 ```
 
 which returns the following output:
@@ -166,7 +166,7 @@ Use the `search` command to search for remote gems available for
 installation:
 
 ``` bash
-$ chef gem search kitchen
+chef gem search kitchen
 ```
 
 to return something similar to:
@@ -187,7 +187,7 @@ kitchen (0.0.3)
 To install a gem, run a command similar to:
 
 ``` bash
-$ chef gem install knife-config
+chef gem install knife-config
 ```
 
 to return something similar to:
@@ -202,7 +202,7 @@ Successfully installed knife-config-1.1.0
 To uninstall a gem from Chef Workstation environment:
 
 ``` bash
-$ chef gem uninstall knife-config
+chef gem uninstall knife-config
 ```
 
 to return something similar to:
@@ -216,7 +216,7 @@ Successfully uninstalled knife-config-1.1.0
 To view the contents of a gem, run a command similar to:
 
 ``` bash
-$ chef gem content knife-config
+chef gem content knife-config
 ```
 
 to return something similar to:
@@ -240,7 +240,7 @@ Syntax
 This subcommand has the following syntax:
 
 ``` bash
-$ chef generate attribute COOKBOOK_PATH NAME (options)
+chef generate attribute COOKBOOK_PATH NAME (options)
 ```
 
 Options
@@ -273,7 +273,7 @@ Examples
 To generate an attribute, run a command similar to:
 
 ``` bash
-$ chef generate attribute /path/to/cookbook FOO
+chef generate attribute /path/to/cookbook FOO
 ```
 
 will return something similar to:
@@ -304,7 +304,7 @@ Syntax
 This subcommand has the following syntax:
 
 ``` bash
-$ chef generate cookbook COOKBOOK_PATH/COOKBOOK_NAME (options)
+chef generate cookbook COOKBOOK_PATH/COOKBOOK_NAME (options)
 ```
 
 Options
@@ -375,7 +375,7 @@ Examples
 To generate a cookbook, run a command similar to:
 
 ``` bash
-$ chef generate cookbook chefdocs
+chef generate cookbook chefdocs
 ```
 
 will return something similar to:
@@ -435,7 +435,7 @@ the skeleton cookbook at the custom location to generate a cookbook into
 the repository from which the `chef` command is run:
 
 ``` bash
-$ chef generate cookbook --generator-cookbook ~/Desktop testcookbook
+chef generate cookbook --generator-cookbook ~/Desktop testcookbook
 ```
 
 {{< note >}}
@@ -487,7 +487,7 @@ Syntax
 This subcommand has the following syntax:
 
 ``` bash
-$ chef generate build-cookbook COOKBOOK_PATH/COOKBOOK_NAME (options)
+chef generate build-cookbook COOKBOOK_PATH/COOKBOOK_NAME (options)
 ```
 
 Options
@@ -551,7 +551,7 @@ Syntax
 This subcommand has the following syntax:
 
 ``` bash
-$ chef generate file COOKBOOK_PATH NAME (options)
+chef generate file COOKBOOK_PATH NAME (options)
 ```
 
 Options
@@ -603,7 +603,7 @@ Syntax
 This subcommand has the following syntax:
 
 ``` bash
-$ chef generate resource COOKBOOK_PATH NAME (options)
+chef generate resource COOKBOOK_PATH NAME (options)
 ```
 
 Options
@@ -645,7 +645,7 @@ Syntax
 This subcommand has the following syntax:
 
 ``` bash
-$ chef generate recipe COOKBOOK_PATH NAME (options)
+chef generate recipe COOKBOOK_PATH NAME (options)
 ```
 
 Options
@@ -707,7 +707,7 @@ Syntax
 This subcommand has the following syntax:
 
 ``` bash
-$ chef generate template COOKBOOK_PATH NAME (options)
+chef generate template COOKBOOK_PATH NAME (options)
 ```
 
 Options
@@ -758,7 +758,7 @@ Syntax
 This subcommand has the following syntax:
 
 ``` bash
-$ chef shell-init SHELL_NAME (options)
+chef shell-init SHELL_NAME (options)
 ```
 
 Options

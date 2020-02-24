@@ -7,7 +7,7 @@ aliases:
 menu:
   docs:
     title: perl
-    identifier: chef_infra/cookbook_reference/resources/resource_perl.md perl
+    identifier: chef_infra/cookbook_reference/resources/perl perl
     parent: chef_infra/cookbook_reference/resources
     weight: 740
 resource_reference: true

@@ -1,7 +1,7 @@
 If the SSL certificate can be verified, the response to
 
 ``` bash
-$ knife ssl check
+knife ssl check
 ```
 
 is similar to:

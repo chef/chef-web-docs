@@ -7,7 +7,7 @@ aliases:
 menu:
   docs:
     title: sudo
-    identifier: chef_infra/cookbook_reference/resources/resource_sudo.md sudo
+    identifier: chef_infra/cookbook_reference/resources/sudo sudo
     parent: chef_infra/cookbook_reference/resources
     weight: 1010
 resource_reference: true

@@ -167,7 +167,7 @@ The following platforms are supported only via the community:
 <tr class="odd">
 <td>openSUSE</td>
 <td></td>
-<td><code>42.x</code></td>
+<td><code>15.x</code></td>
 </tr>
 <tr class="even">
 <td>Scientific Linux</td>
@@ -362,7 +362,7 @@ The following platforms are supported only via the community:
 <tr class="odd">
 <td>openSUSE</td>
 <td></td>
-<td><code>42.x</code></td>
+<td><code>15.x</code></td>
 </tr>
 <tr class="even">
 <td>Scientific Linux</td>

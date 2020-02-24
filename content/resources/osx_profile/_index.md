@@ -7,7 +7,7 @@ aliases:
 menu:
   docs:
     title: osx_profile
-    identifier: chef_infra/cookbook_reference/resources/resource_osx_profile.md osx_profile
+    identifier: chef_infra/cookbook_reference/resources/osx_profile osx_profile
     parent: chef_infra/cookbook_reference/resources
     weight: 700
 resource_reference: true

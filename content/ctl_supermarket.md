@@ -25,7 +25,7 @@ user an administrator.
 This subcommand has the following syntax:
 
 ``` bash
-$ sudo -u supermarket supermarket-ctl make-admin USER_NAME
+sudo -u supermarket supermarket-ctl make-admin USER_NAME
 ```
 
 where `USER_NAME` represents the name of the user to be granted
@@ -43,7 +43,7 @@ metric visible only to admins.
 This subcommand has the following syntax:
 
 ``` bash
-$ sudo -u supermarket supermarket-ctl qm-flip-admin-only "METRIC_NAME"
+sudo -u supermarket supermarket-ctl qm-flip-admin-only "METRIC_NAME"
 ```
 
 where `METRIC_NAME` is the name of the quality metric to make admin
@@ -58,7 +58,7 @@ visible only to admins.
 This subcommand has the following syntax:
 
 ``` bash
-$ sudo -u supermarket supermarket-ctl qm-flip-all-admin-only
+sudo -u supermarket supermarket-ctl qm-flip-all-admin-only
 ```
 
 qm-flip-all-public
@@ -70,7 +70,7 @@ visible to all users.
 This subcommand has the following syntax:
 
 ``` bash
-$ sudo -u supermarket supermarket-ctl qm-flip-all-public
+sudo -u supermarket supermarket-ctl qm-flip-all-public
 ```
 
 qm-flip-public
@@ -82,7 +82,7 @@ metric visible to all users.
 This subcommand has the following syntax:
 
 ``` bash
-$ sudo -u supermarket supermarket-ctl qm-flip-public "METRIC_NAME"
+sudo -u supermarket supermarket-ctl qm-flip-public "METRIC_NAME"
 ```
 
 where `METRIC_NAME` is the name of the quality metric to make public.
@@ -97,7 +97,7 @@ defined currently in a Supermarket.
 This subcommand has the following syntax:
 
 ``` bash
-$ sudo -u supermarket supermarket-ctl qm-list
+sudo -u supermarket supermarket-ctl qm-list
 ```
 
 qm-run-all-the-latest
@@ -109,7 +109,7 @@ on the latest versions of all cookbooks.
 This subcommand has the following syntax:
 
 ``` bash
-$ sudo -u supermarket supermarket-ctl qm-run-all-the-latest
+sudo -u supermarket supermarket-ctl qm-run-all-the-latest
 ```
 
 qm-run-on-latest
@@ -121,7 +121,7 @@ latest version of a named cookbook.
 This subcommand has the following syntax:
 
 ``` bash
-$ sudo -u supermarket supermarket-ctl qm-run-on-version COOKBOOK_NAME
+sudo -u supermarket supermarket-ctl qm-run-on-version COOKBOOK_NAME
 ```
 
 where `COOKBOOK_NAME` is the name of the cookbook on which to run all
@@ -136,7 +136,7 @@ given version of a named cookbook.
 This subcommand has the following syntax:
 
 ``` bash
-$ sudo -u supermarket supermarket-ctl qm-run-on-version COOKBOOK_NAME VERSION
+sudo -u supermarket supermarket-ctl qm-run-on-version COOKBOOK_NAME VERSION
 ```
 
 where `COOKBOOK_NAME` and `VERSION` are respectively the name and
@@ -155,7 +155,7 @@ destroy all data, configuration files, and logs.
 This subcommand has the following syntax:
 
 ``` bash
-$ supermarket-ctl cleanse
+supermarket-ctl cleanse
 ```
 
 help
@@ -167,7 +167,7 @@ supermarket-ctl commands.
 This subcommand has the following syntax:
 
 ``` bash
-$ supermarket-ctl help
+supermarket-ctl help
 ```
 
 reconfigure
@@ -183,7 +183,7 @@ subcommand will also restart any services for which the
 This subcommand has the following syntax:
 
 ``` bash
-$ supermarket-ctl reconfigure
+supermarket-ctl reconfigure
 ```
 
 show-config
@@ -197,7 +197,7 @@ built properly prior to installation.
 This subcommand has the following syntax:
 
 ``` bash
-$ supermarket-ctl show-config
+supermarket-ctl show-config
 ```
 
 uninstall
@@ -210,7 +210,7 @@ shut down all services (including the `runit` process supervisor).
 This subcommand has the following syntax:
 
 ``` bash
-$ supermarket-ctl uninstall
+supermarket-ctl uninstall
 ```
 
 {{< note >}}
@@ -235,7 +235,7 @@ of the service in the command.
 This subcommand has the following syntax:
 
 ``` bash
-$ supermarket-ctl hup name_of_service
+supermarket-ctl hup name_of_service
 ```
 
 where `name_of_service` represents the name of any service that is
@@ -251,7 +251,7 @@ of the service in the command.
 This subcommand has the following syntax:
 
 ``` bash
-$ supermarket-ctl int name_of_service
+supermarket-ctl int name_of_service
 ```
 
 where `name_of_service` represents the name of any service that is
@@ -267,7 +267,7 @@ of the service in the command.
 This subcommand has the following syntax:
 
 ``` bash
-$ supermarket-ctl kill name_of_service
+supermarket-ctl kill name_of_service
 ```
 
 where `name_of_service` represents the name of any service that is
@@ -291,7 +291,7 @@ command.
 This subcommand has the following syntax:
 
 ``` bash
-$ supermarket-ctl once name_of_service
+supermarket-ctl once name_of_service
 ```
 
 where `name_of_service` represents the name of any service that is
@@ -307,7 +307,7 @@ of that service in the command.
 This subcommand has the following syntax:
 
 ``` bash
-$ supermarket-ctl restart name_of_service
+supermarket-ctl restart name_of_service
 ```
 
 where `name_of_service` represents the name of any service that is
@@ -315,7 +315,7 @@ listed after running the `service-list` subcommand. When a service is
 successfully restarted the output should be similar to:
 
 ``` bash
-$ ok: run: service_name: (pid 12345) 1s
+ok: run: service_name: (pid 12345) 1s
 ```
 
 service-list
@@ -327,7 +327,7 @@ services. A service that is enabled is labeled with an asterisk (\*).
 This subcommand has the following syntax:
 
 ``` bash
-$ supermarket-ctl service-list
+supermarket-ctl service-list
 ```
 
 start
@@ -340,7 +340,7 @@ by specifying the name of the service in the command.
 This subcommand has the following syntax:
 
 ``` bash
-$ supermarket-ctl start name_of_service
+supermarket-ctl start name_of_service
 ```
 
 where `name_of_service` represents the name of any service that is
@@ -348,7 +348,7 @@ listed after running the `service-list` subcommand. When a service is
 successfully started the output should be similar to:
 
 ``` bash
-$ ok: run: service_name: (pid 12345) 1s
+ok: run: service_name: (pid 12345) 1s
 ```
 
 The supervisor for Chef Supermarket is configured to wait seven seconds
@@ -370,7 +370,7 @@ configuration of a given server. This subcommand has the following
 syntax:
 
 ``` bash
-$ supermarket-ctl status
+supermarket-ctl status
 ```
 
 and will return the status for all services. Status can be returned for
@@ -378,7 +378,7 @@ individual services by specifying the name of the service as part of the
 command:
 
 ``` bash
-$ supermarket-ctl status name_of_service
+supermarket-ctl status name_of_service
 ```
 
 where `name_of_service` represents the name of any service that is
@@ -387,7 +387,7 @@ listed after running the `service-list` subcommand.
 When service status is requested, the output should be similar to:
 
 ``` bash
-$ run: service_name: (pid 12345) 12345s; run: log: (pid 1234) 67890s
+run: service_name: (pid 12345) 12345s; run: log: (pid 1234) 67890s
 ```
 
 where
@@ -401,7 +401,7 @@ where
 For example:
 
 ``` bash
-$ down: actions: (pid 35546) 10s
+down: actions: (pid 35546) 10s
 ```
 
 By default, runit will restart services automatically when the services
@@ -464,7 +464,7 @@ specifying the name of the service in the command.
 This subcommand has the following syntax:
 
 ``` bash
-$ supermarket-ctl stop name_of_service
+supermarket-ctl stop name_of_service
 ```
 
 where `name_of_service` represents the name of any service that is
@@ -472,13 +472,13 @@ listed after running the `service-list` subcommand. When a service is
 successfully stopped the output should be similar to:
 
 ``` bash
-$ ok: diwb: service_name: 0s, normally up
+ok: diwb: service_name: 0s, normally up
 ```
 
 For example:
 
 ``` bash
-$ supermarket-ctl stop
+supermarket-ctl stop
 ```
 
 will return something similar to:
@@ -500,7 +500,7 @@ specifying the name of the service in the command.
 This subcommand has the following syntax:
 
 ``` bash
-$ supermarket-ctl tail name_of_service
+supermarket-ctl tail name_of_service
 ```
 
 where `name_of_service` represents the name of any service that is
@@ -516,7 +516,7 @@ of the service in the command.
 This subcommand has the following syntax:
 
 ``` bash
-$ supermarket-ctl term name_of_service
+supermarket-ctl term name_of_service
 ```
 
 where `name_of_service` represents the name of any service that is

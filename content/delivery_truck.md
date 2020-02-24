@@ -145,13 +145,13 @@ following:
 1.  Create a branch:
 
     ``` bash
-    $ delivery checkout BRANCH_NAME
+    delivery checkout BRANCH_NAME
     ```
 
 2.  Generate a cookbook under `/cookbooks` in the project directory:
 
     ``` bash
-    $ chef generate cookbook PROJECT_NAME
+    chef generate cookbook PROJECT_NAME
     ```
 
 3.  Review the `metadata.rb` file. It should be similar to:
@@ -187,19 +187,19 @@ To submit changes to Chef Automate, use commands similar to:
 1.  Update to match the working tree:
 
     ``` bash
-    $ git add -A
+    git add -A
     ```
 
 2.  Commit the project:
 
     ``` bash
-    $ git commit -m "Let us deploy our app."
+    git commit -m "Let us deploy our app."
     ```
 
 3.  Review the changes in Chef Automate:
 
     ``` bash
-    $ delivery review
+    delivery review
     ```
 
     This command will open the Chef Automate web UI, and then run unit,
@@ -222,13 +222,13 @@ stage of the Chef Automate pipeline:
 1.  Check out the project from Chef Automate:
 
     ``` bash
-    $ delivery checkout master
+    delivery checkout master
     ```
 
 2.  Create a branch:
 
     ``` bash
-    $ delivery checkout BRANCH_NAME
+    delivery checkout BRANCH_NAME
     ```
 
 3.  Edit the `version` in the `metadata.rb` file:
@@ -242,19 +242,19 @@ stage of the Chef Automate pipeline:
 4.  Update to match the working tree:
 
     ``` bash
-    $ git add -A
+    git add -A
     ```
 
 5.  Add a commit message:
 
     ``` bash
-    $ git commit -m "Updated our project's code to version 0.2.0."
+    git commit -m "Updated our project's code to version 0.2.0."
     ```
 
 6.  Review the changes in Chef Automate:
 
     ``` bash
-    $ delivery review
+    delivery review
     ```
 
 Multiple Cookbooks

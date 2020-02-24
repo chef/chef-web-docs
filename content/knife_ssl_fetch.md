@@ -22,7 +22,7 @@ Syntax
 This subcommand has the following syntax:
 
 ``` bash
-$ knife ssl fetch (options)
+knife ssl fetch (options)
 ```
 
 Options
@@ -44,7 +44,7 @@ The following examples show how to use this knife subcommand:
 **Fetch the SSL certificates used by Knife from the Chef server**
 
 ``` bash
-$ knife ssl fetch
+knife ssl fetch
 ```
 
 The response is similar to:
@@ -63,7 +63,7 @@ Adding certificate for DigiCert Secure Server CA in /Users/grantmc/chef-repo/.ch
 **Fetch SSL certificates from a URL or URI**
 
 ``` bash
-$ knife ssl fetch https://www.example.com
+knife ssl fetch https://www.example.com
 ```
 
 **Verify Checksums**

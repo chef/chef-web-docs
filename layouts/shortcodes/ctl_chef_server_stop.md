@@ -5,7 +5,7 @@ specifying the name of the service in the command.
 This subcommand has the following syntax:
 
 ``` bash
-$ chef-server-ctl stop SERVICE_NAME
+chef-server-ctl stop SERVICE_NAME
 ```
 
 where `SERVICE_NAME` represents the name of any service that is listed
@@ -13,13 +13,13 @@ after running the `service-list` subcommand. When a service is
 successfully stopped the output should be similar to:
 
 ``` bash
-$ ok: down: service_name: 0s, normally up
+ok: down: service_name: 0s, normally up
 ```
 
 For example:
 
 ``` bash
-$ chef-server-ctl stop
+chef-server-ctl stop
 ```
 
 will return something similar to:

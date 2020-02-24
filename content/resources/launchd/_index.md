@@ -7,7 +7,7 @@ aliases:
 menu:
   docs:
     title: launchd
-    identifier: chef_infra/cookbook_reference/resources/resource_launchd.md launchd
+    identifier: chef_infra/cookbook_reference/resources/launchd launchd
     parent: chef_infra/cookbook_reference/resources
     weight: 500
 resource_reference: true

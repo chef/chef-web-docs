@@ -186,7 +186,7 @@ Custom build-cookbook
 Delivery:
 
 ``` bash
-$ chef generate build-cookbook NAME [options]
+chef generate build-cookbook NAME [options]
 ```
 
 The following options are available with `chef generate build-cookbook`:

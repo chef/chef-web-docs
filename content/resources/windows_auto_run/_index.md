@@ -7,8 +7,7 @@ aliases:
 menu:
   docs:
     title: windows_auto_run
-    identifier: chef_infra/cookbook_reference/resources/resource_windows_auto_run.md
-      windows_auto_run
+    identifier: chef_infra/cookbook_reference/resources/windows_auto_run windows_auto_run
     parent: chef_infra/cookbook_reference/resources
     weight: 1090
 resource_reference: true

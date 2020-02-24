@@ -7,8 +7,7 @@ aliases:
 menu:
   docs:
     title: zypper_repository
-    identifier: chef_infra/cookbook_reference/resources/resource_zypper_repository.md
-      zypper_repository
+    identifier: chef_infra/cookbook_reference/resources/zypper_repository zypper_repository
     parent: chef_infra/cookbook_reference/resources
     weight: 1360
 resource_reference: true

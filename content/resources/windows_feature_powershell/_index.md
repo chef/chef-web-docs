@@ -7,7 +7,7 @@ aliases:
 menu:
   docs:
     title: windows_feature_powershell
-    identifier: chef_infra/cookbook_reference/resources/resource_windows_feature_powershell.md
+    identifier: chef_infra/cookbook_reference/resources/windows_feature_powershell
       windows_feature_powershell
     parent: chef_infra/cookbook_reference/resources
     weight: 1190

@@ -7,7 +7,7 @@ aliases:
 menu:
   docs:
     title: remote_file
-    identifier: chef_infra/cookbook_reference/resources/resource_remote_file.md remote_file
+    identifier: chef_infra/cookbook_reference/resources/remote_file remote_file
     parent: chef_infra/cookbook_reference/resources
     weight: 840
 resource_reference: true

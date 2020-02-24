@@ -35,7 +35,7 @@ Syntax
 This argument has the following syntax:
 
 ``` bash
-$ knife tag create NODE_NAME [TAG...]
+knife tag create NODE_NAME [TAG...]
 ```
 
 Options
@@ -53,7 +53,7 @@ The following examples show how to use this knife subcommand:
 To create tags named `seattle`, `portland`, and `vancouver`, enter:
 
 ``` bash
-$ knife tag create node seattle portland vancouver
+knife tag create node seattle portland vancouver
 ```
 
 delete
@@ -67,7 +67,7 @@ Syntax
 This argument has the following syntax:
 
 ``` bash
-$ knife tag delete NODE_NAME [TAG...]
+knife tag delete NODE_NAME [TAG...]
 ```
 
 Options
@@ -85,7 +85,7 @@ The following examples show how to use this knife subcommand:
 To delete tags named `denver` and `phoenix`, enter:
 
 ``` bash
-$ knife tag delete node denver phoenix
+knife tag delete node denver phoenix
 ```
 
 Type `Y` to confirm a deletion.
@@ -102,7 +102,7 @@ Syntax
 This argument has the following syntax:
 
 ``` bash
-$ knife tag list [NODE_NAME...]
+knife tag list [NODE_NAME...]
 ```
 
 Options
@@ -120,5 +120,5 @@ The following examples show how to use this knife subcommand:
 To view the tags for a node named `devops_prod1`, enter:
 
 ``` bash
-$ knife tag list devops_prod1
+knife tag list devops_prod1
 ```

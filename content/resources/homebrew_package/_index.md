@@ -7,8 +7,7 @@ aliases:
 menu:
   docs:
     title: homebrew_package
-    identifier: chef_infra/cookbook_reference/resources/resource_homebrew_package.md
-      homebrew_package
+    identifier: chef_infra/cookbook_reference/resources/homebrew_package homebrew_package
     parent: chef_infra/cookbook_reference/resources
     weight: 420
 resource_reference: true

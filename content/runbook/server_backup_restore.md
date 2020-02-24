@@ -57,7 +57,7 @@ restore
 **Examples**
 
 ``` bash
-$ chef-server-ctl restore /path/to/tar/archive.tar.gz
+chef-server-ctl restore /path/to/tar/archive.tar.gz
 ```
 
 Backup and restore a Chef Backend install

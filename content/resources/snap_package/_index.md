@@ -7,7 +7,7 @@ aliases:
 menu:
   docs:
     title: snap_package
-    identifier: chef_infra/cookbook_reference/resources/resource_snap_package.md snap_package
+    identifier: chef_infra/cookbook_reference/resources/snap_package snap_package
     parent: chef_infra/cookbook_reference/resources
     weight: 970
 resource_reference: true

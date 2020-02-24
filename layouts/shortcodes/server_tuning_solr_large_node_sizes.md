@@ -36,14 +36,14 @@ Use the `wc` command to get the byte count of a large node object file.
 For example:
 
 ``` bash
-$ wc -c NODE_NAME.json
+wc -c NODE_NAME.json
 ```
 
 and then ensure there is a buffer beyond that value. For example, verify
 the size of the largest node object file:
 
 ``` bash
-$ wc -c nodebsp2016.json
+wc -c nodebsp2016.json
 ```
 
 which returns `154516`. Update the `opscode_solr4['max_field_length']`
@@ -55,5 +55,5 @@ approximate size of the node data by running the following command on a
 node.
 
 ``` bash
-$ ohai | wc -c
+ohai | wc -c
 ```

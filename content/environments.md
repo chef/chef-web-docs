@@ -433,7 +433,7 @@ Use the `knife exec` subcommand to move nodes between environments, such
 as from a "dev" to a "production" environment. For example:
 
 ``` bash
-$ knife exec -E 'nodes.transform("chef_environment:dev") { |n| n.chef_environment("production") }'
+knife exec -E 'nodes.transform("chef_environment:dev") { |n| n.chef_environment("production") }'
 ```
 
 Search Environments

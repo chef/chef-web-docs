@@ -7,7 +7,7 @@ aliases:
 menu:
   docs:
     title: rhsm_errata
-    identifier: chef_infra/cookbook_reference/resources/resource_rhsm_errata.md rhsm_errata
+    identifier: chef_infra/cookbook_reference/resources/rhsm_errata rhsm_errata
     parent: chef_infra/cookbook_reference/resources
     weight: 860
 resource_reference: true

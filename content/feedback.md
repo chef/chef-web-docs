@@ -31,8 +31,11 @@ send feedback, choose any of the following four options:
     itself, consider using <https://github.com/chef/chef/issues> to
     raise the issue.
 -   GitHub pull request -- The documentation repository is on GitHub:
-    <https://github.com/chef/chef-web-docs>. A DCO sign-off is not
-    required to submit pull requests to this repo. If you have questions
+    <https://github.com/chef/chef-web-docs>. We require a DCO sign-off
+    to submit pull requests to this repo except for obvious fixes. See
+    our [Contributing
+    page](https://github.com/chef/chef/blob/master/CONTRIBUTING.md#developer-certification-of-origin-dco)
+    for more information about our DCO policy. If you have questions
     about the chef-docs repo, send an email to <docs@chef.io> and we're
     happy to assist.
 -   <https://discourse.chef.io> --- chef-docs follows the discussions at

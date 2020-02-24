@@ -1,7 +1,7 @@
 This command has the following syntax:
 
 ``` bash
-$ ohai OPTION
+ohai OPTION
 ```
 
 This tool has the following options:

@@ -144,8 +144,8 @@ Chef Automate
 
 Chef Automate provides a full suite of enterprise capabilities for node
 visibility and compliance. Chef Automate integrates with the open-source
-products Chef Infra, Chef InSpec and Chef Habitat. Chef Automate comes
-with comprehensive 24x7 support services for the entire platform,
+products Chef Infra Client, Chef InSpec and Chef Habitat. Chef Automate
+comes with comprehensive 24x7 support services for the entire platform,
 including open source components.
 
 Chef Automate gives you a full-stack continuous compliance and security,

@@ -19,6 +19,7 @@ aliases = ["/libraries.html"]
 Use a library to:
 
 -   Connect to a database
+-   Fetch secrets from a cloud provider
 -   Talk to an LDAP provider
 -   Do anything that can be done with Ruby
 
@@ -27,10 +28,7 @@ Syntax
 
 The syntax for a library varies because library files are created using
 Ruby and are designed to handle custom situations. See the Examples
-section below for some ideas. Also, the
-<https://github.com/chef-cookbooks/database> and
-<https://github.com/chef-cookbooks/chef-splunk> cookbooks contain more
-detailed and complex examples.
+section below for samples.
 
 Template Helper Modules
 =======================

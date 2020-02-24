@@ -7,8 +7,7 @@ aliases:
 menu:
   docs:
     title: windows_share
-    identifier: chef_infra/cookbook_reference/resources/resource_windows_share.md
-      windows_share
+    identifier: chef_infra/cookbook_reference/resources/windows_share windows_share
     parent: chef_infra/cookbook_reference/resources
     weight: 1280
 resource_reference: true

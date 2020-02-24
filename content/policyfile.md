@@ -178,7 +178,7 @@ The following knife commands used to set the policy group and policy
 name on the Chef Infra Server. For example:
 
 ``` bash
-$ knife node policy set test-node 'test-policy-group-name' 'test-policy-name'
+knife node policy set test-node 'test-policy-group-name' 'test-policy-name'
 ```
 
 Policyfile.rb

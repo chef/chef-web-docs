@@ -221,7 +221,7 @@ sub-attribute) is set. This method is available when running chef-shell
 in Chef Infra Client mode:
 
 ``` bash
-$ chef-shell -z
+chef-shell -z
 ```
 
 For example, the following attributes exist in a cookbook. Some are
@@ -244,7 +244,7 @@ To debug the location in which the value of `node[:test][:source]` is
 set, use chef-shell and run a command similar to:
 
 ``` none
-$ pp node.debug_value('test', 'source')
+pp node.debug_value('test', 'source')
 ```
 
 This will pretty-print return all of the attributes and sub-attributes

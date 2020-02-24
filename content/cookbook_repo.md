@@ -31,7 +31,7 @@ To create a cookbook (including all default components), run the
 following command:
 
 ``` bash
-$ chef generate cookbook COOKBOOK_NAME
+chef generate cookbook COOKBOOK_NAME
 ```
 
 where `COOKBOOK_NAME` is the name of the cookbook that will be created.
@@ -45,7 +45,7 @@ To download a cookbook when git is used for version source control, run
 the following command:
 
 ``` bash
-$ knife supermarket install COOKBOOK_NAME
+knife supermarket install COOKBOOK_NAME
 ```
 
 where `COOKBOOK_NAME` is the name of a cookbook on [Chef
@@ -72,7 +72,7 @@ To download a cookbook when git is not used for version source control,
 run the following command:
 
 ``` bash
-$ knife supermarket download COOKBOOK_NAME
+knife supermarket download COOKBOOK_NAME
 ```
 
 where `COOKBOOK_NAME` is the name of a cookbook on [Chef

@@ -124,7 +124,7 @@ Use the `knife exec` subcommand to add a job to the whitelist. For
 example:
 
 ``` bash
-$ knife exec -E 'nodes.transform("name:A_NODE_NAME") do |n|
+knife exec -E 'nodes.transform("name:A_NODE_NAME") do |n|
     n.set["push_jobs"]["whitelist"]["ntpdate"] = "ntpdate -u time"
   end'
 ```

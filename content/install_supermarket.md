@@ -93,7 +93,7 @@ To configure Chef Supermarket to use Chef Identity, do the following:
 3.  Reconfigure the Chef Infra Server.
 
     ``` bash
-    $ sudo chef-server-ctl reconfigure
+    sudo chef-server-ctl reconfigure
     ```
 
 4.  Retrieve Supermarket's OAuth 2.0 client credentials:
@@ -201,13 +201,13 @@ line interface:
 1.  Generate the cookbook:
 
     ``` bash
-    $ chef generate cookbook my_supermarket_wrapper
+    chef generate cookbook my_supermarket_wrapper
     ```
 
 2.  Change directories into that cookbook:
 
     ``` bash
-    $ cd my_supermarket_wrapper
+    cd my_supermarket_wrapper
     ```
 
 3.  Defines the wrapper cookbook's dependency on the
@@ -316,32 +316,32 @@ following:
 1.  Install Berkshelf:
 
     ``` bash
-    $ berks install
+    berks install
     ```
 
 2.  Change directories into `~/.berkshelf/cookbooks`:
 
     ``` bash
-    $ cd ~/.berkshelf/cookbooks
+    cd ~/.berkshelf/cookbooks
     ```
 
 3.  Upload all cookbooks to the Chef Infra Server:
 
     ``` bash
-    $ knife cookbook upload -a
+    knife cookbook upload -a
     ```
 
 4.  Change directories into the location in which the wrapper cookbook
     was created:
 
     ``` bash
-    $ cd path/to/wrapper/cookbook/
+    cd path/to/wrapper/cookbook/
     ```
 
 5.  Upload the wrapper cookbook to the Chef Infra Server:
 
     ``` bash
-    $ knife cookbook upload -a
+    knife cookbook upload -a
     ```
 
 Bootstrap Supermarket
@@ -352,7 +352,7 @@ example, to bootstrap a node running Ubuntu on Amazon Web Services
 (AWS), the command is similar to:
 
 ``` bash
-$ knife bootstrap ip_address -N supermarket-node -x ubuntu --sudo
+knife bootstrap ip_address -N supermarket-node -x ubuntu --sudo
 ```
 
 where
@@ -369,7 +369,7 @@ When the bootstrap operation is finished, do the following:
     recipe to the run-list:
 
     ``` bash
-    $ knife node edit supermarket-node
+    knife node edit supermarket-node
     ```
 
     where `supermarket-node` is the name of the node that was just
@@ -387,13 +387,13 @@ When the bootstrap operation is finished, do the following:
     node. For example, using SSH:
 
     ``` bash
-    $ ssh ubuntu@your-supermarket-node-public-dns
+    ssh ubuntu@your-supermarket-node-public-dns
     ```
 
 4.  After accessing the Chef Supermarket node, run Chef Infra Client:
 
     ``` bash
-    $ sudo chef-client
+    sudo chef-client
     ```
 
 Install Supermarket Directly (without a cookbook)

@@ -36,7 +36,7 @@ Syntax
 This argument has the following syntax:
 
 ``` bash
-$ knife environment compare [ENVIRONMENT_NAME...] (options)
+knife environment compare [ENVIRONMENT_NAME...] (options)
 ```
 
 Options
@@ -62,7 +62,7 @@ The following examples show how to use this knife subcommand:
 To compare cookbook versions for a single environment:
 
 ``` bash
-$ knife environment compare development
+knife environment compare development
 ```
 
 to return something similar to:
@@ -78,7 +78,7 @@ development
 To compare cookbook versions for multiple environments:
 
 ``` bash
-$ knife environment compare development staging
+knife environment compare development staging
 ```
 
 to return something similar to:
@@ -94,7 +94,7 @@ development    staging
 To compare all cookbook versions for all environments:
 
 ``` bash
-$ knife environment compare --all
+knife environment compare --all
 ```
 
 to return something similar to:
@@ -128,7 +128,7 @@ Syntax
 This argument has the following syntax:
 
 ``` bash
-$ knife environment create ENVIRONMENT_NAME -d --description ENVIRONMENT_DESCRIPTION
+knife environment create ENVIRONMENT_NAME -d --description ENVIRONMENT_DESCRIPTION
 ```
 
 Options
@@ -158,7 +158,7 @@ To create an environment named `dev` with a description of
 `The development environment.`:
 
 ``` bash
-$ knife environment create dev -d --description "The development environment."
+knife environment create dev -d --description "The development environment."
 ```
 
 delete
@@ -173,7 +173,7 @@ Syntax
 This argument has the following syntax:
 
 ``` bash
-$ knife environment delete ENVIRONMENT_NAME
+knife environment delete ENVIRONMENT_NAME
 ```
 
 Options
@@ -191,7 +191,7 @@ The following examples show how to use this knife subcommand:
 To delete an environment named `dev`, enter:
 
 ``` bash
-$ knife environment delete dev
+knife environment delete dev
 ```
 
 Type `Y` to confirm a deletion.
@@ -210,7 +210,7 @@ Syntax
 This argument has the following syntax:
 
 ``` bash
-$ knife environment edit ENVIRONMENT_NAME
+knife environment edit ENVIRONMENT_NAME
 ```
 
 Options
@@ -228,7 +228,7 @@ The following examples show how to use this knife subcommand:
 To edit an environment named `devops`, enter:
 
 ``` bash
-$ knife environment edit devops
+knife environment edit devops
 ```
 
 from file
@@ -243,7 +243,7 @@ Syntax
 This argument has the following syntax:
 
 ``` bash
-$ knife environment from file FILE (options)
+knife environment from file FILE (options)
 ```
 
 Options
@@ -271,7 +271,7 @@ The following examples show how to use this knife subcommand:
 To add an environment using data contained in a JSON file:
 
 ``` bash
-$ knife environment from file "path to JSON file"
+knife environment from file "path to JSON file"
 ```
 
 list
@@ -286,7 +286,7 @@ Syntax
 This argument has the following syntax:
 
 ``` bash
-$ knife environment list -w
+knife environment list -w
 ```
 
 Options
@@ -308,7 +308,7 @@ The following examples show how to use this knife subcommand:
 To view a list of environments:
 
 ``` bash
-$ knife environment list -w
+knife environment list -w
 ```
 
 show
@@ -323,7 +323,7 @@ Syntax
 This argument has the following syntax:
 
 ``` bash
-$ knife environment show ENVIRONMENT_NAME
+knife environment show ENVIRONMENT_NAME
 ```
 
 Options
@@ -345,7 +345,7 @@ The following examples show how to use this knife subcommand:
 To view information about the `dev` environment enter:
 
 ``` bash
-$ knife environment show dev
+knife environment show dev
 ```
 
 to return:
@@ -372,7 +372,7 @@ To view information in JSON format, use the `-F` common option as part
 of the command like this:
 
 ``` bash
-$ knife environment show devops -F json
+knife environment show devops -F json
 ```
 
 Other formats available include `text`, `yaml`, and `pp`.

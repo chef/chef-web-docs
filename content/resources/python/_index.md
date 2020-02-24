@@ -7,7 +7,7 @@ aliases:
 menu:
   docs:
     title: python
-    identifier: chef_infra/cookbook_reference/resources/resource_python.md python
+    identifier: chef_infra/cookbook_reference/resources/python python
     parent: chef_infra/cookbook_reference/resources
     weight: 790
 resource_reference: true

@@ -35,8 +35,8 @@ The default location is: `/var/opt/supermarket/data/cookbook_versions`.
 For example, a cookbook backup command:
 
 ``` bash
-$ cd /var/opt/supermarket/data/
-$ tar cvzf ~/supermarket_cookbook_versions.tar.gz cookbook_versions
+cd /var/opt/supermarket/data/
+tar cvzf ~/supermarket_cookbook_versions.tar.gz cookbook_versions
 ```
 
 Database Backup
@@ -48,7 +48,7 @@ For example, a database export in a .dump format can be made with the
 following syntax:
 
 ``` bash
-$ /opt/supermarket/embedded/bin/pg_dump --host localhost --username supermarket --dbname supermarket --port 15432 --format c --blobs --verbose --file ~/supermarket_database_backup.dump
+/opt/supermarket/embedded/bin/pg_dump --host localhost --username supermarket --dbname supermarket --port 15432 --format c --blobs --verbose --file ~/supermarket_database_backup.dump
 ```
 
 where, in a typical installation:
@@ -105,8 +105,8 @@ by the Supermarket user.**
 For example, to restore your cookbook files, run:
 
 ``` bash
-$ cd /var/opt/supermarket/data/
-$ tar xvzf /supermarket_cookbook_versions.tar.gz
+cd /var/opt/supermarket/data/
+tar xvzf /supermarket_cookbook_versions.tar.gz
 ```
 
 Database Restore
@@ -123,5 +123,5 @@ version of Supermarket that was in use when they were created.
 For example, to restore a backup in a .dump format, run:
 
 ``` bash
-$ pg_restore --host localhost --port 15432 --clean --no-acl --no-owner --dbname supermarket_production --verbose supermarket_database_backup.dump
+pg_restore --host localhost --port 15432 --clean --no-acl --no-owner --dbname supermarket_production --verbose supermarket_database_backup.dump
 ```

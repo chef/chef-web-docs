@@ -63,7 +63,7 @@ Chef Infra has the following major components:
 <p><img src="/images/icon_cookbook.svg" class="align-center" width="100" alt="image" /></p>
 <p><img src="/images/icon_ruby.svg" class="align-center" width="100" alt="image" /></p></td>
 <td><p>One (or more) workstations are configured to allow users to author, test, and maintain cookbooks.</p>
-<p>A workstation is your local computer that runs your development tools. The Chef Workstation development tools includes Chef Infra, Chef InSpec, Test Kitchen, ChefSpec, Cookstyle, and other tools necessary for developing and testing your infrastructure with Chef products.</p>
+<p>Workstation systems run the Chef Workstation package which includes tools such as Chef Infra Client, Chef InSpec, Test Kitchen, ChefSpec, Cookstyle, and other tools necessary for developing and testing your infrastructure with Chef products.</p>
 <p>Cookbooks are uploaded to the Chef Infra Server from these workstations. Some cookbooks are custom to the organization and others are based on community cookbooks available from the Chef Supermarket.</p>
 <p>Ruby is the programming language that is the authoring syntax for cookbooks. Most recipes are simple patterns (blocks that define properties and values that map to specific configuration items like packages, files, services, templates, and users. The full power of Ruby is available for when you need a programming language.</p></td>
 </tr>

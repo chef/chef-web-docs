@@ -7,7 +7,7 @@ aliases:
 menu:
   docs:
     title: homebrew_tap
-    identifier: chef_infra/cookbook_reference/resources/resource_homebrew_tap.md homebrew_tap
+    identifier: chef_infra/cookbook_reference/resources/homebrew_tap homebrew_tap
     parent: chef_infra/cookbook_reference/resources
     weight: 430
 resource_reference: true

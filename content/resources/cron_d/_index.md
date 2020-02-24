@@ -7,7 +7,7 @@ aliases:
 menu:
   docs:
     title: cron_d
-    identifier: chef_infra/cookbook_reference/resources/resource_cron_d.md cron_d
+    identifier: chef_infra/cookbook_reference/resources/cron_d cron_d
     parent: chef_infra/cookbook_reference/resources
     weight: 260
 resource_reference: true

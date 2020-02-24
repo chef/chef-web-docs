@@ -24,7 +24,7 @@ Syntax
 This subcommand has the following syntax:
 
 ``` bash
-$ knife search INDEX SEARCH_QUERY
+knife search INDEX SEARCH_QUERY
 ```
 
 where `INDEX` is one of `client`, `environment`, `node`, `role`, or the
@@ -34,7 +34,7 @@ query that will be executed.
 `INDEX` is implied if omitted, and will default to `node`. For example:
 
 ``` bash
-$ knife search '*:*' -i
+knife search '*:*' -i
 ```
 
 will return something similar to:
@@ -43,19 +43,19 @@ will return something similar to:
 8 items found
 
 centos-62-dev
-opensuse-1203
-ubuntu-1304-dev
-ubuntu-1304-orgtest
-ubuntu-1204-ohai-test
-ubuntu-1304-ifcfg-test
+opensuse-15
+ubuntu-1604-dev
+ubuntu-1804-orgtest
+ubuntu-1804-ohai-test
+ubuntu-1804-ifcfg-test
 ohai-test
-win2k8-dev
+win2k19-dev
 ```
 
 and is the same search as:
 
 ``` bash
-$ knife search node '*:*' -i
+knife search node '*:*' -i
 ```
 
 If the `SEARCH_QUERY` does not contain a colon character (`:`), then the
@@ -64,13 +64,13 @@ default query pattern is
 which means the following two search queries are effectively the same:
 
 ``` bash
-$ knife search ubuntu
+knife search ubuntu
 ```
 
 or:
 
 ``` bash
-$ knife search node "tags:*ubuntu* OR roles:*ubuntu* OR fqdn:*ubuntu* (etc.)"
+knife search node "tags:*ubuntu* OR roles:*ubuntu* OR fqdn:*ubuntu* (etc.)"
 ```
 
 Query Syntax

@@ -41,7 +41,7 @@ Syntax
 This subcommand has the following syntax:
 
 ``` bash
-$ knife bootstrap FQDN_or_IP_ADDRESS (options)
+knife bootstrap FQDN_or_IP_ADDRESS (options)
 ```
 
 Options
@@ -441,7 +441,7 @@ You can use the `--bootstrap-template` option with the `knife bootstrap`
 subcommand to specify the name of your bootstrap template file:
 
 ``` bash
-$ knife bootstrap 123.456.7.8 -x username -P password --sudo --bootstrap-template "template"
+knife bootstrap 123.456.7.8 -x username -P password --sudo --bootstrap-template "template"
 ```
 
 Alternatively, you can use the `knife[:bootstrap_template]` option
@@ -461,7 +461,7 @@ The following examples show how to use this knife subcommand:
 **Bootstrap a node**
 
 ``` bash
-$ knife bootstrap 192.0.2.0 -P vanilla -x root -r 'recipe[apt],recipe[xfs],recipe[vim]'
+knife bootstrap 192.0.2.0 -P vanilla -x root -r 'recipe[apt],recipe[xfs],recipe[vim]'
 ```
 
 which shows something similar to:
@@ -474,7 +474,7 @@ which shows something similar to:
 Use `knife node show` to verify:
 
 ``` bash
-$ knife node show debian-buster.int.domain.org
+knife node show debian-buster.int.domain.org
 ```
 
 which returns something similar to:
@@ -494,29 +494,29 @@ Tags:
 **Use an SSH password**
 
 ``` bash
-$ knife bootstrap 192.0.2.0 -x username -P PASSWORD --sudo
+knife bootstrap 192.0.2.0 -x username -P PASSWORD --sudo
 ```
 
 **Use a file that contains a private key**
 
 ``` bash
-$ knife bootstrap 192.0.2.0 -x username -i ~/.ssh/id_rsa --sudo
+knife bootstrap 192.0.2.0 -x username -i ~/.ssh/id_rsa --sudo
 ```
 
 **Specify options when using cURL**
 
 ``` bash
-$ knife bootstrap --bootstrap-curl-options "--proxy http://myproxy.com:8080"
+knife bootstrap --bootstrap-curl-options "--proxy http://myproxy.com:8080"
 ```
 
 **Specify options when using GNU Wget**
 
 ``` bash
-$ knife bootstrap --bootstrap-wget-options "-e use_proxy=yes -e http://myproxy.com:8080"
+knife bootstrap --bootstrap-wget-options "-e use_proxy=yes -e http://myproxy.com:8080"
 ```
 
 **Specify a custom installation command sequence**
 
 ``` bash
-$ knife bootstrap --bootstrap-install-command "curl -l http://mycustomserver.com/custom_install_chef_script.sh | sudo bash -s --"
+knife bootstrap --bootstrap-install-command "curl -l http://mycustomserver.com/custom_install_chef_script.sh | sudo bash -s --"
 ```

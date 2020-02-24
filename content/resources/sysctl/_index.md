@@ -7,7 +7,7 @@ aliases:
 menu:
   docs:
     title: sysctl
-    identifier: chef_infra/cookbook_reference/resources/resource_sysctl.md sysctl
+    identifier: chef_infra/cookbook_reference/resources/sysctl sysctl
     parent: chef_infra/cookbook_reference/resources
     weight: 1030
 resource_reference: true

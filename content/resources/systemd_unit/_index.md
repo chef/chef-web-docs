@@ -7,7 +7,7 @@ aliases:
 menu:
   docs:
     title: systemd_unit
-    identifier: chef_infra/cookbook_reference/resources/resource_systemd_unit.md systemd_unit
+    identifier: chef_infra/cookbook_reference/resources/systemd_unit systemd_unit
     parent: chef_infra/cookbook_reference/resources
     weight: 1040
 resource_reference: true

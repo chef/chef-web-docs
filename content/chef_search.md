@@ -265,7 +265,7 @@ To search a top-level run-list for a role named `load_balancer` use the
 in a recipe. For example:
 
 ``` bash
-$ knife search node role:load_balancer
+knife search node role:load_balancer
 ```
 
 and from within a recipe:
@@ -279,7 +279,7 @@ To search an expanded run-list for all nodes with the role
 or the `search` method in a recipe. For example:
 
 ``` bash
-$ knife search node roles:load_balancer
+knife search node roles:load_balancer
 ```
 
 and from within a recipe:

@@ -12,7 +12,7 @@ create a directory for each organization you belong to and run the
 `delivery setup` command from that directory.
 
 ``` bash
-$ delivery setup --server=DELIVERY_SERVER_IP_ADDR --ent=ENTERPRISE --org=ORGANIZATION --user=USERNAME
+delivery setup --server=DELIVERY_SERVER_IP_ADDR --ent=ENTERPRISE --org=ORGANIZATION --user=USERNAME
 ```
 
 The following settings may be added to the `.delivery/cli.toml` file:

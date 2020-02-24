@@ -35,7 +35,7 @@ Syntax
 This argument has the following syntax:
 
 ``` bash
-$ knife client bulk delete REGEX
+knife client bulk delete REGEX
 ```
 
 Options
@@ -72,7 +72,7 @@ Syntax
 This argument has the following syntax:
 
 ``` bash
-$ knife client create CLIENT_NAME (options)
+knife client create CLIENT_NAME (options)
 ```
 
 Options
@@ -136,7 +136,7 @@ Client"---with the name "exampleorg" and save its private key to a file,
 enter:
 
 ``` bash
-$ knife client create exampleorg -a -f "/etc/chef/client.pem"
+knife client create exampleorg -a -f "/etc/chef/client.pem"
 ```
 
 delete
@@ -152,7 +152,7 @@ Syntax
 This argument has the following syntax:
 
 ``` bash
-$ knife client delete CLIENT_NAME
+knife client delete CLIENT_NAME
 ```
 
 Options
@@ -174,7 +174,7 @@ The following examples show how to use this knife subcommand:
 To delete a client with the name "client_foo", enter:
 
 ``` bash
-$ knife client delete client_foo
+knife client delete client_foo
 ```
 
 Type `Y` to confirm a deletion.
@@ -194,7 +194,7 @@ Syntax
 This argument has the following syntax:
 
 ``` bash
-$ knife client edit CLIENT_NAME
+knife client edit CLIENT_NAME
 ```
 
 Options
@@ -212,7 +212,7 @@ The following examples show how to use this knife subcommand:
 To edit a client with the name "exampleorg", enter:
 
 ``` bash
-$ knife client edit exampleorg
+knife client edit exampleorg
 ```
 
 key create
@@ -226,7 +226,7 @@ Syntax
 This argument has the following syntax:
 
 ``` bash
-$ knife client key create CLIENT_NAME (options)
+knife client key create CLIENT_NAME (options)
 ```
 
 Options
@@ -273,7 +273,7 @@ Syntax
 This argument has the following syntax:
 
 ``` bash
-$ knife client key delete CLIENT_NAME KEY_NAME
+knife client key delete CLIENT_NAME KEY_NAME
 ```
 
 Examples
@@ -292,7 +292,7 @@ Syntax
 This argument has the following syntax:
 
 ``` bash
-$ knife client key edit CLIENT_NAME KEY_NAME (options)
+knife client key edit CLIENT_NAME KEY_NAME (options)
 ```
 
 Options
@@ -346,7 +346,7 @@ Syntax
 This argument has the following syntax:
 
 ``` bash
-$ knife client key list CLIENT_NAME (options)
+knife client key list CLIENT_NAME (options)
 ```
 
 Options
@@ -382,7 +382,7 @@ Syntax
 This argument has the following syntax:
 
 ``` bash
-$ knife client key show CLIENT_NAME KEY_NAME
+knife client key show CLIENT_NAME KEY_NAME
 ```
 
 Examples
@@ -401,7 +401,7 @@ Syntax
 This argument has the following syntax:
 
 ``` bash
-$ knife client list (options)
+knife client list (options)
 ```
 
 Options
@@ -423,7 +423,7 @@ The following examples show how to use this knife subcommand:
 To verify the API client list for the Chef Infra Server, enter:
 
 ``` bash
-$ knife client list
+knife client list
 ```
 
 to return something similar to:
@@ -439,7 +439,7 @@ correctly, try getting a list of clients using `-u` and `-k` options to
 specify its name and private key:
 
 ``` bash
-$ knife client list -u ORGNAME -k .chef/ORGNAME.pem
+knife client list -u ORGNAME -k .chef/ORGNAME.pem
 ```
 
 reregister
@@ -462,7 +462,7 @@ Syntax
 This argument has the following syntax:
 
 ``` bash
-$ knife client reregister CLIENT_NAME (options)
+knife client reregister CLIENT_NAME (options)
 ```
 
 Options
@@ -491,7 +491,7 @@ To re-register the RSA key pair for a client named "testclient" and save
 it to a file named "rsa_key", enter:
 
 ``` bash
-$ knife client reregister testclient -f rsa_key
+knife client reregister testclient -f rsa_key
 ```
 
 show
@@ -505,7 +505,7 @@ Syntax
 This argument has the following syntax:
 
 ``` bash
-$ knife client show CLIENT_NAME (options)
+knife client show CLIENT_NAME (options)
 ```
 
 Options
@@ -527,7 +527,7 @@ The following examples show how to use this knife subcommand:
 To view a client named "testclient", enter:
 
 ``` bash
-$ knife client show testclient
+knife client show testclient
 ```
 
 to return something like:
@@ -544,7 +544,7 @@ To view information in JSON format, use the `-F` common option as part
 of the command like this:
 
 ``` bash
-$ knife client show devops -F json
+knife client show devops -F json
 ```
 
 Other formats available include `text`, `yaml`, and `pp`.

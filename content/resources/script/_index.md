@@ -7,7 +7,7 @@ aliases:
 menu:
   docs:
     title: script
-    identifier: chef_infra/cookbook_reference/resources/resource_script.md script
+    identifier: chef_infra/cookbook_reference/resources/script script
     parent: chef_infra/cookbook_reference/resources
     weight: 940
 resource_reference: true

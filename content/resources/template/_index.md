@@ -7,7 +7,7 @@ aliases:
 menu:
   docs:
     title: template
-    identifier: chef_infra/cookbook_reference/resources/resource_template.md template
+    identifier: chef_infra/cookbook_reference/resources/template template
     parent: chef_infra/cookbook_reference/resources
     weight: 1050
 resource_reference: true

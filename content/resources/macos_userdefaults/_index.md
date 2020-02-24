@@ -7,8 +7,7 @@ aliases:
 menu:
   docs:
     title: macos_userdefaults
-    identifier: chef_infra/cookbook_reference/resources/resource_macos_userdefaults.md
-      macos_userdefaults
+    identifier: chef_infra/cookbook_reference/resources/macos_userdefaults macos_userdefaults
     parent: chef_infra/cookbook_reference/resources
     weight: 540
 resource_reference: true

@@ -29,13 +29,13 @@ that are generated. To view all the logs being generated on the Chef
 Infra Server, enter the following command:
 
 ``` bash
-$ chef-server-ctl tail
+chef-server-ctl tail
 ```
 
 To view logs for a specific service:
 
 ``` bash
-$ chef-server-ctl tail SERVICENAME
+chef-server-ctl tail SERVICENAME
 ```
 
 where `SERVICENAME` should be replaced with name of the service for
@@ -44,7 +44,7 @@ which log files will be viewed.
 Another way to view log files is to use the system utility tail:
 
 ``` bash
-$ tail -50f /var/log/chef-server/opscode-chef/current
+tail -50f /var/log/chef-server/opscode-chef/current
 ```
 
 tail Log Files
@@ -56,7 +56,7 @@ Another common approach to tailing the log files for a service is to use
 the system utility `tail`. For example:
 
 ``` bash
-$ tail -50f /var/log/opscode/opscode-chef/current
+tail -50f /var/log/opscode/opscode-chef/current
 ```
 
 Supervisor
@@ -125,7 +125,7 @@ rotated quickly, therefore it is generally best to sort them by date,
 and then find the most recently updated log file:
 
 ``` bash
-$ ls -lrt /var/log/opscode/opscode-erchef/erchef.log.*
+ls -lrt /var/log/opscode/opscode-erchef/erchef.log.*
 ```
 
 The following is an example log entry:

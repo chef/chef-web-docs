@@ -5,7 +5,7 @@ removed.
 This subcommand has the following syntax:
 
 ``` bash
-$ chef-server-ctl remove-server-admin-permissions USER_NAME
+chef-server-ctl remove-server-admin-permissions USER_NAME
 ```
 
 where `USER_NAME` is the user to remove from the list of server
@@ -14,7 +14,7 @@ administrators.
 For example:
 
 ``` bash
-$ chef-server-ctl remove-server-admin-permissions bob
+chef-server-ctl remove-server-admin-permissions bob
 ```
 
 returns:

@@ -7,7 +7,7 @@ aliases:
 menu:
   docs:
     title: mdadm
-    identifier: chef_infra/cookbook_reference/resources/resource_mdadm.md mdadm
+    identifier: chef_infra/cookbook_reference/resources/mdadm mdadm
     parent: chef_infra/cookbook_reference/resources
     weight: 560
 resource_reference: true
@@ -151,7 +151,7 @@ examples_list:
 
       ``` bash
 
-      $ mdadm --create /dev/md0 --level=0 --raid-devices=10 /dev/s01.../dev/s10
+      mdadm --create /dev/md0 --level=0 --raid-devices=10 /dev/s01.../dev/s10
 
       ```
 

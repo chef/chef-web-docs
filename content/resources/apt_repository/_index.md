@@ -7,8 +7,7 @@ aliases:
 menu:
   docs:
     title: apt_repository
-    identifier: chef_infra/cookbook_reference/resources/resource_apt_repository.md
-      apt_repository
+    identifier: chef_infra/cookbook_reference/resources/apt_repository apt_repository
     parent: chef_infra/cookbook_reference/resources
     weight: 80
 resource_reference: true

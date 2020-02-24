@@ -28,5 +28,5 @@ config.log_level = :debug
 Save the file, and then restart the Ruby on Rails service:
 
 ``` bash
-$ supermarket-ctl restart rails
+supermarket-ctl restart rails
 ```

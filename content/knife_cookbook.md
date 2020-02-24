@@ -37,7 +37,7 @@ Syntax
 This argument has the following syntax:
 
 ``` bash
-$ knife cookbook bulk delete REGEX (options)
+knife cookbook bulk delete REGEX (options)
 ```
 
 Options
@@ -70,7 +70,7 @@ Use a regular expression to define the pattern used to bulk delete
 cookbooks:
 
 ``` bash
-$ knife cookbook bulk delete "^[0-9]{3}$" -p
+knife cookbook bulk delete "^[0-9]{3}$" -p
 ```
 
 create
@@ -95,7 +95,7 @@ Syntax
 This argument has the following syntax:
 
 ``` bash
-$ knife cookbook create COOKBOOK_NAME (options)
+knife cookbook create COOKBOOK_NAME (options)
 ```
 
 Options
@@ -155,7 +155,7 @@ To create a cookbook named "my_cookbook" with copyright, email,
 license, and readme format options specified, enter:
 
 ``` bash
-$ knife cookbook create my_cookbook -C "My Name" -m "my@email.com" -I apachev2 -r md
+knife cookbook create my_cookbook -C "My Name" -m "my@email.com" -I apachev2 -r md
 ```
 
 to return something like:
@@ -178,7 +178,7 @@ Syntax
 This argument has the following syntax:
 
 ``` bash
-$ knife cookbook delete COOKBOOK_NAME [COOKBOOK_VERSION] (options)
+knife cookbook delete COOKBOOK_NAME [COOKBOOK_VERSION] (options)
 ```
 
 Options
@@ -219,13 +219,13 @@ The following examples show how to use this knife subcommand:
 **Delete a cookbook**
 
 ``` bash
-$ knife cookbook delete cookbook_name version
+knife cookbook delete cookbook_name version
 ```
 
 For example:
 
 ``` bash
-$ knife cookbook delete smartmon 0.8
+knife cookbook delete smartmon 0.8
 ```
 
 Type `Y` to confirm a deletion.
@@ -242,7 +242,7 @@ Syntax
 This argument has the following syntax:
 
 ``` bash
-$ knife cookbook download COOKBOOK_NAME [COOKBOOK_VERSION] (options)
+knife cookbook download COOKBOOK_NAME [COOKBOOK_VERSION] (options)
 ```
 
 Options
@@ -278,7 +278,7 @@ The following examples show how to use this knife subcommand:
 To download a cookbook named `smartmon`, enter:
 
 ``` bash
-$ knife cookbook download smartmon
+knife cookbook download smartmon
 ```
 
 list
@@ -294,7 +294,7 @@ Syntax
 This argument has the following syntax:
 
 ``` bash
-$ knife cookbook list (options)
+knife cookbook list (options)
 ```
 
 Options
@@ -326,7 +326,7 @@ The following examples show how to use this knife subcommand:
 To view a list of cookbooks:
 
 ``` bash
-$ knife cookbook list
+knife cookbook list
 ```
 
 metadata
@@ -341,7 +341,7 @@ Syntax
 This argument has the following syntax:
 
 ``` bash
-$ knife cookbook metadata (options)
+knife cookbook metadata (options)
 ```
 
 Options
@@ -372,7 +372,7 @@ The following examples show how to use this knife subcommand:
 **Generate metadata**
 
 ``` bash
-$ knife cookbook metadata -a
+knife cookbook metadata -a
 ```
 
 metadata from file
@@ -387,7 +387,7 @@ Syntax
 This argument has the following syntax:
 
 ``` bash
-$ knife cookbook metadata from file FILE
+knife cookbook metadata from file FILE
 ```
 
 Options
@@ -403,7 +403,7 @@ The following examples show how to use this knife subcommand:
 **View metadata**
 
 ``` bash
-$ knife cookbook metadata from file /path/to/file
+knife cookbook metadata from file /path/to/file
 ```
 
 show
@@ -420,7 +420,7 @@ Syntax
 This argument has the following syntax:
 
 ``` bash
-$ knife cookbook show COOKBOOK_NAME [COOKBOOK_VERSION] [PART...] [FILE_NAME] (options)
+knife cookbook show COOKBOOK_NAME [COOKBOOK_VERSION] [PART...] [FILE_NAME] (options)
 ```
 
 Options
@@ -478,7 +478,7 @@ To get the list of available versions of a cookbook named
 `getting-started`, enter:
 
 ``` bash
-$ knife cookbook show getting-started
+knife cookbook show getting-started
 ```
 
 to return something like:
@@ -493,7 +493,7 @@ To show a list of data about a cookbook using the name of the cookbook
 and the version, enter:
 
 ``` bash
-$ knife cookbook show getting-started 0.3.0
+knife cookbook show getting-started 0.3.0
 ```
 
 to return something like:
@@ -519,7 +519,7 @@ libraries:      []
 To only view data about templates, enter:
 
 ``` bash
-$ knife cookbook show getting-started 0.3.0 templates
+knife cookbook show getting-started 0.3.0 templates
 ```
 
 to return something like:
@@ -538,7 +538,7 @@ To view information in JSON format, use the `-F` common option as part
 of the command like this:
 
 ``` bash
-$ knife cookbook show devops -F json
+knife cookbook show devops -F json
 ```
 
 Other formats available include `text`, `yaml`, and `pp`.
@@ -565,7 +565,7 @@ Syntax
 This argument has the following syntax:
 
 ``` bash
-$ knife cookbook test COOKBOOK_NAME (options)
+knife cookbook test COOKBOOK_NAME (options)
 ```
 
 Options
@@ -596,7 +596,7 @@ The following examples show how to use this knife subcommand:
 **Test a cookbook**
 
 ``` bash
-$ knife cookbook test cookbook_name
+knife cookbook test cookbook_name
 ```
 
 upload
@@ -631,7 +631,7 @@ Syntax
 This argument has the following syntax:
 
 ``` bash
-$ knife cookbook upload [COOKBOOK_NAME...] (options)
+knife cookbook upload [COOKBOOK_NAME...] (options)
 ```
 
 Options
@@ -685,7 +685,7 @@ The following examples show how to use this knife subcommand:
 **Upload a cookbook**
 
 ``` bash
-$ knife cookbook upload cookbook_name
+knife cookbook upload cookbook_name
 ```
 
 **Freeze a cookbook**
@@ -694,7 +694,7 @@ To upload a cookbook, and then prevent other users from being able to
 make changes to it, enter:
 
 ``` bash
-$ knife cookbook upload redis --freeze
+knife cookbook upload redis --freeze
 ```
 
 to return something like:

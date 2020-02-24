@@ -7,8 +7,7 @@ aliases:
 menu:
   docs:
     title: powershell_script
-    identifier: chef_infra/cookbook_reference/resources/resource_powershell_script.md
-      powershell_script
+    identifier: chef_infra/cookbook_reference/resources/powershell_script powershell_script
     parent: chef_infra/cookbook_reference/resources
     weight: 780
 resource_reference: true

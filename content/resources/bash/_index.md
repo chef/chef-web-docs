@@ -7,7 +7,7 @@ aliases:
 menu:
   docs:
     title: bash
-    identifier: chef_infra/cookbook_reference/resources/resource_bash.md bash
+    identifier: chef_infra/cookbook_reference/resources/bash bash
     parent: chef_infra/cookbook_reference/resources
     weight: 110
 resource_reference: true

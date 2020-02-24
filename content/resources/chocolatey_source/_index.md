@@ -7,8 +7,7 @@ aliases:
 menu:
   docs:
     title: chocolatey_source
-    identifier: chef_infra/cookbook_reference/resources/resource_chocolatey_source.md
-      chocolatey_source
+    identifier: chef_infra/cookbook_reference/resources/chocolatey_source chocolatey_source
     parent: chef_infra/cookbook_reference/resources
     weight: 230
 resource_reference: true

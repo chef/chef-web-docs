@@ -7,7 +7,7 @@ aliases:
 menu:
   docs:
     title: ruby
-    identifier: chef_infra/cookbook_reference/resources/resource_ruby.md ruby
+    identifier: chef_infra/cookbook_reference/resources/ruby ruby
     parent: chef_infra/cookbook_reference/resources
     weight: 920
 resource_reference: true

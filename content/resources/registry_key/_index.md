@@ -7,7 +7,7 @@ aliases:
 menu:
   docs:
     title: registry_key
-    identifier: chef_infra/cookbook_reference/resources/resource_registry_key.md registry_key
+    identifier: chef_infra/cookbook_reference/resources/registry_key registry_key
     parent: chef_infra/cookbook_reference/resources
     weight: 820
 resource_reference: true

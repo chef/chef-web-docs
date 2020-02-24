@@ -7,8 +7,7 @@ aliases:
 menu:
   docs:
     title: windows_dns_record
-    identifier: chef_infra/cookbook_reference/resources/resource_windows_dns_record.md
-      windows_dns_record
+    identifier: chef_infra/cookbook_reference/resources/windows_dns_record windows_dns_record
     parent: chef_infra/cookbook_reference/resources
     weight: 1140
 resource_reference: true

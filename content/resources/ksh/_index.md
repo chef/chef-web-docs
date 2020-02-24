@@ -7,7 +7,7 @@ aliases:
 menu:
   docs:
     title: ksh
-    identifier: chef_infra/cookbook_reference/resources/resource_ksh.md ksh
+    identifier: chef_infra/cookbook_reference/resources/ksh ksh
     parent: chef_infra/cookbook_reference/resources
     weight: 490
 resource_reference: true

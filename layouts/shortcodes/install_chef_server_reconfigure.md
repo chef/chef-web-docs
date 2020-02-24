@@ -5,5 +5,5 @@ Reconfigure the Chef Infra Server and the Chef management console (standalone an
 <!-- -->
 
 ``` bash
-$ chef-server-ctl reconfigure
+chef-server-ctl reconfigure
 ```

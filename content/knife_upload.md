@@ -22,7 +22,7 @@ Syntax
 This subcommand has the following syntax:
 
 ``` bash
-$ knife upload [PATTERN...] (options)
+knife upload [PATTERN...] (options)
 ```
 
 Options
@@ -103,13 +103,13 @@ The following examples show how to use this knife subcommand:
 Browse to the top level of the chef-repo and enter:
 
 ``` bash
-$ knife upload .
+knife upload .
 ```
 
 or from anywhere in the chef-repo, enter:
 
 ``` bash
-$ knife upload /
+knife upload /
 ```
 
 to upload all cookbooks and data bags, plus all roles and enviroments
@@ -121,13 +121,13 @@ data will not be uploaded.)
 Browse to the top level of the chef-repo and enter:
 
 ``` bash
-$ knife upload cookbooks
+knife upload cookbooks
 ```
 
 or from anywhere in the chef-repo, enter:
 
 ``` bash
-$ knife upload /cookbooks
+knife upload /cookbooks
 ```
 
 **Upload the /environments directory**
@@ -135,13 +135,13 @@ $ knife upload /cookbooks
 Browse to the top level of the chef-repo and enter:
 
 ``` bash
-$ knife upload environments
+knife upload environments
 ```
 
 or from anywhere in the chef-repo, enter:
 
 ``` bash
-$ knife upload /environments
+knife upload /environments
 ```
 
 to upload all enviroments that are stored as JSON data. (Environments
@@ -152,13 +152,13 @@ stored as Ruby data will not be uploaded.)
 Browse to the top level of the chef-repo and enter:
 
 ``` bash
-$ knife upload environments/production.json
+knife upload environments/production.json
 ```
 
 or from the `environments/` directory, enter:
 
 ``` bash
-$ knife upload production.json
+knife upload production.json
 ```
 
 **Upload the /roles directory**
@@ -166,13 +166,13 @@ $ knife upload production.json
 Browse to the top level of the chef-repo and enter:
 
 ``` bash
-$ knife upload roles
+knife upload roles
 ```
 
 or from anywhere in the chef-repo, enter:
 
 ``` bash
-$ knife upload /roles
+knife upload /roles
 ```
 
 to upload all roles that are stored as JSON data. (Roles stored as Ruby
@@ -183,11 +183,11 @@ data will not be uploaded.)
 Browse to the top level of the chef-repo and enter:
 
 ``` bash
-$ knife upload cookbooks/apache\* roles/webserver.json
+knife upload cookbooks/apache\* roles/webserver.json
 ```
 
 **Use output of knife deps to pass command to knife upload**
 
 ``` bash
-$ knife upload `knife deps nodes/*.json`
+knife upload `knife deps nodes/*.json`
 ```

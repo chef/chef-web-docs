@@ -722,7 +722,7 @@ This command lists all VPCs in your environment including the ID, which
 you need when provisioning new systems into a specific VPC.
 
 ``` none
-$ knife ec2 vpc list
+knife ec2 vpc list
 ID            State      CIDR Block     Instance Tenancy  DHCP Options ID  Default VPC?
 vpc-b1bc8d9d  available  10.0.0.0/16    default           dopt-1d78412a    No
 vpc-daafd931  available  172.0.0.0/16   default           dopt-1d78412a    Yes
@@ -734,7 +734,7 @@ This command lists all ENIs in your environment including the ID, which
 you need when adding the ENI to a newly provisioned instance.
 
 ``` none
-$ knife ec2 eni list
+knife ec2 eni list
 ID                     Status  AZ          Public IP       Private IPs    IPv6 IPs  Subnet ID        VPC ID
 eni-0123f25ae7805b651  in-use  us-west-2a  63.192.209.236  10.0.0.204               subnet-4ef3b123  vpc-b1bc8d9d
 eni-2451c913           in-use  us-west-2a  137.150.209.123 10.0.0.245               subnet-4ef3b123  vpc-b1bc8d9d
@@ -759,7 +759,7 @@ This command lists all subnets in your environment including the ID,
 which you need when placing a newly provisioned instance in a subnet.
 
 ``` none
-$ knife ec2 subnet list
+knife ec2 subnet list
 ID               State      CIDR Block      AZ          Available IPs  AZ Default?  Maps Public IP?  VPC ID
 subnet-bd2333a9  available  172.31.0.0/20   us-west-2b  4091           Yes          Yes              vpc-b1bc8d9d
 subnet-ba1135c9  available  172.31.16.0/20  us-west-2a  4091           Yes          Yes              vpc-b1bc8d9d
