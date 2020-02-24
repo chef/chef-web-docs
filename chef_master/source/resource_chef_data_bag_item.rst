@@ -3,17 +3,6 @@ chef_data_bag_item
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_chef_data_bag_item.rst>`__
 
-.. meta::
-    :robots: noindex
-
-.. warning:: .. tag EOL_provisioning
-
-             This functionality was available with Chef Provisioning and was packaged in the ChefDK.
-
-             Chef Provisioning was officially end-of-life on August 31, 2019 and is no longer included with ChefDK. The Chef Provisioning source code and drivers have been moved into the chef-boneyard organization. If you are a current user of Chef Provisioning, please contact your Chef Customer Success Manager or Account Representative to review your options.
-
-             .. end_tag
-
 .. tag data_bag_item
 
 A data bag is a container of related data bag items, where each individual data bag item is a JSON file. knife can load a data bag item by specifying the name of the data bag to which the item belongs and then the filename of the data bag item. The only structural requirement of a data bag item is that it must have an ``id``:

@@ -38,11 +38,14 @@ Community
 
 Packages and Platform Support
 -----------------------------------------------------
-`Licensing </chef_license.html>`__ |
 `Packages </packages.html>`__ |
 `Platforms </platforms.html>`__ |
 `Supported Versions </versions.html>`__ |
 `Omnitruck API </api_omnitruck.html>`__
+
+**Licensing**:
+`About Licensing </chef_license.html>`__ |
+`Accepting License </chef_license_accept.html>`__
 
 Chef Infra
 =====================================================
@@ -87,7 +90,7 @@ Concepts
 Guides
 -----------------------------------------------------
 
-**Chef on Azure**: `Microsoft Azure Portal </azure_portal.html>`__ | `Chef Workstation in Azure Cloud Shell </azure_cwa_cloud_shell.html>`__ | `Microsoft Azure PowerShell </azure_powershell.html>`__ | `Knife Azure </knife_azure.html>`__ | `Knife Azurerm </knife_azurerm.html>`__
+**Chef on Azure**: `Microsoft Azure Portal </azure_portal.html>`__ | `Chef Workstation in Azure Cloud Shell </azure_cwa_cloud_shell.html>`__ | `Microsoft Azure PowerShell </azure_powershell.html>`__ | `Microsoft Azure Chef Extension </azure_chef_cli.html>`__ | Knife Azure </knife_azure.html>`__ | `Knife Azurerm </knife_azurerm.html>`__
 
 **Chef on Microsoft Windows**: `Chef for Microsoft Windows </windows.html>`__ | `Chef Infra Client on Windows Nodes </install_windows.html>`__ | `Knife Windows </knife_windows.html>`__
 
@@ -123,6 +126,7 @@ Cookbook Reference
 `About Resources </resource.html>`__ |
 `Common Resource Functionality </resource_common.html>`__ |
 `Custom Resources </custom_resources.html>`__ |
+`Custom Resources Guide </custom_resources_notes.html>`__ |
 `Converting Definitions to Custom Resources </definitions.html>`__
 
 `All Resources (Single Page) </resource_reference.html>`__ |
@@ -161,7 +165,6 @@ Cookbook Reference
 `cron_d </resource_cron_d.html>`__ |
 `cron_access </resource_cron_access.html>`__ |
 `csh </resource_csh.html>`__ |
-`deploy </resource_deploy.html>`__ |
 `directory </resource_directory.html>`__ |
 `dmg_package </resource_dmg_package.html>`__ |
 `dnf_package </resource_dnf_package.html>`__ |
@@ -212,8 +215,6 @@ Cookbook Reference
 `powershell_package </resource_powershell_package.html>`__ |
 `powershell_package_source </resource_powershell_package_source.html>`__ |
 `powershell_script </resource_powershell_script.html>`__ |
-`private_key </resource_private_key.html>`__ |
-`public_key </resource_public_key.html>`__ |
 `python </resource_python.html>`__ |
 `reboot </resource_reboot.html>`__ |
 `registry_key </resource_registry_key.html>`__ |
@@ -277,12 +278,13 @@ Cookbook Reference
 `Cookbook Versioning </cookbook_versioning.html>`__ |
 `Ruby Guide </ruby.html>`__
 
-**Chef Automate Cookbooks**: `build-cookbook (cookbook) </delivery_build_cookbook.html>`__ | `delivery-truck (cookbook) </delivery_truck.html>`__ | `Publish Cookbooks to Multiple Chef Servers </publish_cookbooks_multiple_servers.html>`__
+**Chef Automate Cookbooks**: `build-cookbook (cookbook) </delivery_build_cookbook.html>`__ | `delivery-truck (cookbook) </delivery_truck.html>`__ |
 
 Chef Workstation
 -----------------------------------------------------
 
-`About Chef Workstation </about_workstation.html>`__ |
+`About Chef Workstation </about_workstation.html>`_ |
+`Configure Chef Workstation </workstation_setup.html>`_ |
 `Berkshelf </berkshelf.html>`__ |
 `chef-apply (executable) </ctl_chef_apply.html>`__ |
 `chef-shell (executable) </chef_shell.html>`__
@@ -318,7 +320,7 @@ Chef Workstation
 
 **Supermarket**: `Log Files </supermarket_logs.html>`__ | `Backup and Restore </supermarket_backup_restore.html>`__ | `Monitoring </supermarket_monitor.html>`__ | `supermarket.rb </config_rb_supermarket.html>`__ | `knife supermarket </knife_supermarket.html>`__ | `supermarket-ctl </ctl_supermarket.html>`__ | `Supermarket API </supermarket_api.html>`__
 
-**Management Console**: `Configure SAML </server_configure_saml.html>`__ | `Clients </server_manage_clients.html>`__ | `Cookbooks </server_manage_cookbooks.html>`__ | `Data Bags </server_manage_data_bags.html>`__ | `Environments </server_manage_environments.html>`__ | `Nodes </server_manage_nodes.html>`__ | `Roles </server_manage_roles.html>`__ | `Users </server_users.html#chef-manage.html>`__ | `manage.rb </config_rb_manage.html>`__ | `chef-manage-ctl </ctl_manage.html>`__
+**Management Console**: `About the Management Console </manage.html>`_ | `Configure SAML </server_configure_saml.html>`__ | `Clients </server_manage_clients.html>`__ | `Cookbooks </server_manage_cookbooks.html>`__ | `Data Bags </server_manage_data_bags.html>`__ | `Environments </server_manage_environments.html>`__ | `Nodes </server_manage_nodes.html>`__ | `Roles </server_manage_roles.html>`__ | `Users </server_users.html#chef-manage.html>`__ | `manage.rb </config_rb_manage.html>`__ | `chef-manage-ctl </ctl_manage.html>`__
 
 Chef Automate
 =====================================================
@@ -379,7 +381,18 @@ Chef InSpec
 Legacy
 =====================================================
 
-**Workflow**: `Workflow Overview </workflow.html>`_ | `build-cookbook (cookbook) </delivery_build_cookbook.html>`_ | `Delivery Pipeline </delivery_pipeline.html>`_ | `Delivery Server Backup </delivery_server_backup.html>`_ | `Delivery Server Disaster Recovery </delivery_server_disaster_recovery.html>`_ | `Delivery Server Tuning </delivery_server_tuning.html>`_ | `delivery-truck (cookbook) </delivery_truck.html>`_ | `Manage Dependencies </delivery_manage_dependencies.html>`_ | `Manage Secrets </delivery_manage_secrets.html>`_ | `Runners </runners.html>`_ | `Workflow w/Bitbucket </integrate_delivery_bitbucket.html>`_ | `Workflow w/Email (SMTP) </integrate_delivery_smtp.html>`_ | `Workflow w/GitHub </integrate_delivery_github.html>`_ | `Workflow w/LDAP </integrate_delivery_ldap.html>`_ | `Workflow w/Slack </integrate_delivery_slack.html>`_ | `Audit Cookbook </audit_cookbook.html>`_
+Workflow
+-----------------------------------------------------
+
+**Workflow Basics**: `Workflow Overview </workflow.html>`_ | `Configure a Pipeline </delivery_pipeline.html>`_ | `Configure a Project </config_json_delivery.html>`_ | `Configure Data Collection </data_collection.html>`_ | `Data Collection with Chef HA </data_collection_ha.html>`_ | `Data Collection without Chef Infra Server </data_collection_without_server.html>`_ | `Audit Cookbook </audit_cookbook.html>`_
+
+**Managing Workflow**:
+`build-cookbook (cookbook) </delivery_build_cookbook.html>`_ | `delivery-truck (cookbook) </delivery_truck.html>`_ | `Manage Dependencies </delivery_manage_dependencies.html>`_ | `Manage Secrets </delivery_manage_secrets.html>`_ | `Publish Cookbooks to Multiple Chef Servers </publish_cookbooks_multiple_servers.html>`__ | `Runners </runners.html>`_ | `Workflow w/Bitbucket </integrate_delivery_bitbucket.html>`_ | `Workflow w/Email (SMTP) </integrate_delivery_smtp.html>`_ | `Workflow w/GitHub </integrate_delivery_github.html>`_ | `Workflow w/Slack </integrate_delivery_slack.html>`_ | `Users and Roles </delivery_users_and_roles.html>`_ | `Authentication w/LDAP </integrate_delivery_ldap.html>`_ | `Authentication w/SAML </integrate_chef_automate_saml.html>`_ | `Elastic Search and Kibana Auth </elasticsearch_and_kibana_auth.html>`_ | `Delivery Server Backup </delivery_server_backup.html>`_ |  `Delivery Server Disaster Recovery </delivery_server_disaster_recovery.html>`_ | `Delivery Server Tuning </delivery_server_tuning.html>`_
+
+**Reference**:
+`Delivery CLI </delivery_cli.html>`__ | `delivery.rb </config_rb_delivery.html>`_ | `delivery.rb Optional Settings </config_rb_delivery_optional_settings.html>`_ | `Workflow DSL </dsl_delivery.html>`_
+
+`AWS OpsWorks for Chef Automate </aws_opsworks_chef_automate.html>`_ | `Chef Automate for Microsoft Azure </automate_azure.html>`_
 
 Extension APIs
 =====================================================
@@ -481,8 +494,8 @@ Addenda
    cookbook_versioning
    cookbooks
    cookstyle
-   ctl_automate_server
    ctl_chef
+   ctl_automate_server
    ctl_chef_apply
    ctl_chef_backend
    ctl_chef_client
@@ -583,7 +596,6 @@ Addenda
    integrate_delivery_ldap
    integrate_delivery_slack
    integrate_delivery_smtp
-   junos
    kitchen
    knife
    knife_azure
@@ -678,7 +690,6 @@ Addenda
    resource_cookbook_file
    resource_cron
    resource_csh
-   resource_deploy
    resource_directory
    resource_dmg_package
    resource_dnf_package
@@ -701,13 +712,7 @@ Addenda
    resource_ksh
    resource_launchd
    resource_link
-   resource_load_balancer
    resource_log
-   resource_machine
-   resource_machine_batch
-   resource_machine_execute
-   resource_machine_file
-   resource_machine_image
    resource_macos_userdefaults
    resource_macports_package
    resource_mdadm
@@ -732,8 +737,6 @@ Addenda
    resource_portage_package
    resource_powershell_package
    resource_powershell_script
-   resource_private_key
-   resource_public_key
    resource_python
    resource_reboot
    resource_reference
