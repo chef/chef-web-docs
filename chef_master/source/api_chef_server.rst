@@ -615,7 +615,7 @@ This method has the following parameters:
    * - ``external_authentication_uid=jane@chef.com``
      - Filter the users returned based on their external login id.
    * - ``verbose=true``
-     - Returns a user list with "email", "first_name", "last_name" fields.  If this flag is set the email and external_authentication_uid parameters are ignored and the response format is an array instead of a hash.
+     - Returns a user list with "email", "first_name", "last_name" fields.  If this flag is set the email and external_authentication_uid parameters are ignored.
 
 **Request**
 
