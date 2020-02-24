@@ -165,7 +165,6 @@ Cookbook Reference
 `cron_d </resource_cron_d.html>`__ |
 `cron_access </resource_cron_access.html>`__ |
 `csh </resource_csh.html>`__ |
-`deploy </resource_deploy.html>`__ |
 `directory </resource_directory.html>`__ |
 `dmg_package </resource_dmg_package.html>`__ |
 `dnf_package </resource_dnf_package.html>`__ |
@@ -216,8 +215,6 @@ Cookbook Reference
 `powershell_package </resource_powershell_package.html>`__ |
 `powershell_package_source </resource_powershell_package_source.html>`__ |
 `powershell_script </resource_powershell_script.html>`__ |
-`private_key </resource_private_key.html>`__ |
-`public_key </resource_public_key.html>`__ |
 `python </resource_python.html>`__ |
 `reboot </resource_reboot.html>`__ |
 `registry_key </resource_registry_key.html>`__ |
@@ -395,7 +392,7 @@ Workflow
 **Reference**:
 `Delivery CLI </delivery_cli.html>`__ | `delivery.rb </config_rb_delivery.html>`_ | `delivery.rb Optional Settings </config_rb_delivery_optional_settings.html>`_ | `Workflow DSL </dsl_delivery.html>`_
 
-`Chef Automate CTL (Deprecated) </automate_server_ctl.html>`_ | AWS OpsWorks for Chef Automate </aws_opsworks_chef_automate.html>`_ | `Chef Automate for Microsoft Azure </automate_azure.html>`_
+`AWS OpsWorks for Chef Automate </aws_opsworks_chef_automate.html>`_ | `Chef Automate for Microsoft Azure </automate_azure.html>`_
 
 Extension APIs
 =====================================================
