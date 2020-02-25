@@ -2,14 +2,14 @@
 title = "Microsoft Azure CLI"
 draft = false
 
-aliases = "/azure_chef_cli.html"
+aliases = ["/azure_chef_cli.html"]
 
-
-  
-    
-    
-    
-    
+[menu]
+  [menu.docs]
+    title = "Microsoft Azure Chef Extension"
+    identifier = "chef_infra/getting_started/chef_on_azure_guide/azure_chef_cli.md Microsoft Azure Chef Extension"
+    parent = "chef_infra/getting_started/chef_on_azure_guide"
+    weight = 40
 +++    
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/azure_chef_cli.md)
@@ -167,9 +167,9 @@ The extension has the following options that can be provided in the
 
     {{< note >}}
 
-    If using the Chef extension in an ARM template, it is recommended
-    that you base64 encode your validation key and set this option to
-    `base64encoded`
+If using the Chef extension in an ARM template, it is recommended
+that you base64 encode your validation key and set this option to
+`base64encoded`
 
     {{< /note >}}
 
@@ -180,8 +180,8 @@ The extension has the following options that can be provided in the
 
     {{< note >}}
 
-    Due to constraints in Azure, the `bootstrap_version` option is only
-    available on the `LinuxChefClient` extension.
+Due to constraints in Azure, the `bootstrap_version` option is only
+available on the `LinuxChefClient` extension.
 
     {{< /note >}}
 
@@ -193,8 +193,8 @@ The extension has the following options that can be provided in the
 
     {{< note >}}
 
-    Options that are supplied in the bootstrap items will take
-    precedence over any conflicts found in the `client.rb` file.
+Options that are supplied in the bootstrap items will take
+precedence over any conflicts found in the `client.rb` file.
 
     {{< /note >}}
 

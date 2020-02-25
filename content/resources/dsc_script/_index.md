@@ -9,7 +9,7 @@ menu:
     title: dsc_script
     identifier: chef_infra/cookbook_reference/resources/dsc_script dsc_script
     parent: chef_infra/cookbook_reference/resources
-    weight: 340
+    weight: 470
 resource_reference: true
 robots: null
 resource_description_list:

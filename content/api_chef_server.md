@@ -632,7 +632,7 @@ The response is similar to:
 
 ### PUT
 
-The `PUT` method is used to create an organization.
+The `PUT` method is used to update an organization definition.
 
 This method has no parameters.
 
@@ -653,7 +653,15 @@ with a request body similar to:
 
 **Response**
 
-The response will return the JSON for the updated organization.
+The response is similar to:
+
+``` none
+{
+  "name": "chef",
+  "full_name": "Chef Software, Inc",
+  "guid": "f980d1asdfda0331235s00ff36862"
+}
+```
 
 **Response Codes**
 
@@ -813,7 +821,7 @@ This method has the following parameters:
 </tr>
 <tr class="odd">
 <td><code>verbose=true</code></td>
-<td>Returns a user list with "email", "first_name", "last_name" fields. If this flag is set the email and external_authentication_uid parameters are ignored and the response format is an array instead of a hash.</td>
+<td>Returns a user list with "email", "first_name", "last_name" fields. If this flag is set the email and external_authentication_uid parameters are ignored.</td>
 </tr>
 </tbody>
 </table>

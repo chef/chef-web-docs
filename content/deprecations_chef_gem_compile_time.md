@@ -7,12 +7,8 @@ robots = "noindex"
 aliases = "/deprecations_chef_gem_compile_time.html"
 
 
-  
-    
-    
-    
-    
-+++    
+
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/deprecations_chef_gem_compile_time.md)
 

@@ -9,7 +9,7 @@ menu:
     title: breakpoint
     identifier: chef_infra/cookbook_reference/resources/breakpoint breakpoint
     parent: chef_infra/cookbook_reference/resources
-    weight: 140
+    weight: 150
 resource_reference: true
 robots: null
 resource_description_list:

@@ -4,11 +4,15 @@ resource: chef_node
 draft: false
 aliases:
 - /resource_chef_node.html
-resource_reference: false
-robots: noindex, nofollow
+menu:
+  docs:
+    title: chef_node
+    identifier: chef_infra/cookbook_reference/resources/chef_node chef_node
+    parent: chef_infra/cookbook_reference/resources
+    weight: 280
+resource_reference: true
+robots: null
 resource_description_list:
-- warning:
-    shortcode: EOL_provisioning.md
 - shortcode: node.md
 - markdown: Use the **chef_node** resource to manage nodes.
 resource_new_in: null

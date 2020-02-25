@@ -343,8 +343,8 @@ To define a project application, do the following:
 
     {{< note >}}
 
-    If the `/attributes/default.rb` directory and/or file does not
-    exist, create it.
+If the `/attributes/default.rb` directory and/or file does not
+exist, create it.
 
     {{< /note >}}
 
@@ -360,11 +360,11 @@ To define a project application, do the following:
 
     {{< note >}}
 
-    Do not pass `'id'`, `'version'`, or `'name'` as part of the
-    `'hash_of_attributes'` as these are already defined in the
-    `define_project_application` block, are pulled in automatically by
-    the `get_project_application` helper method, and will overwrite any
-    value specified in the Hash.
+Do not pass `'id'`, `'version'`, or `'name'` as part of the
+`'hash_of_attributes'` as these are already defined in the
+`define_project_application` block, are pulled in automatically by
+the `get_project_application` helper method, and will overwrite any
+value specified in the Hash.
 
     {{< /note >}}
 

@@ -3170,7 +3170,7 @@ management has been greatly reduced.
 
     {{< note >}}
 
-    This resource no longer configures msys2 on Windows systems.
+This resource no longer configures msys2 on Windows systems.
 
     {{< /note >}}
 
@@ -3322,10 +3322,10 @@ management has been greatly reduced.
 
     {{< note >}}
 
-    This resource no longer backs up existing key values to the node
-    when changing values as we have done in the sysctl cookbook
-    previously. The resource has also been renamed from `sysctl_param`
-    to `sysctl` with backwards compatibility for the previous name.
+This resource no longer backs up existing key values to the node
+when changing values as we have done in the sysctl cookbook
+previously. The resource has also been renamed from `sysctl_param`
+to `sysctl` with backwards compatibility for the previous name.
 
     {{< /note >}}
 
@@ -3357,13 +3357,13 @@ management has been greatly reduced.
 
     {{< note >}}
 
-    These resources received significant refactoring in the 4.0 version
-    of the windows cookbook (March 2018). windows_feature resources
-    will now fail if the installation of invalid features is requested,
-    and support for installation via server <span
-    class="title-ref">servermanagercmd.exe</span> has been removed. If
-    you are using a windows_cookbook version less than 4.0, you may
-    need to update cookbooks for Chef 14.
+These resources received significant refactoring in the 4.0 version
+of the windows cookbook (March 2018). windows_feature resources
+will now fail if the installation of invalid features is requested,
+and support for installation via server <span
+class="title-ref">servermanagercmd.exe</span> has been removed. If
+you are using a windows_cookbook version less than 4.0, you may
+need to update cookbooks for Chef 14.
 
     {{< /note >}}
 
@@ -8315,11 +8315,11 @@ Using the **dsc_resource** has the following requirements:
 
     {{< note >}}
 
-    Starting with Chef Client 12.6 release, this requirement applies
-    only for versions of Windows PowerShell earlier than 5.0.10586.0.
-    The latest version of Windows Management Framework (WMF) 5 has
-    relaxed the limitation that prevented Chef Client from running in
-    non-disabled refresh mode.
+Starting with Chef Client 12.6 release, this requirement applies
+only for versions of Windows PowerShell earlier than 5.0.10586.0.
+The latest version of Windows Management Framework (WMF) 5 has
+relaxed the limitation that prevented Chef Client from running in
+non-disabled refresh mode.
 
     {{< /note >}}
 
@@ -8331,12 +8331,12 @@ Using the **dsc_resource** has the following requirements:
 
     {{< note >}}
 
-    Starting with Chef Client 12.6 release, this requirement applies
-    only for versions of Windows PowerShell earlier than 5.0.10586.0.
-    The latest version of Windows Management Framework (WMF) 5 has
-    relaxed the limitation that prevented Chef Client from running in
-    non-disabled refresh mode, which allows the Local Configuration
-    Manager to be set to `Push`.
+Starting with Chef Client 12.6 release, this requirement applies
+only for versions of Windows PowerShell earlier than 5.0.10586.0.
+The latest version of Windows Management Framework (WMF) 5 has
+relaxed the limitation that prevented Chef Client from running in
+non-disabled refresh mode, which allows the Local Configuration
+Manager to be set to `Push`.
 
     {{< /note >}}
 
@@ -9223,7 +9223,7 @@ The following examples show:
 1.  A definition
 2.  The same definition rewritten as a custom resource
 3.  The same definition, rewritten again to use a [common resource
-    property](/resources/common/)
+    property](/resource_common/)
 
 ### As a Definition
 
@@ -9289,7 +9289,7 @@ end
 ### Common Properties
 
 Unlike definitions, custom resources are able to use [common resource
-properties](/resources/common/). For example, `only_if`:
+properties](/resource_common/). For example, `only_if`:
 
 ``` ruby
 host_porter 'www1' do
@@ -9587,9 +9587,9 @@ enable the use of policy files:
 
     {{< note >}}
 
-    Any environment specified for `chef_environment` by a JSON file will
-    take precedence over an environment specified by the `--environment`
-    option when both options are part of the same command.
+Any environment specified for `chef_environment` by a JSON file will
+take precedence over an environment specified by the `--environment`
+option when both options are part of the same command.
 
     {{< /note >}}
 
@@ -10122,13 +10122,13 @@ This argument has the following options:
 
     {{< note >}}
 
-    This option is valid only with Chef server API, version 1.0, which
-    was released with Chef server 12.1. If this option or the
-    `--user-key` option are not passed in the command, the Chef server
-    will create a user with a public key named `default` and will return
-    the private key. For the Chef server versions earlier than 12.1,
-    this option will not work; a public key is always generated unless
-    `--user-key` is passed in the command.
+This option is valid only with Chef server API, version 1.0, which
+was released with Chef server 12.1. If this option or the
+`--user-key` option are not passed in the command, the Chef server
+will create a user with a public key named `default` and will return
+the private key. For the Chef server versions earlier than 12.1,
+this option will not work; a public key is always generated unless
+`--user-key` is passed in the command.
 
     {{< /note >}}
 
@@ -10166,13 +10166,13 @@ This argument has the following options:
 
     {{< note >}}
 
-    This option is valid only with Chef server API, version 1.0, which
-    was released with Chef server 12.1. If this option or the
-    `--user-key` option are not passed in the command, the Chef server
-    will create a user with a public key named `default` and will return
-    the private key. For the Chef server versions earlier than 12.1,
-    this option will not work; a public key is always generated unless
-    `--user-key` is passed in the command.
+This option is valid only with Chef server API, version 1.0, which
+was released with Chef server 12.1. If this option or the
+`--user-key` option are not passed in the command, the Chef server
+will create a user with a public key named `default` and will return
+the private key. For the Chef server versions earlier than 12.1,
+this option will not work; a public key is always generated unless
+`--user-key` is passed in the command.
 
     {{< /note >}}
 
@@ -10339,11 +10339,11 @@ Using the **dsc_resource** has the following requirements:
 
     {{< note >}}
 
-    Starting with Chef Client 12.6 release, the `RefreshMode: Disabled`
-    requirement applies only for versions of Windows PowerShell earlier
-    than 5.0.10586.0. The latest version of Windows Management Framework
-    (WMF) 5 has relaxed the limitation that prevented Chef Client from
-    running in non-disabled refresh mode.
+Starting with Chef Client 12.6 release, the `RefreshMode: Disabled`
+requirement applies only for versions of Windows PowerShell earlier
+than 5.0.10586.0. The latest version of Windows Management Framework
+(WMF) 5 has relaxed the limitation that prevented Chef Client from
+running in non-disabled refresh mode.
 
     {{< /note >}}
 
@@ -11800,18 +11800,18 @@ The `verify` attribute may be used with the **cookbook_file**,
 
     {{< warning >}}
 
-    For releases of Chef Client prior to 12.5 (chef-client 12.4 and
-    earlier) the correct syntax is:
+For releases of Chef Client prior to 12.5 (chef-client 12.4 and
+earlier) the correct syntax is:
 
-    ``` ruby
-    template '/etc/nginx.conf' do
-      verify 'nginx -t -c %{file}'
-    end
-    ```
+``` ruby
+template '/etc/nginx.conf' do
+  verify 'nginx -t -c %{file}'
+end
+```
 
-    See GitHub issues <https://github.com/chef/chef/issues/3232> and
-    <https://github.com/chef/chef/pull/3693> for more information about
-    these differences.
+See GitHub issues <https://github.com/chef/chef/issues/3232> and
+<https://github.com/chef/chef/pull/3693> for more information about
+these differences.
 
     {{< /warning >}}
 
@@ -11893,8 +11893,8 @@ The following attribute is new for the **chef_gem** resource:
 
     {{< note >}}
 
-    This topic is hooked into client.rb topics, starting with 12.1, in
-    addition to the resource reference pages.
+This topic is hooked into client.rb topics, starting with 12.1, in
+addition to the resource reference pages.
 
     {{< /note >}}
 
@@ -12374,8 +12374,8 @@ The following client.rb settings are new:
 
     {{< note >}}
 
-    This topic is hooked into client.rb topics, starting with 12.1, in
-    addition to the resource reference pages.
+This topic is hooked into client.rb topics, starting with 12.1, in
+addition to the resource reference pages.
 
     {{< /note >}}
 
@@ -13127,12 +13127,12 @@ system process limits:
 
     {{< note >}}
 
-    The previous commands may be run against the root user, instead of
-    default. For example:
+The previous commands may be run against the root user, instead of
+default. For example:
 
-    ``` bash
-    chsec -f /etc/security/limits -s root_user -a "rss=-1"
-    ```
+``` bash
+chsec -f /etc/security/limits -s root_user -a "rss=-1"
+```
 
     {{< /note >}}
 
@@ -14395,7 +14395,7 @@ The following options are new:
 
     {{< note >}}
 
-    The `--distro` and `--template-file` options are deprecated.
+The `--distro` and `--template-file` options are deprecated.
 
     {{< /note >}}
 

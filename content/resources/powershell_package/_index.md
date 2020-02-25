@@ -9,7 +9,7 @@ menu:
     title: powershell_package
     identifier: chef_infra/cookbook_reference/resources/powershell_package powershell_package
     parent: chef_infra/cookbook_reference/resources
-    weight: 760
+    weight: 890
 resource_reference: true
 robots: null
 resource_description_list:

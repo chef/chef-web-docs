@@ -9,7 +9,7 @@ menu:
     title: ohai
     identifier: chef_infra/cookbook_reference/resources/ohai ohai
     parent: chef_infra/cookbook_reference/resources
-    weight: 600
+    weight: 730
 resource_reference: true
 robots: null
 resource_description_list:

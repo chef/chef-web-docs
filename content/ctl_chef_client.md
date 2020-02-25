@@ -164,9 +164,9 @@ This command has the following options:
 
     {{< note >}}
 
-    Any environment specified for `chef_environment` by a JSON file will
-    take precedence over an environment specified by the `--environment`
-    option when both options are part of the same command.
+Any environment specified for `chef_environment` by a JSON file will
+take precedence over an environment specified by the `--environment`
+option when both options are part of the same command.
 
     {{< /note >}}
 
@@ -192,8 +192,8 @@ This command has the following options:
 
     {{< note >}}
 
-    This has set the `normal` attribute
-    `node['override_attributes']['apptastic']`.
+This has set the `normal` attribute
+`node['override_attributes']['apptastic']`.
 
     {{< /note >}}
 
@@ -769,12 +769,12 @@ threads. To increase the system process limits:
 
     {{< note >}}
 
-    The previous commands may be run against the root user, instead of
-    default. For example:
+The previous commands may be run against the root user, instead of
+default. For example:
 
-    ``` bash
-    chsec -f /etc/security/limits -s root_user -a "rss=-1"
-    ```
+``` bash
+chsec -f /etc/security/limits -s root_user -a "rss=-1"
+```
 
     {{< /note >}}
 

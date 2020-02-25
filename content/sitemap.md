@@ -55,9 +55,11 @@ Guide](/style_guide/)
 Packages and Platform Support
 -----------------------------
 
-[Licensing](/chef_license/) | [Packages](/packages/) |
-[Platforms](/platforms/) | [Supported Versions](/versions/) |
-[Omnitruck API](/api_omnitruck/)
+[Packages](/packages/) | [Platforms](/platforms/) | [Supported
+Versions](/versions/) | [Omnitruck API](/api_omnitruck/)
+
+**Licensing**: [About Licensing](/chef_license/) | [Accepting
+License](/chef_license_accept/)
 
 Chef Infra
 ==========
@@ -107,8 +109,10 @@ Guides
 
 **Chef on Azure**: [Microsoft Azure Portal](/azure_portal/) | [Chef
 Workstation in Azure Cloud Shell](/azure_cwa_cloud_shell/) |
-[Microsoft Azure PowerShell](/azure_powershell/) | [Knife
-Azure](/knife_azure/) | [Knife Azurerm](/knife_azurerm/)
+[Microsoft Azure PowerShell](/azure_powershell/) | [Microsoft Azure
+Chef Extension](/azure_chef_cli/) | Knife Azure
+\</knife_azure.html\><span class="title-ref">__ | \`Knife Azurerm
+\</knife_azurerm.html\></span>__
 
 **Chef on Microsoft Windows**: [Chef for Microsoft
 Windows](/windows/) | [Chef Infra Client on Windows
@@ -161,9 +165,10 @@ Cookbook Reference
 Runs](/debug.html)
 
 **Resources**: [About Resources](/resource/) | [Common Resource
-Functionality](/resources/common/) | [Custom
-Resources](/custom_resources/) | [Converting Definitions to Custom
-Resources](/definitions/)
+Functionality](/resource_common/) | [Custom
+Resources](/custom_resources/) | [Custom Resources
+Guide](/custom_resources_notes/) | [Converting Definitions to
+Custom Resources](/definitions/)
 
 [All Resources (Single Page)](/resources/) |
 [apt_package](/resources/apt_package/) |
@@ -198,8 +203,7 @@ Resources](/definitions/)
 [cookbook_file](/resources/cookbook_file/) |
 [cron](/resources/cron/) | [cron_d](/resources/cron_d/) |
 [cron_access](/resources/cron_access/) | [csh](/resources/csh/)
-| [deploy](/resources/deploy/) |
-[directory](/resources/directory/) |
+| [directory](/resources/directory/) |
 [dmg_package](/resources/dmg_package/) |
 [dnf_package](/resources/dnf_package/) |
 [dpkg_package](/resources/dpkg_package/) |
@@ -243,8 +247,6 @@ Resources](/definitions/)
 [powershell_package](/resources/powershell_package/) |
 [powershell_package_source](/resources/powershell_package_source/)
 | [powershell_script](/resources/powershell_script/) |
-[private_key](/resources/private_key/) |
-[public_key](/resources/public_key/) |
 [python](/resources/python/) | [reboot](/resources/reboot/) |
 [registry_key](/resources/registry_key/) |
 [remote_directory](/resources/remote_directory/) |
@@ -303,15 +305,14 @@ Versioning](/cookbook_versioning/) | [Ruby Guide](/ruby/)
 
 **Chef Automate Cookbooks**: [build-cookbook
 (cookbook)](/delivery_build_cookbook.html) | [delivery-truck
-(cookbook)](/delivery_truck.html) | [Publish Cookbooks to Multiple Chef
-Servers](/publish_cookbooks_multiple_servers/)
+(cookbook)](/delivery_truck.html) |
 
 Chef Workstation
 ----------------
 
-[About Chef Workstation](/about_workstation/) |
-[Berkshelf](/berkshelf/) | [chef-apply
-(executable)](/ctl_chef_apply.html) | [chef-shell
+[About Chef Workstation](/about_workstation/) | [Configure Chef
+Workstation](/workstation_setup/) | [Berkshelf](/berkshelf/) |
+[chef-apply (executable)](/ctl_chef_apply.html) | [chef-shell
 (executable)](/chef_shell.html)
 
 **chef (executable)**: [chef env](/ctl_chef.html#chef-env) | [chef
@@ -427,7 +428,8 @@ supermarket](/knife_supermarket/) |
 [supermarket-ctl](/ctl_supermarket.html) | [Supermarket
 API](/supermarket_api/)
 
-**Management Console**: [Configure SAML](/server_configure_saml/) |
+**Management Console**: [About the Management Console](/manage/) |
+[Configure SAML](/server_configure_saml/) |
 [Clients](/server_manage_clients/) |
 [Cookbooks](/server_manage_cookbooks/) | [Data
 Bags](/server_manage_data_bags/) |
@@ -502,21 +504,43 @@ Documentation](https://www.inspec.io/docs)
 Legacy
 ======
 
-**Workflow**: [Workflow Overview](/workflow/) | [build-cookbook
-(cookbook)](/delivery_build_cookbook.html) | [Delivery
-Pipeline](/delivery_pipeline/) | [Delivery Server
-Backup](/delivery_server_backup/) | [Delivery Server Disaster
-Recovery](/delivery_server_disaster_recovery/) | [Delivery Server
-Tuning](/delivery_server_tuning/) | [delivery-truck
+Workflow
+--------
+
+**Workflow Basics**: [Workflow Overview](/workflow/) | [Configure a
+Pipeline](/delivery_pipeline/) | [Configure a
+Project](/config_json_delivery/) | [Configure Data
+Collection](/data_collection/) | [Data Collection with Chef
+HA](/data_collection_ha/) | [Data Collection without Chef Infra
+Server](/data_collection_without_server/) | [Audit
+Cookbook](/audit_cookbook/)
+
+**Managing Workflow**: [build-cookbook
+(cookbook)](/delivery_build_cookbook.html) | [delivery-truck
 (cookbook)](/delivery_truck.html) | [Manage
 Dependencies](/delivery_manage_dependencies/) | [Manage
-Secrets](/delivery_manage_secrets/) | [Runners](/runners/) |
-[Workflow w/Bitbucket](/integrate_delivery_bitbucket.html) | [Workflow
-w/Email (SMTP)](/integrate_delivery_smtp.html) | [Workflow
+Secrets](/delivery_manage_secrets/) | [Publish Cookbooks to
+Multiple Chef Servers](/publish_cookbooks_multiple_servers/) |
+[Runners](/runners/) | [Workflow
+w/Bitbucket](/integrate_delivery_bitbucket.html) | [Workflow w/Email
+(SMTP)](/integrate_delivery_smtp.html) | [Workflow
 w/GitHub](/integrate_delivery_github.html) | [Workflow
-w/LDAP](/integrate_delivery_ldap.html) | [Workflow
-w/Slack](/integrate_delivery_slack.html) | [Audit
-Cookbook](/audit_cookbook/)
+w/Slack](/integrate_delivery_slack.html) | [Users and
+Roles](/delivery_users_and_roles/) | [Authentication
+w/LDAP](/integrate_delivery_ldap.html) | [Authentication
+w/SAML](/integrate_chef_automate_saml.html) | [Elastic Search and
+Kibana Auth](/elasticsearch_and_kibana_auth/) | [Delivery Server
+Backup](/delivery_server_backup/) | [Delivery Server Disaster
+Recovery](/delivery_server_disaster_recovery/) | [Delivery Server
+Tuning](/delivery_server_tuning/)
+
+**Reference**: [Delivery CLI](/delivery_cli/) |
+[delivery.rb](/config_rb_delivery.html) | [delivery.rb Optional
+Settings](/config_rb_delivery_optional_settings.html) | [Workflow
+DSL](/dsl_delivery/)
+
+[AWS OpsWorks for Chef Automate](/aws_opsworks_chef_automate/) |
+[Chef Automate for Microsoft Azure](/automate_azure/)
 
 Extension APIs
 ==============

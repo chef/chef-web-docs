@@ -9,7 +9,7 @@ menu:
     title: route
     identifier: chef_infra/cookbook_reference/resources/route route
     parent: chef_infra/cookbook_reference/resources
-    weight: 900
+    weight: 1030
 resource_reference: true
 robots: null
 resource_description_list:

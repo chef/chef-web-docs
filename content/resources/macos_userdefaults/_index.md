@@ -9,7 +9,7 @@ menu:
     title: macos_userdefaults
     identifier: chef_infra/cookbook_reference/resources/macos_userdefaults macos_userdefaults
     parent: chef_infra/cookbook_reference/resources
-    weight: 540
+    weight: 670
 resource_reference: true
 robots: null
 resource_description_list:

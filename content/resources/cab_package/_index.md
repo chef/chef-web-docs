@@ -9,7 +9,7 @@ menu:
     title: cab_package
     identifier: chef_infra/cookbook_reference/resources/cab_package cab_package
     parent: chef_infra/cookbook_reference/resources
-    weight: 160
+    weight: 170
 resource_reference: true
 robots: null
 resource_description_list:

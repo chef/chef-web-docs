@@ -4,11 +4,15 @@ resource: chef_data_bag
 draft: false
 aliases:
 - /resource_chef_data_bag.html
-resource_reference: false
-robots: noindex, nofollow
+menu:
+  docs:
+    title: chef_data_bag
+    identifier: chef_infra/cookbook_reference/resources/chef_data_bag chef_data_bag
+    parent: chef_infra/cookbook_reference/resources
+    weight: 210
+resource_reference: true
+robots: null
 resource_description_list:
-- warning:
-    shortcode: EOL_provisioning.md
 - shortcode: data_bag.md
 - markdown: Use the **chef_data_bag** resource to manage data bags.
 resource_new_in: null

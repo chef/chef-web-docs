@@ -4,11 +4,15 @@ resource: chef_client
 draft: false
 aliases:
 - /resource_chef_client.html
-resource_reference: false
-robots: noindex, nofollow
+menu:
+  docs:
+    title: chef_client
+    identifier: chef_infra/cookbook_reference/resources/chef_client chef_client
+    parent: chef_infra/cookbook_reference/resources
+    weight: 190
+resource_reference: true
+robots: null
 resource_description_list:
-- warning:
-    shortcode: EOL_provisioning.md
 - shortcode: chef_client_summary.md
 - markdown: Use the **chef_client** resource to manage clients.
 resource_new_in: null

@@ -9,7 +9,7 @@ menu:
     title: snap_package
     identifier: chef_infra/cookbook_reference/resources/snap_package snap_package
     parent: chef_infra/cookbook_reference/resources
-    weight: 970
+    weight: 1100
 resource_reference: true
 robots: null
 resource_description_list:

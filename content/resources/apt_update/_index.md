@@ -9,7 +9,7 @@ menu:
     title: apt_update
     identifier: chef_infra/cookbook_reference/resources/apt_update apt_update
     parent: chef_infra/cookbook_reference/resources
-    weight: 90
+    weight: 100
 resource_reference: true
 robots: null
 resource_description_list:

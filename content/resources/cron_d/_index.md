@@ -9,7 +9,7 @@ menu:
     title: cron_d
     identifier: chef_infra/cookbook_reference/resources/cron_d cron_d
     parent: chef_infra/cookbook_reference/resources
-    weight: 260
+    weight: 390
 resource_reference: true
 robots: null
 resource_description_list:

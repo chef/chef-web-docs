@@ -9,7 +9,7 @@ menu:
     title: apt_preference
     identifier: chef_infra/cookbook_reference/resources/apt_preference apt_preference
     parent: chef_infra/cookbook_reference/resources
-    weight: 70
+    weight: 80
 resource_reference: true
 robots: null
 resource_description_list:

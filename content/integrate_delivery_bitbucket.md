@@ -96,7 +96,7 @@ higher), do the following:
 
     {{< note >}}
 
-    For 6.x servers, run this command only once.
+For 6.x servers, run this command only once.
 
     {{< /note >}}
 
@@ -108,7 +108,7 @@ higher), do the following:
 
     {{< note >}}
 
-    For 6.x servers, run this command only once.
+For 6.x servers, run this command only once.
 
     {{< /note >}}
 

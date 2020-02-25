@@ -9,7 +9,7 @@ menu:
     title: windows_printer
     identifier: chef_infra/cookbook_reference/resources/windows_printer windows_printer
     parent: chef_infra/cookbook_reference/resources
-    weight: 1250
+    weight: 1380
 resource_reference: true
 robots: null
 resource_description_list:

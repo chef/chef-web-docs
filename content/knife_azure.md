@@ -2,13 +2,13 @@
 title = "Knife Azure"
 draft = false
 
-aliases = ["knife_azure.html"]
+aliases = ["/knife_azure.html"]
 
 [menu]
   [menu.docs]
-    title = "Knife Azure"
-    identifier = "chef_infra/getting_started/chef_on_azure_guide/knife_azure.md Knife Azure"
-    parent = "chef_infra/getting_started/chef_on_azure_guide"
+    title = "knife azure"
+    identifier = "chef_workstation/chef_workstation_tools/knife/knife_azure.md knife azure"
+    parent = "chef_workstation/chef_workstation_tools/knife"
     weight = 50
 +++    
 

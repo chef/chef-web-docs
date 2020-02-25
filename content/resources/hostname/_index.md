@@ -9,7 +9,7 @@ menu:
     title: hostname
     identifier: chef_infra/cookbook_reference/resources/hostname hostname
     parent: chef_infra/cookbook_reference/resources
-    weight: 440
+    weight: 570
 resource_reference: true
 robots: null
 resource_description_list:

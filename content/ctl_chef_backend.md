@@ -218,13 +218,13 @@ This command will:
 
     {{< warning >}}
 
-    Nodes in the backend HA cluster may not be visible to each other
-    when they are located in network partitions. This may prevent a
-    cluster status check from discovering that a leader exists. If nodes
-    exist on network partitions, to prevent this scenario, first run
-    `chef-backend-ctl cluster-status`, and then verify the expected
-    number of nodes in the backend HA cluster as healthy and
-    `waiting_for_leader` before running this command.
+Nodes in the backend HA cluster may not be visible to each other
+when they are located in network partitions. This may prevent a
+cluster status check from discovering that a leader exists. If nodes
+exist on network partitions, to prevent this scenario, first run
+`chef-backend-ctl cluster-status`, and then verify the expected
+number of nodes in the backend HA cluster as healthy and
+`waiting_for_leader` before running this command.
 
     {{< /warning >}}
 
@@ -548,8 +548,8 @@ This subcommand has the following options:
 
     {{< note >}}
 
-    This option should only be used the first time a node joins the
-    backend HA cluster.
+This option should only be used the first time a node joins the
+backend HA cluster.
 
     {{< /note >}}
 
@@ -563,8 +563,8 @@ This subcommand has the following options:
 
     {{< note >}}
 
-    This option should only be used the first time a node joins the
-    backend HA cluster.
+This option should only be used the first time a node joins the
+backend HA cluster.
 
     {{< /note >}}
 
@@ -576,10 +576,10 @@ This subcommand has the following options:
 
     {{< note >}}
 
-    This option will run against the existing `chef-backend.rb` file,
-    which means the `--vip-interface` and `--publish-address` options
-    should not be specified. (They are already defined in the
-    `chef-backend.rb` file.)
+This option will run against the existing `chef-backend.rb` file,
+which means the `--vip-interface` and `--publish-address` options
+should not be specified. (They are already defined in the
+`chef-backend.rb` file.)
 
     {{< /note >}}
 

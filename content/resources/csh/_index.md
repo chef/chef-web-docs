@@ -9,7 +9,7 @@ menu:
     title: csh
     identifier: chef_infra/cookbook_reference/resources/csh csh
     parent: chef_infra/cookbook_reference/resources
-    weight: 280
+    weight: 410
 resource_reference: true
 robots: null
 resource_description_list:

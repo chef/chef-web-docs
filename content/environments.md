@@ -415,10 +415,10 @@ using the following methods:
 
     {{< note >}}
 
-    After the environment has been set via bootstrap, the environment is
-    set in the client.rb file and may not be modified using the Chef
-    management console or the `edit` argument of the `knife node`
-    subcommand.
+After the environment has been set via bootstrap, the environment is
+set in the client.rb file and may not be modified using the Chef
+management console or the `edit` argument of the `knife node`
+subcommand.
 
     {{< /note >}}
 

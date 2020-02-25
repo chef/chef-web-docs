@@ -9,7 +9,7 @@ menu:
     title: build_essential
     identifier: chef_infra/cookbook_reference/resources/build_essential build_essential
     parent: chef_infra/cookbook_reference/resources
-    weight: 150
+    weight: 160
 resource_reference: true
 robots: null
 resource_description_list:

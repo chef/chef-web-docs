@@ -4,11 +4,15 @@ resource: chef_acl
 draft: false
 aliases:
 - /resource_chef_acl.html
-resource_reference: false
-robots: noindex, nofollow
+menu:
+  docs:
+    title: chef_acl
+    identifier: chef_infra/cookbook_reference/resources/chef_acl chef_acl
+    parent: chef_infra/cookbook_reference/resources
+    weight: 180
+resource_reference: true
+robots: null
 resource_description_list:
-- warning:
-    shortcode: EOL_provisioning.md
 - markdown: 'Use the **chef_acl** resource to interact with access control lists
 
     (ACLs) that exist on the Chef server.'

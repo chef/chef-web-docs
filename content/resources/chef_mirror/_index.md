@@ -4,8 +4,14 @@ resource: chef_mirror
 draft: false
 aliases:
 - /resource_chef_mirror.html
-resource_reference: false
-robots: noindex, nofollow
+menu:
+  docs:
+    title: chef_mirror
+    identifier: chef_infra/cookbook_reference/resources/chef_mirror chef_mirror
+    parent: chef_infra/cookbook_reference/resources
+    weight: 270
+resource_reference: true
+robots: null
 resource_description_list:
 - warning:
     shortcode: EOL_provisioning.md

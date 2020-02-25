@@ -9,7 +9,7 @@ menu:
     title: batch
     identifier: chef_infra/cookbook_reference/resources/batch batch
     parent: chef_infra/cookbook_reference/resources
-    weight: 120
+    weight: 130
 resource_reference: true
 robots: null
 resource_description_list:

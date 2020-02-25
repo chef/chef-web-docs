@@ -9,7 +9,7 @@ menu:
     title: chocolatey_package
     identifier: chef_infra/cookbook_reference/resources/chocolatey_package chocolatey_package
     parent: chef_infra/cookbook_reference/resources
-    weight: 220
+    weight: 350
 resource_reference: true
 robots: null
 resource_description_list:

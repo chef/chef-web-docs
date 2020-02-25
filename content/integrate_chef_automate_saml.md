@@ -131,8 +131,8 @@ often be found through your Identity Provider's metadata file.
 
     {{< note >}}
 
-    There can be multiple SingleSignOnService tags, each with a
-    different binding.
+There can be multiple SingleSignOnService tags, each with a
+different binding.
 
     {{< /note >}}
 

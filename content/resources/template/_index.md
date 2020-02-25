@@ -9,7 +9,7 @@ menu:
     title: template
     identifier: chef_infra/cookbook_reference/resources/template template
     parent: chef_infra/cookbook_reference/resources
-    weight: 1050
+    weight: 1180
 resource_reference: true
 robots: null
 resource_description_list:

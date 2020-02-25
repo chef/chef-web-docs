@@ -4,11 +4,15 @@ resource: chef_role
 draft: false
 aliases:
 - /resource_chef_role.html
-resource_reference: false
-robots: noindex, nofollow
+menu:
+  docs:
+    title: chef_role
+    identifier: chef_infra/cookbook_reference/resources/chef_role chef_role
+    parent: chef_infra/cookbook_reference/resources
+    weight: 300
+resource_reference: true
+robots: null
 resource_description_list:
-- warning:
-    shortcode: EOL_provisioning.md
 - shortcode: role.md
 - markdown: Use the **chef_role** resource to manage roles.
 resource_new_in: null

@@ -9,7 +9,7 @@ menu:
     title: yum_repository
     identifier: chef_infra/cookbook_reference/resources/yum_repository yum_repository
     parent: chef_infra/cookbook_reference/resources
-    weight: 1340
+    weight: 1470
 resource_reference: true
 robots: null
 resource_description_list:

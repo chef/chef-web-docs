@@ -127,8 +127,8 @@ Configuration Settings
 
         {{< note >}}
 
-        If you omit this setting or set it to "v1", the previous job
-        dispatch system using Push Jobs 1.x will be used instead.
+If you omit this setting or set it to "v1", the previous job
+dispatch system using Push Jobs 1.x will be used instead.
 
         {{< /note >}}
 

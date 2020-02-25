@@ -9,7 +9,7 @@ menu:
     title: smartos_package
     identifier: chef_infra/cookbook_reference/resources/smartos_package smartos_package
     parent: chef_infra/cookbook_reference/resources
-    weight: 960
+    weight: 1090
 resource_reference: true
 robots: null
 resource_description_list:

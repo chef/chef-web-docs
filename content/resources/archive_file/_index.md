@@ -9,7 +9,7 @@ menu:
     title: archive_file
     identifier: chef_infra/cookbook_reference/resources/archive_file archive_file
     parent: chef_infra/cookbook_reference/resources
-    weight: 100
+    weight: 110
 resource_reference: true
 robots: null
 resource_description_list:

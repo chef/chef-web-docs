@@ -147,18 +147,18 @@ weight = 30
     weight = 40
 
       [[menu.docs]]
-      title = "Azure Powershell_Cmdlets"
-      identifier = "chef_infra/getting_started/chef_on_azure_guide/azure_powershell.md Azure Powershell_Cmdlets"
+      title = "Knife Azure"
+      identifier = "chef_infra/getting_started/chef_on_azure_guide/knife_azure.md Knife Azure"
       parent = "chef_infra/getting_started/chef_on_azure_guide"
-      url = "azure_powershell/"
-      weight = 30
+      url = "/knife_azure/"
+      weight = 50
 
       [[menu.docs]]
-      title = "Microsoft Azure PowerShell"
-      identifier = "chef_infra/getting_started/chef_on_azure_guide/azure_powershell.md Microsoft Azure PowerShell"
+      title = "Knife Azurerm"
+      identifier = "chef_infra/getting_started/chef_on_azure_guide/knife_azurerm.md Knife Azurerm"
       parent = "chef_infra/getting_started/chef_on_azure_guide"
-      url = "azure_powershell/"
-      weight = 40
+      url = "/knife_azurerm/"
+      weight = 60
 
     [[menu.docs]]
     title = "Chef on Windows Guide"
@@ -340,11 +340,10 @@ weight = 30
 
     [[menu.docs]]
     title = "Management Console"
-    identifier = "chef_infra/setup/ctl_chef_server.md#install Management Console"
+    identifier = "chef_infra/setup/ctl_chef_server.md Management Console"
     parent = "chef_infra/setup"
-    url = "/ctl_chef_server/#install"
+    url = "/ctl_chef_server/"
     weight = 80
-    aliases = "/ctl_chef_server.html"
 
   [[menu.docs]]
   title = "Cookbook Reference"
@@ -410,7 +409,7 @@ weight = 30
       title = "delete_resource!"
       identifier = "chef_infra/cookbook_reference/recipe_dsl/dsl_recipe.md#id1 delete_resource!"
       parent = "chef_infra/cookbook_reference/recipe_dsl"
-      url = "/dsl_recipe/#id1"
+      url = "/dsl_recipe/#delete-resource-1"
       weight = 80
 
       [[menu.docs]]
@@ -424,7 +423,7 @@ weight = 30
       title = "edit_resource!"
       identifier = "chef_infra/cookbook_reference/recipe_dsl/dsl_recipe.md#id2 edit_resource!"
       parent = "chef_infra/cookbook_reference/recipe_dsl"
-      url = "/dsl_recipe/#id2"
+      url = "/dsl_recipe/#edit-resource-1"
       weight = 100
 
       [[menu.docs]]
@@ -438,7 +437,7 @@ weight = 30
       title = "find_resource!"
       identifier = "chef_infra/cookbook_reference/recipe_dsl/dsl_recipe.md#id3 find_resource!"
       parent = "chef_infra/cookbook_reference/recipe_dsl"
-      url = "/dsl_recipe/#id3"
+      url = "/dsl_recipe/#find-resource-1"
       weight = 120
 
       [[menu.docs]]
@@ -494,7 +493,7 @@ weight = 30
       title = "shell_out!"
       identifier = "chef_infra/cookbook_reference/recipe_dsl/dsl_recipe.md#id6 shell_out!"
       parent = "chef_infra/cookbook_reference/recipe_dsl"
-      url = "/dsl_recipe/#id6"
+      url = "/dsl_recipe/#shell-out-1"
       weight = 200
 
       [[menu.docs]]
@@ -596,11 +595,17 @@ weight = 30
 
       [[menu.docs]]
       title = "All Resources (Single Page)"
-      identifier = "chef_infra/cookbook_reference/resources/resources.md All Resources (Single Page)"
+      identifier = "chef_infra/cookbook_reference/resources/resources All Resources (Single Page)"
       parent = "chef_infra/cookbook_reference/resources"
       url = "/resources/"
-      weight = 50
-      aliases = "/resources.html"
+      weight = 60
+
+      [[menu.docs]]
+      title = "reference"
+      identifier = "chef_infra/cookbook_reference/resources/resources reference"
+      parent = "chef_infra/cookbook_reference/resources"
+      url = "/resources/"
+      weight = 940
 
   [[menu.docs]]
   title = "Managing Chef Infra Server"
@@ -614,7 +619,6 @@ weight = 30
     parent = "chef_infra/managing_chef_infra_server"
     url = "/runbook/"
     weight = 10
-    aliases = "/runbook.html"
 
     [[menu.docs]]
     title = "Push Jobs"
@@ -903,7 +907,6 @@ weight = 100
 title = "Send Feedback"
 identifier = "send feedback"
 url = "/feedback/"
-aliases = "/feedback.html"
 weight = 110
 
 [[menu.docs]]

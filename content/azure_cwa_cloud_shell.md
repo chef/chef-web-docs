@@ -2,7 +2,7 @@
 title = "Chef Workstation in Azure Cloud Shell"
 draft = false
 
-aliases = ["azure_cwa_cloud_shell.html"]
+aliases = ["/azure_cwa_cloud_shell.html"]
 
 [menu]
   [menu.docs]

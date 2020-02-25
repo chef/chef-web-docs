@@ -9,7 +9,7 @@ menu:
     title: windows_pagefile
     identifier: chef_infra/cookbook_reference/resources/windows_pagefile windows_pagefile
     parent: chef_infra/cookbook_reference/resources
-    weight: 1230
+    weight: 1360
 resource_reference: true
 robots: null
 resource_description_list:

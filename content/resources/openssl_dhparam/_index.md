@@ -9,7 +9,7 @@ menu:
     title: openssl_dhparam
     identifier: chef_infra/cookbook_reference/resources/openssl_dhparam openssl_dhparam
     parent: chef_infra/cookbook_reference/resources
-    weight: 620
+    weight: 750
 resource_reference: true
 robots: null
 resource_description_list:

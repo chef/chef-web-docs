@@ -4,11 +4,15 @@ resource: chef_organization
 draft: false
 aliases:
 - /resource_chef_organization.html
-resource_reference: false
-robots: noindex, nofollow
+menu:
+  docs:
+    title: chef_organization
+    identifier: chef_infra/cookbook_reference/resources/chef_organization chef_organization
+    parent: chef_infra/cookbook_reference/resources
+    weight: 290
+resource_reference: true
+robots: null
 resource_description_list:
-- warning:
-    shortcode: EOL_provisioning.md
 - markdown: 'Use the **chef_organization** resource to interact with organization
 
     objects that exist on the Chef server.'

@@ -109,8 +109,8 @@ upgrade:
 
     {{< warning >}}
 
-    Do not restart the Push Jobs Client until after the Push Jobs Server
-    upgrade is completed in the steps below.
+Do not restart the Push Jobs Client until after the Push Jobs Server
+upgrade is completed in the steps below.
 
     {{< /warning >}}
 
@@ -123,9 +123,9 @@ upgrade:
 
         {{< note >}}
 
-        Once the `reconfigure` command above is issued, build nodes and
-        other push clients will not be in communication with the server
-        until they are restarted.
+Once the `reconfigure` command above is issued, build nodes and
+other push clients will not be in communication with the server
+until they are restarted.
 
         {{< /note >}}
 

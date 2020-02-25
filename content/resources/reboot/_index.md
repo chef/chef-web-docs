@@ -9,7 +9,7 @@ menu:
     title: reboot
     identifier: chef_infra/cookbook_reference/resources/reboot reboot
     parent: chef_infra/cookbook_reference/resources
-    weight: 800
+    weight: 930
 resource_reference: true
 robots: null
 resource_description_list:

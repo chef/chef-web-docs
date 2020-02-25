@@ -4,11 +4,15 @@ resource: chef_user
 draft: false
 aliases:
 - /resource_chef_user.html
-resource_reference: false
-robots: noindex, nofollow
+menu:
+  docs:
+    title: chef_user
+    identifier: chef_infra/cookbook_reference/resources/chef_user chef_user
+    parent: chef_infra/cookbook_reference/resources
+    weight: 320
+resource_reference: true
+robots: null
 resource_description_list:
-- warning:
-    shortcode: EOL_provisioning.md
 - markdown: Use the **chef_user** resource to manage users.
 resource_new_in: null
 handler_types: false
