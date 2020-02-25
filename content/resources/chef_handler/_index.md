@@ -9,7 +9,7 @@ menu:
     title: chef_handler
     identifier: chef_infra/cookbook_reference/resources/chef_handler chef_handler
     parent: chef_infra/cookbook_reference/resources
-    weight: 180
+    weight: 260
 resource_reference: true
 robots: null
 resource_description_list:

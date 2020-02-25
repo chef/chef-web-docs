@@ -9,7 +9,7 @@ menu:
     title: msu_package
     identifier: chef_infra/cookbook_reference/resources/msu_package msu_package
     parent: chef_infra/cookbook_reference/resources
-    weight: 580
+    weight: 710
 resource_reference: true
 robots: null
 resource_description_list:

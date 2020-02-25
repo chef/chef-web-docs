@@ -9,7 +9,7 @@ menu:
     title: openssl_x509_certificate
     identifier: chef_infra/cookbook_reference/resources/openssl_x509_certificate openssl_x509_certificate
     parent: chef_infra/cookbook_reference/resources
-    weight: 670
+    weight: 800
 resource_reference: true
 robots: null
 resource_description_list:

@@ -4,11 +4,15 @@ resource: chef_container
 draft: false
 aliases:
 - /resource_chef_container.html
-resource_reference: false
-robots: noindex, nofollow
+menu:
+  docs:
+    title: chef_container
+    identifier: chef_infra/cookbook_reference/resources/chef_container chef_container
+    parent: chef_infra/cookbook_reference/resources
+    weight: 200
+resource_reference: true
+robots: null
 resource_description_list:
-- warning:
-    shortcode: EOL_provisioning.md
 - markdown: 'Use the **chef_container** resource to interact with container objects
 
     that exist on the Chef server.'

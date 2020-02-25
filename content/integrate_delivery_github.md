@@ -145,7 +145,7 @@ the URL `https://10.10.10.10` will pass.
 
     {{< note >}}
 
-    You only need to do this once for 6.x servers.
+You only need to do this once for 6.x servers.
 
     {{< /note >}}
 
@@ -157,7 +157,7 @@ the URL `https://10.10.10.10` will pass.
 
     {{< note >}}
 
-    You only need to do this once for 6.x servers.
+You only need to do this once for 6.x servers.
 
     {{< /note >}}
 
@@ -257,9 +257,9 @@ Initializing a new GitHub project in Workflow
 
     {{< note >}}
 
-    You may also specify a different pipeline than the default
-    (`master`) by specifying the argument `--pipeline=$PIPELINE`;
-    however, this will not update the `.delivery/cli.toml` file.
+You may also specify a different pipeline than the default
+(`master`) by specifying the argument `--pipeline=$PIPELINE`;
+however, this will not update the `.delivery/cli.toml` file.
 
     {{< /note >}}
 
@@ -359,14 +359,14 @@ Configure your Delivery CLI and clone your project's code
 
     {{< note >}}
 
-    If you clone from GitHub instead (or make use of a pre-existing
-    clone), you will need to add a `delivery` remote. The Workflow clone
-    URL can be found on the project's page in the Workflow UI. To create
-    the remote, run the following:
+If you clone from GitHub instead (or make use of a pre-existing
+clone), you will need to add a `delivery` remote. The Workflow clone
+URL can be found on the project's page in the Workflow UI. To create
+the remote, run the following:
 
-    ``` bash
-    git remote add delivery $AUTOMATE_CLONE_URL
-    ```
+``` bash
+git remote add delivery $AUTOMATE_CLONE_URL
+```
 
     {{< /note >}}
 

@@ -9,7 +9,7 @@ menu:
     title: apt_repository
     identifier: chef_infra/cookbook_reference/resources/apt_repository apt_repository
     parent: chef_infra/cookbook_reference/resources
-    weight: 80
+    weight: 90
 resource_reference: true
 robots: null
 resource_description_list:

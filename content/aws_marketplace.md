@@ -142,11 +142,11 @@ want to bring your own license, complete the following steps:
 
     {{< note >}}
 
-    Placing your license file in S3 is not a requirement for using the
-    BYOL functionality, the instance just needs a fully-qualified URL to
-    the license file. For the sake of these instructions we're using S3
-    to safely store the file and make it accessible to the Chef Automate
-    instance.
+Placing your license file in S3 is not a requirement for using the
+BYOL functionality, the instance just needs a fully-qualified URL to
+the license file. For the sake of these instructions we're using S3
+to safely store the file and make it accessible to the Chef Automate
+instance.
 
     {{< /note >}}
 
@@ -475,8 +475,8 @@ To upgrade, do one of the following:
 
     {{< note >}}
 
-    Chef Automate and Chef Infra Server services will be unavailable
-    while the software is updated.
+Chef Automate and Chef Infra Server services will be unavailable
+while the software is updated.
 
     {{< /note >}}
 
@@ -489,8 +489,8 @@ To upgrade, do one of the following:
 
     {{< note >}}
 
-    Chef Infra Server services will be unavailable while the software is
-    updated.
+Chef Infra Server services will be unavailable while the software is
+updated.
 
     {{< /note >}}
 

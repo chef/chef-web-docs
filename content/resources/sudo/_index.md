@@ -9,7 +9,7 @@ menu:
     title: sudo
     identifier: chef_infra/cookbook_reference/resources/sudo sudo
     parent: chef_infra/cookbook_reference/resources
-    weight: 1010
+    weight: 1140
 resource_reference: true
 robots: null
 resource_description_list:

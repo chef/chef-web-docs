@@ -9,7 +9,7 @@ menu:
     title: timezone
     identifier: chef_infra/cookbook_reference/resources/timezone timezone
     parent: chef_infra/cookbook_reference/resources
-    weight: 1060
+    weight: 1190
 resource_reference: true
 robots: null
 resource_description_list:

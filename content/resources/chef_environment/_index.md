@@ -4,11 +4,15 @@ resource: chef_environment
 draft: false
 aliases:
 - /resource_chef_environment.html
-resource_reference: false
-robots: noindex, nofollow
+menu:
+  docs:
+    title: chef_environment
+    identifier: chef_infra/cookbook_reference/resources/chef_environment chef_environment
+    parent: chef_infra/cookbook_reference/resources
+    weight: 230
+resource_reference: true
+robots: null
 resource_description_list:
-- warning:
-    shortcode: EOL_provisioning.md
 - shortcode: environment.md
 - markdown: Use the **chef_environment** resource to manage environments.
 resource_new_in: null

@@ -9,7 +9,7 @@ menu:
     title: windows_font
     identifier: chef_infra/cookbook_reference/resources/windows_font windows_font
     parent: chef_infra/cookbook_reference/resources
-    weight: 1210
+    weight: 1340
 resource_reference: true
 robots: null
 resource_description_list:

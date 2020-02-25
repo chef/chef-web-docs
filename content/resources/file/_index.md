@@ -9,7 +9,7 @@ menu:
     title: file
     identifier: chef_infra/cookbook_reference/resources/file file
     parent: chef_infra/cookbook_reference/resources
-    weight: 360
+    weight: 490
 resource_reference: true
 robots: null
 resource_description_list:

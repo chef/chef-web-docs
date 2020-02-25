@@ -9,7 +9,7 @@ menu:
     title: bash
     identifier: chef_infra/cookbook_reference/resources/bash bash
     parent: chef_infra/cookbook_reference/resources
-    weight: 110
+    weight: 120
 resource_reference: true
 robots: null
 resource_description_list:

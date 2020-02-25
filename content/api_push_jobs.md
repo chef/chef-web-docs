@@ -125,9 +125,9 @@ where:
 
     {{< note >}}
 
-    The string has a required prefix of `raw:` or `base64:`, indicating
-    the encoding (if any) of the contents. The path to this file will be
-    made available via the `CHEF_PUSH_JOB_FILE` environment variable.
+The string has a required prefix of `raw:` or `base64:`, indicating
+the encoding (if any) of the contents. The path to this file will be
+made available via the `CHEF_PUSH_JOB_FILE` environment variable.
 
     {{< /note >}}
 

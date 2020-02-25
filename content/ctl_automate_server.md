@@ -4,14 +4,14 @@ draft = false
 robots = "noindex"
 
 
-aliases = "/ctl_automate_server.html"
+aliases = ["/ctl_automate_server.html", "/release/automate/ctl_delivery_server.html"]
 
-
-  
-    
-    
-    
-    
+[menu]
+  [menu.docs]
+    title = "Chef Automate CTL (Deprecated)"
+    identifier = "legacy/workflow/ctl_automate_server.md Chef Automate CTL (Deprecated)"
+    parent = "legacy/workflow"
+    weight = 40
 +++    
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/ctl_automate_server.md)

@@ -9,7 +9,7 @@ menu:
     title: windows_printer_port
     identifier: chef_infra/cookbook_reference/resources/windows_printer_port windows_printer_port
     parent: chef_infra/cookbook_reference/resources
-    weight: 1260
+    weight: 1390
 resource_reference: true
 robots: null
 resource_description_list:

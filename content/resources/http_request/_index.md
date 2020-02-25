@@ -9,7 +9,7 @@ menu:
     title: http_request
     identifier: chef_infra/cookbook_reference/resources/http_request http_request
     parent: chef_infra/cookbook_reference/resources
-    weight: 450
+    weight: 580
 resource_reference: true
 robots: null
 resource_description_list:

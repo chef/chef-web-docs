@@ -2,14 +2,15 @@
 title = "Microsoft Azure PowerShell"
 draft = false
 
-aliases = "/azure_powershell.html"
+aliases = ["/azure_powershell.html"]
 
 
-  
-    
-    
-    
-    
+[menu]
+  [menu.docs]
+    title = "Microsoft Azure PowerShell"
+    identifier = "chef_infra/getting_started/chef_on_azure_guide/azure_powershell.md Microsoft Azure PowerShell"
+    parent = "chef_infra/getting_started/chef_on_azure_guide"
+    weight = 30
 +++    
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/azure_powershell.md)

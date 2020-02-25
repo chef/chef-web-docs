@@ -9,7 +9,7 @@ menu:
     title: launchd
     identifier: chef_infra/cookbook_reference/resources/launchd launchd
     parent: chef_infra/cookbook_reference/resources
-    weight: 500
+    weight: 630
 resource_reference: true
 robots: null
 resource_description_list:

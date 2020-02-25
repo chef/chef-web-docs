@@ -9,7 +9,7 @@ menu:
     title: sysctl
     identifier: chef_infra/cookbook_reference/resources/sysctl sysctl
     parent: chef_infra/cookbook_reference/resources
-    weight: 1030
+    weight: 1160
 resource_reference: true
 robots: null
 resource_description_list:

@@ -163,13 +163,10 @@ command, for example:
 Profile              Client   Key                          Server
 ----------------------------------------------------------------------------------------------------------------
  default             barney   ~/.chef/barney_rubble.pem    https://api.chef.io/organizations/bedrock
+ dev                 admin    ~/.chef/admin.pem            https://api.chef-server.dev/organizations/test
+ web.preprod         brubble  ~/.chef/preprod-brubble.pem  https://preprod.chef-server.dev/organizations/preprod
+ switch.example.org  btm      ~/.chef/btm.pem              https://localhost:443
 ```
-
-> -   dev admin \~/.chef/admin.pem
->     <https://api.chef-server.dev/organizations/test> web.preprod
->     brubble \~/.chef/preprod-brubble.pem
->     <https://preprod.chef-server.dev/organizations/preprod>
->     switch.example.org btm \~/.chef/btm.pem <https://localhost:443>
 
 The line that begins with the asterisk is the currently selected
 profile.

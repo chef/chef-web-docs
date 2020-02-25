@@ -9,7 +9,7 @@ menu:
     title: freebsd_package
     identifier: chef_infra/cookbook_reference/resources/freebsd_package freebsd_package
     parent: chef_infra/cookbook_reference/resources
-    weight: 370
+    weight: 500
 resource_reference: true
 robots: null
 resource_description_list:

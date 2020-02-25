@@ -9,7 +9,7 @@ menu:
     title: rhsm_errata_level
     identifier: chef_infra/cookbook_reference/resources/rhsm_errata_level rhsm_errata_level
     parent: chef_infra/cookbook_reference/resources
-    weight: 850
+    weight: 980
 resource_reference: true
 robots: null
 resource_description_list:

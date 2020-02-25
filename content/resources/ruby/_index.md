@@ -9,7 +9,7 @@ menu:
     title: ruby
     identifier: chef_infra/cookbook_reference/resources/ruby ruby
     parent: chef_infra/cookbook_reference/resources
-    weight: 920
+    weight: 1050
 resource_reference: true
 robots: null
 resource_description_list:

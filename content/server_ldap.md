@@ -58,8 +58,8 @@ the following:
 
     {{< note >}}
 
-    If the chef-server.rb file does not exist, create a file called
-    `chef-server.rb` and put it in the `/etc/opscode/` directory.
+If the chef-server.rb file does not exist, create a file called
+`chef-server.rb` and put it in the `/etc/opscode/` directory.
 
     {{< /note >}}
 

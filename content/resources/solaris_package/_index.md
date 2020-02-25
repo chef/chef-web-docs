@@ -9,7 +9,7 @@ menu:
     title: solaris_package
     identifier: chef_infra/cookbook_reference/resources/solaris_package solaris_package
     parent: chef_infra/cookbook_reference/resources
-    weight: 980
+    weight: 1110
 resource_reference: true
 robots: null
 resource_description_list:

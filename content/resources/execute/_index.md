@@ -9,7 +9,7 @@ menu:
     title: execute
     identifier: chef_infra/cookbook_reference/resources/execute execute
     parent: chef_infra/cookbook_reference/resources
-    weight: 350
+    weight: 480
 resource_reference: true
 robots: null
 resource_description_list:

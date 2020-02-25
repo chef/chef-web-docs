@@ -9,7 +9,7 @@ menu:
     title: openssl_ec_private_key
     identifier: chef_infra/cookbook_reference/resources/openssl_ec_private_key openssl_ec_private_key
     parent: chef_infra/cookbook_reference/resources
-    weight: 630
+    weight: 760
 resource_reference: true
 robots: null
 resource_description_list:

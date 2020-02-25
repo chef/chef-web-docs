@@ -9,7 +9,7 @@ menu:
     title: script
     identifier: chef_infra/cookbook_reference/resources/script script
     parent: chef_infra/cookbook_reference/resources
-    weight: 940
+    weight: 1070
 resource_reference: true
 robots: null
 resource_description_list:

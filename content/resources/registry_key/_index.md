@@ -9,7 +9,7 @@ menu:
     title: registry_key
     identifier: chef_infra/cookbook_reference/resources/registry_key registry_key
     parent: chef_infra/cookbook_reference/resources
-    weight: 820
+    weight: 950
 resource_reference: true
 robots: null
 resource_description_list:

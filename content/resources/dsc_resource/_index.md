@@ -9,7 +9,7 @@ menu:
     title: dsc_resource
     identifier: chef_infra/cookbook_reference/resources/dsc_resource dsc_resource
     parent: chef_infra/cookbook_reference/resources
-    weight: 330
+    weight: 460
 resource_reference: true
 robots: null
 resource_description_list:

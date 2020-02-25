@@ -68,10 +68,12 @@ knife environment compare development
 to return something similar to:
 
 ``` bash
-development
+        development
+apache  2.3.1 
+windows 4.1.2
 ```
 
-> apache 2.3.1 windows 4.1.2
+
 
 **Compare cookbook versions for multiple environments**
 
@@ -84,10 +86,11 @@ knife environment compare development staging
 to return something similar to:
 
 ``` bash
-development    staging
+            development     staging
+apache      2.3.1           1.2.2 
+windows     4.1.2           1.0.0 
+postgresql  1.0.0           1.0.0
 ```
-
-> apache 2.3.1 1.2.2 windows 4.1.2 1.0.0 postgresql 1.0.0 1.0.0
 
 **Compare cookbook versions for all environments**
 
@@ -100,18 +103,35 @@ knife environment compare --all
 to return something similar to:
 
 ``` bash
-staging  development
+                staging   development
+ulimit          latest    latest
+redisio         latest    latest
+journly         latest    latest
+aws             latest    latest
+test            latest    latest
+unicorn         latest    latest
+sensu           latest    latest 
+runit           latest    latest 
+templater       latest    latest 
+powershell      latest    latest 
+openssl         latest    latest 
+rbenv           latest    latest 
+rabbitmq        latest    latest 
+postgresql      latest    latest 
+mysql           latest    latest 
+ohai            latest    latest
+git             latest    latest 
+erlang          latest    latest 
+ssh_known_hosts latest    latest
+nginx           latest    latest 
+database        latest    latest 
+yum             latest    latest 
+xfs             latest    latest 
+apt             latest    latest 
+dmg             latest    latest 
+chef_handler    latest    latest 
+windows         1.0.0     4.1.2
 ```
-
-> ulimit latest latest redisio latest latest journly latest latest aws
-> latest latest test latest latest unicorn latest latest sensu latest
-> latest runit latest latest templater latest latest powershell latest
-> latest openssl latest latest rbenv latest latest rabbitmq latest
-> latest postgresql latest latest mysql latest latest ohai latest latest
-> git latest latest erlang latest latest ssh_known_hosts latest latest
-> nginx latest latest database latest latest yum latest latest xfs
-> latest latest apt latest latest dmg latest latest chef_handler latest
-> latest windows 1.0.0 4.1.2
 
 create
 ======

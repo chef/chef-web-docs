@@ -9,7 +9,7 @@ menu:
     title: chef_sleep
     identifier: chef_infra/cookbook_reference/resources/chef_sleep chef_sleep
     parent: chef_infra/cookbook_reference/resources
-    weight: 190
+    weight: 310
 resource_reference: true
 robots: null
 resource_description_list:

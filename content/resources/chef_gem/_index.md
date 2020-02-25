@@ -9,7 +9,7 @@ menu:
     title: chef_gem
     identifier: chef_infra/cookbook_reference/resources/chef_gem chef_gem
     parent: chef_infra/cookbook_reference/resources
-    weight: 170
+    weight: 240
 resource_reference: true
 robots: null
 resource_description_list:

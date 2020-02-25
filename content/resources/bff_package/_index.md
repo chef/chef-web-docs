@@ -9,7 +9,7 @@ menu:
     title: bff_package
     identifier: chef_infra/cookbook_reference/resources/bff_package bff_package
     parent: chef_infra/cookbook_reference/resources
-    weight: 130
+    weight: 140
 resource_reference: true
 robots: null
 resource_description_list:

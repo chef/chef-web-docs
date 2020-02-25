@@ -9,7 +9,7 @@ menu:
     title: windows_ad_join
     identifier: chef_infra/cookbook_reference/resources/windows_ad_join windows_ad_join
     parent: chef_infra/cookbook_reference/resources
-    weight: 1080
+    weight: 1210
 resource_reference: true
 robots: null
 resource_description_list:

@@ -9,7 +9,7 @@ menu:
     title: dpkg_package
     identifier: chef_infra/cookbook_reference/resources/dpkg_package dpkg_package
     parent: chef_infra/cookbook_reference/resources
-    weight: 320
+    weight: 450
 resource_reference: true
 robots: null
 resource_description_list:

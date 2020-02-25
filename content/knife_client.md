@@ -95,13 +95,13 @@ This argument has the following options:
 
     {{< note >}}
 
-    This option is valid only with Chef Infra Server API, version 1.0,
-    which was released with Chef Server 12.1. If this option or the
-    `--user-key` option are not passed in the command, the Chef Infra
-    Server will create a user with a public key named `default` and will
-    return the private key. For the Chef Server versions earlier than
-    12.1, this option will not work; a public key is always generated
-    unless `--user-key` is passed in the command.
+This option is valid only with Chef Infra Server API, version 1.0,
+which was released with Chef Server 12.1. If this option or the
+`--user-key` option are not passed in the command, the Chef Infra
+Server will create a user with a public key named `default` and will
+return the private key. For the Chef Server versions earlier than
+12.1, this option will not work; a public key is always generated
+unless `--user-key` is passed in the command.
 
     {{< /note >}}
 

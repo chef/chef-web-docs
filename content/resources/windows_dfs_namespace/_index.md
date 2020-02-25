@@ -9,7 +9,7 @@ menu:
     title: windows_dfs_namespace
     identifier: chef_infra/cookbook_reference/resources/windows_dfs_namespace windows_dfs_namespace
     parent: chef_infra/cookbook_reference/resources
-    weight: 1120
+    weight: 1250
 resource_reference: true
 robots: null
 resource_description_list:

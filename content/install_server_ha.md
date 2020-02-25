@@ -41,7 +41,7 @@ the frontend group.
 
     {{< note >}}
 
-    At this time, backend clusters can only have three nodes.
+At this time, backend clusters can only have three nodes.
 
     {{< /note >}}
 
@@ -331,12 +331,12 @@ For each additional frontend node you wish to add to your cluster:
 
     {{< note >}}
 
-    For Chef Server versions prior to 12.14, you will also need to copy
-    the key files:
+For Chef Server versions prior to 12.14, you will also need to copy
+the key files:
 
-    -   /etc/opscode/webui_priv.pem
-    -   /etc/opscode/webui_pub.pem
-    -   /etc/opscode/pivotal.pem
+-   /etc/opscode/webui_priv.pem
+-   /etc/opscode/webui_pub.pem
+-   /etc/opscode/pivotal.pem
 
     {{< /note >}}
 

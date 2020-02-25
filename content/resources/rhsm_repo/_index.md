@@ -9,7 +9,7 @@ menu:
     title: rhsm_repo
     identifier: chef_infra/cookbook_reference/resources/rhsm_repo rhsm_repo
     parent: chef_infra/cookbook_reference/resources
-    weight: 880
+    weight: 1010
 resource_reference: true
 robots: null
 resource_description_list:

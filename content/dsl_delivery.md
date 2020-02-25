@@ -11,7 +11,7 @@ aliases = ["/dsl_delivery.html", "/release/automate/dsl_delivery.html"]
     title = "Workflow DSL"
     identifier = "legacy/workflow/reference/dsl_delivery.md Workflow DSL"
     parent = "legacy/workflow/reference"
-    weight = 30
+    weight = 40
 +++    
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/dsl_delivery.md)
@@ -137,25 +137,25 @@ The following Chef Automate-specific helpers can be used in recipes:
 
     {{< warning >}}
 
-    If the `get_project_application` method is called from the
-    `provision.rb` recipe, be sure that `delivery-truck::provision` is
-    executed before `get_project_application` by putting it in a
-    `ruby_block` or into a separate recipe that is called from
-    `provision.rb` via `include_recipe`. If the
-    `get_project_application` method is called directly in
-    `provision.rb`:
+If the `get_project_application` method is called from the
+`provision.rb` recipe, be sure that `delivery-truck::provision` is
+executed before `get_project_application` by putting it in a
+`ruby_block` or into a separate recipe that is called from
+`provision.rb` via `include_recipe`. If the
+`get_project_application` method is called directly in
+`provision.rb`:
 
-    ``` ruby
-    include_recipe 'delivery-truck::provision'
-    get_project_application(<project_app_name_string>)
-    ```
+``` ruby
+include_recipe 'delivery-truck::provision'
+get_project_application(<project_app_name_string>)
+```
 
-    you will get an error because Chef Infra Client will execute
-    `get_project_application` at compile time before it has run
-    `include_recipe 'delivery-truck::provision'`. It is recommended to
-    either use `get_project_application` in `deploy.rb`, a project
-    cookbook, in a `ruby_block` or in a separate `include_recipe` that
-    is executed after `include_recipe 'delivery-truck::provision'`.
+you will get an error because Chef Infra Client will execute
+`get_project_application` at compile time before it has run
+`include_recipe 'delivery-truck::provision'`. It is recommended to
+either use `get_project_application` in `deploy.rb`, a project
+cookbook, in a `ruby_block` or in a separate `include_recipe` that
+is executed after `include_recipe 'delivery-truck::provision'`.
 
     {{< /warning >}}
 

@@ -232,7 +232,7 @@ Node Options
 
     {{< note >}}
 
-    This option is required for a validatorless bootstrap.
+This option is required for a validatorless bootstrap.
 
     {{< /note >}}
 

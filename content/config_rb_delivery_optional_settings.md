@@ -4,14 +4,15 @@ draft = false
 robots = "noindex"
 
 
-aliases = "/config_rb_delivery_optional_settings.html"
+aliases = ["/config_rb_delivery_optional_settings.html", "/release/automate/config_rb_delivery_optional_settings.html"]
 
 
-  
-    
-    
-    
-    
+[menu]
+  [menu.docs]
+    title = "delivery.rb Optional Settings"
+    identifier = "legacy/workflow/reference/config_rb_delivery_optional_settings.md delivery.rb Optional Settings"
+    parent = "legacy/workflow/reference"
+    weight = 30
 +++    
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/config_rb_delivery_optional_settings.md)
@@ -649,9 +650,9 @@ This configuration file has the following settings for `delivery`:
 
     {{< note >}}
 
-    While the `delivery['read_ttl']` and `delivery['write_ttl']` values
-    may be tuned separately, it is recommended that both values be
-    identical.
+While the `delivery['read_ttl']` and `delivery['write_ttl']` values
+may be tuned separately, it is recommended that both values be
+identical.
 
     {{< /note >}}
 
@@ -723,9 +724,9 @@ This configuration file has the following settings for `delivery`:
 
     {{< note >}}
 
-    While the `delivery['read_ttl']` and `delivery['write_ttl']` values
-    may be tuned separately, it is recommended that both values be
-    identical.
+While the `delivery['read_ttl']` and `delivery['write_ttl']` values
+may be tuned separately, it is recommended that both values be
+identical.
 
     {{< /note >}}
 
@@ -751,8 +752,8 @@ This configuration file has the following settings for `elasticsearch`:
 
     {{< note >}}
 
-    If `elasticsearch['urls']` is specified with Amazon elasticsearch
-    url then `elasticsearch['role_arn']` value will be required.
+If `elasticsearch['urls']` is specified with Amazon elasticsearch
+url then `elasticsearch['role_arn']` value will be required.
 
     {{< /note >}}
 

@@ -9,7 +9,7 @@ menu:
     title: macports_package
     identifier: chef_infra/cookbook_reference/resources/macports_package macports_package
     parent: chef_infra/cookbook_reference/resources
-    weight: 550
+    weight: 680
 resource_reference: true
 robots: null
 resource_description_list:

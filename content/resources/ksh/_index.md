@@ -9,7 +9,7 @@ menu:
     title: ksh
     identifier: chef_infra/cookbook_reference/resources/ksh ksh
     parent: chef_infra/cookbook_reference/resources
-    weight: 490
+    weight: 620
 resource_reference: true
 robots: null
 resource_description_list:

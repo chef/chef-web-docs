@@ -9,7 +9,7 @@ menu:
     title: openssl_rsa_private_key
     identifier: chef_infra/cookbook_reference/resources/openssl_rsa_private_key openssl_rsa_private_key
     parent: chef_infra/cookbook_reference/resources
-    weight: 650
+    weight: 780
 resource_reference: true
 robots: null
 resource_description_list:

@@ -4,14 +4,15 @@ draft = false
 robots = "noindex"
 
 
-aliases = "/delivery_server_disaster_recovery.html"
+aliases = ["/delivery_server_disaster_recovery.html"]
 
 
-  
-    
-    
-    
-    
+[menu]
+  [menu.docs]
+    title = "Delivery Disaster Recovery"
+    identifier = "legacy/workflow/managing_workflow/delivery_server_disaster_recovery.md Delivery Disaster Recovery"
+    parent = "legacy/workflow/managing_workflow"
+    weight = 160
 +++    
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/delivery_server_disaster_recovery.md)
@@ -49,7 +50,7 @@ requirements:
 
     {{< note >}}
 
-    You cannot log in to the Chef Automate web UI on the standby server.
+You cannot log in to the Chef Automate web UI on the standby server.
 
     {{< /note >}}
 

@@ -11,7 +11,7 @@ aliases = ["/aws_opsworks_chef_automate.html"]
     title = "AWS OpsWorks for Chef Automate"
     identifier = "legacy/workflow/aws_opsworks_chef_automate.md AWS OpsWorks for Chef Automate"
     parent = "legacy/workflow"
-    weight = 40
+    weight = 50
 +++    
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/aws_opsworks_chef_automate.md)

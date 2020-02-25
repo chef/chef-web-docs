@@ -9,7 +9,7 @@ menu:
     title: windows_firewall_rule
     identifier: chef_infra/cookbook_reference/resources/windows_firewall_rule windows_firewall_rule
     parent: chef_infra/cookbook_reference/resources
-    weight: 1200
+    weight: 1330
 resource_reference: true
 robots: null
 resource_description_list:
