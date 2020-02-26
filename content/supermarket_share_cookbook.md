@@ -25,8 +25,8 @@ cookbooks.
 If you already use Hosted Chef as your Chef Infra Server, skip to the
 cookbook sharing method of your choice:
 
--   [Stove](/supermarket_share_cookbook.html#share-cookbooks-via-stove)
--   [Knife](/supermarket_share_cookbook.html#share-cookbooks-via-knife)
+-   [Stove](/supermarket_share_cookbook/#share-cookbooks-via-stove)
+-   [Knife](/supermarket_share_cookbook/#share-cookbooks-via-knife)
 
 {{< /note >}}
 
@@ -54,7 +54,7 @@ Share Cookbooks via Stove
 [Stove](https://github.com/sethvargo/stove) is a cookbook release
 utility that keeps the upload process localized to the cookbook itself,
 as opposed to the
-[Knife](/supermarket_share_cookbook.html#share-cookbooks-via-knife)
+[Knife](/supermarket_share_cookbook/#share-cookbooks-via-knife)
 method which requires a cookbook repository.
 
 {{< note >}}

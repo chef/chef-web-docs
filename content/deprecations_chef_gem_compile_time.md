@@ -17,7 +17,7 @@ aliases = "/deprecations_chef_gem_compile_time.html"
 Originally, the [chef gem](/resources/chef_gem/) resource always ran
 during the <span class="title-ref">compile</span> phase (see this
 section on [Chef Infra Client
-runs](/chef_client_overview.html#the-chef-client-run) for further
+runs](/chef_client_overview/#the-chef-client-run) for further
 details). It is now possible to control which phase the resource is run
 in. Calling `chef_gem` without specifying the phase is now deprecated.
 

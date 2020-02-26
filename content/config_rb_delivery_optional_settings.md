@@ -70,7 +70,7 @@ This configuration file has the following general settings:
     compliance mode. Set to <span class="title-ref">false</span> to
     force the server to run without FIPS compliance mode. Default value
     is whatever the kernel is configured to. See [Fips kernel
-    settings](/fips.html#FIPS-kernel-settings).
+    settings](/fips/#FIPS-kernel-settings).
 
 `install_path`
 

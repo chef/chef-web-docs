@@ -88,7 +88,7 @@ Cookbook Metadata
 
 Each cookbook can be configured to contain cookbook-specific copyright,
 email, and license data which is stored in the
-[metadata.rb](/config_rb_metadata.html) file.
+[metadata.rb](/config_rb_metadata/) file.
 
 You can configure default values for the copyright, email, and license
 of new cookbooks by adding the following to the config.rb file in the
@@ -108,4 +108,4 @@ as well (if they should be different from the default values contained
 in the config.rb file.)
 
 For a full explanation of working with cookbook metadata, see
-[metadata.rb](/config_rb_metadata.html).
+[metadata.rb](/config_rb_metadata/).

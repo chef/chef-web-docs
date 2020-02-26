@@ -504,7 +504,7 @@ sudo chef-client -j /etc/chef/first-boot.json
 ```
 
 It is important that settings in the [client.rb
-file](/config_rb_client.html)---`chef_server_url`, `http_proxy`, and so
+file](/config_rb_client/)---`chef_server_url`, `http_proxy`, and so
 on are used---to ensure that configuration details are built into the
 unattended bootstrap process.
 

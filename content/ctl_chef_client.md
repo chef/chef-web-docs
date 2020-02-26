@@ -718,7 +718,7 @@ init systems.
 **System Requirements**
 
 The Chef Infra Client has the [same system
-requirements](/chef_system_requirements.html#chef-infra-client) on the
+requirements](/chef_system_requirements/#chef-infra-client) on the
 AIX platform as any other platform, with the following notes:
 
 -   Expand the file system on the AIX platform using `chfs` or by

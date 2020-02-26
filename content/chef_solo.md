@@ -168,5 +168,5 @@ Environments
 chef-solo (executable)
 ======================
 
-See [chef-solo (executable)](/ctl_chef_solo.html) for complete CTL
+See [chef-solo (executable)](/ctl_chef_solo/) for complete CTL
 documentation.

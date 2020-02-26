@@ -38,7 +38,7 @@ saml.issuer_url '<AUTOMATE OIDC ENDPOINT>'
 ```
 
 Second, store your OIDC client credentials with using the [Secrets
-Management](/ctl_chef_server.html#ctl-chef-server-secrets-management)
+Management](/ctl_chef_server/#ctl-chef-server-secrets-management)
 commands:
 
 ``` bash

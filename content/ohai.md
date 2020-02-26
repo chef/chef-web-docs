@@ -204,7 +204,7 @@ Optional Plugins
 ================
 
 Ohai ships several plugins that are considered optional and can be
-enabled in the [client.rb configuration file](/config_rb_client.html).
+enabled in the [client.rb configuration file](/config_rb_client/).
 
 -   <span class="title-ref">:Lspci</span> - PCI device information on
     Linux hosts.
@@ -222,7 +222,7 @@ Enabling Optional Plugins
 -------------------------
 
 Optional plugins can be enabled in the [client.rb configuration
-file](/config_rb_client.html):
+file](/config_rb_client/):
 
 ``` ruby
 ohai.optional_plugins = [
@@ -276,7 +276,7 @@ end
 
 Hint files are located in the `/etc/chef/ohai/hints/` directory by
 default. Use the `Ohai.config[:hints_path]` setting in the [client.rb
-configuration file](/config_rb_client.html) to customize this location.
+configuration file](/config_rb_client/) to customize this location.
 
 ohai Resource
 =============
@@ -285,7 +285,7 @@ A [resource](/resource/) defines the desired state for a single
 configuration item present on a node that is under management by Chef
 Infra. A resource collection---one (or more) individual
 resources---defines the desired state for the entire node. During a
-[Chef Infra Client run](/chef_client.html#the-chef-client-run.html), the
+[Chef Infra Client run](/chef_client/#the-chef-client-run.html), the
 current state of each resource is tested, after which Chef Infra Client
 will take any steps that are necessary to repair the node and bring it
 back into the desired state.

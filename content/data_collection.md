@@ -37,7 +37,7 @@ Server automatically. To enable this functionality, you must perform the
 following steps:
 
 -   [Configure a Data Collector token in Chef
-    Automate](/data_collection.html#step-1-configure-a-data-collector-token-in-chef-automate)
+    Automate](/data_collection/#step-1-configure-a-data-collector-token-in-chef-automate)
 -   [Configure your Chef Infra Server to point to Chef
     Automate](https://docs.chef.io/data_collection.html#step-2-configure-your-chef-server-to-point-to-chef-automate)
 
@@ -99,7 +99,7 @@ performance and reduces disk space requirements.
 ohai.disabled_plugins = [ :Passwd, :Sessions ]
 ```
 
-[Ohai Plugin Detail](/ohai.html#ohai-settings-in-client-rb)
+[Ohai Plugin Detail](/ohai/#ohai-settings-in-client-rb)
 
 ### Setting up data collection on Chef Server versions 12.14 and higher
 
@@ -222,7 +222,7 @@ each new compliance report. If the `compliance-latest` Elasticsearch
 index becomes out of sync with the time-series data, it can be
 regenerated using the `automate-ctl migrate-compliance` subcommand. For
 more information, see
-[migrate-compliance](/ctl_automate_server.html#migrate-compliance).
+[migrate-compliance](/ctl_automate_server/#migrate-compliance).
 
 Prerequisites
 -------------

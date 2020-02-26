@@ -400,7 +400,7 @@ configure external PostgreSQL for use with the Chef Infra Server:
 
     > The db_superuser_password can also be set using
     > `chef-server-ctl set-db-superuser-password` from the [Secrets
-    > Management](/ctl_chef_server.html#ctl-chef-server-secrets-management)
+    > Management](/ctl_chef_server/#ctl-chef-server-secrets-management)
     > commands.
 
 `postgresql['external']`
@@ -510,7 +510,7 @@ opscode_erchef['sql_connection_user']='opscode_chef@my_postgresql.postgres.datab
 {{< note >}}
 
 See the list of [error messages that may be
-present](/errors.html#external-postgresql) when configuring the Chef
+present](/errors/#external-postgresql) when configuring the Chef
 Infra Server to use a remote PostgreSQL server.
 
 {{< /note >}}

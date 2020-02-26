@@ -79,7 +79,7 @@ create
 {{< note >}}
 
 This command was removed in Chef Client 13.0. Use the [chef generate
-cookbook](/ctl_chef.html#chef-generate-cookbook) command instead.
+cookbook](/ctl_chef/#chef-generate-cookbook) command instead.
 
 {{< /note >}}
 

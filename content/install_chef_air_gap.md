@@ -38,7 +38,7 @@ software - as such, it makes the following assumptions:
     -   Chef Infra Client
     -   Chef Supermarket
     -   An [install
-        script](/install_chef_air_gap.html#create-an-install-script) for
+        script](/install_chef_air_gap/#create-an-install-script) for
         Chef Infra Client
 
 Required cookbooks
@@ -314,9 +314,9 @@ Supermarket.
 4.  Retrieve Supermarket's OAuth 2.0 client credentials:
 
     Depending on your Chef Infra Server version and configuration (see
-    [chef-server.rb](/config_rb_server_optional_settings.html#config-rb-server-insecure-addon-compat)),
+    [chef-server.rb](/config_rb_server_optional_settings/#config-rb-server-insecure-addon-compat)),
     this can be retrieved via [chef-server-ctl oc-id-show-app
-    supermarket](/ctl_chef_server.html#ctl-chef-server-oc-id-show-app)
+    supermarket](/ctl_chef_server/#ctl-chef-server-oc-id-show-app)
     or is located in `/etc/opscode/oc-id-applications/supermarket.json`:
 
     ``` javascript

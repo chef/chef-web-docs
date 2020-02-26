@@ -42,19 +42,19 @@ The Chef Infra Server has the following prerequisites:
 -   A connection to Network Time Protocol (NTP) to prevent clock drift
 -   If host-based firewalls (iptables, ufw, etc.) are being used, ensure
     that ports 80 and 443 are open. See the
-    [firewalls](/install_server_pre.html#firewalls) section of the
+    [firewalls](/install_server_pre/#firewalls) section of the
     install prerequisites for additional details.
 -   A local mail transfer agent that allows the Chef Infra Server to
     send email notifications
 -   Using cron and the `/etc/cron.d` directory for periodic maintenance
     tasks
 -   Disabling the Apache Qpid daemon on CentOS and Red Hat systems. See
-    the [Apache Qpid](/install_server_pre.html#apache-qpid) of the
+    the [Apache Qpid](/install_server_pre/#apache-qpid) of the
     prerequisite documentation for detailed steps.
 -   Optional. A local user account under which services will run, a
     local user account for PostgreSQL, and a group account under which
     services will run. See [UIDs and
-    GIDs](/install_server_pre.html#uids-and-gids) for more information.
+    GIDs](/install_server_pre/#uids-and-gids) for more information.
 
 {{< note >}}
 
@@ -143,8 +143,8 @@ your `/etc/opscode/chef-server.rb` file by following the process below:
     ```
 
 For more information on configuring your Chef Infra Server, see
-[chef-server.rb Settings](/config_rb_server.html) and [chef-server.rb
-Optional Settings](/config_rb_server_optional_settings.html).
+[chef-server.rb Settings](/config_rb_server/) and [chef-server.rb
+Optional Settings](/config_rb_server_optional_settings/).
 
 High Availability
 =================

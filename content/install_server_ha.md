@@ -187,7 +187,7 @@ different from any other back-end node.
     `, "<NET-1_IN_CIDR>", ..., "<NET-N_IN_CIDR>"` is the list of all of
     the networks that your backends and frontends are in. See the
     [Configuring Frontend and Backend Members on Different
-    Networks](/install_server_ha.html#configuring-frontend-and-backend-members-on-different-networks)
+    Networks](/install_server_ha/#configuring-frontend-and-backend-members-on-different-networks)
     section for more information:
 
     ``` ruby
@@ -229,7 +229,7 @@ join nodes in parallel the cluster may fail to become available):
 
 2.  If you added a `postgresql.md5_auth_cidr_addresses` line to the
     leader's `/etc/chef-backend/chef-backend.rb` in [Step 1: Create
-    Cluster](/install_server_ha.html#step-1-create-cluster) then update
+    Cluster](/install_server_ha/#step-1-create-cluster) then update
     this node's `/etc/chef-backend/chef-backend.rb` with the following
     content where `postgresql.md5_auth_cidr_addresses` is set to the
     same value used in the leader's `chef-backend.rb`. If all of the
@@ -354,13 +354,13 @@ Upgrading Chef Infra Server on the Frontend Machines
 ----------------------------------------------------
 
 1.  On one frontend server, follow the [standalone upgrade
-    process](/upgrade_server.html#standalone).
+    process](/upgrade_server/#standalone).
 2.  Copy `/var/opt/opscode/upgrades/migration-level` from the first
     upgraded frontend to `/var/opt/opscode/upgrades/migration-level` on
     each of the remaining frontends.
 3.  Once the updated file has been copied to each of the remaining
     frontends, perform the [standalone upgrade
-    process](/upgrade_server.html#standalone) on each of the frontend
+    process](/upgrade_server/#standalone) on each of the frontend
     servers.
 
 Configuring Frontend and Backend Members on Different Networks
@@ -892,4 +892,4 @@ The Chef Infra Server backend HA cluster includes a command-line utility
 named chef-backend-ctl. This command-line tool is used to manage the
 Chef Infra Server backend HA cluster, start and stop individual
 services, and tail Chef Infra Server log files. For more information,
-see the [chef-backend-ctl documentation](/ctl_chef_backend.html).
+see the [chef-backend-ctl documentation](/ctl_chef_backend/).

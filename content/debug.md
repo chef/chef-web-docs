@@ -140,7 +140,7 @@ chef_handler
 
 {{% handler_types %}}
 
-Read more [about exception, report, and start handlers](/handlers.html).
+Read more [about exception, report, and start handlers](/handlers/).
 
 chef-shell
 ----------
@@ -308,10 +308,10 @@ within a recipe may be located:
 chef-solo
 ---------
 
-See [chef-solo (executable)](/ctl_chef_solo.html) for complete CTL
+See [chef-solo (executable)](/ctl_chef_solo/) for complete CTL
 documentation.
 
 {{% chef_solo_summary %}}
 
-See [chef-solo (executable)](/ctl_chef_solo.html) for complete CTL
+See [chef-solo (executable)](/ctl_chef_solo/) for complete CTL
 documentation.

@@ -74,7 +74,7 @@ kitchen.yml
 {{< note >}}
 
 For more information about the kitchen.yml file, see
-[kitchen.yml](/config_yml_kitchen.html).
+[kitchen.yml](/config_yml_kitchen/).
 
 {{< /note >}}
 

@@ -487,11 +487,11 @@ Prerequisites
     server setup that references your private Supermarket, and at least
     one Chef Automate build node/runner installed, setup, and running.
     See [Install Chef Automate](/install_chef_automate/) and [Chef
-    Identity](/install_supermarket.html#chef-identity.html) for more
+    Identity](/install_supermarket/#chef-identity.html) for more
     information.
 -   Ensure you have created a project in Chef Automate. Follow these
     instructions to [Set Up
-    Projects](/delivery_build_cookbook.html#set-up-projects).
+    Projects](/delivery_build_cookbook/#set-up-projects).
 -   Ensure you have [Chef
     Workstation](https://downloads.chef.io/chef-workstation/) installed
     on your [workstation](/workstation/).
@@ -539,7 +539,7 @@ your Chef Infra Server.
     private Supermarket using the `knife` command-line tool. If you have
     not configured `knife` to share cookbooks with your private
     Supermarket, see [Upload a
-    Cookbook](/supermarket.html#upload-a-cookbook) before running the
+    Cookbook](/supermarket/#upload-a-cookbook) before running the
     following `knife` subcommands.
 
     ``` bash
@@ -551,7 +551,7 @@ Generate a cookbook
 -------------------
 
 1.  Use Chef Workstation's [cookbook generator
-    command](/ctl_chef.html#chef-generate-cookbook) to create a default
+    command](/ctl_chef/#chef-generate-cookbook) to create a default
     cookbook directory structure called `my_cookbook`.
 
     ``` bash

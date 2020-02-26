@@ -193,7 +193,7 @@ cookbook "library-cookbook", "~> 0.1.1"
 ```
 
 These are identical to the version constraints in a [cookbook metadata
-file](/config_rb_metadata.html#cookbook-version-constraints).
+file](/config_rb_metadata/#cookbook-version-constraints).
 
 Source options are used to specify the location to acquire a cookbook
 from, or to place a cookbook in a group. By default, cookbooks are

@@ -407,7 +407,7 @@ To edit the Amazon Machine Images (AMI) instance size, do the following:
     ```
 
 11. Follow the [instructions for changing the
-    hostname](/aws_marketplace.html#change-automate-hostname)
+    hostname](#change-automate-hostname)
 
 12. Verify that you can login to Chef Automate webui by navigating to
     `https://<YOUR NEW PUBLIC DNS>/e/default`.
@@ -521,7 +521,7 @@ schema, after which it is migrated to the Amazon Machine Images (AMI).
     latest version available on the [downloads
     site](https://downloads.chef.io/). If this is not the latest
     version, download the package, and then
-    [upgrade](/upgrade_server.html#from-chef-server-12) to the latest
+    [upgrade](/upgrade_server/#from-chef-server-12) to the latest
     version.
 
 After verifying that your existing Chef Infra Server installation is up

@@ -38,7 +38,7 @@ Capacity Planning
 =================
 
 Read the [guidance around capacity
-planning](/server_overview.html#capacity-planning) for information about
+planning](/server_overview/#capacity-planning) for information about
 how to choose the right topology for the Chef Infra Server.
 
 Hardware Requirements

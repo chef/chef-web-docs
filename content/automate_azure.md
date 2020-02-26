@@ -120,7 +120,7 @@ schema, after which it is migrated to the Chef Automate Azure VM image.
     result to the latest version available on the [downloads
     site](https://downloads.chef.io/). If you are not using the latest
     version, download the package and then
-    [upgrade](/upgrade_server.html#from-chef-server-12) to the latest
+    [upgrade](/upgrade_server/#from-chef-server-12) to the latest
     version.
 
 After verifying that your existing Chef Infra Server installation is up
