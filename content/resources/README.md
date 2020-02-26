@@ -140,28 +140,24 @@ resource_new_in: 14.0
 
 **syntax_description**
 
-A short introductory sentence in Markdown that explains the code block in ``syntax_code_block``.
+A short introductory description in Markdown that explains the syntax of the resource and includes 
+an example code block.
 
 For example:
 
-``syntax_description: 'The apt_preference resource has the following syntax:'``
+    syntax_description: "The build_essential resource has the following syntax:\n\n```\
+      \ ruby\nbuild_essential 'name' do\n  compile_time      true, false # default value:\
+      \ false\n  action            Symbol # defaults to :install if not specified\nend\n\
+      ```"
 
 or,
 
-``syntax_description: 'A **bash** resource block executes scripts using Bash:'``
+    syntax_description: "A **bash** resource block executes scripts using Bash:\n\n```\
+      \ ruby\nbash 'extract_module' do\n  cwd ::File.dirname(src_filepath)\n  code <<-EOH\n\
+      \    mkdir -p #{extract_path}\n    tar xzf #{src_filename} -C #{extract_path}\n\
+      \    mv #{extract_path}/*/* #{extract_path}/\n    EOH\n  not_if { ::File.exist?(extract_path)\
+      \ }\nend\n```"
 
-**syntax_code_block**
-
-A code block that demonstrates the syntax of the resource.
-
-For example:
-
-```
-syntax_code_block: "apt_preference 'name' do\n  glob              String\n  package_name\
-  \      String # default value: 'name' unless specified\n  pin               String\n\
-  \  pin_priority      String, Integer\n  action            Symbol # defaults to :add\
-  \ if not specified\nend"
-```
 
 **syntax_properties_list**
 
@@ -181,15 +177,15 @@ syntax_properties_list:
 
 **syntax_full_code_block**
 
-A code block showing the full syntax of all of the properties available in a resource.
+A code block showing the full syntax of all of the properties available in a resource. This can be omitted and nothing will be displayed.
 
 **syntax_full_properties_list**
 
-A list of all of the properties in the code block in ``syntax_full_code_block``. In list format.
+A list of all of the properties in the code block in ``syntax_full_code_block``. This can be omitted and nothing will be displayed.
 
 **syntax_shortcode**
 
-Some resources use a shortcode to display their syntax section. 
+Some resources use a shortcode to display their syntax section.
 
 For example:
 
@@ -199,7 +195,7 @@ For example:
 
 This is a list of actions followed by Markdown or a shortcode that describes each action.
 
-The example below will display the `install` action followed by a markdown description 
+The example below will display the `install` action followed by a markdown description,
 and then `nothing` action followed by a shortcode.
 
 ```
@@ -221,16 +217,16 @@ This is a list of each property in a resource.
 
 - property
 
-	The name of the property.
-	
+  The name of the property.
+
 - ruby_type
 
-	The ruby data type of the property.
+  The ruby data type of the property.
 
 - required
 
-	`True` or `False`. Indicates if the property is required by the resource and 
-	adds ``REQUIRED`` to the description of the property.
+  `True` or `False`. Indicates if the property is required by the resource and 
+  adds ``REQUIRED`` to the description of the property.
 
 - default_value
 
@@ -436,6 +432,8 @@ page and the individual resources pages are created. Hugo crawls through the res
 yaml files and builds an unordered list listing each H1 through H3 heading. This 
 means that if a section of content is added or removed from the resource page 
 templates, then those headings also have to be added or removed to the respective 
-tables of contents templates. Failure to update the resource page table of contents templates
+tables of contents templates.
+
+Failure to update the resource page table of contents templates
 may lead to links that don't link to the proper content, links that don't work properly, 
 or content that isn't linked to in the table of contents.
