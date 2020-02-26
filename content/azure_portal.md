@@ -57,7 +57,7 @@ workflow. These settings are available from the Chef Infra Client
 configuration settings:
 
 -   The `chef_server_url` and `validation_client_name`. These are
-    settings in the [client.rb file](/config_rb_client.html).
+    settings in the [client.rb file](/config_rb_client/).
 -   The file for the [validator key](/auth/).
 
 Once this information has been identified, launch the Azure portal,
@@ -142,7 +142,7 @@ following two settings: `chef_server_url` and
 
     {{< /note >}}
 
-13. Optional. [Use a run-list](/run_lists.html) to specify what should
+1.  Optional. [Use a run-list](/run_lists/) to specify what should
     be run when the virtual machine is provisioned, such as using the
     run-list to provision a virtual machine with Internet Information
     Services (IIS). Use the `iis` cookbook and the default recipe to

@@ -77,7 +77,7 @@ Remediation
 -----------
 
 Choose the appropriate [precedence
-level](/attributes.html#attribute-precedence), then replace `set` with
+level](/attributes/#attribute-precedence), then replace `set` with
 that precedence level.
 
 ``` ruby

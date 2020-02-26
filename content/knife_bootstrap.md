@@ -256,7 +256,7 @@ This option is required for a validatorless bootstrap.
 `--hint HINT_NAME[=HINT_FILE]`
 
 :   An Ohai hint to be set on the bootstrap target. See the
-    [Ohai](/ohai.html#hints) documentation for more information.
+    [Ohai](/ohai/#hints) documentation for more information.
     `HINT_FILE` is the name of the JSON file. `HINT_NAME` is the name of
     a hint in a JSON file. Use multiple `--hint` options to specify
     multiple hints.

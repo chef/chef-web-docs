@@ -281,7 +281,7 @@ Project Configuration
 
 Use attributes from the `node['delivery']['config']` namespace to get
 [configuration settings from the .delivery/config.json
-file](/config_json_delivery.html).
+file](/config_json_delivery/).
 
 `['build-cookbook']`
 

@@ -282,7 +282,7 @@ Delivery CLI
 Perform the following steps to install the Delivery CLI and setup your
 project:
 
-1.  [Install the Delivery CLI](/delivery_cli.html#install-delivery-cli).
+1.  [Install the Delivery CLI](/delivery_cli/#install-delivery-cli).
 
 2.  In the command shell, create or navigate to the directory in which
     project repositories are located.

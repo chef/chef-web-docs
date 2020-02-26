@@ -102,7 +102,7 @@ upgrade:
 -   On each build node,
     [download](https://downloads.chef.io/push-jobs-client/stable/) the
     latest Push Jobs Client release and follow the [installation
-    instructions](/install_push_jobs.html#install-the-client) on each
+    instructions](/install_push_jobs/#install-the-client) on each
     build node. If the build node was set up using
     `automate-ctl install-build-node`, then it runs on version 2.0 or
     greater and does not need upgraded.

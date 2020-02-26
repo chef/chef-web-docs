@@ -90,7 +90,7 @@ uninstall
 
 The `uninstall` subcommand is used to manage the hooks between runit and
 `sysvinit` or `upstart`. This subcommand does not [uninstall the Chef
-management console](/uninstall.html#chef-manage) or remove `.rpm` or
+management console](/uninstall/#chef-manage) or remove `.rpm` or
 `.deb` files.
 
 This subcommand has the following syntax:

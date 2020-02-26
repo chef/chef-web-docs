@@ -45,7 +45,7 @@ steps:
 -   The hostname for the Chef Infra Server must be an FQDN, including
     the domain suffix, and must be resolvable by the backend and
     frontend servers. See [Hostnames,
-    FQDNs](/install_server_pre.html#hostnames) for more information.
+    FQDNs](/install_server_pre/#hostnames) for more information.
 -   `chef-server-ctl reconfigure` will not bind the `backend_vip` to the
     backend server. The easiest thing to do is just define `backend_vip`
     as the already configured main IP address of the backend system. If

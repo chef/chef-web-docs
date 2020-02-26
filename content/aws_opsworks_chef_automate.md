@@ -57,14 +57,14 @@ instance you need to do the following:
     `Select an SSH key` section while creating your AWS OpsWorks for
     Chef Automate instance. In order to add a runner, you need to SSH
     into your instance and run the
-    [install-runner](/ctl_automate_server.html#install-runner)
+    [install-runner](/ctl_automate_server/#install-runner)
     subcommand.
 2.  Your runner should be reachable via SSH from your Chef Automate
     instance. For this to succeed, you need to make sure its subnet,
     security groups, and SSH key pair are configured correctly. We also
     recommend setting up a dedicated SSH key pair in AWS and copying the
     private key to your Chef Automate instance and use it while running
-    [install-runner](/ctl_automate_server.html#install-runner) command.
+    [install-runner](/ctl_automate_server/#install-runner) command.
 3.  You can find the FQDN of your "AWS OpsWorks for Chef Automate"
     instance in the OpsWorks console. You can use `ec2-user` as the
     username to SSH into your instance. Assuming you have configured the
@@ -81,7 +81,7 @@ security group of your AWS OpsWorks for Chef Automate instance to allow
 inbound Git traffic (using the SSH protocol). This is required so that
 you can create and approve changes in your Chef Automate instance. Once
 you [find your Chef Automate
-instance](/aws_opsworks_chef_automate.html#find-opsworks-instance) you
+instance](#find-opsworks-instance) you
 can go to the linked security group and add a new inbound rule.
 
 ``` text

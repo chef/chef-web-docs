@@ -29,10 +29,10 @@ From Chef Server 12
 There are three upgrade scenarios for upgrades from earlier versions of
 Chef Server 12 to a newer version of Chef Server 12:
 
--   [Standalone](/upgrade_server.html#standalone)
+-   [Standalone](/upgrade_server/#standalone)
 -   [High Availability: Chef
-    Backend](/upgrade_server.html#high-availability-chef-backend)
--   [Tiered](/upgrade_server.html#tiered)
+    Backend](/upgrade_server/#high-availability-chef-backend)
+-   [Tiered](/upgrade_server/#tiered)
 
 {{< note >}}
 
@@ -47,7 +47,7 @@ add-ons have been upgraded to compatible versions.
 
 For additional information on this change, including a list of supported
 add-on versions, see [Chef Infra Server Credentials
-Management](/server_security.html#chef-infra-server-credentials-management).
+Management](/server_security/#chef-infra-server-credentials-management).
 
 {{< /note >}}
 
@@ -123,7 +123,7 @@ that provides automated load balancing and failover for stateful
 components in the system architecture.
 
 To upgrade your Chef Backend installation, see [High Availability:
-Upgrade to Chef Backend 2](/upgrade_server_ha_v2.html). The upgrade
+Upgrade to Chef Backend 2](/upgrade_server_ha_v2/). The upgrade
 process will require downtime equal to the amount of time it takes to
 stop the server, run dpkg or RPM Package Manager, and then upgrade the
 server.
@@ -146,7 +146,7 @@ Manager, and then upgrade the server.
 These instructions are primarily intended for existing users of the
 `tier` Chef Infra Server topology. For the latest information on high
 availability and how to set up a highly-available server cluster, see
-[High Availability: Backend Cluster](/install_server_ha.html)
+[High Availability: Backend Cluster](/install_server_ha/)
 
 {{< /note >}}
 

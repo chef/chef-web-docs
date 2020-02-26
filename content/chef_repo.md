@@ -191,7 +191,7 @@ Many Users, Same Repo
 Create the chef-repo
 ====================
 
-Use the [chef generate repo command](/ctl_chef.html#chef-generate-repo)
+Use the [chef generate repo command](/ctl_chef/#chef-generate-repo)
 to create your chef-repo directory along with the base folder structure.
 This command uses the `chef` command-line tool that is packaged as part
 of Chef Workstation to create a chef-repo.

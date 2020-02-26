@@ -25,7 +25,7 @@ Chef Push Jobs is installed to the following locations:
 Install the Server
 ==================
 
-Use the [chef-server-ctl install](/ctl_chef_server.html#install) command
+Use the [chef-server-ctl install](/ctl_chef_server/#install) command
 to add Chef Push Jobs.
 
 Install the Client
@@ -194,7 +194,7 @@ Chef Push Jobs Groups
 {{< note >}}
 
 The Chef Infra Server uses role-based access control to define the
-[organizations, groups, and users](/server_orgs.html), including those
+[organizations, groups, and users](/server_orgs/), including those
 needed by Chef Push Jobs.
 
 {{< /note >}}

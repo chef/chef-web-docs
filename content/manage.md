@@ -27,11 +27,11 @@ Nodes
 {{% node %}}
 
 The Chef management console provides ways for users to [delete nodes and
-reset their private keys](/server_manage_nodes.html#manage), [edit node
-attributes](/server_manage_nodes.html#node-attributes), [manage the
-run-lists](/server_manage_nodes.html#run-lists), [configure user and
-group permissions](/server_manage_nodes.html#permissions), and [manage
-tags](/server_manage_nodes.html#manage-tags).
+reset their private keys](/server_manage_nodes/#manage), [edit node
+attributes](/server_manage_nodes/#node-attributes), [manage the
+run-lists](/server_manage_nodes/#run-lists), [configure user and
+group permissions](/server_manage_nodes/#permissions), and [manage
+tags](/server_manage_nodes/#manage-tags).
 
 ![image](/images/step_manage_webui_nodes.png)
 
@@ -101,7 +101,7 @@ bags](/server_manage_data_bags/),
 [roles](/server_manage_roles/),
 [cookbooks](/server_manage_cookbooks/),
 [clients](/server_manage_clients/), and [managing
-tags](/server_manage_nodes.html#manage-tags.html).
+tags](/server_manage_nodes/#manage-tags.html).
 
 ![image](/images/step_manage_webui_policy.png)
 

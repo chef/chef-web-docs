@@ -46,7 +46,7 @@ Deprecation Notice
 ------------------
 
 -   SLES 11 is no longer supported per our [platform
-    policy](/platforms.html#platform-end-of-life-policy), as upstream
+    policy](/platforms/#platform-end-of-life-policy), as upstream
     support ended in March of this year.
 
 Updates and Improvements
@@ -290,7 +290,7 @@ The following items are new for Chef server 12.17.3:
     poisoning attacks by ensuring that nginx only responds to requests
     with host headers that match the configured FQDN for the given
     machine. See Chef server's [optional nginx
-    settings](/config_rb_server_optional_settings.html#nginx) for
+    settings](/config_rb_server_optional_settings/#nginx) for
     additional details
 
 See the [change
@@ -338,7 +338,7 @@ not substantially affect the performance of Chef server; however in
 certain situations it can be helpful to clean them up. This command is
 primarily intended for use by Chef support.
 
-See the [cleanup-bifrost](/ctl_chef_server.html#cleanup-bifrost)
+See the [cleanup-bifrost](/ctl_chef_server/#cleanup-bifrost)
 subcommand documentation for syntax examples and additional options.
 
 What's New in 12.16.2
@@ -545,7 +545,7 @@ server features that require providing passwords in
 `/etc/opscode/chef-server.rb`, we've also provided commands that allow
 you to set these passwords outside of the configuration file. For
 information about these commands see [Secrets
-Management](/ctl_chef_server.html#secrets-management).
+Management](/ctl_chef_server/#secrets-management).
 
 {{< note >}}
 
@@ -557,7 +557,7 @@ to keepalived and DRBD in `/var/opt/opscode`.
 For further information see:
 
 See [Chef Server Credentials
-Management](/server_security.html#chef-infra-server-credentials-management)
+Management](/server_security/#chef-infra-server-credentials-management)
 for more details.
 
 What's New in 12.13
@@ -829,11 +829,11 @@ each Chef server in a cluster.
 
 Five new commands have been created to support credential rotation:
 
--   [require-credential-rotation](/ctl_chef_server.html#require-credential-rotation)
--   [rotate-all-credentials](/ctl_chef_server.html#rotate-all-credentials)
--   [rotate-credentials](/ctl_chef_server.html#rotate-credentials)
--   [rotate-shared-secrets](/ctl_chef_server.html#rotate-shared-secrets)
--   [show-service-credentials](/ctl_chef_server.html#show-service-credentials)
+-   [require-credential-rotation](/ctl_chef_server/#require-credential-rotation)
+-   [rotate-all-credentials](/ctl_chef_server/#rotate-all-credentials)
+-   [rotate-credentials](/ctl_chef_server/#rotate-credentials)
+-   [rotate-shared-secrets](/ctl_chef_server/#rotate-shared-secrets)
+-   [show-service-credentials](/ctl_chef_server/#show-service-credentials)
 
 Your secrets file is located at
 `/etc/opscode/private-chef-secrets.json`, so whenever you rotate your
@@ -1463,7 +1463,7 @@ Some `opscode_solr` settings are imported automatically, such as heap,
 new size, and Java options, but many settings are ignored. If your
 Enterprise Chef configuration is highly tuned for Apache Solr, review
 [these configuration
-settings](/config_rb_server_optional_settings.html#opscode-solr4) before
+settings](/config_rb_server_optional_settings/#opscode-solr4) before
 re-tuning Apache Solr for Chef server version 12.
 
 External PostgreSQL
@@ -3641,7 +3641,7 @@ For more information about Amazon Elastic Block Store (EBS), see
 <http://aws.amazon.com/ebs/>.
 
 View the topic [High Availability: Backend
-Cluster](/install_server_ha.html) for more information about how to set
+Cluster](/install_server_ha/) for more information about how to set
 up the Chef server for high availability in Amazon Web Services (AWS).
 
 Chef Replication

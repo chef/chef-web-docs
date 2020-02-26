@@ -60,7 +60,7 @@ configuration option. Configuration options passed via command line
 flags will always supersede any default configuration.
 
 The Chef Automate [optional
-settings](config_rb_delivery_optional_settings.html#backup) page
+settings](/config_rb_delivery_optional_settings/#backup) page
 contains a full reference of all backup configuration options that are
 available.
 
@@ -229,14 +229,14 @@ Create Backups
 List Backups
 ============
 
-The [list-backups](/ctl_automate_server.html#list-backups) command is
+The [list-backups](/ctl_automate_server/#list-backups) command is
 used to list Chef Automate backup archives and Elasticsearch snapshots
 in either human or machine readable outputs.
 
 Delete Backups
 ==============
 
-The [delete-backups](/ctl_automate_server.html#delete-backups) command
+The [delete-backups](/ctl_automate_server/#delete-backups) command
 is used to delete Chef Automate backup archives and Elasticsearch
 snapshots. The command matches a given regular expression and prompts
 the user to confirm deletion of each matched backup or snapshot. It can
@@ -246,7 +246,7 @@ repositories to conform to those limits.
 Restore Backups
 ===============
 
-The [restore-backup](/ctl_automate_server.html#restore-backup) command
+The [restore-backup](/ctl_automate_server/#restore-backup) command
 is used to fully or partially restore a Chef Automate cluster from
 backup archives and/or Elasticsearch snapshots.
 

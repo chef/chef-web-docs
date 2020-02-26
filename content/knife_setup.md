@@ -25,7 +25,7 @@ config.rb Configuration File
 
 Knife is configured using a config.rb configuration, which contains
 configuration for both the knife command line tool as well as any
-installed knife plugins. See [config.rb](/config_rb.html) for a complete
+installed knife plugins. See [config.rb](/config_rb/) for a complete
 list of configuration options in the config.rb file.
 
 Load Path Priority

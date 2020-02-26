@@ -202,7 +202,7 @@ The following database options are available:
 Fieri
 -----
 
-Use these settings to enable [Fieri](/supermarket.html#fieri), an
+Use these settings to enable [Fieri](/supermarket/#fieri), an
 optional service built into Supermarket that provides cookbook quality
 metrics.
 
@@ -532,18 +532,18 @@ Server identity service:
 
 `default['supermarket']['chef_oauth2_app_id']`
 
-:   The [Chef Identity](/install_supermarket.html#chef-identity)
+:   The [Chef Identity](/install_supermarket/#chef-identity)
     application ID created for Supermarket on the Chef Infra Server. See
     the [Chef Identity
-    configuration](/install_supermarket.html#configure) section of the
+    configuration](/install_supermarket/#configure) section of the
     Supermarket installation guide for additional details.
 
 `default['supermarket']['chef_oauth2_secret']`
 
-:   The [Chef Identity](/install_supermarket.html#chef-identity)
+:   The [Chef Identity](/install_supermarket/#chef-identity)
     application secret created for Supermarket on the Chef Infra Server.
     See the [Chef Identity
-    configuration](/install_supermarket.html#configure) section of the
+    configuration](/install_supermarket/#configure) section of the
     Supermarket installation guide for additional details.
 
 `default['supermarket']['chef_oauth2_url']`

@@ -55,7 +55,7 @@ Adding a Runner
 
 You can add a new runner via `automate-ctl` from your Chef Automate
 server. Log in to your Chef Automate server and run the
-[install-runner](/ctl_automate_server.html#install-runner) command.
+[install-runner](/ctl_automate_server/#install-runner) command.
 
 {{< note >}}
 
@@ -68,14 +68,14 @@ ChefDK installs Chef Client 13 on your runner.
 
 {{< /note >}}
 
-After the [install-runner](/ctl_automate_server.html#install-runner)
+After the [install-runner](/ctl_automate_server/#install-runner)
 command succeeds, the new runner should show up in the UI under
 `Workflow -> Runners -> Manage Runners`. If you see it there, click the
 `Test` button. That will test an ssh connection to your runner to verify
 that jobs can be dispatched to it. If there are any issues, you should
 get an error in the UI.
 
-Supported runner platforms are listed [here](/platforms.html#runners).
+Supported runner platforms are listed [here](/platforms/#runners).
 
 Removing a Runner
 -----------------
@@ -146,11 +146,11 @@ You can also set which runners you want jobs to run on for your project.
 You can set default, per phase, and matrix per phase filters to
 customize exactly which runners are targeted at various points of your
 pipeline. Refer to the [job_dispatch configuration
-settings](/config_json_delivery.html#job-dispatch-config-settings) for
+settings](/config_json_delivery/#job-dispatch-config-settings) for
 more details and examples.
 
 For more detail on `config.json`, see its
-[config.json](/config_json_delivery.html).
+[config.json](/config_json_delivery/).
 
 Cancelling Jobs
 ===============

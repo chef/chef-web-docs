@@ -1414,7 +1414,7 @@ Updated Components
 ### Chef 14.10.9
 
 ChefDK now ships with Chef 14.10.9. See [Chef 14.10 release
-notes](/release_notes.html#whats-new-in-14-10) for more information on
+notes](/release_notes/#whats-new-in-14-10) for more information on
 what's new.
 
 ### InSpec 3.4.1
@@ -1464,7 +1464,7 @@ Updated Components
 ### Chef 14.8.12
 
 ChefDK now ships with Chef 14.8.12. See [Chef 14.8 release
-notes](/release_notes.html#whats-new-in-14-8) for more information on
+notes](/release_notes/#whats-new-in-14-8) for more information on
 what's new.
 
 ### InSpec 3.2.6
@@ -1569,7 +1569,7 @@ Updated Components
 ### Chef 14.7.17
 
 ChefDK now ships with Chef 14.7.17. See [Chef 14.7 release
-notes](/release_notes.html#whats-new-in-14-7) for more information on
+notes](/release_notes/#whats-new-in-14-7) for more information on
 what's new.
 
 What's New in 3.4
@@ -1581,7 +1581,7 @@ Updated Components
 ### Chef 14.6.47
 
 ChefDK now ships with Chef 14.6.47. See [Chef 14.6 release
-notes](/release_notes.html#whats-new-in-14-6) for more information on
+notes](/release_notes/#whats-new-in-14-6) for more information on
 what's new.
 
 ### Fauxhai 6.9.1
@@ -1677,7 +1677,7 @@ Updated Components
 ### Chef 14.5.33
 
 ChefDK now ships with Chef 14.5.33. See [Chef 14.5 release
-notes](/release_notes.html#whats-new-in-14-5) for more information on
+notes](/release_notes/#whats-new-in-14-5) for more information on
 what's new.
 
 ### ChefSpec 7.3
@@ -1721,7 +1721,7 @@ What's New in 3.2
 -   **Chef 14.4.56**
 
     ChefDK now ships with Chef 14.4.56. See [Chef 14.4 release
-    notes](/release_notes.html#whats-new-in-14-4) for more information
+    notes](/release_notes/#whats-new-in-14-4) for more information
     on what's new.
 
 -   **New Functionality**
@@ -1775,7 +1775,7 @@ What's New in 3.1
 -   **Chef 14.2.0**
 
     ChefDK now ships with Chef 14.2.0. See [Chef 14.2 release
-    notes](/release_notes.html#whats-new-in-14-2-0) for more information
+    notes](/release_notes/#whats-new-in-14-2-0) for more information
     on what's new.
 
 -   **Habitat Packages**
@@ -1843,7 +1843,7 @@ What's New in 3.0
 -   **Chef 14.1.1**
 
     ChefDK now ships with Chef 14.1.1. See the [Chef 14.1 release
-    notes](/release_notes.html#what-s-new-in-14-1-1) for more
+    notes](/release_notes/#what-s-new-in-14-1-1) for more
     information on what's new.
 
 -   **Updated Operating System support**
@@ -1980,7 +1980,7 @@ What's New in 2.5.3
 -   **Chef 13.8.5**
 
     ChefDK now ships with Chef 13.8.5. See the [Chef 13.8 release
-    notes](/release_notes.html#what-s-new-in-13-8-5) for more
+    notes](/release_notes/#what-s-new-in-13-8-5) for more
     information.
 
 -   **Updated chef_version in cookbook generator**
@@ -2523,7 +2523,7 @@ Delivery CLI
 ------------
 
 -   The `project.toml` file, which can be used to execute [local
-    phases](/delivery_cli.html#delivery-local), now supports:
+    phases](/delivery_cli/#delivery-local), now supports:
     -   An optional `functional` phase.
     -   New `remote_file` option to specify a remote `project.toml`.
     -   The ability to run stages (collection of phases).
@@ -2539,7 +2539,7 @@ Policyfiles
 -----------
 
 -   Added a `chef_server` default source option to
-    [Policyfiles](/config_rb_policyfile.html#settings).
+    [Policyfiles](/config_rb_policyfile/#settings).
 
 Automate Workflow Adopts SSH for Cookbook Generation
 ----------------------------------------------------

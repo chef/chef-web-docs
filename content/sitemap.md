@@ -82,7 +82,7 @@ Concepts
 --------
 
 [Chef Workstation](/about_workstation/) |
-[chef-repo](/chef_repo.html) | [Nodes](/nodes/) | [Chef Infra
+[chef-repo](/chef_repo/) | [Nodes](/nodes/) | [Chef Infra
 Client Overview](/chef_client_overview/) | [Chef Infra Server
 Overview](/server_overview/) | [Search](/chef_search/) |
 [Cookbooks](/cookbooks/) | [Handlers](/handlers/)
@@ -90,15 +90,15 @@ Overview](/server_overview/) | [Search](/chef_search/) |
 **Policy**: [About Policy](/policy/) | [Data Bags](/data_bags/)
 | [Environments](/environments/) | [Roles](/roles/)
 
-[Push Jobs](/push_jobs/) | [Run-lists](/run_lists.html)
+[Push Jobs](/push_jobs/) | [Run-lists](/run_lists/)
 
-**Security**: [Authentication](/auth.html#authentication) |
-[Authorization](/auth.html#authorization) |
-[FIPS-mode](/ctl_chef_client.html#run-in-fips-mode.html)
+**Security**: [Authentication](/auth/#authentication) |
+[Authorization](/auth/#authorization) |
+[FIPS-mode](/ctl_chef_client/#run-in-fips-mode.html)
 
 **Supermarket**: [Supermarket](supermarket.html) | [Public Supermarket
-(overview)](/supermarket.html#public-supermarket) | [Private
-Supermarket (overview)](/supermarket.html#private-supermarket) | [Share
+(overview)](/supermarket/#public-supermarket) | [Private
+Supermarket (overview)](/supermarket/#private-supermarket) | [Share
 Cookbooks on the Chef Supermarket](/supermarket_share_cookbook/)
 
 **Appendix**: [Troubleshooting](/errors/) |
@@ -126,13 +126,13 @@ Workstation](/install_workstation/)
 
 **Nodes**: [Install via Bootstrap](/install_bootstrap/) | [Install
 via Script](/install_omnibus/) | [chef-client
-(executable)](/ctl_chef_client.html) |
-[client.rb](/config_rb_client.html) | [Upgrades](/upgrade_client/)
+(executable)](/ctl_chef_client/) |
+[client.rb](/config_rb_client/) | [Upgrades](/upgrade_client/)
 | [Security](/chef_client_security/)
 
 **Server**: [Hosted Chef Infra
 Server](https://manage.chef.io/signup.html) | [Install
-Standalone](/install_server.html#standalone) | [Chef Infra Server
+Standalone](/install_server/#standalone) | [Chef Infra Server
 Prerequisites](/install_server_pre/) | [Tiered
 Installation](/install_server_tiered/) | [Install High
 Availability](/install_server_ha/) | [Upgrade High
@@ -141,18 +141,18 @@ Availability](/upgrade_server_ha_v2/)
 **Supermarket**: [Public Supermarket](https://supermarket.chef.io.html)
 | [Install Private Supermarket](/install_supermarket/) |
 [Customize
-Supermarket](/install_supermarket.html#customize-supermarket.html) |
+Supermarket](/install_supermarket/#customize-supermarket.html) |
 [Run in
-Kitchen](/install_supermarket.html#run-supermarket-in-kitchen.html)
+Kitchen](/install_supermarket/#run-supermarket-in-kitchen.html)
 
-[Management Console](/ctl_chef_server.html#install) | [Push
+[Management Console](/ctl_chef_server/#install) | [Push
 Jobs](/install_push_jobs/)
 
 **Integrations**: [AWS Marketplace](/aws_marketplace/) | [Microsoft
 Azure](/azure_portal/) | [Google Cloud Platform](/google/) |
 [VMware](/vmware/)
 
-[Air-gapped Installation](/install_chef_air_gap.html) | [Microsoft
+[Air-gapped Installation](/install_chef_air_gap/) | [Microsoft
 Windows](/windows/) | [Uninstall](/uninstall/)
 
 Cookbook Reference
@@ -162,7 +162,7 @@ Cookbook Reference
 [Files](/files/) | [Libraries](/libraries/)
 
 **Recipes**: [About Recipes](/recipes/) | [Debug Recipes, Client
-Runs](/debug.html)
+Runs](/debug/)
 
 **Resources**: [About Resources](/resource/) | [Common Resource
 Functionality](/resource_common/) | [Custom
@@ -300,49 +300,49 @@ Custom Resources](/definitions/)
 [zypper_package](/resources/zypper_package/) |
 [zypper_repository](/resources/zypper_repository/)
 [Templates](/templates/) | [Cookbook Repo](/cookbook_repo/) |
-[metadata.rb](/config_rb_metadata.html) | [Cookbook
+[metadata.rb](/config_rb_metadata/) | [Cookbook
 Versioning](/cookbook_versioning/) | [Ruby Guide](/ruby/)
 
 **Chef Automate Cookbooks**: [build-cookbook
-(cookbook)](/delivery_build_cookbook.html) | [delivery-truck
-(cookbook)](/delivery_truck.html) |
+(cookbook)](/delivery_build_cookbook/) | [delivery-truck
+(cookbook)](/delivery_truck/) |
 
 Chef Workstation
 ----------------
 
 [About Chef Workstation](/about_workstation/) | [Configure Chef
 Workstation](/workstation_setup/) | [Berkshelf](/berkshelf/) |
-[chef-apply (executable)](/ctl_chef_apply.html) | [chef-shell
-(executable)](/chef_shell.html)
+[chef-apply (executable)](/ctl_chef_apply/) | [chef-shell
+(executable)](/chef_shell/)
 
-**chef (executable)**: [chef env](/ctl_chef.html#chef-env) | [chef
-exec](/ctl_chef.html#chef-exec) | [chef gem](/ctl_chef.html#chef-gem)
-| [chef generate app](/ctl_chef.html#chef-generate-app) | [chef
-generate attribute](/ctl_chef.html#chef-generate-attribute) | [chef
-generate cookbook](/ctl_chef.html#chef-generate-cookbook) | [chef
-generate build-cookbook](/ctl_chef.html#chef-generate-build-cookbook) |
-[chef generate file](/ctl_chef.html#chef-generate-file) | [chef
-generate resource](/ctl_chef.html#chef-generate-resource) | [chef
-generate recipe](/ctl_chef.html#chef-generate-recipe) | [chef generate
-repo](/ctl_chef.html#chef-generate-repo) | [chef generate
-template](/ctl_chef.html#chef-generate-template) | [chef
-shell-init](/ctl_chef.html#chef-shell-init)
+**chef (executable)**: [chef env](/ctl_chef/#chef-env) | [chef
+exec](/ctl_chef/#chef-exec) | [chef gem](/ctl_chef/#chef-gem)
+| [chef generate app](/ctl_chef/#chef-generate-app) | [chef
+generate attribute](/ctl_chef/#chef-generate-attribute) | [chef
+generate cookbook](/ctl_chef/#chef-generate-cookbook) | [chef
+generate build-cookbook](/ctl_chef/#chef-generate-build-cookbook) |
+[chef generate file](/ctl_chef/#chef-generate-file) | [chef
+generate resource](/ctl_chef/#chef-generate-resource) | [chef
+generate recipe](/ctl_chef/#chef-generate-recipe) | [chef generate
+repo](/ctl_chef/#chef-generate-repo) | [chef generate
+template](/ctl_chef/#chef-generate-template) | [chef
+shell-init](/ctl_chef/#chef-shell-init)
 
 **Chef Solo**: [About Chef Solo](/chef_solo/) | [chef-solo
-(executable)](/ctl_chef_solo.html) | [solo.rb](/config_rb_solo.html) |
-[chef-zero (local mode)](/ctl_chef_client.html#run-in-local-mode) |
-[chef-vault](/chef_vault.html) | [ChefSpec](/chefspec/)
+(executable)](/ctl_chef_solo/) | [solo.rb](/config_rb_solo/) |
+[chef-zero (local mode)](/ctl_chef_client/#run-in-local-mode) |
+[chef-vault](/chef_vault/) | [ChefSpec](/chefspec/)
 
-**Configuration**: [config.rb](/config_rb.html) | [Optional config.rb
-Settings](/config_rb_optional_settings.html) | [Multiple Config
-Files](/config_rb_client.html#d-directories.html) |
+**Configuration**: [config.rb](/config_rb/) | [Optional config.rb
+Settings](/config_rb_optional_settings/) | [Multiple Config
+Files](/config_rb_client/#d-directories.html) |
 [cookstyle](/cookstyle/) | [Delivery CLI](/delivery_cli/) |
 [Foodcritic](/foodcritic/)
 
 **Kitchen**: [About Kitchen](/kitchen/) | [kitchen
 (executable)](/ctl_kitchen/) |
-[kitchen.yml](/config_yml_kitchen.html)
-[kitchen-vagrant](/plugin_kitchen_vagrant.html)
+[kitchen.yml](/config_yml_kitchen/)
+[kitchen-vagrant](/plugin_kitchen_vagrant/)
 
 **Knife**: [About Knife](/knife/) | [Common
 Options](/knife_options/) | [Setting up Knife](/knife_setup/)
@@ -368,31 +368,31 @@ azure](/knife_azure/) | [knife_azurerm](knife_azurerm.html) |
 [knife windows](knife_windows.html)
 
 **knife opc**: [About knife opc](/plugin_knife_opc/) | [config.rb
-Configuration](/plugin_knife_opc.html#plugin-knife-opc-knife-rb-configuration)
+Configuration](/plugin_knife_opc/#plugin-knife-opc-knife-rb-configuration)
 | [opc user
-list](/plugin_knife_opc.html#plugin-knife-opc-opc-user-list) | [opc
-user show](/plugin_knife_opc.html#plugin-knife-opc-opc-user-show) |
+list](/plugin_knife_opc/#plugin-knife-opc-opc-user-list) | [opc
+user show](/plugin_knife_opc/#plugin-knife-opc-opc-user-show) |
 [opc user
-create](/plugin_knife_opc.html#plugin-knife-opc-opc-user-create) | [opc
-user delete](/plugin_knife_opc.html#plugin-knife-opc-opc-user-delete) |
-[opc user delete](/plugin_knife_opc.html#plugin-knife-opc-opc-user-edit)
-| [opc org list](/plugin_knife_opc.html#plugin-knife-opc-opc-org-list)
-| [opc org show](/plugin_knife_opc.html#plugin-knife-opc-opc-org-show)
+create](/plugin_knife_opc/#plugin-knife-opc-opc-user-create) | [opc
+user delete](/plugin_knife_opc/#plugin-knife-opc-opc-user-delete) |
+[opc user delete](/plugin_knife_opc/#plugin-knife-opc-opc-user-edit)
+| [opc org list](/plugin_knife_opc/#plugin-knife-opc-opc-org-list)
+| [opc org show](/plugin_knife_opc/#plugin-knife-opc-opc-org-show)
 | [opc org
-create](/plugin_knife_opc.html#plugin-knife-opc-opc-org-create) | [opc
-org delete](/plugin_knife_opc.html#plugin-knife-opc-opc-org-delete) |
+create](/plugin_knife_opc/#plugin-knife-opc-opc-org-create) | [opc
+org delete](/plugin_knife_opc/#plugin-knife-opc-opc-org-delete) |
 [opc org user
-add](/plugin_knife_opc.html#plugin-knife-opc-opc-org-user-add) | [opc
+add](/plugin_knife_opc/#plugin-knife-opc-opc-org-user-add) | [opc
 org user
-remove](/plugin_knife_opc.html#plugin-knife-opc-opc-org-user-remove)
+remove](/plugin_knife_opc/#plugin-knife-opc-opc-org-user-remove)
 
 **Ohai**: [About Ohai](/ohai/) | [ohai
 (executable)](/ctl_ohai/)
 
 **Policyfile**: [About Policyfile](/policyfile/) |
-[Policyfile.rb](/config_rb_policyfile.html)
+[Policyfile.rb](/config_rb_policyfile/)
 
-[push-jobs-client (executable)](/ctl_push_jobs_client.html)
+[push-jobs-client (executable)](/ctl_push_jobs_client/)
 
 **Managing Chef Infra Server**: [Runbook (Single Page)](/runbook/)
 | [Backend Cluster Failure Recovery](/backend_failure_recovery/) |
@@ -404,28 +404,28 @@ Groups](/server_orgs/) | [Secrets](/secrets/) |
 [Security]\(/runbook/server_security/) | [Services]\(/runbook/server_services/)
 | [Tuning]\(/runbook/server_tuning/) | [Upgrades](/upgrade_server/) |
 [Upgrade HA Cluster](/upgrade_server_ha_v2/) |
-[Users](/server_users/) | [chef-server-ctl](/ctl_chef_server.html)
-| [chef-backend-ctl](/ctl_chef_backend.html) |
-[chef-server.rb](/config_rb_server.html) | [Chef Server Optional
+[Users](/server_users/) | [chef-server-ctl](/ctl_chef_server/)
+| [chef-backend-ctl](/ctl_chef_backend/) |
+[chef-server.rb](/config_rb_server/) | [Chef Server Optional
 Settings](/config_rb_server_optional_settings/) |
-[opscode-expander-ctl](/ctl_opscode_expander.html) | [Chef Infra Server
+[opscode-expander-ctl](/ctl_opscode_expander/) | [Chef Infra Server
 API](/api_chef_server/)
 
 **FIPS** [FIPS Overview](/fips/)
 
 **Push Jobs**: [knife push jobs](/plugin_knife_push_jobs/) |
-[push-jobs-client](/ctl_push_jobs_client.html) |
-[push-jobs-client.rb](/config_rb_push_jobs_client.html) |
-[push-jobs-server.rb](/config_rb_push_jobs_server.html) | [Push Jobs
+[push-jobs-client](/ctl_push_jobs_client/) |
+[push-jobs-client.rb](/config_rb_push_jobs_client/) |
+[push-jobs-server.rb](/config_rb_push_jobs_server/) | [Push Jobs
 API](/api_push_jobs/) | [Server Sent
 Events](/server_sent_events/)
 
 **Supermarket**: [Log Files](/supermarket_logs/) | [Backup and
 Restore](/supermarket_backup_restore/) |
 [Monitoring](/supermarket_monitor/) |
-[supermarket.rb](/config_rb_supermarket.html) | [knife
+[supermarket.rb](/config_rb_supermarket/) | [knife
 supermarket](/knife_supermarket/) |
-[supermarket-ctl](/ctl_supermarket.html) | [Supermarket
+[supermarket-ctl](/ctl_supermarket/) | [Supermarket
 API](/supermarket_api/)
 
 **Management Console**: [About the Management Console](/manage/) |
@@ -435,9 +435,9 @@ API](/supermarket_api/)
 Bags](/server_manage_data_bags/) |
 [Environments](/server_manage_environments/) |
 [Nodes](/server_manage_nodes/) | [Roles](/server_manage_roles/)
-| [Users](/server_users.html#chef-manage.html) |
-[manage.rb](/config_rb_manage.html) |
-[chef-manage-ctl](/ctl_manage.html)
+| [Users](/server_users/#chef-manage.html) |
+[manage.rb](/config_rb_manage/) |
+[chef-manage-ctl](/ctl_manage/)
 
 Chef Automate
 =============
@@ -516,27 +516,27 @@ Server](/data_collection_without_server/) | [Audit
 Cookbook](/audit_cookbook/)
 
 **Managing Workflow**: [build-cookbook
-(cookbook)](/delivery_build_cookbook.html) | [delivery-truck
-(cookbook)](/delivery_truck.html) | [Manage
+(cookbook)](/delivery_build_cookbook/) | [delivery-truck
+(cookbook)](/delivery_truck/) | [Manage
 Dependencies](/delivery_manage_dependencies/) | [Manage
 Secrets](/delivery_manage_secrets/) | [Publish Cookbooks to
 Multiple Chef Servers](/publish_cookbooks_multiple_servers/) |
 [Runners](/runners/) | [Workflow
-w/Bitbucket](/integrate_delivery_bitbucket.html) | [Workflow w/Email
-(SMTP)](/integrate_delivery_smtp.html) | [Workflow
-w/GitHub](/integrate_delivery_github.html) | [Workflow
-w/Slack](/integrate_delivery_slack.html) | [Users and
+w/Bitbucket](/integrate_delivery_bitbucket/) | [Workflow w/Email
+(SMTP)](/integrate_delivery_smtp/) | [Workflow
+w/GitHub](/integrate_delivery_github/) | [Workflow
+w/Slack](/integrate_delivery_slack/) | [Users and
 Roles](/delivery_users_and_roles/) | [Authentication
-w/LDAP](/integrate_delivery_ldap.html) | [Authentication
-w/SAML](/integrate_chef_automate_saml.html) | [Elastic Search and
+w/LDAP](/integrate_delivery_ldap/) | [Authentication
+w/SAML](/integrate_chef_automate_saml/) | [Elastic Search and
 Kibana Auth](/elasticsearch_and_kibana_auth/) | [Delivery Server
 Backup](/delivery_server_backup/) | [Delivery Server Disaster
 Recovery](/delivery_server_disaster_recovery/) | [Delivery Server
 Tuning](/delivery_server_tuning/)
 
 **Reference**: [Delivery CLI](/delivery_cli/) |
-[delivery.rb](/config_rb_delivery.html) | [delivery.rb Optional
-Settings](/config_rb_delivery_optional_settings.html) | [Workflow
+[delivery.rb](/config_rb_delivery/) | [delivery.rb Optional
+Settings](/config_rb_delivery_optional_settings/) | [Workflow
 DSL](/dsl_delivery/)
 
 [AWS OpsWorks for Chef Automate](/aws_opsworks_chef_automate/) |
@@ -548,59 +548,59 @@ Extension APIs
 Resources
 ---------
 
-**Recipe DSL**: [attribute?](/dsl_recipe.html#attribute) |
-[control](/dsl_recipe.html#control) |
-[control_group](/dsl_recipe.html#control-group) |
-[cookbook_name](/dsl_recipe.html#cookbook-name) |
-[data_bag](/dsl_recipe.html#data-bag) |
-[data_bag_item](/dsl_recipe.html#data-bag-item) |
-[platform?](/dsl_recipe.html#platform) |
-[platform_family?](/dsl_recipe.html#platform-family) |
-[reboot_pending?](/dsl_recipe.html#reboot-pending) |
-[recipe_name](/dsl_recipe.html#recipe-name) |
-[registry_data_exists?](/dsl_recipe.html#registry-data-exists) |
-[registry_get_subkeys](/dsl_recipe.html#registry-get-subkeys) |
-[registry_get_values](/dsl_recipe.html#registry-get-values) |
-[registry_has_subkeys?](/dsl_recipe.html#registry-has-subkeys) |
-[registry_key_exists?](/dsl_recipe.html#registry-key-exists) |
-[registry_value_exists?](/dsl_recipe.html#registry-value-exists) |
-[resources](/dsl_recipe.html#resources) |
-[search](/dsl_recipe.html#search) |
-[shell_out](/dsl_recipe.html#shell-out) |
-[shell_out!](/dsl_recipe.html#shell-out-bang) |
-[tag](/dsl_recipe.html#tag-tagged-untag) |
-[tagged?](/dsl_recipe.html#tag-tagged-untag) |
-[untag](/dsl_recipe.html#tag-tagged-untag) |
-[value_for_platform](/dsl_recipe.html#value-for-platform) |
-[value_for_platform_family](/dsl_recipe.html#value-for-platform-family)
-| [Windows Platform Helpers](/dsl_recipe.html#helpers) | [Custom
+**Recipe DSL**: [attribute?](/dsl_recipe/#attribute) |
+[control](/dsl_recipe/#control) |
+[control_group](/dsl_recipe/#control-group) |
+[cookbook_name](/dsl_recipe/#cookbook-name) |
+[data_bag](/dsl_recipe/#data-bag) |
+[data_bag_item](/dsl_recipe/#data-bag-item) |
+[platform?](/dsl_recipe/#platform) |
+[platform_family?](/dsl_recipe/#platform-family) |
+[reboot_pending?](/dsl_recipe/#reboot-pending) |
+[recipe_name](/dsl_recipe/#recipe-name) |
+[registry_data_exists?](/dsl_recipe/#registry-data-exists) |
+[registry_get_subkeys](/dsl_recipe/#registry-get-subkeys) |
+[registry_get_values](/dsl_recipe/#registry-get-values) |
+[registry_has_subkeys?](/dsl_recipe/#registry-has-subkeys) |
+[registry_key_exists?](/dsl_recipe/#registry-key-exists) |
+[registry_value_exists?](/dsl_recipe/#registry-value-exists) |
+[resources](/dsl_recipe/#resources) |
+[search](/dsl_recipe/#search) |
+[shell_out](/dsl_recipe/#shell-out) |
+[shell_out!](/dsl_recipe/#shell-out-bang) |
+[tag](/dsl_recipe/#tag-tagged-untag) |
+[tagged?](/dsl_recipe/#tag-tagged-untag) |
+[untag](/dsl_recipe/#tag-tagged-untag) |
+[value_for_platform](/dsl_recipe/#value-for-platform) |
+[value_for_platform_family](/dsl_recipe/#value-for-platform-family)
+| [Windows Platform Helpers](/dsl_recipe/#helpers) | [Custom
 Resource DSL](/dsl_custom_resource/) | [Community
 Resources](https://supermarket.chef.io)
 
 Handlers
 --------
 
-[Custom Handlers](/handlers.html#custom-handlers) | [Handler
+[Custom Handlers](/handlers/#custom-handlers) | [Handler
 DSL](/dsl_handler/) | [Community
-Handlers](/plugin_community.html#handlers)
+Handlers](/plugin_community/#handlers)
 
 Knife Plugins
 -------------
 
 [Cloud Plugins](/plugin_knife/) | [Writing Custom
 Plugins](/plugin_knife_custom/) | [Community Plugins
-(knife)](/plugin_community.html#knife)
+(knife)](/plugin_community/#knife)
 
 Ohai Plugins
 ------------
 
 [Custom Plugins](/ohai_custom/) | [Community
-Plugins](/plugin_community.html#ohai)
+Plugins](/plugin_community/#ohai)
 
 Chef Infra Client Plugins
 -------------------------
 
-[Chef Infra Client Plugins](/plugin_community.html#chef-infra-client)
+[Chef Infra Client Plugins](/plugin_community/#chef-infra-client)
 
 Addenda
 =======

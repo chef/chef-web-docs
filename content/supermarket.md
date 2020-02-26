@@ -246,7 +246,7 @@ supermarket-ctl (executable)
 {{% ctl_supermarket_summary %}}
 
 For more information about the supermarket-ctl command line tool, see
-[supermarket-ctl](/ctl_supermarket.html).
+[supermarket-ctl](/ctl_supermarket/).
 
 supermarket.rb
 --------------
@@ -254,7 +254,7 @@ supermarket.rb
 {{% config_rb_supermarket_summary %}}
 
 For more information about the supermarket.rb file, see
-[supermarket.rb](/config_rb_supermarket.html).
+[supermarket.rb](/config_rb_supermarket/).
 
 Supermarket API
 ---------------

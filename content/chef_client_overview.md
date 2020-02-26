@@ -17,7 +17,7 @@ aliases = ["/chef_client_overview.html", "/chef_client.html"]
 {{< note >}}
 
 For the `chef-client` command line tool, see
-[chef-client(executable)](/ctl_chef_client.html) The Chef Infra Client
+[chef-client(executable)](/ctl_chef_client/) The Chef Infra Client
 executable can be run as a daemon.
 
 {{< /note >}}

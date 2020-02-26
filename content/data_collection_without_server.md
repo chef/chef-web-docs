@@ -31,7 +31,7 @@ to send their run data to Automate directly.
 To enable this functionality, you must perform the following steps:
 
 -   Configure a Data Collector token in Chef Automate (see [prior
-    section](/data_collection.html#step-1-configure-a-data-collector-token-in-chef-automate))
+    section](/data_collection/#step-1-configure-a-data-collector-token-in-chef-automate))
 -   Add Chef Automate SSL certificate to `trusted_certs` directory
 -   Configure Chef Infra Client to use the Data Collector endpoint in
     Chef Automate

@@ -46,11 +46,11 @@ Supported Products
 **Supported:**
 
 -   [Chef Infra
-    Client](/fips.html#how-to-enable-fips-mode-for-the-chef-client)
+    Client](/fips/#how-to-enable-fips-mode-for-the-chef-client)
 -   [Chef
-    Workstation](/fips.html#how-to-enable-fips-mode-for-workstations)
+    Workstation](/fips/#how-to-enable-fips-mode-for-workstations)
 -   [Chef Infra
-    Server](/fips.html#how-to-enable-fips-mode-for-the-chef-server)
+    Server](/fips/#how-to-enable-fips-mode-for-the-chef-server)
 
 **Unsupported:**
 
@@ -159,7 +159,7 @@ For more information on configuring the Chef Automate server, see
 
 If you set up any runners using a Chef Automate server version `0.7.61`
 or earlier, then you will need to re-run [automate-ctl
-install-runner](/ctl_automate_server.html#install-runner) on every
+install-runner](/ctl_automate_server/#install-runner) on every
 existing runner after upgrading your Chef Automate server. Your runners
 will not work with FIPS enabled without re-running the installer.
 
@@ -246,7 +246,7 @@ Any time this certificate changes you must re-run this process.
 -   When configuring runners you'll need to include the file generated
     above as an argument to the <span
     class="title-ref">install-runner</span> command. See [Install
-    Runner](/ctl_automate_server.html#install-runner).
+    Runner](/ctl_automate_server/#install-runner).
 
     ``` none
     automate-ctl install-runner [server fqdn] [ssh user] --fips-custom-cert-filename path/to/your/certificate-chain.pem [other options...]
@@ -259,7 +259,7 @@ If you experience configuration errors, check the Chef Automate
 configuration by running `delivery status` from any client machine. This
 command is further documented in [Check if Chef Automate has enabled
 FIPS
-mode](/delivery_cli.html#check-if-chef-automate-server-has-enabled-fips-mode).
+mode](/delivery_cli/#check-if-chef-automate-server-has-enabled-fips-mode).
 
 Running `delivery status` should return something like:
 
@@ -329,7 +329,7 @@ Self-signed certificate or custom certificate authority
 -------------------------------------------------------
 
 See the section on [Certificate
-Management](/fips.html#certificate-management).
+Management](/fips/#certificate-management).
 
 Nothing above has helped
 ------------------------
