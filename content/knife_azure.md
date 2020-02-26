@@ -10,7 +10,7 @@ aliases = ["/knife_azure.html"]
     identifier = "chef_workstation/chef_workstation_tools/knife/knife_azure.md knife azure"
     parent = "chef_workstation/chef_workstation_tools/knife"
     weight = 50
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/knife_azure.md)
 
@@ -32,32 +32,11 @@ API. Commands starting with `knife azure` use the Azure Service
 Management API. While you can switch between the two command sets, they
 are not designed to work together.
 
-Install Chef Workstation
+Installation
 ------------------------
 
-Install the latest version of Chef Workstation from [Chef
-Downloads](https://downloads.chef.io/chef-workstation)
-
-Install Knife Azure
--------------------
-
-If Chef Infra Client was installed using RubyGems, install the
-`knife azure` with the following command:
-
-``` bash
-gem install knife-azure
-```
-
-If Chef Infra Client was installed from the [Chef Infra
-Client](https://downloads.chef.io/chef) downloads page or any other
-method, run:
-
-``` bash
-/opt/chef/embedded/bin/gem install knife-azure
-```
-
-where `/opt/chef/embedded/bin/` is the path to the location where Chef
-Infra Client expects knife plugins to be located.
+knife-azure ships in Chef Workstation. Install the latest version of Chef
+Workstation from [Chef Downloads](https://downloads.chef.io/chef-workstation)
 
 Configuration
 -------------

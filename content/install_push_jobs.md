@@ -10,7 +10,7 @@ aliases = ["/install_push_jobs.html"]
     identifier = "chef_infra/setup/install_push_jobs.md Push Jobs"
     parent = "chef_infra/setup"
     weight = 90
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/install_push_jobs.md)
 
@@ -66,14 +66,10 @@ To set up the Chef Push Jobs client:
 Install the Workstation
 =======================
 
-To set up the Chef Push Jobs workstation, install the `knife push jobs`
-plugin by running the following command on a workstation:
+knife-push ships in Chef Workstation. Install the latest version of Chef
+Workstation from [Chef Downloads](https://downloads.chef.io/chef-workstation)
 
-``` bash
-chef gem install knife-push
-```
-
-Once installed, the following subcommands will be available:
+The following subcommands will be available from Chef Workstation:
 `knife job list`, `knife job start`, `knife job output`,
 `knife job status`, and `knife node status`.
 
