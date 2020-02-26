@@ -2,15 +2,8 @@
 title = "Authentication"
 draft = false
 
-aliases = "/auth.html"
-
-
-  
-    
-    
-    
-    
-+++    
+aliases = ["/auth.html"]
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/auth.md)
 
