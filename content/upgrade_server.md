@@ -104,7 +104,7 @@ following:
     chef-server-ctl start
     ```
 
-7.  [Upgrade](upgrade_server.html#upgrading-add-ons) the Chef Infra
+7.  [Upgrade](#upgrading-add-ons) the Chef Infra
     Server add-ons.
 
 8.  After the upgrade process is complete and everything is tested and
@@ -216,7 +216,7 @@ configuration, do the following:
     chef-server-ctl start
     ```
 
-10. [Upgrade](upgrade_server.html#upgrading-add-ons) the Chef Infra
+10. [Upgrade](#upgrading-add-ons) the Chef Infra
     Server add-ons on each server.
 
 11. After the upgrade process is complete, the state of the system after
