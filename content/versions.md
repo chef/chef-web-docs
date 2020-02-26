@@ -136,7 +136,7 @@ announcement](https://blog.chef.io/2019/04/02/chef-software-announces-the-enterp
 <td>n/a</td>
 </tr>
 <tr class="even">
-<td>Chef Backend¹</td>
+<td>Chef Backend</td>
 <td>3.x</td>
 <td>Releasing 2020</td>
 <td>n/a</td>
@@ -144,9 +144,13 @@ announcement](https://blog.chef.io/2019/04/02/chef-software-announces-the-enterp
 </tbody>
 </table>
 
-1.  These distributions do not directly require acceptance of the Chef
-    EULA, but have functionality that requires its acceptance in other
-    products.
+{{< note >}}
+
+**Chef Backend** does not directly require acceptance of the Chef
+EULA, but it does have functionality that requires its acceptance in other
+products.
+
+{{< /note >}}
 
 Supported Free Distributions
 ============================
