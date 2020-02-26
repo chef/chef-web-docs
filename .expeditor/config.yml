@@ -7,7 +7,6 @@ github:
   delete_branch_on_merge: true
   release_branch:
     - master
-    - hugo-migration
 
 pipelines:
   - verify:
@@ -19,7 +18,7 @@ pipelines:
       description: Build the Habitat packages
   - deploy/acceptance:
       definition: .expeditor/deploy.pipeline.yml
-      description: Deploy to docs-acceptance.cd.chef.co
+      description: Deploy to docs-acceptance.cd.chef.co (i.e. docs-acceptance.chef.io)
       env:
         - CHANNEL: acceptance
   - deploy/production:

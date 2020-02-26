@@ -20,7 +20,8 @@ module "docs_chef_io_site_hugo" {
   source    = "git@github.com:chef/es-terraform.git//modules/cd_hab_hugo_static_site"
   subdomain = "docs-${var.dns_suffix}"
 
-  pkg_ident = "${data.external.latest_hab_pkg.result.pkg_ident}"
+  pkg_ident   = "${data.external.latest_hab_pkg.result.pkg_ident}"
+  fastly_fqdn = "${var.fastly_fqdn}"
 
   # AWS Tags
   tag_dept    = "CoreEng"

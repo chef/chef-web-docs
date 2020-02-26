@@ -13,7 +13,7 @@ steps:
     expeditor:
       secrets:
         GITHUB_TOKEN:
-          account: github/chef-ci
+          account: github/chef
           field: token
       executor:
         docker:

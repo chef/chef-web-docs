@@ -6,6 +6,6 @@ steps:
     expeditor:
       accounts:
         - aws/chef-cd
-        - github
+        - github/chef
       executor:
         docker:
