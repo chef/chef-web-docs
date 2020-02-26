@@ -12,7 +12,7 @@ aliases = ["/about_workstation.html", "/about_chefdk.html", "/chef_dk.html"]
     weight = 10
 +++    
 
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/about_chef_workstation.md)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/about_workstation.md)
 
 {{% chef_workstation %}}
 
