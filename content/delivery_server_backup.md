@@ -60,7 +60,7 @@ configuration option. Configuration options passed via command line
 flags will always supersede any default configuration.
 
 The Chef Automate [optional
-settings](config_rb_delivery_optional_settings.html#backup) page
+settings](/config_rb_delivery_optional_settings/#backup) page
 contains a full reference of all backup configuration options that are
 available.
 

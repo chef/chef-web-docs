@@ -107,7 +107,7 @@ Launch the Metered AMI
     maintain months of node visibility data.
 5.  Launch the Amazon Machine Image (AMI).
 6.  [Install Chef
-    Workstation](aws_marketplace.html#install-chef-workstation).
+    Workstation](#install-chef-workstation).
 
 Bring Your Own License (BYOL) AMI
 =================================
@@ -279,7 +279,7 @@ Configure backups
 =================
 
 Follow the Workflow
-[instructions](delivery_server_backup.html#s3-backups) for configuring
+[instructions](/delivery_server_backup/#s3-backups) for configuring
 backups.
 
 Troubleshooting

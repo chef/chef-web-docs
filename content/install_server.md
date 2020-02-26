@@ -16,12 +16,12 @@ aliases = ["/install_server.html"]
 
 There are three configuration scenarios for the Chef Infra Server:
 
--   [Standalone](install_server.html#standalone) (everything on a single
+-   [Standalone](#standalone) (everything on a single
     machine)
--   [High availability](install_server.html#high-availability) (machines
+-   [High availability](#high-availability) (machines
     configured for front-end and back-end, allowing for failover on the
     back-end and load-balancing on the front-end, as required)
--   [Tiered](install_server.html#tiered-single-backend) (machines
+-   [Tiered](#tiered-single-backend) (machines
     configured for front-end and back-end, with a single back-end and
     load-balancing on the front-end, as required)
 
