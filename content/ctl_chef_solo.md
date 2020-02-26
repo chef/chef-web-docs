@@ -97,7 +97,13 @@ This command has the following options:
 
     {{< warning >}}
 
-    {{% node_ctl_attribute %}}
+{{% node_ctl_attribute_text %}}
+
+{{% node_ctl_attribute_code_block_1 %}}
+
+will result in a node object similar to:
+
+{{% node_ctl_attribute_code_block_2 %}}
 
     {{< /warning >}}
 
