@@ -1,0 +1,19 @@
+steps:
+  # Building hugo currently depends on a github token
+  #     https://github.com/chef/chef-hugo-theme
+  # which is currently private.
+  - label: lint hugo site
+    command:
+      - .expeditor/buildkite/hugo_lint.sh
+      - make lint
+    timeout_in_minutes: 10
+    retry:
+      automatic:
+        limit: 1
+    expeditor:
+      secrets:
+        GITHUB_TOKEN:
+          account: github/chef-ci
+          field: token
+      executor:
+        docker:

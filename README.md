@@ -5,65 +5,100 @@ https://docs.chef.io/
 
 ## The fastest way to contribute
 
-If you spot something in the docs that needs to be fixed, the fastest way to get in the change is to edit the file on the GitHub website using the GitHub UI.
+If you spot something in the docs that needs to be fixed, the fastest way to 
+get in the change is to edit the file on the GitHub website using the GitHub UI.
 
-To perform edits using the GitHub UI, click on the `[edit on GitHub]` link at the top of the page you want to edit. The link takes you to that topic's GitHub page. In GitHub, click on the pencil icon and make your changes. You can preview how they'll look right on the page ("Preview Changes" tab).
+To perform edits using the GitHub UI, click on the `[edit on GitHub]` link at 
+the top ofthe page you want to edit. The link takes you to that topic's GitHub 
+page. In GitHub, click on the pencil icon and make your changes. You can preview 
+how they'll look right on the page ("Preview Changes" tab).
 
-We no longer use "swaps" and include files, so you'll be able to see
-all of text in one place for each topic. If you need tips on the
-source language, check out these
-[instructions](https://docs.chef.io/style_guide.html).
+We also require contributors to include their DCO signoff in the comment section of
+every pull request. You can add your [DCO signoff](https://github.com/chef/chef/blob/master/CONTRIBUTING.md#developer-certification-of-origin-dco) to the comments by 
+including `Signed-off-by:`, followed by your name and email address, like this:
 
-When you're done editing, press the "Propose file change" button at
-the bottom of the page and confirm your pull request. The CI system
-will do some checks and add a comment to your PR with the results.
+`Signed-off-by: Julia Child <juliachild@chef.io>`
 
-The Chef docs team can normally merge pull requests within a day or
-two. We'll fix build errors before we merge, so you don't have to
+See our [blog post](https://blog.chef.io/introducing-developer-certificate-of-origin/) 
+for more information about the DCO and why we require it.
+
+After you've added your DCO signoff, add a comment about your proposed change, 
+then click on the "Propose file change" button at the bottom of the page and 
+confirm your pull request. The CI system will do some checks and add a comment 
+to your PR with the results.
+
+The Chef docs team can normally merge pull requests within seven days. We'll 
+fix build errors before we merge, so you don't have to
 worry about passing all of the CI checks, but it might add an extra
 few days. The important part is submitting your change.
 
 ## Local Development Environment
 
-The docs website is built using Sphinx in a local docker container
-to minimize python environment issues.
-You'll need a minimum version of Docker 18.03 installed and running.
+The docs website is built using [Hugo](https://gohugo.io/). You will need 
+Hugo 0.61 or higher installed and running to build and view our documentation 
+properly.
 
-To build the docs:
+To build the docs and preview locally:
 
-- Run `make docker-build`
-
-To (build and) preview locally:
-
-- Run `make docker-preview`
-- go to http://localhost:8000
-
-To check dtags:
-
-- Run `make docker-dtags` (this will drop you in a shell at the correct location)
-- cd to the appropriate directories
-- run `dtags replicate <options>` as needed (see the [readme](doctools/dtags_readme.md) and [help](doctools/dtags_help.md) for more information)
+- Run `make serve`
+- go to http://localhost:1313
 
 To clean your local development environment:
 
-- Run `make clean`
+- Running `make clean` will delete the sass files, javascript, and fonts. These will
+	be rebuilt the next time you run `make serve`.
 
-If you need tips on the source language for the docs, check out the
-[instructions](https://docs.chef.io/style_guide.html). We use a subset
-of restructuredText that's similar in scope to markdown.
+- Running `make clean_all` will delete the node modules used to build this site 
+	in addition to the functions of `make clean` described above. Those node 
+	modules will be reinstalled the next time you run `make serve`.
 
-## Tagged regions
+Hugo uses [Goldmark](https://github.com/yuin/goldmark) which is a 
+superset of Markdown that includes Github styled tables, task lists, and 
+defintion lists. 
 
-We studied how to make contributing to this doc set as easy as
-possible. We ended up choosing an approach that uses tagged regions
-delimited by `.. tag` and `.. end_tag` lines to denote shared blocks
-of text. The tagged regions act like include files, but they're
-visible inline and therefore easier to edit.
+## Shortcodes
 
-For more information about how tagged regions work and how our new
-`dtags` tool helps manage them, see the
-[`dtags` README file](doctools/dtags_readme.md) and
-[`dtags` help](doctools/dtags_help.md).
+Shortcodes are simple snippets of code that can be used to modify a markdown 
+page by adding content or changing the appearance of content in a page. See 
+Hugo's [shortcode documentation](https://gohugo.io/content-management/shortcodes/) 
+for general information about shortcodes.
+
+We primarily use shortcodes in two ways:
+
+- adding reusable text
+- highlighting blocks of text in notes or warnings to warn users or 
+provide additional important information
+
+### Adding reusable text
+
+There are often cases where we want to maintain blocks of text that are identical 
+from one page to the next. In those cases we add that text, formatted in Markdown, 
+to a shortcode file located in `chef-web-docs/layouts/shortcodes`. 
+
+To add that shortcode to a page in `chef-web-docs/content`, add the file name, 
+minus the .md suffix, wrapped in double curly braces and percent symbols to 
+the location in the markdown page where you want that text included. For example, 
+if you want to add the text in `shortcode_file_name.md` to a page, add 
+`{{% shortcode_file_name %}}` to the text of that page and it will appear when
+Hugo rebuilds the documentation.
+
+### Highlighting blocks of text
+
+We also use shortcodes to highlight text in notes, warnings or danger notices. 
+These should be used sparingly especially danger notices or warnings. Wrap text 
+that you want in a note using opening and closing shortcode notation. For example,
+
+```
+{{< note >}}
+
+Note text that gives the user additional important information.
+
+{{< /note >}}
+
+```
+
+To add a warning or danger, replace the word `note` with `warning` or `danger` in the 
+example above.
 
 ## Sending feedback
 
@@ -103,5 +138,10 @@ to the archive repo will be merged; it's just for historical purposes.
 
 ## Questions
 
-Open an [issue](https://github.com/chef/chef-web-docs/issues) and
-ask. Or send email to docs@chef.io.
+If you need tips for making contributions to our docs, check out the
+[instructions](https://docs.chef.io/style_guide.html). 
+
+If you see an error, open an [issue](https://github.com/chef/chef-web-docs/issues) 
+or submit a pull request.
+
+If you have a question, send an email to docs@chef.io.

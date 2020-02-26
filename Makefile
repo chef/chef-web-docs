@@ -1,30 +1,21 @@
-BUILDDIR = public
-BUILD_COMMAND = sphinx-build -a -W
-BUILD_COMMAND_AND_ARGS = $(BUILD_COMMAND)
+# we use pushd/popd here, and /bin/sh of our chefes/buildkite image is not bash
+# so we have to override the default shell here
+SHELL=bash
 
-docs:
-	pip install -r requirements.txt --install-option="--install-scripts=/usr/local/bin"
-	mkdir -p $(BUILDDIR)
-	cp -r misc/robots.txt public/
-	cp -r misc/sitemap.xml public/
-	$(BUILD_COMMAND_AND_ARGS) chef_master/source $(BUILDDIR)
-	bash doctools/rundtags.sh
+assets:
+	pushd themes/docs-new && make assets && popd
 
 clean:
-	@rm -rf $(BUILDDIR)
+	pushd themes/docs-new && make clean && popd
+	rm -rf resources/
 
-docker-build:
-	docker run -v $(shell pwd):/chef-web-docs \
-		-w /chef-web-docs chefes/buildkite \
-		bash -c 'export PATH=$$PATH:/chef-web-docs/doctools; make docs'
+clean_all:
+	pushd themes/docs-new && make clean_all && popd
+	rm -rf resources/
+	rm -rf results/
 
-docker-preview: docker-build
-	docker run -it -v $(shell pwd):/chef-web-docs \
-		-w /chef-web-docs/public \
-		-p 8000:8000 chefes/buildkite \
-		bash -c 'export PATH=$$PATH:/chef-web-docs/doctools; python -m http.server'
+serve: assets
+	hugo server --buildDrafts --noHTTPCache
 
-docker-dtags:
-	docker run -it -v $(shell pwd):/chef-web-docs \
-		-w /chef-web-docs chefes/buildkite \
-		bash -c 'export PATH=$$PATH:/chef-web-docs/doctools; bash'
+lint:
+	hugo -D

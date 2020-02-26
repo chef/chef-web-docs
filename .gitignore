@@ -5,6 +5,7 @@
 *.pickle
 
 public/
+/resources/
 
 **/.sass-cache
 **/.sass-cache/*
@@ -20,3 +21,10 @@ public/
 *.*~
 *~
 TAGS
+
+results/
+
+static/fonts/fontawesome
+node_modules
+vendor
+
