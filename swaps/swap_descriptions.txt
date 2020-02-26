@@ -1,2 +1,0 @@
-.. Description strings that begin with the letter A.
-.. The pattern is |axxxx| replace:: string.

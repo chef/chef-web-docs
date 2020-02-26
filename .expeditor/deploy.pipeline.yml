@@ -1,24 +1,11 @@
-
 steps:
   - label: ":terraform:"
-    command: .expeditor/buildkite/terraform.sh
+    command: .expeditor/buildkite/deploy.sh
     concurrency: 1
-    concurrency_group: chef-web-docs-master/deploy/$ENVIRONMENT
+    concurrency_group: chef-web-docs-master/deploy/$EXPEDITOR_TARGET_CHANNEL
     expeditor:
       accounts:
         - aws/chef-cd
-        - github/chef-ci
-      executor:
-        docker:
-
-  - wait
-
-  - label: ":amazon-s3:"
-    command: .expeditor/buildkite/apply_redirects.sh
-    concurrency: 1
-    concurrency_group: chef-web-docs-master/deploy/$ENVIRONMENT
-    expeditor:
-      accounts:
-        - aws/chef-cd
+        - github
       executor:
         docker:
