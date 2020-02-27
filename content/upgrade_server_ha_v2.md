@@ -10,11 +10,9 @@ aliases = ["/upgrade_server_ha_v2.html"]
     identifier = "chef_infra/managing_chef_infra_server/upgrade_server_ha_v2.md Upgrade HA Cluster"
     parent = "chef_infra/managing_chef_infra_server"
     weight = 130
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/upgrade_server_ha_v2.md)
-
-<img src="/images/chef_automate_full.png" width="40" height="17" alt="image" />
 
 This topic describes the process of upgrading a high availability Chef
 Infra Server cluster.
@@ -196,7 +194,7 @@ DRBD/Keepalived HA to Chef Backend 2.x
 ======================================
 
 DRBD configurations are no longer supported. See [End of Life
-Products](https://docs.chef.io/versions.html#end-of-life-eol-products)
+Products](/versions/#end-of-life-eol)
 
 For a guide to migrating to Chef Backend from DRBD see the [Best Best
 Practices for Migrating Your Chef
