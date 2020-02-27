@@ -58,7 +58,7 @@ defintion lists.
 
 ## Shortcodes
 
-Shortcodes are simple snippets of code that can be used to modify a markdown 
+Shortcodes are simple snippets of code that can be used to modify a Markdown 
 page by adding content or changing the appearance of content in a page. See 
 Hugo's [shortcode documentation](https://gohugo.io/content-management/shortcodes/) 
 for general information about shortcodes.
@@ -77,10 +77,28 @@ to a shortcode file located in `chef-web-docs/layouts/shortcodes`.
 
 To add that shortcode to a page in `chef-web-docs/content`, add the file name, 
 minus the .md suffix, wrapped in double curly braces and percent symbols to 
-the location in the markdown page where you want that text included. For example, 
+the location in the Markdown page where you want that text included. For example, 
 if you want to add the text in `shortcode_file_name.md` to a page, add 
 `{{% shortcode_file_name %}}` to the text of that page and it will appear when
 Hugo rebuilds the documentation.
+
+**Shortcodes in lists**
+
+Hugo doesn't handle shortcodes that are indented in a list item properly. It intereprets
+the text of the shortcode as a code block. More complicated shortcodes with
+code blocks, notes, additional list items, or other formatting look pretty 
+bad. We've created a simple shortcode for handling shortcodes in lists or definition
+lists called `shortcode_indent`.
+
+To include a shortcode in a list or definition list, just add its file name 
+to the `shortcode` parameter of `shortcode_indent` without the .md suffix. 
+
+For example, if you wanted to add `shortcode_file_name.md` to a list:
+``` md
+1.  Here is some text introducing the shortcode, but it's not necessary.
+
+    {{< shortcode_indent shortcode="shortcode_file_name" >}}
+```
 
 ### Highlighting blocks of text
 
@@ -94,11 +112,35 @@ that you want in a note using opening and closing shortcode notation. For exampl
 Note text that gives the user additional important information.
 
 {{< /note >}}
-
 ```
 
 To add a warning or danger, replace the word `note` with `warning` or `danger` in the 
 example above.
+
+**Notes in lists**
+
+Hugo doesn't handle shortcodes that are indented in lists very well, that includes the Note,
+Warning, and Danger shortcodes. It interprets the indented text that's inside
+the Note as a code block when it should be interpreted as Markdown.
+
+To resolve this problem, there's a `spaces` parameter that can be added to the Note,
+Warning, and Danger shortcodes. The value of spaces should be set to the number
+of spaces that the note is indented.
+
+For example:
+```
+This is a list:
+
+-   List item.
+
+    {{< note spaces=4 >}}
+
+    Text that gives the user additional important information about that list item.
+
+    {{< /note >}}
+```
+
+This parameter also works on Danger and Warning shortcodes.
 
 ## Sending feedback
 
