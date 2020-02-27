@@ -140,7 +140,7 @@ different binding.
     request a specific user identification format from your Identity
     Provider (IdP). This can be left at "Default (No Policy)" if a
     specific format is not required, in which case the IdP will identify
-    the user with it's default configured Name Id Policy.
+    the user with its default configured Name Id Policy.
 
 4.  A certificate from the IdP is required to verify integrity and
     authenticity of SAML assertions. From your metadata file copy only

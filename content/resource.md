@@ -10,7 +10,7 @@ aliases = ["/resource.html"]
     identifier = "chef_infra/cookbook_reference/resources/resource.md About Resources"
     parent = "chef_infra/cookbook_reference/resources"
     weight = 10
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/resource.md)
 
@@ -87,7 +87,7 @@ See these guides for additional information about resources:
 </thead>
 <tbody>
 <tr class="odd">
-<td><a href="/resources/common/">Common Properties</a></td>
+<td><a href="/resource_common/">Common Properties</a></td>
 <td>Provides a detailed list of the common properties that are available in all resources.</td>
 </tr>
 <tr class="even">
