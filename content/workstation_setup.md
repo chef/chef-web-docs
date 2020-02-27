@@ -79,7 +79,7 @@ shell (Bash, csh, and so on) that is used on the machine running Chef
 Workstation. In a command window, type the following:
 
 ``` bash
-echo 'export PATH="`/opt/chef-workstation/embedded/bin:$PATH"' >> ~/.configuration_file && source ~/.configuration_file
+echo 'export PATH="/opt/chef-workstation/embedded/bin:$PATH"' >> ~/.configuration_file && source ~/.configuration_file
 ```
 
 where `configuration_file` is the name of the configuration file for the
@@ -88,7 +88,7 @@ the configuration file were named `bash_profile`, the command would look
 something like the following:
 
 ``` bash
-echo 'export PATH="`/opt/chef-workstation/embedded/bin:$PATH"' >> ~/.bash_profile && source ~/.bash_profile
+echo 'export PATH="/opt/chef-workstation/embedded/bin:$PATH"' >> ~/.bash_profile && source ~/.bash_profile
 ```
 
 {{< warning >}}
