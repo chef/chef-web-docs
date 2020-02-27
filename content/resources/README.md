@@ -1,6 +1,6 @@
 # Resource page yaml files
 
-The resource pages and [resource reference page](https://docs.chef.io/resources/) 
+The resource pages and [resource reference page](/resources/)
 are generated using yaml data located in `chef-web-docs/content/resources`.
 The yaml data is generated directly from the Chef Infra code.
 Each resource page has its own subdirectory and the yaml data is stored in 
@@ -12,9 +12,9 @@ The templates that generate those resource pages are found in
 contents for the resource are stored in `chef-web-docs/layouts/partials`. 
 
 There are two template types, terms and list. The terms template is used to generate
-the [resources reference page](https://docs.chef.io/resources/) and the list 
-template generates the individual resource pages, for example 
-https://docs.chef.io/resources/apt_package/. 
+the [resources reference page](/resources/) and the list
+template generates the individual resource pages, for example
+https://docs.chef.io/resources/apt_package/.
 
 For more general information about lists and terms templates see Hugo's 
 [taxonomy template documentation](https://gohugo.io/templates/taxonomy-templates/).
@@ -92,8 +92,8 @@ menu:
 
 **resource_reference**
 
-Display or hide a page. If set to `true`, the page will appear in the [resource 
-reference](https://docs.chef.io/resources) and its own individual page will 
+Display or hide a page. If set to `true`, the page will appear in the [resource
+reference](/resources) and its own individual page will
 appear in https://docs.chef.io/resources/page_name/. Values are `true` or `false`.
 
 **robots**
