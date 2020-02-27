@@ -648,11 +648,11 @@ This configuration file has the following settings for `delivery`:
     are: `d` (days), `h` (hours), `m` (minutes), or `s` (seconds).
     Default value: `'7d'`.
 
-    {{< note >}}
+    {{< note spaces=4 >}}
 
-While the `delivery['read_ttl']` and `delivery['write_ttl']` values
-may be tuned separately, it is recommended that both values be
-identical.
+    While the `delivery['read_ttl']` and `delivery['write_ttl']` values
+    may be tuned separately, it is recommended that both values be
+    identical.
 
     {{< /note >}}
 
@@ -722,11 +722,11 @@ identical.
     are: `d` (days), `h` (hours), `m` (minutes), or `s` (seconds).
     Default value: `'7d'`.
 
-    {{< note >}}
+    {{< note spaces=4 >}}
 
-While the `delivery['read_ttl']` and `delivery['write_ttl']` values
-may be tuned separately, it is recommended that both values be
-identical.
+    While the `delivery['read_ttl']` and `delivery['write_ttl']` values
+    may be tuned separately, it is recommended that both values be
+    identical.
 
     {{< /note >}}
 
@@ -750,10 +750,10 @@ This configuration file has the following settings for `elasticsearch`:
 :   The Amazon Resource Names(ARN) of IAM policies role for Amazon
     Elasticsearch Service. Default value: `nil`.
 
-    {{< note >}}
+    {{< note spaces=4 >}}
 
-If `elasticsearch['urls']` is specified with Amazon elasticsearch
-url then `elasticsearch['role_arn']` value will be required.
+    If `elasticsearch['urls']` is specified with Amazon elasticsearch
+    url then `elasticsearch['role_arn']` value will be required.
 
     {{< /note >}}
 

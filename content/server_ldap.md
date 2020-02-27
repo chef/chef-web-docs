@@ -54,16 +54,16 @@ the following:
     Availability installation as well as on Chef servers in a standalone
     installation.
 
-    {{% config_rb_server_settings_ldap %}}
+    {{< shortcode_indent shortcode="config_rb_server_settings_ldap" >}}
 
-    {{< note >}}
+    {{< note spaces=4 >}}
 
-If the chef-server.rb file does not exist, create a file called
-`chef-server.rb` and put it in the `/etc/opscode/` directory.
+    If the chef-server.rb file does not exist, create a file called
+    `chef-server.rb` and put it in the `/etc/opscode/` directory.
 
     {{< /note >}}
 
-3.  {{% install_chef_server_reconfigure %}}
+3.  {{< shortcode_indent shortcode="install_chef_server_reconfigure" >}}
 
 At this point, all users should be able to use their Active Directory or
 LDAP usernames and passwords to log in to the Chef Infra Server.

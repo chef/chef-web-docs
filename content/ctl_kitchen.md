@@ -149,7 +149,7 @@ This subcommand has the following options:
     platforms. Use a Ruby regular expression to glob two or more
     platforms into a single run.
 
-    {{% ctl_kitchen_common_option_platforms %}}
+    {{< shortcode_indent shortcode="ctl_kitchen_common_option_platforms" >}}
 
 Examples
 --------
@@ -309,7 +309,7 @@ This subcommand has the following options:
     platforms. Use a Ruby regular expression to glob two or more
     platforms into a single run.
 
-    {{% ctl_kitchen_common_option_platforms %}}
+    {{< shortcode_indent shortcode="ctl_kitchen_common_option_platforms" >}}
 
 Examples
 --------
@@ -445,7 +445,7 @@ This subcommand has the following options:
     platforms. Use a Ruby regular expression to glob two or more
     platforms into a single run.
 
-    {{% ctl_kitchen_common_option_platforms %}}
+    {{< shortcode_indent shortcode="ctl_kitchen_common_option_platforms" >}}
 
 Examples
 --------
@@ -499,7 +499,7 @@ This subcommand has the following options:
     platforms. Use a Ruby regular expression to glob two or more
     platforms into a single run.
 
-    {{% ctl_kitchen_common_option_platforms %}}
+    {{< shortcode_indent shortcode="ctl_kitchen_common_option_platforms" >}}
 
 Examples
 --------
@@ -667,7 +667,7 @@ This subcommand has the following options:
     platforms. Use a Ruby regular expression to glob two or more
     platforms into a single run.
 
-    {{% ctl_kitchen_common_option_platforms %}}
+    {{< shortcode_indent shortcode="ctl_kitchen_common_option_platforms" >}}
 
 Examples
 --------
@@ -725,7 +725,7 @@ This subcommand has the following options:
     platforms. Use a Ruby regular expression to glob two or more
     platforms into a single run.
 
-    {{% ctl_kitchen_common_option_platforms %}}
+    {{< shortcode_indent shortcode="ctl_kitchen_common_option_platforms" >}}
 
 Examples
 --------
@@ -792,7 +792,7 @@ This subcommand has the following options:
     platforms. Use a Ruby regular expression to glob two or more
     platforms into a single run.
 
-    {{% ctl_kitchen_common_option_platforms %}}
+    {{< shortcode_indent shortcode="ctl_kitchen_common_option_platforms" >}}
 
 Examples
 --------
@@ -884,7 +884,7 @@ This subcommand has the following options:
     platforms. Use a Ruby regular expression to glob two or more
     platforms into a single run.
 
-    {{% ctl_kitchen_common_option_platforms %}}
+    {{< shortcode_indent shortcode="ctl_kitchen_common_option_platforms" >}}
 
 Examples
 --------
@@ -942,7 +942,7 @@ This subcommand has the following options:
     platforms. Use a Ruby regular expression to glob two or more
     platforms into a single run.
 
-    {{% ctl_kitchen_common_option_platforms %}}
+    {{< shortcode_indent shortcode="ctl_kitchen_common_option_platforms" >}}
 
 Examples
 --------
@@ -1009,7 +1009,7 @@ This subcommand has the following options:
     platforms. Use a Ruby regular expression to glob two or more
     platforms into a single run.
 
-    {{% ctl_kitchen_common_option_platforms %}}
+    {{< shortcode_indent shortcode="ctl_kitchen_common_option_platforms" >}}
 
 Examples
 --------
@@ -1144,7 +1144,7 @@ This subcommand has the following options:
     platforms. Use a Ruby regular expression to glob two or more
     platforms into a single run.
 
-    {{% ctl_kitchen_common_option_platforms %}}
+    {{< shortcode_indent shortcode="ctl_kitchen_common_option_platforms" >}}
 
 Examples
 --------

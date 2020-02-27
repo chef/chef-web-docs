@@ -74,16 +74,16 @@ machines with Chef using the following steps:
 4.  Select either **Windows Server** or **Ubuntu Server** in the
     **Recommended** category.
 
-    {{< note >}}
+    {{< note spaces=4 >}}
 
-The Chef extension on the Azure portal may be used on the following
-platforms:
+    The Chef extension on the Azure portal may be used on the following
+    platforms:
 
--   Windows Server 2012, 2012 R2, 2016, 2019
--   Ubuntu 16.04 LTS, 18.04 LTS
--   CentOS 6.5+
--   RHEL 6+
--   Debian 8+
+    -   Windows Server 2012, 2012 R2, 2016, 2019
+    -   Ubuntu 16.04 LTS, 18.04 LTS
+    -   CentOS 6.5+
+    -   RHEL 6+
+    -   Debian 8+
 
     {{< /note >}}
 
@@ -93,12 +93,12 @@ platforms:
 6.  Fill in the virtual machine configuration information, such as
     machine name, credentials, VM size, and so on.
 
-    {{< note >}}
+    {{< note spaces=4 >}}
 
-It's best to use a new computer name each time through this
-workflow. This will help to avoid conflicts with virtual machine
-names that may have been previously registered on the Chef Infra
-Server.
+    It's best to use a new computer name each time through this
+    workflow. This will help to avoid conflicts with virtual machine
+    names that may have been previously registered on the Chef Infra
+    Server.
 
     {{< /note >}}
 
@@ -118,11 +118,11 @@ Server.
 
 11. Upload it through the portal in the **Validation Key** field.
 
-    {{< note >}}
+    {{< note spaces=4 >}}
 
-Because the `.chef` directory is considered a hidden directory, you
-may have to copy this file out to a non-hidden directory on disk
-before you can upload it through the open file dialog box.
+    Because the `.chef` directory is considered a hidden directory, you
+    may have to copy this file out to a non-hidden directory on disk
+    before you can upload it through the open file dialog box.
 
     {{< /note >}}
 
@@ -130,15 +130,15 @@ before you can upload it through the open file dialog box.
     `chef-repo/.chef/config.rb` file and upload it through your web
     browser.
 
-    {{< note >}}
+    {{< note spaces=4 >}}
 
-Because the `.chef` directory is considered a hidden directory, you
-may have to copy this file out to a non-hidden directory on disk
-before you can upload it through the open file dialog box. Also, the
-`config.rb` file must be correctly configured to communicate to the
-Chef Infra Server. Specifically, it must have valid values for the
-following two settings: `chef_server_url` and
-`validation_client_name`.
+    Because the `.chef` directory is considered a hidden directory, you
+    may have to copy this file out to a non-hidden directory on disk
+    before you can upload it through the open file dialog box. Also, the
+    `config.rb` file must be correctly configured to communicate to the
+    Chef Infra Server. Specifically, it must have valid values for the
+    following two settings: `chef_server_url` and
+    `validation_client_name`.
 
     {{< /note >}}
 
@@ -179,10 +179,10 @@ following two settings: `chef_server_url` and
     Chef Infra Server web user interface or by using the knife command
     line tool.
 
-    {{< note >}}
+    {{< note spaces=4 >}}
 
-A run-list may only refer to roles and/or recipes that have already
-been uploaded to the Chef Infra Server.
+    A run-list may only refer to roles and/or recipes that have already
+    been uploaded to the Chef Infra Server.
 
     {{< /note >}}
 

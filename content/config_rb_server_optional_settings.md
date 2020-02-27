@@ -1061,7 +1061,7 @@ This configuration file has the following settings for `oc-id`:
 :   A Hash that contains OAuth 2 application information. Default value:
     `{ }`.
 
-    {{% config_ocid_application_hash_supermarket %}}
+    {{< shortcode_indent shortcode="config_ocid_application_hash_supermarket" >}}
 
 `oc_id['db_pool_size']`
 

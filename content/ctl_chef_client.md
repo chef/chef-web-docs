@@ -156,17 +156,17 @@ This command has the following options:
 
     **Run-lists**
 
-    {{% node_ctl_run_list %}}
+    {{< shortcode_indent shortcode="node_ctl_run_list" >}}
 
     **Environments**
 
     Use this option to set the `chef_environment` value for a node.
 
-    {{< note >}}
+    {{< note spaces=4 >}}
 
-Any environment specified for `chef_environment` by a JSON file will
-take precedence over an environment specified by the `--environment`
-option when both options are part of the same command.
+    Any environment specified for `chef_environment` by a JSON file will
+    take precedence over an environment specified by the `--environment`
+    option when both options are part of the same command.
 
     {{< /note >}}
 
@@ -188,12 +188,12 @@ option when both options are part of the same command.
 
     **All attributes are normal attributes**
 
-    {{% node_ctl_attribute %}}
+    {{< shortcode_indent shortcode="node_ctl_attribute" spaces=4 >}}
 
-    {{< note >}}
+    {{< note spaces=4 >}}
 
-This has set the `normal` attribute
-`node['override_attributes']['apptastic']`.
+    This has set the `normal` attribute
+    `node['override_attributes']['apptastic']`.
 
     {{< /note >}}
 
@@ -767,14 +767,14 @@ threads. To increase the system process limits:
     chsec -f /etc/security/limits -s default -a "nofiles=50000"
     ```
 
-    {{< note >}}
+    {{< note spaces="4" >}}
 
-The previous commands may be run against the root user, instead of
-default. For example:
+    The previous commands may be run against the root user, instead of
+    default. For example:
 
-``` bash
-chsec -f /etc/security/limits -s root_user -a "rss=-1"
-```
+    ``` bash
+    chsec -f /etc/security/limits -s root_user -a "rss=-1"
+    ```
 
     {{< /note >}}
 

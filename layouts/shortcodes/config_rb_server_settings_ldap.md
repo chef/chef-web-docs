@@ -1,4 +1,6 @@
-<div class="admonition-warning"><p class="admonition-warning-title">Warning</p><div class="admonition-warning-text">
+<div class="admonition-warning">
+<p class="admonition-warning-title">Warning</p>
+<div class="admonition-warning-text">
 
 The following settings **MUST** be in the config file for LDAP
 authentication to Active Directory to work:
@@ -11,7 +13,8 @@ authentication to Active Directory to work:
 If those settings are missing, you will get authentication errors and be
 unable to proceed.
 
-</div></div>
+</div>
+</div>
 
 This configuration file has the following settings for `ldap`:
 
@@ -45,9 +48,7 @@ This configuration file has the following settings for `ldap`:
     ```
 
     <div class="admonition-note">
-
     <p class="admonition-note-title">Note</p>
-
     <div class="admonition-note-text">
 
     If you need to escape characters in a distinguished name, such as
@@ -59,10 +60,7 @@ This configuration file has the following settings for `ldap`:
     'CN=example\\user,OU=Employees,OU=Domainuser,DC=example,DC=com'
     ```
 
-    
-
     </div>
-
     </div>
 
     Default value: `nil`.
@@ -132,23 +130,16 @@ This configuration file has the following settings for `ldap`:
     is `true`.
 
     <div class="admonition-note">
-
     <p class="admonition-note-title">Note</p>
-
     <div class="admonition-note-text">
 
     It's recommended that you enable SSL for Active Directory.
 
-    
-
     </div>
-
     </div>
 
     <div class="admonition-note">
-
     <p class="admonition-note-title">Note</p>
-
     <div class="admonition-note-text">
 
     Previous versions of the Chef Infra Server used the
@@ -156,10 +147,7 @@ This configuration file has the following settings for `ldap`:
     `ldap['encryption']` setting to specify the encryption type. These
     settings are deprecated.
 
-    
-
     </div>
-
     </div>
 
 `ldap['system_adjective']`
@@ -171,18 +159,13 @@ This configuration file has the following settings for `ldap`:
     login", or "corporate password." Default value: `AD/LDAP`.
 
     <div class="admonition-warning">
-
     <p class="admonition-warning-title">Warning</p>
-
     <div class="admonition-warning-text">
 
     This setting is **not** used by the Chef Infra Server. It is used
     only by the Chef management console.
 
-    
-
     </div>
-
     </div>
 
 `ldap['timeout']`
@@ -198,9 +181,7 @@ This configuration file has the following settings for `ldap`:
     `false` when `ldap['ssl_enabled']` is `true`.
 
     <div class="admonition-note">
-
     <p class="admonition-note-title">Note</p>
-
     <div class="admonition-note-text">
 
     Previous versions of the Chef Infra Server used the
@@ -208,8 +189,5 @@ This configuration file has the following settings for `ldap`:
     `ldap['encryption']` setting to specify the encryption type. These
     settings are deprecated.
 
-    
-
     </div>
-
     </div>

@@ -80,31 +80,31 @@ Configuration Settings
 
 :   **Required**
 
-    {{% delivery_config_json_setting_version %}}
+    {{< shortcode_indent shortcode="delivery_config_json_setting_version" >}}
 
 `build-cookbook`
 
 :   **Required**
 
-    {{% delivery_config_json_setting_build_cookbook %}}
+    {{< shortcode_indent shortcode="delivery_config_json_setting_build_cookbook" >}}
 
 `build_nodes`
 
 :   **Optional**
 
-    {{% delivery_config_json_setting_build_nodes %}}
+    {{< shortcode_indent shortcode="delivery_config_json_setting_build_nodes" >}}
 
 `skip_phases`
 
 :   **Optional**
 
-    {{% delivery_config_json_setting_skip_phases %}}
+    {{< shortcode_indent shortcode="delivery_config_json_setting_skip_phases" >}}
 
 `dependencies`
 
 :   **Optional**
 
-    {{% delivery_config_json_setting_dependencies %}}
+    {{< shortcode_indent shortcode="delivery_config_json_setting_dependencies" >}}
 
 {{< note >}}
 

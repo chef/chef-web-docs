@@ -93,17 +93,11 @@ This command has the following options:
 
 :   The path to a file that contains JSON data.
 
-    {{% node_ctl_run_list %}}
+    {{< shortcode_indent shortcode="node_ctl_run_list" >}}
 
-    {{< warning >}}
+    {{< warning spaces=4 >}}
 
-{{% node_ctl_attribute_text %}}
-
-{{% node_ctl_attribute_code_block_1 %}}
-
-will result in a node object similar to:
-
-{{% node_ctl_attribute_code_block_2 %}}
+    {{% node_ctl_attribute %}}
 
     {{< /warning >}}
 

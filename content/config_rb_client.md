@@ -38,10 +38,10 @@ This configuration file has the following settings:
     knife[:authentication_protocol_version] = '1.3'
     ```
 
-    {{< note >}}
+    {{< note spaces=4 >}}
 
-Authentication protocol 1.3 is only supported on Chef Server
-versions 12.4.0 and above.
+    Authentication protocol 1.3 is only supported on Chef Server
+    versions 12.4.0 and above.
 
     {{< /note >}}
 
@@ -122,11 +122,11 @@ versions 12.4.0 and above.
     within a poorly designed cookbook. Default value: `true`. Set to
     `false` to disable running Chef Infra Client in fork node.
 
-    {{< note >}}
+    {{< note spaces=4 >}}
 
-Must be set to `false` up to Chef Client 13.11.3 to gather the
-standard return code offered by `exit_status true`. Later versions
-run as expected without changes to the configuration file.
+    Must be set to `false` up to Chef Client 13.11.3 to gather the
+    standard return code offered by `exit_status true`. Later versions
+    run as expected without changes to the configuration file.
 
     {{< /note >}}
 
@@ -278,12 +278,12 @@ run as expected without changes to the configuration file.
     updates. (Use the `atomic_update` setting on a per-resource basis to
     override this setting.) Default value: `true`.
 
-    {{< warning >}}
+    {{< warning spaces=4 >}}
 
-Changing this setting to `false` may cause file corruption, data
-loss, or instability. Use the `atomic_update` property on the
-**cookbook_file**, **file**, **remote_file**, and **template**
-resources to tune this behavior at the recipe level.
+    Changing this setting to `false` may cause file corruption, data
+    loss, or instability. Use the `atomic_update` property on the
+    **cookbook_file**, **file**, **remote_file**, and **template**
+    resources to tune this behavior at the recipe level.
 
     {{< /warning >}}
 
