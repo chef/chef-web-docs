@@ -38,6 +38,11 @@ The docs website is built using [Hugo](https://gohugo.io/). You will need
 Hugo 0.61 or higher installed and running to build and view our documentation 
 properly.
 
+To install hugo:
+
+- On macOS run: `brew install hugo`
+- On Windows run: `choco install hugo`
+
 To build the docs and preview locally:
 
 - Run `make serve`
