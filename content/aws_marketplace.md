@@ -248,7 +248,7 @@ and Chef Infra Server.
 
     {{< note >}}
 
-    {{% notes_chef_aws_ssl %}}
+{{% notes_chef_aws_ssl %}}
 
     {{< /note >}}
 
@@ -414,7 +414,7 @@ To edit the Amazon Machine Images (AMI) instance size, do the following:
 
     {{< note >}}
 
-    {{% notes_chef_aws_ssl %}}
+{{% notes_chef_aws_ssl %}}
 
     {{< /note >}}
 
