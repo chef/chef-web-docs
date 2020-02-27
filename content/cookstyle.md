@@ -180,7 +180,7 @@ indicate the result of an evaluation:
 </tr>
 <tr class="even">
 <td><code>R</code></td>
-<td>The file contains code should can be refactored.</td>
+<td>The file contains code that should be refactored.</td>
 </tr>
 </tbody>
 </table>
@@ -196,7 +196,7 @@ directory:
 cookstyle -a .
 ```
 
-Take particular care after running this command to make sure that the
+Take particular care after running this command to ensure the
 autocorrection logic resulted in appropriate cookbook code.
 
 .rubocop.yml
