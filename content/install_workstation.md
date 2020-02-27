@@ -180,12 +180,12 @@ chef -v
 Which returns the versions of all installed Chef tools:
 
 ``` shell
-Chef Workstation version: 0.14.16
-Chef Infra Client version: 15.6.10
-Chef InSpec version: 4.18.39
+Chef Workstation version: 0.16.31
+Chef Infra Client version: 15.8.23
+Chef InSpec version: 4.18.85
 Chef CLI version: 2.0.0
 Test Kitchen version: 2.3.4
-Cookstyle version: 5.19.9
+Cookstyle version: 5.21.9
 ```
 
 Next Steps
