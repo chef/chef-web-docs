@@ -13,11 +13,7 @@ menu:
 resource_reference: true
 robots: null
 resource_description_list:
-- markdown: 'The **windows_uac** resource configures UAC on Windows hosts by setting
-
-    registry keys at
-
-    ''HKEY_LOCAL_MACHINESOFTWAREMicrosoftWindowsCurrentVersionPoliciesSystem'''
+- markdown: 'The **windows_uac** resource configures UAC on Windows hosts by setting registry keys at ''HKEY_LOCAL_MACHINESOFTWAREMicrosoftWindowsCurrentVersionPoliciesSystem'''
 resource_new_in: '15.0'
 handler_types: false
 syntax_description: "The windows_uac resource has the following syntax:\n\n``` ruby\n\
@@ -65,10 +61,9 @@ properties_list:
   required: false
   default_value: :prompt_for_creds
   new_in: null
+  allowed_values: :auto_deny, :secure_prompt_for_creds, :prompt_for_creds
   description_list:
-  - markdown: 'Behavior of the elevation prompt for standard users. Sets
-
-      HKEY_LOCAL_MACHINESOFTWAREMicrosoftWindowsCurrentVersionPoliciesSystemEnableLUAConsentPromptBehaviorUser.'
+  - markdown: 'Behavior of the elevation prompt for standard users. Sets HKEY_LOCAL_MACHINESOFTWAREMicrosoftWindowsCurrentVersionPoliciesSystemEnableLUAConsentPromptBehaviorUser.'
 - property: detect_installers
   ruby_type: true, false
   required: false
