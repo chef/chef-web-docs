@@ -57,15 +57,15 @@ cluster downtime.
 
     RHEL and CentOS:
 
-    > ``` bash
-    > yum install PATH_TO_FILE.rpm
-    > ```
+    ``` bash
+    yum install PATH_TO_FILE.rpm
+    ```
 
     Debian and Ubuntu:
 
-    > ``` bash
-    > dpkg -i PATH_TO_FILE.deb
-    > ```
+    ``` bash
+    dpkg -i PATH_TO_FILE.deb
+    ```
 
 3.  On the leader, run the following command to take the node down for
     the upgrade:
@@ -137,18 +137,18 @@ rejoin after each upgrade.
 
     RHEL and CentOS:
 
-    > ``` bash
-    > yum install PATH_TO_FILE.rpm
-    > ```
+    ``` bash
+    yum install PATH_TO_FILE.rpm
+    ```
 
     Debian and Ubuntu:
 
-    > ``` bash
-    > dpkg -i PATH_TO_FILE.deb
-    > ```
+    ``` bash
+    dpkg -i PATH_TO_FILE.deb
+    ```
 
-    > You may also want to look at the chef-ingredient cookbook to
-    > automate downloading and installing the latest package.
+    You may also want to look at the chef-ingredient cookbook to
+    automate downloading and installing the latest package.
 
 2.  Run the upgrade command
 

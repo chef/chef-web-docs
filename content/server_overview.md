@@ -398,10 +398,10 @@ configure external PostgreSQL for use with the Chef Infra Server:
 :   The password for the user specified by `postgresql['db_superuser']`.
     Required when `postgresql['external']` is set to `true`.
 
-    > The db_superuser_password can also be set using
-    > `chef-server-ctl set-db-superuser-password` from the [Secrets
-    > Management](/ctl_chef_server/#ctl-chef-server-secrets-management)
-    > commands.
+    The db_superuser_password can also be set using
+    `chef-server-ctl set-db-superuser-password` from the [Secrets
+    Management](/ctl_chef_server/#ctl-chef-server-secrets-management)
+    commands.
 
 `postgresql['external']`
 
