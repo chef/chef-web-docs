@@ -135,27 +135,27 @@ The following Chef Automate-specific helpers can be used in recipes:
 
 :   Get attributes for a defined project application.
 
-    {{< warning >}}
+    {{< warning spaces =4 >}}
 
-If the `get_project_application` method is called from the
-`provision.rb` recipe, be sure that `delivery-truck::provision` is
-executed before `get_project_application` by putting it in a
-`ruby_block` or into a separate recipe that is called from
-`provision.rb` via `include_recipe`. If the
-`get_project_application` method is called directly in
-`provision.rb`:
+    If the `get_project_application` method is called from the
+    `provision.rb` recipe, be sure that `delivery-truck::provision` is
+    executed before `get_project_application` by putting it in a
+    `ruby_block` or into a separate recipe that is called from
+    `provision.rb` via `include_recipe`. If the
+    `get_project_application` method is called directly in
+    `provision.rb`:
 
-``` ruby
-include_recipe 'delivery-truck::provision'
-get_project_application(<project_app_name_string>)
-```
+    ``` ruby
+    include_recipe 'delivery-truck::provision'
+    get_project_application(<project_app_name_string>)
+    ```
 
-you will get an error because Chef Infra Client will execute
-`get_project_application` at compile time before it has run
-`include_recipe 'delivery-truck::provision'`. It is recommended to
-either use `get_project_application` in `deploy.rb`, a project
-cookbook, in a `ruby_block` or in a separate `include_recipe` that
-is executed after `include_recipe 'delivery-truck::provision'`.
+    you will get an error because Chef Infra Client will execute
+    `get_project_application` at compile time before it has run
+    `include_recipe 'delivery-truck::provision'`. It is recommended to
+    either use `get_project_application` in `deploy.rb`, a project
+    cookbook, in a `ruby_block` or in a separate `include_recipe` that
+    is executed after `include_recipe 'delivery-truck::provision'`.
 
     {{< /warning >}}
 

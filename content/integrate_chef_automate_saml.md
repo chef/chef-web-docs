@@ -129,10 +129,10 @@ often be found through your Identity Provider's metadata file.
     <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://login.microsoftonline.com/1b218ca8-3694-4fcb-ac12-d2112c657830/saml2"/>
     ```
 
-    {{< note >}}
+    {{< note spaces=4 >}}
 
-There can be multiple SingleSignOnService tags, each with a
-different binding.
+    There can be multiple SingleSignOnService tags, each with a
+    different binding.
 
     {{< /note >}}
 
@@ -140,7 +140,7 @@ different binding.
     request a specific user identification format from your Identity
     Provider (IdP). This can be left at "Default (No Policy)" if a
     specific format is not required, in which case the IdP will identify
-    the user with it's default configured Name Id Policy.
+    the user with its default configured Name Id Policy.
 
 4.  A certificate from the IdP is required to verify integrity and
     authenticity of SAML assertions. From your metadata file copy only

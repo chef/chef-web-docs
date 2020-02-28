@@ -140,13 +140,13 @@ want to bring your own license, complete the following steps:
     file, and that it is not publicly readable. If you do not have a
     license, skip this step.
 
-    {{< note >}}
+    {{< note spaces=4 >}}
 
-Placing your license file in S3 is not a requirement for using the
-BYOL functionality, the instance just needs a fully-qualified URL to
-the license file. For the sake of these instructions we're using S3
-to safely store the file and make it accessible to the Chef Automate
-instance.
+    Placing your license file in S3 is not a requirement for using the
+    BYOL functionality, the instance just needs a fully-qualified URL to
+    the license file. For the sake of these instructions we're using S3
+    to safely store the file and make it accessible to the Chef Automate
+    instance.
 
     {{< /note >}}
 
@@ -246,7 +246,7 @@ and Chef Infra Server.
     CloudFormation stack will have the setup URL in the `Outputs`
     section.
 
-    {{< note >}}
+    {{< note spaces=4 >}}
 
     {{% notes_chef_aws_ssl %}}
 
@@ -412,7 +412,7 @@ To edit the Amazon Machine Images (AMI) instance size, do the following:
 12. Verify that you can login to Chef Automate webui by navigating to
     `https://<YOUR NEW PUBLIC DNS>/e/default`.
 
-    {{< note >}}
+    {{< note spaces=4 >}}
 
     {{% notes_chef_aws_ssl %}}
 
@@ -473,10 +473,10 @@ To upgrade, do one of the following:
     sudo chef-marketplace-ctl upgrade --automate
     ```
 
-    {{< note >}}
+    {{< note spaces=4 >}}
 
-Chef Automate and Chef Infra Server services will be unavailable
-while the software is updated.
+    Chef Automate and Chef Infra Server services will be unavailable
+    while the software is updated.
 
     {{< /note >}}
 
@@ -487,10 +487,10 @@ while the software is updated.
     sudo chef-marketplace-ctl upgrade --server
     ```
 
-    {{< note >}}
+    {{< note spaces=4 >}}
 
-Chef Infra Server services will be unavailable while the software is
-updated.
+    Chef Infra Server services will be unavailable while the software is
+    updated.
 
     {{< /note >}}
 
@@ -528,9 +528,7 @@ After verifying that your existing Chef Infra Server installation is up
 to date, do the following to migrate to the Amazon Machine Images (AMI)
 instance:
 
-\#.
-
-:   Backup the data on the Chef Infra Server using `knife ec backup`.
+1.  Backup the data on the Chef Infra Server using `knife ec backup`.
     This method will export all of your existing Chef Infra Server data
     as JSON. We'll then re-import the same data into a new Chef Automate
     cluster. We use the JSON based backup and restore procedure because
@@ -550,21 +548,21 @@ instance:
     scp /tmp/chef-backup.tgz ec2-user@<MARKETPLACE AMI IP ADDRESS>:/tmp/
     ```
 
-2.  Login to the Amazon Machine Images (AMI) and ensure that it is
+1.  Login to the Amazon Machine Images (AMI) and ensure that it is
     running the latest version of the Chef Infra Server:
 
     ``` bash
     chef-marketplace-ctl upgrade -y
     ```
 
-3.  Reconfigure Chef Automate and the Chef Infra Server:
+1.  Reconfigure Chef Automate and the Chef Infra Server:
 
     ``` bash
     sudo automate-ctl reconfigure
     sudo chef-server-ctl reconfigure
     ```
 
-4.  Restore the backup:
+1.  Restore the backup:
 
     ``` bash
     mkdir -p /tmp/chef-backup
@@ -574,13 +572,13 @@ instance:
     /opt/opscode/embedded/bin/knife ec restore /tmp/chef-backup --with-user-sql --with-key-sql
     ```
 
-5.  {{% install_update_aws_knife_rb %}}
+1.  {{% install_update_aws_knife_rb %}}
 
-6.  {{% install_aws_chef_server_knife_ssl_fetch %}}
+1.  {{% install_aws_chef_server_knife_ssl_fetch %}}
 
-7.  {{% install_aws_chef_server_knife_client_list %}}
+1.  {{% install_aws_chef_server_knife_client_list %}}
 
-8.  Update the `/etc/chef/client.rb` on all of your nodes to use the new
+1.  Update the `/etc/chef/client.rb` on all of your nodes to use the new
     public DNS. For example:
 
     ``` none

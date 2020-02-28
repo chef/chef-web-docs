@@ -39,9 +39,9 @@ the frontend group.
 -   The backend cluster, comprised of three nodes working together,
     provides high availability data persistence for the frontend group.
 
-    {{< note >}}
+    {{< note spaces=4 >}}
 
-At this time, backend clusters can only have three nodes.
+    At this time, backend clusters can only have three nodes.
 
     {{< /note >}}
 
@@ -329,14 +329,14 @@ For each additional frontend node you wish to add to your cluster:
 
     -   /etc/opscode/private-chef-secrets.json
 
-    {{< note >}}
+    {{< note spaces=4 >}}
 
-For Chef Server versions prior to 12.14, you will also need to copy
-the key files:
+    For Chef Server versions prior to 12.14, you will also need to copy
+    the key files:
 
--   /etc/opscode/webui_priv.pem
--   /etc/opscode/webui_pub.pem
--   /etc/opscode/pivotal.pem
+    -   /etc/opscode/webui_priv.pem
+    -   /etc/opscode/webui_pub.pem
+    -   /etc/opscode/pivotal.pem
 
     {{< /note >}}
 
