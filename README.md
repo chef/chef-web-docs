@@ -9,7 +9,7 @@ If you spot something in the docs that needs to be fixed, the fastest way to
 get in the change is to edit the file on the GitHub website using the GitHub UI.
 
 To perform edits using the GitHub UI, click on the `[edit on GitHub]` link at 
-the top ofthe page you want to edit. The link takes you to that topic's GitHub 
+the top of the page you want to edit. The link takes you to that topic's GitHub 
 page. In GitHub, click on the pencil icon and make your changes. You can preview 
 how they'll look right on the page ("Preview Changes" tab).
 
@@ -38,6 +38,11 @@ The docs website is built using [Hugo](https://gohugo.io/). You will need
 Hugo 0.61 or higher installed and running to build and view our documentation 
 properly.
 
+To install hugo:
+
+- On macOS run: `brew install hugo`
+- On Windows run: `choco install hugo`
+
 To build the docs and preview locally:
 
 - Run `make serve`
@@ -54,7 +59,7 @@ To clean your local development environment:
 
 Hugo uses [Goldmark](https://github.com/yuin/goldmark) which is a 
 superset of Markdown that includes Github styled tables, task lists, and 
-defintion lists. 
+definition lists. 
 
 ## Shortcodes
 
