@@ -80,7 +80,7 @@ the `.chef/credentials` file in your home directory on your workstation.
 The `credentials` file is TOML formatted. Each profile is listed as a
 separate 'table' name of your choice, and is followed by key-value
 pairs. The keys correspond to any setting permitted in the
-[config.rb](https://docs.chef.io/config_rb.html) file.
+[config.rb](/config_rb/) file.
 
 File paths, such as `client_key` or `validator_key`, will be relative to
 `~/.chef` unless absolute paths are given. Clients can be identified

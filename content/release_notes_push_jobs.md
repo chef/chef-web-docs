@@ -52,7 +52,7 @@ What's New in 2.2
 The following items are new for Chef Push Jobs:
 
 -   Uses Chef Server \>12.14.0 [consolidated
-    credentials](https://docs.chef.io/server_security.html#chef-infra-server-credentials-management)
+    credentials](/server_security/#chef-infra-server-credentials-management)
     removing credentials stored in Push Server's configuration files.
 
 Important Notes

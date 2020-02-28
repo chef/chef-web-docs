@@ -47,7 +47,7 @@ Products below are split below into two categories: workstation and
 server. Affected product versions which require accepting the EULA to
 use are shown. Versions before this do not require accepting the EULA.
 More information on supported versions can be seen at the [Supported
-Versions](https://docs.chef.io/versions.html) documentation.
+Versions](/versions/) documentation.
 
 Workstation Products
 --------------------
@@ -323,7 +323,7 @@ the Chef Infra Client product.
 
 The `knife bootstrap` command in Chef Client 14 cannot accept the Chef
 Infra Client 15 EULA on remote nodes unless you use a [custom
-template](https://docs.chef.io/knife_bootstrap.html#custom-templates)
+template](/knife_bootstrap/#custom-templates)
 and add chef_license "accept" to the client.rb. This applies to
 workstations who have Chef Infra Client \<= 14.x, ChefDK \<= 3.x or Chef
 Workstation \<= 0.3 installed.
