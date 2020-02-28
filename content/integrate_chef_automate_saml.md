@@ -129,10 +129,10 @@ often be found through your Identity Provider's metadata file.
     <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://login.microsoftonline.com/1b218ca8-3694-4fcb-ac12-d2112c657830/saml2"/>
     ```
 
-    {{< note >}}
+    {{< note spaces=4 >}}
 
-There can be multiple SingleSignOnService tags, each with a
-different binding.
+    There can be multiple SingleSignOnService tags, each with a
+    different binding.
 
     {{< /note >}}
 

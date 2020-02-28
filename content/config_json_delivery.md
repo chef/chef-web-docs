@@ -16,8 +16,6 @@ aliases = ["/config_json_delivery.html", "/release/automate/config_json_delivery
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/config_json_delivery.md)
 
-
-
 {{% chef_automate_mark %}}
 
 {{% EOL_a1 %}}
@@ -62,13 +60,13 @@ Configuration Settings
 
 :   **Required**
 
-    {{% delivery_config_json_setting_build_cookbook %}}
+    {{< shortcode_indent shortcode="delivery_config_json_setting_build_cookbook" >}}
 
 `build_nodes`
 
 :   **Optional**
 
-    {{% delivery_config_json_setting_build_nodes %}}
+    {{< shortcode_indent shortcode="delivery_config_json_setting_build_nodes" >}}
 
 `delivery-truck`
 
@@ -101,9 +99,10 @@ Configuration Settings
 
 :   **Optional**
 
-    {{% delivery_config_json_setting_dependencies %}}
+    {{< shortcode_indent shortcode="delivery_config_json_setting_dependencies" >}}
 
-<div id="job-dispatch-config-settings" markdown="1">
+<a id="job-dispatch-config-settings" markdown="1"></a>
+<!-- link from runners.md -->
 
 `job_dispatch`
 
@@ -125,10 +124,10 @@ Configuration Settings
         }
         ```
 
-        {{< note >}}
+        {{< note spaces=8 >}}
 
-If you omit this setting or set it to "v1", the previous job
-dispatch system using Push Jobs 1.x will be used instead.
+        If you omit this setting or set it to "v1", the previous job
+        dispatch system using Push Jobs 1.x will be used instead.
 
         {{< /note >}}
 
@@ -233,15 +232,14 @@ dispatch system using Push Jobs 1.x will be used instead.
 
 :   **Optional**
 
-    {{% delivery_config_json_setting_skip_phases %}}
+    {{< shortcode_indent shortcode="delivery_config_json_setting_skip_phases" >}}
+
 
 `version`
 
 :   **Required**
 
-    {{% delivery_config_json_setting_version %}}
-
-</div>
+    {{< shortcode_indent shortcode="delivery_config_json_setting_version" >}}
 
 {{< note >}}
 

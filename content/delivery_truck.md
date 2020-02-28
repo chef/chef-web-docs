@@ -341,10 +341,10 @@ To define a project application, do the following:
     where `<app_name>` is a list of one (or more) applications this
     `build-cookbook` should be aware of.
 
-    {{< note >}}
+    {{< note spaces=4 >}}
 
-If the `/attributes/default.rb` directory and/or file does not
-exist, create it.
+    If the `/attributes/default.rb` directory and/or file does not
+    exist, create it.
 
     {{< /note >}}
 
@@ -358,13 +358,13 @@ exist, create it.
     where `'hash_of_attributes'` is a list of one (or more) attributes
     defined in the `define_project_application` block.
 
-    {{< note >}}
+    {{< note spaces=4 >}}
 
-Do not pass `'id'`, `'version'`, or `'name'` as part of the
-`'hash_of_attributes'` as these are already defined in the
-`define_project_application` block, are pulled in automatically by
-the `get_project_application` helper method, and will overwrite any
-value specified in the Hash.
+    Do not pass `'id'`, `'version'`, or `'name'` as part of the
+    `'hash_of_attributes'` as these are already defined in the
+    `define_project_application` block, are pulled in automatically by
+    the `get_project_application` helper method, and will overwrite any
+    value specified in the Hash.
 
     {{< /note >}}
 

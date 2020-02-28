@@ -230,9 +230,9 @@ Node Options
 
 :   The name of the node.
 
-    {{< note >}}
+    {{< note spaces=4 >}}
 
-This option is required for a validatorless bootstrap.
+    This option is required for a validatorless bootstrap.
 
     {{< /note >}}
 

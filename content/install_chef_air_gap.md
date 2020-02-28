@@ -303,7 +303,7 @@ Supermarket.
 
 2.  Update the `/etc/opscode/chef-server.rb` configuration file.
 
-    {{% config_ocid_application_hash_supermarket %}}
+    {{< shortcode_indent shortcode="config_ocid_application_hash_supermarket" >}}
 
 3.  Reconfigure the Chef Infra Server.
 

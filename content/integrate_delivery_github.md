@@ -143,9 +143,9 @@ the URL `https://10.10.10.10` will pass.
     yum install ca-certificates
     ```
 
-    {{< note >}}
+    {{< note spaces=4 >}}
 
-You only need to do this once for 6.x servers.
+    You only need to do this once for 6.x servers.
 
     {{< /note >}}
 
@@ -155,9 +155,9 @@ You only need to do this once for 6.x servers.
     update-ca-trust force-enable
     ```
 
-    {{< note >}}
+    {{< note spaces=4 >}}
 
-You only need to do this once for 6.x servers.
+    You only need to do this once for 6.x servers.
 
     {{< /note >}}
 
@@ -255,11 +255,11 @@ Initializing a new GitHub project in Workflow
     Workflow. At this point, you should be able to see a corresponding
     pull request in GitHub.
 
-    {{< note >}}
+    {{< note spaces=4 >}}
 
-You may also specify a different pipeline than the default
-(`master`) by specifying the argument `--pipeline=$PIPELINE`;
-however, this will not update the `.delivery/cli.toml` file.
+    You may also specify a different pipeline than the default
+    (`master`) by specifying the argument `--pipeline=$PIPELINE`;
+    however, this will not update the `.delivery/cli.toml` file.
 
     {{< /note >}}
 
@@ -357,16 +357,16 @@ Configure your Delivery CLI and clone your project's code
     delivery clone $PROJECT
     ```
 
-    {{< note >}}
+    {{< note spaces=4 >}}
 
-If you clone from GitHub instead (or make use of a pre-existing
-clone), you will need to add a `delivery` remote. The Workflow clone
-URL can be found on the project's page in the Workflow UI. To create
-the remote, run the following:
+    If you clone from GitHub instead (or make use of a pre-existing
+    clone), you will need to add a `delivery` remote. The Workflow clone
+    URL can be found on the project's page in the Workflow UI. To create
+    the remote, run the following:
 
-``` bash
-git remote add delivery $AUTOMATE_CLONE_URL
-```
+    ``` bash
+    git remote add delivery $AUTOMATE_CLONE_URL
+    ```
 
     {{< /note >}}
 

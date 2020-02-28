@@ -216,15 +216,15 @@ This command will:
 -   Run the `chef-backend-ctl cluster-status` subcommand to determine if
     a leader exists.
 
-    {{< warning >}}
+    {{< warning spaces =4 >}}
 
-Nodes in the backend HA cluster may not be visible to each other
-when they are located in network partitions. This may prevent a
-cluster status check from discovering that a leader exists. If nodes
-exist on network partitions, to prevent this scenario, first run
-`chef-backend-ctl cluster-status`, and then verify the expected
-number of nodes in the backend HA cluster as healthy and
-`waiting_for_leader` before running this command.
+    Nodes in the backend HA cluster may not be visible to each other
+    when they are located in network partitions. This may prevent a
+    cluster status check from discovering that a leader exists. If nodes
+    exist on network partitions, to prevent this scenario, first run
+    `chef-backend-ctl cluster-status`, and then verify the expected
+    number of nodes in the backend HA cluster as healthy and
+    `waiting_for_leader` before running this command.
 
     {{< /warning >}}
 
@@ -546,10 +546,10 @@ This subcommand has the following options:
     specified in `chef-backend.rb`, this command will prompt to choose
     from a list of interfaces that are currently available on the node.
 
-    {{< note >}}
+    {{< note spaces=4 >}}
 
-This option should only be used the first time a node joins the
-backend HA cluster.
+    This option should only be used the first time a node joins the
+    backend HA cluster.
 
     {{< /note >}}
 
@@ -561,10 +561,10 @@ backend HA cluster.
     this command will prompt to choose from a list of IP addresses that
     are currently bound on the node.
 
-    {{< note >}}
+    {{< note spaces=4 >}}
 
-This option should only be used the first time a node joins the
-backend HA cluster.
+    This option should only be used the first time a node joins the
+    backend HA cluster.
 
     {{< /note >}}
 
@@ -574,12 +574,12 @@ backend HA cluster.
     removed via the `chef-backend-ctl remove-node` or
     `chef-backend-ctl bootstrap --with-quorum-recovery` commands.
 
-    {{< note >}}
+    {{< note spaces=4 >}}
 
-This option will run against the existing `chef-backend.rb` file,
-which means the `--vip-interface` and `--publish-address` options
-should not be specified. (They are already defined in the
-`chef-backend.rb` file.)
+    This option will run against the existing `chef-backend.rb` file,
+    which means the `--vip-interface` and `--publish-address` options
+    should not be specified. (They are already defined in the
+    `chef-backend.rb` file.)
 
     {{< /note >}}
 
