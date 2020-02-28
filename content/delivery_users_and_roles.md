@@ -140,13 +140,13 @@ that is hosted at [Github.com](https://github.com/):
     appropriate Chef Automate command that associates a GitHub user with
     a Chef Automate user.
 
-    {{< note >}}
+    {{< note spaces=4 >}}
 
-The Delivery CLI commands are for a user to link their own account
-to GitHub, or others if the user has the **Admin** role; `api` is an
-argument to the Delivery CLI command. The `automate-ctl` command can
-only be run by an administrator from the Chef Automate server and
-can affect any user.
+    The Delivery CLI commands are for a user to link their own account
+    to GitHub, or others if the user has the **Admin** role; `api` is an
+    argument to the Delivery CLI command. The `automate-ctl` command can
+    only be run by an administrator from the Chef Automate server and
+    can affect any user.
 
     {{< /note >}}
 

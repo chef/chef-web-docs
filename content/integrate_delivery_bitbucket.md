@@ -94,9 +94,9 @@ higher), do the following:
     yum install ca-certificates
     ```
 
-    {{< note >}}
+    {{< note spaces=4 >}}
 
-For 6.x servers, run this command only once.
+    For 6.x servers, run this command only once.
 
     {{< /note >}}
 
@@ -106,9 +106,9 @@ For 6.x servers, run this command only once.
     update-ca-trust force-enable
     ```
 
-    {{< note >}}
+    {{< note spaces=4 >}}
 
-For 6.x servers, run this command only once.
+    For 6.x servers, run this command only once.
 
     {{< /note >}}
 
@@ -223,7 +223,7 @@ Workflow:
     for the project. Changes are opened in the Workflow web UI. At this
     point, a corresponding pull request is shown in Bitbucket.
 
-    {{% delivery_cli_init_bitbucket_project %}}
+    {{< shortcode_indent shortcode="delivery_cli_init_bitbucket_project" >}}
 
 Convert Project to Bitbucket
 ----------------------------

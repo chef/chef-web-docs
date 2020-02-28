@@ -165,11 +165,11 @@ The extension has the following options that can be provided in the
 :   Tells the extension whether the supplied validation key is
     `plaintext` or `base64encoded`.
 
-    {{< note >}}
+    {{< note spaces=4 >}}
 
-If using the Chef extension in an ARM template, it is recommended
-that you base64 encode your validation key and set this option to
-`base64encoded`
+    If using the Chef extension in an ARM template, it is recommended
+    that you base64 encode your validation key and set this option to
+    `base64encoded`
 
     {{< /note >}}
 
@@ -178,10 +178,10 @@ that you base64 encode your validation key and set this option to
 :   The version of Chef Infra Client that will be installed on the
     system. **linux only**
 
-    {{< note >}}
+    {{< note spaces=4 >}}
 
-Due to constraints in Azure, the `bootstrap_version` option is only
-available on the `LinuxChefClient` extension.
+    Due to constraints in Azure, the `bootstrap_version` option is only
+    available on the `LinuxChefClient` extension.
 
     {{< /note >}}
 
@@ -191,10 +191,10 @@ available on the `LinuxChefClient` extension.
     `chef_server_url`, `environment`, `secret`, and
     `validation_client_name`.
 
-    {{< note >}}
+    {{< note spaces=4 >}}
 
-Options that are supplied in the bootstrap items will take
-precedence over any conflicts found in the `client.rb` file.
+    Options that are supplied in the bootstrap items will take
+    precedence over any conflicts found in the `client.rb` file.
 
     {{< /note >}}
 

@@ -470,7 +470,7 @@ Updated Components
 Chef Infra Client has been updated from 15.1 to 15.2 with new and
 improved resources and support for RHEL 8. See the [Chef Infra Client
 15.2 Release
-Notes](https://docs.chef.io/release_notes.html#chef-infra-client-15-2)
+Notes](/release_notes/#chef-infra-client-15-2)
 for a complete list of new and improved functionality.
 
 ### Chef InSpec
@@ -549,7 +549,7 @@ validated on RHEL 8 hosts.
 Packages will no longer be built for SUSE Linux Enterprise Server (SLES)
 11 as SLES 11 exited the 'General Support' phase on March 31, 2019. See
 [Chef's Platform End-of-Life
-Policy](https://docs.chef.io/platforms.html#platform-end-of-life-policy)
+Policy](/platforms/#platform-end-of-life-policy)
 for more information on when Chef ends support for an OS release.
 
 What's New in 4.2
@@ -800,7 +800,7 @@ Breaking Changes
 
 Usage of ChefDK 4.0, Chef Infra Client 15, and Chef InSpec 4 requires
 accepting the [Chef
-EULA](https://docs.chef.io/chef_license.html#chef-eula). See the
+EULA](/chef_license/#chef-eula). See the
 [frequently asked questions](https://www.chef.io/bmc-faq/) for
 information about the license update and the associated business model
 change.
@@ -886,7 +886,7 @@ Updated Commponents
 Chef Infra Client has been updated to Chef 15 with **8** new resources,
 target mode prototype functionality, `ed25519` SSH key support, and
 more. See the [Chef Infra Client 15 Release
-Notes](https://docs.chef.io/release_notes.html#chef-infra-client-15-0-293)
+Notes](/release_notes/#chef-infra-client-15-0-293)
 for more details.
 
 ### Fauxhai 7.3
@@ -1193,7 +1193,7 @@ ChefDK is now validated against Windows 2019 with packages available at
 Packages will no longer be built for SUSE Linux Enterprise Server (SLES)
 11 as SLES 11 exited the 'General Support' phase on March 31, 2019. See
 [Chef's Platform End-of-Life
-Policy](https://docs.chef.io/platforms.html#platform-end-of-life-policy)
+Policy](/platforms/#platform-end-of-life-policy)
 for more information on when Chef ends support for an OS release.
 
 ### Ubuntu 14.04 EOL
@@ -1201,7 +1201,7 @@ for more information on when Chef ends support for an OS release.
 Packages will no longer be built for Ubuntu 14.04 as Ubuntu 14.04
 entered "End of life" status April 2019. See [Chef's Platform
 End-of-Life
-Policy](https://docs.chef.io/platforms.html#platform-end-of-life-policy)
+Policy](/platforms/#platform-end-of-life-policy)
 for more information on when Chef ends support for an OS release.
 
 Security Updates
@@ -1256,7 +1256,7 @@ non-breaking Test Kitchen 2.0 features:
 
 -   Support for accepting the Chef 15 license in Test Kitchen runs. See
     [Accepting the Chef
-    License](https://docs.chef.io/chef_license_accept.html) for usage
+    License](/chef_license_accept/) for usage
     details.
 -   A new `--fail-fast` command line flag for use with the <span
     class="title-ref">concurrency</span> flag. With this flag set, Test
@@ -1323,7 +1323,7 @@ Updated Components
 ### Chef 14.12.3
 
 ChefDK now ships with Chef 14.12.3. See [Chef 14.12 release
-notes](https://docs.chef.io/release_notes.html#whats-new-in-14-12) for
+notes](/release_notes/#whats-new-in-14-12) for
 more information on what's new.
 
 ### InSpec 3.9.0
@@ -2075,7 +2075,7 @@ What's New in 2.4.17
     Run:
 
     ``` none
-    >> chef install ./base.rb
+    chef install ./base.rb
 
     Building policy base
     Expanded run list: recipe[motd]
@@ -2105,7 +2105,7 @@ What's New in 2.4.17
     Run:
 
     ``` none
-    >> chef install ./users.rb
+    chef install ./users.rb
 
     Building policy users
     Expanded run list: recipe[motd::default], recipe[user]
@@ -2403,7 +2403,7 @@ Chef Client 12.19
 -----------------
 
 ChefDK now ships with Chef 12.19. Check out [Release
-Notes](https://docs.chef.io/release_notes.html) for all the details of
+Notes](/release_notes/) for all the details of
 this new release.
 
 Workflow Build Cookbooks
@@ -2547,7 +2547,7 @@ Automate Workflow Adopts SSH for Cookbook Generation
 The `chef generate cookbook` command now uses the SSH based job dispatch
 system as its default behavior. For more details on this new system and
 how to use it, see [Job Dispatch
-Docs](https://docs.chef.io/runners.html)
+Docs](/runners/)
 
 FIPS (Windows and RHEL only)
 ----------------------------

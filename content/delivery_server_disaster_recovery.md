@@ -48,9 +48,9 @@ requirements:
 -   Two identically-configured Chef Automate servers, one to act as the
     primary server and the other to act as a standby
 
-    {{< note >}}
+    {{< note spaces=4 >}}
 
-You cannot log in to the Chef Automate web UI on the standby server.
+    You cannot log in to the Chef Automate web UI on the standby server.
 
     {{< /note >}}
 

@@ -39,7 +39,7 @@ following steps:
 -   [Configure a Data Collector token in Chef
     Automate](/data_collection/#step-1-configure-a-data-collector-token-in-chef-automate)
 -   [Configure your Chef Infra Server to point to Chef
-    Automate](https://docs.chef.io/data_collection.html#step-2-configure-your-chef-server-to-point-to-chef-automate)
+    Automate](/data_collection/#step-2-configure-your-chef-server-to-point-to-chef-automate)
 
 Multiple Chef Servers can send data to a single Chef Automate server.
 

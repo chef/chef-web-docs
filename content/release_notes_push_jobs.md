@@ -52,7 +52,7 @@ What's New in 2.2
 The following items are new for Chef Push Jobs:
 
 -   Uses Chef Server \>12.14.0 [consolidated
-    credentials](https://docs.chef.io/server_security.html#chef-infra-server-credentials-management)
+    credentials](/server_security/#chef-infra-server-credentials-management)
     removing credentials stored in Push Server's configuration files.
 
 Important Notes
@@ -107,10 +107,10 @@ upgrade:
     `automate-ctl install-build-node`, then it runs on version 2.0 or
     greater and does not need upgraded.
 
-    {{< warning >}}
+    {{< warning spaces =4 >}}
 
-Do not restart the Push Jobs Client until after the Push Jobs Server
-upgrade is completed in the steps below.
+    Do not restart the Push Jobs Client until after the Push Jobs Server
+    upgrade is completed in the steps below.
 
     {{< /warning >}}
 
@@ -121,11 +121,11 @@ upgrade is completed in the steps below.
 
     -   Run `sudo opscode-push-jobs-server-ctl reconfigure`.
 
-        {{< note >}}
+        {{< note spaces=8 >}}
 
-Once the `reconfigure` command above is issued, build nodes and
-other push clients will not be in communication with the server
-until they are restarted.
+        Once the `reconfigure` command above is issued, build nodes and
+        other push clients will not be in communication with the server
+        until they are restarted.
 
         {{< /note >}}
 

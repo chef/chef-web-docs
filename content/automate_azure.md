@@ -43,10 +43,10 @@ please contact <amp@chef.io> to obtain a new license.
 4.  Complete each configuration step, agree to the software and
     marketplace terms and create the Chef Automate VM.
 
-    {{< note >}}
+    {{< note spaces=4 >}}
 
-Remember the DNS label of the Chef Automate VM. It will be required
-to access the Chef Automate UI and Chef Infra Server.
+    Remember the DNS label of the Chef Automate VM. It will be required
+    to access the Chef Automate UI and Chef Infra Server.
 
     {{< /note >}}
 
@@ -68,13 +68,13 @@ to access the Chef Automate UI and Chef Infra Server.
     or
     `https://chef-automate-01.eastus.cloudapp.azure.com/biscotti/setup`.
 
-    {{< note >}}
+    {{< note spaces=4 >}}
 
-In order to use TLS/SSL for the Chef Automate Web UI, the VM will
-automatically create and use a self-signed SSL certificate. Modern
-web browsers typically warn about self-signed certificates during
-login; however, in this case, you can ignore the warning and accept
-the certificate.
+    In order to use TLS/SSL for the Chef Automate Web UI, the VM will
+    automatically create and use a self-signed SSL certificate. Modern
+    web browsers typically warn about self-signed certificates during
+    login; however, in this case, you can ignore the warning and accept
+    the certificate.
 
     {{< /note >}}
 
@@ -137,10 +137,10 @@ to date, do the following to migrate to the Chef Automate Azure VM:
     using file based backups from your existing Chef Infra Server is not
     supported.
 
-    {{< note >}}
+    {{< note spaces=4 >}}
 
-The Chef Infra Server services must be online for the entire
-duration of the backup.
+    The Chef Infra Server services must be online for the entire
+    duration of the backup.
 
     {{< /note >}}
 
@@ -158,12 +158,12 @@ duration of the backup.
     scp /tmp/chef-backup.tgz <Admin Username>@<FQDN>:/tmp/
     ```
 
-    {{< note >}}
+    {{< note spaces=4 >}}
 
-You can find the FQDN of the Automate VM by checking the deployment
-outputs in the Azure portal. Navigate to the resource group, click
-on the deployment history, select the main template and location the
-FQDN in the outputs section.
+    You can find the FQDN of the Automate VM by checking the deployment
+    outputs in the Azure portal. Navigate to the resource group, click
+    on the deployment history, select the main template and location the
+    FQDN in the outputs section.
 
     {{< /note >}}
 

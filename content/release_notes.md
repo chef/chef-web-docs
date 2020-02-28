@@ -814,14 +814,14 @@ Platform Support Updates
 Chef Infra Client is now validated against macOS 10.15 (Catalina) with
 packages now available at
 [downloads.chef.io](https://downloads.chef.io/) and via the [Omnitruck
-API](https://docs.chef.io/api_omnitruck.html). Additionally, Chef Infra
+API](/api_omnitruck/). Additionally, Chef Infra
 Client will no longer be validated against macOS 10.12.
 
 ### AIX 7.2
 
 Chef Infra Client is now validated against AIX 7.2 with packages now
 available at [downloads.chef.io](https://downloads.chef.io/) and via the
-[Omnitruck API](https://docs.chef.io/api_omnitruck.html).
+[Omnitruck API](/api_omnitruck/).
 
 Chef InSpec 4.16
 ----------------
@@ -907,7 +907,7 @@ Platform Support Updates
     Packages will no longer be built for SUSE Linux Enterprise Server
     (SLES) 11 as SLES 11 exited the 'General Support' phase on March
     31, 2019. See Chef's [Platform End-of-Life
-    Policy](https://docs.chef.io/platforms.html#platform-end-of-life-policy)
+    Policy](/platforms/#platform-end-of-life-policy)
     for more information on when Chef ends support for an OS release.
 
 -   **Ubuntu 14.04 EOL**
@@ -915,7 +915,7 @@ Platform Support Updates
     Packages will no longer be built for Ubuntu 14.04 as Canonical ended
     maintenance updates on April 30, 2019. See Chef's [Platform
     End-of-Life
-    Policy](https://docs.chef.io/platforms.html#platform-end-of-life-policy)
+    Policy](/platforms/#platform-end-of-life-policy)
     for more information on when Chef ends support for an OS release.
 
 Ohai 15.2
@@ -968,7 +968,7 @@ New Resources
 
     The `chocolatey_feature` resource allows you to enable and disable
     Chocolatey features. See the [chocolatey_feature
-    documentation](https://docs.chef.io/resource_chocolatey_feauture.html)
+    documentation](/resources/chocolatey_feauture/)
     for full usage information. Thanks
     [@gep13](https://github.com/gep13) for this new resource.
 
@@ -1194,56 +1194,56 @@ New Resources
 
     Use the `archive_file` resource to decompress multiple archive
     formats without the need for compression tools on the host. See the
-    [archive_file](https://docs.chef.io/resource_archive_file.html)
+    [archive_file](/resources/archive_file/)
     documentation for more information.
 
 -   **windows_uac resource**
 
     Use the `windows_uac` resource to configure UAC settings on Windows
     hosts. See the
-    [windows_uac](https://docs.chef.io/resource_windows_uac.html)
+    [windows_uac](/resources/windows_uac/)
     documentation for more information.
 
 -   **windows_dfs_folder resource**
 
     Use the `windows_dfs_folder` resource to create and delete Windows
     DFS folders. See the
-    [windows_dfs_folder](https://docs.chef.io/resource_windows_dfs_folder.html)
+    [windows_dfs_folder](/resources/windows_dfs_folder/)
     documentation for more information.
 
 -   **windows_dfs_namespace resources**
 
     Use the `windows_dfs_namespace` resource to create and delete
     Windows DFS namespaces. See the
-    [windows_dfs_namespace](https://docs.chef.io/resource_windows_dfs_namespace.html)
+    [windows_dfs_namespace](/resources/windows_dfs_namespace/)
     documentation for more information.
 
 -   **windows_dfs_server resources**
 
     Use the `windows_dfs_server` resource to configure Windows DFS
     server settings. See the
-    [windows_dfs_server](https://docs.chef.io/resource_windows_dfs_server.html)
+    [windows_dfs_server](/resources/windows_dfs_server/)
     documentation for more information.
 
 -   **windows_dns_record resource**
 
     Use the `windows_dns_record` resource to create or delete DNS
     records. See the
-    [windows_dns_record](https://docs.chef.io/resource_windows_dns_record.html)
+    [windows_dns_record](/resources/windows_dns_record/)
     documentation for more information.
 
 -   **windows_dns_zone resource**
 
     Use the `windows_dns_zone` resource to create or delete DNS zones.
     See the
-    [windows_dns_zone](https://docs.chef.io/resource_windows_dns_zone.html)
+    [windows_dns_zone](/resources/windows_dns_zone/)
     documentation for more information.
 
 -   **snap_package resource**
 
     Use the `snap_package` resource to install snap packages on Ubuntu
     hosts. See the
-    [snap_package](https://docs.chef.io/resource_snap_package.html)
+    [snap_package](/resources/snap_package/)
     documentation for more information.
 
 Resource Improvements
@@ -1873,7 +1873,7 @@ packaged or tested for Chef Infra Client:
 -   Ubuntu 14.04
 
 See Chef's [Platform End-of-Life
-Policy](https://docs.chef.io/platforms.html#platform-end-of-life-policy)
+Policy](/platforms/#platform-end-of-life-policy)
 for more information on when Chef ends support for an OS release.
 
 Updated Resources
@@ -3168,9 +3168,9 @@ management has been greatly reduced.
     This resource was ported from the build-essential community
     cookbook.
 
-    {{< note >}}
+    {{< note spaces=4 >}}
 
-This resource no longer configures msys2 on Windows systems.
+    This resource no longer configures msys2 on Windows systems.
 
     {{< /note >}}
 
@@ -3320,12 +3320,12 @@ This resource no longer configures msys2 on Windows systems.
     the node, and restored if the `:remove` action is used later. This
     resource was ported from the sysctl community cookbook.
 
-    {{< note >}}
+    {{< note spaces=4 >}}
 
-This resource no longer backs up existing key values to the node
-when changing values as we have done in the sysctl cookbook
-previously. The resource has also been renamed from `sysctl_param`
-to `sysctl` with backwards compatibility for the previous name.
+    This resource no longer backs up existing key values to the node
+    when changing values as we have done in the sysctl cookbook
+    previously. The resource has also been renamed from `sysctl_param`
+    to `sysctl` with backwards compatibility for the previous name.
 
     {{< /note >}}
 
@@ -3355,15 +3355,15 @@ to `sysctl` with backwards compatibility for the previous name.
     editions of Windows. This resource was ported from the windows
     community cookbook.
 
-    {{< note >}}
+    {{< note spaces=4 >}}
 
-These resources received significant refactoring in the 4.0 version
-of the windows cookbook (March 2018). windows_feature resources
-will now fail if the installation of invalid features is requested,
-and support for installation via server <span
-class="title-ref">servermanagercmd.exe</span> has been removed. If
-you are using a windows_cookbook version less than 4.0, you may
-need to update cookbooks for Chef 14.
+    These resources received significant refactoring in the 4.0 version
+    of the windows cookbook (March 2018). windows_feature resources
+    will now fail if the installation of invalid features is requested,
+    and support for installation via server <span
+    class="title-ref">servermanagercmd.exe</span> has been removed. If
+    you are using a windows_cookbook version less than 4.0, you may
+    need to update cookbooks for Chef 14.
 
     {{< /note >}}
 
@@ -3771,7 +3771,7 @@ releases.
     deprecated in Chef 12, and have been removed in Chef 14. To
     replicate this functionality, users should use `node.normal` and
     `node.normal_unless`; however we highly recommend reading our
-    [attribute documentation](https://docs.chef.io/attributes.html) to
+    [attribute documentation](/attributes/) to
     ensure that `normal` is in fact your desired attribute level.
 
 -   **chocolatey_package :uninstall Action**
@@ -4293,7 +4293,7 @@ What's New in 13.6.0
     is considered overcomplicated and error-prone in the modern Chef
     ecosystem. A compatibility cookbook will be available to help users
     migrate during the Chef 14 release cycle. See the [deprecation
-    documentation](https://docs.chef.io/deprecations_deploy_resource.html)
+    documentation](/deprecations_deploy_resource/)
     for more information.
 
 -   **zypper_package supports package downgrades**
@@ -4827,7 +4827,7 @@ Backwards Compatibility Breaks
 When Chef compiles resources, it will no longer attempt to merge the
 properties of previously compiled resources with the same name and type
 in to the new resource. See [the deprecation
-page](https://docs.chef.io/deprecations_resource_cloning.html) for
+page](/deprecations_resource_cloning/) for
 further information.
 
 ### It is an error to specify both `default` and `name_property` on a property
@@ -8313,13 +8313,13 @@ Using the **dsc_resource** has the following requirements:
 -   The `RefreshMode` configuration setting in the Local Configuration
     Manager must be set to `Disabled`.
 
-    {{< note >}}
+    {{< note spaces=4 >}}
 
-Starting with Chef Client 12.6 release, this requirement applies
-only for versions of Windows PowerShell earlier than 5.0.10586.0.
-The latest version of Windows Management Framework (WMF) 5 has
-relaxed the limitation that prevented Chef Client from running in
-non-disabled refresh mode.
+    Starting with Chef Client 12.6 release, this requirement applies
+    only for versions of Windows PowerShell earlier than 5.0.10586.0.
+    The latest version of Windows Management Framework (WMF) 5 has
+    relaxed the limitation that prevented Chef Client from running in
+    non-disabled refresh mode.
 
     {{< /note >}}
 
@@ -8329,14 +8329,14 @@ non-disabled refresh mode.
     Manager be set to `Push`, whereas the **dsc_resource** resource
     requires it to be set to `Disabled`.
 
-    {{< note >}}
+    {{< note spaces=4 >}}
 
-Starting with Chef Client 12.6 release, this requirement applies
-only for versions of Windows PowerShell earlier than 5.0.10586.0.
-The latest version of Windows Management Framework (WMF) 5 has
-relaxed the limitation that prevented Chef Client from running in
-non-disabled refresh mode, which allows the Local Configuration
-Manager to be set to `Push`.
+    Starting with Chef Client 12.6 release, this requirement applies
+    only for versions of Windows PowerShell earlier than 5.0.10586.0.
+    The latest version of Windows Management Framework (WMF) 5 has
+    relaxed the limitation that prevented Chef Client from running in
+    non-disabled refresh mode, which allows the Local Configuration
+    Manager to be set to `Push`.
 
     {{< /note >}}
 
@@ -9585,11 +9585,11 @@ enable the use of policy files:
 
     Use this option to set the `chef_environment` value for a node.
 
-    {{< note >}}
+    {{< note spaces=4 >}}
 
-Any environment specified for `chef_environment` by a JSON file will
-take precedence over an environment specified by the `--environment`
-option when both options are part of the same command.
+    Any environment specified for `chef_environment` by a JSON file will
+    take precedence over an environment specified by the `--environment`
+    option when both options are part of the same command.
 
     {{< /note >}}
 
@@ -10120,15 +10120,15 @@ This argument has the following options:
 :   Create a user without a public key. This key may be managed later by
     using the `knife user key` subcommands.
 
-    {{< note >}}
+    {{< note spaces=4 >}}
 
-This option is valid only with Chef server API, version 1.0, which
-was released with Chef server 12.1. If this option or the
-`--user-key` option are not passed in the command, the Chef server
-will create a user with a public key named `default` and will return
-the private key. For the Chef server versions earlier than 12.1,
-this option will not work; a public key is always generated unless
-`--user-key` is passed in the command.
+    This option is valid only with Chef server API, version 1.0, which
+    was released with Chef server 12.1. If this option or the
+    `--user-key` option are not passed in the command, the Chef server
+    will create a user with a public key named `default` and will return
+    the private key. For the Chef server versions earlier than 12.1,
+    this option will not work; a public key is always generated unless
+    `--user-key` is passed in the command.
 
     {{< /note >}}
 
@@ -10164,15 +10164,15 @@ This argument has the following options:
 :   Create a user without a public key. This key may be managed later by
     using the `knife user key` subcommands.
 
-    {{< note >}}
+    {{< note spaces=4 >}}
 
-This option is valid only with Chef server API, version 1.0, which
-was released with Chef server 12.1. If this option or the
-`--user-key` option are not passed in the command, the Chef server
-will create a user with a public key named `default` and will return
-the private key. For the Chef server versions earlier than 12.1,
-this option will not work; a public key is always generated unless
-`--user-key` is passed in the command.
+    This option is valid only with Chef server API, version 1.0, which
+    was released with Chef server 12.1. If this option or the
+    `--user-key` option are not passed in the command, the Chef server
+    will create a user with a public key named `default` and will return
+    the private key. For the Chef server versions earlier than 12.1,
+    this option will not work; a public key is always generated unless
+    `--user-key` is passed in the command.
 
     {{< /note >}}
 
@@ -10337,13 +10337,13 @@ Using the **dsc_resource** has the following requirements:
 -   The `RefreshMode` configuration setting in the Local Configuration
     Manager must be set to `Disabled`.
 
-    {{< note >}}
+    {{< note spaces=4 >}}
 
-Starting with Chef Client 12.6 release, the `RefreshMode: Disabled`
-requirement applies only for versions of Windows PowerShell earlier
-than 5.0.10586.0. The latest version of Windows Management Framework
-(WMF) 5 has relaxed the limitation that prevented Chef Client from
-running in non-disabled refresh mode.
+    Starting with Chef Client 12.6 release, the `RefreshMode: Disabled`
+    requirement applies only for versions of Windows PowerShell earlier
+    than 5.0.10586.0. The latest version of Windows Management Framework
+    (WMF) 5 has relaxed the limitation that prevented Chef Client from
+    running in non-disabled refresh mode.
 
     {{< /note >}}
 
@@ -11798,20 +11798,20 @@ The `verify` attribute may be used with the **cookbook_file**,
     end
     ```
 
-    {{< warning >}}
+    {{< warning spaces =4 >}}
 
-For releases of Chef Client prior to 12.5 (chef-client 12.4 and
-earlier) the correct syntax is:
+    For releases of Chef Client prior to 12.5 (chef-client 12.4 and
+    earlier) the correct syntax is:
 
-``` ruby
-template '/etc/nginx.conf' do
-  verify 'nginx -t -c %{file}'
-end
-```
+    ``` ruby
+    template '/etc/nginx.conf' do
+      verify 'nginx -t -c %{file}'
+    end
+    ```
 
-See GitHub issues <https://github.com/chef/chef/issues/3232> and
-<https://github.com/chef/chef/pull/3693> for more information about
-these differences.
+    See GitHub issues <https://github.com/chef/chef/issues/3232> and
+    <https://github.com/chef/chef/pull/3693> for more information about
+    these differences.
 
     {{< /warning >}}
 
@@ -11891,10 +11891,10 @@ The following attribute is new for the **chef_gem** resource:
     chef-client run), or `false` (to remove all warnings). Recommended
     value: `false`.
 
-    {{< note >}}
+    {{< note spaces=4 >}}
 
-This topic is hooked into client.rb topics, starting with 12.1, in
-addition to the resource reference pages.
+    This topic is hooked into client.rb topics, starting with 12.1, in
+    addition to the resource reference pages.
 
     {{< /note >}}
 
@@ -12372,10 +12372,10 @@ The following client.rb settings are new:
     Client is configuring the node (the "converge phase"). Recommended
     value: `false`.
 
-    {{< note >}}
+    {{< note spaces=4 >}}
 
-This topic is hooked into client.rb topics, starting with 12.1, in
-addition to the resource reference pages.
+    This topic is hooked into client.rb topics, starting with 12.1, in
+    addition to the resource reference pages.
 
     {{< /note >}}
 
@@ -13125,14 +13125,14 @@ system process limits:
     chsec -f /etc/security/limits -s default -a "nofiles=50000"
     ```
 
-    {{< note >}}
+    {{< note spaces=4 >}}
 
-The previous commands may be run against the root user, instead of
-default. For example:
+    The previous commands may be run against the root user, instead of
+    default. For example:
 
-``` bash
-chsec -f /etc/security/limits -s root_user -a "rss=-1"
-```
+    ``` bash
+    chsec -f /etc/security/limits -s root_user -a "rss=-1"
+    ```
 
     {{< /note >}}
 
@@ -14393,9 +14393,9 @@ The following options are new:
     Default value: `chef-full`, which installs Chef Client using the
     omnibus installer on all supported platforms.
 
-    {{< note >}}
+    {{< note spaces=4 >}}
 
-The `--distro` and `--template-file` options are deprecated.
+    The `--distro` and `--template-file` options are deprecated.
 
     {{< /note >}}
 

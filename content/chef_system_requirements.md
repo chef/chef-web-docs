@@ -65,7 +65,7 @@ Chef Infra Client
     data and should be generously sized. 5GB is a safe number as a
     starting point, but tune the size of `/var/chef/cache` as necessary.
     This location is tunable in a node's
-    [client.rb](https://docs.chef.io/config_rb_client.html) file via the
+    [client.rb](/config_rb_client/) file via the
     `file_cache_path` setting.
 
 Chef Workstation

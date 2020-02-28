@@ -67,15 +67,9 @@ This command has the following options:
     In certain situations this option may be used to update `normal`
     attributes.
 
-    {{< warning >}}
+    {{< warning spaces=4 >}}
 
-{{% node_ctl_attribute_text %}}
-
-{{% node_ctl_attribute_code_block_1 %}}
-
-will result in a node object similar to:
-
-{{% node_ctl_attribute_code_block_2 %}}
+    {{% node_ctl_attribute %}}
 
     {{< /warning >}}
 
