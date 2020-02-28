@@ -735,6 +735,7 @@
 														<dd>
 															{{ if ne .ruby_type nil }}
 																	<strong>Ruby Type:</strong> {{ .ruby_type }} {{ if .default_value }}| <strong>Default Value:</strong> <code>{{ .default_value }}</code>{{ end }} {{ if .required }}| <code>REQUIRED</code>{{ end }}
+																	{{ if .allowed_values }}</br> <strong>Allowed Values:</strong> <code>{{ .allowed_values }}</code>{{ end }}
 																</p>
 															{{ end }}
 															
