@@ -2075,7 +2075,7 @@ What's New in 2.4.17
     Run:
 
     ``` none
-    >> chef install ./base.rb
+    chef install ./base.rb
 
     Building policy base
     Expanded run list: recipe[motd]
@@ -2105,7 +2105,7 @@ What's New in 2.4.17
     Run:
 
     ``` none
-    >> chef install ./users.rb
+    chef install ./users.rb
 
     Building policy users
     Expanded run list: recipe[motd::default], recipe[user]

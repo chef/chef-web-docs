@@ -605,21 +605,21 @@ ways this can be done:
 -   Use `su` to become the root user, and then run the Chef Infra
     Client. For example:
 
-    > ``` bash
-    > su
-    > ```
-    >
-    > and then:
-    >
-    > ``` bash
-    > # chef-client
-    > ```
+    ``` bash
+    su
+    ```
+
+    and then:
+
+    ``` bash
+    # chef-client
+    ```
 
 -   Use the sudo utility
 
-    > ``` bash
-    > sudo chef-client
-    > ```
+    ``` bash
+    sudo chef-client
+    ```
 
 -   Give a user access to read `/etc/chef` and also the files accessed
     by the Chef Infra Client. This requires super user privileges and,
@@ -839,28 +839,24 @@ installing from CD.
 
     ``` bash
     Add Additional Language Environments
-    ```
 
-    > Type or select values in entry fields. Press Enter AFTER making
-    > all desired changes.
-    >
-    > > \[Entry Fields\]
-    >
-    > > CULTURAL convention to install + LANGUAGE translation to
-    > > install +
-    >
-    > -   INPUT device/directory for software \[/dev/cd0\] + EXTEND file
-    >     systems if space needed? yes +
-    >
-    >     WPAR Management
-    >
-    >     :   Perform Operation in Global Environment yes + Perform
-    >         Operation on Detached WPARs no + Detached WPAR Names
-    >         \[_all_wpars\] + Remount Installation Device in WPARs
-    >         yes + Alternate WPAR Installation Device \[\]
-    >
-    > F1=Help F2=Refresh F3=Cancel F4=List F5=Reset F6=Command F7=Edit
-    > F8=Image F9=Shell F10=Exit Enter=Do
+    Type or select values in entry fields. Press Enter AFTER making
+    all desired changes.
+    
+    [Entry Fields]
+    
+    CULTURAL convention to install + LANGUAGE translation to
+    install + INPUT device/directory for software [/dev/cd0] + EXTEND file
+    systems if space needed? yes + WPAR Management
+    
+    Perform Operation in Global Environment yes + Perform
+    Operation on Detached WPARs no + Detached WPAR Names
+    [_all_wpars] + Remount Installation Device in WPARs
+    yes + Alternate WPAR Installation Device []
+    
+    F1=Help F2=Refresh F3=Cancel F4=List F5=Reset F6=Command F7=Edit
+    F8=Image F9=Shell F10=Exit Enter=Do
+    ```
 
 3.  Cursor over the first two entries---`CULTURAL convention to install`
     and `LANGUAGE translation to install`---and use `F4` to navigate
