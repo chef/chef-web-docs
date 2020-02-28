@@ -102,7 +102,7 @@ cluster downtime.
 8.  To continue the upgrades on Chef Infra Server frontend nodes using
     this backend cluster, see [Upgrade Frontends Associated with a Chef
     Backend
-    Cluster](/install_server_ha.html#upgrading-chef-infra-server-on-the-frontend-machines)
+    Cluster](/install_server_ha/#upgrading-chef-infra-server-on-the-frontend-machines)
 
 Chef Backend Minor Version Upgrade
 ==================================
