@@ -21,7 +21,7 @@ and contribute, such as reading books, going to meetups, listening to
 podcasts, taking some training, and simply being a part of the
 community.
 
-![image](/images/community.png)
+![image](/images/ChefRally.jpg)
 
 Meet
 ====
