@@ -45,11 +45,11 @@ Chef Infra defines a common workflow for cookbook development:
 
 1.  Create a skeleton cookbook by running <span class="title-ref">chef
     generate cookbook MY_COOKBOOK_NAME</span>. This will generate a
-    cookbook with a single recipe and testing configuration with with
+    cookbook with a single recipe and testing configuration with
     ChefSpec and Delivery Local Mode.
 2.  Write cookbook recipes or resources and debug those recipes as they
     are being written using Cookstyle and Test Kitchen. This is
-    typically an iterative process, where cookbook are tested as they
+    typically an iterative process, where cookbooks are tested as they
     are developed, bugs are fixed quickly, and then cookbooks are tested
     again. A text editor---Visual Studio Code, Atom, vim, or any other
     preferred text editor---is used to author the files in the cookbook.
@@ -117,7 +117,7 @@ The most important tools included in Chef Workstation are:
 </tr>
 <tr class="odd">
 <td>kitchen-ec2, kitchen-google, kitchen-azurerm</td>
-<td>Test Kitchen drivers for cookbook testinng on common cloud providers</td>
+<td>Test Kitchen drivers for cookbook testing on common cloud providers</td>
 </tr>
 <tr class="even">
 <td>Ruby</td>
