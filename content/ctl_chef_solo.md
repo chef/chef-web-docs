@@ -95,7 +95,7 @@ This command has the following options:
 
     {{< shortcode_indent shortcode="node_ctl_run_list" >}}
 
-    {{< warning spaces=4 >}}
+    {{< warning >}}
 
     {{% node_ctl_attribute %}}
 

@@ -67,7 +67,7 @@ This command has the following options:
     In certain situations this option may be used to update `normal`
     attributes.
 
-    {{< warning spaces=4 >}}
+    {{< warning >}}
 
     {{% node_ctl_attribute %}}
 
