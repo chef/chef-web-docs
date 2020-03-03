@@ -151,10 +151,9 @@ properties_list:
   required: false
   default_value: null
   new_in: null
+  allowed_values: ":annually, :daily, :hourly, :midnight, :monthly, :reboot, :weekly, :yearly"
   description_list:
-  - markdown: 'A time interval. Possible values: `:annually`, `:daily`, `:hourly`,
-
-      `:midnight`, `:monthly`, `:reboot`, `:weekly`, or `:yearly`.'
+  - markdown: 'A time interval.'
 - property: time_out
   ruby_type: Hash
   required: false

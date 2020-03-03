@@ -186,6 +186,7 @@ properties_list:
   required: false
   default_value: null
   new_in: null
+  allowed_values: '@reboot, @yearly, @annually, @monthly, @weekly, @daily, @midnight, @hourly'
   description_list:
   - markdown: 'Schedule your cron job with one of the special predefined value
 
