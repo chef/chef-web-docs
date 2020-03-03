@@ -233,6 +233,7 @@ properties_list:
   required: false
   default_value: :nothing
   new_in: null
+  allowed_values: ':nothing :reboot_now :request_reboot'
   description_list:
   - markdown: 'Use to request an immediate reboot or to queue a reboot using the
 

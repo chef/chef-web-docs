@@ -163,6 +163,7 @@ properties_list:
   required: false
   default_value: '"app"'
   new_in: null
+  allowed_values: 'app pkg mpkg'
   description_list:
   - markdown: The type of package.
 - property: volumes_dir

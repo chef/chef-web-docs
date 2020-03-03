@@ -90,10 +90,9 @@ properties_list:
   required: false
   default_value: :symbolic
   new_in: null
+  allowed_values: ':symbolic :hard'
   description_list:
-  - markdown: 'The type of link: `:symbolic` or `:hard`. On Windows, `:symbolic`
-
-      will create a junction point if the target is a directory.'
+  - markdown: 'The type of link: `:symbolic` or `:hard`. On Windows, `:symbolic` will create a junction point if the target is a directory.'
 - property: mode
   ruby_type: Integer, String
   required: false
