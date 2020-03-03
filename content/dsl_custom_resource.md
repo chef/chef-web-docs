@@ -14,12 +14,10 @@ aliases = ["/dsl_custom_resource.html"]
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/dsl_custom_resource.md)
 
-Use the Custom Resource DSL to define property behaviors within custom
-resources, such as:
+Use the Custom Resource DSL to define behaviors within custom resources, such as:
 
 -   Loading the value of a specific property
--   Comparing the current property value against a desired property
-    value
+-   Comparing the current property value against a desired property value
 -   Telling Chef Infra Client when and how to make changes
 
 action_class
