@@ -627,10 +627,6 @@ provides
 
 {{% dsl_custom_resource_method_provides %}}
 
-### override
-
-{{% dsl_custom_resource_method_provides_override %}}
-
 reset_property
 ---------------
 
