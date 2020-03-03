@@ -1,5 +1,5 @@
 +++
-title = "About the Custom Resource DSL"
+title = "Custom Resource DSL"
 draft = false
 
 aliases = ["/dsl_custom_resource.html"]
