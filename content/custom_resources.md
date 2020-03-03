@@ -10,20 +10,17 @@ aliases = ["/custom_resources.html"]
     identifier = "chef_infra/cookbook_reference/resources/custom_resources.md Custom Resources"
     parent = "chef_infra/cookbook_reference/resources"
     weight = 40
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/custom_resources.md)
 
 A custom resource:
 
--   Is a simple extension of Chef Infra Client that adds your own
-    resources
+-   Is a simple extension of Chef Infra Client that adds your own resources
 -   Is implemented and shipped as part of a cookbook
 -   Follows easy, repeatable syntax patterns
--   Effectively leverages resources that are built into Chef Infra
-    Client and/or custom Ruby code
--   Is reusable in the same way as resources that are built into Chef
-    Client
+-   Effectively leverages resources that are built into Chef Infra Client and/or custom Ruby code
+-   Is reusable in the same way as resources that are built into Chef Infa Client
 
 For example, Chef Infra Client includes built-in resources to manage
 files, packages, templates, and services, but it does not include a
@@ -151,8 +148,7 @@ This scenario covers the following:
 1.  Defining a cookbook named `website`
 2.  Defining two properties
 3.  Defining an action
-4.  For the action, defining the steps to configure the system using
-    resources that are built into Chef
+4.  For the action, defining the steps to configure the system using resources that are built into Chef Infra
 5.  Creating two templates that support the custom resource
 6.  Adding the resource to a recipe
 
