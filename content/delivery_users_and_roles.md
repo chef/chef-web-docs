@@ -12,7 +12,7 @@ aliases = ["/delivery_users_and_roles.html", "/release/automate/delivery_users_a
     identifier = "legacy/workflow/managing_workflow/delivery_users_and_roles.md Users and Roles"
     parent = "legacy/workflow/managing_workflow"
     weight = 110
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/delivery_users_and_roles.md)
 
@@ -110,13 +110,13 @@ that they can submit changes and collaborate via the Chef Automate
 shared workflow using GitHub.
 
 You may integrate Chef Automate and GitHub Enterprise or
-[Github.com](https://github.com/). If you do this, you will be able to
+[GitHub.com](https://github.com/). If you do this, you will be able to
 use GitHub as a **Source Code Provider** when creating a project.
 
 {{< note >}}
 
 Before you can follow this procedure, you must have integrated Chef
-Automate and GitHub Enterprise or [Github.com](https://github.com/).
+Automate and GitHub Enterprise or [GitHub.com](https://github.com/).
 This is the same procedure whether you have Amazon Web Services (AWS)
 provisioning or SSH provisioning.
 
@@ -128,7 +128,7 @@ You must associate a GitHub user with a Chef Automate user in order to
 successfully create changes from GitHub pull requests.
 
 To onboard a user for an integrated GitHub Enterprise project or one
-that is hosted at [Github.com](https://github.com/):
+that is hosted at [GitHub.com](https://github.com/):
 
 1.  Have the user that you want to add clone the repo for the project
     you want them to join. Ensure that they have write permissions to
@@ -190,7 +190,7 @@ Note the following constraints:
 ### Submit Changes
 
 For an integrated GitHub Enterprise project or a project that is hosted
-on [Github.com](https://github.com/), users of Chef Automate should
+on [GitHub.com](https://github.com/), users of Chef Automate should
 submit changes as follows:
 
 1.  The standard GitHub process should be followed:
@@ -232,12 +232,12 @@ Once a project is created, you will want to add users to that project so
 that they can submit changes and collaborate via the Chef Automate
 shared workflow. These procedures apply to Chef Automate deployments
 that are using the internal Chef Automate git capabilities and are not
-integrated to GitHub Enterprise or [Github.com](https://github.com/).
+integrated to GitHub Enterprise or [GitHub.com](https://github.com/).
 
 ### Add Users
 
 To onboard a user that is not using GitHub Enterprise or a project
-hosted at [Github.com](https://github.com/), but only the default git
+hosted at [GitHub.com](https://github.com/), but only the default git
 that comes with Chef Automate:
 
 1.  Add or edit any users who are managed by the LDAP integration.

@@ -10,7 +10,7 @@ aliases = ["/vmware.html"]
     identifier = "chef_infra/setup/integrations/vmware.md VMware"
     parent = "chef_infra/setup/integrations"
     weight = 30
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/vmware.md)
 
@@ -33,7 +33,7 @@ Chef:
 knife-vsphere
 -------------
 
-[\[Github\]](https://github.com/chef-partners/knife-vsphere)
+[\[GitHub\]](https://github.com/chef-partners/knife-vsphere)
 
 -   Supports vCenter \> 5.0
 -   Most VMware compute use cases are covered
@@ -103,7 +103,7 @@ the Chef Infra Server.
 knife-vcenter
 -------------
 
-[\[Github\]](https://github.com/chef/knife-vcenter)
+[\[GitHub\]](https://github.com/chef/knife-vcenter)
 
 -   Supports vCenter \>= 6.5 REST API
 -   Supports the main use cases of knife: `bootstrap`, `create`,
@@ -159,7 +159,7 @@ WARNING: Deleted client example-01
 knife-vrealize
 --------------
 
-[\[Github\]](https://github.com/chef-partners/knife-vrealize)
+[\[GitHub\]](https://github.com/chef-partners/knife-vrealize)
 
 -   Supports both vRealize Automation and vRealize Orchestrator
 -   Supports vRealize Automation 7.0+
@@ -288,7 +288,7 @@ Chef:
 kitchen-vsphere (chef-provisioning-vsphere)
 -------------------------------------------
 
-[\[Github\]](https://github.com/chef-partners/chef-provisioning-vsphere)
+[\[GitHub\]](https://github.com/chef-partners/chef-provisioning-vsphere)
 
 -   Built into the chef-provisioning-vsphere driver
 -   A community driven project, with Chef Partners maintaining the
@@ -357,7 +357,7 @@ suites:
 kitchen-vcenter
 ---------------
 
-[\[Github\]](https://github.com/chef/kitchen-vcenter)
+[\[GitHub\]](https://github.com/chef/kitchen-vcenter)
 
 -   Supports vCenter \>= 6.5 REST API
 -   Leverages the typical test-kitchen workflow for vCenter \>= 6.5+
@@ -392,7 +392,7 @@ platforms:
 kitchen-vra
 -----------
 
-[\[Github\]](https://github.com/chef-partners/kitchen-vra)
+[\[GitHub\]](https://github.com/chef-partners/kitchen-vra)
 
 -   An integration point with vRA and test-kitchen
 -   For companies required to use vRA this is a natural progression for
@@ -423,7 +423,7 @@ platforms:
 kitchen-vro
 -----------
 
-[\[Github\]](https://github.com/chef-partners/kitchen-vro)
+[\[GitHub\]](https://github.com/chef-partners/kitchen-vro)
 
 -   An integration point with vRO and test-kitchen
 -   Leverages specific Workflows in vRO if it's required by VMware
@@ -466,7 +466,7 @@ VMware stack.
 inspec-vmware
 -------------
 
-[\[Github\]](https://github.com/chef/inspec-vmware)
+[\[GitHub\]](https://github.com/chef/inspec-vmware)
 
 -   Supports vCenter \> 5.0
 -   11 resources available at the time of writing, with more planned

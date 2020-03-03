@@ -64,7 +64,7 @@ To clean your local development environment:
 	modules will be reinstalled the next time you run `make serve`.
 
 Hugo uses [Goldmark](https://github.com/yuin/goldmark) which is a
-superset of Markdown that includes Github styled tables, task lists, and
+superset of Markdown that includes GitHub styled tables, task lists, and
 definition lists.
 
 ## Shortcodes
