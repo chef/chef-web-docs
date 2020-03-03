@@ -10,7 +10,7 @@ aliases = ["/dsl_custom_resource.html"]
     identifier = "chef_infra/cookbook_reference/dsl_custom_resource.md Custom Resources DSL"
     parent = "chef_infra/cookbook_reference"
     weight = 70
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/dsl_custom_resource.md)
 
@@ -30,7 +30,7 @@ converge_if_changed
 
 {{% dsl_custom_resource_method_converge_if_changed %}}
 
-Multiple Properties
+Converging Multiple Properties
 -------------------
 
 {{% dsl_custom_resource_method_converge_if_changed_multiple %}}
@@ -45,10 +45,10 @@ load_current_value
 
 {{% dsl_custom_resource_method_load_current_value %}}
 
-new_resource.property
-======================
+Block Arguments
+--------
 
-{{% dsl_custom_resource_method_new_resource %}}
+{{% dsl_custom_resource_method_property_block_argument %}}
 
 property
 ========
@@ -75,30 +75,27 @@ identity
 
 {{% dsl_custom_resource_method_property_identity %}}
 
-Block Arguments
-===============
+Working With Properties
+--------
 
-{{% dsl_custom_resource_method_property_block_argument %}}
+The Custom Resource DSL includes several helper methods for accessing and manipulating the properties values defined within a custom resource.
 
-property_is_set?
-==================
+### new_resource.property
+
+{{% dsl_custom_resource_method_new_resource %}}
+
+### property_is_set?
 
 {{% dsl_custom_resource_method_property_is_set %}}
+
+### reset_property
+
+{{% dsl_custom_resource_method_reset_property %}}
 
 provides
 ========
 
 {{% dsl_custom_resource_method_provides %}}
-
-override
---------
-
-{{% dsl_custom_resource_method_provides_override %}}
-
-reset_property
-===============
-
-{{% dsl_custom_resource_method_reset_property %}}
 
 resource_name
 ==============
