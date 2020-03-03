@@ -5,17 +5,18 @@ https://docs.chef.io/
 
 ## The fastest way to contribute
 
-If you spot something in the docs that needs to be fixed, the fastest way to
-get in the change is to edit the file on the GitHub website using the GitHub UI.
+The fastest way to change the documentation is to edit a page on the
+GitHub website using the GitHub UI.
 
 To perform edits using the GitHub UI, click on the `[edit on GitHub]` link at
-the top of the page you want to edit. The link takes you to that topic's GitHub
+the top of the page that you want to edit. The link takes you to that topic's GitHub
 page. In GitHub, click on the pencil icon and make your changes. You can preview
 how they'll look right on the page ("Preview Changes" tab).
 
-We also require contributors to include their DCO signoff in the comment section of
-every pull request. You can add your [DCO signoff](https://github.com/chef/chef/blob/master/CONTRIBUTING.md#developer-certification-of-origin-dco) to the comments by
-including `Signed-off-by:`, followed by your name and email address, like this:
+We also require contributors to include their [DCO signoff](https://github.com/chef/chef/blob/master/CONTRIBUTING.md#developer-certification-of-origin-dco)
+in the comment section of every pull request, except for obvious fixes. You can
+add your DCO signoff to the comments by including `Signed-off-by:`, followed by
+your name and email address, like this:
 
 `Signed-off-by: Julia Child <juliachild@chef.io>`
 
@@ -34,14 +35,19 @@ few days. The important part is submitting your change.
 
 ## Local Development Environment
 
-The docs website is built using [Hugo](https://gohugo.io/). You will need
-Hugo 0.61 or higher installed and running to build and view our documentation
-properly.
+The Chef Documentation website is built using [Hugo](https://gohugo.io/) and
+[NPM](https://www.npmjs.com/). You will need Hugo 0.61 or higher installed and
+running to build and view our documentation properly.
 
-To install hugo:
+To install Hugo:
 
-- On macOS run: `brew install hugo` and `brew install npm`
+- On macOS run: `brew install hugo`
 - On Windows run: `choco install hugo`
+
+NPM is distributed with Node.js. To install Node.js:
+
+- On macOS run: `brew install node`
+- On Windows, download and run the installer from the [nodejs.org](https://nodejs.org) website.
 
 To build the docs and preview locally:
 
@@ -77,7 +83,7 @@ provide additional important information
 ### Adding reusable text
 
 There are often cases where we want to maintain blocks of text that are identical
-from one page to the next. In those cases we add that text, formatted in Markdown,
+from one page to the next. In those cases, we add that text, formatted in Markdown,
 to a shortcode file located in `chef-web-docs/layouts/shortcodes`.
 
 To add that shortcode to a page in `chef-web-docs/content`, add the file name,
@@ -89,7 +95,7 @@ Hugo rebuilds the documentation.
 
 **Shortcodes in lists**
 
-Hugo doesn't handle shortcodes that are indented in a list item properly. It intereprets
+Hugo doesn't handle shortcodes that are indented in a list item properly. It interprets
 the text of the shortcode as a code block. More complicated shortcodes with
 code blocks, notes, additional list items, or other formatting look pretty
 bad. We've created a simple shortcode for handling shortcodes in lists or definition
@@ -179,7 +185,7 @@ will be added for major releases of products/projects or for products/projects/c
 
 ## Archive of pre-2016 commit history
 
-Commit history of this repo prior to February 12, 2016 has been
+The commit history of this repo before February 12, 2016 has been
 archived to the [chef-web-docs-2016 repo](https://github.com/chef-boneyard/chef-web-docs-2016) to save space. No changes
 to the archive repo will be merged; it's just for historical purposes.
 
