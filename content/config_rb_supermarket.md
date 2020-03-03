@@ -10,7 +10,7 @@ aliases = ["/config_rb_supermarket.html"]
     identifier = "chef_infra/setup/supermarket/config_rb_supermarket.md supermarket.rb Settings"
     parent = "chef_infra/setup/supermarket"
     weight = 40
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/config_rb_supermarket.md)
 
@@ -224,28 +224,28 @@ As a Supermarket feature, Fieri must be enabled via the
 :   A string that is used as a key to authenticate Fieri. Default value:
     `nil`
 
-Github
+GitHub
 ------
 
-Use these settings to integrate Supermarket with Github.
+Use these settings to integrate Supermarket with GitHub.
 
-As a Supermarket feature, Github must be enabled via the
+As a Supermarket feature, GitHub must be enabled via the
 `default['supermarket']['features']` option.
 
 `default['supermarket']['github_access_token']`
 
-:   The access token created from your Github account. Default value:
+:   The access token created from your GitHub account. Default value:
     `nil`.
 
 `default['supermarket']['github_key']`
 
 :   The application client ID that is used to authenticate Supermarket
-    to Github. Default value: `nil`.
+    to GitHub. Default value: `nil`.
 
 `default['supermarket']['github_secret']`
 
 :   The application client secret that is used to authenticate
-    Supermarket to Github. Default value: `nil`.
+    Supermarket to GitHub. Default value: `nil`.
 
 Google Analytics
 ----------------

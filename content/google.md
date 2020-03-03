@@ -10,7 +10,7 @@ aliases = ["/google.html"]
     identifier = "chef_infra/setup/integrations/google.md Google Cloud Platform"
     parent = "chef_infra/setup/integrations"
     weight = 20
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/google.md)
 
@@ -25,7 +25,7 @@ Chef with the Google Cloud Platform.
 knife-google
 ============
 
-[\[Github\]](https://github.com/chef/knife-google)
+[\[GitHub\]](https://github.com/chef/knife-google)
 
 This plugin gives knife the ability to create, bootstrap, and manage
 Google Compute Engine (GCE) instances.
@@ -80,7 +80,7 @@ knife google server list
 kitchen-google
 ==============
 
-[\[Github\]](https://github.com/test-kitchen/kitchen-google)
+[\[GitHub\]](https://github.com/test-kitchen/kitchen-google)
 
 A test kitchen driver for Google Cloud Platform.
 

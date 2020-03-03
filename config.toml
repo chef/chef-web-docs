@@ -893,7 +893,7 @@ weight = 90
     weight = 20
 
 [[menu.docs]]
-title = "Available on Github"
+title = "Available on GitHub"
 identifier = "github"
 url = "https://github.com/chef/chef-web-docs"
 weight = 90
