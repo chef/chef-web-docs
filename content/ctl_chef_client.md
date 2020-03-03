@@ -188,7 +188,7 @@ This command has the following options:
 
     **All attributes are normal attributes**
 
-    {{< shortcode_indent shortcode="node_ctl_attribute" spaces=4 >}}
+    {{< shortcode_indent shortcode="node_ctl_attribute" >}}
 
     {{< note spaces=4 >}}
 
