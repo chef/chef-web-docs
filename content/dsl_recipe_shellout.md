@@ -5,9 +5,9 @@ draft = false
 [menu]
   [menu.docs]
     title = "Shelling Out"
-    identifier = "chef_infra/cookbook_reference/recipe_dsl/dsl_recipe.md DSL Overview"
+    identifier = "chef_infra/cookbook_reference/recipe_dsl/dsl_recipe_shellout.md Shelling Out"
     parent = "chef_infra/cookbook_reference/recipe_dsl"
-    weight = 10
+    weight = 170
 +++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/dsl_recipe_shellout.md)
