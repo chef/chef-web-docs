@@ -78,7 +78,7 @@ identity
 Working With Properties
 --------
 
-The Custom Resource DSL includes several helper methods for accessing and manipulating the properties values defined within a custom resource.
+The Custom Resource DSL includes several helper methods for accessing and manipulating the values of properties defined within a custom resource.
 
 ### new_resource.property
 
