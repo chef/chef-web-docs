@@ -484,18 +484,11 @@ weight = 30
       weight = 180
 
       [[menu.docs]]
-      title = "shell_out"
-      identifier = "chef_infra/cookbook_reference/recipe_dsl/dsl_recipe.md#shell-out shell_out"
+      title = "Shelling Out"
+      identifier = "chef_infra/cookbook_reference/recipe_dsl/dsl_recipe_shellout.md shell_out"
       parent = "chef_infra/cookbook_reference/recipe_dsl"
-      url = "/dsl_recipe/#shell-out"
+      url = "/dsl_recipe_shellout"
       weight = 190
-
-      [[menu.docs]]
-      title = "shell_out!"
-      identifier = "chef_infra/cookbook_reference/recipe_dsl/dsl_recipe.md#id6 shell_out!"
-      parent = "chef_infra/cookbook_reference/recipe_dsl"
-      url = "/dsl_recipe/#shell-out-1"
-      weight = 200
 
       [[menu.docs]]
       title = "tag, tagged?, untag"

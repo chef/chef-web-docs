@@ -10,7 +10,7 @@ aliases = ["/dsl_recipe.html"]
     identifier = "chef_infra/cookbook_reference/recipe_dsl/dsl_recipe.md DSL Overview"
     parent = "chef_infra/cookbook_reference/recipe_dsl"
     weight = 10
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/dsl_recipe.md)
 
@@ -793,37 +793,6 @@ recipe.
 **Use the search recipe DSL method to find users**
 
 {{% resource_execute_use_search_dsl_method %}}
-
-shell_out
-----------
-
-The `shell_out` method can be used to run a command against the node,
-and then display the output to the console when the log level is set to
-`debug`.
-
-The syntax for the `shell_out` method is as follows:
-
-``` ruby
-shell_out(command_args)
-```
-
-where `command_args` is the command that is run against the node.
-
-shell_out!
------------
-
-The `shell_out!` method can be used to run a command against the node,
-display the output to the console when the log level is set to `debug`,
-and then raise an error when the method returns `false`.
-
-The syntax for the `shell_out!` method is as follows:
-
-``` ruby
-shell_out!(command_args)
-```
-
-where `command_args` is the command that is run against the node. This
-method will return `true` or `false`.
 
 tag, tagged?, untag
 -------------------
