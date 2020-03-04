@@ -575,18 +575,11 @@ weight = 30
       weight = 310
 
       [[menu.docs]]
-      title = "Windows Platform Helpers"
-      identifier = "chef_infra/cookbook_reference/recipe_dsl/dsl_recipe.md#helpers Windows Platform Helpers"
-      parent = "chef_infra/cookbook_reference/recipe_dsl"
-      url = "/dsl_recipe/#helpers"
-      weight = 320
-
-      [[menu.docs]]
       title = "Log Entries"
       identifier = "chef_infra/cookbook_reference/recipe_dsl/dsl_recipe.md#log-entries Log Entries"
       parent = "chef_infra/cookbook_reference/recipe_dsl"
       url = "/dsl_recipe/#log-entries"
-      weight = 330
+      weight = 320
 
     [[menu.docs]]
     title = "Resources"

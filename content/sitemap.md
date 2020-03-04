@@ -11,7 +11,7 @@ toc = false
 
 
 
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/sitemap.md)
 
@@ -573,7 +573,7 @@ Resources
 [untag](/dsl_recipe/#tag-tagged-untag) |
 [value_for_platform](/dsl_recipe/#value-for-platform) |
 [value_for_platform_family](/dsl_recipe/#value-for-platform-family)
-| [Windows Platform Helpers](/dsl_recipe/#helpers) | [Custom
+| [Custom
 Resource DSL](/dsl_custom_resource/) | [Community
 Resources](https://supermarket.chef.io)
 
@@ -610,4 +610,3 @@ Chef](https://www.chef.io/chef/get-chef) | [Send
 Feedback](/feedback/) | [Support](https://www.chef.io/support) |
 [Site Map](/index/) |
 [Archive](https://docs-archive.chef.io/index.html)
-
