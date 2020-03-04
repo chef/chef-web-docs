@@ -393,102 +393,46 @@ weight = 30
       weight = 40
 
       [[menu.docs]]
-      title = "declare_resource"
-      identifier = "chef_infra/cookbook_reference/recipe_dsl/dsl_recipe.md#declare-resource declare_resource"
-      parent = "chef_infra/cookbook_reference/recipe_dsl"
-      url = "/dsl_recipe/#declare-resource"
-      weight = 50
-
-      [[menu.docs]]
-      title = "delete_resource"
-      identifier = "chef_infra/cookbook_reference/recipe_dsl/dsl_recipe.md#delete-resource delete_resource"
-      parent = "chef_infra/cookbook_reference/recipe_dsl"
-      url = "/dsl_recipe/#delete-resource"
-      weight = 60
-
-      [[menu.docs]]
-      title = "delete_resource!"
-      identifier = "chef_infra/cookbook_reference/recipe_dsl/dsl_recipe.md#id1 delete_resource!"
-      parent = "chef_infra/cookbook_reference/recipe_dsl"
-      url = "/dsl_recipe/#delete-resource-1"
-      weight = 70
-
-      [[menu.docs]]
-      title = "edit_resource"
-      identifier = "chef_infra/cookbook_reference/recipe_dsl/dsl_recipe.md#edit-resource edit_resource"
-      parent = "chef_infra/cookbook_reference/recipe_dsl"
-      url = "/dsl_recipe/#edit-resource"
-      weight = 80
-
-      [[menu.docs]]
-      title = "edit_resource!"
-      identifier = "chef_infra/cookbook_reference/recipe_dsl/dsl_recipe.md#id2 edit_resource!"
-      parent = "chef_infra/cookbook_reference/recipe_dsl"
-      url = "/dsl_recipe/#edit-resource-1"
-      weight = 90
-
-      [[menu.docs]]
-      title = "find_resource"
-      identifier = "chef_infra/cookbook_reference/recipe_dsl/dsl_recipe.md#find-resource find_resource"
-      parent = "chef_infra/cookbook_reference/recipe_dsl"
-      url = "/dsl_recipe/#find-resource"
-      weight = 100
-
-      [[menu.docs]]
-      title = "find_resource!"
-      identifier = "chef_infra/cookbook_reference/recipe_dsl/dsl_recipe.md#id3 find_resource!"
-      parent = "chef_infra/cookbook_reference/recipe_dsl"
-      url = "/dsl_recipe/#find-resource-1"
-      weight = 110
-
-      [[menu.docs]]
       title = "reboot_pending?"
       identifier = "chef_infra/cookbook_reference/recipe_dsl/dsl_recipe.md#reboot-pending reboot_pending?"
       parent = "chef_infra/cookbook_reference/recipe_dsl"
       url = "/dsl_recipe/#reboot-pending"
-      weight = 130
+      weight = 50
 
       [[menu.docs]]
       title = "recipe_name"
       identifier = "chef_infra/cookbook_reference/recipe_dsl/dsl_recipe.md#recipe-name recipe_name"
       parent = "chef_infra/cookbook_reference/recipe_dsl"
       url = "/dsl_recipe/#recipe-name"
-      weight = 140
-
-      [[menu.docs]]
-      title = "resources"
-      identifier = "chef_infra/cookbook_reference/recipe_dsl/dsl_recipe.md#resources resources"
-      parent = "chef_infra/cookbook_reference/recipe_dsl"
-      url = "/dsl_recipe/#resources"
-      weight = 150
+      weight = 60
 
       [[menu.docs]]
       title = "search"
       identifier = "chef_infra/cookbook_reference/recipe_dsl/dsl_recipe.md#search search"
       parent = "chef_infra/cookbook_reference/recipe_dsl"
       url = "/dsl_recipe/#search"
-      weight = 160
+      weight = 70
 
       [[menu.docs]]
       title = "tag, tagged?, untag"
       identifier = "chef_infra/cookbook_reference/recipe_dsl/dsl_recipe.md#tag-tagged-untag tag, tagged?, untag"
       parent = "chef_infra/cookbook_reference/recipe_dsl"
       url = "/dsl_recipe/#tag-tagged-untag"
-      weight = 180
+      weight = 80
 
       [[menu.docs]]
       title = "with_run_context"
       identifier = "chef_infra/cookbook_reference/recipe_dsl/dsl_recipe.md#with-run-context with_run_context"
       parent = "chef_infra/cookbook_reference/recipe_dsl"
       url = "/dsl_recipe/#with-run-context"
-      weight = 190
+      weight = 90
 
       [[menu.docs]]
       title = "Log Entries"
       identifier = "chef_infra/cookbook_reference/recipe_dsl/dsl_recipe.md#log-entries Log Entries"
       parent = "chef_infra/cookbook_reference/recipe_dsl"
       url = "/dsl_recipe/#log-entries"
-      weight = 210
+      weight = 100
 
     [[menu.docs]]
     title = "Resources"
