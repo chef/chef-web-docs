@@ -344,7 +344,8 @@ cookstyle --except ChefStyle
 You can also disable a specific department by adding the following to
 your `.rubocop.yml` config:
 
-``` yaml
+<!-- yaml codeblock -->
+```
 ChefStyle:
   Enabled: false
 ```

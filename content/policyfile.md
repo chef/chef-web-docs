@@ -260,14 +260,18 @@ Test w/Kitchen
 Kitchen may be used to test Policyfile files. Add the following to
 kitchen.yml:
 
-``` yaml
+<!-- yaml codeblock -->
+
+```
 provisioner:
   name: chef_zero
 ```
 
 A named run-list may be used on a per-suite basis:
 
-``` yaml
+<!-- yaml codeblock -->
+
+```
 suites:
   - name: client
     provisioner:
@@ -279,7 +283,9 @@ suites:
 
 or globally:
 
-``` yaml
+<!-- yaml codeblock -->
+
+```
 provisioner:
   name: chef_zero
   named_run_list: integration_test_run_list
@@ -288,7 +294,9 @@ provisioner:
 or testing with policies per-suite, once the Policyfile files are
 available in your repo:
 
-``` yaml
+<!-- yaml codeblock -->
+
+```
 suites:
    - name: defaultmega
       provisioner:

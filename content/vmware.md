@@ -305,7 +305,8 @@ cookbook](https://github.com/jjasghar/vsphere_testing) that attempts to
 capture everything required. The following is a basic `kitchen.yml`
 example:
 
-``` yaml
+<!-- yaml codeblock -->
+```
 ---
 driver:
 name: vsphere
@@ -369,7 +370,8 @@ kitchen-vcenter
 
 The following is a basic `kitchen.yml` for vCenter:
 
-``` yaml
+<!-- yaml codeblock -->
+```
 driver:
   name: vcenter
   vcenter_username: <%= ENV['VCENTER_USER'] || "administrator@vsphere.local" %>
@@ -402,7 +404,8 @@ kitchen-vra
 
 The following is a basic `kitchen.yml` example:
 
-``` yaml
+<!-- yaml codeblock -->
+```
 driver:
   name: vra
   username: user@corp.local
@@ -433,7 +436,8 @@ kitchen-vro
 
 The following is a basic `kitchen.yml` example:
 
-``` yaml
+<!-- yaml codeblock -->
+```
 driver:
   name: vro
   vro_username: user@domain.com

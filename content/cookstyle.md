@@ -228,7 +228,8 @@ Syntax
 
 A .rubocop.yml file has the following syntax:
 
-``` yaml
+<!-- yaml codeblock -->
+```
 NAME_OF_RULE:
   Description: 'a description of a rule'
   Enabled : (true or false)

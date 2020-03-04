@@ -445,7 +445,9 @@ as whether to require the Chef installer or the URL from which Chef
 Infra Client is downloaded, or to override settings in the client.rb
 file:
 
-``` yaml
+
+<!-- yaml codeblock -->
+```
 provisioner:
   name: chef_zero *or* chef_solo
   require_chef_omnibus: true
@@ -490,7 +492,8 @@ Driver Settings
 Driver-specific configuration settings may be required. Use a block
 similar to:
 
-``` yaml
+<!-- yaml codeblock -->
+```
 driver:
   name: driver_name
   optional_settings: values
@@ -532,7 +535,8 @@ Chef Workstation to converge the node.
 
 To install the latest version of Chef Workstation:
 
-``` yaml
+<!-- yaml codeblock -->
+```
 provisioner:
   ...
   chef_omnibus_install_options: -P chef-workstation
@@ -541,7 +545,8 @@ provisioner:
 
 and to install a specific version of Chef Workstation:
 
-``` yaml
+<!-- yaml codeblock -->
+```
 provisioner:
   ...
   chef_omnibus_install_options: -P chef-workstation
@@ -555,7 +560,8 @@ Microsoft Windows Platform
 The following example shows platform settings for the Microsoft Windows
 platform:
 
-``` yaml
+<!-- yaml codeblock -->
+```
 ---
 
 platforms:
@@ -577,7 +583,8 @@ Chef Infra Client Cookbook
 The following kitchen.yml file is part of the `chef-client` cookbook and
 ensures Chef Infra Client is configured correctly.
 
-``` yaml
+<!-- yaml codeblock -->
+```
 driver:
   name: vagrant
 
@@ -635,7 +642,8 @@ The following kitchen.yml file is part of the `chef-splunk` cookbook and
 is used to help ensure the installation of the Splunk client and server
 is done correctly.
 
-``` yaml
+<!-- yaml codeblock -->
+```
 driver:
   name: vagrant
   customize:
@@ -677,7 +685,8 @@ yum Cookbook
 
 The following kitchen.yml file is part of the `yum` cookbook:
 
-``` yaml
+<!-- yaml codeblock -->
+```
 driver:
   name: vagrant
 
@@ -705,7 +714,8 @@ back-end server, and two add-ons (Chef Push Jobs and Chef management
 console). The `platforms` block uses an `attributes` section to define
 Chef server-specific attributes that are used by all three test suites:
 
-``` yaml
+<!-- yaml codeblock -->
+```
 ---
 driver:
   name: vagrant
@@ -778,7 +788,8 @@ Test-Kitchen can handle reboots (when initiated from Chef Infra Client)
 by setting `retry_on_exit_code`, `max_retries` and `wait_for_retry`
 attributes on the provisioner in `kitchen.yml` file as follows :
 
-``` yaml
+<!-- yaml codeblock -->
+```
 ---
 provisioner:
    name: chef_zero

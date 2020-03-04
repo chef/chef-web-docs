@@ -89,7 +89,8 @@ Usage Examples
 
 The following is a basic `kitchen.yml` example:
 
-``` yaml
+<!-- yaml codeblock -->
+```
 ---
 driver:
   name: gce

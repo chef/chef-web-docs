@@ -508,7 +508,8 @@ Examples
 
 Use the `--loader` option to include diagnostic data in the output:
 
-``` yaml
+<!-- yaml codeblock -->
+```
 ---
 loader:
   combined_config:
@@ -523,7 +524,8 @@ loader:
 
 or:
 
-``` yaml
+<!-- yaml codeblock -->
+```
 ---
 loader:
   global_config:
@@ -540,7 +542,8 @@ loader:
 Use the `--instances` option to track instances, which are based on the
 list of platforms and suites in the kitchen.yml file:
 
-``` yaml
+<!-- yaml codeblock -->
+```
 ---
 instances
   default-ubuntu-1804
@@ -554,7 +557,8 @@ instances
 
 This command returns data as YAML:
 
-``` yaml
+<!-- yaml codeblock -->
+```
 ---
 timestamp: 2014-04-15 18:59:58.460470000 Z
 kitchen-version: 1.2.2.dev
@@ -568,7 +572,8 @@ instances:
 When Test Kitchen is being used to test cookbooks, Test Kitchen will
 track state data:
 
-``` yaml
+<!-- yaml codeblock -->
+```
 ---
 instances:
   default-ubuntu-1804
@@ -584,7 +589,8 @@ instances:
 
 and will track information that was given to a driver:
 
-``` yaml
+<!-- yaml codeblock -->
+```
 ---
 instances:
   default-ubuntu-1804
@@ -596,7 +602,8 @@ instances:
 
 and will track information about provisioners:
 
-``` yaml
+<!-- yaml codeblock -->
+```
 ---
 instances:
   default-ubuntu-1804

@@ -31,7 +31,9 @@ To test your code for deprecations, you can put Test Kitchen in a mode
 where any deprecations cause the chef run to fail. Ensure your
 `kitchen.yml` includes:
 
-``` yaml
+<!-- yaml codeblock -->
+
+```
 provisioner:
   deprecations_as_errors: true
 ```
@@ -72,7 +74,9 @@ silence_deprecation_warnings %w{deploy_resource chef-23 recipes/install.rb:22}
 
 or in your \`kitchen.yml\`:
 
-``` yaml
+<!-- yaml codeblock -->
+
+```
 provisioner:
   name: chef_solo
     solo_rb:
