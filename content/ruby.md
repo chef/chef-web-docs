@@ -10,7 +10,7 @@ aliases = ["/ruby.html"]
     identifier = "chef_infra/cookbook_reference/ruby.md Ruby Guide"
     parent = "chef_infra/cookbook_reference"
     weight = 130
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/ruby.md)
 
@@ -588,30 +588,6 @@ need interpolation.
 
 {{% ruby_style_patterns_string_quoting_vs_whitespace_array %}}
 
-Shelling Out
-------------
-
-Always use `mixlib-shellout` to shell out. Never use backticks,
-Process.spawn, popen4, or anything else!
-
-The [mixlib-shellout
-module](https://github.com/chef/mixlib-shellout/blob/master/README.md)
-provides a simplified interface to shelling out while still collecting
-both standard out and standard error and providing full control over
-environment, working directory, uid, gid, etc.
-
-Constructs to Avoid
--------------------
-
-Avoid the following patterns:
-
--   `node.normal` - Avoid using attributes at normal precedence since
-    they are set directly on the node object itself, rather than implied
-    (computed) at runtime.
--   if `node.run_list.include?('foo')` i.e. branching in recipes based
-    on what's in the node's run-list. Better and more readable to use a
-    feature flag and set its precedence appropriately.
-
 Recipes
 -------
 
@@ -751,31 +727,6 @@ template '/srv/wordpress_demo/wp-config.php' do
   action :create
 end
 ```
-
-Patterns to Avoid
-=================
-
-This section covers things that should be avoided when authoring
-cookbooks and recipes.
-
-node.set
---------
-
-Use `node.default` (or maybe `node.override`) instead of `node.set`
-because `node.set` is an alias for `node.normal`. Normal data is
-persisted on the node object. Therefore, using `node.set` will persist
-data in the node object. If the code that uses `node.set` is later
-removed, if that data has already been set on the node, it will remain.
-
-Default and override attributes are cleared at the start of a Chef Infra
-Client run, and are then rebuilt as part of the run based on the code in
-the cookbooks and recipes at that time.
-
-`node.set` (and `node.normal`) should only be used to do something like
-generate a password for a database on the first Chef Infra Client run,
-after which it's remembered (instead of persisted). Even this case
-should be avoided, as using a data bag is the recommended way to store
-this type of data.
 
 Cookstyle Linting
 =================
