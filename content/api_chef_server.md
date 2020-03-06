@@ -1077,7 +1077,6 @@ The response is similar to:
   "display_name": "robert",
   "email": "robert@noreply.com",
   "external_authentication_uid": "robert",
-  "full_name": "Robert Forster",
   "first_name": "robert",
   "last_name": "forster",
   "middle_name": ""
