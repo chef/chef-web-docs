@@ -1,13 +1,6 @@
 +++
 title = "Chef Infra DSL: Windows DSL"
 draft = false
-
-[menu]
-  [menu.docs]
-    title = "Windows Platform"
-    identifier = "chef_infra/cookbook_reference/recipe_dsl/dsl_recipe_windows.md Windows Platform"
-    parent = "chef_infra/cookbook_reference/recipe_dsl"
-    weight = 200
 +++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/dsl_recipe_windows.md)

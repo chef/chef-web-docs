@@ -421,6 +421,13 @@ weight = 30
       weight = 80
 
       [[menu.docs]]
+      title = "Windows Platform"
+      identifier = "chef_infra/cookbook_reference/dsl_recipe_windows.md Chef Infra DSL: Windows DSL"
+      parent = "chef_infra/cookbook_reference/recipe_dsl"
+      url = "/dsl_recipe_windows/"
+      weight = 85
+
+      [[menu.docs]]
       title = "with_run_context"
       identifier = "chef_infra/cookbook_reference/recipe_dsl/dsl_recipe.md#with-run-context with_run_context"
       parent = "chef_infra/cookbook_reference/recipe_dsl"
