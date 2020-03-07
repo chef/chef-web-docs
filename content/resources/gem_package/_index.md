@@ -89,15 +89,6 @@ properties_list:
   - markdown: 'Set to `true` to download a gem from the path specified by the
 
       `source` property (and not from RubyGems).'
-- property: include_default_source
-  ruby_type: true, false
-  required: false
-  default_value: 'true'
-  new_in: '13.0'
-  description_list:
-  - markdown: 'Set to `false` to not include `Chef::Config[:rubygems_url]` in the
-
-      sources.'
 - property: gem_binary
   ruby_type: String
   required: false
