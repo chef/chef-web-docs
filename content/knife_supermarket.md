@@ -10,7 +10,7 @@ aliases = ["/knife_supermarket.html", "/plugin_knife_supermarket.html"]
     identifier = "chef_workstation/chef_workstation_tools/knife/knife_supermarket.md knife supermarket"
     parent = "chef_workstation/chef_workstation_tools/knife"
     weight = 330
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/knife_supermarket.md)
 
@@ -20,17 +20,6 @@ Supermarket sites. A user account is required for any community actions
 that write data to the Chef Supermarket; however, the following
 arguments do not require a user account: `download`, `search`,
 `install`, and `list`.
-
-{{< note >}}
-
-If you are interested in uploading to the Supermarket as a company you
-might be interested in looking at the [Chef Partner Cookbook
-Program](https://www.chef.io/partners/cookbooks/) which can help
-validate and verify your company cookbook. A selection of Certified
-Partner Cookbooks can be found
-[here](https://supermarket.chef.io/cookbooks?utf8=✓&q=&badges%5B%5D=partner&platforms%5B%5D=).
-
-{{< /note >}}
 
 {{< note >}}
 

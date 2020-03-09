@@ -17,5 +17,5 @@ clean_all:
 serve: assets
 	hugo server --buildDrafts --noHTTPCache
 
-lint:
+lint: assets
 	hugo -D
