@@ -844,8 +844,8 @@ The response is similar to:
 
 ``` none
 {
-  "user1": "https://chefserver/users/user1",
-  "user2": "https://chefserver/users/user2"
+  "user1": "https://chef.example/users/user1",
+  "user2": "https://chef.example/users/user2"
 }
 ```
 
@@ -921,7 +921,7 @@ with a request body similar to:
 
 ``` javascript
 {
-  "name": "robert-forster",
+  "username": "robert-forster",
   "display_name": "robert",
   "email": "robert@noreply.com",
   "first_name": "robert",
@@ -957,12 +957,12 @@ The response is similar to:
 
 ``` javascript
 {
-  "uri": "https://chefserver/users/robert-forster",
+  "uri": "https://chef.example/users/robert-forster",
   "chef_key": {
     "name": "default",
     "public_key": "-----BEGIN RSA PUBLIC KEY...",
     "expiration_date": "infinity",
-    "uri": "https://chefserver/users/robert-forster/keys/default",
+    "uri": "https://chef.example/users/robert-forster/keys/default",
     "private_key": "-----BEGIN RSA PRIVATE KEY..."
   }
 }
@@ -1185,12 +1185,12 @@ The response is similar to:
 
 ``` javascript
 { 
-  "uri": "https://chefserver/users/grant.mclennan",
+  "uri": "https://chef.example/users/grant.mclennan",
   "chef_key": {
     "name": "default",
     "public_key": "-----BEGIN RSA PUBLIC KEY...",
     "expiration_date": "infinity",
-    "uri": "https://chefserver/users/rober-forster/keys/default",
+    "uri": "https://chef.example/users/rober-forster/keys/default",
     "private_key": ""
   }
 }
@@ -1740,7 +1740,7 @@ The response is similar to:
 
 ``` javascript
 {
-  "uri": "https:/organization/test/association_requests/79b9382ab70e962907cee1747f9969a4",
+  "uri": "https://chef.example/organizations/test/association_requests/79b9382ab70e962907cee1747f9969a4",
   "organization_user": {
     "username": "authorizeduser"
   },
