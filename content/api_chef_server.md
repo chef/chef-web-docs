@@ -794,7 +794,7 @@ to access this endpoint with the `pivotal` user.)
 
 {{< note >}}
 
-Documentation is for the `/users` endpoint is for version 1 of the Chef Infra Server API.  Version 0 of the API has some differences in the request body and in the results.
+This documentation for the `/users` endpoint is for version 1 of the Chef Infra Server API.  Version 0 of the API has some differences in the request body and in the results.
 
 {{< /note >}}
 
@@ -949,7 +949,7 @@ where:
 -   During the POST, the `public_key` value will be broken out and
     resubmitted to the keys portion of the API in the latest Chef Infra
     Server versions.
--   Only one of the keys create_key or public_key may be specified.  If create_key is specified a default private key is generated and returned. 
+-   Only one of the keys, `create_key` or `public_key`, may be specified.  If `create_key` is specified, a default private key is generated and returned.
 
 **Response**
 
@@ -962,7 +962,7 @@ The response is similar to:
     "name": "default",
     "public_key": "-----BEGIN RSA PUBLIC KEY...",
     "expiration_date": "infinity",
-    "uri": "https://chefserver/users/rober-forster/keys/default",
+    "uri": "https://chefserver/users/robert-forster/keys/default",
     "private_key": "-----BEGIN RSA PRIVATE KEY..."
   }
 }
@@ -1017,7 +1017,7 @@ The `/users/USER_NAME` endpoint has the following methods: `DELETE`,
 
 {{< note >}}
 
-Documentation is for the `/users/NAME` endpoint is for version 1 of the Chef Infra Server API.  Version 0 of the API has some differences in the request body and in the results.
+This documentation for the `/users/NAME` endpoint is for version 1 of the Chef Infra Server API.  Version 0 of the API has some differences in the request body and in the results.
 
 {{< /note >}}
 
