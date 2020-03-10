@@ -9,4 +9,4 @@ the Chef Push Jobs client, and never initiates a connection to a Chef Push Jobs
 client. In situations where the chef server has a non-locally-assigned public
 address (like a cloud deployment / or behind NAT ) the api port should be added
 to the network security configuration for the chef server to connect to itself
-on the public IP.
+on the public IP, if that is what the chef server hostname points to.
