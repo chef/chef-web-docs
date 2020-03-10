@@ -7,7 +7,7 @@ robots = "noindex"
 aliases = ["/server_manage_environments.html"]
 
 [menu]
-  [menu.docs]
+  [menu.infra]
     title = "Environments"
     identifier = "chef_infra/features/management_console/server_manage_environments.md Environments"
     parent = "chef_infra/features/management_console"

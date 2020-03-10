@@ -5,7 +5,7 @@ draft = false
 aliases = ["/ctl_ohai.html"]
 
 [menu]
-  [menu.docs]
+  [menu.infra]
     title = "ohai (executable)"
     identifier = "chef_infra/features/ohai/ctl_ohai.md ohai (executable)"
     parent = "chef_infra/features/ohai"

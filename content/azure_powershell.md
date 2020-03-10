@@ -6,7 +6,7 @@ aliases = ["/azure_powershell.html"]
 
 
 [menu]
-  [menu.docs]
+  [menu.infra]
     title = "Microsoft Azure PowerShell"
     identifier = "chef_infra/getting_started/chef_on_azure_guide/azure_powershell.md Microsoft Azure PowerShell"
     parent = "chef_infra/getting_started/chef_on_azure_guide"

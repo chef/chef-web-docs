@@ -7,7 +7,7 @@ aliases = ["/server_logs.html"]
 runbook_weight = 20
 
 [menu]
-  [menu.docs]
+  [menu.infra]
     title = "Log Files"
     identifier = "chef_infra/managing_chef_infra_server/server_logs.md Log Files"
     parent = "chef_infra/managing_chef_infra_server"

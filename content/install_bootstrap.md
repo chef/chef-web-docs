@@ -5,7 +5,7 @@ draft = false
 aliases = ["/install_bootstrap.html"]
 
 [menu]
-  [menu.docs]
+  [menu.infra]
     title = "Install via Bootstrap"
     identifier = "chef_infra/setup/nodes/install_bootstrap.md Install via Bootstrap"
     parent = "chef_infra/setup/nodes"

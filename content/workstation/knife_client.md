@@ -5,7 +5,7 @@ draft = false
 aliases = ["/knife_client.html", "/knife_client/"]
 
 [menu]
-  [menu.docs]
+  [menu.workstation]
     title = "knife client"
     identifier = "chef_workstation/chef_workstation_tools/knife/knife_client.md knife client"
     parent = "chef_workstation/chef_workstation_tools/knife"

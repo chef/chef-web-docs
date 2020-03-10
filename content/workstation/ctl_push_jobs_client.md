@@ -5,7 +5,7 @@ draft = false
 aliases = ["/ctl_push_jobs_client.html", "/ctl_push_jobs_client/"]
 
 [menu]
-  [menu.docs]
+  [menu.workstation]
     title = "push-jobs-client (executable)"
     identifier = "chef_workstation/chef_workstation_tools/ctl_push_jobs_client.md push-jobs-client (executable)"
     parent = "chef_workstation/chef_workstation_tools"

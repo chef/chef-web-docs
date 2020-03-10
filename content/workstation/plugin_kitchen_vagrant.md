@@ -5,7 +5,7 @@ draft = false
 aliases = ["/plugin_kitchen_vagrant.html", "/plugin_kitchen_vagrant/"]
 
 [menu]
-  [menu.docs]
+  [menu.workstation]
     title = "kitchen-vagrant"
     identifier = "chef_workstation/chef_workstation_tools/test_kitchen/plugin_kitchen_vagrant.md kitchen-vagrant"
     parent = "chef_workstation/chef_workstation_tools/test_kitchen"

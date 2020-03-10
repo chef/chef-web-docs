@@ -7,7 +7,7 @@ robots = "noindex"
 aliases = ["/server_manage_clients.html"]
 
 [menu]
-  [menu.docs]
+  [menu.infra]
     title = "Clients"
     identifier = "chef_infra/features/management_console/server_manage_clients.md Clients"
     parent = "chef_infra/features/management_console"

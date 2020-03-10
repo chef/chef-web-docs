@@ -5,7 +5,7 @@ draft = false
 aliases = ["/resource.html"]
 
 [menu]
-  [menu.docs]
+  [menu.infra]
     title = "About Resources"
     identifier = "chef_infra/cookbook_reference/resources/resource.md About Resources"
     parent = "chef_infra/cookbook_reference/resources"

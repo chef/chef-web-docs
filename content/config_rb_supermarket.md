@@ -5,7 +5,7 @@ draft = false
 aliases = ["/config_rb_supermarket.html"]
 
 [menu]
-  [menu.docs]
+  [menu.infra]
     title = "supermarket.rb Settings"
     identifier = "chef_infra/setup/supermarket/config_rb_supermarket.md supermarket.rb Settings"
     parent = "chef_infra/setup/supermarket"

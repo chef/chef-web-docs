@@ -5,7 +5,7 @@ draft = false
 aliases = ["/ctl_chef_solo.html"]
 
 [menu]
-  [menu.docs]
+  [menu.infra]
     title = "chef-solo (executable)"
     identifier = "chef_infra/features/chef_solo/ctl_chef_solo.md chef-solo (executable)"
     parent = "chef_infra/features/chef_solo"

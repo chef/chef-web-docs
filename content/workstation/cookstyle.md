@@ -5,7 +5,7 @@ draft = false
 aliases = ["/cookstyle.html", "/rubocop.html", "/cookstyle/"]
 
 [menu]
-  [menu.docs]
+  [menu.workstation]
     title = "Cookstyle"
     identifier = "chef_workstation/chef_workstation_tools/cookstyle.md Cookstyle"
     parent = "chef_workstation/chef_workstation_tools"

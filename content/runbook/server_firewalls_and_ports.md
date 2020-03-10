@@ -7,7 +7,7 @@ aliases = ["/server_firewalls_and_ports.html"]
 runbook_weight = 30
 
 [menu]
-  [menu.docs]
+  [menu.infra]
     title = "Firewalls & Ports"
     identifier = "chef_infra/managing_chef_infra_server/server_firewalls_and_ports.md Firewalls & Ports"
     parent = "chef_infra/managing_chef_infra_server"

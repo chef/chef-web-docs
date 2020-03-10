@@ -7,7 +7,7 @@ robots = "noindex"
 aliases = ["/automate_azure.html"]
 
 [menu]
-  [menu.docs]
+  [menu.legacy]
     title = "Chef Automate for Microsoft Azure"
     identifier = "legacy/workflow/automate_azure.md Chef Automate for Microsoft Azure"
     parent = "legacy/workflow"

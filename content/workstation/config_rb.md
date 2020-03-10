@@ -5,7 +5,7 @@ draft = false
 aliases = ["/config_rb.html", "/config_rb_knife.html", "/config_rb/"]
 
 [menu]
-  [menu.docs]
+  [menu.workstation]
     title = "config.rb (knife.rb)"
     identifier = "chef_workstation/chef_workstation_tools/knife/config_rb.md config.rb (knife.rb)"
     parent = "chef_workstation/chef_workstation_tools/knife"

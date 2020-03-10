@@ -5,7 +5,7 @@ draft = false
 aliases = ["/config_rb_policyfile.html"]
 
 [menu]
-  [menu.docs]
+  [menu.infra]
     title = "Policyfile.rb"
     identifier = "chef_infra/concepts/policy/config_rb_policyfile.md Policyfile.rb"
     parent = "chef_infra/concepts/policy"

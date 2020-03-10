@@ -5,7 +5,7 @@ draft = false
 aliases = ["/config_yml_kitchen.html", "/config_yml_kitchen/"]
 
 [menu]
-  [menu.docs]
+  [menu.workstation]
     title = "kitchen.yml"
     identifier = "chef_workstation/chef_workstation_tools/test_kitchen/config_yml_kitchen.md kitchen.yml"
     parent = "chef_workstation/chef_workstation_tools/test_kitchen"

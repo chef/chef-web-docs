@@ -5,7 +5,7 @@ draft = false
 aliases = ["/install_push_jobs.html"]
 
 [menu]
-  [menu.docs]
+  [menu.infra]
     title = "Push Jobs"
     identifier = "chef_infra/setup/install_push_jobs.md Push Jobs"
     parent = "chef_infra/setup"

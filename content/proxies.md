@@ -5,7 +5,7 @@ draft = false
 aliases = ["/proxies.html"]
 
 [menu]
-  [menu.docs]
+  [menu.infra]
     title = "Working with Proxies"
     identifier = "chef_infra/setup/proxies.md Working with Proxies"
     parent = "chef_infra/setup"

@@ -7,7 +7,7 @@ robots = "noindex"
 aliases = ["/server_manage_cookbooks.html"]
 
 [menu]
-  [menu.docs]
+  [menu.infra]
     title = "Cookbooks"
     identifier = "chef_infra/features/management_console/server_manage_cookbooks.md Cookbooks"
     parent = "chef_infra/features/management_console"

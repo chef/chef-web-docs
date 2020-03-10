@@ -5,7 +5,7 @@ draft = false
 aliases = ["/config_rb_optional_settings.html", "/config_rb_knife_optional_settings.html", "/config_rb_optional_settings/"]
 
 [menu]
-  [menu.docs]
+  [menu.workstation]
     title = "Optional config.rb Settings"
     identifier = "chef_workstation/chef_workstation_tools/config_rb_optional_settings.md Optional config.rb Settings"
     parent = "chef_workstation/chef_workstation_tools"

@@ -5,7 +5,7 @@ draft = false
 aliases = ["/knife_ssl_check.html", "/knife_ssl_check/"]
 
 [menu]
-  [menu.docs]
+  [menu.workstation]
     title = "knife ssl_check"
     identifier = "chef_workstation/chef_workstation_tools/knife/knife_ssl_check.md knife ssl_check"
     parent = "chef_workstation/chef_workstation_tools/knife"

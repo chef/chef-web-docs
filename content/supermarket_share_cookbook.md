@@ -5,7 +5,7 @@ draft = false
 aliases = ["/supermarket_share_cookbook.html"]
 
 [menu]
-  [menu.docs]
+  [menu.infra]
     title = "Share Cookbooks"
     identifier = "chef_infra/concepts/supermarket/supermarket_share_cookbook.md Share Cookbooks"
     parent = "chef_infra/concepts/supermarket"

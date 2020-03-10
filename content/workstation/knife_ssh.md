@@ -5,7 +5,7 @@ draft = false
 aliases = ["/knife_ssh.html", "/knife_ssh/"]
 
 [menu]
-  [menu.docs]
+  [menu.workstation]
     title = "knife ssh"
     identifier = "chef_workstation/chef_workstation_tools/knife/knife_ssh.md knife ssh"
     parent = "chef_workstation/chef_workstation_tools/knife"

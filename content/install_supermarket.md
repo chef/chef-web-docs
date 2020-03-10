@@ -5,7 +5,7 @@ draft = false
 aliases = ["/install_supermarket.html"]
 
 [menu]
-  [menu.docs]
+  [menu.infra]
     title = "Install Private Supermarket"
     identifier = "chef_infra/setup/supermarket/install_supermarket.md Install Private Supermarket"
     parent = "chef_infra/setup/supermarket"

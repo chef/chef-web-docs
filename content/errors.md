@@ -5,7 +5,7 @@ draft = false
 aliases = ["/errors.html"]
 
 [menu]
-  [menu.docs]
+  [menu.infra]
     title = "Troubleshooting"
     identifier = "chef_infra/errors.md Troubleshooting"
     parent = "chef_infra"

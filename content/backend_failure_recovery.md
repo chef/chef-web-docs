@@ -5,7 +5,7 @@ draft = false
 aliases = ["/backend_failure_recovery.html"]
 
 [menu]
-  [menu.docs]
+  [menu.infra]
     title = "Backend Failure Recovery"
     identifier = "chef_infra/managing_chef_infra_server/backend_failure_recovery.md Backend Failure Recovery"
     parent = "chef_infra/managing_chef_infra_server"

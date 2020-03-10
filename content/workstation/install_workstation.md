@@ -5,7 +5,7 @@ draft = false
 aliases = ["/install_workstation.html", "/install_dk.html", "/workstation_windows.html", "/dk_windows.html", "/install_workstation/"]
 
 [menu]
-  [menu.docs]
+  [menu.workstation]
     title = "Install Chef Workstation"
     identifier = "chef_workstation/install_workstation.md Install Chef Workstation"
     parent = "chef_workstation"

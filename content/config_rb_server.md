@@ -5,7 +5,7 @@ draft = false
 aliases = ["/config_rb_server.html"]
 
 [menu]
-  [menu.docs]
+  [menu.infra]
     title = "chef-server.rb"
     identifier = "chef_infra/managing_chef_infra_server/config_rb_server.md chef-server.rb"
     parent = "chef_infra/managing_chef_infra_server"

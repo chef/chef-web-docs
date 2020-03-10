@@ -7,7 +7,7 @@ robots = "noindex"
 aliases = ["/delivery_server_backup.html"]
 
 [menu]
-  [menu.docs]
+  [menu.legacy]
     title = "Delivery Server Backup"
     identifier = "legacy/workflow/managing_workflow/delivery_server_backup.md Delivery Server Backup"
     parent = "legacy/workflow/managing_workflow"

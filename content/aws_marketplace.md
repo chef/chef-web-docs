@@ -5,7 +5,7 @@ draft = false
 aliases = ["/aws_marketplace.html"]
 
 [menu]
-  [menu.docs]
+  [menu.infra]
     title = "AWS Marketplace"
     identifier = "chef_infra/setup/integrations/aws_marketplace.md AWS Marketplace"
     parent = "chef_infra/setup/integrations"

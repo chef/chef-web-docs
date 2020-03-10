@@ -7,7 +7,7 @@ robots = "noindex"
 aliases = ["/integrate_delivery_github.html", "/release/automate/integrate_delivery_github.html"]
 
 [menu]
-  [menu.docs]
+  [menu.legacy]
     title = "Workflow w/GitHub"
     identifier = "legacy/workflow/managing_workflow/integrate_delivery_github.md Workflow w/GitHub"
     parent = "legacy/workflow/managing_workflow"

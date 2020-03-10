@@ -5,7 +5,7 @@ draft = false
 aliases = ["/api_omnitruck.html"]
 
 [menu]
-  [menu.docs]
+  [menu.infra]
     title = "Omnitruck API"
     identifier = "overview/packages_&_platforms/api_omnitruck.md Omnitruck API"
     parent = "overview/packages_&_platforms"

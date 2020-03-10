@@ -5,7 +5,7 @@ draft = false
 aliases = ["/chef_shell.html", "/chef_shell/"]
 
 [menu]
-  [menu.docs]
+  [menu.workstation]
     title = "chef-shell (executable)"
     identifier = "chef_workstation/chef_workstation_tools/chef_shell.md chef-shell (executable)"
     parent = "chef_workstation/chef_workstation_tools"

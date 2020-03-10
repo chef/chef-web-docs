@@ -5,7 +5,7 @@ draft = false
 aliases = ["/api_chef_server.html"]
 
 [menu]
-  [menu.docs]
+  [menu.infra]
     title = "Chef Infra Server API"
     identifier = "chef_infra/managing_chef_infra_server/api_chef_server.md Chef Infra Server API"
     parent = "chef_infra/managing_chef_infra_server"

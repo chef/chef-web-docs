@@ -5,7 +5,7 @@ draft = false
 aliases = ["/config_rb_metadata.html"]
 
 [menu]
-  [menu.docs]
+  [menu.infra]
     title = "metadata.rb"
     identifier = "chef_infra/cookbook_reference/config_rb_metadata.md metadata.rb"
     parent = "chef_infra/cookbook_reference"

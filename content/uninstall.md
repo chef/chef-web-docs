@@ -5,7 +5,7 @@ draft = false
 aliases = ["/uninstall.html"]
 
 [menu]
-  [menu.docs]
+  [menu.infra]
     title = "Uninstall"
     identifier = "chef_infra/getting_started/uninstall.md Uninstall"
     parent = "chef_infra/getting_started"
