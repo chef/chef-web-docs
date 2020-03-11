@@ -578,6 +578,11 @@ Settings
 
 This configuration file has the following settings:
 
+`api_port`
+
+:   NGINX forwards requests to this port on the push-jobs server as part of the
+    push-jobs communication channel. Default value: `10003`.
+
 `command_port`
 
 :   The port on which a Chef Push Jobs server listens for requests that
@@ -593,11 +598,6 @@ This configuration file has the following settings:
 :   The port on which the Chef Push Jobs server receives heartbeat
     messages from each Chef Push Jobs client. (This port is the `ROUTER`
     half of the ZeroMQ DEALER / ROUTER pattern.) Default value: `10000`.
-
-`api_port`
-
-:   NGINX forwards requests to this port on the push-jobs server as part of the
-    push-jobs communication channel. Default value: `10003`.
 
 `server_name`
 
