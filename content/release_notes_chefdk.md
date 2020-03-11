@@ -10,14 +10,130 @@ aliases = ["/release_notes_chefdk.html"]
     identifier = "chef_infra/release_notes/release_notes_chefdk.md ChefDK"
     parent = "chef_infra/release_notes"
     weight = 20
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/release_notes_chefdk.md)
 
-ChefDK is released on a monthly schedule with new releases the third
-Monday of every month. Below are the major changes for each release. For
+This page documents the ChefDK major changes for each release. For
 a detailed list of changes, see the [ChefDK Changelog on
 GitHub](https://github.com/chef/chef-dk/blob/master/CHANGELOG.md)
+
+What's New in 4.7
+=================
+
+Updated Components
+------------------
+
+### Berkshelf
+
+Berkshelf has been updated from 7.0.8 to 7.0.9, which resolves errors when running `berks verify` and when using the `--skip-syntax-check` flag.
+
+### Chef Infra Client
+
+Chef Infra Client has been updated from 15.5 to 15.7 which includes improvements to the `apt_repository` , `archive_file` , `cron` , `cron_d` , `file` , `launchd` , `sudo` , `user` , `windows_task` , `x509_certificate` , and `yum_repository` resources as well as the usual collection of bug fixes and bootstrap improvements.
+
+### Chef InSpec
+
+Chef InSpec has been updated from 4.18.39 to 4.18.51 with the following improvements:
+
+* Example groups can now use InSpec resources
+* The user resource can now check the last login date on Windows
+* Improved the fetchers to fail consistently
+
+### Cookstyle
+
+Cookstyle has been updated from 5.13 to 5.20 with 30 new cops, improvements to existing cops, a new TargetChefVersion config option, and expanded cop departments.
+
+#### TargetChefVersion Config
+
+Cookstyle now includes a new top-level configuration option `TargetChefVersion` . This new configuration option works similarly to RuboCop's `TargetRubyVersion` config option and allows you to specify a Chef Infra version that you want to target in your Cookstyle analysis. This prevents Cookstyle from autocorrecting cookbook code in a way that would make your cookbook incompatible with your desired Chef Infra Client version. It also makes it easier to perform staged upgrades of the Chef Infra Client by allowing you to step the `TargetChefVersion` one major version at a time.
+
+Example .rubocop.yml config specifying a TargetChefVersion of 14.0:
+
+```
+AllCops:
+  TargetChefVersion: 14.0
+```
+
+#### New ChefSharing and ChefRedundantCode Departments
+
+Cookstyle now includes two new Chef cop departments with a large number of existing cops moved into these more appropriate departments. Our goal is to have clearly defined cop departments that can be enabled or disabled to detect particular conditions in your cookbooks. Cops in the new ChefSharing department are focused around sharing cookbooks internally or on the public Supermarket. This includes things like ensuring proper license strings and complete metadata. Cops in the ChefRedundantCode category detect and correct unnecessary cookbook code. Anything detected by ChefRedundantCode cops can be removed regardless of the Chef Infra Client release you run in your infrastructure, so these are always safe to run.
+
+With the addition of these new departments, we've moved many cops out of the ChefCorrectness department. Going forward only cops that detect code that may fail a Chef Infra Client run or cause it to behave incorrectly will be included in this category. We hope that ChefCorrectness along with ChefDeprecations are used in most cookbook CI pipelines.
+
+### kitchen-azurerm
+
+kitchen-azurerm has been updated from 0.14.9 to 0.15.1 with the following improvements:
+
+* Enable the WinRM HTTP listener by default. Thanks @sean-nixon
+* Allow overriding of the `subscription_id` by setting the `AZURE_SUBSCRIPTION_ID` ENV variable.
+* Add a new `nic_name` config. Thanks @libertymutual
+* Support for creating VM with Azure KeyVault certificate. Thanks @javgallegos
+
+### kitchen-dokken
+
+kitchen-dokken has been updated to 2.8.1 which fixes a bug that prevented ENV vars from being passed into containers.
+
+### kitchen-google and knife-google
+
+kitchen-google and knife-google plugins have been updated to allow the updated google-api-client SDK v0.35.
+
+### knife-ec2
+
+knife-ec2 has been updated from 1.0.17 to 1.0.28 with the following fixes:
+
+* Resolved a missing credential error when using aws-profile.
+* Mask AWS access keys data in any error or debug logs.
+* Resolved ssh_gateway uninitialised error.
+* Fixed invalid format of auto generated keypair file name.
+* Raises an error if password length is less than 8 characters on Windows and will stop warning on passwords over 14 characters.
+
+### knife-tidy
+
+knife-tidy has been updated from 2.0.1 to 2.0.6 to resolve issues if an org was named `cookbooks` and to improve error messages.
+
+### mixlib-install
+
+mixlib-install has been updated from 3.11.21 to 3.11.24 and will now properly identify Windows 2019 hosts.
+
+### chef-vault
+
+The chef-vault gem has been updated to 4.0.1. This release includes bug fixes from [@MarkGibbons](https://github.com/MarkGibbons) and [@jeremy-clerc](https://github.com/jeremy-clerc) as well as a new way to update existing keys to sparse-mode by running `knife vault update --keys_mode sparse` thanks to [@jeunito](https://github.com/jeunito).
+
+### kitchen-ec2
+
+kitchen-ec2 has been updated to 3.3.0. This new version improves how we search for security groups by tags, improves the logic that detects usage of the chef Test Kitchen provisioner, and improves security group and spot instance logic. Thanks [@slapvanilla](https://github.com/slapvanilla) and [@bdwyertech](https://github.com/bdwyertech) for these enhancements.
+
+Smaller Size
+------------
+
+We continue to optimize the size of the ChefDK package with this release taking up 12% less space on disk and containing 7,000 fewer files.
+
+Platform Support
+----------------
+
+ChefDK packages are no longer produced for Windows 2008 R2 as this release reached its end of life on January 14th, 2020.
+
+Security Updates
+----------------
+
+### OpenSSL
+
+OpenSSL has been updated to 1.0.2u to resolve [CVE-2019-1551 ](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-1551)
+
+### Git
+
+The embedded git client has been updated to 2.24.1 to resolve the following CVEs:
+
+* [CVE-2019-1348](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-1348)
+* [CVE-2019-1349](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-1349)
+* [CVE-2019-1350](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-1350)
+* [CVE-2019-1351](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-1351)
+* [CVE-2019-1352](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-1352)
+* [CVE-2019-1353](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-1353)
+* [CVE-2019-1354](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-1354)
+* [CVE-2019-1387](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-1387)
+* [CVE-2019-19604](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-19604)
 
 What's New in 4.6
 =================
