@@ -692,7 +692,7 @@ Installing
 Via a Cookbook
 --------------
 
-The following cookbook code will install a custom OHai plugin and make it accessible to any subsequent OHai execution or Chef run. To allow this plugin to be used by the rest of the run, this cookbook should be near the top of the runlist. 
+The following cookbook code will install a custom Ohai plugin and make it accessible to any subsequent Ohai execution or Chef run. To allow this plugin to be used by the rest of the run, this cookbook should be near the top of the runlist. 
 
 ``` ruby
 # Step 1: Make sure the /etc/chef/ohai/plugins directory exists
