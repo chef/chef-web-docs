@@ -685,3 +685,34 @@ Ohai.plugin(:Kernel) do
 
   ...
 ```
+
+Installing
+==========
+
+Via a Cookbook
+--------------
+
+The following cookbook code will install a custom OHai plugin and make it accessible to any subsequent OHai execution or Chef run. To allow this plugin to be used by the rest of the run, this cookbook should be near the top of the runlist. 
+
+``` ruby
+# Step 1: Make sure the /etc/chef/ohai/plugins directory exists
+directory '/etc/chef/ohai/plugins' do
+ recursive true
+end
+ 
+# Step 2: Put the plugin into that directory
+cookbook_file '/etc/chef/ohai/plugins/my_plugin.rb' do
+ source 'ohai/my_plugin.rb'
+ owner 'root'
+ group 'root'
+ mode '0755'
+ # Reload when this block is ran, immediately
+ notifies :reload, 'ohai[reload_my_plugin]', :immediately
+end
+ 
+# Step 3: Reload the tomcat plugin
+ohai 'reload_my_plugin' do
+ plugin 'my_plugin'
+ action :nothing
+end
+```
