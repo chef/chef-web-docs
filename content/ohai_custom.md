@@ -710,7 +710,7 @@ cookbook_file '/etc/chef/ohai/plugins/my_plugin.rb' do
  notifies :reload, 'ohai[reload_my_plugin]', :immediately
 end
  
-# Step 3: Reload the tomcat plugin
+# Step 3: Reload the my_plugin plugin
 ohai 'reload_my_plugin' do
  plugin 'my_plugin'
  action :nothing
