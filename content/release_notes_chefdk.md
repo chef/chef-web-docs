@@ -26,11 +26,11 @@ Updated Components
 
 ### Berkshelf
 
-Berkshelf has been updated from 7.0.8 to 7.0.9, which resolves errors when running `berks verify` and when using the `--skip-syntax-check` flag.
+Berkshelf has been updated from 7.0.8 to 7.0.9 which resolves errors when running `berks verify` and when using the `--skip-syntax-check` flag.
 
 ### Chef Infra Client
 
-Chef Infra Client has been updated from 15.5 to 15.7 which includes improvements to the `apt_repository` , `archive_file` , `cron` , `cron_d` , `file` , `launchd` , `sudo` , `user` , `windows_task` , `x509_certificate` , and `yum_repository` resources as well as the usual collection of bug fixes and bootstrap improvements.
+Chef Infra Client has been updated from 15.5 to 15.7 which includes improvements to the `apt_repository`, `archive_file`, `cron`, `cron_d`, `file`, `launchd`, `sudo`, `user`, `windows_task`, `x509_certificate`, and `yum_repository` resources as well as the usual collection of bug fixes and bootstrap improvements.
 
 ### Chef InSpec
 
@@ -46,7 +46,7 @@ Cookstyle has been updated from 5.13 to 5.20 with 30 new cops, improvements to e
 
 #### TargetChefVersion Config
 
-Cookstyle now includes a new top-level configuration option `TargetChefVersion` . This new configuration option works similarly to RuboCop's `TargetRubyVersion` config option and allows you to specify a Chef Infra version that you want to target in your Cookstyle analysis. This prevents Cookstyle from autocorrecting cookbook code in a way that would make your cookbook incompatible with your desired Chef Infra Client version. It also makes it easier to perform staged upgrades of the Chef Infra Client by allowing you to step the `TargetChefVersion` one major version at a time.
+Cookstyle now includes a new top-level configuration option `TargetChefVersion`. This new configuration option works similarly to RuboCop's `TargetRubyVersion` config option and allows you to specify a Chef Infra version that you want to target in your Cookstyle analysis. This prevents Cookstyle from autocorrecting cookbook code in a way that would make your cookbook incompatible with your desired Chef Infra Client version. It also makes it easier to perform staged upgrades of the Chef Infra Client by allowing you to step the `TargetChefVersion` one major version at a time.
 
 Example .rubocop.yml config specifying a TargetChefVersion of 14.0:
 
