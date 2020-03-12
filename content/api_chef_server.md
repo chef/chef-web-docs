@@ -1252,7 +1252,9 @@ returned.
 -----------------
 
 The `/users/USER/keys` endpoint has the following methods: `GET` and
-`POST`.
+`POST`. User keys are public RSA keys in the SSL `.pem` file
+format and are used for authentication.  The Chef Infra Server 
+does not save private keys for users.
 
 ### GET
 
@@ -1273,12 +1275,16 @@ The response is similar to:
 
 ``` javascript
 [
-  { "name" : "default",
-             "uri" : "https://chef.example/users/USER/keys/default",
-             "expired" : false },
-  { "name" : "key1",
-             "uri" : "https://chef.example/users/USER/keys/key1",
-             "expired" : false}
+  { 
+    "name" : "default",
+    "uri" : "https://chef.example/users/USER/keys/default",
+    "expired" : false
+  },
+  { 
+    "name" : "key1",
+    "uri" : "https://chef.example/users/USER/keys/key1",
+    "expired" : false
+  }
 ]
 ```
 
@@ -1343,7 +1349,9 @@ The response is similar to:
 
 ``` javascript
 {
-  "uri" : "https://chef.example/users/user1/keys/key1"
+  "name" : "key1",
+  "uri" : "https://chapi_chef_server.mdef.example/users/user1/keys/key1",
+  "expired": false
 }
 ```
 
