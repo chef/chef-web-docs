@@ -1252,7 +1252,9 @@ returned.
 -----------------
 
 The `/users/USER/keys` endpoint has the following methods: `GET` and
-`POST`.
+`POST`. User keys are public RSA keys in the SSL `.pem` file
+format and are used for authentication.  The Chef Infra Server 
+does not save private keys for users.
 
 ### GET
 
