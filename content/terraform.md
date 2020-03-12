@@ -39,7 +39,7 @@ resource "aws_instance" "web" {
 Chef Infra Provider
 ===================
 
-The [Terraform Chef Provider](https://www.terraform.io/docs/providers/chef/index.html) allows management of Chef Infra Server resources (nodes, data bags, etc.) via the Chef Infra Server API. Policyfiles, cookbooks, clients, and ACLs are not currently managed via the Provider. The [Terraform Chef Provider documentation](https://www.terraform.io/docs/providers/chef/index.html) provides a complete list of supported options and an example of usage. HashiCorp provides support for the Terraform Chef Provider and it is not officially supported by Chef Software.
+The [Terraform Chef Provider](https://www.terraform.io/docs/providers/chef/index.html) allows you to manage Chef Infra Server resources (nodes, data bags, etc.) using the Chef Infra Server API. Policyfiles, cookbooks, clients, and ACLs are not currently managed with the Provider. The [Terraform Chef Provider documentation](https://www.terraform.io/docs/providers/chef/index.html) provides a complete list of supported options and an example of usage. HashiCorp provides support for the Terraform Chef Provider and it is not officially supported by Chef Software.
 
 Additional Terraform Integrations
 ==============================
