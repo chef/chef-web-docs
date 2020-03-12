@@ -10,7 +10,7 @@ aliases = ["/chef_overview.html"]
     identifier = "chef_infra/getting_started/chef_overview.md Chef Infra Overview"
     parent = "chef_infra/getting_started"
     weight = 10
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/chef_overview.md)
 
@@ -19,8 +19,8 @@ aliases = ["/chef_overview.html"]
 -   **Chef Workstation** is the location where users interact with Chef
     Infra. With Chef Workstation, users can author and test
     [cookbooks](/cookbooks/) using tools such as [Test
-    Kitchen](/kitchen/) and interact with the Chef Infra Server
-    using the [knife](/knife/) and [chef](/ctl_chef/) command
+    Kitchen](/workstation/kitchen/) and interact with the Chef Infra Server
+    using the [knife](/workstation/knife/) and [chef](/ctl_chef/) command
     line tools.
 -   **Chef Infra Client nodes** are the machines that are managed by
     Chef Infra. The Chef Infra Client is installed on each node and is

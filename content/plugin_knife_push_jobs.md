@@ -10,7 +10,7 @@ aliases = ["/plugin_knife_push_jobs.html"]
     identifier = "chef_infra/managing_chef_infra_server/push_jobs/plugin_knife_push_jobs.md knife push jobs"
     parent = "chef_infra/managing_chef_infra_server/push_jobs"
     weight = 10
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/plugin_knife_push_jobs.md)
 
@@ -18,7 +18,7 @@ aliases = ["/plugin_knife_push_jobs.html"]
 
 {{< note >}}
 
-Review the list of [common options](/knife_options/) available to
+Review the list of [common options](/workstation/knife_options/) available to
 this (and all) knife subcommands and plugins.
 
 {{< /note >}}

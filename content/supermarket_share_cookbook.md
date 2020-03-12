@@ -95,7 +95,7 @@ install Stove separately.
 Share Cookbooks via Knife
 =========================
 
-Use the [knife supermarket](/knife_supermarket/) command to upload
+Use the [knife supermarket](/workstation/knife_supermarket/) command to upload
 cookbooks to the Supermarket via Knife. In this section you'll configure
 the chef-repo that was created by the Hosted Chef starter kit, and then
 upload cookbooks from your workstation's cookbook repository.

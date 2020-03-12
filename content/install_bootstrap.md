@@ -57,9 +57,9 @@ describe how to bootstrap a node using knife.
     the `--distro` option to specify a non-default distribution. For
     more information about the options available to the
     `knife bootstrap` command for Ubuntu- and Linux-based platforms, see
-    [knife bootstrap](/knife_bootstrap/). For Microsoft Windows, the
+    [knife bootstrap](/workstation/knife_bootstrap/). For Microsoft Windows, the
     `knife windows` plugin is required, see [knife
-    windows](/knife_windows/).
+    windows](/workstation/knife_windows/).
 
     And then while the bootstrap operation is running, the command
     window will show something like the following:
