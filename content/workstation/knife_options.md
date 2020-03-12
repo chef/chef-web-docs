@@ -10,9 +10,9 @@ aliases = ["/knife_options.html", "/knife_options/"]
     identifier = "chef_workstation/chef_workstation_tools/knife/knife_options.md Knife Common Options"
     parent = "chef_workstation/chef_workstation_tools/knife"
     weight = 30
-+++    
++++
 
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/knife_options.md)
+[\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/www/content/workstation/knife_options.md)
 
 The following options can be run with all knife subcommands and
 plug-ins:

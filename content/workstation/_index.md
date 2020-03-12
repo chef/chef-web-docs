@@ -12,9 +12,9 @@ aliases = ["/about_workstation.html", "/about_chefdk.html", "/chef_dk.html", "/a
     weight = 10
 +++
 
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/about_workstation.md)
+[\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/www/content/workstation/about_workstation.md)
 
-{{% chef_workstation %}}
+{{% ws_chef_workstation %}}
 
 Chef Workstation replaces ChefDK, combining all the existing features
 with new features, such as ad-hoc task support and the new Chef

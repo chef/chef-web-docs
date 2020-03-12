@@ -9,14 +9,13 @@ aliases = ["/knife_bootstrap.html", "/knife_bootstrap/"]
     title = "knife bootstrap"
     identifier = "chef_workstation/chef_workstation_tools/knife/knife_bootstrap.md knife bootstrap"
     parent = "chef_workstation/chef_workstation_tools/knife"
-    weight = 70
-+++    
++++
 
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/knife_bootstrap.md)
+[\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/www/content/workstation/knife_bootstrap.md)
 
-{{% chef_client_bootstrap_node %}}
+{{% ws_chef_client_bootstrap_node %}}
 
-{{% knife_bootstrap_summary %}}
+{{% ws_knife_bootstrap_summary %}}
 
 **Considerations:**
 
@@ -49,7 +48,7 @@ Options
 
 {{< note >}}
 
-{{% knife_common_see_common_options_link %}}
+{{% ws_knife_common_see_common_options_link %}}
 
 {{< /note >}}
 
@@ -335,14 +334,14 @@ Debug Options
 
 {{< note >}}
 
-{{% knife_common_see_all_config_options %}}
+{{% ws_knife_common_see_all_config_options %}}
 
 {{< /note >}}
 
 Validatorless Bootstrap
 -----------------------
 
-{{% knife_bootstrap_no_validator %}}
+{{% ws_knife_bootstrap_no_validator %}}
 
 {{< note >}}
 
@@ -353,11 +352,11 @@ The `--node-name` option is required for a validatorless bootstrap.
 FIPS Mode
 ---------
 
-{{% fips_intro_client %}}
+{{% ws_fips_intro_client %}}
 
 **Bootstrap a node using FIPS**
 
-{{% knife_bootstrap_node_fips %}}
+{{% ws_knife_bootstrap_node_fips %}}
 
 Custom Templates
 ================

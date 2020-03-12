@@ -9,12 +9,11 @@ aliases = ["/knife_edit.html", "/knife_edit/"]
     title = "knife edit"
     identifier = "chef_workstation/chef_workstation_tools/knife/knife_edit.md knife edit"
     parent = "chef_workstation/chef_workstation_tools/knife"
-    weight = 170
-+++    
++++
 
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/knife_edit.md)
+[\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/www/content/workstation/knife_edit.md)
 
-{{% knife_edit_summary %}}
+{{% ws_knife_edit_summary %}}
 
 Syntax
 ======
@@ -30,7 +29,7 @@ Options
 
 {{< note >}}
 
-{{% knife_common_see_common_options_link %}}
+{{% ws_knife_common_see_common_options_link %}}
 
 {{< /note >}}
 
@@ -61,7 +60,7 @@ This subcommand has the following options:
 
 {{< note >}}
 
-{{% knife_common_see_all_config_options %}}
+{{% ws_knife_common_see_all_config_options %}}
 
 {{< /note >}}
 
@@ -72,4 +71,4 @@ The following examples show how to use this knife subcommand:
 
 **Remove a user from /groups/admins.json**
 
-{{% knife_edit_admin_users %}}
+{{% ws_knife_edit_admin_users %}}

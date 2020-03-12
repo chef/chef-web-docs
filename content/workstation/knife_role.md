@@ -9,14 +9,13 @@ aliases = ["/knife_role.html", "/knife_role/"]
     title = "knife role"
     identifier = "chef_workstation/chef_workstation_tools/knife/knife_role.md knife role"
     parent = "chef_workstation/chef_workstation_tools/knife"
-    weight = 250
-+++    
++++
 
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/knife_role.md)
+[\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/www/content/workstation/knife_role.md)
 
-{{% role %}}
+{{% ws_role %}}
 
-{{% knife_role_summary %}}
+{{% ws_knife_role_summary %}}
 
 {{< note >}}
 
@@ -28,7 +27,7 @@ argument.
 
 {{< note >}}
 
-{{% knife_common_see_common_options_link %}}
+{{% ws_knife_common_see_common_options_link %}}
 
 {{< /note >}}
 
@@ -94,7 +93,7 @@ This argument has the following options:
 
 {{< note >}}
 
-{{% knife_common_see_all_config_options %}}
+{{% ws_knife_common_see_all_config_options %}}
 
 {{< /note >}}
 
@@ -239,7 +238,7 @@ This command does not have any specific options.
 
 {{< note >}}
 
-{{% knife_common_see_all_config_options %}}
+{{% ws_knife_common_see_all_config_options %}}
 
 {{< /note >}}
 
@@ -319,7 +318,7 @@ This argument has the following options:
 
 {{< note >}}
 
-{{% knife_common_see_all_config_options %}}
+{{% ws_knife_common_see_all_config_options %}}
 
 {{< /note >}}
 

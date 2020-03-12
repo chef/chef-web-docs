@@ -9,12 +9,11 @@ aliases = ["/knife_exec.html", "/knife_exec/"]
     title = "knife exec"
     identifier = "chef_workstation/chef_workstation_tools/knife/knife_exec.md knife exec"
     parent = "chef_workstation/chef_workstation_tools/knife"
-    weight = 190
-+++    
++++
 
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/knife_exec.md)
+[\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/www/content/workstation/knife_exec.md)
 
-{{% knife_exec_summary %}}
+{{% ws_knife_exec_summary %}}
 
 Authenticated API Requests
 ==========================
@@ -130,7 +129,7 @@ Options
 
 {{< note >}}
 
-{{% knife_common_see_common_options_link %}}
+{{% ws_knife_common_see_common_options_link %}}
 
 {{< /note >}}
 
@@ -149,7 +148,7 @@ This subcommand has the following options:
 
 {{< note >}}
 
-{{% knife_common_see_all_config_options %}}
+{{% ws_knife_common_see_all_config_options %}}
 
 {{< /note >}}
 

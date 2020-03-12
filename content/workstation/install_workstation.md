@@ -12,7 +12,7 @@ aliases = ["/install_workstation.html", "/install_dk.html", "/workstation_window
     weight = 20
 +++    
 
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/install_workstation.md)
+[\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/www/content/workstation/install_workstation.md)
 
 Start your infrastructure automation quickly and easily with [Chef
 Workstation](https://www.chef.sh/) . Chef Workstation gives you
@@ -137,11 +137,11 @@ Windows
 
 ### Spaces and Directories
 
-{{% windows_spaces_and_directories %}}
+{{% ws_windows_spaces_and_directories %}}
 
 ### Top-level Directory Names
 
-{{% windows_top_level_directory_names %}}
+{{% ws_windows_top_level_directory_names %}}
 
 Linux
 -----

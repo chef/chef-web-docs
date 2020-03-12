@@ -9,12 +9,11 @@ aliases = ["/knife_serve.html", "/knife_serve/"]
     title = "knife serve"
     identifier = "chef_workstation/chef_workstation_tools/knife/knife_serve.md knife serve"
     parent = "chef_workstation/chef_workstation_tools/knife"
-    weight = 270
-+++    
++++
 
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/knife_serve.md)
+[\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/www/content/workstation/knife_serve.md)
 
-{{% knife_serve_summary %}}
+{{% ws_knife_serve_summary %}}
 
 Syntax
 ======
@@ -30,7 +29,7 @@ Options
 
 {{< note >}}
 
-{{% knife_common_see_common_options_link %}}
+{{% ws_knife_common_see_common_options_link %}}
 
 {{< /note >}}
 

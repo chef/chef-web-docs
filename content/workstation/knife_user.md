@@ -9,16 +9,15 @@ aliases = ["/knife_user.html", "/knife_user/"]
     title = "knife user"
     identifier = "chef_workstation/chef_workstation_tools/knife/knife_user.md knife user"
     parent = "chef_workstation/chef_workstation_tools/knife"
-    weight = 360
-+++    
++++
 
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/knife_user.md)
+[\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/www/content/workstation/knife_user.md)
 
-{{% knife_user_summary %}}
+{{% ws_knife_user_summary %}}
 
 {{< note >}}
 
-{{% knife_common_see_common_options_link %}}
+{{% ws_knife_common_see_common_options_link %}}
 
 {{< /note >}}
 
@@ -70,7 +69,7 @@ This argument has the following options:
 
 {{< note >}}
 
-{{% knife_common_see_all_config_options %}}
+{{% ws_knife_common_see_all_config_options %}}
 
 {{< /note >}}
 
@@ -376,7 +375,7 @@ This argument has the following options:
 
 {{< note >}}
 
-{{% knife_common_see_all_config_options %}}
+{{% ws_knife_common_see_all_config_options %}}
 
 {{< /note >}}
 

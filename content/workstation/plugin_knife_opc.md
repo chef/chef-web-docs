@@ -9,10 +9,9 @@ aliases = ["/plugin_knife_opc.html", "/plugin_knife_opc/"]
     title = "knife opc"
     identifier = "chef_workstation/chef_workstation_tools/knife/plugin_knife_opc.md knife opc"
     parent = "chef_workstation/chef_workstation_tools/knife"
-    weight = 220
-+++    
++++
 
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/plugin_knife_opc.md)
+[\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/www/content/workstation/plugin_knife_opc.md)
 
 The `knife opc` subcommand is used to manage organizations and users in
 Chef Server 12.

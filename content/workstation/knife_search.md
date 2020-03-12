@@ -9,14 +9,13 @@ aliases = ["/knife_search.html", "/knife_search/"]
     title = "knife search"
     identifier = "chef_workstation/chef_workstation_tools/knife/knife_search.md knife search"
     parent = "chef_workstation/chef_workstation_tools/knife"
-    weight = 260
-+++    
++++
 
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/knife_search.md)
+[\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/www/content/workstation/knife_search.md)
 
-{{% search %}}
+{{% ws_search %}}
 
-{{% knife_search_summary %}}
+{{% ws_knife_search_summary %}}
 
 Syntax
 ======
@@ -76,12 +75,12 @@ knife search node "tags:*ubuntu* OR roles:*ubuntu* OR fqdn:*ubuntu* (etc.)"
 Query Syntax
 ------------
 
-{{% search_query_syntax %}}
+{{% ws_search_query_syntax %}}
 
 Keys
 ----
 
-{{% search_key %}}
+{{% ws_search_key %}}
 
 To search for the available fields for a particular object, use the
 `show` argument with any of the following knife subcommands:
@@ -90,85 +89,85 @@ To search for the available fields for a particular object, use the
 
 ### Nested Fields
 
-{{% search_key_nested %}}
+{{% ws_search_key_nested %}}
 
 ### Examples
 
-{{% search_key_name %}}
+{{% ws_search_key_name %}}
 
-{{% search_key_wildcard_question_mark %}}
+{{% ws_search_key_wildcard_question_mark %}}
 
-{{% search_key_wildcard_asterisk %}}
+{{% ws_search_key_wildcard_asterisk %}}
 
-{{% search_key_nested_starting_with %}}
+{{% ws_search_key_nested_starting_with %}}
 
-{{% search_key_nested_range %}}
+{{% ws_search_key_nested_range %}}
 
 About Patterns
 --------------
 
-{{% search_pattern %}}
+{{% ws_search_pattern %}}
 
 ### Exact Matching
 
-{{% search_pattern_exact %}}
+{{% ws_search_pattern_exact %}}
 
-{{% search_pattern_exact_key_and_item %}}
+{{% ws_search_pattern_exact_key_and_item %}}
 
-{{% search_pattern_exact_key_and_item_string %}}
+{{% ws_search_pattern_exact_key_and_item_string %}}
 
 ### Wildcard Matching
 
-{{% search_pattern_wildcard %}}
+{{% ws_search_pattern_wildcard %}}
 
-{{% search_pattern_wildcard_any_node %}}
+{{% ws_search_pattern_wildcard_any_node %}}
 
-{{% search_pattern_wildcard_node_contains %}}
+{{% ws_search_pattern_wildcard_node_contains %}}
 
 ### Range Matching
 
-{{% search_pattern_range %}}
+{{% ws_search_pattern_range %}}
 
-{{% search_pattern_range_in_between %}}
+{{% ws_search_pattern_range_in_between %}}
 
-{{% search_pattern_range_exclusive %}}
+{{% ws_search_pattern_range_exclusive %}}
 
 ### Fuzzy Matching
 
-{{% search_pattern_fuzzy %}}
+{{% ws_search_pattern_fuzzy %}}
 
-{{% search_pattern_fuzzy_summary %}}
+{{% ws_search_pattern_fuzzy_summary %}}
 
 About Operators
 ---------------
 
-{{% search_boolean_operators %}}
+{{% ws_search_boolean_operators %}}
 
-{{% search_boolean_operators_andnot %}}
+{{% ws_search_boolean_operators_andnot %}}
 
 ### AND
 
-{{% search_boolean_and %}}
+{{% ws_search_boolean_and %}}
 
 ### NOT
 
-{{% search_boolean_not %}}
+{{% ws_search_boolean_not %}}
 
 ### OR
 
-{{% search_boolean_or %}}
+{{% ws_search_boolean_or %}}
 
 Special Characters
 ------------------
 
-{{% search_special_characters %}}
+{{% ws_search_special_characters %}}
 
 Options
 =======
 
 {{< note >}}
 
-{{% knife_common_see_common_options_link %}}
+{{% ws_knife_common_see_common_options_link %}}
 
 {{< /note >}}
 
@@ -231,40 +230,40 @@ The following examples show how to use this knife subcommand:
 
 **Search by platform ID**
 
-{{% knife_search_by_platform_ids %}}
+{{% ws_knife_search_by_platform_ids %}}
 
 **Search by instance type**
 
-{{% knife_search_by_platform_instance_type %}}
+{{% ws_knife_search_by_platform_instance_type %}}
 
 **Search by recipe**
 
-{{% knife_search_by_recipe %}}
+{{% ws_knife_search_by_recipe %}}
 
 **Search by cookbook, then recipe**
 
-{{% knife_search_by_cookbook %}}
+{{% ws_knife_search_by_cookbook %}}
 
 **Search by node**
 
-{{% knife_search_by_node %}}
+{{% ws_knife_search_by_node %}}
 
 **Search by node and environment**
 
-{{% knife_search_by_node_and_environment %}}
+{{% ws_knife_search_by_node_and_environment %}}
 
 **Search for nested attributes**
 
-{{% knife_search_by_nested_attribute %}}
+{{% ws_knife_search_by_nested_attribute %}}
 
 **Search for multiple attributes**
 
-{{% knife_search_by_query_for_many_attributes %}}
+{{% ws_knife_search_by_query_for_many_attributes %}}
 
 **Search for nested attributes using a search query**
 
-{{% knife_search_by_query_for_nested_attribute %}}
+{{% ws_knife_search_by_query_for_nested_attribute %}}
 
 **Use a test query**
 
-{{% knife_search_test_query_for_ssh %}}
+{{% ws_knife_search_test_query_for_ssh %}}

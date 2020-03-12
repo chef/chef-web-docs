@@ -9,12 +9,11 @@ aliases = ["/knife_list.html", "/knife_list/"]
     title = "knife list"
     identifier = "chef_workstation/chef_workstation_tools/knife/knife_list.md knife list"
     parent = "chef_workstation/chef_workstation_tools/knife"
-    weight = 200
-+++    
++++
 
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/knife_list.md)
+[\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/www/content/workstation/knife_list.md)
 
-{{% knife_list_summary %}}
+{{% ws_knife_list_summary %}}
 
 Syntax
 ======
@@ -30,7 +29,7 @@ Options
 
 {{< note >}}
 
-{{% knife_common_see_common_options_link %}}
+{{% ws_knife_common_see_common_options_link %}}
 
 {{< /note >}}
 
@@ -82,7 +81,7 @@ This subcommand has the following options:
 
 {{< note >}}
 
-{{% knife_common_see_all_config_options %}}
+{{% ws_knife_common_see_all_config_options %}}
 
 {{< /note >}}
 

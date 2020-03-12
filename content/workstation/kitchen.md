@@ -12,9 +12,9 @@ aliases = ["/kitchen.html", "/kitchen/"]
     weight = 10
 +++    
 
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/kitchen.md)
+[\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/www/content/workstation/kitchen.md)
 
-{{% test_kitchen %}}
+{{% ws_test_kitchen %}}
 
 The key concepts in Test Kitchen are:
 
@@ -37,12 +37,12 @@ The key concepts in Test Kitchen are:
 Bento
 =====
 
-{{% bento %}}
+{{% ws_bento %}}
 
 Drivers
 =======
 
-{{% test_kitchen_drivers %}}
+{{% ws_test_kitchen_drivers %}}
 
 Validation with InSpec
 ======================
@@ -57,7 +57,7 @@ converged cookbook for easy local validation of your infrastructure.
 kitchen (executable)
 ====================
 
-{{% ctl_kitchen_summary %}}
+{{% ws_ctl_kitchen_summary %}}
 
 {{< note >}}
 
@@ -69,7 +69,7 @@ For more information about the `kitchen` command line tool, see
 kitchen.yml
 ===========
 
-{{% test_kitchen_yml %}}
+{{% ws_test_kitchen_yml %}}
 
 {{< note >}}
 
@@ -81,12 +81,12 @@ For more information about the kitchen.yml file, see
 Syntax
 ------
 
-{{% test_kitchen_yml_syntax %}}
+{{% ws_test_kitchen_yml_syntax %}}
 
 Work with Proxies
 -----------------
 
-{{% test_kitchen_yml_syntax_proxy %}}
+{{% ws_test_kitchen_yml_syntax_proxy %}}
 
 For more information ...
 ========================

@@ -9,12 +9,11 @@ aliases = ["/knife_recipe_list.html", "/knife_recipe_list/"]
     title = "knife recipe list"
     identifier = "chef_workstation/chef_workstation_tools/knife/knife_recipe_list.md knife recipe list"
     parent = "chef_workstation/chef_workstation_tools/knife"
-    weight = 240
-+++    
++++
 
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/knife_recipe_list.md)
+[\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/www/content/workstation/knife_recipe_list.md)
 
-{{% knife_recipe_list_summary %}}
+{{% ws_knife_recipe_list_summary %}}
 
 Syntax
 ======
@@ -30,7 +29,7 @@ Options
 
 {{< note >}}
 
-{{% knife_common_see_common_options_link %}}
+{{% ws_knife_common_see_common_options_link %}}
 
 {{< /note >}}
 

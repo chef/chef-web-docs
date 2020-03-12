@@ -9,12 +9,11 @@ aliases = ["/knife_configure.html", "/knife_configure/"]
     title = "knife configure"
     identifier = "chef_workstation/chef_workstation_tools/knife/knife_configure.md knife configure"
     parent = "chef_workstation/chef_workstation_tools/knife"
-    weight = 90
-+++    
++++
 
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/knife_configure.md)
+[\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/www/content/workstation/knife_configure.md)
 
-{{% knife_configure_summary %}}
+{{% ws_knife_configure_summary %}}
 
 Syntax
 ======
@@ -36,7 +35,7 @@ Options
 
 {{< note >}}
 
-{{% knife_common_see_common_options_link %}}
+{{% ws_knife_common_see_common_options_link %}}
 
 {{< /note >}}
 
@@ -73,7 +72,7 @@ config.rb file:
 
 {{< note >}}
 
-{{% knife_common_see_all_config_options %}}
+{{% ws_knife_common_see_all_config_options %}}
 
 {{< /note >}}
 

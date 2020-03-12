@@ -9,12 +9,11 @@ aliases = ["/knife_ssl_fetch.html", "/knife_ssl_fetch/"]
     title = "knife ssl_fetch"
     identifier = "chef_workstation/chef_workstation_tools/knife/knife_ssl_fetch.md knife ssl_fetch"
     parent = "chef_workstation/chef_workstation_tools/knife"
-    weight = 310
-+++    
++++
 
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/knife_ssl_fetch.md)
+[\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/www/content/workstation/knife_ssl_fetch.md)
 
-{{% knife_ssl_fetch_summary %}}
+{{% ws_knife_ssl_fetch_summary %}}
 
 Syntax
 ======
@@ -68,4 +67,4 @@ knife ssl fetch https://www.example.com
 
 **Verify Checksums**
 
-{{% knife_ssl_fetch_verify_certificate %}}
+{{% ws_knife_ssl_fetch_verify_certificate %}}

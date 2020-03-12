@@ -12,16 +12,16 @@ aliases = ["/chef_shell.html", "/chef_shell/"]
     weight = 20
 +++    
 
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/ctl_chef_shell.md)
+[\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/www/content/workstation/ctl_chef_shell.md)
 
-{{% chef_shell_summary %}}
+{{% ws_chef_shell_summary %}}
 
 The chef-shell executable is run as a command-line tool.
 
 Modes
 =====
 
-{{% chef_shell_modes %}}
+{{% ws_chef_shell_modes %}}
 
 Options
 =======
@@ -69,7 +69,7 @@ This command has the following options:
 
     {{< warning >}}
 
-    {{% node_ctl_attribute %}}
+    {{% ws_node_ctl_attribute %}}
 
     {{< /warning >}}
 
@@ -101,42 +101,42 @@ This command has the following options:
 Configure
 =========
 
-{{% chef_shell_config %}}
+{{% ws_chef_shell_config %}}
 
 chef-shell.rb
 -------------
 
-{{% chef_shell_config_rb %}}
+{{% ws_chef_shell_config_rb %}}
 
 Run as a Chef Infra Client
 --------------------------
 
-{{% chef_shell_run_as_chef_client %}}
+{{% ws_chef_shell_run_as_chef_client %}}
 
 Debugging Cookbooks
 ===================
 
-{{% chef_shell_breakpoints %}}
+{{% ws_chef_shell_breakpoints %}}
 
 Step Through Run-list
 ---------------------
 
-{{% chef_shell_step_through_run_list %}}
+{{% ws_chef_shell_step_through_run_list %}}
 
 Debug Existing Recipe
 ---------------------
 
-{{% chef_shell_debug_existing_recipe %}}
+{{% ws_chef_shell_debug_existing_recipe %}}
 
 Advanced Debugging
 ------------------
 
-{{% chef_shell_advanced_debug %}}
+{{% ws_chef_shell_advanced_debug %}}
 
 Manipulating Chef Infra Server Data
 ===================================
 
-{{% chef_shell_manage %}}
+{{% ws_chef_shell_manage %}}
 
 Examples
 ========
@@ -146,9 +146,9 @@ The following examples show how to use chef-shell.
 "Hello World"
 -------------
 
-{{% chef_shell_example_hello_world %}}
+{{% ws_chef_shell_example_hello_world %}}
 
 Get Specific Nodes
 ------------------
 
-{{% chef_shell_example_get_specific_nodes %}}
+{{% ws_chef_shell_example_get_specific_nodes %}}

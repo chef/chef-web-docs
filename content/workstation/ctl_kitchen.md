@@ -12,9 +12,9 @@ aliases = ["/ctl_kitchen.html", "/ctl_kitchen/"]
     weight = 20
 +++
 
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/ctl_kitchen.md)
+[\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/www/content/workstation/ctl_kitchen.md)
 
-{{% ctl_kitchen_summary %}}
+{{% ws_ctl_kitchen_summary %}}
 
 {{< note >}}
 
@@ -149,7 +149,7 @@ This subcommand has the following options:
     platforms. Use a Ruby regular expression to glob two or more
     platforms into a single run.
 
-    {{< shortcode_indent shortcode="ctl_kitchen_common_option_platforms" >}}
+    {{< shortcode_indent shortcode="ws_ctl_kitchen_common_option_platforms" >}}
 
 Examples
 --------
@@ -309,7 +309,7 @@ This subcommand has the following options:
     platforms. Use a Ruby regular expression to glob two or more
     platforms into a single run.
 
-    {{< shortcode_indent shortcode="ctl_kitchen_common_option_platforms" >}}
+    {{< shortcode_indent shortcode="ws_ctl_kitchen_common_option_platforms" >}}
 
 Examples
 --------
@@ -445,7 +445,7 @@ This subcommand has the following options:
     platforms. Use a Ruby regular expression to glob two or more
     platforms into a single run.
 
-    {{< shortcode_indent shortcode="ctl_kitchen_common_option_platforms" >}}
+    {{< shortcode_indent shortcode="ws_ctl_kitchen_common_option_platforms" >}}
 
 Examples
 --------
@@ -499,7 +499,7 @@ This subcommand has the following options:
     platforms. Use a Ruby regular expression to glob two or more
     platforms into a single run.
 
-    {{< shortcode_indent shortcode="ctl_kitchen_common_option_platforms" >}}
+    {{< shortcode_indent shortcode="ws_ctl_kitchen_common_option_platforms" >}}
 
 Examples
 --------
@@ -667,7 +667,7 @@ This subcommand has the following options:
     platforms. Use a Ruby regular expression to glob two or more
     platforms into a single run.
 
-    {{< shortcode_indent shortcode="ctl_kitchen_common_option_platforms" >}}
+    {{< shortcode_indent shortcode="ws_ctl_kitchen_common_option_platforms" >}}
 
 Examples
 --------
@@ -725,7 +725,7 @@ This subcommand has the following options:
     platforms. Use a Ruby regular expression to glob two or more
     platforms into a single run.
 
-    {{< shortcode_indent shortcode="ctl_kitchen_common_option_platforms" >}}
+    {{< shortcode_indent shortcode="ws_ctl_kitchen_common_option_platforms" >}}
 
 Examples
 --------
@@ -792,7 +792,7 @@ This subcommand has the following options:
     platforms. Use a Ruby regular expression to glob two or more
     platforms into a single run.
 
-    {{< shortcode_indent shortcode="ctl_kitchen_common_option_platforms" >}}
+    {{< shortcode_indent shortcode="ws_ctl_kitchen_common_option_platforms" >}}
 
 Examples
 --------
@@ -884,7 +884,7 @@ This subcommand has the following options:
     platforms. Use a Ruby regular expression to glob two or more
     platforms into a single run.
 
-    {{< shortcode_indent shortcode="ctl_kitchen_common_option_platforms" >}}
+    {{< shortcode_indent shortcode="ws_ctl_kitchen_common_option_platforms" >}}
 
 Examples
 --------
@@ -942,7 +942,7 @@ This subcommand has the following options:
     platforms. Use a Ruby regular expression to glob two or more
     platforms into a single run.
 
-    {{< shortcode_indent shortcode="ctl_kitchen_common_option_platforms" >}}
+    {{< shortcode_indent shortcode="ws_ctl_kitchen_common_option_platforms" >}}
 
 Examples
 --------
@@ -1009,7 +1009,7 @@ This subcommand has the following options:
     platforms. Use a Ruby regular expression to glob two or more
     platforms into a single run.
 
-    {{< shortcode_indent shortcode="ctl_kitchen_common_option_platforms" >}}
+    {{< shortcode_indent shortcode="ws_ctl_kitchen_common_option_platforms" >}}
 
 Examples
 --------
@@ -1144,7 +1144,7 @@ This subcommand has the following options:
     platforms. Use a Ruby regular expression to glob two or more
     platforms into a single run.
 
-    {{< shortcode_indent shortcode="ctl_kitchen_common_option_platforms" >}}
+    {{< shortcode_indent shortcode="ws_ctl_kitchen_common_option_platforms" >}}
 
 Examples
 --------

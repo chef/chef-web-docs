@@ -9,10 +9,9 @@ aliases = ["/knife_supermarket.html", "/plugin_knife_supermarket.html", "/knife_
     title = "knife supermarket"
     identifier = "chef_workstation/chef_workstation_tools/knife/knife_supermarket.md knife supermarket"
     parent = "chef_workstation/chef_workstation_tools/knife"
-    weight = 330
 +++
 
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/knife_supermarket.md)
+[\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/www/content/workstation/knife_supermarket.md)
 
 The `knife supermarket` subcommand is used to interact with cookbooks
 that are located in on the public Supermarket as well as private Chef
@@ -23,13 +22,13 @@ arguments do not require a user account: `download`, `search`,
 
 {{< note >}}
 
-{{% notes_knife_cookbook_site_use_devkit_berkshelf %}}
+{{% ws_notes_knife_cookbook_site_use_devkit_berkshelf %}}
 
 {{< /note >}}
 
 {{< note >}}
 
-{{% knife_common_see_common_options_link %}}
+{{% ws_knife_common_see_common_options_link %}}
 
 {{< /note >}}
 

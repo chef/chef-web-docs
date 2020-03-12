@@ -12,7 +12,7 @@ aliases = ["/foodcritic.html", "/foodcritic/"]
     weight = 110
 +++    
 
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/foodcritic.md)
+[\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/www/content/workstation/foodcritic.md)
 
 {{< warning >}}
 

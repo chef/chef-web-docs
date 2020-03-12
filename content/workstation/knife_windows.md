@@ -9,15 +9,14 @@ aliases = ["/knife_windows.html", "/knife_windows/"]
     title = "knife windows"
     identifier = "chef_workstation/chef_workstation_tools/knife/knife_windows.md knife windows"
     parent = "chef_workstation/chef_workstation_tools/knife"
-    weight = 370
-+++    
++++
 
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/knife_windows.md)
+[\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/www/content/workstation/knife_windows.md)
 
 Knife Windows Overview
 ======================
 
-{{% knife_windows_summary %}}
+{{% ws_knife_windows_summary %}}
 
 {{< note >}}
 
@@ -256,7 +255,7 @@ Use the `winrm` argument to create a connection to one or more remote
 machines. As each connection is created, a password must be provided.
 This argument uses the same syntax as the `search` subcommand.
 
-{{% knife_windows_winrm_ports %}}
+{{% ws_knife_windows_winrm_ports %}}
 
 Syntax
 ------

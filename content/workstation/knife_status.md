@@ -9,12 +9,11 @@ aliases = ["/knife_status.html", "/knife_status/"]
     title = "knife status"
     identifier = "chef_workstation/chef_workstation_tools/knife/knife_status.md knife status"
     parent = "chef_workstation/chef_workstation_tools/knife"
-    weight = 320
-+++    
++++
 
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/knife_status.md)
+[\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/www/content/workstation/knife_status.md)
 
-{{% knife_status_summary %}}
+{{% ws_knife_status_summary %}}
 
 Syntax
 ======
@@ -30,7 +29,7 @@ Options
 
 {{< note >}}
 
-{{% knife_common_see_common_options_link %}}
+{{% ws_knife_common_see_common_options_link %}}
 
 {{< /note >}}
 
@@ -70,7 +69,7 @@ This subcommand has the following options:
 
 {{< note >}}
 
-{{% knife_common_see_all_config_options %}}
+{{% ws_knife_common_see_all_config_options %}}
 
 {{< /note >}}
 
@@ -81,7 +80,7 @@ The following examples show how to use this knife subcommand:
 
 **View status, include run-lists**
 
-{{% knife_status_include_run_lists %}}
+{{% ws_knife_status_include_run_lists %}}
 
 **View status using a time range**
 
@@ -114,7 +113,7 @@ to return something like:
 
 **View status using a query**
 
-{{% knife_status_returned_by_query %}}
+{{% ws_knife_status_returned_by_query %}}
 
 **View status for all nodes**
 

@@ -12,7 +12,7 @@ aliases = ["/config_yml_kitchen.html", "/config_yml_kitchen/"]
     weight = 30
 +++    
 
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/config_yml_kitchen.md)
+[\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/www/content/workstation/config_yml_kitchen.md)
 
 Use [Test Kitchen](https://kitchen.ci/) to automatically test cookbook
 data across any combination of platforms and test suites:
@@ -26,7 +26,7 @@ data across any combination of platforms and test suites:
 -   Uses a comprehensive set of base images provided by
     [Bento](https://github.com/chef/bento)
 
-{{% test_kitchen_yml %}}
+{{% ws_test_kitchen_yml %}}
 
 {{< note >}}
 
@@ -39,7 +39,7 @@ about Kitchen.
 Syntax
 ======
 
-{{% test_kitchen_yml_syntax %}}
+{{% ws_test_kitchen_yml_syntax %}}
 
 Provisioner Settings
 ====================
@@ -435,7 +435,7 @@ kitchen.yml file when the transport is WinRM:
 Work with Proxies
 -----------------
 
-{{% test_kitchen_yml_syntax_proxy %}}
+{{% ws_test_kitchen_yml_syntax_proxy %}}
 
 Chef Infra Client Settings
 ==========================
@@ -501,21 +501,21 @@ Specific `optional_settings: values` may be specified.
 Bento
 -----
 
-{{% bento %}}
+{{% ws_bento %}}
 
 Drivers
 -------
 
-{{% test_kitchen_drivers %}}
+{{% ws_test_kitchen_drivers %}}
 
 kitchen-vagrant
 ---------------
 
-{{% test_kitchen_driver_vagrant %}}
+{{% ws_test_kitchen_driver_vagrant %}}
 
-{{% test_kitchen_driver_vagrant_settings %}}
+{{% ws_test_kitchen_driver_vagrant_settings %}}
 
-{{% test_kitchen_driver_vagrant_config %}}
+{{% ws_test_kitchen_driver_vagrant_config %}}
 
 Examples
 ========

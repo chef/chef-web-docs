@@ -12,7 +12,7 @@ aliases = ["/knife_setup.html", "/knife_setup/"]
     weight = 20
 +++    
 
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/knife_setup.md)
+[\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/www/content/workstation/knife_setup.md)
 
 The knife command line tool must be configured to communicate with the
 Chef Infra Server as well as any other infrastructure within your
@@ -58,7 +58,7 @@ this path needs to be scripted, use `%USERPROFILE%\chef-repo\.chef`.
 config.rb Configuration Within a Chef Repository
 ------------------------------------------------
 
-{{% chef_repo_many_users_same_knife %}}
+{{% ws_chef_repo_many_users_same_knife %}}
 
 Generating a config.rb File
 ===========================

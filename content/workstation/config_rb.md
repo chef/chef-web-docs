@@ -12,7 +12,7 @@ aliases = ["/config_rb.html", "/config_rb_knife.html", "/config_rb/"]
     weight = 40
 +++    
 
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/config_rb.md)
+[\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/www/content/workstation/config_rb.md)
 
 {{< warning >}}
 
@@ -365,7 +365,7 @@ Use the following setting to specify URLs that do not need a proxy:
 .d Directories
 ==============
 
-{{% config_rb_client_dot_d_directories %}}
+{{% ws_config_rb_client_dot_d_directories %}}
 
 Optional Settings
 =================
