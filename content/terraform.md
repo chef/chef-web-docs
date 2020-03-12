@@ -6,7 +6,7 @@ draft = false
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/terraform.md)
 
-[Terraform](https://www.terraform.io/) is an open source infrastructure as code provisioning tool from [HashiCorp](https://www.hashicorp.com/). Terraform allows you to write code to define and provision infrastructure for the cloud, virtualization, and on premises. Terraform is not a configuration management tool, it is responsible for deploying, maintaining, and destroying the infrastructure that servers and applications run on. When Terraform creates cloud or virtual servers, it uses [Provisioners](https://www.terraform.io/docs/provisioners/index.html) to enable configuration management to manage them. When Terraform talks to APIs to define or configure resources, it uses [Providers](https://www.terraform.io/docs/providers/index.html) to request those resources.
+[Terraform](https://www.terraform.io/) is an open-source infrastructure-as-code provisioning tool from [HashiCorp](https://www.hashicorp.com/). Terraform allows you to write code to define and provision infrastructure for the cloud, virtual machines, and on-premises machines. Terraform is not a configuration management tool, it is responsible for deploying, maintaining, and destroying the infrastructure that servers and applications run on. When Terraform creates cloud or virtual servers, it uses [Provisioners](https://www.terraform.io/docs/provisioners/index.html) to enable configuration management to manage them. When Terraform talks to APIs to define or configure resources, it uses [Providers](https://www.terraform.io/docs/providers/index.html) to request those resources.
 
 Chef Infra Provisioner
 ======================
