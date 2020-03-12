@@ -1273,12 +1273,16 @@ The response is similar to:
 
 ``` javascript
 [
-  { "name" : "default",
-             "uri" : "https://chef.example/users/USER/keys/default",
-             "expired" : false },
-  { "name" : "key1",
-             "uri" : "https://chef.example/users/USER/keys/key1",
-             "expired" : false}
+  { 
+    "name" : "default",
+    "uri" : "https://chef.example/users/USER/keys/default",
+    "expired" : false
+  },
+  { 
+    "name" : "key1",
+    "uri" : "https://chef.example/users/USER/keys/key1",
+    "expired" : false
+  }
 ]
 ```
 
@@ -1343,7 +1347,9 @@ The response is similar to:
 
 ``` javascript
 {
-  "uri" : "https://chef.example/users/user1/keys/key1"
+  "key_name" : "key1",
+  "uri" : "https://chapi_chef_server.mdef.example/users/user1/keys/key1",
+  "expired": false
 }
 ```
 
