@@ -10,7 +10,7 @@ aliases = ["/ctl_kitchen.html"]
     identifier = "chef_workstation/chef_workstation_tools/test_kitchen/ctl_kitchen.md kitchen (executable)"
     parent = "chef_workstation/chef_workstation_tools/test_kitchen"
     weight = 20
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/ctl_kitchen.md)
 
@@ -1062,7 +1062,7 @@ to return something similar to:
 -----> Verifying <default-ubuntu-1804>...
 ...
 Package: `git`
-   ✔  should exist
+   ✓  should exist
 
 Test Summary: 1 successful, 0 failures, 0 skipped
      Finished verifying <default-ubuntu-1804> (0m1.25s).

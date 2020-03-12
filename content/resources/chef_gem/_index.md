@@ -111,10 +111,6 @@ properties_list:
 
       Infra Client is configuring the node (the "converge phase").
 
-      Possible values: `nil` (for verbose warnings), `true` (to warn once
-
-      per chef-client run), or `false` (to remove all warnings).
-
       Recommended value: `false`.'
 - property: gem_binary
   ruby_type: String
