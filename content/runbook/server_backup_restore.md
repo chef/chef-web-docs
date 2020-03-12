@@ -7,7 +7,7 @@ aliases = ["/server_backup_restore.html"]
 runbook_weight = 70
 
 [menu]
-  [menu.docs]
+  [menu.infra]
     title = "Backup & Restore"
     identifier = "chef_infra/managing_chef_infra_server/server_backup_restore.md Backup & Restore"
     parent = "chef_infra/managing_chef_infra_server"

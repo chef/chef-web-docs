@@ -7,7 +7,7 @@ robots = "noindex"
 aliases = ["/delivery_manage_secrets.html", "/release/automate/delivery_manage_secrets.html"]
 
 [menu]
-  [menu.docs]
+  [menu.legacy]
     title = "Manage Secrets"
     identifier = "legacy/workflow/managing_workflow/delivery_manage_secrets.md Manage Secrets"
     parent = "legacy/workflow/managing_workflow"

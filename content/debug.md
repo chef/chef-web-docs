@@ -5,7 +5,7 @@ draft = false
 aliases = ["/debug.html"]
 
 [menu]
-  [menu.docs]
+  [menu.infra]
     title = "Debug Recipes, Client Runs"
     identifier = "chef_infra/cookbook_reference/recipes/debug.md Debug Recipes, Client Runs"
     parent = "chef_infra/cookbook_reference/recipes"

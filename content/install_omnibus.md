@@ -5,7 +5,7 @@ draft = false
 aliases = ["/install_omnibus.html"]
 
 [menu]
-  [menu.docs]
+  [menu.infra]
     title = "Install via Install Script"
     identifier = "chef_infra/setup/nodes/install_omnibus.md Install via Install Script"
     parent = "chef_infra/setup/nodes"

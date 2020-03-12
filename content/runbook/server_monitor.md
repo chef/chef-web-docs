@@ -7,7 +7,7 @@ aliases = ["/server_monitor.html"]
 runbook_weight = 10
 
 [menu]
-  [menu.docs]
+  [menu.infra]
     title = "Monitor"
     identifier = "chef_infra/managing_chef_infra_server/server_monitor.md Monitor"
     parent = "chef_infra/managing_chef_infra_server"

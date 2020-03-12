@@ -5,7 +5,7 @@ draft = false
 aliases = ["/community_contributions.html"]
 
 [menu]
-  [menu.docs]
+  [menu.infra]
     title = "Contributing"
     identifier = "overview/community/community_contributions.md Contributing"
     parent = "overview/community"

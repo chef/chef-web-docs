@@ -5,7 +5,7 @@ draft = false
 aliases = ["/chef_system_requirements.html"]
 
 [menu]
-  [menu.docs]
+  [menu.infra]
     title = "System Requirements"
     identifier = "chef_infra/getting_started/chef_system_requirements.md System Requirements"
     parent = "chef_infra/getting_started"

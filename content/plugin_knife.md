@@ -5,7 +5,7 @@ draft = false
 aliases = ["/plugin_knife.html"]
 
 [menu]
-  [menu.docs]
+  [menu.api]
     title = "Cloud Plugins"
     identifier = "extension_apis/knife_plugins/plugin_knife.md Cloud Plugins"
     parent = "extension_apis/knife_plugins"

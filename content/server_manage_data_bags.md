@@ -7,7 +7,7 @@ robots = "noindex"
 aliases = ["/server_manage_data_bags.html"]
 
 [menu]
-  [menu.docs]
+  [menu.infra]
     title = "Data Bags"
     identifier = "chef_infra/features/management_console/server_manage_data_bags.md Data Bags"
     parent = "chef_infra/features/management_console"

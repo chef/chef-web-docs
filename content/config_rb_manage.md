@@ -7,7 +7,7 @@ robots = "noindex"
 aliases = ["/config_rb_manage.html"]
 
 [menu]
-  [menu.docs]
+  [menu.infra]
     title = "manage.rb"
     identifier = "chef_infra/features/management_console/config_rb_manage.md manage.rb"
     parent = "chef_infra/features/management_console"

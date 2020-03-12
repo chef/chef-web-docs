@@ -5,7 +5,7 @@ draft = false
 aliases = ["/windows.html"]
 
 [menu]
-  [menu.docs]
+  [menu.infra]
     title = "Chef for Microsoft Windows"
     identifier = "chef_infra/getting_started/chef_on_windows_guide/windows.md Chef for Microsoft Windows"
     parent = "chef_infra/getting_started/chef_on_windows_guide"

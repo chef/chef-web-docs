@@ -5,7 +5,7 @@ draft = false
 aliases = ["/manage.html"]
 
 [menu]
-  [menu.docs]
+  [menu.infra]
     title = "About the Management Console"
     identifier = "chef_infra/features/management_console/manage.md About the Management Console"
     parent = "chef_infra/features/management_console"

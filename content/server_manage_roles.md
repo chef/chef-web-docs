@@ -7,7 +7,7 @@ robots = "noindex"
 aliases = ["/server_manage_roles.html"]
 
 [menu]
-  [menu.docs]
+  [menu.infra]
     title = "Roles"
     identifier = "chef_infra/features/management_console/server_manage_roles.md Roles"
     parent = "chef_infra/features/management_console"

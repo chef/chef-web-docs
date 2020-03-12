@@ -5,7 +5,7 @@ draft = false
 aliases = ["/supermarket_monitor.html"]
 
 [menu]
-  [menu.docs]
+  [menu.infra]
     title = "Monitoring"
     identifier = "chef_infra/setup/supermarket/supermarket_monitor.md Monitoring"
     parent = "chef_infra/setup/supermarket"

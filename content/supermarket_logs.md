@@ -5,7 +5,7 @@ draft = false
 aliases = ["/supermarket_logs.html"]
 
 [menu]
-  [menu.docs]
+  [menu.infra]
     title = "Log Files"
     identifier = "chef_infra/setup/supermarket/supermarket_logs.md Log Files"
     parent = "chef_infra/setup/supermarket"

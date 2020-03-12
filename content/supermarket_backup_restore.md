@@ -5,7 +5,7 @@ draft = false
 aliases = ["/supermarket_backup_restore.html"]
 
 [menu]
-  [menu.docs]
+  [menu.infra]
     title = "Backup and Restore"
     identifier = "chef_infra/setup/supermarket/supermarket_backup_restore.md Backup and Restore"
     parent = "chef_infra/setup/supermarket"

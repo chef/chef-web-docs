@@ -5,7 +5,7 @@ draft = false
 aliases = ["/install_chef_air_gap.html"]
 
 [menu]
-  [menu.docs]
+  [menu.infra]
     title = "Air-gapped Installation"
     identifier = "chef_infra/setup/install_chef_air_gap.md Air-gapped Installation"
     parent = "chef_infra/setup"

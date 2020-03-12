@@ -5,7 +5,7 @@ draft = false
 aliases = ["/ruby.html"]
 
 [menu]
-  [menu.docs]
+  [menu.infra]
     title = "Ruby Guide"
     identifier = "chef_infra/cookbook_reference/ruby.md Ruby Guide"
     parent = "chef_infra/cookbook_reference"

@@ -5,7 +5,7 @@ draft = false
 aliases = ["/policy.html"]
 
 [menu]
-  [menu.docs]
+  [menu.infra]
     title = "About Policy"
     identifier = "chef_infra/concepts/policy/policy.md About Policy"
     parent = "chef_infra/concepts/policy"

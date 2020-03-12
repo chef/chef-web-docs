@@ -5,7 +5,7 @@ draft = false
 aliases = ["/ctl_opscode_expander.html"]
 
 [menu]
-  [menu.docs]
+  [menu.infra]
     title = "opscode-expander-ctl"
     identifier = "chef_infra/managing_chef_infra_server/ctl_opscode_expander.md opscode-expander-ctl"
     parent = "chef_infra/managing_chef_infra_server"

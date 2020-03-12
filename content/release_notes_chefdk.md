@@ -5,7 +5,7 @@ draft = false
 aliases = ["/release_notes_chefdk.html"]
 
 [menu]
-  [menu.docs]
+  [menu.infra]
     title = "ChefDK"
     identifier = "chef_infra/release_notes/release_notes_chefdk.md ChefDK"
     parent = "chef_infra/release_notes"

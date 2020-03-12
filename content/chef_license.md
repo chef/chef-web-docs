@@ -5,7 +5,7 @@ draft = false
 aliases = ["/chef_license.html"]
 
 [menu]
-  [menu.docs]
+  [menu.infra]
     title = "About Licensing"
     identifier = "overview/packages_&_platforms/licensing/chef_license.md About Licensing"
     parent = "overview/packages_&_platforms/licensing"

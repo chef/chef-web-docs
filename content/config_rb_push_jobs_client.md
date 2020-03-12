@@ -5,7 +5,7 @@ draft = false
 aliases = ["/config_rb_push_jobs_client.html"]
 
 [menu]
-  [menu.docs]
+  [menu.infra]
     title = "push-jobs-client.rb"
     identifier = "chef_infra/managing_chef_infra_server/push_jobs/config_rb_push_jobs_client.md push-jobs-client.rb"
     parent = "chef_infra/managing_chef_infra_server/push_jobs"

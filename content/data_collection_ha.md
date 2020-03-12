@@ -7,7 +7,7 @@ robots = "noindex"
 aliases = ["/data_collection_ha.html"]
 
 [menu]
-  [menu.docs]
+  [menu.legacy]
     title = "Data Collection with Chef HA"
     identifier = "legacy/workflow/workflow_basics/data_collection_ha.md Data Collection with Chef HA"
     parent = "legacy/workflow/workflow_basics"

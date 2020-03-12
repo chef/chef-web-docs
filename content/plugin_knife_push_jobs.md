@@ -5,7 +5,7 @@ draft = false
 aliases = ["/plugin_knife_push_jobs.html"]
 
 [menu]
-  [menu.docs]
+  [menu.infra]
     title = "knife push jobs"
     identifier = "chef_infra/managing_chef_infra_server/push_jobs/plugin_knife_push_jobs.md knife push jobs"
     parent = "chef_infra/managing_chef_infra_server/push_jobs"
