@@ -1347,7 +1347,7 @@ The response is similar to:
 
 ``` javascript
 {
-  "key_name" : "key1",
+  "name" : "key1",
   "uri" : "https://chapi_chef_server.mdef.example/users/user1/keys/key1",
   "expired": false
 }
