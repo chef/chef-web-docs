@@ -2,6 +2,12 @@
 title = "Chef and Terraform"
 draft = false
 
+[menu]
+  [menu.infra]
+    title = "Chef and Terraform"
+    identifier = "chef_infra/getting_started/terraform.md Chef and Terraform"
+    parent = "chef_infra/getting_started"
+    weight = 60
 +++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/terraform.md)
