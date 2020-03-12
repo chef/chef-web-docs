@@ -155,9 +155,9 @@ Knife Subcommands
 The Chef Infra Client includes two knife commands for managing SSL
 certificates:
 
--   Use [knife ssl check](/knife_ssl_check/) to troubleshoot SSL
+-   Use [knife ssl check](/workstation/knife_ssl_check/) to troubleshoot SSL
     certificate issues
--   Use [knife ssl fetch](/knife_ssl_fetch/) to pull down a
+-   Use [knife ssl fetch](/workstation/knife_ssl_fetch/) to pull down a
     certificate from the Chef Infra Server to the `/.chef/trusted_certs`
     directory on the workstation.
 

@@ -23,7 +23,7 @@ The public Chef Supermarket hosted by Chef Software is located at [Chef
 Supermarket](https://supermarket.chef.io/).
 
 To interact with the public Chef Supermarket, use [knife
-supermarket](/knife_supermarket/) commands.
+supermarket](/workstation/knife_supermarket/) commands.
 
 <img src="/images/public_supermarket.svg" class="align-center" width="700" alt="image" />
 

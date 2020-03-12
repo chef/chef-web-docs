@@ -6,13 +6,7 @@ robots = "noindex"
 
 aliases = "/deprecations_launchd_hash_property.html"
 
-
-  
-    
-    
-    
-    
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/deprecations_launchd_hash_property.md)
 
@@ -32,7 +26,7 @@ A deprecation warning is logged when the `hash` property is used. In
 Chef Client 13, this will raise an exception and your Chef run will
 fail.
 
-The [Cookstyle](cookstyle.html) cop
+The [Cookstyle](/workstation/cookstyle/) cop
 [ChefDeprecations/LaunchdDeprecatedHashProperty](https://github.com/chef/cookstyle/blob/master/docs/cops_chefdeprecations.md#chefdeprecationslaunchddeprecatedhashproperty)
 has been introduced to detect and autocorrect this deprecation.
 
