@@ -7,7 +7,7 @@ aliases = ["/server_services.html"]
 runbook_weight = 40
 
 [menu]
-  [menu.docs]
+  [menu.infra]
     title = "Services"
     identifier = "chef_infra/managing_chef_infra_server/server_services.md Services"
     parent = "chef_infra/managing_chef_infra_server"

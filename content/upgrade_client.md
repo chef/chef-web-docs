@@ -5,7 +5,7 @@ draft = false
 aliases = ["/upgrade_client.html"]
 
 [menu]
-  [menu.docs]
+  [menu.infra]
     title = "Upgrades"
     identifier = "chef_infra/setup/nodes/upgrade_client.md Upgrades"
     parent = "chef_infra/setup/nodes"

@@ -7,7 +7,7 @@ robots = "noindex"
 aliases = ["/integrate_delivery_bitbucket.html", "/release/automate/integrate_delivery_bitbucket.html"]
 
 [menu]
-  [menu.docs]
+  [menu.legacy]
     title = "Workflow w/Bitbucket"
     identifier = "legacy/workflow/managing_workflow/integrate_delivery_bitbucket.md Workflow w/Bitbucket"
     parent = "legacy/workflow/managing_workflow"

@@ -5,7 +5,7 @@ draft = false
 aliases = ["/supermarket_api.html"]
 
 [menu]
-  [menu.docs]
+  [menu.infra]
     title = "Supermarket API"
     identifier = "chef_infra/setup/supermarket/supermarket_api.md Supermarket API"
     parent = "chef_infra/setup/supermarket"

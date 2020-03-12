@@ -7,7 +7,7 @@ robots = "noindex"
 aliases = ["/runners.html", "/job_dispatch.html"]
 
 [menu]
-  [menu.docs]
+  [menu.legacy]
     title = "Runners"
     identifier = "legacy/workflow/managing_workflow/runners.md Runners"
     parent = "legacy/workflow/managing_workflow"

@@ -5,7 +5,7 @@ draft = false
 aliases = ["/definitions.html"]
 
 [menu]
-  [menu.docs]
+  [menu.infra]
     title = "Migrating from Definitions"
     identifier = "chef_infra/cookbook_reference/resources/definitions.md Migrating from Definitions"
     parent = "chef_infra/cookbook_reference/resources"

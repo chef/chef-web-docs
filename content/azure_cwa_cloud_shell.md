@@ -5,7 +5,7 @@ draft = false
 aliases = ["/azure_cwa_cloud_shell.html"]
 
 [menu]
-  [menu.docs]
+  [menu.infra]
     title = "Chef Workstation in Azure Cloud Shell"
     identifier = "chef_infra/getting_started/chef_on_azure_guide/azure_cwa_cloud_shell.md Chef Workstation in Azure Cloud Shell"
     parent = "chef_infra/getting_started/chef_on_azure_guide"

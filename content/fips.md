@@ -5,7 +5,7 @@ draft = false
 aliases = ["/fips.html"]
 
 [menu]
-  [menu.docs]
+  [menu.infra]
     title = "FIPS"
     identifier = "chef_infra/features/fips.md FIPS"
     parent = "chef_infra/features"

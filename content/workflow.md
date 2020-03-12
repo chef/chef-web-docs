@@ -7,7 +7,7 @@ robots = "noindex"
 aliases = ["/workflow.html", "/release/automate/workflow.html"]
 
 [menu]
-  [menu.docs]
+  [menu.legacy]
     title = "Workflow Overview"
     identifier = "legacy/workflow/workflow_basics/workflow.md Workflow Overview"
     parent = "legacy/workflow/workflow_basics"

@@ -5,7 +5,7 @@ draft = false
 aliases = ["/install_server_tiered.html"]
 
 [menu]
-  [menu.docs]
+  [menu.infra]
     title = "Tiered Installation"
     identifier = "chef_infra/setup/chef_infra_server/install_server_tiered.md Tiered Installation"
     parent = "chef_infra/setup/chef_infra_server"

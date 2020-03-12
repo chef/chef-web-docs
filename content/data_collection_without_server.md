@@ -7,7 +7,7 @@ robots = "noindex"
 aliases = ["/data_collection_without_server.html"]
 
 [menu]
-  [menu.docs]
+  [menu.legacy]
     title = "Data Collection without Chef Infra Server"
     identifier = "legacy/workflow/workflow_basics/data_collection_without_server.md Data Collection without Chef Infra Server"
     parent = "legacy/workflow/workflow_basics"

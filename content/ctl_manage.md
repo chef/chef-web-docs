@@ -7,7 +7,7 @@ robots = "noindex"
 aliases = ["/ctl_manage.html"]
 
 [menu]
-  [menu.docs]
+  [menu.infra]
     title = "chef-manage-ctl"
     identifier = "chef_infra/features/management_console/ctl_manage.md chef-manage-ctl"
     parent = "chef_infra/features/management_console"

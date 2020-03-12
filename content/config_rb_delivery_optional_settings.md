@@ -8,7 +8,7 @@ aliases = ["/config_rb_delivery_optional_settings.html", "/release/automate/conf
 
 
 [menu]
-  [menu.docs]
+  [menu.legacy]
     title = "delivery.rb Optional Settings"
     identifier = "legacy/workflow/reference/config_rb_delivery_optional_settings.md delivery.rb Optional Settings"
     parent = "legacy/workflow/reference"

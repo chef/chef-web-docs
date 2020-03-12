@@ -7,7 +7,7 @@ robots = "noindex"
 aliases = ["/config_json_delivery.html", "/release/automate/config_json_delivery.html"]
 
 [menu]
-  [menu.docs]
+  [menu.legacy]
     title = "Configure a Project"
     identifier = "legacy/workflow/workflow_basics/config_json_delivery.md Configure a Project"
     parent = "legacy/workflow/workflow_basics"

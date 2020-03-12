@@ -7,7 +7,7 @@ robots = "noindex"
 aliases = ["/server_configure_saml.html", "/release/automate/server_configure_saml.html"]
 
 [menu]
-  [menu.docs]
+  [menu.infra]
     title = "Configure SAML"
     identifier = "chef_infra/features/management_console/server_configure_saml.md Configure SAML"
     parent = "chef_infra/features/management_console"

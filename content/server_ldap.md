@@ -5,7 +5,7 @@ draft = false
 aliases = ["/server_ldap.html", "/install_server_post.html"]
 
 [menu]
-  [menu.docs]
+  [menu.infra]
     title = "Active Directory & LDAP"
     identifier = "chef_infra/managing_chef_infra_server/server_ldap.md Active Directory & LDAP"
     parent = "chef_infra/managing_chef_infra_server"

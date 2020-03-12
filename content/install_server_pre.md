@@ -5,7 +5,7 @@ draft = false
 aliases = ["/install_server_pre.html"]
 
 [menu]
-  [menu.docs]
+  [menu.infra]
     title = "Chef Infra Server Prerequisites"
     identifier = "chef_infra/setup/chef_infra_server/install_server_pre.md Chef Infra Server Prerequisites"
     parent = "chef_infra/setup/chef_infra_server"

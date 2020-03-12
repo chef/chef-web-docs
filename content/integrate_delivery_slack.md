@@ -7,7 +7,7 @@ robots = "noindex"
 aliases = ["/integrate_delivery_slack.html", "/release/automate/integrate_delivery_slack.html"]
 
 [menu]
-  [menu.docs]
+  [menu.legacy]
     title = "Workflow w/Slack"
     identifier = "legacy/workflow/managing_workflow/integrate_delivery_slack.md Workflow w/Slack"
     parent = "legacy/workflow/managing_workflow"

@@ -5,7 +5,7 @@ draft = false
 aliases = ["/ctl_chef_client.html"]
 
 [menu]
-  [menu.docs]
+  [menu.infra]
     title = "chef-client (executable)"
     identifier = "chef_infra/setup/nodes/ctl_chef_client.md chef-client (executable)"
     parent = "chef_infra/setup/nodes"

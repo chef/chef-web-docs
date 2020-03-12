@@ -7,7 +7,7 @@ robots = "noindex"
 aliases = ["/audit_cookbook.html", "/audit_supported_configurations.html"]
 
 [menu]
-  [menu.docs]
+  [menu.legacy]
     title = "Audit Cookbook"
     identifier = "legacy/workflow/workflow_basics/audit_cookbook.md Audit Cookbook"
     parent = "legacy/workflow/workflow_basics"

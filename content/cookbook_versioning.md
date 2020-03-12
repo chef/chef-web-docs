@@ -5,7 +5,7 @@ draft = false
 aliases = ["/cookbook_versioning.html", "/cookbook_versions.html"]
 
 [menu]
-  [menu.docs]
+  [menu.infra]
     title = "Cookbook Versioning"
     identifier = "chef_infra/cookbook_reference/cookbook_versioning.md Cookbook Versioning"
     parent = "chef_infra/cookbook_reference"

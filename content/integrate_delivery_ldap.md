@@ -7,7 +7,7 @@ robots = "noindex"
 aliases = ["/integrate_delivery_ldap.html", "/release/automate/integrate_delivery_ldap.html"]
 
 [menu]
-  [menu.docs]
+  [menu.legacy]
     title = "Authentication w/LDAP"
     identifier = "legacy/workflow/managing_workflow/integrate_delivery_ldap.md Authentication w/LDAP"
     parent = "legacy/workflow/managing_workflow"

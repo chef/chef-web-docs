@@ -7,7 +7,7 @@ aliases = ["/server_security.html"]
 runbook_weight = 50
 
 [menu]
-  [menu.docs]
+  [menu.infra]
     title = "Security"
     identifier = "chef_infra/managing_chef_infra_server/server_security.md Security"
     parent = "chef_infra/managing_chef_infra_server"

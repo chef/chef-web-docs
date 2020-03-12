@@ -7,7 +7,7 @@ robots = "noindex"
 aliases = ["/aws_opsworks_chef_automate.html"]
 
 [menu]
-  [menu.docs]
+  [menu.legacy]
     title = "AWS OpsWorks for Chef Automate"
     identifier = "legacy/workflow/aws_opsworks_chef_automate.md AWS OpsWorks for Chef Automate"
     parent = "legacy/workflow"

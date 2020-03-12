@@ -5,7 +5,7 @@ draft = false
 aliases = ["/dsl_custom_resource.html"]
 
 [menu]
-  [menu.docs]
+  [menu.infra]
     title = "Custom Resources DSL"
     identifier = "chef_infra/cookbook_reference/dsl_custom_resource.md Custom Resources DSL"
     parent = "chef_infra/cookbook_reference"

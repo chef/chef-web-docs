@@ -7,7 +7,7 @@ aliases = ["/server_tuning.html"]
 runbook_weight = 60
 
 [menu]
-  [menu.docs]
+  [menu.infra]
     title = "Tuning"
     identifier = "chef_infra/managing_chef_infra_server/server_tuning.md Tuning"
     parent = "chef_infra/managing_chef_infra_server"

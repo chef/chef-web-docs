@@ -5,7 +5,7 @@ draft = false
 aliases = ["/resource_common.html"]
 
 [menu]
-  [menu.docs]
+  [menu.infra]
     title = "Common Resource Functionality"
     identifier = "chef_infra/cookbook_reference/resources/resource_common.md Common Resource Functionality"
     parent = "chef_infra/cookbook_reference/resources"

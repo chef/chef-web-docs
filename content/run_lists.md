@@ -5,7 +5,7 @@ draft = false
 aliases = ["/run_lists.html"]
 
 [menu]
-  [menu.docs]
+  [menu.infra]
     title = "Run-lists"
     identifier = "chef_infra/concepts/policy/run_lists.md Run-lists"
     parent = "chef_infra/concepts/policy"

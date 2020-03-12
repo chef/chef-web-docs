@@ -5,7 +5,7 @@ draft = false
 aliases = ["/plugin_knife_custom.html"]
 
 [menu]
-  [menu.docs]
+  [menu.api]
     title = "Writing Custom Plugins"
     identifier = "extension_apis/knife_plugins/plugin_knife_custom.md Writing Custom Plugins"
     parent = "extension_apis/knife_plugins"

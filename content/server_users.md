@@ -5,7 +5,7 @@ draft = false
 aliases = ["/server_users.html"]
 
 [menu]
-  [menu.docs]
+  [menu.infra]
     title = "Users"
     identifier = "chef_infra/managing_chef_infra_server/server_users.md Users"
     parent = "chef_infra/managing_chef_infra_server"
