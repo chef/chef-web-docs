@@ -578,6 +578,11 @@ Settings
 
 This configuration file has the following settings:
 
+`api_port`
+
+:   NGINX forwards requests to this port on the push-jobs server as part of the
+    push-jobs communication channel. Default value: `10003`.
+
 `command_port`
 
 :   The port on which a Chef Push Jobs server listens for requests that
