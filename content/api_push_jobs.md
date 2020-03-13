@@ -49,7 +49,7 @@ where `RAW` is a boolean indicating whether you want the raw body
 returned, or JSON inflated. For Push Jobs API endpoints, we recommend
 `false`.
 
-See [knife exec](/knife_exec/) for detailed information on usage.
+See [knife exec](/workstation/knife_exec/) for detailed information on usage.
 
 {{< /note >}}
 

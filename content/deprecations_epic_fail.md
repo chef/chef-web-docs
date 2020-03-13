@@ -7,12 +7,7 @@ robots = "noindex"
 aliases = "/deprecations_epic_fail.html"
 
 
-  
-    
-    
-    
-    
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/deprecations_epic_fail.md)
 
@@ -24,7 +19,7 @@ and out of the 3500 cookbooks on the Supermarket only one uses
 `epic_fail`. In Chef Client 14 we will remove the `epic_fail` property
 entirely.
 
-The [Cookstyle](cookstyle.html) cop
+The [Cookstyle](/workstation/cookstyle/) cop
 [ChefDeprecations/EpicFail](https://github.com/chef/cookstyle/blob/master/docs/cops_chefdeprecations.md#chefdeprecationsepicfail)
 has been introduced to detect and autocorrect this deprecation.
 

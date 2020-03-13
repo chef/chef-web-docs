@@ -53,5 +53,5 @@ Related Content
 Next Steps
 ==========
 
--   [Install Chef Workstation](/install_workstation/)
+-   [Install Chef Workstation](/workstation/install_workstation/)
 -   [Bootstrap Nodes](/install_bootstrap/)
