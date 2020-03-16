@@ -686,7 +686,7 @@ are necessary for ssh access.
 
 `install-runner` calls the `knife bootstrap` subcommand to configure the
 runner, so custom configurations can be installed on the runner by using
-the [client.d copying feature](/knife_bootstrap/). All config files
+the [client.d copying feature](/workstation/knife_bootstrap/). All config files
 inside `~/.chef/client.d` directory on the Chef Automate server get
 copied into the `/etc/chef/client.d` directory on the runner.
 

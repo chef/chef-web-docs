@@ -31,7 +31,7 @@ The Chef Infra Server API has the following requirements:
     Infra Server API that is being used.
 -   A request must be signed using `Mixlib::Authentication`.
 -   A request must be well-formatted. The easiest way to ensure a
-    well-formatted request is to use the `Chef::REST` library.
+    well-formatted request is to use the `Chef::ServerAPI` library.
 
 Authentication Headers
 ======================
@@ -7045,11 +7045,11 @@ file:
 
 ``` ruby
 require 'chef'
-require 'chef/rest'
+require 'chef/server_api'
 
 Chef::Config.from_file(".chef/pivotal.rb")
-rest = Chef::REST.new(Chef::Config[:chef_server_url])
-orgs = rest.get_rest("/organizations")
+rest = Chef::ServerAPI.new(Chef::Config[:chef_server_url])
+orgs = rest.get("/organizations")
 
 puts "\n=== Listing of organizations"
 orgs.each do |org|
@@ -7057,7 +7057,7 @@ orgs.each do |org|
 end
 
 puts "\n=== Listing of Users"
-users = rest.get_rest("/users")
+users = rest.get("/users")
 users.each do |user|
   puts user
 end

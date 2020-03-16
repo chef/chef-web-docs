@@ -9,8 +9,8 @@ aliases = ["/glossary.html"]
     title = "Glossary"
     identifier = "chef_infra/getting_started/glossary.md Glossary"
     parent = "chef_infra/getting_started"
-    weight = 60
-+++    
+    weight = 70
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/glossary.md)
 

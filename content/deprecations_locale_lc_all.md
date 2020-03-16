@@ -6,13 +6,7 @@ robots = "noindex"
 
 aliases = "/deprecations_locale_lc_all.html"
 
-
-  
-    
-    
-    
-    
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/deprecations_locale_lc_all.md)
 
@@ -27,7 +21,7 @@ properties as needed. This deprecation warning was added in Chef Infra
 Client 15.0. Support for property `lc_all` will be removed for Chef
 Infra Client 16.0.
 
-The [Cookstyle](cookstyle.html) cop
+The [Cookstyle](/workstation/cookstyle/) cop
 [ChefDeprecations/LocaleDeprecatedLcAllProperty](https://github.com/chef/cookstyle/blob/master/docs/cops_chefdeprecations.md#chefdeprecationslocaledeprecatedlcallproperty)
 has been introduced to detect and autocorrect this deprecation.
 

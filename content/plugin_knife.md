@@ -10,13 +10,13 @@ aliases = ["/plugin_knife.html"]
     identifier = "extension_apis/knife_plugins/plugin_knife.md Cloud Plugins"
     parent = "extension_apis/knife_plugins"
     weight = 10
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/plugin_knife.md)
 
 {{% plugin_knife_summary %}}
 
--   The same [common options](/knife_options/) used by knife
+-   The same [common options](/workstation/knife_options/) used by knife
     subcommands can also be used by knife plug-ins
 -   A knife plugin can make authenticated API requests to the Chef
     server
