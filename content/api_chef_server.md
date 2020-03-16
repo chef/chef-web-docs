@@ -6691,7 +6691,7 @@ location information and dependencies:
 
 The `/updated_since` endpoint ensures that replica instances of the Chef
 Infra Server are able to synchronize with the primary Chef Infra Server.
-`/updated_since` was part of the Chef Replication product. Chef Replciation
+`/updated_since` was part of the Chef Replication product. Chef Replication
 is no longer available as a product and the `/updated_since` endpoint
 is also deprecated. The expectation for almost all chef users is that
 use of the endpoint will return an http status of 404.
