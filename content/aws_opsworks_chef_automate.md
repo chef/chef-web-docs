@@ -39,7 +39,7 @@ refer to it as needed.
 The following is applicable to any instances created with AWS OpsWorks
 for Chef Automate.
 
-Finding your AWS OpsWorks for Chef Automate instance [find-opsworks-instance]
+Finding your AWS OpsWorks for Chef Automate instance
 ====================================================
 
 All of the Chef Automate instances created via AWS OpsWorks for Chef

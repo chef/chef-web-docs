@@ -38,7 +38,7 @@ Use the Chef management console to create a key pair, download the
 private key, and then set permissions, to delete a key, or to reset a
 key.
 
-Manage Client Keys [manage-client-keys-1]
+Manage Client Keys
 ==================
 
 Client keys can be managed from the Chef management console.

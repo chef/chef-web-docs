@@ -36,7 +36,7 @@ executable can be run as a daemon.
 </tbody>
 </table>
 
-The Chef Infra Client Run [the-chef-client-run]
+The Chef Infra Client Run
 =========================
 
 {{% chef_client_run %}}

@@ -318,7 +318,7 @@ from the AWS Marketplace:
 </tbody>
 </table>
 
-Change the hostname [change-automate-hostname]
+Change the hostname
 -------------------
 
 To update the hostname, do the following:
