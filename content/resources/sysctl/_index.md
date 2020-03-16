@@ -5,7 +5,7 @@ draft: false
 aliases:
 - /resource_sysctl.html
 menu:
-  docs:
+  infra:
     title: sysctl
     identifier: chef_infra/cookbook_reference/resources/sysctl sysctl
     parent: chef_infra/cookbook_reference/resources

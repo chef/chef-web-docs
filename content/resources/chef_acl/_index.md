@@ -5,7 +5,7 @@ draft: false
 aliases:
 - /resource_chef_acl.html
 menu:
-  docs:
+  infra:
     title: chef_acl
     identifier: chef_infra/cookbook_reference/resources/chef_acl chef_acl
     parent: chef_infra/cookbook_reference/resources

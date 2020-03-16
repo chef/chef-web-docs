@@ -5,7 +5,7 @@ draft: false
 aliases:
 - /resource_chef_environment.html
 menu:
-  docs:
+  infra:
     title: chef_environment
     identifier: chef_infra/cookbook_reference/resources/chef_environment chef_environment
     parent: chef_infra/cookbook_reference/resources

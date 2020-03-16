@@ -5,7 +5,7 @@ draft: false
 aliases:
 - /resource_windows_ad_join.html
 menu:
-  docs:
+  infra:
     title: windows_ad_join
     identifier: chef_infra/cookbook_reference/resources/windows_ad_join windows_ad_join
     parent: chef_infra/cookbook_reference/resources

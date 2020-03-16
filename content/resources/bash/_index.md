@@ -5,7 +5,7 @@ draft: false
 aliases:
 - /resource_bash.html
 menu:
-  docs:
+  infra:
     title: bash
     identifier: chef_infra/cookbook_reference/resources/bash bash
     parent: chef_infra/cookbook_reference/resources

@@ -5,7 +5,7 @@ draft: false
 aliases:
 - /resource_cab_package.html
 menu:
-  docs:
+  infra:
     title: cab_package
     identifier: chef_infra/cookbook_reference/resources/cab_package cab_package
     parent: chef_infra/cookbook_reference/resources

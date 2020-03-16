@@ -5,7 +5,7 @@ draft: false
 aliases:
 - /resource_swap_file.html
 menu:
-  docs:
+  infra:
     title: swap_file
     identifier: chef_infra/cookbook_reference/resources/swap_file swap_file
     parent: chef_infra/cookbook_reference/resources

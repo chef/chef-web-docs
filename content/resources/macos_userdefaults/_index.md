@@ -5,7 +5,7 @@ draft: false
 aliases:
 - /resource_macos_userdefaults.html
 menu:
-  docs:
+  infra:
     title: macos_userdefaults
     identifier: chef_infra/cookbook_reference/resources/macos_userdefaults macos_userdefaults
     parent: chef_infra/cookbook_reference/resources

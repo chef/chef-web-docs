@@ -12,7 +12,7 @@ runbook_weight = 60
     identifier = "chef_infra/managing_chef_infra_server/server_tuning.md Tuning"
     parent = "chef_infra/managing_chef_infra_server"
     weight = 110
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/runbook/server_tuning.md)
 

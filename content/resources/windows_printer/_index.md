@@ -5,7 +5,7 @@ draft: false
 aliases:
 - /resource_windows_printer.html
 menu:
-  docs:
+  infra:
     title: windows_printer
     identifier: chef_infra/cookbook_reference/resources/windows_printer windows_printer
     parent: chef_infra/cookbook_reference/resources

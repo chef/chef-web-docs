@@ -5,7 +5,7 @@ draft: false
 aliases:
 - /resource_ohai.html
 menu:
-  docs:
+  infra:
     title: ohai
     identifier: chef_infra/cookbook_reference/resources/ohai ohai
     parent: chef_infra/cookbook_reference/resources

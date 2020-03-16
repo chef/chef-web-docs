@@ -5,7 +5,7 @@ draft: false
 aliases:
 - /resource_locale.html
 menu:
-  docs:
+  infra:
     title: locale
     identifier: chef_infra/cookbook_reference/resources/locale locale
     parent: chef_infra/cookbook_reference/resources

@@ -5,7 +5,7 @@ draft: false
 aliases:
 - /resource_homebrew_package.html
 menu:
-  docs:
+  infra:
     title: homebrew_package
     identifier: chef_infra/cookbook_reference/resources/homebrew_package homebrew_package
     parent: chef_infra/cookbook_reference/resources

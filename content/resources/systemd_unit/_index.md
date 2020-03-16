@@ -5,7 +5,7 @@ draft: false
 aliases:
 - /resource_systemd_unit.html
 menu:
-  docs:
+  infra:
     title: systemd_unit
     identifier: chef_infra/cookbook_reference/resources/systemd_unit systemd_unit
     parent: chef_infra/cookbook_reference/resources

@@ -5,7 +5,7 @@ draft: false
 aliases:
 - /resource_snap_package.html
 menu:
-  docs:
+  infra:
     title: snap_package
     identifier: chef_infra/cookbook_reference/resources/snap_package snap_package
     parent: chef_infra/cookbook_reference/resources
