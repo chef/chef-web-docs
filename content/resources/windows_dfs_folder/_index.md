@@ -5,7 +5,7 @@ draft: false
 aliases:
 - /resource_windows_dfs_folder.html
 menu:
-  docs:
+  infra:
     title: windows_dfs_folder
     identifier: chef_infra/cookbook_reference/resources/windows_dfs_folder windows_dfs_folder
     parent: chef_infra/cookbook_reference/resources

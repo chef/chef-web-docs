@@ -5,7 +5,7 @@ draft: false
 aliases:
 - /resource_openbsd_package.html
 menu:
-  docs:
+  infra:
     title: openbsd_package
     identifier: chef_infra/cookbook_reference/resources/openbsd_package openbsd_package
     parent: chef_infra/cookbook_reference/resources

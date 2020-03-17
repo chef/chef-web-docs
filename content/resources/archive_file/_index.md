@@ -5,7 +5,7 @@ draft: false
 aliases:
 - /resource_archive_file.html
 menu:
-  docs:
+  infra:
     title: archive_file
     identifier: chef_infra/cookbook_reference/resources/archive_file archive_file
     parent: chef_infra/cookbook_reference/resources

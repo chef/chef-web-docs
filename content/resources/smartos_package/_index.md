@@ -5,7 +5,7 @@ draft: false
 aliases:
 - /resource_smartos_package.html
 menu:
-  docs:
+  infra:
     title: smartos_package
     identifier: chef_infra/cookbook_reference/resources/smartos_package smartos_package
     parent: chef_infra/cookbook_reference/resources

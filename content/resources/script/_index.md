@@ -5,7 +5,7 @@ draft: false
 aliases:
 - /resource_script.html
 menu:
-  docs:
+  infra:
     title: script
     identifier: chef_infra/cookbook_reference/resources/script script
     parent: chef_infra/cookbook_reference/resources

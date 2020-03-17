@@ -5,7 +5,7 @@ draft: false
 aliases:
 - /resource_mount.html
 menu:
-  docs:
+  infra:
     title: mount
     identifier: chef_infra/cookbook_reference/resources/mount mount
     parent: chef_infra/cookbook_reference/resources

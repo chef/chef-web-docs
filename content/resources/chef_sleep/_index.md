@@ -5,7 +5,7 @@ draft: false
 aliases:
 - /resource_chef_sleep.html
 menu:
-  docs:
+  infra:
     title: chef_sleep
     identifier: chef_infra/cookbook_reference/resources/chef_sleep chef_sleep
     parent: chef_infra/cookbook_reference/resources

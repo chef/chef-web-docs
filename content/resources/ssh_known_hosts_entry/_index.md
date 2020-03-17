@@ -5,7 +5,7 @@ draft: false
 aliases:
 - /resource_ssh_known_hosts_entry.html
 menu:
-  docs:
+  infra:
     title: ssh_known_hosts_entry
     identifier: chef_infra/cookbook_reference/resources/ssh_known_hosts_entry ssh_known_hosts_entry
     parent: chef_infra/cookbook_reference/resources

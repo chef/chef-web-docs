@@ -5,7 +5,7 @@ draft: false
 aliases:
 - /resource_portage_package.html
 menu:
-  docs:
+  infra:
     title: portage_package
     identifier: chef_infra/cookbook_reference/resources/portage_package portage_package
     parent: chef_infra/cookbook_reference/resources

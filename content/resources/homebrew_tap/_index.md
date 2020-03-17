@@ -5,7 +5,7 @@ draft: false
 aliases:
 - /resource_homebrew_tap.html
 menu:
-  docs:
+  infra:
     title: homebrew_tap
     identifier: chef_infra/cookbook_reference/resources/homebrew_tap homebrew_tap
     parent: chef_infra/cookbook_reference/resources

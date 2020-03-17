@@ -5,7 +5,7 @@ draft: false
 aliases:
 - /resource_chef_gem.html
 menu:
-  docs:
+  infra:
     title: chef_gem
     identifier: chef_infra/cookbook_reference/resources/chef_gem chef_gem
     parent: chef_infra/cookbook_reference/resources

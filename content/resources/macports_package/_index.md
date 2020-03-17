@@ -5,7 +5,7 @@ draft: false
 aliases:
 - /resource_macports_package.html
 menu:
-  docs:
+  infra:
     title: macports_package
     identifier: chef_infra/cookbook_reference/resources/macports_package macports_package
     parent: chef_infra/cookbook_reference/resources

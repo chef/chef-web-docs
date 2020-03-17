@@ -5,7 +5,7 @@ draft: false
 aliases:
 - /resource_openssl_rsa_private_key.html
 menu:
-  docs:
+  infra:
     title: openssl_rsa_private_key
     identifier: chef_infra/cookbook_reference/resources/openssl_rsa_private_key openssl_rsa_private_key
     parent: chef_infra/cookbook_reference/resources

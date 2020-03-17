@@ -5,7 +5,7 @@ draft: false
 aliases:
 - /resource_ruby.html
 menu:
-  docs:
+  infra:
     title: ruby
     identifier: chef_infra/cookbook_reference/resources/ruby ruby
     parent: chef_infra/cookbook_reference/resources

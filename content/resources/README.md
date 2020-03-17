@@ -82,7 +82,7 @@ Example menu section:
 
 ```
 menu:
-  docs:
+  infra:
     title: resource_name
     identifier: chef_infra/cookbook_reference/resources/resource_name
       resource_name

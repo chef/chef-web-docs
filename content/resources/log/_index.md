@@ -5,7 +5,7 @@ draft: false
 aliases:
 - /resource_log.html
 menu:
-  docs:
+  infra:
     title: log
     identifier: chef_infra/cookbook_reference/resources/log log
     parent: chef_infra/cookbook_reference/resources

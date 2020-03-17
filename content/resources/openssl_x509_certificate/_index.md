@@ -5,7 +5,7 @@ draft: false
 aliases:
 - /resource_openssl_x509_certificate.html
 menu:
-  docs:
+  infra:
     title: openssl_x509_certificate
     identifier: chef_infra/cookbook_reference/resources/openssl_x509_certificate openssl_x509_certificate
     parent: chef_infra/cookbook_reference/resources

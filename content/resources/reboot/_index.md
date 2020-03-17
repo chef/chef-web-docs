@@ -5,7 +5,7 @@ draft: false
 aliases:
 - /resource_reboot.html
 menu:
-  docs:
+  infra:
     title: reboot
     identifier: chef_infra/cookbook_reference/resources/reboot reboot
     parent: chef_infra/cookbook_reference/resources

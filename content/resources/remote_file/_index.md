@@ -5,7 +5,7 @@ draft: false
 aliases:
 - /resource_remote_file.html
 menu:
-  docs:
+  infra:
     title: remote_file
     identifier: chef_infra/cookbook_reference/resources/remote_file remote_file
     parent: chef_infra/cookbook_reference/resources

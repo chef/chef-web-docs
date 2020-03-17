@@ -5,7 +5,7 @@ draft: false
 aliases:
 - /resource_dsc_script.html
 menu:
-  docs:
+  infra:
     title: dsc_script
     identifier: chef_infra/cookbook_reference/resources/dsc_script dsc_script
     parent: chef_infra/cookbook_reference/resources

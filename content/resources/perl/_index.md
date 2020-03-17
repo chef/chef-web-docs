@@ -5,7 +5,7 @@ draft: false
 aliases:
 - /resource_perl.html
 menu:
-  docs:
+  infra:
     title: perl
     identifier: chef_infra/cookbook_reference/resources/perl perl
     parent: chef_infra/cookbook_reference/resources

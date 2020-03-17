@@ -5,7 +5,7 @@ draft: false
 aliases:
 - /resource_windows_uac.html
 menu:
-  docs:
+  infra:
     title: windows_uac
     identifier: chef_infra/cookbook_reference/resources/windows_uac windows_uac
     parent: chef_infra/cookbook_reference/resources

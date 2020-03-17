@@ -5,7 +5,7 @@ draft: false
 aliases:
 - /resource_launchd.html
 menu:
-  docs:
+  infra:
     title: launchd
     identifier: chef_infra/cookbook_reference/resources/launchd launchd
     parent: chef_infra/cookbook_reference/resources
