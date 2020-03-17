@@ -5,7 +5,7 @@ draft: false
 aliases:
 - /resource_http_request.html
 menu:
-  docs:
+  infra:
     title: http_request
     identifier: chef_infra/cookbook_reference/resources/http_request http_request
     parent: chef_infra/cookbook_reference/resources

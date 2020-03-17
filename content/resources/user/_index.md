@@ -5,7 +5,7 @@ draft: false
 aliases:
 - /resource_user.html
 menu:
-  docs:
+  infra:
     title: user
     identifier: chef_infra/cookbook_reference/resources/user user
     parent: chef_infra/cookbook_reference/resources

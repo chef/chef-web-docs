@@ -5,7 +5,7 @@ draft: false
 aliases:
 - /resource_solaris_package.html
 menu:
-  docs:
+  infra:
     title: solaris_package
     identifier: chef_infra/cookbook_reference/resources/solaris_package solaris_package
     parent: chef_infra/cookbook_reference/resources

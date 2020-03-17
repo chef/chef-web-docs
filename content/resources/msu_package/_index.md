@@ -5,7 +5,7 @@ draft: false
 aliases:
 - /resource_msu_package.html
 menu:
-  docs:
+  infra:
     title: msu_package
     identifier: chef_infra/cookbook_reference/resources/msu_package msu_package
     parent: chef_infra/cookbook_reference/resources

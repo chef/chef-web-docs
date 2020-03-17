@@ -5,7 +5,7 @@ draft: false
 aliases:
 - /resource_route.html
 menu:
-  docs:
+  infra:
     title: route
     identifier: chef_infra/cookbook_reference/resources/route route
     parent: chef_infra/cookbook_reference/resources

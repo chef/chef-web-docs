@@ -5,7 +5,7 @@ draft: false
 aliases:
 - /resource_windows_certificate.html
 menu:
-  docs:
+  infra:
     title: windows_certificate
     identifier: chef_infra/cookbook_reference/resources/windows_certificate windows_certificate
     parent: chef_infra/cookbook_reference/resources

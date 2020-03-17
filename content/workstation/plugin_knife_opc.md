@@ -34,7 +34,7 @@ this (and all) knife subcommands and plugins.
 
 {{< /note >}}
 
-config.rb Configuration [plugin_knife_opc-knife-rb-configuration]
+config.rb Configuration
 =======================
 
 Unlike other knife subcommands the subcommands in the knife-opc plugin
@@ -67,7 +67,7 @@ chef-server-ctl for details](/ctl_chef_server/).
 
 {{< /note >}}
 
-opc user list [plugin_knife_opc-opc-user-list]
+opc user list
 =============
 
 Show a list of all users in your Chef Infra Server installation.
@@ -102,7 +102,7 @@ alice: https://chef-server.fqdn/users/alice
 pivotal: https://chef-server.fqdn/users/pivotal
 ```
 
-opc user show [plugin_knife_opc-opc-user-show]
+opc user show
 =============
 
 Shows the details of a user in your Chef Infra Server installation.
@@ -144,7 +144,7 @@ public_key:    -----BEGIN PUBLIC KEY-----
 username:     alice
 ```
 
-opc user create [plugin_knife_opc-opc-user-create]
+opc user create
 ===============
 
 Creates a new user in your Chef Infra Server installation. The user's
@@ -178,7 +178,7 @@ knife opc user create arno arno schmidt arno@chef.io password
 -----END RSA PRIVATE KEY-----
 ```
 
-opc user delete [plugin_knife_opc-opc-user-delete]
+opc user delete
 ===============
 
 Deletes the given OPC user.
@@ -216,7 +216,7 @@ Checking organization memberships...
 Deleting user arno.
 ```
 
-opc user edit [plugin_knife_opc-opc-user-edit]
+opc user edit
 =============
 
 Will open `$EDITOR` to edit a user. When finished editing, knife will
@@ -231,7 +231,7 @@ This argument has the following syntax:
 knife opc user edit USER_NAME
 ```
 
-Example [plugin_knife_opc-opc-user-password]
+Example
 -------
 
 ``` bash
@@ -293,7 +293,7 @@ knife opc user password arno newpassword
 Authentication info updated for arno.
 ```
 
-opc org list [plugin_knife_opc-opc-org-list]
+opc org list
 ============
 
 Show a list of all organizations in your Chef Infra Server installation.
@@ -328,7 +328,7 @@ knife opc org list -w -a
 acme: https://chef-server.fqdn/organizations/acme
 ```
 
-opc org show [plugin_knife_opc-opc-org-show]
+opc org show
 ============
 
 Shows the details of an organization in your Chef Infra Server
@@ -353,7 +353,7 @@ guid:      cc9f9d0d4f6e7e35272e327e22e7affc
 name:      acme
 ```
 
-opc org create [plugin_knife_opc-opc-org-create]
+opc org create
 ==============
 
 Creates a new Chef Infra Server organization. The private key for the
@@ -391,7 +391,7 @@ knife opc org create acme2 "The Other Acme" -a arno
 -----BEGIN RSA PRIVATE KEY-----
 ```
 
-opc org delete [plugin_knife_opc-opc-org-delete]
+opc org delete
 ==============
 
 Deletes the given Chef Infra Server organization.
@@ -416,7 +416,7 @@ guid:      2adec1140cf777a15d82d9099304da71
 name:      acme2
 ```
 
-opc org user add [plugin_knife_opc-opc-org-user-add]
+opc org user add
 ================
 
 Adds a user to an organization. Requires that the named organization and
@@ -438,7 +438,7 @@ Example
 knife opc org user add acme2 alice
 ```
 
-opc org user remove [plugin_knife_opc-opc-org-user-remove]
+opc org user remove
 ===================
 
 Removes a user from an organization. Requires that the named

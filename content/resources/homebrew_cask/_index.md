@@ -5,7 +5,7 @@ draft: false
 aliases:
 - /resource_homebrew_cask.html
 menu:
-  docs:
+  infra:
     title: homebrew_cask
     identifier: chef_infra/cookbook_reference/resources/homebrew_cask homebrew_cask
     parent: chef_infra/cookbook_reference/resources

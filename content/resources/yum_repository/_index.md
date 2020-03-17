@@ -5,7 +5,7 @@ draft: false
 aliases:
 - /resource_yum_repository.html
 menu:
-  docs:
+  infra:
     title: yum_repository
     identifier: chef_infra/cookbook_reference/resources/yum_repository yum_repository
     parent: chef_infra/cookbook_reference/resources

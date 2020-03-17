@@ -5,7 +5,7 @@ draft: false
 aliases:
 - /resource_service.html
 menu:
-  docs:
+  infra:
     title: service
     identifier: chef_infra/cookbook_reference/resources/service service
     parent: chef_infra/cookbook_reference/resources

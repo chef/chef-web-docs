@@ -6,7 +6,7 @@ aliases:
 - /resource_windows_env.html
 - /resource_env.html
 menu:
-  docs:
+  infra:
     title: windows_env
     identifier: chef_infra/cookbook_reference/resources/windows_env windows_env
     parent: chef_infra/cookbook_reference/resources

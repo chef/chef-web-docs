@@ -5,7 +5,7 @@ draft: false
 aliases:
 - /resource_powershell_script.html
 menu:
-  docs:
+  infra:
     title: powershell_script
     identifier: chef_infra/cookbook_reference/resources/powershell_script powershell_script
     parent: chef_infra/cookbook_reference/resources

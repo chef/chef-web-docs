@@ -5,7 +5,7 @@ draft: false
 aliases:
 - /resource_chef_data_bag_item.html
 menu:
-  docs:
+  infra:
     title: chef_data_bag_item
     identifier: chef_infra/cookbook_reference/resources/chef_data_bag_item chef_data_bag_item
     parent: chef_infra/cookbook_reference/resources

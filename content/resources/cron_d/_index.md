@@ -5,7 +5,7 @@ draft: false
 aliases:
 - /resource_cron_d.html
 menu:
-  docs:
+  infra:
     title: cron_d
     identifier: chef_infra/cookbook_reference/resources/cron_d cron_d
     parent: chef_infra/cookbook_reference/resources

@@ -5,7 +5,7 @@ draft: false
 aliases:
 - /resource_csh.html
 menu:
-  docs:
+  infra:
     title: csh
     identifier: chef_infra/cookbook_reference/resources/csh csh
     parent: chef_infra/cookbook_reference/resources

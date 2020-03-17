@@ -5,7 +5,7 @@ draft: false
 aliases:
 - /resource_apt_update.html
 menu:
-  docs:
+  infra:
     title: apt_update
     identifier: chef_infra/cookbook_reference/resources/apt_update apt_update
     parent: chef_infra/cookbook_reference/resources

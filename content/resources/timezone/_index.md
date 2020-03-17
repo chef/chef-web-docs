@@ -5,7 +5,7 @@ draft: false
 aliases:
 - /resource_timezone.html
 menu:
-  docs:
+  infra:
     title: timezone
     identifier: chef_infra/cookbook_reference/resources/timezone timezone
     parent: chef_infra/cookbook_reference/resources

@@ -5,7 +5,7 @@ draft: false
 aliases:
 - /resource_openssl_x509_crl.html
 menu:
-  docs:
+  infra:
     title: openssl_x509_crl
     identifier: chef_infra/cookbook_reference/resources/openssl_x509_crl openssl_x509_crl
     parent: chef_infra/cookbook_reference/resources

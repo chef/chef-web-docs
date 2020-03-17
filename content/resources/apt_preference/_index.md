@@ -5,7 +5,7 @@ draft: false
 aliases:
 - /resource_apt_preference.html
 menu:
-  docs:
+  infra:
     title: apt_preference
     identifier: chef_infra/cookbook_reference/resources/apt_preference apt_preference
     parent: chef_infra/cookbook_reference/resources

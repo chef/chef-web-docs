@@ -5,7 +5,7 @@ draft: false
 aliases:
 - /resource_template.html
 menu:
-  docs:
+  infra:
     title: template
     identifier: chef_infra/cookbook_reference/resources/template template
     parent: chef_infra/cookbook_reference/resources

@@ -5,7 +5,7 @@ draft: false
 aliases:
 - /resource_windows_task.html
 menu:
-  docs:
+  infra:
     title: windows_task
     identifier: chef_infra/cookbook_reference/resources/windows_task windows_task
     parent: chef_infra/cookbook_reference/resources

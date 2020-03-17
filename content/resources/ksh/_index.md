@@ -5,7 +5,7 @@ draft: false
 aliases:
 - /resource_ksh.html
 menu:
-  docs:
+  infra:
     title: ksh
     identifier: chef_infra/cookbook_reference/resources/ksh ksh
     parent: chef_infra/cookbook_reference/resources

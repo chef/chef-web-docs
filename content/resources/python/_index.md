@@ -5,7 +5,7 @@ draft: false
 aliases:
 - /resource_python.html
 menu:
-  docs:
+  infra:
     title: python
     identifier: chef_infra/cookbook_reference/resources/python python
     parent: chef_infra/cookbook_reference/resources

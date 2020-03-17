@@ -5,7 +5,7 @@ draft: false
 aliases:
 - /resource_windows_pagefile.html
 menu:
-  docs:
+  infra:
     title: windows_pagefile
     identifier: chef_infra/cookbook_reference/resources/windows_pagefile windows_pagefile
     parent: chef_infra/cookbook_reference/resources
