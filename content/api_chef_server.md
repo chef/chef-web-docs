@@ -6894,6 +6894,10 @@ location information and dependencies:
 
 The `/updated_since` endpoint ensures that replica instances of the Chef
 Infra Server are able to synchronize with the primary Chef Infra Server.
+`/updated_since` was part of the Chef Replication product. Chef Replication
+is no longer available as a product and the `/updated_since` endpoint
+is also deprecated. The expectation for almost all chef users is that
+use of the endpoint will return an http status of 404.
 The `/organizations/NAME/updated_since` endpoint has the following
 methods: `GET`.
 
@@ -6912,7 +6916,7 @@ JSON.
 **Request**
 
 ``` none
-GET /organizations/NAME/objects_since?seq=NUM
+GET /organizations/NAME/updated_since?seq=NUM
 ```
 
 where `NUM` is the largest integer previously returned as an identifier.
@@ -6975,7 +6979,7 @@ created, updated, or deleted since `NUM`, similar to:
 </tr>
 <tr class="even">
 <td><code>404</code></td>
-<td>Not found. The requested object does not exist.</td>
+<td>Not found. The requested object does not exist or the function is not implemented.</td>
 </tr>
 </tbody>
 </table>
