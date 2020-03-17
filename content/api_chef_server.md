@@ -5038,15 +5038,143 @@ The response is similar to:
 </tbody>
 </table>
 
+### POST
+
+The `POST` method is used to create a group on the Chef Infra
+Server for a single organization.
+
+**Request**
+
+``` none
+POST /organizations/NAME/groups
+```
+
+with a request body similar to:
+
+``` javascript
+{
+  "name": "group1",
+  "groupname": "group1",
+  "orgname": "test",
+  "actors": []
+  "clients": ["mynode"],
+  "groups": ["admins"],
+  "users": ["betina"]
+}
+```
+
+**Response**
+
+The response is similar to:
+
+``` javascript
+{
+  "uri": "https://chef.example/organizations/test/groups/group1",
+}
+```
+
+**Response Codes**
+
+<table>
+<colgroup>
+<col style="width: 40%" />
+<col style="width: 60%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Response Code</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>201</code></td>
+<td>OK. The group was created.</td>
+</tr>
+<tr class="even">
+<td><code>401</code></td>
+<td>Unauthorized. The user or client who made the request could not be authenticated. Verify the user/client name, and that the correct key was used to sign the request.</td>
+</tr>
+<tr class="odd">
+<td><code>403</code></td>
+<td>Forbidden. The user who made the request is not authorized to perform the action.</td>
+</tr>
+<tr class="even">
+<td><code>404</code></td>
+<td>Not found. The requested object does not exist.</td>
+</tr>
+<tr class="odd">
+<td><code>409</code></td>
+<td>Conflict. The requested group already exists.</td>
+</tr>
+</tbody>
+</table>
+
 /groups/GROUP_NAME
 -------------------
 
-The `/groups/GROUP_NAME` endpoint has the following methods: `GET` and
-`POST`.
+The `/groups/GROUP_NAME` endpoint has the following methods: `DELETE`, `GET` and
+`PUT`.
+
+### DELETE
+
+The `DELETE` method is used to remove a group from a single organization.
+
+This method has no parameters.
+
+**Request**
+
+``` none
+DELETE /organizations/NAME/groups/GROUP_NAME
+```
+
+without a request body.
+
+**Response**
+
+The response is similar to:
+
+``` javascript
+{
+}
+```
+
+**Response Codes**
+
+<table>
+<colgroup>
+<col style="width: 40%" />
+<col style="width: 60%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Response Code</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>200</code></td>
+<td>OK. The group was deleted.</td>
+</tr>
+<tr class="even">
+<td><code>401</code></td>
+<td>Unauthorized. The user or client who made the request could not be authenticated. Verify the user/client name, and that the correct key was used to sign the request.</td>
+</tr>
+<tr class="odd">
+<td><code>403</code></td>
+<td>Forbidden. The user who made the request is not authorized to perform the action.</td>
+</tr>
+<tr class="even">
+<td><code>404</code></td>
+<td>Not found. The requested object does not exist.</td>
+</tr>
+</tbody>
+</table>
 
 ### GET
 
-The `GET` method is used to get a list of users that belong to a group.
+The `GET` method is used to get lists of users and other groups that belong to a group.
 
 This method has no parameters.
 
@@ -5067,14 +5195,14 @@ The response is similar to:
     "grantmc"
   ],
   "users": [
-  "pivotal",
+    "pivotal",
     "grantmc"
   ],
   "clients": [
 
   ],
   "groups": [
-
+    "000000000000ad94b5ddde157c070f0c"
   ],
   "orgname": "inbetweens",
   "name": "admins",
@@ -5099,6 +5227,81 @@ The response is similar to:
 <tr class="odd">
 <td><code>200</code></td>
 <td>OK. The request was successful.</td>
+</tr>
+<tr class="even">
+<td><code>401</code></td>
+<td>Unauthorized. The user or client who made the request could not be authenticated. Verify the user/client name, and that the correct key was used to sign the request.</td>
+</tr>
+<tr class="odd">
+<td><code>403</code></td>
+<td>Forbidden. The user who made the request is not authorized to perform the action.</td>
+</tr>
+<tr class="even">
+<td><code>404</code></td>
+<td>Not found. The requested object does not exist.</td>
+</tr>
+</tbody>
+</table>
+
+### PUT
+
+The `PUT` method is used to update a group on a single organization.
+
+This method has no parameters.
+
+**Request**
+
+``` none
+PUT /organizations/NAME/groups/GROUP_NAME
+```
+
+with a request body similar to:
+
+``` javascript
+{
+  "name": "group1",
+  "groupname": "groupnew",
+  "orgname": "test",
+  "actors": []
+  "clients": ["mynode","addme"],
+  "groups": ["admins"],
+  "users": ["betina"]
+}
+```
+
+**Response**
+
+The response is similar to:
+
+``` javascript
+{
+  "name": "group1",
+  "groupname": "groupnew",
+  "orgname": "test",
+  "actors": []
+  "clients": ["mynode","addme"],
+  "groups": ["admins"],
+  "users": ["betina"]
+}
+```
+
+**Response Codes**
+
+<table>
+<colgroup>
+<col style="width: 40%" />
+<col style="width: 60%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Response Code</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>201</code></td>
+<td>OK. The group was updated.</td>
 </tr>
 <tr class="even">
 <td><code>401</code></td>

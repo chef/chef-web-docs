@@ -42,7 +42,7 @@ what FIPS is and how to enable it.
 
 {{% delivery_cli_fips %}}
 
-delivery api [delivery-cli-api]
+delivery api
 ============
 
 Use the `api` subcommand to make an HTTP request to the Chef Automate

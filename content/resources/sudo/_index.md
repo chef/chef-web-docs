@@ -5,7 +5,7 @@ draft: false
 aliases:
 - /resource_sudo.html
 menu:
-  docs:
+  infra:
     title: sudo
     identifier: chef_infra/cookbook_reference/resources/sudo sudo
     parent: chef_infra/cookbook_reference/resources

@@ -5,7 +5,7 @@ draft: false
 aliases:
 - /resource_dpkg_package.html
 menu:
-  docs:
+  infra:
     title: dpkg_package
     identifier: chef_infra/cookbook_reference/resources/dpkg_package dpkg_package
     parent: chef_infra/cookbook_reference/resources

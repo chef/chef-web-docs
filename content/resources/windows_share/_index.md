@@ -5,7 +5,7 @@ draft: false
 aliases:
 - /resource_windows_share.html
 menu:
-  docs:
+  infra:
     title: windows_share
     identifier: chef_infra/cookbook_reference/resources/windows_share windows_share
     parent: chef_infra/cookbook_reference/resources

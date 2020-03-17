@@ -5,7 +5,7 @@ draft: false
 aliases:
 - /resource_subversion.html
 menu:
-  docs:
+  infra:
     title: subversion
     identifier: chef_infra/cookbook_reference/resources/subversion subversion
     parent: chef_infra/cookbook_reference/resources

@@ -246,7 +246,7 @@ at an external location:
 </tbody>
 </table>
 
-AWS Settings [external_bookshelf_settings]
+AWS Settings
 ------------
 
 ### Required Settings

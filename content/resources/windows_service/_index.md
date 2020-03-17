@@ -5,7 +5,7 @@ draft: false
 aliases:
 - /resource_windows_service.html
 menu:
-  docs:
+  infra:
     title: windows_service
     identifier: chef_infra/cookbook_reference/resources/windows_service windows_service
     parent: chef_infra/cookbook_reference/resources

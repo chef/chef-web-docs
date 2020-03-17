@@ -5,7 +5,7 @@ draft: false
 aliases:
 - /resource_bff_package.html
 menu:
-  docs:
+  infra:
     title: bff_package
     identifier: chef_infra/cookbook_reference/resources/bff_package bff_package
     parent: chef_infra/cookbook_reference/resources

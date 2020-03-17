@@ -5,7 +5,7 @@ draft: false
 aliases:
 - /resource_chef_mirror.html
 menu:
-  docs:
+  infra:
     title: chef_mirror
     identifier: chef_infra/cookbook_reference/resources/chef_mirror chef_mirror
     parent: chef_infra/cookbook_reference/resources

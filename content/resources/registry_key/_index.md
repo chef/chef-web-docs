@@ -5,7 +5,7 @@ draft: false
 aliases:
 - /resource_registry_key.html
 menu:
-  docs:
+  infra:
     title: registry_key
     identifier: chef_infra/cookbook_reference/resources/registry_key registry_key
     parent: chef_infra/cookbook_reference/resources

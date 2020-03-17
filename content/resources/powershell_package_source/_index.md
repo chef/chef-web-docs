@@ -5,7 +5,7 @@ draft: false
 aliases:
 - /resource_powershell_package_source.html
 menu:
-  docs:
+  infra:
     title: powershell_package_source
     identifier: chef_infra/cookbook_reference/resources/powershell_package_source
       powershell_package_source

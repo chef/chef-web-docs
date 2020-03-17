@@ -5,7 +5,7 @@ draft: false
 aliases:
 - /resource_dnf_package.html
 menu:
-  docs:
+  infra:
     title: dnf_package
     identifier: chef_infra/cookbook_reference/resources/dnf_package dnf_package
     parent: chef_infra/cookbook_reference/resources

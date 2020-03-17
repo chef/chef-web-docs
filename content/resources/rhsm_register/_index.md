@@ -5,7 +5,7 @@ draft: false
 aliases:
 - /resource_rhsm_register.html
 menu:
-  docs:
+  infra:
     title: rhsm_register
     identifier: chef_infra/cookbook_reference/resources/rhsm_register rhsm_register
     parent: chef_infra/cookbook_reference/resources

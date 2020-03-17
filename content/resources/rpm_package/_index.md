@@ -5,7 +5,7 @@ draft: false
 aliases:
 - /resource_rpm_package.html
 menu:
-  docs:
+  infra:
     title: rpm_package
     identifier: chef_infra/cookbook_reference/resources/rpm_package rpm_package
     parent: chef_infra/cookbook_reference/resources

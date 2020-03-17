@@ -5,7 +5,7 @@ draft: false
 aliases:
 - /resource_dmg_package.html
 menu:
-  docs:
+  infra:
     title: dmg_package
     identifier: chef_infra/cookbook_reference/resources/dmg_package dmg_package
     parent: chef_infra/cookbook_reference/resources
