@@ -5,7 +5,7 @@ draft: false
 aliases:
 - /resource_windows_package.html
 menu:
-  docs:
+  infra:
     title: windows_package
     identifier: chef_infra/cookbook_reference/resources/windows_package windows_package
     parent: chef_infra/cookbook_reference/resources

@@ -5,7 +5,7 @@ draft: false
 aliases:
 - /resource_execute.html
 menu:
-  docs:
+  infra:
     title: execute
     identifier: chef_infra/cookbook_reference/resources/execute execute
     parent: chef_infra/cookbook_reference/resources

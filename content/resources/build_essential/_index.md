@@ -5,7 +5,7 @@ draft: false
 aliases:
 - /resource_build_essential.html
 menu:
-  docs:
+  infra:
     title: build_essential
     identifier: chef_infra/cookbook_reference/resources/build_essential build_essential
     parent: chef_infra/cookbook_reference/resources

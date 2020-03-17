@@ -5,7 +5,7 @@ draft: false
 aliases:
 - /resource_windows_workgroup.html
 menu:
-  docs:
+  infra:
     title: windows_workgroup
     identifier: chef_infra/cookbook_reference/resources/windows_workgroup windows_workgroup
     parent: chef_infra/cookbook_reference/resources

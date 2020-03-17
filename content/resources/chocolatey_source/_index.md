@@ -5,7 +5,7 @@ draft: false
 aliases:
 - /resource_chocolatey_source.html
 menu:
-  docs:
+  infra:
     title: chocolatey_source
     identifier: chef_infra/cookbook_reference/resources/chocolatey_source chocolatey_source
     parent: chef_infra/cookbook_reference/resources

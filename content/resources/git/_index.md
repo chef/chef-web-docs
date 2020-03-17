@@ -5,7 +5,7 @@ draft: false
 aliases:
 - /resource_git.html
 menu:
-  docs:
+  infra:
     title: git
     identifier: chef_infra/cookbook_reference/resources/git git
     parent: chef_infra/cookbook_reference/resources

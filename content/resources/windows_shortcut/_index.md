@@ -5,7 +5,7 @@ draft: false
 aliases:
 - /resource_windows_shortcut.html
 menu:
-  docs:
+  infra:
     title: windows_shortcut
     identifier: chef_infra/cookbook_reference/resources/windows_shortcut windows_shortcut
     parent: chef_infra/cookbook_reference/resources

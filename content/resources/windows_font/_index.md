@@ -5,7 +5,7 @@ draft: false
 aliases:
 - /resource_windows_font.html
 menu:
-  docs:
+  infra:
     title: windows_font
     identifier: chef_infra/cookbook_reference/resources/windows_font windows_font
     parent: chef_infra/cookbook_reference/resources

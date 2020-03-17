@@ -5,7 +5,7 @@ draft: false
 aliases:
 - /resource_windows_firewall_rule.html
 menu:
-  docs:
+  infra:
     title: windows_firewall_rule
     identifier: chef_infra/cookbook_reference/resources/windows_firewall_rule windows_firewall_rule
     parent: chef_infra/cookbook_reference/resources

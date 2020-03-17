@@ -5,7 +5,7 @@ draft: false
 aliases:
 - /resource_openssl_dhparam.html
 menu:
-  docs:
+  infra:
     title: openssl_dhparam
     identifier: chef_infra/cookbook_reference/resources/openssl_dhparam openssl_dhparam
     parent: chef_infra/cookbook_reference/resources

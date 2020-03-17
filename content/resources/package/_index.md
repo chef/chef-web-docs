@@ -5,7 +5,7 @@ draft: false
 aliases:
 - /resource_package.html
 menu:
-  docs:
+  infra:
     title: package
     identifier: chef_infra/cookbook_reference/resources/package package
     parent: chef_infra/cookbook_reference/resources

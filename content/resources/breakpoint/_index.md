@@ -5,7 +5,7 @@ draft: false
 aliases:
 - /resource_breakpoint.html
 menu:
-  docs:
+  infra:
     title: breakpoint
     identifier: chef_infra/cookbook_reference/resources/breakpoint breakpoint
     parent: chef_infra/cookbook_reference/resources
