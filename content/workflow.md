@@ -12,7 +12,7 @@ aliases = ["/workflow.html", "/release/automate/workflow.html"]
     identifier = "legacy/workflow/workflow_basics/workflow.md Workflow Overview"
     parent = "legacy/workflow/workflow_basics"
     weight = 10
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/workflow.md)
 

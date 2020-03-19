@@ -12,7 +12,7 @@ aliases = ["/integrate_chef_automate_saml.html"]
     identifier = "legacy/workflow/managing_workflow/integrate_chef_automate_saml.md Authentication w/SAML"
     parent = "legacy/workflow/managing_workflow"
     weight = 130
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/integrate_chef_automate_saml.md)
 

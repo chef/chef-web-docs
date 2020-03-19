@@ -6,13 +6,7 @@ robots = "noindex"
 
 aliases = "/deprecations_custom_resource_cleanups.html"
 
-
-  
-    
-    
-    
-    
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/deprecations_custom_resource_cleanups.md)
 
@@ -169,7 +163,7 @@ Don't use the dsl_name method
 ==============================
 
 The `dsl_name` method is deprecated and will be removed from Chef Client
-13. It has been replaced by `resource_name`.
+1.  It has been replaced by `resource_name`.
 
 Example
 -------

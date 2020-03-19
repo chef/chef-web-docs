@@ -10,7 +10,7 @@ aliases = ["/templates.html"]
     identifier = "chef_infra/cookbook_reference/templates.md Templates"
     parent = "chef_infra/cookbook_reference"
     weight = 90
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/templates.md)
 

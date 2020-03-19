@@ -12,7 +12,7 @@ aliases = ["/integrate_delivery_smtp.html", "/release/automate/integrate_deliver
     identifier = "legacy/workflow/managing_workflow/integrate_delivery_smtp.md Workflow w/Email (SMTP)"
     parent = "legacy/workflow/managing_workflow"
     weight = 80
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/integrate_delivery_smtp.md)
 

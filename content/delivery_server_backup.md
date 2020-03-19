@@ -12,7 +12,7 @@ aliases = ["/delivery_server_backup.html"]
     identifier = "legacy/workflow/managing_workflow/delivery_server_backup.md Delivery Server Backup"
     parent = "legacy/workflow/managing_workflow"
     weight = 150
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/delivery_server_backup.md)
 

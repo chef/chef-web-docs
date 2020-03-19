@@ -10,7 +10,7 @@ aliases = ["/install_server_ha.html"]
     identifier = "chef_infra/setup/chef_infra_server/install_server_ha.md Install High Availability"
     parent = "chef_infra/setup/chef_infra_server"
     weight = 60
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/install_server_ha.md)
 

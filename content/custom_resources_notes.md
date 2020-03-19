@@ -10,7 +10,7 @@ aliases = ["/custom_resources_notes.html"]
     identifier = "chef_infra/cookbook_reference/resources/custom_resources_notes.md Custom Resource Guide"
     parent = "chef_infra/cookbook_reference/resources"
     weight = 50
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/custom_resources_notes.md)
 

@@ -10,7 +10,7 @@ aliases = ["/recipes.html"]
     identifier = "chef_infra/cookbook_reference/recipes/recipes.md About Recipes"
     parent = "chef_infra/cookbook_reference/recipes"
     weight = 10
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/recipes.md)
 

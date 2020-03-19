@@ -13,7 +13,7 @@ aliases = ["/delivery_server_disaster_recovery.html"]
     identifier = "legacy/workflow/managing_workflow/delivery_server_disaster_recovery.md Delivery Disaster Recovery"
     parent = "legacy/workflow/managing_workflow"
     weight = 160
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/delivery_server_disaster_recovery.md)
 

@@ -12,7 +12,7 @@ aliases = ["/automate_azure.html"]
     identifier = "legacy/workflow/automate_azure.md Chef Automate for Microsoft Azure"
     parent = "legacy/workflow"
     weight = 60
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/automate_azure.md)
 

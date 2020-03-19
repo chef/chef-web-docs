@@ -10,7 +10,7 @@ aliases = ["/chef_license.html"]
     identifier = "overview/packages_&_platforms/licensing/chef_license.md About Licensing"
     parent = "overview/packages_&_platforms/licensing"
     weight = 10
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/chef_license.md)
 

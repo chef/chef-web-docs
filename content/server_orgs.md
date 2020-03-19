@@ -10,7 +10,7 @@ aliases = ["/server_orgs.html", "/auth_authorization.html"]
     identifier = "chef_infra/managing_chef_infra_server/server_orgs.md Organizations & Groups"
     parent = "chef_infra/managing_chef_infra_server"
     weight = 80
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/server_orgs.md)
 

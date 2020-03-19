@@ -10,7 +10,7 @@ aliases = ["/chef_deprecations_client.html"]
     identifier = "chef_infra/chef_deprecations_client.md Deprecations"
     parent = "chef_infra"
     weight = 90
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/chef_deprecations_client.md)
 

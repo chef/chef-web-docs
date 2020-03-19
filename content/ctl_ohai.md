@@ -10,7 +10,7 @@ aliases = ["/ctl_ohai.html"]
     identifier = "chef_infra/features/ohai/ctl_ohai.md ohai (executable)"
     parent = "chef_infra/features/ohai"
     weight = 20
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/ctl_ohai.md)
 

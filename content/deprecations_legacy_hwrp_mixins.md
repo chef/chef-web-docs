@@ -5,7 +5,6 @@ robots = "noindex"
 
 
 aliases = "/deprecations_legacy_hwrp_mixins.html"
-
 +++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/deprecations_legacy_hwrp_mixins.md)

@@ -10,7 +10,7 @@ aliases = ["/versions.html"]
     identifier = "overview/packages_&_platforms/versions.md Supported Versions"
     parent = "overview/packages_&_platforms"
     weight = 30
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/versions.md)
 

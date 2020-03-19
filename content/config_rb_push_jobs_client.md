@@ -10,7 +10,7 @@ aliases = ["/config_rb_push_jobs_client.html"]
     identifier = "chef_infra/managing_chef_infra_server/push_jobs/config_rb_push_jobs_client.md push-jobs-client.rb"
     parent = "chef_infra/managing_chef_infra_server/push_jobs"
     weight = 30
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/config_rb_push_jobs_client.md)
 

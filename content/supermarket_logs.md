@@ -10,7 +10,7 @@ aliases = ["/supermarket_logs.html"]
     identifier = "chef_infra/setup/supermarket/supermarket_logs.md Log Files"
     parent = "chef_infra/setup/supermarket"
     weight = 60
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/supermarket_logs.md)
 

@@ -12,7 +12,7 @@ runbook_weight = 20
     identifier = "chef_infra/managing_chef_infra_server/server_logs.md Log Files"
     parent = "chef_infra/managing_chef_infra_server"
     weight = 60
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/runbook/server_logs.md)
 

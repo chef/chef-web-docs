@@ -13,7 +13,7 @@ aliases = ["/config_rb_delivery_optional_settings.html", "/release/automate/conf
     identifier = "legacy/workflow/reference/config_rb_delivery_optional_settings.md delivery.rb Optional Settings"
     parent = "legacy/workflow/reference"
     weight = 30
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/config_rb_delivery_optional_settings.md)
 

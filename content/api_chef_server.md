@@ -10,7 +10,7 @@ aliases = ["/api_chef_server.html"]
     identifier = "chef_infra/managing_chef_infra_server/api_chef_server.md Chef Infra Server API"
     parent = "chef_infra/managing_chef_infra_server"
     weight = 200
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/api_chef_server.md)
 

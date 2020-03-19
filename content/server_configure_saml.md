@@ -12,7 +12,7 @@ aliases = ["/server_configure_saml.html", "/release/automate/server_configure_sa
     identifier = "chef_infra/features/management_console/server_configure_saml.md Configure SAML"
     parent = "chef_infra/features/management_console"
     weight = 20
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/server_configure_saml.md)
 
