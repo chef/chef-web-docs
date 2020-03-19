@@ -3248,14 +3248,14 @@ The response is similar to:
 
 ``` javascript
 {
-  "users": "https://localhost/data/users",
-  "applications": "https://localhost/data/applications"
+  "users": "https://chef.example/organizations/NAME/data/users",
+  "applications": "https://chef.example/organizations/NAME/data/applications"
 }
 ```
 
 shown as a list of key-value pairs, where (in the example above) `users`
 and `applications` are the names of data bags and
-`https://localhost/data/foo` is the path to the data bag.
+`https://chef.example/organizations/NAME/data/foo` is the path to the data bag.
 
 **Response Codes**
 
@@ -3316,9 +3316,7 @@ The response is similar to:
 
 ``` javascript
 {
-   "chef_type": "environment",
-   "data_bag": "data123",
-   "id": "12345"
+   "uri": "https://organizations/NAME/data/users",
 }
 ```
 
@@ -3353,10 +3351,6 @@ The response is similar to:
 <td>Forbidden. The user who made the request is not authorized to perform the action.</td>
 </tr>
 <tr class="odd">
-<td><code>409</code></td>
-<td>Unauthorized. The user who made the request is not authorized to perform the action.</td>
-</tr>
-<tr class="even">
 <td><code>413</code></td>
 <td>Request entity too large. A request may not be larger than 1000000 bytes.</td>
 </tr>
@@ -3367,7 +3361,7 @@ The response is similar to:
 ----------
 
 The `/data/NAME` endpoint is used to view and update data for a specific
-data bag. This endpoint has the following methods: `GET` and `POST`.
+data bag. This endpoint has the following methods: `DELETE`, `GET`, and `POST`.
 
 ### DELETE
 
@@ -3389,8 +3383,9 @@ The response is similar to:
 
 ``` javascript
 {
-  "id": "adam",
-  "real_name": "Adam Brent Jacob"
+  "name": "users",
+  "json_class": "Chef::DataBag",
+  "chef_type": "data_bag"
 }
 ```
 
@@ -3448,7 +3443,7 @@ The response is similar to:
 
 ``` javascript
 {
-   "adam": "https://localhost/data/users/adam"
+   "adam": "https://chef.example/organizations/NAME/data/users/adam"
 }
 ```
 
@@ -3527,8 +3522,8 @@ This method has no response body.
 </thead>
 <tbody>
 <tr class="odd">
-<td><code>200</code></td>
-<td>OK. The request was successful.</td>
+<td><code>201</code></td>
+<td>OK. The item was created.</td>
 </tr>
 <tr class="even">
 <td><code>400</code></td>
@@ -3579,59 +3574,12 @@ This method has no parameters.
 DELETE /organizations/NAME/data/NAME/ITEM
 ```
 
-This method has no request body.
-
-For example, run the following command:
-
-``` bash
-knife raw /data/dogs
-```
-
-which returns a list of data bags on the server:
-
-``` javascript
-{
-  "pomeranian": "https://api.opscode.com/organizations/ORG_NAME/data/dogs/pomeranian",
-  "shihtzu": "https://api.opscode.com/organizations/ORG_NAME/data/dogs/shihtzu",
-  "tibetanspaniel": "https://api.opscode.com/organizations/ORG_NAME/data/dogs/tibetanspaniel"
-}
-```
-
-Run the following command:
-
-``` bash
-knife raw -m DELETE /data/dogs/shihtzu
-```
-
 **Response**
 
 The response is similar to:
 
 ``` javascript
 {
-  "name": "data_bag_item_dogs_shihtzu",
-  "json_class": "Chef::DataBagItem",
-  "chef_type": "data_bag_item",
-  "data_bag": "dogs",
-  "raw_data": {
-    "description": "small annoying dog that doesn't bark all that often",
-    "id": "shihtzu"
-  }
-}
-```
-
-Run the following command:
-
-``` bash
-knife raw /data/dogs
-```
-
-to view an updated list:
-
-``` javascript
-{
-  "pomeranian": "https://api.opscode.com/organizations/ORG_NAME/data/dogs/pomeranian",
-  "tibetanspaniel": "https://api.opscode.com/organizations/ORG_NAME/data/dogs/tibetanspaniel"
 }
 ```
 
@@ -3755,8 +3703,6 @@ The response is similar to:
 
 ``` javascript
 {
-  "real_name": "Adam Brent Jacob",
-  "id": "adam"
 }
 ```
 
