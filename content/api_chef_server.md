@@ -1,4 +1,4 @@
-+++
+
 title = "Chef Infra Server API"
 draft = false
 
@@ -3349,6 +3349,10 @@ The response is similar to:
 <tr class="even">
 <td><code>403</code></td>
 <td>Forbidden. The user who made the request is not authorized to perform the action.</td>
+</tr>
+<tr class="even">
+<td><code>409</code></td>
+<td>Conflict. A databag with that name already exists.</td>
 </tr>
 <tr class="odd">
 <td><code>413</code></td>
