@@ -7,7 +7,7 @@ robots = "noindex"
 aliases = ["/runners.html", "/job_dispatch.html"]
 
 [menu]
-  [menu.docs]
+  [menu.legacy]
     title = "Runners"
     identifier = "legacy/workflow/managing_workflow/runners.md Runners"
     parent = "legacy/workflow/managing_workflow"
@@ -101,7 +101,7 @@ To delete a runner:
 delivery api delete runners/<runner_hostname>
 ```
 
-Upgrading the version of ChefDK on a Runner [upgrade_dk_runner]
+Upgrading the version of ChefDK on a Runner
 -------------------------------------------
 
 If you need to upgrade the version of ChefDK on your runner, you can do

@@ -5,7 +5,7 @@ draft = false
 aliases = ["/config_rb_solo.html"]
 
 [menu]
-  [menu.docs]
+  [menu.infra]
     title = "solo.rb"
     identifier = "chef_infra/features/chef_solo/config_rb_solo.md solo.rb"
     parent = "chef_infra/features/chef_solo"

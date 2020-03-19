@@ -5,7 +5,7 @@ draft = false
 aliases = ["/chef_license_accept.html"]
 
 [menu]
-  [menu.docs]
+  [menu.infra]
     title = "Accepting License"
     identifier = "overview/packages_&_platforms/licensing/chef_license_accept.md Accepting License"
     parent = "overview/packages_&_platforms/licensing"
@@ -323,7 +323,7 @@ the Chef Infra Client product.
 
 The `knife bootstrap` command in Chef Client 14 cannot accept the Chef
 Infra Client 15 EULA on remote nodes unless you use a [custom
-template](/knife_bootstrap/#custom-templates)
+template](/workstation/knife_bootstrap/#custom-templates)
 and add chef_license "accept" to the client.rb. This applies to
 workstations who have Chef Infra Client \<= 14.x, ChefDK \<= 3.x or Chef
 Workstation \<= 0.3 installed.

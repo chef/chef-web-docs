@@ -5,7 +5,7 @@ draft = false
 aliases = ["/upgrade_client.html"]
 
 [menu]
-  [menu.docs]
+  [menu.infra]
     title = "Upgrades"
     identifier = "chef_infra/setup/nodes/upgrade_client.md Upgrades"
     parent = "chef_infra/setup/nodes"
@@ -93,7 +93,7 @@ Verify nodes and clients that are in use:
 
 :   -   Are all nodes and/or clients in use? Clean up any extra nodes
         and clients. Use the `knife node list`, `knife client list`, and
-        [knife status](/knife_status/) commands to verify nodes and
+        [knife status](/workstation/knife_status/) commands to verify nodes and
         clients in use.
     -   Use the
         `` knife client delete` command to remove unused clients. Use the ``knife

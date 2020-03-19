@@ -7,7 +7,7 @@ robots = "noindex"
 aliases = ["/ctl_automate_server.html", "/release/automate/ctl_delivery_server.html"]
 
 [menu]
-  [menu.docs]
+  [menu.legacy]
     title = "Chef Automate CTL (Deprecated)"
     identifier = "legacy/workflow/ctl_automate_server.md Chef Automate CTL (Deprecated)"
     parent = "legacy/workflow"
@@ -686,7 +686,7 @@ are necessary for ssh access.
 
 `install-runner` calls the `knife bootstrap` subcommand to configure the
 runner, so custom configurations can be installed on the runner by using
-the [client.d copying feature](/knife_bootstrap/). All config files
+the [client.d copying feature](/workstation/knife_bootstrap/). All config files
 inside `~/.chef/client.d` directory on the Chef Automate server get
 copied into the `/etc/chef/client.d` directory on the runner.
 

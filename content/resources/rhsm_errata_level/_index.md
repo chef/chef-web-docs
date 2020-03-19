@@ -5,7 +5,7 @@ draft: false
 aliases:
 - /resource_rhsm_errata_level.html
 menu:
-  docs:
+  infra:
     title: rhsm_errata_level
     identifier: chef_infra/cookbook_reference/resources/rhsm_errata_level rhsm_errata_level
     parent: chef_infra/cookbook_reference/resources

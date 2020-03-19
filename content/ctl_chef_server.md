@@ -5,7 +5,7 @@ draft = false
 aliases = ["/ctl_chef_server.html"]
 
 [menu]
-  [menu.docs]
+  [menu.infra]
     title = "chef-server-ctl"
     identifier = "chef_infra/managing_chef_infra_server/ctl_chef_server.md chef-server-ctl"
     parent = "chef_infra/managing_chef_infra_server"
@@ -417,7 +417,7 @@ EvBQGdNG39XYSEeF4LneYQKPHEZDdqe7TZdVE8ooU/syxlZgADtvkqEoc4zp1Im3
 -----END PUBLIC KEY-----
 ```
 
-Secrets Management [ctl_chef_server_secrets_management]
+Secrets Management
 ==================
 
 Use the following commands to manage and rotate shared secrets and
@@ -425,7 +425,7 @@ service credentials. The secrets file used for storing these is located
 at `/etc/opscode/private-chef-secrets.json` on your Chef Infra Server.
 It should be owned and readable only by `root`.
 
-set-secret [ctl_chef_server_set_secret]
+set-secret
 ----------
 
 The `set-secret` subcommand allows storing shared secrets and service
@@ -474,7 +474,7 @@ This subcommand has the following options:
     restart them after changing the secret. Added in Chef Server
     12.16.2.
 
-remove-secret [ctl_chef_server_remove_secret]
+remove-secret
 -------------
 
 The `remove-secret` subcommand allows removing a stored shared secret
@@ -496,7 +496,7 @@ chef-server-ctl remove-secret GROUP NAME
 chef-server-ctl remove-secret ldap bind_password
 ```
 
-show-secret [ctl_chef_server_show_secret]
+show-secret
 -----------
 
 The `show-secret` subcommand allows viewing a stored shared secret and
@@ -512,7 +512,7 @@ This subcommand has the following syntax:
 chef-server-ctl show-secret GROUP NAME
 ```
 
-set-db-superuser-password [ctl_chef_server_set_db_superuser_password]
+set-db-superuser-password
 -------------------------
 
 The `set-db-superuser-password` subcommand allows storing the database
@@ -531,7 +531,7 @@ chef-server-ctl set-db-superuser-password
 Similar to `set-secret`, the superuser password can also be provided via
 the environment variable `DB_PASSWORD`.
 
-set-actions-password [ctl_chef_server_set_actions_password]
+set-actions-password
 --------------------
 
 The `set-actions-password` subcommand allows storing the RabbitMQ
@@ -550,7 +550,7 @@ chef-server-ctl set-actions-password
 Similar to `set-secret`, the action password can also be provided via
 the environment variable `ACTIONS_PASSWORD`.
 
-oc-id-show-app [ctl_chef_server_oc_id_show_app]
+oc-id-show-app
 --------------
 
 The `oc-id-show-app` subcommand allows for retrieving the client ID and

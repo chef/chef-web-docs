@@ -7,7 +7,7 @@ robots = "noindex"
 aliases = ["/elasticsearch_and_kibana_auth.html"]
 
 [menu]
-  [menu.docs]
+  [menu.legacy]
     title = "Elasticsearch and Kibana Auth"
     identifier = "legacy/workflow/managing_workflow/elasticsearch_and_kibana_auth.md Elasticsearch and Kibana Auth"
     parent = "legacy/workflow/managing_workflow"

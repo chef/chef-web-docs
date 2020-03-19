@@ -5,7 +5,7 @@ draft: false
 aliases:
 - /resource_windows_auto_run.html
 menu:
-  docs:
+  infra:
     title: windows_auto_run
     identifier: chef_infra/cookbook_reference/resources/windows_auto_run windows_auto_run
     parent: chef_infra/cookbook_reference/resources

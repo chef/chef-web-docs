@@ -7,7 +7,7 @@ robots = "noindex"
 aliases = ["/delivery_users_and_roles.html", "/release/automate/delivery_users_and_roles.html"]
 
 [menu]
-  [menu.docs]
+  [menu.legacy]
     title = "Users and Roles"
     identifier = "legacy/workflow/managing_workflow/delivery_users_and_roles.md Users and Roles"
     parent = "legacy/workflow/managing_workflow"

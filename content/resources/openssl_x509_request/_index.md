@@ -5,7 +5,7 @@ draft: false
 aliases:
 - /resource_openssl_x509_request.html
 menu:
-  docs:
+  infra:
     title: openssl_x509_request
     identifier: chef_infra/cookbook_reference/resources/openssl_x509_request openssl_x509_request
     parent: chef_infra/cookbook_reference/resources

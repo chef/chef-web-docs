@@ -6,7 +6,7 @@ aliases:
 - /resource_yum_package.html
 - /resource_yum.html
 menu:
-  docs:
+  infra:
     title: yum_package
     identifier: chef_infra/cookbook_reference/resources/yum_package yum_package
     parent: chef_infra/cookbook_reference/resources

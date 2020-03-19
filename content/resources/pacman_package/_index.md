@@ -5,7 +5,7 @@ draft: false
 aliases:
 - /resource_pacman_package.html
 menu:
-  docs:
+  infra:
     title: pacman_package
     identifier: chef_infra/cookbook_reference/resources/pacman_package pacman_package
     parent: chef_infra/cookbook_reference/resources

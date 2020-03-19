@@ -5,7 +5,7 @@ draft: false
 aliases:
 - /resource_windows_dns_zone.html
 menu:
-  docs:
+  infra:
     title: windows_dns_zone
     identifier: chef_infra/cookbook_reference/resources/windows_dns_zone windows_dns_zone
     parent: chef_infra/cookbook_reference/resources

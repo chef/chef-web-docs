@@ -5,7 +5,7 @@ draft: false
 aliases:
 - /resource_osx_profile.html
 menu:
-  docs:
+  infra:
     title: osx_profile
     identifier: chef_infra/cookbook_reference/resources/osx_profile osx_profile
     parent: chef_infra/cookbook_reference/resources

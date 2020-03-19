@@ -5,7 +5,7 @@ draft = false
 aliases = ["/install_windows.html"]
 
 [menu]
-  [menu.docs]
+  [menu.infra]
     title = "Chef Infra Client on Windows"
     identifier = "chef_infra/getting_started/chef_on_windows_guide/install_windows.md Chef Infra Client on Windows"
     parent = "chef_infra/getting_started/chef_on_windows_guide"

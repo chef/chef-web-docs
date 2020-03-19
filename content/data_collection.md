@@ -7,7 +7,7 @@ robots = "noindex"
 aliases = ["/data_collection.html", "/ingest_data_chef_automate.html", "/release/automate/ingest_data_chef_automate.html", "/release/automate/setup_visibility_chef_automate.html", "/setup_visibility_chef_automate.html"]
 
 [menu]
-  [menu.docs]
+  [menu.legacy]
     title = "Configure Data Collection"
     identifier = "legacy/workflow/workflow_basics/data_collection.md Configure Data Collection"
     parent = "legacy/workflow/workflow_basics"

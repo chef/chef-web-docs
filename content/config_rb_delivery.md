@@ -7,7 +7,7 @@ robots = "noindex"
 aliases = ["/config_rb_delivery.html", "/release/automate/config_rb_delivery.html"]
 
 [menu]
-  [menu.docs]
+  [menu.legacy]
     title = "delivery.rb"
     identifier = "legacy/workflow/reference/config_rb_delivery.md delivery.rb"
     parent = "legacy/workflow/reference"

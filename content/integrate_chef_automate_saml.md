@@ -7,7 +7,7 @@ robots = "noindex"
 aliases = ["/integrate_chef_automate_saml.html"]
 
 [menu]
-  [menu.docs]
+  [menu.legacy]
     title = "Authentication w/SAML"
     identifier = "legacy/workflow/managing_workflow/integrate_chef_automate_saml.md Authentication w/SAML"
     parent = "legacy/workflow/managing_workflow"

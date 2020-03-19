@@ -5,7 +5,7 @@ draft: false
 aliases:
 - /resource_directory.html
 menu:
-  docs:
+  infra:
     title: directory
     identifier: chef_infra/cookbook_reference/resources/directory directory
     parent: chef_infra/cookbook_reference/resources

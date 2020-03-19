@@ -5,7 +5,7 @@ draft = false
 aliases = ["/cookbook_repo.html"]
 
 [menu]
-  [menu.docs]
+  [menu.infra]
     title = "Cookbook Repo"
     identifier = "chef_infra/cookbook_reference/cookbook_repo.md Cookbook Repo"
     parent = "chef_infra/cookbook_reference"

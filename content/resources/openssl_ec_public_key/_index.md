@@ -5,7 +5,7 @@ draft: false
 aliases:
 - /resource_openssl_ec_public_key.html
 menu:
-  docs:
+  infra:
     title: openssl_ec_public_key
     identifier: chef_infra/cookbook_reference/resources/openssl_ec_public_key openssl_ec_public_key
     parent: chef_infra/cookbook_reference/resources

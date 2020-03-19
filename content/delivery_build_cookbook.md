@@ -7,7 +7,7 @@ robots = "noindex"
 aliases = ["/delivery_build_cookbook.html", "/release/automate/delivery_build_cookbook.html"]
 
 [menu]
-  [menu.docs]
+  [menu.legacy]
     title = "build-cookbook (cookbook)"
     identifier = "legacy/workflow/managing_workflow/delivery_build_cookbook.md build-cookbook (cookbook)"
     parent = "legacy/workflow/managing_workflow"

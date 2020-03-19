@@ -7,7 +7,7 @@ robots = "noindex"
 aliases = ["/publish_cookbooks_multiple_servers.html"]
 
 [menu]
-  [menu.docs]
+  [menu.legacy]
     title = "Publish to Multiple Chef Infra Servers"
     identifier = "legacy/workflow/managing_workflow/publish_cookbooks_multiple_servers.md Publish to Multiple Chef Infra Servers"
     parent = "legacy/workflow/managing_workflow"

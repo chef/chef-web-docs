@@ -5,7 +5,7 @@ draft: false
 aliases:
 - /resource_zypper_repository.html
 menu:
-  docs:
+  infra:
     title: zypper_repository
     identifier: chef_infra/cookbook_reference/resources/zypper_repository zypper_repository
     parent: chef_infra/cookbook_reference/resources

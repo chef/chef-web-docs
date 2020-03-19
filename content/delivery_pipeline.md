@@ -7,7 +7,7 @@ robots = "noindex"
 aliases = ["/delivery_pipeline.html", "/release/automate/delivery_pipeline.html"]
 
 [menu]
-  [menu.docs]
+  [menu.legacy]
     title = "Configure a Pipeline"
     identifier = "legacy/workflow/workflow_basics/delivery_pipeline.md Configure a Pipeline"
     parent = "legacy/workflow/workflow_basics"

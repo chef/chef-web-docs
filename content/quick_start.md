@@ -5,7 +5,7 @@ draft = false
 aliases = ["/quick_start.html"]
 
 [menu]
-  [menu.docs]
+  [menu.infra]
     title = "Quick Start"
     identifier = "chef_infra/getting_started/quick_start.md Quick Start"
     parent = "chef_infra/getting_started"

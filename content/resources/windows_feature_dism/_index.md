@@ -5,7 +5,7 @@ draft: false
 aliases:
 - /resource_windows_feature_dism.html
 menu:
-  docs:
+  infra:
     title: windows_feature_dism
     identifier: chef_infra/cookbook_reference/resources/windows_feature_dism windows_feature_dism
     parent: chef_infra/cookbook_reference/resources

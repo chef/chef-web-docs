@@ -5,7 +5,7 @@ draft = false
 aliases = ["/ohai.html"]
 
 [menu]
-  [menu.docs]
+  [menu.infra]
     title = "About Ohai"
     identifier = "chef_infra/features/ohai/ohai.md About Ohai"
     parent = "chef_infra/features/ohai"

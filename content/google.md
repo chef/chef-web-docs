@@ -5,7 +5,7 @@ draft = false
 aliases = ["/google.html"]
 
 [menu]
-  [menu.docs]
+  [menu.infra]
     title = "Google Cloud Platform"
     identifier = "chef_infra/setup/integrations/google.md Google Cloud Platform"
     parent = "chef_infra/setup/integrations"

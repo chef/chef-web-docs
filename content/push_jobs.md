@@ -5,7 +5,7 @@ draft = false
 aliases = ["/push_jobs.html"]
 
 [menu]
-  [menu.docs]
+  [menu.infra]
     title = "Push Jobs"
     identifier = "chef_infra/features/push_jobs.md Push Jobs"
     parent = "chef_infra/features"
@@ -150,7 +150,7 @@ knife push jobs
 
 {{< note >}}
 
-Review the list of [common options](/knife_options/) available to
+Review the list of [common options](/workstation/knife_options/) available to
 this (and all) knife subcommands and plugins.
 
 {{< /note >}}

@@ -5,7 +5,7 @@ draft = false
 aliases = ["/windows.html"]
 
 [menu]
-  [menu.docs]
+  [menu.infra]
     title = "Chef for Microsoft Windows"
     identifier = "chef_infra/getting_started/chef_on_windows_guide/windows.md Chef for Microsoft Windows"
     parent = "chef_infra/getting_started/chef_on_windows_guide"
@@ -27,7 +27,7 @@ Setting up Windows Workstations
 ===============================
 
 To set up your Windows workstation follow the steps on [Chef for
-Microsoft Windows](/install_workstation/)
+Microsoft Windows](/workstation/install_workstation/)
 
 Install Chef Infra Client on Windows Nodes
 ==========================================
@@ -112,7 +112,7 @@ Remotely administering nodes
 
 {{% knife_windows_summary %}}
 
-Se the [knife windows](/knife_windows/) for more information.
+Se the [knife windows](/workstation/knife_windows/) for more information.
 
 ### Ports
 

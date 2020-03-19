@@ -8,7 +8,7 @@ aliases = ["/delivery_server_disaster_recovery.html"]
 
 
 [menu]
-  [menu.docs]
+  [menu.legacy]
     title = "Delivery Disaster Recovery"
     identifier = "legacy/workflow/managing_workflow/delivery_server_disaster_recovery.md Delivery Disaster Recovery"
     parent = "legacy/workflow/managing_workflow"

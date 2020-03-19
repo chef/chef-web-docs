@@ -5,7 +5,7 @@ draft = false
 aliases = ["/ctl_chef_backend.html"]
 
 [menu]
-  [menu.docs]
+  [menu.infra]
     title = "chef-backend-ctl"
     identifier = "chef_infra/managing_chef_infra_server/ctl_chef_backend.md chef-backend-ctl"
     parent = "chef_infra/managing_chef_infra_server"

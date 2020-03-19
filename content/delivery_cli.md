@@ -7,7 +7,7 @@ robots = "noindex"
 aliases = ["/delivery_cli.html", "/ctl_delivery.html"]
 
 [menu]
-  [menu.docs]
+  [menu.legacy]
     title = "Delivery CLI"
     identifier = "legacy/workflow/reference/delivery_cli.md Delivery CLI"
     parent = "legacy/workflow/reference"
@@ -42,7 +42,7 @@ what FIPS is and how to enable it.
 
 {{% delivery_cli_fips %}}
 
-delivery api [delivery-cli-api]
+delivery api
 ============
 
 Use the `api` subcommand to make an HTTP request to the Chef Automate

@@ -7,7 +7,7 @@ robots = "noindex"
 aliases = ["/integrate_delivery_smtp.html", "/release/automate/integrate_delivery_smtp.html"]
 
 [menu]
-  [menu.docs]
+  [menu.legacy]
     title = "Workflow w/Email (SMTP)"
     identifier = "legacy/workflow/managing_workflow/integrate_delivery_smtp.md Workflow w/Email (SMTP)"
     parent = "legacy/workflow/managing_workflow"

@@ -5,7 +5,7 @@ draft = false
 aliases = ["/install_bootstrap.html"]
 
 [menu]
-  [menu.docs]
+  [menu.infra]
     title = "Install via Bootstrap"
     identifier = "chef_infra/setup/nodes/install_bootstrap.md Install via Bootstrap"
     parent = "chef_infra/setup/nodes"
@@ -57,9 +57,9 @@ describe how to bootstrap a node using knife.
     the `--distro` option to specify a non-default distribution. For
     more information about the options available to the
     `knife bootstrap` command for Ubuntu- and Linux-based platforms, see
-    [knife bootstrap](/knife_bootstrap/). For Microsoft Windows, the
+    [knife bootstrap](/workstation/knife_bootstrap/). For Microsoft Windows, the
     `knife windows` plugin is required, see [knife
-    windows](/knife_windows/).
+    windows](/workstation/knife_windows/).
 
     And then while the bootstrap operation is running, the command
     window will show something like the following:

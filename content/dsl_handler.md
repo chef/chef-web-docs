@@ -5,7 +5,7 @@ draft = false
 aliases = ["/dsl_handler.html"]
 
 [menu]
-  [menu.docs]
+  [menu.api]
     title = "Handler DSL"
     identifier = "extension_apis/handlers/dsl_handler.md Handler DSL"
     parent = "extension_apis/handlers"

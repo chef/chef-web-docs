@@ -5,7 +5,7 @@ draft: false
 aliases:
 - /resource_batch.html
 menu:
-  docs:
+  infra:
     title: batch
     identifier: chef_infra/cookbook_reference/resources/batch batch
     parent: chef_infra/cookbook_reference/resources

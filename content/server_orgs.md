@@ -5,7 +5,7 @@ draft = false
 aliases = ["/server_orgs.html", "/auth_authorization.html"]
 
 [menu]
-  [menu.docs]
+  [menu.infra]
     title = "Organizations & Groups"
     identifier = "chef_infra/managing_chef_infra_server/server_orgs.md Organizations & Groups"
     parent = "chef_infra/managing_chef_infra_server"

@@ -5,7 +5,7 @@ draft = false
 aliases = ["/chef_deprecations_client.html"]
 
 [menu]
-  [menu.docs]
+  [menu.infra]
     title = "Deprecations"
     identifier = "chef_infra/chef_deprecations_client.md Deprecations"
     parent = "chef_infra"

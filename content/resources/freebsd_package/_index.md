@@ -5,7 +5,7 @@ draft: false
 aliases:
 - /resource_freebsd_package.html
 menu:
-  docs:
+  infra:
     title: freebsd_package
     identifier: chef_infra/cookbook_reference/resources/freebsd_package freebsd_package
     parent: chef_infra/cookbook_reference/resources

@@ -5,7 +5,7 @@ draft = false
 aliases = ["/azure_cwa_cloud_shell.html"]
 
 [menu]
-  [menu.docs]
+  [menu.infra]
     title = "Chef Workstation in Azure Cloud Shell"
     identifier = "chef_infra/getting_started/chef_on_azure_guide/azure_cwa_cloud_shell.md Chef Workstation in Azure Cloud Shell"
     parent = "chef_infra/getting_started/chef_on_azure_guide"
@@ -23,10 +23,10 @@ machine.
 Chef Workstation on Azure Cloud Shell lets you use:
 
 -   [chef](/ctl_chef/)
--   [kitchen](/ctl_kitchen/)
+-   [kitchen](/workstation/ctl_kitchen/)
 -   [inspec](/docs/reference/cli/)
--   [knife](//knife.html)
--   [cookstyle](cookstyle.html)
+-   [knife](/workstation/knife/)
+-   [cookstyle](/workstation/cookstyle/)
 -   [chef-run](https://www.chef.sh/docs/chef-workstation/getting-started/)
 
 Combine the Chef Workstation command utilities with the other tools

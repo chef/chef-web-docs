@@ -7,7 +7,7 @@ robots = "noindex"
 aliases = ["/automate_azure.html"]
 
 [menu]
-  [menu.docs]
+  [menu.legacy]
     title = "Chef Automate for Microsoft Azure"
     identifier = "legacy/workflow/automate_azure.md Chef Automate for Microsoft Azure"
     parent = "legacy/workflow"
@@ -51,7 +51,7 @@ please contact <amp@chef.io> to obtain a new license.
     {{< /note >}}
 
 5.  While the Chef Automate VM is being provisioned, download and
-    install [Chef Workstation](/install_workstation/). Chef
+    install [Chef Workstation](/workstation/install_workstation/). Chef
     Workstation is a collection of tools ---Test Kitchen, ChefSpec,
     knife, delivery-cli, chef, chef-vault, Cookstyle, and more--- and
     libraries that are all packaged together to get your started with

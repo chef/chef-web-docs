@@ -5,7 +5,7 @@ draft: false
 aliases:
 - /resource_windows_feature_powershell.html
 menu:
-  docs:
+  infra:
     title: windows_feature_powershell
     identifier: chef_infra/cookbook_reference/resources/windows_feature_powershell
       windows_feature_powershell

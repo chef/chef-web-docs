@@ -5,7 +5,7 @@ draft: false
 aliases:
 - /resource_apt_repository.html
 menu:
-  docs:
+  infra:
     title: apt_repository
     identifier: chef_infra/cookbook_reference/resources/apt_repository apt_repository
     parent: chef_infra/cookbook_reference/resources

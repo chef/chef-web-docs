@@ -5,7 +5,7 @@ draft = false
 aliases = ["/aws_marketplace.html"]
 
 [menu]
-  [menu.docs]
+  [menu.infra]
     title = "AWS Marketplace"
     identifier = "chef_infra/setup/integrations/aws_marketplace.md AWS Marketplace"
     parent = "chef_infra/setup/integrations"
@@ -318,7 +318,7 @@ from the AWS Marketplace:
 </tbody>
 </table>
 
-Change the hostname [change-automate-hostname]
+Change the hostname
 -------------------
 
 To update the hostname, do the following:

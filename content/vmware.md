@@ -5,7 +5,7 @@ draft = false
 aliases = ["/vmware.html"]
 
 [menu]
-  [menu.docs]
+  [menu.infra]
     title = "VMware"
     identifier = "chef_infra/setup/integrations/vmware.md VMware"
     parent = "chef_infra/setup/integrations"

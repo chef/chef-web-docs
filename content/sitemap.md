@@ -81,7 +81,7 @@ Jobs](/release_notes_push_jobs/) |
 Concepts
 --------
 
-[Chef Workstation](/about_workstation/) |
+[Chef Workstation](/workstation/) |
 [chef-repo](/chef_repo/) | [Nodes](/nodes/) | [Chef Infra
 Client Overview](/chef_client_overview/) | [Chef Infra Server
 Overview](/server_overview/) | [Search](/chef_search/) |
@@ -116,13 +116,13 @@ Chef Extension](/azure_chef_cli/) | Knife Azure
 
 **Chef on Microsoft Windows**: [Chef for Microsoft
 Windows](/windows/) | [Chef Infra Client on Windows
-Nodes](/install_windows/) | [Knife Windows](/knife_windows/)
+Nodes](/install_windows/) | [Knife Windows](/workstation/knife_windows/)
 
 Setup
 -----
 
 [Proxies](/proxies/) | [Install Chef
-Workstation](/install_workstation/)
+Workstation](/workstation/install_workstation/)
 
 **Nodes**: [Install via Bootstrap](/install_bootstrap/) | [Install
 via Script](/install_omnibus/) | [chef-client
@@ -310,10 +310,10 @@ Versioning](/cookbook_versioning/) | [Ruby Guide](/ruby/)
 Chef Workstation
 ----------------
 
-[About Chef Workstation](/about_workstation/) | [Configure Chef
-Workstation](/workstation_setup/) | [Berkshelf](/berkshelf/) |
-[chef-apply (executable)](/ctl_chef_apply/) | [chef-shell
-(executable)](/chef_shell/)
+[About Chef Workstation](/workstation/) | [Configure Chef
+Workstation](/workstation/workstation_setup/) | [Berkshelf](/workstation/berkshelf/) |
+[chef-apply (executable)](/workstation/ctl_chef_apply/) | [chef-shell
+(executable)](/workstation/chef_shell/)
 
 **chef (executable)**: [chef env](/ctl_chef/#chef-env) | [chef
 exec](/ctl_chef/#chef-exec) | [chef gem](/ctl_chef/#chef-gem)
@@ -331,60 +331,60 @@ shell-init](/ctl_chef/#chef-shell-init)
 **Chef Solo**: [About Chef Solo](/chef_solo/) | [chef-solo
 (executable)](/ctl_chef_solo/) | [solo.rb](/config_rb_solo/) |
 [chef-zero (local mode)](/ctl_chef_client/#run-in-local-mode) |
-[chef-vault](/chef_vault/) | [ChefSpec](/chefspec/)
+[chef-vault](/workstation/chef_vault/) | [ChefSpec](/workstation/chefspec/)
 
-**Configuration**: [config.rb](/config_rb/) | [Optional config.rb
-Settings](/config_rb_optional_settings/) | [Multiple Config
+**Configuration**: [config.rb](/workstation/config_rb/) | [Optional config.rb
+Settings](/workstation/config_rb_optional_settings/) | [Multiple Config
 Files](/config_rb_client/#d-directories.html) |
-[cookstyle](/cookstyle/) | [Delivery CLI](/delivery_cli/) |
-[Foodcritic](/foodcritic/)
+[cookstyle](/workstation/cookstyle/) | [Delivery CLI](/delivery_cli/) |
+[Foodcritic](/workstation/foodcritic/)
 
-**Kitchen**: [About Kitchen](/kitchen/) | [kitchen
-(executable)](/ctl_kitchen/) |
-[kitchen.yml](/config_yml_kitchen/)
-[kitchen-vagrant](/plugin_kitchen_vagrant/)
+**Kitchen**: [About Kitchen](/workstation/kitchen/) | [kitchen
+(executable)](/workstation/ctl_kitchen/) |
+[kitchen.yml](/workstation/config_yml_kitchen/)
+[kitchen-vagrant](/workstation/plugin_kitchen_vagrant/)
 
-**Knife**: [About Knife](/knife/) | [Common
-Options](/knife_options/) | [Setting up Knife](/knife_setup/)
-| [knife bootstrap](/knife_bootstrap/) | [knife
-client](/knife_client/) | [knife configure](/knife_configure/)
-| [knife cookbook](/knife_cookbook/) | [knife cookbook
-site](/knife_cookbook_site/) | [knife data
-bag](/knife_data_bag/) | [knife delete](/knife_delete/) |
-[knife deps](/knife_deps/) | [knife diff](/knife_diff/) |
-[knife download](/knife_download/) | [knife edit](/knife_edit/)
-| [knife environment](/knife_environment/) | [knife
-exec](/knife_exec/) | [knife list](/knife_list/) | [knife
-node](/knife_node/) | [knife raw](/knife_raw/) | [knife recipe
-list](/knife_recipe_list/) | [knife role](/knife_role/) |
-[knife search](/knife_search/) | [knife serve](/knife_serve/)
-| [knife show](/knife_show/) | [knife ssh](/knife_ssh/) |
-[knife ssl check](/knife_ssl_check/) | [knife ssl
-fetch](/knife_ssl_fetch/) | [knife status](/knife_status/) |
-[knife supermarket](/knife_supermarket/) | [knife
-tag](/knife_tag/) | [knife upload](/knife_upload/) | [knife
-user](/knife_user/) | [knife xargs](/knife_xargs/) | [knife
-azure](/knife_azure/) | [knife_azurerm](knife_azurerm.html) |
-[knife windows](knife_windows.html)
+**Knife**: [About Knife](/workstation/knife/) | [Common
+Options](/workstation/knife_options/) | [Setting up Knife](/workstation/knife_setup/)
+| [knife bootstrap](/workstation/knife_bootstrap/) | [knife
+client](/workstation/knife_client/) | [knife configure](/workstation/knife_configure/)
+| [knife cookbook](/workstation/knife_cookbook/) | [knife cookbook
+site](/workstation/knife_cookbook_site/) | [knife data
+bag](/workstation/knife_data_bag/) | [knife delete](/workstation/knife_delete/) |
+[knife deps](/workstation/knife_deps/) | [knife diff](/workstation/knife_diff/) |
+[knife download](/workstation/knife_download/) | [knife edit](/workstation/knife_edit/)
+| [knife environment](/workstation/knife_environment/) | [knife
+exec](/workstation/knife_exec/) | [knife list](/workstation/knife_list/) | [knife
+node](/workstation/knife_node/) | [knife raw](/workstation/knife_raw/) | [knife recipe
+list](/workstation/knife_recipe_list/) | [knife role](/workstation/knife_role/) |
+[knife search](/workstation/knife_search/) | [knife serve](/workstation/knife_serve/)
+| [knife show](/workstation/knife_show/) | [knife ssh](/workstation/knife_ssh/) |
+[knife ssl check](/workstation/knife_ssl_check/) | [knife ssl
+fetch](/workstation/knife_ssl_fetch/) | [knife status](/workstation/knife_status/) |
+[knife supermarket](/workstation/knife_supermarket/) | [knife
+tag](/workstation/knife_tag/) | [knife upload](/workstation/knife_upload/) | [knife
+user](/workstation/knife_user/) | [knife xargs](/workstation/knife_xargs/) | [knife
+azure](/workstation/knife_azure/) | [knife_azurerm](/workstation/knife_azurerm/) |
+[knife windows](/workstation/knife_windows/)
 
-**knife opc**: [About knife opc](/plugin_knife_opc/) | [config.rb
-Configuration](/plugin_knife_opc/#plugin-knife-opc-knife-rb-configuration)
+**knife opc**: [About knife opc](/workstation/plugin_knife_opc/) | [config.rb
+Configuration](/workstation/plugin_knife_opc/#plugin-knife-opc-knife-rb-configuration)
 | [opc user
-list](/plugin_knife_opc/#plugin-knife-opc-opc-user-list) | [opc
-user show](/plugin_knife_opc/#plugin-knife-opc-opc-user-show) |
+list](/workstation/plugin_knife_opc/#plugin-knife-opc-opc-user-list) | [opc
+user show](/workstation/plugin_knife_opc/#plugin-knife-opc-opc-user-show) |
 [opc user
-create](/plugin_knife_opc/#plugin-knife-opc-opc-user-create) | [opc
-user delete](/plugin_knife_opc/#plugin-knife-opc-opc-user-delete) |
-[opc user delete](/plugin_knife_opc/#plugin-knife-opc-opc-user-edit)
-| [opc org list](/plugin_knife_opc/#plugin-knife-opc-opc-org-list)
-| [opc org show](/plugin_knife_opc/#plugin-knife-opc-opc-org-show)
+create](/workstation/plugin_knife_opc/#plugin-knife-opc-opc-user-create) | [opc
+user delete](/workstation/plugin_knife_opc/#plugin-knife-opc-opc-user-delete) |
+[opc user delete](/workstation/plugin_knife_opc/#plugin-knife-opc-opc-user-edit)
+| [opc org list](/workstation/plugin_knife_opc/#plugin-knife-opc-opc-org-list)
+| [opc org show](/workstation/plugin_knife_opc/#plugin-knife-opc-opc-org-show)
 | [opc org
-create](/plugin_knife_opc/#plugin-knife-opc-opc-org-create) | [opc
-org delete](/plugin_knife_opc/#plugin-knife-opc-opc-org-delete) |
+create](/workstation/plugin_knife_opc/#plugin-knife-opc-opc-org-create) | [opc
+org delete](/workstation/plugin_knife_opc/#plugin-knife-opc-opc-org-delete) |
 [opc org user
-add](/plugin_knife_opc/#plugin-knife-opc-opc-org-user-add) | [opc
+add](/workstation/plugin_knife_opc/#plugin-knife-opc-opc-org-user-add) | [opc
 org user
-remove](/plugin_knife_opc/#plugin-knife-opc-opc-org-user-remove)
+remove](/workstation/plugin_knife_opc/#plugin-knife-opc-opc-org-user-remove)
 
 **Ohai**: [About Ohai](/ohai/) | [ohai
 (executable)](/ctl_ohai/)
@@ -392,7 +392,7 @@ remove](/plugin_knife_opc/#plugin-knife-opc-opc-org-user-remove)
 **Policyfile**: [About Policyfile](/policyfile/) |
 [Policyfile.rb](/config_rb_policyfile/)
 
-[push-jobs-client (executable)](/ctl_push_jobs_client/)
+[push-jobs-client (executable)](/workstation/ctl_push_jobs_client/)
 
 **Managing Chef Infra Server**: [Runbook (Single Page)](/runbook/)
 | [Backend Cluster Failure Recovery](/backend_failure_recovery/) |
@@ -414,7 +414,7 @@ API](/api_chef_server/)
 **FIPS** [FIPS Overview](/fips/)
 
 **Push Jobs**: [knife push jobs](/plugin_knife_push_jobs/) |
-[push-jobs-client](/ctl_push_jobs_client/) |
+[push-jobs-client](/workstation/ctl_push_jobs_client/) |
 [push-jobs-client.rb](/config_rb_push_jobs_client/) |
 [push-jobs-server.rb](/config_rb_push_jobs_server/) | [Push Jobs
 API](/api_push_jobs/) | [Server Sent
@@ -424,7 +424,7 @@ Events](/server_sent_events/)
 Restore](/supermarket_backup_restore/) |
 [Monitoring](/supermarket_monitor/) |
 [supermarket.rb](/config_rb_supermarket/) | [knife
-supermarket](/knife_supermarket/) |
+supermarket](/workstation/knife_supermarket/) |
 [supermarket-ctl](/ctl_supermarket/) | [Supermarket
 API](/supermarket_api/)
 

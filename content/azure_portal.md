@@ -5,7 +5,7 @@ draft = false
 aliases = ["/azure_portal.html"]
 
 [menu]
-  [menu.docs]
+  [menu.infra]
     title = "Microsoft Azure"
     identifier = "chef_infra/getting_started/chef_on_azure_guide/azure_portal.md Microsoft Azure"
     parent = "chef_infra/getting_started/chef_on_azure_guide"

@@ -5,7 +5,7 @@ draft: false
 aliases:
 - /resource_ifconfig.html
 menu:
-  docs:
+  infra:
     title: ifconfig
     identifier: chef_infra/cookbook_reference/resources/ifconfig ifconfig
     parent: chef_infra/cookbook_reference/resources

@@ -5,7 +5,7 @@ draft = false
 aliases = ["/api_push_jobs.html"]
 
 [menu]
-  [menu.docs]
+  [menu.infra]
     title = "Push Jobs API"
     identifier = "chef_infra/managing_chef_infra_server/push_jobs/api_push_jobs.md Push Jobs API"
     parent = "chef_infra/managing_chef_infra_server/push_jobs"
@@ -49,7 +49,7 @@ where `RAW` is a boolean indicating whether you want the raw body
 returned, or JSON inflated. For Push Jobs API endpoints, we recommend
 `false`.
 
-See [knife exec](/knife_exec/) for detailed information on usage.
+See [knife exec](/workstation/knife_exec/) for detailed information on usage.
 
 {{< /note >}}
 

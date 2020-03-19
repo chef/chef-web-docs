@@ -5,7 +5,7 @@ draft = false
 aliases = ["/install_server_ha.html"]
 
 [menu]
-  [menu.docs]
+  [menu.infra]
     title = "Install High Availability"
     identifier = "chef_infra/setup/chef_infra_server/install_server_ha.md Install High Availability"
     parent = "chef_infra/setup/chef_infra_server"
@@ -159,7 +159,7 @@ Infra Server to be part of the frontend group, verify:
     Protocol (NTP). Drift of less than 1.5 seconds must exist across all
     nodes in the backend HA cluster.
 
-Step 1: Create Cluster [step_1_create_cluster]
+Step 1: Create Cluster
 ----------------------
 
 The first node must be bootstrapped to initialize the cluster. The node

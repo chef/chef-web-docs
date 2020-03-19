@@ -5,7 +5,7 @@ draft: false
 aliases:
 - /resource_kernel_module.html
 menu:
-  docs:
+  infra:
     title: kernel_module
     identifier: chef_infra/cookbook_reference/resources/kernel_module kernel_module
     parent: chef_infra/cookbook_reference/resources

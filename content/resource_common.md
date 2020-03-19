@@ -5,12 +5,12 @@ draft = false
 aliases = ["/resource_common.html"]
 
 [menu]
-  [menu.docs]
+  [menu.infra]
     title = "Common Resource Functionality"
     identifier = "chef_infra/cookbook_reference/resources/resource_common.md Common Resource Functionality"
     parent = "chef_infra/cookbook_reference/resources"
     weight = 20
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/resource_common.md)
 
@@ -18,7 +18,7 @@ All resources (including custom resources) share a set of common
 actions, properties, conditional executions, notifications, and relative
 path options.
 
-Actions [resource_common_actions]
+Actions
 =======
 
 {{% resources_common_actions %}}
@@ -32,7 +32,7 @@ The following examples show how to use common actions in a recipe.
 
 {{% resource_service_use_nothing_action %}}
 
-Properties [resource_common_properties]
+Properties
 ==========
 
 {{% resources_common_properties %}}
@@ -50,7 +50,7 @@ The following examples show how to use common properties in a recipe.
 
 {{% resource_service_use_supports_attribute %}}
 
-Guards [resource_common_guards]
+Guards
 ======
 
 {{% resources_common_guards %}}
@@ -211,7 +211,7 @@ execute 'Register ASP.NET v4 (x64)' do
 end
 ```
 
-Guard Interpreters [resource_common_guard_interpreters]
+Guard Interpreters
 ==================
 
 {{% resources_common_guard_interpreter %}}
@@ -231,12 +231,12 @@ Examples
 
 {{% resources_common_guard_interpreter_example_default %}}
 
-Lazy Evaluation [resource_common_lazy_eval]
+Lazy Evaluation
 ===============
 
 {{% resources_common_lazy_evaluation %}}
 
-Notifications [resource_common_notifications]
+Notifications
 =============
 
 {{% resources_common_notification %}}
@@ -327,7 +327,7 @@ a recipe.
 
 {{% resource_service_subscribes_reload_using_template %}}
 
-Relative Paths [resource_common_relative_paths]
+Relative Paths
 ==============
 
 {{% resources_common_relative_paths %}}
@@ -337,7 +337,7 @@ Examples
 
 {{% resource_template_use_relative_paths %}}
 
-Run in Compile Phase [resource_common_run_in_compile_phase]
+Run in Compile Phase
 ====================
 
 {{% resources_common_compile %}}
@@ -347,7 +347,7 @@ run_action
 
 {{% resources_common_compile_begin %}}
 
-Windows File Security [resource_common_windows_file_security]
+Windows File Security
 =====================
 
 {{% resources_common_windows_security %}}

@@ -5,7 +5,7 @@ draft = false
 aliases = ["/chef_client_overview.html", "/chef_client.html"]
 
 [menu]
-  [menu.docs]
+  [menu.infra]
     title = "Chef Infra Client Overview"
     identifier = "chef_infra/concepts/chef_client_overview.md Chef Infra Client Overview"
     parent = "chef_infra/concepts"
@@ -36,7 +36,7 @@ executable can be run as a daemon.
 </tbody>
 </table>
 
-The Chef Infra Client Run [the-chef-client-run]
+The Chef Infra Client Run
 =========================
 
 {{% chef_client_run %}}
@@ -53,5 +53,5 @@ Related Content
 Next Steps
 ==========
 
--   [Install Chef Workstation](/install_workstation/)
+-   [Install Chef Workstation](/workstation/install_workstation/)
 -   [Bootstrap Nodes](/install_bootstrap/)

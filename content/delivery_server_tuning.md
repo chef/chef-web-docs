@@ -7,7 +7,7 @@ robots = "noindex"
 aliases = ["/delivery_server_tuning.html", "/release/automate/delivery_server_tuning.html"]
 
 [menu]
-  [menu.docs]
+  [menu.legacy]
     title = "Tuning"
     identifier = "legacy/workflow/managing_workflow/delivery_server_tuning.md Tuning"
     parent = "legacy/workflow/managing_workflow"

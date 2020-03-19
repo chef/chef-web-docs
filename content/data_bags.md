@@ -5,7 +5,7 @@ draft = false
 aliases = ["/data_bags.html"]
 
 [menu]
-  [menu.docs]
+  [menu.infra]
     title = "Data Bags"
     identifier = "chef_infra/concepts/policy/data_bags.md Data Bags"
     parent = "chef_infra/concepts/policy"

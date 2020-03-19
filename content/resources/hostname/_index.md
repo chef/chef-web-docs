@@ -5,7 +5,7 @@ draft: false
 aliases:
 - /resource_hostname.html
 menu:
-  docs:
+  infra:
     title: hostname
     identifier: chef_infra/cookbook_reference/resources/hostname hostname
     parent: chef_infra/cookbook_reference/resources

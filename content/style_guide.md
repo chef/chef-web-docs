@@ -5,7 +5,7 @@ draft = false
 aliases = ["/style_guide.html"]
 
 [menu]
-  [menu.docs]
+  [menu.infra]
     title = "Docs Style Guide"
     identifier = "overview/community/style_guide.md Docs Style Guide"
     parent = "overview/community"
@@ -44,7 +44,7 @@ draft = false
 aliases = "/style_guide.html"
 
 [menu]
-  [menu.docs]
+  [menu.infra]
     title = "Docs Style Guide"
     identifier = "overview/community/style_guide.md Docs Style Guide"
     parent = "overview/community"

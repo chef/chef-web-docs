@@ -5,7 +5,7 @@ draft: false
 aliases:
 - /resource_ips_package.html
 menu:
-  docs:
+  infra:
     title: ips_package
     identifier: chef_infra/cookbook_reference/resources/ips_package ips_package
     parent: chef_infra/cookbook_reference/resources

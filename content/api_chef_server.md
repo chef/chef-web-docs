@@ -5,7 +5,7 @@ draft = false
 aliases = ["/api_chef_server.html"]
 
 [menu]
-  [menu.docs]
+  [menu.infra]
     title = "Chef Infra Server API"
     identifier = "chef_infra/managing_chef_infra_server/api_chef_server.md Chef Infra Server API"
     parent = "chef_infra/managing_chef_infra_server"
@@ -31,7 +31,7 @@ The Chef Infra Server API has the following requirements:
     Infra Server API that is being used.
 -   A request must be signed using `Mixlib::Authentication`.
 -   A request must be well-formatted. The easiest way to ensure a
-    well-formatted request is to use the `Chef::REST` library.
+    well-formatted request is to use the `Chef::ServerAPI` library.
 
 Authentication Headers
 ======================
@@ -1252,7 +1252,9 @@ returned.
 -----------------
 
 The `/users/USER/keys` endpoint has the following methods: `GET` and
-`POST`.
+`POST`. User keys are public RSA keys in the SSL `.pem` file
+format and are used for authentication.  The Chef Infra Server 
+does not save private keys for users.
 
 ### GET
 
@@ -1273,12 +1275,16 @@ The response is similar to:
 
 ``` javascript
 [
-  { "name" : "default",
-             "uri" : "https://chef.example/users/USER/keys/default",
-             "expired" : false },
-  { "name" : "key1",
-             "uri" : "https://chef.example/users/USER/keys/key1",
-             "expired" : false}
+  { 
+    "name" : "default",
+    "uri" : "https://chef.example/users/USER/keys/default",
+    "expired" : false
+  },
+  { 
+    "name" : "key1",
+    "uri" : "https://chef.example/users/USER/keys/key1",
+    "expired" : false
+  }
 ]
 ```
 
@@ -1343,7 +1349,9 @@ The response is similar to:
 
 ``` javascript
 {
-  "uri" : "https://chef.example/users/user1/keys/key1"
+  "name" : "key1",
+  "uri" : "https://chapi_chef_server.mdef.example/users/user1/keys/key1",
+  "expired": false
 }
 ```
 
@@ -5030,15 +5038,143 @@ The response is similar to:
 </tbody>
 </table>
 
+### POST
+
+The `POST` method is used to create a group on the Chef Infra
+Server for a single organization.
+
+**Request**
+
+``` none
+POST /organizations/NAME/groups
+```
+
+with a request body similar to:
+
+``` javascript
+{
+  "name": "group1",
+  "groupname": "group1",
+  "orgname": "test",
+  "actors": []
+  "clients": ["mynode"],
+  "groups": ["admins"],
+  "users": ["betina"]
+}
+```
+
+**Response**
+
+The response is similar to:
+
+``` javascript
+{
+  "uri": "https://chef.example/organizations/test/groups/group1",
+}
+```
+
+**Response Codes**
+
+<table>
+<colgroup>
+<col style="width: 40%" />
+<col style="width: 60%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Response Code</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>201</code></td>
+<td>OK. The group was created.</td>
+</tr>
+<tr class="even">
+<td><code>401</code></td>
+<td>Unauthorized. The user or client who made the request could not be authenticated. Verify the user/client name, and that the correct key was used to sign the request.</td>
+</tr>
+<tr class="odd">
+<td><code>403</code></td>
+<td>Forbidden. The user who made the request is not authorized to perform the action.</td>
+</tr>
+<tr class="even">
+<td><code>404</code></td>
+<td>Not found. The requested object does not exist.</td>
+</tr>
+<tr class="odd">
+<td><code>409</code></td>
+<td>Conflict. The requested group already exists.</td>
+</tr>
+</tbody>
+</table>
+
 /groups/GROUP_NAME
 -------------------
 
-The `/groups/GROUP_NAME` endpoint has the following methods: `GET` and
-`POST`.
+The `/groups/GROUP_NAME` endpoint has the following methods: `DELETE`, `GET` and
+`PUT`.
+
+### DELETE
+
+The `DELETE` method is used to remove a group from a single organization.
+
+This method has no parameters.
+
+**Request**
+
+``` none
+DELETE /organizations/NAME/groups/GROUP_NAME
+```
+
+without a request body.
+
+**Response**
+
+The response is similar to:
+
+``` javascript
+{
+}
+```
+
+**Response Codes**
+
+<table>
+<colgroup>
+<col style="width: 40%" />
+<col style="width: 60%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Response Code</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>200</code></td>
+<td>OK. The group was deleted.</td>
+</tr>
+<tr class="even">
+<td><code>401</code></td>
+<td>Unauthorized. The user or client who made the request could not be authenticated. Verify the user/client name, and that the correct key was used to sign the request.</td>
+</tr>
+<tr class="odd">
+<td><code>403</code></td>
+<td>Forbidden. The user who made the request is not authorized to perform the action.</td>
+</tr>
+<tr class="even">
+<td><code>404</code></td>
+<td>Not found. The requested object does not exist.</td>
+</tr>
+</tbody>
+</table>
 
 ### GET
 
-The `GET` method is used to get a list of users that belong to a group.
+The `GET` method is used to get lists of users and other groups that belong to a group.
 
 This method has no parameters.
 
@@ -5059,14 +5195,14 @@ The response is similar to:
     "grantmc"
   ],
   "users": [
-  "pivotal",
+    "pivotal",
     "grantmc"
   ],
   "clients": [
 
   ],
   "groups": [
-
+    "000000000000ad94b5ddde157c070f0c"
   ],
   "orgname": "inbetweens",
   "name": "admins",
@@ -5091,6 +5227,81 @@ The response is similar to:
 <tr class="odd">
 <td><code>200</code></td>
 <td>OK. The request was successful.</td>
+</tr>
+<tr class="even">
+<td><code>401</code></td>
+<td>Unauthorized. The user or client who made the request could not be authenticated. Verify the user/client name, and that the correct key was used to sign the request.</td>
+</tr>
+<tr class="odd">
+<td><code>403</code></td>
+<td>Forbidden. The user who made the request is not authorized to perform the action.</td>
+</tr>
+<tr class="even">
+<td><code>404</code></td>
+<td>Not found. The requested object does not exist.</td>
+</tr>
+</tbody>
+</table>
+
+### PUT
+
+The `PUT` method is used to update a group on a single organization.
+
+This method has no parameters.
+
+**Request**
+
+``` none
+PUT /organizations/NAME/groups/GROUP_NAME
+```
+
+with a request body similar to:
+
+``` javascript
+{
+  "name": "group1",
+  "groupname": "groupnew",
+  "orgname": "test",
+  "actors": []
+  "clients": ["mynode","addme"],
+  "groups": ["admins"],
+  "users": ["betina"]
+}
+```
+
+**Response**
+
+The response is similar to:
+
+``` javascript
+{
+  "name": "group1",
+  "groupname": "groupnew",
+  "orgname": "test",
+  "actors": []
+  "clients": ["mynode","addme"],
+  "groups": ["admins"],
+  "users": ["betina"]
+}
+```
+
+**Response Codes**
+
+<table>
+<colgroup>
+<col style="width: 40%" />
+<col style="width: 60%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Response Code</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>201</code></td>
+<td>OK. The group was updated.</td>
 </tr>
 <tr class="even">
 <td><code>401</code></td>
@@ -6683,6 +6894,10 @@ location information and dependencies:
 
 The `/updated_since` endpoint ensures that replica instances of the Chef
 Infra Server are able to synchronize with the primary Chef Infra Server.
+`/updated_since` was part of the Chef Replication product. Chef Replication
+is no longer available as a product and the `/updated_since` endpoint
+is also deprecated. The expectation for almost all chef users is that
+use of the endpoint will return an http status of 404.
 The `/organizations/NAME/updated_since` endpoint has the following
 methods: `GET`.
 
@@ -6701,7 +6916,7 @@ JSON.
 **Request**
 
 ``` none
-GET /organizations/NAME/objects_since?seq=NUM
+GET /organizations/NAME/updated_since?seq=NUM
 ```
 
 where `NUM` is the largest integer previously returned as an identifier.
@@ -6764,7 +6979,7 @@ created, updated, or deleted since `NUM`, similar to:
 </tr>
 <tr class="even">
 <td><code>404</code></td>
-<td>Not found. The requested object does not exist.</td>
+<td>Not found. The requested object does not exist or the function is not implemented.</td>
 </tr>
 </tbody>
 </table>
@@ -7037,11 +7252,11 @@ file:
 
 ``` ruby
 require 'chef'
-require 'chef/rest'
+require 'chef/server_api'
 
 Chef::Config.from_file(".chef/pivotal.rb")
-rest = Chef::REST.new(Chef::Config[:chef_server_url])
-orgs = rest.get_rest("/organizations")
+rest = Chef::ServerAPI.new(Chef::Config[:chef_server_url])
+orgs = rest.get("/organizations")
 
 puts "\n=== Listing of organizations"
 orgs.each do |org|
@@ -7049,7 +7264,7 @@ orgs.each do |org|
 end
 
 puts "\n=== Listing of Users"
-users = rest.get_rest("/users")
+users = rest.get("/users")
 users.each do |user|
   puts user
 end

@@ -5,7 +5,7 @@ draft: false
 aliases:
 - /resource_mdadm.html
 menu:
-  docs:
+  infra:
     title: mdadm
     identifier: chef_infra/cookbook_reference/resources/mdadm mdadm
     parent: chef_infra/cookbook_reference/resources
