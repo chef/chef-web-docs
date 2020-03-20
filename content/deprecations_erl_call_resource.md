@@ -5,7 +5,6 @@ robots = "noindex"
 
 
 aliases = "/deprecations_erl_call_resource.html"
-
 +++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/deprecations_erl_call_resource.md)

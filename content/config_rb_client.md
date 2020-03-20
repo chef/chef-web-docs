@@ -10,7 +10,7 @@ aliases = ["/config_rb_client.html"]
     identifier = "chef_infra/setup/nodes/config_rb_client.md client.rb"
     parent = "chef_infra/setup/nodes"
     weight = 40
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/config_rb_client.md)
 

@@ -10,7 +10,7 @@ aliases = ["/cookbook_repo.html"]
     identifier = "chef_infra/cookbook_reference/cookbook_repo.md Cookbook Repo"
     parent = "chef_infra/cookbook_reference"
     weight = 100
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/cookbook_repo.md)
 

@@ -12,7 +12,7 @@ aliases = ["/server_manage_nodes.html"]
     identifier = "chef_infra/features/management_console/server_manage_nodes.md Nodes"
     parent = "chef_infra/features/management_console"
     weight = 70
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/server_manage_nodes.md)
 

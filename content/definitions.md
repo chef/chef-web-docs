@@ -10,7 +10,7 @@ aliases = ["/definitions.html"]
     identifier = "chef_infra/cookbook_reference/resources/definitions.md Migrating from Definitions"
     parent = "chef_infra/cookbook_reference/resources"
     weight = 30
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/definitions.md)
 

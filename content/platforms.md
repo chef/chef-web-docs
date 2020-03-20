@@ -10,7 +10,7 @@ aliases = ["/platforms.html", "/supported_platforms.html"]
     identifier = "overview/packages_&_platforms/platforms.md Platforms"
     parent = "overview/packages_&_platforms"
     weight = 20
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/platforms.md)
 

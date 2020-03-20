@@ -10,7 +10,7 @@ aliases = ["/chef_solo.html"]
     identifier = "chef_infra/features/chef_solo/chef_solo.md About Chef Solo"
     parent = "chef_infra/features/chef_solo"
     weight = 10
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/chef_solo.md)
 

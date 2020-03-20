@@ -10,7 +10,7 @@ aliases = ["/backend_failure_recovery.html"]
     identifier = "chef_infra/managing_chef_infra_server/backend_failure_recovery.md Backend Failure Recovery"
     parent = "chef_infra/managing_chef_infra_server"
     weight = 30
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/backend_failure_recovery.md)
 

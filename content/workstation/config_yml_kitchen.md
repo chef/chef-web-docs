@@ -10,7 +10,7 @@ aliases = ["/config_yml_kitchen.html", "/config_yml_kitchen/"]
     identifier = "chef_workstation/chef_workstation_tools/test_kitchen/config_yml_kitchen.md kitchen.yml"
     parent = "chef_workstation/chef_workstation_tools/test_kitchen"
     weight = 30
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/www/content/workstation/config_yml_kitchen.md)
 

@@ -12,7 +12,7 @@ runbook_weight = 70
     identifier = "chef_infra/managing_chef_infra_server/server_backup_restore.md Backup & Restore"
     parent = "chef_infra/managing_chef_infra_server"
     weight = 20
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/runbook/server_backup_restore.md)
 

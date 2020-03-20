@@ -12,7 +12,7 @@ aliases = ["/delivery_truck.html", "/release/automate/delivery_truck.html"]
     identifier = "legacy/workflow/managing_workflow/delivery_truck.md delivery-truck (cookbook)"
     parent = "legacy/workflow/managing_workflow"
     weight = 20
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/delivery_truck.md)
 

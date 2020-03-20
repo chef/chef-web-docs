@@ -12,7 +12,7 @@ aliases = ["/delivery_cli.html", "/ctl_delivery.html"]
     identifier = "legacy/workflow/reference/delivery_cli.md Delivery CLI"
     parent = "legacy/workflow/reference"
     weight = 10
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/delivery_cli.md)
 

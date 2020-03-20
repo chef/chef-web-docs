@@ -5,14 +5,7 @@ robots = "noindex"
 
 
 aliases = "/deprecations_map_collision.html"
-
-
-  
-    
-    
-    
-    
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/deprecations_map_collision.md)
 

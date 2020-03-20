@@ -12,7 +12,7 @@ aliases = ["/integrate_delivery_ldap.html", "/release/automate/integrate_deliver
     identifier = "legacy/workflow/managing_workflow/integrate_delivery_ldap.md Authentication w/LDAP"
     parent = "legacy/workflow/managing_workflow"
     weight = 120
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/integrate_delivery_ldap.md)
 

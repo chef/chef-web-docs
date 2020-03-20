@@ -10,7 +10,7 @@ aliases = ["/windows.html"]
     identifier = "chef_infra/getting_started/chef_on_windows_guide/windows.md Chef for Microsoft Windows"
     parent = "chef_infra/getting_started/chef_on_windows_guide"
     weight = 10
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/windows.md)
 

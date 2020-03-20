@@ -10,7 +10,7 @@ aliases = ["/run_lists.html"]
     identifier = "chef_infra/concepts/policy/run_lists.md Run-lists"
     parent = "chef_infra/concepts/policy"
     weight = 50
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/run_lists.md)
 

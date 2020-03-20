@@ -5,14 +5,7 @@ robots = "noindex"
 
 
 aliases = "/deprecations_ohai_amazon_linux.html"
-
-
-  
-    
-    
-    
-    
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/deprecations_ohai_amazon_linux.md)
 
