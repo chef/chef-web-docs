@@ -10,7 +10,7 @@ aliases = ["/server_users.html"]
     identifier = "chef_infra/managing_chef_infra_server/server_users.md Users"
     parent = "chef_infra/managing_chef_infra_server"
     weight = 140
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/server_users.md)
 

@@ -10,7 +10,7 @@ aliases = ["/fips.html"]
     identifier = "chef_infra/features/fips.md FIPS"
     parent = "chef_infra/features"
     weight = 30
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/fips.md)
 

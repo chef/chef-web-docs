@@ -10,7 +10,7 @@ aliases = ["/ctl_supermarket.html"]
     identifier = "chef_infra/setup/supermarket/ctl_supermarket.md supermarket-ctl"
     parent = "chef_infra/setup/supermarket"
     weight = 90
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/ctl_supermarket.md)
 

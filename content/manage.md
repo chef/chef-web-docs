@@ -10,7 +10,7 @@ aliases = ["/manage.html"]
     identifier = "chef_infra/features/management_console/manage.md About the Management Console"
     parent = "chef_infra/features/management_console"
     weight = 10
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/manage.md)
 

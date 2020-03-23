@@ -7,12 +7,7 @@ robots = "noindex"
 aliases = "/deprecations_attributes.html"
 
 
-  
-    
-    
-    
-    
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/deprecations_attributes.md)
 

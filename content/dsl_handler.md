@@ -10,7 +10,7 @@ aliases = ["/dsl_handler.html"]
     identifier = "extension_apis/handlers/dsl_handler.md Handler DSL"
     parent = "extension_apis/handlers"
     weight = 20
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/dsl_handler.md)
 

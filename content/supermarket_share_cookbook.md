@@ -10,7 +10,7 @@ aliases = ["/supermarket_share_cookbook.html"]
     identifier = "chef_infra/concepts/supermarket/supermarket_share_cookbook.md Share Cookbooks"
     parent = "chef_infra/concepts/supermarket"
     weight = 40
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/supermarket_share_cookbook.md)
 

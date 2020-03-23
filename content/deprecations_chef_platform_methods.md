@@ -3,16 +3,8 @@ title = "Deprecation: Chef::Platform methods (CHEF-13)"
 draft = false
 robots = "noindex"
 
-
 aliases = "/deprecations_chef_platform_methods.html"
-
-
-  
-    
-    
-    
-    
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/deprecations_chef_platform_methods.md)
 

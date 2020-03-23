@@ -10,7 +10,7 @@ aliases = ["/proxies.html"]
     identifier = "chef_infra/setup/proxies.md Working with Proxies"
     parent = "chef_infra/setup"
     weight = 30
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/proxies.md)
 

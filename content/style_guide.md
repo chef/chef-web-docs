@@ -10,7 +10,7 @@ aliases = ["/style_guide.html"]
     identifier = "overview/community/style_guide.md Docs Style Guide"
     parent = "overview/community"
     weight = 40
-+++    
++++
 
 [\[edit on
 GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/style_guide.rst)

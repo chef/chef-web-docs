@@ -12,7 +12,7 @@ aliases = ["/elasticsearch_and_kibana_auth.html"]
     identifier = "legacy/workflow/managing_workflow/elasticsearch_and_kibana_auth.md Elasticsearch and Kibana Auth"
     parent = "legacy/workflow/managing_workflow"
     weight = 140
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/elasticsearch_and_kibana_auth.md)
 

@@ -5,14 +5,7 @@ robots = "noindex"
 
 
 aliases = "/depreciations_ohai_system_profile.html"
-
-
-  
-    
-    
-    
-    
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/deprecations_ohai_system_profile.md)
 

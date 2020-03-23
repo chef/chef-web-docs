@@ -10,7 +10,7 @@ aliases = ["/upgrade_server.html"]
     identifier = "chef_infra/managing_chef_infra_server/upgrade_server.md Upgrades"
     parent = "chef_infra/managing_chef_infra_server"
     weight = 120
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/upgrade_server.md)
 

@@ -12,7 +12,7 @@ aliases = ["/server_manage_data_bags.html"]
     identifier = "chef_infra/features/management_console/server_manage_data_bags.md Data Bags"
     parent = "chef_infra/features/management_console"
     weight = 50
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/server_manage_data_bags.md)
 

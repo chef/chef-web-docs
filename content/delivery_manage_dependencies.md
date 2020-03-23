@@ -12,7 +12,7 @@ aliases = ["/delivery_manage_dependencies.html", "/release/automate/delivery_man
     identifier = "legacy/workflow/managing_workflow/delivery_manage_dependencies.md Manage Dependencies"
     parent = "legacy/workflow/managing_workflow"
     weight = 30
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/delivery_manage_dependencies.md)
 

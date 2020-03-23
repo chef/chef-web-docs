@@ -10,7 +10,7 @@ aliases = ["/config_rb_metadata.html"]
     identifier = "chef_infra/cookbook_reference/config_rb_metadata.md metadata.rb"
     parent = "chef_infra/cookbook_reference"
     weight = 110
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/config_rb_metadata.md)
 

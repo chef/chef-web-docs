@@ -10,7 +10,7 @@ aliases = ["/dsl_recipe.html"]
     identifier = "chef_infra/cookbook_reference/recipe_dsl/dsl_recipe.md DSL Overview"
     parent = "chef_infra/cookbook_reference/recipe_dsl"
     weight = 10
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/dsl_recipe.md)
 

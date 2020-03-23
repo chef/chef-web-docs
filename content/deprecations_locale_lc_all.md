@@ -3,9 +3,7 @@ title = "Deprecation: Deprecation of lc_all from locale resource (CHEF-27)"
 draft = false
 robots = "noindex"
 
-
 aliases = "/deprecations_locale_lc_all.html"
-
 +++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/deprecations_locale_lc_all.md)

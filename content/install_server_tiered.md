@@ -10,7 +10,7 @@ aliases = ["/install_server_tiered.html"]
     identifier = "chef_infra/setup/chef_infra_server/install_server_tiered.md Tiered Installation"
     parent = "chef_infra/setup/chef_infra_server"
     weight = 50
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/install_server_tiered.md)
 

@@ -5,14 +5,7 @@ robots = "noindex"
 
 
 aliases = "/deprecations_json_auto_inflate.html"
-
-
-  
-    
-    
-    
-    
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/deprecations_json_auto_inflate.md)
 
