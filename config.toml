@@ -1,9 +1,10 @@
 baseURL = "/"
 languageCode = "en-us"
 title = "Chef Web Docs"
-theme = "docs-new"
+theme = ""
 enableGitInfo = true
 pluralizeListTitles = false
+themesDir = "../chef-hugo-theme"
 
 
 [markup]
