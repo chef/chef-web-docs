@@ -10,7 +10,7 @@ aliases = ["/install_bootstrap.html"]
     identifier = "chef_infra/setup/nodes/install_bootstrap.md Install via Bootstrap"
     parent = "chef_infra/setup/nodes"
     weight = 10
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/install_bootstrap.md)
 

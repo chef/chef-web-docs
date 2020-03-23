@@ -10,7 +10,7 @@ aliases = ["/ohai.html"]
     identifier = "chef_infra/features/ohai/ohai.md About Ohai"
     parent = "chef_infra/features/ohai"
     weight = 10
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/ohai.md)
 

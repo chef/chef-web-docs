@@ -12,7 +12,7 @@ aliases = ["/data_collection_without_server.html"]
     identifier = "legacy/workflow/workflow_basics/data_collection_without_server.md Data Collection without Chef Infra Server"
     parent = "legacy/workflow/workflow_basics"
     weight = 60
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/data_collection_without_server.md)
 

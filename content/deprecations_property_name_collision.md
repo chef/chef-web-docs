@@ -5,14 +5,7 @@ robots = "noindex"
 
 
 aliases = "/deprecations_property_name_collision.html"
-
-
-  
-    
-    
-    
-    
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/deprecations_property_name_collision.md)
 

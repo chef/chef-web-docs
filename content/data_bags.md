@@ -10,7 +10,7 @@ aliases = ["/data_bags.html"]
     identifier = "chef_infra/concepts/policy/data_bags.md Data Bags"
     parent = "chef_infra/concepts/policy"
     weight = 40
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/data_bags.md)
 

@@ -10,7 +10,7 @@ aliases = ["/ctl_chef_server.html"]
     identifier = "chef_infra/managing_chef_infra_server/ctl_chef_server.md chef-server-ctl"
     parent = "chef_infra/managing_chef_infra_server"
     weight = 150
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/ctl_chef_server.md)
 

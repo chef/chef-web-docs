@@ -10,7 +10,7 @@ aliases = ["/debug.html"]
     identifier = "chef_infra/cookbook_reference/recipes/debug.md Debug Recipes, Client Runs"
     parent = "chef_infra/cookbook_reference/recipes"
     weight = 20
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/debug.md)
 

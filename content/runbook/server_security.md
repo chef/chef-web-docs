@@ -12,7 +12,7 @@ runbook_weight = 50
     identifier = "chef_infra/managing_chef_infra_server/server_security.md Security"
     parent = "chef_infra/managing_chef_infra_server"
     weight = 90
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/runbook/server_security.md)
 

@@ -12,7 +12,7 @@ aliases = ["/server_manage_environments.html"]
     identifier = "chef_infra/features/management_console/server_manage_environments.md Environments"
     parent = "chef_infra/features/management_console"
     weight = 60
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/server_manage_environments.md)
 

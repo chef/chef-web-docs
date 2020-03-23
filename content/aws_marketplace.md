@@ -10,7 +10,7 @@ aliases = ["/aws_marketplace.html"]
     identifier = "chef_infra/setup/integrations/aws_marketplace.md AWS Marketplace"
     parent = "chef_infra/setup/integrations"
     weight = 10
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/aws_marketplace.md)
 

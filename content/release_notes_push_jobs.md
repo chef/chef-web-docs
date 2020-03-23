@@ -10,7 +10,7 @@ aliases = ["/release_notes_push_jobs.html"]
     identifier = "chef_infra/release_notes/release_notes_push_jobs.md Chef Push Jobs"
     parent = "chef_infra/release_notes"
     weight = 40
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/release_notes_push_jobs.md)
 

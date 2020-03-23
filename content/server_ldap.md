@@ -10,7 +10,7 @@ aliases = ["/server_ldap.html", "/install_server_post.html"]
     identifier = "chef_infra/managing_chef_infra_server/server_ldap.md Active Directory & LDAP"
     parent = "chef_infra/managing_chef_infra_server"
     weight = 50
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/server_ldap.md)
 

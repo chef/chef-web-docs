@@ -12,7 +12,7 @@ aliases = ["/ctl_automate_server.html", "/release/automate/ctl_delivery_server.h
     identifier = "legacy/workflow/ctl_automate_server.md Chef Automate CTL (Deprecated)"
     parent = "legacy/workflow"
     weight = 40
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/ctl_automate_server.md)
 

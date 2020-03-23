@@ -12,7 +12,7 @@ aliases = ["/config_json_delivery.html", "/release/automate/config_json_delivery
     identifier = "legacy/workflow/workflow_basics/config_json_delivery.md Configure a Project"
     parent = "legacy/workflow/workflow_basics"
     weight = 30
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/config_json_delivery.md)
 

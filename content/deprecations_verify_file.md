@@ -5,14 +5,7 @@ robots = "noindex"
 
 
 aliases = "/deprecations_verify_file.html"
-
-
-  
-    
-    
-    
-    
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/deprecations_verify_file.md)
 

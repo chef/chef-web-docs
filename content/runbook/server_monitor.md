@@ -12,7 +12,7 @@ runbook_weight = 10
     identifier = "chef_infra/managing_chef_infra_server/server_monitor.md Monitor"
     parent = "chef_infra/managing_chef_infra_server"
     weight = 70
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/runbook/server_monitor.md)
 

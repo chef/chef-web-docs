@@ -10,7 +10,7 @@ aliases = ["/ctl_chef_solo.html"]
     identifier = "chef_infra/features/chef_solo/ctl_chef_solo.md chef-solo (executable)"
     parent = "chef_infra/features/chef_solo"
     weight = 20
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/ctl_chef_solo.md)
 

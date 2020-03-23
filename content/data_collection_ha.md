@@ -12,7 +12,7 @@ aliases = ["/data_collection_ha.html"]
     identifier = "legacy/workflow/workflow_basics/data_collection_ha.md Data Collection with Chef HA"
     parent = "legacy/workflow/workflow_basics"
     weight = 50
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/data_collection_ha.md)
 

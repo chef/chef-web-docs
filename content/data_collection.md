@@ -12,7 +12,7 @@ aliases = ["/data_collection.html", "/ingest_data_chef_automate.html", "/release
     identifier = "legacy/workflow/workflow_basics/data_collection.md Configure Data Collection"
     parent = "legacy/workflow/workflow_basics"
     weight = 40
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/data_collection.md)
 

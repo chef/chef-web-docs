@@ -10,7 +10,7 @@ aliases = ["/community_contributions.html"]
     identifier = "overview/community/community_contributions.md Contributing"
     parent = "overview/community"
     weight = 20
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/community_contributions.md)
 

@@ -10,7 +10,7 @@ aliases = ["/chef_system_requirements.html"]
     identifier = "chef_infra/getting_started/chef_system_requirements.md System Requirements"
     parent = "chef_infra/getting_started"
     weight = 30
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/chef_system_requirements.md)
 
