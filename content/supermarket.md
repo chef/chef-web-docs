@@ -10,7 +10,7 @@ aliases = ["/supermarket.html"]
     identifier = "chef_infra/concepts/supermarket/supermarket.md Supermarket"
     parent = "chef_infra/concepts/supermarket"
     weight = 10
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/supermarket.md)
 
@@ -68,21 +68,12 @@ source 'https://supermarket.chef.io'
 Stove is a utility for packaging and releasing Chef cookbooks:
 <https://github.com/sethvargo/stove>.
 
-Installing Private Supermarket
-------------------------------
+Installing and Upgrading Private Supermarket
+--------------------------------------------
 
-To install a Private Supermarket, see the instructions
-[here](/install_supermarket/).
+Install a private Supermarket using these [instructions](/install_supermarket/).
 
-Upgrading Private Supermarket
-------------------------------
-
-1. Get a backup of /var/opt/supermarket with the system shut down
-1. Read the release notes for any special considerations at github.com/chef/supermarket/RELEASE_NOTES.
-1. Get the new Supermarket package
-1. Upgrade your system with the new package
-1. `supermarket-ctl reconfigure`
-1. For good measure `systemctl list-units | grep runsvdir` then, using the unit name you find, do `systemctl restart UNIT_NAME`. This will restart the entire Supermarket software system from runsvdir, to the runsv and svlogd that are associated with each service process. This will avoid any mismatch between what is in memory and what is on disk for the Supermarket system.
+Upgrade a private Supermarket using these [instructions](/install_supermarket/#upgrade-a-private-supermarket).
 
 Set up Workstation
 ------------------
