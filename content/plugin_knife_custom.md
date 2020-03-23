@@ -10,7 +10,7 @@ aliases = ["/plugin_knife_custom.html"]
     identifier = "extension_apis/knife_plugins/plugin_knife_custom.md Writing Custom Plugins"
     parent = "extension_apis/knife_plugins"
     weight = 20
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/plugin_knife_custom.md)
 

@@ -5,12 +5,8 @@ draft = false
 aliases = "/ctl_chef.html"
 
 
-  
-    
-    
-    
-    
-+++    
+
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/ctl_chef.md)
 

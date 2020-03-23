@@ -12,7 +12,7 @@ aliases = ["/integrate_delivery_github.html", "/release/automate/integrate_deliv
     identifier = "legacy/workflow/managing_workflow/integrate_delivery_github.md Workflow w/GitHub"
     parent = "legacy/workflow/managing_workflow"
     weight = 90
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/integrate_delivery_github.md)
 

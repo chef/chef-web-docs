@@ -10,7 +10,7 @@ aliases = ["/policyfile.html"]
     identifier = "chef_infra/concepts/policy/policyfile.md About Policyfiles"
     parent = "chef_infra/concepts/policy"
     weight = 20
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/policyfile.md)
 

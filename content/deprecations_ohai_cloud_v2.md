@@ -5,14 +5,7 @@ robots = "noindex"
 
 
 aliases = "/deprecations_ohai_cloud_v2.html"
-
-
-  
-    
-    
-    
-    
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/deprecations_ohai_cloud_v2.md)
 

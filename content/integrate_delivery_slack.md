@@ -12,7 +12,7 @@ aliases = ["/integrate_delivery_slack.html", "/release/automate/integrate_delive
     identifier = "legacy/workflow/managing_workflow/integrate_delivery_slack.md Workflow w/Slack"
     parent = "legacy/workflow/managing_workflow"
     weight = 100
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/integrate_delivery_slack.md)
 

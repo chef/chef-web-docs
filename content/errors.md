@@ -10,7 +10,7 @@ aliases = ["/errors.html"]
     identifier = "chef_infra/errors.md Troubleshooting"
     parent = "chef_infra"
     weight = 40
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/errors.md)
 

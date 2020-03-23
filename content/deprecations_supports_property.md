@@ -5,14 +5,7 @@ robots = "noindex"
 
 
 aliases = "/deprecations_supports_property.html"
-
-
-  
-    
-    
-    
-    
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/deprecations_supports_property.md)
 

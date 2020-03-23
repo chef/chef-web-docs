@@ -10,7 +10,7 @@ aliases = ["/ctl_chef_apply.html", "/ctl_chef_apply/"]
     identifier = "chef_workstation/chef_workstation_tools/ctl_chef_apply.md chef-apply (executable)"
     parent = "chef_workstation/chef_workstation_tools"
     weight = 40
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/www/content/workstation/ctl_chef_apply.md)
 

@@ -10,11 +10,13 @@ aliases = ["/manage.html"]
     identifier = "chef_infra/features/management_console/manage.md About the Management Console"
     parent = "chef_infra/features/management_console"
     weight = 10
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/manage.md)
 
 {{% EOL_manage %}}
+
+{{% manage_A2_server_warning %}}
 
 The Chef management console enables the management of nodes, data bags,
 roles, environments, and cookbooks by using a web user interface. In

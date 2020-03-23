@@ -10,7 +10,7 @@ aliases = ["/supermarket_backup_restore.html"]
     identifier = "chef_infra/setup/supermarket/supermarket_backup_restore.md Backup and Restore"
     parent = "chef_infra/setup/supermarket"
     weight = 50
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/supermarket_backup_restore.md)
 

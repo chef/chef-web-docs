@@ -12,7 +12,7 @@ aliases = ["/integrate_delivery_bitbucket.html", "/release/automate/integrate_de
     identifier = "legacy/workflow/managing_workflow/integrate_delivery_bitbucket.md Workflow w/Bitbucket"
     parent = "legacy/workflow/managing_workflow"
     weight = 70
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/integrate_delivery_bitbucket.md)
 

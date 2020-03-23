@@ -5,14 +5,7 @@ robots = "noindex"
 
 
 aliases = "/deprecations_dnf_package_allow_downgrade.html"
-
-
-  
-    
-    
-    
-    
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/deprecations_dnf_package_allow_downgrade.md)
 

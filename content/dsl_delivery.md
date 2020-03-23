@@ -12,7 +12,7 @@ aliases = ["/dsl_delivery.html", "/release/automate/dsl_delivery.html"]
     identifier = "legacy/workflow/reference/dsl_delivery.md Workflow DSL"
     parent = "legacy/workflow/reference"
     weight = 40
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/dsl_delivery.md)
 

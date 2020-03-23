@@ -10,7 +10,7 @@ aliases = ["/install_server.html"]
     identifier = "chef_infra/setup/chef_infra_server/install_server.md Install Chef Infra Server"
     parent = "chef_infra/setup/chef_infra_server"
     weight = 20
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/install_server.md)
 

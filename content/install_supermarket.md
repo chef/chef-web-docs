@@ -10,7 +10,7 @@ aliases = ["/install_supermarket.html"]
     identifier = "chef_infra/setup/supermarket/install_supermarket.md Install Private Supermarket"
     parent = "chef_infra/setup/supermarket"
     weight = 20
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/install_supermarket.md)
 
@@ -567,3 +567,46 @@ node.override['supermarket_omnibus']['config']['s3_secret_access_key'] = 'yourse
 Encrypted S3 buckets are currently not supported.
 
 {{< /note >}}
+
+Upgrade a Private Supermarket
+=============================
+
+1. Shut down the server running Private Supermarket.
+1. Backup the `/var/opt/supermarket` directory.
+
+1. Download the [Chef Supermarket](https://downloads.chef.io/) package.
+1. Upgrade your system with the new package using the appropriate package manager for your distribution:
+
+    -   For Ubuntu:
+
+        ``` bash
+        dpkg -i /path/to/package/supermarket*.deb
+        ```
+
+    -   For RHEL / CentOS:
+
+        ``` bash
+        rpm -Uvh /path/to/package/supermarket*.rpm
+        ```
+
+1. [Reconfigure](/ctl_supermarket/#reconfigure) the server that Chef Supermarket is installed on:
+
+    ``` bash
+    sudo supermarket-ctl reconfigure
+    ```
+
+Private Supermarket is updated on your server now. We recommend restarting the services that run Chef Supermarket to ensure that the old installation of Chef Supermarket doesn't persist in the server memory.
+
+1. Get the name of the active unit:
+
+    ``` bash
+    systemctl list-units | grep runsvdir
+    ```
+
+1. Restart the unit:
+
+    ``` bash
+    systemctl restart UNIT_NAME
+    ```
+
+    This will restart the `runsvdir`, `runsv`, and `svlogd` service processes that run Chef Supermarket.

@@ -10,7 +10,7 @@ aliases = ["/ohai_custom.html"]
     identifier = "extension_apis/ohai_plugins/ohai_custom.md Custom Plugins"
     parent = "extension_apis/ohai_plugins"
     weight = 10
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/ohai_custom.md)
 

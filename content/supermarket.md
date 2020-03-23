@@ -10,7 +10,7 @@ aliases = ["/supermarket.html"]
     identifier = "chef_infra/concepts/supermarket/supermarket.md Supermarket"
     parent = "chef_infra/concepts/supermarket"
     weight = 10
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/supermarket.md)
 
@@ -68,11 +68,12 @@ source 'https://supermarket.chef.io'
 Stove is a utility for packaging and releasing Chef cookbooks:
 <https://github.com/sethvargo/stove>.
 
-Installing Private Supermarket
-------------------------------
+Installing and Upgrading Private Supermarket
+--------------------------------------------
 
-To install a Private Supermarket, see the instructions
-[here](/install_supermarket/).
+Install a private Supermarket using these [instructions](/install_supermarket/).
+
+Upgrade a private Supermarket using these [instructions](/install_supermarket/#upgrade-a-private-supermarket).
 
 Set up Workstation
 ------------------

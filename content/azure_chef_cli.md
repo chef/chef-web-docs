@@ -10,7 +10,7 @@ aliases = ["/azure_chef_cli.html"]
     identifier = "chef_infra/getting_started/chef_on_azure_guide/azure_chef_cli.md Microsoft Azure Chef Extension"
     parent = "chef_infra/getting_started/chef_on_azure_guide"
     weight = 40
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/azure_chef_cli.md)
 

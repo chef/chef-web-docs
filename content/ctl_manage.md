@@ -12,7 +12,7 @@ aliases = ["/ctl_manage.html"]
     identifier = "chef_infra/features/management_console/ctl_manage.md chef-manage-ctl"
     parent = "chef_infra/features/management_console"
     weight = 110
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/ctl_manage.md)
 

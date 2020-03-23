@@ -12,7 +12,7 @@ aliases = ["/audit_cookbook.html", "/audit_supported_configurations.html"]
     identifier = "legacy/workflow/workflow_basics/audit_cookbook.md Audit Cookbook"
     parent = "legacy/workflow/workflow_basics"
     weight = 70
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/audit_cookbook.md)
 

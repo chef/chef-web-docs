@@ -12,7 +12,7 @@ aliases = ["/delivery_pipeline.html", "/release/automate/delivery_pipeline.html"
     identifier = "legacy/workflow/workflow_basics/delivery_pipeline.md Configure a Pipeline"
     parent = "legacy/workflow/workflow_basics"
     weight = 20
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/delivery_pipeline.md)
 

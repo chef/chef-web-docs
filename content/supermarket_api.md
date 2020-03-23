@@ -10,7 +10,7 @@ aliases = ["/supermarket_api.html"]
     identifier = "chef_infra/setup/supermarket/supermarket_api.md Supermarket API"
     parent = "chef_infra/setup/supermarket"
     weight = 100
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/supermarket_api.md)
 

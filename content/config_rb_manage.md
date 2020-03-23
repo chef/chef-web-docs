@@ -12,7 +12,7 @@ aliases = ["/config_rb_manage.html"]
     identifier = "chef_infra/features/management_console/config_rb_manage.md manage.rb"
     parent = "chef_infra/features/management_console"
     weight = 100
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/config_rb_manage.md)
 

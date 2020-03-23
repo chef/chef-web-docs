@@ -10,7 +10,7 @@ aliases = ["/config_rb_solo.html"]
     identifier = "chef_infra/features/chef_solo/config_rb_solo.md solo.rb"
     parent = "chef_infra/features/chef_solo"
     weight = 30
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/config_rb_solo.md)
 

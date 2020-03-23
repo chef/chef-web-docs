@@ -10,7 +10,7 @@ aliases = ["/ctl_opscode_expander.html"]
     identifier = "chef_infra/managing_chef_infra_server/ctl_opscode_expander.md opscode-expander-ctl"
     parent = "chef_infra/managing_chef_infra_server"
     weight = 190
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/ctl_opscode_expander.md)
 

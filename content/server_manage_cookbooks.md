@@ -12,7 +12,7 @@ aliases = ["/server_manage_cookbooks.html"]
     identifier = "chef_infra/features/management_console/server_manage_cookbooks.md Cookbooks"
     parent = "chef_infra/features/management_console"
     weight = 40
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/server_manage_cookbooks.md)
 
