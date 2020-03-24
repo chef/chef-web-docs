@@ -80,7 +80,7 @@ previously made backups of:
 To make backups for future use in disaster scenarios:
 
 1.  On a follower chef-backend node, run `chef-backend-ctl backup`
-2.  On a chef-server node run: `chef-server-ctl backup --config-only`
+2.  On a Chef Infra Server node run: `chef-server-ctl backup --config-only`
 3.  Move the tar archives created in steps (1) and (2) to a long-term
     storage location.
 
@@ -106,7 +106,7 @@ To restore a Chef Backend-based Chef Infra Server cluster:
     chef-backend-ctl join-cluster IP_OF_FIRST_NODE --publish_address IP_OF_THIS_NODE
     ```
 
-3.  Restore a chef-server from your backed up chef-server configuration
+3.  Restore a Chef Infra Server from your backed up Chef Infra Server configuration
     (See step 2 in the backup instructions above). Alternatively, you
     can generate new configuration for this node and reconfigure it
     using the steps found in [the installation
