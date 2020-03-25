@@ -321,7 +321,7 @@ This configuration file has the following settings for `data_collector`:
 
 :   The fully qualified URL to the data collector server API. When
     present, it will enable the data collector in **opscode-erchef**.
-    This also enables chef-server authenticated forwarding any properly
+    This also enables Chef Infra Server authenticated forwarding any properly
     signed requests arriving at `/organizations/ORGNAME/data-collector`
     to this URL with the data collector token appended. This is also
     target for requests authenticated and forwarded by the
