@@ -3888,7 +3888,7 @@ Ohai Release Notes 13.12
         minimum required data, which prevents sysctl hanging in some
         scenarios
     -   Extra data has been removed from the system_profile plugin,
-        reducing the amount of data stored on the chef-server for each
+        reducing the amount of data stored on the Chef Infa Server for each
         node
 
 New Deprecations
