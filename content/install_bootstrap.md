@@ -473,7 +473,7 @@ C:\opscode\chef\bin\chef-client.bat -j C:\chef\first-boot.json
 # Setup hosts file correctly
 cat >> "/etc/hosts" << EOF
 10.0.0.5    compliance-server compliance-server.automate.com
-10.0.0.6    infra-server chef-server.automate.com
+10.0.0.6    infra-server infra-server.automate.com
 10.0.0.7    automate-server automate-server.automate.com
 EOF
 
