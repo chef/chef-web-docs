@@ -25,12 +25,12 @@ aliases = ["/templates.html"]
 Requirements
 ============
 
-{{% template_requirements %}}
+{{< readFile_shortcode file="template_requirements.md" >}}
 
 Variables
 =========
 
-{{% template_variables %}}
+{{< readFile_shortcode file="template_variables.md" >}}
 
 File Specificity
 ================
@@ -59,9 +59,9 @@ Partial Templates
 variables Attribute
 -------------------
 
-{{% template_partials_variables_attribute %}}
+{{< readFile_shortcode file="template_partials_variables_attribute.md" >}}
 
 render Method
 -------------
 
-{{% template_partials_render_method %}}
+{{< readFile_shortcode file = "template_partials_render_method.md" >}}

@@ -169,7 +169,7 @@ The following examples show ways to use the Handler DSL.
 
 **Define How Email is Sent**
 
-{{% dsl_handler_slide_send_email_library %}}
+{{< readFile_shortcode file="dsl_handler_slide_send_email_library.md" >}}
 
 **Add the Handler**
 
@@ -221,12 +221,12 @@ Custom Handlers
 Syntax
 ------
 
-{{% handler_custom_syntax %}}
+{{< readFile_shortcode file="handler_custom_syntax.md" >}}
 
 report Interface
 ----------------
 
-{{% handler_custom_interface_report %}}
+{{< readFile_shortcode file="handler_custom_interface_report.md" >}}
 
 Optional Interfaces
 -------------------
@@ -262,7 +262,7 @@ Cookbook Versions
 
 ### cookbook_versions.rb
 
-{{% handler_custom_example_cookbook_versions_handler %}}
+{{< readFile_shortcode file="handler_custom_example_cookbook_versions_handler.md" >}}
 
 ### default.rb
 
@@ -326,12 +326,12 @@ end
 json_file Handler
 ------------------
 
-{{% handler_custom_example_json_file %}}
+{{< readFile_shortcode file="handler_custom_example_json_file.md" >}}
 
 error_report Handler
 ---------------------
 
-{{% handler_custom_example_error_report %}}
+{{< readFile_shortcode file="handler_custom_example_error_report.md" >}}
 
 Community Handlers
 ------------------

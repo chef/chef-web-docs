@@ -38,7 +38,7 @@ Send Email
 
 ### Define How Email is Sent
 
-{{% dsl_handler_slide_send_email_library %}}
+{{< readFile_shortcode file="dsl_handler_slide_send_email_library.md" >}}
 
 ### Add the Handler
 

@@ -408,4 +408,4 @@ Data Bags
 
 {{% data_bag %}}
 
-{{% search_data_bag %}}
+{{< readFile_shortcode file="search_data_bag.md" >}}

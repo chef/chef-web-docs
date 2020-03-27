@@ -9301,7 +9301,7 @@ end
 ps_credential Helper
 ---------------------
 
-{{% ps_credential_helper %}}
+{{< readFile_shortcode file="ps_credential_helper.md" >}}
 
 Handler DSL
 -----------

@@ -82,7 +82,7 @@ The Custom Resource DSL includes several helper methods for accessing and manipu
 
 ### new_resource.property
 
-{{% dsl_custom_resource_method_new_resource %}}
+{{< readFile_shortcode file="dsl_custom_resource_method_new_resource.md" >}}
 
 ### property_is_set?
 
