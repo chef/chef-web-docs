@@ -86,7 +86,7 @@ Syntax
 Work with Proxies
 -----------------
 
-{{% ws_test_kitchen_yml_syntax_proxy %}}
+{{< readFile_shortcode file="ws_test_kitchen_yml_syntax_proxy.md" >}}
 
 For more information ...
 ========================
