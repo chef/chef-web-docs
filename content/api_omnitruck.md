@@ -14,7 +14,7 @@ aliases = ["/api_omnitruck.html"]
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/api_omnitruck.md)
 
-Chef's Omnitruck API powers the Chef install scripts as well as
+Chef's Omnitruck API powers the Chef Software Install script as well as
 downloads.chef.io site. It can be used to query available versions of
 Chef Software Inc. products and to provide direct download URLs.
 

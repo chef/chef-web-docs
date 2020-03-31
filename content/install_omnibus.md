@@ -14,29 +14,4 @@ aliases = ["/install_omnibus.html"]
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/install_omnibus.md)
 
-{{% packages_install_script %}}
-
-Run the Install Script
-======================
-
-{{% packages_install_script_run %}}
-
-UNIX and Linux
---------------
-
-{{% packages_install_script_run_unix_linux %}}
-
-Microsoft Windows
------------------
-
-{{% packages_install_script_run_windows %}}
-
-Install Script Options
-======================
-
-{{% packages_install_script_options %}}
-
-Examples
-========
-
-{{% packages_install_script_examples %}}
+This content has been moved to $new place.
