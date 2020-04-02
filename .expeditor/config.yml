@@ -52,7 +52,8 @@ subscriptions:
       - trigger_pipeline:deploy/acceptance:
           post_commit: true
 
-  # This will update chef-workstation Hugo module when Chef Workstation is promoted to stable.
+  # This will update version of the Chef product Hugo module
+  # that is used to build the docs when that product is promoted to stable.
   - workload: project_promoted:stable:chef-workstation
     actions:
     - bash:.expeditor/update_hugo_modules.sh
