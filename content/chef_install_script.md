@@ -2,12 +2,12 @@
 title = "Chef Software Install Script"
 draft = false
 
-aliases = ["/chef_install_script.html"]
+aliases = ["/install_omnibus.html", "/install_omnibus/"]
 
 [menu]
   [menu.infra]
     title = "Chef Software Install Script"
-    identifier = "overview/packages&_platforms/chef_install_script.md Install via Chef Software Install Script"
+    identifier = "overview/packages_&_platforms/chef_install_script.md Install via Chef Software Install Script"
     parent = "overview"
     weight = 20
 +++
@@ -17,7 +17,7 @@ aliases = ["/chef_install_script.html"]
 {{% packages_install_script %}}
 
 Run the Chef Software Install Script
-======================
+====================================
 
 {{% packages_install_script_run %}}
 
@@ -32,7 +32,7 @@ Microsoft Windows
 {{% packages_install_script_run_windows %}}
 
 Chef Software Install Script Options
-======================
+====================================
 
 {{% packages_install_script_options %}}
 
