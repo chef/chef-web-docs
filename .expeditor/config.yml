@@ -55,5 +55,5 @@ subscriptions:
   # This will update chef-workstation Hugo module when Chef Workstation is promoted to stable.
   - workload: project_promoted:stable:chef-workstation
   actions:
-    - bash:.expeditor/update_workstation_docs.sh
-    - built_in:notify_chefio_slack_channels
+    - bash:.expeditor/update_hugo_modules.sh
+
