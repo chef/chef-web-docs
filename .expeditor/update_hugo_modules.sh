@@ -9,8 +9,12 @@ git clone https://x-access-token:${GITHUB_TOKEN}@github.com/chef/${EXPEDITOR_PRO
 
 pushd ${EXPEDITOR_PRODUCT_KEY}
 git checkout ${EXPEDITOR_VERSION}
-cp www/layouts/shortcodes/* ../chef-web-docs/layouts/shortcodes/
+cp www/layouts/shortcodes/* ../layouts/shortcodes/
 popd
+
+# delete Chef product repo
+
+rm -rf ${EXPEDITOR_PRODUCT_KEY}
 
 # Update the semver version of the chef/chef-workstation module that chef-web-docs will
 # build the workstation docs from.
