@@ -29,7 +29,7 @@ If the server you are connecting to uses a self-signed certificate,
 you must configure chef to trust that certificate.
 
 By default, the certificate is stored in the following location on the
-host where your Chef Infra Server runs:
+host where your chef-server runs:
 
   /var/opt/opscode/nginx/ca/SERVER_HOSTNAME.crt
 

@@ -67,8 +67,38 @@ pluralizeListTitles = false
   tag = "tags"
   resource = "resources"
 
-## Main Menu ##
 
+[module]
+
+  [[module.imports]]
+    disable = false
+    ignoreConfig = false
+    path = "github.com/chef/chef-workstation"
+
+  [[module.imports.mounts]]
+    source = "www/content"
+    target = "content"
+
+  [[module.imports.mounts]]
+    source = "www/static"
+    target = "static"
+
+  [[module.imports.mounts]]
+    source = "www/layouts/shortcodes"
+    target = "layouts/shortcodes"
+
+  [[module.imports.mounts]]
+    source = "www/data"
+    target = "data"
+
+  [[module.imports.mounts]]
+    source = "www/themes/docs-new/layouts/shortcodes"
+    target = "layouts/shortcodes"
+
+
+####
+## Main Menu ##
+####
 [[menu.main]]
 title = "Chef.io"
 identifier = "chef"
@@ -104,6 +134,10 @@ title = "Download"
 identifier = "download"
 url = "https://downloads.chef.io/"
 weight = 60
+
+####
+## End Main Menu ##
+####
 
 
 ####

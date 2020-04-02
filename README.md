@@ -3,6 +3,12 @@
 This repo is the source of the Chef reference documentation located at
 https://docs.chef.io/
 
+## Workstation Documentation
+
+The Chef Workstation documentation is stored in the `chef/chef-workstation` repository
+in the [`www`](https://github.com/chef/chef-workstation/tree/master/www) directory.
+We use [Hugo modules](https://gohugo.io/hugo-modules/) to build the [Chef Workstation documentation](https://docs.chef.io/workstation/).
+
 ## The fastest way to contribute
 
 The fastest way to change the documentation is to edit a page on the

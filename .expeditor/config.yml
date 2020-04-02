@@ -51,3 +51,9 @@ subscriptions:
       - built_in:promote_habitat_packages
       - trigger_pipeline:deploy/acceptance:
           post_commit: true
+
+  # This will update chef-workstation Hugo module when Chef Workstation is promoted to stable.
+  - workload: project_promoted:stable:chef-workstation
+  actions:
+    - bash:.expeditor/update_workstation_docs.sh
+    - built_in:notify_chefio_slack_channels
