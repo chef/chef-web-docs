@@ -1,4 +1,4 @@
-On UNIX and Linux systems the Chef Software Install script is invoked with:
+On UNIX, Linux, and macOS systems, invoke the Chef Software Install script with:
 
 ``` bash
 curl -L https://omnitruck.chef.io/install.sh | sudo bash

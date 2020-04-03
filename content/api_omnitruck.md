@@ -9,7 +9,7 @@ aliases = ["/api_omnitruck.html"]
     title = "Omnitruck API"
     identifier = "overview/packages_&_platforms/api_omnitruck.md Omnitruck API"
     parent = "overview/packages_&_platforms"
-    weight = 40
+    weight = 50
 +++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/api_omnitruck.md)

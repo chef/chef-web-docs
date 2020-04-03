@@ -1,4 +1,4 @@
-On Microsoft Windows systems the Chef Software Install script is invoked using
+On Microsoft Windows systems, invoke the Chef Software Install script using
 Windows PowerShell:
 
 ``` none

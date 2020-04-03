@@ -8,8 +8,8 @@ aliases = ["/install_omnibus.html", "/install_omnibus/"]
   [menu.infra]
     title = "Chef Software Install Script"
     identifier = "overview/packages_&_platforms/chef_install_script.md Install via Chef Software Install Script"
-    parent = "overview"
-    weight = 20
+    parent = "overview/packages_&_platforms"
+    weight = 40
 +++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/chef_install_script.md)
@@ -21,8 +21,8 @@ Run the Chef Software Install Script
 
 {{% packages_install_script_run %}}
 
-UNIX and Linux
---------------
+UNIX, Linux, and macOS
+----------------------
 
 {{% packages_install_script_run_unix_linux %}}
 
