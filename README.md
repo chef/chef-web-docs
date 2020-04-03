@@ -41,19 +41,14 @@ few days. The important part is submitting your change.
 
 ## Local Development Environment
 
-The Chef Documentation website is built using [Hugo](https://gohugo.io/) and
-[NPM](https://www.npmjs.com/). You will need Hugo 0.61 or higher installed and
-running to build and view our documentation properly.
+The Chef Documentation website is built using [Hugo](https://gohugo.io/),
+[NPM](https://www.npmjs.com/) and Go. You will need Hugo 0.61 or higher and
+[Go](https://golang.org/dl/) 1.14 or higher.
 
-To install Hugo:
+To install Hugo, NPM, and Go:
 
-- On macOS run: `brew install hugo`
-- On Windows run: `choco install hugo`
-
-NPM is distributed with Node.js. To install Node.js:
-
-- On macOS run: `brew install node`
-- On Windows, download and run the installer from the [nodejs.org](https://nodejs.org) website.
+- On macOS run: `brew install hugo node go`
+- On Windows run: `choco install hugo nodejs golang`
 
 To build the docs and preview locally:
 

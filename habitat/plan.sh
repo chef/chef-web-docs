@@ -10,6 +10,7 @@ pkg_build_deps=(
   core/git
   core/make
   core/node
+  core/go
 )
 
 do_build() {
