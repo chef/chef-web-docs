@@ -54,7 +54,7 @@ subscriptions:
 
   # This will update version of the Chef product Hugo module
   # that is used to build the docs when that product is promoted to stable.
-  - workload: project_promoted:stable:chef-workstation
+  - workload: artifact_published:stable:chef-workstation:*
     actions:
     - bash:.expeditor/update_hugo_modules.sh
 
