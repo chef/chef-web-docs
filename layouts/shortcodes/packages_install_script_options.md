@@ -1,4 +1,4 @@
-In addition to the default install behavior, the Chef install script
+In addition to the default install behavior, the Chef Software Install script
 supports the following options:
 
 `-c` (`-channel` on Microsoft Windows)

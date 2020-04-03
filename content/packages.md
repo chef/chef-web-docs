@@ -15,7 +15,7 @@ aliases = ["/packages.html"]
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/packages.md)
 
 Packages for Chef Software Inc. products may be installed using
-platform-native package repositories or the Chef install script. Both
+platform-native package repositories or the Chef Software Install script. Both
 installation methods support the following release channels:
 
 <table>
@@ -145,12 +145,12 @@ To set up a Yum package repository for Enterprise Linux platforms:
     sudo mv chef-stable.repo /etc/yum.repos.d/
     ```
 
-Chef Install Script
+Chef Software Install Script
 ===================
 
 {{% packages_install_script %}}
 
-Run the Chef Install Script
+Run the Chef Software Install Script
 ---------------------------
 
 {{% packages_install_script_run %}}
@@ -163,7 +163,7 @@ Run the Chef Install Script
 
 {{% packages_install_script_run_windows %}}
 
-Chef install Script Options
+Chef Software Install Script Options
 ---------------------------
 
 {{% packages_install_script_options %}}
