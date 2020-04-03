@@ -83,19 +83,6 @@ pluralizeListTitles = false
     source = "www/static"
     target = "static"
 
-  [[module.imports.mounts]]
-    source = "www/layouts/shortcodes"
-    target = "layouts/shortcodes"
-
-  [[module.imports.mounts]]
-    source = "www/data"
-    target = "data"
-
-  [[module.imports.mounts]]
-    source = "www/themes/docs-new/layouts/shortcodes"
-    target = "layouts/shortcodes"
-
-
 ####
 ## Main Menu ##
 ####

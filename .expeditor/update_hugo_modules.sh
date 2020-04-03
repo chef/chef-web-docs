@@ -23,6 +23,7 @@ rm -rf ${EXPEDITOR_PRODUCT_KEY}
 # See https://gohugo.io/hugo-modules/use-modules/#get-a-specific-version
 
 hugo mod get github.com/chef/${EXPEDITOR_PRODUCT_KEY}/@${EXPEDITOR_VERSION}
+hugo mod tidy
 
 # submit pull request to chef/chef-web-docs
 
