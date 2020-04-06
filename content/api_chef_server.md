@@ -15,8 +15,8 @@ aliases = ["/api_chef_server.html"]
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/api_chef_server.md)
 
 The Chef Infra Server API is a REST API that provides access to objects
-on the Chef Infra Server, including nodes, environments, roles,
-cookbooks (and cookbook versions), and to manage an API client list and
+on the Chef Infra Server, including nodes, environments, roles, users, organizations,
+cookbooks (and cookbook versions), and is used to manage an API client list and
 the associated RSA public key-pairs.
 
 Requirements
@@ -249,8 +249,8 @@ This method has no response body.
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -324,8 +324,8 @@ number of nodes that are under license:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -349,8 +349,8 @@ number of nodes that are under license:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -417,8 +417,8 @@ The response is similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -491,8 +491,8 @@ The response is similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -559,8 +559,8 @@ The response is similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -609,8 +609,8 @@ The response is similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -667,8 +667,8 @@ The response is similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -741,8 +741,8 @@ The response will return something like the following:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -862,8 +862,8 @@ The verbose response is similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -972,8 +972,8 @@ The response is similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -1046,8 +1046,8 @@ The response is similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -1096,10 +1096,8 @@ The response is similar to:
   "username": "robert-forster",
   "display_name": "robert",
   "email": "robert@noreply.com",
-  "external_authentication_uid": "robert",
   "first_name": "robert",
-  "last_name": "forster",
-  "middle_name": "james"
+  "last_name": "forster"
 }
 ```
 
@@ -1107,8 +1105,8 @@ The response is similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -1203,8 +1201,8 @@ returned.
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -1292,8 +1290,8 @@ The response is similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -1359,8 +1357,8 @@ The response is similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -1424,8 +1422,8 @@ similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -1482,8 +1480,8 @@ The response is similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -1551,8 +1549,8 @@ similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -1637,8 +1635,8 @@ The response is similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -1701,8 +1699,8 @@ The response returns a dictionary similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -1766,8 +1764,8 @@ The response is similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -1803,6 +1801,404 @@ The response is similar to:
 </tbody>
 </table>
 
+/clients
+--------
+
+Use the `/clients` endpoint to manage clients and their associated RSA 
+key-pairs. The `/clients` endpoint has the following methods: `GET` and `POST`.
+
+{{< note >}}
+
+The clients should be managed using knife as opposed to the Chef Infra Server API.
+The interactions between clients, nodes and acls are tricky.
+
+{{< /note >}}
+
+### GET
+
+The `GET` method is used to return a client list on the Chef Infra
+Server, including clients for nodes that have been registered with the Chef Infra
+Server, the chef-validator clients, and the chef-server-webui clients
+for the entire organization.
+
+This method has no parameters.
+
+**Request**
+
+``` none
+GET /organizations/NAME/clients
+```
+
+This method has no request body.
+
+**Response**
+
+The response is similar to:
+
+``` javascript
+{
+  "org1-validator" : "https://chef.example/orgaizations/org1/clients/org1-validator",
+  "client1" : "https://chef.example/orgaizations/org1/clients/client1"
+}
+```
+
+**Response Codes**
+
+<table>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Response Code</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>200</code></td>
+<td>OK. The request was successful.</td>
+</tr>
+<tr class="even">
+<td><code>401</code></td>
+<td>Unauthorized. The user or client who made the request could not be authenticated. Verify the user/client name, and that the correct key was used to sign the request.</td>
+</tr>
+<tr class="odd">
+<td><code>403</code></td>
+<td>Forbidden. The user who made the request is not authorized to perform the action.</td>
+</tr>
+</tbody>
+</table>
+
+### POST
+
+The `POST` method is used to create a new API client.
+
+{{< note >}}
+
+As of 12.1.0, the `"admin"` parameter is no longer supported in
+client/user creation and support. If used in the `POST` or `PUT` of a
+client or user, the `"admin"` parameter is ignored.
+
+{{< /note >}}
+
+This method has no parameters.
+
+**Request**
+
+``` none
+POST /organizations/NAME/clients
+```
+
+with a request body similar to:
+
+``` javascript
+{
+  "name": "name_of_API_client",
+  "clientname": "name_of_API_client",
+  "validator": true,
+  "create_key": true
+}
+```
+
+where `name_of_API_client` is the name of the API client to be created
+and `admin` indicates whether the API client will be run as an admin API
+client. Either name or clientname needs to be specified.
+
+**Response**
+
+The response is similar to:
+
+``` javascript
+{
+  "uri": "https://chef.example/orgaizations/org1/clients/client1",
+  "chef_key": {
+    "name": "default",
+    "expiration_date": "infinity",
+    "private_key": "-----BEGIN RSA PRIVATE KEY----- ...",
+    "public_key": "-----BEGIN PUBLIC KEY----- ... ",
+    "uri": "https://chef.example/orgaizations/org1/clients/client1/keys/default"
+}
+```
+
+Store the private key in a safe place. It will be required later (along
+with the client name) to access the Chef Infra Server when using the
+Chef Infra Server API.
+
+**Response Codes**
+
+<table>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Response Code</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>201</code></td>
+<td>Created. The client was created.</td>
+</tr>
+<tr class="even">
+<td><code>400</code></td>
+<td>Bad request. The contents of the request are not formatted correctly.</td>
+</tr>
+<tr class="odd">
+<td><code>401</code></td>
+<td>Unauthorized. The user or client who made the request could not be authenticated. Verify the user/client name, and that the correct key was used to sign the request.</td>
+</tr>
+<tr class="even">
+<td><code>403</code></td>
+<td>Forbidden. The user who made the request is not authorized to perform the action.</td>
+</tr>
+<tr class="odd">
+<td><code>409</code></td>
+<td>Conflict. The object already exists.</td>
+</tr>
+<tr class="even">
+<td><code>413</code></td>
+<td>Request entity too large. A request may not be larger than 1000000 bytes.</td>
+</tr>
+</tbody>
+</table>
+
+/clients/NAME
+-------------
+
+The `/clients/NAME` endpoint is used to manage a specific client.
+This endpoint has the following methods: `DELETE`, `GET`, and `PUT`.
+
+### DELETE
+
+The `DELETE` method is used to remove a specific client.
+
+This method has no parameters.
+
+**Request**
+
+``` none
+DELETE /organizations/NAME/clients/NAME
+```
+
+This method has no request body.
+
+**Response**
+
+The response has no body.
+
+**Response Codes**
+
+<table>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Response Code</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>200</code></td>
+<td>OK. The request was successful.</td>
+</tr>
+<tr class="even">
+<td><code>401</code></td>
+<td>Unauthorized. The user or client who made the request could not be authenticated. Verify the user/client name, and that the correct key was used to sign the request.</td>
+</tr>
+<tr class="odd">
+<td><code>403</code></td>
+<td>Forbidden. The user who made the request is not authorized to perform the action.</td>
+</tr>
+<tr class="even">
+<td><code>404</code></td>
+<td>Not found. The requested object does not exist.</td>
+</tr>
+</tbody>
+</table>
+
+### GET
+
+The `GET` method is used to return a specific API client.
+
+This method has no parameters.
+
+**Request**
+
+``` none
+GET /organizations/NAME/clients/NAME
+```
+
+This method has no request body.
+
+**Response**
+
+The response is similar to:
+
+``` javascript
+{
+  "name": "user1",
+  "clientname": "user1",
+  "orgname": "test",
+  "json_class": "Chef::ApiClient",
+  "chef_type": "client",
+  "validator": "false"
+}
+```
+
+**Response Codes**
+
+<table>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Response Code</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>200</code></td>
+<td>OK. The request was successful.</td>
+</tr>
+<tr class="even">
+<td><code>401</code></td>
+<td>Unauthorized. The user or client who made the request could not be authenticated. Verify the user/client name, and that the correct key was used to sign the request.</td>
+</tr>
+<tr class="odd">
+<td><code>403</code></td>
+<td>Forbidden. The user who made the request is not authorized to perform the action.</td>
+</tr>
+<tr class="even">
+<td><code>404</code></td>
+<td>Not found. The requested object does not exist.</td>
+</tr>
+</tbody>
+</table>
+
+### PUT
+
+The `PUT` method is used to update a specific client. If values are
+not specified for the `PUT` method, the Chef Infra Server will use the
+existing values rather than assign default values.
+
+{{< note >}}
+
+`PUT` supports renames. If `PUT /client/foo` is requested with
+`{ "name: "bar""}`, then it will rename `foo` to `bar` and all of the
+content previously associated with `foo` will be associated with `bar`.
+
+{{< /note >}}
+
+{{< note >}}
+
+As of 12.1.0, the `"admin"` parameter is no longer supported in
+client/user creation and support. If used in the `POST` or `PUT` of a
+client or user, then it is ignored.
+
+{{< /note >}}
+
+{{< note >}}
+
+As of 12.1.0, including `"public_key"`, `"private_key"`, or
+`"create_key"` in PUT requests to clients/users will cause a 400
+response.
+
+{{< /note >}}
+
+{{< note >}}
+
+`"name"` and `"clientname"` are not independent values. Making a PUT
+request with different values will return a 400 error. Either name
+may be specified to set both values.
+
+{{< /note >}}
+
+
+**Request**
+
+``` none
+PUT /organizations/NAME/clients/NAME
+```
+
+with a request body similar to:
+
+``` javascript
+{
+  "name": "monkeypants",
+  "validator": false
+}
+```
+
+**Response**
+
+The response is similar to:
+
+``` javascript
+{
+  "name": "monkeypants",
+  "clientname": "monkeypants",
+  "validator": true,
+  "json_class":"Chef::ApiClient",
+  "chef_type":"client"
+}
+```
+
+**Response Codes**
+
+<table>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Response Code</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>200</code></td>
+<td>OK. The request was successful.</td>
+</tr>
+<tr class="even">
+<td><code>201</code></td>
+<td>Created. The client was updated. (This response code is only returned when the client is renamed.)</td>
+</tr>
+<tr class="odd">
+<td><code>401</code></td>
+<td>Unauthorized. The user or client who made the request could not be authenticated. Verify the user/client name, and that the correct key was used to sign the request.</td>
+</tr>
+<tr class="even">
+<td><code>403</code></td>
+<td>Forbidden. The user who made the request is not authorized to perform the action.</td>
+</tr>
+<tr class="odd">
+<td><code>404</code></td>
+<td>Not found. The requested object does not exist.</td>
+</tr>
+<tr class="even">
+<td><code>409</code></td>
+<td>Conflict. This response code is only returned when a client is renamed, but a client already exists with the new name.</td>
+</tr>
+<tr class="odd">
+<td><code>413</code></td>
+<td>Request entity too large. A request may not be larger than 1000000 bytes.</td>
+</tr>
+</tbody>
+</table>
+
 /clients/CLIENT/keys/
 ---------------------
 
@@ -1822,18 +2218,24 @@ This method has no parameters.
 GET /organizations/NAME/clients/CLIENT/keys
 ```
 
+This method has no request body.
+
 **Response**
 
 The response is similar to:
 
 ``` javascript
 [
-  { "name" : "default",
-             "uri" : "https://chef.example/organizations/example/clients/client1/keys/default",
-             "expired" : false },
-  { "name" : "key1",
-             "uri" : "https://chef.example/organizations/example/clients/client1/keys/key1",
-             "expired" : true }
+  {
+     "name": "default",
+     "uri": "https://chef.example/organizations/example/clients/client1/keys/default",
+     "expired": false
+  },
+  { 
+     "name": "key1",
+     "uri": "https://chef.example/organizations/example/clients/client1/keys/key1",
+     "expired": true
+  }
 ]
 ```
 
@@ -1841,8 +2243,8 @@ The response is similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -1906,8 +2308,8 @@ The response is similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -1954,6 +2356,8 @@ This method has no parameters.
 DELETE /organizations/NAME/clients/CLIENT/keys/KEY
 ```
 
+This method has no request body.
+
 **Response**
 
 The response returns the information about the deleted key and is
@@ -1961,9 +2365,9 @@ similar to:
 
 ``` javascript
 {
-  "name" : "default",
-  "public_key" : "-------- BEGIN PUBLIC KEY --------- ...",
-  "expiration_date" : "2020-12-31T00:00:00Z"
+  "name": "default",
+  "public_key": "-------- BEGIN PUBLIC KEY --------- ...",
+  "expiration_date": "2020-12-31T00:00:00Z"
 }
 ```
 
@@ -1971,8 +2375,8 @@ similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -2013,6 +2417,8 @@ This method has no parameters.
 GET /organizations/NAME/clients/CLIENT/keys/KEY
 ```
 
+This method has no request body.
+
 **Response**
 
 The response is similar to:
@@ -2029,8 +2435,8 @@ The response is similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -2075,22 +2481,22 @@ with a request body similar to:
 
 ``` javascript
 {
-  "name" : "new_key_name",
-  "public_key" : "-------- BEGIN PUBLIC KEY ----and a valid key here",
-  "expiration_date" : "2020-12-31T00:00:00Z"
+  "name": "new_key_name",
+  "public_key": "-------- BEGIN PUBLIC KEY ----and a valid key here",
+  "expiration_date": "2020-12-31T00:00:00Z"
 }
 ```
 
 **Response**
 
-The response contains the updated inforamtion for the key, and is
+The response contains the updated information for the key and is
 similar to:
 
 ``` javascript
 {
-  "name" : "new_key_name",
-  "public_key" : "-------- BEGIN PUBLIC KEY --------- ...",
-  "expiration_date" : "2020-12-31T00:00:00Z"
+  "name": "new_key_name",
+  "public_key": "-------- BEGIN PUBLIC KEY --------- ...",
+  "expiration_date": "2020-12-31T00:00:00Z"
 }
 ```
 
@@ -2098,8 +2504,8 @@ similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -2130,387 +2536,6 @@ similar to:
 </tr>
 </tbody>
 </table>
-
-/clients
---------
-
-Use the `/clients` endpoint to manage an API client list and their
-associated RSA public key-pairs. The `/clients` endpoint has the
-following methods: `GET` and `POST`.
-
-{{< note >}}
-
-The API client list should be managed using knife or the Chef Infra
-Server management console, as opposed to the Chef Infra Server API.
-
-{{< /note >}}
-
-### GET
-
-The `GET` method is used to return the API client list on the Chef Infra
-Server, including nodes that have been registered with the Chef Infra
-Server, the chef-validator clients, and the chef-server-webui clients
-for the entire organization.
-
-This method has no parameters.
-
-**Request**
-
-``` none
-GET /organizations/NAME/clients
-```
-
-**Response**
-
-The response is similar to:
-
-``` javascript
-{
-  "org1-validator" : "https://chef.example/orgaizations/org1/clients/org1-validator",
-  "client1" : "https://chef.example/orgaizations/org1/clients/client1"
-}
-```
-
-**Response Codes**
-
-<table>
-<colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Response Code</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><code>200</code></td>
-<td>OK. The request was successful.</td>
-</tr>
-<tr class="even">
-<td><code>401</code></td>
-<td>Unauthorized. The user or client who made the request could not be authenticated. Verify the user/client name, and that the correct key was used to sign the request.</td>
-</tr>
-<tr class="odd">
-<td><code>403</code></td>
-<td>Forbidden. The user who made the request is not authorized to perform the action.</td>
-</tr>
-</tbody>
-</table>
-
-### POST
-
-The `POST` method is used to create a new API client.
-
-{{< note >}}
-
-As of 12.1.0, the `"admin"` parameter is no longer supported in
-client/user creation and support. If used in the `POST` or `PUT` of a
-client or user, then it is ignored.
-
-{{< /note >}}
-
-This method has no parameters.
-
-**Request**
-
-``` none
-POST /organizations/NAME/clients
-```
-
-with a request body similar to:
-
-``` javascript
-{
-  "name": "name_of_API_client",
-  "create_key": true
-}
-```
-
-where `name_of_API_client` is the name of the API client to be created
-and `admin` indicates whether the API client will be run as an admin API
-client.
-
-**Response**
-
-The response is similar to:
-
-``` javascript
-{
-  "uri": "https://chef.example/orgaizations/org1/clients/client1",
-  "chef_key": {
-    "name": "default",
-    "public_key": "-----BEGIN PUBLIC KEY-----",
-    "private_key": "-----BEGIN RSA PRIVATE KEY-----"
-}
-```
-
-Store the private key in a safe place. It will be required later (along
-with the client name) to access the Chef Infra Server when using the
-Chef Infra Server API.
-
-**Response Codes**
-
-<table>
-<colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Response Code</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><code>201</code></td>
-<td>Created. The object was created.</td>
-</tr>
-<tr class="even">
-<td><code>400</code></td>
-<td>Bad request. The contents of the request are not formatted correctly.</td>
-</tr>
-<tr class="odd">
-<td><code>401</code></td>
-<td>Unauthorized. The user or client who made the request could not be authenticated. Verify the user/client name, and that the correct key was used to sign the request.</td>
-</tr>
-<tr class="even">
-<td><code>403</code></td>
-<td>Forbidden. The user who made the request is not authorized to perform the action.</td>
-</tr>
-<tr class="odd">
-<td><code>409</code></td>
-<td>Conflict. The object already exists.</td>
-</tr>
-<tr class="even">
-<td><code>413</code></td>
-<td>Request entity too large. A request may not be larger than 1000000 bytes.</td>
-</tr>
-</tbody>
-</table>
-
-/clients/NAME
--------------
-
-The `/clients/NAME` endpoint is used to manage a specific API client.
-This endpoint has the following methods: `DELETE`, `GET`, and `PUT`.
-
-### DELETE
-
-The `DELETE` method is used to remove a specific API client.
-
-This method has no parameters.
-
-**Request**
-
-``` none
-DELETE /organizations/NAME/clients/NAME
-```
-
-This method has no request body.
-
-**Response**
-
-The response is similar to:
-
-``` javascript
-{
-  "name" : "client1",
-  "validator" : "false"
-}
-```
-
-**Response Codes**
-
-<table>
-<colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Response Code</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><code>200</code></td>
-<td>OK. The request was successful.</td>
-</tr>
-<tr class="even">
-<td><code>401</code></td>
-<td>Unauthorized. The user or client who made the request could not be authenticated. Verify the user/client name, and that the correct key was used to sign the request.</td>
-</tr>
-<tr class="odd">
-<td><code>403</code></td>
-<td>Forbidden. The user who made the request is not authorized to perform the action.</td>
-</tr>
-<tr class="even">
-<td><code>404</code></td>
-<td>Not found. The requested object does not exist.</td>
-</tr>
-</tbody>
-</table>
-
-### GET
-
-The `GET` method is used to return a specific API client.
-
-This method has no parameters.
-
-**Request**
-
-``` none
-GET /organizations/NAME/clients/NAME
-```
-
-**Response**
-
-The response is similar to:
-
-``` javascript
-{
-  "name" : "user1",
-  "validator" : "false"
-}
-```
-
-**Response Codes**
-
-<table>
-<colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Response Code</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><code>200</code></td>
-<td>OK. The request was successful.</td>
-</tr>
-<tr class="even">
-<td><code>401</code></td>
-<td>Unauthorized. The user or client who made the request could not be authenticated. Verify the user/client name, and that the correct key was used to sign the request.</td>
-</tr>
-<tr class="odd">
-<td><code>403</code></td>
-<td>Forbidden. The user who made the request is not authorized to perform the action.</td>
-</tr>
-<tr class="even">
-<td><code>404</code></td>
-<td>Not found. The requested object does not exist.</td>
-</tr>
-</tbody>
-</table>
-
-### PUT
-
-The `PUT` method is used to update a specific API client. If values are
-not specified for the `PUT` method, the Chef Infra Server will use the
-existing values rather than assign default values.
-
-{{< note >}}
-
-`PUT` supports renames. If `PUT /user/foo` is requested with
-`{ "name: "bar""}`, then it will rename `foo` to `bar` and all of the
-content previously associated with `foo` will be associated with `bar`.
-
-{{< /note >}}
-
-{{< note >}}
-
-As of 12.1.0, the `"admin"` parameter is no longer supported in
-client/user creation and support. If used in the `POST` or `PUT` of a
-client or user, then it is ignored.
-
-{{< /note >}}
-
-{{< note >}}
-
-As of 12.1.0, including `"public_key"`, `"private_key"`, or
-`"create_key"` in PUT requests to clients/users will cause a 400
-response.
-
-{{< /note >}}
-
-**Request**
-
-``` none
-PUT /organizations/NAME/clients/NAME
-```
-
-with a request body similar to:
-
-``` javascript
-{
-  "name": "monkeypants",
-}
-```
-
-**Response**
-
-The response is similar to:
-
-``` javascript
-{
-  "uri" : "https://chef.example/orgaizations/org1/clients/client1"
-}
-```
-
-**Response Codes**
-
-<table>
-<colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Response Code</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><code>200</code></td>
-<td>OK. The request was successful.</td>
-</tr>
-<tr class="even">
-<td><code>201</code></td>
-<td>Created. The object was created. (This response code is only returned when the client is renamed.)</td>
-</tr>
-<tr class="odd">
-<td><code>401</code></td>
-<td>Unauthorized. The user or client who made the request could not be authenticated. Verify the user/client name, and that the correct key was used to sign the request.</td>
-</tr>
-<tr class="even">
-<td><code>403</code></td>
-<td>Forbidden. The user who made the request is not authorized to perform the action.</td>
-</tr>
-<tr class="odd">
-<td><code>404</code></td>
-<td>Not found. The requested object does not exist.</td>
-</tr>
-<tr class="even">
-<td><code>409</code></td>
-<td>Unauthorized. The user who made the request is not authorized to perform the action. (This response code is only returned when a client is renamed, but a client already exists with that name.)</td>
-</tr>
-<tr class="odd">
-<td><code>413</code></td>
-<td>Request entity too large. A request may not be larger than 1000000 bytes.</td>
-</tr>
-</tbody>
-</table>
-
 /containers
 -----------
 
@@ -2550,8 +2575,8 @@ The response is similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -2604,8 +2629,8 @@ This method has the following parameters:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -2658,8 +2683,8 @@ The response is similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -2718,8 +2743,8 @@ similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -2779,8 +2804,8 @@ The response is similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -2847,8 +2872,8 @@ The response is similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -2905,8 +2930,8 @@ garbage collected.
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -3059,8 +3084,8 @@ The response is similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -3193,8 +3218,8 @@ This method has no response body.
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -3261,8 +3286,8 @@ and `applications` are the names of data bags and
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -3324,8 +3349,8 @@ The response is similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -3399,8 +3424,8 @@ where the key-value pairs represent the last state of the data bag item.
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -3455,8 +3480,8 @@ The response is similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -3515,8 +3540,8 @@ This method has no response body.
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -3591,8 +3616,8 @@ The response is similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -3648,8 +3673,8 @@ The response is similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -3714,8 +3739,8 @@ The response is similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -3783,8 +3808,8 @@ The response is similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -3845,8 +3870,8 @@ The response is similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -3926,8 +3951,8 @@ The response is similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -3994,8 +4019,8 @@ similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -4056,8 +4081,8 @@ The response is similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -4120,8 +4145,8 @@ The response will return the updated environment.
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -4168,8 +4193,8 @@ This method has the following parameters:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -4216,8 +4241,8 @@ The response is similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -4553,8 +4578,8 @@ The response is similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -4609,8 +4634,8 @@ This method has the following parameters:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -4663,8 +4688,8 @@ The response is similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -4727,8 +4752,8 @@ The response is similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -4808,8 +4833,8 @@ will be reported.
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -4893,8 +4918,8 @@ Chef Infra Client will pick up the `_default` run-list if
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -4959,8 +4984,8 @@ The response is similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -5027,8 +5052,8 @@ The response is similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -5093,8 +5118,8 @@ The response is similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -5164,8 +5189,8 @@ The response is similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -5239,8 +5264,8 @@ The response is similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -5302,8 +5327,8 @@ The response is similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -5370,8 +5395,8 @@ The response is similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -5449,8 +5474,8 @@ The response will return the last known state of the node, similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -5514,8 +5539,8 @@ The response is similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -5582,8 +5607,8 @@ The response will return the updated node.
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -5668,8 +5693,8 @@ The response groups policies by name and revision and is similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -5762,8 +5787,8 @@ and for a client, similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -5817,8 +5842,8 @@ The response is similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -5886,8 +5911,8 @@ The response is similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -5969,8 +5994,8 @@ The response is similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -6034,8 +6059,8 @@ The response is similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -6099,8 +6124,8 @@ The response will return the JSON for the updated role.
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -6162,8 +6187,8 @@ The response is similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -6225,8 +6250,8 @@ The response is similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -6315,8 +6340,8 @@ The response is similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -6397,8 +6422,8 @@ The response is similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -6498,8 +6523,8 @@ The response is similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -6541,8 +6566,8 @@ This method has the following parameters:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -6599,8 +6624,8 @@ and is similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -6684,7 +6709,7 @@ This method has the following parameters:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
+<col style="width: 20%" />
 <col style="width: 60%" />
 </colgroup>
 <thead>
@@ -6741,8 +6766,8 @@ The response is similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -6832,8 +6857,8 @@ location information and dependencies:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -6915,8 +6940,8 @@ created, updated, or deleted since `NUM`, similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -6964,6 +6989,8 @@ This method has no parameters.
 GET /organizations/NAME/users
 ```
 
+This method has no request body.
+
 **Response**
 
 The response is similar to:
@@ -6978,8 +7005,8 @@ The response is similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -7034,8 +7061,8 @@ No response block is returned.
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -7104,8 +7131,8 @@ The response will return the end state of the user, similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -7164,8 +7191,8 @@ The response is similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
