@@ -33,7 +33,9 @@ git add .
 # audit of our codebase that no DCO sign-off is needed for this sort of PR since
 #it contains no intellectual property
 
-git commit --message "Bump Hugo module $EXPEDITOR_PRODUCT_KEY to $EXPEDITOR_VERSION" --message "The new commit for $EXPEDITOR_PRODUCT_KEY is $EXPEDITOR_BUILD_COMMIT" --message "This pull request was triggered automatically via Expeditor when $EXPEDITOR_PRODUCT_KEY $EXPEDITOR_VERSION was promoted to stable." --message "This change falls under the obvious fix policy so no Developer Certificate of Origin (DCO) sign-off is required."
+dco_safe_commit "Bump Hugo module $EXPEDITOR_PRODUCT_KEY to $EXPEDITOR_VERSION.
+
+The new commit for $EXPEDITOR_PRODUCT_KEY is $EXPEDITOR_BUILD_COMMIT"
 
 open_pull_request
 
