@@ -249,8 +249,8 @@ This method has no response body.
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -324,8 +324,8 @@ number of nodes that are under license:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -349,8 +349,8 @@ number of nodes that are under license:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -417,8 +417,8 @@ The response is similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -491,8 +491,8 @@ The response is similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -559,8 +559,8 @@ The response is similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -609,8 +609,8 @@ The response is similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -667,8 +667,8 @@ The response is similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -741,8 +741,8 @@ The response will return something like the following:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -862,8 +862,8 @@ The verbose response is similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -972,8 +972,8 @@ The response is similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -1046,8 +1046,8 @@ The response is similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -1105,8 +1105,8 @@ The response is similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -1201,8 +1201,8 @@ returned.
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -1290,8 +1290,8 @@ The response is similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -1357,8 +1357,8 @@ The response is similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -1422,8 +1422,8 @@ similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -1480,8 +1480,8 @@ The response is similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -1549,8 +1549,8 @@ similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -1635,8 +1635,8 @@ The response is similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -1699,8 +1699,8 @@ The response returns a dictionary similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -1764,8 +1764,8 @@ The response is similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -1846,8 +1846,8 @@ The response is similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -1930,8 +1930,8 @@ Chef Infra Server API.
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -1995,8 +1995,8 @@ The response has no body.
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -2057,8 +2057,8 @@ The response is similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -2158,8 +2158,8 @@ The response is similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -2243,8 +2243,8 @@ The response is similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -2308,8 +2308,8 @@ The response is similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -2375,8 +2375,8 @@ similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -2435,8 +2435,8 @@ The response is similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -2489,7 +2489,7 @@ with a request body similar to:
 
 **Response**
 
-The response contains the updated inforamtion for the key, and is
+The response contains the updated information for the key and is
 similar to:
 
 ``` javascript
@@ -2504,8 +2504,8 @@ similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -2575,8 +2575,8 @@ The response is similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -2629,8 +2629,8 @@ This method has the following parameters:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -2683,8 +2683,8 @@ The response is similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -2743,8 +2743,8 @@ similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -2804,8 +2804,8 @@ The response is similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -2872,8 +2872,8 @@ The response is similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -2930,8 +2930,8 @@ garbage collected.
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -3084,8 +3084,8 @@ The response is similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -3218,8 +3218,8 @@ This method has no response body.
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -3286,8 +3286,8 @@ and `applications` are the names of data bags and
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -3349,8 +3349,8 @@ The response is similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -3424,8 +3424,8 @@ where the key-value pairs represent the last state of the data bag item.
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -3480,8 +3480,8 @@ The response is similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -3540,8 +3540,8 @@ This method has no response body.
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -3616,8 +3616,8 @@ The response is similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -3673,8 +3673,8 @@ The response is similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -3739,8 +3739,8 @@ The response is similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -3808,8 +3808,8 @@ The response is similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -3870,8 +3870,8 @@ The response is similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -3951,8 +3951,8 @@ The response is similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -4019,8 +4019,8 @@ similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -4081,8 +4081,8 @@ The response is similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -4145,8 +4145,8 @@ The response will return the updated environment.
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -4193,8 +4193,8 @@ This method has the following parameters:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -4241,8 +4241,8 @@ The response is similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -4578,8 +4578,8 @@ The response is similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -4634,8 +4634,8 @@ This method has the following parameters:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -4688,8 +4688,8 @@ The response is similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -4752,8 +4752,8 @@ The response is similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -4833,8 +4833,8 @@ will be reported.
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -4918,8 +4918,8 @@ Chef Infra Client will pick up the `_default` run-list if
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -4984,8 +4984,8 @@ The response is similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -5052,8 +5052,8 @@ The response is similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -5118,8 +5118,8 @@ The response is similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -5189,8 +5189,8 @@ The response is similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -5264,8 +5264,8 @@ The response is similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -5327,8 +5327,8 @@ The response is similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -5395,8 +5395,8 @@ The response is similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -5474,8 +5474,8 @@ The response will return the last known state of the node, similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -5539,8 +5539,8 @@ The response is similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -5607,8 +5607,8 @@ The response will return the updated node.
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -5693,8 +5693,8 @@ The response groups policies by name and revision and is similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -5787,8 +5787,8 @@ and for a client, similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -5842,8 +5842,8 @@ The response is similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -5908,8 +5908,8 @@ The response is similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -5985,8 +5985,8 @@ The response is similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -6049,8 +6049,8 @@ The response is similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -6114,8 +6114,8 @@ The response will return the JSON for the updated role.
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -6177,8 +6177,8 @@ The response is similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -6240,8 +6240,8 @@ The response is similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -6330,8 +6330,8 @@ The response is similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -6412,8 +6412,8 @@ The response is similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -6513,8 +6513,8 @@ The response is similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -6556,8 +6556,8 @@ This method has the following parameters:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -6614,8 +6614,8 @@ and is similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -6699,7 +6699,7 @@ This method has the following parameters:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
+<col style="width: 20%" />
 <col style="width: 60%" />
 </colgroup>
 <thead>
@@ -6756,8 +6756,8 @@ The response is similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -6847,8 +6847,8 @@ location information and dependencies:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -6930,8 +6930,8 @@ created, updated, or deleted since `NUM`, similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -6995,8 +6995,8 @@ The response is similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -7051,8 +7051,8 @@ No response block is returned.
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -7121,8 +7121,8 @@ The response will return the end state of the user, similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -7181,8 +7181,8 @@ The response is similar to:
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
