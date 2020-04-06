@@ -708,7 +708,7 @@ Ohai Settings
 
 {{% config_rb_ohai %}}
 
-{{% config_rb_ohai_settings %}}
+{{< readFile_shortcode file="config_rb_ohai_settings.md" >}}
 
 Example
 =======

@@ -308,7 +308,7 @@ properties_list:
 
       files depending upon the platform used - see [File
 
-      Specificity](#file-specificity) for more information.'
+      Specificity](#cookbook_file_specificity) for more information.'
 - property: verify
   ruby_type: String, Block
   required: false

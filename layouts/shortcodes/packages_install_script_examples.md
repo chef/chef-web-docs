@@ -1,4 +1,4 @@
-The following examples show how to use the install script.
+The following examples show how to use the Chef Software Install script.
 
 To install Chef Client 15.8.23:
 

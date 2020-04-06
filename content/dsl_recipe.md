@@ -630,7 +630,7 @@ used in a recipe.
 
 **Use a specific binary for a specific platform**
 
-{{% resource_remote_file_use_platform_family %}}
+{{< readFile_shortcode file="resource_remote_file_use_platform_family.md" >}}
 
 reboot_pending?
 ----------------
@@ -792,7 +792,7 @@ recipe.
 
 **Use the search recipe DSL method to find users**
 
-{{% resource_execute_use_search_dsl_method %}}
+{{< readFile_shortcode file="resource_execute_use_search_dsl_method.md" >}}
 
 shell_out
 ----------

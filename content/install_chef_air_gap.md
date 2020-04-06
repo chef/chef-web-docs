@@ -99,7 +99,7 @@ group.
     Server, and then record its location on the file system. The rest of
     these steps assume this location is in the `/tmp` directory.
 
-3.  {{% install_chef_server_install_package %}}
+3.  {{< shortcode_indent shortcode="install_chef_server_install_package">}}
 
 4.  Run the following to start all of the services:
 
@@ -111,9 +111,9 @@ group.
     that work together to create a functioning system, this step may
     take a few minutes to complete.
 
-5.  {{% ctl_chef_server_user_create_admin %}}
+5.  {{< shortcode_indent shortcode="ctl_chef_server_user_create_admin">}}
 
-6.  {{% ctl_chef_server_org_create_summary %}}
+6.  {{< shortcode_indent shortcode="ctl_chef_server_org_create_summary">}}
 
 Chef Workstation
 ================

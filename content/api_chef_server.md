@@ -5834,7 +5834,7 @@ The response is similar to:
 
 ``` javascript
 {
-  "webserver": "https://localhost/roles/webserver"
+  "webserver": "https://chef.example/organizations/org1/roles/webserver"
 }
 ```
 
@@ -5884,10 +5884,13 @@ with a request body similar to:
 ``` javascript
 {
   "name": "webserver",
-  "chef_type": "role",
-  "json_class": "Chef::Role",
   "default_attributes": {},
   "description": "A webserver",
+  "env_run_lists": {
+    "testenv": {
+      "recipe[pegasus]"
+    }
+  },
   "run_list": [
     "recipe[unicorn]",
     "recipe[apache2]"
@@ -5901,7 +5904,7 @@ with a request body similar to:
 The response is similar to:
 
 ``` javascript
-{ "uri": "https://localhost/roles/webserver" }
+{ "uri": "https://chef.example/organizations/org1/roles/webserver" }
 ```
 
 **Response Codes**
@@ -5974,6 +5977,11 @@ The response is similar to:
   "json_class": "Chef::Role",
   "default_attributes": {},
   "description": "A webserver",
+  "env_run_lists": {
+    "env1": {
+      "recipe[foo1]"
+    }  
+  },
   "run_list": [
     "recipe[apache2]"
   ],
@@ -5982,6 +5990,7 @@ The response is similar to:
 ```
 
 **Response Codes**
+
 
 <table>
 <colgroup>
@@ -6037,6 +6046,7 @@ The response is similar to:
   "json_class": "Chef::Role",
   "default_attributes": {},
   "description": "A webserver",
+  "env_run_lists": {},
   "run_list": [
     "recipe[unicorn]",
     "recipe[apache2]"
@@ -6095,10 +6105,10 @@ with a request body similar to:
 ``` javascript
 {
   "name": "webserver",
-  "chef_type": "role",
-  "json_class": "Chef::Role",
   "default_attributes": {},
   "description": "A webserver",
+  "env_run_lists": {},
+  "default_attributes": {},
   "run_list": [
     "recipe[apache2]"
   ],

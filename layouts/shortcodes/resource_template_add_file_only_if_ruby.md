@@ -5,6 +5,6 @@ a file based on a template, and then use Ruby to specify a condition:
 template '/tmp/somefile' do
   mode '0755'
   source 'somefile.erb'
-  only_if do ! File.exist?('/etc/passwd') end
+  only_if { ! ::File.exist?('/etc/passwd') }
 end
 ```

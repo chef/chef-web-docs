@@ -16,6 +16,8 @@ aliases = ["/manage.html"]
 
 {{% EOL_manage %}}
 
+{{% manage_A2_server_warning %}}
+
 The Chef management console enables the management of nodes, data bags,
 roles, environments, and cookbooks by using a web user interface. In
 addition, access to nodes, data bags, roles, environments, and cookbooks

@@ -577,7 +577,7 @@ load_current_value
 new_resource.property
 ----------------------
 
-{{% dsl_custom_resource_method_new_resource %}}
+{{< readFile_shortcode file="dsl_custom_resource_method_new_resource.md" >}}
 
 property
 --------
