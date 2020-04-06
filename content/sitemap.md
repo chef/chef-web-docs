@@ -125,7 +125,7 @@ Setup
 Workstation](/workstation/install_workstation/)
 
 **Nodes**: [Install via Bootstrap](/install_bootstrap/) | [Install
-via Script](/install_omnibus/) | [chef-client
+via Script](/chef_install_script/) | [chef-client
 (executable)](/ctl_chef_client/) |
 [client.rb](/config_rb_client/) | [Upgrades](/upgrade_client/)
 | [Security](/chef_client_security/)
