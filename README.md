@@ -172,10 +172,6 @@ We love getting feedback. You can use:
   especially for docs feature requests and minor docs bugs.
 - https://discourse.chef.io/ --- This is a great place to interact with Chef and others.
 
-## License
-
-[Creative Commons Attribution 3.0 Unported License](http://creativecommons.org/licenses/by/3.0/)
-
 ## Documentation snapshots
 
 The previous scoped doc sets that were found off of https://docs.chef.io/release/ are no longer available in this repo. Instead,

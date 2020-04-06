@@ -435,7 +435,7 @@ kitchen.yml file when the transport is WinRM:
 Work with Proxies
 -----------------
 
-{{% ws_test_kitchen_yml_syntax_proxy %}}
+{{< readFile_shortcode file="ws_test_kitchen_yml_syntax_proxy.md" >}}
 
 Chef Infra Client Settings
 ==========================

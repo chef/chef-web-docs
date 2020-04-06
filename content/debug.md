@@ -205,12 +205,12 @@ Step Through Run-list
 Debug Existing Recipe
 ---------------------
 
-{{% chef_shell_debug_existing_recipe %}}
+{{< readFile_shortcode file="chef_shell_debug_existing_recipe.md" >}}
 
 Advanced Debugging
 ------------------
 
-{{% chef_shell_advanced_debug %}}
+{{< readFile_shortcode file="chef_shell_advanced_debug.md" >}}
 
 debug_value
 ------------

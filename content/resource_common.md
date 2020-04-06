@@ -345,7 +345,7 @@ Run in Compile Phase
 run_action
 -----------
 
-{{% resources_common_compile_begin %}}
+{{< readFile_shortcode file="resources_common_compile_begin.md" >}}
 
 Windows File Security
 =====================

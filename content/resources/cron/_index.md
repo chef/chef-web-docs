@@ -216,7 +216,7 @@ examples_list:
   text_blocks:
   - code_block: "cron 'ganglia_tomcat_thread_max' do\n  command \"/usr/bin/gmetric\n\
       \    -n 'tomcat threads max'\n    -t uint32\n    -v '/usr/local/bin/tomcat-stat\n\
-      \    --thread-max'\"\n  only_if do File.exist?('/home/jboss') end\nend"
+      \    --thread-max'\"\n  only_if { ::File.exist?('/home/jboss') }\nend"
 - example_heading: Run every Saturday, 8:00 AM
   text_blocks:
   - markdown: 'The following example shows a schedule that will run every hour at

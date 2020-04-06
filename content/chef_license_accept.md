@@ -52,17 +52,13 @@ Versions](/versions/) documentation.
 Workstation Products
 --------------------
 
--   
-
-    Chef Workstation \>= 0.4, which also contains
-
-    :   -   Chef Infra Client
-        -   Chef InSpec
-        -   Push Jobs Client
-
--   Chef Infra Client \>= 15.0
--   Chef InSpec \>= 4.0
--   Chef Habitat \>= 0.80
+- Chef Workstation \>= 0.4, which also contains:
+  -   Chef Infra Client
+  -   Chef InSpec
+  -   Push Jobs Client
+- Chef Infra Client \>= 15.0
+- Chef InSpec \>= 4.0
+- Chef Habitat \>= 0.80
 
 These products are typically installed on a user's workstation. Two
 methods are generally used to accept the license for these products:
