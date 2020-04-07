@@ -60,7 +60,7 @@ pluralizeListTitles = false
 [params]
   enable_search = true
   robots = ''
-  menuOrder = ["infra", "workstation", "habitat", "inspec", "automate", "legacy", "api", "extra"]
+  menuOrder = ["infra", "workstation", "desktop", "habitat", "inspec", "automate", "legacy", "api", "extra"]
 
 [taxonomies]
   category = "categories"
