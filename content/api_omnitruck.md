@@ -108,22 +108,10 @@ Omnitruck accepts the following platforms:
 <td><code>6.1</code>, <code>7.1</code>, <code>7.2</code></td>
 </tr>
 <tr class="even">
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
 <td>Amazon Linux</td>
 <td><code>amazon</code></td>
 <td><code>x86_64</code></td>
 <td><code>201X, 2</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td></td>
-<td></td>
-<td></td>
 </tr>
 <tr class="odd">
 <td>Cisco IOS XR</td>
@@ -132,22 +120,10 @@ Omnitruck accepts the following platforms:
 <td><code>6</code></td>
 </tr>
 <tr class="even">
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
 <td>Cisco NX-OS</td>
 <td><code>nexus</code></td>
 <td><code>x86_64</code></td>
 <td><code>7</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td></td>
-<td></td>
-<td></td>
 </tr>
 <tr class="odd">
 <td>Debian</td>
@@ -156,22 +132,10 @@ Omnitruck accepts the following platforms:
 <td><code>6</code>, <code>7</code>, <code>8</code>, <code>9</code>, <code>10</code></td>
 </tr>
 <tr class="even">
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
 <td>FreeBSD</td>
 <td><code>freebsd</code></td>
 <td><code>x86_64</code></td>
 <td><code>9</code>, <code>10</code>, <code>11</code>, <code>12</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td></td>
-<td></td>
-<td></td>
 </tr>
 <tr class="odd">
 <td>macOS</td>
@@ -180,22 +144,10 @@ Omnitruck accepts the following platforms:
 <td><code>10.6</code>, <code>10.7</code>, <code>10.8</code>, <code>10.9</code>, <code>10.10</code>, <code>10.11</code>, <code>10.12</code>, <code>10.13</code>, <code>10.14</code>, <code>10.15</code></td>
 </tr>
 <tr class="even">
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
 <td>Solaris</td>
 <td><code>solaris2</code></td>
 <td><code>i386</code>, <code>sparc</code></td>
 <td><code>5.10</code>, <code>5.11</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td></td>
-<td></td>
-<td></td>
 </tr>
 <tr class="odd">
 <td>SUSE Linux Enterprise Server</td>
@@ -204,22 +156,10 @@ Omnitruck accepts the following platforms:
 <td><code>11</code>, <code>12</code>, <code>15</code></td>
 </tr>
 <tr class="even">
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
 <td>Red Hat Enterprise Linux / CentOS</td>
 <td><code>el</code></td>
 <td><code>i386</code>, <code>x86_64</code>, <code>ppc64</code>, <code>ppc64le</code>, <code>aarch64</code></td>
 <td><code>5</code>, <code>6</code>, <code>7</code>, <code>8</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td></td>
-<td></td>
-<td></td>
 </tr>
 <tr class="odd">
 <td>Ubuntu</td>
@@ -228,22 +168,10 @@ Omnitruck accepts the following platforms:
 <td><code>10.04</code>, <code>10.10</code>, <code>11.04</code>, <code>11.10</code>, <code>12.04</code>, <code>12.10</code>, <code>13.04</code>, <code>13.10</code>, <code>14.04</code>, <code>14.10</code>, <code>16.04</code>, <code>16.10</code>, <code>17.04</code>, <code>17.10</code>, <code>18.04</code></td>
 </tr>
 <tr class="even">
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
 <td>Microsoft Windows</td>
 <td><code>windows</code></td>
 <td><code>x86_64</code>, <code>i386</code></td>
 <td><code>7</code>, <code>8</code>, <code>10</code>, <span class="title-ref">2008r2</span>, <code>2012</code>, <code>2012r2</code>, <code>2016</code>, <code>2019</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td></td>
-<td></td>
-<td></td>
 </tr>
 </tbody>
 </table>
