@@ -18,23 +18,23 @@ running Hugo from chef-web-docs.
 
 1. Modify the go.mod file in `chef-web-docs`.
 
-   Add `replace github.com/chef/chef-workstation => ../chef-workstation` below the
+   Add `replace github.com/chef/chef-workstation/www => ../chef-workstation/www` below the
    `require` statement. The whole file should look like this:
 
    ```
-   module chef/chef-web-docs
+   module github.com/chef/chef-web-docs
 
    go 1.14
 
-   require github.com/chef/chef-workstation v0.0.0-20200408195456-2df22d836e01 // indirect
+   require github.com/chef/chef-workstation/www v0.0.0-20200401145210-19cfbd227952 // indirect
 
-   replace github.com/chef/chef-workstation => ../chef-workstation
+   replace github.com/chef/chef-workstation/www => ../chef-workstation/www
    ```
 
 1. Start the Hugo server from `chef-web-docs`:
 
    ```
-   make serve_local_modules
+   make serve
    ```
 
 You can preview any changes made to the documentation in `chef-workstation` as

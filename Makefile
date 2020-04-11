@@ -15,10 +15,7 @@ clean_all:
 	rm -rf results/
 
 serve: assets
-	hugo server --buildDrafts --noHTTPCache --config=configs/config.toml,configs/workstation.toml
-
-serve_local_modules: assets
-	hugo server --buildDrafts --noHTTPCache --config=configs/config.toml,configs/local_test_workstation.toml
+	hugo server --buildDrafts --noHTTPCache
 
 lint: assets
 	hugo -D
