@@ -8,6 +8,7 @@ pkg_upstream_url="https://docs.chef.io"
 pkg_build_deps=(
   core/hugo
   core/git
+  core/go
   core/make
   core/node
 )

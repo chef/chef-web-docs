@@ -644,11 +644,11 @@ Server Admins
 Scenario
 --------
 
-{{% server_rbac_server_admins_scenario %}}
+{{< readFile_shortcode file="server_rbac_server_admins_scenario.md" >}}
 
 ### Superuser Accounts
 
-{{% server_rbac_server_admins_superusers %}}
+{{< readFile_shortcode file="server_rbac_server_admins_superusers.md" >}}
 
 Manage server-admins Group
 --------------------------

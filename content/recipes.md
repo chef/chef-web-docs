@@ -100,7 +100,7 @@ Environment Variables
 
 {{% environment_variables_summary %}}
 
-{{% environment_variables_access_resource_attributes %}}
+{{< readFile_shortcode file="environment_variables_access_resource_attributes.md" >}}
 
 Work with Recipes
 =================

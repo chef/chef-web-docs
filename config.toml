@@ -60,15 +60,32 @@ pluralizeListTitles = false
 [params]
   enable_search = true
   robots = ''
-  menuOrder = ["infra", "workstation", "habitat", "inspec", "automate", "legacy", "api", "extra"]
+  menuOrder = ["infra", "workstation", "desktop", "habitat", "inspec", "automate", "legacy", "api", "extra"]
 
 [taxonomies]
   category = "categories"
   tag = "tags"
   resource = "resources"
 
-## Main Menu ##
 
+[module]
+
+  [[module.imports]]
+    disable = false
+    ignoreConfig = false
+    path = "github.com/chef/chef-workstation"
+
+  [[module.imports.mounts]]
+    source = "www/content"
+    target = "content"
+
+  [[module.imports.mounts]]
+    source = "www/static"
+    target = "static"
+
+####
+## Main Menu ##
+####
 [[menu.main]]
 title = "Chef.io"
 identifier = "chef"
@@ -105,6 +122,10 @@ identifier = "download"
 url = "https://downloads.chef.io/"
 weight = 60
 
+####
+## End Main Menu ##
+####
+
 
 ####
 # Chef Infra Menu
@@ -131,7 +152,7 @@ weight = 20
     title = "Licensing"
     identifier = "overview/packages_&_platforms/licensing"
     parent = "overview/packages_&_platforms"
-    weight = 50
+    weight = 60
 
 [[menu.infra]]
 title = "Chef Infra"

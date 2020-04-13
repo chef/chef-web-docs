@@ -51,3 +51,10 @@ subscriptions:
       - built_in:promote_habitat_packages
       - trigger_pipeline:deploy/acceptance:
           post_commit: true
+
+  # This will update version of the Chef product Hugo module
+  # that is used to build the docs when that product is promoted to stable.
+  - workload: artifact_published:stable:chef-workstation:*
+    actions:
+    - bash:.expeditor/update_hugo_modules.sh
+
