@@ -16,11 +16,7 @@ aliases = ["/data_collection.html", "/ingest_data_chef_automate.html", "/release
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/data_collection.md)
 
-
-
 {{% chef_automate_mark %}}
-
-{{% EOL_a1 %}}
 
 Automatic Node Run Data Collection with Chef Infra Server
 =========================================================
