@@ -5753,33 +5753,21 @@ GET /organizations/NAME/principals/NAME
 
 **Response**
 
-For a user, the response is similar to:
+For a user or client the type value will vary. The response body
+returns an array of principals which allows for a client with the
+ same name as a user. The response for a user or client is similar to:
 
 ``` javascript
 {
-  "name": "normal_user",
-  "type": "user",
-  "public_key": "-----BEGIN PUBLIC KEY-----\n
-                MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCyVPW9YXa5PR0rgEW1updSxygB\n
-                wmVpDnHurgQ7/gbh+PmY49EZsfrZSbKgSKy+rxdsVoSoU+krYtHvYIwVfr2tk0FP\n
-                nhAWJaFH654KpuCNG6x6iMLtzGO1Ma/VzHnFqoOeSCKHXDhmHwJAjGDTPAgCJQiI\n
-                eau6cDNJRiJ7j0/xBwIDAQAB\n
-                -----END PUBLIC KEY-----"
-}
-```
-
-and for a client, similar to:
-
-``` javascript
-{
-  "name": "client_node",
-  "type": "client",
-  "public_key": "-----BEGIN PUBLIC KEY-----\n
-                MIEfGVG0GCSqGSIb3DQEBAQUAA4RRFEDCVgftg67j8dgsdfges0rgEW1updSxygB\n
-                wmVpDnHuqwe7/gbh+PmY49EZsfrZSbKgSKy+rxKJHREGJ5tgCtHvYIwVfr2tk0FP\n
-                nhAWJaFH654KpuCNG6x6iMLt5FGH1Ma/VzHnFqoOeSCKHDhmHwJAjGDTPAgCJQiI\n
-                elk8UFCN45Jj0/xBwIDAQAB\n
-                -----END PUBLIC KEY-----"
+  "Principals: [
+    {
+      "name": "normal_user",
+      "type": "user",
+      "public_key": "-----BEGIN PUBLIC KEY-----...",
+      "authz_id": "eca5fdd45a8b4bacc04bbc6e37a340bes",
+      "org_member":false
+    }
+  ]
 }
 ```
 
