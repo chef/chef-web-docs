@@ -73,14 +73,14 @@ pluralizeListTitles = false
   [[module.imports]]
     disable = false
     ignoreConfig = false
-    path = "github.com/chef/chef-workstation"
+    path = "github.com/chef/chef-workstation/www"
 
   [[module.imports.mounts]]
-    source = "www/content"
+    source = "content"
     target = "content"
 
   [[module.imports.mounts]]
-    source = "www/static"
+    source = "static"
     target = "static"
 
 ####
