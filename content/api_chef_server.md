@@ -2604,6 +2604,89 @@ The response is similar to:
 </tbody>
 </table>
 
+/cookbook_artifacts
+-------------------
+
+Cookbook artifacts are specific versions of cookbooks that were specified by a Policyfile applied to a node.
+
+The `/organization/NAME/cookbook_artifacts` endpoint has the following methods: `GET`.
+
+### GET
+
+The `GET` method is used to return a hash of all cookbook artifact and their versions.
+
+This method has no parameters.
+
+**Request**
+
+``` none
+GET /organizations/NAME/cookbook_artifacts
+```
+
+**Response**
+
+The response is similar to:
+
+``` javascript
+{
+  "oc-influxdb": {
+    "url": "https://chef.example/organizations/example-org/cookbook_artifacts/oc-influxdb",
+    "versions": [
+      {
+        "url": "https://chef.example/organizations/example-org/cookbook_artifacts/oc-influxdb/9634a5d998b02ff069761f6e1309a41572d0f858",
+        "identifier": "9634a5d998b02ff069761f6e1309a41572d0f858"
+      },
+      {
+        "url": "https://chef.example/organizations/example-org/cookbook_artifacts/oc-influxdb/d774c9bb079f21b64c34275ecd4b371e0cae71a1",
+        "identifier": "d774c9bb079f21b64c34275ecd4b371e0cae71a1"
+      }
+    ]
+  },
+  "rabbitmq": {
+    "url": "https://chef.example/organizations/example-org/cookbook_artifacts/rabbitmq",
+    "versions": [
+      {
+        "url": "https://chef.example/organizations/example-org/cookbook_artifacts/rabbitmq/58035a5b41c005f3b5b98f22ccaed1a0d6161e22",
+        "identifier": "58035a5b41c005f3b5b98f22ccaed1a0d6161e22"
+      },
+      {
+        "url": "https://chef.example/organizations/example-org/cookbook_artifacts/rabbitmq/5c08f92cc01f94ee37d382c32023b137ee343a1e",
+        "identifier": "5c08f92cc01f94ee37d382c32023b137ee343a1e"
+      }
+    ]
+  }
+}
+```
+
+ **Response Codes**
+
+<table>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Response Code</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>200</code></td>
+<td>OK. The request was successful.</td>
+</tr>
+<tr class="even">
+<td><code>401</code></td>
+<td>Unauthorized. The user or client who made the request could not be authenticated. Verify the user/client name, and that the correct key was used to sign the request.</td>
+</tr>
+<tr class="odd">
+<td><code>403</code></td>
+<td>Forbidden. The user who made the request is not authorized to perform the action.</td>
+</tr>
+</tbody>
+</table>
+
 /cookbooks
 ----------
 
