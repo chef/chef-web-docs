@@ -5753,9 +5753,9 @@ GET /organizations/NAME/principals/NAME
 
 **Response**
 
-For a user or client the type value will vary. The response body
+For a user or client, the type value will vary. The response body
 returns an array of principals which allows for a client with the
- same name as a user. The response for a user or client is similar to:
+same name as a user. The response for a user or client is similar to:
 
 ``` javascript
 {
