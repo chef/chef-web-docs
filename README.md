@@ -82,10 +82,16 @@ The Chef Documentation website is built using:
 - [NPM](https://www.npmjs.com/) 5.6.0 or higher
 - [Go](https://golang.org/dl/) 1.12 or higher
 
-To install Hugo, NPM, and Go:
+To install Hugo, NPM, and Go on Windows and macOS:
 
 - On macOS run: `brew install hugo node go`
 - On Windows run: `choco install hugo nodejs golang`
+
+To install Hugo on Linux, run:
+
+- `apt install -y build-essential`
+- `snap install node --classic --channel=12`
+- `snap install hugo --channel=extended`
 
 To build the docs and preview locally:
 
