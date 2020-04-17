@@ -193,10 +193,6 @@ listed below:
 <td><a href="https://github.com/chef-cookbooks/windows_dns">Windows_dns Cookbook</a></td>
 <td>This cookbook provides a resource for managing DNS on Windows hosts.</td>
 </tr>
-<tr class="odd">
-<td><a href="https://github.com/chef-cookbooks/windows_uac">windows_uac Cookbook</a></td>
-<td>The <code>windows_uac</code> resource configures UAC on Windows hosts by setting registry keys at <code>HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System</code></td>
-</tr>
 </tbody>
 </table>
 
@@ -223,7 +219,6 @@ Chef Infra provides a growing number of Windows-specific resources.
 -   [Chocolatey_source](/resources/chocolatey_package/)
 -   [dsc_resource](/resources/dsc_resource/)
 -   [resource_registry_key](/resources/registry_key/)
--   [Windows_ad_join](/resources/windows_ad_join/)
 -   [Windows_ad_join](/resources/windows_ad_join/)
 -   [Windows_auto_run](/resources/windows_auto_run/)
 -   [Windows_certificate](/resources/windows_certificate/)
