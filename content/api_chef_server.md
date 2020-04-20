@@ -3014,6 +3014,250 @@ The response contains the record of the deleted resource and is similar to:
 </tbody>
 </table>
 
+### GET
+
+The `GET` method is used to return a single cookbook artifact version.
+
+This method has no parameters.
+
+**Request**
+
+``` none
+GET /organizations/NAME/cookbook_artifacts/NAME/ID
+```
+
+This method has no request body.
+
+**Response**
+
+The response is similar to:
+
+``` javascript
+{
+  "version": "5.7.7",
+  "name": "rabbitmq",
+  "identifier": "f3cf8ea7d8bfc59e35ec541946e3e82cd4b73e74",
+  "frozen?": false,
+  "chef_type": "cookbook_version",
+  "attributes": [
+    {
+      "name": "default.rb",
+      "path": "attributes/default.rb",
+      "checksum": "e5a530cca3898d8bd07604435dc5156e",
+      "specificity": "default",
+      "url": "https://chef.example/bookshelf/organization-9f69768696feedcd165633b8b475cc0b/checksum-e5a530cca3898d8bd07604435dc5156e"
+    }
+  ],
+  "definitions": [
+  ],
+  "files": [
+  ],
+  "libraries": [
+    {
+      "name": "matchers.rb",
+      "path": "libraries/matchers.rb",
+      "checksum": "24c3f44c4d1d62300a56051f0069f639",
+      "specificity": "default",
+      "url": "https://chef.example/bookshelf/organization-9f69768696feedcd165633b8b475cc0b/checksum-24c3f44c4d1d62300a56051f0069f639"
+    },
+    {
+      "name": "helpers.rb",
+      "path": "libraries/helpers.rb",
+      "checksum": "df65c4a7259fcb30c6f3f1305ebf7502",
+      "specificity": "default",
+      "url": "https://chef.example/bookshelf/organization-9f69768696feedcd165633b8b475cc0b/checksum-df65c4a7259fcb30c6f3f1305ebf7502"
+    },
+    {
+      "name": "default.rb",
+      "path": "libraries/default.rb",
+      "checksum": "94292faac84ba797e720501700b30f74",
+      "specificity": "default",
+      "url": "https://chef.example/bookshelf/organization-9f69768696feedcd165633b8b475cc0b/checksum-94292faac84ba797e720501700b30f74"
+    }
+  ],
+  "providers": [
+    {
+      "name": "user.rb",
+      "path": "providers/user.rb",
+      "checksum": "c31c9cc749f21962c825f983a6679d94",
+      "specificity": "default",
+      "url": "https://chef.example/bookshelf/organization-9f69768696feedcd165633b8b475cc0b/checksum-c31c9cc749f21962c825f983a6679d94"
+    },
+    {
+      "name": "policy.rb",
+      "path": "providers/policy.rb",
+      "checksum": "746c8a3f248f5bbfa51f5d2ba60b6315",
+      "specificity": "default",
+      "url": "https://chef.example/bookshelf/organization-9f69768696feedcd165633b8b475cc0b/checksum-746c8a3f248f5bbfa51f5d2ba60b6315"
+    }
+  ],
+  "recipes": [
+    {
+      "name": "default.rb",
+      "path": "recipes/default.rb",
+      "checksum": "99a9b404ff6038d6ac55a90ca68c347a",
+      "specificity": "default",
+      "url": "https://chef.example/bookshelf/organization-9f69768696feedcd165633b8b475cc0b/checksum-99a9b404ff6038d6ac55a90ca68c347a"
+    },
+    {
+      "name": "cluster.rb",
+      "path": "recipes/cluster.rb",
+      "checksum": "fc0a86c1f858c9d37e11282efc9fe329",
+      "specificity": "default",
+      "url": "https://chef.example/bookshelf/organization-9f69768696feedcd165633b8b475cc0b/checksum-fc0a86c1f858c9d37e11282efc9fe329"
+    }
+  ],
+  "resources": [
+    {
+      "name": "cluster.rb",
+      "path": "resources/cluster.rb",
+      "checksum": "85e74276e19bfdad581dce4f5c59f94a",
+      "specificity": "default",
+      "url": "https://chef.example/bookshelf/organization-9f69768696feedcd165633b8b475cc0b/checksum-85e74276e19bfdad581dce4f5c59f94a"
+    }
+  ],
+  "root_files": [
+    {
+      "name": "metadata.rb",
+      "path": "metadata.rb",
+      "checksum": "36b395e758138a4295d1e3f9b3df5da9",
+      "specificity": "default",
+      "url": "https://chef.example/bookshelf/organization-9f69768696feedcd165633b8b475cc0b/checksum-36b395e758138a4295d1e3f9b3df5da9"
+    },
+    {
+      "name": "README.md",
+      "path": "README.md",
+      "checksum": "99873670f0994642f5e6baade52c8020",
+      "specificity": "default",
+      "url": "https://chef.example/bookshelf/organization-9f69768696feedcd165633b8b475cc0b/checksum-99873670f0994642f5e6baade52c8020"
+    }
+  ],
+  "templates": [
+    {
+      "name": "default.rabbitmq-server.erb",
+      "path": "templates/default/default.rabbitmq-server.erb",
+      "checksum": "077855f4dc37f7fb708976134d8b2551",
+      "specificity": "default",
+      "url": "https://chef.example/bookshelf/organization-9f69768696feedcd165633b8b475cc0b/checksum-077855f4dc37f7fb708976134d8b2551"
+    },
+    {
+      "name": "90forceyes.erb",
+      "path": "templates/default/90forceyes.erb",
+      "checksum": "73cc571097cf77c74b4e7b5b680020c9",
+      "specificity": "default",
+      "url": "https://chef.example/bookshelf/organization-9f69768696feedcd165633b8b475cc0b/checksum-73cc571097cf77c74b4e7b5b680020c9"
+    }
+  ],
+  "metadata": {
+    "name": "rabbitmq",
+    "description": "Installs and configures RabbitMQ server",
+    "long_description": "",
+    "maintainer": "Chef, Inc. and contributors",
+    "maintainer_email": "mklishin@pivotal.io",
+    "license": "Apache-2.0",
+    "platforms": {
+      "amazon": ">= 2.0",
+      "centos": ">= 7.0",
+      "debian": ">= 8.0",
+      "opensuse": ">= 0.0.0",
+      "opensuseleap": ">= 0.0.0",
+      "oracle": ">= 0.0.0",
+      "redhat": ">= 0.0.0",
+      "scientific": ">= 0.0.0",
+      "smartos": ">= 0.0.0",
+      "suse": ">= 0.0.0",
+      "ubuntu": ">= 14.04"
+    },
+    "dependencies": {
+      "erlang": ">= 0.0.0",
+      "yum-epel": ">= 0.0.0",
+      "yum-erlang_solutions": ">= 0.0.0",
+      "dpkg_autostart": ">= 0.0.0",
+      "logrotate": ">= 0.0.0"
+    },
+    "providing": {
+      "rabbitmq::cluster": ">= 0.0.0",
+      "rabbitmq::community_plugins": ">= 0.0.0",
+      "rabbitmq": ">= 0.0.0",
+      "rabbitmq::erlang_package": ">= 0.0.0",
+      "rabbitmq::esl_erlang_package": ">= 0.0.0",
+      "rabbitmq::management_ui": ">= 0.0.0",
+      "rabbitmq::mgmt_console": ">= 0.0.0",
+      "rabbitmq::plugin_management": ">= 0.0.0",
+      "rabbitmq::plugins": ">= 0.0.0",
+      "rabbitmq::policies": ">= 0.0.0",
+      "rabbitmq::policy_management": ">= 0.0.0",
+      "rabbitmq::systemd_limits": ">= 0.0.0",
+      "rabbitmq::user_management": ">= 0.0.0",
+      "rabbitmq::users": ">= 0.0.0",
+      "rabbitmq::vhosts": ">= 0.0.0",
+      "rabbitmq::virtualhost_management": ">= 0.0.0"
+    },
+    "recipes": {
+      "rabbitmq": "Install and configure RabbitMQ",
+      "rabbitmq::systemd_limits": "Sets up kernel limits (e.g. nofile) for RabbitMQ via systemd",
+      "rabbitmq::cluster": "Set up RabbitMQ clustering.",
+      "rabbitmq::management_ui": "Sets up RabbitMQ management plugin/UI",
+      "rabbitmq::mgmt_console": "Deprecated, alias for rabbitmq::management_ui",
+      "rabbitmq::plugins": "Manage plugins with node attributes",
+      "rabbitmq::plugin_management": "Deprecated, alias for rabbitmq::plugins",
+      "rabbitmq::vhosts": "Manage virtual hosts with node attributes",
+      "rabbitmq::virtualhost_management": "Deprecated, alias for rabbitmq::vhosts",
+      "rabbitmq::users": "Manage users with node attributes",
+      "rabbitmq::user_management": "Deprecated, alias for rabbitmq::users",
+      "rabbitmq::policies": "Manage policies with node attributes",
+      "rabbitmq::policy_management": "Deprecated, alias for rabbitmq::policies",
+      "rabbitmq::erlang_package": "Provisions Erlang via Team RabbitMQ packages",
+      "rabbitmq::esl_erlang_package": "Alias for erlang::esl",
+      "rabbitmq::community_plugins": ""
+    },
+    "version": "5.7.7",
+    "source_url": "https://github.com/rabbitmq/chef-cookbook",
+    "issues_url": "https://github.com/rabbitmq/chef-cookbook/issues",
+    "privacy": false,
+    "chef_versions": [
+    ],
+    "ohai_versions": [
+    ],
+    "gems": [
+    ]
+  }
+}
+```
+
+**Response Codes**
+
+<table>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Response Code</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>200</code></td>
+<td>OK. The request was successful.</td>
+</tr>
+<tr class="even">
+<td><code>401</code></td>
+<td>Unauthorized. The user or client who made the request could not be authenticated. Verify the user/client name, and that the correct key was used to sign the request.</td>
+</tr>
+<tr class="odd">
+<td><code>403</code></td>
+<td>Forbidden. The user who made the request is not authorized to perform the action.</td>
+</tr>
+<tr class="even">
+<td><code>404</code></td>
+<td>Not found. The requested object does not exist.</td>
+</tr>
+</tbody>
+</table>
+
 
 /cookbooks
 ----------
