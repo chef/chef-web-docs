@@ -20,13 +20,24 @@ resource_description_list:
     formats including tar, gzip, bzip, and zip formats.'
 resource_new_in: '15.0'
 handler_types: false
-syntax_description: "The archive_file resource has the following syntax:\n\n``` ruby\n\
-  archive_file 'name' do\n  destination      String\n  group            String\n \
-  \ mode             String, Integer # default value: \"755\"\n  options         \
-  \ Array, Symbol\n  overwrite        true, false, auto # default value: false\n \
-  \ owner            String\n  path             String # default value: 'name' unless\
-  \ specified\n  action           Symbol # defaults to :extract if not specified\n\
-  end\n```"
+syntax_description: |
+  The archive_file resource has the following syntax:
+  ```ruby
+    archive_file 'name' do
+      destination      String
+      group            String
+      mode             String, Integer # default value: \"755\"
+      options          Array, Symbol
+      overwrite        true, false, auto # default value: false
+      owner            String
+      path             String # default value: 'name' unless specified
+      action           Symbol # defaults to :extract if not specified
+      url              String
+      headers          Hash
+      checksum         String
+    end
+    ```
+
 syntax_code_block: null
 syntax_properties_list:
 - '`archive_file` is the resource.'
@@ -117,6 +128,29 @@ properties_list:
   - markdown: 'An optional property to set the file path to the archive to extract
 
       if it differs from the resource block''s name.'
+- property: url
+  ruby_type: String
+  required: false
+  default_value:
+  new_in: null
+  description_list:
+    - markdown: An optional property to download the file from
+- property: headers
+  ruby_type: Hash
+  required: false
+  default_value:
+  new_in: null
+  description_list:
+    - markdown: |
+
+- property: checksum
+  ruby_type: String
+  required: false
+  default_value:
+  new_in: null
+  description_list:
+    - markdown: "Optional, see use_conditional_get. The SHA-256 checksum of the file. Use to prevent a file from being re-downloaded. When the local file matches the checksum, Chef Infra Client does not download it."
+
 properties_shortcode: null
 properties_multiple_packages: false
 resource_directory_recursive_directories: false
