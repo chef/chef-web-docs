@@ -1811,7 +1811,7 @@ What's New in 14.15
 
 ### ifconfig
 
-The `ifconfig` resource has been updated to properly support interfaces with a hyphen in their name. This is most commonly encountered with bridge interfaces that are named `br-1234`. Additionally the ifconfig resource now supports the latest ifconfig binaries found in OS releases such as Debian 10.
+The `ifconfig` resource has been updated to properly support interfaces with a hyphen in their name. This is most commonly encountered with bridge interfaces that are named `br-1234`. Additionally, the `ifconfig` resource now supports the latest ifconfig binaries found in OS releases such as Debian 10.
 
 ### windows_task
 
