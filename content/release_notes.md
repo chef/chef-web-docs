@@ -579,7 +579,7 @@ knife supermarket list Improvements
 
 The `knife supermarket list` command now includes two new options:
 
--   
+-
 
     `--sort-by [recently_updated recently_added most_downloaded most_followed]`:
 
@@ -670,25 +670,25 @@ Security Updates
 Ruby has been updated from 2.6.4 to 2.6.5 in order to resolve the
 following CVEs:
 
--   
+-
 
     [CVE-2019-16255](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-16255):
 
     :   A code injection vulnerability of Shell\#\[\] and Shell\#test
 
--   
+-
 
     [CVE-2019-16254](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-16254):
 
     :   HTTP response splitting in WEBrick (Additional fix)
 
--   
+-
 
     [CVE-2019-15845](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-15845):
 
     :   A NUL injection vulnerability of File.fnmatch and File.fnmatch?
 
--   
+-
 
     [CVE-2019-16201](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-16201):
 
@@ -1803,6 +1803,47 @@ flag. The new flag must be used.
     the circa \~2005 VirtualPC or VirtualServer hypervisors. These
     hypervisors were long ago deprecated by Microsoft and support can no
     longer be tested.
+
+What's New in 14.15
+===================
+
+## Updated Resources
+
+### ifconfig
+
+The `ifconfig` resource has been updated to properly support interfaces with a hyphen in their name. This is most commonly encountered with bridge interfaces that are named `br-1234`. Additionally the ifconfig resource now supports the latest ifconfig binaries found in OS releases such as Debian 10.
+
+### windows_task
+
+The `windows_task` resource now supports the Start When Available option with a new `start_when_available` property. Issues that prevented the resource from being idempotent on Windows 2016 and 2019 hosts have also been resolved.
+
+## Platform Support
+
+### New Platforms
+
+Chef Infra Client is now tested against the following platforms with packages available on [downloads.chef.io](https://downloads.chef.io):
+
+- Ubuntu 20.04
+- Ubuntu 18.04 aarch64
+- Debian 10
+
+### Retired Platforms
+
+  - Chef Infra Clients packages are no longer produced for Windows 2008 R2 as this release reached its end of life on Jan 14th, 2020.
+  - Chef Infra Client packages are no longer produced for RHEL 6 on the s390x platform.
+
+## Security Updates
+
+### OpenSSL
+
+OpenSSL has been updated to 1.0.2u to resolve [CVE-2019-1551](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-1551)
+
+### Ruby
+
+Ruby has been updated from 2.5.7 to 2.5.8 to resolve the following CVEs:
+
+  - [CVE-2020-16255](https://www.ruby-lang.org/en/news/2020/03/19/json-dos-cve-2020-10663/): Unsafe Object Creation Vulnerability in JSON (Additional fix)
+  - [CVE-2020-10933](https://www.ruby-lang.org/en/news/2020/03/31/heap-exposure-in-socket-cve-2020-10933/): Heap exposure vulnerability in the socket library
 
 What's New in 14.14.29
 ======================
