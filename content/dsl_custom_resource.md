@@ -109,3 +109,8 @@ resource_name
 {{% dsl_custom_resource_method_resource_name %}}
 
 {{% dsl_custom_resource_method_resource_name_example %}}
+
+deprecated
+==========
+
+{{% dsl_custom_resource_method_deprecated %}}
