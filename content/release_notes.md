@@ -1,5 +1,5 @@
 +++
-title = "Release Notes: Chef Infra Client 12.0 - 15.9"
+title = "Release Notes: Chef Infra Client 12.0 - 15.10"
 draft = false
 
 aliases = ["/release_notes.html", "/release_notes_ohai.html"]
@@ -18,6 +18,37 @@ Chef Infra Client is released on a monthly schedule with new releases
 the first Wednesday of every month. Below are the major changes for each
 release. For a detailed list of changes see the [Chef Infra Client
 changelog](https://github.com/chef/chef/blob/master/CHANGELOG.md)
+
+What's New in 15.10
+==================
+
+## Improvements
+
+- The `systemd_unit` resource now respects the `sensitive` property and will no longer output the contents of the unit file to logs if this is set.
+- A new `arm?` helper has been added which can be used in recipes and resources to determine if a system is on the ARM architecture.
+
+## Bug Fixes
+
+- Resolved a bug that prevented users from bootstrapping nodes using knife when specifying the `--use_sudo_password`.
+- Resolved a bug that prevented the `--bootstrap-version` flag from being honored when bootstrapping in knife.
+
+## Chef InSpec 4.18.104
+
+- Resolved a regression that prevented the `service` resource from working correctly on Windows. Thanks [@Axuba](https://github.com/Axuba)
+- Implemented VMware and Hyper-V detection on Linux systems
+- Implemented VMware, Hyper-V, Virtualbox, KVM and Xen detection on Windows systems
+- Added helpers `virtual_system?` and `physical_system?`. Thanks [@tecracer-theinen](https://github.com/tecracer-theinen)
+
+## Ohai 15.9
+
+- Improve the resilency of the `Shard` plugin when `dmidecode` cannot be found on a system. Thanks [@jaymzh](https://github.com/jaymzh)
+- Fixed detection of Openstack guests via DMI data. Thanks [@ramereth](https://github.com/ramereth)
+
+## Platform Support
+
+### Amazon Linux 2
+
+Chef Infra Client is now tested on Amazon Linux 2 running on x86_64 and aarch64 with packages available on the [Chef Downloads Page](https://downloads.chef.io/chef).
 
 What's New in 15.9
 ==================
