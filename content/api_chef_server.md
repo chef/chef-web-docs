@@ -3259,6 +3259,138 @@ The response is similar to:
 </table>
 
 
+### PUT
+
+The `PUT` method is used to create or update a single cookbook artifact version.
+
+This method has no parameters.
+
+**Request**
+
+``` none
+PUT /organizations/NAME/cookbook_artifacts/NAME/ID
+```
+
+The request body is similar to:
+
+``` javascript
+{
+  "definitions": [
+    {
+      "name": "unicorn_config.rb",
+      "checksum": "c92b659171552e896074caa58dada0c2",
+      "path": "definitions/unicorn_config.rb",
+      "specificity": "default"
+    }
+  ],
+  "attributes": [],
+  "files": [],
+  "providers": [],
+  "metadata": {
+    "dependencies": {"ruby": [], "rubygems": []},
+    "name": "unicorn",
+    "maintainer_email": "ops@chef.io",
+    "attributes": {},
+    "license": "Apache 2.0",
+    "suggestions": {},
+    "platforms": {},
+    "maintainer": "Opscode, Inc",
+    "long_description": "= LICENSE AND AUTHOR:\\n\\nAuthor:: Adam Jacob...",
+    "recommendations": {},
+    "version": "0.1.2",
+    "conflicting": {},
+    "recipes": {"unicorn": "Installs unicorn rubygem"},
+    "groupings": {},
+    "replacing": {},
+    "description": "Installs/Configures unicorn",
+    "providing": {}
+  },
+  "libraries": [],
+  "templates": [
+    {
+      "name": "unicorn.rb.erb",
+      "checksum": "36a1cc1b225708db96d48026c3f624b2",
+      "path": "templates/default/unicorn.rb.erb",
+      "specificity": "default"
+    }
+  ],
+  "resources": [],
+  "name": "unicorn",
+  "identifier": "ba0dadcbca26710a521e0e3160cc5e20",
+  "recipes": [
+    {
+      "name": "default.rb",
+      "checksum": "ba0dadcbca26710a521e0e3160cc5e20",
+      "path": "recipes/default.rb",
+      "specificity": "default"
+    }
+  ],
+  "root_files": [
+    {
+      "name": "README.rdoc",
+      "checksum": "d18c630c8a68ffa4852d13214d0525a6",
+      "path": "README.rdoc",
+      "specificity": "default"
+    },
+    {
+      "name": "metadata.rb",
+      "checksum": "967087a09f48f234028d3aa27a094882",
+      "path": "metadata.rb",
+      "specificity": "default"
+    },
+    {
+      "name": "metadata.json",
+      "checksum": "45b27c78955f6a738d2d42d88056c57c",
+      "path": "metadata.json",
+      "specificity": "default"
+    }
+  ],
+  "chef_type": "cookbook_artifact_version"
+}
+```
+
+where the `checksum` values must have already been uploaded to the Chef
+Infra Server using the sandbox endpoint. Once a file with a particular
+checksum has been uploaded by the user, redundant uploads are not
+necessary. Unused `checksum` values will be garbage collected.
+
+**Response**
+
+This method has no response body.
+
+**Response Codes**
+
+<table>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Response Code</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>200</code></td>
+<td>OK. The request was successful.</td>
+</tr>
+<tr class="even">
+<td><code>401</code></td>
+<td>Unauthorized. The user or client who made the request could not be authenticated. Verify the user/client name, and that the correct key was used to sign the request.</td>
+</tr>
+<tr class="odd">
+<td><code>403</code></td>
+<td>Forbidden. The user who made the request is not authorized to perform the action.</td>
+</tr>
+<tr class="even">
+<td><code>413</code></td>
+<td>Request entity too large. A request may not be larger than 1000000 bytes.</td>
+</tr>
+</tbody>
+</table>
+
 /cookbooks
 ----------
 
