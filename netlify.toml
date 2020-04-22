@@ -1,6 +1,6 @@
 [build]
   publish = "public"
-  command = "make assets; hugo --gc --minify --enableGitInfo --config=config.toml,config_netlify.toml"
+  command = "make assets; hugo --gc --minify --enableGitInfo --config=config.toml"
 
 [build.environment]
   HUGO_VERSION = "0.69.0"

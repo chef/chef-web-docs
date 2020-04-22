@@ -12,46 +12,8 @@ pipelines:
   - verify:
       description: Pull Request validation tests
       public: true
-  - verify_private:
-      description: Pull Request validation tests requiring access keys
-  - habitat/build:
-      description: Build the Habitat packages
-  - deploy/acceptance:
-      definition: .expeditor/deploy.pipeline.yml
-      description: Deploy to docs-acceptance.cd.chef.co (i.e. docs-acceptance.chef.io)
-      env:
-        - CHANNEL: acceptance
-  - deploy/production:
-      definition: .expeditor/deploy.pipeline.yml
-      description: Deploy to docs-production.cd.chef.co (i.e. docs.chef.io)
-      env:
-        - CHANNEL: stable
-
-merge_actions:
-  # These actions are taken, in order they are specified, anytime a Pull Request is merged.
-  - trigger_pipeline:habitat/build:
-      post_commit: true
-
-promote:
-  actions:
-    - built_in:promote_habitat_packages
-    - trigger_pipeline:deploy/production:
-        only_if_conditions:
-          - value_one: "{{target_channel}}"
-            operator: equals
-            value_two: stable
-  channels:
-    - acceptance # docs-acceptance.cd.chef.co / docs-acceptance.chef.io
-    - stable     # docs-production.cd.chef.co / docs.chef.io
 
 subscriptions:
-  # These actions are taken, in order they are specified, after the Habitat packages are successfully built
-  - workload: buildkite_hab_build_group_published:{{agent_id}}:*
-    actions:
-      - built_in:promote_habitat_packages
-      - trigger_pipeline:deploy/acceptance:
-          post_commit: true
-
   # This will update version of the Chef product Hugo module
   # that is used to build the docs when that product is promoted to stable.
   - workload: artifact_published:stable:chef-workstation:*
