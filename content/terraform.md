@@ -19,12 +19,13 @@ Chef Infra Provisioner
 
 The [Terraform Chef Provisioner](https://www.terraform.io/docs/provisioners/chef.html) bootstraps Terraform, provisioned with Chef Infra via SSH or WinRM, and configures them to work with a [Chef Infra Server](/server_overview/). Standard bootstrap options such as Chef Infra versions, secrets, proxies, and assigning run lists via Policyfiles or Roles and Environments are all supported. The referenced documentation provides a complete list of supported options and an example of usage. HashiCorp provides support for the [Terraform Chef Provisioner](https://www.terraform.io/docs/provisioners/chef.html) and it is not officially supported by Chef Software.
 
-## Terraform and Chef Solo ##
+Terraform and Chef Solo
+-----------------------
 
 If you are using [Chef Solo](/chef_solo/), you will most likely want to use the [Terraform remote-exec Provisioner](https://www.terraform.io/docs/provisioners/remote-exec.html) rather than the Terraform Chef Provisioner. The remote-exec Provisioner may be used to run a script or an inline set of commands on the newly created machine. Please refer to the [Terraform remote-exec Provisioner documentation](https://www.terraform.io/docs/provisioners/remote-exec.html) for further options and examples.
 
 
-### Example remote-exec inline ###
+### Example remote-exec inline
 
 ```
 resource "aws_instance" "web" {
