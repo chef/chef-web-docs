@@ -1930,7 +1930,7 @@ Chef Infra Client is now tested against the following platforms with packages av
 ### Retired Platforms
 
   - Chef Infra Clients packages are no longer produced for Windows 2008 R2 as this release reached its end of life on Jan 14th, 2020.
-  - Chef Infra Client packages are no longer produced for RHEL 6 o n the s390x platform.
+  - Chef Infra Client packages are no longer produced for RHEL 6 on the s390x platform.
 
 ## Security Updates
 
