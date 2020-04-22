@@ -63,13 +63,11 @@ Chef InSpec has been updated from 4.18.85 to 4.18.100:
 - "inspec schema" has been revised to be in the JSON Schema draft 7 format
 - Improved the functionality of the `oracledb_session` resource
 
-Ohai 15.8
-----------
+## Ohai 15.8
 
 Ohai has been updated to 15.8.0 which includes a fix for failures that occurred in the OpenStack plugin (thanks [@sawanoboly](https://github.com/sawanoboly/)) and improved parsing of data in the `optional_plugins` config option (thanks [@salzig](https://github.com/salzig/)).
 
-Resource Improvements
----------------------
+## Resource Improvements
 
 ### build_essential
 
@@ -87,8 +85,7 @@ The `rhsm_register` resource has a new property `https_for_ca_consumer` that ena
 
 Resolved failures in the `windows_share` resource when setting the `path` property. Thanks for reporting this issue [@Kundan22](https://github.com/Kundan22/).
 
-Platform Support
------------------
+## Platform Support
 
 ### Ubuntu 20.04
 
@@ -102,8 +99,7 @@ Chef Infra Client is now tested on Ubuntu 18.04 aarch64 with packages available 
 
 Our Windows 10 Chef Infra Client packages now receive an additional layer of testing to ensure they function as expected.
 
-Security Updates
------------------
+## Security Updates
 
 ### Ruby
 
@@ -122,20 +118,11 @@ libarchive has been updated from 3.4.0 to 3.4.2 to resolve multiple security vul
 What's New in 15.8
 ==================
 
-New notify_group functionality
--------------------------------
+## New notify_group functionality
 
-Chef Infra Client now includes a new `notify_group` feature that can be
-used to extract multiple common notifies out of individual resources to
-reduce duplicate code in your cookbooks and custom resources. Previously
-cookbook authors would often use a `log` resource to achieve a similar
-outcome, but using the log resource results in unnecessary Chef Infra
-Client log output. The `notify_group` method produces no additional
-logging, but fires all defined notifications when the `:run` action is
-set.
+Chef Infra Client now includes a new `notify_group` feature that can be used to extract multiple common notifies out of individual resources to reduce duplicate code in your cookbooks and custom resources. Previously cookbook authors would often use a `log` resource to achieve a similar outcome, but using the log resource results in unnecessary Chef Infra Client log output. The `notify_group` method produces no additional logging, but fires all defined notifications when the `:run` action is set.
 
-Example notify_group that stops, sleeps, and then starts service when a
-service config is updated:
+Example notify_group that stops, sleeps, and then starts service when a service config is updated:
 
 ``` ruby
 service "crude" do
@@ -159,56 +146,33 @@ template "/etc/crude/crude.conf" do
 end
 ```
 
-Chef InSpec 4.18.85
--------------------
+## Chef InSpec 4.18.85
 
-Chef InSpec has been updated from 4.18.39 to 4.18.85. This release
-includes a large number of bug fixes in addition to some great resource
-enhancements:
+Chef InSpec has been updated from 4.18.39 to 4.18.85. This release includes a large number of bug fixes in addition to some great resource enhancements:
 
--   The service resource features new support for yocto-based linux
-    distributions. Thank you to
-    [@michaellihs](https://github.com/michaellihs/) for this addition!
--   The package resource now includes support for FreeBSD. Thank you to
-    [@fzipi](https://github.com/fzipi/) for this work!
--   We standardized the platform for the etc_hosts, virtualization,
-    ini, and xml resources.
--   The oracledb_session resource works again due to a missing quote
-    fix.
--   The groups resource on macOS no longer reports duplicates anymore.
--   command.exist? now conforms to POSIX standards. Thanks to
-    [@PiQuer](https://github.com/PiQuer/)!
--   Changed the postfix_conf resource's supported platform to the
-    broader unix. Thank you to [@fzipi](https://github.com/fzipi/) for
-    this fix!
+* The service resource features new support for yocto-based linux distributions. Thank you to [@michaellihs](https://github.com/michaellihs) for this addition!
+* The package resource now includes support for FreeBSD. Thank you to [@fzipi](https://github.com/fzipi) for this work!
+* We standardized the platform for the etc_hosts, virtualization, ini, and xml resources.
+* The oracledb_session resource works again due to a missing quote fix.
+* The groups resource on macOS no longer reports duplicates anymore.
+command.exist? now conforms to POSIX standards. Thanks to [@PiQuer](https://github.com/PiQuer)!
+* Changed the postfix_conf resource's supported platform to the broader unix. Thank you to [@fzipi](https://github.com/fzipi) for this fix!
 
-New Cookbook Helpers
---------------------
+## New Cookbook Helpers
 
 New helpers have been added to make writing cookbooks easier.
 
 ### Platform Version Helpers
 
-New helpers for checking platform versions have been added. These
-helpers return parsed version strings so there's no need to convert the
-returned values to Integers or Floats before comparing them.
-Additionally, comparisons with version objects properly understand the
-order of versions so `5.11` will compare as larger than `5.9`, whereas
-converting those values to Floats would result in `5.9` being larger
-than `5.11`.
+New helpers for checking platform versions have been added. These helpers return parsed version strings so there's no need to convert the returned values to Integers or Floats before comparing them. Additionally, comparisons with version objects properly understand the order of versions so `5.11` will compare as larger than `5.9`, whereas converting those values to Floats would result in `5.9` being larger than `5.11`.
 
--   `windows_nt_version` returns the NT kernel version which often
-    differs from Microsoft's marketing versions. This helper offers a
-    good way to find desktop and server releases that are based on the
-    same codebase. For example, NT 6.3 is both Windows 8.1 and Windows
-    2012 R2.
--   `powershell_version` returns the version of PowerShell installed on
-    the system.
--   `platform_version` returns the value of node\['platform_version'\].
+* `windows_nt_version` returns the NT kernel version which often differs from Microsoft's marketing versions. This helper offers a good way to find desktop and server releases that are based on the same codebase. For example, NT 6.3 is both Windows 8.1 and Windows 2012 R2.
+* `powershell_version` returns the version of PowerShell installed on the system.
+* `platform_version` returns the value of node['platform_version'].
 
 Example comparison using windows_nt_version:
 
-``` ruby
+```ruby
 if windows_nt_version >= 10
   some_modern_windows_things
 end
@@ -218,104 +182,85 @@ end
 
 The cloud helpers from chef-sugar have been ported to Chef Infra Client:
 
--   `cloud?` - if the node is running in any cloud, including internal
-    clouds
--   `ec2?` - if the node is running in ec2
--   `gce?` - if the node is running in gce
--   `rackspace?` - if the node is running in rackspace
--   `eucalyptus?` - if the node is running under eucalyptus
--   `linode?` - if the node is running in linode
--   `openstack?` - if the node is running under openstack
--   `azure?` - if the node is running in azure
--   `digital_ocean?` - if the node is running in digital ocean
--   `softlayer?` - if the node is running in softlayer
+* `cloud?` - if the node is running in any cloud, including internal clouds
+* `ec2?` - if the node is running in ec2
+* `gce?` - if the node is running in gce
+* `rackspace?` - if the node is running in rackspace
+* `eucalyptus?` - if the node is running under eucalyptus
+* `linode?` - if the node is running in linode
+* `openstack?` - if the node is running under openstack
+* `azure?` - if the node is running in azure
+* `digital_ocean?` - if the node is running in digital ocean
+* `softlayer?` - if the node is running in softlayer
 
 ### Virtualization Helpers
 
-The virtualization helpers from chef-sugar have been ported to Chef
-Infra Client and extended with helpers to detect hypervisor hosts,
-physical, and guest systems.
+The virtualization helpers from chef-sugar have been ported to Chef Infra Client and extended with helpers to detect hypervisor hosts, physical, and guest systems.
 
--   `kvm?` - if the node is a kvm guest
--   `kvm_host?` - if the node is a kvm host
--   `lxc?` - if the node is an lxc guest
--   `lxc_host?` - if the node is an lxc host
--   `parallels?` - if the node is a parallels guest
--   `parallels_host?` - if the node is a parallels host
--   `vbox?` - if the node is a virtualbox guest
--   `vbox_host?` - if the node is a virtualbox host
--   `vmware?` - if the node is a vmware guest
--   `vmware_host?` - if the node is a vmware host
--   `openvz?` - if the node is an openvz guest
--   `openvz_host?` - if the node is an openvz host
--   `guest?` - if the node is detected as any kind of guest
--   `hypervisor?` - if the node is detected as being any kind of
-    hypervisor
--   `physical?` - the node is not running as a guest (may be a
-    hypervisor or may be bare-metal)
--   `vagrant?` - attempts to identify the node as a vagrant guest (this
-    check may be error-prone)
+* `kvm?` - if the node is a kvm guest
+* `kvm_host?` - if the node is a kvm host
+* `lxc?` - if the node is an lxc guest
+* `lxc_host?` - if the node is an lxc host
+* `parallels?`- if the node is a parallels guest
+* `parallels_host?`- if the node is a parallels host
+* `vbox?` - if the node is a virtualbox guest
+* `vbox_host?` - if the node is a virtualbox host
+* `vmware?` - if the node is a vmware guest
+* `vmware_host?` - if the node is a vmware host
+* `openvz?` - if the node is an openvz guest
+* `openvz_host?` - if the node is an openvz host
+* `guest?` - if the node is detected as any kind of guest
+* `hypervisor?` - if the node is detected as being any kind of hypervisor
+* `physical?` - the node is not running as a guest (may be a hypervisor or may be bare-metal)
+* `vagrant?` - attempts to identify the node as a vagrant guest (this check may be error-prone)
 
 ### include_recipe? helper
 
-chef-sugar's `include_recipe?` has been added to Chef Infra Client
-providing a simple way to see if a recipe has been included on a node
-already.
+chef-sugar's `include_recipe?` has been added to Chef Infra Client providing a simple way to see if a recipe has been included on a node already.
 
 Example usage in a not_if conditional:
 
-``` ruby
+```ruby
 execute 'install my_app'
   command '/tmp/my_app_install.sh'
   not_if { include_recipe?('my_app::install') }
 end
 ```
 
-Updated Resources
------------------
+## Updated Resources
 
 ### ifconfig
 
-The `ifconfig` resource now supports the newer `ifconfig` release that
-ships in Debian 10.
+The `ifconfig` resource now supports the newer `ifconfig` release that ships in Debian 10.
 
 ### mac_user
 
-The `mac_user` resource, used when creating a user on Mac systems, has
-been improved to work better with macOS Catalina (10.15). The resource
-now properly looks up the numeric GID when creating a user, once again
-supports the `system` property, and includes a new `hidden` property
-which prevents the user from showing on the login screen. Thanks
-[@chilcote](https://github.com/chilcote/) for these fixes and
-improvements.
+The `mac_user` resource, used when creating a user on Mac systems, has been improved to work better with macOS Catalina (10.15). The resource now properly looks up the numeric GID when creating a user, once again supports the `system` property, and includes a new `hidden` property which prevents the user from showing on the login screen. Thanks [@chilcote](https://github.com/chilcote) for these fixes and improvements.
 
 ### sysctl
 
-The `sysctl` resource has been updated to allow the inclusion of
-descriptive comments. Comments may be passed as an array or as a string.
-Any comments provided are prefixed with '\#' signs and precede the
-`sysctl` setting in generated files.
+The `sysctl` resource has been updated to allow the inclusion of descriptive comments. Comments may be passed as an array or as a string. Any comments provided are prefixed with '#' signs and precede the `sysctl` setting in generated files.
 
 An example:
 
-``` ruby
+```ruby
 sysctl 'vm.swappiness' do
   value 10
   comment [
-    "define how aggressively the kernel will swap memory pages.",
-    "Higher values will increase aggressiveness",
-    "lower values decrease the amount of swap.",
-    "A value of 0 instructs the kernel not to initiate swap",
-    "until the amount of free and file-backed pages is less",
-    "than the high water mark in a zone.",
-    "The default value is 60."
+     "define how aggressively the kernel will swap memory pages.",
+     "Higher values will increase aggressiveness",
+     "lower values decrease the amount of swap.",
+     "A value of 0 instructs the kernel not to initiate swap",
+     "until the amount of free and file-backed pages is less",
+     "than the high water mark in a zone.",
+     "The default value is 60."
     ]
 end
 ```
 
 which results in `/etc/sysctl.d/99-chef-vm.swappiness.conf` as follows:
 
-``` shell
+```
 # define how aggressively the kernel will swap memory pages.
 # Higher values will increase aggressiveness
 # lower values decrease the amount of swap.
@@ -326,81 +271,57 @@ which results in `/etc/sysctl.d/99-chef-vm.swappiness.conf` as follows:
 vm.swappiness = 10
 ```
 
-Platform Support
-----------------
+## Platform Support
 
-Chef Infra Clients packages are now validated for Debian 10.
+* Chef Infra Clients packages are now validated for Debian 10.
 
-macOS Binary Signing
---------------------
+## macOS Binary Signing
 
-Each binary in the macOS Chef Infra Client installation is now signed to
-improve the integrity of the installation and ensure compatibility with
-macOS Catalina security requirements.
+Each binary in the macOS Chef Infra Client installation is now signed to improve the integrity of the installation and ensure compatibility with macOS Catalina security requirements.
 
 What's New in 15.7
 ==================
 
-Updated Resources
------------------
+## Updated Resources
 
 ### archive_file
 
-The `archive_file` resource will now only change ownership on files and
-directories that were part of the archive itself. This prevents changing
-permissions on important high level directories such as `/etc` or `/bin`
-when you extract a file into those directories. Thanks for this fix,
-[@bobchaos](https://github.com/bobchaos/).
+The `archive_file` resource will now only change ownership on files and directories that were part of the archive itself. This prevents changing permissions on important high level directories such as /etc or /bin when you extract a file into those directories. Thanks for this fix, [@bobchaos](https://github.com/bobchaos/).
 
 ### cron and cron_d
 
-The `cron` and `cron_d` resources now include a `timeout` property,
-which allows you to configure actions to perform when a job times out.
-This property accepts a hash of timeout configuration options:
+The `cron` and `cron_d` resources now include a `timeout` property, which allows you to configure actions to perform when a job times out. This property accepts a hash of timeout configuration options:
 
--   `preserve-status`: `true`/`false` with a default of `false`
--   `foreground`: `true`/`false` with a default of `false`
--   `kill-after`: `Integer` for the timeout in seconds
--   `signal`: `String` or `Integer` to send to the process such as `HUP`
+- `preserve-status`: `true`/`false` with a default of `false`
+- `foreground`: `true`/`false` with a default of `false`
+- `kill-after`: `Integer` for the timeout in seconds
+- `signal`: `String` or `Integer` to send to the process such as `HUP`
 
 ### launchd
 
-The `launchd` resource has been updated to properly capitalize
-`HardResourceLimits`. Thanks for this fix,
-[@rb2k](https://github.com/rb2k/).
+The `launchd` resource has been updated to properly capitalize `HardResourceLimits`. Thanks for this fix, [@rb2k](https://github.com/rb2k/).
 
 ### sudo
 
-The `sudo` resource no longer fails on the second Chef Infra Client run
-when using a `Cmnd_Alias`. Thanks for reporting this issue,
-[@Rudikza](https://github.com/Rudikza).
+The `sudo` resource no longer fails on the second Chef Infra Client run when using a `Cmnd_Alias`. Thanks for reporting this issue, [@Rudikza](https://github.com/Rudikza).
 
 ### user
 
-The `user` resource on AIX no longer forces the user to change the
-password after Chef Infra Client modifies the password. Thanks for this
-fix, [@Triodes](https://github.com/Triodes).
+The `user` resource on AIX no longer forces the user to change the password after Chef Infra Client modifies the password. Thanks for this fix, [@Triodes](https://github.com/Triodes).
 
-The `user` resource on macOS 10.15 has received several important fixes
-to improve logging and prevent failures.
+The `user` resource on macOS 10.15 has received several important fixes to improve logging and prevent failures.
 
 ### windows_task
 
-The `windows_task` resource is now idempotent when a system is joined to
-a domain and the job runs under a local user account.
+The `windows_task` resource is now idempotent when a system is joined to a domain and the job runs under a local user account.
 
 ### x509_certificate
 
-The `x509_certificate` resource now includes a new `renew_before_expiry`
-property that allows you to auto renew certicates a specified number of
-days before they expire. Thanks
-[@julienhuon](https://github.com/julienhuon/) for this improvement.
+The `x509_certificate` resource now includes a new `renew_before_expiry` property that allows you to auto renew certicates a specified number of days before they expire. Thanks [@julienhuon](https://github.com/julienhuon/) for this improvement.
 
-Additional Recipe Helpers
--------------------------
+## Additional Recipe Helpers
 
-We have added new helpers for identifying Windows releases that can be
-used in any part of your cookbooks.
+We have added new helpers for identifying Windows releases that can be used in any part of your cookbooks.
 
 ### windows_workstation?
 
@@ -414,328 +335,195 @@ Returns `true` if the system is a Windows Server edition.
 
 Returns `true` if the system is a Windows Server Core edition.
 
-Other Notable Changes and Fixes
--------------------------------
+## Notable Changes and Fixes
 
--   `knife upload` and `knife cookbook upload` will now generate a
-    metadata.json file from metadata.rb when uploading a cookbook to the
-    Chef Infra Server.
--   A bug in `knife bootstrap` behavior that caused failures when
-    bootstrapping Windows hosts from non-Windows hosts and vice versa
-    has been resolved.
--   The existing system path is now preserved when bootstrapping Windows
-    nodes. Thanks for this fix, [@Xorima](https://github.com/Xorima/).
--   Ohai now properly returns the drive name on Windows and includes new
-    drive_type fields to allow you to determine the type of attached
-    disk. Thanks for this improvement
-    [@sshock](https://github.com/sshock/).
--   Ohai has been updated to properly return DMI data to Chef Infra
-    Client. Thanks for troubleshooting this,
-    [@zmscwx](https://github.com/zmscwx/) and
-    [@Sliim](https://github.com/Sliim/).
+- `knife upload` and `knife cookbook upload` will now generate a metadata.json file from metadata.rb when uploading a cookbook to the Chef Infra Server.
+- A bug in `knife bootstrap` behavior that caused failures when bootstrapping Windows hosts from non-Windows hosts and vice versa has been resolved.
+- The existing system path is now preserved when bootstrapping Windows nodes. Thanks for this fix, [@Xorima](https://github.com/Xorima/).
+- Ohai now properly returns the drive name on Windows and includes new drive_type fields to allow you to determine the type of attached disk. Thanks for this improvement [@sshock](https://github.com/sshock/).
+- Ohai has been updated to properly return DMI data to Chef Infra Client. Thanks for troubleshooting this, [@zmscwx](https://github.com/zmscwx) and [@Sliim](https://github.com/Sliim).
 
-Platform Support
-----------------
+## Platform Support
 
--   Chef Infra Clients packages are no longer produced for Windows 2008
-    R2 as this release reached its end of life on Jan 14th, 2020.
--   Chef Infra Client packages are no longer produced for RHEL 6 on the
-    s390x platform. Builds will continue to be published for RHEL 7 on
-    the s390x platform.
+- Chef Infra Clients packages are no longer produced for Windows 2008 R2 as this release reached its end of life on Jan 14th, 2020.
+- Chef Infra Client packages are no longer produced for RHEL 6 on the s390x platform. Builds will continue to be published for RHEL 7 on the s390x platform.
 
-Security Updates
-----------------
+## Security Updates
 
-OpenSSL has been updated to 1.0.2u to resolve
-[CVE-2019-1551](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-1551)
+### OpenSSL
+
+OpenSSL has been updated to 1.0.2u to resolve [CVE-2019-1551](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-1551)
 
 What's New in 15.6
 ==================
 
-Updated Resources
------------------
+## Updated Resources
 
-### apt_repository
+## apt_repository
 
-The apt_repository resource now properly escapes repository URIs
-instead of quoting them. This prevents failures when using the
-`apt-file` command, which was unable to parse the quoted URIs. Thanks
-for reporting this [@Seb-Solon](https://github.com/Seb-Solon)
+The `apt_repository` resource now properly escapes repository URIs instead of quoting them. This prevents failures when using the `apt-file` command, which was unable to parse the quoted URIs. Thanks for reporting this [@Seb-Solon](https://github.com/Seb-Solon)
 
-### file
+## file
 
-The file resource now shows the output of any failures when running
-commands specified in the `verify` property. This means you can more
-easily validate config files before potentially writing an incorrect
-file to disk. Chef Infra Client will shellout to any specified command
-and will show the results of failures for further troubleshooting.
+The `file` resource now shows the output of any failures when running commands specified in the `verify` property. This means you can more easily validate config files before potentially writing an incorrect file to disk. Chef Infra Client will shellout to any specified command and will show the results of failures for further troubleshooting.
 
-### user
+## user
 
-The user resource on Linux systems now continues successfully when
-usermod returns an exit code of 12. Exit code 12 occurs when a user's
-home directory is changed and the underlying directory already exists.
-Thanks [@skippyj](https://github.com/skippyj) for this fix.
+The `user` resource on Linux systems now continues successfully when `usermod` returns an exit code of 12. Exit code 12 occurs when a user's home directory is changed and the underlying directory already exists. Thanks [@skippyj](https://github.com/skippyj) for this fix.
 
-### yum_repository
+## yum_repository
 
-The yum_repository now properly formats the repository configuration
-when multiple baseurl values are present. Thanks
-[@bugok](https://github.com/bugok/) for this fix.
+The `yum_repository` now properly formats the repository configuration when multiple `baseurl` values are present. Thanks [@bugok](https://github.com/bugok) for this fix.
 
-Performance Improvements
-------------------------
+## Performance Improvements
 
-This release of Chef Infra Client ships with several optimizations to
-our Ruby installation to improve the performance of loading the
-chef-client and knife commands. These improvements are particularly
-noticeable on non-SSD hosts and on Windows.
+This release of Chef Infra Client ships with several optimizations to our Ruby installation to improve the performance of loading the chef-client and knife commands. These improvements are particularly noticeable on non-SSD hosts and on Windows.
 
-Smaller Install Footprint
--------------------------
+## Smaller Install Footprint
 
-We've further optimized our install footprint and reduced the size of
-`/opt/chef` by `~7%` by removing unnecessary test files and libraries
-that shipped in previous releases.
+We've further optimized our install footprint and reduced the size of `/opt/chef` by ~7% by removing unnecessary test files and libraries that shipped in previous releases.
 
-filesystem2 Ohai Data on Windows
---------------------------------
+## filesystem2 Ohai Data on Windows
 
-Ohai 15.6 includes new `node['filesystem2']` data on Windows hosts.
-Fileystem2 presents filesystem data by both mountpoint and by device
-name. This data structure matches that of the filesystem plugin on Linux
-and other \*nix operating systems. Thanks
-[@jaymzh](https://github.com/jaymzh/) for this new data structure.
+Ohai 15.6 includes new `node['filesystem2']` data on Windows hosts. Fileystem2 presents filesystem data by both mountpoint and by device name. This data structure matches that of the filesystem plugin on Linux and other *nix operating systems. Thanks [@jaymzh](https://github.com/jaymzh) for this new data structure.
 
 What's New in 15.5.15
 =====================
 
-The Chef Infra Client 15.5.15 release includes fixes for two
-regressions. A regression in the `build_essential` resource caused
-failures on rhel platforms and a second regression caused Chef Infra
-Client to fail when starting with `enforce_path_sanity` enabled. As part
-of this fix we've added a new property, `raise_if_unsupported`, to the
-build-essential resource. Instead of silently continuing, this property
-will fail a Chef Infra Client run if an unknown platform is encountered.
+The Chef Infra Client 15.5.15 release includes fixes for two regressions. A regression in the `build_essential` resource caused failures on `rhel` platforms and a second regression caused Chef Infra Client to fail when starting with `enforce_path_sanity` enabled. As part of this fix we've added a new property, `raise_if_unsupported`, to the `build-essential` resource. Instead of silently continuing, this property will fail a Chef Infra Client run if an unknown platform is encountered.
 
-We've also updated the `windows_package` resource. The resource will now
-provide better error messages if invalid options are passed to the
-`installer_type` property and the `checksum` property will now accept
-uppercase SHA256 checksums.
+We've also updated the `windows_package` resource. The resource will now provide better error messages if invalid options are passed to the `installer_type` property and the `checksum` property will now accept uppercase SHA256 checksums.
 
 What's New in 15.5.9
 ====================
 
-New Cookbook Helpers
---------------------
+## New Cookbook Helpers
 
-Chef Infra Client now includes a new chef-utils gem, which ships with a
-large number of helpers to make writing cookbooks easier. Many of these
-helpers existed previously in the `chef-sugar` gem. We have renamed many
-of the named helpers for consistency, while providing backwards
-compatibility with existing chef-sugar names. Existing cookbooks written
-with chef-sugar should work unmodified with any of these new helpers.
-Expect a Cookstyle rule in the near future to help you update existing
-chef-sugar code to use the newer built-in helpers.
+Chef Infra Client now includes a new `chef-utils` gem, which ships with a large number of helpers to make writing cookbooks easier. Many of these helpers existed previously in the `chef-sugar` gem. We have renamed many of the named helpers for consistency, while providing backwards compatibility with existing `chef-sugar` names. Existing cookbooks written with `chef-sugar` should work unmodified with any of these new helpers. Expect a Cookstyle rule in the near future to help you update existing `chef-sugar` code to use the newer built-in helpers.
 
-For more information all all of the new helpers available, see the
-[chef-utils
-readme](https://github.com/chef/chef/blob/master/chef-utils/README.md).
+For more information all all of the new helpers available, see the [chef-utils readme](https://github.com/chef/chef/blob/master/chef-utils/README.md)
 
-Chefignore Improvements
------------------------
+## Chefignore Improvements
 
-We've reworked how chefignore files are handled in <span
-class="title-ref">knife</span>, which has allowed us to close out a
-large number of long outstanding bugs. knife will now traverse all the
-way up the directory structure looking for a chefignore file. This means
-you can place a chefignore file in each cookbook or any parent directory
-in your repository structure. Additionally, we have made fixes that
-ensure that commands like `knife diff` and `knife cookbook upload`
-always honor your chefignore files.
+We've reworked how chefignore files are handled in `knife`, which has allowed us to close out a large number of long outstanding bugs. `knife` will now traverse all the way up the directory structure looking for a chefignore file. This means you can place a chefignore file in each cookbook or any parent directory in your repository structure. Additionally, we have made fixes that ensure that commands like `knife diff` and `knife cookbook upload` always honor your chefignore files.
 
-Windows Habitat Plan
---------------------
+## Windows Habitat Plan
 
-Official Habitat packages of Chef Infra Client are now available for
-Windows. It has all the executables of the traditional omnibus packages,
-but in Habitat form. You can find it in the Habitat Builder under
-`chef/chef-infra-client`.
+Official Habitat packages of Chef Infra Client are now available for Windows. It has all the executables of the traditional omnibus packages, but in Habitat form. You can find it in the Habitat Builder under [chef/chef-infra-client](https://bldr.habitat.sh/#/pkgs/chef/chef-infra-client/latest/windows).
 
-Performance Improvements
-------------------------
+## Performance Improvements
 
-This release of Chef Infra Client ships with several optimizations to
-our Ruby installation that improve the performance of the chef-client
-and knife commands, especially on Windows systems. Expect to see more
-here in future releases.
+This release of Chef Infra Client ships with several optimizations to our Ruby installation that improve the performance of the chef-client and knife commands, especially on Windows systems. Expect to see more here in future releases.
 
-Chef InSpec 4.18.39
--------------------
+## Chef InSpec 4.18.39
 
-Chef InSpec has been updated from 4.17.17 to 4.18.38. This release
-includes a large number of bug fixes in addition to some great resource
-enhancements:
+Chef InSpec has been updated from 4.17.17 to 4.18.38. This release includes a large number of bug fixes in addition to some great resource enhancements:
 
--   Inputs can now be used within a `describe.one` block
--   The `service` resource now includes a `startname` property for
-    Windows and systemd services
--   The `interface` resource now includes a `name` property
--   The `user` resource now better supports Windows with the addition of
-    `passwordage`, `maxbadpasswords`, and `badpasswordattempts`
-    properties
--   The nginx resource now includes parsing support for wildcard, dot
-    prefix, and regex
--   The `iis_app_pool` resource now handles empty app pools
--   The `filesystem` resource now supports devices with very long names
--   The `apt` resource better handles URIs and supports repos with an
-    arch
--   The `oracledb_session` resource has received multiple fixes to make
-    it work better
--   The `npm` resource now works under sudo on Unix and on Windows with
-    a custom PATH
+- Inputs can now be used within a `describe.one` block
+- The `service` resource now includes a `startname` property for Windows and systemd services
+- The `interface` resource now includes a `name` property
+- The `user` resource now better supports Windows with the addition of `passwordage`, `maxbadpasswords`, and `badpasswordattempts` properties
+- The `nginx` resource now includes parsing support for wildcard, dot prefix, and regex
+- The `iis_app_pool` resource now handles empty app pools
+- The `filesystem` resource now supports devices with very long names
+- The `apt` better handles URIs and supports repos with an `arch`
+- The `oracledb_session` has received multiple fixes to make it work better
+- The `npm` resource now works under sudo on Unix and on Windows with a custom PATH
 
-New Resources
--------------
+## New Resources
 
 ### chef_sleep
 
-The `chef_sleep` resource can be used to sleep for a specified number of
-seconds during a Chef Infra Client run. This may be helpful to use with
-other commands that return a completed status before they are actually
-ready. In general, do not use this resource unless you truly need it.
+The `chef_sleep` resource can be used to sleep for a specified number of seconds during a Chef Infra Client run. This may be helpful to use with other commands that return a completed status before they are actually ready. In general, do not use this resource unless you truly need it.
 
 Using with a Windows service that starts, but is not immediately ready:
 
-> ``` ruby
-> service 'Service that is slow to start and reports as started' do
->   service_name 'my_database'
->   action :start
->   notifies :sleep, chef_sleep['wait for service start']
-> end
->
-> chef_sleep 'wait for service start' do
->   seconds 30
->   action :nothing
-> end
-> ```
+```ruby
+service 'Service that is slow to start and reports as started' do
+  service_name 'my_database'
+  action :start
+  notifies :sleep, chef_sleep['wait for service start']
+end
 
-Updated Resources
------------------
+chef_sleep 'wait for service start' do
+  seconds 30
+  action :nothing
+end
+```
 
-### systemd_unit / service
+## Updated Resources
 
-The `systemd_unit` and `service` resources (when on systemd) have been
-updated to not re-enable services with an indirect status. Thanks
-[@jaymzh](https://github.com/jaymzh) for this fix.
+## systemd_unit / service
 
-### windows_firewall
+The `systemd_unit` and `service` resources (when on systemd) have been updated to not re-enable services with an indirect status. Thanks [@jaymzh](https://github.com/jaymzh) for this fix.
 
-The `windows_firewall` resource has been updated to support passing in
-an array of profiles in the <span class="title-ref">profile</span>
-property. Thanks [@Happycoil](https://github.com/Happycoil) for this
-improvement.
+## windows_firewall
 
-Security Updates
-----------------
+The `windows_firewall` resource has been updated to support passing in an array of profiles in the `profile` property. Thanks [@Happycoil](https://github.com/Happycoil) for this improvement.
 
-libxslt has been updated to 1.1.34 to resolve
-[CVE-2019-13118](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-13118).
+## Security Updates
+
+### libxslt
+
+libxslt has been updated to 1.1.34 to resolve [CVE-2019-13118](https://nvd.nist.gov/vuln/detail/CVE-2019-13118).
 
 What's New in 15.4
 ==================
 
-converge_if_changed Improvements
-----------------------------------
+## converge_if_changed Improvements
 
-Chef Infra Client will now take into account any `default` values
-specified in custom resources when making converge determinations with
-the `converge_if_changed` helper. Previously, default values would be
-ignored, which caused necessary changes to be skipped. Note: This change
-may cause behavior changes for some users, but we believe this original
-behavior is an impacting bug for enough users to make it outside of a
-major release. Thanks [@jakauppila](https://github.com/jakauppila) for
-reporting this.
+Chef Infra Client will now take into account any `default` values specified in custom resources when making converge determinations with the `converge_if_changed` helper. Previously, default values would be ignored, which caused necessary changes to be skipped. Note: This change may cause behavior changes for some users, but we believe this original behavior is an impacting bug for enough users to make it outside of a major release. Thanks [@ jakauppila](https://github.com/jakauppila) for reporting this.
 
-Bootstrap Improvements
-----------------------
+## Bootstrap Improvements
 
-Several improvements have been made to the `knife bootstrap` command to
-make it more reliable and secure:
+Several improvements have been made to the `knife bootstrap` command to make it more reliable and secure:
 
--   File creation is now wrapped in a umask to avoid potential race
-    conditions
--   `NameError` and `RuntimeError` failures during bootstrap have been
-    resolved
--   `Undefined method 'empty?' for nil:NilClass` during bootstrap have
-    been resolved
--   Single quotes in attributes during bootstrap no longer result in
-    bootstrap failures
--   The bootstrap command no longer appears in PS on the host while
-    bootstrapping is running
+- File creation is now wrapped in a umask to avoid potential race conditions
+- `NameError` and `RuntimeError` failures during bootstrap have been resolved
+- `Undefined method 'empty?' for nil:NilClass` during bootstrap have been resolved
+- Single quotes in attributes during bootstrap no longer result in bootstrap failures
+- The bootstrap command no longer appears in PS on the host while bootstrapping is running
 
-knife supermarket list Improvements
------------------------------------
+## knife supermarket list Improvements
 
 The `knife supermarket list` command now includes two new options:
 
--
+- `--sort-by [recently_updated recently_added most_downloaded most_followed]`: Sort cookbooks returned from the Supermarket API
+- `--owned_by`: Limit returned cookbooks to a particular owner
 
-    `--sort-by [recently_updated recently_added most_downloaded most_followed]`:
-
-    :   Sort cookbooks returned from the Supermarket API
-
--   `--owned_by`: Limit returned cookbooks to a particular owner
-
-Updated Resources
------------------
+## Updated Resources
 
 ### chocolatey_package
 
-The `chocolatey_package` resource no longer fails when passing options
-with the `options` property. Thanks for reporting this issue
-[@kenmacleod](https://github.com/kenmacleod).
+The `chocolatey_package` resource no longer fails when passing options with the `options` property. Thanks for reporting this issue [@kenmacleod](https://github.com/kenmacleod).
 
 ### kernel_module
 
-The `kernel_module` resource includes a new `options` property, which
-allows users to set module specific parameters and settings. Thanks
-[@ramereth](https://github.com/ramereth) for this new feature.
+The `kernel_module` resource includes a new `options` property, which allows users to set module specific parameters and settings. Thanks [@ramereth](https://github.com/ramereth) for this new feature.
 
 Example of a kernel_module resource using the new options property:
 
-``` ruby
-kernel_module 'loop' do
-options [ 'max_loop=4', 'max_part=8' ]
-end
+```ruby
+  kernel_module 'loop' do
+  options [ 'max_loop=4', 'max_part=8' ]
+  end
 ```
 
 ### remote_file
 
-The `remote_file` resource has been updated to better display progress
-when using the `show_progress` resource. Thanks for reporting this issue
-[@isuftin](https://github.com/isuftin).
+The `remote_file` resource has been updated to better display progress when using the `show_progress` resource. Thanks for reporting this issue [@isuftin](https://github.com/isuftin).
 
 ### sudo
 
-The `sudo` resource now runs sudo config validation against all of the
-sudo configuration files on the system instead of only the file being
-written. This allows us to detect configuration errors that occur when
-configs conflict with each other. Thanks for reporting this issue
-[@drzewiec](https://github.com/drzewiec).
+The `sudo` resource now runs sudo config validation against all of the sudo configuration files on the system instead of only the file being written. This allows us to detect configuration errors that occur when configs conflict with each other. Thanks for reporting this issue [@drzewiec](https://github.com/drzewiec).
 
 ### windows_ad_join
 
-The `windows_ad_join` has a new `:leave` action for leaving an Active
-Directory domain and rejoining a workgroup. This new action also has a
-new `workgroup_name` property for specifying the workgroup to join upon
-leaving the domain. Thanks
-[@jasonwbarnett](https://github.com/jasonwbarnett) for adding this new
-action.
+The `windows_ad_join` has a new `:leave` action for leaving an Active Directory domain and rejoining a workgroup. This new action also has a new `workgroup_name` property for specifying the workgroup to join upon leaving the domain. Thanks [@jasonwbarnett](https://github.com/jasonwbarnett) for adding this new action.
 
 Example of leaving a domain
 
-``` ruby
+```ruby
 windows_ad_join 'Leave the domain' do
   workgroup_name 'local'
   action :leave
@@ -744,89 +532,45 @@ end
 
 ### windows_package
 
-The `windows_package` resource no longer updates environmental variables
-before installing the package. This prevents potential modifications
-that may cause a package installation to fail. Thanks
-[@jeremyhage](https://github.com/jeremyhage) for this fix.
+The `windows_package` resource no longer updates environmental variables before installing the package. This prevents potential modifications that may cause a package installation to fail. Thanks [@jeremyhage](https://github.com/jeremyhage) for this fix.
 
 ### windows_service
 
-The `windows_service` resource no longer updates the service and
-triggers notifications if the case of the `run_as_user` property does
-not match the user set on the service. Thanks
-[@jasonwbarnett](https://github.com/jasonwbarnett) for this fix.
+The `windows_service` resource no longer updates the service and triggers notifications if the case of the `run_as_user` property does not match the user set on the service. Thanks [@jasonwbarnett](https://github.com/jasonwbarnett) for this fix.
 
 ### windows_share
 
-The `windows_share` resource is now fully idempotent by better
-validating the provided `path` property from the user. Thanks
-[@Happycoil](https://github.com/Happycoil) for this fix.
+The `windows_share` resource is now fully idempotent by better validating the provided `path` property from the user. Thanks [@Happycoil](https://github.com/Happycoil) for this fix.
 
-Security Updates
-----------------
+## Security Updates
 
 ### Ruby
 
-Ruby has been updated from 2.6.4 to 2.6.5 in order to resolve the
-following CVEs:
+Ruby has been updated from 2.6.4 to 2.6.5 in order to resolve the following CVEs:
 
--
-
-    [CVE-2019-16255](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-16255):
-
-    :   A code injection vulnerability of Shell\#\[\] and Shell\#test
-
--
-
-    [CVE-2019-16254](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-16254):
-
-    :   HTTP response splitting in WEBrick (Additional fix)
-
--
-
-    [CVE-2019-15845](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-15845):
-
-    :   A NUL injection vulnerability of File.fnmatch and File.fnmatch?
-
--
-
-    [CVE-2019-16201](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-16201):
-
-    :   Regular Expression Denial of Service vulnerability of WEBrick's
-        Digest access authentication
+- [CVE-2019-16255](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-16255): A code injection vulnerability of Shell#[] and Shell#test
+- [CVE-2019-16254](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-16254): HTTP response splitting in WEBrick (Additional fix)
+- [CVE-2019-15845](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-15845): A NUL injection vulnerability of File.fnmatch and File.fnmatch?
+- [CVE-2019-16201](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-16201): Regular Expression Denial of Service vulnerability of WEBrick’s Digest access authentication
 
 What's New in 15.3
 ==================
 
-Custom Resource Unified Mode
-----------------------------
+## Custom Resource Unified Mode
 
-Chef Infra Client 15.3 introduces an exciting new way to easily write
-custom resources that mix built-in Chef Infra resources with Ruby code.
-Previously custom resources would use Chef Infra's standard compile and
-converge phases, which meant that Ruby would be evaluated first and then
-the resources would be converged. This often results in confusing and
-undesirable behavior when you are trying to mix resources with Ruby
-logic. Many custom resource authors would attempt to get around this by
-forcing resources to run at compile time so that all the code in their
-resource would execute during the compile phase.
+Chef Infra Client 15.3 introduces an exciting new way to easily write custom resources that mix built-in Chef Infra resources with Ruby code. Previously custom resources would use Chef Infra's standard compile and converge phases, which meant that Ruby would be evaluated first and then the resources would be converged. This often results in confusing and undesirable behavior when you are trying to mix resources with Ruby logic. Many custom resource authors would attempt to get around this by forcing resources to run at compile time so that all the code in their resource would execute during the compile phase.
 
 An example of forcing a resource to run at compile time:
 
-``` ruby
+```ruby
 resource_name 'foo' do
   action :nothing
 end.run_action(:some_action)
 ```
 
-With unified mode, you opt in to a single phase per resource where all
-Ruby and Chef Infra resources are executed at once. This makes it far
-easier to determine how your code will be evaluated and run.
-Additionally, you no longer need to force any resources to run at
-compile time, as all code is run in the compile phase. To enable this
-new mode just add `unified_mode true` to your resources like this:
+With unified mode, you opt in to a single phase per resource where all Ruby and Chef Infra resources are executed at once. This makes it far easier to determine how your code will be evaluated and run. Additionally, you no longer need to force any resources to run at compile time, as all code is run in the compile phase. To enable this new mode just add `unified_mode true` to your resources like this:
 
-``` ruby
+```ruby
 property :Some_property, String
 
 unified_mode true
@@ -836,1073 +580,618 @@ action :create do
 end
 ```
 
-Interval Mode Now Fails on Windows
-----------------------------------
+## Interval Mode Now Fails on Windows
 
-Chef Infra Client 15.3 will now raise an error if you attempt to keep
-the chef-client process running long-term by enabling interval runs.
-Interval runs have already raised failures on non-Windows platforms and
-we've suggested that users move away from them on Windows for many
-years. The long-running chef-client process on Windows will load and
-reload cookbooks over each other in memory. This could produce a running
-state which is not a representation of the cookbook code that the
-authors wrote or tested, and behavior that may be wildly different
-depending on how long the chef-client process has been running and on
-the sequence that the cookbooks were uploaded.
+Chef Infra Client 15.3 will now raise an error if you attempt to keep the chef-client process running long-term by enabling interval runs. Interval runs have already raised failures on non-Windows platforms and we've suggested that users move away from them on Windows for many years. The long-running chef-client process on Windows will load and reload cookbooks over each other in memory. This could produce a running state which is not a representation of the cookbook code that the authors wrote or tested, and behavior that may be wildly different depending on how long the chef-client process has been running and on the sequence that the cookbooks were uploaded.
 
-Updated Resources
------------------
+## Updated Resources
 
 ### ifconfig
 
-The `ifconfig` resource has been updated to properly support interfaces
-with a hyphen in their name. This is most commonly encountered with
-bridge interfaces that are named `br-1234`.
+The `ifconfig` resource has been updated to properly support interfaces with a hyphen in their name. This is most commonly encountered with bridge interfaces that are named `br-1234`.
 
 ### archive_file
 
-The `archive_file` resource now supports archives in the RAR 5.0 format
-as well as zip files compressed using xz, lzma, ppmd8 and bzip2
-compression.
+The `archive_file` resource now supports archives in the RAR 5.0 format as well as zip files compressed using xz, lzma, ppmd8 and bzip2 compression.
 
 ### user
 
--   **macOS 10.14 / 10.15 support**
+#### macOS 10.14 / 10.15 support
 
-    The `user` resource now supports the creation of users on macOS
-    10.14 and 10.15 systems. The updated resource now complies with
-    macOS TCC policies by using a user with admin privileges to create
-    and modify users. The following new properties have been added for
-    macOS user creation:
+The `user` resource now supports the creation of users on macOS 10.14 and 10.15 systems. The updated resource now complies with macOS TCC policies by using a user with admin privileges to create and modify users. The following new properties have been added for macOS user creation:
 
-    -   `admin` sets a user to be an admin.
-    -   `admin_username` and `admin_password` define the admin user
-        credentials required for toggling SecureToken for a user. The
-        value of 'admin_username' must correspond to a system user that
-        is part of the 'admin' with SecureToken enabled in order to
-        toggle SecureToken.
-    -   `secure_token` is a boolean property that sets the desired state
-        for SecureToken. FileVault requires a SecureToken for full disk
-        encryption.
-    -   `secure_token_password` is the plaintext password required to
-        enable or disable `secure_token` for a user. If no salt is
-        specified we assume the 'password' property corresponds to a
-        plaintext password and will attempt to use it in place of
-        secure_token_password if it is not set.
+* `admin` sets a user to be an admin.
 
--   **Password property is now sensitive**
+* `admin_username` and `admin_password` define the admin user credentials required for toggling SecureToken for a user. The value of 'admin_username' must correspond to a system user that is part of the 'admin' with SecureToken enabled in order to toggle SecureToken.
 
-    The `password` property is now set to sensitive to prevent the
-    password from being shown in debug or failure logs.
+* `secure_token` is a boolean property that sets the desired state for SecureToken. FileVault requires a SecureToken for full disk encryption.
 
--   **gid property can now be a string**
+* `secure_token_password` is the plaintext password required to enable or disable `secure_token` for a user. If no salt is specified we assume the 'password' property corresponds to a plaintext password and will attempt to use it in place of secure_token_password if it is not set.
 
-    The `gid` property now allows specifying the user's gid as a string.
-    For example:
+#### Password property is now sensitive
 
-    ``` ruby
-    user 'tim' do
-      gid '123'
-    end
-    ```
+The `password` property is now set to sensitive to prevent the password from being shown in debug or failure logs.
 
-Platform Support Updates
-------------------------
+#### gid property can now be a string
+
+The `gid` property now allows specifying the user's gid as a string. For example:
+
+```ruby
+user 'tim' do
+  gid '123'
+end
+```
+
+## Platform Support Updates
 
 ### macOS 10.15 Support
 
-Chef Infra Client is now validated against macOS 10.15 (Catalina) with
-packages now available at
-[downloads.chef.io](https://downloads.chef.io/) and via the [Omnitruck
-API](/api_omnitruck/). Additionally, Chef Infra
-Client will no longer be validated against macOS 10.12.
+Chef Infra Client is now validated against macOS 10.15 (Catalina) with packages now available at [downloads.chef.io](https://downloads.chef.io/) and via the [Omnitruck API](https://docs.chef.io/api_omnitruck/). Additionally, Chef Infra Client will no longer be validated against macOS 10.12.
 
 ### AIX 7.2
 
-Chef Infra Client is now validated against AIX 7.2 with packages now
-available at [downloads.chef.io](https://downloads.chef.io/) and via the
-[Omnitruck API](/api_omnitruck/).
+Chef Infra Client is now validated against AIX 7.2 with packages now available at [downloads.chef.io](https://downloads.chef.io/) and via the [Omnitruck API](https://docs.chef.io/api_omnitruck/).
 
-Chef InSpec 4.16
-----------------
+## Chef InSpec 4.16
 
-Chef InSpec has been updated from 4.10.4 to 4.16.0 with the following
-changes:
+Chef InSpec has been updated from 4.10.4 to 4.16.0 with the following changes:
 
--   A new `postfix_conf` has been added for inspecting Postfix
-    configuration files.
--   A new `plugins` section has been added to the InSpec configuration
-    file which can be used to pass secrets or other configurations into
-    Chef InSpec plugins.
--   The `service` resource now includes a new `startname` property for
-    determining which user is starting the Windows services.
--   The `groups` resource now properly gathers membership information on
-    macOS hosts.
+- A new `postfix_conf` has been added for inspecting Postfix configuration files.
+- A new `plugins` section has been added to the InSpec configuration file which can be used to pass secrets or other configurations into Chef InSpec plugins.
+- The `service` resource now includes a new `startname` property for determining which user is starting the Windows services.
+- The `groups` resource now properly gathers membership information on macOS hosts.
 
-Security Updates
-----------------
+## Security Updates
 
 ### Ruby
 
-Ruby has been updated from 2.6.3 to 2.6.4 in order to resolve
-[CVE-2012-6708](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-6708)
-and
-[CVE-2015-9251](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-9251).
+Ruby has been updated from 2.6.3 to 2.6.4 in order to resolve [CVE-2012-6708](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-6708) and [CVE-2015-9251](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-9251).
 
 ### openssl
 
-openssl has been updated from 1.0.2s to 1.0.2t in order to resolve
-[CVE-2019-1563](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-1563)
-and
-[CVE-2019-1547](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-1547).
+openssl has been updated from 1.0.2s to 1.0.2t in order to resolve [CVE-2019-1563](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-1563) and [CVE-2019-1547](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-1547).
 
 ### nokogiri
 
-nokogori has been updated from 1.10.2 to 1.10.4 in order to resolve
-[CVE-2019-5477](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-5477)
+nokogori has been updated from 1.10.2 to 1.10.4 in order to resolve [CVE-2019-5477](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-5477)
 
 What's New in 15.2
 ==================
 
-Updated Resources
------------------
+## Updated Resources
 
--   **dnf_package**
+### dnf_package
 
-    The `dnf_package` resource has been updated to fully support RHEL 8.
+The `dnf_package` resource has been updated to fully support RHEL 8.
 
--   **kernel_module**
+### kernel_module
 
-    The `kernel_module` now supports a `:disable` action. Thanks
-    [@tomdoherty](https://github.com/tomdoherty).
+The `kernel_module` now supports a `:disable` action. Thanks [@tomdoherty](https://github.com/tomdoherty).
 
--   **rhsm_repo**
+### rhsm_repo
 
-    The `rhsm_repo` resource has been updated to support passing a repo
-    name of `*` in the `:disable` action. Thanks for reporting this
-    issue [@erinn](https://github.com/erinn).
+The `rhsm_repo` resource has been updated to support passing a repo name of `*` in the `:disable` action. Thanks for reporting this issue [@erinn](https://github.com/erinn).
 
--   **windows_task**
+### windows_task
 
-    The `windows_task` resource has been updated to allow the `day`
-    property to accept an `Integer` value.
+The `windows_task` resource has been updated to allow the `day` property to accept an `Integer` value.
 
--   **zypper_package**
+### zypper_package
 
-    The `zypper_package` package has been updated to properly upgrade
-    packages if necessary based on the version specified in the resource
-    block. Thanks [@foobarbam](https://github.com/foobarbam) for this
-    fix.
+The `zypper_package` package has been updated to properly upgrade packages if necessary based on the version specified in the resource block. Thanks [@foobarbam](https://github.com/foobarbam) for this fix.
 
-Platform Support Updates
-------------------------
+## Platform Support Updates
 
--   **RHEL 8 Support Added**
+### RHEL 8 Support Added
 
-    Chef Infra Client 15.2 now includes native packages for RHEL 8 with
-    all builds now validated on RHEL 8 hosts.
+Chef Infra Client 15.2 now includes native packages for RHEL 8 with all builds now validated on RHEL 8 hosts.
 
--   **SLES 11 EOL**
+### SLES 11 EOL
 
-    Packages will no longer be built for SUSE Linux Enterprise Server
-    (SLES) 11 as SLES 11 exited the 'General Support' phase on March
-    31, 2019. See Chef's [Platform End-of-Life
-    Policy](/platforms/#platform-end-of-life-policy)
-    for more information on when Chef ends support for an OS release.
+Packages will no longer be built for SUSE Linux Enterprise Server (SLES) 11 as SLES 11 exited the 'General Support' phase on March 31, 2019. See Chef's [Platform End-of-Life Policy](https://docs.chef.io/platforms/#platform-end-of-life-policy) for more information on when Chef ends support for an OS release.
 
--   **Ubuntu 14.04 EOL**
+### Ubuntu 14.04 EOL
 
-    Packages will no longer be built for Ubuntu 14.04 as Canonical ended
-    maintenance updates on April 30, 2019. See Chef's [Platform
-    End-of-Life
-    Policy](/platforms/#platform-end-of-life-policy)
-    for more information on when Chef ends support for an OS release.
+Packages will no longer be built for Ubuntu 14.04 as Canonical ended maintenance updates on April 30, 2019. See Chef's [Platform End-of-Life Policy](https://docs.chef.io/platforms/#platform-end-of-life-policy) for more information on when Chef ends support for an OS release.
 
-Ohai 15.2
----------
+## Ohai 15.2
 
 Ohai has been updated to 15.2 with the following changes:
+  - Improved detection of Openstack including proper detection of Windows nodes running on Openstack when fetching metadata. Thanks [@jjustice6](https://github.com/jjustice6).
+  - A new `other_versions` field has been added to the Packages plugin when the node is using RPM. This allows you to see all installed versions of packages, not just the latest version. Thanks [@jjustice6](https://github.com/jjustice6).
+  - The Linux Network plugin has been improved to not mark interfaces down if `stp_state` is marked as down. Thanks [@josephmilla](https://github.com/josephmilla).
+  - Arch running on ARM processors is now detected as the `arm` platform. Thanks [@BackSlasher](https://github.com/BackSlasher).
 
--   Improved detection of Openstack including proper detection of
-    Windows nodes running on Openstack when fetching metadata. Thanks
-    [@jjustice6](https://github.com/jjustice6).
--   A new `other_versions` field has been added to the Packages plugin
-    when the node is using RPM. This allows you to see all installed
-    versions of packages, not just the latest version. Thanks
-    [@jjustice6](https://github.com/jjustice6).
--   The Linux Network plugin has been improved to not mark interfaces
-    down if `stp_state` is marked as down. Thanks
-    [@josephmilla](https://github.com/josephmilla).
--   Arch running on ARM processors is now detected as the `arm`
-    platform. Thanks [@BackSlasher](https://github.com/BackSlasher).
+## Chef InSpec 4.10.4
 
-Chef InSpec 4.10.4
-------------------
+Chef InSpec has been updated from 4.6.4 to 4.10.4 with the following changes:
 
-Chef InSpec has been updated from 4.6.4 to 4.10.4 with the following
-changes:
+- Fix handling multiple triggers in the `windows_task` resource
+- Fix exceptions when resources are used with incompatible transports
+- Un-deprecate the `be_running` matcher on the `service` resource
+- Add resource `sys_info.manufacturer` and `sys_info.model`
+- Add `ip6tables` resource
 
--   Fix handling multiple triggers in the `windows_task` resource
--   Fix exceptions when resources are used with incompatible transports
--   Un-deprecate the `be_running` matcher on the `service` resource
--   Add resource `sys_info.manufacturer` and `sys_info.model`
--   Add `ip6tables` resource
+## Security Updates
 
-Security Updates
-----------------
+### bzip2
 
--   **bzip2**
-
-    bzip2 has been updated from 1.0.6 to 1.0.8 to resolve
-    [CVE-2016-3189](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-3189)
-    and
-    [CVE-2019-12900](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-12900).
+bzip2 has been updated from 1.0.6 to 1.0.8 to resolve [CVE-2016-3189](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-3189) and [CVE-2019-12900](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-12900).
 
 What's New in 15.1
 ==================
 
-New Resources
--------------
+## New Resources
 
--   **chocolatey_feature**
+### chocolatey_feature
 
-    The `chocolatey_feature` resource allows you to enable and disable
-    Chocolatey features. See the [chocolatey_feature
-    documentation](/resources/chocolatey_feauture/)
-    for full usage information. Thanks
-    [@gep13](https://github.com/gep13) for this new resource.
+The `chocolatey_feature` resource allows you to enable and disable Chocolatey features. See the [chocolatey_feature documentation](https://docs.chef.io/resources/chocolatey_feature/) for full usage information. Thanks [@gep13](https://github.com/gep13) for this new resource.
 
-Updated Resources
------------------
+## Updated Resources
 
--   **chocolatey_source**
+### chocolatey_source
 
-    The `chocolatey_source` resource has been updated with new `enable`
-    and `disable` actions, as well as `admin_only` and
-    `allow_self_service` properties. Thanks
-    [@gep13](https://github.com/gep13) for this enhancement.
+The `chocolatey_source` resource has been updated with new `enable` and `disable` actions, as well as `admin_only` and `allow_self_service` properties. Thanks [@gep13](https://github.com/gep13) for this enhancement.
 
--   **launchd**
+### launchd
 
-    The `launchd` resource has been updated with a new `launch_events`
-    property, which allows you to specify higher-level event types to be
-    used as launch-on-demand event sources. Thanks
-    [@chilcote](https://github.com/chilcote) for this enhancement.
+The `launchd` resource has been updated with a new `launch_events` property, which allows you to specify higher-level event types to be used as launch-on-demand event sources. Thanks [@chilcote](https://github.com/chilcote) for this enhancement.
 
--   **yum_package**
+### yum_package
 
-    The `yum_package` resource's helper for interacting with the yum
-    subsystem has been updated to always close out the rpmdb lock, even
-    during failures. This may prevent the rpmdb from becoming locked in
-    some rare conditions. Thanks for reporting this issue,
-    [@lytao](https://github.com/lytao).
+The `yum_package` resource's helper for interacting with the yum subsystem has been updated to always close out the rpmdb lock, even during failures. This may prevent the rpmdb becoming locked in some rare conditions. Thanks for reporting this issue, [@lytao](https://github.com/lytao).
 
--   **template**
+### template
 
-    The `template` resource now provides additional information on
-    failures, which is especially useful in ChefSpec tests. Thanks
-    [@brodock](https://github.com/brodock) for this enhancement.
+The `template` resource now provides additional information on failures, which is especially useful in ChefSpec tests. Thanks [@brodock](https://github.com/brodock) for this enhancement.
 
-Target Mode Improvements
-------------------------
+## Target Mode Improvements
 
-Our experimental Target Mode received a large number of updates in Chef
-Infra Client 15.1. Target Mode now reuses the connection to the remote
-system, which greatly speeds up the remote Chef Infra run. There is also
-now support for Target Mode in the `systemd_unit`, `log`, `ruby_block`,
-and `breakpoint` resources. Keep in mind that when using `ruby_block`
-with Target Mode that the Ruby code in the block will execute locally as
-there is not necessarily a Ruby runtime on the remote host.
+Our experimental Target Mode received a large number of updates in Chef Infra Client 15.1. Target Mode now reuses the connection to the remote system, which greatly speeds up the remote Chef Infra run. There is also now support for Target Mode in the `systemd_unit`, `log`, `ruby_block`, and `breakpoint` resources. Keep in mind that when using `ruby_block` with Target Mode that the Ruby code in the block will execute locally as there is not necessarily a Ruby runtime on the remote host.
 
-Ohai 15.1
----------
+## Ohai 15.1
 
 Ohai has been updated to 15.1 with the following changes:
 
--   The `Shard` plugin properly uses the machine's `machinename`,
-    `serial`, and `uuid` attributes to generate the shard value. The
-    plugin also no longer throws an exception on macOS hosts. Thanks
-    [@michel-slm](https://github.com/michel-slm) for these fixes.
--   The `Virtualbox` plugin has been enhanced to gather information on
-    running guests, storage, and networks when VirtualBox is installed
-    on a node. Thanks [@freakinhippie](https://github.com/freakinhippie)
-    for this new capability.
--   Ohai no longer fails to gather interface information on Solaris in
-    some rare conditions. Thanks
-    [@devoptimist](https://github.com/devoptimist) for this fix.
+  - The `Shard` plugin properly uses the machine's `machinename`, `serial`, and `uuid` attributes to generate the shard value. The plugin also no longer throws an exception on macOS hosts. Thanks [@michel-slm](https://github.com/michel-slm) for these fixes.
+  - The `Virtualbox` plugin has been enhanced to gather information on running guests, storage, and networks when VirtualBox is installed on a node. Thanks [@freakinhippie](https://github.com/freakinhippie) for this new capability.
+  - Ohai no longer fails to gather interface information on Solaris in some rare conditions. Thanks [@devoptimist](https://github.com/devoptimist) for this fix.
 
-Chef InSpec 4.6.4
------------------
+## Chef InSpec 4.6.4
 
-Chef InSpec has been updated from 4.3.2 to 4.6.4 with the following
-changes:
+Chef InSpec has been updated from 4.3.2 to 4.6.4 with the following changes:
 
--   InSpec `Attributes` have now been renamed to `Inputs` to avoid
-    confusion with Chef Infra attributes.
--   A new InSpec plugin type of `Input` has been added for defining new
-    input types. See the [InSpec Plugins
-    documentation](https://github.com/inspec/inspec/blob/master/docs/dev/plugins.md#implementing-input-plugins)
-    for more information on writing these plugins.
--   InSpec no longer prints errors to the stdout when passing
-    `--format json`.
--   When fetching profiles from GitHub, the URL can now include periods.
--   The performance of InSpec startup has been improved.
+  - InSpec `Attributes` have now been renamed to `Inputs` to avoid confusion with Chef Infra attributes.
+  - A new InSpec plugin type of `Input` has been added for defining new input types. See the [InSpec Plugins documentation](https://github.com/inspec/inspec/blob/master/docs/dev/plugins.md#implementing-input-plugins) for more information on writing these plugins.
+  - InSpec no longer prints errors to the stdout when passing `--format json`.
+  - When fetching profiles from GitHub, the URL can now include periods.
+  - The performance of InSpec startup has been improved.
 
 What's New in 15.0.300
 ======================
 
-This release includes critical bug fixes for the 15.0 release:
-
--   Fix `knife bootstrap` over SSH when `requiretty` is configured on
-    the host.
--   Added the `--chef-license` CLI flag to `chef-apply` and `chef-solo`
-    commands.
+This release includes critical bugfixes for the 15.0 release:
+  - Fix `knife bootstrap` over SSH when `requiretty` is configured on the host.
+  - Added the `--chef-license` CLI flag to `chef-apply` and `chef-solo` commands.
 
 What's New in 15.0.298
 ======================
 
-This release includes critical bug fixes for the 15.0 release:
-
--   Allow accepting the license on non-interactive Windows sessions
--   Resolve license acceptance failures on Windows 2012 R2
--   Improve some knife and chef-client help text
--   Properly handle session_timeout default value in `knife bootstrap`
--   Avoid failures due to Train::Transports::SSHFailed class not being
-    loaded in `knife bootstrap`
--   Resolve failures using the ca_trust_file option with
-    `knife bootstrap`
+This release includes critical bugfixes for the 15.0 release:
+  - Allow accepting the license on non-interactive Windows sessions
+  - Resolve license acceptance failures on Windows 2012 R2
+  - Improve some `knife` and `chef-client` help text
+  - Properly handle session_timeout default value in `knife bootstrap`
+  - Avoid failures due to Train::Transports::SSHFailed class not being loaded in `knife bootstrap`
+  - Resolve failures using the ca_trust_file option with `knife bootstrap`
 
 What's New in 15.0.293
 ======================
 
-Chef Client is now Chef Infra Client
-------------------------------------
-
-Chef Client has a new name, but don't worry, it's the same Chef Client
-you've grown used to. You'll notice new branding throughout the
-application, help, and documentation but the command line name of
-`chef-client` remains the same.
-
-Chef EULA
----------
-
-Chef Infra Client requires an EULA to be accepted by users before it can
-run. Users can accept the EULA in a variety of ways:
-
--   `chef-client --chef-license accept`
--   `chef-client --chef-license accept-no-persist`
--   `CHEF_LICENSE="accept" chef-client`
--   `CHEF_LICENSE="accept-no-persist" chef-client`
-
-Finally, if users run `chef-client` without any of these options, they
-will receive an interactive prompt asking for license acceptance. If the
-license is accepted, a marker file will be written to the filesystem
-unless `accept-no-persist` is specified. Once this marker file is
-persisted, users no longer need to set any of these flags.
+## Chef Client is now Chef Infra Client
 
-See our [Frequently Asked Questions
-document](https://www.chef.io/bmc-faq/) for more information on the EULA
-and license acceptance.
-
-New Features / Functionality
-----------------------------
+Chef Client has a new name, but don't worry, it's the same Chef Client you've grown used to. You'll notice new branding throughout the application, help, and documentation but the command line name of `chef-client` remains the same.
 
--   **Target Mode Prototype**
-
-    Chef Infra Client 15 adds a prototype for a new method of executing
-    resources called Target Mode. Target Mode allows a Chef Infra Client
-    run to manage a remote system over SSH or another protocol supported
-    by the Train library. This support includes platforms that we
-    currently support like Ubuntu Linux, but also allows for configuring
-    other architectures and platforms, such as switches that do not have
-    native builds of Chef Infra Client. Target Mode maintains a separate
-    node object for each target and allows you to manage that node using
-    existing patterns that you currently use.
+## Chef EULA
 
-    As of this release, only the `execute` resource and guards are
-    supported, but modifying existing resources or writing new resources
-    to support Target Mode is relatively easy. Using Target Mode is as
-    easy as running `chef-client --target hostname`. The authentication
-    credentials should be stored in your local `~/.chef/credentials`
-    file with the hostname of the target node as the profile name. Each
-    key/value pair is passed to Train for authentication.
+Chef Infra Client requires an EULA to be accepted by users before it can run. Users can accept the EULA in a variety of ways:
 
--   **Data Collection Ground-Up Refactor**
+- `chef-client --chef-license accept`
+- `chef-client --chef-license accept-no-persist`
+- `CHEF_LICENSE="accept" chef-client`
+- `CHEF_LICENSE="accept-no-persist" chef-client`
 
-    Chef Infra Client's Data Collection subsystem is used to report node
-    changes during client runs to Chef Automate or other reporting
-    systems. For Chef Infra Client 15, we performed a ground-up rewrite
-    of this subsystem, which greatly improves the data reported to Chef
-    Automate and ensures data is delivered even in the toughest of
-    failure conditions.
+Finally, if users run `chef-client` without any of these options, they will receive an interactive prompt asking for license acceptance. If the license is accepted, a marker file will be written to the filesystem unless `accept-no-persist` is specified. Once this marker file is persisted, users no longer need to set any of these flags.
 
--   **copy_properties_from in Custom Resources**
+See our [Frequently Asked Questions document](https://www.chef.io/bmc-faq/) for more information on the EULA and license acceptance.
 
-    A new `copy_properties_from` method for custom resources allows you
-    to copy properties from your custom resource into other resources
-    you are calling, so you can avoid unnecessarily repeating code.
+## New Features / Functionality
 
-    To inherit all the properties of another resource:
+### Target Mode Prototype
 
-    ``` ruby
-    resource_name :my_resource
+Chef Infra Client 15 adds a prototype for a new method of executing resources called Target Mode. Target Mode allows a Chef Infra Client run to manage a remote system over SSH or another protocol supported by the Train library. This support includes platforms that we currently support like Ubuntu Linux, but also allows for configuring other architectures and platforms, such as switches that do not have native builds of Chef Infra Client. Target Mode maintains a separate node object for each target and allows you to manage that node using existing patterns that you currently use.
 
-    property :mode, String, default: '777'
-    property :owner, String, default: 'app_user'
-    property :group, String, default: 'admins'
+As of this release, only the `execute` resource and guards are supported, but modifying existing resources or writing new resources to support Target Mode is relatively easy. Using Target Mode is as easy as running `chef-client --target hostname`. The authentication credentials should be stored in your local `~/.chef/credentials` file with the hostname of the target node as the profile name. Each key/value pair is passed to Train for authentication.
 
-    directory '/etc/myapp' do
-       copy_properties_from new_resource
-       recursive true
-    end
-    ```
+### Data Collection Ground-Up Refactor
 
-    To selectively inherit certain properties from a resource:
+Chef Infra Client's Data Collection subsystem is used to report node changes during client runs to Chef Automate or other reporting systems. For Chef Infra Client 15, we performed a ground-up rewrite of this subsystem, which greatly improves the data reported to Chef Automate and ensures data is delivered even in the toughest of failure conditions.
 
-    ``` ruby
-    resource_name :my_resource
+### copy_properties_from in Custom Resources
 
-    property :mode, String, default: '777'
-    property :owner, String, default: 'app_user'
-    property :group, String, default: 'admins'
+A new `copy_properties_from` method for custom resources allows you copy properties from your custom resource into other resources you are calling, so you can avoid unnecessarily repeating code.
 
-    directory '/etc/myapp' do
-       copy_properties_from(new_resource, :owner, :group, :mode)
-       mode '755'
-       recursive true
-    end
-    ```
+To inherit all the properties of another resource:
+```ruby
+resource_name :my_resource
 
--   **ed25519 SSH key support**
+property :mode, String, default: '777'
+property :owner, String, default: 'app_user'
+property :group, String, default: 'admins'
 
-    Our underlying SSH implementation has been updated to support the
-    new ed25519 SSH key format. This means you will be able to use
-    `knife bootstrap` and `knife ssh` on hosts that only support this
-    new key format.
+directory '/etc/myapp' do
+  copy_properties_from new_resource
+  recursive true
+end
+```
 
--   **Allow Using --delete-entire-chef-repo in Chef Local Mode**
+To selectively inherit certain properties from a resource:
+```ruby
+resource_name :my_resource
 
-    Chef Solo's `--delete-entire-chef-repo` option has been extended to
-    work in Local Mode as well. Be warned that this flag does exactly
-    what it states, and when used incorrectly, can result in loss of
-    work.
+property :mode, String, default: '777'
+property :owner, String, default: 'app_user'
+property :group, String, default: 'admins'
 
-New Resources
--------------
+directory '/etc/myapp' do
+  copy_properties_from(new_resource, :owner, :group, :mode)
+  mode '755'
+  recursive true
+end
+```
 
--   **archive_file resource**
+### ed25519 SSH key support
 
-    Use the `archive_file` resource to decompress multiple archive
-    formats without the need for compression tools on the host. See the
-    [archive_file](/resources/archive_file/)
-    documentation for more information.
+Our underlying SSH implementation has been updated to support the new ed25519 SSH key format. This means you will be able to use `knife bootstrap` and `knife ssh` on hosts that only support this new key format.
 
--   **windows_uac resource**
+### Allow Using --delete-entire-chef-repo in Chef Local Mode
 
-    Use the `windows_uac` resource to configure UAC settings on Windows
-    hosts. See the
-    [windows_uac](/resources/windows_uac/)
-    documentation for more information.
+Chef Solo's `--delete-entire-chef-repo` option has been extended to work in Local Mode as well. Be warned that this flag does exactly what it states, and when used incorrectly, can result in loss of work.
 
--   **windows_dfs_folder resource**
+## New Resources
 
-    Use the `windows_dfs_folder` resource to create and delete Windows
-    DFS folders. See the
-    [windows_dfs_folder](/resources/windows_dfs_folder/)
-    documentation for more information.
+### archive_file resource
 
--   **windows_dfs_namespace resources**
+Use the `archive_file` resource to decompress multiple archive formats without the need for compression tools on the host.
 
-    Use the `windows_dfs_namespace` resource to create and delete
-    Windows DFS namespaces. See the
-    [windows_dfs_namespace](/resources/windows_dfs_namespace/)
-    documentation for more information.
+See the [archive_file](https://docs.chef.io/resources/archive_file/) documentation for more information.
 
--   **windows_dfs_server resources**
+### windows_uac resource
 
-    Use the `windows_dfs_server` resource to configure Windows DFS
-    server settings. See the
-    [windows_dfs_server](/resources/windows_dfs_server/)
-    documentation for more information.
+Use the `windows_uac` resource to configure UAC settings on Windows hosts.
 
--   **windows_dns_record resource**
+See the [windows_uac](https://docs.chef.io/resources/windows_uac) documentation for more information.
 
-    Use the `windows_dns_record` resource to create or delete DNS
-    records. See the
-    [windows_dns_record](/resources/windows_dns_record/)
-    documentation for more information.
+### windows_dfs_folder resource
 
--   **windows_dns_zone resource**
+Use the `windows_dfs_folder` resource to create and delete Windows DFS folders.
 
-    Use the `windows_dns_zone` resource to create or delete DNS zones.
-    See the
-    [windows_dns_zone](/resources/windows_dns_zone/)
-    documentation for more information.
+See the [windows_dfs_folder](https://docs.chef.io/resources/windows_dfs_folder) documentation for more information.
 
--   **snap_package resource**
+### windows_dfs_namespace resources
 
-    Use the `snap_package` resource to install snap packages on Ubuntu
-    hosts. See the
-    [snap_package](/resources/snap_package/)
-    documentation for more information.
+Use the `windows_dfs_namespace` resource to create and delete Windows DFS namespaces.
 
-Resource Improvements
----------------------
+See the [windows_dfs_namespace](https://docs.chef.io/resources/windows_dfs_namespace) documentation for more information.
 
--   **windows_task**
+### windows_dfs_server resources
 
-    The `windows_task` resource now supports the Start When Available
-    option with a new `start_when_available` property.
+Use the `windows_dfs_server` resource to configure Windows DFS server settings.
 
--   **locale**
+See the [windows_dfs_server](https://docs.chef.io/resources/windows_dfs_server) documentation for more information.
 
-    The `locale` resource now allows setting all possible [LC]()\*
-    environmental variables.
+### windows_dns_record resource
 
--   **directory**
+Use the `windows_dns_record` resource to create or delete DNS records.
 
-    The `directory` resource now property supports passing
-    `deny_rights :write` on Windows nodes.
+See the [windows_dns_record](https://docs.chef.io/resources/windows_dns_record) documentation for more information.
 
--   **windows_service**
+### windows_dns_zone resource
 
-    The `windows_service` resource has been improved to prevent
-    accidentally reverting a service back to default settings in a
-    subsequent definition.
+Use the `windows_dns_zone` resource to create or delete DNS zones.
 
-    This example will no longer result in the MyApp service reverting to
-    default RunAsUser:
+See the [windows_dns_zone](https://docs.chef.io/resources/windows_dns_zone) documentation for more information.
 
-    ``` ruby
-    windows_service 'MyApp' do
-      run_as_user 'MyAppsUser'
-      run_as_password 'MyAppsUserPassword'
-      startup_type :automatic
-      delayed_start true
-      action [:configure, :start]
-    end
-    ...
-    windows_service 'MyApp' do
-      startup_type :automatic
-      action [:configure, :start]
-    end
-    ```
+### snap_package resource
 
--   **Ruby 2.6.3**
+Use the `snap_package` resource to install snap packages on Ubuntu hosts.
 
-    Chef now ships with Ruby 2.6.3. This new version of Ruby improves
-    performance and includes many new features to make more advanced
-    Chef usage easier. See
-    <https://www.rubyguides.com/2018/11/ruby-2-6-new-features/> for a
-    list of some of the new functionality.
+See the [snap_package](https://docs.chef.io/resources/snap_package) documentation for more information.
 
-Ohai Improvements
------------------
+## Resource Improvements
 
--   **Improved Linux Platform / Platform Family Detection**
-
-    `Platform` and `platform_family` detection on Linux has been
-    rewritten to utilize the latest config files on modern Linux
-    distributions before falling back to slower and fragile legacy
-    detection methods. Ohai will now begin by parsing the contents of
-    `/etc/os-release` for OS information if available. This feature
-    improves the reliability of detection on modern distros and allows
-    detection of new distros as they are released.
-
-    With this change, we now detect `sles_sap` as a member of the `suse`
-    `platform_family`. Additionally, this change corrects our detection
-    of the `platform_version` on Cisco Nexus switches where previously
-    the build number was incorrectly appended to the version string.
-
--   **Improved Virtualization Detection**
-
-    Hypervisor detection on multiple platforms has been updated to use
-    DMI data and a single set of hypervisors. This greatly improves the
-    detection of hypervisors on Windows, BSD and Solaris platforms. It
-    also means that as new hypervisor detection is added in the future,
-    we will automatically support the majority of platforms.
-
--   **Fix Windows 2016 FQDN Detection**
-
-    Ohai 14 incorrectly detected a Windows 2016 node's `fqdn` as the
-    node's `hostname`. Ohai 15 now correctly reports the FQDN value.
-
--   **Improved Memory Usage**
-
-    Ohai now uses less memory due to internal optimization of how we
-    track plugin information.
-
--   **FIPS Detection Improvements**
-
-    The FIPS plugin now uses the built-in FIPS detection in Ruby for
-    improved detection.
-
-New Deprecations
-----------------
-
--   **knife cookbook site deprecated in favor of knife supermarket**
-
-    The `knife cookbook site` command has been deprecated in favor of
-    the `knife supermarket` command. `knife cookbook site` will now
-    produce a warning message. In Chef Infra Client 16, we will remove
-    the `knife cookbook site` command entirely.
-
--   **locale LC_ALL property**
-
-    The `LC_ALL` property in the `locale` resource has been deprecated
-    as the usage of this environmental variable is not recommended by
-    distribution maintainers.
-
-Breaking Changes
-----------------
-
--   **Knife Bootstrap**
-
-    Knife bootstrap has been entirely rewritten. Native support for
-    Windows bootstrapping is now a part of the main `knife bootstrap`
-    command. This marks the deprecation of the `knife-windows` plugin's
-    `bootstrap` behavior. This change also addresses
-    [CVE-2015-8559](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-8559):
-    *The \`\`knife bootstrap\`\` command in chef leaks the validator.pem
-    private RSA key to /var/log/messages*.
-
-    **Important**: `knife bootstrap` can bootstrap all supported
-    versions of Chef Infra Client. Older versions may continue to work
-    as far back as 12.20.
-
-    In order to accommodate a combined bootstrap that supports both SSH
-    and WinRM, some CLI flags have been added, removed, or changed.
-    Using the changed options will result in deprecation warnings, but
-    `knife bootstrap` will accept those options unless otherwise noted.
-    Using removed options will cause the command to fail.
-
-### New Flags
-
-<table>
-<colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Flag</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><code>--max-wait SECONDS</code></td>
-<td>Maximum time to wait for initial connection to be established.</td>
-</tr>
-<tr class="even">
-<td><code>--winrm-basic-auth-only</code></td>
-<td>Perform only Basic Authentication to the target WinRM node.</td>
-</tr>
-<tr class="odd">
-<td><code>--connection-protocol PROTOCOL</code></td>
-<td>Connection protocol to use. Valid values are 'winrm' and 'ssh'. Default is 'ssh'.</td>
-</tr>
-<tr class="even">
-<td><code>--connection-user</code></td>
-<td>User to authenticate as, regardless of protocol.</td>
-</tr>
-<tr class="odd">
-<td><code>--connection-password</code></td>
-<td>Password to authenticate as, regardless of protocol.</td>
-</tr>
-<tr class="even">
-<td><code>--connection-port</code></td>
-<td>Port to connect to, regardless of protocol.</td>
-</tr>
-<tr class="odd">
-<td><code>--ssh-verify-host-key VALUE</code></td>
-<td>Verify host key. Default is 'always'. Valid values are 'accept', 'accept_new', 'accept_new_or_local_tunnel', and 'never'.</td>
-</tr>
-</tbody>
-</table>
-
-### Changed Flags
-
-<table>
-<colgroup>
-<col style="width: 33%" />
-<col style="width: 33%" />
-<col style="width: 33%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Flag</th>
-<th>New Option</th>
-<th>Notes</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><code>--[no-]host-key-verify</code></td>
-<td><code>--ssh-verify-host-key VALUE</code></td>
-<td>See above for valid values.</td>
-</tr>
-<tr class="even">
-<td><code>--forward-agent</code></td>
-<td><code>--ssh-forward-agent</code></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td><code>--session-timeout MINUTES</code></td>
-<td><code>--session-timeout SECONDS</code></td>
-<td>New for ssh, existing for winrm. The unit has changed from MINUTES to SECONDS for consistency with other timeouts.</td>
-</tr>
-<tr class="even">
-<td><code>--ssh-password</code></td>
-<td><code>--connection-password</code></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td><code>--ssh-port</code></td>
-<td><code>--connection-port</code></td>
-<td><code>knife[:ssh_port]</code> config setting remains available.</td>
-</tr>
-<tr class="even">
-<td><code>--ssh-user</code></td>
-<td><code>--connection-user</code></td>
-<td><code>knife[:ssh_user]</code> config setting remains available.</td>
-</tr>
-<tr class="odd">
-<td><code>--ssl-peer-fingerprint</code></td>
-<td><code>--winrm-ssl-peer-fingerprint</code></td>
-<td></td>
-</tr>
-<tr class="even">
-<td><code>--prerelease</code></td>
-<td><code>--channel CHANNEL</code></td>
-<td>This now allows you to specify the channel that Chef Infra Client gets installed from. Valid values are <em>stable</em>, <em>current</em>, and <em>unstable</em>. 'current' has the same effect as using the old --prerelease.</td>
-</tr>
-<tr class="odd">
-<td><code>--winrm-authentication-protocol=PROTO</code></td>
-<td><code>--winrm-auth-method=AUTH-METHOD</code></td>
-<td>Valid values: <em>plaintext</em>, <em>kerberos</em>, <em>ssl</em>, <em>negotiate</em></td>
-</tr>
-<tr class="even">
-<td><code>--winrm-password</code></td>
-<td><code>--connection-password</code></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td><code>--winrm-port</code></td>
-<td><code>--connection-port</code></td>
-<td><code>knife[:winrm_port]</code> config setting remains available.</td>
-</tr>
-<tr class="even">
-<td><code>--winrm-ssl-verify-mode MODE</code></td>
-<td><code>--winrm-no-verify-cert</code></td>
-<td>Mode is not accepted. When flag is present, SSL cert will not be verified. Same as original mode of 'verify_none'. [1]</td>
-</tr>
-<tr class="odd">
-<td><code>--winrm-transport TRANSPORT</code></td>
-<td><code>--winrm-ssl</code></td>
-<td>Use this flag if the target host is accepts WinRM connections over SSL. [1]</td>
-</tr>
-<tr class="even">
-<td><code>--winrm-user</code></td>
-<td><code>--connection-user</code></td>
-<td><code>knife[:winrm_user]</code> config setting remains available.</td>
-</tr>
-<tr class="odd">
-<td><code>--winrm-session-timeout</code></td>
-<td><code>--session-timeout</code></td>
-<td>Now available for bootstrapping over SSH as well</td>
-</tr>
-</tbody>
-</table>
-
-\[1\] These flags do not have an automatic mapping of old flag -\> new
-flag. The new flag must be used.
-
-### Removed Flags
-
-<table>
-<colgroup>
-<col style="width: 20%" />
-<col style="width: 79%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Flag</th>
-<th>Notes</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><code>--kerberos-keytab-file</code></td>
-<td>This option existed but was not implemented.</td>
-</tr>
-<tr class="even">
-<td><code>--winrm-codepage</code></td>
-<td>This was used under <code>knife-windows</code> because bootstrapping was performed over a <code>cmd</code> shell. It is now invoked from <code>powershell</code>, so this option is no longer used.</td>
-</tr>
-<tr class="odd">
-<td><code>--winrm-shell</code></td>
-<td>This option was ignored for bootstrap.</td>
-</tr>
-<tr class="even">
-<td><code>--install-as-service</code></td>
-<td>Installing Chef Client as a service is not supported.</td>
-</tr>
-</tbody>
-</table>
-
--   **Usage Changes**
-
-    Instead of specifying protocol with `-o`, it is also possible to
-    prefix the target hostname with the protocol in URL format. For
-    example:
-
-    ``` bash
-    knife bootstrap example.com -o ssh
-    knife bootstrap ssh://example.com
-    knife bootstrap example.com -o winrm
-    knife bootstrap winrm://example.com
-    ```
-
--   **Chef Infra Client packages remove /opt/chef before installation**
-
-    Upon upgrading Chef Infra Client packages, the `/opt/chef` directory
-    is removed. This ensures any `chef_gem` installed gem versions and
-    other modifications to `/opt/chef` will removed to prevent upgrade
-    issues. Due to technical details with rpm script execution order,
-    the implementation involves a a pre-installation script that wipes
-    `/opt/chef` before every install, and is done consistently this way
-    on every package manager.
-
-    Users who are properly managing customizations to `/opt/chef`
-    through Chef recipes would not be affected, because their
-    customizations will still be installed by the new package.
-
-    You will see a warning that the `/opt/chef` directory will be
-    removed during the package installation process.
-
--   **powershell_script now allows overriding the default flags**
-
-    We now append `powershell_script` user flags to the default flags
-    rather than the other way around, which made user flags override the
-    defaults. This is the correct behavior, but it may cause scripts to
-    execute differently than in previous Chef Client releases.
-
--   **Package provider allow_downgrade is now true by default**
-
-    We reversed the default behavior to `allow_downgrade true` for our
-    package providers. To override this setting to prevent downgrades,
-    use the `allow_downgrade false` flag. This behavior change will
-    mostly affect users of the rpm and zypper package providers.
-
-    In this example, the code below should now read as asserting that
-    the package <span class="title-ref">foo</span> must be version
-    `1.2.3` after that resource is run.:
-
-    ``` ruby
-    package "foo" do
-      version "1.2.3"
-    end
-    ```
-
-    The code below is now what is necessary to specify that `foo` must
-    be version `1.2.3` or higher. Note that the yum provider supports
-    syntax like `package "foo > 1.2.3"`, which should be used and is
-    preferred over using allow_downgrade.
-
-    ``` ruby
-    package "foo" do
-        allow_downgrade false
-        version "1.2.3"
-    end
-    ```
-
--   **Node Attributes deep merge nil values**
-
-    Writing a `nil` to a precedence level in the node object now acts
-    like any other value and can be used to override values back to
-    `nil`.
-
-    For example:
-
-    ``` bash
-    chef (15.0.53)> node.default["foo"] = "bar"
-      => "bar"
-    chef (15.0.53)> node.override["foo"] = nil
-     => nil
-    chef (15.0.53)> node["foo"]
-     => nil
-    ```
-
-    In prior versions of `chef-client`, the `nil` set in the override
-    level would be completely ignored and the value of `node["foo"]`
-    would have been "bar".
-
--   **http_disable_auth_on_redirect now enabled**
-
-    The Chef config `http_disable_auth_on_redirect` has been changed
-    from `false` to `true`. In Chef Infra Client 16, this config option
-    will be removed altogether and Chef Infra Client will always disable
-    auth on redirect.
-
--   **knife cookbook test removal**
-
-    The `knife cookbook test` command has been removed. This command
-    would often report non-functional cookbooks as functional, and has
-    been superseded by functionality in other testing tools such as
-    `cookstyle`, `foodcritic`, and `chefspec`.
-
--   **ohai resource's ohai_name property removal**
-
-    The `ohai` resource contained a non-functional `ohai_name` property,
-    which has been removed.
-
--   **knife status --hide-healthy flag removal**
-
-    The `knife status --hide-healthy` flag has been removed. Users
-    should run `knife status --hide-by-mins MINS` instead.
-
--   **Cookbook shadowing in Chef Solo Legacy Mode Removed**
-
-    Previously, if a user provided multiple cookbook paths to Chef Solo
-    that contained cookbooks with the same name, Chef Solo would combine
-    these into a single cookbook. This merging of two cookbooks often
-    caused unexpected outcomes and has been removed.
-
--   **Removal of unused route resource properties**
-
-    The `route` resource contained multiple unused properties that have
-    been removed. If you previously set `networking`, `networking_ipv6`,
-    `hostname`, `domainname`, or `domain`, they would be ignored. In
-    Chef Infra Client 15, setting these properties will throw an error.
-
--   **FreeBSD pkg provider removal**
-
-    Support for the FreeBSD `pkg` package system in the
-    `freebsd_package` resource has been removed. FreeBSD 10 replaced the
-    `pkg` system with `pkg-ng` system, so this removal only impacts
-    users of EOL FreeBSD releases.
-
--   **require_recipe removal**
-
-    The legacy `require_recipe` method in recipes has been removed. This
-    method was replaced with `include_recipe` in Chef Client 10, and a
-    FoodCritic rule has been warning to update cookbooks for multiple
-    years.
-
--   **Legacy shell_out methods removed**
-
-    In Chef Client 14, many of the more obscure `shell_out` methods used
-    in LWRPs and custom resources were combined into the standard
-    `shell_out` and `shell_out!` methods. The legacy methods were
-    infrequently used and Chef Client 14/Foodcritic both contained
-    deprecation warnings for these methods. The following methods will
-    now throw an error: `shell_out_compact`, `shell_out_compact!`,
-    `shell_out_compact_timeout`, `shell_out_compact_timeout!`,
-    `shell_out_with_systems_locale`, and
-    `shell_out_with_systems_locale!`.
-
--   **knife bootstrap --identity_file removal**
-
-    The `knife bootstrap --identity_file` flag has been removed. This
-    flag was deprecated in Chef Client 12, and users should now use the
-    `--ssh-identity-file` flag instead.
-
--   **knife user support for Chef Infra Server \< 12 removed**
-
-    The `knife user` command no longer supports the open source Chef
-    Infra Server version prior to 12.
-
--   **attributes in metadata.rb**
-
-    Chef Infra Client no longer processes attributes in the
-    `metadata.rb` file. Attributes could be defined in the `metadata.rb`
-    file as a form of documentation, which would be shown when running
-    `knife cookbook show COOKBOOK_NAME`. Often, these attribute
-    definitions would become out of sync with the attributes in the
-    actual attributes files. Chef Infra Client 15 will no longer show
-    these attributes when running `knife cookbook show COOKBOOK_NAME`
-    and will instead throw a warning message upon upload. Foodcritic has
-    warned against the use of attributes in the `metadata.rb` file since
-    April 2017.
-
--   **Node attributes array bugfix**
-
-    Chef Infra Client 15 includes a bugfix for incorrect node attribute
-    behavior involving a rare usage of arrays, which may impact users
-    who depend on the incorrect behavior.
-
-    Previously, you could set an attribute like this:
-
-    ``` bash
-    node.default["foo"] = []
-    node.default["foo"] << { "bar" => "baz }
-    ```
-
-    This would result in a Hash, instead of a VividMash, inserted into
-    the AttrArray, so that:
-
-    ``` bash
-    node.default["foo"][0]["bar"] # gives the correct result
-    node.default["foo"][0][:bar]  # does not work due to the sub-Hash not
-                                  # converting keys
-    ```
-
-    The new behavior uses a Mash so that the attributes will work as
-    expected.
-
--   **Ohai's system_profile plugin for macOS removed**
-
-    We removed the `system_profile` plugin because it incorrectly
-    returned data on modern macOS systems. If you relied on this plugin,
-    you'll want to update recipes to use `node['hardware']` instead,
-    which correctly returns the same data, but in a more easily consumed
-    format. Removing this plugin speeds up Ohai and Chef Infra Client by
-    \~3 seconds, and dramatically reduces the size of the node object on
-    the Chef Infra Server.
-
--   **Ohai's Ohai::Util::Win32::GroupHelper class has been removed**
-
-    We removed the `Ohai::Util::Win32::GroupHelper` helper class from
-    Ohai. This class was intended for use internally in several Windows
-    plugins, but it was never marked private in the codebase. If any of
-    your Ohai plugins rely on this helper class, you will need to update
-    your plugins for Ohai 15.
-
--   **Audit Mode**
-
-    Chef Client's Audit mode was introduced in 2015 as a beta that
-    needed to be enabled via `client.rb`. Its functionality has been
-    superseded by Chef InSpec and has been removed.
-
--   **Ohai system_profiler plugin removal**
-
-    The `system_profiler` plugin, which ran on macOS systems, has been
-    removed. This plugin took longer to run than all other plugins on
-    macOS combined, and no longer produced usable information on modern
-    macOS releases. If you're looking for similar information, it can
-    now be found in the `hardware` plugin.
-
--   **Ohai::Util::Win32::GroupHelper helper removal**
-
-    The deprecated `Ohai::Util::Win32::GroupHelper` helper has been
-    removed from Ohai. Any custom Ohai plugins using this helper will
-    need to be updated.
-
--   **Ohai::System.refresh_plugins method removal**
-
-    The `refresh_plugins` method in the `Ohai::System` class has been
-    removed as it has been unused for multiple major Ohai releases. If
-    you are programatically using Ohai in your own Ruby application, you
-    will need to update your code to use the `load_plugins` method
-    instead.
-
--   **Ohai Microsoft VirtualPC / VirtualServer detection removal**
-
-    The `Virtualization` plugin will no longer detect systems running on
-    the circa \~2005 VirtualPC or VirtualServer hypervisors. These
-    hypervisors were long ago deprecated by Microsoft and support can no
-    longer be tested.
+### windows_task
+
+The `windows_task` resource now supports the Start When Available option with a new `start_when_available` property.
+
+### locale
+
+The `locale` resource now allows setting all possible LC_* environmental variables.
+
+### directory
+
+The `directory` resource now property supports passing `deny_rights :write` on Windows nodes.
+
+### windows_service
+
+The `windows_service` resource has been improved to prevent accidentally reverting a service back to default settings in a subsequent definition.
+
+This example will no longer result in the MyApp service reverting to default RunAsUser:
+```ruby
+windows_service 'MyApp' do
+  run_as_user 'MyAppsUser'
+  run_as_password 'MyAppsUserPassword'
+  startup_type :automatic
+  delayed_start true
+  action [:configure, :start]
+end
+
+...
+
+windows_service 'MyApp' do
+  startup_type :automatic
+  action [:configure, :start]
+end
+```
+
+### Ruby 2.6.3
+
+Chef now ships with Ruby 2.6.3. This new version of Ruby improves performance and includes many new features to make more advanced Chef usage easier. See <https://www.rubyguides.com/2018/11/ruby-2-6-new-features/> for a list of some of the new functionality.
+
+## Ohai Improvements
+
+### Improved Linux Platform / Platform Family Detection
+
+`Platform` and `platform_family` detection on Linux has been rewritten to utilize the latest config files on modern Linux distributions before falling back to slower and fragile legacy detection methods. Ohai will now begin by parsing the contents of `/etc/os-release` for OS information if available. This feature improves the reliability of detection on modern distros and allows detection of new distros as they are released.
+
+With this change, we now detect `sles_sap` as a member of the `suse` `platform_family`. Additionally, this change corrects our detection of the `platform_version` on Cisco Nexus switches where previously the build number was incorrectly appended to the version string.
+
+### Improved Virtualization Detection
+
+Hypervisor detection on multiple platforms has been updated to use DMI data and a single set of hypervisors. This greatly improves the detection of hypervisors on Windows, BSD and Solaris platforms. It also means that as new hypervisor detection is added in the future, we will automatically support the majority of platforms.
+
+### Fix Windows 2016 FQDN Detection
+
+Ohai 14 incorrectly detected a Windows 2016 node's `fqdn` as the node's `hostname`. Ohai 15 now correctly reports the FQDN value.
+
+### Improved Memory Usage
+
+Ohai now uses less memory due to internal optimization of how we track plugin information.
+
+### FIPS Detection Improvements
+
+The FIPS plugin now uses the built-in FIPS detection in Ruby for improved detection.
+
+## New Deprecations
+
+### knife cookbook site deprecated in favor of knife supermarket
+
+The `knife cookbook site` command has been deprecated in favor of the `knife supermarket` command. `knife cookbook site` will now produce a warning message. In Chef Infra Client 16, we will remove the `knife cookbook site` command entirely.
+
+### locale LC_ALL property
+
+The `LC_ALL` property in the `locale` resource has been deprecated as the usage of this environmental variable is not recommended by distribution maintainers.
+
+## Breaking Changes
+
+### Knife Bootstrap
+
+Knife bootstrap has been entirely rewritten. Native support for Windows bootstrapping is now a part of the main `knife bootstrap` command. This marks the deprecation of the `knife-windows` plugin's `bootstrap` behavior. This change also addresses [CVE-2015-8559](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-8559): *The `knife bootstrap` command in chef leaks the validator.pem private RSA key to /var/log/messages*.
+
+**Important**: `knife bootstrap` can bootstrap all supported versions of Chef Infra Client. Older versions may continue to work as far back as 12.20.
+
+In order to accommodate a combined bootstrap that supports both SSH and WinRM, some CLI flags have been added, removed, or changed. Using the changed options will result in deprecation warnings, but `knife bootstrap` will accept those options unless otherwise noted. Using removed options will cause the command to fail.
+
+#### New Flags
+
+| Flag | Description |
+|-----:|:------------|
+| --max-wait SECONDS | Maximum time to wait for initial connection to be established. |
+| --winrm-basic-auth-only | Perform only Basic Authentication to the target WinRM node. |
+| --connection-protocol PROTOCOL| Connection protocol to use. Valid values are 'winrm' and 'ssh'. Default is 'ssh'. |
+| --connection-user | User to authenticate as, regardless of protocol. |
+| --connection-password| Password to authenticate as, regardless of protocol. |
+| --connection-port | Port to connect to, regardless of protocol. |
+| --ssh-verify-host-key VALUE | Verify host key. Default is 'always'. Valid values are 'accept', 'accept\_new', 'accept\_new\_or\_local\_tunnel', and 'never'. |
+
+#### Changed Flags
+
+| Flag | New Option | Notes |
+|-----:|:-----------|:------|
+| --[no-]host-key-verify |--ssh-verify-host-key VALUE | See above for valid values. |
+| --forward-agent | --ssh-forward-agent| |
+| --session-timeout MINUTES | --session-timeout SECONDS|New for ssh, existing for winrm. The unit has changed from MINUTES to SECONDS for consistency with other timeouts. |
+| --ssh-password | --connection-password | |
+| --ssh-port | --connection-port | `knife[:ssh_port]` config setting remains available.
+| --ssh-user | --connection-user | `knife[:ssh_user]` config setting remains available.
+| --ssl-peer-fingerprint | --winrm-ssl-peer-fingerprint | |
+| --prerelease |--channel CHANNEL | This now allows you to specify the channel that Chef Infra Client gets installed from. Valid values are _stable_, _current_, and _unstable_. 'current' has the same effect as using the old --prerelease. |
+| --winrm-authentication-protocol=PROTO | --winrm-auth-method=AUTH-METHOD | Valid values: _plaintext_, _kerberos_, _ssl_, _negotiate_ |
+| --winrm-password| --connection-password | |
+| --winrm-port| --connection-port | `knife[:winrm_port]` config setting remains available.|
+| --winrm-ssl-verify-mode MODE | --winrm-no-verify-cert | Mode is not accepted. When flag is present, SSL cert will not be verified. Same as original mode of 'verify\_none'. [1] |
+| --winrm-transport TRANSPORT | --winrm-ssl | Use this flag if the target host is accepts WinRM connections over SSL. [1] |
+| --winrm-user | --connection-user | `knife[:winrm_user]` config setting remains available.|
+| --winrm-session-timeout | --session-timeout | Now available for bootstrapping over SSH as well |
+
+[1] These flags do not have an automatic mapping of old flag -> new flag. The new flag must be used.
+
+#### Removed Flags
+
+| Flag | Notes |
+|-----:|:------|
+|--kerberos-keytab-file| This option existed but was not implemented. |
+|--winrm-codepage| This was used under `knife-windows` because bootstrapping was performed over a `cmd` shell. It is now invoked from `powershell`, so this option is no longer used. |
+|--winrm-shell| This option was ignored for bootstrap. |
+|--install-as-service| Installing Chef Client as a service is not supported. |
+
+#### Usage Changes
+
+Instead of specifying protocol with `-o`, it is also possible to prefix the target hostname with the protocol in URL format. For example:
+
+```
+  knife bootstrap example.com -o ssh
+  knife bootstrap ssh://example.com
+  knife bootstrap example.com -o winrm
+  knife bootstrap winrm://example.com
+```
+
+### Chef Infra Client packages remove /opt/chef before installation
+
+Upon upgrading Chef Infra Client packages, the `/opt/chef` directory is removed. This ensures any `chef_gem` installed gem versions and other modifications to `/opt/chef` will removed to prevent upgrade issues. Due to technical details with rpm script execution order, the implementation involves a a pre-installation script that wipes `/opt/chef` before every install, and is done consistently this way on every package manager.
+
+Users who are properly managing customizations to `/opt/chef` through Chef recipes would not be affected, because their customizations will still be installed by the new package.
+
+You will see a warning that the `/opt/chef` directory will be removed during the package installation process.
+
+### powershell_script now allows overriding the default flags
+
+We now append `powershell_script` user flags to the default flags rather than the other way around, which made user flags override the defaults. This is the correct behavior, but it may cause scripts to execute differently than in previous Chef Client releases.
+
+### Package provider allow_downgrade is now true by default
+
+We reversed the default behavior to `allow_downgrade true` for our package providers. To override this setting to prevent downgrades, use the `allow_downgrade false` flag. This behavior change will mostly affect users of the rpm and zypper package providers.
+
+In this example, the code below should now read as asserting that the package `foo` must be version `1.2.3` after that resource is run.:
+
+```
+package "foo" do
+  version "1.2.3"
+end
+```
+
+The code below is now what is necessary to specify that `foo` must be version `1.2.3` or higher. Note that the yum provider supports syntax like `package "foo > 1.2.3"`, which should be used and is preferred over using allow_downgrade.
+
+```
+package "foo" do
+  allow_downgrade false
+  version "1.2.3"
+end
+```
+
+### Node Attributes deep merge nil values
+
+Writing a `nil` to a precedence level in the node object now acts like any other value and can be used to override values back to `nil`.
+
+For example:
+
+```
+chef (15.0.53)> node.default["foo"] = "bar"
+ => "bar"
+chef (15.0.53)> node.override["foo"] = nil
+ => nil
+chef (15.0.53)> node["foo"]
+ => nil
+```
+
+In prior versions of `chef-client`, the `nil` set in the override level would be completely ignored and the value of `node["foo"]` would have been "bar".
+
+### http_disable_auth_on_redirect now enabled
+
+The Chef config ``http_disable_auth_on_redirect`` has been changed from `false` to `true`. In Chef Infra Client 16, this config option will be removed altogether and Chef Infra Client will always disable auth on redirect.
+
+### knife cookbook test removal
+
+The `knife cookbook test` command has been removed. This command would often report non-functional cookbooks as functional, and has been superseded by functionality in other testing tools such as `cookstyle`, `foodcritic`, and `chefspec`.
+
+### ohai resource's ohai_name property removal
+
+The `ohai` resource contained a non-functional `ohai_name` property, which has been removed.
+
+### knife status --hide-healthy flag removal
+
+The `knife status --hide-healthy` flag has been removed. Users should run `knife status --hide-by-mins MINS` instead.
+
+### Cookbook shadowing in Chef Solo Legacy Mode Removed
+
+Previously, if a user provided multiple cookbook paths to Chef Solo that contained cookbooks with the same name, Chef Solo would combine these into a single cookbook. This merging of two cookbooks often caused unexpected outcomes and has been removed.
+
+### Removal of unused route resource properties
+
+The `route` resource contained multiple unused properties that have been removed. If you previously set `networking`, `networking_ipv6`, `hostname`, `domainname`, or `domain`, they would be ignored. In Chef Infra Client 15, setting these properties will throw an error.
+
+### FreeBSD pkg provider removal
+
+Support for the FreeBSD `pkg` package system in the `freebsd_package` resource has been removed. FreeBSD 10 replaced the `pkg` system with `pkg-ng` system, so this removal only impacts users of EOL FreeBSD releases.
+
+### require_recipe removal
+
+The legacy `require_recipe` method in recipes has been removed. This method was replaced with `include_recipe` in Chef Client 10, and a FoodCritic rule has been warning to update cookbooks for multiple years.
+
+### Legacy shell_out methods removed
+
+In Chef Client 14, many of the more obscure `shell_out` methods used in LWRPs and custom resources were combined into the standard `shell_out` and `shell_out!` methods. The legacy methods were infrequently used and Chef Client 14/Foodcritic both contained deprecation warnings for these methods. The following methods will now throw an error: `shell_out_compact`, `shell_out_compact!`, `shell_out_compact_timeout`, `shell_out_compact_timeout!`, `shell_out_with_systems_locale`, and `shell_out_with_systems_locale!`.
+
+### knife bootstrap --identity_file removal
+
+The `knife bootstrap --identity_file` flag has been removed. This flag was deprecated in Chef Client 12, and users should now use the `--ssh-identity-file` flag instead.
+
+### knife user support for Chef Infra Server < 12 removed
+
+The `knife user` command no longer supports the open source Chef Infra Server version prior to 12.
+
+### attributes in metadata.rb
+
+Chef Infra Client no longer processes attributes in the `metadata.rb` file. Attributes could be defined in the `metadata.rb` file as a form of documentation, which would be shown when running `knife cookbook show COOKBOOK_NAME`. Often, these attribute definitions would become out of sync with the attributes in the actual attributes files. Chef Infra Client 15 will no longer show these attributes when running `knife cookbook show COOKBOOK_NAME` and will instead throw a warning message upon upload. Foodcritic has warned against the use of attributes in the `metadata.rb` file since April 2017.
+
+### Node attributes array bugfix
+
+Chef Infra Client 15 includes a bugfix for incorrect node attribute behavior involving a rare usage of arrays, which may impact users who depend on the incorrect behavior.
+
+Previously, you could set an attribute like this:
+
+```
+node.default["foo"] = []
+node.default["foo"] << { "bar" => "baz }
+```
+
+This would result in a Hash, instead of a VividMash, inserted into the AttrArray, so that:
+
+```
+node.default["foo"][0]["bar"] # gives the correct result
+node.default["foo"][0][:bar]  # does not work due to the sub-Hash not
+                              # converting keys
+```
+
+The new behavior uses a Mash so that the attributes will work as expected.
+
+### Ohai's system_profile plugin for macOS removed
+
+We removed the `system_profile` plugin because it incorrectly returned data on modern macOS systems. If you relied on this plugin, you'll want to update recipes to use `node['hardware']` instead, which correctly returns the same data, but in a more easily consumed format. Removing this plugin speeds up Ohai and Chef Infra Client by ~3 seconds, and dramatically reduces the size of the node object on the Chef Infra Server.
+
+### Ohai's Ohai::Util::Win32::GroupHelper class has been removed
+
+We removed the `Ohai::Util::Win32::GroupHelper` helper class from Ohai. This class was intended for use internally in several Windows plugins, but it was never marked private in the codebase. If any of your Ohai plugins rely on this helper class, you will need to update your plugins for Ohai 15.
+
+### Audit Mode
+
+Chef Client's Audit mode was introduced in 2015 as a beta that needed to be enabled via `client.rb`. Its functionality has been superseded by Chef InSpec and has been removed.
+
+### Ohai system_profiler plugin removal
+
+The `system_profiler` plugin, which ran on macOS systems, has been removed. This plugin took longer to run than all other plugins on macOS combined, and no longer produced usable information on modern macOS releases. If you're looking for similar information, it can now be found in the `hardware` plugin.
+
+### Ohai::Util::Win32::GroupHelper helper removal
+
+The deprecated `Ohai::Util::Win32::GroupHelper` helper has been removed from Ohai. Any custom Ohai plugins using this helper will need to be updated.
+
+### Ohai::System.refresh_plugins method removal
+
+The `refresh_plugins` method in the `Ohai::System` class has been removed as it has been unused for multiple major Ohai releases. If you are programatically using Ohai in your own Ruby application, you will need to update your code to use the `load_plugins` method instead.
+
+### Ohai Microsoft VirtualPC / VirtualServer detection removal
+
+The `Virtualization` plugin will no longer detect systems running on the circa ~2005 VirtualPC or VirtualServer hypervisors. These hypervisors were long ago deprecated by Microsoft and support can no longer be tested.
 
 What's New in 14.15
 ===================
@@ -1999,7 +1288,7 @@ The following platforms have reached EOL status and are no longer packaged or te
 - SUSE Linux Enterprise Server (SLES) 11
 - Ubuntu 14.04
 
-See Chef's Chef's [Platform End-of-Life Policy](/platforms/#platform-end-of-life-policy) for more information on when Chef ends support for an OS release.
+See Chef's [Platform End-of-Life Policy](/platforms/#platform-end-of-life-policy) for more information on when Chef ends support for an OS release.
 
 ## Updated Resources
 
@@ -2082,91 +1371,57 @@ nokogori has been updated from 1.10.2 to 1.10.4 in order to resolve [CVE-2019-54
 What's New in 14.13
 ===================
 
-Updated Resources
------------------
+## Updated Resources
 
 ### directory
 
-The `directory` has been updated to properly set the `deny_rights`
-permission on Windows. Thanks
-[merlinjim](https://github.com/merlinjim) for reporting this issue.
+The `directory` has been updated to properly set the `deny_rights` permission on Windows. Thanks [@merlinjim](https://github.com/merlinjim) for reporting this issue.
 
 ### service
 
-The `service` resource is now idempotent on SLES 11 systems. Thanks
-[gsingla294](https://github.com/gsingla294) for reporting this
-issue.
+The `service` resource is now idempotent on SLES 11 systems. Thanks [@gsingla294](https://github.com/gsingla294) for reporting this issue.
 
 ### cron
 
-The `cron` resource has been updated to advise users to use the
-specify properties rather than passing values in as part of the
-`environment` property. This avoids a situation where a user could
-pass the differing values in both locations and receive unexpected
-results.
+The `cron` resource has been updated to advise users to use the specify properties rather than passing values in as part of the `environment` property. This avoids a situation where a user could pass the differing values in both locations and receive unexpected results.
 
 ### link
 
-The `link` resource includes improved logging upon failure to help
-you debug what has failed. Thanks
-[jaymzh](https://github.com/jaymzh) for this improvement.
+The `link` resource includes improved logging upon failure to help you debug what has failed. Thanks [@jaymzh](https://github.com/jaymzh) for this improvement.
 
 ### template
 
-The `template` resource now includes additional information when
-templating failures, which is particularly useful in ChefSpec.
-Thanks [brodock](https://github.com/brodock) for this improvement.
+The `template` resource now includes additional information when templating failures, which is particularly useful in ChefSpec. Thanks [@brodock](https://github.com/brodock) for this improvement.
 
-delete_resource Fix
---------------------
+## delete_resource Fix
 
-The `delete_resource` helper now works properly when the resource you
-are attempting to delete has multiple providers. Thanks
-[artem-sidorenko](https://github.com/artem-sidorenko) for this fix.
+The `delete_resource` helper now works properly when the resource you are attempting to delete has multiple providers. Thanks [@artem-sidorenko](https://github.com/artem-sidorenko) for this fix.
 
-Helpers Help Everywhere
------------------------
+## Helpers Help Everywhere
 
-Various helpers have been moved into Chef Infra Client's universal class, which makes them available
-anywhere in your cookbook, not just recipes. If you've ever been
-confused why something like `search`, `powershell_out`, or
-`data_bag_item` didn't work somewhere in your code, that should be
-resolved now.
+Various helpers have been moved into Chef Infra Client's `universal` class, which makes them available anywhere in your cookbook, not just recipes. If you've ever been confused why something like `search`, `powershell_out`, or `data_bag_item` didn't work somewhere in your code, that should be resolved now.
 
-Deprecations
-------------
+## Deprecations
 
-The `CHEF-25` deprecation for resource collisions between cookbooks and
-resources in Chef Infra Client has been removed. Instead, you will see a
-log warning that a collision has occurred, which advises you to update
-your run_list or cookbooks.
+The `CHEF-25` deprecation for resource collisions between cookbooks and resources in Chef Infra Client has been removed. Instead you will see a log warning that a collision has occurred, which advises you to update your run_list or cookbooks.
 
-Updated Components
-------------------
+## Updated Components
 
--   openssl 1.0.2r -\> 1.0.2s (bugfix only release)
--   cacerts 2019-01-23 -\> 2019-05-15
+- openssl 1.0.2r -> 1.0.2s (bugfix only release)
+- cacerts 2019-01-23 -> 2019-05-15
 
 What's New in 14.12.9
 =====================
 
-License Acceptance Placeholder Flag
------------------------------------
+## License Acceptance Placeholder Flag
 
-In preparation for Chef Infra Client 15.0, we've added a placeholder
-<span class="title-ref">--chef-license</span> flag to the chef-client
-command. This allows you to use the new <span
-class="title-ref">--chef-license</span> flag on both Chef Infra Client
-14.12.9+ and 15+ notes without producing errors on Chef Infra Client 14.
+In preparation for Chef Infra Client 15.0 we've added a placeholder `--chef-license` flag to the chef-client command. This allows you to use the new `--chef-license` flag on both Chef Infra Client 14.12.9+ and 15+ notes without producing errors on Chef Infra Client 14.
 
-Important Bug Fixes
--------------------
+## Important Bug Fixes
 
--   Blacklisting and whiteliting default and override level attributes
-    is once again possible.
--   You may now encrypt a previously unencrypted data bag.
--   Resolved a regression introduced in Chef Client 14.12.3 that
-    resulted in errors when managing Windows services
+- Blacklisting and whiteliting default and override level attributes is once again possible.
+- You may now encrypt a previously unencrypted data bag.
+- Resolved a regression introduced in Chef Infra Client 14.12.3 that resulted in errors when managing Windows services
 
 What's New in 14.12
 ===================
@@ -3057,6 +2312,7 @@ This release of Chef 14 resolves several regressions in the Chef 14.0 release.
 
 What's New in 14.0
 ==================
+
 ## New Resources
 
 Chef 14 includes a large number of resources ported from community cookbooks. These resources have been tested, improved, and had their functionality expanded. With these new resources in the Chef Client itself, the need for external cookbook dependencies and dependency management has been greatly reduced.
@@ -3508,67 +2764,51 @@ RubyGems has been updated to 2.7.9 in order to resolve the following CVEs:
 What's New in 13.12.3
 =====================
 
--   **Smaller Package and Install Size**
+## Smaller Package and Install Size
 
-    We trimmed unnecessary installation files, greatly reducing the
-    sizes of both Chef packages and on disk installations. macOS/Linux
-    packages are \~50% smaller and Windows packages are \~12% smaller.
-    Chef 14 is now smaller than a legacy Chef 10 package.
+We trimmed unnecessary installation files, greatly reducing the sizes of both Chef packages and on disk installations. MacOS/Linux/FreeBSD packages are ~50% smaller and Windows are ~12% smaller. Chef 13 is now smaller than a legacy Chef 10 package.
 
--   **macOS Mojave (10.14)**
+## macOS Mojave (10.14)
 
-    Chef is now tested against macOS Mojave and packages are now
-    available at downloads.chef.io.
+Chef is now tested against macOS Mojave and packages are now available at downloads.chef.io.
 
--   **SUSE Linux Enterprise Server 15**
+## SUSE Linux Enterprise Server 15
 
-    Ohai now properly detects SLES 15 and the Chef package will no
-    longer remove symlinks to chef-client and ohai when upgrading on
-    SLES 15.
+- Ohai now properly detects SLES 15
+- The Chef package will no longer remove symlinks to chef-client and ohai when upgrading on SLES 15
 
--   **Updated Chef-Vault**
+## Updated Chef-Vault
 
-    Updating chef-vault to 3.4.2 resolved multiple bugs.
+Updating chef-vault to 3.4.2 resolved multiple bugs.
 
--   **Faster Windows Installations**
+## Faster Windows Installations
 
-    Improved Windows installation speed by skipping unnecessary steps
-    when Windows Installer 5.0 or later is available.
+Improved Windows installation speed by skipping unnecessary steps when Windows Installer 5.0 or later is available.
 
-Ohai Release Notes 13.12
-------------------------
+## Ohai Release Notes 13.12
 
--   **macOS Improvements**
-    -   sysctl commands have been modified to gather only the bare
-        minimum required data, which prevents sysctl hanging in some
-        scenarios
-    -   Extra data has been removed from the system_profile plugin,
-        reducing the amount of data stored on the Chef Infa Server for each
-        node
+### macOS Improvements
 
-New Deprecations
-----------------
+- sysctl commands have been modified to gather only the bare minimum required data, which prevents sysctl hanging in some scenarios
+- Extra data has been removed from the system_profile plugin, reducing the amount of data stored on the chef-server for each node
 
--   **system_profile Ohai plugin removal**
+## New Deprecations
 
-    The system_profile plugin will be removed from Chef/Ohai 15 in
-    April, 2019. This plugin incorrectly returns data on modern Mac
-    systems. Further, the hardware plugin returns the same data in a
-    more readily consumable format. Removing this plugin reduces the
-    speed of the Ohai return by \~3 seconds and also greatly reduces the
-    node object size on the Chef server
+### system_profile Ohai plugin removal
 
--   **ohai_name property in ohai resource**
+The system_profile plugin will be removed from Chef/Ohai 15 in April, 2019. This plugin incorrectly returns data on modern Mac systems. Further, the hardware plugin returns the same data in a more readily consumable format. Removing this plugin reduces the speed of the Ohai return by ~3 seconds and also greatly reduces the node object size on the Chef server
 
-    The `ohai` resource's unused `ohai_name` property has been
-    deprecated. This will be removed in Chef 15.0.
+### ohai_name property in ohai resource
 
-Security Updates
-----------------
+The ``ohai`` resource's unused ``ohai_name`` property has been deprecated. This will be removed in Chef Infra Client 15.0.
 
--   **Ruby 2.4.5**
-    -   [CVE-2018-16396](https://www.ruby-lang.org/en/news/2018/10/17/not-propagated-taint-flag-in-some-formats-of-pack-cve-2018-16396)
-    -   [CVE-2018-16395](https://www.ruby-lang.org/en/news/2018/10/17/openssl-x509-name-equality-check-does-not-work-correctly-cve-2018-16395)
+## Security Updates
+
+### Ruby 2.4.5
+
+Ruby has been updated to from 2.4.4 to 2.4.5 to resolve multiple CVEs as well as bugs:
+- [CVE-2018-16396](https://www.ruby-lang.org/en/news/2018/10/17/not-propagated-taint-flag-in-some-formats-of-pack-cve-2018-16396/)
+- [CVE-2018-16395](https://www.ruby-lang.org/en/news/2018/10/17/openssl-x509-name-equality-check-does-not-work-correctly-cve-2018-16395/)
 
 What's New in 13.11
 ===================
