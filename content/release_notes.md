@@ -2439,7 +2439,7 @@ macOS support has been added to the timezone resource.
 
 ### windows_task
 
-A regression in Chef 14.6’s windows_task resource which resulted in tasks being created with the "Run only when user is logged on" option being set when created with a specific user other than SYSTEM, has been resolved.
+A regression in Chef 14.6's windows_task resource which resulted in tasks being created with the "Run only when user is logged on" option being set when created with a specific user other than SYSTEM, has been resolved.
 
 What's New in 14.6
 ==================
