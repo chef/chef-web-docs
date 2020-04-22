@@ -1,0 +1,4 @@
+# Config settings for Netlify
+# https://discourse.gohugo.io/t/about-the-recent-redirect-loops-on-gohugo-io/13438
+
+disableAliases = true
