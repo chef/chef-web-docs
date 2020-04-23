@@ -4,19 +4,13 @@ draft = false
 
 aliases = ["/ruby.html"]
 
-[menu]
-  [menu.infra]
-    title = "Ruby Guide"
-    identifier = "chef_infra/cookbooks/ruby.md Ruby Guide"
-    parent = "chef_infra/language"
-    weight = 130
 +++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/ruby.md)
 
 {{% ruby_summary %}}
 
-As of Chef Infra Client 15.x, Chef Infra Client ships with Ruby 2.6.
+Chef Infra Client 15 ships with Ruby 2.6 and Chef Infra Client 16 ships with Ruby 2.7.
 
 Ruby Basics
 ===========
