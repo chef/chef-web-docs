@@ -1,8 +1,9 @@
 steps:
 
-  - label: ":terraform:"
+  - label: lint hugo site
     command:
-      - cd terraform && make lint
+      - .expeditor/buildkite/hugo_lint.sh
+      - make lint
     timeout_in_minutes: 10
     retry:
       automatic:
