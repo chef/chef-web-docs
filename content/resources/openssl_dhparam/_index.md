@@ -7,8 +7,8 @@ aliases:
 menu:
   infra:
     title: openssl_dhparam
-    identifier: chef_infra/cookbook_reference/resources/openssl_dhparam openssl_dhparam
-    parent: chef_infra/cookbook_reference/resources
+    identifier: chef_infra/cookbooks/resources/openssl_dhparam openssl_dhparam
+    parent: chef_infra/cookbooks/resources
     weight: 750
 resource_reference: true
 robots: null

@@ -7,8 +7,8 @@ aliases:
 menu:
   infra:
     title: rhsm_errata_level
-    identifier: chef_infra/cookbook_reference/resources/rhsm_errata_level rhsm_errata_level
-    parent: chef_infra/cookbook_reference/resources
+    identifier: chef_infra/cookbooks/resources/rhsm_errata_level rhsm_errata_level
+    parent: chef_infra/cookbooks/resources
     weight: 980
 resource_reference: true
 robots: null

@@ -7,8 +7,8 @@ aliases:
 menu:
   infra:
     title: windows_shortcut
-    identifier: chef_infra/cookbook_reference/resources/windows_shortcut windows_shortcut
-    parent: chef_infra/cookbook_reference/resources
+    identifier: chef_infra/cookbooks/resources/windows_shortcut windows_shortcut
+    parent: chef_infra/cookbooks/resources
     weight: 1420
 resource_reference: true
 robots: null

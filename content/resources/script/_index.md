@@ -7,8 +7,8 @@ aliases:
 menu:
   infra:
     title: script
-    identifier: chef_infra/cookbook_reference/resources/script script
-    parent: chef_infra/cookbook_reference/resources
+    identifier: chef_infra/cookbooks/resources/script script
+    parent: chef_infra/cookbooks/resources
     weight: 1070
 resource_reference: true
 robots: null

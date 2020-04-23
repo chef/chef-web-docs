@@ -7,8 +7,8 @@ aliases:
 menu:
   infra:
     title: bff_package
-    identifier: chef_infra/cookbook_reference/resources/bff_package bff_package
-    parent: chef_infra/cookbook_reference/resources
+    identifier: chef_infra/cookbooks/resources/bff_package bff_package
+    parent: chef_infra/cookbooks/resources
     weight: 140
 resource_reference: true
 robots: null

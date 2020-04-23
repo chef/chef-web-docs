@@ -7,8 +7,8 @@ aliases:
 menu:
   infra:
     title: windows_task
-    identifier: chef_infra/cookbook_reference/resources/windows_task windows_task
-    parent: chef_infra/cookbook_reference/resources
+    identifier: chef_infra/cookbooks/resources/windows_task windows_task
+    parent: chef_infra/cookbooks/resources
     weight: 1430
 resource_reference: true
 robots: null

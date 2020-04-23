@@ -7,9 +7,9 @@ aliases:
 menu:
   infra:
     title: powershell_package_source
-    identifier: chef_infra/cookbook_reference/resources/powershell_package_source
+    identifier: chef_infra/cookbooks/resources/powershell_package_source
       powershell_package_source
-    parent: chef_infra/cookbook_reference/resources
+    parent: chef_infra/cookbooks/resources
     weight: 900
 resource_reference: true
 robots: null

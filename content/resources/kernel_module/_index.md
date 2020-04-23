@@ -7,8 +7,8 @@ aliases:
 menu:
   infra:
     title: kernel_module
-    identifier: chef_infra/cookbook_reference/resources/kernel_module kernel_module
-    parent: chef_infra/cookbook_reference/resources
+    identifier: chef_infra/cookbooks/resources/kernel_module kernel_module
+    parent: chef_infra/cookbooks/resources
     weight: 610
 resource_reference: true
 robots: null

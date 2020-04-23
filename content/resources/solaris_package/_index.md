@@ -7,8 +7,8 @@ aliases:
 menu:
   infra:
     title: solaris_package
-    identifier: chef_infra/cookbook_reference/resources/solaris_package solaris_package
-    parent: chef_infra/cookbook_reference/resources
+    identifier: chef_infra/cookbooks/resources/solaris_package solaris_package
+    parent: chef_infra/cookbooks/resources
     weight: 1110
 resource_reference: true
 robots: null

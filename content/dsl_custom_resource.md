@@ -1,20 +1,20 @@
 +++
-title = "Custom Resource DSL"
+title = "Custom Resource Language"
 draft = false
 
 aliases = ["/dsl_custom_resource.html"]
 
 [menu]
   [menu.infra]
-    title = "Custom Resources DSL"
-    identifier = "chef_infra/cookbook_reference/dsl_custom_resource.md Custom Resources DSL"
-    parent = "chef_infra/cookbook_reference"
+    title = "Custom Resources Language"
+    identifier = "chef_infra/cookbooks/dsl_custom_resource.md Custom Resources DSL"
+    parent = "chef_infra/cookbooks"
     weight = 70
 +++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/dsl_custom_resource.md)
 
-Use the Custom Resource DSL to define behaviors within custom resources, such as:
+Use the Custom Resource Language to define behaviors within custom resources, such as:
 
 -   Loading the value of a specific property
 -   Comparing the current property value against a desired property value

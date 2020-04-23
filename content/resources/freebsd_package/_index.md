@@ -7,8 +7,8 @@ aliases:
 menu:
   infra:
     title: freebsd_package
-    identifier: chef_infra/cookbook_reference/resources/freebsd_package freebsd_package
-    parent: chef_infra/cookbook_reference/resources
+    identifier: chef_infra/cookbooks/resources/freebsd_package freebsd_package
+    parent: chef_infra/cookbooks/resources
     weight: 500
 resource_reference: true
 robots: null

@@ -7,8 +7,8 @@ aliases:
 menu:
   infra:
     title: chef_mirror
-    identifier: chef_infra/cookbook_reference/resources/chef_mirror chef_mirror
-    parent: chef_infra/cookbook_reference/resources
+    identifier: chef_infra/cookbooks/resources/chef_mirror chef_mirror
+    parent: chef_infra/cookbooks/resources
     weight: 270
 resource_reference: true
 robots: null

@@ -1,6 +1,1 @@
-The Recipe DSL is a Ruby DSL that is primarily used to declare resources
-from within a recipe. The Recipe DSL also helps ensure that recipes
-interact with nodes (and node properties) in the desired manner. Most of
-the methods in the Recipe DSL are used to find a specific parameter and
-then tell Chef Infra Client what action(s) to take, based on whether
-that parameter is present on a node.
+The Chef Infra Language is a comprehensive systems configuration language with resources and helpers for configuring various operating systems. The language is primarily used in Chef Infra recipes and custom resources to tell the Chef Infra Client what action(s) to take to properly configure a system. The Chef Infra Language provides resources for system-level components such as packages, users, or firewalls, and also includes helpers to allow you to make configuration decisions based on operating systems, clouds, virtualization hypervisors, and more.

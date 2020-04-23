@@ -7,8 +7,8 @@ aliases:
 menu:
   infra:
     title: dsc_script
-    identifier: chef_infra/cookbook_reference/resources/dsc_script dsc_script
-    parent: chef_infra/cookbook_reference/resources
+    identifier: chef_infra/cookbooks/resources/dsc_script dsc_script
+    parent: chef_infra/cookbooks/resources
     weight: 470
 resource_reference: true
 robots: null

@@ -7,8 +7,8 @@ aliases:
 menu:
   infra:
     title: dpkg_package
-    identifier: chef_infra/cookbook_reference/resources/dpkg_package dpkg_package
-    parent: chef_infra/cookbook_reference/resources
+    identifier: chef_infra/cookbooks/resources/dpkg_package dpkg_package
+    parent: chef_infra/cookbooks/resources
     weight: 450
 resource_reference: true
 robots: null

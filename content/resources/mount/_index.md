@@ -7,8 +7,8 @@ aliases:
 menu:
   infra:
     title: mount
-    identifier: chef_infra/cookbook_reference/resources/mount mount
-    parent: chef_infra/cookbook_reference/resources
+    identifier: chef_infra/cookbooks/resources/mount mount
+    parent: chef_infra/cookbooks/resources
     weight: 700
 resource_reference: true
 robots: null

@@ -7,8 +7,8 @@ aliases:
 menu:
   infra:
     title: chef_gem
-    identifier: chef_infra/cookbook_reference/resources/chef_gem chef_gem
-    parent: chef_infra/cookbook_reference/resources
+    identifier: chef_infra/cookbooks/resources/chef_gem chef_gem
+    parent: chef_infra/cookbooks/resources
     weight: 240
 resource_reference: true
 robots: null

@@ -8,8 +8,8 @@ aliases:
 menu:
   infra:
     title: yum_package
-    identifier: chef_infra/cookbook_reference/resources/yum_package yum_package
-    parent: chef_infra/cookbook_reference/resources
+    identifier: chef_infra/cookbooks/resources/yum_package yum_package
+    parent: chef_infra/cookbooks/resources
     weight: 1460
 resource_reference: true
 robots: null

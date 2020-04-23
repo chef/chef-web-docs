@@ -7,8 +7,8 @@ aliases:
 menu:
   infra:
     title: windows_share
-    identifier: chef_infra/cookbook_reference/resources/windows_share windows_share
-    parent: chef_infra/cookbook_reference/resources
+    identifier: chef_infra/cookbooks/resources/windows_share windows_share
+    parent: chef_infra/cookbooks/resources
     weight: 1410
 resource_reference: true
 robots: null

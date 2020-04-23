@@ -7,8 +7,8 @@ aliases:
 menu:
   infra:
     title: homebrew_cask
-    identifier: chef_infra/cookbook_reference/resources/homebrew_cask homebrew_cask
-    parent: chef_infra/cookbook_reference/resources
+    identifier: chef_infra/cookbooks/resources/homebrew_cask homebrew_cask
+    parent: chef_infra/cookbooks/resources
     weight: 540
 resource_reference: true
 robots: null

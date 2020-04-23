@@ -7,8 +7,8 @@ aliases:
 menu:
   infra:
     title: batch
-    identifier: chef_infra/cookbook_reference/resources/batch batch
-    parent: chef_infra/cookbook_reference/resources
+    identifier: chef_infra/cookbooks/resources/batch batch
+    parent: chef_infra/cookbooks/resources
     weight: 130
 resource_reference: true
 robots: null

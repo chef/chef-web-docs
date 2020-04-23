@@ -7,8 +7,8 @@ aliases:
 menu:
   infra:
     title: sysctl
-    identifier: chef_infra/cookbook_reference/resources/sysctl sysctl
-    parent: chef_infra/cookbook_reference/resources
+    identifier: chef_infra/cookbooks/resources/sysctl sysctl
+    parent: chef_infra/cookbooks/resources
     weight: 1160
 resource_reference: true
 robots: null

@@ -7,8 +7,8 @@ aliases:
 menu:
   infra:
     title: build_essential
-    identifier: chef_infra/cookbook_reference/resources/build_essential build_essential
-    parent: chef_infra/cookbook_reference/resources
+    identifier: chef_infra/cookbooks/resources/build_essential build_essential
+    parent: chef_infra/cookbooks/resources
     weight: 160
 resource_reference: true
 robots: null

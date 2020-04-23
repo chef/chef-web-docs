@@ -7,8 +7,8 @@ aliases:
 menu:
   infra:
     title: windows_dns_zone
-    identifier: chef_infra/cookbook_reference/resources/windows_dns_zone windows_dns_zone
-    parent: chef_infra/cookbook_reference/resources
+    identifier: chef_infra/cookbooks/resources/windows_dns_zone windows_dns_zone
+    parent: chef_infra/cookbooks/resources
     weight: 1280
 resource_reference: true
 robots: null

@@ -7,8 +7,8 @@ aliases:
 menu:
   infra:
     title: perl
-    identifier: chef_infra/cookbook_reference/resources/perl perl
-    parent: chef_infra/cookbook_reference/resources
+    identifier: chef_infra/cookbooks/resources/perl perl
+    parent: chef_infra/cookbooks/resources
     weight: 870
 resource_reference: true
 robots: null

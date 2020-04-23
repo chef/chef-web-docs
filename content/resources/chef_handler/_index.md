@@ -7,8 +7,8 @@ aliases:
 menu:
   infra:
     title: chef_handler
-    identifier: chef_infra/cookbook_reference/resources/chef_handler chef_handler
-    parent: chef_infra/cookbook_reference/resources
+    identifier: chef_infra/cookbooks/resources/chef_handler chef_handler
+    parent: chef_infra/cookbooks/resources
     weight: 260
 resource_reference: true
 robots: null

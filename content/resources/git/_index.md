@@ -7,8 +7,8 @@ aliases:
 menu:
   infra:
     title: git
-    identifier: chef_infra/cookbook_reference/resources/git git
-    parent: chef_infra/cookbook_reference/resources
+    identifier: chef_infra/cookbooks/resources/git git
+    parent: chef_infra/cookbooks/resources
     weight: 520
 resource_reference: true
 robots: null

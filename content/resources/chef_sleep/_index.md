@@ -7,8 +7,8 @@ aliases:
 menu:
   infra:
     title: chef_sleep
-    identifier: chef_infra/cookbook_reference/resources/chef_sleep chef_sleep
-    parent: chef_infra/cookbook_reference/resources
+    identifier: chef_infra/cookbooks/resources/chef_sleep chef_sleep
+    parent: chef_infra/cookbooks/resources
     weight: 310
 resource_reference: true
 robots: null

@@ -7,8 +7,8 @@ aliases:
 menu:
   infra:
     title: ksh
-    identifier: chef_infra/cookbook_reference/resources/ksh ksh
-    parent: chef_infra/cookbook_reference/resources
+    identifier: chef_infra/cookbooks/resources/ksh ksh
+    parent: chef_infra/cookbooks/resources
     weight: 620
 resource_reference: true
 robots: null

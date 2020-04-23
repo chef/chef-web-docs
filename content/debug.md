@@ -7,8 +7,8 @@ aliases = ["/debug.html"]
 [menu]
   [menu.infra]
     title = "Debug Recipes, Client Runs"
-    identifier = "chef_infra/cookbook_reference/recipes/debug.md Debug Recipes, Client Runs"
-    parent = "chef_infra/cookbook_reference/recipes"
+    identifier = "chef_infra/cookbooks/recipes/debug.md Debug Recipes, Client Runs"
+    parent = "chef_infra/cookbooks/recipes"
     weight = 20
 +++
 

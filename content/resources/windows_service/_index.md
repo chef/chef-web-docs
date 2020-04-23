@@ -7,8 +7,8 @@ aliases:
 menu:
   infra:
     title: windows_service
-    identifier: chef_infra/cookbook_reference/resources/windows_service windows_service
-    parent: chef_infra/cookbook_reference/resources
+    identifier: chef_infra/cookbooks/resources/windows_service windows_service
+    parent: chef_infra/cookbooks/resources
     weight: 1400
 resource_reference: true
 robots: null

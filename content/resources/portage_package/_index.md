@@ -7,8 +7,8 @@ aliases:
 menu:
   infra:
     title: portage_package
-    identifier: chef_infra/cookbook_reference/resources/portage_package portage_package
-    parent: chef_infra/cookbook_reference/resources
+    identifier: chef_infra/cookbooks/resources/portage_package portage_package
+    parent: chef_infra/cookbooks/resources
     weight: 880
 resource_reference: true
 robots: null

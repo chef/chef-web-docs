@@ -7,8 +7,8 @@ aliases:
 menu:
   infra:
     title: reboot
-    identifier: chef_infra/cookbook_reference/resources/reboot reboot
-    parent: chef_infra/cookbook_reference/resources
+    identifier: chef_infra/cookbooks/resources/reboot reboot
+    parent: chef_infra/cookbooks/resources
     weight: 930
 resource_reference: true
 robots: null

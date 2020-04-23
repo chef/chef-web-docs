@@ -7,8 +7,8 @@ aliases:
 menu:
   infra:
     title: http_request
-    identifier: chef_infra/cookbook_reference/resources/http_request http_request
-    parent: chef_infra/cookbook_reference/resources
+    identifier: chef_infra/cookbooks/resources/http_request http_request
+    parent: chef_infra/cookbooks/resources
     weight: 580
 resource_reference: true
 robots: null

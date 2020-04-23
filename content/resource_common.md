@@ -7,8 +7,8 @@ aliases = ["/resource_common.html"]
 [menu]
   [menu.infra]
     title = "Common Resource Functionality"
-    identifier = "chef_infra/cookbook_reference/resources/resource_common.md Common Resource Functionality"
-    parent = "chef_infra/cookbook_reference/resources"
+    identifier = "chef_infra/cookbooks/resources/resource_common.md Common Resource Functionality"
+    parent = "chef_infra/cookbooks/resources"
     weight = 20
 +++
 

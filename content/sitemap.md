@@ -548,7 +548,8 @@ Extension APIs
 Resources
 ---------
 
-**Recipe DSL**: [attribute?](/dsl_recipe/#attribute) |
+**Chef Infra Language**:
+[attribute?](/dsl_recipe/#attribute) |
 [control](/dsl_recipe/#control) |
 [control_group](/dsl_recipe/#control-group) |
 [cookbook_name](/dsl_recipe/#cookbook-name) |
@@ -572,10 +573,9 @@ Resources
 [tagged?](/dsl_recipe/#tag-tagged-untag) |
 [untag](/dsl_recipe/#tag-tagged-untag) |
 [value_for_platform](/dsl_recipe/#value-for-platform) |
-[value_for_platform_family](/dsl_recipe/#value-for-platform-family)
-| [Custom
-Resource DSL](/dsl_custom_resource/) | [Community
-Resources](https://supermarket.chef.io)
+[value_for_platform_family](/dsl_recipe/#value-for-platform-family)|
+[Custom Resource DSL](/dsl_custom_resource/) |
+[Community Resources](https://supermarket.chef.io)
 
 Handlers
 --------

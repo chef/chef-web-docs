@@ -7,8 +7,8 @@ aliases:
 menu:
   infra:
     title: yum_repository
-    identifier: chef_infra/cookbook_reference/resources/yum_repository yum_repository
-    parent: chef_infra/cookbook_reference/resources
+    identifier: chef_infra/cookbooks/resources/yum_repository yum_repository
+    parent: chef_infra/cookbooks/resources
     weight: 1470
 resource_reference: true
 robots: null

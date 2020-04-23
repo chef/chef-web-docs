@@ -7,8 +7,8 @@ aliases:
 menu:
   infra:
     title: link
-    identifier: chef_infra/cookbook_reference/resources/link link
-    parent: chef_infra/cookbook_reference/resources
+    identifier: chef_infra/cookbooks/resources/link link
+    parent: chef_infra/cookbooks/resources
     weight: 640
 resource_reference: true
 robots: null

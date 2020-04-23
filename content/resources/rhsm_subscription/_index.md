@@ -7,8 +7,8 @@ aliases:
 menu:
   infra:
     title: rhsm_subscription
-    identifier: chef_infra/cookbook_reference/resources/rhsm_subscription rhsm_subscription
-    parent: chef_infra/cookbook_reference/resources
+    identifier: chef_infra/cookbooks/resources/rhsm_subscription rhsm_subscription
+    parent: chef_infra/cookbooks/resources
     weight: 1020
 resource_reference: true
 robots: null

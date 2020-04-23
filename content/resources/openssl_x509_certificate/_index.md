@@ -7,8 +7,8 @@ aliases:
 menu:
   infra:
     title: openssl_x509_certificate
-    identifier: chef_infra/cookbook_reference/resources/openssl_x509_certificate openssl_x509_certificate
-    parent: chef_infra/cookbook_reference/resources
+    identifier: chef_infra/cookbooks/resources/openssl_x509_certificate openssl_x509_certificate
+    parent: chef_infra/cookbooks/resources
     weight: 800
 resource_reference: true
 robots: null

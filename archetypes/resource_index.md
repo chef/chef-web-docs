@@ -20,7 +20,7 @@ menu:
 
 resource_description:
 resource_note:
-resource_new_in:      
+resource_new_in:
 
 
 ######## Handler Types ########
@@ -34,15 +34,15 @@ package_resource: false
 ######## Syntax ########
 
 ## Resource Block: For example, under Syntax in batch_resource
-resource_block_description: 
+resource_block_description:
 resource_block_codeblock: |
 resource_block_list:
 
 syntax_codeblock: |
-syntax_property_list: 
+syntax_property_list:
 
 
-##Activates the Registry Key Path Separators and Recipe DSL Methods in registry_key resource
+##Activates the Registry Key Path Separators and Chef Infra Language Methods in registry_key resource
 registry_key: false
 
 
@@ -70,7 +70,7 @@ properties_list:
   - property:
     ruby_type:
     default_value:
-    description: 
+    description:
     new_in:
 
 ## Multiple Packages in Properties section from, for example, dnf_package resource
@@ -80,16 +80,16 @@ properties_multiple_packages: false
 resource_directory_recursive_directory: false
 
 ## Atomic File Updates in the Properties Section of, for example, cookbook_file resource
-resources_common_atomic_update: false 
+resources_common_atomic_update: false
 
 ## Windows File Security in the Properties section of, for example, cookbook_file resource
-properties_resources_common_windows_security: false 
+properties_resources_common_windows_security: false
 
 ## Prevent Re-downloads from remote_file resource
-remote_file_prevent_re_downloads: false 
+remote_file_prevent_re_downloads: false
 
 ## Access a remote UNC path on Windows from remote_file resource
-remote_file_unc_path: false 
+remote_file_unc_path: false
 
 ## ps_credential Helper from dsc_script resource
 ps_credential_helper: false
@@ -103,7 +103,7 @@ ruby_style_basics_chef_log: false
 
 ######## Debug Recipes with chef-shell ########
 
-## Debug Recipes with chef-shell from breakpoint resource 
+## Debug Recipes with chef-shell from breakpoint resource
 debug_recipes_chef_shell: false
 
 
@@ -115,16 +115,16 @@ template_requirements: false
 
 ########Common Resource Functionality ########
 
-## Common Properties in, for example, apt_package resource 
+## Common Properties in, for example, apt_package resource
 resources_common_properties: false
 
-## Notifications in, for example, apt_package resource 
+## Notifications in, for example, apt_package resource
 resources_common_notification: false
 
-## Guards in, for example, apt_package resource  
+## Guards in, for example, apt_package resource
 resources_common_guards: false
 
-## Multiple Packages in, for example, apt_package resource   
+## Multiple Packages in, for example, apt_package resource
 common_resource_functionality_multiple_packages: false
 
 ## Guard Interpreters in, for example, common resource
@@ -134,26 +134,26 @@ resources_common_guard_interpreter: false
 remote_directory_recursive_directories: false
 
 ## Windows File Security under Common Resource Functionality in, for example, remote_directory resource
-common_resource_functionality_resources_common_windows_security: false 
+common_resource_functionality_resources_common_windows_security: false
 
 
 ########Custom Handlers ########
 
 ## Custom Handlers in chef_handler resource
-handler_custom: false 
+handler_custom: false
 
 
 ########File Specificity ########
 
 ## File Specificity in cookbook_file resource
-cookbook_file_specificity: false 
+cookbook_file_specificity: false
 
 
 ########Examples ########
 examples_list:
   - example1:
-      heading: 
-      description: 
+      heading:
+      description:
       codeblock:
 
 

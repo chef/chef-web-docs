@@ -7,8 +7,8 @@ aliases:
 menu:
   infra:
     title: cab_package
-    identifier: chef_infra/cookbook_reference/resources/cab_package cab_package
-    parent: chef_infra/cookbook_reference/resources
+    identifier: chef_infra/cookbooks/resources/cab_package cab_package
+    parent: chef_infra/cookbooks/resources
     weight: 170
 resource_reference: true
 robots: null

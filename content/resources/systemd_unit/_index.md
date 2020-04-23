@@ -7,8 +7,8 @@ aliases:
 menu:
   infra:
     title: systemd_unit
-    identifier: chef_infra/cookbook_reference/resources/systemd_unit systemd_unit
-    parent: chef_infra/cookbook_reference/resources
+    identifier: chef_infra/cookbooks/resources/systemd_unit systemd_unit
+    parent: chef_infra/cookbooks/resources
     weight: 1170
 resource_reference: true
 robots: null

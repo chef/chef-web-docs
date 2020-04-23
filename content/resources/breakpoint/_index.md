@@ -7,8 +7,8 @@ aliases:
 menu:
   infra:
     title: breakpoint
-    identifier: chef_infra/cookbook_reference/resources/breakpoint breakpoint
-    parent: chef_infra/cookbook_reference/resources
+    identifier: chef_infra/cookbooks/resources/breakpoint breakpoint
+    parent: chef_infra/cookbooks/resources
     weight: 150
 resource_reference: true
 robots: null

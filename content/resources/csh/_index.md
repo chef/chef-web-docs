@@ -7,8 +7,8 @@ aliases:
 menu:
   infra:
     title: csh
-    identifier: chef_infra/cookbook_reference/resources/csh csh
-    parent: chef_infra/cookbook_reference/resources
+    identifier: chef_infra/cookbooks/resources/csh csh
+    parent: chef_infra/cookbooks/resources
     weight: 410
 resource_reference: true
 robots: null

@@ -7,8 +7,8 @@ aliases = ["/recipes.html"]
 [menu]
   [menu.infra]
     title = "About Recipes"
-    identifier = "chef_infra/cookbook_reference/recipes/recipes.md About Recipes"
-    parent = "chef_infra/cookbook_reference/recipes"
+    identifier = "chef_infra/cookbooks/recipes/recipes.md About Recipes"
+    parent = "chef_infra/cookbooks/recipes"
     weight = 10
 +++
 

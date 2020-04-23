@@ -7,8 +7,8 @@ aliases:
 menu:
   infra:
     title: remote_directory
-    identifier: chef_infra/cookbook_reference/resources/remote_directory remote_directory
-    parent: chef_infra/cookbook_reference/resources
+    identifier: chef_infra/cookbooks/resources/remote_directory remote_directory
+    parent: chef_infra/cookbooks/resources
     weight: 960
 resource_reference: true
 robots: null

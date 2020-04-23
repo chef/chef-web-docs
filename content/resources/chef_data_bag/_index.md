@@ -7,8 +7,8 @@ aliases:
 menu:
   infra:
     title: chef_data_bag
-    identifier: chef_infra/cookbook_reference/resources/chef_data_bag chef_data_bag
-    parent: chef_infra/cookbook_reference/resources
+    identifier: chef_infra/cookbooks/resources/chef_data_bag chef_data_bag
+    parent: chef_infra/cookbooks/resources
     weight: 210
 resource_reference: true
 robots: null

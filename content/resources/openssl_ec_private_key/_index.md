@@ -7,8 +7,8 @@ aliases:
 menu:
   infra:
     title: openssl_ec_private_key
-    identifier: chef_infra/cookbook_reference/resources/openssl_ec_private_key openssl_ec_private_key
-    parent: chef_infra/cookbook_reference/resources
+    identifier: chef_infra/cookbooks/resources/openssl_ec_private_key openssl_ec_private_key
+    parent: chef_infra/cookbooks/resources
     weight: 760
 resource_reference: true
 robots: null

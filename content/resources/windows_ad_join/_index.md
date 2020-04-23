@@ -7,8 +7,8 @@ aliases:
 menu:
   infra:
     title: windows_ad_join
-    identifier: chef_infra/cookbook_reference/resources/windows_ad_join windows_ad_join
-    parent: chef_infra/cookbook_reference/resources
+    identifier: chef_infra/cookbooks/resources/windows_ad_join windows_ad_join
+    parent: chef_infra/cookbooks/resources
     weight: 1210
 resource_reference: true
 robots: null

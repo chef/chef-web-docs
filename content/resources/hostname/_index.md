@@ -7,8 +7,8 @@ aliases:
 menu:
   infra:
     title: hostname
-    identifier: chef_infra/cookbook_reference/resources/hostname hostname
-    parent: chef_infra/cookbook_reference/resources
+    identifier: chef_infra/cookbooks/resources/hostname hostname
+    parent: chef_infra/cookbooks/resources
     weight: 570
 resource_reference: true
 robots: null

@@ -7,8 +7,8 @@ aliases:
 menu:
   infra:
     title: ruby_block
-    identifier: chef_infra/cookbook_reference/resources/ruby_block ruby_block
-    parent: chef_infra/cookbook_reference/resources
+    identifier: chef_infra/cookbooks/resources/ruby_block ruby_block
+    parent: chef_infra/cookbooks/resources
     weight: 1060
 resource_reference: true
 robots: null

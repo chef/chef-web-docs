@@ -7,8 +7,8 @@ aliases:
 menu:
   infra:
     title: mdadm
-    identifier: chef_infra/cookbook_reference/resources/mdadm mdadm
-    parent: chef_infra/cookbook_reference/resources
+    identifier: chef_infra/cookbooks/resources/mdadm mdadm
+    parent: chef_infra/cookbooks/resources
     weight: 690
 resource_reference: true
 robots: null

@@ -7,8 +7,8 @@ aliases:
 menu:
   infra:
     title: openbsd_package
-    identifier: chef_infra/cookbook_reference/resources/openbsd_package openbsd_package
-    parent: chef_infra/cookbook_reference/resources
+    identifier: chef_infra/cookbooks/resources/openbsd_package openbsd_package
+    parent: chef_infra/cookbooks/resources
     weight: 740
 resource_reference: true
 robots: null

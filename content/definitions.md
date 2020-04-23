@@ -7,8 +7,8 @@ aliases = ["/definitions.html"]
 [menu]
   [menu.infra]
     title = "Migrating from Definitions"
-    identifier = "chef_infra/cookbook_reference/resources/definitions.md Migrating from Definitions"
-    parent = "chef_infra/cookbook_reference/resources"
+    identifier = "chef_infra/cookbooks/resources/definitions.md Migrating from Definitions"
+    parent = "chef_infra/cookbooks/resources"
     weight = 30
 +++
 

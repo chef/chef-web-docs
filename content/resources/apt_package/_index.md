@@ -6,8 +6,8 @@ aliases: [/resource_apt_package.html]
 menu:
   infra:
     title: apt_package
-    identifier: chef_infra/cookbook_reference/resources/apt_package apt_package
-    parent: chef_infra/cookbook_reference/resources
+    identifier: chef_infra/cookbooks/resources/apt_package apt_package
+    parent: chef_infra/cookbooks/resources
     weight: 70
 resource_reference: true
 robots: null

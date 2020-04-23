@@ -7,8 +7,8 @@ aliases:
 menu:
   infra:
     title: python
-    identifier: chef_infra/cookbook_reference/resources/python python
-    parent: chef_infra/cookbook_reference/resources
+    identifier: chef_infra/cookbooks/resources/python python
+    parent: chef_infra/cookbooks/resources
     weight: 920
 resource_reference: true
 robots: null

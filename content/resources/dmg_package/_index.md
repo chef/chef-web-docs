@@ -7,8 +7,8 @@ aliases:
 menu:
   infra:
     title: dmg_package
-    identifier: chef_infra/cookbook_reference/resources/dmg_package dmg_package
-    parent: chef_infra/cookbook_reference/resources
+    identifier: chef_infra/cookbooks/resources/dmg_package dmg_package
+    parent: chef_infra/cookbooks/resources
     weight: 430
 resource_reference: true
 robots: null

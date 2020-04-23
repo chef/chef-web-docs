@@ -7,8 +7,8 @@ aliases:
 menu:
   infra:
     title: windows_printer
-    identifier: chef_infra/cookbook_reference/resources/windows_printer windows_printer
-    parent: chef_infra/cookbook_reference/resources
+    identifier: chef_infra/cookbooks/resources/windows_printer windows_printer
+    parent: chef_infra/cookbooks/resources
     weight: 1380
 resource_reference: true
 robots: null

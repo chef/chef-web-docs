@@ -7,8 +7,8 @@ aliases:
 menu:
   infra:
     title: paludis_package
-    identifier: chef_infra/cookbook_reference/resources/paludis_package paludis_package
-    parent: chef_infra/cookbook_reference/resources
+    identifier: chef_infra/cookbooks/resources/paludis_package paludis_package
+    parent: chef_infra/cookbooks/resources
     weight: 860
 resource_reference: true
 robots: null

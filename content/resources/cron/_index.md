@@ -7,8 +7,8 @@ aliases:
 menu:
   infra:
     title: cron
-    identifier: chef_infra/cookbook_reference/resources/cron cron
-    parent: chef_infra/cookbook_reference/resources
+    identifier: chef_infra/cookbooks/resources/cron cron
+    parent: chef_infra/cookbooks/resources
     weight: 380
 resource_reference: true
 robots: null

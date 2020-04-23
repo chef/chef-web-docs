@@ -7,8 +7,8 @@ aliases:
 menu:
   infra:
     title: dnf_package
-    identifier: chef_infra/cookbook_reference/resources/dnf_package dnf_package
-    parent: chef_infra/cookbook_reference/resources
+    identifier: chef_infra/cookbooks/resources/dnf_package dnf_package
+    parent: chef_infra/cookbooks/resources
     weight: 440
 resource_reference: true
 robots: null

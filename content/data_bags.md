@@ -118,7 +118,7 @@ Recipes
 
 {{% data_bag_recipes %}}
 
-### Load with Recipe DSL
+### Load with Chef Infra Language
 
 {{% data_bag_recipes_load_using_recipe_dsl %}}
 

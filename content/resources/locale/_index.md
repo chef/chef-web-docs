@@ -7,8 +7,8 @@ aliases:
 menu:
   infra:
     title: locale
-    identifier: chef_infra/cookbook_reference/resources/locale locale
-    parent: chef_infra/cookbook_reference/resources
+    identifier: chef_infra/cookbooks/resources/locale locale
+    parent: chef_infra/cookbooks/resources
     weight: 650
 resource_reference: true
 robots: null

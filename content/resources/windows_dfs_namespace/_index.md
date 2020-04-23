@@ -7,8 +7,8 @@ aliases:
 menu:
   infra:
     title: windows_dfs_namespace
-    identifier: chef_infra/cookbook_reference/resources/windows_dfs_namespace windows_dfs_namespace
-    parent: chef_infra/cookbook_reference/resources
+    identifier: chef_infra/cookbooks/resources/windows_dfs_namespace windows_dfs_namespace
+    parent: chef_infra/cookbooks/resources
     weight: 1250
 resource_reference: true
 robots: null

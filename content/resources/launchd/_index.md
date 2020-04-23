@@ -7,8 +7,8 @@ aliases:
 menu:
   infra:
     title: launchd
-    identifier: chef_infra/cookbook_reference/resources/launchd launchd
-    parent: chef_infra/cookbook_reference/resources
+    identifier: chef_infra/cookbooks/resources/launchd launchd
+    parent: chef_infra/cookbooks/resources
     weight: 630
 resource_reference: true
 robots: null

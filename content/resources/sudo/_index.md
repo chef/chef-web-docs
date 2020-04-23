@@ -7,8 +7,8 @@ aliases:
 menu:
   infra:
     title: sudo
-    identifier: chef_infra/cookbook_reference/resources/sudo sudo
-    parent: chef_infra/cookbook_reference/resources
+    identifier: chef_infra/cookbooks/resources/sudo sudo
+    parent: chef_infra/cookbooks/resources
     weight: 1140
 resource_reference: true
 robots: null

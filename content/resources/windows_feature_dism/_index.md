@@ -7,8 +7,8 @@ aliases:
 menu:
   infra:
     title: windows_feature_dism
-    identifier: chef_infra/cookbook_reference/resources/windows_feature_dism windows_feature_dism
-    parent: chef_infra/cookbook_reference/resources
+    identifier: chef_infra/cookbooks/resources/windows_feature_dism windows_feature_dism
+    parent: chef_infra/cookbooks/resources
     weight: 1310
 resource_reference: true
 robots: null

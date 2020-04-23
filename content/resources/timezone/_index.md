@@ -7,8 +7,8 @@ aliases:
 menu:
   infra:
     title: timezone
-    identifier: chef_infra/cookbook_reference/resources/timezone timezone
-    parent: chef_infra/cookbook_reference/resources
+    identifier: chef_infra/cookbooks/resources/timezone timezone
+    parent: chef_infra/cookbooks/resources
     weight: 1190
 resource_reference: true
 robots: null

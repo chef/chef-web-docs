@@ -7,8 +7,8 @@ aliases:
 menu:
   infra:
     title: ohai_hint
-    identifier: chef_infra/cookbook_reference/resources/ohai_hint ohai_hint
-    parent: chef_infra/cookbook_reference/resources
+    identifier: chef_infra/cookbooks/resources/ohai_hint ohai_hint
+    parent: chef_infra/cookbooks/resources
     weight: 720
 resource_reference: true
 robots: null

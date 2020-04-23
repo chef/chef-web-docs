@@ -7,8 +7,8 @@ aliases:
 menu:
   infra:
     title: homebrew_package
-    identifier: chef_infra/cookbook_reference/resources/homebrew_package homebrew_package
-    parent: chef_infra/cookbook_reference/resources
+    identifier: chef_infra/cookbooks/resources/homebrew_package homebrew_package
+    parent: chef_infra/cookbooks/resources
     weight: 550
 resource_reference: true
 robots: null

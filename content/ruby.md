@@ -7,8 +7,8 @@ aliases = ["/ruby.html"]
 [menu]
   [menu.infra]
     title = "Ruby Guide"
-    identifier = "chef_infra/cookbook_reference/ruby.md Ruby Guide"
-    parent = "chef_infra/cookbook_reference"
+    identifier = "chef_infra/cookbooks/ruby.md Ruby Guide"
+    parent = "chef_infra/language"
     weight = 130
 +++
 
@@ -461,16 +461,6 @@ Cookbook Versioning
 -   Always update CHANGELOG.md with any changes, with the JIRA ticket
     and a brief description.
 
-Cookbook Patterns
------------------
-
-Good cookbook examples:
-
--   <https://github.com/chef-cookbooks/tomcat>
--   <https://github.com/chef-cookbooks/apparmor>
--   <https://github.com/chef-cookbooks/mysql>
--   <https://github.com/chef-cookbooks/httpd>
-
 Naming
 ------
 
@@ -513,26 +503,6 @@ template '/tmp/foobar.txt' do
 end
 ```
 
-File Modes
-----------
-
-Always specify the file mode with a quoted 3-5 character string that
-defines the octal mode:
-
-``` ruby
-mode '755'
-```
-
-``` ruby
-mode '0755'
-```
-
-Wrong:
-
-``` ruby
-mode 755
-```
-
 Specify Resource Action?
 ------------------------
 
@@ -557,25 +527,6 @@ obvious to the reader, specifying the default action is recommended:
 ohai 'apache_modules' do
   action :reload
 end
-```
-
-Symbols or Strings?
--------------------
-
-Prefer strings over symbols, because they're easier to read and you
-don't need to explain to non-Rubyists what a symbol is. Please retrofit
-old cookbooks as you come across them.
-
-Right:
-
-``` ruby
-default['foo']['bar'] = 'baz'
-```
-
-Wrong:
-
-``` ruby
-default[:foo][:bar] = 'baz'
 ```
 
 String Quoting

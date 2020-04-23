@@ -7,8 +7,8 @@ aliases:
 menu:
   infra:
     title: chocolatey_feature
-    identifier: chef_infra/cookbook_reference/resources/chocolatey_feature chocolatey_feature
-    parent: chef_infra/cookbook_reference/resources
+    identifier: chef_infra/cookbooks/resources/chocolatey_feature chocolatey_feature
+    parent: chef_infra/cookbooks/resources
     weight: 340
 resource_reference: true
 robots: null

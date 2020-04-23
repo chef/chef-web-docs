@@ -7,8 +7,8 @@ aliases:
 menu:
   infra:
     title: msu_package
-    identifier: chef_infra/cookbook_reference/resources/msu_package msu_package
-    parent: chef_infra/cookbook_reference/resources
+    identifier: chef_infra/cookbooks/resources/msu_package msu_package
+    parent: chef_infra/cookbooks/resources
     weight: 710
 resource_reference: true
 robots: null

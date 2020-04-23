@@ -7,8 +7,8 @@ aliases:
 menu:
   infra:
     title: subversion
-    identifier: chef_infra/cookbook_reference/resources/subversion subversion
-    parent: chef_infra/cookbook_reference/resources
+    identifier: chef_infra/cookbooks/resources/subversion subversion
+    parent: chef_infra/cookbooks/resources
     weight: 1130
 resource_reference: true
 robots: null

@@ -7,8 +7,8 @@ aliases:
 menu:
   infra:
     title: rpm_package
-    identifier: chef_infra/cookbook_reference/resources/rpm_package rpm_package
-    parent: chef_infra/cookbook_reference/resources
+    identifier: chef_infra/cookbooks/resources/rpm_package rpm_package
+    parent: chef_infra/cookbooks/resources
     weight: 1040
 resource_reference: true
 robots: null

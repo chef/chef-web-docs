@@ -1,14 +1,14 @@
 +++
-title = "About the Recipe DSL"
+title = "About the Chef Infra Language"
 draft = false
 
-aliases = ["/dsl_recipe.html"]
+aliases = ["/dsl_recipe.html", "dsl_recipe"]
 
 [menu]
   [menu.infra]
-    title = "DSL Overview"
-    identifier = "chef_infra/cookbook_reference/recipe_dsl/dsl_recipe.md DSL Overview"
-    parent = "chef_infra/cookbook_reference/recipe_dsl"
+    title = "Chef Language Overview"
+    identifier = "chef_infra/language/infra_language.md DSL Overview"
+    parent = "chef_infra/language"
     weight = 10
 +++
 
@@ -16,36 +16,30 @@ aliases = ["/dsl_recipe.html"]
 
 {{% dsl_recipe_summary %}}
 
-Because the Recipe DSL is a Ruby DSL, anything that can be done using
-Ruby can also be done in a recipe or custom resource, including `if` and
-`case` statements, using the `include?` Ruby method, including recipes
-in recipes, and checking for dependencies. See the [Ruby
-Guide](/ruby/) for further information on built-in Ruby
-functionality.
+The Chef Infra Language is based on Ruby, allowing you to utilize the power of Ruby when the built-in language doesn't meet your needs out of the box. If you'd like to learn more about extending your Chef Infra code by using Ruby see our [Ruby Guide](/ruby/) for further information on Ruby functionality.
+
+Resources
+==================
+
+Chef Infra Client ships with over 150 resources for configuring components such as packages, file, directories, or firewalls. For more information on resources in Chef Infra Client including a complete list of those included out of the box see [Resources](/resources).
+
+Language Helpers
+==================
+
+The Chef Infra Language provides support for using attributes, data bags (and
+encrypted data), and search results in a recipe, as well as four helper
+methods that can be used to check for a node's platform from the recipe
+to ensure that specific actions are taken for specific platforms.
 
 Include Recipes
-===============
+-----------------
 
 {{% cookbooks_recipe_include_in_recipe %}}
 
-Reload Attributes
+Reload Node Attributes
 -----------------
 
 {{% cookbooks_attribute_file_reload_from_recipe %}}
-
-Recipe DSL Methods
-==================
-
-The Recipe DSL provides support for using attributes, data bags (and
-encrypted data), and search results in a recipe, as well as four helper
-methods that can be used to check for a node's platform from the recipe
-to ensure that specific actions are taken for specific platforms. The
-helper methods are:
-
--   `platform?`
--   `platform_family?`
--   `value_for_platform`
--   `value_for_platform_family`
 
 attribute?
 ----------

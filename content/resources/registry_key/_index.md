@@ -7,8 +7,8 @@ aliases:
 menu:
   infra:
     title: registry_key
-    identifier: chef_infra/cookbook_reference/resources/registry_key registry_key
-    parent: chef_infra/cookbook_reference/resources
+    identifier: chef_infra/cookbooks/resources/registry_key registry_key
+    parent: chef_infra/cookbooks/resources
     weight: 950
 resource_reference: true
 robots: null

@@ -7,8 +7,8 @@ aliases:
 menu:
   infra:
     title: bash
-    identifier: chef_infra/cookbook_reference/resources/bash bash
-    parent: chef_infra/cookbook_reference/resources
+    identifier: chef_infra/cookbooks/resources/bash bash
+    parent: chef_infra/cookbooks/resources
     weight: 120
 resource_reference: true
 robots: null
