@@ -9,6 +9,41 @@ The Chef Workstation documentation is stored in the `chef/chef-workstation` repo
 in the [`www`](https://github.com/chef/chef-workstation/tree/master/www) directory.
 We use [Hugo modules](https://gohugo.io/hugo-modules/) to build the [Chef Workstation documentation](https://docs.chef.io/workstation/).
 
+### Preview local changes to chef-workstation documentation from chef-web-docs
+
+Follow these steps to preview changes to the chef-workstation documentation while
+running Hugo from chef-web-docs.
+
+1. Clone `chef/chef-web-docs` and `chef/chef-workstation` into the same directory.
+
+1. Modify the go.mod file in `chef-web-docs`.
+
+   Add `replace github.com/chef/chef-workstation/www => ../chef-workstation/www` below the
+   `require` statement. The whole file should look like this:
+
+   ```
+   module github.com/chef/chef-web-docs
+
+   go 1.14
+
+   require github.com/chef/chef-workstation/www v0.0.0-<commit timestamp>-<commit SHA> // indirect
+
+   replace github.com/chef/chef-workstation/www => ../chef-workstation/www
+   ```
+
+1. Start the Hugo server from `chef-web-docs`:
+
+   ```
+   make serve
+   ```
+
+You can preview any changes made to the documentation in `chef-workstation` as
+they would appear on https://docs.chef.io.
+
+**Before you submit a PR**
+
+- Delete or comment out the `replace` directive in the chef-web-docs/go.mod file.
+
 ## The fastest way to contribute
 
 The fastest way to change the documentation is to edit a page on the
@@ -47,10 +82,16 @@ The Chef Documentation website is built using:
 - [NPM](https://www.npmjs.com/) 5.6.0 or higher
 - [Go](https://golang.org/dl/) 1.12 or higher
 
-To install Hugo, NPM, and Go:
+To install Hugo, NPM, and Go on Windows and macOS:
 
 - On macOS run: `brew install hugo node go`
 - On Windows run: `choco install hugo nodejs golang`
+
+To install Hugo on Linux, run:
+
+- `apt install -y build-essential`
+- `snap install node --classic --channel=12`
+- `snap install hugo --channel=extended`
 
 To build the docs and preview locally:
 
