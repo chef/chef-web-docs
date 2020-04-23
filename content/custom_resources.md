@@ -20,7 +20,7 @@ A custom resource:
 -   Is implemented and shipped as part of a cookbook
 -   Follows easy, repeatable syntax patterns
 -   Effectively leverages resources that are built into Chef Infra Client and/or custom Ruby code
--   Is reusable in the same way as resources that are built into Chef Infa Client
+-   Is reusable in the same way as resources that are built into Chef Infra Client
 
 For example, Chef Infra Client includes built-in resources to manage
 files, packages, templates, and services, but it does not include a
