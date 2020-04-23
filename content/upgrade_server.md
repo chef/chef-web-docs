@@ -1,5 +1,5 @@
 +++
-title = "Upgrade to Chef Server 12"
+title = "Upgrade to Chef Infra Server 13"
 draft = false
 
 aliases = ["/upgrade_server.html"]
@@ -14,20 +14,31 @@ aliases = ["/upgrade_server.html"]
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/upgrade_server.md)
 
-The following sections describe the upgrade process for Chef Server 12.
+The following sections describe the upgrade process for Chef Infra Server 13.
+
+{{< note >}}
+
+Chef Infra Server 13 is governed by [EULA License
+Agreement](https://docs.chef.io/chef_license_accept/#chef-infra-server)
+You will be required to accept these terms when using Chef Infra Server 13
+for the first time.
+
+{{< /note >}}
 
 {{< note >}}
 
 Be sure to back up the Chef Infra Server data before starting the
 upgrade process.
+Our recommended backup method for Chef Infra Server is with
+[knife-ec-backup](https://github.com/chef/knife-ec-backup).
 
 {{< /note >}}
 
-From Chef Server 12
-===================
+From Chef Infra Server 12.17.15 or later
+========================================
 
-There are three upgrade scenarios for upgrades from earlier versions of
-Chef Server 12 to a newer version of Chef Server 12:
+There are three upgrade scenarios for upgrades from later versions of
+Chef Infra Server 12 to Chef Infra Server 13:
 
 -   [Standalone](/upgrade_server/#standalone)
 -   [High Availability: Chef
@@ -36,7 +47,7 @@ Chef Server 12 to a newer version of Chef Server 12:
 
 {{< note >}}
 
-As of version 12.14, Chef Server will not render passwords outside of
+As of version 12.14, Chef Infra Server will not render passwords outside of
 the `/etc/opscode` directory by default. If you are not using any Chef
 Infra Server add-ons, or you're using the latest add-on versions, you
 can set `insecure_addon_compat` to `false` in
@@ -59,7 +70,7 @@ configuration. The upgrade process will require downtime equal to the
 amount of time it takes to stop the server, run dpkg or RPM Package
 Manager, and then upgrade the server.
 
-To upgrade to Chef Server 12 from a standalone Chef Server, do the
+To upgrade to Chef Infra Server 13 from a standalone Chef Infra Server, do the
 following:
 
 1.  Run the following command to make sure all services are in a sane
@@ -92,13 +103,19 @@ following:
     rpm -Uvh --nopostun /path/to/chef-server-core-<version>.rpm
     ```
 
-5.  Upgrade the server with the following command:
+5.  Upgrade the server with the following command. You will
+    need to type `Yes` to accept Chef License for version 13.
 
     ``` bash
     chef-server-ctl upgrade
     ```
+    Or alternatively for upgrading to version 13 use command:
 
-6.  Start Chef Server 12:
+    ```bash
+    CHEF_LICENSE='accept' chef-server-ctl upgrade
+    ```
+
+6.  Start Chef Infra Server 13:
 
     ``` bash
     chef-server-ctl start
@@ -150,7 +167,7 @@ availability and how to set up a highly-available server cluster, see
 
 {{< /note >}}
 
-To upgrade to Chef Server 12 from a tiered Chef Infra Server
+To upgrade to Chef Infra Server 13 from a tiered Chef Infra Server
 configuration, do the following:
 
 1.  Run the following on all servers to make sure all services are in a
@@ -190,10 +207,16 @@ configuration, do the following:
     chef-server-ctl stop
     ```
 
-6.  Upgrade the back end server:
+6.  Upgrade the backend server with the following command. You will
+    need to type `Yes` to accept Chef License for version 13.
 
     ``` bash
     chef-server-ctl upgrade
+    ```
+    Or alternatively for upgrading to version 13 use command:
+
+    ```bash
+    CHEF_LICENSE='accept' chef-server-ctl upgrade
     ```
 
 7.  Copy the entire `/etc/opscode` directory from the back end server to
@@ -241,3 +264,19 @@ the Chef Infra Server has been upgraded.
 **Use Local Packages**
 
 {{% ctl_chef_server_install_features_manual %}}
+
+Upgrading from older versions to Chef Infra Server 13
+=====================================================
+
+Upgrading from version between 12.0.0 - 12.17.15
+
+We recommend a stepwise upgrade:
+1. Chef Infra Server < 12.17.15 -> Chef Infra Server 12.17.15
+2. Chef Infra Server 12.17.15 -> Chef Infra Server 13
+
+Upgrading from Chef Infra Server 11
+
+We recommend a stepwise upgrade:
+1. Chef Infra Server 11 -> Chef Infra Server 12.3.0
+2. Chef Infra Server 12.3.0 -> Chef Infra Server 12.17.15
+3. Chef Infra Server 12.17.15 -> Chef Infra Server 13
