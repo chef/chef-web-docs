@@ -39,7 +39,6 @@ menu:
     title: windows_security_policy
     identifier: chef_infra/cookbook_reference/resources/windows_security_policy windows_security_policy
     parent: chef_infra/cookbook_reference/resources
-
 resource_description_list:
 - markdown: Use the windows_security_policy resource to set a security policy on the
     Microsoft Windows platform.

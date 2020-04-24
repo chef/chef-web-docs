@@ -87,44 +87,35 @@ properties_list:
 - property: binary_path_name
   ruby_type: String
   required: false
-  default_value: null
+  default_value: 
   new_in: '14.0'
   description_list:
-  - markdown: 'The fully qualified path to the service binary file. The path can
-
-      also include arguments for an auto-start service. This is required
-
-      for '':create'' and '':configure'' actions'
+  - markdown: The fully qualified path to the service binary file. The path can also
+      include arguments for an auto-start service. This is required for `:create`
+      and `:configure` actions
 - property: delayed_start
   ruby_type: true, false
   required: false
   default_value: 'false'
   new_in: '14.0'
   description_list:
-  - markdown: 'Set the startup type to delayed start. This only applies if
-
-      `startup_type` is `:automatic`.'
+  - markdown: Set the startup type to delayed start. This only applies if `startup_type`
+      is `:automatic`
 - property: dependencies
   ruby_type: String, Array
   required: false
-  default_value: null
+  default_value: 
   new_in: '14.0'
   description_list:
-  - markdown: 'A pointer to a double null-terminated array of null-separated names
-
-      of services or load ordering groups that the system must start
-
-      before this service. Specify `nil` or an empty string if the service
-
-      has no dependencies. Dependency on a group means that this service
-
-      can run if at least one member of the group is running after an
-
-      attempt to start all members of the group.'
+  - markdown: A pointer to a double null-terminated array of null-separated names
+      of services or load ordering groups that the system must start before this service.
+      Specify `nil` or an empty string if the service has no dependencies. Dependency
+      on a group means that this service can run if at least one member of the group
+      is running after an attempt to start all members of the group.
 - property: description
   ruby_type: String
   required: false
-  default_value: null
+  default_value: 
   new_in: '14.0'
   description_list:
   - markdown: Description of the service.
@@ -132,120 +123,115 @@ properties_list:
   ruby_type: Integer
   required: false
   default_value: '983551'
-  new_in: null
-  description_list: []
+  new_in: '14.0'
+  description_list:
+  - markdown: 
 - property: display_name
   ruby_type: String
   required: false
-  default_value: null
+  default_value: 
   new_in: '14.0'
   description_list:
-  - markdown: 'The display name to be used by user interface programs to identify
-
-      the service. This string has a maximum length of 256 characters.'
-- property: init_command
-  ruby_type: String
+  - markdown: The display name to be used by user interface programs to identify the
+      service. This string has a maximum length of 256 characters.
+- property: error_control
+  ruby_type: Integer
   required: false
-  default_value: null
-  new_in: null
+  default_value: '1'
+  new_in: '14.0'
   description_list:
-  - markdown: 'The path to the init script that is associated with the service.
-
-      This is typically `/etc/init.d/SERVICE_NAME`. The `init_command`
-
-      property can be used to prevent the need to specify overrides for
-
-      the `start_command`, `stop_command`, and `restart_command`
-
-      attributes.'
+  - markdown: 
 - property: load_order_group
   ruby_type: String
   required: false
-  default_value: null
+  default_value: 
   new_in: '14.0'
   description_list:
-  - markdown: 'The name of the service''s load ordering group(s). Specify `nil` or
-
-      an empty string if the service does not belong to a group.'
+  - markdown: The name of the service's load ordering group(s).
 - property: pattern
   ruby_type: String
   required: false
-  default_value: service_name
-  new_in: null
+  default_value: The value provided to 'service_name' or the resource block's name
+  new_in: 
   description_list:
   - markdown: The pattern to look for in the process table.
 - property: reload_command
-  ruby_type: String, false
+  ruby_type: String, nil, false
   required: false
-  default_value: null
-  new_in: null
+  default_value: 
+  new_in: 
   description_list:
   - markdown: The command used to tell a service to reload its configuration.
 - property: restart_command
-  ruby_type: String, false
+  ruby_type: String, nil, false
   required: false
-  default_value: null
-  new_in: null
+  default_value: 
+  new_in: 
   description_list:
   - markdown: The command used to restart a service.
 - property: run_as_password
   ruby_type: String
   required: false
   default_value: null
-  new_in: null
+  new_in: 
   description_list:
   - markdown: The password for the user specified by `run_as_user`.
 - property: run_as_user
   ruby_type: String
   required: false
-  default_value: '"LocalSystem"'
-  new_in: null
+  default_value: localsystem
+  new_in: 
   description_list:
   - markdown: The user under which a Microsoft Windows service runs.
 - property: service_name
   ruby_type: String
   required: false
   default_value: The resource block's name
-  new_in: null
+  new_in: 
   description_list:
-  - markdown: 'An optional property to set the service name if it differs from the
-
-      resource block''s name.'
-- property: start_command
-  ruby_type: String
+  - markdown: An optional property to set the service name if it differs from the
+      resource block's name.
+- property: service_type
+  ruby_type: Integer
   required: false
-  default_value: null
-  new_in: null
+  default_value: '16'
+  new_in: '14.0'
+  description_list:
+  - markdown: 
+- property: start_command
+  ruby_type: String, nil, false
+  required: false
+  default_value: 
+  new_in: 
   description_list:
   - markdown: The command used to start a service.
 - property: startup_type
   ruby_type: Symbol
   required: false
-  default_value: :automatic
-  new_in: null
+  default_value: ":automatic"
+  new_in:
+  allowed_values: `:automatic`, `:disabled`, or `:manual`
   description_list:
-  - markdown: 'Use to specify the startup type for a Microsoft Windows service.
-
-      Possible values: `:automatic`, `:disabled`, or `:manual`.'
+  - markdown: Use to specify the startup type of the service.
 - property: status_command
-  ruby_type: String, false
+  ruby_type: String, nil, false
   required: false
-  default_value: null
-  new_in: null
+  default_value: 
+  new_in: 
   description_list:
   - markdown: The command used to check the run status for a service.
 - property: stop_command
-  ruby_type: String, false
+  ruby_type: String, nil, false
   required: false
-  default_value: null
-  new_in: null
+  default_value: 
+  new_in: 
   description_list:
   - markdown: The command used to stop a service.
 - property: supports
   ruby_type: Hash
   required: false
   default_value: null
-  new_in: null
+  new_in: 
   description_list:
   - markdown: 'A list of properties that controls how Chef Infra Client is to
 
@@ -278,7 +264,7 @@ properties_list:
   ruby_type: Integer
   required: false
   default_value: '60'
-  new_in: null
+  new_in: 
   description_list:
   - markdown: The amount of time (in seconds) to wait before timing out.
 properties_shortcode: null
