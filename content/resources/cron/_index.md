@@ -80,7 +80,7 @@ properties_list:
       }.join(' ')\n```\n\nand:\n\n``` ruby\ncommand \"/srv/app/scripts/daily_report\"\
       \n```"
 - property: day
-  ruby_type: String
+  ruby_type: Integer, String
   required: false
   default_value: '*'
   new_in: null
@@ -105,7 +105,7 @@ properties_list:
   description_list:
   - markdown: Set the `HOME` environment variable.
 - property: hour
-  ruby_type: String
+  ruby_type: Integer, String
   required: false
   default_value: '*'
   new_in: null
@@ -119,19 +119,20 @@ properties_list:
   description_list:
   - markdown: Set the `MAILTO` environment variable.
 - property: minute
-  ruby_type: String
+  ruby_type: Integer, String
   required: false
   default_value: '*'
   new_in: null
   description_list:
   - markdown: The minute at which the cron entry should run (0 - 59).
 - property: month
-  ruby_type: String
+  ruby_type: Integer, String
   required: false
   default_value: '*'
   new_in: null
   description_list:
-  - markdown: The month in the year on which a cron entry is to run (1 - 12).
+  - markdown: The month in the year on which a cron entry is to run (1 - 12, jan-dec,
+      or *).
 - property: path
   ruby_type: String
   required: false

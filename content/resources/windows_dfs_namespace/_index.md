@@ -9,7 +9,7 @@ menu:
     title: windows_dfs_namespace
     identifier: chef_infra/cookbook_reference/resources/windows_dfs_namespace windows_dfs_namespace
     parent: chef_infra/cookbook_reference/resources
-    weight: 1250
+    weight: 1190
 resource_reference: true
 robots: null
 resource_description_list:
@@ -89,7 +89,7 @@ properties_list:
   default_value: '"C:\\DFSRoots"'
   new_in: null
   description_list:
-  - markdown: The root from which to create the DFS tree. Defaults to C:DFSRoots.
+  - markdown: The root from which to create the DFS tree. Defaults to C:\DFSRoots.
 properties_shortcode: null
 properties_multiple_packages: false
 resource_directory_recursive_directories: false

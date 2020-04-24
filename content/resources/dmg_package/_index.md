@@ -134,7 +134,7 @@ properties_list:
 
       `remote_file` resource.'
 - property: owner
-  ruby_type: String
+  ruby_type: String, Integer
   required: false
   default_value: null
   new_in: null

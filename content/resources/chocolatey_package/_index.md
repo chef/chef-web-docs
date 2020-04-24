@@ -159,7 +159,7 @@ properties_list:
   default_value: null
   new_in: null
   description_list:
-  - markdown: 'Optional. The path to a package in the local file system or a
+  - markdown: 'The optional path to a package in the local file system or a
 
       reachable UNC path. Ensure that the path specified is to the
 

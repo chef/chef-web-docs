@@ -64,7 +64,7 @@ actions_list:
     shortcode: resources_common_actions_nothing.md
 properties_list:
 - property: arch
-  ruby_type: String, false
+  ruby_type: String, nil, false
   required: false
   default_value: null
   new_in: null
@@ -82,12 +82,12 @@ properties_list:
 - property: components
   ruby_type: Array
   required: false
-  default_value: null
+  default_value: "'main' if using a PPA repository."
   new_in: null
   description_list:
   - markdown: Package groupings, such as 'main' and 'stable'.
 - property: cookbook
-  ruby_type: String, false
+  ruby_type: String, nil, false
   required: false
   default_value: null
   new_in: null
@@ -107,7 +107,7 @@ properties_list:
 
       well.'
 - property: distribution
-  ruby_type: String, false
+  ruby_type: String, nil, false
   required: false
   default_value: The LSB codename of the host such as 'bionic'.
   new_in: null
@@ -127,14 +127,14 @@ properties_list:
 
       cookbook_file.'
 - property: key_proxy
-  ruby_type: String, false
+  ruby_type: String, nil, false
   required: false
   default_value: null
   new_in: null
   description_list:
   - markdown: If set, a specified proxy is passed to GPG via `http-proxy=`.
 - property: keyserver
-  ruby_type: String, false
+  ruby_type: String, nil, false
   required: false
   default_value: '"keyserver.ubuntu.com"'
   new_in: null

@@ -536,7 +536,7 @@ properties_list:
   description_list:
   - markdown: Username to use for basic authentication to a repository.
 properties_shortcode: null
-properties_multiple_packages: false
+properties_multiple_packages: true
 resource_directory_recursive_directories: false
 resources_common_atomic_update: false
 properties_resources_common_windows_security: false
