@@ -210,7 +210,7 @@ properties_list:
   required: false
   default_value: ":automatic"
   new_in:
-  allowed_values: `:automatic`, `:disabled`, or `:manual`
+  allowed_values: "`:automatic`, `:disabled`, or `:manual`"
   description_list:
   - markdown: Use to specify the startup type of the service.
 - property: status_command
