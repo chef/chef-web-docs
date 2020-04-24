@@ -1,8 +1,8 @@
 ---
 draft: false
 resource_reference: true
-robots: 
-syntax_code_block: 
+robots:
+syntax_code_block:
 common_resource_functionality_multiple_packages: false
 common_resource_functionality_resources_common_windows_security: false
 cookbook_file_specificity: false
@@ -13,7 +13,7 @@ nameless_apt_update: false
 nameless_build_essential: false
 properties_multiple_packages: false
 properties_resources_common_windows_security: false
-properties_shortcode: 
+properties_shortcode:
 ps_credential_helper: false
 registry_key: false
 remote_directory_recursive_directories: false
@@ -27,7 +27,7 @@ resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
 ruby_style_basics_chef_log: false
-syntax_shortcode: 
+syntax_shortcode:
 template_requirements: false
 unit_file_verification: false
 title: windows_user_privilege resource
@@ -39,7 +39,7 @@ menu:
     title: windows_user_privilege
     identifier: chef_infra/cookbook_reference/resources/windows_user_privilege windows_user_privilege
     parent: chef_infra/cookbook_reference/resources
-    weight: 1410
+
 resource_description_list:
 - markdown: "The windows_user_privilege resource allows to add and set principal (User/Group)
     to the specified privilege. \n Ref: https://docs.microsoft.com/en-us/windows/security/threat-protection/security-policy-settings/user-rights-assignment"
@@ -51,7 +51,7 @@ syntax_full_code_block: |-
     users          Array
     action         Symbol # defaults to :add if not specified
   end
-syntax_properties_list: 
+syntax_properties_list:
 syntax_full_properties_list:
 - "`windows_user_privilege` is the resource."
 - "`name` is the name given to the resource block."
@@ -64,22 +64,22 @@ properties_list:
   ruby_type: String
   required: false
   default_value: The resource block's name
-  new_in: 
+  new_in:
   description_list:
   - markdown: An optional property to add the user to the given privilege. Use only
       with add and remove action.
 - property: privilege
   ruby_type: Array, String
   required: true
-  default_value: 
-  new_in: 
+  default_value:
+  new_in:
   description_list:
   - markdown: Privilege to set for users.
 - property: users
   ruby_type: Array
   required: false
-  default_value: 
-  new_in: 
+  default_value:
+  new_in:
   description_list:
   - markdown: An optional property to set the privilege for given users. Use only
       with set action.

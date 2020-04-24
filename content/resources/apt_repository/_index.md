@@ -3,13 +3,13 @@ title: apt_repository resource
 resource: apt_repository
 draft: false
 aliases:
-- /resource_apt_repository.html
+- "/resource_apt_repository.html"
 menu:
   infra:
     title: apt_repository
     identifier: chef_infra/cookbook_reference/resources/apt_repository apt_repository
     parent: chef_infra/cookbook_reference/resources
-    weight: 90
+
 resource_reference: true
 robots: null
 resource_description_list:
@@ -76,21 +76,21 @@ properties_list:
   ruby_type: true, false
   required: false
   default_value: 'true'
-  new_in: null
+  new_in:
   description_list:
   - markdown: Determines whether to rebuild the APT package cache.
 - property: components
   ruby_type: Array
   required: false
   default_value: "'main' if using a PPA repository."
-  new_in: null
+  new_in:
   description_list:
   - markdown: Package groupings, such as 'main' and 'stable'.
 - property: cookbook
   ruby_type: String, nil, false
   required: false
-  default_value: null
-  new_in: null
+  default_value:
+  new_in:
   description_list:
   - markdown: 'If key should be a cookbook_file, specify a cookbook where the key
 
@@ -101,22 +101,19 @@ properties_list:
   ruby_type: true, false
   required: false
   default_value: 'false'
-  new_in: null
+  new_in:
   description_list:
-  - markdown: 'Determines whether or not to add the repository as a source repo as
-
-      well.'
+  - markdown: Determines whether or not to add the repository as a source repo as
+      well.
 - property: distribution
   ruby_type: String, nil, false
   required: false
-  default_value: The LSB codename of the host such as 'bionic'.
-  new_in: null
+  default_value: The LSB codename of the node such as 'focal'.
+  new_in:
   description_list:
-  - markdown: 'Usually a distribution''s codename, such as trusty, xenial or bionic.
-
-      Default value: the codename of the node''s distro.'
+  - markdown: Usually a distribution's codename, such as xenial, bionic, or focal.
 - property: key
-  ruby_type: String, Array, false
+  ruby_type: String, Array, nil, false
   required: false
   default_value: null
   new_in: null
@@ -129,15 +126,15 @@ properties_list:
 - property: key_proxy
   ruby_type: String, nil, false
   required: false
-  default_value: null
-  new_in: null
+  default_value:
+  new_in:
   description_list:
   - markdown: If set, a specified proxy is passed to GPG via `http-proxy=`.
 - property: keyserver
   ruby_type: String, nil, false
   required: false
   default_value: '"keyserver.ubuntu.com"'
-  new_in: null
+  new_in:
   description_list:
   - markdown: The GPG keyserver where the key for the repo should be retrieved.
 - property: repo_name
@@ -146,25 +143,21 @@ properties_list:
   default_value: The resource block's name
   new_in: '14.1'
   description_list:
-  - markdown: 'An optional property to set the repository name if it differs from
-
-      the resource block''s name. The value of this setting must not
-
-      contain spaces.'
+  - markdown: An optional property to set the repository name if it differs from the
+      resource block's name. The value of this setting must not contain spaces.
 - property: trusted
   ruby_type: true, false
   required: false
   default_value: 'false'
-  new_in: null
+  new_in:
   description_list:
-  - markdown: 'Determines whether you should treat all packages from this
-
-      repository as authenticated regardless of signature.'
+  - markdown: Determines whether you should treat all packages from this repository
+      as authenticated regardless of signature.
 - property: uri
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
+  default_value:
+  new_in:
   description_list:
   - markdown: The base of the Debian distribution.
 properties_shortcode: null

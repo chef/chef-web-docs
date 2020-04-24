@@ -9,7 +9,7 @@ menu:
     title: openssl_x509_request
     identifier: chef_infra/cookbook_reference/resources/openssl_x509_request openssl_x509_request
     parent: chef_infra/cookbook_reference/resources
-    weight: 820
+
 resource_reference: true
 robots: null
 resource_description_list:

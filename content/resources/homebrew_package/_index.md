@@ -9,7 +9,7 @@ menu:
     title: homebrew_package
     identifier: chef_infra/cookbook_reference/resources/homebrew_package homebrew_package
     parent: chef_infra/cookbook_reference/resources
-    weight: 550
+
 resource_reference: true
 robots: null
 resource_description_list:

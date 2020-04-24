@@ -10,7 +10,7 @@ menu:
     title: windows_env
     identifier: chef_infra/cookbook_reference/resources/windows_env windows_env
     parent: chef_infra/cookbook_reference/resources
-    weight: 1230
+
 resource_reference: true
 robots: null
 resource_description_list:

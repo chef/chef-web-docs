@@ -9,7 +9,7 @@ menu:
     title: swap_file
     identifier: chef_infra/cookbook_reference/resources/swap_file swap_file
     parent: chef_infra/cookbook_reference/resources
-    weight: 1150
+
 resource_reference: true
 robots: null
 resource_description_list:

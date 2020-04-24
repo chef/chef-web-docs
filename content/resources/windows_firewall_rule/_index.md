@@ -9,7 +9,7 @@ menu:
     title: windows_firewall_rule
     identifier: chef_infra/cookbook_reference/resources/windows_firewall_rule windows_firewall_rule
     parent: chef_infra/cookbook_reference/resources
-    weight: 1270
+
 resource_reference: true
 robots: null
 resource_description_list:
@@ -39,7 +39,7 @@ syntax_full_code_block: |-
     service              String
     action               Symbol # defaults to :create if not specified
   end
-syntax_properties_list: 
+syntax_properties_list:
 syntax_full_properties_list:
 - "`windows_firewall_rule` is the resource."
 - "`name` is the name given to the resource block."
@@ -65,15 +65,15 @@ properties_list:
 - property: description
   ruby_type: String
   required: false
-  default_value: 
-  new_in: 
+  default_value:
+  new_in:
   description_list:
   - markdown: The description to assign to the firewall rule.
 - property: direction
   ruby_type: Symbol, String
   required: false
   default_value: ":inbound"
-  new_in: 
+  new_in:
   description_list:
   - markdown: The direction of the firewall rule. Direction means either inbound or
       outbound traffic.
@@ -88,20 +88,20 @@ properties_list:
   ruby_type: true, false
   required: false
   default_value: 'true'
-  new_in: 
+  new_in:
   description_list:
   - markdown: Whether or not to enable the firewall rule.
 - property: firewall_action
   ruby_type: Symbol, String
   required: false
   default_value: ":allow"
-  new_in: 
+  new_in:
   description_list:
   - markdown: The action of the firewall rule.
 - property: group
   ruby_type: String
   required: false
-  default_value: 
+  default_value:
   new_in: '16.0'
   description_list:
   - markdown: Specifies that only matching firewall rules of the indicated group association
@@ -118,71 +118,71 @@ properties_list:
   ruby_type: Symbol, String
   required: false
   default_value: ":any"
-  new_in: 
+  new_in:
   description_list:
   - markdown: The interface type the firewall rule applies to.
 - property: local_address
   ruby_type: String
   required: false
-  default_value: 
-  new_in: 
+  default_value:
+  new_in:
   description_list:
   - markdown: The local address the firewall rule applies to.
 - property: local_port
   ruby_type: String, Integer, Array
   required: false
-  default_value: 
-  new_in: 
+  default_value:
+  new_in:
   description_list:
   - markdown: The local port the firewall rule applies to.
 - property: profile
   ruby_type: Symbol, String, Array
   required: false
   default_value: ":any"
-  new_in: 
+  new_in:
   description_list:
   - markdown: The profile the firewall rule applies to.
 - property: program
   ruby_type: String
   required: false
-  default_value: 
-  new_in: 
+  default_value:
+  new_in:
   description_list:
   - markdown: The program the firewall rule applies to.
 - property: protocol
   ruby_type: String
   required: false
   default_value: TCP
-  new_in: 
+  new_in:
   description_list:
   - markdown: The protocol the firewall rule applies to.
 - property: remote_address
   ruby_type: String
   required: false
-  default_value: 
-  new_in: 
+  default_value:
+  new_in:
   description_list:
   - markdown: The remote address the firewall rule applies to.
 - property: remote_port
   ruby_type: String, Integer, Array
   required: false
-  default_value: 
-  new_in: 
+  default_value:
+  new_in:
   description_list:
   - markdown: The remote port the firewall rule applies to.
 - property: rule_name
   ruby_type: String
   required: false
   default_value: The resource block's name
-  new_in: 
+  new_in:
   description_list:
   - markdown: An optional property to set the name of the firewall rule to assign
       if it differs from the resource block's name.
 - property: service
   ruby_type: String
   required: false
-  default_value: 
-  new_in: 
+  default_value:
+  new_in:
   description_list:
   - markdown: The service the firewall rule applies to.
 properties_shortcode: null

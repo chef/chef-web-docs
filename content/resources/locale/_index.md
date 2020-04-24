@@ -9,7 +9,7 @@ menu:
     title: locale
     identifier: chef_infra/cookbook_reference/resources/locale locale
     parent: chef_infra/cookbook_reference/resources
-    weight: 650
+
 resource_reference: true
 robots: null
 resource_description_list:

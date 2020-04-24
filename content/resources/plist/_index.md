@@ -1,8 +1,8 @@
 ---
 draft: false
 resource_reference: true
-robots: 
-syntax_code_block: 
+robots:
+syntax_code_block:
 common_resource_functionality_multiple_packages: false
 common_resource_functionality_resources_common_windows_security: false
 cookbook_file_specificity: false
@@ -13,7 +13,7 @@ nameless_apt_update: false
 nameless_build_essential: false
 properties_multiple_packages: false
 properties_resources_common_windows_security: false
-properties_shortcode: 
+properties_shortcode:
 ps_credential_helper: false
 registry_key: false
 remote_directory_recursive_directories: false
@@ -27,7 +27,7 @@ resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
 ruby_style_basics_chef_log: false
-syntax_shortcode: 
+syntax_shortcode:
 template_requirements: false
 unit_file_verification: false
 title: plist resource
@@ -39,7 +39,7 @@ menu:
     title: plist
     identifier: chef_infra/cookbook_reference/resources/plist plist
     parent: chef_infra/cookbook_reference/resources
-    weight: 820
+
 resource_description_list:
 - markdown: Use the plist resource to set config values in plist files on macOS systems.
 resource_new_in: '16.0'
@@ -54,7 +54,7 @@ syntax_full_code_block: |-
     value         true, false, String, Integer, Float, Hash
     action        Symbol # defaults to :set if not specified
   end
-syntax_properties_list: 
+syntax_properties_list:
 syntax_full_properties_list:
 - "`plist` is the resource."
 - "`name` is the name given to the resource block."
@@ -67,50 +67,50 @@ properties_list:
   ruby_type: String
   required: false
   default_value: binary
-  new_in: 
+  new_in:
   description_list:
-  - markdown: 
+  - markdown:
 - property: entry
   ruby_type: String
   required: false
-  default_value: 
-  new_in: 
+  default_value:
+  new_in:
   description_list:
-  - markdown: 
+  - markdown:
 - property: group
   ruby_type: String
   required: false
   default_value: wheel
-  new_in: 
+  new_in:
   description_list:
-  - markdown: 
+  - markdown:
 - property: mode
   ruby_type: String, Integer
   required: false
-  default_value: 
-  new_in: 
+  default_value:
+  new_in:
   description_list:
-  - markdown: 
+  - markdown:
 - property: owner
   ruby_type: String
   required: false
   default_value: root
-  new_in: 
+  new_in:
   description_list:
-  - markdown: 
+  - markdown:
 - property: path
   ruby_type: String
   required: false
   default_value: The resource block's name
-  new_in: 
+  new_in:
   description_list:
-  - markdown: 
+  - markdown:
 - property: value
   ruby_type: true, false, String, Integer, Float, Hash
   required: false
-  default_value: 
-  new_in: 
+  default_value:
+  new_in:
   description_list:
-  - markdown: 
+  - markdown:
 
 ---

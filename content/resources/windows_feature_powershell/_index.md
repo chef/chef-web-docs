@@ -10,7 +10,7 @@ menu:
     identifier: chef_infra/cookbook_reference/resources/windows_feature_powershell
       windows_feature_powershell
     parent: chef_infra/cookbook_reference/resources
-    weight: 1260
+
 resource_reference: true
 robots: null
 resource_description_list:

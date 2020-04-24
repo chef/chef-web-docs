@@ -9,7 +9,7 @@ menu:
     title: chef_client
     identifier: chef_infra/cookbook_reference/resources/chef_client chef_client
     parent: chef_infra/cookbook_reference/resources
-    weight: 190
+
 resource_reference: true
 robots: null
 resource_description_list:

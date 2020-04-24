@@ -9,7 +9,7 @@ menu:
     title: mount
     identifier: chef_infra/cookbook_reference/resources/mount mount
     parent: chef_infra/cookbook_reference/resources
-    weight: 700
+
 resource_reference: true
 robots: null
 resource_description_list:

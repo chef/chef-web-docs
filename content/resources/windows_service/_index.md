@@ -9,7 +9,7 @@ menu:
     title: windows_service
     identifier: chef_infra/cookbook_reference/resources/windows_service windows_service
     parent: chef_infra/cookbook_reference/resources
-    weight: 1400
+
 resource_reference: true
 robots: null
 resource_description_list:

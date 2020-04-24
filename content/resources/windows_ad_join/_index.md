@@ -1,6 +1,6 @@
 ---
 resource_reference: true
-robots: 
+robots:
 title: windows_ad_join resource
 resource: windows_ad_join
 draft: false
@@ -11,7 +11,7 @@ menu:
     title: windows_ad_join
     identifier: chef_infra/cookbook_reference/resources/windows_ad_join windows_ad_join
     parent: chef_infra/cookbook_reference/resources
-    weight: 1150
+
 resource_description_list:
 - markdown: 'Use the **windows_ad_join** resource to join a Windows Active
 
@@ -52,7 +52,7 @@ properties_list:
   ruby_type: String
   required: false
   default_value: The resource block's name
-  new_in: 
+  new_in:
   description_list:
   - markdown: 'An optional property to set the FQDN of the Active Directory domain
 
@@ -60,8 +60,8 @@ properties_list:
 - property: domain_password
   ruby_type: String
   required: true
-  default_value: 
-  new_in: 
+  default_value:
+  new_in:
   description_list:
   - markdown: 'The password for the domain user. Note that this resource is set to
 
@@ -69,22 +69,22 @@ properties_list:
 - property: domain_user
   ruby_type: String
   required: true
-  default_value: 
-  new_in: 
+  default_value:
+  new_in:
   description_list:
   - markdown: The domain user that will be used to join the domain.
 - property: new_hostname
   ruby_type: String
   required: false
-  default_value: 
+  default_value:
   new_in: '14.5'
   description_list:
   - markdown: Specifies a new hostname for the computer in the new domain.
 - property: ou_path
   ruby_type: String
   required: false
-  default_value: 
-  new_in: 
+  default_value:
+  new_in:
   description_list:
   - markdown: The path to the Organizational Unit where the host will be placed.
 - property: reboot
@@ -104,13 +104,13 @@ properties_list:
   ruby_type: true, false
   required: false
   default_value: 'true'
-  new_in: 
+  new_in:
   description_list:
-  - markdown: 
+  - markdown:
 - property: workgroup_name
   ruby_type: String
   required: false
-  default_value: 
+  default_value:
   new_in: '15.4'
   description_list:
   - markdown: 'Specifies the name of a workgroup to which the computer is added to

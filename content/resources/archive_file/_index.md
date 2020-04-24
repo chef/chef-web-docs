@@ -3,13 +3,13 @@ title: archive_file resource
 resource: archive_file
 draft: false
 aliases:
-- /resource_archive_file.html
+- "/resource_archive_file.html"
 menu:
   infra:
     title: archive_file
     identifier: chef_infra/cookbook_reference/resources/archive_file archive_file
     parent: chef_infra/cookbook_reference/resources
-    weight: 110
+
 resource_reference: true
 robots: null
 resource_description_list:
@@ -51,22 +51,22 @@ properties_list:
 - property: destination
   ruby_type: String
   required: true
-  default_value: null
-  new_in: null
+  default_value:
+  new_in:
   description_list:
   - markdown: The file path to extract the archive file to.
 - property: group
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
+  default_value:
+  new_in:
   description_list:
   - markdown: The group of the extracted files.
 - property: mode
   ruby_type: String, Integer
   required: false
   default_value: '"755"'
-  new_in: null
+  new_in:
   description_list:
   - markdown: The mode of the extracted files.
 - property: options
@@ -104,15 +104,15 @@ properties_list:
 - property: owner
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
+  default_value:
+  new_in:
   description_list:
   - markdown: The owner of the extracted files.
 - property: path
   ruby_type: String
   required: false
   default_value: The resource block's name
-  new_in: null
+  new_in:
   description_list:
   - markdown: 'An optional property to set the file path to the archive to extract
 

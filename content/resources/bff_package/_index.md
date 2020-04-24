@@ -3,13 +3,13 @@ title: bff_package resource
 resource: bff_package
 draft: false
 aliases:
-- /resource_bff_package.html
+- "/resource_bff_package.html"
 menu:
   infra:
     title: bff_package
     identifier: chef_infra/cookbook_reference/resources/bff_package bff_package
     parent: chef_infra/cookbook_reference/resources
-    weight: 140
+
 resource_reference: true
 robots: null
 resource_description_list:

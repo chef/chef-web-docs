@@ -9,7 +9,7 @@ menu:
     title: remote_file
     identifier: chef_infra/cookbook_reference/resources/remote_file remote_file
     parent: chef_infra/cookbook_reference/resources
-    weight: 970
+
 resource_reference: true
 robots: null
 resource_description_list:

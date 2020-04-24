@@ -9,7 +9,7 @@ menu:
     title: zypper_repository
     identifier: chef_infra/cookbook_reference/resources/zypper_repository zypper_repository
     parent: chef_infra/cookbook_reference/resources
-    weight: 1490
+
 resource_reference: true
 robots: null
 resource_description_list:

@@ -1,8 +1,8 @@
 ---
 draft: false
 resource_reference: true
-robots: 
-syntax_code_block: 
+robots:
+syntax_code_block:
 common_resource_functionality_multiple_packages: false
 common_resource_functionality_resources_common_windows_security: false
 cookbook_file_specificity: false
@@ -13,7 +13,7 @@ nameless_apt_update: false
 nameless_build_essential: false
 properties_multiple_packages: false
 properties_resources_common_windows_security: false
-properties_shortcode: 
+properties_shortcode:
 ps_credential_helper: false
 registry_key: false
 remote_directory_recursive_directories: false
@@ -27,7 +27,7 @@ resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
 ruby_style_basics_chef_log: false
-syntax_shortcode: 
+syntax_shortcode:
 template_requirements: false
 unit_file_verification: false
 title: chef_vault_secret resource
@@ -39,7 +39,7 @@ menu:
     title: chef_vault_secret
     identifier: chef_infra/cookbook_reference/resources/chef_vault_secret chef_vault_secret
     parent: chef_infra/cookbook_reference/resources
-    weight: 190
+
 resource_description_list:
 - markdown: Use the chef_vault_secret resource to store secrets in Chef Vault items.
     Where possible and relevant, this resource attempts to map behavior and functionality
@@ -56,7 +56,7 @@ syntax_full_code_block: |-
     search           String # default value: "*:*"
     action           Symbol # defaults to :create if not specified
   end
-syntax_properties_list: 
+syntax_properties_list:
 syntax_full_properties_list:
 - "`chef_vault_secret` is the resource."
 - "`name` is the name given to the resource block."
@@ -68,8 +68,8 @@ properties_list:
 - property: admins
   ruby_type: String, Array
   required: true
-  default_value: 
-  new_in: 
+  default_value:
+  new_in:
   description_list:
   - markdown: A list of admin users who should have access to the item. Corresponds
       to the 'admin' option when using the chef-vault knife plugin. Can be specified
@@ -77,30 +77,30 @@ properties_list:
 - property: clients
   ruby_type: String, Array
   required: false
-  default_value: 
-  new_in: 
+  default_value:
+  new_in:
   description_list:
   - markdown: A search query for the nodes' API clients that should have access to
       the item.
 - property: data_bag
   ruby_type: String
   required: true
-  default_value: 
-  new_in: 
+  default_value:
+  new_in:
   description_list:
   - markdown: The data bag that contains the item.
 - property: environment
   ruby_type: String, nil
   required: false
-  default_value: 
-  new_in: 
+  default_value:
+  new_in:
   description_list:
   - markdown: The Chef environment of the data if storing per environment values.
 - property: id
   ruby_type: String
   required: false
   default_value: The resource block's name
-  new_in: 
+  new_in:
   description_list:
   - markdown: The name of the data bag item if it differs from the name of the resource
       block
@@ -108,14 +108,14 @@ properties_list:
   ruby_type: Hash, ChefUtils::Mash
   required: false
   default_value: "{}"
-  new_in: 
+  new_in:
   description_list:
   - markdown: The raw data, as a Ruby Hash, that will be stored in the item.
 - property: search
   ruby_type: String
   required: false
   default_value: "*:*"
-  new_in: 
+  new_in:
   description_list:
   - markdown: Search query that would match the same used for the clients, gets stored
       as a field in the item.

@@ -9,7 +9,7 @@ menu:
     title: osx_profile
     identifier: chef_infra/cookbook_reference/resources/osx_profile osx_profile
     parent: chef_infra/cookbook_reference/resources
-    weight: 830
+
 resource_reference: true
 robots: null
 resource_description_list:

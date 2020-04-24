@@ -8,7 +8,7 @@ menu:
     title: cab_package
     identifier: chef_infra/cookbook_reference/resources/cab_package cab_package
     parent: chef_infra/cookbook_reference/resources
-    weight: 180
+
 resource_reference: true
 robots: null
 resource_description_list:
@@ -25,7 +25,7 @@ syntax_full_code_block: |-
     version           String
     action            Symbol # defaults to :install if not specified
   end
-syntax_properties_list: 
+syntax_properties_list:
 syntax_full_properties_list:
 - "`cab_package` is the resource."
 - "`name` is the name given to the resource block."
@@ -47,8 +47,8 @@ properties_list:
 - property: package_name
   ruby_type: String
   required: false
-  default_value: 
-  new_in: 
+  default_value:
+  new_in:
   description_list:
   - markdown: An optional property to set the package name if it differs from the
       resource block's name.
@@ -56,21 +56,21 @@ properties_list:
   ruby_type: String
   required: false
   default_value: The package name.
-  new_in: 
+  new_in:
   description_list:
   - markdown: The local file path or URL for the CAB package.
 - property: timeout
   ruby_type: String, Integer
   required: false
-  default_value: 
-  new_in: 
+  default_value:
+  new_in:
   description_list:
   - markdown: The amount of time (in seconds) to wait before timing out.
 - property: version
   ruby_type: String
   required: false
-  default_value: 
-  new_in: 
+  default_value:
+  new_in:
   description_list:
   - markdown: The version of a package to be installed or upgraded.
 properties_shortcode: null

@@ -9,7 +9,7 @@ menu:
     title: pacman_package
     identifier: chef_infra/cookbook_reference/resources/pacman_package pacman_package
     parent: chef_infra/cookbook_reference/resources
-    weight: 850
+
 resource_reference: true
 robots: null
 resource_description_list:

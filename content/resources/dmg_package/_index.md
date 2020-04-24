@@ -9,7 +9,7 @@ menu:
     title: dmg_package
     identifier: chef_infra/cookbook_reference/resources/dmg_package dmg_package
     parent: chef_infra/cookbook_reference/resources
-    weight: 430
+
 resource_reference: true
 robots: null
 resource_description_list:
