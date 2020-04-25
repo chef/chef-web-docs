@@ -10,8 +10,6 @@ aliases = "/deprecations_chocolatey_uninstall.html"
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/deprecations_chocolatey_uninstall.md)
 
-
-
 The Chocolatey cookbook's `chocolatey_package` resource originally
 contained an `:uninstall` action. When
 [chocolatey_package](/resources/chocolatey_package/) was moved into
@@ -22,8 +20,7 @@ The [Cookstyle](/workstation/cookstyle/) cop
 [ChefDeprecations/ChocolateyPackageUninstallAction](https://github.com/chef/cookstyle/blob/master/docs/cops_chefdeprecations.md#chefdeprecationschocolateypackageuninstallaction)
 has been introduced to detect and autocorrect this deprecation.
 
-Remediation
-===========
+## Remediation
 
 The `:uninstall` action must be replaced with the `:remove` action when
 using the `chocolatey_package` resource in recipes that you intend to

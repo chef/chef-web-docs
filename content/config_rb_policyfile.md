@@ -25,17 +25,14 @@ Policyfile](/policyfile/)
 
 {{< /note >}}
 
-Syntax
-======
+## Syntax
 
 {{% policyfile_rb_syntax %}}
 
-Settings
-========
+## Settings
 
 {{% policyfile_rb_settings %}}
 
-Example
-=======
+## Example
 
 {{% policyfile_rb_example %}}

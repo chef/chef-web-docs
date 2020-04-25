@@ -16,8 +16,6 @@ aliases = ["/delivery_truck.html", "/release/automate/delivery_truck.html"]
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/delivery_truck.md)
 
-
-
 {{% delivery_cookbook_delivery_truck %}}
 
 {{< note >}}
@@ -29,8 +27,7 @@ and custom resources in a build cookbook is optional.
 
 {{< /note >}}
 
-delivery-truck Recipes
-======================
+## delivery-truck Recipes
 
 The following recipes are available by default in the `delivery-truck`
 cookbook:
@@ -79,8 +76,7 @@ cookbook:
 
 :   {{% delivery_cookbook_common_recipe_unit %}}
 
-Create a build-cookbook
-=======================
+## Create a build-cookbook
 
 {{% delivery_cookbook_setup %}}
 
@@ -92,23 +88,19 @@ work is being done from that project's root directory.
 
 {{< /note >}}
 
-Edit the Berksfile
-------------------
+### Edit the Berksfile
 
 {{% delivery_cookbook_setup_berksfile %}}
 
-Edit metadata.rb
-----------------
+### Edit metadata.rb
 
 {{% delivery_cookbook_setup_metadata %}}
 
-Add delivery-truck to Recipes
------------------------------
+### Add delivery-truck to Recipes
 
 {{% delivery_cookbook_setup_recipes %}}
 
-Read the Tutorial
-=================
+## Read the Tutorial
 
 To learn more about how to set up a project pipeline for a single
 cookbook and basic web application, follow the steps outlined in the
@@ -116,8 +108,7 @@ cookbook and basic web application, follow the steps outlined in the
 Automate](https://learn.chef.io/modules/deploy-infrastructure#/) module
 on Learn Chef.
 
-Project Cookbooks
-=================
+## Project Cookbooks
 
 A project cookbook is a cookbook that is located within a project and is
 used to deploy that project's software onto one (or more) nodes in the
@@ -131,13 +122,12 @@ Automate pipeline. The `provision.rb` recipe discovers all `metadata.rb`
 and/or `metadata.json` files in the project, including those under the
 `/cookbooks` directory.
 
-Single Cookbook
----------------
+### Single Cookbook
 
 A project may use a single cookbook to tell Chef Infra Client how to
 configure nodes in the Chef Automate pipeline.
 
-### Add Project Cookbook
+#### Add Project Cookbook
 
 Create a project cookbook. From the project's root directory, do the
 following:
@@ -170,13 +160,13 @@ following:
     change. The version number is what gets promoted through the stages
     in the Chef Automate pipeline.
 
-### Configure default.rb
+#### Configure default.rb
 
 In the `default.rb` recipe, define how this project is to be deployed.
 This is a normal Chef recipe that is executed by Chef Infra Client, so
 do the same in this recipe as you would do in any other.
 
-### Promote the Project
+#### Promote the Project
 
 When a change to a project is submitted to Chef Automate, the
 `provision.rb` does the work of promoting the project to the various
@@ -212,7 +202,7 @@ To submit changes to Chef Automate, use commands similar to:
     Chef Automate web UI. This sends the project to the Union,
     Rehearsal, and Delivered stages.
 
-### Update the Project
+#### Update the Project
 
 Update a file in the project, and then update the version number in the
 `metadata.rb` file. This ensures this cookbook is promoted, overwriting
@@ -257,8 +247,7 @@ stage of the Chef Automate pipeline:
     delivery review
     ```
 
-Multiple Cookbooks
-------------------
+### Multiple Cookbooks
 
 Some projects need more than one project cookbook. Put as many cookbooks
 as necessary under the `/cookbooks` directory, which is located at the
@@ -276,8 +265,7 @@ Chef Automate pipeline. The `default.rb` recipe in the `build-cookbook`
 is run first, and then each `default.rb` recipe in each cookbook under
 `/cookbooks` is run (in alphabetical order, by cookbook name).
 
-Project Applications
-====================
+## Project Applications
 
 A project may be a binary, a package, or some other set of arbitrary
 information. The Chef Automate pipeline supports promoting projects
@@ -287,8 +275,7 @@ projects by using a set of attributes that are pinned to a specific
 version, and then using those same versioned attributes when deploying
 software to various stages in the Chef Automate pipeline.
 
-Configure Project Application
------------------------------
+### Configure Project Application
 
 Project applications are defined in the `publish.rb` recipe in a
 `build-cookbook` using the `define_project_application` helper method,
@@ -368,8 +355,7 @@ To define a project application, do the following:
 
     {{< /note >}}
 
-Example Project Application
----------------------------
+### Example Project Application
 
 This example shows how to use project applications to deploy a package
 into a `.deb` file during the deploy phase. (This example assumes a Chef
@@ -444,8 +430,7 @@ Automate project exists with a properly configured `build-cookbook`.)
     end
     ```
 
-Validate the Installation
-=========================
+## Validate the Installation
 
 The surest way to validate a Chef Automate installation is to create a
 cookbook, and then submit it to Chef Automate to kick off a new build in
@@ -460,8 +445,7 @@ build cookbook.
 
 {{% delivery_projects_add_with_delivery_truck %}}
 
-Using `delivery-truck` in air-gapped environment
-================================================
+## Using `delivery-truck` in air-gapped environment
 
 Chef Automate can be set up to deploy cookbooks and applications in an
 air-gapped environment and this section describes how to set up a basic
@@ -476,8 +460,7 @@ Automate-backed cookbook projects.
 
 {{< /note >}}
 
-Prerequisites
--------------
+### Prerequisites
 
 -   Ensure you have a private Supermarket installed, setup, and running.
     See [Install Private Supermarket](/install_supermarket/) for
@@ -496,8 +479,7 @@ Prerequisites
     Workstation](https://downloads.chef.io/chef-workstation/) installed
     on your [workstation](/workstation/).
 
-Share cookbooks with your private Supermarket
----------------------------------------------
+### Share cookbooks with your private Supermarket
 
 To use `delivery-truck` and its dependency, `delivery-sugar`, you must
 first share them with a private Supermarket that is authenticated with
@@ -547,8 +529,7 @@ your Chef Infra Server.
     knife supermarket share 'delivery-sugar'
     ```
 
-Generate a cookbook
--------------------
+### Generate a cookbook
 
 1.  Use Chef Workstation's [cookbook generator
     command](/ctl_chef/#chef-generate-cookbook) to create a default
@@ -569,8 +550,7 @@ Generate a cookbook
 
 3.  Finally, check out the added files and commit your changes.
 
-Use the `delivery-truck` cookbook in your project
--------------------------------------------------
+### Use the `delivery-truck` cookbook in your project
 
 From the root of your project's directory, do the following:
 

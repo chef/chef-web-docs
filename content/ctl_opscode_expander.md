@@ -16,12 +16,10 @@ aliases = ["/ctl_opscode_expander.html"]
 
 {{% ctl_opscode_expander_summary %}}
 
-Options
-=======
+## Options
 
 {{% ctl_opscode_expander_options %}}
 
-Examples
-========
+## Examples
 
 {{% ctl_opscode_expander_example %}}

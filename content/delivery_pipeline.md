@@ -71,8 +71,7 @@ a particular project. In this way, you can share some "standard" version
 of a build cookbook with others and then use extra data in the config
 file to tailor the cookbook as needed.
 
-Configuration Settings
-======================
+## Configuration Settings
 
 {{% delivery_config_json_setting %}}
 
@@ -112,8 +111,7 @@ Configuration Settings
 
 {{< /note >}}
 
-build-cookbook Locations
-------------------------
+### build-cookbook Locations
 
 The following examples show how to specify the location of the
 `build-cookbook`.
@@ -142,18 +140,15 @@ The following examples show how to specify the location of the
 
 {{% delivery_config_example_build_cookbook_automate_server %}}
 
-Build Nodes and Phases
-----------------------
+### Build Nodes and Phases
 
 {{% delivery_config_example_build_nodes_by_phase %}}
 
-Run-time Dependencies
----------------------
+### Run-time Dependencies
 
 {{% delivery_config_example_dependencies_on_master %}}
 
-Multiple Pipelines
-------------------
+### Multiple Pipelines
 
 To set up a second pipeline, there is an assumption that the branch that
 will become the second pipeline exists in your local project.

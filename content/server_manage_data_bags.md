@@ -16,8 +16,6 @@ aliases = ["/server_manage_data_bags.html"]
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/server_manage_data_bags.md)
 
-
-
 {{% EOL_manage %}}
 
 {{< note >}}
@@ -29,14 +27,12 @@ bags.
 
 {{% data_bag %}}
 
-Manage
-======
+## Manage
 
 Data bags can be managed from the Chef management console web user
 interface.
 
-Add Data Bag
-------------
+### Add Data Bag
 
 To add a data bag:
 
@@ -55,8 +51,7 @@ To add a data bag:
 
 6.  Click **Create Data Bag**.
 
-Delete Data Bag
----------------
+### Delete Data Bag
 
 To delete a data bag:
 
@@ -72,13 +67,11 @@ To delete a data bag:
 
     ![image](/images/step_manage_webui_policy_data_bag_delete.png)
 
-Manage Items
-============
+## Manage Items
 
 {{% data_bag_item %}}
 
-Add Item
---------
+### Add Item
 
 To add a data bag item:
 
@@ -99,8 +92,7 @@ To add a data bag item:
 
 7.  Click **Create Data Bag Item**.
 
-Delete Item
------------
+### Delete Item
 
 To delete a data bag item:
 
@@ -120,13 +112,11 @@ To delete a data bag item:
 
     ![image](/images/step_manage_webui_policy_data_bag_delete_item.png)
 
-Edit Item
----------
+### Edit Item
 
 {{% manage_webui_policy_data_bag_edit_item %}}
 
-View Item
----------
+### View Item
 
 To view data bag items for a data bag:
 
@@ -136,15 +126,13 @@ To view data bag items for a data bag:
 4.  Select a data bag.
 5.  Select the **Items** tab.
 
-Manage Permissions
-==================
+## Manage Permissions
 
 {{% server_rbac_permissions %}}
 
 {{% server_rbac_permissions_object %}}
 
-Set
----
+### Set
 
 To set permissions list for a data bag object:
 
@@ -156,8 +144,7 @@ To set permissions list for a data bag object:
 6.  For each group listed under **Name**, select or de-select the
     **Read**, **Update**, **Delete**, and **Grant** permissions.
 
-Update
-------
+### Update
 
 To update the permissions list for a data bag object:
 
@@ -171,8 +158,7 @@ To update the permissions list for a data bag object:
 7.  Select or de-select **Read**, **Update**, **Delete**, and **Grant**
     to update the permissions list for the user or group.
 
-View
-----
+### View
 
 To view permissions for a data bag object:
 

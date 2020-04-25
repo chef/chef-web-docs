@@ -26,8 +26,7 @@ Ideally, the best way to debug a recipe is to not have to debug it in
 the first place. That said, the following sections discuss various
 approaches to debugging recipes and failed Chef Infra Client runs.
 
-Basic
-=====
+## Basic
 
 Some simple ways to quickly identify common issues that can trigger
 recipe and/or Chef Infra Client run failures include:
@@ -37,13 +36,11 @@ recipe and/or Chef Infra Client run failures include:
 -   Using logging with Chef Infra Client
 -   Using the **log** resource in a recipe to define custom logging
 
-Empty Run-lists
----------------
+### Empty Run-lists
 
 {{% node_run_list_empty %}}
 
-Knife
------
+### Knife
 
 Use the verbose logging that is built into knife:
 
@@ -59,8 +56,7 @@ Plugins do not always support verbose logging.
 
 {{< /note >}}
 
-Chef Infra Client
------------------
+### Chef Infra Client
 
 Use the verbose logging that is built into Chef Infra Client:
 
@@ -73,8 +69,7 @@ Use the verbose logging that is built into Chef Infra Client:
 :   The location of the log file. This is recommended when starting any
     executable as a daemon. Default value: `STDOUT`.
 
-log Resource
-------------
+### log Resource
 
 {{% resource_log_summary %}}
 
@@ -82,19 +77,19 @@ New in 12.0, `-o RUN_LIST_ITEM`. Changed in 12.0 `-f` no longer allows
 unforked intervals, `-i SECONDS` is applied before a Chef Infra Client
 run.
 
-### Syntax
+#### Syntax
 
 {{% resource_log_syntax %}}
 
-### Actions
+#### Actions
 
 {{% resource_log_actions %}}
 
-### Properties
+#### Properties
 
 {{% resource_log_properties %}}
 
-### Examples
+#### Examples
 
 The following examples demonstrate various approaches for using
 resources in recipes:
@@ -115,8 +110,7 @@ resources in recipes:
 
 {{% resource_log_add_message %}}
 
-Advanced
-========
+## Advanced
 
 Some more complex ways to debug issues with a Chef Infra Client run
 include:
@@ -133,8 +127,7 @@ include:
 -   Using chef-solo to run targeted Chef Infra Client runs for specific
     scenarios
 
-chef_handler
--------------
+### chef_handler
 
 {{% handler %}}
 
@@ -142,49 +135,47 @@ chef_handler
 
 Read more [about exception, report, and start handlers](/handlers/).
 
-chef-shell
-----------
+### chef-shell
 
 {{% chef_shell_summary %}}
 
 {{% chef_shell_modes %}}
 
-### Configure
+#### Configure
 
 {{% chef_shell_config %}}
 
-### chef-shell.rb
+#### chef-shell.rb
 
 {{% chef_shell_config_rb %}}
 
-### Run as a Chef Infra Client
+#### Run as a Chef Infra Client
 
 {{% chef_shell_run_as_chef_client %}}
 
-### Manage
+#### Manage
 
 {{% chef_shell_manage %}}
 
-breakpoint Resource
--------------------
+### breakpoint Resource
 
 {{% chef_shell_breakpoints %}}
 
 {{% resource_breakpoint_summary %}}
 
-### Syntax
+#### Syntax
 
 {{% resource_breakpoint_syntax %}}
 
-### Actions
+#### Actions
 
 {{% resource_breakpoint_actions %}}
 
-### Attributes
+#### Attributes
 
 {{% resource_breakpoint_properties %}}
 
-### Examples
+#### Examples
 
 The following examples demonstrate various approaches for using
 resources in recipes:
@@ -197,23 +188,19 @@ resources in recipes:
 
 {{% resource_breakpoint_yes %}}
 
-Step Through Run-list
----------------------
+### Step Through Run-list
 
 {{% chef_shell_step_through_run_list %}}
 
-Debug Existing Recipe
----------------------
+### Debug Existing Recipe
 
 {{< readFile_shortcode file="chef_shell_debug_existing_recipe.md" >}}
 
-Advanced Debugging
-------------------
+### Advanced Debugging
 
 {{< readFile_shortcode file="chef_shell_advanced_debug.md" >}}
 
-debug_value
-------------
+### debug_value
 
 Use the `debug_value` method to discover the location within the
 attribute precedence hierarchy from which a particular attribute (or
@@ -279,8 +266,7 @@ A [blog post by Joshua
 Timberman](http://jtimberman.housepub.org/blog/2014/09/02/chef-node-dot-debug-value/)
 provides another example of using this method.
 
-ignore_failure Method
-----------------------
+### ignore_failure Method
 
 All resources share a set of common actions, attributes, and so on. Use
 the following attribute in a resource to help identify where an issue
@@ -305,8 +291,7 @@ within a recipe may be located:
 </tbody>
 </table>
 
-chef-solo
----------
+### chef-solo
 
 See [chef-solo (executable)](/ctl_chef_solo/) for complete CTL
 documentation.

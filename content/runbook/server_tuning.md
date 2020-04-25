@@ -31,28 +31,23 @@ particular setting.
 
 {{< /note >}}
 
-Customize the Config File
-=========================
+## Customize the Config File
 
 {{% config_rb_server_summary %}}
 
-Use Conditions
---------------
+### Use Conditions
 
 {{% config_add_condition %}}
 
-Recommended Settings
-====================
+## Recommended Settings
 
 {{% server_tuning_general %}}
 
-SSL Protocols
--------------
+### SSL Protocols
 
 {{% server_tuning_nginx %}}
 
-Optional Services Tuning
-========================
+## Optional Services Tuning
 
 The following settings are often used to for performance tuning of the
 Chef Infra Server in larger installations.
@@ -63,39 +58,34 @@ Chef Infra Server in larger installations.
 
 {{< /note >}}
 
-bookshelf
----------
+### bookshelf
 
 {{% server_tuning_bookshelf %}}
 
-opscode-erchef
---------------
+### opscode-erchef
 
 {{% server_tuning_erchef %}}
 
-opscode-expander
-----------------
+### opscode-expander
 
 {{% server_tuning_expander %}}
 
-opscode-solr4
--------------
+### opscode-solr4
 
 {{% server_tuning_solr %}}
 
-### Available Memory
+#### Available Memory
 
 {{% server_tuning_solr_available_memory %}}
 
-### Large Node Sizes
+#### Large Node Sizes
 
 {{% server_tuning_solr_large_node_sizes %}}
 
-### Update Frequency
+#### Update Frequency
 
 {{% server_tuning_solr_update_frequency %}}
 
-postgresql
-----------
+### postgresql
 
 {{% server_tuning_postgresql %}}

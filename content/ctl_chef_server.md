@@ -16,14 +16,12 @@ aliases = ["/ctl_chef_server.html"]
 
 {{% ctl_chef_server_summary %}}
 
-Backup / Restore
-================
+## Backup / Restore
 
 Use the following commands to manage backups of Chef Infra Server data,
 and then to restore those backups.
 
-backup
-------
+### backup
 
 {{% ctl_chef_server_backup %}}
 
@@ -35,8 +33,7 @@ backup
 
 {{% ctl_chef_server_backup_syntax %}}
 
-restore
--------
+### restore
 
 {{% ctl_chef_server_restore %}}
 
@@ -54,8 +51,7 @@ restore
 chef-server-ctl restore /path/to/tar/archive.tar.gz
 ```
 
-cleanse
-=======
+## cleanse
 
 The `cleanse` subcommand is used to re-set the Chef Infra Server to the
 state it was in prior to the first time the `reconfigure` subcommand is
@@ -81,8 +77,7 @@ This subcommand has the following syntax:
 chef-server-ctl cleanse
 ```
 
-gather-logs
-===========
+## gather-logs
 
 The `gather-logs` subcommand is used to gather the Chef Infra Server log
 files into a tarball that contains all of the important log files and
@@ -94,8 +89,7 @@ This subcommand has the following syntax:
 chef-server-ctl gather-logs
 ```
 
-help
-====
+## help
 
 The `help` subcommand is used to print a list of all available
 chef-server-ctl commands.
@@ -106,8 +100,7 @@ This subcommand has the following syntax:
 chef-server-ctl help
 ```
 
-install
-=======
+## install
 
 The `install` subcommand is used to install premium features of the Chef
 Infra Server: Chef management console and Chef Infra Client run
@@ -143,24 +136,20 @@ This subcommand has the following options:
     required when packages are downloaded from
     <https://packages.chef.io/>.
 
-Use Downloads
--------------
+### Use Downloads
 
 {{% ctl_chef_server_install_features_download %}}
 
-Use Local Packages
-------------------
+### Use Local Packages
 
 {{% ctl_chef_server_install_features_manual %}}
 
-Key Rotation
-============
+## Key Rotation
 
 Use the following commands to manage public and private key rotation for
 users and clients.
 
-add-client-key
---------------
+### add-client-key
 
 Use the `add-client-key` subcommand to add a client key.
 
@@ -207,8 +196,7 @@ This subcommand has the following options:
     added. If not passed, then the server will generate a new one for
     you and return the private key to STDOUT.
 
-add-user-key
-------------
+### add-user-key
 
 Use the `add-user-key` subcommand to add a user key.
 
@@ -251,8 +239,7 @@ This subcommand has the following options:
 
 :   The user name for the user for which a key is added.
 
-delete-client-key
------------------
+### delete-client-key
 
 Use the `delete-client-key` subcommand to delete a client key.
 
@@ -280,8 +267,7 @@ This subcommand has the following arguments:
 
 :   The unique name to be assigned to the key you wish to delete.
 
-delete-user-key
----------------
+### delete-user-key
 
 Use the `delete-user-key` subcommand to delete a user key.
 
@@ -311,8 +297,7 @@ This subcommand has the following arguments:
 
 :   The unique name to be assigned to the key you wish to delete.
 
-list-client-keys
-----------------
+### list-client-keys
 
 Use the `list-client-keys` subcommand to list client keys.
 
@@ -346,8 +331,7 @@ This subcommand has the following options:
 
 :   Use to show the full public key strings in command output.
 
-list-user-keys
---------------
+### list-user-keys
 
 Use the `list-user-keys` subcommand to list client keys.
 
@@ -417,16 +401,14 @@ EvBQGdNG39XYSEeF4LneYQKPHEZDdqe7TZdVE8ooU/syxlZgADtvkqEoc4zp1Im3
 -----END PUBLIC KEY-----
 ```
 
-Secrets Management
-==================
+## Secrets Management
 
 Use the following commands to manage and rotate shared secrets and
 service credentials. The secrets file used for storing these is located
 at `/etc/opscode/private-chef-secrets.json` on your Chef Infra Server.
 It should be owned and readable only by `root`.
 
-set-secret
-----------
+### set-secret
 
 The `set-secret` subcommand allows storing shared secrets and service
 credentials. Only secrets known to Chef Infra Server can be stored.
@@ -474,8 +456,7 @@ This subcommand has the following options:
     restart them after changing the secret. Added in Chef Server
     12.16.2.
 
-remove-secret
--------------
+### remove-secret
 
 The `remove-secret` subcommand allows removing a stored shared secret
 and service credential.
@@ -496,8 +477,7 @@ chef-server-ctl remove-secret GROUP NAME
 chef-server-ctl remove-secret ldap bind_password
 ```
 
-show-secret
------------
+### show-secret
 
 The `show-secret` subcommand allows viewing a stored shared secret and
 service credential.
@@ -512,8 +492,7 @@ This subcommand has the following syntax:
 chef-server-ctl show-secret GROUP NAME
 ```
 
-set-db-superuser-password
--------------------------
+### set-db-superuser-password
 
 The `set-db-superuser-password` subcommand allows storing the database
 superuser password.
@@ -531,8 +510,7 @@ chef-server-ctl set-db-superuser-password
 Similar to `set-secret`, the superuser password can also be provided via
 the environment variable `DB_PASSWORD`.
 
-set-actions-password
---------------------
+### set-actions-password
 
 The `set-actions-password` subcommand allows storing the RabbitMQ
 Actions password.
@@ -550,8 +528,7 @@ chef-server-ctl set-actions-password
 Similar to `set-secret`, the action password can also be provided via
 the environment variable `ACTIONS_PASSWORD`.
 
-oc-id-show-app
---------------
+### oc-id-show-app
 
 The `oc-id-show-app` subcommand allows for retrieving the client ID and
 client secret for applications known to **oc-id**. Note that with
@@ -580,8 +557,7 @@ chef-server-ctl oc-id-show-app supermarket
 }
 ```
 
-require-credential-rotation
----------------------------
+### require-credential-rotation
 
 The `require-credential-rotation` subcommand takes the Chef Infra Server
 offline and requires a complete service credential rotation before the
@@ -618,8 +594,7 @@ This subcommand has the following options:
 :   Bypass a prompt in the terminal and agree that you want to disable
     the Chef Infra Server, and require credential rotation.
 
-rotate-all-credentials
-----------------------
+### rotate-all-credentials
 
 The `rotate-all-credentials` subcommand generates new credential values
 for all service credentials by incrementing the credential version
@@ -637,8 +612,7 @@ This subcommand has the following syntax:
 chef-server-ctl rotate-all-credentials
 ```
 
-rotate-credentials
-------------------
+### rotate-credentials
 
 The `rotate-credentials` subcommand generates new credential values for
 all credentials for a given service by incrementing the value and
@@ -656,8 +630,7 @@ This subcommand has the following syntax:
 chef-server-ctl rotate-credentials SERVICE_NAME
 ```
 
-rotate-shared-secrets
----------------------
+### rotate-shared-secrets
 
 The `rotate-shared-secrets` subcommand creates a new shared secret and
 salt, in addition to generating new service credentials. It also resets
@@ -677,8 +650,7 @@ This subcommand has the following syntax:
 chef-server-ctl rotate-shared-secrets
 ```
 
-show-service-credentials
-------------------------
+### show-service-credentials
 
 The `show-service-credentials` subcommand shows all of the service
 credentials for services running on the local Chef Infra Server.
@@ -693,8 +665,7 @@ This subcommand has the following syntax:
 chef-server-ctl show-service-credentials
 ```
 
-cleanup-bifrost
----------------
+### cleanup-bifrost
 
 The `cleanup-bifrost` subcommand removes unused authorization objects
 from the authorization database (called bifrost). These unused objects
@@ -739,13 +710,11 @@ This subcommand has the following options:
 
 :   The number of orphaned authorization actors to delete at a time.
 
-Manage Organizations
-====================
+## Manage Organizations
 
 {{% ctl_chef_server_org %}}
 
-org-create
-----------
+### org-create
 
 {{% ctl_chef_server_org_create %}}
 
@@ -775,8 +744,7 @@ chef-server-ctl org-create dev Development -f /tmp/id-dev.key
 chef-server-ctl org-create dev Development --association_user grantmc
 ```
 
-org-delete
-----------
+### org-delete
 
 {{% ctl_chef_server_org_delete %}}
 
@@ -794,8 +762,7 @@ chef-server-ctl org-delete infra-testing-20140909
 chef-server-ctl org-delete pedant-testing-org
 ```
 
-org-list
---------
+### org-list
 
 {{% ctl_chef_server_org_list %}}
 
@@ -807,8 +774,7 @@ org-list
 
 {{% ctl_chef_server_org_list_options %}}
 
-org-show
---------
+### org-show
 
 {{% ctl_chef_server_org_show %}}
 
@@ -816,8 +782,7 @@ org-show
 
 {{% ctl_chef_server_org_show_syntax %}}
 
-org-user-add
-------------
+### org-user-add
 
 {{% ctl_chef_server_org_user_add %}}
 
@@ -843,8 +808,7 @@ chef-server-ctl org-user-add preprod testmaster
 chef-server-ctl org-user-add dev grantmc --admin
 ```
 
-org-user-remove
----------------
+### org-user-remove
 
 {{% ctl_chef_server_org_user_remove %}}
 
@@ -881,8 +845,7 @@ chef-server-ctl org-user-remove prod testmaster
 chef-server-ctl org-user-remove grantmc --force
 ```
 
-password
-========
+## password
 
 The `password` subcommand is used to change a user's password. When
 Active Directory or LDAP is enabled, this command enables (or disables)
@@ -933,8 +896,7 @@ to return:
 Password for adamjacobs successfully disabled for System Recovery.
 ```
 
-psql
-====
+## psql
 
 The `psql` subcommand is used to log into the PostgreSQL database
 associated with the named service. This subcommand:
@@ -961,8 +923,7 @@ This subcommand has the following options:
 
 :   Use to enable write access to the PostgreSQL database.
 
-reconfigure
-===========
+## reconfigure
 
 The `reconfigure` subcommand is used when changes are made to the
 chef-server.rb file to reconfigure the server. When changes are made to
@@ -977,8 +938,7 @@ This subcommand has the following syntax:
 chef-server-ctl reconfigure
 ```
 
-reindex
-=======
+## reindex
 
 The `reindex` subcommand is used to reload Chef Infra Server data from
 PostgreSQL to Apache Solr.
@@ -1015,39 +975,35 @@ This subcommand has the following options:
     option only works when run on a standalone Chef Infra Server or on a
     primary backend Chef server within a legacy tier.
 
-Server Admins
-=============
+## Server Admins
 
 {{% server_rbac_server_admins %}}
 
-Scenario
---------
+### Scenario
 
 {{% server_rbac_server_admins_scenario %}}
 
-### Superuser Accounts
+#### Superuser Accounts
 
 {{% server_rbac_server_admins_superusers %}}
 
-Manage server-admins Group
---------------------------
+### Manage server-admins Group
 
 {{% ctl_chef_server_server_admin %}}
 
-### Add Members
+#### Add Members
 
 {{% ctl_chef_server_server_admin_grant_user %}}
 
-### Remove Members
+#### Remove Members
 
 {{% ctl_chef_server_server_admin_remove_user %}}
 
-### List Membership
+#### List Membership
 
 {{% ctl_chef_server_server_admin_list %}}
 
-show-config
-===========
+## show-config
 
 The `show-config` subcommand is used to view the configuration that will
 be generated by the `reconfigure` subcommand. This command is most
@@ -1060,13 +1016,11 @@ This subcommand has the following syntax:
 chef-server-ctl show-config
 ```
 
-uninstall
-=========
+## uninstall
 
 {{% ctl_chef_server_uninstall %}}
 
-upgrade
-=======
+## upgrade
 
 The `upgrade` subcommand is used to upgrade the Chef Infra Server.
 
@@ -1141,13 +1095,11 @@ This subcommand has the following options:
 
 :   Use to skip confirmation prompts during the upgrade process.
 
-User Management
-===============
+## User Management
 
 {{% ctl_chef_server_user %}}
 
-user-create
------------
+### user-create
 
 {{% ctl_chef_server_user_create %}}
 
@@ -1173,8 +1125,7 @@ chef-server-ctl user-create jane_doe Jane Doe jane_doe@example.com p@s5w0rD! -f 
 chef-server-ctl user-create waldendude Henry David Thoreau waldendude@example.com excursions
 ```
 
-user-delete
------------
+### user-delete
 
 {{% ctl_chef_server_user_delete %}}
 
@@ -1203,8 +1154,7 @@ This subcommand has the following options:
 
     New in Chef Server 12.9.
 
-user-edit
----------
+### user-edit
 
 {{% ctl_chef_server_user_edit %}}
 
@@ -1222,8 +1172,7 @@ chef-server-ctl user-edit john_smith
 chef-server-ctl user-edit jane_doe
 ```
 
-user-list
----------
+### user-list
 
 {{% ctl_chef_server_user_list %}}
 
@@ -1235,8 +1184,7 @@ user-list
 
 {{% ctl_chef_server_user_list_options %}}
 
-user-show
----------
+### user-show
 
 {{% ctl_chef_server_user_show %}}
 
@@ -1248,8 +1196,7 @@ user-show
 
 {{% ctl_chef_server_user_show_options %}}
 
-Service Subcommands
-===================
+## Service Subcommands
 
 {{% ctl_common_service_subcommands %}}
 
@@ -1261,61 +1208,50 @@ is configured for the Chef Infra Server: `hup`, `int`, `kill`, `once`,
 
 {{< /warning >}}
 
-hup
----
+### hup
 
 {{% ctl_chef_server_hup %}}
 
-int
----
+### int
 
 {{% ctl_chef_server_int %}}
 
-kill
-----
+### kill
 
 {{% ctl_chef_server_kill %}}
 
-once
-----
+### once
 
 {{% ctl_chef_server_once %}}
 
-restart
--------
+### restart
 
 {{% ctl_chef_server_restart %}}
 
-service-list
-------------
+### service-list
 
 {{% ctl_chef_server_service_list %}}
 
-start
------
+### start
 
 {{% ctl_chef_server_start %}}
 
-status
-------
+### status
 
 {{% ctl_chef_server_status %}}
 
-### Log Files
+#### Log Files
 
 {{% ctl_chef_server_status_logs %}}
 
-stop
-----
+### stop
 
 {{% ctl_chef_server_stop %}}
 
-tail
-----
+### tail
 
 {{% ctl_chef_server_tail %}}
 
-term
-----
+### term
 
 {{% ctl_chef_server_term %}}

@@ -17,8 +17,6 @@ aliases = ["/config_rb_delivery_optional_settings.html", "/release/automate/conf
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/config_rb_delivery_optional_settings.md)
 
-
-
 {{< warning >}}
 
 The configuration settings in the `delivery.rb` file should not be
@@ -29,14 +27,12 @@ as default values.
 
 {{< /warning >}}
 
-Settings
-========
+## Settings
 
 The following sections describe the various settings that are available
 in the `delivery.rb` file.
 
-General
--------
+### General
 
 This configuration file has the following general settings:
 
@@ -91,8 +87,7 @@ This configuration file has the following general settings:
     the embedded services. Can be either `"ipv4"` or `"ipv6"`. Default
     value: `"ipv4"`.
 
-admin
------
+### admin
 
 This configuration file has the following settings for `admin`:
 
@@ -112,8 +107,7 @@ This configuration file has the following settings for `admin`:
 
 :   Default value: `'snakes'`.
 
-backup
-------
+### backup
 
 This configuration file has the following settings for `backup`:
 
@@ -409,8 +403,7 @@ restoration.
     you'd like the backup to to return early without waiting for the
     Elasticsearch snapshot to complete. Default setting: `true`.
 
-deliv_notify
--------------
+### deliv_notify
 
 This configuration file has the following settings for `deliv_notify`:
 
@@ -418,8 +411,7 @@ This configuration file has the following settings for `deliv_notify`:
 
 :   Default value: `[]`.
 
-delivery
---------
+### delivery
 
 This configuration file has the following settings for `delivery`:
 
@@ -734,8 +726,7 @@ This configuration file has the following settings for `delivery`:
 
 :   The virtual IP address. Default value: `'127.0.0.1'`.
 
-elasticsearch
--------------
+### elasticsearch
 
 This configuration file has the following settings for `elasticsearch`:
 
@@ -894,8 +885,7 @@ later:**
     X-Pack Basic Authentication enabled on your Elasticsearch cluster.
     Default value: `nil`.
 
-git
----
+### git
 
 This configuration file has the following settings for `git`:
 
@@ -919,8 +909,7 @@ This configuration file has the following settings for `git`:
 
 :   Default value: `"git"`.
 
-java
-----
+### java
 
 This configuration file has the following settings for `java`:
 
@@ -932,8 +921,7 @@ This configuration file has the following settings for `java`:
     "#{node['delivery']['install_path']}/embedded/jre/bin"
     ```
 
-kibana
-------
+### kibana
 
 {{% kibana_note %}}
 
@@ -972,8 +960,7 @@ This configuration file has the following settings for `kibana`:
 
 :   The port on which the service is to listen. Default value: `5601`.
 
-lb
---
+### lb
 
 This configuration file has the following settings for `lb`:
 
@@ -981,8 +968,7 @@ This configuration file has the following settings for `lb`:
 
 :   Default value: `false`.
 
-logstash
---------
+### logstash
 
 This configuration file has the following settings for `logstash`:
 
@@ -1023,8 +1009,7 @@ This configuration file has the following settings for `logstash`:
     10% of system memory or 128 megabytes, whichever is larger. Requires
     Automate 0.8.46 or above.
 
-lsyncd
-------
+### lsyncd
 
 This configuration file has the following settings for `lsyncd`:
 
@@ -1067,8 +1052,7 @@ This configuration file has the following settings for `lsyncd`:
 
 :   Default value: `node['delivery']['user']['username']`.
 
-nginx
------
+### nginx
 
 This configuration file has the following settings for `nginx`:
 
@@ -1278,8 +1262,7 @@ This configuration file has the following settings for `nginx`:
     `nginx['worker_connections']` to determine the maximum number of
     allowed clients. Default value: `node['cpu']['total'].to_i`.
 
-notifications
--------------
+### notifications
 
 The following settings allow you to customize the behavior of the event
 notifications engine in Chef Automate:
@@ -1324,8 +1307,7 @@ notifications engine in Chef Automate:
     they exceed `file_maxbytes`. The maximum number of log files in the
     rotation is defined by `num_to_keep`. Default value: `10`.
 
-postgresql
-----------
+### postgresql
 
 This configuration file has the following settings for `postgresql`:
 
@@ -1507,8 +1489,7 @@ This configuration file has the following settings for `postgresql`:
 
 :   The virtual IP address. Default value: `"127.0.0.1"`.
 
-rabbitmq
---------
+### rabbitmq
 
 This configuration file has the following settings for `rabbitmq`:
 
@@ -1608,8 +1589,7 @@ This configuration file has the following settings for `rabbitmq`:
 :   The version for the ssl service. Default value:
     `[ 'tlsv1.2', 'tlsv1.1' ]`.
 
-ssh_git
---------
+### ssh_git
 
 This configuration file has the following settings for `ssh_git`:
 
@@ -1630,8 +1610,7 @@ This configuration file has the following settings for `ssh_git`:
 
 :   The port on which the service is to listen. Default value: `8989`.
 
-statistics
-----------
+### statistics
 
 This configuration file has the following settings for `statistics`:
 
@@ -1662,8 +1641,7 @@ This configuration file has the following settings for `statistics`:
 
 :   The maxiumum number of statistics log files. Default value: `10`.
 
-user
-----
+### user
 
 This configuration file has the following settings for `user`:
 

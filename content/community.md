@@ -23,8 +23,7 @@ community.
 
 ![image](/images/ChefRally.jpg)
 
-Meet
-====
+## Meet
 
 -   [Chef events](https://events.chef.io/)
 -   [Chef meetups](https://www.meetup.com/topics/opscode/)
@@ -32,14 +31,12 @@ Meet
     meetups](https://www.meetup.com/topics/continuous-delivery/)
 -   [DevOps meetups](https://www.meetup.com/topics/devops/)
 
-Learn
-=====
+## Learn
 
 -   [Chef training](https://training.chef.io/)
 -   [Self-guided learning](https://learn.chef.io/)
 
-Interact
-========
+## Interact
 
 -   [Community Guidelines](/community_guidelines/)
 -   [@chef](https://twitter.com/chef)
@@ -51,8 +48,7 @@ Interact
 -   [Chef Software Mailing List](https://discourse.chef.io/) (for
     discussion among users, developers, and other interested parties)
 
-Read
-====
+## Read
 
 -   [Effective DevOps (Building a Culture of Collaboration, Affinity,
     and Tooling at
@@ -70,8 +66,7 @@ Read
 -   [Mastering Chef \[Packt
     Publishing\]](https://www.packtpub.com/networking-and-servers/mastering-chef/)
 
-Contribute
-==========
+## Contribute
 
 -   [Chef on GitHub](https://github.com/chef)
 -   [Chef-managed cookbooks](https://github.com/chef-cookbooks)
@@ -79,16 +74,14 @@ Contribute
 -   [Documentation](https://github.com/chef/chef-web-docs)
 -   [Share your Chef product ideas](https://www.chef.io/feedback/)
 
-Supermarket
-===========
+## Supermarket
 
 -   [About Supermarket](/supermarket/)
 -   [Visit Supermarket](https://supermarket.chef.io)
 -   [Cookbooks available on
     Supermarket](https://supermarket.chef.io/cookbooks-directory)
 
-Subscribe
-=========
+## Subscribe
 
 -   [Blog](https://blog.chef.io/)
 -   [Videos](https://www.youtube.com/user/getchef)

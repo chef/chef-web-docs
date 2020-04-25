@@ -12,8 +12,6 @@ aliases = "/deprecations_chef_gem_compile_time.html"
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/deprecations_chef_gem_compile_time.md)
 
-
-
 Originally, the [chef gem](/resources/chef_gem/) resource always ran
 during the <span class="title-ref">compile</span> phase (see this
 section on [Chef Infra Client
@@ -25,8 +23,7 @@ This deprecation warning was added in Chef Client 12.1.0, and using
 `chef_gem` without specifying a phase will become an error in Chef
 Client 13.
 
-Remediation
-===========
+## Remediation
 
 There are two possible remediations.
 

@@ -17,8 +17,7 @@ aliases = ["/upgrade_server_ha_v2.html"]
 This topic describes the process of upgrading a high availability Chef
 Infra Server cluster.
 
-Overview
-========
+## Overview
 
 These instructions cover the process of upgrading a Chef Backend
 cluster. Please refer to the appropriate directions for the version of
@@ -30,8 +29,7 @@ upgrade to:
 -   [DRBD/Keepalived HA to Chef Backend
     2.x](#drbdkeepalived-ha-to-chef-backend-2.x) (migration)
 
-Chef Backend 1.x to 2.x Upgrade
-===============================
+## Chef Backend 1.x to 2.x Upgrade
 
 {{< warning >}}
 
@@ -104,8 +102,7 @@ cluster downtime.
     Backend
     Cluster](/install_server_ha/#upgrading-chef-infra-server-on-the-frontend-machines)
 
-Chef Backend Minor Version Upgrade
-==================================
+## Chef Backend Minor Version Upgrade
 
 The Minor Version Upgrade is appropriate for all upgrades of a Chef
 Backend cluster other than upgrades from one major version to another
@@ -118,16 +115,14 @@ to all of the nodes.
 
 {{< /note >}}
 
-Step 1: Block Failover
-----------------------
+### Step 1: Block Failover
 
 We don't want the cluster to fail over to a follower that is in the
 process of being upgraded. So we start by disabling failover
 
 1.  Run `chef-backend-ctl set-cluster-failover off`
 
-Step 2: Upgrade the followers.
-------------------------------
+### Step 2: Upgrade the followers.
 
 Followers should be upgraded sequentially. Upgrading them simultaneously
 is not supported and may result in data loss. Verify the successful
@@ -161,8 +156,7 @@ service and verify that the upgraded node has rejoined the cluster.
 
 Repeat the previous steps in this section for each remaining follower.
 
-Step 3: Upgrade the leader
---------------------------
+### Step 3: Upgrade the leader
 
 1.  Unblock failover, trigger failover, block it again.
 
@@ -172,8 +166,7 @@ Step 3: Upgrade the leader
     % chef-backend-ctl set-cluster-failover off
     ```
 
-Step 4: Re-enable failover
---------------------------
+### Step 4: Re-enable failover
 
 Allow failover again:
 
@@ -181,8 +174,7 @@ Allow failover again:
 % chef-backend-ctl set-cluster-failover on
 ```
 
-Step 5: Verify the cluster is stable
-------------------------------------
+### Step 5: Verify the cluster is stable
 
 Check the status of the cluster:
 
@@ -190,8 +182,7 @@ Check the status of the cluster:
 chef-backend-ctl status
 ```
 
-DRBD/Keepalived HA to Chef Backend 2.x
-======================================
+## DRBD/Keepalived HA to Chef Backend 2.x
 
 DRBD configurations are no longer supported. See [End of Life
 Products](/versions/#end-of-life-eol)

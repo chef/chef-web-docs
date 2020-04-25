@@ -16,8 +16,6 @@ aliases = ["/publish_cookbooks_multiple_servers.html"]
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/publish_cookbooks_multiple_servers.md)
 
-
-
 {{% chef_automate_mark %}}
 
 {{% EOL_a1 %}}
@@ -28,8 +26,7 @@ Chef servers or organizations. The following examples show how to
 publish to both a single Chef Infra Server and how to extend that
 methodology to publish to multiple Chef servers.
 
-Prerequisites
-=============
+## Prerequisites
 
 Before you begin, you must copy the `config.rb` file and the client key
 .pem file (referenced as `client_key` in `config.rb`) to the build
@@ -51,8 +48,7 @@ trusted_certs_dir '/etc/chef/trusted_certs'
 chef_server_url   'https://chef-test-server.example.com/organizations/your_org'
 ```
 
-Publish a cookbook to a single Chef server
-==========================================
+## Publish a cookbook to a single Chef server
 
 To publish a cookbook to a Chef Infra Server, use the
 `delivery_chef_cookbook` resource and reference the `config.rb` file
@@ -78,8 +74,7 @@ implementation.
 
 {{< /note >}}
 
-Publish Cookbook to Multiple Chef servers
-=========================================
+## Publish Cookbook to Multiple Chef servers
 
 Publishing to multiple servers uses the delivery_chef_cookbook in much
 the same way as publishing to a single Chef Infra Server except you

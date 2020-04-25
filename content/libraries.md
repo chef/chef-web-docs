@@ -23,25 +23,21 @@ Use a library to:
 -   Talk to an LDAP provider
 -   Do anything that can be done with Ruby
 
-Syntax
-======
+## Syntax
 
 The syntax for a library varies because library files are created using
 Ruby and are designed to handle custom situations. See the Examples
 section below for samples.
 
-Template Helper Modules
-=======================
+## Template Helper Modules
 
 {{% resource_template_library_module %}}
 
-Examples
-========
+## Examples
 
 The following examples show how to use cookbook libraries.
 
-Create a Namespace
-------------------
+### Create a Namespace
 
 A database can contain a list of virtual hosts that are used by
 customers. A custom namespace could be created that looks something
@@ -106,8 +102,7 @@ ISP.vhosts.each do |vhost|
 end
 ```
 
-Extend a Recipe
----------------
+### Extend a Recipe
 
 A customer record is stored in an attribute file that looks like this:
 
@@ -155,8 +150,7 @@ class Chef
 end
 ```
 
-Loop Over a Record
-------------------
+### Loop Over a Record
 
 A customer record is stored in an attribute file that looks like this:
 

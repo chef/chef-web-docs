@@ -32,8 +32,7 @@ aliases = ["/chef_overview.html"]
     Chef Infra Client to ask the Chef Infra Server for configuration
     details, such as recipes, templates, and file distributions.
 
-Chef Infra Components
-=====================
+## Chef Infra Components
 
 The following diagram shows the relationships between the various
 elements of Chef Infra, including the nodes, the server, and the
@@ -92,8 +91,7 @@ of Chef Automate.
 The following sections discuss these elements (and their various
 components) in more detail.
 
-Workstations
-============
+## Workstations
 
 A workstation is your local computer running Chef Workstation that you
 use to author cookbooks, interact with the Chef Infra Server, and
@@ -109,8 +107,7 @@ The workstation is where users do most of their work, including:
 -   Interacting with nodes, as (or when) required, such as performing a
     bootstrap operation
 
-Chef Workstation Components and Tools
--------------------------------------
+### Chef Workstation Components and Tools
 
 Some important tools and components of Chef Workstation include:
 
@@ -164,8 +161,7 @@ Some important tools and components of Chef Workstation include:
 </tbody>
 </table>
 
-Cookbooks
-=========
+## Cookbooks
 
 {{% cookbooks_summary %}}
 
@@ -176,8 +172,7 @@ Client, enough to support many of the most common infrastructure
 automation scenarios; however, this DSL can also be extended when
 additional resources and capabilities are required.
 
-Components
-----------
+### Components
 
 Cookbooks are comprised of the following components:
 
@@ -232,18 +227,15 @@ Cookbooks are comprised of the following components:
 </tbody>
 </table>
 
-Nodes
-=====
+## Nodes
 
 {{% node %}}
 
-Node Types
-----------
+### Node Types
 
 {{% node_types %}}
 
-Chef on Nodes
--------------
+### Chef on Nodes
 
 The key components of nodes that are under management by Chef include:
 
@@ -271,8 +263,7 @@ The key components of nodes that are under management by Chef include:
 </tbody>
 </table>
 
-The Chef Infra Server
-=====================
+## The Chef Infra Server
 
 {{% chef_server %}}
 
@@ -307,8 +298,7 @@ The Chef Infra Server
 </tbody>
 </table>
 
-Policy
-------
+### Policy
 
 {{% policy_summary %}}
 
@@ -345,8 +335,7 @@ Some important aspects of policy include:
 </tbody>
 </table>
 
-Conclusion
-==========
+## Conclusion
 
 Chef is a thin DSL (domain-specific language) built on top of Ruby. This
 approach allows Chef to provide just enough abstraction to make

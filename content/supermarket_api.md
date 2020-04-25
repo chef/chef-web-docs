@@ -21,19 +21,17 @@ Supermarket API and is the recommended approach for managing cookbooks
 on that site. This document provides information about the Supermarket
 API in the event that using the API is necessary.
 
-Endpoints
-=========
+## Endpoints
 
 The Supermarket API has the following endpoints.
 
-/cookbooks
-----------
+### /cookbooks
 
 {{% cookbooks_summary %}}
 
 The `/cookbooks` endpoint has the following methods: `GET` and `POST`.
 
-### POST
+#### POST
 
 The `POST` method is used to create a new cookbook.
 
@@ -91,7 +89,7 @@ The response is similar to:
 </tbody>
 </table>
 
-### GET
+#### GET
 
 The `GET` method is used to get a listing of the available cookbooks.
 Use the `start` and `items` parameters to set limits on the number of
@@ -203,13 +201,12 @@ began:
 </tbody>
 </table>
 
-/cookbooks/NAME
----------------
+### /cookbooks/NAME
 
 The `cookbooks/[NAME]` endpoint allows a specific cookbook to be
 accessed. This endpoint has the following methods: `DELETE` and `GET`.
 
-### DELETE
+#### DELETE
 
 The `DELETE` method is used to delete a cookbook.
 
@@ -272,7 +269,7 @@ The response is similar to:
 </tbody>
 </table>
 
-### GET
+#### GET
 
 The `GET` method is used to get the details for a cookbook.
 
@@ -362,8 +359,7 @@ field (being `true`):
 </tbody>
 </table>
 
-/cookbooks/VERSION
-------------------
+### /cookbooks/VERSION
 
 A cookbook version always takes the form x.y.z, where x, y, and z are
 decimal numbers that are used to represent major (x), minor (y), and
@@ -375,7 +371,7 @@ a version 1.0.1 would be 1_0_1.
 The `/cookbooks/[VERSION]` endpoint has the following methods: `DELETE`
 and `GET`.
 
-### DELETE
+#### DELETE
 
 The `DELETE` method is used to delete a cookbook version.
 
@@ -440,7 +436,7 @@ The response is similar to:
 </tbody>
 </table>
 
-### GET
+#### GET
 
 The `GET` method is used to get a specific version of a cookbook. Use
 `latest` to get the most recent version of a cookbook.
@@ -510,15 +506,14 @@ file, its dependencies and platforms it supports and so on:
 </tbody>
 </table>
 
-/search
--------
+### /search
 
 Search performs a fuzzy, keyword search on cookbook names, cookbook
 descriptions, and the cookbook owners' usernames.
 
 The `/search` endpoint has the following methods: `GET`.
 
-### GET
+#### GET
 
 The `GET` method is used to get a list of cookbooks that match a search
 query. Use the `start` and `items` parameters to set limits on the
@@ -613,13 +608,12 @@ cookbooks began:
 </tbody>
 </table>
 
-/tools
-------
+### /tools
 
 The `tools` endpoint allows Chef Supermarket tools to be accessed. This
 endpoint has the following methods: `GET`.
 
-### GET
+#### GET
 
 The `GET` method is used to get a listing of the available tools. Use
 the `start` and `items` parameters to set limits on the number of tools
@@ -732,13 +726,12 @@ which the list of returned tools began:
 </tbody>
 </table>
 
-/tools-search
--------------
+### /tools-search
 
 The `tools` endpoint allows Chef Supermarket tools to be searched. This
 endpoint has the following methods: `GET`.
 
-### GET
+#### GET
 
 The `GET` method is used to get a list of tools that match a search
 query. Use the `start` and `items` parameters to set limits on the
@@ -836,13 +829,12 @@ began:
 </tbody>
 </table>
 
-/tools/SLUG
------------
+### /tools/SLUG
 
 The `tools/[SLUG]` endpoint allows a specific tool to be accessed. This
 endpoint has the following methods: `GET`.
 
-### GET
+#### GET
 
 The `GET` method is used to get the details for a tool.
 
@@ -900,8 +892,7 @@ markdown:
 </tbody>
 </table>
 
-/universe
----------
+### /universe
 
 The universe is the known collection of cookbooks that have been
 uploaded to Chef Supermarket. The universe is JSON data organized by
@@ -914,7 +905,7 @@ cookbooks, and then use it with Berkshelf.
 
 The `/universe` endpoint has the following methods: `GET`.
 
-### GET
+#### GET
 
 The `GET` method is used to retrieve the universe data.
 
@@ -984,13 +975,12 @@ with its location information and dependencies:
 </tbody>
 </table>
 
-/users/USERNAME
----------------
+### /users/USERNAME
 
 The `users/[USERNAME]` endpoint allows a specific Chef Supermarket user
 to be accessed. This endpoint has the following methods: `GET`.
 
-### GET
+#### GET
 
 The `GET` method is used to get the details for a user.
 

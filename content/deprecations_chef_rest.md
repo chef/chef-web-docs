@@ -10,8 +10,6 @@ aliases = "/deprecations_chef_rest.html"
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/deprecations_chef_rest.md)
 
-
-
 The `Chef::REST` class will be removed.
 
 `Chef::REST` was deprecated in Chef Client 12.7.2, and will be removed
@@ -21,8 +19,7 @@ The [Cookstyle](/workstation/cookstyle.html) cop
 [ChefDeprecations/UsesChefRESTHelpers](https://github.com/chef/cookstyle/blob/master/docs/cops_chefdeprecations.md#chefdeprecationsuseschefresthelpers)
 has been introduced to detect this deprecation.
 
-Remediation
-===========
+## Remediation
 
 If writing code designed to be run internally to Chef, for example in a
 cookbook or a knife plugin, transition to using `Chef::ServerAPI`. In

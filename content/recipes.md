@@ -16,8 +16,7 @@ aliases = ["/recipes.html"]
 
 {{% cookbooks_recipe %}}
 
-Recipe Attributes
-=================
+## Recipe Attributes
 
 {{% cookbooks_attribute %}}
 
@@ -27,8 +26,7 @@ Recipe Attributes
 
 {{< /note >}}
 
-Attribute Types
----------------
+### Attribute Types
 
 {{% node_attribute_type %}}
 
@@ -71,44 +69,37 @@ Attribute Types
 </tbody>
 </table>
 
-Attribute Persistence
----------------------
+### Attribute Persistence
 
 {{% node_attribute_persistence %}}
 
-Attribute Precedence
---------------------
+### Attribute Precedence
 
 {{% node_attribute_precedence %}}
 
-Blacklist Attributes
---------------------
+### Blacklist Attributes
 
 {{% node_attribute_blacklist %}}
 
-### Whitelist Attributes
+#### Whitelist Attributes
 
 {{% node_attribute_whitelist %}}
 
-File Methods
-============
+## File Methods
 
 {{% cookbooks_attribute_file_methods %}}
 
-Environment Variables
-=====================
+## Environment Variables
 
 {{% environment_variables_summary %}}
 
 {{< readFile_shortcode file="environment_variables_access_resource_attributes.md" >}}
 
-Work with Recipes
-=================
+## Work with Recipes
 
 The following sections show approaches to working with recipes.
 
-Use Data Bags
--------------
+### Use Data Bags
 
 {{% data_bag %}}
 
@@ -134,11 +125,11 @@ The data bag item's keys and values can be accessed with a Hash:
 my_bag['repository'] #=> 'git://github.com/company/my_app.git'
 ```
 
-### Secret Keys
+#### Secret Keys
 
 {{% data_bag_encryption_secret_key %}}
 
-### Store Keys on Nodes
+#### Store Keys on Nodes
 
 An encryption key can also be stored in an alternate file on the nodes
 that need it and specify the path location to the file inside an
@@ -158,8 +149,7 @@ mysql_creds = Chef::EncryptedDataBagItem.load('passwords', 'mysql', mysql_secret
 mysql_creds['pass'] # will be decrypted
 ```
 
-Assign Dependencies
--------------------
+### Assign Dependencies
 
 If a cookbook has a dependency on a recipe that is located in another
 cookbook, that dependency must be declared in the metadata.rb file for
@@ -184,25 +174,22 @@ Then the metadata.rb file for that cookbook would have:
 depends 'apache2'
 ```
 
-Include Recipes
----------------
+### Include Recipes
 
 {{% cookbooks_recipe_include_in_recipe %}}
 
-Reload Attributes
------------------
+### Reload Attributes
 
 {{% cookbooks_attribute_file_reload_from_recipe %}}
 
-Use Ruby
---------
+### Use Ruby
 
 Anything that can be done with Ruby can be used within a recipe, such as
 expressions (if, unless, etc.), case statements, loop statements,
 arrays, hashes, and variables. In Ruby, the conditionals `nil` and
 `false` are false; every other conditional is `true`.
 
-### Assign a value
+#### Assign a value
 
 A variable uses an equals sign (`=`) to assign a value.
 
@@ -212,7 +199,7 @@ To assign a value to a variable:
 package_name = 'apache2'
 ```
 
-### Use Case Statement
+#### Use Case Statement
 
 A case statement can be used to compare an expression, and then execute
 the code that matches.
@@ -233,7 +220,7 @@ package 'apache2' do
 end
 ```
 
-### Check Conditions
+#### Check Conditions
 
 An if expression can be used to check for conditions (true or false).
 
@@ -247,7 +234,7 @@ else
 end
 ```
 
-### Execute Conditions
+#### Execute Conditions
 
 An unless expression can be used to execute code when a condition
 returns a false value (effectively, an unless expression is the opposite
@@ -261,7 +248,7 @@ unless node['platform_version'] == '5.0'
 end
 ```
 
-### Loop over Array
+#### Loop over Array
 
 A loop statement is used to execute a block of code one (or more) times.
 A loop statement is created when `.each` is added to an expression that
@@ -277,7 +264,7 @@ To loop over an array of package names by platform:
 end
 ```
 
-### Loop over Hash
+#### Loop over Hash
 
 A hash is a collection of key-value pairs. Indexing for a hash is done
 using arbitrary keys of any object (as opposed to the indexing done by
@@ -293,8 +280,7 @@ To loop over a hash of gem package names:
 end
 ```
 
-Apply to Run-lists
-------------------
+### Apply to Run-lists
 
 A recipe must be assigned to a run-list using the appropriate name, as
 defined by the cookbook directory and namespace. For example, a cookbook
@@ -332,7 +318,7 @@ to:
 }
 ```
 
-### Chef Infra Server
+#### Chef Infra Server
 
 Use knife to add a recipe to the run-list for a node. For example:
 
@@ -355,7 +341,7 @@ run_list:
    role[ssh]
 ```
 
-### chef-solo
+#### chef-solo
 
 Use a JSON file to pass run-list details to chef-solo as long as the
 cookbook in which the recipe is located is available to the system on
@@ -374,8 +360,7 @@ To add the run-list to the node, enter the following:
 sudo chef-solo -j /etc/chef/dna.json
 ```
 
-Use Search Results
-------------------
+### Use Search Results
 
 {{% search %}}
 
@@ -400,15 +385,13 @@ template '/tmp/list_of_webservers' do
 end
 ```
 
-Use Tags
---------
+### Use Tags
 
 {{% chef_tags %}}
 
 {{% cookbooks_recipe_tags %}}
 
-End Chef Infra Client Run
--------------------------
+### End Chef Infra Client Run
 
 Sometimes it may be necessary to stop processing a recipe and/or stop
 processing the entire Chef Infra Client run. There are a few ways to do
@@ -426,7 +409,7 @@ this:
 The following sections show various approaches to ending a Chef Infra
 Client run.
 
-### return Keyword
+#### return Keyword
 
 The `return` keyword can be used to stop processing a recipe based on a
 condition, but continue processing a Chef Infra Client run. For example:
@@ -449,7 +432,7 @@ approach is useful when there is no need to continue processing, such as
 when a package cannot be installed. In this situation, it's OK for a
 recipe to stop processing.
 
-### fail/raise Keywords
+#### fail/raise Keywords
 
 In certain situations it may be useful to stop a Chef Infra Client run
 entirely by using an unhandled exception. The `raise` and `fail`
@@ -515,7 +498,7 @@ def custom_error
 end
 ```
 
-### Rescue Blocks
+#### Rescue Blocks
 
 Since recipes are written in Ruby, they can be written to attempt to
 handle error conditions using the `rescue` block.
@@ -538,7 +521,7 @@ to try to retry or otherwise handle the situation. If the `rescue` block
 is unable to handle the situation, then the `raise` keyword is used to
 specify the message to be raised.
 
-### Fatal Messages
+#### Fatal Messages
 
 A Chef Infra Client run is stopped after a fatal message is sent to the
 logger and `STDERR`. For example:
@@ -567,8 +550,7 @@ restart, but others---such as an init.d services---likely will not.
 
 {{< /note >}}
 
-node.run_state
----------------
+### node.run_state
 
 Use `node.run_state` to stash transient data during a Chef Infra Client
 run. This data may be passed between resources, and then evaluated

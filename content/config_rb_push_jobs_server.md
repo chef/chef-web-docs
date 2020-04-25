@@ -16,8 +16,7 @@ aliases = ["/config_rb_push_jobs_server.html"]
 
 {{% config_rb_push_jobs_server_summary %}}
 
-Settings
-========
+## Settings
 
 This configuration file has the following settings:
 

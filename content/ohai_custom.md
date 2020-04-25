@@ -30,8 +30,7 @@ warranty information from a vendor API
 See [About Ohai](/ohai/) for information on Ohai configuration and
 usage.
 
-Syntax
-======
+## Syntax
 
 The syntax for an Ohai plugin is as follows:
 
@@ -160,8 +159,7 @@ where
 To see the rest of the code in this plugin, go to:
 <https://github.com/chef/ohai/blob/master/lib/ohai/plugins/cloud.rb>.
 
-Ohai DSL Methods
-================
+## Ohai DSL Methods
 
 The Ohai DSL is a Ruby DSL that is used to define an Ohai plugin and to
 ensure that Ohai collects the right data at the start of every Chef
@@ -170,8 +168,7 @@ is specific to Ohai plugins. Because the Ohai DSL is a Ruby DSL,
 anything that can be done using Ruby can also be done when defining an
 Ohai plugin.
 
-collect_data
--------------
+### collect_data
 
 The `collect_data` method is a block of Ruby code that is called by Ohai
 when it runs. One (or more) `collect_data` blocks can be defined in a
@@ -210,7 +207,7 @@ where:
 -   `:platform` is the name of a platform, such as `:aix` for AIX or
     `:windows` for Microsoft Windows
 
-### Use a Mash
+#### Use a Mash
 
 Use a mash to store data. This is done by creating a new mash, and then
 setting an attribute to it. For example:
@@ -221,7 +218,7 @@ name_of_mash Mash.new
 name_of_mash[:attribute] = 'value'
 ```
 
-### Examples
+#### Examples
 
 The following examples show how to use the `collect_data` block:
 
@@ -275,8 +272,7 @@ Ohai.plugin do
 end
 ```
 
-require
--------
+### require
 
 The `require` method is a standard Ruby method that can be used to list
 files that may be required by a platform, such as an external class
@@ -326,7 +322,7 @@ When a class is an external class (and therefore should not have
 ::External::Class::Library
 ```
 
-### /common Directory
+#### /common Directory
 
 The `/common` directory stores code that is used across all Ohai
 plugins. For example, a file in the `/common` directory named
@@ -409,8 +405,7 @@ Ohai.plugin(:Virtualization) do
     end
 ```
 
-Shared Methods
---------------
+### Shared Methods
 
 A shared method defines behavior that may be used by more than one
 `collect_data` block, such as a data structure, a hash, or a mash. The
@@ -463,8 +458,7 @@ end
 
 and so on, for each of the various cloud providers.
 
-Logging
-=======
+## Logging
 
 Use the `Ohai::Log` class in an Ohai plugin to define log entries that
 are created by Ohai. The syntax for a log message is as follows:
@@ -507,8 +501,7 @@ Ohai.plugin do
 end
 ```
 
-rescue
-------
+### rescue
 
 Use the `rescue` clause to make sure that a log message is always
 provided. For example:
@@ -519,8 +512,7 @@ rescue LoadError => e
 end
 ```
 
-Examples
-========
+## Examples
 
 {{< note >}}
 
@@ -531,8 +523,7 @@ some great examples of custom Ohai plugins.
 
 The following examples show different ways of building Ohai plugins.
 
-collect_data Blocks
---------------------
+### collect_data Blocks
 
 The following Ohai plugin uses multiple `collect_data` blocks and shared
 methods to define platforms:
@@ -621,8 +612,7 @@ Ohai.plugin(:Hostname) do
 end
 ```
 
-Use a mixin Library
--------------------
+### Use a mixin Library
 
 The following Ohai example shows a plugin can use a `mixin` library and
 also depend on another plugin:
@@ -641,8 +631,7 @@ Ohai.plugin(:Os) do
 end
 ```
 
-Get Kernel Values
------------------
+### Get Kernel Values
 
 The following Ohai example shows part of a file that gets initial kernel
 attribute values:

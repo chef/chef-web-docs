@@ -24,15 +24,13 @@ Server:
 -   Regenerating a private key
 -   Viewing a user's profile
 
-chef-server-ctl
-===============
+## chef-server-ctl
 
 {{% ctl_chef_server_summary %}}
 
 {{% ctl_chef_server_user %}}
 
-org-create
-----------
+### org-create
 
 {{% ctl_chef_server_org_create %}}
 
@@ -44,8 +42,7 @@ org-create
 
 {{% ctl_chef_server_org_create_options %}}
 
-org-delete
-----------
+### org-delete
 
 {{% ctl_chef_server_org_delete %}}
 
@@ -53,8 +50,7 @@ org-delete
 
 {{% ctl_chef_server_org_delete_syntax %}}
 
-org-list
---------
+### org-list
 
 {{% ctl_chef_server_org_list %}}
 
@@ -66,8 +62,7 @@ org-list
 
 {{% ctl_chef_server_org_list_options %}}
 
-org-show
---------
+### org-show
 
 {{% ctl_chef_server_org_show %}}
 
@@ -75,8 +70,7 @@ org-show
 
 {{% ctl_chef_server_org_show_syntax %}}
 
-org-user-add
-------------
+### org-user-add
 
 {{< warning >}}
 
@@ -97,8 +91,7 @@ for the upcoming final release of Chef Server 12.
 
 {{% ctl_chef_server_org_user_add_options %}}
 
-org-user-remove
----------------
+### org-user-remove
 
 {{% ctl_chef_server_org_user_remove %}}
 
@@ -106,8 +99,7 @@ org-user-remove
 
 {{% ctl_chef_server_org_user_remove_syntax %}}
 
-user-create
------------
+### user-create
 
 {{% ctl_chef_server_user_create %}}
 
@@ -119,8 +111,7 @@ user-create
 
 {{% ctl_chef_server_user_create_options %}}
 
-user-delete
------------
+### user-delete
 
 {{% ctl_chef_server_user_delete %}}
 
@@ -128,8 +119,7 @@ user-delete
 
 {{% ctl_chef_server_user_delete_syntax %}}
 
-user-edit
----------
+### user-edit
 
 {{% ctl_chef_server_user_edit %}}
 
@@ -137,8 +127,7 @@ user-edit
 
 {{% ctl_chef_server_user_edit_syntax %}}
 
-user-list
----------
+### user-list
 
 {{% ctl_chef_server_user_list %}}
 
@@ -150,8 +139,7 @@ user-list
 
 {{% ctl_chef_server_user_list_options %}}
 
-user-show
----------
+### user-show
 
 {{% ctl_chef_server_user_show %}}
 

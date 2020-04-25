@@ -43,8 +43,7 @@ Workflow authenticates with Bitbucket with a user account over HTTP
 basic authentication. It is recommended that the connection be protected
 using SSL.
 
-Trust SSL Certificate
-=====================
+## Trust SSL Certificate
 
 Run the following steps to set up self-signed certificates for Workflow.
 
@@ -55,8 +54,7 @@ certificate or an internal certificate authority.
 
 {{< /note >}}
 
-Debian
-------
+### Debian
 
 For the Debian platform, do the following:
 
@@ -80,8 +78,7 @@ For the Debian platform, do the following:
     update-ca-certificates
     ```
 
-RHEL, Centos
-------------
+### RHEL, Centos
 
 For Red Hat Enterprise Linux (6.x and higher) and CentOS (6.x and
 higher), do the following:
@@ -130,8 +127,7 @@ higher), do the following:
     update-ca-trust extract
     ```
 
-Set up Integration
-==================
+## Set up Integration
 
 Bitbucket integration with Workflow has the following requirements:
 
@@ -143,8 +139,7 @@ Bitbucket integration with Workflow has the following requirements:
     account. This user must have full access (read/write) to the
     projects you wish to add to Workflow
 
-Add to Workflow
----------------
+### Add to Workflow
 
 In the Workflow web UI, open the SCM setup page, and then complete the
 following fields:
@@ -156,8 +151,7 @@ following fields:
 
 Then submit the form to complete this step.
 
-Remove from Workflow
---------------------
+### Remove from Workflow
 
 To remove integration with Bitbucket:
 
@@ -166,8 +160,7 @@ To remove integration with Bitbucket:
 2.  In the Workflow webui, open the **SCM Setup** page.
 3.  Click the **Remove Link** button.
 
-Update Integration
-------------------
+### Update Integration
 
 To update integration with Bitbucket:
 
@@ -176,8 +169,7 @@ To update integration with Bitbucket:
     information.
 2.  Click the **Update** button.
 
-Create a Project
-================
+## Create a Project
 
 Repeat these steps for each Bitbucket project to be added to Workflow:
 
@@ -188,8 +180,7 @@ Repeat these steps for each Bitbucket project to be added to Workflow:
     Workflow will manage creation of pull requests and merging of pull
     requests to Bitbucket.
 
-Add an Empty Project
---------------------
+### Add an Empty Project
 
 Use the following steps to add an empty project from the Workflow web
 UI:
@@ -201,8 +192,7 @@ UI:
     target branch.
 3.  Click **Save & Close**.
 
-Import Project
---------------
+### Import Project
 
 You can repeat these steps for each Bitbucket project to be added to
 Workflow:
@@ -225,8 +215,7 @@ Workflow:
 
     {{< shortcode_indent shortcode="delivery_cli_init_bitbucket_project" >}}
 
-Convert Project to Bitbucket
-----------------------------
+### Convert Project to Bitbucket
 
 To convert a project that is integrated with Workflow to one that is
 integrated with Bitbucket:
@@ -244,8 +233,7 @@ integrated with Bitbucket:
 7.  Enter the project key and the project repository name.
 8.  Click **Save and Close**.
 
-Convert Project to Workflow
----------------------------
+### Convert Project to Workflow
 
 To convert a project that is integrated with Bitbucket to one that is
 integrated with Workflow:
@@ -256,8 +244,7 @@ integrated with Workflow:
 4.  Click the **Chef Delivery** tab.
 5.  Click **Save and Close**.
 
-Update Bitbucket Project
-------------------------
+### Update Bitbucket Project
 
 To update the information for a project that is integrated with
 Bitbucket:
@@ -268,16 +255,14 @@ Bitbucket:
 4.  Edit the project key and the project repository name.
 5.  Click **Save and Close**.
 
-Workflow w/Bitbucket
-====================
+## Workflow w/Bitbucket
 
 This section describes the setup and workflow for a team member who will
 interact with a Bitbucket project that is integrated with Workflow. It
 is assumed that the initial project is created, imported, and that a
 Workflow pipeline already exists.
 
-Delivery CLI
-------------
+### Delivery CLI
 
 Perform the following steps to install the Delivery CLI and setup your
 project:
@@ -311,8 +296,7 @@ project:
     git remote add delivery $DELIVERY_CLONE_URL
     ```
 
-Create a Change
----------------
+### Create a Change
 
 Use the following steps to create a change in Workflow:
 
@@ -326,8 +310,7 @@ Use the following steps to create a change in Workflow:
 4.  Verification of changes will begin automatically and a corresponding
     pull request will be opened in Bitbucket.
 
-Code Review
------------
+### Code Review
 
 You may conduct a code review using either Workflow or Bitbucket.
 However, merging a pull request is handled by Workflow and occurs when a
@@ -342,8 +325,7 @@ To perform code review using Workflow:
 2.  Click the **Review** tab.
 3.  Browse the changes and make comments.
 
-Approve a Change
-----------------
+### Approve a Change
 
 When verification is finished in Workflow and the code has been reviewed
 and is ready to be merged, approve the change. The pull request will be
@@ -356,8 +338,7 @@ in Bitbucket.
 2.  Click the **Review** tab.
 3.  Click **Approve**.
 
-Delete a Change
----------------
+### Delete a Change
 
 When verification is finished in Workflow, the code has been reviewed,
 and it is decided the change should never be approved, delete the change

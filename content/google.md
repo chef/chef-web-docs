@@ -22,16 +22,14 @@ including computing, data storage, data analytics, and machine learning.
 This page outlines the different tools that can be used to integrate
 Chef with the Google Cloud Platform.
 
-knife-google
-============
+## knife-google
 
 [\[GitHub\]](https://github.com/chef/knife-google)
 
 This plugin gives knife the ability to create, bootstrap, and manage
 Google Compute Engine (GCE) instances.
 
-Authentication and Authorization
---------------------------------
+### Authentication and Authorization
 
 `knife-google` relies on the Google Auth Library to handle
 authentication to the Google Cloud API. The auth library expects to find
@@ -54,8 +52,7 @@ knife[:gce_project] = 'my-test-project'
 knife[:gce_zone]    = 'us-east1-b'
 ```
 
-Usage Examples
---------------
+### Usage Examples
 
 **Create a server:**
 
@@ -77,20 +74,17 @@ knife google server delete my-instance-1 my-instance-2 --purge
 knife google server list
 ```
 
-kitchen-google
-==============
+## kitchen-google
 
 [\[GitHub\]](https://github.com/test-kitchen/kitchen-google)
 
 A test kitchen driver for Google Cloud Platform.
 
-Usage Examples
---------------
+### Usage Examples
 
 The following is a basic `kitchen.yml` example:
 
-``` yaml
----
+## ``` yaml
 driver:
   name: gce
   project: mycompany-test

@@ -18,8 +18,7 @@ Chef software is supported on the various operating systems (platforms)
 listed below. To see which versions of our software we currently
 support, see the [Supported Versions](/versions/) page.
 
-Platforms
-=========
+## Platforms
 
 The sections below list the platforms that Chef Software Inc. supports.
 Support is divided into two levels:
@@ -41,10 +40,9 @@ In all cases (beyond community support), a maintenance contract with
 Chef Software Inc. is required in order to open support tickets and get
 SLA-based assistance from our support desk.
 
-Chef Infra Client
------------------
+### Chef Infra Client
 
-### Commercial Support
+#### Commercial Support
 
 The following table lists the commercially-supported platforms and
 versions for Chef Infra Client:
@@ -126,7 +124,7 @@ versions for Chef Infra Client:
 </tbody>
 </table>
 
-### Community Support
+#### Community Support
 
 The following platforms are supported only via the community:
 
@@ -187,10 +185,9 @@ The following platforms are supported only via the community:
 </tbody>
 </table>
 
-Chef Workstation
-----------------
+### Chef Workstation
 
-### Commercial Support
+#### Commercial Support
 
 The following table lists the commercially-supported platforms and
 versions for the Chef Workstation:
@@ -232,10 +229,9 @@ versions for the Chef Workstation:
 </tbody>
 </table>
 
-Chef InSpec
------------
+### Chef InSpec
 
-### Commercial Support
+#### Commercial Support
 
 The following table lists the commercially-supported platforms and
 versions for Chef InSpec:
@@ -291,10 +287,9 @@ Chef InSpec Target Mode (`inspec --target`) may be functional on
 additional platforms, versions, and architectures but are not validated
 by Chef Software, Inc.
 
-ChefDK
-------
+### ChefDK
 
-### Commercial Support
+#### Commercial Support
 
 The following table lists the commercially-supported platforms and
 versions for ChefDK:
@@ -346,7 +341,7 @@ versions for ChefDK:
 </tbody>
 </table>
 
-### Community Support
+#### Community Support
 
 The following platforms are supported only via the community:
 
@@ -377,17 +372,15 @@ The following platforms are supported only via the community:
 </tbody>
 </table>
 
-Chef Infra Server
------------------
+### Chef Infra Server
 
-### Commercial Support
+#### Commercial Support
 
 {{% adopted_platforms_server %}}
 
-Chef Automate Server
---------------------
+### Chef Automate Server
 
-### Commercial Support
+#### Commercial Support
 
 Commercial support for the [Chef Automate 2
 Server](https://automate.chef.io/docs/system-requirements/) is available
@@ -444,10 +437,9 @@ versions within the Chef Automate cluster.
 </tbody>
 </table>
 
-Chef Automate Job Runners
--------------------------
+### Chef Automate Job Runners
 
-### Commercial Support
+#### Commercial Support
 
 Chef Automate Job Runners are supported on the Commercial Support
 platforms for Chef Automate Server listed above as well as on the
@@ -475,10 +467,9 @@ following platforms:
 </tbody>
 </table>
 
-Chef Push Jobs Client
----------------------
+### Chef Push Jobs Client
 
-### Commercial Support
+#### Commercial Support
 
 The following table lists the commercially-supported platforms for the
 Chef Push Jobs client:
@@ -525,10 +516,9 @@ Chef Push Jobs client:
 </tbody>
 </table>
 
-Chef Push Jobs Server
----------------------
+### Chef Push Jobs Server
 
-### Commercial Support
+#### Commercial Support
 
 The following table lists the commercially-supported platforms for the
 Chef Push Jobs server:
@@ -565,10 +555,9 @@ Chef Push Jobs server:
 </tbody>
 </table>
 
-Chef Backend
-------------
+### Chef Backend
 
-### Commercial Support
+#### Commercial Support
 
 The following table lists the commercially-supported platforms for Chef
 Backend, the high-availability solution for Chef Infra Server:
@@ -605,10 +594,9 @@ Backend, the high-availability solution for Chef Infra Server:
 </tbody>
 </table>
 
-Chef Manage
------------
+### Chef Manage
 
-### Commercial Support
+#### Commercial Support
 
 The following table lists the commercially-supported platforms for Chef
 Manage:
@@ -645,8 +633,7 @@ Manage:
 </tbody>
 </table>
 
-Platform End-of-Life Policy
-===========================
+## Platform End-of-Life Policy
 
 Chef's products on particular platforms and versions generally reach
 end-of-life on the same date as the vendor EOL milestone for that

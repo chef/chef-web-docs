@@ -23,8 +23,7 @@ systems.
 View the [release notes](/release_notes_ohai/) for the latest
 information on Ohai.
 
-Automatic Attributes
-====================
+## Automatic Attributes
 
 {{% ohai_automatic_attribute %}}
 
@@ -38,25 +37,21 @@ Automatic Attributes
 
 {{< /note >}}
 
-Blacklist Attributes
---------------------
+### Blacklist Attributes
 
 {{% node_attribute_blacklist %}}
 
-Whitelist Attributes
---------------------
+### Whitelist Attributes
 
 {{% node_attribute_whitelist %}}
 
-Default Plugins
-===============
+## Default Plugins
 
 The following list shows the type of plugins that are included with
 Ohai. See the `ohai/lib/ohai/plugins` directory in the version of Ohai
 installed on your system for the full list:
 
-General Purpose Plugins
------------------------
+### General Purpose Plugins
 
 ``` ruby
 azure.rb
@@ -122,8 +117,7 @@ vmware.rb
 zpools.rb
 ```
 
-Platform Specific Plugins
--------------------------
+### Platform Specific Plugins
 
 ``` ruby
 aix
@@ -200,8 +194,7 @@ windows
   virtualization.rb
 ```
 
-Optional Plugins
-================
+## Optional Plugins
 
 Ohai ships several plugins that are considered optional and can be
 enabled in the [client.rb configuration file](/config_rb_client/).
@@ -218,8 +211,7 @@ enabled in the [client.rb configuration file](/config_rb_client/).
 -   <span class="title-ref">:Sysctl</span> - All sysctl values on Linux
     hosts.
 
-Enabling Optional Plugins
--------------------------
+### Enabling Optional Plugins
 
 Optional plugins can be enabled in the [client.rb configuration
 file](/config_rb_client/):
@@ -238,15 +230,13 @@ names as Symbols not Strings.
 
 {{< /note >}}
 
-Custom Plugins
-==============
+## Custom Plugins
 
 Custom Ohai plugins can be written to collect additional information
 from systems as necessary. See the [Ohai Custom
 Plugins](/ohai_custom/) docs for more information.
 
-Hints
-=====
+## Hints
 
 Ohai hints are used to tell Ohai something about the system that it is
 running on that it would not be able to discover itself. An Ohai hint
@@ -278,8 +268,7 @@ Hint files are located in the `/etc/chef/ohai/hints/` directory by
 default. Use the `Ohai.config[:hints_path]` setting in the [client.rb
 configuration file](/config_rb_client/) to customize this location.
 
-ohai Resource
-=============
+## ohai Resource
 
 A [resource](/resource/) defines the desired state for a single
 configuration item present on a node that is under management by Chef
@@ -295,8 +284,7 @@ This allows recipes that change system attributes (like a recipe that
 adds a user) to refer to those attributes later on during a Chef Infra
 Client run.
 
-Syntax
-------
+### Syntax
 
 A **ohai** resource block reloads the Ohai configuration on a node:
 
@@ -329,18 +317,15 @@ where
     type shown. See "Properties" section below for more information
     about all of the properties that may be used with this resource.
 
-Actions
--------
+### Actions
 
 {{% resource_ohai_actions %}}
 
-Properties
-----------
+### Properties
 
 {{% resource_ohai_properties %}}
 
-Examples
---------
+### Examples
 
 The following examples demonstrate various approaches for using
 resources in recipes:
@@ -353,18 +338,15 @@ resources in recipes:
 
 {{% resource_ohai_reload_after_create_user %}}
 
-ohai Command Line Tool
-======================
+## ohai Command Line Tool
 
 {{% ctl_ohai_summary %}}
 
-Options
--------
+### Options
 
 {{% ctl_ohai_options %}}
 
-Ohai Settings in client.rb
-==========================
+## Ohai Settings in client.rb
 
 {{% config_rb_ohai %}}
 

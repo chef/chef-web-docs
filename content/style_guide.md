@@ -23,16 +23,14 @@ contributing to the Chef reference documentation.
 The HTML version of the doc set can be found at
 [docs.chef.io](https://docs.chef.io).
 
-Building
-========
+## Building
 To build the docs, run the command:
 
 ``` bash
 make serve
 ```
 
-TOML Front Matter
-==================
+## TOML Front Matter
 Each page starts with [TOML front matter](https://gohugo.io/content-management/front-matter/) which contains metadata about the page and places it properly in the left navigation menu. Below is the TOML front matter for this page which you can use as a reference. Contact the Docs Team if you have any questions about properly formatting TOML front matter.
 
 ```toml
@@ -52,44 +50,36 @@ aliases = "/style_guide.html"
 +++
 ```
 
-title
-----------------
-The title of the page. This will appear at the top of the page. 
+### title
+The title of the page. This will appear at the top of the page.
 
-draft
-----------------
+### draft
 Set draft to `true` if you don't want Hugo to build the page.
 
-aliases 
-----------------
+### aliases
 Add an alias if you want Hugo to automatically redirect the user from another page to the page you are writing.
 
-menu title
-----------------
-The title of the page as it would appear in the left navigation menu. 
+### menu title
+The title of the page as it would appear in the left navigation menu.
 
-menu identifier 
-----------------
-The identifier of the page that you are writing. Each identifier must be unique. 
+### menu identifier
+The identifier of the page that you are writing. Each identifier must be unique.
 
-The convention we've adopted is to use the identifier of the page's parent, a forward slash, then the page file, a space, and then the page title. 
+The convention we've adopted is to use the identifier of the page's parent, a forward slash, then the page file, a space, and then the page title.
 
 For example, this page's parent identifier is `overview/community`, the page file is `style_guide.md` and the page title is `Docs Style Guide`, so the full page identifier is `overview/community/style_guide.md Docs Style Guide`
 
-menu parent
-----------------
-The menu identifier of the page's parent. 
+### menu parent
+The menu identifier of the page's parent.
 
 The convention we've adopted is to append the different menu levels together, separated by a forward slash, and starting with the highest level. For example, this page is nested under Overview and then Community, so the page's parent identifier is `overview/community`.
 
-menu weight
-----------------
-The rank that the page will appear in the menu, incremented by 10. Higher numbers are lower in the menu. 
+### menu weight
+The rank that the page will appear in the menu, incremented by 10. Higher numbers are lower in the menu.
 
-Section Headings
-================
+## Section Headings
 
-The following sections describe the section header pattern that Chef is
+The following sections describe the section heading pattern that Chef is
 using for topic titles, H1s, H2s, H3s and H4s.
 
 As a general rule, limit the number of heading levels to no more than
@@ -105,45 +95,36 @@ The width of header adornment must be at least equal to the length of
 the text in the header and the same width for headers is used
 everywhere. Consistent width is preferred.
 
-H1
---
+### H1
 
-If a topic requires sections, use the equals symbol (=) below the H1
-header name:
+The H1 heading is reserved for the page title which is created by the Hugo
+page template. The Markdown file text should only have H2 headings and below.
 
-    H1 Heading
-    =====================================================
+### H2
+
+Use two hash characters (##) before the header name to indicate H2 headers:
+
+    ## H2 Heading
+    
     This is the body.
 
-H2
---
-
-Use the dash symbol (-) below the header name to indicate H2 headers:
-
-    H2 Heading
-    -----------------------------------------------------
-    This is the body.
-
-H3
---
+### H3
 
 Use three hash characters (###) before the header name to indicate H3 headers:
 
     ### H3 Heading
-    
+
     This is the body.
 
-H4
---
+### H4
 
 Use four hash characters (####) before the header name to indicate H4 headers:
 
     #### H4 Heading
-    
+
     This is the paragraph.
 
-Other headers
-----------------
+### Other headings
 If you need more than four heading levels, use bold emphasis and then
 white space to make the heading text stand out and separate the heading from the content:
 
@@ -151,48 +132,44 @@ white space to make the heading text stand out and separate the heading from the
                                       # blank line
     content, as normally authored.
 
-Lists
-=====
+## Lists
 
 The following sections describe conventions for lists and tables in Chef
 docs.
 
-Bulleted Lists
---------------
+### Bulleted Lists
 
 Bulleted lists break up text blocks and draw attention to a group of
 items:
 
     - text goes here
     - text goes here
-    
-        - subitem text 
+
         - subitem text
-    
+        - subitem text
+
     - text goes here
     - text goes here
 
 Use the dash symbol (-) for bulleted lists, even though Hugo
-supports other symbols. Indent nested list items by **four** spaces. 
+supports other symbols. Indent nested list items by **four** spaces.
 
-Numbered Lists
---------------
+### Numbered Lists
 
 Numbered lists are created like this:
 
     1. text goes here
     1. text goes here
     1. text goes here
-      
+
         1. sublist text
         1. sublist text
-      
+
     1. text goes here
 
 Start each ordered list item with the number 1 (1.). Hugo will generate the correct sequence of numbers in an ordered list regardless of the numbers that you use. Only using "1." will save you from having to re-number items if you add or remove an item later.
 
-Definition Lists
-----------------
+### Definition Lists
 
 Definition lists are used to show the options available to a command
 line tool:
@@ -203,10 +180,9 @@ line tool:
     `--name-status`
     : Show only the names of files with a status of `Added`, `Deleted`, `Modified`, or `Type Changed`.
 
-Tables
-======
+## Tables
 
-Create tables in Markdown like this: 
+Create tables in Markdown like this:
 
     Chef Software | Description
     --------|------
@@ -216,54 +192,47 @@ Create tables in Markdown like this:
 
 Use three or more hyphens (---) to separate each column's header from the content of the table. Separate columns with a vertical bar or pipe (|).
 
-Inline Markup
-=============
+## Inline Markup
 Adding emphasis within text strings can be done using **bold** and
 `code strings`.
 
-Bold
-----
+### Bold
 Use two asterisks (\*) to mark a text string as **bold**:
 
     **text goes here**
 
-Code Strings
-------------
+### Code Strings
 Sometimes the name of a method or database field needs to be used inline
 in a paragraph. Use **one** backquote to mark certain strings as `code`
 within a regular string of text:
 
     `code goes here`
 
-Links
-=====
+## Links
 
 To make a link in Markdown put the page title in square brackets followed by the link in parentheses. For example this:
 
 `[Ruby Programming Language](https://www.ruby-lang.org/)`
 
-will produce this: 
+will produce this:
 
 [Ruby Programming Language](https://www.ruby-lang.org/)
 
 External links requires an HTTP address.
 
-Code Blocks
-===========
+## Code Blocks
 Code blocks are used to show code samples, such as those for Ruby, JSON,
 and command-line strings.
 
-Ruby
-----
+### Ruby
 Use this approach to show code blocks that use Ruby:
 
-    ```ruby 
+    ```ruby
     default["apache"]["dir"]          = "/etc/apache2"
     default["apache"]["listen_ports"] = [ "80","443" ]
     ```
 
-Bash
-----
+### Bash
 Use this approach to show code blocks that use any type of shell
 command, such as for Knife or the Chef Infra Client or for any other
 command-line example that may be required:
@@ -272,8 +241,7 @@ command-line example that may be required:
     $ knife data bag create admins
     ```
 
-Javascript (and JSON)
----------------------
+### Javascript (and JSON)
 Use this approach to show code blocks that use any type of JavaScript,
 including any JSON code sample:
 
@@ -287,31 +255,27 @@ including any JSON code sample:
     }
     ```
 
-Literal
--------
+### Literal
 Literals should be used sparingly, but sometimes there is a need for a
 block of text that doesn't work in a fenced code block, such as showing a directory structure, basic syntax, or pseudocode. To make a literal code block, indent the text by **four** spaces:
 
 ```
-    
+
     a block of literal text indented three spaces
     with more
     text as required to
     complete the block of text.
     end.
-    
+
 ```
 
-Repeating Text Blocks
-======================
+## Repeating Text Blocks
 Chef docs uses [shortcodes](https://gohugo.io/content-management/shortcodes/) to maintain text that appears in more than one location and must be consistent in every location.
 
-Writing a shortcode
--------------------
+### Writing a shortcode
 All shortcode files are written in **Markdown** and stored in the `layouts/shortcodes` directory in the `chef-web-docs` repo.
 
-Adding a Shortcode to a Page
-----------------------------
+### Adding a Shortcode to a Page
 
 To include a shortcode in a Markdown file, wrap the name of the shortcode file, without the file type suffix, in double curly braces and percent characters. For example, if you wanted to add the `chef.md` shortcode to a page, add the following text to the Markdown page:
 
@@ -319,8 +283,7 @@ To include a shortcode in a Markdown file, wrap the name of the shortcode file, 
 {{%/* chef */%}}
 ```
 
-Notes and Warnings
-==================
+## Notes and Warnings
 
 In general, notes and warnings are not the best way to present important
 information. Before using them ask yourself how important the
@@ -331,8 +294,7 @@ for using them is as follows.
 
 Notes and warnings are generated by bracketing the text of the note or warning in **info**, **warning** or **danger** shortcodes.
 
-Notes 
------
+### Notes
 
 ```
 {{</* note */>}}
@@ -348,8 +310,7 @@ This is a note.
 
 {{< /note >}}
 
-Warnings
---------
+### Warnings
 
 Use sparingly so that when the user sees a warning it registers appropriately:
 
@@ -365,8 +326,7 @@ What a warning looks like after it's built:
 This is a warning.
 {{< /warning >}}
 
-Danger
-------
+### Danger
 
 Danger should be used rarely and only when there are serious consequences for the user:
 
@@ -383,16 +343,14 @@ This is a danger block.
 {{< /danger >}}
 
 
-Images
-======
+## Images
 
 You have two options for formatting images in Hugo:
 
 - Markdown syntax
 - the `figure` shortcode
 
-Markdown syntax
----------------
+### Markdown syntax
 
 To add an image in Markdown, use an exclamation point, square brackets around the alt text, parenthesis around the path to the image file starting in the `static` directory, and then optional hover text. For example:
 
@@ -400,8 +358,7 @@ To add an image in Markdown, use an exclamation point, square brackets around th
 ![Alt Text](/path/to/img.png "Optional Title")
 ```
 
-Figure Shortcode
-----------------
+### Figure Shortcode
 
 The [figure shortcode](https://gohugo.io/content-management/shortcodes/#figure) allows you to specify the image size and include a title, a caption, and alternate text.
 
@@ -415,20 +372,18 @@ Which looks like this:
 
 {{< figure src="/images/chef-logo.svg" title="Chef Logo" height="100" width="150">}}
 
-Raster images should be 96 dpi and no larger than 600 pixels wide. 
+Raster images should be 96 dpi and no larger than 600 pixels wide.
 This helps ensure that the image can be printed and/or built into other output
 formats more easily; in some cases, separate 300 dpi files should be maintained
 for images that require inclusion in formats designed for printing and/or presentations.
 
-Grammar
-=======
+## Grammar
 
 Chef does not follow a specific grammar convention. Be clear and
 consistent as often as possible. Follow the established patterns in the
 docs.
 
-Tautologies
------------
+### Tautologies
 
 A tautology, when used as a description for a component, setting,
 method, etc. should be avoided. If a string is a tautology, some effort
@@ -437,8 +392,7 @@ like "Create a new user" (by its very nature, a user created **is** a
 new user) or (for a setting named `cidr_block`) "The CIDR block for the
 VPC."
 
-Documentation Repo
-==================
+## Documentation Repo
 
 The Chef reference documentation is located in: https://github.com/chef/chef-web-docs
 
@@ -451,27 +405,25 @@ In the past, the `chef-web-docs` repo contained documentation for prior
 versions of Chef components. Currently, the repo is limited to the
 current major versions of Chef components.
 
-DCO Sign-off
-------------
+### DCO Sign-off
 
 Chef Software requires all contributors to include a [Developer Certificate of Origin](https://developercertificate.org/) (DCO) sign-off with their pull request as long as the pull request does not fall under the [Obvious Fix](#obvious-fix) rule. This attests that you have the right to submit the work that you are contributing in your pull request.
 
 Our full DCO signoff policy is available here: https://github.com/chef/chef/blob/master/CONTRIBUTING.md#developer-certification-of-origin-dco
 
-A proper DCO sign-off looks like this: 
+A proper DCO sign-off looks like this:
 ```
 Signed-off-by: Julia Child <juliachild@chef.io>
 ```
 
-You can add a DCO signoff to your pull request by adding it to the text of your commit message, or by using the `-s` or `--signoff` option when you make a commit. 
+You can add a DCO signoff to your pull request by adding it to the text of your commit message, or by using the `-s` or `--signoff` option when you make a commit.
 
 If you forget to add a DCO sign-off before submitting a pull request, you can amend your commit by entering `git commit --amend -s`. After that you'll likely have to force push your commit to github by entering `git push -f`.
 
 See this [blog post](https://blog.chef.io/2016/09/19/introducing-developer-certificate-of-origin/) to understand why Chef started using the DCO signoff.
 
 
-Obvious Fix
------------
+### Obvious Fix
 
 Small contributions, such as fixing spelling errors, where the content is small enough to not be considered intellectual property, can be submitted without signing the contribution for the DCO.
 
@@ -490,8 +442,7 @@ To invoke the Obvious Fix rule, simply add `Obvious Fix.` to your commit message
 See our Obvious Fix policy here: https://github.com/chef/chef/blob/master/CONTRIBUTING.md#chef-obvious-fix-policy
 
 
-Official Names
-==============
+## Official Names
 
 For Chef applications and components, use:
 
@@ -502,16 +453,14 @@ For Chef applications and components, use:
 - Chef Infra Server (Formerly Chef Server)
 - Chef InSpec
 
-Deleting Pages or Making New Pages
-==================================
+## Deleting Pages or Making New Pages
 
-If a new page is created or an old page is deleted, they must be added or removed from the `sitemap.md` page. 
+If a new page is created or an old page is deleted, they must be added or removed from the `sitemap.md` page.
 
 In addition, pages must be placed in the left navigation menu properly. This may involve moving other pages up or down in the left navigation menu by increasing or decreasing their menu weight which is specificed in TOML front matter of each page or possibly in the `config.toml` file.
 
-Contact the documentation team if you have any questions about adding or removing pages. 
+Contact the documentation team if you have any questions about adding or removing pages.
 
-Contact
-=======
+## Contact
 
-See our [feedback](/feedback/) page if you have any questions or comments for the documentation team. 
+See our [feedback](/feedback/) page if you have any questions or comments for the documentation team.

@@ -18,8 +18,7 @@ Chef's Omnitruck API powers the Chef Software Install script as well as
 downloads.chef.io site. It can be used to query available versions of
 Chef Software Inc. products and to provide direct download URLs.
 
-Syntax
-======
+## Syntax
 
 The URL from which these downloads can be obtained has the following
 syntax:
@@ -39,8 +38,7 @@ options. Use the `metadata` option to verify the build before
 downloading it. Use the `download` option to download the package in a
 single step.
 
-Downloads
-=========
+## Downloads
 
 The `/metadata` and/or `/download` endpoints can be used to download
 packages for all products:
@@ -80,8 +78,7 @@ where:
     information about application versioning, see <https://semver.org/>.
     Default value: `latest`.
 
-Platforms
----------
+### Platforms
 
 Omnitruck accepts the following platforms:
 
@@ -176,8 +173,7 @@ Omnitruck accepts the following platforms:
 </tbody>
 </table>
 
-Examples
---------
+### Examples
 
 **Get the Latest Build**
 

@@ -9,8 +9,6 @@ aliases = "/deprecations_supports_property.html"
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/deprecations_supports_property.md)
 
-
-
 The `user` resource previously allowed a cookbook author to set policy
 for the resource in two ways. The `supports` metaproperty, which is now
 deprecated, enabled the `manage_home` and `non_unique` properties to be
@@ -19,8 +17,7 @@ set.
 The `supports` metaproperty was deprecated in Chef Client 12.14 and will
 be removed in Chef Client 13.
 
-Example
-=======
+## Example
 
 ``` ruby
 user "betty" do
@@ -31,8 +28,7 @@ user "betty" do
 end
 ```
 
-Remediation
-===========
+## Remediation
 
 Make the `manage_home` and `non_unique` settings properties rather than
 parts of the `supports` hash.

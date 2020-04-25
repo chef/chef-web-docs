@@ -16,8 +16,6 @@ aliases = ["/server_manage_roles.html"]
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/server_manage_roles.md)
 
-
-
 {{% EOL_manage %}}
 
 {{< note >}}
@@ -28,14 +26,12 @@ This topic is about using the Chef management console to manage roles.
 
 {{% role %}}
 
-Manage
-======
+## Manage
 
 Roles can be managed from the Chef management console web user
 interface.
 
-Add Role
---------
+### Add Role
 
 To add a role:
 
@@ -73,8 +69,7 @@ To add a role:
 
 9.  Click **Create Role**.
 
-Delete Role
------------
+### Delete Role
 
 To delete a role:
 
@@ -90,8 +85,7 @@ To delete a role:
 
     ![image](/images/step_manage_webui_policy_role_delete.png)
 
-View All Roles
---------------
+### View All Roles
 
 To view all roles uploaded to the Chef Infra Server organization:
 
@@ -99,23 +93,19 @@ To view all roles uploaded to the Chef Infra Server organization:
 2.  Click **Policy**.
 3.  Click **Roles**.
 
-Run-lists
-=========
+## Run-lists
 
 {{% node_run_list %}}
 
-Edit Role Run-list
-------------------
+### Edit Role Run-list
 
 {{% manage_webui_policy_role_edit_run_list %}}
 
-Default Attributes
-==================
+## Default Attributes
 
 {{% node_attribute_type_default %}}
 
-Edit Default Attributes
------------------------
+### Edit Default Attributes
 
 To edit default attributes for a role:
 
@@ -138,8 +128,7 @@ To edit default attributes for a role:
 
 8.  Click **Save Attributes**.
 
-View Default Attributes
------------------------
+### View Default Attributes
 
 To view default attributes for a role:
 
@@ -149,13 +138,11 @@ To view default attributes for a role:
 4.  Select a role.
 5.  Click the **Attributes** tab.
 
-Override Attributes
-===================
+## Override Attributes
 
 {{% node_attribute_type_override %}}
 
-Edit Override Attributes
-------------------------
+### Edit Override Attributes
 
 To edit override attributes for a role:
 
@@ -178,8 +165,7 @@ To edit override attributes for a role:
 
 8.  Click **Save Attributes**.
 
-View Override Attributes
-------------------------
+### View Override Attributes
 
 To view role details:
 
@@ -189,15 +175,13 @@ To view role details:
 4.  Select a role.
 5.  Click the **Details** tab.
 
-Permissions
-===========
+## Permissions
 
 {{% server_rbac_permissions %}}
 
 {{% server_rbac_permissions_object %}}
 
-Set
----
+### Set
 
 To set permissions list for a role object:
 
@@ -209,8 +193,7 @@ To set permissions list for a role object:
 6.  For each group listed under **Name**, select or de-select the
     **Read**, **Update**, **Delete**, and **Grant** permissions.
 
-Update
-------
+### Update
 
 To update the permissions list for a role object:
 
@@ -224,8 +207,7 @@ To update the permissions list for a role object:
 7.  Select or de-select **Read**, **Update**, **Delete**, and **Grant**
     to update the permissions list for the user or group.
 
-View
-----
+### View
 
 To view permissions for a role object:
 

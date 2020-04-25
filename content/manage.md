@@ -23,8 +23,7 @@ roles, environments, and cookbooks by using a web user interface. In
 addition, access to nodes, data bags, roles, environments, and cookbooks
 is configurable using role-based access control (RBAC).
 
-Nodes
-=====
+## Nodes
 
 {{% node %}}
 
@@ -37,8 +36,7 @@ tags](/server_manage_nodes/#manage-tags).
 
 ![image](/images/step_manage_webui_nodes.png)
 
-Search
-------
+### Search
 
 {{% search %}}
 
@@ -50,50 +48,49 @@ line tool used to manage objects on the Chef Infra Server.
 
 {{< /note >}}
 
-### Query Syntax
+#### Query Syntax
 
 {{% search_query_syntax %}}
 
-### Keys
+#### Keys
 
 {{% search_key %}}
 
-#### Nested Fields
+**Nested Fields**
 
 {{% search_key_nested %}}
 
-### About Patterns
+#### About Patterns
 
 {{% search_pattern %}}
 
-#### Exact Matching
+**Exact Matching**
 
 {{% search_pattern_exact %}}
 
-#### Wildcard Matching
+**Wildcard Matching**
 
 {{% search_pattern_wildcard %}}
 
-#### Range Matching
+**Range Matching**
 
 {{% search_pattern_range %}}
 
-#### Fuzzy Matching
+**Fuzzy Matching**
 
 {{% search_pattern_fuzzy %}}
 
-### About Operators
+#### About Operators
 
 {{% search_boolean_operators %}}
 
 {{% search_boolean_operators_andnot %}}
 
-### Special Characters
+#### Special Characters
 
 {{% search_special_characters %}}
 
-Policy
-======
+## Policy
 
 {{% policy_summary %}}
 
@@ -107,8 +104,7 @@ tags](/server_manage_nodes/#manage-tags.html).
 
 ![image](/images/step_manage_webui_policy.png)
 
-Admin
-=====
+## Admin
 
 Organizations, users, and groups can be managed from the Chef management
 console, including role-based access control for any user and group to
@@ -118,12 +114,10 @@ any of the objects saved to the Chef Infra Server.
 
 ![image](/images/step_manage_webui_admin.png)
 
-Install Chef Manage
-===================
+## Install Chef Manage
 
 {{% ctl_chef_server_install_features_download %}}
 
-Chef Manage Local Installation
-------------------------------
+### Chef Manage Local Installation
 
 {{% ctl_chef_server_install_features_manual %}}

@@ -19,8 +19,7 @@ back end and multiple load-balanced frontend servers.
 
 ![image](/images/chef_server_tiered.png)
 
-Prerequisites
-=============
+## Prerequisites
 
 Before installing the Chef Infra Server software, perform the following
 steps:
@@ -52,8 +51,7 @@ steps:
     you need to use an additional address, it will need to be configured
     and bound on the system before `chef-server-ctl reconfigure` is run.
 
-Basic Hardware Requirements
-===========================
+## Basic Hardware Requirements
 
 For a tiered deployment, your backend server should support the
 following hardware requirements:
@@ -67,8 +65,7 @@ following hardware requirements:
 -   1 GigE NIC interface
 -   A back-end server; all other systems will be front-end servers.
 
-Disk Configuration
-==================
+## Disk Configuration
 
 Persistent data on the backend server of the Chef Infra Server is
 primarily composed of cookbook files and directories. Separate disks
@@ -104,8 +101,7 @@ and:
 lvcreate -l 80%VG -n tiered opscode
 ```
 
-Mount Storage Device
---------------------
+### Mount Storage Device
 
 To build and mount the storage device on the backend server, do the
 following:
@@ -128,8 +124,7 @@ following:
     mount /dev/opscode/tiered /var/opt/opscode
     ```
 
-Backend
-=======
+## Backend
 
 Use the following steps to set up the backend Chef Infra Server:
 
@@ -152,8 +147,7 @@ Use the following steps to set up the backend Chef Infra Server:
     `/etc/opscode/` directory. See the chef-server.rb section below for
     an example of the settings and values that are required.
 
-chef-server.rb
-==============
+## chef-server.rb
 
 The chef-server.rb file that is located in the `/etc/opscode/` directory
 describes the topology of the tiered configuration. On the backend
@@ -226,8 +220,7 @@ Add the following settings to the chef-server.rb file:
 
 6.  {{% install_chef_server_reconfigure %}}
 
-Frontend
-========
+## Frontend
 
 For each frontend server, use the following steps to set up the Chef
 Infra Server:
@@ -264,8 +257,7 @@ organization:
 1.  {{% ctl_chef_server_user_create_admin %}}
 2.  {{% ctl_chef_server_org_create_summary %}}
 
-Enable Features
-===============
+## Enable Features
 
 Enable additional features of the Chef Infra Server! The packages may be
 downloaded directly as part of the installation process or they may be
@@ -321,14 +313,12 @@ Chef Manage
 
 {{% ctl_chef_server_install_features_manual %}}
 
-Reference
-=========
+## Reference
 
 The following sections show an example chef-server.rb file and a list of
 the ports that are required by the Chef Infra Server.
 
-chef-server.rb
---------------
+### chef-server.rb
 
 A completed chef-server.rb configuration file for a four server tiered
 Chef Infra Server configuration, consisting of:
@@ -409,8 +399,7 @@ server "fe3.example.com",
 api_fqdn "chef.example.com"
 ```
 
-Firewalls
----------
+### Firewalls
 
 {{% server_firewalls_and_ports_summary %}}
 
@@ -418,10 +407,10 @@ Firewalls
 
 {{% server_firewalls_and_ports_loopback %}}
 
-### Backend
+#### Backend
 
 {{% server_firewalls_and_ports_tiered %}}
 
-### Frontend
+#### Frontend
 
 {{% server_firewalls_and_ports_fe %}}

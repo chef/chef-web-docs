@@ -19,13 +19,11 @@ installation of the Chef Infra Server. See <span
 class="title-ref">Install Chef Infra Server
 \</install_server.html\></span> for installation instructions.
 
-Platforms
-=========
+## Platforms
 
 {{% adopted_platforms_server %}}
 
-Untested Platforms
-------------------
+### Untested Platforms
 
 The following platforms are not tested by Chef Software:
 
@@ -34,25 +32,21 @@ The following platforms are not tested by Chef Software:
 -   Microsoft Windows
 -   32-bit architectures
 
-Capacity Planning
-=================
+## Capacity Planning
 
 Read the [guidance around capacity
 planning](/server_overview/#capacity-planning) for information about
 how to choose the right topology for the Chef Infra Server.
 
-Hardware Requirements
-=====================
+## Hardware Requirements
 
 {{% system_requirements_server_hardware %}}
 
-Software Requirements
-=====================
+## Software Requirements
 
 {{% system_requirements_server_software %}}
 
-UIDs and GIDs
--------------
+### UIDs and GIDs
 
 The installation process for the Chef Infra Server requires the use of
 at least two user and group identifiers (UIDs and GIDs). These are used
@@ -123,10 +117,9 @@ creating them.
 
 {{< /warning >}}
 
-Firewalls
----------
+### Firewalls
 
-### iptables
+#### iptables
 
 To allow access to your Chef Infra Server on ports 80 and 443 via the
 iptables firewall, issue the following command with root privileges:
@@ -139,7 +132,7 @@ Note that you will need to make use of a tool such as
 [iptables-persistent](https://packages.ubuntu.com/xenial/admin/iptables-persistent)
 to restore your iptables rules upon reboot.
 
-### FirewallD
+#### FirewallD
 
 On RHEL and CentOS versions 7 and above, the FirewallD firewall is
 enabled by default. Issue the following command with root privileges to
@@ -149,7 +142,7 @@ open ports 80 and 443:
 firewall-cmd --permanent --zone public --add-service http && firewall-cmd --permanent --zone public --add-service https && firewall-cmd --reload
 ```
 
-### UFW
+#### UFW
 
 While UFW is installed on Ubuntu, it is not enabled by default. However,
 if you wish to use a UFW-based firewall on your Chef Infra Server, issue
@@ -159,10 +152,9 @@ the following command with root privileges to open ports 80 and 443:
 ufw allow proto tcp from any to any port 80,443
 ```
 
-Security Modules
-----------------
+### Security Modules
 
-### SELinux
+#### SELinux
 
 On CentOS and Red Hat Enterprise Linux systems, SELinux is enabled in
 enforcing mode by default. The Chef Infra Server does not have a profile
@@ -190,7 +182,7 @@ and then check the status:
 getenforce
 ```
 
-### AppArmor
+#### AppArmor
 
 On Ubuntu systems, AppArmor is enabled in enforcing mode by default.
 Chef products do not have a profile available to run under AppArmor. In
@@ -232,8 +224,7 @@ and then check the status:
 sudo apparmor_status
 ```
 
-Apache Qpid
------------
+### Apache Qpid
 
 On CentOS and Red Hat Enterprise Linux systems, the Apache Qpid daemon
 is installed by default. The Chef Infra Server uses RabbitMQ for
@@ -265,8 +256,7 @@ and then:
 chkconfig --del qpidd
 ```
 
-cron
-----
+### cron
 
 Periodic maintenance tasks are performed on the Chef Infra Server
 servers via cron and the `/etc/cron.d` directory. With certain CentOS 6
@@ -276,8 +266,7 @@ configurations, an additional step is required to install crontab:
 yum install crontabs
 ```
 
-Enterprise Linux Updates
-------------------------
+### Enterprise Linux Updates
 
 The Chef Infra Server requires an x86_64 compatible systems
 architecture. When the Chef Infra Server is installed on Red Hat
@@ -285,8 +274,7 @@ Enterprise Linux or CentOS, run `yum update` prior to installing the
 Chef Infra Server. This will ensure those platforms are fully compatible
 with this requirement.
 
-IP Addresses
-------------
+### IP Addresses
 
 Unless you intend to operate the Chef Infra Server in IPv6 mode, you
 should disable ipv6 in the system's `/etc/hosts` file by commenting out
@@ -299,8 +287,7 @@ loopback address of "::1" rather than the ipv4 loopback address of
 127.0.0.1. This will make further progress through an initial
 reconfiguration impossible.
 
-Hostnames
----------
+### Hostnames
 
 The hostname for the Chef Infra Server may be specified using a FQDN or
 an IP address. This hostname must be resolvable, be 64 characters or
@@ -331,7 +318,7 @@ configure the same value for the `bookshelf['vip']` setting prior to
 installing the Chef Infra Server. For example:
 `api_fqdn "chef.example.com"` or `api_fqdn 123.45.67.890`.
 
-### Configure Hostnames
+#### Configure Hostnames
 
 Use the following sections to verify the hostnames that is used by the
 Chef Infra Server.
@@ -424,8 +411,7 @@ the `CN` in a certificate to be no longer than 64 characters.
 
 {{< /warning >}}
 
-Mail Relay
-----------
+### Mail Relay
 
 The Chef Infra Server server uses email to send notifications for
 various events:
@@ -439,8 +425,7 @@ Configure a local mail transfer agent on the Chef Infra Server using the
 steps appropriate for the platform on which the Chef Infra Server is
 running.
 
-NTP
----
+### NTP
 
 The Chef Infra Server requires that the systems on which it is running
 be connected to Network Time Protocol (NTP), as the Chef Infra Server is
@@ -468,7 +453,7 @@ For Ubuntu:
 apt-get install ntp
 ```
 
-### Chef Infra Client
+#### Chef Infra Client
 
 The Chef Infra Server server requires that every node that is under
 management by Chef also have an accurate clock that is synchronized very
@@ -489,8 +474,7 @@ clocks are out-of-sync by more than 15 minutes. A failure will trigger a
 In this situation, re-synchronize the system clocks with the Network
 Time Protocol (NTP) server, and then re-run Chef Infra Client.
 
-Required Accounts
------------------
+### Required Accounts
 
 By default, accounts required by the Chef Infra Server are created
 during setup. If your environment has restrictions on the creation of
@@ -505,7 +489,7 @@ and group accounts as the Chef Infra Server.
 
 {{< /note >}}
 
-### Group Accounts
+#### Group Accounts
 
 The following group accounts are required:
 
@@ -528,7 +512,7 @@ The following group accounts are required:
 </tbody>
 </table>
 
-### User Accounts
+#### User Accounts
 
 The following user accounts are required:
 

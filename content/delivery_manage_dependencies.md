@@ -27,8 +27,7 @@ through the publish phase. Dependencies are tracked in Chef Automate
 because it is not safe to deploy a project in an inter-dependent test
 environment if other related projects are failing.
 
-Declare Dependencies
-====================
+## Declare Dependencies
 
 To declare a dependency, update your project's `config.json` file
 located in your local project folder at `./delivery/config.json`. Once
@@ -46,13 +45,11 @@ projects depend on them.
 If neither the **Dependencies** or **Required By** tabs are visible,
 then that particular project is not part of a declared dependency graph.
 
-Configure Dependencies
-----------------------
+### Configure Dependencies
 
 {{% delivery_config_example_dependencies_on_master %}}
 
-Dependencies and Promotion
-==========================
+## Dependencies and Promotion
 
 A key thing to remember is that dependencies impact two or more
 projects. Those projects have their own pipelines up through Acceptance,
@@ -85,8 +82,7 @@ this case, it does not matter what state those other projects are in. If
 their tests pass, Chef Automate will allow their changes to promote
 through.
 
-Handle Failures
----------------
+### Handle Failures
 
 As described above, dependency failures are breakages in your dependency
 graph, which keep the current project's pipeline from being able to ship
@@ -94,8 +90,7 @@ safely. You can see such failures as warnings on the change view in the
 Chef Automate server web UI. These failures are tracked because they
 allow Chef Automate to know which changes are safe to promote.
 
-Examples
-========
+## Examples
 
 To understand how dependency failures can affect a given project (or set
 of projects), here are some examples of different dependency failures.
@@ -119,8 +114,7 @@ projects are denoted by uppercase letters and a test failure
 corresponding to a project is denoted by with a lowercase "x". For
 example, Bx would represent a test failure in project B.
 
-Simple Break and Clear
-----------------------
+### Simple Break and Clear
 
 A change is made to project A, which causes an API incompatibility with
 project B, thus causing project B's tests to fail. To fix the problem,
@@ -160,8 +154,7 @@ made to them.
 </tbody>
 </table>
 
-Unrelated Changes
------------------
+### Unrelated Changes
 
 Again, a breaking change is made to project A. Before it can be fixed,
 someone from the other side of the company makes a change to X, which is
@@ -242,8 +235,7 @@ run-time tests in Union.
 </tbody>
 </table>
 
-Expanding the Blocked Set
--------------------------
+### Expanding the Blocked Set
 
 The same broken change is made to project A, which causes project B's
 tests to fail. This time, instead of changing project A, project B is
@@ -295,8 +287,7 @@ is fixed, at which point everything can ship.
 </tbody>
 </table>
 
-Clearing Blockages
-------------------
+### Clearing Blockages
 
 So far the examples have shown cases where there is a single set of
 blocked projects. Sometimes it makes sense to have blockages clear
@@ -347,8 +338,7 @@ what happens.
 </tbody>
 </table>
 
-Overlapping Dependencies
-------------------------
+### Overlapping Dependencies
 
 This final example describes how disjointed and broken project sets may
 merge when a new test set introduces overlap. It is similar to the

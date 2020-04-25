@@ -16,121 +16,100 @@ aliases = ["/data_bags.html"]
 
 {{% data_bag %}}
 
-Create a Data Bag
-=================
+## Create a Data Bag
 
 {{% data_bag_create %}}
 
-Using Knife
------------
+### Using Knife
 
 {{% data_bag_create_knife %}}
 
-Manually
---------
+### Manually
 
 {{% data_bag_create_manual %}}
 
-Store Data in a Data Bag
-========================
+## Store Data in a Data Bag
 
 {{% data_bag_store %}}
 
-Directory Structure
--------------------
+### Directory Structure
 
 {{% data_bag_directory_structure %}}
 
-Data Bag Items
---------------
+### Data Bag Items
 
 {{% data_bag_item %}}
 
-Encrypt a Data Bag Item
-=======================
+## Encrypt a Data Bag Item
 
 {{% data_bag_encryption %}}
 
-Encryption Versions
--------------------
+### Encryption Versions
 
 {{% data_bag_encryption_versions %}}
 
-Knife Options
--------------
+### Knife Options
 
 {{% data_bag_encryption_knife_options %}}
 
-Secret Keys
------------
+### Secret Keys
 
 {{% data_bag_encryption_secret_key %}}
 
-Encrypt
--------
+### Encrypt
 
 {{% data_bag_encryption_encrypt %}}
 
-Verify Encryption
------------------
+### Verify Encryption
 
 {{% data_bag_encryption_verify %}}
 
-Decrypt
--------
+### Decrypt
 
 {{% data_bag_encryption_decrypt %}}
 
-Edit a Data Bag Item
-====================
+## Edit a Data Bag Item
 
 {{% data_bag_edit %}}
 
-Using Knife
------------
+### Using Knife
 
 {{% knife_data_bag_edit %}}
 
 {{% knife_data_bag_edit_item %}}
 
-Using Chef Manage
------------------
+### Using Chef Manage
 
 {{% manage_webui_policy_data_bag_edit_item %}}
 
-Use Data Bags
-=============
+## Use Data Bags
 
 Data bags can be accessed in the following ways:
 
-Search
-------
+### Search
 
 {{% data_bag_search %}}
 
-Environments
-------------
+### Environments
 
 {{% data_bag_environments %}}
 
-Recipes
--------
+### Recipes
 
 {{% data_bag_recipes %}}
 
-### Load with Recipe DSL
+#### Load with Recipe DSL
 
 {{% data_bag_recipes_load_using_recipe_dsl %}}
 
-### Create and edit
+#### Create and edit
 
 {{% data_bag_recipes_edit_within_recipe %}}
 
-### Create users
+#### Create users
 
 {{% data_bag_recipes_create_users %}}
 
-chef-solo
----------
+### chef-solo
 
 {{% data_bag_chef_solo %}}

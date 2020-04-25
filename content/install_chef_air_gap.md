@@ -19,8 +19,7 @@ within an
 [air-gapped](https://en.wikipedia.org/wiki/Air_gap_(networking))
 network.
 
-Prerequisites
-=============
+## Prerequisites
 
 Since a variety of different practices are used to create an air-gapped
 network, this guide focuses solely on the implementation of Chef
@@ -41,8 +40,7 @@ software - as such, it makes the following assumptions:
         script](/install_chef_air_gap/#create-an-install-script) for
         Chef Infra Client
 
-Required cookbooks
-------------------
+### Required cookbooks
 
 This guide will link to the required cookbooks for each piece of
 software in that software's respective section, but this is a full list
@@ -54,8 +52,7 @@ For Chef Supermarket:
 -   [chef-ingredient](https://supermarket.chef.io/cookbooks/chef-ingredient)
 -   [hostsfile](https://supermarket.chef.io/cookbooks/hostsfile)
 
-Required Gems
--------------
+### Required Gems
 
 The following Ruby gems are required to install private Supermarket via
 the supermarket-omnibus-cookbook:
@@ -67,8 +64,7 @@ the supermarket-omnibus-cookbook:
 
 These should be accessible from your Gem mirror.
 
-Create an install script
-------------------------
+### Create an install script
 
 An install script is used to install Chef Infra Client when
 bootstrapping a new node. It simply pulls the Chef Infra Client package
@@ -85,8 +81,7 @@ dpkg -i chef_13.2.20-1_amd64.deb
 
 The install script should be accessible from your artifact store.
 
-Chef server
-===========
+## Chef server
 
 In this section you'll install the Chef Infra Server, and create your
 organization and user. Note that in order to configure Supermarket later
@@ -115,11 +110,9 @@ group.
 
 6.  {{< shortcode_indent shortcode="ctl_chef_server_org_create_summary">}}
 
-Chef Workstation
-================
+## Chef Workstation
 
-Install Chef Workstation
-------------------------
+### Install Chef Workstation
 
 1.  First, install the Chef Workstation [installer
     package](https://downloads.chef.io/chef-workstation). Use the
@@ -148,8 +141,7 @@ Install Chef Workstation
     scp ssh-user@chef-server.example.com:/path/to/pem/files /chef-repo/.chef/
     ```
 
-Create a bootstrap template
----------------------------
+### Create a bootstrap template
 
 By default, `knife bootstrap` uses the `chef-full` template to bootstrap
 a node. This template contains a number of useful features, but it also
@@ -213,8 +205,7 @@ custom template, and then modify the package and Ruby gem sources.
     `/etc/chef/client.rb` file that is created during bootstrap, which
     ensures that your nodes use your internal gem mirror.
 
-Configure knife
----------------
+### Configure knife
 
 Within the `.chef` directory, create a `config.rb` file and replace
 `USER` and `ORGANIZATION` with the user and organization that you
@@ -248,15 +239,13 @@ Infra Server to your trusted certificates:
 knife ssl fetch
 ```
 
-Private Supermarket
-===================
+## Private Supermarket
 
 Private Supermarket allows you to host your own internal version of the
 [Chef Supermarket](https://supermarket.chef.io) within your air-gapped
 network.
 
-Requirements
-------------
+### Requirements
 
 In this section, you will use a wrapper around the
 [supermarket-omnibus-cookbook](https://supermarket.chef.io/cookbooks/supermarket-omnibus-cookbook)
@@ -289,8 +278,7 @@ has the following requirements:
     credentials to store cookbooks in an Amazon Simple Storage Service
     (S3) bucket
 
-Configure credentials
----------------------
+### Configure credentials
 
 First, you'll configure Chef Identity credentials for Supermarket. Chef
 Identity is an OAuth 2.0 service packaged with the Chef Infra Server,
@@ -328,8 +316,7 @@ Supermarket.
     }
     ```
 
-Create a Wrapper
-----------------
+### Create a Wrapper
 
 1.  Generate the cookbook:
 
@@ -363,8 +350,7 @@ Create a Wrapper
     This ensures that the `default.rb` file in the
     `supermarket-omnibus-cookbook` is run.
 
-Define Attributes
------------------
+### Define Attributes
 
 Define the attributes for the Chef Supermarket installation and how it
 connects to the Chef Infra Server. One approach would be to hard-code
@@ -437,8 +423,7 @@ To define these attributes, do the following:
     knife cookbook upload -a
     ```
 
-Bootstrap Supermarket
----------------------
+### Bootstrap Supermarket
 
 Bootstrap the node on which Chef Supermarket is to be installed. For
 example, to bootstrap a node running Ubuntu on Amazon Web Services
@@ -481,8 +466,7 @@ When the bootstrap operation is finished, do the following:
     sudo chef-client
     ```
 
-Connect to Supermarket
-----------------------
+### Connect to Supermarket
 
 To reach the newly spun up private Chef Supermarket, the hostname must
 be resolvable from a workstation. For production use, the hostname
@@ -511,10 +495,9 @@ hostname of the Chef Supermarket server. The URI must also be correct:
 
 {{< /note >}}
 
-Configuration updates
----------------------
+### Configuration updates
 
-### Knife
+#### Knife
 
 Update the `config.rb` file on your workstation to use your private
 Supermarket:
@@ -523,7 +506,7 @@ Supermarket:
 knife[:supermarket_site] = 'https://supermarket.example.com'
 ```
 
-### Berkshelf
+#### Berkshelf
 
 If you're using Berkshelf, update your `Berksfile` to replace
 `https://supermarket.chef.io` with the URL of your private Supermarket:
@@ -532,8 +515,7 @@ If you're using Berkshelf, update your `Berksfile` to replace
 source 'https://supermarket.example.com'
 ```
 
-Upload cookbooks to Supermarket
--------------------------------
+### Upload cookbooks to Supermarket
 
 To upload new cookbooks to your private Supermarket, use the
 `knife supermarket share` command on your workstation:

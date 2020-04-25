@@ -16,12 +16,9 @@ aliases = ["/automate_azure.html"]
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/automate_azure.md)
 
-
-
 {{% cloud_azure_portal %}}
 
-Chef Automate
-=============
+## Chef Automate
 
 Chef provides a fully functional Chef Automate server that can be
 launched from the Azure Marketplace. A single VM running Chef Automate
@@ -104,8 +101,7 @@ please contact <amp@chef.io> to obtain a new license.
     knife bootstrap chef-automate-01.eastus.cloudapp.azure.com --ssh-user azure --sudo
     ```
 
-Migrate to Chef Automate on Microsoft Azure
--------------------------------------------
+### Migrate to Chef Automate on Microsoft Azure
 
 The process of migrating from an existing Chef Infra Server installation
 to the Chef Automate Azure VM image differs depending on which software
@@ -126,9 +122,7 @@ schema, after which it is migrated to the Chef Automate Azure VM image.
 After verifying that your existing Chef Infra Server installation is up
 to date, do the following to migrate to the Chef Automate Azure VM:
 
-\#.
-
-:   Backup the data on the Chef Infra Server using `knife ec backup`.
+1.  Backup the data on the Chef Infra Server using `knife ec backup`.
     This backup method will export all Chef Infra Server data into
     nested JSON files that can be used to import into the Chef Automate
     Azure VM. We must use the JSON-based backup and restore procedure
@@ -167,21 +161,21 @@ to date, do the following to migrate to the Chef Automate Azure VM:
 
     {{< /note >}}
 
-2.  Login to your Chef Automate VM and ensure that it is running the
+1.  Login to your Chef Automate VM and ensure that it is running the
     latest version of the Chef Infra Server:
 
     ``` bash
     chef-marketplace-ctl upgrade --server
     ```
 
-3.  Reconfigure Chef Automate and the Chef Infra Server
+1.  Reconfigure Chef Automate and the Chef Infra Server
 
     ``` bash
     sudo automate-ctl reconfigure
     sudo chef-server-ctl reconfigure
     ```
 
-4.  Restore the backup
+1.  Restore the backup
 
     ``` bash
     mkdir -p /tmp/chef-backup
@@ -191,7 +185,7 @@ to date, do the following to migrate to the Chef Automate Azure VM:
     /opt/opscode/embedded/bin/knife ec restore /tmp/chef-backup --with-user-sql --with-key-sql
     ```
 
-5.  Update your workstation knife configuration. Open `.chef/config.rb`
+1.  Update your workstation knife configuration. Open `.chef/config.rb`
     in a text editor and modify the `chef_server_url` with your Azure VM
     FQDN. For example:
 
@@ -213,11 +207,11 @@ to date, do the following to migrate to the Chef Automate Azure VM:
     cookbook_path            ["#{current_dir}/../cookbooks"]
     ```
 
-6.  {{% install_aws_chef_server_knife_ssl_fetch %}}
+1.  {{% install_aws_chef_server_knife_ssl_fetch %}}
 
-7.  {{% install_aws_chef_server_knife_client_list %}}
+1.  {{% install_aws_chef_server_knife_client_list %}}
 
-8.  Update the `/etc/chef/client.rb` on all of your nodes to use the new
+1.  Update the `/etc/chef/client.rb` on all of your nodes to use the new
     FQDN. For example:
 
     ``` none

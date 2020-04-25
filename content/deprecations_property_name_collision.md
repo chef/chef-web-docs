@@ -9,8 +9,6 @@ aliases = "/deprecations_property_name_collision.html"
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/deprecations_property_name_collision.md)
 
-
-
 A resource property, defined with the `property` method, conflicts with
 an already-existing property or method. This could indicate an error
 that could lead to unintended behavior.
@@ -28,8 +26,7 @@ stores a string instead, it could cause errors in your Chef run.
 A deprecation warning is logged when this occurs. In Chef Client 13,
 this will raise an exception and your Chef run will fail.
 
-Remediation
-===========
+## Remediation
 
 Modify the resource and choose a different name for the property that
 does not conflict with an already-existing method name.

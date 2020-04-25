@@ -13,8 +13,7 @@ aliases = "/plugin_community.html"
 This page lists plugins for Ohai plugins and Chef Infra Client handlers
 that are developed and maintained by the Chef community.
 
-Ohai
-====
+## Ohai
 
 {{% ohai_summary %}}
 
@@ -95,8 +94,7 @@ The following Ohai plugins are available from the open source community:
 </tbody>
 </table>
 
-Handlers
-========
+## Handlers
 
 {{% handler %}}
 

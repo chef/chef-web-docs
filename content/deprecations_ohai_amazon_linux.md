@@ -9,8 +9,6 @@ aliases = "/deprecations_ohai_amazon_linux.html"
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/deprecations_ohai_amazon_linux.md)
 
-
-
 In Ohai/Chef releases prior to Chef Client 13, Amazon Linux was
 identified as `platform_family 'rhel'`. In Ohai/Chef Client 13 and
 later, Amazon Linux will be identified as the
@@ -27,8 +25,7 @@ cookbook code and to make it more clear when cookbooks actually support
 Amazon Linux, we've created the '`amazon` platform family and removed
 Amazon Linux from the `rhel` platform family.
 
-Remediation
-===========
+## Remediation
 
 If you have a cookbook that relies on `platform_family 'rhel'` to
 support RedHat-based distributions as well as Amazon Linux, you'll need

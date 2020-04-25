@@ -14,21 +14,18 @@ aliases = ["/fips.html"]
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/fips.md)
 
-What is FIPS?
-=============
+## What is FIPS?
 
 {{% fips_intro %}}
 
-Who should enable FIPS?
------------------------
+### Who should enable FIPS?
 
 You may be legally required to enable FIPS if you are a United States
 non-military government agency, or are contracting with one. If you are
 not sure if you need to enable FIPS, please check with your compliance
 department.
 
-Who shouldn't enable FIPS?
---------------------------
+### Who shouldn't enable FIPS?
 
 You will only need to enable FIPS if you are a US non-military
 government agency, or contracting with one, and you are contractually
@@ -40,8 +37,7 @@ security standards even without FIPS, and FIPS prevents the use of
 certain hashing algorithms you might want to use, so we only recommend
 enabling FIPS if it is contractually necessary.
 
-Supported Products
-==================
+## Supported Products
 
 **Supported:**
 
@@ -59,11 +55,9 @@ FIPS mode is not supported for Chef Infra Server add-ons. This includes:
 -   Chef Manage
 -   Push Jobs
 
-How to enable FIPS mode in the Operating System
-===============================================
+## How to enable FIPS mode in the Operating System
 
-FIPS kernel settings
---------------------
+### FIPS kernel settings
 
 Windows and Red Hat Enterprise Linux can both be configured for FIPS
 mode using a kernel-level setting. After FIPS mode is enabled at the
@@ -86,18 +80,15 @@ To enable FIPS on your platform follow these instructions:
     7](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Security_Guide/chap-Federal_Standards_and_Regulations.html#sec-Enabling-FIPS-Mode)
 -   [Windows](https://technet.microsoft.com/en-us/library/cc750357.aspx)
 
-How to enable FIPS mode for the Chef Infra Server
-=================================================
+## How to enable FIPS mode for the Chef Infra Server
 
-Prerequisites
--------------
+### Prerequisites
 
 -   Supported Systems - CentOS or Red Hat Enterprise Linux 6 or 7
 -   Chef Server version <span class="title-ref">12.13.0</span> or
     greater
 
-Configuration
--------------
+### Configuration
 
 If you have FIPS compliance enabled at the kernel level and install or
 reconfigure the Chef Infra Server then it will default to running in
@@ -108,16 +99,13 @@ to the `/etc/opscode/chef-server.rb` and reconfigure. For more
 configuration information see [Chef
 Server](/config_rb_server_optional_settings/).
 
-How to enable FIPS mode for the Chef Client
-===========================================
+## How to enable FIPS mode for the Chef Client
 
-Prerequisites
--------------
+### Prerequisites
 
 -   Supported Systems - CentOS or Red Hat Enterprise Linux 6 or later
 
-Configuration
--------------
+### Configuration
 
 If you have FIPS compliance enabled at the kernel level then Chef Infra
 Client will default to running in FIPS mode. Otherwise you can add
@@ -127,11 +115,9 @@ Client will default to running in FIPS mode. Otherwise you can add
 
 {{% knife_bootstrap_node_fips %}}
 
-How to enable FIPS mode for workstations
-========================================
+## How to enable FIPS mode for workstations
 
-Prerequisites
--------------
+### Prerequisites
 
 -   Supported Systems - Windows, CentOS and Red Hat Enterprise Linux
 
@@ -165,10 +151,9 @@ will not work with FIPS enabled without re-running the installer.
 
 {{< /note >}}
 
-Architecture Overview
-=====================
+## Architecture Overview
 
-<img src="/images/automate-fips.png" class="align-center" width="600" alt="image" />
+![](/images/automate-fips.png)
 
 When Automate is running in FIPS mode, it uses stunnel to stand up
 encrypted tunnels between servers and clients to carry traffic generated
@@ -178,8 +163,7 @@ is stood up prior to a request and torn down thereafter. Enabling FIPS
 in Chef Automate disables its git server and isolates it on localhost,
 where it listens for stunnel traffic over port 8989.
 
-Certificate Management
-======================
+## Certificate Management
 
 If you are using a certificate purchased from a well-known certificate
 authority then no additional configuration should be required.
@@ -252,8 +236,7 @@ Any time this certificate changes you must re-run this process.
     automate-ctl install-runner [server fqdn] [ssh user] --fips-custom-cert-filename path/to/your/certificate-chain.pem [other options...]
     ```
 
-Troubleshooting
-===============
+## Troubleshooting
 
 If you experience configuration errors, check the Chef Automate
 configuration by running `delivery status` from any client machine. This
@@ -292,8 +275,7 @@ fips_git_port = "OPEN_PORT"
 
 Replace OPEN_PORT with any port that is free on your machine.
 
-Unable to run any delivery commands when FIPS is enabled
---------------------------------------------------------
+### Unable to run any delivery commands when FIPS is enabled
 
 1.  Confirm FIPS is enabled on Chef Automate with `delivery status`. You
     should see `FIPS Mode: enabled`.
@@ -325,14 +307,12 @@ Unable to run any delivery commands when FIPS is enabled
     PS C:\Users\user\example-project> delivery review # will restart the tunnel on the next execution
     ```
 
-Self-signed certificate or custom certificate authority
--------------------------------------------------------
+### Self-signed certificate or custom certificate authority
 
 See the section on [Certificate
 Management](/fips/#certificate-management).
 
-Nothing above has helped
-------------------------
+### Nothing above has helped
 
 If you continue to have issues you should include the following logs
 with your support request:

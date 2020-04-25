@@ -15,23 +15,21 @@ aliases = ["/azure_powershell.html"]
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/azure_powershell.md)
 
-PowerShell
-==========
+## PowerShell
 
-PowerShell Cmdlets
-------------------
+### PowerShell Cmdlets
 
 If Windows PowerShell is installed on the workstation, along with the
 Azure Chef Extension, the `Get-AzureVMChefExtension` and
 `Set-AzureVMChefExtension` extensions may be used to manage Chef running
 on virtual machines in Microsoft Azure.
 
-### Get-AzureVMChefExtension
+#### Get-AzureVMChefExtension
 
 Use the `Get-AzureVMChefExtension` cmdlet to get the details for the
 Azure Chef Extension that is running on the named virtual machine.
 
-#### Syntax
+**Syntax**
 
 This cmdlet has the following syntax:
 
@@ -39,7 +37,7 @@ This cmdlet has the following syntax:
 Get-AzureVMChefExtension -VM <string>
 ```
 
-#### Example
+**Example**
 
 The following examples show how to use the `Get-AzureVMChefExtension`
 cmdlet:
@@ -50,12 +48,12 @@ cmdlet:
 Get-AzureVM -ServiceName cloudservice1 -Name azurevm1 | Get-AzureVMExtension
 ```
 
-### Set-AzureVMChefExtension
+#### Set-AzureVMChefExtension
 
 Use the `Set-AzureVMChefExtension` cmdlet to enable Chef on any virtual
 machine running on Microsoft Azure.
 
-#### Syntax
+**Syntax**
 
 This cmdlet has the following syntax.
 
@@ -71,7 +69,7 @@ For Linux:
 Set-AzureVMChefExtension -Linux -ValidationPem <String> -VM <IPersistentVM> [-ChefServerUrl <String> ] [-ClientRb <String> ] [-OrganizationName <String> ] [-RunList <String> ] [-ValidationClientName <String> ] [-Version <String> ] [ <CommonParameters>]
 ```
 
-#### Options
+**Options**
 
 This cmdlet has the following options:
 
@@ -141,7 +139,7 @@ This cmdlet has the following options:
 
 :   Sets the Azure Chef Extension to run Microsoft Windows.
 
-#### Examples
+**Examples**
 
 The following examples show how to use the `Set-AzureVMChefExtension`
 cmdlet:

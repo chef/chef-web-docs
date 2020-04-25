@@ -30,8 +30,7 @@ cookbook sharing method of your choice:
 
 {{< /note >}}
 
-Create a Hosted Chef Account
-============================
+## Create a Hosted Chef Account
 
 1.  Go to the [Hosted Chef signup page](https://manage.chef.io/signup)
     and enter the requested information to create your account.
@@ -48,8 +47,7 @@ Create a Hosted Chef Account
 
     ![image](/images/download_starter_kit.png)
 
-Share Cookbooks via Stove
-=========================
+## Share Cookbooks via Stove
 
 [Stove](https://github.com/sethvargo/stove) is a cookbook release
 utility that keeps the upload process localized to the cookbook itself,
@@ -92,8 +90,7 @@ install Stove separately.
     the cookbook's metadata, and will push that tag to the Git remote;
     Use `stove --no-git` to disable this feature.
 
-Share Cookbooks via Knife
-=========================
+## Share Cookbooks via Knife
 
 Use the [knife supermarket](/workstation/knife_supermarket/) command to upload
 cookbooks to the Supermarket via Knife. In this section you'll configure

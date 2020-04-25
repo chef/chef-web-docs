@@ -38,8 +38,7 @@ All commands must be run as `sudo`.
 
 {{% delivery_ctl_note %}}
 
-cleanse
-=======
+## cleanse
 
 The `cleanse` subcommand is used to re-set the Chef Automate server to
 the state it was in prior to the first time the `reconfigure` subcommand
@@ -59,13 +58,11 @@ This subcommand has the following syntax:
 automate-ctl cleanse
 ```
 
-create-backup
-=============
+## create-backup
 
 {{% automate_ctl_create_backup %}}
 
-create-enterprise
-=================
+## create-enterprise
 
 The `create-enterprise` subcommand is used to create a Chef Automate
 enterprise. A public key is required.
@@ -84,8 +81,7 @@ The `ENT_NAME` value must be alphanumeric.
 
 {{< /note >}}
 
-create-user
-===========
+## create-user
 
 The `create-user` subcommand is used to create a user. (The validation
 key for the organization may be returned to `STDOUT` when creating a
@@ -105,8 +101,7 @@ automate-ctl create-user ENT-NAME USER-NAME --password [PASSWORD] --password-fil
 automate-ctl create-user enterprise john_smith --password my_password --roles reviewer,committer
 ```
 
-create-users
-============
+## create-users
 
 The `create-users` subcommand is used to create one or more users from a
 TSV file.
@@ -125,8 +120,7 @@ automate-ctl create-user TSV-FILE-PATH
 automate-ctl create-user MyUserList.TSV
 ```
 
-data-summary
-============
+## data-summary
 
 New in Chef Automate 1.6.192.
 
@@ -197,8 +191,7 @@ automate-ctl data-summary -f json
 {"cluster":{"name":"chef-insights","nodes":[{"es_cpu_percent":0,"es_max_file_descriptors":50000,"es_open_file_descriptors":219,"os_cpu_percent":3,"es_mem_total_virtual_in_b":4892397568,"fs_free_in_b":38063587328,"fs_total_in_b":63381999616,"jvm_heap_max_in_b":1064042496,"jvm_heap_used_in_b":250139784,"jvm_non_heap_used_in_b":89278448,"os_mem_total_in_b":4397072384,"os_mem_used_in_b":3916091392}],"averages":{"es_cpu_percent":0,"es_max_file_descriptors":50000,"es_open_file_descriptors":219,"os_cpu_percent":3,"es_mem_total_virtual_in_b":4892397568,"fs_free_in_b":38063587328,"fs_total_in_b":63381999616,"jvm_heap_max_in_b":1064042496,"jvm_heap_used_in_b":250139784,"jvm_non_heap_used_in_b":89278448,"os_mem_total_in_b":4397072384,"os_mem_used_in_b":3916091392}},"indices":{"totals":{"converges":2,"deleted_nodes":0,"docs":22,"indices":5,"inspec_summaries":1,"nodes":1,"size_in_bytes":502067},"insights":{"totals":{"converges":2,"docs":2,"indices":1,"size_in_b":229142},"averages":{"converges":2,"docs":2,"size_in_b":229142},"indices":[{"converges":2,"docs":2,"size_in_b":229142}]},"compliance":{"totals":{"docs":19,"indices":1,"inspec_summaries":1,"size_in_b":23333},"averages":{"docs":19,"inspec_summaries":1,"size_in_b":23333},"indices":[{"docs":19,"inspec_summaries":1,"size_in_b":23333}]},"node_state":{"totals":{"deleted_nodes":0,"docs":1,"nodes":1,"size_in_b":249592}}}}
 ```
 
-Explanation of fields
----------------------
+### Explanation of fields
 
 `cluster`
 
@@ -286,8 +279,7 @@ Explanation of fields
 
 :   The total size of the index or indices in bytes.
 
-delete-backups
-==============
+## delete-backups
 
 The `delete-backups` subcommand is used to delete Chef Automate backup
 archives and Elasticsearch snapshots. The command matches a given
@@ -320,8 +312,7 @@ Deleting all backup archives and snapshots from October, 2016:
 
 :   `automate-ctl delete-backups 2016-10-.+-chef-automate-backup --force`
 
-delete-elasticsearch-lock
-=========================
+## delete-elasticsearch-lock
 
 The `delete-elasticsearch-lock` subcommand is used to delete the
 exclusive Elasticsearch lock document that is used by several of Chef
@@ -356,8 +347,7 @@ Removing the Elasticsearch lock before the process completes can cause race cond
 yes
 ```
 
-delete-enterprise
-=================
+## delete-enterprise
 
 The `delete-enterprise` subcommand is used to delete a Chef Automate
 enterprise.
@@ -376,8 +366,7 @@ automate-ctl delete-enterprise ENT_NAME
 automate-ctl delete-enterprise pedant-testing-org
 ```
 
-delete-project
-==============
+## delete-project
 
 The `delete-project` subcommand is used to delete a Chef Automate
 project.
@@ -390,8 +379,7 @@ This subcommand has the following syntax:
 automate-ctl delete-project ENT_NAME ORG_NAME PROJECT_NAME
 ```
 
-delete-user
-===========
+## delete-user
 
 The `delete-user` subcommand is used to delete a user.
 
@@ -409,8 +397,7 @@ automate-ctl delete-user ENT_NAME USER_NAME
 automate-ctl delete-user ENT_NAME john_smith
 ```
 
-delete-runner
-=============
+## delete-runner
 
 The `delete-runner` subcommand deletes a remote node configured as a job
 runner, which was used by Chef Automate to run phase jobs. For more
@@ -453,8 +440,7 @@ are configured.
 automate-ctl install-runner runner-hostname.mydomain.co -e myenterprise
 ```
 
-delete-node
-===========
+## delete-node
 
 The `delete-node` subcommand is used to delete a node and it's
 corresponding history from Chef Automate. The user must provide some
@@ -513,8 +499,7 @@ Do you wish to proceed? (yes/no):
 yes
 ```
 
-doctor
-======
+## doctor
 
 The `doctor` command validates the configuration files.
 
@@ -526,8 +511,7 @@ This subcommand has the following syntax:
 automate-ctl doctor
 ```
 
-gather-logs
-===========
+## gather-logs
 
 The `gather-logs` command is used to collect the logs from Chef Automate
 into a compressed file archive. It will create a tbz2 file in the
@@ -553,8 +537,7 @@ space.
 
 {{< /warning >}}
 
-generate-password-reset-token
-=============================
+## generate-password-reset-token
 
 The `generate-password-reset-token` command is used to unset the
 password for an existing Chef Automate user, and generate a token that
@@ -586,8 +569,7 @@ Password reset with token successful. Go to this URL to set a new password:
 URL: https://automate.fqdn/e/Chef/#/reset-password/admin/nzfcEPQULoY0NR-xg7OxxBl5Q3htausWXY92GskR3ZE
 ```
 
-help
-====
+## help
 
 The `help` subcommand is used to print a list of all available
 `automate-ctl` commands.
@@ -598,8 +580,7 @@ This subcommand has the following syntax:
 automate-ctl help
 ```
 
-install-build-node
-==================
+## install-build-node
 
 THe `install-build-node` subcommand configures a named node too act as a
 build node in a delivery cluster. For more information on delivery,
@@ -628,8 +609,7 @@ automate-ctl install-build-node [options]
      -e, --enterprise ENTERPRISE      Enterprise to use (necessary for job dispatch version or v2)
 ```
 
-install-runner
-==============
+## install-runner
 
 The `install-runner` subcommand configures a remote node as a job
 runner, which are used by Chef Automate to run phase jobs. For more
@@ -719,8 +699,7 @@ ssh access, and a Sudo password.
 automate-ctl install-runner runner-hostname.mydomain.co ubuntu -v 0.18.30 -p my_password -i ~/.ssh/id_rsa
 ```
 
-list-backups
-============
+## list-backups
 
 The `list-backups` subcommand is used to list Chef Automate backup
 archives and Elasticsearch snapshots.
@@ -742,8 +721,7 @@ Return a list all backups as JSON:
 
 :   `automate-ctl list-backups --format json`
 
-list-enterprises
-================
+## list-enterprises
 
 The `list-enterprises` subcommand is used to list all of the enterprises
 currently present on the Chef Automate server.
@@ -756,8 +734,7 @@ This subcommand has the following syntax:
 automate-ctl list-enterprises
 ```
 
-list-users
-==========
+## list-users
 
 The `list-users` subcommand is used to view a list of users.
 
@@ -769,8 +746,7 @@ This subcommand has the following syntax:
 automate-ctl list-users ENT_NAME
 ```
 
-migrate-change-description
-==========================
+## migrate-change-description
 
 The `migrate-change-description` subcommand is used to migrate the
 change description live run.
@@ -783,8 +759,7 @@ This subcommand has the following syntax:
 automate-ctl migrate-change-description ENT_NAME ORG_NAME PROJECT_NAME CHANGE
 ```
 
-migrate-change-description-dry-run
-==================================
+## migrate-change-description-dry-run
 
 The `migrate-change-description-dry-run` subcommand is used to execute a
 dry run migration of the change description.
@@ -797,8 +772,7 @@ This subcommand has the following syntax:
 automate-ctl migrate-change-description-dry-run ENT_NAME ORG_NAME PROJECT_NAME CHANGE
 ```
 
-migrate-compliance
-==================
+## migrate-compliance
 
 The `migrate-compliance` subcommand is used to execute the migration of
 compliance data for the purpose of synchronising the `compliance-latest`
@@ -815,8 +789,7 @@ automate-ctl migrate-compliance [options]
    -debug          Turn on debug logging
 ```
 
-migrate-github-project
-======================
+## migrate-github-project
 
 The `migrate-github-project` subcommand is used to execute migration of
 a project to a new GitHub integration.
@@ -829,8 +802,7 @@ This subcommand has the following syntax:
 automate-ctl migrate-github-project (ENTERPRISE | ENTERPRISE ORG | ENTERPRISE ORG PROJECT)
 ```
 
-migrate-patchset-diffs
-======================
+## migrate-patchset-diffs
 
 The `migrate-patchset-diffs` subcommand is used to update patchset diffs
 to include numstat.
@@ -843,8 +815,7 @@ This subcommand has the following syntax:
 automate-ctl migrate-patchset-diffs ENT_NAME ORG_NAME PROJECT_NAME PATCHSET_DIFF
 ```
 
-migrate-patchset-diffs-dry-run
-==============================
+## migrate-patchset-diffs-dry-run
 
 The `migrate-patchset-diffs-dry-run` subcommand is used to execute a dry
 run update of patchset diffs to include numstat.
@@ -857,8 +828,7 @@ This subcommand has the following syntax:
 automate-ctl migrate-patchset-diffs-dry-run ENT_NAME ORG_NAME PROJECT_NAME PATCHSET_DIFF
 ```
 
-node-summary
-============
+## node-summary
 
 The `node-summary` subcommand produces a summary of the nodes that are
 known to Chef Automate.
@@ -915,8 +885,7 @@ automate-ctl node-summary --format json
 ]
 ```
 
-Explanation of fields
----------------------
+### Explanation of fields
 
 `chef_version`
 
@@ -1001,8 +970,7 @@ Explanation of fields
 :   EC2 information discovered by ohai on the node. This field is only
     populated in Chef Automate instances that are running on EC2
 
-preflight-check
-===============
+## preflight-check
 
 The `preflight-check` subcommand is used to check for common problems in
 your infrastructure environment before setup and configuration of Chef
@@ -1016,8 +984,7 @@ This subcommand has the following syntax:
 automate-ctl preflight-check
 ```
 
-reconfigure
-===========
+## reconfigure
 
 The `reconfigure` subcommand is used to reconfigure the Chef Automate
 server after changes are made to the delivery configuration file,
@@ -1035,8 +1002,7 @@ This subcommand has the following syntax:
 automate-ctl reconfigure
 ```
 
-rename-enterprise
-=================
+## rename-enterprise
 
 The `rename-enterprise` subcommand is used to rename an existing Chef
 Automate enterprise.
@@ -1049,8 +1015,7 @@ This subcommand has the following syntax:
 automate-ctl rename-enterprise CURRENT_ENT_NAME NEW_ENT_NAME
 ```
 
-reset-password
-==============
+## reset-password
 
 The `reset-password` command is used to reset the password for an
 existing Chef Automate user.
@@ -1063,8 +1028,7 @@ This subcommand has the following syntax:
 automate-ctl reset-password ENTERPRISE_NAME USER_NAME NEW_PASSWORD
 ```
 
-restore-backup
-==============
+## restore-backup
 
 The `restore-backup` subcommand is used to restore Chef Automate backup
 archives and Elasticsearch snapshots.
@@ -1121,8 +1085,7 @@ archive path.
     `automate-ctl restore-backup 2016-10-14-08-38-55-chef-automate-backup`
     `automate-ctl restore-backup us-east-1:your-s3-bucket:2016-10-14-08-38-55-chef-automate-backup.zst --no-census --no-license --no-config`
 
-revoke-token
-============
+## revoke-token
 
 The `revoke-token` subcommand is used to revoke a user's token.
 
@@ -1134,8 +1097,7 @@ This subcommand has the following syntax:
 automate-ctl revoke-token ENT_NAME USER_NAME
 ```
 
-show-config
-===========
+## show-config
 
 The `show-config` subcommand is used to view the configuration that will
 be generated by the `reconfigure` subcommand. This command is most
@@ -1150,8 +1112,7 @@ This subcommand has the following syntax:
 automate-ctl show-config
 ```
 
-setup
-=====
+## setup
 
 The `setup` subcommand is used to configure the Chef Automate Server.
 
@@ -1173,8 +1134,7 @@ automate-ctl setup [options]
      --[no-]configure             Apply configuration changes automatically after Chef Automate Server setup completes.
 ```
 
-telemetry
-=========
+## telemetry
 
 The `telemetry` subcommand is used in conjunction with additional
 subcommands to enable, disable, or show the status of telemetry on the
@@ -1194,8 +1154,7 @@ Enable telemetry: `automate-ctl telemetry enable`
 
 Disable telemetry: `automate-ctl telemetry disable`
 
-uninstall
-=========
+## uninstall
 
 The `uninstall` subcommand is used to remove the Chef Automate
 application, but without removing any of the data. This subcommand will
@@ -1214,8 +1173,7 @@ To revert the `uninstall` subcommand, run the `reconfigure` subcommand
 
 {{< /note >}}
 
-update-project-hooks
-====================
+## update-project-hooks
 
 The `update-project-hooks` subcommand is used to update git hooks for
 all projects.
@@ -1228,13 +1186,11 @@ This subcommand has the following syntax:
 automate-ctl update-project-hooks ENT_NAME ORG_NAME PROJECT_NAME
 ```
 
-Service Subcommands
-===================
+## Service Subcommands
 
 {{% ctl_common_service_subcommands %}}
 
-graceful-kill
--------------
+### graceful-kill
 
 The `kill` subcommand is used to send a `SIGKILL` to all services. This
 command can also be run for an individual service by specifying the name
@@ -1249,8 +1205,7 @@ automate-ctl kill name_of_service
 where `name_of_service` represents the name of any service that is
 listed after running the `service-list` subcommand.
 
-hup
----
+### hup
 
 The `hup` subcommand is used to send a `SIGHUP` to all services. This
 command can also be run for an individual service by specifying the name
@@ -1265,8 +1220,7 @@ automate-ctl hup name_of_service
 where `name_of_service` represents the name of any service that is
 listed after running the `service-list` subcommand.
 
-int
----
+### int
 
 The `int` subcommand is used to send a `SIGINT` to all services. This
 command can also be run for an individual service by specifying the name
@@ -1281,8 +1235,7 @@ automate-ctl int name_of_service
 where `name_of_service` represents the name of any service that is
 listed after running the `service-list` subcommand.
 
-kill
-----
+### kill
 
 The `kill` subcommand is used to send a `SIGKILL` to all services. This
 command can also be run for an individual service by specifying the name
@@ -1297,8 +1250,7 @@ automate-ctl kill name_of_service
 where `name_of_service` represents the name of any service that is
 listed after running the `service-list` subcommand.
 
-once
-----
+### once
 
 The supervisor for the Chef Automate server is configured to restart any
 service that fails, unless that service has been asked to change its
@@ -1321,8 +1273,7 @@ automate-ctl once name_of_service
 where `name_of_service` represents the name of any service that is
 listed after running the `service-list` subcommand.
 
-restart
--------
+### restart
 
 The `restart` subcommand is used to restart all services enabled on the
 Chef Automate server, or to restart an individual service by specifying
@@ -1342,8 +1293,7 @@ successfully restarted the output should be similar to:
 ok: run: service_name: (pid 12345) 1s
 ```
 
-service-list
-------------
+### service-list
 
 The `service-list` subcommand is used to display a list of all available
 services. A service that is enabled is labeled with an asterisk (\*).
@@ -1354,8 +1304,7 @@ This subcommand has the following syntax:
 automate-ctl service-list
 ```
 
-start
------
+### start
 
 The `start` subcommand is used to start all services that are enabled in
 the Chef Automate server. This command can also be run for an individual
@@ -1385,8 +1334,7 @@ is not responding, use a command like the `kill` subcommand to stop the
 process, investigate the cause (if required), and then use the `start`
 subcommand to re-enable it.
 
-status
-------
+### status
 
 The `status` subcommand is used to show the status of all services
 available to the Chef Automate server. The results will vary based on
@@ -1443,7 +1391,7 @@ run: opscode-expander: (pid 4078) 13694s; run: log: (pid 4077) 13694s
 run: opscode-expander-reindexer: (pid 4130) 13692s; run: log: (pid 4114) 13692s
 ```
 
-### Log Files
+#### Log Files
 
 A typical status line for a service that is running any of the Chef
 Automate server front-end services is similar to the following:
@@ -1479,8 +1427,7 @@ where
     state and that the supervisor would attempt to restart this service
     after a reboot
 
-stop
-----
+### stop
 
 The `stop` subcommand is used to stop all services enabled on the Chef
 Automate server. This command can also be run for an individual service
@@ -1520,8 +1467,7 @@ ok: down: rabbitmq: 388s, normally up
 ok: down: redis_lb: 387s, normally up
 ```
 
-tail
-----
+### tail
 
 The `tail` subcommand is used to follow all of the Chef Automate server
 logs for all services. This command can also be run for an individual
@@ -1536,8 +1482,7 @@ automate-ctl tail name_of_service
 where `name_of_service` represents the name of any service that is
 listed after running the `service-list` subcommand.
 
-term
-----
+### term
 
 The `term` subcommand is used to send a `SIGTERM` to all services. This
 command can also be run for an individual service by specifying the name
@@ -1552,12 +1497,10 @@ automate-ctl term name_of_service
 where `name_of_service` represents the name of any service that is
 listed after running the `service-list` subcommand.
 
-usr1
-----
+### usr1
 
 The `usr1` subcommand is used to send the services a USR1.
 
-usr2
-----
+### usr2
 
 The `usr2` subcommand is used to send the services a USR2.
