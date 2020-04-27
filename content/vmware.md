@@ -299,7 +299,8 @@ cookbook](https://github.com/jjasghar/vsphere_testing) that attempts to
 capture everything required. The following is a basic `kitchen.yml`
 example:
 
-### ``` yaml
+``` yaml
+---
 driver:
 name: vsphere
 driver_options:

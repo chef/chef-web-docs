@@ -84,7 +84,8 @@ A test kitchen driver for Google Cloud Platform.
 
 The following is a basic `kitchen.yml` example:
 
-## ``` yaml
+``` yaml
+---
 driver:
   name: gce
   project: mycompany-test
