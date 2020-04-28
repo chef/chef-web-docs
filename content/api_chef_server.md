@@ -2661,8 +2661,7 @@ The `/containers/Name` endpoint has the following methods: `DELETE`, `GET`.
 
 ### DELETE
 
-The `DELETE` method is used to remove a containers.
->>>>>>> Add 3 methods to the the containers end point
+The `DELETE` method is used to remove a container.
 
 This method has no parameters.
 
