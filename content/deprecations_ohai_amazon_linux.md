@@ -17,7 +17,7 @@ later, Amazon Linux will be identified as the
 `platform_family 'amazon'`. When Amazon Linux was created it closely
 mirrored the structure and package naming of RHEL 5, and with the
 release of RHEL 6 Amazon Linux moved to closely resemble RHEL 6. With
-the release of RHEL 7 RedHat switched to the systemd init system,
+the release of RHEL 7 Red Hat switched to the systemd init system,
 however Amazon Linux has not yet decided to make that same switch. In
 addition to the init system differences, Amazon Linux has added many
 critical packages with their own unique naming conventions. This makes
@@ -31,7 +31,7 @@ Remediation
 ===========
 
 If you have a cookbook that relies on `platform_family 'rhel'` to
-support RedHat-based distributions as well as Amazon Linux, you'll need
+support Red Hat based distributions as well as Amazon Linux, you'll need
 to modify your code to specifically check for the `'amazon'` platform
 family.
 
