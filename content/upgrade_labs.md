@@ -184,13 +184,14 @@ up on subsequent runs of 'kitchen converge'.
 ```
 
 ## Construct the Policyfile
-Next, we need to obtain a set of attributes, the run list, and the full set of cookbooks for the node. We also need to check the environment and roles for additional information.
+Next, we need to obtain a set of attributes and the run list for the node. We also need to check the environment and roles for additional information.
 
 Generally speaking, you would be creating a Policyfile that applies to multiple nodes, replacing a role or environment pattern.
+
 ### Create a Policyfile
 If you have a Policyfile for the node, continue on. Otherwise, start by generating a policyfile with a name you select:
 ```
-$ mkdir policyfiles
+$ cd node-MYNODE-repo
 $ cd policyfiles
 $ chef generate policyfile my-policy
 ```
@@ -200,9 +201,9 @@ The policyfile my-policy.rb now has the basics in place. You need to add the spe
 ### Examine the node
 Run
 ```
-	$ chef exec knife node show node-01 -F json
+	$ chef exec knife node show MYNODE -F json
 {
-  "name": "node-01",
+  "name": "MYNODE",
   "chef_environment": "prod",
   "run_list": [
     "recipe[chef-client]",
@@ -270,23 +271,15 @@ cookbook "chef-client"
 cookbook "splunk"
 ```
 
-## Download All Cookbooks Stored on Chef-Infra-Server
-Download all the cookbooks on the Chef Infra Server by running:
-```
-$ chef exec knife download cookbooks
-```
-If you prefer to snapshot the entire server, you may run 
-```
-$ chef exec knife download /
-```
-This will pull down all cookbooks, roles, environments, data_bags, policies, and many other things, and place them in their normal folder structure.
-
 ## Converge Locally
-### Generate a Kitchenfile 
-This section pending
+
+{{< note >}}
+Be cautious when running your cookbooks locally. It is possible to accidentally impact production infrastructure based on settings in your cookbooks and attributes. Read over your cookbooks and attributes, especially attributes being set in roles and environments.  If needed, override attributes to be appropriate for local testing in your `kitchen.yml`.
+{{< /note >}}
 
 ### Attempt a Converge and Check for Errors
-Run
+
+Run, in the `node-MY_NODE-repo` directory:
 ```
 $ chef exec kitchen converge
 ```
@@ -303,7 +296,7 @@ Repeat this process for each cookbook that the node consumes.
 ### Using auto-correct
 To auto-correct cookbook issues, run:
 ```
-$ chef exec cookstyle -a cookbook/some-cookbook
+$ chef exec cookstyle -a cookbooks/some-cookbook
 ```
 Other issues may require manual intervention and editing.
 Repeat this process for each cookbook that the node consumes.
