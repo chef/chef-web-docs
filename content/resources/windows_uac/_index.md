@@ -9,7 +9,7 @@ menu:
     title: windows_uac
     identifier: chef_infra/cookbook_reference/resources/windows_uac windows_uac
     parent: chef_infra/cookbook_reference/resources
-    weight: 1440
+
 resource_reference: true
 robots: null
 resource_description_list:

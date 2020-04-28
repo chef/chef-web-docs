@@ -3,13 +3,13 @@ title: chef_sleep resource
 resource: chef_sleep
 draft: false
 aliases:
-- /resource_chef_sleep.html
+- "/resource_chef_sleep.html"
 menu:
   infra:
     title: chef_sleep
     identifier: chef_infra/cookbook_reference/resources/chef_sleep chef_sleep
     parent: chef_infra/cookbook_reference/resources
-    weight: 310
+
 resource_reference: true
 robots: null
 resource_description_list:

@@ -10,7 +10,7 @@ menu:
     title: yum_package
     identifier: chef_infra/cookbook_reference/resources/yum_package yum_package
     parent: chef_infra/cookbook_reference/resources
-    weight: 1460
+
 resource_reference: true
 robots: null
 resource_description_list:

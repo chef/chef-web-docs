@@ -9,7 +9,7 @@ menu:
     title: windows_shortcut
     identifier: chef_infra/cookbook_reference/resources/windows_shortcut windows_shortcut
     parent: chef_infra/cookbook_reference/resources
-    weight: 1420
+
 resource_reference: true
 robots: null
 resource_description_list:

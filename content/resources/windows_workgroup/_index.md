@@ -9,7 +9,7 @@ menu:
     title: windows_workgroup
     identifier: chef_infra/cookbook_reference/resources/windows_workgroup windows_workgroup
     parent: chef_infra/cookbook_reference/resources
-    weight: 1450
+
 resource_reference: true
 robots: null
 resource_description_list:

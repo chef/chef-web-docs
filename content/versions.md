@@ -97,39 +97,45 @@ announcement](https://blog.chef.io/2019/04/02/chef-software-announces-the-enterp
 <td>Chef Infra Client</td>
 <td>15.x</td>
 <td>GA</td>
-<td>n/a</td>
+<td>April 30, 2021</td>
 </tr>
 <tr class="odd">
+<td>Chef Infra Client</td>
+<td>16.x</td>
+<td>GA</td>
+<td>April 30, 2022</td>
+</tr>
+<tr class="even">
 <td>Chef Infra Server</td>
 <td>13.x</td>
 <td>GA</td>
 <td>n/a</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Chef Habitat</td>
 <td>0.81+</td>
 <td>GA</td>
 <td>n/a</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Chef InSpec</td>
 <td>4.x</td>
 <td>GA</td>
 <td>n/a</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Chef Workstation</td>
 <td>0.4+</td>
 <td>GA</td>
 <td>n/a</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>ChefDK</td>
 <td>4.x</td>
 <td>GA</td>
 <td>n/a</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Chef Backend</td>
 <td>3.x</td>
 <td>Releasing 2020</td>
@@ -168,42 +174,36 @@ version 2.0.
 </thead>
 <tbody>
 <tr class="odd">
-<td>Chef Client</td>
-<td>14.x</td>
-<td>GA</td>
-<td>April 30, 2020</td>
-</tr>
-<tr class="even">
 <td>Chef Workstation</td>
 <td>0.3</td>
 <td>GA</td>
 <td>April 30, 2020</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>ChefDK</td>
 <td>3.x</td>
 <td>GA</td>
 <td>April 30, 2020</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Chef InSpec</td>
 <td>3.x</td>
 <td>GA</td>
 <td>April 30, 2020</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Chef Infra Server</td>
 <td>12.x</td>
 <td>GA</td>
 <td>TBD</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Push Jobs</td>
 <td>2.5.x</td>
 <td>GA</td>
 <td>TBD</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Supermarket</td>
 <td>3.x</td>
 <td>GA</td>
@@ -280,9 +280,9 @@ newer versions or products.
 </tr>
 <tr class="odd">
 <td>Chef Client</td>
-<td>13 and under</td>
+<td>14 and under</td>
 <td>EOL</td>
-<td>April 30, 2019</td>
+<td>April 30, 2020</td>
 </tr>
 <tr class="even">
 <td>Chef Compliance</td>

@@ -1,15 +1,14 @@
 ---
 title: cab_package resource
 resource: cab_package
-draft: false
 aliases:
-- /resource_cab_package.html
+- "/resource_cab_package.html"
 menu:
   infra:
     title: cab_package
     identifier: chef_infra/cookbook_reference/resources/cab_package cab_package
     parent: chef_infra/cookbook_reference/resources
-    weight: 170
+
 resource_reference: true
 robots: null
 resource_description_list:
@@ -17,19 +16,23 @@ resource_description_list:
 
     cabinet (.cab) packages.'
 resource_new_in: null
-handler_types: false
-syntax_description: "The cab_package resource has the following syntax:\n\n``` ruby\n\
-  cab_package 'name' do\n  source       String\n  action       Symbol # defaults to\
-  \ :install if not specified\nend\n```"
-syntax_code_block: null
+syntax_full_code_block: |-
+  cab_package 'name' do
+    options           String, Array
+    package_name      String
+    source            String # default value: The package name.
+    timeout           String, Integer
+    version           String
+    action            Symbol # defaults to :install if not specified
+  end
 syntax_properties_list:
-- '`cab_package` is the resource.'
-- '`name` is the name given to the resource block.'
-- '`action` identifies which steps Chef Infra Client will take to bring the node into
-  the desired state.'
-- '`source` is the local path or URL for the cabinet package'
-syntax_full_code_block: null
-syntax_full_properties_list: null
+syntax_full_properties_list:
+- "`cab_package` is the resource."
+- "`name` is the name given to the resource block."
+- "`action` identifies which steps Chef Infra Client will take to bring the node into
+  the desired state."
+- "``options``, ``package_name``, ``source``, ``timeout``, and ``version`` are the
+  properties available to this resource."
 syntax_shortcode: null
 registry_key: false
 nameless_apt_update: false
@@ -41,13 +44,35 @@ actions_list:
   :remove:
     markdown: Removes the cabinet package.
 properties_list:
+- property: package_name
+  ruby_type: String
+  required: false
+  default_value:
+  new_in:
+  description_list:
+  - markdown: An optional property to set the package name if it differs from the
+      resource block's name.
 - property: source
   ruby_type: String
   required: false
-  default_value: '"The package name."'
-  new_in: null
+  default_value: The package name.
+  new_in:
   description_list:
   - markdown: The local file path or URL for the CAB package.
+- property: timeout
+  ruby_type: String, Integer
+  required: false
+  default_value:
+  new_in:
+  description_list:
+  - markdown: The amount of time (in seconds) to wait before timing out.
+- property: version
+  ruby_type: String
+  required: false
+  default_value:
+  new_in:
+  description_list:
+  - markdown: The version of a package to be installed or upgraded.
 properties_shortcode: null
 properties_multiple_packages: false
 resource_directory_recursive_directories: false

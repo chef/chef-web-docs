@@ -3,13 +3,13 @@ title: chef_gem resource
 resource: chef_gem
 draft: false
 aliases:
-- /resource_chef_gem.html
+- "/resource_chef_gem.html"
 menu:
   infra:
     title: chef_gem
     identifier: chef_infra/cookbook_reference/resources/chef_gem chef_gem
     parent: chef_infra/cookbook_reference/resources
-    weight: 240
+
 resource_reference: true
 robots: null
 resource_description_list:

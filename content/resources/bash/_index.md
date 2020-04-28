@@ -3,13 +3,13 @@ title: bash resource
 resource: bash
 draft: false
 aliases:
-- /resource_bash.html
+- "/resource_bash.html"
 menu:
   infra:
     title: bash
     identifier: chef_infra/cookbook_reference/resources/bash bash
     parent: chef_infra/cookbook_reference/resources
-    weight: 120
+
 resource_reference: true
 robots: null
 resource_description_list:
@@ -74,31 +74,29 @@ properties_list:
 - property: code
   ruby_type: String
   required: true
-  default_value: null
-  new_in: null
+  default_value:
+  new_in:
   description_list:
   - markdown: A quoted (" ") string of code to be executed.
 - property: creates
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
+  default_value:
+  new_in:
   description_list:
-  - markdown: 'Prevent a command from creating a file when that file already
-
-      exists.'
+  - markdown: Prevent a command from creating a file when that file already exists.
 - property: cwd
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
+  default_value:
+  new_in:
   description_list:
   - markdown: The current working directory from which the command will be run.
 - property: environment
   ruby_type: Hash
   required: false
-  default_value: null
-  new_in: null
+  default_value:
+  new_in:
   description_list:
   - markdown: 'A Hash of environment variables in the form of
 
@@ -108,17 +106,16 @@ properties_list:
 - property: flags
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
+  default_value:
+  new_in:
   description_list:
-  - markdown: 'One or more command line flags that are passed to the interpreter
-
-      when a command is invoked.'
+  - markdown: One or more command line flags that are passed to the interpreter when
+      a command is invoked.
 - property: group
   ruby_type: String, Integer
   required: false
-  default_value: null
-  new_in: null
+  default_value:
+  new_in:
   description_list:
   - markdown: 'The group name or group ID that must be changed before running a
 

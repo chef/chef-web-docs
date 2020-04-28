@@ -1,5 +1,5 @@
 A resource may specify multiple packages and/or versions for platforms
-that use Yum, DNF, Apt, Zypper, or Chocolatey package managers.
+that use Apt, Chocolatey, DNF, Homebrew, Pacman, or Zypper package managers.
 Specifying multiple packages and/or versions allows a single transaction
 to:
 

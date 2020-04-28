@@ -9,7 +9,6 @@ menu:
     title: chef_role
     identifier: chef_infra/cookbook_reference/resources/chef_role chef_role
     parent: chef_infra/cookbook_reference/resources
-    weight: 300
 resource_reference: true
 robots: null
 resource_description_list:

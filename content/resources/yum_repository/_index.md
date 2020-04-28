@@ -9,7 +9,7 @@ menu:
     title: yum_repository
     identifier: chef_infra/cookbook_reference/resources/yum_repository yum_repository
     parent: chef_infra/cookbook_reference/resources
-    weight: 1470
+
 resource_reference: true
 robots: null
 resource_description_list:
@@ -536,7 +536,7 @@ properties_list:
   description_list:
   - markdown: Username to use for basic authentication to a repository.
 properties_shortcode: null
-properties_multiple_packages: false
+properties_multiple_packages: true
 resource_directory_recursive_directories: false
 resources_common_atomic_update: false
 properties_resources_common_windows_security: false

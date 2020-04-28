@@ -3,13 +3,13 @@ title: chocolatey_source resource
 resource: chocolatey_source
 draft: false
 aliases:
-- /resource_chocolatey_source.html
+- "/resource_chocolatey_source.html"
 menu:
   infra:
     title: chocolatey_source
     identifier: chef_infra/cookbook_reference/resources/chocolatey_source chocolatey_source
     parent: chef_infra/cookbook_reference/resources
-    weight: 360
+
 resource_reference: true
 robots: null
 resource_description_list:
