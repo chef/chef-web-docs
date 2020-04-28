@@ -380,13 +380,6 @@ weight = 30
       url = "/knife_supermarket/"
       weight = 80
 
-    [[menu.infra]]
-    title = "Management Console"
-    identifier = "chef_infra/setup/ctl_chef_server.md Management Console"
-    parent = "chef_infra/setup"
-    url = "/ctl_chef_server/"
-    weight = 80
-
   [[menu.infra]]
   title = "Cookbook Reference"
   identifier = "chef_infra/cookbook_reference"
