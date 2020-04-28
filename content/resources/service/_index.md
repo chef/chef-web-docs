@@ -3,43 +3,46 @@ title: service resource
 resource: service
 draft: false
 aliases:
-- /resource_service.html
+- "/resource_service.html"
 menu:
   infra:
     title: service
     identifier: chef_infra/cookbook_reference/resources/service service
     parent: chef_infra/cookbook_reference/resources
-    weight: 1080
 resource_reference: true
 robots: null
 resource_description_list:
 - markdown: Use the **service** resource to manage a service.
-resource_new_in: null
+resource_new_in:
 handler_types: false
-syntax_description: "The service resource has the following syntax:\n\n``` ruby\n\
-  service \"tomcat\" do\n  action :start\nend\n```\n\nwill start the Apache Tomcat\
-  \ service."
-syntax_code_block: null
-syntax_properties_list: null
-syntax_full_code_block: "service 'name' do\n  init_command         String\n  options\
-  \              Array, String\n  parameters           Hash\n  pattern           \
-  \   String\n  priority             Integer, String, Hash\n  reload_command     \
-  \  String, false\n  restart_command      String, false\n  run_levels           Array\n\
-  \  service_name         String # default value: 'name' unless specified\n  start_command\
-  \        String, false\n  status_command       String, false\n  stop_command   \
-  \      String, false\n  supports             Hash # default value: {\"restart\"\
-  =>nil, \"reload\"=>nil, \"status\"=>nil}\n  timeout              Integer\n  user\
-  \                 String\n  action               Symbol # defaults to :nothing if\
-  \ not specified\nend"
+syntax_full_code_block: |-
+  service 'name' do
+    init_command         String
+    options              Array, String
+    parameters           Hash
+    pattern              String # default value: "The value provided to 'service_name' or the resource block's name"
+    priority             Integer, String, Hash
+    reload_command       String, nil, false
+    restart_command      String, nil, false
+    run_levels           Array
+    service_name         String # default value: 'name' unless specified
+    start_command        String, nil, false
+    status_command       String, nil, false
+    stop_command         String, nil, false
+    supports             Hash # default value: {"restart"=>nil, "reload"=>nil, "status"=>nil}
+    user                 String
+    action               Symbol # defaults to :nothing if not specified
+  end
+syntax_properties_list:
 syntax_full_properties_list:
-- '`service` is the resource.'
-- '`name` is the name given to the resource block.'
-- '`action` identifies which steps Chef Infra Client will take to bring the node into
-  the desired state.'
-- '`init_command`, `options`, `parameters`, `pattern`, `priority`, `reload_command`,
-  `restart_command`, `run_levels`, `service_name`, `start_command`, `status_command`,
-  `stop_command`, `supports`, `timeout`, and `user` are the properties available to
-  this resource.'
+- "`service` is the resource."
+- "`name` is the name given to the resource block."
+- "`action` identifies which steps Chef Infra Client will take to bring the node into
+  the desired state."
+- "``init_command``, ``options``, ``parameters``, ``pattern``, ``priority``, ``reload_command``,
+  ``restart_command``, ``run_levels``, ``service_name``, ``start_command``, ``status_command``,
+  ``stop_command``, ``supports``, and ``user`` are the properties available to this
+  resource."
 syntax_shortcode: null
 registry_key: false
 nameless_apt_update: false
@@ -257,8 +260,7 @@ examples_list:
   - code_block: "service 'example_service' do\n  action :start\nend"
 - example_heading: Start a service, enable it
   text_blocks:
-  - code_block: "service 'example_service' do\n  supports :status => true, :restart\
-      \ => true, :reload => true\n  action [ :enable, :start ]\nend"
+  - code_block: "service 'example_service' do\n  supports status: true, restart: true, reload: true\n  action [ :enable, :start ]\nend"
 - example_heading: Use a pattern
   text_blocks:
   - code_block: "service 'samba' do\n  pattern 'smbd'\n  action [:enable, :start]\n\
@@ -271,20 +273,15 @@ examples_list:
   - shortcode: resource_service_use_supports_attribute.md
 - example_heading: Manage a service, depending on the node platform
   text_blocks:
-  - code_block: "service 'example_service' do\n  case node['platform']\n  when 'centos','redhat','fedora'\n\
+  - code_block: "service 'example_service' do\n  if redhat?\n\
       \    service_name 'redhat_name'\n  else\n    service_name 'other_name'\n  end\n\
-      \  supports :restart => true\n  action [ :enable, :start ]\nend"
-- example_heading: Change a service provider, depending on the node platform
-  text_blocks:
-  - code_block: "service 'example_service' do\n  if platform?('ubuntu') && node['platform_version'].to_f\
-      \ <= 14.04\n    provider Chef::Provider::Service::Upstart\n  end\n  action [:enable,\
-      \ :start]\nend"
+      \  supports restart: true\n  action [ :enable, :start ]\nend"
 - example_heading: Reload a service using a template
   text_blocks:
   - shortcode: resource_service_subscribes_reload_using_template.md
 - example_heading: Enable a service after a restart or reload
   text_blocks:
-  - code_block: "service 'apache' do\n  supports :restart => true, :reload => true\n\
+  - code_block: "service 'apache' do\n  supports restart: true, reload: true\n\
       \  action :enable\nend"
 - example_heading: Set an IP address using variables and a template
   text_blocks:

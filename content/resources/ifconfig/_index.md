@@ -9,7 +9,7 @@ menu:
     title: ifconfig
     identifier: chef_infra/cookbook_reference/resources/ifconfig ifconfig
     parent: chef_infra/cookbook_reference/resources
-    weight: 590
+
 resource_reference: true
 robots: null
 resource_description_list:

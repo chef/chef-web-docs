@@ -9,7 +9,7 @@ menu:
     title: log
     identifier: chef_infra/cookbook_reference/resources/log log
     parent: chef_infra/cookbook_reference/resources
-    weight: 660
+
 resource_reference: true
 robots: null
 resource_description_list:

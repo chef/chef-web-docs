@@ -9,7 +9,7 @@ menu:
     title: rhsm_subscription
     identifier: chef_infra/cookbook_reference/resources/rhsm_subscription rhsm_subscription
     parent: chef_infra/cookbook_reference/resources
-    weight: 1020
+
 resource_reference: true
 robots: null
 resource_description_list:

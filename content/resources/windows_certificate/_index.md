@@ -9,7 +9,7 @@ menu:
     title: windows_certificate
     identifier: chef_infra/cookbook_reference/resources/windows_certificate windows_certificate
     parent: chef_infra/cookbook_reference/resources
-    weight: 1230
+
 resource_reference: true
 robots: null
 resource_description_list:
@@ -80,7 +80,7 @@ properties_list:
   default_value: null
   new_in: null
   description_list:
-  - markdown: 'An array of ''domainaccount'' entries to be granted read-only access
+  - markdown: 'An array of ''domain\account'' entries to be granted read-only access
 
       to the certificate''s private key. Not idempotent.'
 - property: source

@@ -9,7 +9,7 @@ menu:
     title: dmg_package
     identifier: chef_infra/cookbook_reference/resources/dmg_package dmg_package
     parent: chef_infra/cookbook_reference/resources
-    weight: 430
+
 resource_reference: true
 robots: null
 resource_description_list:
@@ -134,7 +134,7 @@ properties_list:
 
       `remote_file` resource.'
 - property: owner
-  ruby_type: String
+  ruby_type: String, Integer
   required: false
   default_value: null
   new_in: null

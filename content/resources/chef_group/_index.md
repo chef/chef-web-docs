@@ -9,7 +9,7 @@ menu:
     title: chef_group
     identifier: chef_infra/cookbook_reference/resources/chef_group chef_group
     parent: chef_infra/cookbook_reference/resources
-    weight: 250
+
 resource_reference: true
 robots: null
 resource_description_list:

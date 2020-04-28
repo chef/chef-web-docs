@@ -3,13 +3,13 @@ title: bff_package resource
 resource: bff_package
 draft: false
 aliases:
-- /resource_bff_package.html
+- "/resource_bff_package.html"
 menu:
   infra:
     title: bff_package
     identifier: chef_infra/cookbook_reference/resources/bff_package bff_package
     parent: chef_infra/cookbook_reference/resources
-    weight: 140
+
 resource_reference: true
 robots: null
 resource_description_list:
@@ -48,11 +48,15 @@ syntax_description: 'A **bff_package** resource manages a package on a node, typ
   and the default action (`:install`).'
 syntax_code_block: null
 syntax_properties_list: null
-syntax_full_code_block: "bff_package 'name' do\n  options                    String\n\
-  \  package_name               String, Array # defaults to 'name' if not specified\n\
-  \  source                     String\n  timeout                    String, Integer\n\
-  \  version                    String, Array\n  action                     Symbol\
-  \ # defaults to :install if not specified\nend"
+syntax_full_code_block: |-
+  bff_package 'name' do
+    options           String, Array
+    package_name      String
+    source            String
+    timeout           String, Integer
+    version           String
+    action            Symbol # defaults to :install if not specified
+  end
 syntax_full_properties_list:
 - '`bff_package` is the resource.'
 - '`name` is the name given to the resource block.'
@@ -88,7 +92,7 @@ properties_list:
 
       command.'
 - property: package_name
-  ruby_type: String, Array
+  ruby_type: String
   required: false
   default_value: null
   new_in: null
@@ -115,7 +119,7 @@ properties_list:
   description_list:
   - markdown: The amount of time (in seconds) to wait before timing out.
 - property: version
-  ruby_type: String, Array
+  ruby_type: String
   required: false
   default_value: null
   new_in: null
