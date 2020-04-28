@@ -171,7 +171,7 @@ different from any other back-end node.
 
     -   Download [Chef Backend
         (chef-backend)](https://downloads.chef.io/chef-backend/)
-    -   In RedHat/CentOS: `yum install PATH_TO_RPM`
+    -   In Red Hat/CentOS: `yum install PATH_TO_RPM`
     -   In Debian/Ubuntu: `dpkg -i PATH_TO_DEB`
 
 2.  Update `/etc/chef-backend/chef-backend.rb` with the following
@@ -224,7 +224,7 @@ join nodes in parallel the cluster may fail to become available):
 
     -   Download [Chef Backend
         (chef-backend)](https://downloads.chef.io/chef-backend/)
-    -   In RedHat/CentOS: `yum install PATH_TO_RPM`
+    -   In Red Hat/CentOS: `yum install PATH_TO_RPM`
     -   In Debian/Ubuntu: `dpkg -i PATH_TO_DEB`
 
 2.  If you added a `postgresql.md5_auth_cidr_addresses` line to the
