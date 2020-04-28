@@ -58,6 +58,131 @@ Nodes report saved to /Users/cwolfe/.chef-workstation/reports/nodes-202003241351
 You might select a node that has a simple setup, such as a relatively few number of cookbooks.
 Examine the saved report to determine the list of cookbooks for your node.
 
+
+## Capture the Node
+
+### Run chef analyze capture NODE
+
+This command will download the node from Chef Server.  It will also assist you in obtaining and organizing the cookbooks needed to converge the node. Finally, it will generate a Kitchenfile allowing you to use Test Kitchen to perform local development.
+
+Run:
+
+```
+ $ chef analyze capture MYNODE
+ - Setting up local repository
+ - Capturing node object 'MYNODE'
+ - Capturing cookbooks...
+ - Capturing environment...
+ - Capturing roles...
+ - Writing kitchen configuration...
+
+Repository has been created in './node-MYNODE-repo'.
+```
+
+### Locate the cookbooks' origin
+
+At this point, `chef analyze capture` will interactively prompt you to fetch the cookbooks from their original locations - ideally, you would obtain the cookbooks from their canonical source (that is `git clone` or other version control checkout operation). This allows you to make local changes while contributing the changes upstream to the canonical source.
+
+If you do not have access to the canonical source of one or more cookbooks, `chef analyze capture` will simply download those cookbooks from the chef server itself. That will allow you to make changes and upload the changed cookbooks to the chef server, but you will not be able to contribute your changes upstream.
+
+### Expected Layout for Cookbook Checkout
+
+If you do have access to one or more of the cookbooks' sources, it is simplest if you have the cookbooks checked out in one parent directory, similar to this:
+
+```
+/Users/you/my-cookbooks/
+  ├── cron
+  │   ├── .git/   # Or other version control bookkeeping
+  │   ├── recipes/
+  │   ├──...
+  │   └── metadata.rb
+  └── chef-client
+      ├── .cvs/   # Or other version control bookkeeping
+      ├── recipes/
+      ├──...
+      └── metadata.rb
+```
+
+If you have cookbooks in multiple locations, that will work as well, but will involve more prompting.
+
+`chef analyze capture` will first prompt you for the main location, similar to this:
+
+```
+Please clone or check out the following cookbooks locally
+from their original sources, and provide the base path
+for the checkout:
+
+  - cron (v1.6.1)
+  - chef-client (v4.3.0)
+  - logrotate (v1.9.2)
+  - windows (v1.44.1)
+  - chef_handler (v1.4.0)
+
+If all cookbooks are not available in the same base location,
+you will have a chance to provide additional locations.
+
+If sources are not available for these cookbooks, leave this blank.
+
+Checkout Location [none]:
+```
+
+Using the example above, you would enter `/Users/you/my-cookbooks` at the prompt. 
+```
+Checkout Location [none]: /src/my-cookbooks
+  Replacing cookbook: cron
+  Replacing cookbook: chef-client
+```
+
+`chef analyze capture` will then scan that path, looking for the cookbooks that it needs. If all cookbooks are found, it will finish; but if any are missing, it will prompt individually.
+
+### Locating Individual Cookbook Checkouts
+
+Suppose that your node requires 5 cookbooks:
+
+  - cron (v1.6.1)
+  - chef-client (v4.3.0)
+  - logrotate (v1.9.2)
+  - windows (v1.44.1)
+  - chef_handler (v1.4.0)
+
+But only `cron` and `chef-client` are present in the directory you provided in the initial prompt. `chef analyze capture` will now prompt you for the remaining three:
+
+```
+Please provide the base checkout path for the following
+cookbooks, or leave blank if no more cookbooks are checked out:
+
+  - logrotate (v1.9.2)
+  - windows (v1.44.1)
+  - chef_handler (v1.4.0)
+
+Checkout Location [none]:
+```
+
+If you have another checkout location that contains multiple cookbooks, you may enter it, or you may enter a location that contains just one cookbook.
+
+### Falling Back to a Downloading a Cookbook from Chef Server
+
+If you do not have access to the original version-controlled source of a cookbook, press return at the prompt and `chef analyze capture` will use a copy of the cookbook downloaded from the Chef Server.
+
+This is not an ideal practice.  You will likely be making changes to the cookbooks in the steps ahead. It is important that you be able to track those changes and test your changes in a continuous integration pipeline, which is beyond the scope of this document. If you make changes in a copy of the cookbook without version control information, it will be difficult to reconcile those changes in the future. If you find yourself in this situation, it is likely worth the effort to try to track down the version-controlled source.
+
+```
+Changes made to the following cookbooks in ./node-MYNODE-repo/cookbooks
+cannot be saved upstream, though they can still be uploaded
+to a Chef Server:
+
+  - logrotate (v1.9.2)
+  - windows (v1.44.1)
+  - chef_handler (v1.4.0)
+
+You're ready to begin!
+
+Start with 'kitchen converge'.  As you identify issues, you
+can modify cookbooks in their original checkout locations or
+in the repository's cookbooks directory and they will be picked
+up on subsequent runs of 'kitchen converge'.
+```
+
 ## Construct the Policyfile
 Next, we need to obtain a set of attributes, the run list, and the full set of cookbooks for the node. We also need to check the environment and roles for additional information.
 
