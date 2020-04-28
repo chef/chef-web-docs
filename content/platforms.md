@@ -51,9 +51,9 @@ versions for Chef Infra Client:
 
 <table>
 <colgroup>
-<col style="width: 56%" />
-<col style="width: 20%" />
-<col style="width: 24%" />
+<col style="width: 30%" />
+<col style="width: 35%" />
+<col style="width: 35%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -132,9 +132,9 @@ The following platforms are supported only via the community:
 
 <table>
 <colgroup>
-<col style="width: 56%" />
-<col style="width: 20%" />
-<col style="width: 24%" />
+<col style="width: 30%" />
+<col style="width: 35%" />
+<col style="width: 35%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -197,9 +197,9 @@ versions for the Chef Workstation:
 
 <table>
 <colgroup>
-<col style="width: 56%" />
-<col style="width: 20%" />
-<col style="width: 24%" />
+<col style="width: 30%" />
+<col style="width: 35%" />
+<col style="width: 35%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -242,9 +242,9 @@ versions for Chef InSpec:
 
 <table>
 <colgroup>
-<col style="width: 56%" />
-<col style="width: 20%" />
-<col style="width: 24%" />
+<col style="width: 30%" />
+<col style="width: 35%" />
+<col style="width: 35%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -301,9 +301,9 @@ versions for ChefDK:
 
 <table>
 <colgroup>
-<col style="width: 56%" />
-<col style="width: 20%" />
-<col style="width: 24%" />
+<col style="width: 30%" />
+<col style="width: 35%" />
+<col style="width: 35%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -352,9 +352,9 @@ The following platforms are supported only via the community:
 
 <table>
 <colgroup>
-<col style="width: 56%" />
-<col style="width: 20%" />
-<col style="width: 24%" />
+<col style="width: 30%" />
+<col style="width: 35%" />
+<col style="width: 35%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -404,9 +404,9 @@ versions within the Chef Automate cluster.
 
 <table>
 <colgroup>
-<col style="width: 56%" />
-<col style="width: 20%" />
-<col style="width: 24%" />
+<col style="width: 30%" />
+<col style="width: 35%" />
+<col style="width: 35%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -455,9 +455,9 @@ following platforms:
 
 <table>
 <colgroup>
-<col style="width: 56%" />
-<col style="width: 20%" />
-<col style="width: 24%" />
+<col style="width: 30%" />
+<col style="width: 35%" />
+<col style="width: 35%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -485,9 +485,9 @@ Chef Push Jobs client:
 
 <table>
 <colgroup>
-<col style="width: 56%" />
-<col style="width: 20%" />
-<col style="width: 24%" />
+<col style="width: 30%" />
+<col style="width: 35%" />
+<col style="width: 35%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -535,9 +535,9 @@ Chef Push Jobs server:
 
 <table>
 <colgroup>
-<col style="width: 56%" />
-<col style="width: 20%" />
-<col style="width: 24%" />
+<col style="width: 30%" />
+<col style="width: 35%" />
+<col style="width: 35%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -575,9 +575,9 @@ Backend, the high-availability solution for Chef Infra Server:
 
 <table>
 <colgroup>
-<col style="width: 56%" />
-<col style="width: 20%" />
-<col style="width: 24%" />
+<col style="width: 30%" />
+<col style="width: 35%" />
+<col style="width: 35%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -615,9 +615,9 @@ Manage:
 
 <table>
 <colgroup>
-<col style="width: 56%" />
-<col style="width: 20%" />
-<col style="width: 24%" />
+<col style="width: 30%" />
+<col style="width: 35%" />
+<col style="width: 35%" />
 </colgroup>
 <thead>
 <tr class="header">
