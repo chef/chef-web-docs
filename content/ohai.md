@@ -206,17 +206,13 @@ Optional Plugins
 Ohai ships several plugins that are considered optional and can be
 enabled in the [client.rb configuration file](/config_rb_client/).
 
--   <span class="title-ref">:Lspci</span> - PCI device information on
-    Linux hosts.
--   <span class="title-ref">:Lsscsi</span> - SCSI device information on
-    Linux hosts.
--   <span class="title-ref">:Passwd</span> - User and Group information
-    on non-Windows hosts. This plugin can result in very large node
-    sizes if a system connects to Active Directory or LDAP.
--   <span class="title-ref">:Sessions</span> - Sessions data from
-    loginctl on Linux hosts.
--   <span class="title-ref">:Sysctl</span> - All sysctl values on Linux
-    hosts.
+- `:IPC` - SysV IPC shmem information (New in Chef Infra Client 16)
+- `:Interupts` - Data from /proc/interrupts and /proc/irq (New in Chef Infra Client 16)
+- `:Lspci` - PCI device information on Linux hosts.
+- `:Lsscsi` - SCSI device information on Linux hosts.
+- `:Passwd` - User and Group information on non-Windows hosts. This plugin can result in very large node sizes if a system connects to Active Directory or LDAP.
+- `:Sessions` - Sessions data from loginctl on Linux hosts.
+- `:Sysctl` - All sysctl values on Linux hosts.
 
 Enabling Optional Plugins
 -------------------------
@@ -237,6 +233,13 @@ The Ohai optional_plugins config array must contain an array of plugin
 names as Symbols not Strings.
 
 {{< /note >}}
+
+Ohai Settings in client.rb
+==========================
+
+{{% config_rb_ohai %}}
+
+{{< readFile_shortcode file="config_rb_ohai_settings.md" >}}
 
 Custom Plugins
 ==============
@@ -278,94 +281,13 @@ Hint files are located in the `/etc/chef/ohai/hints/` directory by
 default. Use the `Ohai.config[:hints_path]` setting in the [client.rb
 configuration file](/config_rb_client/) to customize this location.
 
-ohai Resource
-=============
+ohai Cookbook Resource
+======================
 
-A [resource](/resource/) defines the desired state for a single
-configuration item present on a node that is under management by Chef
-Infra. A resource collection---one (or more) individual
-resources---defines the desired state for the entire node. During a
-[Chef Infra Client run](/chef_client/#the-chef-client-run.html), the
-current state of each resource is tested, after which Chef Infra Client
-will take any steps that are necessary to repair the node and bring it
-back into the desired state.
-
-Use the **ohai** resource to reload the Ohai configuration on a node.
-This allows recipes that change system attributes (like a recipe that
-adds a user) to refer to those attributes later on during a Chef Infra
-Client run.
-
-Syntax
-------
-
-A **ohai** resource block reloads the Ohai configuration on a node:
-
-``` ruby
-ohai 'reload' do
-  action :reload
-end
-```
-
-The full syntax for all of the properties that are available to the
-**ohai** resource is:
-
-``` ruby
-ohai 'name' do
-  name                       String
-  notifies                   # see description
-  plugin                     String
-  subscribes                 # see description
-  action                     Symbol # defaults to :reload if not specified
-end
-```
-
-where
-
--   `ohai` is the resource
--   `name` is the name of the resource block
--   `action` identifies the steps Chef Infra Client will take to bring
-    the node into the desired state
--   `name` and `plugin` are properties of this resource, with the Ruby
-    type shown. See "Properties" section below for more information
-    about all of the properties that may be used with this resource.
-
-Actions
--------
-
-{{% resource_ohai_actions %}}
-
-Properties
-----------
-
-{{% resource_ohai_properties %}}
-
-Examples
---------
-
-The following examples demonstrate various approaches for using
-resources in recipes:
-
-**Reload Ohai**
-
-{{% resource_ohai_reload %}}
-
-**Reload Ohai after a new user is created**
-
-{{% resource_ohai_reload_after_create_user %}}
+Chef Infra Client includes an `ohai` resource that allows you to reload the Ohai data on a node. This allows recipes or resources that change system attributes (like a recipe that
+adds a user) to refer to those attributes later on during a Chef Infra Client run. See the [ohai resource](/resources/ohai) for complete usage information.
 
 ohai Command Line Tool
 ======================
 
-{{% ctl_ohai_summary %}}
-
-Options
--------
-
-{{% ctl_ohai_options %}}
-
-Ohai Settings in client.rb
-==========================
-
-{{% config_rb_ohai %}}
-
-{{< readFile_shortcode file="config_rb_ohai_settings.md" >}}
+Ohai can be run on the command line outside of the Chef Infra Client run. See [Ohai (executable)](/ohai_ctl) for more information.
