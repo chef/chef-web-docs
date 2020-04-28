@@ -313,7 +313,7 @@ The `knife-acl` gem is now part of Chef Infra Client. This gives you the ability
 ## YAML Recipes
 
 We added support for writing recipes in YAML to provide a low-code syntax for simple use cases. To write recipes in YAML, Chef resources and any user-defined parameters can be added as elements in a `resources` hash, such as the example below:
-​
+
 ```yaml
 ---
 resources:
@@ -328,7 +328,7 @@ resources:
       - enable
       - start
 ```
-​
+
 This implementation is restrictive and does not support arbitrary Ruby code, helper functions, or attributes. However, if the need for additional customization arises, YAML recipes can be automatically converted into the DSL via the `knife yaml convert` command.
 
 ## Custom Resource Improvements
