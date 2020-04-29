@@ -1,9 +1,8 @@
 ---
 title: windows_task resource
 resource: windows_task
-draft: false
 aliases:
-- /resource_windows_task.html
+- "/resource_windows_task.html"
 menu:
   infra:
     title: windows_task
@@ -85,22 +84,22 @@ properties_list:
 - property: command
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
+  default_value: 
+  new_in: 
   description_list:
   - markdown: The command to be executed by the windows scheduled task.
 - property: cwd
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
+  default_value: 
+  new_in: 
   description_list:
   - markdown: The directory the task will be run from.
 - property: day
   ruby_type: String, Integer
   required: false
-  default_value: null
-  new_in: null
+  default_value: 
+  new_in: 
   description_list:
   - markdown: "The day(s) on which the task runs.\n\n-   Use with frequency `:monthly`\
       \ and `:weekly` tasks,\n-   Valid values with frequency `:weekly` are `MON-SUN`\
@@ -112,7 +111,7 @@ properties_list:
 - property: description
   ruby_type: String
   required: false
-  default_value: null
+  default_value: 
   new_in: '14.7'
   description_list:
   - markdown: The task description.
@@ -122,9 +121,7 @@ properties_list:
   default_value: 'false'
   new_in: '14.4'
   description_list:
-  - markdown: 'Disallow start of the task if the system is running on battery
-
-      power.'
+  - markdown: Disallow start of the task if the system is running on battery power.
 - property: execution_time_limit
   ruby_type: String, Integer
   required: false
@@ -137,14 +134,14 @@ properties_list:
   ruby_type: true, false
   required: false
   default_value: 'false'
-  new_in: null
+  new_in: 
   description_list:
   - markdown: When used with create, will update the task.
 - property: frequency
   ruby_type: Symbol
   required: false
-  default_value: null
-  new_in: null
+  default_value: 
+  new_in: 
   description_list:
   - markdown: "-   Frequency with which to run the task.\n-   This is a mandatory\
       \ property in Chef 14.1\n-   Valid values: `:minute`, `:hourly`, `:daily`, `:weekly`,\n\
@@ -155,7 +152,7 @@ properties_list:
   ruby_type: Integer, String
   required: false
   default_value: '1'
-  new_in: null
+  new_in: 
   description_list:
   - markdown: "-   For frequency `:minute` valid values are 1 to 1439\n-   For frequency\
       \ `:hourly` valid values are 1 to 23\n-   For frequency `:daily` valid values\
@@ -169,8 +166,8 @@ properties_list:
 - property: idle_time
   ruby_type: Integer
   required: false
-  default_value: null
-  new_in: null
+  default_value: 
+  new_in: 
   description_list:
   - markdown: 'For `:on_idle` frequency, the time (in minutes) without user
 
@@ -199,47 +196,44 @@ properties_list:
 - property: months
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
+  default_value: 
+  new_in: 
   description_list:
-  - markdown: 'The Months of the year on which the task runs, such as: `"JAN, FEB"`
-
-      or `"\*"`. Multiple months should be comma delimited. e.g.
-
-      `"Jan, Feb, Mar, Dec"`'
+  - markdown: 'The Months of the year on which the task runs, such as: `JAN, FEB`
+      or `*`. Multiple months should be comma delimited. e.g. `Jan, Feb, Mar, Dec`.'
 - property: password
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
+  default_value: 
+  new_in: 
   description_list:
   - markdown: The user’s password. The user property must be set if using this property.
 - property: priority
   ruby_type: Integer
   required: false
   default_value: '7'
-  new_in: null
+  new_in: 
   description_list:
   - markdown: Use to set Priority Levels range from 0 to 10.
 - property: random_delay
   ruby_type: String, Integer
   required: false
-  default_value: null
-  new_in: null
+  default_value: 
+  new_in: 
   description_list:
   - markdown: Delays the task up to a given time (in seconds).
 - property: run_level
   ruby_type: Symbol
   required: false
-  default_value: :limited
-  new_in: null
+  default_value: ":limited"
+  new_in: 
   description_list:
   - markdown: Run with `:limited` or `:highest` privileges.
 - property: start_day
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
+  default_value: The current date.
+  new_in: 
   description_list:
   - markdown: 'Specifies the first date on which the task runs in **MM/DD/YYYY**
 
@@ -247,8 +241,8 @@ properties_list:
 - property: start_time
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
+  default_value: 
+  new_in: 
   description_list:
   - markdown: Specifies the start time to run the task, in **HH:mm** format.
 - property: start_when_available
@@ -269,7 +263,7 @@ properties_list:
   ruby_type: String
   required: false
   default_value: The resource block's name
-  new_in: null
+  new_in: 
   description_list:
   - markdown: 'An optional property to set the task name if it differs from the
 
