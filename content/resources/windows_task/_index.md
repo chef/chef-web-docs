@@ -217,8 +217,7 @@ properties_list:
   default_value: null
   new_in: null
   description_list:
-  - markdown: "The user\u2019s password. The user property must be set if using this\n\
-      property."
+  - markdown: The user’s password. The user property must be set if using this property.
 - property: priority
   ruby_type: Integer
   required: false
