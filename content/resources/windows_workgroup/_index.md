@@ -1,9 +1,8 @@
 ---
 title: windows_workgroup resource
 resource: windows_workgroup
-draft: false
 aliases:
-- /resource_windows_workgroup.html
+- "/resource_windows_workgroup.html"
 menu:
   infra:
     title: windows_workgroup
@@ -48,41 +47,36 @@ properties_list:
 - property: password
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
+  default_value: 
+  new_in: 
   description_list:
-  - markdown: 'The password for the local administrator user. Required if using the
-
-      `user` property.'
+  - markdown: The password for the local administrator user. Required if using the
+      `user` property.
 - property: reboot
   ruby_type: Symbol
   required: false
-  default_value: :immediate
-  new_in: null
+  default_value: ":immediate"
+  new_in: 
   description_list:
-  - markdown: 'Controls the system reboot behavior post workgroup joining. Reboot
-
-      immediately, after the Chef Infra Client run completes, or never.
-
-      Note that a reboot is necessary for changes to take effect.'
+  - markdown: Controls the system reboot behavior post workgroup joining. Reboot immediately,
+      after the Chef Infra Client run completes, or never. Note that a reboot is necessary
+      for changes to take effect.
 - property: user
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
+  default_value: 
+  new_in: 
   description_list:
-  - markdown: 'The local administrator user to use to change the workgroup.
-
-      Required if using the `password` property.'
+  - markdown: The local administrator user to use to change the workgroup. Required
+      if using the `password` property.
 - property: workgroup_name
   ruby_type: String
   required: false
   default_value: The resource block's name
-  new_in: null
+  new_in: 
   description_list:
-  - markdown: 'An optional property to set the workgroup name if it differs from
-
-      the resource block''s name.'
+  - markdown: An optional property to set the workgroup name if it differs from the
+      resource block's name.
 properties_shortcode: null
 properties_multiple_packages: false
 resource_directory_recursive_directories: false

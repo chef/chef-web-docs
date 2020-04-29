@@ -1,5 +1,4 @@
 ---
-draft: false
 resource_reference: true
 robots:
 syntax_code_block:
@@ -39,7 +38,6 @@ menu:
     title: windows_user_privilege
     identifier: chef_infra/cookbook_reference/resources/windows_user_privilege windows_user_privilege
     parent: chef_infra/cookbook_reference/resources
-
 resource_description_list:
 - markdown: "The windows_user_privilege resource allows to add and set principal (User/Group)
     to the specified privilege. \n Ref: https://docs.microsoft.com/en-us/windows/security/threat-protection/security-policy-settings/user-rights-assignment"
