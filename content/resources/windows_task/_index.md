@@ -176,11 +176,10 @@ properties_list:
   ruby_type: true, false
   required: false
   default_value: 'false'
-  new_in: null
+  new_in: 
   description_list:
-  - markdown: 'Allow task to run interactively or non-interactively. Requires user
-
-      and password to also be set.'
+  - markdown: Allow task to run interactively or non-interactively. Requires user
+      and password to also be set.
 - property: minutes_duration
   ruby_type: String, Integer
   required: false
@@ -207,7 +206,7 @@ properties_list:
   default_value: 
   new_in: 
   description_list:
-  - markdown: The user’s password. The user property must be set if using this property.
+  - markdown: The user's password. The user property must be set if using this property.
 - property: priority
   ruby_type: Integer
   required: false
@@ -272,7 +271,7 @@ properties_list:
   ruby_type: String
   required: false
   default_value: '"The localized SYSTEM user for the node."'
-  new_in: null
+  new_in: 
   description_list:
   - markdown: The user to run the task as.
 properties_shortcode: null
