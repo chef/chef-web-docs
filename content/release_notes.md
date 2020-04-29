@@ -194,7 +194,7 @@ Use the `chef_client_systemd_timer` resource to setup the Chef Infra Client to r
 
 **chef_client_windows_task**
 
-Use the `chef_client_windows_task` resource to setup the Chef Infra Client to run on a schedule using Windows Scheduled Tasks. See the [chef_client_windows_task documentation](https://docs.chef.io/resources/chef_client_windows_task/) for full usage information.
+Use the `windows_task` resource to setup the Chef Infra Client to run on a schedule using Windows Scheduled Tasks. See the [windows_task documentation](https://docs.chef.io/resources/windows_task/) for full usage information.
 
 #### plist
 
