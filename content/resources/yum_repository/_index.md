@@ -1,7 +1,5 @@
 ---
 resource_reference: true
-robots:
-syntax_code_block:
 common_resource_functionality_multiple_packages: false
 common_resource_functionality_resources_common_windows_security: false
 cookbook_file_specificity: false
@@ -98,15 +96,14 @@ syntax_full_properties_list:
 - "`name` is the name given to the resource block."
 - "`action` identifies which steps Chef Infra Client will take to bring the node into
   the desired state."
-- "``baseurl``, ``clean_metadata``, ``cost``, ``description``, ``enabled``, ``enablegroups``,
-  ``exclude``, ``failovermethod``, ``fastestmirror_enabled``, ``gpgcheck``, ``gpgkey``,
-  ``http_caching``, ``include_config``, ``includepkgs``, ``keepalive``, ``make_cache``,
-  ``max_retries``, ``metadata_expire``, ``metalink``, ``mirror_expire``, ``mirrorlist``,
-  ``mirrorlist_expire``, ``mode``, ``options``, ``password``, ``priority``, ``proxy``,
-  ``proxy_password``, ``proxy_username``, ``repo_gpgcheck``, ``report_instanceid``,
-  ``repositoryid``, ``skip_if_unavailable``, ``source``, ``sslcacert``, ``sslclientcert``,
-  ``sslclientkey``, ``sslverify``, ``throttle``, ``timeout``, and ``username`` are
-  the properties available to this resource."
+- "`baseurl`, `clean_metadata`, `cost`, `description`, `enabled`, `enablegroups`,
+  `exclude`, `failovermethod`, `fastestmirror_enabled`, `gpgcheck`, `gpgkey`, `http_caching`,
+  `include_config`, `includepkgs`, `keepalive`, `make_cache`, `max_retries`, `metadata_expire`,
+  `metalink`, `mirror_expire`, `mirrorlist`, `mirrorlist_expire`, `mode`, `options`,
+  `password`, `priority`, `proxy`, `proxy_password`, `proxy_username`, `repo_gpgcheck`,
+  `report_instanceid`, `repositoryid`, `skip_if_unavailable`, `source`, `sslcacert`,
+  `sslclientcert`, `sslclientkey`, `sslverify`, `throttle`, `timeout`, and `username`
+  are the properties available to this resource."
 actions_list:
   :nothing:
     shortcode: resources_common_actions_nothing.md
@@ -114,8 +111,6 @@ properties_list:
 - property: baseurl
   ruby_type: String, Array
   required: false
-  default_value:
-  new_in:
   description_list:
   - markdown: URL to the directory where the Yum repository's 'repodata' directory
       lives. Can be an `http://`, `https://` or a `ftp://` URLs. You can specify multiple
@@ -124,15 +119,12 @@ properties_list:
   ruby_type: true, false
   required: false
   default_value: 'true'
-  new_in:
   description_list:
   - markdown: Specifies whether you want to purge all of the packages downloaded from
       a Yum repository and held in a cache directory.
 - property: cost
   ruby_type: String
   required: false
-  default_value:
-  new_in:
   description_list:
   - markdown: Relative cost of accessing this repository. Useful for weighing one
       repo's packages as greater/less than any other.
@@ -140,7 +132,6 @@ properties_list:
   ruby_type: String
   required: false
   default_value: Yum Repository
-  new_in:
   description_list:
   - markdown: Descriptive name for the repository channel and maps to the 'name' parameter
       in a repository .conf.
@@ -148,67 +139,45 @@ properties_list:
   ruby_type: true, false
   required: false
   default_value: 'true'
-  new_in:
   description_list:
   - markdown: Specifies whether or not Yum should use this repository.
 - property: enablegroups
   ruby_type: true, false
   required: false
-  default_value:
-  new_in:
   description_list:
   - markdown: Specifies whether Yum will allow the use of package groups for this
       repository.
 - property: exclude
   ruby_type: String
   required: false
-  default_value:
-  new_in:
   description_list:
   - markdown: List of packages to exclude from updates or installs. This should be
       a space separated list. Shell globs using wildcards (eg. * and ?) are allowed.
 - property: failovermethod
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
   description_list:
-  - markdown: 'Method to determine how to switch to a new server if the current one
-
-      fails, which can either be `roundrobin` or `priority`. `roundrobin`
-
-      randomly selects a URL out of the list of URLs to start with and
-
-      proceeds through each of them as it encounters a failure contacting
-
-      the host. `priority` starts from the first `baseurl` listed and
-
-      reads through them sequentially.'
+  - markdown: Method to determine how to switch to a new server if the current one
+      fails, which can either be `roundrobin` or `priority`. `roundrobin` randomly
+      selects a URL out of the list of URLs to start with and proceeds through each
+      of them as it encounters a failure contacting the host. `priority` starts from
+      the first `baseurl` listed and reads through them sequentially.
 - property: fastestmirror_enabled
   ruby_type: true, false
   required: false
-  default_value: null
-  new_in: null
   description_list:
-  - markdown: 'Specifies whether to use the fastest mirror from a repository
-
-      configuration when more than one mirror is listed in that
-
-      configuration.'
+  - markdown: Specifies whether to use the fastest mirror from a repository configuration
+      when more than one mirror is listed in that configuration.
 - property: gpgcheck
   ruby_type: true, false
   required: false
   default_value: 'true'
-  new_in: null
   description_list:
-  - markdown: 'Specifies whether or not Yum should perform a GPG signature check on
-
-      the packages received from a repository.'
+  - markdown: Specifies whether or not Yum should perform a GPG signature check on
+      the packages received from a repository.
 - property: gpgkey
   ruby_type: String, Array
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: 'URL pointing to the ASCII-armored GPG key file for the repository.
 
@@ -231,8 +200,6 @@ properties_list:
 - property: http_caching
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: "Determines how upstream HTTP caches are instructed to handle any\n\
       HTTP downloads that Yum does. This option can take the following\nvalues:\n\n\
@@ -244,57 +211,38 @@ properties_list:
 - property: include_config
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
   description_list:
-  - markdown: 'An external configuration file using the format
-
-      `url://to/some/location`.'
+  - markdown: An external configuration file using the format `url://to/some/location`.
 - property: includepkgs
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
   description_list:
-  - markdown: 'Inverse of exclude property. This is a list of packages you want to
-
-      use from a repository. If this option lists only one package then
-
-      that is all Yum will ever see from the repository.'
+  - markdown: Inverse of exclude property. This is a list of packages you want to
+      use from a repository. If this option lists only one package then that is all
+      Yum will ever see from the repository.
 - property: keepalive
   ruby_type: true, false
   required: false
-  default_value: null
-  new_in: null
   description_list:
-  - markdown: 'Determines whether or not HTTP/1.1 `keep-alive` should be used with
-
-      this repository.'
+  - markdown: Determines whether or not HTTP/1.1 `keep-alive` should be used with
+      this repository.
 - property: make_cache
   ruby_type: true, false
   required: false
   default_value: 'true'
-  new_in: null
   description_list:
-  - markdown: 'Determines whether package files downloaded by Yum stay in cache
-
-      directories. By using cached data, you can carry out certain
-
-      operations without a network connection.'
+  - markdown: Determines whether package files downloaded by Yum stay in cache directories.
+      By using cached data, you can carry out certain operations without a network
+      connection.
 - property: max_retries
   ruby_type: String, Integer
   required: false
-  default_value: null
-  new_in: null
   description_list:
-  - markdown: 'Number of times any attempt to retrieve a file should retry before
-
-      returning an error. Setting this to ''0'' makes Yum try forever.'
+  - markdown: Number of times any attempt to retrieve a file should retry before returning
+      an error. Setting this to `0` makes Yum try forever.
 - property: metadata_expire
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: 'Time (in seconds) after which the metadata will expire. If the
 
@@ -328,19 +276,13 @@ properties_list:
 - property: metalink
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
   description_list:
-  - markdown: 'Specifies a URL to a metalink file for the repomd.xml, a list of
-
-      mirrors for the entire repository are generated by converting the
-
-      mirrors for the repomd.xml file to a baseurl.'
+  - markdown: Specifies a URL to a metalink file for the repomd.xml, a list of mirrors
+      for the entire repository are generated by converting the mirrors for the repomd.xml
+      file to a baseurl.
 - property: mirror_expire
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: 'Time (in seconds) after which the mirrorlist locally cached will
 
@@ -360,19 +302,13 @@ properties_list:
 - property: mirrorlist
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
   description_list:
-  - markdown: 'URL to a file containing a list of baseurls. This can be used
-
-      instead of or with the baseurl option. Substitution variables,
-
-      described below, can be used with this option.'
+  - markdown: URL to a file containing a list of baseurls. This can be used instead
+      of or with the baseurl option. Substitution variables, described below, can
+      be used with this option.
 - property: mirrorlist_expire
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: 'Specifies the time (in seconds) after which the mirrorlist locally
 
@@ -399,22 +335,16 @@ properties_list:
 - property: options
   ruby_type: Hash
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: Specifies the repository options.
 - property: password
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: Password to use with the username for basic authentication.
 - property: priority
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: 'Assigns a priority to a repository where the priority value is
 
@@ -432,147 +362,87 @@ properties_list:
 - property: proxy
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: URL to the proxy server that Yum should use.
 - property: proxy_password
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: Password for this proxy.
 - property: proxy_username
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: Username to use for proxy.
 - property: repo_gpgcheck
   ruby_type: true, false
   required: false
-  default_value: null
-  new_in: null
   description_list:
-  - markdown: 'Determines whether or not Yum should perform a GPG signature check
-
-      on the repodata from this repository.'
+  - markdown: Determines whether or not Yum should perform a GPG signature check on
+      the repodata from this repository.
 - property: report_instanceid
   ruby_type: true, false
   required: false
-  default_value: null
-  new_in: null
   description_list:
-  - markdown: 'Determines whether to report the instance ID when using Amazon Linux
-
-      AMIs and repositories.'
+  - markdown: Determines whether to report the instance ID when using Amazon Linux
+      AMIs and repositories.
 - property: repositoryid
   ruby_type: String
   required: false
   default_value: The resource block's name
-  new_in: null
   description_list:
-  - markdown: 'An optional property to set the repository name if it differs from
-
-      the resource block''s name.'
+  - markdown: An optional property to set the repository name if it differs from the
+      resource block's name.
 - property: skip_if_unavailable
   ruby_type: true, false
   required: false
-  default_value: null
-  new_in: null
   description_list:
-  - markdown: 'Allow yum to continue if this repository cannot be contacted for any
-
-      reason.'
+  - markdown: Allow yum to continue if this repository cannot be contacted for any
+      reason.
 - property: source
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: Use a custom template source instead of the default one.
 - property: sslcacert
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
   description_list:
-  - markdown: 'Path to the directory containing the databases of the certificate
-
-      authorities Yum should use to verify SSL certificates.'
+  - markdown: Path to the directory containing the databases of the certificate authorities
+      Yum should use to verify SSL certificates.
 - property: sslclientcert
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
   description_list:
-  - markdown: 'Path to the SSL client certificate Yum should use to connect to
-
-      repos/remote sites.'
+  - markdown: Path to the SSL client certificate Yum should use to connect to repos/remote
+      sites.
 - property: sslclientkey
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
   description_list:
-  - markdown: 'Path to the SSL client key Yum should use to connect to repos/remote
-
-      sites.'
+  - markdown: Path to the SSL client key Yum should use to connect to repos/remote
+      sites.
 - property: sslverify
   ruby_type: true, false
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: Determines whether Yum will verify SSL certificates/hosts.
 - property: throttle
   ruby_type: String, Integer
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: Enable bandwidth throttling for downloads.
 - property: timeout
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
   description_list:
-  - markdown: 'Number of seconds to wait for a connection before timing out.
-
-      Defaults to 30 seconds. This may be too short of a time for
-
-      extremely overloaded sites.'
+  - markdown: Number of seconds to wait for a connection before timing out. Defaults
+      to 30 seconds. This may be too short of a time for extremely overloaded sites.
 - property: username
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: Username to use for basic authentication to a repository.
-properties_shortcode: null
-properties_multiple_packages: true
-resource_directory_recursive_directories: false
-resources_common_atomic_update: false
-properties_resources_common_windows_security: false
-remote_file_prevent_re_downloads: false
-remote_file_unc_path: false
-ps_credential_helper: false
-ruby_style_basics_chef_log: false
-debug_recipes_chef_shell: false
-template_requirements: false
-resources_common_properties: true
-resources_common_notification: true
-resources_common_guards: true
-common_resource_functionality_multiple_packages: false
-resources_common_guard_interpreter: false
-remote_directory_recursive_directories: false
-common_resource_functionality_resources_common_windows_security: false
-handler_custom: false
-cookbook_file_specificity: false
-unit_file_verification: false
 examples_list:
 - example_heading: Add internal company repository
   text_blocks:

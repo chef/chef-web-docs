@@ -1,8 +1,5 @@
 ---
-draft: false
 resource_reference: true
-robots:
-syntax_code_block:
 common_resource_functionality_multiple_packages: false
 common_resource_functionality_resources_common_windows_security: false
 cookbook_file_specificity: false
@@ -39,14 +36,13 @@ menu:
     title: alternatives
     identifier: chef_infra/cookbook_reference/resources/alternatives alternatives
     parent: chef_infra/cookbook_reference/resources
-
 resource_description_list:
 - markdown: The alternatives resource allows for configuration of command alternatives
     in Linux using the alternatives or update-alternatives packages.
 resource_new_in: '16.0'
 syntax_full_code_block: |-
   alternatives 'name' do
-    link           String
+    link           String # default value: "/usr/bin/LINK_NAME"
     link_name      String # default value: 'name' unless specified
     path           String
     priority       String, Integer
@@ -58,35 +54,30 @@ syntax_full_properties_list:
 - "`name` is the name given to the resource block."
 - "`action` identifies which steps Chef Infra Client will take to bring the node into
   the desired state."
-- "``link``, ``link_name``, ``path``, and ``priority`` are the properties available
-  to this resource."
+- "`link`, `link_name`, `path`, and `priority` are the properties available to this
+  resource."
 properties_list:
 - property: link
   ruby_type: String
   required: false
-  default_value: lazy default
-  new_in:
+  default_value: "/usr/bin/LINK_NAME"
   description_list:
-  - markdown:
+  - markdown: The path to the alternatives link.
 - property: link_name
   ruby_type: String
   required: false
   default_value: The resource block's name
-  new_in:
   description_list:
-  - markdown:
+  - markdown: The name of the link to create. This will be the command you type on
+      the command line such as `ruby` or `gcc`.
 - property: path
   ruby_type: String
   required: false
-  default_value:
-  new_in:
   description_list:
-  - markdown:
+  - markdown: The full path to the original application binary such as `/usr/bin/ruby27`.
 - property: priority
   ruby_type: String, Integer
   required: false
-  default_value:
-  new_in:
   description_list:
-  - markdown:
+  - markdown: The priority of the alternative.
 ---

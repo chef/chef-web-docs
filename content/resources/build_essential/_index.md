@@ -1,7 +1,6 @@
 ---
 title: build_essential resource
 resource: build_essential
-draft: false
 aliases:
 - "/resource_build_essential.html"
 menu:
@@ -9,9 +8,7 @@ menu:
     title: build_essential
     identifier: chef_infra/cookbook_reference/resources/build_essential build_essential
     parent: chef_infra/cookbook_reference/resources
-
 resource_reference: true
-robots: null
 resource_description_list:
 - markdown: 'Use the **build_essential** resource to install the packages required
 

@@ -1,16 +1,41 @@
 ---
+resource_reference: true
+common_resource_functionality_multiple_packages: true
+common_resource_functionality_resources_common_windows_security: false
+cookbook_file_specificity: false
+debug_recipes_chef_shell: false
+handler_custom: false
+handler_types: false
+nameless_apt_update: false
+nameless_build_essential: false
+properties_multiple_packages: false
+properties_resources_common_windows_security: false
+properties_shortcode: 
+ps_credential_helper: false
+registry_key: false
+remote_directory_recursive_directories: false
+remote_file_prevent_re_downloads: false
+remote_file_unc_path: false
+resource_directory_recursive_directories: false
+resource_package_options: false
+resources_common_atomic_update: false
+resources_common_guard_interpreter: false
+resources_common_guards: true
+resources_common_notification: true
+resources_common_properties: true
+ruby_style_basics_chef_log: false
+syntax_shortcode: 
+template_requirements: false
+unit_file_verification: false
 title: apt_package resource
 resource: apt_package
-draft: false
-aliases: [/resource_apt_package.html]
+aliases:
+- "/resource_apt_package.html"
 menu:
   infra:
     title: apt_package
     identifier: chef_infra/cookbook_reference/resources/apt_package apt_package
     parent: chef_infra/cookbook_reference/resources
-
-resource_reference: true
-robots: null
 resource_description_list:
 - markdown: 'Use the **apt_package** resource to manage packages on Debian and Ubuntu platforms.'
 - note:
@@ -22,14 +47,12 @@ syntax_description: 'A **apt_package** resource block manages a package on a nod
 
   by installing it. The simplest use of the **apt_package** resource is:
 
-  ``` ruby
-  apt_package ''package_name''
-  ```
+```
+apt_package ''package_name''
+```
 
-  which will install the named package using all of the default options and the default action (`:install`).'
-syntax_code_block: null
-syntax_properties_list: null
-syntax_full_code_block: |
+  which will install the named package using all of the default options and the default action of `:install`.'
+syntax_full_code_block: |-
                     apt_package 'name' do
                       default_release              String
                       options                      String, Array
@@ -41,19 +64,15 @@ syntax_full_code_block: |
                       version                      String, Array
                       action                       Symbol # defaults to :install if not specified
                     end
+syntax_properties_list: 
 syntax_full_properties_list:
-- '`apt_package` is the resource.'
-- '`name` is the name given to the resource block.'
-- '`action` identifies which steps Chef Infra Client will take to bring the node into
-  the desired state.'
-- '`default_release`, `options`, `overwrite_config_files`, `package_name`, `response_file`,
-  `response_file_variables`, `source`, `timeout`, and `version` are the properties
-  available to this resource.'
-syntax_shortcode: null
-registry_key: false
-nameless_apt_update: false
-nameless_build_essential: false
-resource_package_options: false
+- "`apt_package` is the resource."
+- "`name` is the name given to the resource block."
+- "`action` identifies which steps Chef Infra Client will take to bring the node into
+  the desired state."
+- "`default_release`, `options`, `overwrite_config_files`, `package_name`, `response_file`,
+  `response_file_variables`, `timeout`, and `version` are the properties
+  available to this resource."
 actions_list:
   :install:
     markdown: Default. Install a package. If a version is specified, install the specified
@@ -78,15 +97,11 @@ properties_list:
 - property: default_release
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: 'The default release. For example: `stable`.'
 - property: options
   ruby_type: String, Array
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: 'One (or more) additional options that are passed to the command. For
       example, common apt-get directives, such as `--no-install-recommends`. See the [apt-get man page](http://manpages.ubuntu.com/manpages/zesty/man8/apt-get.8.html)
@@ -97,64 +112,34 @@ properties_list:
   default_value: 'false'
   new_in: '14.0'
   description_list:
-  - markdown: 'Overwrite existing configuration files with those supplied by the package, if prompted by APT.'
+  - markdown: Overwrite existing configuration files with those supplied by the package,
+      if prompted by APT.
 - property: package_name
   ruby_type: String, Array
   required: false
-  default_value: null
-  new_in: null
   description_list:
-  - markdown: An optional property to set the package name if it differs from the resource block's name.
+  - markdown: An optional property to set the package name if it differs from the
+      resource block's name.
 - property: response_file
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: The direct path to the file used to pre-seed a package.
 - property: response_file_variables
   ruby_type: Hash
   required: false
-  default_value: null
-  new_in: null
   description_list:
-  - markdown: "A Hash of response file variables in the form of { 'VARIABLE' => 'VALUE' }."
+  - markdown: A Hash of response file variables in the form of {'VARIABLE' => 'VALUE'}.
 - property: timeout
   ruby_type: String, Integer
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: The amount of time (in seconds) to wait before timing out.
 - property: version
   ruby_type: String, Array
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: The version of a package to be installed or upgraded.
-
-properties_shortcode: null
-properties_multiple_packages: false
-resource_directory_recursive_directories: false
-resources_common_atomic_update: false
-properties_resources_common_windows_security: false
-remote_file_prevent_re_downloads: false
-remote_file_unc_path: false
-ps_credential_helper: false
-ruby_style_basics_chef_log: false
-debug_recipes_chef_shell: false
-template_requirements: false
-resources_common_properties: true
-resources_common_notification: true
-resources_common_guards: true
-common_resource_functionality_multiple_packages: true
-resources_common_guard_interpreter: false
-remote_directory_recursive_directories: false
-common_resource_functionality_resources_common_windows_security: false
-handler_custom: false
-cookbook_file_specificity: false
-unit_file_verification: false
 examples_list:
 - example_heading: Install a package using package manager
   text_blocks:

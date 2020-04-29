@@ -1,8 +1,5 @@
 ---
-draft: false
 resource_reference: true
-robots:
-syntax_code_block:
 common_resource_functionality_multiple_packages: false
 common_resource_functionality_resources_common_windows_security: false
 cookbook_file_specificity: false
@@ -40,7 +37,6 @@ menu:
     identifier: chef_infra/cookbook_reference/resources/chef_client_systemd_timer
       chef_client_systemd_timer
     parent: chef_infra/cookbook_reference/resources
-
 resource_description_list:
 - markdown: Use the chef_client_systemd_timer resource to setup the Chef Infra Client
     to run as a systemd timer.
@@ -67,44 +63,38 @@ syntax_full_properties_list:
 - "`name` is the name given to the resource block."
 - "`action` identifies which steps Chef Infra Client will take to bring the node into
   the desired state."
-- "``accept_chef_license``, ``chef_binary_path``, ``config_directory``, ``daemon_options``,
-  ``delay_after_boot``, ``description``, ``environment``, ``interval``, ``job_name``,
-  ``run_on_battery``, ``splay``, and ``user`` are the properties available to this
-  resource."
+- "`accept_chef_license`, `chef_binary_path`, `config_directory`, `daemon_options`,
+  `delay_after_boot`, `description`, `environment`, `interval`, `job_name`, `run_on_battery`,
+  `splay`, and `user` are the properties available to this resource."
 properties_list:
 - property: accept_chef_license
   ruby_type: true, false
   required: false
   default_value: 'false'
-  new_in:
   description_list:
   - markdown: Accept the Chef Online Master License and Services Agreement. See <https://www.chef.io/online-master-agreement/>
 - property: chef_binary_path
   ruby_type: String
   required: false
   default_value: "/opt/chef/bin/chef-client"
-  new_in:
   description_list:
   - markdown: The path to the chef-client binary.
 - property: config_directory
   ruby_type: String
   required: false
   default_value: "/etc/chef"
-  new_in:
   description_list:
   - markdown: The path of the config directory.
 - property: daemon_options
   ruby_type: Array
   required: false
   default_value: []
-  new_in:
   description_list:
   - markdown: An array of options to pass to the chef-client command.
 - property: delay_after_boot
   ruby_type: String
   required: false
   default_value: 1min
-  new_in:
   description_list:
   - markdown: The time to wait after booting before the interval starts. This is expressed
       as a systemd time span such as `300seconds`, `1hr`, or `1m`. See <https://www.freedesktop.org/software/systemd/man/systemd.time.html>
@@ -113,7 +103,6 @@ properties_list:
   ruby_type: String
   required: false
   default_value: Chef Infra Client periodic execution
-  new_in:
   description_list:
   - markdown: The description to add to the systemd timer. This will be displayed
       when running `systemctl status` for the timer.
@@ -121,15 +110,13 @@ properties_list:
   ruby_type: Hash
   required: false
   default_value: {}
-  new_in:
   description_list:
   - markdown: A Hash containing additional arbitrary environment variables under which
-      the systemd timer will be run in the form of ``({'ENV_VARIABLE' => 'VALUE'})``.
+      the systemd timer will be run in the form of `({'ENV_VARIABLE' => 'VALUE'})`.
 - property: interval
   ruby_type: String
   required: false
   default_value: 30min
-  new_in:
   description_list:
   - markdown: The interval to wait between executions. This is expressed as a systemd
       time span such as `300seconds`, `1hr`, or `1m`. See <https://www.freedesktop.org/software/systemd/man/systemd.time.html>
@@ -138,21 +125,18 @@ properties_list:
   ruby_type: String
   required: false
   default_value: chef-client
-  new_in:
   description_list:
   - markdown: The name of the system timer to create.
 - property: run_on_battery
   ruby_type: true, false
   required: false
   default_value: 'true'
-  new_in:
   description_list:
   - markdown: Run the timer for Chef Infra Client if the system is on battery.
 - property: splay
   ruby_type: String
   required: false
   default_value: 5min
-  new_in:
   description_list:
   - markdown: A interval between 0 and X to add to the interval so that all chef-client
       commands don't execute at the same time. This is expressed as a systemd time
@@ -162,8 +146,6 @@ properties_list:
   ruby_type: String
   required: false
   default_value: root
-  new_in:
   description_list:
   - markdown: The name of the user that Chef Infra Client runs as.
-
 ---

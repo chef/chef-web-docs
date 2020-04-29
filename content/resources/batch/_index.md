@@ -1,7 +1,6 @@
 ---
 title: batch resource
 resource: batch
-draft: false
 aliases:
 - "/resource_batch.html"
 menu:
@@ -9,9 +8,7 @@ menu:
     title: batch
     identifier: chef_infra/cookbook_reference/resources/batch batch
     parent: chef_infra/cookbook_reference/resources
-
 resource_reference: true
-robots: null
 resource_description_list:
 - markdown: 'Use the **batch** resource to execute a batch script using the cmd.exe
 
@@ -83,22 +80,16 @@ properties_list:
 - property: code
   ruby_type: String
   required: true
-  default_value: null
-  new_in: null
   description_list:
   - markdown: A quoted (" ") string of code to be executed.
 - property: command
   ruby_type: String, Array
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: The name of the command to be executed.
 - property: creates
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: 'Prevent a command from creating a file when that file already
 
@@ -106,8 +97,6 @@ properties_list:
 - property: cwd
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: The current working directory from which the command will be run.
 - property: flags
