@@ -33,8 +33,7 @@ back up Chef Infra Server.
 
 {{< /note >}}
 
-From Chef Infra Server 12.17.15 or later
-========================================
+## From Chef Infra Server 12.17.15 or later
 
 There are three upgrade scenarios for upgrades from later versions of
 Chef Infra Server 12 to Chef Infra Server 13:
@@ -60,8 +59,7 @@ Management](/server_security/#chef-infra-server-credentials-management).
 
 {{< /note >}}
 
-Standalone
-----------
+### Standalone
 
 This section describes the upgrade process for a standalone
 configuration. The upgrade process will require downtime equal to the
@@ -130,8 +128,7 @@ following:
     chef-server-ctl cleanup
     ```
 
-High Availability: Chef Backend
--------------------------------
+### High Availability: Chef Backend
 
 The Chef Infra Server can operate in a high availability configuration
 that provides automated load balancing and failover for stateful
@@ -148,8 +145,7 @@ see the [Best Best Practices for Migrating Your Chef
 Server](https://blog.chef.io/2018/04/06/best-practices-for-migrating-your-chef-server/)
 webinar from the [Chef Blog](https://blog.chef.io/)
 
-Tiered
-------
+### Tiered
 
 This section describes the upgrade process from a tiered server
 configuration. The upgrade process will require downtime equal to the
@@ -249,8 +245,7 @@ configuration, do the following:
     chef-server-ctl cleanup
     ```
 
-Upgrading Add-ons
-=================
+## Upgrading Add-ons
 
 This section details the process for upgrading additional features after
 the Chef Infra Server has been upgraded.
@@ -263,8 +258,7 @@ the Chef Infra Server has been upgraded.
 
 {{% ctl_chef_server_install_features_manual %}}
 
-Upgrading from older versions to Chef Infra Server 13
-=====================================================
+## Upgrading from older versions to Chef Infra Server 13
 
 **Upgrading from version between 12.0.0 - 12.17.15**
 

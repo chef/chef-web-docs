@@ -17,8 +17,7 @@ aliases = ["/errors.html"]
 The following sections describe how to troubleshoot the Chef Infra
 Server, Chef Infra Client, and Chef Workstation.
 
-401 Unauthorized
-================
+## 401 Unauthorized
 
 There are multiple causes of the Chef 401 "Unauthorized" error, so
 please use the sections below to find the error message that most
@@ -26,8 +25,7 @@ closely matches your output. If you are unable to find a matching error,
 or if the provided steps are unhelpful, please [file a help
 ticket](https://getchef.zendesk.com/hc/en-us).
 
-Failed to authenticate as ORGANIZATION-validator
-------------------------------------------------
+### Failed to authenticate as ORGANIZATION-validator
 
 If you're receiving an error like the following it most likely means
 you'll need to regenerate the ORGANIZATION-validator.pem file:
@@ -59,8 +57,7 @@ FATAL: Net::HTTPClientException: 401 "Unauthorized"
     You can then select **Reset Validation Key** next to the
     organization for which the key is to be reset.
 
-Failed to authenticate to <https://api.opscode.com>
----------------------------------------------------
+## Failed to authenticate to
 
 When the values for certain settings in the client.rb file---`node_name`
 and `client_key`---are incorrect, it will not be possible to
@@ -89,8 +86,7 @@ Response:  Failed to authenticate as USERNAME. Ensure that your node_name and cl
 -   If there's no client.rb file, regenerate it and ensure the values
     for the `node_name` and `client_key` settings are correct.
 
-Organization not found
-----------------------
+### Organization not found
 
 If you see this error when trying to recreate the
 ORGANIZATION-validator.pem, it's possible that Chef Infra Client itself
@@ -100,8 +96,7 @@ with the name of your organization.
 
 {{% manage_webui_policy_validation_reset_key %}}
 
-Synchronize the clock on your host
-----------------------------------
+### Synchronize the clock on your host
 
 If the system clock drifts more than 15 minutes from the actual time,
 the following type of error will be shown:
@@ -115,8 +110,7 @@ FATAL: Net::HTTPClientException: 401 "Unauthorized"
 
 To resolve this error, synchronize the clock with an NTP server.
 
-All other 401 errors
---------------------
+### All other 401 errors
 
 The general `Net::HTTPClientException: 401 "Unauthorized"` error will
 usually occur for one of two reasons.
@@ -180,8 +174,7 @@ usually occur for one of two reasons.
     Alternatively, re-register the node using the method described
     previously.
 
-403 Forbidden
-=============
+## 403 Forbidden
 
 If you're seeing output like this:
 
@@ -243,8 +236,7 @@ To fix object permissions:
 
 4.  Check the checkboxes needed and save the updates.
 
-500 (Unexpected)
-================
+## 500 (Unexpected)
 
 HTTP 500 is a non-specific error message. The full error message for the
 error Chef Infra Client is receiving can be found in one of the
@@ -258,8 +250,7 @@ In some cases the error message will clearly indicate a problem with
 another service which can be investigated further. For non-obvious
 errors, please contact Chef and attach the log files.
 
-502 / 504 (Gateway)
-===================
+## 502 / 504 (Gateway)
 
 Determine which API service is returning 504s using the Nginx access
 logs. API requests returning 504 can be found with the following command
@@ -290,8 +281,7 @@ processes. If the problematic service is **opscode-erchef**, use the
 request log to determine whether a particular component of requests is
 slow.
 
-Workflow Problems
-=================
+## Workflow Problems
 
 In working with Chef, you'll most likely encounter issues in your
 regular workflow. This page is a collection of common errors our users
@@ -301,8 +291,7 @@ are unable to find a matching error, or if the provided steps are
 unhelpful, please [file a help
 ticket](https://getchef.zendesk.com/hc/en-us).
 
-No such file or directory
--------------------------
+### No such file or directory
 
 If you're seeing an error like:
 
@@ -322,8 +311,7 @@ it means that Chef Infra Client could not find your validation.pem.
 2.  Make sure your client.rb points to the location of your validator
     pem.
 
-Commit or stash your changes
-----------------------------
+### Commit or stash your changes
 
 This isn't really an error, but can be confusing to new users. When you
 try to install a cookbook with changes that have not been committed to
@@ -351,8 +339,7 @@ git commit -am "Updating so I can install a site cookbook"
 Re-run the `knife supermarket install` subcommand again to install the
 community cookbook.
 
-Cannot find config file
------------------------
+### Cannot find config file
 
 If you're seeing an error like:
 
@@ -372,8 +359,7 @@ Work around this issue by supplying the full path to the client.rb file:
 chef-client -c /etc/chef/client.rb
 ```
 
-Pivotal.rb does not exist
--------------------------
+### Pivotal.rb does not exist
 
 If you're seeing an error like:
 
@@ -393,14 +379,12 @@ Because the Chef Infra Server is composed of many different services
 that work together to create a functioning system, this step may take a
 few minutes to complete.
 
-External PostgreSQL
-===================
+## External PostgreSQL
 
 The following error messages may be present when configuring the Chef
 Infra Server to use a remote PostgreSQL server.
 
-CSPG001 (changed setting)
--------------------------
+### CSPG001 (changed setting)
 
 **Reason**
 
@@ -425,8 +409,7 @@ Upgrading is not supported at this time.
     assign the new backend instance the name/VIP of the old backend
     instance (including certificates, keys, and so on)
 
-CSPG010 (cannot connect)
-------------------------
+### CSPG010 (cannot connect)
 
 **Reason**
 
@@ -441,8 +424,7 @@ Cannot connect to PostgreSQL on the remote server.
 -   When using Amazon Web Services (AWS), rules for security groups are
     preventing the Chef Infra Server from communicating with PostgreSQL
 
-CSPG011 (cannot authenticate)
------------------------------
+### CSPG011 (cannot authenticate)
 
 **Reason**
 
@@ -453,8 +435,7 @@ Cannot authenticate to PostgreSQL on the remote server.
 -   Incorrect password specified for `db_superuser_password`
 -   Incorrect user name specified for `db_superuser`
 
-CSPG012 (incorrect rules)
--------------------------
+### CSPG012 (incorrect rules)
 
 **Reason**
 
@@ -536,8 +517,7 @@ Cannot connect to PostgreSQL on the remote server because rules in
     the chef-server.rb file), `oc_id`, `oc_id_ro`, `opscode_chef`,
     `opscode_chef_ro`, `bifrost`, and `bifrost_ro`
 
-CSPG013 (incorrect permissions)
--------------------------------
+### CSPG013 (incorrect permissions)
 
 **Reason**
 
@@ -560,8 +540,7 @@ The `db_superuser` account has incorrect permissions.
     ALTER ROLE "$your_db_superuser_name"  WITH CREATEDB CREATEROLE
     ```
 
-CSPG014 (incorrect version)
----------------------------
+### CSPG014 (incorrect version)
 
 **Reason**
 
@@ -571,8 +550,7 @@ Bad version of PostgreSQL.
 
 -   The remote server is not running PostgreSQL version 9.2.x
 
-CSPG015 (missing database)
---------------------------
+### CSPG015 (missing database)
 
 **Reason**
 
@@ -597,8 +575,7 @@ The database template `template1` does not exist.
     createdb -T template0 template1
     ```
 
-CSPG016 (database exists)
--------------------------
+### CSPG016 (database exists)
 
 **Reason**
 
@@ -618,8 +595,7 @@ One (or more) of the PostgreSQL databases already exists.
 -   Back up the PostgreSQL data, remove the existing databases, and
     reconfigure the Chef server
 
-CSPG017 (user exists)
----------------------
+### CSPG017 (user exists)
 
 **Reason**
 

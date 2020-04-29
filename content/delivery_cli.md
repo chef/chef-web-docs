@@ -16,24 +16,19 @@ aliases = ["/delivery_cli.html", "/ctl_delivery.html"]
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/delivery_cli.md)
 
-
-
 The Delivery CLI is the command-line interface for the workflow
 capabilities in Chef Automate. It sits in-between a local git repository
 and the Chef Automate server.
 
-Install Delivery CLI
-====================
+## Install Delivery CLI
 
 {{% delivery_cli_install %}}
 
-Configure Delivery CLI
-======================
+## Configure Delivery CLI
 
 {{% delivery_cli_configure %}}
 
-Run Delivery CLI in FIPS Mode
-=============================
+## Run Delivery CLI in FIPS Mode
 
 {{% fips_intro %}}
 
@@ -42,16 +37,14 @@ what FIPS is and how to enable it.
 
 {{% delivery_cli_fips %}}
 
-delivery api
-============
+## delivery api
 
 Use the `api` subcommand to make an HTTP request to the Chef Automate
 API using the `--data` option to specify the JSON that contains the data
 in the request. This request must be authorized using a token generated
 by the `token` subcommand.
 
-Syntax
-------
+### Syntax
 
 This subcommand has the following syntax:
 
@@ -66,8 +59,7 @@ where:
 -   `PATH` is an endpoint in the Chef Automate API scoped to the
     specified Chef Automate enterprise
 
-Options
--------
+### Options
 
 This subcommand has the following options:
 
@@ -101,8 +93,7 @@ This subcommand has the following options:
 :   A Chef Automate user name. This user must exist in the specified
     enterprise (`--ent`).
 
-Examples
---------
+### Examples
 
 A GitHub user name must be associated with Chef Automate in order for
 changes piped to Chef Automate created by GitHub pull requests to be
@@ -140,14 +131,12 @@ delivery api put users/$DELIVERY_NAME/set-oauth-alias --data='{"app":"github","a
 delivery api get blocked_projects --ent ENTERPRISE --server URL
 ```
 
-delivery checkout
-=================
+## delivery checkout
 
 Use the `checkout` subcommand to check out an open change on an existing
 project.
 
-Syntax
-------
+### Syntax
 
 This subcommand has the following syntax:
 
@@ -159,8 +148,7 @@ where:
 
 -   `CHANGE` is the name of a feature branch
 
-Options
--------
+### Options
 
 This subcommand has the following options:
 
@@ -187,13 +175,11 @@ This subcommand has the following options:
 
 :   The name of a Chef Automate pipeline.
 
-Examples
---------
+### Examples
 
 None.
 
-delivery clone
-==============
+## delivery clone
 
 Use the `clone` subcommand to clone a Chef Automate project.
 
@@ -204,8 +190,7 @@ an existing project.
 
 {{< /note >}}
 
-Syntax
-------
+### Syntax
 
 This subcommand has the following syntax:
 
@@ -217,8 +202,7 @@ where:
 
 -   `PROJECT` is the Chef Automate project to be cloned
 
-Options
--------
+### Options
 
 This subcommand has the following options:
 
@@ -259,19 +243,16 @@ This subcommand has the following options:
 
 :   A Chef Automate user name.
 
-Examples
---------
+### Examples
 
 None.
 
-delivery diff
-=============
+## delivery diff
 
 Use the `diff` subcommand to perform a `git diff` between the change and
 the pipeline.
 
-Syntax
-------
+### Syntax
 
 This subcommand has the following syntax:
 
@@ -284,8 +265,7 @@ where:
 -   `CHANGE` is the name of the feature branch associated with the
     change
 
-Options
--------
+### Options
 
 This subcommand has the following options:
 
@@ -316,13 +296,11 @@ This subcommand has the following options:
 
 :   The name of a Chef Automate pipeline.
 
-Examples
---------
+### Examples
 
 None.
 
-delivery init
-=============
+## delivery init
 
 Use the `init` subcommand to initialize a Chef Automate project. This
 will set up a local repository in the Chef Automate server, set up a
@@ -330,8 +308,7 @@ pipeline, and commit a build cookbook specific to the project.
 Subsequent changes to this repo should be done using the `review`
 subcommand.
 
-Syntax
-------
+### Syntax
 
 This subcommand has the following syntax:
 
@@ -339,8 +316,7 @@ This subcommand has the following syntax:
 delivery init (options)
 ```
 
-Options
--------
+### Options
 
 This subcommand has the following options:
 
@@ -435,8 +411,7 @@ This subcommand has the following options:
 
 :   A Chef Automate user name.
 
-Examples
---------
+### Examples
 
 **Initialize project with Bitbucket repository**
 
@@ -587,16 +562,14 @@ https://delivery.chef.co/e/Chef/#/organizations/sandbox/projects/seapower/change
   seapower git:(add-delivery-config)
 ```
 
-delivery job
-============
+## delivery job
 
 Use the `job` subcommand to execute a Chef Automate phase. This command
 starts two Chef Infra Client runs: the first is based on the default
 recipe in a build cookbook and the second is based on the specified Chef
 Automate phase.
 
-Syntax
-------
+### Syntax
 
 This subcommand has the following syntax:
 
@@ -610,8 +583,7 @@ where:
     Acceptance, Union, Rehearsal, Delivered
 -   `PHASE` is a phase, which runs recipes, in a Chef Automate stage
 
-Options
--------
+### Options
 
 This subcommand has the following options:
 
@@ -705,8 +677,7 @@ This subcommand has the following options:
 
 :   A Chef Automate user name.
 
-Examples
---------
+### Examples
 
 **Verify a job**
 
@@ -745,15 +716,13 @@ Running handlers complete
 Chef Client finished, 2/2 resources updated in 32.770955 seconds
 ```
 
-delivery local
-==============
+## delivery local
 
 Use the `local` subcommand to run Delivery phase or stage on your local
 Chef Workstation installation, based on settings in the `project.toml`
 file located in the project's `.delivery` directory.
 
-Syntax
-------
+### Syntax
 
 This subcommand has the following syntax:
 
@@ -777,8 +746,7 @@ verify: \[lint, syntax, unit\] \* acceptance: \[provision, deploy,
 smoke, functional, cleanup\] \* all: \[lint, syntax, unit, provision,
 deploy, smoke, functional, cleanup\]
 
-Configuration
--------------
+### Configuration
 
 **Phases**
 
@@ -818,8 +786,7 @@ delivery local syntax -r https://url-for-my-project.toml
 Providing the URI through this manner will take precedence over anything
 configured in the local `project.toml`.
 
-Examples
---------
+### Examples
 
 **Run Cookstyle**
 
@@ -878,8 +845,7 @@ Inspecting 45 files
 45 files inspected, no offenses detected
 ```
 
-delivery review
-===============
+## delivery review
 
 Use the `review` subcommand to submit a feature branch for review as a
 new patchset. This either creates a new change associated with the
@@ -889,8 +855,7 @@ the associated change is automatically triggered and runs the unit, lint
 and syntax phases. By default, this action opens a browser window to
 show the pipeline in Chef Automate.
 
-Syntax
-------
+### Syntax
 
 This subcommand has the following syntax:
 
@@ -898,8 +863,7 @@ This subcommand has the following syntax:
 delivery review (options)
 ```
 
-Options
--------
+### Options
 
 This subcommand has the following options:
 
@@ -936,8 +900,7 @@ This subcommand has the following options:
 
 :   The name of a Chef Automate pipeline.
 
-Examples
---------
+### Examples
 
 **Bump version metadata automatically**
 
@@ -959,16 +922,14 @@ Created new patchset
 https://delivery.chef.co/e/URL_FOR_CHANGE
 ```
 
-delivery setup
-==============
+## delivery setup
 
 Use the `setup` subcommand to set up the Chef Automate project. This
 will set up the configuration needed for a project to communicate with
 the Chef Automate server. Use the `token` subcommand to get an API token
 that allows authorized requests to be made to the server.
 
-Syntax
-------
+### Syntax
 
 This subcommand has the following syntax:
 
@@ -976,8 +937,7 @@ This subcommand has the following syntax:
 delivery setup (options)
 ```
 
-Options
--------
+### Options
 
 This subcommand has the following options:
 
@@ -1005,20 +965,17 @@ This subcommand has the following options:
 
 :   A Chef Automate user name.
 
-Examples
---------
+### Examples
 
 None.
 
-delivery status
-===============
+## delivery status
 
 Get status information about the Chef Automate server's `_status`
 endpoint, API response time, and additional information depending on the
 server's configuration.
 
-Syntax
-------
+### Syntax
 
 This subcommand has the following syntax:
 
@@ -1026,8 +983,7 @@ This subcommand has the following syntax:
 delivery status (options)
 ```
 
-Options
--------
+### Options
 
 This subcommand has the following options:
 
@@ -1047,8 +1003,7 @@ This subcommand has the following options:
 
 :   The server on which Chef Automate is running.
 
-Examples
---------
+### Examples
 
 ``` shell
 delivery status
@@ -1079,8 +1034,7 @@ fips_git_port = "OPEN_PORT"
 Replace OPEN_PORT with any port that is free on your machine.
 ```
 
-delivery token
-==============
+## delivery token
 
 Use the `token` subcommand to manage a Chef Automate API token.
 
@@ -1091,8 +1045,7 @@ must include `winpty` before `delivery token` to avoid errors.
 
 {{< /note >}}
 
-Syntax
-------
+### Syntax
 
 This subcommand has the following syntax:
 
@@ -1113,8 +1066,7 @@ AUTOMATE_PASSWORD=secret delivery token -s automate.example.com -e myent -u toke
 
 {{< /note >}}
 
-Options
--------
+### Options
 
 This subcommand has the following options:
 
@@ -1142,8 +1094,7 @@ This subcommand has the following options:
 
 :   Verify if a token is a valid token.
 
-Examples
---------
+### Examples
 
 **Verify a token**
 

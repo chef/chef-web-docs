@@ -18,13 +18,11 @@ aliases = ["/ruby.html"]
 
 As of Chef Infra Client 15.x, Chef Infra Client ships with Ruby 2.6.
 
-Ruby Basics
-===========
+## Ruby Basics
 
 This section covers the basics of Ruby.
 
-Verify Syntax
--------------
+### Verify Syntax
 
 Many people who are new to Ruby often find that it doesn't take very
 long to get up to speed with the basics. For example, it's useful to
@@ -41,8 +39,7 @@ to return:
 Syntax OK
 ```
 
-Comments
---------
+### Comments
 
 Use a comment to explain code that exists in a cookbook or recipe.
 Anything after a `#` is a comment.
@@ -51,8 +48,7 @@ Anything after a `#` is a comment.
 # This is a comment.
 ```
 
-Local Variables
----------------
+### Local Variables
 
 Assign a local variable:
 
@@ -60,8 +56,7 @@ Assign a local variable:
 x = 1
 ```
 
-Math
-----
+### Math
 
 Do some basic arithmetic:
 
@@ -73,8 +68,7 @@ Do some basic arithmetic:
 1 + (2 * 3)     # => 7   (you can use parentheses to group expressions)
 ```
 
-Strings
--------
+### Strings
 
 Work with strings:
 
@@ -93,7 +87,7 @@ node['hostname'].downcase    # => "foo"
 node['hostname'].upcase      # => "FOO"
 ```
 
-### Ruby in Strings
+#### Ruby in Strings
 
 Embed Ruby in a string:
 
@@ -103,7 +97,7 @@ x = 'Bob'
 'Hello, #{x}'   # => "Hello, \#{x}" Notice that single quotes don't work with #{}
 ```
 
-### Escape Character
+#### Escape Character
 
 Use the backslash character (`\`) as an escape character when quotes
 must appear within strings. However, you do not need to escape single
@@ -114,7 +108,7 @@ quotes inside double quotes. For example:
 "Won\'t you read Grant\'s book?"      # => "Won't you read Grant's book?"
 ```
 
-### Interpolation
+#### Interpolation
 
 When strings have quotes within quotes, use double quotes (`" "`) on the
 outer quotes, and then single quotes (`' '`) for the inner quotes. For
@@ -141,8 +135,7 @@ else
 end
 ```
 
-Truths
-------
+### Truths
 
 Work with basic truths:
 
@@ -157,7 +150,7 @@ nil             # => nil
 1 == true       # => false ( == tests for equality )
 ```
 
-### Untruths
+#### Untruths
 
 Work with basic untruths (`!` means not!):
 
@@ -169,7 +162,7 @@ Work with basic untruths (`!` means not!):
 1 != 1          # => false (1 is not equal to itself)
 ```
 
-### Convert Truths
+#### Convert Truths
 
 Convert something to either true or false (`!!` means not not!!):
 
@@ -180,8 +173,7 @@ Convert something to either true or false (`!!` means not not!!):
 !!0             # => true (zero is NOT false).
 ```
 
-Arrays
-------
+### Arrays
 
 Create lists using arrays:
 
@@ -196,7 +188,7 @@ x = x + ['d']         # => ["a", "b", "c", "d"]
 x                     # => ["a", "b", "c", "d"]
 ```
 
-### Whitespace Arrays
+#### Whitespace Arrays
 
 The `%w` syntax is a Ruby shortcut for creating an array without
 requiring quotes and commas around the elements.
@@ -232,8 +224,7 @@ are present:
 end
 ```
 
-Hash
-----
+### Hash
 
 A Hash is a list with keys and values. Sometimes hashes don't have a set
 order:
@@ -256,8 +247,7 @@ h.keys              # => ["first_name", "age", "last_name"]
 h.values            # => ["Jones", "Bob", 23]
 ```
 
-Regular Expressions
--------------------
+### Regular Expressions
 
 Use Perl-style regular expressions:
 
@@ -269,8 +259,7 @@ Use Perl-style regular expressions:
 /give me a ([0-9]+)/ =~ 'give me a 7'     # => 0 (matched)
 ```
 
-Statements
-----------
+### Statements
 
 Use conditions! For example, an `if` statement
 
@@ -298,7 +287,7 @@ else
 end
 ```
 
-### if
+#### if
 
 An `if` statement can be used to specify part of a recipe to be used
 when certain conditions are met. `else` and `elsif` statements can be
@@ -315,7 +304,7 @@ if node['platform'] == 'ubuntu'
 end
 ```
 
-### case
+#### case
 
 A `case` statement can be used to handle a situation where there are a
 lot of conditions. Use the `when` statement for each condition, as many
@@ -345,8 +334,7 @@ when 'rhel'
 end
 ```
 
-Call a Method
--------------
+### Call a Method
 
 Call a method on something with `.method_name()`:
 
@@ -356,8 +344,7 @@ x.split(' ')            # => ["My", "String"]
 x.split(' ').join(', ') # => "My, String"
 ```
 
-Define a Method
----------------
+### Define a Method
 
 Define a method (or a function, if you like):
 
@@ -373,8 +360,7 @@ do_something_useless 1, 2
 # see how the parentheses are optional if there's no confusion about what to do
 ```
 
-Ruby Class
-----------
+### Ruby Class
 
 Use the Ruby `File` class in a recipe. Because Chef has the **file**
 resource, use `File` to use the Ruby `File` class. For example:
@@ -387,8 +373,7 @@ execute 'apt-get-update' do
 end
 ```
 
-Include a Class
----------------
+### Include a Class
 
 Use `:include` to include another Ruby class. For example:
 
@@ -401,8 +386,7 @@ without the `:` prefix Chef Infra Client will try to find a provider
 named `include`. Using the `:` prefix tells Chef Infra Client to look
 for the specified class that follows.
 
-Include a Parameter
--------------------
+### Include a Parameter
 
 The `include?` method can be used to ensure that a specific parameter is
 included before an action is taken. For example, using the `include?`
@@ -422,13 +406,11 @@ if %w{rhel}.include?(node['platform_family'])
 end
 ```
 
-Patterns to Follow
-==================
+## Patterns to Follow
 
 This section covers best practices for cookbook and recipe authoring.
 
-git Etiquette
--------------
+### git Etiquette
 
 Although not strictly a Chef style thing, please always ensure your
 `user.name` and `user.email` are set properly in your `.gitconfig` file.
@@ -439,20 +421,17 @@ Although not strictly a Chef style thing, please always ensure your
 This will prevent commit log entries similar to
 `"guestuser <login@Bobs-Macbook-Pro.local>"`, which are unhelpful.
 
-Use of Hyphens
---------------
+### Use of Hyphens
 
 {{% ruby_style_patterns_hyphens %}}
 
-Cookbook Naming
----------------
+### Cookbook Naming
 
 Use a short organizational prefix for application cookbooks that are
 part of your organization. For example, if your organization is named
 SecondMarket, use `sm` as a prefix: `sm_postgresql` or `sm_httpd`.
 
-Cookbook Versioning
--------------------
+### Cookbook Versioning
 
 -   Use semantic versioning when numbering cookbooks.
 -   Only upload stable cookbooks from master.
@@ -461,8 +440,7 @@ Cookbook Versioning
 -   Always update CHANGELOG.md with any changes, with the JIRA ticket
     and a brief description.
 
-Cookbook Patterns
------------------
+### Cookbook Patterns
 
 Good cookbook examples:
 
@@ -471,8 +449,7 @@ Good cookbook examples:
 -   <https://github.com/chef-cookbooks/mysql>
 -   <https://github.com/chef-cookbooks/httpd>
 
-Naming
-------
+### Naming
 
 Name things uniformly for their system and component. For example:
 
@@ -485,8 +462,7 @@ Name things uniformly for their system and component. For example:
 Name attributes after the recipe in which they are primarily used. e.g.
 `node['postgresql']['server']`.
 
-Parameter Order
----------------
+### Parameter Order
 
 Follow this order for information in each resource declaration:
 
@@ -513,8 +489,7 @@ template '/tmp/foobar.txt' do
 end
 ```
 
-File Modes
-----------
+### File Modes
 
 Always specify the file mode with a quoted 3-5 character string that
 defines the octal mode:
@@ -533,8 +508,7 @@ Wrong:
 mode 755
 ```
 
-Specify Resource Action?
-------------------------
+### Specify Resource Action?
 
 A resource declaration does not require the action to be specified
 because Chef Infra Client will apply the default action for a resource
@@ -559,8 +533,7 @@ ohai 'apache_modules' do
 end
 ```
 
-Symbols or Strings?
--------------------
+### Symbols or Strings?
 
 Prefer strings over symbols, because they're easier to read and you
 don't need to explain to non-Rubyists what a symbol is. Please retrofit
@@ -578,18 +551,16 @@ Wrong:
 default[:foo][:bar] = 'baz'
 ```
 
-String Quoting
---------------
+### String Quoting
 
 Use single-quoted strings in all situations where the string doesn't
 need interpolation.
 
-### Whitespace Arrays
+#### Whitespace Arrays
 
 {{% ruby_style_patterns_string_quoting_vs_whitespace_array %}}
 
-Recipes
--------
+### Recipes
 
 A recipe should be clean and well-commented. For example:
 
@@ -728,8 +699,7 @@ template '/srv/wordpress_demo/wp-config.php' do
 end
 ```
 
-Cookstyle Linting
-=================
+## Cookstyle Linting
 
 Chef Workstation includes Cookstyle for linting the Ruby-specific and
 Chef-specific portions of your cookbook code. All cookbooks should pass

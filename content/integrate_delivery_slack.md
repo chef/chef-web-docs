@@ -16,8 +16,6 @@ aliases = ["/integrate_delivery_slack.html", "/release/automate/integrate_delive
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/integrate_delivery_slack.md)
 
-
-
 {{% chef_automate_mark %}}
 
 {{% EOL_a1 %}}
@@ -51,8 +49,7 @@ channel. Undelivered notifications are not re-sent.
 
 {{< /note >}}
 
-Create a Webhook
-================
+## Create a Webhook
 
 To create a webhook in Slack:
 
@@ -70,8 +67,7 @@ To create a webhook in Slack:
     webhook can be copied.
 6.  Copy the URL.
 
-Add a Webhook to Workflow
-=========================
+## Add a Webhook to Workflow
 
 To add a Slack webhook for Workflow:
 
@@ -83,8 +79,7 @@ To add a Slack webhook for Workflow:
 5.  Click **Send a Test**. If a test notification is successful, click
     **Save**.
 
-Disable Slack Notifications
-===========================
+## Disable Slack Notifications
 
 Slack notifications are enabled by default, but they may be disabled.
 
@@ -93,8 +88,7 @@ Slack notifications are enabled by default, but they may be disabled.
 3.  Click **Edit** to open the details for that organization or project.
 4.  De-select the **Enabled** checkbox, and then click **Save**.
 
-Delete Slack Notifications
-==========================
+## Delete Slack Notifications
 
 Slack notifications are enabled by default, but they may be disabled.
 

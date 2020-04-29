@@ -23,30 +23,25 @@ this (and all) knife subcommands and plugins.
 
 {{< /note >}}
 
-job list
-========
+## job list
 
 {{% plugin_knife_push_jobs_job_list %}}
 
-Syntax
-------
+### Syntax
 
 {{% plugin_knife_push_jobs_job_list_syntax %}}
 
-Options
--------
+### Options
 
 This command does not have any specific options.
 
-job output
-==========
+## job output
 
 The `job output` command is used to view the output of Push jobs. The
 output capture flag must have been set on `job start`; see the
 `--capture` option.
 
-Syntax
-------
+### Syntax
 
 This argument has the following syntax:
 
@@ -54,8 +49,7 @@ This argument has the following syntax:
 knife job output (options) JOB_ID [NODE_NAME]
 ```
 
-Options
--------
+### Options
 
 This argument has the following options:
 
@@ -63,8 +57,7 @@ This argument has the following options:
 
 :   The output channel to capture.
 
-Examples
---------
+### Examples
 
 **View the STDOUT from my-node for job with ID
 26e98ba162fa7ba6fb2793125553c7ae**
@@ -73,18 +66,15 @@ Examples
 knife job output --channel stdout 26e98ba162fa7ba6fb2793125553c7ae my-node
 ```
 
-job start
-=========
+## job start
 
 {{% plugin_knife_push_jobs_job_start %}}
 
-Syntax
-------
+### Syntax
 
 {{% plugin_knife_push_jobs_job_start_syntax %}}
 
-Options
--------
+### Options
 
 This argument has the following options:
 
@@ -129,8 +119,7 @@ This argument has the following options:
 
 :   Capture stdin and stdout for this job.
 
-Examples
---------
+### Examples
 
 **Run a job**
 
@@ -144,39 +133,32 @@ Examples
 
 {{% plugin_knife_push_jobs_job_start_search_by_nodes %}}
 
-job status
-==========
+## job status
 
 {{% plugin_knife_push_jobs_job_status %}}
 
-Syntax
-------
+### Syntax
 
 {{% plugin_knife_push_jobs_job_status_syntax %}}
 
-Options
--------
+### Options
 
 This command does not have any specific options.
 
-Examples
---------
+### Examples
 
 **View job status by job identifier**
 
 {{% plugin_knife_push_jobs_job_status_by_id %}}
 
-node status
-===========
+## node status
 
 {{% plugin_knife_push_jobs_node_status %}}
 
-Syntax
-------
+### Syntax
 
 {{% plugin_knife_push_jobs_node_status_syntax %}}
 
-Options
--------
+### Options
 
 This command does not have any specific options.

@@ -22,18 +22,15 @@ aliases = ["/templates.html"]
 
 {{< /note >}}
 
-Requirements
-============
+## Requirements
 
 {{< readFile_shortcode file="template_requirements.md" >}}
 
-Variables
-=========
+## Variables
 
 {{< readFile_shortcode file="template_variables.md" >}}
 
-File Specificity
-================
+## File Specificity
 
 {{% template_specificity %}}
 
@@ -41,27 +38,22 @@ File Specificity
 
 {{% template_specificity_example %}}
 
-Host Notation
-=============
+## Host Notation
 
 {{% template_host_notation %}}
 
-Transfer Frequency
-==================
+## Transfer Frequency
 
 {{% template_transfer_frequency %}}
 
-Partial Templates
-=================
+## Partial Templates
 
 {{% template_partials %}}
 
-variables Attribute
--------------------
+### variables Attribute
 
 {{< readFile_shortcode file="template_partials_variables_attribute.md" >}}
 
-render Method
--------------
+### render Method
 
 {{< readFile_shortcode file = "template_partials_render_method.md" >}}

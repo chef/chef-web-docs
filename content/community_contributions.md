@@ -18,8 +18,7 @@ We're glad you want to contribute to a Chef project! This guide will
 help answer common questions you may have during your first
 contribution.
 
-Submitting Issues
-=================
+## Submitting Issues
 
 Not every contribution comes in the form of code. Submitting,
 confirming, and triaging issues is an important task for any project. At
@@ -109,8 +108,7 @@ appropriate for general purpose questions that are not bugs.
 
 {{< /note >}}
 
-Contribution Process
-====================
+## Contribution Process
 
 We have a 4 step process for contributions:
 
@@ -122,8 +120,7 @@ We have a 4 step process for contributions:
 4.  Perform a Code Review with the project maintainers on the pull
     request.
 
-About the Apache License
-========================
+## About the Apache License
 
 Chef uses the Apache License Version 2 because it provides the same
 level of freedom for our users that we desire for ourselves. Based upon
@@ -168,8 +165,7 @@ end, we are protecting our own rights by making them explicit in our
 choice of licensing: you have the same rights to our open source
 software that we do.
 
-Developer Certification of Origin (DCO)
-=======================================
+## Developer Certification of Origin (DCO)
 
 To make a good faith effort to ensure the criteria of the Apache License
 are met, Chef requires the Developer Certificate of Origin (DCO) process
@@ -221,8 +217,7 @@ three exceptions:
     repository (i.e. the `docs` directory in the `chef/inspec`
     repository)
 
-The "Obvious Fix" Rule
-======================
+## The "Obvious Fix" Rule
 
 Chef's contribution policy is aimed at encouraging broad participation
 from our community, and minimizing risks to Chef and our community due
@@ -240,8 +235,7 @@ this exception is to lower the barrier for new contributors to make
 contributions while retaining the integrity of the project and our
 community.
 
-How does the Obvious Fix Rule Work?
------------------------------------
+### How does the Obvious Fix Rule Work?
 
 Any committer may commit fixes without a DCO sign-off for obvious typos,
 grammar mistakes, and formatting problems wherever they may be - in the
@@ -263,8 +257,7 @@ Date:   Wed Sep 18 11:44:40 2015 -0700
 ------------------------------------------------------------------------
 ```
 
-What qualifies as an Obvious Fix?
----------------------------------
+### What qualifies as an Obvious Fix?
 
 An obvious fix is a pull request that does not contain creative work. We
 rely on your judgment to determine what is "obvious"; if you're not

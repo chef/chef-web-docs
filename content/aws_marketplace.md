@@ -20,8 +20,7 @@ Marketplace](https://aws.amazon.com/marketplace/seller-profile/ref=srh_res_produ
 Hourly metered billing and Bring Your Own License (BYOL) options are
 available.
 
-Metered AMI
-===========
+## Metered AMI
 
 The Chef Automate Amazon Machine Image (AMI) is preinstalled with Chef
 Automate and Chef Infra Server on a single instance. When using the
@@ -30,13 +29,11 @@ calculated and billed through your Amazon Web Services (AWS) account.
 Follow the steps in the sections below to use the Chef Automate metered
 billing AMI:
 
-Accept software terms
----------------------
+### Accept software terms
 
 {{% accept_aws_marketplace_terms %}}
 
-Create S3 bucket and access role
---------------------------------
+### Create S3 bucket and access role
 
 If you wish to use Chef Automate's built-in S3 backup support, or if you
 want to bring your own license, complete the following steps:
@@ -53,7 +50,6 @@ want to bring your own license, complete the following steps:
     ARN. You can use the following example with your bucket ARN in the
     Resource arrays:
 
-<!-- -->
 
 ``` json
 {
@@ -91,8 +87,7 @@ want to bring your own license, complete the following steps:
 1.  Create an IAM role for your instance.
 2.  Attach the S3 bucket access policy to the role.
 
-Launch the Metered AMI
-----------------------
+### Launch the Metered AMI
 
 1.  Navigate back to the Chef Automate [product
     page](https://aws.amazon.com/marketplace/pp/B01AMIH01Q) and continue
@@ -109,8 +104,7 @@ Launch the Metered AMI
 6.  [Install Chef
     Workstation](#install-chef-workstation).
 
-Bring Your Own License (BYOL) AMI
-=================================
+## Bring Your Own License (BYOL) AMI
 
 The Chef Automate Amazon Machine Image (AMI) is preinstalled with Chef
 Automate and Chef Infra Server on a single instance. The BYOL image
@@ -119,13 +113,11 @@ existing Chef Automate license that you have procured from Chef. Follow
 the steps in the sections below to use the Chef Automate metered billing
 AMI:
 
-Accept software terms
----------------------
+### Accept software terms
 
 {{% accept_aws_marketplace_terms %}}
 
-Create S3 bucket and access role
---------------------------------
+### Create S3 bucket and access role
 
 If you wish to use Chef Automate's built-in S3 backup support, or if you
 want to bring your own license, complete the following steps:
@@ -198,8 +190,7 @@ want to bring your own license, complete the following steps:
 1.  Create an IAM role for your instance.
 2.  Attach the S3 bucket access policy to the role.
 
-Launch the BYOL AMI
--------------------
+### Launch the BYOL AMI
 
 1.  Navigate back to the Chef Automate [product
     page](https://aws.amazon.com/marketplace/pp/B01AMIH01Q) and continue
@@ -220,8 +211,7 @@ Launch the BYOL AMI
 5.  Run the CloudFormation template to create the Chef Automate
     instance.
 
-Install Chef Workstation
-========================
+## Install Chef Workstation
 
 While the Amazon Machine Images (AMI) for Chef Automate is provisioning,
 download and install Chef Workstation. Chef Workstation is a collection
@@ -230,8 +220,7 @@ develop cookbooks and resources for a Chef / Chef Automate environment.
 You'll need this to interact with Chef Automate and Chef Infra Server
 from the command line.
 
-Configure Chef Automate
-=======================
+## Configure Chef Automate
 
 After the instance has been provisioned and initial configuration has
 completed (usually 10 to 13 minutes) finish configuring Chef Automate
@@ -260,8 +249,7 @@ and Chef Infra Server.
 
 4.  Follow the link and log into the Chef Automate webui.
 
-Configure the workstation
-=========================
+## Configure the workstation
 
 1.  Download and extract the `starter_kit.zip` file to a directory on
     the workstation. Open a command prompt and change into the
@@ -275,18 +263,15 @@ Configure the workstation
 
 2.  {{% install_aws_chef_server_knife_client_list %}}
 
-Configure backups
-=================
+## Configure backups
 
 Follow the Workflow
 [instructions](/delivery_server_backup/#s3-backups) for configuring
 backups.
 
-Troubleshooting
-===============
+## Troubleshooting
 
-Required ports
---------------
+### Required ports
 
 The following are recommended security group rules for Chef Automate
 from the AWS Marketplace:
@@ -318,8 +303,7 @@ from the AWS Marketplace:
 </tbody>
 </table>
 
-Change the hostname
--------------------
+### Change the hostname
 
 To update the hostname, do the following:
 
@@ -354,8 +338,7 @@ To update the hostname, do the following:
 
 11. Run `chef-server-ctl restart` to restart Chef server
 
-Change instance size
---------------------
+### Change instance size
 
 To edit the Amazon Machine Images (AMI) instance size, do the following:
 
@@ -453,8 +436,7 @@ To edit the Amazon Machine Images (AMI) instance size, do the following:
     Replace `ec2-52-6-31-230.compute-1.amazonaws.com` with your new
     public DNS name and `your_org` with your organization name.
 
-Upgrade Chef Automate
----------------------
+### Upgrade Chef Automate
 
 The Chef Automate Amazon Machine Images (AMI) can perform in-place
 upgrades of all of the pre-bundled software. This makes it easy to stay
@@ -506,8 +488,7 @@ To upgrade, do one of the following:
     sudo chef-marketplace-ctl upgrade -y
     ```
 
-Migrate to Chef Automate on AWS
--------------------------------
+### Migrate to Chef Automate on AWS
 
 The process of migrating from an existing Chef Infra Server installation
 to the Amazon Machine Images (AMI) differs depending on which software

@@ -44,8 +44,7 @@ installation methods support the following release channels:
 Chef recommends using the stable channel when installing any of these
 products on production systems.
 
-Package Repositories
-====================
+## Package Repositories
 
 The `stable` and `current` release channels support the following
 package repositories:
@@ -56,8 +55,7 @@ package repositories:
 Chef Software Inc. GPG public key is can be downloaded
 [here](https://packages.chef.io/chef.asc).
 
-Debian / Ubuntu
----------------
+### Debian / Ubuntu
 
 To set up an Apt package repository for Debian and Ubuntu platforms:
 
@@ -101,8 +99,7 @@ To set up an Apt package repository for Debian and Ubuntu platforms:
     sudo apt-get update
     ```
 
-Enterprise Linux
-----------------
+### Enterprise Linux
 
 To set up a Yum package repository for Enterprise Linux platforms:
 
@@ -145,30 +142,26 @@ To set up a Yum package repository for Enterprise Linux platforms:
     sudo mv chef-stable.repo /etc/yum.repos.d/
     ```
 
-Chef Software Install Script
-===================
+## Chef Software Install Script
 
 {{% packages_install_script %}}
 
-Run the Chef Software Install Script
----------------------------
+### Run the Chef Software Install Script
 
 {{% packages_install_script_run %}}
 
-### UNIX and Linux
+#### UNIX and Linux
 
 {{% packages_install_script_run_unix_linux %}}
 
-### Microsoft Windows
+#### Microsoft Windows
 
 {{% packages_install_script_run_windows %}}
 
-Chef Software Install Script Options
----------------------------
+### Chef Software Install Script Options
 
 {{% packages_install_script_options %}}
 
-Examples
---------
+### Examples
 
 {{% packages_install_script_examples %}}

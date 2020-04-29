@@ -9,8 +9,6 @@ aliases = "/deprecations_resource_cloning.html"
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/deprecations_resource_cloning.md)
 
-
-
 Chef allows resources to be created with duplicate names, rather than
 treating that as an error. This means that several cookbooks can request
 the same package be installed, without needing to carefully create
@@ -54,7 +52,6 @@ resource is significantly different from the existing one.
 
 {{< /note >}}
 
-Remediation
-===========
+## Remediation
 
 Ensure that resources you intend to notify are given unique names.

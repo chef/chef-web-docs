@@ -31,8 +31,7 @@ otherwise specified with `node['audit']['inspec_version']`.
 management. For tutorials on working with cookbooks in Chef, see [Learn
 Chef Rally](https://learn.chef.io).
 
-Audit Cookbook
-==============
+## Audit Cookbook
 
 {{< note >}}
 
@@ -50,8 +49,7 @@ cookbook](https://github.com/chef-cookbooks/audit). All profiles
 configured to run during the audit cookbook execution will send their
 results back to the Chef Automate server.
 
-Configure the Node for Audit Cookbook
--------------------------------------
+### Configure the Node for Audit Cookbook
 
 Once the cookbook is available in Chef Infra Server, you will need to
 add the `audit::default` recipe to the run-list of each node. Compliance
@@ -112,16 +110,14 @@ expires in 12h after creation.
  ]
 ```
 
-Supported Audit Cookbook Configurations
-=======================================
+## Supported Audit Cookbook Configurations
 
 The `audit` cookbook supports several different methods of fetching and
 reporting compliance information.
 
 {{% EOL_compliance_server %}}
 
-Fetch From Automate via Chef Infra Server
------------------------------------------
+### Fetch From Automate via Chef Infra Server
 
 {{< note >}}
 
@@ -184,8 +180,7 @@ in reporting.
 </tbody>
 </table>
 
-Fetch From Compliance via Chef Infra Server
--------------------------------------------
+### Fetch From Compliance via Chef Infra Server
 
 {{< note >}}
 
@@ -236,8 +231,7 @@ in reporting.
 </tbody>
 </table>
 
-Fetch Directly From Compliance
-------------------------------
+### Fetch Directly From Compliance
 
 <table>
 <thead>

@@ -18,13 +18,11 @@ All resources (including custom resources) share a set of common
 actions, properties, conditional executions, notifications, and relative
 path options.
 
-Actions
-=======
+## Actions
 
 {{% resources_common_actions %}}
 
-Examples
---------
+### Examples
 
 The following examples show how to use common actions in a recipe.
 
@@ -32,13 +30,11 @@ The following examples show how to use common actions in a recipe.
 
 {{% resource_service_use_nothing_action %}}
 
-Properties
-==========
+## Properties
 
 {{% resources_common_properties %}}
 
-Examples
---------
+### Examples
 
 The following examples show how to use common properties in a recipe.
 
@@ -50,8 +46,7 @@ The following examples show how to use common properties in a recipe.
 
 {{% resource_service_use_supports_attribute %}}
 
-Guards
-======
+## Guards
 
 {{% resources_common_guards %}}
 
@@ -70,18 +65,15 @@ end
 
 {{< /note >}}
 
-Properties
-----------
+### Properties
 
 {{% resources_common_guards_properties %}}
 
-Arguments
----------
+### Arguments
 
 {{% resources_common_guards_arguments %}}
 
-not_if Examples
-----------------
+### not_if Examples
 
 **Update if not already updated**
 
@@ -145,8 +137,7 @@ multiple nodes, except when the package already exists on a node:
 end
 ```
 
-only_if Examples
------------------
+### only_if Examples
 
 **Install packages only when necessary**
 
@@ -211,43 +202,35 @@ execute 'Register ASP.NET v4 (x64)' do
 end
 ```
 
-Guard Interpreters
-==================
+## Guard Interpreters
 
 {{% resources_common_guard_interpreter %}}
 
-Attributes
-----------
+### Attributes
 
 {{% resources_common_guard_interpreter_attributes %}}
 
-Inheritance
------------
+### Inheritance
 
 {{% resources_common_guard_interpreter_attributes_inherit %}}
 
-Examples
---------
+### Examples
 
 {{% resources_common_guard_interpreter_example_default %}}
 
-Lazy Evaluation
-===============
+## Lazy Evaluation
 
 {{% resources_common_lazy_evaluation %}}
 
-Notifications
-=============
+## Notifications
 
 {{% resources_common_notification %}}
 
-Timers
-------
+### Timers
 
 {{% resources_common_notification_timers %}}
 
-Notifies
---------
+### Notifies
 
 {{% resources_common_notification_notifies %}}
 
@@ -258,7 +241,7 @@ and `subscribes` properties to specify that the action on a notified
 resource should be run before processing the resource block in which the
 notification is located.
 
-### Examples
+#### Examples
 
 The following examples show how to use the `notifies` notification in a
 recipe.
@@ -307,14 +290,13 @@ recipe.
 
 {{% resource_remote_file_transfer_remote_source_changes %}}
 
-Subscribes
-----------
+### Subscribes
 
 {{% resources_common_notification_subscribes %}}
 
 {{% resources_common_notification_subscribes_syntax %}}
 
-### Examples
+#### Examples
 
 The following examples show how to use the `subscribes` notification in
 a recipe.
@@ -327,37 +309,30 @@ a recipe.
 
 {{% resource_service_subscribes_reload_using_template %}}
 
-Relative Paths
-==============
+## Relative Paths
 
 {{% resources_common_relative_paths %}}
 
-Examples
---------
+### Examples
 
 {{% resource_template_use_relative_paths %}}
 
-Run in Compile Phase
-====================
+## Run in Compile Phase
 
 {{% resources_common_compile %}}
 
-run_action
------------
+### run_action
 
 {{< readFile_shortcode file="resources_common_compile_begin.md" >}}
 
-Windows File Security
-=====================
+## Windows File Security
 
 {{% resources_common_windows_security %}}
 
-Access Control Lists (ACLs)
----------------------------
+### Access Control Lists (ACLs)
 
 {{% resources_common_windows_security_acl %}}
 
-Inheritance
------------
+### Inheritance
 
 {{% resources_common_windows_security_inherits %}}

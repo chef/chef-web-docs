@@ -27,14 +27,12 @@ Install and configure the Chef Infra Server, then install and configure
 Chef Workstation, and then run the bootstrap command from Chef
 Workstation to install Chef Infra Client on each node.
 
-The Chef Infra Server
-=====================
+## The Chef Infra Server
 
 The following sections describe the various requirements for the Chef
 Infra Server.
 
-Hosted Chef Infra Server
-------------------------
+### Hosted Chef Infra Server
 
 The hosted Chef Infra Server has the following requirements:
 
@@ -44,13 +42,11 @@ The hosted Chef Infra Server has the following requirements:
     workstation that will upload data to the Chef Infra Server must be
     able to communicate with the hosted Chef server
 
-Chef Infra Server, On-premises or in Cloud Environment
-------------------------------------------------------
+### Chef Infra Server, On-premises or in Cloud Environment
 
 {{% system_requirements_server_hardware %}} {{% system_requirements_server_software %}}
 
-Chef Infra Client
-=================
+## Chef Infra Client
 
 -   The recommended amount of RAM available to Chef Infra Client during
     a Chef Infra Client run is 512MB
@@ -68,8 +64,7 @@ Chef Infra Client
     [client.rb](/config_rb_client/) file via the
     `file_cache_path` setting.
 
-Chef Workstation
-================
+## Chef Workstation
 
 -   64-bit architecture
 -   4 GB of RAM or more

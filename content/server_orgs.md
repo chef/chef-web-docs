@@ -63,8 +63,7 @@ following process:
 Permissions are managed using the Chef management console add-on in the
 Chef Infra Server web user interface.
 
-Organizations
-=============
+## Organizations
 
 A single instance of the Chef Infra Server can support many
 organizations. Each organization has a unique set of groups and users.
@@ -95,16 +94,15 @@ when:
     types---data bags, environments, roles, and cookbooks are unique to
     each organization, even if they share the same name
 
-Permissions
------------
+### Permissions
 
 {{% server_rbac_permissions %}}
 
-### Object Permissions
+#### Object Permissions
 
 {{% server_rbac_permissions_object %}}
 
-### Global Permissions
+#### Global Permissions
 
 The Chef Infra Server includes the following global permissions:
 
@@ -135,7 +133,7 @@ These permissions set the default permissions for the following Chef
 Infra Server object types: clients, cookbooks, data bags, environments,
 groups, nodes, roles, and sandboxes.
 
-### Client Key Permissions
+#### Client Key Permissions
 
 {{< note >}}
 
@@ -176,7 +174,7 @@ then run a knife command similar to:
 knife exec chef_server_permissions.rb
 ```
 
-### Knife ACL
+#### Knife ACL
 
 The knife plugin [knife-acl](https://github.com/chef/knife-acl) provides
 a fine-grained approach to modifying permissions, by wrapping API calls
@@ -191,8 +189,7 @@ class="title-ref">knife-acl</span>, you will need to discontinue using
 the Chef Manage browser interface from that point forward due to
 possible incompatibilities.
 
-Groups
-======
+## Groups
 
 The Chef Infra Server includes the following default groups:
 
@@ -231,8 +228,7 @@ The Chef Infra Server includes the following default groups:
 </tbody>
 </table>
 
-Example Default Permissions
----------------------------
+### Example Default Permissions
 
 The following sections show the default permissions assigned by the Chef
 Infra Server to the `admins`, `billing_admins`, `clients`, and `users`
@@ -245,7 +241,7 @@ The creator of an object on the Chef Infra Server is assigned `create`,
 
 {{< /note >}}
 
-### admins
+#### admins
 
 The `admins` group is assigned the following:
 
@@ -296,7 +292,7 @@ The `admins` group is assigned the following:
 </tbody>
 </table>
 
-### billing_admins
+#### billing_admins
 
 The `billing_admins` group is assigned the following:
 
@@ -328,7 +324,7 @@ The `billing_admins` group is assigned the following:
 </tbody>
 </table>
 
-### clients
+#### clients
 
 The `clients` group is assigned the following:
 
@@ -430,7 +426,7 @@ The `clients` group is assigned the following:
 </tbody>
 </table>
 
-### public_key_read_access
+#### public_key_read_access
 
 The `public_key_read_access` group controls which users and clients have
 [read permissions to the following endpoints](/api_chef_server/):
@@ -490,7 +486,7 @@ By default, the `public_key_read_access` assigns all members of the
 </tbody>
 </table>
 
-### users
+#### users
 
 The `users` group is assigned the following:
 
@@ -592,8 +588,7 @@ The `users` group is assigned the following:
 </tbody>
 </table>
 
-chef-validator
---------------
+### chef-validator
 
 {{% security_chef_validator %}}
 
@@ -629,51 +624,45 @@ Infra Server, that Chef Infra Client is added to the `clients` group:
 </tbody>
 </table>
 
-Chef Push Jobs Groups
----------------------
+### Chef Push Jobs Groups
 
 {{% push_jobs_summary %}}
 
 {{% server_rbac_groups_push_jobs %}}
 
-Server Admins
-=============
+## Server Admins
 
 {{% server_rbac_server_admins %}}
 
-Scenario
---------
+### Scenario
 
 {{< readFile_shortcode file="server_rbac_server_admins_scenario.md" >}}
 
-### Superuser Accounts
+#### Superuser Accounts
 
 {{< readFile_shortcode file="server_rbac_server_admins_superusers.md" >}}
 
-Manage server-admins Group
---------------------------
+### Manage server-admins Group
 
 {{% ctl_chef_server_server_admin %}}
 
-### Add Members
+#### Add Members
 
 {{% ctl_chef_server_server_admin_grant_user %}}
 
-### Remove Members
+#### Remove Members
 
 {{% ctl_chef_server_server_admin_remove_user %}}
 
-### List Membership
+#### List Membership
 
 {{% ctl_chef_server_server_admin_list %}}
 
-Manage Organizations
-====================
+## Manage Organizations
 
 {{% ctl_chef_server_org %}}
 
-org-create
-----------
+### org-create
 
 {{% ctl_chef_server_org_create %}}
 
@@ -685,8 +674,7 @@ org-create
 
 {{% ctl_chef_server_org_create_options %}}
 
-org-delete
-----------
+### org-delete
 
 {{% ctl_chef_server_org_delete %}}
 
@@ -694,8 +682,7 @@ org-delete
 
 {{% ctl_chef_server_org_delete_syntax %}}
 
-org-list
---------
+### org-list
 
 {{% ctl_chef_server_org_list %}}
 
@@ -707,8 +694,7 @@ org-list
 
 {{% ctl_chef_server_org_list_options %}}
 
-org-show
---------
+### org-show
 
 {{% ctl_chef_server_org_show %}}
 
@@ -716,8 +702,7 @@ org-show
 
 {{% ctl_chef_server_org_show_syntax %}}
 
-org-user-add
-------------
+### org-user-add
 
 {{% ctl_chef_server_org_user_add %}}
 
@@ -729,8 +714,7 @@ org-user-add
 
 {{% ctl_chef_server_org_user_add_options %}}
 
-org-user-remove
----------------
+### org-user-remove
 
 {{% ctl_chef_server_org_user_remove %}}
 

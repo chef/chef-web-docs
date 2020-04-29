@@ -28,8 +28,7 @@ additional information.
 
 {{< /note >}}
 
-Server Components
-=================
+## Server Components
 
 The following diagram shows the various components that are part of a
 Chef Infra Server deployment and how they relate to one another.
@@ -88,8 +87,7 @@ Chef Infra Server deployment and how they relate to one another.
 </tbody>
 </table>
 
-Capacity Planning
-=================
+## Capacity Planning
 
 This section provides guidance for capacity planning and how to choose
 the right configuration--standalone, high availability, or tiered--for
@@ -100,8 +98,7 @@ start small and then scale the Chef Infra Server as needed. Premature
 optimization can hinder more than help because it may introduce
 unnecessary complexity.
 
-Scaling the Chef Infra Server
------------------------------
+### Scaling the Chef Infra Server
 
 The Chef Infra Server itself is highly scalable. A single virtual
 machine running the Chef Infra Server can handle requests for many
@@ -121,8 +118,7 @@ The primary limiting bottleneck for Chef Infra Server installations is
 almost always input/output operations per second (IOPS) performance for
 the database filesystem.
 
-CCRs/min
---------
+### CCRs/min
 
 The key unit of measure for scaling the Chef Infra Server is the number
 of Chef Infra Client runs per minute: CCRs/min. For example, 500 nodes
@@ -138,8 +134,7 @@ benchmarks at Chef have seen a standalone Chef Infra Server installed on
 a `c3.2xlarge` Amazon Web Services (AWS) instance handle more than 1,000
 CCRs/min (30k nodes).
 
-Assumptions
------------
+### Assumptions
 
 Several factors may influence server scalability. All server sizing
 recommendations are based on these assumptions:
@@ -160,8 +155,7 @@ recommendations are based on these assumptions:
     PostgreSQL. In practice, allowing a conservative 2MB of storage on
     the disk partition per node should be sufficient
 
-Host Specifications
--------------------
+### Host Specifications
 
 The following sections describe the host specifications for various
 sizes of CCRs/min and help show when to consider moving from a
@@ -201,8 +195,7 @@ standalone topology to a high availability or tiered topology.
 -   Chef recommends that Chef professional services be engaged to help
     with capacity and architectural planning at this size
 
-External Cookbooks
-==================
+## External Cookbooks
 
 The following diagram highlights the specific changes that occur when
 cookbooks are stored at an external location, such as Amazon Simple
@@ -246,10 +239,9 @@ at an external location:
 </tbody>
 </table>
 
-AWS Settings
-------------
+### AWS Settings
 
-### Required Settings
+#### Required Settings
 
 To configure external cookbook storage using Amazon Simple Storage
 Service (S3) set the following configuration settings in the
@@ -300,7 +292,7 @@ bookshelf['secret_access_key'] = "<ACCESS_KEY>"
 opscode_erchef['s3_bucket'] = "<BUCKET_NAME>"
 ```
 
-### Optional Settings
+#### Optional Settings
 
 The following optional settings are also available and may require
 modification when using an external S3 provider:
@@ -340,8 +332,7 @@ modification when using an external S3 provider:
 </tbody>
 </table>
 
-External PostgreSQL
-===================
+## External PostgreSQL
 
 The following diagram highlights the specific changes that occur when
 PostgreSQL is configured and managed independently of the Chef Infra
@@ -377,8 +368,7 @@ Chef Infra Server:
 </tbody>
 </table>
 
-PostgreSQL Settings
--------------------
+### PostgreSQL Settings
 
 Use the following configuration settings in the chef-server.rb file to
 configure external PostgreSQL for use with the Chef Infra Server:
@@ -427,7 +417,7 @@ configure external PostgreSQL for use with the Chef Infra Server:
     for the machine on which external PostgreSQL is located when
     `postgresql['external']` is set to `true`.
 
-### Optional Settings
+#### Optional Settings
 
 The following optional settings are required when configuring external
 PostgreSQL on Microsoft Azure:
@@ -515,8 +505,7 @@ Infra Server to use a remote PostgreSQL server.
 
 {{< /note >}}
 
-Bookshelf Settings
-------------------
+### Bookshelf Settings
 
 In instances that require cookbooks to be stored within a SQL backend,
 such as in a high availability setup, you must set the `storage_type` to

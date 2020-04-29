@@ -27,8 +27,7 @@ bug](https://github.com/chef/chef/issues/new) for Chef Infra Client.
 
 {{< /warning >}}
 
-Custom Resources
-================
+## Custom Resources
 
 This is the recommended way of writing resources for all users. There
 are two gotchas which we're working through:
@@ -67,8 +66,7 @@ action_class.class_eval do
 end
 ```
 
-"Old school" LWRPS
-==================
+## "Old school" LWRPS
 
 This method is not recommended, but is preferable to writing library
 resources/providers (as described below). It has the same functionality
@@ -105,8 +103,7 @@ action :run do
 end
 ```
 
-Library Resources/Providers
-===========================
+## Library Resources/Providers
 
 Library resources are discouraged since you can more easily shoot
 yourself in the foot. They used to be encouraged back before Chef Client
@@ -172,8 +169,7 @@ class MyBaseClass
 end
 ```
 
-updated_by_last_action
-=========================
+## updated_by_last_action
 
 Modern Chef Infra Client code (since Chef Client version 11.0.0) should
 never have provider code which directly sets `updated_by_last_action`

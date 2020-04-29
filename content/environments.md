@@ -16,8 +16,7 @@ aliases = ["/environments.html"]
 
 {{% environment %}}
 
-The _default Environment
-=========================
+## The _default Environment
 
 Every Chef Infra Server organization must have at least one environment.
 Each organization starts out with a single `_default` environment. The
@@ -28,8 +27,7 @@ Additional environments can be created to reflect each organization's
 patterns and workflow. For example, creating `production`, `staging`,
 `testing`, and `development` environments.
 
-Environment Attributes
-======================
+## Environment Attributes
 
 {{% environment_attribute %}}
 
@@ -39,8 +37,7 @@ Environment Attributes
 
 {{< /note >}}
 
-Environment Attribute Types
----------------------------
+### Environment Attribute Types
 
 There are two types of attributes that can be used with environments:
 
@@ -67,8 +64,7 @@ There are two types of attributes that can be used with environments:
 </tbody>
 </table>
 
-Attribute Precedence
---------------------
+### Attribute Precedence
 
 Environments are one of several locations where attributes can be
 applied in Chef Infra. It's important to understand how the precedence
@@ -77,8 +73,7 @@ when Chef Infra Client runs.
 
 {{% node_attribute_precedence %}}
 
-Cookbook Pinning
-================
+## Cookbook Pinning
 
 Cookbook versions can be pinned in each environment, which allows you to
 control the rollout of new cookbook releases through successive testing
@@ -86,8 +81,7 @@ environments before releasing new cookbook versions into production
 environments. See the environment format examples below for the cookbook
 pinning syntax.
 
-Environment Formats
-===================
+## Environment Formats
 
 Environments may be stored on disk (any in source control) in two
 formats:
@@ -96,8 +90,7 @@ formats:
     available when running Chef Infra Client in local mode
 -   As JSON (i.e. a file that ends with `.json`)
 
-Ruby DSL
---------
+### Ruby DSL
 
 Each environment is defined as a Ruby file (i.e. a file that ends with
 `.rb`). Each environment file should contain the following
@@ -229,8 +222,7 @@ with higher precedence. For example:
 override_attributes 'apache2' => { 'listen_ports' => %w(80 443) }
 ```
 
-JSON
-----
+### JSON
 
 The JSON format for environments maps directly to the domain-specific
 Ruby format: the same settings, attributes, and values, and a similar
@@ -283,8 +275,7 @@ The JSON format has two additional settings:
 </tbody>
 </table>
 
-Create Environments
-===================
+## Create Environments
 
 An environment can be created in five different ways:
 
@@ -299,8 +290,7 @@ An environment can be created in five different ways:
 Once an environment exists on the Chef Infra Server, a node can be
 associated with that environment using the `chef_environment` method.
 
-Manage Environments
-===================
+## Manage Environments
 
 Once created, an environment can be managed in several ways:
 
@@ -323,8 +313,7 @@ The settings for environments can be modified and environments can be
 integrated into the larger infrastructure by associating them with nodes
 and by using recipes to call specific environment settings.
 
-Find Environment from Recipe
-----------------------------
+### Find Environment from Recipe
 
 Use the following syntax to find the current environment from a recipe:
 
@@ -338,8 +327,7 @@ or:
 node.chef_environment
 ```
 
-Save in a Data Bag
-------------------
+### Save in a Data Bag
 
 Values that are stored in a data bag are global to the organization and
 are available to any environment. There are two main strategies that can
@@ -377,8 +365,7 @@ within a data bag. However, this approach is more time-consuming and may
 not scale to very large environments or when the data must be stored in
 many data bag items.
 
-Override Attributes in Roles
-----------------------------
+### Override Attributes in Roles
 
 Environment attributes that are used with roles can be overridden.
 Typically, this is done by using attribute precedence, but sometimes it
@@ -395,8 +382,7 @@ mything = data_bag_item('things', 'mything')
 attribute_i_want = mything[node.chef_environment]
 ```
 
-Set for a Node
---------------
+### Set for a Node
 
 A node is considered to be associated with an environment when the
 `chef_environment` attribute is set. The `chef_environment` attribute
@@ -426,8 +412,7 @@ using the following methods:
     file ; when Chef Infra Client runs, it will pick up the value and
     then set the `chef_environment` attribute of the node
 
-Move Nodes
-----------
+### Move Nodes
 
 Use the `knife exec` subcommand to move nodes between environments, such
 as from a "dev" to a "production" environment. For example:
@@ -436,12 +421,10 @@ as from a "dev" to a "production" environment. For example:
 knife exec -E 'nodes.transform("chef_environment:dev") { |n| n.chef_environment("production") }'
 ```
 
-Search Environments
--------------------
+### Search Environments
 
 {{% search_environment %}}
 
-Environments in Chef Solo
-=========================
+## Environments in Chef Solo
 
 {{% chef_solo_environments %}}

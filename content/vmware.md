@@ -23,15 +23,13 @@ For discussions on VMware and Chef, visit the
 [VMware{code}](https://code.vmware.com/web/code/join) Slack team,
 located in the **\#chef** channel.
 
-knife
-=====
+## knife
 
 There are multiple knife plugins that interact with the VMware stack in
 different ways. The following knife plugins are directly supported by
 Chef:
 
-knife-vsphere
--------------
+### knife-vsphere
 
 [\[GitHub\]](https://github.com/chef-partners/knife-vsphere)
 
@@ -49,7 +47,7 @@ knife[:vsphere_dc] = "your-datacenter"
 knife[:vsphere_insecure] = true              # Set this if you have self signed certs
 ```
 
-### Usage Examples
+#### Usage Examples
 
 **Clone from a VMware template and bootstrap Chef with generic DHCP
 options:**
@@ -100,8 +98,7 @@ knife vsphere vm delete MACHINENAME
 This command can be used with the `-P` option to remove the machine from
 the Chef Infra Server.
 
-knife-vcenter
--------------
+### knife-vcenter
 
 [\[GitHub\]](https://github.com/chef/knife-vcenter)
 
@@ -122,7 +119,7 @@ knife[:vcenter_host] = "172.16.20.2"
 knife[:vcenter_disable_ssl_verify] = true # if you want to disable SSL checking
 ```
 
-### Usage Examples
+#### Usage Examples
 
 **Clone a machine:**
 
@@ -156,8 +153,7 @@ WARNING: Deleted node example-01
 WARNING: Deleted client example-01
 ```
 
-knife-vrealize
---------------
+### knife-vrealize
 
 [\[GitHub\]](https://github.com/chef-partners/knife-vrealize)
 
@@ -234,7 +230,7 @@ Current request status: IN_PROGRESS..
 ...
 ```
 
-### Usage Examples
+#### Usage Examples
 
 **Delete a server from vRA:**
 
@@ -279,14 +275,12 @@ can specify a workflow to use with `--vro-workflow-id ID`. You can find
 the workflow ID from within the vRO UI. However, a workflow name is
 still required by the API.
 
-test-kitchen
-============
+## test-kitchen
 
 The following test-kitchen drivers for VMware are directly supported by
 Chef:
 
-kitchen-vsphere (chef-provisioning-vsphere)
--------------------------------------------
+### kitchen-vsphere (chef-provisioning-vsphere)
 
 [\[GitHub\]](https://github.com/chef-partners/chef-provisioning-vsphere)
 
@@ -298,7 +292,7 @@ kitchen-vsphere (chef-provisioning-vsphere)
     [kitchen-vsphere](https://rubygems.org/gems/kitchen-vsphere) gem,
     but it is not supported at this time
 
-### Usage Examples
+#### Usage Examples
 
 There is an [example
 cookbook](https://github.com/jjasghar/vsphere_testing) that attempts to
@@ -354,8 +348,7 @@ suites:
     attributes:
 ```
 
-kitchen-vcenter
----------------
+### kitchen-vcenter
 
 [\[GitHub\]](https://github.com/chef/kitchen-vcenter)
 
@@ -365,7 +358,7 @@ kitchen-vcenter
     [VCSA](https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.vcsa.doc/GUID-223C2821-BD98-4C7A-936B-7DBE96291BA4.html)
     or are planning on upgrading to vCenter 6.5+, use this plugin
 
-### Usage Examples
+#### Usage Examples
 
 The following is a basic `kitchen.yml` for vCenter:
 
@@ -389,8 +382,7 @@ platforms:
       template: centos7-template
 ```
 
-kitchen-vra
------------
+### kitchen-vra
 
 [\[GitHub\]](https://github.com/chef-partners/kitchen-vra)
 
@@ -398,7 +390,7 @@ kitchen-vra
 -   For companies required to use vRA this is a natural progression for
     Chef Development
 
-### Usage Examples
+#### Usage Examples
 
 The following is a basic `kitchen.yml` example:
 
@@ -420,8 +412,7 @@ platforms:
     catalog_id: c4211950-ab07-42b1-ba80-8f5d3f2c8251
 ```
 
-kitchen-vro
------------
+### kitchen-vro
 
 [\[GitHub\]](https://github.com/chef-partners/kitchen-vro)
 
@@ -429,7 +420,7 @@ kitchen-vro
 -   Leverages specific Workflows in vRO if it's required by VMware
     admins
 
-### Usage Examples
+#### Usage Examples
 
 The following is a basic `kitchen.yml` example:
 
@@ -457,21 +448,19 @@ platforms:
         memory: 4096
 ```
 
-Chef InSpec
-===========
+## Chef InSpec
 
 The Chef InSpec VMware plugin is used to verify the vCenter and ESXi
 VMware stack.
 
-inspec-vmware
--------------
+### inspec-vmware
 
 [\[GitHub\]](https://github.com/chef/inspec-vmware)
 
 -   Supports vCenter \> 5.0
 -   11 resources available at the time of writing, with more planned
 
-### Usage Examples
+#### Usage Examples
 
 An example demo control:
 
@@ -485,17 +474,14 @@ control "vmware-1" do
 end
 ```
 
-Chef integrations inside of the VMware Suite
-============================================
+## Chef integrations inside of the VMware Suite
 
-vRA Example Blueprints
-----------------------
+### vRA Example Blueprints
 
 -   [Linux](https://code.vmware.com/samples?id=1371)
 -   [Windows](https://code.vmware.com/samples?id=1390)
 
-vRO plugin
-----------
+### vRO plugin
 
 -   The [Chef plugin for vRealize
     Orchestrator](https://solutionexchange.vmware.com/store/products/chef-plugin-for-vrealize-orchestrator)

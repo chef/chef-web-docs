@@ -8,8 +8,6 @@ aliases = "/deprecations_namespace_collisions.html"
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/deprecations_namespace_collisions.md)
 
-
-
 In Chef Client 12.5.1, the custom resources API allowed specifying
 property names as the short form of `property_name` inside of actions,
 instead of the long form of `new_resource.property_name` (as was
@@ -18,8 +16,7 @@ caused unsolvable namespace clashes and will be removed in Chef Client
 14.0, and it will become mandatory to refer to properties as
 `new_resource.property_name` in actions.
 
-Example
-=======
+## Example
 
 This code worked in Chef Client 12.5.1 and later revisions up to Chef
 Client 13.0:
@@ -34,8 +31,7 @@ action :doit do
 end
 ```
 
-Remediation
-===========
+## Remediation
 
 The `my_content` reference will no longer be wired up automatically to
 the `new_resource` object and users will need to specify
@@ -51,8 +47,7 @@ action :doit do
 end
 ```
 
-Note
-====
+## Note
 
 In some edge cases, this deprecation warning may mention that the
 property should be referred to as `current_resource.property_name`
@@ -90,8 +85,7 @@ appropriate remediation for their needs.
 The fact that this is confusing behavior to explain is why it is being
 removed.
 
-Rationale
-=========
+## Rationale
 
 The change in Chef Client 12.5.1 caused several insolvable problems. One
 of the worst was that properties would override DSL commands so that

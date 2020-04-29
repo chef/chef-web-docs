@@ -16,8 +16,6 @@ aliases = ["/data_collection_ha.html"]
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/data_collection_ha.md)
 
-
-
 {{< important >}}
 
 Previous step: [Setup Data Collection](/data_collection/)
@@ -63,8 +61,7 @@ Chef servers.
 
 {{< /warning >}}
 
-Next Steps
-==========
+## Next Steps
 
 -   [Perform a Compliance Scan](/perform_compliance_scan/)
 -   [Data Collection](/data_collection/)

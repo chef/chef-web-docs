@@ -20,8 +20,7 @@ license](/chef_license/) documentation. There are two types of
 license: MLSA and EULA. The MLSA applies to customers with a commercial
 contract with Chef Software, and the EULA covers all other cases.
 
-Accept the Chef MLSA
-====================
+## Accept the Chef MLSA
 
 There are three ways to accept the Chef MLSA:
 
@@ -40,8 +39,7 @@ There are three ways to accept the Chef MLSA:
     file exists in this directory, the Chef MLSA is accepted and the
     reconfigure process will not prompt for `yes`.
 
-Accept the Chef EULA
-====================
+## Accept the Chef EULA
 
 Products below are split below into two categories: workstation and
 server. Affected product versions which require accepting the EULA to
@@ -49,8 +47,7 @@ use are shown. Versions before this do not require accepting the EULA.
 More information on supported versions can be seen at the [Supported
 Versions](/versions/) documentation.
 
-Workstation Products
---------------------
+### Workstation Products
 
 - Chef Workstation \>= 0.4, which also contains:
   -   Chef Infra Client
@@ -100,7 +97,7 @@ ignored by older versions.
 Products with specific features or differences from this general
 behavior are documented below.
 
-### Chef Workstation
+#### Chef Workstation
 
 Chef Workstation contains multiple Chef Software products. When invoking
 the `chef` command line tool and accepting the license, users are
@@ -111,7 +108,7 @@ accept the license for Chef Workstation, Chef Infra Client, Chef InSpec,
 and Push Jobs Client. For example, <span class="title-ref">chef env
 --chef-license accept</span>
 
-### Chef Infra Client
+#### Chef Infra Client
 
 In addition to the above methods, users can specify
 `chef_license 'accept'` in their Chef Infra Client and Chef Infra Server
@@ -120,7 +117,7 @@ or `~/.chef/knife.rb`, and on a node, it can be specified in
 `/etc/chef/client.rb`. This method of license acceptance is
 backwards-compatible to non-EULA versions of Chef Infra Client.
 
-### Habitat
+#### Habitat
 
 Two methods are generally used to accept the Chef Habitat license:
 
@@ -146,7 +143,7 @@ at `$HOME/.hab/accepted-licenses/habitat` (if your hab commands run as a
 user other than root). For situations where hab commands run as multiple
 users, it is advisable to create both files.
 
-#### Errors
+**Errors**
 
 If the Chef Habitat License prompt cannot be displayed, then the product
 fails with an exit code 172. If Chef Habitat cannot persist the accepted
@@ -154,7 +151,7 @@ license, it sends a message STDOUT, but the product invocation will
 continue successfully. In a future invocation, however, the user will
 need to accept the license again.
 
-#### Chef as Habitat packages
+**Chef as Habitat packages**
 
 Chef Software products are also distributed as Habitat packages, such as
 Chef Infra Client, Chef InSpec, etc. When Chef products are installed as
@@ -162,8 +159,7 @@ Habitat, the products request license acceptance at product usage time.
 Whether installed as system packages or as Habitat packages, users
 accept the licenses in the same way detailed above.
 
-Server Products
----------------
+### Server Products
 
 Some Chef products distributed as Habitat packages contain servers. In
 these cases, Habitat runs the server products as a supervisor. See the
@@ -215,14 +211,14 @@ In addition, the Chef license can be accepted via the omnibus
 configuration file. Specify `chef_license 'accept'` in the
 `chef-server.rb` or `supermarket.rb` configuration.
 
-### Chef Automate
+#### Chef Automate
 
 Automate has its own reconfigure tool, `automate-ctl`. This tool walks
 users through the install and setup of Automate. The Chef license is
 accepted after that in the browser. Please follow the in-product
 prompts.
 
-### Chef Infra Server
+#### Chef Infra Server
 
 When installed as a system package, users accept the license with the
 ctl command. For example,
@@ -242,8 +238,7 @@ documentation](https://www.habitat.sh/docs/using-habitat/#config-updates)
 for more information about how to apply this configuration to a service
 group.
 
-Remote Management Products
---------------------------
+### Remote Management Products
 
 -   Test Kitchen
 -   `knife bootstrap` in Chef Infra Client
@@ -262,7 +257,7 @@ the acceptance to the remote instance. We aim to support this behavior,
 so Workstation users do not have their workflow affected, but any
 differences from that behavior are documented below.
 
-### Test Kitchen
+#### Test Kitchen
 
 Test Kitchen is not owned by or covered by the Chef license, but
 installing Chef Infra Client on a test instance is covered by the EULA.
@@ -290,7 +285,7 @@ license in a similar way to the Chef Infra Client license - specify the
 under the verifier section in `kitchen.yml` or persist the acceptance
 locally.
 
-#### Pin to Chef 14
+**Pin to Chef 14**
 
 You can pin to a specific version of chef in your kitchen.yml:
 
@@ -301,7 +296,7 @@ provisioner:
   product_version: 14.12.3
 ```
 
-### `knife bootstrap`
+#### `knife bootstrap`
 
 `knife` usage does not require accepting the EULA. A Chef Infra Client
 instance does require EULA acceptance. Using `knife bootstrap` to manage
@@ -315,7 +310,7 @@ installs Chef Workstation and the first command they ever run is
 `knife bootstrap`, it will perform the same license acceptance flow as
 the Chef Infra Client product.
 
-#### `knife bootstrap` in Chef Client 14
+**`knife bootstrap` in Chef Client 14**
 
 The `knife bootstrap` command in Chef Client 14 cannot accept the Chef
 Infra Client 15 EULA on remote nodes unless you use a [custom
@@ -324,7 +319,7 @@ and add chef_license "accept" to the client.rb. This applies to
 workstations who have Chef Infra Client \<= 14.x, ChefDK \<= 3.x or Chef
 Workstation \<= 0.3 installed.
 
-#### Pin to Chef 14
+**Pin to Chef 14**
 
 Specify the following argument:
 
@@ -332,7 +327,7 @@ Specify the following argument:
 knife bootstrap --bootstrap-version 14.12.3
 ```
 
-### `chef-run`
+#### `chef-run`
 
 `chef-run` in Chef Workstation \>= 0.3 has been updated to add support
 for accepting the license locally when remotely running Chef Infra
@@ -350,7 +345,7 @@ environment variable, or add the following to your
 chef_license = "accept"
 ```
 
-### Packer
+#### Packer
 
 Use a custom [Chef configuration
 template](https://www.packer.io/docs/provisioners/chef-client.html#chef-configuration).
@@ -373,7 +368,7 @@ You may also add it to the
 [execute_command](https://www.packer.io/docs/provisioners/chef-client.html#execute_command),
 but this is not backwards-compatible, so it is not suggested.
 
-#### Pin to Chef 14
+**Pin to Chef 14**
 
 In your [Packer provisioners
 config](https://www.packer.io/docs/provisioners/chef-client.html#install_command),
@@ -386,7 +381,7 @@ include:
 }
 ```
 
-### Terraform Chef Provisioner
+#### Terraform Chef Provisioner
 
 The license can be accepted via the Chef Infra Client config file, which
 is specified by the `client_options` [Terraform provisioner
@@ -398,7 +393,7 @@ provisioner "chef" {
 }
 ```
 
-#### Pin to Chef 14
+**Pin to Chef 14**
 
 In your [Terraform provisioner
 config](https://www.terraform.io/docs/provisioners/chef.html#version-string-),
@@ -410,7 +405,7 @@ provisioner "chef" {
 }
 ```
 
-### Terraform Habitat Provisioner
+#### Terraform Habitat Provisioner
 
 Default behavior of this provisioner is to install the latest version of
 Habitat. [Documentation for this
@@ -419,7 +414,7 @@ will be updated in the near future once the provisioner is updated with
 options to accept license. For the time being, the provisioner can be
 pinned to a prior Habitat version as below.
 
-#### Pin to Chef Habitat 0.79
+**Pin to Chef Habitat 0.79**
 
 In your [Terraform provisioner
 config](https://www.terraform.io/docs/provisioners/habitat.html#version-string-),
@@ -431,7 +426,7 @@ provisioner "habitat" {
 }
 ```
 
-### Vagrant
+#### Vagrant
 
 This license acceptance can be done via the arguments API:
 
@@ -450,7 +445,7 @@ path](https://www.vagrantup.com/docs/provisioning/chef_common.html#custom_config
 and point at a local file, which specifies the `chef_license` config.
 The environment variable is not currently supported.
 
-#### Pin to Chef 14
+**Pin to Chef 14**
 
 This version pinning can be done via the [version
 API](https://www.vagrantup.com/docs/provisioning/chef_common.html#version).
@@ -462,8 +457,7 @@ config.vm.provision "chef_zero" do |chef|
 end
 ```
 
-Pre-upgrade support
--------------------
+### Pre-upgrade support
 
 Chef Software aims to make upgrading from a non-EULA version to a EULA
 version as simple as possible. For some products (Chef Client 14.12.9,
@@ -477,7 +471,7 @@ when invoking any of the EULA products to accept the license. This
 environment variable is ignored by non-EULA products, and so is
 backwards-compatible to older versions.
 
-### `chef-client` cookbook
+#### `chef-client` cookbook
 
 For users that manage their Chef Infra Client installation using the
 `chef-client` cookbook, we added a new attribute that can be specified.

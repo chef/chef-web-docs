@@ -28,8 +28,7 @@ accesses the Chef Infra Server via the Chef Infra Server API.
 
 {{< /note >}}
 
-Standalone
-==========
+## Standalone
 
 The following sections describe the ports that are required by the Chef
 Infra Server in a standalone configuration:
@@ -116,8 +115,7 @@ any firewalls that are in use:
 </tbody>
 </table>
 
-Tiered
-======
+## Tiered
 
 The following sections describe the ports that are required by the Chef
 Infra Server in a tiered configuration:
@@ -126,17 +124,14 @@ Infra Server in a tiered configuration:
 
 {{% server_firewalls_and_ports_loopback %}}
 
-Front End
----------
+### Front End
 
 {{% server_firewalls_and_ports_fe %}}
 
-Back End
---------
+### Back End
 
 {{% server_firewalls_and_ports_tiered %}}
 
-Chef Push Jobs
-==============
+## Chef Push Jobs
 
 {{% server_firewalls_and_ports_push_jobs %}}

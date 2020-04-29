@@ -16,8 +16,7 @@ aliases = ["/policyfile.html"]
 
 {{% policyfile_summary %}}
 
-Why Policyfile?
-===============
+## Why Policyfile?
 
 For some users of Chef, Policyfile will make it easier to test and
 promote code safely with a simpler interface. Policyfile improves the
@@ -33,8 +32,7 @@ detail some of the good reasons to use Policyfile, including:
 -   Cookbook mutability
 -   Replaces Berkshelf and the environment cookbook pattern
 
-Focused System Workflows
-------------------------
+### Focused System Workflows
 
 The knife command line tool maps very closely to the Chef Infra Server
 API and the objects defined by it: roles, environments, run-lists,
@@ -48,8 +46,7 @@ uploaded to the Chef Infra Server describes a part of that system,
 inclusive of roles, environments, cookbooks, and the other Chef Infra
 Server objects necessary to configure that part of the system.
 
-Safer Workflows
----------------
+### Safer Workflows
 
 Policyfile encourages safer workflows by making it easier to publish
 development versions of cookbooks to the Chef Infra Server without the
@@ -61,8 +58,7 @@ normal workflows. Use the same repositories you are already using, the
 same cookbooks, and workflows. Policyfile will prevent an updated
 cookbook or role from being applied immediately to all machines.
 
-Code Visibility
----------------
+### Code Visibility
 
 When running Chef without Policyfile, the exact set of cookbooks that
 are applied to a node is defined by:
@@ -87,8 +83,7 @@ workstation, and then producing a readable document of that solution: a
 Chef Infra Server, and is then used in each Chef Infra Client run that
 is managed by that particular policy name and policy group.
 
-Less Expensive Computation
---------------------------
+### Less Expensive Computation
 
 When running Chef without Policyfile, the Chef Infra Server loads
 dependency data for all known versions of all known cookbooks, and then
@@ -97,8 +92,7 @@ runs an expensive computation to determine the correct set.
 Policyfile moves this computation to the workstation, where it is done
 less frequently.
 
-Role and Environment Mutability
--------------------------------
+### Role and Environment Mutability
 
 When running Chef without Policyfile roles and environments are global
 objects. Changes to roles and environments are applied immediately to
@@ -110,8 +104,7 @@ Policyfile effectively replaces roles and environments. Policyfile files
 are versioned automatically and new versions are applied to systems only
 when promoted.
 
-Cookbook Mutability
--------------------
+### Cookbook Mutability
 
 When running Chef without Policyfile, existing versions of cookbooks are
 mutable. This is convenient for many use cases, especially if users
@@ -139,7 +132,7 @@ must overwrite the existing copy of that cookbook on the Chef Infra
 Server, wheres if they do update the version number it might conflict
 with the version number of the future release of that upstream cookbook.
 
-### Opaque IDs
+#### Opaque IDs
 
 The opaque identifier that is computed from the content of a cookbook is
 the only place where an opaque identifier is necessary. When working
@@ -164,15 +157,13 @@ once published to the Chef Infra Server. Cookbooks that are uploaded to
 the Chef Infra Server may have extended version numbers such as
 `1.0.0-dev`.
 
-Environment Cookbooks
----------------------
+### Environment Cookbooks
 
 Policyfile replaces the environment cookbook pattern that is often
 required by Berkshelf, along with a dependency solver and fetcher. That
 said, Policyfile does not replace all Berkshelf scenarios.
 
-Knife Commands
-==============
+## Knife Commands
 
 The following knife commands used to set the policy group and policy
 name on the Chef Infra Server. For example:
@@ -181,28 +172,23 @@ name on the Chef Infra Server. For example:
 knife node policy set test-node 'test-policy-group-name' 'test-policy-name'
 ```
 
-Policyfile.rb
-=============
+## Policyfile.rb
 
 {{% policyfile_rb %}}
 
-Syntax
-------
+### Syntax
 
 {{% policyfile_rb_syntax %}}
 
-Settings
---------
+### Settings
 
 {{% policyfile_rb_settings %}}
 
-Example
--------
+### Example
 
 {{% policyfile_rb_example %}}
 
-client.rb Settings
-==================
+## client.rb Settings
 
 The following settings may be configured in the client.rb file for use
 with Policyfile:
@@ -228,8 +214,7 @@ with Policyfile:
     Policyfile files are being used, and then automatically updates this
     flag. Default value: `false`.
 
-knife bootstrap
-===============
+## knife bootstrap
 
 A node may be bootstrapped to use Policyfile files. Use the following
 options as part of the bootstrap command:
@@ -246,16 +231,14 @@ options as part of the bootstrap command:
 For a customized bootstrap process, add `policy_name` and `policy_group`
 to the first-boot JSON file that is passed to Chef Infra Client.
 
-knife search
-============
+## knife search
 
 The `policy_name` and `policy_group` settings for a node are stored as
 searchable attributes and as such are available when using a fuzzy
 matching search pattern. For example: `knife search dev` will return
 nodes that are part of the `dev` policy group.
 
-Test w/Kitchen
-==============
+## Test w/Kitchen
 
 Kitchen may be used to test Policyfile files. Add the following to
 kitchen.yml:
@@ -308,77 +291,71 @@ Server, the `policy_groups` concept is not applicable. The value of
 
 {{< /note >}}
 
-chef Commands
-=============
+## chef Commands
 
 {{% policyfile_chef_commands %}}
 
-chef clean-policy-cookbooks
----------------------------
+### chef clean-policy-cookbooks
 
 {{% ctl_chef_clean_policy_cookbooks %}}
 
-### Syntax
+#### Syntax
 
 {{% ctl_chef_clean_policy_cookbooks_syntax %}}
 
-### Options
+#### Options
 
 {{% ctl_chef_clean_policy_cookbooks_options %}}
 
-chef clean-policy-revisions
----------------------------
+### chef clean-policy-revisions
 
 {{% ctl_chef_clean_policy_revisions %}}
 
-### Syntax
+#### Syntax
 
 {{% ctl_chef_clean_policy_revisions_syntax %}}
 
-### Options
+#### Options
 
 {{% ctl_chef_clean_policy_revisions_options %}}
 
-chef delete-policy
-------------------
+### chef delete-policy
 
 {{% ctl_chef_delete_policy %}}
 
-### Syntax
+#### Syntax
 
 {{% ctl_chef_delete_policy_syntax %}}
 
-### Options
+#### Options
 
 {{% ctl_chef_delete_policy_options %}}
 
-chef delete-policy-group
-------------------------
+### chef delete-policy-group
 
 {{% ctl_chef_delete_policy_group %}}
 
-### Syntax
+#### Syntax
 
 {{% ctl_chef_delete_policy_group_syntax %}}
 
-### Options
+#### Options
 
 {{% ctl_chef_delete_policy_group_options %}}
 
-chef diff
----------
+### chef diff
 
 {{% ctl_chef_diff %}}
 
-### Syntax
+#### Syntax
 
 {{% ctl_chef_diff_syntax %}}
 
-### Options
+#### Options
 
 {{% ctl_chef_diff_options %}}
 
-### Examples
+#### Examples
 
 **Compare current lock to latest commit on latest branch**
 
@@ -408,38 +385,35 @@ chef diff
 
 {{% ctl_chef_diff_two_policy_groups %}}
 
-chef export
------------
+### chef export
 
 {{% ctl_chef_export %}}
 
-### Syntax
+#### Syntax
 
 {{% ctl_chef_export_syntax %}}
 
-### Configuration Settings
+#### Configuration Settings
 
 {{% ctl_chef_export_config %}}
 
-### Options
+#### Options
 
 {{% ctl_chef_export_options %}}
 
-chef generate policyfile
-------------------------
+### chef generate policyfile
 
 {{% ctl_chef_generate_policyfile %}}
 
-### Syntax
+#### Syntax
 
 {{% ctl_chef_generate_policyfile_syntax %}}
 
-### Options
+#### Options
 
 {{% ctl_chef_generate_policyfile_options %}}
 
-chef generate repo
-------------------
+### chef generate repo
 
 {{% ctl_chef_generate_repo %}}
 
@@ -450,94 +424,88 @@ support Policyfile files.
 
 {{< /note >}}
 
-### Syntax
+#### Syntax
 
 {{% ctl_chef_generate_repo_syntax %}}
 
-### Options
+#### Options
 
 {{% ctl_chef_generate_repo_options %}}
 
-chef install
-------------
+### chef install
 
 {{% ctl_chef_install %}}
 
-### Syntax
+#### Syntax
 
 {{% ctl_chef_install_syntax %}}
 
-### Options
+#### Options
 
 {{% ctl_chef_install_options %}}
 
-### Policyfile.lock.json
+#### Policyfile.lock.json
 
 {{% policyfile_lock_json %}}
 
 {{% policyfile_lock_json_example %}}
 
-chef push
----------
+### chef push
 
 {{% ctl_chef_push %}}
 
-### Syntax
+#### Syntax
 
 {{% ctl_chef_push_syntax %}}
 
-### Options
+#### Options
 
 {{% ctl_chef_push_options %}}
 
-chef push-archive
------------------
+### chef push-archive
 
 {{% ctl_chef_push_archive %}}
 
-### Syntax
+#### Syntax
 
 {{% ctl_chef_push_archive_syntax %}}
 
-### Options
+#### Options
 
 {{% ctl_chef_push_archive_options %}}
 
-chef show-policy
-----------------
+### chef show-policy
 
 {{% ctl_chef_show_policy %}}
 
-### Syntax
+#### Syntax
 
 {{% ctl_chef_show_policy_syntax %}}
 
-### Options
+#### Options
 
 {{% ctl_chef_show_policy_options %}}
 
-chef undelete
--------------
+### chef undelete
 
 {{% ctl_chef_undelete %}}
 
-### Syntax
+#### Syntax
 
 {{% ctl_chef_undelete_syntax %}}
 
-### Options
+#### Options
 
 {{% ctl_chef_undelete_options %}}
 
-chef update
------------
+### chef update
 
 {{% ctl_chef_update %}}
 
-### Syntax
+#### Syntax
 
 {{% ctl_chef_update_syntax %}}
 
-### Options
+#### Options
 
 {{% ctl_chef_update_options %}}

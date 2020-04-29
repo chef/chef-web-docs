@@ -4,13 +4,6 @@ draft = false
 
 toc = false
 
-
-
-
-
-
-
-
 +++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/sitemap.md)
@@ -36,24 +29,20 @@ Chef to familiarize yourself with Chef Infra concepts.
 If you need documentation for previous versions, see the [Docs
 Archive](https://docs-archive.chef.io).
 
-Overview
-========
+## Overview
 
-Chef Platform Overview
-----------------------
+### Chef Platform Overview
 
 [Platform Overview](/platform_overview/)
 
-Community
----------
+### Community
 
 [About the Community](/community/) |
 [Contributing](/community_contributions/) |
 [Guidelines](/community_guidelines/) | [Docs Style
 Guide](/style_guide/)
 
-Packages and Platform Support
------------------------------
+### Packages and Platform Support
 
 [Packages](/packages/) | [Platforms](/platforms/) | [Supported
 Versions](/versions/) | [Omnitruck API](/api_omnitruck/)
@@ -61,11 +50,9 @@ Versions](/versions/) | [Omnitruck API](/api_omnitruck/)
 **Licensing**: [About Licensing](/chef_license/) | [Accepting
 License](/chef_license_accept/)
 
-Chef Infra
-==========
+## Chef Infra
 
-Getting Started
----------------
+### Getting Started
 
 [Chef Infra Overview](/chef_overview/) | [Quick
 Start](/quick_start/) | [System
@@ -78,8 +65,7 @@ Jobs](/release_notes_push_jobs/) |
 
 [Deprecations](/chef_deprecations_client/)
 
-Concepts
---------
+### Concepts
 
 [Chef Workstation](/workstation/) |
 [chef-repo](/chef_repo/) | [Nodes](/nodes/) | [Chef Infra
@@ -104,8 +90,7 @@ Cookbooks on the Chef Supermarket](/supermarket_share_cookbook/)
 **Appendix**: [Troubleshooting](/errors/) |
 [Glossary](/glossary/)
 
-Guides
-------
+### Guides
 
 **Chef on Azure**: [Microsoft Azure Portal](/azure_portal/) | [Chef
 Workstation in Azure Cloud Shell](/azure_cwa_cloud_shell/) |
@@ -118,8 +103,7 @@ Chef Extension](/azure_chef_cli/) | Knife Azure
 Windows](/windows/) | [Chef Infra Client on Windows
 Nodes](/install_windows/) | [Knife Windows](/workstation/knife_windows/)
 
-Setup
------
+### Setup
 
 [Proxies](/proxies/) | [Install Chef
 Workstation](/workstation/install_workstation/)
@@ -155,8 +139,7 @@ Azure](/azure_portal/) | [Google Cloud Platform](/google/) |
 [Air-gapped Installation](/install_chef_air_gap/) | [Microsoft
 Windows](/windows/) | [Uninstall](/uninstall/)
 
-Cookbook Reference
-------------------
+### Cookbook Reference
 
 [About Cookbooks](/cookbooks/) | [Attributes](/attributes/) |
 [Files](/files/) | [Libraries](/libraries/)
@@ -307,8 +290,7 @@ Versioning](/cookbook_versioning/) | [Ruby Guide](/ruby/)
 (cookbook)](/delivery_build_cookbook/) | [delivery-truck
 (cookbook)](/delivery_truck/) |
 
-Chef Workstation
-----------------
+### Chef Workstation
 
 [About Chef Workstation](/workstation/) | [Configure Chef
 Workstation](/workstation/workstation_setup/) | [Berkshelf](/workstation/berkshelf/) |
@@ -439,8 +421,7 @@ Bags](/server_manage_data_bags/) |
 [manage.rb](/config_rb_manage/) |
 [chef-manage-ctl](/ctl_manage/)
 
-Chef Automate
-=============
+## Chef Automate
 
 [Chef Automate Documentation](https://automate.chef.io/docs) | [Quick
 Start Demo](https://automate.chef.io/docs/quickstart) | [System
@@ -484,8 +465,7 @@ CLI](https://automate.chef.io/docs/cli-chef-automate) | [Monitoring
 Chef Automate](https://automate.chef.io/docs/monitoring) |
 [Troubleshooting](https://automate.chef.io/docs/troubleshooting)
 
-Chef Habitat
-============
+## Chef Habitat
 
 **Documentation**: [Chef Habitat
 Documentation](https://www.habitat.sh/docs)
@@ -493,19 +473,16 @@ Documentation](https://www.habitat.sh/docs)
 **Tutorials**: [Chef Habitat
 Tutorials](https://www.habitat.sh/tutorials)
 
-Chef InSpec
-===========
+## Chef InSpec
 
 **Documentation**: [Chef InSpec
 Documentation](https://www.inspec.io/docs)
 
 **Tutorials**: [Chef InSpec Tutorials](https://www.inspec.io/tutorials)
 
-Legacy
-======
+## Legacy
 
-Workflow
---------
+### Workflow
 
 **Workflow Basics**: [Workflow Overview](/workflow/) | [Configure a
 Pipeline](/delivery_pipeline/) | [Configure a
@@ -542,11 +519,9 @@ DSL](/dsl_delivery/)
 [AWS OpsWorks for Chef Automate](/aws_opsworks_chef_automate/) |
 [Chef Automate for Microsoft Azure](/automate_azure/)
 
-Extension APIs
-==============
+## Extension APIs
 
-Resources
----------
+### Resources
 
 **Recipe DSL**: [attribute?](/dsl_recipe/#attribute) |
 [control](/dsl_recipe/#control) |
@@ -577,33 +552,28 @@ Resources
 Resource DSL](/dsl_custom_resource/) | [Community
 Resources](https://supermarket.chef.io)
 
-Handlers
---------
+### Handlers
 
 [Custom Handlers](/handlers/#custom-handlers) | [Handler
 DSL](/dsl_handler/) | [Community
 Handlers](/plugin_community/#handlers)
 
-Knife Plugins
--------------
+### Knife Plugins
 
 [Cloud Plugins](/plugin_knife/) | [Writing Custom
 Plugins](/plugin_knife_custom/) | [Community Plugins
 (knife)](/plugin_community/#knife)
 
-Ohai Plugins
-------------
+### Ohai Plugins
 
 [Custom Plugins](/ohai_custom/) | [Community
 Plugins](/plugin_community/#ohai)
 
-Chef Infra Client Plugins
--------------------------
+### Chef Infra Client Plugins
 
 [Chef Infra Client Plugins](/plugin_community/#chef-infra-client)
 
-Addenda
-=======
+## Addenda
 
 [Available on GitHub](https://github.com/chef/chef-web-docs) | [Get
 Chef](https://www.chef.io/chef/get-chef) | [Send

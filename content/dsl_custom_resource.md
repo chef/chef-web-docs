@@ -20,85 +20,71 @@ Use the Custom Resource DSL to define behaviors within custom resources, such as
 -   Comparing the current property value against a desired property value
 -   Telling Chef Infra Client when and how to make changes
 
-action_class
-=============
+## action_class
 
 {{% dsl_custom_resource_method_converge_if_changed_multiple %}}
 
-converge_if_changed
-=====================
+## converge_if_changed
 
 {{% dsl_custom_resource_method_converge_if_changed %}}
 
-Converging Multiple Properties
--------------------
+### Converging Multiple Properties
 
 {{% dsl_custom_resource_method_converge_if_changed_multiple %}}
 
-default_action
-===============
+## default_action
 
 {{% dsl_custom_resource_method_default_action %}}
 
-load_current_value
-====================
+## load_current_value
 
 {{% dsl_custom_resource_method_load_current_value %}}
 
-Block Arguments
---------
+### Block Arguments
 
 {{% dsl_custom_resource_method_property_block_argument %}}
 
-property
-========
+## property
 
 {{% dsl_custom_resource_method_property %}}
 
-ruby_type
-----------
+### ruby_type
 
 {{% dsl_custom_resource_method_property_ruby_type %}}
 
-validators
-----------
+### validators
 
 {{% dsl_custom_resource_method_property_validation_parameter %}}
 
-desired_state
---------------
+### desired_state
 
 {{% dsl_custom_resource_method_property_desired_state %}}
 
-identity
---------
+### identity
 
 {{% dsl_custom_resource_method_property_identity %}}
 
-Working With Properties
---------
+### Working With Properties
 
 The Custom Resource DSL includes several helper methods for accessing and manipulating the values of properties defined within a custom resource.
 
-### new_resource.property
+#### new_resource.property
 
 {{< readFile_shortcode file="dsl_custom_resource_method_new_resource.md" >}}
 
-### property_is_set?
+#### property_is_set?
 
 {{% dsl_custom_resource_method_property_is_set %}}
 
-### reset_property
+#### reset_property
 
 {{% dsl_custom_resource_method_reset_property %}}
 
-provides
-========
+## provides
 
 {{% dsl_custom_resource_method_provides %}}
 
-resource_name
-==============
+## resource_name
 
 {{< note >}}
 
@@ -110,7 +96,6 @@ resource_name
 
 {{% dsl_custom_resource_method_resource_name_example %}}
 
-deprecated
-==========
+## deprecated
 
 {{% dsl_custom_resource_method_deprecated %}}

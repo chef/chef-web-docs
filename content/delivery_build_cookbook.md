@@ -16,8 +16,6 @@ aliases = ["/delivery_build_cookbook.html", "/release/automate/delivery_build_co
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/delivery_build_cookbook.md)
 
-
-
 Chef Automate uses Chef Infra Client to run recipes for each phase in a
 build pipeline. The phases are grouped into different stages.
 
@@ -29,8 +27,7 @@ The recipes for these phases are run from the `build-cookbook`. A
 `build-cookbook` varies by project type, because projects may use
 different tools for running unit tests, syntax checks, or lint analysis.
 
-Build Cookbook Structure
-========================
+## Build Cookbook Structure
 
 A `build-cookbook` is located in the `.delivery` directory in a project
 and defines how the Chef Automate pipeline will build, test, and deploy
@@ -93,8 +90,7 @@ The following recipes should be configured to include the corresponding
 
 :   {{% delivery_cookbook_common_recipe_unit %}}
 
-Create Build Cookbook
-=====================
+## Create Build Cookbook
 
 {{% delivery_cookbook_setup %}}
 
@@ -106,23 +102,19 @@ work is being done from that project's root directory.
 
 {{< /note >}}
 
-Edit the Berksfile
-------------------
+### Edit the Berksfile
 
 {{% delivery_cookbook_setup_berksfile %}}
 
-Edit metadata.rb
-----------------
+### Edit metadata.rb
 
 {{% delivery_cookbook_setup_metadata %}}
 
-Add delivery-truck to Recipes
------------------------------
+### Add delivery-truck to Recipes
 
 {{% delivery_cookbook_setup_recipes %}}
 
-Set Up Projects
-===============
+## Set Up Projects
 
 Chef Automate uses projects to organize work across multiple teams. You
 can create as many projects as you need. A common approach is to have
@@ -135,13 +127,11 @@ uses a "gated master" model that manages merges to the target branch.
 The typical setup is for each project to have a single pipeline that
 targets the master branch.
 
-Use the Delivery CLI
---------------------
+### Use the Delivery CLI
 
 {{% delivery_projects_add_with_delivery_truck %}}
 
-Use the Web UI
---------------
+### Use the Web UI
 
 To add a project using the Chef Automate web UI:
 
@@ -179,8 +169,7 @@ To add a project using the Chef Automate web UI:
 
 8.  Click **Save and Close**.
 
-Custom build-cookbook
-=====================
+## Custom build-cookbook
 
 `chef generate` can also create a custom build cookbook for use with
 Delivery:

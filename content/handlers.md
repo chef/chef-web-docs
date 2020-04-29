@@ -18,18 +18,15 @@ aliases = ["/handlers.html"]
 
 {{% handler_types %}}
 
-Exception/Report Handlers
-=========================
+## Exception/Report Handlers
 
 {{% handler_type_exception_report %}}
 
-Run from Recipes
-----------------
+### Run from Recipes
 
 {{% handler_type_exception_report_run_from_recipe %}}
 
-Run from client.rb
-------------------
+### Run from client.rb
 
 A simple exception or report handler may be installed and configured at
 run-time. This requires editing of a node's client.rb file to add the
@@ -85,18 +82,15 @@ report_handlers << email_handler              # run at the end of a successful r
 exception_handlers << email_handler           # run at the end of a failed run
 ```
 
-Start Handlers
-==============
+## Start Handlers
 
 {{% handler_type_start %}}
 
-Run from Recipes
-----------------
+### Run from Recipes
 
 {{% handler_type_start_run_from_recipe %}}
 
-Run from client.rb
-------------------
+### Run from client.rb
 
 A start handler can be configured in the client.rb file by adding the
 following setting:
@@ -143,27 +137,23 @@ chef_gem 'chef-reporting' do
 end
 ```
 
-Event Handlers
-==============
+## Event Handlers
 
 {{% dsl_handler_summary %}}
 
-on Method
----------
+### on Method
 
 {{% dsl_handler_method_on %}}
 
-Event Types
------------
+### Event Types
 
 {{% dsl_handler_event_types %}}
 
-Examples
---------
+### Examples
 
 The following examples show ways to use the Handler DSL.
 
-### Send Email
+#### Send Email
 
 {{% dsl_handler_slide_send_email %}}
 
@@ -179,22 +169,20 @@ The following examples show ways to use the Handler DSL.
 
 {{% dsl_handler_slide_send_email_test %}}
 
-### etcd Locks
+#### etcd Locks
 
 {{% dsl_handler_example_etcd_lock %}}
 
-### HipChat Notifications
+#### HipChat Notifications
 
 {{% dsl_handler_example_hipchat %}}
 
-Handlers and Cookbooks
-======================
+## Handlers and Cookbooks
 
 The following cookbooks can be used to load handlers during a Chef Infra
 Client run.
 
-chef_handler
--------------
+### chef_handler
 
 Exception and report handlers can be distributed using the
 **chef_handler** cookbook. This cookbook is authored and maintained by
@@ -204,8 +192,7 @@ from cookbooks. The **chef_handler** cookbook can be accessed here:
 <https://github.com/chef-cookbooks/chef_handler>. See the `README.md`
 for additional information.
 
-Chef Infra Client
------------------
+### Chef Infra Client
 
 Start handlers can be distributed using the **chef-client** cookbook,
 which will install the handler on the target node during the initial
@@ -213,63 +200,55 @@ configuration of the node. This ensures that the start handler is always
 present on the node so that it is available to Chef Infra Client at the
 start of every run.
 
-Custom Handlers
-===============
+## Custom Handlers
 
 {{% handler_custom %}}
 
-Syntax
-------
+### Syntax
 
 {{< readFile_shortcode file="handler_custom_syntax.md" >}}
 
-report Interface
-----------------
+### report Interface
 
 {{< readFile_shortcode file="handler_custom_interface_report.md" >}}
 
-Optional Interfaces
--------------------
+### Optional Interfaces
 
 {{% handler_custom_optional_interfaces %}}
 
-### data
+#### data
 
 {{% handler_custom_interface_data %}}
 
-### run_report_safely
+#### run_report_safely
 
 {{% handler_custom_interface_run_report_safely %}}
 
-### run_report_unsafe
+#### run_report_unsafe
 
 {{% handler_custom_interface_run_report_unsafe %}}
 
-run_status Object
-------------------
+### run_status Object
 
 {{% handler_custom_object_run_status %}}
 
-Examples
-========
+## Examples
 
 The following sections show examples of handlers.
 
-Cookbook Versions
------------------
+### Cookbook Versions
 
 {{% handler_custom_example_cookbook_versions %}}
 
-### cookbook_versions.rb
+#### cookbook_versions.rb
 
 {{< readFile_shortcode file="handler_custom_example_cookbook_versions_handler.md" >}}
 
-### default.rb
+#### default.rb
 
 {{% handler_custom_example_cookbook_versions_recipe %}}
 
-Reporting
----------
+### Reporting
 
 Start handler functionality was added when Chef started building add-ons
 for the Chef Infra Server. The Reporting add-on is designed to create
@@ -285,7 +264,7 @@ is always installed using the **chef-client** cookbook.
 
 {{< /note >}}
 
-### start_handler.rb
+#### start_handler.rb
 
 The following code shows the start handler used by the Reporting add-in
 for the Chef Infra Server:
@@ -323,17 +302,14 @@ class Chef
 end
 ```
 
-json_file Handler
-------------------
+### json_file Handler
 
 {{< readFile_shortcode file="handler_custom_example_json_file.md" >}}
 
-error_report Handler
----------------------
+### error_report Handler
 
 {{< readFile_shortcode file="handler_custom_example_error_report.md" >}}
 
-Community Handlers
-------------------
+### Community Handlers
 
 {{% handler_community_handlers %}}

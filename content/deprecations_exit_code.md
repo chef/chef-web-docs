@@ -9,8 +9,6 @@ aliases = "/deprecations_exit_code.html"
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/deprecations_exit_code.md)
 
-
-
 In older versions of Chef Client, it was not possible to discern why a
 chef run exited simply by examining the error code. This makes it very
 tricky for tools such as Test Kitchen to reason about the status of a
@@ -24,8 +22,7 @@ information on the list of defined error codes, please see [RFC 62,
 which defines
 them](https://github.com/chef/chef-rfc/blob/master/rfc062-exit-status.md).
 
-Remediation
-===========
+## Remediation
 
 If you have built automation that is dependent on the old behavior of
 Chef Client, we strongly recommend updating it to support the extended

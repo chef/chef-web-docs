@@ -20,8 +20,7 @@ Many of the examples in this section use knife, but the search indexes
 and search query syntax can be used in many locations, including from
 within recipes and when using the Chef Infra Server API.
 
-Search Indexes
-==============
+## Search Indexes
 
 A search index is a full-text list of objects that are stored on the
 Chef Infra Server, against which search queries can be made. The
@@ -62,8 +61,7 @@ following search indexes are built:
 </tbody>
 </table>
 
-Using Knife
------------
+### Using Knife
 
 {{% knife_search_summary %}}
 
@@ -107,8 +105,7 @@ Using Knife
 
 {{% knife_search_test_query_for_ssh %}}
 
-Query Syntax
-============
+## Query Syntax
 
 {{% search_query_syntax %}}
 
@@ -118,23 +115,19 @@ Search queries may not contain newlines.
 
 {{< /note >}}
 
-Filter Search Results
-=====================
+## Filter Search Results
 
 {{% dsl_recipe_method_search_filter_result %}}
 
-Keys
-====
+## Keys
 
 {{% search_key %}}
 
-Nested Fields
--------------
+### Nested Fields
 
 {{% search_key_nested %}}
 
-Examples
---------
+### Examples
 
 {{% search_key_name %}}
 
@@ -146,13 +139,11 @@ Examples
 
 {{% search_key_nested_range %}}
 
-Patterns
-========
+## Patterns
 
 {{% search_pattern %}}
 
-Exact Matching
---------------
+### Exact Matching
 
 {{% search_pattern_exact %}}
 
@@ -160,8 +151,7 @@ Exact Matching
 
 {{% search_pattern_exact_key_and_item_string %}}
 
-Wildcard Matching
------------------
+### Wildcard Matching
 
 {{% search_pattern_wildcard %}}
 
@@ -169,8 +159,7 @@ Wildcard Matching
 
 {{% search_pattern_wildcard_node_contains %}}
 
-Range Matching
---------------
+### Range Matching
 
 {{% search_pattern_range %}}
 
@@ -178,49 +167,41 @@ Range Matching
 
 {{% search_pattern_range_exclusive %}}
 
-Fuzzy Matching
---------------
+### Fuzzy Matching
 
 {{% search_pattern_fuzzy %}}
 
 {{% search_pattern_fuzzy_summary %}}
 
-Operators
-=========
+## Operators
 
 {{% search_boolean_operators %}}
 
 {{% search_boolean_operators_andnot %}}
 
-AND
----
+### AND
 
 {{% search_boolean_and %}}
 
-NOT
----
+### NOT
 
 {{% search_boolean_not %}}
 
-OR
---
+### OR
 
 {{% search_boolean_or %}}
 
-Special Characters
-==================
+## Special Characters
 
 {{% search_special_characters %}}
 
-Targets
-=======
+## Targets
 
 A search target is any object that has been indexed on the Chef Infra
 Server, including roles (and run-lists), nodes, environments, data bags,
 and any API client.
 
-Roles in Run-lists
-------------------
+### Roles in Run-lists
 
 A search query can be made for roles that are at the top-level of a
 run-list and also for a role that is part of an expanded run-list.
@@ -288,8 +269,7 @@ and from within a recipe:
 search(:node, 'roles:load_balancer')
 ```
 
-Nodes
------
+### Nodes
 
 A node can be searched from a recipe by using the following syntax:
 
@@ -352,8 +332,7 @@ search(:node, "*:*").each do |matching_node|
 end
 ```
 
-API Clients
------------
+### API Clients
 
 An API client is any machine that has permission to use the Chef Infra
 Server API to communicate with the Chef Infra Server. An API client is
@@ -396,15 +375,13 @@ unique name. The identifier `private_ip` will now have the value of the
 private IP address of the database server (`10.40.64.202`) and can then
 be used in templates as a variable, among other possible uses.
 
-Environments
-------------
+### Environments
 
 {{% environment %}}
 
 {{% search_environment %}}
 
-Data Bags
----------
+### Data Bags
 
 {{% data_bag %}}
 

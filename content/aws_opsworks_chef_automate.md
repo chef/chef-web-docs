@@ -16,8 +16,6 @@ aliases = ["/aws_opsworks_chef_automate.html"]
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/aws_opsworks_chef_automate.md)
 
-
-
 [AWS OpsWorks for Chef
 Automate](https://aws.amazon.com/opsworks/chefautomate/) is an AWS
 service which you can use to create a Chef Automate instance.
@@ -39,16 +37,14 @@ refer to it as needed.
 The following is applicable to any instances created with AWS OpsWorks
 for Chef Automate.
 
-Finding your AWS OpsWorks for Chef Automate instance
-====================================================
+## Finding your AWS OpsWorks for Chef Automate instance
 
 All of the Chef Automate instances created via AWS OpsWorks for Chef
 Automate are named `aws-opsworks-cm-YOUR_INSTANCE_NAME`. In order to
 access your Chef Automate instance, you can simply search for
 `aws-opsworks-cm` in the AWS Management console.
 
-Configuring AWS OpsWorks for Chef Automate with runners
-=======================================================
+## Configuring AWS OpsWorks for Chef Automate with runners
 
 In order to add runners to your "AWS OpsWorks for Chef Automate"
 instance you need to do the following:
@@ -71,8 +67,7 @@ instance you need to do the following:
     SSH keys correctly, the SSH command should look like
     `ssh ec2-user@<instance-name>-<random-chars>.gamma.opsworks-cm.io`.
 
-Pushing a change through AWS OpsWorks for Chef Automate
-=======================================================
+## Pushing a change through AWS OpsWorks for Chef Automate
 
 Existing documentation for pushing a change through Chef Automate is
 applicable for AWS OpsWorks for Chef Automate. The only extra

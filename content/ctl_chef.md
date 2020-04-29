@@ -17,14 +17,12 @@ The chef executable is a command-line tool that does the following:
 -   Installs gems into the Chef development environment's Ruby
     installation.
 
-chef env
-========
+## chef env
 
 Use the `chef env` subcommand to configure the environment for Chef
 Workstation.
 
-Syntax
-------
+### Syntax
 
 This subcommand has the following syntax:
 
@@ -32,25 +30,21 @@ This subcommand has the following syntax:
 chef env
 ```
 
-Options
--------
+### Options
 
 This command does not have any specific options.
 
-Examples
---------
+### Examples
 
 None.
 
-chef exec
-=========
+## chef exec
 
 Use the `chef exec` subcommand to run arbitrary shell commands with the
 `PATH` environment variable and the `GEM_HOME` and `GEM_PATH` Ruby
 environment variables pointed at Chef Workstation.
 
-Syntax
-------
+### Syntax
 
 This subcommand has the following syntax:
 
@@ -58,8 +52,7 @@ This subcommand has the following syntax:
 chef exec SYSTEM_COMMAND (options)
 ```
 
-Options
--------
+### Options
 
 This subcommand has the following options:
 
@@ -71,13 +64,11 @@ This subcommand has the following options:
 
 :   The Chef Infra Client version.
 
-Examples
---------
+### Examples
 
 None.
 
-chef gem
-========
+## chef gem
 
 The `chef gem` subcommand is a wrapper around the `gem` command in
 RubyGems and is used by Chef to install RubyGems into Chef Workstation
@@ -87,8 +78,7 @@ will be installed to the `.Chef Workstation` path in the home directory:
 `~/.Chef Workstation/gem/ruby/ver.si.on/bin` (where `ver.si.on` is the
 version of Ruby that is packaged within Chef Workstation).
 
-Syntax
-------
+### Syntax
 
 This subcommand has the following syntax:
 
@@ -96,8 +86,7 @@ This subcommand has the following syntax:
 chef gem GEM_COMMAND GEM_OPTIONS (options)
 ```
 
-Options
--------
+### Options
 
 This subcommand has the following options:
 
@@ -109,8 +98,7 @@ This subcommand has the following options:
 
 :   The Chef Infra Client version.
 
-Examples
---------
+### Examples
 
 **Show an existing gem in Chef Workstation**
 
@@ -224,14 +212,12 @@ to return something similar to:
 /Users/user/.chefdk/gem/ruby/2.1.0/gems/knife-config-1.1.0/lib/knife-config.rb
 ```
 
-chef generate attribute
-=======================
+## chef generate attribute
 
 Use the `chef generate attribute` subcommand to generate an attribute
 file in the `/attributes` directory.
 
-Syntax
-------
+### Syntax
 
 This subcommand has the following syntax:
 
@@ -239,8 +225,7 @@ This subcommand has the following syntax:
 chef generate attribute COOKBOOK_PATH NAME (options)
 ```
 
-Options
--------
+### Options
 
 This subcommand has the following options:
 
@@ -261,8 +246,7 @@ This subcommand has the following options:
 
 :   The Chef Infra Client version.
 
-Examples
---------
+### Examples
 
 **Create an attribute**
 
@@ -283,8 +267,7 @@ Recipe: code_generator::attribute
     - create new file /Users/grantmc/chef-repo/cookbooks/chef-repo/attributes/FOO.rb
 ```
 
-chef generate cookbook
-======================
+## chef generate cookbook
 
 Use the `chef generate cookbook` subcommand to generate a cookbook.
 
@@ -294,8 +277,7 @@ Use the `chef generate cookbook` subcommand to generate a cookbook.
 
 {{< /note >}}
 
-Syntax
-------
+### Syntax
 
 This subcommand has the following syntax:
 
@@ -303,8 +285,7 @@ This subcommand has the following syntax:
 chef generate cookbook COOKBOOK_PATH/COOKBOOK_NAME (options)
 ```
 
-Options
--------
+### Options
 
 This subcommand has the following options:
 
@@ -363,8 +344,7 @@ This subcommand has the following options:
 
 :   The Chef Infra Client version.
 
-Examples
---------
+### Examples
 
 **Create a cookbook**
 
@@ -471,14 +451,12 @@ Recipe: code_generator::cookbook
     - create new file /Users/grantmc/Desktop/chef-repo/test-cookbook/recipes/default.rb
 ```
 
-chef generate build-cookbook
-============================
+## chef generate build-cookbook
 
 Use the `chef generate build-cookbook` subcommand to generate a delivery
 configuration file and build cookbook.
 
-Syntax
-------
+### Syntax
 
 This subcommand has the following syntax:
 
@@ -486,8 +464,7 @@ This subcommand has the following syntax:
 chef generate build-cookbook COOKBOOK_PATH/COOKBOOK_NAME (options)
 ```
 
-Options
--------
+### Options
 
 This subcommand has the following options:
 
@@ -530,19 +507,16 @@ This subcommand has the following options:
 
 :   The Chef Infra Client version.
 
-Examples
---------
+### Examples
 
 None.
 
-chef generate file
-==================
+## chef generate file
 
 Use the `chef generate file` subcommand to generate a file in the
 `/files` directory.
 
-Syntax
-------
+### Syntax
 
 This subcommand has the following syntax:
 
@@ -550,8 +524,7 @@ This subcommand has the following syntax:
 chef generate file COOKBOOK_PATH NAME (options)
 ```
 
-Options
--------
+### Options
 
 This subcommand has the following options:
 
@@ -576,13 +549,11 @@ This subcommand has the following options:
 
 :   The Chef Infra Client version.
 
-Examples
---------
+### Examples
 
 None.
 
-chef generate resource
-======================
+## chef generate resource
 
 Use the `chef generate resource` subcommand to generate a custom
 resource in the `/resources` directory.
@@ -593,8 +564,7 @@ resource in the `/resources` directory.
 
 {{< /note >}}
 
-Syntax
-------
+### Syntax
 
 This subcommand has the following syntax:
 
@@ -602,8 +572,7 @@ This subcommand has the following syntax:
 chef generate resource COOKBOOK_PATH NAME (options)
 ```
 
-Options
--------
+### Options
 
 This subcommand has the following options:
 
@@ -624,19 +593,16 @@ This subcommand has the following options:
 
 :   The Chef Infra Client version.
 
-Examples
---------
+### Examples
 
 None.
 
-chef generate recipe
-====================
+## chef generate recipe
 
 Use the `chef generate recipe` subcommand to generate a recipe in the
 `/recipes` directory.
 
-Syntax
-------
+### Syntax
 
 This subcommand has the following syntax:
 
@@ -644,8 +610,7 @@ This subcommand has the following syntax:
 chef generate recipe COOKBOOK_PATH NAME (options)
 ```
 
-Options
--------
+### Options
 
 This subcommand has the following options:
 
@@ -666,39 +631,32 @@ This subcommand has the following options:
 
 :   The Chef Infra Client version.
 
-Examples
---------
+### Examples
 
 None.
 
-chef generate repo
-==================
+## chef generate repo
 
 {{% ctl_chef_generate_repo %}}
 
-Syntax
-------
+### Syntax
 
 {{% ctl_chef_generate_repo_syntax %}}
 
-Options
--------
+### Options
 
 {{% ctl_chef_generate_repo_options %}}
 
-Examples
---------
+### Examples
 
 None.
 
-chef generate template
-======================
+## chef generate template
 
 Use the `chef generate template` subcommand to generate a template in
 the `/templates` directory.
 
-Syntax
-------
+### Syntax
 
 This subcommand has the following syntax:
 
@@ -706,8 +664,7 @@ This subcommand has the following syntax:
 chef generate template COOKBOOK_PATH NAME (options)
 ```
 
-Options
--------
+### Options
 
 This subcommand has the following options:
 
@@ -732,13 +689,11 @@ This subcommand has the following options:
 
 :   The Chef Infra Client version.
 
-Examples
---------
+### Examples
 
 None.
 
-chef shell-init
-===============
+## chef shell-init
 
 Use the `chef shell-init` subcommand to set the Ruby included in Chef
 Workstation as the system Ruby. Chef Workstation is designed to allow
@@ -748,8 +703,7 @@ Bash, fish, Windows PowerShell (posh), and zsh.
 
 bash zsh fish PowerShell (posh)
 
-Syntax
-------
+### Syntax
 
 This subcommand has the following syntax:
 
@@ -757,8 +711,7 @@ This subcommand has the following syntax:
 chef shell-init SHELL_NAME (options)
 ```
 
-Options
--------
+### Options
 
 This subcommand has the following options:
 
@@ -770,8 +723,7 @@ This subcommand has the following options:
 
 :   The Chef Infra Client version.
 
-Examples
---------
+### Examples
 
 **Set PowerShell**
 
@@ -822,93 +774,87 @@ In this situation, run the following `chef shell-init` command instead:
 if(Test-Path $PROFILE){ chef shell-init powershell | Add-Content $PROFILE } else { New-Item -Force -ItemType File $PROFILE; chef shell-init powershell | Add-Content $PROFILE }
 ```
 
-Policyfile Commands
-===================
+## Policyfile Commands
 
 {{% policyfile_chef_commands %}}
 
-chef clean-policy-cookbooks
----------------------------
+### chef clean-policy-cookbooks
 
 {{% ctl_chef_clean_policy_cookbooks %}}
 
-### Syntax
+#### Syntax
 
 {{% ctl_chef_clean_policy_cookbooks_syntax %}}
 
-### Options
+#### Options
 
 {{% ctl_chef_clean_policy_cookbooks_options %}}
 
-### Examples
+#### Examples
 
 None.
 
-chef clean-policy-revisions
----------------------------
+### chef clean-policy-revisions
 
 {{% ctl_chef_clean_policy_revisions %}}
 
-### Syntax
+#### Syntax
 
 {{% ctl_chef_clean_policy_revisions_syntax %}}
 
-### Options
+#### Options
 
 {{% ctl_chef_clean_policy_revisions_options %}}
 
-### Examples
+#### Examples
 
 None.
 
-chef delete-policy
-------------------
+### chef delete-policy
 
 {{% ctl_chef_delete_policy %}}
 
-### Syntax
+#### Syntax
 
 {{% ctl_chef_delete_policy_syntax %}}
 
-### Options
+#### Options
 
 {{% ctl_chef_delete_policy_options %}}
 
-### Examples
+#### Examples
 
 None.
 
-chef delete-policy-group
-------------------------
+### chef delete-policy-group
 
 {{% ctl_chef_delete_policy_group %}}
 
-### Syntax
+#### Syntax
 
 {{% ctl_chef_delete_policy_group_syntax %}}
 
-### Options
+#### Options
 
 {{% ctl_chef_delete_policy_group_options %}}
 
-### Examples
+#### Examples
 
 None.
 
-chef diff
----------
+### chef diff
 
 {{% ctl_chef_diff %}}
 
-### Syntax
+#### Syntax
 
 {{% ctl_chef_diff_syntax %}}
 
-### Options
+#### Options
 
 {{% ctl_chef_diff_options %}}
 
-### Examples
+#### Examples
 
 **Compare current lock to latest commit on latest branch**
 
@@ -938,148 +884,140 @@ chef diff
 
 {{% ctl_chef_diff_two_policy_groups %}}
 
-chef export
------------
+### chef export
 
 {{% ctl_chef_export %}}
 
-### Syntax
+#### Syntax
 
 {{% ctl_chef_export_syntax %}}
 
-### Configuration Settings
+#### Configuration Settings
 
 {{% ctl_chef_export_config %}}
 
-### Options
+#### Options
 
 {{% ctl_chef_export_options %}}
 
-### Examples
+#### Examples
 
 None.
 
-chef generate policyfile
-------------------------
+### chef generate policyfile
 
 {{% ctl_chef_generate_policyfile %}}
 
-### Syntax
+#### Syntax
 
 {{% ctl_chef_generate_policyfile_syntax %}}
 
-### Options
+#### Options
 
 {{% ctl_chef_generate_policyfile_options %}}
 
-### Examples
+#### Examples
 
 None.
 
-chef install
-------------
+### chef install
 
 {{% ctl_chef_install %}}
 
-### Syntax
+#### Syntax
 
 {{% ctl_chef_install_syntax %}}
 
-### Options
+#### Options
 
 {{% ctl_chef_install_options %}}
 
-### Policyfile.lock.json
+#### Policyfile.lock.json
 
 {{% policyfile_lock_json %}}
 
 {{% policyfile_lock_json_example %}}
 
-### Examples
+#### Examples
 
 None.
 
-chef push
----------
+### chef push
 
 {{% ctl_chef_push %}}
 
-### Syntax
+#### Syntax
 
 {{% ctl_chef_push_syntax %}}
 
-### Options
+#### Options
 
 {{% ctl_chef_push_options %}}
 
-### Examples
+#### Examples
 
 None.
 
-chef push-archive
------------------
+### chef push-archive
 
 {{% ctl_chef_push_archive %}}
 
-### Syntax
+#### Syntax
 
 {{% ctl_chef_push_archive_syntax %}}
 
-### Options
+#### Options
 
 {{% ctl_chef_push_archive_options %}}
 
-### Examples
+#### Examples
 
 None.
 
-chef show-policy
-----------------
+### chef show-policy
 
 {{% ctl_chef_show_policy %}}
 
-### Syntax
+#### Syntax
 
 {{% ctl_chef_show_policy_syntax %}}
 
-### Options
+#### Options
 
 {{% ctl_chef_show_policy_options %}}
 
-### Examples
+#### Examples
 
 None.
 
-chef undelete
--------------
+### chef undelete
 
 {{% ctl_chef_undelete %}}
 
-### Syntax
+#### Syntax
 
 {{% ctl_chef_undelete_syntax %}}
 
-### Options
+#### Options
 
 {{% ctl_chef_undelete_options %}}
 
-### Examples
+#### Examples
 
 None.
 
-chef update
------------
+### chef update
 
 {{% ctl_chef_update %}}
 
-### Syntax
+#### Syntax
 
 {{% ctl_chef_update_syntax %}}
 
-### Options
+#### Options
 
 {{% ctl_chef_update_options %}}
 
-### Examples
+#### Examples
 
 None.

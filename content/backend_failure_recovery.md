@@ -25,21 +25,18 @@ outlined in this guide.
 
 {{< /note >}}
 
-Assumptions
-===========
+## Assumptions
 
 All instructions currently assume a 3-node backend cluster running Chef
 Backend 0.3.0 or greater. The user should have SSH access with root
 privileges to all nodes in the cluster.
 
-Node Failures
-=============
+## Node Failures
 
 This section covers how to respond to failures that have brought the
 entire node down or off the network.
 
-Single-node Failure
--------------------
+### Single-node Failure
 
 Temporary single-node failures require little administrator intervention
 to resolve. Once the administrator has addressed the failure and
@@ -67,8 +64,7 @@ See the [installation
 instructions](/install_server_ha/#step-3-install-and-configure-remaining-backend-nodes)
 for more details on joining nodes to the cluster.
 
-Two-node Failure
-----------------
+### Two-node Failure
 
 In the case of a two-node failure in a standard three-node
 configuration, the cluster is no longer able to operate, as leader
@@ -97,8 +93,7 @@ documentation for details.
     instructions](/install_server_ha/#step-3-install-and-configure-remaining-backend-nodes)
     for more details on joining nodes to the cluster.
 
-Partitions
-==========
+## Partitions
 
 For the purpose of this section, a **partition** refers to the loss of
 network connectivity between two nodes. From the perspective of other
@@ -108,21 +103,19 @@ characterized by the node and the software on the node still being up,
 this section covers some special care to take when recovering a cluster
 that has been partitioned at the network level.
 
-No Loss of Quorum
------------------
+### No Loss of Quorum
 
 If the network partition did not result in a loss of quorum, then the
 failed nodes in the cluster should recover on their own once
 connectivity is restored.
 
-Loss of Quorum
---------------
+### Loss of Quorum
 
 This section covers two potential remediation options for instances
 where a lack of network connectivity has resulted in loss of quorum
 between nodes.
 
-### Promoting a Specific Node
+#### Promoting a Specific Node
 
 This procedure only works currently if the administrator can take action
 before the network split resolves itself.
@@ -131,7 +124,7 @@ before the network split resolves itself.
     will all move into a `waiting_for_leader` state.
 2.  To promote a node, run `chef-backend-ctl promote NODE_NAME_OR_IP`
 
-### Promoting a Previous Leader
+#### Promoting a Previous Leader
 
 If a recently deposed leader is likely the node with the most up-to-date
 data, you may want to reinstate its leadership.
@@ -157,8 +150,7 @@ data, you may want to reinstate its leadership.
     chef-backend-ctl promote NODE_NAME_OR_IP
     ```
 
-Service Level Failures
-======================
+## Service Level Failures
 
 This section documents the expected behavior that occurs when a single
 service fails. This currently extends to the service's process on the
@@ -171,8 +163,7 @@ isolation. In general an operator should assume that the cluster can
 sustain a failure on a single node, but a second failure is likely to
 cause a loss of availability if the first failure is not resolved.
 
-PostgreSQL
-----------
+### PostgreSQL
 
 The leader/follower state of PostgresSQL is managed by Leaderl. Leaderl
 performs health checks on PostgreSQL and fails over to a follower if the
@@ -183,8 +174,7 @@ three nodes can have service-level PostgreSQL failures. Once the
 service-level problems have been resolved, the two failed nodes can be
 resynced from the leader node.
 
-Elasticsearch
--------------
+### Elasticsearch
 
 -   Elasticsearch manages its own availability. 1 of the 3 nodes can
     have a service-level Elasticsearch failure without affecting the
@@ -198,8 +188,7 @@ Elasticsearch
     identified and solved, the failed node should be able to rejoin the
     cluster.
 
-Etcd
-----
+### Etcd
 
 Etcd is used by Leaderl to elect a PostgreSQL leader and store status
 and cluster state information. Its availability is required for Leaderl
@@ -208,8 +197,7 @@ service-level etcd failures and the cluster should remain available. If
 the Etcd failure is on the current leader, a PostgreSQL failover will
 occur.
 
-Leaderl
--------
+### Leaderl
 
 Leaderl is responsible for ensuring that leadership is assigned to a
 node that can resolve all requests. If Leaderl fails on the leader node,
@@ -218,11 +206,9 @@ other nodes in the cluster will detect Leaderl's failure and attempt to
 take over as leader. However, since Leaderl on the failing node is down,
 PostgreSQL may still be up and accepting connections.
 
-Other Failures
-==============
+## Other Failures
 
-Handling nodes reporting `partially_synced: true`
--------------------------------------------------
+### Handling nodes reporting `partially_synced: true`
 
 When a node starts to sync from a leader, Leaderl will write the
 following file to disk:
@@ -254,8 +240,7 @@ rm /var/opt/chef-backend/leaderl/data/unsynced
 chef-backend-ctl start leaderl
 ```
 
-General Follower Recovery Process
-=================================
+## General Follower Recovery Process
 
 Initial attempts to recover should follow this general pattern and use
 the scenarios and tools shown above to assist in the recovery steps:

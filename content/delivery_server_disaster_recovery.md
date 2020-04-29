@@ -17,8 +17,6 @@ aliases = ["/delivery_server_disaster_recovery.html"]
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/delivery_server_disaster_recovery.md)
 
-
-
 {{% chef_automate_mark %}}
 
 {{% EOL_a1 %}}
@@ -39,8 +37,7 @@ as tuning the configuration to account for latency between data centers.
 
 {{< /note >}}
 
-Requirements
-============
+## Requirements
 
 A disaster recovery configuration for Chef Automate has the following
 requirements:
@@ -63,8 +60,7 @@ requirements:
 
 -   A Chef Automate license
 
-Install a Standby Chef Automate Server
-======================================
+## Install a Standby Chef Automate Server
 
 The following steps describe how to manually install a Chef Automate
 server for use as a standby.
@@ -240,8 +236,7 @@ run as the root user or by using `sudo`.
     sudo automate-ctl reconfigure
     ```
 
-Disaster Recovery
-=================
+## Disaster Recovery
 
 In most scenarios, converting the standby Chef Automate server to a
 standalone configuration is the simplest way to get Chef Automate itself
@@ -249,8 +244,7 @@ back up and running, after which you can rebuild a standby server,
 update the IP address for the standby server, and then reconfigure the
 Chef Automate configuration to have a primary and standby server.
 
-Failover the Chef Automate Server
----------------------------------
+### Failover the Chef Automate Server
 
 To promote a standby Chef Automate server to primary, do the following:
 
@@ -295,8 +289,7 @@ To promote a standby Chef Automate server to primary, do the following:
 5.  Set the DNS/load balancer to redirect traffic to the new primary
     Chef Automate server, as required.
 
-Recreate the Standby
---------------------
+### Recreate the Standby
 
 Recreating the standby Chef Automate server requires the following
 steps:
@@ -305,7 +298,7 @@ steps:
 -   Updating configuration if SSH provisioning is being used
 -   Installing a Chef Automate server to act as a standby
 
-### Delete the Primary
+#### Delete the Primary
 
 To delete the failed primary, do the following:
 
@@ -313,7 +306,7 @@ To delete the failed primary, do the following:
     server node and client.
 2.  Delete or destroy the primary Chef Automate machine.
 
-### Configure SSH
+#### Configure SSH
 
 If provisioning uses the SSH driver, do the following:
 
@@ -327,7 +320,7 @@ If provisioning uses the SSH driver, do the following:
     rm .chef/provisioning/ssh/delivery-server-test.json
     ```
 
-### Reinstall Standby
+#### Reinstall Standby
 
 To set up a new standby Chef Automate server, follow the same steps for
 installing the Chef Automate server (either manually or using the

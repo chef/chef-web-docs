@@ -16,13 +16,11 @@ aliases = ["/ctl_ohai.html"]
 
 {{% ctl_ohai_summary %}}
 
-Options
-=======
+## Options
 
 {{% ctl_ohai_options %}}
 
-Examples
-========
+## Examples
 
 The following examples show how to use the Ohai command-line tool:
 

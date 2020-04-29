@@ -26,8 +26,7 @@ authentication and authorization model as any other request made to the
 Chef server. A knife plugin is used to initiate job creation and job
 tracking.
 
-What's New in 2.5
-=================
+## What's New in 2.5
 
 This release includes an important fix for a number of deadlock
 scenarios. We encourage anyone using Push Jobs to upgrade.
@@ -38,16 +37,13 @@ Ruby and RubyGems upgraded to 2.4.4 and 2.7.6, respectively, to include
 a number of security fixes. Chef Client (packaged as a library) upgraded
 to 14.0.202 Other dependencies upgraded to latest
 
-What's New in 2.4
-=================
+## What's New in 2.4
 
-Push Jobs Client 2.4.8
-----------------------
+### Push Jobs Client 2.4.8
 
 -   Adds support for AIX 7.1.
 
-What's New in 2.2
-=================
+## What's New in 2.2
 
 The following items are new for Chef Push Jobs:
 
@@ -55,13 +51,11 @@ The following items are new for Chef Push Jobs:
     credentials](/server_security/#chef-infra-server-credentials-management)
     removing credentials stored in Push Server's configuration files.
 
-Important Notes
----------------
+### Important Notes
 
 -   **Push Jobs Server 2.2.0** requires Chef Server 12.14.0 or later.
 
-What's New in 2.1
-=================
+## What's New in 2.1
 
 The following items are new for Chef Push Jobs:
 
@@ -82,8 +76,7 @@ The following items are new for Chef Push Jobs:
     server heartbeat broadcast, which is signed, but in the clear.
 -   Push Jobs Server 2.1 is now certified for use with Chef Automate.
 
-Important Notes
----------------
+### Important Notes
 
 -   **Push Jobs Server 2.1 is now fully supported for use with Chef
     Automate**.
@@ -92,8 +85,7 @@ Important Notes
     stable release before performing an upgrade of your Push Jobs
     Server.
 
-Upgrading Chef Automate Installation to use Push Jobs Server 2.1
-----------------------------------------------------------------
+### Upgrading Chef Automate Installation to use Push Jobs Server 2.1
 
 If your Chef Automate installation uses Push Jobs Server to manage build
 nodes, upgrading to Push Jobs Server 2.1 is now fully supported. To
@@ -137,8 +129,7 @@ upgrade:
         `sudo systemctl restart push-jobs-client` OR
         `sudo service restart push-jobs-client`
 
-Encryption
-==========
+## Encryption
 
 All command channel communication is encrypted via SSL or
 [CurveZMQ](https://rfc.zeromq.org/spec:26/CURVEZMQ). CurveZMQ is based
@@ -146,8 +137,7 @@ on the [CurveCP protocol](http://curvecp.org/security.html). The one
 exception to this is the server heartbeat, which is broadcast in the
 clear (but is still signed with the server key for integrity).
 
-Command Output Capture
-======================
+## Command Output Capture
 
 Both the `knife-push` library and the Chef Push Jobs API provide options
 to direct the client to capture the job output and return it to the
@@ -162,8 +152,7 @@ knife job output --channel stdout 26e98ba162fa7ba6fb2793125553c7ae node1
 foobar
 ```
 
-Environment Control
-===================
+## Environment Control
 
 The user has a lot more control over the execution environment of the
 remote command with three new options available to the
@@ -203,8 +192,7 @@ available to you automatically:
     push job is being run on.
 -   `CHEF_PUSH_JOB_ID` - The ID for the job currently being run.
 
-Server Sent Event Feeds
-=======================
+## Server Sent Event Feeds
 
 There are two new endpoints that provide feeds for the state of jobs on
 the server. There's an organization-level feed that provides high level

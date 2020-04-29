@@ -38,8 +38,7 @@ publishes changes to a Chef Automate pipeline.
 
 {{< /warning >}}
 
-Helpers
-=======
+## Helpers
 
 The following Chef Automate-specific helpers can be used in recipes:
 
@@ -212,14 +211,12 @@ The following Chef Automate-specific helpers can be used in recipes:
 :   THIS IS A DTAG
     delivery_config_json_setting_delivery_truck_publish_supermarket_credentials
 
-Node Attributes
-===============
+## Node Attributes
 
 Node attributes specific to the workspace, project changes, and project
 configuration are available for use in `build-cookbook` recipes.
 
-Project Changes
----------------
+### Project Changes
 
 Use attributes from the `node['delivery']['change']` namespace to get
 details about the job execution for the current change in the pipeline.
@@ -276,8 +273,7 @@ details about the job execution for the current change in the pipeline.
 :   Use `node['delivery']['change']['stage']` for the current stage
     name.
 
-Project Configuration
----------------------
+### Project Configuration
 
 Use attributes from the `node['delivery']['config']` namespace to get
 [configuration settings from the .delivery/config.json
@@ -321,8 +317,7 @@ file](/config_json_delivery/).
 :   Use `node['delivery']['config']['version']` for the contents of the
     `"version"` configuration setting.
 
-Workspace
----------
+### Workspace
 
 Use attributes from the `node['delivery']['workspace']` namespace to get
 paths to workspace directories on a build node/runner.
@@ -347,14 +342,12 @@ paths to workspace directories on a build node/runner.
 :   Use `node['delivery']['workspace']['repo']` for the `/repo`
     directory.
 
-Workspace Path
---------------
+### Workspace Path
 
 Use the `node['delivery']['workspace_path']` attribute to get the path
 to the global workspace.
 
-Examples
-========
+## Examples
 
 The following examples show how to use the Workflow DSL in a cookbook:
 

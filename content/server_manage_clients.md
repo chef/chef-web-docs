@@ -16,8 +16,6 @@ aliases = ["/server_manage_clients.html"]
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/server_manage_clients.md)
 
-
-
 {{% EOL_manage %}}
 
 {{< note >}}
@@ -38,8 +36,7 @@ Use the Chef management console to create a key pair, download the
 private key, and then set permissions, to delete a key, or to reset a
 key.
 
-Manage Client Keys
-==================
+## Manage Client Keys
 
 Client keys can be managed from the Chef management console.
 
@@ -49,8 +46,7 @@ The images below refer to client keys as a "Client".
 
 {{< /warning >}}
 
-Add
----
+### Add
 
 To add a client key:
 
@@ -77,8 +73,7 @@ To add a client key:
 
     ![image](/images/step_manage_webui_policy_client_add_private_key_download.png)
 
-Delete
-------
+### Delete
 
 To delete a client key:
 
@@ -94,8 +89,7 @@ To delete a client key:
 
     ![image](/images/step_manage_webui_policy_client_delete.png)
 
-Reset Key
----------
+### Reset Key
 
 To regenerate a client key:
 
@@ -124,8 +118,7 @@ To regenerate a client key:
 
     ![image](/images/step_manage_webui_policy_client_reset_key_download.png)
 
-View Details
-------------
+### View Details
 
 To view client key details:
 
@@ -135,14 +128,13 @@ To view client key details:
 4.  Select a client key.
 5.  Click the **Details** tab.
 
-Permissions
------------
+### Permissions
 
 {{% server_rbac_permissions %}}
 
 {{% server_rbac_permissions_object %}}
 
-### Set
+#### Set
 
 To set permissions list for a client key:
 
@@ -154,11 +146,11 @@ To set permissions list for a client key:
 6.  For each group listed under **Name**, select or de-select the
     **Read**, **Update**, **Delete**, and **Grant** permissions.
 
-### Update
+#### Update
 
 {{% manage_webui_policy_client_permissions_add %}}
 
-### View
+#### View
 
 To view permissions for a client key:
 
@@ -170,15 +162,13 @@ To view permissions for a client key:
 6.  Set the appropriate permissions: **Delete**, **Grant**, **Read**,
     and/or **Update**.
 
-chef-validator Keys
-===================
+## chef-validator Keys
 
 {{% security_chef_validator %}}
 
 {{% security_chef_validator_context %}}
 
-Add
----
+### Add
 
 To add a chef-validator key:
 
@@ -205,8 +195,7 @@ To add a chef-validator key:
 
     ![image](/images/step_manage_webui_policy_client_add_private_key_download.png)
 
-Delete
-------
+### Delete
 
 To delete a chef-validator key:
 
@@ -222,13 +211,11 @@ To delete a chef-validator key:
 
     ![image](/images/step_manage_webui_policy_validation_delete.png)
 
-Reset Key
----------
+### Reset Key
 
 {{% manage_webui_policy_validation_reset_key %}}
 
-View Details
-------------
+### View Details
 
 To view details for a chef-validator key:
 
@@ -244,14 +231,13 @@ To view details for a chef-validator key:
 
 5.  Click the **Details** tab.
 
-Permissions
------------
+### Permissions
 
 {{% server_rbac_permissions %}}
 
 {{% server_rbac_permissions_object %}}
 
-### Set
+#### Set
 
 To update the permissions list for a chef-validator key:
 
@@ -265,11 +251,11 @@ To update the permissions list for a chef-validator key:
 7.  Select or de-select **Delete**, **Grant**, **Read**, and/or
     **Update** to update the permissions list for the user or group.
 
-### Update
+#### Update
 
 {{% manage_webui_policy_client_permissions_add %}}
 
-### View
+#### View
 
 To view permissions for a chef-validator key:
 

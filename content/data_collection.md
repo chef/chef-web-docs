@@ -22,8 +22,7 @@ aliases = ["/data_collection.html", "/ingest_data_chef_automate.html", "/release
 
 {{% EOL_a1 %}}
 
-Automatic Node Run Data Collection with Chef Infra Server
-=========================================================
+## Automatic Node Run Data Collection with Chef Infra Server
 
 {{< note >}}
 
@@ -43,8 +42,7 @@ following steps:
 
 Multiple Chef Servers can send data to a single Chef Automate server.
 
-Step 1: Configure a Data Collector token in Chef Automate
----------------------------------------------------------
+### Step 1: Configure a Data Collector token in Chef Automate
 
 All messages sent to Chef Automate are performed over HTTP and are
 authenticated with a pre-shared key called a `token`. Every Chef
@@ -77,8 +75,7 @@ sudo automate-ctl reconfigure
 If you do not configure a token, the default token value is:
 `93a49a4f2482c64126f7b6015e6b0f30284287ee4054ff8807fb63d9cbd1c506`
 
-Step 2: Configure your Chef Infra Server to point to Chef Automate
-------------------------------------------------------------------
+### Step 2: Configure your Chef Infra Server to point to Chef Automate
 
 In addition to forwarding Chef run data to Automate, Chef Infra Server
 will send messages to Chef Automate whenever an action is taken on a
@@ -101,7 +98,7 @@ ohai.disabled_plugins = [ :Passwd, :Sessions ]
 
 [Ohai Plugin Detail](/ohai/#ohai-settings-in-client-rb)
 
-### Setting up data collection on Chef Server versions 12.14 and higher
+#### Setting up data collection on Chef Server versions 12.14 and higher
 
 Channel the token setting through the veil secrets library because the
 token is considered a secret, and cannot appear in
@@ -132,7 +129,7 @@ chef-server-ctl reconfigure
 where `my-automate-server.mycompany.com` is the fully-qualified domain
 name of your Chef Automate server.
 
-### Setting up data collection on Chef Server versions 12.13 and lower
+#### Setting up data collection on Chef Server versions 12.13 and lower
 
 On versions 12.13 and prior, simply add the `'root_url'` and `token`
 values in `/etc/opscode/chef-server.rb`:
@@ -156,7 +153,7 @@ name of your Chef Automate server, and `TOKEN` is either the default
 value or the token value you configured in the [prior
 section](#configure-a-data-collector-token-in-chef-automate).
 
-### Additional options
+#### Additional options
 
 <table style="width:100%;">
 <colgroup>
@@ -205,8 +202,7 @@ section](#configure-a-data-collector-token-in-chef-automate).
 </tbody>
 </table>
 
-Use an external Elasticsearch cluster (optional)
-================================================
+## Use an external Elasticsearch cluster (optional)
 
 Chef Automate uses Elasticsearch to store its data, and the default Chef
 Automate install includes a single Elasticsearch service. This is
@@ -224,15 +220,13 @@ regenerated using the `automate-ctl migrate-compliance` subcommand. For
 more information, see
 [migrate-compliance](/ctl_automate_server/#migrate-compliance).
 
-Prerequisites
--------------
+### Prerequisites
 
 -   Chef Automate server
 -   Elasticsearch (version 2.4.1 or greater; version 5.x is required for
     Chef Automate 1.6 and above)
 
-Elasticsearch configuration
----------------------------
+### Elasticsearch configuration
 
 To utilize an external Elasticsearch installation, set the following
 configuration option in your `/etc/delivery/delivery.rb`:
@@ -267,13 +261,11 @@ When this attribute **is** specified, the supplied string will be sent
 as the `Host` header on all requests. This may be required for some
 third-party Elasticsearch offerings.
 
-Troubleshooting: My data does not show up in the UI
-===================================================
+## Troubleshooting: My data does not show up in the UI
 
 {{% chef_automate_visibility_no_data_troubleshoot %}}
 
-Next Steps
-==========
+## Next Steps
 
 -   [Perform a Compliance Scan](/perform_compliance_scan/)
 -   [Data Collection with a Chef HA Cluster](/data_collection_ha/)

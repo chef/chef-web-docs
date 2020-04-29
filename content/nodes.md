@@ -44,22 +44,19 @@ The key components of nodes that are under management by Chef include:
 </tbody>
 </table>
 
-About Run-lists
-===============
+## About Run-lists
 
 {{% node_run_list %}}
 
-Run-list Format
----------------
+### Run-list Format
 
 {{% node_run_list_format %}}
 
-Empty Run-lists
----------------
+### Empty Run-lists
 
 {{% node_run_list_empty %}}
 
-### About Node Names
+#### About Node Names
 
 The name of a node is required as part of the authentication process to
 the Chef Infra Server. The name of each node must be unique within an
@@ -79,7 +76,7 @@ information during each Chef Infra Client run, is the recommended
 approach and the easiest way to ensure that the names of all nodes
 across the organization are unique.
 
-### Manage Nodes
+#### Manage Nodes
 
 There are several ways to manage nodes directly: via knife, Chef
 Automate, or by using command-line tools that are specific to Chef Infra
@@ -106,7 +103,7 @@ Client.
     file on-disk and then read by chef-solo or Chef Infra Client as
     required.
 
-### Node Objects
+#### Node Objects
 
 For Chef Infra Client, two important aspects of nodes are groups of
 attributes and run-lists. An attribute is a specific piece of data about
@@ -121,7 +118,7 @@ copy on the Chef Infra Server at the end of each Chef Infra Client run.
 
 {{% node_attribute %}}
 
-### Attributes
+#### Attributes
 
 {{% node_attribute_when_to_use %}}
 
@@ -133,8 +130,7 @@ copy on the Chef Infra Server at the end of each Chef Infra Client run.
 
 {{< /note >}}
 
-Attribute Types
-===============
+## Attribute Types
 
 {{% node_attribute_type %}}
 
@@ -177,22 +173,18 @@ Attribute Types
 </tbody>
 </table>
 
-Attribute Persistence
-=====================
+## Attribute Persistence
 
 {{% node_attribute_persistence %}}
 
-Attribute Precedence
-====================
+## Attribute Precedence
 
 {{% node_attribute_precedence %}}
 
-Blacklist Attributes
-====================
+## Blacklist Attributes
 
 {{% node_attribute_blacklist %}}
 
-Whitelist Attributes
---------------------
+### Whitelist Attributes
 
 {{% node_attribute_whitelist %}}

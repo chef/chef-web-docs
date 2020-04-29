@@ -18,11 +18,9 @@ This section lists the free and commercial Chef products and versions we
 currently support. The lifecycle stage defines the involvement by Chef
 Software in updating and maintaining each product.
 
-Lifecycle Definitions
-=====================
+## Lifecycle Definitions
 
-Generally Available (GA)
-------------------------
+### Generally Available (GA)
 
 This stage indicates that the product or version is in active
 development and/or maintenance.
@@ -32,8 +30,7 @@ development and/or maintenance.
 -   Chef welcomes customer feature requests for the product roadmap for
     the application
 
-Deprecated
-----------
+### Deprecated
 
 This stage indicates that an application or version is no longer in
 active development and will eventually move to end of life status. Chef
@@ -46,8 +43,7 @@ SLAs](https://www.chef.io/service-level-agreement/).
 -   Chef may provide a release for a critical defect or security
     vulnerability
 
-End of Life (EOL)
------------------
+### End of Life (EOL)
 
 This stage indicates that Chef has set a date after which the
 application or version will no longer be supported or recommended for
@@ -58,8 +54,7 @@ use by customers.
 -   Documentation for the application will be moved to
     <https://docs-archive.chef.io>
 
-Versions and Status
--------------------
+### Versions and Status
 
 {{< important >}}
 
@@ -67,8 +62,7 @@ Unless otherwise stated, versions older than those listed below are EOL.
 
 {{< /important >}}
 
-Supported Commercial Distributions
-==================================
+## Supported Commercial Distributions
 
 Use of these and later versions of these distributions must be in
 accordance with the [Chef End User License
@@ -158,8 +152,7 @@ products.
 
 {{< /note >}}
 
-Supported Free Distributions
-============================
+## Supported Free Distributions
 
 Use of the following distributions is governed by the Apache License,
 version 2.0.
@@ -219,8 +212,7 @@ version 2.0.
 </tbody>
 </table>
 
-Deprecated Products and Versions
-================================
+## Deprecated Products and Versions
 
 The following products are deprecated. Users are advised to move to
 newer versions or products.
@@ -256,8 +248,7 @@ newer versions or products.
 </tbody>
 </table>
 
-End of Life (EOL) Products
-==========================
+## End of Life (EOL) Products
 
 <table>
 <colgroup>

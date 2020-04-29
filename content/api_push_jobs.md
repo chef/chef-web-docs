@@ -20,8 +20,7 @@ organization. All requests are signed using the Chef Infra Server API
 and the validation key on the workstation from which the requests are
 made.
 
-Endpoints
-=========
+## Endpoints
 
 Each authentication request must include
 `/organizations/organization_name/pushy/` as part of the name for the
@@ -53,25 +52,23 @@ See [knife exec](/workstation/knife_exec/) for detailed information on usage.
 
 {{< /note >}}
 
-connect/NODE_NAME
-------------------
+### connect/NODE_NAME
 
 {{% api_push_jobs_endpoint_node_name %}}
 
-### GET
+#### GET
 
 {{% api_push_jobs_endpoint_node_name_get %}}
 
-jobs
-----
+### jobs
 
 {{% api_push_jobs_endpoint_jobs %}}
 
-### GET
+#### GET
 
 {{% api_push_jobs_endpoint_jobs_get %}}
 
-### POST
+#### POST
 
 The `POST` method is used to start a job.
 
@@ -181,12 +178,11 @@ The response is similar to:
 </tbody>
 </table>
 
-jobs/ID
--------
+### jobs/ID
 
 {{% api_push_jobs_endpoint_jobs_id %}}
 
-### GET
+#### GET
 
 The `GET` method is used to get the status of an individual job,
 including node state (running, complete, crashed).
@@ -329,8 +325,7 @@ where:
 </tbody>
 </table>
 
-jobs/ID/output/NODE_NAME/CHANNEL
----------------------------------
+### jobs/ID/output/NODE_NAME/CHANNEL
 
 It is possible to capture the output of commands invoked by Push Jobs,
 both STDOUT and STDERR, by providing the `capture_output=true` option
@@ -349,7 +344,7 @@ The output is not streamed to the server as it is produced. Therefore,
 the output data for a given node will not be available until the run on
 that node is complete.
 
-### GET
+#### GET
 
 The `GET` method is used to get output from a channel (`STDOUT` or
 `STDERR`) for an individual job.
@@ -431,13 +426,12 @@ bash: no such file or directory: /usr/local/run.sh
 </tbody>
 </table>
 
-jobs_status_feed
-------------------
+### jobs_status_feed
 
 The `/organizations/ORG_NAME/pushy/jobs_status_feed` endpoint has the
 following methods: `GET`
 
-### GET
+#### GET
 
 This endpoint opens a Server-Sent-Events (SSE) feed for job starts and
 completions within the entire organization.
@@ -528,13 +522,12 @@ data: {"timestamp":"2014-07-10 05:20:48.995958Z","job":"B","status":"success"}
 </tbody>
 </table>
 
-jobs_status_feed/JOBID
-------------------------
+### jobs_status_feed/JOBID
 
 The `/organizations/ORG_NAME/pushy/jobs_status_feed/JOBID` endpoint has
 the following methods: `GET`
 
-### GET
+#### GET
 
 This endpoint opens a Server-Sent-Events (SSE) feed with the Push Jobs
 server.
@@ -652,20 +645,18 @@ data": {"timestamp":"2014-07-10 05:17:48.995958Z","status":"complete"}
 </tbody>
 </table>
 
-node_states
-------------
+### node_states
 
 {{% api_push_jobs_endpoint_node_states %}}
 
-### GET
+#### GET
 
 {{% api_push_jobs_endpoint_node_states_get %}}
 
-node_states/NODE_NAME
------------------------
+### node_states/NODE_NAME
 
 {{% api_push_jobs_endpoint_node_name %}}
 
-### GET
+#### GET
 
 {{% api_push_jobs_endpoint_node_name_get %}}

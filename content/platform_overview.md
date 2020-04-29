@@ -23,13 +23,11 @@ development to production. Here's the complete Chef solution.
 
 <img src="/images/automate_architecture.svg" class="align-center" width="500" alt="image" />
 
-Chef Infra
-==========
+## Chef Infra
 
 {{% chef %}}
 
-Using Chef Workstation
-----------------------
+### Using Chef Workstation
 
 Chef Workstation allows you to author cookbooks and administer your
 infrastructure. Chef Workstation runs on the computer you use everyday,
@@ -59,8 +57,7 @@ with Chef Infra. These include knife for interacting with the Chef Infra
 Server, and chef for interacting with your local chef code repository
 (chef-repo).
 
-Uploading your code to Chef Infra Server
-----------------------------------------
+### Uploading your code to Chef Infra Server
 
 Once you're done developing and testing code on your local workstation,
 you can upload it to the Chef Infra Server. The Chef Infra Server acts
@@ -70,8 +67,7 @@ describes each system. The knife command lets you communicate with the
 Chef Infra Server from your workstation. For example, you use it to
 upload your cookbooks.
 
-Configuring nodes with Chef Infra Client
-----------------------------------------
+### Configuring nodes with Chef Infra Client
 
 Chef Infra is constructed so that most of the computational effort
 occurs on the nodes rather than on the Chef Infra Server. A node
@@ -89,8 +85,7 @@ Client executes the cookbook instructions. This iterative process
 ensures that the network as a whole converges to the state envisioned by
 business policy.
 
-Chef Habitat
-============
+## Chef Habitat
 
 Chef Habitat offers a new approach to deploying applications called
 application automation. Application automation means that the automation
@@ -108,8 +103,7 @@ upgrade strategy and security policies. To learn everything about Chef
 Habitat, go to the Chef Habitat web site at
 [https://www.habitat.sh](https://www.habitat.sh/).
 
-Chef InSpec
-===========
+## Chef InSpec
 
 Chef InSpec is an open-source testing framework with a human- and
 machine-readable language for specifying compliance, security and policy
@@ -139,8 +133,7 @@ describe inetd_conf do
 end
 ```
 
-Chef Automate
-=============
+## Chef Automate
 
 Chef Automate provides a full suite of enterprise capabilities for node
 visibility and compliance. Chef Automate integrates with the open-source
@@ -151,8 +144,7 @@ including open source components.
 Chef Automate gives you a full-stack continuous compliance and security,
 as well as visibility into your applications and infrastructure.
 
-Nodes
------
+### Nodes
 
 Chef Automate gives you a data warehouse that accepts input from Chef
 Server, Chef Habitat, and Chef Automate workflow and compliance. It
@@ -163,8 +155,7 @@ Here is an example of the Chef Automate dashboard.
 
 <img src="/images/visibility1.png" class="align-center" width="700" alt="image" />
 
-Compliance
-----------
+### Compliance
 
 Chef Automate creates customizable reports that identify compliance
 issues, security risks, and outdated software. You can write your own
@@ -176,16 +167,14 @@ benchmarks, included as part of Chef Automate.
 For information on the integrated reporting capabilities in Chef
 Automate, see [Compliance Overview](/chef_automate_compliance/).
 
-High availability
------------------
+### High availability
 
 Chef Automate includes a high-availability Chef Infra Server with fault
 tolerance, immediately consistent search results, and accurate real-time
 data about your infrastructure. Chef Automate also provides a graphical
 management console for the Chef Infra Server.
 
-More Resources
-==============
+## More Resources
 
 If you're interested in getting hands-on experience, go to
 <https://learn.chef.io/> for tutorials, information about formal

@@ -24,8 +24,7 @@ The `config.json` file is located at the root of the `.delivery` folder
 that is located within a project managed by Workflow and configures that
 project to publish to a pipeline.
 
-Structure
-=========
+## Structure
 
 The structure of the `config.json` file is similar to:
 
@@ -51,8 +50,7 @@ The structure of the `config.json` file is similar to:
 }
 ```
 
-Configuration Settings
-----------------------
+### Configuration Settings
 
 {{% delivery_config_json_setting %}}
 
@@ -247,30 +245,29 @@ Configuration Settings
 
 {{< /note >}}
 
-Phase Settings
---------------
+### Phase Settings
 
 The individual phases of Chef Automate may be configured, grouped under
 the `delivery-truck` configuration setting by phase.
 
-### publish
+#### publish
 
 The `publish` phase configuration settings specify the location(s) to
 which cookbooks are published.
 
-#### Chef Infra Server
+**Chef Infra Server**
 
 {{% delivery_config_json_setting_delivery_truck_publish_chef_server %}}
 
-#### git
+**git**
 
 {{% delivery_config_json_setting_delivery_truck_publish_git %}}
 
-#### GitHub
+**GitHub**
 
 {{% delivery_config_json_setting_delivery_truck_publish_github %}}
 
-#### Supermarket
+**Supermarket**
 
 {{% delivery_config_json_setting_delivery_truck_publish_supermarket %}}
 
@@ -288,7 +285,7 @@ user, and when it prompts you to enable the user for Supermarket, enter
 
 {{< /note >}}
 
-#### Multiple Locations
+**Multiple Locations**
 
 If the `config.json` file may specify some or all of the publish options
 together as a single block:
@@ -316,14 +313,12 @@ or:
 }
 ```
 
-Examples
-========
+## Examples
 
 The following examples show different ways to specify settings and
 pipeline behaviors in the `config.json` file.
 
-build-cookbook Locations
-------------------------
+### build-cookbook Locations
 
 The following examples show how to specify the location of the
 `build-cookbook`.
@@ -352,18 +347,15 @@ The following examples show how to specify the location of the
 
 {{% delivery_config_example_build_cookbook_automate_server %}}
 
-Build Nodes and Phases
-----------------------
+### Build Nodes and Phases
 
 {{% delivery_config_example_build_nodes_by_phase %}}
 
-Run-time Dependencies
----------------------
+### Run-time Dependencies
 
 {{% delivery_config_example_dependencies_on_master %}}
 
-Stages and Platforms
---------------------
+### Stages and Platforms
 
 The `"build_nodes"` section may also specify build nodes by stages
 and/or platform:
@@ -395,19 +387,18 @@ For example:
 }
 ```
 
-Test Patterns
--------------
+### Test Patterns
 
 {{% delivery_config_example_test_patterns %}}
 
-### Foodcritic, excludes
+#### Foodcritic, excludes
 
 {{% delivery_config_json_setting_delivery_truck_lint_foodcritic_excludes %}}
 
-### Foodcritic, ignore_rules
+#### Foodcritic, ignore_rules
 
 {{% delivery_config_json_setting_delivery_truck_lint_foodcritic_ignore_rules %}}
 
-### Foodcritic, only_rules
+#### Foodcritic, only_rules
 
 {{% delivery_config_json_setting_delivery_truck_lint_foodcritic_only_rules %}}

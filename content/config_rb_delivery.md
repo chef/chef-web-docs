@@ -33,13 +33,11 @@ underlying configuration settings after the server has been deployed.
 The `delivery.rb` file is a Ruby file, which means that conditional
 statements can be used in the configuration file.
 
-Recommended Settings
-====================
+## Recommended Settings
 
 {{% delivery_server_tuning_general %}}
 
-SSL Protocols
--------------
+### SSL Protocols
 
 The following settings are often modified from the default as part of
 the tuning effort for the **nginx** service and to configure the Chef
@@ -113,8 +111,7 @@ nginx['ssl_ciphers'] = "HIGH:MEDIUM:!LOW:!kEDH:!aNULL:!ADH:!eNULL:!EXP:!SSLv2:!S
 nginx['ssl_protocols'] = "TLSv1 TLSv1.1 TLSv1.2"
 ```
 
-Proxy Settings
-==============
+## Proxy Settings
 
 If you wish to operate your Chef Automate server from behind a proxy,
 you may specify you proxy host name and configuration using these
@@ -144,8 +141,7 @@ options.
     Automate will attempt to connect directly to these hosts. By
     default, this is set to `["localhost", "127.0.0.1"]`.
 
-Optional Settings
-=================
+## Optional Settings
 
 Additional settings are available for performance tuning of the Chef
 Automate server.
