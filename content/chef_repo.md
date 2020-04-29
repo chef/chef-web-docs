@@ -16,8 +16,7 @@ aliases = ["/chef_repo.html"]
 
 {{% chef_repo_description %}}
 
-Directory Structure
-===================
+## Directory Structure
 
 The chef-repo contains several directories, each with a README file that
 describes what it is for and how to use that directory when managing
@@ -56,13 +55,11 @@ The sub-directories in the chef-repo are:
 </tbody>
 </table>
 
-.chef/
-------
+### .chef/
 
 {{% all_directory_chef %}}
 
-cookbooks/
-----------
+### cookbooks/
 
 The `cookbooks/` directory is used to store the cookbooks that Chef
 Infra Client uses when configuring the various systems in the
@@ -70,8 +67,7 @@ organization. This directory contains the cookbooks that are used to
 configure systems in the infrastructure. Each cookbook can be configured
 to contain cookbook-specific copyright, email, and license data.
 
-data_bags/
------------
+### data_bags/
 
 The `data_bags/` directory is used to store all of the data bags that
 exist for an organization. Each sub-directory corresponds to a single
@@ -80,15 +76,13 @@ bag item. If a sub-directory does not exist, then create it using SSL
 commands. After a data bag item is created, it can then be uploaded to
 the Chef Infra Server.
 
-policyfiles/
-------------
+### policyfiles/
 
 The `policyfiles/` directory is used to store Policyfiles that define
 the set of cookbooks and attributes to apply to specific systems managed
 by the Chef Infra Server.
 
-chefignore Files
-================
+## chefignore Files
 
 The chefignore file is used to tell knife which cookbook files in the
 chef-repo should be ignored when uploading data to the Chef Infra
@@ -106,27 +100,26 @@ The chefignore file can be located in any subdirectory of a chef-repo:
 sections similar to the following:
 
 ``` none
-# section
+## section
 *ignore_pattern
 
-# section
+## section
 ignore_pattern*
 
-# section
+## section
 **ignore_pattern
 
-# section
+## section
 ignore_pattern**
 
-# section
+## section
 ?ignore_pattern
 
-# section
+## section
 ignore_pattern?
 ```
 
-Examples
---------
+### Examples
 
 The following examples show how to add entries to the `chefignore` file.
 
@@ -183,13 +176,11 @@ or:
 files/default/subdirectory/**
 ```
 
-Many Users, Same Repo
-=====================
+## Many Users, Same Repo
 
 {{% chef_repo_many_users_same_knife %}}
 
-Create the chef-repo
-====================
+## Create the chef-repo
 
 Use the [chef generate repo command](/ctl_chef/#chef-generate-repo)
 to create your chef-repo directory along with the base folder structure.

@@ -23,18 +23,15 @@ in recipes, and checking for dependencies. See the [Ruby
 Guide](/ruby/) for further information on built-in Ruby
 functionality.
 
-Include Recipes
-===============
+## Include Recipes
 
 {{% cookbooks_recipe_include_in_recipe %}}
 
-Reload Attributes
------------------
+### Reload Attributes
 
 {{% cookbooks_attribute_file_reload_from_recipe %}}
 
-Recipe DSL Methods
-==================
+## Recipe DSL Methods
 
 The Recipe DSL provides support for using attributes, data bags (and
 encrypted data), and search results in a recipe, as well as four helper
@@ -47,8 +44,7 @@ helper methods are:
 -   `value_for_platform`
 -   `value_for_platform_family`
 
-attribute?
-----------
+### attribute?
 
 Use the `attribute?` method to ensure that certain actions only execute
 in the presence of a particular node attribute. The `attribute?` method
@@ -69,8 +65,7 @@ if node.attribute?('ipaddress')
 end
 ```
 
-cookbook_name
---------------
+### cookbook_name
 
 Use the `cookbook_name` method to return the name of a cookbook.
 
@@ -86,8 +81,7 @@ This method is often used as part of a log entry. For example:
 Chef::Log.info('I am a message from the #{recipe_name} recipe in the #{cookbook_name} cookbook.')
 ```
 
-data_bag
----------
+### data_bag
 
 {{% data_bag %}}
 
@@ -108,8 +102,7 @@ recipe.
 
 {{% dsl_recipe_data_bag %}}
 
-data_bag_item
----------------
+### data_bag_item
 
 {{% data_bag %}}
 
@@ -170,8 +163,7 @@ For a more complete version of the previous example, see the default
 recipe in the <https://github.com/hw-cookbooks/apt-mirror> community
 cookbook.
 
-declare_resource
------------------
+### declare_resource
 
 Use the `declare_resource` method to instantiate a resource and then add
 it to the resource collection.
@@ -211,8 +203,7 @@ file '/x/y.txt' do
 end
 ```
 
-delete_resource
-----------------
+### delete_resource
 
 Use the `delete_resource` method to find a resource in the resource
 collection, and then delete it.
@@ -240,8 +231,8 @@ For example:
 delete_resource(:template, '/x/y.erb')
 ```
 
-delete_resource!
------------------
+## delete_resource!
+
 
 Use the `delete_resource!` method to find a resource in the resource
 collection, and then delete it. If the resource is not found, an
@@ -270,8 +261,7 @@ For example:
 delete_resource!(:file, '/x/file.txt')
 ```
 
-edit_resource
---------------
+### edit_resource
 
 Use the `edit_resource` method to:
 
@@ -320,8 +310,7 @@ edit_resource(:template, '/etc/aliases') do
 end
 ```
 
-edit_resource!
----------------
+## edit_resource!
 
 Use the `edit_resource!` method to:
 
@@ -358,8 +347,7 @@ For example:
 edit_resource!(:file, '/x/y.rst')
 ```
 
-find_resource
---------------
+### find_resource
 
 Use the `find_resource` method to:
 
@@ -403,8 +391,7 @@ find_resource(:template, '/etc/seapower') do
 end
 ```
 
-find_resource!
----------------
+## find_resource!
 
 Use the `find_resource!` method to find a resource in the resource
 collection. If the resource is not found, an exception is returned.
@@ -432,8 +419,7 @@ For example:
 find_resource!(:template, '/x/y.erb')
 ```
 
-platform?
----------
+### platform?
 
 Use the `platform?` method to ensure that certain actions are run for
 specific platform. The `platform?` method will return true if one of the
@@ -454,7 +440,7 @@ where:
     `case` statement that contains Ruby code that is specific for the
     platform, if detected
 
-### Parameters
+#### Parameters
 
 The following parameters can be used with this method:
 
@@ -556,7 +542,7 @@ or:
 platform?('redhat', 'debian')
 ```
 
-### Examples
+#### Examples
 
 The following example shows how the `platform?` method can be used in a
 recipe.
@@ -565,8 +551,7 @@ recipe.
 
 {{% resource_ruby_block_if_statement_use_with_platform %}}
 
-platform_family?
------------------
+### platform_family?
 
 Use the `platform_family?` method to ensure that certain actions are run
 for specific platform family. The `platform_family?` method will return
@@ -623,7 +608,7 @@ is not explicitly defined.
 
 {{< /note >}}
 
-### Examples
+#### Examples
 
 The following examples show how the `platform_family?` method can be
 used in a recipe.
@@ -632,8 +617,7 @@ used in a recipe.
 
 {{< readFile_shortcode file="resource_remote_file_use_platform_family.md" >}}
 
-reboot_pending?
-----------------
+### reboot_pending?
 
 Use the `reboot_pending?` method to test if a node needs a reboot, or is
 expected to reboot. `reboot_pending?` returns `true` when the node needs
@@ -645,8 +629,7 @@ The syntax for the `reboot_pending?` method is as follows:
 reboot_pending?
 ```
 
-recipe_name
-------------
+### recipe_name
 
 Use the `recipe_name` method to return the name of a recipe.
 
@@ -662,8 +645,7 @@ This method is often used as part of a log entry. For example:
 Chef::Log.info('I am a message from the #{recipe_name} recipe in the #{cookbook_name} cookbook.')
 ```
 
-resources
----------
+### resources
 
 Use the `resources` method to look up a resource in the resource
 collection. The `resources` method returns the value for the resource
@@ -703,8 +685,7 @@ f.mode '0644'
 where `file` is the type of resource, `/etc/hosts` is the name, and
 `f.mode` is used to set the `mode` property on the **file** resource.
 
-search
-------
+### search
 
 {{% search %}}
 
@@ -741,15 +722,15 @@ template '/tmp/list_of_webservers' do
 end
 ```
 
-### :filter_result
+#### :filter_result
 
 {{% dsl_recipe_method_search_filter_result %}}
 
-### Query Syntax
+#### Query Syntax
 
 {{% search_query_syntax %}}
 
-#### Keys
+**Keys**
 
 {{% search_key %}}
 
@@ -757,7 +738,7 @@ end
 
 {{% search_key_nested %}}
 
-#### Patterns
+**Patterns**
 
 {{% search_pattern %}}
 
@@ -777,15 +758,15 @@ end
 
 {{% search_pattern_fuzzy %}}
 
-#### Operators
+**Operators**
 
 {{% search_boolean_operators %}}
 
-#### Special Characters
+**Special Characters**
 
 {{% search_special_characters %}}
 
-### Examples
+#### Examples
 
 The following examples show how the `search` method can be used in a
 recipe.
@@ -794,8 +775,7 @@ recipe.
 
 {{< readFile_shortcode file="resource_execute_use_search_dsl_method.md" >}}
 
-shell_out
-----------
+### shell_out
 
 The `shell_out` method can be used to run a command against the node,
 and then display the output to the console when the log level is set to
@@ -809,8 +789,7 @@ shell_out(command_args)
 
 where `command_args` is the command that is run against the node.
 
-shell_out!
------------
+## shell_out!
 
 The `shell_out!` method can be used to run a command against the node,
 display the output to the console when the log level is set to `debug`,
@@ -825,15 +804,13 @@ shell_out!(command_args)
 where `command_args` is the command that is run against the node. This
 method will return `true` or `false`.
 
-tag, tagged?, untag
--------------------
+### tag, tagged?, untag
 
 {{% chef_tags %}}
 
 {{% cookbooks_recipe_tags %}}
 
-value_for_platform
---------------------
+### value_for_platform
 
 Use the `value_for_platform` method in a recipe to select a value based
 on the `node['platform']` and `node['platform_version']` attributes.
@@ -877,11 +854,11 @@ value_for_platform(
 )
 ```
 
-### Operators
+#### Operators
 
 {{% cookbooks_version_constraints_operators %}}
 
-### Examples
+#### Examples
 
 The following example will set `package_name` to `httpd` for the Red Hat
 platform and to `apache2` for the Debian platform:
@@ -921,8 +898,7 @@ value_for_platform(
 )
 ```
 
-value_for_platform_family
-----------------------------
+### value_for_platform_family
 
 Use the `value_for_platform_family` method in a recipe to select a value
 based on the `node['platform_family']` attribute. This value is detected
@@ -972,8 +948,7 @@ package = value_for_platform_family(
 )
 ```
 
-with_run_context
-------------------
+### with_run_context
 
 Use the `with_run_context` method to define a block that has a pointer
 to a location in the `run_context` hierarchy. Resources in recipes
@@ -1011,8 +986,7 @@ action :run do
 end
 ```
 
-Windows Platform
-================
+## Windows Platform
 
 {{% dsl_recipe_method_windows_methods %}}
 
@@ -1022,38 +996,31 @@ Windows Platform
 
 {{< /note >}}
 
-registry_data_exists?
------------------------
+### registry_data_exists?
 
 {{% dsl_recipe_method_registry_data_exists %}}
 
-registry_get_subkeys
-----------------------
+### registry_get_subkeys
 
 {{% dsl_recipe_method_registry_get_subkeys %}}
 
-registry_get_values
----------------------
+### registry_get_values
 
 {{% dsl_recipe_method_registry_get_values %}}
 
-registry_has_subkeys?
------------------------
+### registry_has_subkeys?
 
 {{% dsl_recipe_method_registry_has_subkeys %}}
 
-registry_key_exists?
-----------------------
+### registry_key_exists?
 
 {{% dsl_recipe_method_registry_key_exists %}}
 
-registry_value_exists?
-------------------------
+### registry_value_exists?
 
 {{% dsl_recipe_method_registry_value_exists %}}
 
-Log Entries
-===========
+## Log Entries
 
 {{% ruby_style_basics_chef_log %}}
 

@@ -27,8 +27,7 @@ A metadata.rb file is:
 -   Edited using a text editor, and then re-uploaded to the Chef Infra
     Server as part of a cookbook upload.
 
-Error Messages
-==============
+## Error Messages
 
 The Chef Infra Server will only try to distribute the cookbooks that are
 needed to configure an individual node. This is determined by
@@ -52,8 +51,7 @@ the Chef Infra Server.
 
 {{< /note >}}
 
-Version Constraints
-===================
+## Version Constraints
 
 Many fields in a cookbook's metadata allow the user to constrain
 versions. There are a set of operators common to all fields:
@@ -110,8 +108,7 @@ example: `~> 2.2`
 
 {{< /note >}}
 
-Settings
-========
+## Settings
 
 This configuration file has the following settings:
 

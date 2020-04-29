@@ -32,8 +32,7 @@ management console. These settings are applied every time
 
 The configuration file is located at: `/etc/chef-manage/manage.rb`.
 
-Settings
-========
+## Settings
 
 {{< warning >}}
 
@@ -239,8 +238,7 @@ This configuration file has the following settings:
 :   The amount of time (in seconds) that a worker can be silent before
     it is killed and restarted. Default value: `3600`.
 
-Web UI Private Key
-==================
+## Web UI Private Key
 
 Chef Manage uses the Web UI private key for signing requests sent to the
 Chef Infra Server. The key is subject to Chef server's [Secrets
@@ -261,8 +259,7 @@ MIIEpgIBAAKCAQEA3fJ+U+5prsJ8PtnbYzWAq+J2cE48u+iT7t/M9JS+3tlEgf3r
 -----END RSA PRIVATE KEY-----
 ```
 
-Example
-=======
+## Example
 
 The following example shows how the settings look when added to the
 configuration file:

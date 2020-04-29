@@ -19,8 +19,7 @@ aliases = ["/push_jobs.html"]
 Install [Push Jobs](/install_push_jobs/) using the **push-jobs**
 cookbook and a Chef Infra Client run on each of the target nodes.
 
-Requirements
-============
+## Requirements
 
 Chef Push Jobs has the following requirements:
 
@@ -31,8 +30,7 @@ Chef Push Jobs has the following requirements:
     Only Chef Infra Client can use a cookbook to configure a node.
 -   {{% server_firewalls_and_ports_push_jobs %}}
 
-Components
-==========
+## Components
 
 Chef Push Jobs has three main components: jobs (managed by the Chef Push
 Jobs server), a client that is installed on every node in the
@@ -55,8 +53,7 @@ The following diagram shows the various components of Chef Push Jobs:
 
 ![image](/images/overview_push_jobs_states.png)
 
-Jobs
-----
+### Jobs
 
 The Chef Push Jobs server is used to send job messages to one (or more)
 managed nodes and also to manage the list of jobs that are available to
@@ -69,8 +66,7 @@ If there is no heartbeat from a Chef Push Jobs client, the Chef Push
 Jobs server will mark that node as unavailable for job messages until
 the heartbeat resumes.
 
-Nodes
------
+### Nodes
 
 The Chef Push Jobs client is used to receive job messages from the Chef
 Push Jobs server and to verify the heartbeat status. The Chef Push Jobs
@@ -81,23 +77,20 @@ Jobs server, the Chef Push Jobs client will finish its current job, but
 then stop accepting any new jobs until the heartbeat from the Chef Push
 Jobs server resumes.
 
-Workstations
-------------
+### Workstations
 
 A workstation is used to manage Chef Push Jobs jobs, including
 maintaining the **push-jobs** cookbook, using knife to start and stop
 jobs, view job status, and to manage job lists.
 
-**push-jobs** Cookbook
-======================
+## **push-jobs** Cookbook
 
 The **push-jobs** cookbook contains attributes that are used to
 configure the Chef Push Jobs client. In addition, Chef Push Jobs relies
 on the `whitelist` attribute to manage the list of jobs (and commands)
 that are available to Chef Push Jobs.
 
-Whitelist
----------
+### Whitelist
 
 A whitelist is a list of jobs and commands that are used by Chef Push
 Jobs. A whitelist is saved as an attribute in the **push-jobs**
@@ -137,14 +130,12 @@ default['push_jobs']['whitelist'] = {
 }
 ```
 
-Reference
-=========
+## Reference
 
 The following sections describe the knife subcommands, the Push Jobs
 API, and configuration settings used by Chef Push Jobs.
 
-knife push jobs
-===============
+## knife push jobs
 
 {{% plugin_knife_push_jobs_summary %}}
 
@@ -155,29 +146,27 @@ this (and all) knife subcommands and plugins.
 
 {{< /note >}}
 
-job list
---------
+### job list
 
 {{% plugin_knife_push_jobs_job_list %}}
 
-### Syntax
+#### Syntax
 
 {{% plugin_knife_push_jobs_job_list_syntax %}}
 
-### Options
+#### Options
 
 This command does not have any specific options.
 
-job start
----------
+### job start
 
 {{% plugin_knife_push_jobs_job_start %}}
 
-### Syntax
+#### Syntax
 
 {{% plugin_knife_push_jobs_job_start_syntax %}}
 
-### Options
+#### Options
 
 This argument has the following options:
 
@@ -199,7 +188,7 @@ This argument has the following options:
     were unavailable, the command would still be run against the
     remaining eight available nodes because quorum was met.
 
-### Examples
+#### Examples
 
 **Run a job**
 
@@ -213,40 +202,37 @@ This argument has the following options:
 
 {{% plugin_knife_push_jobs_job_start_search_by_nodes %}}
 
-job status
-----------
+### job status
 
 {{% plugin_knife_push_jobs_job_status %}}
 
-### Syntax
+#### Syntax
 
 {{% plugin_knife_push_jobs_job_status_syntax %}}
 
-### Options
+#### Options
 
 This command does not have any specific options.
 
-### Examples
+#### Examples
 
 **View job status by job identifier**
 
 {{% plugin_knife_push_jobs_job_status_by_id %}}
 
-node status
------------
+### node status
 
 {{% plugin_knife_push_jobs_node_status %}}
 
-### Syntax
+#### Syntax
 
 {{% plugin_knife_push_jobs_node_status_syntax %}}
 
-### Options
+#### Options
 
 This command does not have any specific options.
 
-Push Jobs API
-=============
+## Push Jobs API
 
 The Push Jobs API is used to create jobs and retrieve status using Chef
 Push Jobs, a tool that pushes jobs against a set of nodes in the
@@ -260,25 +246,23 @@ Each authentication request must include
 endpoint. For example: `/organizations/organization_name/pushy/jobs/ID`
 or `/organizations/organization_name/pushy/node_states`.
 
-connect/NODE_NAME
-------------------
+### connect/NODE_NAME
 
 {{% api_push_jobs_endpoint_node_name %}}
 
-### GET
+#### GET
 
 {{% api_push_jobs_endpoint_node_name_get %}}
 
-jobs
-----
+### jobs
 
 {{% api_push_jobs_endpoint_jobs %}}
 
-### GET
+#### GET
 
 {{% api_push_jobs_endpoint_jobs_get %}}
 
-### POST
+#### POST
 
 The `POST` method is used to start a job.
 
@@ -345,12 +329,11 @@ The response is similar to:
 </tbody>
 </table>
 
-jobs/ID
--------
+### jobs/ID
 
 {{% api_push_jobs_endpoint_jobs_id %}}
 
-### GET
+#### GET
 
 The `GET` method is used to get the status of an individual job,
 including node state (running, complete, crashed).
@@ -501,31 +484,27 @@ where:
 </tbody>
 </table>
 
-node_states
-------------
+### node_states
 
 {{% api_push_jobs_endpoint_node_states %}}
 
-### GET
+#### GET
 
 {{% api_push_jobs_endpoint_node_states_get %}}
 
-node_states/NODE_NAME
------------------------
+### node_states/NODE_NAME
 
 {{% api_push_jobs_endpoint_node_name %}}
 
-### GET
+#### GET
 
 {{% api_push_jobs_endpoint_node_name_get %}}
 
-push-jobs-client
-================
+## push-jobs-client
 
 {{% ctl_push_jobs_client_summary %}}
 
-Options
--------
+### Options
 
 This command has the following syntax:
 
@@ -568,13 +547,11 @@ This command has the following options:
 
 :   The version of Chef Push Jobs.
 
-opscode-push-jobs-server.rb
-===========================
+## opscode-push-jobs-server.rb
 
 {{% config_rb_push_jobs_server_summary %}}
 
-Settings
---------
+### Settings
 
 This configuration file has the following settings:
 

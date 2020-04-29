@@ -29,8 +29,7 @@ system state each time. When a recipe is run against a system, but
 nothing has changed on either the system or in the recipe, Chef Infra
 Client won't change anything.
 
-Components
-==========
+## Components
 
 A cookbook is comprised of recipes and other optional components as
 files or directories.
@@ -92,8 +91,7 @@ files or directories.
 </tbody>
 </table>
 
-Community Cookbooks
-===================
+## Community Cookbooks
 
 Chef maintains a large collection of cookbooks. In addition, there are
 thousands of cookbooks created and maintained by the community:

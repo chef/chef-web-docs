@@ -16,8 +16,6 @@ aliases = ["/integrate_delivery_smtp.html", "/release/automate/integrate_deliver
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/integrate_delivery_smtp.md)
 
-
-
 {{% chef_automate_mark %}}
 
 {{% EOL_a1 %}}
@@ -36,8 +34,7 @@ Users may subscribe to notifications per project by using the **Watch
 Project** button located on each project's home page in the Workflow web
 UI.
 
-Configure Notifications
-=======================
+## Configure Notifications
 
 To configure Workflow for SMTP notifications:
 
@@ -63,8 +60,7 @@ To configure Workflow for SMTP notifications:
     email address, as specified in Workflow. The Workflow web UI will
     update the page if the email was sent successfully.
 
-Subscribe to Notifications
-==========================
+## Subscribe to Notifications
 
 Once an SMTP server is configured for Workflow, users that belong to
 that enterprise may subscribe to notifications that are sent from any
@@ -89,8 +85,7 @@ To subscribe to SMTP notifications:
     The **Observe** category enables notifications related to the status
     of the pipeline as changes move through it.
 
-Unsubscribe from Notifications
-==============================
+## Unsubscribe from Notifications
 
 A user may unsubscribe from notifications at any time.
 

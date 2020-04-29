@@ -19,8 +19,7 @@ named chef-backend-ctl. This command-line tool is used to manage the
 Chef Infra Server backend HA cluster, start and stop individual
 services, and tail Chef Infra Server log files.
 
-backup
-======
+## backup
 
 Use the `backup` subcommand is to backup the data for a node in the
 backend HA cluster. This command is typically run against a follower
@@ -28,8 +27,7 @@ node. Use the `--force` option to run this command against all nodes in
 the backend HA cluster. The backup is created as a tar.gz file and is
 located in `/var/opt/chef-backup/`.
 
-Syntax
-------
+### Syntax
 
 This subcommand has the following syntax:
 
@@ -37,13 +35,11 @@ This subcommand has the following syntax:
 chef-backend-ctl backup (options)
 ```
 
-Options
--------
+### Options
 
 {{% ctl_chef_backend_cleanse_options %}}
 
-Examples
---------
+### Examples
 
 **Backup a node in the backend HA cluster**
 
@@ -53,16 +49,14 @@ From a follower node, run the following command:
 chef-backend-ctl backup
 ```
 
-create-cluster
-==============
+## create-cluster
 
 Use the `create-cluster` subcommand to initialize the cluster state,
 including the PostgreSQL data store, and then bootstrap the first node
 in a backend HA cluster or assist in the recovery of the entire backend
 HA cluster.
 
-Syntax
-------
+### Syntax
 
 This subcommand has the following syntax:
 
@@ -70,8 +64,7 @@ This subcommand has the following syntax:
 chef-backend-ctl create-cluster (options)
 ```
 
-Options
--------
+### Options
 
 This subcommand has the following options:
 
@@ -100,13 +93,11 @@ This subcommand has the following options:
 
 :   Do not prompt for confirmation.
 
-Examples
---------
+### Examples
 
 None.
 
-cleanse
-=======
+## cleanse
 
 The `cleanse` subcommand is used to re-set a machine in the Chef Infra
 Server backend HA cluster to the state it was in prior to the first time
@@ -115,8 +106,7 @@ configuration files, and logs. The software that was put on-disk by the
 package installation will remain; re-run `chef-backend-ctl reconfigure`
 to recreate the default data and configuration files.
 
-Syntax
-------
+### Syntax
 
 This subcommand has the following syntax:
 
@@ -124,25 +114,21 @@ This subcommand has the following syntax:
 chef-backend-ctl cleanse
 ```
 
-Options
--------
+### Options
 
 {{% ctl_chef_backend_cleanse_options %}}
 
-Examples
---------
+### Examples
 
 None.
 
-cluster-status
-==============
+## cluster-status
 
 Use the `cluster-status` subcommand to return a list of all accessible
 nodes, their role (leader, follower), and the status for PostgreSQL and
 Elasticsearch.
 
-Syntax
-------
+### Syntax
 
 This subcommand has the following syntax:
 
@@ -150,8 +136,7 @@ This subcommand has the following syntax:
 chef-backend-ctl cluster-status (options)
 ```
 
-Options
--------
+### Options
 
 This subcommand has the following options:
 
@@ -159,8 +144,7 @@ This subcommand has the following options:
 
 :   Return cluster health information as JSON.
 
-Examples
---------
+### Examples
 
 **Return cluster health data as JSON**
 
@@ -168,8 +152,7 @@ Examples
 chef-backend-ctl cluster-status --json
 ```
 
-demote
-======
+## demote
 
 Use the `demote` subcommand to demote the current leader in the backend
 HA cluster, after which a new leader is elected from the group of
@@ -182,8 +165,7 @@ available followers in the backend HA cluster. This command will:
     cluster or the node) or if a new leader could not be elected within
     the allowed time.
 
-Syntax
-------
+### Syntax
 
 This subcommand has the following syntax:
 
@@ -191,13 +173,11 @@ This subcommand has the following syntax:
 chef-backend-ctl demote
 ```
 
-Examples
---------
+### Examples
 
 None.
 
-force-leader
-============
+## force-leader
 
 Use the `force-leader` subcommand to force the node from which the
 command is run to become the leader in the backend HA cluster if there
@@ -234,8 +214,7 @@ This command will:
 -   Return an error message and a non-zero exit code if a leader already
     exists.
 
-Syntax
-------
+### Syntax
 
 This subcommand has the following syntax:
 
@@ -243,13 +222,11 @@ This subcommand has the following syntax:
 chef-backend-ctl force-leader
 ```
 
-Examples
---------
+### Examples
 
 None.
 
-gather-logs
-===========
+## gather-logs
 
 Use the `gather-logs` subcommand to gather the log files for a machine
 in the Chef Infra Server backend HA cluster into a tarball that contains
@@ -261,8 +238,7 @@ This subcommand has the following syntax:
 chef-backend-ctl gather-logs
 ```
 
-gen-sample-backend-config
-=========================
+## gen-sample-backend-config
 
 Use the `gen-sample-backend-config` subcommand to generate output that
 contains all of the backend HA cluster settings along with their default
@@ -280,8 +256,7 @@ cluster unless directed otherwise.
 
 {{< /warning >}}
 
-Syntax
-------
+### Syntax
 
 This subcommand has the following syntax:
 
@@ -289,8 +264,7 @@ This subcommand has the following syntax:
 chef-backend-ctl gen-sample-backend-config
 ```
 
-Example Output
---------------
+### Example Output
 
 The following example shows the results of running the
 `chef-backend-ctl gen-sample-backend-config` subcommand. The settings
@@ -386,8 +360,7 @@ ssl.key_length = 2048
 ssl.organizational_unit_name = 'Operations'
 ```
 
-gen-server-config
-=================
+## gen-server-config
 
 Use the `gen-server-config` subcommand to generate output for the
 `/etc/opscode/chef-server.rb` configuration file. This command may be
@@ -400,8 +373,7 @@ command will:
 -   Return an error message and a non-zero exit code if a node has not
     been bootstrapped or joined or if a FQDN is not provided.
 
-Syntax
-------
+### Syntax
 
 This subcommand has the following syntax:
 
@@ -409,8 +381,7 @@ This subcommand has the following syntax:
 chef-backend-ctl gen-server-config FQDN
 ```
 
-Configure the Front End
------------------------
+### Configure the Front End
 
 1.  On any node in the backend HA cluster, run the following command for
     each node in the frontend group:
@@ -437,8 +408,7 @@ Configure the Front End
     chef-server-ctl reconfigure
     ```
 
-Example Output
---------------
+### Example Output
 
 The following example shows the results of running the
 `chef-backend-ctl gen-server-config` subcommand. The settings and output
@@ -473,8 +443,7 @@ Chef Infra Server with a backend HA cluster.
 
 {{< /note >}}
 
-help
-====
+## help
 
 Use the `help` subcommand to print a list of all available
 chef-backend-ctl commands.
@@ -485,8 +454,7 @@ This subcommand has the following syntax:
 chef-backend-ctl help
 ```
 
-join-cluster
-============
+## join-cluster
 
 Use the `join-cluster` subcommand to configure a node to be a member of
 the backend HA cluster as a peer of the node at the specified
@@ -522,8 +490,7 @@ If successful, this command will generate a `chef-backend.rb` file at
 `/etc/chef-backend/chef-backend.rb` with the values for the
 `publish_address`, `vip_interface`, and `vip` added automatically.
 
-Syntax
-------
+### Syntax
 
 This subcommand has the following syntax:
 
@@ -534,8 +501,7 @@ chef-backend-ctl join-cluster PEER_NODE_IP (options)
 where `PEER_NODE_IP` is the IP address of a peer in the cluster to be
 joined.
 
-Options
--------
+### Options
 
 This subcommand has the following options:
 
@@ -592,13 +558,11 @@ This subcommand has the following options:
 
 :   Do not prompt for confirmation.
 
-Examples
---------
+### Examples
 
 None.
 
-promote
-=======
+## promote
 
 Use the `promote` subcommand to promote the named node to be leader of
 the backend HA cluster. This command will:
@@ -610,8 +574,7 @@ the backend HA cluster. This command will:
     cluster or the node) or if the new leader could not be promoted
     within the allowed time.
 
-Syntax
-------
+### Syntax
 
 This subcommand has the following syntax:
 
@@ -619,13 +582,11 @@ This subcommand has the following syntax:
 chef-backend-ctl promote NODE
 ```
 
-Examples
---------
+### Examples
 
 None.
 
-reconfigure
-===========
+## reconfigure
 
 Use the `reconfigure` subcommand to reconfigure a machine in the Chef
 Infra Server backend HA cluster. This subcommand will also restart any
@@ -638,8 +599,7 @@ This subcommand has the following syntax:
 chef-backend-ctl reconfigure
 ```
 
-remove-node
-===========
+## remove-node
 
 Use the `remove-node` subcommand to remove the named node from the
 backend HA cluster by removing the node's status from etcd and deleting
@@ -652,8 +612,7 @@ node itself must be shut down physically or have all services stopped
 running or otherwise available to the backend HA cluster, this command
 will return an error message and a non-zero exist code.
 
-Syntax
-------
+### Syntax
 
 This subcommand has the following syntax:
 
@@ -661,8 +620,7 @@ This subcommand has the following syntax:
 chef-backend-ctl remove-node NODE_NAME
 ```
 
-Options
--------
+### Options
 
 This subcommand has the following options:
 
@@ -670,21 +628,18 @@ This subcommand has the following options:
 
 :   Do not prompt for confirmation.
 
-Examples
---------
+### Examples
 
 None.
 
-restore
-=======
+## restore
 
 Use the `restore` subcommand to restore a backup created by the
 `chef-backend-ctl backup` subcommand. This command should be executed on
 the leader node in the backend HA cluster. This command will delete all
 existing data and replace it with the data in the backup archive.
 
-Syntax
-------
+### Syntax
 
 This subcommand has the following syntax:
 
@@ -695,8 +650,7 @@ chef-backend-ctl restore PATH (options)
 where `PATH` is the path to a tar.gz file that was created by the
 `chef-backend-ctl backup` subcommand.
 
-Options
--------
+### Options
 
 This subcommand has the following options:
 
@@ -710,8 +664,7 @@ This subcommand has the following options:
 
 :   Do not prompt for confirmation.
 
-Examples
---------
+### Examples
 
 **Restore data to the backend leader**
 
@@ -721,14 +674,12 @@ From the leader node, run the following command:
 chef-backend-ctl restore /var/opt/chef-backup/backup_file.tgz
 ```
 
-set-cluster-failover
-====================
+## set-cluster-failover
 
 Use the `set-cluster-failover` subcommand to enable or disable failover
 across the backend HA cluster.
 
-Syntax
-------
+### Syntax
 
 This subcommand has the following syntax:
 
@@ -739,14 +690,12 @@ chef-backend-ctl set-cluster-failover STATE
 where `STATE` may be one of `on`, `off`, `true`, `false`, `enabled`, or
 `disabled`.
 
-set-node-failover
-=================
+## set-node-failover
 
 Use the `set-node-failover` subcommand to enable or disable failover for
 a node in the backend HA cluster.
 
-Syntax
-------
+### Syntax
 
 This subcommand has the following syntax:
 
@@ -757,8 +706,7 @@ chef-backend-ctl set-node-failover STATE
 where `STATE` may be one of `on`, `off`, `true`, `false`, `enabled`, or
 `disabled`.
 
-show-config
-===========
+## show-config
 
 The `show-config` subcommand is used to view the configuration that will
 be generated by the `reconfigure` subcommand. This command is most
@@ -771,8 +719,7 @@ This subcommand has the following syntax:
 chef-backend-ctl show-config
 ```
 
-status
-======
+## status
 
 Use the `status` subcommand to show the status of all services available
 to a node in the backend HA cluster. This subcommand has the following
@@ -835,8 +782,7 @@ which shows the state of the services, process identifiers, and uptime
 (in seconds). Simple output is useful if one (or more) nodes in the
 backend HA cluster are down or in a degraded state.
 
-uninstall
-=========
+## uninstall
 
 The `uninstall` subcommand is used to remove the Chef Infra Server
 application from a machine in the backend HA cluster, but without
@@ -856,8 +802,7 @@ To revert the `uninstall` subcommand, run the `reconfigure` subcommand
 
 {{< /note >}}
 
-Service Subcommands
-===================
+## Service Subcommands
 
 {{% ctl_common_service_subcommands %}}
 
@@ -869,8 +814,7 @@ is configured for the Chef Infra Server: `hup`, `int`, `kill`, `once`,
 
 {{< /warning >}}
 
-hup
----
+### hup
 
 Use the `hup` subcommand to send a `SIGHUP` to all services on a machine
 in the Chef Infra Server backend HA cluster. This command can also be
@@ -886,8 +830,7 @@ chef-backend-ctl hup SERVICE_NAME
 where `SERVICE_NAME` represents the name of any service that is listed
 after running the `service-list` subcommand.
 
-int
----
+### int
 
 Use the `int` subcommand to send a `SIGINT` to all services on a machine
 in the Chef Infra Server backend HA cluster. This command can also be
@@ -903,8 +846,7 @@ chef-backend-ctl int SERVICE_NAME
 where `SERVICE_NAME` represents the name of any service that is listed
 after running the `service-list` subcommand.
 
-kill
-----
+### kill
 
 Use the `kill` subcommand to send a `SIGKILL` to all services on a
 machine in the Chef Infra Server backend HA cluster. This command can
@@ -920,8 +862,7 @@ chef-backend-ctl kill SERVICE_NAME
 where `SERVICE_NAME` represents the name of any service that is listed
 after running the `service-list` subcommand.
 
-once
-----
+### once
 
 The supervisor for a machine in the Chef Infra Server backend HA cluster
 is configured to restart any service that fails, unless that service has
@@ -944,8 +885,7 @@ chef-backend-ctl once SERVICE_NAME
 where `SERVICE_NAME` represents the name of any service that is listed
 after running the `service-list` subcommand.
 
-restart
--------
+### restart
 
 Use the `restart` subcommand to restart all services enabled on a
 machine in the Chef Infra Server backend HA cluster, or to restart an
@@ -973,8 +913,7 @@ successfully restarted the output should be similar to:
 ok: run: service_name: (pid 12345) 1s
 ```
 
-service-list
-------------
+### service-list
 
 Use the `service-list` subcommand to display a list of all available
 services on a machine in the Chef Infra Server backend HA cluster. A
@@ -986,8 +925,7 @@ This subcommand has the following syntax:
 chef-backend-ctl service-list
 ```
 
-start
------
+### start
 
 Use the `start` subcommand to start all services that are enabled on a
 machine in the Chef Infra Server backend HA cluster. This command can
@@ -1018,8 +956,7 @@ the signals at all. If a process is not responding, use a command like
 the `kill` subcommand to stop the process, investigate the cause (if
 required), and then use the `start` subcommand to re-enable it.
 
-stop
-----
+### stop
 
 Use the `stop` subcommand to stop all services enabled on the Chef Infra
 Server backend HA cluster. This command can also be run for an
@@ -1052,8 +989,7 @@ ok: down: etcd: 393s, normally up
 ok: down: postgresql: 388s, normally up
 ```
 
-tail
-----
+### tail
 
 Use the `tail` subcommand to follow all of the logs for all services on
 a machine in the Chef Infra Server backend HA cluster. This command can
@@ -1069,8 +1005,7 @@ chef-backend-ctl tail SERVICE_NAME
 where `SERVICE_NAME` represents the name of any service that is listed
 after running the `service-list` subcommand.
 
-term
-----
+### term
 
 Use the `term` subcommand to send a `SIGTERM` to all services on a
 machine in the Chef Infra Server backend HA cluster. This command can

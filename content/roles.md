@@ -16,8 +16,7 @@ aliases = ["/roles.html"]
 
 {{% role %}}
 
-Role Attributes
-===============
+## Role Attributes
 
 {{% role_attribute %}}
 
@@ -27,8 +26,7 @@ Role Attributes
 
 {{< /note >}}
 
-Attribute Types
----------------
+### Attribute Types
 
 There are two types of attributes that can be used with roles:
 
@@ -55,33 +53,28 @@ There are two types of attributes that can be used with roles:
 </tbody>
 </table>
 
-Attribute Persistence
----------------------
+### Attribute Persistence
 
 {{% node_attribute_persistence %}}
 
-Attribute Precedence
---------------------
+### Attribute Precedence
 
 {{% node_attribute_precedence %}}
 
-Blacklist Attributes
---------------------
+### Blacklist Attributes
 
 {{% node_attribute_blacklist %}}
 
-### Whitelist Attributes
+#### Whitelist Attributes
 
 {{% node_attribute_whitelist %}}
 
-Role Formats
-============
+## Role Formats
 
 Role data is stored in two formats: as a Ruby file that contains
 domain-specific language and as JSON data.
 
-Ruby DSL
---------
+### Ruby DSL
 
 {{% ruby_summary %}}
 
@@ -187,8 +180,7 @@ default_attributes "apache2" => { "listen_ports" => [ "80", "443" ] }
 override_attributes "apache2" => { "max_children" => "50" }
 ```
 
-JSON
-----
+### JSON
 
 The JSON format for roles maps directly to the domain-specific Ruby
 format: same settings, attributes, and values, and a similar structure
@@ -259,8 +251,7 @@ The JSON format has two additional settings:
 </tbody>
 </table>
 
-Manage Roles
-============
+## Manage Roles
 
 There are several ways to manage roles:
 
@@ -309,8 +300,7 @@ uploaded JSON data, that action will overwrite what has been done
 previously using knife. It is strongly recommended to keep to one
 process and not switch back and forth.
 
-Set Per-environment Run-lists
------------------------------
+### Set Per-environment Run-lists
 
 A per-environment run-list is a run-list that is associated with a role
 and a specific environment. More than one environment can be specified
@@ -347,8 +337,7 @@ where:
     not have a per-environment run-list
 -   `run_list` defines the default run-list
 
-Delete from Run-list
---------------------
+### Delete from Run-list
 
 When an environment is deleted, it will remain within a run-list for a
 role until it is removed from that run-list. If a new environment is

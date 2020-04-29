@@ -16,8 +16,6 @@ aliases = ["/server_manage_nodes.html"]
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/server_manage_nodes.md)
 
-
-
 {{% EOL_manage %}}
 
 {{< note >}}
@@ -28,14 +26,12 @@ This topic is about using the Chef management console to manage nodes.
 
 {{% node %}}
 
-Manage
-======
+## Manage
 
 Nodes can be managed from the Chef management console web user
 interface.
 
-Delete
-------
+### Delete
 
 To delete a node:
 
@@ -51,8 +47,7 @@ To delete a node:
 
     ![image](/images/step_manage_webui_node_delete.png)
 
-Reset Key
----------
+### Reset Key
 
 To reset the validation key for a node:
 
@@ -75,8 +70,7 @@ To reset the validation key for a node:
 
     ![image](/images/step_manage_webui_admin_organization_reset_key_regenerated.png)
 
-Search
-------
+### Search
 
 To search nodes:
 
@@ -91,13 +85,11 @@ To search nodes:
 
 4.  The results will appear in the list below.
 
-Node Attributes
-===============
+## Node Attributes
 
 {{% node_attribute %}}
 
-Edit Attribute
---------------
+### Edit Attribute
 
 To edit node attributes:
 
@@ -117,8 +109,7 @@ To edit node attributes:
 
 7.  Click **Save Attributes**.
 
-View Attributes
----------------
+### View Attributes
 
 To view the attributes for a node:
 
@@ -128,50 +119,41 @@ To view the attributes for a node:
 4.  Click the **Attributes** tab.
 5.  Click **Edit**.
 
-Run-lists
-=========
+## Run-lists
 
 {{% node_run_list %}}
 
-Add Recipe to
--------------
+### Add Recipe to
 
 {{% manage_webui_node_run_list_add_role_or_recipe %}}
 
-Add Role to
------------
+### Add Role to
 
 {{% manage_webui_node_run_list_add_role_or_recipe %}}
 
-Edit
-----
+### Edit
 
 {{% manage_webui_node_run_list_edit %}}
 
-Remove Recipe from
-------------------
+### Remove Recipe from
 
 {{% manage_webui_node_run_list_remove_role_or_recipe %}}
 
-Remove Role from
-----------------
+### Remove Role from
 
 {{% manage_webui_node_run_list_remove_role_or_recipe %}}
 
-View Current
-------------
+### View Current
 
 {{% manage_webui_node_run_list_view_current %}}
 
-Permissions
-===========
+## Permissions
 
 {{% server_rbac_permissions %}}
 
 {{% server_rbac_permissions_object %}}
 
-Set
----
+### Set
 
 To set permissions list for a node object:
 
@@ -182,8 +164,7 @@ To set permissions list for a node object:
 5.  For each group listed under **Name**, select or de-select the
     **Read**, **Update**, **Delete**, and **Grant** permissions.
 
-Update
-------
+### Update
 
 To update the permissions list for a node object:
 
@@ -196,8 +177,7 @@ To update the permissions list for a node object:
 6.  Select or de-select **Read**, **Update**, **Delete**, and **Grant**
     to update the permissions list for the user or group.
 
-View
-----
+### View
 
 To view permissions for a node:
 
@@ -208,13 +188,11 @@ To view permissions for a node:
 5.  Set the appropriate permissions: **Delete**, **Grant**, **Read**,
     and/or **Update**.
 
-Manage Tags
-===========
+## Manage Tags
 
 {{% chef_tags %}}
 
-Add
----
+### Add
 
 To add tags to a node (or a group of nodes):
 
@@ -233,8 +211,7 @@ To add tags to a node (or a group of nodes):
 
 6.  Click **Update Tags**.
 
-Delete
-------
+### Delete
 
 To delete tags for a node (or a group of nodes):
 
@@ -253,8 +230,7 @@ To delete tags for a node (or a group of nodes):
 
 6.  Click **Update Tags**.
 
-View
-----
+### View
 
 To view all of the nodes:
 

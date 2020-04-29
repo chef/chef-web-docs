@@ -18,11 +18,9 @@ This section lists the free and commercial Chef products and versions we
 currently support. The lifecycle stage defines the involvement by Chef
 Software in updating and maintaining each product.
 
-Lifecycle Definitions
-=====================
+## Lifecycle Definitions
 
-Generally Available (GA)
-------------------------
+### Generally Available (GA)
 
 This stage indicates that the product or version is in active
 development and/or maintenance.
@@ -32,8 +30,7 @@ development and/or maintenance.
 -   Chef welcomes customer feature requests for the product roadmap for
     the application
 
-Deprecated
-----------
+### Deprecated
 
 This stage indicates that an application or version is no longer in
 active development and will eventually move to end of life status. Chef
@@ -46,8 +43,7 @@ SLAs](https://www.chef.io/service-level-agreement/).
 -   Chef may provide a release for a critical defect or security
     vulnerability
 
-End of Life (EOL)
------------------
+### End of Life (EOL)
 
 This stage indicates that Chef has set a date after which the
 application or version will no longer be supported or recommended for
@@ -58,8 +54,7 @@ use by customers.
 -   Documentation for the application will be moved to
     <https://docs-archive.chef.io>
 
-Versions and Status
--------------------
+### Versions and Status
 
 {{< important >}}
 
@@ -67,8 +62,7 @@ Unless otherwise stated, versions older than those listed below are EOL.
 
 {{< /important >}}
 
-Supported Commercial Distributions
-==================================
+## Supported Commercial Distributions
 
 Use of these and later versions of these distributions must be in
 accordance with the [Chef End User License
@@ -103,39 +97,45 @@ announcement](https://blog.chef.io/2019/04/02/chef-software-announces-the-enterp
 <td>Chef Infra Client</td>
 <td>15.x</td>
 <td>GA</td>
-<td>n/a</td>
+<td>April 30, 2021</td>
 </tr>
 <tr class="odd">
+<td>Chef Infra Client</td>
+<td>16.x</td>
+<td>GA</td>
+<td>April 30, 2022</td>
+</tr>
+<tr class="even">
 <td>Chef Infra Server</td>
 <td>13.x</td>
 <td>GA</td>
 <td>n/a</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Chef Habitat</td>
 <td>0.81+</td>
 <td>GA</td>
 <td>n/a</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Chef InSpec</td>
 <td>4.x</td>
 <td>GA</td>
 <td>n/a</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Chef Workstation</td>
 <td>0.4+</td>
 <td>GA</td>
 <td>n/a</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>ChefDK</td>
 <td>4.x</td>
 <td>GA</td>
 <td>n/a</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Chef Backend</td>
 <td>3.x</td>
 <td>Releasing 2020</td>
@@ -152,8 +152,7 @@ products.
 
 {{< /note >}}
 
-Supported Free Distributions
-============================
+## Supported Free Distributions
 
 Use of the following distributions is governed by the Apache License,
 version 2.0.
@@ -175,42 +174,36 @@ version 2.0.
 </thead>
 <tbody>
 <tr class="odd">
-<td>Chef Client</td>
-<td>14.x</td>
-<td>GA</td>
-<td>April 30, 2020</td>
-</tr>
-<tr class="even">
 <td>Chef Workstation</td>
 <td>0.3</td>
 <td>GA</td>
 <td>April 30, 2020</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>ChefDK</td>
 <td>3.x</td>
 <td>GA</td>
 <td>April 30, 2020</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Chef InSpec</td>
 <td>3.x</td>
 <td>GA</td>
 <td>April 30, 2020</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Chef Infra Server</td>
 <td>12.x</td>
 <td>GA</td>
 <td>TBD</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Push Jobs</td>
 <td>2.5.x</td>
 <td>GA</td>
 <td>TBD</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Supermarket</td>
 <td>3.x</td>
 <td>GA</td>
@@ -219,8 +212,7 @@ version 2.0.
 </tbody>
 </table>
 
-Deprecated Products and Versions
-================================
+## Deprecated Products and Versions
 
 The following products are deprecated. Users are advised to move to
 newer versions or products.
@@ -256,8 +248,7 @@ newer versions or products.
 </tbody>
 </table>
 
-End of Life (EOL) Products
-==========================
+## End of Life (EOL) Products
 
 <table>
 <colgroup>
@@ -289,9 +280,9 @@ End of Life (EOL) Products
 </tr>
 <tr class="odd">
 <td>Chef Client</td>
-<td>13 and under</td>
+<td>14 and under</td>
 <td>EOL</td>
-<td>April 30, 2019</td>
+<td>April 30, 2020</td>
 </tr>
 <tr class="even">
 <td>Chef Compliance</td>

@@ -24,8 +24,7 @@ Deprecated features used!
   Please see /chef-client/deprecations/json_auto_inflate.html for further details and information on how to correct this problem.
 ```
 
-Testing for Deprecations
-========================
+## Testing for Deprecations
 
 To test your code for deprecations, you can put Test Kitchen in a mode
 where any deprecations cause the chef run to fail. Ensure your
@@ -39,8 +38,7 @@ provisioner:
 and then run Test Kitchen as usual. Test Kitchen will fail if any
 deprecation errors are issued.
 
-Silencing deprecation warnings
-==============================
+## Silencing deprecation warnings
 
 Deprecation warnings are great for ensuring cookbooks are kept
 up-to-date and to prepare for major version upgrades, sometimes you just
@@ -94,8 +92,7 @@ We advise caution in the use of this feature, as excessive or prolonged
 silencing can lead to difficulty upgrading when the next major release
 of Chef comes out.
 
-All Deprecations
-================
+## All Deprecations
 
 <table>
 <colgroup>

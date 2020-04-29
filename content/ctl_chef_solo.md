@@ -16,8 +16,7 @@ aliases = ["/ctl_chef_solo.html"]
 
 {{% chef_solo_summary %}}
 
-Options
-=======
+## Options
 
 This command has the following syntax:
 
@@ -175,8 +174,7 @@ This command has the following options:
     makes during a run and to learn more about the current and proposed
     state of the system.
 
-Run as Non-root User
-====================
+## Run as Non-root User
 
 chef-solo may be run as a non-root user. For example, the `sudoers` file
 can be updated similar to:
@@ -189,8 +187,7 @@ chef ALL=(ALL) NOPASSWD: /usr/bin/chef-solo
 where `chef` is the name of the non-root user. This would allow
 chef-solo to run any command on the node without requiring a password.
 
-Examples
-========
+## Examples
 
 **Run chef-solo using solo.rb settings**
 

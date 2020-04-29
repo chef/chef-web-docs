@@ -1,13 +1,10 @@
-How to enable FIPS mode for the Chef Automate server
-====================================================
+## How to enable FIPS mode for the Chef Automate server
 
-Prerequisites
--------------
+### Prerequisites
 
 -   Supported Systems - CentOS or Red Hat Enterprise Linux 6 or later
 
-Configuration
--------------
+### Configuration
 
 If you have FIPS compliance enabled in the operating system at the
 kernel level and install or reconfigure the Chef Automate server then it
@@ -19,8 +16,7 @@ workstations that are also running in FIPS mode.
 If you do need to use FIPS mode, there are a few steps to get it up and
 running in Delivery CLI on your workstation.
 
-Check if Chef Automate server has enabled FIPS mode
----------------------------------------------------
+### Check if Chef Automate server has enabled FIPS mode
 
 You can see if your Chef Automate server is in FIPS mode by running
 `delivery status`. It will say `FIPS mode: enabled` if it is enabled as
@@ -30,8 +26,7 @@ enable FIPS mode locally. If `delivery status` reports either
 please see [FIPS kernel settings](/fips.html#fips-kernel-settings) on
 how to enable FIPS mode in your Chef Automate server before proceeding.
 
-Enable FIPS mode in your cli.toml file
---------------------------------------
+### Enable FIPS mode in your cli.toml file
 
 Now that you have confirmed that the Chef Automate server is in FIPS
 mode, you must enable FIPS mode locally on your workstation for Delivery
@@ -53,11 +48,9 @@ class="title-ref">pem</span> format. See [FIPS Certificate
 Management](/fips#certificate_management) for an example on how to
 generate the file.
 
-How to enable FIPS mode for workstations
-========================================
+## How to enable FIPS mode for workstations
 
-Prerequisites
--------------
+### Prerequisites
 
 -   Supported Systems - Windows, CentOS and Red Hat Enterprise Linux
 

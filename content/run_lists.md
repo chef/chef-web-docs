@@ -16,43 +16,38 @@ aliases = ["/run_lists.html"]
 
 {{% node_run_list %}}
 
-Run-list Format
-===============
+## Run-list Format
 
 {{% node_run_list_format %}}
 
-Empty Run-lists
----------------
+### Empty Run-lists
 
 {{% node_run_list_empty %}}
 
-Knife Commands
-==============
+## Knife Commands
 
 The following knife commands may be used to manage run-lists on the Chef
 Infra Server.
 
-Quotes, Windows
----------------
+### Quotes, Windows
 
 {{% knife_common_windows_quotes %}}
 
-### Import-Module chef
+#### Import-Module chef
 
 {{% knife_common_windows_quotes_module %}}
 
-run_list add
--------------
+### run_list add
 
 {{% knife_node_run_list_add %}}
 
 {{% node_run_list_format %}}
 
-### Syntax
+#### Syntax
 
 {{% knife_node_run_list_add_syntax %}}
 
-### Options
+#### Options
 
 {{% knife_node_run_list_add_options %}}
 
@@ -62,7 +57,7 @@ run_list add
 
 {{< /note >}}
 
-### Examples
+#### Examples
 
 The following examples show how to use this knife subcommand:
 
@@ -86,16 +81,15 @@ The following examples show how to use this knife subcommand:
 
 {{% knife_node_run_list_add_default_recipe %}}
 
-run_list remove
-----------------
+### run_list remove
 
 {{% knife_node_run_list_remove %}}
 
-### Syntax
+#### Syntax
 
 {{% knife_node_run_list_remove_syntax %}}
 
-### Options
+#### Options
 
 This command does not have any specific options.
 
@@ -105,7 +99,7 @@ This command does not have any specific options.
 
 {{< /note >}}
 
-### Examples
+#### Examples
 
 The following examples show how to use this knife subcommand:
 
@@ -117,25 +111,23 @@ The following examples show how to use this knife subcommand:
 
 {{% knife_node_run_list_remove_run_list %}}
 
-run_list set
--------------
+### run_list set
 
 {{% knife_node_run_list_set %}}
 
-### Syntax
+#### Syntax
 
 {{% knife_node_run_list_set_syntax %}}
 
-### Options
+#### Options
 
 This command does not have any specific options.
 
-### Examples
+#### Examples
 
 None.
 
-status
-------
+### status
 
 The following examples show how to use the `knife status` subcommand to
 verify the status of run-lists.
@@ -148,49 +140,40 @@ verify the status of run-lists.
 
 {{% knife_status_returned_by_query %}}
 
-Management Console
-==================
+## Management Console
 
 The following sections describe how to manage run-lists when using the
 Chef management console.
 
-Add Recipe
-----------
+### Add Recipe
 
 {{% manage_webui_node_run_list_add_role_or_recipe %}}
 
-Add Role
---------
+### Add Role
 
 {{% manage_webui_node_run_list_add_role_or_recipe %}}
 
-Edit Node
----------
+### Edit Node
 
 {{% manage_webui_node_run_list_edit %}}
 
-Edit Role
----------
+### Edit Role
 
 {{% manage_webui_policy_role_edit_run_list %}}
 
-Remove Recipe
--------------
+### Remove Recipe
 
 {{% manage_webui_node_run_list_remove_role_or_recipe %}}
 
-Remove Role
------------
+### Remove Role
 
 {{% manage_webui_node_run_list_remove_role_or_recipe %}}
 
-View Current
-------------
+### View Current
 
 {{% manage_webui_node_run_list_view_current %}}
 
-View Node
----------
+### View Node
 
 To view all of the nodes:
 
@@ -206,15 +189,13 @@ To view all of the nodes:
 
     ![image](/images/step_manage_webui_nodes_view_run_list.png)
 
-Run-lists, Applied
-==================
+## Run-lists, Applied
 
 A run-list will tell Chef Infra Client what to do when bootstrapping
 that node for the first time, and then how to configure that node on
 every subsequent Chef Infra Client run.
 
-Bootstrap Operations
---------------------
+### Bootstrap Operations
 
 {{% install_chef_client %}}
 
@@ -222,12 +203,10 @@ Bootstrap Operations
 
 {{% chef_client_bootstrap_stages %}}
 
-The Chef Infra Client Run
--------------------------
+### The Chef Infra Client Run
 
 {{% chef_client_run %}}
 
-Attribute Evaluation Order
---------------------------
+### Attribute Evaluation Order
 
 {{% node_attribute_evaluation_order %}}

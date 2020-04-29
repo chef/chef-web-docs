@@ -22,14 +22,12 @@ Chef Push Jobs is installed to the following locations:
     12 or higher) is installed
 -   At least one management workstation
 
-Install the Server
-==================
+## Install the Server
 
 Use the [chef-server-ctl install](/ctl_chef_server/#install) command
 to add Chef Push Jobs.
 
-Install the Client
-==================
+## Install the Client
 
 To set up the Chef Push Jobs client:
 
@@ -63,8 +61,7 @@ To set up the Chef Push Jobs client:
 
     for all nodes.
 
-Install the Workstation
-=======================
+## Install the Workstation
 
 knife-push ships in Chef Workstation. Install the latest version of Chef
 Workstation from [Chef Downloads](https://downloads.chef.io/chef-workstation)
@@ -73,8 +70,7 @@ The following subcommands will be available from Chef Workstation:
 `knife job list`, `knife job start`, `knife job output`,
 `knife job status`, and `knife node status`.
 
-**push-jobs** Cookbook
-----------------------
+### **push-jobs** Cookbook
 
 The **push-jobs** cookbook at
 <https://github.com/chef-cookbooks/push-jobs> is used by Chef Infra
@@ -182,8 +178,7 @@ knife job start restart_apache NODE1 NODE2 ...
 where `NODE1 NODE2 ...` defines a list of individual nodes against which
 that command is run.
 
-Chef Push Jobs Groups
-=====================
+## Chef Push Jobs Groups
 
 {{% push_jobs_summary %}}
 

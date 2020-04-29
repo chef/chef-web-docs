@@ -16,8 +16,6 @@ aliases = ["/integrate_delivery_github.html", "/release/automate/integrate_deliv
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/integrate_delivery_github.md)
 
-
-
 {{% chef_automate_mark %}}
 
 {{% EOL_a1 %}}
@@ -47,8 +45,7 @@ GitHub-integrated projects.
 
 {{< /note >}}
 
-Setting up integration with GitHub
-==================================
+## Setting up integration with GitHub
 
 To enable the GitHub integration, you will need:
 
@@ -92,8 +89,7 @@ To create a token, sign in to GitHub as your service account.
 
     ![image](/images/token_created.png)
 
-Trusting a Self-Signed SSL Certificate
---------------------------------------
+### Trusting a Self-Signed SSL Certificate
 
 This procedure is only needed when connecting to GitHub Enterprise, and
 when your GitHub Enterprise server uses a self-signed SSL certificate.
@@ -110,7 +106,7 @@ the URL `https://10.10.10.10` will pass.
 
 {{< /note >}}
 
-### Debian
+#### Debian
 
 1.  Log into your Workflow Server as root.
 
@@ -133,7 +129,7 @@ the URL `https://10.10.10.10` will pass.
     update-ca-certificates
     ```
 
-### Rhel/CentOS 6.x and greater
+#### Rhel/CentOS 6.x and greater
 
 1.  Log into your Workflow Server as root.
 
@@ -181,8 +177,7 @@ the URL `https://10.10.10.10` will pass.
     update-ca-trust extract
     ```
 
-Associating Workflow with your GitHub instance
-----------------------------------------------
+### Associating Workflow with your GitHub instance
 
 1.  In Workflow's web UI, click the `Admin` button in the top
     navigation.
@@ -196,8 +191,7 @@ Associating Workflow with your GitHub instance
         GitHub.
 5.  Submit the form.
 
-Updating the integration with GitHub
-====================================
+## Updating the integration with GitHub
 
 If you need to change the GitHub credentials, follow these steps:
 
@@ -208,8 +202,7 @@ If you need to change the GitHub credentials, follow these steps:
 4.  Correct the appropriate information.
 5.  Click the `Update` button.
 
-Creating a new GitHub-integrated project
-========================================
+## Creating a new GitHub-integrated project
 
 You can repeat these steps for each GitHub project you want to add to
 Workflow.
@@ -222,8 +215,7 @@ To begin, you will need:
 -   Your teams set up with read-only access to this repository. Workflow
     will manage creation of pull requests and merging of pull requests.
 
-Initializing a new GitHub project in Workflow
----------------------------------------------
+### Initializing a new GitHub project in Workflow
 
 1.  Create a local clone of the project **from GitHub** and `cd` into
     it.
@@ -263,8 +255,7 @@ Initializing a new GitHub project in Workflow
 
     {{< /note >}}
 
-Multiple pipelines
-------------------
+### Multiple pipelines
 
 If multiple pipelines are desired:
 
@@ -276,8 +267,7 @@ If multiple pipelines are desired:
 3.  Click `Add A New Pipeline` on the top of the page.
 4.  Give pipeline a descriptive name and input the base branch.
 
-Integrating an existing project with GitHub
-===========================================
+## Integrating an existing project with GitHub
 
 You will need:
 
@@ -298,8 +288,7 @@ Do the following steps:
 6.  Fill in the project key and repository name.
 7.  Click `Save & Close`.
 
-Updating GitHub information for a project
-=========================================
+## Updating GitHub information for a project
 
 1.  In Workflow's web UI, click the `Workflow` button in the top
     navigation.
@@ -310,8 +299,7 @@ Updating GitHub information for a project
 6.  Update your project key and/or repo name with updated information.
 7.  Click `Save & Close`.
 
-Removing GitHub integration from an existing project
-====================================================
+## Removing GitHub integration from an existing project
 
 1.  Merge or close all open changes for the project.
 2.  In Workflow's web UI, click the `Workflow` button in the top
@@ -322,8 +310,7 @@ Removing GitHub integration from an existing project
 6.  Click the `Chef Delivery` tab.
 7.  Click `Save & Close`.
 
-Removing GitHub integration from Workflow
-=========================================
+## Removing GitHub integration from Workflow
 
 1.  Remove GitHub integrations for existing projects.
 2.  In Workflow's web UI, click the `Admin` button in the top
@@ -332,16 +319,14 @@ Removing GitHub integration from Workflow
 4.  Click the `GitHub` tab.
 5.  Click the `Remove Link` button.
 
-Workflow workflow with GitHub
-=============================
+## Workflow workflow with GitHub
 
 This section describes the setup and workflow that a member of a team
 would use to interact with a project using Workflow's GitHub
 integration. Here we assume that the initial project creation, import,
 and pipeline setup has already occurred.
 
-Configure your Delivery CLI and clone your project's code
----------------------------------------------------------
+### Configure your Delivery CLI and clone your project's code
 
 1.  In your command shell, create or navigate to a directory where you
     will store project repositories. Use `delivery setup` with arguments
@@ -370,8 +355,7 @@ Configure your Delivery CLI and clone your project's code
 
     {{< /note >}}
 
-Creating a Change (Pull Request)
---------------------------------
+### Creating a Change (Pull Request)
 
 1.  Create and check out a topic branch for your change, based on the
     current state of your project's pipeline (usually 'master'). For
@@ -384,8 +368,7 @@ Creating a Change (Pull Request)
     the Verify phase will begin automatically and a corresponding Pull
     Request will be opened in GitHub.
 
-Code Review
------------
+### Code Review
 
 You may conduct a code review using either Workflow or GitHub; however,
 the merging of a pull request is handled by Workflow and occurs when a
@@ -405,8 +388,7 @@ To perform code review using Workflow:
 2.  Click the `Review` tab.
 3.  Browse the changes and make comments.
 
-Approving a Change (Merging a Pull Request)
--------------------------------------------
+### Approving a Change (Merging a Pull Request)
 
 When the Verify phase has passed in Workflow and the code has been
 reviewed and is ready to be merged, approve the change in Workflow; the
@@ -419,8 +401,7 @@ will also be deleted in GitHub.
 2.  Click the `Review` tab.
 3.  Click `Approve`.
 
-Deleting a Change (Declining a Pull Request)
---------------------------------------------
+### Deleting a Change (Declining a Pull Request)
 
 When the Verify phase has passed in Workflow and the code has been
 reviewed and it is decided the change should never be approved, delete

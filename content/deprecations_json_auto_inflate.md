@@ -9,8 +9,6 @@ aliases = "/deprecations_json_auto_inflate.html"
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/deprecations_json_auto_inflate.md)
 
-
-
 Internally, the `Chef::REST` class attempts to guess which Chef class a
 JSON document relates too, and then automatically turns the JSON in to
 that class.
@@ -18,8 +16,7 @@ that class.
 This deprecation warning was added in Chef Client 12.7.2, and JSON auto
 inflation will be removed permanently in Chef Client 13.
 
-Example
-=======
+## Example
 
 When loading an environment from the Chef Infra Server, you might
 previously have written:
@@ -31,8 +28,7 @@ chef_server_rest.get("environments/#{name}")
 
 and received a `Chef::Environment` object back.
 
-Remediation
-===========
+## Remediation
 
 You now need to explicitly create a new object of the desired type.
 

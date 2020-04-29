@@ -30,8 +30,7 @@ The Chef Infra Client executable is run as a command-line tool.
 
 {{< /note >}}
 
-Options
-=======
+## Options
 
 This command has the following syntax:
 
@@ -396,8 +395,7 @@ This command has the following options:
     that work against the Chef Infra Server to also work against the
     local chef-repo.
 
-Chef Infra Client Lock File
----------------------------
+### Chef Infra Client Lock File
 
 The Chef Infra Client uses a lock file to ensure that only one Chef
 Infra Client run is in progress at any time. A lock file is created at
@@ -413,8 +411,7 @@ The location of the lock file can vary by platform.
     the amount of time (in seconds) to wait for the lock file associated
     with an in-progress Chef Infra Client run to be deleted.
 
-Run in Local Mode
-=================
+## Run in Local Mode
 
 Local mode is a way to run the Chef Infra Client against the chef-repo
 on a local machine as if it were running against the Chef Infra Server.
@@ -435,8 +432,7 @@ Local mode will store temporary and cache files under the
 user to run the Chef Infra Client in local mode without requiring root
 access.
 
-About why-run Mode
-------------------
+### About why-run Mode
 
 why-run mode is a way to see what Chef Infra Client would have
 configured, had an actual Chef Infra Client run occurred. This approach
@@ -495,8 +491,7 @@ service after installing a package. This is important because service
 actions often trigger notifications to other resources, so it is
 important to know that these notifications are triggered correctly.
 
-About chef-zero
----------------
+### About chef-zero
 
 chef-zero is a very lightweight Chef Infra Server that runs in-memory on
 the local machine. This allows the Chef Infra Client to be run against
@@ -521,8 +516,7 @@ against using chef-zero as a persistent Chef Infra Server.
 Changed in Chef Client 12.8, now chef-zero supports all Chef Server API
 version 12 endpoints, except `/universe`.
 
-Use Encrypted Data Bags
------------------------
+### Use Encrypted Data Bags
 
 {{% data_bag %}}
 
@@ -531,8 +525,7 @@ mode**
 
 {{% knife_data_bag_from_file_create_encrypted_local_mode %}}
 
-Run in FIPS Mode
-================
+## Run in FIPS Mode
 
 {{% fips_intro_client %}}
 
@@ -540,8 +533,7 @@ Run in FIPS Mode
 
 {{% knife_bootstrap_node_fips %}}
 
-Run as a Service
-================
+## Run as a Service
 
 The Chef Infra Client can be run as a daemon. Use the **Chef Infra
 Client** cookbook to configure the Chef Infra Client as a daemon. Add
@@ -580,13 +572,11 @@ be used:
 On Microsoft Windows, both the `HUP` and `QUIT` signals are not
 supported.
 
-Run with Elevated Privileges
-============================
+## Run with Elevated Privileges
 
 {{% ctl_chef_client_elevated_privileges %}}
 
-Linux
------
+### Linux
 
 On Linux, the following error sometimes occurs when the permissions used
 to run the Chef Infra Client are incorrect:
@@ -625,13 +615,11 @@ ways this can be done:
     by the Chef Infra Client. This requires super user privileges and,
     as such, is not a recommended approach
 
-Windows
--------
+### Windows
 
 {{% ctl_chef_client_elevated_privileges_windows %}}
 
-Run as Non-root User
-====================
+## Run as Non-root User
 
 In large, distributed organizations the ability to modify the
 configuration of systems is sometimes segmented across teams, often with
@@ -657,8 +645,7 @@ will result in an error. For example, when the Chef Infra Client is run
 as a non-root user that is unable to create or modify users, the
 **user** resource will not work.
 
-Set the Cache Path
-------------------
+### Set the Cache Path
 
 To run a Chef Infra Client in non-root mode, add the `file_cache_path`
 setting to the client.rb file for the node that will run as the non-root
@@ -682,8 +669,7 @@ When running the Chef Infra Client using the `--local-mode` option,
 
 {{< /note >}}
 
-Elevate Commands
-----------------
+### Elevate Commands
 
 Another example of running the Chef Infra Client as a non-root user
 involves using resources to pass sudo commands as as an attribute on the
@@ -705,8 +691,7 @@ This approach can work very well on a case-by-case basis. The challenge
 with this approach is often around managing the size of the
 `/etc/sudoers` file.
 
-Run on IBM AIX
-==============
+## Run on IBM AIX
 
 The Chef Infra Client may now be used to configure nodes that are
 running on the AIX platform, versions 7.1 (TL5 SP2 or higher,
@@ -901,14 +886,12 @@ platform:
 
 {{% resource_service_aix_mkitab %}}
 
-Configuring a Proxy Server
-==========================
+## Configuring a Proxy Server
 
 See the [proxies](/proxies/) documentation for information on how to
 configure Chef Infra Client to use a proxy server.
 
-Examples
-========
+## Examples
 
 **Run the Chef Infra Client**
 

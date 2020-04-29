@@ -26,8 +26,7 @@ chef-solo.
     contained within that file will override the default configuration
     settings
 
-Settings
-========
+## Settings
 
 This configuration file has the following settings:
 
@@ -162,8 +161,7 @@ This configuration file has the following settings:
     level). Setting this to `false` can be useful when a Chef Infra
     Client is run as a daemon. Default value: `nil`.
 
-Examples
-========
+## Examples
 
 **Using Chef Automate Data Collector**
 

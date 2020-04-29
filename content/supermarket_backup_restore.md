@@ -20,11 +20,9 @@ important data can be restored if required. In a typical installation of
 Supermarket, both the cookbook store and the database need to be backed
 up on a regular basis.
 
-Backup
-======
+## Backup
 
-Cookbook Backup
----------------
+### Cookbook Backup
 
 If Supermarket is not configured to use AWS S3 storage for cookbooks,
 then the local cookbook storage location on the Supermarket server will
@@ -39,8 +37,7 @@ cd /var/opt/supermarket/data/
 tar cvzf ~/supermarket_cookbook_versions.tar.gz cookbook_versions
 ```
 
-Database Backup
----------------
+### Database Backup
 
 A database export can be made in several formats.
 
@@ -93,11 +90,9 @@ There's a "database" key in `supermarket-running.json`:
 }
 ```
 
-Restore
-=======
+## Restore
 
-Cookbook Restore
-----------------
+### Cookbook Restore
 
 When restoring cookbooks, **make sure the cookbook directory is writable
 by the Supermarket user.**
@@ -109,8 +104,7 @@ cd /var/opt/supermarket/data/
 tar xvzf /supermarket_cookbook_versions.tar.gz
 ```
 
-Database Restore
-----------------
+### Database Restore
 
 {{< note >}}
 

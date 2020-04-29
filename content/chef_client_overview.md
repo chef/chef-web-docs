@@ -36,13 +36,11 @@ executable can be run as a daemon.
 </tbody>
 </table>
 
-The Chef Infra Client Run
-=========================
+## The Chef Infra Client Run
 
 {{% chef_client_run %}}
 
-Related Content
-===============
+## Related Content
 
 -   [Chef Infra Client (executable)](/ctl_chef_client/)
 -   [Chef Infra Server](/server_overview/)
@@ -50,8 +48,7 @@ Related Content
 -   [Nodes](/nodes/)
 -   [Run Lists](/run_lists/)
 
-Next Steps
-==========
+## Next Steps
 
 -   [Install Chef Workstation](/workstation/install_workstation/)
 -   [Bootstrap Nodes](/install_bootstrap/)

@@ -16,8 +16,7 @@ aliases = ["/cookbook_versioning.html", "/cookbook_versions.html"]
 
 {{% cookbooks_version %}}
 
-Syntax
-======
+## Syntax
 
 A cookbook version always takes the form x.y.z, where x, y, and z are
 decimal numbers that are used to represent major (x), minor (y), and
@@ -25,8 +24,7 @@ patch (z) versions. A two-part version (x.y) is also allowed.
 Alphanumeric version numbers (1.2.a3) and version numbers with more than
 three parts (1.2.3.4) are not allowed.
 
-Constraints
-===========
+## Constraints
 
 A version constraint is a string that combines the cookbook version
 syntax with an operator, in the following format:
@@ -103,8 +101,7 @@ or will match cookbooks less than or equal to a specific version number:
 <= 2.6.5
 ```
 
-Metadata
-========
+## Metadata
 
 {{% cookbooks_metadata %}}
 
@@ -145,8 +142,7 @@ not provided, `>= 0.0.0` is used as the default.
 </tbody>
 </table>
 
-Environments
-============
+## Environments
 
 An environment can use version constraints to specify a list of allowed
 cookbook versions by specifying the cookbook's name, along with the
@@ -166,8 +162,7 @@ If a cookbook is not explicitly given a version constraint the
 environment will assume the cookbook has no version constraint and will
 use any version of that cookbook with any node in the environment.
 
-Freeze Versions
-===============
+## Freeze Versions
 
 A cookbook version can be frozen, which will prevent updates from being
 made to that version of a cookbook. (A user can always upload a new
@@ -203,8 +198,7 @@ similar to:
 Version 0.0.0 of cookbook redis is frozen. Use --force to override
 ```
 
-Version Source Control
-======================
+## Version Source Control
 
 There are two strategies to consider when using version control as part
 of the cookbook management process:
@@ -215,8 +209,7 @@ of the cookbook management process:
     environments using git branches and the versioning policy
     information is already stored in a cookbook's metadata.
 
-Branch Tracking
----------------
+### Branch Tracking
 
 Using a branch tracking strategy requires that a branch for each
 environment exists in the source control and that each cookbook's
@@ -252,8 +245,7 @@ further changes:
 knife cookbook upload  my-app -E production --freeze
 ```
 
-Maximum Versions
-----------------
+### Maximum Versions
 
 Using a maximum version control strategy is required when everything
 needs to be tracked in source control. This approach is very similar to

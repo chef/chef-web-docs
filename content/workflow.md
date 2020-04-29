@@ -16,8 +16,6 @@ aliases = ["/workflow.html", "/release/automate/workflow.html"]
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/workflow.md)
 
-
-
 {{% chef_automate_mark %}}
 
 {{% EOL_a1 %}}
@@ -50,8 +48,7 @@ and a sample application to experiment with.
 
 {{< /note >}}
 
-Pipelines
-=========
+## Pipelines
 
 A pipeline is series of automated and manual quality gates that take
 software changes from development to delivery. The goal of a pipeline is
@@ -78,8 +75,7 @@ The following illustration shows the phases of each pipeline stage.
 
 <img src="/images/delivery_full_workflow.svg" class="align-center" width="600" alt="image" />
 
-Projects
-========
+## Projects
 
 Workflow relies on git and uses its lightweight feature branches as the
 mechanism for handling changes before they merge, as well as its ability
@@ -108,8 +104,7 @@ different versions of a project on different branches, enabling you to
 target a change (for instance, a security fix) against multiple versions
 quickly and easily.
 
-Changes and Project Pipelines
-=============================
+## Changes and Project Pipelines
 
 Let's walk through what happens as a change makes its way through
 Workflow. We'll assume you have created a project in Workflow and want
@@ -124,8 +119,7 @@ command is the equivalent to `git push`, although it also creates a
 change in Workflow that is similar to a pull request in GitHub and other
 git-based version control systems.
 
-Verification
-------------
+### Verification
 
 When Workflow receives the change, it triggers the Verify stage. The
 purpose of Verify is to run checks so that the system can decide if it's
@@ -150,8 +144,7 @@ feature branch. This can be repeated as necessary. When Verify has
 passed and the team is happy with the change, it can be approved.
 Changes are approved by clicking the Approve button in the web UI.
 
-Approval
---------
+### Approval
 
 When someone clicks the Approve button, the feature branch that contains
 your change is merged into the target branch of the pipeline (usually
@@ -173,8 +166,7 @@ If the pipeline succeeds in generating and publishing the artifacts,
 then the Acceptance stage begins. This is the first phase that assesses
 build artifacts rather than source code.
 
-Acceptance
-----------
+### Acceptance
 
 The Acceptance stage is where your team decides whether the change
 should ship all the way out to its final destination.
@@ -212,8 +204,7 @@ environments is flexible. For example, you can have dedicated
 infrastructure for each stage. This allows each stage to operate
 independently.
 
-Pipeline Stages
-===============
+## Pipeline Stages
 
 In this section, we go into more detail about the pipeline. As we've
 said, the Workflow pipeline is made up of six stages: Verify, Build,
@@ -242,8 +233,7 @@ To summarize:
 -   The Acceptance, Union, Rehearsal and Delivered stages test
     potentially releasable artifacts
 
-Verify Stage
-------------
+### Verify Stage
 
 The Verify stage runs automatically when someone submits a new change or
 updates an existing change that hasn't yet been approved. It is made up
@@ -257,8 +247,7 @@ a given phase job.)
     that it compiles.
 -   **Unit**. Run unit tests.
 
-Build Stage
------------
+### Build Stage
 
 When a change is approved, Workflow merges the change into the
 pipeline's target branch and triggers the Build stage. The Build stage
@@ -282,8 +271,7 @@ additional phases:
     potentially releasable artifacts and to make them available to the
     rest of the pipeline.
 
-Acceptance Stage
-----------------
+### Acceptance Stage
 
 Beginning with the Acceptance stage, the pipeline switches from
 analyzing the project's source code to verifying the set of artifacts
@@ -306,8 +294,7 @@ Acceptance:
 -   **Functional**. The functional tests should give you confidence that
     the system is meeting its business requirements.
 
-Union Stage
------------
+### Union Stage
 
 Union is the first of the three shared pipeline stages. The purpose of
 the Union stage is to assess the impact of the change in the context of
@@ -342,8 +329,7 @@ features will be enhanced to include all concurrent deploys in Union,
 Rehearsal, and Delivered, as long as they map to completely unrelated
 dependency sets.
 
-Rehearsal Stage
----------------
+### Rehearsal Stage
 
 If all phases of Union succeed, then the Rehearsal stage is triggered.
 Rehearsal increases confidence in the artifacts and the deployment by
@@ -359,16 +345,14 @@ success depends upon state left behind as a result of a preceding
 failure. The Rehearsal stage is an opportunity to test the change in an
 environment that didn't see the failure.
 
-Delivered Stage
----------------
+### Delivered Stage
 
 Delivered is the final stage of the pipeline. What "delivered" means for
 your system is up to you. It could mean deploying the change so that it
 is live and receiving production traffic, or it might mean publishing a
 set of artifacts so they are accessible for your customers.
 
-Environments
-============
+## Environments
 
 As changes flow through the Workflow pipeline, they are tested in a
 series of runtime environments that are increasingly similar to the

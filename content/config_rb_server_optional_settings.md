@@ -16,8 +16,7 @@ aliases = ["/config_rb_server_optional_settings.html"]
 
 {{% config_rb_server_summary %}}
 
-Settings
-========
+## Settings
 
 The following sections describe the various settings that are available
 in the chef-server.rb file.
@@ -28,8 +27,7 @@ in the chef-server.rb file.
 
 {{< /note >}}
 
-General
--------
+### General
 
 This configuration file has the following general settings:
 
@@ -121,8 +119,7 @@ This configuration file has the following general settings:
 
 </div>
 
-bookshelf
----------
+### bookshelf
 
 {{% server_services_bookshelf %}}
 
@@ -254,8 +251,7 @@ This configuration file has the following settings for `bookshelf`:
     more information on configuring external bookshelf. Default value:
     `127.0.0.1`.
 
-bootstrap
----------
+### bootstrap
 
 This configuration file has the following settings for `bootstrap`:
 
@@ -265,8 +261,7 @@ This configuration file has the following settings for `bootstrap`:
     made. Generally only enabled on systems that have bootstrap enabled
     via a `server` entry. Default value: `true`.
 
-compliance forwarding
----------------------
+### compliance forwarding
 
 The configuration file has the following settings for forwarding
 `compliance` requests using the chef server authentication system.
@@ -278,8 +273,7 @@ The configuration file has the following settings for forwarding
     to this URL. This is expected to be a fully qualified resource, e.g.
     `http://compliance.example.org/owners/OWNER/compliance`.
 
-dark_launch
-------------
+### dark_launch
 
 This configuration file has the following settings for `dark_launch`:
 
@@ -312,8 +306,7 @@ This configuration file has the following settings for `dark_launch`:
 
 :   Default value: `true`.
 
-data_collector
----------------
+### data_collector
 
 This configuration file has the following settings for `data_collector`:
 
@@ -406,8 +399,7 @@ This configuration file has the following settings for `data_collector`:
     will remove those members from the load balancer pool. Default
     value: </span><span class="title-ref">true</span>\`.
 
-estatsd
--------
+### estatsd
 
 This configuration file has the following settings for `estatsd`:
 
@@ -438,8 +430,7 @@ This configuration file has the following settings for `estatsd`:
 
 :   The virtual IP address. Default value: `'127.0.0.1'`.
 
-jetty
------
+### jetty
 
 This configuration file has the following settings for `jetty`:
 
@@ -457,8 +448,7 @@ This configuration file has the following settings for `jetty`:
     '/var/opt/opscode/opscode-solr4/jetty/logs'
     ```
 
-lb / lb_internal
------------------
+### lb / lb_internal
 
 This configuration file has the following settings for `lb`:
 
@@ -602,13 +592,11 @@ And for the internal load balancers:
 
 :   The virtual IP address. Default value: `'127.0.0.1'`.
 
-ldap
-----
+### ldap
 
 {{% config_rb_server_settings_ldap %}}
 
-nginx
------
+### nginx
 
 This configuration file has the following settings for `nginx`:
 
@@ -863,8 +851,7 @@ This configuration file has the following settings for `nginx`:
     Server by a Chef Infra Client or a workstation. Default value:
     `'https'`.
 
-oc_bifrost
------------
+### oc_bifrost
 
 {{% server_services_bifrost %}}
 
@@ -968,8 +955,7 @@ This configuration file has the following settings for `oc_bifrost`:
 
 :   The virtual IP address. Default value: `'127.0.0.1'`.
 
-oc_chef_authz
----------------
+### oc_chef_authz
 
 The **opscode-authz** service is used to handle authorization requests
 from oc_erchef to oc_bifrost in the Chef Infra Server.
@@ -1001,8 +987,7 @@ This configuration file has the following settings for `oc_chef_authz`:
 :   The amount of time (in milliseconds) to wait for a connection to be
     established. Default value: `'[{connect_timeout, 5000}]'`.
 
-oc-chef-pedant
---------------
+### oc-chef-pedant
 
 This configuration file has the following settings for `oc-chef-pedant`:
 
@@ -1043,8 +1028,7 @@ This configuration file has the following settings for `oc-chef-pedant`:
     { 'file_maxbytes' => 104857600, 'num_to_keep' => 10 }
     ```
 
-oc-id
------
+### oc-id
 
 {{% server_services_oc_id %}}
 
@@ -1145,8 +1129,7 @@ This configuration file has the following settings for `oc-id`:
 
 :   The virtual IP address. Default value: `'127.0.0.1'`.
 
-opscode-chef-mover
-------------------
+### opscode-chef-mover
 
 This configuration file has the following settings for
 `opscode-chef-mover`:
@@ -1245,8 +1228,7 @@ This configuration file has the following settings for
 
 :   Default value: `30000`.
 
-opscode-erchef
---------------
+### opscode-erchef
 
 {{% server_services_erchef %}}
 
@@ -1468,8 +1450,7 @@ This configuration file has the following settings for `opscode-erchef`:
 
 :   The virtual IP address. Default value: `127.0.0.1`.
 
-opscode-expander
-----------------
+### opscode-expander
 
 {{% server_services_expander %}}
 
@@ -1526,8 +1507,7 @@ This configuration file has the following settings for
     /var/log/opscode/opscode-expander-reindexer
     ```
 
-opscode-solr4
--------------
+### opscode-solr4
 
 {{% server_services_solr4 %}}
 
@@ -1677,8 +1657,7 @@ This configuration file has the following settings for `opscode-solr4`:
 
 :   The virtual IP address. Default value: `127.0.0.1`.
 
-postgresql
-----------
+### postgresql
 
 {{% server_services_postgresql %}}
 
@@ -1866,8 +1845,7 @@ This configuration file has the following settings for `postgresql`:
 :   The size (in megabytes) of allowed in-memory sorting. Default value:
     `8MB`.
 
-rabbitmq
---------
+### rabbitmq
 
 {{% server_services_rabbitmq %}}
 
@@ -2082,8 +2060,7 @@ This configuration file has the following settings for `rabbitmq`:
 
 :   The virtual IP address. Default value: `'127.0.0.1'`.
 
-redis_lb
----------
+### redis_lb
 
 {{% server_services_redis %}}
 
@@ -2226,8 +2203,7 @@ This configuration file has the following settings for `redis_lb`:
     Management](/ctl_chef_server/#ctl-chef-server-secrets-management)
     command: `chef-server-ctl set-secret redis_lb password`.
 
-upgrades
---------
+### upgrades
 
 This configuration file has the following settings for `upgrades`:
 
@@ -2236,8 +2212,7 @@ This configuration file has the following settings for `upgrades`:
 :   The working directory. The default value is the recommended value.
     Default value: `'/var/opt/opscode/upgrades'`.
 
-user
-----
+### user
 
 This configuration file has the following settings for `user`:
 
@@ -2256,8 +2231,7 @@ This configuration file has the following settings for `user`:
 :   The user name under which Chef Infra Server services run. Default
     value: `opscode`.
 
-required_recipe
-----------------
+### required_recipe
 
 `required_recipe` is a feature in Chef Server versions 12.15.0 and above
 that allows an administrator to specify a recipe that will be run by all

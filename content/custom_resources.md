@@ -26,8 +26,7 @@ For example, Chef Infra Client includes built-in resources to manage
 files, packages, templates, and services, but it does not include a
 resource that manages websites.
 
-Syntax
-======
+## Syntax
 
 A custom resource is defined as a Ruby file and is located in a
 cookbook's `/resources` directory. This file:
@@ -61,8 +60,7 @@ in a custom resource, like "name". For example,
 
 {{< /warning >}}
 
-Example
--------
+### Example
 
 This example `site` utilizes Chef's built-in `file`, `service` and
 `package` resources, and includes `:create` and `:delete` actions. Since
@@ -124,8 +122,7 @@ exampleco_site 'httpd' do
 end
 ```
 
-resource_name
---------------
+### resource_name
 
 {{< note >}}
 
@@ -137,8 +134,7 @@ resource_name
 
 {{% dsl_custom_resource_method_resource_name_example %}}
 
-Scenario: website Resource
-==========================
+## Scenario: website Resource
 
 Create a resource that configures Apache httpd for Red Hat Enterprise
 Linux 7 and CentOS 7.
@@ -152,8 +148,7 @@ This scenario covers the following:
 5.  Creating two templates that support the custom resource
 6.  Adding the resource to a recipe
 
-Create a Cookbook
------------------
+### Create a Cookbook
 
 This article assumes that a cookbook directory named `website` exists in
 a chef-repo with (at least) the following directories:
@@ -172,8 +167,7 @@ See /ctl_chef.html for more information about how to use the `chef`
 command-line tool that is packaged with Chef Workstation to build the
 chef-repo, plus related cookbook sub-directories.
 
-Objectives
-----------
+### Objectives
 
 Define a custom resource!
 
@@ -186,7 +180,7 @@ A custom resource typically contains:
     Chef Infra Client to define the steps required to complete the
     action
 
-### What is needed?
+#### What is needed?
 
 This custom resource requires:
 
@@ -195,8 +189,7 @@ This custom resource requires:
 -   An action that defines all of the steps necessary to create the
     website
 
-Define Properties
------------------
+### Define Properties
 
 Custom properties are defined in the resource. This custom resource
 needs two:
@@ -226,8 +219,7 @@ The `instance_name` property is then used within the custom resource in
 many locations, including defining paths to configuration files,
 services, and virtual hosts.
 
-Define Actions
---------------
+### Define Actions
 
 Each custom resource must have at least one action that is defined
 within an `action` block:
@@ -251,14 +243,13 @@ custom_resource 'name' do
 end
 ```
 
-Define Resource
----------------
+### Define Resource
 
 Use the **package**, **template** (two times), **directory**, and
 **service** resources to define the `website` resource. Remember: order
 matters!
 
-### package
+#### package
 
 Use the **package** resource to install httpd:
 
@@ -268,7 +259,7 @@ package 'httpd' do
 end
 ```
 
-### template, httpd.service
+#### template, httpd.service
 
 Use the **template** resource to create an `httpd.service` on the node
 based on the `httpd.service.erb` template located in the cookbook:
@@ -289,7 +280,7 @@ where
 -   `variables` assigns the `instance_name` property to a variable in
     the template
 
-### template, httpd.conf
+#### template, httpd.conf
 
 Use the **template** resource to configure httpd on the node based on
 the `httpd.conf.erb` template located in the cookbook:
@@ -322,7 +313,7 @@ resource and won't be able to find them. Example: `cookbook 'website'`
 
 {{< /note >}}
 
-### directory
+#### directory
 
 Use the **directory** resource to create the `/var/www/vhosts` directory
 on the node:
@@ -334,7 +325,7 @@ directory "/var/www/vhosts/#{new_resource.instance_name}" do
 end
 ```
 
-### service
+#### service
 
 Use the **service** resource to enable, and then start the service:
 
@@ -344,8 +335,7 @@ service "httpd-#{new_resource.instance_name}" do
 end
 ```
 
-Create Templates
-----------------
+### Create Templates
 
 The `/templates` directory must contain two templates:
 
@@ -353,7 +343,7 @@ The `/templates` directory must contain two templates:
 -   `httpd.service.erb` to tell systemd how to start and stop the
     website
 
-### httpd.conf.erb
+#### httpd.conf.erb
 
 `httpd.conf.erb` stores information about the website and is typically
 located under the `/etc/httpd`:
@@ -377,7 +367,7 @@ DocumentRoot "/var/www/vhosts/<%= @instance_name %>"
 Copy it as shown, add it under `/templates`, and then name the file
 `httpd.conf.erb`.
 
-#### Template Variables
+**Template Variables**
 
 The `httpd.conf.erb` template has two variables:
 
@@ -394,7 +384,7 @@ They are:
 -   `instance_name` defaults to the `'name'` of the custom resource if
     not specified as a property
 
-### httpd.service.erb
+#### httpd.service.erb
 
 `httpd.service.erb` tells systemd how to start and stop the website:
 
@@ -420,8 +410,7 @@ WantedBy=multi-user.target
 Copy it as shown, add it under `/templates`, and then name it
 `httpd.service.erb`.
 
-Final Resource
---------------
+### Final Resource
 
 ``` ruby
 property :instance_name, String, name_property: true
@@ -461,8 +450,7 @@ action :create do
 end
 ```
 
-Final Cookbook Directory
-------------------------
+### Final Cookbook Directory
 
 When finished adding the templates and building the custom resource, the
 cookbook directory structure should look like this:
@@ -480,8 +468,7 @@ cookbook directory structure should look like this:
     httpd.service.erb
 ```
 
-Recipe
-------
+### Recipe
 
 The custom resource name is inferred from the name of the cookbook
 (`website`), the name of the resource file (`httpd`), and is separated
@@ -503,14 +490,12 @@ which does the following:
 -   Creates the virtual host for the website
 -   Starts the website using systemd
 
-Custom Resource DSL
-===================
+## Custom Resource DSL
 
 The following sections describe additional Custom Resource DSL methods
 that were not used in the preceding scenario:
 
-action_class
--------------
+### action_class
 
 Use the `action_class` block to make methods available to the actions in
 the custom resource. Modules with helper methods created as files in the
@@ -555,40 +540,35 @@ action_class do
 end
 ```
 
-converge_if_changed
----------------------
+### converge_if_changed
 
 {{% dsl_custom_resource_method_converge_if_changed %}}
 
-### Multiple Properties
+#### Multiple Properties
 
 {{% dsl_custom_resource_method_converge_if_changed_multiple %}}
 
-default_action
----------------
+### default_action
 
 {{% dsl_custom_resource_method_default_action %}}
 
-load_current_value
---------------------
+### load_current_value
 
 {{% dsl_custom_resource_method_load_current_value %}}
 
-new_resource.property
-----------------------
+### new_resource.property
 
 {{< readFile_shortcode file="dsl_custom_resource_method_new_resource.md" >}}
 
-property
---------
+### property
 
 {{% dsl_custom_resource_method_property %}}
 
-### ruby_type
+#### ruby_type
 
 {{% dsl_custom_resource_method_property_ruby_type %}}
 
-### sensitive
+#### sensitive
 
 A property can be marked sensitive by specifying `sensitive: true` on
 the property. This prevents the contents of the property from being
@@ -596,40 +576,35 @@ exported to data collection and sent to an Automate server.
 
 Note: This feature was introduced in Chef Client 12.14.
 
-### validators
+#### validators
 
 {{% dsl_custom_resource_method_property_validation_parameter %}}
 
-### desired_state
+#### desired_state
 
 {{% dsl_custom_resource_method_property_desired_state %}}
 
-### identity
+#### identity
 
 {{% dsl_custom_resource_method_property_identity %}}
 
-Block Arguments
----------------
+### Block Arguments
 
 {{% dsl_custom_resource_method_property_block_argument %}}
 
-property_is_set?
-------------------
+### property_is_set?
 
 {{% dsl_custom_resource_method_property_is_set %}}
 
-provides
---------
+### provides
 
 {{% dsl_custom_resource_method_provides %}}
 
-reset_property
----------------
+### reset_property
 
 {{% dsl_custom_resource_method_reset_property %}}
 
-coerce
-------
+### coerce
 
 `coerce` is used to transform user input into a canonical form. The
 value is passed in, and the transformed value returned as output. Lazy

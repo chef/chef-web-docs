@@ -16,27 +16,22 @@ aliases = ["/install_omnibus.html", "/install_omnibus/"]
 
 {{% packages_install_script %}}
 
-Run the Chef Software Install Script
-====================================
+## Run the Chef Software Install Script
 
 {{% packages_install_script_run %}}
 
-UNIX, Linux, and macOS
-----------------------
+### UNIX, Linux, and macOS
 
 {{% packages_install_script_run_unix_linux %}}
 
-Microsoft Windows
------------------
+### Microsoft Windows
 
 {{% packages_install_script_run_windows %}}
 
-Chef Software Install Script Options
-====================================
+## Chef Software Install Script Options
 
 {{% packages_install_script_options %}}
 
-Examples
-========
+## Examples
 
 {{% packages_install_script_examples %}}

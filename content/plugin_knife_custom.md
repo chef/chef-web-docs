@@ -29,8 +29,7 @@ This approach allows knife plugins to be reused across projects in the
 home directory, kept in a repository that is accessible to other team
 members, and distributable to the community using RubyGems.
 
-Syntax
-======
+## Syntax
 
 There are many ways to structure a knife plugin. The following syntax
 shows a typical knife plugin:
@@ -156,8 +155,7 @@ end
 Take a look at all of the code for this plugin on GitHub:
 <https://github.com/chef/knife-windows/blob/master/lib/chef/knife/winrm.rb>.
 
-Namespace
----------
+### Namespace
 
 A knife plugin should have its own namespace (even though knife will
 load a command regardless of its namespace). The namespace is declared
@@ -165,7 +163,7 @@ using the `module` method, for example:
 
 ``` ruby
 require 'chef/knife'
-# other require attributes, as needed
+## other require attributes, as needed
 
 module MyNamespace
   class SubclassName < Chef::Knife
@@ -174,8 +172,7 @@ module MyNamespace
 where `module MyNamespace` declares that the knife plugin has its own
 namespace, with a namespace of `MyNamespace`.
 
-Class Name
-----------
+### Class Name
 
 The class name declares a plugin as a subclass of both `Knife` and
 `Chef`. For example:
@@ -199,8 +196,7 @@ class name:
 class CookbookUpload < Chef::Knife
 ```
 
-Banner
-------
+### Banner
 
 A banner displays the syntax for the plugin to users when they enter the
 `--help` option. Use the `banner` method in the class body similar to
@@ -224,8 +220,7 @@ displayed:
 knife example
 ```
 
-Dependencies
-------------
+### Dependencies
 
 The functionality of other knife plugins can be accessed from a plugin
 by using the `deps` method to ensure the necessary files are available.
@@ -255,7 +250,7 @@ requirements on other plugins and search functionality.
 
 {{< /note >}}
 
-### Requirements
+#### Requirements
 
 The functionality of other knife plugins can be accessed from a plugin
 by using the `require` method to ensure the necessary files are
@@ -315,8 +310,7 @@ And then call the object's `run` method, like this:
 bootstrap.run
 ```
 
-Options
--------
+### Options
 
 Command-line options can be added to a knife plugin using the `option`
 method. An option can have a true/false value:
@@ -405,8 +399,7 @@ or just `knife example` to return:
 I am just a boring example.
 ```
 
-Arguments
----------
+### Arguments
 
 A knife plugin can also take command-line arguments that are not
 specified using the `option` flag, for example: `knife node show NODE`.
@@ -479,8 +472,7 @@ will return:
 OMG HELLO CHEFS!!!1!!11
 ```
 
-config.rb Settings
-------------------
+### config.rb Settings
 
 Certain settings defined by a knife plugin can be configured so that
 they can be set using the config.rb file. This can be done in two ways:
@@ -550,8 +542,7 @@ where
     config.rb file for various settings
 -   Raises an exception if any aspect of the SSH operation fails
 
-Search
-------
+### Search
 
 Use the Chef Infra Server search capabilities from a plugin to return
 information about the infrastructure to that plugin. Use the `require`
@@ -640,8 +631,7 @@ module MyKnifePlugins
   end
 ```
 
-User Interaction
-----------------
+### User Interaction
 
 The `ui` object provides a set of methods that can be used to define
 user interactions and to help ensure a consistent user experience across
@@ -763,8 +753,7 @@ unless name_args.size == 1
 end
 ```
 
-Create a Plugin
-===============
+## Create a Plugin
 
 A knife command is a Ruby class that inherits from the `Chef::Knife`
 class. A knife command is run by calling the `run` method on an instance
@@ -787,8 +776,7 @@ and is run from the command line using:
 knife hello world
 ```
 
-Exceptions
-==========
+## Exceptions
 
 In most cases, the exception handling available within knife is enough
 to ensure that exception handling for a plugin is consistent with how
@@ -796,8 +784,7 @@ knife ordinarily behaves. That said, exceptions can also be handled
 within a knife plugin in the same way they are handled in any Ruby
 program.
 
-Install a Plugin
-================
+## Install a Plugin
 
 To install a knife plugin from a file, do one of the following:
 
