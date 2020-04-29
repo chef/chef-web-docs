@@ -1,7 +1,6 @@
 ---
 title: bash resource
 resource: bash
-draft: false
 aliases:
 - "/resource_bash.html"
 menu:
@@ -9,9 +8,7 @@ menu:
     title: bash
     identifier: chef_infra/cookbook_reference/resources/bash bash
     parent: chef_infra/cookbook_reference/resources
-
 resource_reference: true
-robots: null
 resource_description_list:
 - markdown: 'Use the **bash** resource to execute scripts using the Bash interpreter.
 
@@ -81,15 +78,11 @@ properties_list:
 - property: creates
   ruby_type: String
   required: false
-  default_value:
-  new_in:
   description_list:
   - markdown: Prevent a command from creating a file when that file already exists.
 - property: cwd
   ruby_type: String
   required: false
-  default_value:
-  new_in:
   description_list:
   - markdown: The current working directory from which the command will be run.
 - property: environment
@@ -106,16 +99,12 @@ properties_list:
 - property: flags
   ruby_type: String
   required: false
-  default_value:
-  new_in:
   description_list:
   - markdown: One or more command line flags that are passed to the interpreter when
       a command is invoked.
 - property: group
   ruby_type: String, Integer
   required: false
-  default_value:
-  new_in:
   description_list:
   - markdown: 'The group name or group ID that must be changed before running a
 
@@ -202,19 +191,14 @@ properties_list:
 
       match.'
 - property: timeout
-  ruby_type: Integer, Float
+  ruby_type: Integer, String, Float
   required: false
   default_value: '3600'
-  new_in: null
   description_list:
-  - markdown: 'The amount of time (in seconds) a command is to wait before timing
-
-      out.'
+  - markdown: The amount of time (in seconds) a command is to wait before timing out.
 - property: user
   ruby_type: String, Integer
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: 'The user name or user ID that should be changed before running a
 
@@ -222,8 +206,6 @@ properties_list:
 - property: umask
   ruby_type: String, Integer
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: The file mode creation mask, or umask.
 properties_shortcode: null
