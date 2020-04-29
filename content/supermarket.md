@@ -16,8 +16,7 @@ aliases = ["/supermarket.html"]
 
 {{% supermarket_summary %}}
 
-Public Supermarket
-==================
+## Public Supermarket
 
 The public Chef Supermarket hosted by Chef Software is located at [Chef
 Supermarket](https://supermarket.chef.io/).
@@ -27,8 +26,7 @@ supermarket](/workstation/knife_supermarket/) commands.
 
 <img src="/images/public_supermarket.svg" class="align-center" width="700" alt="image" />
 
-Private Supermarket
-===================
+## Private Supermarket
 
 {{% supermarket_private %}}
 
@@ -38,8 +36,7 @@ Private Supermarket
 
 {{< /note >}}
 
-Recommended Tools
------------------
+### Recommended Tools
 
 The following tools are recommended for use with a private Chef
 Supermarket:
@@ -47,7 +44,7 @@ Supermarket:
 -   Berkshelf
 -   Stove
 
-### Berkshelf
+#### Berkshelf
 
 Berkshelf can include multiple Chef Supermarket instances for dependency
 resolution. Cookbook dependency resolution is performed from the top
@@ -63,22 +60,20 @@ source 'https://your_private_supermarket_url'
 source 'https://supermarket.chef.io'
 ```
 
-### Stove
+#### Stove
 
 Stove is a utility for packaging and releasing Chef cookbooks:
 <https://github.com/sethvargo/stove>.
 
-Installing and Upgrading Private Supermarket
---------------------------------------------
+### Installing and Upgrading Private Supermarket
 
 Install a private Supermarket using these [instructions](/install_supermarket/).
 
 Upgrade a private Supermarket using these [instructions](/install_supermarket/#upgrade-a-private-supermarket).
 
-Set up Workstation
-------------------
+### Set up Workstation
 
-### Configure config.rb
+#### Configure config.rb
 
 The config.rb file on the workstation should be configured for use with
 the private Chef Supermarket.
@@ -96,8 +91,7 @@ following:
 
 3.  Save and close the file.
 
-Create a Cookbook
------------------
+### Create a Cookbook
 
 The following examples show how to create a simple cookbook by using the
 chef command that is built into Chef Workstation.
@@ -170,8 +164,7 @@ template '/var/www/html/index.html' do
 end
 ```
 
-Upload a Cookbook
------------------
+### Upload a Cookbook
 
 To upload a cookbook to Chef Supermarket, do the following:
 
@@ -200,14 +193,13 @@ To upload a cookbook to Chef Supermarket, do the following:
     knife supermarket share mycookbook "Other"
     ```
 
-Share a Cookbook
-----------------
+### Share a Cookbook
 
 ``` bash
 knife supermarket share 'my_cookbook'
 ```
 
-### Troubleshoot SSL Errors
+#### Troubleshoot SSL Errors
 
 If an SSL error is returned similar to:
 
@@ -241,32 +233,28 @@ Making tarball my_cookbook.tgz
 Upload complete!
 ```
 
-supermarket-ctl (executable)
-----------------------------
+### supermarket-ctl (executable)
 
 {{% ctl_supermarket_summary %}}
 
 For more information about the supermarket-ctl command line tool, see
 [supermarket-ctl](/ctl_supermarket/).
 
-supermarket.rb
---------------
+### supermarket.rb
 
 {{% config_rb_supermarket_summary %}}
 
 For more information about the supermarket.rb file, see
 [supermarket.rb](/config_rb_supermarket/).
 
-Supermarket API
----------------
+### Supermarket API
 
 {{% supermarket_api_summary %}}
 
 For more information about the Supermarket API, see [Supermarket
 API](/supermarket_api/).
 
-fieri
------
+### fieri
 
 Fieri is an optional service what will check cookbook versions for
 certain metrics to determine the quality of the cookbook.

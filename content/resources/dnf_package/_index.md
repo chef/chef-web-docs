@@ -9,7 +9,7 @@ menu:
     title: dnf_package
     identifier: chef_infra/cookbook_reference/resources/dnf_package dnf_package
     parent: chef_infra/cookbook_reference/resources
-    weight: 440
+
 resource_reference: true
 robots: null
 resource_description_list:

@@ -18,8 +18,7 @@ Chef's Omnitruck API powers the Chef Software Install script as well as
 downloads.chef.io site. It can be used to query available versions of
 Chef Software Inc. products and to provide direct download URLs.
 
-Syntax
-======
+## Syntax
 
 The URL from which these downloads can be obtained has the following
 syntax:
@@ -39,8 +38,7 @@ options. Use the `metadata` option to verify the build before
 downloading it. Use the `download` option to download the package in a
 single step.
 
-Downloads
-=========
+## Downloads
 
 The `/metadata` and/or `/download` endpoints can be used to download
 packages for all products:
@@ -80,17 +78,16 @@ where:
     information about application versioning, see <https://semver.org/>.
     Default value: `latest`.
 
-Platforms
----------
+### Platforms
 
 Omnitruck accepts the following platforms:
 
 <table>
 <colgroup>
-<col style="width: 56%" />
+<col style="width: 25%" />
 <col style="width: 12%" />
-<col style="width: 12%" />
-<col style="width: 20%" />
+<col style="width: 23%" />
+<col style="width: 50%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -110,7 +107,7 @@ Omnitruck accepts the following platforms:
 <tr class="even">
 <td>Amazon Linux</td>
 <td><code>amazon</code></td>
-<td><code>x86_64</code></td>
+<td><code>x86_64</code>,<code>aarch64</code></td>
 <td><code>201X, 2</code></td>
 </tr>
 <tr class="odd">
@@ -128,7 +125,7 @@ Omnitruck accepts the following platforms:
 <tr class="odd">
 <td>Debian</td>
 <td><code>debian</code></td>
-<td><code>x86_64</code></td>
+<td><code>i386</code>, <code>x86_64</code></td>
 <td><code>6</code>, <code>7</code>, <code>8</code>, <code>9</code>, <code>10</code></td>
 </tr>
 <tr class="even">
@@ -152,7 +149,7 @@ Omnitruck accepts the following platforms:
 <tr class="odd">
 <td>SUSE Linux Enterprise Server</td>
 <td><code>sles</code></td>
-<td><code>x86_64</code>, <code>s390x</code></td>
+<td><code>x86_64</code>, <code>s390x</code>, <code>aarch64</code></td>
 <td><code>11</code>, <code>12</code>, <code>15</code></td>
 </tr>
 <tr class="even">
@@ -165,7 +162,7 @@ Omnitruck accepts the following platforms:
 <td>Ubuntu</td>
 <td><code>ubuntu</code></td>
 <td><code>i386</code>, <code>x86_64</code>, <code>aarch64</code>, <code>ppc64le</code></td>
-<td><code>10.04</code>, <code>10.10</code>, <code>11.04</code>, <code>11.10</code>, <code>12.04</code>, <code>12.10</code>, <code>13.04</code>, <code>13.10</code>, <code>14.04</code>, <code>14.10</code>, <code>16.04</code>, <code>16.10</code>, <code>17.04</code>, <code>17.10</code>, <code>18.04</code></td>
+<td><code>10.04</code>, <code>10.10</code>, <code>11.04</code>, <code>11.10</code>, <code>12.04</code>, <code>12.10</code>, <code>13.04</code>, <code>13.10</code>, <code>14.04</code>, <code>14.10</code>, <code>16.04</code>, <code>16.10</code>, <code>17.04</code>, <code>17.10</code>, <code>18.04</code>, <code>20.04</code></td>
 </tr>
 <tr class="even">
 <td>Microsoft Windows</td>
@@ -176,24 +173,23 @@ Omnitruck accepts the following platforms:
 </tbody>
 </table>
 
-Examples
---------
+### Examples
 
 **Get the Latest Build**
 
-To get the latest supported build for Ubuntu 18.04, enter the following:
+To get the latest supported build for Ubuntu 20.04, enter the following:
 
 ``` none
-https://omnitruck.chef.io/stable/chef/metadata?p=ubuntu&pv=18.04&m=x86_64
+https://omnitruck.chef.io/stable/chef/metadata?p=ubuntu&pv=20.04&m=x86_64
 ```
 
 to return something like:
 
 ``` none
-sha1 dc185e713e1dc3a79f699340c4fb169596375b43
-sha256 d5a616db707690fe52aa90f52c13deb3e37c3b8790feb2c37154ab3c4565fda7
-url https://packages.chef.io/files/stable/chef/15.8.23/ubuntu/18.04/chef_15.8.23-1_amd64.deb
-version 15.8.23
+sha1 b56f0ebce281d360613ee4f8ca8ce654e915d726
+sha256 d28696b523eaa1040f5c17693fc102e2c22a9ecc0e1296284f9c610e250eb66c
+url https://packages.chef.io/files/stable/chef/16.0.257/ubuntu/20.04/chef_16.0.257-1_amd64.deb
+version 16.0.257
 ```
 
 **Download Directly**
@@ -201,11 +197,11 @@ version 15.8.23
 To use cURL to download a package directly, enter the following:
 
 ``` bash
-curl -LOJ 'https://omnitruck.chef.io/<CHANNEL>/<PRODUCT>/download?p=debian&pv=6&m=x86_64'
+curl -LOJ 'https://omnitruck.chef.io/<CHANNEL>/<PRODUCT>/download?p=debian&pv=10&m=x86_64'
 ```
 
 To use GNU Wget to download a package directly, enter the following:
 
 ``` bash
-wget --content-disposition https://omnitruck.chef.io/<CHANNEL>/<PRODUCT>/download?p=debian&pv=6&m=x86_64
+wget --content-disposition https://omnitruck.chef.io/<CHANNEL>/<PRODUCT>/download?p=debian&pv=10&m=x86_64
 ```

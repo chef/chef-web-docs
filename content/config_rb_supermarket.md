@@ -24,8 +24,7 @@ settings for the Supermarket server, create a file named
 
 {{< /note >}}
 
-Settings
-========
+## Settings
 
 The following settings are available in the `supermarket.rb` file.
 
@@ -36,8 +35,7 @@ the `supermarket.rb` file.
 
 {{< /note >}}
 
-General
--------
+### General
 
 This configuration file has the following general settings:
 
@@ -114,8 +112,7 @@ This configuration file has the following general settings:
 :   The directory where data and cookbooks are installed. Default value:
     `'/var/opt/supermarket'`.
 
-Amazon Simple Storage Service (S3)
-----------------------------------
+### Amazon Simple Storage Service (S3)
 
 Use these settings to upload cookbooks to an Amazon Simple Storage
 Service (S3) bucket.
@@ -159,8 +156,7 @@ Encrypted S3 buckets are currently not supported.
 
 :   The access key identifier. (required to use S3)
 
-Database
---------
+### Database
 
 The following database options are available:
 
@@ -199,8 +195,7 @@ The following database options are available:
 :   The system user that runs PostgreSQL. By default, this uses the
     value of `node['supermarket']['user']`.
 
-Fieri
------
+### Fieri
 
 Use these settings to enable [Fieri](/supermarket/#fieri), an
 optional service built into Supermarket that provides cookbook quality
@@ -224,8 +219,7 @@ As a Supermarket feature, Fieri must be enabled via the
 :   A string that is used as a key to authenticate Fieri. Default value:
     `nil`
 
-GitHub
-------
+### GitHub
 
 Use these settings to integrate Supermarket with GitHub.
 
@@ -247,8 +241,7 @@ As a Supermarket feature, GitHub must be enabled via the
 :   The application client secret that is used to authenticate
     Supermarket to GitHub. Default value: `nil`.
 
-Google Analytics
-----------------
+### Google Analytics
 
 Use this setting to set up [Google
 Analytics](https://analytics.google.com) tracking for Supermarket:
@@ -259,8 +252,7 @@ Analytics](https://analytics.google.com) tracking for Supermarket:
     ID](https://support.google.com/analytics/answer/7372977?hl=en) for
     Supermarket. Default value: `nil`.
 
-New Relic
----------
+### New Relic
 
 Use these settings to integrate Supermarket with [New
 Relic](https://newrelic.com/), a software analytics platform:
@@ -279,8 +271,7 @@ Relic](https://newrelic.com/), a software analytics platform:
 
 :   The New Relic license key. Default value: `nil`.
 
-Nginx
------
+### Nginx
 
 This configuration file has the following settings for nginx:
 
@@ -524,8 +515,7 @@ This configuration file has the following settings for nginx:
     allowed clients. Default value:
     `node['cpu'] && node['cpu']['total'] ? node['cpu']['total'] : 1`.
 
-Oauth2
-------
+### Oauth2
 
 This configuration file has the following settings for the Chef Infra
 Server identity service:
@@ -558,8 +548,7 @@ Server identity service:
     self-signed certificate without a properly configured certificate
     authority, this must be set to `false`.
 
-PostgreSQL
-----------
+### PostgreSQL
 
 This configuration file has the following settings for PostgreSQL:
 
@@ -654,8 +643,7 @@ This configuration file has the following settings for PostgreSQL:
 :   The size (in megabytes) of allowed in-memory sorting. Default value:
     `'8MB'`.
 
-Redis
------
+### Redis
 
 This configuration file has the following settings for Redis:
 
@@ -691,8 +679,7 @@ This configuration file has the following settings for Redis:
 :   The port on which the service is to listen. Default value:
     `'16379'`.
 
-Ruby on Rails
--------------
+### Ruby on Rails
 
 This configuration file has the following settings for Ruby on Rails:
 
@@ -717,8 +704,7 @@ This configuration file has the following settings for Ruby on Rails:
 
 :   The port on which the service is to listen. Default value: `13000`.
 
-runit
------
+### runit
 
 This configuration file has the following settings for runit:
 
@@ -727,8 +713,7 @@ This configuration file has the following settings for runit:
 :   Default value:
     `"#{node['supermarket']['install_directory']}/embedded/bin/svlogd"`.
 
-Sentry
-------
+### Sentry
 
 This option is used to integrate Supermarket with the
 [Sentry](https://sentry.io/welcome/) error logging service:
@@ -738,8 +723,7 @@ This option is used to integrate Supermarket with the
 :   The Sentry URL that is used to send error reports. Default value:
     `nil`.
 
-Sidekiq
--------
+### Sidekiq
 
 This configuration file has the following settings for background
 processes that are managed by Sidekiq:
@@ -771,8 +755,7 @@ processes that are managed by Sidekiq:
 :   The amount of time (in seconds) that Sidekiq should wait for a
     worker before it is terminated. Default value: `30`.
 
-SMTP
-----
+### SMTP
 
 This configuration file has the following settings for SMTP:
 
@@ -797,8 +780,7 @@ This configuration file has the following settings for SMTP:
 :   The default sender address of all Supermarket mailers. Default
     value: `nil`.
 
-SSL
----
+### SSL
 
 This configuration file has the following settings for SSL:
 
@@ -872,8 +854,7 @@ This configuration file has the following settings for SSL:
 :   The state, province, or region in which your company is located.
     Default value: `'WA'`.
 
-StatsD
-------
+### StatsD
 
 This configuration file has the following settings for reporting to a
 StatsD server:
@@ -886,8 +867,7 @@ StatsD server:
 
 :   The URL to which reporting metrics are sent. Default value: `nil`.
 
-URLs
-----
+### URLs
 
 Use these settings to replace `chef.io` URLs with your own internal
 mirrors or alternatives.

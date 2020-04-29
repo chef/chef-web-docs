@@ -9,7 +9,7 @@ menu:
     title: mdadm
     identifier: chef_infra/cookbook_reference/resources/mdadm mdadm
     parent: chef_infra/cookbook_reference/resources
-    weight: 690
+
 resource_reference: true
 robots: null
 resource_description_list:

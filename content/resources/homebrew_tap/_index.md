@@ -9,7 +9,7 @@ menu:
     title: homebrew_tap
     identifier: chef_infra/cookbook_reference/resources/homebrew_tap homebrew_tap
     parent: chef_infra/cookbook_reference/resources
-    weight: 560
+
 resource_reference: true
 robots: null
 resource_description_list:

@@ -16,8 +16,7 @@ aliases = ["/chef_solo.html"]
 
 {{% chef_solo_summary %}}
 
-Cookbooks
-=========
+## Cookbooks
 
 chef-solo supports two locations from which cookbooks can be run:
 
@@ -52,8 +51,7 @@ When the tar.gz archive contains all of the cookbooks required by
 chef-solo, upload it to the web server from which chef-solo will access
 the archive.
 
-Nodes
-=====
+## Nodes
 
 Unlike Chef Infra Client, where the node object is stored on the Chef
 Infra Server, chef-solo stores its node objects as JSON files on local
@@ -62,8 +60,7 @@ the same directory as your `cookbooks` directory. You can control the
 location of this directory via the `node_path` value in your
 configuration file.
 
-Attributes
-==========
+## Attributes
 
 chef-solo does not interact with the Chef Infra Server. Consequently,
 node-specific attributes must be located in a JSON file on the target
@@ -83,8 +80,7 @@ run-list. For example:
 }
 ```
 
-Data Bags
-=========
+## Data Bags
 
 A data bag is defined using JSON. chef-solo will look for data bags in
 `/var/chef/data_bags`, but this location can be modified by changing the
@@ -120,8 +116,7 @@ where the name of the file is the `ITEM_NAME`, for example:
 /var/chef-solo/data_bags/admins/ITEM_NAME.json
 ```
 
-Roles
-=====
+## Roles
 
 A role is defined using JSON or the Ruby DSL. chef-solo will look for
 roles in `/var/chef/roles`, but this location can be modified by
@@ -160,13 +155,11 @@ and finally, JSON data passed to chef-solo:
 { 'run_list': 'role[test]' }
 ```
 
-Environments
-============
+## Environments
 
 {{% chef_solo_environments %}}
 
-chef-solo (executable)
-======================
+## chef-solo (executable)
 
 See [chef-solo (executable)](/ctl_chef_solo/) for complete CTL
 documentation.

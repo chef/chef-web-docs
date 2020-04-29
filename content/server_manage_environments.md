@@ -16,8 +16,6 @@ aliases = ["/server_manage_environments.html"]
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/server_manage_environments.md)
 
-
-
 {{< note >}}
 
 This topic is about using the Chef management console to manage
@@ -29,14 +27,12 @@ environments.
 
 {{% environment %}}
 
-Manage
-======
+## Manage
 
 Environments can be managed from the Chef management console web user
 interface.
 
-Add Environment
----------------
+### Add Environment
 
 To add an environment:
 
@@ -75,8 +71,7 @@ To add an environment:
 
 9.  Click **Create Environment**.
 
-Delete Environment
-------------------
+### Delete Environment
 
 To delete an environment:
 
@@ -92,8 +87,7 @@ To delete an environment:
 
     ![image](/images/step_manage_webui_policy_environment_delete.png)
 
-Edit Details
-------------
+### Edit Details
 
 To edit the details of an environment:
 
@@ -104,8 +98,7 @@ To edit the details of an environment:
 5.  Click the **Details** tab.
 6.  Click **Edit**.
 
-Set
----
+### Set
 
 To set the environment for a node:
 
@@ -124,8 +117,7 @@ To set the environment for a node:
 
 6.  Click **Save**.
 
-View Details
-------------
+### View Details
 
 To view environment details:
 
@@ -135,13 +127,11 @@ To view environment details:
 4.  Select an environment.
 5.  Click the **Details** tab.
 
-Default Attributes
-==================
+## Default Attributes
 
 {{% node_attribute_type_default %}}
 
-Edit
-----
+### Edit
 
 To edit default attributes for an environment:
 
@@ -164,8 +154,7 @@ To edit default attributes for an environment:
 
 8.  Click **Save**.
 
-View
-----
+### View
 
 To view default attributes for an environment:
 
@@ -175,13 +164,11 @@ To view default attributes for an environment:
 4.  Select an environment.
 5.  Click the **Attributes** tab.
 
-Override Attributes
-===================
+## Override Attributes
 
 {{% node_attribute_type_override %}}
 
-Edit
-----
+### Edit
 
 To edit override attributes for an environment:
 
@@ -204,8 +191,7 @@ To edit override attributes for an environment:
 
 8.  Click **Save Attributes**.
 
-View
-----
+### View
 
 To view override attributes for an environment:
 
@@ -215,15 +201,13 @@ To view override attributes for an environment:
 4.  Select an environment.
 5.  Click the **Attributes** tab.
 
-Permissions
-===========
+## Permissions
 
 {{% server_rbac_permissions %}}
 
 {{% server_rbac_permissions_object %}}
 
-Set
----
+### Set
 
 To set permissions list for an environment object:
 
@@ -235,8 +219,7 @@ To set permissions list for an environment object:
 6.  For each group listed under **Name**, select or de-select the
     **Read**, **Update**, **Delete**, and **Grant** permissions.
 
-Update
-------
+### Update
 
 To update the permissions list for an environment object:
 
@@ -250,8 +233,7 @@ To update the permissions list for an environment object:
 7.  Select or de-select **Read**, **Update**, **Delete**, and **Grant**
     to update the permissions list for the user or group.
 
-View
-----
+### View
 
 To view permissions for an environment object:
 

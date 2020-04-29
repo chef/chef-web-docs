@@ -9,7 +9,7 @@ menu:
     title: chef_user
     identifier: chef_infra/cookbook_reference/resources/chef_user chef_user
     parent: chef_infra/cookbook_reference/resources
-    weight: 320
+
 resource_reference: true
 robots: null
 resource_description_list:

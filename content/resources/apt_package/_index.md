@@ -8,7 +8,7 @@ menu:
     title: apt_package
     identifier: chef_infra/cookbook_reference/resources/apt_package apt_package
     parent: chef_infra/cookbook_reference/resources
-    weight: 70
+
 resource_reference: true
 robots: null
 resource_description_list:

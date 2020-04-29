@@ -21,13 +21,11 @@ Keep reading to learn more about how attributes work, including more
 about the types of attributes, where attributes are saved, and how Chef
 Infra Client chooses which attribute to apply.
 
-Attribute Persistence
-=====================
+## Attribute Persistence
 
 {{% node_attribute_persistence %}}
 
-Attribute Types
-===============
+## Attribute Types
 
 {{% node_attribute_type %}}
 
@@ -70,8 +68,7 @@ Attribute Types
 </tbody>
 </table>
 
-Attribute Sources
-=================
+## Attribute Sources
 
 Attributes are provided to Chef Infra Client from the following
 locations:
@@ -108,15 +105,13 @@ Notes:
     Chef Infra Server is then indexed for search and is stored until the
     next Chef Infra Client run
 
-Automatic (Ohai)
-----------------
+### Automatic (Ohai)
 
 {{% ohai_automatic_attribute %}}
 
 {{% ohai_attribute_list %}}
 
-Attribute Files
----------------
+### Attribute Files
 
 An attribute file is located in the `attributes/` sub-directory for a
 cookbook. When a cookbook is run against a node, the attributes
@@ -140,18 +135,17 @@ node.default['apache']['dir']          = '/etc/apache2'
 node.default['apache']['listen_ports'] = [ '80','443' ]
 ```
 
-Attribute Evaluation Order
---------------------------
+### Attribute Evaluation Order
 
 {{% node_attribute_evaluation_order %}}
 
-### Use Attribute Files
+#### Use Attribute Files
 
 {{% node_attribute_when_to_use %}}
 
 {{% node_attribute_when_to_use_unless_variants %}}
 
-#### File Methods
+**File Methods**
 
 {{% cookbooks_attribute_file_methods %}}
 
@@ -178,46 +172,39 @@ if node.attribute?('ec2')
 end
 ```
 
-Recipes
--------
+### Recipes
 
 {{% cookbooks_recipe %}}
 
 {{% cookbooks_attribute %}}
 
-Roles
------
+### Roles
 
 {{% role %}}
 
 {{% role_attribute %}}
 
-Environments
-------------
+### Environments
 
 {{% environment %}}
 
 {{% environment_attribute %}}
 
-Attribute Precedence
-====================
+## Attribute Precedence
 
 {{% node_attribute_precedence %}}
 
-Blacklist Attributes
---------------------
+### Blacklist Attributes
 
 **New in Chef Client 13.0**
 
 {{% node_attribute_blacklist %}}
 
-Whitelist Attributes
---------------------
+### Whitelist Attributes
 
 {{% node_attribute_whitelist %}}
 
-Examples
---------
+### Examples
 
 The following examples are listed from low to high precedence.
 
@@ -327,8 +314,7 @@ or:
 override!['attribute'] = "The '!' means I win!"
 ```
 
-Change Attributes
-=================
+## Change Attributes
 
 Attribute precedence levels may be:
 
@@ -336,8 +322,7 @@ Attribute precedence levels may be:
 -   Removed for all attribute precedence levels.
 -   Fully assigned attributes.
 
-Remove Precedence Level
------------------------
+### Remove Precedence Level
 
 A specific attribute precedence level for default, normal, and override
 attributes may be removed by using one of the following syntax patterns.
@@ -357,7 +342,7 @@ For override attributes:
 These patterns return the computed value of the key being deleted for
 the specified precedence level.
 
-### Examples
+#### Examples
 
 The following examples show how to remove a specific, named attribute
 precedence level.
@@ -498,8 +483,7 @@ node.attributes.combined_default['foo'] #=> { 'bar' => {'baz' => 55} }
 node.rm_default("no", "such", "thing") #=> nil
 ```
 
-Remove All Levels
------------------
+### Remove All Levels
 
 All attribute precedence levels may be removed by using the following
 syntax pattern:
@@ -513,7 +497,7 @@ the new API.
 
 {{< /note >}}
 
-### Examples
+#### Examples
 
 The following examples show how to remove all attribute precedence
 levels.
@@ -558,8 +542,7 @@ node['foo'] #=> {'bat' => { 'things' => [5,6] } }
 node.rm_default("no", "such", "thing") #=> nil
 ```
 
-Full Assignment
----------------
+### Full Assignment
 
 Use `!` to clear out the key for the named attribute precedence level,
 and then complete the write by using one of the following syntax
@@ -571,7 +554,7 @@ patterns:
 -   `node.override!['foo']['bar'] = {...}`
 -   `node.force_override!['foo']['bar'] = {...}`
 
-### Examples
+#### Examples
 
 The following examples show how to remove all attribute precedence
 levels.
@@ -688,8 +671,7 @@ node.attributes.combined_override['foo'] #=> {'bar' => {'baz' => 99}}
 node['foo']['bar'] #=> {'baz' => 99}
 ```
 
-About Deep Merge
-================
+## About Deep Merge
 
 Attributes are typically defined in cookbooks, recipes, roles, and
 environments. These attributes are rolled-up to the node level during a
@@ -823,8 +805,7 @@ Even though the `web.rb` file does not contain attributes and values for
 The following sections show how the logic works for using deep merge to
 perform substitutions and additions of attributes.
 
-Substitution
-------------
+### Substitution
 
 The following examples show how the logic works for substituting an
 existing string using a hash:
@@ -854,8 +835,7 @@ For substituting an array with a hash:
 When items cannot be merged through substitution, the original data is
 overwritten.
 
-Addition
---------
+### Addition
 
 The following examples show how the logic works for adding a string
 using a hash:

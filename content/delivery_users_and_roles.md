@@ -16,8 +16,6 @@ aliases = ["/delivery_users_and_roles.html", "/release/automate/delivery_users_a
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/delivery_users_and_roles.md)
 
-
-
 {{% chef_automate_mark %}}
 
 {{% EOL_a1 %}}
@@ -26,8 +24,7 @@ This topic describes the roles and permissions that may be assigned to
 users of Chef Automate, how to integrate an LDAP system with Chef
 Automate, how to add and edit users, and how to add user SSH keys.
 
-Roles and Permissions
-=====================
+## Roles and Permissions
 
 Chef Automate has a standard users and roles permissions scheme. Roles
 are sets of permissions defined by Chef Automate. Users can be assigned
@@ -68,42 +65,36 @@ multiple roles.
 </tbody>
 </table>
 
-Integrate LDAP
-==============
+## Integrate LDAP
 
 {{% delivery_integration_ldap %}}
 
-LDAP Attributes
----------------
+### LDAP Attributes
 
 {{% delivery_integration_ldap_attributes %}}
 
-Configure LDAP
---------------
+### Configure LDAP
 
 {{% delivery_integration_ldap_configure %}}
 
-Manage Users
-------------
+### Manage Users
 
 {{% delivery_integration_ldap_users %}}
 
-### Add
+#### Add
 
 {{% delivery_integration_ldap_users_add %}}
 
-### Edit
+#### Edit
 
 {{% delivery_integration_ldap_users_edit %}}
 
-Onboard Users
-=============
+## Onboard Users
 
 Onboarding users to a project is different depending on whether you have
 integrated with GitHub or not.
 
-Chef Automate with GitHub
--------------------------
+### Chef Automate with GitHub
 
 Once a project is created, you will want to add users to that project so
 that they can submit changes and collaborate via the Chef Automate
@@ -122,7 +113,7 @@ provisioning or SSH provisioning.
 
 {{< /note >}}
 
-### Add Users
+#### Add Users
 
 You must associate a GitHub user with a Chef Automate user in order to
 successfully create changes from GitHub pull requests.
@@ -187,7 +178,7 @@ Note the following constraints:
 -   You may not link two GitHub accounts to a single Chef Automate user.
 -   Two users may not share a GitHub account
 
-### Submit Changes
+#### Submit Changes
 
 For an integrated GitHub Enterprise project or a project that is hosted
 on [GitHub.com](https://github.com/), users of Chef Automate should
@@ -225,8 +216,7 @@ submit changes as follows:
     When the final **Delivered** stage is passed, GitHub updates the
     **Delivery Status** at the top of the GitHub webui page.
 
-Chef Automate with Internal git
--------------------------------
+### Chef Automate with Internal git
 
 Once a project is created, you will want to add users to that project so
 that they can submit changes and collaborate via the Chef Automate
@@ -234,7 +224,7 @@ shared workflow. These procedures apply to Chef Automate deployments
 that are using the internal Chef Automate git capabilities and are not
 integrated to GitHub Enterprise or [GitHub.com](https://github.com/).
 
-### Add Users
+#### Add Users
 
 To onboard a user that is not using GitHub Enterprise or a project
 hosted at [GitHub.com](https://github.com/), but only the default git
@@ -247,7 +237,7 @@ that comes with Chef Automate:
 The associated user can now create a feature branch and submit changes
 to Chef Automate for review.
 
-### Submit Changes
+#### Submit Changes
 
 The change submission process is the familiar git process:
 
@@ -280,23 +270,19 @@ The change submission process is the familiar git process:
         pipeline. Also note that changes that would conflict with
         approved changes will not be moved past **Acceptance**.
 
-Add User SSH Keys
-=================
+## Add User SSH Keys
 
 First install the Delivery CLI, and then generate the user's SSH keys.
 
-Install the CLI
----------------
+### Install the CLI
 
 {{% delivery_cli_install %}}
 
-Configure the CLI
------------------
+### Configure the CLI
 
 {{% delivery_cli_configure %}}
 
-Add SSH Keys
-------------
+### Add SSH Keys
 
 To add SSH keys to Chef Automate, do the following:
 

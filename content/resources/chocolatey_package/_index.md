@@ -3,13 +3,13 @@ title: chocolatey_package resource
 resource: chocolatey_package
 draft: false
 aliases:
-- /resource_chocolatey_package.html
+- "/resource_chocolatey_package.html"
 menu:
   infra:
     title: chocolatey_package
     identifier: chef_infra/cookbook_reference/resources/chocolatey_package chocolatey_package
     parent: chef_infra/cookbook_reference/resources
-    weight: 350
+
 resource_reference: true
 robots: null
 resource_description_list:
@@ -159,7 +159,7 @@ properties_list:
   default_value: null
   new_in: null
   description_list:
-  - markdown: 'Optional. The path to a package in the local file system or a
+  - markdown: 'The optional path to a package in the local file system or a
 
       reachable UNC path. Ensure that the path specified is to the
 

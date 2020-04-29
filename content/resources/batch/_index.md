@@ -3,13 +3,13 @@ title: batch resource
 resource: batch
 draft: false
 aliases:
-- /resource_batch.html
+- "/resource_batch.html"
 menu:
   infra:
     title: batch
     identifier: chef_infra/cookbook_reference/resources/batch batch
     parent: chef_infra/cookbook_reference/resources
-    weight: 130
+
 resource_reference: true
 robots: null
 resource_description_list:

@@ -40,8 +40,7 @@ prune the backups to specified limits.
 `automate-ctl restore-backup` will perform full or partial restorations
 of a backup archive or elasticsearch snapshot.
 
-Configuration
-=============
+## Configuration
 
 By default the Chef Automate cluster is configured to store
 near-complete backup archives and snapshots on the local filesystem.
@@ -64,8 +63,7 @@ settings](/config_rb_delivery_optional_settings/#backup) page
 contains a full reference of all backup configuration options that are
 available.
 
-Local Backups
--------------
+### Local Backups
 
 Local storage mode is the default configuration for both backup archives
 and snapshots. Backups are created and exported into the
@@ -93,8 +91,7 @@ not contain any other system data.
 
 {{< /note >}}
 
-S3 Backups
-----------
+### S3 Backups
 
 Using Amazon Web Services (AWS) S3 as a storage location for both Chef
 Automate backup archives and the Elasticsearch snapshot repository is
@@ -201,8 +198,7 @@ backup["sse_customer_key"] = "XXXX"
 backup["sse_customer_key_md5"] = "XXXX"
 ```
 
-Backup Cron
------------
+### Backup Cron
 
 To enable a backup cron job that will create new backups and prune older
 backups and snapshots, configure the following settings in
@@ -221,20 +217,17 @@ standard cron notation is supported. If you wish to keep all backups or
 snapshots you can set both `max_snapshots` and/or `max_archives` options
 to `nil`.
 
-Create Backups
-==============
+## Create Backups
 
 {{% automate_ctl_create_backup %}}
 
-List Backups
-============
+## List Backups
 
 The [list-backups](/ctl_automate_server/#list-backups) command is
 used to list Chef Automate backup archives and Elasticsearch snapshots
 in either human or machine readable outputs.
 
-Delete Backups
-==============
+## Delete Backups
 
 The [delete-backups](/ctl_automate_server/#delete-backups) command
 is used to delete Chef Automate backup archives and Elasticsearch
@@ -243,8 +236,7 @@ the user to confirm deletion of each matched backup or snapshot. It can
 also be passed maximum archive and snapshot limits and prune the backup
 repositories to conform to those limits.
 
-Restore Backups
-===============
+## Restore Backups
 
 The [restore-backup](/ctl_automate_server/#restore-backup) command
 is used to fully or partially restore a Chef Automate cluster from
@@ -259,8 +251,7 @@ please install the version of Chef Automate that took the backup and use
 
 {{< /note >}}
 
-Local Backups
--------------
+### Local Backups
 
 Follow the process below for an example of restoring a Chef Automate
 cluster from a local backup archive and a shared filesystem
@@ -293,8 +284,7 @@ clear **all** existing data from it.
 
 {{< /note >}}
 
-S3 Backups
-----------
+### S3 Backups
 
 Follow the process below for an example of restoring a Chef Automate
 cluster from a backup archive and Elasticsearch snapshot in Amazon Web
@@ -311,8 +301,7 @@ Services (AWS) S3:
 
     `automate-ctl restore-backup us-east-1:your-s3-bucket:2016-10-14-08-38-55-chef-automate-backup.zst 2016-10-14-08-38-55-chef-automate-backup`
 
-Partial Restoration
--------------------
+### Partial Restoration
 
 It is possible to restore only specific data from a Chef Automate backup
 artifact. Below is an example of restoring only the PostgreSQL database

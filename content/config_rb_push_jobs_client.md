@@ -23,8 +23,7 @@ details for the Chef Push Jobs client.
     location, the settings contained within that file will override the
     default configuration settings
 
-Settings
-========
+## Settings
 
 This configuration file has the following settings:
 

@@ -16,8 +16,7 @@ aliases = ["/config_rb_client.html"]
 
 {{% config_rb_client_summary %}}
 
-Settings
-========
+## Settings
 
 This configuration file has the following settings:
 
@@ -693,25 +692,21 @@ This configuration file has the following settings:
     check the `lockfile` setting in the client.rb file before starting
     the job.
 
-Automatic Proxy Config
-----------------------
+### Automatic Proxy Config
 
 {{% proxy_env %}}
 
-.d Directories
-==============
+## .d Directories
 
 {{% config_rb_client_dot_d_directories %}}
 
-Ohai Settings
-=============
+## Ohai Settings
 
 {{% config_rb_ohai %}}
 
 {{< readFile_shortcode file="config_rb_ohai_settings.md" >}}
 
-Example
-=======
+## Example
 
 A sample client.rb file that contains the most simple way to connect to
 <https://manage.chef.io>:

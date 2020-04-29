@@ -16,8 +16,7 @@ aliases = ["/resource.html"]
 
 {{% resources_common %}}
 
-Resource Syntax
-===============
+## Resource Syntax
 
 A resource is a Ruby block with four components: a type, a name, one (or
 more) properties (with values), and one (or more) actions. The syntax
@@ -69,8 +68,7 @@ end
 In both cases, Chef Infra Client will use the default action
 (`:install`) to install the `tar` package.
 
-Additional Information
-======================
+## Additional Information
 
 See these guides for additional information about resources:
 

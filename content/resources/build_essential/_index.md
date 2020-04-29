@@ -3,13 +3,13 @@ title: build_essential resource
 resource: build_essential
 draft: false
 aliases:
-- /resource_build_essential.html
+- "/resource_build_essential.html"
 menu:
   infra:
     title: build_essential
     identifier: chef_infra/cookbook_reference/resources/build_essential build_essential
     parent: chef_infra/cookbook_reference/resources
-    weight: 160
+
 resource_reference: true
 robots: null
 resource_description_list:

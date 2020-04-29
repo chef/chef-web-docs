@@ -8,8 +8,6 @@ aliases = "/deprecations_chef_platform_methods.html"
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/deprecations_chef_platform_methods.md)
 
-
-
 Several methods under `Chef::Platform` that were previously public APIs
 to control resolution of provider classes were replaced by the dynamic
 `Chef::ProviderResolver` work and the `provides` keyword.
@@ -17,8 +15,7 @@ to control resolution of provider classes were replaced by the dynamic
 This deprecation warning was added in Chef Client 12.18.x, and using
 these APIs will become a hard error in Chef Client 13.
 
-Remediation
-===========
+## Remediation
 
 Code which used to use `Chef::Platform.provider_for_resource` or
 `Chef::Platform.find_provider` to create providers for a resource:

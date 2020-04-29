@@ -9,8 +9,6 @@ aliases = "/deprecations_launchd_hash_property.html"
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/deprecations_launchd_hash_property.md)
 
-
-
 The launchd resource has a property called `hash` which conflicts with
 the already-existing Ruby `hash` method that exists on every object.
 
@@ -29,8 +27,7 @@ The [Cookstyle](/workstation/cookstyle/) cop
 [ChefDeprecations/LaunchdDeprecatedHashProperty](https://github.com/chef/cookstyle/blob/master/docs/cops_chefdeprecations.md#chefdeprecationslaunchddeprecatedhashproperty)
 has been introduced to detect and autocorrect this deprecation.
 
-Remediation
-===========
+## Remediation
 
 When using the `launchd` resource and passing a hash for the launchd
 property list, use the `plist_hash` property instead of the `hash`

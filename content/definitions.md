@@ -21,8 +21,7 @@ custom resources immediately in order to benefit from the many features
 of Chef Infra such as notifications, reporting, why-run mode, and
 ChefSpec unit testing.
 
-Definitions
-===========
+## Definitions
 
 A definition behaved like a compile-time macro that was reusable across
 recipes. A definition was typically created by wrapping arbitrary code
@@ -45,8 +44,7 @@ Definitions:
 -   Can't report to Chef Automate
 -   Cannot be tested with ChefSpec
 
-Syntax
-======
+## Syntax
 
 A definition had four components:
 
@@ -129,16 +127,14 @@ host_porter 'www1' do
 end
 ```
 
-Migrating to Custom Resources
-=============================
+## Migrating to Custom Resources
 
 We highly recommend migrating existing definitions to custom resources
 to unlock the full feature set of Chef Infra resources. The following
 example shows a definition and that same definition rewritten as a
 custom resource.
 
-Initial Definition Code
------------------------
+### Initial Definition Code
 
 The following definition processes unique hostnames and ports, passed on
 as parameters:
@@ -157,8 +153,7 @@ define :host_porter, :port => 4000, :hostname => nil do
 end
 ```
 
-Migrated to a Custom Resource
------------------------------
+### Migrated to a Custom Resource
 
 The definition is improved by rewriting it as a custom resource. This
 uses properties to accept input and has a single `:create` action:

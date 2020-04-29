@@ -16,35 +16,28 @@ aliases = ["/integrate_delivery_ldap.html", "/release/automate/integrate_deliver
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/integrate_delivery_ldap.md)
 
-
-
 {{% chef_automate_mark %}}
 
 {{% EOL_a1 %}}
 
 {{% delivery_integration_ldap %}}
 
-LDAP Attributes
-===============
+## LDAP Attributes
 
 {{% delivery_integration_ldap_attributes %}}
 
-Configure LDAP
-==============
+## Configure LDAP
 
 {{% delivery_integration_ldap_configure %}}
 
-Manage Users
-============
+## Manage Users
 
 {{% delivery_integration_ldap_users %}}
 
-Add
----
+### Add
 
 {{% delivery_integration_ldap_users_add %}}
 
-Edit
-----
+### Edit
 
 {{% delivery_integration_ldap_users_edit %}}

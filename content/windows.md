@@ -14,8 +14,7 @@ aliases = ["/windows.html"]
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/windows.md)
 
-Overview
-========
+## Overview
 
 The Chef Infra Client has specific components that are designed to
 support unique aspects of the Microsoft Windows platform, including
@@ -23,14 +22,12 @@ PowerShell, PowerShell DSC, and Internet Information Services (IIS).
 
 {{% windows_install_overview %}}
 
-Setting up Windows Workstations
-===============================
+## Setting up Windows Workstations
 
 To set up your Windows workstation follow the steps on [Chef for
 Microsoft Windows](/workstation/install_workstation/)
 
-Install Chef Infra Client on Windows Nodes
-==========================================
+## Install Chef Infra Client on Windows Nodes
 
 {{% chef_client_summary %}}
 
@@ -47,8 +44,7 @@ This command has the following option specific to Microsoft Windows:
 :   Cause a Chef Infra Client run to fail when Chef Infra Client does
     not have administrator privileges in Microsoft Windows.
 
-System Requirements
--------------------
+### System Requirements
 
 The recommended minimum amount of RAM available to Chef Infra Client
 during a Chef Infra Client run is 512MB. Each node and workstation must
@@ -82,68 +78,63 @@ After Chef Infra Client is installed, it is located at `C:\opscode`. The
 main configuration file for Chef Infra Client is located at
 `C:\chef\client.rb`.
 
-Information for Windows Users
------------------------------
+### Information for Windows Users
 
-### Run With Elevated Privileges
+#### Run With Elevated Privileges
 
 {{% ctl_chef_client_elevated_privileges %}}
 
 {{% ctl_chef_client_elevated_privileges_windows %}}
 
-### Spaces and Directories
+#### Spaces and Directories
 
 {{% windows_spaces_and_directories %}}
 
-### Top-level Directory Names
+#### Top-level Directory Names
 
 {{% windows_top_level_directory_names %}}
 
-### PATH System Variable
+#### PATH System Variable
 
 {{% windows_environment_variable_path %}}
 
-### Proxy Settings
+#### Proxy Settings
 
 {{% proxy_windows %}}
 
-Remotely administering nodes
-----------------------------
+### Remotely administering nodes
 
 {{% knife_windows_summary %}}
 
 Se the [knife windows](/workstation/knife_windows/) for more information.
 
-### Ports
+#### Ports
 
 {{% knife_windows_winrm_ports %}}
 
-Install Chef Infra Client using the MSI Installer
--------------------------------------------------
+### Install Chef Infra Client using the MSI Installer
 
 A Microsoft Installer Package (MSI) is available for installing Chef
 Infra Client on a Microsoft Windows machine from [Chef
 Downloads](https://downloads.chef.io/).
 
-### Msiexec.exe
+#### Msiexec.exe
 
 {{% windows_msiexec %}}
 
-### ADDLOCAL Options
+#### ADDLOCAL Options
 
 {{% windows_msiexec_addlocal %}}
 
-### Enable as a Scheduled Task
+#### Enable as a Scheduled Task
 
 {{% install_chef_client_windows_as_scheduled_task %}}
 
-Install Chef Infra Client using an Existing Process
----------------------------------------------------
+### Install Chef Infra Client using an Existing Process
 
 {{% windows_install_system_center %}}
 
-Windows Cookbooks
-=================
+## Windows Cookbooks
 
 Some of the most popular Chef-maintained cookbooks that contain custom
 resources useful when configuring machines running Microsoft Windows are
@@ -196,21 +187,18 @@ listed below:
 </tbody>
 </table>
 
-Community Supported Windows Projects
-------------------------------------
+### Community Supported Windows Projects
 
 Two community supports two provisioners for Kitchen:
 
 -   [kitchen-dsc](https://github.com/test-kitchen/kitchen-dsc)
 -   [kitchen-pester](https://github.com/test-kitchen/kitchen-pester)
 
-Windows Resources
-=================
+## Windows Resources
 
 {{% resources_common %}}
 
-Windows Resources
------------------
+### Windows Resources
 
 Chef Infra provides a growing number of Windows-specific resources.
 
@@ -245,8 +233,7 @@ Chef Infra provides a growing number of Windows-specific resources.
 -   [Windows_uac](/resources/windows_uac/)
 -   [Windows_workgroup](/resources/windows_workgroup/)
 
-Windows Compatible Resources
-----------------------------
+### Windows Compatible Resources
 
 The most popular core resources in Chef Infra Client work the same way
 in Microsoft Windows as they do on any UNIX- or Linux-based platform.

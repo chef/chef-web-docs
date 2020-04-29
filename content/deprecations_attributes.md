@@ -20,8 +20,7 @@ configure their servers.
 This page documents many deprecations over the course of many Chef
 releases.
 
-Method Access
-=============
+## Method Access
 
 Setting and accessing node attributes has been standardized on "bracket"
 syntax. The older "method" syntax is deprecated and will be removed in
@@ -29,8 +28,7 @@ Chef Client 13.
 
 Removal: Chef Client 13
 
-Example
--------
+### Example
 
 Both lines in the example will cause separate deprecation warnings.
 
@@ -39,8 +37,7 @@ node.chef.server = "https://my.chef.server"
 chef_server = node.chef.server
 ```
 
-Remediation
------------
+### Remediation
 
 Convert method syntax to bracket syntax by using brackets to denote
 attribute names. The code below is identical in function to the example
@@ -51,8 +48,7 @@ node['chef']['server'] = "https://my.chef.server"
 chef_server = node['chef']['server']
 ```
 
-Set and Set_Unless
-===================
+## Set and Set_Unless
 
 Setting node attributes with `set` or `set_unless` has been deprecated
 in favor of explicitly setting the precedence level. These methods will
@@ -60,16 +56,14 @@ be removed in Chef Client 14.
 
 Removal: Chef Client 14
 
-Example
--------
+### Example
 
 ``` ruby
 node.set['chef']['server'] =  "https://my.chef.server"
 node.set_unless['chef']['server'] =  "https://my.chef.server"
 ```
 
-Remediation
------------
+### Remediation
 
 Choose the appropriate [precedence
 level](/attributes/#attribute-precedence), then replace `set` with

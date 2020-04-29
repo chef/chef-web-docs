@@ -16,8 +16,7 @@ aliases = ["/policy.html"]
 
 {{% policy_summary %}}
 
-Cookbook Versions
-=================
+## Cookbook Versions
 
 {{% cookbooks_version %}}
 
@@ -28,8 +27,7 @@ Versioning](/cookbook_versioning/)
 
 {{< /note >}}
 
-Data Bags (Secrets)
-===================
+## Data Bags (Secrets)
 
 {{% data_bag %}}
 
@@ -40,8 +38,7 @@ Bags](/data_bags/)
 
 {{< /note >}}
 
-Environments
-============
+## Environments
 
 {{% environment %}}
 
@@ -52,8 +49,7 @@ Environments](/environments/)
 
 {{< /note >}}
 
-Roles
-=====
+## Roles
 
 {{% role %}}
 
@@ -63,8 +59,7 @@ For more information about roles, see [About Roles](/roles/)
 
 {{< /note >}}
 
-Policyfile
-==========
+## Policyfile
 
 {{% policyfile_summary %}}
 

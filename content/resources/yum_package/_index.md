@@ -1,18 +1,16 @@
 ---
 title: yum_package resource
 resource: yum_package
-draft: false
 aliases:
-- /resource_yum_package.html
+- "/resource_yum_package.html"
 - /resource_yum.html
 menu:
   infra:
     title: yum_package
     identifier: chef_infra/cookbook_reference/resources/yum_package yum_package
     parent: chef_infra/cookbook_reference/resources
-    weight: 1460
+
 resource_reference: true
-robots: null
 resource_description_list:
 - markdown: 'Use the **yum_package** resource to install, upgrade, and remove
 
@@ -123,17 +121,15 @@ properties_list:
 - property: options
   ruby_type: String, Array
   required: false
-  default_value: null
-  new_in: null
+  default_value: 
+  new_in: 
   description_list:
-  - markdown: 'One (or more) additional command options that are passed to the
-
-      command.'
+  - markdown: One (or more) additional command options that are passed to the command.
 - property: package_name
   ruby_type: String, Array
   required: false
-  default_value: null
-  new_in: null
+  default_value: 
+  new_in: 
   description_list:
   - markdown: 'One of the following: the name of a package, the name of a package
 
@@ -145,32 +141,32 @@ properties_list:
 - property: source
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
+  default_value: 
+  new_in: 
   description_list:
   - markdown: The optional path to a package on the local file system.
 - property: timeout
   ruby_type: String, Integer
   required: false
-  default_value: null
-  new_in: null
+  default_value: 
+  new_in: 
   description_list:
   - markdown: The amount of time (in seconds) to wait before timing out.
 - property: version
   ruby_type: String, Array
   required: false
-  default_value: null
-  new_in: null
+  default_value: 
+  new_in: 
   description_list:
-  - markdown: 'The version of a package to be installed or upgraded. This property
-
-      is ignored when using the `:upgrade` action.'
+  - markdown: The version of a package to be installed or upgraded. This property
+      is ignored when using the `:upgrade` action.
 - property: yum_binary
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
-  description_list: []
+  default_value: 
+  new_in: 
+  description_list:
+  - markdown: The path to the yum binary.
 properties_shortcode: null
 properties_multiple_packages: false
 resource_directory_recursive_directories: false

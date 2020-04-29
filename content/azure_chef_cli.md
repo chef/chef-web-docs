@@ -18,8 +18,7 @@ The Azure Chef Extension is an extension for Microsoft Azure to enable
 Chef on virtual machine instances. The extension makes available two
 Windows PowerShell cmdlets and two Microsoft Azure CLI commands.
 
-Azure CLI
-=========
+## Azure CLI
 
 If the Microsoft Azure [cross-platform command line tool
 (Xplat-CLI)](https://github.com/Azure/azure-xplat-cli) is installed on
@@ -27,13 +26,12 @@ the workstation, along with the Azure Chef Extension, the `get-chef` and
 `set-chef` extensions may be used to manage Chef running on virtual
 machines in Microsoft Azure.
 
-get-chef
---------
+### get-chef
 
 Use the `get-chef` command to get the details for the Azure Chef
 Extension that is running on the named virtual machine.
 
-### Syntax
+#### Syntax
 
 This command has the following syntax:
 
@@ -41,13 +39,12 @@ This command has the following syntax:
 azure vm extension get-chef VM_NAME
 ```
 
-set-chef
---------
+### set-chef
 
 Use the `set-chef` command to enable Chef on any virtual machine running
 on Microsoft Azure.
 
-### Syntax
+#### Syntax
 
 This command has the following syntax:
 
@@ -55,7 +52,7 @@ This command has the following syntax:
 azure vm extension set-chef VM_NAME (options)
 ```
 
-### Options
+#### Options
 
 This command has the following options:
 
@@ -117,7 +114,7 @@ This command has the following options:
 :   Specify the version number for the Azure Chef Extension extension.
     Default is to use the latest extension's version number.
 
-### Examples
+#### Examples
 
 The following examples show how to use this knife subcommand:
 
@@ -139,14 +136,13 @@ azure vm extension set-chef your-vm-name --validation-pem ~/chef-repo/.chef/test
 azure vm extension set-chef your-vm-name --validation-pem ~/chef-repo/.chef/testorg-validator.pem --client-config ~/chef-repo/.chef/client.rb --version "1201.12" -R 'recipe[your_cookbook_name::your_recipe_name]'
 ```
 
-#### Azure Resource Manager (ARM) Templates
+**Azure Resource Manager (ARM) Templates**
 
 If you are using Azure Resource Manager templates to create your
 infrastructure you can use the Chef extension to have Azure handle the
 bootstrapping/configuration of your node to your Chef Infra Server.
 
-Options
--------
+### Options
 
 The extension has the following options that can be provided in the
 <span class="title-ref">settings</span> hash.
@@ -258,8 +254,7 @@ The following options can be provided to the extension through the
 :   A client key that will be used to communication with the Chef Infra
     Server.
 
-Examples
---------
+### Examples
 
 The following examples show how Chef Infra Client can be installed and
 configured from an ARM template.

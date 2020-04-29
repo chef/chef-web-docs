@@ -16,8 +16,6 @@ aliases = ["/integrate_chef_automate_saml.html"]
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/integrate_chef_automate_saml.md)
 
-
-
 {{% chef_automate_mark %}}
 
 {{% EOL_a1 %}}
@@ -28,8 +26,7 @@ parties, in particular, between an identity provider and a service
 provider. Chef Automate supports SAML-backed Single Sign On (SSO) as a
 service provider, integrating with your chosen identity provider.
 
-Configuring SAML for your Chef Automate enterprise
-==================================================
+## Configuring SAML for your Chef Automate enterprise
 
 As an enterprise admin, you can configure a SAML Service to enable
 single sign on. To do this from the Chef Automate UI, click on the
@@ -55,8 +52,7 @@ rolling for signed SAML assertions.
 
 {{< /note >}}
 
-Automatic SAML configuration through Identity Provider metadata
----------------------------------------------------------------
+### Automatic SAML configuration through Identity Provider metadata
 
 To make Chef Automate configure SAML automatically from the metadata
 published by your Identity Provider, check the <span
@@ -97,8 +93,7 @@ class="title-ref">1m</span>) before trying again. On failure, a retry
 will be attempted five times total. If the retries don't succeed, the
 next attempt to fetch the metadata will be at the next refresh interval.
 
-Manual SAML configuration
--------------------------
+### Manual SAML configuration
 
 Fill out the following fields to configure SAML SSO. These details can
 often be found through your Identity Provider's metadata file.
@@ -162,8 +157,7 @@ often be found through your Identity Provider's metadata file.
     </KeyDescriptor>
     ```
 
-Removing SAML configuration
----------------------------
+### Removing SAML configuration
 
 The SAML configuration UI also allows for the removal of SAML
 configuration from the system. In order to remove the configuration,
@@ -180,8 +174,7 @@ exist even after the SAML configuration has been removed.
 
 {{< /note >}}
 
-Configuring your Identity Provider to accept SAML requests from Chef Automate
-=============================================================================
+## Configuring your Identity Provider to accept SAML requests from Chef Automate
 
 To configure your IdP to accept SAML requests, you need the following:
 
@@ -215,8 +208,7 @@ these configuration options are set up:
 -   Check that the identity provider is configured to use `HTTP-POST` to
     connect to the endpoints of the service provider.
 
-Enabling users to authenticate through SAML
-===========================================
+## Enabling users to authenticate through SAML
 
 By default, any users that authenticate successfully with the configured
 Identity Provider will be logged in: both users with existing user
@@ -225,8 +217,7 @@ users hitherto unknown to Chef Automate, which then get a user account
 created in Chef Automate automatically. It is also possible to migrate
 existing users, or to create SAML users manually.
 
-Auto-provisioned users
-----------------------
+### Auto-provisioned users
 
 The new user's name will match their NameId value as reported by the
 Identity Provider (see below for the possible options). Also note that
@@ -237,8 +228,7 @@ their NameId no longer matches a user's username in Chef Automate.
 These users will be assigned the default role(s) selected as part of the
 SAML configuration within the enterprise.
 
-Migrating existing users and manual user creation
--------------------------------------------------
+### Migrating existing users and manual user creation
 
 To use SAML for existing users, they can be migrated from Chef Automate
 or LDAP authentication. This can also be used to create SAML users in
@@ -283,8 +273,7 @@ then on step 2, "Configure SAML" in the section "ATTRIBUTE STATEMENTS
 
 ![image](/images/samlattributes.jpg)
 
-Notes on NameId Policy
-======================
+## Notes on NameId Policy
 
 The Name Id Policy is important because it identifies the user that the
 SAML assertion applies to. In order for Chef Automate to authenticate
@@ -322,8 +311,7 @@ For illustration purposes, below we discuss two common scenarios:
     through the Chef Automate configuration - for example, 'Email
     Address'.
 
-Notes on EntityId
-=================
+## Notes on EntityId
 
 By default, Chef Automate's SAML integration will use EntityId
 `https://<yourChef AutomateDomain>/api/v0/e/<yourEnterprise>/saml/metadata`.
@@ -333,8 +321,7 @@ This can be overridden in `delivery.rb` as follows:
 auth['saml_entity_id'] = 'https://delivery.corp.com/saml'
 ```
 
-Workflow ('delivery') CLI
-=========================
+## Workflow ('delivery') CLI
 
 The Workflow CLI in Chef Automate (`delivery-cli`) can be used with
 SAML-authenticated users:
@@ -373,14 +360,12 @@ SAML-authenticated users:
 4.  To log in as an internal user when SAML is configured, use the
     option `--saml=false`
 
-Enabling SAML proxying for Chef Server
-======================================
+## Enabling SAML proxying for Chef Server
 
 The integration between the management console in Chef Infra Server and
 Chef Automate's SAML capabilities is done using OpenID Connect.
 
-OpenID Connect Signing Key
---------------------------
+### OpenID Connect Signing Key
 
 Chef Automate signs the ID token given to the management console
 following successful SAML authentication. To do that, a private signing
@@ -431,8 +416,7 @@ curl https://delivery.corp.com/api/v0/oidc/jwks | jq .
 If no key is configured or the key file can't be read, the keys array
 will be empty: `[]`.
 
-Chef Infra Server as OpenID Connect client
-------------------------------------------
+### Chef Infra Server as OpenID Connect client
 
 To allow Chef Infra Server to act as an OpenID Connect client to Chef
 Automate, it needs to be known to Chef Automate. To achieve this, add
@@ -454,16 +438,14 @@ authenticate through SAML, you will need to create additional entries
 for the client id, the client secret and the client redirect URI in the
 section above for each one.
 
-Configuration of Chef Infra Server
-----------------------------------
+### Configuration of Chef Infra Server
 
 Note that all of the client-related values need to match the
 configuration in the Chef Infra Server management console. See
 [Configuring for SAML Authentication](/server_configure_saml/) for
 more details.
 
-Troubleshooting
-===============
+## Troubleshooting
 
 If you have problems with SAML configuration and integration, see the
 SAML section of [Troubleshooting Chef Automate

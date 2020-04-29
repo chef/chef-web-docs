@@ -36,8 +36,7 @@ To enable this functionality, you must perform the following steps:
 -   Configure Chef Infra Client to use the Data Collector endpoint in
     Chef Automate
 
-Add Chef Automate certificate to `trusted_certs` directory
-==========================================================
+## Add Chef Automate certificate to `trusted_certs` directory
 
 {{< note >}}
 
@@ -60,8 +59,7 @@ from your `.chef/trusted_certs` directory to the
 `/etc/chef/trusted_certs` directory on the nodes in your infrastructure
 that will be sending data directly to the Chef Automate server.
 
-Configure Chef Infra Client to use the Data Collector endpoint in Chef Automate
-===============================================================================
+## Configure Chef Infra Client to use the Data Collector endpoint in Chef Automate
 
 {{< note >}}
 
@@ -89,8 +87,7 @@ where `my-automate-server.mycompany.com` is the fully-qualified domain
 name of your Chef Automate server and `TOKEN` is the token value you
 configured in the earlier step.
 
-Additional Configuration Options:
----------------------------------
+### Additional Configuration Options:
 
 <table>
 <colgroup>
@@ -129,7 +126,7 @@ Additional Configuration Options:
 </tbody>
 </table>
 
-### Next Steps
+#### Next Steps
 
 -   [Perform a Compliance Scan](/perform_compliance_scan/)
 -   [Data Collection](/data_collection/)

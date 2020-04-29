@@ -1,15 +1,14 @@
 ---
 title: windows_uac resource
 resource: windows_uac
-draft: false
 aliases:
-- /resource_windows_uac.html
+- "/resource_windows_uac.html"
 menu:
   infra:
     title: windows_uac
     identifier: chef_infra/cookbook_reference/resources/windows_uac windows_uac
     parent: chef_infra/cookbook_reference/resources
-    weight: 1440
+
 resource_reference: true
 robots: null
 resource_description_list:
@@ -48,60 +47,48 @@ properties_list:
 - property: consent_behavior_admins
   ruby_type: Symbol
   required: false
-  default_value: :prompt_for_consent_non_windows_binaries
-  new_in: null
+  default_value: ":prompt_for_consent_non_windows_binaries"
+  new_in: 
   description_list:
-  - markdown: 'Behavior of the elevation prompt for administrators in Admin
-
-      Approval Mode. Sets
-
-      HKEY_LOCAL_MACHINESOFTWAREMicrosoftWindowsCurrentVersionPoliciesSystemEnableLUAConsentPromptBehaviorAdmin.'
+  - markdown: Behavior of the elevation prompt for administrators in Admin Approval
+      Mode. Sets HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\EnableLUA\ConsentPromptBehaviorAdmin.
 - property: consent_behavior_users
   ruby_type: Symbol
   required: false
-  default_value: :prompt_for_creds
-  new_in: null
+  default_value: ":prompt_for_creds"
+  new_in: 
   allowed_values: :auto_deny, :secure_prompt_for_creds, :prompt_for_creds
   description_list:
-  - markdown: 'Behavior of the elevation prompt for standard users. Sets HKEY_LOCAL_MACHINESOFTWAREMicrosoftWindowsCurrentVersionPoliciesSystemEnableLUAConsentPromptBehaviorUser.'
+  - markdown: Behavior of the elevation prompt for standard users. Sets HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\EnableLUA\ConsentPromptBehaviorUser.
 - property: detect_installers
   ruby_type: true, false
   required: false
-  default_value: null
-  new_in: null
+  default_value: 
+  new_in: 
   description_list:
-  - markdown: 'Detect application installations and prompt for elevation. Sets
-
-      HKEY_LOCAL_MACHINESOFTWAREMicrosoftWindowsCurrentVersionPoliciesSystemEnableLUAEnableInstallerDetection.'
+  - markdown: Detect application installations and prompt for elevation. Sets HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\EnableLUA\EnableInstallerDetection.
 - property: enable_uac
   ruby_type: true, false
   required: false
   default_value: 'true'
-  new_in: null
+  new_in: 
   description_list:
-  - markdown: 'Enable or disable UAC Admin Approval Mode. If this is changed a
-
-      system restart is required. Sets
-
-      HKEY_LOCAL_MACHINESOFTWAREMicrosoftWindowsCurrentVersionPoliciesSystemEnableLUA.'
+  - markdown: Enable or disable UAC Admin Approval Mode. If this is changed a system
+      restart is required. Sets HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\EnableLUA.
 - property: prompt_on_secure_desktop
   ruby_type: true, false
   required: false
   default_value: 'true'
-  new_in: null
+  new_in: 
   description_list:
-  - markdown: 'Switch to the secure desktop when prompting for elevation. Sets
-
-      HKEY_LOCAL_MACHINESOFTWAREMicrosoftWindowsCurrentVersionPoliciesSystemEnableLUAPromptOnSecureDesktop.'
+  - markdown: Switch to the secure desktop when prompting for elevation. Sets HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\EnableLUA\PromptOnSecureDesktop.
 - property: require_signed_binaries
   ruby_type: true, false
   required: false
   default_value: 'false'
-  new_in: null
+  new_in: 
   description_list:
-  - markdown: 'Only elevate executables that are signed and validated. Sets
-
-      HKEY_LOCAL_MACHINESOFTWAREMicrosoftWindowsCurrentVersionPoliciesSystemEnableLUAValidateAdminCodeSignatures.'
+  - markdown: Only elevate executables that are signed and validated. Sets HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\EnableLUA\ValidateAdminCodeSignatures.
 properties_shortcode: null
 properties_multiple_packages: false
 resource_directory_recursive_directories: false

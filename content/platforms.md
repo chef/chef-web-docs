@@ -18,8 +18,7 @@ Chef software is supported on the various operating systems (platforms)
 listed below. To see which versions of our software we currently
 support, see the [Supported Versions](/versions/) page.
 
-Platforms
-=========
+## Platforms
 
 The sections below list the platforms that Chef Software Inc. supports.
 Support is divided into two levels:
@@ -41,19 +40,18 @@ In all cases (beyond community support), a maintenance contract with
 Chef Software Inc. is required in order to open support tickets and get
 SLA-based assistance from our support desk.
 
-Chef Infra Client
------------------
+### Chef Infra Client
 
-### Commercial Support
+#### Commercial Support
 
 The following table lists the commercially-supported platforms and
 versions for Chef Infra Client:
 
 <table>
 <colgroup>
-<col style="width: 56%" />
-<col style="width: 20%" />
-<col style="width: 24%" />
+<col style="width: 30%" />
+<col style="width: 35%" />
+<col style="width: 35%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -70,17 +68,17 @@ versions for Chef Infra Client:
 </tr>
 <tr class="even">
 <td>Amazon Linux</td>
-<td><code>x86_64</code></td>
+<td><code>x86_64</code>, <code>aarch64</code> (2.x only)</td>
 <td>2013+ and 2.0</td>
 </tr>
 <tr class="odd">
 <td>CentOS</td>
-<td><code>x86_64</code></td>
+<td><code>x86_64</code>, <code>ppc64le</code> (7.x only), <code>ppc64</code> (7.x only), <code>aarch64</code> (7.x / 8.x only)</td>
 <td><code>6.x</code>, <code>7.x</code>, <code>8.x</code></td>
 </tr>
 <tr class="even">
 <td>Debian</td>
-<td><code>i686</code>, <code>x86_64</code></td>
+<td><code>x86_64</code></td>
 <td><code>8</code>, <code>9</code>, <code>10</code></td>
 </tr>
 <tr class="odd">
@@ -95,12 +93,12 @@ versions for Chef Infra Client:
 </tr>
 <tr class="odd">
 <td>Oracle Enterprise Linux</td>
-<td><code>x86_64</code></td>
+<td><code>x86_64</code><code>aarch64</code> (7.x / 8.x only)</td>
 <td><code>6.x</code>, <code>7.x</code>, <code>8.x</code></td>
 </tr>
 <tr class="even">
 <td>Red Hat Enterprise Linux</td>
-<td><code>x86_64</code> <code>s390x</code> (7.x only), <code>ppc64le</code> (7.x only), <code>ppc64</code> (7.x only), <code>aarch64</code> (7.x only)</td>
+<td><code>x86_64</code>, <code>ppc64le</code> (7.x only), <code>ppc64</code> (7.x only), <code>aarch64</code> (7.x / 8.x only)</td>
 <td><code>6.x</code>, <code>7.x</code>, <code>8.x</code></td>
 </tr>
 <tr class="odd">
@@ -110,12 +108,12 @@ versions for Chef Infra Client:
 </tr>
 <tr class="even">
 <td>SUSE Enterprise Linux Server</td>
-<td><code>x86_64</code>, <code>s390x</code> (12.x only)</td>
+<td><code>x86_64</code>, <code>aarch64</code> (15.x only)</td>
 <td><code>12 SP1+</code>, <code>15</code></td>
 </tr>
 <tr class="odd">
 <td>Ubuntu (LTS releases)</td>
-<td><code>x86_64</code>,<code>aarch64</code> (18.04 only)</td>
+<td><code>x86_64</code>,<code>aarch64</code> (18.04/20.04 only)</td>
 <td><code>16.04</code>, <code>18.04</code>, <code>20.04</code></td>
 </tr>
 <tr class="even">
@@ -126,15 +124,15 @@ versions for Chef Infra Client:
 </tbody>
 </table>
 
-### Community Support
+#### Community Support
 
 The following platforms are supported only via the community:
 
 <table>
 <colgroup>
-<col style="width: 56%" />
-<col style="width: 20%" />
-<col style="width: 24%" />
+<col style="width: 30%" />
+<col style="width: 35%" />
+<col style="width: 35%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -187,19 +185,18 @@ The following platforms are supported only via the community:
 </tbody>
 </table>
 
-Chef Workstation
-----------------
+### Chef Workstation
 
-### Commercial Support
+#### Commercial Support
 
 The following table lists the commercially-supported platforms and
 versions for the Chef Workstation:
 
 <table>
 <colgroup>
-<col style="width: 56%" />
-<col style="width: 20%" />
-<col style="width: 24%" />
+<col style="width: 30%" />
+<col style="width: 35%" />
+<col style="width: 35%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -232,19 +229,18 @@ versions for the Chef Workstation:
 </tbody>
 </table>
 
-Chef InSpec
------------
+### Chef InSpec
 
-### Commercial Support
+#### Commercial Support
 
 The following table lists the commercially-supported platforms and
 versions for Chef InSpec:
 
 <table>
 <colgroup>
-<col style="width: 56%" />
-<col style="width: 20%" />
-<col style="width: 24%" />
+<col style="width: 30%" />
+<col style="width: 35%" />
+<col style="width: 35%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -277,7 +273,7 @@ versions for Chef InSpec:
 <tr class="odd">
 <td>Ubuntu</td>
 <td><code>x86_64</code></td>
-<td><code>16.04</code>, <code>18.04</code></td>
+<td><code>16.04</code>, <code>18.04</code>, <code>20.04</code></td>
 </tr>
 <tr class="even">
 <td>Microsoft Windows</td>
@@ -291,19 +287,18 @@ Chef InSpec Target Mode (`inspec --target`) may be functional on
 additional platforms, versions, and architectures but are not validated
 by Chef Software, Inc.
 
-ChefDK
-------
+### ChefDK
 
-### Commercial Support
+#### Commercial Support
 
 The following table lists the commercially-supported platforms and
 versions for ChefDK:
 
 <table>
 <colgroup>
-<col style="width: 56%" />
-<col style="width: 20%" />
-<col style="width: 24%" />
+<col style="width: 30%" />
+<col style="width: 35%" />
+<col style="width: 35%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -346,15 +341,15 @@ versions for ChefDK:
 </tbody>
 </table>
 
-### Community Support
+#### Community Support
 
 The following platforms are supported only via the community:
 
 <table>
 <colgroup>
-<col style="width: 56%" />
-<col style="width: 20%" />
-<col style="width: 24%" />
+<col style="width: 30%" />
+<col style="width: 35%" />
+<col style="width: 35%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -377,17 +372,15 @@ The following platforms are supported only via the community:
 </tbody>
 </table>
 
-Chef Infra Server
------------------
+### Chef Infra Server
 
-### Commercial Support
+#### Commercial Support
 
 {{% adopted_platforms_server %}}
 
-Chef Automate Server
---------------------
+### Chef Automate Server
 
-### Commercial Support
+#### Commercial Support
 
 Commercial support for the [Chef Automate 2
 Server](https://automate.chef.io/docs/system-requirements/) is available
@@ -404,9 +397,9 @@ versions within the Chef Automate cluster.
 
 <table>
 <colgroup>
-<col style="width: 56%" />
-<col style="width: 20%" />
-<col style="width: 24%" />
+<col style="width: 30%" />
+<col style="width: 35%" />
+<col style="width: 35%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -444,10 +437,9 @@ versions within the Chef Automate cluster.
 </tbody>
 </table>
 
-Chef Automate Job Runners
--------------------------
+### Chef Automate Job Runners
 
-### Commercial Support
+#### Commercial Support
 
 Chef Automate Job Runners are supported on the Commercial Support
 platforms for Chef Automate Server listed above as well as on the
@@ -455,9 +447,9 @@ following platforms:
 
 <table>
 <colgroup>
-<col style="width: 56%" />
-<col style="width: 20%" />
-<col style="width: 24%" />
+<col style="width: 30%" />
+<col style="width: 35%" />
+<col style="width: 35%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -475,19 +467,18 @@ following platforms:
 </tbody>
 </table>
 
-Chef Push Jobs Client
----------------------
+### Chef Push Jobs Client
 
-### Commercial Support
+#### Commercial Support
 
 The following table lists the commercially-supported platforms for the
 Chef Push Jobs client:
 
 <table>
 <colgroup>
-<col style="width: 56%" />
-<col style="width: 20%" />
-<col style="width: 24%" />
+<col style="width: 30%" />
+<col style="width: 35%" />
+<col style="width: 35%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -525,19 +516,18 @@ Chef Push Jobs client:
 </tbody>
 </table>
 
-Chef Push Jobs Server
----------------------
+### Chef Push Jobs Server
 
-### Commercial Support
+#### Commercial Support
 
 The following table lists the commercially-supported platforms for the
 Chef Push Jobs server:
 
 <table>
 <colgroup>
-<col style="width: 56%" />
-<col style="width: 20%" />
-<col style="width: 24%" />
+<col style="width: 30%" />
+<col style="width: 35%" />
+<col style="width: 35%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -565,19 +555,18 @@ Chef Push Jobs server:
 </tbody>
 </table>
 
-Chef Backend
-------------
+### Chef Backend
 
-### Commercial Support
+#### Commercial Support
 
 The following table lists the commercially-supported platforms for Chef
 Backend, the high-availability solution for Chef Infra Server:
 
 <table>
 <colgroup>
-<col style="width: 56%" />
-<col style="width: 20%" />
-<col style="width: 24%" />
+<col style="width: 30%" />
+<col style="width: 35%" />
+<col style="width: 35%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -605,19 +594,18 @@ Backend, the high-availability solution for Chef Infra Server:
 </tbody>
 </table>
 
-Chef Manage
------------
+### Chef Manage
 
-### Commercial Support
+#### Commercial Support
 
 The following table lists the commercially-supported platforms for Chef
 Manage:
 
 <table>
 <colgroup>
-<col style="width: 56%" />
-<col style="width: 20%" />
-<col style="width: 24%" />
+<col style="width: 30%" />
+<col style="width: 35%" />
+<col style="width: 35%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -645,8 +633,7 @@ Manage:
 </tbody>
 </table>
 
-Platform End-of-Life Policy
-===========================
+## Platform End-of-Life Policy
 
 Chef's products on particular platforms and versions generally reach
 end-of-life on the same date as the vendor EOL milestone for that
@@ -675,7 +662,7 @@ according to those vendors' terms:
 <td>End of maintenance updates</td>
 </tr>
 <tr class="odd">
-<td>Enterprise Linux (covers RedHat Enterprise Linux, CentOS)</td>
+<td>Enterprise Linux (covers Red Hat Enterprise Linux, CentOS)</td>
 <td>End of Production 3</td>
 </tr>
 <tr class="even">

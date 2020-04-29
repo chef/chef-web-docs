@@ -24,8 +24,7 @@ aliases = ["/install_supermarket.html"]
 
 {{< /note >}}
 
-Requirements
-============
+## Requirements
 
 A private Chef Supermarket has the following requirements:
 
@@ -60,8 +59,7 @@ A private Chef Supermarket has the following requirements:
     and the S3 bucket containing all of the published community
     cookbooks weighs in at 2.7 GB
 
-Chef Identity
-=============
+## Chef Identity
 
 Chef Identity (also referred to as **oc-id**) is an OAuth 2.0
 authentication and authorization service packaged with the Chef Infra
@@ -77,8 +75,7 @@ issue is typically with name resolution and firewall rules.
 
 {{< /note >}}
 
-Configure
----------
+### Configure
 
 To configure Chef Supermarket to use Chef Identity, do the following:
 
@@ -137,8 +134,7 @@ Supermarket server. The URI must also be correct:
 
 {{< /note >}}
 
-Install Supermarket
-===================
+## Install Supermarket
 
 To install a private Chef Supermarket use the
 `supermarket-omnibus-cookbook`. This cookbook is [available from the
@@ -166,8 +162,7 @@ directory on a separate disk, and then use LVM so that may be expanded.
 
 {{< /note >}}
 
-Create a Wrapper
-----------------
+### Create a Wrapper
 
 A wrapper cookbook is used to define project- and/or
 organization-specific requirements around a community cookbook.
@@ -230,8 +225,7 @@ line interface:
     This ensures that the `default.rb` file in the
     `supermarket-omnibus-cookbook` is run.
 
-Define Attributes
------------------
+### Define Attributes
 
 Define the attributes for the Chef Supermarket installation and how it
 connects to the Chef Infra Server. One approach would be to hard-code
@@ -302,8 +296,7 @@ node.override['supermarket_omnibus']['config']['fqdn'] = your_node_public_ip
 
 {{< /note >}}
 
-Upload the Wrapper
-------------------
+### Upload the Wrapper
 
 The wrapper cookbook around the `supermarket-omnibus-cookbook` cookbook
 must be uploaded to the Chef Infra Server, along with any cookbooks
@@ -344,8 +337,7 @@ following:
     knife cookbook upload -a
     ```
 
-Bootstrap Supermarket
----------------------
+### Bootstrap Supermarket
 
 Bootstrap the node on which Chef Supermarket is to be installed. For
 example, to bootstrap a node running Ubuntu on Amazon Web Services
@@ -396,8 +388,7 @@ When the bootstrap operation is finished, do the following:
     sudo chef-client
     ```
 
-Install Supermarket Directly (without a cookbook)
-=================================================
+## Install Supermarket Directly (without a cookbook)
 
 While there are many benefits to using the cookbook method to install
 Supermarket, there are also cases where it's simpler to set up the
@@ -472,8 +463,7 @@ guide.
     sudo supermarket-ctl reconfigure
     ```
 
-Connect to Supermarket
-======================
+## Connect to Supermarket
 
 To reach the newly spun up private Chef Supermarket, the hostname must
 be resolvable from a workstation. For production use, the hostname
@@ -503,16 +493,14 @@ hostname of the Chef Supermarket server. The URI must also be correct:
 
 {{< /note >}}
 
-Customize Supermarket
-=====================
+## Customize Supermarket
 
 Chef Supermarket is a Ruby on Rails application with a PostgreSQL
 backend. The private Chef Supermarket configuration may be scaled-out,
 such as using an external database, using an external cache, and using
 an external cookbook storage location.
 
-External Database
------------------
+### External Database
 
 A Chef Supermarket installation can use an external database running
 PostgreSQL (9.3 or higher) and with the `pgpsql` and `pg_trgm` installed
@@ -530,8 +518,7 @@ node.override['supermarket_omnibus']['config']['database']['pool'] = '25'
 node.override['supermarket_omnibus']['config']['database']['password'] = 'topsecretneverguessit'
 ```
 
-External Cache
---------------
+### External Cache
 
 Chef Supermarket installations can also use an external cache store. The
 public Chef Supermarket uses Redis on Amazon ElastiCache. One Redis
@@ -545,8 +532,7 @@ node.override['supermarket_omnibus']['config']['redis']['enable'] = false
 node.override['supermarket_omnibus']['config']['redis_url'] = 'redis://your-redis-instance:6379'
 ```
 
-External Cookbook Storage
--------------------------
+### External Cookbook Storage
 
 Cookbook artifacts---tar.gz artifacts that are uploaded to Chef
 Supermarket when sharing a cookbook---can be stored either on the local
@@ -568,8 +554,7 @@ Encrypted S3 buckets are currently not supported.
 
 {{< /note >}}
 
-Upgrade a Private Supermarket
-=============================
+## Upgrade a Private Supermarket
 
 1. Shut down the server running Private Supermarket.
 1. Backup the `/var/opt/supermarket` directory.

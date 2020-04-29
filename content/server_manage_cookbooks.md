@@ -16,8 +16,6 @@ aliases = ["/server_manage_cookbooks.html"]
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/server_manage_cookbooks.md)
 
-
-
 {{% EOL_manage %}}
 
 {{< note >}}
@@ -29,14 +27,12 @@ cookbooks.
 
 {{% cookbooks_summary %}}
 
-Manage
-======
+## Manage
 
 Cookbooks can be viewed from the Chef management console web user
 interface. Cookbooks are managed using knife.
 
-View Cookbook Details
----------------------
+### View Cookbook Details
 
 To view cookbook details:
 
@@ -52,8 +48,7 @@ To view cookbook details:
 
     ![image](/images/step_manage_webui_policy_cookbook_view_details.png)
 
-Cookbook Files
-==============
+## Cookbook Files
 
 A cookbook can contain the following types of files:
 
@@ -99,8 +94,7 @@ A cookbook can contain the following types of files:
 All of the file types that are part of any cookbook uploaded to the Chef
 Infra Server are visible from the Chef management console.
 
-Download File
--------------
+### Download File
 
 To download a file that is located in a cookbook:
 
@@ -121,8 +115,7 @@ To download a file that is located in a cookbook:
 
 7.  Specify the location to which the file should be saved.
 
-View a File
------------
+### View a File
 
 To view a cookbook file:
 
@@ -143,15 +136,13 @@ To view a cookbook file:
 
     ![image](/images/step_manage_webui_policy_cookbook_file_view.png)
 
-Permissions
-===========
+## Permissions
 
 {{% server_rbac_permissions %}}
 
 {{% server_rbac_permissions_object %}}
 
-Set
----
+### Set
 
 To set permissions list for a cookbook object:
 
@@ -163,8 +154,7 @@ To set permissions list for a cookbook object:
 6.  For each group listed under **Name**, select or de-select the
     **Read**, **Update**, **Delete**, and **Grant** permissions.
 
-Update
-------
+### Update
 
 To update the permissions list for a cookbook object:
 
@@ -178,8 +168,7 @@ To update the permissions list for a cookbook object:
 7.  Select or de-select **Read**, **Update**, **Delete**, and **Grant**
     to update the permissions list for the user or group.
 
-View
-----
+### View
 
 To view permissions for a cookbook object:
 

@@ -20,13 +20,11 @@ Chef to work in an environment that requires proxies, set the
 `http_proxy`, `https_proxy`, `ftp_proxy`, and/or `no_proxy` environment
 variables to specify the proxy settings using a lowercase value.
 
-Microsoft Windows
-=================
+## Microsoft Windows
 
 {{% proxy_windows %}}
 
-Linux
-=====
+## Linux
 
 To determine the current proxy server on the macOS and Linux platforms,
 check the environment variables. Run the following:
@@ -57,14 +55,12 @@ For FTP:
 export ftp_proxy=ftp://myproxy.com:3168
 ```
 
-Proxy Settings
-==============
+## Proxy Settings
 
 Proxy settings are defined in configuration files for Chef Infra Client
 and for knife and may be specified for HTTP, HTTPS, and FTP.
 
-HTTP
-----
+### HTTP
 
 Use the following settings in the client.rb or config.rb files for
 environments that use an HTTP proxy:
@@ -96,8 +92,7 @@ environments that use an HTTP proxy:
 </tbody>
 </table>
 
-HTTPS
------
+### HTTPS
 
 Use the following settings in the client.rb or config.rb files for
 environments that use an HTTPS proxy:
@@ -129,8 +124,7 @@ environments that use an HTTPS proxy:
 </tbody>
 </table>
 
-FTP
----
+### FTP
 
 Use the following settings in the client.rb or config.rb files for
 environments that use an FTP proxy:
@@ -162,8 +156,7 @@ environments that use an FTP proxy:
 </tbody>
 </table>
 
-No Proxy
---------
+### No Proxy
 
 The `no_proxy` setting is used to specify addresses for which the proxy
 should not be used. This can be a single address or a comma-separated
@@ -183,8 +176,7 @@ to be specified explicitly (i.e. "without wildcards").
 
 {{< /note >}}
 
-Environment Variables
-=====================
+## Environment Variables
 
 Consider the following for situations where environment variables are
 used to set the proxy:
@@ -199,7 +191,6 @@ used to set the proxy:
     certain applications when wildcards are specified. Consider
     specifying the hostnames without using wildcards.
 
-ENV
----
+### ENV
 
 {{% proxy_env %}}

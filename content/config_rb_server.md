@@ -16,23 +16,19 @@ aliases = ["/config_rb_server.html"]
 
 {{% config_rb_server_summary %}}
 
-Use Conditions
-==============
+## Use Conditions
 
 {{% config_add_condition %}}
 
-Recommended Settings
-====================
+## Recommended Settings
 
 {{% server_tuning_general %}}
 
-NGINX SSL Protocols
--------------------
+### NGINX SSL Protocols
 
 {{% server_tuning_nginx %}}
 
-Optional Settings
-=================
+## Optional Settings
 
 The following settings are often used for performance tuning of the Chef
 Infra Server in larger installations.
@@ -52,8 +48,7 @@ added without first consulting with Chef support.
 
 {{< /note >}}
 
-bookshelf
----------
+### bookshelf
 
 {{% server_tuning_bookshelf %}}
 
@@ -63,8 +58,7 @@ bookshelf
 
 {{< /warning >}}
 
-opscode-account
----------------
+### opscode-account
 
 The following setting is often modified from the default as part of the
 tuning effort for the **opscode-account** service:
@@ -76,12 +70,11 @@ tuning effort for the **opscode-account** service:
     timing out, but only if the front-end machines have available CPU
     and RAM. Default value: `4`.
 
-opscode-erchef
---------------
+### opscode-erchef
 
 {{% server_tuning_erchef %}}
 
-### Data Collector
+#### Data Collector
 
 The following settings are often modified from the default as part of
 the tuning effort for the **data_collector** **opscode-erchef**
@@ -95,30 +88,27 @@ application:
     **data_collector** then increase this value. Default value: <span
     class="title-ref">100</span>.
 
-opscode-expander
-----------------
+### opscode-expander
 
 {{% server_tuning_expander %}}
 
-opscode-solr4
--------------
+### opscode-solr4
 
 {{% server_tuning_solr %}}
 
-### Available Memory
+#### Available Memory
 
 {{% server_tuning_solr_available_memory %}}
 
-### Large Node Sizes
+#### Large Node Sizes
 
 {{% server_tuning_solr_large_node_sizes %}}
 
-### Update Frequency
+#### Update Frequency
 
 {{% server_tuning_solr_update_frequency %}}
 
-postgresql
-----------
+### postgresql
 
 {{% server_tuning_postgresql %}}
 

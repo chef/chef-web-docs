@@ -18,8 +18,7 @@ aliases = ["/community_guidelines.html"]
 please see the [Physical Spaces Code of
 Conduct](https://www.chef.io/code-of-conduct/physical-spaces/).
 
-Our Pledge
-==========
+## Our Pledge
 
 Diversity is one of the greatest strengths that a community can have,
 and many times that strength is born from the friction that can only
@@ -33,8 +32,7 @@ disability, ethnicity, gender identity and expression, level of
 experience, nationality, personal appearance, race, religion, veteran
 status, or sexual identity and orientation.
 
-Our Standards
-=============
+## Our Standards
 
 The Chef community contains a diverse group of professionals and
 volunteers who come from all over the world to make Chef better.
@@ -87,8 +85,7 @@ Please keep in mind that:
 -   Sexist, racist, ableist, ageist, and other prejudicial or
     exclusionary comments are not welcome in the community.
 
-Unacceptable Behavior
-=====================
+## Unacceptable Behavior
 
 Harassment comes in many forms, including but not limited to:
 
@@ -120,8 +117,7 @@ definition of "harassment", please read the [Citizen Code of
 Conduct](http://citizencodeofconduct.org/). In particular, we do not
 tolerate behavior that excludes people in socially marginalized groups.
 
-Enforcement/Getting Help
-========================
+## Enforcement/Getting Help
 
 Instances of abusive, harassing, or otherwise unacceptable behavior
 should be reported by contacting any of the Community Advocates
@@ -138,8 +134,7 @@ Community Organizers who do not follow or enforce the Code of Conduct in
 good faith may face temporary or permanent repercussions as determined
 by other members of the project's leadership.
 
-Roles
-=====
+## Roles
 
 The following are the various roles of our **Community Organizers** and
 the person(s) assigned to each role:
@@ -198,8 +193,7 @@ the person(s) assigned to each role:
 </tbody>
 </table>
 
-Consequences of Unacceptable Behavior
-=====================================
+## Consequences of Unacceptable Behavior
 
 Unacceptable behavior from any community member, including sponsors and
 those with decision-making authority, will *not* be tolerated.
@@ -221,8 +215,7 @@ serious offense and will result in immediate exclusion from the
 community and appropriate follow up with law enforcement. No, we are not
 kidding.
 
-Procedure for Handling Disagreements and Incidents
-==================================================
+## Procedure for Handling Disagreements and Incidents
 
 Disagreements are inherent to a group of impassioned people. When they
 occur, we seek to resolve disagreements and differing views
@@ -234,8 +227,7 @@ The Chef Community Advocates are well informed on how to deal with
 incidents. Report the incident (preferably in writing) to one of the
 Community Advocates listed in the [Roles](#roles) section.
 
-Handling Incidents
-------------------
+### Handling Incidents
 
 **NOTE**: If you are in a physical space -- e.g. Chef Conf, Meetup, etc.
 -- please see the [Physical Spaces Code of
@@ -266,7 +258,7 @@ resolved:
 -   Apply the corrective action.
 -   Document the incident as described below.
 
-### Documenting Incidents
+#### Documenting Incidents
 
 All incident reports will be kept in a private repository that is shared
 with the aforementioned Community Advocates and Deciders under the
@@ -296,8 +288,7 @@ extremely damaging to the community. The silver lining is that, in many
 cases, these incidents present a chance for the community as a whole to
 grow, learn, and become better.
 
-Our Responsibilities
-====================
+## Our Responsibilities
 
 Community Organizers are responsible for clarifying the standards of
 acceptable behavior and are expected to take appropriate and fair
@@ -309,8 +300,7 @@ and other contributions that are not aligned with this Code of Conduct,
 or to ban temporarily or permanently any contributor for other behaviors
 that they deem inappropriate, threatening, offensive, or harmful.
 
-Scope
-=====
+## Scope
 
 Our community will convene in both physical and virtual spaces. This
 Code of Conduct applies within project spaces and in public spaces when
@@ -321,8 +311,7 @@ as an appointed representative at an online or offline event.
 Representation of a project may be further defined and clarified by
 project maintainers and community organizers.
 
-Attribution
-===========
+## Attribution
 
 This Code of Conduct is adapted from the following:
 
@@ -333,8 +322,7 @@ This Code of Conduct is adapted from the following:
     Conduct](https://www.rust-lang.org/policies/code-of-conduct)
 -   [Citizen Code of Conduct](http://citizencodeofconduct.org/)
 
-Community Members in Crisis
-===========================
+## Community Members in Crisis
 
 If a community member is in or appears to be in crisis, please refer to
 the [Community Members in Crisis

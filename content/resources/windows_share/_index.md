@@ -1,15 +1,14 @@
 ---
 title: windows_share resource
 resource: windows_share
-draft: false
 aliases:
-- /resource_windows_share.html
+- "/resource_windows_share.html"
 menu:
   infra:
     title: windows_share
     identifier: chef_infra/cookbook_reference/resources/windows_share windows_share
     parent: chef_infra/cookbook_reference/resources
-    weight: 1410
+
 resource_reference: true
 robots: null
 resource_description_list:
@@ -57,102 +56,92 @@ properties_list:
   ruby_type: Integer
   required: false
   default_value: '0'
-  new_in: null
+  new_in: 
   description_list:
   - markdown: The continuous availability time-out for the share.
 - property: change_users
   ruby_type: Array
   required: false
   default_value: null
-  new_in: null
+  new_in: 
   description_list:
-  - markdown: 'The users that should have ''modify'' permission on the share in
-
-      domainusername format.'
+  - markdown: The users that should have 'modify' permission on the share in domain\username
+      format.
 - property: concurrent_user_limit
   ruby_type: Integer
   required: false
   default_value: '0'
-  new_in: null
+  new_in: 
   description_list:
-  - markdown: 'The maximum number of concurrently connected users the share can
-
-      accommodate.'
+  - markdown: The maximum number of concurrently connected users the share can accommodate.
 - property: continuously_available
   ruby_type: true, false
   required: false
   default_value: 'false'
-  new_in: null
+  new_in: 
   description_list:
   - markdown: Indicates that the share is continuously available.
 - property: description
   ruby_type: String
   required: false
   default_value: null
-  new_in: null
+  new_in: 
   description_list:
   - markdown: The description to be applied to the share.
 - property: encrypt_data
   ruby_type: true, false
   required: false
   default_value: 'false'
-  new_in: null
+  new_in: 
   description_list:
   - markdown: Indicates that the share is encrypted.
 - property: full_users
   ruby_type: Array
   required: false
   default_value: null
-  new_in: null
+  new_in: 
   description_list:
-  - markdown: 'The users that should have ''Full control'' permissions on the share
-
-      in domainusername format.'
+  - markdown: The users that should have 'Full control' permissions on the share in
+      domain\username format.
 - property: path
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
+  default_value: 
+  new_in: 
   description_list:
-  - markdown: 'The path of the folder to share. Required when creating. If the
-
-      share already exists on a different path then it is deleted and
-
-      re-created.'
+  - markdown: The path of the folder to share. Required when creating. If the share
+      already exists on a different path then it is deleted and re-created.
 - property: read_users
   ruby_type: Array
   required: false
   default_value: null
-  new_in: null
+  new_in: 
   description_list:
-  - markdown: 'The users that should have ''read'' permission on the share in
-
-      domainusername format.'
+  - markdown: The users that should have 'read' permission on the share in domain\username
+      format.
 - property: scope_name
   ruby_type: String
   required: false
-  default_value: '"*"'
-  new_in: null
+  default_value: "*"
+  new_in: 
   description_list:
   - markdown: The scope name of the share.
 - property: share_name
   ruby_type: String
   required: false
   default_value: The resource block's name
-  new_in: null
+  new_in: 
   description_list:
-  - markdown: 'An optional property to set the share name if it differs from the
-
-      resource block''s name.'
+  - markdown: An optional property to set the share name if it differs from the resource
+      block's name.
 - property: temporary
   ruby_type: true, false
   required: false
   default_value: 'false'
-  new_in: null
+  new_in: 
   description_list:
-  - markdown: 'The lifetime of the new SMB share. A temporary share does not
-
-      persist beyond the next restart of the computer.'
+  - markdown: The lifetime of the new SMB share. A temporary share does not persist
+      beyond the next restart of the computer.
 properties_shortcode: null
 properties_multiple_packages: false
 resource_directory_recursive_directories: false

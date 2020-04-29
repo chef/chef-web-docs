@@ -8,8 +8,6 @@ aliases = "/deprecations_locale_lc_all.html"
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/deprecations_locale_lc_all.md)
 
-
-
 Setting the `LC_ALL` variable is NOT recommended. As a system-wide
 setting, `LANG` should provide the desired behavior. `LC_ALL` is
 intended to be used for temporarily troubleshooting issues rather than
@@ -23,8 +21,7 @@ The [Cookstyle](/workstation/cookstyle/) cop
 [ChefDeprecations/LocaleDeprecatedLcAllProperty](https://github.com/chef/cookstyle/blob/master/docs/cops_chefdeprecations.md#chefdeprecationslocaledeprecatedlcallproperty)
 has been introduced to detect and autocorrect this deprecation.
 
-Remediation
-===========
+## Remediation
 
 Set `LC_ALL` in current shell as:
 

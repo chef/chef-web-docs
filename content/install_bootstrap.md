@@ -18,8 +18,7 @@ aliases = ["/install_bootstrap.html"]
 
 {{% chef_client_bootstrap_stages %}}
 
-knife bootstrap
-===============
+## knife bootstrap
 
 {{% install_chef_client %}}
 
@@ -136,13 +135,11 @@ describe how to bootstrap a node using knife.
     client
     ```
 
-Validatorless Bootstrap
-=======================
+## Validatorless Bootstrap
 
 {{% knife_bootstrap_no_validator %}}
 
-Bootstrapping with chef-vault
-=============================
+## Bootstrapping with chef-vault
 
 Use the following options with a validatorless bootstrap to specify
 items that are stored in chef-vault:
@@ -162,8 +159,7 @@ items that are stored in chef-vault:
     updated. --bootstrap-vault-json '{ "vault1": \["item1", "item2"\],
     "vault2": "item2" }'
 
-Examples
-========
+## Examples
 
 The `--bootstrap-vault-*` options add the client identify of the
 bootstrapping node to the permissions list of the specified vault item.
@@ -172,8 +168,7 @@ items from the vault. Only a single client is authorized at a time for
 access to the vault. (The `-S` search query option with the
 `knife vault create` subcommand does the same.)
 
-Recreate a data bag item
-------------------------
+### Recreate a data bag item
 
 The following example shows how to recreate a data bag item:
 
@@ -221,8 +216,7 @@ iv:             ONoVR7OjPZiAzaqOZ30bjg==
 version:        1
 ```
 
-Use --bootstrap-vault-file
---------------------------
+### Use --bootstrap-vault-file
 
 Use the `sea:power` recreation step above first, to follow the
 difference in the vault permissions.
@@ -267,8 +261,7 @@ search_query:
 some:         content for them
 ```
 
-Use --bootstrap-vault-item
---------------------------
+### Use --bootstrap-vault-item
 
 Use the `sea:power` re-creation step above first, to follow the
 difference in the vault permissions.
@@ -340,8 +333,7 @@ some:         secret stuff for them
 Success! The client is authorized to view the content of the `sea:power`
 databag item
 
-Use --bootstrap-vault-json
---------------------------
+### Use --bootstrap-vault-json
 
 Use the `sea:power` re-creation step above first, to follow the
 difference in the vault permissions.
@@ -382,8 +374,7 @@ search_query:
 some:         content for them
 ```
 
-Unattended Installs
-===================
+## Unattended Installs
 
 Chef Infra Client can be installed using an unattended bootstrap. This
 allows Chef Infra Client to be installed from itself, without requiring
@@ -412,8 +403,7 @@ installed using User Data or some other kind of post-deployment script.
 The type of image or User Data used depends on the platform on which the
 unattended bootstrap will take place.
 
-Bootstrapping with User Data
-----------------------------
+### Bootstrapping with User Data
 
 The method used to inject a user data script into a server will vary
 depending on the infrastructure platform being used. For example, on AWS
@@ -422,7 +412,7 @@ you can pass this data in as a text file using the command line tool.
 The following user data examples demonstrate the process of
 bootstrapping Windows and Linux nodes.
 
-### PowerShell User Data
+#### PowerShell User Data
 
 ``` none
 ## Set host file so the instance knows where to find chef-server
@@ -460,7 +450,7 @@ Set-Content -Path c:\chef\client.rb -Value $clientrb
 C:\opscode\chef\bin\chef-client.bat -j C:\chef\first-boot.json
 ```
 
-### Bash User Data
+#### Bash User Data
 
 ``` bash
 #!/bin/bash -xev

@@ -23,8 +23,7 @@ available:
 2.  Organization Feed: Stream of events for all jobs across an
     organization
 
-Event Types
-===========
+## Event Types
 
 As mandated by the SSE protocol, each event has:
 
@@ -55,8 +54,7 @@ In addition, SSE allows comments in the stream, indicated by a starting
 colon. Push Jobs Server uses comments to send "no-op" events every 15
 (configurable) seconds, as a form of keepalive for the socket.
 
-start
------
+### start
 
 This event is issued when a job is requested.
 
@@ -78,8 +76,7 @@ where:
     specified in the job request
 -   `node_count` is the number of nodes in the request
 
-quorum_vote
-------------
+### quorum_vote
 
 This event is issued as each node responds to the quorum request. (Not
 available in Organization Feed)
@@ -101,8 +98,7 @@ where:
     `success` (node accepted the job), `unexpected_commit` (node
     attempted to vote twice)
 
-quorum_succeeded
------------------
+### quorum_succeeded
 
 This event is issued when the vote is complete, and the nodes are told
 to run the command. (Not available in Organization Feed)
@@ -119,8 +115,7 @@ id: dcd37f50-2d77-4761-895b-33134dbf87d5
 data: {"timestamp": "2014-07-10 05:17:44.995958Z"}
 ```
 
-run_start
-----------
+### run_start
 
 This event is issued as each node acknowledges that it is running the
 command. (Not available in Organization Feed)
@@ -137,8 +132,7 @@ where:
 
 -   `node` is the name of the node
 
-run_complete
--------------
+### run_complete
 
 This event is issued as each node completes the command. (Not available
 in Organization Feed)
@@ -161,8 +155,7 @@ where:
     `run_nacked_while_running` (node rejected the run after starting
     it), or `success` (the run completed successfully),
 
-job_complete
--------------
+### job_complete
 
 This event is issued when the job completes.
 
@@ -181,8 +174,7 @@ where:
     `complete` (the job completed), `quorum_failed` (the command was not
     run on any nodes), or `timed_out` (the command timed out)
 
-start_of_history
-------------------
+### start_of_history
 
 This synthetic event is issued when the `Last-Event-ID` header is not
 recognized. (Not available in Job Feed)
@@ -195,8 +187,7 @@ id: dcd37f50-2d77-4761-895b-33134dbf87d5
 data: {"timestamp":"2014-07-10 05:17:44.995958Z"}
 ```
 
-rehab
------
+### rehab
 
 This event is issued when the server detects an abnormality with a node
 and attempts to repair it. (Not available in Organization Feed)
@@ -207,8 +198,7 @@ id: dcd37f50-2d77-4761-895b-33134dbf87d5
 data: {"timestamp":"2014-07-10 05:17:44.995958Z","node":"NODE1"}
 ```
 
-summary
--------
+### summary
 
 This event is issued when a request for the Job Feed comes in after the
 job has completed. (Not available in Organization Feed)
@@ -224,13 +214,11 @@ where:
 -   `data` is the same Job Summary you would get from the `job/ID`
     endpoint
 
-Event Stream Examples
-=====================
+## Event Stream Examples
 
 An event stream should follow a standard structure:
 
-Job Feed (Normal Run Execution)
--------------------------------
+### Job Feed (Normal Run Execution)
 
 1.  `start`
 2.  0 or more `quorum_vote`
@@ -290,8 +278,7 @@ id: dcd37f50-2d77-4761-895b-33134dbf87d9
 data": {"timestamp":"2014-07-10 05:17:48.995958Z","status":"complete"}
 ```
 
-Job Feed (Failed Quorum)
-------------------------
+### Job Feed (Failed Quorum)
 
 1.  `start`
 2.  1+ `quorum_failed`
@@ -326,8 +313,7 @@ id: dcd37f50-2d77-4761-895b-33134dbf87d9
 data": {"timestamp":"2014-07-10 05:17:48.995958","status":"quorum_failed"}
 ```
 
-Organization Feed
------------------
+### Organization Feed
 
 1.  `start` (job=B)
 2.  `job_complete` (job=A)

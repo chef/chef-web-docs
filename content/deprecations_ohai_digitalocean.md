@@ -9,8 +9,6 @@ aliases = "/deprecations_ohai_digitalocean.html"
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/deprecations_ohai_digitalocean.md)
 
-
-
 Ohai's previous Digital Ocean plugin relied on hint data passed to Ohai
 as well and the drop's internal network interface configuration. The
 Digital Ocean plugin has been rewritten to poll information from the
@@ -21,8 +19,7 @@ the addition of new network configuration data, the format has changed
 and users relying on the previous format will need to update their
 cookbooks.
 
-Remediation
-===========
+## Remediation
 
 Update cookbooks to use the new network data format as seen below.
 

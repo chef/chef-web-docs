@@ -18,14 +18,12 @@ The `cookbooks/` directory of your Chef Infra repository is used to
 store the cookbooks that Chef Infra Client uses in configuring the
 various systems in the organization.
 
-Working with Cookbooks
-======================
+## Working with Cookbooks
 
 Use the following knife subcommands to create, install, and/or download
 cookbooks.
 
-Create
-------
+### Create
 
 To create a cookbook (including all default components), run the
 following command:
@@ -38,8 +36,7 @@ where `COOKBOOK_NAME` is the name of the cookbook that will be created.
 Any unneeded directory components can be left unused or deleted, if
 preferred.
 
-Install
--------
+### Install
 
 To download a cookbook when git is used for version source control, run
 the following command:
@@ -65,8 +62,7 @@ that:
 -   merges the cookbook into the master (to ensure that any local
     changes or modifications are preserved)
 
-Download
---------
+### Download
 
 To download a cookbook when git is not used for version source control,
 run the following command:
@@ -81,8 +77,7 @@ tar.gz file associated with the cookbook and will create a file named
 `COOKBOOK_NAME.tar.gz` in the current directory (e.g., `~/chef-repo`).
 Once downloaded, using a version source control system is recommended.
 
-Cookbook Metadata
-=================
+## Cookbook Metadata
 
 {{% cookbooks_metadata %}}
 

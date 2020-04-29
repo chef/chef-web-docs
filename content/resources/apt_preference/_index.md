@@ -9,7 +9,7 @@ menu:
     title: apt_preference
     identifier: chef_infra/cookbook_reference/resources/apt_preference apt_preference
     parent: chef_infra/cookbook_reference/resources
-    weight: 80
+
 resource_reference: true
 robots: null
 resource_description_list:
@@ -63,7 +63,7 @@ properties_list:
   ruby_type: String
   required: false
   default_value: The resource block's name
-  new_in: null
+  new_in:
   description_list:
   - markdown: 'An optional property to set the package name if it differs from the
 
@@ -71,21 +71,18 @@ properties_list:
 - property: pin
   ruby_type: String
   required: true
-  default_value: null
-  new_in: null
+  default_value:
+  new_in:
   description_list:
   - markdown: The package version or repository to pin.
 - property: pin_priority
   ruby_type: String, Integer
   required: true
-  default_value: null
-  new_in: null
+  default_value:
+  new_in:
   description_list:
-  - markdown: 'Sets the `Pin-Priority` for a package. See the [APT pinning
-
-      documentation](https://wiki.debian.org/AptPreferences) for more
-
-      details.'
+  - markdown: Sets the Pin-Priority for a package. See <https://wiki.debian.org/AptPreferences>
+      for more details.
 properties_shortcode: null
 properties_multiple_packages: false
 resource_directory_recursive_directories: false

@@ -1,15 +1,14 @@
 ---
 title: zypper_repository resource
 resource: zypper_repository
-draft: false
 aliases:
-- /resource_zypper_repository.html
+- "/resource_zypper_repository.html"
 menu:
   infra:
     title: zypper_repository
     identifier: chef_infra/cookbook_reference/resources/zypper_repository zypper_repository
     parent: chef_infra/cookbook_reference/resources
-    weight: 1490
+
 resource_reference: true
 robots: null
 resource_description_list:
@@ -66,135 +65,123 @@ properties_list:
   ruby_type: true, false
   required: false
   default_value: 'true'
-  new_in: null
+  new_in: 
   description_list:
-  - markdown: 'Determines whether or not the repository should be refreshed
-
-      automatically.'
+  - markdown: Determines whether or not the repository should be refreshed automatically.
 - property: baseurl
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
+  default_value: 
+  new_in: 
   description_list:
-  - markdown: 'The base URL for the Zypper repository, such as
-
-      `http://download.opensuse.org`.'
+  - markdown: The base URL for the Zypper repository, such as `http://download.opensuse.org`.
 - property: cookbook
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
+  default_value: 
+  new_in: 
   description_list:
-  - markdown: 'The cookbook to source the repository template file from. Only
-
-      necessary if you''re not using the built in template.'
+  - markdown: The cookbook to source the repository template file from. Only necessary
+      if you're not using the built in template.
 - property: description
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
+  default_value: 
+  new_in: 
   description_list:
-  - markdown: 'The description of the repository that will be shown by the
-
-      `zypper repos` command.'
+  - markdown: The description of the repository that will be shown by the `zypper
+      repos` command.
 - property: enabled
   ruby_type: true, false
   required: false
   default_value: 'true'
-  new_in: null
+  new_in: 
   description_list:
   - markdown: Determines whether or not the repository should be enabled.
 - property: gpgautoimportkeys
   ruby_type: true, false
   required: false
   default_value: 'true'
-  new_in: null
+  new_in: 
   description_list:
-  - markdown: 'Automatically import the specified key when setting up the
-
-      repository.'
+  - markdown: Automatically import the specified key when setting up the repository.
 - property: gpgcheck
   ruby_type: true, false
   required: false
   default_value: 'true'
-  new_in: null
+  new_in: 
   description_list:
-  - markdown: 'Determines whether or not to perform a GPG signature check on the
-
-      repository.'
+  - markdown: Determines whether or not to perform a GPG signature check on the repository.
 - property: gpgkey
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
+  default_value: 
+  new_in: 
   description_list:
   - markdown: The location of the repository key to be imported.
 - property: keeppackages
   ruby_type: true, false
   required: false
   default_value: 'false'
-  new_in: null
+  new_in: 
   description_list:
   - markdown: Determines whether or not packages should be saved.
 - property: mirrorlist
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
+  default_value: 
+  new_in: 
   description_list:
   - markdown: The URL of the mirror list that will be used.
 - property: mode
   ruby_type: String, Integer
   required: false
-  default_value: '"0644"'
-  new_in: null
+  default_value: '0644'
+  new_in: 
   description_list:
   - markdown: The file mode of the repository file.
 - property: path
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
+  default_value: 
+  new_in: 
   description_list:
   - markdown: The relative path from the repository's base URL.
 - property: priority
   ruby_type: Integer
   required: false
   default_value: '99'
-  new_in: null
+  new_in: 
   description_list:
   - markdown: Determines the priority of the Zypper repository.
 - property: refresh_cache
   ruby_type: true, false
   required: false
   default_value: 'true'
-  new_in: null
+  new_in: 
   description_list:
   - markdown: Determines whether or not the package cache should be refreshed.
 - property: repo_name
   ruby_type: String
   required: false
   default_value: The resource block's name
-  new_in: null
+  new_in: 
   description_list:
-  - markdown: 'An optional property to set the repository name if it differs from
-
-      the resource block''s name.'
+  - markdown: An optional property to set the repository name if it differs from the
+      resource block's name.
 - property: source
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
+  default_value: 
+  new_in: 
   description_list:
-  - markdown: 'The name of the template for the repository file. Only necessary if
-
-      you''re not using the built in template.'
+  - markdown: The name of the template for the repository file. Only necessary if
+      you're not using the built in template.
 - property: type
   ruby_type: String
   required: false
   default_value: '"NONE"'
-  new_in: null
+  new_in: 
   description_list:
   - markdown: Specifies the repository type.
 properties_shortcode: null

@@ -16,8 +16,7 @@ aliases = ["/azure_portal.html"]
 
 {{% cloud_azure_portal %}}
 
-Virtual Machines running Chef Infra Client
-==========================================
+## Virtual Machines running Chef Infra Client
 
 {{< warning >}}
 
@@ -196,16 +195,14 @@ configuration (applications, services, etc.) from the specified
 run-list. The Chef Infra Server can now be used to perform all ongoing
 management of the virtual machine node.
 
-Log Files
-=========
+## Log Files
 
 If the Azure portal displays an error in dashboard, check the log files.
 Chef Infra Client creates the log files. The log files can be accessed
 from within the Azure portal or by making a Chef Infra Client run on the
 node and reproducing the issue interactively.
 
-From the Azure portal
----------------------
+### From the Azure portal
 
 Log files are available from within the Azure portal:
 
@@ -227,8 +224,7 @@ Log files are available from within the Azure portal:
 5.  This should display the log files, including the Chef Infra Client
     log file.
 
-From Chef Infra Client
-----------------------
+### From Chef Infra Client
 
 Chef Infra Client can be run interactively by using Windows Remote
 Desktop to connect to the virtual machine, and then starting a Chef
@@ -253,8 +249,7 @@ Infra Client run:
     tail -f /var/log/azure/Chef.Bootstrap.WindowsAzure.LinuxChefClient/1210.12.102.1000/chef-client.log
     ```
 
-Troubleshoot Log Files
-----------------------
+### Troubleshoot Log Files
 
 After the log files have been located, open them using a text editor to
 view the log file. The most common problem are below:
@@ -273,8 +268,7 @@ view the log file. The most common problem are below:
 -   An error in one the run-list. The log file will specify the details
     about errors related to the run-list.
 
-For more information ...
-========================
+## For more information
 
 For more information about Microsoft Azure and how to use it with Chef:
 

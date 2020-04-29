@@ -34,14 +34,12 @@ This topic describes how and why to use secrets in a `build-cookbook`:
 For more information on security, see [How to be a Secure
 Chef](https://learn.chef.io/tracks/administering-chef-installation/).
 
-Using Encrypted Data Bags
-=========================
+## Using Encrypted Data Bags
 
 This section describes how to use encrypted data bag items in Chef
 Automate.
 
-Create an Encrypted Data Bag
-============================
+## Create an Encrypted Data Bag
 
 Create an encrypted data bag item that is nested inside the
 `delivery-secrets` data bag. Give the encrypted data bag item the name:
@@ -72,8 +70,7 @@ chef-CIA
 This is useful if you would like to share secrets across projects within
 the same organization.
 
-Use an Encrypted Data Bag
-=========================
+## Use an Encrypted Data Bag
 
 To use an encrypted data bag item, do the following:
 
@@ -111,13 +108,11 @@ This example is part of the `publish.rb` recipe in the `delivery-truck`
 cookbook:
 <https://github.com/chef-cookbooks/delivery-truck/blob/master/recipes/publish.rb#L91-L103>.
 
-Using a Chef Vault
-==================
+## Using a Chef Vault
 
 This section describes how to use Chef vault in Chef Automate.
 
-Create a Chef Vault
-===================
+## Create a Chef Vault
 
 In order to use Chef vaults you must follow hierarchical naming standard
 for your Chef vaults under the <span
@@ -144,8 +139,7 @@ During the creation of a Chef vault, the data in these vaults are merged into a 
         `<ENT>`.
     -   `<ENT>-<ORG>` will overwrite `<ENT>`.
 
-Using Secrets in a Chef Vault
-=============================
+## Using Secrets in a Chef Vault
 
 To access your secret data from the vault items, ensure that
 `metadata.rb` for the `build-cookbook` shows that it depends on the

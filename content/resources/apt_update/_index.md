@@ -3,13 +3,12 @@ title: apt_update resource
 resource: apt_update
 draft: false
 aliases:
-- /resource_apt_update.html
+- "/resource_apt_update.html"
 menu:
   infra:
     title: apt_update
     identifier: chef_infra/cookbook_reference/resources/apt_update apt_update
     parent: chef_infra/cookbook_reference/resources
-    weight: 100
 resource_reference: true
 robots: null
 resource_description_list:

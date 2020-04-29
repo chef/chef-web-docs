@@ -9,7 +9,7 @@ menu:
     title: perl
     identifier: chef_infra/cookbook_reference/resources/perl perl
     parent: chef_infra/cookbook_reference/resources
-    weight: 870
+
 resource_reference: true
 robots: null
 resource_description_list:

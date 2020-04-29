@@ -9,6 +9,5 @@
   </span>
   <a href="#{{ anchorize ( .Title )}}">{{ .Title }}</a>
   {{- $toc := .TableOfContents -}}
-  {{- $toc := replaceRE `<ul>\n<li>\n<ul>` `<ul>` $toc -}}
   {{- safeHTML $toc -}}
 </aside>

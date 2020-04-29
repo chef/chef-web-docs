@@ -9,7 +9,7 @@ menu:
     title: openbsd_package
     identifier: chef_infra/cookbook_reference/resources/openbsd_package openbsd_package
     parent: chef_infra/cookbook_reference/resources
-    weight: 740
+
 resource_reference: true
 robots: null
 resource_description_list:

@@ -9,7 +9,7 @@ menu:
     title: pacman_package
     identifier: chef_infra/cookbook_reference/resources/pacman_package pacman_package
     parent: chef_infra/cookbook_reference/resources
-    weight: 850
+
 resource_reference: true
 robots: null
 resource_description_list:
@@ -109,7 +109,7 @@ properties_list:
   description_list:
   - markdown: The version of a package to be installed or upgraded.
 properties_shortcode: null
-properties_multiple_packages: false
+properties_multiple_packages: true
 resource_directory_recursive_directories: false
 resources_common_atomic_update: false
 properties_resources_common_windows_security: false

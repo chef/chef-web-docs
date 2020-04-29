@@ -16,28 +16,24 @@ aliases = ["/chef_client_security.html"]
 
 {{% chef_auth %}}
 
-Authentication
-==============
+## Authentication
 
 {{% chef_auth_authentication %}}
 
-chef-validator
---------------
+### chef-validator
 
 {{% security_chef_validator %}}
 
 {{% security_chef_validator_context %}}
 
-During a Chef Infra Client Run
-------------------------------
+### During a Chef Infra Client Run
 
 As part of [every Chef Infra Client
 run](/chef_client/#the-chef-client-run), Chef Infra Client
 authenticates to the Chef Infra Server using an RSA private key and the
 Chef Infra Server API.
 
-authentication_protocol_version
----------------------------------
+### authentication_protocol_version
 
 The `authentication_protocol_version` option in the `client.rb` file is
 used to determine the authentication protocol that communicates with
@@ -51,8 +47,7 @@ knife[:authentication_protocol_version] = '1.3'
 Note that authentication protocol 1.3 is only supported on Chef Server
 versions 12.4.0 and above.
 
-SSL Certificates
-================
+## SSL Certificates
 
 {{< warning >}}
 
@@ -63,8 +58,7 @@ to on-premises Chef Server 12.
 
 {{% server_security_ssl_cert_client %}}
 
-`/.chef/trusted_certs`
-----------------------
+### `/.chef/trusted_certs`
 
 The `/.chef/trusted_certs` directory stores trusted SSL certificates
 used to access the Chef Infra Server:
@@ -76,8 +70,7 @@ used to access the Chef Infra Server:
     certificates are placed when a node has been bootstrapped with Chef
     Infra Client from a workstation
 
-SSL_CERT_FILE
----------------
+### SSL_CERT_FILE
 
 Use the `SSL_CERT_FILE` environment variable to specify the location for
 the SSL certificate authority (CA) bundle that is used by Chef Infra
@@ -96,8 +89,7 @@ update the environment variable to specify the path to the custom CA
 bundle. If (for some reason) SSL certificate verification stops working,
 ensure the correct value is specified for `SSL_CERT_FILE`.
 
-client.rb Settings
-------------------
+### client.rb Settings
 
 Use following client.rb settings to manage SSL certificate preferences:
 
@@ -149,8 +141,7 @@ Use following client.rb settings to manage SSL certificate preferences:
 </tbody>
 </table>
 
-Knife Subcommands
------------------
+### Knife Subcommands
 
 The Chef Infra Client includes two knife commands for managing SSL
 certificates:
@@ -165,7 +156,7 @@ After the workstation has the correct SSL certificate, bootstrap
 operations from that workstation will use the certificate in the
 `/.chef/trusted_certs` directory during the bootstrap operation.
 
-### knife ssl check
+#### knife ssl check
 
 Run the `knife ssl check` subcommand to verify the state of the SSL
 certificate, and then use the reponse to help troubleshoot issues that
@@ -179,7 +170,7 @@ may be present.
 
 {{% knife_ssl_check_bad_ssl_certificate %}}
 
-### knife ssl fetch
+#### knife ssl fetch
 
 Run the `knife ssl fetch` to download the self-signed certificate from
 the Chef Infra Server to the `/.chef/trusted_certs` directory on a

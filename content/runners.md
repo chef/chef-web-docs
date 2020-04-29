@@ -34,8 +34,7 @@ Chef Automate, you should either downgrade your runners to use ChefDK
 
 {{< /warning >}}
 
-Terms
-=====
+## Terms
 
 `phase job`
 
@@ -47,11 +46,9 @@ Terms
 :   Any node that a job can be dispatched to. Usually refers to a node
     that will run a phase job.
 
-Managing Runners
-================
+## Managing Runners
 
-Adding a Runner
----------------
+### Adding a Runner
 
 You can add a new runner via `automate-ctl` from your Chef Automate
 server. Log in to your Chef Automate server and run the
@@ -77,8 +74,7 @@ get an error in the UI.
 
 Supported runner platforms are listed [here](/platforms/#runners).
 
-Removing a Runner
------------------
+### Removing a Runner
 
 You can delete a runner via `automate-ctl` from your Chef Automate
 server. Log in to your Chef Automate server and run the `delete-runner`
@@ -101,8 +97,7 @@ To delete a runner:
 delivery api delete runners/<runner_hostname>
 ```
 
-Upgrading the version of ChefDK on a Runner
--------------------------------------------
+### Upgrading the version of ChefDK on a Runner
 
 If you need to upgrade the version of ChefDK on your runner, you can do
 so by logging into the runner, upgrading ChefDK, and manually appending
@@ -113,8 +108,7 @@ Typically, we recommend re-running the `install-runner` command rather
 than manually updating as the installation process will take care of
 this certification change for you when it bootstraps the node.
 
-Configuring Chef Automate Projects
-==================================
+## Configuring Chef Automate Projects
 
 Chef Automate 0.6 or later can use runners, and when setting up a
 project using `delivery setup`, ChefDK v1.1.16 or later specifies the
@@ -152,23 +146,20 @@ more details and examples.
 For more detail on `config.json`, see its
 [config.json](/config_json_delivery/).
 
-Cancelling Jobs
-===============
+## Cancelling Jobs
 
 You can cancel queued or running phase jobs in the new job dispatch
 system. Simply click the trash can in the UI next to a phase run from
 the change view for the job you wish to cancel.
 
-Managing and Inspecting Jobs
-============================
+## Managing and Inspecting Jobs
 
 You can see the job queue, runnning jobs, what your runners are
 currently doing, runner health, and so on. Navigate to <span
 class="title-ref">Workflow -\> Runners</span> in the UI to see all the
 possibilities.
 
-Job Dispatch and Push Jobs
-==========================
+## Job Dispatch and Push Jobs
 
 Any project configured to use runners will not use Push Jobs as the
 transport mechanism for managing the phase builds (unit, lint,

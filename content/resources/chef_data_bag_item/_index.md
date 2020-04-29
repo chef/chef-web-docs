@@ -9,7 +9,7 @@ menu:
     title: chef_data_bag_item
     identifier: chef_infra/cookbook_reference/resources/chef_data_bag_item chef_data_bag_item
     parent: chef_infra/cookbook_reference/resources
-    weight: 220
+
 resource_reference: true
 robots: null
 resource_description_list:

@@ -1,17 +1,43 @@
 ---
+resource_reference: true
+robots:
+syntax_code_block:
+common_resource_functionality_multiple_packages: false
+common_resource_functionality_resources_common_windows_security: false
+cookbook_file_specificity: false
+debug_recipes_chef_shell: false
+handler_custom: false
+handler_types: false
+nameless_apt_update: false
+nameless_build_essential: false
+properties_multiple_packages: false
+properties_resources_common_windows_security: false
+properties_shortcode:
+ps_credential_helper: false
+registry_key: false
+remote_directory_recursive_directories: false
+remote_file_prevent_re_downloads: false
+remote_file_unc_path: false
+resource_directory_recursive_directories: false
+resource_package_options: false
+resources_common_atomic_update: false
+resources_common_guard_interpreter: false
+resources_common_guards: true
+resources_common_notification: true
+resources_common_properties: true
+ruby_style_basics_chef_log: false
+syntax_shortcode:
+template_requirements: false
+unit_file_verification: false
 title: yum_repository resource
 resource: yum_repository
-draft: false
 aliases:
-- /resource_yum_repository.html
+- "/resource_yum_repository.html"
 menu:
   infra:
     title: yum_repository
     identifier: chef_infra/cookbook_reference/resources/yum_repository yum_repository
     parent: chef_infra/cookbook_reference/resources
-    weight: 1470
-resource_reference: true
-robots: null
 resource_description_list:
 - markdown: 'Use the **yum_repository** resource to manage a Yum repository
 
@@ -21,54 +47,66 @@ resource_description_list:
 
     to reference, how to handle cached data, etc.'
 resource_new_in: '12.14'
-handler_types: false
-syntax_description: "The yum_repository resource has the following syntax:\n\n```\
-  \ ruby\nyum_repository 'name' do\n  baseurl                    String, Array\n \
-  \ clean_headers              true, false # default value: false\n  clean_metadata\
-  \             true, false # default value: true\n  cost                       String\n\
-  \  description                String # default value: \"Yum Repository\"\n  enabled\
-  \                    true, false # default value: true\n  enablegroups         \
-  \      true, false\n  exclude                    String\n  failovermethod      \
-  \       String\n  fastestmirror_enabled      true, false\n  gpgcheck           \
-  \        true, false # default value: true\n  gpgkey                     String,\
-  \ Array\n  http_caching               String\n  include_config             String\n\
-  \  includepkgs                String\n  keepalive                  true, false\n\
-  \  make_cache                 true, false # default value: true\n  max_retries \
-  \               String, Integer\n  metadata_expire            String\n  metalink\
-  \                   String\n  mirror_expire              String\n  mirrorlist  \
-  \               String\n  mirrorlist_expire          String\n  mode            \
-  \           String, Integer # default value: \"0644\"\n  options               \
-  \     Hash\n  password                   String\n  priority                   String\n\
-  \  proxy                      String\n  proxy_password             String\n  proxy_username\
-  \             String\n  repo_gpgcheck              true, false\n  report_instanceid\
-  \          true, false\n  repositoryid               String # default value: 'name'\
-  \ unless specified\n  skip_if_unavailable        true, false\n  source         \
-  \            String\n  sslcacert                  String\n  sslclientcert      \
-  \        String\n  sslclientkey               String\n  sslverify              \
-  \    true, false\n  throttle                   String, Integer\n  timeout      \
-  \              String\n  username                   String\n  action           \
-  \          Symbol # defaults to :create if not specified\nend\n```"
-syntax_code_block: null
+syntax_full_code_block: |-
+  yum_repository 'name' do
+    baseurl                    String, Array
+    clean_metadata             true, false # default value: true
+    cost                       String
+    description                String # default value: "Yum Repository"
+    enabled                    true, false # default value: true
+    enablegroups               true, false
+    exclude                    String
+    failovermethod             String
+    fastestmirror_enabled      true, false
+    gpgcheck                   true, false # default value: true
+    gpgkey                     String, Array
+    http_caching               String
+    include_config             String
+    includepkgs                String
+    keepalive                  true, false
+    make_cache                 true, false # default value: true
+    max_retries                String, Integer
+    metadata_expire            String
+    metalink                   String
+    mirror_expire              String
+    mirrorlist                 String
+    mirrorlist_expire          String
+    mode                       String, Integer # default value: "0644"
+    options                    Hash
+    password                   String
+    priority                   String
+    proxy                      String
+    proxy_password             String
+    proxy_username             String
+    repo_gpgcheck              true, false
+    report_instanceid          true, false
+    repositoryid               String # default value: 'name' unless specified
+    skip_if_unavailable        true, false
+    source                     String
+    sslcacert                  String
+    sslclientcert              String
+    sslclientkey               String
+    sslverify                  true, false
+    throttle                   String, Integer
+    timeout                    String
+    username                   String
+    action                     Symbol # defaults to :create if not specified
+  end
 syntax_properties_list:
-- '`yum_repository` is the resource.'
-- '`name` is the name given to the resource block.'
-- '`action` identifies which steps Chef Infra Client will take to bring the node into
-  the desired state.'
-- '`baseurl`, `clean_headers`, `clean_metadata`, `cost`, `description`, `enabled`,
-  `enablegroups`, `exclude`, `failovermethod`, `fastestmirror_enabled`, `gpgcheck`,
-  `gpgkey`, `http_caching`, `include_config`, `includepkgs`, `keepalive`, `make_cache`,
-  `max_retries`, `metadata_expire`, `metalink`, `mirror_expire`, `mirrorlist`, `mirrorlist_expire`,
-  `mode`, `options`, `password`, `priority`, `proxy`, `proxy_password`, `proxy_username`,
-  `repo_gpgcheck`, `report_instanceid`, `repositoryid`, `skip_if_unavailable`, `source`,
-  `sslcacert`, `sslclientcert`, `sslclientkey`, `sslverify`, `throttle`, `timeout`,
-  and `username` are the properties available to this resource.'
-syntax_full_code_block: null
-syntax_full_properties_list: null
-syntax_shortcode: null
-registry_key: false
-nameless_apt_update: false
-nameless_build_essential: false
-resource_package_options: false
+syntax_full_properties_list:
+- "`yum_repository` is the resource."
+- "`name` is the name given to the resource block."
+- "`action` identifies which steps Chef Infra Client will take to bring the node into
+  the desired state."
+- "``baseurl``, ``clean_metadata``, ``cost``, ``description``, ``enabled``, ``enablegroups``,
+  ``exclude``, ``failovermethod``, ``fastestmirror_enabled``, ``gpgcheck``, ``gpgkey``,
+  ``http_caching``, ``include_config``, ``includepkgs``, ``keepalive``, ``make_cache``,
+  ``max_retries``, ``metadata_expire``, ``metalink``, ``mirror_expire``, ``mirrorlist``,
+  ``mirrorlist_expire``, ``mode``, ``options``, ``password``, ``priority``, ``proxy``,
+  ``proxy_password``, ``proxy_username``, ``repo_gpgcheck``, ``report_instanceid``,
+  ``repositoryid``, ``skip_if_unavailable``, ``source``, ``sslcacert``, ``sslclientcert``,
+  ``sslclientkey``, ``sslverify``, ``throttle``, ``timeout``, and ``username`` are
+  the properties available to this resource."
 actions_list:
   :nothing:
     shortcode: resources_common_actions_nothing.md
@@ -76,80 +114,59 @@ properties_list:
 - property: baseurl
   ruby_type: String, Array
   required: false
-  default_value: null
-  new_in: null
+  default_value:
+  new_in:
   description_list:
-  - markdown: 'URL to the directory where the Yum repository''s ''repodata'' directory
-
-      lives. Can be an <http://>, <https://> or a <ftp://> URL. You can
-
-      specify multiple URLs in one baseurl statement.'
-- property: clean_headers
-  ruby_type: true, false
-  required: false
-  default_value: 'false'
-  new_in: null
-  description_list:
-  - markdown: '`DEPRECATED`
-
-
-      Specifies whether you want to purge the package data files that are
-
-      downloaded from a Yum repository and held in a cache directory.'
+  - markdown: URL to the directory where the Yum repository's 'repodata' directory
+      lives. Can be an `http://`, `https://` or a `ftp://` URLs. You can specify multiple
+      URLs in one baseurl statement.
 - property: clean_metadata
   ruby_type: true, false
   required: false
   default_value: 'true'
-  new_in: null
+  new_in:
   description_list:
-  - markdown: 'Specifies whether you want to purge all of the packages downloaded
-
-      from a Yum repository and held in a cache directory.'
+  - markdown: Specifies whether you want to purge all of the packages downloaded from
+      a Yum repository and held in a cache directory.
 - property: cost
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
+  default_value:
+  new_in:
   description_list:
-  - markdown: 'Relative cost of accessing this repository. Useful for weighing one
-
-      repo''s packages as greater/less than any other.'
+  - markdown: Relative cost of accessing this repository. Useful for weighing one
+      repo's packages as greater/less than any other.
 - property: description
   ruby_type: String
   required: false
-  default_value: '"Yum Repository"'
-  new_in: null
+  default_value: Yum Repository
+  new_in:
   description_list:
-  - markdown: 'Descriptive name for the repository channel and maps to the ''name''
-
-      parameter in a repository .conf.'
+  - markdown: Descriptive name for the repository channel and maps to the 'name' parameter
+      in a repository .conf.
 - property: enabled
   ruby_type: true, false
   required: false
   default_value: 'true'
-  new_in: null
+  new_in:
   description_list:
   - markdown: Specifies whether or not Yum should use this repository.
 - property: enablegroups
   ruby_type: true, false
   required: false
-  default_value: null
-  new_in: null
+  default_value:
+  new_in:
   description_list:
-  - markdown: 'Specifies whether Yum will allow the use of package groups for this
-
-      repository.'
+  - markdown: Specifies whether Yum will allow the use of package groups for this
+      repository.
 - property: exclude
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
+  default_value:
+  new_in:
   description_list:
-  - markdown: 'List of packages to exclude from updates or installs. This should be
-
-      a space separated list. Shell globs using wildcards (eg. \* and ?)
-
-      are allowed.'
+  - markdown: List of packages to exclude from updates or installs. This should be
+      a space separated list. Shell globs using wildcards (eg. * and ?) are allowed.
 - property: failovermethod
   ruby_type: String
   required: false
@@ -536,7 +553,7 @@ properties_list:
   description_list:
   - markdown: Username to use for basic authentication to a repository.
 properties_shortcode: null
-properties_multiple_packages: false
+properties_multiple_packages: true
 resource_directory_recursive_directories: false
 resources_common_atomic_update: false
 properties_resources_common_windows_security: false

@@ -28,8 +28,7 @@ to those distributions, see the [versions page](/versions/). General
 information about this change can be found in our
 [announcement](https://blog.chef.io/2019/04/02/chef-software-announces-the-enterprise-automation-stack/).
 
-Chef EULA
-=========
+## Chef EULA
 
 The commercial distributions of our products---such as Chef Infra
 Client, Chef Habitat, or Chef InSpec--- are goverened by either the
@@ -40,8 +39,7 @@ required to accept these terms when using the distributions for the
 first time. For additional information on how to accept the license, see
 [Accepting the Chef License](/chef_license_accept/) documentation.
 
-Chef MLSA
-=========
+## Chef MLSA
 
 Distributions of older proprietary Chef products---such as Chef Automate
 1.x and the Chef Management Console---are governed by the [Chef Master
@@ -49,8 +47,7 @@ License and Services Agreement (Chef
 MLSA)](https://www.chef.io/online-master-agreement/), which must be
 accepted as part of any install or upgrade process.
 
-Apache 2.0
-==========
+## Apache 2.0
 
 All open source Chef projects---such as Chef Infra Client, Chef
 Automate, or Chef InSpec---are governed by the [Apache 2.0

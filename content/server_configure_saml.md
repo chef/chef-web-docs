@@ -16,8 +16,6 @@ aliases = ["/server_configure_saml.html", "/release/automate/server_configure_sa
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/server_configure_saml.md)
 
-
-
 {{% EOL_manage %}}
 
 Chef Manage can support logging in users via SAML authentication. In
@@ -26,8 +24,7 @@ to act as a SAML Identity Provider (IdP). When the Chef Automate Server
 is configured to do so, it will provide an OpenID Connect (OIDC)
 protocol end-point that Chef Manage can use to initiate authentication.
 
-Configuring Chef Manage
-=======================
+## Configuring Chef Manage
 
 To configure the Chef Infra Server management console, first add the
 following code to `/etc/chef-manage/manage.rb`:

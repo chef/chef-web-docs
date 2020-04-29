@@ -25,13 +25,11 @@ There are three configuration scenarios for the Chef Infra Server:
     configured for front-end and back-end, with a single back-end and
     load-balancing on the front-end, as required)
 
-Supported Platforms
-===================
+## Supported Platforms
 
 {{% adopted_platforms_server %}}
 
-Prerequisites
-=============
+## Prerequisites
 
 The Chef Infra Server has the following prerequisites:
 
@@ -63,8 +61,7 @@ detailed list of software and hardware requirements.
 
 {{< /note >}}
 
-Standalone
-==========
+## Standalone
 
 The standalone installation of Chef Infra Server creates a working
 installation on a single server. This installation is also useful when
@@ -96,8 +93,7 @@ To install Chef Server:
 
 6.  {{< shortcode_indent shortcode="ctl_chef_server_org_create_summary" >}}
 
-Update Configuration for Purchased Nodes
-========================================
+## Update Configuration for Purchased Nodes
 
 To use more than 25 nodes, you'll need to change Chef Infra Server
 configuration for the server to recognize your purchased licenses. Edit
@@ -144,8 +140,7 @@ For more information on configuring your Chef Infra Server, see
 [chef-server.rb Settings](/config_rb_server/) and [chef-server.rb
 Optional Settings](/config_rb_server_optional_settings/).
 
-High Availability
-=================
+## High Availability
 
 The following links describe how to configure the Chef Infra Server for
 high availability. The **Backend Cluster** setup is strongly recommended
@@ -153,8 +148,7 @@ for new installations:
 
 -   [High Availability using Backend Cluster](/install_server_ha/)
 
-Tiered (Single Backend)
-=======================
+## Tiered (Single Backend)
 
 The following link describes how to configure the Chef Infra Server with
 a single backend machine and multiple frontend machines. Note that this
