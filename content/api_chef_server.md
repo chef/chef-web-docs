@@ -2523,8 +2523,10 @@ The `/containers` endpoint has the following methods: `GET`, `POST`.
 
 The `GET` method is used to get a list of containers.
 
-This method has no parameters.
+Note: The `/containers` endpoint is not useful outside of the Chef Infra Server code.
 
+This method has no parameters.
+e
 **Request**
 
 ``` none
@@ -2539,15 +2541,15 @@ The response is similar to:
 
 ``` javascript
 {
-  "clients": "https://url/for/containers/clients",
-  "containers": "https://url/for/containers/containers",
-  "cookbooks": "https://url/for/containers/cookbooks",
-  "data": "https://url/for/containers/data",
-  "environments": "https://url/for/containers/environments",
-  "groups": "https://url/for/containers/groups",
-  "nodes": "https://url/for/containers/nodes",
-  "roles": "https://url/for/containers/roles",
-  "sandboxes": "https://url/for/containers/sandboxes"
+  "clients": "https://chef.example/organizations/example/containers/clients",
+  "containers": "https://chef.example/organizations/example/containers/containers",
+  "cookbooks": "https://chef.example/organizations/example/containers/cookbooks",
+  "data": "https://chef.example/organizations/example/containers/data",
+  "environments": "https://chef.example/organizations/example/containers/environments",
+  "groups": "https://chef.example/organizations/example/containers/groups",
+  "nodes": "https://chef.example/organizations/example/containers/nodes",
+  "roles": "https://chef.example/organizations/example/containers/roles",
+  "sandboxes": "https://chef.example/organizations/example/containers/sandboxes"
 }
 ```
 
@@ -2587,6 +2589,8 @@ The response is similar to:
 #### POST
 
 The `POST` method is used to create a container.
+
+Note: Using the `POST` method of the `/containers` endpoint may have unexpected effects and  is likely to break your system. Use of this method is not supported.
 
 This method has no parameters.
 
@@ -2659,9 +2663,7 @@ The `DELETE` method is used to remove a container.
 
 The `/containers/Name` endpoint has the following methods: `DELETE`, `GET`.
 
-### DELETE
-
-The `DELETE` method is used to remove a container.
+Note: Using the `DELETE` method of the `/containers` endpoint may have unexpected effects and is likely to break your systemr. Use of this method is not supported. 
 
 This method has no parameters.
 
