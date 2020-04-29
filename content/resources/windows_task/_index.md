@@ -128,15 +128,11 @@ properties_list:
 - property: execution_time_limit
   ruby_type: String, Integer
   required: false
-  default_value: '"PT72H"'
-  new_in: null
+  default_value: PT72H (72 hours in ISO8601 duration format)
+  new_in: 
   description_list:
-  - markdown: '(72
-
-      hours)
-
-
-      The maximum time (in seconds) the task will run.'
+  - markdown: The maximum time the task will run. This field can accept either seconds
+      or an ISO8601 duration value.
 - property: force
   ruby_type: true, false
   required: false
