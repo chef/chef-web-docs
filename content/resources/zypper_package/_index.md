@@ -1,9 +1,8 @@
 ---
 title: zypper_package resource
 resource: zypper_package
-draft: false
 aliases:
-- /resource_zypper_package.html
+- "/resource_zypper_package.html"
 menu:
   infra:
     title: zypper_package
@@ -72,70 +71,58 @@ properties_list:
   default_value: 'true'
   new_in: '13.6'
   description_list:
-  - markdown: 'Allow downgrading a package to satisfy requested version
-
-      requirements.'
+  - markdown: Allow downgrading a package to satisfy requested version requirements.
 - property: global_options
   ruby_type: String, Array
   required: false
-  default_value: null
+  default_value: 
   new_in: '14.6'
   description_list:
-  - markdown: 'One (or more) additional command options that are passed to the
-
-      command. For example, common zypper directives, such as
-
-      `--no-recommends`. See the [zypper man
-
-      page](https://en.opensuse.org/SDB:Zypper_manual_(plain)) for the
-
-      full list.'
+  - markdown: One (or more) additional command options that are passed to the command.
+      For example, common zypper directives, such as `--no-recommends`. See the [zypper
+      man page](https://en.opensuse.org/SDB:Zypper_manual_(plain)) for the full list.
 - property: gpg_check
   ruby_type: true, false
   required: false
   default_value: 'true'
-  new_in: null
+  new_in: 
   description_list:
-  - markdown: 'Verify the package''s GPG signature. Can also be controlled site-wide
-
-      using the `zypper_check_gpg` config option.'
+  - markdown: Verify the package's GPG signature. Can also be controlled site-wide
+      using the `zypper_check_gpg` config option.
 - property: options
   ruby_type: String, Array
   required: false
-  default_value: null
-  new_in: null
+  default_value: 
+  new_in: 
   description_list:
-  - markdown: 'One (or more) additional command options that are passed to the
-
-      command.'
+  - markdown: One (or more) additional command options that are passed to the command.
 - property: package_name
   ruby_type: String, Array
   required: false
-  default_value: null
-  new_in: null
+  default_value: 
+  new_in: 
   description_list:
-  - markdown: 'An optional property to set the package name if it differs from the
-
-      resource block''s name.'
+  - markdown: An optional property to set the package name if it differs from the
+      resource block's name.
 - property: source
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
+  default_value: 
+  new_in: 
   description_list:
   - markdown: The optional path to a package on the local file system.
 - property: timeout
   ruby_type: String, Integer
   required: false
-  default_value: null
-  new_in: null
+  default_value: 
+  new_in: 
   description_list:
   - markdown: The amount of time (in seconds) to wait before timing out.
 - property: version
   ruby_type: String, Array
   required: false
-  default_value: null
-  new_in: null
+  default_value: 
+  new_in: 
   description_list:
   - markdown: The version of a package to be installed or upgraded.
 properties_shortcode: null
