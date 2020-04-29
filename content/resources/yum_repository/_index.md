@@ -98,7 +98,7 @@ syntax_full_properties_list:
 - "`name` is the name given to the resource block."
 - "`action` identifies which steps Chef Infra Client will take to bring the node into
   the desired state."
-- "``baseurl``, , ``clean_metadata``, ``cost``, ``description``, ``enabled``, ``enablegroups``,
+- "``baseurl``, ``clean_metadata``, ``cost``, ``description``, ``enabled``, ``enablegroups``,
   ``exclude``, ``failovermethod``, ``fastestmirror_enabled``, ``gpgcheck``, ``gpgkey``,
   ``http_caching``, ``include_config``, ``includepkgs``, ``keepalive``, ``make_cache``,
   ``max_retries``, ``metadata_expire``, ``metalink``, ``mirror_expire``, ``mirrorlist``,
