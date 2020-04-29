@@ -260,7 +260,7 @@ properties_list:
   ruby_type: true, false
   required: false
   default_value: 'false'
-  new_in: '15.0'
+  new_in: '14.15'
   description_list:
   - markdown: To start the task at any time after its scheduled time has passed.
 - property: stop_if_going_on_batteries
