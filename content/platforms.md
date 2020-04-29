@@ -49,9 +49,9 @@ versions for Chef Infra Client:
 
 <table>
 <colgroup>
-<col style="width: 56%" />
-<col style="width: 20%" />
-<col style="width: 24%" />
+<col style="width: 30%" />
+<col style="width: 35%" />
+<col style="width: 35%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -68,17 +68,17 @@ versions for Chef Infra Client:
 </tr>
 <tr class="even">
 <td>Amazon Linux</td>
-<td><code>x86_64</code></td>
+<td><code>x86_64</code>, <code>aarch64</code> (2.x only)</td>
 <td>2013+ and 2.0</td>
 </tr>
 <tr class="odd">
 <td>CentOS</td>
-<td><code>x86_64</code></td>
+<td><code>x86_64</code>, <code>ppc64le</code> (7.x only), <code>ppc64</code> (7.x only), <code>aarch64</code> (7.x / 8.x only)</td>
 <td><code>6.x</code>, <code>7.x</code>, <code>8.x</code></td>
 </tr>
 <tr class="even">
 <td>Debian</td>
-<td><code>i686</code>, <code>x86_64</code></td>
+<td><code>x86_64</code></td>
 <td><code>8</code>, <code>9</code>, <code>10</code></td>
 </tr>
 <tr class="odd">
@@ -93,12 +93,12 @@ versions for Chef Infra Client:
 </tr>
 <tr class="odd">
 <td>Oracle Enterprise Linux</td>
-<td><code>x86_64</code></td>
+<td><code>x86_64</code><code>aarch64</code> (7.x / 8.x only)</td>
 <td><code>6.x</code>, <code>7.x</code>, <code>8.x</code></td>
 </tr>
 <tr class="even">
 <td>Red Hat Enterprise Linux</td>
-<td><code>x86_64</code> <code>s390x</code> (7.x only), <code>ppc64le</code> (7.x only), <code>ppc64</code> (7.x only), <code>aarch64</code> (7.x only)</td>
+<td><code>x86_64</code>, <code>ppc64le</code> (7.x only), <code>ppc64</code> (7.x only), <code>aarch64</code> (7.x / 8.x only)</td>
 <td><code>6.x</code>, <code>7.x</code>, <code>8.x</code></td>
 </tr>
 <tr class="odd">
@@ -108,12 +108,12 @@ versions for Chef Infra Client:
 </tr>
 <tr class="even">
 <td>SUSE Enterprise Linux Server</td>
-<td><code>x86_64</code>, <code>s390x</code> (12.x only)</td>
+<td><code>x86_64</code>, <code>aarch64</code> (15.x only)</td>
 <td><code>12 SP1+</code>, <code>15</code></td>
 </tr>
 <tr class="odd">
 <td>Ubuntu (LTS releases)</td>
-<td><code>x86_64</code>,<code>aarch64</code> (18.04 only)</td>
+<td><code>x86_64</code>,<code>aarch64</code> (18.04/20.04 only)</td>
 <td><code>16.04</code>, <code>18.04</code>, <code>20.04</code></td>
 </tr>
 <tr class="even">
@@ -130,9 +130,9 @@ The following platforms are supported only via the community:
 
 <table>
 <colgroup>
-<col style="width: 56%" />
-<col style="width: 20%" />
-<col style="width: 24%" />
+<col style="width: 30%" />
+<col style="width: 35%" />
+<col style="width: 35%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -194,9 +194,9 @@ versions for the Chef Workstation:
 
 <table>
 <colgroup>
-<col style="width: 56%" />
-<col style="width: 20%" />
-<col style="width: 24%" />
+<col style="width: 30%" />
+<col style="width: 35%" />
+<col style="width: 35%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -238,9 +238,9 @@ versions for Chef InSpec:
 
 <table>
 <colgroup>
-<col style="width: 56%" />
-<col style="width: 20%" />
-<col style="width: 24%" />
+<col style="width: 30%" />
+<col style="width: 35%" />
+<col style="width: 35%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -296,9 +296,9 @@ versions for ChefDK:
 
 <table>
 <colgroup>
-<col style="width: 56%" />
-<col style="width: 20%" />
-<col style="width: 24%" />
+<col style="width: 30%" />
+<col style="width: 35%" />
+<col style="width: 35%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -347,9 +347,9 @@ The following platforms are supported only via the community:
 
 <table>
 <colgroup>
-<col style="width: 56%" />
-<col style="width: 20%" />
-<col style="width: 24%" />
+<col style="width: 30%" />
+<col style="width: 35%" />
+<col style="width: 35%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -397,9 +397,9 @@ versions within the Chef Automate cluster.
 
 <table>
 <colgroup>
-<col style="width: 56%" />
-<col style="width: 20%" />
-<col style="width: 24%" />
+<col style="width: 30%" />
+<col style="width: 35%" />
+<col style="width: 35%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -447,9 +447,9 @@ following platforms:
 
 <table>
 <colgroup>
-<col style="width: 56%" />
-<col style="width: 20%" />
-<col style="width: 24%" />
+<col style="width: 30%" />
+<col style="width: 35%" />
+<col style="width: 35%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -476,9 +476,9 @@ Chef Push Jobs client:
 
 <table>
 <colgroup>
-<col style="width: 56%" />
-<col style="width: 20%" />
-<col style="width: 24%" />
+<col style="width: 30%" />
+<col style="width: 35%" />
+<col style="width: 35%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -525,9 +525,9 @@ Chef Push Jobs server:
 
 <table>
 <colgroup>
-<col style="width: 56%" />
-<col style="width: 20%" />
-<col style="width: 24%" />
+<col style="width: 30%" />
+<col style="width: 35%" />
+<col style="width: 35%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -564,9 +564,9 @@ Backend, the high-availability solution for Chef Infra Server:
 
 <table>
 <colgroup>
-<col style="width: 56%" />
-<col style="width: 20%" />
-<col style="width: 24%" />
+<col style="width: 30%" />
+<col style="width: 35%" />
+<col style="width: 35%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -603,9 +603,9 @@ Manage:
 
 <table>
 <colgroup>
-<col style="width: 56%" />
-<col style="width: 20%" />
-<col style="width: 24%" />
+<col style="width: 30%" />
+<col style="width: 35%" />
+<col style="width: 35%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -662,7 +662,7 @@ according to those vendors' terms:
 <td>End of maintenance updates</td>
 </tr>
 <tr class="odd">
-<td>Enterprise Linux (covers RedHat Enterprise Linux, CentOS)</td>
+<td>Enterprise Linux (covers Red Hat Enterprise Linux, CentOS)</td>
 <td>End of Production 3</td>
 </tr>
 <tr class="even">
