@@ -1,9 +1,8 @@
 ---
 title: windows_shortcut resource
 resource: windows_shortcut
-draft: false
 aliases:
-- /resource_windows_shortcut.html
+- "/resource_windows_shortcut.html"
 menu:
   infra:
     title: windows_shortcut
@@ -47,29 +46,29 @@ properties_list:
 - property: arguments
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
+  default_value: 
+  new_in: 
   description_list:
   - markdown: Arguments to pass to the target when the shortcut is executed.
 - property: cwd
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
+  default_value: 
+  new_in: 
   description_list:
   - markdown: Working directory to use when the target is executed.
 - property: description
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
+  default_value: 
+  new_in: 
   description_list:
   - markdown: The description of the shortcut
 - property: iconlocation
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
+  default_value: 
+  new_in: 
   description_list:
   - markdown: 'Icon to use for the shortcut. Accepts the format of `''path, index''`,
 
@@ -82,16 +81,15 @@ properties_list:
   ruby_type: String
   required: false
   default_value: The resource block's name
-  new_in: null
+  new_in: 
   description_list:
-  - markdown: 'An optional property to set the shortcut name if it differs from the
-
-      resource block''s name.'
+  - markdown: An optional property to set the shortcut name if it differs from the
+      resource block's name.
 - property: target
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
+  default_value: 
+  new_in: 
   description_list:
   - markdown: The destination that the shortcut links to.
 properties_shortcode: null
