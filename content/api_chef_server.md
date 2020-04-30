@@ -2526,7 +2526,7 @@ The `GET` method is used to get a list of containers.
 Note: The `/containers` endpoint is not useful outside of the Chef Infra Server code.
 
 This method has no parameters.
-e
+
 **Request**
 
 ``` none
@@ -2590,7 +2590,7 @@ The response is similar to:
 
 The `POST` method is used to create a container.
 
-Note: Using the `POST` method of the `/containers` endpoint may have unexpected effects and  is likely to break your system. Use of this method is not supported.
+Note: Using the `POST` method of the `/containers` endpoint may have unexpected effects and is likely to break your system. Use of this method is not supported.
 
 This method has no parameters.
 
@@ -2654,16 +2654,13 @@ The response is similar to:
 
 ### /containers/NAME
 
-
-The `/containers/Name` endpoint has the following methods: `DELETE`, `GET`.
-
 #### DELETE
 
 The `DELETE` method is used to remove a container.
 
 The `/containers/Name` endpoint has the following methods: `DELETE`, `GET`.
 
-Note: Using the `DELETE` method of the `/containers` endpoint may have unexpected effects and is likely to break your systemr. Use of this method is not supported. 
+Note: Using the `DELETE` method of the `/containers/NAME` endpoint may have unexpected effects and is likely to break your system. Use of this method is not supported. 
 
 This method has no parameters.
 
