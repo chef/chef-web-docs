@@ -6533,6 +6533,73 @@ same name as a user. The response for a user or client is similar to:
 </tbody>
 </table>
 
+### /required_recipe
+
+The `/required_recipe` endpoint has the following method: `GET`.
+
+#### GET
+
+The `GET` method is used to view a recipe specified by a 
+Chef Infra Server administrator as part of the Chef Server configuration.
+This recipe will be run by all Chef Infra Clients that connect to the Chef Server.
+The required_recipe feature is aimed at expert level practioners delivering
+isolated configuration changes to target systems. The text returned is 
+the contents of a single recipe file. 
+
+This method has no parameters.
+
+**Request**
+
+``` none
+GET /organizations/NAME/required_recipe
+```
+
+This method has no request body..
+
+**Response**
+
+The response is returned in plain text, not in JSON format, similar to:
+
+``` javascript
+  "# My required recipe
+   file '/tmp/build'
+   package 'secret_sauce'
+  "
+```
+
+**Response Codes**
+
+<table>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Response Code</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>200</code></td>
+<td>OK. The request was successful. Required recipe is enabled, a path to a recipe is defined and a recipe exists at the path location.</td>
+</tr>
+<tr class="even">
+<td><code>401</code></td>
+<td>Unauthorized. The user or client who made the request could not be authenticated. Verify the user/client name, and that the correct key was used to sign the request.</td>
+</tr>
+<tr class="odd">
+<td><code>403</code></td>
+<td>Forbidden. The user who made the request is not authorized to perform the action.</td>
+</tr>
+<tr class="even">
+<td><code>404</code></td>
+<td>Not Found. The required recipe function is not enabled.</td>
+</tr>
+</tbody>
+</table>
+
 ### /roles
 
 {{% role %}}
