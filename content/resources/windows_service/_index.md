@@ -3,14 +3,13 @@ title: windows_service resource
 resource: windows_service
 draft: false
 aliases:
-- /resource_windows_service.html
+- "/resource_windows_service.html"
 menu:
   infra:
     title: windows_service
     identifier: chef_infra/cookbook_reference/resources/windows_service windows_service
     parent: chef_infra/cookbook_reference/resources
 resource_reference: true
-robots: null
 resource_description_list:
 - markdown: 'Use the **windows_service** resource to create, delete, or manage a
 
@@ -86,7 +85,6 @@ properties_list:
 - property: binary_path_name
   ruby_type: String
   required: false
-  default_value: 
   new_in: '14.0'
   description_list:
   - markdown: The fully qualified path to the service binary file. The path can also
@@ -103,7 +101,6 @@ properties_list:
 - property: dependencies
   ruby_type: String, Array
   required: false
-  default_value: 
   new_in: '14.0'
   description_list:
   - markdown: A pointer to a double null-terminated array of null-separated names
@@ -114,7 +111,6 @@ properties_list:
 - property: description
   ruby_type: String
   required: false
-  default_value: 
   new_in: '14.0'
   description_list:
   - markdown: Description of the service.
@@ -128,7 +124,6 @@ properties_list:
 - property: display_name
   ruby_type: String
   required: false
-  default_value: 
   new_in: '14.0'
   description_list:
   - markdown: The display name to be used by user interface programs to identify the
@@ -143,7 +138,6 @@ properties_list:
 - property: load_order_group
   ruby_type: String
   required: false
-  default_value: 
   new_in: '14.0'
   description_list:
   - markdown: The name of the service's load ordering group(s).
@@ -151,42 +145,34 @@ properties_list:
   ruby_type: String
   required: false
   default_value: The value provided to 'service_name' or the resource block's name
-  new_in: 
   description_list:
   - markdown: The pattern to look for in the process table.
 - property: reload_command
   ruby_type: String, nil, false
   required: false
-  default_value: 
-  new_in: 
   description_list:
   - markdown: The command used to tell a service to reload its configuration.
 - property: restart_command
   ruby_type: String, nil, false
   required: false
-  default_value: 
-  new_in: 
   description_list:
   - markdown: The command used to restart a service.
 - property: run_as_password
   ruby_type: String
   required: false
   default_value: null
-  new_in: 
   description_list:
   - markdown: The password for the user specified by `run_as_user`.
 - property: run_as_user
   ruby_type: String
   required: false
   default_value: localsystem
-  new_in: 
   description_list:
   - markdown: The user under which a Microsoft Windows service runs.
 - property: service_name
   ruby_type: String
   required: false
   default_value: The resource block's name
-  new_in: 
   description_list:
   - markdown: An optional property to set the service name if it differs from the
       resource block's name.
@@ -200,37 +186,29 @@ properties_list:
 - property: start_command
   ruby_type: String, nil, false
   required: false
-  default_value: 
-  new_in: 
   description_list:
   - markdown: The command used to start a service.
 - property: startup_type
   ruby_type: Symbol
   required: false
   default_value: ":automatic"
-  new_in:
   allowed_values: "`:automatic`, `:disabled`, or `:manual`"
   description_list:
   - markdown: Use to specify the startup type of the service.
 - property: status_command
   ruby_type: String, nil, false
   required: false
-  default_value: 
-  new_in: 
   description_list:
   - markdown: The command used to check the run status for a service.
 - property: stop_command
   ruby_type: String, nil, false
   required: false
-  default_value: 
-  new_in: 
   description_list:
   - markdown: The command used to stop a service.
 - property: supports
   ruby_type: Hash
   required: false
-  default_value: null
-  new_in: 
+  default_value: '{"restart"=>nil, "reload"=>nil, "status"=>nil}'
   description_list:
   - markdown: 'A list of properties that controls how Chef Infra Client is to
 
@@ -263,7 +241,6 @@ properties_list:
   ruby_type: Integer
   required: false
   default_value: '60'
-  new_in: 
   description_list:
   - markdown: The amount of time (in seconds) to wait before timing out.
 properties_shortcode: null

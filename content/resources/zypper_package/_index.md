@@ -37,9 +37,8 @@ menu:
     identifier: chef_infra/cookbook_reference/resources/zypper_package zypper_package
     parent: chef_infra/cookbook_reference/resources
 resource_description_list:
-- markdown: 'Use the **zypper_package** resource to install, upgrade, and remove
-
-    packages with Zypper for the SUSE Enterprise and OpenSUSE platforms.'
+- markdown: Use the **zypper_package** resource to install, upgrade, and remove packages
+    with Zypper for the SUSE Enterprise and openSUSE platforms.
 - note:
     shortcode: notes_resource_based_on_package.md
 resource_new_in: 
@@ -131,12 +130,29 @@ properties_list:
   required: false
   description_list:
   - markdown: The version of a package to be installed or upgraded.
-examples: "
-  Install a package using package manager\n\n  ``` ruby\n  zypper_package\
-  \ 'name of package' do\n    action :install\n  end\n  ```\n\n  Install a package\
-  \ using local file\n\n  ``` ruby\n  zypper_package 'jwhois' do\n    action :install\n\
-  \    source '/path/to/jwhois.rpm'\n  end\n  ```\n\n  Install without using recommend\
-  \ packages as a dependency\n\n  ``` ruby\n  package 'apache2' do\n    options '--no-recommends'\n\
-  \  end\n  ```\n"
+examples: |
+  **Install a package using package manager:**
 
+  ``` ruby
+  zypper_package 'name of package' do
+    action :install
+  end
+  ```
+
+  **Install a package using local file:**
+
+  ``` ruby
+  zypper_package 'jwhois' do
+    action :install
+    source '/path/to/jwhois.rpm'
+  end
+  ```
+
+  **Install without using recommend packages as a dependency:**
+
+  ``` ruby
+  package 'apache2' do
+    options '--no-recommends'
+    end
+  ```
 ---
