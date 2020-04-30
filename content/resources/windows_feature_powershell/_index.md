@@ -10,7 +10,6 @@ menu:
     identifier: chef_infra/cookbook_reference/resources/windows_feature_powershell
       windows_feature_powershell
     parent: chef_infra/cookbook_reference/resources
-
 resource_reference: true
 robots: null
 resource_description_list:
@@ -123,23 +122,14 @@ common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false
 unit_file_verification: false
-examples_list:
-- example_heading: Add the SMTP Server feature
-  text_blocks:
-  - code_block: "windows_feature_powershell \"smtp-server\" do\n  action :install\n\
-      \  all true\nend"
-- example_heading: Install multiple features using one resource
-  text_blocks:
-  - code_block: "windows_feature_powershell ['Web-Asp-Net45', 'Web-Net-Ext45'] do\n\
-      \  action :install\nend"
-- example_heading: 'Install the Network Policy and Access Service feature, including
-    the
-
-    management tools. Which, for this example, will automatically install
-
-    RSAT-NPAS as well.'
-  text_blocks:
-  - code_block: "windows_feature_powershell 'NPAS' do\n  action :install\n  management_tools\
-      \ true\nend"
+examples: "
+  Add the SMTP Server feature\n\n  ``` ruby\n  windows_feature_powershell\
+  \ \"smtp-server\" do\n    action :install\n    all true\n  end\n  ```\n\n  Install\
+  \ multiple features using one resource\n\n  ``` ruby\n  windows_feature_powershell\
+  \ ['Web-Asp-Net45', 'Web-Net-Ext45'] do\n    action :install\n  end\n  ```\n\n \
+  \ Install the Network Policy and Access Service feature, including the\n  management\
+  \ tools. Which, for this example, will automatically install\n  RSAT-NPAS as well.\n\
+  \n  ``` ruby\n  windows_feature_powershell 'NPAS' do\n    action :install\n    management_tools\
+  \ true\n  end\n  ```\n"
 
 ---

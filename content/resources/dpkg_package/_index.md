@@ -149,10 +149,9 @@ common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false
 unit_file_verification: false
-examples_list:
-- example_heading: Install a package
-  text_blocks:
-  - code_block: "dpkg_package 'wget_1.13.4-2ubuntu1.4_amd64.deb' do\n  source '/foo/bar/wget_1.13.4-2ubuntu1.4_amd64.deb'\n\
-      \  action :install\nend"
+examples: "
+  Install a package\n\n  ``` ruby\n  dpkg_package 'wget_1.13.4-2ubuntu1.4_amd64.deb'\
+  \ do\n    source '/foo/bar/wget_1.13.4-2ubuntu1.4_amd64.deb'\n    action :install\n\
+  \  end\n  ```\n"
 
 ---

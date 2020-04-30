@@ -9,7 +9,6 @@ menu:
     title: swap_file
     identifier: chef_infra/cookbook_reference/resources/swap_file swap_file
     parent: chef_infra/cookbook_reference/resources
-
 resource_reference: true
 robots: null
 resource_description_list:
@@ -106,12 +105,9 @@ common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false
 unit_file_verification: false
-examples_list:
-- example_heading: Create a swap file
-  text_blocks:
-  - code_block: "swap_file '/dev/sda1' do\n  size 1024\nend"
-- example_heading: Remove a swap file
-  text_blocks:
-  - code_block: "swap_file '/dev/sda1' do\n  action :remove\nend"
+examples: "
+  Create a swap file\n\n  ``` ruby\n  swap_file '/dev/sda1' do\n  \
+  \  size 1024\n  end\n  ```\n\n  Remove a swap file\n\n  ``` ruby\n  swap_file '/dev/sda1'\
+  \ do\n    action :remove\n  end\n  ```\n"
 
 ---

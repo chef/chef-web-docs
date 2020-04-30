@@ -80,12 +80,10 @@ common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false
 unit_file_verification: false
-examples_list:
-- example_heading: Enable the checksumFiles Chocolatey feature
-  text_blocks:
-  - code_block: "chocolatey_feature 'checksumFiles' do\n  action :enable\nend"
-- example_heading: Disable the checksumFiles Chocolatey feature
-  text_blocks:
-  - code_block: "chocolatey_feature 'checksumFiles' do\n  action :disable\nend"
+examples: "
+  Enable the checksumFiles Chocolatey feature\n\n  ``` ruby\n  chocolatey_feature\
+  \ 'checksumFiles' do\n    action :enable\n  end\n  ```\n\n  Disable the checksumFiles\
+  \ Chocolatey feature\n\n  ``` ruby\n  chocolatey_feature 'checksumFiles' do\n  \
+  \  action :disable\n  end\n  ```\n"
 
 ---

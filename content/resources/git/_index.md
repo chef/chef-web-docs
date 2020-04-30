@@ -268,52 +268,39 @@ common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false
 unit_file_verification: false
-examples_list:
-- example_heading: Use the git mirror
-  text_blocks:
-  - code_block: "git '/opt/mysources/couch' do\n  repository 'git://git.apache.org/couchdb.git'\n\
-      \  revision 'master'\n  action :sync\nend"
-- example_heading: Use different branches
-  text_blocks:
-  - markdown: 'To use different branches, depending on the environment of the node:'
-  - code_block: "if node.chef_environment == 'QA'\n   branch_name = 'staging'\nelse\n\
-      \   branch_name = 'master'\nend\n\ngit '/home/user/deployment' do\n   repository\
-      \ 'git@github.com:gitsite/deployment.git'\n   revision branch_name\n   action\
-      \ :sync\n   user 'user'\n   group 'test'\nend"
-  - markdown: 'where the `branch_name` variable is set to `staging` or `master`,
-
-      depending on the environment of the node. Once this is determined, the
-
-      `branch_name` variable is used to set the revision for the repository.
-
-      If the `git status` command is used after running the example above, it
-
-      will return the branch name as `deploy`, as this is the default value.
-
-      Run Chef Infra Client in debug mode to verify that the correct branches
-
-      are being checked out:
-
-
-      ``` bash
-
-      sudo chef-client -l debug
-
-      ```'
-- example_heading: Install an application from git using bash
-  text_blocks:
-  - shortcode: resource_scm_use_bash_and_ruby_build.md
-- example_heading: Upgrade packages from git
-  text_blocks:
-  - markdown: 'The following example uses the **git** resource to upgrade packages:'
-  - code_block: "# the following code sample comes from the ``source`` recipe\n# in\
-      \ the ``libvpx-cookbook`` cookbook:\n# https://github.com/enmasse-entertainment/libvpx-cookbook\n\
-      \ngit \"#{Chef::Config[:file_cache_path]}/libvpx\" do\n  repository node[:libvpx][:git_repository]\n\
-      \  revision node[:libvpx][:git_revision]\n  action :sync\n  notifies :run, 'bash[compile_libvpx]',\
-      \ :immediately\nend"
-- example_heading: Pass in environment variables
-  text_blocks:
-  - code_block: "git '/opt/mysources/couch' do\n  repository 'git://git.apache.org/couchdb.git'\n\
-      \  revision 'master'\n  environment 'VAR' => 'whatever'\n  action :sync\nend"
+examples: "
+  Use the git mirror\n\n  ``` ruby\n  git '/opt/mysources/couch' do\n\
+  \    repository 'git://git.apache.org/couchdb.git'\n    revision 'master'\n    action\
+  \ :sync\n  end\n  ```\n\n  Use different branches\n\n  To use different branches,\
+  \ depending on the environment of the node:\n\n  ``` ruby\n  if node.chef_environment\
+  \ == 'QA'\n     branch_name = 'staging'\n  else\n     branch_name = 'master'\n \
+  \ end\n\n  git '/home/user/deployment' do\n     repository 'git@github.com:gitsite/deployment.git'\n\
+  \     revision branch_name\n     action :sync\n     user 'user'\n     group 'test'\n\
+  \  end\n  ```\n\n  where the `branch_name` variable is set to `staging` or `master`,\n\
+  \  depending on the environment of the node. Once this is determined, the\n  `branch_name`\
+  \ variable is used to set the revision for the repository.\n  If the `git status`\
+  \ command is used after running the example above, it\n  will return the branch\
+  \ name as `deploy`, as this is the default value.\n  Run Chef Infra Client in debug\
+  \ mode to verify that the correct branches\n  are being checked out:\n\n  ``` bash\n\
+  \  sudo chef-client -l debug\n  ```\n\n  Install an application from git using bash\n\
+  \n  The following example shows how Bash can be used to install a plug-in\n  for\
+  \ rbenv named `ruby-build`, which is located in git version source\n  control. First,\
+  \ the application is synchronized, and then Bash changes\n  its working directory\
+  \ to the location in which `ruby-build` is located,\n  and then runs a command.\n\
+  \n  ``` ruby\n  git \"#{Chef::Config[:file_cache_path]}/ruby-build\" do\n    repository\
+  \ 'git://github.com/sstephenson/ruby-build.git'\n    revision 'master'\n    action\
+  \ :sync\n  end\n\n  bash 'install_ruby_build' do\n    cwd \"#{Chef::Config[:file_cache_path]}/ruby-build\"\
+  \n    user 'rbenv'\n    group 'rbenv'\n    code <<-EOH\n      ./install.sh\n   \
+  \   EOH\n    environment 'PREFIX' => '/usr/local'\n  end\n  ```\n\n  To read more\
+  \ about `ruby-build`, see here:\n  <https://github.com/sstephenson/ruby-build>.\n\
+  \n  Upgrade packages from git\n\n  The following example uses the **git** resource\
+  \ to upgrade packages:\n\n  ``` ruby\n  # the following code sample comes from the\
+  \ ``source`` recipe\n  # in the ``libvpx-cookbook`` cookbook:\n  # https://github.com/enmasse-entertainment/libvpx-cookbook\n\
+  \n  git \"#{Chef::Config[:file_cache_path]}/libvpx\" do\n    repository node[:libvpx][:git_repository]\n\
+  \    revision node[:libvpx][:git_revision]\n    action :sync\n    notifies :run,\
+  \ 'bash[compile_libvpx]', :immediately\n  end\n  ```\n\n  Pass in environment variables\n\
+  \n  ``` ruby\n  git '/opt/mysources/couch' do\n    repository 'git://git.apache.org/couchdb.git'\n\
+  \    revision 'master'\n    environment 'VAR' => 'whatever'\n    action :sync\n\
+  \  end\n  ```\n"
 
 ---

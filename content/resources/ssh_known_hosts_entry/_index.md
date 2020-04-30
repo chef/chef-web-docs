@@ -9,7 +9,6 @@ menu:
     title: ssh_known_hosts_entry
     identifier: chef_infra/cookbook_reference/resources/ssh_known_hosts_entry ssh_known_hosts_entry
     parent: chef_infra/cookbook_reference/resources
-
 resource_reference: true
 robots: null
 resource_description_list:
@@ -154,13 +153,10 @@ common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false
 unit_file_verification: false
-examples_list:
-- example_heading: Add a single entry for github.com with the key auto detected
-  text_blocks:
-  - code_block: ssh_known_hosts_entry 'github.com'
-- example_heading: Add a single entry with your own provided key
-  text_blocks:
-  - code_block: "ssh_known_hosts_entry 'github.com' do\n  key 'node.example.com ssh-rsa\
-      \ ...'\nend"
+examples: "
+  Add a single entry for github.com with the key auto detected\n\n\
+  \  ``` ruby\n  ssh_known_hosts_entry 'github.com'\n  ```\n\n  Add a single entry\
+  \ with your own provided key\n\n  ``` ruby\n  ssh_known_hosts_entry 'github.com'\
+  \ do\n    key 'node.example.com ssh-rsa ...'\n  end\n  ```\n"
 
 ---

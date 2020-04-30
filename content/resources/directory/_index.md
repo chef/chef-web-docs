@@ -227,71 +227,63 @@ common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false
 unit_file_verification: false
-examples_list:
-- example_heading: Create a directory
-  text_blocks:
-  - code_block: "directory '/tmp/something' do\n  owner 'root'\n  group 'root'\n \
-      \ mode '0755'\n  action :create\nend"
-- example_heading: Create a directory in Microsoft Windows
-  text_blocks:
-  - code_block: "directory \"C:\\\\tmp\\\\something\" do\n  rights :full_control,\
-      \ \"DOMAIN\\\\User\"\n  inherits false\n  action :create\nend"
-  - markdown: 'or:'
-  - code_block: "directory 'C:\\tmp\\something' do\n  rights :full_control, 'DOMAIN\\\
-      User'\n  inherits false\n  action :create\nend"
-  - note: 'The difference between the two previous examples is the single- versus
-
-      double-quoted strings, where if the double quotes are used, the
-
-      backslash character (`\`) must be escaped using the Ruby escape
-
-      character (which is a backslash).'
-- example_heading: Create a directory recursively
-  text_blocks:
-  - code_block: "%w{dir1 dir2 dir3}.each do |dir|\n  directory \"/tmp/mydirs/#{dir}\"\
-      \ do\n    mode '0755'\n    owner 'root'\n    group 'root'\n    action :create\n\
-      \    recursive true\n  end\nend"
-- example_heading: Delete a directory
-  text_blocks:
-  - code_block: "directory '/tmp/something' do\n  recursive true\n  action :delete\n\
-      end"
-- example_heading: Set directory permissions using a variable
-  text_blocks:
-  - markdown: 'The following example shows how read/write/execute permissions can
-      be
-
-      set using a variable named `user_home`, and then for owners and groups
-
-      on any matching node:'
-  - code_block: "user_home = \"/#{node[:matching_node][:user]}\"\n\ndirectory user_home\
-      \ do\n  owner 'node[:matching_node][:user]'\n  group 'node[:matching_node][:group]'\n\
-      \  mode '0755'\n  action :create\nend"
-  - markdown: 'where `matching_node` represents a type of node. For example, if the
-
-      `user_home` variable specified `{node[:nginx]...}`, a recipe might look
-
-      similar to:'
-  - code_block: "user_home = \"/#{node[:nginx][:user]}\"\n\ndirectory user_home do\n\
-      \  owner 'node[:nginx][:user]'\n  group 'node[:nginx][:group]'\n  mode '0755'\n\
-      \  action :create\nend"
-- example_heading: Set directory permissions for a specific type of node
-  text_blocks:
-  - markdown: 'The following example shows how permissions can be set for the
-
-      `/certificates` directory on any node that is running Nginx. In this
-
-      example, permissions are being set for the `owner` and `group`
-
-      properties as `root`, and then read/write permissions are granted to the
-
-      root.'
-  - code_block: "directory \"#{node[:nginx][:dir]}/shared/certificates\" do\n  owner\
-      \ 'root'\n  group 'root'\n  mode '0755'\n  recursive true\nend"
-- example_heading: Reload the configuration
-  text_blocks:
-  - shortcode: resource_ruby_block_reload_configuration.md
-- example_heading: Manage dotfiles
-  text_blocks:
-  - shortcode: resource_directory_manage_dotfiles.md
+examples: "
+  Create a directory\n\n  ``` ruby\n  directory '/tmp/something' do\n\
+  \    owner 'root'\n    group 'root'\n    mode '0755'\n    action :create\n  end\n\
+  \  ```\n\n  Create a directory in Microsoft Windows\n\n  ``` ruby\n  directory \"\
+  C:\\\\tmp\\\\something\" do\n    rights :full_control, \"DOMAIN\\\\User\"\n    inherits\
+  \ false\n    action :create\n  end\n  ```\n\n  or:\n\n  ``` ruby\n  directory 'C:\\\
+  tmp\\something' do\n    rights :full_control, 'DOMAIN\\User'\n    inherits false\n\
+  \    action :create\n  end\n  ```\n\n  <div class=\"admonition-note\">\n    <p class=\"\
+  admonition-note-title\">Note</p>\n      <div class=\"admonition-note-text\">\n \
+  \       <p>The difference between the two previous examples is the single- versus\
+  \ double-quoted strings, where if the double quotes are used, the backslash character\
+  \ (<code>\\</code>) must be escaped using the Ruby escape character (which is a\
+  \ backslash).</p>\n\n      </div>\n    </div>\n\n  Create a directory recursively\n\
+  \n  ``` ruby\n  %w{dir1 dir2 dir3}.each do |dir|\n    directory \"/tmp/mydirs/#{dir}\"\
+  \ do\n      mode '0755'\n      owner 'root'\n      group 'root'\n      action :create\n\
+  \      recursive true\n    end\n  end\n  ```\n\n  Delete a directory\n\n  ``` ruby\n\
+  \  directory '/tmp/something' do\n    recursive true\n    action :delete\n  end\n\
+  \  ```\n\n  Set directory permissions using a variable\n\n  The following example\
+  \ shows how read/write/execute permissions can be\n  set using a variable named\
+  \ `user_home`, and then for owners and groups\n  on any matching node:\n\n  ```\
+  \ ruby\n  user_home = \"/#{node[:matching_node][:user]}\"\n\n  directory user_home\
+  \ do\n    owner 'node[:matching_node][:user]'\n    group 'node[:matching_node][:group]'\n\
+  \    mode '0755'\n    action :create\n  end\n  ```\n\n  where `matching_node` represents\
+  \ a type of node. For example, if the\n  `user_home` variable specified `{node[:nginx]...}`,\
+  \ a recipe might look\n  similar to:\n\n  ``` ruby\n  user_home = \"/#{node[:nginx][:user]}\"\
+  \n\n  directory user_home do\n    owner 'node[:nginx][:user]'\n    group 'node[:nginx][:group]'\n\
+  \    mode '0755'\n    action :create\n  end\n  ```\n\n  Set directory permissions\
+  \ for a specific type of node\n\n  The following example shows how permissions can\
+  \ be set for the\n  `/certificates` directory on any node that is running Nginx.\
+  \ In this\n  example, permissions are being set for the `owner` and `group`\n  properties\
+  \ as `root`, and then read/write permissions are granted to the\n  root.\n\n  ```\
+  \ ruby\n  directory \"#{node[:nginx][:dir]}/shared/certificates\" do\n    owner\
+  \ 'root'\n    group 'root'\n    mode '0755'\n    recursive true\n  end\n  ```\n\n\
+  \  Reload the configuration\n\n  The following example shows how to reload the configuration\
+  \ of a\n  chef-client using the **remote_file** resource to:\n\n  -   using an if\
+  \ statement to check whether the plugins on a node are the\n      latest versions\n\
+  \  -   identify the location from which Ohai plugins are stored\n  -   using the\
+  \ `notifies` property and a **ruby_block** resource to\n      trigger an update\
+  \ (if required) and to then reload the client.rb\n      file.\n\n  <!-- -->\n\n\
+  \  ``` ruby\n  directory 'node[:ohai][:plugin_path]' do\n    owner 'chef'\n    recursive\
+  \ true\n  end\n\n  ruby_block 'reload_config' do\n    block do\n      Chef::Config.from_file('/etc/chef/client.rb')\n\
+  \    end\n    action :nothing\n  end\n\n  if node[:ohai].key?(:plugins)\n    node[:ohai][:plugins].each\
+  \ do |plugin|\n      remote_file node[:ohai][:plugin_path] +\"/#{plugin}\" do\n\
+  \        source plugin\n        owner 'chef'\n        notifies :run, 'ruby_block[reload_config]',\
+  \ :immediately\n      end\n    end\n  end\n  ```\n\n  Manage dotfiles\n\n  The following\
+  \ example shows using the **directory** and\n  **cookbook_file** resources to manage\
+  \ dotfiles. The dotfiles are\n  defined by a JSON data structure similar to:\n\n\
+  \  ``` javascript\n  \"files\": {\n    \".zshrc\": {\n      \"mode\": '0755',\n\
+  \      \"source\": \"dot-zshrc\"\n      },\n    \".bashrc\": {\n      \"mode\":\
+  \ '0755',\n      \"source\": \"dot-bashrc\"\n       },\n    \".bash_profile\": {\n\
+  \      \"mode\": '0755',\n      \"source\": \"dot-bash_profile\"\n      },\n   \
+  \ }\n  ```\n\n  and then the following resources manage the dotfiles:\n\n  ``` ruby\n\
+  \  if u.has_key?('files')\n    u['files'].each do |filename, file_data|\n\n    directory\
+  \ \"#{home_dir}/#{File.dirname(filename)}\" do\n      recursive true\n      mode\
+  \ '0755'\n    end if file_data['subdir']\n\n    cookbook_file \"#{home_dir}/#{filename}\"\
+  \ do\n      source \"#{u['id']}/#{file_data['source']}\"\n      owner 'u['id']'\n\
+  \      group 'group_id'\n      mode 'file_data['mode']'\n      ignore_failure true\n\
+  \      backup 0\n    end\n  end\n  ```\n"
 
 ---

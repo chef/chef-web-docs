@@ -139,16 +139,13 @@ common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false
 unit_file_verification: false
-examples_list:
-- example_heading: Join a domain
-  text_blocks:
-  - code_block: "windows_ad_join 'ad.example.org' do\n  domain_user 'nick'\n  domain_password\
-      \ 'p@ssw0rd1'\nend"
-  - markdown: '**Join a domain, as \`win-workstation\`**'
-  - code_block: "windows_ad_join 'ad.example.org' do\n  domain_user 'nick'\n  domain_password\
-      \ 'p@ssw0rd1'\n  new_hostname 'win-workstation'\nend"
-  - markdown: '**Leave the current domain and re-join the \`local\` workgroup**'
-  - code_block: "windows_ad_join 'Leave domain' do\n  action :leave\n  workgroup 'local'\n\
-      end"
+examples: "
+  Join a domain\n\n  ``` ruby\n  windows_ad_join 'ad.example.org' do\n\
+  \    domain_user 'nick'\n    domain_password 'p@ssw0rd1'\n  end\n  ```\n\n  **Join\
+  \ a domain, as \\`win-workstation\\`**\n\n  ``` ruby\n  windows_ad_join 'ad.example.org'\
+  \ do\n    domain_user 'nick'\n    domain_password 'p@ssw0rd1'\n    new_hostname\
+  \ 'win-workstation'\n  end\n  ```\n\n  **Leave the current domain and re-join the\
+  \ \\`local\\` workgroup**\n\n  ``` ruby\n  windows_ad_join 'Leave domain' do\n \
+  \   action :leave\n    workgroup 'local'\n  end\n  ```\n"
 
 ---

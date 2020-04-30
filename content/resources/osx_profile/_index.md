@@ -9,7 +9,6 @@ menu:
     title: osx_profile
     identifier: chef_infra/cookbook_reference/resources/osx_profile osx_profile
     parent: chef_infra/cookbook_reference/resources
-
 resource_reference: true
 robots: null
 resource_description_list:
@@ -109,51 +108,35 @@ common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false
 unit_file_verification: false
-examples_list:
-- example_heading: One liner to install profile from cookbook file
-  text_blocks:
-  - markdown: 'The `profiles` command will be used to install the specified
-
-      configuration profile.'
-  - code_block: osx_profile 'com.company.screensaver.mobileconfig'
-- example_heading: Install profile from cookbook file
-  text_blocks:
-  - markdown: 'The `profiles` command will be used to install the specified
-
-      configuration profile. It can be in sub-directory within a cookbook.'
-  - code_block: "osx_profile 'Install screensaver profile' do\n  profile 'screensaver/com.company.screensaver.mobileconfig'\n\
-      end"
-- example_heading: Install profile from a hash
-  text_blocks:
-  - markdown: 'The `profiles` command will be used to install the configuration
-
-      profile, which is provided as a hash.'
-  - code_block: "profile_hash = {\n  'PayloadIdentifier' => 'com.company.screensaver',\n\
-      \  'PayloadRemovalDisallowed' => false,\n  'PayloadScope' => 'System',\n  'PayloadType'\
-      \ => 'Configuration',\n  'PayloadUUID' => '1781fbec-3325-565f-9022-8aa28135c3cc',\n\
-      \  'PayloadOrganization' => 'Chef',\n  'PayloadVersion' => 1,\n  'PayloadDisplayName'\
-      \ => 'Screensaver Settings',\n  'PayloadContent'=> [\n    {\n      'PayloadType'\
-      \ => 'com.apple.ManagedClient.preferences',\n      'PayloadVersion' => 1,\n\
-      \      'PayloadIdentifier' => 'com.company.screensaver',\n      'PayloadUUID'\
-      \ => '73fc30e0-1e57-0131-c32d-000c2944c108',\n      'PayloadEnabled' => true,\n\
-      \      'PayloadDisplayName' => 'com.apple.screensaver',\n      'PayloadContent'\
-      \ => {\n        'com.apple.screensaver' => {\n          'Forced' => [\n    \
-      \        {\n              'mcx_preference_settings' => {\n                'idleTime'\
-      \ => 0,\n              }\n            }\n          ]\n        }\n      }\n \
-      \   }\n  ]\n}\n\nosx_profile 'Install screensaver profile' do\n  profile profile_hash\n\
-      end"
-- example_heading: Remove profile using identifier in resource name
-  text_blocks:
-  - markdown: 'The `profiles` command will be used to remove the configuration profile
-
-      specified by the provided `identifier` property.'
-  - code_block: "osx_profile 'com.company.screensaver' do\n  action :remove\nend"
-- example_heading: Remove profile by identifier and user friendly resource name
-  text_blocks:
-  - markdown: 'The `profiles` command will be used to remove the configuration profile
-
-      specified by the provided `identifier` property.'
-  - code_block: "osx_profile 'Remove screensaver profile' do\n  identifier 'com.company.screensaver'\n\
-      \  action :remove\nend"
+examples: "
+  One liner to install profile from cookbook file\n\n  The `profiles`\
+  \ command will be used to install the specified\n  configuration profile.\n\n  ```\
+  \ ruby\n  osx_profile 'com.company.screensaver.mobileconfig'\n  ```\n\n  Install\
+  \ profile from cookbook file\n\n  The `profiles` command will be used to install\
+  \ the specified\n  configuration profile. It can be in sub-directory within a cookbook.\n\
+  \n  ``` ruby\n  osx_profile 'Install screensaver profile' do\n    profile 'screensaver/com.company.screensaver.mobileconfig'\n\
+  \  end\n  ```\n\n  Install profile from a hash\n\n  The `profiles` command will\
+  \ be used to install the configuration\n  profile, which is provided as a hash.\n\
+  \n  ``` ruby\n  profile_hash = {\n    'PayloadIdentifier' => 'com.company.screensaver',\n\
+  \    'PayloadRemovalDisallowed' => false,\n    'PayloadScope' => 'System',\n   \
+  \ 'PayloadType' => 'Configuration',\n    'PayloadUUID' => '1781fbec-3325-565f-9022-8aa28135c3cc',\n\
+  \    'PayloadOrganization' => 'Chef',\n    'PayloadVersion' => 1,\n    'PayloadDisplayName'\
+  \ => 'Screensaver Settings',\n    'PayloadContent'=> [\n      {\n        'PayloadType'\
+  \ => 'com.apple.ManagedClient.preferences',\n        'PayloadVersion' => 1,\n  \
+  \      'PayloadIdentifier' => 'com.company.screensaver',\n        'PayloadUUID'\
+  \ => '73fc30e0-1e57-0131-c32d-000c2944c108',\n        'PayloadEnabled' => true,\n\
+  \        'PayloadDisplayName' => 'com.apple.screensaver',\n        'PayloadContent'\
+  \ => {\n          'com.apple.screensaver' => {\n            'Forced' => [\n    \
+  \          {\n                'mcx_preference_settings' => {\n                 \
+  \ 'idleTime' => 0,\n                }\n              }\n            ]\n        \
+  \  }\n        }\n      }\n    ]\n  }\n\n  osx_profile 'Install screensaver profile'\
+  \ do\n    profile profile_hash\n  end\n  ```\n\n  Remove profile using identifier\
+  \ in resource name\n\n  The `profiles` command will be used to remove the configuration\
+  \ profile\n  specified by the provided `identifier` property.\n\n  ``` ruby\n  osx_profile\
+  \ 'com.company.screensaver' do\n    action :remove\n  end\n  ```\n\n  Remove profile\
+  \ by identifier and user friendly resource name\n\n  The `profiles` command will\
+  \ be used to remove the configuration profile\n  specified by the provided `identifier`\
+  \ property.\n\n  ``` ruby\n  osx_profile 'Remove screensaver profile' do\n    identifier\
+  \ 'com.company.screensaver'\n    action :remove\n  end\n  ```\n"
 
 ---

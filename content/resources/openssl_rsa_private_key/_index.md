@@ -141,14 +141,12 @@ common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false
 unit_file_verification: false
-examples_list:
-- example_heading: Create a new 2048bit key with the default des3 cipher
-  text_blocks:
-  - code_block: "openssl_rsa_private_key '/etc/ssl_files/rsakey_des3.pem' do\n   key_length\
-      \ 2048\n   action :create\nend"
-- example_heading: Create a new 1024 bit key with the aes-128-cbc cipher
-  text_blocks:
-  - code_block: "openssl_rsa_key '/etc/ssl_files/rsakey_aes128cbc.pem' do\n   key_length\
-      \ 1024\n   key_cipher 'aes-128-cbc'\n   action :create\nend"
+examples: "
+  Create a new 2048bit key with the default des3 cipher\n\n  ``` ruby\n\
+  \  openssl_rsa_private_key '/etc/ssl_files/rsakey_des3.pem' do\n     key_length\
+  \ 2048\n     action :create\n  end\n  ```\n\n  Create a new 1024 bit key with the\
+  \ aes-128-cbc cipher\n\n  ``` ruby\n  openssl_rsa_key '/etc/ssl_files/rsakey_aes128cbc.pem'\
+  \ do\n     key_length 1024\n     key_cipher 'aes-128-cbc'\n     action :create\n\
+  \  end\n  ```\n"
 
 ---

@@ -9,7 +9,6 @@ menu:
     title: sudo
     identifier: chef_infra/cookbook_reference/resources/sudo sudo
     parent: chef_infra/cookbook_reference/resources
-
 resource_reference: true
 robots: null
 resource_description_list:
@@ -222,17 +221,13 @@ common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false
 unit_file_verification: false
-examples_list:
-- example_heading: Grant a user sudo privileges for any command
-  text_blocks:
-  - code_block: "sudo 'admin' do\n  user 'admin'\nend"
-- example_heading: Grant a user and groups sudo privileges for any command
-  text_blocks:
-  - code_block: "sudo 'admins' do\n  users 'bob'\n  groups 'sysadmins, superusers'\n\
-      end"
-- example_heading: Grant passwordless sudo privileges for specific commands
-  text_blocks:
-  - code_block: "sudo 'passwordless-access' do\n  commands ['systemctl restart httpd',\
-      \ 'systemctl restart mysql']\n  nopasswd true\nend"
+examples: "
+  Grant a user sudo privileges for any command\n\n  ``` ruby\n  sudo\
+  \ 'admin' do\n    user 'admin'\n  end\n  ```\n\n  Grant a user and groups sudo privileges\
+  \ for any command\n\n  ``` ruby\n  sudo 'admins' do\n    users 'bob'\n    groups\
+  \ 'sysadmins, superusers'\n  end\n  ```\n\n  Grant passwordless sudo privileges\
+  \ for specific commands\n\n  ``` ruby\n  sudo 'passwordless-access' do\n    commands\
+  \ ['systemctl restart httpd', 'systemctl restart mysql']\n    nopasswd true\n  end\n\
+  \  ```\n"
 
 ---

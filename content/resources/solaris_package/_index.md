@@ -9,7 +9,6 @@ menu:
     title: solaris_package
     identifier: chef_infra/cookbook_reference/resources/solaris_package solaris_package
     parent: chef_infra/cookbook_reference/resources
-
 resource_reference: true
 robots: null
 resource_description_list:
@@ -131,10 +130,8 @@ common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false
 unit_file_verification: false
-examples_list:
-- example_heading: Install a package
-  text_blocks:
-  - code_block: "solaris_package 'name of package' do\n  source '/packages_directory'\n\
-      \  action :install\nend"
+examples: "
+  Install a package\n\n  ``` ruby\n  solaris_package 'name of package'\
+  \ do\n    source '/packages_directory'\n    action :install\n  end\n  ```\n"
 
 ---

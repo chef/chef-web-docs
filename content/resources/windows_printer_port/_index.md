@@ -9,7 +9,6 @@ menu:
     title: windows_printer_port
     identifier: chef_infra/cookbook_reference/resources/windows_printer_port windows_printer_port
     parent: chef_infra/cookbook_reference/resources
-
 resource_reference: true
 robots: null
 resource_description_list:
@@ -113,17 +112,12 @@ common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false
 unit_file_verification: false
-examples_list:
-- example_heading: Delete a printer port
-  text_blocks:
-  - code_block: "windows_printer_port '10.4.64.37' do\n  action :delete\nend"
-- example_heading: Delete a port with a custom port_name
-  text_blocks:
-  - code_block: "windows_printer_port '10.4.64.38' do\n  port_name 'My awesome port'\n\
-      \  action :delete\nend"
-- example_heading: Create a port with more options
-  text_blocks:
-  - code_block: "windows_printer_port '10.4.64.39' do\n  port_name 'My awesome port'\n\
-      \  snmp_enabled true\n  port_protocol 2\nend"
+examples: "
+  Delete a printer port\n\n  ``` ruby\n  windows_printer_port '10.4.64.37'\
+  \ do\n    action :delete\n  end\n  ```\n\n  Delete a port with a custom port_name\n\
+  \n  ``` ruby\n  windows_printer_port '10.4.64.38' do\n    port_name 'My awesome\
+  \ port'\n    action :delete\n  end\n  ```\n\n  Create a port with more options\n\
+  \n  ``` ruby\n  windows_printer_port '10.4.64.39' do\n    port_name 'My awesome\
+  \ port'\n    snmp_enabled true\n    port_protocol 2\n  end\n  ```\n"
 
 ---

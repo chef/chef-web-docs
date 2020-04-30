@@ -185,11 +185,10 @@ properties_list:
   default_value: '"NONE"'
   description_list:
   - markdown: Specifies the repository type.
-examples_list:
-- example_heading: Add a repository
-  text_blocks:
-  - markdown: 'This example adds the "Apache" repository for OpenSUSE Leap 15.0:'
-  - code_block: "zypper_repository 'apache' do\n  baseurl 'http://download.opensuse.org/repositories/Apache'\n\
-      \  path '/openSUSE_Leap_15.0'\n  type 'rpm-md'\n  priority '100'\nend"
+examples: "
+  Add a repository\n\n  This example adds the \"Apache\" repository\
+  \ for OpenSUSE Leap 15.0:\n\n  ``` ruby\n  zypper_repository 'apache' do\n    baseurl\
+  \ 'http://download.opensuse.org/repositories/Apache'\n    path '/openSUSE_Leap_15.0'\n\
+  \    type 'rpm-md'\n    priority '100'\n  end\n  ```\n"
 
 ---

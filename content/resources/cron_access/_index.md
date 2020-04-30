@@ -77,16 +77,11 @@ common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false
 unit_file_verification: false
-examples_list:
-- example_heading: Add the mike user to cron.allow
-  text_blocks:
-  - code_block: cron_access 'mike'
-- example_heading: Add the mike user to cron.deny
-  text_blocks:
-  - code_block: "cron_access 'mike' do\n  action :deny\nend"
-- example_heading: Specify the username with the user property
-  text_blocks:
-  - code_block: "cron_access 'Deny the tomcat access to cron for security purposes'\
-      \ do\n  user 'jenkins'\n  action :deny\nend"
+examples: "
+  Add the mike user to cron.allow\n\n  ``` ruby\n  cron_access 'mike'\n\
+  \  ```\n\n  Add the mike user to cron.deny\n\n  ``` ruby\n  cron_access 'mike' do\n\
+  \    action :deny\n  end\n  ```\n\n  Specify the username with the user property\n\
+  \n  ``` ruby\n  cron_access 'Deny the tomcat access to cron for security purposes'\
+  \ do\n    user 'jenkins'\n    action :deny\n  end\n  ```\n"
 
 ---

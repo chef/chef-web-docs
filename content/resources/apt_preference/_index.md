@@ -93,28 +93,17 @@ properties_list:
   description_list:
   - markdown: Sets the Pin-Priority for a package. See <https://wiki.debian.org/AptPreferences>
       for more details.
-examples_list:
-- example_heading: Pin a package to a specific version
-  text_blocks:
-  - markdown: 'This example pins the `libmysqlclient16` package to `version 5.1.49-3`:'
-  - code_block: "apt_preference 'libmysqlclient16' do\n  pin          'version 5.1.49-3'\n\
-      \  pin_priority '700'\nend"
-  - markdown: 'Note that the `pin_priority` of `700` ensures that this version will
-      be
-
-      preferred over any other available versions.'
-- example_heading: Unpin a package
-  text_blocks:
-  - markdown: 'This example unpins the `libmysqlclient16` package, disabling all
-
-      preferences for it:'
-  - code_block: "apt_preference 'libmysqlclient16' do\n  action :remove\nend"
-- example_heading: Pin all packages to prefer a specific repository
-  text_blocks:
-  - markdown: 'This example instructs APT to prefer the `packages.dotdeb.org`
-
-      repository:'
-  - code_block: "apt_preference 'dotdeb' do\n  glob         '*'\n  pin          'origin\
-      \ packages.dotdeb.org'\n  pin_priority '700'\nend"
+examples: "
+  Pin a package to a specific version\n\n  This example pins the `libmysqlclient16`\
+  \ package to `version 5.1.49-3`:\n\n  ``` ruby\n  apt_preference 'libmysqlclient16'\
+  \ do\n    pin          'version 5.1.49-3'\n    pin_priority '700'\n  end\n  ```\n\
+  \n  Note that the `pin_priority` of `700` ensures that this version will be\n  preferred\
+  \ over any other available versions.\n\n  Unpin a package\n\n  This example unpins\
+  \ the `libmysqlclient16` package, disabling all\n  preferences for it:\n\n  ```\
+  \ ruby\n  apt_preference 'libmysqlclient16' do\n    action :remove\n  end\n  ```\n\
+  \n  Pin all packages to prefer a specific repository\n\n  This example instructs\
+  \ APT to prefer the `packages.dotdeb.org`\n  repository:\n\n  ``` ruby\n  apt_preference\
+  \ 'dotdeb' do\n    glob         '*'\n    pin          'origin packages.dotdeb.org'\n\
+  \    pin_priority '700'\n  end\n  ```\n"
 
 ---

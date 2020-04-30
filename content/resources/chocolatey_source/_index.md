@@ -127,13 +127,10 @@ common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false
 unit_file_verification: false
-examples_list:
-- example_heading: Add a Chocolatey source
-  text_blocks:
-  - code_block: "chocolatey_source 'MySource' do\n  source 'http://example.com/something'\n\
-      \  action :add\nend"
-- example_heading: Remove a Chocolatey source
-  text_blocks:
-  - code_block: "chocolatey_source 'MySource' do\n  action :remove\nend"
+examples: "
+  Add a Chocolatey source\n\n  ``` ruby\n  chocolatey_source 'MySource'\
+  \ do\n    source 'http://example.com/something'\n    action :add\n  end\n  ```\n\
+  \n  Remove a Chocolatey source\n\n  ``` ruby\n  chocolatey_source 'MySource' do\n\
+  \    action :remove\n  end\n  ```\n"
 
 ---

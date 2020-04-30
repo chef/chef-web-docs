@@ -186,37 +186,41 @@ common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false
 unit_file_verification: false
-examples_list:
-- example_heading: Mount a labeled file system
-  text_blocks:
-  - code_block: "mount '/mnt/volume1' do\n  device 'volume1'\n  device_type :label\n\
-      \  fstype 'xfs'\n  options 'rw'\nend"
-- example_heading: Mount a local block drive
-  text_blocks:
-  - code_block: "mount '/mnt/local' do\n  device '/dev/sdb1'\n  fstype 'ext3'\nend"
-- example_heading: Mount a non-block file system
-  text_blocks:
-  - code_block: "mount '/mount/tmp' do\n  pass     0\n  fstype   'tmpfs'\n  device\
-      \   '/dev/null'\n  options  'nr_inodes=999k,mode=755,size=500m'\n  action  \
-      \ [:mount, :enable]\nend"
-- example_heading: Mount and add to the file systems table
-  text_blocks:
-  - code_block: "mount '/export/www' do\n  device 'nas1prod:/export/web_sites'\n \
-      \ fstype 'nfs'\n  options 'rw'\n  action [:mount, :enable]\nend"
-- example_heading: Mount a remote file system
-  text_blocks:
-  - code_block: "mount '/export/www' do\n  device 'nas1prod:/export/web_sites'\n \
-      \ fstype 'nfs'\n  options 'rw'\nend"
-- example_heading: Mount a remote folder in Microsoft Windows
-  text_blocks:
-  - code_block: "mount 'T:' do\n  action :mount\n  device '\\\\\\\\hostname.example.com\\\
-      \\folder'\nend"
-- example_heading: Unmount a remote folder in Microsoft Windows
-  text_blocks:
-  - code_block: "mount 'T:' do\n  action :umount\n  device '\\\\\\\\hostname.example.com\\\
-      \\D$'\nend"
-- example_heading: Stop a service, do stuff, and then restart it
-  text_blocks:
-  - shortcode: resource_service_stop_do_stuff_start.md
+examples: "
+  Mount a labeled file system\n\n  ``` ruby\n  mount '/mnt/volume1'\
+  \ do\n    device 'volume1'\n    device_type :label\n    fstype 'xfs'\n    options\
+  \ 'rw'\n  end\n  ```\n\n  Mount a local block drive\n\n  ``` ruby\n  mount '/mnt/local'\
+  \ do\n    device '/dev/sdb1'\n    fstype 'ext3'\n  end\n  ```\n\n  Mount a non-block\
+  \ file system\n\n  ``` ruby\n  mount '/mount/tmp' do\n    pass     0\n    fstype\
+  \   'tmpfs'\n    device   '/dev/null'\n    options  'nr_inodes=999k,mode=755,size=500m'\n\
+  \    action   [:mount, :enable]\n  end\n  ```\n\n  Mount and add to the file systems\
+  \ table\n\n  ``` ruby\n  mount '/export/www' do\n    device 'nas1prod:/export/web_sites'\n\
+  \    fstype 'nfs'\n    options 'rw'\n    action [:mount, :enable]\n  end\n  ```\n\
+  \n  Mount a remote file system\n\n  ``` ruby\n  mount '/export/www' do\n    device\
+  \ 'nas1prod:/export/web_sites'\n    fstype 'nfs'\n    options 'rw'\n  end\n  ```\n\
+  \n  Mount a remote folder in Microsoft Windows\n\n  ``` ruby\n  mount 'T:' do\n\
+  \    action :mount\n    device '\\\\\\\\hostname.example.com\\\\folder'\n  end\n\
+  \  ```\n\n  Unmount a remote folder in Microsoft Windows\n\n  ``` ruby\n  mount\
+  \ 'T:' do\n    action :umount\n    device '\\\\\\\\hostname.example.com\\\\D$'\n\
+  \  end\n  ```\n\n  Stop a service, do stuff, and then restart it\n\n  The following\
+  \ example shows how to use the **execute**, **service**, and\n  **mount** resources\
+  \ together to ensure that a node running on Amazon EC2\n  is running MySQL. This\
+  \ example does the following:\n\n  -   Checks to see if the Amazon EC2 node has\
+  \ MySQL\n  -   If the node has MySQL, stops MySQL\n  -   Installs MySQL\n  -   Mounts\
+  \ the node\n  -   Restarts MySQL\n\n  <!-- -->\n\n  ``` ruby\n  # the following\
+  \ code sample comes from the ``server_ec2``\n  # recipe in the following cookbook:\n\
+  \  # https://github.com/chef-cookbooks/mysql\n\n  if (node.attribute?('ec2') &&\
+  \ ! FileTest.directory?(node['mysql']['ec2_path']))\n\n    service 'mysql' do\n\
+  \      action :stop\n    end\n\n    execute 'install-mysql' do\n      command \"\
+  mv #{node['mysql']['data_dir']} #{node['mysql']['ec2_path']}\"\n      not_if do\
+  \ FileTest.directory?(node['mysql']['ec2_path']) end\n    end\n\n    [node['mysql']['ec2_path'],\
+  \ node['mysql']['data_dir']].each do |dir|\n      directory dir do\n        owner\
+  \ 'mysql'\n        group 'mysql'\n      end\n    end\n\n    mount node['mysql']['data_dir']\
+  \ do\n      device node['mysql']['ec2_path']\n      fstype 'none'\n      options\
+  \ 'bind,rw'\n      action [:mount, :enable]\n    end\n\n    service 'mysql' do\n\
+  \      action :start\n    end\n\n  end\n  ```\n\n  where\n\n  -   the two **service**\
+  \ resources are used to stop, and then restart the\n      MySQL service\n  -   the\
+  \ **execute** resource is used to install MySQL\n  -   the **mount** resource is\
+  \ used to mount the node and enable MySQL\n"
 
 ---
