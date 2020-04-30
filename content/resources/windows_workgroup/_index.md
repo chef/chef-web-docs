@@ -98,13 +98,10 @@ common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false
 unit_file_verification: false
-examples_list:
-- example_heading: Join a workgroup
-  text_blocks:
-  - code_block: windows_workgroup 'myworkgroup'
-- example_heading: Join a workgroup using a specific user
-  text_blocks:
-  - code_block: "windows_workgroup 'myworkgroup' do\n  user 'Administrator'\n  password\
-      \ 'passw0rd'\nend"
+examples: "
+  Join a workgroup\n\n  ``` ruby\n  windows_workgroup 'myworkgroup'\n\
+  \  ```\n\n  Join a workgroup using a specific user\n\n  ``` ruby\n  windows_workgroup\
+  \ 'myworkgroup' do\n    user 'Administrator'\n    password 'passw0rd'\n  end\n \
+  \ ```\n"
 
 ---

@@ -9,7 +9,6 @@ menu:
     title: windows_certificate
     identifier: chef_infra/cookbook_reference/resources/windows_certificate windows_certificate
     parent: chef_infra/cookbook_reference/resources
-
 resource_reference: true
 robots: null
 resource_description_list:
@@ -129,19 +128,13 @@ common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false
 unit_file_verification: false
-examples_list:
-- example_heading: 'Add PFX cert to local machine personal store and grant accounts
-
-    read-only access to private key'
-  text_blocks:
-  - code_block: "windows_certificate 'c:/test/mycert.pfx' do\n  pfx_password 'password'\n\
-      \  private_key_acl [\"acme\\fred\", \"pc\\jane\"]\nend"
-- example_heading: Add cert to trusted intermediate store
-  text_blocks:
-  - code_block: "windows_certificate 'c:/test/mycert.cer' do\n  store_name 'CA'\n\
-      end"
-- example_heading: Remove all certificates matching the subject
-  text_blocks:
-  - code_block: "windows_certificate 'me.acme.com' do\n  action :delete\nend"
+examples: "
+  Add PFX cert to local machine personal store and grant accounts\n\
+  \  read-only access to private key\n\n  ``` ruby\n  windows_certificate 'c:/test/mycert.pfx'\
+  \ do\n    pfx_password 'password'\n    private_key_acl [\"acme\\fred\", \"pc\\jane\"\
+  ]\n  end\n  ```\n\n  Add cert to trusted intermediate store\n\n  ``` ruby\n  windows_certificate\
+  \ 'c:/test/mycert.cer' do\n    store_name 'CA'\n  end\n  ```\n\n  Remove all certificates\
+  \ matching the subject\n\n  ``` ruby\n  windows_certificate 'me.acme.com' do\n \
+  \   action :delete\n  end\n  ```\n"
 
 ---

@@ -229,18 +229,64 @@ common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false
 unit_file_verification: false
-examples_list:
-- example_heading: Use a named provider to run a script
-  text_blocks:
-  - shortcode: resource_script_bash_provider_and_interpreter.md
-- example_heading: Install a file from a remote location using bash
-  text_blocks:
-  - shortcode: resource_remote_file_install_with_bash.md
-- example_heading: Install an application from git using bash
-  text_blocks:
-  - shortcode: resource_scm_use_bash_and_ruby_build.md
-- example_heading: Store certain settings
-  text_blocks:
-  - shortcode: resource_remote_file_store_certain_settings.md
+examples: "
+  Use a named provider to run a script\n\n  ``` ruby\n  bash 'install_something'\
+  \ do\n    user 'root'\n    cwd '/tmp'\n    code <<-EOH\n    wget http://www.example.com/tarball.tar.gz\n\
+  \    tar -zxf tarball.tar.gz\n    cd tarball\n    ./configure\n    make\n    make\
+  \ install\n    EOH\n  end\n  ```\n\n  Install a file from a remote location using\
+  \ bash\n\n  The following is an example of how to install the `foo123` module for\n\
+  \  Nginx. This module adds shell-style functionality to an Nginx\n  configuration\
+  \ file and does the following:\n\n  -   Declares three variables\n  -   Gets the\
+  \ Nginx file from a remote location\n  -   Installs the file using Bash to the path\
+  \ specified by the\n      `src_filepath` variable\n\n  <!-- -->\n\n  ``` ruby\n\
+  \  # the following code sample is similar to the ``upload_progress_module``\n  #\
+  \ recipe in the ``nginx`` cookbook:\n  # https://github.com/chef-cookbooks/nginx\n\
+  \n  src_filename = \"foo123-nginx-module-v#{\n    node['nginx']['foo123']['version']\n\
+  \  }.tar.gz\"\n  src_filepath = \"#{Chef::Config['file_cache_path']}/#{src_filename}\"\
+  \n  extract_path = \"#{\n    Chef::Config['file_cache_path']\n    }/nginx_foo123_module/#{\n\
+  \    node['nginx']['foo123']['checksum']\n  }\"\n\n  remote_file 'src_filepath'\
+  \ do\n    source node['nginx']['foo123']['url']\n    checksum node['nginx']['foo123']['checksum']\n\
+  \    owner 'root'\n    group 'root'\n    mode '0755'\n  end\n\n  bash 'extract_module'\
+  \ do\n    cwd ::File.dirname(src_filepath)\n    code <<-EOH\n      mkdir -p #{extract_path}\n\
+  \      tar xzf #{src_filename} -C #{extract_path}\n      mv #{extract_path}/*/*\
+  \ #{extract_path}/\n      EOH\n    not_if { ::File.exist?(extract_path) }\n  end\n\
+  \  ```\n\n  Install an application from git using bash\n\n  The following example\
+  \ shows how Bash can be used to install a plug-in\n  for rbenv named `ruby-build`,\
+  \ which is located in git version source\n  control. First, the application is synchronized,\
+  \ and then Bash changes\n  its working directory to the location in which `ruby-build`\
+  \ is located,\n  and then runs a command.\n\n  ``` ruby\n  git \"#{Chef::Config[:file_cache_path]}/ruby-build\"\
+  \ do\n    repository 'git://github.com/sstephenson/ruby-build.git'\n    revision\
+  \ 'master'\n    action :sync\n  end\n\n  bash 'install_ruby_build' do\n    cwd \"\
+  #{Chef::Config[:file_cache_path]}/ruby-build\"\n    user 'rbenv'\n    group 'rbenv'\n\
+  \    code <<-EOH\n      ./install.sh\n      EOH\n    environment 'PREFIX' => '/usr/local'\n\
+  \  end\n  ```\n\n  To read more about `ruby-build`, see here:\n  <https://github.com/sstephenson/ruby-build>.\n\
+  \n  Store certain settings\n\n  The following recipe shows how an attributes file\
+  \ can be used to store\n  certain settings. An attributes file is located in the\
+  \ `attributes/`\n  directory in the same cookbook as the recipe which calls the\
+  \ attributes\n  file. In this example, the attributes file specifies certain settings\n\
+  \  for Python that are then used across all nodes against which this recipe\n  will\
+  \ run.\n\n  Python packages have versions, installation directories, URLs, and\n\
+  \  checksum files. An attributes file that exists to support this type of\n  recipe\
+  \ would include settings like the following:\n\n  ``` ruby\n  default['python']['version']\
+  \ = '2.7.1'\n\n  if python['install_method'] == 'package'\n    default['python']['prefix_dir']\
+  \ = '/usr'\n  else\n    default['python']['prefix_dir'] = '/usr/local'\n  end\n\n\
+  \  default['python']['url'] = 'http://www.python.org/ftp/python'\n  default['python']['checksum']\
+  \ = '80e387...85fd61'\n  ```\n\n  and then the methods in the recipe may refer to\
+  \ these values. A recipe\n  that is used to install Python will need to do the following:\n\
+  \n  -   Identify each package to be installed (implied in this example, not\n  \
+  \    shown)\n  -   Define variables for the package `version` and the `install_path`\n\
+  \  -   Get the package from a remote location, but only if the package does\n  \
+  \    not already exist on the target system\n  -   Use the **bash** resource to\
+  \ install the package on the node, but\n      only when the package is not already\
+  \ installed\n\n  <!-- -->\n\n  ``` ruby\n  #  the following code sample comes from\
+  \ the ``oc-nginx`` cookbook on |github|: https://github.com/cookbooks/oc-nginx\n\
+  \n  version = node['python']['version']\n  install_path = \"#{node['python']['prefix_dir']}/lib/python#{version.split(/(^\\\
+  d+\\.\\d+)/)[1]}\"\n\n  remote_file \"#{Chef::Config[:file_cache_path]}/Python-#{version}.tar.bz2\"\
+  \ do\n    source \"#{node['python']['url']}/#{version}/Python-#{version}.tar.bz2\"\
+  \n    checksum node['python']['checksum']\n    mode '0755'\n    not_if { ::File.exist?(install_path)\
+  \ }\n  end\n\n  bash 'build-and-install-python' do\n    cwd Chef::Config[:file_cache_path]\n\
+  \    code <<-EOF\n      tar -jxvf Python-#{version}.tar.bz2\n      (cd Python-#{version}\
+  \ && ./configure #{configure_options})\n      (cd Python-#{version} && make && make\
+  \ install)\n    EOF\n    not_if { ::File.exist?(install_path) }\n  end\n  ```\n"
 
 ---

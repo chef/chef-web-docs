@@ -131,9 +131,8 @@ common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false
 unit_file_verification: false
-examples_list:
-- example_heading: Install a package
-  text_blocks:
-  - code_block: "macports_package 'name of package' do\n  action :install\nend"
+examples: "
+  Install a package\n\n  ``` ruby\n  macports_package 'name of package'\
+  \ do\n    action :install\n  end\n  ```\n"
 
 ---

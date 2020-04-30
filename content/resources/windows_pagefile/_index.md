@@ -9,7 +9,6 @@ menu:
     title: windows_pagefile
     identifier: chef_infra/cookbook_reference/resources/windows_pagefile windows_pagefile
     parent: chef_infra/cookbook_reference/resources
-
 resource_reference: true
 robots: null
 resource_description_list:
@@ -111,18 +110,13 @@ common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false
 unit_file_verification: false
-examples_list:
-- example_heading: Set the system to manage pagefiles
-  text_blocks:
-  - code_block: "windows_pagefile 'Enable automatic management of pagefiles' do\n\
-      \  automatic_managed true\nend"
-- example_heading: Delete a pagefile
-  text_blocks:
-  - code_block: "windows_pagefile 'Delete the pagefile' do\n  path 'C:\\pagefile.sys'\n\
-      \  action :delete\nend"
-- example_heading: Create a pagefile with an initial and maximum size
-  text_blocks:
-  - code_block: "windows_pagefile 'create the pagefile' do\n  path 'C:\\pagefile.sys'\n\
-      \  initial_size 100\n  maximum_size 200\nend"
+examples: "
+  Set the system to manage pagefiles\n\n  ``` ruby\n  windows_pagefile\
+  \ 'Enable automatic management of pagefiles' do\n    automatic_managed true\n  end\n\
+  \  ```\n\n  Delete a pagefile\n\n  ``` ruby\n  windows_pagefile 'Delete the pagefile'\
+  \ do\n    path 'C:\\pagefile.sys'\n    action :delete\n  end\n  ```\n\n  Create\
+  \ a pagefile with an initial and maximum size\n\n  ``` ruby\n  windows_pagefile\
+  \ 'create the pagefile' do\n    path 'C:\\pagefile.sys'\n    initial_size 100\n\
+  \    maximum_size 200\n  end\n  ```\n"
 
 ---

@@ -10,7 +10,6 @@ menu:
     title: windows_env
     identifier: chef_infra/cookbook_reference/resources/windows_env windows_env
     parent: chef_infra/cookbook_reference/resources
-
 resource_reference: true
 robots: null
 resource_description_list:
@@ -124,10 +123,8 @@ common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false
 unit_file_verification: false
-examples_list:
-- example_heading: Set an environment variable
-  text_blocks:
-  - code_block: "windows_env 'ComSpec' do\n  value \"C:\\\\Windows\\\\system32\\\\\
-      cmd.exe\"\nend"
+examples: "
+  Set an environment variable\n\n  ``` ruby\n  windows_env 'ComSpec'\
+  \ do\n    value \"C:\\\\Windows\\\\system32\\\\cmd.exe\"\n  end\n  ```\n"
 
 ---

@@ -8,7 +8,6 @@ menu:
     title: windows_share
     identifier: chef_infra/cookbook_reference/resources/windows_share windows_share
     parent: chef_infra/cookbook_reference/resources
-
 resource_reference: true
 robots: null
 resource_description_list:
@@ -163,14 +162,11 @@ common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false
 unit_file_verification: false
-examples_list:
-- example_heading: Create a share
-  text_blocks:
-  - code_block: "windows_share 'foo' do\n  action :create\n  path 'C:\\\\foo'\n  full_users\
-      \ ['DOMAIN_A\\\\some_user', 'DOMAIN_B\\\\some_other_user']\n  read_users ['DOMAIN_C\\\
-      \\Domain users']\nend"
-- example_heading: Delete a share
-  text_blocks:
-  - code_block: "windows_share 'foo' do\n  action :delete\nend"
+examples: "
+  Create a share\n\n  ``` ruby\n  windows_share 'foo' do\n    action\
+  \ :create\n    path 'C:\\\\foo'\n    full_users ['DOMAIN_A\\\\some_user', 'DOMAIN_B\\\
+  \\some_other_user']\n    read_users ['DOMAIN_C\\\\Domain users']\n  end\n  ```\n\
+  \n  Delete a share\n\n  ``` ruby\n  windows_share 'foo' do\n    action :delete\n\
+  \  end\n  ```\n"
 
 ---

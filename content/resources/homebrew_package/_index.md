@@ -159,15 +159,11 @@ common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false
 unit_file_verification: false
-examples_list:
-- example_heading: Install a package
-  text_blocks:
-  - code_block: "homebrew_package 'name of package' do\n  action :install\nend"
-- example_heading: Specify the Homebrew user with a UUID
-  text_blocks:
-  - shortcode: resource_homebrew_package_homebrew_user_as_uuid.md
-- example_heading: Specify the Homebrew user with a string
-  text_blocks:
-  - shortcode: resource_homebrew_package_homebrew_user_as_string.md
+examples: "
+  Install a package\n\n  ``` ruby\n  homebrew_package 'name of package'\
+  \ do\n    action :install\n  end\n  ```\n\n  Specify the Homebrew user with a UUID\n\
+  \n  ``` ruby\n  homebrew_package 'emacs' do\n    homebrew_user 1001\n  end\n  ```\n\
+  \n  Specify the Homebrew user with a string\n\n  ``` ruby\n  homebrew_package 'vim'\
+  \ do\n    homebrew_user 'user1'\n  end\n  ```\n"
 
 ---

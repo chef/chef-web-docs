@@ -9,7 +9,6 @@ menu:
     title: launchd
     identifier: chef_infra/cookbook_reference/resources/launchd launchd
     parent: chef_infra/cookbook_reference/resources
-
 resource_reference: true
 robots: null
 resource_description_list:
@@ -581,18 +580,12 @@ common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false
 unit_file_verification: false
-examples_list:
-- example_heading: Create a Launch Daemon from a cookbook file
-  text_blocks:
-  - code_block: "launchd 'com.chef.every15' do\n  source 'com.chef.every15.plist'\n\
-      end"
-- example_heading: Create a Launch Daemon using keys
-  text_blocks:
-  - code_block: "launchd 'call.mom.weekly' do\n  program '/Library/scripts/call_mom.sh'\n\
-      \  start_calendar_interval 'Weekday' => 7, 'Hourly' => 10\n  time_out 300\n\
-      end"
-- example_heading: Remove a Launch Daemon
-  text_blocks:
-  - code_block: "launchd 'com.chef.every15' do\n  action :delete\nend"
+examples: "
+  Create a Launch Daemon from a cookbook file\n\n  ``` ruby\n  launchd\
+  \ 'com.chef.every15' do\n    source 'com.chef.every15.plist'\n  end\n  ```\n\n \
+  \ Create a Launch Daemon using keys\n\n  ``` ruby\n  launchd 'call.mom.weekly' do\n\
+  \    program '/Library/scripts/call_mom.sh'\n    start_calendar_interval 'Weekday'\
+  \ => 7, 'Hourly' => 10\n    time_out 300\n  end\n  ```\n\n  Remove a Launch Daemon\n\
+  \n  ``` ruby\n  launchd 'com.chef.every15' do\n    action :delete\n  end\n  ```\n"
 
 ---

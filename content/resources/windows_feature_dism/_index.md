@@ -9,7 +9,6 @@ menu:
     title: windows_feature_dism
     identifier: chef_infra/cookbook_reference/resources/windows_feature_dism windows_feature_dism
     parent: chef_infra/cookbook_reference/resources
-
 resource_reference: true
 robots: null
 resource_description_list:
@@ -102,12 +101,9 @@ common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false
 unit_file_verification: false
-examples_list:
-- example_heading: Installing the TelnetClient service
-  text_blocks:
-  - code_block: windows_feature_dism "TelnetClient"
-- example_heading: Installing two features by using an array
-  text_blocks:
-  - code_block: windows_feature_dism %w(TelnetClient TFTP)
+examples: "
+  Installing the TelnetClient service\n\n  ``` ruby\n  windows_feature_dism\
+  \ \"TelnetClient\"\n  ```\n\n  Installing two features by using an array\n\n  ```\
+  \ ruby\n  windows_feature_dism %w(TelnetClient TFTP)\n  ```\n"
 
 ---

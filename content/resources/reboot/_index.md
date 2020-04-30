@@ -9,7 +9,6 @@ menu:
     title: reboot
     identifier: chef_infra/cookbook_reference/resources/reboot reboot
     parent: chef_infra/cookbook_reference/resources
-
 resource_reference: true
 robots: null
 resource_description_list:
@@ -84,22 +83,28 @@ common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false
 unit_file_verification: false
-examples_list:
-- example_heading: Reboot a node immediately
-  text_blocks:
-  - code_block: "reboot 'now' do\n  action :nothing\n  reason 'Cannot continue Chef\
-      \ run without a reboot.'\n  delay_mins 2\nend\n\nexecute 'foo' do\n  command\
-      \ '...'\n  notifies :reboot_now, 'reboot[now]', :immediately\nend"
-- example_heading: Reboot a node at the end of a Chef Infra Client run
-  text_blocks:
-  - code_block: "reboot 'app_requires_reboot' do\n  action :request_reboot\n  reason\
-      \ 'Need to reboot when the run completes successfully.'\n  delay_mins 5\nend"
-- example_heading: Cancel a reboot
-  text_blocks:
-  - code_block: "reboot 'cancel_reboot_request' do\n  action :cancel\n  reason 'Cancel\
-      \ a previous end-of-run reboot request.'\nend"
-- example_heading: Rename computer, join domain, reboot
-  text_blocks:
-  - shortcode: resource_powershell_rename_join_reboot.md
+examples: "
+  Reboot a node immediately\n\n  ``` ruby\n  reboot 'now' do\n    action\
+  \ :nothing\n    reason 'Cannot continue Chef run without a reboot.'\n    delay_mins\
+  \ 2\n  end\n\n  execute 'foo' do\n    command '...'\n    notifies :reboot_now, 'reboot[now]',\
+  \ :immediately\n  end\n  ```\n\n  Reboot a node at the end of a Chef Infra Client\
+  \ run\n\n  ``` ruby\n  reboot 'app_requires_reboot' do\n    action :request_reboot\n\
+  \    reason 'Need to reboot when the run completes successfully.'\n    delay_mins\
+  \ 5\n  end\n  ```\n\n  Cancel a reboot\n\n  ``` ruby\n  reboot 'cancel_reboot_request'\
+  \ do\n    action :cancel\n    reason 'Cancel a previous end-of-run reboot request.'\n\
+  \  end\n  ```\n\n  Rename computer, join domain, reboot\n\n  The following example\
+  \ shows how to rename a computer, join a domain, and\n  then reboot the computer:\n\
+  \n  ``` ruby\n  reboot 'Restart Computer' do\n    action :nothing\n  end\n\n  powershell_script\
+  \ 'Rename and Join Domain' do\n    code <<-EOH\n      ...your rename and domain\
+  \ join logic here...\n    EOH\n    not_if <<-EOH\n      $ComputerSystem = gwmi win32_computersystem\n\
+  \      ($ComputerSystem.Name -like '#{node['some_attribute_that_has_the_new_name']}')\
+  \ -and\n        $ComputerSystem.partofdomain)\n    EOH\n    notifies :reboot_now,\
+  \ 'reboot[Restart Computer]', :immediately\n  end\n  ```\n\n  where:\n\n  -   The\
+  \ **powershell_script** resource block renames a computer, and\n      then joins\
+  \ a domain\n  -   The **reboot** resource restarts the computer\n  -   The `not_if`\
+  \ guard prevents the Windows PowerShell script from\n      running when the settings\
+  \ in the `not_if` guard match the desired\n      state\n  -   The `notifies` statement\
+  \ tells the **reboot** resource block to run\n      if the **powershell_script**\
+  \ block was executed during a Chef Infra\n      Client run\n"
 
 ---

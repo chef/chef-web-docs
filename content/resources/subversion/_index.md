@@ -9,7 +9,6 @@ menu:
     title: subversion
     identifier: chef_infra/cookbook_reference/resources/subversion subversion
     parent: chef_infra/cookbook_reference/resources
-
 resource_reference: true
 robots: null
 resource_description_list:
@@ -188,10 +187,10 @@ common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false
 unit_file_verification: false
-examples_list:
-- example_heading: Get the latest version of an application
-  text_blocks:
-  - code_block: "subversion 'CouchDB Edge' do\n  repository 'http://svn.apache.org/repos/asf/couchdb/trunk'\n\
-      \  revision 'HEAD'\n  destination '/opt/mysources/couch'\n  action :sync\nend"
+examples: "
+  Get the latest version of an application\n\n  ``` ruby\n  subversion\
+  \ 'CouchDB Edge' do\n    repository 'http://svn.apache.org/repos/asf/couchdb/trunk'\n\
+  \    revision 'HEAD'\n    destination '/opt/mysources/couch'\n    action :sync\n\
+  \  end\n  ```\n"
 
 ---

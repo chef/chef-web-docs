@@ -116,10 +116,9 @@ properties_list:
   description_list:
   - markdown: An optional property to set the file path to the archive to extract
       if it differs from the resource block's name.
-examples_list:
-- example_heading: Extract a zip file to a specified directory
-  text_blocks:
-  - code_block: "archive_file 'Precompiled.zip' do\n  path '/tmp/Precompiled.zip'\n\
-      \  destination '/srv/files'\nend"
+examples: "
+  Extract a zip file to a specified directory\n\n  ``` ruby\n  archive_file\
+  \ 'Precompiled.zip' do\n    path '/tmp/Precompiled.zip'\n    destination '/srv/files'\n\
+  \  end\n  ```\n"
 
 ---

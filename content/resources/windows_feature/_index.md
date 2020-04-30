@@ -9,7 +9,6 @@ menu:
     title: windows_feature
     identifier: chef_infra/cookbook_reference/resources/windows_feature windows_feature
     parent: chef_infra/cookbook_reference/resources
-
 resource_reference: true
 robots: null
 resource_description_list:
@@ -135,36 +134,22 @@ common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false
 unit_file_verification: false
-examples_list:
-- example_heading: Install the DHCP Server feature
-  text_blocks:
-  - code_block: "windows_feature 'DHCPServer' do\n  action :install\nend"
-- example_heading: Install the .Net 3.5.1 feature using repository files on DVD
-  text_blocks:
-  - code_block: "windows_feature \"NetFx3\" do\n  action :install\n  source \"d:\\\
-      sources\\sxs\"\nend"
-- example_heading: Remove Telnet Server and Client features
-  text_blocks:
-  - code_block: "windows_feature ['TelnetServer', 'TelnetClient'] do\n  action :remove\n\
-      end"
-- example_heading: Add the SMTP Server feature using the PowerShell provider
-  text_blocks:
-  - code_block: "windows_feature \"smtp-server\" do\n  action :install\n  all true\n\
-      \  install_method :windows_feature_powershell\nend"
-- example_heading: 'Install multiple features using one resource with the PowerShell
-
-    provider'
-  text_blocks:
-  - code_block: "windows_feature ['Web-Asp-Net45', 'Web-Net-Ext45'] do\n  action :install\n\
-      \  install_method :windows_feature_powershell\nend"
-- example_heading: 'Install the Network Policy and Access Service feature, including
-    the
-
-    management tools. Which, for this example, will automatically install
-
-    RSAT-NPAS as well.'
-  text_blocks:
-  - code_block: "windows_feature 'NPAS' do\n  action :install\n  management_tools\
-      \ true\n  install_method :windows_feature_powershell\nend"
+examples: "
+  Install the DHCP Server feature\n\n  ``` ruby\n  windows_feature\
+  \ 'DHCPServer' do\n    action :install\n  end\n  ```\n\n  Install the .Net 3.5.1\
+  \ feature using repository files on DVD\n\n  ``` ruby\n  windows_feature \"NetFx3\"\
+  \ do\n    action :install\n    source \"d:\\sources\\sxs\"\n  end\n  ```\n\n  Remove\
+  \ Telnet Server and Client features\n\n  ``` ruby\n  windows_feature ['TelnetServer',\
+  \ 'TelnetClient'] do\n    action :remove\n  end\n  ```\n\n  Add the SMTP Server\
+  \ feature using the PowerShell provider\n\n  ``` ruby\n  windows_feature \"smtp-server\"\
+  \ do\n    action :install\n    all true\n    install_method :windows_feature_powershell\n\
+  \  end\n  ```\n\n  Install multiple features using one resource with the PowerShell\n\
+  \  provider\n\n  ``` ruby\n  windows_feature ['Web-Asp-Net45', 'Web-Net-Ext45']\
+  \ do\n    action :install\n    install_method :windows_feature_powershell\n  end\n\
+  \  ```\n\n  Install the Network Policy and Access Service feature, including the\n\
+  \  management tools. Which, for this example, will automatically install\n  RSAT-NPAS\
+  \ as well.\n\n  ``` ruby\n  windows_feature 'NPAS' do\n    action :install\n   \
+  \ management_tools true\n    install_method :windows_feature_powershell\n  end\n\
+  \  ```\n"
 
 ---

@@ -206,19 +206,13 @@ common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false
 unit_file_verification: false
-examples_list:
-- example_heading: Allowing port 80 access
-  text_blocks:
-  - code_block: "windows_firewall_rule 'IIS' do\n  local_port '80'\n  protocol 'TCP'\n\
-      \  firewall_action :allow\nend"
-- example_heading: Blocking WinRM over HTTP on a particular IP
-  text_blocks:
-  - code_block: "windows_firewall_rule 'Disable WinRM over HTTP' do\n  local_port\
-      \ '5985'\n  protocol 'TCP'\n  firewall_action :block\n  local_address '192.168.1.1'\n\
-      end"
-- example_heading: Deleting an existing rule
-  text_blocks:
-  - code_block: "windows_firewall_rule 'Remove the SSH rule' do\n  rule_name 'ssh'\n\
-      \  action :delete\nend"
+examples: "
+  Allowing port 80 access\n\n  ``` ruby\n  windows_firewall_rule 'IIS'\
+  \ do\n    local_port '80'\n    protocol 'TCP'\n    firewall_action :allow\n  end\n\
+  \  ```\n\n  Blocking WinRM over HTTP on a particular IP\n\n  ``` ruby\n  windows_firewall_rule\
+  \ 'Disable WinRM over HTTP' do\n    local_port '5985'\n    protocol 'TCP'\n    firewall_action\
+  \ :block\n    local_address '192.168.1.1'\n  end\n  ```\n\n  Deleting an existing\
+  \ rule\n\n  ``` ruby\n  windows_firewall_rule 'Remove the SSH rule' do\n    rule_name\
+  \ 'ssh'\n    action :delete\n  end\n  ```\n"
 
 ---

@@ -9,7 +9,6 @@ menu:
     title: windows_package
     identifier: chef_infra/cookbook_reference/resources/windows_package windows_package
     parent: chef_infra/cookbook_reference/resources
-
 resource_reference: true
 robots: null
 resource_description_list:
@@ -213,47 +212,26 @@ common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false
 unit_file_verification: false
-examples_list:
-- example_heading: Install a package
-  text_blocks:
-  - code_block: "windows_package '7zip' do\n  action :install\n  source 'C:\\7z920.msi'\n\
-      end"
-- example_heading: Specify a URL for the source attribute
-  text_blocks:
-  - code_block: "windows_package '7zip' do\n  source 'http://www.7-zip.org/a/7z938-x64.msi'\n\
-      end"
-- example_heading: Specify path and checksum
-  text_blocks:
-  - code_block: "windows_package '7zip' do\n  source 'http://www.7-zip.org/a/7z938-x64.msi'\n\
-      \  checksum '7c8e873991c82ad9cfc123415254ea6101e9a645e12977dcd518979e50fdedf3'\n\
-      end"
-- example_heading: Modify remote_file resource attributes
-  text_blocks:
-  - markdown: 'The **windows_package** resource may specify a package at a remote
-
-      location using the `remote_file_attributes` property. This uses the
-
-      **remote_file** resource to download the contents at the specified URL
-
-      and passes in a Hash that modifies the properties of the [remote_file
-
-      resource](/resources/remote_file/).
-
-
-      For example:'
-  - code_block: "windows_package '7zip' do\n  source 'http://www.7-zip.org/a/7z938-x64.msi'\n\
-      \  remote_file_attributes ({\n    :path => 'C:\\\\7zip.msi',\n    :checksum\
-      \ => '7c8e873991c82ad9cfc123415254ea6101e9a645e12977dcd518979e50fdedf3'\n  })\n\
-      end"
-- example_heading: Download a nsis (Nullsoft) package resource
-  text_blocks:
-  - code_block: "windows_package 'Mercurial 3.6.1 (64-bit)' do\n  source 'http://mercurial.selenic.com/release/windows/Mercurial-3.6.1-x64.exe'\n\
-      \  checksum 'febd29578cb6736163d232708b834a2ddd119aa40abc536b2c313fc5e1b5831d'\n\
-      end"
-- example_heading: Download a custom package
-  text_blocks:
-  - code_block: "windows_package 'Microsoft Visual C++ 2005 Redistributable' do\n\
-      \  source 'https://download.microsoft.com/download/6/B/B/6BB661D6-A8AE-4819-B79F-236472F6070C/vcredist_x86.exe'\n\
-      \  installer_type :custom\n  options '/Q'\nend"
+examples: "
+  Install a package\n\n  ``` ruby\n  windows_package '7zip' do\n  \
+  \  action :install\n    source 'C:\\7z920.msi'\n  end\n  ```\n\n  Specify a URL\
+  \ for the source attribute\n\n  ``` ruby\n  windows_package '7zip' do\n    source\
+  \ 'http://www.7-zip.org/a/7z938-x64.msi'\n  end\n  ```\n\n  Specify path and checksum\n\
+  \n  ``` ruby\n  windows_package '7zip' do\n    source 'http://www.7-zip.org/a/7z938-x64.msi'\n\
+  \    checksum '7c8e873991c82ad9cfc123415254ea6101e9a645e12977dcd518979e50fdedf3'\n\
+  \  end\n  ```\n\n  Modify remote_file resource attributes\n\n  The **windows_package**\
+  \ resource may specify a package at a remote\n  location using the `remote_file_attributes`\
+  \ property. This uses the\n  **remote_file** resource to download the contents at\
+  \ the specified URL\n  and passes in a Hash that modifies the properties of the\
+  \ [remote_file\n  resource](/resources/remote_file/).\n\n  For example:\n\n  ```\
+  \ ruby\n  windows_package '7zip' do\n    source 'http://www.7-zip.org/a/7z938-x64.msi'\n\
+  \    remote_file_attributes ({\n      :path => 'C:\\\\7zip.msi',\n      :checksum\
+  \ => '7c8e873991c82ad9cfc123415254ea6101e9a645e12977dcd518979e50fdedf3'\n    })\n\
+  \  end\n  ```\n\n  Download a nsis (Nullsoft) package resource\n\n  ``` ruby\n \
+  \ windows_package 'Mercurial 3.6.1 (64-bit)' do\n    source 'http://mercurial.selenic.com/release/windows/Mercurial-3.6.1-x64.exe'\n\
+  \    checksum 'febd29578cb6736163d232708b834a2ddd119aa40abc536b2c313fc5e1b5831d'\n\
+  \  end\n  ```\n\n  Download a custom package\n\n  ``` ruby\n  windows_package 'Microsoft\
+  \ Visual C++ 2005 Redistributable' do\n    source 'https://download.microsoft.com/download/6/B/B/6BB661D6-A8AE-4819-B79F-236472F6070C/vcredist_x86.exe'\n\
+  \    installer_type :custom\n    options '/Q'\n  end\n  ```\n"
 
 ---

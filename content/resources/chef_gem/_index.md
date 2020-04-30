@@ -210,20 +210,15 @@ common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false
 unit_file_verification: false
-examples_list:
-- example_heading: Compile time vs. converge time installation of gems
-  text_blocks:
-  - markdown: "To install a gem while Chef Infra Client is configuring the node (the\n\
-      \u201Cconverge phase\u201D), set the `compile_time` property to `false`:"
-  - code_block: "chef_gem 'right_aws' do\n  compile_time false\n  action :install\n\
-      end"
-  - markdown: "To install a gem while the resource collection is being built (the\n\
-      \u201Ccompile phase\u201D), set the `compile_time` property to `true`:"
-  - code_block: "chef_gem 'right_aws' do\n  compile_time true\n  action :install\n\
-      end"
-- example_heading: Install MySQL for Chef
-  text_blocks:
-  - code_block: "apt_update\n\nbuild_essential 'install compilation tools' do\n  compile_time\
-      \ true\nend\n\nchef_gem 'mysql'"
+examples: "\"Compile time vs. converge time installation of gems\\n\\nTo install a\
+  \ gem while Chef\\\n  \\ Infra Client is configuring the node (the\\n\\u201Cconverge\
+  \ phase\\u201D), set the\\\n  \\ `compile_time` property to `false`:\\n\\n``` ruby\\\
+  nchef_gem 'right_aws' do\\n  compile_time\\\n  \\ false\\n  action :install\\nend\\\
+  n```\\n\\nTo install a gem while the resource collection\\\n  \\ is being built\
+  \ (the\\n\\u201Ccompile phase\\u201D), set the `compile_time` property\\\n  \\ to\
+  \ `true`:\\n\\n``` ruby\\nchef_gem 'right_aws' do\\n  compile_time true\\n  action\\\
+  \n  \\ :install\\nend\\n```\\n\\nInstall MySQL for Chef\\n\\n``` ruby\\napt_update\\\
+  n\\nbuild_essential\\\n  \\ 'install compilation tools' do\\n  compile_time true\\\
+  nend\\n\\nchef_gem 'mysql'\\n\\\n  ```\"\n"
 
 ---

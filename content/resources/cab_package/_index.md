@@ -91,20 +91,16 @@ properties_list:
   required: false
   description_list:
   - markdown: The version of a package to be installed or upgraded.
-examples_list:
-- example_heading: Using local path in source
-  text_blocks:
-  - code_block: "cab_package 'Install .NET 3.5 sp1 via KB958488' do\n  source 'C:\\\
-      Users\\xyz\\AppData\\Local\\Temp\\Windows6.1-KB958488-x64.cab'\n  action :install\n\
-      end"
-  - code_block: "cab_package 'Remove .NET 3.5 sp1 via KB958488' do\n  source 'C:\\\
-      Users\\xyz\\AppData\\Local\\Temp\\Windows6.1-KB958488-x64.cab'\n  action :remove\n\
-      end"
-- example_heading: Using URL in source
-  text_blocks:
-  - code_block: "cab_package 'Install .NET 3.5 sp1 via KB958488' do\n  source 'https://s3.amazonaws.com/my_bucket/Windows6.1-KB958488-x64.cab'\n\
-      \  action :install\nend"
-  - code_block: "cab_package 'Remove .NET 3.5 sp1 via KB958488' do\n  source 'https://s3.amazonaws.com/my_bucket/Temp\\\
-      Windows6.1-KB958488-x64.cab'\n  action :remove\nend"
+examples: "
+  Using local path in source\n\n  ``` ruby\n  cab_package 'Install\
+  \ .NET 3.5 sp1 via KB958488' do\n    source 'C:\\Users\\xyz\\AppData\\Local\\Temp\\\
+  Windows6.1-KB958488-x64.cab'\n    action :install\n  end\n  ```\n\n  ``` ruby\n\
+  \  cab_package 'Remove .NET 3.5 sp1 via KB958488' do\n    source 'C:\\Users\\xyz\\\
+  AppData\\Local\\Temp\\Windows6.1-KB958488-x64.cab'\n    action :remove\n  end\n\
+  \  ```\n\n  Using URL in source\n\n  ``` ruby\n  cab_package 'Install .NET 3.5 sp1\
+  \ via KB958488' do\n    source 'https://s3.amazonaws.com/my_bucket/Windows6.1-KB958488-x64.cab'\n\
+  \    action :install\n  end\n  ```\n\n  ``` ruby\n  cab_package 'Remove .NET 3.5\
+  \ sp1 via KB958488' do\n    source 'https://s3.amazonaws.com/my_bucket/Temp\\Windows6.1-KB958488-x64.cab'\n\
+  \    action :remove\n  end\n  ```\n"
 
 ---

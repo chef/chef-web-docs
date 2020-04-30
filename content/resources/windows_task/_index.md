@@ -261,57 +261,36 @@ common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false
 unit_file_verification: false
-examples_list:
-- example_heading: 'Create a scheduled task to run every 15 minutes as the Administrator
-
-    user'
-  text_blocks:
-  - code_block: "windows_task 'chef-client' do\n  user 'Administrator'\n  password\
-      \ 'password'\n  command 'chef-client'\n  run_level :highest\n  frequency :minute\n\
-      \  frequency_modifier 15\nend"
-- example_heading: Create a scheduled task to run every 2 days
-  text_blocks:
-  - code_block: "windows_task 'chef-client' do\n  command 'chef-client'\n  run_level\
-      \ :highest\n  frequency :daily\n  frequency_modifier 2\nend"
-- example_heading: Create a scheduled task to run on specific days of the week
-  text_blocks:
-  - code_block: "windows_task 'chef-client' do\n  command 'chef-client'\n  run_level\
-      \ :highest\n  frequency :weekly\n  day 'Mon, Thu'\nend"
-- example_heading: Create a scheduled task to run only once
-  text_blocks:
-  - code_block: "windows_task 'chef-client' do\n  command 'chef-client'\n  run_level\
-      \ :highest\n  frequency :once\n  start_time \"16:10\"\nend"
-- example_heading: 'Create a scheduled task to run on current day every 3 weeks and
-    delay
-
-    upto 1 min'
-  text_blocks:
-  - code_block: "windows_task 'chef-client' do\n  command 'chef-client'\n  run_level\
-      \ :highest\n  frequency :weekly\n  frequency_modifier 3\n  random_delay '60'\n\
-      end"
-- example_heading: Create a scheduled task to run weekly starting on Dec 28th 2018
-  text_blocks:
-  - code_block: "windows_task 'chef-client 8' do\n  command 'chef-client'\n  run_level\
-      \ :highest\n  frequency :weekly\n  start_day '12/28/2018'\nend"
-- example_heading: Create a scheduled task to run every Monday, Friday every 2 weeks
-  text_blocks:
-  - code_block: "windows_task 'chef-client' do\n  command 'chef-client'\n  run_level\
-      \ :highest\n  frequency :weekly\n  frequency_modifier 2\n  day 'Mon, Fri'\n\
-      end"
-- example_heading: 'Create a scheduled task to run when computer is idle with idle
-
-    duration 20 min'
-  text_blocks:
-  - code_block: "windows_task 'chef-client' do\n  command 'chef-client'\n  run_level\
-      \ :highest\n  frequency :on_idle\n  idle_time 20\nend"
-  - markdown: '**Delete a task named "old task"**'
-  - code_block: "windows_task 'old task' do\n  action :delete\nend"
-  - markdown: '**Enable a task named "chef-client"**'
-  - code_block: "windows_task 'chef-client' do\n  action :enable\nend"
-  - markdown: '**Disable a task named "ProgramDataUpdater" with TaskPath
-
-      "\\Microsoft\\Windows\\Application Experience\\ProgramDataUpdater"**'
-  - code_block: "windows_task '\\Microsoft\\Windows\\Application Experience\\ProgramDataUpdater'\
-      \ do\n  action :disable\nend"
+examples: "
+  Create a scheduled task to run every 15 minutes as the Administrator\n\
+  \  user\n\n  ``` ruby\n  windows_task 'chef-client' do\n    user 'Administrator'\n\
+  \    password 'password'\n    command 'chef-client'\n    run_level :highest\n  \
+  \  frequency :minute\n    frequency_modifier 15\n  end\n  ```\n\n  Create a scheduled\
+  \ task to run every 2 days\n\n  ``` ruby\n  windows_task 'chef-client' do\n    command\
+  \ 'chef-client'\n    run_level :highest\n    frequency :daily\n    frequency_modifier\
+  \ 2\n  end\n  ```\n\n  Create a scheduled task to run on specific days of the week\n\
+  \n  ``` ruby\n  windows_task 'chef-client' do\n    command 'chef-client'\n    run_level\
+  \ :highest\n    frequency :weekly\n    day 'Mon, Thu'\n  end\n  ```\n\n  Create\
+  \ a scheduled task to run only once\n\n  ``` ruby\n  windows_task 'chef-client'\
+  \ do\n    command 'chef-client'\n    run_level :highest\n    frequency :once\n \
+  \   start_time \"16:10\"\n  end\n  ```\n\n  Create a scheduled task to run on current\
+  \ day every 3 weeks and delay\n  upto 1 min\n\n  ``` ruby\n  windows_task 'chef-client'\
+  \ do\n    command 'chef-client'\n    run_level :highest\n    frequency :weekly\n\
+  \    frequency_modifier 3\n    random_delay '60'\n  end\n  ```\n\n  Create a scheduled\
+  \ task to run weekly starting on Dec 28th 2018\n\n  ``` ruby\n  windows_task 'chef-client\
+  \ 8' do\n    command 'chef-client'\n    run_level :highest\n    frequency :weekly\n\
+  \    start_day '12/28/2018'\n  end\n  ```\n\n  Create a scheduled task to run every\
+  \ Monday, Friday every 2 weeks\n\n  ``` ruby\n  windows_task 'chef-client' do\n\
+  \    command 'chef-client'\n    run_level :highest\n    frequency :weekly\n    frequency_modifier\
+  \ 2\n    day 'Mon, Fri'\n  end\n  ```\n\n  Create a scheduled task to run when computer\
+  \ is idle with idle\n  duration 20 min\n\n  ``` ruby\n  windows_task 'chef-client'\
+  \ do\n    command 'chef-client'\n    run_level :highest\n    frequency :on_idle\n\
+  \    idle_time 20\n  end\n  ```\n\n  **Delete a task named \"old task\"**\n\n  ```\
+  \ ruby\n  windows_task 'old task' do\n    action :delete\n  end\n  ```\n\n  **Enable\
+  \ a task named \"chef-client\"**\n\n  ``` ruby\n  windows_task 'chef-client' do\n\
+  \    action :enable\n  end\n  ```\n\n  **Disable a task named \"ProgramDataUpdater\"\
+  \ with TaskPath\n  \"\\\\Microsoft\\\\Windows\\\\Application Experience\\\\ProgramDataUpdater\"\
+  **\n\n  ``` ruby\n  windows_task '\\Microsoft\\Windows\\Application Experience\\\
+  ProgramDataUpdater' do\n    action :disable\n  end\n  ```\n"
 
 ---

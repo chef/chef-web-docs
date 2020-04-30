@@ -40,20 +40,14 @@ properties_list:
   default_value: The resource block's name
   description_list:
   - markdown: The number of seconds to sleep.
-examples_list:
-- example_heading: Sleep for 10 seconds
-  text_blocks:
-  - code_block: chef_sleep '10'
-- example_heading: Sleep for 10 seconds with a descriptive resource name for logging
-  text_blocks:
-  - code_block: "chef_sleep 'wait for the service to start' do\n  seconds 10\nend"
-- example_heading: 'Use a notification from another resource to sleep only when
-
-    necessary'
-  text_blocks:
-  - code_block: "service 'Service that is slow to start and reports as started' do\n\
-      \  service_name 'my_database'\n  action :start\n  notifies :sleep, chef_sleep['wait\
-      \ for service start']\nend\n\nchef_sleep 'wait for service start' do\n  seconds\
-      \ 30\n  action :nothing\nend"
+examples: "
+  Sleep for 10 seconds\n\n  ``` ruby\n  chef_sleep '10'\n  ```\n\n\
+  \  Sleep for 10 seconds with a descriptive resource name for logging\n\n  ``` ruby\n\
+  \  chef_sleep 'wait for the service to start' do\n    seconds 10\n  end\n  ```\n\
+  \n  Use a notification from another resource to sleep only when\n  necessary\n\n\
+  \  ``` ruby\n  service 'Service that is slow to start and reports as started' do\n\
+  \    service_name 'my_database'\n    action :start\n    notifies :sleep, chef_sleep['wait\
+  \ for service start']\n  end\n\n  chef_sleep 'wait for service start' do\n    seconds\
+  \ 30\n    action :nothing\n  end\n  ```\n"
 
 ---

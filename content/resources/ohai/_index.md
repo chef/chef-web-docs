@@ -62,12 +62,14 @@ common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false
 unit_file_verification: false
-examples_list:
-- example_heading: Reload Ohai
-  text_blocks:
-  - shortcode: resource_ohai_reload.md
-- example_heading: Reload Ohai after a new user is created
-  text_blocks:
-  - shortcode: resource_ohai_reload_after_create_user.md
+examples: "
+  Reload Ohai\n\n  ``` ruby\n  ohai 'reload' do\n    action :reload\n\
+  \  end\n  ```\n\n  Reload Ohai after a new user is created\n\n  ``` ruby\n  ohai\
+  \ 'reload_passwd' do\n    action :nothing\n    plugin 'etc'\n  end\n\n  user 'daemonuser'\
+  \ do\n    home '/dev/null'\n    shell '/sbin/nologin'\n    system true\n    notifies\
+  \ :reload, 'ohai[reload_passwd]', :immediately\n  end\n\n  ruby_block 'just an example'\
+  \ do\n    block do\n      # These variables will now have the new values\n     \
+  \ puts node['etc']['passwd']['daemonuser']['uid']\n      puts node['etc']['passwd']['daemonuser']['gid']\n\
+  \    end\n  end\n  ```\n"
 
 ---

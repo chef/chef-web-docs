@@ -8,7 +8,6 @@ menu:
     title: windows_uac
     identifier: chef_infra/cookbook_reference/resources/windows_uac windows_uac
     parent: chef_infra/cookbook_reference/resources
-
 resource_reference: true
 robots: null
 resource_description_list:
@@ -110,14 +109,11 @@ common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false
 unit_file_verification: false
-examples_list:
-- example_heading: Disable UAC prompts for the admin
-  text_blocks:
-  - code_block: "windows_uac 'Disable UAC prompts for the admin' do\n  enable_uac\
-      \ true\n  prompt_on_secure_desktop false\n  consent_behavior_admins :no_prompt\n\
-      end"
-- example_heading: Disable UAC entirely
-  text_blocks:
-  - code_block: "windows_uac 'Disable UAC entirely' do\n  enable_uac false\nend"
+examples: "
+  Disable UAC prompts for the admin\n\n  ``` ruby\n  windows_uac 'Disable\
+  \ UAC prompts for the admin' do\n    enable_uac true\n    prompt_on_secure_desktop\
+  \ false\n    consent_behavior_admins :no_prompt\n  end\n  ```\n\n  Disable UAC entirely\n\
+  \n  ``` ruby\n  windows_uac 'Disable UAC entirely' do\n    enable_uac false\n  end\n\
+  \  ```\n"
 
 ---

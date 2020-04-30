@@ -9,7 +9,6 @@ menu:
     title: windows_auto_run
     identifier: chef_infra/cookbook_reference/resources/windows_auto_run windows_auto_run
     parent: chef_infra/cookbook_reference/resources
-
 resource_reference: true
 robots: null
 resource_description_list:
@@ -97,11 +96,9 @@ common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false
 unit_file_verification: false
-examples_list:
-- example_heading: Run BGInfo at login
-  text_blocks:
-  - code_block: "windows_auto_run 'BGINFO' do\n  program 'C:/Sysinternals/bginfo.exe'\n\
-      \  args    '\\'C:/Sysinternals/Config.bgi\\' /NOLICPROMPT /TIMER:0'\n  action\
-      \  :create\nend"
+examples: "
+  Run BGInfo at login\n\n  ``` ruby\n  windows_auto_run 'BGINFO' do\n\
+  \    program 'C:/Sysinternals/bginfo.exe'\n    args    '\\'C:/Sysinternals/Config.bgi\\\
+  ' /NOLICPROMPT /TIMER:0'\n    action  :create\n  end\n  ```\n"
 
 ---

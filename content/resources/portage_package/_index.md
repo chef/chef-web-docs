@@ -9,7 +9,6 @@ menu:
     title: portage_package
     identifier: chef_infra/cookbook_reference/resources/portage_package portage_package
     parent: chef_infra/cookbook_reference/resources
-
 resource_reference: true
 robots: null
 resource_description_list:
@@ -118,9 +117,8 @@ common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false
 unit_file_verification: false
-examples_list:
-- example_heading: Install a package
-  text_blocks:
-  - code_block: "portage_package 'name of package' do\n  action :install\nend"
+examples: "
+  Install a package\n\n  ``` ruby\n  portage_package 'name of package'\
+  \ do\n    action :install\n  end\n  ```\n"
 
 ---

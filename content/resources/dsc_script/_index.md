@@ -269,94 +269,64 @@ common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false
 unit_file_verification: false
-examples_list:
-- example_heading: Specify DSC code directly
-  text_blocks:
-  - markdown: 'DSC data can be specified directly in a recipe:'
-  - code_block: "dsc_script 'emacs' do\n  code <<-EOH\n  Environment 'texteditor'\n\
-      \  {\n    Name = 'EDITOR'\n    Value = 'c:\\\\emacs\\\\bin\\\\emacs.exe'\n \
-      \ }\n  EOH\nend"
-- example_heading: Specify DSC code using a Windows PowerShell data file
-  text_blocks:
-  - markdown: "Use the `command` property to specify the path to a Windows PowerShell\n\
-      data file. For example, the following Windows PowerShell script defines\nthe\
-      \ `DefaultEditor`:\n\n``` powershell\nConfiguration 'DefaultEditor'\n{\n  Environment\
-      \ 'texteditor'\n    {\n      Name = 'EDITOR'\n      Value = 'c:\\emacs\\bin\\\
-      emacs.exe'\n    }\n}\n```\n\nUse the following recipe to specify the location\
-      \ of that data file:"
-  - code_block: "dsc_script 'DefaultEditor' do\n  command 'c:\\dsc_scripts\\emacs.ps1'\n\
-      end"
-- example_heading: Pass parameters to DSC configurations
-  text_blocks:
-  - markdown: "If a DSC script contains configuration data that takes parameters,\
-      \ those\nparameters may be passed using the `flags` property. For example, the\n\
-      following Windows PowerShell script takes parameters for the\n`EditorChoice`\
-      \ and `EditorFlags` settings:\n\n``` powershell\n$choices = @{'emacs' = 'c:\\\
-      emacs\\bin\\emacs';'vi' = 'c:\\vim\\vim.exe';'powershell' = 'powershell_ise.exe'}\n\
-      \  Configuration 'DefaultEditor'\n    {\n      [CmdletBinding()]\n      param\n\
-      \        (\n          $EditorChoice,\n          $EditorFlags = ''\n        )\n\
-      \      Environment 'TextEditor'\n      {\n        Name = 'EDITOR'\n        Value\
-      \ =  \"$($choices[$EditorChoice]) $EditorFlags\"\n      }\n    }\n```\n\nUse\
-      \ the following recipe to set those parameters:"
-  - code_block: "dsc_script 'DefaultEditor' do\n  flags ({ :EditorChoice => 'emacs',\
-      \ :EditorFlags => '--maximized' })\n  command 'c:\\dsc_scripts\\editors.ps1'\n\
-      end"
-- example_heading: Use custom configuration data
-  text_blocks:
-  - markdown: 'Configuration data in DSC scripts may be customized from a recipe.
-      For
-
-      example, scripts are typically customized to set the behavior for
-
-      Windows PowerShell credential data types. Configuration data may be
-
-      specified in one of three ways:
-
-
-      -   By using the `configuration_data` attribute
-
-      -   By using the `configuration_data_script` attribute
-
-      -   By specifying the path to a valid Windows PowerShell data file
-
-
-      The following example shows how to specify custom configuration data
-
-      using the `configuration_data` property:'
-  - code_block: "dsc_script 'BackupUser' do\n  configuration_data <<-EOH\n    @{\n\
-      \     AllNodes = @(\n          @{\n          NodeName = \"localhost\";\n   \
-      \       PSDscAllowPlainTextPassword = $true\n          })\n     }\n  EOH\n \
-      \ code <<-EOH\n    $user = 'backup'\n    $password = ConvertTo-SecureString\
-      \ -String \"YourPass$(random)\" -AsPlainText -Force\n    $cred = New-Object\
-      \ -TypeName System.Management.Automation.PSCredential -ArgumentList $user, $password\n\
-      \n   User $user\n     {\n       UserName = $user\n       Password = $cred\n\
-      \       Description = 'Backup operator'\n       Ensure = \"Present\"\n     \
-      \  Disabled = $false\n       PasswordNeverExpires = $true\n       PasswordChangeRequired\
-      \ = $false\n     }\n   EOH\nend"
-  - markdown: "The following example shows how to specify custom configuration data\n\
-      using the `configuration_name` property. For example, the following\nWindows\
-      \ PowerShell script defines the `vi` configuration:\n\n``` powershell\nConfiguration\
-      \ 'emacs'\n  {\n    Environment 'TextEditor'\n    {\n      Name = 'EDITOR'\n\
-      \      Value = 'c:\\emacs\\bin\\emacs.exe'\n    }\n}\n\nConfiguration 'vi'\n\
-      {\n    Environment 'TextEditor'\n    {\n      Name = 'EDITOR'\n      Value =\
-      \ 'c:\\vim\\bin\\vim.exe'\n    }\n}\n```\n\nUse the following recipe to specify\
-      \ that configuration:"
-  - code_block: "dsc_script 'EDITOR' do\n  configuration_name 'vi'\n  command 'C:\\\
-      dsc_scripts\\editors.ps1'\nend"
-- example_heading: Using DSC with other Chef resources
-  text_blocks:
-  - markdown: 'The **dsc_script** resource can be used with other resources. The
-
-      following example shows how to download a file using the
-
-      **remote_file** resource, and then uncompress it using the DSC
-
-      `Archive` resource:'
-  - code_block: "remote_file \"#{Chef::Config[:file_cache_path]}\\\\DSCResourceKit620082014.zip\"\
-      \ do\n  source 'http://gallery.technet.microsoft.com/DSC-Resource-Kit-All-c449312d/file/124481/1/DSC%20Resource%20Kit%20Wave%206%2008282014.zip'\n\
-      end\n\ndsc_script 'get-dsc-resource-kit' do\n  code <<-EOH\n    Archive reskit\n\
-      \    {\n      ensure = 'Present'\n      path = \"#{Chef::Config[:file_cache_path]}\\\
-      \\DSCResourceKit620082014.zip\"\n      destination = \"#{ENV['PROGRAMW6432']}\\\
-      \\WindowsPowerShell\\\\Modules\"\n    }\n  EOH\nend"
+examples: "
+  Specify DSC code directly\n\n  DSC data can be specified directly\
+  \ in a recipe:\n\n  ``` ruby\n  dsc_script 'emacs' do\n    code <<-EOH\n    Environment\
+  \ 'texteditor'\n    {\n      Name = 'EDITOR'\n      Value = 'c:\\\\emacs\\\\bin\\\
+  \\emacs.exe'\n    }\n    EOH\n  end\n  ```\n\n  Specify DSC code using a Windows\
+  \ PowerShell data file\n\n  Use the `command` property to specify the path to a\
+  \ Windows PowerShell\n  data file. For example, the following Windows PowerShell\
+  \ script defines\n  the `DefaultEditor`:\n\n  ``` powershell\n  Configuration 'DefaultEditor'\n\
+  \  {\n    Environment 'texteditor'\n      {\n        Name = 'EDITOR'\n        Value\
+  \ = 'c:\\emacs\\bin\\emacs.exe'\n      }\n  }\n  ```\n\n  Use the following recipe\
+  \ to specify the location of that data file:\n\n  ``` ruby\n  dsc_script 'DefaultEditor'\
+  \ do\n    command 'c:\\dsc_scripts\\emacs.ps1'\n  end\n  ```\n\n  Pass parameters\
+  \ to DSC configurations\n\n  If a DSC script contains configuration data that takes\
+  \ parameters, those\n  parameters may be passed using the `flags` property. For\
+  \ example, the\n  following Windows PowerShell script takes parameters for the\n\
+  \  `EditorChoice` and `EditorFlags` settings:\n\n  ``` powershell\n  $choices =\
+  \ @{'emacs' = 'c:\\emacs\\bin\\emacs';'vi' = 'c:\\vim\\vim.exe';'powershell' = 'powershell_ise.exe'}\n\
+  \    Configuration 'DefaultEditor'\n      {\n        [CmdletBinding()]\n       \
+  \ param\n          (\n            $EditorChoice,\n            $EditorFlags = ''\n\
+  \          )\n        Environment 'TextEditor'\n        {\n          Name = 'EDITOR'\n\
+  \          Value =  \"$($choices[$EditorChoice]) $EditorFlags\"\n        }\n   \
+  \   }\n  ```\n\n  Use the following recipe to set those parameters:\n\n  ``` ruby\n\
+  \  dsc_script 'DefaultEditor' do\n    flags ({ :EditorChoice => 'emacs', :EditorFlags\
+  \ => '--maximized' })\n    command 'c:\\dsc_scripts\\editors.ps1'\n  end\n  ```\n\
+  \n  Use custom configuration data\n\n  Configuration data in DSC scripts may be\
+  \ customized from a recipe. For\n  example, scripts are typically customized to\
+  \ set the behavior for\n  Windows PowerShell credential data types. Configuration\
+  \ data may be\n  specified in one of three ways:\n\n  -   By using the `configuration_data`\
+  \ attribute\n  -   By using the `configuration_data_script` attribute\n  -   By\
+  \ specifying the path to a valid Windows PowerShell data file\n\n  The following\
+  \ example shows how to specify custom configuration data\n  using the `configuration_data`\
+  \ property:\n\n  ``` ruby\n  dsc_script 'BackupUser' do\n    configuration_data\
+  \ <<-EOH\n      @{\n       AllNodes = @(\n            @{\n            NodeName =\
+  \ \"localhost\";\n            PSDscAllowPlainTextPassword = $true\n            })\n\
+  \       }\n    EOH\n    code <<-EOH\n      $user = 'backup'\n      $password = ConvertTo-SecureString\
+  \ -String \"YourPass$(random)\" -AsPlainText -Force\n      $cred = New-Object -TypeName\
+  \ System.Management.Automation.PSCredential -ArgumentList $user, $password\n\n \
+  \    User $user\n       {\n         UserName = $user\n         Password = $cred\n\
+  \         Description = 'Backup operator'\n         Ensure = \"Present\"\n     \
+  \    Disabled = $false\n         PasswordNeverExpires = $true\n         PasswordChangeRequired\
+  \ = $false\n       }\n     EOH\n  end\n  ```\n\n  The following example shows how\
+  \ to specify custom configuration data\n  using the `configuration_name` property.\
+  \ For example, the following\n  Windows PowerShell script defines the `vi` configuration:\n\
+  \n  ``` powershell\n  Configuration 'emacs'\n    {\n      Environment 'TextEditor'\n\
+  \      {\n        Name = 'EDITOR'\n        Value = 'c:\\emacs\\bin\\emacs.exe'\n\
+  \      }\n  }\n\n  Configuration 'vi'\n  {\n      Environment 'TextEditor'\n   \
+  \   {\n        Name = 'EDITOR'\n        Value = 'c:\\vim\\bin\\vim.exe'\n      }\n\
+  \  }\n  ```\n\n  Use the following recipe to specify that configuration:\n\n  ```\
+  \ ruby\n  dsc_script 'EDITOR' do\n    configuration_name 'vi'\n    command 'C:\\\
+  dsc_scripts\\editors.ps1'\n  end\n  ```\n\n  Using DSC with other Chef resources\n\
+  \n  The **dsc_script** resource can be used with other resources. The\n  following\
+  \ example shows how to download a file using the\n  **remote_file** resource, and\
+  \ then uncompress it using the DSC\n  `Archive` resource:\n\n  ``` ruby\n  remote_file\
+  \ \"#{Chef::Config[:file_cache_path]}\\\\DSCResourceKit620082014.zip\" do\n    source\
+  \ 'http://gallery.technet.microsoft.com/DSC-Resource-Kit-All-c449312d/file/124481/1/DSC%20Resource%20Kit%20Wave%206%2008282014.zip'\n\
+  \  end\n\n  dsc_script 'get-dsc-resource-kit' do\n    code <<-EOH\n      Archive\
+  \ reskit\n      {\n        ensure = 'Present'\n        path = \"#{Chef::Config[:file_cache_path]}\\\
+  \\DSCResourceKit620082014.zip\"\n        destination = \"#{ENV['PROGRAMW6432']}\\\
+  \\WindowsPowerShell\\\\Modules\"\n      }\n    EOH\n  end\n  ```\n"
 
 ---

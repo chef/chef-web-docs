@@ -9,7 +9,6 @@ menu:
     title: windows_printer
     identifier: chef_infra/cookbook_reference/resources/windows_printer windows_printer
     parent: chef_infra/cookbook_reference/resources
-
 resource_reference: true
 robots: null
 resource_description_list:
@@ -135,16 +134,12 @@ common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false
 unit_file_verification: false
-examples_list:
-- example_heading: Create a printer
-  text_blocks:
-  - code_block: "windows_printer 'HP LaserJet 5th Floor' do\n  driver_name 'HP LaserJet\
-      \ 4100 Series PCL6'\n  ipv4_address '10.4.64.38'\nend"
-- example_heading: Delete a printer
-  text_blocks:
-  - markdown: 'Note: this doesn''t delete the associated printer port. See
-
-      windows_printer_port above for how to delete the port.'
-  - code_block: "windows_printer 'HP LaserJet 5th Floor' do\n  action :delete\nend"
+examples: "
+  Create a printer\n\n  ``` ruby\n  windows_printer 'HP LaserJet 5th\
+  \ Floor' do\n    driver_name 'HP LaserJet 4100 Series PCL6'\n    ipv4_address '10.4.64.38'\n\
+  \  end\n  ```\n\n  Delete a printer\n\n  Note: this doesn't delete the associated\
+  \ printer port. See\n  windows_printer_port above for how to delete the port.\n\n\
+  \  ``` ruby\n  windows_printer 'HP LaserJet 5th Floor' do\n    action :delete\n\
+  \  end\n  ```\n"
 
 ---

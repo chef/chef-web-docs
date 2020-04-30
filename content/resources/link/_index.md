@@ -197,70 +197,36 @@ common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false
 unit_file_verification: false
-examples_list:
-- example_heading: Create symbolic links
-  text_blocks:
-  - markdown: 'The following example will create a symbolic link from `/tmp/file`
-      to
-
-      `/etc/file`:'
-  - code_block: "link '/tmp/file' do\n  to '/etc/file'\nend"
-- example_heading: Create hard links
-  text_blocks:
-  - markdown: 'The following example will create a hard link from `/tmp/file` to
-
-      `/etc/file`:'
-  - code_block: "link '/tmp/file' do\n  to '/etc/file'\n  link_type :hard\nend"
-- example_heading: Delete links
-  text_blocks:
-  - markdown: 'The following example will delete the `/tmp/file` symbolic link and
-      uses
-
-      the `only_if` guard to run the `test -L` command, which verifies that
-
-      `/tmp/file` is a symbolic link, and then only deletes `/tmp/file` if the
-
-      test passes:'
-  - code_block: "link '/tmp/file' do\n  action :delete\n  only_if 'test -L /tmp/file'\n\
-      end"
-- example_heading: Create multiple symbolic links
-  text_blocks:
-  - markdown: 'The following example creates symbolic links from two files in the
-
-      `/vol/webserver/cert/` directory to files located in the
-
-      `/etc/ssl/certs/` directory:'
-  - code_block: "link '/vol/webserver/cert/server.crt' do\n  to '/etc/ssl/certs/ssl-cert-name.pem'\n\
-      end\n\nlink '/vol/webserver/cert/server.key' do\n  to '/etc/ssl/certs/ssl-cert-name.key'\n\
-      end"
-- example_heading: Create platform-specific symbolic links
-  text_blocks:
-  - markdown: 'The following example shows installing a filter module on Apache. The
-
-      package name is different for different platforms, and for the Red Hat
-
-      Enterprise Linux family, a symbolic link is required:'
-  - code_block: "include_recipe 'apache2::default'\n\ncase node['platform_family']\n\
-      when 'debian'\n  ...\nwhen 'suse'\n  ...\nwhen 'rhel', 'fedora'\n  ...\n\n \
-      \ link '/usr/lib64/httpd/modules/mod_apreq.so' do\n    to      '/usr/lib64/httpd/modules/mod_apreq2.so'\n\
-      \    only_if 'test -f /usr/lib64/httpd/modules/mod_apreq2.so'\n  end\n\n  link\
-      \ '/usr/lib/httpd/modules/mod_apreq.so' do\n    to      '/usr/lib/httpd/modules/mod_apreq2.so'\n\
-      \    only_if 'test -f /usr/lib/httpd/modules/mod_apreq2.so'\n  end\nend\n\n\
-      ..."
-  - markdown: 'For the complete recipe, see
-
-      <https://github.com/onehealth-cookbooks/apache2/blob/68bdfba4680e70b3e90f77e40223dd535bf22c17/recipes/mod_apreq2.rb>.
-
-
-      **Create Windows junction/reparse points**
-
-
-      This example demonstrates how to create a directory junction/reparse
-
-      point. In this example, `C:\destination` will be a junction/reparse
-
-      point to the `C:\source` directory.'
-  - code_block: "directory 'C:/source'\n\nlink 'C:/destination' do\n    link_type\
-      \ :symbolic\n    to 'C:/source'\nend"
+examples: "
+  Create symbolic links\n\n  The following example will create a symbolic\
+  \ link from `/tmp/file` to\n  `/etc/file`:\n\n  ``` ruby\n  link '/tmp/file' do\n\
+  \    to '/etc/file'\n  end\n  ```\n\n  Create hard links\n\n  The following example\
+  \ will create a hard link from `/tmp/file` to\n  `/etc/file`:\n\n  ``` ruby\n  link\
+  \ '/tmp/file' do\n    to '/etc/file'\n    link_type :hard\n  end\n  ```\n\n  Delete\
+  \ links\n\n  The following example will delete the `/tmp/file` symbolic link and\
+  \ uses\n  the `only_if` guard to run the `test -L` command, which verifies that\n\
+  \  `/tmp/file` is a symbolic link, and then only deletes `/tmp/file` if the\n  test\
+  \ passes:\n\n  ``` ruby\n  link '/tmp/file' do\n    action :delete\n    only_if\
+  \ 'test -L /tmp/file'\n  end\n  ```\n\n  Create multiple symbolic links\n\n  The\
+  \ following example creates symbolic links from two files in the\n  `/vol/webserver/cert/`\
+  \ directory to files located in the\n  `/etc/ssl/certs/` directory:\n\n  ``` ruby\n\
+  \  link '/vol/webserver/cert/server.crt' do\n    to '/etc/ssl/certs/ssl-cert-name.pem'\n\
+  \  end\n\n  link '/vol/webserver/cert/server.key' do\n    to '/etc/ssl/certs/ssl-cert-name.key'\n\
+  \  end\n  ```\n\n  Create platform-specific symbolic links\n\n  The following example\
+  \ shows installing a filter module on Apache. The\n  package name is different for\
+  \ different platforms, and for the Red Hat\n  Enterprise Linux family, a symbolic\
+  \ link is required:\n\n  ``` ruby\n  include_recipe 'apache2::default'\n\n  case\
+  \ node['platform_family']\n  when 'debian'\n    ...\n  when 'suse'\n    ...\n  when\
+  \ 'rhel', 'fedora'\n    ...\n\n    link '/usr/lib64/httpd/modules/mod_apreq.so'\
+  \ do\n      to      '/usr/lib64/httpd/modules/mod_apreq2.so'\n      only_if 'test\
+  \ -f /usr/lib64/httpd/modules/mod_apreq2.so'\n    end\n\n    link '/usr/lib/httpd/modules/mod_apreq.so'\
+  \ do\n      to      '/usr/lib/httpd/modules/mod_apreq2.so'\n      only_if 'test\
+  \ -f /usr/lib/httpd/modules/mod_apreq2.so'\n    end\n  end\n\n  ...\n  ```\n\n \
+  \ For the complete recipe, see\n  <https://github.com/onehealth-cookbooks/apache2/blob/68bdfba4680e70b3e90f77e40223dd535bf22c17/recipes/mod_apreq2.rb>.\n\
+  \n  **Create Windows junction/reparse points**\n\n  This example demonstrates how\
+  \ to create a directory junction/reparse\n  point. In this example, `C:\\destination`\
+  \ will be a junction/reparse\n  point to the `C:\\source` directory.\n\n  ``` ruby\n\
+  \  directory 'C:/source'\n\n  link 'C:/destination' do\n      link_type :symbolic\n\
+  \      to 'C:/source'\n  end\n  ```\n"
 
 ---

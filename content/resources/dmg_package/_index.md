@@ -196,21 +196,15 @@ common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false
 unit_file_verification: false
-examples_list:
-- example_heading: Install Google Chrome via the DMG package
-  text_blocks:
-  - code_block: "dmg_package 'Google Chrome' do\n  dmg_name 'googlechrome'\n  source\
-      \   'https://dl-ssl.google.com/chrome/mac/stable/GGRM/googlechrome.dmg'\n  checksum\
-      \ '7daa2dc5c46d9bfb14f1d7ff4b33884325e5e63e694810adc58f14795165c91a'\n  action\
-      \   :install\nend"
-- example_heading: Install Virtualbox from the .mpkg
-  text_blocks:
-  - code_block: "dmg_package 'Virtualbox' do\n  source 'http://dlc.sun.com.edgesuite.net/virtualbox/4.0.8/VirtualBox-4.0.8-71778-OSX.dmg'\n\
-      \  type   'mpkg'\nend"
-- example_heading: Install pgAdmin and automatically accept the EULA
-  text_blocks:
-  - code_block: "dmg_package 'pgAdmin3' do\n  source   'http://wwwmaster.postgresql.org/redir/198/h/pgadmin3/release/v1.12.3/osx/pgadmin3-1.12.3.dmg'\n\
-      \  checksum '9435f79d5b52d0febeddfad392adf82db9df159196f496c1ab139a6957242ce9'\n\
-      \  accept_eula true\nend"
+examples: "
+  Install Google Chrome via the DMG package\n\n  ``` ruby\n  dmg_package\
+  \ 'Google Chrome' do\n    dmg_name 'googlechrome'\n    source   'https://dl-ssl.google.com/chrome/mac/stable/GGRM/googlechrome.dmg'\n\
+  \    checksum '7daa2dc5c46d9bfb14f1d7ff4b33884325e5e63e694810adc58f14795165c91a'\n\
+  \    action   :install\n  end\n  ```\n\n  Install Virtualbox from the .mpkg\n\n\
+  \  ``` ruby\n  dmg_package 'Virtualbox' do\n    source 'http://dlc.sun.com.edgesuite.net/virtualbox/4.0.8/VirtualBox-4.0.8-71778-OSX.dmg'\n\
+  \    type   'mpkg'\n  end\n  ```\n\n  Install pgAdmin and automatically accept the\
+  \ EULA\n\n  ``` ruby\n  dmg_package 'pgAdmin3' do\n    source   'http://wwwmaster.postgresql.org/redir/198/h/pgadmin3/release/v1.12.3/osx/pgadmin3-1.12.3.dmg'\n\
+  \    checksum '9435f79d5b52d0febeddfad392adf82db9df159196f496c1ab139a6957242ce9'\n\
+  \    accept_eula true\n  end\n  ```\n"
 
 ---
