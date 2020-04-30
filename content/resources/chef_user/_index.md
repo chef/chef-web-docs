@@ -217,9 +217,5 @@ common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false
 unit_file_verification: false
-examples_list:
-- example_heading: null
-  text_blocks:
-  - markdown: None.
 
 ---
