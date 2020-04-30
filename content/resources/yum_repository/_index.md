@@ -37,13 +37,10 @@ menu:
     identifier: chef_infra/cookbook_reference/resources/yum_repository yum_repository
     parent: chef_infra/cookbook_reference/resources
 resource_description_list:
-- markdown: 'Use the **yum_repository** resource to manage a Yum repository
-
-    configuration file located at `/etc/yum.repos.d/repositoryid.repo` on
-
-    the local machine. This configuration file specifies which repositories
-
-    to reference, how to handle cached data, etc.'
+- markdown: Use the **yum_repository** resource to manage a Yum repository configuration
+    file located at `/etc/yum.repos.d/repositoryid.repo` on the local machine. This
+    configuration file specifies which repositories to reference, how to handle cached
+    data, etc.
 resource_new_in: '12.14'
 syntax_full_code_block: |-
   yum_repository 'name' do
@@ -105,16 +102,22 @@ syntax_full_properties_list:
   `sslclientcert`, `sslclientkey`, `sslverify`, `throttle`, `timeout`, and `username`
   are the properties available to this resource."
 actions_list:
+  :create:
+    markdown: Create a repository based on the properties.
+  :makecache:
+    markdown: Force the creation of the repository cache. This is also done automatically when a repository is updated.
   :nothing:
     shortcode: resources_common_actions_nothing.md
+  :remove:
+    markdown: Remove a repository. 
 properties_list:
 - property: baseurl
   ruby_type: String, Array
   required: false
   description_list:
-  - markdown: URL to the directory where the Yum repository's 'repodata' directory
+  - markdown: URL to the directory where the Yum repository's `repodata` directory
       lives. Can be an `http://`, `https://` or a `ftp://` URLs. You can specify multiple
-      URLs in one baseurl statement.
+      URLs in one `baseurl` statement.
 - property: clean_metadata
   ruby_type: true, false
   required: false
