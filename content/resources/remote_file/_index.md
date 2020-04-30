@@ -9,7 +9,6 @@ menu:
     title: remote_file
     identifier: chef_infra/cookbook_reference/resources/remote_file remote_file
     parent: chef_infra/cookbook_reference/resources
-
 resource_reference: true
 robots: null
 resource_description_list:
@@ -652,30 +651,78 @@ common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false
 unit_file_verification: false
-examples_list:
-- example_heading: Transfer a file from a URL
-  text_blocks:
-  - code_block: "remote_file '/tmp/testfile' do\n  source 'http://www.example.com/tempfiles/testfile'\n\
-      \  mode '0755'\n  checksum '3a7dac00b1' # A SHA256 (or portion thereof) of the\
-      \ file.\nend"
-- example_heading: Transfer a file only when the source has changed
-  text_blocks:
-  - shortcode: resource_remote_file_transfer_remote_source_changes.md
-- example_heading: Install a file from a remote location using bash
-  text_blocks:
-  - shortcode: resource_remote_file_install_with_bash.md
-- example_heading: Store certain settings
-  text_blocks:
-  - shortcode: resource_remote_file_store_certain_settings.md
-  - markdown: '**Use the platform_family? method**'
-  - shortcode: resource_remote_file_use_platform_family.md
-- example_heading: Specify local Windows file path as a valid URI
-  text_blocks:
-  - markdown: 'When specifying a local Microsoft Windows file path as a valid file
-      URI,
-
-      an additional forward slash (`/`) is required. For example:'
-  - code_block: "remote_file 'file:///c:/path/to/file' do\n  ...       # other attributes\n\
-      end"
+examples: "
+  Transfer a file from a URL\n\n  ``` ruby\n  remote_file '/tmp/testfile'\
+  \ do\n    source 'http://www.example.com/tempfiles/testfile'\n    mode '0755'\n\
+  \    checksum '3a7dac00b1' # A SHA256 (or portion thereof) of the file.\n  end\n\
+  \  ```\n\n  Transfer a file only when the source has changed\n\n  ``` ruby\n  remote_file\
+  \ '/tmp/couch.png' do\n    source 'http://couchdb.apache.org/img/sketch.png'\n \
+  \   action :nothing\n  end\n\n  http_request 'HEAD http://couchdb.apache.org/img/sketch.png'\
+  \ do\n    message ''\n    url 'http://couchdb.apache.org/img/sketch.png'\n    action\
+  \ :head\n    if ::File.exist?('/tmp/couch.png')\n      headers 'If-Modified-Since'\
+  \ => File.mtime('/tmp/couch.png').httpdate\n    end\n    notifies :create, 'remote_file[/tmp/couch.png]',\
+  \ :immediately\n  end\n  ```\n\n  Install a file from a remote location using bash\n\
+  \n  The following is an example of how to install the `foo123` module for\n  Nginx.\
+  \ This module adds shell-style functionality to an Nginx\n  configuration file and\
+  \ does the following:\n\n  -   Declares three variables\n  -   Gets the Nginx file\
+  \ from a remote location\n  -   Installs the file using Bash to the path specified\
+  \ by the\n      `src_filepath` variable\n\n  <!-- -->\n\n  ``` ruby\n  # the following\
+  \ code sample is similar to the ``upload_progress_module``\n  # recipe in the ``nginx``\
+  \ cookbook:\n  # https://github.com/chef-cookbooks/nginx\n\n  src_filename = \"\
+  foo123-nginx-module-v#{\n    node['nginx']['foo123']['version']\n  }.tar.gz\"\n\
+  \  src_filepath = \"#{Chef::Config['file_cache_path']}/#{src_filename}\"\n  extract_path\
+  \ = \"#{\n    Chef::Config['file_cache_path']\n    }/nginx_foo123_module/#{\n  \
+  \  node['nginx']['foo123']['checksum']\n  }\"\n\n  remote_file 'src_filepath' do\n\
+  \    source node['nginx']['foo123']['url']\n    checksum node['nginx']['foo123']['checksum']\n\
+  \    owner 'root'\n    group 'root'\n    mode '0755'\n  end\n\n  bash 'extract_module'\
+  \ do\n    cwd ::File.dirname(src_filepath)\n    code <<-EOH\n      mkdir -p #{extract_path}\n\
+  \      tar xzf #{src_filename} -C #{extract_path}\n      mv #{extract_path}/*/*\
+  \ #{extract_path}/\n      EOH\n    not_if { ::File.exist?(extract_path) }\n  end\n\
+  \  ```\n\n  Store certain settings\n\n  The following recipe shows how an attributes\
+  \ file can be used to store\n  certain settings. An attributes file is located in\
+  \ the `attributes/`\n  directory in the same cookbook as the recipe which calls\
+  \ the attributes\n  file. In this example, the attributes file specifies certain\
+  \ settings\n  for Python that are then used across all nodes against which this\
+  \ recipe\n  will run.\n\n  Python packages have versions, installation directories,\
+  \ URLs, and\n  checksum files. An attributes file that exists to support this type\
+  \ of\n  recipe would include settings like the following:\n\n  ``` ruby\n  default['python']['version']\
+  \ = '2.7.1'\n\n  if python['install_method'] == 'package'\n    default['python']['prefix_dir']\
+  \ = '/usr'\n  else\n    default['python']['prefix_dir'] = '/usr/local'\n  end\n\n\
+  \  default['python']['url'] = 'http://www.python.org/ftp/python'\n  default['python']['checksum']\
+  \ = '80e387...85fd61'\n  ```\n\n  and then the methods in the recipe may refer to\
+  \ these values. A recipe\n  that is used to install Python will need to do the following:\n\
+  \n  -   Identify each package to be installed (implied in this example, not\n  \
+  \    shown)\n  -   Define variables for the package `version` and the `install_path`\n\
+  \  -   Get the package from a remote location, but only if the package does\n  \
+  \    not already exist on the target system\n  -   Use the **bash** resource to\
+  \ install the package on the node, but\n      only when the package is not already\
+  \ installed\n\n  <!-- -->\n\n  ``` ruby\n  #  the following code sample comes from\
+  \ the ``oc-nginx`` cookbook on |github|: https://github.com/cookbooks/oc-nginx\n\
+  \n  version = node['python']['version']\n  install_path = \"#{node['python']['prefix_dir']}/lib/python#{version.split(/(^\\\
+  d+\\.\\d+)/)[1]}\"\n\n  remote_file \"#{Chef::Config[:file_cache_path]}/Python-#{version}.tar.bz2\"\
+  \ do\n    source \"#{node['python']['url']}/#{version}/Python-#{version}.tar.bz2\"\
+  \n    checksum node['python']['checksum']\n    mode '0755'\n    not_if { ::File.exist?(install_path)\
+  \ }\n  end\n\n  bash 'build-and-install-python' do\n    cwd Chef::Config[:file_cache_path]\n\
+  \    code <<-EOF\n      tar -jxvf Python-#{version}.tar.bz2\n      (cd Python-#{version}\
+  \ && ./configure #{configure_options})\n      (cd Python-#{version} && make && make\
+  \ install)\n    EOF\n    not_if { ::File.exist?(install_path) }\n  end\n  ```\n\n\
+  \  **Use the platform_family? method**\n\n  The following is an example of using\
+  \ the `platform_family?` method in\n  the Recipe DSL to create a variable that can\
+  \ be used with other\n  resources in the same recipe. In this example, `platform_family?`\
+  \ is\n  being used to ensure that a specific binary is used for a specific\n  platform\
+  \ before using the **remote_file** resource to download a file\n  from a remote\
+  \ location, and then using the **execute** resource to\n  install that file by running\
+  \ a command.\n\n  ``` ruby\n  if platform_family?('rhel')\n    pip_binary = '/usr/bin/pip'\n\
+  \  else\n    pip_binary = '/usr/local/bin/pip'\n  end\n\n  remote_file \"#{Chef::Config[:file_cache_path]}/distribute_setup.py\"\
+  \ do\n    source 'http://python-distribute.org/distribute_setup.py'\n    mode '0755'\n\
+  \    not_if { File.exist?(pip_binary) }\n  end\n\n  execute 'install-pip' do\n \
+  \   cwd Chef::Config[:file_cache_path]\n    command <<-EOF\n      # command for\
+  \ installing Python goes here\n      EOF\n    not_if { File.exist?(pip_binary) }\n\
+  \  end\n  ```\n\n  where a command for installing Python might look something like:\n\
+  \n  ``` ruby\n  #{node['python']['binary']} distribute_setup.py\n  #{::File.dirname(pip_binary)}/easy_install\
+  \ pip\n  ```\n\n  Specify local Windows file path as a valid URI\n\n  When specifying\
+  \ a local Microsoft Windows file path as a valid file URI,\n  an additional forward\
+  \ slash (`/`) is required. For example:\n\n  ``` ruby\n  remote_file 'file:///c:/path/to/file'\
+  \ do\n    ...       # other attributes\n  end\n  ```\n"
 
 ---

@@ -9,7 +9,6 @@ menu:
     title: windows_path
     identifier: chef_infra/cookbook_reference/resources/windows_path windows_path
     parent: chef_infra/cookbook_reference/resources
-
 resource_reference: true
 robots: null
 resource_description_list:
@@ -73,12 +72,10 @@ common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false
 unit_file_verification: false
-examples_list:
-- example_heading: Add Sysinternals to the system path
-  text_blocks:
-  - code_block: "windows_path 'C:\\Sysinternals' do\n  action :add\nend"
-- example_heading: Remove 7-Zip from the system path
-  text_blocks:
-  - code_block: "windows_path 'C:\\7-Zip' do\n  action :remove\nend"
+examples: "
+  Add Sysinternals to the system path\n\n  ``` ruby\n  windows_path\
+  \ 'C:\\Sysinternals' do\n    action :add\n  end\n  ```\n\n  Remove 7-Zip from the\
+  \ system path\n\n  ``` ruby\n  windows_path 'C:\\7-Zip' do\n    action :remove\n\
+  \  end\n  ```\n"
 
 ---

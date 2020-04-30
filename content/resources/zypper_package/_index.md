@@ -131,16 +131,12 @@ properties_list:
   required: false
   description_list:
   - markdown: The version of a package to be installed or upgraded.
-examples_list:
-- example_heading: Install a package using package manager
-  text_blocks:
-  - code_block: "zypper_package 'name of package' do\n  action :install\nend"
-- example_heading: Install a package using local file
-  text_blocks:
-  - code_block: "zypper_package 'jwhois' do\n  action :install\n  source '/path/to/jwhois.rpm'\n\
-      end"
-- example_heading: Install without using recommend packages as a dependency
-  text_blocks:
-  - code_block: "package 'apache2' do\n  options '--no-recommends'\nend"
+examples: "
+  Install a package using package manager\n\n  ``` ruby\n  zypper_package\
+  \ 'name of package' do\n    action :install\n  end\n  ```\n\n  Install a package\
+  \ using local file\n\n  ``` ruby\n  zypper_package 'jwhois' do\n    action :install\n\
+  \    source '/path/to/jwhois.rpm'\n  end\n  ```\n\n  Install without using recommend\
+  \ packages as a dependency\n\n  ``` ruby\n  package 'apache2' do\n    options '--no-recommends'\n\
+  \  end\n  ```\n"
 
 ---

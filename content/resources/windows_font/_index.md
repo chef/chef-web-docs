@@ -9,7 +9,6 @@ menu:
     title: windows_font
     identifier: chef_infra/cookbook_reference/resources/windows_font windows_font
     parent: chef_infra/cookbook_reference/resources
-
 resource_reference: true
 robots: null
 resource_description_list:
@@ -81,10 +80,8 @@ common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false
 unit_file_verification: false
-examples_list:
-- example_heading: Install a font from a https source
-  text_blocks:
-  - code_block: "windows_font 'Custom.otf' do\n  source \"https://example.com/Custom.otf\"\
-      \nend"
+examples: "
+  Install a font from a https source\n\n  ``` ruby\n  windows_font\
+  \ 'Custom.otf' do\n    source \"https://example.com/Custom.otf\"\n  end\n  ```\n"
 
 ---

@@ -443,15 +443,11 @@ properties_list:
   required: false
   description_list:
   - markdown: Username to use for basic authentication to a repository.
-examples_list:
-- example_heading: Add internal company repository
-  text_blocks:
-  - code_block: "yum_repository 'OurCo' do\n  description 'OurCo yum repository'\n\
-      \  mirrorlist 'http://artifacts.ourco.org/mirrorlist?repo=ourco-6&arch=$basearch'\n\
-      \  gpgkey 'http://artifacts.ourco.org/pub/yum/RPM-GPG-KEY-OURCO-6'\n  action\
-      \ :create\nend"
-- example_heading: Delete a repository
-  text_blocks:
-  - code_block: "yum_repository 'CentOS-Media' do\n  action :delete\nend"
+examples: "
+  Add internal company repository\n\n  ``` ruby\n  yum_repository 'OurCo'\
+  \ do\n    description 'OurCo yum repository'\n    mirrorlist 'http://artifacts.ourco.org/mirrorlist?repo=ourco-6&arch=$basearch'\n\
+  \    gpgkey 'http://artifacts.ourco.org/pub/yum/RPM-GPG-KEY-OURCO-6'\n    action\
+  \ :create\n  end\n  ```\n\n  Delete a repository\n\n  ``` ruby\n  yum_repository\
+  \ 'CentOS-Media' do\n    action :delete\n  end\n  ```\n"
 
 ---

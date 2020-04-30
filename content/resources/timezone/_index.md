@@ -9,7 +9,6 @@ menu:
     title: timezone
     identifier: chef_infra/cookbook_reference/resources/timezone timezone
     parent: chef_infra/cookbook_reference/resources
-
 resource_reference: true
 robots: null
 resource_description_list:
@@ -77,12 +76,9 @@ common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false
 unit_file_verification: false
-examples_list:
-- example_heading: Set the timezone to UTC
-  text_blocks:
-  - code_block: timezone 'UTC'
-- example_heading: Set the timezone to UTC with a friendly resource name
-  text_blocks:
-  - code_block: "timezone 'Set the hosts timezone to UTC' do\n  timezone 'UTC'\nend"
+examples: "
+  Set the timezone to UTC\n\n  ``` ruby\n  timezone 'UTC'\n  ```\n\n\
+  \  Set the timezone to UTC with a friendly resource name\n\n  ``` ruby\n  timezone\
+  \ 'Set the hosts timezone to UTC' do\n    timezone 'UTC'\n  end\n  ```\n"
 
 ---

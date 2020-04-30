@@ -118,20 +118,13 @@ common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false
 unit_file_verification: false
-examples_list:
-- example_heading: Create a dhparam file
-  text_blocks:
-  - code_block: openssl_dhparam '/etc/httpd/ssl/dhparam.pem'
-- example_heading: Create a dhparam file with a specific key length
-  text_blocks:
-  - code_block: "openssl_dhparam '/etc/httpd/ssl/dhparam.pem' do\n  key_length 4096\n\
-      end"
-  - markdown: '**Create a dhparam file with specific user/group ownership**'
-  - code_block: "openssl_dhparam '/etc/httpd/ssl/dhparam.pem' do\n  owner 'www-data'\n\
-      \  group 'www-data'\nend"
-- example_heading: Manually specify the dhparam file path
-  text_blocks:
-  - code_block: "openssl_dhparam 'httpd_dhparam' do\n  path '/etc/httpd/ssl/dhparam.pem'\n\
-      end"
+examples: "
+  Create a dhparam file\n\n  ``` ruby\n  openssl_dhparam '/etc/httpd/ssl/dhparam.pem'\n\
+  \  ```\n\n  Create a dhparam file with a specific key length\n\n  ``` ruby\n  openssl_dhparam\
+  \ '/etc/httpd/ssl/dhparam.pem' do\n    key_length 4096\n  end\n  ```\n\n  **Create\
+  \ a dhparam file with specific user/group ownership**\n\n  ``` ruby\n  openssl_dhparam\
+  \ '/etc/httpd/ssl/dhparam.pem' do\n    owner 'www-data'\n    group 'www-data'\n\
+  \  end\n  ```\n\n  Manually specify the dhparam file path\n\n  ``` ruby\n  openssl_dhparam\
+  \ 'httpd_dhparam' do\n    path '/etc/httpd/ssl/dhparam.pem'\n  end\n  ```\n"
 
 ---

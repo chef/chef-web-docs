@@ -89,13 +89,10 @@ common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false
 unit_file_verification: false
-examples_list:
-- example_heading: Set the Chocolatey cacheLocation config
-  text_blocks:
-  - code_block: "chocolatey_config 'Set cacheLocation config' do\n  config_key 'cacheLocation'\n\
-      \  value 'C:  empoco'\nend"
-- example_heading: Unset a Chocolatey config
-  text_blocks:
-  - code_block: "chocolatey_config 'BogusConfig' do\n  action :unset\nend"
+examples: "
+  Set the Chocolatey cacheLocation config\n\n  ``` ruby\n  chocolatey_config\
+  \ 'Set cacheLocation config' do\n    config_key 'cacheLocation'\n    value 'C: \
+  \ empoco'\n  end\n  ```\n\n  Unset a Chocolatey config\n\n  ``` ruby\n  chocolatey_config\
+  \ 'BogusConfig' do\n    action :unset\n  end\n  ```\n"
 
 ---

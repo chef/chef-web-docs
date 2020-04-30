@@ -9,7 +9,6 @@ menu:
     title: systemd_unit
     identifier: chef_infra/cookbook_reference/resources/systemd_unit systemd_unit
     parent: chef_infra/cookbook_reference/resources
-
 resource_reference: true
 robots: null
 resource_description_list:
@@ -132,20 +131,18 @@ common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false
 unit_file_verification: true
-examples_list:
-- example_heading: Create etcd systemd service unit file from a Hash
-  text_blocks:
-  - code_block: "systemd_unit 'etcd.service' do\n  content({Unit: {\n            Description:\
-      \ 'Etcd',\n            Documentation: ['https://coreos.com/etcd', 'man:etcd(1)'],\n\
-      \            After: 'network.target',\n          },\n          Service: {\n\
-      \            Type: 'notify',\n            ExecStart: '/usr/local/etcd',\n  \
-      \          Restart: 'always',\n          },\n          Install: {\n        \
-      \    WantedBy: 'multi-user.target',\n          }})\n  action [:create, :enable]\nend"
-- example_heading: Create etcd systemd service unit file from a String
-  text_blocks:
-  - code_block: "systemd_unit 'sysstat-collect.timer' do\n  content <<-EOU.gsub(/^\\s+/, '')\n  [Unit]\n\
-  \  Description=Run system activity accounting tool every 10 minutes\n\n  [Timer]\n\
-  \  OnCalendar=*:00/10\n\n  [Install]\n  WantedBy=sysstat.service\n  EOU\n\n  action\
-  \ [:create, :enable]\nend\n```"
+examples: "
+  Create etcd systemd service unit file from a Hash\n\n  ``` ruby\n\
+  \  systemd_unit 'etcd.service' do\n    content({Unit: {\n              Description:\
+  \ 'Etcd',\n              Documentation: ['https://coreos.com/etcd', 'man:etcd(1)'],\n\
+  \              After: 'network.target',\n            },\n            Service: {\n\
+  \              Type: 'notify',\n              ExecStart: '/usr/local/etcd',\n  \
+  \            Restart: 'always',\n            },\n            Install: {\n      \
+  \        WantedBy: 'multi-user.target',\n            }})\n    action [:create, :enable]\n\
+  \  end\n  ```\n\n  Create etcd systemd service unit file from a String\n\n  ```\
+  \ ruby\n  systemd_unit 'sysstat-collect.timer' do\n    content <<-EOU.gsub(/^\\\
+  s+/, '')\n    [Unit]\n    Description=Run system activity accounting tool every\
+  \ 10 minutes\n\n    [Timer]\n    OnCalendar=*:00/10\n\n    [Install]\n    WantedBy=sysstat.service\n\
+  \    EOU\n\n    action [:create, :enable]\n  end\n  ```\n  ```\n"
 
 ---

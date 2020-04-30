@@ -9,7 +9,6 @@ menu:
     title: yum_package
     identifier: chef_infra/cookbook_reference/resources/yum_package yum_package
     parent: chef_infra/cookbook_reference/resources
-
 resource_reference: true
 resource_description_list:
 - markdown: 'Use the **yum_package** resource to install, upgrade, and remove
@@ -188,41 +187,23 @@ common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false
 unit_file_verification: false
-examples_list:
-- example_heading: Install an exact version
-  text_blocks:
-  - code_block: yum_package 'netpbm = 10.35.58-8.el5'
-- example_heading: Install a minimum version
-  text_blocks:
-  - code_block: yum_package 'netpbm >= 10.35.58-8.el5'
-- example_heading: Install a minimum version using the default action
-  text_blocks:
-  - code_block: yum_package 'netpbm'
-- example_heading: To install a package
-  text_blocks:
-  - code_block: "yum_package 'netpbm' do\n  action :install\nend"
-- example_heading: To install a partial minimum version
-  text_blocks:
-  - code_block: yum_package 'netpbm >= 10'
-- example_heading: To install a specific architecture
-  text_blocks:
-  - code_block: "yum_package 'netpbm' do\n  arch 'i386'\nend"
-  - markdown: 'or:'
-  - code_block: yum_package 'netpbm.x86_64'
-- example_heading: To install a specific version-release
-  text_blocks:
-  - code_block: "yum_package 'netpbm' do\n  version '10.35.58-8.el5'\nend"
-- example_heading: Handle cookbook_file and yum_package resources in the same recipe
-  text_blocks:
-  - markdown: 'When a **cookbook_file** resource and a **yum_package** resource are
-
-      both called from within the same recipe, use the `flush_cache` attribute
-
-      to dump the in-memory Yum cache, and then use the repository immediately
-
-      to ensure that the correct package is installed:'
-  - code_block: "cookbook_file '/etc/yum.repos.d/custom.repo' do\n  source 'custom'\n\
-      \  mode '0755'\nend\n\nyum_package 'only-in-custom-repo' do\n  action :install\n\
-      \  flush_cache [ :before ]\nend"
+examples: "
+  Install an exact version\n\n  ``` ruby\n  yum_package 'netpbm = 10.35.58-8.el5'\n\
+  \  ```\n\n  Install a minimum version\n\n  ``` ruby\n  yum_package 'netpbm >= 10.35.58-8.el5'\n\
+  \  ```\n\n  Install a minimum version using the default action\n\n  ``` ruby\n \
+  \ yum_package 'netpbm'\n  ```\n\n  To install a package\n\n  ``` ruby\n  yum_package\
+  \ 'netpbm' do\n    action :install\n  end\n  ```\n\n  To install a partial minimum\
+  \ version\n\n  ``` ruby\n  yum_package 'netpbm >= 10'\n  ```\n\n  To install a specific\
+  \ architecture\n\n  ``` ruby\n  yum_package 'netpbm' do\n    arch 'i386'\n  end\n\
+  \  ```\n\n  or:\n\n  ``` ruby\n  yum_package 'netpbm.x86_64'\n  ```\n\n  To install\
+  \ a specific version-release\n\n  ``` ruby\n  yum_package 'netpbm' do\n    version\
+  \ '10.35.58-8.el5'\n  end\n  ```\n\n  Handle cookbook_file and yum_package resources\
+  \ in the same recipe\n\n  When a **cookbook_file** resource and a **yum_package**\
+  \ resource are\n  both called from within the same recipe, use the `flush_cache`\
+  \ attribute\n  to dump the in-memory Yum cache, and then use the repository immediately\n\
+  \  to ensure that the correct package is installed:\n\n  ``` ruby\n  cookbook_file\
+  \ '/etc/yum.repos.d/custom.repo' do\n    source 'custom'\n    mode '0755'\n  end\n\
+  \n  yum_package 'only-in-custom-repo' do\n    action :install\n    flush_cache [\
+  \ :before ]\n  end\n  ```\n"
 
 ---

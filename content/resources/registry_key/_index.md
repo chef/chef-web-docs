@@ -9,7 +9,6 @@ menu:
     title: registry_key
     identifier: chef_infra/cookbook_reference/resources/registry_key registry_key
     parent: chef_infra/cookbook_reference/resources
-
 resource_reference: true
 robots: null
 resource_description_list:
@@ -286,97 +285,66 @@ common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false
 unit_file_verification: false
-examples_list:
-- example_heading: Create a registry key
-  text_blocks:
-  - markdown: 'Use a double-quoted string:'
-  - code_block: "registry_key \"HKEY_LOCAL_MACHINE\\\\path-to-key\\\\Policies\\\\\
-      System\" do\n  values [{\n    name: 'EnableLUA',\n    type: :dword,\n    data:\
-      \ 0\n  }]\n  action :create\nend"
-  - markdown: 'or a single-quoted string:'
-  - code_block: "registry_key 'HKEY_LOCAL_MACHINE\\path-to-key\\Policies\\System'\
-      \ do\n  values [{\n    name: 'EnableLUA',\n    type: :dword,\n    data: 0\n\
-      \  }]\n  action :create\nend"
-- example_heading: Delete a registry key value
-  text_blocks:
-  - markdown: 'Use a double-quoted string:'
-  - code_block: "registry_key \"HKEY_LOCAL_MACHINE\\\\SOFTWARE\\\\path\\\\to\\\\key\\\
-      \\AU\" do\n  values [{\n    name: 'NoAutoRebootWithLoggedOnUsers',\n    type:\
-      \ :dword,\n    data: ''\n    }]\n  action :delete\nend"
-  - markdown: 'or a single-quoted string:'
-  - code_block: "registry_key 'HKEY_LOCAL_MACHINE\\SOFTWARE\\path\\to\\key\\AU' do\n\
-      \  values [{\n    name: 'NoAutoRebootWithLoggedOnUsers',\n    type: :dword,\n\
-      \    data: ''\n    }]\n  action :delete\nend"
-  - note: 'If `data:` is not specified, you get an error:
-
-      `Missing data key in RegistryKey values hash`'
-- example_heading: Delete a registry key and its subkeys, recursively
-  text_blocks:
-  - markdown: 'Use a double-quoted string:'
-  - code_block: "registry_key \"HKCU\\\\SOFTWARE\\\\Policies\\\\path\\\\to\\\\key\\\
-      \\Themes\" do\n  recursive true\n  action :delete_key\nend"
-  - markdown: 'or a single-quoted string:'
-  - code_block: "registry_key 'HKCU\\SOFTWARE\\Policies\\path\\to\\key\\Themes' do\n\
-      \  recursive true\n  action :delete_key\nend"
-  - note: 'Be careful when using the `:delete_key` action with the `recursive`
-
-      attribute. This will delete the registry key, all of its values and all
-
-      of the names, types, and data associated with them. This cannot be
-
-      undone by Chef Infra Client.'
-- example_heading: Use re-directed keys
-  text_blocks:
-  - markdown: 'In 64-bit versions of Microsoft Windows,
-
-      `HKEY_LOCAL_MACHINE\SOFTWARE\Example` is a re-directed key. In the
-
-      following examples, because `HKEY_LOCAL_MACHINE\SOFTWARE\Example` is a
-
-      32-bit key, the output will be "Found 32-bit key" if they are run on a
-
-      version of Microsoft Windows that is 64-bit:'
-  - code_block: "registry_key \"HKEY_LOCAL_MACHINE\\\\SOFTWARE\\\\Example\" do\n \
-      \ architecture :i386\n  recursive true\n  action :create\nend"
-  - markdown: 'or:'
-  - code_block: "registry_key \"HKEY_LOCAL_MACHINE\\\\SOFTWARE\\\\Example\" do\n \
-      \ architecture :x86_64\n  recursive true\n  action :delete_key\nend"
-  - markdown: 'or:'
-  - code_block: "ruby_block 'check 32-bit' do\n  block do\n    puts 'Found 32-bit\
-      \ key'\n  end\n  only_if {\n    registry_key_exists?(\"HKEY_LOCAL_MACHINE\\\
-      SOFTWARE\\\\Example\",\n    :i386)\n  }\nend"
-  - markdown: 'or:'
-  - code_block: "ruby_block 'check 64-bit' do\n  block do\n    puts 'Found 64-bit\
-      \ key'\n  end\n  only_if {\n    registry_key_exists?(\"HKEY_LOCAL_MACHINE\\\\\
-      SOFTWARE\\\\Example\",\n    :x86_64)\n  }\nend"
-- example_heading: Set proxy settings to be the same as those used by Chef Infra Client
-  text_blocks:
-  - markdown: 'Use a double-quoted string:'
-  - code_block: "proxy = URI.parse(Chef::Config[:http_proxy])\nregistry_key 'HKCU\\\
-      Software\\Microsoft\\path\\to\\key\\Internet Settings' do\n  values [{name:\
-      \ 'ProxyEnable', type: :reg_dword, data: 1},\n          {name: 'ProxyServer',\
-      \ data: \"#{proxy.host}:#{proxy.port}\"},\n          {name: 'ProxyOverride',\
-      \ type: :reg_string, data: <local>},\n         ]\n  action :create\nend"
-  - markdown: 'or a single-quoted string:'
-  - code_block: "proxy = URI.parse(Chef::Config[:http_proxy])\nregistry_key 'HKCU\\\
-      Software\\Microsoft\\path\\to\\key\\Internet Settings' do\n  values [{name:\
-      \ 'ProxyEnable', type: :reg_dword, data: 1},\n          {name: 'ProxyServer',\
-      \ data: \"#{proxy.host}:#{proxy.port}\"},\n          {name: 'ProxyOverride',\
-      \ type: :reg_string, data: <local>},\n         ]\n  action :create\nend"
-  - markdown: '**Set the name of a registry key to "(Default)"**
-
-
-      Use a double-quoted string:'
-  - code_block: "registry_key 'Set (Default) value' do\n  key \"HKLM\\\\Software\\\
-      \\Test\\\\Key\\\\Path\"\n  values [\n    {name: '', type: :string, data: 'test'},\n\
-      \  ]\n  action :create\nend"
-  - markdown: 'or a single-quoted string:'
-  - code_block: "registry_key 'Set (Default) value' do\n  key 'HKLM\\Software\\Test\\\
-      Key\\Path'\n  values [\n    {name: '', type: :string, data: 'test'},\n  ]\n\
-      \  action :create\nend"
-  - markdown: 'where `name: ''''` contains an empty string, which will set the name
-      of
-
-      the registry key to `(Default)`.'
+examples: "
+  Create a registry key\n\n  Use a double-quoted string:\n\n  ``` ruby\n\
+  \  registry_key \"HKEY_LOCAL_MACHINE\\\\path-to-key\\\\Policies\\\\System\" do\n\
+  \    values [{\n      name: 'EnableLUA',\n      type: :dword,\n      data: 0\n \
+  \   }]\n    action :create\n  end\n  ```\n\n  or a single-quoted string:\n\n  ```\
+  \ ruby\n  registry_key 'HKEY_LOCAL_MACHINE\\path-to-key\\Policies\\System' do\n\
+  \    values [{\n      name: 'EnableLUA',\n      type: :dword,\n      data: 0\n \
+  \   }]\n    action :create\n  end\n  ```\n\n  Delete a registry key value\n\n  Use\
+  \ a double-quoted string:\n\n  ``` ruby\n  registry_key \"HKEY_LOCAL_MACHINE\\\\\
+  SOFTWARE\\\\path\\\\to\\\\key\\\\AU\" do\n    values [{\n      name: 'NoAutoRebootWithLoggedOnUsers',\n\
+  \      type: :dword,\n      data: ''\n      }]\n    action :delete\n  end\n  ```\n\
+  \n  or a single-quoted string:\n\n  ``` ruby\n  registry_key 'HKEY_LOCAL_MACHINE\\\
+  SOFTWARE\\path\\to\\key\\AU' do\n    values [{\n      name: 'NoAutoRebootWithLoggedOnUsers',\n\
+  \      type: :dword,\n      data: ''\n      }]\n    action :delete\n  end\n  ```\n\
+  \n  <div class=\"admonition-note\">\n    <p class=\"admonition-note-title\">Note</p>\n\
+  \      <div class=\"admonition-note-text\">\n        <p>If <code>data:</code> is\
+  \ not specified, you get an error: <code>Missing data key in RegistryKey values\
+  \ hash</code></p>\n\n      </div>\n    </div>\n\n  Delete a registry key and its\
+  \ subkeys, recursively\n\n  Use a double-quoted string:\n\n  ``` ruby\n  registry_key\
+  \ \"HKCU\\\\SOFTWARE\\\\Policies\\\\path\\\\to\\\\key\\\\Themes\" do\n    recursive\
+  \ true\n    action :delete_key\n  end\n  ```\n\n  or a single-quoted string:\n\n\
+  \  ``` ruby\n  registry_key 'HKCU\\SOFTWARE\\Policies\\path\\to\\key\\Themes' do\n\
+  \    recursive true\n    action :delete_key\n  end\n  ```\n\n  <div class=\"admonition-note\"\
+  >\n    <p class=\"admonition-note-title\">Note</p>\n      <div class=\"admonition-note-text\"\
+  >\n        <p>Be careful when using the <code>:delete_key</code> action with the\
+  \ <code>recursive</code> attribute. This will delete the registry key, all of its\
+  \ values and all of the names, types, and data associated with them. This cannot\
+  \ be undone by Chef Infra Client.</p>\n\n      </div>\n    </div>\n\n  Use re-directed\
+  \ keys\n\n  In 64-bit versions of Microsoft Windows,\n  `HKEY_LOCAL_MACHINE\\SOFTWARE\\\
+  Example` is a re-directed key. In the\n  following examples, because `HKEY_LOCAL_MACHINE\\\
+  SOFTWARE\\Example` is a\n  32-bit key, the output will be \"Found 32-bit key\" if\
+  \ they are run on a\n  version of Microsoft Windows that is 64-bit:\n\n  ``` ruby\n\
+  \  registry_key \"HKEY_LOCAL_MACHINE\\\\SOFTWARE\\\\Example\" do\n    architecture\
+  \ :i386\n    recursive true\n    action :create\n  end\n  ```\n\n  or:\n\n  ```\
+  \ ruby\n  registry_key \"HKEY_LOCAL_MACHINE\\\\SOFTWARE\\\\Example\" do\n    architecture\
+  \ :x86_64\n    recursive true\n    action :delete_key\n  end\n  ```\n\n  or:\n\n\
+  \  ``` ruby\n  ruby_block 'check 32-bit' do\n    block do\n      puts 'Found 32-bit\
+  \ key'\n    end\n    only_if {\n      registry_key_exists?(\"HKEY_LOCAL_MACHINE\\\
+  SOFTWARE\\\\Example\",\n      :i386)\n    }\n  end\n  ```\n\n  or:\n\n  ``` ruby\n\
+  \  ruby_block 'check 64-bit' do\n    block do\n      puts 'Found 64-bit key'\n \
+  \   end\n    only_if {\n      registry_key_exists?(\"HKEY_LOCAL_MACHINE\\\\SOFTWARE\\\
+  \\Example\",\n      :x86_64)\n    }\n  end\n  ```\n\n  Set proxy settings to be\
+  \ the same as those used by Chef Infra Client\n\n  Use a double-quoted string:\n\
+  \n  ``` ruby\n  proxy = URI.parse(Chef::Config[:http_proxy])\n  registry_key 'HKCU\\\
+  Software\\Microsoft\\path\\to\\key\\Internet Settings' do\n    values [{name: 'ProxyEnable',\
+  \ type: :reg_dword, data: 1},\n            {name: 'ProxyServer', data: \"#{proxy.host}:#{proxy.port}\"\
+  },\n            {name: 'ProxyOverride', type: :reg_string, data: <local>},\n   \
+  \        ]\n    action :create\n  end\n  ```\n\n  or a single-quoted string:\n\n\
+  \  ``` ruby\n  proxy = URI.parse(Chef::Config[:http_proxy])\n  registry_key 'HKCU\\\
+  Software\\Microsoft\\path\\to\\key\\Internet Settings' do\n    values [{name: 'ProxyEnable',\
+  \ type: :reg_dword, data: 1},\n            {name: 'ProxyServer', data: \"#{proxy.host}:#{proxy.port}\"\
+  },\n            {name: 'ProxyOverride', type: :reg_string, data: <local>},\n   \
+  \        ]\n    action :create\n  end\n  ```\n\n  **Set the name of a registry key\
+  \ to \"(Default)\"**\n\n  Use a double-quoted string:\n\n  ``` ruby\n  registry_key\
+  \ 'Set (Default) value' do\n    key \"HKLM\\\\Software\\\\Test\\\\Key\\\\Path\"\n\
+  \    values [\n      {name: '', type: :string, data: 'test'},\n    ]\n    action\
+  \ :create\n  end\n  ```\n\n  or a single-quoted string:\n\n  ``` ruby\n  registry_key\
+  \ 'Set (Default) value' do\n    key 'HKLM\\Software\\Test\\Key\\Path'\n    values\
+  \ [\n      {name: '', type: :string, data: 'test'},\n    ]\n    action :create\n\
+  \  end\n  ```\n\n  where `name: ''` contains an empty string, which will set the\
+  \ name of\n  the registry key to `(Default)`.\n"
 
 ---

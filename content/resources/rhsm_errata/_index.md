@@ -9,7 +9,6 @@ menu:
     title: rhsm_errata
     identifier: chef_infra/cookbook_reference/resources/rhsm_errata rhsm_errata
     parent: chef_infra/cookbook_reference/resources
-
 resource_reference: true
 robots: null
 resource_description_list:
@@ -76,12 +75,10 @@ common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false
 unit_file_verification: false
-examples_list:
-- example_heading: Install a package from an Errata ID
-  text_blocks:
-  - code_block: rhsm_errata 'RHSA:2018-1234'
-- example_heading: Specify an Errata ID that differs from the resource name
-  text_blocks:
-  - code_block: "rhsm_errata 'errata-install'\n  errata_id 'RHSA:2018-1234'\nend"
+examples: "
+  Install a package from an Errata ID\n\n  ``` ruby\n  rhsm_errata\
+  \ 'RHSA:2018-1234'\n  ```\n\n  Specify an Errata ID that differs from the resource\
+  \ name\n\n  ``` ruby\n  rhsm_errata 'errata-install'\n    errata_id 'RHSA:2018-1234'\n\
+  \  end\n  ```\n"
 
 ---

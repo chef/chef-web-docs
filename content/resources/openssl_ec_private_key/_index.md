@@ -140,19 +140,13 @@ common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false
 unit_file_verification: false
-examples_list:
-- example_heading: 'Create a new ec private key with a prime256v1 key curve and the
-
-    default des3 cipher'
-  text_blocks:
-  - code_block: "openssl_ec_private_key '/etc/ssl_files/eckey_prime256v1_des3.pem'\
-      \ do\n  key_curve 'prime256v1'\n  key_pass 'something'\n  action :create\nend"
-- example_heading: 'Create a new ec private key with a prime256v1 key curve and a
-
-    aes-128-cbc cipher'
-  text_blocks:
-  - code_block: "openssl_ec_private_key '/etc/ssl_files/eckey_prime256v1_des3.pem'\
-      \ do\n  key_curve 'prime256v1'\n  key_cipher 'aes-128-cbc'\n  key_pass 'something'\n\
-      \  action :create\nend"
+examples: "
+  Create a new ec private key with a prime256v1 key curve and the\n\
+  \  default des3 cipher\n\n  ``` ruby\n  openssl_ec_private_key '/etc/ssl_files/eckey_prime256v1_des3.pem'\
+  \ do\n    key_curve 'prime256v1'\n    key_pass 'something'\n    action :create\n\
+  \  end\n  ```\n\n  Create a new ec private key with a prime256v1 key curve and a\n\
+  \  aes-128-cbc cipher\n\n  ``` ruby\n  openssl_ec_private_key '/etc/ssl_files/eckey_prime256v1_des3.pem'\
+  \ do\n    key_curve 'prime256v1'\n    key_cipher 'aes-128-cbc'\n    key_pass 'something'\n\
+  \    action :create\n  end\n  ```\n"
 
 ---

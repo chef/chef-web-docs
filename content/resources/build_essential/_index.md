@@ -67,13 +67,10 @@ common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false
 unit_file_verification: false
-examples_list:
-- example_heading: Install compilation packages
-  text_blocks:
-  - code_block: build_essential
-- example_heading: Install compilation packages during the compilation phase
-  text_blocks:
-  - code_block: "build_essential 'Install compilation tools' do\n  compile_time true\n\
-      end"
+examples: "
+  Install compilation packages\n\n  ``` ruby\n  build_essential\n \
+  \ ```\n\n  Install compilation packages during the compilation phase\n\n  ``` ruby\n\
+  \  build_essential 'Install compilation tools' do\n    compile_time true\n  end\n\
+  \  ```\n"
 
 ---

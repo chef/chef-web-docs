@@ -9,7 +9,6 @@ menu:
     title: remote_directory
     identifier: chef_infra/cookbook_reference/resources/remote_directory remote_directory
     parent: chef_infra/cookbook_reference/resources
-
 resource_reference: true
 robots: null
 resource_description_list:
@@ -354,26 +353,21 @@ common_resource_functionality_resources_common_windows_security: true
 handler_custom: false
 cookbook_file_specificity: false
 unit_file_verification: false
-examples_list:
-- example_heading: Recursively transfer a directory from a remote location
-  text_blocks:
-  - code_block: "# create up to 10 backups of the files\n# set the files owner different\
-      \ from the directory\nremote_directory '/tmp/remote_something' do\n  source\
-      \ 'something'\n  files_backup 10\n  files_owner 'root'\n  files_group 'root'\n\
-      \  files_mode '0644'\n  owner 'nobody'\n  group 'nobody'\n  mode '0755'\nend"
-- example_heading: Use with the chef_handler resource
-  text_blocks:
-  - markdown: 'The following example shows how to use the **remote_directory**
-
-      resource and the **chef_handler** resource to reboot a handler named
-
-      `WindowsRebootHandler`:'
-  - code_block: "# the following code sample comes from the\n# ``reboot_handler``\
-      \ recipe in the ``windows`` cookbook:\n# https://github.com/chef-cookbooks/windows\n\
-      \nremote_directory node['chef_handler']['handler_path'] do\n  source 'handlers'\n\
-      \  recursive true\n  action :create\nend\n\nchef_handler 'WindowsRebootHandler'\
-      \ do\n  source \"#{node['chef_handler']['handler_path']}/windows_reboot_handler.rb\"\
-      \n  arguments node['windows']['allow_pending_reboots']\n  supports :report =>\
-      \ true, :exception => false\n  action :enable\nend"
+examples: "
+  Recursively transfer a directory from a remote location\n\n  ```\
+  \ ruby\n  # create up to 10 backups of the files\n  # set the files owner different\
+  \ from the directory\n  remote_directory '/tmp/remote_something' do\n    source\
+  \ 'something'\n    files_backup 10\n    files_owner 'root'\n    files_group 'root'\n\
+  \    files_mode '0644'\n    owner 'nobody'\n    group 'nobody'\n    mode '0755'\n\
+  \  end\n  ```\n\n  Use with the chef_handler resource\n\n  The following example\
+  \ shows how to use the **remote_directory**\n  resource and the **chef_handler**\
+  \ resource to reboot a handler named\n  `WindowsRebootHandler`:\n\n  ``` ruby\n\
+  \  # the following code sample comes from the\n  # ``reboot_handler`` recipe in\
+  \ the ``windows`` cookbook:\n  # https://github.com/chef-cookbooks/windows\n\n \
+  \ remote_directory node['chef_handler']['handler_path'] do\n    source 'handlers'\n\
+  \    recursive true\n    action :create\n  end\n\n  chef_handler 'WindowsRebootHandler'\
+  \ do\n    source \"#{node['chef_handler']['handler_path']}/windows_reboot_handler.rb\"\
+  \n    arguments node['windows']['allow_pending_reboots']\n    supports :report =>\
+  \ true, :exception => false\n    action :enable\n  end\n  ```\n"
 
 ---

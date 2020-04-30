@@ -9,7 +9,6 @@ menu:
     title: sysctl
     identifier: chef_infra/cookbook_reference/resources/sysctl sysctl
     parent: chef_infra/cookbook_reference/resources
-
 resource_reference: true
 robots: null
 resource_description_list:
@@ -116,44 +115,20 @@ common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false
 unit_file_verification: false
-examples_list:
-- example_heading: Set vm.swappiness
-  text_blocks:
-  - code_block: "sysctl 'vm.swappiness' do\n  value 19\nend"
-- example_heading: Remove kernel.msgmax
-  text_blocks:
-  - markdown: 'Note: This only removes the sysctl.d config for kernel.msgmax. The
-      value
-
-      will be set back to the kernel default value.'
-  - code_block: "sysctl 'kernel.msgmax' do\n  action :remove\nend"
-- example_heading: Adding Comments to sysctl configuration files
-  text_blocks:
-  - code_block: "sysctl 'vm.swappiness' do\n  value 19\n  comment \"define how aggressively\
-      \ the kernel will swap memory pages.\"\nend"
-  - markdown: 'This produces /etc/sysctl.d/99-chef-vm.swappiness.conf as follows:
-
-
-      ``` none
-
-      # define how aggressively the kernel will swap memory pages.
-
-      vm.swappiness = 1
-
-      ```'
-- example_heading: Converting sysctl settings from shell scripts
-  text_blocks:
-  - markdown: 'Example of existing settings:
-
-
-      `fs.aio-max-nr = 1048576` `net.ipv4.ip_local_port_range = 9000 65500`
-
-      `kernel.sem = 250 32000 100 128`
-
-
-      Converted to sysctl resources:'
-  - code_block: "sysctl 'fs.aio-max-nr' do\n  value '1048576'\nend\n\nsysctl 'net.ipv4.ip_local_port_range'\
-      \ do\n  value '9000 65500'\nend\n\nsysctl 'kernel.sem' do\n  value '250 32000\
-      \ 100 128'\nend"
+examples: "
+  Set vm.swappiness\n\n  ``` ruby\n  sysctl 'vm.swappiness' do\n  \
+  \  value 19\n  end\n  ```\n\n  Remove kernel.msgmax\n\n  Note: This only removes\
+  \ the sysctl.d config for kernel.msgmax. The value\n  will be set back to the kernel\
+  \ default value.\n\n  ``` ruby\n  sysctl 'kernel.msgmax' do\n    action :remove\n\
+  \  end\n  ```\n\n  Adding Comments to sysctl configuration files\n\n  ``` ruby\n\
+  \  sysctl 'vm.swappiness' do\n    value 19\n    comment \"define how aggressively\
+  \ the kernel will swap memory pages.\"\n  end\n  ```\n\n  This produces /etc/sysctl.d/99-chef-vm.swappiness.conf\
+  \ as follows:\n\n  ``` none\n  # define how aggressively the kernel will swap memory\
+  \ pages.\n  vm.swappiness = 1\n  ```\n\n  Converting sysctl settings from shell\
+  \ scripts\n\n  Example of existing settings:\n\n  `fs.aio-max-nr = 1048576` `net.ipv4.ip_local_port_range\
+  \ = 9000 65500`\n  `kernel.sem = 250 32000 100 128`\n\n  Converted to sysctl resources:\n\
+  \n  ``` ruby\n  sysctl 'fs.aio-max-nr' do\n    value '1048576'\n  end\n\n  sysctl\
+  \ 'net.ipv4.ip_local_port_range' do\n    value '9000 65500'\n  end\n\n  sysctl 'kernel.sem'\
+  \ do\n    value '250 32000 100 128'\n  end\n  ```\n"
 
 ---

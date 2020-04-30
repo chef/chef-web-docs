@@ -9,7 +9,6 @@ menu:
     title: powershell_script
     identifier: chef_infra/cookbook_reference/resources/powershell_script powershell_script
     parent: chef_infra/cookbook_reference/resources
-
 resource_reference: true
 robots: null
 resource_description_list:
@@ -334,94 +333,74 @@ common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false
 unit_file_verification: false
-examples_list:
-- example_heading: Write to an interpolated path
-  text_blocks:
-  - code_block: "powershell_script 'write-to-interpolated-path' do\n  code <<-EOH\n\
-      \  $stream = [System.IO.StreamWriter] \"#{Chef::Config[:file_cache_path]}/powershell-test.txt\"\
-      \n  $stream.WriteLine(\"In #{Chef::Config[:file_cache_path]}...word.\")\n  $stream.close()\n\
-      \  EOH\nend"
-- example_heading: Change the working directory
-  text_blocks:
-  - code_block: "powershell_script 'cwd-then-write' do\n  cwd Chef::Config[:file_cache_path]\n\
-      \  code <<-EOH\n  $stream = [System.IO.StreamWriter] \"C:/powershell-test2.txt\"\
-      \n  $pwd = pwd\n  $stream.WriteLine(\"This is the contents of: $pwd\")\n  $dirs\
-      \ = dir\n  foreach ($dir in $dirs) {\n    $stream.WriteLine($dir.fullname)\n\
-      \  }\n  $stream.close()\n  EOH\nend"
-- example_heading: Change the working directory in Microsoft Windows
-  text_blocks:
-  - code_block: "powershell_script 'cwd-to-win-env-var' do\n  cwd '%TEMP%'\n  code\
-      \ <<-EOH\n  $stream = [System.IO.StreamWriter] \"./temp-write-from-chef.txt\"\
-      \n  $stream.WriteLine(\"chef on windows rox yo!\")\n  $stream.close()\n  EOH\n\
-      end"
-- example_heading: Pass an environment variable to a script
-  text_blocks:
-  - code_block: "powershell_script 'read-env-var' do\n  cwd Chef::Config[:file_cache_path]\n\
-      \  environment ({'foo' => 'BAZ'})\n  code <<-EOH\n  $stream = [System.IO.StreamWriter]\
-      \ \"./test-read-env-var.txt\"\n  $stream.WriteLine(\"FOO is $env:foo\")\n  $stream.close()\n\
-      \  EOH\nend"
-  - markdown: '**Evaluate for true and/or false**
-
-
-      Use the `convert_boolean_return` attribute to raise an exception when
-
-      certain conditions are met. For example, the following fragments will
-
-      run successfully without error:'
-  - code_block: "powershell_script 'false' do\n  code '$false'\nend"
-  - markdown: 'and:'
-  - code_block: "powershell_script 'true' do\n  code '$true'\nend"
-  - markdown: 'whereas the following will raise an exception:'
-  - code_block: "powershell_script 'false' do\n  convert_boolean_return true\n  code\
-      \ '$false'\nend"
-- example_heading: Use the flags attribute
-  text_blocks:
-  - code_block: "powershell_script 'Install IIS' do\n  code <<-EOH\n  Import-Module\
-      \ ServerManager\n  Add-WindowsFeature Web-Server\n  EOH\n  flags '-NoLogo, -NonInteractive,\
-      \ -NoProfile, -ExecutionPolicy Unrestricted, -InputFormat None, -File'\n  guard_interpreter\
-      \ :powershell_script\n  not_if '(Get-WindowsFeature -Name Web-Server).Installed'\n\
-      end"
-- example_heading: Rename computer, join domain, reboot
-  text_blocks:
-  - shortcode: resource_powershell_rename_join_reboot.md
-- example_heading: Run a command as an alternate user
-  text_blocks:
-  - markdown: '*Note*: When Chef is running as a service, this feature requires that
-
-      the user that Chef runs as has ''SeAssignPrimaryTokenPrivilege'' (aka
-
-      ''SE_ASSIGNPRIMARYTOKEN_NAME'') user right. By default only LocalSystem
-
-      and NetworkService have this right when running as a service. This is
-
-      necessary even if the user is an Administrator.
-
-
-      This right can be added and checked in a recipe using this example:'
-  - code_block: '# Add ''SeAssignPrimaryTokenPrivilege'' for the user
-
-      Chef::ReservedNames::Win32::Security.add_account_right(''<user>'', ''SeAssignPrimaryTokenPrivilege'')
-
-
-      # Check if the user has ''SeAssignPrimaryTokenPrivilege'' rights
-
-      Chef::ReservedNames::Win32::Security.get_account_right(''<user>'').include?(''SeAssignPrimaryTokenPrivilege'')'
-  - markdown: 'The following example shows how to run `mkdir test_dir` from a Chef
-
-      Infra Client run as an alternate user.'
-  - code_block: "# Passing only username and password\npowershell_script 'mkdir test_dir'\
-      \ do\n code \"mkdir test_dir\"\n cwd Chef::Config[:file_cache_path]\n user \"\
-      username\"\n password \"password\"\nend\n\n# Passing username and domain\npowershell_script\
-      \ 'mkdir test_dir' do\n code \"mkdir test_dir\"\n cwd Chef::Config[:file_cache_path]\n\
-      \ domain \"domain\"\n user \"username\"\n password \"password\"\nend\n\n# Passing\
-      \ username = 'domain-name\\\\username'. No domain is passed\npowershell_script\
-      \ 'mkdir test_dir' do\n code \"mkdir test_dir\"\n cwd Chef::Config[:file_cache_path]\n\
-      \ user \"domain-name\\\\username\"\n password \"password\"\nend\n\n# Passing\
-      \ username = 'username@domain-name'. No domain is passed\npowershell_script\
-      \ 'mkdir test_dir' do\n code \"mkdir test_dir\"\n cwd Chef::Config[:file_cache_path]\n\
-      \ user \"username@domain-name\"\n password \"password\"\nend\n\n# Work around\
-      \ User Access Control (UAC)\npowershell_script 'mkdir test_dir' do\n code \"\
-      mkdir test_dir\"\n cwd Chef::Config[:file_cache_path]\n user \"username\"\n\
-      \ password \"password\"\n elevated true\nend"
+examples: "
+  Write to an interpolated path\n\n  ``` ruby\n  powershell_script\
+  \ 'write-to-interpolated-path' do\n    code <<-EOH\n    $stream = [System.IO.StreamWriter]\
+  \ \"#{Chef::Config[:file_cache_path]}/powershell-test.txt\"\n    $stream.WriteLine(\"\
+  In #{Chef::Config[:file_cache_path]}...word.\")\n    $stream.close()\n    EOH\n\
+  \  end\n  ```\n\n  Change the working directory\n\n  ``` ruby\n  powershell_script\
+  \ 'cwd-then-write' do\n    cwd Chef::Config[:file_cache_path]\n    code <<-EOH\n\
+  \    $stream = [System.IO.StreamWriter] \"C:/powershell-test2.txt\"\n    $pwd =\
+  \ pwd\n    $stream.WriteLine(\"This is the contents of: $pwd\")\n    $dirs = dir\n\
+  \    foreach ($dir in $dirs) {\n      $stream.WriteLine($dir.fullname)\n    }\n\
+  \    $stream.close()\n    EOH\n  end\n  ```\n\n  Change the working directory in\
+  \ Microsoft Windows\n\n  ``` ruby\n  powershell_script 'cwd-to-win-env-var' do\n\
+  \    cwd '%TEMP%'\n    code <<-EOH\n    $stream = [System.IO.StreamWriter] \"./temp-write-from-chef.txt\"\
+  \n    $stream.WriteLine(\"chef on windows rox yo!\")\n    $stream.close()\n    EOH\n\
+  \  end\n  ```\n\n  Pass an environment variable to a script\n\n  ``` ruby\n  powershell_script\
+  \ 'read-env-var' do\n    cwd Chef::Config[:file_cache_path]\n    environment ({'foo'\
+  \ => 'BAZ'})\n    code <<-EOH\n    $stream = [System.IO.StreamWriter] \"./test-read-env-var.txt\"\
+  \n    $stream.WriteLine(\"FOO is $env:foo\")\n    $stream.close()\n    EOH\n  end\n\
+  \  ```\n\n  **Evaluate for true and/or false**\n\n  Use the `convert_boolean_return`\
+  \ attribute to raise an exception when\n  certain conditions are met. For example,\
+  \ the following fragments will\n  run successfully without error:\n\n  ``` ruby\n\
+  \  powershell_script 'false' do\n    code '$false'\n  end\n  ```\n\n  and:\n\n \
+  \ ``` ruby\n  powershell_script 'true' do\n    code '$true'\n  end\n  ```\n\n  whereas\
+  \ the following will raise an exception:\n\n  ``` ruby\n  powershell_script 'false'\
+  \ do\n    convert_boolean_return true\n    code '$false'\n  end\n  ```\n\n  Use\
+  \ the flags attribute\n\n  ``` ruby\n  powershell_script 'Install IIS' do\n    code\
+  \ <<-EOH\n    Import-Module ServerManager\n    Add-WindowsFeature Web-Server\n \
+  \   EOH\n    flags '-NoLogo, -NonInteractive, -NoProfile, -ExecutionPolicy Unrestricted,\
+  \ -InputFormat None, -File'\n    guard_interpreter :powershell_script\n    not_if\
+  \ '(Get-WindowsFeature -Name Web-Server).Installed'\n  end\n  ```\n\n  Rename computer,\
+  \ join domain, reboot\n\n  The following example shows how to rename a computer,\
+  \ join a domain, and\n  then reboot the computer:\n\n  ``` ruby\n  reboot 'Restart\
+  \ Computer' do\n    action :nothing\n  end\n\n  powershell_script 'Rename and Join\
+  \ Domain' do\n    code <<-EOH\n      ...your rename and domain join logic here...\n\
+  \    EOH\n    not_if <<-EOH\n      $ComputerSystem = gwmi win32_computersystem\n\
+  \      ($ComputerSystem.Name -like '#{node['some_attribute_that_has_the_new_name']}')\
+  \ -and\n        $ComputerSystem.partofdomain)\n    EOH\n    notifies :reboot_now,\
+  \ 'reboot[Restart Computer]', :immediately\n  end\n  ```\n\n  where:\n\n  -   The\
+  \ **powershell_script** resource block renames a computer, and\n      then joins\
+  \ a domain\n  -   The **reboot** resource restarts the computer\n  -   The `not_if`\
+  \ guard prevents the Windows PowerShell script from\n      running when the settings\
+  \ in the `not_if` guard match the desired\n      state\n  -   The `notifies` statement\
+  \ tells the **reboot** resource block to run\n      if the **powershell_script**\
+  \ block was executed during a Chef Infra\n      Client run\n\n  Run a command as\
+  \ an alternate user\n\n  *Note*: When Chef is running as a service, this feature\
+  \ requires that\n  the user that Chef runs as has 'SeAssignPrimaryTokenPrivilege'\
+  \ (aka\n  'SE_ASSIGNPRIMARYTOKEN_NAME') user right. By default only LocalSystem\n\
+  \  and NetworkService have this right when running as a service. This is\n  necessary\
+  \ even if the user is an Administrator.\n\n  This right can be added and checked\
+  \ in a recipe using this example:\n\n  ``` ruby\n  # Add 'SeAssignPrimaryTokenPrivilege'\
+  \ for the user\n  Chef::ReservedNames::Win32::Security.add_account_right('<user>',\
+  \ 'SeAssignPrimaryTokenPrivilege')\n\n  # Check if the user has 'SeAssignPrimaryTokenPrivilege'\
+  \ rights\n  Chef::ReservedNames::Win32::Security.get_account_right('<user>').include?('SeAssignPrimaryTokenPrivilege')\n\
+  \  ```\n\n  The following example shows how to run `mkdir test_dir` from a Chef\n\
+  \  Infra Client run as an alternate user.\n\n  ``` ruby\n  # Passing only username\
+  \ and password\n  powershell_script 'mkdir test_dir' do\n   code \"mkdir test_dir\"\
+  \n   cwd Chef::Config[:file_cache_path]\n   user \"username\"\n   password \"password\"\
+  \n  end\n\n  # Passing username and domain\n  powershell_script 'mkdir test_dir'\
+  \ do\n   code \"mkdir test_dir\"\n   cwd Chef::Config[:file_cache_path]\n   domain\
+  \ \"domain\"\n   user \"username\"\n   password \"password\"\n  end\n\n  # Passing\
+  \ username = 'domain-name\\\\username'. No domain is passed\n  powershell_script\
+  \ 'mkdir test_dir' do\n   code \"mkdir test_dir\"\n   cwd Chef::Config[:file_cache_path]\n\
+  \   user \"domain-name\\\\username\"\n   password \"password\"\n  end\n\n  # Passing\
+  \ username = 'username@domain-name'. No domain is passed\n  powershell_script 'mkdir\
+  \ test_dir' do\n   code \"mkdir test_dir\"\n   cwd Chef::Config[:file_cache_path]\n\
+  \   user \"username@domain-name\"\n   password \"password\"\n  end\n\n  # Work around\
+  \ User Access Control (UAC)\n  powershell_script 'mkdir test_dir' do\n   code \"\
+  mkdir test_dir\"\n   cwd Chef::Config[:file_cache_path]\n   user \"username\"\n\
+  \   password \"password\"\n   elevated true\n  end\n  ```\n"
 
 ---

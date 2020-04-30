@@ -208,12 +208,11 @@ common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false
 unit_file_verification: false
-examples_list:
-- example_heading: Install a Chocolatey package
-  text_blocks:
-  - code_block: "chocolatey_package 'name of package' do\n  action :install\nend"
-  - markdown: '**Install a package with Chocolatey''s \`\`--checksum\`\` option**'
-  - code_block: "chocolatey_package 'name of package' do\n  options '--checksum 1234567890'\n\
-      \  action :install\nend"
+examples: "
+  Install a Chocolatey package\n\n  ``` ruby\n  chocolatey_package\
+  \ 'name of package' do\n    action :install\n  end\n  ```\n\n  **Install a package\
+  \ with Chocolatey's \\`\\`--checksum\\`\\` option**\n\n  ``` ruby\n  chocolatey_package\
+  \ 'name of package' do\n    options '--checksum 1234567890'\n    action :install\n\
+  \  end\n  ```\n"
 
 ---

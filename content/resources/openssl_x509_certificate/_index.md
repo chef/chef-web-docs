@@ -9,7 +9,6 @@ menu:
     title: openssl_x509_certificate
     identifier: chef_infra/cookbook_reference/resources/openssl_x509_certificate openssl_x509_certificate
     parent: chef_infra/cookbook_reference/resources
-
 resource_reference: true
 robots: null
 resource_description_list:
@@ -303,19 +302,17 @@ common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false
 unit_file_verification: false
-examples_list:
-- example_heading: Create a simple self-signed certificate file
-  text_blocks:
-  - code_block: "openssl_x509_certificate '/etc/httpd/ssl/mycert.pem' do\n  common_name\
-      \ 'www.f00bar.com'\n  org 'Foo Bar'\n  org_unit 'Lab'\n  country 'US'\nend"
-- example_heading: Create a certificate using additional options
-  text_blocks:
-  - code_block: "openssl_x509_certificate '/etc/ssl_test/my_signed_cert.crt' do\n\
-      \  common_name 'www.f00bar.com'\n  ca_key_file '/etc/ssl_test/my_ca.key'\n \
-      \ ca_cert_file '/etc/ssl_test/my_ca.crt'\n  expire 365\n  extensions(\n    'keyUsage'\
-      \ => {\n      'values' => %w(\n        keyEncipherment\n        digitalSignature),\n\
-      \      'critical' => true,\n    },\n    'extendedKeyUsage' => {\n      'values'\
-      \ => %w(serverAuth),\n      'critical' => false,\n    }\n  )\n  subject_alt_name\
-      \ ['IP:127.0.0.1', 'DNS:localhost.localdomain']\nend"
+examples: "
+  Create a simple self-signed certificate file\n\n  ``` ruby\n  openssl_x509_certificate\
+  \ '/etc/httpd/ssl/mycert.pem' do\n    common_name 'www.f00bar.com'\n    org 'Foo\
+  \ Bar'\n    org_unit 'Lab'\n    country 'US'\n  end\n  ```\n\n  Create a certificate\
+  \ using additional options\n\n  ``` ruby\n  openssl_x509_certificate '/etc/ssl_test/my_signed_cert.crt'\
+  \ do\n    common_name 'www.f00bar.com'\n    ca_key_file '/etc/ssl_test/my_ca.key'\n\
+  \    ca_cert_file '/etc/ssl_test/my_ca.crt'\n    expire 365\n    extensions(\n \
+  \     'keyUsage' => {\n        'values' => %w(\n          keyEncipherment\n    \
+  \      digitalSignature),\n        'critical' => true,\n      },\n      'extendedKeyUsage'\
+  \ => {\n        'values' => %w(serverAuth),\n        'critical' => false,\n    \
+  \  }\n    )\n    subject_alt_name ['IP:127.0.0.1', 'DNS:localhost.localdomain']\n\
+  \  end\n  ```\n"
 
 ---

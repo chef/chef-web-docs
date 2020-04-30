@@ -109,17 +109,10 @@ common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false
 unit_file_verification: false
-examples_list:
-- example_heading: Set the hostname
-  text_blocks:
-  - code_block: hostname 'example'
-  - markdown: 'The example above sets the hostname to `example` for the IP address,
-      as
-
-      detected by Ohai.'
-- example_heading: Manually specify the hostname and IP address
-  text_blocks:
-  - code_block: "hostname 'statically_configured_host' do\n  hostname 'example'\n\
-      \  ipaddress '198.51.100.2'\nend"
+examples: "\n  Set the hostname\n\n  ``` ruby\n  hostname 'example'\n  ```\n\n \
+  \ The example above sets the hostname to `example` for the IP address, as\n  detected\
+  \ by Ohai.\n\n  Manually specify the hostname and IP address\n\n  ``` ruby\n  hostname\
+  \ 'statically_configured_host' do\n    hostname 'example'\n    ipaddress '198.51.100.2'\n\
+  \  end\n  ```\n"
 
 ---

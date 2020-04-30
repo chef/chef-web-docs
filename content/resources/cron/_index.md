@@ -208,32 +208,20 @@ common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false
 unit_file_verification: false
-examples_list:
-- example_heading: Run a program at a specified interval
-  text_blocks:
-  - code_block: "cron 'noop' do\n  hour '5'\n  minute '0'\n  command '/bin/true'\n\
-      end"
-- example_heading: Run an entry if a folder exists
-  text_blocks:
-  - code_block: "cron 'ganglia_tomcat_thread_max' do\n  command \"/usr/bin/gmetric\n\
-      \    -n 'tomcat threads max'\n    -t uint32\n    -v '/usr/local/bin/tomcat-stat\n\
-      \    --thread-max'\"\n  only_if { ::File.exist?('/home/jboss') }\nend"
-- example_heading: Run every Saturday, 8:00 AM
-  text_blocks:
-  - markdown: 'The following example shows a schedule that will run every hour at
-      8:00
-
-      each Saturday morning, and will then send an email to
-
-      "<admin@example.com>" after each run.'
-  - code_block: "cron 'name_of_cron_entry' do\n  minute '0'\n  hour '8'\n  weekday\
-      \ '6'\n  mailto 'admin@example.com'\n  action :create\nend"
-- example_heading: Run only in November
-  text_blocks:
-  - markdown: 'The following example shows a schedule that will run at 8:00 PM, every
-
-      weekday (Monday through Friday), but only in November:'
-  - code_block: "cron 'name_of_cron_entry' do\n  minute '0'\n  hour '20'\n  day '*'\n\
-      \  month '11'\n  weekday '1-5'\n  action :create\nend"
+examples: "
+  Run a program at a specified interval\n\n  ``` ruby\n  cron 'noop'\
+  \ do\n    hour '5'\n    minute '0'\n    command '/bin/true'\n  end\n  ```\n\n  Run\
+  \ an entry if a folder exists\n\n  ``` ruby\n  cron 'ganglia_tomcat_thread_max'\
+  \ do\n    command \"/usr/bin/gmetric\n      -n 'tomcat threads max'\n      -t uint32\n\
+  \      -v '/usr/local/bin/tomcat-stat\n      --thread-max'\"\n    only_if { ::File.exist?('/home/jboss')\
+  \ }\n  end\n  ```\n\n  Run every Saturday, 8:00 AM\n\n  The following example shows\
+  \ a schedule that will run every hour at 8:00\n  each Saturday morning, and will\
+  \ then send an email to\n  \"<admin@example.com>\" after each run.\n\n  ``` ruby\n\
+  \  cron 'name_of_cron_entry' do\n    minute '0'\n    hour '8'\n    weekday '6'\n\
+  \    mailto 'admin@example.com'\n    action :create\n  end\n  ```\n\n  Run only\
+  \ in November\n\n  The following example shows a schedule that will run at 8:00\
+  \ PM, every\n  weekday (Monday through Friday), but only in November:\n\n  ``` ruby\n\
+  \  cron 'name_of_cron_entry' do\n    minute '0'\n    hour '20'\n    day '*'\n  \
+  \  month '11'\n    weekday '1-5'\n    action :create\n  end\n  ```\n"
 
 ---

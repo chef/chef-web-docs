@@ -9,7 +9,6 @@ menu:
     title: rhsm_repo
     identifier: chef_infra/cookbook_reference/resources/rhsm_repo rhsm_repo
     parent: chef_infra/cookbook_reference/resources
-
 resource_reference: true
 robots: null
 resource_description_list:
@@ -75,12 +74,9 @@ common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false
 unit_file_verification: false
-examples_list:
-- example_heading: Enable an RHSM repository
-  text_blocks:
-  - code_block: rhsm_repo 'rhel-7-server-extras-rpms'
-- example_heading: Disable an RHSM repository
-  text_blocks:
-  - code_block: "rhsm_repo 'rhel-7-server-extras-rpms' do\n  action :disable\nend"
+examples: "
+  Enable an RHSM repository\n\n  ``` ruby\n  rhsm_repo 'rhel-7-server-extras-rpms'\n\
+  \  ```\n\n  Disable an RHSM repository\n\n  ``` ruby\n  rhsm_repo 'rhel-7-server-extras-rpms'\
+  \ do\n    action :disable\n  end\n  ```\n"
 
 ---

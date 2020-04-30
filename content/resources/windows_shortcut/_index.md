@@ -8,7 +8,6 @@ menu:
     title: windows_shortcut
     identifier: chef_infra/cookbook_reference/resources/windows_shortcut windows_shortcut
     parent: chef_infra/cookbook_reference/resources
-
 resource_reference: true
 robots: null
 resource_description_list:
@@ -113,10 +112,9 @@ common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false
 unit_file_verification: false
-examples_list:
-- example_heading: Create a shortcut with a description
-  text_blocks:
-  - code_block: "windows_shortcut 'C:\\shortcut_dir.lnk' do\n  target 'C:\\original_dir'\n\
-      \  description 'Make a shortcut to C:\\original_dir'\nend"
+examples: "
+  Create a shortcut with a description\n\n  ``` ruby\n  windows_shortcut\
+  \ 'C:\\shortcut_dir.lnk' do\n    target 'C:\\original_dir'\n    description 'Make\
+  \ a shortcut to C:\\original_dir'\n  end\n  ```\n"
 
 ---

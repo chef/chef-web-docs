@@ -110,26 +110,20 @@ common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false
 unit_file_verification: false
-examples_list:
-- example_heading: Send a GET request
-  text_blocks:
-  - code_block: "http_request 'some_message' do\n  url 'http://example.com/check_in'\n\
-      end"
-  - markdown: 'The message is sent as
-
-      `http://example.com/check_in?message=some_message`.'
-- example_heading: Send a POST request
-  text_blocks:
-  - markdown: 'To send a `POST` request as JSON data, convert the message to JSON
-      and
-
-      include the correct content-type header. For example:'
-  - code_block: "http_request 'posting data' do\n  action :post\n  url 'http://example.com/check_in'\n\
-      \  message ({:some => 'data'}.to_json)\n  headers({'AUTHORIZATION' => \"Basic\
-      \ #{\n    Base64.encode64('username:password')}\",\n    'Content-Type' => 'application/data'\n\
-      \  })\nend"
-- example_heading: Transfer a file only when the remote source changes
-  text_blocks:
-  - shortcode: resource_remote_file_transfer_remote_source_changes.md
+examples: "\n  Send a GET request\n\n  ``` ruby\n  http_request 'some_message' do\n\
+  \    url 'http://example.com/check_in'\n  end\n  ```\n\n  The message is sent as\n\
+  \  `http://example.com/check_in?message=some_message`.\n\n  Send a POST request\n\
+  \n  To send a `POST` request as JSON data, convert the message to JSON and\n  include\
+  \ the correct content-type header. For example:\n\n  ``` ruby\n  http_request 'posting\
+  \ data' do\n    action :post\n    url 'http://example.com/check_in'\n    message\
+  \ ({:some => 'data'}.to_json)\n    headers({'AUTHORIZATION' => \"Basic #{\n    \
+  \  Base64.encode64('username:password')}\",\n      'Content-Type' => 'application/data'\n\
+  \    })\n  end\n  ```\n\n  Transfer a file only when the remote source changes\n\
+  \n  ``` ruby\n  remote_file '/tmp/couch.png' do\n    source 'http://couchdb.apache.org/img/sketch.png'\n\
+  \    action :nothing\n  end\n\n  http_request 'HEAD http://couchdb.apache.org/img/sketch.png'\
+  \ do\n    message ''\n    url 'http://couchdb.apache.org/img/sketch.png'\n    action\
+  \ :head\n    if ::File.exist?('/tmp/couch.png')\n      headers 'If-Modified-Since'\
+  \ => File.mtime('/tmp/couch.png').httpdate\n    end\n    notifies :create, 'remote_file[/tmp/couch.png]',\
+  \ :immediately\n  end\n  ```\n"
 
 ---
