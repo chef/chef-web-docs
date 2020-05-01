@@ -2632,13 +2632,16 @@ similar to:
 </tr>
 </tbody>
 </table>
+
 ### /containers
 
-The `/containers` endpoint has the following methods: `GET`.
+The `/containers` endpoint has the following methods: `GET`, `POST`.
 
 #### GET
 
 The `GET` method is used to get a list of containers.
+
+Note: The `/containers` endpoint is not useful outside of the Chef Infra Server code.
 
 This method has no parameters.
 
@@ -2648,21 +2651,204 @@ This method has no parameters.
 GET /organizations/NAME/containers
 ```
 
+This method does not use a request body.
+
 **Response**
 
 The response is similar to:
 
 ``` javascript
 {
-  "clients": "https://url/for/containers/clients",
-  "containers": "https://url/for/containers/containers",
-  "cookbooks": "https://url/for/containers/cookbooks",
-  "data": "https://url/for/containers/data",
-  "environments": "https://url/for/containers/environments",
-  "groups": "https://url/for/containers/groups",
-  "nodes": "https://url/for/containers/nodes",
-  "roles": "https://url/for/containers/roles",
-  "sandboxes": "https://url/for/containers/sandboxes"
+  "clients": "https://chef.example/organizations/example/containers/clients",
+  "containers": "https://chef.example/organizations/example/containers/containers",
+  "cookbooks": "https://chef.example/organizations/example/containers/cookbooks",
+  "data": "https://chef.example/organizations/example/containers/data",
+  "environments": "https://chef.example/organizations/example/containers/environments",
+  "groups": "https://chef.example/organizations/example/containers/groups",
+  "nodes": "https://chef.example/organizations/example/containers/nodes",
+  "roles": "https://chef.example/organizations/example/containers/roles",
+  "sandboxes": "https://chef.example/organizations/example/containers/sandboxes"
+}
+```
+
+**Response Codes**
+
+<table>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Response Code</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>200</code></td>
+<td>OK. The request was successful.</td>
+</tr>
+<tr class="even">
+<td><code>401</code></td>
+<td>Unauthorized. The user or client who made the request could not be authenticated. Verify the user/client name, and that the correct key was used to sign the request.</td>
+</tr>
+<tr class="odd">
+<td><code>403</code></td>
+<td>Forbidden. The user who made the request is not authorized to perform the action.</td>
+</tr>
+<tr class="even">
+<td><code>404</code></td>
+<td>Not found. The requested object does not exist.</td>
+</tr>
+</tbody>
+</table>
+
+#### POST
+
+The `POST` method is used to create a container.
+
+Note: Using the `POST` method of the `/containers` endpoint may have unexpected effects and is likely to break your system. Use of this method is not supported.
+
+This method has no parameters.
+
+**Request**
+
+``` none
+POST /organizations/NAME
+```
+
+This method has a request body similar to:
+
+``` javascript
+{
+  "containername": "mycontainer",
+  "containerpath": "mycontainer"
+}
+```
+
+**Response**
+
+The response is similar to:
+
+``` javascript
+{
+  "uri"": "https://chef.example/organizations/test/containers/mycontainer"
+}
+```
+
+**Response Codes**
+
+<table>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Response Code</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>201</code></td>
+<td>OK. The request was successful.</td>
+</tr>
+<tr class="even">
+<td><code>401</code></td>
+<td>Unauthorized. The user or client who made the request could not be authenticated. Verify the user/client name, and that the correct key was used to sign the request.</td>
+</tr>
+<tr class="odd">
+<td><code>403</code></td>
+<td>Forbidden. The user who made the request is not authorized to perform the action.</td>
+</tr>
+<tr class="even">
+<td><code>404</code></td>
+<td>Not found. The requested object does not exist.</td>
+</tr>
+</tbody>
+</table>
+
+### /containers/NAME
+
+#### DELETE
+
+The `DELETE` method is used to remove a container.
+
+The `/containers/Name` endpoint has the following methods: `DELETE`, `GET`.
+
+Note: Using the `DELETE` method of the `/containers/NAME` endpoint may have unexpected effects and is likely to break your system. Use of this method is not supported. 
+
+This method has no parameters.
+
+**Request**
+
+``` none
+DELETE /organizations/NAME/containers/NAME
+```
+
+This method does not use a request body.
+
+**Response**
+
+The response does not return response body.
+
+**Response Codes**
+
+<table>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Response Code</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>200</code></td>
+<td>OK. The request was successful.</td>
+</tr>
+<tr class="even">
+<td><code>401</code></td>
+<td>Unauthorized. The user or client who made the request could not be authenticated. Verify the user/client name, and that the correct key was used to sign the request.</td>
+</tr>
+<tr class="odd">
+<td><code>403</code></td>
+<td>Forbidden. The user who made the request is not authorized to perform the action.</td>
+</tr>
+<tr class="even">
+<td><code>404</code></td>
+<td>Not found. The requested object does not exist.</td>
+</tr>
+</tbody>
+</table>
+
+#### GET
+
+The `GET` method is used to get a container.
+
+This method has no parameters.
+
+**Request**
+
+``` none
+GET /organizations/NAME/containers/NAME
+```
+
+This method does not use a request body.
+
+**Response**
+
+The response is similar to:
+
+``` javascript
+{
+  "containername"": "mycontainer",
+  "containerpath"": "mycontainer"
 }
 ```
 
