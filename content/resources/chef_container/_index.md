@@ -15,7 +15,7 @@ robots: null
 resource_description_list:
 - markdown: 'Use the **chef_container** resource to interact with container objects
 
-    that exist on the Chef server.'
+    that exist on the Chef Infra Server.'
 resource_new_in: null
 handler_types: false
 syntax_description: "The syntax for using the **chef_container** resource in a recipe\
@@ -51,7 +51,7 @@ properties_list:
   default_value: null
   new_in: null
   description_list:
-  - markdown: The URL for the Chef server.
+  - markdown: The URL for the Chef Infra Server.
 - property: ignore_failure
   ruby_type: true, false
   required: false

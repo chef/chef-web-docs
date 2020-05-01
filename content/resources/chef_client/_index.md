@@ -13,15 +13,12 @@ menu:
 resource_reference: true
 robots: null
 resource_description_list:
-- shortcode: chef_client_summary.md
-- markdown: Use the **chef_client** resource to manage clients.
-resource_new_in: null
+- markdown: Use the **chef_client** resource to create clients on your Chef Infra Server from within Chef Infra cookbook code.
 handler_types: false
 syntax_description: "The syntax for using the **chef_client** resource in a recipe\
   \ is as\nfollows:\n\n``` ruby\nchef_client 'name' do\n  attribute 'value' # see\
   \ properties section below\n  ...\n  action :action # see actions section below\n\
   end\n```"
-syntax_code_block: null
 syntax_properties_list:
 - '`chef_client` tells Chef Infra Client to use the `Chef::Provider::ChefClient` provider
   during a Chef Infra Client run'
@@ -60,7 +57,7 @@ properties_list:
   default_value: null
   new_in: null
   description_list:
-  - markdown: The URL for the Chef server.
+  - markdown: The URL for the Chef Infra Server.
 - property: complete
   ruby_type: null
   required: false
