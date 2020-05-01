@@ -111,34 +111,18 @@ common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false
 unit_file_verification: false
-examples_list:
-- example_heading: Install and load a kernel module and ensure it loads on reboot.
-  text_blocks:
-  - code_block: kernel_module 'loop'
-- example_heading: 'Install and load a kernel with a specific set of options and ensure
-    it
-
-    loads on reboot.'
-  text_blocks:
-  - markdown: 'Consult kernel module documentation for specific options that are
-
-      supported.'
-  - code_block: "kernel_module 'loop' do\n  options [ 'max_loop=4', 'max_part=8' ]\n\
-      end"
-- example_heading: Load a kernel module.
-  text_blocks:
-  - code_block: "kernel_module 'loop' do\n  action :load\nend"
-  - markdown: "**Unload a kernel module and remove module config so it doesn\u2019\
-      t load on\nreboot.**"
-  - code_block: "kernel_module 'loop' do\n  action :uninstall\nend"
-- example_heading: Unload kernel module.
-  text_blocks:
-  - code_block: "kernel_module 'loop' do\n  action :unload\nend"
-- example_heading: Blacklist a module from loading.
-  text_blocks:
-  - code_block: "kernel_module 'loop' do\n  action :blacklist\nend"
-- example_heading: Disable a kernel module.
-  text_blocks:
-  - code_block: "kernel_module 'loop' do\n  action :disable\nend"
+examples: "\"Install and load a kernel module and ensure it loads on reboot.\\n\\\
+  n``` ruby\\nkernel_module\\\n  \\ 'loop'\\n```\\n\\nInstall and load a kernel with\
+  \ a specific set of options and ensure\\\n  \\ it\\nloads on reboot.\\n\\nConsult\
+  \ kernel module documentation for specific options\\\n  \\ that are\\nsupported.\\\
+  n\\n``` ruby\\nkernel_module 'loop' do\\n  options [ 'max_loop=4',\\\n  \\ 'max_part=8'\
+  \ ]\\nend\\n```\\n\\nLoad a kernel module.\\n\\n``` ruby\\nkernel_module 'loop'\\\
+  \n  \\ do\\n  action :load\\nend\\n```\\n\\n**Unload a kernel module and remove\
+  \ module config\\\n  \\ so it doesn\\u2019t load on\\nreboot.**\\n\\n``` ruby\\\
+  nkernel_module 'loop' do\\n \\\n  \\ action :uninstall\\nend\\n```\\n\\nUnload kernel\
+  \ module.\\n\\n``` ruby\\nkernel_module\\\n  \\ 'loop' do\\n  action :unload\\nend\\\
+  n```\\n\\nBlacklist a module from loading.\\n\\n\\\n  ``` ruby\\nkernel_module 'loop'\
+  \ do\\n  action :blacklist\\nend\\n```\\n\\nDisable a kernel\\\n  \\ module.\\n\\\
+  n``` ruby\\nkernel_module 'loop' do\\n  action :disable\\nend\\n```\"\n"
 
 ---

@@ -37,11 +37,9 @@ menu:
     identifier: chef_infra/cookbook_reference/resources/archive_file archive_file
     parent: chef_infra/cookbook_reference/resources
 resource_description_list:
-- markdown: 'Use the **archive_file** resource to extract archive files to disk.
-
-    This resource uses the libarchive library to extract multiple archive
-
-    formats including tar, gzip, bzip, and zip formats.'
+- markdown: Use the **archive_file** resource to extract archive files to disk. This
+    resource uses the libarchive library to extract multiple archive formats including
+    tar, gzip, bzip, and zip formats.
 resource_new_in: '15.0'
 syntax_full_code_block: |-
   archive_file 'name' do
@@ -116,10 +114,13 @@ properties_list:
   description_list:
   - markdown: An optional property to set the file path to the archive to extract
       if it differs from the resource block's name.
-examples_list:
-- example_heading: Extract a zip file to a specified directory
-  text_blocks:
-  - code_block: "archive_file 'Precompiled.zip' do\n  path '/tmp/Precompiled.zip'\n\
-      \  destination '/srv/files'\nend"
+examples: |
+  **Extract a zip file to a specified directory**:
 
+  ```ruby
+  archive_file 'Precompiled.zip' do
+    path '/tmp/Precompiled.zip'
+    destination '/srv/files'
+  end
+  ```
 ---

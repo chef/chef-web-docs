@@ -38,8 +38,8 @@ menu:
       chef_client_systemd_timer
     parent: chef_infra/cookbook_reference/resources
 resource_description_list:
-- markdown: Use the chef_client_systemd_timer resource to setup the Chef Infra Client
-    to run as a systemd timer.
+- markdown: Use the **chef_client_systemd_timer** resource to setup the Chef Infra
+    Client to run as a systemd timer.
 resource_new_in: '16.0'
 syntax_full_code_block: |-
   chef_client_systemd_timer 'name' do
@@ -66,6 +66,13 @@ syntax_full_properties_list:
 - "`accept_chef_license`, `chef_binary_path`, `config_directory`, `daemon_options`,
   `delay_after_boot`, `description`, `environment`, `interval`, `job_name`, `run_on_battery`,
   `splay`, and `user` are the properties available to this resource."
+actions_list:
+  :add:
+    markdown: Add a systemd timer that runs Chef Infra Client.
+  :nothing:
+    shortcode: resources_common_actions_nothing.md
+  :remove:
+    markdown: Remove a systemd timer that runs Chef Infra Client.
 properties_list:
 - property: accept_chef_license
   ruby_type: true, false
@@ -148,4 +155,26 @@ properties_list:
   default_value: root
   description_list:
   - markdown: The name of the user that Chef Infra Client runs as.
+examples: |
+  **Setup Chef Infra Client to run using the default 30 minute cadence**:
+
+  ```ruby
+  chef_client_systemd_timer "Run Chef Infra Client as a systemd timer"
+  ```
+
+  **Run Chef Infra Client every 1 hour**:
+
+  ```ruby
+  chef_client_systemd_timer "Run Chef Infra Client every 1 hour" do
+    interval "1hr"
+  end
+  ```
+
+  **Run Chef Infra Client with extra options passed to the client**:
+
+  ```ruby
+  chef_client_systemd_timer "Run an override recipe" do
+    daemon_options ["--override-runlist mycorp_base::default"]
+  end
+  ```
 ---

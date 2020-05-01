@@ -214,7 +214,7 @@ The `/authenticate_user` endpoint has the following methods: `POST`.
 
 The `POST` method is used to authenticate a user. This endpoint is used
 by the Chef Identity Service to authenticate users of Chef Supermarket
-to the Chef server.
+to the Chef Infra Server.
 
 This method has no parameters.
 
@@ -685,6 +685,124 @@ The response is similar to:
 </tbody>
 </table>
 
+### /_stats
+
+Use the `/_stats` endpoint to display statistics about connection pool usage inside Erchef, Postgresql, and the Erlang VM.
+The `_stats` endpoint uses Basic Authorization instead of the X-Ops-Authorization scheme usually used to connect
+to the Chef Infra Server. The default user used to query the `_stats` endpoint is `statsuser`.  The password for the
+`statsuser` is available as the `opscode_erchef::stats_password` from the `chef-server-ctl show-service-credentials` command.
+
+The `/_stats` endpoint has the following method: `GET`.
+
+#### GET
+
+The `GET` method is used to get the statistics.
+
+This method has the following parameters:
+
+<table>
+<colgroup>
+<col style="width: 40%" />
+<col style="width: 60%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>format=json</code></td>
+<td>Return results as JSON.</td>
+</tr>
+<tr class="even">
+<td><code>format=text</code></td>
+<td>Return results as text.</td>
+</tr>
+</table>
+
+**Request**
+
+``` none
+GET /_stats
+```
+
+This method has no parameters. This method has no request body.
+The `/_stats` endpoint does not require authentication headers.
+
+**Response**
+
+The response body is similar to:
+
+``` javascript
+[
+  {
+    "name": "erlang_vm_time_correction",
+    "type": "UNTYPED",
+    "help": "1 if time correction is enabled, otherwise 0.",
+    "metrics": [
+      {
+        "value": "1"
+      }
+    ]
+  },
+  {
+    "name": "erlang_vm_thread_pool_size",
+    "type": "GAUGE",
+    "help": "The number of async threads in the async thread pool used for asynchronous driver calls.",
+    "metrics": [
+      {
+        "value": "5"
+      }
+    ]
+  },
+
+  ...
+
+  {
+    "name": "pg_stat_seq_scan",
+    "type": "COUNTER",
+    "help": "Number of sequential scans initiated on all tables",
+    "metrics": [
+      {
+        "value": "22147"
+      }
+    ]
+  }
+]
+
+```
+
+**Response Codes**
+
+<table>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Response Code</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>200</code></td>
+<td>OK.</td>
+</tr>
+<tr class="even">
+<td><code>401</code></td>
+<td>Unauthorized. The user or password is not valid.</td>
+</tr>
+<tr class="odd">
+<td><code>406</code></td>
+<td>Not Acceptable. An invalid format was requested.</td>
+</tr>
+</tbody>
+</table>
+
 ### /_status
 
 Use the `/_status` endpoint to check the status of communications
@@ -694,7 +812,7 @@ require authentication headers.
 
 #### GET
 
-The `GET` method is used to get the details for the named organization.
+The `GET` method is used to get the Chef Infra Server status details.
 
 **Request**
 

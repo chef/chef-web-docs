@@ -1,8 +1,5 @@
 ---
-draft: false
 resource_reference: true
-robots:
-syntax_code_block:
 common_resource_functionality_multiple_packages: false
 common_resource_functionality_resources_common_windows_security: false
 cookbook_file_specificity: false
@@ -40,8 +37,8 @@ menu:
     identifier: chef_infra/cookbook_reference/resources/windows_security_policy windows_security_policy
     parent: chef_infra/cookbook_reference/resources
 resource_description_list:
-- markdown: Use the windows_security_policy resource to set a security policy on the
-    Microsoft Windows platform.
+- markdown: Use the **windows_security_policy** resource to set a security policy
+    on the Microsoft Windows platform.
 resource_new_in: '16.0'
 syntax_full_code_block: |-
   windows_security_policy 'name' do
@@ -55,22 +52,24 @@ syntax_full_properties_list:
 - "`name` is the name given to the resource block."
 - "`action` identifies which steps Chef Infra Client will take to bring the node into
   the desired state."
-- "``secoption`` and ``secvalue`` are the properties available to this resource."
+- "`secoption` and `secvalue` are the properties available to this resource."
+actions_list:
+  :nothing:
+    shortcode: resources_common_actions_nothing.md
+  :set:
+    markdown: Set the Windows security policy
 properties_list:
 - property: secoption
   ruby_type: String
   required: true
   default_value: The resource block's name
-  new_in:
   description_list:
   - markdown: The name of the policy to be set on windows platform to maintain its
       security.
 - property: secvalue
   ruby_type: String
   required: true
-  default_value:
-  new_in:
   description_list:
   - markdown: Policy value to be set for policy name.
-
+examples: 
 ---

@@ -1,28 +1,47 @@
 ---
+resource_reference: true
+common_resource_functionality_multiple_packages: false
+common_resource_functionality_resources_common_windows_security: false
+cookbook_file_specificity: false
+debug_recipes_chef_shell: false
+handler_custom: false
+handler_types: false
+nameless_apt_update: false
+nameless_build_essential: false
+properties_multiple_packages: false
+properties_resources_common_windows_security: false
+properties_shortcode: 
+ps_credential_helper: false
+registry_key: false
+remote_directory_recursive_directories: false
+remote_file_prevent_re_downloads: false
+remote_file_unc_path: false
+resource_directory_recursive_directories: false
+resource_package_options: false
+resources_common_atomic_update: false
+resources_common_guard_interpreter: false
+resources_common_guards: true
+resources_common_notification: true
+resources_common_properties: true
+ruby_style_basics_chef_log: false
+syntax_shortcode: 
+template_requirements: false
+unit_file_verification: false
 title: windows_service resource
 resource: windows_service
-draft: false
 aliases:
-- /resource_windows_service.html
+- "/resource_windows_service.html"
 menu:
   infra:
     title: windows_service
     identifier: chef_infra/cookbook_reference/resources/windows_service windows_service
     parent: chef_infra/cookbook_reference/resources
-
-resource_reference: true
-robots: null
 resource_description_list:
-- markdown: 'Use the **windows_service** resource to create, delete, or manage a
-
-    service on the Microsoft Windows platform.'
-resource_new_in: null
-handler_types: false
+- markdown: Use the **windows_service** resource to create, delete, or manage a service
+    on the Microsoft Windows platform.
 syntax_description: "A **windows_service** resource block manages the state of a service\
   \ on\na machine that is running Microsoft Windows. For example:\n\n``` ruby\nwindows_service\
   \ 'BITS' do\n  action :configure_startup\n  startup_type :manual\nend\n```"
-syntax_code_block: null
-syntax_properties_list: null
 syntax_full_code_block: "windows_service 'name' do\n  binary_path_name      String\n\
   \  delayed_start         true, false # default value: false\n  dependencies    \
   \      String, Array\n  description           String\n  desired_access        Integer\
@@ -50,11 +69,6 @@ syntax_full_properties_list:
   `timeout` are properties of this resource, with the Ruby type shown. See "Properties"
   section below for more information about all of the properties that may be used
   with this resource.'
-syntax_shortcode: null
-registry_key: false
-nameless_apt_update: false
-nameless_build_essential: false
-resource_package_options: false
 actions_list:
   :configure:
     markdown: "Configure a pre-existing service.\n *New in Chef Client 14.0.*"
@@ -87,7 +101,6 @@ properties_list:
 - property: binary_path_name
   ruby_type: String
   required: false
-  default_value: 
   new_in: '14.0'
   description_list:
   - markdown: The fully qualified path to the service binary file. The path can also
@@ -104,7 +117,6 @@ properties_list:
 - property: dependencies
   ruby_type: String, Array
   required: false
-  default_value: 
   new_in: '14.0'
   description_list:
   - markdown: A pointer to a double null-terminated array of null-separated names
@@ -115,7 +127,6 @@ properties_list:
 - property: description
   ruby_type: String
   required: false
-  default_value: 
   new_in: '14.0'
   description_list:
   - markdown: Description of the service.
@@ -129,7 +140,6 @@ properties_list:
 - property: display_name
   ruby_type: String
   required: false
-  default_value: 
   new_in: '14.0'
   description_list:
   - markdown: The display name to be used by user interface programs to identify the
@@ -144,7 +154,6 @@ properties_list:
 - property: load_order_group
   ruby_type: String
   required: false
-  default_value: 
   new_in: '14.0'
   description_list:
   - markdown: The name of the service's load ordering group(s).
@@ -152,42 +161,33 @@ properties_list:
   ruby_type: String
   required: false
   default_value: The value provided to 'service_name' or the resource block's name
-  new_in: 
   description_list:
   - markdown: The pattern to look for in the process table.
 - property: reload_command
   ruby_type: String, nil, false
   required: false
-  default_value: 
-  new_in: 
   description_list:
   - markdown: The command used to tell a service to reload its configuration.
 - property: restart_command
   ruby_type: String, nil, false
   required: false
-  default_value: 
-  new_in: 
   description_list:
   - markdown: The command used to restart a service.
 - property: run_as_password
   ruby_type: String
   required: false
-  default_value: null
-  new_in: 
   description_list:
   - markdown: The password for the user specified by `run_as_user`.
 - property: run_as_user
   ruby_type: String
   required: false
   default_value: localsystem
-  new_in: 
   description_list:
   - markdown: The user under which a Microsoft Windows service runs.
 - property: service_name
   ruby_type: String
   required: false
   default_value: The resource block's name
-  new_in: 
   description_list:
   - markdown: An optional property to set the service name if it differs from the
       resource block's name.
@@ -201,37 +201,29 @@ properties_list:
 - property: start_command
   ruby_type: String, nil, false
   required: false
-  default_value: 
-  new_in: 
   description_list:
   - markdown: The command used to start a service.
 - property: startup_type
   ruby_type: Symbol
   required: false
   default_value: ":automatic"
-  new_in:
-  allowed_values: "`:automatic`, `:disabled`, or `:manual`"
+  allowed_values: ":automatic, :disabled, :manual"
   description_list:
   - markdown: Use to specify the startup type of the service.
 - property: status_command
   ruby_type: String, nil, false
   required: false
-  default_value: 
-  new_in: 
   description_list:
   - markdown: The command used to check the run status for a service.
 - property: stop_command
   ruby_type: String, nil, false
   required: false
-  default_value: 
-  new_in: 
   description_list:
   - markdown: The command used to stop a service.
 - property: supports
   ruby_type: Hash
   required: false
-  default_value: null
-  new_in: 
+  default_value: '{"restart"=>nil, "reload"=>nil, "status"=>nil}'
   description_list:
   - markdown: 'A list of properties that controls how Chef Infra Client is to
 
@@ -264,70 +256,35 @@ properties_list:
   ruby_type: Integer
   required: false
   default_value: '60'
-  new_in: 
   description_list:
   - markdown: The amount of time (in seconds) to wait before timing out.
-properties_shortcode: null
-properties_multiple_packages: false
-resource_directory_recursive_directories: false
-resources_common_atomic_update: false
-properties_resources_common_windows_security: false
-remote_file_prevent_re_downloads: false
-remote_file_unc_path: false
-ps_credential_helper: false
-ruby_style_basics_chef_log: false
-debug_recipes_chef_shell: false
-template_requirements: false
-resources_common_properties: true
-resources_common_notification: true
-resources_common_guards: true
-common_resource_functionality_multiple_packages: false
-resources_common_guard_interpreter: false
-remote_directory_recursive_directories: false
-common_resource_functionality_resources_common_windows_security: false
-handler_custom: false
-cookbook_file_specificity: false
-unit_file_verification: false
-examples_list:
-- example_heading: Start a service manually
-  text_blocks:
-  - code_block: "windows_service 'BITS' do\n  action :configure_startup\n  startup_type\
-      \ :manual\nend"
-- example_heading: Create a service
-  text_blocks:
-  - code_block: "windows_service 'chef-client' do\n  action :create\n  binary_path_name\
-      \ \"C:\\\\opscode\\\\chef\\\\bin\"\nend"
-  - markdown: 'Create service with ''service_name'' and ''display_name'':'
-  - code_block: "windows_service 'Create chef client as service' do\n  action :create\n\
-      \  display_name \"CHEF-CLIENT\"\n  service_name \"chef-client\"\n  binary_path_name\
-      \ \"C:\\\\opscode\\\\chef\\\\bin\"\nend"
-  - markdown: 'Create service with the `:manual` startup type:'
-  - code_block: "windows_service 'chef-client' do\n  action :create\n  binary_path_name\
-      \ \"C:\\\\opscode\\\\chef\\\\bin\"\n  startup_type :manual\nend"
-  - markdown: 'Create a service with the `:disabled` startup type:'
-  - code_block: "windows_service 'chef-client' do\n  action :create\n  binary_path_name\
-      \ \"C:\\\\opscode\\\\chef\\\\bin\"\n  startup_type :disabled\nend"
-  - markdown: 'Create service with the `:automatic` startup type and delayed start
-
-      enabled:'
-  - code_block: "windows_service 'chef-client' do\n  action :create\n  binary_path_name\
-      \ \"C:\\\\opscode\\\\chef\\\\bin\"\n  startup_type :automatic\n  delayed_start\
-      \ true\nend"
-  - markdown: 'Create service with a description:'
-  - code_block: "windows_service 'chef-client' do\n  action :create\n  binary_path_name\
-      \ \"C:\\\\opscode\\\\chef\\\\bin\"\n  startup_type :automatic\n  description\
-      \ \"Chef client as service\"\nend"
-- example_heading: Delete a service
-  text_blocks:
-  - markdown: 'Delete service with the `''name''` of `chef-client`:'
-  - code_block: "windows_service 'chef-client' do\n  action :delete\nend"
-  - markdown: 'Delete service with `''service_name''`:'
-  - code_block: "windows_service 'Delete chef client' do\n  action :delete\n  service_name\
-      \ \"chef-client\"\nend"
-- example_heading: Configure a service
-  text_blocks:
-  - markdown: 'Change an existing service from automatic to manual startup:'
-  - code_block: "windows_service 'chef-client' do\n  action :configure\n  binary_path_name\
-      \ \"C:\\\\opscode\\\\chef\\\\bin\"\n  startup_type :manual\nend"
+examples: "
+  Start a service manually\n\n  ``` ruby\n  windows_service 'BITS'\
+  \ do\n    action :configure_startup\n    startup_type :manual\n  end\n  ```\n\n\
+  \  Create a service\n\n  ``` ruby\n  windows_service 'chef-client' do\n    action\
+  \ :create\n    binary_path_name \"C:\\\\opscode\\\\chef\\\\bin\"\n  end\n  ```\n\
+  \n  Create service with 'service_name' and 'display_name':\n\n  ``` ruby\n  windows_service\
+  \ 'Create chef client as service' do\n    action :create\n    display_name \"CHEF-CLIENT\"\
+  \n    service_name \"chef-client\"\n    binary_path_name \"C:\\\\opscode\\\\chef\\\
+  \\bin\"\n  end\n  ```\n\n  Create service with the `:manual` startup type:\n\n \
+  \ ``` ruby\n  windows_service 'chef-client' do\n    action :create\n    binary_path_name\
+  \ \"C:\\\\opscode\\\\chef\\\\bin\"\n    startup_type :manual\n  end\n  ```\n\n \
+  \ Create a service with the `:disabled` startup type:\n\n  ``` ruby\n  windows_service\
+  \ 'chef-client' do\n    action :create\n    binary_path_name \"C:\\\\opscode\\\\\
+  chef\\\\bin\"\n    startup_type :disabled\n  end\n  ```\n\n  Create service with\
+  \ the `:automatic` startup type and delayed start\n  enabled:\n\n  ``` ruby\n  windows_service\
+  \ 'chef-client' do\n    action :create\n    binary_path_name \"C:\\\\opscode\\\\\
+  chef\\\\bin\"\n    startup_type :automatic\n    delayed_start true\n  end\n  ```\n\
+  \n  Create service with a description:\n\n  ``` ruby\n  windows_service 'chef-client'\
+  \ do\n    action :create\n    binary_path_name \"C:\\\\opscode\\\\chef\\\\bin\"\n\
+  \    startup_type :automatic\n    description \"Chef client as service\"\n  end\n\
+  \  ```\n\n  Delete a service\n\n  Delete service with the `'name'` of `chef-client`:\n\
+  \n  ``` ruby\n  windows_service 'chef-client' do\n    action :delete\n  end\n  ```\n\
+  \n  Delete service with `'service_name'`:\n\n  ``` ruby\n  windows_service 'Delete\
+  \ chef client' do\n    action :delete\n    service_name \"chef-client\"\n  end\n\
+  \  ```\n\n  Configure a service\n\n  Change an existing service from automatic to\
+  \ manual startup:\n\n  ``` ruby\n  windows_service 'chef-client' do\n    action\
+  \ :configure\n    binary_path_name \"C:\\\\opscode\\\\chef\\\\bin\"\n    startup_type\
+  \ :manual\n  end\n  ```\n"
 
 ---

@@ -9,7 +9,6 @@ menu:
     title: rhsm_register
     identifier: chef_infra/cookbook_reference/resources/rhsm_register rhsm_register
     parent: chef_infra/cookbook_reference/resources
-
 resource_reference: true
 robots: null
 resource_description_list:
@@ -162,10 +161,8 @@ common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false
 unit_file_verification: false
-examples_list:
-- example_heading: Register a node with RHSM
-  text_blocks:
-  - code_block: "rhsm_register 'myhost' do\n  activation_key 'ABCD1234'\n  organization\
-      \ 'my_org'\nend"
+examples: "
+  Register a node with RHSM\n\n  ``` ruby\n  rhsm_register 'myhost'\
+  \ do\n    activation_key 'ABCD1234'\n    organization 'my_org'\n  end\n  ```\n"
 
 ---

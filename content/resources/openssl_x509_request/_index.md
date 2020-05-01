@@ -9,7 +9,6 @@ menu:
     title: openssl_x509_request
     identifier: chef_infra/cookbook_reference/resources/openssl_x509_request openssl_x509_request
     parent: chef_infra/cookbook_reference/resources
-
 resource_reference: true
 robots: null
 resource_description_list:
@@ -205,21 +204,17 @@ common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false
 unit_file_verification: false
-examples_list:
-- example_heading: Create a certificate request file
-  text_blocks:
-  - code_block: "openssl_x509_request '/etc/ssl_files/my_ec_request.csr' do\n  common_name\
-      \ 'myecrequest.example.com'\n  org 'Test Kitchen Example'\n  org_unit 'Kitchens'\n\
-      \  country 'UK'\nend"
-- example_heading: Create a new certificate request file from an existing ec key
-  text_blocks:
-  - code_block: "openssl_x509_request '/etc/ssl_files/my_ec_request2.csr' do\n   common_name\
-      \ 'myecrequest2.example.com'\n   org 'Test Kitchen Example'\n   org_unit 'Kitchens'\n\
-      \   country 'UK'\n   key_file '/etc/ssl_files/my_ec_request.key'\nend"
-- example_heading: Create both a new rsa key and certificate request file
-  text_blocks:
-  - code_block: "openssl_x509_request '/etc/ssl_files/my_rsa_request.csr' do\n   common_name\
-      \ 'myrsarequest.example.com'\n   org 'Test Kitchen Example'\n   org_unit 'Kitchens'\n\
-      \   country 'UK'\n   key_type 'rsa'\nend"
+examples: "
+  Create a certificate request file\n\n  ``` ruby\n  openssl_x509_request\
+  \ '/etc/ssl_files/my_ec_request.csr' do\n    common_name 'myecrequest.example.com'\n\
+  \    org 'Test Kitchen Example'\n    org_unit 'Kitchens'\n    country 'UK'\n  end\n\
+  \  ```\n\n  Create a new certificate request file from an existing ec key\n\n  ```\
+  \ ruby\n  openssl_x509_request '/etc/ssl_files/my_ec_request2.csr' do\n     common_name\
+  \ 'myecrequest2.example.com'\n     org 'Test Kitchen Example'\n     org_unit 'Kitchens'\n\
+  \     country 'UK'\n     key_file '/etc/ssl_files/my_ec_request.key'\n  end\n  ```\n\
+  \n  Create both a new rsa key and certificate request file\n\n  ``` ruby\n  openssl_x509_request\
+  \ '/etc/ssl_files/my_rsa_request.csr' do\n     common_name 'myrsarequest.example.com'\n\
+  \     org 'Test Kitchen Example'\n     org_unit 'Kitchens'\n     country 'UK'\n\
+  \     key_type 'rsa'\n  end\n  ```\n"
 
 ---

@@ -415,7 +415,6 @@ properties_list:
 - property: timeout
   ruby_type: Integer
   required: false
-  default_value: null
   new_in: null
   description_list:
   - markdown: 'The amount of time (in seconds) a command is to wait before timing
@@ -442,59 +441,43 @@ common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false
 unit_file_verification: false
-examples_list:
-- example_heading: Open a Zip file
-  text_blocks:
-  - code_block: "dsc_resource 'example' do\n   resource :archive\n   property :ensure,\
-      \ 'Present'\n   property :path, 'C:\\Users\\Public\\Documents\\example.zip'\n\
-      \   property :destination, 'C:\\Users\\Public\\Documents\\ExtractionPath'\n\
-      \ end"
-- example_heading: Manage users and groups
-  text_blocks:
-  - code_block: "dsc_resource 'demogroupadd' do\n  resource :group\n  property :groupname,\
-      \ 'demo1'\n  property :ensure, 'present'\nend\n\ndsc_resource 'useradd' do\n\
-      \  resource :user\n  property :username, 'Foobar1'\n  property :fullname, 'Foobar1'\n\
-      \  property :password, ps_credential('P@assword!')\n  property :ensure, 'present'\n\
-      end\n\ndsc_resource 'AddFoobar1ToUsers' do\n  resource :Group\n  property :GroupName,\
-      \ 'demo1'\n  property :MembersToInclude, ['Foobar1']\nend"
-- example_heading: Create and register a windows service
-  text_blocks:
-  - markdown: 'The following example creates a windows service, defines it''s execution
-
-      path, and prevents windows from starting the service in case the
-
-      executable is not at the defined location:'
-  - code_block: "dsc_resource 'NAME' do\n  resource :service\n  property :name, 'NAME'\n\
-      \  property :startuptype, 'Disabled'\n  property :path, 'D:\\\\Sites\\\\Site_name\\\
-      file_to_run.exe'\n  property :ensure, 'Present'\n  property :state, 'Stopped'\n\
-      end"
-- example_heading: Create a test message queue
-  text_blocks:
-  - markdown: 'The following example creates a file on a node (based on one that is
-
-      located in a cookbook), unpacks the `MessageQueue.zip` Windows
-
-      PowerShell module, and then uses the **dsc_resource** to ensure that
-
-      Message Queuing (MSMQ) sub-features are installed, a test queue is
-
-      created, and that permissions are set on the test queue:'
-  - code_block: "cookbook_file 'cMessageQueue.zip' do\n  path \"#{Chef::Config[:file_cache_path]}\\\
-      \\MessageQueue.zip\"\n  action :create_if_missing\nend\n\nwindows_zipfile \"\
-      #{ENV['PROGRAMW6432']}\\\\WindowsPowerShell\\\\Modules\" do\n  source \"#{Chef::Config[:file_cache_path]}\\\
-      \\MessageQueue.zip\"\n  action :unzip\nend\n\ndsc_resource 'install-sub-features'\
-      \ do\n  resource :windowsfeature\n  property :ensure, 'Present'\n  property\
-      \ :name, 'msmq'\n  property :IncludeAllSubFeature, true\nend\n\ndsc_resource\
-      \ 'create-test-queue' do\n  resource :cPrivateMsmqQueue\n  property :ensure,\
-      \ 'Present'\n  property :name, 'Test_Queue'\nend\n\ndsc_resource 'set-permissions'\
-      \ do\n  resource :cPrivateMsmqQueuePermissions\n  property :ensure, 'Present'\n\
-      \  property :name, 'Test_Queue_Permissions'\n  property :QueueNames, 'Test_Queue'\n\
-      \  property :ReadUsers, node['msmq']['read_user']\nend"
-- example_heading: Example to show usage of module properties
-  text_blocks:
-  - code_block: "dsc_resource 'test-cluster' do\n  resource :xCluster\n  module_name\
-      \ 'xFailOverCluster'\n  module_version '1.6.0.0'\n  property :name, 'TestCluster'\n\
-      \  property :staticipaddress, '10.0.0.3'\n  property :domainadministratorcredential,\
-      \ ps_credential('abcd')\nend"
+examples: "
+  Open a Zip file\n\n  ``` ruby\n  dsc_resource 'example' do\n    \
+  \ resource :archive\n     property :ensure, 'Present'\n     property :path, 'C:\\\
+  Users\\Public\\Documents\\example.zip'\n     property :destination, 'C:\\Users\\\
+  Public\\Documents\\ExtractionPath'\n   end\n  ```\n\n  Manage users and groups\n\
+  \n  ``` ruby\n  dsc_resource 'demogroupadd' do\n    resource :group\n    property\
+  \ :groupname, 'demo1'\n    property :ensure, 'present'\n  end\n\n  dsc_resource\
+  \ 'useradd' do\n    resource :user\n    property :username, 'Foobar1'\n    property\
+  \ :fullname, 'Foobar1'\n    property :password, ps_credential('P@assword!')\n  \
+  \  property :ensure, 'present'\n  end\n\n  dsc_resource 'AddFoobar1ToUsers' do\n\
+  \    resource :Group\n    property :GroupName, 'demo1'\n    property :MembersToInclude,\
+  \ ['Foobar1']\n  end\n  ```\n\n  Create and register a windows service\n\n  The\
+  \ following example creates a windows service, defines it's execution\n  path, and\
+  \ prevents windows from starting the service in case the\n  executable is not at\
+  \ the defined location:\n\n  ``` ruby\n  dsc_resource 'NAME' do\n    resource :service\n\
+  \    property :name, 'NAME'\n    property :startuptype, 'Disabled'\n    property\
+  \ :path, 'D:\\\\Sites\\\\Site_name\\file_to_run.exe'\n    property :ensure, 'Present'\n\
+  \    property :state, 'Stopped'\n  end\n  ```\n\n  Create a test message queue\n\
+  \n  The following example creates a file on a node (based on one that is\n  located\
+  \ in a cookbook), unpacks the `MessageQueue.zip` Windows\n  PowerShell module, and\
+  \ then uses the **dsc_resource** to ensure that\n  Message Queuing (MSMQ) sub-features\
+  \ are installed, a test queue is\n  created, and that permissions are set on the\
+  \ test queue:\n\n  ``` ruby\n  cookbook_file 'cMessageQueue.zip' do\n    path \"\
+  #{Chef::Config[:file_cache_path]}\\\\MessageQueue.zip\"\n    action :create_if_missing\n\
+  \  end\n\n  windows_zipfile \"#{ENV['PROGRAMW6432']}\\\\WindowsPowerShell\\\\Modules\"\
+  \ do\n    source \"#{Chef::Config[:file_cache_path]}\\\\MessageQueue.zip\"\n   \
+  \ action :unzip\n  end\n\n  dsc_resource 'install-sub-features' do\n    resource\
+  \ :windowsfeature\n    property :ensure, 'Present'\n    property :name, 'msmq'\n\
+  \    property :IncludeAllSubFeature, true\n  end\n\n  dsc_resource 'create-test-queue'\
+  \ do\n    resource :cPrivateMsmqQueue\n    property :ensure, 'Present'\n    property\
+  \ :name, 'Test_Queue'\n  end\n\n  dsc_resource 'set-permissions' do\n    resource\
+  \ :cPrivateMsmqQueuePermissions\n    property :ensure, 'Present'\n    property :name,\
+  \ 'Test_Queue_Permissions'\n    property :QueueNames, 'Test_Queue'\n    property\
+  \ :ReadUsers, node['msmq']['read_user']\n  end\n  ```\n\n  Example to show usage\
+  \ of module properties\n\n  ``` ruby\n  dsc_resource 'test-cluster' do\n    resource\
+  \ :xCluster\n    module_name 'xFailOverCluster'\n    module_version '1.6.0.0'\n\
+  \    property :name, 'TestCluster'\n    property :staticipaddress, '10.0.0.3'\n\
+  \    property :domainadministratorcredential, ps_credential('abcd')\n  end\n  ```\n"
 
 ---

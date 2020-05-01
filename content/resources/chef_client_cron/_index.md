@@ -37,9 +37,9 @@ menu:
     identifier: chef_infra/cookbook_reference/resources/chef_client_cron chef_client_cron
     parent: chef_infra/cookbook_reference/resources
 resource_description_list:
-- markdown: Use the chef_client_cron resource to setup the Chef Infra Client to run
-    as a cron job. This resource will also create the specified log directory if it
-    doesn't already exist.
+- markdown: Use the **chef_client_cron** resource to setup the Chef Infra Client to
+    run as a cron job. This resource will also create the specified log directory
+    if it doesn't already exist.
 resource_new_in: '16.0'
 syntax_full_code_block: |-
   chef_client_cron 'name' do
@@ -73,6 +73,13 @@ syntax_full_properties_list:
   `daemon_options`, `day`, `environment`, `hour`, `job_name`, `log_directory`, `log_file_name`,
   `mailto`, `minute`, `month`, `splay`, `user`, and `weekday` are the properties available
   to this resource."
+actions_list:
+  :add:
+    markdown: Add a cron job to run Chef Infra Client 
+  :nothing:
+    shortcode: resources_common_actions_nothing.md
+  :remove:
+    markdown: Remove a cron job for Chef Infra Client
 properties_list:
 - property: accept_chef_license
   ruby_type: true, false
@@ -187,4 +194,27 @@ properties_list:
   description_list:
   - markdown: The day of the week on which Chef Infra Client is to run (0-7, mon-sun,
       or *), where Sunday is both 0 and 7.
+examples: |
+  **Setup Chef Infra Client to run using the default 30 minute cadence**:
+
+  ```ruby
+  chef_client_cron "Run Chef Infra Client as a cron job"
+  ```
+
+  **Run Chef Infra Client twice a day**:
+
+  ```ruby
+  chef_client_cron "Run Chef Infra Client every 12 hours" do
+    minute 0
+    hour "0,12"
+  end
+  ```
+
+  **Run Chef Infra Client with extra options passed to the client**:
+
+  ```ruby
+  chef_client_cron "Run an override recipe" do
+    daemon_options ["--override-runlist mycorp_base::default"]
+  end
+  ```
 ---

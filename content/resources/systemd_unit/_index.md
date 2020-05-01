@@ -1,40 +1,63 @@
 ---
+resource_reference: true
+common_resource_functionality_multiple_packages: false
+common_resource_functionality_resources_common_windows_security: false
+cookbook_file_specificity: false
+debug_recipes_chef_shell: false
+handler_custom: false
+handler_types: false
+nameless_apt_update: false
+nameless_build_essential: false
+properties_multiple_packages: false
+properties_resources_common_windows_security: false
+properties_shortcode: 
+ps_credential_helper: false
+registry_key: false
+remote_directory_recursive_directories: false
+remote_file_prevent_re_downloads: false
+remote_file_unc_path: false
+resource_directory_recursive_directories: false
+resource_package_options: false
+resources_common_atomic_update: false
+resources_common_guard_interpreter: false
+resources_common_guards: true
+resources_common_notification: true
+resources_common_properties: true
+ruby_style_basics_chef_log: false
+syntax_shortcode: 
+template_requirements: false
+unit_file_verification: true
 title: systemd_unit resource
 resource: systemd_unit
-draft: false
 aliases:
-- /resource_systemd_unit.html
+- "/resource_systemd_unit.html"
 menu:
   infra:
     title: systemd_unit
     identifier: chef_infra/cookbook_reference/resources/systemd_unit systemd_unit
     parent: chef_infra/cookbook_reference/resources
-
-resource_reference: true
-robots: null
 resource_description_list:
 - markdown: 'Use the **systemd_unit** resource to create, manage, and run [systemd
 
     units](https://www.freedesktop.org/software/systemd/man/systemd.html#Concepts).'
 resource_new_in: '12.11'
-handler_types: false
-syntax_code_block: null
-syntax_properties_list: null
-syntax_full_code_block: "systemd_unit 'name.service' do\n  content               \
-  \ String or Hash\n  user                   String\n  triggers_reload        Boolean\n\
-  end"
+syntax_full_code_block: |-
+  systemd_unit 'name' do
+    content              String, Hash
+    triggers_reload      true, false # default value: true
+    unit_name            String # default value: 'name' unless specified
+    user                 String
+    verify               true, false # default value: true
+    action               Symbol # defaults to :nothing if not specified
+  end
+syntax_properties_list: 
 syntax_full_properties_list:
-- '`systemd_unit` is the resource.'
-- '`name` is the name of the unit. Must include the type/suffix (e.g. <span class="title-ref">name.socket</span>
-  or <span class="title-ref">name.service</span>).'
-- '`user` is the user account that systemd units run under. If not specified, systemd
-  units will run under the system account.'
-- '`content` describes the behavior of the unit'
-syntax_shortcode: null
-registry_key: false
-nameless_apt_update: false
-nameless_build_essential: false
-resource_package_options: false
+- "`systemd_unit` is the resource."
+- "`name` is the name given to the resource block."
+- "`action` identifies which steps Chef Infra Client will take to bring the node into
+  the desired state."
+- "`content`, `triggers_reload`, `unit_name`, `user`, and `verify` are the properties
+  available to this resource."
 actions_list:
   :create:
     markdown: Create a unit file, if it does not already exist.
@@ -79,73 +102,51 @@ properties_list:
 - property: content
   ruby_type: String, Hash
   required: false
-  default_value: null
-  new_in: null
   description_list:
-  - markdown: 'A string or hash that contains a systemd [unit file](https://www.freedesktop.org/software/systemd/man/systemd.unit.html) definition that describes the properties of systemd-managed entities, such as services, sockets, devices, and so on. In Chef Infra Client 14.4 or later, repeatable options can be implemented with an array.'
+  - markdown: A string or hash that contains a systemd [unit file](https://www.freedesktop.org/software/systemd/man/systemd.unit.html)
+      definition that describes the properties of systemd-managed entities, such as
+      services, sockets, devices, and so on. In Chef Infra Client 14.4 or later, repeatable
+      options can be implemented with an array.
 - property: triggers_reload
   ruby_type: true, false
   required: false
   default_value: 'true'
-  new_in: null
   description_list:
-  - markdown: 'Specifies whether to trigger a daemon reload when creating or deleting a unit.'
+  - markdown: Specifies whether to trigger a daemon reload when creating or deleting
+      a unit.
 - property: unit_name
   ruby_type: String
   required: false
   default_value: The resource block's name
   new_in: '13.7'
   description_list:
-  - markdown: 'The name of the unit file if it differs from the resource block''s name.'
+  - markdown: The name of the unit file if it differs from the resource block's name.
 - property: user
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
   description_list:
-  - markdown: 'The user account that the systemd unit process is run under. The path to the unit for that user would be something like `/etc/systemd/user/sshd.service`. If no user account is specified, the systemd unit will run under a `system` account, with the path to the unit being something like `/etc/systemd/system/sshd.service`.'
+  - markdown: The user account that the systemd unit process is run under. The path
+      to the unit for that user would be something like '/etc/systemd/user/sshd.service'.
+      If no user account is specified, the systemd unit will run under a 'system'
+      account, with the path to the unit being something like '/etc/systemd/system/sshd.service'.
 - property: verify
   ruby_type: true, false
   required: false
   default_value: 'true'
-  new_in: null
   description_list:
   - markdown: 'Specifies if the unit will be verified before installation. Systemd can be overly strict when verifying units, so in certain cases it is preferable not to verify the unit.'
-properties_shortcode: null
-properties_multiple_packages: false
-resource_directory_recursive_directories: false
-resources_common_atomic_update: false
-properties_resources_common_windows_security: false
-remote_file_prevent_re_downloads: false
-remote_file_unc_path: false
-ps_credential_helper: false
-ruby_style_basics_chef_log: false
-debug_recipes_chef_shell: false
-template_requirements: false
-resources_common_properties: true
-resources_common_notification: true
-resources_common_guards: true
-common_resource_functionality_multiple_packages: false
-resources_common_guard_interpreter: false
-remote_directory_recursive_directories: false
-common_resource_functionality_resources_common_windows_security: false
-handler_custom: false
-cookbook_file_specificity: false
-unit_file_verification: true
-examples_list:
-- example_heading: Create etcd systemd service unit file from a Hash
-  text_blocks:
-  - code_block: "systemd_unit 'etcd.service' do\n  content({Unit: {\n            Description:\
-      \ 'Etcd',\n            Documentation: ['https://coreos.com/etcd', 'man:etcd(1)'],\n\
-      \            After: 'network.target',\n          },\n          Service: {\n\
-      \            Type: 'notify',\n            ExecStart: '/usr/local/etcd',\n  \
-      \          Restart: 'always',\n          },\n          Install: {\n        \
-      \    WantedBy: 'multi-user.target',\n          }})\n  action [:create, :enable]\nend"
-- example_heading: Create etcd systemd service unit file from a String
-  text_blocks:
-  - code_block: "systemd_unit 'sysstat-collect.timer' do\n  content <<-EOU.gsub(/^\\s+/, '')\n  [Unit]\n\
-  \  Description=Run system activity accounting tool every 10 minutes\n\n  [Timer]\n\
-  \  OnCalendar=*:00/10\n\n  [Install]\n  WantedBy=sysstat.service\n  EOU\n\n  action\
-  \ [:create, :enable]\nend\n```"
+examples: "
+  Create etcd systemd service unit file from a Hash\n\n  ``` ruby\n\
+  \  systemd_unit 'etcd.service' do\n    content({Unit: {\n              Description:\
+  \ 'Etcd',\n              Documentation: ['https://coreos.com/etcd', 'man:etcd(1)'],\n\
+  \              After: 'network.target',\n            },\n            Service: {\n\
+  \              Type: 'notify',\n              ExecStart: '/usr/local/etcd',\n  \
+  \            Restart: 'always',\n            },\n            Install: {\n      \
+  \        WantedBy: 'multi-user.target',\n            }})\n    action [:create, :enable]\n\
+  \  end\n  ```\n\n  Create etcd systemd service unit file from a String\n\n  ```\
+  \ ruby\n  systemd_unit 'sysstat-collect.timer' do\n    content <<-EOU.gsub(/^\\\
+  s+/, '')\n    [Unit]\n    Description=Run system activity accounting tool every\
+  \ 10 minutes\n\n    [Timer]\n    OnCalendar=*:00/10\n\n    [Install]\n    WantedBy=sysstat.service\n\
+  \    EOU\n\n    action [:create, :enable]\n  end\n  ```\n  ```\n"
 
 ---

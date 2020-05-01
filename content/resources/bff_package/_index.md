@@ -37,13 +37,9 @@ menu:
     identifier: chef_infra/cookbook_reference/resources/bff_package bff_package
     parent: chef_infra/cookbook_reference/resources
 resource_description_list:
-- markdown: 'Use the **bff_package** resource to manage packages for the AIX
-
-    platform using the installp utility. When a package is installed from a
-
-    local file, it must be added to the node using the **remote_file** or
-
-    **cookbook_file** resources.'
+- markdown: Use the **bff_package** resource to manage packages for the AIX platform
+    using the installp utility. When a package is installed from a local file, it
+    must be added to the node using the **remote_file** or **cookbook_file** resources.
 - note:
     markdown: 'A Backup File Format (BFF) package may not have a `.bff` file extension.
 
@@ -85,11 +81,6 @@ syntax_full_properties_list:
   the desired state."
 - "`options`, `package_name`, `source`, `timeout`, and `version` are the properties
   available to this resource."
-syntax_shortcode: null
-registry_key: false
-nameless_apt_update: false
-nameless_build_essential: false
-resource_package_options: false
 actions_list:
   :install:
     markdown: Default. Install a package. If a version is specified, install the specified
@@ -132,26 +123,15 @@ properties_list:
   required: false
   description_list:
   - markdown: The version of a package to be installed or upgraded.
-examples_list:
-- example_heading: Install a package
-  text_blocks:
-  - markdown: 'The **bff_package** resource is the default package provider on the
-      AIX
-
-      platform. The base **package** resource may be used, and then when the
-
-      platform is AIX, Chef Infra Client will identify the correct package
-
-      provider. The following examples show how to install part of the IBM XL
-
-      C/C++ compiler.
-
-
-      Using the base **package** resource:'
-  - code_block: "package 'xlccmp.13.1.0' do\n  source '/var/tmp/IBM_XL_C_13.1.0/usr/sys/inst.images/xlccmp.13.1.0'\n\
-      \  action :install\nend"
-  - markdown: 'Using the **bff_package** resource:'
-  - code_block: "bff_package 'xlccmp.13.1.0' do\n  source '/var/tmp/IBM_XL_C_13.1.0/usr/sys/inst.images/xlccmp.13.1.0'\n\
-      \  action :install\nend"
+examples: "
+  Install a package\n\n  The **bff_package** resource is the default\
+  \ package provider on the AIX\n  platform. The base **package** resource may be\
+  \ used, and then when the\n  platform is AIX, Chef Infra Client will identify the\
+  \ correct package\n  provider. The following examples show how to install part of\
+  \ the IBM XL\n  C/C++ compiler.\n\n  Using the base **package** resource:\n\n  ```\
+  \ ruby\n  package 'xlccmp.13.1.0' do\n    source '/var/tmp/IBM_XL_C_13.1.0/usr/sys/inst.images/xlccmp.13.1.0'\n\
+  \    action :install\n  end\n  ```\n\n  Using the **bff_package** resource:\n\n\
+  \  ``` ruby\n  bff_package 'xlccmp.13.1.0' do\n    source '/var/tmp/IBM_XL_C_13.1.0/usr/sys/inst.images/xlccmp.13.1.0'\n\
+  \    action :install\n  end\n  ```\n"
 
 ---

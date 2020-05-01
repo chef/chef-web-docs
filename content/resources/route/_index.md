@@ -9,7 +9,6 @@ menu:
     title: route
     identifier: chef_infra/cookbook_reference/resources/route route
     parent: chef_infra/cookbook_reference/resources
-
 resource_reference: true
 robots: null
 resource_description_list:
@@ -119,17 +118,11 @@ common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false
 unit_file_verification: false
-examples_list:
-- example_heading: Add a host route
-  text_blocks:
-  - code_block: "route '10.0.1.10/32' do\n  gateway '10.0.0.20'\n  device 'eth1'\n\
-      end"
-- example_heading: Add a default route
-  text_blocks:
-  - code_block: "route 'default' do\n  gateway '10.0.0.20'\nend"
-- example_heading: Delete a network route
-  text_blocks:
-  - code_block: "route '10.1.1.0/24' do\n  gateway '10.0.0.20'\n  action :delete\n\
-      end"
+examples: "
+  Add a host route\n\n  ``` ruby\n  route '10.0.1.10/32' do\n    gateway\
+  \ '10.0.0.20'\n    device 'eth1'\n  end\n  ```\n\n  Add a default route\n\n  ```\
+  \ ruby\n  route 'default' do\n    gateway '10.0.0.20'\n  end\n  ```\n\n  Delete\
+  \ a network route\n\n  ``` ruby\n  route '10.1.1.0/24' do\n    gateway '10.0.0.20'\n\
+  \    action :delete\n  end\n  ```\n"
 
 ---

@@ -25,75 +25,75 @@
             {{ partial "resource_list_toc" . }}
           </div>
         </div>
-          
+
         <div id="main-content" class="cell off-canvas-content cell auto" data-off-canvas-content>
-        
+
           <main id="main-content-col" tabindex="-1">
             <div class="col-content">
 
             <h1 id="{{ anchorize ( .Title )}}">{{ .Title }}</h1>
-            
+
             <button type="button" class="TOC-button hide-for-large" data-toggle="offCanvasRightTOC"
               data-close="left-nav-off-canvas">
               <i class="fas fa-bars"></i> Table of Contents
             </button>
 
             <div class="prose">
-							<p><a href="/resources/">Resources Reference page</a></p>
-            
-							<hr>
-							{{ if .Params.resource_description_list }}
-								{{ range .Params.resource_description_list }}
-									{{ range $key, $value := . }}
-										{{ if eq $key "markdown" }}
-											<p>{{- $value | markdownify -}}</p>
-										{{ end }}
-										{{ if eq $key "note" }}
-											<div class="admonition-note">
-												<p class="admonition-note-title">Note</p>
-												<div class="admonition-note-text">
-													{{ range $subkey, $subvalue := $value }}
-														{{ if eq $subkey "markdown" }}
-															<p>
-																{{- $subvalue | markdownify -}}
-															</p>
-														{{ end }}
-														{{ if eq $subkey "shortcode" }}
-															<p>
-																{{ readFile (delimit (slice `layouts/shortcodes/` $subvalue ) "") | markdownify }}
-															</p>
-														{{ end }}
-													{{ end }}
-												</div>
-											</div>
-										{{ end }}
-										{{ if eq $key "warning" }}
-										<div class="admonition-warning">
-											<p class="admonition-warning-title">Warning</p>
-											<div class="admonition-warning-text">
-												{{ range $subkey, $subvalue := $value }}
-													{{ if eq $subkey "markdown" }}
-														<p>
-															{{- $subvalue | markdownify -}}
-														</p>
-													{{ end }}
-													{{ if eq $subkey "shortcode" }}
-														<p>
-															{{ readFile (delimit (slice `layouts/shortcodes/` $subvalue ) "") | markdownify }}
-														</p>
-													{{ end }}
-												{{ end }}
-											</div>
-										</div>
-										{{ end }}
-										{{ if eq $key "shortcode" }}
-											<p>
-												{{ readFile (delimit (slice `layouts/shortcodes/` $value ) "") | markdownify }}
-											</p>
-										{{ end }}
-									{{ end }}
-								{{ end }}
-							{{ end }}
+              <p><a href="/resources/">Resources Reference page</a></p>
+
+              <hr>
+              {{ if .Params.resource_description_list }}
+                {{ range .Params.resource_description_list }}
+                  {{ range $key, $value := . }}
+                    {{ if eq $key "markdown" }}
+                      <p>{{- $value | markdownify -}}</p>
+                    {{ end }}
+                    {{ if eq $key "note" }}
+                      <div class="admonition-note">
+                        <p class="admonition-note-title">Note</p>
+                        <div class="admonition-note-text">
+                          {{ range $subkey, $subvalue := $value }}
+                            {{ if eq $subkey "markdown" }}
+                              <p>
+                                {{- $subvalue | markdownify -}}
+                              </p>
+                            {{ end }}
+                            {{ if eq $subkey "shortcode" }}
+                              <p>
+                                {{ readFile (delimit (slice `layouts/shortcodes/` $subvalue ) "") | markdownify }}
+                              </p>
+                            {{ end }}
+                          {{ end }}
+                        </div>
+                      </div>
+                    {{ end }}
+                    {{ if eq $key "warning" }}
+                    <div class="admonition-warning">
+                      <p class="admonition-warning-title">Warning</p>
+                      <div class="admonition-warning-text">
+                        {{ range $subkey, $subvalue := $value }}
+                          {{ if eq $subkey "markdown" }}
+                            <p>
+                              {{- $subvalue | markdownify -}}
+                            </p>
+                          {{ end }}
+                          {{ if eq $subkey "shortcode" }}
+                            <p>
+                              {{ readFile (delimit (slice `layouts/shortcodes/` $subvalue ) "") | markdownify }}
+                            </p>
+                          {{ end }}
+                        {{ end }}
+                      </div>
+                    </div>
+                    {{ end }}
+                    {{ if eq $key "shortcode" }}
+                      <p>
+                        {{ readFile (delimit (slice `layouts/shortcodes/` $value ) "") | markdownify }}
+                      </p>
+                    {{ end }}
+                  {{ end }}
+                {{ end }}
+              {{ end }}
 
               {{ if and ( ne .Params.resource_new_in "" ) ( .Params.resource_new_in )}}
                 <p><strong>New in Chef Infra Client {{ .Params.resource_new_in }}.</strong></p>
@@ -125,42 +125,42 @@
 
               <!-------------- Syntax ------------------->
 
-              
+
               <h2 id = "syntax">Syntax</h2>
               <hr>
 
-							<p>{{ .Params.syntax_description | markdownify }}</p>
-							
-							{{ if .Params.syntax_code_block }}
-								<p>{{- highlight .Params.syntax_code_block "ruby" "" -}}</p>
-							{{ end }}
-							
-							{{ if .Params.syntax_properties_list }}
-								<p>where:</p>
-								<ul>
-									{{ range .Params.syntax_properties_list }}
-									<li>{{ . | markdownify }}</li>
-									{{ end }}
-								</ul>
-							{{ end }}
-							
-							{{ if .Params.syntax_full_code_block }}
-								<p>The full syntax for all of the properties that are available to the <strong>{{ .Params.resource }}</strong> resource is:</p>
-								<p>{{- highlight ( trim .Params.syntax_full_code_block "\n") "ruby" "" -}}</p>
-							{{ end }}
-							
-							{{ if .Params.syntax_full_properties_list }}
-								<p>where:</p>
-								<ul>
-									{{ range .Params.syntax_full_properties_list }}
-									<li>{{ . | markdownify }}</li>
-									{{ end }}
-								</ul>
-							{{ end }}
-							
-							{{ if .Params.syntax_shortcode}}
-								{{ readFile (delimit (slice `layouts/shortcodes/` .Params.syntax_shortcode ) "") | markdownify }}
-							{{ end }}
+              <p>{{ .Params.syntax_description | markdownify }}</p>
+
+              {{ if .Params.syntax_code_block }}
+                <p>{{- highlight .Params.syntax_code_block "ruby" "" -}}</p>
+              {{ end }}
+
+              {{ if .Params.syntax_properties_list }}
+                <p>where:</p>
+                <ul>
+                  {{ range .Params.syntax_properties_list }}
+                  <li>{{ . | markdownify }}</li>
+                  {{ end }}
+                </ul>
+              {{ end }}
+
+              {{ if .Params.syntax_full_code_block }}
+                <p>The full syntax for all of the properties that are available to the <strong>{{ .Params.resource }}</strong> resource is:</p>
+                <p>{{- highlight ( trim .Params.syntax_full_code_block "\n") "ruby" "" -}}</p>
+              {{ end }}
+
+              {{ if .Params.syntax_full_properties_list }}
+                <p>where:</p>
+                <ul>
+                  {{ range .Params.syntax_full_properties_list }}
+                  <li>{{ . | markdownify }}</li>
+                  {{ end }}
+                </ul>
+              {{ end }}
+
+              {{ if .Params.syntax_shortcode}}
+                {{ readFile (delimit (slice `layouts/shortcodes/` .Params.syntax_shortcode ) "") | markdownify }}
+              {{ end }}
 
               {{ if .Params.registry_key }}
                 <h3 id="windows_registry_key_backslashes">Registry Key Path Separators</h3>
@@ -181,11 +181,11 @@
                         {{ $shortcode_text.Get "text" | markdownify }}
                         {{ $shortcode_text.Set "text" "" }}
                       {{ end }}
-                      
+
                       <p>
                         {{ readFile (. | replaceRE `{{ readFile \"(layouts\/shortcodes\/\w+\.md)\" \| markdownify }}` "$1" ) | markdownify }}
                       </p>
-                      
+
                     {{ else }}
                       {{ $shortcode_text.Add "text" . }}
                       {{ $shortcode_text.Add "text" "\n" }}
@@ -208,11 +208,11 @@
                         {{ $shortcode_text.Get "text" | markdownify }}
                         {{ $shortcode_text.Set "text" "" }}
                       {{ end }}
-                      
+
                       <p>
                         {{ readFile (. | replaceRE `{{ readFile \"(layouts\/shortcodes\/\w+\.md)\" \| markdownify }}` "$1" ) | markdownify }}
                       </p>
-                      
+
                     {{ else }}
                       {{ $shortcode_text.Add "text" . }}
                       {{ $shortcode_text.Add "text" "\n" }}
@@ -235,11 +235,11 @@
                         {{ $shortcode_text.Get "text" | markdownify }}
                         {{ $shortcode_text.Set "text" "" }}
                       {{ end }}
-                      
+
                       <p>
                         {{ readFile (. | replaceRE `{{ readFile \"(layouts\/shortcodes\/\w+\.md)\" \| markdownify }}` "$1" ) | markdownify }}
                       </p>
-                      
+
                     {{ else }}
                       {{ $shortcode_text.Add "text" . }}
                       {{ $shortcode_text.Add "text" "\n" }}
@@ -262,11 +262,11 @@
                         {{ $shortcode_text.Get "text" | markdownify }}
                         {{ $shortcode_text.Set "text" "" }}
                       {{ end }}
-                      
+
                       <p>
                         {{ readFile (. | replaceRE `{{ readFile \"(layouts\/shortcodes\/\w+\.md)\" \| markdownify }}` "$1" ) | markdownify }}
                       </p>
-                      
+
                     {{ else }}
                       {{ $shortcode_text.Add "text" . }}
                       {{ $shortcode_text.Add "text" "\n" }}
@@ -289,11 +289,11 @@
                         {{ $shortcode_text.Get "text" | markdownify }}
                         {{ $shortcode_text.Set "text" "" }}
                       {{ end }}
-                      
+
                       <p>
                         {{ readFile (. | replaceRE `{{ readFile \"(layouts\/shortcodes\/\w+\.md)\" \| markdownify }}` "$1" ) | markdownify }}
                       </p>
-                      
+
                     {{ else }}
                       {{ $shortcode_text.Add "text" . }}
                       {{ $shortcode_text.Add "text" "\n" }}
@@ -316,11 +316,11 @@
                         {{ $shortcode_text.Get "text" | markdownify }}
                         {{ $shortcode_text.Set "text" "" }}
                       {{ end }}
-                      
+
                       <p>
                         {{ readFile (. | replaceRE `{{ readFile \"(layouts\/shortcodes\/\w+\.md)\" \| markdownify }}` "$1" ) | markdownify }}
                       </p>
-                      
+
                     {{ else }}
                       {{ $shortcode_text.Add "text" . }}
                       {{ $shortcode_text.Add "text" "\n" }}
@@ -339,7 +339,7 @@
               {{ if .Params.nameless_apt_update }}
                   {{ readFile "layouts/shortcodes/nameless_apt_update.md" | markdownify }}
               {{ end }}
-              
+
               {{ if .Params.nameless_build_essential }}
                   {{ readFile "layouts/shortcodes/nameless_build_essential.md" | markdownify }}
               {{ end }}
@@ -373,122 +373,122 @@
                 <hr>
 
                 <p>The {{ .Title }} has the following actions:</p>
-								<dl>
-									{{ range $key, $value := .Params.actions_list }}
-										<dt><code>{{ $key | markdownify }}</code></dt>
-										{{ range $subkey, $subvalue := $value }}
-											{{ if eq $subkey "shortcode" }}
-												<dd>{{ readFile (delimit (slice `layouts/shortcodes/` $subvalue ) "") | markdownify }}</dd>
-											{{ end }}
-											{{ if eq $subkey "markdown" }}
-												<dd>{{- $subvalue | markdownify -}}</dd>
-											{{ end }}
-										{{ end }}
-	                {{ end }}
-								</dl>
+                <dl>
+                  {{ range $key, $value := .Params.actions_list }}
+                    <dt><code>{{ $key | markdownify }}</code></dt>
+                    {{ range $subkey, $subvalue := $value }}
+                      {{ if eq $subkey "shortcode" }}
+                        <dd>{{ readFile (delimit (slice `layouts/shortcodes/` $subvalue ) "") | markdownify }}</dd>
+                      {{ end }}
+                      {{ if eq $subkey "markdown" }}
+                        <dd>{{- $subvalue | markdownify -}}</dd>
+                      {{ end }}
+                    {{ end }}
+                  {{ end }}
+                </dl>
               {{ end }}
 
               <!-------------- Properties ------------------->
 
               <h2 id = "properties">Properties</h2>
               <hr>
-							{{ if or .Params.properties_shortcode .Params.properties_list }}
-								{{ if .Params.properties_list }}
+              {{ if or .Params.properties_shortcode .Params.properties_list }}
+                {{ if .Params.properties_list }}
                   <p>The <strong>{{ .Params.resource }}</strong> resource has the following properties:</p>
                   {{ range .Params.properties_list }}
                     <dl>
                       {{ if and (.property) (ne .property nil) }}
-												<dt>
-													<code>{{ .property }}</code>
-												</dt>
+                        <dt>
+                          <code>{{ .property }}</code>
+                        </dt>
                       {{ end }}
-											
-											<dd>
-												{{ if ne .ruby_type nil }}
+
+                      <dd>
+                        {{ if ne .ruby_type nil }}
                                 <strong>Ruby Type:</strong> {{ .ruby_type }} {{ if .default_value }}| <strong>Default Value:</strong> <code>{{ .default_value }}</code>{{ end }} {{ if .required }}| <code>REQUIRED</code>{{ end }}
                                 {{ if .allowed_values }}</br><strong>Allowed Values:</strong> <code>{{ .allowed_values }}</code>{{ end }}
-		                      </p>
-		                    {{ end }}
+                          </p>
+                        {{ end }}
 
-												{{ range .description_list }}
-													{{ range $key, $value :=  . }}
-														{{ if eq $key "markdown" }}
-															<p>{{- $value | markdownify -}}</p>
-														{{ end }}
-														
-														{{ if eq $key "note" }}
-															<div class="admonition-note">
-																<p class="admonition-note-title">Note</p>
-																<div class="admonition-note-text">
-																	{{ range $value }}
-																		{{ range $subkey, $subvalue := . }}
-																			{{ if eq $subkey "shortcode" }}
-																				<p>
-																					{{ readFile (delimit (slice `layouts/shortcodes/` $subvalue ) "") | markdownify }}
-																				</p>
-																			{{ end }}
-																			{{ if eq $subkey "markdown" }}
-																				<p>{{- $subvalue | markdownify -}}</p>
-																			{{ end }}
-																		{{ end }}
-																	{{ end }}
-																</div>
-															</div>
-														{{ end }}
-														{{ if eq $key "warning" }}
-															<div class="admonition-warning">
-																<p class="admonition-warning-title">Warning</p>
-																<div class="admonition-warning-text">
-																	{{ range $value }}
-																		{{ range $subkey, $subvalue := . }}
-																			{{ if eq $subkey "shortcode" }}
-																				<p>
-																					{{ readFile (delimit (slice `layouts/shortcodes/` $subvalue ) "") | markdownify }}																				
-																				</p>
-																			{{ end }}
-																			{{ if eq $subkey "markdown" }}
-																				<p>
-																					{{- $subvalue | markdownify -}}																				
-																				</p>
-																			{{ end }}
-																		{{ end }}
-																	{{ end }}
-																</div>
-															</div>
-														{{ end }}
-														{{ if eq $key "shortcode" }}
-															<p>
-																{{ readFile (delimit (slice `layouts/shortcodes/` $value ) "") | markdownify }}
-															</p>
-														{{ end }}
-													{{ end }}
-												{{ end }}
+                        {{ range .description_list }}
+                          {{ range $key, $value :=  . }}
+                            {{ if eq $key "markdown" }}
+                              <p>{{- $value | markdownify -}}</p>
+                            {{ end }}
 
-		                    {{ if and (.new_in) (ne .new_in nil) }}
-		                      <p>
-														{{ if ge .new_in 15 }}
-		                      		New in Chef Infra Client {{ .new_in }}
-														{{ else }}
-															New in Chef Client {{ .new_in }}
-														{{ end }}
-		                      </p>
-		                    {{ end }}
-												{{ if and (.note) (ne .note nil) }}
-													<div class="admonition-note">
-														<p class="admonition-note-title">Note</p>
-														<div class="admonition-note-text">{{- .note | markdownify -}}</div>
-													</div>
-												{{ end }}
-											</dd>
+                            {{ if eq $key "note" }}
+                              <div class="admonition-note">
+                                <p class="admonition-note-title">Note</p>
+                                <div class="admonition-note-text">
+                                  {{ range $value }}
+                                    {{ range $subkey, $subvalue := . }}
+                                      {{ if eq $subkey "shortcode" }}
+                                        <p>
+                                          {{ readFile (delimit (slice `layouts/shortcodes/` $subvalue ) "") | markdownify }}
+                                        </p>
+                                      {{ end }}
+                                      {{ if eq $subkey "markdown" }}
+                                        <p>{{- $subvalue | markdownify -}}</p>
+                                      {{ end }}
+                                    {{ end }}
+                                  {{ end }}
+                                </div>
+                              </div>
+                            {{ end }}
+                            {{ if eq $key "warning" }}
+                              <div class="admonition-warning">
+                                <p class="admonition-warning-title">Warning</p>
+                                <div class="admonition-warning-text">
+                                  {{ range $value }}
+                                    {{ range $subkey, $subvalue := . }}
+                                      {{ if eq $subkey "shortcode" }}
+                                        <p>
+                                          {{ readFile (delimit (slice `layouts/shortcodes/` $subvalue ) "") | markdownify }}
+                                        </p>
+                                      {{ end }}
+                                      {{ if eq $subkey "markdown" }}
+                                        <p>
+                                          {{- $subvalue | markdownify -}}
+                                        </p>
+                                      {{ end }}
+                                    {{ end }}
+                                  {{ end }}
+                                </div>
+                              </div>
+                            {{ end }}
+                            {{ if eq $key "shortcode" }}
+                              <p>
+                                {{ readFile (delimit (slice `layouts/shortcodes/` $value ) "") | markdownify }}
+                              </p>
+                            {{ end }}
+                          {{ end }}
+                        {{ end }}
+
+                        {{ if and (.new_in) (ne .new_in nil) }}
+                          <p>
+                            {{ if ge .new_in 15 }}
+                              New in Chef Infra Client {{ .new_in }}
+                            {{ else }}
+                              New in Chef Client {{ .new_in }}
+                            {{ end }}
+                          </p>
+                        {{ end }}
+                        {{ if and (.note) (ne .note nil) }}
+                          <div class="admonition-note">
+                            <p class="admonition-note-title">Note</p>
+                            <div class="admonition-note-text">{{- .note | markdownify -}}</div>
+                          </div>
+                        {{ end }}
+                      </dd>
                     </dl>
-										{{ end }}
-									{{ end }}
-									{{ if .Params.properties_shortcode }}
-										{{ readFile (delimit (slice `layouts/shortcodes/` .Params.properties_shortcode ) "") | markdownify }}
-									{{ end }}
-								{{ else }}
-									<p>This resource does not have any properties.</p>
-								{{ end }}
+                    {{ end }}
+                  {{ end }}
+                  {{ if .Params.properties_shortcode }}
+                    {{ readFile (delimit (slice `layouts/shortcodes/` .Params.properties_shortcode ) "") | markdownify }}
+                  {{ end }}
+                {{ else }}
+                  <p>This resource does not have any properties.</p>
+                {{ end }}
 
               {{ if .Params.properties_multiple_packages }}
                 <h3 id="multiple-packages">Multiple Packages</h3>
@@ -631,120 +631,120 @@
 
               {{ end }}
 
-							<!------------------ Unit File Verification ---------------------->
+              <!------------------ Unit File Verification ---------------------->
 
-							{{ if .Params.unit_file_verification }}
-								<h2 id="unit_file_verification">Unit file verification</h2>
-								{{ readFile "layouts/shortcodes/unit_file_verification.md" | markdownify }}
-							{{ end }}
+              {{ if .Params.unit_file_verification }}
+                <h2 id="unit_file_verification">Unit file verification</h2>
+                {{ readFile "layouts/shortcodes/unit_file_verification.md" | markdownify }}
+              {{ end }}
 
               <!-------------- Common Resource Functionality ------------------->
 
 
-							{{ if or (.Params.resources_common_properties ) ( .Params.resources_common_notification ) ( .Params.resources_common_guards ) ( .Params.common_resource_functionality_multiple_packages ) (  .Params.resources_common_guard_interpreter ) (  .Params.remote_directory_recursive_directories ) ( .Params.common_resource_functionality_resources_common_windows_security )}}
-	              <br>
-	              <h2 id = "functionality">Common Resource Functionality</h2>
-	              <hr>
+              {{ if or (.Params.resources_common_properties ) ( .Params.resources_common_notification ) ( .Params.resources_common_guards ) ( .Params.common_resource_functionality_multiple_packages ) (  .Params.resources_common_guard_interpreter ) (  .Params.remote_directory_recursive_directories ) ( .Params.common_resource_functionality_resources_common_windows_security )}}
+                <br>
+                <h2 id = "functionality">Common Resource Functionality</h2>
+                <hr>
 
-	              <p>Chef resources include common properties, notifications, and resource guards.</p>
+                <p>Chef resources include common properties, notifications, and resource guards.</p>
 
-	              {{ if .Params.resources_common_properties }}
-	                <h3 id="resources_common_properties">Common Properties</h3>
+                {{ if .Params.resources_common_properties }}
+                  <h3 id="resources_common_properties">Common Properties</h3>
 
-	                {{ readFile "layouts/shortcodes/resources_common_properties.md" | markdownify }}
+                  {{ readFile "layouts/shortcodes/resources_common_properties.md" | markdownify }}
 
-	              {{ end }}
+                {{ end }}
 
-	              {{ if .Params.resources_common_notification }}
-	                <h3 id="resources_common_notifications">Notifications</h3>
+                {{ if .Params.resources_common_notification }}
+                  <h3 id="resources_common_notifications">Notifications</h3>
 
-									<dl>
-										<dt>
-											<code>notifies</code>
-										</dt>
-										<dd>
-											<p><strong>Ruby Type:</strong> Symbol, 'Chef::Resource[String]'</p>
-											{{ readFile "layouts/shortcodes/resources_common_notification_notifies.md" | markdownify }}
-										</dd>
-									</dl>
-									
-									{{ readFile "layouts/shortcodes/resources_common_notification_timers.md" | markdownify  }}
-									{{ readFile "layouts/shortcodes/resources_common_notification_notifies_syntax.md" | markdownify }}
-									
-									<dl>
-										<dt>
-											<code>subscribes</code>
-										</dt>
-										<dd>
-											<p><strong>Ruby Type:</strong>  Symbol, 'Chef::Resource[String]'</p>
-										</dd>
-									</dl>
-									{{ readFile "layouts/shortcodes/resources_common_notification_subscribes.md" | markdownify }}
-									{{ readFile "layouts/shortcodes/resources_common_notification_timers.md" | markdownify }}
-									{{ readFile "layouts/shortcodes/resources_common_notification_subscribes_syntax.md" | markdownify }}
+                  <dl>
+                    <dt>
+                      <code>notifies</code>
+                    </dt>
+                    <dd>
+                      <p><strong>Ruby Type:</strong> Symbol, 'Chef::Resource[String]'</p>
+                      {{ readFile "layouts/shortcodes/resources_common_notification_notifies.md" | markdownify }}
+                    </dd>
+                  </dl>
 
-	              {{ end }}
+                  {{ readFile "layouts/shortcodes/resources_common_notification_timers.md" | markdownify  }}
+                  {{ readFile "layouts/shortcodes/resources_common_notification_notifies_syntax.md" | markdownify }}
 
-	              {{ if .Params.resources_common_guards }}
-	                <h3 id = "guards">Guards</h3>
+                  <dl>
+                    <dt>
+                      <code>subscribes</code>
+                    </dt>
+                    <dd>
+                      <p><strong>Ruby Type:</strong>  Symbol, 'Chef::Resource[String]'</p>
+                    </dd>
+                  </dl>
+                  {{ readFile "layouts/shortcodes/resources_common_notification_subscribes.md" | markdownify }}
+                  {{ readFile "layouts/shortcodes/resources_common_notification_timers.md" | markdownify }}
+                  {{ readFile "layouts/shortcodes/resources_common_notification_subscribes_syntax.md" | markdownify }}
 
-	                {{ readFile "layouts/shortcodes/resources_common_guards.md" | markdownify }}
-	                <strong>Properties</strong>
-	                {{ readFile "layouts/shortcodes/resources_common_guards_properties.md" | markdownify }}
+                {{ end }}
 
-	              {{ end }}
+                {{ if .Params.resources_common_guards }}
+                  <h3 id = "guards">Guards</h3>
 
-	              {{ if .Params.common_resource_functionality_multiple_packages }}
-	                <h3 id="multiple-packages">Multiple Packages</h3>
+                  {{ readFile "layouts/shortcodes/resources_common_guards.md" | markdownify }}
+                  <strong>Properties</strong>
+                  {{ readFile "layouts/shortcodes/resources_common_guards_properties.md" | markdownify }}
 
-	                {{ readFile "layouts/shortcodes/resources_common_multiple_packages.md" | markdownify }}
+                {{ end }}
 
-	              {{ end }}
+                {{ if .Params.common_resource_functionality_multiple_packages }}
+                  <h3 id="multiple-packages">Multiple Packages</h3>
 
-	              {{ if .Params.resources_common_guard_interpreter }}
-	                <h3 id="guard-interpreter">Guard Interpreter</h3>
-									
-									<p>
-										{{ readFile "layouts/shortcodes/resources_common_guard_interpreter.md" | markdownify }}
-									</p>
-	                <strong>Attributes</strong>
-									<p>
-										{{ readFile "layouts/shortcodes/resources_common_guard_interpreter_attributes.md" | markdownify }}
-									</p>
-	                
-	                <strong>Inheritance</strong>
-									<p>
-										{{ readFile "layouts/shortcodes/resources_common_guard_interpreter_attributes_inherit.md" | markdownify }}										
-									</p>
-	                
-	                <strong>Example</strong>
-									<p>
-										{{ readFile "layouts/shortcodes/resources_common_guard_interpreter_example_default.md" | markdownify }}
-									</p>
+                  {{ readFile "layouts/shortcodes/resources_common_multiple_packages.md" | markdownify }}
 
-	              {{ end }}
+                {{ end }}
 
-	              {{ if .Params.remote_directory_recursive_directories }}
+                {{ if .Params.resources_common_guard_interpreter }}
+                  <h3 id="guard-interpreter">Guard Interpreter</h3>
 
-	                <h3 id="recursive-directories">Recursive Directories</h3>
-	                {{ readFile "layouts/shortcodes/remote_directory_recursive_directories.md" | markdownify }}
-	                <h4 id="recursive_directories_example">Example</h4>
-	                {{ readFile "layouts/shortcodes/remote_directory_recursive_directories_example.md" | markdownify }}
+                  <p>
+                    {{ readFile "layouts/shortcodes/resources_common_guard_interpreter.md" | markdownify }}
+                  </p>
+                  <strong>Attributes</strong>
+                  <p>
+                    {{ readFile "layouts/shortcodes/resources_common_guard_interpreter_attributes.md" | markdownify }}
+                  </p>
 
-	              {{ end }}
+                  <strong>Inheritance</strong>
+                  <p>
+                    {{ readFile "layouts/shortcodes/resources_common_guard_interpreter_attributes_inherit.md" | markdownify }}
+                  </p>
 
-	              {{ if .Params.common_resource_functionality_resources_common_windows_security }}
+                  <strong>Example</strong>
+                  <p>
+                    {{ readFile "layouts/shortcodes/resources_common_guard_interpreter_example_default.md" | markdownify }}
+                  </p>
 
-	                <h3 id="resources_common_windows_security">Windows File Security</h3>
+                {{ end }}
 
-	                {{ readFile "layouts/shortcodes/resources_common_windows_security.md" | markdownify }}
-	                <strong>Access Control Lists (ACLs)</strong>
-	                {{ readFile "layouts/shortcodes/resources_common_windows_security_acl.md" | markdownify }}
-	                <strong>Inheritance</strong>
-	                {{ readFile "layouts/shortcodes/resources_common_windows_security_inherits.md" | markdownify }}
+                {{ if .Params.remote_directory_recursive_directories }}
 
-	              {{ end }}
-							{{ end }}
+                  <h3 id="recursive-directories">Recursive Directories</h3>
+                  {{ readFile "layouts/shortcodes/remote_directory_recursive_directories.md" | markdownify }}
+                  <h4 id="recursive_directories_example">Example</h4>
+                  {{ readFile "layouts/shortcodes/remote_directory_recursive_directories_example.md" | markdownify }}
+
+                {{ end }}
+
+                {{ if .Params.common_resource_functionality_resources_common_windows_security }}
+
+                  <h3 id="resources_common_windows_security">Windows File Security</h3>
+
+                  {{ readFile "layouts/shortcodes/resources_common_windows_security.md" | markdownify }}
+                  <strong>Access Control Lists (ACLs)</strong>
+                  {{ readFile "layouts/shortcodes/resources_common_windows_security_acl.md" | markdownify }}
+                  <strong>Inheritance</strong>
+                  {{ readFile "layouts/shortcodes/resources_common_windows_security_inherits.md" | markdownify }}
+
+                {{ end }}
+              {{ end }}
 
               <!-------------- Custom Handlers ------------------->
 
@@ -787,42 +787,12 @@
 
               <h2 id = "examples">Examples</h2>
               <hr>
-							{{ if .Params.examples_list }}
-								<p>The following examples demonstrate various approaches for using the <strong>{{ .Params.resource }}</strong> resource in recipes:</p>
-								{{ range .Params.examples_list }}
-									<p><strong>{{ index . "example_heading" }}</strong></p>
-									{{ range index . "text_blocks"}}
-									
-										{{ range $key, $value := . }}
-											{{ if eq $key "code_block" }}
-												{{- highlight $value "ruby" "" -}}
-											{{ end }}
-											
-											{{ if eq $key "note" }}
-												<div class="admonition-note">
-													<p class="admonition-note-title">Note</p>
-													<div class="admonition-note-text">
-														{{- $value | markdownify -}}
-													</div>
-												</div>
-											{{ end }}
-											
-											{{ if eq $key "shortcode" }}
-												<p>
-													{{ readFile (delimit (slice `layouts/shortcodes/` $value) "") | markdownify }}
-												</p>
-											{{ end }}
-											
-											{{ if eq $key "markdown" }}
-												<p>{{- $value | markdownify -}}</p>
-											{{ end }}
-											
-										{{ end }}
-									{{ end }}
-								{{ end }}
-							{{ else }}
-								<p>This resource does not have any examples.</p>
-							{{ end }}
+              {{ if .Params.examples }}
+                <p>The following examples demonstrate various approaches for using the <strong>{{ .Params.resource }}</strong> resource in recipes:</p>
+                {{ .Params.examples | markdownify }}
+              {{ else }}
+                <p>This resource does not have any examples.</p>
+              {{ end }}
             </div>
           </main>
         </div>

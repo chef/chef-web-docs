@@ -37,7 +37,8 @@ menu:
     identifier: chef_infra/cookbook_reference/resources/apt_package apt_package
     parent: chef_infra/cookbook_reference/resources
 resource_description_list:
-- markdown: 'Use the **apt_package** resource to manage packages on Debian and Ubuntu platforms.'
+- markdown: Use the **apt_package** resource to manage packages on Debian and Ubuntu
+    platforms.
 - note:
     shortcode: notes_resource_based_on_package.md
 resource_new_in: null
@@ -140,17 +141,10 @@ properties_list:
   required: false
   description_list:
   - markdown: The version of a package to be installed or upgraded.
-examples_list:
-- example_heading: Install a package using package manager
-  text_blocks:
-  - code_block: |
-            apt_package 'name of package' do
-              action :install
-            end
-- example_heading: Install without using recommend packages as a dependency
-  text_blocks:
-  - code_block: |
-            package 'apache2' do
-              options '--no-install-recommends'
-            end
+examples: "
+  Install a package using package manager\n\n  ``` ruby\n  apt_package\
+  \ 'name of package' do\n    action :install\n  end\n\n  ```\n\n  Install without\
+  \ using recommend packages as a dependency\n\n  ``` ruby\n  package 'apache2' do\n\
+  \    options '--no-install-recommends'\n  end\n\n  ```\n"
+
 ---

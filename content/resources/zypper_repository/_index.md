@@ -37,13 +37,9 @@ menu:
     identifier: chef_infra/cookbook_reference/resources/zypper_repository zypper_repository
     parent: chef_infra/cookbook_reference/resources
 resource_description_list:
-- markdown: 'Use the **zypper_repository** resource to create Zypper package
-
-    repositories on SUSE Enterprise Linux and openSUSE systems. This
-
-    resource maintains full compatibility with the **zypper_repository**
-
-    resource in the existing zypper cookbook.'
+- markdown: Use the **zypper_repository** resource to create Zypper package repositories
+    on SUSE Enterprise Linux and openSUSE systems. This resource maintains full compatibility
+    with the **zypper_repository** resource in the existing **zypper** cookbook.
 resource_new_in: '13.3'
 syntax_full_code_block: |-
   zypper_repository 'name' do
@@ -72,10 +68,10 @@ syntax_full_properties_list:
 - "`name` is the name given to the resource block."
 - "`action` identifies which steps Chef Infra Client will take to bring the node into
   the desired state."
-- "``autorefresh``, ``baseurl``, ``cookbook``, ``description``, ``enabled``, ``gpgautoimportkeys``,
-  ``gpgcheck``, ``gpgkey``, ``keeppackages``, ``mirrorlist``, ``mode``, ``path``,
-  ``priority``, ``refresh_cache``, ``repo_name``, ``source``, and ``type`` are the
-  properties available to this resource."
+- "`autorefresh`, `baseurl`, `cookbook`, `description`, `enabled`, `gpgautoimportkeys`,
+  `gpgcheck`, `gpgkey`, `keeppackages`, `mirrorlist`, `mode`, `path`, `priority`,
+  `refresh_cache`, `repo_name`, `source`, and `type` are the properties available
+  to this resource."
 actions_list:
   :add:
     markdown: Default action. Add a new Zypper repository.
@@ -182,14 +178,18 @@ properties_list:
 - property: type
   ruby_type: String
   required: false
-  default_value: '"NONE"'
+  default_value: NONE
   description_list:
   - markdown: Specifies the repository type.
-examples_list:
-- example_heading: Add a repository
-  text_blocks:
-  - markdown: 'This example adds the "Apache" repository for OpenSUSE Leap 15.0:'
-  - code_block: "zypper_repository 'apache' do\n  baseurl 'http://download.opensuse.org/repositories/Apache'\n\
-      \  path '/openSUSE_Leap_15.0'\n  type 'rpm-md'\n  priority '100'\nend"
+examples: |
+  **Add the Apache repo on openSUSE Leap 15**:
 
+  ``` ruby
+  zypper_repository 'apache' do
+    baseurl 'http://download.opensuse.org/repositories/Apache'
+    path '/openSUSE_Leap_15.0'
+      type 'rpm-md'
+    priority '100'
+  end
+  ```
 ---

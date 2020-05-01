@@ -138,48 +138,23 @@ common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false
 unit_file_verification: false
-examples_list:
-- example_heading: Create and assemble a RAID 0 array
-  text_blocks:
-  - markdown: 'The mdadm command can be used to create RAID arrays. For example, a
-      RAID
-
-      0 array named `/dev/md0` with 10 devices would have a command similar to
-
-      the following:
-
-
-      ``` bash
-
-      mdadm --create /dev/md0 --level=0 --raid-devices=10 /dev/s01.../dev/s10
-
-      ```
-
-
-      where `/dev/s01 .. /dev/s10` represents 10 devices (01, 02, 03, and so
-
-      on). This same command, when expressed as a recipe using the **mdadm**
-
-      resource, would be similar to:'
-  - code_block: "mdadm '/dev/md0' do\n  devices [ '/dev/s01', ... '/dev/s10' ]\n \
-      \ level 0\n  action :create\nend"
-  - markdown: '(again, where `/dev/s01 .. /dev/s10` represents devices /dev/s01,
-
-      /dev/s02, /dev/s03, and so on).'
-- example_heading: Create and assemble a RAID 1 array
-  text_blocks:
-  - code_block: "mdadm '/dev/md0' do\n  devices [ '/dev/sda', '/dev/sdb' ]\n  level\
-      \ 1\n  action [ :create, :assemble ]\nend"
-- example_heading: Create and assemble a RAID 5 array
-  text_blocks:
-  - markdown: 'The mdadm command can be used to create RAID arrays. For example, a
-      RAID
-
-      5 array named `/dev/sd0` with 4, and a superblock type of `0.90` would
-
-      be similar to:'
-  - code_block: "mdadm '/dev/sd0' do\n  devices [ '/dev/s1', '/dev/s2', '/dev/s3',\
-      \ '/dev/s4' ]\n  level 5\n  metadata '0.90'\n  chunk 32\n  action :create\n\
-      end"
+examples: "
+  Create and assemble a RAID 0 array\n\n  The mdadm command can be\
+  \ used to create RAID arrays. For example, a RAID\n  0 array named `/dev/md0` with\
+  \ 10 devices would have a command similar to\n  the following:\n\n  ``` bash\n \
+  \ mdadm --create /dev/md0 --level=0 --raid-devices=10 /dev/s01.../dev/s10\n  ```\n\
+  \n  where `/dev/s01 .. /dev/s10` represents 10 devices (01, 02, 03, and so\n  on).\
+  \ This same command, when expressed as a recipe using the **mdadm**\n  resource,\
+  \ would be similar to:\n\n  ``` ruby\n  mdadm '/dev/md0' do\n    devices [ '/dev/s01',\
+  \ ... '/dev/s10' ]\n    level 0\n    action :create\n  end\n  ```\n\n  (again, where\
+  \ `/dev/s01 .. /dev/s10` represents devices /dev/s01,\n  /dev/s02, /dev/s03, and\
+  \ so on).\n\n  Create and assemble a RAID 1 array\n\n  ``` ruby\n  mdadm '/dev/md0'\
+  \ do\n    devices [ '/dev/sda', '/dev/sdb' ]\n    level 1\n    action [ :create,\
+  \ :assemble ]\n  end\n  ```\n\n  Create and assemble a RAID 5 array\n\n  The mdadm\
+  \ command can be used to create RAID arrays. For example, a RAID\n  5 array named\
+  \ `/dev/sd0` with 4, and a superblock type of `0.90` would\n  be similar to:\n\n\
+  \  ``` ruby\n  mdadm '/dev/sd0' do\n    devices [ '/dev/s1', '/dev/s2', '/dev/s3',\
+  \ '/dev/s4' ]\n    level 5\n    metadata '0.90'\n    chunk 32\n    action :create\n\
+  \  end\n  ```\n"
 
 ---

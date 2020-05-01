@@ -155,39 +155,78 @@ properties_list:
   required: false
   description_list:
   - markdown: The base of the Debian distribution.
-examples_list:
-- example_heading: Add repository with basic settings
-  text_blocks:
-  - code_block: "apt_repository 'nginx' do\n  uri        'http://nginx.org/packages/ubuntu/'\n\
-      \  components ['nginx']\nend"
-- example_heading: Enable Ubuntu multiverse repositories
-  text_blocks:
-  - code_block: "apt_repository 'security-ubuntu-multiverse' do\n  uri          'http://security.ubuntu.com/ubuntu'\n\
-      \  distribution 'trusty-security'\n  components   ['multiverse']\n  deb_src\
-      \      true\nend"
-- example_heading: Add the Nginx PPA, autodetect the key and repository url
-  text_blocks:
-  - code_block: "apt_repository 'nginx-php' do\n  uri          'ppa:nginx/stable'\n\
-      end"
-- example_heading: 'Add the JuJu PPA, grab the key from the keyserver, and add source
+examples: |
+  **Add repository with basic settings**:
 
-    repo'
-  text_blocks:
-  - code_block: "apt_repository 'juju' do\n  uri 'http://ppa.launchpad.net/juju/stable/ubuntu'\n\
-      \  components ['main']\n  distribution 'trusty'\n  key 'C8068B11'\n  keyserver\
-      \ 'keyserver.ubuntu.com'\n  action :add\n  deb_src true\nend"
-- example_heading: Add repository that requires multiple keys to authenticate packages
-  text_blocks:
-  - code_block: "apt_repository 'rundeck' do\n  uri 'https://dl.bintray.com/rundeck/rundeck-deb'\n\
-      \  distribution '/'\n  key ['379CE192D401AB61', 'http://rundeck.org/keys/BUILD-GPG-KEY-Rundeck.org.key']\n\
-      \  keyserver 'keyserver.ubuntu.com'\n  action :add\nend"
-- example_heading: Add the Cloudera Repo of CDH4 packages for Ubuntu 12.04 on AMD64
-  text_blocks:
-  - code_block: "apt_repository 'cloudera' do\n  uri          'http://archive.cloudera.com/cdh4/ubuntu/precise/amd64/cdh'\n\
-      \  arch         'amd64'\n  distribution 'precise-cdh4'\n  components   ['contrib']\n\
-      \  key          'http://archive.cloudera.com/debian/archive.key'\nend"
-- example_heading: Remove a repository from the list
-  text_blocks:
-  - code_block: "apt_repository 'zenoss' do\n  action :remove\nend"
+   ```ruby
+  apt_repository 'nginx' do
+    uri        'http://nginx.org/packages/ubuntu/'
+    components ['nginx']
+  end
+  ```
 
+  **Enable Ubuntu multiverse repositories**:
+
+  ```ruby
+  apt_repository 'security-ubuntu-multiverse' do
+    uri          'http://security.ubuntu.com/ubuntu'
+    distribution 'xenial-security'
+    components   ['multiverse']
+    deb_src      true
+  end
+  ```
+
+  **Add the Nginx PPA, autodetect the key and repository url**:
+
+  ```ruby
+  apt_repository 'nginx-php' do
+    uri          'ppa:nginx/stable'
+  end
+  ```
+
+  **Add the JuJu PPA, grab the key from the keyserver, and add source repo**:
+
+  ```ruby
+  apt_repository 'juju' do
+    uri 'http://ppa.launchpad.net/juju/stable/ubuntu'
+    components ['main']
+    distribution 'xenial'
+    key 'C8068B11'
+    keyserver 'keyserver.ubuntu.com'
+    action :add
+    deb_src true
+  end
+  ```
+
+  **Add repository that requires multiple keys to authenticate packages**:
+
+  ```ruby
+  apt_repository 'rundeck' do
+    uri 'https://dl.bintray.com/rundeck/rundeck-deb'
+    distribution '/'
+    key ['379CE192D401AB61', 'http://rundeck.org/keys/BUILD-GPG-KEY-Rundeck.org.key']
+    keyserver 'keyserver.ubuntu.com'
+    action :add
+  end
+  ```
+
+  **Add the Cloudera Repo of CDH4 packages for Ubuntu 16.04 on AMD64**:
+
+  ```ruby
+  apt_repository 'cloudera' do
+    uri          'http://archive.cloudera.com/cdh4/ubuntu/xenial/amd64/cdh'
+    arch         'amd64'
+    distribution 'xenial-cdh4'
+    components   ['contrib']
+    key          'http://archive.cloudera.com/debian/archive.key'
+  end
+  ```
+
+  **Remove a repository from the list**:
+
+  ```ruby
+  apt_repository 'zenoss' do
+    action :remove
+  end
+  ```
 ---

@@ -37,13 +37,10 @@ menu:
     identifier: chef_infra/cookbook_reference/resources/yum_repository yum_repository
     parent: chef_infra/cookbook_reference/resources
 resource_description_list:
-- markdown: 'Use the **yum_repository** resource to manage a Yum repository
-
-    configuration file located at `/etc/yum.repos.d/repositoryid.repo` on
-
-    the local machine. This configuration file specifies which repositories
-
-    to reference, how to handle cached data, etc.'
+- markdown: Use the **yum_repository** resource to manage a Yum repository configuration
+    file located at `/etc/yum.repos.d/repositoryid.repo` on the local machine. This
+    configuration file specifies which repositories to reference, how to handle cached
+    data, etc.
 resource_new_in: '12.14'
 syntax_full_code_block: |-
   yum_repository 'name' do
@@ -105,16 +102,22 @@ syntax_full_properties_list:
   `sslclientcert`, `sslclientkey`, `sslverify`, `throttle`, `timeout`, and `username`
   are the properties available to this resource."
 actions_list:
+  :create:
+    markdown: Create a repository based on the properties.
+  :makecache:
+    markdown: Force the creation of the repository cache. This is also done automatically when a repository is updated.
   :nothing:
     shortcode: resources_common_actions_nothing.md
+  :remove:
+    markdown: Remove a repository. 
 properties_list:
 - property: baseurl
   ruby_type: String, Array
   required: false
   description_list:
-  - markdown: URL to the directory where the Yum repository's 'repodata' directory
+  - markdown: URL to the directory where the Yum repository's `repodata` directory
       lives. Can be an `http://`, `https://` or a `ftp://` URLs. You can specify multiple
-      URLs in one baseurl statement.
+      URLs in one `baseurl` statement.
 - property: clean_metadata
   ruby_type: true, false
   required: false
@@ -179,27 +182,13 @@ properties_list:
   ruby_type: String, Array
   required: false
   description_list:
-  - markdown: 'URL pointing to the ASCII-armored GPG key file for the repository.
-
-      This is used if Yum needs a public key to verify a package and the
-
-      required key hasn''t been imported into the RPM database. If this
-
-      option is set, Yum will automatically import the key from the
-
-      specified URL.
-
-
-      Multiple URLs may be specified in the same manner as the baseurl
-
-      option. If a GPG key is required to install a package from a
-
-      repository, all keys specified for that repository will be
-
-      installed.'
+  - markdown: |-
+      URL pointing to the ASCII-armored GPG key file for the repository. This is used if Yum needs a public key to verify a package and the required key hasn't been imported into the RPM database. If this option is set, Yum will automatically import the key from the specified URL. Multiple URLs may be specified in the same manner as the baseurl option. If a GPG key is required to install a package from a repository, all keys specified for that repository will be installed.
+      Multiple URLs may be specified in the same manner as the baseurl option. If a GPG key is required to install a package from a repository, all keys specified for that repository will be installed.
 - property: http_caching
   ruby_type: String
   required: false
+  allowed_values: '"all", "none", "packages"'
   description_list:
   - markdown: "Determines how upstream HTTP caches are instructed to handle any\n\
       HTTP downloads that Yum does. This option can take the following\nvalues:\n\n\
@@ -325,7 +314,6 @@ properties_list:
   ruby_type: String, Integer
   required: false
   default_value: '"0644"'
-  new_in: null
   description_list:
   - markdown: 'Permissions mode of .repo file on disk. This is useful for scenarios
 
@@ -443,15 +431,23 @@ properties_list:
   required: false
   description_list:
   - markdown: Username to use for basic authentication to a repository.
-examples_list:
-- example_heading: Add internal company repository
-  text_blocks:
-  - code_block: "yum_repository 'OurCo' do\n  description 'OurCo yum repository'\n\
-      \  mirrorlist 'http://artifacts.ourco.org/mirrorlist?repo=ourco-6&arch=$basearch'\n\
-      \  gpgkey 'http://artifacts.ourco.org/pub/yum/RPM-GPG-KEY-OURCO-6'\n  action\
-      \ :create\nend"
-- example_heading: Delete a repository
-  text_blocks:
-  - code_block: "yum_repository 'CentOS-Media' do\n  action :delete\nend"
+examples: |
+  **Add an internal company repository**:
 
+  ```ruby
+  yum_repository 'OurCo' do
+    description 'OurCo yum repository'
+    mirrorlist 'http://artifacts.ourco.org/mirrorlist?repo=ourco-8&arch=$basearch'
+    gpgkey 'http://artifacts.ourco.org/pub/yum/RPM-GPG-KEY-OURCO-8'
+    action :create
+  end
+  ```ruby
+
+  **Delete a repository**:
+
+  ```ruby
+  yum_repository 'CentOS-Media' do
+    action :delete
+  end
+  ```
 ---

@@ -49,15 +49,11 @@ common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false
 unit_file_verification: false
-examples_list:
-- example_heading: Set default logging level
-  text_blocks:
-  - shortcode: resource_log_set_info.md
-- example_heading: Set debug logging level
-  text_blocks:
-  - shortcode: resource_log_set_debug.md
-- example_heading: Add a message to a log file
-  text_blocks:
-  - shortcode: resource_log_add_message.md
+examples: "
+  Set default logging level\n\n  ``` ruby\n  log 'a string to log'\n\
+  \  ```\n\n  Set debug logging level\n\n  ``` ruby\n  log 'a debug string' do\n \
+  \   level :debug\n  end\n  ```\n\n  Add a message to a log file\n\n  ``` ruby\n\
+  \  log 'message' do\n    message 'This is the message that will be added to the\
+  \ log.'\n    level :info\n  end\n  ```\n"
 
 ---

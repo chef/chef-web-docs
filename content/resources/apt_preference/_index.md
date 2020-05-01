@@ -37,13 +37,9 @@ menu:
     identifier: chef_infra/cookbook_reference/resources/apt_preference apt_preference
     parent: chef_infra/cookbook_reference/resources
 resource_description_list:
-- markdown: 'The **apt_preference** resource allows for the creation of APT
-
-    [preference files](https://wiki.debian.org/AptPreferences). Preference
-
-    files are used to control which package versions and sources are
-
-    prioritized during installation.'
+- markdown: Use the **apt_preference** resource to create APT [preference files](https://wiki.debian.org/AptPreferences).
+    Preference files are used to control which package versions and sources are prioritized
+    during installation.
 resource_new_in: '13.3'
 syntax_full_code_block: |-
   apt_preference 'name' do
@@ -73,7 +69,7 @@ properties_list:
   ruby_type: String
   required: false
   description_list:
-  - markdown: Pin by a `glob()` expression or with a regular expressions surrounded
+  - markdown: Pin by a `glob()` expression or with a regular expression surrounded
       by `/`.
 - property: package_name
   ruby_type: String
@@ -93,28 +89,33 @@ properties_list:
   description_list:
   - markdown: Sets the Pin-Priority for a package. See <https://wiki.debian.org/AptPreferences>
       for more details.
-examples_list:
-- example_heading: Pin a package to a specific version
-  text_blocks:
-  - markdown: 'This example pins the `libmysqlclient16` package to `version 5.1.49-3`:'
-  - code_block: "apt_preference 'libmysqlclient16' do\n  pin          'version 5.1.49-3'\n\
-      \  pin_priority '700'\nend"
-  - markdown: 'Note that the `pin_priority` of `700` ensures that this version will
-      be
+examples: |
+  **Pin libmysqlclient16 to a version 5.1.49-3**:
 
-      preferred over any other available versions.'
-- example_heading: Unpin a package
-  text_blocks:
-  - markdown: 'This example unpins the `libmysqlclient16` package, disabling all
+  ```ruby
+  apt_preference 'libmysqlclient16' do
+    pin          'version 5.1.49-3'
+    pin_priority '700'
+  end
+  ```
 
-      preferences for it:'
-  - code_block: "apt_preference 'libmysqlclient16' do\n  action :remove\nend"
-- example_heading: Pin all packages to prefer a specific repository
-  text_blocks:
-  - markdown: 'This example instructs APT to prefer the `packages.dotdeb.org`
+  Note: The `pin_priority` of `700` ensures that this version will be preferred over any other available versions.
 
-      repository:'
-  - code_block: "apt_preference 'dotdeb' do\n  glob         '*'\n  pin          'origin\
-      \ packages.dotdeb.org'\n  pin_priority '700'\nend"
+  **Unpin a libmysqlclient16**:
 
+  ```ruby
+  apt_preference 'libmysqlclient16' do
+    action :remove
+  end
+  ```
+
+  **Pin all packages to prefer the packages.dotdeb.org repository**:
+
+  ```ruby
+  apt_preference 'dotdeb' do
+    glob         '*'
+    pin          'origin packages.dotdeb.org'
+    pin_priority '700'
+  end
+  ```
 ---
