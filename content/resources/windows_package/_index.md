@@ -1,16 +1,41 @@
 ---
+resource_reference: true
+common_resource_functionality_multiple_packages: false
+common_resource_functionality_resources_common_windows_security: false
+cookbook_file_specificity: false
+debug_recipes_chef_shell: false
+handler_custom: false
+handler_types: false
+nameless_apt_update: false
+nameless_build_essential: false
+properties_multiple_packages: false
+properties_resources_common_windows_security: false
+properties_shortcode: 
+ps_credential_helper: false
+registry_key: false
+remote_directory_recursive_directories: false
+remote_file_prevent_re_downloads: false
+remote_file_unc_path: false
+resource_directory_recursive_directories: false
+resource_package_options: false
+resources_common_atomic_update: false
+resources_common_guard_interpreter: false
+resources_common_guards: true
+resources_common_notification: true
+resources_common_properties: true
+ruby_style_basics_chef_log: false
+syntax_shortcode: 
+template_requirements: false
+unit_file_verification: false
 title: windows_package resource
 resource: windows_package
-draft: false
 aliases:
-- /resource_windows_package.html
+- "/resource_windows_package.html"
 menu:
   infra:
     title: windows_package
     identifier: chef_infra/cookbook_reference/resources/windows_package windows_package
     parent: chef_infra/cookbook_reference/resources
-resource_reference: true
-robots: null
 resource_description_list:
 - markdown: 'Use the **windows_package** resource to manage Microsoft Installer
 
@@ -34,29 +59,28 @@ syntax_description: 'A **windows_package** resource block manages a package on a
   which will install the named package using all of the default options
 
   and the default action (`:install`).'
-syntax_code_block: null
-syntax_properties_list: null
-syntax_full_code_block: "windows_package 'name' do\n  checksum                   \
-  \ String\n  installer_type              Symbol\n  options                     String\n\
-  \  package_name                String, Array\n  remote_file_attributes      Hash\n\
-  \  returns                     String, Integer, Array # default value: [0]\n  source\
-  \                      String # default value: \"The resource block's name\"\n \
-  \ timeout                     String, Integer # default value: 600 (seconds)\n \
-  \ version                     String, Array\n  action                      Symbol\
-  \ # defaults to :install if not specified\nend"
+syntax_full_code_block: |-
+  windows_package 'name' do
+    checksum                    String
+    installer_type              Symbol
+    options                     String
+    package_name                String
+    remote_file_attributes      Hash
+    returns                     String, Integer, Array # default value: "0 (success) and 3010 (success where a reboot is necessary)"
+    source                      String # default value: "The resource block's name"
+    timeout                     String, Integer # default value: "600 (seconds)"
+    version                     String
+    action                      Symbol # defaults to :install if not specified
+  end
+syntax_properties_list: 
 syntax_full_properties_list:
-- '`windows_package` is the resource.'
-- '`name` is the name given to the resource block.'
-- '`action` identifies which steps Chef Infra Client will take to bring the node into
-  the desired state.'
-- '`checksum`, `installer_type`, `options`, `package_name`, `remote_file_attributes`,
+- "`windows_package` is the resource."
+- "`name` is the name given to the resource block."
+- "`action` identifies which steps Chef Infra Client will take to bring the node into
+  the desired state."
+- "`checksum`, `installer_type`, `options`, `package_name`, `remote_file_attributes`,
   `returns`, `source`, `timeout`, and `version` are the properties available to this
-  resource.'
-syntax_shortcode: null
-registry_key: false
-nameless_apt_update: false
-nameless_build_essential: false
-resource_package_options: false
+  resource."
 actions_list:
   :install:
     markdown: Default. Install a package. If a version is specified, install the specified
@@ -69,8 +93,6 @@ properties_list:
 - property: checksum
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: 'The SHA-256 checksum of the file. Use to prevent a file from being
 
@@ -82,8 +104,6 @@ properties_list:
 - property: installer_type
   ruby_type: Symbol
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: 'A symbol that specifies the type of package. Possible values:
 
@@ -97,24 +117,17 @@ properties_list:
 - property: options
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: One (or more) additional options that are passed to the command.
 - property: package_name
-  ruby_type: String, Array
+  ruby_type: String
   required: false
-  default_value: null
-  new_in: null
   description_list:
-  - markdown: 'An optional property to set the package name if it differs from the
-
-      resource block''s name.'
+  - markdown: An optional property to set the package name if it differs from the
+      resource block's name.
 - property: remote_file_attributes
   ruby_type: Hash
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: 'This property allows you to define a hash of properties and their
 
@@ -126,22 +139,14 @@ properties_list:
 - property: returns
   ruby_type: String, Integer, Array of integers
   required: false
-  default_value: null
-  new_in: null
+  default_value: 0 (success) and 3010 (success where a reboot is necessary)
   description_list:
-  - markdown: '**Default
-
-      Value:** `0`
-
-
-      A comma-delimited list of return codes that indicate the success or
-
-      failure of the package command that was run.'
+  - markdown: A comma-delimited list of return codes that indicate the success or
+      failure of the package command that was run.
 - property: source
   ruby_type: String
   required: false
   default_value: The resource block's name
-  new_in: null
   description_list:
   - markdown: 'The path to a package in the local file system. The location of the
 
@@ -177,61 +182,71 @@ properties_list:
 - property: timeout
   ruby_type: String, Integer
   required: false
-  default_value: '600'
-  new_in: null
+  default_value: 600 (seconds)
   description_list:
-  - markdown: '(seconds)
-
-
-      The amount of time (in seconds) to wait before timing out.'
+  - markdown: The amount of time (in seconds) to wait before timing out.
 - property: version
-  ruby_type: String, Array
+  ruby_type: String
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: The version of a package to be installed or upgraded.
-properties_shortcode: null
-properties_multiple_packages: false
-resource_directory_recursive_directories: false
-resources_common_atomic_update: false
-properties_resources_common_windows_security: false
-remote_file_prevent_re_downloads: false
-remote_file_unc_path: false
-ps_credential_helper: false
-ruby_style_basics_chef_log: false
-debug_recipes_chef_shell: false
-template_requirements: false
-resources_common_properties: true
-resources_common_notification: true
-resources_common_guards: true
-common_resource_functionality_multiple_packages: false
-resources_common_guard_interpreter: false
-remote_directory_recursive_directories: false
-common_resource_functionality_resources_common_windows_security: false
-handler_custom: false
-cookbook_file_specificity: false
-unit_file_verification: false
-examples: "
-  Install a package\n\n  ``` ruby\n  windows_package '7zip' do\n  \
-  \  action :install\n    source 'C:\\7z920.msi'\n  end\n  ```\n\n  Specify a URL\
-  \ for the source attribute\n\n  ``` ruby\n  windows_package '7zip' do\n    source\
-  \ 'http://www.7-zip.org/a/7z938-x64.msi'\n  end\n  ```\n\n  Specify path and checksum\n\
-  \n  ``` ruby\n  windows_package '7zip' do\n    source 'http://www.7-zip.org/a/7z938-x64.msi'\n\
-  \    checksum '7c8e873991c82ad9cfc123415254ea6101e9a645e12977dcd518979e50fdedf3'\n\
-  \  end\n  ```\n\n  Modify remote_file resource attributes\n\n  The **windows_package**\
-  \ resource may specify a package at a remote\n  location using the `remote_file_attributes`\
-  \ property. This uses the\n  **remote_file** resource to download the contents at\
-  \ the specified URL\n  and passes in a Hash that modifies the properties of the\
-  \ [remote_file\n  resource](/resources/remote_file/).\n\n  For example:\n\n  ```\
-  \ ruby\n  windows_package '7zip' do\n    source 'http://www.7-zip.org/a/7z938-x64.msi'\n\
-  \    remote_file_attributes ({\n      :path => 'C:\\\\7zip.msi',\n      :checksum\
-  \ => '7c8e873991c82ad9cfc123415254ea6101e9a645e12977dcd518979e50fdedf3'\n    })\n\
-  \  end\n  ```\n\n  Download a nsis (Nullsoft) package resource\n\n  ``` ruby\n \
-  \ windows_package 'Mercurial 3.6.1 (64-bit)' do\n    source 'http://mercurial.selenic.com/release/windows/Mercurial-3.6.1-x64.exe'\n\
-  \    checksum 'febd29578cb6736163d232708b834a2ddd119aa40abc536b2c313fc5e1b5831d'\n\
-  \  end\n  ```\n\n  Download a custom package\n\n  ``` ruby\n  windows_package 'Microsoft\
-  \ Visual C++ 2005 Redistributable' do\n    source 'https://download.microsoft.com/download/6/B/B/6BB661D6-A8AE-4819-B79F-236472F6070C/vcredist_x86.exe'\n\
-  \    installer_type :custom\n    options '/Q'\n  end\n  ```\n"
+examples: |
+  **Install a package**:
 
+  ```ruby
+  windows_package '7zip' do
+    action :install
+    source 'C:\7z920.msi'
+  end
+  ```
+
+  **Specify a URL for the source attribute**:
+
+  ```ruby
+  windows_package '7zip' do
+    source 'http://www.7-zip.org/a/7z938-x64.msi'
+  end
+  ```
+
+  **Specify path and checksum**:
+
+  ```ruby
+  windows_package '7zip' do
+    source 'http://www.7-zip.org/a/7z938-x64.msi'
+    checksum '7c8e873991c82ad9cfc123415254ea6101e9a645e12977dcd518979e50fdedf3'
+  end
+  ```
+
+  **Modify remote_file resource attributes**:
+
+  The windows_package resource may specify a package at a remote location using the remote_file_attributes property. This uses the remote_file resource to download the contents at the specified URL and passes in a Hash that modifies the properties of the remote_file resource.
+
+  ```ruby
+  windows_package '7zip' do
+    source 'http://www.7-zip.org/a/7z938-x64.msi'
+    remote_file_attributes ({
+      :path => 'C:\7zip.msi',
+      :checksum => '7c8e873991c82ad9cfc123415254ea6101e9a645e12977dcd518979e50fdedf3'
+    })
+  end
+  ```
+
+  **Download a nsis (Nullsoft) package resource**:
+
+  ```ruby
+  windows_package 'Mercurial 3.6.1 (64-bit)' do
+    source 'http://mercurial.selenic.com/release/windows/Mercurial-3.6.1-x64.exe'
+    checksum 'febd29578cb6736163d232708b834a2ddd119aa40abc536b2c313fc5e1b5831d'
+  end
+  ```
+
+  **Download a custom package**:
+
+  ```ruby
+  windows_package 'Microsoft Visual C++ 2005 Redistributable' do
+    source 'https://download.microsoft.com/download/6/B/B/6BB661D6-A8AE-4819-B79F-236472F6070C/vcredist_x86.exe'
+    installer_type :custom
+    options '/Q'
+  end
+  ```
 ---
