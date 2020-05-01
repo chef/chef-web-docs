@@ -1,21 +1,44 @@
 ---
+resource_reference: true
+common_resource_functionality_multiple_packages: false
+common_resource_functionality_resources_common_windows_security: false
+cookbook_file_specificity: false
+debug_recipes_chef_shell: false
+handler_custom: false
+handler_types: false
+nameless_apt_update: false
+nameless_build_essential: false
+properties_multiple_packages: false
+properties_resources_common_windows_security: false
+properties_shortcode: 
+ps_credential_helper: false
+registry_key: false
+remote_directory_recursive_directories: false
+remote_file_prevent_re_downloads: false
+remote_file_unc_path: false
+resource_directory_recursive_directories: false
+resource_package_options: false
+resources_common_atomic_update: false
+resources_common_guard_interpreter: false
+resources_common_guards: true
+resources_common_notification: true
+resources_common_properties: true
+ruby_style_basics_chef_log: false
+syntax_shortcode: 
+template_requirements: false
+unit_file_verification: false
 title: subversion resource
 resource: subversion
-draft: false
 aliases:
-- /resource_subversion.html
+- "/resource_subversion.html"
 menu:
   infra:
     title: subversion
     identifier: chef_infra/cookbook_reference/resources/subversion subversion
     parent: chef_infra/cookbook_reference/resources
-
-resource_reference: true
-robots: null
 resource_description_list:
-- markdown: 'Use the **subversion** resource to manage source control resources that
-
-    exist in a Subversion repository.'
+- markdown: Use the **subversion** resource to manage source control resources that
+    exist in a Subversion repository.
 - warning:
     markdown: 'The subversion resource has known bugs and may not work as expected.
       For
@@ -25,39 +48,32 @@ resource_description_list:
       [\#4050](https://github.com/chef/chef/issues/4050) and
 
       [\#4257](https://github.com/chef/chef/issues/4257).'
-resource_new_in: null
-handler_types: false
-syntax_description: "The subversion resource has the following syntax:\n\n``` ruby\n\
-  subversion 'name' do\n  checkout_branch        String # default value: \"deploy\"\
-  \n  depth                  Integer\n  destination            String # default value:\
-  \ 'name' unless specified\n  enable_checkout        true, false # default value:\
-  \ true\n  enable_submodules      true, false # default value: false\n  environment\
-  \            Hash\n  group                  String, Integer\n  remote          \
-  \       String # default value: \"origin\"\n  repository             String\n  revision\
-  \               String # default value: \"HEAD\"\n  ssh_wrapper            String\n\
-  \  svn_arguments          String, false # default value: \"--no-auth-cache\"\n \
-  \ svn_binary             String\n  svn_info_args          String, false # default\
-  \ value: \"--no-auth-cache\"\n  svn_password           String\n  svn_username  \
-  \         String\n  timeout                Integer\n  user                   String,\
-  \ Integer\n  action                 Symbol # defaults to :sync if not specified\n\
-  end\n```"
-syntax_code_block: null
-syntax_properties_list:
-- '`subversion` is the resource.'
-- '`name` is the name given to the resource block.'
-- '`action` identifies which steps Chef Infra Client will take to bring the node into
-  the desired state.'
-- '`checkout_branch`, `depth`, `destination`, `enable_checkout`, `enable_submodules`,
-  `environment`, `group`, `remote`, `repository`, `revision`, `ssh_wrapper`, `svn_arguments`,
+resource_new_in: 
+syntax_full_code_block: |-
+  subversion 'name' do
+    destination        String # default value: 'name' unless specified
+    environment        Hash, nil
+    group              String, Integer
+    repository         String
+    revision           String # default value: "HEAD"
+    svn_arguments      String, nil, false # default value: "--no-auth-cache"
+    svn_binary         String
+    svn_info_args      String, nil, false # default value: "--no-auth-cache"
+    svn_password       String
+    svn_username       String
+    timeout            Integer
+    user               String, Integer
+    action             Symbol # defaults to :sync if not specified
+  end
+syntax_properties_list: 
+syntax_full_properties_list:
+- "`subversion` is the resource."
+- "`name` is the name given to the resource block."
+- "`action` identifies which steps Chef Infra Client will take to bring the node into
+  the desired state."
+- "`destination`, `environment`, `group`, `repository`, `revision`, `svn_arguments`,
   `svn_binary`, `svn_info_args`, `svn_password`, `svn_username`, `timeout`, and `user`
-  are the properties available to this resource.'
-syntax_full_code_block: null
-syntax_full_properties_list: null
-syntax_shortcode: null
-registry_key: false
-nameless_apt_update: false
-nameless_build_essential: false
-resource_package_options: false
+  are the properties available to this resource."
 actions_list:
   :checkout:
     markdown: Clone or check out the source. When a checkout is available, this provider
@@ -79,32 +95,28 @@ properties_list:
   ruby_type: String
   required: false
   default_value: The resource block's name
-  new_in: null
   description_list:
   - markdown: 'The location path to which the source is to be cloned, checked out,
-
-      or exported. Default value: the `name` of the resource block. See
-
-      "Syntax" section above for more information.'
+      or exported. Default value: the name of the resource block.'
+- property: environment
+  ruby_type: Hash, nil
+  required: false
+  description_list:
+  - markdown: A Hash of environment variables in the form of ({'ENV_VARIABLE' => 'VALUE'}).
 - property: group
   ruby_type: String, Integer
   required: false
-  default_value: null
-  new_in: null
   description_list:
-  - markdown: The system group that is responsible for the checked-out code.
+  - markdown: The system group that will own the checked-out code.
 - property: repository
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
   description_list:
-  - markdown: The URI for the Subversion repository.
+  - markdown: The URI of the code repository.
 - property: revision
   ruby_type: String
   required: false
   default_value: HEAD
-  new_in: null
   description_list:
   - markdown: 'A branch, tag, or commit to be synchronized with git. This can be
 
@@ -112,46 +124,37 @@ properties_list:
 
       management-specific revision identifier.'
 - property: svn_arguments
-  ruby_type: String
+  ruby_type: String, false
   required: false
-  default_value: null
-  new_in: null
+  default_value: "--no-auth-cache"
   description_list:
   - markdown: The extra arguments that are passed to the Subversion command.
-- property: svn_info_args
+- property: svn_binary
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
   description_list:
-  - markdown: 'Use when the `svn info` command is used by Chef Infra Client and
-
-      arguments need to be passed. The `svn_arguments` command does not
-
-      work when the `svn info` command is used.'
+  - markdown: The location of the svn binary.
+- property: svn_info_args
+  ruby_type: String, nil, false
+  required: false
+  default_value: "--no-auth-cache"
+  description_list:
+  - markdown: Use when the `svn info` command is used by Chef Infra Client and arguments
+      need to be passed. The `svn_arguments` command does not work when the `svn info`
+      command is used.
 - property: svn_password
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
   description_list:
-  - markdown: 'The password for a user that has access to the Subversion
-
-      repository.'
+  - markdown: The password for a user that has access to the Subversion repository.
 - property: svn_username
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
   description_list:
-  - markdown: 'The user name for a user that has access to the Subversion
-
-      repository.'
+  - markdown: The user name for a user that has access to the Subversion repository.
 - property: timeout
   ruby_type: Integer
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: 'The amount of time (in seconds) to wait for a command to execute
 
@@ -163,35 +166,12 @@ properties_list:
 - property: user
   ruby_type: String, Integer
   required: false
-  default_value: null
-  new_in: null
   description_list:
-  - markdown: The system user that is responsible for the checked-out code.
-properties_shortcode: null
-properties_multiple_packages: false
-resource_directory_recursive_directories: false
-resources_common_atomic_update: false
-properties_resources_common_windows_security: false
-remote_file_prevent_re_downloads: false
-remote_file_unc_path: false
-ps_credential_helper: false
-ruby_style_basics_chef_log: false
-debug_recipes_chef_shell: false
-template_requirements: false
-resources_common_properties: true
-resources_common_notification: true
-resources_common_guards: true
-common_resource_functionality_multiple_packages: false
-resources_common_guard_interpreter: false
-remote_directory_recursive_directories: false
-common_resource_functionality_resources_common_windows_security: false
-handler_custom: false
-cookbook_file_specificity: false
-unit_file_verification: false
-examples_list:
-- example_heading: Get the latest version of an application
-  text_blocks:
-  - code_block: "subversion 'CouchDB Edge' do\n  repository 'http://svn.apache.org/repos/asf/couchdb/trunk'\n\
-      \  revision 'HEAD'\n  destination '/opt/mysources/couch'\n  action :sync\nend"
+  - markdown: The system user that will own the checked-out code.
+examples: "
+  Get the latest version of an application\n\n  ``` ruby\n  subversion\
+  \ 'CouchDB Edge' do\n    repository 'http://svn.apache.org/repos/asf/couchdb/trunk'\n\
+  \    revision 'HEAD'\n    destination '/opt/mysources/couch'\n    action :sync\n\
+  \  end\n  ```\n"
 
 ---

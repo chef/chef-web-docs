@@ -1,8 +1,5 @@
 ---
-draft: false
 resource_reference: true
-robots:
-syntax_code_block:
 common_resource_functionality_multiple_packages: false
 common_resource_functionality_resources_common_windows_security: false
 cookbook_file_specificity: false
@@ -39,10 +36,9 @@ menu:
     title: user_ulimit
     identifier: chef_infra/cookbook_reference/resources/user_ulimit user_ulimit
     parent: chef_infra/cookbook_reference/resources
-
 resource_description_list:
-- markdown: Use the user_ulimit resource to create individual ulimit files that are
-    installed into the `/etc/security/limits.d/` directory.
+- markdown: Use the **user_ulimit** resource to create individual ulimit files that
+    are installed into the `/etc/security/limits.d/` directory.
 resource_new_in: '16.0'
 syntax_full_code_block: |-
   user_ulimit 'name' do
@@ -73,145 +69,140 @@ syntax_full_properties_list:
 - "`name` is the name given to the resource block."
 - "`action` identifies which steps Chef Infra Client will take to bring the node into
   the desired state."
-- "``core_hard_limit``, ``core_limit``, ``core_soft_limit``, ``filehandle_hard_limit``,
-  ``filehandle_limit``, ``filehandle_soft_limit``, ``filename``, ``memory_limit``,
-  ``process_hard_limit``, ``process_limit``, ``process_soft_limit``, ``rtprio_hard_limit``,
-  ``rtprio_limit``, ``rtprio_soft_limit``, ``stack_hard_limit``, ``stack_limit``,
-  ``stack_soft_limit``, ``username``, and ``virt_limit`` are the properties available
-  to this resource."
+- "`core_hard_limit`, `core_limit`, `core_soft_limit`, `filehandle_hard_limit`, `filehandle_limit`,
+  `filehandle_soft_limit`, `filename`, `memory_limit`, `process_hard_limit`, `process_limit`,
+  `process_soft_limit`, `rtprio_hard_limit`, `rtprio_limit`, `rtprio_soft_limit`,
+  `stack_hard_limit`, `stack_limit`, `stack_soft_limit`, `username`, and `virt_limit`
+  are the properties available to this resource."
+actions_list:
+  :create:
+    markdown: Create a ulimit configuration file
+  :delete:
+    markdown: Delete a ulimit configuration file
+  :nothing:
+    shortcode: resources_common_actions_nothing.md
 properties_list:
 - property: core_hard_limit
   ruby_type: String, Integer
   required: false
-  default_value:
-  new_in:
   description_list:
-  - markdown:
+  - markdown: 
 - property: core_limit
   ruby_type: String, Integer
   required: false
-  default_value:
-  new_in:
   description_list:
-  - markdown:
+  - markdown: 
 - property: core_soft_limit
   ruby_type: String, Integer
   required: false
-  default_value:
-  new_in:
   description_list:
-  - markdown:
+  - markdown: 
 - property: filehandle_hard_limit
   ruby_type: String, Integer
   required: false
-  default_value:
-  new_in:
   description_list:
-  - markdown:
+  - markdown: 
 - property: filehandle_limit
   ruby_type: String, Integer
   required: false
-  default_value:
-  new_in:
   description_list:
-  - markdown:
+  - markdown: 
 - property: filehandle_soft_limit
   ruby_type: String, Integer
   required: false
-  default_value:
-  new_in:
   description_list:
-  - markdown:
+  - markdown: 
 - property: filename
   ruby_type: String
   required: false
   default_value: lazy default
-  new_in:
   description_list:
-  - markdown:
+  - markdown: 
 - property: memory_limit
   ruby_type: String, Integer
   required: false
-  default_value:
-  new_in:
   description_list:
-  - markdown:
+  - markdown: 
 - property: process_hard_limit
   ruby_type: String, Integer
   required: false
-  default_value:
-  new_in:
   description_list:
-  - markdown:
+  - markdown: 
 - property: process_limit
   ruby_type: String, Integer
   required: false
-  default_value:
-  new_in:
   description_list:
-  - markdown:
+  - markdown: 
 - property: process_soft_limit
   ruby_type: String, Integer
   required: false
-  default_value:
-  new_in:
   description_list:
-  - markdown:
+  - markdown: 
 - property: rtprio_hard_limit
   ruby_type: String, Integer
   required: false
-  default_value:
-  new_in:
   description_list:
-  - markdown:
+  - markdown: 
 - property: rtprio_limit
   ruby_type: String, Integer
   required: false
-  default_value:
-  new_in:
   description_list:
-  - markdown:
+  - markdown: 
 - property: rtprio_soft_limit
   ruby_type: String, Integer
   required: false
-  default_value:
-  new_in:
   description_list:
-  - markdown:
+  - markdown: 
 - property: stack_hard_limit
   ruby_type: String, Integer
   required: false
-  default_value:
-  new_in:
   description_list:
-  - markdown:
+  - markdown: 
 - property: stack_limit
   ruby_type: String, Integer
   required: false
-  default_value:
-  new_in:
   description_list:
-  - markdown:
+  - markdown: 
 - property: stack_soft_limit
   ruby_type: String, Integer
   required: false
-  default_value:
-  new_in:
   description_list:
-  - markdown:
+  - markdown: 
 - property: username
   ruby_type: String
   required: false
   default_value: The resource block's name
-  new_in:
   description_list:
-  - markdown:
+  - markdown: 
 - property: virt_limit
   ruby_type: String, Integer
   required: false
-  default_value:
-  new_in:
   description_list:
-  - markdown:
+  - markdown: 
+examples: |
+  **Set filehandle limit for the tomcat user**:
 
+  ```ruby
+  user_ulimit 'tomcat' do
+    filehandle_limit 8192
+  end
+  ```
+
+  **Specify a username that differs from the name given to the resource block**:
+
+  ```ruby
+  user_ulimit 'Bump filehandle limits for tomcat user' do
+    username 'tomcat'
+    filehandle_limit 8192
+  end
+  ```
+
+  **Set filehandle limit for the tomcat user with a non-default filename**:
+
+  ```ruby
+  user_ulimit 'tomcat' do
+    filehandle_limit 8192
+    filename 'tomcat_filehandle_limits.conf'
+  end
+  ```
 ---

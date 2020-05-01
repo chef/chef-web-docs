@@ -149,14 +149,11 @@ common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false
 unit_file_verification: false
-examples_list:
-- example_heading: Append users to groups
-  text_blocks:
-  - code_block: "group 'www-data' do\n  action :modify\n  members 'maintenance'\n\
-      \  append true\nend"
-- example_heading: Add a user to group on the Windows platform
-  text_blocks:
-  - code_block: "group 'Administrators' do\n  members ['domain\\foo']\n  append true\n\
-      \  action :modify\nend"
+examples: "
+  Append users to groups\n\n  ``` ruby\n  group 'www-data' do\n   \
+  \ action :modify\n    members 'maintenance'\n    append true\n  end\n  ```\n\n \
+  \ Add a user to group on the Windows platform\n\n  ``` ruby\n  group 'Administrators'\
+  \ do\n    members ['domain\\foo']\n    append true\n    action :modify\n  end\n\
+  \  ```\n"
 
 ---

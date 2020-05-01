@@ -9,7 +9,6 @@ menu:
     title: powershell_package
     identifier: chef_infra/cookbook_reference/resources/powershell_package powershell_package
     parent: chef_infra/cookbook_reference/resources
-
 resource_reference: true
 robots: null
 resource_description_list:
@@ -129,39 +128,22 @@ common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false
 unit_file_verification: false
-examples_list:
-- example_heading: 'Install a specific version of a package:'
-  text_blocks:
-  - code_block: "powershell_package 'xCertificate' do\n  action :install\n  version\
-      \ '1.1.0.0'\nend"
-- example_heading: 'Install multiple packages:'
-  text_blocks:
-  - code_block: "powershell_package 'Install Multiple Packages' do\n  action :install\n\
-      \  package_name %w(xCertificate xNetworking)\nend"
-- example_heading: 'Install a package from a custom source:'
-  text_blocks:
-  - code_block: "powershell_package 'xCertificate' do\n  action :install\n  source\
-      \ 'MyGallery'\nend"
-- example_heading: 'Install multiple packages, and specify package versions:'
-  text_blocks:
-  - code_block: "powershell_package 'Install Multiple Packages' do\n  action :install\n\
-      \  package_name %w(xCertificate xNetworking)\n  version ['2.0.0.0', '2.12.0.0']\n\
-      end"
-- example_heading: 'Install multiple packages, specifying the package version for
-    one
-
-    package but not the other:'
-  text_blocks:
-  - code_block: "powershell_package 'Install Multiple Packages' do\n   action :install\n\
-      \   package_name %w(xCertificate xNetworking)\n   version [nil, '2.12.0.0']\n\
-      \ end"
-  - markdown: 'In this example, the `nil` tells `powershell_package` to install the
-
-      most up to date version of `xCertificate` that is available, while
-
-      pinning `xNetworking` to version 2.12.0.0.'
-- example_heading: 'Remove a package:'
-  text_blocks:
-  - code_block: "powershell_package 'xCertificate' do\n  action :remove\nend"
+examples: "
+  Install a specific version of a package:\n\n  ``` ruby\n  powershell_package\
+  \ 'xCertificate' do\n    action :install\n    version '1.1.0.0'\n  end\n  ```\n\n\
+  \  Install multiple packages:\n\n  ``` ruby\n  powershell_package 'Install Multiple\
+  \ Packages' do\n    action :install\n    package_name %w(xCertificate xNetworking)\n\
+  \  end\n  ```\n\n  Install a package from a custom source:\n\n  ``` ruby\n  powershell_package\
+  \ 'xCertificate' do\n    action :install\n    source 'MyGallery'\n  end\n  ```\n\
+  \n  Install multiple packages, and specify package versions:\n\n  ``` ruby\n  powershell_package\
+  \ 'Install Multiple Packages' do\n    action :install\n    package_name %w(xCertificate\
+  \ xNetworking)\n    version ['2.0.0.0', '2.12.0.0']\n  end\n  ```\n\n  Install multiple\
+  \ packages, specifying the package version for one\n  package but not the other:\n\
+  \n  ``` ruby\n  powershell_package 'Install Multiple Packages' do\n     action :install\n\
+  \     package_name %w(xCertificate xNetworking)\n     version [nil, '2.12.0.0']\n\
+  \   end\n  ```\n\n  In this example, the `nil` tells `powershell_package` to install\
+  \ the\n  most up to date version of `xCertificate` that is available, while\n  pinning\
+  \ `xNetworking` to version 2.12.0.0.\n\n  Remove a package:\n\n  ``` ruby\n  powershell_package\
+  \ 'xCertificate' do\n    action :remove\n  end\n  ```\n"
 
 ---

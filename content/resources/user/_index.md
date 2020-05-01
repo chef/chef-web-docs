@@ -9,7 +9,6 @@ menu:
     title: user
     identifier: chef_infra/cookbook_reference/resources/user user
     parent: chef_infra/cookbook_reference/resources
-
 resource_reference: true
 robots: null
 resource_description_list:
@@ -237,38 +236,25 @@ common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false
 unit_file_verification: false
-examples_list:
-- example_heading: Create a system user
-  text_blocks:
-  - code_block: "user 'systemguy' do\n  comment 'system guy'\n  system true\n  shell\
-      \ '/bin/false'\nend"
-- example_heading: Create a system user with a variable
-  text_blocks:
-  - markdown: 'The following example shows how to create a system user. In this
-
-      instance, the `home` value is calculated and stored in a variable called
-
-      `user_home` which sets the user''s `home` attribute.'
-  - code_block: "user_home = \"/home/#{node['cookbook_name']['user']}\"\n\nuser node['cookbook_name']['user']\
-      \ do\n  gid node['cookbook_name']['group']\n  shell '/bin/bash'\n  home user_home\n\
-      \  system true\n  action :create\nend"
-- example_heading: Use SALTED-SHA512-PBKDF2 passwords
-  text_blocks:
-  - markdown: 'macOS 10.8 (and higher) calculates the password shadow hash using
-
-      SALTED-SHA512-PBKDF2. The length of the shadow hash value is 128 bytes,
-
-      the salt value is 32 bytes, and an integer specifies the number of
-
-      iterations. The following code will calculate password shadow hashes for
-
-      macOS 10.8 (and higher):'
-  - code_block: "password = 'my_awesome_password'\nsalt = OpenSSL::Random.random_bytes(32)\n\
-      iterations = 25000 # Any value above 20k should be fine.\n\nshadow_hash = OpenSSL::PKCS5::pbkdf2_hmac(\n\
-      \  password,\n  salt,\n  iterations,\n  128,\n  OpenSSL::Digest::SHA512.new\n\
-      ).unpack('H*').first\nsalt_value = salt.unpack('H*').first"
-  - markdown: 'Use the calculated password shadow hash with the **user** resource:'
-  - code_block: "user 'my_awesome_user' do\n  password 'cbd1a....fc843'  # Length:\
-      \ 256\n  salt 'bd1a....fc83'        # Length: 64\n  iterations 25000\nend"
+examples: "
+  Create a system user\n\n  ``` ruby\n  user 'systemguy' do\n    comment\
+  \ 'system guy'\n    system true\n    shell '/bin/false'\n  end\n  ```\n\n  Create\
+  \ a system user with a variable\n\n  The following example shows how to create a\
+  \ system user. In this\n  instance, the `home` value is calculated and stored in\
+  \ a variable called\n  `user_home` which sets the user's `home` attribute.\n\n \
+  \ ``` ruby\n  user_home = \"/home/#{node['cookbook_name']['user']}\"\n\n  user node['cookbook_name']['user']\
+  \ do\n    gid node['cookbook_name']['group']\n    shell '/bin/bash'\n    home user_home\n\
+  \    system true\n    action :create\n  end\n  ```\n\n  Use SALTED-SHA512-PBKDF2\
+  \ passwords\n\n  macOS 10.8 (and higher) calculates the password shadow hash using\n\
+  \  SALTED-SHA512-PBKDF2. The length of the shadow hash value is 128 bytes,\n  the\
+  \ salt value is 32 bytes, and an integer specifies the number of\n  iterations.\
+  \ The following code will calculate password shadow hashes for\n  macOS 10.8 (and\
+  \ higher):\n\n  ``` ruby\n  password = 'my_awesome_password'\n  salt = OpenSSL::Random.random_bytes(32)\n\
+  \  iterations = 25000 # Any value above 20k should be fine.\n\n  shadow_hash = OpenSSL::PKCS5::pbkdf2_hmac(\n\
+  \    password,\n    salt,\n    iterations,\n    128,\n    OpenSSL::Digest::SHA512.new\n\
+  \  ).unpack('H*').first\n  salt_value = salt.unpack('H*').first\n  ```\n\n  Use\
+  \ the calculated password shadow hash with the **user** resource:\n\n  ``` ruby\n\
+  \  user 'my_awesome_user' do\n    password 'cbd1a....fc843'  # Length: 256\n   \
+  \ salt 'bd1a....fc83'        # Length: 64\n    iterations 25000\n  end\n  ```\n"
 
 ---

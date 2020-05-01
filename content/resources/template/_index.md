@@ -9,7 +9,6 @@ menu:
     title: template
     identifier: chef_infra/cookbook_reference/resources/template template
     parent: chef_infra/cookbook_reference/resources
-
 resource_reference: true
 robots: null
 resource_description_list:
@@ -423,187 +422,187 @@ common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false
 unit_file_verification: false
-examples_list:
-- example_heading: Configure a file from a template
-  text_blocks:
-  - code_block: "template '/tmp/config.conf' do\n  source 'config.conf.erb'\nend"
-- example_heading: Configure a file from a local template
-  text_blocks:
-  - code_block: "template '/tmp/config.conf' do\n  local true\n  source '/tmp/config.conf.erb'\n\
-      end"
-- example_heading: Configure a file using a variable map
-  text_blocks:
-  - code_block: "template '/tmp/config.conf' do\n  source 'config.conf.erb'\n  variables(\n\
-      \    :config_var => node['configs']['config_var']\n  )\nend"
-- example_heading: Use the not_if condition
-  text_blocks:
-  - shortcode: resource_template_add_file_not_if_attribute_has_value.md
-  - shortcode: resource_template_add_file_not_if_ruby.md
-  - shortcode: resource_template_add_file_not_if_ruby_with_curly_braces.md
-  - shortcode: resource_template_add_file_not_if_string.md
-- example_heading: Use the only_if condition
-  text_blocks:
-  - shortcode: resource_template_add_file_only_if_attribute_has_value.md
-  - shortcode: resource_template_add_file_only_if_ruby.md
-  - shortcode: resource_template_add_file_only_if_string.md
-- example_heading: Use a whitespace array (%w)
-  text_blocks:
-  - markdown: 'The following example shows how to use a Ruby whitespace array to define
-
-      a list of configuration tools, and then use that list of tools within
-
-      the **template** resource to ensure that all of these configuration
-
-      tools are using the same RSA key:'
-  - code_block: "%w{openssl.cnf pkitool vars Rakefile}.each do |f|\n  template \"\
-      /etc/openvpn/easy-rsa/#{f}\" do\n    source \"#{f}.erb\"\n    owner 'root'\n\
-      \    group 'root'\n    mode '0755'\n  end\nend"
-- example_heading: Use a relative path
-  text_blocks:
-  - shortcode: resource_template_use_relative_paths.md
-- example_heading: Delay notifications
-  text_blocks:
-  - shortcode: resource_template_notifies_delay.md
-- example_heading: Notify immediately
-  text_blocks:
-  - shortcode: resource_template_notifies_run_immediately.md
-- example_heading: Notify multiple resources
-  text_blocks:
-  - shortcode: resource_template_notifies_multiple_resources.md
-- example_heading: Reload a service
-  text_blocks:
-  - shortcode: resource_template_notifies_reload_service.md
-- example_heading: Restart a service when a template is modified
-  text_blocks:
-  - shortcode: resource_template_notifies_restart_service_when_template_modified.md
-- example_heading: Send notifications to multiple resources
-  text_blocks:
-  - shortcode: resource_template_notifies_send_notifications_to_multiple_resources.md
-- example_heading: Execute a command using a template
-  text_blocks:
-  - shortcode: resource_execute_command_from_template.md
-- example_heading: Set an IP address using variables and a template
-  text_blocks:
-  - shortcode: resource_template_set_ip_address_with_variables_and_template.md
-- example_heading: Add a rule to an IP table
-  text_blocks:
-  - shortcode: resource_execute_add_rule_to_iptable.md
-- example_heading: Apply proxy settings consistently across a Chef organization
-  text_blocks:
-  - markdown: 'The following example shows how a template can be used to apply
-
-      consistent proxy settings for all nodes of the same type:'
-  - code_block: "template \"#{node['matching_node']['dir']}/sites-available/site_proxy.conf\"\
-      \ do\n  source 'site_proxy.matching_node.conf.erb'\n  owner 'root'\n  group\
-      \ 'root'\n  mode '0755'\n  variables(\n    :ssl_certificate =>    \"#{node['matching_node']['dir']}/shared/certificates/site_proxy.crt\"\
-      ,\n    :ssl_key =>            \"#{node['matching_node']['dir']}/shared/certificates/site_proxy.key\"\
-      ,\n    :listen_port =>        node['site']['matching_node_proxy']['listen_port'],\n\
-      \    :server_name =>        node['site']['matching_node_proxy']['server_name'],\n\
-      \    :fqdn =>               node['fqdn'],\n    :server_options =>     node[:site]['matching_node']['server']['options'],\n\
-      \    :proxy_options =>      node[:site]['matching_node']['proxy']['options']\n\
-      \  )\nend"
-  - markdown: 'where `matching_node` represents a type of node (like Nginx) and
-
-      `site_proxy` represents the type of proxy being used for that type of
-
-      node (like Nexus).'
-- example_heading: Get template settings from a local file
-  text_blocks:
-  - markdown: "The **template** resource can be used to render a template based on\n\
-      settings contained in a local file on disk or to get the settings from a\ntemplate\
-      \ in a cookbook. Most of the time, the settings are retrieved\nfrom a template\
-      \ in a cookbook. The following example shows how the\n**template** resource\
-      \ can be used to retrieve these settings from a\nlocal file.\n\nThe following\
-      \ example is based on a few assumptions:\n\n-   The environment is a Ruby on\
-      \ Rails application that needs render a\n    file named `database.yml`\n-  \
-      \ Information about the application---the user, their password, the\n    server---is\
-      \ stored in a data bag on the Chef server\n-   The application is already deployed\
-      \ to the system and that only\n    requirement in this example is to render\
-      \ the `database.yml` file\n\nThe application source tree looks something like:\n\
-      \n    myapp/\n    -> config/\n       -> database.yml.erb"
-  - note: 'There should not be a file named `database.yml` (without the `.erb`), as
-
-      the `database.yml` file is what will be rendered using the **template**
-
-      resource.'
-  - markdown: 'The deployment of the app will end up in `/srv`, so the full path to
-
-      this template would be something like
-
-      `/srv/myapp/current/config/database.yml.erb`.
-
-
-      The content of the template itself may look like this:'
-  - code_block: "<%= @rails_env %>:\n   adapter: <%= @adapter %>\n   host: <%= @host\
-      \ %>\n   database: <%= @database %>\n   username: <%= @username %>\n   password:\
-      \ <%= @password %>\n   encoding: 'utf8'\n   reconnect: true"
-  - markdown: 'The recipe will be similar to the following:'
-  - code_block: "results = search(:node, \"role:myapp_database_master AND chef_environment:#{node.chef_environment}\"\
-      )\ndb_master = results[0]\n\ntemplate '/srv/myapp/shared/database.yml' do\n\
-      \  source '/srv/myapp/current/config/database.yml.erb'\n  local true\n  variables(\n\
-      \    :rails_env => node.chef_environment,\n    :adapter => db_master['myapp']['db_adapter'],\n\
-      \    :host => db_master['fqdn'],\n    :database => \"myapp_#{node.chef_environment}\"\
-      ,\n    :username => \"myapp\",\n    :password => \"SUPERSECRET\",\n  )\nend"
-  - markdown: "where:\n\n-   the `search` method in the Recipe DSL is used to find\
-      \ the first node\n    that is the database master (of which there should only\
-      \ be one)\n-   the `:adapter` variable property may also require an attribute\
-      \ to\n    have been set on a role, which then determines the correct adapter\n\
-      \nThe template will render similar to the following:"
-  - code_block: "production:\n  adapter: mysql\n  host: domU-12-31-39-14-F1-C3.compute-1.internal\n\
-      \  database: myapp_production\n  username: myapp\n  password: SUPERSECRET\n\
-      \  encoding: utf8\n  reconnect: true"
-  - markdown: 'This example showed how to use the **template** resource to render
-      a
-
-      template based on settings contained in a local file. Some other issues
-
-      that should be considered when using this type of approach include:
-
-
-      -   Should the `database.yml` file be in a `.gitignore` file?
-
-      -   How do developers run the application locally?
-
-      -   Does this work with chef-solo?'
-- example_heading: Pass values from recipe to template
-  text_blocks:
-  - markdown: 'The following example shows how pass a value to a template using the
-
-      `variables` property in the **template** resource. The template file is
-
-      similar to:'
-  - code_block: '[tcpout]
-
-      defaultGroup = splunk_indexers_<%= node[''splunk''][''receiver_port''] %>
-
-      disabled=false
-
-
-      [tcpout:splunk_indexers_<%= node[''splunk''][''receiver_port''] %>]
-
-      server=<% @splunk_servers.map do |s| -%><%= s[''ipaddress''] %>:<%= s[''splunk''][''receiver_port'']
-      %> <% end.join('', '') -%>
-
-      <% @outputs_conf.each_pair do |name, value| -%>
-
-      <%= name %> = <%= value %>
-
-      <% end -%>'
-  - markdown: 'The recipe then uses the `variables` attribute to find the values for
-
-      `splunk_servers` and `outputs_conf`, before passing them into the
-
-      template:'
-  - code_block: "template \"#{splunk_dir}/etc/system/local/outputs.conf\" do\n  source\
-      \ 'outputs.conf.erb'\n  mode '0755'\n  variables :splunk_servers => splunk_servers,\
-      \ :outputs_conf => node['splunk']['outputs_conf']\n  notifies :restart, 'service[splunk]'\n\
-      end"
-  - markdown: 'This example can be found in the `client.rb` recipe and the
-
-      `outputs.conf.erb` template files that are located in the [chef-splunk
-
-      cookbook](https://github.com/chef-cookbooks/chef-splunk/) that is
-
-      maintained by Chef.'
+examples: "
+  Configure a file from a template\n\n  ``` ruby\n  template '/tmp/config.conf'\
+  \ do\n    source 'config.conf.erb'\n  end\n  ```\n\n  Configure a file from a local\
+  \ template\n\n  ``` ruby\n  template '/tmp/config.conf' do\n    local true\n   \
+  \ source '/tmp/config.conf.erb'\n  end\n  ```\n\n  Configure a file using a variable\
+  \ map\n\n  ``` ruby\n  template '/tmp/config.conf' do\n    source 'config.conf.erb'\n\
+  \    variables(\n      :config_var => node['configs']['config_var']\n    )\n  end\n\
+  \  ```\n\n  Use the not_if condition\n\n  The following example shows how to use\
+  \ the `not_if` condition to create\n  a file based on a template and using the presence\
+  \ of an attribute value\n  on the node to specify the condition:\n\n  ``` ruby\n\
+  \  template '/tmp/somefile' do\n    mode '0755'\n    source 'somefile.erb'\n   \
+  \ not_if { node['some_value'] }\n  end\n  ```\n\n  The following example shows how\
+  \ to use the `not_if` condition to create\n  a file based on a template and then\
+  \ Ruby code to specify the condition:\n\n  ``` ruby\n  template '/tmp/somefile'\
+  \ do\n    mode '0755'\n    source 'somefile.erb'\n    not_if do\n      File.exist?('/etc/passwd')\n\
+  \    end\n  end\n  ```\n\n  The following example shows how to use the `not_if`\
+  \ condition to create\n  a file based on a template and using a Ruby block (with\
+  \ curly braces) to\n  specify the condition:\n\n  ``` ruby\n  template '/tmp/somefile'\
+  \ do\n    mode '0755'\n    source 'somefile.erb'\n    not_if { File.exist?('/etc/passwd')\
+  \ }\n  end\n  ```\n\n  The following example shows how to use the `not_if` condition\
+  \ to create\n  a file based on a template and using a string to specify the condition:\n\
+  \n  ``` ruby\n  template '/tmp/somefile' do\n    mode '0755'\n    source 'somefile.erb'\n\
+  \    not_if 'test -f /etc/passwd'\n  end\n  ```\n\n  Use the only_if condition\n\
+  \n  The following example shows how to use the `only_if` condition to create\n \
+  \ a file based on a template and using the presence of an attribute on the\n  node\
+  \ to specify the condition:\n\n  ``` ruby\n  template '/tmp/somefile' do\n    mode\
+  \ '0755'\n    source 'somefile.erb'\n    only_if { node['some_value'] }\n  end\n\
+  \  ```\n\n  The following example shows how to use the `only_if` condition to create\n\
+  \  a file based on a template, and then use Ruby to specify a condition:\n\n  ```\
+  \ ruby\n  template '/tmp/somefile' do\n    mode '0755'\n    source 'somefile.erb'\n\
+  \    only_if { ! ::File.exist?('/etc/passwd') }\n  end\n  ```\n\n  The following\
+  \ example shows how to use the `only_if` condition to create\n  a file based on\
+  \ a template and using a string to specify the condition:\n\n  ``` ruby\n  template\
+  \ '/tmp/somefile' do\n    mode '0755'\n    source 'somefile.erb'\n    only_if 'test\
+  \ -f /etc/passwd'\n  end\n  ```\n\n  Use a whitespace array (%w)\n\n  The following\
+  \ example shows how to use a Ruby whitespace array to define\n  a list of configuration\
+  \ tools, and then use that list of tools within\n  the **template** resource to\
+  \ ensure that all of these configuration\n  tools are using the same RSA key:\n\n\
+  \  ``` ruby\n  %w{openssl.cnf pkitool vars Rakefile}.each do |f|\n    template \"\
+  /etc/openvpn/easy-rsa/#{f}\" do\n      source \"#{f}.erb\"\n      owner 'root'\n\
+  \      group 'root'\n      mode '0755'\n    end\n  end\n  ```\n\n  Use a relative\
+  \ path\n\n  ``` ruby\n  template \"#{ENV['HOME']}/chef-getting-started.txt\" do\n\
+  \    source 'chef-getting-started.txt.erb'\n    mode '0755'\n  end\n  ```\n\n  Delay\
+  \ notifications\n\n  ``` ruby\n  template '/etc/nagios3/configures-nagios.conf'\
+  \ do\n    # other parameters\n    notifies :run, 'execute[test-nagios-config]',\
+  \ :delayed\n  end\n  ```\n\n  Notify immediately\n\n  By default, notifications\
+  \ are `:delayed`, that is they are queued up as\n  they are triggered, and then\
+  \ executed at the very end of a Chef Infra\n  Client run. To run an action immediately,\
+  \ use `:immediately`:\n\n  ``` ruby\n  template '/etc/nagios3/configures-nagios.conf'\
+  \ do\n    # other parameters\n    notifies :run, 'execute[test-nagios-config]',\
+  \ :immediately\n  end\n  ```\n\n  and then Chef Infra Client would immediately run\
+  \ the following:\n\n  ``` ruby\n  execute 'test-nagios-config' do\n    command 'nagios3\
+  \ --verify-config'\n    action :nothing\n  end\n  ```\n\n  Notify multiple resources\n\
+  \n  ``` ruby\n  template '/etc/chef/server.rb' do\n    source 'server.rb.erb'\n\
+  \    owner 'root'\n    group 'root'\n    mode '0755'\n    notifies :restart, 'service[chef-solr]',\
+  \ :delayed\n    notifies :restart, 'service[chef-solr-indexer]', :delayed\n    notifies\
+  \ :restart, 'service[chef-server]', :delayed\n  end\n  ```\n\n  Reload a service\n\
+  \n  ``` ruby\n  template '/tmp/somefile' do\n    mode '0755'\n    source 'somefile.erb'\n\
+  \    notifies :reload, 'service[apache]', :immediately\n  end\n  ```\n\n  Restart\
+  \ a service when a template is modified\n\n  ``` ruby\n  template '/etc/www/configures-apache.conf'\
+  \ do\n    notifies :restart, 'service[apache]', :immediately\n  end\n  ```\n\n \
+  \ Send notifications to multiple resources\n\n  To send notifications to multiple\
+  \ resources, just use multiple\n  attributes. Multiple attributes will get sent\
+  \ to the notified resources\n  in the order specified.\n\n  ``` ruby\n  template\
+  \ '/etc/netatalk/netatalk.conf' do\n    notifies :restart, 'service[afpd]', :immediately\n\
+  \    notifies :restart, 'service[cnid]', :immediately\n  end\n\n  service 'afpd'\n\
+  \  service 'cnid'\n  ```\n\n  Execute a command using a template\n\n  The following\
+  \ example shows how to set up IPv4 packet forwarding using\n  the **execute** resource\
+  \ to run a command named `forward_ipv4` that uses\n  a template defined by the **template**\
+  \ resource:\n\n  ``` ruby\n  execute 'forward_ipv4' do\n    command 'echo > /proc/.../ipv4/ip_forward'\n\
+  \    action :nothing\n  end\n\n  template '/etc/file_name.conf' do\n    source 'routing/file_name.conf.erb'\n\
+  \    notifies :run, 'execute[forward_ipv4]', :delayed\n  end\n  ```\n\n  where the\
+  \ `command` property for the **execute** resource contains the\n  command that is\
+  \ to be run and the `source` property for the **template**\n  resource specifies\
+  \ which template to use. The `notifies` property for\n  the **template** specifies\
+  \ that the `execute[forward_ipv4]` (which is\n  defined by the **execute** resource)\
+  \ should be queued up and run at the\n  end of a Chef Infra Client run.\n\n  Set\
+  \ an IP address using variables and a template\n\n  The following example shows\
+  \ how the **template** resource can be used in\n  a recipe to combine settings stored\
+  \ in an attributes file, variables\n  within a recipe, and a template to set the\
+  \ IP addresses that are used by\n  the Nginx service. The attributes file contains\
+  \ the following:\n\n  ``` ruby\n  default['nginx']['dir'] = '/etc/nginx'\n  ```\n\
+  \n  The recipe then does the following to:\n\n  -   Declare two variables at the\
+  \ beginning of the recipe, one for the\n      remote IP address and the other for\
+  \ the authorized IP address\n  -   Use the **service** resource to restart and reload\
+  \ the Nginx service\n  -   Load a template named `authorized_ip.erb` from the `/templates`\n\
+  \      directory that is used to set the IP address values based on the\n      variables\
+  \ specified in the recipe\n\n  <!-- -->\n\n  ``` ruby\n  node.default['nginx']['remote_ip_var']\
+  \ = 'remote_addr'\n  node.default['nginx']['authorized_ips'] = ['127.0.0.1/32']\n\
+  \n  service 'nginx' do\n    supports :status => true, :restart => true, :reload\
+  \ => true\n  end\n\n  template 'authorized_ip' do\n    path \"#{node['nginx']['dir']}/authorized_ip\"\
+  \n    source 'modules/authorized_ip.erb'\n    owner 'root'\n    group 'root'\n \
+  \   mode '0755'\n    variables(\n      :remote_ip_var => node['nginx']['remote_ip_var'],\n\
+  \      :authorized_ips => node['nginx']['authorized_ips']\n    )\n\n    notifies\
+  \ :reload, 'service[nginx]', :immediately\n  end\n  ```\n\n  where the `variables`\
+  \ property tells the template to use the variables\n  set at the beginning of the\
+  \ recipe and the `source` property is used to\n  call a template file located in\
+  \ the cookbook's `/templates` directory.\n  The template file looks similar to:\n\
+  \n  ``` ruby\n  geo $<%= @remote_ip_var %> $authorized_ip {\n    default no;\n \
+  \   <% @authorized_ips.each do |ip| %>\n    <%= \"#{ip} yes;\" %>\n    <% end %>\n\
+  \  }\n  ```\n\n  Add a rule to an IP table\n\n  The following example shows how\
+  \ to add a rule named `test_rule` to an IP\n  table using the **execute** resource\
+  \ to run a command using a template\n  that is defined by the **template** resource:\n\
+  \n  ``` ruby\n  execute 'test_rule' do\n    command 'command_to_run\n      --option\
+  \ value\n      ...\n      --option value\n      --source #{node[:name_of_node][:ipsec][:local][:subnet]}\n\
+  \      -j test_rule'\n    action :nothing\n  end\n\n  template '/etc/file_name.local'\
+  \ do\n    source 'routing/file_name.local.erb'\n    notifies :run, 'execute[test_rule]',\
+  \ :delayed\n  end\n  ```\n\n  where the `command` property for the **execute** resource\
+  \ contains the\n  command that is to be run and the `source` property for the **template**\n\
+  \  resource specifies which template to use. The `notifies` property for\n  the\
+  \ **template** specifies that the `execute[test_rule]` (which is\n  defined by the\
+  \ **execute** resource) should be queued up and run at the\n  end of a Chef Infra\
+  \ Client run.\n\n  Apply proxy settings consistently across a Chef organization\n\
+  \n  The following example shows how a template can be used to apply\n  consistent\
+  \ proxy settings for all nodes of the same type:\n\n  ``` ruby\n  template \"#{node['matching_node']['dir']}/sites-available/site_proxy.conf\"\
+  \ do\n    source 'site_proxy.matching_node.conf.erb'\n    owner 'root'\n    group\
+  \ 'root'\n    mode '0755'\n    variables(\n      :ssl_certificate =>    \"#{node['matching_node']['dir']}/shared/certificates/site_proxy.crt\"\
+  ,\n      :ssl_key =>            \"#{node['matching_node']['dir']}/shared/certificates/site_proxy.key\"\
+  ,\n      :listen_port =>        node['site']['matching_node_proxy']['listen_port'],\n\
+  \      :server_name =>        node['site']['matching_node_proxy']['server_name'],\n\
+  \      :fqdn =>               node['fqdn'],\n      :server_options =>     node[:site]['matching_node']['server']['options'],\n\
+  \      :proxy_options =>      node[:site]['matching_node']['proxy']['options']\n\
+  \    )\n  end\n  ```\n\n  where `matching_node` represents a type of node (like\
+  \ Nginx) and\n  `site_proxy` represents the type of proxy being used for that type\
+  \ of\n  node (like Nexus).\n\n  Get template settings from a local file\n\n  The\
+  \ **template** resource can be used to render a template based on\n  settings contained\
+  \ in a local file on disk or to get the settings from a\n  template in a cookbook.\
+  \ Most of the time, the settings are retrieved\n  from a template in a cookbook.\
+  \ The following example shows how the\n  **template** resource can be used to retrieve\
+  \ these settings from a\n  local file.\n\n  The following example is based on a\
+  \ few assumptions:\n\n  -   The environment is a Ruby on Rails application that\
+  \ needs render a\n      file named `database.yml`\n  -   Information about the application---the\
+  \ user, their password, the\n      server---is stored in a data bag on the Chef\
+  \ server\n  -   The application is already deployed to the system and that only\n\
+  \      requirement in this example is to render the `database.yml` file\n\n  The\
+  \ application source tree looks something like:\n\n      myapp/\n      -> config/\n\
+  \         -> database.yml.erb\n\n  <div class=\"admonition-note\">\n    <p class=\"\
+  admonition-note-title\">Note</p>\n      <div class=\"admonition-note-text\">\n \
+  \       <p>There should not be a file named <code>database.yml</code> (without the\
+  \ <code>.erb</code>), as the <code>database.yml</code> file is what will be rendered\
+  \ using the <strong>template</strong> resource.</p>\n\n      </div>\n    </div>\n\
+  \n  The deployment of the app will end up in `/srv`, so the full path to\n  this\
+  \ template would be something like\n  `/srv/myapp/current/config/database.yml.erb`.\n\
+  \n  The content of the template itself may look like this:\n\n  ``` ruby\n  <%=\
+  \ @rails_env %>:\n     adapter: <%= @adapter %>\n     host: <%= @host %>\n     database:\
+  \ <%= @database %>\n     username: <%= @username %>\n     password: <%= @password\
+  \ %>\n     encoding: 'utf8'\n     reconnect: true\n  ```\n\n  The recipe will be\
+  \ similar to the following:\n\n  ``` ruby\n  results = search(:node, \"role:myapp_database_master\
+  \ AND chef_environment:#{node.chef_environment}\")\n  db_master = results[0]\n\n\
+  \  template '/srv/myapp/shared/database.yml' do\n    source '/srv/myapp/current/config/database.yml.erb'\n\
+  \    local true\n    variables(\n      :rails_env => node.chef_environment,\n  \
+  \    :adapter => db_master['myapp']['db_adapter'],\n      :host => db_master['fqdn'],\n\
+  \      :database => \"myapp_#{node.chef_environment}\",\n      :username => \"myapp\"\
+  ,\n      :password => \"SUPERSECRET\",\n    )\n  end\n  ```\n\n  where:\n\n  - \
+  \  the `search` method in the Recipe DSL is used to find the first node\n      that\
+  \ is the database master (of which there should only be one)\n  -   the `:adapter`\
+  \ variable property may also require an attribute to\n      have been set on a role,\
+  \ which then determines the correct adapter\n\n  The template will render similar\
+  \ to the following:\n\n  ``` ruby\n  production:\n    adapter: mysql\n    host:\
+  \ domU-12-31-39-14-F1-C3.compute-1.internal\n    database: myapp_production\n  \
+  \  username: myapp\n    password: SUPERSECRET\n    encoding: utf8\n    reconnect:\
+  \ true\n  ```\n\n  This example showed how to use the **template** resource to render\
+  \ a\n  template based on settings contained in a local file. Some other issues\n\
+  \  that should be considered when using this type of approach include:\n\n  -  \
+  \ Should the `database.yml` file be in a `.gitignore` file?\n  -   How do developers\
+  \ run the application locally?\n  -   Does this work with chef-solo?\n\n  Pass values\
+  \ from recipe to template\n\n  The following example shows how pass a value to a\
+  \ template using the\n  `variables` property in the **template** resource. The template\
+  \ file is\n  similar to:\n\n  ``` ruby\n  [tcpout]\n  defaultGroup = splunk_indexers_<%=\
+  \ node['splunk']['receiver_port'] %>\n  disabled=false\n\n  [tcpout:splunk_indexers_<%=\
+  \ node['splunk']['receiver_port'] %>]\n  server=<% @splunk_servers.map do |s| -%><%=\
+  \ s['ipaddress'] %>:<%= s['splunk']['receiver_port'] %> <% end.join(', ') -%>\n\
+  \  <% @outputs_conf.each_pair do |name, value| -%>\n  <%= name %> = <%= value %>\n\
+  \  <% end -%>\n  ```\n\n  The recipe then uses the `variables` attribute to find\
+  \ the values for\n  `splunk_servers` and `outputs_conf`, before passing them into\
+  \ the\n  template:\n\n  ``` ruby\n  template \"#{splunk_dir}/etc/system/local/outputs.conf\"\
+  \ do\n    source 'outputs.conf.erb'\n    mode '0755'\n    variables :splunk_servers\
+  \ => splunk_servers, :outputs_conf => node['splunk']['outputs_conf']\n    notifies\
+  \ :restart, 'service[splunk]'\n  end\n  ```\n\n  This example can be found in the\
+  \ `client.rb` recipe and the\n  `outputs.conf.erb` template files that are located\
+  \ in the [chef-splunk\n  cookbook](https://github.com/chef-cookbooks/chef-splunk/)\
+  \ that is\n  maintained by Chef.\n"
 
 ---

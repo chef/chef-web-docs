@@ -84,22 +84,16 @@ common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false
 unit_file_verification: false
-examples_list:
-- example_heading: Using local path in source
-  text_blocks:
-  - code_block: "msu_package 'Install Windows 2012R2 Update KB2959977' do\n  source\
-      \ 'C:\\Users\\xyz\\AppData\\Local\\Temp\\Windows8.1-KB2959977-x64.msu'\n  action\
-      \ :install\nend"
-  - code_block: "msu_package 'Remove Windows 2012R2 Update KB2959977' do\n  source\
-      \ 'C:\\Users\\xyz\\AppData\\Local\\Temp\\Windows8.1-KB2959977-x64.msu'\n  action\
-      \ :remove\nend"
-- example_heading: Using URL in source
-  text_blocks:
-  - code_block: "msu_package 'Install Windows 2012R2 Update KB2959977' do\n  source\
-      \ 'https://s3.amazonaws.com/my_bucket/Windows8.1-KB2959977-x64.msu'\n  action\
-      \ :install\nend"
-  - code_block: "msu_package 'Remove Windows 2012R2 Update KB2959977' do\n  source\
-      \ 'https://s3.amazonaws.com/my_bucket/Windows8.1-KB2959977-x64.msu'\n  action\
-      \ :remove\nend"
+examples: "
+  Using local path in source\n\n  ``` ruby\n  msu_package 'Install\
+  \ Windows 2012R2 Update KB2959977' do\n    source 'C:\\Users\\xyz\\AppData\\Local\\\
+  Temp\\Windows8.1-KB2959977-x64.msu'\n    action :install\n  end\n  ```\n\n  ```\
+  \ ruby\n  msu_package 'Remove Windows 2012R2 Update KB2959977' do\n    source 'C:\\\
+  Users\\xyz\\AppData\\Local\\Temp\\Windows8.1-KB2959977-x64.msu'\n    action :remove\n\
+  \  end\n  ```\n\n  Using URL in source\n\n  ``` ruby\n  msu_package 'Install Windows\
+  \ 2012R2 Update KB2959977' do\n    source 'https://s3.amazonaws.com/my_bucket/Windows8.1-KB2959977-x64.msu'\n\
+  \    action :install\n  end\n  ```\n\n  ``` ruby\n  msu_package 'Remove Windows\
+  \ 2012R2 Update KB2959977' do\n    source 'https://s3.amazonaws.com/my_bucket/Windows8.1-KB2959977-x64.msu'\n\
+  \    action :remove\n  end\n  ```\n"
 
 ---

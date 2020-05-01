@@ -233,34 +233,17 @@ common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false
 unit_file_verification: false
-examples_list:
-- example_heading: Configure a network interface
-  text_blocks:
-  - code_block: "ifconfig \"33.33.33.80\" do\n  bootproto \"dhcp\"\n  device \"eth1\"\
-      \nend"
-  - markdown: 'will create the following interface:
-
-
-      ``` none
-
-      vagrant@default-ubuntu-1204:~cat /etc/network/interfaces.d/ifcfg-eth1
-
-      iface eth1 inet dhcp
-
-      ```'
-- example_heading: Specify a boot protocol
-  text_blocks:
-  - code_block: "ifconfig '192.186.0.1' do\n  device 'eth0'\nend"
-- example_heading: Specify a static IP address
-  text_blocks:
-  - code_block: "ifconfig \"33.33.33.80\" do\n  device \"eth1\"\nend"
-  - markdown: "will create the following interface:\n\n``` none\niface eth1 inet static\n\
-      \  address 33.33.33.80\n```"
-- example_heading: Update a static IP address with a boot protocol
-  text_blocks:
-  - code_block: "ifconfig \"33.33.33.80\" do\n  bootproto \"dhcp\"\n  device \"eth1\"\
-      \nend"
-  - markdown: "will update the interface from `static` to `dhcp`:\n\n``` none\niface\
-      \ eth1 inet dhcp\n  address 33.33.33.80\n```"
+examples: "
+  Configure a network interface\n\n  ``` ruby\n  ifconfig \"33.33.33.80\"\
+  \ do\n    bootproto \"dhcp\"\n    device \"eth1\"\n  end\n  ```\n\n  will create\
+  \ the following interface:\n\n  ``` none\n  vagrant@default-ubuntu-1204:~cat /etc/network/interfaces.d/ifcfg-eth1\n\
+  \  iface eth1 inet dhcp\n  ```\n\n  Specify a boot protocol\n\n  ``` ruby\n  ifconfig\
+  \ '192.186.0.1' do\n    device 'eth0'\n  end\n  ```\n\n  Specify a static IP address\n\
+  \n  ``` ruby\n  ifconfig \"33.33.33.80\" do\n    device \"eth1\"\n  end\n  ```\n\
+  \n  will create the following interface:\n\n  ``` none\n  iface eth1 inet static\n\
+  \    address 33.33.33.80\n  ```\n\n  Update a static IP address with a boot protocol\n\
+  \n  ``` ruby\n  ifconfig \"33.33.33.80\" do\n    bootproto \"dhcp\"\n    device\
+  \ \"eth1\"\n  end\n  ```\n\n  will update the interface from `static` to `dhcp`:\n\
+  \n  ``` none\n  iface eth1 inet dhcp\n    address 33.33.33.80\n  ```\n"
 
 ---

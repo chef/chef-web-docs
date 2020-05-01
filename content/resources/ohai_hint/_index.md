@@ -91,19 +91,13 @@ common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false
 unit_file_verification: false
-examples_list:
-- example_heading: Create a hint file
-  text_blocks:
-  - code_block: "ohai_hint 'example' do\n  content Hash[:a, 'test_content']\nend"
-- example_heading: Create a hint file with a name that does not match the resource
-    name
-  text_blocks:
-  - code_block: "ohai_hint 'example' do\n  hint_name 'custom'\nend"
-- example_heading: Create a hint file that is not loaded at compile time
-  text_blocks:
-  - code_block: "ohai_hint 'example' do\n  compile_time false\nend"
-- example_heading: Delete a hint file
-  text_blocks:
-  - code_block: "ohai-hint 'example' do\n  action :delete\nend"
+examples: "
+  Create a hint file\n\n  ``` ruby\n  ohai_hint 'example' do\n    content\
+  \ Hash[:a, 'test_content']\n  end\n  ```\n\n  Create a hint file with a name that\
+  \ does not match the resource name\n\n  ``` ruby\n  ohai_hint 'example' do\n   \
+  \ hint_name 'custom'\n  end\n  ```\n\n  Create a hint file that is not loaded at\
+  \ compile time\n\n  ``` ruby\n  ohai_hint 'example' do\n    compile_time false\n\
+  \  end\n  ```\n\n  Delete a hint file\n\n  ``` ruby\n  ohai-hint 'example' do\n\
+  \    action :delete\n  end\n  ```\n"
 
 ---

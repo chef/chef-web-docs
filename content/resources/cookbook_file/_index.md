@@ -355,45 +355,46 @@ common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: true
 unit_file_verification: false
-examples_list:
-- example_heading: Transfer a file
-  text_blocks:
-  - code_block: "cookbook_file 'file.txt' do\n  mode '0755'\nend"
-- example_heading: Handle cookbook_file and package resources in the same recipe
-  text_blocks:
-  - markdown: 'When a **cookbook_file** resource and a **package** resource are both
-
-      called from within the same recipe, use the `flush_cache` attribute to
-
-      dump the in-memory Yum cache, and then use the repository immediately to
-
-      ensure that the correct package is installed:'
-  - code_block: "cookbook_file '/etc/yum.repos.d/custom.repo' do\n  source 'custom'\n\
-      \  mode '0755'\nend\n\npackage 'only-in-custom-repo' do\n  action :install\n\
-      \  flush_cache [ :before ]\nend"
-- example_heading: 'Install repositories from a file, trigger a command, and force
-    the
-
-    internal cache to reload'
-  text_blocks:
-  - shortcode: resource_package_install_yum_repo_from_file.md
-- example_heading: Use a case statement
-  text_blocks:
-  - markdown: 'The following example shows how a case statement can be used to handle
-      a
-
-      situation where an application needs to be installed on multiple
-
-      platforms, but where the install directories are different paths,
-
-      depending on the platform:'
-  - code_block: "cookbook_file 'application.pm' do\n  path case node['platform']\n\
-      \    when 'centos','redhat'\n      '/usr/lib/version/1.2.3/dir/application.pm'\n\
-      \    when 'arch'\n      '/usr/share/version/core_version/dir/application.pm'\n\
-      \    else\n      '/etc/version/dir/application.pm'\n    end\n  source \"application-#{node['languages']['perl']['version']}.pm\"\
-      \n  owner 'root'\n  group 'root'\n  mode '0755'\nend"
-- example_heading: Manage dotfiles
-  text_blocks:
-  - shortcode: resource_directory_manage_dotfiles.md
+examples: "
+  Transfer a file\n\n  ``` ruby\n  cookbook_file 'file.txt' do\n  \
+  \  mode '0755'\n  end\n  ```\n\n  Handle cookbook_file and package resources in\
+  \ the same recipe\n\n  When a **cookbook_file** resource and a **package** resource\
+  \ are both\n  called from within the same recipe, use the `flush_cache` attribute\
+  \ to\n  dump the in-memory Yum cache, and then use the repository immediately to\n\
+  \  ensure that the correct package is installed:\n\n  ``` ruby\n  cookbook_file\
+  \ '/etc/yum.repos.d/custom.repo' do\n    source 'custom'\n    mode '0755'\n  end\n\
+  \n  package 'only-in-custom-repo' do\n    action :install\n    flush_cache [ :before\
+  \ ]\n  end\n  ```\n\n  Install repositories from a file, trigger a command, and\
+  \ force the\n  internal cache to reload\n\n  The following example shows how to\
+  \ install new Yum repositories from a\n  file, where the installation of the repository\
+  \ triggers a creation of\n  the Yum cache that forces the internal cache for Chef\
+  \ Infra Client to\n  reload:\n\n  ``` ruby\n  execute 'create-yum-cache' do\n  \
+  \ command 'yum -q makecache'\n   action :nothing\n  end\n\n  ruby_block 'reload-internal-yum-cache'\
+  \ do\n    block do\n      Chef::Provider::Package::Yum::YumCache.instance.reload\n\
+  \    end\n    action :nothing\n  end\n\n  cookbook_file '/etc/yum.repos.d/custom.repo'\
+  \ do\n    source 'custom'\n    mode '0755'\n    notifies :run, 'execute[create-yum-cache]',\
+  \ :immediately\n    notifies :create, 'ruby_block[reload-internal-yum-cache]', :immediately\n\
+  \  end\n  ```\n\n  Use a case statement\n\n  The following example shows how a case\
+  \ statement can be used to handle a\n  situation where an application needs to be\
+  \ installed on multiple\n  platforms, but where the install directories are different\
+  \ paths,\n  depending on the platform:\n\n  ``` ruby\n  cookbook_file 'application.pm'\
+  \ do\n    path case node['platform']\n      when 'centos','redhat'\n        '/usr/lib/version/1.2.3/dir/application.pm'\n\
+  \      when 'arch'\n        '/usr/share/version/core_version/dir/application.pm'\n\
+  \      else\n        '/etc/version/dir/application.pm'\n      end\n    source \"\
+  application-#{node['languages']['perl']['version']}.pm\"\n    owner 'root'\n   \
+  \ group 'root'\n    mode '0755'\n  end\n  ```\n\n  Manage dotfiles\n\n  The following\
+  \ example shows using the **directory** and\n  **cookbook_file** resources to manage\
+  \ dotfiles. The dotfiles are\n  defined by a JSON data structure similar to:\n\n\
+  \  ``` javascript\n  \"files\": {\n    \".zshrc\": {\n      \"mode\": '0755',\n\
+  \      \"source\": \"dot-zshrc\"\n      },\n    \".bashrc\": {\n      \"mode\":\
+  \ '0755',\n      \"source\": \"dot-bashrc\"\n       },\n    \".bash_profile\": {\n\
+  \      \"mode\": '0755',\n      \"source\": \"dot-bash_profile\"\n      },\n   \
+  \ }\n  ```\n\n  and then the following resources manage the dotfiles:\n\n  ``` ruby\n\
+  \  if u.has_key?('files')\n    u['files'].each do |filename, file_data|\n\n    directory\
+  \ \"#{home_dir}/#{File.dirname(filename)}\" do\n      recursive true\n      mode\
+  \ '0755'\n    end if file_data['subdir']\n\n    cookbook_file \"#{home_dir}/#{filename}\"\
+  \ do\n      source \"#{u['id']}/#{file_data['source']}\"\n      owner 'u['id']'\n\
+  \      group 'group_id'\n      mode 'file_data['mode']'\n      ignore_failure true\n\
+  \      backup 0\n    end\n  end\n  ```\n"
 
 ---

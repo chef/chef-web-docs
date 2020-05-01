@@ -122,23 +122,14 @@ common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false
 unit_file_verification: false
-examples_list:
-- example_heading: Create a public key from a private key file
-  text_blocks:
-  - code_block: "openssl_ec_public_key '/etc/example/key.pub' do\n  private_key_path\
-      \ '/etc/example/key.pem'\nend"
-- example_heading: 'Create a public key from a private key, without writing the private
-
-    key to disk'
-  text_blocks:
-  - markdown: 'You can provide the private key content as a string to the
-
-      openssl_ec_public_key resource. In this example we just pass a
-
-      string, but this content could be loaded from an encrypted data bag or
-
-      other secure storage.'
-  - code_block: "openssl_ec_public_key '/etc/example/key.pub' do\n  private_key_content\
-      \ 'KEY_CONTENT_HERE_AS_A_STRING'\nend"
+examples: "
+  Create a public key from a private key file\n\n  ``` ruby\n  openssl_ec_public_key\
+  \ '/etc/example/key.pub' do\n    private_key_path '/etc/example/key.pem'\n  end\n\
+  \  ```\n\n  Create a public key from a private key, without writing the private\n\
+  \  key to disk\n\n  You can provide the private key content as a string to the\n\
+  \  openssl_ec_public_key resource. In this example we just pass a\n  string, but\
+  \ this content could be loaded from an encrypted data bag or\n  other secure storage.\n\
+  \n  ``` ruby\n  openssl_ec_public_key '/etc/example/key.pub' do\n    private_key_content\
+  \ 'KEY_CONTENT_HERE_AS_A_STRING'\n  end\n  ```\n"
 
 ---

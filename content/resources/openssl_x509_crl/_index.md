@@ -9,7 +9,6 @@ menu:
     title: openssl_x509_crl
     identifier: chef_infra/cookbook_reference/resources/openssl_x509_crl openssl_x509_crl
     parent: chef_infra/cookbook_reference/resources
-
 resource_reference: true
 robots: null
 resource_description_list:
@@ -161,15 +160,12 @@ common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false
 unit_file_verification: false
-examples_list:
-- example_heading: Create a certificate revocation file
-  text_blocks:
-  - code_block: "openssl_x509_crl '/etc/ssl_test/my_ca.crl' do\n  ca_cert_file '/etc/ssl_test/my_ca.crt'\n\
-      \  ca_key_file '/etc/ssl_test/my_ca.key'\nend"
-- example_heading: Create a certificate revocation file for a particular serial
-  text_blocks:
-  - code_block: "openssl_x509_crl '/etc/ssl_test/my_ca.crl' do\n  ca_cert_file '/etc/ssl_test/my_ca.crt'\n\
-      \  ca_key_file '/etc/ssl_test/my_ca.key'\n  serial_to_revoke C7BCB6602A2E4251EF4E2827A228CB52BC0CEA2F\n\
-      end"
+examples: "
+  Create a certificate revocation file\n\n  ``` ruby\n  openssl_x509_crl\
+  \ '/etc/ssl_test/my_ca.crl' do\n    ca_cert_file '/etc/ssl_test/my_ca.crt'\n   \
+  \ ca_key_file '/etc/ssl_test/my_ca.key'\n  end\n  ```\n\n  Create a certificate\
+  \ revocation file for a particular serial\n\n  ``` ruby\n  openssl_x509_crl '/etc/ssl_test/my_ca.crl'\
+  \ do\n    ca_cert_file '/etc/ssl_test/my_ca.crt'\n    ca_key_file '/etc/ssl_test/my_ca.key'\n\
+  \    serial_to_revoke C7BCB6602A2E4251EF4E2827A228CB52BC0CEA2F\n  end\n  ```\n"
 
 ---

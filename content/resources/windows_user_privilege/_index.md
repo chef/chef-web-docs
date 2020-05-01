@@ -1,8 +1,5 @@
 ---
-draft: false
 resource_reference: true
-robots:
-syntax_code_block:
 common_resource_functionality_multiple_packages: false
 common_resource_functionality_resources_common_windows_security: false
 cookbook_file_specificity: false
@@ -39,7 +36,6 @@ menu:
     title: windows_user_privilege
     identifier: chef_infra/cookbook_reference/resources/windows_user_privilege windows_user_privilege
     parent: chef_infra/cookbook_reference/resources
-
 resource_description_list:
 - markdown: "The windows_user_privilege resource allows to add and set principal (User/Group)
     to the specified privilege. \n Ref: https://docs.microsoft.com/en-us/windows/security/threat-protection/security-policy-settings/user-rights-assignment"
@@ -57,31 +53,34 @@ syntax_full_properties_list:
 - "`name` is the name given to the resource block."
 - "`action` identifies which steps Chef Infra Client will take to bring the node into
   the desired state."
-- "``principal``, ``privilege``, and ``users`` are the properties available to this
-  resource."
+- "`principal`, `privilege`, and `users` are the properties available to this resource."
+actions_list:
+  :add:
+    markdown: Add a user privilege
+  :nothing:
+    shortcode: resources_common_actions_nothing.md
+  :remove:
+    markdown: Remove a user privilege
+  :set:
+    markdown: Set the complete set of user privileges
 properties_list:
 - property: principal
   ruby_type: String
   required: false
   default_value: The resource block's name
-  new_in:
   description_list:
   - markdown: An optional property to add the user to the given privilege. Use only
       with add and remove action.
 - property: privilege
   ruby_type: Array, String
   required: true
-  default_value:
-  new_in:
   description_list:
   - markdown: Privilege to set for users.
 - property: users
   ruby_type: Array
   required: false
-  default_value:
-  new_in:
   description_list:
   - markdown: An optional property to set the privilege for given users. Use only
       with set action.
-
+examples: 
 ---

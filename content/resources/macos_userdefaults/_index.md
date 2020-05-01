@@ -9,7 +9,6 @@ menu:
     title: macos_userdefaults
     identifier: chef_infra/cookbook_reference/resources/macos_userdefaults macos_userdefaults
     parent: chef_infra/cookbook_reference/resources
-
 resource_reference: true
 robots: null
 resource_description_list:
@@ -125,18 +124,14 @@ common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false
 unit_file_verification: false
-examples_list:
-- example_heading: Specify a global domain
-  text_blocks:
-  - code_block: "macos_userdefaults 'full keyboard access to all controls' do\n  domain\
-      \ 'AppleKeyboardUIMode'\n  global true\n  value '2'\nend"
-- example_heading: Use an integer value
-  text_blocks:
-  - code_block: "macos_userdefaults 'enable macOS firewall' do\n  domain '/Library/Preferences/com.apple.alf'\n\
-      \  key 'globalstate'\n  value '1'\n  type 'int'\nend"
-- example_heading: Use a boolean value
-  text_blocks:
-  - code_block: "macos_userdefaults 'finder expanded save dialogs' do\n  domain 'NSNavPanelExpandedStateForSaveMode'\n\
-      \  global true\n  value 'TRUE'\n  type 'bool'\nend"
+examples: "
+  Specify a global domain\n\n  ``` ruby\n  macos_userdefaults 'full\
+  \ keyboard access to all controls' do\n    domain 'AppleKeyboardUIMode'\n    global\
+  \ true\n    value '2'\n  end\n  ```\n\n  Use an integer value\n\n  ``` ruby\n  macos_userdefaults\
+  \ 'enable macOS firewall' do\n    domain '/Library/Preferences/com.apple.alf'\n\
+  \    key 'globalstate'\n    value '1'\n    type 'int'\n  end\n  ```\n\n  Use a boolean\
+  \ value\n\n  ``` ruby\n  macos_userdefaults 'finder expanded save dialogs' do\n\
+  \    domain 'NSNavPanelExpandedStateForSaveMode'\n    global true\n    value 'TRUE'\n\
+  \    type 'bool'\n  end\n  ```\n"
 
 ---

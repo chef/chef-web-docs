@@ -177,12 +177,10 @@ common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false
 unit_file_verification: false
-examples_list:
-- example_heading: Install a gems file from the local file system
-  text_blocks:
-  - shortcode: resource_package_install_gems_from_local.md
-- example_heading: Use the ignore_failure common attribute
-  text_blocks:
-  - shortcode: resource_package_use_ignore_failure_attribute.md
+examples: "
+  Install a gems file from the local file system\n\n  ``` ruby\n  gem_package\
+  \ 'right_aws' do\n    source '/tmp/right_aws-1.11.0.gem'\n    action :install\n\
+  \  end\n  ```\n\n  Use the ignore_failure common attribute\n\n  ``` ruby\n  gem_package\
+  \ 'syntax' do\n    action :install\n    ignore_failure true\n  end\n  ```\n"
 
 ---

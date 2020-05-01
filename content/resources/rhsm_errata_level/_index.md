@@ -9,7 +9,6 @@ menu:
     title: rhsm_errata_level
     identifier: chef_infra/cookbook_reference/resources/rhsm_errata_level rhsm_errata_level
     parent: chef_infra/cookbook_reference/resources
-
 resource_reference: true
 robots: null
 resource_description_list:
@@ -81,10 +80,9 @@ common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false
 unit_file_verification: false
-examples_list:
-- example_heading: Specify an errata level that differs from the resource name
-  text_blocks:
-  - code_block: "rhsm_errata_level 'example_install_moderate' do\n  errata_level 'moderate'\n\
-      end"
+examples: "
+  Specify an errata level that differs from the resource name\n\n \
+  \ ``` ruby\n  rhsm_errata_level 'example_install_moderate' do\n    errata_level\
+  \ 'moderate'\n  end\n  ```\n"
 
 ---

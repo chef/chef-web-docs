@@ -95,7 +95,7 @@ In Chef Infra Client 14 we introduced a modernized filesystem layout of Ohai dat
 
 The behavior of `required: true` has been changed to better align with the expected behavior. Previously, if you set a property `required: true` on a custom resource property and did not explicitly reference the property in an action, then Chef Infra Client would not raise an exception. This meant many users would add their own validation to raise for resources they wanted to ensure they were always set. `required: true` will now properly raise if a property has not been set.
 
-We have also expanded the `required` field for added flexibility in defining exactly which actions a property is required for. See [Improved property require behavior](#Improved-property-require-behavior) below for more details.
+We have also expanded the `required` field for added flexibility in defining exactly which actions a property is required for. See [Improved property require behavior](#improved-property-require-behavior) below for more details.
 
 #### Removal of Legacy metadata.rb depends Version Constraints
 
@@ -192,9 +192,9 @@ Use the `chef_client_cron` resource to setup the Chef Infra Client to run on a s
 
 Use the `chef_client_systemd_timer` resource to setup the Chef Infra Client to run on a schedule using a systemd timer on systemd based Linux systems (RHEL 7+, Debian 8+, Ubuntu 16.04+ SLES 12+). See the [chef_client_systemd_timer documentation](https://docs.chef.io/resources/chef_client_systemd_timer/) for full usage information.
 
-**chef_client_windows_task**
+**chef_client_scheduled_task**
 
-Use the `chef_client_windows_task` resource to setup the Chef Infra Client to run on a schedule using Windows Scheduled Tasks. See the [chef_client_windows_task documentation](https://docs.chef.io/resources/chef_client_windows_task/) for full usage information.
+Use the `chef_client_scheduled_task` resource to setup the Chef Infra Client to run on a schedule using Windows Scheduled Tasks. See the [chef_client_scheduled_task documentation](https://docs.chef.io/resources/chef_client_scheduled_task) for full usage information.
 
 #### plist
 
