@@ -52,19 +52,20 @@ resource_description_list:
 - note:
     shortcode: notes_resource_based_on_package.md
 resource_new_in: 
-syntax_description: "A **yum_package** resource block manages a package on a node,\
-  \ typically\nby installing it. The simplest use of the **yum_package** resource\
-  \ is:\n\n``` ruby\nyum_package 'package_name'\n```\n\nwhich will install the named\
-  \ package using all of the default options\nand the default action (`:install`).\n\
-  \nThe yum_package resource has the following syntax:\n\n``` ruby\nyum_package 'name'\
-  \ do\n  allow_downgrade      true, false # default value: true\n  arch         \
-  \        String, Array\n  flush_cache          Hash # default value: {\"before\"\
-  =>false, \"after\"=>false}\n  options              String, Array\n  package_name\
-  \         String, Array\n  source               String\n  timeout              String,\
-  \ Integer\n  version              String, Array\n  yum_binary           String\n\
-  \  action               Symbol # defaults to :install if not specified\nend\n```"
-syntax_code_block: null
-syntax_properties_list:
+syntax_full_code_block: |-
+  yum_package 'name' do
+    allow_downgrade      true, false # default value: true
+    arch                 String, Array
+    flush_cache          Hash # default value: {"before"=>false, "after"=>false}
+    options              String, Array
+    package_name         String, Array
+    source               String
+    timeout              String, Integer
+    version              String, Array
+    yum_binary           String
+    action               Symbol # defaults to :install if not specified
+  end
+syntax_properties_list: 
 syntax_full_properties_list:
 - "`yum_package` is the resource."
 - "`name` is the name given to the resource block."

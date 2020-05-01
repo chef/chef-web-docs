@@ -182,24 +182,9 @@ properties_list:
   ruby_type: String, Array
   required: false
   description_list:
-  - markdown: 'URL pointing to the ASCII-armored GPG key file for the repository.
-
-      This is used if Yum needs a public key to verify a package and the
-
-      required key hasn''t been imported into the RPM database. If this
-
-      option is set, Yum will automatically import the key from the
-
-      specified URL.
-
-
-      Multiple URLs may be specified in the same manner as the baseurl
-
-      option. If a GPG key is required to install a package from a
-
-      repository, all keys specified for that repository will be
-
-      installed.'
+  - markdown: |-
+      URL pointing to the ASCII-armored GPG key file for the repository. This is used if Yum needs a public key to verify a package and the required key hasn't been imported into the RPM database. If this option is set, Yum will automatically import the key from the specified URL. Multiple URLs may be specified in the same manner as the baseurl option. If a GPG key is required to install a package from a repository, all keys specified for that repository will be installed.
+      Multiple URLs may be specified in the same manner as the baseurl option. If a GPG key is required to install a package from a repository, all keys specified for that repository will be installed.
 - property: http_caching
   ruby_type: String
   required: false
@@ -328,7 +313,6 @@ properties_list:
   ruby_type: String, Integer
   required: false
   default_value: '"0644"'
-  new_in: null
   description_list:
   - markdown: 'Permissions mode of .repo file on disk. This is useful for scenarios
 

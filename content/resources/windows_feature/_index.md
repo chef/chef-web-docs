@@ -98,6 +98,7 @@ properties_list:
   ruby_type: Symbol
   required: false
   default_value: ":windows_feature_dism"
+  allowed_values: ":windows_feature_dism, :windows_feature_powershell, :windows_feature_servermanagercmd"
   description_list:
   - markdown: The underlying installation method to use for feature installation.
       Specify `:windows_feature_dism` for DISM or `:windows_feature_powershell` for
@@ -134,14 +135,14 @@ examples: |
   ```ruby
   windows_feature "NetFx3" do
     action :install
-    source "d: ources xs"
+    source 'd:\sources\sxs'
   end
   ```
 
   **Remove Telnet Server and Client features**:
 
   ```ruby
-  windows_feature ['TelnetServer', 'TelnetClient'] do
+  windows_feature %w(TelnetServer TelnetClient) do
     action :remove
   end
   ```
@@ -149,7 +150,7 @@ examples: |
   **Add the SMTP Server feature using the PowerShell provider**:
 
   ```ruby
-  windows_feature "smtp-server" do
+  windows_feature 'smtp-server' do
     action :install
     all true
     install_method :windows_feature_powershell
@@ -159,7 +160,7 @@ examples: |
   **Install multiple features using one resource with the PowerShell provider**:
 
   ```ruby
-  windows_feature ['Web-Asp-Net45', 'Web-Net-Ext45'] do
+  windows_feature %w(Web-Asp-Net45 Web-Net-Ext45) do
     action :install
     install_method :windows_feature_powershell
   end
