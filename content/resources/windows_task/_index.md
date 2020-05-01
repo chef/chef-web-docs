@@ -153,6 +153,8 @@ properties_list:
 - property: frequency
   ruby_type: Symbol
   required: false
+  allowed_values: ":daily, :hourly, :minute, :monthly, :none, :on_idle, :on_logon,
+    :once, :onstart, :weekly"
   description_list:
   - markdown: "-   Frequency with which to run the task.\n-   This is a mandatory\
       \ property in Chef 14.1\n-   Valid values: `:minute`, `:hourly`, `:daily`, `:weekly`,\n\
@@ -220,6 +222,7 @@ properties_list:
   ruby_type: Symbol
   required: false
   default_value: ":limited"
+  allowed_values: ":highest, :limited"
   description_list:
   - markdown: Run with `:limited` or `:highest` privileges.
 - property: start_day

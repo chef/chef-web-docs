@@ -415,7 +415,6 @@ properties_list:
 - property: timeout
   ruby_type: Integer
   required: false
-  default_value: null
   new_in: null
   description_list:
   - markdown: 'The amount of time (in seconds) a command is to wait before timing

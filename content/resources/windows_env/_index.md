@@ -98,7 +98,6 @@ properties_list:
   ruby_type: String
   required: false
   default_value: The resource block's name
-  new_in: null
   description_list:
   - markdown: An optional property to set the name of the key that is to be created,
       deleted, or modified if it differs from the resource block's name.

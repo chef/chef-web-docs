@@ -150,8 +150,8 @@ properties_list:
 - property: type
   ruby_type: String
   required: false
-  default_value: '"app"'
-  allowed_values: 'app pkg mpkg'
+  default_value: app
+  allowed_values: '"app", "mpkg", "pkg"'
   description_list:
   - markdown: The type of package.
 - property: volumes_dir

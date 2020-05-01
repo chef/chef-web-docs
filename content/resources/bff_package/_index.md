@@ -37,13 +37,9 @@ menu:
     identifier: chef_infra/cookbook_reference/resources/bff_package bff_package
     parent: chef_infra/cookbook_reference/resources
 resource_description_list:
-- markdown: 'Use the **bff_package** resource to manage packages for the AIX
-
-    platform using the installp utility. When a package is installed from a
-
-    local file, it must be added to the node using the **remote_file** or
-
-    **cookbook_file** resources.'
+- markdown: Use the **bff_package** resource to manage packages for the AIX platform
+    using the installp utility. When a package is installed from a local file, it
+    must be added to the node using the **remote_file** or **cookbook_file** resources.
 - note:
     markdown: 'A Backup File Format (BFF) package may not have a `.bff` file extension.
 
@@ -85,11 +81,6 @@ syntax_full_properties_list:
   the desired state."
 - "`options`, `package_name`, `source`, `timeout`, and `version` are the properties
   available to this resource."
-syntax_shortcode: null
-registry_key: false
-nameless_apt_update: false
-nameless_build_essential: false
-resource_package_options: false
 actions_list:
   :install:
     markdown: Default. Install a package. If a version is specified, install the specified
