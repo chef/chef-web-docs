@@ -1,7 +1,5 @@
 ---
 resource_reference: true
-robots:
-syntax_code_block:
 common_resource_functionality_multiple_packages: false
 common_resource_functionality_resources_common_windows_security: false
 cookbook_file_specificity: false
@@ -84,5 +82,5 @@ properties_list:
   description_list:
   - markdown: An optional property to set the privilege for given users. Use only
       with set action.
-
+examples: 
 ---

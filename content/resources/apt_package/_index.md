@@ -37,7 +37,8 @@ menu:
     identifier: chef_infra/cookbook_reference/resources/apt_package apt_package
     parent: chef_infra/cookbook_reference/resources
 resource_description_list:
-- markdown: 'Use the **apt_package** resource to manage packages on Debian and Ubuntu platforms.'
+- markdown: Use the **apt_package** resource to manage packages on Debian and Ubuntu
+    platforms.
 - note:
     shortcode: notes_resource_based_on_package.md
 resource_new_in: null

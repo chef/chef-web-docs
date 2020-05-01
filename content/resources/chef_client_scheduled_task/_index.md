@@ -38,9 +38,9 @@ menu:
       chef_client_scheduled_task
     parent: chef_infra/cookbook_reference/resources
 resource_description_list:
-- markdown: Use the chef_client_scheduled_task resource to setup the Chef Infra Client
-    to run as a Windows scheduled task. This resource will also create the specified
-    log directory if it doesn't already exist.
+- markdown: Use the **chef_client_scheduled_task** resource to setup the Chef Infra
+    Client to run as a Windows scheduled task. This resource will also create the
+    specified log directory if it doesn't already exist.
 resource_new_in: '16.0'
 syntax_full_code_block: |-
   chef_client_scheduled_task 'name' do
@@ -71,6 +71,13 @@ syntax_full_properties_list:
   `frequency`, `frequency_modifier`, `log_directory`, `log_file_name`, `password`,
   `run_on_battery`, `splay`, `start_date`, `start_time`, `task_name`, and `user` are
   the properties available to this resource."
+actions_list:
+  :add:
+    markdown: Add a Windows Scheduled Task that runs Chef Infra Client.
+  :nothing:
+    shortcode: resources_common_actions_nothing.md
+  :remove:
+    markdown: Remove a Windows Scheduled Task that runs Chef Infra Client.
 properties_list:
 - property: accept_chef_license
   ruby_type: true, false
@@ -162,4 +169,26 @@ properties_list:
   default_value: System
   description_list:
   - markdown: The name of the user that Chef Infra Client runs as.
+examples: |
+  **Setup Chef Infra Client to run using the default 30 minute cadence**:
+
+  ```ruby
+    chef_client_scheduled_task "Run Chef Infra Client as a scheduled task"
+  ```
+
+  **Run Chef Infra Client on system start**:
+
+  ```ruby
+    chef_client_scheduled_task 'Chef Infra Client on start' do
+      frequency 'onstart'
+    end
+  ```
+
+  **Run Chef Infra Client with extra options passed to the client**:
+
+  ```ruby
+    chef_client_scheduled_task "Run an override recipe" do
+      daemon_options ["--override-runlist mycorp_base::default"]
+    end
+  ```
 ---

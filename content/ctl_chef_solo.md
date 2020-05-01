@@ -102,7 +102,10 @@ This command has the following options:
 
 `-l LEVEL`, `--log_level LEVEL`
 
-:   The level of logging to be stored in a log file.
+:   The level of logging to be stored in a log file. Possible levels:
+    `auto` (default), `debug`, `error`, `fatal`, `info`, `trace`, or `warn`.
+    Default value: `warn` (when a terminal is available) or `info` (when
+    a terminal is not available).
 
 `-L LOGLOCATION`, `--logfile c`
 
