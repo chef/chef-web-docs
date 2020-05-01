@@ -1,17 +1,14 @@
 ---
 title: dnf_package resource
 resource: dnf_package
-draft: false
 aliases:
-- /resource_dnf_package.html
+- "/resource_dnf_package.html"
 menu:
   infra:
     title: dnf_package
     identifier: chef_infra/cookbook_reference/resources/dnf_package dnf_package
     parent: chef_infra/cookbook_reference/resources
-
 resource_reference: true
-robots: null
 resource_description_list:
 - markdown: 'Use the **dnf_package** resource to install, upgrade, and remove
 
@@ -85,8 +82,6 @@ properties_list:
 - property: arch
   ruby_type: String, Array
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: 'The architecture of the package to be installed or upgraded. This
 
@@ -94,8 +89,6 @@ properties_list:
 - property: flush_cache
   ruby_type: Array
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: "Flush the in-memory cache before or after a DNF operation that\ninstalls,\
       \ upgrades, or removes a package. Default value:\n`[ :before, :after ]`. The\
@@ -117,40 +110,27 @@ properties_list:
 - property: options
   ruby_type: String, Array
   required: false
-  default_value: null
-  new_in: null
   description_list:
-  - markdown: 'One (or more) additional command options that are passed to the
-
-      command.'
+  - markdown: One (or more) additional command options that are passed to the command.
 - property: package_name
   ruby_type: String, Array
   required: false
-  default_value: null
-  new_in: null
   description_list:
-  - markdown: 'An optional property to set the package name if it differs from the
-
-      resource block''s name.'
+  - markdown: An optional property to set the package name if it differs from the
+      resource block's name.
 - property: source
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: The optional path to a package on the local file system.
 - property: timeout
   ruby_type: String, Integer
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: The amount of time (in seconds) to wait before timing out.
 - property: version
   ruby_type: String, Array
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: 'The version of a package to be installed or upgraded. This property
 

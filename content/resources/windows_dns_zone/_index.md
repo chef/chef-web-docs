@@ -58,8 +58,8 @@ properties_list:
 - property: server_type
   ruby_type: String
   required: false
-  default_value: '"Domain"'
-  new_in: null
+  default_value: Domain
+  allowed_values: '"Domain", "Standalone"'
   description_list:
   - markdown: The type of DNS server, Domain or Standalone.
 - property: zone_name

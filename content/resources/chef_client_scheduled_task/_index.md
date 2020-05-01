@@ -107,6 +107,8 @@ properties_list:
   ruby_type: String
   required: false
   default_value: minute
+  allowed_values: '"minute", "hourly", "daily", "monthly", "once", "on_logon", "onstart",
+    "on_idle"'
   description_list:
   - markdown: Frequency with which to run the task.
 - property: frequency_modifier

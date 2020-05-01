@@ -54,12 +54,12 @@ syntax_full_properties_list:
   the desired state."
 - "`config_key` and `value` are the properties available to this resource."
 actions_list:
+  :nothing:
+    shortcode: resources_common_actions_nothing.md
   :set:
     markdown: Default. Sets a Chocolatey config value.
   :unset:
     markdown: Unsets a Chocolatey config value.
-  :nothing:
-    shortcode: resources_common_actions_nothing.md
 properties_list:
 - property: config_key
   ruby_type: String

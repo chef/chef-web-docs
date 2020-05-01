@@ -73,6 +73,7 @@ properties_list:
   ruby_type: Symbol
   required: false
   default_value: ":immediate"
+  allowed_values: ":never, :reboot_now, :request_reboot"
   description_list:
   - markdown: Controls the system reboot behavior post workgroup joining. Reboot immediately,
       after the Chef Infra Client run completes, or never. Note that a reboot is necessary

@@ -88,6 +88,7 @@ properties_list:
   ruby_type: Symbol, String
   required: false
   default_value: ":inbound"
+  allowed_values: ":inbound, :outbound"
   description_list:
   - markdown: The direction of the firewall rule. Direction means either inbound or
       outbound traffic.
@@ -108,6 +109,7 @@ properties_list:
   ruby_type: Symbol, String
   required: false
   default_value: ":allow"
+  allowed_values: ":allow, :block, :notconfigured"
   description_list:
   - markdown: The action of the firewall rule.
 - property: group
@@ -129,6 +131,7 @@ properties_list:
   ruby_type: Symbol, String
   required: false
   default_value: ":any"
+  allowed_values: ":any, :remoteaccess, :wired, :wireless"
   description_list:
   - markdown: The interface type the firewall rule applies to.
 - property: local_address

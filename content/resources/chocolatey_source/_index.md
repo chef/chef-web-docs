@@ -1,7 +1,34 @@
 ---
+resource_reference: true
+common_resource_functionality_multiple_packages: false
+common_resource_functionality_resources_common_windows_security: false
+cookbook_file_specificity: false
+debug_recipes_chef_shell: false
+handler_custom: false
+handler_types: false
+nameless_apt_update: false
+nameless_build_essential: false
+properties_multiple_packages: false
+properties_resources_common_windows_security: false
+properties_shortcode: 
+ps_credential_helper: false
+registry_key: false
+remote_directory_recursive_directories: false
+remote_file_prevent_re_downloads: false
+remote_file_unc_path: false
+resource_directory_recursive_directories: false
+resource_package_options: false
+resources_common_atomic_update: false
+resources_common_guard_interpreter: false
+resources_common_guards: true
+resources_common_notification: true
+resources_common_properties: true
+ruby_style_basics_chef_log: false
+syntax_shortcode: 
+template_requirements: false
+unit_file_verification: false
 title: chocolatey_source resource
 resource: chocolatey_source
-draft: false
 aliases:
 - "/resource_chocolatey_source.html"
 menu:
@@ -9,13 +36,9 @@ menu:
     title: chocolatey_source
     identifier: chef_infra/cookbook_reference/resources/chocolatey_source chocolatey_source
     parent: chef_infra/cookbook_reference/resources
-
-resource_reference: true
-robots: null
 resource_description_list:
-- markdown: 'Use the **chocolatey_source** resource to add, remove, enable, or
-
-    disable Chocolatey sources.'
+- markdown: Use the **chocolatey_source** resource to add, remove, enable, or disable
+    Chocolatey sources.
 - note:
     markdown: 'The Chocolatey package manager is not installed on Windows by default.
 
@@ -25,29 +48,24 @@ resource_description_list:
 
       node''s run list.'
 resource_new_in: '14.3'
-handler_types: false
-syntax_description: "The chocolatey_source resource has the following syntax:\n\n\
-  ``` ruby\nchocolatey_source 'name' do\n  admin_only              true, false # default\
-  \ value: false\n  allow_self_service      true, false # default value: false\n \
-  \ bypass_proxy            true, false # default value: false\n  priority       \
-  \         Integer # default value: 0\n  source                  String\n  source_name\
-  \             String # default value: 'name' unless specified\n  action        \
-  \          Symbol # defaults to :add if not specified\nend\n```"
-syntax_code_block: null
-syntax_properties_list:
-- '`chocolatey_source` is the resource.'
-- '`name` is the name given to the resource block.'
-- '`action` identifies which steps Chef Infra Client will take to bring the node into
-  the desired state.'
-- '`admin_only`, `allow_self_service`, `bypass_proxy`, `priority`, `source`, and `source_name`
-  are the properties available to this resource.'
-syntax_full_code_block: null
-syntax_full_properties_list: null
-syntax_shortcode: null
-registry_key: false
-nameless_apt_update: false
-nameless_build_essential: false
-resource_package_options: false
+syntax_full_code_block: |-
+  chocolatey_source 'name' do
+    admin_only              true, false # default value: false
+    allow_self_service      true, false # default value: false
+    bypass_proxy            true, false # default value: false
+    priority                Integer # default value: 0
+    source                  String
+    source_name             String # default value: 'name' unless specified
+    action                  Symbol # defaults to :add if not specified
+  end
+syntax_properties_list: 
+syntax_full_properties_list:
+- "`chocolatey_source` is the resource."
+- "`name` is the name given to the resource block."
+- "`action` identifies which steps Chef Infra Client will take to bring the node into
+  the desired state."
+- "`admin_only`, `allow_self_service`, `bypass_proxy`, `priority`, `source`, and `source_name`
+  are the properties available to this resource."
 actions_list:
   :add:
     markdown: Default. Adds a Chocolatey source.
@@ -78,55 +96,26 @@ properties_list:
   ruby_type: true, false
   required: false
   default_value: 'false'
-  new_in: null
   description_list:
-  - markdown: 'Whether or not to bypass the system''s proxy settings to access the
-
-      source.'
+  - markdown: Whether or not to bypass the system's proxy settings to access the source.
 - property: priority
   ruby_type: Integer
   required: false
   default_value: '0'
-  new_in: null
   description_list:
   - markdown: The priority level of the source.
 - property: source
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: The source URL.
 - property: source_name
   ruby_type: String
   required: false
   default_value: The resource block's name
-  new_in: null
   description_list:
-  - markdown: 'An optional property to set the source name if it differs from the
-
-      resource block''s name.'
-properties_shortcode: null
-properties_multiple_packages: false
-resource_directory_recursive_directories: false
-resources_common_atomic_update: false
-properties_resources_common_windows_security: false
-remote_file_prevent_re_downloads: false
-remote_file_unc_path: false
-ps_credential_helper: false
-ruby_style_basics_chef_log: false
-debug_recipes_chef_shell: false
-template_requirements: false
-resources_common_properties: true
-resources_common_notification: true
-resources_common_guards: true
-common_resource_functionality_multiple_packages: false
-resources_common_guard_interpreter: false
-remote_directory_recursive_directories: false
-common_resource_functionality_resources_common_windows_security: false
-handler_custom: false
-cookbook_file_specificity: false
-unit_file_verification: false
+  - markdown: An optional property to set the source name if it differs from the resource
+      block's name.
 examples: |
   **Add a Chocolatey source**
 

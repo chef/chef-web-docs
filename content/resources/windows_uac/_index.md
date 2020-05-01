@@ -69,6 +69,8 @@ properties_list:
   ruby_type: Symbol
   required: false
   default_value: ":prompt_for_consent_non_windows_binaries"
+  allowed_values: ":no_prompt, :prompt_for_consent, :prompt_for_consent_non_windows_binaries,
+    :prompt_for_creds, :secure_prompt_for_consent, :secure_prompt_for_creds"
   description_list:
   - markdown: Behavior of the elevation prompt for administrators in Admin Approval
       Mode. Sets HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\EnableLUA\ConsentPromptBehaviorAdmin.
@@ -76,7 +78,7 @@ properties_list:
   ruby_type: Symbol
   required: false
   default_value: ":prompt_for_creds"
-  allowed_values: :auto_deny, :secure_prompt_for_creds, :prompt_for_creds
+  allowed_values: ":auto_deny, :prompt_for_creds, :secure_prompt_for_creds"
   description_list:
   - markdown: Behavior of the elevation prompt for standard users. Sets HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\EnableLUA\ConsentPromptBehaviorUser.
 - property: detect_installers

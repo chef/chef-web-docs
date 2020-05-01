@@ -94,16 +94,13 @@ properties_list:
   ruby_type: String
   required: false
   description_list:
-  - markdown: 'The SHA-256 checksum of the file. Use to prevent a file from being
-
-      re-downloaded. When the local file matches the checksum, Chef Infra
-
-      Client does not download it. Use when a URL is specified by the
-
-      `source` property.'
+  - markdown: The SHA-256 checksum of the file. Use to prevent a file from being re-downloaded.
+      When the local file matches the checksum, Chef Infra Client does not download
+      it. Use when a URL is specified by the `source` property.
 - property: installer_type
   ruby_type: Symbol
   required: false
+  allowed_values: ":custom, :inno, :installshield, :msi, :nsis, :wise"
   description_list:
   - markdown: 'A symbol that specifies the type of package. Possible values:
 

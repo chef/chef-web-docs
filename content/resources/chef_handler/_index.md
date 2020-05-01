@@ -1,7 +1,34 @@
 ---
+resource_reference: true
+common_resource_functionality_multiple_packages: false
+common_resource_functionality_resources_common_windows_security: false
+cookbook_file_specificity: false
+debug_recipes_chef_shell: false
+handler_custom: true
+handler_types: true
+nameless_apt_update: false
+nameless_build_essential: false
+properties_multiple_packages: false
+properties_resources_common_windows_security: false
+properties_shortcode: 
+ps_credential_helper: false
+registry_key: false
+remote_directory_recursive_directories: false
+remote_file_prevent_re_downloads: false
+remote_file_unc_path: false
+resource_directory_recursive_directories: false
+resource_package_options: false
+resources_common_atomic_update: false
+resources_common_guard_interpreter: false
+resources_common_guards: true
+resources_common_notification: true
+resources_common_properties: true
+ruby_style_basics_chef_log: false
+syntax_shortcode: 
+template_requirements: false
+unit_file_verification: false
 title: chef_handler resource
 resource: chef_handler
-draft: false
 aliases:
 - "/resource_chef_handler.html"
 menu:
@@ -9,9 +36,6 @@ menu:
     title: chef_handler
     identifier: chef_infra/cookbook_reference/resources/chef_handler chef_handler
     parent: chef_infra/cookbook_reference/resources
-
-resource_reference: true
-robots: null
 resource_description_list:
 - markdown: 'Use the **chef_handler** resource to enable handlers during a Chef
 
@@ -30,32 +54,27 @@ resource_description_list:
 
     handlers will be available for the entire Chef Infra Client run.'
 resource_new_in: '14.0'
-handler_types: true
 syntax_description: "A **chef_handler** resource block enables handlers during a chef-client\n\
   run. Two handlers---`JsonFile` and `ErrorReport`---are built into Chef:\n\n``` ruby\n\
   chef_handler 'Chef::Handler::JsonFile' do\n  source 'chef/handler/json_file'\n \
   \ arguments :path => '/var/chef/reports'\n  action :enable\nend\n```\n\nand:\n\n\
   ``` ruby\nchef_handler 'Chef::Handler::ErrorReport' do\n  source 'chef/handler/error_report'\n\
   \  action :enable\nend\n```\n\nshow how to enable those handlers in a recipe."
-syntax_code_block: null
-syntax_properties_list: null
-syntax_full_code_block: "chef_handler 'name' do\n  arguments       Array, Hash\n \
-  \ class_name      String # default value: 'name' unless specified\n  source    \
-  \      String\n  type            Hash # default value: { \"report\" => true, \"\
-  exception\" => true}\n  action          Symbol # defaults to :enable if not specified\n\
-  end"
+syntax_full_code_block: |-
+  chef_handler 'name' do
+    arguments       Array, Hash
+    class_name      String # default value: 'name' unless specified
+    source          String
+    type            Hash # default value: {"report"=>true, "exception"=>true}
+    action          Symbol # defaults to :enable if not specified
+  end
 syntax_full_properties_list:
-- '`chef_handler` is the resource.'
-- '`name` is the name given to the resource block.'
-- '`action` identifies which steps Chef Infra Client will take to bring the node into
-  the desired state.'
-- '`arguments`, `class_name`, `source`, and `type` are the properties available to
-  this resource.'
-syntax_shortcode: null
-registry_key: false
-nameless_apt_update: false
-nameless_build_essential: false
-resource_package_options: false
+- "`chef_handler` is the resource."
+- "`name` is the name given to the resource block."
+- "`action` identifies which steps Chef Infra Client will take to bring the node into
+  the desired state."
+- "`arguments`, `class_name`, `source`, and `type` are the properties available to
+  this resource."
 actions_list:
   :disable:
     markdown: Disable the handler for the current chef-client run on the current node.
@@ -94,39 +113,20 @@ properties_list:
   ruby_type: String
   required: false
   default_value: The resource block's name
-  new_in: null
   description_list:
   - markdown: The name of the handler class. This can be module name-spaced.
 - property: source
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
   description_list:
-  - markdown: 'The full path to the handler file or the path to a gem (if the
-
-      handler ships as part of a Ruby gem).'
-properties_shortcode: null
-properties_multiple_packages: false
-resource_directory_recursive_directories: false
-resources_common_atomic_update: false
-properties_resources_common_windows_security: false
-remote_file_prevent_re_downloads: false
-remote_file_unc_path: false
-ps_credential_helper: false
-ruby_style_basics_chef_log: false
-debug_recipes_chef_shell: false
-template_requirements: false
-resources_common_properties: true
-resources_common_notification: true
-resources_common_guards: true
-common_resource_functionality_multiple_packages: false
-resources_common_guard_interpreter: false
-remote_directory_recursive_directories: false
-common_resource_functionality_resources_common_windows_security: false
-handler_custom: true
-cookbook_file_specificity: false
-unit_file_verification: false
+  - markdown: The full path to the handler file. Can also be a gem path if the handler
+      ships as part of a Ruby gem.
+- property: type
+  ruby_type: Hash
+  required: false
+  default_value: '{"report"=>true, "exception"=>true}'
+  description_list:
+  - markdown: The type of handler to register as, i.e. :report, :exception or both.
 examples: "
   Enable the CloudkickHandler handler\n\n  The following example shows\
   \ how to enable the `CloudkickHandler`\n  handler, which adds it to the default\

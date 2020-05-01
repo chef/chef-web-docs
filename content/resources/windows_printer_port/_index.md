@@ -93,6 +93,7 @@ properties_list:
   ruby_type: Integer
   required: false
   default_value: '1'
+  allowed_values: 1, 2
   description_list:
   - markdown: 'The printer port protocol: 1 (RAW) or 2 (LPR).'
 - property: snmp_enabled

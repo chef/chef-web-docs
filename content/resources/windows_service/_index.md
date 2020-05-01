@@ -207,7 +207,7 @@ properties_list:
   ruby_type: Symbol
   required: false
   default_value: ":automatic"
-  allowed_values: "`:automatic`, `:disabled`, or `:manual`"
+  allowed_values: ":automatic, :disabled, :manual"
   description_list:
   - markdown: Use to specify the startup type of the service.
 - property: status_command

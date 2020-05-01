@@ -188,6 +188,7 @@ properties_list:
 - property: http_caching
   ruby_type: String
   required: false
+  allowed_values: '"all", "none", "packages"'
   description_list:
   - markdown: "Determines how upstream HTTP caches are instructed to handle any\n\
       HTTP downloads that Yum does. This option can take the following\nvalues:\n\n\
