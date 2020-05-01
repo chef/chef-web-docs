@@ -46,8 +46,7 @@ resource_description_list:
       Chef Infra Client will still identify the correct provider to use based
 
       on the platform, regardless of the file extension.'
-- note:
-    shortcode: notes_resource_based_on_package.md
+- notes_resource_based_on_package: true
 syntax_description: 'A **bff_package** resource manages a package on a node, typically
   by
 

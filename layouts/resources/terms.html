@@ -416,6 +416,14 @@
                               {{ readFile (delimit (slice `layouts/shortcodes/` $value ) "") | markdownify }}
                             </p>
                           {{ end }}
+                          {{ if and (eq $key "notes_resource_based_on_package") (eq $value true)}}
+                            <div class="admonition-note">
+                              <p class="admonition-note-title">Note</p>
+                              <div class="admonition-note-text">
+                                {{ readFile (delimit (slice `layouts/shortcodes/notes_resource_based_on_package.md` ) "") | markdownify }}
+                              </div>
+                            </div>
+                          {{ end }}
                         {{ end }}
                       {{ end }}
                     {{ end }}

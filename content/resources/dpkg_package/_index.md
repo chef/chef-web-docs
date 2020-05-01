@@ -40,8 +40,7 @@ resource_description_list:
 - markdown: Use the **dpkg_package** resource to manage packages for the dpkg platform.
     When a package is installed from a local file, it must be added to the node using
     the **remote_file** or **cookbook_file** resources.
-- note:
-    shortcode: notes_resource_based_on_package.md
+- notes_resource_based_on_package: true
 resource_new_in:
 syntax_description: 'A **dpkg_package** resource block manages a package on a node,
 

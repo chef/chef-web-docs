@@ -39,9 +39,8 @@ menu:
 resource_description_list:
 - markdown: Use the **zypper_package** resource to install, upgrade, and remove packages
     with Zypper for the SUSE Enterprise and openSUSE platforms.
-- note:
-    shortcode: notes_resource_based_on_package.md
-resource_new_in: 
+- notes_resource_based_on_package: true
+resource_new_in:
 syntax_full_code_block: |-
   zypper_package 'name' do
     allow_downgrade      true, false # default value: true
