@@ -214,7 +214,7 @@ The `/authenticate_user` endpoint has the following methods: `POST`.
 
 The `POST` method is used to authenticate a user. This endpoint is used
 by the Chef Identity Service to authenticate users of Chef Supermarket
-to the Chef server.
+to the Chef Infra Server.
 
 This method has no parameters.
 
@@ -689,10 +689,10 @@ The response is similar to:
 
 Use the `/_stats` endpoint to display statistics about connection pool usage inside Erchef, Postgresql, and the Erlang VM.
 The `_stats` endpoint uses Basic Authorization instead of the X-Ops-Authorization scheme usually used to connect
-to the Chef Server. The default user used to query the `_stats` endpoint is `statsuser`.  The password for the
+to the Chef Infra Server. The default user used to query the `_stats` endpoint is `statsuser`.  The password for the
 `statsuser` is available as the `opscode_erchef::stats_password` from the `chef-server-ctl show-service-credentials` command.
 
-The `/_stats` endpoint has the following method: `GET`
+The `/_stats` endpoint has the following method: `GET`.
 
 #### GET
 
@@ -757,7 +757,7 @@ The response body is similar to:
       }
     ]
   },
-  
+
   ...
 
   {
@@ -798,11 +798,10 @@ The response body is similar to:
 </tr>
 <tr class="odd">
 <td><code>406</code></td>
-<td>Not Acceptable. An invalid format was requested</td>
+<td>Not Acceptable. An invalid format was requested.</td>
 </tr>
 </tbody>
 </table>
-
 
 ### /_status
 
@@ -813,7 +812,7 @@ require authentication headers.
 
 #### GET
 
-The `GET` method is used to get the Chef Server status details.
+The `GET` method is used to get the Chef Infra Server status details.
 
 **Request**
 
