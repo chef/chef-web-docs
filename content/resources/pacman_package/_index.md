@@ -15,8 +15,7 @@ resource_description_list:
 - markdown: 'Use the **pacman_package** resource to manage packages (using pacman)
 
     on the Arch Linux platform.'
-- note:
-    shortcode: notes_resource_based_on_package.md
+- notes_resource_based_on_package: true
 resource_new_in: null
 handler_types: false
 syntax_description: 'A **pacman_package** resource block manages a package on a node,

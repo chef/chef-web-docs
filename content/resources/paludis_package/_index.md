@@ -15,8 +15,7 @@ resource_description_list:
 - markdown: 'Use the **paludis_package** resource to manage packages for the Paludis
 
     platform.'
-- note:
-    shortcode: notes_resource_based_on_package.md
+- notes_resource_based_on_package: true
 resource_new_in: null
 handler_types: false
 syntax_description: 'A **paludis_package** resource block manages a package on a node,

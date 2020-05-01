@@ -21,8 +21,7 @@ resource_description_list:
     for installing packages, like minimum versions, virtual provides, and
 
     library names.'
-- note:
-    shortcode: notes_resource_based_on_package.md
+- notes_resource_based_on_package: true
 resource_new_in: null
 handler_types: false
 syntax_description: 'A **dnf_package** resource block manages a package on a node,

@@ -49,9 +49,8 @@ resource_description_list:
       `yum_package "/bin/sh"`) is not available because the volume of data
 
       required to parse for this is excessive.'
-- note:
-    shortcode: notes_resource_based_on_package.md
-resource_new_in: 
+- notes_resource_based_on_package: true
+resource_new_in:
 syntax_full_code_block: |-
   yum_package 'name' do
     allow_downgrade      true, false # default value: true

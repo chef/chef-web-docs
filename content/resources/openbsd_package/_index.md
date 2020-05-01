@@ -16,8 +16,7 @@ resource_description_list:
 - markdown: 'Use the **openbsd_package** resource to manage packages for the OpenBSD
 
     platform.'
-- note:
-    shortcode: notes_resource_based_on_package.md
+- notes_resource_based_on_package: true
 resource_new_in: null
 handler_types: false
 syntax_description: 'A **openbsd_package** resource block manages a package on a node,
