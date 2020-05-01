@@ -10,7 +10,7 @@ nameless_apt_update: false
 nameless_build_essential: false
 properties_multiple_packages: false
 properties_resources_common_windows_security: false
-properties_shortcode: 
+properties_shortcode:
 ps_credential_helper: false
 registry_key: false
 remote_directory_recursive_directories: false
@@ -24,7 +24,7 @@ resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
 ruby_style_basics_chef_log: false
-syntax_shortcode: 
+syntax_shortcode:
 template_requirements: false
 unit_file_verification: false
 title: windows_printer resource
@@ -53,7 +53,7 @@ syntax_full_code_block: |-
     shared            true, false # default value: false
     action            Symbol # defaults to :create if not specified
   end
-syntax_properties_list: 
+syntax_properties_list:
 syntax_full_properties_list:
 - "`windows_printer` is the resource."
 - "`name` is the name given to the resource block."
@@ -127,7 +127,7 @@ examples: |
 
   **Delete a printer**:
 
-  Note: this doesn’t delete the associated printer port. See windows_printer_port above for how to delete the port.
+  Note: this doesn't delete the associated printer port. See windows_printer_port above for how to delete the port.
 
   ```ruby
   windows_printer 'HP LaserJet 5th Floor' do
