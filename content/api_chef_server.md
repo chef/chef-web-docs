@@ -6539,12 +6539,12 @@ The `/required_recipe` endpoint has the following method: `GET`.
 
 #### GET
 
-The `GET` method is used to view a recipe specified by a 
-Chef Infra Server administrator as part of the Chef Server configuration.
-This recipe will be run by all Chef Infra Clients that connect to the Chef Server.
-The required_recipe feature is aimed at expert level practioners delivering
-isolated configuration changes to target systems. The text returned is 
-the contents of a single recipe file. 
+Use the `GET` method to view a recipe specified by a
+Chef Infra Server administrator as part of the Chef Infra Server configuration.
+This recipe will be run by all Chef Infra Clients that connect to the Chef Infra Server.
+The `required_recipe` feature is aimed at expert level practioners delivering
+isolated configuration changes to target systems. The returned text is
+the content of a single recipe file.
 
 This method has no parameters.
 
@@ -6554,11 +6554,11 @@ This method has no parameters.
 GET /organizations/NAME/required_recipe
 ```
 
-This method has no request body..
+This method has no request body.
 
 **Response**
 
-The response is returned in plain text, not in JSON format, similar to:
+The response is returned in plain text, not in JSON format. The response is similar to:
 
 ``` javascript
   "# My required recipe
@@ -6583,7 +6583,7 @@ The response is returned in plain text, not in JSON format, similar to:
 <tbody>
 <tr class="odd">
 <td><code>200</code></td>
-<td>OK. The request was successful. Required recipe is enabled, a path to a recipe is defined and a recipe exists at the path location.</td>
+<td>OK. The request was successful. Required recipe is enabled, a path to a recipe is defined, and a recipe exists at the path location.</td>
 </tr>
 <tr class="even">
 <td><code>401</code></td>
