@@ -51,7 +51,7 @@ properties_list:
   default_value: null
   new_in: null
   description_list:
-  - markdown: The URL for the Chef server.
+  - markdown: The URL for the Chef Infra Server.
 - property: complete
   ruby_type: null
   required: false
@@ -88,7 +88,7 @@ properties_list:
   description_list:
   - markdown: 'The description of the environment. This value populates the
 
-      description field for the environment on the Chef server.'
+      description field for the environment on the Chef Infra Server.'
 - property: ignore_failure
   ruby_type: true, false
   required: false
