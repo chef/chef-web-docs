@@ -58,7 +58,7 @@ properties_list:
   default_value: null
   new_in: null
   description_list:
-  - markdown: The URL for the Chef server.
+  - markdown: The URL for the Chef Infra Server.
 - property: complete
   ruby_type: null
   required: false

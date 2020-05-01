@@ -173,7 +173,6 @@ Custom Resources](/definitions/)
 [chef_gem](/resources/chef_gem/) |
 [chef_group](/resources/chef_group/) |
 [chef_handler](/resources/chef_handler/) |
-[chef_mirror](/resources/chef_mirror/) |
 [chef_node](/resources/chef_node/) |
 [chef_organization](/resources/chef_organization/) |
 [chef_role](/resources/chef_role/) |

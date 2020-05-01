@@ -57,7 +57,7 @@ properties_list:
   default_value: null
   new_in: null
   description_list:
-  - markdown: 'The Chef server environment in which this node should exist (or does
+  - markdown: 'The Chef Infra Server environment in which this node should exist (or does
 
       exist).'
 - property: chef_server
@@ -66,7 +66,7 @@ properties_list:
   default_value: null
   new_in: null
   description_list:
-  - markdown: The URL for the Chef server.
+  - markdown: The URL for the Chef Infra Server.
 - property: complete
   ruby_type: null
   required: false

@@ -49,7 +49,7 @@ properties_list:
   default_value: null
   new_in: null
   description_list:
-  - markdown: The URL for the Chef server.
+  - markdown: The URL for the Chef Infra Server.
 - property: complete
   ruby_type: null
   required: false
@@ -77,7 +77,7 @@ properties_list:
   description_list:
   - markdown: 'The description of the role. This value populates the description
 
-      field for the role on the Chef server.'
+      field for the role on the Chef Infra Server.'
 - property: env_run_lists
   ruby_type: null
   required: false

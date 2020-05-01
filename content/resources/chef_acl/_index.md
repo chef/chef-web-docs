@@ -15,7 +15,7 @@ robots: null
 resource_description_list:
 - markdown: 'Use the **chef_acl** resource to interact with access control lists
 
-    (ACLs) that exist on the Chef server.'
+    (ACLs) that exist on the Chef Infra Server.'
 resource_new_in: null
 handler_types: false
 syntax_description: "The syntax for using the **chef_acl** resource in a recipe is\
@@ -49,7 +49,7 @@ properties_list:
   default_value: null
   new_in: null
   description_list:
-  - markdown: The URL for the Chef server.
+  - markdown: The URL for the Chef Infra Server.
 - property: complete
   ruby_type: null
   required: false
