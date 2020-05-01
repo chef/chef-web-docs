@@ -68,10 +68,19 @@ properties_list:
   description_list:
   - markdown: Determines how frequently (in seconds) APT repository updates are made.
       Use this property when the `:periodic` action is specified.
-examples: "
-  Update the Apt repository at a specified interval\n\n  ``` ruby\n\
-  \  apt_update 'all platforms' do\n    frequency 86400\n    action :periodic\n  end\n\
-  \  ```\n\n  Update the Apt repository at the start of a Chef Infra Client run\n\n\
-  \  ``` ruby\n  apt_update 'update'\n  ```\n"
+examples: |
+  **Update the Apt repository at a specified interval**:
 
+  ```ruby
+  apt_update 'all platforms' do
+  frequency 86400
+  action :periodic
+  end
+  ```
+
+  **Update the Apt repository at the start of a Chef Infra Client run**:
+
+  ```ruby
+  apt_update 'update'
+  ```
 ---

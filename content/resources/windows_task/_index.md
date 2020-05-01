@@ -37,9 +37,8 @@ menu:
     identifier: chef_infra/cookbook_reference/resources/windows_task windows_task
     parent: chef_infra/cookbook_reference/resources
 resource_description_list:
-- markdown: 'Use the **windows_task** resource to create, delete or run a Windows
-
-    scheduled task.'
+- markdown: Use the **windows_task** resource to create, delete or run a Windows scheduled
+    task.
 - note:
     markdown: 'The `windows_task` resource that was provided as part of the `windows`
 

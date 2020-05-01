@@ -256,20 +256,53 @@ common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false
 unit_file_verification: false
-examples: "
-  Run a program at a specified interval\n\n  ``` ruby\n  cron_d 'noop'\
-  \ do\n    hour '5'\n    minute '0'\n    command '/bin/true'\n  end\n  ```\n\n  Run\
-  \ an entry if a folder exists\n\n  ``` ruby\n  cron_d 'ganglia_tomcat_thread_max'\
-  \ do\n    command \"/usr/bin/gmetric\n      -n 'tomcat threads max'\n      -t uint32\n\
-  \      -v '/usr/local/bin/tomcat-stat\n      --thread-max'\"\n    only_if { ::File.exist?('/home/jboss')\
-  \ }\n  end\n  ```\n\n  Run every Saturday, 8:00 AM\n\n  The following example shows\
-  \ a schedule that will run every hour at 8:00\n  each Saturday morning, and will\
-  \ then send an email to\n  \"<admin@example.com>\" after each run.\n\n  ``` ruby\n\
-  \  cron_d 'name_of_cron_entry' do\n    minute '0'\n    hour '8'\n    weekday '6'\n\
-  \    mailto 'admin@example.com'\n    action :create\n  end\n  ```\n\n  Run only\
-  \ in November\n\n  The following example shows a schedule that will run at 8:00\
-  \ PM, every\n  weekday (Monday through Friday), but only in November:\n\n  ``` ruby\n\
-  \  cron_d 'name_of_cron_entry' do\n    minute '0'\n    hour '20'\n    day '*'\n\
-  \    month '11'\n    weekday '1-5'\n    action :create\n  end\n  ```\n"
+examples: |
+  **Run a program on the fifth hour of the day**
 
+  ```ruby
+  cron_d 'noop' do
+    hour '5'
+    minute '0'
+    command '/bin/true'
+  end
+  ```
+
+  **Run an entry if a folder exists**
+
+  ```ruby
+  cron_d 'ganglia_tomcat_thread_max' do
+    command "/usr/bin/gmetric
+      -n 'tomcat threads max'
+      -t uint32
+      -v '/usr/local/bin/tomcat-stat
+      --thread-max'"
+    only_if { ::File.exist?('/home/jboss') }
+  end
+  ```
+
+  **Run an entry every Saturday, 8:00 AM**
+
+  ```ruby
+  cron_d 'name_of_cron_entry' do
+    minute '0'
+    hour '8'
+    weekday '6'
+    mailto 'admin@example.com'
+    action :create
+  end
+  ```
+
+  **Run an entry at 8:00 PM, every weekday (Monday through Friday), but only in November**
+
+  ```ruby
+  cron_d 'name_of_cron_entry' do
+    minute '0'
+    hour '20'
+    day '*'
+    month '11'
+    weekday '1-5'
+    action :create
+  end
+  ```
+---
 ---

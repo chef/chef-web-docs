@@ -37,9 +37,8 @@ menu:
     identifier: chef_infra/cookbook_reference/resources/cab_package cab_package
     parent: chef_infra/cookbook_reference/resources
 resource_description_list:
-- markdown: 'Use the **cab_package** resource to install or remove Microsoft Windows
-
-    cabinet (.cab) packages.'
+- markdown: Use the **cab_package** resource to install or remove Microsoft Windows
+    cabinet (.cab) packages.
 resource_new_in: '12.15'
 syntax_full_code_block: |-
   cab_package 'name' do
