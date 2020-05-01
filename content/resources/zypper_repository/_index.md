@@ -178,11 +178,11 @@ properties_list:
 - property: type
   ruby_type: String
   required: false
-  default_value: '"NONE"'
+  default_value: NONE
   description_list:
   - markdown: Specifies the repository type.
 examples: |
-  **Add the Apache repo on openSUSE Leap 15:**
+  **Add the Apache repo on openSUSE Leap 15**:
 
   ``` ruby
   zypper_repository 'apache' do
