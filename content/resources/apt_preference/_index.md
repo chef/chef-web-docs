@@ -24,7 +24,6 @@ resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
 ruby_style_basics_chef_log: false
-syntax_shortcode: 
 template_requirements: false
 unit_file_verification: false
 title: apt_preference resource
@@ -58,12 +57,12 @@ syntax_full_properties_list:
 - "`glob`, `package_name`, `pin`, and `pin_priority` are the properties available
   to this resource."
 actions_list:
-  add:
+  :add:
     markdown: Default action. Creates a preferences file under `/etc/apt/preferences.d`.
-  remove:
-    markdown: Removes the preferences file, thus unpinning the package.
   :nothing:
     shortcode: resources_common_actions_nothing.md
+  :remove:
+    markdown: Removes the preferences file, thus unpinning the package.
 properties_list:
 - property: glob
   ruby_type: String
