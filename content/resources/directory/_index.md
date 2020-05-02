@@ -1,17 +1,14 @@
 ---
 title: directory resource
 resource: directory
-draft: false
 aliases:
-- /resource_directory.html
+- "/resource_directory.html"
 menu:
   infra:
     title: directory
     identifier: chef_infra/cookbook_reference/resources/directory directory
     parent: chef_infra/cookbook_reference/resources
-
 resource_reference: true
-robots: null
 resource_description_list:
 - markdown: 'Use the **directory** resource to manage a directory, which is a
 

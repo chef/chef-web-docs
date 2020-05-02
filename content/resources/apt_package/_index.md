@@ -1,32 +1,11 @@
 ---
 resource_reference: true
 common_resource_functionality_multiple_packages: true
-common_resource_functionality_resources_common_windows_security: false
-cookbook_file_specificity: false
-debug_recipes_chef_shell: false
-handler_custom: false
-handler_types: false
-nameless_apt_update: false
-nameless_build_essential: false
-properties_multiple_packages: false
-properties_resources_common_windows_security: false
 properties_shortcode: 
-ps_credential_helper: false
-registry_key: false
-remote_directory_recursive_directories: false
-remote_file_prevent_re_downloads: false
-remote_file_unc_path: false
-resource_directory_recursive_directories: false
-resource_package_options: false
-resources_common_atomic_update: false
-resources_common_guard_interpreter: false
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-ruby_style_basics_chef_log: false
-syntax_shortcode: 
-template_requirements: false
-unit_file_verification: false
+notes_resource_based_on_package: true
 title: apt_package resource
 resource: apt_package
 aliases:
@@ -39,9 +18,6 @@ menu:
 resource_description_list:
 - markdown: Use the **apt_package** resource to manage packages on Debian and Ubuntu
     platforms.
-- notes_resource_based_on_package: true
-resource_new_in: null
-handler_types: false
 syntax_description: 'A **apt_package** resource block manages a package on a node,
   typically
 
@@ -140,10 +116,32 @@ properties_list:
   required: false
   description_list:
   - markdown: The version of a package to be installed or upgraded.
-examples: "
-  Install a package using package manager\n\n  ``` ruby\n  apt_package\
-  \ 'name of package' do\n    action :install\n  end\n\n  ```\n\n  Install without\
-  \ using recommend packages as a dependency\n\n  ``` ruby\n  package 'apache2' do\n\
-  \    options '--no-install-recommends'\n  end\n\n  ```\n"
+examples: |
+  **Install a package using package manager**:
 
+  ```ruby
+  apt_package 'name of package' do
+    action :install
+  end
+  ```
+
+  **Install a package without specifying the default action**:
+
+  ```ruby
+  apt_package 'name of package'
+  ```
+
+  **Install multiple packages at once**:
+
+  ```ruby
+  apt_package %(package1 package2 package3)
+  ```
+
+  **Install without using recommend packages as a dependency**
+
+  ```ruby
+  package 'apache2' do
+    options '--no-install-recommends'
+  end
+  ```
 ---

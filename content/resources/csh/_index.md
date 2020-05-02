@@ -1,17 +1,14 @@
 ---
 title: csh resource
 resource: csh
-draft: false
 aliases:
-- /resource_csh.html
+- "/resource_csh.html"
 menu:
   infra:
     title: csh
     identifier: chef_infra/cookbook_reference/resources/csh csh
     parent: chef_infra/cookbook_reference/resources
-
 resource_reference: true
-robots: null
 resource_description_list:
 - markdown: 'Use the **csh** resource to execute scripts using the csh interpreter.
 

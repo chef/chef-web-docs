@@ -1,9 +1,8 @@
 ---
 title: reboot resource
 resource: reboot
-draft: false
 aliases:
-- /resource_reboot.html
+- "/resource_reboot.html"
 menu:
   infra:
     title: reboot

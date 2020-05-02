@@ -24,7 +24,6 @@ resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
 ruby_style_basics_chef_log: false
-syntax_shortcode: 
 template_requirements: false
 unit_file_verification: false
 title: chocolatey_config resource
