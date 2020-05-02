@@ -1,31 +1,9 @@
 ---
 resource_reference: true
-common_resource_functionality_multiple_packages: false
-common_resource_functionality_resources_common_windows_security: false
-cookbook_file_specificity: false
-debug_recipes_chef_shell: false
-handler_custom: false
-handler_types: false
-nameless_apt_update: false
-nameless_build_essential: false
-properties_multiple_packages: false
-properties_resources_common_windows_security: false
 properties_shortcode: 
-ps_credential_helper: false
-registry_key: false
-remote_directory_recursive_directories: false
-remote_file_prevent_re_downloads: false
-remote_file_unc_path: false
-resource_directory_recursive_directories: false
-resource_package_options: false
-resources_common_atomic_update: false
-resources_common_guard_interpreter: false
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-ruby_style_basics_chef_log: false
-template_requirements: false
-unit_file_verification: false
 title: cron_access resource
 resource: cron_access
 aliases:
@@ -36,13 +14,12 @@ menu:
     identifier: chef_infra/cookbook_reference/resources/cron_access cron_access
     parent: chef_infra/cookbook_reference/resources
 resource_description_list:
-- markdown: 'Use the **cron_access** resource to manage the /etc/cron.allow and
-
-    /etc/cron.deny files. Note: This resource previously shipped in the
-
-    `cron` cookbook as `cron_manage`, which it can still be used as for
-
-    backwards compatibility with existing Chef Infra Client releases.'
+- markdown: Use the **cron_access** resource to manage the /etc/cron.allow and /etc/cron.deny
+    files.
+- note:
+    markdown: This resource previously shipped in the `cron` cookbook as `cron_manage`,
+      which it can still be used as for backwards compatibility with existing Chef
+      Infra Client releases.
 resource_new_in: '14.4'
 syntax_full_code_block: |-
   cron_access 'name' do

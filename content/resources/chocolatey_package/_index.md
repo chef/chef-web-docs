@@ -14,21 +14,17 @@ menu:
     identifier: chef_infra/cookbook_reference/resources/chocolatey_package chocolatey_package
     parent: chef_infra/cookbook_reference/resources
 resource_description_list:
-- markdown: 'Use the **chocolatey_package** resource to manage packages using
-
-    Chocolatey on the Microsoft Windows platform.'
+- markdown: Use the **chocolatey_package** resource to manage packages using Chocolatey
+    on the Microsoft Windows platform.
 - warning:
     markdown: 'The **chocolatey_package** resource must be specified as
 
       `chocolatey_package` and cannot be shortened to `package` in a recipe.'
 - note:
-    markdown: 'The Chocolatey package manager is not installed on Windows by default.
-
-      Install it prior to using this resource by adding the [Chocolatey
-
-      cookbook](https://supermarket.chef.io/cookbooks/chocolatey/) to your
-
-      node''s run list.'
+    markdown: The Chocolatey package manager is not installed on Windows by default.
+      You will need to install it prior to using this resource by adding the [Chocolatey
+      cookbook](https://supermarket.chef.io/cookbooks/chocolatey/) to your node's
+      run list.
 resource_new_in: '12.7'
 syntax_description: 'A **chocolatey_package** resource manages packages using Chocolatey
   on

@@ -1,31 +1,12 @@
 ---
 resource_reference: true
 common_resource_functionality_multiple_packages: true
-common_resource_functionality_resources_common_windows_security: false
-cookbook_file_specificity: false
-debug_recipes_chef_shell: false
-handler_custom: false
-handler_types: false
-nameless_apt_update: false
-nameless_build_essential: false
 properties_multiple_packages: true
-properties_resources_common_windows_security: false
 properties_shortcode: 
-ps_credential_helper: false
-registry_key: false
-remote_directory_recursive_directories: false
-remote_file_prevent_re_downloads: false
-remote_file_unc_path: false
-resource_directory_recursive_directories: false
-resource_package_options: false
-resources_common_atomic_update: false
-resources_common_guard_interpreter: false
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-ruby_style_basics_chef_log: false
-template_requirements: false
-unit_file_verification: false
+notes_resource_based_on_package: true
 title: dnf_package resource
 resource: dnf_package
 aliases:
@@ -36,19 +17,12 @@ menu:
     identifier: chef_infra/cookbook_reference/resources/dnf_package dnf_package
     parent: chef_infra/cookbook_reference/resources
 resource_description_list:
-- markdown: 'Use the **dnf_package** resource to install, upgrade, and remove
-
-    packages with DNF for Fedora and RHEL 8+. The **dnf_package** resource
-
-    is able to resolve `provides` data for packages much like DNF can do
-
-    when it is run from the command line. This allows a variety of options
-
-    for installing packages, like minimum versions, virtual provides, and
-
-    library names.'
-- notes_resource_based_on_package: true
-resource_new_in: null
+- markdown: Use the **dnf_package** resource to install, upgrade, and remove packages
+    with DNF for Fedora and RHEL 8+. The dnf_package resource is able to resolve provides
+    data for packages much like DNF can do when it is run from the command line. This
+    allows a variety of options for installing packages, like minimum versions, virtual
+    provides and library names.
+resource_new_in: '12.18'
 syntax_description: 'A **dnf_package** resource block manages a package on a node,
   typically
 
@@ -100,9 +74,8 @@ properties_list:
   ruby_type: String, Array
   required: false
   description_list:
-  - markdown: 'The architecture of the package to be installed or upgraded. This
-
-      value can also be passed as part of the package name.'
+  - markdown: The architecture of the package to be installed or upgraded. This value
+      can also be passed as part of the package name.
 - property: flush_cache
   ruby_type: Array
   required: false

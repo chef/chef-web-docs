@@ -16,14 +16,6 @@ menu:
 resource_description_list:
 - markdown: Use the **chocolatey_feature** resource to enable and disable Chocolatey
     features.
-- note:
-    markdown: 'The Chocolatey package manager is not installed on Windows by default.
-
-      Install it prior to using this resource by adding the [Chocolatey
-
-      cookbook](https://supermarket.chef.io/cookbooks/chocolatey/) to your
-
-      node''s run list.'
 resource_new_in: '15.1'
 syntax_full_code_block: |-
   chocolatey_feature 'name' do

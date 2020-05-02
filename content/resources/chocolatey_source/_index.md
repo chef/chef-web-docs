@@ -16,14 +16,6 @@ menu:
 resource_description_list:
 - markdown: Use the **chocolatey_source** resource to add, remove, enable, or disable
     Chocolatey sources.
-- note:
-    markdown: 'The Chocolatey package manager is not installed on Windows by default.
-
-      Install it prior to using this resource by adding the [Chocolatey
-
-      cookbook](https://supermarket.chef.io/cookbooks/chocolatey/) to your
-
-      node''s run list.'
 resource_new_in: '14.3'
 syntax_full_code_block: |-
   chocolatey_source 'name' do
