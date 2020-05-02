@@ -1,7 +1,14 @@
 ---
+resource_reference: true
+cookbook_file_specificity: true
+properties_resources_common_windows_security: true
+properties_shortcode: 
+resources_common_atomic_update: true
+resources_common_guards: true
+resources_common_notification: true
+resources_common_properties: true
 title: cookbook_file resource
 resource: cookbook_file
-draft: false
 aliases:
 - "/resource_cookbook_file.html"
 menu:
@@ -9,9 +16,6 @@ menu:
     title: cookbook_file
     identifier: chef_infra/cookbook_reference/resources/cookbook_file cookbook_file
     parent: chef_infra/cookbook_reference/resources
-
-resource_reference: true
-robots: null
 resource_description_list:
 - shortcode: resource_cookbook_file_summary.md
 - markdown: 'During a Chef Infra Client run, the checksum for each local file is
@@ -23,8 +27,6 @@ resource_description_list:
     not transferred when the checksums match. Only files that require an
 
     update are transferred from the Chef Infra Server to a node.'
-resource_new_in: null
-handler_types: false
 syntax_description: "A **cookbook_file** resource block manages files by using files\
   \ that\nexist within a cookbook's `/files` directory. For example, to write the\n\
   home page for an Apache website:\n\n``` ruby\ncookbook_file '/var/www/customers/public_html/index.php'\
@@ -56,11 +58,6 @@ syntax_full_properties_list:
   `mode`, `owner`, `path`, `rights`, `source`, and `verify` are properties of this
   resource, with the Ruby type shown. See "Properties" section below for more information
   about all of the properties that may be used with this resource.'
-syntax_shortcode: null
-registry_key: false
-nameless_apt_update: false
-nameless_build_essential: false
-resource_package_options: false
 actions_list:
   :create:
     markdown: Default. Create a file. If a file already exists (but does not match),
@@ -80,43 +77,33 @@ properties_list:
 - property: atomic_update
   ruby_type: true, false
   required: false
-  default_value: null
-  new_in: null
+  default_value: False if modifying /etc/hosts, /etc/hostname, or /etc/resolv.conf
+    within Docker containers. Otherwise default to the client.rb 'file_atomic_update'
+    config value.
   description_list:
-  - markdown: 'Perform atomic file updates on a per-resource basis. Set to `true`
-
-      for atomic file updates. Set to `false` for non-atomic file updates.
-
-      This setting overrides `file_atomic_update`, which is a global
-
-      setting found in the client.rb file.'
+  - markdown: Perform atomic file updates on a per-resource basis. Set to true for
+      atomic file updates. Set to false for non-atomic file updates. This setting
+      overrides `file_atomic_update`, which is a global setting found in the `client.rb`
+      file.
 - property: backup
   ruby_type: Integer, false
   required: false
   default_value: '5'
-  new_in: null
   description_list:
-  - markdown: 'The number of backups to be kept in `/var/chef/backup` (for UNIX-
-
-      and Linux-based platforms) or `C:/chef/backup` (for the Microsoft
-
-      Windows platform). Set to `false` to prevent backups from being
-
-      kept.'
+  - markdown: The number of backups to be kept in `/var/chef/backup` (for UNIX- and
+      Linux-based platforms) or `C:/chef/backup` (for the Microsoft Windows platform).
+      Set to `false` to prevent backups from being kept.
 - property: cookbook
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
+  default_value: The current cookbook name
   description_list:
-  - markdown: 'The cookbook in which a file is located (if it is not located in the
-
-      current cookbook). The default value is the current cookbook.'
+  - markdown: The cookbook in which a file is located (if it is not located in the
+      current cookbook).
 - property: force_unlink
   ruby_type: true, false
   required: false
   default_value: 'false'
-  new_in: null
   description_list:
   - markdown: 'How Chef Infra Client handles certain situations when the target
 
