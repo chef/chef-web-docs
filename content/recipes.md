@@ -144,7 +144,7 @@ slurp the secret file contents and then pass them:
 #
 # inside your recipe:
 # look for secret in file pointed to by mysql attribute :secretpath
-mysql_secret = Chef::EncryptedDataBagItem.load_secret('#{node[:mysql][:secretpath]}')
+mysql_secret = Chef::EncryptedDataBagItem.load_secret('#{node['mysql']['secretpath']}')
 mysql_creds = Chef::EncryptedDataBagItem.load('passwords', 'mysql', mysql_secret)
 mysql_creds['pass'] # will be decrypted
 ```

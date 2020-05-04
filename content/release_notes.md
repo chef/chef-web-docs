@@ -426,7 +426,7 @@ We optimized the files that ship with Chef Infra Client and eliminated many unne
 
 We've optimized the Chef Infra Client for modern Windows releases and improved the performance on these systems.
 
-#### Simpler Version Comparisons with node[:platform_version]
+#### Simpler Version Comparisons with node['platform_version']
 
 The `node['platform_version']` attribute returned from Ohai can now be intelligently compared as a version instead of as a String or Integer. Previously, to compare the platform_version, many users would first convert the version String to a Float with `node['platform_version']`. This introduced problems on many platforms, such as macOS, where macOS 10.9 would appear to be a greater version number than 10.15. You can now directly compare the version without converting it first.
 
@@ -3605,7 +3605,7 @@ for more information.
 
 -   **LsPci Plugin**
 
-    The new LsPci plugin provides a `node[:pci]` hash with information
+    The new LsPci plugin provides a `node['pci']` hash with information
     about the PCI bus based on lspci. Only runs on Linux.
 
 -   **EC2 C5 Detection**
@@ -4572,7 +4572,7 @@ information](https://www.chef.io/eol-chef12-and-chefdk1).
 -   **Ohai 8.26.1**
     -   Ohai now provides EC2 metadata configuration information on the
         new C5/M5 instance types running on Amazon's new hypervisor
-    -   The new LsPci plugin provides a `node[:pci]` hash with
+    -   The new LsPci plugin provides a `node['pci']` hash with
         information about the PCI bus based on `lspci`. Only runs on
         Linux.
     -   The virtualization plugin has been updated to properly detect
