@@ -293,11 +293,11 @@ def DisplayNodesDetail()
   Chef::Node.list(true).each do |node_array|
     node = node_array[1]
     print '#{node.name}\n'
-    print '\t#{node[:fqdn]}\n'
-    print '\t#{node[:kernel][:machine]}\n'
-    print '\t#{node[:kernel][:os]}\n'
-    print '\t#{node[:platform]}\n'
-    print '\t#{node[:platform_version]}\n'
+    print '\t#{node['fqdn']}\n'
+    print '\t#{node['kernel']['machine']}\n'
+    print '\t#{node['kernel']['os']}\n'
+    print '\t#{node['platform']}\n'
+    print '\t#{node['platform_version']}\n'
     print '\t#{node.chef_environment}\n'
     print '\t#{node.run_list.roles}\n'
   end
