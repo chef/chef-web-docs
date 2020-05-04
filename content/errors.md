@@ -30,7 +30,7 @@ ticket](https://getchef.zendesk.com/hc/en-us).
 If you're receiving an error like the following it most likely means
 you'll need to regenerate the ORGANIZATION-validator.pem file:
 
-``` bash
+```bash
 INFO: Client key /etc/chef/client.pem is not present - registering
 INFO: HTTP Request Returned 401 Unauthorized: Failed to authenticate as ORGANIZATION-validator. Ensure that your node_name and client key are correct.
 FATAL: Stacktrace dumped to c:/chef/cache/chef-stacktrace.out
@@ -64,7 +64,7 @@ and `client_key`---are incorrect, it will not be possible to
 authenticate to the Chef Infra Server. An error similar to the following
 is shown:
 
-``` bash
+```bash
 ERROR: Failed to authenticate to https://api.opscode.com/organizations/ORGANIZATION as USERNAME with key /path/to/USERNAME.pem
 Response:  Failed to authenticate as USERNAME. Ensure that your node_name and client key are correct.
 ```
@@ -101,7 +101,7 @@ with the name of your organization.
 If the system clock drifts more than 15 minutes from the actual time,
 the following type of error will be shown:
 
-``` bash
+```bash
 INFO: Client key /etc/chef/client.pem is not present - registering
 INFO: HTTP Request Returned 401 Unauthorized: Failed to authenticate as ORGANIZATION-validator. Synchronize the clock on your host.
 FATAL: Stacktrace dumped to /var/chef/cache/chef-stacktrace.out
@@ -124,7 +124,7 @@ usually occur for one of two reasons.
 
     On a management station:
 
-    ``` bash
+    ```bash
     # Dump the current node to JSON
     knife node show NODE_NAME -fJ > NODE_NAME.json
 
@@ -134,7 +134,7 @@ usually occur for one of two reasons.
 
     On an affected node (as root):
 
-    ``` bash
+    ```bash
     rm /etc/chef/client.pem
     chef-client
     ```
@@ -145,7 +145,7 @@ usually occur for one of two reasons.
     After successfully running Chef Infra Client on the node, reload the
     `run_list` and node attributes:
 
-    ``` bash
+    ```bash
     knife node from file NODE_NAME.json
     ```
 
@@ -159,14 +159,14 @@ usually occur for one of two reasons.
     Running `chef-client -l debug` will identify the node name being
     used by Chef Infra Client for authentication attempts:
 
-    ``` bash
+    ```bash
     DEBUG: Signing the request as SOME_NODE_NAME
     ```
 
-    This can be fixed this by explicitly setting `node_name` in the
+    This can be fixed by explicitly setting `node_name` in the
     client.rb file to match the name originally used to register.
 
-    ``` ruby
+    ```ruby
     ```
 
     node_node 'mynode.mycompany.com'
@@ -178,7 +178,7 @@ usually occur for one of two reasons.
 
 If you're seeing output like this:
 
-``` bash
+```bash
 FATAL: Stacktrace dumped to /var/chef/cache/chef-stacktrace.out
 FATAL: Net::HTTPClientException: 403 "Forbidden"
 ```
@@ -195,7 +195,7 @@ issue you're experiencing, run Chef Infra Client again using the
 
 You should see something like this up the stack trace:
 
-``` bash
+```bash
 DEBUG: Sending HTTP Request to https://api.opscode.com/organizations/ORGNAME/nodes
 ERROR: Running exception handlers
 ```
@@ -256,20 +256,20 @@ Determine which API service is returning 504s using the Nginx access
 logs. API requests returning 504 can be found with the following command
 on a frontend:
 
-``` bash
+```bash
 grep 'HTTP/1.1" 504' /var/log/opscode/nginx/access.log
 ```
 
 The following will extract the URLs and sort them by `uniq` count:
 
-``` bash
+```bash
 grep 'HTTP/1.1" 504' nginx-access.log | cut -d' ' -f8 | sort | uniq -c | sort
 ```
 
 In a large installation, you may need to restrict this to a subset of
 the requests:
 
-``` bash
+```bash
 tail -10000 nginx-access.log | grep 'HTTP/1.1" 504' | cut -d' ' -f8 | sort | uniq -c | sort
 ```
 
@@ -295,7 +295,7 @@ ticket](https://getchef.zendesk.com/hc/en-us).
 
 If you're seeing an error like:
 
-``` bash
+```bash
 Client key /etc/chef/client.pem is notresent - registering
 WARN: Failed to read the private key /etc/che/validation.pem: #<Errno::ENOENT: No such file or directory - /etc/chef/validation.pem>
 FATAL: Stacktrace dumped to /etc/chef/cache/chef-stacktrace.out
@@ -317,7 +317,7 @@ This isn't really an error, but can be confusing to new users. When you
 try to install a cookbook with changes that have not been committed to
 git you will get this error:
 
-``` bash
+```bash
 Installing getting-started to /home/jes/chef-repo/.chef/../cookbooks
 ERROR: You have uncommitted changes to your cookbook repo:
  M cookbooks/getting-started/recipes/default.rb
@@ -332,7 +332,7 @@ Solve this by committing the cookbook changes. For example, the
 following command would commit all new changes with the message
 "updates".
 
-``` bash
+```bash
 git commit -am "Updating so I can install a site cookbook"
 ```
 
@@ -343,7 +343,7 @@ community cookbook.
 
 If you're seeing an error like:
 
-``` bash
+```bash
 WARN: *****************************************
 WARN: Can not find config file: /etc/chef/client.rb, using defaults.
 WARN: No such file or directory - /etc/chef/client.rb
@@ -355,7 +355,7 @@ FATAL: Chef::Exceptions::PrivateKeyMissing: I cannot read /etc/chef/validation.p
 
 Work around this issue by supplying the full path to the client.rb file:
 
-``` bash
+```bash
 chef-client -c /etc/chef/client.rb
 ```
 
@@ -363,7 +363,7 @@ chef-client -c /etc/chef/client.rb
 
 If you're seeing an error like:
 
-``` bash
+```bash
 ERROR: CONFIGURATION ERROR:Specified config file /etc/opscode/pivotal.rb does not exist
 ```
 
@@ -371,7 +371,7 @@ ERROR: CONFIGURATION ERROR:Specified config file /etc/opscode/pivotal.rb does no
 
 Run the following to restart all of the services:
 
-> ``` bash
+> ```bash
 > chef-server-ctl reconfigure
 > ```
 
@@ -456,7 +456,7 @@ Cannot connect to PostgreSQL on the remote server because rules in
     authentication. For example, a `pg_hba.conf` entry for a valid
     username and password from the 192.0.2.0 subnet:
 
-    ``` bash
+    ```bash
     host     postgres     all     192.0.2.0/24     md5
     ```
 
@@ -464,7 +464,7 @@ Cannot connect to PostgreSQL on the remote server because rules in
     192.0.2.0 subnet. A file named `$PGDATA/chef_users` with the
     following content must be created:
 
-    ``` bash
+    ```bash
     opscode_chef
     opscode_chef_ro
     bifrost
@@ -477,7 +477,7 @@ Cannot connect to PostgreSQL on the remote server because rules in
     specified by `postgresql['db_superuser']`. The corresponding
     `pg_hba.conf` entry is similar to:
 
-    ``` bash
+    ```bash
     host     postgres     @chef_users     192.168.93.0/24     md5
     ```
 
@@ -493,7 +493,7 @@ Cannot connect to PostgreSQL on the remote server because rules in
 
     The corresponding `pg_hba.conf` entry is similar to:
 
-    ``` bash
+    ```bash
     host     postgres     @chef_users     192.0.2.100     md5
     host     postgres     @chef_users     192.0.2.101     md5
     host     postgres     @chef_users     192.0.2.110     md5
@@ -502,13 +502,13 @@ Cannot connect to PostgreSQL on the remote server because rules in
 
     These changes also require a configuration reload for PostgreSQL:
 
-    ``` bash
+    ```bash
     pg_ctl reload
     ```
 
     or:
 
-    ``` bash
+    ```bash
     SELECT pg_reload_conf();
     ```
 
@@ -530,13 +530,13 @@ The `db_superuser` account has incorrect permissions.
 -   The `db_superuser` account has not been granted `CREATE DATABASE`
     and `CREATE ROLE` privileges
 
-    ``` bash
+    ```bash
     ALTER ROLE "$your_db_superuser_name" WITH SUPERUSER
     ```
 
     or:
 
-    ``` bash
+    ```bash
     ALTER ROLE "$your_db_superuser_name"  WITH CREATEDB CREATEROLE
     ```
 
@@ -565,13 +565,13 @@ The database template `template1` does not exist.
 
 -   Run the following command (as a superuser):
 
-    ``` bash
+    ```bash
     CREATE DATABASE template1 TEMPLATE template0
     ```
 
     or:
 
-    ``` bash
+    ```bash
     createdb -T template0 template1
     ```
 
@@ -617,14 +617,14 @@ One (or more) of the PostgreSQL predefined users already exists.
 -   Run the following, if it is safe to do so, to update the user name
     that is specified in the error message:
 
-    ``` bash
+    ```bash
     DROP ROLE "name-of-user";
     ```
 
     or change the name of the user by updating following settings in the
     chef-server.rb configuration file:
 
-    ``` none
+    ```none
     oc_id['sql_user'] = 'alternative_username'
     oc_id['sql_ro_user'] = alternative_username_for_ro_access'
     opscode_erchef['sql_user'] = 'alternative_username'

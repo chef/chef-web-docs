@@ -3,14 +3,14 @@ text file within specially formatted tags. Ruby code can be embedded
 using expressions and statements. An expression is delimited by `<%=`
 and `%>`. For example:
 
-``` ruby
+```ruby
 <%= "my name is #{$ruby}" %>
 ```
 
 A statement is delimited by a modifier, such as `if`, `elsif`, and
 `else`. For example:
 
-``` ruby
+```ruby
 if false
 # this won't happen
 elsif nil
@@ -33,7 +33,7 @@ the same syntax.
 
 For example, a simple template resource like this:
 
-``` ruby
+```ruby
 node['fqdn'] = 'latte'
 template '/tmp/foo' do
   source 'foo.erb'
@@ -43,13 +43,13 @@ end
 
 And a simple Embedded Ruby (ERB) template like this:
 
-``` ruby
+```ruby
 The node <%= node[:fqdn] %> thinks the x-men <%= @x_men %>
 ```
 
 Would render something like:
 
-``` ruby
+```
 The node latte thinks the x-men are keen
 ```
 
