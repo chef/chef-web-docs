@@ -1,17 +1,20 @@
 ---
+resource_reference: true
+properties_resources_common_windows_security: true
+properties_shortcode: 
+resource_directory_recursive_directories: true
+resources_common_guards: true
+resources_common_notification: true
+resources_common_properties: true
 title: directory resource
 resource: directory
-draft: false
 aliases:
-- /resource_directory.html
+- "/resource_directory.html"
 menu:
   infra:
     title: directory
     identifier: chef_infra/cookbook_reference/resources/directory directory
     parent: chef_infra/cookbook_reference/resources
-
-resource_reference: true
-robots: null
 resource_description_list:
 - markdown: 'Use the **directory** resource to manage a directory, which is a
 
@@ -24,12 +27,9 @@ resource_description_list:
     property to specify the path to a location in a directory. Typically,
 
     permission to access that location in the directory is required.'
-resource_new_in: null
-handler_types: false
 syntax_description: "A **directory** resource block declares a directory and the permissions\n\
   needed on that directory. For example:\n\n``` ruby\ndirectory '/etc/apache2' do\n\
   \  owner 'root'\n  group 'root'\n  mode '0755'\n  action :create\nend\n```"
-syntax_code_block: null
 syntax_properties_list:
 - '`''/etc/apache2''` specifies the directory'
 - '`owner`, `group`, and `mode` define the permissions'
@@ -48,11 +48,6 @@ syntax_full_properties_list:
 - '`group`, `inherits`, `mode`, `owner`, `path`, `recursive`, and `rights` are properties
   of this resource, with the Ruby type shown. See "Properties" section below for more
   information about all of the properties that may be used with this resource.'
-syntax_shortcode: null
-registry_key: false
-nameless_apt_update: false
-nameless_build_essential: false
-resource_package_options: false
 actions_list:
   :create:
     markdown: Default. Create a directory. If a directory already exists (but does
@@ -206,27 +201,6 @@ properties_list:
       group or user name, and `<options>` is a Hash with one (or more)
 
       advanced rights options.'
-properties_shortcode: null
-properties_multiple_packages: false
-resource_directory_recursive_directories: true
-resources_common_atomic_update: false
-properties_resources_common_windows_security: true
-remote_file_prevent_re_downloads: false
-remote_file_unc_path: false
-ps_credential_helper: false
-ruby_style_basics_chef_log: false
-debug_recipes_chef_shell: false
-template_requirements: false
-resources_common_properties: true
-resources_common_notification: true
-resources_common_guards: true
-common_resource_functionality_multiple_packages: false
-resources_common_guard_interpreter: false
-remote_directory_recursive_directories: false
-common_resource_functionality_resources_common_windows_security: false
-handler_custom: false
-cookbook_file_specificity: false
-unit_file_verification: false
 examples: "
   Create a directory\n\n  ``` ruby\n  directory '/tmp/something' do\n\
   \    owner 'root'\n    group 'root'\n    mode '0755'\n    action :create\n  end\n\

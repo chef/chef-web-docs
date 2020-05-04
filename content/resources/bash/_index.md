@@ -1,4 +1,9 @@
 ---
+resource_reference: true
+properties_shortcode: 
+resources_common_guards: true
+resources_common_notification: true
+resources_common_properties: true
 title: bash resource
 resource: bash
 aliases:
@@ -8,7 +13,6 @@ menu:
     title: bash
     identifier: chef_infra/cookbook_reference/resources/bash bash
     parent: chef_infra/cookbook_reference/resources
-resource_reference: true
 resource_description_list:
 - markdown: 'Use the **bash** resource to execute scripts using the Bash interpreter.
 
@@ -29,8 +33,6 @@ resource_description_list:
       run with this resource is created as a temporary file and executed like
 
       other script resources, rather than run inline.'
-resource_new_in: null
-handler_types: false
 syntax_description: "A **bash** resource block executes scripts using Bash:\n\n```\
   \ ruby\nbash 'extract_module' do\n  cwd ::File.dirname(src_filepath)\n  code <<-EOH\n\
   \    mkdir -p #{extract_path}\n    tar xzf #{src_filename} -C #{extract_path}\n\
@@ -63,8 +65,7 @@ nameless_build_essential: false
 resource_package_options: false
 actions_list:
   :nothing:
-    markdown: Prevent a command from running. This action is used to specify that
-      a command is run only when another resource notifies it.
+    shortcode: resources_common_actions_nothing.md
   :run:
     markdown: Default. Run a script.
 properties_list:

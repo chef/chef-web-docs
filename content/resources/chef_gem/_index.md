@@ -1,7 +1,11 @@
 ---
+resource_reference: true
+properties_shortcode: 
+resources_common_guards: true
+resources_common_notification: true
+resources_common_properties: true
 title: chef_gem resource
 resource: chef_gem
-draft: false
 aliases:
 - "/resource_chef_gem.html"
 menu:
@@ -9,9 +13,6 @@ menu:
     title: chef_gem
     identifier: chef_infra/cookbook_reference/resources/chef_gem chef_gem
     parent: chef_infra/cookbook_reference/resources
-
-resource_reference: true
-robots: null
 resource_description_list:
 - warning:
     shortcode: notes_chef_gem_vs_gem_package.md
@@ -61,11 +62,6 @@ syntax_full_properties_list:
 - '`clear_sources`, `compile_time`, `gem_binary`, `include_default_source`, `options`,
   `package_name`, `source`, `timeout`, and `version` are the properties available
   to this resource.'
-syntax_shortcode: null
-registry_key: false
-nameless_apt_update: false
-nameless_build_essential: false
-resource_package_options: false
 actions_list:
   :install:
     markdown: Default. Install a gem. If a version is specified, install the specified
@@ -86,11 +82,9 @@ properties_list:
   ruby_type: true, false
   required: false
   default_value: 'false'
-  new_in: null
   description_list:
-  - markdown: 'Set to `true` to download a gem from the path specified by the
-
-      `source` property (and not from RubyGems).'
+  - markdown: Set to `true` to download a gem from the path specified by the `source`
+      property (and not from RubyGems).
   - note:
     - markdown: "Another approach is to use the **gem_package** resource, and then\n\
         specify the `gem_binary` location to the RubyGems directory that is\nused\
@@ -115,14 +109,10 @@ properties_list:
 - property: gem_binary
   ruby_type: String
   required: false
-  default_value: Chef's built-in gem binary
-  new_in: null
+  default_value: The `gem` binary included with Chef Infra Client.
   description_list:
-  - markdown: 'The path of a gem binary to use for the installation. By default,
-
-      the same version of Ruby that is used by Chef Infra Client will be
-
-      installed.'
+  - markdown: The path of a gem binary to use for the installation. By default, the
+      same version of Ruby that is used by Chef Infra Client will be installed.
 - property: include_default_source
   ruby_type: true, false
   required: false
@@ -135,8 +125,6 @@ properties_list:
 - property: options
   ruby_type: String, Hash, Array,
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: 'Options for the gem install, either a Hash or a String. When a hash
 
@@ -152,17 +140,12 @@ properties_list:
 - property: package_name
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
   description_list:
-  - markdown: 'An optional property to set the gem name if it differs from the
-
-      resource block''s name.'
+  - markdown: An optional property to set the package name if it differs from the
+      resource block's name.
 - property: source
   ruby_type: String, Array
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: 'Optional. The URL, or list of URLs, at which the gem package is
 
@@ -178,15 +161,11 @@ properties_list:
 - property: timeout
   ruby_type: String, Integer
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: The amount of time (in seconds) to wait before timing out.
 - property: version
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: The version of a gem to be installed or upgraded.
 properties_shortcode: null

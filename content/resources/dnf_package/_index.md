@@ -1,4 +1,12 @@
 ---
+resource_reference: true
+common_resource_functionality_multiple_packages: true
+properties_multiple_packages: true
+properties_shortcode: 
+resources_common_guards: true
+resources_common_notification: true
+resources_common_properties: true
+notes_resource_based_on_package: true
 title: dnf_package resource
 resource: dnf_package
 aliases:
@@ -8,22 +16,13 @@ menu:
     title: dnf_package
     identifier: chef_infra/cookbook_reference/resources/dnf_package dnf_package
     parent: chef_infra/cookbook_reference/resources
-resource_reference: true
 resource_description_list:
-- markdown: 'Use the **dnf_package** resource to install, upgrade, and remove
-
-    packages with DNF for Fedora and RHEL 8+. The **dnf_package** resource
-
-    is able to resolve `provides` data for packages much like DNF can do
-
-    when it is run from the command line. This allows a variety of options
-
-    for installing packages, like minimum versions, virtual provides, and
-
-    library names.'
-- notes_resource_based_on_package: true
-resource_new_in: null
-handler_types: false
+- markdown: Use the **dnf_package** resource to install, upgrade, and remove packages
+    with DNF for Fedora and RHEL 8+. The dnf_package resource is able to resolve provides
+    data for packages much like DNF can do when it is run from the command line. This
+    allows a variety of options for installing packages, like minimum versions, virtual
+    provides and library names.
+resource_new_in: '12.18'
 syntax_description: 'A **dnf_package** resource block manages a package on a node,
   typically
 
@@ -40,25 +39,18 @@ syntax_description: 'A **dnf_package** resource block manages a package on a nod
   which will install the named package using all of the default options
 
   and the default action (`:install`).'
-syntax_code_block: null
-syntax_properties_list: null
 syntax_full_code_block: "dnf_package 'name' do\n  arch              String, Array\n\
   \  flush_cache       Hash # default value: {\"before\"=>false, \"after\"=>false}\n\
   \  options           String, Array\n  package_name      String, Array\n  source\
   \            String\n  timeout           String, Integer\n  version           String,\
   \ Array\n  action            Symbol # defaults to :install if not specified\nend"
 syntax_full_properties_list:
-- '`dnf_package` is the resource.'
-- '`name` is the name given to the resource block.'
-- '`action` identifies which steps Chef Infra Client will take to bring the node into
-  the desired state.'
-- '`arch`, `flush_cache`, `options`, `package_name`, `source`, `timeout`, and `version`
-  are the properties available to this resource.'
-syntax_shortcode: null
-registry_key: false
-nameless_apt_update: false
-nameless_build_essential: false
-resource_package_options: false
+- "`dnf_package` is the resource."
+- "`name` is the name given to the resource block."
+- "`action` identifies which steps Chef Infra Client will take to bring the node into
+  the desired state."
+- "`arch`, `flush_cache`, `options`, `package_name`, `source`, `timeout`, and `version`
+  are the properties available to this resource."
 actions_list:
   :install:
     markdown: Default. Install a package. If a version is specified, install the specified
@@ -82,9 +74,8 @@ properties_list:
   ruby_type: String, Array
   required: false
   description_list:
-  - markdown: 'The architecture of the package to be installed or upgraded. This
-
-      value can also be passed as part of the package name.'
+  - markdown: The architecture of the package to be installed or upgraded. This value
+      can also be passed as part of the package name.
 - property: flush_cache
   ruby_type: Array
   required: false
@@ -134,27 +125,6 @@ properties_list:
   - markdown: 'The version of a package to be installed or upgraded. This property
 
       is ignored when using the `:upgrade` action.'
-properties_shortcode: null
-properties_multiple_packages: true
-resource_directory_recursive_directories: false
-resources_common_atomic_update: false
-properties_resources_common_windows_security: false
-remote_file_prevent_re_downloads: false
-remote_file_unc_path: false
-ps_credential_helper: false
-ruby_style_basics_chef_log: false
-debug_recipes_chef_shell: false
-template_requirements: false
-resources_common_properties: true
-resources_common_notification: true
-resources_common_guards: true
-common_resource_functionality_multiple_packages: false
-resources_common_guard_interpreter: false
-remote_directory_recursive_directories: false
-common_resource_functionality_resources_common_windows_security: false
-handler_custom: false
-cookbook_file_specificity: false
-unit_file_verification: false
 examples: "
   Install an exact version\n\n  ``` ruby\n  dnf_package 'netpbm = 10.35.58-8.el5'\n\
   \  ```\n\n  Install a minimum version\n\n  ``` ruby\n  dnf_package 'netpbm >= 10.35.58-8.el5'\n\

@@ -1,4 +1,9 @@
 ---
+resource_reference: true
+properties_shortcode: 
+resources_common_guards: true
+resources_common_notification: true
+resources_common_properties: true
 title: batch resource
 resource: batch
 aliases:
@@ -8,7 +13,6 @@ menu:
     title: batch
     identifier: chef_infra/cookbook_reference/resources/batch batch
     parent: chef_infra/cookbook_reference/resources
-resource_reference: true
 resource_description_list:
 - markdown: 'Use the **batch** resource to execute a batch script using the cmd.exe
 
@@ -23,8 +27,6 @@ resource_description_list:
     unique to the environment in which they are run. Use `not_if` and
 
     `only_if` to guard this resource for idempotence.'
-resource_new_in: null
-handler_types: false
 syntax_description: "A **batch** resource block executes a batch script using the\
   \ cmd.exe\ninterpreter:\n\n``` ruby\nbatch 'echo some env vars' do\n  code <<-EOH\n\
   \    echo %TEMP%\n    echo %SYSTEMDRIVE%\n    echo %PATH%\n    echo %WINDIR%\n \
@@ -49,11 +51,6 @@ syntax_full_properties_list:
   `interpreter`, `returns`, `timeout`, `user`, `password` and `domain` are properties
   of this resource, with the Ruby type shown. See "Properties" section below for more
   information about all of the properties that may be used with this resource.'
-syntax_shortcode: null
-registry_key: false
-nameless_apt_update: false
-nameless_build_essential: false
-resource_package_options: false
 actions_list:
   :nothing:
     shortcode: resources_common_actions_nothing.md
@@ -81,7 +78,7 @@ properties_list:
   ruby_type: String
   required: true
   description_list:
-  - markdown: A quoted (" ") string of code to be executed.
+  - markdown: A quoted string of code to be executed.
 - property: command
   ruby_type: String, Array
   required: false
@@ -91,9 +88,7 @@ properties_list:
   ruby_type: String
   required: false
   description_list:
-  - markdown: 'Prevent a command from creating a file when that file already
-
-      exists.'
+  - markdown: Prevent a command from creating a file when that file already exists.
 - property: cwd
   ruby_type: String
   required: false
@@ -102,17 +97,12 @@ properties_list:
 - property: flags
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
   description_list:
-  - markdown: 'One or more command line flags that are passed to the interpreter
-
-      when a command is invoked.'
+  - markdown: One or more command line flags that are passed to the interpreter when
+      a command is invoked.
 - property: group
   ruby_type: String, Integer
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: 'The group name or group ID that must be changed before running a
 
@@ -121,7 +111,6 @@ properties_list:
   ruby_type: Symbol
   required: false
   default_value: :batch
-  new_in: null
   description_list:
   - markdown: 'When this property is set to `:batch`, the 64-bit version of the
 

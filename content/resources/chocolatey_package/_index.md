@@ -1,32 +1,9 @@
 ---
 resource_reference: true
-common_resource_functionality_multiple_packages: false
-common_resource_functionality_resources_common_windows_security: false
-cookbook_file_specificity: false
-debug_recipes_chef_shell: false
-handler_custom: false
-handler_types: false
-nameless_apt_update: false
-nameless_build_essential: false
-properties_multiple_packages: false
-properties_resources_common_windows_security: false
 properties_shortcode: 
-ps_credential_helper: false
-registry_key: false
-remote_directory_recursive_directories: false
-remote_file_prevent_re_downloads: false
-remote_file_unc_path: false
-resource_directory_recursive_directories: false
-resource_package_options: false
-resources_common_atomic_update: false
-resources_common_guard_interpreter: false
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-ruby_style_basics_chef_log: false
-syntax_shortcode: 
-template_requirements: false
-unit_file_verification: false
 title: chocolatey_package resource
 resource: chocolatey_package
 aliases:
@@ -37,21 +14,17 @@ menu:
     identifier: chef_infra/cookbook_reference/resources/chocolatey_package chocolatey_package
     parent: chef_infra/cookbook_reference/resources
 resource_description_list:
-- markdown: 'Use the **chocolatey_package** resource to manage packages using
-
-    Chocolatey on the Microsoft Windows platform.'
+- markdown: Use the **chocolatey_package** resource to manage packages using Chocolatey
+    on the Microsoft Windows platform.
 - warning:
     markdown: 'The **chocolatey_package** resource must be specified as
 
       `chocolatey_package` and cannot be shortened to `package` in a recipe.'
 - note:
-    markdown: 'The Chocolatey package manager is not installed on Windows by default.
-
-      Install it prior to using this resource by adding the [Chocolatey
-
-      cookbook](https://supermarket.chef.io/cookbooks/chocolatey/) to your
-
-      node''s run list.'
+    markdown: The Chocolatey package manager is not installed on Windows by default.
+      You will need to install it prior to using this resource by adding the [Chocolatey
+      cookbook](https://supermarket.chef.io/cookbooks/chocolatey/) to your node's
+      run list.
 resource_new_in: '12.7'
 syntax_description: 'A **chocolatey_package** resource manages packages using Chocolatey
   on

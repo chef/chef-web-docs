@@ -1,32 +1,9 @@
 ---
 resource_reference: true
-common_resource_functionality_multiple_packages: false
-common_resource_functionality_resources_common_windows_security: false
-cookbook_file_specificity: false
-debug_recipes_chef_shell: false
-handler_custom: false
-handler_types: false
-nameless_apt_update: false
-nameless_build_essential: false
-properties_multiple_packages: false
-properties_resources_common_windows_security: false
 properties_shortcode: 
-ps_credential_helper: false
-registry_key: false
-remote_directory_recursive_directories: false
-remote_file_prevent_re_downloads: false
-remote_file_unc_path: false
-resource_directory_recursive_directories: false
-resource_package_options: false
-resources_common_atomic_update: false
-resources_common_guard_interpreter: false
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-ruby_style_basics_chef_log: false
-syntax_shortcode: 
-template_requirements: false
-unit_file_verification: false
 title: apt_repository resource
 resource: apt_repository
 aliases:
@@ -40,7 +17,6 @@ resource_description_list:
 - markdown: Use the **apt_repository** resource to specify additional APT repositories.
     Adding a new repository will update the APT package cache immediately.
 resource_new_in: null
-handler_types: false
 syntax_description: "An **apt_repository** resource specifies APT repository information\
   \ and\nadds an additional APT repository to the existing list of repositories:\n\
   \n``` ruby\napt_repository 'nginx' do\n  uri        'http://nginx.org/packages/ubuntu/'\n\

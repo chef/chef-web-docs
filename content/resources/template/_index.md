@@ -1,16 +1,22 @@
 ---
+resource_reference: true
+common_resource_functionality_multiple_packages: false
+properties_resources_common_windows_security: true
+properties_shortcode: 
+resources_common_atomic_update: true
+resources_common_guards: true
+resources_common_notification: true
+resources_common_properties: true
+template_requirements: true
 title: template resource
 resource: template
-draft: false
 aliases:
-- /resource_template.html
+- "/resource_template.html"
 menu:
   infra:
     title: template
     identifier: chef_infra/cookbook_reference/resources/template template
     parent: chef_infra/cookbook_reference/resources
-resource_reference: true
-robots: null
 resource_description_list:
 - shortcode: template.md
 - note:

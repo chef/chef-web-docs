@@ -1,17 +1,18 @@
 ---
+resource_reference: true
+properties_shortcode: 
+resources_common_guards: true
+resources_common_notification: true
+resources_common_properties: true
 title: csh resource
 resource: csh
-draft: false
 aliases:
-- /resource_csh.html
+- "/resource_csh.html"
 menu:
   infra:
     title: csh
     identifier: chef_infra/cookbook_reference/resources/csh csh
     parent: chef_infra/cookbook_reference/resources
-
-resource_reference: true
-robots: null
 resource_description_list:
 - markdown: 'Use the **csh** resource to execute scripts using the csh interpreter.
 
@@ -32,8 +33,6 @@ resource_description_list:
       run with this resource is created as a temporary file and executed like
 
       other script resources, rather than run inline.'
-resource_new_in: null
-handler_types: false
 syntax_description: "A **csh** resource block executes scripts using csh:\n\n``` ruby\n\
   csh 'hello world' do\n  code <<-EOH\n    echo \"Hello world!\"\n    echo \"Current\
   \ directory: \" $cwd\n    EOH\nend\n```"
@@ -56,11 +55,6 @@ syntax_full_properties_list:
   `user`, and `umask` are properties of this resource, with the Ruby type shown. See
   "Properties" section below for more information about all of the properties that
   may be used with this resource.'
-syntax_shortcode: null
-registry_key: false
-nameless_apt_update: false
-nameless_build_essential: false
-resource_package_options: false
 actions_list:
   :nothing:
     markdown: Prevent a command from running. This action is used to specify that
@@ -78,17 +72,11 @@ properties_list:
 - property: creates
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
   description_list:
-  - markdown: 'Prevent a command from creating a file when that file already
-
-      exists.'
+  - markdown: Prevent a command from creating a file when that file already exists.
 - property: cwd
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: The current working directory from which the command will be run.
 - property: environment
@@ -105,17 +93,12 @@ properties_list:
 - property: flags
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
   description_list:
-  - markdown: 'One or more command line flags that are passed to the interpreter
-
-      when a command is invoked.'
+  - markdown: One or more command line flags that are passed to the interpreter when
+      a command is invoked.
 - property: group
   ruby_type: String, Integer
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: 'The group name or group ID that must be changed before running a
 
@@ -225,27 +208,7 @@ properties_list:
   new_in: null
   description_list:
   - markdown: The file mode creation mask, or umask.
-properties_shortcode: null
-properties_multiple_packages: false
-resource_directory_recursive_directories: false
-resources_common_atomic_update: false
-properties_resources_common_windows_security: false
-remote_file_prevent_re_downloads: false
-remote_file_unc_path: false
-ps_credential_helper: false
-ruby_style_basics_chef_log: false
-debug_recipes_chef_shell: false
-template_requirements: false
-resources_common_properties: true
-resources_common_notification: true
-resources_common_guards: true
-common_resource_functionality_multiple_packages: false
-resources_common_guard_interpreter: false
-remote_directory_recursive_directories: false
-common_resource_functionality_resources_common_windows_security: false
-handler_custom: false
-cookbook_file_specificity: false
-unit_file_verification: false
+
 examples_list: null
 
 ---
