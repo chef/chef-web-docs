@@ -3,7 +3,7 @@ For example, to view the aggregate queue backlog, enter the following:
 ``` bash
 cd /opt/opscode/embedded/service/opscode-expander/
 export PATH=$PATH:/opt/opscode/bin:/opt/opscode/embedded/bin
-bin/opscode-expander-ctl queue-depth
+veil-env-helper --pack -s rabbitmq.password bin/opscode-expanderctl queue-depth
 ```
 
 to return something similar to:
