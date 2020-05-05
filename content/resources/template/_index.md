@@ -1,6 +1,5 @@
 ---
 resource_reference: true
-common_resource_functionality_multiple_packages: false
 properties_resources_common_windows_security: true
 properties_shortcode: 
 resources_common_atomic_update: true

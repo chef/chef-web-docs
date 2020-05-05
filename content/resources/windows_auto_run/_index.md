@@ -1,6 +1,5 @@
 ---
 resource_reference: true
-common_resource_functionality_multiple_packages: false
 properties_shortcode: 
 resources_common_guards: true
 resources_common_notification: true
@@ -36,10 +35,10 @@ syntax_full_properties_list:
 actions_list:
   :create:
     markdown: Create an item to be run at login.
-  :remove:
-    markdown: Remover an item that was previously configured to run at login.
   :nothing:
     shortcode: resources_common_actions_nothing.md
+  :remove:
+    markdown: Remover an item that was previously configured to run at login.
 properties_list:
 - property: args
   ruby_type: String

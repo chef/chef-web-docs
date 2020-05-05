@@ -1,6 +1,5 @@
 ---
 resource_reference: true
-common_resource_functionality_multiple_packages: false
 properties_shortcode: 
 resources_common_guards: true
 resources_common_notification: true
@@ -38,10 +37,10 @@ syntax_full_properties_list:
   the desired state."
 - "`timezone` is the property available to this resource."
 actions_list:
-  :set:
-    markdown: Set the system timezone.
   :nothing:
     shortcode: resources_common_actions_nothing.md
+  :set:
+    markdown: Set the system timezone.
 properties_list:
 - property: timezone
   ruby_type: String

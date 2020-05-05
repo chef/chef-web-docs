@@ -1,6 +1,5 @@
 ---
 resource_reference: true
-common_resource_functionality_multiple_packages: false
 properties_shortcode: 
 resources_common_guards: true
 resources_common_notification: true
@@ -41,7 +40,7 @@ resource_description_list:
       the same permanent effect as using the **windows_env** resource.'
 syntax_full_code_block: |-
   windows_env 'name' do
-    delim         String, nil, false
+    delim         String, false
     key_name      String # default value: 'name' unless specified
     user          String # default value: "<System>"
     value         String

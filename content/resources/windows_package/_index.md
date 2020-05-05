@@ -1,6 +1,5 @@
 ---
 resource_reference: true
-common_resource_functionality_multiple_packages: false
 properties_shortcode: 
 resources_common_guards: true
 resources_common_notification: true
@@ -45,7 +44,7 @@ syntax_full_code_block: |-
     options                     String
     package_name                String
     remote_file_attributes      Hash
-    returns                     String, Integer, Array # default value: "0 (success) and 3010 (success where a reboot is necessary)"
+    returns                     String, Integer, Array
     source                      String # default value: "The resource block's name"
     timeout                     String, Integer # default value: "600 (seconds)"
     version                     String

@@ -1,6 +1,5 @@
 ---
 resource_reference: true
-common_resource_functionality_multiple_packages: false
 properties_shortcode: 
 resources_common_guards: true
 resources_common_notification: true
@@ -41,6 +40,10 @@ properties_list:
   ruby_type: String
   required: true
   default_value: The resource block's name
+  allowed_values: '"ClearTextPassword", "EnableAdminAccount", "EnableGuestAccount",
+    "ForceLogoffWhenHourExpire", "LSAAnonymousNameLookup", "LockoutBadCount", "MaximumPasswordAge",
+    "MinimumPasswordAge", "MinimumPasswordLength", "NewAdministratorName", "NewGuestName",
+    "PasswordComplexity", "PasswordHistorySize", "RequireLogonToChangePassword"'
   description_list:
   - markdown: The name of the policy to be set on windows platform to maintain its
       security.
