@@ -49,7 +49,7 @@ process of being updated. So we start by disabling failover
 
 1.  Run `chef-backend-ctl set-cluster-failover off`
 
-### Step 2: Upgrade the followers.
+### Step 2: Update the followers.
 
 Followers should be updated sequentially. Upgrading them simultaneously
 is not supported and may result in data loss. Verify the successful
@@ -79,7 +79,7 @@ rejoin after each upgrade.
     ```
 
 The update command will make any changes necessary to start the new
-service and verify that the upgraded node has rejoined the cluster.
+service and verify that the updated node has rejoined the cluster.
 
 Repeat the previous steps in this section for each remaining follower.
 
@@ -97,17 +97,17 @@ Repeat the previous steps in this section for each remaining follower.
 
 Allow failover again:
 
-``` bash
-% chef-backend-ctl set-cluster-failover on
-```
+    ``` bash
+    % chef-backend-ctl set-cluster-failover on
+    ```
 
 ### Step 5: Verify the cluster is stable
 
 Check the status of the cluster:
 
-``` bash
-chef-backend-ctl status
-```
+    ``` bash
+    chef-backend-ctl status
+    ```
 
 ## Chef Backend 1.x to 2.x Upgrade
 
