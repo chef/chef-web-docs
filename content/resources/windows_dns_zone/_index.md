@@ -1,6 +1,5 @@
 ---
 resource_reference: true
-common_resource_functionality_multiple_packages: false
 properties_shortcode: 
 resources_common_guards: true
 resources_common_notification: true
@@ -59,30 +58,7 @@ properties_list:
   required: false
   default_value: The resource block's name
   description_list:
-  - markdown: 'An optional property to set the dns zone name if it differs from the
-
-      resource block''s name.'
-properties_shortcode: null
-properties_multiple_packages: false
-resource_directory_recursive_directories: false
-resources_common_atomic_update: false
-properties_resources_common_windows_security: false
-remote_file_prevent_re_downloads: false
-remote_file_unc_path: false
-ps_credential_helper: false
-ruby_style_basics_chef_log: false
-debug_recipes_chef_shell: false
-template_requirements: false
-resources_common_properties: true
-resources_common_notification: true
-resources_common_guards: true
-common_resource_functionality_multiple_packages: false
-resources_common_guard_interpreter: false
-remote_directory_recursive_directories: false
-common_resource_functionality_resources_common_windows_security: false
-handler_custom: false
-cookbook_file_specificity: false
-unit_file_verification: false
-examples_list: null
-
+  - markdown: An optional property to set the dns zone name if it differs from the
+      resource block's name.
+examples: 
 ---

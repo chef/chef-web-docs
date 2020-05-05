@@ -1,6 +1,5 @@
 ---
 resource_reference: true
-common_resource_functionality_multiple_packages: false
 properties_shortcode: 
 resources_common_guards: true
 resources_common_notification: true
@@ -30,13 +29,13 @@ resource_new_in:
 syntax_full_code_block: |-
   subversion 'name' do
     destination        String # default value: 'name' unless specified
-    environment        Hash, nil
+    environment        Hash
     group              String, Integer
     repository         String
     revision           String # default value: "HEAD"
-    svn_arguments      String, nil, false # default value: "--no-auth-cache"
+    svn_arguments      String, false # default value: "--no-auth-cache"
     svn_binary         String
-    svn_info_args      String, nil, false # default value: "--no-auth-cache"
+    svn_info_args      String, false # default value: "--no-auth-cache"
     svn_password       String
     svn_username       String
     timeout            Integer
@@ -77,7 +76,7 @@ properties_list:
   - markdown: 'The location path to which the source is to be cloned, checked out,
       or exported. Default value: the name of the resource block.'
 - property: environment
-  ruby_type: Hash, nil
+  ruby_type: Hash
   required: false
   description_list:
   - markdown: A Hash of environment variables in the form of ({'ENV_VARIABLE' => 'VALUE'}).
@@ -113,7 +112,7 @@ properties_list:
   description_list:
   - markdown: The location of the svn binary.
 - property: svn_info_args
-  ruby_type: String, nil, false
+  ruby_type: String, false
   required: false
   default_value: "--no-auth-cache"
   description_list:

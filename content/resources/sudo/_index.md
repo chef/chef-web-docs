@@ -1,6 +1,5 @@
 ---
 resource_reference: true
-common_resource_functionality_multiple_packages: false
 properties_shortcode: 
 resources_common_guards: true
 resources_common_notification: true
@@ -44,7 +43,7 @@ syntax_full_code_block: |-
     setenv                 true, false # default value: false
     template               String
     users                  String, Array
-    variables              Hash, nil
+    variables              Hash
     visudo_binary          String # default value: "/usr/sbin/visudo"
     action                 Symbol # defaults to :create if not specified
   end

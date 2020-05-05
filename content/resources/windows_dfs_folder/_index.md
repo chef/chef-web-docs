@@ -1,6 +1,5 @@
 ---
 resource_reference: true
-common_resource_functionality_multiple_packages: false
 properties_shortcode: 
 resources_common_guards: true
 resources_common_notification: true
@@ -35,10 +34,10 @@ syntax_full_properties_list:
 - "`description`, `folder_path`, `namespace_name`, and `target_path` are the properties
   available to this resource."
 actions_list:
-  :delete:
-    markdown: Deletes the folder in the dfs namespace.
   :create:
     markdown: Creates the folder in dfs namespace. Default.
+  :delete:
+    markdown: Deletes the folder in the dfs namespace.
   :nothing:
     shortcode: resources_common_actions_nothing.md
 properties_list:

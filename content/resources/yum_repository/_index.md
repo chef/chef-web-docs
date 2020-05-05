@@ -1,6 +1,5 @@
 ---
 resource_reference: true
-common_resource_functionality_multiple_packages: false
 properties_shortcode: 
 resources_common_guards: true
 resources_common_notification: true
@@ -137,6 +136,7 @@ properties_list:
 - property: failovermethod
   ruby_type: String
   required: false
+  allowed_values: '"priority", "roundrobin"'
   description_list:
   - markdown: Method to determine how to switch to a new server if the current one
       fails, which can either be `roundrobin` or `priority`. `roundrobin` randomly

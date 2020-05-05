@@ -1,6 +1,5 @@
 ---
 resource_reference: true
-common_resource_functionality_multiple_packages: false
 properties_shortcode: 
 resources_common_guards: true
 resources_common_notification: true
@@ -17,7 +16,6 @@ menu:
 resource_description_list:
 - markdown: Use the **rpm_package** resource to manage packages using the RPM Package
     Manager.
-resource_new_in: 
 syntax_full_code_block: |-
   rpm_package 'name' do
     allow_downgrade      true, false # default value: true

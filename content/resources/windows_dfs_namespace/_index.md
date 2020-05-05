@@ -1,6 +1,5 @@
 ---
 resource_reference: true
-common_resource_functionality_multiple_packages: false
 properties_shortcode: 
 resources_common_guards: true
 resources_common_notification: true
@@ -81,5 +80,4 @@ properties_list:
   description_list:
   - markdown: The root from which to create the DFS tree. Defaults to C:\DFSRoots.
 examples: 
-
 ---

@@ -1,6 +1,5 @@
 ---
 resource_reference: true
-common_resource_functionality_multiple_packages: false
 properties_shortcode: 
 resources_common_guards: true
 resources_common_notification: true
@@ -22,11 +21,11 @@ syntax_description: "A **route** resource block manages the system routing table
   \  device 'eth1'\nend\n```"
 syntax_full_code_block: |-
   route 'name' do
-    comment         String, nil
-    device          String, nil
-    gateway         String, nil
-    metric          Integer, nil
-    netmask         String, nil
+    comment         String
+    device          String
+    gateway         String
+    metric          Integer
+    netmask         String
     route_type      Symbol, String # default value: :host
     target          String # default value: 'name' unless specified
     action          Symbol # defaults to :add if not specified
