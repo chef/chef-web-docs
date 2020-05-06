@@ -387,7 +387,7 @@ Groups](/server_orgs/) | [Secrets](/secrets/) |
 | [chef-backend-ctl](/ctl_chef_backend/) |
 [chef-server.rb](/config_rb_server/) | [Chef Server Optional
 Settings](/config_rb_server_optional_settings/) |
-[opscode-expander-ctl](/ctl_opscode_expander/) | [Chef Infra Server
+[opscode-expanderctl](/ctl_opscode_expander/) | [Chef Infra Server
 API](/api_chef_server/)
 
 **FIPS** [FIPS Overview](/fips/)
