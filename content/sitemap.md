@@ -80,9 +80,9 @@ Overview](/server_overview/) | [Search](/chef_search/) |
 
 **Security**: [Authentication](/auth/#authentication) |
 [Authorization](/auth/#authorization) |
-[FIPS-mode](/ctl_chef_client/#run-in-fips-mode.html)
+[FIPS-mode](/ctl_chef_client/#run-in-fips-mode)
 
-**Supermarket**: [Supermarket](supermarket.html) | [Public Supermarket
+**Supermarket**: [Supermarket](/supermarket/) | [Public Supermarket
 (overview)](/supermarket/#public-supermarket) | [Private
 Supermarket (overview)](/supermarket/#private-supermarket) | [Share
 Cookbooks on the Chef Supermarket](/supermarket_share_cookbook/)
@@ -95,9 +95,7 @@ Cookbooks on the Chef Supermarket](/supermarket_share_cookbook/)
 **Chef on Azure**: [Microsoft Azure Portal](/azure_portal/) | [Chef
 Workstation in Azure Cloud Shell](/azure_cwa_cloud_shell/) |
 [Microsoft Azure PowerShell](/azure_powershell/) | [Microsoft Azure
-Chef Extension](/azure_chef_cli/) | Knife Azure
-\</knife_azure.html\><span class="title-ref">__ | \`Knife Azurerm
-\</knife_azurerm.html\></span>__
+Chef Extension](/azure_chef_cli/) | [Knife Azure](/knife_azure/) | [Knife Azurerm](/knife_azurerm/)
 
 **Chef on Microsoft Windows**: [Chef for Microsoft
 Windows](/windows/) | [Chef Infra Client on Windows
@@ -122,12 +120,12 @@ Installation](/install_server_tiered/) | [Install High
 Availability](/install_server_ha/) | [Upgrade High
 Availability](/upgrade_server_ha_v2/)
 
-**Supermarket**: [Public Supermarket](https://supermarket.chef.io.html)
+**Supermarket**: [Public Supermarket](https://supermarket.chef.io)
 | [Install Private Supermarket](/install_supermarket/) |
 [Customize
-Supermarket](/install_supermarket/#customize-supermarket.html) |
+Supermarket](/install_supermarket/#customize-supermarket) |
 [Run in
-Kitchen](/install_supermarket/#run-supermarket-in-kitchen.html)
+Kitchen](/install_supermarket/#run-supermarket-in-kitchen)
 
 [Management Console](/ctl_chef_server/#install) | [Push
 Jobs](/install_push_jobs/)
@@ -316,7 +314,7 @@ shell-init](/ctl_chef/#chef-shell-init)
 
 **Configuration**: [config.rb](/workstation/config_rb/) | [Optional config.rb
 Settings](/workstation/config_rb_optional_settings/) | [Multiple Config
-Files](/config_rb_client/#d-directories.html) |
+Files](/config_rb_client/#d-directories) |
 [cookstyle](/workstation/cookstyle/) | [Delivery CLI](/delivery_cli/) |
 [Foodcritic](/workstation/foodcritic/)
 
@@ -377,13 +375,13 @@ remove](/workstation/plugin_knife_opc/#plugin-knife-opc-opc-org-user-remove)
 
 **Managing Chef Infra Server**: [Runbook (Single Page)](/runbook/)
 | [Backend Cluster Failure Recovery](/backend_failure_recovery/) |
-[Backup and Restore]\(/runbook/server_backup_restore/) | [Firewalls and
-Ports]\(/runbook/server_firewalls_and_ports/) | [Active Directory and
-LDAP](/server_ldap/) | [Log Files]\(/runbook/server_logs/) |
-[Monitor]\(/runbook/server_monitor/) | [Organizations and
+[Backup and Restore](/runbook/server_backup_restore/) | [Firewalls and
+Ports](/runbook/server_firewalls_and_ports/) | [Active Directory and
+LDAP](/server_ldap/) | [Log Files](/runbook/server_logs/) |
+[Monitor](/runbook/server_monitor/) | [Organizations and
 Groups](/server_orgs/) | [Secrets](/secrets/) |
-[Security]\(/runbook/server_security/) | [Services]\(/runbook/server_services/)
-| [Tuning]\(/runbook/server_tuning/) | [Upgrades](/upgrade_server/) |
+[Security](/runbook/server_security/) | [Services](/runbook/server_services/)
+| [Tuning](/runbook/server_tuning/) | [Upgrades](/upgrade_server/) |
 [Upgrade HA Cluster](/upgrade_server_ha_v2/) |
 [Users](/server_users/) | [chef-server-ctl](/ctl_chef_server/)
 | [chef-backend-ctl](/ctl_chef_backend/) |
@@ -398,8 +396,7 @@ API](/api_chef_server/)
 [push-jobs-client](/workstation/ctl_push_jobs_client/) |
 [push-jobs-client.rb](/config_rb_push_jobs_client/) |
 [push-jobs-server.rb](/config_rb_push_jobs_server/) | [Push Jobs
-API](/api_push_jobs/) | [Server Sent
-Events](/server_sent_events/)
+API](/api_push_jobs/) | [Server Sent Events](/server_sent_events/)
 
 **Supermarket**: [Log Files](/supermarket_logs/) | [Backup and
 Restore](/supermarket_backup_restore/) |
@@ -416,8 +413,7 @@ API](/supermarket_api/)
 Bags](/server_manage_data_bags/) |
 [Environments](/server_manage_environments/) |
 [Nodes](/server_manage_nodes/) | [Roles](/server_manage_roles/)
-| [Users](/server_users/#chef-manage.html) |
-[manage.rb](/config_rb_manage/) |
+| [Users](/server_users/) | [manage.rb](/config_rb_manage/) |
 [chef-manage-ctl](/ctl_manage/)
 
 ## Chef Automate
