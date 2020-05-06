@@ -19,5 +19,5 @@ platform. The SIGAR project is no longer active, and there is no longer
 an active port of Ruby to HP-UX. Due to this we've chosen to remove the
 sigar dependency and all sigar-based plugins from Ohai 13. There is no
 anticipated impact for Chef Foundation Platforms or Secondary Platforms.
-See the [Platforms](platforms.html) page for a complete list of
+See the [Platforms](/platforms/) page for a complete list of
 platforms.

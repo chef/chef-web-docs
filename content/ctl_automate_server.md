@@ -936,21 +936,17 @@ automate-ctl node-summary --format json
     `missing` if Chef Infra Client did not run within the expected
     check-in duration configured in Chef Automate (default is 12 hours).
 
-    `scan-failed` if a node set up for [ad-hoc
-    scanning](automate_compliance_scanner.html) failed its latest
+    `scan-failed` if a node set up for ad-hoc scanning failed its latest
     compliance scan.
 
-    `scan-passed` if a node set up for [ad-hoc
-    scanning](automate_compliance_scanner.html) passed its latest
+    `scan-passed` if a node set up for ad-hoc scanning passed its latest
     compliance scan.
 
-    `scan-skipped` if a node set up for [ad-hoc
-    scanning](automate_compliance_scanner.html) skipped its latest
+    `scan-skipped` if a node set up for ad-hoc scanning skipped its latest
     compliance scan.
 
-    `scan-unreachable` if a node set up for [ad-hoc
-    scanning](automate_scanner.html) either could not be reached for
-    scanning or has not been scanned within the past hour.
+    `scan-unreachable` if a node set up for ad-hoc scanning either could not be
+    reached for scanning or has not been scanned within the past hour.
 
 `uuid`
 

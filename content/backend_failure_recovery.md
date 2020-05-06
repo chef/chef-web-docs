@@ -256,7 +256,7 @@ the scenarios and tools shown above to assist in the recovery steps:
 
     **Note**: Any leadership repair process is a very dangerous step
     that can result in data loss. We recommend [opening a ticket with
-    Support](www.chef.io/support/get-started) to go over any cluster
+    Support](https://www.chef.io/support/) to go over any cluster
     leadership issue.
 
     Any leadership repair process often involves removing an internal

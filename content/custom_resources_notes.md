@@ -245,7 +245,7 @@ A `converge_by` block that is not wrapped in an idempotency check will
 always cause the resource to be updated, and will always cause
 notifications to fire. To prevent this, a properly written resource
 should wrap all `converge_by` checks with an idempotency check. The
-\[`converge_if_changed`\](<https://github.com/chef/chef-web-docs/blob/master/chef_master/source/custom_resources.rst#converge_if_changed>)
+[`converge_if_changed`](/custom_resources/#converge_if_changed)
 block may be used instead which will wrap a `converge_by` block with an
 idempotency check for you.
 
