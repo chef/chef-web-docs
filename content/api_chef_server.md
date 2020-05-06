@@ -6267,6 +6267,8 @@ The response is similar to:
 #### PUT
 
 The `PUT` method is used to update a group on a single organization.
+Updating the clients, groups and users memberships replaces the definitons for
+the group. `GET` the group and merge changes to create the desired member lists.
 
 This method has no parameters.
 
@@ -6282,11 +6284,11 @@ with a request body similar to:
 {
   "name": "group1",
   "groupname": "groupnew",
-  "orgname": "test",
-  "actors": []
-  "clients": ["mynode","addme"],
-  "groups": ["admins"],
-  "users": ["betina"]
+  "actors": {
+    "clients": ["mynode","addme"],
+    "groups": ["admins"],
+    "users": ["betina"]
+  }
 }
 ```
 
@@ -6299,10 +6301,11 @@ The response is similar to:
   "name": "group1",
   "groupname": "groupnew",
   "orgname": "test",
-  "actors": []
-  "clients": ["mynode","addme"],
-  "groups": ["admins"],
-  "users": ["betina"]
+  "actors": {
+    "clients": ["mynode","addme"],
+    "groups": ["admins"],
+    "users": ["betina"]
+  }
 }
 ```
 
