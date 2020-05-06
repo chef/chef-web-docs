@@ -1,6 +1,6 @@
 This tool has the following syntax:
 
-    opscode-expander-ctl COMMAND
+    opscode-expanderctl COMMAND
 
 Where `COMMAND` can be any of the following:
 

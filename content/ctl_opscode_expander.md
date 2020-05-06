@@ -1,13 +1,13 @@
 +++
-title = "opscode-expander-ctl (executable)"
+title = "opscode-expanderctl (executable)"
 draft = false
 
 aliases = ["/ctl_opscode_expander.html"]
 
 [menu]
   [menu.infra]
-    title = "opscode-expander-ctl"
-    identifier = "chef_infra/managing_chef_infra_server/ctl_opscode_expander.md opscode-expander-ctl"
+    title = "opscode-expanderctl"
+    identifier = "chef_infra/managing_chef_infra_server/ctl_opscode_expander.md opscode-expanderctl"
     parent = "chef_infra/managing_chef_infra_server"
     weight = 190
 +++
