@@ -1,6 +1,6 @@
 ---
 resource_reference: true
-properties_shortcode: 
+properties_shortcode:
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
@@ -22,6 +22,11 @@ syntax_full_code_block: |-
     secoption      String # default value: 'name' unless specified
     secvalue       String
     action         Symbol # defaults to :set if not specified
+  end
+
+  windows_security_policy 'EnableAdminAccount' do
+    secvalue       '1'
+    action         :set
   end
 syntax_properties_list:
 syntax_full_properties_list:
@@ -52,5 +57,19 @@ properties_list:
   required: true
   description_list:
   - markdown: Policy value to be set for policy name.
-examples: 
+examples: |-
+windows_security_policy 'EnableAdminAccount' do
+  secvalue       '1'
+  action         :set
+end
+
+windows_security_policy 'NewAdministratorName' do
+  secvalue       'AwesomeChefGuy'
+  action         :set
+end
+
+windows_security_policy 'EnableGuestAccount' do
+  secvalue       '0'
+  action         :set
+end
 ---
