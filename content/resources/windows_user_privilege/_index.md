@@ -24,12 +24,6 @@ syntax_full_code_block: |-
     users          Array
     action         Symbol # defaults to :add if not specified
   end
-
-  windows_user_privilege 'Netowrk Logon Rights' do
-    privilege      'SeNetworkLogonRight'
-    users          ['BUILTIN\Administrators', 'NT AUTHORITY\Authenticated Users']
-    action         :set
-  end
 syntax_properties_list:
 syntax_full_properties_list:
 - "`windows_user_privilege` is the resource."
@@ -45,7 +39,7 @@ actions_list:
   :remove:
     markdown: Remove a user privilege
   :set:
-    markdown: Set the complete set of user privileges
+    markdown: This will remove any user not listed in the `users` field and only allow what is listed what was provided to remain.
 properties_list:
 - property: principal
   ruby_type: String
@@ -65,22 +59,34 @@ properties_list:
   description_list:
   - markdown: An optional property to set the privilege for given users. Use only
       with set action.
-examples: |-
-windows_user_privilege 'Netowrk Logon Rights' do
-  privilege      'SeNetworkLogonRight'
-  users          ['BUILTIN\Administrators', 'NT AUTHORITY\Authenticated Users']
-  action         :set
-end
+examples: |
+  **Add Builtin Administrators and Authenticated Users to the SeNetworkLogonRight Privilege**:
 
-windows_user_privilege 'Remote interactive logon' do
-  privilege      'SeDenyRemoteInteractiveLogonRight'
-  users          ['Builtin\Guests', 'NT AUTHORITY\Local Account']
-  action         :add
-end
+  ```ruby
+  windows_user_privilege 'Netowrk Logon Rights' do
+    privilege      'SeNetworkLogonRight'
+    users          ['BUILTIN\Administrators', 'NT AUTHORITY\Authenticated Users']
+    action         :set
+  end
+  ```
 
-windows_user_privilege 'Create Pagefile' do
-  privilege      'SeCreatePagefilePrivilege'
-  users          ['BUILTIN\Guests', 'BUILTIN\Administrators']
-  action         :set
-end
+  **Add Builtin Guests and Local Accounts to the SeDenyRemoteInteractiveLogonRight Privilege**:
+
+  ```ruby
+  windows_user_privilege 'Remote interactive logon' do
+    privilege      'SeDenyRemoteInteractiveLogonRight'
+    users          ['Builtin\Guests', 'NT AUTHORITY\Local Account']
+    action         :add
+  end
+  ```
+
+  **Add Enable Admin Account**:
+
+  ```ruby
+  windows_user_privilege 'Create Pagefile' do
+    privilege      'SeCreatePagefilePrivilege'
+    users          ['BUILTIN\Guests', 'BUILTIN\Administrators']
+    action         :set
+  end
+  ```
 ---

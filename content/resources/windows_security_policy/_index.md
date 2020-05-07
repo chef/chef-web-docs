@@ -23,11 +23,6 @@ syntax_full_code_block: |-
     secvalue       String
     action         Symbol # defaults to :set if not specified
   end
-
-  windows_security_policy 'EnableAdminAccount' do
-    secvalue       '1'
-    action         :set
-  end
 syntax_properties_list:
 syntax_full_properties_list:
 - "`windows_security_policy` is the resource."
@@ -57,19 +52,31 @@ properties_list:
   required: true
   description_list:
   - markdown: Policy value to be set for policy name.
-examples: |-
-windows_security_policy 'EnableAdminAccount' do
-  secvalue       '1'
-  action         :set
-end
+examples: |
+  **Add Enable Admin Account**:
 
-windows_security_policy 'NewAdministratorName' do
-  secvalue       'AwesomeChefGuy'
-  action         :set
-end
+  ```ruby
+  windows_security_policy 'EnableAdminAccount' do
+    secvalue       '1'
+    action         :set
+  end
+  ```
 
-windows_security_policy 'EnableGuestAccount' do
-  secvalue       '0'
-  action         :set
-end
+  **Add Rename Administrator Account**:
+
+  ```ruby
+  windows_security_policy 'NewAdministratorName' do
+    secvalue       'AwesomeChefGuy'
+    action         :set
+  end
+  ```
+
+  **Add Set Guest Account to Disable**:
+
+  ```ruby
+  windows_security_policy 'EnableGuestAccount' do
+    secvalue       '0'
+    action         :set
+  end
+  ```
 ---
