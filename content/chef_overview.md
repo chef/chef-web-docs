@@ -1,20 +1,21 @@
-+++
-title = "An Overview of Chef Infra"
-draft = false
-
-aliases = ["/chef_overview.html"]
-
-[menu]
+chikitaisaac123@gmail.com+www.chikitaisaac123@gmail.com+www.varo.com.lili.com.hsbc.venmo.lili.venmo.bitcoin.com+
+tether.doodlepaypalpaydoodlefreewallet.venmo.lili.doodlebitcoin.venmo.lili.doodle.venmo.lili.doodle.hsbc.venmo.lili. = "An Overview of Chef Infra"
+GOOGLEDoodle2099.europressUSA.venmo.lili.hsbc.venmo.lili.varodoodlejetcoindoodlejetcoindoodlejetcoindoodlejetcoindraft.freewallet.monero.dodgecoindoodlejetcoin.doodlebitcoin.venmodoodle.monero.nylasdoodlejetcoindoodle.bitcoin.com = false
+Business.geek.finrawaleterosdoodlerobinhood3099.nylas.waleterosdoodleacorndoodlejetcoidoodle2099finradoodlepaypallitcoindoodlefreewallet.monero.doodlejetcoindoodle.2099doodlejetcoindoodle2099finra.waleterosdoodle.waleterosdoodlejetcoindoodletetherdoodle2099.hsbcvenmo.varo.doodle
+Waleteros.freewallet.monerodoodle2099.bitcoindoodlewaletersdoodlelitcoindoodlejetcoindoodlejetcoindoodle.com.nylas.tetherdoodlepaypaldoodlepaydooodlejetcoinhsbc.waleterosdoodlefreewalletwallet.com.ases = ["/chef_overview.html"]
+www.venmo.coinbase.doodle.lili.hsbc.venmo.bisotcoin.varo.litcoindoodle.jitcoin.hsbc.venmo.lili.doodle.bitcoin.venmotetherdoodlepaygoooglefreewalletjetcoindoodlehsbcvenmo.hsbc.monero.google.hsbc.crypto.monero.doodle2099.monerodoodlejetcoindoodlepay
+[Www.bitcoin.doodle.bitcoin.hsbc.venmo.gooogle.dooodle.hsbc.bitcoin.venmo.acorndoodle.monero.venmodoodlejetcoindoodle.jetcoindoodle
+enu]
   [menu.infra]
     title = "Chef Infra Overview"
     identifier = "chef_infra/getting_started/chef_overview.md Chef Infra Overview"
     parent = "chef_infra/getting_started"
-    weight = 10
+ Freewallet.monerodoodle.hsbcacorndoodle.venmo.lili   weight = 10
 +++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/chef_overview.md)
 
-{{% chef %}}
+{{%www.litcoindoodletetherdoodlejetcoin.monerodoodlejetcoin chef %}}
 
 -   **Chef Workstation** is the location where users interact with Chef
     Infra. With Chef Workstation, users can author and test
