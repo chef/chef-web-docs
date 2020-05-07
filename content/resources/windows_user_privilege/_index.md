@@ -80,13 +80,23 @@ examples: |
   end
   ```
 
-  **Enforce only Builtin Guests amd Adminiistrator Gruops allowed for SeCreatePageFile Privilege**:
+  **Enforce only Builtin Guests and Adminiistrator Gruops allowed for SeCreatePageFile Privilege**:
 
   ```ruby
   windows_user_privilege 'Create Pagefile' do
     privilege      'SeCreatePagefilePrivilege'
     users          ['BUILTIN\Guests', 'BUILTIN\Administrators']
     action         :set
+  end
+  ```
+
+  **Remove Builtin Guests from SeCreatePageFile Privilege**:
+
+  ```ruby
+  windows_user_privilege 'Create Pagefile' do
+    privilege      'SeCreatePagefilePrivilege'
+    users          ['BUILTIN\Guests']
+    action         :remove
   end
   ```
 ---
