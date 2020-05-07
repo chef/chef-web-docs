@@ -53,7 +53,7 @@ properties_list:
   description_list:
   - markdown: Policy value to be set for policy name.
 examples: |
-  **Add Enable Admin Account**:
+  **Set Administrator Account to Enabled**:
 
   ```ruby
   windows_security_policy 'EnableAdminAccount' do
@@ -62,7 +62,7 @@ examples: |
   end
   ```
 
-  **Add Rename Administrator Account**:
+  **Rename Administrator Account**:
 
   ```ruby
   windows_security_policy 'NewAdministratorName' do
@@ -71,7 +71,7 @@ examples: |
   end
   ```
 
-  **Add Set Guest Account to Disable**:
+  **Set Guest Account to Disabled**:
 
   ```ruby
   windows_security_policy 'EnableGuestAccount' do

@@ -60,7 +60,7 @@ properties_list:
   - markdown: An optional property to set the privilege for given users. Use only
       with set action.
 examples: |
-  **Add Builtin Administrators and Authenticated Users to the SeNetworkLogonRight Privilege**:
+  **Enforce only Builtin Administrators Group and Authenticated Users allowed for the SeNetworkLogonRight Privilege**:
 
   ```ruby
   windows_user_privilege 'Netowrk Logon Rights' do
@@ -80,7 +80,7 @@ examples: |
   end
   ```
 
-  **Add Enable Admin Account**:
+  **Enforce only Builtin Guests amd Adminiistrator Gruops allowed for SeCreatePageFile Privilege**:
 
   ```ruby
   windows_user_privilege 'Create Pagefile' do
