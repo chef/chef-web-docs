@@ -1,16 +1,21 @@
 ---
+resource_reference: true
+common_resource_functionality_resources_common_windows_security: true
+properties_shortcode: 
+remote_directory_recursive_directories: true
+resource_directory_recursive_directories: true
+resources_common_guards: true
+resources_common_notification: true
+resources_common_properties: true
 title: remote_directory resource
 resource: remote_directory
-draft: false
 aliases:
-- /resource_remote_directory.html
+- "/resource_remote_directory.html"
 menu:
   infra:
     title: remote_directory
     identifier: chef_infra/cookbook_reference/resources/remote_directory remote_directory
     parent: chef_infra/cookbook_reference/resources
-resource_reference: true
-robots: null
 resource_description_list:
 - markdown: 'Use the **remote_directory** resource to incrementally transfer a
 
@@ -21,8 +26,6 @@ resource_description_list:
     `COOKBOOK_NAME/files/default/REMOTE_DIRECTORY`. The
 
     **remote_directory** resource will obey file specificity.'
-resource_new_in: null
-handler_types: false
 syntax_description: "A **remote_directory** resource block transfers a directory from\
   \ a\ncookbook to a node, and then assigns the permissions needed on that\ndirectory.\
   \ For example:\n\n``` ruby\nremote_directory '/etc/apache2' do\n  source 'apache2'\n\
@@ -45,18 +48,13 @@ syntax_full_code_block: "remote_directory 'name' do\n  cookbook                 
   \  rights                     Hash\n  source                     String\n  action\
   \                     Symbol # defaults to :create if not specified\nend"
 syntax_full_properties_list:
-- '`remote_directory` is the resource.'
-- '`name` is the name given to the resource block.'
-- '`action` identifies which steps Chef Infra Client will take to bring the node into
-  the desired state.'
-- '`cookbook`, `files_backup`, `files_group`, `files_mode`, `files_owner`, `group`,
+- "`remote_directory` is the resource."
+- "`name` is the name given to the resource block."
+- "`action` identifies which steps Chef Infra Client will take to bring the node into
+  the desired state."
+- "`cookbook`, `files_backup`, `files_group`, `files_mode`, `files_owner`, `group`,
   `mode`, `overwrite`, `owner`, `path`, `purge`, `recursive`, and `source` are the
-  properties available to this resource.'
-syntax_shortcode: null
-registry_key: false
-nameless_apt_update: false
-nameless_build_essential: false
-resource_package_options: false
+  properties available to this resource."
 actions_list:
   :create:
     markdown: Default. Create a directory and/or the contents of that directory. If
@@ -73,24 +71,18 @@ properties_list:
 - property: cookbook
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
   description_list:
-  - markdown: 'The cookbook in which a file is located (if it is not located in the
-
-      current cookbook). The default value is the current cookbook.'
+  - markdown: The cookbook in which a file is located (if it is not located in the
+      current cookbook). The default value is the current cookbook.
 - property: files_backup
   ruby_type: Integer, false
   required: false
   default_value: '5'
-  new_in: null
   description_list:
   - markdown: The number of backup copies to keep for files in the directory.
 - property: files_group
   ruby_type: String, Integer
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: 'Configure group permissions for files. A string or ID that
 
@@ -105,7 +97,6 @@ properties_list:
   ruby_type: String, Integer
   required: false
   default_value: 0644 on *nix systems
-  new_in: null
   description_list:
   - markdown: 'The octal mode for a file.
 
@@ -149,8 +140,6 @@ properties_list:
 - property: files_owner
   ruby_type: String, Integer
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: 'Configure owner permissions for files. A string or ID that
 

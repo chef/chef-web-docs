@@ -1,6 +1,5 @@
 ---
 resource_reference: true
-common_resource_functionality_multiple_packages: false
 properties_shortcode: 
 resources_common_guards: true
 resources_common_notification: true
@@ -39,10 +38,10 @@ actions_list:
     markdown: Delete a Windows role / feature from the image using DISM.
   :install:
     markdown: Default. Install a Windows role / feature using DISM.
-  :remove:
-    markdown: Remove a Windows role / feature using DISM.
   :nothing:
     shortcode: resources_common_actions_nothing.md
+  :remove:
+    markdown: Remove a Windows role / feature using DISM.
 properties_list:
 - property: all
   ruby_type: true, false

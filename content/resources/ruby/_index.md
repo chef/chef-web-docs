@@ -1,17 +1,16 @@
 ---
+resource_reference: true
+properties_shortcode: 
+resources_common_guards: true
 title: ruby resource
 resource: ruby
-draft: false
 aliases:
-- /resource_ruby.html
+- "/resource_ruby.html"
 menu:
   infra:
     title: ruby
     identifier: chef_infra/cookbook_reference/resources/ruby ruby
     parent: chef_infra/cookbook_reference/resources
-
-resource_reference: true
-robots: null
 resource_description_list:
 - markdown: 'Use the **ruby** resource to execute scripts using the Ruby interpreter.
 
@@ -73,31 +72,21 @@ properties_list:
 - property: code
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: A quoted (" ") string of code to be executed.
 - property: creates
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
   description_list:
-  - markdown: 'Prevent a command from creating a file when that file already
-
-      exists.'
+  - markdown: Prevent a command from creating a file when that file already exists.
 - property: cwd
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: The current working directory.
 - property: environment
   ruby_type: Hash
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: 'A Hash of environment variables in the form of
 
@@ -107,8 +96,6 @@ properties_list:
 - property: flags
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: 'One or more command line flags that are passed to the interpreter
 
@@ -116,8 +103,6 @@ properties_list:
 - property: group
   ruby_type: String, Integer
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: 'The group name or group ID that must be changed before running a
 
@@ -126,14 +111,11 @@ properties_list:
   ruby_type: true, false
   required: false
   default_value: 'false'
-  new_in: null
   description_list:
   - markdown: Continue running a recipe if a resource fails for any reason.
 - property: notifies
   ruby_type: Symbol, Chef::Resource\[String\]
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - shortcode: resources_common_notification_notifies.md
   - markdown: ''
@@ -143,8 +125,6 @@ properties_list:
 - property: path
   ruby_type: Array
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: 'An array of paths to use when searching for a command. These paths
 

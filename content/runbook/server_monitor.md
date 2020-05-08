@@ -483,7 +483,7 @@ watch -n1 sudo -E bin/opscode-expanderctl queue-depth
 If the number of total messages continues to increase, increase the
 number of workers available to the **opscode-expander** service.
 
-#### opscode-expander-ctl
+#### opscode-expanderctl
 
 {{% ctl_opscode_expander_summary %}}
 

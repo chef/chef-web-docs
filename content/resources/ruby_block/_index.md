@@ -1,7 +1,8 @@
 ---
+resource_reference: true
+properties_shortcode: 
 title: ruby_block resource
 resource: ruby_block
-draft: false
 aliases:
 - /resource_ruby_block.html
 menu:
@@ -9,8 +10,6 @@ menu:
     title: ruby_block
     identifier: chef_infra/cookbook_reference/resources/ruby_block ruby_block
     parent: chef_infra/cookbook_reference/resources
-resource_reference: true
-robots: null
 resource_description_list:
 - markdown: 'Use the **ruby_block** resource to execute Ruby code during a Chef
 

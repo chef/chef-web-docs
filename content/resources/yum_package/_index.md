@@ -28,8 +28,6 @@ resource_description_list:
       `yum_package "/bin/sh"`) is not available because the volume of data
 
       required to parse for this is excessive.'
-- notes_resource_based_on_package: true
-resource_new_in:
 syntax_full_code_block: |-
   yum_package 'name' do
     allow_downgrade      true, false # default value: true
@@ -75,7 +73,7 @@ properties_list:
   required: false
   default_value: 'true'
   description_list:
-  - markdown: Downgrade a package to satisfy requested version requirements.
+  - markdown: Allow downgrading a package to satisfy requested version requirements.
 - property: arch
   ruby_type: String, Array
   required: false

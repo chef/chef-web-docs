@@ -1,16 +1,19 @@
 ---
+resource_reference: true
+properties_resources_common_windows_security: true
+properties_shortcode: 
+remote_file_prevent_re_downloads: true
+remote_file_unc_path: true
+resources_common_atomic_update: true
 title: remote_file resource
 resource: remote_file
-draft: false
 aliases:
-- /resource_remote_file.html
+- "/resource_remote_file.html"
 menu:
   infra:
     title: remote_file
     identifier: chef_infra/cookbook_reference/resources/remote_file remote_file
     parent: chef_infra/cookbook_reference/resources
-resource_reference: true
-robots: null
 resource_description_list:
 - markdown: 'Use the **remote_file** resource to transfer a file from a remote
 
@@ -22,8 +25,6 @@ resource_description_list:
       done
 
       with the **cookbook_file** resource.'
-resource_new_in: null
-handler_types: false
 syntax_description: "A **remote_file** resource block manages files by using files\
   \ that\nexist remotely. For example, to write the home page for an Apache\nwebsite:\n\
   \n``` ruby\nremote_file '/var/www/customers/public_html/index.html' do\n  source\
@@ -56,20 +57,14 @@ syntax_full_code_block: "remote_file 'name' do\n  atomic_update              tru
   \     Array\n  action                     Symbol # defaults to :create if not specified\n\
   end"
 syntax_full_properties_list:
-- '`remote_file` is the resource.'
-- '`name` is the name given to the resource block.'
-- '`action` identifies which steps Chef Infra Client will take to bring the node into
-  the desired state.'
-- '`atomic_update`, `authentication`, `backup`, `checksum`, `content`, `diff`, `force_unlink`,
+- "`remote_file` is the resource."
+- "`name` is the name given to the resource block."
+- "`action` identifies which steps Chef Infra Client will take to bring the node into
+  the desired state."
+- "`atomic_update`, `authentication`, `backup`, `checksum`, `content`, `force_unlink`,
   `ftp_active_mode`, `group`, `headers`, `manage_symlink_source`, `mode`, `owner`,
   `path`, `remote_domain`, `remote_password`, `remote_user`, `show_progress`, `use_etag`,
-  `use_last_modified`, `sensitive`, and `verifications` are the properties available
-  to this resource.'
-syntax_shortcode: null
-registry_key: false
-nameless_apt_update: false
-nameless_build_essential: false
-resource_package_options: false
+  `use_last_modified`, and `verifications` are the properties available to this resource."
 actions_list:
   :create:
     markdown: Default. Create a file. If a file already exists (but does not match),
@@ -89,34 +84,25 @@ properties_list:
 - property: atomic_update
   ruby_type: true, false
   required: false
-  default_value: null
-  new_in: null
+  default_value: False if modifying /etc/hosts, /etc/hostname, or /etc/resolv.conf
+    within Docker containers. Otherwise default to the client.rb 'file_atomic_update'
+    config value.
   description_list:
-  - markdown: 'Perform atomic file updates on a per-resource basis. Set to `true`
-
-      for atomic file updates. Set to `false` for non-atomic file updates.
-
-      This setting overrides `file_atomic_update`, which is a global
-
-      setting found in the client.rb file.'
+  - markdown: Perform atomic file updates on a per-resource basis. Set to true for
+      atomic file updates. Set to false for non-atomic file updates. This setting
+      overrides `file_atomic_update`, which is a global setting found in the `client.rb`
+      file.
 - property: backup
   ruby_type: Integer, false
   required: false
   default_value: '5'
-  new_in: null
   description_list:
-  - markdown: 'The number of backups to be kept in `/var/chef/backup` (for UNIX-
-
-      and Linux-based platforms) or `C:/chef/backup` (for the Microsoft
-
-      Windows platform). Set to `false` to prevent backups from being
-
-      kept.'
+  - markdown: The number of backups to be kept in `/var/chef/backup` (for UNIX- and
+      Linux-based platforms) or `C:/chef/backup` (for the Microsoft Windows platform).
+      Set to `false` to prevent backups from being kept.
 - property: checksum
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: 'Optional, see `use_conditional_get`. The SHA-256 checksum of the
 
@@ -127,7 +113,6 @@ properties_list:
   ruby_type: true, false
   required: false
   default_value: 'false'
-  new_in: null
   description_list:
   - markdown: 'How Chef Infra Client handles certain situations when the target
 
@@ -142,7 +127,6 @@ properties_list:
   ruby_type: true, false
   required: false
   default_value: 'false'
-  new_in: null
   description_list:
   - markdown: 'Whether Chef Infra Client uses active or passive FTP. Set to `true`
 

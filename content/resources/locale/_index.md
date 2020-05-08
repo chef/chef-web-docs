@@ -70,7 +70,7 @@ properties_list:
   default_value: null
   description_list:
   - markdown: "Sets the locale category that corresponds to environment variable.\n\
-      \n-   *lc_env* is a hash of [LC]()\\* env variables in the form of\n    ({'LC_ENV_VARIABLE'\
+      \n-   *lc_env* is a hash of LC\\* env variables in the form of\n    ({'LC_ENV_VARIABLE'\
       \ =\\> 'VALUE'}).\n-   Valid values that can be used to set *LC_ENV_VARIABLE*\
       \ are:\n    LC_ADDRESS, LC_COLLATE, LC_CTYPE, LC_IDENTIFICATION,\n    LC_MEASUREMENT,\
       \ LC_MESSAGES, LC_MONETARY, LC_NAME,\n    LC_NUMERIC, LC_PAPER, LC_TELEPHONE\

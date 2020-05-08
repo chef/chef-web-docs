@@ -1,6 +1,5 @@
 ---
 resource_reference: true
-common_resource_functionality_multiple_packages: false
 properties_shortcode: 
 resources_common_guards: true
 resources_common_notification: true
@@ -65,12 +64,8 @@ properties_list:
   required: false
   default_value: 'false'
   description_list:
-  - markdown: 'Indicates whether a DFS namespace server uses FQDNs in referrals. If
-
-      this parameter has a value of true, the server uses FQDNs in
-
-      referrals. If this parameter has a value of false, the server uses
-
-      NetBIOS names.'
-
+  - markdown: Indicates whether a DFS namespace server uses FQDNs in referrals. If
+      this property is set to true, the server uses FQDNs in referrals. If this property
+      is set to false then the server uses NetBIOS names.
+examples: 
 ---

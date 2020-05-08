@@ -19,27 +19,9 @@ resource_description_list:
     using the installp utility. When a package is installed from a local file, it
     must be added to the node using the **remote_file** or **cookbook_file** resources.
 - note:
-    markdown: 'A Backup File Format (BFF) package may not have a `.bff` file extension.
-
-      Chef Infra Client will still identify the correct provider to use based
-
-      on the platform, regardless of the file extension.'
-syntax_description: 'A **bff_package** resource manages a package on a node, typically
-  by
-
-  installing it. The simplest use of the **bff_package** resource is:
-
-
-  ``` ruby
-
-  bff_package ''package_name''
-
-  ```
-
-
-  which will install the named package using all of the default options
-
-  and the default action (`:install`).'
+    markdown: A Backup File Format (BFF) package may not have a `.bff` file extension.
+      Chef Infra Client will still identify the correct provider to use based on the
+      platform, regardless of the file extension.
 syntax_full_code_block: |-
   bff_package 'name' do
     options           String, Array

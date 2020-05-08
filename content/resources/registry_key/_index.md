@@ -1,21 +1,19 @@
 ---
+resource_reference: true
+properties_shortcode: 
+registry_key: true
 title: registry_key resource
 resource: registry_key
-draft: false
 aliases:
-- /resource_registry_key.html
+- "/resource_registry_key.html"
 menu:
   infra:
     title: registry_key
     identifier: chef_infra/cookbook_reference/resources/registry_key registry_key
     parent: chef_infra/cookbook_reference/resources
-resource_reference: true
-robots: null
 resource_description_list:
-- markdown: 'Use the **registry_key** resource to create and delete registry keys
-    in
-
-    Microsoft Windows.'
+- markdown: Use the **registry_key** resource to create and delete registry keys in
+    Microsoft Windows.
 - note:
     markdown: '64-bit versions of Microsoft Windows have a 32-bit compatibility layer
 
@@ -51,8 +49,6 @@ resource_description_list:
       For more information, see: [Registry
 
       Reflection](https://msdn.microsoft.com/en-us/library/windows/desktop/aa384235(v=vs.85).aspx).'
-resource_new_in: null
-handler_types: false
 syntax_description: "A **registry_key** resource block creates and deletes registry\
   \ keys in\nMicrosoft Windows:\n\n``` ruby\nregistry_key 'HKEY_LOCAL_MACHINE\\\\\
   ...\\\\System' do\n  values [{\n    name: 'NewRegistryKeyValue',\n    type: :multi_string,\n\
@@ -165,8 +161,8 @@ properties_list:
 - property: architecture
   ruby_type: Symbol
   required: false
-  default_value: :machine
-  new_in: null
+  default_value: ":machine"
+  allowed_values: ":i386, :machine, :x86_64"
   description_list:
   - markdown: 'The architecture of the node for which keys are to be created or
 

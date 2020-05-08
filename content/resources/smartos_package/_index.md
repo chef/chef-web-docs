@@ -1,6 +1,5 @@
 ---
 resource_reference: true
-common_resource_functionality_multiple_packages: false
 properties_shortcode: 
 resources_common_guards: true
 resources_common_notification: true
@@ -18,7 +17,6 @@ menu:
 resource_description_list:
 - markdown: Use the **smartos_package** resource to manage packages for the SmartOS
     platform.
-resource_new_in: 
 syntax_full_code_block: |-
   smartos_package 'name' do
     options           String, Array
