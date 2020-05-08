@@ -24,10 +24,90 @@ cluster. Please refer to the appropriate directions for the version of
 Chef Backend that you are using and the version that you intend to
 upgrade to:
 
+-   [Update Chef Backend](#update-chef-backend)
 -   [Chef Backend 1.x to 2.x Upgrade](#chef-backend-1.x-to-2.x-upgrade)
     (downtime upgrade)
 -   [DRBD/Keepalived HA to Chef Backend
     2.x](#drbdkeepalived-ha-to-chef-backend-2.x) (migration)
+
+## Update Chef Backend
+
+The minor version update is appropriate for all upgrades of a Chef
+Backend cluster within a version. For example, updating from 1.x to 1.x or 2.x to 2.x.
+
+{{< note >}}
+
+The procedure assumes that the new chef-backend package has been copied
+to all of the nodes.
+
+{{< /note >}}
+
+### Step 1: Block Failover
+
+We don't want the cluster to fail over to a follower that is in the
+process of being updated. So we start by disabling failover
+
+1.  Run `chef-backend-ctl set-cluster-failover off`
+
+### Step 2: Update the followers
+
+Followers should be updated sequentially. Upgrading them simultaneously
+is not supported and may result in data loss. Verify the successful
+rejoin after each upgrade.
+
+1.  Install the new chef-backend package
+
+    RHEL and CentOS:
+
+    ``` bash
+    yum install PATH_TO_FILE.rpm
+    ```
+
+    Debian and Ubuntu:
+
+    ``` bash
+    dpkg -i PATH_TO_FILE.deb
+    ```
+
+    You may also want to look at the chef-ingredient cookbook to
+    automate downloading and installing the latest package.
+
+2.  Run the upgrade command
+
+    ``` bash
+    chef-backend-ctl upgrade
+    ```
+
+The update command will make any changes necessary to start the new
+service and verify that the updated node has rejoined the cluster.
+
+Repeat the previous steps in this section for each remaining follower.
+
+### Step 3: Update the leader
+
+Unblock failover, trigger failover, block it again.
+
+``` bash
+% chef-backend-ctl set-cluster-failover on
+% chef-backend-ctl upgrade --failover
+% chef-backend-ctl set-cluster-failover off
+```
+
+### Step 4: Re-enable failover
+
+Allow failover again:
+
+``` bash
+% chef-backend-ctl set-cluster-failover on
+```
+
+### Step 5: Verify the cluster is stable
+
+Check the status of the cluster:
+
+``` bash
+chef-backend-ctl status
+```
 
 ## Chef Backend 1.x to 2.x Upgrade
 
@@ -101,86 +181,6 @@ cluster downtime.
     this backend cluster, see [Upgrade Frontends Associated with a Chef
     Backend
     Cluster](/install_server_ha/#upgrading-chef-infra-server-on-the-frontend-machines)
-
-## Chef Backend Minor Version Upgrade
-
-The Minor Version Upgrade is appropriate for all upgrades of a Chef
-Backend cluster other than upgrades from one major version to another
-major version. For example, 1.x to 1.x upgrades or 2.x to 2.x upgrades.
-
-{{< note >}}
-
-The procedure assumes that the new chef-backend package has been copied
-to all of the nodes.
-
-{{< /note >}}
-
-### Step 1: Block Failover
-
-We don't want the cluster to fail over to a follower that is in the
-process of being upgraded. So we start by disabling failover
-
-1.  Run `chef-backend-ctl set-cluster-failover off`
-
-### Step 2: Upgrade the followers.
-
-Followers should be upgraded sequentially. Upgrading them simultaneously
-is not supported and may result in data loss. Verify the successful
-rejoin after each upgrade.
-
-1.  Install the new chef-backend package
-
-    RHEL and CentOS:
-
-    ``` bash
-    yum install PATH_TO_FILE.rpm
-    ```
-
-    Debian and Ubuntu:
-
-    ``` bash
-    dpkg -i PATH_TO_FILE.deb
-    ```
-
-    You may also want to look at the chef-ingredient cookbook to
-    automate downloading and installing the latest package.
-
-2.  Run the upgrade command
-
-    ``` bash
-    chef-backend-ctl upgrade
-    ```
-
-The upgrade command will make any changes necessary to start the new
-service and verify that the upgraded node has rejoined the cluster.
-
-Repeat the previous steps in this section for each remaining follower.
-
-### Step 3: Upgrade the leader
-
-1.  Unblock failover, trigger failover, block it again.
-
-    ``` bash
-    % chef-backend-ctl set-cluster-failover on
-    % chef-backend-ctl upgrade --failover
-    % chef-backend-ctl set-cluster-failover off
-    ```
-
-### Step 4: Re-enable failover
-
-Allow failover again:
-
-``` bash
-% chef-backend-ctl set-cluster-failover on
-```
-
-### Step 5: Verify the cluster is stable
-
-Check the status of the cluster:
-
-``` bash
-chef-backend-ctl status
-```
 
 ## DRBD/Keepalived HA to Chef Backend 2.x
 
