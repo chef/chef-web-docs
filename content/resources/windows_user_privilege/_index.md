@@ -39,7 +39,7 @@ actions_list:
   :remove:
     markdown: Remove a user privilege
   :set:
-    markdown: This will remove any user not listed in the `users` field and only allow what is listed what was provided to remain.
+    markdown: Set the privileges that are listed in the `privilege` property for only the users listed in the `users` property.
 properties_list:
 - property: principal
   ruby_type: String
@@ -60,7 +60,7 @@ properties_list:
   - markdown: An optional property to set the privilege for given users. Use only
       with set action.
 examples: |
-  **Enforce only Builtin Administrators Group and Authenticated Users allowed for the SeNetworkLogonRight Privilege**:
+  **Set the SeNetworkLogonRight Privilege for the Builtin Administrators Group and Authenticated Users**:
 
   ```ruby
   windows_user_privilege 'Netowrk Logon Rights' do
@@ -70,7 +70,7 @@ examples: |
   end
   ```
 
-  **Add Builtin Guests and Local Accounts to the SeDenyRemoteInteractiveLogonRight Privilege**:
+  **Add the SeDenyRemoteInteractiveLogonRight Privilege to the Builtin Guests and Local Accounts User Groups:
 
   ```ruby
   windows_user_privilege 'Remote interactive logon' do
@@ -80,7 +80,7 @@ examples: |
   end
   ```
 
-  **Enforce only Builtin Guests and Adminiistrator Gruops allowed for SeCreatePageFile Privilege**:
+  **Provide only the Builtin Guests and Administrator Groups with the SeCreatePageFile Privilege**:
 
   ```ruby
   windows_user_privilege 'Create Pagefile' do
@@ -90,7 +90,7 @@ examples: |
   end
   ```
 
-  **Remove Builtin Guests from SeCreatePageFile Privilege**:
+  **Remove the SeCreatePageFile Privilege from the Builtin Guests Group**:
 
   ```ruby
   windows_user_privilege 'Create Pagefile' do
