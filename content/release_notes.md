@@ -3642,7 +3642,7 @@ for additional details.
 
 ## What's New in 13.6.0
 
--   **The \`\`deploy\`\` resource is deprecated**
+-   **The deploy resource is deprecated**
 
     The `deploy` and `deploy_revision` resources have been deprecated,
     to be removed in Chef 14. This is being done because this resource
@@ -3680,7 +3680,7 @@ for additional details.
     successfully, and thus cause a Chef run using Ohai to fail. The
     syntax for this is:
 
-    ``` none
+    ```ruby
     ohai.critical_plugins << :Filesystem
     ```
 
