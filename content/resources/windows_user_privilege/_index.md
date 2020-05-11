@@ -70,7 +70,7 @@ examples: |
   end
   ```
 
-  **Add the SeDenyRemoteInteractiveLogonRight Privilege to the Builtin Guests and Local Accounts User Groups:
+  **Add the SeDenyRemoteInteractiveLogonRight Privilege to the Builtin Guests and Local Accounts User Groups**:
 
   ```ruby
   windows_user_privilege 'Remote interactive logon' do
