@@ -63,7 +63,7 @@ source 'https://supermarket.chef.io'
 #### Stove
 
 Stove is a utility for packaging and releasing Chef cookbooks:
-<https://github.com/sethvargo/stove>.
+<https://github.com/chef/stove>.
 
 ### Installing and Upgrading Private Supermarket
 

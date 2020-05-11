@@ -694,14 +694,6 @@ which the list of returned tools began:
       "tool_description": "Berkshelf dependency API server",
       "tool_owner": "reset",
       "tool": "https://supermarket.chef.io/api/v1/tools/berkshelf-api"
-    },
-    {
-      "tool_name": "ChefAPI",
-      "tool_type": "chef_tool",
-      "tool_source_url": "https://github.com/sethvargo/chef-api",
-      "tool_description": "ChefAPI is a dependency-minimal Ruby client for interacting with a Chef Infra Server. It adopts many patterns and principles from Rails",
-      "tool_owner": "sethvargo",
-      "tool": "https://supermarket.chef.io/api/v1/tools/chef-api"
     }
   ]
 }
@@ -788,16 +780,8 @@ began:
 ``` javascript
 {
   "start": 0,
-  "total": 2,
+  "total": 1,
   "items": [
-    {
-      "tool_name": "knife-spec",
-      "tool_type": "knife_plugin",
-      "tool_source_url": "https://github.com/sethvargo/knife-spec",
-      "tool_description": "knife-spec is a knife plugin that automatically generates Chef cookbook specs (tests) stubs for use with ChefSpec.",
-      "tool_owner": "sethvargo",
-      "tool": "https://supermarket.chef.io/api/v1/tools/knife-spec"
-    },
     {
       "tool_name": "knife-rhn",
       "tool_type": "knife_plugin",

@@ -49,7 +49,7 @@ cookbook sharing method of your choice:
 
 ## Share Cookbooks via Stove
 
-[Stove](https://github.com/sethvargo/stove) is a cookbook release
+[Stove](https://github.com/chef/stove) is a cookbook release
 utility that keeps the upload process localized to the cookbook itself,
 as opposed to the
 [Knife](/supermarket_share_cookbook/#share-cookbooks-via-knife)
@@ -59,7 +59,7 @@ method which requires a cookbook repository.
 
 Stove is included in Chef Workstation. If you are not using Chef
 Workstation, follow the [Stove installation
-instructions](https://github.com/sethvargo/stove#installation) to
+instructions](https://github.com/chef/stove) to
 install Stove separately.
 
 {{< /note >}}
