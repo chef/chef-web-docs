@@ -117,7 +117,7 @@ versions for Chef Infra Client:
 <tr class="even">
 <td>SUSE Enterprise Linux Server</td>
 <td><code>x86_64</code>, <code>aarch64</code> (15.x only)</td>
-<td><code>12 SP1+</code>, <code>15</code></td>
+<td><code>12</code>, <code>15</code></td>
 </tr>
 <tr class="odd">
 <td>Ubuntu (LTS releases)</td>
@@ -276,7 +276,7 @@ versions for Chef InSpec:
 <tr class="even">
 <td>SUSE Enterprise Linux Server</td>
 <td><code>x86_64</code></td>
-<td><code>12 SP4+</code>, <code>15</code></td>
+<td><code>12</code>, <code>15</code></td>
 </tr>
 <tr class="odd">
 <td>Ubuntu</td>
@@ -334,7 +334,7 @@ versions for ChefDK:
 <tr class="even">
 <td>SUSE Enterprise Linux Server</td>
 <td><code>x86_64</code></td>
-<td><code>12 SP1+</code>, <code>15</code></td>
+<td><code>12</code>, <code>15</code></td>
 </tr>
 <tr class="odd">
 <td>Ubuntu</td>
@@ -435,7 +435,7 @@ versions within the Chef Automate cluster.
 <tr class="even">
 <td>SUSE Enterprise Linux Server</td>
 <td><code>x86_64</code></td>
-<td><code>12 SP2</code></td>
+<td><code>12</code></td>
 </tr>
 <tr class="odd">
 <td>Ubuntu</td>
