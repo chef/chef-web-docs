@@ -1,7 +1,8 @@
 ---
+
 resource_reference: true
 common_resource_functionality_multiple_packages: true
-properties_shortcode: 
+properties_shortcode:
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
@@ -40,7 +41,7 @@ syntax_full_code_block: |-
                       version                      String, Array
                       action                       Symbol # defaults to :install if not specified
                     end
-syntax_properties_list: 
+syntax_properties_list:
 syntax_full_properties_list:
 - "`apt_package` is the resource."
 - "`name` is the name given to the resource block."
