@@ -2229,7 +2229,7 @@ Both Chef packages and on disk installations have been greatly reduced in size b
 
 ### New Resources
 
-#### Timezone
+#### timezone
 
 Chef now includes the `timezone` resource from [@dragonsmith](http://github.com/dragonsmith)'s `timezone_lwrp` cookbook. This resource supports setting a Linux node's timezone. Thank you [@dragonsmith](http://github.com/dragonsmith) for allowing us to include this out of the box in Chef.
 
