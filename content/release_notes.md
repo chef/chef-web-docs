@@ -2229,7 +2229,7 @@ Both Chef packages and on disk installations have been greatly reduced in size b
 
 ### New Resources
 
-#### Timezone
+#### timezone
 
 Chef now includes the `timezone` resource from [@dragonsmith](http://github.com/dragonsmith)'s `timezone_lwrp` cookbook. This resource supports setting a Linux node's timezone. Thank you [@dragonsmith](http://github.com/dragonsmith) for allowing us to include this out of the box in Chef.
 
@@ -2415,11 +2415,11 @@ Thank you [@coderanger](https://github.com/coderanger) for this contribution.
 
 The following new previous resources were added to Chef 14.4. Cookbooks with the same resources will continue to take precedent until the Chef Infra Client 15.0 release
 
-#### Cron_d
+#### cron_d
 
 Use the [cron_d](https://docs.chef.io/resources/cron_d) resource to manage cron definitions in /etc/cron.d. This is similar to the `cron` resource, but it does not use the monolithic `/etc/crontab`. file.
 
-#### Cron_access
+#### cron_access
 
 Use the [cron_access](https://docs.chef.io/resources/cron_access) resource to manage the `/etc/cron.allow` and `/etc/cron.deny` files. This resource previously shipped in the `cron` community cookbook and has fully backwards compatibility with the previous `cron_manage` definition in that cookbook.
 
@@ -3642,7 +3642,7 @@ for additional details.
 
 ## What's New in 13.6.0
 
--   **The \`\`deploy\`\` resource is deprecated**
+-   **The deploy resource is deprecated**
 
     The `deploy` and `deploy_revision` resources have been deprecated,
     to be removed in Chef 14. This is being done because this resource
@@ -3680,7 +3680,7 @@ for additional details.
     successfully, and thus cause a Chef run using Ohai to fail. The
     syntax for this is:
 
-    ``` none
+    ```ruby
     ohai.critical_plugins << :Filesystem
     ```
 
