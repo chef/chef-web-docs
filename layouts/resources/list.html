@@ -39,15 +39,15 @@
             </button>
 
             <div class="prose">
-              <p><a href="/resources/">Resources Reference page</a></p>
               <p>
-                <p onclick="resource_note_function('resource_note')" class="note-btn note-block note-black note-left-align">Edit this page.</p>
+                <button onclick="resource_note_function('resource_note')" class="note-btn note-block note-left-align">Edit this page</button>
                 <div id="resource_note" class="note-container note-hide">
                   <p>This page is generated from code in the <a href="https://github.com/chef/chef">Chef repository</a>.<br>
                   The source of this page is <a href="https://github.com/chef/chef/blob/master/lib/chef/resource/{{ .Params.resource }}.rb">https://github.com/chef/chef/blob/master/lib/chef/resource/{{ .Params.resource }}.rb</a></br>
-                  To suggest an edit to this page, clone down Chef repository, make your changes, and submit a pull request.</p>
+                  To suggest an edit to this page, clone down the Chef repository, make your changes, and submit a pull request.</p>
                 </div>
               </p>
+              <p><a href="/resources/">Resources Reference page</a></p>
               <hr>
               {{ if .Params.resource_description_list }}
                 {{ range .Params.resource_description_list }}
