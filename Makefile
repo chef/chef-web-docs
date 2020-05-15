@@ -15,7 +15,7 @@ clean_all:
 	rm -rf results/
 
 serve: assets
-	hugo server --buildDrafts --noHTTPCache
+	hugo server --buildDrafts --noHTTPCache --buildFuture
 
 lint: assets
 	hugo -D
