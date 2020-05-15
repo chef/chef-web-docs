@@ -1,5 +1,5 @@
 +++
-title = "Release Notes: Chef Infra Client 12.0 - 16.0"
+title = "Release Notes: Chef Infra Client 12.0 - 16.1"
 draft = false
 
 aliases = ["/release_notes.html", "/release_notes_ohai.html"]
@@ -19,9 +19,53 @@ the first Wednesday of every month. Below are the major changes for each
 release. For a detailed list of changes see the [Chef Infra Client
 changelog](https://github.com/chef/chef/blob/master/CHANGELOG.md)
 
+## What's New in 16.1
+
+### Ohai 16.1
+
+Ohai 16.1 includes a new `Selinux` plugin which exposes `node['selinux']['status']`, `node['selinux']['policy_booleans']`, `node['selinux']['process_contexts']`, and `node['selinux']['file_contexts']`. Thanks [@davide125](http://github.com/davide125) for this contribution. This new plugin is an optional plugin, which is disabled by default. It can be enabled within your `client.rb`:
+
+```ruby
+ohai.optional_plugins = [ :Selinux ]
+```
+
+### Chef InSpec 4.18.114
+
+InSpec has been updated from 4.18.111 to 4.18.114, which adds new `--reporter_message_truncation` and `--reporter_backtrace_inclusion` reporter options to truncate messages and suppress backtraces.
+
+### Debian 10 aarch64
+
+Chef Infra Client packages are now produced for Debian 10 on the aarch64 architecture. These packages are available at [downloads.chef.io](https://downloads.chef.io/chef/).
+
+### Bug Fixes
+
+- Resolved a regression in the `launchd` resource that would cause it to fail to converge.
+- The `:disable` action in the `launchd` resource no longer fails if the plist was not found.
+- Several Ruby 2.7 deprecation warnings have been resolved.
+
+## What's New in 16.0.287
+
+The Chef Infra Client 16.0.287 includes important bug fixes for the Chef Infra Client 16 release:
+
+- Fixes the failure to install Windows packages on the 2nd convergence of the Chef Infra Client.
+- Resolves several failures in the `launchd` resource.
+- Removes an extra `.java` file on Windows installations that would cause a failure in the IIS 8.5 Server Security Technical Implementation Guide audit.
+- Updates the `windows_printer` resource so that the driver property will only be required when using the `:create` action.
+- Fixes the incorrectly spelled `knife user invite recind` command to be `knife user invite rescind`.
+- Update Chef InSpec to 4.8.111 with several minor improvements.
+
+## What's New in 16.0.275
+
+The Chef Infra Client 16.0.275 includes important regression fixes for the Chef Infra Client 16 release:
+
+- Resolved failures when using the `windows_package` resource. Thanks for reporting this issue [@cookiecurse](https://github.com/cookiecurse).
+- Resolved log warnings when running `execute` resources.
+- The appropriate `cron` or `cron_d` resource call is now called when using the `:delete` action in chef_client_cron. Thanks for reporting this issue [jimwise](https://github.com/jimwise).
+- The `chef_client_cron` resource now creates the log directory with `750` permissions not `640`. Thanks for this fix [DhaneshRaghavan](https://github.com/DhaneshRaghavan).
+- The `knife yaml convert` command now correctly converts symbol values.
+- The `sysctl`, `apt_preference`, and `cron_d` remove actions no longer fail with missing property warnings.
 
 ## What's New in 16.0
-
 
 ### Breaking Changes
 
