@@ -39,7 +39,7 @@ Chef Infra Client packages are now produced for Debian 10 on the aarch64 archite
 
 ### Bug Fixes
 
-- Resolved a regression in the `launchd` resource that would cause it to fail to converge.
+- Resolved a regression in the `launchd` resource that prevented it from converging.
 - The `:disable` action in the `launchd` resource no longer fails if the plist was not found.
 - Several Ruby 2.7 deprecation warnings have been resolved.
 
