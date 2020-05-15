@@ -262,7 +262,7 @@ Use the `windows_user_privilege` resource to add users and groups to the specifi
 
 The `compile_time` property is now available for all resources so that they can be set to run at compile time without the need forcing the action.
 
-This allows you to replace forcing resources to run at compile time:
+Set the `compile_time` property instead of forcing the resource to run at compile time:
 
 ```ruby
   my_resource "foo" do
