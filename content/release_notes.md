@@ -260,7 +260,7 @@ Use the `windows_user_privilege` resource to add users and groups to the specifi
 
 #### compile_time on all resources
 
-The `compile_time` property is now available for all resources so that they can be set to run at compile time without the need forcing the action.
+The `compile_time` property is now available for all resources so that they can be set to run at compile time without the need to force the action.
 
 Set the `compile_time` property instead of forcing the resource to run at compile time:
 
