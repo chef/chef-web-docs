@@ -45,7 +45,7 @@ Chef Infra Client packages are now produced for Debian 10 on the aarch64 archite
 
 ## What's New in 16.0.287
 
-The Chef Infra Client 16.0.287 includes important bug fixes for the Chef Infra Client 16 release:
+The Chef Infra Client 16.0.287 release includes important bug fixes for the Chef Infra Client 16 release:
 
 - Fixes the failure to install Windows packages on the 2nd convergence of the Chef Infra Client.
 - Resolves several failures in the `launchd` resource.
