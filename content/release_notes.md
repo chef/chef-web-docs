@@ -56,7 +56,7 @@ The Chef Infra Client 16.0.287 release includes important bug fixes for the Chef
 
 ## What's New in 16.0.275
 
-The Chef Infra Client 16.0.275 includes important regression fixes for the Chef Infra Client 16 release:
+The Chef Infra Client 16.0.275 release includes important regression fixes for the Chef Infra Client 16 release:
 
 - Resolved failures when using the `windows_package` resource. Thanks for reporting this issue [@cookiecurse](https://github.com/cookiecurse).
 - Resolved log warnings when running `execute` resources.
