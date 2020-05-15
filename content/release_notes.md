@@ -23,7 +23,7 @@ changelog](https://github.com/chef/chef/blob/master/CHANGELOG.md)
 
 ### Ohai 16.1
 
-Ohai 16.1 includes a new `Selinux` plugin which exposes `node['selinux']['status']`, `node['selinux']['policy_booleans']`, `node['selinux']['process_contexts']`, and `node['selinux']['file_contexts']`. Thanks [@davide125](http://github.com/davide125) for this contribution. This new plugin is an optional plugin, which is disabled by default. It can be enabled within your `client.rb`:
+Ohai 16.1 includes a new `Selinux` plugin which exposes `node['selinux']['status']`, `node['selinux']['policy_booleans']`, `node['selinux']['process_contexts']`, and `node['selinux']['file_contexts']`. Thanks [@davide125](http://github.com/davide125) for this contribution. This new plugin is an optional plugin which is disabled by default. It can be enabled within your `client.rb`:
 
 ```ruby
 ohai.optional_plugins = [ :Selinux ]
