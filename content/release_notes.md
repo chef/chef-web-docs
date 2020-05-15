@@ -133,7 +133,7 @@ As outlined in our blog post at <https://blog.chef.io/chef-infra-end-of-life-ann
 
 #### filesystem2 Node Data Replaces filesystem on FreeBSD / AIX / Solaris
 
-In Chef Infra Client 14 we introduced a modernized filesystem layout of Ohai data on FreeBSD, AIX, and Solaris at `node['fileystem2']`. With the release of 16.0, we are now replacing the existing data at `node['filesystem']` with this updated filesystem data. This data has a standardized format that matches Linux, macOS, and Windows data to make it easier to write cross platform cookbooks. In a future release of Chef Infra Client we'll remove the `node['filesystem2']` as we complete this migration.
+In Chef Infra Client 14 we introduced a modernized filesystem layout of Ohai data on FreeBSD, AIX, and Solaris at `node['fileystem2']`. With the release of 16.0, we are now replacing the existing data at `node['filesystem']` with this updated filesystem data. This data has a standardized format that matches Linux and macOS data to make it easier to write cross-platform cookbooks. In a future release of Chef Infra Client we'll remove the `node['filesystem2']` as we complete this migration.
 
 #### required: true on Properties Now Behaves As Expected
 
@@ -262,7 +262,7 @@ Use the `windows_user_privilege` resource to add users and groups to the specifi
 
 The `compile_time` property is now available for all resources so that they can be set to run at compile time without the need forcing the action.
 
-This allows you replace forcing resources to run at compile time:
+This allows you to replace forcing resources to run at compile time:
 
 ```ruby
   my_resource "foo" do
@@ -462,9 +462,9 @@ The `compile_time` property is now defined for all custom resources,  so there i
 
 ### Other Improvements
 
-#### Up to 30% smaller on disk
+#### Up to 33% smaller on disk
 
-We optimized the files that ship with Chef Infra Client and eliminated many unnecessary files from the installation, reducing the on-disk size of Chef Infra Client by up to 30%.
+We optimized the files that ship with Chef Infra Client and eliminated many unnecessary files from the installation, reducing the on-disk size of Chef Infra Client by up to 33%.
 
 #### Windows Performance Improvements
 
@@ -492,7 +492,7 @@ Several helpers introduced in Chef Infra Client 15.5 are now available for use i
 
 `sanitized_path`
 
-`sanitize_path` is a cross platform method that returns the system's path along with the Chef Infra Client Ruby bin dir / gem bin dir and common system paths such as `/sbin` and `/usr/local/bin`.
+`sanitize_path` is a cross-platform method that returns the system's path along with the Chef Infra Client Ruby bin dir / gem bin dir and common system paths such as `/sbin` and `/usr/local/bin`.
 
 `which(foo)`
 
@@ -512,7 +512,7 @@ By default, Chef Infra Client eagerly loads all ruby files in each cookbook's li
 
 ```ruby
 eager_load_libraries false # disable eager loading all libraries
-eager_load_libraries 'helper_library.rb' # eager load just the the file helper_library.rb
+eager_load_libraries 'helper_library.rb' # eager load just the file helper_library.rb
 eager_load_libraries %w(helper_library_1.rb helper_library_2.rb) # eager load both helper_library_1.rb and helper_library_2.rb files
 ```
 
@@ -520,7 +520,7 @@ Note: Unless you are experiencing performance issues in your libraries, we advis
 
 #### always_dump_stacktrace client.rb option
 
-A new `always_dump_stacktrace` client.rb configuration option and command line option allows you to have any Ruby stacktraces from Chef Infra Client logged directly to the log file. This may help troubleshooting when used in conjunction with centralized logging systems such as Splunk. To enable this new option, run `chef-client --always-dump-stacktrace` or add the following to your `client.rb`:
+A new `always_dump_stacktrace` client.rb configuration option and command-line option allows you to have any Ruby stacktraces from Chef Infra Client logged directly to the log file. This may help troubleshooting when used in conjunction with centralized logging systems such as Splunk. To enable this new option, run `chef-client --always-dump-stacktrace` or add the following to your `client.rb`:
 
 ```ruby
 always_dump_stacktrace true
@@ -540,20 +540,22 @@ See <https://medium.com/rubyinside/whats-new-in-ruby-2-7-79c98b265502> for detai
 
 Ohai has been improved to gather additional system configuration information for use when authoring recipes and resources.
 
+**filesystem2 Node Data available on Windows**
+In previous Chef Infra Clients we've introduced a modernized filesystem layout of Ohai data for many platforms. In Chef Infra Client 16.0, Windows now has this layout available in `node['filesystem2']`. In Chef Infra Client 17, it will replace `node['filesystem']` to match all other platforms.
 **Extended Azure Metadata**
 
 The `Azure` Ohai plugin now gathers the latest version of the metadata provided by the Azure metadata endpoint. This greatly expands the information available on Azure instances. See [Ohai PR 1427](https://github.com/chef/ohai/pull/1427) for an example of the new data gathered.
 
 **New Ohai Plugins**
 
-New `IPC` and `Interupts` plugins have been added to Ohai. The IPC plugin exposes SysV IPC shmem information and interupts plugin exposes data from `/proc/interrupts` and `/proc/irq`. Both of these plugins are disabled by default and you will need to add :Ipc or :Interupts. Thanks [@jsvana](https://github.com/jsvana) and [@davide125](https://github.com/davide125) for these new plugins.
+New `IPC` and `Interupts` plugins have been added to Ohai. The IPC plugin exposes SysV IPC shmem information and interupts plugin exposes data from `/proc/interrupts` and `/proc/irq`. Thanks [@jsvana](https://github.com/jsvana) and [@davide125](https://github.com/davide125) for these new plugins.
 
 Note: Both `IPC` and `Interupts` plugins are optional plugins, which are disabled by default. They can be enabled via your `client.rb`:
 
 ```ruby
 ohai.optional_plugins = [
   :IPC,
-  :Interups
+  :Interupts
 ]
 ```
 
@@ -563,7 +565,7 @@ The Linux Network plugin has been improved to gather additional information from
 
 **Windows DMI plugin**
 
-Windows systems now include a new `DMI` plugin which presents data in a similar format to the `DMI` plugin on *nix systems. This makes it easier to detect system information like manufacturer, serial number, or asset tag number in a cross platform way.
+Windows systems now include a new `DMI` plugin which presents data in a similar format to the `DMI` plugin on *nix systems. This makes it easier to detect system information like manufacturer, serial number, or asset tag number in a cross-platform way.
 
 ### New Platforms
 
@@ -1809,7 +1811,6 @@ libxslt has been updated to 1.1.34 to resolve [CVE-2019-13118](https://nvd.nist.
 - Fixed for `:day`` option not accepting integer value in the `windows_task` resource
 - Fixed for `user` resource not handling a GID if it is specified as a string
 - Fixed the `ifconfig` resource to support interfaces with a `-` in the name
-
 
 ## What's New in 14.14.14
 
