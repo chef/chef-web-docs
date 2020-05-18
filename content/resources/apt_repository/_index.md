@@ -23,15 +23,15 @@ syntax_description: "An **apt_repository** resource specifies APT repository inf
   \  components ['nginx']\nend\n```"
 syntax_full_code_block: |-
   apt_repository 'name' do
-    arch               String, nil, false
+    arch               String, false
     cache_rebuild      true, false # default value: true
     components         Array # default value: `main` if using a PPA repository.
-    cookbook           String, nil, false
+    cookbook           String, false
     deb_src            true, false # default value: false
-    distribution       String, nil, false # default value: The LSB codename of the node such as 'focal'.
-    key                String, Array, nil, false
-    key_proxy          String, nil, false
-    keyserver          String, nil, false # default value: "keyserver.ubuntu.com"
+    distribution       String, false # default value: The LSB codename of the node such as 'focal'.
+    key                String, Array, false
+    key_proxy          String, false
+    keyserver          String, false # default value: "keyserver.ubuntu.com"
     repo_name          String # default value: 'name' unless specified
     trusted            true, false # default value: false
     uri                String
@@ -56,7 +56,7 @@ actions_list:
     shortcode: resources_common_actions_nothing.md
 properties_list:
 - property: arch
-  ruby_type: String, nil, false
+  ruby_type: String, false
   required: false
   description_list:
   - markdown: Constrain packages to a particular CPU architecture such as `i386` or
@@ -74,7 +74,7 @@ properties_list:
   description_list:
   - markdown: Package groupings, such as 'main' and 'stable'.
 - property: cookbook
-  ruby_type: String, nil, false
+  ruby_type: String, false
   required: false
   description_list:
   - markdown: If key should be a cookbook_file, specify a cookbook where the key is
@@ -88,15 +88,14 @@ properties_list:
   - markdown: Determines whether or not to add the repository as a source repo as
       well.
 - property: distribution
-  ruby_type: String, nil, false
+  ruby_type: String, false
   required: false
   default_value: The LSB codename of the node such as 'focal'.
   description_list:
   - markdown: Usually a distribution's codename, such as `xenial`, `bionic`, or `focal`.
 - property: key
-  ruby_type: String, Array, nil, false
+  ruby_type: String, Array, false
   required: false
-  default_value: null
   description_list:
   - markdown: If a keyserver is provided, this is assumed to be the fingerprint; otherwise
       it can be either the URI of GPG key for the repo, or a cookbook_file.
@@ -106,7 +105,7 @@ properties_list:
   description_list:
   - markdown: If set, a specified proxy is passed to GPG via `http-proxy=`.
 - property: keyserver
-  ruby_type: String, nil, false
+  ruby_type: String, false
   required: false
   default_value: keyserver.ubuntu.com
   description_list:

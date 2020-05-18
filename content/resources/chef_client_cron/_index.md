@@ -30,7 +30,7 @@ syntax_full_code_block: |-
     environment              Hash
     hour                     Integer, String # default value: "*"
     job_name                 String # default value: "chef-client"
-    log_directory            String # default value: /Library/Logs/Chef on macOS and /var/log/chef otherwise
+    log_directory            String
     log_file_name            String # default value: "client.log"
     mailto                   String
     minute                   Integer, String # default value: "0,30"
