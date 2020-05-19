@@ -47,6 +47,7 @@ syntax_full_code_block: |-
     type            Hash # default value: {"report"=>true, "exception"=>true}
     action          Symbol # defaults to :enable if not specified
   end
+syntax_properties_list: 
 syntax_full_properties_list:
 - "`chef_handler` is the resource."
 - "`name` is the name given to the resource block."
@@ -65,8 +66,6 @@ properties_list:
 - property: arguments
   ruby_type: Array, Hash
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: 'An array of arguments that are passed to the initializer for the
 
