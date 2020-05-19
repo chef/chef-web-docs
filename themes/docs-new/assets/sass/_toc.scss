@@ -10,8 +10,8 @@
     text-indent: 8px;
   }
 
-  #TableOfContents ~ ul{
-    margin-top: -16px;
+  #TableOfContents > ul{
+    margin-bottom: 0;
   }
 }
 
