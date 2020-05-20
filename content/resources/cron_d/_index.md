@@ -160,7 +160,8 @@ properties_list:
 - property: predefined_value
   ruby_type: String
   required: false
-  allowed_values: '@reboot, @yearly, @annually, @monthly, @weekly, @daily, @midnight, @hourly'
+  allowed_values: '"@annually", "@daily", "@hourly", "@midnight", "@monthly", "@reboot",
+    "@weekly", "@yearly"'
   description_list:
   - markdown: 'Schedule your cron job with one of the special predefined value
 
@@ -236,6 +237,7 @@ examples: |
     hour '8'
     weekday '6'
     mailto 'admin@example.com'
+    command "/bin/true"
     action :create
   end
   ```
@@ -249,7 +251,16 @@ examples: |
     day '*'
     month '11'
     weekday '1-5'
+    command "/bin/true"
     action :create
+  end
+  ```
+
+  **Remove a cron job by name**:
+
+  ```ruby
+  cron_d 'job_to_remove' do
+    action :delete
   end
   ```
 ---

@@ -77,7 +77,7 @@ properties_list:
   required: false
   default_value: "*"
   description_list:
-  - markdown: The day of month at which the cron entry should run (1 - 31).
+  - markdown: The day of month at which the cron entry should run (`1 - 31`).
 - property: environment
   ruby_type: Hash
   required: false

@@ -23,7 +23,7 @@ syntax_full_code_block: |-
     admins           String, Array
     clients          String, Array
     data_bag         String
-    environment      String, nil
+    environment      String
     id               String # default value: 'name' unless specified
     raw_data         Hash, ChefUtils::Mash # default value: {}
     search           String # default value: "*:*"
@@ -66,7 +66,7 @@ properties_list:
   description_list:
   - markdown: The data bag that contains the item.
 - property: environment
-  ruby_type: String, nil
+  ruby_type: String
   required: false
   description_list:
   - markdown: The Chef environment of the data if storing per environment values.
