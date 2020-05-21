@@ -7653,10 +7653,10 @@ The response is similar to:
 
 ``` javascript
 {
-  "node": "https://localhost/search/node",
-  "role": "https://localhost/search/role",
-  "client": "https://localhost/search/client",
-  "users": "https://localhost/search/users"
+  "node": "https://chef.example/organizations/org1/search/node",
+  "role": "https://chef.example/organizations/org1/search/role",
+  "client": "https://chef.example/organizations/org1/search/client",
+  "users": "https://chef.example/organizations/org1/search/users"
 }
 ```
 
@@ -7718,7 +7718,7 @@ This method has the following parameters:
 <tbody>
 <tr class="odd">
 <td><code>q</code></td>
-<td>The search query used to identify a list of items on a Chef Infra Server. This option uses the same syntax as the <code>search</code> subcommand.</td>
+<td>The search query used to identify a list of items on a Chef Infra Server. This option uses the same syntax as the <code>knife search</code> subcommand.</td>
 </tr>
 <tr class="even">
 <td><code>rows</code></td>
@@ -7740,7 +7740,7 @@ GET /organizations/NAME/search/INDEX
 **Response**
 
 The response contains the total number of rows that match the request
-and is similar to:
+and for a node index search is similar to:
 
 ``` javascript
 {
@@ -7748,13 +7748,15 @@ and is similar to:
  "start": 0,
  "rows": [
     {
-     "overrides": {"hardware_type": "laptop"},
-     "name": "latte",
+     "automatic": {"hardware_type": "laptop"},
+     "chef_environment": "_default",
      "chef_type": "node",
+     "default": {}
      "json_class": "Chef::Node",
-     "attributes": {"hardware_type": "laptop"},
-     "run_list": ["recipe[unicorn]"],
-     "defaults": {}
+     "name": "latte",
+     "normal": {},
+     "override": {"hardware_type": "laptop"},
+     "run_list": ["recipe[unicorn]"]
     }
   ]
 }
@@ -7805,45 +7807,8 @@ object containing a full set of attributes for the node), a partial
 search query will return only the values for the attributes that match.
 One primary benefit of using a partial search query is that it requires
 less memory and network bandwidth while Chef Infra Client processes the
-search results.
-
-To create a partial search query, use the `search` method, and then
-specify the key paths for the attributes to be returned. Each key path
-should be specified as an array of strings and is mapped to an arbitrary
-short name. For example:
-
-``` ruby
-search(:node, 'role:web',
-  :filter_result => { 'name' => [ 'name' ],
-             'ip'   => [ 'ipaddress' ],
-             'kernel_version' => [ 'kernel', 'version' ]
-           }
-) do |result|
-  puts result['name']
-  puts result['ip']
-  puts result['kernel_version']
-end
-```
-
-In the previous example, two attributes will be extracted (on the Chef
-Infra Server) from any node that matches the search query. The result
-will be a simple hash with keys `name`, `ip`, and `kernel_version`.
-
-The `POST` method is used to return partial search results. For example,
-if a node has the following:
-
-``` none
-{
-  'x' => 'foo',
-  'kernel' => { 'a' => 1, 'foo' => 'bar', 'version' => [ 1, 2, 3 ] }
-}
-```
-
-a partial search query can be used to return something like:
-
-``` none
-{ 'kernel_version' => [ 1, 2, 3 ] }
-```
+search results. The attributes to be returned by the partial search
+are specified in the request JSON body.
 
 This method has the following parameters:
 
@@ -7896,9 +7861,18 @@ The response is similar to:
 
 ``` javascript
 {
-  "name": "latte",
-  "ip": "123.4.5.6789",
-  "kernel_version": {"linux": "1.2.3"}
+  "total":1,
+  "start":0,
+  "rows": [
+    {
+      "url": "https://chef.example/organization/org1/nodes/latte",
+      "data": {
+        "name": "latte",
+        "ip": "123.4.5.6789",
+        "kernel_version": {"linux": "1.2.3"}
+      }
+    }
+  ]
 }
 ```
 
