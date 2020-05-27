@@ -14,8 +14,9 @@ menu:
     identifier: chef_infra/cookbook_reference/resources/windows_user_privilege windows_user_privilege
     parent: chef_infra/cookbook_reference/resources
 resource_description_list:
-- markdown: "The windows_user_privilege resource allows to add and set principal (User/Group)
-    to the specified privilege. \n Ref: https://docs.microsoft.com/en-us/windows/security/threat-protection/security-policy-settings/user-rights-assignment"
+- markdown: |-
+    The windows_user_privilege resource allows to add and set principal (User/Group) to the specified privilege.
+     Ref: https://docs.microsoft.com/en-us/windows/security/threat-protection/security-policy-settings/user-rights-assignment
 resource_new_in: '16.0'
 syntax_full_code_block: |-
   windows_user_privilege 'name' do
@@ -63,7 +64,7 @@ examples: |
   **Set the SeNetworkLogonRight Privilege for the Builtin Administrators Group and Authenticated Users**:
 
   ```ruby
-  windows_user_privilege 'Netowrk Logon Rights' do
+  windows_user_privilege 'Network Logon Rights' do
     privilege      'SeNetworkLogonRight'
     users          ['BUILTIN\Administrators', 'NT AUTHORITY\Authenticated Users']
     action         :set

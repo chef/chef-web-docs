@@ -168,13 +168,13 @@ properties_list:
   required: false
   allowed_values: '"all", "none", "packages"'
   description_list:
-  - markdown: "Determines how upstream HTTP caches are instructed to handle any\n\
-      HTTP downloads that Yum does. This option can take the following\nvalues:\n\n\
-      -   `all` means that all HTTP downloads should be cached.\n-   `packages` means\
-      \ that only RPM package downloads should be\n    cached, but not repository\
-      \ metadata downloads.\n-   `none` means that no HTTP downloads should be cached.\n\
-      \nThe default is `all`. This is recommended unless you are\nexperiencing caching\
-      \ related issues."
+  - markdown: |-
+      Determines how upstream HTTP caches are instructed to handle any HTTP downloads that Yum does. This option can take the following values:
+       - `all` means all HTTP downloads should be cached
+       - `packages` means only RPM package downloads should be cached, but not repository metadata downloads
+       - `none` means no HTTP downloads should be cached.
+
+      The default value of `all` is recommended unless you are experiencing caching related issues.
 - property: include_config
   ruby_type: String
   required: false
@@ -211,29 +211,17 @@ properties_list:
   ruby_type: String
   required: false
   description_list:
-  - markdown: 'Time (in seconds) after which the metadata will expire. If the
-
-      current metadata downloaded is less than the value specified, then
-
-      Yum will not update the metadata against the repository. If you find
-
-      that Yum is not downloading information on updates as often as you
-
-      would like lower the value of this option. You can also change from
-
-      the default of using seconds to using days, hours or minutes by
-
-      appending a ''d'', ''h'' or ''m'' respectively. The default is six hours
-
-      to compliment yum-updates running once per hour. It is also possible
-
-      to use the word `never`, meaning that the metadata will never
-
-      expire. Note: When using a metalink file, the metalink must always
-
-      be newer than the metadata for the repository due to the validation,
-
-      so this timeout also applies to the metalink file.'
+  - markdown: 'Time (in seconds) after which the metadata will expire. If the current
+      metadata downloaded is less than the value specified, then Yum will not update
+      the metadata against the repository. If you find that Yum is not downloading
+      information on updates as often as you would like lower the value of this option.
+      You can also change from the default of using seconds to using days, hours or
+      minutes by appending a `d`, `h` or `m` respectively. The default is six hours
+      to compliment yum-updates running once per hour. It is also possible to use
+      the word `never`, meaning that the metadata will never expire. Note: When using
+      a metalink file, the metalink must always be newer than the metadata for the
+      repository due to the validation, so this timeout also applies to the metalink
+      file.'
   - note:
     - markdown: 'When using a metalink file, the metalink must always be newer than
 
@@ -251,21 +239,13 @@ properties_list:
   ruby_type: String
   required: false
   description_list:
-  - markdown: 'Time (in seconds) after which the mirrorlist locally cached will
-
-      expire. If the current mirrorlist is less than this many seconds old
-
-      then Yum will not download another copy of the mirrorlist, it has
-
-      the same extra format as metadata_expire. If you find that Yum is
-
-      not downloading the mirrorlists as often as you would like lower the
-
-      value of this option. You can also change from the default of using
-
-      seconds to using days, hours or minutes by appending a ''d'', ''h'' or
-
-      ''m'' respectively.'
+  - markdown: Time (in seconds) after which the mirrorlist locally cached will expire.
+      If the current mirrorlist is less than this many seconds old then Yum will not
+      download another copy of the mirrorlist, it has the same extra format as metadata_expire.
+      If you find that Yum is not downloading the mirrorlists as often as you would
+      like lower the value of this option. You can also change from the default of
+      using seconds to using days, hours or minutes by appending a `d`, `h` or `m`
+      respectively.
 - property: mirrorlist
   ruby_type: String
   required: false
@@ -277,27 +257,19 @@ properties_list:
   ruby_type: String
   required: false
   description_list:
-  - markdown: 'Specifies the time (in seconds) after which the mirrorlist locally
-
-      cached will expire. If the current mirrorlist is less than the value
-
-      specified, then Yum will not download another copy of the
-
-      mirrorlist. You can also change from the default of using seconds to
-
-      using days, hours or minutes by appending a ''d'', ''h'' or ''m''
-
-      respectively.'
+  - markdown: Specifies the time (in seconds) after which the mirrorlist locally cached
+      will expire. If the current mirrorlist is less than the value specified, then
+      Yum will not download another copy of the mirrorlist. You can also change from
+      the default of using seconds to using days, hours or minutes by appending a
+      `d`, `h` or `m` respectively.
 - property: mode
   ruby_type: String, Integer
   required: false
   default_value: '"0644"'
   description_list:
-  - markdown: 'Permissions mode of .repo file on disk. This is useful for scenarios
-
-      where secrets are in the repo file. If this value is set to ''600'',
-
-      normal users will not be able to use Yum search, Yum info, etc.'
+  - markdown: Permissions mode of .repo file on disk. This is useful for scenarios
+      where secrets are in the repo file. If this value is set to `600`, normal users
+      will not be able to use Yum search, Yum info, etc.
 - property: options
   ruby_type: Hash
   required: false
@@ -312,19 +284,12 @@ properties_list:
   ruby_type: String
   required: false
   description_list:
-  - markdown: 'Assigns a priority to a repository where the priority value is
-
-      between ''1'' and ''99'' inclusive. Priorities are used to enforce
-
-      ordered protection of repositories. Packages from repositories with
-
-      a lower priority (higher numerical value) will never be used to
-
-      upgrade packages that were installed from a repository with a higher
-
-      priority (lower numerical value). The repositories with the lowest
-
-      numerical priority number have the highest priority.'
+  - markdown: Assigns a priority to a repository where the priority value is between
+      `1` and `99` inclusive. Priorities are used to enforce ordered protection of
+      repositories. Packages from repositories with a lower priority (higher numerical
+      value) will never be used to upgrade packages that were installed from a repository
+      with a higher priority (lower numerical value). The repositories with the lowest
+      numerical priority number have the highest priority.
 - property: proxy
   ruby_type: String
   required: false

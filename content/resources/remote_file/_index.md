@@ -15,16 +15,11 @@ menu:
     identifier: chef_infra/cookbook_reference/resources/remote_file remote_file
     parent: chef_infra/cookbook_reference/resources
 resource_description_list:
-- markdown: 'Use the **remote_file** resource to transfer a file from a remote
-
-    location using file specificity. This resource is similar to the
-
-    **file** resource.'
+- markdown: Use the **remote_file** resource to transfer a file from a remote location
+    using file specificity. This resource is similar to the **file** resource.
 - note:
-    markdown: 'Fetching files from the `files/` directory in a cookbook should be
-      done
-
-      with the **cookbook_file** resource.'
+    markdown: Fetching files from the `files/` directory in a cookbook should be done
+      with the **cookbook_file** resource.
 syntax_description: "A **remote_file** resource block manages files by using files\
   \ that\nexist remotely. For example, to write the home page for an Apache\nwebsite:\n\
   \n``` ruby\nremote_file '/var/www/customers/public_html/index.html' do\n  source\
@@ -92,6 +87,13 @@ properties_list:
       atomic file updates. Set to false for non-atomic file updates. This setting
       overrides `file_atomic_update`, which is a global setting found in the `client.rb`
       file.
+- property: authentication
+  ruby_type: Symbol
+  required: false
+  default_value: ":remote"
+  allowed_values: ":local, :remote"
+  description_list:
+  - markdown: 
 - property: backup
   ruby_type: Integer, false
   required: false
@@ -104,38 +106,29 @@ properties_list:
   ruby_type: String
   required: false
   description_list:
-  - markdown: 'Optional, see `use_conditional_get`. The SHA-256 checksum of the
-
-      file. Use to prevent a file from being re-downloaded. When the local
-
-      file matches the checksum, Chef Infra Client does not download it.'
+  - markdown: Optional, see `use_conditional_get`. The SHA-256 checksum of the file.
+      Use to prevent a file from being re-downloaded. When the local file matches
+      the checksum, Chef Infra Client does not download it.
 - property: force_unlink
   ruby_type: true, false
   required: false
   default_value: 'false'
   description_list:
-  - markdown: 'How Chef Infra Client handles certain situations when the target
-
-      file turns out not to be a file. For example, when a target file is
-
-      actually a symlink. Set to `true` for Chef Infra Client delete the
-
-      non-file target and replace it with the specified file. Set to
-
-      `false` for Chef Infra Client to raise an error.'
+  - markdown: How Chef Infra Client handles certain situations when the target file
+      turns out not to be a file. For example, when a target file is actually a symlink.
+      Set to `true` for Chef Infra Client to delete the non-file target and replace
+      it with the specified file. Set to `false` for Chef Infra Client to raise an
+      error.
 - property: ftp_active_mode
   ruby_type: true, false
   required: false
   default_value: 'false'
   description_list:
-  - markdown: 'Whether Chef Infra Client uses active or passive FTP. Set to `true`
-
-      to use active FTP.'
+  - markdown: Whether Chef Infra Client uses active or passive FTP. Set to `true`
+      to use active FTP.
 - property: group
   ruby_type: Integer, String
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: 'A string or ID that identifies the group owner by group name,
 
@@ -149,8 +142,6 @@ properties_list:
 - property: headers
   ruby_type: Hash
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: 'A Hash of custom headers. For example:
 
@@ -201,7 +192,6 @@ properties_list:
   ruby_type: true, false
   required: false
   default_value: 'true'
-  new_in: null
   description_list:
   - markdown: '(with
 
@@ -210,13 +200,13 @@ properties_list:
 
       Change the behavior of the file resource if it is pointed at a
 
-      symlink. When this value is set to `true`, the Chef client will
+      symlink. When this value is set to `true`, the Chef Infra Client will
 
       manage the symlink''s permissions or will replace the symlink with a
 
       normal file if the resource has content. When this value is set to
 
-      `false`, Chef will follow the symlink and will manage the
+      `false`, Chef Infra Client will follow the symlink and will manage the
 
       permissions and content of the symlink''s target file.
 
@@ -229,8 +219,6 @@ properties_list:
 - property: mode
   ruby_type: Integer, String
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: 'A quoted 3-5 character string that defines the octal mode. For
 
@@ -293,8 +281,6 @@ properties_list:
 - property: notifies
   ruby_type: Symbol, Chef::Resource\[String\]
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - shortcode: resources_common_notification_notifies.md
   - markdown: ''
@@ -304,8 +290,6 @@ properties_list:
 - property: owner
   ruby_type: Integer, String
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: 'A string or ID that identifies the group owner by user name,
 
@@ -319,8 +303,7 @@ properties_list:
 - property: path
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
+  default_value: The resource block's name
   description_list:
   - markdown: 'The full path to the file, including the file name and its
 
@@ -330,7 +313,6 @@ properties_list:
 - property: remote_user
   ruby_type: String
   required: false
-  default_value: null
   new_in: '13.4'
   description_list:
   - markdown: '**Windows only** The name of a user with access to the remote file
@@ -349,7 +331,6 @@ properties_list:
 - property: remote_password
   ruby_type: String
   required: false
-  default_value: null
   new_in: '13.4'
   description_list:
   - markdown: '**Windows only** The password of the user specified by the
