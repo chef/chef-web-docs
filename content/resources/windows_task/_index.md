@@ -207,9 +207,7 @@ properties_list:
   required: false
   default_value: The current date.
   description_list:
-  - markdown: 'Specifies the first date on which the task runs in **MM/DD/YYYY**
-
-      format.'
+  - markdown: Specifies the first date on which the task runs in **MM/DD/YYYY** format.
 - property: start_time
   ruby_type: String
   required: false

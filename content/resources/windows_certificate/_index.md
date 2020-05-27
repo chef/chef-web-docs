@@ -14,17 +14,11 @@ menu:
     identifier: chef_infra/cookbook_reference/resources/windows_certificate windows_certificate
     parent: chef_infra/cookbook_reference/resources
 resource_description_list:
-- markdown: 'Use the **windows_certificate** resource to install a certificate into
-
-    the Windows certificate store from a file. The resource grants read-only
-
-    access to the private key for designated accounts. Due to current
-
-    limitations in WinRM, installing certificates remotely may not work if
-
-    the operation requires a user profile. Operations on the local machine
-
-    store should still work.'
+- markdown: Use the **windows_certificate** resource to install a certificate into
+    the Windows certificate store from a file. The resource grants read-only access
+    to the private key for designated accounts. Due to current limitations in WinRM,
+    installing certificates remotely may not work if the operation requires a user
+    profile. Operations on the local machine store should still work.
 resource_new_in: '14.7'
 syntax_full_code_block: |-
   windows_certificate 'name' do

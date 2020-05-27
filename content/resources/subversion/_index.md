@@ -25,7 +25,6 @@ resource_description_list:
       [\#4050](https://github.com/chef/chef/issues/4050) and
 
       [\#4257](https://github.com/chef/chef/issues/4257).'
-resource_new_in:
 syntax_full_code_block: |-
   subversion 'name' do
     destination        String # default value: 'name' unless specified

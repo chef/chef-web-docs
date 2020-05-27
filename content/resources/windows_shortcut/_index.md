@@ -74,7 +74,7 @@ properties_list:
   required: false
   description_list:
   - markdown: The destination that the shortcut links to.
-examples: |+
+examples: |
   **Create a shortcut with a description**:
 
   ```ruby
@@ -83,6 +83,4 @@ examples: |+
     description 'Make a shortcut to C:\original_dir'
   end
   ```
-
-...
 ---

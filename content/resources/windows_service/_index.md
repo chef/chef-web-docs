@@ -141,12 +141,12 @@ properties_list:
   description_list:
   - markdown: The pattern to look for in the process table.
 - property: reload_command
-  ruby_type: String, nil, false
+  ruby_type: String, false
   required: false
   description_list:
   - markdown: The command used to tell a service to reload its configuration.
 - property: restart_command
-  ruby_type: String, nil, false
+  ruby_type: String, false
   required: false
   description_list:
   - markdown: The command used to restart a service.
@@ -176,7 +176,7 @@ properties_list:
   description_list:
   - markdown: 
 - property: start_command
-  ruby_type: String, nil, false
+  ruby_type: String, false
   required: false
   description_list:
   - markdown: The command used to start a service.
@@ -188,12 +188,12 @@ properties_list:
   description_list:
   - markdown: Use to specify the startup type of the service.
 - property: status_command
-  ruby_type: String, nil, false
+  ruby_type: String, false
   required: false
   description_list:
   - markdown: The command used to check the run status for a service.
 - property: stop_command
-  ruby_type: String, nil, false
+  ruby_type: String, false
   required: false
   description_list:
   - markdown: The command used to stop a service.
