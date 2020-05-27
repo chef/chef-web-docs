@@ -80,60 +80,7 @@ syntax_properties_list:
   the desired state'
 - '`architecture`, `key`, `recursive` and `values` are properties of this resource,
   with the Ruby type shown. See "Properties" section below for more information about
-  all of the properties that may be used with this resource.
-
-
-  Registry Key Path Separators'
-- '---------------------------
-
-
-  {{% windows_registry_key_backslashes %}}
-
-
-  Recipe DSL Methods'
-- '-----------------
-
-
-  {{% dsl_recipe_method_windows_methods %}}
-
-
-  {{% notes_dsl_recipe_order_for_windows_methods %}}
-
-
-  ### registry_data_exists?
-
-
-  {{% dsl_recipe_method_registry_data_exists %}}
-
-
-  ### registry_get_subkeys
-
-
-  {{% dsl_recipe_method_registry_get_subkeys %}}
-
-
-  ### registry_get_values
-
-
-  {{% dsl_recipe_method_registry_get_values %}}
-
-
-  ### registry_has_subkeys?
-
-
-  {{% dsl_recipe_method_registry_has_subkeys %}}
-
-
-  ### registry_key_exists?
-
-
-  {{% dsl_recipe_method_registry_key_exists %}}
-
-
-  ### registry_value_exists?
-
-
-  {{% dsl_recipe_method_registry_value_exists %}}'
+  all of the properties that may be used with this resource.'
 syntax_full_code_block: null
 syntax_full_properties_list: null
 syntax_shortcode: null
@@ -298,7 +245,7 @@ examples: "
   \n  <div class=\"admonition-note\">\n    <p class=\"admonition-note-title\">Note</p>\n\
   \      <div class=\"admonition-note-text\">\n        <p>If <code>data:</code> is\
   \ not specified, you get an error: <code>Missing data key in RegistryKey values\
-  \ hash</code></p>\n\n      </div>\n    </div>\n\n  Delete a registry key and its\
+  \ hash</code></p>\n\n</div> \n</div>\n\n  Delete a registry key and its\
   \ subkeys, recursively\n\n  Use a double-quoted string:\n\n  ``` ruby\n  registry_key\
   \ \"HKCU\\\\SOFTWARE\\\\Policies\\\\path\\\\to\\\\key\\\\Themes\" do\n    recursive\
   \ true\n    action :delete_key\n  end\n  ```\n\n  or a single-quoted string:\n\n\
@@ -308,7 +255,7 @@ examples: "
   >\n        <p>Be careful when using the <code>:delete_key</code> action with the\
   \ <code>recursive</code> attribute. This will delete the registry key, all of its\
   \ values and all of the names, types, and data associated with them. This cannot\
-  \ be undone by Chef Infra Client.</p>\n\n      </div>\n    </div>\n\n  Use re-directed\
+  \ be undone by Chef Infra Client.</p>\n\n</div>\n</div>\n\n  Use re-directed\
   \ keys\n\n  In 64-bit versions of Microsoft Windows,\n  `HKEY_LOCAL_MACHINE\\SOFTWARE\\\
   Example` is a re-directed key. In the\n  following examples, because `HKEY_LOCAL_MACHINE\\\
   SOFTWARE\\Example` is a\n  32-bit key, the output will be \"Found 32-bit key\" if\
