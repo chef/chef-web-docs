@@ -96,7 +96,7 @@ This command has the following options:
 
     {{< warning >}}
 
-    {{% node_ctl_attribute %}}
+    {{< readFile_shortcode file="node_ctl_attribute.md" >}}
 
     {{< /warning >}}
 
