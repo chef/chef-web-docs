@@ -81,5 +81,14 @@ properties_list:
   required: false
   description_list:
   - markdown: 
-examples: 
+examples: |
+  **Show hidden files in finder**:
+
+  ```ruby
+  plist 'show hidden files' do
+    path '/Users/vagrant/Library/Preferences/com.apple.finder.plist'
+    entry 'AppleShowAllFiles'
+    value true
+  end
+  ```
 ---
