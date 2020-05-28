@@ -1,2 +1,4 @@
 github.com/chef/chef-workstation/www v0.0.0-20200428223350-8a826c337c81 h1:VXUe39FMwXkx3rjhvjVamFSBeF4wnAr/uQx1rRyW4Dw=
 github.com/chef/chef-workstation/www v0.0.0-20200428223350-8a826c337c81/go.mod h1:rktT78z3KaWu7A+wf1g6KmYszrwn6Y3o3IFlTg8OpQg=
+github.com/chef/desktop-config/docs v0.0.0-20200530001358-b42c724a20ac h1:2+lL1TgRx/IRLyJUflxo07uoGmsGAQheTB+1R3bWkMI=
+github.com/chef/desktop-config/docs v0.0.0-20200530001358-b42c724a20ac/go.mod h1:B9QAfsJHmMQ6yIgsvQ4uG7f98HVPMjRGO8VuSFN4A9Q=
