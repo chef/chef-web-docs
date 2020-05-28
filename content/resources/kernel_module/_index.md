@@ -105,7 +105,7 @@ examples: |
   end
   ```
 
-  Unload a kernel module and remove module config, so it doesn’t load on reboot.
+  Unload a kernel module and remove module config, so it doesn't load on reboot.
 
   ```ruby
   kernel_module 'loop' do
