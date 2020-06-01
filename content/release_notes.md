@@ -19,6 +19,22 @@ the first Wednesday of every month. Below are the major changes for each
 release. For a detailed list of changes see the [Chef Infra Client
 changelog](https://github.com/chef/chef/blob/master/CHANGELOG.md)
 
+## What's New in 16.1.16
+
+This release resolves high-priority bugs in the 16.1 release of Chef Infra Client:
+
+- Resolved a critical performance regression in the Rubygems release within Ruby 2.7, which was discovered by a Chef engineer.
+- Resolved several Ruby 2.7 deprecation warnings.
+- Added `armv6l` and `armv7l` architectures to the `arm?` and `armhf?` helpers
+- Resolved failures in the Windows bootstrap script
+- Resolved incorrect paths when bootstrapping Windows nodes
+
+### Security Updates
+
+#### openSSL
+
+openSSL has been updated from 1.0.2u to 1.0.2v which does not address any particular CVEs, but includes multiple security hardening updates.
+
 ## What's New in 16.1
 
 ### Ohai 16.1
