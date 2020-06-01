@@ -77,7 +77,7 @@ notAlternative = true
 [params]
   enable_search = true
   robots = ''
-  menuOrder = ["infra", "workstation", "desktop", "habitat", "inspec", "automate", "legacy", "api", "extra"]
+  menuOrder = ["overview", "compliance", "effortless", "infra",  "workstation", "desktop", "habitat", "inspec", "automate", "legacy", "api", "extra"]
 
 [taxonomies]
   category = "categories"
@@ -150,31 +150,69 @@ weight = 60
 
 
 ####
-# Chef Infra Menu
+# Overview Menu
 ####
 
-[[menu.infra]]
+[[menu.overview]]
 title = "Overview"
 identifier = "overview"
 weight = 20
 
-  [[menu.infra]]
+  [[menu.overview]]
   title = "Community"
   identifier = "overview/community"
   parent = "overview"
   weight = 20
 
-  [[menu.infra]]
+  [[menu.overview]]
   title = "Packages & Platforms"
   identifier = "overview/packages_&_platforms"
   parent = "overview"
   weight = 30
 
-    [[menu.infra]]
+    [[menu.overview]]
     title = "Licensing"
     identifier = "overview/packages_&_platforms/licensing"
     parent = "overview/packages_&_platforms"
     weight = 60
+
+####
+# End Overview Menu
+####
+
+
+####
+# Compliance Menu
+####
+
+[[menu.compliance]]
+title = "Chef Compliance"
+identifier = "compliance"
+weight = 10
+
+####
+# End Compliance Menu
+####
+
+
+####
+# Effortless Menu
+####
+
+[[menu.effortless]]
+title = "Effortless Pattern"
+identifier = "effortless"
+weight = 10
+
+####
+# End Effortless Menu
+####
+
+
+####
+# Chef Infra Menu
+####
+
 
 [[menu.infra]]
 title = "Chef Infra"

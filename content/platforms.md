@@ -5,7 +5,7 @@ draft = false
 aliases = ["/platforms.html", "/supported_platforms.html"]
 
 [menu]
-  [menu.infra]
+  [menu.overview]
     title = "Platforms"
     identifier = "overview/packages_&_platforms/platforms.md Platforms"
     parent = "overview/packages_&_platforms"

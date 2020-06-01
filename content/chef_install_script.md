@@ -5,7 +5,7 @@ draft = false
 aliases = ["/install_omnibus.html", "/install_omnibus/"]
 
 [menu]
-  [menu.infra]
+  [menu.overview]
     title = "Chef Software Install Script"
     identifier = "overview/packages_&_platforms/chef_install_script.md Install via Chef Software Install Script"
     parent = "overview/packages_&_platforms"
