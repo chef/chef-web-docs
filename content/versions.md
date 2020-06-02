@@ -273,7 +273,7 @@ newer versions or products.
 <td>April 30, 2020</td>
 </tr>
 <tr class="even">
-<td>Chef Compliance</td>
+<td>Chef Compliance Server</td>
 <td>All</td>
 <td>EOL</td>
 <td>December 31, 2018</td>
