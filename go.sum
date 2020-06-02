@@ -1,9 +1,5 @@
-<<<<<<< HEAD
+
 github.com/chef/chef-workstation/www v0.0.0-20200601205854-791d7f1759de h1:aOt6gYdg2Mez1nk/UufIQJ5/505r+jXGU71kaYHFYGY=
 github.com/chef/chef-workstation/www v0.0.0-20200601205854-791d7f1759de/go.mod h1:rktT78z3KaWu7A+wf1g6KmYszrwn6Y3o3IFlTg8OpQg=
-=======
-github.com/chef/chef-workstation/www v0.0.0-20200428223350-8a826c337c81 h1:VXUe39FMwXkx3rjhvjVamFSBeF4wnAr/uQx1rRyW4Dw=
-github.com/chef/chef-workstation/www v0.0.0-20200428223350-8a826c337c81/go.mod h1:rktT78z3KaWu7A+wf1g6KmYszrwn6Y3o3IFlTg8OpQg=
-github.com/chef/desktop-config/docs v0.0.0-20200602174303-7096345a1055 h1:3w5CpXS/XJJA7JpFWDHaePH7GW/1F08tXrduwPjZHnU=
-github.com/chef/desktop-config/docs v0.0.0-20200602174303-7096345a1055/go.mod h1:B9QAfsJHmMQ6yIgsvQ4uG7f98HVPMjRGO8VuSFN4A9Q=
->>>>>>> Enable Chef Desktop documentation  (#2507)
+github.com/chef/chef-workstation/www v0.0.0-20200602170139-70714e50d9bb h1:e3aYEO43cxi/hw2TbFSScZZf62K8tLD9Dxjn0dzgExA=
+github.com/chef/chef-workstation/www v0.0.0-20200602170139-70714e50d9bb/go.mod h1:rktT78z3KaWu7A+wf1g6KmYszrwn6Y3o3IFlTg8OpQg=
