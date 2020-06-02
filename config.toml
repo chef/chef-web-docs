@@ -105,6 +105,15 @@ notAlternative = true
     source = "static"
     target = "static"
 
+  [[module.imports]]
+    disable = false
+    ignoreConfig = false
+    path = "github.com/chef/effortless/effortless-chef-io"
+
+  [[module.imports.mounts]]
+    source = "content/effortless"
+    target = "content/effortless"
+
 ####
 ## Main Menu ##
 ####
