@@ -125,7 +125,7 @@ announcement](https://blog.chef.io/2019/04/02/chef-software-announces-the-enterp
 </tr>
 <tr class="odd">
 <td>Chef Workstation</td>
-<td>20.6+ (May 2020)</td>
+<td>20.6+ (June 2020)</td>
 <td>GA</td>
 <td>n/a</td>
 </tr>
