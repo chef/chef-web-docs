@@ -5,7 +5,7 @@ draft = false
 aliases = ["/style_guide.html"]
 
 [menu]
-  [menu.infra]
+  [menu.overview]
     title = "Docs Style Guide"
     identifier = "overview/community/style_guide.md Docs Style Guide"
     parent = "overview/community"
