@@ -238,6 +238,14 @@ newer versions or products.
 
 ## End of Life (EOL) Products
 
+{{< note >}}
+
+Chef Compliance Server, which reached EOL status in 2018, should not be
+confused with the modern Chef Compliance offering that can be explored in
+detail [here](https://docs.chef.io/compliance/).
+
+{{< /note >}}
+
 <table>
 <colgroup>
 <col style="width: 25%" />
