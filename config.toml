@@ -857,7 +857,7 @@ weight = 10
 title = "Resources"
 identifier = "desktop/resources"
 parent = "desktop"
-weight = 40
+weight = 999
 
 ####
 # End Chef Desktop Menu
