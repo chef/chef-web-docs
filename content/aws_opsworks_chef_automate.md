@@ -24,12 +24,6 @@ For documentation on how to setup and create a new instance, please see
 the [AWS OpsWorks User
 Guide](http://docs.aws.amazon.com/opsworks/latest/userguide/welcome_opscm.html).
 
-For a tutorial on how to use your new Chef Automate instance, go to
-[Manage a node with Chef
-Automate](https://learn.chef.io/modules/manage-a-node-chef-automate/),
-choose the platform you want to manage, then choose **AWS OpsWorks for
-Chef Automate**.
-
 Finally, the general Chef Automate documentation on this site applies to
 the instances you create via OpsWorks for Chef Automate, so feel free to
 refer to it as needed.
