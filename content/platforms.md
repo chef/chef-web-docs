@@ -275,7 +275,7 @@ versions for Chef InSpec:
 </tr>
 <tr class="odd">
 <td>Red Hat Enterprise Linux</td>
-<td><code>x86_64</code>, <code>aarch64</code></td>
+<td><code>x86_64</code>, <code>aarch64</code> (7.x and 8.x only)</td>
 <td><code>6.x</code>, <code>7.x</code>, <code>8.x</code></td>
 </tr>
 <tr class="even">
