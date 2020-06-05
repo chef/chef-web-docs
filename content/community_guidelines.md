@@ -177,7 +177,7 @@ the person(s) assigned to each role:
 </tr>
 <tr class="even">
 <td>Community Advocate</td>
-<td>benny Vasquez</td>
+<td>Benny Vasquez</td>
 <td><a href="mailto:bvasquez@chef.io">bvasquez@chef.io</a></td>
 </tr>
 <tr class="odd">
