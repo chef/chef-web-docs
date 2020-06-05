@@ -177,15 +177,10 @@ the person(s) assigned to each role:
 </tr>
 <tr class="even">
 <td>Community Advocate</td>
-<td>Mandi Walls</td>
-<td><a href="mailto:mandi@chef.io">mandi@chef.io</a></td>
+<td>benny Vasquez</td>
+<td><a href="mailto:bvasquez@chef.io">bvasquez@chef.io</a></td>
 </tr>
 <tr class="odd">
-<td>Community Advocate</td>
-<td>Nell Shamrell-Harrington</td>
-<td><a href="mailto:nshamrell@chef.io">nshamrell@chef.io</a></td>
-</tr>
-<tr class="even">
 <td>Community Advocate</td>
 <td>Robb Kidd</td>
 <td><a href="mailto:rkidd@chef.io">rkidd@chef.io</a></td>
