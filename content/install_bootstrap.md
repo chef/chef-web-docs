@@ -100,12 +100,12 @@ describe how to bootstrap a node using knife.
     +---------------------------------------------+
     [172.16.1.233] Starting Chef Infra Client, version 16.1.16
     [172.16.1.233] [2020-06-08T23:49:10+00:00] ERROR: shard_seed: Failed to get dmi property serial_number: is dmidecode installed?
-    [172.16.1.233] Creating a new client identity for picontroller using the validator key.
+    [172.16.1.233] Creating a new client identity for name_of_node using the validator key.
     [172.16.1.233] resolving cookbooks for run list: []
     [172.16.1.233] Synchronizing Cookbooks:
     [172.16.1.233] Installing Cookbook Gems:
     [172.16.1.233] Compiling Cookbooks...
-    [172.16.1.233] [2020-06-08T23:49:17+00:00] WARN: Node picontroller has an empty run list.
+    [172.16.1.233] [2020-06-08T23:49:17+00:00] WARN: Node name_of_node has an empty run list.
     [172.16.1.233] Converging 0 resources
     [172.16.1.233]
     [172.16.1.233] Running handlers:
@@ -128,7 +128,7 @@ describe how to bootstrap a node using knife.
     ``` bash
     admin:     false
     chef_type: client
-    name:      picontroller
+    name:      name_of_node
     validator: false
     ```
 
