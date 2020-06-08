@@ -49,51 +49,68 @@ describe how to bootstrap a node using knife.
     In a command window, enter the following:
 
     ``` bash
-    knife bootstrap 123.45.6.789 -x username -P password --sudo
+    knife bootstrap 172.16.1.233 -U USERNAME --sudo
     ```
 
-    where `123.45.6.789` is the IP address or the FQDN for the node. Use
-    the `--distro` option to specify a non-default distribution. For
-    more information about the options available to the
-    `knife bootstrap` command for Ubuntu- and Linux-based platforms, see
-    [knife bootstrap](/workstation/knife_bootstrap/). For Microsoft Windows, the
-    `knife windows` plugin is required, see [knife
-    windows](/workstation/knife_windows/).
+    where `172.16.1.233` is the IP address or the FQDN for the node,
+    and `USERNAME` is the username you want to use to connect, and
+    `--sudo` specifies to elevate privileges using the sudo command
+    on UNIX-based systems.
 
-    And then while the bootstrap operation is running, the command
-    window will show something like the following:
+    Then while the bootstrap operation is running, the command
+    window will show something similar to the following:
 
     ``` bash
-    Bootstrapping Chef on 123.45.6.789
-    123.45.6.789 knife sudo password:
-    Enter your password:
-    123.45.6.789
-    123.45.6.789 [Fri, 07 Sep 2012 11:05:05 -0700] INFO: *** Chef 10.12.0 ***
-    123.45.6.789
-    123.45.6.789 [Fri, 07 Sep 2012 11:05:07 -0700] INFO: Client key /etc/chef/client.pem is not present - registering
-    123.45.6.789
-    123.45.6.789 [Fri, 07 Sep 2012 11:05:15 -0700] INFO: Setting the run_list to [] from JSON
-    123.45.6.789
-    123.45.6.789 [Fri, 07 Sep 2012 11:05:15 -0700] INFO: Run List is []
-    123.45.6.789
-    123.45.6.789 [Fri, 07 Sep 2012 11:05:15 -0700] INFO: Run List expands to []
-    123.45.6.789
-    123.45.6.789 [Fri, 07 Sep 2012 11:05:15 -0700] INFO: Starting Chef Run for name_of_node
-    123.45.6.789
-    123.45.6.789 [Fri, 07 Sep 2012 11:05:15 -0700] INFO: Running start handlers
-    123.45.6.789
-    123.45.6.789 [Fri, 07 Sep 2012 11:05:15 -0700] INFO: Start handlers complete.
-    123.45.6.789
-    123.45.6.789 [Fri, 07 Sep 2012 11:05:17 -0700] INFO: Loading cookbooks []
-    123.45.6.789
-    123.45.6.789 [Fri, 07 Sep 2012 11:05:17 -0700] WARN: Node name_of_node has an empty run list.
-    123.45.6.789
-    123.45.6.789 [Fri, 07 Sep 2012 11:05:19 -0700] INFO: Chef Run complete in 3.986283452 seconds
-    123.45.6.789
-    123.45.6.789 [Fri, 07 Sep 2012 11:05:19 -0700] INFO: Running report handlers
-    123.45.6.789
-    123.45.6.789 [Fri, 07 Sep 2012 11:05:19 -0700] INFO: Report handlers complete
-    123.45.6.789
+    Enter password for ubuntu@172.16.1.233:
+
+    Connecting to 172.16.1.233
+    Performing legacy client registration with the validation key at /Users/USERNAME/.chef/validator.pem...
+    Delete your validation key in order to use your user credentials for client registration instead.
+    Bootstrapping 172.16.1.233
+    [172.16.1.233] -----> Installing Chef Omnibus (stable/16)
+    downloading https://omnitruck.chef.io/chef/install.sh
+    [172.16.1.233]   to file /tmp/install.sh.1624/install.sh
+    [172.16.1.233] trying wget...
+    [172.16.1.233] ubuntu 20.04 aarch64
+    [172.16.1.233] Getting information for chef stable 16 for ubuntu...
+    [172.16.1.233] downloading https://omnitruck.chef.io/stable/chef/metadata?v=16&p=ubuntu&pv=20.04&m=aarch64
+      to file /tmp/install.sh.1628/metadata.txt
+    [172.16.1.233] trying wget...
+    [172.16.1.233] sha1	8d89f8ac2e7f52d170be8ec1c2a028a6449d7e3a
+    sha256	85cc73bed06e8d6699fc5c0b26c20d2837bf03831873444febccfc8bfa561f00
+    url	https://packages.chef.io/files/stable/chef/16.1.16/ubuntu/20.04/chef_16.1.16-1_arm64.deb
+    version	16.1.16
+    [172.16.1.233]
+    [172.16.1.233] downloaded metadata file looks valid...
+    [172.16.1.233] downloading https://packages.chef.io/files/stable/chef/16.1.16/ubuntu/20.04/chef_16.1.16-1_arm64.deb
+      to file /tmp/install.sh.1628/chef_16.1.16-1_arm64.deb
+    [172.16.1.233] trying wget...
+    [172.16.1.233] Comparing checksum with sha256sum...
+    [172.16.1.233] Installing chef 16
+    installing with dpkg...
+    [172.16.1.233] Selecting previously unselected package chef.
+    [172.16.1.233] (Reading database ... 99114 files and directories currently installed.)
+    [172.16.1.233] Preparing to unpack .../chef_16.1.16-1_arm64.deb ...
+    [172.16.1.233] Unpacking chef (16.1.16-1) ...
+    [172.16.1.233] Setting up chef (16.1.16-1) ...
+    [172.16.1.233] Thank you for installing Chef Infra Client! For help getting started visit https://learn.chef.io
+    [172.16.1.233] Starting the first Chef Infra Client Client run...
+    [172.16.1.233] +---------------------------------------------+
+    ✔ 2 product licenses accepted.
+    +---------------------------------------------+
+    [172.16.1.233] Starting Chef Infra Client, version 16.1.16
+    [172.16.1.233] [2020-06-08T23:49:10+00:00] ERROR: shard_seed: Failed to get dmi property serial_number: is dmidecode installed?
+    [172.16.1.233] Creating a new client identity for picontroller using the validator key.
+    [172.16.1.233] resolving cookbooks for run list: []
+    [172.16.1.233] Synchronizing Cookbooks:
+    [172.16.1.233] Installing Cookbook Gems:
+    [172.16.1.233] Compiling Cookbooks...
+    [172.16.1.233] [2020-06-08T23:49:17+00:00] WARN: Node picontroller has an empty run list.
+    [172.16.1.233] Converging 0 resources
+    [172.16.1.233]
+    [172.16.1.233] Running handlers:
+    [172.16.1.233] Running handlers complete
+    [172.16.1.233] Chef Infra Client finished, 0/0 resources updated in 11 seconds
     ```
 
 3.  After the bootstrap operation has finished, verify that the node is
@@ -109,11 +126,10 @@ describe how to bootstrap a node using knife.
     to:
 
     ``` bash
-    admin:       false
-    chef_type:   client
-    json_class:  Chef::ApiClient
-    name:        name_of_node
-    public_key:
+    admin:     false
+    chef_type: client
+    name:      picontroller
+    validator: false
     ```
 
     and to show the full list of nodes (and workstations) that are
