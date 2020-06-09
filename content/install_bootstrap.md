@@ -76,10 +76,10 @@ describe how to bootstrap a node using knife.
     [172.16.1.233] downloading https://omnitruck.chef.io/stable/chef/metadata?v=16&p=ubuntu&pv=20.04&m=aarch64
       to file /tmp/install.sh.1628/metadata.txt
     [172.16.1.233] trying wget...
-    [172.16.1.233] sha1	8d89f8ac2e7f52d170be8ec1c2a028a6449d7e3a
-    sha256	85cc73bed06e8d6699fc5c0b26c20d2837bf03831873444febccfc8bfa561f00
-    url	https://packages.chef.io/files/stable/chef/16.1.16/ubuntu/20.04/chef_16.1.16-1_arm64.deb
-    version	16.1.16
+    [172.16.1.233] sha1  8d89f8ac2e7f52d170be8ec1c2a028a6449d7e3a
+    sha256  85cc73bed06e8d6699fc5c0b26c20d2837bf03831873444febccfc8bfa561f00
+    url  https://packages.chef.io/files/stable/chef/16.1.16/ubuntu/20.04/chef_16.1.16-1_arm64.deb
+    version  16.1.16
     [172.16.1.233]
     [172.16.1.233] downloaded metadata file looks valid...
     [172.16.1.233] downloading https://packages.chef.io/files/stable/chef/16.1.16/ubuntu/20.04/chef_16.1.16-1_arm64.deb
@@ -96,7 +96,7 @@ describe how to bootstrap a node using knife.
     [172.16.1.233] Thank you for installing Chef Infra Client! For help getting started visit https://learn.chef.io
     [172.16.1.233] Starting the first Chef Infra Client Client run...
     [172.16.1.233] +---------------------------------------------+
-    ✔ 2 product licenses accepted.
+    ✓ 2 product licenses accepted.
     +---------------------------------------------+
     [172.16.1.233] Starting Chef Infra Client, version 16.1.16
     [172.16.1.233] [2020-06-08T23:49:10+00:00] ERROR: shard_seed: Failed to get dmi property serial_number: is dmidecode installed?
