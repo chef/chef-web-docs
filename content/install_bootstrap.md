@@ -322,18 +322,9 @@ search_query: role:stuff
 some:         secret stuff for them
 ```
 
-Then, let's check the `ubuntu-20.04` client. Install the `chef-vault`
-gem in the embedded Chef Infra Client:
-
-``` bash
-sudo /opt/chef/embedded/bin/gem install chef-vault --no-ri --no-rdoc
-Fetching: chef-vault-2.6.1.gem (100%)
-Successfully installed chef-vault-2.6.1
-1 gem installed
-```
-
-The client itself can decrypt and read the encrypted databag contents as
-well.
+Then, let's check the `ubuntu-20.04` client. The client itself can decrypt and read
+the encrypted databag contents as well using the embedded knife CLI in the Chef Infra
+Client package.
 
 ``` bash
 sudo /opt/chef/bin/knife vault show sea power -c /etc/chef/client.rb -M client -p all
