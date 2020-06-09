@@ -99,13 +99,10 @@ interact with nodes.
 
 The workstation is where users do most of their work, including:
 
--   Developing and testing cookbooks and recipes
--   Testing Chef code
--   Keeping the Chef repository synchronized with version source control
--   Configuring organizational policy, including defining roles and
-    environments, and ensuring that critical data is stored in data bags
--   Interacting with nodes, as (or when) required, such as performing a
-    bootstrap operation
+- Developing and testing cookbooks
+- Keeping the Chef Infra repository synchronized with version source control
+- Configuring organizational by including defining and applying Policyfiles or Policy Groups
+- Interacting with nodes, as (or when) required, such as performing a bootstrap operation
 
 ### Chef Workstation Components and Tools
 
