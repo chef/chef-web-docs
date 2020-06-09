@@ -39,11 +39,11 @@ A cookbook may have a `/files` directory structure like this:
 
     files/
        host-foo.example.com
-       ubuntu-16.04
-       ubuntu-16
+       ubuntu-20.04
+       ubuntu-20
        ubuntu
-       redhat-5.11
-       redhat-6.9
+       redhat-8.2
+       redhat-7.8
        ...
        default
 
@@ -65,8 +65,8 @@ in the **cookbook_file** resource would be distributed:
 
 ``` ruby
 host-foo.example.com/apache2_module_conf_generate.pl
-ubuntu-16.04/apache2_module_conf_generate.pl
-ubuntu-16/apache2_module_conf_generate.pl
+ubuntu-20.04/apache2_module_conf_generate.pl
+ubuntu-20/apache2_module_conf_generate.pl
 ubuntu/apache2_module_conf_generate.pl
 default/apache2_module_conf_generate.pl
 ```
