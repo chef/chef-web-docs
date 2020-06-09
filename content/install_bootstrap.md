@@ -149,25 +149,22 @@ describe how to bootstrap a node using knife.
     client2
     ```
 
-## Validatorless vs Validator Bootstrap
+## Validatorless and Legacy Validator Bootstraps
 
-Legacy validator-based node bootstrapping used a single organization-wide
-key to bootstrap new systems into the Chef Infra Server. This key had to be
-shared with all users who bootstrapped new systems, and couldn't be easily
-rotated in the event that the key was compromised or an employee left the
-organization.
+We recommended using "validatorless bootstrapping" to authenticate new nodes with the Chef Infra Server.
 
-It is highly recommended to instead bootstrap nodes using what is often
-referred to as "validatorless bootstrapping". In this mode no shared key is
-used to authenticate new nodes, and instead a per-node key is generated during
-the bootstrap process and transferred to the new nodes.
+The legacy Chef Infra validator-based node bootstrapping process depended on using a shared "validatory" key throughout an organization for authenticating new nodes with the Chef Infra Server.
 
-Validatorless bootstrap is the default method of bootstrapping systems unless
-your workstation is configured otherwise. If you receive a warning that a
-validator key is used during the bootstrap you should remove the configuration
-for this legacy bootstrap mode. Edit your
-[config.rb (knife.rb)](/workstation/config_rb/) file and remove any
-`validation_key` or `validation_client_name` entries.
+Shortcomings of the legacy validator process are:
+
+* All users share the same key for bootstrapping new systems
+* Key sharing makes key rotation difficult, if it is compromised or if an employee leaves the organization.
+
+The "validatorless bootstrap" generates a key for each node, which is then transferred to the new node and used to authenticate with the Chef Infra Server instead of relying on a shared "validator" key.
+
+The Chef Infra bootstrap prorcess is validatorless by default.
+If you receive a warning during a bootstrap that that a validator key is in use, remove the configuration for this legacy bootstrap mode.
+Edit your [config.rb (knife.rb)](/workstation/config_rb/) file and remove any `validation_key` or `validation_client_name` entries.
 
 ## Bootstrapping with chef-vault
 
