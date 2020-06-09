@@ -186,7 +186,7 @@ For example:
 ```
 This is a list:
 
--   List item.
+- List item.
 
     {{< note spaces=4 >}}
 
