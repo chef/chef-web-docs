@@ -240,11 +240,11 @@ difference in the vault permissions.
 ``` bash
 echo "{\"sea\":\"power\"}" > sea-power-bootstrap-vault-file.json
 
-knife bootstrap localhost -p 2200 -N ubuntu-12.04 -r 'role[group1]' --ssh-user vagrant --sudo --bootstrap-vault-file sea-power-bootstrap-vault-file.json
-Node ubuntu-12.04 exists, overwrite it? (Y/N) Y
-Client ubuntu-12.04 exists, overwrite it? (Y/N) Y
-Creating new client for ubuntu-12.04
-Creating new node for ubuntu-12.04
+knife bootstrap localhost -p 2200 -N ubuntu-20.04 -r 'role[group1]' --connection-user vagrant --sudo --bootstrap-vault-file sea-power-bootstrap-vault-file.json
+Node ubuntu-20.04 exists, overwrite it? (Y/N) Y
+Client ubuntu-20.04 exists, overwrite it? (Y/N) Y
+Creating new client for ubuntu-20.04
+Creating new node for ubuntu-20.04
 Connecting to localhost
 localhost -----> Existing Chef installation detected
 localhost Starting first Chef Client run...
@@ -263,7 +263,7 @@ localhost Running handlers complete
 localhost Chef Client finished, 1/1 resources updated in 34.307257232 seconds
 ```
 
-The client `ubuntu-12.04` was added to the `chef-vault` during the
+The client `ubuntu-20.04` was added to the `chef-vault` during the
 bootstrap.
 
 ``` bash
@@ -271,7 +271,7 @@ knife vault show sea power  --mode client -p all
 admins:
   sean_horn
   angle
-clients:      ubuntu-12.04
+clients:      ubuntu-20.04
 id:           power
 search_query:
 some:         content for them
@@ -283,11 +283,11 @@ Use the `sea:power` re-creation step above first, to follow the
 difference in the vault permissions.
 
 ``` bash
-knife bootstrap localhost -p 2200 -N ubuntu-12.04 -r 'role[group1]' --ssh-user vagrant --sudo --bootstrap-vault-item sea:power
-Node ubuntu-12.04 exists, overwrite it? (Y/N) Y
-Client ubuntu-12.04 exists, overwrite it? (Y/N) Y
-Creating new client for ubuntu-12.04
-Creating new node for ubuntu-12.04
+knife bootstrap localhost -p 2200 -N ubuntu-20.04 -r 'role[group1]' --connection-user vagrant --sudo --bootstrap-vault-item sea:power
+Node ubuntu-20.04 exists, overwrite it? (Y/N) Y
+Client ubuntu-20.04 exists, overwrite it? (Y/N) Y
+Creating new client for ubuntu-20.04
+Creating new node for ubuntu-20.04
 Connecting to localhost
 localhost -----> Existing Chef installation detected
 localhost Starting first Chef Client run...
@@ -308,7 +308,7 @@ seconds
 ```
 
 During the above run, the `sea:power` vault item was updated with the
-`ubuntu-12.04` client during the validatorless bootstrap. Previously, it
+`ubuntu-20.04` client during the validatorless bootstrap. Previously, it
 only had the two admins authorized to view the content
 
 ``` bash
@@ -316,13 +316,13 @@ knife vault show sea power -p all
 admins:
   sean_horn
   angle
-clients:      ubuntu-12.04
+clients:      ubuntu-20.04
 id:           power
 search_query: role:stuff
 some:         secret stuff for them
 ```
 
-Then, let's check the `ubuntu-12.04` client. Install the `chef-vault`
+Then, let's check the `ubuntu-20.04` client. Install the `chef-vault`
 gem in the embedded Chef Infra Client:
 
 ``` bash
@@ -340,7 +340,7 @@ sudo /opt/chef/bin/knife vault show sea power -c /etc/chef/client.rb -M client -
 admins:
   sean_horn
   angle
-clients:      ubuntu-12.04
+clients:      ubuntu-20.04
 id:           power
 search_query: role:group1
 some:         secret stuff for them
@@ -355,11 +355,11 @@ Use the `sea:power` re-creation step above first, to follow the
 difference in the vault permissions.
 
 ``` bash
-knife bootstrap localhost -p 2200 -N ubuntu-12.04 -r 'role[group1]' --ssh-user vagrant --sudo --bootstrap-vault-json '{"sea": "power"}'
-Node ubuntu-12.04 exists, overwrite it? (Y/N) Y
-Client ubuntu-12.04 exists, overwrite it? (Y/N) Y
-Creating new client for ubuntu-12.04
-Creating new node for ubuntu-12.04
+knife bootstrap localhost -p 2200 -N ubuntu-20.04 -r 'role[group1]' --connection-user vagrant --sudo --bootstrap-vault-json '{"sea": "power"}'
+Node ubuntu-20.04 exists, overwrite it? (Y/N) Y
+Client ubuntu-20.04 exists, overwrite it? (Y/N) Y
+Creating new client for ubuntu-.04
+Creating new node for ubuntu-20.04
 Connecting to localhost
 localhost -----> Existing Chef installation detected
 localhost Starting first Chef Client run...
@@ -384,7 +384,7 @@ knife vault show sea power -M client -p all
 admins:
   sean_horn
   angle
-clients:      ubuntu-12.04
+clients:      ubuntu-20.04
 id:           power
 search_query:
 some:         content for them

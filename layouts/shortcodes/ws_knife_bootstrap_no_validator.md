@@ -31,7 +31,7 @@ similar to:
 ``` bash
 desktop% knife bootstrap 10.1.1.1 -N foo01.acme.org \
   -E dev -r 'role[base]' -j '{ "foo": "bar" }' \
-  --ssh-user vagrant --sudo
+  --connection-user vagrant --sudo
 Node foo01.acme.org exists, overwrite it? (Y/N)
 Client foo01.acme.org exists, overwrite it? (Y/N)
 Creating new client for foo01.acme.org
