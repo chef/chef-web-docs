@@ -404,14 +404,11 @@ be on-hand to initiate the bootstrap process.
 When Chef Infra Client is installed using an unattended bootstrap,
 remember that Chef Infra Client:
 
--   Must be able to authenticate to the Chef server
--   Must be able to configure a run-list
--   May require custom attributes, depending on the cookbooks that are
-    being used
--   Must be able to access the chef-validator.pem so that it may create
-    a new identity on the Chef server
--   Must have a unique node name; Chef Infra Client will use the FQDN
-    for the host system by default
+- Must be able to authenticate to the Chef Infra Server
+- Must be able to configure a run-list
+- May require custom attributes, depending on the cookbooks that are being used
+- Must be able to access the chef-validator.pem so that it may create a new identity on the Chef Infra Server
+- Must have a unique node name; Chef Infra Client will use the FQDN for the host system by default
 
 When Chef Infra Client is installed using an unattended bootstrap, it
 may be built into an image that starts Chef Infra Client on boot, or
