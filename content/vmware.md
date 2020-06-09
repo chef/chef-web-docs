@@ -62,7 +62,7 @@ the SSH user and password:**
 
 ``` bash
 knife vsphere vm clone MACHINENAME --template TEMPLATENAME --bootstrap --cips dhcp \
---cspec SPEC --ssh-user USER --ssh-password PASSWORD
+--cspec SPEC --connection-user USER --connection-password PASSWORD
 ```
 
 {{< note >}}
@@ -124,7 +124,7 @@ knife[:vcenter_disable_ssl_verify] = true # if you want to disable SSL checking
 **Clone a machine:**
 
 ``` bash
-knife vcenter vm clone example-01 --targethost 172.16.20.3 --folder example --ssh-password \
+knife vcenter vm clone example-01 --targethost 172.16.20.3 --folder example --connection-password \
 P@ssw0rd! --datacenter Datacenter --template ubuntu16-template -N example-01
 Creating new machine
 Waiting for network interfaces to become available...
@@ -213,7 +213,7 @@ Common parameters to specify are:
     available to knife; you will need to provide it. It usually looks
     like a UUID. See your vRA administrator for assistance in
     determining your subtenant ID.
--   `--ssh-password`: for Linux hosts, the password to use during
+-   `--connection-password`: for Linux hosts, the password to use during
     bootstrap
 -   `--winrm-password`: for Windows hosts, the password to use during
     bootstrap
@@ -222,7 +222,7 @@ Common parameters to specify are:
 
 ``` bash
 knife vra server create 5dcd1900-3b89-433d-8563-9606ae1249b8 --cpus 1 --memory 512 \
---requested-for devmgr@corp.local --ssh-password 'mypassword' --lease-days 5
+--requested-for devmgr@corp.local --connection-password 'mypassword' --lease-days 5
 Catalog request d282fde8-6fd2-406c-998e-328d1b659078 submitted.
 Waiting for request to complete.
 Current request status: PENDING_PRE_APPROVAL.

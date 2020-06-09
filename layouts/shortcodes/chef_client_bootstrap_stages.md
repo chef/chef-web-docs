@@ -42,7 +42,7 @@ During a `knife bootstrap` bootstrap operation, the following happens:
 <tr class="even">
 <td><p><strong>Complete a Chef Infra Client run</strong></p></td>
 <td><p>a Chef Infra Client run proceeds, using HTTPS (port 443), and registers the node with the Chef Infra Server.</p>
-<p>The first Chef Infra Client run, by default, contains an empty run-list. A <a href="/knife_bootstrap/">run-list can be specified</a> as part of the initial bootstrap operation using the <code>--run-list</code> option as part of the <code>knife bootstrap</code> subcommand.</p></td>
+<p>The first Chef Infra Client run, by default, contains an empty run-list. A <a href="/workstation/knife_bootstrap/">run-list can be specified</a> as part of the initial bootstrap operation using the <code>--run-list</code> option as part of the <code>knife bootstrap</code> subcommand.</p></td>
 </tr>
 </tbody>
 </table>

@@ -58,7 +58,7 @@ knife[:gce_zone]    = 'us-east1-b'
 
 ``` bash
 knife google server create test-instance-1 --gce-image centos-7-v20160219 \
---gce-machine-type n1-standard-2 --gce-public-ip ephemeral --ssh-user myuser \
+--gce-machine-type n1-standard-2 --gce-public-ip ephemeral --connection-user myuser \
 --identity-file /Users/myuser/.ssh/google_compute_engine
 ```
 
