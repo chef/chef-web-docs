@@ -28,15 +28,16 @@ The Chef Infra Server API has the following requirements:
     to `application/json`.
 -   The `X-Chef-Version` header must be set to the version of the Chef
     Infra Server API that is being used.
--   A request must be signed using `Mixlib::Authentication`.
+-   A request must be signed by adding authentication headers.
+    'Mixlib::Authentication` may be used to sign requests.
 -   A request must be well-formatted. The easiest way to ensure a
     well-formatted request is to use the `Chef::ServerAPI` library.
 
 ## Authentication Headers
 
-Authentication to the Chef Infra Server occurs when a specific set of
-HTTP headers are signed using a private key that is associated with the
-machine from which the request is made. The request is authorized if the
+Authentication to the Chef Infra Server requires a specific set of
+HTTP headers signed using a private key that is associated with the
+client making the request. The request is authorized if the
 Chef Infra Server can verify the signature using the public key. Only
 authorized actions are allowed.
 
@@ -47,63 +48,11 @@ abstracted from the user. Such as when using knife or the Chef Infra
 Server user interface. In some cases, such as when using the
 `knife exec` subcommand, the authentication requests need to be made
 more explicitly, but still in a way that does not require authentication
-headers. In a few cases, such as when using arbitrary Ruby code or cURL,
-it may be necessary to include the full authentication header as part of
-the request to the Chef Infra Server.
+headers. In a few cases, such as when using arbitrary Ruby code,
+a Chef Server API client, or cURL, it may be necessary to include the
+full authentication header as part of the request to the Chef Infra Server.
 
 {{< /note >}}
-
-### Header Format
-
-By default, all hashing is done using SHA-1 and encoded in Base64.
-Base64 encoding should have line breaks every 60 characters. Each
-canonical header should be encoded in the following format:
-
-``` none
-Method:HTTP_METHOD
-Hashed Path:HASHED_PATH
-X-Ops-Content-Hash:HASHED_BODY
-X-Ops-Timestamp:TIME
-X-Ops-UserId:USERID
-```
-
-where:
-
--   `HTTP_METHOD` is the method used in the API request (`GET`, `POST`,
-    and so on)
--   `HASHED_PATH` is the path of the request:
-    `/organizations/NAME/name_of_endpoint`. The `HASHED_PATH` must be
-    hashed using SHA-1 and encoded using Base64, must not have repeated
-    forward slashes (`/`), must not end in a forward slash (unless the
-    path is `/`), and must not include a query string.
--   The private key must be an RSA key in the SSL `.pem` file format.
-    This signature is then broken into character strings (of not more
-    than 60 characters per line) and placed in the header.
-
-The Chef Infra Server decrypts this header and ensures its content
-matches the content of the non-encrypted headers that were in the
-request. The timestamp of the message is checked to ensure the request
-was received within a reasonable amount of time. One approach generating
-the signed headers is to use
-[mixlib-authentication](https://github.com/chef/mixlib-authentication),
-which is a class-based header signing authentication object similar to
-the one used by Chef Infra Client.
-
-#### Enable SHA-256
-
-Chef Server versions 12.4.0 and above support signing protocol version
-1.3, which adds support for SHA-256 algorithms. It can be enabled on
-Chef Infra Client via the `client.rb` file:
-
-``` ruby
-authentication_protocol_version = '1.3'
-```
-
-And on Chef knife via `config.rb`:
-
-``` ruby
-knife[:authentication_protocol_version] = '1.3'
-```
 
 ### Required Headers
 
@@ -134,6 +83,14 @@ The following authentication headers are required:
 <td>The host name (and port number) to which a request is sent. (Port number <code>80</code> does not need to be specified.) For example: <code>api.opscode.com</code> (which is the same as <code>api.opscode.com:80</code>) or <code>api.opscode.com:443</code>.</td>
 </tr>
 <tr class="even">
+<td><code>Method</code></td>
+<td>The method from the request.</td>
+</tr>
+<tr class="even">
+<td><code>Path</code></td>
+<td>Omit for Authentication Version 1. Specify for Authentication Version 1.3</td>
+</tr>
+<tr class="even">
 <td><code>X-Chef-Version</code></td>
 <td>The version of the Chef Infra Client executable from which a request is made. This header ensures that responses are in the correct format. For example: <code>12.0.2</code> or <code>11.16.x</code>.</td>
 </tr>
@@ -143,7 +100,8 @@ The following authentication headers are required:
 </tr>
 <tr class="even">
 <td><code>X-Ops-Content-Hash</code></td>
-<td>The body of the request. The body should be hashed using SHA-1 and encoded using Base64. All hashing is done using SHA-1 and encoded in Base64. Base64 encoding should have line breaks every 60 characters.</td>
+<td>For API Version 1. The result of the SHA-1 hash of the request body encoded using Base64. Base64 encoding should have line breaks every 60 characters.</td>
+<td>For API Version 1.3. The result of the SHA-256 hash of the request body encoded using Base64. Base64 encoding should have line breaks every 60 characters.</td>
 </tr>
 <tr class="odd">
 <td><code>X-Ops-Server-API-Version</code></td>
@@ -151,7 +109,7 @@ The following authentication headers are required:
 </tr>
 <tr class="even">
 <td><code>X-Ops-Sign</code></td>
-<td>Set this header to the following value: <code>version=1.0</code>.</td>
+<td>Set this header to the following value: <code>algorithm=sha1,version=1.0</code> or <code>version=1.3</code>.</td>
 </tr>
 <tr class="odd">
 <td><code>X-Ops-Timestamp</code></td>
@@ -171,7 +129,45 @@ Server API.
 
 {{< /note >}}
 
-### Example
+#### Canonical Header Format 1.0 using SHA-1
+
+The signed headers are encrypted using the OpenSSL RSA_private_encrypt
+method and encoded in Base64.  The signed headers are used to create
+one or more X-Ops-Authorization-N headers of 60 character segments.
+The canonical header should be created by concatenating the following
+headers, encrypting and encoding:
+
+``` none
+Method:HTTP_METHOD
+Hashed Path:HASHED_PATH
+X-Ops-Content-Hash:HASHED_BODY
+X-Ops-Timestamp:TIME
+X-Ops-UserId:USERID
+```
+
+where:
+
+-   `HTTP_METHOD` is the method used in the API request (`GET`, `POST`,
+    and so on)
+-   `HASHED_PATH` is the path of the request:
+    `/organizations/NAME/name_of_endpoint`. The `HASHED_PATH` must be
+    hashed using SHA-1 and encoded using Base64, must not have repeated
+    forward slashes (`/`), must not end in a forward slash (unless the
+    path is `/`), and must not include a query string.
+-   `X-Ops-Content-Hash` is the Base64 encoded SHA256 hash of the json body of the request.
+-   `X-Ops-Timestamp` UTC time in RFC3339 format. 
+-   `X-Ops-UserId` is the plain text client or user name.
+
+The Chef Infra Server decrypts this header and ensures its content
+matches the content of the non-encrypted headers that were in the
+request. The timestamp of the message is checked to ensure the request
+was received within a reasonable amount of time. One approach generating
+the signed headers is to use
+[mixlib-authentication](https://github.com/chef/mixlib-authentication),
+which is a class-based header signing authentication object similar to
+the one used by Chef Infra Client.
+
+##### Example
 
 The following example shows an authentication request:
 
@@ -179,9 +175,80 @@ The following example shows an authentication request:
 GET /organizations/NAME/nodes HTTP/1.1
   Accept: application/json
   Accept-Encoding: gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  Host: api.opscode.com:443
+  User-Agent: Chef Knife/12.0.2 (ruby-2.1.1-p320; ohai-8.0.0; x86_64-darwin12.0.2; +http://chef.io)
+  X-Chef-Version: 12.0.2
+  X-Ops-Authorization-1: BE3NnBritishaf3ifuwLSPCCYasdfXaRN5oZb4c6hbW0aefI
+  X-Ops-Authorization-2: sL4j1qtEZzi/2WeF67UuytdsdfgbOc5CjgECQwqrym9gCUON
+  X-Ops-Authorization-3: yf0p7PrLRCNasdfaHhQ2LWSea+kTcu0dkasdfvaTghfCDC57
+  X-Ops-Authorization-4: 155i+ZlthfasfasdffukusbIUGBKUYFjhbvcds3k0i0gqs+V
+  X-Ops-Authorization-5: /sLcR7JjQky7sdafIHNfsBQrISktNPower1236hbFIayFBx3
+  X-Ops-Authorization-6: nodilAGMb166@haC/fttwlWQ2N1LasdqqGomRedtyhSqXA==
+  X-Ops-Content-Hash: 2jmj7l5rfasfgSw0ygaVb/vlWAghYkK/YBwk=
+  X-Ops-Server-API-Info: 1
   X-Ops-Sign: algorithm=sha1;version=1.0;
   X-Ops-Userid: user_id
   X-Ops-Timestamp: 2014-12-12T17:13:28Z
+```
+
+#### Canonical Header Format 1.3 using SHA-256
+
+Chef Server versions 12.4.0 and above support signing protocol version
+1.3, which adds support for SHA-256 algorithms. It can be enabled on
+Chef Infra Client via the `client.rb` file:
+
+``` ruby
+authentication_protocol_version = '1.3'
+```
+
+And on Chef knife via `config.rb`:
+
+``` ruby
+knife[:authentication_protocol_version] = '1.3'
+```
+
+To create the signed headers for direct use. Gather the following 
+headers in the order listed, convert the signature headers to a concatenated string,
+sign and Base64 encode the result. The concatenation of signature headers is
+signed using the client RSA private key, with SHA-256 hashing and PKCS1v15 padding.
+Chop the Base64 encoded value into 60 character chunks and create
+X-Ops-Authorization-N headers with the chunks.
+
+``` none
+Method:HTTP_METHOD
+Path:PATH
+X-Ops-Content-Hash:HASHED_BODY
+X-Ops-Sign
+X-Ops-Timestamp:TIME
+X-Ops-UserId:USERID
+X-Ops-Server-API-Version
+```
+
+where:
+
+-   `HTTP_METHOD` is the method used in the API request (`GET`, `POST`, ...)
+-   `PATH` is the path of the request: `/organizations/NAME/name_of_endpoint`.
+    The value must not have repeated forward slashes (`/`), must not end
+    in a forward slash (unless the path is `/`), and must not include a query string.
+-   `X-Ops-Content-Hash` is the Base64 encoded SHA256 hash of the json body of the request.
+-   `X-Ops-Sign` has the value "version=1.3".
+-   `X-Ops-Timestamp` UTC time in RFC3339 format. 
+-   `X-Ops-UserId` is the plain text client or user name.
+-   `X-Ops-Server-API-Version` is the numeric value of the Chef Infra Server API.
+
+##### Example
+
+The following example shows an authentication request:
+
+``` none
+GET /organizations/NAME/nodes HTTP/1.1
+  Accept: application/json
+  Accept-Encoding: gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  Host: api.opscode.com:443
+  Method: GET
+  Path: /organizations/NAME/nodes
+  User-Agent: Chef Knife/12.0.2 (ruby-2.1.1-p320; ohai-8.0.0; x86_64-darwin12.0.2; +http://chef.io)
+  X-Chef-Version: 14.0.0
   X-Ops-Content-Hash: 2jmj7l5rfasfgSw0ygaVb/vlWAghYkK/YBwk=
   X-Ops-Authorization-1: BE3NnBritishaf3ifuwLSPCCYasdfXaRN5oZb4c6hbW0aefI
   X-Ops-Authorization-2: sL4j1qtEZzi/2WeF67UuytdsdfgbOc5CjgECQwqrym9gCUON
@@ -189,10 +256,10 @@ GET /organizations/NAME/nodes HTTP/1.1
   X-Ops-Authorization-4: 155i+ZlthfasfasdffukusbIUGBKUYFjhbvcds3k0i0gqs+V
   X-Ops-Authorization-5: /sLcR7JjQky7sdafIHNfsBQrISktNPower1236hbFIayFBx3
   X-Ops-Authorization-6: nodilAGMb166@haC/fttwlWQ2N1LasdqqGomRedtyhSqXA==
-  Host: api.opscode.com:443
   X-Ops-Server-API-Info: 1
-  X-Chef-Version: 12.0.2
-  User-Agent: Chef Knife/12.0.2 (ruby-2.1.1-p320; ohai-8.0.0; x86_64-darwin12.0.2; +http://chef.io)
+  X-Ops-Sign: version=1.3;
+  X-Ops-Timestamp: 2014-12-12T17:13:28Z
+  X-Ops-Userid: user_id
 ```
 
 ### Knife API Requests
