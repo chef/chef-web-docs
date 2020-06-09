@@ -118,17 +118,17 @@ describe how to bootstrap a node using knife.
     just bootstrapped, run the following command:
 
     ``` bash
-    knife client show name_of_node
+    knife client show NAME_OF_NODE
     ```
 
-    where `name_of_node` is the name of the node that was just
+    where `NAME_OF_NODE` is the name of the node that was just
     bootstrapped. The Chef Infra Server will return something similar
     to:
 
     ``` bash
     admin:     false
     chef_type: client
-    name:      name_of_node
+    name:      NAME_OF_NODE
     validator: false
     ```
 
@@ -142,18 +142,32 @@ describe how to bootstrap a node using knife.
     The Chef Infra Server will return something similar to:
 
     ``` bash
-    workstation
-    workstation
+    workstation1
+    workstation2
     ...
-    client
-    name_of_node
-    ...
-    client
+    client1
+    client2
     ```
 
-## Validatorless Bootstrap
+## Validatorless vs Validator Bootstrap
 
-{{% knife_bootstrap_no_validator %}}
+Legacy validator-based node bootstrapping used a single organization-wide
+key to bootstrap new systems into the Chef Infra Server. This key had to be
+shared with all users who bootstrapped new systems, and couldn't be easily
+rotated in the event that the key was compromised or an employee left the
+organization.
+
+It is highly recommended to instead bootstrap nodes using what is often
+referred to as "validatorless bootstrapping". In this mode no shared key is
+used to authenticate new nodes, and instead a per-node key is generated during
+the bootstrap process and transferred to the new nodes.
+
+Validatorless bootstrap is the default method of bootstrapping systems unless
+your workstation is configured otherwise. If you receive a warning that a
+validator key is used during the bootstrap you should remove the configuration
+for this legacy bootstrap mode. Edit your
+[config.rb (knife.rb)](/workstation/config_rb/) file and remove any
+`validation_key` or `validation_client_name` entries.
 
 ## Bootstrapping with chef-vault
 
