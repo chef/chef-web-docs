@@ -28,7 +28,7 @@ resource_new_in: null
 handler_types: false
 syntax_description: "A **ksh** resource block executes scripts using ksh:\n\n``` ruby\n\
   ksh 'hello world' do\n  code <<-EOH\n    echo \"Hello world!\"\n    echo \"Current\
-  \ directory: \" $cwd\n    EOH\nend\n```"
+  \ directory: \" $cwd\n  EOH\nend\n```"
 syntax_code_block: null
 syntax_properties_list:
 - '`code` specifies the command to run'

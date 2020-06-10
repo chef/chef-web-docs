@@ -27,7 +27,7 @@ resource_description_list:
     and `only_if` to guard this resource for idempotence.'
 syntax_description: "A **csh** resource block executes scripts using csh:\n\n``` ruby\n\
   csh 'hello world' do\n  code <<-EOH\n    echo \"Hello world!\"\n    echo \"Current\
-  \ directory: \" $cwd\n    EOH\nend\n```"
+  \ directory: \" $cwd\n  EOH\nend\n```"
 syntax_code_block: null
 syntax_properties_list:
 - '`code` specifies the command to run'
