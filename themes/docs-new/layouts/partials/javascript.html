@@ -11,7 +11,8 @@
 {{- $releases := resources.Get "js/releases.js" }}
 {{- $copycodebutton := resources.Get "js/copy-code-button.js" }}
 {{- $chefHugo := resources.Get "js/chef-hugo.js" }}
-{{- $customJs := slice $segment $omnitruck $releases $copycodebutton $chefHugo | resources.Concat "js/custom-bundle.js" | minify | fingerprint }}
+{{- $resourceNote := resources.Get "js/resource-note.js" }}
+{{- $customJs := slice $segment $omnitruck $releases $copycodebutton $chefHugo $resourceNote | resources.Concat "js/custom-bundle.js" | minify | fingerprint }}
 <script src="{{ $customJs.Permalink }}" type="text/javascript"></script>
 <script type="text/javascript">
   (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){

@@ -10,7 +10,7 @@ draft = false
     weight = 10
 +++
 
-[\[edit on GitHub\]](https://github.com/chef/???/_index.md)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/compliance/_index.md)
 
 Chef Compliance leverages the Effortless Infrastructure Suite to combine Chef Infra, Chef InSpec, and Chef Habitat to create and release an already-hardened artifact to your fleet. This pattern makes maintaining compliance easier and shortens the audit cycle for organizations by codifying it; it shifts compliance left in the SDLC.
 
