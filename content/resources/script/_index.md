@@ -71,7 +71,7 @@ syntax_properties_list:
   The same command as above, but run using the **bash** resource:
 
   ``` ruby
-  bash ''extract_module'' do
+  bash 'extract_module' do
     cwd ::File.dirname(src_filepath)
     code <<-EOH
       mkdir -p #{extract_path}
