@@ -34,14 +34,14 @@ resource_description_list:
 resource_new_in: null
 handler_types: false
 syntax_description: |
-A **ruby** resource block executes scripts using Ruby:
-```ruby
-ruby 'hello world' do
-  code <<-EOH
-    puts "Hello world! From Chef and Ruby."
-  EOH
-end
-```
+  A **ruby** resource block executes scripts using Ruby:
+  ```ruby
+  ruby 'hello world' do
+    code <<-EOH
+      puts "Hello world! From Chef and Ruby."
+    EOH
+  end
+  ```
 syntax_code_block: null
 syntax_properties_list:
 - '`cwd` specifies the directory from which the command is run'
