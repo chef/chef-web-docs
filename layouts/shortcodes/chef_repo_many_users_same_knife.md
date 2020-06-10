@@ -14,8 +14,6 @@ current_dir = File.dirname(__FILE__)
   user = ENV['CHEF_USER'] || ENV['USER']
   node_name                user
   client_key               "#{ENV['HOME']}/chef-repo/.chef/#{user}.pem"
-  validation_client_name   "#{ENV['ORGNAME']}-validator"
-  validation_key           "#{ENV['HOME']}/chef-repo/.chef/#{ENV['ORGNAME']}-validator.pem"
   chef_server_url          "https://api.opscode.com/organizations/#{ENV['ORGNAME']}"
   syntax_check_cache_path  "#{ENV['HOME']}/chef-repo/.chef/syntax_check_cache"
   cookbook_path            ["#{current_dir}/../cookbooks"]

@@ -118,17 +118,17 @@ describe how to bootstrap a node using knife.
     just bootstrapped, run the following command:
 
     ``` bash
-    knife client show name_of_node
+    knife client show NAME_OF_NODE
     ```
 
-    where `name_of_node` is the name of the node that was just
+    where `NODE_NAME` is the name of the node that was just
     bootstrapped. The Chef Infra Server will return something similar
     to:
 
     ``` bash
     admin:     false
     chef_type: client
-    name:      name_of_node
+    name:      NODE_NAME
     validator: false
     ```
 
@@ -142,18 +142,29 @@ describe how to bootstrap a node using knife.
     The Chef Infra Server will return something similar to:
 
     ``` bash
-    workstation
-    workstation
+    workstation1
+    workstation2
     ...
-    client
-    name_of_node
-    ...
-    client
+    client1
+    client2
     ```
 
-## Validatorless Bootstrap
+## Validatorless and Legacy Validator Bootstraps
 
-{{% knife_bootstrap_no_validator %}}
+We recommended using "validatorless bootstrapping" to authenticate new nodes with the Chef Infra Server.
+
+The legacy Chef Infra validator-based node bootstrapping process depended on using a shared "validatory" key throughout an organization for authenticating new nodes with the Chef Infra Server.
+
+Shortcomings of the legacy validator process are:
+
+* All users share the same key for bootstrapping new systems
+* Key sharing makes key rotation difficult, if it is compromised or if an employee leaves the organization.
+
+The "validatorless bootstrap" generates a key for each node, which is then transferred to the new node and used to authenticate with the Chef Infra Server instead of relying on a shared "validator" key.
+
+The Chef Infra bootstrap process is validatorless by default.
+If you receive a warning during a bootstrap that a validator key is in use, remove the configuration for this legacy bootstrap mode.
+Edit your [config.rb (knife.rb)](/workstation/config_rb/) file and remove any `validation_key` or `validation_client_name` entries.
 
 ## Bootstrapping with chef-vault
 

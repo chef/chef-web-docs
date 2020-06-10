@@ -650,14 +650,15 @@ This configuration file has the following settings:
 
 :   The name of the chef-validator key that Chef Infra Client uses to
     access the Chef Infra Server during the initial Chef Infra Client
-    run.
+    run. This is only used by the legacy validator based bootstrapping.
 
 `validation_key`
 
 :   The location of the file that contains the key used when a Chef
     Infra Client is registered with a Chef Infra Server. A validation
     key is signed using the `validation_client_name` for authentication.
-    Default value: `/etc/chef/validation.pem`.
+    Default value: `/etc/chef/validation.pem`. This is only used by the
+    legacy validator based bootstrapping.
 
 `verbose_logging`
 
