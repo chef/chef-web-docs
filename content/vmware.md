@@ -222,7 +222,7 @@ Common parameters to specify are:
 
 ``` bash
 knife vra server create 5dcd1900-3b89-433d-8563-9606ae1249b8 --cpus 1 --memory 512 \
---requested-for devmgr@corp.local --connection-password 'mypassword' --lease-days 5
+--requested-for devmgr@corp.local --connection-password mypassword --lease-days 5
 Catalog request d282fde8-6fd2-406c-998e-328d1b659078 submitted.
 Waiting for request to complete.
 Current request status: PENDING_PRE_APPROVAL.
