@@ -100,8 +100,8 @@ The following authentication headers are required:
 </tr>
 <tr class="even">
 <td><code>X-Ops-Content-Hash</code></td>
-<td>For API Version 1. The result of the SHA-1 hash of the request body encoded using Base64. Base64 encoding should have line breaks every 60 characters.</td>
-<td>For API Version 1.3. The result of the SHA-256 hash of the request body encoded using Base64. Base64 encoding should have line breaks every 60 characters.</td>
+<td>For API Version 1. The result of the SHA-1 hash of the request body encoded using Base64. Base64 encoding should have line breaks every 60 characters.</br>
+For API Version 1.3. The result of the SHA-256 hash of the request body encoded using Base64. Base64 encoding should have line breaks every 60 characters.</td>
 </tr>
 <tr class="odd">
 <td><code>X-Ops-Server-API-Version</code></td>
