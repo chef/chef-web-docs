@@ -25,14 +25,6 @@ resource_description_list:
     typically unique to the environment in which they are run. Use `not_if`
 
     and `only_if` to guard this resource for idempotence.'
-- note:
-    markdown: 'The **bash** script resource (which is based on the **script** resource)
-
-      is different from the **ruby_block** resource because Ruby code that is
-
-      run with this resource is created as a temporary file and executed like
-
-      other script resources, rather than run inline.'
 syntax_description: "A **bash** resource block executes scripts using Bash:\n\n```\
   \ ruby\nbash 'extract_module' do\n  cwd ::File.dirname(src_filepath)\n  code <<-EOH\n\
   \    mkdir -p #{extract_path}\n    tar xzf #{src_filename} -C #{extract_path}\n\

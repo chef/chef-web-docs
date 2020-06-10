@@ -25,14 +25,6 @@ resource_description_list:
     typically unique to the environment in which they are run. Use `not_if`
 
     and `only_if` to guard this resource for idempotence.'
-- note:
-    markdown: 'The **csh** script resource (which is based on the **script** resource)
-
-      is different from the **ruby_block** resource because Ruby code that is
-
-      run with this resource is created as a temporary file and executed like
-
-      other script resources, rather than run inline.'
 syntax_description: "A **csh** resource block executes scripts using csh:\n\n``` ruby\n\
   csh 'hello world' do\n  code <<-EOH\n    echo \"Hello world!\"\n    echo \"Current\
   \ directory: \" $cwd\n    EOH\nend\n```"

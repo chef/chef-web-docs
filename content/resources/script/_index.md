@@ -25,14 +25,6 @@ resource_description_list:
     environment in which they are run. Use `not_if` and `only_if` to guard
 
     this resource for idempotence.'
-- note:
-    markdown: 'The **script** resource is different from the **ruby_block** resource
-
-      because Ruby code that is run with this resource is created as a
-
-      temporary file and executed like other script resources, rather than run
-
-      inline.'
 - markdown: 'This resource is the base resource for several other resources used for
 
     scripting on specific platforms. For more information about specific

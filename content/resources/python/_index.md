@@ -24,14 +24,6 @@ resource_description_list:
     they are typically unique to the environment in which they are run. Use
 
     `not_if` and `only_if` to guard this resource for idempotence.'
-- note:
-    markdown: 'The **python** script resource (which is based on the **script**
-
-      resource) is different from the **ruby_block** resource because Ruby
-
-      code that is run with this resource is created as a temporary file and
-
-      executed like other script resources, rather than run inline.'
 resource_new_in: null
 handler_types: false
 syntax_description: "The python resource has the following syntax:\n\n``` ruby\npython\
