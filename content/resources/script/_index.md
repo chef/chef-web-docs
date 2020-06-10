@@ -74,7 +74,7 @@ syntax_properties_list:
 
 
   ```ruby
-  bash ''extract_module'' 'do
+  bash ''extract_module'' do
     cwd ::File.dirname(src_filepath)
     code <<-EOH
       mkdir -p #{extract_path}
