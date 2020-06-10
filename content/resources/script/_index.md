@@ -60,20 +60,17 @@ syntax_code_block: null
 syntax_properties_list:
 - '`interpreter` specifies the command shell to use'
 - '`cwd` specifies the directory from which the command is run'
-- '`code` specifies the command to run
+- |
+  `code` specifies the command to run
 
-
-  It is more common to use the **script**-based resource that is specific
-
-  to the command shell. Chef has shell-specific resources for Bash, csh,
-
-  Perl, Python, and Ruby.
+  It is more common to use the **script**-based resource that is specific to the
+  command shell. Chef has shell-specific resources for Bash, csh, ksh, Perl,
+  Python, and Ruby.
 
 
   The same command as above, but run using the **bash** resource:
 
   ``` ruby
-
   bash ''extract_module'' do
     cwd ::File.dirname(src_filepath)
     code <<-EOH
@@ -83,8 +80,7 @@ syntax_properties_list:
     EOH
     not_if { ::File.exist?(extract_path) }
   end
-
-  ```'
+  ```
 syntax_full_code_block: "script 'name' do\n  code                       String\n \
   \ creates                    String\n  cwd                        String\n  environment\
   \                Hash\n  flags                      String\n  group            \
