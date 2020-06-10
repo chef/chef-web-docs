@@ -87,7 +87,7 @@ To install Hugo, NPM, and Go on Windows and macOS:
 - On macOS run: `brew install hugo node go`
 - On Windows run: `choco install hugo nodejs golang`
 
-To install Hugo on Linux, run:
+To install Hugo on Ubuntu, run:
 
 - `apt install -y build-essential`
 - `snap install node --classic --channel=12`
@@ -186,7 +186,7 @@ For example:
 ```
 This is a list:
 
--   List item.
+- List item.
 
     {{< note spaces=4 >}}
 
