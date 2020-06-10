@@ -33,6 +33,11 @@ rm -rf ${EXPEDITOR_PRODUCT_KEY}
 hugo mod get github.com/chef/${EXPEDITOR_PRODUCT_KEY}/$subdirectory/@${EXPEDITOR_VERSION}
 hugo mod tidy
 
+# Update the vendored files in chef-web-docs
+# See https://gohugo.io/hugo-modules/use-modules/#vendor-your-modules
+
+hugo mod vendor
+
 # submit pull request to chef/chef-web-docs
 
 git add .
