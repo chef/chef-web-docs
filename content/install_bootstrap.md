@@ -128,7 +128,7 @@ describe how to bootstrap a node using knife.
     ``` bash
     admin:     false
     chef_type: client
-    name:      NAME_OF_NODE
+    name:      NODE_NAME
     validator: false
     ```
 
