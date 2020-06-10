@@ -72,8 +72,8 @@ syntax_properties_list:
 
   The same command as above, but run using the **bash** resource:
 
+  ``` ruby
 
-  ```ruby
   bash ''extract_module'' do
     cwd ::File.dirname(src_filepath)
     code <<-EOH
@@ -83,6 +83,7 @@ syntax_properties_list:
     EOH
     not_if { ::File.exist?(extract_path) }
   end
+
   ```'
 syntax_full_code_block: "script 'name' do\n  code                       String\n \
   \ creates                    String\n  cwd                        String\n  environment\
