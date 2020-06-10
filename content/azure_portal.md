@@ -16,7 +16,10 @@ aliases = ["/azure_portal.html"]
 
 {{< warning >}}
 
-Installing the chef extension is no longer supported through the Azure Portal. It can be installed using other [command line tools](https://github.com/chef-partners/azure-chef-extension#following-are-the-references-to-doc-for-different-azure-command-line-tools).
-
+Installing the chef extension is no longer supported through the Azure Portal.
+It can be installed using other command line tools such as:
+  1. [Azure Powershell cmdlets](https://docs.chef.io/azure_powershell/)
+  2. [Azure Xplat CLI](https://docs.chef.io/azure_chef_cli/)
+  3. [Knife Azure Plugin](https://docs.chef.io/workstation/knife_azure/)
 {{< /warning >}}
 
