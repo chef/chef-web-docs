@@ -121,7 +121,7 @@ describe how to bootstrap a node using knife.
     knife client show NAME_OF_NODE
     ```
 
-    where `NAME_OF_NODE` is the name of the node that was just
+    where `NODE_NAME` is the name of the node that was just
     bootstrapped. The Chef Infra Server will return something similar
     to:
 
