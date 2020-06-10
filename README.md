@@ -3,30 +3,44 @@
 This repo is the source of the Chef reference documentation located at
 https://docs.chef.io/
 
-## Workstation Documentation
+## Documentation for Other Repositories
+
+We use [Hugo modules](https://gohugo.io/hugo-modules/) to grab documentation from
+other Chef repositories.
 
 The Chef Workstation documentation is stored in the `chef/chef-workstation` repository
 in the [`www`](https://github.com/chef/chef-workstation/tree/master/www) directory.
-We use [Hugo modules](https://gohugo.io/hugo-modules/) to build the [Chef Workstation documentation](https://docs.chef.io/workstation/).
 
-### Preview local changes to chef-workstation documentation from chef-web-docs
+The Chef Effortless documentation is stored in the `chef/effortless` repository
+in the [`effortless-chef-io`](https://github.com/chef/effortless/tree/master/effortless-chef-io) directory.
+
+The Chef Desktop documentation is stored in the `chef/desktop-config` repository
+in the `docs` directory. This is a private repository.
+
+### Preview Local Changes to Documentation from Other Repos from chef-web-docs
 
 Follow these steps to preview changes to the chef-workstation documentation while
 running Hugo from chef-web-docs.
 
-1. Clone `chef/chef-web-docs` and `chef/chef-workstation` into the same directory.
+1. Clone `chef/chef-web-docs` and `chef/other-repo-with-docs` into the same directory.
 
 1. Modify the go.mod file in `chef-web-docs`.
 
-   Add `replace github.com/chef/chef-workstation/www => ../chef-workstation/www` below the
-   `require` statement. The whole file should look like this:
+   Add a replace directive to the `go.mod` file that points that repo to your
+   local copy of the repo. For example, if you want to preview changes to chef-workstation,
+   add `replace github.com/chef/chef-workstation/www => ../chef-workstation/www` below the
+   `require` statement. The whole file should look something like this:
 
    ```
    module github.com/chef/chef-web-docs
 
    go 1.14
 
-   require github.com/chef/chef-workstation/www v0.0.0-<commit timestamp>-<commit SHA> // indirect
+   require (
+   	github.com/chef/chef-workstation/www v0.0.0-<commit timestamp>-<commit SHA> // indirect
+   	github.com/chef/desktop-config/docs v0.0.0-<commit timestamp>-<commit SHA> // indirect
+   	github.com/chef/effortless/effortless-chef-io v0.0.0-<commit timestamp>-<commit SHA> // indirect
+   )
 
    replace github.com/chef/chef-workstation/www => ../chef-workstation/www
    ```
@@ -34,15 +48,83 @@ running Hugo from chef-web-docs.
 1. Start the Hugo server from `chef-web-docs`:
 
    ```
-   make serve
+   make serve_ignore_vendor
    ```
 
 You can preview any changes made to the documentation in `chef-workstation` as
 they would appear on https://docs.chef.io.
 
+See the documentation about Hugo vendoring below to understand the `--ignoreVendor` option.
+
 **Before you submit a PR**
 
-- Delete or comment out the `replace` directive in the chef-web-docs/go.mod file.
+- Delete or comment out the `replace` directive in the `chef-web-docs/go.mod` file.
+
+### Update Hugo Modules
+
+Hugo modules are pinned to a particular commit of the master branch in their repository.
+If you look in the `go.mod` and `go.sum` files, you'll notice that each repository
+specifies a git commit timestamp and SHA.
+
+To update a particular repo, run:
+
+```
+hugo mod get github.com/chef/repo_to_update/subdirectory
+hugo mod tidy
+```
+
+For example, to update the chef-workstation repository:
+
+```
+hugo mod get github.com/chef/chef-workstation/www
+hugo mod tidy
+```
+
+This will update that repository to the most recent commit.
+
+You can also update a module to a commit version number. For example:
+
+```
+hugo mod get github.com/chef/chef-workstation/www@20.6.62
+hugo mod tidy
+```
+
+To update all Hugo modules at the same time, run:
+
+```
+hugo mod get -u
+hugo mod tidy
+```
+
+The `hugo mod tidy` command removes references to commits in the
+`go.mod` and `go.sum` files that are no longer relevant.
+
+Sometimes the `go.sum` file gets a little out of control and `hugo mod tidy` won't
+clean it up. Each repository listed in the `go.mod` file should have two lines
+in the `go.sum` file. If it has more than that and `hugo mod tidy` doesn't remove them,
+delete the `go.sum` file and rebuild it with `hugo mod get -u`.
+
+See Hugo's [documentation](https://gohugo.io/hugo-modules/use-modules/#update-modules)
+for additional information about updating Hugo Modules.
+
+## Hugo Vendoring
+
+[Vendoring](https://gohugo.io/commands/hugo_mod_vendor/) stores all of the module content
+from other repositories in the `_vendor` directory at the commit specified by
+the `go.mod` file. When Hugo builds the documentation, it will grab content from
+the `_vendor` directory instead of the original repository OR a local copy of a
+that repository. To see which commits the vendored files reference, see the
+`_vendor/modules.txt` file.
+
+To vendor the modules in chef-web-docs, run `hugo mod vendor`.
+
+To update the vendored modules, first update the Hugo module(s) (see above), then
+run `hugo mod vendor`.
+
+To ignore the vendored files in a Hugo build, run `make serve_ignore_vendor`. This
+is the same as `make serve` except it adds the `--ignoreVendor` flag. This will
+build the documentation from the GitHub repositories or from a local copy of a repository
+if the `go.mod` file specifies pulling content from a local repository. (see above)
 
 ## The fastest way to contribute
 
@@ -97,6 +179,19 @@ To build the docs and preview locally:
 
 - Run `make serve`
 - go to http://localhost:1313
+
+Note that this repository grabs content from other repositories using Hugo modules.
+That content is stored in the `_vendor` directory. `make serve` will use the
+content in the `_vendor` directory instead of from its source GitHub repository
+OR from a local copy of a repository.
+
+To build the docs from the source repositories:
+
+- Run `make serve_ignore_vendor`
+
+Some of our documentation is stored in a private repository so this option is only
+available to people with access to that repository. See the documentation above
+concerning Hugo modules and vendoring.
 
 To clean your local development environment:
 

@@ -1,34 +1,6 @@
 [build]
   publish = "public"
-  command = '''
-# Configure a special deploy key that allows access
-# to any private Hugo modules. More details at:
-#
-# https://community.netlify.com/t/support-guide-using-an-ssh-key-via-environment-variable-during-build/2457
-
-mkdir -p ~/.ssh
-
-# We replaced all newlines (\n) with underscores (_) when
-# coverting our key to a Netlify environment variable
-echo -e "${DEPLOY_KEY_CHEF_DESKTOP_CONFIG//_/\\n}" > ~/.ssh/id_rsa
-
-chmod og-rwx ~/.ssh/id_rsa
-
-# Fetch github's SSH host keys and compare them to the published
-# ones at:
-#
-# https://help.github.com/en/articles/githubs-ssh-key-fingerprints
-
-ssh-keyscan -t rsa github.com > ~/.ssh/known_hosts
-ssh-keygen -F github.com -l -E sha256 | grep -q "SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8"
-
-# Force fetching modules over SSH
-
-git config --global url.git@github.com:.insteadOf https://github.com/
-
-make assets
-hugo --gc --minify --enableGitInfo
-'''
+  command = "make assets; hugo --gc --minify --enableGitInfo"
 
 [build.environment]
   HUGO_VERSION = "0.69.0"
@@ -40,32 +12,4 @@ hugo --gc --minify --enableGitInfo
   skip_processing = true
 
 [context.deploy-preview]
-  command = '''
-# Configure a special deploy key that allows access
-# to any private Hugo modules. More details at:
-#
-# https://community.netlify.com/t/support-guide-using-an-ssh-key-via-environment-variable-during-build/2457
-
-mkdir -p ~/.ssh
-
-# We replaced all newlines (\n) with underscores (_) when
-# coverting our key to a Netlify environment variable
-echo -e "${DEPLOY_KEY_CHEF_DESKTOP_CONFIG//_/\\n}" > ~/.ssh/id_rsa
-
-chmod og-rwx ~/.ssh/id_rsa
-
-# Fetch github's SSH host keys and compare them to the published
-# ones at:
-#
-# https://help.github.com/en/articles/githubs-ssh-key-fingerprints
-
-ssh-keyscan -t rsa github.com > ~/.ssh/known_hosts
-ssh-keygen -F github.com -l -E sha256 | grep -q "SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8"
-
-# Force fetching modules over SSH
-
-git config --global url.git@github.com:.insteadOf https://github.com/
-
-make assets
-hugo --gc --minify --enableGitInfo --buildFuture
-'''
+  command = "make assets; hugo --gc --minify --enableGitInfo --buildFuture"
