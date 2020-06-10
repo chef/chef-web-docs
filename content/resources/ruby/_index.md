@@ -33,11 +33,15 @@ resource_description_list:
       other script resources, rather than run inline.'
 resource_new_in: null
 handler_types: false
-syntax_description: "A **ruby** resource block executes scripts using Ruby:\n\n```\
-  \ ruby\nruby 'extract_module' do\n  cwd ::File.dirname(src_filepath)\n  code <<-EOH\n\
-  \    mkdir -p #{extract_path}\n    tar xzf #{src_filename} -C #{extract_path}\n\
-  \    mv #{extract_path}/*/* #{extract_path}/\n    EOH\n  not_if { ::File.exist?(extract_path)\
-  \ }\nend\n```"
+syntax_description: |
+A **ruby** resource block executes scripts using Ruby:
+```ruby
+ruby 'hello world' do
+  code <<-EOH
+    puts "Hello world! From Chef and Ruby."
+  EOH
+end
+```
 syntax_code_block: null
 syntax_properties_list:
 - '`cwd` specifies the directory from which the command is run'
