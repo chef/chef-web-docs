@@ -10,6 +10,8 @@ draft = false
     weight = 10
 +++
 
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/compliance/chef-benchmark.md)
+
 Chef Compliance uses premium Chef content to audit and harden your fleet for [CIS](https://www.cisecurity.org/). Chef Compliance uses a combination of Effortless Audit and a customized Effortless Remediation package, and gives you the ability to turn controls on and off with a single YAML configuration file.
 
 The Windows and Linux packages in this demonstration work with the Chef Compliance Audit and Remediation content. Find out more about our [Chef Compliance](https://www.chef.io/products/chef-compliance/) offerings.
