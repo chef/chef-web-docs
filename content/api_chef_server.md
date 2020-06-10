@@ -49,7 +49,7 @@ Server user interface. In some cases, such as when using the
 `knife exec` subcommand, the authentication requests need to be made
 more explicitly, but still in a way that does not require authentication
 headers. In a few cases, such as when using arbitrary Ruby code,
-a Chef Server API client, or cURL, it may be necessary to include the
+a Chef Infra Server API client, or cURL, it may be necessary to include the
 full authentication header as part of the request to the Chef Infra Server.
 
 {{< /note >}}
@@ -105,7 +105,7 @@ The following authentication headers are required:
 </tr>
 <tr class="odd">
 <td><code>X-Ops-Server-API-Version</code></td>
-<td>Use <code>X-Ops-Server-API-Version</code> to specify the version of the Chef Infra Server API. For example: <code>X-Ops-Server-API-Version: 1</code>. <code>X-Ops-Server-API-Version: 0</code> is supported for use with Chef Server version 12, but will be deprecated as part of the next major release.</td>
+<td>Use <code>X-Ops-Server-API-Version</code> to specify the version of the Chef Infra Server API. For example: <code>X-Ops-Server-API-Version: 1</code>. <code>X-Ops-Server-API-Version: 0</code> is supported for use with Chef Infra Server version 12, but will be deprecated as part of the next major release.</td>
 </tr>
 <tr class="even">
 <td><code>X-Ops-Sign</code></td>
@@ -193,7 +193,7 @@ GET /organizations/NAME/nodes HTTP/1.1
 
 #### Canonical Header Format 1.3 using SHA-256
 
-Chef Server versions 12.4.0 and above support signing protocol version
+Chef Infra Server versions 12.4.0 and above support signing protocol version
 1.3, which adds support for SHA-256 algorithms. It can be enabled on
 Chef Infra Client via the `client.rb` file:
 
@@ -201,7 +201,7 @@ Chef Infra Client via the `client.rb` file:
 authentication_protocol_version = '1.3'
 ```
 
-And on Chef knife via `config.rb`:
+And for Chef's knife CLI via `config.rb`:
 
 ``` ruby
 knife[:authentication_protocol_version] = '1.3'
