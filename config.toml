@@ -105,6 +105,10 @@ notAlternative = true
     source = "static"
     target = "static"
 
+  [[module.imports.mounts]]
+    source = "layouts/shortcodes"
+    target = "layouts/shortcodes"
+
   [[module.imports]]
     disable = false
     ignoreConfig = false

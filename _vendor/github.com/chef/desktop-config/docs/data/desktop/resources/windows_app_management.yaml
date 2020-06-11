@@ -14,7 +14,8 @@ menu:
     identifier: desktop/resources/windows_app_management windows_app_management
     parent: desktop/resources
 resource_description_list:
-- markdown: Configures nodes to use Gorilla to manage apps with
+- markdown: Use the **windows_app_management** resource to configure nodes to use
+    Gorilla for application management.
 syntax_full_code_block: |-
   windows_app_management 'name' do
     how_often_to_check_for_updates      String

@@ -14,7 +14,8 @@ menu:
     identifier: desktop/resources/mac_disk_encryption mac_disk_encryption
     parent: desktop/resources
 resource_description_list:
-- markdown: Use this resource to enforce FileVault encryption on nodes
+- markdown: Use the **mac_disk_encryption** resource to enforce FileVault encryption
+    on macOS systems.
 syntax_full_code_block: |-
   mac_disk_encryption 'name' do
     action      Symbol # defaults to :enable if not specified

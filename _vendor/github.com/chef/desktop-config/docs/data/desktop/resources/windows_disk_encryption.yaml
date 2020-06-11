@@ -14,7 +14,8 @@ menu:
     identifier: desktop/resources/windows_disk_encryption windows_disk_encryption
     parent: desktop/resources
 resource_description_list:
-- markdown: Enable or Disable BitLocker Drive Encryption with this resource.
+- markdown: Use the **windows_disk_encryption** resource to enable or disable BitLocker
+    Drive Encryption on Windows systems.
 syntax_full_code_block: |-
   windows_disk_encryption 'name' do
     action      Symbol # defaults to :enable if not specified

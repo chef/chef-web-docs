@@ -14,8 +14,8 @@ menu:
     identifier: desktop/resources/windows_power_management windows_power_management
     parent: desktop/resources
 resource_description_list:
-- markdown: Use this resource to set the power settings of a kiosk-style device when
-    you need it always-on
+- markdown: Use the **windows_power_management** resource to set the power settings
+    of a kiosk-style device when you need it always-on
 syntax_full_code_block: |-
   windows_power_management 'name' do
     power_level             String # default value: "balanced"
