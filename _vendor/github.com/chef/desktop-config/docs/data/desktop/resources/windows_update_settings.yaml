@@ -14,14 +14,13 @@ menu:
     identifier: desktop/resources/windows_update_settings windows_update_settings
     parent: desktop/resources
 resource_description_list:
-- markdown: Manages the various options for patching the OS and any features that
-    come from Microsoft for Windows devices
+- markdown: Use the **windows_update_settings** resource to manage the various Windows
+    Update patching options.
 syntax_full_code_block: |-
   windows_update_settings 'name' do
     add_to_target_wsus_group                 true, false # default value: false
     automatic_update_option                  Integer # default value: 4
     automatically_install_minor_updates      true, false # default value: false
-    binary_value                             Integer
     block_windows_update_website             true, false # default value: false
     custom_detection_frequency               Integer # default value: 22
     disable_automatic_updates                true, false # default value: false
@@ -45,7 +44,7 @@ syntax_full_properties_list:
 - "`action` identifies which steps Chef Infra Client will take to bring the node into
   the desired state."
 - "`add_to_target_wsus_group`, `automatic_update_option`, `automatically_install_minor_updates`,
-  `binary_value`, `block_windows_update_website`, `custom_detection_frequency`, `disable_automatic_updates`,
+  `block_windows_update_website`, `custom_detection_frequency`, `disable_automatic_updates`,
   `disable_os_upgrades`, `elevate_non_admins`, `enable_detection_frequency`, `no_reboot_with_users_logged_on`,
   `scheduled_install_day`, `scheduled_install_hour`, `target_wsus_group_name`, `update_other_ms_products`,
   `use_custom_update_server`, `wsus_server_url`, and `wsus_status_server_url` are
@@ -75,12 +74,6 @@ properties_list:
   default_value: 'false'
   description_list:
   - markdown: Automatically install minor updates. Default is False
-- property: binary_value
-  ruby_type: Integer
-  required: false
-  description_list:
-  - markdown: Internal property used to turn True/False into binary values for registry
-      keys
 - property: block_windows_update_website
   ruby_type: true, false
   required: false

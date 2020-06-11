@@ -87,8 +87,6 @@ Check the Policyfile and apply it to our test nodes. Policies are a convenient s
 Your Chef Desktop `Policyfile.rb` should look similar to:
 
 ```ruby
-# frozen_string_literal: true
-
 name 'chefdesktop'
 
 # default_source :supermarket, 'https://supermarket.chef.io' do |s|

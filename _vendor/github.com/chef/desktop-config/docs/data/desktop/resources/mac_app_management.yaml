@@ -14,7 +14,8 @@ menu:
     identifier: desktop/resources/mac_app_management mac_app_management
     parent: desktop/resources
 resource_description_list:
-- markdown: A Mac resource for configuring nodes to use Munki to manage apps
+- markdown: Use the **mac_app_management** resource to configure nodes to use Munki
+    to manage apps
 syntax_full_code_block: |-
   mac_app_management 'name' do
     munki_client_download_url      String

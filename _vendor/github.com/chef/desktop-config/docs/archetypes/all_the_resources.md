@@ -5,7 +5,7 @@ desktop_resource_list = true
 
 [menu]
   [menu.desktop]
-    title = "All Resources"
+    title = "All Resources (Single Page)"
     identifier = "desktop/resources/index.md All Resources"
     parent = "desktop/resources"
     weight = 10

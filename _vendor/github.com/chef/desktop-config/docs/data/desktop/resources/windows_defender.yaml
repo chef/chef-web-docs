@@ -1,0 +1,37 @@
+---
+resource_reference: true
+properties_shortcode:
+resources_common_guards: true
+resources_common_notification: true
+resources_common_properties: true
+title: windows_defender resource
+resource: windows_defender
+aliases:
+- "/resource_windows_defender.html"
+menu:
+  desktop:
+    title: windows_defender
+    identifier: desktop/resources/windows_defender windows_defender
+    parent: desktop/resources
+resource_description_list:
+- markdown: Use the **windows_defender** resource to enable or disable the Microsoft
+    Windows Defender service.
+syntax_full_code_block: |-
+  windows_defender 'name' do
+    action      Symbol # defaults to :enable if not specified
+  end
+syntax_properties_list:
+syntax_full_properties_list:
+- "`windows_defender` is the resource."
+- "`name` is the name given to the resource block."
+- "`action` identifies which steps Chef Infra Client will take to bring the node into
+  the desired state."
+actions_list:
+  :disable:
+    markdown:
+  :enable:
+    markdown:
+  :nothing:
+    shortcode: resources_common_actions_nothing.md
+properties_list: []
+examples:

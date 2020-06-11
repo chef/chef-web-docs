@@ -49,8 +49,8 @@ mac.rb
 : The macOS recipe follows the same format, and as much as possible, the same spelling and parameters for a strong consistency between the recipes and no change in verbiage. Example:
 
   ```ruby
-  chef_schedule 'Setup the Chef client to run every 30 minutes' do
-    running_interval 30
+  chef_client_launchd 'Setup the Chef client to run every 30 minutes' do
+    interval 30
     action :enable
     # valid options include :enable, :disable
   end
