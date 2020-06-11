@@ -181,6 +181,28 @@ The extension has the following options that can be provided in the
 
     {{< /note >}}
 
+`bootstrap_channel`
+
+:   Specify the channel for installing chef client version from `stable`, `current`
+    or `unstable`  release channel.
+
+`chef_package_path`
+
+:   chef_package_path allows installing chef-client from local path. We provided
+    this option  so that user is able to install chef-client from the local path.
+    This feature mainly added  where there is restrictions on internet access.
+    But also note azure extensions itself has limitations in respect of network access please refer to this [link](https://docs.microsoft.com/en-us/azure/virtual-machines/extensions/features-linux#network-access) which explains this in details.
+
+`CHEF_LICENSE`
+
+:   Affected product versions which require accepting the CHEF EULA license
+    (requires chef 15 + ). Set `CHEF_LICENSE` with either of these values `accept`,
+    `accept-silent` or `accept-no-persist`. Refer to [CHEF EULA license](https://docs.chef.io/chef_license_accept/#accept-the-chef-eula)
+
+`hints`
+
+:   Specifies the Ohai Hints to be set in the Ohai configuration of the target node.
+
 `bootstrap_options`
 
 :   A hash of the following options: `chef_node_name`,
