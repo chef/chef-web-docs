@@ -59,7 +59,7 @@ where:
 
 -   `platform-version` is the name of a platform on which Test Kitchen
     will perform cookbook testing, for example, `ubuntu-20.04` or
-    `centos-7`; depending on the platform, additional driver
+    `centos-8`; depending on the platform, additional driver
     details---for example, instance names and URLs used with cloud
     platforms like OpenStack or Amazon EC2---may be required
 

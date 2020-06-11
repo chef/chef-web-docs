@@ -338,8 +338,8 @@ transport:
   password: PASSWORD for root or user
 
 platforms:
-  - name: ubuntu-20.04
-  - name: centos-7
+  - name: ubuntu-18.04
+  - name: centos-8
 
 suites:
   - name: default
@@ -377,7 +377,7 @@ platforms:
   - name: ubuntu-2004
     driver_config:
       template: ubuntu16-template
-  - name: centos-7
+  - name: centos-8
     driver_config:
       template: centos7-template
 ```
