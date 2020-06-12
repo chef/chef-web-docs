@@ -1,6 +1,6 @@
 ---
 resource_reference: true
-properties_shortcode: 
+properties_shortcode:
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
@@ -38,7 +38,7 @@ syntax_full_code_block: |-
     vlan              String
     action            Symbol # defaults to :add if not specified
   end
-syntax_properties_list: 
+syntax_properties_list:
 syntax_full_properties_list:
 - "`ifconfig` is the resource."
 - "`name` is the name given to the resource block."
@@ -177,7 +177,7 @@ properties_list:
 examples: "
   Configure a network interface\n\n  ``` ruby\n  ifconfig \"33.33.33.80\"\
   \ do\n    bootproto \"dhcp\"\n    device \"eth1\"\n  end\n  ```\n\n  will create\
-  \ the following interface:\n\n  ``` none\n  vagrant@default-ubuntu-1204:~cat /etc/network/interfaces.d/ifcfg-eth1\n\
+  \ the following interface:\n\n  ``` none\n  vagrant@default-ubuntu-2004:~cat /etc/network/interfaces.d/ifcfg-eth1\n\
   \  iface eth1 inet dhcp\n  ```\n\n  Specify a boot protocol\n\n  ``` ruby\n  ifconfig\
   \ '192.186.0.1' do\n    device 'eth0'\n  end\n  ```\n\n  Specify a static IP address\n\
   \n  ``` ruby\n  ifconfig \"33.33.33.80\" do\n    device \"eth1\"\n  end\n  ```\n\

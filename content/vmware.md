@@ -338,8 +338,8 @@ transport:
   password: PASSWORD for root or user
 
 platforms:
-  - name: ubuntu-16.04
-  - name: centos-7
+  - name: ubuntu-18.04
+  - name: centos-8
 
 suites:
   - name: default
@@ -374,10 +374,10 @@ driver:
     datacenter: "Datacenter"
 
 platforms:
-  - name: ubuntu-1604
+  - name: ubuntu-2004
     driver_config:
       template: ubuntu16-template
-  - name: centos-7
+  - name: centos-8
     driver_config:
       template: centos7-template
 ```
