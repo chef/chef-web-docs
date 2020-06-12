@@ -30,7 +30,7 @@ resource_description_list:
 syntax_description: "A **batch** resource block executes a batch script using the\
   \ cmd.exe\ninterpreter:\n\n``` ruby\nbatch 'echo some env vars' do\n  code <<-EOH\n\
   \    echo %TEMP%\n    echo %SYSTEMDRIVE%\n    echo %PATH%\n    echo %WINDIR%\n \
-  \   EOH\nend\n```"
+  \ EOH\nend\n```"
 syntax_code_block: null
 syntax_properties_list: null
 syntax_full_code_block: "batch 'name' do\n  architecture               Symbol\n  code\
@@ -243,12 +243,12 @@ examples: "
   \ and then moves Ruby, do something like:\n\n  ``` ruby\n  batch 'unzip_and_move_ruby'\
   \ do\n    code <<-EOH\n      7z.exe x #{Chef::Config[:file_cache_path]}/ruby-1.8.7-p352-i386-mingw32.7z\n\
   \        -oC:\\\\source -r -y\n      xcopy C:\\\\source\\\\ruby-1.8.7-p352-i386-mingw32\
-  \ C:\\\\ruby /e /y\n      EOH\n  end\n\n  batch 'echo some env vars' do\n    code\
+  \ C:\\\\ruby /e /y\n    EOH\n  end\n\n  batch 'echo some env vars' do\n    code\
   \ <<-EOH\n      echo %TEMP%\n      echo %SYSTEMDRIVE%\n      echo %PATH%\n     \
-  \ echo %WINDIR%\n      EOH\n  end\n  ```\n\n  or:\n\n  ``` ruby\n  batch 'unzip_and_move_ruby'\
+  \ echo %WINDIR%\n    EOH\n  end\n  ```\n\n  or:\n\n  ``` ruby\n  batch 'unzip_and_move_ruby'\
   \ do\n    code <<-EOH\n      7z.exe x #{Chef::Config[:file_cache_path]}/ruby-1.8.7-p352-i386-mingw32.7z\n\
   \        -oC:\\\\source -r -y\n      xcopy C:\\\\source\\\\ruby-1.8.7-p352-i386-mingw32\
-  \ C:\\\\ruby /e /y\n      EOH\n  end\n\n  batch 'echo some env vars' do\n    code\
+  \ C:\\\\ruby /e /y\n    EOH\n  end\n\n  batch 'echo some env vars' do\n    code\
   \ 'echo %TEMP%\\\\necho %SYSTEMDRIVE%\\\\necho %PATH%\\\\necho %WINDIR%'\n  end\n\
   \  ```\n\n  Run a command as an alternate user\n\n  *Note*: When Chef is running\
   \ as a service, this feature requires that\n  the user that Chef runs as has 'SeAssignPrimaryTokenPrivilege'\

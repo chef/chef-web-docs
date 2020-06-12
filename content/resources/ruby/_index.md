@@ -33,11 +33,15 @@ resource_description_list:
       other script resources, rather than run inline.'
 resource_new_in: null
 handler_types: false
-syntax_description: "A **ruby** resource block executes scripts using Ruby:\n\n```\
-  \ ruby\nruby 'extract_module' do\n  cwd ::File.dirname(src_filepath)\n  code <<-EOH\n\
-  \    mkdir -p #{extract_path}\n    tar xzf #{src_filename} -C #{extract_path}\n\
-  \    mv #{extract_path}/*/* #{extract_path}/\n    EOH\n  not_if { ::File.exist?(extract_path)\
-  \ }\nend\n```"
+syntax_description: |
+  A **ruby** resource block executes scripts using Ruby:
+  ```ruby
+  ruby 'hello world' do
+    code <<-EOH
+      puts "Hello world! From Chef and Ruby."
+    EOH
+  end
+  ```
 syntax_code_block: null
 syntax_properties_list:
 - '`cwd` specifies the directory from which the command is run'
@@ -122,74 +126,6 @@ properties_list:
   - shortcode: resources_common_notification_timers.md
   - markdown: ''
   - shortcode: resources_common_notification_notifies_syntax.md
-- property: path
-  ruby_type: Array
-  required: false
-  description_list:
-  - markdown: 'An array of paths to use when searching for a command. These paths
-
-      are not added to the command''s environment \$PATH. The default value
-
-      uses the system path.'
-  - warning:
-    - - markdown: ''
-    - shortcode: resources_common_resource_execute_attribute_path.md
-    - - markdown: ''
-    - - markdown: Fo
-    - - markdown: r
-    - - markdown: ex
-    - - markdown: am
-    - - markdown: pl
-    - - markdown: 'e:'
-    - - markdown: ''
-    - - markdown: '``'
-    - - markdown: '`'
-    - - markdown: ru
-    - - markdown: by
-    - - markdown: r
-    - - markdown: ub
-    - - markdown: y
-    - - markdown: '''m'
-    - - markdown: yc
-    - - markdown: om
-    - - markdown: ma
-    - - markdown: nd
-    - - markdown: ''''
-    - - markdown: do
-    - - markdown: ''
-    - - markdown: e
-    - - markdown: nv
-    - - markdown: ir
-    - - markdown: 'on'
-    - - markdown: me
-    - - markdown: nt
-    - - markdown: ''''
-    - - markdown: PA
-    - - markdown: TH
-    - - markdown: ''''
-    - - markdown: =>
-    - - markdown: '"'
-    - - markdown: /m
-    - - markdown: y/
-    - - markdown: pa
-    - - markdown: th
-    - - markdown: /t
-    - - markdown: o/
-    - - markdown: bi
-    - - markdown: 'n:'
-    - - markdown: '#{'
-    - - markdown: EN
-    - - markdown: V[
-    - - markdown: '''P'
-    - - markdown: AT
-    - - markdown: H'
-    - - markdown: ']}'
-    - - markdown: '"'
-    - - markdown: en
-    - - markdown: d
-    - - markdown: '``'
-    - - markdown: '`'
-    - - markdown: ''
 - property: retries
   ruby_type: Integer
   required: false

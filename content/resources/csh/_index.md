@@ -25,17 +25,9 @@ resource_description_list:
     typically unique to the environment in which they are run. Use `not_if`
 
     and `only_if` to guard this resource for idempotence.'
-- note:
-    markdown: 'The **csh** script resource (which is based on the **script** resource)
-
-      is different from the **ruby_block** resource because Ruby code that is
-
-      run with this resource is created as a temporary file and executed like
-
-      other script resources, rather than run inline.'
 syntax_description: "A **csh** resource block executes scripts using csh:\n\n``` ruby\n\
   csh 'hello world' do\n  code <<-EOH\n    echo \"Hello world!\"\n    echo \"Current\
-  \ directory: \" $cwd\n    EOH\nend\n```"
+  \ directory: \" $cwd\n  EOH\nend\n```"
 syntax_code_block: null
 syntax_properties_list:
 - '`code` specifies the command to run'
@@ -103,75 +95,6 @@ properties_list:
   - markdown: 'The group name or group ID that must be changed before running a
 
       command.'
-- property: path
-  ruby_type: Array
-  required: false
-  default_value: null
-  new_in: null
-  description_list:
-  - markdown: 'An array of paths to use when searching for a command. These paths
-
-      are not added to the command''s environment \$PATH. The default value
-
-      uses the system path.'
-  - warning:
-    - - markdown: ''
-    - shortcode: resources_common_resource_execute_attribute_path.md
-    - - markdown: ''
-    - - markdown: Fo
-    - - markdown: r
-    - - markdown: ex
-    - - markdown: am
-    - - markdown: pl
-    - - markdown: 'e:'
-    - - markdown: ''
-    - - markdown: '``'
-    - - markdown: '`'
-    - - markdown: ru
-    - - markdown: by
-    - - markdown: c
-    - - markdown: sh
-    - - markdown: ''''
-    - - markdown: my
-    - - markdown: co
-    - - markdown: mm
-    - - markdown: an
-    - - markdown: d'
-    - - markdown: d
-    - - markdown: o
-    - - markdown: ''
-    - - markdown: en
-    - - markdown: vi
-    - - markdown: ro
-    - - markdown: nm
-    - - markdown: en
-    - - markdown: t
-    - - markdown: '''P'
-    - - markdown: AT
-    - - markdown: H'
-    - - markdown: '='
-    - - markdown: '>'
-    - - markdown: '"/'
-    - - markdown: my
-    - - markdown: /p
-    - - markdown: at
-    - - markdown: h/
-    - - markdown: to
-    - - markdown: /b
-    - - markdown: in
-    - - markdown: :#
-    - - markdown: '{E'
-    - - markdown: NV
-    - - markdown: '['''
-    - - markdown: PA
-    - - markdown: TH
-    - - markdown: ''']'
-    - - markdown: '}"'
-    - - markdown: e
-    - - markdown: nd
-    - - markdown: '`'
-    - - markdown: '``'
-    - - markdown: ''
 - property: returns
   ruby_type: Integer, Array
   required: false
