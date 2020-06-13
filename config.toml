@@ -900,22 +900,20 @@ weight = 10
 
 [[menu.inspec]]
 title = "Chef InSpec"
-identifier = "chef_inspec"
+identifier = "inspec"
 weight = 10
 
   [[menu.inspec]]
-  title = "Documentation"
-  identifier = "chef_inspec/https://www.inspec.io/docs/ Documentation"
-  parent = "chef_inspec"
-  url = "https://www.inspec.io/docs/"
-  weight = 20
+  title = "InSpec Reference"
+  identifier = "inspec/reference"
+  parent = "inspec"
+  weight = 80
 
   [[menu.inspec]]
-  title = "Tutorials"
-  identifier = "chef_inspec/https://www.inspec.io/tutorials/ Tutorials"
-  parent = "chef_inspec"
-  url = "https://www.inspec.io/tutorials/"
-  weight = 30
+  title = "InSpec Resources"
+  identifier = "inspec/resources"
+  parent = "inspec"
+  weight = 999
 
 ####
 # End Chef Inspec Menu
