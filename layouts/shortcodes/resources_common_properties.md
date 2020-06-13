@@ -5,7 +5,8 @@ The following properties are common to every resource:
 :   **Ruby Type:** true, false, :quiet \| **Default Value:** `false`
 
     Continue running a recipe if a resource fails for any reason.
-
+    Using `:quiet` logs the full error though will still continue running the recipe.
+    
 `retries`
 
 :   **Ruby Type:** Integer \| **Default Value:** `0`
