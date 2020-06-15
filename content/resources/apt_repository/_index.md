@@ -100,7 +100,7 @@ properties_list:
   - markdown: If a keyserver is provided, this is assumed to be the fingerprint; otherwise
       it can be either the URI of GPG key for the repo, or a cookbook_file.
 - property: key_proxy
-  ruby_type: String, nil, false
+  ruby_type: String, false
   required: false
   description_list:
   - markdown: If set, a specified proxy is passed to GPG via `http-proxy=`.
