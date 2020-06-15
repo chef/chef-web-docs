@@ -111,10 +111,10 @@ examples: |
 
   ```ruby
   windows_audit_policy "Set Audit Policy for 'Logon and Logoff' actions to 'Success and Failure'" do
-    subcategory   %w(Logon Logoff)
-    success        true
-    failure        true
-    action         :set
+    subcategory %w(Logon Logoff)
+    success true
+    failure true
+    action :set
   end
   ```
 
@@ -122,19 +122,19 @@ examples: |
 
   ```ruby
   windows_audit_policy "Set Audit Policy for 'Credential Validation' actions to 'Success'" do
-    subcategory   "Credential Validation"
-    success        true
-    failure        false
-    action         :set
+    subcategory  'Credential Validation'
+    success true
+    failure false
+    action :set
   end
   ```
 
   **Enable CrashOnAuditFail option**:
 
   ```ruby
-  windows_audit_policy "Enable CrashOnAuditFail option" do
-    crash_on_audit_fail        true
-    action                     :set
+  windows_audit_policy 'Enable CrashOnAuditFail option' do
+    crash_on_audit_fail true
+    action :set
   end
   ```
 ---
