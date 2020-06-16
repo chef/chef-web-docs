@@ -183,25 +183,31 @@ The extension has the following options that can be provided in the
 
 `bootstrap_channel`
 
-:   Specify the channel for installing chef client version from `stable`, `current`
-    or `unstable`  release channel.
+:   Specify the [channel](/packages/) for installing the Chef Infra Client version.
+    Options are `stable`, `current` or `unstable` release channels.
 
 `chef_package_path`
 
-:   chef_package_path allows installing chef-client from local path. We provided
-    this option  so that user is able to install chef-client from the local path.
-    This feature mainly added  where there is restrictions on internet access.
-    But also note azure extensions itself has limitations in respect of network access please refer to this [link](https://docs.microsoft.com/en-us/azure/virtual-machines/extensions/features-linux#network-access) which explains this in details.
+:   Specifies a local path to install Chef Infra Client from.
+    This feature is mainly used for cases where there are restrictions on
+    internet access.
+    {{< note spaces=4 >}}
+    Azure extensions have network access limitations. See the
+    [Azure documentation](https://docs.microsoft.com/en-us/azure/virtual-machines/extensions/features-linux#network-access)
+    for more information.
+    {{< /note >}}
 
 `CHEF_LICENSE`
 
-:   Affected product versions which require accepting the CHEF EULA license
-    (requires chef 15 + ). Set `CHEF_LICENSE` with either of these values `accept`,
-    `accept-silent` or `accept-no-persist`. Refer to [CHEF EULA license](https://docs.chef.io/chef_license_accept/#accept-the-chef-eula)
+:   Chef Infra Client 15+ requires accepting the CHEF EULA license. Set `CHEF_LICENSE`
+    to one of these values `accept`, `accept-silent` or `accept-no-persist`. Refer
+    to [CHEF EULA license](/chef_license_accept/#accept-the-chef-eula)
 
 `hints`
 
-:   Specifies the Ohai Hints to be set in the Ohai configuration of the target node.
+:   Specifies the [Ohai Hints](/ohai/#hints) to be set in the Ohai configuration of
+    the target node.
+
 
 `bootstrap_options`
 
