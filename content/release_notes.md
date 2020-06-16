@@ -621,7 +621,7 @@ Several legacy Windows helpers have been deprecated as they will always return t
 
 ### Ohai 15.9
 
-- Improve the resilency of the `Shard` plugin when `dmidecode` cannot be found on a system. Thanks [@jaymzh](https://github.com/jaymzh)
+- Improve the resiliency of the `Shard` plugin when `dmidecode` cannot be found on a system. Thanks [@jaymzh](https://github.com/jaymzh)
 - Fixed detection of Openstack guests via DMI data. Thanks [@ramereth](https://github.com/ramereth)
 
 ### Platform Support
@@ -894,7 +894,7 @@ The `windows_task` resource is now idempotent when a system is joined to a domai
 
 #### x509_certificate
 
-The `x509_certificate` resource now includes a new `renew_before_expiry` property that allows you to auto renew certicates a specified number of days before they expire. Thanks [@julienhuon](https://github.com/julienhuon/) for this improvement.
+The `x509_certificate` resource now includes a new `renew_before_expiry` property that allows you to auto renew certificates a specified number of days before they expire. Thanks [@julienhuon](https://github.com/julienhuon/) for this improvement.
 
 ### Additional Recipe Helpers
 
@@ -1225,7 +1225,7 @@ openssl has been updated from 1.0.2s to 1.0.2t in order to resolve [CVE-2019-156
 
 #### nokogiri
 
-nokogori has been updated from 1.10.2 to 1.10.4 in order to resolve [CVE-2019-5477](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-5477)
+nokogiri has been updated from 1.10.2 to 1.10.4 in order to resolve [CVE-2019-5477](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-5477)
 
 ## What's New in 15.2
 
@@ -1404,6 +1404,7 @@ end
 ```
 
 To selectively inherit certain properties from a resource:
+
 ```ruby
 resource_name :my_resource
 
@@ -1755,7 +1756,7 @@ The deprecated `Ohai::Util::Win32::GroupHelper` helper has been removed from Oha
 
 #### Ohai::System.refresh_plugins method removal
 
-The `refresh_plugins` method in the `Ohai::System` class has been removed as it has been unused for multiple major Ohai releases. If you are programatically using Ohai in your own Ruby application, you will need to update your code to use the `load_plugins` method instead.
+The `refresh_plugins` method in the `Ohai::System` class has been removed as it has been unused for multiple major Ohai releases. If you are programmatically using Ohai in your own Ruby application, you will need to update your code to use the `load_plugins` method instead.
 
 #### Ohai Microsoft VirtualPC / VirtualServer detection removal
 
@@ -1824,7 +1825,7 @@ libxslt has been updated to 1.1.34 to resolve [CVE-2019-13118](https://nvd.nist.
 - Fixed crash in knife when displaying a missing profile error message
 - Fixed knife subcommand --help not working as intended for some commands
 - Fixed knife ssh interactive mode exit error
-- Fixed for `:day`` option not accepting integer value in the `windows_task` resource
+- Fixed for `:day` option not accepting integer value in the `windows_task` resource
 - Fixed for `user` resource not handling a GID if it is specified as a string
 - Fixed the `ifconfig` resource to support interfaces with a `-` in the name
 
@@ -1916,6 +1917,7 @@ Knife now fails with a descriptive error message when attempting to bootstrap no
 #### Ruby
 
 Ruby has been updated from 2.5.5 to 2.5.7 in order to resolve the following CVEs:
+
 - [CVE-2012-6708](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-6708)
 - [CVE-2015-9251](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-9251).
 - [CVE-2019-16201](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-15845).
@@ -1929,7 +1931,7 @@ openssl has been updated from 1.0.2s to 1.0.2t in order to resolve [CVE-2019-156
 
 #### nokogiri
 
-nokogori has been updated from 1.10.2 to 1.10.4 in order to resolve [CVE-2019-5477](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-5477).
+nokogiri has been updated from 1.10.2 to 1.10.4 in order to resolve [CVE-2019-5477](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-5477).
 
 ## What's New in 14.13
 
@@ -1980,7 +1982,7 @@ In preparation for Chef Infra Client 15.0 we've added a placeholder `--chef-lice
 
 ### Important Bug Fixes
 
-- Blacklisting and whiteliting default and override level attributes is once again possible.
+- Blacklisting and whitelisting default and override level attributes is once again possible.
 - You may now encrypt a previously unencrypted data bag.
 - Resolved a regression introduced in Chef Infra Client 14.12.3 that resulted in errors when managing Windows services
 
@@ -2050,6 +2052,7 @@ OpenSSL has been updated to 1.0.2r in order to resolve [CVE-2019-1559](https://c
 #### RubyGems
 
 RubyGems has been updated to 2.7.9 in order to resolve the following CVEs:
+
 - [CVE-2019-8320](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-8320): Delete directory using symlink when decompressing tar
 - [CVE-2019-8321](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-8321): Escape sequence injection vulnerability in verbose
 - [CVE-2019-8322](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-8322): Escape sequence injection vulnerability in gem owner
@@ -2177,7 +2180,7 @@ windows_ad_join now uses the UPN format for usernames, which prevents some failu
 
 #### windows_certificate
 
-An issue was resolved in the :acl_add action of the windows_certificate resource, which caused the resource to fail. Thank you [@shoekstra](htts://github.com/shoekstra) for reporting this issue.
+An issue was resolved in the :acl_add action of the windows_certificate resource, which caused the resource to fail. Thank you [@shoekstra](https://github.com/shoekstra) for reporting this issue.
 
 #### windows_feature
 
@@ -2200,6 +2203,7 @@ A regression was resolved that prevented ChefSpec from testing the windows_task 
 Detection of Linux guests running on Hyper-V has been improved. In addition, Linux guests on Hyper-V hypervisors will also now detect their hypervisor's hostname. Thank you [@safematix](https://github.com/safematix) for contributing this enhancement.
 
 Example `node['virtualization']` data:
+
 ```json
 {
   "systems": {
@@ -2233,7 +2237,8 @@ BSD-based systems can now detect guests running on KVM and Amazon's hypervisor w
 #### OpenSSL
 
 OpenSSL has been updated to 1.0.2q in order to resolve:
-- Microarchitecture timing vulnerability in ECC scalar multiplication ([CVE-2018-5407](https://nvd.nist.gov/vuln/detail/CVE-2018-5407))
+
+- Microarchitecture timing vulnerability in ECC scalar multiplication [CVE-2018-5407](https://nvd.nist.gov/vuln/detail/CVE-2018-5407)
 - Timing vulnerability in DSA signature generation ([CVE-2018-0734](https://nvd.nist.gov/vuln/detail/CVE-2018-0734))
 
 ## What's New in 14.7
@@ -2332,7 +2337,7 @@ end
 
 ### InSpec 3.0
 
-Inspec has been updated to version 3.0 with addition resources, exception handling, and a new plugin system. See https://blog.chef.io/2018/10/16/announcing-inspec-3-0/ for details.
+Inspec has been updated to version 3.0 with addition resources, exception handling, and a new plugin system. See <https://blog.chef.io/2018/10/16/announcing-inspec-3-0/> for details.
 
 ### macOS Mojave (10.14)
 
@@ -2372,12 +2377,14 @@ The system_profile plugin will be removed from Chef/Ohai 15 in April 2019. This 
 #### Ruby 2.5.3
 
 Ruby has been updated to from 2.5.1 to 2.5.3 to resolve multiple CVEs and bugs:
+
 - [CVE-2018-16396](https://www.ruby-lang.org/en/news/2018/10/17/not-propagated-taint-flag-in-some-formats-of-pack-cve-2018-16396/)
 - [CVE-2018-16395](https://www.ruby-lang.org/en/news/2018/10/17/openssl-x509-name-equality-check-does-not-work-correctly-cve-2018-16395/)
 
 ## What's New in 14.5.33
 
 This release resolves a regression that caused the ``windows_ad_join`` resource to fail to run. It also makes the following additional fixes:
+
   - The ``ohai`` resource's unused ``ohai_name`` property has been deprecated. This will be removed in Chef Infra Client 15.0.
   - Error messages in the ``windows_feature`` resources have been improved.
   - The ``windows_service`` resource will no longer log potentially sensitive information if the ``sensitive`` property is used.
@@ -2417,6 +2424,7 @@ Thanks [@derekgroh](https://github.com/derekgroh) for contributing this new prop
 ### InSpec 2.2.102
 
 InSpec has been updated from 2.2.70 to 2.2.102. This new version includes the following improvements:
+
   - Support for using ERB templating within the .yml files
   - HTTP basic auth support for fetching dependent profiles
   - A new global attributes concept
@@ -2465,7 +2473,8 @@ staging
 $ knife config use-profile prod
 Set default profile to prod
 $ knife config list-profiles
-##  Profile  Client  Key               Server
+ Profile  Client  Key               Server
+-----------------------------------------------------------------------------
  staging  myuser  ~/.chef/user.pem  https://example.com/organizations/staging
 *prod     myuser  ~/.chef/user.pem  https://example.com/organizations/prod
 ```
@@ -2802,7 +2811,7 @@ This release resolves a number of regressions in 14.1.1:
 
 Enable Ubuntu-18.04 and Debian-9 tested chef-client packages.
 
-## Chef Client Release Notes 14.1:
+## What's New in 14.1
 
 ### Windows Task
 
@@ -2832,7 +2841,7 @@ The `ignore_failure` property takes a new argument, `:quiet`, to suppress the er
 
 - CVE-2018-1000201: DLL loading issue which can be hijacked on Windows OS
 
-## Ohai Release Notes 14.1:
+## Ohai Release Notes 14.1
 
 ### Configurable DMI Whitelist
 
@@ -3219,7 +3228,7 @@ Support for Windows 2003 has been removed from both Chef and Ohai, improving the
 
 #### Chef Solo `-r` flag
 
-The Chef Solor `-r` flag has been removed as it was deprecated and replaced with the `--recipe-url` flag in Chef 12.
+The Chef Solo `-r` flag has been removed as it was deprecated and replaced with the `--recipe-url` flag in Chef 12.
 
 #### node.set and node.set_unless attribute levels removal
 
