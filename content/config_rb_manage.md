@@ -195,6 +195,17 @@ This configuration file has the following settings:
     will show up in a box on the sign in page. Any valid HTML is allowed
     here. Default value: `nil`.
 
+`ssl_verify_mode`
+
+:   Enable or disable SSL verification for the connection to the Chef Infra
+Server. Valid settings: `:verify_none` and `:verify_peer`. Default value: `:verify_none`
+
+`trusted_certs_dir`
+
+:   Path to a directory containing trusted SSL certificates for verification
+when connecting to the Infra Server. Most common setting:
+`"/etc/chef/trusted_certs"` Default value: `""`
+
 `support_email_address`
 
 :   The email address used to send feedback. Default value:

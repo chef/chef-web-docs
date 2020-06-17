@@ -59,10 +59,10 @@ Start](/quick_start/) | [System
 Requirements](/chef_system_requirements/)
 
 **Release Notes**: [Chef Infra Client](/release_notes/) |
-[ChefDK](/release_notes_chefdk/) | [Chef Infra
-Server](/release_notes_server/) | [Chef Push
-Jobs](/release_notes_push_jobs/) |
-
+[ChefDK](/release_notes_chefdk/) | 
+[Chef Infra Server](/release_notes_server/) | 
+[Chef Manage](/release_notes_manage/) | 
+[Chef Push Jobs](/release_notes_push_jobs/) |
 [Deprecations](/chef_deprecations_client/)
 
 ### Concepts
