@@ -75,7 +75,7 @@ properties_list:
   required: false
   default_value: '["ALL"]'
   description_list:
-  - markdown: An array of commands this sudoer can execute.
+  - markdown: An array of full paths to commands this sudoer can execute.
 - property: config_prefix
   ruby_type: String
   required: false
@@ -170,13 +170,30 @@ properties_list:
   default_value: "/usr/sbin/visudo"
   description_list:
   - markdown: The path to visudo for configuration verification.
-examples: "
-  Grant a user sudo privileges for any command\n\n  ``` ruby\n  sudo\
-  \ 'admin' do\n    user 'admin'\n  end\n  ```\n\n  Grant a user and groups sudo privileges\
-  \ for any command\n\n  ``` ruby\n  sudo 'admins' do\n    users 'bob'\n    groups\
-  \ 'sysadmins, superusers'\n  end\n  ```\n\n  Grant passwordless sudo privileges\
-  \ for specific commands\n\n  ``` ruby\n  sudo 'passwordless-access' do\n    commands\
-  \ ['systemctl restart httpd', 'systemctl restart mysql']\n    nopasswd true\n  end\n\
-  \  ```\n"
+examples: |
+  **Grant a user sudo privileges for any command**
 
+  ```ruby
+  sudo 'admin' do
+    user 'admin'
+  end
+  ```
+
+  **Grant a user and groups sudo privileges for any command**
+
+  ```ruby
+  sudo 'admins' do
+    users 'bob'
+    groups 'sysadmins, superusers'
+  end
+  ```
+
+  **Grant passwordless sudo privileges for specific commands**
+
+  ```ruby
+  sudo 'passwordless-access' do
+    commands ['/bin/systemctl restart httpd', '/bin/systemctl restart mysql']
+    nopasswd true
+  end
+  ```
 ---
