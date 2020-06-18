@@ -53,7 +53,7 @@ syntax_full_code_block: |-
     shell                 String
     time_out              Hash
     user                  String # default value: "root"
-    weekday               Integer, String # default value: "*"
+    weekday               Integer, String, Symbol # default value: "*"
     action                Symbol # defaults to :create if not specified
   end
 syntax_properties_list: 
@@ -80,14 +80,8 @@ properties_list:
   ruby_type: String
   required: true
   description_list:
-  - markdown: "The command to be run, or the path to a file that contains the\ncommand\
-      \ to be run.\n\nSome examples:\n\n``` none\ncommand if [ -x /usr/share/mdadm/checkarray\
-      \ ] && [ $(date +\\%d) -le 7 ];\nthen /usr/share/mdadm/checkarray --cron --all\
-      \ --idle --quiet; fi\n```\n\nand:\n\n``` ruby\ncommand %w{\n  cd /srv/opscode-community-site/current\
-      \ &&\n  env RUBYLIB=\"/srv/opscode-community-site/current/lib\"\n  RAILS_ASSET_ID=`git\
-      \ rev-parse HEAD` RAILS_ENV=\"#{rails_env}\"\n  bundle exec rake cookbooks_report\n\
-      }.join(' ')\n```\n\nand:\n\n``` ruby\ncommand \"/srv/app/scripts/daily_report\"\
-      \n```"
+  - markdown: The command to be run, or the path to a file that contains the command
+      to be run.
 - property: comment
   ruby_type: String
   required: false
@@ -111,17 +105,13 @@ properties_list:
   required: false
   description_list:
   - markdown: 'A Hash containing additional arbitrary environment variables under
-
-      which the cron job will be run in the form of
-
-      `({''ENV_VARIABLE'' => ''VALUE''})`. (These variables must exist for a
-
-      command to be run successfully.)'
+      which the cron job will be run in the form of `({''ENV_VARIABLE'' => ''VALUE''})`.
+      **Note**: These variables must exist for a command to be run successfully.'
 - property: home
   ruby_type: String
   required: false
   description_list:
-  - markdown: Set the `HOME` environment variable in the cron.d file.
+  - markdown: Set the `HOME` environment variable.
 - property: hour
   ruby_type: Integer, String
   required: false
@@ -132,7 +122,7 @@ properties_list:
   ruby_type: String
   required: false
   description_list:
-  - markdown: Set the `MAILTO` environment variable in the cron.d file.
+  - markdown: Set the `MAILTO` environment variable.
 - property: minute
   ruby_type: Integer, String
   required: false
@@ -156,20 +146,15 @@ properties_list:
   ruby_type: String
   required: false
   description_list:
-  - markdown: Set the `PATH` environment variable in the cron.d file.
+  - markdown: Set the `PATH` environment variable.
 - property: predefined_value
   ruby_type: String
   required: false
   allowed_values: '"@annually", "@daily", "@hourly", "@midnight", "@monthly", "@reboot",
     "@weekly", "@yearly"'
   description_list:
-  - markdown: 'Schedule your cron job with one of the special predefined value
-
-      instead of \*\* \* pattern. This correspond to "@reboot", "@yearly",
-
-      "@annually", "@monthly", "@weekly", "@daily", "@midnight" or
-
-      "@hourly".'
+  - markdown: Schedule your cron job with one of the special predefined value instead
+      of ** * pattern.
 - property: random_delay
   ruby_type: Integer
   required: false
@@ -179,19 +164,18 @@ properties_list:
   ruby_type: String
   required: false
   description_list:
-  - markdown: Set the `SHELL` environment variable in the cron.d file.
+  - markdown: Set the `SHELL` environment variable.
 - property: time_out
   ruby_type: Hash
   required: false
   new_in: '15.7'
   description_list:
   - markdown: |-
-      A Hash of timeouts in the form of `({'OPTION' => 'VALUE'})`.
-              Accepted valid options are:
-              `preserve-status` (BOOL, default: 'false'),
-              `foreground` (BOOL, default: 'false'),
-              `kill-after` (in seconds),
-              `signal` (a name like 'HUP' or a number)
+      A Hash of timeouts in the form of `({'OPTION' => 'VALUE'})`. Accepted valid options are:
+        - `preserve-status` (BOOL, default: 'false'),
+        - `foreground` (BOOL, default: 'false'),
+        - `kill-after` (in seconds),
+        - `signal` (a name like 'HUP' or a number)
 - property: user
   ruby_type: String
   required: false
@@ -199,12 +183,12 @@ properties_list:
   description_list:
   - markdown: The name of the user that runs the command.
 - property: weekday
-  ruby_type: Integer, String
+  ruby_type: Integer, String, Symbol
   required: false
   default_value: "*"
   description_list:
   - markdown: The day of the week on which this entry is to run (`0-7`, `mon-sun`,
-      or `*`), where Sunday is both `0` and `7`.
+      `monday-sunday`, or `*`), where Sunday is both `0` and `7`.
 examples: |
   **Run a program on the fifth hour of the day**
 

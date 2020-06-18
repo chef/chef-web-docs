@@ -14,7 +14,7 @@ menu:
     identifier: chef_infra/cookbook_reference/resources/cron_access cron_access
     parent: chef_infra/cookbook_reference/resources
 resource_description_list:
-- markdown: Use the **cron_access** resource to manage the /etc/cron.allow and /etc/cron.deny
+- markdown: Use the **cron_access** resource to manage cron's cron.allow and cron.deny
     files.
 - note:
     markdown: This resource previously shipped in the `cron` cookbook as `cron_manage`,
