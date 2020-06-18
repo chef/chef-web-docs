@@ -51,7 +51,7 @@ properties_list:
   ruby_type: String
   required: false
   description_list:
-  - markdown: The full path to the original application binary such as `/usr/bin/ruby27`.
+  - markdown: The absolute path to the original application binary such as `/usr/bin/ruby27`.
 - property: priority
   ruby_type: String, Integer
   required: false

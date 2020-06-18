@@ -58,7 +58,8 @@ properties_list:
   required: false
   default_value: '"755"'
   description_list:
-  - markdown: The mode of the extracted files.
+  - markdown: The mode of the extracted files. Integer values are deprecated as octal
+      values (ex. 0755) would not be interpreted correctly.
 - property: options
   ruby_type: Array, Symbol
   required: false
@@ -96,6 +97,18 @@ examples: |
 
   ```ruby
   archive_file 'Precompiled.zip' do
+    path '/tmp/Precompiled.zip'
+    destination '/srv/files'
+  end
+  ```
+
+  **Set specific permissions on the extracted files**:
+
+  ```ruby
+  archive_file 'Precompiled.zip' do
+    owner 'tsmith'
+    group 'staff'
+    mode '700'
     path '/tmp/Precompiled.zip'
     destination '/srv/files'
   end

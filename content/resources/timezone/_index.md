@@ -49,9 +49,18 @@ properties_list:
   description_list:
   - markdown: An optional property to set the timezone value if it differs from the
       resource block's name.
-examples: "
-  Set the timezone to UTC\n\n  ``` ruby\n  timezone 'UTC'\n  ```\n\n\
-  \  Set the timezone to UTC with a friendly resource name\n\n  ``` ruby\n  timezone\
-  \ 'Set the hosts timezone to UTC' do\n    timezone 'UTC'\n  end\n  ```\n"
+examples: |
+  **Set the timezone to UTC**
 
+  ```ruby
+  timezone 'UTC'
+  ```
+
+  **Set the timezone to UTC with a friendly resource name**
+
+  ```ruby
+  timezone 'Set the host's timezone to UTC' do
+    timezone 'UTC'
+  end
+  ```
 ---
