@@ -87,7 +87,7 @@ properties_list:
   required: false
   description_list:
   - markdown: 'A Hash containing additional arbitrary environment variables under
-      which the cron job will be run in the form of `({''ENV_VARIABLE'' => ''VALUE''})`.
+      which the cron job will be run in the form of `({''ENV_VARIABLE'' => ''VALUE''})`.'
       *Note*: These variables must exist for a command to be run successfully.'
 - property: home
   ruby_type: String
