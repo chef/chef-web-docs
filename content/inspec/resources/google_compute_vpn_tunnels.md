@@ -1,6 +1,7 @@
 +++
 title = "google_compute_vpn_tunnels resource"
 draft = false
+platform = "gcp"
 
 [menu]
   [menu.inspec]

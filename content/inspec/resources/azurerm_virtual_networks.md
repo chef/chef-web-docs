@@ -1,6 +1,7 @@
 +++
 title = "azurerm_virtual_networks resource"
 draft = false
+platform = "azure"
 
 [menu]
   [menu.inspec]

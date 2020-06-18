@@ -1,6 +1,7 @@
 +++
 title = "azurerm_event_hub_authorization_rule resource"
 draft = false
+platform = "azure"
 
 [menu]
   [menu.inspec]

@@ -1,6 +1,7 @@
 +++
 title = "aws_lambda resource"
 draft = false
+platform = "aws"
 
 [menu]
   [menu.inspec]

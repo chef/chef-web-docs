@@ -1,6 +1,7 @@
 +++
 title = "azurerm_load_balancer resource"
 draft = false
+platform = "azure"
 
 [menu]
   [menu.inspec]

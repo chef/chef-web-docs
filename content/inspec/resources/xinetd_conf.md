@@ -1,6 +1,7 @@
 +++
 title = "xinetd_conf resource"
 draft = false
+platform = "linux"
 
 [menu]
   [menu.inspec]

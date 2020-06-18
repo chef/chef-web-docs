@@ -1,6 +1,7 @@
 +++
 title = "aws_cloudformation_stack resource"
 draft = false
+platform = "aws"
 
 [menu]
   [menu.inspec]

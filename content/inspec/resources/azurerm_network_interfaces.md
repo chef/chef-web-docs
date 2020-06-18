@@ -1,6 +1,7 @@
 +++
 title = "azurerm_network_interfaces resource"
 draft = false
+platform = "azure"
 
 [menu]
   [menu.inspec]

@@ -1,6 +1,7 @@
 +++
 title = "google_compute_router resource"
 draft = false
+platform = "gcp"
 
 [menu]
   [menu.inspec]

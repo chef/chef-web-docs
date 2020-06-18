@@ -1,6 +1,7 @@
 +++
 title = "azurerm_event_hub_event_hub resource"
 draft = false
+platform = "azure"
 
 [menu]
   [menu.inspec]

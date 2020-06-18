@@ -1,6 +1,7 @@
 +++
 title = "google_project_metric resource"
 draft = false
+platform = "gcp"
 
 [menu]
   [menu.inspec]

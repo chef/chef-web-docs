@@ -1,6 +1,7 @@
 +++
 title = "aws_iam_saml_provider resource"
 draft = false
+platform = "aws"
 
 [menu]
   [menu.inspec]

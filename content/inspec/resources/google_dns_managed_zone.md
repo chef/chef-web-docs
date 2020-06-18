@@ -1,6 +1,7 @@
 +++
 title = "google_dns_managed_zone resource"
 draft = false
+platform = "gcp"
 
 [menu]
   [menu.inspec]

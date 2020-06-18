@@ -1,6 +1,7 @@
 +++
 title = "azure_virtual_machine resource"
 draft = false
+platform = "azure"
 
 [menu]
   [menu.inspec]

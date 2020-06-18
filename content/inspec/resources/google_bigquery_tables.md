@@ -1,6 +1,7 @@
 +++
 title = "google_bigquery_tables resource"
 draft = false
+platform = "gcp"
 
 [menu]
   [menu.inspec]

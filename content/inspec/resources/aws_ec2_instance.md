@@ -1,6 +1,7 @@
 +++
 title = "aws_ec2_instance resource"
 draft = false
+platform = "aws"
 
 [menu]
   [menu.inspec]

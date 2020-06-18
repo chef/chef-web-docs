@@ -1,6 +1,7 @@
 +++
 title = "systemd_service resource"
 draft = false
+platform = "linux"
 
 [menu]
   [menu.inspec]

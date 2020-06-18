@@ -1,6 +1,7 @@
 +++
 title = "oracledb_session resource"
 draft = false
+platform = "os"
 
 [menu]
   [menu.inspec]

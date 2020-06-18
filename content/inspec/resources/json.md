@@ -1,6 +1,7 @@
 +++
 title = "json resource"
 draft = false
+platform = "os"
 
 [menu]
   [menu.inspec]

@@ -1,6 +1,7 @@
 +++
 title = "aws_flow_log resource"
 draft = false
+platform = "aws"
 
 [menu]
   [menu.inspec]

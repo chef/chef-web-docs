@@ -1,6 +1,7 @@
 +++
 title = "google_compute_instance_group_manager resource"
 draft = false
+platform = "gcp"
 
 [menu]
   [menu.inspec]

@@ -1,6 +1,7 @@
 +++
 title = "google_logging_project_exclusion resource"
 draft = false
+platform = "gcp"
 
 [menu]
   [menu.inspec]

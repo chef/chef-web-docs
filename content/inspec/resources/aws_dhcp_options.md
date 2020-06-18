@@ -1,6 +1,7 @@
 +++
 title = "aws_dhcp_options resource"
 draft = false
+platform = "aws"
 
 [menu]
   [menu.inspec]

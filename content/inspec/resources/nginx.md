@@ -1,6 +1,7 @@
 +++
 title = "nginx resource"
 draft = false
+platform = "linux"
 
 [menu]
   [menu.inspec]

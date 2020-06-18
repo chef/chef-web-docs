@@ -1,6 +1,7 @@
 +++
 title = "sys_info resource"
 draft = false
+platform = "os"
 
 [menu]
   [menu.inspec]

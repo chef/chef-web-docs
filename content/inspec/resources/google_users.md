@@ -1,6 +1,7 @@
 +++
 title = "google_users resource"
 draft = false
+platform = "gcp"
 
 [menu]
   [menu.inspec]

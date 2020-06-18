@@ -1,6 +1,7 @@
 +++
 title = "aws_ebs_volumes resource"
 draft = false
+platform = "aws"
 
 [menu]
   [menu.inspec]

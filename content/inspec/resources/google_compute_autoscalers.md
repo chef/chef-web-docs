@@ -1,6 +1,7 @@
 +++
 title = "google_compute_autoscalers resource"
 draft = false
+platform = "gcp"
 
 [menu]
   [menu.inspec]

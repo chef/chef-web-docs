@@ -1,6 +1,7 @@
 +++
 title = "google_compute_ssl_certificates resource"
 draft = false
+platform = "gcp"
 
 [menu]
   [menu.inspec]

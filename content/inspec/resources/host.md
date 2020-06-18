@@ -1,6 +1,7 @@
 +++
 title = "host resource"
 draft = false
+platform = "os"
 
 [menu]
   [menu.inspec]

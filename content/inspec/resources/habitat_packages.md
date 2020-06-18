@@ -1,6 +1,7 @@
 +++
 title = "habitat_packages resource"
 draft = false
+platform = "habitat"
 
 [menu]
   [menu.inspec]

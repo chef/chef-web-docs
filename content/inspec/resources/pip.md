@@ -1,6 +1,7 @@
 +++
 title = "pip resource"
 draft = false
+platform = "os"
 
 [menu]
   [menu.inspec]

@@ -1,6 +1,7 @@
 +++
 title = "google_cloudbuild_triggers resource"
 draft = false
+platform = "gcp"
 
 [menu]
   [menu.inspec]

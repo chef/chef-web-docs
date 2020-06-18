@@ -1,6 +1,7 @@
 +++
 title = "aws_organizations_member resource"
 draft = false
+platform = "aws"
 
 [menu]
   [menu.inspec]

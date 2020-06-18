@@ -1,6 +1,7 @@
 +++
 title = "aws_rds_clusters resource"
 draft = false
+platform = "aws"
 
 [menu]
   [menu.inspec]

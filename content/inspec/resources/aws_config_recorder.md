@@ -1,6 +1,7 @@
 +++
 title = "aws_config_recorder resource"
 draft = false
+platform = "aws"
 
 [menu]
   [menu.inspec]

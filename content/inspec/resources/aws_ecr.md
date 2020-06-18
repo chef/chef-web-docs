@@ -1,6 +1,7 @@
 +++
 title = "aws_ecr resource"
 draft = false
+platform = "aws"
 
 [menu]
   [menu.inspec]

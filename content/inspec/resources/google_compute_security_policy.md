@@ -1,6 +1,7 @@
 +++
 title = "google_compute_security_policy resource"
 draft = false
+platform = "gcp"
 
 [menu]
   [menu.inspec]

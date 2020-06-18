@@ -1,6 +1,7 @@
 +++
 title = "google_compute_network_endpoint_groups resource"
 draft = false
+platform = "gcp"
 
 [menu]
   [menu.inspec]

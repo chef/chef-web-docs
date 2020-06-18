@@ -1,6 +1,7 @@
 +++
 title = "azurerm_virtual_machine_disks resource"
 draft = false
+platform = "azure"
 
 [menu]
   [menu.inspec]

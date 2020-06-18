@@ -1,6 +1,7 @@
 +++
 title = "dh_params resource"
 draft = false
+platform = "linux"
 
 [menu]
   [menu.inspec]

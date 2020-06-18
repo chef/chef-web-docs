@@ -1,6 +1,7 @@
 +++
 title = "postgres_session resource"
 draft = false
+platform = "os"
 
 [menu]
   [menu.inspec]

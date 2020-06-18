@@ -1,6 +1,7 @@
 +++
 title = "google_pubsub_subscription_iam_binding resource"
 draft = false
+platform = "gcp"
 
 [menu]
   [menu.inspec]

@@ -1,6 +1,7 @@
 +++
 title = "etc_fstab resource"
 draft = false
+platform = "linux"
 
 [menu]
   [menu.inspec]

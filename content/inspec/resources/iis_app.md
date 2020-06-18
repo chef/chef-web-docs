@@ -1,6 +1,7 @@
 +++
 title = "iis_app resource"
 draft = false
+platform = "windows"
 
 [menu]
   [menu.inspec]

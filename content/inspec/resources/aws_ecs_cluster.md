@@ -1,6 +1,7 @@
 +++
 title = "aws_ecs_cluster resource"
 draft = false
+platform = "aws"
 
 [menu]
   [menu.inspec]

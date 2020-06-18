@@ -1,6 +1,7 @@
 +++
 title = "aws_sts_caller_identity resource"
 draft = false
+platform = "aws"
 
 [menu]
   [menu.inspec]

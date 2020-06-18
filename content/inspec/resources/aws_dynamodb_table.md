@@ -1,6 +1,7 @@
 +++
 title = "aws_dynamodb_table resource"
 draft = false
+platform = "aws"
 
 [menu]
   [menu.inspec]

@@ -1,6 +1,7 @@
 +++
 title = "azurerm_postgresql_databases resource"
 draft = false
+platform = "azure"
 
 [menu]
   [menu.inspec]

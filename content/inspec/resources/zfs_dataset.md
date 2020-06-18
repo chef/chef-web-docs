@@ -1,6 +1,7 @@
 +++
 title = "zfs_dataset resource"
 draft = false
+platform = "linux"
 
 [menu]
   [menu.inspec]

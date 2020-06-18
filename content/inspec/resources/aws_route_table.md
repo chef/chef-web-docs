@@ -1,6 +1,7 @@
 +++
 title = "aws_route_table resource"
 draft = false
+platform = "aws"
 
 [menu]
   [menu.inspec]

@@ -1,6 +1,7 @@
 +++
 title = "wmi resource"
 draft = false
+platform = "windows"
 
 [menu]
   [menu.inspec]

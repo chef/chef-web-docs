@@ -1,6 +1,7 @@
 +++
 title = "powershell resource"
 draft = false
+platform = "windows"
 
 [menu]
   [menu.inspec]

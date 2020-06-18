@@ -1,6 +1,7 @@
 +++
 title = "postgres_ident_conf resource"
 draft = false
+platform = "linux"
 
 [menu]
   [menu.inspec]

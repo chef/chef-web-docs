@@ -1,6 +1,7 @@
 +++
 title = "aws_subnets resource"
 draft = false
+platform = "aws"
 
 [menu]
   [menu.inspec]

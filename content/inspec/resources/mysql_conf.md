@@ -1,6 +1,7 @@
 +++
 title = "mysql_conf resource"
 draft = false
+platform = "os"
 
 [menu]
   [menu.inspec]

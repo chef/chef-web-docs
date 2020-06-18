@@ -1,6 +1,7 @@
 +++
 title = "aws_iam_password_policy resource"
 draft = false
+platform = "aws"
 
 [menu]
   [menu.inspec]

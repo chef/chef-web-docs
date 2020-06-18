@@ -1,6 +1,7 @@
 +++
 title = "google_bigquery_dataset resource"
 draft = false
+platform = "gcp"
 
 [menu]
   [menu.inspec]

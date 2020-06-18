@@ -1,6 +1,7 @@
 +++
 title = "azurerm_locks resource"
 draft = false
+platform = "azure"
 
 [menu]
   [menu.inspec]

@@ -1,6 +1,7 @@
 +++
 title = "google_container_node_pool resource"
 draft = false
+platform = "gcp"
 
 [menu]
   [menu.inspec]

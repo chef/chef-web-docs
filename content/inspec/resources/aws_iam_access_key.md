@@ -1,6 +1,7 @@
 +++
 title = "aws_iam_access_key resource"
 draft = false
+platform = "aws"
 
 [menu]
   [menu.inspec]

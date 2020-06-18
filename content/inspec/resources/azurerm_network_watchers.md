@@ -1,6 +1,7 @@
 +++
 title = "azurerm_network_watchers resource"
 draft = false
+platform = "azure"
 
 [menu]
   [menu.inspec]

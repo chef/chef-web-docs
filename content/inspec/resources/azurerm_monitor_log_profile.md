@@ -1,6 +1,7 @@
 +++
 title = "azurerm_monitor_log_profile resource"
 draft = false
+platform = "azure"
 
 [menu]
   [menu.inspec]

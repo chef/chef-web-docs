@@ -1,6 +1,7 @@
 +++
 title = "windows_hotfix resource"
 draft = false
+platform = "windows"
 
 [menu]
   [menu.inspec]

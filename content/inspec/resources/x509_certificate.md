@@ -1,6 +1,7 @@
 +++
 title = "x509_certificate resource"
 draft = false
+platform = "os"
 
 [menu]
   [menu.inspec]

@@ -1,6 +1,7 @@
 +++
 title = "azurerm_monitor_activity_log_alerts resource"
 draft = false
+platform = "azure"
 
 [menu]
   [menu.inspec]

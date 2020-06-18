@@ -1,6 +1,7 @@
 +++
 title = "audit_policy resource"
 draft = false
+platform = "linux"
 
 [menu]
   [menu.inspec]

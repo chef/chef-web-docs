@@ -1,6 +1,7 @@
 +++
 title = "aws_rds_instances resource"
 draft = false
+platform = "aws"
 
 [menu]
   [menu.inspec]

@@ -1,6 +1,7 @@
 +++
 title = "key_rsa resource"
 draft = false
+platform = "os"
 
 [menu]
   [menu.inspec]

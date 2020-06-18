@@ -1,6 +1,7 @@
 +++
 title = "aws_db_subnet_group resource"
 draft = false
+platform = "aws"
 
 [menu]
   [menu.inspec]

@@ -1,6 +1,7 @@
 +++
 title = "google_project_iam_policy resource"
 draft = false
+platform = "gcp"
 
 [menu]
   [menu.inspec]

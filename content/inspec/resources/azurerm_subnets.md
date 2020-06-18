@@ -1,6 +1,7 @@
 +++
 title = "azurerm_subnets resource"
 draft = false
+platform = "azure"
 
 [menu]
   [menu.inspec]

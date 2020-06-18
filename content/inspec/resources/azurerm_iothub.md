@@ -1,6 +1,7 @@
 +++
 title = "azurerm_iothub resource"
 draft = false
+platform = "azure"
 
 [menu]
   [menu.inspec]

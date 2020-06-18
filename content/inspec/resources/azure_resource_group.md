@@ -1,6 +1,7 @@
 +++
 title = "azure_resource_group resource"
 draft = false
+platform = "azure"
 
 [menu]
   [menu.inspec]

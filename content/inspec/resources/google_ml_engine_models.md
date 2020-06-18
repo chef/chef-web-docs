@@ -1,6 +1,7 @@
 +++
 title = "google_ml_engine_models resource"
 draft = false
+platform = "gcp"
 
 [menu]
   [menu.inspec]

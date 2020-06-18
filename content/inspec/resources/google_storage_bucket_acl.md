@@ -1,6 +1,7 @@
 +++
 title = "google_storage_bucket_acl resource"
 draft = false
+platform = "gcp"
 
 [menu]
   [menu.inspec]

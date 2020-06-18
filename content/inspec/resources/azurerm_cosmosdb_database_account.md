@@ -1,6 +1,7 @@
 +++
 title = "azurerm_cosmosdb_database_account resource"
 draft = false
+platform = "azure"
 
 [menu]
   [menu.inspec]

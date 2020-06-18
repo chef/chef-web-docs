@@ -1,6 +1,7 @@
 +++
 title = "etc_hosts_allow resource"
 draft = false
+platform = "linux"
 
 [menu]
   [menu.inspec]

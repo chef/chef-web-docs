@@ -1,6 +1,7 @@
 +++
 title = "aws_iam_group resource"
 draft = false
+platform = "aws"
 
 [menu]
   [menu.inspec]

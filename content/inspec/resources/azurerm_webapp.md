@@ -1,6 +1,7 @@
 +++
 title = "azurerm_webapp resource"
 draft = false
+platform = "azure"
 
 [menu]
   [menu.inspec]

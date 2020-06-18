@@ -1,6 +1,7 @@
 +++
 title = "google_compute_subnetwork_iam_binding resource"
 draft = false
+platform = "gcp"
 
 [menu]
   [menu.inspec]

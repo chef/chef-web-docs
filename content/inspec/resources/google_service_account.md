@@ -1,6 +1,7 @@
 +++
 title = "google_service_account resource"
 draft = false
+platform = "gcp"
 
 [menu]
   [menu.inspec]

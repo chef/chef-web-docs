@@ -1,6 +1,7 @@
 +++
 title = "azurerm_ad_user resource"
 draft = false
+platform = "azure"
 
 [menu]
   [menu.inspec]

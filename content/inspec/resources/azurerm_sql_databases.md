@@ -1,6 +1,7 @@
 +++
 title = "azurerm_sql_databases resource"
 draft = false
+platform = "azure"
 
 [menu]
   [menu.inspec]

@@ -1,6 +1,7 @@
 +++
 title = "azurerm_management_group resource"
 draft = false
+platform = "azure"
 
 [menu]
   [menu.inspec]

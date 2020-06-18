@@ -1,6 +1,7 @@
 +++
 title = "package resource"
 draft = false
+platform = "os"
 
 [menu]
   [menu.inspec]

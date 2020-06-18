@@ -1,6 +1,7 @@
 +++
 title = "apache_conf resource"
 draft = false
+platform = "linux"
 
 [menu]
   [menu.inspec]
@@ -11,6 +12,7 @@ draft = false
 
 
 Use the `apache_conf` Chef InSpec audit resource to test the configuration settings for Apache. This file is typically located under `/etc/apache2` on the Debian and Ubuntu platforms and under `/etc/httpd` on the Fedora, CentOS, RedHat Enterprise Linux, and ArchLinux platforms. The configuration settings may vary significantly from platform to platform.
+
 
 ## Availability
 

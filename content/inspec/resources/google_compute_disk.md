@@ -1,6 +1,7 @@
 +++
 title = "google_compute_disk resource"
 draft = false
+platform = "gcp"
 
 [menu]
   [menu.inspec]

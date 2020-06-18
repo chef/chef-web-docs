@@ -1,6 +1,7 @@
 +++
 title = "azurerm_aks_cluster resource"
 draft = false
+platform = "azure"
 
 [menu]
   [menu.inspec]

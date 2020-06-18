@@ -1,6 +1,7 @@
 +++
 title = "google_access_context_manager_service_perimeter resource"
 draft = false
+platform = "gcp"
 
 [menu]
   [menu.inspec]

@@ -1,6 +1,7 @@
 +++
 title = "google_kms_crypto_key_iam_binding resource"
 draft = false
+platform = "gcp"
 
 [menu]
   [menu.inspec]

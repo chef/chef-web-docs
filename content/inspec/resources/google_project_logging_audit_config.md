@@ -1,6 +1,7 @@
 +++
 title = "google_project_logging_audit_config resource"
 draft = false
+platform = "gcp"
 
 [menu]
   [menu.inspec]

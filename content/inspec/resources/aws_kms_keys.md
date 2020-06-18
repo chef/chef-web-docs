@@ -1,6 +1,7 @@
 +++
 title = "aws_kms_keys resource"
 draft = false
+platform = "aws"
 
 [menu]
   [menu.inspec]

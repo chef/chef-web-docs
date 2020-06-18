@@ -1,6 +1,7 @@
 +++
 title = "google_compute_http_health_check resource"
 draft = false
+platform = "gcp"
 
 [menu]
   [menu.inspec]

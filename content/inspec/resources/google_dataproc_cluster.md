@@ -1,6 +1,7 @@
 +++
 title = "google_dataproc_cluster resource"
 draft = false
+platform = "gcp"
 
 [menu]
   [menu.inspec]

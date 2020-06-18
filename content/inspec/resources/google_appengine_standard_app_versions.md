@@ -1,6 +1,7 @@
 +++
 title = "google_appengine_standard_app_versions resource"
 draft = false
+platform = "gcp"
 
 [menu]
   [menu.inspec]

@@ -1,6 +1,7 @@
 +++
 title = "os resource"
 draft = false
+platform = "os"
 
 [menu]
   [menu.inspec]

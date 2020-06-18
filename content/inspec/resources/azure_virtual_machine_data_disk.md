@@ -1,6 +1,7 @@
 +++
 title = "azure_virtual_machine_data_disk resource"
 draft = false
+platform = "azure"
 
 [menu]
   [menu.inspec]

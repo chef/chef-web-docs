@@ -1,6 +1,7 @@
 +++
 title = "google_spanner_database resource"
 draft = false
+platform = "gcp"
 
 [menu]
   [menu.inspec]

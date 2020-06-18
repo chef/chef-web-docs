@@ -1,6 +1,7 @@
 +++
 title = "aws_s3_bucket_object resource"
 draft = false
+platform = "aws"
 
 [menu]
   [menu.inspec]

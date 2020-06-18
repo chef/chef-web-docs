@@ -1,6 +1,7 @@
 +++
 title = "processes resource"
 draft = false
+platform = "os"
 
 [menu]
   [menu.inspec]

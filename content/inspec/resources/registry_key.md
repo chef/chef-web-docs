@@ -1,6 +1,7 @@
 +++
 title = "registry_key resource"
 draft = false
+platform = "windows"
 
 [menu]
   [menu.inspec]

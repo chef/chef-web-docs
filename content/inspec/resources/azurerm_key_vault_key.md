@@ -1,6 +1,7 @@
 +++
 title = "azurerm_key_vault_key resource"
 draft = false
+platform = "azure"
 
 [menu]
   [menu.inspec]

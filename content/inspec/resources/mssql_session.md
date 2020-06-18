@@ -1,6 +1,7 @@
 +++
 title = "mssql_session resource"
 draft = false
+platform = "windows"
 
 [menu]
   [menu.inspec]

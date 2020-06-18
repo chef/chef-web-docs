@@ -1,6 +1,7 @@
 +++
 title = "google_organization resource"
 draft = false
+platform = "gcp"
 
 [menu]
   [menu.inspec]

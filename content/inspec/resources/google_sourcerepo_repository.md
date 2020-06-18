@@ -1,6 +1,7 @@
 +++
 title = "google_sourcerepo_repository resource"
 draft = false
+platform = "gcp"
 
 [menu]
   [menu.inspec]

@@ -1,6 +1,7 @@
 +++
 title = "ip6tables resource"
 draft = false
+platform = "linux"
 
 [menu]
   [menu.inspec]

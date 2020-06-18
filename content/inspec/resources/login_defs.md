@@ -1,6 +1,7 @@
 +++
 title = "login_defs resource"
 draft = false
+platform = "linux"
 
 [menu]
   [menu.inspec]

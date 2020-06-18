@@ -1,6 +1,7 @@
 +++
 title = "aws_launch_configuration resource"
 draft = false
+platform = "aws"
 
 [menu]
   [menu.inspec]

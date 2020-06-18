@@ -1,6 +1,7 @@
 +++
 title = "ini resource"
 draft = false
+platform = "os"
 
 [menu]
   [menu.inspec]

@@ -1,6 +1,7 @@
 +++
 title = "google_compute_region_backend_services resource"
 draft = false
+platform = "gcp"
 
 [menu]
   [menu.inspec]

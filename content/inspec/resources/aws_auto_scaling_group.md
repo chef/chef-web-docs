@@ -1,6 +1,7 @@
 +++
 title = "aws_auto_scaling_group resource"
 draft = false
+platform = "aws"
 
 [menu]
   [menu.inspec]

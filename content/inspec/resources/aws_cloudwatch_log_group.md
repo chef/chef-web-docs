@@ -1,6 +1,7 @@
 +++
 title = "aws_cloudwatch_log_group resource"
 draft = false
+platform = "aws"
 
 [menu]
   [menu.inspec]

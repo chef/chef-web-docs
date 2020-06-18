@@ -1,6 +1,7 @@
 +++
 title = "aws_hosted_zones resource"
 draft = false
+platform = "aws"
 
 [menu]
   [menu.inspec]

@@ -1,6 +1,7 @@
 +++
 title = "google_container_regional_cluster resource"
 draft = false
+platform = "gcp"
 
 [menu]
   [menu.inspec]

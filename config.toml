@@ -83,6 +83,7 @@ notAlternative = true
   category = "categories"
   tag = "tags"
   resource = "resources"
+  inspec_resource = "inspec_resource"
 
 
 [module]

@@ -1,6 +1,7 @@
 +++
 title = "google_compute_url_maps resource"
 draft = false
+platform = "gcp"
 
 [menu]
   [menu.inspec]

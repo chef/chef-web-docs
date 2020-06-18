@@ -1,6 +1,7 @@
 +++
 title = "os_env resource"
 draft = false
+platform = "os"
 
 [menu]
   [menu.inspec]

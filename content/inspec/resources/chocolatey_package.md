@@ -1,6 +1,7 @@
 +++
 title = "chocolatey_package resource"
 draft = false
+platform = "windows"
 
 [menu]
   [menu.inspec]

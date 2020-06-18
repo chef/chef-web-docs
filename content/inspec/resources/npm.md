@@ -1,6 +1,7 @@
 +++
 title = "npm resource"
 draft = false
+platform = "os"
 
 [menu]
   [menu.inspec]

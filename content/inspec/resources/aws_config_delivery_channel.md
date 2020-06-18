@@ -1,6 +1,7 @@
 +++
 title = "aws_config_delivery_channel resource"
 draft = false
+platform = "aws"
 
 [menu]
   [menu.inspec]

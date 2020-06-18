@@ -1,6 +1,7 @@
 +++
 title = "aws_cloudtrail_trail resource"
 draft = false
+platform = "aws"
 
 [menu]
   [menu.inspec]

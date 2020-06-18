@@ -1,6 +1,7 @@
 +++
 title = "google_sql_user resource"
 draft = false
+platform = "gcp"
 
 [menu]
   [menu.inspec]

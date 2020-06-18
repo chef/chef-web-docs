@@ -1,6 +1,7 @@
 +++
 title = "azurerm_security_center_policies resource"
 draft = false
+platform = "azure"
 
 [menu]
   [menu.inspec]

@@ -1,6 +1,7 @@
 +++
 title = "google_compute_target_http_proxies resource"
 draft = false
+platform = "gcp"
 
 [menu]
   [menu.inspec]

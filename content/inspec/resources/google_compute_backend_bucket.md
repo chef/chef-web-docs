@@ -1,6 +1,7 @@
 +++
 title = "google_compute_backend_bucket resource"
 draft = false
+platform = "gcp"
 
 [menu]
   [menu.inspec]

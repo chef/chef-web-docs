@@ -1,6 +1,7 @@
 +++
 title = "google_runtime_config_configs resource"
 draft = false
+platform = "gcp"
 
 [menu]
   [menu.inspec]

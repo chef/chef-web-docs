@@ -1,6 +1,7 @@
 +++
 title = "aws_transit_gateway resource"
 draft = false
+platform = "aws"
 
 [menu]
   [menu.inspec]

@@ -1,6 +1,7 @@
 +++
 title = "docker_container resource"
 draft = false
+platform = "linux"
 
 [menu]
   [menu.inspec]

@@ -1,6 +1,7 @@
 +++
 title = "csv resource"
 draft = false
+platform = "os"
 
 [menu]
   [menu.inspec]

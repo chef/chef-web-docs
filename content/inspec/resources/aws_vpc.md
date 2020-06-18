@@ -1,6 +1,7 @@
 +++
 title = "aws_vpc resource"
 draft = false
+platform = "aws"
 
 [menu]
   [menu.inspec]

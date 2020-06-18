@@ -1,6 +1,7 @@
 +++
 title = "zfs_pool resource"
 draft = false
+platform = "linux"
 
 [menu]
   [menu.inspec]

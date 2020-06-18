@@ -1,6 +1,7 @@
 +++
 title = "azurerm_storage_account_blob_container resource"
 draft = false
+platform = "azure"
 
 [menu]
   [menu.inspec]

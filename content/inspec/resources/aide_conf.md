@@ -1,13 +1,15 @@
 +++
-title = "aide_conf"
+title = "aide_conf resource"
 draft = false
+platform = "linux"
 
 [menu]
   [menu.inspec]
-    title = "Waivers"
-    identifier = "inspec/resources/aide_conf.md aide_conf"
-    parent = "inspec/reference"
+    title = "aide_conf"
+    identifier = "inspec/resources/aide_conf.md aide_conf resource"
+    parent = "inspec/resources"
 +++
+
 
 Use the `aide_conf` Chef InSpec audit resource to test the rules established for the file integrity tool AIDE. Controlled by the aide.conf file typically at /etc/aide.conf.
 

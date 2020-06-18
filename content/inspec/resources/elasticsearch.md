@@ -1,6 +1,7 @@
 +++
 title = "elasticsearch resource"
 draft = false
+platform = "linux"
 
 [menu]
   [menu.inspec]

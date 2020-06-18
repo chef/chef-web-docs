@@ -1,6 +1,7 @@
 +++
 title = "rabbitmq_config resource"
 draft = false
+platform = "linux"
 
 [menu]
   [menu.inspec]

@@ -1,6 +1,7 @@
 +++
 title = "user resource"
 draft = false
+platform = "os"
 
 [menu]
   [menu.inspec]

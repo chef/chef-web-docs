@@ -1,6 +1,7 @@
 +++
 title = "azurerm_iothub_event_hub_consumer_groups resource"
 draft = false
+platform = "azure"
 
 [menu]
   [menu.inspec]

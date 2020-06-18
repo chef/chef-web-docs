@@ -1,6 +1,7 @@
 +++
 title = "azurerm_role_definitions resource"
 draft = false
+platform = "azure"
 
 [menu]
   [menu.inspec]

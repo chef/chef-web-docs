@@ -1,6 +1,7 @@
 +++
 title = "google_compute_global_address resource"
 draft = false
+platform = "gcp"
 
 [menu]
   [menu.inspec]

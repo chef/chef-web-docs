@@ -1,6 +1,7 @@
 +++
 title = "google_kms_key_ring_iam_bindings resource"
 draft = false
+platform = "gcp"
 
 [menu]
   [menu.inspec]

@@ -1,6 +1,7 @@
 +++
 title = "windows_task resource"
 draft = false
+platform = "windows"
 
 [menu]
   [menu.inspec]

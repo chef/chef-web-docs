@@ -1,6 +1,7 @@
 +++
 title = "security_policy resource"
 draft = false
+platform = "windows"
 
 [menu]
   [menu.inspec]

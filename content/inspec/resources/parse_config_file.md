@@ -1,6 +1,7 @@
 +++
 title = "parse_config_file resource"
 draft = false
+platform = "os"
 
 [menu]
   [menu.inspec]

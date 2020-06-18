@@ -1,6 +1,7 @@
 +++
 title = "aws_ssm_parameters resource"
 draft = false
+platform = "aws"
 
 [menu]
   [menu.inspec]

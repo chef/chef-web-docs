@@ -1,6 +1,7 @@
 +++
 title = "google_organization_policy resource"
 draft = false
+platform = "gcp"
 
 [menu]
   [menu.inspec]
