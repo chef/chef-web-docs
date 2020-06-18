@@ -66,7 +66,7 @@ Chef InSpec has been updated from 4.18.114 to 4.2.0.6. This new release includes
 
 #### windows_audit_policy
 
-The `windows_audit_policy` resource is used to configure system-level and per-user Windows advanced audit policy settings. See the [windows_audit_policy Documentation](https://docs.chef.io/resources/windows_audit_policy/) for complete usage information.
+The `windows_audit_policy` resource is used to configure system-level and per-user Windows advanced audit policy settings. See the [windows_audit_policy Documentation](/resources/windows_audit_policy/) for complete usage information.
 
 For example, you can enable auditing of successful credential validation:
 
@@ -81,7 +81,7 @@ end
 
 #### homebrew_update
 
-The `homebrew_update` resource is used to update the available package cache for the Homebrew package system similar to the behavior of the `apt_update` resource. See the [homebrew_update Documentation](https://docs.chef.io/resources/homebrew_update/) for complete usage information. Thanks for adding this new resource, [@damacus](http://github.com/damacus).
+The `homebrew_update` resource is used to update the available package cache for the Homebrew package system similar to the behavior of the `apt_update` resource. See the [homebrew_update Documentation](/resources/homebrew_update/) for complete usage information. Thanks for adding this new resource, [@damacus](http://github.com/damacus).
 
 ### Resource Updates
 
