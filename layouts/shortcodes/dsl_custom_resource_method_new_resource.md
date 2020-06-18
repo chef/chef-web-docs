@@ -5,8 +5,6 @@ the purpose of overriding that property when used with the custom
 resource. For example:
 
 ``` ruby
-resource_name :node_execute
-
 property :command, String, name_property: true
 property :version, String
 
@@ -54,8 +52,6 @@ to process the properties from the core resource instead of the
 properties in the custom resource. For example:
 
 ``` ruby
-resource_name :node_execute
-
 property :command, String, name_property: true
 property :version, String
 

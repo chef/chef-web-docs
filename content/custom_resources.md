@@ -122,18 +122,6 @@ exampleco_site 'httpd' do
 end
 ```
 
-### resource_name
-
-{{< note >}}
-
-{{% ruby_style_patterns_hyphens %}}
-
-{{< /note >}}
-
-{{% dsl_custom_resource_method_resource_name %}}
-
-{{% dsl_custom_resource_method_resource_name_example %}}
-
 ## Scenario: website Resource
 
 Create a resource that configures Apache httpd for Red Hat Enterprise
