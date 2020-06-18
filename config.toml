@@ -77,7 +77,7 @@ notAlternative = true
 [params]
   enable_search = true
   robots = ''
-  menuOrder = ["overview", "compliance", "effortless", "infra",  "workstation", "desktop", "habitat", "inspec", "automate", "legacy", "api", "extra"]
+  menuOrder = ["overview", "compliance", "effortless", "infra", "workstation", "desktop", "habitat", "inspec", "automate", "release_notes", "legacy", "api", "extra"]
 
 [taxonomies]
   category = "categories"
@@ -710,12 +710,6 @@ weight = 30
       url = "/ctl_push_jobs_client/"
       weight = 20
 
-  [[menu.infra]]
-  title = "Release Notes"
-  identifier = "chef_infra/release_notes"
-  parent = "chef_infra"
-  weight = 80
-
 ####
 # End Chef Infra Menu
 ####
@@ -941,6 +935,20 @@ weight = 10
 ####
 # End Chef Automate Menu
 ####
+
+####
+# Release Notes Menu
+####
+
+[[menu.release_notes]]
+title = "Release Notes"
+identifier = "release_notes"
+weight = 10
+
+####
+# End Release Notes Menu
+####
+
 
 ####
 # Legacy Menu

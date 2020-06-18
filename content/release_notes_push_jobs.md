@@ -5,11 +5,11 @@ draft = false
 aliases = ["/release_notes_push_jobs.html"]
 
 [menu]
-  [menu.infra]
+  [menu.release_notes]
     title = "Chef Push Jobs"
-    identifier = "chef_infra/release_notes/release_notes_push_jobs.md Chef Push Jobs"
-    parent = "chef_infra/release_notes"
-    weight = 40
+    identifier = "release_notes/release_notes_push_jobs.md Chef Push Jobs"
+    parent = "release_notes"
+    weight = 60
 +++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/release_notes_push_jobs.md)
