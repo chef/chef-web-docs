@@ -1,5 +1,5 @@
 +++
-title = "Release Notes: Chef Infra Client 12.0 - 16.1"
+title = "Release Notes: Chef Infra Client 12.0 - 16.2"
 draft = false
 
 aliases = ["/release_notes.html", "/release_notes_ohai.html"]
@@ -18,6 +18,127 @@ Chef Infra Client is released on a monthly schedule with new releases
 the first Wednesday of every month. Below are the major changes for each
 release. For a detailed list of changes see the [Chef Infra Client
 changelog](https://github.com/chef/chef/blob/master/CHANGELOG.md)
+
+## What's New in 16.2
+
+### Breaking Change in Resources
+
+In Chef Infra Client 16.0, we changed the way that custom resource names are applied in order to resolve some longstanding edge-cases. This change had several unintended side effects, so we're further changing how custom names are set in this release of Chef Infra Client.
+
+Previously you could set a custom name for a resource via `resource_name` and under the hood this would also magically set the `provides` for the resource. Magic is great when it works, but is confusing when it doesn't. We've decided to remove some of this magic and instead rely on more explicit `provides` statements in resources. For cookbooks that support just Chef Infra Client 16 and later, you should change any `resource_name` calls to `provides` instead. If you need to support older releases of Chef Infra Client as well as 16+, you'll want to include both `resource_name` and `provides` for full compatibility.
+
+**Pre-16 code:**
+
+```ruby
+resource_name :foo
+```
+
+**Chef Infra Client 16+ code**
+
+```ruby
+provides :foo
+```
+
+**Chef Infra Client < 16 backwards compatible code**
+
+```ruby
+resource_name :foo
+provides :foo
+```
+
+We've introduced several Cookstyle rules to detect both custom resources and legacy HWRPs that need to be updated for this change:
+
+**[ChefDeprecations/ResourceUsesOnlyResourceName](https://github.com/chef/cookstyle/blob/master/docs/cops_chefdeprecations.md#chefdeprecationsresourceusesonlyresourcename)**: detects resources that only set resource_name and automatically adds a provides call as well.
+
+**[ChefDeprecations/HWRPWithoutProvides](https://github.com/chef/cookstyle/blob/master/docs/cops_chefdeprecations.md#chefdeprecationshwrpwithoutprovides)**: detects legacy HWRPs that don't include the necessary provides and resource_name calls for Chef Infra Client 16.
+
+### Chef InSpec 4.20.6
+
+Chef InSpec has been updated from 4.18.114 to 4.2.0.6. This new release includes the following improvements:
+
+- Develop your own Chef InSpec Reporter plugins to control how Chef InSpec will report result data.
+- The `inspec archive` command packs your profile into a `tar.gz` file that includes the profile in JSON form as the inspec.json file.
+- Certain substrings within a `.toml` file no longer cause unexpected crashes.
+- Accurate InSpec CLI input parsing for numeric values and structured data, which were previously treated as strings. Numeric values are cast to an `integer` or `float` and `YAML` or `JSON` structures are converted to a hash or an array.
+- Suppress deprecation warnings on inspec exec with the `--silence-deprecations` option.
+
+### New Resources
+
+#### windows_audit_policy
+
+The `windows_audit_policy` resource is used to configure system-level and per-user Windows advanced audit policy settings. See the [windows_audit_policy Documentation](/resources/windows_audit_policy/) for complete usage information.
+
+For example, you can enable auditing of successful credential validation:
+
+```ruby
+windows_audit_policy "Set Audit Policy for 'Credential Validation' actions to 'Success'" do
+  subcategory  'Credential Validation'
+  success true
+  failure false
+  action :set
+end
+```
+
+#### homebrew_update
+
+The `homebrew_update` resource is used to update the available package cache for the Homebrew package system similar to the behavior of the `apt_update` resource. See the [homebrew_update Documentation](/resources/homebrew_update/) for complete usage information. Thanks for adding this new resource, [@damacus](http://github.com/damacus).
+
+### Resource Updates
+
+#### All resources now include umask property
+
+All resources, including custom resources, now have a `umask` property which allows you to specify a umask for file creation. If not specified the system default will continue to be used.
+
+#### archive_file
+
+The `archive_file` resource has been updated with two important fixes. The resource will no longer fail with uninitialized constant errors under some scenarios. Additionally, the behavior of the `mode` property has been improved to prevent incorrect file modes from being applied to the decompressed files. Due to how file modes and Integer values are processed in Ruby, this resource will now produce a deprecation warning if integer values are passed. Using string values lets us accurately pass values such as '644' or '0644' without ambiguity as to the user's intent. Thanks for reporting these issues [@sfiggins](http://github.com/sfiggins) and [@hammerhead](http://github.com/hammerhead).
+
+#### chef_client_scheduled_task
+
+The `chef_client_scheduled_task` resource has been updated to default the `frequency_modifier` property to `30` if the `frequency` property is set to `minutes`, otherwise it still defaults to `1`. This provides a more predictable schedule behavior for users.
+
+#### cron / cron_d
+
+The `cron` and `cron_d` resources have been updated using the new Custom Resource Partials functionality introduced in Chef Infra Client 16. This has allowed us to standardize the properties used to declare cron job timing between the two resources. The timing properties in both resources all accept the same types and ranges, and include the same validation, which makes moving from `cron` to `cron_d` seamless.
+
+#### cron_access
+
+The `cron_access` resource has been updated to support Solaris and AIX systems. Thanks [@aklyachkin](http://github.com/aklyachkin).
+
+#### execute
+
+The `execute` resource has a new `input` property which allows you to pass `stdin` input to the command being executed.
+
+#### powershell_package
+
+The `powershell_package` resource has been updated to use TLS 1.2 when communicating with the PowerShell Gallery on Windows Server 2012-2016. Previously this resource used the system default cipher suite which did not include TLS 1.2. The PowerShell Gallery now requires TLS 1.2 for all communication, which caused failures on Windows Server 2012-2016. Thanks for reporting this issue [@Xorima](http://github.com/Xorima).
+
+#### remote_file
+
+The `remote_file` resource has a new property `ssl_verify_mode` which allows you to control SSL validation at the property level. This can be used to verify certificates (Chef Infra Client's defaults) with `:verify_peer` or to skip verification in the case of a self-signed certificate with `:verify_none`. Thanks [@jaymzh](http://github.com/jaymzh).
+
+#### script
+
+The various `script` resources such as `bash` or `ruby` now pass the provided script content to the interpreter using system pipes instead of writing to a temporary file and executing it. Executing script content using pipes is faster, more secure as potentially sensitive scripts aren't written to disk, and bypasses issues around user privileges.
+
+#### snap_package
+
+Multiple issues with the `snap_package` resource have been resolved, including an infinite wait that occurred, and issues with specifying the package version or channel. Thanks [@jaymzh](http://github.com/jaymzh).
+
+#### zypper_repository
+
+The `zypper_repository` resource has been updated to work with the newer release of GPG in openSUSE 15 and SLES 15. This prevents failures when importing GPG keys in the resource.
+
+### Knife bootstrap updates
+
+- Knife bootstrap will now warn when bootstrapping a system using a validation key. Users should instead use `validatorless bootstrapping` with `knife bootstrap` which generates node and client keys using the client key of the user bootstrapping the node. This method is far more secure as an org-wide validation key does not not need to be distributed or rotated. Users can switch to `validatorless bootstrapping` by removing any `validation_key` entries in their `config.rb (knife.rb)` file.
+- Resolved an error bootstrapping Linux nodes from Windows hosts
+- Improved information messages during the bootstrap process
+
+### Platform Packages
+
+- Debian 8 packages are no longer being produced as Debian 8 is now end-of-life.
+- We now produce Windows 8 packages
 
 ## What's New in 16.1.16
 
