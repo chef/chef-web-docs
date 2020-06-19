@@ -65,7 +65,7 @@ end
 
 **Download and parse a configuration file**
 
-A common use case is to download a configuration file, parse it and then
+A common use case is to download a configuration file, parse it, and then
 use the values in templates and to control other configuration.
 
 And important distinction to make is that the downloaded configuration file
