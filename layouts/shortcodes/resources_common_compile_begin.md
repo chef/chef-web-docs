@@ -20,7 +20,7 @@ end
 ```
 
 That flag both forces the resource to run at compile time and sets the
-converge action to :nothing.
+converge action to `:nothing`.
 
 The following examples show when (and when not) to use `run_action`.
 
