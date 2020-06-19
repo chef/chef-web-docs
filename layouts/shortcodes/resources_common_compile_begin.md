@@ -145,7 +145,7 @@ to work correctly.
 
 **Resources that are forced to compile time by default**
 
-The `ohai_hint` and `hostname` resources are forced to compile time by default.
+The `ohai_hint` and `hostname` resources run at compile time by default.
 
 This is due to the fact that later resources may consume the node attributes which
 are set by those resources leading to excessive use of `lazy` in subsequent
