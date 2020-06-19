@@ -68,8 +68,10 @@ end
 A common use case is to download a configuration file, parse it, and then
 use the values in templates and to control other configuration.
 
-And important distinction to make is that the downloaded configuration file
-is being used internally by the Chef Infra Client as temporary state.
+An important distinction to make is that the downloaded configuration file
+only exists in a temporary state to be used by the Chef Infra Client. It will
+not be used directly by the system or applications that are managed by the
+Chef Infra Client.
 
 To download and parse a JSON file and render it in a template, it makes sense
 to download the file during compile time:
