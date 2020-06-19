@@ -92,7 +92,7 @@ to download the file during compile time:
   end
 ```
 
-This is considerably cleaner than the alternative of lazying both the parsing of the
+This is considerably cleaner than the alternative of lazy evaluating both the parsing of the
 JSON and the rendering of the data into the file template, which will happen if
 the `remote_file` resource is not run at compile time:
 
