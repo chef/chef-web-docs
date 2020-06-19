@@ -71,7 +71,7 @@ use the values in templates and to control other configuration.
 And important distinction to make is that the downloaded configuration file
 is being used internally by the Chef Infra Client as temporary state.
 
-To download and parse a JSON file and render it in a template it makes sense
+To download and parse a JSON file and render it in a template, it makes sense
 to eagerly download the file in compile time:
 
 ``` ruby
