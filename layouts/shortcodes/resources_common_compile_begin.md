@@ -44,10 +44,10 @@ end
 require 'aws-sdk'
 ```
 
-A better strategy is to move the code which requires the gem into
-a custom resource.  Since all the actions of custom resources run
-at converge time, this has the effect of deferring the require of
-the gem to later in the overall chef-client execution.  Unified
+A better strategy is to move the code, which requires the gem, into
+a custom resource. Since all the actions of custom resources run
+at converge time, this defers requiring 
+the gem until later in the overall Chef Infra Client execution. Unified
 mode can also be used in the resource to eliminate compile/converge
 mode issues entirely:
 
