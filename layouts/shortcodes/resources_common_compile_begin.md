@@ -151,5 +151,5 @@ This is due to the fact that later resources may consume the node attributes whi
 are set by those resources leading to excessive use of `lazy` in subsequent
 resources (and similar issues to the `remote_file` example above).
 
-The `chef_gem` resource used to be forced to compile time by default, but that was
-removed in favor of the recommendation to move such code to custom resources.
+The `chef_gem` resource used to execute at compile time by default, but now we
+recommend that users move code that executes at compile time to custom resources.
