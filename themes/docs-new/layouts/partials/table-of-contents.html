@@ -8,6 +8,8 @@
     </button>
   </span>
   <a href="#{{ anchorize ( .Title )}}">{{ .Title }}</a>
-  {{- $toc := .TableOfContents -}}
-  {{- safeHTML $toc -}}
+  <div class="TableOfContents">
+    {{- $toc := .TableOfContents -}}
+    {{- safeHTML $toc -}}
+  </div>
 </aside>

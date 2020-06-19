@@ -36,7 +36,7 @@ function loadReleaseNotesContents(releases, version) {
 
     $("#main-content-col").html(html);
     $("#main-content-col").prepend("<p><i>Released on " + friendlyDate.toLocaleString('en-US', options) + "</i></p>");
-    $("#main-content-col").prepend("<h1>Version " + releases[index]["version"] + "</h1>");
+    $("#main-content-col").prepend("<h1>Chef Automate: Version " + releases[index]["version"] + "</h1>");
   });
 }
 
@@ -52,7 +52,7 @@ function loadNavigationBar(releases, version) {
     groupedReleases[navDate].push(releases[i]);
   }
 
-  $(".nav").append("<ul id=\"release-notes-menu\" class=\"vertical menu accordion-menu\" data-accordion-menu></ul>");
+  $(".TableOfContents").append("<ul id=\"release-notes-menu\"></ul>");
   $.each(groupedReleases, function(navDate, releases) {
     if ( releases.length > 0 ) {
       var releaseList = "";
