@@ -101,7 +101,7 @@ properties_list:
   ruby_type: String
   required: false
   description_list:
-  - markdown: The full path to the `.dmg` file on the local system.
+  - markdown: The absolute path to the `.dmg` file on the local system.
 - property: headers
   ruby_type: Hash
   required: false

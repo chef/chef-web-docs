@@ -91,7 +91,7 @@ properties_list:
 - property: frequency_modifier
   ruby_type: Integer, String
   required: false
-  default_value: '30'
+  default_value: 30 if frequency is 'minute', 1 otherwise
   description_list:
   - markdown: Numeric value to go with the scheduled task frequency
 - property: log_directory
