@@ -118,7 +118,7 @@ the `remote_file` resource is not run at compile time:
   end
 ```
 
-This is an example of code that overly uses deferred execution, uses more "lazy" evaluation, and is
+This is an example of code that overuses deferred execution, uses more "lazy" evaluation, and is
 considerably harder to understand and write correctly.
 
 **Notifications will not work**
