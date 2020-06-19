@@ -321,7 +321,7 @@ a recipe.
 
 {{% resources_common_compile %}}
 
-### run_action
+### Using the compile_time property
 
 {{< readFile_shortcode file="resources_common_compile_begin.md" >}}
 
