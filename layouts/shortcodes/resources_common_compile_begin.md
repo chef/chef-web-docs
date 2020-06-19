@@ -29,8 +29,8 @@ The following examples show when (and when not) to use `run_action`.
 Compile time execution is often used to install gems before requiring
 them in recipe code.
 
-This is a poor pattern, since gems may depend on native gems, which
-may result in needing to install compilers at compile time.
+This is a poor pattern since gems may depend on native gems which
+may require installing compilers at compile time.
 
 ``` ruby
 build_essential 'Install compilers' do
@@ -153,4 +153,3 @@ resources (and similar issues to the `remote_file` example above).
 
 The `chef_gem` resource used to be forced to compile time by default, but that was
 removed in favor of the recommendation to move such code to custom resources.
-
