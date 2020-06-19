@@ -93,7 +93,7 @@ to download the file during compile time:
 ```
 
 This is considerably cleaner than the alternative of lazying both the parsing of the
-JSON and the rendering of the data into the file template, which will be caused if
+JSON and the rendering of the data into the file template, which will happen if
 the `remote_file` resource is not run at compile time:
 
 ``` ruby
