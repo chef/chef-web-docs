@@ -10,6 +10,6 @@ Even for display purposes the name used in recipe code which matches a
 `provides` statement is favored over the `resource_name` setting, so the
 `resource_name` has little effect.  In Chef Infra Client 16 and later
 the first `provides` in a resource declaration also sets the fall-back
-`resource_name`, so it recommended to not set it at all.  The `resource_name`
+`resource_name`, so it is recommended to not set it at all.  The `resource_name`
 setting is necessary for backwards compatibility with Chef Infra Client 12
 through 15.
