@@ -1,5 +1,11 @@
 The following properties are common to every resource:
 
+`compile_time`
+
+:   **Ruby Type:** true, false \| **Default Value:** `false`
+
+    Control the phase during which the resource is run on the node. Set to true to run while the resource collection is being built (the `compile phase`). Set to false to run while Chef Infra Client is configuring the node (the `converge phase`).
+
 `ignore_failure`
 
 :   **Ruby Type:** true, false, :quiet \| **Default Value:** `false`
