@@ -43,6 +43,8 @@ Definitions:
 -   Don't support `why-run` mode
 -   Can't report to Chef Automate
 -   Cannot be tested with ChefSpec
+-   There are known issues with the definition parameters hash where certain names, `timeout` for example,
+    will not work. These issues will not be fixed.
 
 ## Syntax
 
@@ -58,7 +60,7 @@ A definition had four components:
 The basic syntax of a definition was:
 
 ``` ruby
-define :resource_name do
+define :my_definition_name do
   body
 end
 ```
@@ -66,7 +68,7 @@ end
 More commonly, the usage incorporated arguments to the definition:
 
 ``` ruby
-define :resource_name, :parameter => :argument, :parameter => :argument do
+define :my_definition_name, :parameter => :argument, :parameter => :argument do
   body (likely referencing the params hash)
 end
 ```
