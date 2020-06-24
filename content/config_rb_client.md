@@ -430,7 +430,7 @@ This configuration file has the following settings:
 `log_level`
 
 :   The level of logging to be stored in a log file. Possible levels:
-    `:auto` (default), `:trace`, `:debug`, `:info`, `:warn`, `:error`,
+    `:auto` (default), `:trace`(starting in 14.0.202), `:debug`, `:info`, `:warn`, `:error`,
     or `:fatal`. Default value: `:warn` (when a terminal is available)
     or `:info` (when a terminal is not available).
 

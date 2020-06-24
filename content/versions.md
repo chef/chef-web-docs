@@ -223,7 +223,7 @@ newer versions or products.
 </tr>
 <tr class="even">
 <td>Chef Manage</td>
-<td>2.5.x</td>
+<td>2.5.x+</td>
 <td>Deprecated</td>
 <td>TBD</td>
 </tr>

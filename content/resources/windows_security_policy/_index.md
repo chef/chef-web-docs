@@ -41,9 +41,10 @@ properties_list:
   required: true
   default_value: The resource block's name
   allowed_values: '"ClearTextPassword", "EnableAdminAccount", "EnableGuestAccount",
-    "ForceLogoffWhenHourExpire", "LSAAnonymousNameLookup", "LockoutBadCount", "MaximumPasswordAge",
-    "MinimumPasswordAge", "MinimumPasswordLength", "NewAdministratorName", "NewGuestName",
-    "PasswordComplexity", "PasswordHistorySize", "RequireLogonToChangePassword"'
+    "ForceLogoffWhenHourExpire", "LSAAnonymousNameLookup", "LockoutBadCount", "LockoutDuration",
+    "MaximumPasswordAge", "MinimumPasswordAge", "MinimumPasswordLength", "NewAdministratorName",
+    "NewGuestName", "PasswordComplexity", "PasswordHistorySize", "RequireLogonToChangePassword",
+    "ResetLockoutCount"'
   description_list:
   - markdown: The name of the policy to be set on windows platform to maintain its
       security.

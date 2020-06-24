@@ -26,7 +26,7 @@ values:
 `:powershell_script`
 
 :   Evaluates a string command using the **powershell_script**
-    resource. Default value (within a **batch** resource block):
+    resource. Default value (within a **powershell_script** resource block):
     `:powershell_script`.
 
 `:python`

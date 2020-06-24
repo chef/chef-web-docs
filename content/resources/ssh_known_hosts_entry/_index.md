@@ -110,10 +110,18 @@ properties_list:
   default_value: '30'
   description_list:
   - markdown: The timeout in seconds for ssh-keyscan.
-examples: "
-  Add a single entry for github.com with the key auto detected\n\n\
-  \  ``` ruby\n  ssh_known_hosts_entry 'github.com'\n  ```\n\n  Add a single entry\
-  \ with your own provided key\n\n  ``` ruby\n  ssh_known_hosts_entry 'github.com'\
-  \ do\n    key 'node.example.com ssh-rsa ...'\n  end\n  ```\n"
+examples: |
+  **Add a single entry for github.com with the key auto detected**
 
+  ```ruby
+  ssh_known_hosts_entry 'github.com'
+  ```
+
+  **Add a single entry with your own provided key**
+
+  ```ruby
+  ssh_known_hosts_entry 'github.com' do
+    key 'node.example.com ssh-rsa ...'
+  end
+  ```
 ---

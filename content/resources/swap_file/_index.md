@@ -71,9 +71,20 @@ properties_list:
   default_value: '600'
   description_list:
   - markdown: Timeout for `dd` / `fallocate` commands.
-examples: "
-  Create a swap file\n\n  ``` ruby\n  swap_file '/dev/sda1' do\n  \
-  \  size 1024\n  end\n  ```\n\n  Remove a swap file\n\n  ``` ruby\n  swap_file '/dev/sda1'\
-  \ do\n    action :remove\n  end\n  ```\n"
+examples: |
+  **Create a swap file**
 
+  ```ruby
+  swap_file '/dev/sda1' do
+    size 1024
+  end
+  ```
+
+  **Remove a swap file**
+
+  ```ruby
+  swap_file '/dev/sda1' do
+    action :remove
+  end
+  ```
 ---

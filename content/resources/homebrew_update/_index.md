@@ -15,7 +15,7 @@ menu:
     parent: chef_infra/cookbook_reference/resources
 resource_description_list:
 - markdown: Use the **homebrew_update** resource to manage Homebrew repository updates
-    on MacOS.
+    on macOS.
 resource_new_in: '16.2'
 syntax_full_code_block: |-
   homebrew_update 'name' do

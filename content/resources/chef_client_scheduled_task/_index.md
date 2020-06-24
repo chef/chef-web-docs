@@ -26,7 +26,7 @@ syntax_full_code_block: |-
     config_directory         String # default value: "/etc/chef"
     daemon_options           Array
     frequency                String # default value: "minute"
-    frequency_modifier       Integer, String # default value: 30
+    frequency_modifier       Integer, String # default value: "30 if frequency is 'minute', 1 otherwise"
     log_directory            String # default value: "CONFIG_DIRECTORY/log"
     log_file_name            String # default value: "client.log"
     password                 String
@@ -91,7 +91,7 @@ properties_list:
 - property: frequency_modifier
   ruby_type: Integer, String
   required: false
-  default_value: '30'
+  default_value: 30 if frequency is 'minute', 1 otherwise
   description_list:
   - markdown: Numeric value to go with the scheduled task frequency
 - property: log_directory
@@ -168,6 +168,16 @@ examples: |
   ```ruby
     chef_client_scheduled_task "Run an override recipe" do
       daemon_options ["--override-runlist mycorp_base::default"]
+    end
+  ```
+
+  **Run Chef Infra Client daily at 01:00 am, specifying a named run-list**:
+
+  ```ruby
+    chef_client_scheduled_task "Run chef-client named run-list daily" do
+      frequency 'daily'
+      start_time '01:00'
+      daemon_options ['-n audit_only']
     end
   ```
 ---

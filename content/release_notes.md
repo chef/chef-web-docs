@@ -1,5 +1,5 @@
 +++
-title = "Release Notes: Chef Infra Client 12.0 - 16.1"
+title = "Release Notes: Chef Infra Client 12.0 - 16.2"
 draft = false
 
 aliases = ["/release_notes.html", "/release_notes_ohai.html"]
@@ -18,6 +18,127 @@ Chef Infra Client is released on a monthly schedule with new releases
 the first Wednesday of every month. Below are the major changes for each
 release. For a detailed list of changes see the [Chef Infra Client
 changelog](https://github.com/chef/chef/blob/master/CHANGELOG.md)
+
+## What's New in 16.2
+
+### Breaking Change in Resources
+
+In Chef Infra Client 16.0, we changed the way that custom resource names are applied in order to resolve some longstanding edge-cases. This change had several unintended side effects, so we're further changing how custom names are set in this release of Chef Infra Client.
+
+Previously you could set a custom name for a resource via `resource_name` and under the hood this would also magically set the `provides` for the resource. Magic is great when it works, but is confusing when it doesn't. We've decided to remove some of this magic and instead rely on more explicit `provides` statements in resources. For cookbooks that support just Chef Infra Client 16 and later, you should change any `resource_name` calls to `provides` instead. If you need to support older releases of Chef Infra Client as well as 16+, you'll want to include both `resource_name` and `provides` for full compatibility.
+
+**Pre-16 code:**
+
+```ruby
+resource_name :foo
+```
+
+**Chef Infra Client 16+ code**
+
+```ruby
+provides :foo
+```
+
+**Chef Infra Client < 16 backwards compatible code**
+
+```ruby
+resource_name :foo
+provides :foo
+```
+
+We've introduced several Cookstyle rules to detect both custom resources and legacy HWRPs that need to be updated for this change:
+
+**[ChefDeprecations/ResourceUsesOnlyResourceName](https://github.com/chef/cookstyle/blob/master/docs/cops_chefdeprecations.md#chefdeprecationsresourceusesonlyresourcename)**: detects resources that only set resource_name and automatically adds a provides call as well.
+
+**[ChefDeprecations/HWRPWithoutProvides](https://github.com/chef/cookstyle/blob/master/docs/cops_chefdeprecations.md#chefdeprecationshwrpwithoutprovides)**: detects legacy HWRPs that don't include the necessary provides and resource_name calls for Chef Infra Client 16.
+
+### Chef InSpec 4.20.6
+
+Chef InSpec has been updated from 4.18.114 to 4.2.0.6. This new release includes the following improvements:
+
+- Develop your own Chef InSpec Reporter plugins to control how Chef InSpec will report result data.
+- The `inspec archive` command packs your profile into a `tar.gz` file that includes the profile in JSON form as the inspec.json file.
+- Certain substrings within a `.toml` file no longer cause unexpected crashes.
+- Accurate InSpec CLI input parsing for numeric values and structured data, which were previously treated as strings. Numeric values are cast to an `integer` or `float` and `YAML` or `JSON` structures are converted to a hash or an array.
+- Suppress deprecation warnings on inspec exec with the `--silence-deprecations` option.
+
+### New Resources
+
+#### windows_audit_policy
+
+The `windows_audit_policy` resource is used to configure system-level and per-user Windows advanced audit policy settings. See the [windows_audit_policy Documentation](/resources/windows_audit_policy/) for complete usage information.
+
+For example, you can enable auditing of successful credential validation:
+
+```ruby
+windows_audit_policy "Set Audit Policy for 'Credential Validation' actions to 'Success'" do
+  subcategory  'Credential Validation'
+  success true
+  failure false
+  action :set
+end
+```
+
+#### homebrew_update
+
+The `homebrew_update` resource is used to update the available package cache for the Homebrew package system similar to the behavior of the `apt_update` resource. See the [homebrew_update Documentation](/resources/homebrew_update/) for complete usage information. Thanks for adding this new resource, [@damacus](http://github.com/damacus).
+
+### Resource Updates
+
+#### All resources now include umask property
+
+All resources, including custom resources, now have a `umask` property which allows you to specify a umask for file creation. If not specified the system default will continue to be used.
+
+#### archive_file
+
+The `archive_file` resource has been updated with two important fixes. The resource will no longer fail with uninitialized constant errors under some scenarios. Additionally, the behavior of the `mode` property has been improved to prevent incorrect file modes from being applied to the decompressed files. Due to how file modes and Integer values are processed in Ruby, this resource will now produce a deprecation warning if integer values are passed. Using string values lets us accurately pass values such as '644' or '0644' without ambiguity as to the user's intent. Thanks for reporting these issues [@sfiggins](http://github.com/sfiggins) and [@hammerhead](http://github.com/hammerhead).
+
+#### chef_client_scheduled_task
+
+The `chef_client_scheduled_task` resource has been updated to default the `frequency_modifier` property to `30` if the `frequency` property is set to `minutes`, otherwise it still defaults to `1`. This provides a more predictable schedule behavior for users.
+
+#### cron / cron_d
+
+The `cron` and `cron_d` resources have been updated using the new Custom Resource Partials functionality introduced in Chef Infra Client 16. This has allowed us to standardize the properties used to declare cron job timing between the two resources. The timing properties in both resources all accept the same types and ranges, and include the same validation, which makes moving from `cron` to `cron_d` seamless.
+
+#### cron_access
+
+The `cron_access` resource has been updated to support Solaris and AIX systems. Thanks [@aklyachkin](http://github.com/aklyachkin).
+
+#### execute
+
+The `execute` resource has a new `input` property which allows you to pass `stdin` input to the command being executed.
+
+#### powershell_package
+
+The `powershell_package` resource has been updated to use TLS 1.2 when communicating with the PowerShell Gallery on Windows Server 2012-2016. Previously this resource used the system default cipher suite which did not include TLS 1.2. The PowerShell Gallery now requires TLS 1.2 for all communication, which caused failures on Windows Server 2012-2016. Thanks for reporting this issue [@Xorima](http://github.com/Xorima).
+
+#### remote_file
+
+The `remote_file` resource has a new property `ssl_verify_mode` which allows you to control SSL validation at the property level. This can be used to verify certificates (Chef Infra Client's defaults) with `:verify_peer` or to skip verification in the case of a self-signed certificate with `:verify_none`. Thanks [@jaymzh](http://github.com/jaymzh).
+
+#### script
+
+The various `script` resources such as `bash` or `ruby` now pass the provided script content to the interpreter using system pipes instead of writing to a temporary file and executing it. Executing script content using pipes is faster, more secure as potentially sensitive scripts aren't written to disk, and bypasses issues around user privileges.
+
+#### snap_package
+
+Multiple issues with the `snap_package` resource have been resolved, including an infinite wait that occurred, and issues with specifying the package version or channel. Thanks [@jaymzh](http://github.com/jaymzh).
+
+#### zypper_repository
+
+The `zypper_repository` resource has been updated to work with the newer release of GPG in openSUSE 15 and SLES 15. This prevents failures when importing GPG keys in the resource.
+
+### Knife bootstrap updates
+
+- Knife bootstrap will now warn when bootstrapping a system using a validation key. Users should instead use `validatorless bootstrapping` with `knife bootstrap` which generates node and client keys using the client key of the user bootstrapping the node. This method is far more secure as an org-wide validation key does not not need to be distributed or rotated. Users can switch to `validatorless bootstrapping` by removing any `validation_key` entries in their `config.rb (knife.rb)` file.
+- Resolved an error bootstrapping Linux nodes from Windows hosts
+- Improved information messages during the bootstrap process
+
+### Platform Packages
+
+- Debian 8 packages are no longer being produced as Debian 8 is now end-of-life.
+- We now produce Windows 8 packages
 
 ## What's New in 16.1.16
 
@@ -621,7 +742,7 @@ Several legacy Windows helpers have been deprecated as they will always return t
 
 ### Ohai 15.9
 
-- Improve the resilency of the `Shard` plugin when `dmidecode` cannot be found on a system. Thanks [@jaymzh](https://github.com/jaymzh)
+- Improve the resiliency of the `Shard` plugin when `dmidecode` cannot be found on a system. Thanks [@jaymzh](https://github.com/jaymzh)
 - Fixed detection of Openstack guests via DMI data. Thanks [@ramereth](https://github.com/ramereth)
 
 ### Platform Support
@@ -894,7 +1015,7 @@ The `windows_task` resource is now idempotent when a system is joined to a domai
 
 #### x509_certificate
 
-The `x509_certificate` resource now includes a new `renew_before_expiry` property that allows you to auto renew certicates a specified number of days before they expire. Thanks [@julienhuon](https://github.com/julienhuon/) for this improvement.
+The `x509_certificate` resource now includes a new `renew_before_expiry` property that allows you to auto renew certificates a specified number of days before they expire. Thanks [@julienhuon](https://github.com/julienhuon/) for this improvement.
 
 ### Additional Recipe Helpers
 
@@ -1225,7 +1346,7 @@ openssl has been updated from 1.0.2s to 1.0.2t in order to resolve [CVE-2019-156
 
 #### nokogiri
 
-nokogori has been updated from 1.10.2 to 1.10.4 in order to resolve [CVE-2019-5477](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-5477)
+nokogiri has been updated from 1.10.2 to 1.10.4 in order to resolve [CVE-2019-5477](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-5477)
 
 ## What's New in 15.2
 
@@ -1404,6 +1525,7 @@ end
 ```
 
 To selectively inherit certain properties from a resource:
+
 ```ruby
 resource_name :my_resource
 
@@ -1755,7 +1877,7 @@ The deprecated `Ohai::Util::Win32::GroupHelper` helper has been removed from Oha
 
 #### Ohai::System.refresh_plugins method removal
 
-The `refresh_plugins` method in the `Ohai::System` class has been removed as it has been unused for multiple major Ohai releases. If you are programatically using Ohai in your own Ruby application, you will need to update your code to use the `load_plugins` method instead.
+The `refresh_plugins` method in the `Ohai::System` class has been removed as it has been unused for multiple major Ohai releases. If you are programmatically using Ohai in your own Ruby application, you will need to update your code to use the `load_plugins` method instead.
 
 #### Ohai Microsoft VirtualPC / VirtualServer detection removal
 
@@ -1824,7 +1946,7 @@ libxslt has been updated to 1.1.34 to resolve [CVE-2019-13118](https://nvd.nist.
 - Fixed crash in knife when displaying a missing profile error message
 - Fixed knife subcommand --help not working as intended for some commands
 - Fixed knife ssh interactive mode exit error
-- Fixed for `:day`` option not accepting integer value in the `windows_task` resource
+- Fixed for `:day` option not accepting integer value in the `windows_task` resource
 - Fixed for `user` resource not handling a GID if it is specified as a string
 - Fixed the `ifconfig` resource to support interfaces with a `-` in the name
 
@@ -1916,6 +2038,7 @@ Knife now fails with a descriptive error message when attempting to bootstrap no
 #### Ruby
 
 Ruby has been updated from 2.5.5 to 2.5.7 in order to resolve the following CVEs:
+
 - [CVE-2012-6708](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-6708)
 - [CVE-2015-9251](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-9251).
 - [CVE-2019-16201](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-15845).
@@ -1929,7 +2052,7 @@ openssl has been updated from 1.0.2s to 1.0.2t in order to resolve [CVE-2019-156
 
 #### nokogiri
 
-nokogori has been updated from 1.10.2 to 1.10.4 in order to resolve [CVE-2019-5477](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-5477).
+nokogiri has been updated from 1.10.2 to 1.10.4 in order to resolve [CVE-2019-5477](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-5477).
 
 ## What's New in 14.13
 
@@ -1980,7 +2103,7 @@ In preparation for Chef Infra Client 15.0 we've added a placeholder `--chef-lice
 
 ### Important Bug Fixes
 
-- Blacklisting and whiteliting default and override level attributes is once again possible.
+- Blacklisting and whitelisting default and override level attributes is once again possible.
 - You may now encrypt a previously unencrypted data bag.
 - Resolved a regression introduced in Chef Infra Client 14.12.3 that resulted in errors when managing Windows services
 
@@ -2050,6 +2173,7 @@ OpenSSL has been updated to 1.0.2r in order to resolve [CVE-2019-1559](https://c
 #### RubyGems
 
 RubyGems has been updated to 2.7.9 in order to resolve the following CVEs:
+
 - [CVE-2019-8320](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-8320): Delete directory using symlink when decompressing tar
 - [CVE-2019-8321](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-8321): Escape sequence injection vulnerability in verbose
 - [CVE-2019-8322](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-8322): Escape sequence injection vulnerability in gem owner
@@ -2177,7 +2301,7 @@ windows_ad_join now uses the UPN format for usernames, which prevents some failu
 
 #### windows_certificate
 
-An issue was resolved in the :acl_add action of the windows_certificate resource, which caused the resource to fail. Thank you [@shoekstra](htts://github.com/shoekstra) for reporting this issue.
+An issue was resolved in the :acl_add action of the windows_certificate resource, which caused the resource to fail. Thank you [@shoekstra](https://github.com/shoekstra) for reporting this issue.
 
 #### windows_feature
 
@@ -2200,6 +2324,7 @@ A regression was resolved that prevented ChefSpec from testing the windows_task 
 Detection of Linux guests running on Hyper-V has been improved. In addition, Linux guests on Hyper-V hypervisors will also now detect their hypervisor's hostname. Thank you [@safematix](https://github.com/safematix) for contributing this enhancement.
 
 Example `node['virtualization']` data:
+
 ```json
 {
   "systems": {
@@ -2233,7 +2358,8 @@ BSD-based systems can now detect guests running on KVM and Amazon's hypervisor w
 #### OpenSSL
 
 OpenSSL has been updated to 1.0.2q in order to resolve:
-- Microarchitecture timing vulnerability in ECC scalar multiplication ([CVE-2018-5407](https://nvd.nist.gov/vuln/detail/CVE-2018-5407))
+
+- Microarchitecture timing vulnerability in ECC scalar multiplication [CVE-2018-5407](https://nvd.nist.gov/vuln/detail/CVE-2018-5407)
 - Timing vulnerability in DSA signature generation ([CVE-2018-0734](https://nvd.nist.gov/vuln/detail/CVE-2018-0734))
 
 ## What's New in 14.7
@@ -2332,7 +2458,7 @@ end
 
 ### InSpec 3.0
 
-Inspec has been updated to version 3.0 with addition resources, exception handling, and a new plugin system. See https://blog.chef.io/2018/10/16/announcing-inspec-3-0/ for details.
+Inspec has been updated to version 3.0 with addition resources, exception handling, and a new plugin system. See <https://blog.chef.io/2018/10/16/announcing-inspec-3-0/> for details.
 
 ### macOS Mojave (10.14)
 
@@ -2372,12 +2498,14 @@ The system_profile plugin will be removed from Chef/Ohai 15 in April 2019. This 
 #### Ruby 2.5.3
 
 Ruby has been updated to from 2.5.1 to 2.5.3 to resolve multiple CVEs and bugs:
+
 - [CVE-2018-16396](https://www.ruby-lang.org/en/news/2018/10/17/not-propagated-taint-flag-in-some-formats-of-pack-cve-2018-16396/)
 - [CVE-2018-16395](https://www.ruby-lang.org/en/news/2018/10/17/openssl-x509-name-equality-check-does-not-work-correctly-cve-2018-16395/)
 
 ## What's New in 14.5.33
 
 This release resolves a regression that caused the ``windows_ad_join`` resource to fail to run. It also makes the following additional fixes:
+
   - The ``ohai`` resource's unused ``ohai_name`` property has been deprecated. This will be removed in Chef Infra Client 15.0.
   - Error messages in the ``windows_feature`` resources have been improved.
   - The ``windows_service`` resource will no longer log potentially sensitive information if the ``sensitive`` property is used.
@@ -2417,6 +2545,7 @@ Thanks [@derekgroh](https://github.com/derekgroh) for contributing this new prop
 ### InSpec 2.2.102
 
 InSpec has been updated from 2.2.70 to 2.2.102. This new version includes the following improvements:
+
   - Support for using ERB templating within the .yml files
   - HTTP basic auth support for fetching dependent profiles
   - A new global attributes concept
@@ -2465,7 +2594,8 @@ staging
 $ knife config use-profile prod
 Set default profile to prod
 $ knife config list-profiles
-##  Profile  Client  Key               Server
+ Profile  Client  Key               Server
+-----------------------------------------------------------------------------
  staging  myuser  ~/.chef/user.pem  https://example.com/organizations/staging
 *prod     myuser  ~/.chef/user.pem  https://example.com/organizations/prod
 ```
@@ -2802,7 +2932,7 @@ This release resolves a number of regressions in 14.1.1:
 
 Enable Ubuntu-18.04 and Debian-9 tested chef-client packages.
 
-## Chef Client Release Notes 14.1:
+## What's New in 14.1
 
 ### Windows Task
 
@@ -2832,7 +2962,7 @@ The `ignore_failure` property takes a new argument, `:quiet`, to suppress the er
 
 - CVE-2018-1000201: DLL loading issue which can be hijacked on Windows OS
 
-## Ohai Release Notes 14.1:
+## Ohai Release Notes 14.1
 
 ### Configurable DMI Whitelist
 
@@ -3219,7 +3349,7 @@ Support for Windows 2003 has been removed from both Chef and Ohai, improving the
 
 #### Chef Solo `-r` flag
 
-The Chef Solor `-r` flag has been removed as it was deprecated and replaced with the `--recipe-url` flag in Chef 12.
+The Chef Solo `-r` flag has been removed as it was deprecated and replaced with the `--recipe-url` flag in Chef 12.
 
 #### node.set and node.set_unless attribute levels removal
 
