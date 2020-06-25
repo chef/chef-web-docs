@@ -837,7 +837,7 @@ This configuration file has the following settings for SSL:
 :   The list of supported cipher suites that are used to establish a
     secure connection. To favor AES256 with ECDHE forward security, drop
     the `RC4-SHA:RC4-MD5:RC4:RSA` prefix. See
-    <https://wiki.mozilla.org/Security/Server_Side_TLS> for more
+    <https://www.openssl.org/docs/man1.0.2/man1/ciphers.html> for more
     information. For example:
 
     ``` ruby

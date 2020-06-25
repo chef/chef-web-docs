@@ -68,7 +68,7 @@ Automate server to use SSL certificates:
 :   The list of supported cipher suites that are used to establish a
     secure connection. To favor AES256 with ECDHE forward security, drop
     the `RC4-SHA:RC4-MD5:RC4:RSA` prefix. See [this
-    link](https://wiki.mozilla.org/Security/Server_Side_TLS) for more
+    link](https://www.openssl.org/docs/man1.0.2/man1/ciphers.html) for more
     information. Default value:
 
     ``` ruby
@@ -88,7 +88,7 @@ Automate server to use SSL certificates:
 
 {{< note >}}
 
-See <https://wiki.mozilla.org/Security/Server_Side_TLS> for more
+See <https://www.openssl.org/docs/man1.0.2/man1/ciphers.html> for more
 information about the values used with the `nginx['ssl_ciphers']` and
 `nginx['ssl_protocols']` settings.
 
