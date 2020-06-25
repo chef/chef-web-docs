@@ -28,7 +28,7 @@ outlined in this guide.
 ## Assumptions
 
 All instructions currently assume a 3-node backend cluster running Chef
-Backend 0.3.0 or greater. The user should have SSH access with root
+Backend 2.1.0 or greater. The user should have SSH access with root
 privileges to all nodes in the cluster.
 
 ## Node Failures
@@ -46,19 +46,13 @@ current leader.
 However if the failing node cannot be brought back online, it must be
 replaced:
 
-1.  From any node in the cluster, run the following commands to remove
-    the failed node from etcd's configuration:
 
-    ``` none
-    chef-backend-ctl remove-node NODE_NAME_OR_IP
-    ```
-
-2.  Install Chef Backend on the new node, and join it to the cluster
-    using:
-
-    ``` none
-    chef-backend-ctl join-cluster IP_OF_RUNNING_NODE -s PATH_TO_SHARED_SECRETS
-    ```
+1. Run `chef-backend-ctl remove-node NODE_NAME` from any working cluster member to remove the offending node (it doesn't have to be the leader).
+1. Run `chef-backend-ctl cleanse` on the offending node.  This will save configuration files under the root directory by default.
+1. Check to make sure `/var/opt/chef-backend` was deleted by `chef-backend-ctl cleanse`.
+1. `mkdir /etc/chef-backend` # make a place to move configuration files in a more self-evident place
+1. Copy `/root/chef-backend-cleanse*` to `/etc/chef-backend/`.
+1. Run `chef-backend-ctl join-cluster LEADER_IP --recovery`
 
 See the [installation
 instructions](/install_server_ha/#step-3-install-and-configure-remaining-backend-nodes)
