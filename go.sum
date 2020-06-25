@@ -1,5 +1,5 @@
-github.com/chef/chef-workstation/www v0.0.0-20200609163332-9ae5d50de7db h1:bkExF89BYnTkW9G7JIm8jgk8GijD9saceXmv4uQ1i1E=
-github.com/chef/chef-workstation/www v0.0.0-20200609163332-9ae5d50de7db/go.mod h1:rktT78z3KaWu7A+wf1g6KmYszrwn6Y3o3IFlTg8OpQg=
+github.com/chef/chef-workstation/www v0.0.0-20200625161326-f43898a8e6c0 h1:MTVSgikrlIqceXki6uVwbf+iCVPwkpxsh1ERseRG31g=
+github.com/chef/chef-workstation/www v0.0.0-20200625161326-f43898a8e6c0/go.mod h1:rktT78z3KaWu7A+wf1g6KmYszrwn6Y3o3IFlTg8OpQg=
 github.com/chef/desktop-config/docs v0.0.0-20200610165450-c19114b2ac44 h1:+5XE7ELoAI6L0MZ8mwsARBXVXL9ye3aIeKRvwnLuja4=
 github.com/chef/desktop-config/docs v0.0.0-20200610165450-c19114b2ac44/go.mod h1:B9QAfsJHmMQ6yIgsvQ4uG7f98HVPMjRGO8VuSFN4A9Q=
 github.com/chef/effortless/effortless-chef-io v0.0.0-20200605204203-daaeab90dcdd h1:Q8CMHE3SRbHuKIJ2w4mRR3arJsm9gNWapHzlpqOPAQc=
