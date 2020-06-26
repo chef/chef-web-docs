@@ -721,6 +721,107 @@ Several legacy Windows helpers have been deprecated as they will always return t
 - Chef::Platform.supports_powershell_execution_bypass?
 - Chef::Platform.windows_nano_server?
 
+## What's New In 15.12
+
+### Chef InSpec 4.20.6
+
+Chef InSpec has been updated from 4.18.114 to 4.2.0.6. This new release includes the following improvements:
+
+- Develop your own Chef InSpec Reporter plugins to control how Chef InSpec will report result data.
+- The `inspec archive` command packs your profile into a `tar.gz` file that includes the profile in JSON form as the inspec.json file.
+- Certain substrings within a `.toml` file no longer cause unexpected crashes.
+- Accurate InSpec CLI input parsing for numeric values and structured data, which were previously treated as strings. Numeric values are cast to an `integer` or `float` and `YAML` or `JSON` structures are converted to a hash or an array.
+- Suppress deprecation warnings on `inspec exec` with the `--silence-deprecations` option.
+
+### Resource Updates
+
+#### archive_file
+
+The `archive_file` resource has been updated with two important fixes. The resource will no longer fail with uninitialized constant errors under some scenarios. Additionally, the behavior of the `mode` property has been improved to prevent incorrect file modes from being applied to the decompressed files. Due to how file modes and Integer values are processed in Ruby, this resource will now produce a deprecation warning if integer values are passed. Using string values lets us accurately pass values such as '644' or '0644' without ambiguity as to the user's intent. Thanks for reporting these issues [@sfiggins](http://github.com/sfiggins) and [@hammerhead](http://github.com/hammerhead).
+
+#### cron_access
+
+The `cron_access` resource has been updated to support Solaris and AIX systems. Thanks [@aklyachkin](http://github.com/aklyachkin).
+
+#### msu_package resource improvements
+
+The `msu_package` resource has been improved to work better with Microsoft's cumulative update packages. Newer releases of these cumulative update packages will not correctly install over the previous versions. We also extended the default timeout for installing MSU packages to 60 minutes. Thanks for reporting the timeout issue [@danielfloyd](https://github.com/danielfloyd).
+
+#### powershell_package
+
+The `powershell_package` resource has been updated to use TLS 1.2 when communicating with the PowerShell Gallery on Windows Server 2012-2016. Previously, this resource used the system default cipher suite which did not include TLS 1.2. The PowerShell Gallery now requires TLS 1.2 for all communication, which caused failures on Windows Server 2012-2016. Thanks for reporting this issue [@Xorima](http://github.com/Xorima).
+
+#### snap_package
+
+Multiple issues with the `snap_package` resource have been resolved, including an infinite wait that occurred and issues with specifying the package version or channel. Thanks [@jaymzh](http://github.com/jaymzh).
+
+#### zypper_repository
+
+The `zypper_repository` resource has been updated to work with the newer release of GPG in openSUSE 15 and SLES 15. This prevents failures when importing GPG keys in the resource.
+
+### Knife bootstrap updates
+
+- Knife bootstrap will now warn when bootstrapping a system using a validation key. Users should instead use `validatorless bootstrapping` with `knife bootstrap` which generates node and client keys using the client key of the user bootstrapping the node. This method is far more secure as an org-wide validation key does not not need to be distributed or rotated. Users can switch to `validatorless bootstrapping` by removing any `validation_key` entries in their `config.rb (knife.rb)` file.
+- Resolved an error bootstrapping Linux nodes from Windows hosts
+- Improved information messages during the bootstrap process
+
+### SSH Improvements
+
+The `net-ssh` library used by the `knife ssh` and `knife bootstrap` commands has been updated bringing improvements to SSH connectivity:
+
+- Support for additional key exchange and transport algorithms
+- Support algorithm subtraction syntax in the `ssh_config` file
+- Support empty lines and comments in `known_hosts` file
+
+### Initial macOS Big Sur Support
+
+Chef Infra Client now correctly detects macOS Big Sur (11.0) beta as being platform "mac_os_x". Chef Infra Client 15.12 has not been fully qualified for macOS Big Sur, but we will continue to validate against this release and provide any additional support updates.
+
+### Platform Packages
+
+- Debian 8 packages are no longer being produced as Debian 8 is now end-of-life.
+- We now produce Windows 8 packages
+
+## What's New In 15.11
+
+### Bootstrapping Bugfixes
+
+This release of Chef Infra Client resolves multiple issues when using `knife bootstrap` to bootstrap new nodes to a Chef Infra Server:
+
+- Bootstrapping from a Windows host to a Linux host with an ED25519 ssh key no longer fails
+- Resolved failures in the Windows bootstrap script
+- Incorrect paths when bootstrapping Windows nodes have been resolved
+
+### Chef InSpec 4.18.114
+
+Chef InSpec was updated from 4.18.104 to 4.18.114 with the following improvements:
+
+- Added new `--reporter_message_truncation` and `--reporter_backtrace_inclusion` reporter options to truncate messages and suppress backtraces.
+- Fixed a warning when an input is provided
+- Inputs and controls can now have the same name
+
+### Resource Improvements
+
+#### windows_firewall
+
+The `windows_firewall` resource has been updated to support firewall rules that are associated with more than one profile. Thanks [@tecracer-theinen](https://github.com/tecracer-theinen).
+
+#### chocolatey_package
+
+The `chocolatey_package` resource has been updated to properly handle quotes within the `options` property. Thanks for reporting this issue [@dave-q](https://github.com/dave-q).
+
+### Platform Support
+
+#### Additional aarch64 Builds
+
+Chef Infra Client is now tested on Debian 10, SLES 15, and Ubuntu 20.04 on the aarch64 architecture with packages available on the [Chef Downloads Page](https://downloads.chef.io/chef).
+
+### Security Updates
+
+#### openSSL
+
+openSSL has been updated from 1.0.2u to 1.0.2v which does not address any particular CVEs, but includes multiple security hardening updates.
+
 ## What's New in 15.10
 
 ### Improvements
