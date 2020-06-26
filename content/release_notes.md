@@ -19,6 +19,13 @@ the first Wednesday of every month. Below are the major changes for each
 release. For a detailed list of changes see the [Chef Infra Client
 changelog](https://github.com/chef/chef/blob/master/CHANGELOG.md)
 
+## What's New in 16.2.50
+
+- Correctly identify the new macOS Big Sur (11.0) beta as platform "mac_os_x".
+- Fix `knife config use-profile` to fail if an invalid profile is provided.
+- Fix failures running the `windows_security_policy` resource.
+- Update InSpec from 4.20.6 to 4.20.10.
+
 ## What's New in 16.2
 
 ### Breaking Change in Resources
