@@ -107,6 +107,24 @@ delete the `go.sum` file and rebuild it with `hugo mod get -u`.
 See Hugo's [documentation](https://gohugo.io/hugo-modules/use-modules/#update-modules)
 for additional information about updating Hugo Modules.
 
+#### What If Hugo Doesn't Want to Update a Module
+
+Sometimes Hugo gets a bit difficult and won't update a module cleanly or will leave
+references to older commits of a module in the go.sum file. In those cases, I give
+you the nuclear option.
+
+1. Delete the go.mod and go.sum files.
+1. Re-initialize the Hugo modules, `hugo mod init github.com/chef/chef-web-docs`
+   This will generate a new blank go.mod file.
+1. Update the references to the other GitHub repositories, `hugo mod get -u`.
+1. The previous step will update all modules to the latest commit of their source repositories.
+   If you don't want that, look at the git history and manually edit the
+   go.mod and go.sum files to keep the older commits for the modules that
+   you don't want to update.
+1. Run `hugo mod tidy` this probably won't do anything on newly initialized go.mod
+   and go.sum files, but it can't hurt either.
+1. Vendor the modules in chef-web-docs, `hugo mod vendor`.
+
 ## Hugo Vendoring
 
 [Vendoring](https://gohugo.io/commands/hugo_mod_vendor/) stores all of the module content
