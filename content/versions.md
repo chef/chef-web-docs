@@ -174,18 +174,6 @@ version 2.0.
 <td>April 30, 2020</td>
 </tr>
 <tr class="even">
-<td>Chef Infra Server</td>
-<td>12.x</td>
-<td>GA</td>
-<td>TBD</td>
-</tr>
-<tr class="odd">
-<td>Push Jobs</td>
-<td>2.5.x</td>
-<td>GA</td>
-<td>TBD</td>
-</tr>
-<tr class="even">
 <td>Supermarket</td>
 <td>3.x</td>
 <td>GA</td>
@@ -216,6 +204,18 @@ newer versions or products.
 </thead>
 <tbody>
 <tr class="odd">
+<td>Chef Backend</td>
+<td>2.x</td>
+<td>Deprecated</td>
+<td>December 31, 2021</td>
+</tr>
+<tr class="even">
+<td>Chef Infra Server</td>
+<td>12.x</td>
+<td>Deprecated</td>
+<td>December 31, 2020</td>
+</tr>
+<tr class="odd">
 <td>ChefDK</td>
 <td>4.x</td>
 <td>Deprecated</td>
@@ -225,13 +225,19 @@ newer versions or products.
 <td>Chef Manage</td>
 <td>2.5.x+</td>
 <td>Deprecated</td>
-<td>TBD</td>
+<td>December 31, 2021</td>
 </tr>
 <tr class="odd">
 <td>Chef Workflow</td>
 <td>2.x</td>
 <td>Deprecated</td>
-<td>TBD</td>
+<td>December 31, 2020</td>
+</tr>
+<tr class="even">
+<td>Push Jobs</td>
+<td>2.5.x</td>
+<td>Deprecated</td>
+<td>December 31, 2020</td>
 </tr>
 </tbody>
 </table>
