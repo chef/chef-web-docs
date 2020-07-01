@@ -107,21 +107,41 @@ delete the `go.sum` file and rebuild it with `hugo mod get -u`.
 See Hugo's [documentation](https://gohugo.io/hugo-modules/use-modules/#update-modules)
 for additional information about updating Hugo Modules.
 
+#### go.sum File
+
+The go.sum file should reference only one commit for each repository that is added
+as a module to chef-web-docs. Each module and commit in the go.sum file will take
+two or three lines. For example, the `chef/chef-workstation` repository documentation will
+look like this:
+
+```
+github.com/chef/chef-workstation/www v0.0.0-20200625161326-f43898a8e6c0 h1:MTVSgikrlIqceXki6uVwbf+iCVPwkpxsh1ERseRG31g=
+github.com/chef/chef-workstation/www v0.0.0-20200625161326-f43898a8e6c0/go.mod h1:rktT78z3KaWu7A+wf1g6KmYszrwn6Y3o3IFlTg8OpQg=
+```
+
+If there are references to older commits, delete those lines.
+
+The `hugo mod tidy` command should remove those lines, but sometimes it doesn't.
+
+The commit SHA and timestamp in the go.sum file should match the SHA and timestamp
+in the go.mod file.
+
 #### What If Hugo Doesn't Want to Update a Module
 
 Sometimes Hugo gets a bit difficult and won't update a module cleanly or will leave
 references to older commits of a module in the go.sum file. In those cases, I give
-you the nuclear option.
+you the nuclear option. Re-initialize the modules:
 
 1. Delete the go.mod and go.sum files.
 1. Re-initialize the Hugo modules, `hugo mod init github.com/chef/chef-web-docs`
-   This will generate a new blank go.mod file.
+   This will generate a new, blank go.mod file.
 1. Update the references to the other GitHub repositories, `hugo mod get -u`.
-1. The previous step will update all modules to the latest commit of their source repositories.
-   If you don't want that, look at the git history and manually edit the
+1. The previous step will update all modules to the latest commit of their source
+   repositories.
+   If you don't want that, look at the git history of those files and manually edit the
    go.mod and go.sum files to keep the older commits for the modules that
    you don't want to update.
-1. Run `hugo mod tidy` this probably won't do anything on newly initialized go.mod
+1. Run `hugo mod tidy`. This probably won't do anything on newly initialized go.mod
    and go.sum files, but it can't hurt either.
 1. Vendor the modules in chef-web-docs, `hugo mod vendor`.
 
