@@ -167,12 +167,6 @@ version 2.0.
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td>Chef InSpec</td>
-<td>3.x</td>
-<td>GA</td>
-<td>April 30, 2020</td>
-</tr>
 <tr class="even">
 <td>Supermarket</td>
 <td>3.x</td>
@@ -238,6 +232,12 @@ newer versions or products.
 <td>2.5.x</td>
 <td>Deprecated</td>
 <td>December 31, 2020</td>
+</tr>
+<tr class="odd">
+<td>Chef InSpec</td>
+<td>3.x</td>
+<td>Deprecated</td>
+<td>April 30, 2020</td>
 </tr>
 </tbody>
 </table>
