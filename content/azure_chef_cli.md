@@ -208,6 +208,10 @@ The extension has the following options that can be provided in the
 :   Specifies the [Ohai Hints](/ohai/#hints) to be set in the Ohai configuration of
     the target node.
 
+`chef_package_url`
+
+:   Specifies a url to download Chef Infra Client package (.msi .rpm .deb) and
+    subsequently install.
 
 `bootstrap_options`
 
@@ -334,6 +338,7 @@ configured from an ARM template.
         "validation_client_name": "my-chef-organization-validator"
       },
       "runlist": "recipe[awesome_customers_windows],recipe[iis],role[windows_base]",
+      "chef_package_url" : "https://my.packages.chef.io/chef-client-15.11.8-1-x64.msi",
       "validation_key_format": "plaintext"
     },
     "protectedSettings": {
