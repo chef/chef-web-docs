@@ -16,7 +16,9 @@ aliases = ["/server_ldap.html", "/install_server_post.html"]
 
 The Chef Infra Server supports Active Directory and LDAP authentication,
 which enables users to log in to the Chef Infra Server using their
-corporate credentials.
+corporate credential and the Manage interface. Without the Manage interface add-on installed,
+there is no need to enable the Chef Infra Server LDAP functionality. LDAP is not used with 
+Supermarket logins, nor with any Chef Infra Client related authentication.
 
 ## Configure LDAP
 
