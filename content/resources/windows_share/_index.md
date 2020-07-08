@@ -78,7 +78,6 @@ properties_list:
 - property: description
   ruby_type: String
   required: false
-  default_value: null
   description_list:
   - markdown: The description to be applied to the share.
 - property: encrypt_data
