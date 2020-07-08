@@ -108,7 +108,7 @@ examples: |
   chef_vault_secret 'root-password' do
     admins 'jtimberman,paulmooring'
     data_bag 'secrets'
-    raw_data({'auth' => 'DontUseThisPasswordForRoot'})
+    raw_data({'auth' => 'DoNotUseThisPasswordForRoot'})
     search '*:*'
   end
   ```

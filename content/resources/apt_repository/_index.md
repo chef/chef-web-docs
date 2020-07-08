@@ -16,7 +16,7 @@ menu:
 resource_description_list:
 - markdown: Use the **apt_repository** resource to specify additional APT repositories.
     Adding a new repository will update the APT package cache immediately.
-resource_new_in: null
+resource_new_in: '12.9'
 syntax_description: "An **apt_repository** resource specifies APT repository information\
   \ and\nadds an additional APT repository to the existing list of repositories:\n\
   \n``` ruby\napt_repository 'nginx' do\n  uri        'http://nginx.org/packages/ubuntu/'\n\

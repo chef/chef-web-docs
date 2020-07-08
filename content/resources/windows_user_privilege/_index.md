@@ -35,6 +35,8 @@ syntax_full_properties_list:
 actions_list:
   :add:
     markdown: Add a user privilege
+  :clear:
+    markdown: Clear all user privileges
   :nothing:
     shortcode: resources_common_actions_nothing.md
   :remove:
@@ -98,6 +100,15 @@ examples: |
     privilege      'SeCreatePagefilePrivilege'
     users          ['BUILTIN\Guests']
     action         :remove
+  end
+  ```
+
+  **Clear all users from the SeDenyNetworkLogonRight Privilege**:
+
+  ```ruby
+  windows_user_privilege 'Allow any user the Network Logon right' do
+    privilege      'SeDenyNetworkLogonRight'
+    action         :clear
   end
   ```
 ---

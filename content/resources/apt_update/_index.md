@@ -17,7 +17,7 @@ menu:
 resource_description_list:
 - markdown: Use the **apt_update** resource to manage APT repository updates on Debian
     and Ubuntu platforms.
-resource_new_in: null
+resource_new_in: '12.7'
 syntax_full_code_block: |-
   apt_update 'name' do
     frequency      Integer # default value: 86400
