@@ -87,7 +87,7 @@ versions for Chef Infra Client:
 <tr class="even">
 <td>Debian</td>
 <td><code>x86_64</code></td>
-<td><code>8</code>, <code>9</code>, <code>10</code></td>
+<td><code>9</code>, <code>10</code></td>
 </tr>
 <tr class="odd">
 <td>FreeBSD</td>
@@ -220,16 +220,21 @@ versions for the Chef Workstation:
 <td><code>10.13</code>, <code>10.14</code>, <code>10.15</code></td>
 </tr>
 <tr class="even">
+<td>Debian</td>
+<td><code>x86_64</code></td>
+<td><code>9</code>, <code>10</code></td>
+</tr>
+<tr class="odd">
 <td>Red Hat Enterprise Linux</td>
 <td><code>x86_64</code></td>
 <td><code>6.x</code>, <code>7.x</code>, <code>8.x</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Ubuntu</td>
 <td><code>x86_64</code></td>
 <td><code>16.04</code>, <code>18.04</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Microsoft Windows</td>
 <td><code>x64</code></td>
 <td><code>2012</code>, <code>2012 R2</code>, <code>2016</code>, <code>10 (all channels except "insider" builds)</code>, <code>2019 (Long-term servicing channel (LTSC), Desktop Experience only)</code></td>
@@ -266,7 +271,7 @@ versions for Chef InSpec:
 <tr class="even">
 <td>Debian</td>
 <td><code>x86_64</code></td>
-<td><code>8.x</code>, <code>9.x</code>, <code>10.x</code></td>
+<td><code>9.x</code>, <code>10.x</code></td>
 </tr>
 <tr class="odd">
 <td>macOS</td>
@@ -324,7 +329,7 @@ versions for ChefDK:
 <tr class="odd">
 <td>Debian</td>
 <td><code>x86_64</code></td>
-<td><code>8.x</code>, <code>9.x</code>, <code>10.x</code></td>
+<td><code>9.x</code>, <code>10.x</code></td>
 </tr>
 <tr class="even">
 <td>macOS</td>
