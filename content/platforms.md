@@ -87,7 +87,7 @@ versions for Chef Infra Client:
 <tr class="even">
 <td>Debian</td>
 <td><code>x86_64</code></td>
-<td><code>8</code>, <code>9</code>, <code>10</code></td>
+<td><code>9</code>, <code>10</code></td>
 </tr>
 <tr class="odd">
 <td>FreeBSD</td>
@@ -266,7 +266,7 @@ versions for Chef InSpec:
 <tr class="even">
 <td>Debian</td>
 <td><code>x86_64</code></td>
-<td><code>8.x</code>, <code>9.x</code>, <code>10.x</code></td>
+<td><code>9.x</code>, <code>10.x</code></td>
 </tr>
 <tr class="odd">
 <td>macOS</td>
@@ -324,7 +324,7 @@ versions for ChefDK:
 <tr class="odd">
 <td>Debian</td>
 <td><code>x86_64</code></td>
-<td><code>8.x</code>, <code>9.x</code>, <code>10.x</code></td>
+<td><code>9.x</code>, <code>10.x</code></td>
 </tr>
 <tr class="even">
 <td>macOS</td>
