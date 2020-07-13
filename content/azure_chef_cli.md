@@ -210,8 +210,7 @@ The extension has the following options that can be provided in the
 
 `chef_package_url`
 
-:   Specifies a url to download Chef Infra Client package (.msi .rpm .deb) and
-    subsequently install.
+:    Specifies a URL to download and install the Chef Infra Client package (.msi .rpm .deb) from.
 
 `bootstrap_options`
 
