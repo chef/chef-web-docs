@@ -12,11 +12,15 @@ git checkout -b "$branch"
 # this variable has to be defined so we can copy content from the proper subdirectory
 # that contains the docs content and properly execute the `hugo mod get` command.
 
-if [ ${EXPEDITOR_PRODUCT_KEY} == "chef-workstation" ]
-then subdirectory="www"
+if [ {$EXPEDITOR_PRODUCT_KEY} == "chef-workstation" ]; then
+  subdirectory="www"
+  org="chef"
+elif [ {$EXPEDITOR_PRODUCT_KEY} == "inspec" ]; then
+  subdirectory="www"
+  org="inspec"
 fi
 
-git clone https://x-access-token:${GITHUB_TOKEN}@github.com/chef/${EXPEDITOR_PRODUCT_KEY}/
+git clone https://x-access-token:${GITHUB_TOKEN}@github.com/$org/${EXPEDITOR_PRODUCT_KEY}/
 
 pushd ${EXPEDITOR_PRODUCT_KEY}
 cp $subdirectory/layouts/shortcodes/* ../layouts/shortcodes/
@@ -30,7 +34,7 @@ rm -rf ${EXPEDITOR_PRODUCT_KEY}
 # build the workstation docs from.
 # See https://gohugo.io/hugo-modules/use-modules/#get-a-specific-version
 
-hugo mod get github.com/chef/${EXPEDITOR_PRODUCT_KEY}/$subdirectory/@${EXPEDITOR_VERSION}
+hugo mod get github.com/$org/${EXPEDITOR_PRODUCT_KEY}/$subdirectory/@${EXPEDITOR_VERSION}
 hugo mod tidy
 
 # Update the vendored files in chef-web-docs
