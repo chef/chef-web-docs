@@ -73,6 +73,8 @@ notAlternative = true
     ordered = false
     startLevel = 2
 
+## The order of the menus (e.g. menu.infra, menu.inspec, etc...) in the left nav menu
+## is set by the menuOrder parameter below.
 
 [params]
   enable_search = true
@@ -117,6 +119,19 @@ notAlternative = true
   [[module.imports.mounts]]
     source = "content/effortless"
     target = "content/effortless"
+
+  [[module.imports]]
+    disable = false
+    ignoreConfig = false
+    path = "github.com/inspec/inspec/www"
+
+  [[module.imports.mounts]]
+    source = "content/inspec"
+    target = "content/inspec"
+
+  [[module.imports.mounts]]
+    source = "static/images/inspec"
+    target = "static/images/inspec"
 
 ####
 ## Main Menu ##
@@ -900,22 +915,50 @@ weight = 10
 
 [[menu.inspec]]
 title = "Chef InSpec"
-identifier = "chef_inspec"
+identifier = "inspec"
 weight = 10
 
   [[menu.inspec]]
-  title = "Documentation"
-  identifier = "chef_inspec/https://www.inspec.io/docs/ Documentation"
-  parent = "chef_inspec"
-  url = "https://www.inspec.io/docs/"
-  weight = 20
+  title = "Chef InSpec Reference"
+  identifier = "inspec/reference"
+  parent = "inspec"
+  weight = 500
 
   [[menu.inspec]]
-  title = "Tutorials"
-  identifier = "chef_inspec/https://www.inspec.io/tutorials/ Tutorials"
-  parent = "chef_inspec"
-  url = "https://www.inspec.io/tutorials/"
-  weight = 30
+  title = "Chef InSpec Resources"
+  identifier = "inspec/resources"
+  parent = "inspec"
+  weight = 999
+
+    [[menu.inspec]]
+    title = "OS Resources"
+    identifier = "inspec/resources/os"
+    parent = "inspec/resources"
+    weight = 20
+
+    [[menu.inspec]]
+    title = "AWS Resources"
+    identifier = "inspec/resources/aws"
+    parent = "inspec/resources"
+    weight = 30
+
+    [[menu.inspec]]
+    title = "Azure Resources"
+    identifier = "inspec/resources/azure"
+    parent = "inspec/resources"
+    weight = 40
+
+    [[menu.inspec]]
+    title = "GCP Resources"
+    identifier = "inspec/resources/gcp"
+    parent = "inspec/resources"
+    weight = 50
+
+    [[menu.inspec]]
+    title = "Habitat Resources"
+    identifier = "inspec/resources/habitat"
+    parent = "inspec/resources"
+    weight = 60
 
 ####
 # End Chef Inspec Menu
