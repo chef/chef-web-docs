@@ -3367,7 +3367,7 @@ Ruby has been updated to version 2.5 bringing a 10% performance improvement and 
 
 #### InSpec 2.0
 
-InSpec has been updated to the 2.0 release. InSpec 2.0 brings compliance automation to the cloud, with new resource types specifically built for AWS and Azure clouds. Along with these changes are major speed improvements and quality of life updates. Please visit <https://www.inspec.io/> for more information.
+InSpec has been updated to the 2.0 release. InSpec 2.0 brings compliance automation to the cloud, with new resource types specifically built for AWS and Azure clouds. Along with these changes are major speed improvements and quality of life updates. Please visit <https://docs.chef.io/inspec/> for more information.
 
 #### Policyfile Hoisting
 

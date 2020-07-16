@@ -1033,9 +1033,9 @@ weight = 10
 
   [[menu.api]]
   title = "Compliance DSL"
-  identifier = "extension_apis/https://inspec.io/docs/reference/dsl_inspec/ Compliance DSL"
+  identifier = "extension_apis/inspec/dsl_inspec/ Compliance DSL"
   parent = "extension_apis"
-  url = "https://inspec.io/docs/reference/dsl_inspec/"
+  url = "/inspec/dsl_inspec/"
   weight = 20
 
   [[menu.api]]
