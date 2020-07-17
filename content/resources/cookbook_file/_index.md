@@ -250,7 +250,7 @@ properties_list:
   description_list:
   - markdown: 'The path to the destination at which a file is to be created.
 
-      Default value: the `name` of the resource block For example:
+      For example:
 
       `file.txt`.
 
