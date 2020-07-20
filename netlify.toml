@@ -13,3 +13,11 @@
 
 [context.deploy-preview]
   command = "make assets; hugo --gc --minify --enableGitInfo --buildFuture"
+
+## redirects traffic from old InSpec docs inspec.io/docs/
+## https://docs.netlify.com/routing/redirects/#syntax-for-the-netlify-configuration-file
+
+[[redirects]]
+  from = "/inspec/reference/*"
+  to = "/inspec/:splat"
+  status = 301

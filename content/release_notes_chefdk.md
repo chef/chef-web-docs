@@ -38,7 +38,7 @@ Chef Infra Client has updated from 15.7 to 15.11, which includes improvements to
 
 Chef InSpec has updated from 4.18.51 to 4.19.0. This update includes a large number of fixes to resources and these significant new features:
 
-- You can now develop your own Chef InSpec Reporter plugin and determine how Chef InSpec will report result data. Learn more about Chef InSpec [plugins and implementation](https://www.inspec.io/docs/reference/plugins/) in our documentation
+- You can now develop your own Chef InSpec Reporter plugin and determine how Chef InSpec will report result data. Learn more about Chef InSpec [plugins and implementation](/inspec/plugins/) in our documentation
 - The `inspec archive` command packs your profile into a tar.gz file that includes the profile in JSON form as the `inspec.json` file. Use this JSON file to programmatically examine the profile without needing to load it into Chef InSpec
 - Chef InSpec accepts a variety of date formats in the `waivers.yaml` configuration file, rather than only the `YYYY-MM-DD` format
 - Use the new `inspec` command options to control the size of reports:
@@ -572,7 +572,7 @@ changes:
 -   Waivers, our new beta feature, was added to InSpec! Waivers allows
     you to better manage compliance failures. We would love to hear your
     feedback on this! See the [InSpec Waivers
-    documentation](https://www.inspec.io/docs/reference/waivers/) for
+    documentation](/inspec/waivers/) for
     more details.
 
 **Improvements**
@@ -2173,7 +2173,7 @@ cookbook(s) given on the command line.
         brings compliance automation to the cloud, with new resource
         types specifically built for AWS and Azure clouds. Along with
         these changes are major speed improvements and quality of life
-        updates. Please visit [Inspec](https://www.inspec.io) for more
+        updates. Please visit [Inspec](/inspec/) for more
         information.
 
     -   **ChefSpec**
@@ -2709,7 +2709,7 @@ for a list of all supported platforms for use in ChefSpec.
 InSpec has been updated to 1.19.1 with the following new functionality:
 
 -   Better filter support for the [processes
-    resource](https://inspec.io/docs/reference/resources/processes/).
+    resource](/inspec/resources/processes/).
 -   New `packages`, `crontab`, `x509_certificate`, and
     `x509_private_key` resources
 -   New `inspec habitat profile create` command to create a Habitat

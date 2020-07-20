@@ -19,4 +19,6 @@ subscriptions:
   - workload: artifact_published:stable:chef-workstation:*
     actions:
     - bash:.expeditor/update_hugo_modules.sh
-
+  - workload: artifact_published:stable:inspec:*
+    actions:
+      - bash:.expeditor/update_hugo_modules.sh
