@@ -46,7 +46,6 @@ current leader.
 However if the failing node cannot be brought back online, it must be
 replaced:
 
-
 1. Run `chef-backend-ctl remove-node NODE_NAME` from any working cluster member to remove the offending node (it doesn't have to be the leader).
 1. Run `chef-backend-ctl cleanse` on the offending node.  This will save configuration files under the root directory by default.
 1. Check to make sure `/var/opt/chef-backend` was deleted by `chef-backend-ctl cleanse`.
