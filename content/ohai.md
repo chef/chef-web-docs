@@ -277,4 +277,4 @@ adds a user) to refer to those attributes later on during a Chef Infra Client ru
 
 ## ohai Command Line Tool
 
-Ohai can be run on the command line outside of the Chef Infra Client run. See [Ohai (executable)](/ohai_ctl) for more information.
+Ohai can be run on the command line outside of the Chef Infra Client run. See [Ohai (executable)](/ctl_ohai) for more information.
