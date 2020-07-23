@@ -32,6 +32,7 @@ assets/js/vendor: node_modules
 	cp node_modules/what-input/dist/what-input.min.js assets/js/vendor/what-input.min.js
 	cp node_modules/@fortawesome/fontawesome-free/js/all.min.js assets/js/vendor/fontawesome-all.min.js
 	cp node_modules/foundation-sites/dist/js/foundation.min.js assets/js/vendor/foundation.min.js
+	cp node_modules/redoc/bundles/redoc.standalone.js assets/js/vendor/redoc.standalone.js
 
 assets/sass/vendor: assets/sass/vendor/fontawesome
 
