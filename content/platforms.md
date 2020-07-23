@@ -404,10 +404,56 @@ Commercial support for the [Chef Automate 2
 Server](https://automate.chef.io/docs/system-requirements/) is available
 for platforms that use:
 
-- a Linux kernel version of 3.2 or greater
-- `systemd` as the init system
-- `useradd`
-- `curl` or `wget`
+-   a Linux kernel version of 3.2 or greater
+-   `systemd` as the init system
+-   `useradd`
+-   `curl` or `wget`
+
+The following table lists the commercially-supported platforms and
+versions for Chef Automate 1 Server. Do not mix platforms or platform
+versions within the Chef Automate cluster.
+
+<table>
+<colgroup>
+<col style="width: 30%" />
+<col style="width: 35%" />
+<col style="width: 35%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Platform</th>
+<th>Architecture</th>
+<th>Version</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>CentOS</td>
+<td><code>x86_64</code></td>
+<td><code>6.x</code>, <code>7.x</code></td>
+</tr>
+<tr class="even">
+<td>Oracle Enterprise Linux</td>
+<td><code>x86_64</code></td>
+<td><code>6.x</code>, <code>7.x</code></td>
+</tr>
+<tr class="odd">
+<td>Red Hat Enterprise Linux</td>
+<td><code>x86_64</code></td>
+<td><code>6.x</code>, <code>7.x</code></td>
+</tr>
+<tr class="even">
+<td>SUSE Enterprise Linux Server</td>
+<td><code>x86_64</code></td>
+<td><code>12</code></td>
+</tr>
+<tr class="odd">
+<td>Ubuntu</td>
+<td><code>x86_64</code></td>
+<td><code>16.04</code>, <code>18.04</code></td>
+</tr>
+</tbody>
+</table>
 
 ### Chef Automate Job Runners
 
