@@ -33,7 +33,7 @@ chef capture NODE-NAME [options]
 
 `-c`, `--credentials`
 
-:   Credentials file (default $HOME/.chef/credentials)
+:   Credentials file (default $HOME/.chef/credentials).
 
 `-d`, `--with-data-bags`
 
@@ -95,18 +95,18 @@ you will have a chance to provide additional locations.
 
 Press Enter to Continue:
 
-You\'re ready to begin!
+You're ready to begin!
 
 Start with 'cd ./node-test-server-repo; kitchen converge'.
 
 As you identify issues, you can modify cookbooks in their
-original checkout locations or in the repository\'s cookbooks
+original checkout locations or in the repository's cookbooks
 directory and they will be picked up on subsequent runs
 of 'kitchen converge'.
 
 ```
 
-Upgrade Lab provides further details on how this command can be used in Chef client upgrade process.
+[Upgrade Lab](https://docs.chef.io/workstation/upgrade_lab) provides further details on how this command can be used in Chef client upgrade process.
 
 ## chef env
 
@@ -806,11 +806,11 @@ This subcommand has the following options:
 
 `-c`, `--credentials string`
 
-:   Credentials file (default $HOME/.chef/credentials)
+:   Credentials file (default $HOME/.chef/credentials).
 
 `-f`, `--format`
 
-:   Output format: txt is human readable, csv is machine readable (default "txt")
+:   Output format: txt is human readable, csv is machine readable (default "txt").
 
 `-F`, `--node-filter`
 
@@ -866,9 +866,9 @@ chef report cookbooks
 will return something similar to:
 
 ``` bash
-Finding available cookbooks... (19 found)
+Finding available cookbooks... (5 found)
 Analyzing cookbooks...
-19 / 19 [----------------------------------------------------------------------------------------------------------------] 100.00% 13 p/s
+5 / 5 [----------------------------------------------------------------------------------------------------------------] 100.00% 13 p/s
 
 -- REPORT SUMMARY --
 
@@ -879,24 +879,18 @@ Analyzing cookbooks...
   java       0.3.0                             4
   java                 Production     K8s      1
   K8s                  Production     K8s      1
-  apt                  staging        K8s      1
-  Go                   staging        K8s      1
-  java                 staging        K8s      1
-  K8s                  staging        K8s      1
-  Go                   Test           K8s      1
-  java                 Test           K8s      1
-  K8s                  Test           K8s      1
+  
 
 Cookbooks report saved to .chef-workstation/reports/cookbooks-20200722120938.txt
 ```
 
 More details of this summary report can be viewed in the text file, the location for which is given at the end of the summary.
 
-Upgrade Lab provides further details on how this command can be used in Chef client upgrade process.
+[Upgrade Lab](https://docs.chef.io/workstation/upgrade_lab) provides further details on how this command can be used in Chef client upgrade process.
 
 ## chef report nodes
 
-Use the `chef report nodes` subcommand to generate a nodes-oriented report for your chef environment. This report provides details about nodes, applied policies the cookooks used during the most recent chef-client run.
+Use the `chef report nodes` subcommand to generate a nodes-oriented report for your chef environment. This report provides details about nodes, applied policies and the cookooks used during the most recent chef-client run.
 
 ### Syntax
 
@@ -976,12 +970,12 @@ Analyzing nodes...
   staging-server       16.1.16        redhat v8.2                       4
   test-server          16.1.16        redhat v8.2                       3
 
-Nodes report saved to /Users/mudash/.chef-workstation/reports/nodes-20200722130502.txt
+Nodes report saved to .chef-workstation/reports/nodes-20200722130502.txt
 
 ```
 More details of this summary report can be viewed in the text file, the location for which is given at the end of the summary.
 
-Upgrade Lab provides further details on how this command can be used in Chef client upgrade process.
+[Upgrade Lab](https://docs.chef.io/workstation/upgrade_lab) provides further details on how this command can be used in Chef client upgrade process.
 
 
 ## chef shell-init
