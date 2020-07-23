@@ -17,6 +17,97 @@ The chef executable is a command-line tool that does the following:
 -   Installs gems into the Chef development environment's Ruby
     installation.
 
+## chef capture
+
+Use the `chef capture` subcommand to capture a node's state as a local chef-repo, which can then be used to converge locally.
+
+### Syntax
+
+This subcommand has the following syntax:
+
+``` bash
+chef capture NODE-NAME [options]
+```
+
+### Options
+
+`-c`, `--credentials`
+
+:   Credentials file (default $HOME/.chef/credentials)
+
+`-d`, `--with-data-bags`
+
+:   Download all data bags as part of node capture.
+
+`-h`, `--help`
+
+:   Show help for the command.
+
+`-k`, `--client-key`
+
+:   Chef Infra Server API client key.
+
+`-n`, `--client-name`
+
+:   Chef Infra Server API client name.
+
+`-o`, `--ssl-no-verify`
+
+:   Do not verify SSL when connecting to Chef Infra Server (default: verify).
+
+`-p`, `--profile`
+
+:   Profile to use from credentials file (default "default").
+
+`-s`, `--chef-server-url`
+
+:   Chef Infra Server URL. 
+
+
+### Examples
+
+**Capture a node**
+
+To capture a node in a local repository, run a command similar to:
+
+``` bash
+chef capture test-server
+```
+will return something similar to:
+
+``` bash
+- Setting up local repository
+ - Capturing node object 'test-server'
+ - Capturing policy data...
+ - Capturing cookbook artifacts...
+ - Writing kitchen configuration...
+
+Repository has been created in './node-test-server-repo'.
+
+Next, locate version-controlled copies of the cookbooks. This is
+important so that you can track changes to the cookbooks as you
+edit them. You may have one or more existing paths where you have
+checked out cookbooks. If not, now is a good time to open a
+separate terminal and clone or check out the cookbooks.
+
+If all cookbooks are not available in the same base location,
+you will have a chance to provide additional locations.
+
+Press Enter to Continue:
+
+You\'re ready to begin!
+
+Start with 'cd ./node-test-server-repo; kitchen converge'.
+
+As you identify issues, you can modify cookbooks in their
+original checkout locations or in the repository\'s cookbooks
+directory and they will be picked up on subsequent runs
+of 'kitchen converge'.
+
+```
+
+Upgrade Lab provides further details on how this command can be used in Chef client upgrade process.
+
 ## chef env
 
 Use the `chef env` subcommand to configure the environment for Chef
@@ -692,6 +783,206 @@ This subcommand has the following options:
 ### Examples
 
 None.
+
+## chef report cookbooks
+
+Use the `chef report cookbooks` subcommand to generate a cookbook-oriented report for your chef environment. This report provides details about upgrade compatibility errors and node cookbook usage.
+
+### Syntax
+
+This subcommand has the following syntax:
+
+``` bash
+chef report cookbooks [options]
+```
+
+### Options
+
+This subcommand has the following options:
+
+`-a`, `--anonymize`
+
+:   Replace cookbook and node names with hash values to protect the sensitive information.
+
+`-c`, `--credentials string`
+
+:   Credentials file (default $HOME/.chef/credentials)
+
+`-f`, `--format`
+
+:   Output format: txt is human readable, csv is machine readable (default "txt")
+
+`-F`, `--node-filter`
+
+:   Search filter to apply to nodes.
+
+`-h`, `--help`
+
+:   Show help for the command.
+
+`-k`, `--client-key`
+
+:   Chef Infra Server API client key.
+
+`-n`, `--client-name`
+
+:   Chef Infra Server API client name.
+
+`-o`, `--ssl-no-verify`
+
+:   Do not verify SSL when connecting to Chef Infra Server (default: verify).
+
+`-p`, `--profile`
+
+:   Profile to use from credentials file (default "default").
+
+`-s`, `--chef-server-url`
+
+:   Chef Infra Server URL. 
+
+`-u`, `--only-unused`
+
+:   Generate a report with only cookbooks that are not included in any node's runlist. 
+
+`-V`, `--verify-upgrade`
+
+:   Verify the upgrade compatibility of every cookbook.
+
+`-w`, `--workers`
+
+:   Maximum number of parallel workers at once (default 50).
+
+
+### Examples
+
+**Generate a report**
+
+To generate a cookbook oriented report, run a command similar to:
+
+``` bash
+chef report cookbooks
+```
+
+will return something similar to:
+
+``` bash
+Finding available cookbooks... (19 found)
+Analyzing cookbooks...
+19 / 19 [----------------------------------------------------------------------------------------------------------------] 100.00% 13 p/s
+
+-- REPORT SUMMARY --
+
+  Cookbook   Version   Policy Group   Policy   Nodes Affected
+-----------+---------+--------------+--------+-----------------
+  apt        2.7.0                             2
+  Go         0.1.0                             3
+  java       0.3.0                             4
+  java                 Production     K8s      1
+  K8s                  Production     K8s      1
+  apt                  staging        K8s      1
+  Go                   staging        K8s      1
+  java                 staging        K8s      1
+  K8s                  staging        K8s      1
+  Go                   Test           K8s      1
+  java                 Test           K8s      1
+  K8s                  Test           K8s      1
+
+Cookbooks report saved to .chef-workstation/reports/cookbooks-20200722120938.txt
+```
+
+More details of this summary report can be viewed in the text file, the location for which is given at the end of the summary.
+
+Upgrade Lab provides further details on how this command can be used in Chef client upgrade process.
+
+## chef report nodes
+
+Use the `chef report nodes` subcommand to generate a nodes-oriented report for your chef environment. This report provides details about nodes, applied policies the cookooks used during the most recent chef-client run.
+
+### Syntax
+
+This subcommand has the following syntax:
+
+``` bash
+chef report nodes [options]
+```
+
+### Options
+
+This subcommand has the following options:
+
+`-a`, `--anonymize`
+
+:   Replace cookbook and node names with hash values to protect the sensitive information.
+
+`-c`, `--credentials string`
+
+:   Credentials file (default $HOME/.chef/credentials).
+
+`-f`, `--format`
+
+:   Output format: txt is human readable, csv is machine readable (default "txt").
+
+`-F`, `--node-filter`
+
+:   Search filter to apply to nodes.
+
+`-h`, `--help`
+
+:   Show help for the command.
+
+`-k`, `--client-key`
+
+:   Chef Infra Server API client key.
+
+`-n`, `--client-name`
+
+:   Chef Infra Server API client name.
+
+`-o`, `--ssl-no-verify`
+
+:   Do not verify SSL when connecting to Chef Infra Server (default: verify).
+
+`-p`, `--profile`
+
+:   Profile to use from credentials file (default "default").
+
+`-s`, `--chef-server-url`
+
+:   Chef Infra Server URL. 
+
+
+### Examples
+
+**Generate a report**
+
+To generate a nodes oriented report, run a command similar to:
+
+``` bash
+chef report nodes
+```
+
+will return something similar to:
+
+``` bash
+Analyzing nodes...
+
+-- REPORT SUMMARY --
+
+      Node Name        Chef Version   Operating System   Number Cookbooks
+---------------------+--------------+------------------+-------------------
+  dev-server-backend   16.1.16        redhat v8.2                       3
+  dev-server-web       16.1.16        redhat v8.2                       1
+  production-server    16.1.16        redhat v8.2                       2
+  staging-server       16.1.16        redhat v8.2                       4
+  test-server          16.1.16        redhat v8.2                       3
+
+Nodes report saved to /Users/mudash/.chef-workstation/reports/nodes-20200722130502.txt
+
+```
+More details of this summary report can be viewed in the text file, the location for which is given at the end of the summary.
+
+Upgrade Lab provides further details on how this command can be used in Chef client upgrade process.
+
 
 ## chef shell-init
 
