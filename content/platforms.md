@@ -86,8 +86,8 @@ versions for Chef Infra Client:
 </tr>
 <tr class="even">
 <td>Debian</td>
-<td><code>x86_64</code></td>
-<td><code>8</code>, <code>9</code>, <code>10</code></td>
+<td><code>x86_64</code><code>aarch64</code> (10.x only)</td>
+<td><code>9</code>, <code>10</code></td>
 </tr>
 <tr class="odd">
 <td>FreeBSD</td>
@@ -220,19 +220,24 @@ versions for the Chef Workstation:
 <td><code>10.13</code>, <code>10.14</code>, <code>10.15</code></td>
 </tr>
 <tr class="even">
+<td>Debian</td>
+<td><code>x86_64</code></td>
+<td><code>9</code>, <code>10</code></td>
+</tr>
+<tr class="odd">
 <td>Red Hat Enterprise Linux</td>
 <td><code>x86_64</code></td>
 <td><code>6.x</code>, <code>7.x</code>, <code>8.x</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Ubuntu</td>
 <td><code>x86_64</code></td>
-<td><code>16.04</code>, <code>18.04</code></td>
+<td><code>16.04</code>, <code>18.04</code>, <code>20.04</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Microsoft Windows</td>
 <td><code>x64</code></td>
-<td><code>2012</code>, <code>2012 R2</code>, <code>2016</code>, <code>10 (all channels except "insider" builds)</code>, <code>2019 (Long-term servicing channel (LTSC), Desktop Experience only)</code></td>
+<td><code>8.1</code>, <code>2012</code>, <code>2012 R2</code>, <code>2016</code>, <code>10 (all channels except "insider" builds)</code>, <code>2019 (Long-term servicing channel (LTSC), Desktop Experience only)</code></td>
 </tr>
 </tbody>
 </table>
@@ -265,8 +270,8 @@ versions for Chef InSpec:
 </tr>
 <tr class="even">
 <td>Debian</td>
-<td><code>x86_64</code></td>
-<td><code>8.x</code>, <code>9.x</code>, <code>10.x</code></td>
+<td><code>x86_64</code><code>aarch64</code> (10.x only)</td>
+<td><code>9.x</code>, <code>10.x</code></td>
 </tr>
 <tr class="odd">
 <td>macOS</td>
@@ -291,7 +296,7 @@ versions for Chef InSpec:
 <tr class="odd">
 <td>Microsoft Windows</td>
 <td><code>x86_64</code></td>
-<td><code>2012</code>, <code>2012 R2</code>, <code>2016</code>, <code>10 (all channels except "insider" builds)</code>, <code>2019</code></td>
+<td><code>8.1</code>, <code>2012</code>, <code>2012 R2</code>, <code>2016</code>, <code>10 (all channels except "insider" builds)</code>, <code>2019</code></td>
 </tr>
 </tbody>
 </table>
@@ -324,7 +329,7 @@ versions for ChefDK:
 <tr class="odd">
 <td>Debian</td>
 <td><code>x86_64</code></td>
-<td><code>8.x</code>, <code>9.x</code>, <code>10.x</code></td>
+<td><code>9.x</code>, <code>10.x</code></td>
 </tr>
 <tr class="even">
 <td>macOS</td>
@@ -399,56 +404,10 @@ Commercial support for the [Chef Automate 2
 Server](https://automate.chef.io/docs/system-requirements/) is available
 for platforms that use:
 
--   a Linux kernel version of 3.2 or greater
--   `systemd` as the init system
--   `useradd`
--   `curl` or `wget`
-
-The following table lists the commercially-supported platforms and
-versions for Chef Automate 1 Server. Do not mix platforms or platform
-versions within the Chef Automate cluster.
-
-<table>
-<colgroup>
-<col style="width: 30%" />
-<col style="width: 35%" />
-<col style="width: 35%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Platform</th>
-<th>Architecture</th>
-<th>Version</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>CentOS</td>
-<td><code>x86_64</code></td>
-<td><code>6.x</code>, <code>7.x</code></td>
-</tr>
-<tr class="even">
-<td>Oracle Enterprise Linux</td>
-<td><code>x86_64</code></td>
-<td><code>6.x</code>, <code>7.x</code></td>
-</tr>
-<tr class="odd">
-<td>Red Hat Enterprise Linux</td>
-<td><code>x86_64</code></td>
-<td><code>6.x</code>, <code>7.x</code></td>
-</tr>
-<tr class="even">
-<td>SUSE Enterprise Linux Server</td>
-<td><code>x86_64</code></td>
-<td><code>12</code></td>
-</tr>
-<tr class="odd">
-<td>Ubuntu</td>
-<td><code>x86_64</code></td>
-<td><code>16.04</code>, <code>18.04</code></td>
-</tr>
-</tbody>
-</table>
+- a Linux kernel version of 3.2 or greater
+- `systemd` as the init system
+- `useradd`
+- `curl` or `wget`
 
 ### Chef Automate Job Runners
 

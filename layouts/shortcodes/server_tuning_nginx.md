@@ -47,7 +47,7 @@ Infra Server to use SSL certificates:
 
 <div class="admonition-note-text">
 
-See <https://wiki.mozilla.org/Security/Server_Side_TLS> for more
+See <https://www.openssl.org/docs/man1.0.2/man1/ciphers.html> for more
 information about the values used with the `nginx['ssl_ciphers']` and
 `nginx['ssl_protocols']` settings.
 
