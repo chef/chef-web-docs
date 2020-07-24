@@ -152,40 +152,35 @@ The following platforms are supported only via the community:
 <tbody>
 <tr class="odd">
 <td>Arch Linux</td>
-<td></td>
+<td><code>x86_64</code></td>
 <td>current version</td>
 </tr>
 <tr class="even">
 <td>Fedora</td>
-<td></td>
+<td><code>x86_64</code></td>
 <td>current non-EOL releases</td>
 </tr>
 <tr class="odd">
 <td>Gentoo</td>
-<td></td>
+<td><code>x86_64</code></td>
 <td>current version</td>
 </tr>
 <tr class="even">
-<td>OmniOS</td>
-<td></td>
-<td>stable and LTS releases</td>
-</tr>
-<tr class="odd">
 <td>openSUSE</td>
 <td><code>x86_64</code></td>
 <td><code>15.x</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Scientific Linux</td>
 <td><code>x86_64</code></td>
 <td><code>6.x</code>, <code>7.x</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Ubuntu</td>
 <td><code>x86_64</code></td>
 <td>Current non-LTS releases</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Windows</td>
 <td><code>x64</code></td>
 <td><code>Windows Server, Semi-annual channel (SAC) (Server Core only)</code></td>
@@ -349,7 +344,7 @@ versions for ChefDK:
 <tr class="odd">
 <td>Ubuntu</td>
 <td><code>x86_64</code></td>
-<td><code>16.04</code>, <code>18.04</code></td>
+<td><code>16.04</code>, <code>18.04</code>, <code>20.04</code></td>
 </tr>
 <tr class="even">
 <td>Microsoft Windows</td>
@@ -379,7 +374,7 @@ The following platforms are supported only via the community:
 <tbody>
 <tr class="odd">
 <td>openSUSE</td>
-<td></td>
+<td><code>x86_64</code></td>
 <td><code>15.x</code></td>
 </tr>
 <tr class="even">
@@ -461,14 +456,24 @@ Chef Push Jobs client:
 </thead>
 <tbody>
 <tr class="odd">
+<td>AIX</td>
+<td><code>powerpc</code></td>
+<td><code>7.1</code> (TL5 SP2 or higher, recommended)</td>
+</tr>
+<tr class="even">
 <td>CentOS</td>
-<td><code>x86_64</code></td>
+<td><code>i386</code>, <code>x86_64</code></td>
 <td><code>6.x</code>, <code>7.x</code></td>
+</tr>
+<tr class="odd">
+<td>Debian</td>
+<td><code>x86_64</code></td>
+<td><code>9</code></td>
 </tr>
 <tr class="even">
 <td>macOS</td>
 <td><code>x86_64</code></td>
-<td><code>10.11</code>, <code>10.12</code>, <code>10.13</code></td>
+<td><code>10.11</code>, <code>10.12</code>, <code>10.13</code>, <code>10.14</code></td>
 </tr>
 <tr class="odd">
 <td>Red Hat Enterprise Linux</td>
@@ -483,7 +488,7 @@ Chef Push Jobs client:
 <tr class="odd">
 <td>Microsoft Windows</td>
 <td><code>x86</code>, <code>x64</code></td>
-<td><code>2012</code>, <code>2012 R2</code>, <code>2016</code>, <code>10</code></td>
+<td><code>2012</code>, <code>2012 R2</code>, <code>10</code></td>
 </tr>
 </tbody>
 </table>
@@ -522,7 +527,7 @@ Chef Push Jobs server:
 <tr class="odd">
 <td>Ubuntu (LTS releases)</td>
 <td><code>x86_64</code></td>
-<td><code>16.04</code>, <code>18.04</code></td>
+<td><code>16.04</code></td>
 </tr>
 </tbody>
 </table>
@@ -590,12 +595,12 @@ Manage:
 <tr class="odd">
 <td>CentOS</td>
 <td><code>x86_64</code></td>
-<td><code>6.x</code>, <code>7.x</code></td>
+<td><code>6.x</code>, <code>7.x</code>, <code>8.x</code></td>
 </tr>
 <tr class="even">
 <td>Red Hat Enterprise Linux</td>
 <td><code>x86_64</code></td>
-<td><code>6.x</code>, <code>7.x</code></td>
+<td><code>6.x</code>, <code>7.x</code>, <code>8.x</code></td>
 </tr>
 <tr class="odd">
 <td>Ubuntu (LTS releases)</td>
@@ -715,44 +720,54 @@ that platform and version.
 <td>October 31, 2018</td>
 </tr>
 <tr class="odd">
+<td>FreeBSD 11-STABLE</td>
+<td>September 30, 2021</td>
+<td>September 30, 2021</td>
+</tr>
+<tr class="even">
 <td>Microsoft Windows Server 2008 (SP2)/R2 (SP1)</td>
 <td>January 13, 2015</td>
 <td>January 14, 2020</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Microsoft Windows Server 2012/2012 R2</td>
 <td>October 10, 2023</td>
 <td>October 10, 2023</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Microsoft Windows Server 2016</td>
 <td>November 11, 2027</td>
 <td>November 11, 2027</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Microsoft Windows Server 2019</td>
 <td>October 10, 2028</td>
 <td>October 10, 2028</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Oracle Enterprise Linux 5</td>
 <td>June 30, 2017</td>
 <td>December 31, 2017</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Oracle Enterprise Linux 6</td>
 <td>March 31, 2021</td>
 <td>March 31, 2021</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Oracle Solaris 10</td>
 <td>January 30, 2018</td>
 <td>January 30, 2018</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>SUSE Linux Enterprise Server 11</td>
 <td>March 31, 2019</td>
 <td>March 31, 2019</td>
+</tr>
+<tr class="even">
+<td>SUSE Linux Enterprise Server 12</td>
+<td>October 31, 2024</td>
+<td>October 31, 2024</td>
 </tr>
 <tr class="odd">
 <td>Ubuntu Linux 12.04 LTS</td>
@@ -763,6 +778,11 @@ that platform and version.
 <td>Ubuntu Linux 14.04 LTS</td>
 <td>April 30, 2019</td>
 <td>April 30, 2019</td>
+</tr>
+<tr class="odd">
+<td>Ubuntu Linux 16.04 LTS</td>
+<td>April 30, 2021</td>
+<td>April 30, 2021</td>
 </tr>
 </tbody>
 </table>
