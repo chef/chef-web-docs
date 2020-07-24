@@ -720,44 +720,54 @@ that platform and version.
 <td>October 31, 2018</td>
 </tr>
 <tr class="odd">
+<td>FreeBSD 11-STABLE</td>
+<td>September 30, 2021</td>
+<td>September 30, 2021</td>
+</tr>
+<tr class="even">
 <td>Microsoft Windows Server 2008 (SP2)/R2 (SP1)</td>
 <td>January 13, 2015</td>
 <td>January 14, 2020</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Microsoft Windows Server 2012/2012 R2</td>
 <td>October 10, 2023</td>
 <td>October 10, 2023</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Microsoft Windows Server 2016</td>
 <td>November 11, 2027</td>
 <td>November 11, 2027</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Microsoft Windows Server 2019</td>
 <td>October 10, 2028</td>
 <td>October 10, 2028</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Oracle Enterprise Linux 5</td>
 <td>June 30, 2017</td>
 <td>December 31, 2017</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Oracle Enterprise Linux 6</td>
 <td>March 31, 2021</td>
 <td>March 31, 2021</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Oracle Solaris 10</td>
 <td>January 30, 2018</td>
 <td>January 30, 2018</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>SUSE Linux Enterprise Server 11</td>
 <td>March 31, 2019</td>
 <td>March 31, 2019</td>
+</tr>
+<tr class="even">
+<td>SUSE Linux Enterprise Server 12</td>
+<td>October 31, 2024</td>
+<td>October 31, 2024</td>
 </tr>
 <tr class="odd">
 <td>Ubuntu Linux 12.04 LTS</td>
@@ -768,6 +778,11 @@ that platform and version.
 <td>Ubuntu Linux 14.04 LTS</td>
 <td>April 30, 2019</td>
 <td>April 30, 2019</td>
+</tr>
+<tr class="odd">
+<td>Ubuntu Linux 16.04 LTS</td>
+<td>April 30, 2021</td>
+<td>April 30, 2021</td>
 </tr>
 </tbody>
 </table>
