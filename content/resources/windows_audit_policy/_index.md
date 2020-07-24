@@ -43,7 +43,7 @@ actions_list:
   :nothing:
     shortcode: resources_common_actions_nothing.md
   :set:
-    markdown:
+    markdown: Configure an audit policy.
 properties_list:
 - property: audit_base_directories
   ruby_type: true, false
