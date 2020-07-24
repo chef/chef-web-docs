@@ -602,7 +602,7 @@ ways this can be done:
     and then:
 
     ``` bash
-    # chef-client
+    chef-client
     ```
 
 -   Use the sudo utility

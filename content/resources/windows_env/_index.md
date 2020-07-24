@@ -82,7 +82,8 @@ properties_list:
   ruby_type: String
   required: false
   default_value: "<System>"
-  description_list: []
+  description_list:
+  - markdown:
 - property: value
   ruby_type: String
   required: true
