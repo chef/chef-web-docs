@@ -166,26 +166,21 @@ The following platforms are supported only via the community:
 <td>current version</td>
 </tr>
 <tr class="even">
-<td>OmniOS</td>
-<td></td>
-<td>stable and LTS releases</td>
-</tr>
-<tr class="odd">
 <td>openSUSE</td>
 <td><code>x86_64</code></td>
 <td><code>15.x</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Scientific Linux</td>
 <td><code>x86_64</code></td>
 <td><code>6.x</code>, <code>7.x</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Ubuntu</td>
 <td><code>x86_64</code></td>
 <td>Current non-LTS releases</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Windows</td>
 <td><code>x64</code></td>
 <td><code>Windows Server, Semi-annual channel (SAC) (Server Core only)</code></td>
