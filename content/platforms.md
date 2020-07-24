@@ -527,7 +527,7 @@ Chef Push Jobs server:
 <tr class="odd">
 <td>Ubuntu (LTS releases)</td>
 <td><code>x86_64</code></td>
-<td><code>16.04</code>, <code>18.04</code></td>
+<td><code>16.04</code></td>
 </tr>
 </tbody>
 </table>
