@@ -152,17 +152,17 @@ The following platforms are supported only via the community:
 <tbody>
 <tr class="odd">
 <td>Arch Linux</td>
-<td></td>
+<td><code>x86_64</code></td>
 <td>current version</td>
 </tr>
 <tr class="even">
 <td>Fedora</td>
-<td></td>
+<td><code>x86_64</code></td>
 <td>current non-EOL releases</td>
 </tr>
 <tr class="odd">
 <td>Gentoo</td>
-<td></td>
+<td><code>x86_64</code></td>
 <td>current version</td>
 </tr>
 <tr class="even">
@@ -379,7 +379,7 @@ The following platforms are supported only via the community:
 <tbody>
 <tr class="odd">
 <td>openSUSE</td>
-<td></td>
+<td><code>x86_64</code></td>
 <td><code>15.x</code></td>
 </tr>
 <tr class="even">
