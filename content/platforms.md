@@ -456,14 +456,24 @@ Chef Push Jobs client:
 </thead>
 <tbody>
 <tr class="odd">
+<td>AIX</td>
+<td><code>powerpc</code></td>
+<td><code>7.1</code> (TL5 SP2 or higher, recommended)</td>
+</tr>
+<tr class="even">
 <td>CentOS</td>
-<td><code>x86_64</code></td>
+<td><code>i386</code>, <code>x86_64</code></td>
 <td><code>6.x</code>, <code>7.x</code></td>
+</tr>
+<tr class="odd">
+<td>Debian</td>
+<td><code>x86_64</code></td>
+<td><code>9</code></td>
 </tr>
 <tr class="even">
 <td>macOS</td>
 <td><code>x86_64</code></td>
-<td><code>10.11</code>, <code>10.12</code>, <code>10.13</code></td>
+<td><code>10.11</code>, <code>10.12</code>, <code>10.13</code>, <code>10.14</code></td>
 </tr>
 <tr class="odd">
 <td>Red Hat Enterprise Linux</td>
@@ -478,7 +488,7 @@ Chef Push Jobs client:
 <tr class="odd">
 <td>Microsoft Windows</td>
 <td><code>x86</code>, <code>x64</code></td>
-<td><code>2012</code>, <code>2012 R2</code>, <code>2016</code>, <code>10</code></td>
+<td><code>2012</code>, <code>2012 R2</code>, <code>10</code></td>
 </tr>
 </tbody>
 </table>
