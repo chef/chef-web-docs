@@ -4,8 +4,12 @@ draft = false
 
 aliases = "/ctl_chef.html"
 
-
-
+[menu]
+  [menu.workstation]
+    title = "chef executable (full page)"
+    identifier = "chef_workstation/chef_workstation_tools/chef_(executable)/ctl_chef.md chef (executable)"
+    parent = "chef_workstation/chef_workstation_tools/chef_(executable)"
+    weight = 10
 +++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/ctl_chef.md)
@@ -19,7 +23,7 @@ The chef executable is a command-line tool that does the following:
 
 ## chef capture
 
-Use the `chef capture` subcommand to capture a node's state as a local chef-repo, which can then be used to converge locally.
+Use the `chef capture` subcommand to capture a node's state as a local [chef-repo](/chef_repo/). Use the generated repository if you need to converge a node locally.
 
 ### Syntax
 
@@ -61,8 +65,7 @@ chef capture NODE-NAME [options]
 
 `-s`, `--chef-server-url`
 
-:   Chef Infra Server URL. 
-
+:   Chef Infra Server URL.
 
 ### Examples
 
@@ -73,7 +76,8 @@ To capture a node in a local repository, run a command similar to:
 ``` bash
 chef capture test-server
 ```
-will return something similar to:
+
+This will return something similar to:
 
 ``` bash
 - Setting up local repository
@@ -106,7 +110,8 @@ of 'kitchen converge'.
 
 ```
 
-[Upgrade Lab](https://docs.chef.io/workstation/upgrade_lab) provides further details on how this command can be used in Chef client upgrade process.
+See the [Upgrade Lab](/workstation/upgrade_lab/#create-an-upgrade-environment-with-chef-capture) documentation for additional
+information on upgrading Chef Infra Client.
 
 ## chef env
 
@@ -786,7 +791,8 @@ None.
 
 ## chef report cookbooks
 
-Use the `chef report cookbooks` subcommand to generate a cookbook-oriented report for your chef environment. This report provides details about upgrade compatibility errors and node cookbook usage.
+Use the `chef report cookbooks` subcommand to generate a cookbook-oriented report for your Chef Infra environment.
+This report provides details about upgrade compatibility errors and node cookbook usage.
 
 ### Syntax
 
@@ -838,11 +844,11 @@ This subcommand has the following options:
 
 `-s`, `--chef-server-url`
 
-:   Chef Infra Server URL. 
+:   Chef Infra Server URL.
 
 `-u`, `--only-unused`
 
-:   Generate a report with only cookbooks that are not included in any node's runlist. 
+:   Generate a report that only includes cookbooks that are not included in any node's runlist.
 
 `-V`, `--verify-upgrade`
 
@@ -879,14 +885,15 @@ Analyzing cookbooks...
   java       0.3.0                             4
   java                 Production     K8s      1
   K8s                  Production     K8s      1
-  
+
 
 Cookbooks report saved to .chef-workstation/reports/cookbooks-20200722120938.txt
 ```
 
 More details of this summary report can be viewed in the text file, the location for which is given at the end of the summary.
 
-[Upgrade Lab](https://docs.chef.io/workstation/upgrade_lab) provides further details on how this command can be used in Chef client upgrade process.
+See the [Upgrade Lab](/workstation/upgrade_lab/#chef-report-cookbooks) documentation for additional
+information on upgrading Chef Infra Client.
 
 ## chef report nodes
 
@@ -942,7 +949,7 @@ This subcommand has the following options:
 
 `-s`, `--chef-server-url`
 
-:   Chef Infra Server URL. 
+:   Chef Infra Server URL.
 
 
 ### Examples
