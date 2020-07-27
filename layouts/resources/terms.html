@@ -1133,9 +1133,9 @@
                     {{ $ExamplesID.Add "Value" 1 }}
                     <h2 id = "examples-{{ $ExamplesID.Get "Value" }}">Examples</h2>
                     <hr>
-                    {{ if .Params.examples_list }}
+                    {{ if .Params.examples }}
                       <p>The following examples demonstrate various approaches for using the <strong>{{ .Params.resource }}</strong> resource in recipes:</p>
-                      {{ .Params.examples }}
+                      {{ .Params.examples | markdownify }}
                     {{ else }}
                       <p>This resource does not have any examples.</p>
                   {{ end }}
