@@ -19,18 +19,21 @@ For the quickest way to get started using Chef Infra:
 1.  Install Chef Workstation:
     <https://downloads.chef.io/chef-workstation/>.
 
-2.  Generate a cookbook:
+2.  Generate a chef repo, which is a workspace for chef:
 
     ``` bash
-    chef generate cookbook first_cookbook
+    chef generate repo quick_start
     ```
 
-    where `first_cookbook` is an arbitrary cookbook name.
+    where `quick_start` is an arbitrary name.
 
-3.  Navigate to the `first_cookbook` directory.
+3.  Navigate to the `quick_start` directory.
 
-4.  Update the `cookbooks/first_cookbook/recipes/default.rb` recipe in
-    the generated cookbook to contain:
+    ```bash
+    cd quick_start
+    ```
+4.  Update the `cookbooks/example/recipes/default.rb` recipe in
+    the generated chef repo to contain:
 
     ``` ruby
     file "#{ENV['HOME']}/test.txt" do
@@ -41,7 +44,7 @@ For the quickest way to get started using Chef Infra:
 5.  Run Chef Infra Client using the `default.rb` recipe:
 
     ``` bash
-    chef-client --local-mode --override-runlist first_cookbook
+    chef-client --local-mode --override-runlist example
     ```
 
 This will create a file named `test.txt` at the home path on your
