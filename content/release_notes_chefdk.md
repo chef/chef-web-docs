@@ -610,7 +610,7 @@ non-T2 type instances.
 kitchen-digitalocean has been updated to 0.10.5 which adds new image
 aliases for `Debian-10` and `FreeBSD-12`.
 
-#### kitchen-dokkken
+#### kitchen-dokken
 
 kitchen-dokken has been updated to 2.8.0. This will make the `CI` and
 `TEST_KITCHEN` environmental variables match the behavior of
@@ -941,7 +941,7 @@ for a complete list of new rules.
 #### kitchen-azurerm
 
 kitchen-azurerm has been updated from 0.14.8 to 0.14.9, which adds a new
-`use_ephemeral_osdisk` configuration option. See Microsoft's [Empheral
+`use_ephemeral_osdisk` configuration option. See Microsoft's [Ephemeral
 OS Disk
 Announcement](https://azure.microsoft.com/en-us/updates/azure-ephemeral-os-disk-now-generally-available/)
 for more information on this new feature.
@@ -971,10 +971,10 @@ from 12 characters to 15 characters. Thanks
 
 #### knife-ec2
 
-knife-ec2 has beeen updated from 1.0.8 to 1.0.12. This new version
+knife-ec2 has been updated from 1.0.8 to 1.0.12. This new version
 includes multiple fixes for network configuration setup, a new
 `--cpu-credits` option for launching T2/T3 instances as unlimited, and
-fixes for issues with attaching emphemeral disks.
+fixes for issues with attaching ephemeral disks.
 
 ### Platform Support Updates
 
@@ -1065,7 +1065,7 @@ changes:
 
 Cookstyle has been updated to 5.0.0 with a large number of bugfixes and
 major improvements that lay the groundwork for future autocorrecting of
-cookobook style and deprecation warnings.
+cookbook style and deprecation warnings.
 
 The RuboCop engine that powers Cookstyle has been updated from 0.62 to
 0.72, which includes several hundred bugfixes to the codebase. Due to
@@ -1300,7 +1300,7 @@ repositories that match Chef's best practices.
     <spancommand class="title-ref">cookbook</spancommand you can view this
     verbose output with the `--verbose` flag.
 
-### Updated Commponents
+### Updated Components
 
 #### Chef InSpec 4
 
@@ -1322,7 +1322,7 @@ for more details.
 Fauxhai has been updated from 6.11 to 7.3. This removes all platforms
 that were previously marked as deprecated. So if you've noticed
 deprecation warnings during your ChefSpec tests, you will need to update
-those specs for the latest [supported Faxhai
+those specs for the latest [supported Fauxhai
 platforms](https://github.com/chefspec/fauxhai/blob/master/PLATFORMS.md).
 This release also adds the following new platform releases for testing
 in ChefSpec:
@@ -1472,7 +1472,7 @@ kitchen-digitalocean has been updated to 0.10.5 which adds new image
 aliases for <span class="title-ref">Debian-10</span> and <span
 class="title-ref">FreeBSD-12</span>.
 
-#### kitchen-dokkken 2.8.0
+#### kitchen-dokken 2.8.0
 
 kitchen-dokken has been updated to 2.8.0. This will make the `CI` and
 `TEST_KITCHEN` environmental variables match the behavior of
@@ -1517,7 +1517,7 @@ shipped in ChefDK 4 have been backported to ChefDK 3.
 -   `chef generate cookbook --kitchen dokken` now generates a fully
     working kitchen-dokken config.
 -   `chef generate cookbook` no longer creates cookbook files with the
-    unecessary `frozen_string_literal: true` comments.
+    unnecessary `frozen_string_literal: true` comments.
 -   `chef generate cookbook` now generates Test Kitchen configs with the
     `product_name`/`product_version` method of specifying Chef Infra
     Client releases as `require_chef_omnibus` will be removed in the
@@ -1532,7 +1532,7 @@ shipped in ChefDK 4 have been backported to ChefDK 3.
 
 #### Chef Infra Client 14.14.25
 
-Chef Infra Client has been udpated from 14.13 to 14.14.25. This release
+Chef Infra Client has been updated from 14.13 to 14.14.25. This release
 includes support for the new `unified_mode` in custom resources, a large
 number of improvements to resources, improved platform detection
 support, as well as bug fix. See the [Chef Infra Client 14.14.25 Release

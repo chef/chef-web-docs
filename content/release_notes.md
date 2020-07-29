@@ -2903,7 +2903,7 @@ The windows_package resource now supports setting the `sensitive` property to av
 
 #### sysctl
 
-The sysctl resource will now update the on-disk `systctl.d` file even if the current sysctl value matches the desired value.
+The sysctl resource will now update the on-disk `sysctl.d` file even if the current sysctl value matches the desired value.
 
 #### windows_task
 
@@ -5595,7 +5595,7 @@ sensitive data being transmitted and potentially stored in the clear.
 
 Individual properties can now be marked as sensitive and then have the
 value of that property suppressed when exporting the resource's state.
-To do this, add `sensitive: true` when definine the property, such as in
+To do this, add `sensitive: true` when defining the property, such as in
 the following example:
 
 ``` ruby
@@ -9870,7 +9870,7 @@ previous versions. The short version:
 -   **Dynamic resource and provider resolution** Four helper methods may
     be used in a library file to get resource and/or provider mapping
     details, and then set them per-resource or provider.
--   **New clear_soruces attribute for the chef_gem and gem_package
+-   **New clear_sources attribute for the chef_gem and gem_package
     resources** Set to `true` to download a gem from the path specified
     by the `source` property (and not from RubyGems).
 
@@ -10033,7 +10033,7 @@ Using the **dsc_resource** has the following requirements:
 
 #### Syntax
 
-A **dsc_resource** resource block allows DSC resourcs to be used in a
+A **dsc_resource** resource block allows DSC resources to be used in a
 Chef recipe. For example, the DSC `Archive` resource:
 
 ``` powershell
@@ -10524,7 +10524,7 @@ where:
 -   An `expect(something).to/.to_not be_something` is a statement that
     represents the individual test. In other words, this statement tests
     if something is expected to be (or not be) something. For example, a
-    test that expects the PostgreSQL pacakge to not be installed would
+    test that expects the PostgreSQL package to not be installed would
     be similar to `expect(package('postgresql')).to_not be_installed`
     and a test that ensures a service is enabled would be similar to
     `expect(service('init')).to be_enabled`
@@ -10997,7 +10997,7 @@ Audit Mode
 
 **A configuration file contains specific settings**
 
-The following example shows how to verify `sshd` configration, including
+The following example shows how to verify `sshd` configuration, including
 whether it's installed, what the permissions are, and how it can be
 accessed:
 

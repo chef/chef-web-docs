@@ -159,7 +159,7 @@ operations from that workstation will use the certificate in the
 #### knife ssl check
 
 Run the `knife ssl check` subcommand to verify the state of the SSL
-certificate, and then use the reponse to help troubleshoot issues that
+certificate, and then use the response to help troubleshoot issues that
 may be present.
 
 **Verified**

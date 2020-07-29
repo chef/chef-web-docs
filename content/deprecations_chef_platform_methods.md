@@ -59,7 +59,7 @@ Chef::Platform.set platform: :fedora, version: '>= 19', resource: :mysql_service
 Should be replaced by:
 
 ``` ruby
-class Chef::Provider::MysqlSserviceSystemd
+class Chef::Provider::MysqlServiceSystemd
 provides :mysql_service, platform: "fedora", platform_version: ">= 19"
 ```
 
