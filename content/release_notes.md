@@ -19,13 +19,13 @@ the first Wednesday of every month. Below are the major changes for each
 release. For a detailed list of changes see the [Chef Infra Client
 changelog](https://github.com/chef/chef/blob/master/CHANGELOG.md)
 
-# What's New in 16.3.45
+## What's New in 16.3.45
 
 - Resolved failures negotiating protocol versions with the Chef Infra Server.
 - Improved log output on Windows systems in the `hostname` resource.
 - Added support to the `archive_file` resource for `pzstd` compressed files.
 
-# What's New in 16.3.38
+## What's New in 16.3.38
 
 ### Renamed Client Configuration Options
 
