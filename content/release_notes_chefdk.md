@@ -30,7 +30,7 @@ Chef Infra Client has been updated from 15.12.2 to 15.3.8. This new release incl
 
 Chef InSpec has been updated from 4.21.3 to 4.22.1:
 
-- The = character is now allowed for command line inputs
+- The `=` character is now allowed for command line inputs
 - apt-cdrom repositories are now skipped when parsing out the list of apt repositories
 - Faulty profiles are now reported instead of causing a crash
 - Improved macOS support in the `service` resource
