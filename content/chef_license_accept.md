@@ -89,7 +89,7 @@ Please see [License File
 Persistence](https://github.com/chef/license-acceptance#license-file-persistence)
 for details about persisted marker files.
 
-The `--chef-license` command line argument is not backwards compatiable
+The `--chef-license` command line argument is not backwards compatible
 to older non-EULA versions. If you are managing a multi-version
 environment, we recommend using the environment variable as that is
 ignored by older versions.
