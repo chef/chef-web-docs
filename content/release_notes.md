@@ -19,7 +19,13 @@ the first Wednesday of every month. Below are the major changes for each
 release. For a detailed list of changes see the [Chef Infra Client
 changelog](https://github.com/chef/chef/blob/master/CHANGELOG.md)
 
-## What's New in 16.3
+# What's New in 16.3.45
+
+- Resolved failures negotiating protocol versions with the Chef Infra Server.
+- Improved log output on Windows systems in the `hostname` resource.
+- Added support to the `archive_file` resource for `pzstd` compressed files.
+
+# What's New in 16.3.38
 
 ### Renamed Client Configuration Options
 
@@ -841,6 +847,29 @@ Several legacy Windows helpers have been deprecated as they will always return t
 - Chef::Platform.older_than_win_2012_or_8?
 - Chef::Platform.supports_powershell_execution_bypass?
 - Chef::Platform.windows_nano_server?
+
+## What's New In 15.13
+
+### Chef InSpec 4.22.1
+
+Chef InSpec has been updated from 4.20.6 to 4.22.1. This new release includes the following improvements:
+
+- `apt-cdrom` repositories are now skipped when parsing out the list of apt repositories
+- Faulty profiles are now reported instead of causing a crash
+- Errors are no longer logged to stdout with the `html2` reporter
+- macOS Big Sur is now correctly identified as macOS
+- macOS/BSD support added to the interface resource along with new `ipv4_address`, `ipv4_addresses`, `ipv4_addresses_netmask`, `ipv4_cidrs`, `ipv6_addresses`, and `ipv6_cidrs` properties
+
+### Fixes and Improvements
+
+- Support for legacy DSA host keys has been restored in `knife ssh` and `knife bootstrap` commands.
+- The collision warning error message when a cookbook includes a resource that now ships in Chef Infra Client has been improved to better explain the issue.
+- Package sizes have been reduced with fewer installed files on disk.
+- The `archive_file` resource now supports `pzstd` compressed files.
+
+### New Deprecations
+
+Chef Infra Client 16.2 and later require `provides` when assigning a name to a custom resource. In order to prepare for Chef Infra Client 16, make sure to include both `resource_name` and `provides` in resources when specifying a custom name.
 
 ## What's New In 15.12
 
