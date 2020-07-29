@@ -98,7 +98,7 @@ The `net-ssh` gem which powers `knife ssh` and `knife bootstrap` commands has be
 
 - Support empty lines and comments in known_hosts.
 - Add sha2-{256,512}-etm@openssh.com MAC algorithms.
-- curve25519sha256 support.
+- curve25519-sha256 support.
 
 #### kitchen-ec2
 
