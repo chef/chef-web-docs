@@ -39,7 +39,7 @@ with a single GitHub server URL.
 {{< note >}}
 
 The Delivery CLI from the latest [Chef
-Workstaton](https://downloads.chef.io/chef-workstation/) must be
+Workstation](https://downloads.chef.io/chef-workstation/) must be
 installed on any workstations that setup and initialize
 GitHub-integrated projects.
 
