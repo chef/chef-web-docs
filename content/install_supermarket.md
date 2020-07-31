@@ -85,7 +85,7 @@ To configure Chef Supermarket to use Chef Identity, do the following:
 
 2.  Update the `/etc/opscode/chef-server.rb` configuration file.
 
-    {{< shortcode_indent shortcode="config_ocid_application_hash_supermarket" >}}
+    {{< readFile_shortcode file="config_ocid_application_hash_supermarket.md" >}}
 
 3.  Reconfigure the Chef Infra Server.
 
