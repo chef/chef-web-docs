@@ -30,8 +30,8 @@ executable can be run as a daemon.
 <tbody>
 <tr class="odd">
 <td><p><img src="/images/icon_chef_client.svg" class="align-center" width="100" alt="image" /></p></td>
-<td><p>{{% chef_client_summary %}}</p>
-<p>{{% security_key_pairs_chef_client %}}</p></td>
+<td><p>{{< readFile_shortcode file="chef_client_summary.md" >}}</p>
+<p>{{< readFile_shortcode file="security_key_pairs_chef_client.md" >}}</p></td>
 </tr>
 </tbody>
 </table>

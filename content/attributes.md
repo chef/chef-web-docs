@@ -43,27 +43,27 @@ Infra Client chooses which attribute to apply.
 <tbody>
 <tr class="odd">
 <td><code>default</code></td>
-<td>{{% node_attribute_type_default %}}</td>
+<td>{{< readFile_shortcode file="node_attribute_type_default.md" >}}</td>
 </tr>
 <tr class="even">
 <td><code>force_default</code></td>
-<td>{{% node_attribute_type_force_default %}}</td>
+<td>{{< readFile_shortcode file="node_attribute_type_force_default.md" >}}</td>
 </tr>
 <tr class="odd">
 <td><code>normal</code></td>
-<td>{{% node_attribute_type_normal %}}</td>
+<td>{{< readFile_shortcode file="node_attribute_type_normal.md" >}}</td>
 </tr>
 <tr class="even">
 <td><code>override</code></td>
-<td>{{% node_attribute_type_override %}}</td>
+<td>{{< readFile_shortcode file="node_attribute_type_override.md" >}}</td>
 </tr>
 <tr class="odd">
 <td><code>force_override</code></td>
-<td>{{% node_attribute_type_force_override %}}</td>
+<td>{{< readFile_shortcode file="node_attribute_type_force_override.md" >}}</td>
 </tr>
 <tr class="even">
 <td><code>automatic</code></td>
-<td>{{% node_attribute_type_automatic %}}</td>
+<td>{{< readFile_shortcode file="node_attribute_type_automatic.md" >}}</td>
 </tr>
 </tbody>
 </table>
