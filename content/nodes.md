@@ -34,12 +34,12 @@ The key components of nodes that are under management by Chef include:
 <tbody>
 <tr class="odd">
 <td><p><img src="/images/icon_chef_client.svg" class="align-center" width="100" alt="image" /></p></td>
-<td><p>{{% chef_client_summary %}}</p>
-<p>{{% security_key_pairs_chef_client %}}</p></td>
+<td><p>{{< readFile_shortcode file="chef_client_summary.md" >}}</p>
+<p>{{< readFile_shortcode file="security_key_pairs_chef_client.md" >}}</p></td>
 </tr>
 <tr class="even">
 <td><img src="/images/icon_ohai.svg" class="align-center" width="100" alt="image" /></td>
-<td>{{% ohai_summary %}}</td>
+<td>{{< readFile_shortcode file="ohai_summary.md" >}}</td>
 </tr>
 </tbody>
 </table>
@@ -148,27 +148,27 @@ copy on the Chef Infra Server at the end of each Chef Infra Client run.
 <tbody>
 <tr class="odd">
 <td><code>default</code></td>
-<td>{{% node_attribute_type_default %}}</td>
+<td>{{< readFile_shortcode file="node_attribute_type_default.md" >}}</td>
 </tr>
 <tr class="even">
 <td><code>force_default</code></td>
-<td>{{% node_attribute_type_force_default %}}</td>
+<td>{{< readFile_shortcode file="node_attribute_type_force_default.md" >}}</td>
 </tr>
 <tr class="odd">
 <td><code>normal</code></td>
-<td>{{% node_attribute_type_normal %}}</td>
+<td>{{< readFile_shortcode file="node_attribute_type_normal.md" >}}</td>
 </tr>
 <tr class="even">
 <td><code>override</code></td>
-<td>{{% node_attribute_type_override %}}</td>
+<td>{{< readFile_shortcode file="node_attribute_type_override.md" >}}</td>
 </tr>
 <tr class="odd">
 <td><code>force_override</code></td>
-<td>{{% node_attribute_type_force_override %}}</td>
+<td>{{< readFile_shortcode file="node_attribute_type_force_override.md" >}}</td>
 </tr>
 <tr class="even">
 <td><code>automatic</code></td>
-<td>{{% node_attribute_type_automatic %}}</td>
+<td>{{< readFile_shortcode file="node_attribute_type_automatic.md" >}}</td>
 </tr>
 </tbody>
 </table>

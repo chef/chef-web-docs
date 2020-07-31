@@ -55,11 +55,11 @@ There are two types of attributes that can be used with environments:
 <tbody>
 <tr class="odd">
 <td><code>default</code></td>
-<td>{{% node_attribute_type_default %}}</td>
+<td>{{< readFile_shortcode file="node_attribute_type_default.md" >}}</td>
 </tr>
 <tr class="even">
 <td><code>override</code></td>
-<td>{{% node_attribute_type_override %}}</td>
+<td>{{< readFile_shortcode file="node_attribute_type_override.md" >}}</td>
 </tr>
 </tbody>
 </table>

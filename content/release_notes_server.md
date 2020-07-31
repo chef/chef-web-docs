@@ -1020,6 +1020,80 @@ with its location information and dependencies:
 }
 ```
 
+
+
+## What's New in 12.4
+
+The following items are new for Chef server 12.4:
+
+-   **/universe endpoint** Use the `/universe` endpoint to retrieve the
+    known collection of cookbooks, and then use it with Berkshelf and
+    Chef Supermarket.
+-   **opscode-expander-reindexer service** The
+    `opscode-expander-reindexer` service is deprecated.
+-   **Global server administrator list** Use the
+    `grant-server-admin-permissions`, `remove-server-admin-permissions`,
+    and `list-server-admins` to manage the list of users who belong to
+    the `server-admins` group.
+
+### /universe
+
+Use the `/universe` endpoint to retrieve the known collection of
+cookbooks, and then use it with Berkshelf and Chef Supermarket.
+
+The `/universe` endpoint has the following methods: `GET`.
+
+### GET
+
+The `GET` method is used to retrieve the universe data.
+
+This method has no parameters.
+
+**Request**
+
+``` none
+GET /universe
+```
+
+**Response**
+
+The response will return an embedded hash, with the name of each
+cookbook as a top-level key. Each cookbook will list each version, along
+with its location information and dependencies:
+
+``` javascript
+{
+  "ffmpeg": {
+    "0.1.0": {
+      "location_path": "http://supermarket.chef.io/api/v1/cookbooks/ffmpeg/0.1.0/download"
+      "location_type": "supermarket",
+      "dependencies": {
+        "git": ">= 0.0.0",
+        "build-essential": ">= 0.0.0",
+        "libvpx": "~> 0.1.1",
+        "x264": "~> 0.1.1"
+      },
+    },
+    "0.1.1": {
+      "location_path": "http://supermarket.chef.io/api/v1/cookbooks/ffmpeg/0.1.1/download"
+      "location_type": "supermarket",
+      "dependencies": {
+        "git": ">= 0.0.0",
+        "build-essential": ">= 0.0.0",
+        "libvpx": "~> 0.1.1",
+        "x264": "~> 0.1.1"
+      },
+    },
+   "pssh": {
+    "0.1.0": {
+      "location_path": "http://supermarket.chef.io/api/v1/cookbooks/pssh.1.0/download"
+      "location_type": "supermarket",
+      "dependencies": {},
+    }
+  }
+}
+```
+
 <table>
 <colgroup>
 <col style="width: 40%" />
