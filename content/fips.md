@@ -115,7 +115,7 @@ Client will default to running in FIPS mode. Otherwise you can add
 
 {{% knife_bootstrap_node_fips %}}
 
-## How to enable FIPS mode for workstations
+## How to enable FIPS mode on Automate 1 (DEPRECATED)
 
 ### Prerequisites
 
