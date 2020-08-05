@@ -396,8 +396,9 @@ This subcommand has the following options:
 
 `-b`, `--berks`
 
-:   Create a Berksfile in the cookbook. Default value: enabled. This is
-    disabled if the `--policy` option is given.
+:   Create a Berksfile in the cookbook. Default value: disabled. This value
+    must be specified to override the default creation of a policyfile
+    instead of a berksfile.
 
 `-C COPYRIGHT`, `--copyright COPYRIGHT`
 
@@ -430,7 +431,7 @@ This subcommand has the following options:
 `-P`, `--policy`
 
 :   Create a Policyfile in the cookbook instead of a Berksfile. Default
-    value: disabled.
+    value: enabled.
 
 `-h`, `--help`
 
