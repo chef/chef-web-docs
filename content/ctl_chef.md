@@ -396,7 +396,7 @@ This subcommand has the following options:
 
 `-b`, `--berks`
 
-:   Create a Berksfile in the cookbook. Default value: disabled. This value
+:   Create a Berksfile in the cookbook. Default: disabled. Optional.
     must be specified to override the default creation of a policyfile
     instead of a berksfile.
 
