@@ -398,7 +398,6 @@ This subcommand has the following options:
 
 :   Create a Berksfile in the cookbook. Default: disabled. Optional.
     Use to create a berksfile by overriding default creation of a Policyfile.
-    instead of a berksfile.
 
 `-C COPYRIGHT`, `--copyright COPYRIGHT`
 
