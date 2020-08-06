@@ -430,7 +430,7 @@ This subcommand has the following options:
 `-P`, `--policy`
 
 :   Create a Policyfile in the cookbook instead of a Berksfile.
-    value: enabled.
+    Default: enabled.
 
 `-h`, `--help`
 
