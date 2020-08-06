@@ -5,17 +5,17 @@ set -evx
 # Copy shortcode files from chef product repo
 # to chef/chef-web-docs/layouts/shortcodes
 
-branch="expeditor/${EXPEDITOR_PRODUCT_KEY}_${EXPEDITOR_VERSION}"
+branch="expeditor/update_docs_${EXPEDITOR_PRODUCT_KEY}_${EXPEDITOR_VERSION}"
 git checkout -b "$branch"
 
 # different chef product repos have their documentation in different subdirectories
 # this variable has to be defined so we can copy content from the proper subdirectory
 # that contains the docs content and properly execute the `hugo mod get` command.
 
-if [ {$EXPEDITOR_PRODUCT_KEY} == "chef-workstation" ]; then
+if [ ${EXPEDITOR_PRODUCT_KEY} == "chef-workstation" ]; then
   subdirectory="www"
   org="chef"
-elif [ {$EXPEDITOR_PRODUCT_KEY} == "inspec" ]; then
+elif [ ${EXPEDITOR_PRODUCT_KEY} == "inspec" ]; then
   subdirectory="www"
   org="inspec"
 fi
