@@ -98,7 +98,7 @@ Server](/config_rb_server_optional_settings/).
 
 ### Prerequisites
 
-- Supported Systems - CentOS or Red Hat Enterprise Linux 6 or later
+- Supported Systems - CentOS, Oracle Linux, or Red Hat Enterprise Linux 6 or later
 
 ### Configuration
 
