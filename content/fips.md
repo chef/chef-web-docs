@@ -41,19 +41,16 @@ enabling FIPS if it is contractually necessary.
 
 **Supported:**
 
--   [Chef Infra
-    Client](/fips/#how-to-enable-fips-mode-for-the-chef-client)
--   [Chef
-    Workstation](/fips/#how-to-enable-fips-mode-for-workstations)
--   [Chef Infra
-    Server](/fips/#how-to-enable-fips-mode-for-the-chef-server)
+- [Chef Infra Client](/fips/#how-to-enable-fips-mode-for-the-chef-client)
+- [Chef Workstation](/fips/#how-to-enable-fips-mode-for-workstations)
+- [Chef Infra Server](/fips/#how-to-enable-fips-mode-for-the-chef-server)
 
 **Unsupported:**
 
 FIPS mode is not supported for Chef Infra Server add-ons. This includes:
 
--   Chef Manage
--   Push Jobs
+- Chef Manage
+- Push Jobs
 
 ## How to enable FIPS mode in the Operating System
 
@@ -74,19 +71,17 @@ automatically be in FIPS mode unless the user disables it.
 
 To enable FIPS on your platform follow these instructions:
 
--   [Red Hat Enterprise Linux
-    6](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Security_Guide/sect-Security_Guide-Federal_Standards_And_Regulations-Federal_Information_Processing_Standard.html)
--   [Red Hat Enterprise Linux
-    7](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Security_Guide/chap-Federal_Standards_and_Regulations.html#sec-Enabling-FIPS-Mode)
--   [Windows](https://technet.microsoft.com/en-us/library/cc750357.aspx)
+- [Red Hat Enterprise Linux 6](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Security_Guide/sect-Security_Guide-Federal_Standards_And_Regulations-Federal_Information_Processing_Standard.html)
+- [Red Hat Enterprise Linux 7](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Security_Guide/chap-Federal_Standards_and_Regulations.html#sec-Enabling-FIPS-Mode)
+- [Red Hat Enterprise Linux 8](https://www.redhat.com/en/blog/how-rhel-8-designed-fips-140-2-requirements)
+- [Windows](https://technet.microsoft.com/en-us/library/cc750357.aspx)
 
 ## How to enable FIPS mode for the Chef Infra Server
 
 ### Prerequisites
 
--   Supported Systems - CentOS or Red Hat Enterprise Linux 6 or 7
--   Chef Server version <span class="title-ref">12.13.0</span> or
-    greater
+- Supported Systems - CentOS or Red Hat Enterprise Linux 6 or greater
+- Chef Infra Server version <span class="title-ref">12.13.0</span> or greater
 
 ### Configuration
 
@@ -99,11 +94,11 @@ to the `/etc/opscode/chef-server.rb` and reconfigure. For more
 configuration information see [Chef
 Server](/config_rb_server_optional_settings/).
 
-## How to enable FIPS mode for the Chef Client
+## How to enable FIPS mode for the Chef Infra Client
 
 ### Prerequisites
 
--   Supported Systems - CentOS or Red Hat Enterprise Linux 6 or later
+- Supported Systems - CentOS, Oracle Linux, or Red Hat Enterprise Linux 6 or later
 
 ### Configuration
 
@@ -119,7 +114,7 @@ Client will default to running in FIPS mode. Otherwise you can add
 
 ### Prerequisites
 
--   Supported Systems - Windows, CentOS and Red Hat Enterprise Linux
+- Supported Systems - Windows, CentOS, Oracle Linux, and Red Hat Enterprise Linux
 
 Now that FIPS mode is enabled in your `.delivery/cli.toml`, running any
 project-specific Delivery CLI command will automatically use
