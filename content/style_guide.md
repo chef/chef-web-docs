@@ -12,8 +12,7 @@ aliases = ["/style_guide.html"]
     weight = 40
 +++
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/style_guide.rst)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/style_guide.md)
 
 The Chef reference documentation is written using Markdown and built with Hugo.
 
