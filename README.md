@@ -17,6 +17,9 @@ in the [`effortless-chef-io`](https://github.com/chef/effortless/tree/master/eff
 The Chef Desktop documentation is stored in the `chef/desktop-config` repository
 in the `docs` directory. This is a private repository.
 
+The Chef InSpec documentation is stored in the `inspec/inspec` repository
+in the `www` directory.
+
 ### Preview Local Changes to Documentation from Other Repos from chef-web-docs
 
 Follow these steps to preview changes to the chef-workstation documentation while
@@ -37,9 +40,10 @@ running Hugo from chef-web-docs.
    go 1.14
 
    require (
-   	github.com/chef/chef-workstation/www v0.0.0-<commit timestamp>-<commit SHA> // indirect
-   	github.com/chef/desktop-config/docs v0.0.0-<commit timestamp>-<commit SHA> // indirect
-   	github.com/chef/effortless/effortless-chef-io v0.0.0-<commit timestamp>-<commit SHA> // indirect
+     github.com/chef/chef-workstation/www v0.0.0-<commit timestamp>-<commit SHA> // indirect
+     github.com/chef/desktop-config/docs v0.0.0-<commit timestamp>-<commit SHA> // indirect
+     github.com/chef/effortless/effortless-chef-io v0.0.0-<commit timestamp>-<commit SHA> // indirect
+     github.com/inspec/inspec/www v0.0.0-<commit timestamp>-<commit SHA> // indirect
    )
 
    replace github.com/chef/chef-workstation/www => ../chef-workstation/www
@@ -261,7 +265,7 @@ provide additional important information
 
 There are often cases where we want to maintain blocks of text that are identical
 from one page to the next. In those cases, we add that text, formatted in Markdown,
-to a shortcode file located in `chef-web-docs/layouts/shortcodes`.
+to a shortcode file located in `chef-web-docs/themes/docs-new/layouts/shortcodes`.
 
 To add that shortcode to a page in `chef-web-docs/content`, add the file name,
 minus the .md suffix, wrapped in double curly braces and percent symbols to
@@ -276,16 +280,16 @@ Hugo doesn't handle shortcodes that are indented in a list item properly. It int
 the text of the shortcode as a code block. More complicated shortcodes with
 code blocks, notes, additional list items, or other formatting look pretty
 bad. We've created a simple shortcode for handling shortcodes in lists or definition
-lists called `shortcode_indent`.
+lists called `readFile_shortcode`.
 
 To include a shortcode in a list or definition list, just add its file name
-to the `shortcode` parameter of `shortcode_indent` without the .md suffix.
+to the `file` parameter of `readFile_shortcode`.
 
 For example, if you wanted to add `shortcode_file_name.md` to a list:
 ``` md
 1.  Here is some text introducing the shortcode, but it's not necessary.
 
-    {{< shortcode_indent shortcode="shortcode_file_name" >}}
+    {{< readFile_shortcode file="shortcode_file_name.md" >}}
 ```
 
 ### Highlighting blocks of text
