@@ -27,23 +27,7 @@ resource_description_list:
     resource collection.'
 - warning:
     markdown: "Using the **dsc_resource** has the following requirements:\n\n-   Windows\
-      \ Management Framework (WMF) 5.0 February Preview (or higher),\n    which includes\
-      \ Windows PowerShell 5.0.10018.0 (or higher).\n\n-   The `RefreshMode` configuration\
-      \ setting in the Local Configuration\n    Manager must be set to `Disabled`.\n\
-      \n    **NOTE:** Starting with the Chef Client 12.6 release, this\n    requirement\
-      \ applies only for versions of Windows PowerShell earlier\n    than 5.0.10586.0.\
-      \ The latest version of Windows Management Framework\n    (WMF) 5 has relaxed\
-      \ the limitation that prevented Chef Infra Client\n    from running in non-disabled\
-      \ refresh mode.\n\n-   The **dsc_script** resource may not be used in the same\
-      \ run-list\n    with the **dsc_resource**. This is because the **dsc_script**\n\
-      \    resource requires that `RefreshMode` in the Local Configuration\n    Manager\
-      \ be set to `Push`, whereas the **dsc_resource** resource\n    requires it to\
-      \ be set to `Disabled`.\n\n    **NOTE:** Starting with the Chef Client 12.6\
-      \ release, this\n    requirement applies only for versions of Windows PowerShell\
-      \ earlier\n    than 5.0.10586.0. The latest version of Windows Management Framework\n\
-      \    (WMF) 5 has relaxed the limitation that prevented Chef Infra Client\n \
-      \   from running in non-disabled refresh mode, which allows the Local\n    Configuration\
-      \ Manager to be set to `Push`.\n\n-   The **dsc_resource** resource can only\
+      \ Management Framework (WMF) 5.0 (or higher)\n-  The **dsc_resource** resource can only\
       \ use binary- or script-based\n    resources. Composite DSC resources may not\
       \ be used.\n\n    This is because composite resources aren't \"real\" resources\
       \ from the\n    perspective of the Local Configuration Manager (LCM). Composite\n\
