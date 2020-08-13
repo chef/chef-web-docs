@@ -1,21 +1,23 @@
 ---
+resource_reference: true
+properties_shortcode:
+ps_credential_helper: true
+resources_common_guards: true
+resources_common_notification: true
+resources_common_properties: true
 title: dsc_script resource
 resource: dsc_script
-draft: false
 aliases:
-- /resource_dsc_script.html
+- "/resource_dsc_script.html"
 menu:
   infra:
     title: dsc_script
     identifier: chef_infra/cookbook_reference/resources/dsc_script dsc_script
     parent: chef_infra/cookbook_reference/resources
-
-resource_reference: true
-robots: null
 resource_description_list:
 - shortcode: resources_common_powershell.md
 - shortcode: resources_common_powershell_dsc.md
-- markdown: 'Many DSC resources are comparable to built-in Chef resources. For
+- markdown: 'Many DSC resources are comparable to built-in Chef Infra resources. For
 
     example, both DSC and Chef have **file**, **package**, and **service**
 
@@ -29,11 +31,11 @@ resource_description_list:
 
     **dsc_script** resource to embed the code that defines a DSC
 
-    configuration directly within a Chef recipe.'
+    configuration directly within a Chef Infra recipe.'
 - note:
     markdown: 'Windows PowerShell 4.0 is required for using the **dsc_script**
 
-      resource with Chef.'
+      resource with Chef Infra.'
 - note:
     markdown: 'The WinRM service must be enabled. (Use `winrm quickconfig` to enable
 
