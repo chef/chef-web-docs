@@ -22,10 +22,6 @@ fi
 
 git clone https://x-access-token:${GITHUB_TOKEN}@github.com/$org/${EXPEDITOR_PRODUCT_KEY}/
 
-pushd ${EXPEDITOR_PRODUCT_KEY}
-cp $subdirectory/layouts/shortcodes/* ../layouts/shortcodes/
-popd
-
 # delete Chef product repo
 
 rm -rf ${EXPEDITOR_PRODUCT_KEY}
