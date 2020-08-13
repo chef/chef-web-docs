@@ -1,12 +1,13 @@
 +++
-title = "Mac Power Management"
+title = "macos_power_management Resource"
 draft = false
-desktop_resource = "mac_power_management"
+desktop_resource = "macos_power_management"
+toc_layout = "desktop_resource_single_toc"
 
 [menu]
   [menu.desktop]
-    title = "mac_power_management"
-    identifier = "desktop/resources/mac_power_management.md Mac Power Management"
+    title = "macos_power_management"
+    identifier = "desktop/resources/macos_power_management.md macos_power_management"
     parent = "desktop/resources"
 +++
 

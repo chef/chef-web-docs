@@ -1,11 +1,11 @@
 +++
-title = "Zero Touch Deployment for MacOS and Windows on Azure"
+title = "Zero Touch Deployment for macOS and Windows on Azure"
 draft = false
 publishDate = "2020-06-02"
 
 [menu]
   [menu.desktop]
-    title = "Zero Touch Deployment for MacOS and Windows on Azure"
+    title = "Zero Touch Deployment for macOS and Windows on Azure"
     identifier = "desktop/desktop_azure.md Chef Desktop Demo on Azure"
     parent = "desktop"
     weight = 60
@@ -214,7 +214,7 @@ Now for your Munki container, build out a folder structure that looks like this:
     ├── *.pkg
 ```
 
-## MacOS (Munki) Catalog and Manifest
+## macOS (Munki) Catalog and Manifest
 
 Spend some time thinking about and planning what you ultimately want to put into your manifests and catalogs that your users can access. For simplicity, we will demonstrate installing Firefox and VS Code on clients to give you an idea of how to deploy for each OS type.
 
@@ -507,5 +507,5 @@ You are almost ready to start the process. Please ensure that you have completed
 
 If all goes according to plan, then you should be ready to reset/restart your first node, have it pull down all the packages and/or scripts, load Chef Infra Client, and do the first client run.
 
-- Next: [Zero Touch Deployment with MicroMDM for MacOS]({{< relref "desktop_micromdm.md" >}})
+- Next: [Zero Touch Deployment with MicroMDM for macOS]({{< relref "desktop_micromdm.md" >}})
 - Last: [The Chef Desktop Development Pattern]({{< relref "desktop_pattern.md" >}})

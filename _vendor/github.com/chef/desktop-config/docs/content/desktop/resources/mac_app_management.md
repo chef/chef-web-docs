@@ -1,12 +1,13 @@
 +++
-title = "Mac App Management"
+title = "macos_app_management Resource"
 draft = false
-desktop_resource = "mac_app_management"
+desktop_resource = "macos_app_management"
+toc_layout = "desktop_resource_single_toc"
 
 [menu]
   [menu.desktop]
-    title = "mac_app_management"
-    identifier = "desktop/resources/mac_app_management.md Mac App Management"
+    title = "macos_app_management"
+    identifier = "desktop/resources/macos_app_management.md macos_app_management"
     parent = "desktop/resources"
 +++
 

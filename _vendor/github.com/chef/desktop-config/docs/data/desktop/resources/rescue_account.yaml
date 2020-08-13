@@ -16,6 +16,7 @@ menu:
 resource_description_list:
 - markdown: Use the **rescue_account** resource to provide Administrators with a rescue
     account.
+resource_new_in: '1.0'
 syntax_full_code_block: |-
   rescue_account 'name' do
     account_name      String

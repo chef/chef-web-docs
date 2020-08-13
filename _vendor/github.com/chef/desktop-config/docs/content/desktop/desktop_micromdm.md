@@ -40,7 +40,7 @@ This document describes how to set up the following things:
 
 We need a Mobile Device Management (MDM) service to capture macOS machines as they
 boot, and to securely connect and push applications and configuration settings to them.
-In this document we use MicroMDM, but there are others on the market like VMWare
+In this document we use MicroMDM, but there are others on the market like VMware
 Airwatch, SimpleMDM, and others.
 
 Your configuration and setup may begin like this:

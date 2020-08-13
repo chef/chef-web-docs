@@ -16,8 +16,10 @@ menu:
 resource_description_list:
 - markdown: Use the **windows_disk_encryption** resource to enable or disable BitLocker
     Drive Encryption on Windows systems.
+resource_new_in: '1.0'
 syntax_full_code_block: |-
   windows_disk_encryption 'name' do
+    reboot_after_update      true, false # default value: true
     action      Symbol # defaults to :enable if not specified
   end
 syntax_properties_list: 
@@ -33,5 +35,12 @@ actions_list:
     markdown: "Turns on BitLocker."
   :nothing:
     shortcode: resources_common_actions_nothing.md
-properties_list: []
+properties_list:
+- property: reboot_after_update
+  ruby_type: true, false
+  required: false
+  default_value: 'true'
+  new_in: '1.1'
+  description_list:
+  - markdown: Control the reboot behavior after enabling BitLocker
 examples: 

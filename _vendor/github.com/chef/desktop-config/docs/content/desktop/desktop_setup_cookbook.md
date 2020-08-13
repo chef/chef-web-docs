@@ -22,7 +22,7 @@ This step introduces you to fundamentals of cookbook development and walks you t
 1. Test your cookbook locally
 1. Test your cookbook with Test Kitchen, once you have your virtual machine images
 
-## Development and Testing Cookbooks for Windows 10 and MacOS Platforms
+## Development and Testing Cookbooks for Windows 10 and macOS Platforms
 
 Testing is central to good software development. Testing your Chef Desktop cookbook provides you the opportunity to detect and correct problems before putting changes into production. Testing saves time and money, but it adds value by helping your organization achieve and maintain operational velocity.
 
@@ -32,7 +32,7 @@ It is important to understand your operating license and service agreements.
 The best place to begin is find and understand your SLA:
 
 * [Windows Licenses](https://www.microsoft.com/licensing/default)
-* [Apple MacOS SLA](https://www.apple.com/legal/sla/)
+* [Apple macOS SLA](https://www.apple.com/legal/sla/)
 
 ## Test Kitchen
 

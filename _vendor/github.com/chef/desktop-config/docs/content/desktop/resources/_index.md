@@ -1,7 +1,7 @@
 +++
 title = "All Desktop Resources"
 draft = false
-desktop_resource_list = true
+toc_layout = "desktop_resources_all_toc"
 
 [menu]
   [menu.desktop]

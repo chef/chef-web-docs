@@ -16,6 +16,7 @@ menu:
 resource_description_list:
 - markdown: Use the **windows_desktop_winrm_settings** resource to setup and teardown
     WinRM settings on a node. Chef Infra Client does not require this for operation.
+resource_new_in: '1.0'
 syntax_full_code_block: |-
   windows_desktop_winrm_settings 'name' do
     action      Symbol # defaults to :enable if not specified

@@ -1,12 +1,13 @@
 +++
-title = "Mac Admin Control"
+title = "macos_admin_control Resource"
 draft = false
-desktop_resource = "mac_admin_control"
+desktop_resource = "macos_admin_control"
+toc_layout = "desktop_resource_single_toc"
 
 [menu]
   [menu.desktop]
-    title = "mac_admin_control"
-    identifier = "desktop/resources/mac_admin_control.md Mac Admin Control"
+    title = "macos_admin_control"
+    identifier = "desktop/resources/macos_admin_control.md macos_admin_control"
     parent = "desktop/resources"
 +++
 
