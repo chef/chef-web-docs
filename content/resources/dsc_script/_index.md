@@ -1,17 +1,19 @@
 ---
+resource_reference: true
+properties_shortcode:
+ps_credential_helper: true
+resources_common_guards: true
+resources_common_notification: true
+resources_common_properties: true
 title: dsc_script resource
 resource: dsc_script
-draft: false
 aliases:
-- /resource_dsc_script.html
+- "/resource_dsc_script.html"
 menu:
   infra:
     title: dsc_script
     identifier: chef_infra/cookbook_reference/resources/dsc_script dsc_script
     parent: chef_infra/cookbook_reference/resources
-
-resource_reference: true
-robots: null
 resource_description_list:
 - shortcode: resources_common_powershell.md
 - shortcode: resources_common_powershell_dsc.md

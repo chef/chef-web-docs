@@ -1,17 +1,18 @@
 ---
+resource_reference: true
+properties_shortcode:
+resources_common_guards: true
+resources_common_notification: true
+resources_common_properties: true
 title: dsc_resource resource
 resource: dsc_resource
-draft: false
 aliases:
-- /resource_dsc_resource.html
+- "/resource_dsc_resource.html"
 menu:
   infra:
     title: dsc_resource
     identifier: chef_infra/cookbook_reference/resources/dsc_resource dsc_resource
     parent: chef_infra/cookbook_reference/resources
-
-resource_reference: true
-robots: null
 resource_description_list:
 - shortcode: resources_common_powershell.md
 - shortcode: resources_common_powershell_dsc.md
@@ -56,7 +57,6 @@ resource_description_list:
       \    Unless that changes, the **dsc_resource** resource and/or\n    `Invoke-DscResource`\
       \ command cannot directly use them."
 resource_new_in: null
-handler_types: false
 syntax_description: "A **dsc_resource** resource block allows DSC resources to be\
   \ used in a\nChef recipe. For example, the DSC `Archive` resource:\n\n``` powershell\n\
   Archive ExampleArchive {\n  Ensure = \"Present\"\n  Path = \"C:\\Users\\Public\\\
@@ -64,7 +64,7 @@ syntax_description: "A **dsc_resource** resource block allows DSC resources to b
   \n}\n```\n\nand then the same **dsc_resource** with Chef:\n\n``` ruby\ndsc_resource\
   \ 'example' do\n   resource :archive\n   property :ensure, 'Present'\n   property\
   \ :path, \"C:\\Users\\Public\\Documents\\example.zip\"\n   property :destination,\
-  \ \"C:\\Users\\Public\\Documents\\ExtractionPath\"\n end\n```"
+  \ \"C:\\Users\\Public\\Documents\\ExtractionPath\"\n end```"
 syntax_code_block: null
 syntax_properties_list: null
 syntax_full_code_block: "dsc_resource 'name' do\n  module_name                String\n\
@@ -85,11 +85,6 @@ syntax_full_properties_list:
   are properties of this resource, with the Ruby type shown. See "Properties" section
   below for more information about all of the properties that may be used with this
   resource.'
-syntax_shortcode: null
-registry_key: false
-nameless_apt_update: false
-nameless_build_essential: false
-resource_package_options: false
 actions_list:
   :nothing:
     shortcode: resources_common_actions_nothing.md
