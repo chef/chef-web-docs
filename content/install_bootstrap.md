@@ -18,6 +18,47 @@ aliases = ["/install_bootstrap.html"]
 
 {{% chef_client_bootstrap_stages %}}
 
+## Decide what recipes to bootstrap with
+
+If you are not sure, you do not have to choose a complete recipe
+runlist now. When running Chef Infra Client 15.x, we recommend as your
+minimum runlist the chef-client cookbook cron resource, which will
+help you control how and when the chef-client comnmand will run and
+thereby maintain your current configuration. You can set a runlist
+with the -r option to knife bootstrap like this -r
+recipe[myrecipe::cron] for example.
+
+You can find the source code at https://github.com/chef-cookbooks/chef-client
+and a download at supermarket.chef.io https://supermarket.chef.io/cookbooks/chef-client
+You will be required to upload the chef-client cookbook to your Chef Infra Server, so
+that it can be referred to by bootstrapping nodes.
+
+By default, windows systems will run chef-client as a
+scheduled task if your runlist looks like this `recipe[chef-client::default]`
+
+Although it is not the default, you will want to do the
+same with unix-like clients like linux.
+
+To do so, you need to make a decision.
+
+* Do you run with a cronjob or a systemd timer?
+
+    * For simplicity's sake or if you are running Chef Infra Client
+    15.x, you should run a cronjob. Call the `chef_client_cron` resource
+    and set the :add action in your own recipe for your initial runlist.
+    In 16.x, do the same, but you will not need the chef-client cookbook
+    at all, as the resource is available natively.
+
+    * If you are already comfortable with systemd and it is available
+    and active on your system, you can choose that option. For 15.x,
+    choose the `recipe[chef-client::default]` recipe for your initial
+    runlist and be sure the `node['chef_client']['systemd']['timer'] =
+    true` attribute is set. For 16.x, use the native
+    `chef_client_systemd_timer` resource with the :add action in your own
+    recipe and set that recipe as your initial runlist.
+
+For more details on configuration, see https://github.com/chef-cookbooks/chef-client
+
 ## knife bootstrap
 
 {{% install_chef_client %}}
