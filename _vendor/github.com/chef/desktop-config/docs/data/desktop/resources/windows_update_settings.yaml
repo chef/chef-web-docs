@@ -16,6 +16,7 @@ menu:
 resource_description_list:
 - markdown: Use the **windows_update_settings** resource to manage the various Windows
     Update patching options.
+resource_new_in: '1.0'
 syntax_full_code_block: |-
   windows_update_settings 'name' do
     add_to_target_wsus_group                 true, false # default value: false

@@ -15,11 +15,11 @@ menu:
     parent: desktop/resources
 resource_description_list:
 - markdown: Use the **windows_firewall** resource to enable or disable the Windows
-    firewall.
+    firewall service and all profiles.
+resource_new_in: '1.0'
 syntax_full_code_block: |-
   windows_firewall 'name' do
-    firewall      true, false # default value: true
-    action        Symbol # defaults to :set if not specified
+    action      Symbol # defaults to :enable if not specified
   end
 syntax_properties_list:
 syntax_full_properties_list:
@@ -27,19 +27,12 @@ syntax_full_properties_list:
 - "`name` is the name given to the resource block."
 - "`action` identifies which steps Chef Infra Client will take to bring the node into
   the desired state."
-- "`firewall` is the property available to this resource."
 actions_list:
+  :disable:
+    markdown: Disable the Windows Firewall service
+  :enable:
+    markdown: Enable the Windows Firewall service and all profiles
   :nothing:
     shortcode: resources_common_actions_nothing.md
-  :reset:
-    markdown:
-  :set:
-    markdown:
-properties_list:
-- property: firewall
-  ruby_type: true, false
-  required: false
-  default_value: 'true'
-  description_list:
-  - markdown: Enable the Windows firewall
+properties_list: []
 examples:

@@ -1,12 +1,13 @@
 +++
-title = "Mac Firewall"
+title = "macos_firewall Resource"
 draft = false
-desktop_resource = "mac_firewall"
+desktop_resource = "macos_firewall"
+toc_layout = "desktop_resource_single_toc"
 
 [menu]
   [menu.desktop]
-    title = "mac_firewall"
-    identifier = "desktop/resources/mac_firewall.md Mac Firewall"
+    title = "macos_firewall"
+    identifier = "desktop/resources/macos_firewall.md macos_firewall"
     parent = "desktop/resources"
 +++
 

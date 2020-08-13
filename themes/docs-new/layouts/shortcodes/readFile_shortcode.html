@@ -1,6 +1,1 @@
-
-{{ readFile (delimit (slice "layouts/shortcodes/" (.Get "file")) "") | markdownify }}
-
-{{/* This shortcode is used only for processing other shortcodes that have a code block
-  that contains the less than character "<". For some reason Hugo converts that
-  to its html equivalent &lt; in the html output.*/}}
+{{ readFile (delimit (slice "themes/docs-new/layouts/shortcodes/" (.Get "file")) "") | markdownify }}

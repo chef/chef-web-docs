@@ -103,7 +103,7 @@ Test Kitchen, the environment that you will use for testing your Chef Desktop co
 [Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)
 : Storage Explorer is a free tool from Microsoft for managing your Azure cloud storage resources.
 
-#### MacOS Developer Tools
+#### macOS Developer Tools
 
 [Apple Enterprise Developer Account](https://developer.apple.com/programs/enterprise/)
 : The Apple Developer Enterprise Program is a program that supports large organizations in developing and deploying proprietary, internal-use apps to their employees.

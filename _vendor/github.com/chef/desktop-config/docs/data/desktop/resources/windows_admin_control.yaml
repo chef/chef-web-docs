@@ -16,6 +16,7 @@ menu:
 resource_description_list:
 - markdown: Use the **windows_admin_control** resource to enforce Admin level access
     for system-wide changes.
+resource_new_in: '1.0'
 syntax_full_code_block: |-
   windows_admin_control 'name' do
     action      Symbol # defaults to :enable if not specified

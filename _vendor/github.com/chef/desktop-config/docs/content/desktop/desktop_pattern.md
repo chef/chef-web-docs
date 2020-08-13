@@ -87,7 +87,7 @@ Check the Policyfile and apply it to our test nodes. Policies are a convenient s
 Your Chef Desktop `Policyfile.rb` should look similar to:
 
 ```ruby
-name 'chefdesktop'
+name 'desktop-config'
 
 # default_source :supermarket, 'https://supermarket.chef.io' do |s|
 #   s.preferred_for 'chef-client'
@@ -95,20 +95,27 @@ name 'chefdesktop'
 
 # run_list: chef-client will run these recipes in the order specified.
 # cookbook::recipe
-run_list 'chefdesktop::default'
+run_list 'desktop-config::default'
 
 # Specify a custom source for a single cookbook:
-cookbook 'chefdesktop', path: '.'
+cookbook 'desktop-config', path: '.'
 ```
 
 ### Upload the Policyfile
 
-Upload the Policyfile to the Chef Infra Server. Call `chef update` first to do some needed housekeeping around your policyfile. Run this command every time you update the version of your cookbook:
+Upload the Policyfile to the Chef Infra Server. Call `chef update` first to do some needed housekeeping around your policyfile.
+
+If this is the first time that you are using a Policyfile, use the `chef install` command to generate a lock file:
 
 ```powershell
-# Note the single-quote marks
+chef install Policyfile.rb
+```
+
+Run `chef update` and `chef push` every time you update the version of your cookbook:
+
+```powershell
 chef update
-chef push 'my_Policy_Group' 'my_Policyfile'
+chef push 'my_Policy_Group' 'Policyfile.rb'
 ```
 
 ## Deploy Desktop Cookbook to a Node
@@ -144,22 +151,23 @@ node_name              'S90T7HK2'
 ### Identify a Test Node
 
 ```powershell
-# knife node create SERIAL_NUMBER
 C:\> knife node create S90T7HK2
 Created node [S90T7HK2]
 ```
 
 ### Apply the Chef Desktop Policy
 
+Use `knife node policy set` to apply the policy to a node.
+
+Use the name of the policy specified in the Policyfile.rb that was uploaded to the Chef Infra Server.
+
 ```powershell
-# knife node policy set SERIAL_NUMBER 'POLICY_GROUP' 'POLICYFILE
-C:\> knife node policy set S90T7HK2 'Windows_Node_Policy_Group' 'ChefDesktop'
-Successfully set the policy on node S90T7HK2
+knife node policy set S90T7HK2 'Windows_Node_Policy_Group' 'desktop-config'
 ```
 
 ### Install the Chef Infra Client
 
-Go to your test node and install the Chef Infra Client from an elevated PowerShell window or  use `sudo` if you're on a mac. More on the [Chef Install Script](https://docs.chef.io/ chef_install_script/).
+Go to your test node and install the Chef Infra Client from an elevated PowerShell window, or use `sudo` if you are installing it from MacOS. For additional information, see the [Chef Install Script](https://docs.chef.io/chef_install_script/) documentation.
 
 #### On Windows
 

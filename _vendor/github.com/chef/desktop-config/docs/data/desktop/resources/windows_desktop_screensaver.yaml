@@ -33,8 +33,10 @@ syntax_full_properties_list:
 - "`allow_lower_user_idle_time`, `idle_time`, `require_password`, and `screensaver_name`
   are the properties available to this resource."
 actions_list:
+  :disable:
+    markdown: Disable the desktop screen saver.
   :enable:
-    markdown: 
+    markdown: Enable the desktop screen saver.
   :nothing:
     shortcode: resources_common_actions_nothing.md
 properties_list:

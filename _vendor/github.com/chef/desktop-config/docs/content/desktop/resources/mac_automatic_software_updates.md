@@ -1,12 +1,13 @@
 +++
-title = "Mac Automatic Software Updates"
+title = "macos_automatic_software_updates Resource"
 draft = false
-desktop_resource = "mac_automatic_software_updates"
+desktop_resource = "macos_automatic_software_updates"
+toc_layout = "desktop_resource_single_toc"
 
 [menu]
   [menu.desktop]
-    title = "mac_automatic_software_updates"
-    identifier = "desktop/resources/mac_automatic_software_updates.md Mac Automatic Software Updates"
+    title = "macos_automatic_software_updates"
+    identifier = "desktop/resources/macos_automatic_software_updates.md macos_automatic_software_updates"
     parent = "desktop/resources"
 +++
 

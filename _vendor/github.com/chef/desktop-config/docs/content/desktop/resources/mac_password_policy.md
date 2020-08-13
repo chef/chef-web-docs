@@ -1,12 +1,13 @@
 +++
-title = "Mac Password Policy"
+title = "macos_password_policy Resource"
 draft = false
-desktop_resource = "mac_password_policy"
+desktop_resource = "macos_password_policy"
+toc_layout = "desktop_resource_single_toc"
 
 [menu]
   [menu.desktop]
-    title = "mac_password_policy"
-    identifier = "desktop/resources/mac_password_policy.md Mac Password Policy"
+    title = "macos_password_policy"
+    identifier = "desktop/resources/macos_password_policy.md macos_password_policy"
     parent = "desktop/resources"
 +++
 

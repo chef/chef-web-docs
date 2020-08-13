@@ -16,6 +16,7 @@ menu:
 resource_description_list:
 - markdown: Use the **windows_automatic_logout** resource to set the system to automatically
     logout after a set time.
+resource_new_in: '1.0'
 syntax_full_code_block: |-
   windows_automatic_logout 'name' do
     autologout           true, false # default value: true
