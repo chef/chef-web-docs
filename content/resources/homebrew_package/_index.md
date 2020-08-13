@@ -20,7 +20,7 @@ resource_description_list:
     platform.
 - note:
     markdown: Starting with Chef Infra Client 16 the homebrew resource now accepts
-      an array of packages for isntalling multiple packages at once.
+      an array of packages for installing multiple packages at once.
 resource_new_in: '12.0'
 syntax_full_code_block: |-
   homebrew_package 'name' do

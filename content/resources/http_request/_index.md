@@ -1,17 +1,18 @@
 ---
+resource_reference: true
+properties_shortcode:
+resources_common_guards: true
+resources_common_notification: true
+resources_common_properties: true
 title: http_request resource
 resource: http_request
-draft: false
 aliases:
-- /resource_http_request.html
+- "/resource_http_request.html"
 menu:
   infra:
     title: http_request
     identifier: chef_infra/cookbook_reference/resources/http_request http_request
     parent: chef_infra/cookbook_reference/resources
-
-resource_reference: true
-robots: null
 resource_description_list:
 - markdown: 'Use the **http_request** resource to send an HTTP request (`GET`,
 
@@ -40,11 +41,6 @@ syntax_full_properties_list:
 - '`headers`, `message`, and `url` are properties of this resource, with the Ruby
   type shown. See "Properties" section below for more information about all of the
   properties that may be used with this resource.'
-syntax_shortcode: null
-registry_key: false
-nameless_apt_update: false
-nameless_build_essential: false
-resource_package_options: false
 actions_list:
   :delete:
     markdown: Send a `DELETE` request.
@@ -68,7 +64,6 @@ properties_list:
   ruby_type: Hash
   required: false
   default_value: null
-  new_in: null
   description_list:
   - markdown: A Hash of custom headers.
 - property: message
@@ -89,27 +84,6 @@ properties_list:
   new_in: null
   description_list:
   - markdown: The URL to which an HTTP request is sent.
-properties_shortcode: null
-properties_multiple_packages: false
-resource_directory_recursive_directories: false
-resources_common_atomic_update: false
-properties_resources_common_windows_security: false
-remote_file_prevent_re_downloads: false
-remote_file_unc_path: false
-ps_credential_helper: false
-ruby_style_basics_chef_log: false
-debug_recipes_chef_shell: false
-template_requirements: false
-resources_common_properties: true
-resources_common_notification: true
-resources_common_guards: true
-common_resource_functionality_multiple_packages: false
-resources_common_guard_interpreter: false
-remote_directory_recursive_directories: false
-common_resource_functionality_resources_common_windows_security: false
-handler_custom: false
-cookbook_file_specificity: false
-unit_file_verification: false
 examples: "\n  Send a GET request\n\n  ``` ruby\n  http_request 'some_message' do\n\
   \    url 'http://example.com/check_in'\n  end\n  ```\n\n  The message is sent as\n\
   \  `http://example.com/check_in?message=some_message`.\n\n  Send a POST request\n\
