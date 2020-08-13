@@ -17,7 +17,7 @@ menu:
 resource_description_list:
 - shortcode: resources_common_powershell.md
 - shortcode: resources_common_powershell_dsc.md
-- markdown: 'Many DSC resources are comparable to built-in Chef resources. For
+- markdown: 'Many DSC resources are comparable to built-in Chef Infra resources. For
 
     example, both DSC and Chef have **file**, **package**, and **service**
 
@@ -31,11 +31,11 @@ resource_description_list:
 
     **dsc_script** resource to embed the code that defines a DSC
 
-    configuration directly within a Chef recipe.'
+    configuration directly within a Chef Infra recipe.'
 - note:
     markdown: 'Windows PowerShell 4.0 is required for using the **dsc_script**
 
-      resource with Chef.'
+      resource with Chef Infra.'
 - note:
     markdown: 'The WinRM service must be enabled. (Use `winrm quickconfig` to enable
 
