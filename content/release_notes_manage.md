@@ -5,11 +5,10 @@ draft = false
 aliases = ["/release_notes_manage.html"]
 
 [menu]
-  [menu.infra]
+  [menu.release_notes]
     title = "Chef Manage"
-    identifier = "chef_infra/release_notes/release_notes_manage.md Chef Manage"
-    parent = "chef_infra/release_notes"
-    weight = 40
+    identifier = "release_notes/release_notes_manage.md Chef Manage"
+    parent = "release_notes"
 +++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/release_notes_manage.md)

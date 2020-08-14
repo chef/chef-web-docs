@@ -3,13 +3,6 @@ title = "Release Notes: ChefDK 0.19 - 4.10"
 draft = false
 
 aliases = ["/release_notes_chefdk.html"]
-
-[menu]
-  [menu.infra]
-    title = "ChefDK"
-    identifier = "chef_infra/release_notes/release_notes_chefdk.md ChefDK"
-    parent = "chef_infra/release_notes"
-    weight = 20
 +++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/release_notes_chefdk.md)
