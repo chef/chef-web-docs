@@ -396,7 +396,7 @@ The following platforms are supported only via the community:
 #### Commercial Support
 
 Commercial support for the [Chef Automate 2
-Server](https://automate.chef.io/docs/system-requirements/) is available
+Server](/automate/system_requirements/) is available
 for platforms that use:
 
 - a Linux kernel version of 3.2 or greater

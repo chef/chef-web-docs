@@ -15,10 +15,10 @@ aliases = ["/release_notes_manage.html"]
 
 Chef Manage provides a web-based user interface that manages Chef Infra nodes and
 other policy objects, such as data bags and roles, on the instance of Chef Infra Server
-that it is installed on. 
+that it is installed on.
 
-Chef Manage is [deprecated](/versions/#deprecated) and users should plan to 
-migrate to [Chef Automate](https://automate.chef.io/) as the replacement.
+Chef Manage is [deprecated](/versions/#deprecated) and users should plan to
+migrate to [Chef Automate](/automate/) as the replacement.
 
 ## Upgrading
 
