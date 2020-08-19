@@ -22,3 +22,6 @@ subscriptions:
   - workload: artifact_published:stable:inspec:*
     actions:
       - bash:.expeditor/update_hugo_modules.sh
+  - workload: project_promoted:automate:acceptance:*
+    actions:
+      - bash:.expeditor/update_hugo_modules.sh

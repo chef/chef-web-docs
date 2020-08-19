@@ -79,7 +79,7 @@ notAlternative = true
 [params]
   enable_search = true
   robots = ''
-  menuOrder = ["overview", "compliance", "effortless", "infra",  "workstation", "desktop", "habitat", "inspec", "automate", "legacy", "api", "extra"]
+  menuOrder = ["overview", "compliance", "effortless", "infra",  "workstation", "desktop", "habitat", "inspec", "automate", "release_notes", "legacy", "api", "extra"]
 
 [taxonomies]
   category = "categories"
@@ -148,6 +148,27 @@ notAlternative = true
   [[module.imports.mounts]]
     source = "static/images/inspec"
     target = "static/images/inspec"
+
+  [[module.imports]]
+    disable = false
+    ignoreConfig = false
+    path = "github.com/chef/automate/components/docs-chef-io"
+
+  [[module.imports.mounts]]
+    source = "content/automate"
+    target = "content/automate"
+
+  [[module.imports.mounts]]
+    source = "data"
+    target = "data"
+
+  [[module.imports.mounts]]
+    source = "static"
+    target = "static"
+
+  [[module.imports.mounts]]
+    source = "layouts"
+    target = "layouts"
 
 ####
 ## Main Menu ##
@@ -741,12 +762,6 @@ weight = 30
       url = "/ctl_push_jobs_client/"
       weight = 20
 
-  [[menu.infra]]
-  title = "Release Notes"
-  identifier = "chef_infra/release_notes"
-  parent = "chef_infra"
-  weight = 80
-
 ####
 # End Chef Infra Menu
 ####
@@ -922,10 +937,10 @@ weight = 10
   weight = 20
 
   [[menu.habitat]]
-  title = "Tutorials"
-  identifier = "chef_habitat/https://www.habitat.sh/tutorials/ Tutorials"
+  title = "Learn Chef Habitat"
+  identifier = "chef_habitat/https://community.chef.io/products/chef-habitat/#learn Tutorials"
   parent = "chef_habitat"
-  url = "https://www.habitat.sh/tutorials/"
+  url = "https://community.chef.io/products/chef-habitat/#learn"
   weight = 30
 
 ####
@@ -994,18 +1009,72 @@ weight = 10
 
 [[menu.automate]]
 title = "Chef Automate"
-identifier = "chef_automate"
+identifier = "automate"
 weight = 10
 
   [[menu.automate]]
-  title = "Chef Automate Documentation"
-  identifier = "chef_automate/https://automate.chef.io/docs/ Chef Automate Documentation"
-  parent = "chef_automate"
-  url = "https://automate.chef.io/docs/"
+  name = "Getting Started"
+  weight = 10
+  identifier = "automate/getting_started"
+  parent = "automate"
+
+  [[menu.automate]]
+  name = "Configuring Automate"
   weight = 20
+  identifier = "automate/configuring_automate"
+  parent = "automate"
+
+  [[menu.automate]]
+  name = "Applications"
+  weight = 30
+  identifier = "automate/applications"
+  parent = "automate"
+
+  [[menu.automate]]
+  name = "Compliance"
+  weight = 60
+  identifier = "automate/compliance"
+  parent = "automate"
+
+  [[menu.automate]]
+  name = "Settings"
+  weight = 90
+  identifier = "automate/settings"
+  parent = "automate"
+
+  [[menu.automate]]
+  name = "Authorization"
+  weight = 100
+  identifier = "automate/authorization"
+  parent = "automate"
+
+  [[menu.automate]]
+  name = "Reference"
+  weight = 110
+  identifier = "automate/reference"
+  parent = "automate"
+
+  [[menu.automate]]
+  name = "Workflow (Deprecated)"
+  weight = 140
+  identifier = "automate/workflow"
+  parent = "automate"
 
 ####
 # End Chef Automate Menu
+####
+
+####
+# Release Notes Menu
+####
+
+[[menu.release_notes]]
+title = "Release Notes"
+identifier = "release_notes"
+weight = 10
+
+####
+# End Release Notes Menu
 ####
 
 ####
@@ -1117,9 +1186,9 @@ url = "https://github.com/chef/chef-web-docs"
 weight = 10
 
 [[menu.extra]]
-title = "Get Chef"
+title = "Downloads"
 identifier = "get chef"
-url = "https://www.chef.io/get-chef"
+url = "https://downloads.chef.io/"
 weight = 100
 
 [[menu.extra]]

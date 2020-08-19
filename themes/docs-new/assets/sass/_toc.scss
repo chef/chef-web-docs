@@ -5,6 +5,17 @@
   height: 100%;
   font-size: rem-calc(13);
   z-index: 30;
+
+  ul.release_version{
+    li{
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+      color: red;
+      &.active{
+        background-color: $lightgray;
+      }
+    }
+  }
 }
 
 .position-right.is-transition-push {

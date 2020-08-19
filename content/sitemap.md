@@ -10,12 +10,16 @@ toc = false
 
 This is the documentation for:
 
--   Chef Infra Server, Chef Infra Client, Chef Workstation, Chef InSpec, and related
-    tools
+-   Chef Automate
+-   Chef Desktop
+-   Chef Infra Client
+-   Chef Infra Server
+-   Chef InSpec
+-   Chef Workstation
+-   related tools
 
 Documentation for other Chef products:
 
--   [Chef Automate 2.0](https://automate.chef.io/docs/quickstart)
 -   [Chef Habitat](https://www.habitat.sh/docs/)
 
 This page has links to each topic in this doc set. You can also use the

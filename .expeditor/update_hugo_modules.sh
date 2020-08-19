@@ -18,6 +18,9 @@ if [ ${EXPEDITOR_PRODUCT_KEY} == "chef-workstation" ]; then
 elif [ ${EXPEDITOR_PRODUCT_KEY} == "inspec" ]; then
   subdirectory="www"
   org="inspec"
+elif [ ${EXPEDITOR_PRODUCT_KEY} == "automate" ]; then
+  subdirectory="components/docs-chef-io"
+  org="chef"
 fi
 
 git clone https://x-access-token:${GITHUB_TOKEN}@github.com/$org/${EXPEDITOR_PRODUCT_KEY}/

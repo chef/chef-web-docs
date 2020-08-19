@@ -2,14 +2,13 @@
 title = "Release Notes: Chef Infra Client 12.0 - 16.3"
 draft = false
 
-aliases = ["/release_notes.html", "/release_notes_ohai.html"]
+aliases = ["/release_notes.html", "/release_notes_ohai.html", "/release_notes/"]
 
 [menu]
-  [menu.infra]
+  [menu.release_notes]
     title = "Chef Infra Client"
-    identifier = "chef_infra/release_notes/release_notes.md Chef Infra Client"
-    parent = "chef_infra/release_notes"
-    weight = 10
+    identifier = "release_notes/release_notes_client.md Chef Infra Client"
+    parent = "release_notes"
 +++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/release_notes.md)

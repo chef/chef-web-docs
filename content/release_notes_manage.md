@@ -5,21 +5,20 @@ draft = false
 aliases = ["/release_notes_manage.html"]
 
 [menu]
-  [menu.infra]
+  [menu.release_notes]
     title = "Chef Manage"
-    identifier = "chef_infra/release_notes/release_notes_manage.md Chef Manage"
-    parent = "chef_infra/release_notes"
-    weight = 40
+    identifier = "release_notes/release_notes_manage.md Chef Manage"
+    parent = "release_notes"
 +++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/release_notes_manage.md)
 
 Chef Manage provides a web-based user interface that manages Chef Infra nodes and
 other policy objects, such as data bags and roles, on the instance of Chef Infra Server
-that it is installed on. 
+that it is installed on.
 
-Chef Manage is [deprecated](/versions/#deprecated) and users should plan to 
-migrate to [Chef Automate](https://automate.chef.io/) as the replacement.
+Chef Manage is [deprecated](/versions/#deprecated) and users should plan to
+migrate to [Chef Automate](/automate/) as the replacement.
 
 ## Upgrading
 
