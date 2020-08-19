@@ -1,5 +1,5 @@
 +++
-title = "Release Notes: Chef Infra Client 12.0 - 16.3"
+title = "Release Notes: Chef Infra Client 12.0 - 16.4"
 draft = false
 
 aliases = ["/release_notes.html", "/release_notes_ohai.html", "/release_notes/"]
@@ -17,6 +17,52 @@ Chef Infra Client is released on a monthly schedule with new releases
 the first Wednesday of every month. Below are the major changes for each
 release. For a detailed list of changes see the [Chef Infra Client
 changelog](https://github.com/chef/chef/blob/master/CHANGELOG.md)
+
+## What's New in 16.4
+
+### Resource Updates
+
+#### chef_client_systemd_timer
+
+The `chef_client_systemd_timer` resource has been updated to prevent failures running the `:remove` action.
+
+#### openssl resource
+
+The various openssl_* resources were refactored to better report the changed state of the resource to Automate or other handlers.
+
+#### osx_profile
+
+The `osx_profile` resource has been refactored as a custom resource internally. This update also better reports the changed state of the resource to Automate or other handlers and no longer silently continues if the attempts to shellout fail.
+
+#### powershell_package_source
+
+The `powershell_package_source` resource no longer requires the `url` property to be set when using the `:unregister` action. Thanks for this fix [@kimbernator](https://github.com/kimbernator)!
+
+#### powershell_script
+
+The `powershell_script` resource has been refactored to better report the changed state of the resource to Automate or other handlers.
+
+#### windows_feature
+
+The `windows_feature` resource has been updated to allow installing features that have been removed if a source location is provided. Thanks for reporting this [@stefanwb](https://github.com/stefanwb)!
+
+#### windows_font
+
+The `windows_font` resource will no longer fail on newer releases of Windows if a font is already installed. Thanks for reporting this [@bmiller08](https://github.com/bmiller08)!
+
+#### windows_workgroup
+
+The `windows_workgroup` resource has been updated to treat the `password` property as a sensitive property. The value of the `password` property will no longer be shown in logs or handlers.
+
+### Security
+
+#### CA Root Certificates
+
+The included `cacerts` bundle in Chef Infra Client has been updated to the 7-22-2020 release. This new release removes 4 legacy root certificates and adds 4 additional root certificates.
+
+#### Reduced Dependencies
+
+We've audited the included dependencies that we ship with Chef Infra Client to reduce the 3rd party code we ship. We've removed many of the embedded binaries that shipped with the client in the past, but were not directly used. We've also reduced the feature set built into many of the libraries that we depend on, and removed several Ruby gem dependencies that were no longer necessary. This reduces the future potential for CVEs in the product and reduces package size at the same time.
 
 ## What's New in 16.3.45
 
