@@ -2,7 +2,7 @@
 title = "chef (executable)"
 draft = false
 
-aliases = "/ctl_chef.html"
+aliases = ["/ctl_chef.html", "/ctl_chef/"]
 
 [menu]
   [menu.workstation]
@@ -12,7 +12,7 @@ aliases = "/ctl_chef.html"
     weight = 10
 +++
 
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/ctl_chef.md)
+[\[edit on GitHub\]](https://github.com/chef/workstation/blob/master/www/content/workstation/ctl_chef.md)
 
 The chef executable is a command-line tool that does the following:
 
