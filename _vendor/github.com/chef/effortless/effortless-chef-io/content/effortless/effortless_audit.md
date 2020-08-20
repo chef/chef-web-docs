@@ -201,7 +201,7 @@ With the release of `scaffolding-chef-inspec` version 0.16.0 (Linux) and version
 1. Apply the new change to your Chef Habitat config:
 
    ```bash
-   hab config apply <my_profile_service>.<my_profile_service_group> $(date) <my_config.toml>
+   hab config apply <my_profile_service>.<my_profile_service_group> $(date +'%s') <my_config.toml>
    ```
 
 1. Habitat will see a configuration change, automatically re-run your profile, and skip the control you specified in the `my_config.toml` file.
