@@ -445,7 +445,8 @@ Start-Process msiexec.exe -ArgumentList @('/qn', '/lv C:\Windows\Temp\chef-log.t
 
 ## Create first-boot.json
 $firstboot = @{
-   "run_list" = @("role[base]")
+   "policy_group" = "my_policy_group"
+   "policy_name" = "my_policy_name"
 }
 Set-Content -Path c:\chef\first-boot.json -Value ($firstboot | ConvertTo-Json -Depth 10)
 
@@ -490,9 +491,8 @@ curl -L https://omnitruck.chef.io/install.sh | bash || error_exit 'could not ins
 # Create first-boot.json
 cat > "/etc/chef/first-boot.json" << EOF
 {
-   "run_list" :[
-   "role[base]"
-   ]
+   "policy_group": "my_policy_group",
+   "policy_name": "my_policy_name"
 }
 EOF
 
