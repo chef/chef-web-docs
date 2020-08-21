@@ -429,7 +429,7 @@ bootstrapping Windows and Linux nodes.
 
 #### PowerShell User Data
 
-``` none
+``` powershell
 ## Set host file so the instance knows where to find chef-server
 $hosts = "1.2.3.4 hello.example.com"
 $file = "C:\Windows\System32\drivers\etc\hosts"
