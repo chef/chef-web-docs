@@ -500,11 +500,11 @@ NODE_NAME=node-$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 4 | head -n 1)
 
 # Create client.rb
 cat > '/etc/chef/client.rb' << EOF
-og_location     STDOUT' >> /etc/chef/client.rb
-chef_server_url  "https://aut-chef-server/organizations/my-org"
-validation_client_name "my-org-validator"
-validation_key "/etc/chef/my_org_validator.pem"
-node_name  "${NODE_NAME}"
+log_location            STDOUT
+chef_server_url         'https://aut-chef-server/organizations/my-org'
+validation_client_name  'my-org-validator'
+validation_key          '/etc/chef/my_org_validator.pem'
+node_name               "${NODE_NAME}"
 EOF
 
 chef-client -j /etc/chef/first-boot.json
