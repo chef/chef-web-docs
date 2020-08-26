@@ -165,7 +165,7 @@ security frameworks, such as Center for Internet Security (CIS)
 benchmarks, included as part of Chef Automate.
 
 For information on the integrated reporting capabilities in Chef
-Automate, see [Compliance Overview](/chef_automate_compliance/).
+Automate, see [Compliance Overview](/automate/reports/).
 
 ### High availability
 
