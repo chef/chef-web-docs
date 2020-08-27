@@ -15,14 +15,9 @@ menu:
     parent: chef_infra/cookbook_reference/resources
 resource_description_list:
 - markdown: 'Use the **timezone** resource to change the system timezone on Windows,
-
-    Linux, and macOS hosts. Timezones are specified in tz database format,
-
-    with a complete list of available TZ values for Linux and macOS here:
-
-    <https://en.wikipedia.org/wiki/List_of_tz_database_time_zones> and for
-
-    Windows here: <https://ss64.com/nt/timezones.html>.'
+    Linux, and macOS hosts. Timezones are specified in tz database format, with a
+    complete list of available TZ values for Linux and macOS here: <https://en.wikipedia.org/wiki/List_of_tz_database_time_zones>.
+    On Windows systems run `tzutil /l` for a complete list of valid timezones.'
 resource_new_in: '14.6'
 syntax_full_code_block: |-
   timezone 'name' do
@@ -56,11 +51,19 @@ examples: |
   timezone 'UTC'
   ```
 
-  **Set the timezone to UTC with a friendly resource name**
+  **Set the timezone to America/Los_Angeles with a friendly resource name on Linux/macOS**
 
   ```ruby
-  timezone 'Set the host's timezone to UTC' do
-    timezone 'UTC'
+  timezone 'Set the host's timezone to America/Los_Angeles' do
+    timezone 'America/Los_Angeles'
+  end
+  ```
+
+  **Set the timezone to PST with a friendly resource name on Windows**
+
+  ```ruby
+  timezone 'Set the host's timezone to PST' do
+    timezone 'Pacific Standard time'
   end
   ```
 ---
