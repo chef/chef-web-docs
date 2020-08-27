@@ -51,12 +51,12 @@ files or directories.
 <tr class="odd">
 <td><a href="/recipes/">Recipes</a></td>
 <td>recipes/</td>
-<td>{{% cookbooks_recipe %}}</td>
+<td>{{< readFile_shortcode file="cookbooks_recipe.md" >}}</td>
 </tr>
 <tr class="even">
 <td><a href="/attributes/">Attributes</a></td>
 <td>attributes/</td>
-<td>{{% cookbooks_attribute %}}</td>
+<td>{{< readFile_shortcode file="cookbooks_attribute.md" >}}</td>
 </tr>
 <tr class="odd">
 <td><a href="/files/">Files</a></td>

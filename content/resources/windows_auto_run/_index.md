@@ -64,9 +64,14 @@ properties_list:
   allowed_values: ":machine, :user"
   description_list:
   - markdown: The registry root key to put the entry under.
-examples: "
-  Run BGInfo at login\n\n  ``` ruby\n  windows_auto_run 'BGINFO' do\n\
-  \    program 'C:/Sysinternals/bginfo.exe'\n    args    '\\'C:/Sysinternals/Config.bgi\\\
-  ' /NOLICPROMPT /TIMER:0'\n    action  :create\n  end\n  ```\n"
+examples: |
+  **Run BGInfo at login**
 
+  ```ruby
+  windows_auto_run 'BGINFO' do
+    program 'C:/Sysinternals/bginfo.exe'
+    args    ''C:/Sysinternals/Config.bgi' /NOLICPROMPT /TIMER:0'
+    action  :create
+  end
+  ```
 ---

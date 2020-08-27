@@ -2,7 +2,7 @@
 
 set -euo pipefail
 
-LINT_STATUS="$(grep -r -I --color=auto -o --with-filename -n -P '[^\x00-\x7F]' ./content | grep -v '[✓]' &> /dev/null ; echo $?)"
+LINT_STATUS="$(grep -r -I --color=auto -o --with-filename -n -P '[^\x00-\x7F]' ./content | grep -v '[✓]'  &> /dev/null ; echo $?)"
 
 if [ "$LINT_STATUS" == 1 ]; then
   echo "Success!"

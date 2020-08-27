@@ -16,7 +16,9 @@ aliases = ["/server_ldap.html", "/install_server_post.html"]
 
 The Chef Infra Server supports Active Directory and LDAP authentication,
 which enables users to log in to the Chef Infra Server using their
-corporate credentials.
+corporate credential and the Manage interface. Without the Manage interface add-on installed,
+there is no need to enable the Chef Infra Server LDAP functionality. LDAP is not used with 
+Supermarket logins, nor with any Chef Infra Client related authentication.
 
 ## Configure LDAP
 
@@ -53,7 +55,7 @@ the following:
     Availability installation as well as on Chef servers in a standalone
     installation.
 
-    {{< shortcode_indent shortcode="config_rb_server_settings_ldap" >}}
+    {{< readFile_shortcode file="config_rb_server_settings_ldap.md" >}}
 
     {{< note spaces=4 >}}
 
@@ -62,7 +64,7 @@ the following:
 
     {{< /note >}}
 
-3.  {{< shortcode_indent shortcode="install_chef_server_reconfigure" >}}
+3.  {{< readFile_shortcode file="install_chef_server_reconfigure.md" >}}
 
 At this point, all users should be able to use their Active Directory or
 LDAP usernames and passwords to log in to the Chef Infra Server.

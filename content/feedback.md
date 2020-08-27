@@ -5,7 +5,7 @@ draft = false
 aliases = ["/feedback.html"]
 
 [menu]
-  [menu.infra]
+  [menu.overview]
     title = "Send Feedback"
     identifier = "overview/community/feedback.md Send Feedback"
     parent = "overview/community"

@@ -98,7 +98,7 @@ please contact <amp@chef.io> to obtain a new license.
 
     ``` bash
     cd ~/Downloads/starter_kit/chef-repo
-    knife bootstrap chef-automate-01.eastus.cloudapp.azure.com --ssh-user azure --sudo
+    knife bootstrap chef-automate-01.eastus.cloudapp.azure.com --connection-user azure --sudo
     ```
 
 ### Migrate to Chef Automate on Microsoft Azure

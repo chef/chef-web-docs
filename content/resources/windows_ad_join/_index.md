@@ -97,13 +97,32 @@ properties_list:
   - markdown: Specifies the name of a workgroup to which the computer is added to
       when it is removed from the domain. The default value is WORKGROUP. This property
       is only applicable to the :leave action.
-examples: "
-  Join a domain\n\n  ``` ruby\n  windows_ad_join 'ad.example.org' do\n\
-  \    domain_user 'nick'\n    domain_password 'p@ssw0rd1'\n  end\n  ```\n\n  **Join\
-  \ a domain, as \\`win-workstation\\`**\n\n  ``` ruby\n  windows_ad_join 'ad.example.org'\
-  \ do\n    domain_user 'nick'\n    domain_password 'p@ssw0rd1'\n    new_hostname\
-  \ 'win-workstation'\n  end\n  ```\n\n  **Leave the current domain and re-join the\
-  \ \\`local\\` workgroup**\n\n  ``` ruby\n  windows_ad_join 'Leave domain' do\n \
-  \   action :leave\n    workgroup 'local'\n  end\n  ```\n"
+examples: |
+  **Join a domain**
 
+  ```ruby
+  windows_ad_join 'ad.example.org' do
+    domain_user 'nick'
+    domain_password 'p@ssw0rd1'
+  end
+  ```
+
+  **Join a domain, as `win-workstation`**
+
+  ```ruby
+  windows_ad_join 'ad.example.org' do
+    domain_user 'nick'
+    domain_password 'p@ssw0rd1'
+    new_hostname 'win-workstation'
+  end
+  ```
+
+  **Leave the current domain and re-join the `local` workgroup**
+
+  ```ruby
+  windows_ad_join 'Leave domain' do
+    action :leave
+    workgroup 'local'
+  end
+  ```
 ---

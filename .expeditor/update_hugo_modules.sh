@@ -5,22 +5,25 @@ set -evx
 # Copy shortcode files from chef product repo
 # to chef/chef-web-docs/layouts/shortcodes
 
-branch="expeditor/${EXPEDITOR_PRODUCT_KEY}_${EXPEDITOR_VERSION}"
+branch="expeditor/update_docs_${EXPEDITOR_PRODUCT_KEY}_${EXPEDITOR_VERSION}"
 git checkout -b "$branch"
 
 # different chef product repos have their documentation in different subdirectories
 # this variable has to be defined so we can copy content from the proper subdirectory
 # that contains the docs content and properly execute the `hugo mod get` command.
 
-if [ ${EXPEDITOR_PRODUCT_KEY} == "chef-workstation" ]
-then subdirectory="www"
+if [ ${EXPEDITOR_PRODUCT_KEY} == "chef-workstation" ]; then
+  subdirectory="www"
+  org="chef"
+elif [ ${EXPEDITOR_PRODUCT_KEY} == "inspec" ]; then
+  subdirectory="www"
+  org="inspec"
+elif [ ${EXPEDITOR_PRODUCT_KEY} == "automate" ]; then
+  subdirectory="components/docs-chef-io"
+  org="chef"
 fi
 
-git clone https://x-access-token:${GITHUB_TOKEN}@github.com/chef/${EXPEDITOR_PRODUCT_KEY}/
-
-pushd ${EXPEDITOR_PRODUCT_KEY}
-cp $subdirectory/layouts/shortcodes/* ../layouts/shortcodes/
-popd
+git clone https://x-access-token:${GITHUB_TOKEN}@github.com/$org/${EXPEDITOR_PRODUCT_KEY}/
 
 # delete Chef product repo
 
@@ -30,8 +33,13 @@ rm -rf ${EXPEDITOR_PRODUCT_KEY}
 # build the workstation docs from.
 # See https://gohugo.io/hugo-modules/use-modules/#get-a-specific-version
 
-hugo mod get github.com/chef/${EXPEDITOR_PRODUCT_KEY}/$subdirectory/@${EXPEDITOR_VERSION}
+hugo mod get github.com/$org/${EXPEDITOR_PRODUCT_KEY}/$subdirectory/@${EXPEDITOR_VERSION}
 hugo mod tidy
+
+# Update the vendored files in chef-web-docs
+# See https://gohugo.io/hugo-modules/use-modules/#vendor-your-modules
+
+hugo mod vendor
 
 # submit pull request to chef/chef-web-docs
 

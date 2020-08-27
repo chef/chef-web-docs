@@ -30,18 +30,28 @@ handler_types: false
 syntax_description: "A **cron** resource block manages cron entries. For example,\
   \ to get a\nweekly cookbook report from the Chef Supermarket:\n\n``` ruby\ncron\
   \ 'cookbooks_report' do\n  action :create\n  minute '0'\n  hour '0'\n  weekday '1'\n\
-  \  user 'getchef'\n  mailto 'sysadmin@example.com'\n  home '/srv/supermarket/shared/system'\n\
+  \  user 'chefio'\n  mailto 'sysadmin@example.com'\n  home '/srv/supermarket/shared/system'\n\
   \  command %W{\n    cd /srv/supermarket/current &&\n    env RUBYLIB=\"/srv/supermarket/current/lib\"\
   \n    RAILS_ASSET_ID=`git rev-parse HEAD` RAILS_ENV=\"#{rails_env}\"\n    bundle\
   \ exec rake cookbooks_report\n  }.join(' ')\nend\n```"
-syntax_full_code_block: "cron 'name' do\n  command          String\n  day              Integer,
-  String # default value: \"*\"\n  environment      Hash\n  home             String\n
-  \ hour             Integer, String # default value: \"*\"\n  mailto           String\n
-  \ minute           Integer, String # default value: \"*\"\n  month            Integer,
-  String # default value: \"*\"\n  path             String\n  shell            String\n
-  \ time             Symbol\n  time_out         Hash\n  user             String #
-  default value: \"root\"\n  weekday          \n  action           Symbol # defaults
-  to :create if not specified\nend"
+syntax_full_code_block: |-
+  cron 'name' do
+    command          String
+    day              Integer, String # default value: "*"
+    environment      Hash
+    home             String
+    hour             Integer, String # default value: "*"
+    mailto           String
+    minute           Integer, String # default value: "*"
+    month            Integer, String # default value: "*"
+    path             String
+    shell            String
+    time             Symbol
+    time_out         Hash
+    user             String # default value: "root"
+    weekday          Integer, String, Symbol # default value: "*"
+    action           Symbol # defaults to :create if not specified
+  end
 syntax_properties_list: 
 syntax_full_properties_list:
 - "`cron` is the resource."
@@ -62,16 +72,10 @@ actions_list:
 properties_list:
 - property: command
   ruby_type: String
-  required: false
+  required: true
   description_list:
-  - markdown: "The command to be run, or the path to a file that contains the\ncommand\
-      \ to be run.\n\nSome examples:\n\n``` none\ncommand if [ -x /usr/share/mdadm/checkarray\
-      \ ] && [ $(date +\\%d) -le 7 ];\nthen /usr/share/mdadm/checkarray --cron --all\
-      \ --idle --quiet; fi\n```\n\nand:\n\n``` ruby\ncommand %w{\n  cd /srv/opscode-community-site/current\
-      \ &&\n  env RUBYLIB=\"/srv/opscode-community-site/current/lib\"\n  RAILS_ASSET_ID=`git\
-      \ rev-parse HEAD` RAILS_ENV=\"#{rails_env}\"\n  bundle exec rake cookbooks_report\n\
-      }.join(' ')\n```\n\nand:\n\n``` ruby\ncommand \"/srv/app/scripts/daily_report\"\
-      \n```"
+  - markdown: The command to be run, or the path to a file that contains the command
+      to be run.
 - property: day
   ruby_type: Integer, String
   required: false
@@ -82,11 +86,9 @@ properties_list:
   ruby_type: Hash
   required: false
   description_list:
-  - markdown: 'A Hash of environment variables in the form of
-
-      `({''ENV_VARIABLE'' => ''VALUE''})`. (These variables must exist for a
-
-      command to be run successfully.)'
+  - markdown: 'A Hash containing additional arbitrary environment variables under
+      which the cron job will be run in the form of `({''ENV_VARIABLE'' => ''VALUE''})`.
+      **Note**: These variables must exist for a command to be run successfully.'
 - property: home
   ruby_type: String
   required: false
@@ -139,12 +141,11 @@ properties_list:
   new_in: '15.7'
   description_list:
   - markdown: |-
-      A Hash of timeouts in the form of `({'OPTION' => 'VALUE'})`.
-              Accepted valid options are:
-              `preserve-status` (BOOL, default: 'false'),
-              `foreground` (BOOL, default: 'false'),
-              `kill-after` (in seconds),
-              `signal` (a name like 'HUP' or a number)
+      A Hash of timeouts in the form of `({'OPTION' => 'VALUE'})`. Accepted valid options are:
+        - `preserve-status` (BOOL, default: 'false'),
+        - `foreground` (BOOL, default: 'false'),
+        - `kill-after` (in seconds),
+        - `signal` (a name like 'HUP' or a number)
 - property: user
   ruby_type: String
   required: false
@@ -154,13 +155,12 @@ properties_list:
       changed, the original user for the crontab program continues to run until that
       crontab program is deleted. This property is not applicable on the AIX platform.
 - property: weekday
-  ruby_type: String
+  ruby_type: Integer, String, Symbol
   required: false
-  default_value: '*'
+  default_value: "*"
   description_list:
-  - markdown: 'The day of the week on which this entry is to run (0 - 6), where
-
-      Sunday = 0.'
+  - markdown: The day of the week on which this entry is to run (`0-7`, `mon-sun`,
+      `monday-sunday`, or `*`), where Sunday is both `0` and `7`.
 examples: "
   Run a program at a specified interval\n\n  ``` ruby\n  cron 'noop'\
   \ do\n    hour '5'\n    minute '0'\n    command '/bin/true'\n  end\n  ```\n\n  Run\

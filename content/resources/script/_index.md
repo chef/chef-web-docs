@@ -25,14 +25,6 @@ resource_description_list:
     environment in which they are run. Use `not_if` and `only_if` to guard
 
     this resource for idempotence.'
-- note:
-    markdown: 'The **script** resource is different from the **ruby_block** resource
-
-      because Ruby code that is run with this resource is created as a
-
-      temporary file and executed like other script resources, rather than run
-
-      inline.'
 - markdown: 'This resource is the base resource for several other resources used for
 
     scripting on specific platforms. For more information about specific
@@ -62,34 +54,33 @@ syntax_description: "A **script** resource block typically executes scripts usin
   \ a specified\ninterpreter, such as Bash, csh, Perl, Python, or Ruby:\n\n``` ruby\n\
   script 'extract_module' do\n  interpreter \"bash\"\n  cwd ::File.dirname(src_filepath)\n\
   \  code <<-EOH\n    mkdir -p #{extract_path}\n    tar xzf #{src_filename} -C #{extract_path}\n\
-  \    mv #{extract_path}/*/* #{extract_path}/\n    EOH\n  not_if { ::File.exist?(extract_path)\
+  \    mv #{extract_path}/*/* #{extract_path}/\n  EOH\n  not_if { ::File.exist?(extract_path)\
   \ }\nend\n```"
 syntax_code_block: null
 syntax_properties_list:
 - '`interpreter` specifies the command shell to use'
 - '`cwd` specifies the directory from which the command is run'
-- '`code` specifies the command to run
+- |
+  `code` specifies the command to run
 
-
-  It is more common to use the **script**-based resource that is specific
-
-  to the command shell. Chef has shell-specific resources for Bash, csh,
-
-  Perl, Python, and Ruby.
+  It is more common to use the **script**-based resource that is specific to the
+  command shell. Chef has shell-specific resources for Bash, csh, ksh, Perl,
+  Python, and Ruby.
 
 
   The same command as above, but run using the **bash** resource:
 
-
   ``` ruby
-
-  bash ''extract_module'' do cwd ::File.dirname(src_filepath) code <<-EOH mkdir -p
-  #{extract_path} tar xzf #{src_filename} -C #{extract_path} mv #{extract_path}/*/*
-  #{extract_path}/ EOH not_if { ::File.exist?(extract_path) }
-
+  bash 'extract_module' do
+    cwd ::File.dirname(src_filepath)
+    code <<-EOH
+      mkdir -p #{extract_path}
+      tar xzf #{src_filename} -C #{extract_path}
+      mv #{extract_path}/*/* #{extract_path}/
+    EOH
+    not_if { ::File.exist?(extract_path) }
   end
-
-  ```'
+  ```
 syntax_full_code_block: "script 'name' do\n  code                       String\n \
   \ creates                    String\n  cwd                        String\n  environment\
   \                Hash\n  flags                      String\n  group            \
@@ -180,77 +171,6 @@ properties_list:
   new_in: null
   description_list:
   - markdown: The script interpreter to use during code execution.
-- property: path
-  ruby_type: Array
-  required: false
-  default_value: null
-  new_in: null
-  description_list:
-  - markdown: 'An array of paths to use when searching for a command. These paths
-
-      are not added to the command''s environment \$PATH. The default value
-
-      uses the system path.'
-  - warning:
-    - - markdown: ''
-    - shortcode: resources_common_resource_execute_attribute_path.md
-    - - markdown: ''
-    - - markdown: Fo
-    - - markdown: r
-    - - markdown: ex
-    - - markdown: am
-    - - markdown: pl
-    - - markdown: 'e:'
-    - - markdown: ''
-    - - markdown: '``'
-    - - markdown: '`'
-    - - markdown: ru
-    - - markdown: by
-    - - markdown: s
-    - - markdown: cr
-    - - markdown: ip
-    - - markdown: t
-    - - markdown: '''m'
-    - - markdown: yc
-    - - markdown: om
-    - - markdown: ma
-    - - markdown: nd
-    - - markdown: ''''
-    - - markdown: do
-    - - markdown: ''
-    - - markdown: e
-    - - markdown: nv
-    - - markdown: ir
-    - - markdown: 'on'
-    - - markdown: me
-    - - markdown: nt
-    - - markdown: ''''
-    - - markdown: PA
-    - - markdown: TH
-    - - markdown: ''''
-    - - markdown: =>
-    - - markdown: '"'
-    - - markdown: /m
-    - - markdown: y/
-    - - markdown: pa
-    - - markdown: th
-    - - markdown: /t
-    - - markdown: o/
-    - - markdown: bi
-    - - markdown: 'n:'
-    - - markdown: '#{'
-    - - markdown: EN
-    - - markdown: V[
-    - - markdown: '''P'
-    - - markdown: AT
-    - - markdown: H'
-    - - markdown: ']}'
-    - - markdown: '"'
-    - - markdown: en
-    - - markdown: d
-    - - markdown: '``'
-    - - markdown: '`'
-    - - markdown: ''
 - property: returns
   ruby_type: Integer, Array
   required: false
@@ -372,12 +292,12 @@ cookbook_file_specificity: false
 unit_file_verification: false
 examples: "
   Use a named provider to run a script\n\n  ``` ruby\n  bash 'install_something'\
-  \ do\n    user 'root'\n    cwd '/tmp'\n    code <<-EOH\n    wget http://www.example.com/tarball.tar.gz\n\
-  \    tar -zxf tarball.tar.gz\n    cd tarball\n    ./configure\n    make\n    make\
-  \ install\n    EOH\n  end\n  ```\n\n  Run a script\n\n  ``` ruby\n  script 'install_something'\
+  \ do\n    user 'root'\n    cwd '/tmp'\n    code <<-EOH\n      wget http://www.example.com/tarball.tar.gz\n\
+  \      tar -zxf tarball.tar.gz\n      cd tarball\n      ./configure\n      make\n      make\
+  \   install\n    EOH\n  end\n  ```\n\n  Run a script\n\n  ``` ruby\n  script 'install_something'\
   \ do\n    interpreter 'bash'\n    user 'root'\n    cwd '/tmp'\n    code <<-EOH\n\
-  \    wget http://www.example.com/tarball.tar.gz\n    tar -zxf tarball.tar.gz\n \
-  \   cd tarball\n    ./configure\n    make\n    make install\n    EOH\n  end\n  ```\n\
+  \      wget http://www.example.com/tarball.tar.gz\n      tar -zxf tarball.tar.gz\n \
+  \     cd tarball\n      ./configure\n      make\n      make install\n    EOH\n  end\n  ```\n\
   \n  or something like:\n\n  ``` ruby\n  bash 'openvpn-server-key' do\n    environment('KEY_CN'\
   \ => 'server')\n    code <<-EOF\n      openssl req -batch -days #{node['openvpn']['key']['expire']}\
   \ \\\n        -nodes -new -newkey rsa:#{key_size} -keyout #{key_dir}/server.key\
@@ -401,7 +321,7 @@ examples: "
   \    owner 'root'\n    group 'root'\n    mode '0755'\n  end\n\n  bash 'extract_module'\
   \ do\n    cwd ::File.dirname(src_filepath)\n    code <<-EOH\n      mkdir -p #{extract_path}\n\
   \      tar xzf #{src_filename} -C #{extract_path}\n      mv #{extract_path}/*/*\
-  \ #{extract_path}/\n      EOH\n    not_if { ::File.exist?(extract_path) }\n  end\n\
+  \ #{extract_path}/\n    EOH\n    not_if { ::File.exist?(extract_path) }\n  end\n\
   \  ```\n\n  Install an application from git using bash\n\n  The following example\
   \ shows how Bash can be used to install a plug-in\n  for rbenv named `ruby-build`,\
   \ which is located in git version source\n  control. First, the application is synchronized,\
@@ -410,7 +330,7 @@ examples: "
   \ do\n    repository 'git://github.com/sstephenson/ruby-build.git'\n    revision\
   \ 'master'\n    action :sync\n  end\n\n  bash 'install_ruby_build' do\n    cwd \"\
   #{Chef::Config[:file_cache_path]}/ruby-build\"\n    user 'rbenv'\n    group 'rbenv'\n\
-  \    code <<-EOH\n      ./install.sh\n      EOH\n    environment 'PREFIX' => '/usr/local'\n\
+  \    code <<-EOH\n      ./install.sh\n    EOH\n    environment 'PREFIX' => '/usr/local'\n\
   \  end\n  ```\n\n  To read more about `ruby-build`, see here:\n  <https://github.com/sstephenson/ruby-build>.\n\
   \n  Store certain settings\n\n  The following recipe shows how an attributes file\
   \ can be used to store\n  certain settings. An attributes file is located in the\

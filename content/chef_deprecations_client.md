@@ -255,90 +255,96 @@ of Chef comes out.
 <td>16.0</td>
 </tr>
 <tr class="odd">
+<td><a href="/deprecations_resource_name_without_provides/">CHEF-31</a></td>
+<td>Deprecation of resource_name declaration without provides</td>
+<td>15.13</td>
+<td>16.2</td>
+</tr>
+<tr class="even">
 <td><a href="/deprecations_resource_cloning/">CHEF-3694</a></td>
 <td>Resource Cloning will no longer work.</td>
 <td>10.18</td>
 <td>13.0</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><a href="/deprecations_ohai_legacy_config/">OHAI-1</a></td>
 <td>Ohai::Config removal.</td>
 <td>12.6</td>
 <td>13.0</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><a href="/deprecations_ohai_sigar_plugins/">OHAI-2</a></td>
 <td>Sigar gem based plugins removal.</td>
 <td>12.19</td>
 <td>13.0</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><a href="/deprecations_ohai_run_command_helpers/">OHAI-3</a></td>
 <td>run_command and popen4 helper method removal.</td>
 <td>12.8</td>
 <td>13.0</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><a href="/deprecations_ohai_libvirt_plugin/">OHAI-4</a></td>
 <td>Libvirt plugin attributes changes.</td>
 <td>12.19</td>
 <td>14.0</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><a href="/deprecations_ohai_windows_cpu/">OHAI-5</a></td>
 <td>Windows CPU plugin attribute changes.</td>
 <td>12.19</td>
 <td>13.0</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><a href="/deprecations_ohai_digitalocean/">OHAI-6</a></td>
 <td>DigitalOcean plugin attribute changes.</td>
 <td>12.19</td>
 <td>13.0</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><a href="/deprecations_ohai_amazon_linux/">OHAI-7</a></td>
 <td>Amazon linux moved to the Amazon platform_family.</td>
 <td>13.0</td>
 <td>13.0</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><a href="/deprecations_ohai_cloud/">OHAI-8</a></td>
 <td>Cloud plugin replaced by the Cloud_V2 plugin.</td>
 <td>13.0</td>
 <td>13.0</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><a href="/deprecations_ohai_filesystem/">OHAI-9</a></td>
 <td>Filesystem plugin replaced by the Filesystem V2 plugin.</td>
 <td>13.0</td>
 <td>13.0</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><a href="/deprecations_ohai_v6_plugins/">OHAI-10</a></td>
 <td>Removal of support for Ohai version 6 plugins.</td>
 <td>11.12</td>
 <td>14.0</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><a href="/deprecations_ohai_cloud_v2/">OHAI-11</a></td>
 <td>Cloud_v2 attribute removal.</td>
 <td>13.1</td>
 <td>14.0</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><a href="/deprecations_ohai_filesystem_v2/">OHAI-12</a></td>
 <td>Filesystem2 attribute removal.</td>
 <td>13.1</td>
 <td>14.0</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><a href="/deprecations_ohai_ipscopes/">OHAI-13</a></td>
 <td>Removal of IpScopes plugin</td>
 <td>13.2</td>
 <td>14.0</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><a href="/deprecations_ohai_system_profile/">OHAI-14</a></td>
 <td>Removal of system_profile plugin</td>
 <td>14.6</td>

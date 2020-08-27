@@ -16,8 +16,6 @@ aliases = ["/delivery_manage_secrets.html", "/release/automate/delivery_manage_s
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/delivery_manage_secrets.md)
 
-
-
 {{% chef_automate_mark %}}
 
 {{% EOL_a1 %}}
@@ -30,9 +28,6 @@ This topic describes how and why to use secrets in a `build-cookbook`:
 -   There are two mechanisms to manage secrets in Chef Automate:
     -   Using an encrypted data bag.
     -   Using chef vaults.
-
-For more information on security, see [How to be a Secure
-Chef](https://learn.chef.io/tracks/administering-chef-installation/).
 
 ## Using Encrypted Data Bags
 

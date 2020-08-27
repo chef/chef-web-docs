@@ -5,7 +5,7 @@ draft = false
 aliases = ["/community_guidelines.html"]
 
 [menu]
-  [menu.infra]
+  [menu.overview]
     title = "Guidelines"
     identifier = "overview/community/community_guidelines.md Guidelines"
     parent = "overview/community"
@@ -177,15 +177,10 @@ the person(s) assigned to each role:
 </tr>
 <tr class="even">
 <td>Community Advocate</td>
-<td>Mandi Walls</td>
-<td><a href="mailto:mandi@chef.io">mandi@chef.io</a></td>
+<td>Benny Vasquez</td>
+<td><a href="mailto:bvasquez@chef.io">bvasquez@chef.io</a></td>
 </tr>
 <tr class="odd">
-<td>Community Advocate</td>
-<td>Nell Shamrell-Harrington</td>
-<td><a href="mailto:nshamrell@chef.io">nshamrell@chef.io</a></td>
-</tr>
-<tr class="even">
 <td>Community Advocate</td>
 <td>Robb Kidd</td>
 <td><a href="mailto:rkidd@chef.io">rkidd@chef.io</a></td>

@@ -18,6 +18,7 @@ resource_description_list:
 resource_new_in: '15.0'
 syntax_full_code_block: |-
   windows_dns_record 'name' do
+    dns_server       String # default value: "localhost"
     record_name      String # default value: 'name' unless specified
     record_type      String # default value: "ARecord"
     target           String
@@ -30,8 +31,8 @@ syntax_full_properties_list:
 - "`name` is the name given to the resource block."
 - "`action` identifies which steps Chef Infra Client will take to bring the node into
   the desired state."
-- "`record_name`, `record_type`, `target`, and `zone` are the properties available
-  to this resource."
+- "`dns_server`, `record_name`, `record_type`, `target`, and `zone` are the properties
+  available to this resource."
 actions_list:
   :create:
     markdown: Creates and updates the DNS entry.
@@ -40,6 +41,13 @@ actions_list:
   :nothing:
     shortcode: resources_common_actions_nothing.md
 properties_list:
+- property: dns_server
+  ruby_type: String
+  required: false
+  default_value: localhost
+  new_in: '16.3'
+  description_list:
+  - markdown: The name of the DNS server on which to create the record.
 - property: record_name
   ruby_type: String
   required: false

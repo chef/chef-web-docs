@@ -181,6 +181,37 @@ The extension has the following options that can be provided in the
 
     {{< /note >}}
 
+`bootstrap_channel`
+
+:   Specify the [channel](/packages/) for installing the Chef Infra Client version.
+    Options are `stable`, `current` or `unstable` release channels.
+
+`chef_package_path`
+
+:   Specifies a local path to install Chef Infra Client from.
+    This feature is mainly used for cases where there are restrictions on
+    internet access.
+    {{< note spaces=4 >}}
+    Azure extensions have network access limitations. See the
+    [Azure documentation](https://docs.microsoft.com/en-us/azure/virtual-machines/extensions/features-linux#network-access)
+    for more information.
+    {{< /note >}}
+
+`CHEF_LICENSE`
+
+:   Chef Infra Client 15+ requires accepting the CHEF EULA license. Set `CHEF_LICENSE`
+    to one of these values `accept`, `accept-silent` or `accept-no-persist`. Refer
+    to [CHEF EULA license](/chef_license_accept/#accept-the-chef-eula)
+
+`hints`
+
+:   Specifies the [Ohai Hints](/ohai/#hints) to be set in the Ohai configuration of
+    the target node.
+
+`chef_package_url`
+
+:    Specifies a URL to download and install the Chef Infra Client package (.msi .rpm .deb) from.
+
 `bootstrap_options`
 
 :   A hash of the following options: `chef_node_name`,
@@ -306,6 +337,7 @@ configured from an ARM template.
         "validation_client_name": "my-chef-organization-validator"
       },
       "runlist": "recipe[awesome_customers_windows],recipe[iis],role[windows_base]",
+      "chef_package_url" : "https://my.packages.chef.io/chef-client-15.11.8-1-x64.msi",
       "validation_key_format": "plaintext"
     },
     "protectedSettings": {

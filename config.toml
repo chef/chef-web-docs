@@ -73,11 +73,13 @@ notAlternative = true
     ordered = false
     startLevel = 2
 
+## The order of the menus (e.g. menu.infra, menu.inspec, etc...) in the left nav menu
+## is set by the menuOrder parameter below.
 
 [params]
   enable_search = true
   robots = ''
-  menuOrder = ["infra", "workstation", "desktop", "habitat", "inspec", "automate", "legacy", "api", "extra"]
+  menuOrder = ["overview", "compliance", "effortless", "infra",  "workstation", "desktop", "habitat", "inspec", "automate", "release_notes", "legacy", "api", "extra"]
 
 [taxonomies]
   category = "categories"
@@ -86,6 +88,27 @@ notAlternative = true
 
 
 [module]
+
+  [[module.imports]]
+    disable = false
+    ignoreConfig = false
+    path = "github.com/chef/desktop-config/docs"
+
+  [[module.imports.mounts]]
+    source = "content"
+    target = "content"
+
+  [[module.imports.mounts]]
+    source = "static"
+    target = "static"
+
+  [[module.imports.mounts]]
+    source = "data"
+    target = "data"
+
+  [[module.imports.mounts]]
+    source = "layouts"
+    target = "layouts"
 
   [[module.imports]]
     disable = false
@@ -99,6 +122,53 @@ notAlternative = true
   [[module.imports.mounts]]
     source = "static"
     target = "static"
+
+  [[module.imports.mounts]]
+    source = "layouts/shortcodes"
+    target = "layouts/shortcodes"
+
+  [[module.imports]]
+    disable = false
+    ignoreConfig = false
+    path = "github.com/chef/effortless/effortless-chef-io"
+
+  [[module.imports.mounts]]
+    source = "content/effortless"
+    target = "content/effortless"
+
+  [[module.imports]]
+    disable = false
+    ignoreConfig = false
+    path = "github.com/inspec/inspec/www"
+
+  [[module.imports.mounts]]
+    source = "content/inspec"
+    target = "content/inspec"
+
+  [[module.imports.mounts]]
+    source = "static/images/inspec"
+    target = "static/images/inspec"
+
+  [[module.imports]]
+    disable = false
+    ignoreConfig = false
+    path = "github.com/chef/automate/components/docs-chef-io"
+
+  [[module.imports.mounts]]
+    source = "content/automate"
+    target = "content/automate"
+
+  [[module.imports.mounts]]
+    source = "data"
+    target = "data"
+
+  [[module.imports.mounts]]
+    source = "static"
+    target = "static"
+
+  [[module.imports.mounts]]
+    source = "layouts"
+    target = "layouts"
 
 ####
 ## Main Menu ##
@@ -145,31 +215,69 @@ weight = 60
 
 
 ####
-# Chef Infra Menu
+# Overview Menu
 ####
 
-[[menu.infra]]
+[[menu.overview]]
 title = "Overview"
 identifier = "overview"
 weight = 20
 
-  [[menu.infra]]
+  [[menu.overview]]
   title = "Community"
   identifier = "overview/community"
   parent = "overview"
   weight = 20
 
-  [[menu.infra]]
+  [[menu.overview]]
   title = "Packages & Platforms"
   identifier = "overview/packages_&_platforms"
   parent = "overview"
   weight = 30
 
-    [[menu.infra]]
+    [[menu.overview]]
     title = "Licensing"
     identifier = "overview/packages_&_platforms/licensing"
     parent = "overview/packages_&_platforms"
     weight = 60
+
+####
+# End Overview Menu
+####
+
+
+####
+# Compliance Menu
+####
+
+[[menu.compliance]]
+title = "Chef Compliance"
+identifier = "compliance"
+weight = 10
+
+####
+# End Compliance Menu
+####
+
+
+####
+# Effortless Menu
+####
+
+[[menu.effortless]]
+title = "Effortless Pattern"
+identifier = "effortless"
+weight = 10
+
+####
+# End Effortless Menu
+####
+
+
+####
+# Chef Infra Menu
+####
+
 
 [[menu.infra]]
 title = "Chef Infra"
@@ -654,12 +762,6 @@ weight = 30
       url = "/ctl_push_jobs_client/"
       weight = 20
 
-  [[menu.infra]]
-  title = "Release Notes"
-  identifier = "chef_infra/release_notes"
-  parent = "chef_infra"
-  weight = 80
-
 ####
 # End Chef Infra Menu
 ####
@@ -686,81 +788,88 @@ weight = 10
     weight = 30
 
       [[menu.workstation]]
+      title = "chef capture"
+      identifier = "chef_workstation/chef_workstation_tools/chef_(executable)/ctl_chef.md#chef-capture chef capture"
+      parent = "chef_workstation/chef_workstation_tools/chef_(executable)"
+      url = "/ctl_chef/#chef-capture"
+
+      [[menu.workstation]]
       title = "chef env"
       identifier = "chef_workstation/chef_workstation_tools/chef_(executable)/ctl_chef.md#chef-env chef env"
       parent = "chef_workstation/chef_workstation_tools/chef_(executable)"
       url = "/ctl_chef/#chef-env"
-      weight = 10
 
       [[menu.workstation]]
       title = "chef exec"
       identifier = "chef_workstation/chef_workstation_tools/chef_(executable)/ctl_chef.md#chef-exec chef exec"
       parent = "chef_workstation/chef_workstation_tools/chef_(executable)"
       url = "/ctl_chef/#chef-exec"
-      weight = 20
 
       [[menu.workstation]]
       title = "chef gem"
       identifier = "chef_workstation/chef_workstation_tools/chef_(executable)/ctl_chef.md#chef-gem chef gem"
       parent = "chef_workstation/chef_workstation_tools/chef_(executable)"
       url = "/ctl_chef/#chef-gem"
-      weight = 30
 
       [[menu.workstation]]
       title = "chef generate attribute"
       identifier = "chef_workstation/chef_workstation_tools/chef_(executable)/ctl_chef.md#chef-generate-attribute chef generate attribute"
       parent = "chef_workstation/chef_workstation_tools/chef_(executable)"
       url = "/ctl_chef/#chef-generate-attribute"
-      weight = 40
 
       [[menu.workstation]]
       title = "chef generate cookbook"
       identifier = "chef_workstation/chef_workstation_tools/chef_(executable)/ctl_chef.md#chef-generate-cookbook chef generate cookbook"
       parent = "chef_workstation/chef_workstation_tools/chef_(executable)"
       url = "/ctl_chef/#chef-generate-cookbook"
-      weight = 50
 
       [[menu.workstation]]
       title = "chef generate file"
       identifier = "chef_workstation/chef_workstation_tools/chef_(executable)/ctl_chef.md#chef-generate-file chef generate file"
       parent = "chef_workstation/chef_workstation_tools/chef_(executable)"
       url = "/ctl_chef/#chef-generate-file"
-      weight = 60
 
       [[menu.workstation]]
       title = "chef generate recipe"
       identifier = "chef_workstation/chef_workstation_tools/chef_(executable)/ctl_chef.md#chef-generate-recipe chef generate recipe"
       parent = "chef_workstation/chef_workstation_tools/chef_(executable)"
       url = "/ctl_chef/#chef-generate-recipe"
-      weight = 70
 
       [[menu.workstation]]
       title = "chef generate repo"
       identifier = "chef_workstation/chef_workstation_tools/chef_(executable)/ctl_chef.md#chef-generate-repo chef generate repo"
       parent = "chef_workstation/chef_workstation_tools/chef_(executable)"
       url = "/ctl_chef/#chef-generate-repo"
-      weight = 80
 
       [[menu.workstation]]
       title = "chef generate resource"
       identifier = "chef_workstation/chef_workstation_tools/chef_(executable)/ctl_chef.md#chef-generate-resource chef generate resource"
       parent = "chef_workstation/chef_workstation_tools/chef_(executable)"
       url = "/ctl_chef/#chef-generate-resource"
-      weight = 90
 
       [[menu.workstation]]
       title = "chef generate template"
       identifier = "chef_workstation/chef_workstation_tools/chef_(executable)/ctl_chef.md#chef-generate-template chef generate template"
       parent = "chef_workstation/chef_workstation_tools/chef_(executable)"
       url = "/ctl_chef/#chef-generate-template"
-      weight = 100
+
+      [[menu.workstation]]
+      title = "chef report cookbooks"
+      identifier = "chef_workstation/chef_workstation_tools/chef_(executable)/ctl_chef.md#chef-report-cookbooks chef report cookbooks"
+      parent = "chef_workstation/chef_workstation_tools/chef_(executable)"
+      url = "/ctl_chef/#chef-report-cookbooks"
+
+      [[menu.workstation]]
+      title = "chef report nodes"
+      identifier = "chef_workstation/chef_workstation_tools/chef_(executable)/ctl_chef.md#chef-report-nodes chef report nodes"
+      parent = "chef_workstation/chef_workstation_tools/chef_(executable)"
+      url = "/ctl_chef/#chef-report-nodes"
 
       [[menu.workstation]]
       title = "chef shell-init"
       identifier = "chef_workstation/chef_workstation_tools/chef_(executable)/ctl_chef.md#chef-shell-init chef shell-init"
       parent = "chef_workstation/chef_workstation_tools/chef_(executable)"
       url = "/ctl_chef/#chef-shell-init"
-      weight = 110
 
     [[menu.workstation]]
     title = "config.rb (knife.rb)"
@@ -793,6 +902,25 @@ weight = 10
 ####
 
 ####
+# Chef Desktop Menu
+####
+
+[[menu.desktop]]
+title = "Chef Desktop"
+identifier = "desktop"
+weight = 10
+
+[[menu.desktop]]
+title = "Resources"
+identifier = "desktop/resources"
+parent = "desktop"
+weight = 999
+
+####
+# End Chef Desktop Menu
+####
+
+####
 # Chef Habitat Menu
 ####
 
@@ -809,10 +937,10 @@ weight = 10
   weight = 20
 
   [[menu.habitat]]
-  title = "Tutorials"
-  identifier = "chef_habitat/https://www.habitat.sh/tutorials/ Tutorials"
+  title = "Learn Chef Habitat"
+  identifier = "chef_habitat/https://community.chef.io/products/chef-habitat/#learn Tutorials"
   parent = "chef_habitat"
-  url = "https://www.habitat.sh/tutorials/"
+  url = "https://community.chef.io/products/chef-habitat/#learn"
   weight = 30
 
 ####
@@ -825,22 +953,50 @@ weight = 10
 
 [[menu.inspec]]
 title = "Chef InSpec"
-identifier = "chef_inspec"
+identifier = "inspec"
 weight = 10
 
   [[menu.inspec]]
-  title = "Documentation"
-  identifier = "chef_inspec/https://www.inspec.io/docs/ Documentation"
-  parent = "chef_inspec"
-  url = "https://www.inspec.io/docs/"
-  weight = 20
+  title = "Chef InSpec Reference"
+  identifier = "inspec/reference"
+  parent = "inspec"
+  weight = 500
 
   [[menu.inspec]]
-  title = "Tutorials"
-  identifier = "chef_inspec/https://www.inspec.io/tutorials/ Tutorials"
-  parent = "chef_inspec"
-  url = "https://www.inspec.io/tutorials/"
-  weight = 30
+  title = "Chef InSpec Resources"
+  identifier = "inspec/resources"
+  parent = "inspec"
+  weight = 999
+
+    [[menu.inspec]]
+    title = "OS Resources"
+    identifier = "inspec/resources/os"
+    parent = "inspec/resources"
+    weight = 20
+
+    [[menu.inspec]]
+    title = "AWS Resources"
+    identifier = "inspec/resources/aws"
+    parent = "inspec/resources"
+    weight = 30
+
+    [[menu.inspec]]
+    title = "Azure Resources"
+    identifier = "inspec/resources/azure"
+    parent = "inspec/resources"
+    weight = 40
+
+    [[menu.inspec]]
+    title = "GCP Resources"
+    identifier = "inspec/resources/gcp"
+    parent = "inspec/resources"
+    weight = 50
+
+    [[menu.inspec]]
+    title = "Habitat Resources"
+    identifier = "inspec/resources/habitat"
+    parent = "inspec/resources"
+    weight = 60
 
 ####
 # End Chef Inspec Menu
@@ -853,18 +1009,72 @@ weight = 10
 
 [[menu.automate]]
 title = "Chef Automate"
-identifier = "chef_automate"
+identifier = "automate"
 weight = 10
 
   [[menu.automate]]
-  title = "Chef Automate Documentation"
-  identifier = "chef_automate/https://automate.chef.io/docs/ Chef Automate Documentation"
-  parent = "chef_automate"
-  url = "https://automate.chef.io/docs/"
+  name = "Getting Started"
+  weight = 10
+  identifier = "automate/getting_started"
+  parent = "automate"
+
+  [[menu.automate]]
+  name = "Configuring Automate"
   weight = 20
+  identifier = "automate/configuring_automate"
+  parent = "automate"
+
+  [[menu.automate]]
+  name = "Applications"
+  weight = 30
+  identifier = "automate/applications"
+  parent = "automate"
+
+  [[menu.automate]]
+  name = "Compliance"
+  weight = 60
+  identifier = "automate/compliance"
+  parent = "automate"
+
+  [[menu.automate]]
+  name = "Settings"
+  weight = 90
+  identifier = "automate/settings"
+  parent = "automate"
+
+  [[menu.automate]]
+  name = "Authorization"
+  weight = 100
+  identifier = "automate/authorization"
+  parent = "automate"
+
+  [[menu.automate]]
+  name = "Reference"
+  weight = 110
+  identifier = "automate/reference"
+  parent = "automate"
+
+  [[menu.automate]]
+  name = "Workflow (Deprecated)"
+  weight = 140
+  identifier = "automate/workflow"
+  parent = "automate"
 
 ####
 # End Chef Automate Menu
+####
+
+####
+# Release Notes Menu
+####
+
+[[menu.release_notes]]
+title = "Release Notes"
+identifier = "release_notes"
+weight = 10
+
+####
+# End Release Notes Menu
 ####
 
 ####
@@ -915,9 +1125,9 @@ weight = 10
 
   [[menu.api]]
   title = "Compliance DSL"
-  identifier = "extension_apis/https://inspec.io/docs/reference/dsl_inspec/ Compliance DSL"
+  identifier = "extension_apis/inspec/dsl_inspec/ Compliance DSL"
   parent = "extension_apis"
-  url = "https://inspec.io/docs/reference/dsl_inspec/"
+  url = "/inspec/dsl_inspec/"
   weight = 20
 
   [[menu.api]]
@@ -976,9 +1186,9 @@ url = "https://github.com/chef/chef-web-docs"
 weight = 10
 
 [[menu.extra]]
-title = "Get Chef"
+title = "Downloads"
 identifier = "get chef"
-url = "https://www.chef.io/get-chef"
+url = "https://downloads.chef.io/"
 weight = 100
 
 [[menu.extra]]

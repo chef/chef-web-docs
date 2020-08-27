@@ -47,7 +47,7 @@ The following Chef Automate-specific helpers can be used in recipes:
 :   Determine if files in a cookbook have been modified, and then to
     ensure that a cookbook's version is updated in its metadata.rb file.
     The Verify phase will fail if files in a cookbook are modified
-    without a corresponding vesrion bump to the metadata.rb file.
+    without a corresponding version bump to the metadata.rb file.
 
 `changed_cookbooks`
 

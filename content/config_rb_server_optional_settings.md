@@ -728,7 +728,7 @@ This configuration file has the following settings for `nginx`:
 :   The list of supported cipher suites that are used to establish a
     secure connection. To favor AES256 with ECDHE forward security, drop
     the `RC4-SHA:RC4-MD5:RC4:RSA` prefix. See [this
-    link](https://wiki.mozilla.org/Security/Server_Side_TLS) for more
+    link](https://www.openssl.org/docs/man1.0.2/man1/ciphers.html) for more
     information. For example:
 
     ``` ruby
@@ -1045,7 +1045,7 @@ This configuration file has the following settings for `oc-id`:
 :   A Hash that contains OAuth 2 application information. Default value:
     `{ }`.
 
-    {{< shortcode_indent shortcode="config_ocid_application_hash_supermarket" >}}
+    {{< readFile_shortcode file="config_ocid_application_hash_supermarket.md" >}}
 
 `oc_id['db_pool_size']`
 

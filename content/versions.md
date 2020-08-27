@@ -5,7 +5,7 @@ draft = false
 aliases = ["/versions.html"]
 
 [menu]
-  [menu.infra]
+  [menu.overview]
     title = "Supported Versions"
     identifier = "overview/packages_&_platforms/versions.md Supported Versions"
     parent = "overview/packages_&_platforms"
@@ -125,13 +125,7 @@ announcement](https://blog.chef.io/2019/04/02/chef-software-announces-the-enterp
 </tr>
 <tr class="odd">
 <td>Chef Workstation</td>
-<td>0.4+</td>
-<td>GA</td>
-<td>n/a</td>
-</tr>
-<tr class="even">
-<td>ChefDK</td>
-<td>4.x</td>
+<td>20.6+ (June 2020)</td>
 <td>GA</td>
 <td>n/a</td>
 </tr>
@@ -173,36 +167,6 @@ version 2.0.
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td>Chef Workstation</td>
-<td>0.3</td>
-<td>GA</td>
-<td>April 30, 2020</td>
-</tr>
-<tr class="even">
-<td>ChefDK</td>
-<td>3.x</td>
-<td>GA</td>
-<td>April 30, 2020</td>
-</tr>
-<tr class="odd">
-<td>Chef InSpec</td>
-<td>3.x</td>
-<td>GA</td>
-<td>April 30, 2020</td>
-</tr>
-<tr class="even">
-<td>Chef Infra Server</td>
-<td>12.x</td>
-<td>GA</td>
-<td>TBD</td>
-</tr>
-<tr class="odd">
-<td>Push Jobs</td>
-<td>2.5.x</td>
-<td>GA</td>
-<td>TBD</td>
-</tr>
 <tr class="even">
 <td>Supermarket</td>
 <td>3.x</td>
@@ -234,21 +198,58 @@ newer versions or products.
 </thead>
 <tbody>
 <tr class="odd">
-<td>Chef Manage</td>
-<td>2.5.x</td>
+<td>Chef Backend</td>
+<td>2.x</td>
 <td>Deprecated</td>
-<td>TBD</td>
+<td>December 31, 2021</td>
 </tr>
 <tr class="even">
+<td>Chef Infra Server</td>
+<td>12.x</td>
+<td>Deprecated</td>
+<td>December 31, 2020</td>
+</tr>
+<tr class="odd">
+<td>ChefDK</td>
+<td>4.x</td>
+<td>Deprecated</td>
+<td>December 31, 2020</td>
+</tr>
+<tr class="even">
+<td>Chef Manage</td>
+<td>2.5.x+</td>
+<td>Deprecated</td>
+<td>December 31, 2021</td>
+</tr>
+<tr class="odd">
 <td>Chef Workflow</td>
 <td>2.x</td>
 <td>Deprecated</td>
-<td>TBD</td>
+<td>December 31, 2020</td>
+</tr>
+<tr class="even">
+<td>Push Jobs</td>
+<td>2.5.x</td>
+<td>Deprecated</td>
+<td>December 31, 2020</td>
+</tr>
+<tr class="odd">
+<td>Chef InSpec</td>
+<td>3.x</td>
+<td>Deprecated</td>
+<td>April 30, 2020</td>
 </tr>
 </tbody>
 </table>
 
 ## End of Life (EOL) Products
+
+{{< note >}}
+
+Chef Compliance Server, which reached EOL status in 2018, should not be
+confused with the modern [Chef Compliance offering](/compliance/).
+
+{{< /note >}}
 
 <table>
 <colgroup>
@@ -285,16 +286,16 @@ newer versions or products.
 <td>April 30, 2020</td>
 </tr>
 <tr class="even">
-<td>Chef Compliance</td>
+<td>Chef Compliance Server</td>
 <td>All</td>
 <td>EOL</td>
 <td>December 31, 2018</td>
 </tr>
 <tr class="odd">
 <td>ChefDK</td>
-<td>2 and under</td>
+<td>3 and under</td>
 <td>EOL</td>
-<td>April 30, 2019</td>
+<td>April 30, 2020</td>
 </tr>
 <tr class="even">
 <td>Enterprise Chef</td>

@@ -155,7 +155,7 @@ This command has the following options:
 
     **Run-lists**
 
-    {{< shortcode_indent shortcode="node_ctl_run_list" >}}
+    {{< readFile_shortcode file="node_ctl_run_list.md" >}}
 
     **Environments**
 
@@ -187,7 +187,7 @@ This command has the following options:
 
     **All attributes are normal attributes**
 
-    {{< shortcode_indent shortcode="node_ctl_attribute" >}}
+    {{< readFile_shortcode file="node_ctl_attribute.md" >}}
 
     {{< note spaces=4 >}}
 
@@ -602,7 +602,7 @@ ways this can be done:
     and then:
 
     ``` bash
-    # chef-client
+    chef-client
     ```
 
 -   Use the sudo utility

@@ -6,12 +6,15 @@
   font-size: rem-calc(13);
   z-index: 30;
 
-  li {
-    text-indent: 8px;
-  }
-
-  #TableOfContents > ul{
-    margin-bottom: 0;
+  ul.release_version{
+    li{
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+      color: red;
+      &.active{
+        background-color: $lightgray;
+      }
+    }
   }
 }
 

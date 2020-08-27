@@ -33,6 +33,19 @@ syntax_full_properties_list:
   the desired state."
 - "`link`, `link_name`, `path`, and `priority` are the properties available to this
   resource."
+actions_list:
+  :auto:
+    markdown:
+  :install:
+    markdown:
+  :nothing:
+    shortcode: resources_common_actions_nothing.md
+  :refresh:
+    markdown:
+  :remove:
+    markdown:
+  :set:
+    markdown:
 properties_list:
 - property: link
   ruby_type: String
@@ -51,7 +64,7 @@ properties_list:
   ruby_type: String
   required: false
   description_list:
-  - markdown: The full path to the original application binary such as `/usr/bin/ruby27`.
+  - markdown: The absolute path to the original application binary such as `/usr/bin/ruby27`.
 - property: priority
   ruby_type: String, Integer
   required: false

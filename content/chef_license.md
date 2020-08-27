@@ -5,7 +5,7 @@ draft = false
 aliases = ["/chef_license.html"]
 
 [menu]
-  [menu.infra]
+  [menu.overview]
     title = "About Licensing"
     identifier = "overview/packages_&_platforms/licensing/chef_license.md About Licensing"
     parent = "overview/packages_&_platforms/licensing"
@@ -49,6 +49,6 @@ accepted as part of any install or upgrade process.
 
 ## Apache 2.0
 
-All open source Chef projects---such as Chef Infra Client, Chef
+All source code of our open source Chef projects---such as Chef Infra Client, Chef
 Automate, or Chef InSpec---are governed by the [Apache 2.0
 license](https://www.apache.org/licenses/LICENSE-2.0).

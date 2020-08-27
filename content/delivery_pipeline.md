@@ -79,31 +79,31 @@ file to tailor the cookbook as needed.
 
 :   **Required**
 
-    {{< shortcode_indent shortcode="delivery_config_json_setting_version" >}}
+    {{< readFile_shortcode file="delivery_config_json_setting_version.md" >}}
 
 `build-cookbook`
 
 :   **Required**
 
-    {{< shortcode_indent shortcode="delivery_config_json_setting_build_cookbook" >}}
+    {{< readFile_shortcode file="delivery_config_json_setting_build_cookbook.md" >}}
 
 `build_nodes`
 
 :   **Optional**
 
-    {{< shortcode_indent shortcode="delivery_config_json_setting_build_nodes" >}}
+    {{< readFile_shortcode file="delivery_config_json_setting_build_nodes.md" >}}
 
 `skip_phases`
 
 :   **Optional**
 
-    {{< shortcode_indent shortcode="delivery_config_json_setting_skip_phases" >}}
+    {{< readFile_shortcode file="delivery_config_json_setting_skip_phases.md" >}}
 
 `dependencies`
 
 :   **Optional**
 
-    {{< shortcode_indent shortcode="delivery_config_json_setting_dependencies" >}}
+    {{< readFile_shortcode file="delivery_config_json_setting_dependencies.md" >}}
 
 {{< note >}}
 

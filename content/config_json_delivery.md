@@ -58,13 +58,13 @@ The structure of the `config.json` file is similar to:
 
 :   **Required**
 
-    {{< shortcode_indent shortcode="delivery_config_json_setting_build_cookbook" >}}
+    {{< readFile_shortcode file="delivery_config_json_setting_build_cookbook.md" >}}
 
 `build_nodes`
 
 :   **Optional**
 
-    {{< shortcode_indent shortcode="delivery_config_json_setting_build_nodes" >}}
+    {{< readFile_shortcode file="delivery_config_json_setting_build_nodes.md" >}}
 
 `delivery-truck`
 
@@ -97,7 +97,7 @@ The structure of the `config.json` file is similar to:
 
 :   **Optional**
 
-    {{< shortcode_indent shortcode="delivery_config_json_setting_dependencies" >}}
+    {{< readFile_shortcode file="delivery_config_json_setting_dependencies.md" >}}
 
 <a id="job-dispatch-config-settings" markdown="1"></a>
 <!-- link from runners.md -->
@@ -230,14 +230,14 @@ The structure of the `config.json` file is similar to:
 
 :   **Optional**
 
-    {{< shortcode_indent shortcode="delivery_config_json_setting_skip_phases" >}}
+    {{< readFile_shortcode file="delivery_config_json_setting_skip_phases.md" >}}
 
 
 `version`
 
 :   **Required**
 
-    {{< shortcode_indent shortcode="delivery_config_json_setting_version" >}}
+    {{< readFile_shortcode file="delivery_config_json_setting_version.md" >}}
 
 {{< note >}}
 

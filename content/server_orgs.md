@@ -296,6 +296,12 @@ The `admins` group is assigned the following:
 
 The `billing_admins` group is assigned the following:
 
+
+
+#### billing_admins
+
+The `billing_admins` group is assigned the following:
+
 <table>
 <colgroup>
 <col style="width: 28%" />
@@ -485,6 +491,12 @@ By default, the `public_key_read_access` assigns all members of the
 </tr>
 </tbody>
 </table>
+
+#### users
+
+The `users` group is assigned the following:
+
+
 
 #### users
 

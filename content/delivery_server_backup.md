@@ -16,14 +16,12 @@ aliases = ["/delivery_server_backup.html"]
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/delivery_server_backup.md)
 
-
-
 Chef Automate provides tools for creating, managing and restoring backup
 archives and Elasticsearch snapshots of your Chef Automate data.
 
 `automate-ctl create-backup` will create a compressed backup archives of
 the PostgreSQL database, configuration files, user keys, license file,
-git repository data, Chef Compliance profiles and RabbitMQ queues. It
+git repository data, Chef Compliance Server profiles and RabbitMQ queues. It
 also utilizes the snapshot capability of Elasticsearch to create
 incremental snapshots of your Chef Automate Elasticsearch indexes.
 Paired together, backup archives and Elasticsearch snapshots make it

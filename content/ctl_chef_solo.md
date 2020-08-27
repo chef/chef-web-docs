@@ -92,7 +92,7 @@ This command has the following options:
 
 :   The path to a file that contains JSON data.
 
-    {{< shortcode_indent shortcode="node_ctl_run_list" >}}
+    {{< readFile_shortcode file="node_ctl_run_list.md" >}}
 
     {{< warning >}}
 

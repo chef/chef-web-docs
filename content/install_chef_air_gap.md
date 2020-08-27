@@ -81,7 +81,7 @@ dpkg -i chef_13.2.20-1_amd64.deb
 
 The install script should be accessible from your artifact store.
 
-## Chef server
+## Chef Infra Server
 
 In this section you'll install the Chef Infra Server, and create your
 organization and user. Note that in order to configure Supermarket later
@@ -94,7 +94,7 @@ group.
     Server, and then record its location on the file system. The rest of
     these steps assume this location is in the `/tmp` directory.
 
-3.  {{< shortcode_indent shortcode="install_chef_server_install_package">}}
+3.  {{< readFile_shortcode file="install_chef_server_install_package.md" >}}
 
 4.  Run the following to start all of the services:
 
@@ -106,9 +106,9 @@ group.
     that work together to create a functioning system, this step may
     take a few minutes to complete.
 
-5.  {{< shortcode_indent shortcode="ctl_chef_server_user_create_admin">}}
+5.  {{< readFile_shortcode file="ctl_chef_server_user_create_admin.md">}}
 
-6.  {{< shortcode_indent shortcode="ctl_chef_server_org_create_summary">}}
+6.  {{< readFile_shortcode file="ctl_chef_server_org_create_summary.md">}}
 
 ## Chef Workstation
 
@@ -291,7 +291,7 @@ Supermarket.
 
 2.  Update the `/etc/opscode/chef-server.rb` configuration file.
 
-    {{< shortcode_indent shortcode="config_ocid_application_hash_supermarket" >}}
+    {{< readFile_shortcode file="config_ocid_application_hash_supermarket.md" >}}
 
 3.  Reconfigure the Chef Infra Server.
 

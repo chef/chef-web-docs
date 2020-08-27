@@ -25,18 +25,10 @@ resource_description_list:
     typically unique to the environment in which they are run. Use `not_if`
 
     and `only_if` to guard this resource for idempotence.'
-- note:
-    markdown: 'The **bash** script resource (which is based on the **script** resource)
-
-      is different from the **ruby_block** resource because Ruby code that is
-
-      run with this resource is created as a temporary file and executed like
-
-      other script resources, rather than run inline.'
 syntax_description: "A **bash** resource block executes scripts using Bash:\n\n```\
   \ ruby\nbash 'extract_module' do\n  cwd ::File.dirname(src_filepath)\n  code <<-EOH\n\
   \    mkdir -p #{extract_path}\n    tar xzf #{src_filename} -C #{extract_path}\n\
-  \    mv #{extract_path}/*/* #{extract_path}/\n    EOH\n  not_if { ::File.exist?(extract_path)\
+  \    mv #{extract_path}/*/* #{extract_path}/\n  EOH\n  not_if { ::File.exist?(extract_path)\
   \ }\nend\n```"
 syntax_code_block: null
 syntax_properties_list:
@@ -110,76 +102,6 @@ properties_list:
   - markdown: 'The group name or group ID that must be changed before running a
 
       command.'
-- property: path
-  ruby_type: Array
-  required: false
-  default_value: null
-  new_in: null
-  description_list:
-  - markdown: 'An array of paths to use when searching for a command. These paths
-
-      are not added to the command''s environment \$PATH. The default value
-
-      uses the system path.'
-  - warning:
-    - - markdown: ''
-    - shortcode: resources_common_resource_execute_attribute_path.md
-    - - markdown: ''
-    - - markdown: Fo
-    - - markdown: r
-    - - markdown: ex
-    - - markdown: am
-    - - markdown: pl
-    - - markdown: 'e:'
-    - - markdown: ''
-    - - markdown: '``'
-    - - markdown: '`'
-    - - markdown: ru
-    - - markdown: by
-    - - markdown: b
-    - - markdown: as
-    - - markdown: h
-    - - markdown: '''m'
-    - - markdown: yc
-    - - markdown: om
-    - - markdown: ma
-    - - markdown: nd
-    - - markdown: ''''
-    - - markdown: do
-    - - markdown: ''
-    - - markdown: e
-    - - markdown: nv
-    - - markdown: ir
-    - - markdown: 'on'
-    - - markdown: me
-    - - markdown: nt
-    - - markdown: ''''
-    - - markdown: PA
-    - - markdown: TH
-    - - markdown: ''''
-    - - markdown: =>
-    - - markdown: '"'
-    - - markdown: /m
-    - - markdown: y/
-    - - markdown: pa
-    - - markdown: th
-    - - markdown: /t
-    - - markdown: o/
-    - - markdown: bi
-    - - markdown: 'n:'
-    - - markdown: '#{'
-    - - markdown: EN
-    - - markdown: V[
-    - - markdown: '''P'
-    - - markdown: AT
-    - - markdown: H'
-    - - markdown: ']}'
-    - - markdown: '"'
-    - - markdown: en
-    - - markdown: d
-    - - markdown: '``'
-    - - markdown: '`'
-    - - markdown: ''
 - property: returns
   ruby_type: Integer, Array
   required: false
@@ -232,8 +154,8 @@ cookbook_file_specificity: false
 unit_file_verification: false
 examples: "
   Use a named provider to run a script\n\n  ``` ruby\n  bash 'install_something'\
-  \ do\n    user 'root'\n    cwd '/tmp'\n    code <<-EOH\n    wget http://www.example.com/tarball.tar.gz\n\
-  \    tar -zxf tarball.tar.gz\n    cd tarball\n    ./configure\n    make\n    make\
+  \ do\n    user 'root'\n    cwd '/tmp'\n    code <<-EOH\n      wget http://www.example.com/tarball.tar.gz\n\
+  \      tar -zxf tarball.tar.gz\n      cd tarball\n      ./configure\n      make\n      make\
   \ install\n    EOH\n  end\n  ```\n\n  Install a file from a remote location using\
   \ bash\n\n  The following is an example of how to install the `foo123` module for\n\
   \  Nginx. This module adds shell-style functionality to an Nginx\n  configuration\
@@ -250,7 +172,7 @@ examples: "
   \    owner 'root'\n    group 'root'\n    mode '0755'\n  end\n\n  bash 'extract_module'\
   \ do\n    cwd ::File.dirname(src_filepath)\n    code <<-EOH\n      mkdir -p #{extract_path}\n\
   \      tar xzf #{src_filename} -C #{extract_path}\n      mv #{extract_path}/*/*\
-  \ #{extract_path}/\n      EOH\n    not_if { ::File.exist?(extract_path) }\n  end\n\
+  \ #{extract_path}/\n    EOH\n    not_if { ::File.exist?(extract_path) }\n  end\n\
   \  ```\n\n  Install an application from git using bash\n\n  The following example\
   \ shows how Bash can be used to install a plug-in\n  for rbenv named `ruby-build`,\
   \ which is located in git version source\n  control. First, the application is synchronized,\
@@ -259,7 +181,7 @@ examples: "
   \ do\n    repository 'git://github.com/sstephenson/ruby-build.git'\n    revision\
   \ 'master'\n    action :sync\n  end\n\n  bash 'install_ruby_build' do\n    cwd \"\
   #{Chef::Config[:file_cache_path]}/ruby-build\"\n    user 'rbenv'\n    group 'rbenv'\n\
-  \    code <<-EOH\n      ./install.sh\n      EOH\n    environment 'PREFIX' => '/usr/local'\n\
+  \    code <<-EOH\n      ./install.sh\n    EOH\n    environment 'PREFIX' => '/usr/local'\n\
   \  end\n  ```\n\n  To read more about `ruby-build`, see here:\n  <https://github.com/sstephenson/ruby-build>.\n\
   \n  Store certain settings\n\n  The following recipe shows how an attributes file\
   \ can be used to store\n  certain settings. An attributes file is located in the\

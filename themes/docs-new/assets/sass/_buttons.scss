@@ -114,3 +114,27 @@ $extra: calc(#{$pad} * 1.2);
   padding: 5px;
   margin-bottom: 24px;
 }
+
+.note {
+  &-btn {
+    margin-top: 1rem;
+    display:block;
+    padding:1rem 1rem 1rem 0;
+    vertical-align:middle;
+    overflow:hidden;
+    text-decoration:none;
+    color: $blue-darker!important;
+    background-color:inherit;
+    text-align:left;
+    white-space:nowrap
+  }
+  &-hide{
+    display:none!important
+  }
+  &-container {
+    padding:0.01rem 1rem;
+  }
+  &-show{
+    display:block!important
+  }
+}

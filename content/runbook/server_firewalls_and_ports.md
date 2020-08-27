@@ -58,13 +58,13 @@ any firewalls that are in use:
 <tr class="odd">
 <td><p>4321</p></td>
 <td><p><strong>bookshelf</strong></p>
-<p>{{% server_services_bookshelf %}}</p></td>
+<p>{{< readFile_shortcode file="server_services_bookshelf.md" >}}</p></td>
 <td><p>no</p></td>
 </tr>
 <tr class="even">
 <td><p>80, 443, 9683</p></td>
 <td><p><strong>nginx</strong></p>
-<p>{{% server_services_nginx %}}</p>
+<p>{{< readFile_shortcode file="server_services_nginx.md" >}}</p>
 {{< note >}}
 <p>Port 9683 is used to internally load balance the <strong>oc_bifrost</strong> service.</p>
 {{< /note >}}</td>
@@ -73,43 +73,43 @@ any firewalls that are in use:
 <tr class="odd">
 <td><p>9463</p></td>
 <td><p><strong>oc_bifrost</strong></p>
-<p>{{% server_services_bifrost %}}</p></td>
+<p>{{< readFile_shortcode file="server_services_bifrost.md" >}}</p></td>
 <td></td>
 </tr>
 <tr class="even">
 <td><p>9090</p></td>
 <td><p><strong>oc-id</strong></p>
-<p>{{% server_services_oc_id %}}</p></td>
+<p>{{< readFile_shortcode file="server_services_oc_id.md" >}}</p></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td><p>8000</p></td>
 <td><p><strong>opscode-erchef</strong></p>
-<p>{{% server_services_erchef %}}</p></td>
+<p>{{< readFile_shortcode file="server_services_erchef.md" >}}</p></td>
 <td></td>
 </tr>
 <tr class="even">
 <td><p>8983</p></td>
 <td><p><strong>opscode-solr4</strong></p>
-<p>{{% server_services_solr4 %}}</p></td>
+<p>{{< readFile_shortcode file="server_services_solr4.md" >}}</p></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td><p>5432</p></td>
 <td><p><strong>postgresql</strong></p>
-<p>{{% server_services_postgresql %}}</p></td>
+<p>{{< readFile_shortcode file="server_services_postgresql.md" >}}</p></td>
 <td></td>
 </tr>
 <tr class="even">
 <td><p>5672</p></td>
 <td><p><strong>rabbitmq</strong></p>
-<p>{{% server_services_rabbitmq %}}</p></td>
+<p>{{< readFile_shortcode file="server_services_rabbitmq.md" >}}</p></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td><p>16379</p></td>
 <td><p><strong>redis_lb</strong></p>
-<p>{{% server_services_redis %}}</p></td>
+<p>{{< readFile_shortcode file="server_services_redis.md" >}}</p></td>
 <td></td>
 </tr>
 </tbody>

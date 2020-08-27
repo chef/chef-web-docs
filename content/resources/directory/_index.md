@@ -164,7 +164,6 @@ properties_list:
   ruby_type: String
   required: false
   default_value: The resource block's name
-  new_in: null
   description_list:
   - markdown: 'The path to the directory. Using a fully qualified path is
 
@@ -177,7 +176,6 @@ properties_list:
   ruby_type: true, false
   required: false
   default_value: 'false'
-  new_in: null
   description_list:
   - markdown: 'Create parent directories recursively and delete directories,
 

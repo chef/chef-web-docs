@@ -77,7 +77,7 @@ To install Chef Server:
     Server, and then record its location on the file system. The rest of
     these steps assume this location is in the `/tmp` directory.
 
-3.  {{< shortcode_indent shortcode="install_chef_server_install_package" >}}
+3.  {{< readFile_shortcode file="install_chef_server_install_package.md" >}}
 
 4.  Run the following to start all of the services:
 
@@ -89,9 +89,9 @@ To install Chef Server:
     that work together to create a functioning system, this step may
     take a few minutes to complete.
 
-5.  {{< shortcode_indent shortcode="ctl_chef_server_user_create_admin" >}}
+5.  {{< readFile_shortcode file="ctl_chef_server_user_create_admin.md" >}}
 
-6.  {{< shortcode_indent shortcode="ctl_chef_server_org_create_summary" >}}
+6.  {{< readFile_shortcode file="ctl_chef_server_org_create_summary.md" >}}
 
 ## Update Configuration for Purchased Nodes
 

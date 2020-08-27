@@ -213,7 +213,7 @@ Workflow:
     for the project. Changes are opened in the Workflow web UI. At this
     point, a corresponding pull request is shown in Bitbucket.
 
-    {{< shortcode_indent shortcode="delivery_cli_init_bitbucket_project" >}}
+    {{< readFile_shortcode file="delivery_cli_init_bitbucket_project.md" >}}
 
 ### Convert Project to Bitbucket
 
