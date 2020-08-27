@@ -136,8 +136,7 @@ properties_list:
   - markdown: "-   Frequency with which to run the task.\n-   This is a mandatory\
       \ property in Chef 14.1\n-   Valid values: `:minute`, `:hourly`, `:daily`, `:weekly`,\n\
       \    `:monthly`, `:none`, `:once`, `:on_logon`, `:onstart`,\n    `:on_idle`.\n\
-      -   The `:once` value requires the `start_time` property.\n-   The `:none` frequency\
-      \ requires Chef 13.6 or later."
+      -   The `:once` value requires the `start_time` property."
 - property: frequency_modifier
   ruby_type: Integer, String
   required: false
