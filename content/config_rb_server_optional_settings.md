@@ -2233,16 +2233,13 @@ This configuration file has the following settings for `user`:
 
 ### required_recipe
 
-`required_recipe` is a feature in Chef Server versions 12.15.0 and above
-that allows an administrator to specify a recipe that will be run by all
-Chef Clients that connect to it, regardless of the node's run list. This
-feature is targeted at expert level practitioners who are delivering
-isolated configuration changes to the target systems, such as
-self-contained agent software. Further explanation of the feature can be
-found in
-[RFC_089](https://github.com/chef/chef-rfc/blob/master/rfc089-server-enforced-recipe.md).
-
-This feature requires Chef Client 12.20.3 or greater.
+`required_recipe` is a feature that allows an administrator to specify a
+recipe that will be run by all Chef Infra Clients that connect to it,
+regardless of the node's run list. This feature is targeted at expert
+level practitioners who are delivering isolated configuration changes to
+the target systems, such as self-contained agent software. Further
+explanation of the feature can be found in
+[Chef Infra Client Development Docs](https://github.com/chef/chef/blob/master/docs/dev/design_documents/server_enforced_recipes.md).
 
 This configuration file has the following settings for
 `required_recipe`:

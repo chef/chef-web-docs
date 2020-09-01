@@ -1,7 +1,7 @@
 ---
 resource_reference: true
 properties_resources_common_windows_security: true
-properties_shortcode: 
+properties_shortcode:
 resources_common_atomic_update: true
 resources_common_guards: true
 resources_common_notification: true
@@ -394,12 +394,6 @@ properties_list:
       \nFor example, this should return `true`:\n\n``` ruby\ntemplate '/tmp/baz' do\n\
       \  verify { 1 == 1 }\nend\n```\n\nThis should return `true`:\n\n``` ruby\ntemplate\
       \ '/etc/nginx.conf' do\n  verify 'nginx -t -c %{path}'\nend\n```"
-  - warning:
-    - markdown: "For releases of Chef Infra Client prior to 12.5 (chef-client 12.4\n\
-        and earlier) the correct syntax is:\n\n``` ruby\ntemplate '/etc/nginx.conf'\
-        \ do\n  verify 'nginx -t -c %{file}'\nend\n```\n\nSee GitHub issues <https://github.com/chef/chef/issues/3232>\
-        \ and\n<https://github.com/chef/chef/pull/3693> for more information about\n\
-        these differences."
   - markdown: "This should return `true`:\n\n``` ruby\ntemplate '/tmp/bar' do\n  verify\
       \ { 1 == 1}\nend\n```\n\nAnd this should return `true`:\n\n``` ruby\ntemplate\
       \ '/tmp/foo' do\n  verify do |path|\n    true\n  end\nend\n```\n\nWhereas, this\

@@ -196,8 +196,6 @@ end
 
 ### Blacklist Attributes
 
-**New in Chef Client 13.0**
-
 {{% node_attribute_blacklist %}}
 
 ### Whitelist Attributes
