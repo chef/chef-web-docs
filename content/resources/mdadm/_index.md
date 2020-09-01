@@ -1,9 +1,8 @@
 ---
 title: mdadm resource
 resource: mdadm
-draft: false
 aliases:
-- /resource_mdadm.html
+- "/resource_mdadm.html"
 menu:
   infra:
     title: mdadm
