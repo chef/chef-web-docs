@@ -45,10 +45,10 @@ syntax_full_properties_list:
   `nice`, `splay`, `user`, and `working_directory` are the properties available to
   this resource."
 actions_list:
-  :disable: Disable running Chef Infra Client on a schedule using launchd
-    markdown:
-  :enable: Enable running Chef Infra Client on a schedule using launchd
-    markdown:
+  :disable:
+    markdown: Disable running Chef Infra Client on a schedule using launchd
+  :enable:
+    markdown: Enable running Chef Infra Client on a schedule using launchd
   :nothing:
     shortcode: resources_common_actions_nothing.md
 properties_list:
