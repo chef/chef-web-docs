@@ -45,7 +45,7 @@ specified below.
 -   `elasticsearch.enable`
 -   `elasticsearch.log_directory`
     `'/var/log/chef-backend/elasticsearch'` by default. Also affects
-    `path.logs` in the elastic search configuration yml.
+    `path.logs` in the Elasticsearch configuration yml.
 -   `elasticsearch.log_rotation.file_maxbytes`
 -   `elasticsearch.log_rotation.num_to_keep`
 -   `leaderl.enable`
@@ -160,10 +160,10 @@ For additional information on the etcd tunables, see
 
 ### Elastic Search JVM settings
 
--   `elasticsearch.heap_size` Automatically computed by elastic search
+-   `elasticsearch.heap_size` Automatically computed by Elasticsearch
     based on available memory. Specify in MB if you wish to override.
 -   `elasticsearch.java_opts` Flags to directly pass to the JVM when
-    launching elastic search. If you override a heap flag here, the
+    launching Elasticsearch. If you override a heap flag here, the
     setting here takes precedence.
 -   `elasticsearch.new_size` Java heap's new generation size.
 
