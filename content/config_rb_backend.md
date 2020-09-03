@@ -158,7 +158,7 @@ supported as long as they are in the same region.
 For additional information on the etcd tunables, see
 <https://coreos.com/etcd/docs/latest/tuning.html>.
 
-### Elastic Search JVM settings
+### Elasticsearch JVM settings
 
 -   `elasticsearch.heap_size` Automatically computed by Elasticsearch
     based on available memory. Specify in MB if you wish to override.
@@ -167,7 +167,7 @@ For additional information on the etcd tunables, see
     setting here takes precedence.
 -   `elasticsearch.new_size` Java heap's new generation size.
 
-### Elastic Search configuration
+### Elasticsearch configuration
 
 See
 <https://www.elastic.co/guide/en/elasticsearch/reference/current/settings.html>
@@ -228,8 +228,8 @@ for details.
 -   `leaderl.health_check.max_bytes_behind_leader` Limit on maximum
     different between elected leader and current node in bytes.
     `52428800` (50MB) by default.
--   `leaderl.health_check.max_elasticsearch_failures` Number of Elastic
-    Search API failures allowed before health check fails. 5 by default.
+-   `leaderl.health_check.max_elasticsearch_failures` Number of Elasticsearch
+    API failures allowed before health check fails. 5 by default.
 -   `leaderl.health_check.max_etcd_failures` Number of etcd failures
     allowed before health check fails. 5 by default.
 -   `leaderl.health_check.max_pgsql_failures` Number of PostgreSQL
