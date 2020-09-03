@@ -133,6 +133,17 @@ find if deploying Chef Backend to various cloud providers.
     default value before 1.2 was 1000)
 -   `etcd.snapshot_count 5000` ETCD_SNAPSHOT_COUNT which is the number
     of committed transactions to trigger a snapshot to disk.
+-   `etcd.ionice.class 2` etcd must be able to write to disk with minimal
+    latency. If your cluster does not meet the
+    [disk requirements](/install_server_ha/#hardware-requirements), e.g. you
+    are running Chef Backend on virtual machines with shared disks, this
+    settings should be changed to '1' (real-time scheduling) to mitigate
+    unnecessary failovers under high latency conditions.
+    (New in Chef Backend 2.2)
+-   `etcd.ionice.level 0` if `etcd.ionice.class` is changed, this may be
+    changed for further tuning to specific environments, but in almost all
+    cases should not be modified.
+    (New in Chef Backend 2.2)
 
 {{< note >}}
 
