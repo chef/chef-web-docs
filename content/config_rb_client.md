@@ -714,12 +714,9 @@ This configuration file has the following settings:
 
 ## Example
 
-A sample client.rb file that contains the most simple way to connect to
-<https://manage.chef.io>:
+A sample client.rb file that contains the most simple way to connect to Hosted Chef
 
 ```ruby
-log_level        :info
-log_location     STDOUT
 chef_server_url  'https://api.chef.io/organizations/<orgname>'
 validation_client_name '<orgname>-validator'
 validation_key '/etc/chef/validator.pem'
