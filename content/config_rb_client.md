@@ -449,7 +449,7 @@ This configuration file has the following settings:
 :   Run a minimal set of Ohai plugins providing data necessary for the
     execution of Chef Infra Client's built-in resources. Setting this
     to true will skip many large and time consuming plugins such as
-    `cloud` or `packages`. Setting this this to true may break cookbooks
+    `cloud` or `packages`. Setting this to true may break cookbooks
     that assume all Ohai data will be present.
 
 `named_run_list`
