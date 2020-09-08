@@ -76,7 +76,7 @@ Installations require elevated privileges, so run the commands as the superuser 
       sudo chef-automate init-config
     ```
 
-1. Add a stanza to the configuration file to deploy Chef Automate and Chef Infra Server and bump the maximum report size:
+1. Add a stanza to the configuration file to deploy Chef Automate and Chef Infra Server:
 
     ```toml
       [deployment.v1.svc]
@@ -111,7 +111,7 @@ Installations require elevated privileges, so run the commands as the superuser 
        sudo chef-automate init-config
     ```
 
-1. Add a stanza to the configuration file to disable Chef Automate data collection and bump the maximum report size:
+1. Add a stanza to the configuration file to disable Chef Automate data collection:
 
     ```toml
        [erchef.v1.sys.data_collector]
@@ -126,6 +126,27 @@ Installations require elevated privileges, so run the commands as the superuser 
 
 1. [Set up `knife`]({{< relref "infra_server.md#use-knife-with-chef-infra-server" >}}) for use with Chef Infra Server.
 
+1. To send data from the Chef Infra Server to an external Chef Automate installation, first create a `patch.toml` file that contains the configuration stanza:
+
+    ```toml
+    [global.v1.external.automate]
+    enable = true
+    node = "https://<automate server url>"
+    [global.v1.external.automate.auth]
+    token = "<data-collector token>"
+    [global.v1.external.automate.ssl]
+    server_name = "<server name from the automate server ssl cert>"
+    root_cert = """<pem format root CA cert>
+    """
+    [auth_n.v1.sys.service]
+    # It is fine to use an A2 data collector token.
+    a1_data_collector_token = "<data-collector token>"
+    [erchef.v1.sys.data_collector]
+    enabled = true
+    ```
+  
+   Then run `chef-automate config patch patch.toml` to patch your Chef Infra Server configuration.
+
 ### Install a Standalone Chef Infra Server with a Configuration File
 
 Installing Chef Infra Server through Chef Automate using a configuration file also requires the use of the Chef Automate CLI.
@@ -139,7 +160,7 @@ Installations require elevated privileges, so run the commands as the superuser 
       sudo chef-automate init-config
     ```
 
-1. Add a stanza to the configuration file to deploy Chef Infra Server and bump the maximum report size:
+1. Add a stanza to the configuration file to deploy Chef Infra Server:
 
     ```toml
        [deployment.v1.svc]
@@ -158,11 +179,32 @@ Installations require elevated privileges, so run the commands as the superuser 
 
 1. [Set up `knife`]({{< relref "infra_server.md#use-knife-with-chef-infra-server" >}}) for use with Chef Infra Server.
 
+1. To send data from the Chef Infra Server to an external Chef Automate installation, first create a `patch.toml` file that contains the configuration stanza:
+
+    ```toml
+    [global.v1.external.automate]
+    enable = true
+    node = "https://<automate server url>"
+    [global.v1.external.automate.auth]
+    token = "<data-collector token>"
+    [global.v1.external.automate.ssl]
+    server_name = "<server name from the automate server ssl cert>"
+    root_cert = """<pem format root CA cert>
+    """
+    [auth_n.v1.sys.service]
+    # It is fine to use an A2 data collector token.
+    a1_data_collector_token = "<data-collector token>"
+    [erchef.v1.sys.data_collector]
+    enabled = true
+    ```
+
+   Then run `chef-automate config patch patch.toml` to patch your Chef Infra Server configuration.
+
 ## Add a New Chef Infra Server to an Existing Chef Automate Installation
 
 Patch an existing Chef Automate installation to add Chef Infra Server:
 
-1. Create a `patch.toml` file to add `infra-server` to the list of products to deploy and bump the maximum report size:
+1. Create a `patch.toml` file to add `infra-server` to the list of products to deploy:
 
     ```toml
        [deployment.v1.svc]
