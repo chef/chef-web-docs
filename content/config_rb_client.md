@@ -394,8 +394,8 @@ This configuration file has the following settings:
 `interval`
 
 :   The frequency (in seconds) at which Chef Infra Client runs when running
-    in daemonized mode. It is recommended to not run
-    in daemonized mode and to instead rely on scheduled
+    in daemonized mode. We do not recommend running
+    in daemonized mode. Instead you should rely on scheduled
     execution from system schedulers like systemd timers,
     cron jobs, or Windows Scheduled Tasks. Default value: `1800`.
 
