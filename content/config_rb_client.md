@@ -454,8 +454,8 @@ This configuration file has the following settings:
 
 `named_run_list`
 
-:   A specific named runlist defined in the node's applied Policyfile,
-    which the should be used when running Chef Infra Client.
+:   A specific named runlist defined in the node's applied Policyfile
+    which should be used when running Chef Infra Client.
 
 `no_lazy_load`
 
