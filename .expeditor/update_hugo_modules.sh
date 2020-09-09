@@ -12,13 +12,13 @@ git checkout -b "$branch"
 # this variable has to be defined so we can copy content from the proper subdirectory
 # that contains the docs content and properly execute the `hugo mod get` command.
 
-if [ ${EXPEDITOR_PRODUCT_KEY} == "chef-workstation" ]; then
+if [ "${EXPEDITOR_PRODUCT_KEY}" == "chef-workstation" ]; then
   subdirectory="www"
   org="chef"
-elif [ ${EXPEDITOR_PRODUCT_KEY} == "inspec" ]; then
+elif [ "${EXPEDITOR_PRODUCT_KEY}" == "inspec" ]; then
   subdirectory="www"
   org="inspec"
-elif [ ${EXPEDITOR_PRODUCT_KEY} == "automate" ]; then
+elif [ "${EXPEDITOR_PRODUCT_KEY}" == "automate" ]; then
   subdirectory="components/docs-chef-io"
   org="chef"
 fi
