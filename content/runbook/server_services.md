@@ -78,12 +78,10 @@ The following services are part of the Chef Infra Server:
 
 -   bifrost
 -   bookshelf
+-   elasticsearch
 -   nginx
 -   opscode-erchef
--   opscode-expander
--   opscode-solr4
 -   postgresql
--   rabbitmq
 -   redis-lb
 
 ### bifrost
@@ -440,78 +438,6 @@ To follow the logs for the service:
 
 ``` bash
 chef-server-ctl tail postgresql
-```
-
-### rabbitmq
-
-{{% server_services_rabbitmq %}}
-
-#### status
-
-To view the status for the service:
-
-``` bash
-chef-server-ctl status rabbitmq
-```
-
-to return something like:
-
-``` bash
-run: rabbitmq: (pid 1234) 123456s; run: log: (pid 5678) 789012s
-```
-
-#### start
-
-To start the service:
-
-``` bash
-chef-server-ctl start rabbitmq
-```
-
-#### stop
-
-To stop the service:
-
-``` bash
-chef-server-ctl stop rabbitmq
-```
-
-#### restart
-
-To restart the service:
-
-``` bash
-chef-server-ctl restart rabbitmq
-```
-
-to return something like:
-
-``` bash
-ok: run: rabbitmq: (pid 1234) 1234s
-```
-
-#### kill
-
-To kill the service (send a `SIGKILL` command):
-
-``` bash
-chef-server-ctl kill rabbitmq
-```
-
-#### run once
-
-To run the service, but not restart it (if the service fails):
-
-``` bash
-chef-server-ctl once rabbitmq
-```
-
-#### tail
-
-To follow the logs for the service:
-
-``` bash
-chef-server-ctl tail rabbitmq
 ```
 
 ### redis
