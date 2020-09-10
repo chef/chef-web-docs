@@ -69,13 +69,10 @@ Chef Infra Server deployment and how they relate to one another.
 <p>All cookbooks are stored in a dedicated repository.</p></td>
 </tr>
 <tr class="even">
-<td><p>Message Queues</p></td>
-<td><p>Messages are sent to the search index using the following components:</p>
+<td><p>Messages</p></td>
 <blockquote>
 <ol>
-<li>{{< readFile_shortcode file="chef_server_component_rabbitmq.md" >}}</li>
-<li>{{< readFile_shortcode file="chef_server_component_expander.md" >}}</li>
-<li>{{< readFile_shortcode file="chef_server_component_solr.md" >}}</li>
+<li>{{< readFile_shortcode file="chef_server_component_elasticsearch.md" >}}</li>
 </ol>
 </blockquote>
 <p>All messages are added to a dedicated search index repository.</p></td>
@@ -151,7 +148,7 @@ recommendations are based on these assumptions:
     than 500 cookbooks server-wide, is fine.)
 -   The default maximum allowable size for a node object is 1MB,
     although it is rare for nodes to exceed 150KB. Though compressed,
-    this data is replicated twice, once in Apache Solr, and once in
+    this data is replicated twice, once in Elasticsearch, and once in
     PostgreSQL. In practice, allowing a conservative 2MB of storage on
     the disk partition per node should be sufficient
 

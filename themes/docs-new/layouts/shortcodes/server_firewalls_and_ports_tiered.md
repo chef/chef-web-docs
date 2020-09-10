@@ -35,9 +35,9 @@ column) are open and accessible via any firewalls that are in use:
 <td></td>
 </tr>
 <tr class="odd">
-<td><p>8983</p></td>
-<td><p><strong>opscode-solr4</strong></p>
-<p>{{ readFile "themes/docs-new/layouts/shortcodes/server_services_solr4.md" | markdownify }}</p></td>
+<td><p>9200</p></td>
+<td><p><strong>elasticsearch</strong></p>
+<p>{{ readFile "themes/docs-new/layouts/shortcodes/server_services_elasticsearch.md" | markdownify }}</p></td>
 <td></td>
 </tr>
 <tr class="even">
@@ -47,24 +47,18 @@ column) are open and accessible via any firewalls that are in use:
 <td></td>
 </tr>
 <tr class="odd">
-<td><p>5672, 15672</p></td>
-<td><p><strong>rabbitmq</strong></p>
-<p>{{ readFile "themes/docs-new/layouts/shortcodes/server_services_rabbitmq.md" | markdownify }}</p></td>
-<td></td>
-</tr>
-<tr class="even">
 <td><p>16379</p></td>
 <td><p><strong>redis_lb</strong></p>
 <p>{{ readFile "themes/docs-new/layouts/shortcodes/server_services_redis.md" | markdownify }}</p></td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><p>4321</p></td>
 <td><p><strong>bookshelf</strong></p>
 <p>{{ readFile "themes/docs-new/layouts/shortcodes/server_services_bookshelf.md" | markdownify }}</p></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><p>8000</p></td>
 <td><p><strong>opscode-erchef</strong></p>
 <p>{{ readFile "themes/docs-new/layouts/shortcodes/server_services_erchef.md" | markdownify }}</p></td>

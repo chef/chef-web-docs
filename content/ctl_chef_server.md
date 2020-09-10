@@ -941,7 +941,7 @@ chef-server-ctl reconfigure
 ## reindex
 
 The `reindex` subcommand is used to reload Chef Infra Server data from
-PostgreSQL to Apache Solr.
+PostgreSQL to Elasticsearch.
 
 This subcommand has the following syntax:
 

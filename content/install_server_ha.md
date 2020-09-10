@@ -55,24 +55,9 @@ across multiple Availability Zones within the same region.
 
 {{< /important >}}
 
-### Key Differences From Standalone Chef server
+### Key Differences From Standalone Chef Infra Server
 
-There are several key differences between the high availability Chef
-Infra Server cluster and a standalone Chef Infra Server instance.
-
--   While Apache Solr is used in standalone Chef Infra Server instances,
-    in the high availability Chef Infra Server cluster it is replaced
-    with Elasticsearch. Elasticsearch provides more flexible clustering
-    options while maintaining search API compatibility with Apache Solr.
--   Writes to the search engine and the database are handled
-    asynchronously via RabbitMQ and chef-expander in standalone Chef
-    Infra Server instances. However, the high availability Chef server
-    cluster writes to the search engine and the database simultaneously.
-    As such the RabbitMQ and chef-expander services are no longer
-    present in the high availability Chef Infra Server cluster.
--   Standalone Chef Infra Server instances write Bookshelf data to the
-    filesystem. In a high availability Chef Infra Server cluster,
-    Bookshelf data is written to the database.
+Starting from the 14.x release onwards standalone Chef Infra Server instances also use Elasticsearch for internal search. Elasticsearch provides more flexible clustering options while maintaining search API compatibility with Apache Solr.
 
 ## Recommended Cluster Topology
 

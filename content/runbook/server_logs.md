@@ -70,11 +70,10 @@ Supervisor logs are available for the following services:
 
 -   bifrost
 -   bookshelf
+-   elasticsearch
 -   nginx
--   opscode-erchef
 -   opscode-expander
 -   opscode-expander-reindexer
--   opscode-solr4
 -   postgresql
 -   rabbitmq
 -   redis
