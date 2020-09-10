@@ -23,6 +23,7 @@ syntax_full_code_block: |-
     accept_chef_license      true, false # default value: false
     chef_binary_path         String # default value: "/opt/chef/bin/chef-client"
     config_directory         String # default value: "/etc/chef"
+    cpu_quota                Integer, String
     daemon_options           Array
     delay_after_boot         String # default value: "1min"
     description              String # default value: "Chef Infra Client periodic execution"
@@ -40,7 +41,7 @@ syntax_full_properties_list:
 - "`name` is the name given to the resource block."
 - "`action` identifies which steps Chef Infra Client will take to bring the node into
   the desired state."
-- "`accept_chef_license`, `chef_binary_path`, `config_directory`, `daemon_options`,
+- "`accept_chef_license`, `chef_binary_path`, `config_directory`, `cpu_quota`, `daemon_options`,
   `delay_after_boot`, `description`, `environment`, `interval`, `job_name`, `run_on_battery`,
   `splay`, and `user` are the properties available to this resource."
 actions_list:
@@ -69,6 +70,14 @@ properties_list:
   default_value: "/etc/chef"
   description_list:
   - markdown: The path of the config directory.
+- property: cpu_quota
+  ruby_type: Integer, String
+  required: false
+  new_in: '16.5'
+  description_list:
+  - markdown: The systemd CPUQuota to run the chef-client process with. This is a
+      percentage value of the total CPU time available on the system. If the system
+      has more than 1 core this may be a value greater than 100.
 - property: daemon_options
   ruby_type: Array
   required: false

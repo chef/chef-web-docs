@@ -1,9 +1,8 @@
 ---
 title: openssl_dhparam resource
 resource: openssl_dhparam
-draft: false
 aliases:
-- /resource_openssl_dhparam.html
+- "/resource_openssl_dhparam.html"
 menu:
   infra:
     title: openssl_dhparam

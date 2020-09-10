@@ -25,6 +25,7 @@ syntax_full_code_block: |-
     new_hostname         String
     ou_path              String
     reboot               Symbol # default value: :immediate
+    reboot_delay         Integer # default value: 0
     sensitive            true, false # default value: true
     workgroup_name       String
     action               Symbol # defaults to :join if not specified
@@ -36,7 +37,8 @@ syntax_full_properties_list:
 - "`action` identifies which steps Chef Infra Client will take to bring the node into
   the desired state."
 - "`domain_name`, `domain_password`, `domain_user`, `new_hostname`, `ou_path`, `reboot`,
-  `sensitive`, and `workgroup_name` are the properties available to this resource."
+  `reboot_delay`, `sensitive`, and `workgroup_name` are the properties available to
+  this resource."
 actions_list:
   :join:
     markdown: Default. Join the Active Directory domain.
@@ -83,6 +85,13 @@ properties_list:
   - markdown: Controls the system reboot behavior post domain joining. Reboot immediately,
       after the Chef Infra Client run completes, or never. Note that a reboot is necessary
       for changes to take effect.
+- property: reboot_delay
+  ruby_type: Integer
+  required: false
+  default_value: '0'
+  new_in: '16.5'
+  description_list:
+  - markdown: The amount of time (in minutes) to delay a reboot request.
 - property: sensitive
   ruby_type: true, false
   required: false
