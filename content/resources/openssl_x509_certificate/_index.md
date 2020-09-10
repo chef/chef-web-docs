@@ -1,9 +1,8 @@
 ---
 title: openssl_x509_certificate resource
 resource: openssl_x509_certificate
-draft: false
 aliases:
-- /resource_openssl_x509_certificate.html
+- "/resource_openssl_x509_certificate.html"
 menu:
   infra:
     title: openssl_x509_certificate

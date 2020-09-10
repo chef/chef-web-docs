@@ -14,18 +14,9 @@ menu:
     identifier: chef_infra/cookbook_reference/resources/sysctl sysctl
     parent: chef_infra/cookbook_reference/resources
 resource_description_list:
-- markdown: 'Use the **sysctl** resource to set or remove kernel parameters using
-    the
-
-    `sysctl` command line tool and configuration files in the system''s
-
-    `sysctl.d` directory. Configuration files managed by this resource are
-
-    named `99-chef-KEYNAME.conf`. If an existing value was already set, it
-
-    will be backed up to the node and restored if the `:remove` action is
-
-    used later.'
+- markdown: Use the **sysctl** resource to set or remove kernel parameters using the
+    `sysctl` command line tool and configuration files in the system's `sysctl.d`
+    directory. Configuration files managed by this resource are named `99-chef-KEYNAME.conf`.
 resource_new_in: '14.0'
 syntax_full_code_block: |-
   sysctl 'name' do

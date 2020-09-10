@@ -1,16 +1,18 @@
 ---
+resource_reference: true
+properties_shortcode:
+resources_common_guards: true
+resources_common_notification: true
+resources_common_properties: true
 title: osx_profile resource
 resource: osx_profile
-draft: false
 aliases:
-- /resource_osx_profile.html
+- "/resource_osx_profile.html"
 menu:
   infra:
     title: osx_profile
     identifier: chef_infra/cookbook_reference/resources/osx_profile osx_profile
     parent: chef_infra/cookbook_reference/resources
-resource_reference: true
-robots: null
 resource_description_list:
 - markdown: 'Use the **osx_profile** resource to manage configuration profiles
 
@@ -21,28 +23,22 @@ resource_description_list:
     unique `ProfileUUID`, and then using the `profiles` command to install
 
     the profile on the system.'
-resource_new_in: null
-handler_types: false
-syntax_description: "The osx_profile resource has the following syntax:\n\n``` ruby\n\
-  osx_profile 'name' do\n  identifier        String\n  path              String\n\
-  \  profile           String, Hash\n  profile_name      String # default value: 'name'\
-  \ unless specified\n  action            Symbol # defaults to :install if not specified\n\
-  end\n```"
-syntax_code_block: null
+resource_new_in: '12.7'
+syntax_full_code_block: |-
+  osx_profile 'name' do
+    identifier        String
+    profile           String, Hash
+    profile_name      String # default value: 'name' unless specified
+    action            Symbol # defaults to :install if not specified
+  end
 syntax_properties_list:
-- '`osx_profile` is the resource.'
-- '`name` is the name given to the resource block.'
-- '`action` identifies which steps Chef Infra Client will take to bring the node into
-  the desired state.'
-- '`identifier`, `path`, `profile`, and `profile_name` are the properties available
-  to this resource.'
-syntax_full_code_block: null
-syntax_full_properties_list: null
-syntax_shortcode: null
-registry_key: false
-nameless_apt_update: false
-nameless_build_essential: false
-resource_package_options: false
+syntax_full_properties_list:
+- "`osx_profile` is the resource."
+- "`name` is the name given to the resource block."
+- "`action` identifies which steps Chef Infra Client will take to bring the node into
+  the desired state."
+- "`identifier`, `profile`, and `profile_name` are the properties available to this
+  resource."
 actions_list:
   :install:
     markdown: Default. Install the specified configuration profile.
@@ -54,8 +50,6 @@ properties_list:
 - property: identifier
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: 'Use to specify the identifier for the profile, such as
 
@@ -70,8 +64,6 @@ properties_list:
 - property: profile
   ruby_type: String, Hash
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: 'Use to specify a profile. This may be the name of a profile
 
@@ -82,32 +74,9 @@ properties_list:
   ruby_type: String
   required: false
   default_value: The resource block's name
-  new_in: null
   description_list:
-  - markdown: 'Use to specify the name of the profile, if different from the name
-
-      of the resource block.'
-properties_shortcode: null
-properties_multiple_packages: false
-resource_directory_recursive_directories: false
-resources_common_atomic_update: false
-properties_resources_common_windows_security: false
-remote_file_prevent_re_downloads: false
-remote_file_unc_path: false
-ps_credential_helper: false
-ruby_style_basics_chef_log: false
-debug_recipes_chef_shell: false
-template_requirements: false
-resources_common_properties: true
-resources_common_notification: true
-resources_common_guards: true
-common_resource_functionality_multiple_packages: false
-resources_common_guard_interpreter: false
-remote_directory_recursive_directories: false
-common_resource_functionality_resources_common_windows_security: false
-handler_custom: false
-cookbook_file_specificity: false
-unit_file_verification: false
+  - markdown: Use to specify the name of the profile, if different from the name of
+      the resource block.
 examples: "
   One liner to install profile from cookbook file\n\n  The `profiles`\
   \ command will be used to install the specified\n  configuration profile.\n\n  ```\

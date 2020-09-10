@@ -36,10 +36,10 @@ syntax_full_properties_list:
 - "`aliases`, `compile_time`, `hostname`, `ipaddress`, and `windows_reboot` are the
   properties available to this resource."
 actions_list:
-  :set:
-    markdown: Default action. Set the node's hostname.
   :nothing:
     shortcode: resources_common_actions_nothing.md
+  :set:
+    markdown: Default action. Set the node's hostname.
 properties_list:
 - property: aliases
   ruby_type: Array

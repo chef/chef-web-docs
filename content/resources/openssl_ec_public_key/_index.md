@@ -1,9 +1,8 @@
 ---
 title: openssl_ec_public_key resource
 resource: openssl_ec_public_key
-draft: false
 aliases:
-- /resource_openssl_ec_public_key.html
+- "/resource_openssl_ec_public_key.html"
 menu:
   infra:
     title: openssl_ec_public_key

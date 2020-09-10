@@ -33,9 +33,9 @@ actions_list:
   :nothing:
     shortcode: resources_common_actions_nothing.md
   :periodic:
-    markdown:
+    markdown: Run a periodic update based on the frequency property
   :update:
-    markdown:
+    markdown: Run an immediate update
 properties_list:
 - property: frequency
   ruby_type: Integer

@@ -1,9 +1,8 @@
 ---
 title: openssl_rsa_public_key resource
 resource: openssl_rsa_public_key
-draft: false
 aliases:
-- /resource_openssl_rsa_public_key.html
+- "/resource_openssl_rsa_public_key.html"
 menu:
   infra:
     title: openssl_rsa_public_key
