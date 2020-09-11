@@ -58,6 +58,9 @@ ssl_verify_mode
 verify_api_cert
 : Boolean option to determine if the API certification should be verified. Default is `false`
 
+rubygems_url
+: The location to source rubygems. Default value: `https://www.rubygems.org`
+
 #### Effortless Config Chef License
 
 This configuration needs to be under the `[chef_license]` block in the .toml file.
@@ -87,7 +90,7 @@ scaffold_inspec_client
 
 scaffold_cacerts
 : The Chef Habitat `cacerts` package during the Chef Infra Client run. Change to use a different package. Default is `chef/cacerts`. This variable is required if the profile had a `depends` line for compliance in the `inspec.yml` example as shown below
- 
+
 inspec.yml
 
 ```yml

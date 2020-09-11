@@ -1,9 +1,8 @@
 ---
 title: openssl_x509_crl resource
 resource: openssl_x509_crl
-draft: false
 aliases:
-- /resource_openssl_x509_crl.html
+- "/resource_openssl_x509_crl.html"
 menu:
   infra:
     title: openssl_x509_crl

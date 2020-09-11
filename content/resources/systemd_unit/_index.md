@@ -112,7 +112,9 @@ properties_list:
   required: false
   default_value: 'true'
   description_list:
-  - markdown: 'Specifies if the unit will be verified before installation. Systemd can be overly strict when verifying units, so in certain cases it is preferable not to verify the unit.'
+  - markdown: Specifies if the unit will be verified before installation. Systemd
+      can be overly strict when verifying units, so in certain cases it is preferable
+      not to verify the unit.
 examples: "
   Create etcd systemd service unit file from a Hash\n\n  ``` ruby\n\
   \  systemd_unit 'etcd.service' do\n    content({Unit: {\n              Description:\

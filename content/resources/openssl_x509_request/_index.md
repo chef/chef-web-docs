@@ -1,16 +1,14 @@
 ---
 title: openssl_x509_request resource
 resource: openssl_x509_request
-draft: false
 aliases:
-- /resource_openssl_x509_request.html
+- "/resource_openssl_x509_request.html"
 menu:
   infra:
     title: openssl_x509_request
     identifier: chef_infra/cookbook_reference/resources/openssl_x509_request openssl_x509_request
     parent: chef_infra/cookbook_reference/resources
 resource_reference: true
-robots: null
 resource_description_list:
 - markdown: 'Use the **openssl_x509_request** resource to generate PEM-formatted
 
