@@ -1,5 +1,4 @@
 ---
-
 resource_reference: true
 common_resource_functionality_multiple_packages: true
 properties_shortcode:

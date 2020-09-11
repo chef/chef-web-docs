@@ -1,62 +1,86 @@
 ---
+resource_reference: true
+properties_shortcode:
+resources_common_guards: true
+resources_common_notification: true
+resources_common_properties: true
 title: launchd resource
 resource: launchd
-draft: false
 aliases:
-- /resource_launchd.html
+- "/resource_launchd.html"
 menu:
   infra:
     title: launchd
     identifier: chef_infra/cookbook_reference/resources/launchd launchd
     parent: chef_infra/cookbook_reference/resources
-resource_reference: true
-robots: null
 resource_description_list:
-- markdown: 'Use the **launchd** resource to manage system-wide services (daemons)
-
-    and per-user services (agents) on the macOS platform.'
+- markdown: Use the **launchd** resource to manage system-wide services (daemons)
+    and per-user services (agents) on the macOS platform.
 resource_new_in: '12.8'
-handler_types: false
-syntax_description: "The launchd resource has the following syntax:\n\n``` ruby\n\
-  launchd 'name' do\n  abandon_process_group           true, false\n  backup     \
-  \                     Integer, false\n  cookbook                        String\n\
-  \  debug                           true, false\n  disabled                     \
-  \   true, false # default value: false\n  enable_globbing                 true,\
-  \ false\n  enable_transactions             true, false\n  environment_variables\
-  \           Hash\n  exit_timeout                    Integer\n  group           \
-  \                String, Integer\n  hard_resource_limits            Hash\n  inetd_compatibility\
-  \             Hash\n  init_groups                     true, false\n  keep_alive\
-  \                      true, false, Hash\n  label                           String\
-  \ # default value: 'name' unless specified\n  launch_events                   Hash\n\
-  \  launch_only_once                true, false\n  ld_group                     \
-  \   String\n  limit_load_from_hosts           Array\n  limit_load_to_hosts     \
-  \        Array\n  limit_load_to_session_type      Array, String\n  low_priority_io\
-  \                 true, false\n  mach_services                   Hash\n  mode  \
-  \                          String, Integer\n  nice                            Integer\n\
-  \  on_demand                       true, false\n  owner                        \
-  \   String, Integer\n  path                            String\n  plist_hash    \
-  \                  Hash\n  process_type                    String\n  program   \
-  \                      String\n  program_arguments               Array\n  queue_directories\
-  \               Array\n  root_directory                  String\n  run_at_load \
-  \                    true, false\n  session_type                    String\n  sockets\
-  \                         Hash\n  soft_resource_limits            Array\n  source\
-  \                          String\n  standard_error_path             String\n  standard_in_path\
-  \                String\n  standard_out_path               String\n  start_calendar_interval\
-  \         Hash, Array\n  start_interval                  Integer\n  start_on_mount\
-  \                  true, false\n  throttle_interval               Integer\n  time_out\
-  \                        Integer\n  type                            String # default\
-  \ value: \"daemon\"\n  umask                           Integer\n  username     \
-  \                   String\n  wait_for_debugger               true, false\n  watch_paths\
-  \                     Array\n  working_directory               String\n  action\
-  \                          Symbol # defaults to :create if not specified\nend\n\
-  ```"
-syntax_code_block: null
+syntax_full_code_block: |-
+  launchd 'name' do
+    abandon_process_group           true, false
+    backup                          Integer, false
+    cookbook                        String
+    debug                           true, false
+    disabled                        true, false # default value: false
+    enable_globbing                 true, false
+    enable_transactions             true, false
+    environment_variables           Hash
+    exit_timeout                    Integer
+    group                           String, Integer
+    hard_resource_limits            Hash
+    inetd_compatibility             Hash
+    init_groups                     true, false
+    keep_alive                      true, false, Hash
+    label                           String # default value: 'name' unless specified
+    launch_events                   Hash
+    launch_only_once                true, false
+    ld_group                        String
+    limit_load_from_hosts           Array
+    limit_load_to_hosts             Array
+    limit_load_to_session_type      Array, String
+    low_priority_io                 true, false
+    mach_services                   Hash
+    mode                            String, Integer
+    nice                            Integer
+    on_demand                       true, false
+    owner                           String, Integer
+    path                            String
+    plist_hash                      Hash
+    process_type                    String
+    program                         String
+    program_arguments               Array
+    queue_directories               Array
+    root_directory                  String
+    run_at_load                     true, false
+    session_type                    String
+    sockets                         Hash
+    soft_resource_limits            Array
+    source                          String
+    standard_error_path             String
+    standard_in_path                String
+    standard_out_path               String
+    start_calendar_interval         Hash, Array
+    start_interval                  Integer
+    start_on_mount                  true, false
+    throttle_interval               Integer
+    time_out                        Integer
+    type                            String # default value: "daemon"
+    umask                           Integer
+    username                        String
+    wait_for_debugger               true, false
+    watch_paths                     Array
+    working_directory               String
+    action                          Symbol # defaults to :create if not specified
+  end
 syntax_properties_list:
-- '`launchd` is the resource.'
-- '`name` is the name given to the resource block.'
-- '`action` identifies which steps Chef Infra Client will take to bring the node into
-  the desired state.'
-- '`abandon_process_group`, `backup`, `cookbook`, `debug`, `disabled`, `enable_globbing`,
+syntax_full_properties_list:
+- "`launchd` is the resource."
+- "`name` is the name given to the resource block."
+- "`action` identifies which steps Chef Infra Client will take to bring the node into
+  the desired state."
+- "`abandon_process_group`, `backup`, `cookbook`, `debug`, `disabled`, `enable_globbing`,
   `enable_transactions`, `environment_variables`, `exit_timeout`, `group`, `hard_resource_limits`,
   `inetd_compatibility`, `init_groups`, `keep_alive`, `label`, `launch_events`, `launch_only_once`,
   `ld_group`, `limit_load_from_hosts`, `limit_load_to_hosts`, `limit_load_to_session_type`,
@@ -66,14 +90,7 @@ syntax_properties_list:
   `source`, `standard_error_path`, `standard_in_path`, `standard_out_path`, `start_calendar_interval`,
   `start_interval`, `start_on_mount`, `throttle_interval`, `time_out`, `type`, `umask`,
   `username`, `wait_for_debugger`, `watch_paths`, and `working_directory` are the
-  properties available to this resource.'
-syntax_full_code_block: null
-syntax_full_properties_list: null
-syntax_shortcode: null
-registry_key: false
-nameless_apt_update: false
-nameless_build_essential: false
-resource_package_options: false
+  properties available to this resource."
 actions_list:
   :create:
     markdown: Default. Create a launchd property list.
@@ -196,15 +213,6 @@ properties_list:
   new_in: null
   description_list:
   - markdown: The path to the launchd property list.
-- property: supports
-  ruby_type: Hash
-  required: false
-  default_value: null
-  new_in: null
-  description_list:
-  - markdown: 'Specify a Hash of supported mount features. Default value:
-
-      `remount: false`.'
 - property: type
   ruby_type: String
   required: false

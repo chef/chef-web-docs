@@ -1,9 +1,8 @@
 ---
 title: log resource
 resource: log
-draft: false
 aliases:
-- /resource_log.html
+- "/resource_log.html"
 menu:
   infra:
     title: log

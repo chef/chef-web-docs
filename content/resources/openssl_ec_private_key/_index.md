@@ -1,9 +1,8 @@
 ---
 title: openssl_ec_private_key resource
 resource: openssl_ec_private_key
-draft: false
 aliases:
-- /resource_openssl_ec_private_key.html
+- "/resource_openssl_ec_private_key.html"
 menu:
   infra:
     title: openssl_ec_private_key
