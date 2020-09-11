@@ -21,19 +21,22 @@ elif [ "${EXPEDITOR_PRODUCT_KEY}" == "inspec" ]; then
 elif [ "${EXPEDITOR_PRODUCT_KEY}" == "automate" ]; then
   subdirectory="components/docs-chef-io"
   org="chef"
+elif [ "${EXPEDITOR_PRODUCT_KEY}" == "habitat" ]; then
+  subdirectory="components/docs-chef-io"
+  org="habitat-sh"
 fi
 
-git clone https://x-access-token:${GITHUB_TOKEN}@github.com/$org/${EXPEDITOR_PRODUCT_KEY}/
+git clone https://x-access-token:"${GITHUB_TOKEN}"@github.com/$org/"${EXPEDITOR_PRODUCT_KEY}"/
 
 # delete Chef product repo
 
-rm -rf ${EXPEDITOR_PRODUCT_KEY}
+rm -rf "${EXPEDITOR_PRODUCT_KEY}"
 
 # Update the semver version of the chef/chef-workstation module that chef-web-docs will
 # build the workstation docs from.
 # See https://gohugo.io/hugo-modules/use-modules/#get-a-specific-version
 
-hugo mod get github.com/$org/${EXPEDITOR_PRODUCT_KEY}/$subdirectory/@${EXPEDITOR_VERSION}
+hugo mod get github.com/$org/"${EXPEDITOR_PRODUCT_KEY}"/$subdirectory/@"${EXPEDITOR_VERSION}"
 hugo mod tidy
 
 # Update the vendored files in chef-web-docs
