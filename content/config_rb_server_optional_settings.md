@@ -9,7 +9,7 @@ aliases = ["/config_rb_server_optional_settings.html"]
     title = "Chef Infra Server Optional Settings"
     identifier = "chef_infra/managing_chef_infra_server/config_rb_server_optional_settings.md Chef Infra Server Optional Settings"
     parent = "chef_infra/managing_chef_infra_server"
-    weight = 180
+    weight = 170
 +++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/config_rb_server_optional_settings.md)

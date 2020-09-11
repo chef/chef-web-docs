@@ -9,7 +9,7 @@ aliases = ["/config_rb_server.html"]
     title = "chef-server.rb"
     identifier = "chef_infra/managing_chef_infra_server/config_rb_server.md chef-server.rb"
     parent = "chef_infra/managing_chef_infra_server"
-    weight = 170
+    weight = 160
 +++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/config_rb_server.md)
