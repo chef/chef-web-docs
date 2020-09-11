@@ -362,6 +362,8 @@ front matter. For example, `release_notes = "inspec"`.
 
 This will overwrite all content on that page.
 
+The product value comes from the Product Key in the [Product Matrix](https://github.com/chef/mixlib-install/blob/master/PRODUCT_MATRIX.md).
+
 ## Sending feedback
 
 We love getting feedback. You can use:
