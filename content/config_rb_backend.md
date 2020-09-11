@@ -121,6 +121,7 @@ specified below.
 : Default value: `'replicator'`.
 
 `postgresql.username`
+: System username that the postgres process will run as.
 : Default value: `'chef_pgsql'`.
 
 ### PostgreSQL Settings Given to `postgresql.conf`
@@ -350,7 +351,7 @@ See [Elasticsearch's configuration documentation](https://www.elastic.co/guide/e
 : Default value: `10`.
 
 `leaderl.username`
-: The account username.
+: System username that the leaderl process will run as. Usually the same as `postgresql.username`.
 : Default value: `'chef_pgsql'`.
 
 `leaderl.log_rotation.max_messages_per_second`
