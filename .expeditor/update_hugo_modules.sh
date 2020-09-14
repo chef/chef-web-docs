@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -evx
+set -eou pipefail
 
 # Copy shortcode files from chef product repo
 # to chef/chef-web-docs/layouts/shortcodes
