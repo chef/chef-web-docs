@@ -13,8 +13,9 @@ github.com/chef/chef-workstation/www v0.0.0-20200903192106-5daee29b760c h1:RMnCp
 github.com/chef/chef-workstation/www v0.0.0-20200903192106-5daee29b760c/go.mod h1:eRkMxfrF6Yf243foW4vgogI/Y8xDx3PKvCs7Lj+duTc=
 github.com/chef/desktop-config/docs v0.0.0-20200812014916-cac26cf98c63 h1:daMv1kxrR9jgr4/SS/qaXaBD8+7TMMkDDXEcTaeE0qk=
 github.com/chef/desktop-config/docs v0.0.0-20200812014916-cac26cf98c63/go.mod h1:B9QAfsJHmMQ6yIgsvQ4uG7f98HVPMjRGO8VuSFN4A9Q=
-github.com/chef/effortless/effortless-chef-io v0.0.0-20200831122339-cebcd8a5fc75 h1:e4qy/wgYwfaGgLRl4BrsPJzMFagbqtaBAVYpkP6PcMc=
-github.com/chef/effortless/effortless-chef-io v0.0.0-20200831122339-cebcd8a5fc75/go.mod h1:quhPGE10kqa8SPVygK8sqFwdlH6LyWa40ecQnNjiuXw=
+github.com/chef/effortless v0.0.0-20200914100024-66d58284ce17 h1:e0l5XKLk1vR7GC5Gw23sO5d7BpEkujxKCW8mG9BDZww=
+github.com/chef/effortless/docs-chef-io v0.0.0-20200914100024-66d58284ce17 h1:PHnYYYkJj9ixWkHDDpMSZKvCsVdt3Q4BcMFF0d/u0TU=
+github.com/chef/effortless/docs-chef-io v0.0.0-20200914100024-66d58284ce17/go.mod h1:Lfq+HjwAQwUJ41EPTO/8qbI1oJb2i415fR28d2Ig9kc=
 github.com/client9/misspell v0.3.4/go.mod h1:qj6jICC3Q7zFZvVWo7KLAzC3yx5G7kyvSDkc90ppPyw=
 github.com/envoyproxy/go-control-plane v0.9.1-0.20191026205805-5f8ba28d4473/go.mod h1:YTl/9mNaCwkRvm6d1a2C3ymFceY/DCBVvsKhRF0iEA4=
 github.com/envoyproxy/protoc-gen-validate v0.1.0/go.mod h1:iSmxcyjqTsJpI2R4NaDN7+kN2VEUnK/pcBlmesArF7c=
