@@ -1,6 +1,5 @@
 ---
 resource_reference: true
-properties_shortcode: resource_ohai_properties.md
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
@@ -39,8 +38,12 @@ properties_list:
   ruby_type: String
   required: false
   description_list:
-  - markdown: The name of an Ohai plugin to be reloaded. If this property is not specified,
-      Chef Infra Client will reload all plugins.
+  - markdown: Specific Ohai attribute data to reload. This property behaves similar
+      to specifying attributes when running Ohai on the command line and takes the
+      attribute that you wish to reload instead of the actual plugin name. For instance
+      you you can pass `ipaddress` to reload `node['ipaddress']` even though that
+      data comes from the `Network` plugin. If this property is not specified, Chef
+      Infra Client will reload all plugins.
 examples: |
   Reload All Ohai Plugins
 
@@ -50,11 +53,11 @@ examples: |
   end
   ```
 
-  Reload A Single Ohai Plugins
+  Reload A Single Ohai Plugin
 
   ```ruby
   ohai 'reload' do
-    plugin 'cloud'
+    plugin 'ipaddress'
     action :reload
   end
   ```
