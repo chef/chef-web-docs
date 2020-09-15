@@ -2,7 +2,6 @@
 resource_reference: true
 handler_custom: true
 handler_types: true
-properties_shortcode: 
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
