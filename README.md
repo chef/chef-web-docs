@@ -25,6 +25,8 @@ in the `components/docs-chef-io` directory.
 
 ### Preview Local Changes to Documentation from Other Repos from chef-web-docs
 
+**Note: Upon submitting a PR, Netlify will deploy your changes and provide a preview url so installing and configuring a local Hugo server may not be necessary.**
+
 Follow these steps to preview changes to the chef-workstation documentation while
 running Hugo from chef-web-docs.
 
