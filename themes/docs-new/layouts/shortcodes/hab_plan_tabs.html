@@ -1,0 +1,13 @@
+{{ $langs := (slice "plan.sh" "plan.ps1")}}
+<ul class="tabs" data-tabs id="example-tabs">
+  <li class="tabs-title is-active"><a href="#panel1" aria-selected="true">plan.sh</a></li>
+  <li class="tabs-title"><a data-tabs-target="panel2" href="#panel2">plan.ps1</a></li>
+</ul>
+<div class="tabs-content" data-tabs-content="example-tabs">
+  <div class="tabs-panel is-active" id="panel1">
+		{{ .Inner }}
+  </div>
+  <div class="tabs-panel" id="panel2">
+    {{ .Inner }}
+  </div>
+</div>
