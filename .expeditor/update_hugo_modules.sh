@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -evx
+set -eou pipefail
 
 # Copy shortcode files from chef product repo
 # to chef/chef-web-docs/layouts/shortcodes
@@ -52,9 +52,7 @@ git add .
 # audit of our codebase that no DCO sign-off is needed for this sort of PR since
 #it contains no intellectual property
 
-dco_safe_git_commit "Bump Hugo module $EXPEDITOR_PRODUCT_KEY to $EXPEDITOR_VERSION.
-
-The new commit for $EXPEDITOR_PRODUCT_KEY is $EXPEDITOR_BUILD_COMMIT"
+dco_safe_git_commit "Bump Hugo module $EXPEDITOR_PRODUCT_KEY to $EXPEDITOR_VERSION."
 
 open_pull_request
 
