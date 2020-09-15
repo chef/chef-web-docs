@@ -86,7 +86,7 @@ properties_list:
   description_list:
   - markdown: 'Configure group permissions for files. A string or ID that
 
-      identifies the group owner by group name, including fully qualified
+      identifies the group owner by group name or SID, including fully qualified
 
       group names such as `domain\group` or `group@domain`. If this value
 
@@ -143,7 +143,7 @@ properties_list:
   description_list:
   - markdown: 'Configure owner permissions for files. A string or ID that
 
-      identifies the group owner by user name, including fully qualified
+      identifies the group owner by user name or SID, including fully qualified
 
       user names such as `domain\user` or `user@domain`. If this value is
 
@@ -158,7 +158,7 @@ properties_list:
   description_list:
   - markdown: 'Use to configure permissions for directories. A string or ID that
 
-      identifies the group owner by group name, including fully qualified
+      identifies the group owner by group name or SID, including fully qualified
 
       group names such as `domain\group` or `group@domain`. If this value
 
@@ -253,7 +253,7 @@ properties_list:
   description_list:
   - markdown: 'Use to configure permissions for directories. A string or ID that
 
-      identifies the group owner by user name, including fully qualified
+      identifies the group owner by user name or SID, including fully qualified
 
       user names such as `domain\user` or `user@domain`. If this value is
 

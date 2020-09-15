@@ -30,9 +30,12 @@ where
 
 `principal`
 
-:   Use to specify a group or user name. This is identical to what is
+:   Use to specify a group or user. The principal can be specified by
+    either name or SID. When using name, this is identical to what is
     entered in the login box for Microsoft Windows, such as `user_name`,
-    `domain\user_name`, or `user_name@fully_qualified_domain_name`. Chef
+    `domain\user_name`, or `user_name@fully_qualified_domain_name`. When
+    using a SID, you may use either the standard string representation of
+    a SID (S-R-I-S-S) or one of the [SDDL string constants](https://docs.microsoft.com/en-us/windows/win32/secauthz/sid-strings). Chef
     Infra Client does not need to know if a principal is a user or a
     group.
 
@@ -75,7 +78,7 @@ For example:
 
 ``` ruby
 resource 'x.txt' do
-  rights :read, 'Everyone'
+  rights :read, 'S-1-1-0'
   rights :write, 'domain\group'
   rights :full_control, 'group_name_or_user_name'
   rights :full_control, 'user_name', :applies_to_children => true

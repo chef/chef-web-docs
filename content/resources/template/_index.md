@@ -152,7 +152,7 @@ properties_list:
   default_value: null
   new_in: null
   description_list:
-  - markdown: 'A string or ID that identifies the group owner by group name,
+  - markdown: 'A string or ID that identifies the group owner by group name or SID,
 
       including fully qualified group names such as `domain\group` or
 
@@ -306,7 +306,7 @@ properties_list:
   default_value: null
   new_in: null
   description_list:
-  - markdown: 'A string or ID that identifies the group owner by user name,
+  - markdown: 'A string or ID that identifies the group owner by user name or SID,
 
       including fully qualified user names such as `domain\user` or
 
