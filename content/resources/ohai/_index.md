@@ -41,9 +41,9 @@ properties_list:
   - markdown: Specific Ohai attribute data to reload. This property behaves similar
       to specifying attributes when running Ohai on the command line and takes the
       attribute that you wish to reload instead of the actual plugin name. For instance,
-      you can pass `ipaddress` to reload `node['ipaddress']` even though that
-      data comes from the `Network` plugin. If this property is not specified, Chef
-      Infra Client will reload all plugins.
+      you can pass `ipaddress` to reload `node['ipaddress']` even though that data
+      comes from the `Network` plugin. If this property is not specified, Chef Infra
+      Client will reload all plugins.
 examples: |
   Reload All Ohai Plugins
 
@@ -70,7 +70,7 @@ examples: |
     plugin 'etc'
   end
 
-  user 'daemonuser' do
+  user 'daemon_user' do
     home '/dev/null'
     shell '/sbin/nologin'
     system true
@@ -80,8 +80,8 @@ examples: |
   ruby_block 'just an example' do
     block do
       # These variables will now have the new values
-      puts node['etc']['passwd']['daemonuser']['uid']
-      puts node['etc']['passwd']['daemonuser']['gid']
+      puts node['etc']['passwd']['daemon_user']['uid']
+      puts node['etc']['passwd']['daemon_user']['gid']
     end
   end
   ```
