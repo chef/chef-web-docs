@@ -3,14 +3,9 @@ github.com/BurntSushi/toml v0.3.1/go.mod h1:xHWCNGjB5oqiDr8zfno3MHue2Ht5sIBksp03
 github.com/census-instrumentation/opencensus-proto v0.2.1/go.mod h1:f6KPmirojxKA12rnyqOA5BBL4O983OfeGPqjHWSTneU=
 github.com/chef/automate/components/docs-chef-io v0.0.0-20200904193014-b92f1f6ad7fc h1:PRduNrXlOEDdWuo1onxdnRzWPVz+RsdYKg61M3tNhrg=
 github.com/chef/automate/components/docs-chef-io v0.0.0-20200904193014-b92f1f6ad7fc/go.mod h1:juvLC7Rt33YOCgJ5nnfl4rWZRAbSwqjTbWmcAoA0LtU=
-github.com/chef/chef-workstation v0.0.0-20200818222739-0ff46be846db h1:GRhs6XLeojnbER9H81stuC7uIflLCskZyvYOvpUndTk=
-github.com/chef/chef-workstation v0.0.0-20200903192106-5daee29b760c h1:dtXW2HKAs2O/+ZaqIsKp3jMUBI8XGRCPJ3RwuGFTj08=
-github.com/chef/chef-workstation/www v0.0.0-20200805001253-17ffc16b0146 h1:L8bW+IWId1KoUiOqtGooqMGeJfgefhRzG9mmVRQVmQ8=
-github.com/chef/chef-workstation/www v0.0.0-20200805001253-17ffc16b0146/go.mod h1:rktT78z3KaWu7A+wf1g6KmYszrwn6Y3o3IFlTg8OpQg=
-github.com/chef/chef-workstation/www v0.0.0-20200818222739-0ff46be846db h1:8pwOE+5kMtmKscGgG9xV0hcbiB07IQIn7sIOzUDXnv4=
-github.com/chef/chef-workstation/www v0.0.0-20200818222739-0ff46be846db/go.mod h1:rktT78z3KaWu7A+wf1g6KmYszrwn6Y3o3IFlTg8OpQg=
-github.com/chef/chef-workstation/www v0.0.0-20200903192106-5daee29b760c h1:RMnCpY3nlVcb8em335CgDHWbEszmEy6Gc2D9+dYZ/Lc=
-github.com/chef/chef-workstation/www v0.0.0-20200903192106-5daee29b760c/go.mod h1:eRkMxfrF6Yf243foW4vgogI/Y8xDx3PKvCs7Lj+duTc=
+github.com/chef/chef-workstation v0.0.0-20200915214226-6bffa20406f2 h1:ioDAsOhHwyvBsMXQfnTPc0EFbjjEykw/24H4BbnQWBY=
+github.com/chef/chef-workstation/docs-chef-io v0.0.0-20200915214226-6bffa20406f2 h1:cJZGVllzoMLRiqBe1/g60EnTdjZSPge5oJE9PxdGkws=
+github.com/chef/chef-workstation/docs-chef-io v0.0.0-20200915214226-6bffa20406f2/go.mod h1:gvoh6ov1YU98CVzBEWzEZeCLTRunfQ6r1VO7M3LFE9U=
 github.com/chef/desktop-config/docs v0.0.0-20200812014916-cac26cf98c63 h1:daMv1kxrR9jgr4/SS/qaXaBD8+7TMMkDDXEcTaeE0qk=
 github.com/chef/desktop-config/docs v0.0.0-20200812014916-cac26cf98c63/go.mod h1:B9QAfsJHmMQ6yIgsvQ4uG7f98HVPMjRGO8VuSFN4A9Q=
 github.com/chef/effortless v0.0.0-20200914100024-66d58284ce17 h1:e0l5XKLk1vR7GC5Gw23sO5d7BpEkujxKCW8mG9BDZww=

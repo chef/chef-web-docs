@@ -113,7 +113,7 @@ notAlternative = true
   [[module.imports]]
     disable = false
     ignoreConfig = false
-    path = "github.com/chef/chef-workstation/www"
+    path = "github.com/chef/chef-workstation/docs-chef-io"
 
   [[module.imports.mounts]]
     source = "content"
