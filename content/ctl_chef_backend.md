@@ -426,9 +426,6 @@ opscode_solr4['external_url'] = 'http://192.0.2.0:9200'
 opscode_erchef['search_provider'] = 'elasticsearch'
 opscode_erchef['search_queue_mode'] = 'batch'
 bookshelf['storage_type'] = :sql
-rabbitmq['enable'] = false
-rabbitmq['management_enabled'] = false
-rabbitmq['queue_length_monitor_enabled'] = false
 opscode_expander['enable'] = false
 dark_launch['actions'] = false
 opscode_erchef['nginx_bookshelf_caching'] = :on
@@ -437,9 +434,7 @@ opscode_erchef['s3_url_expiry_window_size'] = '50%'
 
 {{< note >}}
 
-The `opscode_solr4`, `postgresql`, and `rabbitmq` services are disabled
-in this configuration file for the frontend machines when running the
-Chef Infra Server with a backend HA cluster.
+The `opscode_solr4` and `postgresql` services are disabled in this configuration file for the frontend machines when running the Chef Infra Server with a backend HA cluster.
 
 {{< /note >}}
 

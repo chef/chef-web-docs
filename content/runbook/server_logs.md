@@ -75,7 +75,6 @@ Supervisor logs are available for the following services:
 -   opscode-expander
 -   opscode-expander-reindexer
 -   postgresql
--   rabbitmq
 -   redis
 
 ### nginx, access

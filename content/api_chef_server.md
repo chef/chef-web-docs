@@ -2991,19 +2991,6 @@ The response is similar to:
       }
     ]
   },
-  "rabbitmq": {
-    "url": "https://chef.example/organizations/example-org/cookbook_artifacts/rabbitmq",
-    "versions": [
-      {
-        "url": "https://chef.example/organizations/example-org/cookbook_artifacts/rabbitmq/58035a5b41c005f3b5b98f22ccaed1a0d6161e22",
-        "identifier": "58035a5b41c005f3b5b98f22ccaed1a0d6161e22"
-      },
-      {
-        "url": "https://chef.example/organizations/example-org/cookbook_artifacts/rabbitmq/5c08f92cc01f94ee37d382c32023b137ee343a1e",
-        "identifier": "5c08f92cc01f94ee37d382c32023b137ee343a1e"
-      }
-    ]
-  }
 }
 ```
 
