@@ -17,7 +17,7 @@ menu:
 resource_description_list:
 - markdown: |-
     Use the **chef_handler** resource to enable handlers during a Chef Infra Client run. The resource allows arguments to be passed to Chef Infra Client, which then applies the conditions defined by the custom handler to the node attribute data collected during a Chef Infra Client run, and then processes the handler based on that data.
-    The **chef_handler** resource is typically defined early in a node’s run-list (often being the first item). This ensures that all of the handlers will be available for the entire Chef Infra Client run.
+    The **chef_handler** resource is typically defined early in a node's run-list (often being the first item). This ensures that all of the handlers will be available for the entire Chef Infra Client run.
 resource_new_in: '14.0'
 syntax_description: "A **chef_handler** resource block enables handlers during a chef-client\n\
   run. Two handlers---`JsonFile` and `ErrorReport`---are built into Chef:\n\n``` ruby\n\
@@ -33,7 +33,7 @@ syntax_full_code_block: |-
     type            Hash # default value: {"report"=>true, "exception"=>true}
     action          Symbol # defaults to :enable if not specified
   end
-syntax_properties_list: 
+syntax_properties_list:
 syntax_full_properties_list:
 - "`chef_handler` is the resource."
 - "`name` is the name given to the resource block."
