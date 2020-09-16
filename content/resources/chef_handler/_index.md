@@ -142,7 +142,7 @@ examples: |
 
       def report
         cookbooks = run_context.cookbook_collection
-        Chef::Log.info('Cookbooks and versions run: #{cookbooks.keys.map {|x| cookbooks[x].name.to_s + ' ' + cookbooks[x].version} }')
+        Chef::Log.info('Cookbooks and versions run: #{cookbooks.map {|x| x.name.to_s + ' ' + x.version }}')
       end
     end
   end
@@ -175,7 +175,7 @@ examples: |
 
   **JsonFile Handler**
 
-  The json_file handler is available from the chef_handler cookbook and can be used with exceptions and reports. It serializes run status data to a JSON file. This handler may be enabled in one of the following ways.
+  The json_file handler is available from the `chef_handler` cookbook and can be used with exceptions and reports. It serializes run status data to a JSON file. This handler may be enabled in one of the following ways.
 
   By adding the following lines of Ruby code to either the client.rb file or the solo.rb file, depending on how Chef Infra Client is being run:
 
@@ -185,7 +185,7 @@ examples: |
   exception_handlers << Chef::Handler::JsonFile.new(path: '/var/chef/reports')
   ```
 
-  By using the chef_handler resource in a recipe, similar to the following:
+  By using the `chef_handler` resource in a recipe, similar to the following:
 
   ```ruby
   chef_handler 'Chef::Handler::JsonFile' do
@@ -227,7 +227,7 @@ examples: |
   exception_handlers << Chef::Handler::ErrorReport.new
   ```
 
-  By using the chef_handler resource in a recipe, similar to the following:
+  By using the `chef_handler` resource in a recipe, similar to the following:
 
   ```ruby
   chef_handler 'Chef::Handler::ErrorReport' do
