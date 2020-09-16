@@ -1,6 +1,5 @@
 ---
 resource_reference: true
-properties_shortcode: 
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
@@ -140,7 +139,7 @@ examples: |
   end
   ```
 
-  Install MySQL for Chef
+  **Install MySQL gem into Chef Infra Client***
   ```ruby
   apt_update
 
