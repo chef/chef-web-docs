@@ -1058,7 +1058,6 @@ automate-ctl restore-backup ELASTICSEARCH_SNAPSHOT [options]
      --no-git                     Do not restore Chef Automate's git repositories
      --no-license                 Do not restore Chef Automate's license file
      --no-notifications           Do not restore Chef Automate's notifications rulestore
-     --no-rabbit                  Do not restore Chef Automate's RabbitMQ data
      --no-wait                    Do not wait for non-blocking restore operations
      --no-wait-for-lock           Do not wait for Elasticsearch lock
      --quiet                      Do not output non-error information

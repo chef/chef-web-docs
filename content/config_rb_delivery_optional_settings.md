@@ -323,13 +323,6 @@ This configuration file has the following settings for `backup`:
 :   Silence non-error information during the Chef Automate backup
     procedure. Default value: `false`.
 
-`backup['rabbit']['enabled']`
-
-:   Back up the Chef Automate RabbitMQ queues. It is disabled by default
-    because it's rare to have a lengthy RabbitMQ queue and the backup
-    procedure requires temporarily shutting down Chef Automate services
-    when backing up the queues. Default value: `false`.
-
 `backup['region']`
 
 :   Amazon Web Services (AWS) region to use when storing Chef Automate

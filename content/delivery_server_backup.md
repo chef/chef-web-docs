@@ -21,7 +21,7 @@ archives and Elasticsearch snapshots of your Chef Automate data.
 
 `automate-ctl create-backup` will create a compressed backup archives of
 the PostgreSQL database, configuration files, user keys, license file,
-git repository data, Chef Compliance Server profiles and RabbitMQ queues. It
+git repository data, and Chef Compliance Server profiles. It
 also utilizes the snapshot capability of Elasticsearch to create
 incremental snapshots of your Chef Automate Elasticsearch indexes.
 Paired together, backup archives and Elasticsearch snapshots make it
@@ -43,12 +43,7 @@ of a backup archive or elasticsearch snapshot.
 By default the Chef Automate cluster is configured to store
 near-complete backup archives and snapshots on the local filesystem.
 When you create backups they will include all Chef Automate data and
-configuration except for the RabbitMQ queues. This was determined to be
-a safe choice as the RabbitMQ queues are commonly quite small and
-require taking the Chef Automate cluster offline in order to back them
-up. As they are not required to restore a functional Chef Automate
-cluster the services disruption is rarely worth the value of the
-RabbitMQ queues.
+configuration.
 
 All backup commands can be configured by changing the default setting in
 `/etc/delivery/delivery.rb`. Several configuration options can also be

@@ -33,7 +33,7 @@ Over time, and with enough data, disks will fill up or exceed the
 per-disk quotas that may have been set for them and they will not be
 able to write data. A disk that is not able to write data will not be
 able to support certain components of the Chef Infra Server, such as
-PostgreSQL, RabbitMQ, service log files, and deleted file handles.
+PostgreSQL, service log files, and deleted file handles.
 Monitoring disk usage is the best way to ensure that disks don't fill up
 or exceed their quota.
 
@@ -60,14 +60,6 @@ rapidly filling up:
 
 -   **PostgreSQL** PostgreSQL is the data store for the Chef Infra
     Server.
--   **RabbitMQ** The RabbitMQ data folder can fill up if the
-    **opscode-expander** service is not able to keep up with the data
-    being moved into the search database by RabbitMQ. When the
-    **opscode-expander** service falls behind, RabbitMQ will start
-    storing the individual messages on-disk while it waits for the
-    **opscode-expander** service to catch up. If the RabbitMQ disk fills
-    up completely, RabbitMQ will need to be restarted to free up the
-    disk space and any data that was stored on-disk will be lost.
 -   **Log files** If `/var/log/opscode` is taking up a lot of disk
     space, ensure that the Chef Infra Server log rotation cron job is
     running without errors. These errors can be found in
