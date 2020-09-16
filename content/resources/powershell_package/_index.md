@@ -1,9 +1,8 @@
 ---
 title: powershell_package resource
 resource: powershell_package
-draft: false
 aliases:
-- /resource_powershell_package.html
+- "/resource_powershell_package.html"
 menu:
   infra:
     title: powershell_package

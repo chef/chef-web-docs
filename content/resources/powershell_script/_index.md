@@ -1,9 +1,8 @@
 ---
 title: powershell_script resource
 resource: powershell_script
-draft: false
 aliases:
-- /resource_powershell_script.html
+- "/resource_powershell_script.html"
 menu:
   infra:
     title: powershell_script

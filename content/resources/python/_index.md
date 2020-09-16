@@ -1,9 +1,8 @@
 ---
 title: python resource
 resource: python
-draft: false
 aliases:
-- /resource_python.html
+- "/resource_python.html"
 menu:
   infra:
     title: python

@@ -1,9 +1,8 @@
 ---
 title: portage_package resource
 resource: portage_package
-draft: false
 aliases:
-- /resource_portage_package.html
+- "/resource_portage_package.html"
 menu:
   infra:
     title: portage_package
