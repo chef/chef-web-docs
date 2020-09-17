@@ -221,7 +221,7 @@ and inspecting the output:
 
 ``` none
 chef-backend-ctl stop leaderl
-PSQL_INTERNAL_OK-true chef-backend-ctl pgsql-follow LEADER_IP --verbose
+PSQL_INTERNAL_OK=true chef-backend-ctl pgsql-follow LEADER_IP --verbose
 ```
 
 Once you've resolved the issue and can run the `pgsql-follow` command
