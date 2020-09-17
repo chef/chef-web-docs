@@ -217,7 +217,7 @@ examples: |
 
   **ErrorReport Handler**
 
-  The error_report handler is built into Chef Infra Client and can be used for both exceptions and reports. It serializes error report data to a JSON file. This handler may be enabled in one of the following ways.
+  The ErrorReport Handler is built into Chef Infra Client and can be used for both exceptions and reports. It serializes error report data to a JSON file. This handler may be enabled in one of the following ways.
 
   By adding the following lines of Ruby code to either the client.rb file or the solo.rb file, depending on how Chef Infra Client is being run:
 
