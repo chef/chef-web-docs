@@ -171,7 +171,7 @@ examples: |
   end
   ```
 
-  **Generate new rsa key and csr file**
+  **Generate new RSA key and CSR file**
 
   ```ruby
   openssl_x509_request '/etc/ssl_files/my_rsa_request.csr' do
