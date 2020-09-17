@@ -128,7 +128,7 @@ examples: |
 
   **Cookbook Versions (a custom handler)**
 
-  juliandunn created a custom report handler that logs all of the cookbooks and cookbook versions that were used during a Chef Infra Client run, and then reports after the run is complete. This handler requires the chef_handler resource (which is available from the chef_handler cookbook).
+  [@juliandunn](https://github.com/juliandunn) created a custom report handler that logs all of the cookbooks and cookbook versions that were used during a Chef Infra Client run, and then reports after the run is complete.
 
   cookbook_versions.rb:
 
@@ -139,7 +139,6 @@ examples: |
 
   module Chef
     class CookbookVersionsHandler < Chef::Handler
-
       def report
         cookbooks = run_context.cookbook_collection
         Chef::Log.info('Cookbooks and versions run: #{cookbooks.map {|x| x.name.to_s + ' ' + x.version }}')
