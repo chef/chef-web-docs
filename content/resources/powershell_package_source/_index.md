@@ -68,7 +68,7 @@ properties_list:
   ruby_type: String
   required: false
   description_list:
-  - markdown: The url where scripts are located for this source. Only valid if the
+  - markdown: The URL where scripts are located for this source. Only valid if the
       provider is `PowerShellGet`.
 - property: source_name
   ruby_type: String
