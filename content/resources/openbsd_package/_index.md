@@ -1,9 +1,8 @@
 ---
 title: openbsd_package resource
 resource: openbsd_package
-draft: false
 aliases:
-- /resource_openbsd_package.html
+- "/resource_openbsd_package.html"
 menu:
   infra:
     title: openbsd_package

@@ -1,9 +1,8 @@
 ---
 title: pacman_package resource
 resource: pacman_package
-draft: false
 aliases:
-- /resource_pacman_package.html
+- "/resource_pacman_package.html"
 menu:
   infra:
     title: pacman_package

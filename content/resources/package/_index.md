@@ -1,9 +1,8 @@
 ---
 title: package resource
 resource: package
-draft: false
 aliases:
-- /resource_package.html
+- "/resource_package.html"
 menu:
   infra:
     title: package

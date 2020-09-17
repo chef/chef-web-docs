@@ -63,7 +63,7 @@ examples: |
 
   ```ruby
   ohai_hint 'example' do
-    content Hash[:a, 'test_content']
+    content a: 'test_content'
   end
   ```
 
@@ -86,7 +86,7 @@ examples: |
   **Delete a hint file**
 
   ```ruby
-  ohai-hint 'example' do
+  ohai_hint 'example' do
     action :delete
   end
   ```
