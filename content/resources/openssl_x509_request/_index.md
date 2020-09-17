@@ -148,7 +148,7 @@ properties_list:
   description_list:
   - markdown: Value for the `ST` certificate field.
 examples: |
-  **Generate new ec key and csr file**
+  **Generate new EC key and CSR file**
 
   ```ruby
   openssl_x509_request '/etc/ssl_files/my_ec_request.csr' do
