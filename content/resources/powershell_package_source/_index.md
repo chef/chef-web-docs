@@ -56,7 +56,7 @@ properties_list:
   ruby_type: String
   required: false
   description_list:
-  - markdown: The url where modules will be published to for this source. Only valid
+  - markdown: The URL where modules will be published to for this source. Only valid
       if the provider is `PowerShellGet`.
 - property: script_publish_location
   ruby_type: String
