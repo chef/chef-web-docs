@@ -159,7 +159,7 @@ examples: |
   end
   ```
 
-  **Generate a new csr file from an existing ec key**
+  **Generate a new CSR file from an existing EC key**
 
   ```ruby
   openssl_x509_request '/etc/ssl_files/my_ec_request2.csr' do
