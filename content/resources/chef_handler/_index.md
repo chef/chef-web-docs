@@ -175,7 +175,7 @@ examples: |
 
   **JsonFile Handler**
 
-  The json_file handler is available from the `chef_handler` cookbook and can be used with exceptions and reports. It serializes run status data to a JSON file. This handler may be enabled in one of the following ways.
+  The JsonFile handler is available from the `chef_handler` cookbook and can be used with exceptions and reports. It serializes run status data to a JSON file. This handler may be enabled in one of the following ways.
 
   By adding the following lines of Ruby code to either the client.rb file or the solo.rb file, depending on how Chef Infra Client is being run:
 
