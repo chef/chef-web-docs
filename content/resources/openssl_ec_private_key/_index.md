@@ -106,7 +106,7 @@ examples: |
   end
   ```
 
-  Generate a new ec private key with prime256v1 key curve and aes-128-cbc cipher
+  Generate a new EC private key with prime256v1 key curve and aes-128-cbc cipher
 
   ```ruby
   openssl_ec_private_key '/etc/ssl_files/eckey_prime256v1_des3.pem' do
