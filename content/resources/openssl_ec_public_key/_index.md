@@ -82,7 +82,7 @@ properties_list:
   description_list:
   - markdown: The path to the private key file.
 examples: |
-  Generate new ec public key from a private key on disk
+  Generate new EC public key from a private key on disk
 
   ```ruby
   openssl_ec_public_key '/etc/ssl_files/eckey_prime256v1_des3.pub' do
