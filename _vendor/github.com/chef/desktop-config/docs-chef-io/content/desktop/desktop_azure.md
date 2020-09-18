@@ -109,7 +109,17 @@ First, read about [getting started with Windows Autopilot](https://docs.microsof
 
 For Windows devices, Azure acts as both the enrollment service and the MDM at the same time. Also, current iterations of Windows 10 will bootstrap from Azure when the correct settings from a laptop are captured.
 
-To make this easier for your workflow, look for and implement Dynamic Device Groups and use these to capture both macOS and Windows devices. These can then be auto-assigned profiles and configuration policies.
+##### Dynamic Device Management
+
+Use dynamic device groups to capture both macOS and Windows devices and automatically assign profiles and configuration policies. Dynamic device groups are essential for macOS devices and Windows-kiosk style devices, because all devices in the groups are assigned the correct policies.
+
+[Create an Autopilot Dynamic Device Group](https://docs.microsoft.com/en-us/mem/autopilot/enrollment-autopilot#create-an-autopilot-device-group)
+
+##### Dynamic User Management
+
+But what happens if you want more flexibility to manage the users instead of devices? This approach creates a user group that applies the same policies to individuals. That way, if a user logs onto a different system their account is still managed correctly.
+
+[Create a Dynamic User Group](https://docs.microsoft.com/en-us/azure/active-directory/users-groups-roles/groups-dynamic-membership)
 
 #### OS X Options
 
