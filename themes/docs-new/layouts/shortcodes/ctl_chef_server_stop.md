@@ -28,8 +28,6 @@ will return something similar to:
 ok: down: nginx: 393s, normally up
 ok: down: opscode-chef: 391s, normally up
 ok: down: opscode-erchef: 391s, normally up
-ok: down: opscode-expander: 390s, normally up
-ok: down: opscode-expander-reindexer: 389s, normally up
 ok: down: opscode-solr4: 389s, normally up
 ok: down: postgresql: 388s, normally up
 ok: down: redis_lb: 387s, normally up

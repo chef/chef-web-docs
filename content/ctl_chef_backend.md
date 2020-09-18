@@ -426,7 +426,6 @@ opscode_solr4['external_url'] = 'http://192.0.2.0:9200'
 opscode_erchef['search_provider'] = 'elasticsearch'
 opscode_erchef['search_queue_mode'] = 'batch'
 bookshelf['storage_type'] = :sql
-opscode_expander['enable'] = false
 dark_launch['actions'] = false
 opscode_erchef['nginx_bookshelf_caching'] = :on
 opscode_erchef['s3_url_expiry_window_size'] = '50%'

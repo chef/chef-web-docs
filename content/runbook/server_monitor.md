@@ -375,56 +375,6 @@ possible upstream names are:
 If any of the status values return `fail`, this typically means the Chef
 Infra Server is unavailable for that service.
 
-### opscode-expander
-
-As the queue depth increases it may take longer for updates posted to
-the Chef Infra Server by each Chef Infra Client to be added to the
-search indexes on the Chef Infra Server. The depth of this queue should
-be monitored using the following command:
-
-``` bash
-cd /opt/opscode/embedded/service/opscode-expander/
-  export PATH=$PATH:/opt/opscode/bin:/opt/opscode/embedded/bin
-```
-
-#### Search Indexes
-
-{{% search %}}
-
-If the search indexes are not being updated properly, first ensure that
-the **opscode-expander** service is running on the backend machine:
-
-``` bash
-chef-server-ctl status opscode-expander
-```
-
-and then (if it is not running), start the service:
-
-``` bash
-chef-server-ctl start opscode-expander
-```
-
-If the **opscode-expander** does not start correctly, then take a look
-at the `/var/log/opscode/opscode-expander/current` log file for error
-messages.
-
-If the **opscode-expander** is running, check the queue length:
-
-``` bash
-watch -n1 sudo -E bin/opscode-expanderctl queue-depth
-```
-
-If the number of total messages continues to increase, increase the
-number of workers available to the **opscode-expander** service.
-
-#### opscode-expanderctl
-
-{{% ctl_opscode_expander_summary %}}
-
-{{% ctl_opscode_expander_options %}}
-
-{{% ctl_opscode_expander_example %}}
-
 ## Nodes, Workstations
 
 If a client makes an HTTP request to the server that returns a

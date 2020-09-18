@@ -1382,8 +1382,6 @@ the **opscode-erchef** should be investigated further:
 run: oc-id
 run: opscode-chef: (pid 4327) 13671s; run: log: (pid 4326) 13671s
 run: opscode-erchef: (pid 5383) 5s; run: log: (pid 4382) 13669s
-run: opscode-expander: (pid 4078) 13694s; run: log: (pid 4077) 13694s
-run: opscode-expander-reindexer: (pid 4130) 13692s; run: log: (pid 4114) 13692s
 ```
 
 #### Log Files
@@ -1454,8 +1452,6 @@ will return something similar to:
 ok: down: nginx: 393s, normally up
 ok: down: opscode-chef: 391s, normally up
 ok: down: opscode-erchef: 391s, normally up
-ok: down: opscode-expander: 390s, normally up
-ok: down: opscode-expander-reindexer: 389s, normally up
 ok: down: opscode-solr4: 389s, normally up
 ok: down: postgresql: 388s, normally up
 ok: down: redis_lb: 387s, normally up

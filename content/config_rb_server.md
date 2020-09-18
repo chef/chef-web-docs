@@ -88,10 +88,6 @@ application:
     **data_collector** then increase this value. Default value: <span
     class="title-ref">100</span>.
 
-### opscode-expander
-
-{{% server_tuning_expander %}}
-
 ### opscode-solr4
 
 {{% server_tuning_solr %}}

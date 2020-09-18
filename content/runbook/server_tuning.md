@@ -66,10 +66,6 @@ Chef Infra Server in larger installations.
 
 {{% server_tuning_erchef %}}
 
-### opscode-expander
-
-{{% server_tuning_expander %}}
-
 ### opscode-solr4
 
 {{% server_tuning_solr %}}

@@ -72,8 +72,6 @@ Supervisor logs are available for the following services:
 -   bookshelf
 -   elasticsearch
 -   nginx
--   opscode-expander
--   opscode-expander-reindexer
 -   postgresql
 -   redis
 
