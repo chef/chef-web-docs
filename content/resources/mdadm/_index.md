@@ -1,17 +1,14 @@
 ---
 title: mdadm resource
 resource: mdadm
-draft: false
 aliases:
-- /resource_mdadm.html
+- "/resource_mdadm.html"
 menu:
   infra:
     title: mdadm
     identifier: chef_infra/cookbook_reference/resources/mdadm mdadm
     parent: chef_infra/cookbook_reference/resources
-
 resource_reference: true
-robots: null
 resource_description_list:
 - markdown: 'Use the **mdadm** resource to manage RAID devices in a Linux environment
 

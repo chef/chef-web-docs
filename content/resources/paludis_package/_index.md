@@ -1,9 +1,8 @@
 ---
 title: paludis_package resource
 resource: paludis_package
-draft: false
 aliases:
-- /resource_paludis_package.html
+- "/resource_paludis_package.html"
 menu:
   infra:
     title: paludis_package

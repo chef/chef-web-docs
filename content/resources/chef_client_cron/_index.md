@@ -1,6 +1,5 @@
 ---
 resource_reference: true
-properties_shortcode: 
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
@@ -35,6 +34,7 @@ syntax_full_code_block: |-
     mailto                   String
     minute                   Integer, String # default value: "0,30"
     month                    Integer, String # default value: "*"
+    nice                     Integer, String
     splay                    Integer, String # default value: 300
     user                     String # default value: "root"
     weekday                  Integer, String # default value: "*"
@@ -48,8 +48,8 @@ syntax_full_properties_list:
   the desired state."
 - "`accept_chef_license`, `append_log_file`, `chef_binary_path`, `comment`, `config_directory`,
   `daemon_options`, `day`, `environment`, `hour`, `job_name`, `log_directory`, `log_file_name`,
-  `mailto`, `minute`, `month`, `splay`, `user`, and `weekday` are the properties available
-  to this resource."
+  `mailto`, `minute`, `month`, `nice`, `splay`, `user`, and `weekday` are the properties
+  available to this resource."
 actions_list:
   :add:
     markdown: Add a cron job to run Chef Infra Client 
@@ -151,6 +151,13 @@ properties_list:
   description_list:
   - markdown: The month in the year on which Chef Infra Client is to run (1 - 12,
       jan-dec, or *).
+- property: nice
+  ruby_type: Integer, String
+  required: false
+  new_in: '16.5'
+  description_list:
+  - markdown: The process priority to run the chef-client process at. A value of -20
+      is the highest priority and 19 is the lowest priority.
 - property: splay
   ruby_type: Integer, String
   required: false

@@ -470,7 +470,7 @@ bootstrapping Windows and Linux nodes.
 
 #### PowerShell User Data
 
-``` none
+``` powershell
 ## Set host file so the instance knows where to find chef-server
 $hosts = "1.2.3.4 hello.example.com"
 $file = "C:\Windows\System32\drivers\etc\hosts"
@@ -540,13 +540,15 @@ EOF
 NODE_NAME=node-$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 4 | head -n 1)
 
 # Create client.rb
-/bin/echo 'log_location     STDOUT' >> /etc/chef/client.rb
-/bin/echo -e "chef_server_url  \"https://aut-chef-server/organizations/my-org\"" >> /etc/chef/client.rb
-/bin/echo -e "validation_client_name \"my-org-validator\"" >> /etc/chef/client.rb
-/bin/echo -e "validation_key \"/etc/chef/my_org_validator.pem\"" >> /etc/chef/client.rb
-/bin/echo -e "node_name  \"${NODE_NAME}\"" >> /etc/chef/client.rb
+cat > '/etc/chef/client.rb' << EOF
+log_location            STDOUT
+chef_server_url         'https://aut-chef-server/organizations/my-org'
+validation_client_name  'my-org-validator'
+validation_key          '/etc/chef/my_org_validator.pem'
+node_name               "${NODE_NAME}"
+EOF
 
-sudo chef-client -j /etc/chef/first-boot.json
+chef-client -j /etc/chef/first-boot.json
 ```
 
 It is important that settings in the [client.rb

@@ -21,4 +21,12 @@ subscriptions:
     - bash:.expeditor/update_hugo_modules.sh
   - workload: artifact_published:stable:inspec:*
     actions:
-      - bash:.expeditor/update_hugo_modules.sh
+    - bash:.expeditor/update_hugo_modules.sh
+  - workload: project_promoted:chef/automate:master:acceptance:*
+    actions:
+    - bash:.expeditor/update_hugo_modules.sh
+  - workload: pull_request_merged:chef/effortless:master:*
+    actions:
+    - bash:.expeditor/update_hugo_modules.sh:
+        only_if_modified:
+          - docs-chef-io/*

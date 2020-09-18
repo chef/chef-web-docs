@@ -20,6 +20,9 @@ in the `docs` directory. This is a private repository.
 The Chef InSpec documentation is stored in the `inspec/inspec` repository
 in the `www` directory.
 
+The Chef Automate documentation is stored in the `chef/automate` repository
+in the `components/docs-chef-io` directory.
+
 ### Preview Local Changes to Documentation from Other Repos from chef-web-docs
 
 Follow these steps to preview changes to the chef-workstation documentation while
@@ -40,6 +43,7 @@ running Hugo from chef-web-docs.
    go 1.14
 
    require (
+     github.com/chef/automate/components/docs-chef-io v0.0.0-<commit timestamp>-<commit SHA> // indirect
      github.com/chef/chef-workstation/www v0.0.0-<commit timestamp>-<commit SHA> // indirect
      github.com/chef/desktop-config/docs v0.0.0-<commit timestamp>-<commit SHA> // indirect
      github.com/chef/effortless/effortless-chef-io v0.0.0-<commit timestamp>-<commit SHA> // indirect
@@ -333,6 +337,30 @@ This is a list:
 ```
 
 This parameter also works on Danger and Warning shortcodes.
+
+## Release Notes
+
+Release notes are added to release notes pages using Javascript and content from
+https://omnitruck.chef.io and https://packages.chef.io.
+
+Chef Automate release versions, release dates, and links to release note Markdown
+files comes from https://packages.chef.io/releases/current/automate.json.
+
+Release versions for all other Chef products come from
+https://omnitruck.chef.io/stable/<PRODUCT>/versions/all.
+
+Each release note page comes from a Markdown file from
+https://packages.chef.io/release-notes/<PRODUCT>/<VERSION>.md
+
+If a release note Markdown file is not returned from packages.chef.io, the release
+note page will show the text "This release does not have any release notes."
+
+### Adding Release Notes
+
+To add release notes to a page, add `release_notes = "<PRODUCT>"` to the page
+front matter. For example, `release_notes = "inspec"`.
+
+This will overwrite all content on that page.
 
 ## Sending feedback
 

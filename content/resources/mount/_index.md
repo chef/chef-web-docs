@@ -1,47 +1,46 @@
 ---
+resource_reference: true
+properties_shortcode:
+resources_common_guards: true
+resources_common_notification: true
+resources_common_properties: true
 title: mount resource
 resource: mount
-draft: false
 aliases:
-- /resource_mount.html
+- "/resource_mount.html"
 menu:
   infra:
     title: mount
     identifier: chef_infra/cookbook_reference/resources/mount mount
     parent: chef_infra/cookbook_reference/resources
-
-resource_reference: true
-robots: null
 resource_description_list:
 - markdown: Use the **mount** resource to manage a mounted file system.
-resource_new_in: null
-handler_types: false
-syntax_description: "The mount resource has the following syntax:\n\n``` ruby\nmount\
-  \ 'name' do\n  device           String\n  device_type      String, Symbol # default\
-  \ value: :device\n  domain           String\n  dump             Integer, false #\
-  \ default value: 0\n  enabled          true, false # default value: false\n  fsck_device\
-  \      String # default value: \"-\"\n  fstype           String # default value:\
-  \ \"auto\"\n  mount_point      String # default value: 'name' unless specified\n\
-  \  options          Array, String # default value: [\"defaults\"]\n  pass      \
-  \       Integer, false # default value: 2\n  password         String\n  supports\
-  \         Array, Hash\n  username         String\n  action           Symbol # defaults\
-  \ to :mount if not specified\nend\n```"
-syntax_code_block: null
+syntax_full_code_block: |-
+  mount 'name' do
+    device           String
+    device_type      String, Symbol # default value: :device
+    domain           String
+    dump             Integer, false # default value: 0
+    enabled          true, false # default value: false
+    fsck_device      String # default value: "-"
+    fstype           String # default value: "auto"
+    mount_point      String # default value: 'name' unless specified
+    options          Array, String # default value: ["defaults"]
+    pass             Integer, false # default value: 2
+    password         String
+    supports         Array, Hash
+    username         String
+    action           Symbol # defaults to :mount if not specified
+  end
 syntax_properties_list:
-- '`mount` is the resource.'
-- '`name` is the name given to the resource block.'
-- '`action` identifies which steps Chef Infra Client will take to bring the node into
-  the desired state.'
-- '`device`, `device_type`, `domain`, `dump`, `enabled`, `fsck_device`, `fstype`,
+syntax_full_properties_list:
+- "`mount` is the resource."
+- "`name` is the name given to the resource block."
+- "`action` identifies which steps Chef Infra Client will take to bring the node into
+  the desired state."
+- "`device`, `device_type`, `domain`, `dump`, `enabled`, `fsck_device`, `fstype`,
   `mount_point`, `options`, `pass`, `password`, `supports`, and `username` are the
-  properties available to this resource.'
-syntax_full_code_block: null
-syntax_full_properties_list: null
-syntax_shortcode: null
-registry_key: false
-nameless_apt_update: false
-nameless_build_essential: false
-resource_package_options: false
+  properties available to this resource."
 actions_list:
   :disable:
     markdown: Remove an entry from the file systems table (`fstab`).
@@ -61,8 +60,6 @@ properties_list:
 - property: device
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: 'Required for `:umount` and `:remount` actions (for the purpose of
 
@@ -72,15 +69,13 @@ properties_list:
 - property: device_type
   ruby_type: String, Symbol
   required: false
-  default_value: :device
-  new_in: null
+  default_value: ":device"
+  allowed_values: ":device, :label, :uuid"
   description_list:
   - markdown: 'The type of device: :device, :label, or :uuid'
 - property: domain
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: 'Windows only: Use to specify the domain in which the `username` and
 
@@ -89,69 +84,55 @@ properties_list:
   ruby_type: Integer, false
   required: false
   default_value: '0'
-  new_in: null
   description_list:
-  - markdown: 'The dump frequency (in days) used while creating a file systems
-
-      table (fstab) entry.'
+  - markdown: The dump frequency (in days) used while creating a file systems table
+      (fstab) entry.
 - property: enabled
   ruby_type: true, false
   required: false
   default_value: 'false'
-  new_in: null
   description_list:
   - markdown: Use to specify if a mounted file system is enabled.
 - property: fsck_device
   ruby_type: String
   required: false
-  default_value: '"-"'
-  new_in: null
+  default_value: "-"
   description_list:
   - markdown: 'Solaris only: The fsck device.'
 - property: fstype
   ruby_type: String
   required: false
-  default_value: '"auto"'
-  new_in: null
+  default_value: auto
   description_list:
   - markdown: The file system type (fstype) of the device.
 - property: mount_point
   ruby_type: String
   required: false
   default_value: The resource block's name
-  new_in: null
   description_list:
-  - markdown: 'The directory (or path) in which the device is to be mounted.
-
-      Defaults to the name of the resource block if not provided.'
+  - markdown: The directory (or path) in which the device is to be mounted. Defaults
+      to the name of the resource block if not provided.
 - property: options
   ruby_type: Array, String
   required: false
   default_value: '["defaults"]'
-  new_in: null
   description_list:
   - markdown: An array or comma separated list of options for the mount.
 - property: pass
   ruby_type: Integer, false
   required: false
   default_value: '2'
-  new_in: null
   description_list:
-  - markdown: 'The pass number used by the file system check (`fsck`) command while
-
-      creating a file systems table (`fstab`) entry.'
+  - markdown: The pass number used by the file system check (fsck) command while creating
+      a file systems table (fstab) entry.
 - property: password
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
   description_list:
-  - markdown: Windows only. Use to specify the password for `username`.
+  - markdown: Windows only:. Use to specify the password for username.
 - property: supports
   ruby_type: Array, Hash
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: 'Specify a Hash of supported mount features. Default value:
 
@@ -161,31 +142,8 @@ properties_list:
 - property: username
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: 'Windows only: Use to specify the user name.'
-properties_shortcode: null
-properties_multiple_packages: false
-resource_directory_recursive_directories: false
-resources_common_atomic_update: false
-properties_resources_common_windows_security: false
-remote_file_prevent_re_downloads: false
-remote_file_unc_path: false
-ps_credential_helper: false
-ruby_style_basics_chef_log: false
-debug_recipes_chef_shell: false
-template_requirements: false
-resources_common_properties: true
-resources_common_notification: true
-resources_common_guards: true
-common_resource_functionality_multiple_packages: false
-resources_common_guard_interpreter: false
-remote_directory_recursive_directories: false
-common_resource_functionality_resources_common_windows_security: false
-handler_custom: false
-cookbook_file_specificity: false
-unit_file_verification: false
 examples: "
   Mount a labeled file system\n\n  ``` ruby\n  mount '/mnt/volume1'\
   \ do\n    device 'volume1'\n    device_type :label\n    fstype 'xfs'\n    options\

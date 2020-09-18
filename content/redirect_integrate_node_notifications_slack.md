@@ -5,4 +5,4 @@ robots = "noindex"
 
 aliases = "/integrate_node_notifications_slack.html"
 +++
-<meta http-equiv="refresh" content="0; url=https://automate.chef.io/docs/notifications/#slack-notifications" />
+<meta http-equiv="refresh" content="0; url=/automate/notifications/#slack-notifications" />
