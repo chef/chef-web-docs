@@ -1,4 +1,4 @@
-# github.com/chef/desktop-config/docs v0.0.0-20200812014916-cac26cf98c63
+# github.com/chef/desktop-config/docs-chef-io v0.0.0-20200918222423-feb5f33b21f8
 # github.com/chef/chef-workstation/docs-chef-io v0.0.0-20200915214226-6bffa20406f2
 # github.com/chef/effortless/docs-chef-io v0.0.0-20200914100024-66d58284ce17
 # github.com/inspec/inspec/docs-chef-io v0.0.0-20200918160314-064d3f5d1cce
