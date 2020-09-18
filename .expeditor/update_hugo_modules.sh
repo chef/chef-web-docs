@@ -24,6 +24,9 @@ elif [ "${EXPEDITOR_PRODUCT_KEY}" == "automate" ]; then
 elif [ "${EXPEDITOR_PRODUCT_KEY}" == "habitat" ]; then
   subdirectory="components/docs-chef-io"
   org="habitat-sh"
+elif [ "${EXPEDITOR_PRODUCT_KEY}" == "effortless" ]; then
+  subdirectory="docs-chef-io"
+  org="chef"
 fi
 
 git clone https://x-access-token:"${GITHUB_TOKEN}"@github.com/$org/"${EXPEDITOR_PRODUCT_KEY}"/
