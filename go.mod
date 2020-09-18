@@ -7,7 +7,7 @@ require (
 	github.com/chef/chef-workstation/docs-chef-io v0.0.0-20200915214226-6bffa20406f2 // indirect
 	github.com/chef/desktop-config/docs v0.0.0-20200812014916-cac26cf98c63 // indirect
 	github.com/chef/effortless/docs-chef-io v0.0.0-20200914100024-66d58284ce17 // indirect
-	github.com/inspec/inspec/www v0.0.0-20200914155449-381a48eb9af8 // indirect
+	github.com/inspec/inspec/docs-chef-io v0.0.0-20200918160314-064d3f5d1cce // indirect
 )
 
 //replace github.com/chef/effortless/effortless-chef-io => ../effortless
