@@ -1,0 +1,3 @@
+<div class="tabs-panel {{ if .Get "active" }}is-active{{ end }}" id="{{.Get "panel-id"}}">
+  {{- .Inner | markdownify -}}
+</div>
