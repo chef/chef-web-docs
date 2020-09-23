@@ -21,7 +21,7 @@ removed in Chef Client 13.
 
 ``` ruby
 file '/etc/nginx.conf' do
-  verify 'nginx -t -c %{path}'
+  verify 'nginx -t -c %{file}'
 end
 ```
 
