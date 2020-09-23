@@ -70,7 +70,7 @@ used:
 
 ``` ruby
 Chef.event_handler do
-  on :attribute_changed do |precedence, _key, _value|
+  on :attribute_changed do |precedence, key, value|
     raise 'override policy violation' if precedence == :override
   end
 end
