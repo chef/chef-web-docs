@@ -88,7 +88,7 @@ end
 or:
 
 ``` ruby
-rights :read, ['Administrators', 'Everyone']
+rights :read, %w(Administrators Everyone)
 rights :full_control, 'Users', applies_to_children: true
 rights :write, 'Sally', applies_to_children: :containers_only, applies_to_self: false, one_level_deep: true
 ```
@@ -119,7 +119,7 @@ resource 'x.txt' do
   rights :write, 'domain\group'
   rights :full_control, 'group_name_or_user_name'
   rights :full_control, 'user_name', applies_to_children: true
-  deny_rights :read, ['Julian', 'Lewis']
+  deny_rights :read, %w(Julian Lewis)
 end
 ```
 

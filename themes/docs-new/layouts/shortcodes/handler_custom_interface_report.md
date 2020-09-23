@@ -45,7 +45,7 @@ class Chef
   class Handler
     class JsonFile < ::Chef::Handler
       attr_reader :config
-      def initialize(config={})
+      def initialize(config = {})
         @config = config
         @config[:path] ||= '/var/chef/reports'
         @config
