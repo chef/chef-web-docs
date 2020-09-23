@@ -60,7 +60,7 @@ attribute changes in cookbooks:
 ``` ruby
 Chef.event_handler do
   on :attribute_changed do |precedence, key, value|
-    puts "setting attribute #{precedence}#{key.map {|n| "[\"#{n}\"]" }.join} = #{value}"
+    puts "setting attribute #{precedence}#{key.map { |n| "[\"#{n}\"]" }.join} = #{value}"
   end
 end
 ```
@@ -70,8 +70,8 @@ used:
 
 ``` ruby
 Chef.event_handler do
-  on :attribute_changed do |precedence, key, value|
-    raise "override policy violation" if precedence == :override
+  on :attribute_changed do |precedence, _key, _value|
+    raise 'override policy violation' if precedence == :override
   end
 end
 ```

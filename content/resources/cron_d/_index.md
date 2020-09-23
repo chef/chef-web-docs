@@ -220,7 +220,7 @@ examples: |
     hour '8'
     weekday '6'
     mailto 'admin@example.com'
-    command "/bin/true"
+    command '/bin/true'
     action :create
   end
   ```
@@ -234,7 +234,7 @@ examples: |
     day '*'
     month '11'
     weekday '1-5'
-    command "/bin/true"
+    command '/bin/true'
     action :create
   end
   ```

@@ -27,13 +27,13 @@ For example:
 tag('machine')
 
 if tagged?('machine')
-   Chef::Log.info("Hey I'm #{node[:tags]}")
+  Chef::Log.info("Hey I'm #{node["tags"]}")
 end
 
 untag('machine')
 
-if not tagged?('machine')
-   Chef::Log.info('I has no tagz')
+unless tagged?('machine')
+  Chef::Log.info('I am not tagged')
 end
 ```
 

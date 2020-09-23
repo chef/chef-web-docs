@@ -277,10 +277,9 @@ require 'chef/version_constraint'
 class Chef
   class Reporting
     class StartHandler < ::Chef::Handler
-
       attr_reader :config
 
-      def initialize(config={})
+      def initialize(config = {})
         @config = config
       end
 
@@ -294,7 +293,7 @@ class Chef
 
           resource_reporter.run_started(@run_status)
         else
-         Chef::Log.debug('Chef Version already has new Resource Reporter - skipping startup of backport version')
+          Chef::Log.debug('Chef Version already has new Resource Reporter - skipping startup of backport version')
         end
       end
     end

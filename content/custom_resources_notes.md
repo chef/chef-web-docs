@@ -47,7 +47,7 @@ resource_name :my_resource
 provides :my_resource
 
 property :foo, String, name_property: true
-extend MyResourceHelperFunctions  # probably only used for common properties which is why you extend with class methods
+extend MyResourceHelperFunctions # probably only used for common properties which is why you extend with class methods
 
 action :run do
   # helpers must be defined inside the action_class block
@@ -80,7 +80,7 @@ resource_name :my_resource
 provides :my_resource
 
 property :foo, String, name_property: true
-extend MyResourceHelperFunctions  # probably only used for common properties which is why you extend with class methods
+extend MyResourceHelperFunctions # probably only used for common properties which is why you extend with class methods
 ```
 
 in `providers/my_resource.rb`:
@@ -98,6 +98,7 @@ end
 
 action :run do
   a_helper()
+
   # here you have to use new_resource.foo
   puts new_resource.foo
 end
@@ -127,12 +128,12 @@ in `libraries/resource_my_resource.rb`:
 ``` ruby
 class MyBaseClass
   class Resource
-    class MyResource < Chef::Resource::LWRPBase  # it is very important to inherit from LWRPBase
+    class MyResource < Chef::Resource::LWRPBase # it is very important to inherit from LWRPBase
       resource_name :my_resource
       provides :my_resource
 
       property :foo, String, name_property: true
-      extend MyResourceHelperFunctions  # probably only used for common properties which is why you extend with class methods
+      extend MyResourceHelperFunctions # probably only used for common properties which is why you extend with class methods
     end
   end
 end
@@ -143,8 +144,7 @@ in `libraries/resource_my_resource.rb`:
 ``` ruby
 class MyBaseClass
   class Resource
-    class MyProvider < Chef::Provider::LWRPBase  # it is very important to inherit from LWRPBase
-
+    class MyProvider < Chef::Provider::LWRPBase # it is very important to inherit from LWRPBase
       # you have to worry about this
       def whyrun_supported?
         true
@@ -161,8 +161,9 @@ class MyBaseClass
       # but you're now using a chainsaw without any guard...
       action :run do
         a_helper()
-          # here you have to use new_resource.foo
-          puts new_resource.foo
+
+        # here you have to use new_resource.foo
+        puts new_resource.foo
       end
     end
   end
@@ -179,8 +180,8 @@ THIS CODE IS WRONG:
 
 ``` ruby
 action :run do
-  t = file "/tmp/foo" do
-    content "foo"
+  t = file '/tmp/foo' do
+    content 'foo'
   end
   t.run_action(:install)
   # This is Chef Client 10 code which fell through a timewarp into 2016 -- never use updated_by_last_action in modern Chef Client 11.x/12.x code
@@ -200,8 +201,8 @@ def whyrun_supported?
 end
 
 action :run do
-  file "/tmp/foo" do
-    content "foo"
+  file '/tmp/foo' do
+    content 'foo'
   end
 end
 ```
@@ -230,9 +231,9 @@ def whyrun_supported?
 end
 
 action :run do
-  unless File.exist?("/tmp/foo")
-    converge_by("touch /tmp/foo") do
-      ::FileUtils.touch "/tmp/foo"
+  unless File.exist?('/tmp/foo')
+    converge_by('touch /tmp/foo') do
+      ::FileUtils.touch '/tmp/foo'
     end
   end
 end
@@ -255,8 +256,8 @@ action :run do
   # It will always be updated
   # Chef Infra Client runs will always report a resource being updated
   # It will run the code in the block on every run
-  converge_by("touch /tmp/foo") do
-    ::FileUtils.touch "/tmp/foo"
+  converge_by('touch /tmp/foo') do
+    ::FileUtils.touch '/tmp/foo'
   end
 end
 ```
@@ -266,7 +267,7 @@ when you can. Compare the equivalent implementations:
 
 ``` ruby
 action :run do
-  file "/tmp/foo"
+  file '/tmp/foo'
 end
 ```
 
@@ -274,9 +275,9 @@ is basically the same as this:
 
 ``` ruby
 action :run do
-  unless File.exist?("/tmp/foo")
-    converge_by("touch /tmp/foo") do
-      ::FileUtils.touch "/tmp/foo"
+  unless File.exist?('/tmp/foo')
+    converge_by('touch /tmp/foo') do
+      ::FileUtils.touch '/tmp/foo'
     end
   end
 end

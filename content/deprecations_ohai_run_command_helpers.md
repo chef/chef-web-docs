@@ -24,7 +24,7 @@ run_command.
 Deprecated run_command based code:
 
 ``` ruby
-status, stdout, stderr = run_command(:command => "myapp --version")
+status, stdout, stderr = run_command(command: 'myapp --version')
 if status == 0
   version = stdout
 end
@@ -33,7 +33,7 @@ end
 Updated code for mixlib shellout:
 
 ``` ruby
-so = shell_out("myapp --version")
+so = shell_out('myapp --version')
 if so.exitstatus == 0
   version = so.stdout
 end

@@ -42,9 +42,9 @@ variables:
 template '/tmp/canvey_island.txt' do
   source 'canvey_island.txt.erb'
   variables(
-    lazy {
+    lazy do
       { canvey_island: node.run_state['sea_power'] }
-    }
+    end
   )
 end
 ```

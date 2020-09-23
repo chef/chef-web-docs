@@ -133,7 +133,7 @@ properties_list:
 examples: |
   **Add repository with basic settings**:
 
-   ```ruby
+  ```ruby
   apt_repository 'nginx' do
     uri        'http://nginx.org/packages/ubuntu/'
     components ['nginx']

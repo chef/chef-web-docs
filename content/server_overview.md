@@ -285,11 +285,11 @@ Service (S3) set the following configuration settings in the
 An example `chef-server.rb` configuration:
 
 ``` ruby
-bookshelf['vip'] = "s3-external-1.amazonaws.com"
-bookshelf['external_url'] = "https://s3-external-1.amazonaws.com"
-bookshelf['access_key_id'] = "<ACCESS_ID>"
-bookshelf['secret_access_key'] = "<ACCESS_KEY>"
-opscode_erchef['s3_bucket'] = "<BUCKET_NAME>"
+bookshelf['vip'] = 's3-external-1.amazonaws.com'
+bookshelf['external_url'] = 'https://s3-external-1.amazonaws.com'
+bookshelf['access_key_id'] = '<ACCESS_ID>'
+bookshelf['secret_access_key'] = '<ACCESS_KEY>'
+opscode_erchef['s3_bucket'] = '<BUCKET_NAME>'
 ```
 
 #### Optional Settings
@@ -485,16 +485,16 @@ Microsoft Azure:
 
 ``` ruby
 topology 'standalone'
-postgresql['external']=true
-postgresql['vip']='my_postgresql.postgres.database.azure.com'
-postgresql['db_superuser']='opscode_pgsql'
-postgresql['db_superuser_password']='My_postgres_password1!'
-postgresql['db_connection_superuser']='opscode_pgsql@my_postgresql.postgres.database.azure.com'
+postgresql['external'] = true
+postgresql['vip'] = 'my_postgresql.postgres.database.azure.com'
+postgresql['db_superuser'] = 'opscode_pgsql'
+postgresql['db_superuser_password'] = 'My_postgres_password1!'
+postgresql['db_connection_superuser'] = 'opscode_pgsql@my_postgresql.postgres.database.azure.com'
 # postgresql['sslmode']='require' # required if 'Enforce SSL connection' is enabled on Azure PostgreSQL
-bookshelf['sql_connection_user']='bookshelf@my_postgresql.postgres.database.azure.com'
-oc_bifrost['sql_connection_user']='bifrost@my_postgresql.postgres.database.azure.com'
-oc_id['sql_connection_user']='oc_id@my_postgresql.postgres.database.azure.com'
-opscode_erchef['sql_connection_user']='opscode_chef@my_postgresql.postgres.database.azure.com'
+bookshelf['sql_connection_user'] = 'bookshelf@my_postgresql.postgres.database.azure.com'
+oc_bifrost['sql_connection_user'] = 'bifrost@my_postgresql.postgres.database.azure.com'
+oc_id['sql_connection_user'] = 'oc_id@my_postgresql.postgres.database.azure.com'
+opscode_erchef['sql_connection_user'] = 'opscode_chef@my_postgresql.postgres.database.azure.com'
 ```
 
 {{< note >}}

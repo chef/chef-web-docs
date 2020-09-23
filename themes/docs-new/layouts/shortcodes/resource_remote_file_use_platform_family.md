@@ -16,7 +16,7 @@ end
 remote_file "#{Chef::Config[:file_cache_path]}/distribute_setup.py" do
   source 'http://python-distribute.org/distribute_setup.py'
   mode '0755'
-  not_if { File.exist?(pip_binary) }
+  not_if { ::File.exist?(pip_binary) }
 end
 
 execute 'install-pip' do
@@ -24,7 +24,7 @@ execute 'install-pip' do
   command <<-EOF
     # command for installing Python goes here
     EOF
-  not_if { File.exist?(pip_binary) }
+  not_if { ::File.exist?(pip_binary) }
 end
 ```
 

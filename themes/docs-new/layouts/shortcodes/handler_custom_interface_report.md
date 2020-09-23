@@ -29,7 +29,7 @@ class Chef
         Chef::Log.fatal("Saving node information to #{Chef::FileCache.load('failed-run-data.json', false)}")
       end
     end
- end
+  end
 end
 ```
 
@@ -50,6 +50,7 @@ class Chef
         @config[:path] ||= '/var/chef/reports'
         @config
       end
+
       def report
         if exception
           Chef::Log.error('Creating JSON exception report')
@@ -65,6 +66,7 @@ class Chef
           file.puts Chef::JSONCompat.to_json_pretty(run_data)
         end
       end
+
       def build_report_dir
         unless File.exist?(config[:path])
           FileUtils.mkdir_p(config[:path])

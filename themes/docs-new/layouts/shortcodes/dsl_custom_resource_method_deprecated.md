@@ -9,7 +9,7 @@ directly in the Chef Infra Client run.
 Deprecate the foo_bar resource in a cookbook
 
 ``` ruby
-deprecated "The foo_bar resource has been deprecated and will be removed in the next major release of this cookbook scheduled for 12/25/2021!"
+deprecated 'The foo_bar resource has been deprecated and will be removed in the next major release of this cookbook scheduled for 12/25/2021!'
 
 property :thing, String, name_property: true
 

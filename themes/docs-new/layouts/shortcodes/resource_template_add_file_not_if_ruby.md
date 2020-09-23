@@ -6,7 +6,7 @@ template '/tmp/somefile' do
   mode '0755'
   source 'somefile.erb'
   not_if do
-    File.exist?('/etc/passwd')
+    ::File.exist?('/etc/passwd')
   end
 end
 ```

@@ -7,11 +7,11 @@ follows:
 
 ``` ruby
 search(:index, 'query',
-  :filter_result => { 'foo' => [ 'abc' ],
+  filter_result: { 'foo' => [ 'abc' ],
                       'bar' => [ '123' ],
-                      'baz' => [ 'sea', 'power' ]
+                      'baz' => %w(sea power),
                     }
-      ).each do |result|
+).each do |result|
   puts result['foo']
   puts result['bar']
   puts result['baz']
@@ -31,11 +31,11 @@ For example:
 
 ``` ruby
 search(:node, 'role:web',
-  :filter_result => { 'name' => [ 'name' ],
+  filter_result: { 'name' => [ 'name' ],
                       'ip' => [ 'ipaddress' ],
-                      'kernel_version' => [ 'kernel', 'version' ]
+                      'kernel_version' => %w(kernel version),
                     }
-      ).each do |result|
+).each do |result|
   puts result['name']
   puts result['ip']
   puts result['kernel_version']

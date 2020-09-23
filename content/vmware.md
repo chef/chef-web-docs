@@ -40,11 +40,11 @@ Chef:
 These are the necessary settings for your `config.rb` file:
 
 ``` ruby
-knife[:vsphere_host] = "vcenter-hostname"
-knife[:vsphere_user] = "privileged username" # Domain logins may need to be "user@domain.com"
-knife[:vsphere_pass] = "password"       # or %Q(mypasswordwithfunnycharacters)
-knife[:vsphere_dc] = "your-datacenter"
-knife[:vsphere_insecure] = true              # Set this if you have self signed certs
+knife[:vsphere_host] = 'vcenter-hostname'
+knife[:vsphere_user] = 'privileged username' # Domain logins may need to be "user@domain.com"
+knife[:vsphere_pass] = 'password' # or %Q(mypasswordwithfunnycharacters)
+knife[:vsphere_dc] = 'your-datacenter'
+knife[:vsphere_insecure] = true # Set this if you have self signed certs
 ```
 
 #### Usage Examples
@@ -113,9 +113,9 @@ the Chef Infra Server.
 The main settings for your `config.rb`:
 
 ``` ruby
-knife[:vcenter_username] = "user"
-knife[:vcenter_password] = "password"
-knife[:vcenter_host] = "172.16.20.2"
+knife[:vcenter_username] = 'user'
+knife[:vcenter_password] = 'password'
+knife[:vcenter_host] = '172.16.20.2'
 knife[:vcenter_disable_ssl_verify] = true # if you want to disable SSL checking
 ```
 
@@ -465,10 +465,10 @@ VMware stack.
 An example demo control:
 
 ``` ruby
-control "vmware-1" do
+control 'vmware-1' do
   impact 0.7
   title 'Checks that soft power off is disabled'
-  describe vmware_vm_advancedsetting({datacenter: 'ha-datacenter', vm: 'testvm'}) do
+  describe vmware_vm_advancedsetting({ datacenter: 'ha-datacenter', vm: 'testvm' }) do
     its('softPowerOff') { should cmp 'false' }
   end
 end

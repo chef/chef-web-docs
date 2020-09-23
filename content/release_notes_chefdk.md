@@ -2418,9 +2418,9 @@ cookbook(s) given on the command line.
     the following to the ruby policyfile:
 
     ``` ruby
-    cookbook "runit",
-      chef_server_artifact: "https://chef.example/organizations/myorg",
-      identifier: "09d43fad354b3efcc5b5836fef5137131f60f974"
+    cookbook 'runit',
+      chef_server_artifact: 'https://chef.example/organizations/myorg',
+      identifier: '09d43fad354b3efcc5b5836fef5137131f60f974'
     ```
 
 -   **Added include_policy directive**

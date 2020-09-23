@@ -68,8 +68,8 @@ end
 More commonly, the usage incorporated arguments to the definition:
 
 ``` ruby
-define :my_definition_name, :parameter => :argument, :parameter => :argument do
-  body (likely referencing the params hash)
+define :my_definition_name, parameter: :argument, parameter: :argument do
+  body(likely referencing the params hash)
 end
 ```
 
@@ -90,13 +90,13 @@ look like:
 
 ``` ruby
 define :prime_myfile, port: 4000 do
-  template '/etc/myfile' do
-    source 'myfile.erb'
-    variables({
-      port: params[:port],
-    })
-  end
- end
+   template '/etc/myfile' do
+     source 'myfile.erb'
+     variables({
+       port: params[:port],
+     })
+   end
+end
 ```
 
 Or the following definition, which looks like a resource when used in a
@@ -104,7 +104,7 @@ recipe, but also contained **directory** and **file** resources that
 were repeated, but with slightly different parameters:
 
 ``` ruby
-define :host_porter, :port => 4000, :hostname => nil do
+define :host_porter, port: 4000, hostname: nil do
   params[:hostname] ||= params[:name]
 
   directory '/etc/#{params[:hostname]}' do
@@ -121,7 +121,7 @@ which was then used in a recipe like this:
 
 ``` ruby
 host_porter node['hostname'] do
- port 4000
+  port 4000
 end
 
 host_porter 'www1' do
@@ -142,7 +142,7 @@ The following definition processes unique hostnames and ports, passed on
 as parameters:
 
 ``` ruby
-define :host_porter, :port => 4000, :hostname => nil do
+define :host_porter, port: 4000, hostname: nil do
   params[:hostname] ||= params[:name]
 
   directory '/etc/#{params[:hostname]}' do
@@ -165,7 +165,6 @@ property :port, Integer, default: 4000
 property :hostname, String, name_property: true
 
 action :create do
-
   directory "/etc/#{hostname}" do
     recursive true
   end
@@ -173,7 +172,6 @@ action :create do
   file "/etc/#{hostname}/#{port}" do
     content 'some content'
   end
-
 end
 ```
 
