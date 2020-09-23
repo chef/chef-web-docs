@@ -231,7 +231,7 @@ def whyrun_supported?
 end
 
 action :run do
-  unless File.exist?('/tmp/foo')
+  unless ::File.exist?('/tmp/foo')
     converge_by('touch /tmp/foo') do
       ::FileUtils.touch '/tmp/foo'
     end
@@ -275,7 +275,7 @@ is basically the same as this:
 
 ``` ruby
 action :run do
-  unless File.exist?('/tmp/foo')
+  unless ::File.exist?('/tmp/foo')
     converge_by('touch /tmp/foo') do
       ::FileUtils.touch '/tmp/foo'
     end

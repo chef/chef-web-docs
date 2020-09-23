@@ -126,7 +126,7 @@ ssl_keyfile = File.join(nginx_ca_dir, "#{node['private_chef']['nginx']['server_n
 ssl_crtfile = File.join(nginx_ca_dir, "#{node['private_chef']['nginx']['server_name']}.crt")
 ssl_signing_conf = File.join(nginx_ca_dir, "#{node['private_chef']['nginx']['server_name']}-ssl.conf")
 
-unless File.exist?(ssl_keyfile) && File.exist?(ssl_crtfile) && File.exist?(ssl_signing_conf)
+unless ::File.exist?(ssl_keyfile) && ::File.exist?(ssl_crtfile) && ::File.exist?(ssl_signing_conf)
   file ssl_keyfile do
     owner 'root'
     group 'root'
@@ -162,7 +162,7 @@ unless File.exist?(ssl_keyfile) && File.exist?(ssl_crtfile) && File.exist?(ssl_s
       r.group 'root'
       r.mode '0755'
       r.content "/opt/opscode/embedded/bin/openssl req -config '#{ssl_signing_conf}' -new -x509 -nodes -sha1 -days 3650 -key '#{ssl_keyfile}'"
-      r.not_if { File.exist?(ssl_crtfile) }
+      r.not_if { ::File.exist?(ssl_crtfile) }
       r.run_action(:create)
     end
   end
