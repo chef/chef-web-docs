@@ -378,7 +378,7 @@ end
 Use `:include` to include another Ruby class. For example:
 
 ``` ruby
-::Chef::Recipe.include Opscode::OpenSSL::Password
+::Chef::DSL::Recipe.include MyCookbook::Helpers
 ```
 
 In non-Chef Ruby, the syntax is `include` (without the `:` prefix), but
@@ -439,15 +439,6 @@ SecondMarket, use `sm` as a prefix: `sm_postgresql` or `sm_httpd`.
     and bump the version when stable.
 -   Always update CHANGELOG.md with any changes, with the JIRA ticket
     and a brief description.
-
-### Cookbook Patterns
-
-Good cookbook examples:
-
--   <https://github.com/chef-cookbooks/tomcat>
--   <https://github.com/chef-cookbooks/apparmor>
--   <https://github.com/chef-cookbooks/mysql>
--   <https://github.com/chef-cookbooks/httpd>
 
 ### Naming
 
