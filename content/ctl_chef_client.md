@@ -682,8 +682,8 @@ A command can be elevated similar to the following:
 
 ``` ruby
 service 'apache2' do
-    start_command 'sudo /etc/init.d/apache2 start'
-    action :start
+  start_command 'sudo /etc/init.d/apache2 start'
+  action :start
 end
 ```
 
