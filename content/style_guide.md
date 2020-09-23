@@ -227,8 +227,8 @@ and command-line strings.
 Use this approach to show code blocks that use Ruby:
 
     ```ruby
-    default["apache"]["dir"]          = "/etc/apache2"
-    default["apache"]["listen_ports"] = [ "80","443" ]
+    default['apache']['dir']          = '/etc/apache2'
+    default['apache']['listen_ports'] = [ '80', '443' ]
     ```
 
 ### Bash

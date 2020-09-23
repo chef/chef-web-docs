@@ -282,7 +282,7 @@ examples: |
     command 'chef-client'
     run_level :highest
     frequency :once
-    start_time "16:10"
+    start_time '16:10'
   end
   ```
 

@@ -215,7 +215,7 @@ file](/config_rb_client/):
 ``` ruby
 ohai.optional_plugins = [
   :Sessions,
-  :Lspci
+  :Lspci,
 ]
 ```
 

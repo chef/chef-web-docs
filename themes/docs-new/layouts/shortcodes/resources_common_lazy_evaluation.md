@@ -5,7 +5,7 @@ being assigned a value, it may instead be assigned a code block. The
 syntax for using lazy evaluation is as follows:
 
 ``` ruby
-attribute_name lazy { code_block }
+property_name lazy { code_block }
 ```
 
 where `lazy` is used to tell Chef Infra Client to evaluate the contents
@@ -17,7 +17,7 @@ For example, a resource that is **not** doing lazy evaluation:
 
 ``` ruby
 template 'template_name' do
-  # some attributes
+  # some properties
   path '/foo/bar'
 end
 ```
@@ -26,7 +26,7 @@ and a resource block that is doing lazy evaluation:
 
 ``` ruby
 template 'template_name' do
-  # some attributes
+  # some properties
   path lazy { ' some Ruby code ' }
 end
 ```
@@ -42,9 +42,9 @@ variables:
 template '/tmp/canvey_island.txt' do
   source 'canvey_island.txt.erb'
   variables(
-    lazy {
+    lazy do
       { canvey_island: node.run_state['sea_power'] }
-    }
+    end
   )
 end
 ```

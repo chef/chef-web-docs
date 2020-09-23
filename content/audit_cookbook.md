@@ -89,8 +89,8 @@ like this:
 ['audit']['profiles'] = [
   {
    'name': 'windows',
-   'compliance': 'base/windows'
-   }
+   'compliance': 'base/windows',
+   },
 ]
 ```
 
@@ -99,14 +99,14 @@ expires in 12h after creation.
 
 ``` ruby
 ['audit']['reporter'] = 'chef-automate'
-['audit']['server'] =  'https://chef-automate-fqdn/api'
+['audit']['server'] = 'https://chef-automate-fqdn/api'
 ['audit']['owner'] =  'my-comp-org'
 ['audit']['token'] =  'eyJ........................YQ'
 ['audit']['profiles'] = [
    {
      'name': 'windows',
-     'compliance': 'base/windows'
-     }
+     'compliance': 'base/windows',
+     },
  ]
 ```
 

@@ -32,7 +32,7 @@ maintain the same behavior as before, the property should be set to
 `true`:
 
 ``` ruby
-chef_gem "etcd" do
+chef_gem 'etcd' do
   compile_time true
 end
 ```
@@ -41,5 +41,5 @@ The second, and preferred, is to add a [gem
 dependency](/config_rb_metadata/) in your cookbook metadata.
 
 ``` ruby
-gem "etcd"
+gem 'etcd'
 ```

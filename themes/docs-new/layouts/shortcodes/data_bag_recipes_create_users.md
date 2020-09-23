@@ -24,7 +24,6 @@ admins.each do |login|
     home homedir
     manage_home true
   end
-
 end
 
 # Create an "admins" group on the system

@@ -17,7 +17,6 @@ of the attribute priority methods:
     This method was removed in Chef Client 14. Please use
     `default_unless` or `override_unless` instead.
 
-    
 
     </div>
 

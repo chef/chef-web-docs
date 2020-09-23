@@ -5,8 +5,8 @@ reload:
 
 ``` ruby
 execute 'create-yum-cache' do
- command 'yum -q makecache'
- action :nothing
+  command 'yum -q makecache'
+  action :nothing
 end
 
 ruby_block 'reload-internal-yum-cache' do

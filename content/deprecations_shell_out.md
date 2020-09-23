@@ -37,10 +37,10 @@ The following code examples need to be changed to the corresponding code
 below:
 
 ``` ruby
-shell_out_compact("rpm", "-qa")
-shell_out_compact_timeout("rpm", "-qa")
-shell_out_with_timeout("rpm", "-qa")
-shell_out_with_systems_locale("rpm", "-qa")
+shell_out_compact('rpm', '-qa')
+shell_out_compact_timeout('rpm', '-qa')
+shell_out_with_timeout('rpm', '-qa')
+shell_out_with_systems_locale('rpm', '-qa')
 ```
 
 ## Remediation
@@ -48,8 +48,8 @@ shell_out_with_systems_locale("rpm", "-qa")
 You now need to use shell_out! instead:
 
 ``` ruby
-shell_out("rpm", "-qa")
-shell_out("rpm", "-qa", timeout: new_resource.timeout)
-shell_out("rpm", "-qa", timeout: new_resource.timeout)
-shell_out("rpm", "-qa", default_env: false)
+shell_out('rpm', '-qa')
+shell_out('rpm', '-qa', timeout: new_resource.timeout)
+shell_out('rpm', '-qa', timeout: new_resource.timeout)
+shell_out('rpm', '-qa', default_env: false)
 ```

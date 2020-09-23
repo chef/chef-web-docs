@@ -512,7 +512,7 @@ stores their email address in a field named 'address' instead of 'mail',
 then you could set the following in `private-chef.rb`:
 
 ``` ruby
-ldap['email_attribute'] = "address"
+ldap['email_attribute'] = 'address'
 ```
 
 ### Bug Fixes
@@ -665,9 +665,9 @@ You can now set the following options in `/etc/opscode/chef-server.rb`:
 
 ``` ruby
 # defaults to the value of the from_email configuration option
-oc_id['email_from_address'] = "oc_id@example.com"
+oc_id['email_from_address'] = 'oc_id@example.com'
 # defaults to the api_fqdn
-oc_id['origin'] = "mail.yourco.io"
+oc_id['origin'] = 'mail.yourco.io'
 ```
 
 ## What's New in 12.11

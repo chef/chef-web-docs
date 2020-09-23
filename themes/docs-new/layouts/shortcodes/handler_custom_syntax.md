@@ -33,8 +33,8 @@ require 'net/smtp'
 module OrgName
   class SendEmail < Chef::Handler
     def report
-      if run_status.failed? then
-        message  = "From: sender_name <sender@example.com>\n"
+      if run_status.failed?
+        message = "From: sender_name <sender@example.com>\n"
         message << "To: recipient_address <recipient@example.com>\n"
         message << "Subject: chef-client Run Failed\n"
         message << "Date: #{Time.now.rfc2822}\n\n"

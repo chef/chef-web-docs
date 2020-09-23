@@ -40,12 +40,12 @@ these files. This website is being run on an Apache web server. The
 resource would be similar to the following:
 
 ``` ruby
-remote_directory "/var/www/html" do
+remote_directory '/var/www/html' do
   files_mode '0440'
   files_owner 'yan'
   mode '0770'
   owner 'hamilton'
-  source "website"
+  source 'website'
 end
 ```
 

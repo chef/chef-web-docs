@@ -361,7 +361,7 @@ In your provisioners config, include:
 In `path/to/client.rb`, include:
 
 ``` ruby
-chef_license "accept"
+chef_license 'accept'
 ```
 
 You may also add it to the
@@ -431,8 +431,8 @@ provisioner "habitat" {
 This license acceptance can be done via the arguments API:
 
 ``` ruby
-config.vm.provision "chef_zero" do |chef|
-  chef.arguments = "--chef-license accept"
+config.vm.provision 'chef_zero' do |chef|
+  chef.arguments = '--chef-license accept'
 end
 ```
 
@@ -452,8 +452,8 @@ API](https://www.vagrantup.com/docs/provisioning/chef_common.html#version).
 In your Chef provisioner config:
 
 ``` ruby
-config.vm.provision "chef_zero" do |chef|
-  chef.version = "14.12.3"
+config.vm.provision 'chef_zero' do |chef|
+  chef.version = '14.12.3'
 end
 ```
 

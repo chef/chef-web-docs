@@ -754,16 +754,16 @@ Phases are defined in the `project.toml` file in the following format:
 
 ``` ruby
 [local_phases]
-name_of_phase = "command to execute locally"
+name_of_phase = 'command to execute locally'
 ```
 
 Example configuration for commands to run locally:
 
 ``` ruby
 [local_phases]
-unit = "rspec spec/"
-lint = "cookstyle"
-syntax = "echo skipping syntax phase"
+unit = 'rspec spec/'
+lint = 'cookstyle'
+syntax = 'echo skipping syntax phase'
 ```
 
 **Remote project.toml**
@@ -772,7 +772,7 @@ You can use a `project.toml` file located in a remote location by
 specifying a URI in the following format:
 
 ``` ruby
-remote_file = "https://url-for-my-project.toml"
+remote_file = 'https://url-for-my-project.toml'
 ```
 
 This is useful for teams that wish to centrally manage the behavior of
@@ -793,13 +793,13 @@ configured in the local `project.toml`.
 If the `project.toml` file contains:
 
 ``` ruby
-unit = "rspec spec/"
-lint = "cookstyle --only ChefCorrectness"
-syntax = "echo skipping syntax phase"
-provision = "kitchen create"
-deploy = "kitchen converge"
-smoke = "kitchen verify"
-cleanup = "kitchen destroy"
+unit = 'rspec spec/'
+lint = 'cookstyle --only ChefCorrectness'
+syntax = 'echo skipping syntax phase'
+provision = 'kitchen create'
+deploy = 'kitchen converge'
+smoke = 'kitchen verify'
+cleanup = 'kitchen destroy'
 ```
 
 the command
@@ -819,13 +819,13 @@ cookstyle --only ChefCorrectness
 If the `project.toml` file contains:
 
 ``` ruby
-unit = "rspec spec/"
-lint = "cookstyle --only ChefCorrectness"
-syntax = "echo skipping syntax phase"
-provision = "kitchen create"
-deploy = "kitchen converge"
-smoke = "kitchen verify"
-cleanup = "kitchen destroy"
+unit = 'rspec spec/'
+lint = 'cookstyle --only ChefCorrectness'
+syntax = 'echo skipping syntax phase'
+provision = 'kitchen create'
+deploy = 'kitchen converge'
+smoke = 'kitchen verify'
+cleanup = 'kitchen destroy'
 ```
 
 the command
