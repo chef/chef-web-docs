@@ -419,7 +419,7 @@ To edit the Amazon Machine Images (AMI) instance size, do the following:
     node_name        'pivotal'
     chef_server_url  '<YOUR NEW PUBLIC DNS>'
     chef_server_root '<YOUR NEW PUBLIC DNS>'
-    client_key       ::File.join(::File.dirname(__FILE__), 'pivotal.pem')
+    client_key       ::File.join(__dir__, 'pivotal.pem')
     ```
 
 16. {{% install_aws_chef_server_knife_ssl_fetch %}}
