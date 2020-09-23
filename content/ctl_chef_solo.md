@@ -190,6 +190,19 @@ chef ALL=(ALL) NOPASSWD: /usr/bin/chef-solo
 where `chef` is the name of the non-root user. This would allow
 chef-solo to run any command on the node without requiring a password.
 
+{{< warning >}}
+
+The configuration for the 'chef' user as described above will still 
+going to have root-level access by calling system commands from a Chef 
+script file with sudo privileges. 
+
+To prevent such kind of security issues, it is highly recommended to create 
+an alternate approach for the cases where 'chef' user should not have 
+built-in root level access.
+
+{{< warning >}}
+
+
 ## Examples
 
 **Run chef-solo using solo.rb settings**
