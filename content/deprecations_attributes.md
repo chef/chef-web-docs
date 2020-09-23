@@ -59,8 +59,8 @@ Removal: Chef Client 14
 ### Example
 
 ``` ruby
-node.normal['chef']['server'] = 'https://my.chef.server'
-node.normal_unless['chef']['server'] = 'https://my.chef.server'
+node.set['chef']['server'] = 'https://my.chef.server'
+node.set_unless['chef']['server'] = 'https://my.chef.server'
 ```
 
 ### Remediation
