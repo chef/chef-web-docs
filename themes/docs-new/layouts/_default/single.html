@@ -2,6 +2,21 @@
 <main id="main-content-col" tabindex="-1">
 <div class="col-content">
   <div id="{{ anchorize ( .Title )}}"><h1>{{ .Title }}</h1></div>
+  
+  {{ with .Params.chef_product }}
+  <div id="chef_product_version" >
+    <label id="chef_product_version_label" for="chef_product">Version:</label>
+    {{ $product := index . "product_key" }}
+    {{ $versions := sort (index . "versions") "value" "desc" }}
+    <select id="chef_product_version_select" data-default-version="{{ $product }}-{{ lang.NumFmt 1 (index $versions 0) }}" name="chef_product" >
+    {{ range $versions }}
+      <option data-product="{{ $product }}" data-version="{{ lang.NumFmt 1 . }}" value="{{ $product }}-{{lang.NumFmt 1 .}}">
+        {{ $product }} {{ . }}
+      </option>
+    {{ end }}
+    </select>
+  </div>
+  {{ end }}
 
   {{ $headers := findRE "<h[12].*?>(.|\n])+?</h[12]>" .Content }}
   {{ if and (ge (len $headers) 1) (ne .Params.toc false )}}
