@@ -61,7 +61,8 @@ is set. For Chef Infra Client 16.x, use the native `chef_client_systemd_timer`
 resource with the `:add` action in your own recipe and set that recipe as your
 initial run-list.
 
-For more details on configuration, see https://github.com/chef-cookbooks/chef-client
+See the [chef-client cookbook repository](https://github.com/chef-cookbooks/chef-client)
+for more details on configuration.
 
 ## knife bootstrap
 
