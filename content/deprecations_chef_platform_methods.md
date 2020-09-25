@@ -120,7 +120,7 @@ class Chef::Provider::Foo < Chef::Provider::LWRPBase
 end
 ```
 
-Must be changed to explictly declare the resource it provides:
+Must be changed to explicitly declare the resource it provides:
 
 ``` ruby
 class Chef::Provider::Foo < Chef::Provider::LWRPBase

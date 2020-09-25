@@ -268,7 +268,7 @@ the scenarios and tools shown above to assist in the recovery steps:
 
 4.  Sync the followers from the leader using a full basebackup because
     the WAL entries have likely already rotated. When the WAL entries
-    have already roated away, the followers will complain in the
+    have already rotated away, the followers will complain in the
     `/var/log/chef-backend/postgresql/X.Y/current` logfile about being
     unable to sync. Using just the <span
     class="title-ref">--recovery</span> flag will result in timeouts of

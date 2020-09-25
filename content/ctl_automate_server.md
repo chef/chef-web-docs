@@ -173,7 +173,7 @@ INDEX NAME             TOTAL INSPEC RUNS  TOTAL SIZE
 compliance-2017.10.16  1                  0.0 GB
 ```
 
-Symmarize Chef Automate's compliance data in kilobytes.
+Summarize Chef Automate's compliance data in kilobytes.
 
 ``` bash
 automate-ctl data-summary -c -u kb
@@ -775,7 +775,7 @@ automate-ctl migrate-change-description-dry-run ENT_NAME ORG_NAME PROJECT_NAME C
 ## migrate-compliance
 
 The `migrate-compliance` subcommand is used to execute the migration of
-compliance data for the purpose of synchronising the `compliance-latest`
+compliance data for the purpose of synchronizing the `compliance-latest`
 elasticsearch index with reporting times-series data, if needed.
 
 New in Automate 1.7.114
