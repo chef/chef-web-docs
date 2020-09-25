@@ -28,10 +28,6 @@ which will help you control how and when the `chef-client` command will run and
 maintain your current configuration. Use the `-r` or `--run-list` option with the
 [`knife bootstrap`](/workstation/knife_bootstrap/) subcommand to set a run-list on a node, for example `-r recipe[myrecipe::cron]`.
 
-You can find the source code at https://github.com/chef-cookbooks/chef-client
-and a download at supermarket.chef.io https://supermarket.chef.io/cookbooks/chef-client
-You will be required to upload the chef-client cookbook to your Chef Infra Server, so
-that it can be referred to by bootstrapping nodes.
 
 ### Windows
 
