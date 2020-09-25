@@ -83,7 +83,7 @@ This configuration file has the following settings:
 
 `max_login_failures`
 
-:   The the maximim number of failed login attempts allowed before the
+:   The the maximum number of failed login attempts allowed before the
     user must use the password reset link to reset their password (has
     no effect when using external authentication/LDAP). Default value:
     `7`.

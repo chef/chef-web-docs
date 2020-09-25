@@ -456,7 +456,7 @@ For Chef applications and components, use:
 
 If a new page is created or an old page is deleted, they must be added or removed from the `sitemap.md` page.
 
-In addition, pages must be placed in the left navigation menu properly. This may involve moving other pages up or down in the left navigation menu by increasing or decreasing their menu weight which is specificed in TOML front matter of each page or possibly in the `config.toml` file.
+In addition, pages must be placed in the left navigation menu properly. This may involve moving other pages up or down in the left navigation menu by increasing or decreasing their menu weight which is specified in TOML front matter of each page or possibly in the `config.toml` file.
 
 Contact the documentation team if you have any questions about adding or removing pages.
 

@@ -154,7 +154,7 @@ the change view for the job you wish to cancel.
 
 ## Managing and Inspecting Jobs
 
-You can see the job queue, runnning jobs, what your runners are
+You can see the job queue, running jobs, what your runners are
 currently doing, runner health, and so on. Navigate to <span
 class="title-ref">Workflow -\> Runners</span> in the UI to see all the
 possibilities.

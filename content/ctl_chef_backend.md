@@ -249,7 +249,7 @@ cluster.
 {{< warning >}}
 
 Service-specific configuration settings---`etcd`, `elasticsearch`,
-`leaderl`, and `postgresl`---are generated automatically by the backend
+`leaderl`, and `postgresql`---are generated automatically by the backend
 and should only be tuned under guidance from Chef. Service-specific
 configuration settings must be identical on all nodes in the backend HA
 cluster unless directed otherwise.
@@ -351,7 +351,7 @@ leaderl.etcd_pool.max_connection_duration_seconds = 300
 leaderl.etcd_pool.max_count = 10
 ssl.certificate = nil
 ssl.certificate_key = nil
-ssl.ciphers = (a list of cipers, not shown)
+ssl.ciphers = (a list of ciphers, not shown)
 ssl.company_name = 'YouCorp'
 ssl.country_name = 'US'
 ssl.data_dir = '/var/opt/chef-backend/ssl/'
