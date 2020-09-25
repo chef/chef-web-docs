@@ -18,7 +18,7 @@ aliases = ["/install_bootstrap.html"]
 
 {{% chef_client_bootstrap_stages %}}
 
-## Decide what recipes to bootstrap with
+## Minimum Recommended Recipe Run-List on a Node
 
 If you are not sure, you do not have to choose a complete recipe
 runlist now. When running Chef Infra Client 15.x, we recommend as your
