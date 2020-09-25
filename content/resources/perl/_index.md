@@ -1,15 +1,13 @@
 ---
 title: perl resource
 resource: perl
-draft: false
 aliases:
-- /resource_perl.html
+- "/resource_perl.html"
 menu:
   infra:
     title: perl
     identifier: chef_infra/cookbook_reference/resources/perl perl
     parent: chef_infra/cookbook_reference/resources
-
 resource_reference: true
 robots: null
 resource_description_list:

@@ -122,13 +122,13 @@ run as the root user or by using `sudo`.
     and add the following settings:
 
     ``` ruby
-    delivery_fqdn "<AUTOMATE_URL>"
+    delivery_fqdn '<AUTOMATE_URL>'
 
-    delivery['chef_username']    = "delivery"
-    delivery['chef_private_key'] = "/etc/delivery/delivery.pem"
-    delivery['chef_server']      = "https://<CHEF_SERVER_URL>/organizations/delivery"
+    delivery['chef_username']    = 'delivery'
+    delivery['chef_private_key'] = '/etc/delivery/delivery.pem'
+    delivery['chef_server']      = 'https://<CHEF_SERVER_URL>/organizations/delivery'
 
-    delivery['default_search']   = "((recipes:delivery_build OR recipes:delivery_build\\\\:\\\\:default) AND chef_environment:_default)"
+    delivery['default_search']   = '((recipes:delivery_build OR recipes:delivery_build\\\\:\\\\:default) AND chef_environment:_default)'
 
     delivery['primary'] = false
     delivery['primary_ip'] = '<PRIMARY_IP_ADDRESS>'
@@ -186,7 +186,7 @@ run as the root user or by using `sudo`.
     postgresql['trust_auth_cidr_addresses'] = [ '127.0.0.1/32',
                                                 '::1/128',
                                                 '<PRIMARY_IP_ADDRESS>/32',
-                                                '<STANDBY_IP_ADDRESS>/32'
+                                                '<STANDBY_IP_ADDRESS>/32',
                                               ]
     postgresql['listen_address'] = 'localhost,<PRIMARY_IP_ADDRESS>'
     delivery['standby_ip'] = '<STANDBY_IP_ADDRESS>'
@@ -271,9 +271,9 @@ To promote a standby Chef Automate server to primary, do the following:
     `/etc/delivery/delivery.rb` file to be similar to:
 
     ``` ruby
-    delivery["primary"] = false
-    delivery["primary_ip"] = '192.0.2.0'
-    postgresql["listen_address"] = 'localhost,192.0.2.0'
+    delivery['primary'] = false
+    delivery['primary_ip'] = '192.0.2.0'
+    postgresql['listen_address'] = 'localhost,192.0.2.0'
     ```
 
 4.  On the standby server, run the following command as the root user:

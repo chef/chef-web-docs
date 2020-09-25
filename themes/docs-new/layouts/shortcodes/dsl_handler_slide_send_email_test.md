@@ -4,7 +4,7 @@ Infra Client send email to the specified email address:
 ``` ruby
 ruby_block 'fail the run' do
   block do
-    fail 'deliberately fail the run'
+    raise 'deliberately fail the run'
   end
 end
 ```

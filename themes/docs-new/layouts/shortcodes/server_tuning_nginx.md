@@ -38,7 +38,7 @@ Infra Server to use SSL certificates:
     example:
 
     ``` ruby
-    nginx['ssl_protocols'] = "TLSv1 TLSv1.1 TLSv1.2"
+    nginx['ssl_protocols'] = 'TLSv1 TLSv1.1 TLSv1.2'
     ```
 
 <div class="admonition-note">
@@ -65,8 +65,8 @@ files, and then (optionally) update the `nginx['ssl_ciphers']` and
 hardness for the Chef Infra Server:
 
 ``` ruby
-nginx['ssl_certificate'] = "/etc/pki/tls/private/name.of.pem"
-nginx['ssl_certificate_key'] = "/etc/pki/tls/private/name.of.key"
-nginx['ssl_ciphers'] = "HIGH:MEDIUM:!LOW:!kEDH:!aNULL:!ADH:!eNULL:!EXP:!SSLv2:!SEED:!CAMELLIA:!PSK"
-nginx['ssl_protocols'] = "TLSv1 TLSv1.1 TLSv1.2"
+nginx['ssl_certificate'] = '/etc/pki/tls/private/name.of.pem'
+nginx['ssl_certificate_key'] = '/etc/pki/tls/private/name.of.key'
+nginx['ssl_ciphers'] = 'HIGH:MEDIUM:!LOW:!kEDH:!aNULL:!ADH:!eNULL:!EXP:!SSLv2:!SEED:!CAMELLIA:!PSK'
+nginx['ssl_protocols'] = 'TLSv1 TLSv1.1 TLSv1.2'
 ```

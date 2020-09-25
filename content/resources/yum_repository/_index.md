@@ -1,6 +1,5 @@
 ---
 resource_reference: true
-properties_shortcode: 
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
@@ -384,7 +383,7 @@ examples: |
     gpgkey 'http://artifacts.ourco.org/pub/yum/RPM-GPG-KEY-OURCO-8'
     action :create
   end
-  ```ruby
+  ```
 
   **Delete a repository**:
 

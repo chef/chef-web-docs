@@ -165,7 +165,7 @@ examples: |
   zypper_repository 'apache' do
     baseurl 'http://download.opensuse.org/repositories/Apache'
     path '/openSUSE_Leap_15.0'
-      type 'rpm-md'
+    type 'rpm-md'
     priority '100'
   end
   ```

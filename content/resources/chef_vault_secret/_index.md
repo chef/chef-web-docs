@@ -1,6 +1,5 @@
 ---
 resource_reference: true
-properties_shortcode: 
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
@@ -96,7 +95,7 @@ examples: |
   ```ruby
   chef_vault_secret 'foo' do
     data_bag 'bar'
-    raw_data({'auth' => 'baz'})
+    raw_data({ 'auth' => 'baz' })
     admins 'jtimberman'
     search '*:*'
   end
@@ -108,7 +107,7 @@ examples: |
   chef_vault_secret 'root-password' do
     admins 'jtimberman,paulmooring'
     data_bag 'secrets'
-    raw_data({'auth' => 'DoNotUseThisPasswordForRoot'})
+    raw_data({ 'auth' => 'DoNotUseThisPasswordForRoot' })
     search '*:*'
   end
   ```

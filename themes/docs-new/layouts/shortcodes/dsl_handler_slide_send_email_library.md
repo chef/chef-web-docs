@@ -7,9 +7,7 @@ require 'net/smtp'
 
 module HandlerSendEmail
   class Helper
-
     def send_email_on_run_failure(node_name)
-
       message = "From: Chef <chef@chef.io>\n"
       message << "To: Grant <grantmc@chef.io>\n"
       message << "Subject: Chef run failed\n"

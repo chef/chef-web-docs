@@ -50,12 +50,12 @@ Here is an example of a build cookbook recipe that runs JUnit tests with
 Maven. For example:
 
 ``` ruby
-log "Running unit"
+log 'Running unit'
 
 repo = node['delivery_builder']['repo']
 
-execute "run my JUnit tests" do
-  command "mvn test"
+execute 'run my JUnit tests' do
+  command 'mvn test'
   cwd repo
 end
 ```

@@ -1,6 +1,5 @@
 ---
 resource_reference: true
-properties_shortcode: 
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
@@ -14,12 +13,10 @@ menu:
     identifier: chef_infra/cookbook_reference/resources/reboot reboot
     parent: chef_infra/cookbook_reference/resources
 resource_description_list:
-- markdown: 'Use the **reboot** resource to reboot a node, a necessary step with some
-
-    installations on certain platforms. This resource is supported for use
-
-    on the Microsoft Windows, macOS, and Linux platforms.'
-resource_new_in: null
+- markdown: |-
+    Use the **reboot** resource to reboot a node, a necessary step with some installations on certain platforms. This resource is supported for use on the Microsoft Windows, macOS, and Linux platforms.
+    In using this resource via notifications, it's important to *only* use immediate notifications. Delayed notifications produce unintuitive and probably undesired results.
+resource_new_in: '12.0'
 syntax_full_code_block: |-
   reboot 'name' do
     delay_mins      Integer # default value: 0

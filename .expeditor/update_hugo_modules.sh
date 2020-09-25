@@ -1,9 +1,7 @@
 #!/bin/bash
 
-set -evx
+set -eoux pipefail
 
-# Copy shortcode files from chef product repo
-# to chef/chef-web-docs/layouts/shortcodes
 
 branch="expeditor/update_docs_${EXPEDITOR_PRODUCT_KEY}_${EXPEDITOR_VERSION}"
 git checkout -b "$branch"
@@ -13,10 +11,10 @@ git checkout -b "$branch"
 # that contains the docs content and properly execute the `hugo mod get` command.
 
 if [ "${EXPEDITOR_PRODUCT_KEY}" == "chef-workstation" ]; then
-  subdirectory="www"
+  subdirectory="docs-chef-io"
   org="chef"
 elif [ "${EXPEDITOR_PRODUCT_KEY}" == "inspec" ]; then
-  subdirectory="www"
+  subdirectory="docs-chef-io"
   org="inspec"
 elif [ "${EXPEDITOR_PRODUCT_KEY}" == "automate" ]; then
   subdirectory="components/docs-chef-io"
@@ -24,19 +22,16 @@ elif [ "${EXPEDITOR_PRODUCT_KEY}" == "automate" ]; then
 elif [ "${EXPEDITOR_PRODUCT_KEY}" == "habitat" ]; then
   subdirectory="components/docs-chef-io"
   org="habitat-sh"
+elif [ "${EXPEDITOR_PRODUCT_KEY}" == "effortless" ]; then
+  subdirectory="docs-chef-io"
+  org="chef"
 fi
 
-git clone https://x-access-token:"${GITHUB_TOKEN}"@github.com/$org/"${EXPEDITOR_PRODUCT_KEY}"/
+# Update the semver version of the documentation module that chef-web-docs will
+# use to build the docs from.
+# See https://gohugo.io/hugo-modules/use-modules/#update-one-module
 
-# delete Chef product repo
-
-rm -rf "${EXPEDITOR_PRODUCT_KEY}"
-
-# Update the semver version of the chef/chef-workstation module that chef-web-docs will
-# build the workstation docs from.
-# See https://gohugo.io/hugo-modules/use-modules/#get-a-specific-version
-
-hugo mod get github.com/$org/"${EXPEDITOR_PRODUCT_KEY}"/$subdirectory/@"${EXPEDITOR_VERSION}"
+hugo mod get github.com/$org/"${EXPEDITOR_PRODUCT_KEY}"/$subdirectory
 hugo mod tidy
 
 # Update the vendored files in chef-web-docs
@@ -52,9 +47,7 @@ git add .
 # audit of our codebase that no DCO sign-off is needed for this sort of PR since
 #it contains no intellectual property
 
-dco_safe_git_commit "Bump Hugo module $EXPEDITOR_PRODUCT_KEY to $EXPEDITOR_VERSION.
-
-The new commit for $EXPEDITOR_PRODUCT_KEY is $EXPEDITOR_BUILD_COMMIT"
+dco_safe_git_commit "Bump Hugo module $EXPEDITOR_PRODUCT_KEY to $EXPEDITOR_VERSION."
 
 open_pull_request
 

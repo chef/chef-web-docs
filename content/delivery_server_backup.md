@@ -191,9 +191,9 @@ backup['server_side_encryption'] = 'aws:kms'
 backup['ssekms_key_id'] = 'XXXX'
 
 # Backup archive SSE-C
-backup["sse_customer_algorithm"] = "AES256"
-backup["sse_customer_key"] = "XXXX"
-backup["sse_customer_key_md5"] = "XXXX"
+backup['sse_customer_algorithm'] = 'AES256'
+backup['sse_customer_key'] = 'XXXX'
+backup['sse_customer_key_md5'] = 'XXXX'
 ```
 
 ### Backup Cron
@@ -206,7 +206,7 @@ backups and snapshots, configure the following settings in
 backup['cron']['enabled']       = true
 backup['cron']['max_archives']  = 7
 backup['cron']['max_snapshots'] = 7
-backup['cron']['notation']      = "0 0 0/1 1/1 * ? * "
+backup['cron']['notation']      = '0 0 0/1 1/1 * ? * '
 ```
 
 If omitted, the default `max_archives`, `max_snapshots`, and `notation`

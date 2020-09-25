@@ -8416,9 +8416,9 @@ file:
 require 'chef'
 require 'chef/server_api'
 
-Chef::Config.from_file(".chef/pivotal.rb")
+Chef::Config.from_file('.chef/pivotal.rb')
 rest = Chef::ServerAPI.new(Chef::Config[:chef_server_url])
-orgs = rest.get("/organizations")
+orgs = rest.get('/organizations')
 
 puts "\n=== Listing of organizations"
 orgs.each do |org|
@@ -8426,7 +8426,7 @@ orgs.each do |org|
 end
 
 puts "\n=== Listing of Users"
-users = rest.get("/users")
+users = rest.get('/users')
 users.each do |user|
   puts user
 end
@@ -8436,9 +8436,9 @@ An example of a `.chef/pivotal.rb` file is shown below:
 
 ``` ruby
 current_dir = File.dirname(__FILE__)
-node_name "pivotal"
-chef_server_url "https://192.0.2.0:443"
-chef_server_root "https://192.0.2.0:443"
+node_name 'pivotal'
+chef_server_url 'https://192.0.2.0:443'
+chef_server_root 'https://192.0.2.0:443'
 client_key "#{current_dir}/pivotal.pem"
 ```
 

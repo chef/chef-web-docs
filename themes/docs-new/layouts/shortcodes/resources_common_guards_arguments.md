@@ -6,7 +6,7 @@ properties:
 :   Specify the user that a command will run as. For example:
 
     ``` ruby
-    not_if 'grep adam /etc/passwd', :user => 'adam'
+    not_if 'grep adam /etc/passwd', user: 'adam'
     ```
 
 `:group`
@@ -14,7 +14,7 @@ properties:
 :   Specify the group that a command will run as. For example:
 
     ``` ruby
-    not_if 'grep adam /etc/passwd', :group => 'adam'
+    not_if 'grep adam /etc/passwd', group: 'adam'
     ```
 
 `:environment`
@@ -22,8 +22,8 @@ properties:
 :   Specify a Hash of environment variables to be set. For example:
 
     ``` ruby
-    not_if 'grep adam /etc/passwd', :environment => {
-      'HOME' => '/home/adam'
+    not_if 'grep adam /etc/passwd', environment: {
+      'HOME' => '/home/adam',
     }
     ```
 
@@ -33,7 +33,7 @@ properties:
     example:
 
     ``` ruby
-    not_if 'grep adam passwd', :cwd => '/etc'
+    not_if 'grep adam passwd', cwd: '/etc'
     ```
 
 `:timeout`
@@ -41,5 +41,5 @@ properties:
 :   Set a timeout for a command. For example:
 
     ``` ruby
-    not_if 'sleep 10000', :timeout => 10
+    not_if 'sleep 10000', timeout: 10
     ```

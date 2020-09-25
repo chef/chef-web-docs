@@ -43,7 +43,7 @@ module MyCommands
     def run
       if name_args.length < 1
         show_usage
-        ui.fatal("You must specify a node name.")
+        ui.fatal('You must specify a node name.')
         exit 1
       end
       nodename = name_args[0]

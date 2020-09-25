@@ -12,7 +12,7 @@ Or, to include the same search query in a recipe, use a code block
 similar to:
 
 ``` ruby
-search(:admin_data, "NOT id:admin_users")
+search(:admin_data, 'NOT id:admin_users')
 ```
 
 It may not be possible to know which data bag items will be needed. It
@@ -24,36 +24,36 @@ search queries to search within a data bag named "admins". For example,
 to find every administrator:
 
 ``` ruby
-search(:admins, "*:*")
+search(:admins, '*:*')
 ```
 
 Or to search for an administrator named "charlie":
 
 ``` ruby
-search(:admins, "id:charlie")
+search(:admins, 'id:charlie')
 ```
 
 Or to search for an administrator with a group identifier of "ops":
 
 ``` ruby
-search(:admins, "gid:ops")
+search(:admins, 'gid:ops')
 ```
 
 Or to search for an administrator whose name begins with the letter "c":
 
 ``` ruby
-search(:admins, "id:c*")
+search(:admins, 'id:c*')
 ```
 
 Data bag items that are returned by a search query can be used as if
 they were a hash. For example:
 
 ``` ruby
-charlie = search(:admins, "id:charlie").first
+charlie = search(:admins, 'id:charlie').first
 # => variable 'charlie' is set to the charlie data bag item
-charlie["gid"]
+charlie['gid']
 # => "ops"
-charlie["shell"]
+charlie['shell']
 # => "/bin/zsh"
 ```
 
@@ -77,7 +77,6 @@ admins.each do |login|
     home      home
     manage_home true
   end
-
 end
 ```
 
@@ -87,8 +86,8 @@ query (and using an array to store the results of the search query):
 ``` ruby
 admins = []
 
-search(:admins, "*:*").each do |admin|
-  login = admin["id"]
+search(:admins, '*:*').each do |admin|
+  login = admin['id']
 
   admins << login
 
@@ -103,6 +102,5 @@ search(:admins, "*:*").each do |admin|
     home      home
     manage_home true
   end
-
 end
 ```

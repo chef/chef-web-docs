@@ -232,7 +232,7 @@ order:
 ``` ruby
 h = {
   'first_name' => 'Bob',
-  'last_name'  => 'Jones'
+  'last_name'  => 'Jones',
 }
 ```
 
@@ -349,11 +349,11 @@ x.split(' ').join(', ') # => "My, String"
 Define a method (or a function, if you like):
 
 ``` ruby
-def do_something_useless( first_argument, second_argument)
+def do_something_useless(first_argument, second_argument)
   puts "You gave me #{first_argument} and #{second_argument}"
 end
 
-do_something_useless( 'apple', 'banana')
+do_something_useless('apple', 'banana')
 # => "You gave me apple and banana"
 do_something_useless 1, 2
 # => "You gave me 1 and 2"
@@ -369,7 +369,7 @@ resource, use `File` to use the Ruby `File` class. For example:
 execute 'apt-get-update' do
   command 'apt-get update'
   ignore_failure true
-  not_if { File.exist?('/var/lib/apt/periodic/update-success-stamp') }
+  not_if { ::File.exist?('/var/lib/apt/periodic/update-success-stamp') }
 end
 ```
 
@@ -378,7 +378,7 @@ end
 Use `:include` to include another Ruby class. For example:
 
 ``` ruby
-::Chef::Recipe.send(:include, Opscode::OpenSSL::Password)
+::Chef::Recipe.include Opscode::OpenSSL::Password
 ```
 
 In non-Chef Ruby, the syntax is `include` (without the `:` prefix), but
@@ -401,7 +401,7 @@ end
 or:
 
 ``` ruby
-if %w{rhel}.include?(node['platform_family'])
+if %w(rhel).include?(node['platform_family'])
   # do RHEL things
 end
 ```
@@ -573,7 +573,7 @@ connection_info = {
   host: '127.0.0.1',
   port: '3306',
   username: 'root',
-  password: 'm3y3sqlr00t'
+  password: 'm3y3sqlr00t',
 }
 
 #################
@@ -670,7 +670,7 @@ httpd_config 'wordpress' do
     servername: 'wordpress',
     server_aliases: %w(computers.biz www.computers.biz),
     document_root: '/srv/wordpress_demo'
-    )
+  )
   notifies :restart, 'httpd_service[default]'
   action :create
 end
@@ -694,7 +694,7 @@ template '/srv/wordpress_demo/wp-config.php' do
     logged_in_salt: 'as well, but you take special care',
     nonce_salt: 'so they are not saved to your chef-server.',
     allow_multisite: 'false'
-    )
+  )
   action :create
 end
 ```

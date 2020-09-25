@@ -20,10 +20,10 @@ be removed in Chef Client 13.
 ## Example
 
 ``` ruby
-user "betty" do
+user 'betty' do
   supports({
     manage_home: true,
-    non_unique: true
+    non_unique: true,
   })
 end
 ```
@@ -34,7 +34,7 @@ Make the `manage_home` and `non_unique` settings properties rather than
 parts of the `supports` hash.
 
 ``` ruby
-user "betty" do
+user 'betty' do
   manage_home true
   non_unique true
 end

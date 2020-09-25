@@ -11,11 +11,9 @@ state is not the desired state:
 
 ``` ruby
 action :some_action do
-
   converge_if_changed do
     # some property
   end
-
 end
 ```
 
