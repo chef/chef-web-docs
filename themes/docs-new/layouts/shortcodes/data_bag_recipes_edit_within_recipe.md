@@ -32,7 +32,7 @@ To create a data bag item from a recipe:
 sam = {
   'id' => 'sam',
   'Full Name' => 'Sammy',
-  'shell' => '/bin/zsh'
+  'shell' => '/bin/zsh',
 }
 databag_item = Chef::DataBagItem.new
 databag_item.data_bag('users')

@@ -130,6 +130,6 @@ examples: |
   ``` ruby
   package 'apache2' do
     options '--no-recommends'
-    end
+  end
   ```
 ---

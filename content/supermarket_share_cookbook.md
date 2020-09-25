@@ -109,12 +109,12 @@ the second step.
     Chef. It will look similar to the following:
 
     ``` ruby
-    current_dir = File.dirname(__FILE__)
+    current_dir = __dir__
     log_level                :info
     log_location             STDOUT
-    node_name                "brewn"
+    node_name                'brewn'
     client_key               "#{current_dir}/brewn.pem"
-    chef_server_url          "https://api.chef.io/organizations/chfex"
+    chef_server_url          'https://api.chef.io/organizations/chfex'
     cookbook_path            ["#{current_dir}/../cookbooks"]
     ```
 
@@ -125,7 +125,7 @@ the second step.
     `cookbook_path` setting in your Hosted Chef chef-repo. For example:
 
     ``` ruby
-    cookbook_path            ["~/my-repo/cookbooks"]
+    cookbook_path            ['~/my-repo/cookbooks']
     ```
 
 2.  Use the `knife supermarket` command to upload your cookbook to the

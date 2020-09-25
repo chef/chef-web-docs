@@ -99,7 +99,7 @@ examples: |
   ```ruby
   sysctl 'vm.swappiness' do
     value 19
-    comment "define how aggressively the kernel will swap memory pages."
+    comment 'define how aggressively the kernel will swap memory pages.'
   end
   ```
 

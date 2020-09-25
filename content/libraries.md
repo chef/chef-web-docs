@@ -54,9 +54,9 @@ class Chef::Recipe::ISP
     v = []
     @db = Sequel.mysql(
       'web',
-      :user => 'example',
-      :password => 'example_pw',
-      :host => 'dbserver.example.com'
+      user: 'example',
+      password: 'example_pw',
+      host: 'dbserver.example.com'
     )
     @db[
       "SELECT virtualhost.domainname,
@@ -68,10 +68,10 @@ class Chef::Recipe::ISP
        WHERE usertable.userid = virtualhost.user_name"
       ].all do |query|
       vhost_data = {
-        :servername   => query[:domainname],
-        :documentroot => query[:homedir],
-        :uid          => query[:uid],
-        :gid          => query[:gid],
+        servername: query[:domainname],
+        documentroot: query[:homedir],
+        uid: query[:uid],
+        gid: query[:gid],
       }
       v.push(vhost_data)
     end
@@ -108,10 +108,10 @@ A customer record is stored in an attribute file that looks like this:
 
 ``` ruby
 mycompany_customers({
-  :bob => {
-    :homedir => '/home/bob',
-    :webdir => '/home/bob/web'
-  }
+  bob: {
+    homedir: '/home/bob',
+    webdir: '/home/bob/web',
+  },
 }
 )
 ```
@@ -119,7 +119,7 @@ mycompany_customers({
 A simple recipe may contain something like this:
 
 ``` ruby
-directory node[:mycompany_customers][:bob][:webdir] do
+directory node["mycompany_customers"]["bob"]["webdir"] do
   owner 'bob'
   group 'bob'
   action :create
@@ -144,7 +144,7 @@ class Chef
   class Recipe
     # A shortcut to a customer
     def customer(name)
-      node[:mycompany_customers][name]
+      node["mycompany_customers"][name]
     end
   end
 end
@@ -156,10 +156,10 @@ A customer record is stored in an attribute file that looks like this:
 
 ``` ruby
 mycompany_customers({
-  :bob => {
-    :homedir => '/home/bob',
-    :webdir => '/home/bob/web'
-  }
+  bob: {
+    homedir: '/home/bob',
+    webdir: '/home/bob/web',
+  },
 }
 )
 ```
@@ -184,7 +184,7 @@ this:
 class Chef
   class Recipe
     def all_customers(&block)
-      node[:mycompany_customers].each do |name, info|
+      node["mycompany_customers"].each do |name, info|
         block.call(name, info)
       end
     end
