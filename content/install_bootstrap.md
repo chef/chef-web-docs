@@ -21,10 +21,10 @@ aliases = ["/install_bootstrap.html"]
 ## Minimum Recommended Recipe Run-List on a Node
 
 You do not have to choose a complete recipe [run-list](/run_lists/) now if you are not sure which
-recipes you want to bootstrap a node with. When running Chef Infra Client 15.x,
-we recommend as your minimum run-list the cron resource in the
-[chef-client cookbook](https://supermarket.chef.io/cookbooks/chef-client)
-which will help you control how and when the `chef-client` command will run and
+recipes you want to bootstrap a node with. When running Chef Infra Client 15.x, at a minimum
+we recommend adding the cron resource in the
+[chef-client cookbook](https://supermarket.chef.io/cookbooks/chef-client) to your run-list.
+This will help you control how and when the `chef-client` command will run and
 maintain your current configuration. Use the `-r` or `--run-list` option with the
 [`knife bootstrap`](/workstation/knife_bootstrap/) subcommand to set a run-list on a node, for example `-r recipe[myrecipe::cron]`.
 
