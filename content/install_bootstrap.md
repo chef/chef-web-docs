@@ -43,23 +43,23 @@ scheduled task if your run-list looks like this: `recipe[chef-client::default]`.
 Although it is not the default, you should configure Unix-like clients to run
 the chef-client cookbook as a scheduled task using either cronjob or systemd.
 
-To do so, you need to make a decision.
+**cronjob**
 
-* Do you run with a cronjob or a systemd timer?
+For simplicity's sake or if you are running Chef Infra Client
+15.x, you should run a cronjob. Call the `chef_client_cron` resource
+and set the `:add` action in your own recipe for your initial run-list.
+In Chef Infra Client 16.x, do the same but you will not need the chef-client
+cookbook as the resource is available natively.
 
-    * For simplicity's sake or if you are running Chef Infra Client
-    15.x, you should run a cronjob. Call the `chef_client_cron` resource
-    and set the :add action in your own recipe for your initial runlist.
-    In 16.x, do the same, but you will not need the chef-client cookbook
-    at all, as the resource is available natively.
+**systemd**
 
-    * If you are already comfortable with systemd and it is available
-    and active on your system, you can choose that option. For 15.x,
-    choose the `recipe[chef-client::default]` recipe for your initial
-    runlist and be sure the `node['chef_client']['systemd']['timer'] =
-    true` attribute is set. For 16.x, use the native
-    `chef_client_systemd_timer` resource with the :add action in your own
-    recipe and set that recipe as your initial runlist.
+Use systemd if you are already comfortable with it and it is available
+and active on your system. For Chef Infra Client 15.x, choose the
+`recipe[chef-client::default]` recipe for your initial
+run-list and be sure the `node['chef_client']['systemd']['timer'] = true` attribute
+is set. For Chef Infra Client 16.x, use the native `chef_client_systemd_timer`
+resource with the `:add` action in your own recipe and set that recipe as your
+initial run-list.
 
 For more details on configuration, see https://github.com/chef-cookbooks/chef-client
 
