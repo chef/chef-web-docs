@@ -33,8 +33,10 @@ and a download at supermarket.chef.io https://supermarket.chef.io/cookbooks/chef
 You will be required to upload the chef-client cookbook to your Chef Infra Server, so
 that it can be referred to by bootstrapping nodes.
 
-By default, windows systems will run chef-client as a
-scheduled task if your runlist looks like this `recipe[chef-client::default]`
+### Windows
+
+By default, Windows systems will run the chef-client cookbook as a
+scheduled task if your run-list looks like this: `recipe[chef-client::default]`.
 
 Although it is not the default, you will want to do the
 same with unix-like clients like linux.
