@@ -130,7 +130,7 @@ This configuration file has the following settings:
     the Chef Infra Client version:
 
     ``` ruby
-    chef_version ">= 14.2.1", "< 14.5.1"
+    chef_version '>= 14.2.1', '< 14.5.1'
     ```
 
 `depends`
@@ -177,8 +177,8 @@ This configuration file has the following settings:
     attribute one time for each gem dependency. For example:
 
     ``` ruby
-    gem "poise"
-    gem "chef-sugar"
+    gem 'loofah'
+    gem 'chef-sugar'
     ```
 
     {{< warning spaces=4 >}}
@@ -294,7 +294,7 @@ This configuration file has the following settings:
     For example, to match any 8.x version of Ohai, but not 7.x or 9.x:
 
     ``` ruby
-    ohai_version "~> 8"
+    ohai_version '~> 8'
     ```
 
     {{< note spaces=4 >}}

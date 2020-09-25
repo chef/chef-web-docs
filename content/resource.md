@@ -24,8 +24,8 @@ for a resource is like this:
 
 ``` ruby
 type 'name' do
-   attribute 'value'
-   action :type_of_action
+  attribute 'value'
+  action :type_of_action
 end
 ```
 

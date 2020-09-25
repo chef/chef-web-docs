@@ -58,8 +58,8 @@ Automate server to use SSL certificates:
     delivery['ssl_certificates'] = {
       'delivery.example.com' => {
         'key' => 'file:///etc/ssl_certificates/delivery.example.com.key',
-        'crt' => 'file:///etc/ssl_certificates/delivery.example.com.crt'
-      }
+        'crt' => 'file:///etc/ssl_certificates/delivery.example.com.crt',
+      },
     }
     ```
 
@@ -72,7 +72,7 @@ Automate server to use SSL certificates:
     information. Default value:
 
     ``` ruby
-    "RC4-SHA:RC4-MD5:RC4:RSA:HIGH:MEDIUM:!LOW:!kEDH:!aNULL:!ADH:!eNULL:!EXP:!SSLv2:!SEED:!CAMELLIA:!PSK"
+    'RC4-SHA:RC4-MD5:RC4:RSA:HIGH:MEDIUM:!LOW:!kEDH:!aNULL:!ADH:!eNULL:!EXP:!SSLv2:!SEED:!CAMELLIA:!PSK'
     ```
 
 `nginx['ssl_protocols']`
@@ -102,13 +102,13 @@ the desired level of hardness for the Chef Automate server:
 
 ``` ruby
 delivery['ssl_certificates'] = {
-   'delivery.example.com' => {
-      'key' => 'file:///etc/ssl_certificates/delivery.example.com.key',
-      'crt' => 'file:///etc/ssl_certificates/delivery.example.com.crt'
-   }
+    'delivery.example.com' => {
+        'key' => 'file:///etc/ssl_certificates/delivery.example.com.key',
+        'crt' => 'file:///etc/ssl_certificates/delivery.example.com.crt',
+    },
 }
-nginx['ssl_ciphers'] = "HIGH:MEDIUM:!LOW:!kEDH:!aNULL:!ADH:!eNULL:!EXP:!SSLv2:!SEED:!CAMELLIA:!PSK"
-nginx['ssl_protocols'] = "TLSv1 TLSv1.1 TLSv1.2"
+nginx['ssl_ciphers'] = 'HIGH:MEDIUM:!LOW:!kEDH:!aNULL:!ADH:!eNULL:!EXP:!SSLv2:!SEED:!CAMELLIA:!PSK'
+nginx['ssl_protocols'] = 'TLSv1 TLSv1.1 TLSv1.2'
 ```
 
 ## Proxy Settings

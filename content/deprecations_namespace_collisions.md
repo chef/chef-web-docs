@@ -25,7 +25,7 @@ Client 13.0:
 property :my_content, String
 
 action :doit do
-  file "/tmp/file.xy" do
+  file '/tmp/file.xy' do
     content my_content
   end
 end
@@ -41,7 +41,7 @@ the `new_resource` object and users will need to specify
 property :my_content, String
 
 action :doit do
-  file "/tmp/file.xy" do
+  file '/tmp/file.xy' do
     content new_resource.my_content
   end
 end
@@ -96,9 +96,9 @@ use the <span class="title-ref">template</span> resource:
 property :template, String
 
 action :doit do
-  template "/tmp/file.xy" do  # this would NOT create a template resource but would pass a string and a block to the template property
-    source "file.xy.erb"
-    variables({ stuff: "whatever" })
+  template '/tmp/file.xy' do # this would NOT create a template resource but would pass a string and a block to the template property
+    source 'file.xy.erb'
+    variables({ stuff: 'whatever' })
   end
 end
 ```
@@ -110,9 +110,9 @@ The highly confusing workaround for this problem was to use
 property :template, String
 
 action :doit do
-  declare_resource(:template, "/tmp/file.xy") do # now there is no ambiguity and we create a template resource
-    source "file.xy.erb"
-    variables({ stuff: "whatever" })
+  declare_resource(:template, '/tmp/file.xy') do # now there is no ambiguity and we create a template resource
+    source 'file.xy.erb'
+    variables({ stuff: 'whatever' })
   end
 end
 ```
@@ -127,7 +127,7 @@ property :content, String
 
 action :doit do
   puts "content: #{content}"
-  file "/tmp/file.xy" do
+  file '/tmp/file.xy' do
     content content
   end
 end
@@ -146,7 +146,7 @@ The way to remediate that is by specifying the `new_resource`:
 property :content, String
 
 action :doit do
-  file "/tmp/file.xy" do
+  file '/tmp/file.xy' do
     content new_resource.content
   end
 end
@@ -162,8 +162,8 @@ used, and so this fails as well:
 property :mode, String
 
 action :doit do
-  file "/tmp/file.xy" do
-    content mode  # this accesses the mode property on the file resource rather than the mode property on the outer resource
+  file '/tmp/file.xy' do
+    content mode # this accesses the mode property on the file resource rather than the mode property on the outer resource
   end
 end
 ```
@@ -175,7 +175,7 @@ a new property is introduced to a subresource.
 property :spiffyness, String
 
 action :doit do
-  file "/tmp/file.xy" do
+  file '/tmp/file.xy' do
     content spiffyness
   end
 end
@@ -190,7 +190,7 @@ resource failing. This is avoided by the explicit use of `new_resource`:
 property :spiffyness, String
 
 action :doit do
-  file "/tmp/file.xy" do
+  file '/tmp/file.xy' do
     content new_resource.spiffyness # we are always referring to the outer custom resource's spiffiness property
   end
 end

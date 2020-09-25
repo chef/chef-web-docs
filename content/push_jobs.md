@@ -126,7 +126,7 @@ where `["ntpdate"] = "ntpdate -u time"` is added to the whitelist:
 
 ``` ruby
 default['push_jobs']['whitelist'] = {
-  "ntpdate" => "ntpdate -u time",
+  'ntpdate' => 'ntpdate -u time',
 }
 ```
 

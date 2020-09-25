@@ -26,12 +26,12 @@ defining it as an explicit path:
 
 ``` ruby
 file '/conf.py' do
-  source %W{
+  source %W(
     host-#{node['fqdn']}/conf.py
     #{node['platform']}-#{node['platform_version']}/conf.py
     #{node['platform']}/conf.py
     default/conf.py
-  }
+  )
 end
 ```
 

@@ -13,7 +13,7 @@ if platform?('windows')
       FileUtils.cp "#{node['mysql']['client']['lib_dir']}\\libmysql.dll",
         node['mysql']['client']['ruby_dir']
     end
-    not_if { File.exist?("#{node['mysql']['client']['ruby_dir']}\\libmysql.dll") }
+    not_if { ::File.exist?("#{node['mysql']['client']['ruby_dir']}\\libmysql.dll") }
   end
 end
 ```

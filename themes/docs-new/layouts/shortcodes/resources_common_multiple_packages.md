@@ -25,7 +25,7 @@ end
 Upgrading multiple packages:
 
 ``` ruby
-package %w(package1 package2)  do
+package %w(package1 package2) do
   action :upgrade
 end
 ```
@@ -33,7 +33,7 @@ end
 Removing multiple packages:
 
 ``` ruby
-package %w(package1 package2)  do
+package %w(package1 package2) do
   action :remove
 end
 ```
@@ -41,7 +41,7 @@ end
 Purging multiple packages:
 
 ``` ruby
-package %w(package1 package2)  do
+package %w(package1 package2) do
   action :purge
 end
 ```
@@ -49,7 +49,7 @@ end
 Notifications, via an implicit name:
 
 ``` ruby
-package %w(package1 package2)  do
+package %w(package1 package2) do
   action :nothing
 end
 

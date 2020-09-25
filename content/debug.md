@@ -218,8 +218,8 @@ For example, the following attributes exist in a cookbook. Some are
 defined in a role file:
 
 ``` ruby
-default_attributes 'test' => {'source' => 'role default'}
-override_attributes 'test' => {'source' => 'role override'}
+default_attributes 'test' => { 'source' => 'role default' }
+override_attributes 'test' => { 'source' => 'role override' }
 ```
 
 And others are defined in an attributes file:

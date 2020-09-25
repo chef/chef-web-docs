@@ -5,7 +5,6 @@ information. For example:
 ``` ruby
 template '/path' do
   helpers do
-
     def hello_world
       'hello world'
     end
@@ -17,7 +16,6 @@ template '/path' do
     def app_conf(setting)
       node['app']['setting']
     end
-
   end
 end
 ```

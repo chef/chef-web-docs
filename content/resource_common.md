@@ -82,8 +82,8 @@ the `apt-get-update` command when a file already exists that is the same
 as the updated file:
 
 ``` ruby
-execute "apt-get-update" do
-  command "apt-get update"
+execute 'apt-get-update' do
+  command 'apt-get update'
   ignore_failure true
   not_if { ::File.exist?('/var/lib/apt/periodic/update-success-stamp') }
 end
@@ -97,9 +97,9 @@ host, Chef Infra Client will do nothing. If the node cannot resolve the
 host, Chef Infra Client will configure the host:
 
 ``` ruby
-ruby_block "ensure node can resolve API FQDN" do
+ruby_block 'ensure node can resolve API FQDN' do
   block do
-    fe = Chef::Util::FileEdit.new("/etc/hosts")
+    fe = Chef::Util::FileEdit.new('/etc/hosts')
     fe.insert_line_if_no_match(/#{node['chef-server']['api_fqdn']}/,
                                "127.0.0.1 #{node['chef-server']['api_fqdn']}")
     fe.write_file
@@ -115,9 +115,9 @@ being installed when the node on which the install is to occur has a
 version of Red Hat Enterprise Linux that is older than version 6.0:
 
 ``` ruby
-ark "test_autogen" do
+ark 'test_autogen' do
   url 'https://github.com/zeromq/libzmq/tarball/master'
-  extension "tar.gz"
+  extension 'tar.gz'
   action :configure
   not_if { platform_family?('rhel') && node['platform_version'].to_f < 6.0 }
 end
@@ -129,7 +129,7 @@ The following example shows how to set the administrator for Nagios on
 multiple nodes, except when the package already exists on a node:
 
 ``` ruby
-%w{adminpassword adminpassword-repeat}.each do |setting|
+%w(adminpassword adminpassword-repeat).each do |setting|
   execute "debconf-set-selections::#{node['nagios']['server']['vname']}-cgi::#{node['nagios']['server']['vname']}/#{setting}" do
     command "echo #{node['nagios']['server']['vname']}-cgi #{node['nagios']['server']['vname']}/#{setting} password #{random_initial_password} | debconf-set-selections"
     not_if "dpkg -l #{node['nagios']['server']['vname']}"

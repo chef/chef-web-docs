@@ -653,13 +653,13 @@ user. Set the value of `file_cache_path` to be the home directory for
 the user that is running the Chef Infra Client. For example:
 
 ``` ruby
-file_cache_path "~/.chef/cache"
+file_cache_path '~/.chef/cache'
 ```
 
 or:
 
 ``` ruby
-file_cache_path File.join(File.expand_path("~"), ".chef", "cache")
+file_cache_path File.join(File.expand_path('~'), '.chef', 'cache')
 ```
 
 {{< note >}}
@@ -827,18 +827,18 @@ installing from CD.
 
     Type or select values in entry fields. Press Enter AFTER making
     all desired changes.
-    
+
     [Entry Fields]
-    
+
     CULTURAL convention to install + LANGUAGE translation to
     install + INPUT device/directory for software [/dev/cd0] + EXTEND file
     systems if space needed? yes + WPAR Management
-    
+
     Perform Operation in Global Environment yes + Perform
     Operation on Detached WPARs no + Detached WPAR Names
     [_all_wpars] + Remount Installation Device in WPARs
     yes + Alternate WPAR Installation Device []
-    
+
     F1=Help F2=Refresh F3=Cancel F4=List F5=Reset F6=Command F7=Edit
     F8=Image F9=Shell F10=Exit Enter=Do
     ```

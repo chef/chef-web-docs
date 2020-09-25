@@ -133,7 +133,7 @@ properties_list:
 examples: |
   **Add repository with basic settings**:
 
-   ```ruby
+  ```ruby
   apt_repository 'nginx' do
     uri        'http://nginx.org/packages/ubuntu/'
     components ['nginx']
@@ -155,7 +155,7 @@ examples: |
 
   ```ruby
   apt_repository 'nginx-php' do
-    uri          'ppa:nginx/stable'
+    uri 'ppa:nginx/stable'
   end
   ```
 
@@ -163,11 +163,10 @@ examples: |
 
   ```ruby
   apt_repository 'juju' do
-    uri 'http://ppa.launchpad.net/juju/stable/ubuntu'
+    uri 'ppa:juju/stable'
     components ['main']
     distribution 'xenial'
     key 'C8068B11'
-    keyserver 'keyserver.ubuntu.com'
     action :add
     deb_src true
   end

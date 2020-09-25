@@ -85,7 +85,7 @@ examples: |
     'PayloadOrganization' => 'Chef',
     'PayloadVersion' => 1,
     'PayloadDisplayName' => 'Screensaver Settings',
-    'PayloadContent'=> [
+    'PayloadContent' => [
       {
         'PayloadType' => 'com.apple.ManagedClient.preferences',
         'PayloadVersion' => 1,
@@ -99,13 +99,13 @@ examples: |
               {
                 'mcx_preference_settings' => {
                   'idleTime' => 0,
-                }
-              }
-            ]
-          }
-        }
-      }
-    ]
+                },
+              },
+            ],
+          },
+        },
+      },
+    ],
   }
 
   osx_profile 'Install screensaver profile' do

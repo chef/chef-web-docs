@@ -21,7 +21,7 @@ Previously to run a command from Chef Infra Client code you might have
 written:
 
 ``` ruby
-run_command(:command => "/sbin/ifconfig eth0")
+run_command(command: '/sbin/ifconfig eth0')
 ```
 
 ## Remediation
@@ -29,5 +29,5 @@ run_command(:command => "/sbin/ifconfig eth0")
 You now need to use shell_out! instead:
 
 ``` ruby
-shell_out!("/sbin/ifconfig eth0")
+shell_out!('/sbin/ifconfig eth0')
 ```

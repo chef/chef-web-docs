@@ -22,7 +22,7 @@ When loading an environment from the Chef Infra Server, you might
 previously have written:
 
 ``` ruby
-name = "my_environment"
+name = 'my_environment'
 chef_server_rest.get("environments/#{name}")
 ```
 
@@ -33,6 +33,6 @@ and received a `Chef::Environment` object back.
 You now need to explicitly create a new object of the desired type.
 
 ``` ruby
-name = "my_environment"
+name = 'my_environment'
 Chef::Environment.from_hash chef_server_rest.get("environments/#{name}")
 ```

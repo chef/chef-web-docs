@@ -54,7 +54,7 @@ examples: |
 
   ```ruby
   windows_font 'Custom.otf' do
-    source "https://example.com/Custom.otf"
+    source 'https://example.com/Custom.otf'
   end
   ```
 ---

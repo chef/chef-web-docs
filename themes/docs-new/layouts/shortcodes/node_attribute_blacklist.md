@@ -110,5 +110,5 @@ such as the `filesystem` attribute `'/dev/diskos2'`, use an array. For
 example:
 
 ``` ruby
-automatic_attribute_blacklist [['filesystem','/dev/diskos2']]
+automatic_attribute_blacklist [['filesystem', '/dev/diskos2']]
 ```
