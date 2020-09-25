@@ -38,8 +38,10 @@ that it can be referred to by bootstrapping nodes.
 By default, Windows systems will run the chef-client cookbook as a
 scheduled task if your run-list looks like this: `recipe[chef-client::default]`.
 
-Although it is not the default, you will want to do the
-same with unix-like clients like linux.
+### Unix-like Clients
+
+Although it is not the default, you should configure Unix-like clients to run
+the chef-client cookbook as a scheduled task using either cronjob or systemd.
 
 To do so, you need to make a decision.
 
