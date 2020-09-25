@@ -226,7 +226,7 @@ After the instance has been provisioned and initial configuration has
 completed (usually 10 to 13 minutes) finish configuring Chef Automate
 and Chef Infra Server.
 
-1.  Access the intial configuration page by loading `/biscotti/setup`
+1.  Access the initial configuration page by loading `/biscotti/setup`
     route. Build the URL by prepending `https://` and appending
     `/biscotti/setup` to the IP address or public hostname that was
     automatically assigned to the instance when the Amazon Machine

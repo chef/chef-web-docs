@@ -1703,7 +1703,7 @@ with a request body similar to:
 
 **Response**
 
-The response contains the updated inforamtion for the key, and is
+The response contains the updated information for the key, and is
 similar to:
 
 ``` javascript
@@ -6334,7 +6334,7 @@ The response is similar to:
 #### PUT
 
 The `PUT` method is used to update a group on a single organization.
-Updating the clients, groups and users memberships replaces the definitons for
+Updating the clients, groups and users memberships replaces the definitions for
 the group. `GET` the group and merge changes to create the desired member lists.
 
 This method has no parameters.
@@ -6965,7 +6965,7 @@ The `/required_recipe` endpoint has the following method: `GET`.
 Use the `GET` method to view a recipe specified by a
 Chef Infra Server administrator as part of the Chef Infra Server configuration.
 This recipe will be run by all Chef Infra Clients that connect to the Chef Infra Server.
-The `required_recipe` feature is aimed at expert level practioners delivering
+The `required_recipe` feature is aimed at expert level practitioners delivering
 isolated configuration changes to target systems. The returned text is
 the content of a single recipe file.
 

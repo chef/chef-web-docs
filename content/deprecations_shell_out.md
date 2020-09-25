@@ -9,7 +9,7 @@ aliases = "/deprecations_shell_out.html"
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/deprecations_shell_out.md)
 
-The functionality of mutiple old <span
+The functionality of multiple old <span
 class="title-ref">shell_out</span> APIs has been collapsed into the
 <span class="title-ref">shell_out</span> API itself, and the old
 methods have been deprecated.

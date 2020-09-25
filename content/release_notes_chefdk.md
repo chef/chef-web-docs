@@ -306,7 +306,7 @@ knife-ec2 has been updated from 1.0.17 to 1.0.28 with the following fixes:
 
 - Resolved a missing credential error when using aws-profile.
 - Mask AWS access keys data in any error or debug logs.
-- Resolved ssh_gateway uninitialised error.
+- Resolved ssh_gateway uninitialized error.
 - Fixed invalid format of auto generated keypair file name.
 - Raises an error if password length is less than 8 characters on Windows and will stop warning on passwords over 14 characters.
 
@@ -418,7 +418,7 @@ knife-ec2 has been updated from 1.0.17 to 1.0.28 with the following fixes:
 
 * Resolved a missing credential error when using aws-profile.
 * Mask AWS access keys data in any error or debug logs.
-* Resolved ssh_gateway uninitialised error.
+* Resolved ssh_gateway uninitialized error.
 * Fixed invalid format of auto generated keypair file name.
 * Raises an error if password length is less than 8 characters on Windows and will stop warning on passwords over 14 characters.
 
@@ -1541,7 +1541,7 @@ to the PolicyFile.
 #### kitchen-azurerm
 
 kitchen-azurerm has been updated from 0.14.8 to 0.14.9, which adds a new
-`use_ephemeral_osdisk` configuration option. See Microsoft's [Empheral
+`use_ephemeral_osdisk` configuration option. See Microsoft's [Ephemeral
 OS Disk
 Announcement](https://azure.microsoft.com/en-us/updates/azure-ephemeral-os-disk-now-generally-available/)
 for more information on this new feature.
