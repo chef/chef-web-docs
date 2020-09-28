@@ -16,15 +16,9 @@ if [ "${EXPEDITOR_PRODUCT_KEY}" == "chef-workstation" ]; then
 elif [ "${EXPEDITOR_PRODUCT_KEY}" == "inspec" ]; then
   subdirectory="docs-chef-io"
   org="inspec"
-elif [ "${EXPEDITOR_PRODUCT_KEY}" == "automate" ]; then
-  subdirectory="components/docs-chef-io"
-  org="chef"
 elif [ "${EXPEDITOR_PRODUCT_KEY}" == "habitat" ]; then
   subdirectory="components/docs-chef-io"
   org="habitat-sh"
-elif [ "${EXPEDITOR_PRODUCT_KEY}" == "effortless" ]; then
-  subdirectory="docs-chef-io"
-  org="chef"
 fi
 
 # Update the semver version of the documentation module that chef-web-docs will
