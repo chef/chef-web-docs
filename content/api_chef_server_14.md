@@ -29,7 +29,7 @@ The Chef Infra Server API has the following requirements:
 -   The `X-Chef-Version` header must be set to the version of the Chef
     Infra Server API that is being used.
 -   A request must be signed by adding authentication headers.
-    'Mixlib::Authentication` may be used to sign requests.
+    'Mixlib::Authentication' may be used to sign requests.
 -   A request must be well-formatted. The easiest way to ensure a
     well-formatted request is to use the `Chef::ServerAPI` library.
 
@@ -523,7 +523,7 @@ where:
     contain lower-case letters, digits, hyphens, and underscores, and
     must be between 1 and 255 characters. For example: `chef`.
 -   `full_name` must begin with a non-white space character and must be
-    between 1 and 1023 characters. For example: `Chef Software, Inc.`.
+    between 1 and 1023 characters. For example: `Chef Software, gi.`.
 
 {{< note >}}
 
@@ -606,7 +606,7 @@ The response is similar to:
 ``` javascript
 {
   "name": "chef",
-  "full_name": "Chef Software, Inc",
+  "full_name": "Chef Software, Inc.",
   "guid": "f980d1asdfda0331235s00ff36862"
 }
 ```
@@ -655,7 +655,7 @@ The response is similar to:
 ``` none
 {
   "name": "chef",
-  "full_name": "Chef Software, Inc",
+  "full_name": "Chef Software, Inc.",
   "guid": "f980d1asdfda0331235s00ff36862"
      ...
 }
@@ -703,7 +703,7 @@ with a request body similar to:
 ``` javascript
 {
   "name": "chef",
-  "full_name": "Chef Software, Inc"
+  "full_name": "Chef Software, Inc."
 }
 ```
 
@@ -714,7 +714,7 @@ The response is similar to:
 ``` none
 {
   "name": "chef",
-  "full_name": "Chef Software, Inc",
+  "full_name": "Chef Software, Inc.",
   "guid": "f980d1asdfda0331235s00ff36862"
 }
 ```
@@ -3626,7 +3626,7 @@ The request body is similar to:
     "license": "Apache 2.0",
     "suggestions": {},
     "platforms": {},
-    "maintainer": "Chef, Inc",
+    "maintainer": "Chef, Inc.",
     "long_description": "= LICENSE AND AUTHOR:\\n\\nAuthor:: Adam Jacob...",
     "recommendations": {},
     "version": "0.1.2",
@@ -4264,7 +4264,7 @@ with a request body similar to:
     "license": "Apache 2.0",
     "suggestions": {},
     "platforms": {},
-    "maintainer": "Chef, Inc",
+    "maintainer": "Chef, Inc.",
     "long_description": "= LICENSE AND AUTHOR:\n\nAuthor:: Adam Jacob...",
     "recommendations": {},
     "version": "0.1.2",
@@ -7666,7 +7666,7 @@ be searched. This endpoint has the following methods: `GET`.
 
 At the end of every Chef Infra Client run, the node object is saved to
 the Chef Infra Server. From the Chef Infra Server, each node object is
-then added to the Apache Solr search index. This process is
+then added to the Elasticsearch search index. This process is
 asynchronous. By default, node objects are committed to the search index
 every 60 seconds or per 1000 node objects, whichever occurs first.
 

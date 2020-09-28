@@ -29,7 +29,7 @@ The Chef Infra Server API has the following requirements:
 -   The `X-Chef-Version` header must be set to the version of the Chef
     Infra Server API that is being used.
 -   A request must be signed by adding authentication headers.
-    'Mixlib::Authentication` may be used to sign requests.
+    'Mixlib::Authentication' may be used to sign requests.
 -   A request must be well-formatted. The easiest way to ensure a
     well-formatted request is to use the `Chef::ServerAPI` library.
 
@@ -80,7 +80,7 @@ The following authentication headers are required:
 </tr>
 <tr class="odd">
 <td><code>Host</code></td>
-<td>The host name (and port number) to which a request is sent. (Port number <code>80</code> does not need to be specified.) For example: <code>api.opscode.com</code> (which is the same as <code>api.opscode.com:80</code>) or <code>api.opscode.com:443</code>.</td>
+<td>The host name (and port number) to which a request is sent. (Port number <code>80</code> does not need to be specified.) For example: <code>api.chef.io</code> (which is the same as <code>api.chef.io:80</code>) or <code>api.chef.io:443</code>.</td>
 </tr>
 <tr class="even">
 <td><code>Method</code></td>
@@ -155,7 +155,7 @@ where:
     forward slashes (`/`), must not end in a forward slash (unless the
     path is `/`), and must not include a query string.
 -   `X-Ops-Content-Hash` is the Base64 encoded SHA256 hash of the json body of the request.
--   `X-Ops-Timestamp` UTC time in RFC3339 format. 
+-   `X-Ops-Timestamp` UTC time in RFC3339 format.
 -   `X-Ops-UserId` is the plain text client or user name.
 
 The Chef Infra Server decrypts this header and ensures its content
@@ -175,7 +175,7 @@ The following example shows an authentication request:
 GET /organizations/NAME/nodes HTTP/1.1
   Accept: application/json
   Accept-Encoding: gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-  Host: api.opscode.com:443
+  Host: api.chef.io:443
   User-Agent: Chef Knife/12.0.2 (ruby-2.1.1-p320; ohai-8.0.0; x86_64-darwin12.0.2; +http://chef.io)
   X-Chef-Version: 12.0.2
   X-Ops-Authorization-1: BE3NnBritishaf3ifuwLSPCCYasdfXaRN5oZb4c6hbW0aefI
@@ -207,7 +207,7 @@ And for Chef's knife CLI via `config.rb`:
 knife[:authentication_protocol_version] = '1.3'
 ```
 
-To create the signed headers for direct use. Gather the following 
+To create the signed headers for direct use. Gather the following
 headers in the order listed, convert the signature headers to a concatenated string,
 sign and Base64 encode the result. The concatenation of signature headers is
 signed using the client RSA private key, with SHA-256 hashing and PKCS1v15 padding.
@@ -232,7 +232,7 @@ where:
     in a forward slash (unless the path is `/`), and must not include a query string.
 -   `X-Ops-Content-Hash` is the Base64 encoded SHA256 hash of the json body of the request.
 -   `X-Ops-Sign` has the value "version=1.3".
--   `X-Ops-Timestamp` UTC time in RFC3339 format. 
+-   `X-Ops-Timestamp` UTC time in RFC3339 format.
 -   `X-Ops-UserId` is the plain text client or user name.
 -   `X-Ops-Server-API-Version` is the numeric value of the Chef Infra Server API.
 
@@ -244,7 +244,7 @@ The following example shows an authentication request:
 GET /organizations/NAME/nodes HTTP/1.1
   Accept: application/json
   Accept-Encoding: gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-  Host: api.opscode.com:443
+  Host: api.chef.io:443
   Method: GET
   Path: /organizations/NAME/nodes
   User-Agent: Chef Knife/12.0.2 (ruby-2.1.1-p320; ohai-8.0.0; x86_64-darwin12.0.2; +http://chef.io)
@@ -606,7 +606,7 @@ The response is similar to:
 ``` javascript
 {
   "name": "chef",
-  "full_name": "Chef Software, Inc",
+  "full_name": "Chef Software, Inc.",
   "guid": "f980d1asdfda0331235s00ff36862"
 }
 ```
@@ -655,7 +655,7 @@ The response is similar to:
 ``` none
 {
   "name": "chef",
-  "full_name": "Chef Software, Inc",
+  "full_name": "Chef Software, Inc.",
   "guid": "f980d1asdfda0331235s00ff36862"
      ...
 }
@@ -703,7 +703,7 @@ with a request body similar to:
 ``` javascript
 {
   "name": "chef",
-  "full_name": "Chef Software, Inc"
+  "full_name": "Chef Software, Inc."
 }
 ```
 
@@ -714,7 +714,7 @@ The response is similar to:
 ``` none
 {
   "name": "chef",
-  "full_name": "Chef Software, Inc",
+  "full_name": "Chef Software, Inc.",
   "guid": "f980d1asdfda0331235s00ff36862"
 }
 ```
@@ -2845,7 +2845,7 @@ The `DELETE` method is used to remove a container.
 
 The `/containers/Name` endpoint has the following methods: `DELETE`, `GET`.
 
-Note: Using the `DELETE` method of the `/containers/NAME` endpoint may have unexpected effects and is likely to break your system. Use of this method is not supported. 
+Note: Using the `DELETE` method of the `/containers/NAME` endpoint may have unexpected effects and is likely to break your system. Use of this method is not supported.
 
 This method has no parameters.
 
@@ -3240,7 +3240,7 @@ The response contains the record of the deleted resource and is similar to:
     "name": "rabbitmq",
     "description": "Installs and configures RabbitMQ server",
     "long_description": "",
-    "maintainer": "Chef, Inc. and contributors",
+    "maintainer": "Chef Software, Inc. and contributors",
     "maintainer_email": "mklishin@pivotal.io",
     "license": "Apache-2.0",
     "platforms": {
@@ -3484,7 +3484,7 @@ The response is similar to:
     "name": "rabbitmq",
     "description": "Installs and configures RabbitMQ server",
     "long_description": "",
-    "maintainer": "Chef, Inc. and contributors",
+    "maintainer": "Chef Software, Inc. and contributors",
     "maintainer_email": "mklishin@pivotal.io",
     "license": "Apache-2.0",
     "platforms": {
@@ -3626,7 +3626,7 @@ The request body is similar to:
     "license": "Apache 2.0",
     "suggestions": {},
     "platforms": {},
-    "maintainer": "Opscode, Inc",
+    "maintainer": "Chef Software, Inc.",
     "long_description": "= LICENSE AND AUTHOR:\\n\\nAuthor:: Adam Jacob...",
     "recommendations": {},
     "version": "0.1.2",
@@ -4184,7 +4184,7 @@ The response is similar to:
     "name": "getting-started",
     "description": "description",
     "version": "0.4.0",
-    "maintainer_email": "sysadmin@opscode.com",
+    "maintainer_email": "sysadmin@chef.io",
     "long_description": "= DESCRIPTION:\n\nThis cookbook is used to do some things.\n\n",
     "providing": { "getting-started": ">= 0.0.0" },
     "replacing": { },
@@ -4259,12 +4259,12 @@ with a request body similar to:
   "metadata": {
     "dependencies": {"ruby": [], "rubygems": []},
     "name": "unicorn",
-    "maintainer_email": "ops@opscode.com",
+    "maintainer_email": "ops@chef.io",
     "attributes": {},
     "license": "Apache 2.0",
     "suggestions": {},
     "platforms": {},
-    "maintainer": "Opscode, Inc",
+    "maintainer": "Chef Software, Inc.",
     "long_description": "= LICENSE AND AUTHOR:\n\nAuthor:: Adam Jacob...",
     "recommendations": {},
     "version": "0.1.2",
@@ -4909,8 +4909,8 @@ The response is similar to:
 
 ``` javascript
 {
-  "_default": "https://api.opscode.com/organizations/org_name/environments/_default",
-  "webserver": "https://api.opscode.com/organizations/org_name/environments/webserver"
+  "_default": "https://api.chef.io/organizations/org_name/environments/_default",
+  "webserver": "https://api.chef.io/organizations/org_name/environments/webserver"
 }
 ```
 
@@ -5846,9 +5846,9 @@ The response is similar to:
 
 ``` javascript
 {
-  "blah": "https://api.opscode.com/org/org_name/nodes/_default",
-  "boxer": "https://api.opscode.com/org/org_name/nodes/frontend",
-  "blarrrrgh": "https://api.opscode.com/org/org_name/nodes/backend"
+  "blah": "https://api.chef.io/org/org_name/nodes/_default",
+  "boxer": "https://api.chef.io/org/org_name/nodes/frontend",
+  "blarrrrgh": "https://api.chef.io/org/org_name/nodes/backend"
 }
 ```
 
@@ -7514,7 +7514,7 @@ The response is similar to:
 
 ``` javascript
 {"uri":
- "https://api.opscode.com/organizations/testorg/sandboxes/eff7b6f8b3ef44c6867216662d5eeb5f",
+ "https://api.chef.io/organizations/testorg/sandboxes/eff7b6f8b3ef44c6867216662d5eeb5f",
  "checksums":
    {"385ea5490c86570c7de71070bce9384a":
      {"url":

@@ -430,24 +430,6 @@ This configuration file has the following settings for `estatsd`:
 
 :   The virtual IP address. Default value: `'127.0.0.1'`.
 
-### jetty
-
-This configuration file has the following settings for `jetty`:
-
-`jetty['enable']`
-
-:   Enable a service. Default value: `'false'`. This value should not be
-    modified.
-
-`jetty['log_directory']`
-
-:   The directory in which log data is stored. The default value is the
-    recommended value. Default value:
-
-    ``` ruby
-    '/var/opt/opscode/opscode-solr4/jetty/logs'
-    ```
-
 ### lb / lb_internal
 
 This configuration file has the following settings for `lb`:
