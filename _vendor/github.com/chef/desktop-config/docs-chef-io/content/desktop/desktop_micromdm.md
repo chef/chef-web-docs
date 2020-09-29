@@ -11,7 +11,7 @@ publishDate = "2020-06-02"
     weight = 70
 +++
 
-[\[edit on GitHub\]](https://github.com/chef/desktop-config/blob/master/docs/content/desktop/desktop_micromdm.md)
+[\[edit on GitHub\]](https://github.com/chef/desktop-config/blob/master/docs-chef-io/content/desktop/desktop_micromdm.md)
 
 Info:
 The application management documentation for Chef Desktop is under active development.
