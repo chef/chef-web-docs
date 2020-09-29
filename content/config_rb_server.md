@@ -88,22 +88,6 @@ application:
     **data_collector** then increase this value. Default value: <span
     class="title-ref">100</span>.
 
-### opscode-solr4
-
-{{% server_tuning_solr %}}
-
-#### Available Memory
-
-{{% server_tuning_solr_available_memory %}}
-
-#### Large Node Sizes
-
-{{% server_tuning_solr_large_node_sizes %}}
-
-#### Update Frequency
-
-{{% server_tuning_solr_update_frequency %}}
-
 ### postgresql
 
 {{% server_tuning_postgresql %}}

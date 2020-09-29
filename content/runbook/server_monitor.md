@@ -368,7 +368,6 @@ which will return something similar to:
 For each of the upstream services, `pong` or `fail` is returned. The
 possible upstream names are:
 
--   `chef_solr` (for the **opscode-solr4** service)
 -   `chef_sql` (for the **postgresql** service)
 -   `oc_chef_authz` (for the **opscode-authz** service)
 

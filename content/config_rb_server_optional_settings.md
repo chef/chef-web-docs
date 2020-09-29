@@ -137,7 +137,7 @@ This configuration file has the following settings for `bookshelf`:
     location, such as Amazon EC2. See [AWS external bookshelf
     settings](/server_overview/#external-bookshelf-settings) for
     more information on configuring external bookshelf. Default value:
-    **generated**. As of Chef Server 12.14, this is no longer the
+    **generated**. As of Chef Infra Server 12.14, this is no longer the
     preferred command.
 
     Please use `chef-server-ctl set-secret bookshelf access_key_id` from
@@ -204,7 +204,7 @@ This configuration file has the following settings for `bookshelf`:
     as Amazon EC2. See [AWS external bookshelf
     settings](/server_overview/#external-bookshelf-settings) for
     more information on configuring external bookshelf. Default value:
-    **generated**. As of Chef Server 12.14, this is no longer the
+    **generated**. As of Chef Infra Server 12.14, this is no longer the
     preferred command.
 
     Please use `chef-server-ctl set-secret bookshelf secret_access_key`
@@ -264,7 +264,7 @@ This configuration file has the following settings for `bootstrap`:
 ### compliance forwarding
 
 The configuration file has the following settings for forwarding
-`compliance` requests using the chef server authentication system.
+`compliance` requests using the Chef Infra Server authentication system.
 
 `profiles['root_url']`
 
@@ -330,14 +330,14 @@ This configuration file has the following settings for `data_collector`:
     `/data-collector` to the configured Chef Automate
     `data_collector['root_url']`. Note that *this route* does not check
     the request signature and add the right data_collector token, but
-    just proxies the Automate endpoint **as-is**. Default value: `nil`.
+    just proxies the Chef Automate endpoint **as-is**. Default value: `nil`.
 
 `data_collector['token']`
 
 :   Legacy configuration for shared data collector security token. When
     configured, the token will be passed as an HTTP header named
     `x-data-collector-token` which the server can choose to accept or
-    reject. As of Chef Server 12.14, this is no longer the preferred
+    reject. As of Chef Infra Server 12.14, this is no longer the preferred
     command.
 
     Please use `chef-server-ctl set-secret data_collector token` from
@@ -1045,7 +1045,7 @@ This configuration file has the following settings for `oc-id`:
 
 `oc_id['email_from_address']`
 
-:   New in Chef Server 12.12.
+:   New in Chef Infra Server 12.12.
 
     Outbound email address. Defaults to the `'from_email'` value.
 
@@ -1066,7 +1066,7 @@ This configuration file has the following settings for `oc-id`:
 
 `oc_id['origin']`
 
-:   New in Chef Server 12.12.
+:   New in Chef Infra Server 12.12.
 
     The FQDN for the server that is sending outbound email. Defaults to
     the `'api_fqdn'` value, which is the FQDN for the Chef Infra Server.
@@ -1210,227 +1210,104 @@ This configuration file has the following settings for
 
 :   Default value: `30000`.
 
-### opscode-erchef
+### Elasticsearch
 
-{{% server_services_erchef %}}
+This configuration file has the following settings for `elasticsearch`:
 
-This configuration file has the following settings for `opscode-erchef`:
+`elasticsearch['enable']`
 
-`opscode_erchef['auth_skew']`
+: Enable a service. Default value: `true`.
 
-:   Default value: `900`.
+`elasticsearch['dir']`
 
-`opscode_erchef['authz_fanout']`
+: The working directory. The default value is the recommended value. Default value: `/var/opt/opscode/elasticsearch`
 
-:   Default value: `20`.
+`elasticsearch['data_dir']`
 
-`opscode_erchef['authz_timeout']`
+:The paths used to store data. Default value: `/var/opt/opscode/elasticsearch/data`
 
-:   The amount of time (in seconds) before a request to the
-    **oc_bifrost** service times out. Default value: `2000`.
+`elasticsearch['plugins_directory']`
 
-`opscode_erchef['base_resource_url']`
+: The default location of the plugins directory depends on which package you install. Default value: `/var/opt/opscode/elasticsearch/plugins`
 
-:   The base URL to which the service is to return links to API
-    resources. Use `:host_header` to ensure the URL is derived from the
-    host header of the incoming HTTP request. Default value:
-    `:host_header`.
+`elasticsearch['scripts_directory']`
 
-`opscode_erchef['bulk_fetch_batch_size']`
+:The default location of the scripts directory depends on which package you install. Default value: `/var/opt/opscode/elasticsearch/scripts`
 
-:   The number of nodes that may be deserialized. Currently only applies
-    to the `/search` endpoint in the Chef Infra Server API. The default
-    value is the recommended value. Default value: `5`.
+`elasticsearch['temp_directory']`
 
-`opscode_erchef['cache_ttl']`
+: By default, Elasticsearch uses a private temporary directory that the startup script creates immediately below the system temporary directory. Default value: `/var/opt/opscode/elasticsearch/tmp`
 
-:   Default value: `3600`.
+`elasticsearch['log_directory']`
 
-`opscode_erchef['cleanup_batch_size']`
+: The directory in which log data is stored. The default value is the recommended value. Default value: `/var/log/opscode/elasticsearch`
 
-:   Default value: `0`.
+elasticsearch['log_rotation']['file_maxbytes']
 
-`opscode_erchef['couchdb_max_conn']`
+: The log rotation policy for this service. Log files are rotated when they exceed file_maxbytes. Default value for 'file_maxbytes': `104857600`
 
-:   Default value: `'100'`.
+elasticsearch['log_rotation']['num_to_keep']
 
-`opscode_erchef['db_pool_size']`
+: The log rotation policy for this service. The maximum number of log files in the rotation is defined by num_to_keep.  Default value for 'num_to_keep': => `10`
 
-:   The number of open connections to PostgreSQL that are maintained by
-    the service. Default value: `20`.
+`elasticsearch['vip']`
 
-`opscode_erchef['depsolver_timeout']`
+: The virtual IP address for the machine on which Apache Solr is running. Default value: `127.0.0.1`
 
-:   The amount of time (in milliseconds) to wait for cookbook dependency
-    problems to be solved. Default value: `'5000'`.
+`elasticsearch['listen']`
 
-`opscode_erchef['depsolver_worker_count']`
+: The IP address for the machine on which Apache Solr is running. Default value: `127.0.0.1`
 
-:   The number of Ruby processes for which cookbook dependency problems
-    are unsolved. Use the `pgrep -fl depselector` command to verify the
-    number of depsolver workers that are running. If you are seeing 503
-    service unavailable errors, increase this value. Default value:
-    `'5'`.
+`elasticsearch['port']`
 
-`opscode_erchef['dir']`
+: The port on which the service is to listen. Default value: `9200`
 
-:   The working directory. The default value is the recommended value.
-    Default value: `/var/opt/opscode/opscode-erchef`.
+`elasticsearch['enable_gc_log']`
 
-`opscode_erchef['enable']`
+:Enable or disable GC logging. Default value: `false`
 
-:   Enable a service. Default value: `true`.
+elasticsearch['initial_cluster_join_timeout']
 
-`opscode_erchef['enable_actionlog']`
+: Default value: `90`
 
-:   Use to enable Chef actions, a premium feature of the Chef Infra
-    Server. Default value: `false`.
+`elasticsearch['jvm_opts']`
 
-`opscode_erchef['enable_request_logging']`
+: Default values are set based on https://github.com/elastic/elasticsearch/blob/6.8/distribution/src/config/jvm.options
 
-:   Use to configure request logging for the `opscode_erchef` service.
-    Default value: `true`.
+{{< note >}}
 
-    New in Chef Server 12.17.15.
+Each item in this list will be placed as-is into java_opts config file. Entries are set in chef-server.rb as:
 
-`opscode_erchef['ibrowse_max_pipeline_size']`
+```ruby
+ elasticsearch.jvm_opts = [
+  "-xoption1",
+  "-xoption2",
+  ...
+  "optionN"
+ ]
+```
 
-:   Default value: `1`.
+{{< /note >}}
 
-`opscode_erchef['ibrowse_max_sessions']`
+`elasticsearch['heap_size']`
 
-:   Default value: `256`.
+: The amount of memory (in MBs) available to Elasticsearch. If there is not enough memory available, search queries made by nodes to Elasticsearch may fail. The amount of memory that must be available also depends on the number of nodes in the organization, the frequency of search queries, and other characteristics that are unique to each organization. In general, as the number of nodes increases, so does the amount of memory. The default value should work for many organizations with fewer than 25 nodes. For an organization with several hundred nodes, the amount of memory that is required often exceeds 3GB. Default value is is equivalent to 25% of the system memory or 1024 MB, whichever is greater.
 
-`opscode_erchef['listen']`
+{{< note >}}
 
-:   The IP address on which the service is to listen. Default value:
-    `127.0.0.1`.
+If new_size or heap_size is also specified directly in java_opts, it will be ignored in favor of the chef-server.rb values or the defaults as calculated here. Only use chef-server.rb to set heap and new sizes. Learn more about [Elasticsearch heap-size](https://www.elastic.co/guide/en/elasticsearch/reference/current/heap-size.html). It will error out if the system memory is less than 4 GB. This value is bounded between 1 GB - 28 GB.
 
-`opscode_erchef['log_directory']`
+{{< note >}}
 
-:   The directory in which log data is stored. The default value is the
-    recommended value. Default value: `/var/log/opscode/opscode-erchef`.
+`elasticsearch['new_size']`
 
-`opscode_erchef['log_rotation']`
+: Defaults to the larger of 1/16th the heap_size and 32 MB.
 
-:   The log rotation policy for this service. Log files are rotated when
-    they exceed `file_maxbytes`. The maximum number of log files in the
-    rotation is defined by `num_to_keep`. Default value:
+{{< note >}}
 
-    ``` ruby
-    { 'file_maxbytes' => 104857600, 'num_to_keep' => 10 }
-    ```
+If new_size or heap_size is also specified directly in java_opts, it will be ignored in favor of the chef-server.rb values or the defaults as calculated here.  Only use chef-server.rb to set heap and new sizes. Learn more about [Elasticsearch heap-size documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/heap-size.html).
 
-`opscode_erchef['max_cache_size']`
-
-:   Default value: `10000`.
-
-`opscode_erchef['max_request_size']`
-
-:   When the request body size is greater than this value, a
-    `413 Request Entity Too Large` error is returned. Default value:
-    `2000000`.
-
-`opscode_erchef['nginx_bookshelf_caching']`
-
-:   Whether Nginx is used to cache cookbooks. When `:on`, Nginx serves
-    up the cached content instead of forwarding the request. Default
-    value: `:off`.
-
-`opscode_erchef['port']`
-
-:   The port on which the service is to listen. Default value: `8000`.
-
-`opscode_erchef['reindex_batch_size']`
-
-:   The number of items to fetch from the database and send to the
-    search index at a time. Default value: `10`.
-
-`opscode_erchef['reindex_sleep_min_ms']`
-
-:   The minimum number of milliseconds to sleep before retrying a failed
-    attempt to index an item. Retries are delayed a random number of
-    miliseconds between `reindex_sleep_min_ms` and
-    `reindex_sleep_max_ms`. Set both this and `reindex_sleep_max_ms` to
-    0 to retry without delay. Default value: `500`
-
-`opscode_erchef['reindex_sleep_max_ms']`
-
-:   The maximum number of milliseconds to sleep before retrying a failed
-    attempt to index an item. Retries are delayed a random number of
-    miliseconds between `reindex_sleep_min_ms` and
-    `reindex_sleep_max_ms`. Set both this and `reindex_sleep_min_ms` to
-    0 to retry without delay. Default value: `2000`
-
-`opscode_erchef['reindex_item_retries']`
-
-:   The number of times to retry sending an object for indexing in the
-    case of failure. Default value: `3`
-
-`opscode_erchef['root_metric_key']`
-
-:   Default value: `chefAPI`.
-
-`opscode_erchef['s3_bucket']`
-
-:   The name of the Amazon Simple Storage Service (S3) bucket. This may
-    point at external storage locations, such as Amazon EC2. See [AWS
-    external bookshelf
-    settings](/server_overview/#external-bookshelf-settings) for
-    more information on configuring external bookshelf.
-
-`opscode_erchef['s3_parallel_ops_fanout']`
-
-:   Default value: `20`.
-
-`opscode_erchef['s3_parallel_ops_timeout']`
-
-:   Default value: `5000`.
-
-`opscode_erchef['s3_url_expiry_window_size']`
-
-:   The frequency at which unique URLs are generated. This value may be
-    a specific amount of time, i.e. `15m` (fifteen minutes) or a
-    percentage of the value of `s3_url_ttl`, i.e. `10%`. Default value:
-    `:off`.
-
-`opscode_erchef['s3_url_ttl']`
-
-:   The amount of time (in seconds) before connections to the server
-    expire. If node bootstraps are timing out, increase this setting.
-    Default value: `28800`.
-
-`opscode_erchef['sql_connection_user']`
-
-:   The PostgreSQL user name in `'username@hostname'` format (e.g.
-    `'opscode_chef@my_postgresql.postgres.database.azure.com'`), where
-    `username` would normally equal the value of
-    `opscode-erchef['sql_user']` (default: `'opscode_chef'`). This
-    setting is **required** in an external Azure PostgreSQL
-    database-as-a-service configuration. If set to `nil`, Chef Infra
-    Server assumes that the database is not on Azure and the PostgreSQL
-    connection will be made using the value specified in
-    `opscode_erchef['sql_user']`.Default value: `nil`.
-
-`opscode_erchef['strict_search_result_acls']`
-
-:   {{% settings_strict_search_result_acls %}}
-
-`opscode_erchef['udp_socket_pool_size']`
-
-:   Default value: `20`.
-
-`opscode_erchef['umask']`
-
-:   Default value: `0022`.
-
-`opscode_erchef['validation_client_name']`
-
-:   Default value: `chef-validator`.
-
-`opscode_erchef['vip']`
-
-:   The virtual IP address. Default value: `127.0.0.1`.
+{{< /note >}}
 
 ### postgresql
 

@@ -66,22 +66,6 @@ Chef Infra Server in larger installations.
 
 {{% server_tuning_erchef %}}
 
-### opscode-solr4
-
-{{% server_tuning_solr %}}
-
-#### Available Memory
-
-{{% server_tuning_solr_available_memory %}}
-
-#### Large Node Sizes
-
-{{% server_tuning_solr_large_node_sizes %}}
-
-#### Update Frequency
-
-{{% server_tuning_solr_update_frequency %}}
-
 ### postgresql
 
 {{% server_tuning_postgresql %}}
