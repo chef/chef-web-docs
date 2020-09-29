@@ -1464,11 +1464,11 @@ This configuration file has the following settings for `elasticsearch`:
 
 : The directory in which log data is stored. The default value is the recommended value. Default value: `/var/log/opscode/elasticsearch`
 
-elasticsearch['log_rotation']['file_maxbytes']
+`elasticsearch['log_rotation']['file_maxbytes']`
 
 : The log rotation policy for this service. Log files are rotated when they exceed file_maxbytes. Default value for 'file_maxbytes': `104857600`
 
-elasticsearch['log_rotation']['num_to_keep']
+`elasticsearch['log_rotation']['num_to_keep']`
 
 : The log rotation policy for this service. The maximum number of log files in the rotation is defined by num_to_keep.  Default value for 'num_to_keep': => `10`
 
@@ -1498,7 +1498,7 @@ elasticsearch['log_rotation']['num_to_keep']
 
 {{< note >}}
 
-Each item in this list will be placed as-is into java_opts config file. Entries are set in chef-server.rb as:
+Each item in this list will be placed as is into the java_opts config file. Entries are set in chef-server.rb as:
 
 ```ruby
  elasticsearch.jvm_opts = [
