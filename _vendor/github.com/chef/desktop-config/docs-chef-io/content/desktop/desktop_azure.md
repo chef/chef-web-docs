@@ -10,7 +10,7 @@ publishDate = "2020-06-02"
     parent = "desktop"
     weight = 60
 +++
-[\[edit on GitHub\]](https://github.com/chef/desktop-config/blob/master/docs/content/desktop/desktop_azure.md)
+[\[edit on GitHub\]](https://github.com/chef/desktop-config/blob/master/docs-chef-io/content/desktop/desktop_azure.md)
 
 {{< note >}}
 The application management documentation for Chef Desktop is under active development.

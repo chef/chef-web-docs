@@ -10,7 +10,7 @@ publishDate = "2020-06-02"
     parent = "desktop"
     weight = 20
 +++
-[\[edit on GitHub\]](https://github.com/chef/desktop-config/blob/master/docs/content/desktop/desktop_requirements.md)
+[\[edit on GitHub\]](https://github.com/chef/desktop-config/blob/master/docs-chef-io/content/desktop/desktop_requirements.md)
 
 *Estimated time: 1 hour*
 

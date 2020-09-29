@@ -11,7 +11,7 @@ publishDate = "2020-06-02"
     weight = 100
 +++
 
-[\[edit on GitHub\]](https://github.com/chef/desktop-config/blob/master/docs/content/desktop/desktop-cookbook.md)
+[\[edit on GitHub\]](https://github.com/chef/desktop-config/blob/master/docs-chef-io/content/desktop/desktop-cookbook.md)
 
 # Chef Desktop
 

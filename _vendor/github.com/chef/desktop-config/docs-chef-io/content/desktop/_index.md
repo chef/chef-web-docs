@@ -10,7 +10,7 @@ publishDate = "2020-06-02"
     parent = "desktop"
     weight = 10
 +++
-[\[edit on GitHub\]](https://github.com/chef/desktop-config/blob/master/docs/content/desktop/_index.md)
+[\[edit on GitHub\]](https://github.com/chef/desktop-config/blob/master/docs-chef-io/content/desktop/_index.md)
 
 Chef Desktop is a deployment pattern that automates desktop and laptop management with code. Use Chef curated Desktop content with YAML support to define profiles for your devices, audit the profiles with Chef curated Desktop CIS profiles before deploying them with Chef Infra, and gain continuous visibility into the configuration status of your fleet in Chef Automate.
 
