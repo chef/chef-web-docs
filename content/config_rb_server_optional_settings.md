@@ -1210,6 +1210,228 @@ This configuration file has the following settings for
 
 :   Default value: `30000`.
 
+### opscode-erchef
+
+{{% server_services_erchef %}}
+
+This configuration file has the following settings for `opscode-erchef`:
+
+`opscode_erchef['auth_skew']`
+
+:   Default value: `900`.
+
+`opscode_erchef['authz_fanout']`
+
+:   Default value: `20`.
+
+`opscode_erchef['authz_timeout']`
+
+:   The amount of time (in seconds) before a request to the
+    **oc_bifrost** service times out. Default value: `2000`.
+
+`opscode_erchef['base_resource_url']`
+
+:   The base URL to which the service is to return links to API
+    resources. Use `:host_header` to ensure the URL is derived from the
+    host header of the incoming HTTP request. Default value:
+    `:host_header`.
+
+`opscode_erchef['bulk_fetch_batch_size']`
+
+:   The number of nodes that may be deserialized. Currently only applies
+    to the `/search` endpoint in the Chef Infra Server API. The default
+    value is the recommended value. Default value: `5`.
+
+`opscode_erchef['cache_ttl']`
+
+:   Default value: `3600`.
+
+`opscode_erchef['cleanup_batch_size']`
+
+:   Default value: `0`.
+
+`opscode_erchef['couchdb_max_conn']`
+
+:   Default value: `'100'`.
+
+`opscode_erchef['db_pool_size']`
+
+:   The number of open connections to PostgreSQL that are maintained by
+    the service. Default value: `20`.
+
+`opscode_erchef['depsolver_timeout']`
+
+:   The amount of time (in milliseconds) to wait for cookbook dependency
+    problems to be solved. Default value: `'5000'`.
+
+`opscode_erchef['depsolver_worker_count']`
+
+:   The number of Ruby processes for which cookbook dependency problems
+    are unsolved. Use the `pgrep -fl depselector` command to verify the
+    number of depsolver workers that are running. If you are seeing 503
+    service unavailable errors, increase this value. Default value:
+    `'5'`.
+
+`opscode_erchef['dir']`
+
+:   The working directory. The default value is the recommended value.
+    Default value: `/var/opt/opscode/opscode-erchef`.
+
+`opscode_erchef['enable']`
+
+:   Enable a service. Default value: `true`.
+
+`opscode_erchef['enable_actionlog']`
+
+:   Use to enable Chef actions, a premium feature of the Chef Infra
+    Server. Default value: `false`.
+
+`opscode_erchef['enable_request_logging']`
+
+:   Use to configure request logging for the `opscode_erchef` service.
+    Default value: `true`.
+
+    New in Chef Server 12.17.15.
+
+`opscode_erchef['ibrowse_max_pipeline_size']`
+
+:   Default value: `1`.
+
+`opscode_erchef['ibrowse_max_sessions']`
+
+:   Default value: `256`.
+
+`opscode_erchef['listen']`
+
+:   The IP address on which the service is to listen. Default value:
+    `127.0.0.1`.
+
+`opscode_erchef['log_directory']`
+
+:   The directory in which log data is stored. The default value is the
+    recommended value. Default value: `/var/log/opscode/opscode-erchef`.
+
+`opscode_erchef['log_rotation']`
+
+:   The log rotation policy for this service. Log files are rotated when
+    they exceed `file_maxbytes`. The maximum number of log files in the
+    rotation is defined by `num_to_keep`. Default value:
+
+    ``` ruby
+    { 'file_maxbytes' => 104857600, 'num_to_keep' => 10 }
+    ```
+
+`opscode_erchef['max_cache_size']`
+
+:   Default value: `10000`.
+
+`opscode_erchef['max_request_size']`
+
+:   When the request body size is greater than this value, a
+    `413 Request Entity Too Large` error is returned. Default value:
+    `2000000`.
+
+`opscode_erchef['nginx_bookshelf_caching']`
+
+:   Whether Nginx is used to cache cookbooks. When `:on`, Nginx serves
+    up the cached content instead of forwarding the request. Default
+    value: `:off`.
+
+`opscode_erchef['port']`
+
+:   The port on which the service is to listen. Default value: `8000`.
+
+`opscode_erchef['reindex_batch_size']`
+
+:   The number of items to fetch from the database and send to the
+    search index at a time. Default value: `10`.
+
+`opscode_erchef['reindex_sleep_min_ms']`
+
+:   The minimum number of milliseconds to sleep before retrying a failed
+    attempt to index an item. Retries are delayed a random number of
+    miliseconds between `reindex_sleep_min_ms` and
+    `reindex_sleep_max_ms`. Set both this and `reindex_sleep_max_ms` to
+    0 to retry without delay. Default value: `500`
+
+`opscode_erchef['reindex_sleep_max_ms']`
+
+:   The maximum number of milliseconds to sleep before retrying a failed
+    attempt to index an item. Retries are delayed a random number of
+    miliseconds between `reindex_sleep_min_ms` and
+    `reindex_sleep_max_ms`. Set both this and `reindex_sleep_min_ms` to
+    0 to retry without delay. Default value: `2000`
+
+`opscode_erchef['reindex_item_retries']`
+
+:   The number of times to retry sending an object for indexing in the
+    case of failure. Default value: `3`
+
+`opscode_erchef['root_metric_key']`
+
+:   Default value: `chefAPI`.
+
+`opscode_erchef['s3_bucket']`
+
+:   The name of the Amazon Simple Storage Service (S3) bucket. This may
+    point at external storage locations, such as Amazon EC2. See [AWS
+    external bookshelf
+    settings](/server_overview/#external-bookshelf-settings) for
+    more information on configuring external bookshelf.
+
+`opscode_erchef['s3_parallel_ops_fanout']`
+
+:   Default value: `20`.
+
+`opscode_erchef['s3_parallel_ops_timeout']`
+
+:   Default value: `5000`.
+
+`opscode_erchef['s3_url_expiry_window_size']`
+
+:   The frequency at which unique URLs are generated. This value may be
+    a specific amount of time, i.e. `15m` (fifteen minutes) or a
+    percentage of the value of `s3_url_ttl`, i.e. `10%`. Default value:
+    `:off`.
+
+`opscode_erchef['s3_url_ttl']`
+
+:   The amount of time (in seconds) before connections to the server
+    expire. If node bootstraps are timing out, increase this setting.
+    Default value: `28800`.
+
+`opscode_erchef['sql_connection_user']`
+
+:   The PostgreSQL user name in `'username@hostname'` format (e.g.
+    `'opscode_chef@my_postgresql.postgres.database.azure.com'`), where
+    `username` would normally equal the value of
+    `opscode-erchef['sql_user']` (default: `'opscode_chef'`). This
+    setting is **required** in an external Azure PostgreSQL
+    database-as-a-service configuration. If set to `nil`, Chef Infra
+    Server assumes that the database is not on Azure and the PostgreSQL
+    connection will be made using the value specified in
+    `opscode_erchef['sql_user']`.Default value: `nil`.
+
+`opscode_erchef['strict_search_result_acls']`
+
+:   {{% settings_strict_search_result_acls %}}
+
+`opscode_erchef['udp_socket_pool_size']`
+
+:   Default value: `20`.
+
+`opscode_erchef['umask']`
+
+:   Default value: `0022`.
+
+`opscode_erchef['validation_client_name']`
+
+:   Default value: `chef-validator`.
+
+`opscode_erchef['vip']`
+
+:   The virtual IP address. Default value: `127.0.0.1`.
+
 ### Elasticsearch
 
 This configuration file has the following settings for `elasticsearch`:
@@ -1264,15 +1486,15 @@ elasticsearch['log_rotation']['num_to_keep']
 
 `elasticsearch['enable_gc_log']`
 
-:Enable or disable GC logging. Default value: `false`
+: Enable or disable GC logging. Default value: `false`
 
-elasticsearch['initial_cluster_join_timeout']
+`elasticsearch['initial_cluster_join_timeout']`
 
 : Default value: `90`
 
 `elasticsearch['jvm_opts']`
 
-: Default values are set based on https://github.com/elastic/elasticsearch/blob/6.8/distribution/src/config/jvm.options
+: Default values are set based on [JVM configuration options](https://github.com/elastic/elasticsearch/blob/6.8/distribution/src/config/jvm.options).
 
 {{< note >}}
 
@@ -1297,7 +1519,7 @@ Each item in this list will be placed as-is into java_opts config file. Entries 
 
 If new_size or heap_size is also specified directly in java_opts, it will be ignored in favor of the chef-server.rb values or the defaults as calculated here. Only use chef-server.rb to set heap and new sizes. Learn more about [Elasticsearch heap-size](https://www.elastic.co/guide/en/elasticsearch/reference/current/heap-size.html). It will error out if the system memory is less than 4 GB. This value is bounded between 1 GB - 28 GB.
 
-{{< note >}}
+{{< /note >}}
 
 `elasticsearch['new_size']`
 
