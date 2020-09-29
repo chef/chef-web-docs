@@ -299,7 +299,7 @@ The `config.yml` is the interface to the remediation system. You will express al
        run: false
      remediate:
        run: true
-       overlay_command:
+       overlay_commands:
          - local: echo "this is an overlay command"
      justification: "This control is disabled as the company standard is x"
    ```
@@ -317,9 +317,9 @@ The `config.yml` is the interface to the remediation system. You will express al
       # For an overlay command:
       # An overlay command replaces the command in the remediation
       # In this example, the remediation does not install the 'aide' package
-      # and instead outputs the overlay_command to the screen
+      # and instead outputs the overlay_commands to the screen
       # run: true
-      #  overlay_command:
+      #  overlay_commands:
       #    - local: echo "this is an overlay command"
      justification: "This is an example of another justification. But only use one justification."
    ```
