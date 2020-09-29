@@ -148,7 +148,7 @@ with Policyfile, be sure to:
 Extra metadata about the cookbook is stored and included in Chef Infra
 Server API responses and in the `Policyfile.lock.json` file, including
 the source of a cookbook (Chef Supermarket, git, local disk, etc.), as
-well as any upstream idenfiers, such as git revisions. For cookbooks
+well as any upstream identifiers, such as git revisions. For cookbooks
 that are loaded from the local disk that are in a git repo, the upstream
 URL, current revision ID, and the state of the repo are stored also.
 

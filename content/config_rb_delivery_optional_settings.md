@@ -140,7 +140,7 @@ This configuration file has the following settings for `backup`:
 
 `backup['chef_server_config']`
 
-:   Back up the Chef Infra Server configuration directory. Usefull for
+:   Back up the Chef Infra Server configuration directory. Useful for
     instances when Chef Automate and Chef Infra Server are installed on
     a single node. Default value: `false`.
 
@@ -229,12 +229,12 @@ This configuration file has the following settings for `backup`:
 `backup['elasticsearch']['max_restore_bytes_per_sec']`
 
 :   Maximum snapshot speed when restoring shared filesystem
-    Elasticsearch snaphots. Default value: `40mb`.
+    Elasticsearch snapshots. Default value: `40mb`.
 
 `backup['elasticsearch']['max_snapshot_bytes_per_sec']`
 
 :   Maximum snapshot speed when creating shared filesystem Elasticsearch
-    snaphots. Default value: `40mb`.
+    snapshots. Default value: `40mb`.
 
 `backup['elasticsearch']['poll_interval']`
 
@@ -1639,7 +1639,7 @@ This configuration file has the following settings for `statistics`:
 
 `statistics['log_rotation']['num_to_keep']`
 
-:   The maxiumum number of statistics log files. Default value: `10`.
+:   The maximum number of statistics log files. Default value: `10`.
 
 ### user
 

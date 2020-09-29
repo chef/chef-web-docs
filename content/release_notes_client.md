@@ -463,7 +463,7 @@ depends 'windows', '>> 1.0'
 
 #### Logging Improvements May Cause Behavior Changes
 
-We've made low level changes to how logging behaves in Chef Infra Client that resolves many complaints we've heard of the years. With these change you'll now see the same logging output when you run `chef-client` on the command line as you will in logs from a daemonzed client run. This also corrects often confusing behavior where running `chef-client` on the command line would log to the console, but not to the log file location defined your `client.rb`. In that scenario you'll now see logs in your console and in your log file. We believe this is the expected behavior and will mean that your on-disk log files can always be the source of truth for changes that were made by Chef Infra Client. This may cause unexpected behavior changes for users that relied on using the command line flags to override the `client.rb` log location. If you have daemons running that log using the command line options you want to make sure that `client.rb` log location either matches or isn't defined.
+We've made low level changes to how logging behaves in Chef Infra Client that resolves many complaints we've heard of the years. With these change you'll now see the same logging output when you run `chef-client` on the command line as you will in logs from a daemonized client run. This also corrects often confusing behavior where running `chef-client` on the command line would log to the console, but not to the log file location defined your `client.rb`. In that scenario you'll now see logs in your console and in your log file. We believe this is the expected behavior and will mean that your on-disk log files can always be the source of truth for changes that were made by Chef Infra Client. This may cause unexpected behavior changes for users that relied on using the command line flags to override the `client.rb` log location. If you have daemons running that log using the command line options you want to make sure that `client.rb` log location either matches or isn't defined.
 
 #### Red Hat / CentOS 6 Systems Require C11 GCC for Some Gem Installations
 
@@ -2505,7 +2505,7 @@ Since Chef 13, `knife cookbook site` has actually called the `knife supermarket`
 
 #### Audit Mode
 
-Chef's Audit mode was introduced in 2015 as a beta that needed to be enabled via client.rb. Its functionality has been superceded by InSpec and we will be removing this beta feature in Chef Infra Client 15 (April 2019).
+Chef's Audit mode was introduced in 2015 as a beta that needed to be enabled via client.rb. Its functionality has been superseded by InSpec and we will be removing this beta feature in Chef Infra Client 15 (April 2019).
 
 #### Cookbook Shadowing
 
@@ -4214,7 +4214,7 @@ in April 2018.
 
 See the detailed [change
 log](https://github.com/chef/chef/blob/master/CHANGELOG.md#v1353-2017-10-03)
-for additonal information.
+for additional information.
 
 ### Ohai 13.5
 
@@ -5184,7 +5184,7 @@ provider. Chef will now prefer systemd where available.
 ### Handle the 'supports' property better
 
 Chef 13 removed the `supports` property from core resources. Chef 12 was
-incorrectly giving a deprecation notice for another propeerty called
+incorrectly giving a deprecation notice for another property called
 `support`, which prevented users from properly testing their cookbooks
 for upgrades.
 
@@ -5401,7 +5401,7 @@ end
 
 ### `unmount` alias for `umount` action
 
-Now you can use `action :unmount` to unmout a mount point through the
+Now you can use `action :unmount` to unmount a mount point through the
 mount resource. For example:
 
 ``` ruby
@@ -5712,7 +5712,7 @@ from previous versions. The short version:
 
 The four methods `read`, `write`, `unlink`, and `exist?` (and their
 corresponding unsafe versions) can be used on node objects to set,
-retrieve, delete, and validate existance of attributes.
+retrieve, delete, and validate existence of attributes.
 
 #### read/read!
 
@@ -12722,7 +12722,7 @@ where:
 A custom resource/provider may be mapped to more than one existing
 resource/provider. Multiple platform associations may be made. For
 example, to completely map a custom resource/provider to an existing
-custom resource/provider, only specificy the resource name:
+custom resource/provider, only specify the resource name:
 
 ``` ruby
 provides :cookbook_file

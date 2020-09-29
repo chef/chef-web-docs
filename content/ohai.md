@@ -162,7 +162,7 @@ linux
   memory.rb
   network.rb
   platform.rb
-  sessons.rb
+  sessions.rb
   virtualization.rb
 netbsd
   cpu.rb

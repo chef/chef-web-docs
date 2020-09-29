@@ -2554,7 +2554,7 @@ with a request body similar to:
 
 **Response**
 
-The response contains the updated inforamtion for the key, and is
+The response contains the updated information for the key, and is
 similar to:
 
 ``` javascript
@@ -2880,7 +2880,7 @@ with a request body similar to:
 
 **Response**
 
-The response contains the updated inforamtion for the key, and is
+The response contains the updated information for the key, and is
 similar to:
 
 ``` javascript
@@ -3591,7 +3591,7 @@ The following items are new for Chef server 12:
 -   **High availability using Amazon Web Services** Amazon Web Services
     (AWS) is a supported high availability configuration option for the
     Chef server. Machines are stored as Amazon Elastic Block Store (EBS)
-    volumes. A passive node monitors the availabilty of the active node,
+    volumes. A passive node monitors the availability of the active node,
     and will take over if required.
 -   **Chef server replication** Chef replication provides a way to
     asynchronously distribute cookbook, environment, role, and data bag

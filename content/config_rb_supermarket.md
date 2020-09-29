@@ -385,7 +385,7 @@ This configuration file has the following settings for nginx:
 
 `default['supermarket']['gzip_min_length']`
 
-:   The minimum reponse length that will be compressed by gzip, as
+:   The minimum response length that will be compressed by gzip, as
     determined by the `Content-Length` response header. Default value:
     `1000`.
 

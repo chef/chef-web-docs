@@ -1,14 +1,13 @@
 cloud.google.com/go v0.26.0/go.mod h1:aQUYkXzVsufM+DwF1aE+0xfcU+56JwCaLick0ClmMTw=
 github.com/BurntSushi/toml v0.3.1/go.mod h1:xHWCNGjB5oqiDr8zfno3MHue2Ht5sIBksp03qcyfWMU=
 github.com/census-instrumentation/opencensus-proto v0.2.1/go.mod h1:f6KPmirojxKA12rnyqOA5BBL4O983OfeGPqjHWSTneU=
-github.com/chef/automate/components/docs-chef-io v0.0.0-20200904193014-b92f1f6ad7fc h1:PRduNrXlOEDdWuo1onxdnRzWPVz+RsdYKg61M3tNhrg=
-github.com/chef/automate/components/docs-chef-io v0.0.0-20200904193014-b92f1f6ad7fc/go.mod h1:juvLC7Rt33YOCgJ5nnfl4rWZRAbSwqjTbWmcAoA0LtU=
+github.com/chef/automate/components/docs-chef-io v0.0.0-20200924213342-faad11791111 h1:VOqhJx9w+Fbbk0UlVaMYXcgulbKJTkrPqkkmVx1ohOM=
+github.com/chef/automate/components/docs-chef-io v0.0.0-20200924213342-faad11791111/go.mod h1:juvLC7Rt33YOCgJ5nnfl4rWZRAbSwqjTbWmcAoA0LtU=
 github.com/chef/chef-workstation v0.0.0-20200915214226-6bffa20406f2 h1:ioDAsOhHwyvBsMXQfnTPc0EFbjjEykw/24H4BbnQWBY=
 github.com/chef/chef-workstation/docs-chef-io v0.0.0-20200915214226-6bffa20406f2 h1:cJZGVllzoMLRiqBe1/g60EnTdjZSPge5oJE9PxdGkws=
 github.com/chef/chef-workstation/docs-chef-io v0.0.0-20200915214226-6bffa20406f2/go.mod h1:gvoh6ov1YU98CVzBEWzEZeCLTRunfQ6r1VO7M3LFE9U=
-github.com/chef/desktop-config v1.3.9 h1:wx5vzRw/YCo5QIMnLjYn9QVGYv0N7HG9/+9Re2CiSYI=
-github.com/chef/desktop-config/docs-chef-io v0.0.0-20200918222423-feb5f33b21f8 h1:xMVSxX6ybAOk3nABP3cSnS9kUJFxiJIGHagL/RgfEvA=
-github.com/chef/desktop-config/docs-chef-io v0.0.0-20200918222423-feb5f33b21f8/go.mod h1:90xAx6sIfgSL50M2KzeBmx7V7s7dlhQU3xpUkJO0qW0=
+github.com/chef/desktop-config/docs-chef-io v0.0.0-20200929171526-d4cef8a736df h1:tOwLfqjSj5y3rubKlIOBHLtmQy5vceQGuMkpw6WdcbU=
+github.com/chef/desktop-config/docs-chef-io v0.0.0-20200929171526-d4cef8a736df/go.mod h1:90xAx6sIfgSL50M2KzeBmx7V7s7dlhQU3xpUkJO0qW0=
 github.com/chef/effortless v0.0.0-20200914100024-66d58284ce17 h1:e0l5XKLk1vR7GC5Gw23sO5d7BpEkujxKCW8mG9BDZww=
 github.com/chef/effortless/docs-chef-io v0.0.0-20200914100024-66d58284ce17 h1:PHnYYYkJj9ixWkHDDpMSZKvCsVdt3Q4BcMFF0d/u0TU=
 github.com/chef/effortless/docs-chef-io v0.0.0-20200914100024-66d58284ce17/go.mod h1:Lfq+HjwAQwUJ41EPTO/8qbI1oJb2i415fR28d2Ig9kc=
@@ -32,6 +31,8 @@ github.com/google/go-cmp v0.4.0/go.mod h1:v8dTdLbMG2kIc/vJvl+f65V22dbkXbowE6jgT/
 github.com/google/go-cmp v0.5.0/go.mod h1:v8dTdLbMG2kIc/vJvl+f65V22dbkXbowE6jgT/gNBxE=
 github.com/inspec/inspec/docs-chef-io v0.0.0-20200923081403-38971c712267 h1:YdPBbViC1nYeJtA91unSidSNDR3IrzugRDTZly0ZckA=
 github.com/inspec/inspec/docs-chef-io v0.0.0-20200923081403-38971c712267/go.mod h1:oudFvipU0DTMkp8+MiwdUGerVEoWcJG0MQciDEOd6G8=
+github.com/inspec/inspec/docs-chef-io v0.0.0-20200925145959-ded881473f2b h1:9H6pcEqQy+JvMv6EAvt5tXXGn1h7MJaYrKXvGSAKRBE=
+github.com/inspec/inspec/docs-chef-io v0.0.0-20200925145959-ded881473f2b/go.mod h1:oudFvipU0DTMkp8+MiwdUGerVEoWcJG0MQciDEOd6G8=
 github.com/prometheus/client_model v0.0.0-20190812154241-14fe0d1b01d4/go.mod h1:xMI15A0UPsDsEKsMN9yxemIoYk6Tm2C1GtYGdfGttqA=
 golang.org/x/crypto v0.0.0-20190308221718-c2843e01d9a2/go.mod h1:djNgcEr1/C05ACkg1iLfiJU5Ep61QUkGW8qpdssI0+w=
 golang.org/x/exp v0.0.0-20190121172915-509febef88a4/go.mod h1:CJ0aWSM057203Lf6IL+f9T1iT9GByDxfZKAQTCR3kQA=
