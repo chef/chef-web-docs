@@ -1,18 +1,22 @@
 +++
-title = "Chef Infra Server API"
+title = "Chef Infra Server 13 API"
 draft = false
 
 aliases = ["/api_chef_server.html"]
 
 [menu]
   [menu.infra]
-    title = "Chef Infra Server API"
+    title = "Chef Infra Server 13 API"
     identifier = "chef_infra/managing_chef_infra_server/api_chef_server.md Chef Infra Server API"
     parent = "chef_infra/managing_chef_infra_server"
     weight = 200
 +++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/api_chef_server.md)
+
+{{< warning >}}
+This documentation covers the Chef Infra Server 13 AP, [which is deprecated and will reach EOL on December 31, 2020](https://docs.chef.io/versions/#deprecated-products-and-versions). For Chef Infra Server 14, use the [Chef Infra Server 14 API](https://docs.chef.io/api_chef_server) documentation.
+{{< /warning >}}
 
 The Chef Infra Server API is a REST API that provides access to objects
 on the Chef Infra Server, including nodes, environments, roles, users, organizations,
@@ -2991,6 +2995,19 @@ The response is similar to:
       }
     ]
   },
+    "rabbitmq": {
+    "url": "https://chef.example/organizations/example-org/cookbook_artifacts/rabbitmq",
+    "versions": [
+      {
+        "url": "https://chef.example/organizations/example-org/cookbook_artifacts/rabbitmq/58035a5b41c005f3b5b98f22ccaed1a0d6161e22",
+        "identifier": "58035a5b41c005f3b5b98f22ccaed1a0d6161e22"
+      },
+      {
+        "url": "https://chef.example/organizations/example-org/cookbook_artifacts/rabbitmq/5c08f92cc01f94ee37d382c32023b137ee343a1e",
+        "identifier": "5c08f92cc01f94ee37d382c32023b137ee343a1e"
+      }
+    ]
+  }
 }
 ```
 
