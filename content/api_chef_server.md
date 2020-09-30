@@ -15,7 +15,7 @@ aliases = ["/api_chef_server.html"]
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/api_chef_server.md)
 
 {{< warning >}}
-This documentation covers the Chef Infra Server 13 AP, [which is deprecated and will reach EOL on December 31, 2020](https://docs.chef.io/versions/#deprecated-products-and-versions). For Chef Infra Server 14, use the [Chef Infra Server 14 API](https://docs.chef.io/api_chef_server) documentation.
+This documentation covers the Chef Infra Server 13 API, [which is deprecated and will reach EOL on December 31, 2020](https://docs.chef.io/versions/#deprecated-products-and-versions). For Chef Infra Server 14, use the [Chef Infra Server 14 API](https://docs.chef.io/api_chef_server_14) documentation.
 {{< /warning >}}
 
 The Chef Infra Server API is a REST API that provides access to objects

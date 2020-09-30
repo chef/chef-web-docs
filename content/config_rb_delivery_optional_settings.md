@@ -323,6 +323,13 @@ This configuration file has the following settings for `backup`:
 :   Silence non-error information during the Chef Automate backup
     procedure. Default value: `false`.
 
+`backup['rabbit']['enabled']`
+
+:   Back up the Chef Automate RabbitMQ queues. It is disabled by default
+    because it's rare to have a lengthy RabbitMQ queue and the backup
+    procedure requires temporarily shutting down Chef Automate services
+    when backing up the queues. Default value: `false`.
+
 `backup['region']`
 
 :   Amazon Web Services (AWS) region to use when storing Chef Automate
@@ -1482,6 +1489,105 @@ This configuration file has the following settings for `postgresql`:
 
 :   The virtual IP address. Default value: `"127.0.0.1"`.
 
+### rabbitmq
+
+This configuration file has the following settings for `rabbitmq`:
+
+`rabbitmq['dir']`
+
+:   The working directory. The default value is the recommended value.
+    Default value: `'/var/opt/delivery/rabbitmq'`.
+
+`rabbitmq['data_dir']`
+
+:   The directory in which on-disk data is stored. The default value is
+    the recommended value. Default value:
+    `'/var/opt/delivery/rabbitmq/db'`.
+
+`rabbitmq['env_path']`
+
+:   Default value:
+
+    ``` ruby
+    '/opt/delivery/bin:/opt/delivery/embedded/bin:/usr/bin:/bin'
+    ```
+
+`rabbitmq['log_directory']`
+
+:   The directory in which log data is stored. The default value is the
+    recommended value. Default value:
+
+    ``` ruby
+    File.join(default_log_directory, "rabbitmq")
+    ```
+
+`rabbitmq['log_rotation']['file_maxbytes']`
+
+:   The log rotation policy for this service. Log files are rotated when
+    they exceed `file_maxbytes`. The maximum number of log files in the
+    rotation is defined by `num_to_keep`. Default value:
+    `100 * 1024 * 1024` (100MB).
+
+`rabbitmq['log_rotation']['num_to_keep']`
+
+:   The log rotation policy for this service. Log files are rotated when
+    they exceed `file_maxbytes`. The maximum number of log files in the
+    rotation is defined by `num_to_keep`. Default value: `10`.
+
+`rabbitmq['management_enabled']`
+
+:   Specify if the rabbitmq-management plugin is enabled. Default value:
+    `true`.
+
+`rabbitmq['management_password']`
+
+:   The rabbitmq-management plugin password. Default value:
+    `'chefrocks'`.
+
+`rabbitmq['management_port']`
+
+:   The rabbitmq-management plugin port. Default value: `15672`.
+
+`rabbitmq['management_user']`
+
+:   The rabbitmq-management plugin user. Default value: `'rabbitmgmt'`.
+
+`rabbitmq['node_ip_address']`
+
+:   The bind IP address for RabbitMQ. Default value: `'0.0.0.0'`.
+
+`rabbitmq['nodename']`
+
+:   The name of the node. Default value: `'rabbit@localhost'`.
+
+`rabbitmq['password']`
+
+:   The password for the RabbitMQ user. Default value: `'chefrocks'`.
+
+`rabbitmq['port']`
+
+:   The port on which the service is to listen. Default value: `'5672'`.
+
+`rabbitmq['vip']`
+
+:   The virtual IP address. Default value: `'127.0.0.1'`.
+
+`rabbitmq['use_ssl']`
+
+:   Whether or not to enable the ssl service. Default value: `true`.
+
+`rabbitmq['ssl_certificate']` and `rabbitmq['ssl_certificate_key']`
+
+:   SSL certificate used for rabbitmq communication only if
+    `rabbitmq['use_ssl']` is `true`. Certificates provide by user will
+    be readable by the <span class="title-ref">delivery</span> user. If
+    both of these are nil, we generate a self-signed certificate.
+    Default value: `nil`.
+
+`rabbitmq['ssl_versions']`
+
+:   The version for the ssl service. Default value:
+    `[ 'tlsv1.2', 'tlsv1.1' ]`.
 
 ### ssh_git
 
