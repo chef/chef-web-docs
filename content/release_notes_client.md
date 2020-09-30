@@ -1,5 +1,5 @@
 +++
-title = "Release Notes: Chef Infra Client 12.0 - 16.4"
+title = "Release Notes: Chef Infra Client 12.0 - 16.5"
 draft = false
 
 aliases = ["/release_notes.html", "/release_notes_ohai.html", "/release_notes/"]
@@ -17,6 +17,144 @@ Chef Infra Client is released on a monthly schedule with new releases
 the first Wednesday of every month. Below are the major changes for each
 release. For a detailed list of changes see the [Chef Infra Client
 changelog](https://github.com/chef/chef/blob/master/CHANGELOG.md)
+
+
+## Whats New in 16.5.77
+
+* Added missing requires to prevent errors when loading `chef/policy_builder/dynamic`.
+* The `homebrew_package` resource will now check for the full and short package names. Both `homebrew_package 'homebrew/core/vim'` and `homebrew_package 'vim'` styles should now work correctly.
+* Resolved errors that occurred in cookbooks requiring `addressable/uri`.
+* Improved the license acceptance flow to give helpful information if the user passes an invalid value in the environment variable or command line argument.
+* Updated Chef InSpec to 4.23.11 in order to resolve issues when running the new `junit2` reporter.
+* Additional performance improvements to reduce the startup time of the `chef-client` and `knife` commands.
+* `knife vault` commands now output proper JSON or YAML when using the `-f json` or `-f yaml` flags.
+
+## What's New in 16.5
+
+### Performance Improvements
+
+We continue to reduce the size of the Chef Infra Client install and optimize the performance of the client. With Chef Infra Client 16.5 we've greatly reduced the startup time of the `chef-client` process. Startup times on macOS, Linux, and Windows hosts are now approximately 2x faster than the 16.4 release.
+
+### CLI Improvements
+
+* The client license acceptance logic has been improved to provide helpful error messages when an incorrect value is passed and to accept license values in any text case.
+* A new `chef-client` process exit code of 43 has been added to signal that an invalid configuration was specified. Thanks [@NaomiReeves](https://github.com/NaomiReeves)!
+* The `knife ssh` command no longer hangs when connecting to Windows nodes over SSH.
+* The `knife config` commands have been renamed to make them shorter and table output has been improved:
+  * knife config get-profile -> knife config use
+  * knife config use-profile [NAME] -> knife config use [NAME]
+  * knife config list-profiles -> knife config list
+  * knife config get -> knife config show
+
+### Chef InSpec 4.23.4
+
+Chef InSpec has been updated from 4.22.1 to 4.23.4. This new release includes the following improvements:
+
+* A new mechanism marks inputs as sensitive: true and replaces their values with `***`.
+* Use the `--no-diff` CLI option to suppress diff output for textual tests.
+* Control the order of controls in output, but not execution order, with the `--sort_results_by=none|control|file|random` CLI option.
+* Disable caching of inputs with a cache_inputs: true setting.
+
+### New Resources
+
+#### chef_client_launchd
+
+The `chef_client_launchd` resource allows you to configure Chef Infra Client to run as a global launchd daemon on macOS hosts. This resource mirrors the configuration of other `chef_client_*` resources and allows for simple out-of-the-box configuration of the daemon, while also providing advanced tunables. If you've used the `chef-client` cookbook in the past, you'll notice a number of improvements in the new resource including configuration update handling, splay times support, nice level support, and an out-of-the-box configuration of low IO priority execution. In order to handle restarting the Chef Infra Client launchd daemon when configuration changes occur, the resource also installs a new `com.chef.restarter` daemon. This daemon watches for daemon configuration changes and gracefully handles the restart to ensure the client process continues to run.
+
+```ruby
+chef_client_launchd 'Setup the Chef Infra Client to run every 30 minutes' do
+  interval 30
+  action :enable
+end
+```
+
+#### chef_client_trusted_certificate
+
+The `chef_client_trusted_certificate` resource allows you to add a certificate to Chef Infra Client's trusted certificate directory. The resource handles platform-specific locations and creates the trusted certificates directory if it doesn't already exist. Once a certificate is added, it will be used by the client itself to communicate with the Chef Infra Server and by resources such as `remote_file`.
+
+```ruby
+chef_client_trusted_certificate 'self-signed.badssl.com' do
+  certificate <<~CERT
+  -----BEGIN CERTIFICATE-----
+  MIIDeTCCAmGgAwIBAgIJAPziuikCTox4MA0GCSqGSIb3DQEBCwUAMGIxCzAJBgNV
+  BAYTAlVTMRMwEQYDVQQIDApDYWxpZm9ybmlhMRYwFAYDVQQHDA1TYW4gRnJhbmNp
+  c2NvMQ8wDQYDVQQKDAZCYWRTU0wxFTATBgNVBAMMDCouYmFkc3NsLmNvbTAeFw0x
+  OTEwMDkyMzQxNTJaFw0yMTEwMDgyMzQxNTJaMGIxCzAJBgNVBAYTAlVTMRMwEQYD
+  VQQIDApDYWxpZm9ybmlhMRYwFAYDVQQHDA1TYW4gRnJhbmNpc2NvMQ8wDQYDVQQK
+  DAZCYWRTU0wxFTATBgNVBAMMDCouYmFkc3NsLmNvbTCCASIwDQYJKoZIhvcNAQEB
+  BQADggEPADCCAQoCggEBAMIE7PiM7gTCs9hQ1XBYzJMY61yoaEmwIrX5lZ6xKyx2
+  PmzAS2BMTOqytMAPgLaw+XLJhgL5XEFdEyt/ccRLvOmULlA3pmccYYz2QULFRtMW
+  hyefdOsKnRFSJiFzbIRMeVXk0WvoBj1IFVKtsyjbqv9u/2CVSndrOfEk0TG23U3A
+  xPxTuW1CrbV8/q71FdIzSOciccfCFHpsKOo3St/qbLVytH5aohbcabFXRNsKEqve
+  ww9HdFxBIuGa+RuT5q0iBikusbpJHAwnnqP7i/dAcgCskgjZjFeEU4EFy+b+a1SY
+  QCeFxxC7c3DvaRhBB0VVfPlkPz0sw6l865MaTIbRyoUCAwEAAaMyMDAwCQYDVR0T
+  BAIwADAjBgNVHREEHDAaggwqLmJhZHNzbC5jb22CCmJhZHNzbC5jb20wDQYJKoZI
+  hvcNAQELBQADggEBAGlwCdbPxflZfYOaukZGCaxYK6gpincX4Lla4Ui2WdeQxE95
+  w7fChXvP3YkE3UYUE7mupZ0eg4ZILr/A0e7JQDsgIu/SRTUE0domCKgPZ8v99k3A
+  vka4LpLK51jHJJK7EFgo3ca2nldd97GM0MU41xHFk8qaK1tWJkfrrfcGwDJ4GQPI
+  iLlm6i0yHq1Qg1RypAXJy5dTlRXlCLd8ufWhhiwW0W75Va5AEnJuqpQrKwl3KQVe
+  wGj67WWRgLfSr+4QG1mNvCZb2CkjZWmxkGPuoP40/y7Yu5OFqxP5tAjj4YixCYTW
+  EVA0pmzIzgBg+JIe3PdRy27T0asgQW/F4TY61Yk=
+  -----END CERTIFICATE-----
+  CERT
+end
+```
+
+### Resource Updates
+
+#### chef_client_cron
+
+The `chef_client_cron` resource has been updated with a new `nice` property that allows you to set the nice level for the `chef-client` process. Nice level changes only apply to the `chef-client` process and not any subprocesses like `ohai` or system utility calls. If you need to ensure that the `chef-client` process does not negatively impact system performance, we highly recommend instead using the `cpu_quota` property in the `chef_client_systemd_timer` resource which applies to all child processes.
+
+#### chef_client_systemd_timer
+
+The `chef_client_systemd_timer` resource has been updated with a new `cpu_quota` property that allows you to control the systemd `CPUQuota` value for the `chef-client` process. This allows you to ensure `chef-client` execution doesn't adversely impact performance on your systems.
+
+#### launchd
+
+The `launchd` resource has been updated to better validate inputs to the `nice` property so we can make sure these are acceptable nice values.
+
+#### mount
+
+The `mount` resource on Linux has new improved idempotency in some scenarios by switching to `findmnt` to determine the current state of the system. Thanks for reporting this issue [@pollosp](https://github.com/pollosp)!
+
+#### osx_profile
+
+The `osx_profile` resource will now allow you to remove profiles from macOS 11 (Big Sur) systems. Due to security changes in macOS 11, it is no longer possible to locally install profiles, but this will allow you to cleanup existing profiles left over after an upgrade from an earlier macOS release. The resource has been updated to resolve a regression introduced in Chef Infra Client 16.4 that caused the resource to attempt to update profiles on each converge. Thanks for reporting these issues [@chilcote](https://github.com/chilcote)!
+
+#### rhsm_register
+
+The `rhsm_register` resource has been updated to reduce the load on the RedHat Satellite server when checking if a system is already registered. Thanks for reporting this issue [@donwlewis](https://github.com/donwlewis)! A new `system_name` property has also been added to allow you to register a name other than the system's hostname. Thanks for this improvement [@jasonwbarnett](https://github.com/jasonwbarnett/)!
+
+#### windows_ad_join
+
+The `windows_ad_join` resource has been updated with a new `reboot_delay` property which allows you to control the delay time before restarting systems.
+
+#### windows_firewall_profile
+
+The `windows_firewall_profile` resource was updated to prevent NilClass errors from loading the firewall state.
+
+#### windows_user_privilege
+
+The `windows_user_privilege` resource has been updated to better validate the `privilege` property and to allow the `users` property to accept String values. Thanks for reporting this issue [@jeremyciak](https://github.com/jeremyciak)!
+
+#### Windows securable resources
+
+All Windows securable resources now support using SID in addition to user or group name when specifying `owner`, `group`, or `rights` principal. These resources include the `template`, `file`, `remote_file`, `cookbook_file`, `directory`, and `remote_directory` resources. When using a SID, you may use either the standard string representation of a SID (S-R-I-S-S) or one of the [SDDL string constants](https://docs.microsoft.com/en-us/windows/win32/secauthz/sid-strings).
+
+### Ohai Improvements
+
+- Ohai now uses the same underlying code for shelling out to external commands as Chef Infra Client. This may resolve issues from determining the state on some non-English systems.
+- The `Packages` plugin has been updated to gather package installation information on macOS hosts.
+
+### Platform Packages
+
+- We are once again building Chef Infra Client packages for RHEL 7 / SLES 12 on the S390x architecture. In addition to these packages, we've also added S390x packages for RHEL 8 / SLES 15.
+- We now produce packages for Apple's upcoming macOS 11 Big Sur release.
+
+### Security
+
+OpenSSL has been updated to 1.0.2w which includes a fix for [CVE-2020-1968](https://cve.mitre.org/cgi-bin/cvename.cgi?name=2020-1968).
 
 ## What's New in 16.4
 
