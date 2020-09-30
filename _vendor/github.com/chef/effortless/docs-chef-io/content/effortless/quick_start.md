@@ -10,6 +10,7 @@ draft = false
     weight = 10
 +++
 
+[\[edit on GitHub\]](https://github.com/chef/effortless/blob/master/docs-chef-io/content/effortless/quick_start.md)
 
 # Quick Start
 
