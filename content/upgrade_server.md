@@ -14,10 +14,6 @@ aliases = ["/upgrade_server.html"]
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/upgrade_server.md)
 
-The following sections describe the upgrade process for Chef Infra Server 13 and 14.
-
-## Upgrading to Chef Infra Server 14
-
 Chef Infra Server 14 uses Elasticsearch as its search index.
 Upgrading to Chef Infra Server 14 requires a reindexing operation for internal Solr users, which automatically happens.
 This reindexing operation is estimated to take 2 minutes per 1000 nodes.
@@ -81,7 +77,7 @@ For additional information on this change, including a list of supported add-on 
 This section describes the upgrade process for a standalone configuration. The upgrade process will require downtime equal to the amount of time it takes to stop the server, run dpkg or RPM Package
 Manager, and then upgrade the server.
 
-To upgrade to Chef Infra Server 13 from a standalone Chef Infra Server, do the following:
+To upgrade to Chef Infra Server 14 from a standalone Chef Infra Server, do the following:
 
 1.  Run the following command to make sure all services are in a sane
     state.
@@ -120,13 +116,13 @@ To upgrade to Chef Infra Server 13 from a standalone Chef Infra Server, do the f
     chef-server-ctl upgrade
     ```
 
-    To accept the license and upgrade to version 13 in one command:
+    To accept the license and upgrade to version 14 in one command:
 
     ```bash
     CHEF_LICENSE='accept' chef-server-ctl upgrade
     ```
 
-1.  Start Chef Infra Server 13:
+1.  Start Chef Infra Server 14:
 
     ``` bash
     chef-server-ctl start
@@ -164,7 +160,7 @@ For the latest information on high availability and how to set up a highly-avail
 
 {{< /note >}}
 
-To upgrade to Chef Infra Server 13 from a tiered Chef Infra Server configuration, do the following:
+To upgrade to Chef Infra Server 14 from a tiered Chef Infra Server configuration, do the following:
 
 1.  Run the following on all servers to make sure all services are in a sane state.
 
@@ -206,7 +202,7 @@ To upgrade to Chef Infra Server 13 from a tiered Chef Infra Server configuration
     chef-server-ctl upgrade
     ```
 
-    To accept the license and upgrade to version 13 in one command:
+    To accept the license and upgrade to version 14 in one command:
 
     ```bash
     CHEF_LICENSE='accept' chef-server-ctl upgrade
