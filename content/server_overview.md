@@ -70,12 +70,8 @@ Chef Infra Server deployment and how they relate to one another.
 </tr>
 <tr class="even">
 <td><p>Messages</p></td>
-<blockquote>
-<ol>
-<td>{{< readFile_shortcode file="chef_server_component_elasticsearch.md" >}}</td>
-</ol>
-</blockquote>
-<p>All messages are added to a dedicated search index repository.</p></td>
+<td><p>{{< readFile_shortcode file="chef_server_component_elasticsearch.md" >}}
+All messages are added to a dedicated search index repository.</p></td>
 </tr>
 <tr class="odd">
 <td>PostgreSQL</td>
