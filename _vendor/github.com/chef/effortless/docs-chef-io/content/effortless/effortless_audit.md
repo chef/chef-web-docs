@@ -10,12 +10,13 @@ draft = false
     weight = 20
 +++
 
+[\[edit on GitHub\]](https://github.com/chef/effortless/blob/master/docs-chef-io/content/effortless/effortless_audit.md)
 
 # Effortless Audit
 
-Effortless Audit is the pattern for managing your Chef InSpec profiles. It uses [Chef Habitat](https://www.habitat.sh/docs/) and [Chef InSpec](https://www.inspec.io/docs/) to build an artifact that contains your profiles and its dependencies alongside the scripts necessary to run them on your systems.
+Effortless Audit is the pattern for managing your Chef InSpec profiles. It uses [Chef Habitat](https://www.habitat.sh/docs/) and [Chef InSpec](/inspec/) to build an artifact that contains your profiles and its dependencies alongside the scripts necessary to run them on your systems.
 
-Learn more about [Chef InSpec profiles](https://www.inspec.io/docs/reference/profiles/).
+Learn more about [Chef InSpec profiles](/inspec/profiles/).
 
 ## Effortless Environment Set-up
 
