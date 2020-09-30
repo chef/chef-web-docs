@@ -72,7 +72,7 @@ Chef Infra Server deployment and how they relate to one another.
 <td><p>Messages</p></td>
 <blockquote>
 <ol>
-<li>{{< readFile_shortcode file="chef_server_component_elasticsearch.md" >}}</li>
+<td>{{< readFile_shortcode file="chef_server_component_elasticsearch.md" >}}</td>
 </ol>
 </blockquote>
 <p>All messages are added to a dedicated search index repository.</p></td>
