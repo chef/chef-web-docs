@@ -56,9 +56,9 @@ We recommend using [knife-ec-backup](https://github.com/chef/knife-ec-backup) to
 
 {{< /note >}}
 
-### From Chef Infra Server 12.17.15 or later
+## Upgrading From Chef Infra Server 12.17.15 or Later
 
-Three upgrade scenarios exist for upgrades from later versions of Chef Infra Server 12 to Chef Infra Server 13:
+Three upgrade scenarios exist for upgrades from Chef Infra Server 12.17.15 to Chef Infra Server 13 or later:
 
 - [Standalone](/upgrade_server/#standalone)
 - [High Availability: Chef Backend](/upgrade_server/#high-availability-chef-backend)
@@ -205,6 +205,7 @@ To upgrade to Chef Infra Server 13 from a tiered Chef Infra Server configuration
     ``` bash
     chef-server-ctl upgrade
     ```
+
     To accept the license and upgrade to version 13 in one command:
 
     ```bash
@@ -237,7 +238,7 @@ To upgrade to Chef Infra Server 13 from a tiered Chef Infra Server configuration
     chef-server-ctl cleanup
     ```
 
-### Upgrading Add-ons
+## Upgrading Add-ons
 
 This section details the process for upgrading additional features after the Chef Infra Server has been upgraded.
 
@@ -249,7 +250,7 @@ This section details the process for upgrading additional features after the Che
 
 {{% ctl_chef_server_install_features_manual %}}
 
-### Upgrading from older versions to Chef Infra Server 13
+## Upgrading from older versions to Chef Infra Server 13
 
 **Upgrading from version between 12.0.0 - 12.17.15**
 
