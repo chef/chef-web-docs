@@ -89,7 +89,7 @@ announcement](https://blog.chef.io/2019/04/02/chef-software-announces-the-enterp
 <tbody>
 <tr class="odd">
 <td>Chef Automate</td>
-<td>Version 2 Latest build</td>
+<td>Latest</td>
 <td>GA</td>
 <td>n/a</td>
 </tr>
