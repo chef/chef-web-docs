@@ -1,5 +1,5 @@
 +++
-title = "Upgrade to Chef Infra Server 14"
+title = "Upgrade Chef Infra Server"
 draft = false
 
 aliases = ["/upgrade_server.html"]
@@ -13,6 +13,8 @@ aliases = ["/upgrade_server.html"]
 +++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/upgrade_server.md)
+
+## Upgrading to Chef Infra Server 13
 
 Chef Infra Server 14 uses Elasticsearch as its search index.
 Upgrading to Chef Infra Server 14 requires a reindexing operation for internal Solr users, which automatically happens.
@@ -31,6 +33,13 @@ Do not upgrade your production server. First, upgrade in your test server, and t
 
 Back up the Chef Infra Server data before starting the upgrade process.
 We recommend using [knife-ec-backup](https://github.com/chef/knife-ec-backup) to back up Chef Infra Server.
+
+{{< /note >}}
+
+{{< note >}}
+
+Chef Infra Server 14 is governed by the [EULA License Agreement](https://docs.chef.io/chef_license_accept/#chef-infra-server).
+You will be required to accept these terms when using Chef Infra Server 14 for the first time.
 
 {{< /note >}}
 
@@ -252,11 +261,13 @@ This section details the process for upgrading additional features after the Che
 
 We recommend a stepwise upgrade:
 1. Chef Infra Server < 12.17.15 -> Chef Infra Server 12.17.15
-1. Chef Infra Server 12.17.15 -> Chef Infra Server 13
+1. Chef Infra Server 12.17.15 -> Chef Infra Server 14
 
 **Upgrading from Chef Infra Server 11**
 
 We recommend a stepwise upgrade:
 1. Chef Infra Server 11 -> Chef Infra Server 12.3.0
 1. Chef Infra Server 12.3.0 -> Chef Infra Server 12.17.15
-1. Chef Infra Server 12.17.15 -> Chef Infra Server 13
+1. Chef Infra Server 12.17.15 -> Chef Infra Server 14
+
+Upgrade Matrix

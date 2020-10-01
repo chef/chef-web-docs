@@ -1,12 +1,12 @@
 +++
-title = "Chef Infra Server 13 API"
+title = "Chef Infra Server API"
 draft = false
 
 aliases = ["/api_chef_server.html"]
 
 [menu]
   [menu.infra]
-    title = "Chef Infra Server 13 API"
+    title = "Chef Infra ServerAPI"
     identifier = "chef_infra/managing_chef_infra_server/api_chef_server.md Chef Infra Server API"
     parent = "chef_infra/managing_chef_infra_server"
     weight = 200
