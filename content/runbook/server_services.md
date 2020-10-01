@@ -78,12 +78,10 @@ The following services are part of the Chef Infra Server:
 
 -   bifrost
 -   bookshelf
+-   elasticsearch
 -   nginx
 -   opscode-erchef
--   opscode-expander
--   opscode-solr4
 -   postgresql
--   rabbitmq
 -   redis-lb
 
 ### bifrost
@@ -230,6 +228,86 @@ To follow the logs for the service:
 chef-server-ctl tail bookshelf
 ```
 
+### Elasticsearch
+
+#### status
+
+To view the status for the service:
+
+``` bash
+chef-server-ctl status elasticsearch
+```
+
+to return something like:
+
+``` bash
+elasticsearch: (pid 12345) 1s; run: log: (pid 5678) 123456s
+```
+
+#### start
+
+To start the service:
+
+```bash
+chef-server-ctl start elasticsearch
+```
+
+to return something like:
+
+```bash
+ok: run: elasticsearch: (pid 5678) 0s
+```
+
+#### stop
+
+To stop the service:
+
+```bash
+chef-server-ctl stop elasticsearch
+```
+
+to return something like:
+
+```bash
+ok: down: elasticsearch: 123456s, normally up
+```
+
+#### restart
+
+To restart the service:
+
+```bash
+chef-server-ctl restart elasticsearch
+```
+
+to return something like:
+
+```bash
+ok: run: elasticsearch: (pid 56789) 1s
+```
+
+#### kill
+
+To kill the service (send a `SIGKILL` command):
+
+```bash
+chef-server-ctl kill elasticsearch
+```
+
+#### run once
+
+```bash
+chef-server-ctl once elasticsearch
+```
+
+#### tail
+
+To follow the logs for the service:
+
+``` bash
+chef-server-ctl tail elasticsearch
+```
+
 ### nginx
 
 {{% server_services_nginx %}}
@@ -370,150 +448,6 @@ To follow the logs for the service:
 chef-server-ctl tail opscode-erchef
 ```
 
-### opscode-expander
-
-{{% server_services_expander %}}
-
-#### status
-
-To view the status for the service:
-
-``` bash
-chef-server-ctl status opscode-expander
-```
-
-to return something like:
-
-``` bash
-run: opscode-expander: (pid 1234) 123456s; run: log: (pid 5678) 789012s
-```
-
-#### start
-
-To start the service:
-
-``` bash
-chef-server-ctl start opscode-expander
-```
-
-#### stop
-
-To stop the service:
-
-``` bash
-chef-server-ctl stop opscode-expander
-```
-
-#### restart
-
-To restart the service:
-
-``` bash
-chef-server-ctl restart opscode-expander
-```
-
-to return something like:
-
-``` bash
-ok: run: opscode-expander: (pid 1234) 1234s
-```
-
-#### kill
-
-To kill the service (send a `SIGKILL` command):
-
-``` bash
-chef-server-ctl kill opscode-expander
-```
-
-#### run once
-
-To run the service, but not restart it (if the service fails):
-
-``` bash
-chef-server-ctl once opscode-expander
-```
-
-#### tail
-
-To follow the logs for the service:
-
-``` bash
-chef-server-ctl tail opscode-expander
-```
-
-### opscode-solr4
-
-{{% server_services_solr4 %}}
-
-#### status
-
-To view the status for the service:
-
-``` bash
-chef-server-ctl status opscode-solr
-```
-
-to return something like:
-
-``` bash
-run: opscode-solr: (pid 1234) 123456s; run: log: (pid 5678) 789012s
-```
-
-#### start
-
-To start the service:
-
-``` bash
-chef-server-ctl start opscode-solr
-```
-
-#### stop
-
-To stop the service:
-
-``` bash
-chef-server-ctl stop opscode-solr
-```
-
-#### restart
-
-To restart the service:
-
-``` bash
-chef-server-ctl restart opscode-solr
-```
-
-to return something like:
-
-``` bash
-ok: run: opscode-solr: (pid 1234) 1234s
-```
-
-#### kill
-
-To kill the service (send a `SIGKILL` command):
-
-``` bash
-chef-server-ctl kill opscode-solr
-```
-
-#### run once
-
-To run the service, but not restart it (if the service fails):
-
-``` bash
-chef-server-ctl once opscode-solr
-```
-
-#### tail
-
-To follow the logs for the service:
-
-``` bash
-chef-server-ctl tail opscode-solr
-```
-
 ### postgresql
 
 {{% server_services_postgresql %}}
@@ -584,78 +518,6 @@ To follow the logs for the service:
 
 ``` bash
 chef-server-ctl tail postgresql
-```
-
-### rabbitmq
-
-{{% server_services_rabbitmq %}}
-
-#### status
-
-To view the status for the service:
-
-``` bash
-chef-server-ctl status rabbitmq
-```
-
-to return something like:
-
-``` bash
-run: rabbitmq: (pid 1234) 123456s; run: log: (pid 5678) 789012s
-```
-
-#### start
-
-To start the service:
-
-``` bash
-chef-server-ctl start rabbitmq
-```
-
-#### stop
-
-To stop the service:
-
-``` bash
-chef-server-ctl stop rabbitmq
-```
-
-#### restart
-
-To restart the service:
-
-``` bash
-chef-server-ctl restart rabbitmq
-```
-
-to return something like:
-
-``` bash
-ok: run: rabbitmq: (pid 1234) 1234s
-```
-
-#### kill
-
-To kill the service (send a `SIGKILL` command):
-
-``` bash
-chef-server-ctl kill rabbitmq
-```
-
-#### run once
-
-To run the service, but not restart it (if the service fails):
-
-``` bash
-chef-server-ctl once rabbitmq
-```
-
-#### tail
-
-To follow the logs for the service:
-
-``` bash
-chef-server-ctl tail rabbitmq
 ```
 
 ### redis

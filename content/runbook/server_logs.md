@@ -40,12 +40,6 @@ chef-server-ctl tail SERVICENAME
 where `SERVICENAME` should be replaced with name of the service for
 which log files will be viewed.
 
-Another way to view log files is to use the system utility tail:
-
-``` bash
-tail -50f /var/log/chef-server/opscode-chef/current
-```
-
 ### tail Log Files
 
 {{% ctl_chef_server_tail %}}
@@ -54,7 +48,7 @@ Another common approach to tailing the log files for a service is to use
 the system utility `tail`. For example:
 
 ``` bash
-tail -50f /var/log/opscode/opscode-chef/current
+tail -50f /var/log/opscode/opscode-erchef/current
 ```
 
 ## Supervisor
@@ -62,7 +56,7 @@ tail -50f /var/log/opscode/opscode-chef/current
 Supervisor logs are created and managed directly by the service
 supervisor, and are automatically rotated when the current log file
 reaches 1,000,000 bytes. 10 log files are kept. The latest supervisor
-log is always located in `/var/log/chef-server/service_name/current` and
+log is always located in `/var/log/service_name/current` and
 rotated logs have a filename starting with `@` followed by a precise
 `tai64n` timestamp based on when the file was rotated.
 
@@ -70,13 +64,10 @@ Supervisor logs are available for the following services:
 
 -   bifrost
 -   bookshelf
+-   elasticsearch
 -   nginx
 -   opscode-erchef
--   opscode-expander
--   opscode-expander-reindexer
--   opscode-solr4
 -   postgresql
--   rabbitmq
 -   redis
 
 ### nginx, access
@@ -92,7 +83,7 @@ example log entry:
 175.185.9.6 - - [12/Jul/2013:15:56:54 +0000] "GET
 /organizations/exampleorg/data/firewall/nova_api HTTP/1.1" 200
 "0.850" 452 "-" "Chef Client/0.10.2 (ruby-1.8.7-p302; ohai-0.6.4;
-x86_64-linux; +http://opscode.com)" "127.0.0.1:9460" "200"
+x86_64-linux; +https://chef.io)" "127.0.0.1:9460" "200"
 "0.849" "0.10.2" "version=1.0" "some_node.example.com"
 "2013-07-12T15:56:40Z" "2jmj7l5rSw0yVb/vlWAYkK/YBwk=" 985
 ```

@@ -10,7 +10,7 @@ where:
 -   `run` describes the state in which the supervisor attempts to keep
     processes. This state is either `run` or `down`. If a service is in
     a `down` state, it should be stopped
--   `name_of_service` is the service name, for example: `opscode-solr4`
+-   `name_of_service` is the service name, for example: `opscode-erchef`
 -   `(pid 1486) 7819s;` is the process identifier followed by the amount
     of time (in seconds) the service has been running
 -   `run: log: (pid 1485) 7819s` is the log process. It is typical for a
@@ -22,7 +22,7 @@ If the service is down, the status line will appear similar to the
 following:
 
 ``` bash
-down: opscode-solr4: 3s, normally up; run: log: (pid 1485) 8526s
+down: opscode-erchef: 3s, normally up; run: log: (pid 1485) 8526s
 ```
 
 where

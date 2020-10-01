@@ -252,7 +252,7 @@ Lsyncd:
    status: not_running
 PostgreSQL:
    status: up
-RabbitMQ:
+Elasticsearch:
    status: up
    node_health:
       status: up
