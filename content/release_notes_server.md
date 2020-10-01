@@ -1,5 +1,5 @@
 +++
-title = "Release Notes: Chef Infra Server 12.0 - 13.2"
+title = "Release Notes: Chef Infra Server 12.0 - 14.0"
 draft = false
 
 aliases = ["/release_notes_server.html"]
@@ -16,6 +16,62 @@ aliases = ["/release_notes_server.html"]
 Chef Infra Server acts as a hub for configuration data by storing
 cookbooks, the policies that are applied to nodes, and metadata that
 describes each registered node that is managed by the Chef Infra Client.
+
+## What's New in 14.0
+
+### Upgrade Notes
+
+Upgrading to Chef Infra Server 14 will require a reindexing operation for most users. We expect this reindexing operation to take an estimated 2 minutes for each 1000 nodes. However, this estimate can be substantially impacted by your server hardware and the complexity of your Chef data. Generally the size of Elasticsearch indices is observed to be 1/10th of the Postgres database size. To be safe we would recommend that the filesystem containing the `/var/opt/opscode` directory should have at least 20% free space before upgrade. Learn more about [upgrading to Chef Infra Server 14](https://docs.chef.io/upgrade_server/).
+
+### Improvements
+
+- Elasticsearch-based search indexing: Chef Infra Server now uses Elasticsearch as its search index. Solr and RabbitMQ, which supported the older search indexing pipeline, have been removed. Hosted Chef and some of Chef Infra Server's largest customers are already using the Elasticsearch-based search indexing. The simplified indexing pipeline should reduce the operational complexity of Chef Infra Server.
+- Erlang 22: All Erlang components now run on Erlang 22. This upgrade sets the groundwork for new features and bug fixes currently in development.
+- Improved Indexing Metrics: The `/_stats` API endpoint now returns metrics about search indexing. These new metrics should allow us to more easily investigate problems that users report with search indexing.
+- Integration Testing: In Chef Infra Server 13.2, we added a new integration testing pipeline. We've further improved this pipeline, expanding the testing scenarios and improving the fidelity of the existing scenarios.
+- New Command: `chef-server-ctl` now features the `check-config` command, which runs only the configuration portion of the reconfigure cookbooks and preflight checks.
+
+### Bug Fixes
+
+- Reduced API errors caused by a change to the HTTP library used in Erchef.
+- Expanded the cases where we gracefully report errors that result from a `chef-server-ctl reindex` command instead of failing early.
+- Fixed a bug that prevented API Signing version 1.2 from working with FIPS-enabled Chef Infra Servers.
+- Updated NginX SSL configuration format to avoid warnings in the log.
+- Restricted permissions on the `dhparams.pem` file used by NginX.
+
+### Incompatibilities
+
+- The `/controls` API endpoint now always returns `HTTP 410 Gone`. This endpoint was disabled as it requires RabbitMQ to work. The `/controls` API endpoint was used by Chef Infra Client's audit mode. In Chef Infra Client 14, this change will produce a non-fatal error that results in the audit log being written to disk. This feature was removed in Chef Infra Client 15. The main consumer of this endpoint was Chef Analytics, which has been end-of-life since December 31, 2018.
+- Chef Infra Server no longer sends data to Chef Analytics. Chef Analytics was declared end-of-life on December 31, 2018.
+- Chef Reporting is not supported. Chef Reporting was declared end-of-life on December 31, 2018.
+- Chef Infra Server will no longer send data to Chef Automate 1.x via the Actions queue. Chef Infra Server still sends data to Chef Automate 2 and Chef Automate 1.x via the `data-collector` endpoint. Chef Automate 1.x was declared end-of-life on December 31, 2019.
+
+### Component Version Changes
+
+#### Updated Components
+
+- libiconv (1.15 -> 1.16)
+- pcre (8.38 -> 8.44)
+- cacerts (2019-10 -> 2020-07)
+- openssl (1.0.2u -> 1.0.2w)
+- openresty (1.15.8.1 -> 1.17.8.2)
+- veil-gem (58373899 -> 2875f29d)
+- erlang (20.3.8.9 -> 22.2)
+- server-open-jre (11.0.4+1 -> 11.0.7+1)
+- ohai (d78fd24c -> 0b8b5ccf)
+- liblzma (5.2.4 -> 5.2.5)
+- libarchive (3.4.2 -> 3.4.3)
+- chef (3fe96500 -> 20230f04)
+- knife-opc (5a3a804b -> dd17d445)
+- knife-ec-backup (61b8c43f -> 1f397622)
+- chef_fixie (04c686ac -> e445b2d7)
+
+#### Removed Components
+
+- rabbitmq (3.6.15)
+- server-jre (8u202)
+- opscode-solr4 (4.10.4)
+- opscode-expander
 
 ## What's New in 13.2
 
