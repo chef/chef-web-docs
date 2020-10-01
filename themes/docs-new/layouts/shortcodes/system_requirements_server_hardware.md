@@ -16,7 +16,7 @@ preferred.
 -   4 total cores (physical or virtual)
 -   8 GB of RAM or more
 -   5 GB of free disk space in `/opt`
--   5 GB of free disk space in `/var`
+-   10 GB of free disk space in `/var`
 
 <div class="admonition-note">
 

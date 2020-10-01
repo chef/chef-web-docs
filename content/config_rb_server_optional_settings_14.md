@@ -1,22 +1,18 @@
 +++
-title = "chef-server.rb 13 Optional Settings"
+title = "chef-server.rb 14 Optional Settings"
 draft = false
 
-aliases = ["/config_rb_server_optional_settings.html"]
+aliases = ["/config_rb_server_optional_settings_14.html"]
 
 [menu]
   [menu.infra]
-    title = "Chef Infra Server 13 Optional Settings"
-    identifier = "chef_infra/managing_chef_infra_server/config_rb_server_optional_settings.md Chef Infra Server Optional Settings"
+    title = "Chef Infra Server 14 Optional Settings"
+    identifier = "chef_infra/managing_chef_infra_server_14/config_rb_server_optional_settings_14.md Chef Infra Server Optional Settings"
     parent = "chef_infra/managing_chef_infra_server"
     weight = 170
 +++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/config_rb_server_optional_settings.md)
-
-{{< warning >}}
-This documentation covers Chef Infra Server 13, [which is deprecated and will reach EOL on December 31, 2020](https://docs.chef.io/versions/#deprecated-products-and-versions). For Chef Infra Server 14, use the [Chef Infra Server 14 Optional Settings](https://docs.chef.io/chef_infra/managing_chef_infra_server/config_rb_server_optional_settings_14.html) documentation.
-{{< /warning >}}
 
 {{% config_rb_server_summary %}}
 
@@ -141,7 +137,7 @@ This configuration file has the following settings for `bookshelf`:
     location, such as Amazon EC2. See [AWS external bookshelf
     settings](/server_overview/#external-bookshelf-settings) for
     more information on configuring external bookshelf. Default value:
-    **generated**. As of Chef Server 12.14, this is no longer the
+    **generated**. As of Chef Infra Server 12.14, this is no longer the
     preferred command.
 
     Please use `chef-server-ctl set-secret bookshelf access_key_id` from
@@ -208,7 +204,7 @@ This configuration file has the following settings for `bookshelf`:
     as Amazon EC2. See [AWS external bookshelf
     settings](/server_overview/#external-bookshelf-settings) for
     more information on configuring external bookshelf. Default value:
-    **generated**. As of Chef Server 12.14, this is no longer the
+    **generated**. As of Chef Infra Server 12.14, this is no longer the
     preferred command.
 
     Please use `chef-server-ctl set-secret bookshelf secret_access_key`
@@ -268,7 +264,7 @@ This configuration file has the following settings for `bootstrap`:
 ### compliance forwarding
 
 The configuration file has the following settings for forwarding
-`compliance` requests using the chef server authentication system.
+`compliance` requests using the Chef Infra Server authentication system.
 
 `profiles['root_url']`
 
@@ -334,14 +330,14 @@ This configuration file has the following settings for `data_collector`:
     `/data-collector` to the configured Chef Automate
     `data_collector['root_url']`. Note that *this route* does not check
     the request signature and add the right data_collector token, but
-    just proxies the Automate endpoint **as-is**. Default value: `nil`.
+    just proxies the Chef Automate endpoint **as-is**. Default value: `nil`.
 
 `data_collector['token']`
 
 :   Legacy configuration for shared data collector security token. When
     configured, the token will be passed as an HTTP header named
     `x-data-collector-token` which the server can choose to accept or
-    reject. As of Chef Server 12.14, this is no longer the preferred
+    reject. As of Chef Infra Server 12.14, this is no longer the preferred
     command.
 
     Please use `chef-server-ctl set-secret data_collector token` from
@@ -433,24 +429,6 @@ This configuration file has the following settings for `estatsd`:
 `estatsd['vip']`
 
 :   The virtual IP address. Default value: `'127.0.0.1'`.
-
-### jetty
-
-This configuration file has the following settings for `jetty`:
-
-`jetty['enable']`
-
-:   Enable a service. Default value: `'false'`. This value should not be
-    modified.
-
-`jetty['log_directory']`
-
-:   The directory in which log data is stored. The default value is the
-    recommended value. Default value:
-
-    ``` ruby
-    '/var/opt/opscode/opscode-solr4/jetty/logs'
-    ```
 
 ### lb / lb_internal
 
@@ -1067,7 +1045,7 @@ This configuration file has the following settings for `oc-id`:
 
 `oc_id['email_from_address']`
 
-:   New in Chef Server 12.12.
+:   New in Chef Infra Server 12.12.
 
     Outbound email address. Defaults to the `'from_email'` value.
 
@@ -1088,7 +1066,7 @@ This configuration file has the following settings for `oc-id`:
 
 `oc_id['origin']`
 
-:   New in Chef Server 12.12.
+:   New in Chef Infra Server 12.12.
 
     The FQDN for the server that is sending outbound email. Defaults to
     the `'api_fqdn'` value, which is the FQDN for the Chef Infra Server.
@@ -1454,212 +1432,104 @@ This configuration file has the following settings for `opscode-erchef`:
 
 :   The virtual IP address. Default value: `127.0.0.1`.
 
-### opscode-expander
+### Elasticsearch
 
-{{% server_services_expander %}}
+This configuration file has the following settings for `elasticsearch`:
 
-This configuration file has the following settings for
-`opscode-expander`:
+`elasticsearch['enable']`
 
-`opscode_expander['consumer_id']`
+: Enable a service. Default value: `true`.
 
-:   The identity of the consumer to which messages are published.
-    Default value: `default`.
+`elasticsearch['dir']`
 
-`opscode_expander['dir']`
+: The working directory. The default value is the recommended value. Default value: `/var/opt/opscode/elasticsearch`
 
-:   The working directory. The default value is the recommended value.
-    Default value:
+`elasticsearch['data_dir']`
 
-    ``` ruby
-    /var/opt/opscode/opscode-expander
-    ```
+:The paths used to store data. Default value: `/var/opt/opscode/elasticsearch/data`
 
-`opscode_expander['enable']`
+`elasticsearch['plugins_directory']`
 
-:   Enable a service. Default value: `true`.
+: The default location of the plugins directory depends on which package you install. Default value: `/var/opt/opscode/elasticsearch/plugins`
 
-`opscode_expander['log_directory']`
+`elasticsearch['scripts_directory']`
 
-:   The directory in which log data is stored. The default value is the
-    recommended value. Default value:
+:The default location of the scripts directory depends on which package you install. Default value: `/var/opt/opscode/elasticsearch/scripts`
 
-    ``` ruby
-    /var/log/opscode/opscode-expander
-    ```
+`elasticsearch['temp_directory']`
 
-`opscode_expander['log_rotation']`
+: By default, Elasticsearch uses a private temporary directory that the startup script creates immediately below the system temporary directory. Default value: `/var/opt/opscode/elasticsearch/tmp`
 
-:   The log rotation policy for this service. Log files are rotated when
-    they exceed `file_maxbytes`. The maximum number of log files in the
-    rotation is defined by `num_to_keep`. Default value:
+`elasticsearch['log_directory']`
 
-    ``` ruby
-    { 'file_maxbytes' => 104857600, 'num_to_keep' => 10 }
-    ```
+: The directory in which log data is stored. The default value is the recommended value. Default value: `/var/log/opscode/elasticsearch`
 
-`opscode_expander['nodes']`
+`elasticsearch['log_rotation']['file_maxbytes']`
 
-:   The number of allowed worker processes. Default value: `2`.
+: The log rotation policy for this service. Log files are rotated when they exceed file_maxbytes. Default value for 'file_maxbytes': `104857600`
 
-`opscode_expander['reindexer_log_directory']`
+`elasticsearch['log_rotation']['num_to_keep']`
 
-:   The directory in which `opscode-expander-reindexer` logs files are
-    located. Default value:
+: The log rotation policy for this service. The maximum number of log files in the rotation is defined by num_to_keep.  Default value for 'num_to_keep': => `10`
 
-    ``` ruby
-    /var/log/opscode/opscode-expander-reindexer
-    ```
+`elasticsearch['vip']`
 
-### opscode-solr4
+: The virtual IP address for the machine on which Apache Solr is running. Default value: `127.0.0.1`
 
-{{% server_services_solr4 %}}
+`elasticsearch['listen']`
 
-This configuration file has the following settings for `opscode-solr4`:
+: The IP address for the machine on which Apache Solr is running. Default value: `127.0.0.1`
 
-`opscode_solr4['auto_soft_commit']`
+`elasticsearch['port']`
 
-:   The maximum number of documents before a soft commit is triggered.
-    Default value: `1000`.
+: The port on which the service is to listen. Default value: `9200`
 
-`opscode_solr4['commit_interval']`
+`elasticsearch['enable_gc_log']`
 
-:   The frequency (in seconds) at which node objects are added to the
-    Apache Solr search index. This value should be tuned carefully. When
-    data is committed to the Apache Solr index, all incoming updates are
-    blocked. If the duration between updates is too short, it is
-    possible for the rate at which updates are asked to occur to be
-    faster than the rate at which objects can be actually committed.
-    Default value: `60000` (every 60 seconds).
+: Enable or disable GC logging. Default value: `false`
 
-`opscode_solr4['data_dir']`
+`elasticsearch['initial_cluster_join_timeout']`
 
-:   The directory in which on-disk data is stored. The default value is
-    the recommended value. Default value:
+: Default value: `90`
 
-    ``` ruby
-    /var/opt/opscode/opscode-solr4/data
-    ```
+`elasticsearch['jvm_opts']`
 
-`opscode_solr4['dir']`
+: Default values are set based on [JVM configuration options](https://github.com/elastic/elasticsearch/blob/6.8/distribution/src/config/jvm.options).
 
-:   The working directory. The default value is the recommended value.
-    Default value:
+{{< note >}}
 
-    ``` ruby
-    /var/opt/opscode/opscode-solr4
-    ```
+Each item in this list will be placed as is into the java_opts config file. Entries are set in chef-server.rb as:
 
-`opscode_solr4['enable']`
+```ruby
+ elasticsearch.jvm_opts = [
+  "-xoption1",
+  "-xoption2",
+  ...
+  "optionN"
+ ]
+```
 
-:   Enable a service. Default value: `true`.
+{{< /note >}}
 
-`opscode_solr4['heap_size']`
+`elasticsearch['heap_size']`
 
-:   The amount of memory (in MBs) available to Apache Solr. If there is
-    not enough memory available, search queries made by nodes to Apache
-    Solr may fail. The amount of memory that must be available also
-    depends on the number of nodes in the organization, the frequency of
-    search queries, and other characteristics that are unique to each
-    organization. In general, as the number of nodes increases, so does
-    the amount of memory. The default value should work for many
-    organizations with fewer than 25 nodes. For an organization with
-    several hundred nodes, the amount of memory that is required often
-    exceeds 3GB. Default value: `nil`, which is equivalent to 25% of the
-    system memory or 1024 (MB, but this setting is specified as an
-    integer number of MB in EC11), whichever is smaller.
+: The amount of memory (in MBs) available to Elasticsearch. If there is not enough memory available, search queries made by nodes to Elasticsearch may fail. The amount of memory that must be available also depends on the number of nodes in the organization, the frequency of search queries, and other characteristics that are unique to each organization. In general, as the number of nodes increases, so does the amount of memory. The default value should work for many organizations with fewer than 25 nodes. For an organization with several hundred nodes, the amount of memory that is required often exceeds 3GB. Default value is is equivalent to 25% of the system memory or 1024 MB, whichever is greater.
 
-`opscode_solr4['ip_address']`
+{{< note >}}
 
-:   The IP address for the machine on which Apache Solr is running.
-    Default value: `127.0.0.1`.
+If new_size or heap_size is also specified directly in java_opts, it will be ignored in favor of the chef-server.rb values or the defaults as calculated here. Only use chef-server.rb to set heap and new sizes. Learn more about [Elasticsearch heap-size](https://www.elastic.co/guide/en/elasticsearch/reference/current/heap-size.html). It will error out if the system memory is less than 4 GB. This value is bounded between 1 GB - 28 GB.
 
-`opscode_solr4['java_opts']`
+{{< /note >}}
 
-:   A Hash of `JAVA_OPTS` environment variables to be set.
-    (`-XX:NewSize` is configured using the `new_size` setting.) Default
-    value: `' '` (empty).
+`elasticsearch['new_size']`
 
-`opscode_solr4['log_directory']`
+: Defaults to the larger of 1/16th the heap_size and 32 MB.
 
-:   The directory in which log data is stored. The default value is the
-    recommended value. Default value:
+{{< note >}}
 
-    ``` ruby
-    /var/log/opscode/opscode-solr4
-    ```
+If new_size or heap_size is also specified directly in java_opts, it will be ignored in favor of the chef-server.rb values or the defaults as calculated here.  Only use chef-server.rb to set heap and new sizes. Learn more about [Elasticsearch heap-size documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/heap-size.html).
 
-`opscode_solr4['log_gc']`
-
-:   New in Chef Server 12.12.
-
-    Enable or disable GC logging. Default is `true`.
-
-`opscode_solr4['log_rotation']`
-
-:   The log rotation policy for this service. Log files are rotated when
-    they exceed `file_maxbytes`. The maximum number of log files in the
-    rotation is defined by `num_to_keep`. Default value:
-
-    ``` ruby
-    { 'file_maxbytes' => 104857600, 'num_to_keep' => 10 }
-    ```
-
-`opscode_solr4['max_commit_docs']`
-
-:   The frequency (in documents) at which node objects are added to the
-    Apache Solr search index. This value should be tuned carefully. When
-    data is committed to the Apache Solr index, all incoming updates are
-    blocked. If the duration between updates is too short, it is
-    possible for the rate at which updates are asked to occur to be
-    faster than the rate at which objects can be actually committed.
-    Default value: `1000` (every 1000 documents).
-
-`opscode_solr4['max_field_length']`
-
-:   The maximum field length (in number of tokens/terms). If a field
-    length exceeds this value, Apache Solr may not be able to complete
-    building the index. Default value: `100000` (increased from the
-    Apache Solr default value of `10000`).
-
-`opscode_solr4['max_merge_docs']`
-
-:   The maximum number of index segments allowed before they are merged
-    into a single index. Default value: `2147483647`.
-
-`opscode_solr4['merge_factor']`
-
-:   The maximum number of document updates that can be stored in memory
-    before being flushed and added to the current index segment. Default
-    value: `15`.
-
-`opscode_solr4['new_size']`
-
-:   Configure the `-XX:NewSize` `JAVA_OPTS` environment variable.
-    Default value: `nil`.
-
-`opscode_solr4['poll_seconds']`
-
-:   The frequency (in seconds) at which the secondary machine polls the
-    primary. Default value: `20`.
-
-`opscode_solr4['port']`
-
-:   The port on which the service is to listen. Default value: `8983`.
-
-`opscode_solr4['ram_buffer_size']`
-
-:   The size (in megabytes) of the RAM buffer. When document updates
-    exceed this amout, pending updates are flushed. Default value:
-    `100`.
-
-`opscode_solr4['url']`
-
-:   Default value: `'http://localhost:8983/solr'`.
-
-`opscode_solr4['vip']`
-
-:   The virtual IP address. Default value: `127.0.0.1`.
+{{< /note >}}
 
 ### postgresql
 
@@ -1848,221 +1718,6 @@ This configuration file has the following settings for `postgresql`:
 
 :   The size (in megabytes) of allowed in-memory sorting. Default value:
     `8MB`.
-
-### rabbitmq
-
-{{% server_services_rabbitmq %}}
-
-This configuration file has the following settings for `rabbitmq`:
-
-`rabbitmq['actions_exchange']`
-
-:   The name of the exchange to which Chef actions publishes actions
-    data. Default value: `'actions'`.
-
-`rabbitmq['actions_password']`
-
-:   Legacy configuration setting for the password of the `actions_user`.
-    Default value: **generated**.
-
-    To override the default value, use the [Secrets
-    Management](/ctl_chef_server/#ctl-chef-server-secrets-management)
-    command: `chef-server-ctl set-actions-password`.
-
-`rabbitmq['actions_user']`
-
-:   The user with permission to publish actions data. Default value:
-    `'actions'`.
-
-`rabbitmq['actions_vhost']`
-
-:   The virtual host to which Chef actions publishes actions data.
-    Default value: `'/analytics'`.
-
-`rabbitmq['analytics_max_length']`
-
-:   The maximum number of messages that can be queued before RabbitMQ
-    automatically drops messages from the front of the queue to make
-    room for new messages. Default value: `10000`.
-
-`rabbitmq['consumer_id']`
-
-:   The identity of the consumer to which messages are published.
-    Default value: `'hotsauce'`.
-
-`rabbitmq['data_dir']`
-
-:   The directory in which on-disk data is stored. The default value is
-    the recommended value. Default value:
-    `'/var/opt/opscode/rabbitmq/db'`.
-
-`rabbitmq['dir']`
-
-:   The working directory. The default value is the recommended value.
-    Default value: `'/var/opt/opscode/rabbitmq'`.
-
-`rabbitmq['drop_on_full_capacity']`
-
-:   Specify if messages will stop being sent to the RabbitMQ queue when
-    it is at capacity. Default value: `true`.
-
-`rabbitmq['enable']`
-
-:   Enable a service. Default value: `true`.
-
-`rabbitmq['log_directory']`
-
-:   The directory in which log data is stored. The default value is the
-    recommended value. Default value: `'/var/log/opscode/rabbitmq'`.
-
-`rabbitmq['log_rotation']`
-
-:   The log rotation policy for this service. Log files are rotated when
-    they exceed `file_maxbytes`. The maximum number of log files in the
-    rotation is defined by `num_to_keep`. Default value:
-
-    ``` ruby
-    { 'file_maxbytes' => 104857600, 'num_to_keep' => 10 }
-    ```
-
-`rabbitmq['management_enabled']`
-
-:   Specify if the rabbitmq-management plugin is enabled. Default value:
-    `true`.
-
-`rabbitmq['management_password']`
-
-:   Legacy configuration setting for rabbitmq-management plugin
-    password. Default value: **generated**.
-
-    To override the default value, use the [Secrets
-    Management](/ctl_chef_server/#ctl-chef-server-secrets-management)
-    command: `chef-server-ctl set-secret rabbitmq management_password`.
-
-`rabbitmq['management_port']`
-
-:   The rabbitmq-management plugin port. Default value: `15672`.
-
-`rabbitmq['management_user']`
-
-:   The rabbitmq-management plugin user. Default value: `'rabbitmgmt'`.
-
-`rabbitmq['node_ip_address']`
-
-:   The bind IP address for RabbitMQ. Default value: `'127.0.0.1'`.
-
-`rabbitmq['node_port']`
-
-:   The port on which the service is to listen. Default value: `'5672'`.
-
-`rabbitmq['nodename']`
-
-:   The name of the node. Default value: `'rabbit@localhost'`.
-
-`rabbitmq['password']`
-
-:   Legacy configuration setting for the password for the RabbitMQ user.
-    Default value: **generated**.
-
-    To override the default value, use the [Secrets
-    Management](/ctl_chef_server/#ctl-chef-server-secrets-management)
-    command: `chef-server-ctl set-secret rabbitmq password`.
-
-`rabbitmq['prevent_erchef_startup_on_full_capacity']`
-
-:   Specify if the Chef Infra Server will start when the monitored
-    RabbitMQ queue is full. Default value: `false`.
-
-`rabbitmq['queue_at_capacity_affects_overall_status']`
-
-:   Specify if the `_status` endpoint in the Chef Infra Server API will
-    fail if the monitored queue is at capacity. Default value: `false`.
-
-`rabbitmq['queue_length_monitor_enabled']`
-
-:   Specify if the queue length monitor is enabled. Default value:
-    `true`.
-
-`rabbitmq['queue_length_monitor_millis']`
-
-:   The frequency (in milliseconds) at which the length of the RabbitMQ
-    queue is checked. Default value: `30000`.
-
-`rabbitmq['queue_length_monitor_timeout_millis']`
-
-:   The timeout (in milliseconds) at which calls to the queue length
-    monitor will stop if the Chef Infra Server is overloaded. Default
-    value: `5000`.
-
-`rabbitmq['queue_length_monitor_queue']`
-
-:   The RabbitMQ queue that is observed by queue length monitor. Default
-    value: `'alaska'`.
-
-`rabbitmq['queue_length_monitor_vhost']`
-
-:   The virtual host for the RabbitMQ queue that is observed by queue
-    length monitor. Default value: `'/analytics'`.
-
-`rabbitmq['rabbit_mgmt_http_cull_interval']`
-
-:   The maximum cull interval (in seconds) for the HTTP connection pool
-    that is used by the rabbitmq-management plugin. Default value: `60`.
-
-`rabbitmq['rabbit_mgmt_http_init_count']`
-
-:   The initial worker count for the HTTP connection pool that is used
-    by the rabbitmq-management plugin. Default value: `25`.
-
-`rabbitmq['rabbit_mgmt_http_max_age']`
-
-:   The maximum connection worker age (in seconds) for the HTTP
-    connection pool that is used by the rabbitmq-management plugin.
-    Default value: `70`.
-
-`rabbitmq['rabbit_mgmt_http_max_connection_duration']`
-
-:   The maximum connection duration (in seconds) for the HTTP connection
-    pool that is used by the rabbitmq-management plugin. Default value:
-    `70`.
-
-`rabbitmq['rabbit_mgmt_http_max_count']`
-
-:   The maximum worker count for the HTTP connection pool that is used
-    by the rabbitmq-management plugin. Default value: `100`.
-
-`rabbitmq['rabbit_mgmt_ibrowse_options']`
-
-:   An array of comma-separated key-value pairs of ibrowse options for
-    the HTTP connection pool that is used by the rabbitmq-management
-    plugin. Default value: `'{connect_timeout, 10000}'`.
-
-`rabbitmq['rabbit_mgmt_timeout']`
-
-:   The timeout for the HTTP connection pool that is used by the
-    rabbitmq-management plugin. Default value: `30000`.
-
-`rabbitmq['reindexer_vhost']`
-
-:   Default value: `'/reindexer'`.
-
-`rabbitmq['ssl_versions']`
-
-:   The SSL versions used by the rabbitmq-management plugin. (See
-    [RabbitMQ TLS support](https://www.rabbitmq.com/ssl.html) for more
-    information.) Default value: `['tlsv1.2', 'tlsv1.1']`.
-
-`rabbitmq['user']`
-
-:   Default value: `'chef'`.
-
-`rabbitmq['vhost']`
-
-:   Default value: `'/chef'`.
-
-`rabbitmq['vip']`
-
-:   The virtual IP address. Default value: `'127.0.0.1'`.
 
 ### redis_lb
 
