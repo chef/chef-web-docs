@@ -33,7 +33,7 @@ Over time, and with enough data, disks will fill up or exceed the
 per-disk quotas that may have been set for them and they will not be
 able to write data. A disk that is not able to write data will not be
 able to support certain components of the Chef Infra Server, such as
-PostgreSQL, RabbitMQ, service log files, and deleted file handles.
+PostgreSQL, service log files, and deleted file handles.
 Monitoring disk usage is the best way to ensure that disks don't fill up
 or exceed their quota.
 
@@ -60,14 +60,6 @@ rapidly filling up:
 
 -   **PostgreSQL** PostgreSQL is the data store for the Chef Infra
     Server.
--   **RabbitMQ** The RabbitMQ data folder can fill up if the
-    **opscode-expander** service is not able to keep up with the data
-    being moved into the search database by RabbitMQ. When the
-    **opscode-expander** service falls behind, RabbitMQ will start
-    storing the individual messages on-disk while it waits for the
-    **opscode-expander** service to catch up. If the RabbitMQ disk fills
-    up completely, RabbitMQ will need to be restarted to free up the
-    disk space and any data that was stored on-disk will be lost.
 -   **Log files** If `/var/log/opscode` is taking up a lot of disk
     space, ensure that the Chef Infra Server log rotation cron job is
     running without errors. These errors can be found in
@@ -231,42 +223,6 @@ by Chef support services.
 
 {{< /warning >}}
 
-### RabbitMQ
-
-rabbitmqctl is the management tool for RabbitMQ. It can be used to
-obtain status information and to ensure that message queuing is running
-properly. For more information about rabbitmqctl, see
-<https://www.rabbitmq.com/man/rabbitmqctl.1.man.html>.
-
-To obtain status information for message queues, run the following
-command:
-
-``` bash
-export PATH=$PATH:/opt/opscode/bin:/opt/opscode/embedded/bin
-  rabbitmqctl status
-```
-
-to return something similar to:
-
-``` bash
-Status of node rabbit@localhost ...
-[{pid,3044},
- {running_applications, [{rabbit,"RabbitMQ","2.7.1"},
-                         {mnesia,"MNESIA CXC 138 12","4.7.1},
-                         {os_mon,"CPO CXC 138 46","2.2.10},
-                         ...
-                         {kernel,"ERTS CXC 138 10","2.15.2"}]},
- {os,{unix,linux}},
- {erlang_version,"Erlang R15B02 (erts-5.9.2) [source] [64-bit] ..."},
- {memory,[{total,96955896},
-          {processes,38634560},
-          ...
-          {ets,5850336}]},
- {vm_memory_high_watermark,0.39999999995176794},
- {vm_memory_limit,1658647347}]
- ... done
-```
-
 ### Redis
 
 The **redis_lb** service located on the back end machine handles
@@ -336,28 +292,6 @@ issue, do the following:
     /opt/opscode/embedded/bin/redis-cli -p 16379 keys \*
     1) "dl_default"
     ```
-
-### Apache Solr
-
-The **opscode-solr4** service located on the primary back end machine
-handles requests that are made from the Erchef service that is located
-on all front end machines in a Chef Infra Server cluster.
-
-Under normal circumstances, opscode-solr4 will need access to a total of
-2x the space used for the index.
-
-The thread at
-<http://comments.gmane.org/gmane.comp.jakarta.lucene.solr.user/99149>
-explains more fully, including describing an extreme case where it's
-possible that 3x the storage might be necessary. Chef Infra Server usage
-of Apache Solr via the **opscode-solr4** service will generally only
-require the used storage for the index + 1x that amount of storage in
-free space.
-
-For example, a 2GB search index will require about 2GB of free space
-available in the **opscode-solr4** service's storage area. The standard
-storage area for the **opscode-solr4** service in a standalone topology
-Chef Infra Server install is `/var/opt/opscode/opscode-solr4/data`.
 
 ## System Checks
 
@@ -434,62 +368,11 @@ which will return something similar to:
 For each of the upstream services, `pong` or `fail` is returned. The
 possible upstream names are:
 
--   `chef_solr` (for the **opscode-solr4** service)
 -   `chef_sql` (for the **postgresql** service)
 -   `oc_chef_authz` (for the **opscode-authz** service)
 
 If any of the status values return `fail`, this typically means the Chef
 Infra Server is unavailable for that service.
-
-### opscode-expander
-
-As the queue depth increases it may take longer for updates posted to
-the Chef Infra Server by each Chef Infra Client to be added to the
-search indexes on the Chef Infra Server. The depth of this queue should
-be monitored using the following command:
-
-``` bash
-cd /opt/opscode/embedded/service/opscode-expander/
-  export PATH=$PATH:/opt/opscode/bin:/opt/opscode/embedded/bin
-```
-
-#### Search Indexes
-
-{{% search %}}
-
-If the search indexes are not being updated properly, first ensure that
-the **opscode-expander** service is running on the backend machine:
-
-``` bash
-chef-server-ctl status opscode-expander
-```
-
-and then (if it is not running), start the service:
-
-``` bash
-chef-server-ctl start opscode-expander
-```
-
-If the **opscode-expander** does not start correctly, then take a look
-at the `/var/log/opscode/opscode-expander/current` log file for error
-messages.
-
-If the **opscode-expander** is running, check the queue length:
-
-``` bash
-watch -n1 sudo -E bin/opscode-expanderctl queue-depth
-```
-
-If the number of total messages continues to increase, increase the
-number of workers available to the **opscode-expander** service.
-
-#### opscode-expanderctl
-
-{{% ctl_opscode_expander_summary %}}
-
-{{% ctl_opscode_expander_options %}}
-
-{{% ctl_opscode_expander_example %}}
 
 ## Nodes, Workstations
 

@@ -10,6 +10,8 @@ draft = false
     weight = 40
 +++
 
+[\[edit on GitHub\]](https://github.com/chef/effortless/blob/master/docs-chef-io/content/effortless/variables_and_config.md)
+
 # Plan Variables and Chef Habitat Configurations
 
 This documents the options for both your plan and your `habitat` configuration file.

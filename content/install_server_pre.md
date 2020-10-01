@@ -227,9 +227,7 @@ sudo apparmor_status
 ### Apache Qpid
 
 On CentOS and Red Hat Enterprise Linux systems, the Apache Qpid daemon
-is installed by default. The Chef Infra Server uses RabbitMQ for
-messaging. Because both Apache Qpid and RabbitMQ share the same
-protocol, Apache Qpid must be disabled.
+is installed by default.
 
 To determine if Apache Qpid is installed, run the following command:
 

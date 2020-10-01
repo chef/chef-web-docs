@@ -49,6 +49,4 @@ the **opscode-erchef** should be investigated further:
 run: oc-id
 run: opscode-chef: (pid 4327) 13671s; run: log: (pid 4326) 13671s
 run: opscode-erchef: (pid 5383) 5s; run: log: (pid 4382) 13669s
-run: opscode-expander: (pid 4078) 13694s; run: log: (pid 4077) 13694s
-run: opscode-expander-reindexer: (pid 4130) 13692s; run: log: (pid 4114) 13692s
 ```

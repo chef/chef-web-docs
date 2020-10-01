@@ -1058,7 +1058,6 @@ automate-ctl restore-backup ELASTICSEARCH_SNAPSHOT [options]
      --no-git                     Do not restore Chef Automate's git repositories
      --no-license                 Do not restore Chef Automate's license file
      --no-notifications           Do not restore Chef Automate's notifications rulestore
-     --no-rabbit                  Do not restore Chef Automate's RabbitMQ data
      --no-wait                    Do not wait for non-blocking restore operations
      --no-wait-for-lock           Do not wait for Elasticsearch lock
      --quiet                      Do not output non-error information
@@ -1383,8 +1382,6 @@ the **opscode-erchef** should be investigated further:
 run: oc-id
 run: opscode-chef: (pid 4327) 13671s; run: log: (pid 4326) 13671s
 run: opscode-erchef: (pid 5383) 5s; run: log: (pid 4382) 13669s
-run: opscode-expander: (pid 4078) 13694s; run: log: (pid 4077) 13694s
-run: opscode-expander-reindexer: (pid 4130) 13692s; run: log: (pid 4114) 13692s
 ```
 
 #### Log Files
@@ -1401,7 +1398,7 @@ where:
 -   `run` describes the state in which the supervisor attempts to keep
     processes. This state is either `run` or `down`. If a service is in
     a `down` state, it should be stopped
--   `name_of_service` is the service name, for example: `opscode-solr4`
+-   `name_of_service` is the service name
 -   `(pid 1486) 7819s;` is the process identifier followed by the amount
     of time (in seconds) the service has been running
 -   `run: log: (pid 1485) 7819s` is the log process. It is typical for a
@@ -1413,7 +1410,7 @@ If the service is down, the status line will appear similar to the
 following:
 
 ``` bash
-down: opscode-solr4: 3s, normally up; run: log: (pid 1485) 8526s
+down: elasticsearch: 3s, normally up; run: log: (pid 1485) 8526s
 ```
 
 where
@@ -1455,11 +1452,7 @@ will return something similar to:
 ok: down: nginx: 393s, normally up
 ok: down: opscode-chef: 391s, normally up
 ok: down: opscode-erchef: 391s, normally up
-ok: down: opscode-expander: 390s, normally up
-ok: down: opscode-expander-reindexer: 389s, normally up
-ok: down: opscode-solr4: 389s, normally up
 ok: down: postgresql: 388s, normally up
-ok: down: rabbitmq: 388s, normally up
 ok: down: redis_lb: 387s, normally up
 ```
 
