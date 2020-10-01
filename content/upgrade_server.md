@@ -14,7 +14,37 @@ aliases = ["/upgrade_server.html"]
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/upgrade_server.md)
 
-## Upgrading to Chef Infra Server 13
+
+## Chef Infra Server Upgrade Matrix
+
+| Installed Version | Upgrade Version | EULA | Upgrade Supported |
+|---------|---------|------|-----------|
+| 13 | 14 | Yes | Yes |
+| 12.17.15 | 14 | Yes | Yes |
+| 12.3.0 | 12.17.15 | No | No |
+| 11 | 12.3.0 | No | No |
+
+EULA
+: Chef Infra Server 13 and 14 are governed by the [EULA License Agreement](https://docs.chef.io/chef_license_accept/#chef-infra-server). You will be required to accept these terms when using Chef Infra Server 13 for the first time.
+
+Upgrade Supported
+: Chef Infra Server 13 and 14 are supported Chef Software distributions and all earlier versions are no longer supported. For more information about supported Chef Software see the [Supported Versions](https://docs.chef.io/versions/#supported-commercial-distributions) documentation.
+
+## Upgrading to Chef Infra Server
+
+Three upgrade scenarios exist for upgrades from Chef Infra Server 12.17.15 to Chef Infra Server 13 or 14:
+
+- [Standalone](/upgrade_server/#standalone-upgrade)
+- [High Availability: Chef Backend](/upgrade_server/#chef-backend-upgrade)
+- [Tiered](/upgrade_server/#tiered-upgrade)
+
+### Chef Infra Server 14
+
+{{< warning >}}
+
+Do not upgrade your production server. First, upgrade in your test server, and then upgrade your production server.
+
+{{< /warning >}}
 
 Chef Infra Server 14 uses Elasticsearch as its search index.
 Upgrading to Chef Infra Server 14 requires a reindexing operation for internal Solr users, which automatically happens.
@@ -23,53 +53,7 @@ This estimate can be substantially impacted by your server hardware and the comp
 
 No reindexing will occur for existing external Elasticsearch users upgrading to Chef Infra Server 14.
 
-{{< warning >}}
-
-Do not upgrade your production server. First, upgrade in your test server, and then upgrade your production server.
-
-{{< /warning >}}
-
-{{< note >}}
-
-Back up the Chef Infra Server data before starting the upgrade process.
-We recommend using [knife-ec-backup](https://github.com/chef/knife-ec-backup) to back up Chef Infra Server.
-
-{{< /note >}}
-
-{{< note >}}
-
-Chef Infra Server 14 is governed by the [EULA License Agreement](https://docs.chef.io/chef_license_accept/#chef-infra-server).
-You will be required to accept these terms when using Chef Infra Server 14 for the first time.
-
-{{< /note >}}
-
-## Upgrading to Chef Infra Server 13
-
-The following sections describe the upgrade process for Chef Infra Server 13.
-
-{{< note >}}
-
-Chef Infra Server 13 is governed by the [EULA License Agreement](https://docs.chef.io/chef_license_accept/#chef-infra-server).
-You will be required to accept these terms when using Chef Infra Server 13 for the first time.
-
-{{< /note >}}
-
-{{< note >}}
-
-Back up the Chef Infra Server data before starting the upgrade process.
-We recommend using [knife-ec-backup](https://github.com/chef/knife-ec-backup) to back up Chef Infra Server.
-
-{{< /note >}}
-
-## Upgrading From Chef Infra Server 12.17.15 or Later
-
-Three upgrade scenarios exist for upgrades from Chef Infra Server 12.17.15 to Chef Infra Server 13 or later:
-
-- [Standalone](/upgrade_server/#standalone)
-- [High Availability: Chef Backend](/upgrade_server/#high-availability-chef-backend)
-- [Tiered](/upgrade_server/#tiered)
-
-{{< note >}}
+### Chef Infra Server 12.17.15 or Later
 
 As of version 12.14, Chef Infra Server will not render passwords outside of the `/etc/opscode` directory by default.
 If you are not using any Chef Infra Server add-ons, or you're using the latest add-on versions, you
@@ -79,14 +63,14 @@ Note that this setting should only be applied after both the Chef Infra Server a
 
 For additional information on this change, including a list of supported add-on versions, see [Chef Infra Server Credentials Management](/server_security/#chef-infra-server-credentials-management).
 
-{{< /note >}}
-
-### Standalone
+## Standalone Upgrade
 
 This section describes the upgrade process for a standalone configuration. The upgrade process will require downtime equal to the amount of time it takes to stop the server, run dpkg or RPM Package
 Manager, and then upgrade the server.
 
 To upgrade to Chef Infra Server 14 from a standalone Chef Infra Server, do the following:
+
+1. Back up the Chef Infra Server data before starting the upgrade process using [knife-ec-backup](https://github.com/chef/knife-ec-backup).
 
 1.  Run the following command to make sure all services are in a sane
     state.
@@ -148,7 +132,7 @@ To upgrade to Chef Infra Server 14 from a standalone Chef Infra Server, do the f
     chef-server-ctl cleanup
     ```
 
-### High Availability: Chef Backend
+## Chef Backend Upgrade
 
 The Chef Infra Server can operate in a high availability configuration that provides automated load balancing and failover for stateful components in the system architecture.
 
@@ -157,7 +141,7 @@ The upgrade process will require downtime equal to the amount of time it takes t
 
 To upgrade Chef Backend from an existing DRBD/keepalived configuration, see the [Best Best Practices for Migrating Your Chef Server](https://blog.chef.io/2018/04/06/best-practices-for-migrating-your-chef-server/) webinar from the [Chef Blog](https://blog.chef.io/).
 
-### Tiered
+## Tiered Upgrade
 
 This section describes the upgrade process from a tiered server configuration.
 The upgrade process will require downtime equal to the amount of time it takes to stop the server, run dpkg or RPM Package Manager, and then upgrade the server.
@@ -171,6 +155,8 @@ For the latest information on high availability and how to set up a highly-avail
 
 To upgrade to Chef Infra Server 14 from a tiered Chef Infra Server configuration, do the following:
 
+1. Back up the Chef Infra Server data before starting the upgrade process using [knife-ec-backup](https://github.com/chef/knife-ec-backup).
+   
 1.  Run the following on all servers to make sure all services are in a sane state.
 
     ``` bash
@@ -254,20 +240,3 @@ This section details the process for upgrading additional features after the Che
 **Use Local Packages**
 
 {{% ctl_chef_server_install_features_manual %}}
-
-## Upgrading from older versions to Chef Infra Server 13
-
-**Upgrading from version between 12.0.0 - 12.17.15**
-
-We recommend a stepwise upgrade:
-1. Chef Infra Server < 12.17.15 -> Chef Infra Server 12.17.15
-1. Chef Infra Server 12.17.15 -> Chef Infra Server 14
-
-**Upgrading from Chef Infra Server 11**
-
-We recommend a stepwise upgrade:
-1. Chef Infra Server 11 -> Chef Infra Server 12.3.0
-1. Chef Infra Server 12.3.0 -> Chef Infra Server 12.17.15
-1. Chef Infra Server 12.17.15 -> Chef Infra Server 14
-
-Upgrade Matrix
