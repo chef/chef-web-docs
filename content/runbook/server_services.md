@@ -228,6 +228,86 @@ To follow the logs for the service:
 chef-server-ctl tail bookshelf
 ```
 
+### Elasticsearch
+
+#### status
+
+To view the status for the service:
+
+``` bash
+chef-server-ctl status elasticsearch
+```
+
+to return something like:
+
+``` bash
+elasticsearch: (pid 12345) 1s; run: log: (pid 5678) 123456s
+```
+
+#### start
+
+To start the service:
+
+```bash
+chef-server-ctl start elasticsearch
+```
+
+to return something like:
+
+```bash
+ok: run: elasticsearch: (pid 5678) 0s
+```
+
+#### stop
+
+To stop the service:
+
+```bash
+chef-server-ctl stop elasticsearch
+```
+
+to return something like:
+
+```bash
+ok: down: elasticsearch: 123456s, normally up
+```
+
+#### restart
+
+To restart the service:
+
+```bash
+chef-server-ctl restart elasticsearch
+```
+
+to return something like:
+
+```bash
+ok: run: elasticsearch: (pid 56789) 1s
+```
+
+#### kill
+
+To kill the service (send a `SIGKILL` command):
+
+```bash
+chef-server-ctl kill elasticsearch
+```
+
+#### run once
+
+```bash
+chef-server-ctl once elasticsearch
+```
+
+#### tail
+
+To follow the logs for the service:
+
+``` bash
+chef-server-ctl tail elasticsearch
+```
+
 ### nginx
 
 {{% server_services_nginx %}}

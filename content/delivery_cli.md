@@ -1018,6 +1018,8 @@ Lsyncd:
   status: not_running
 PostgreSQL:
   status: up
+RabbitMQ:
+  status: up
   node_health:
     status: up
   vhost_aliveness:

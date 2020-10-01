@@ -252,6 +252,8 @@ Lsyncd:
    status: not_running
 PostgreSQL:
    status: up
+Elasticsearch:
+   status: up
    node_health:
       status: up
    vhost_aliveness:

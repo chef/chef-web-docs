@@ -1,13 +1,13 @@
 +++
-title = "chef-server.rb 13 Settings"
+title = "chef-server.rb 14 Settings"
 draft = false
 
 aliases = ["/config_rb_server.html"]
 
 [menu]
   [menu.infra]
-    title = "chef-server.rb 13 Settings"
-    identifier = "chef_infra/managing_chef_infra_server/config_rb_server.md chef-server.rb"
+    title = "chef-server.rb 14 Settings"
+    identifier = "chef_infra/managing_chef_infra_server/config_rb_server_14.md chef-server-14.rb"
     parent = "chef_infra/managing_chef_infra_server"
     weight = 160
 +++
@@ -87,26 +87,6 @@ application:
     application has run out of HTTP connections for the
     **data_collector** then increase this value. Default value: <span
     class="title-ref">100</span>.
-
-### opscode-expander
-
-{{% server_tuning_expander %}}
-
-### opscode-solr4
-
-{{% server_tuning_solr %}}
-
-#### Available Memory
-
-{{% server_tuning_solr_available_memory %}}
-
-#### Large Node Sizes
-
-{{% server_tuning_solr_large_node_sizes %}}
-
-#### Update Frequency
-
-{{% server_tuning_solr_update_frequency %}}
 
 ### postgresql
 

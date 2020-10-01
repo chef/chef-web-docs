@@ -57,7 +57,7 @@ across multiple Availability Zones within the same region.
 
 ### Key Differences From Standalone Chef Infra Server
 
-Starting from the 14.x release onwards standalone Chef Infra Server instances also use Elasticsearch for internal search. Elasticsearch provides more flexible clustering options while maintaining search API compatibility with Apache Solr.
+**New in Chef Infra Server 14** Starting with Chef Infra Server 14, standalone instances use Elasticsearch for internal search. Elasticsearch provides more flexible clustering options while maintaining search API compatibility with Apache Solr.
 
 ## Recommended Cluster Topology
 
