@@ -403,8 +403,6 @@ this:
     triggering an unhandled exception
 -   Use a `rescue` block in Ruby code
 -   Use an [exception handler](/handlers/)
--   Use `Chef::Application.fatal!` to log a fatal message to the logger
-    and `STDERR`, and then stop a Chef Infra Client run
 
 The following sections show various approaches to ending a Chef Infra
 Client run.
@@ -519,35 +517,6 @@ will return a `Net::HTTPClientException`. The `rescue` block can be used
 to try to retry or otherwise handle the situation. If the `rescue` block
 is unable to handle the situation, then the `raise` keyword is used to
 specify the message to be raised.
-
-#### Fatal Messages
-
-A Chef Infra Client run is stopped after a fatal message is sent to the
-logger and `STDERR`. For example:
-
-```ruby
-Chef::Application.fatal!("log_message", error_code) if condition
-```
-
-where `condition` defines when a `"log_message"` and an `error_code` are
-sent to the logger and `STDERR`, after which Chef Infra Client will
-exit. The `error_code` itself is arbitrary and is assigned by the
-individual who writes the code that triggers the fatal message.
-Assigning an error code is optional, but they can be useful during log
-file analysis.
-
-This approach is used within Chef Infra Client itself to help ensure
-consistent messaging around certain behaviors. That said, this approach
-is not recommended for use within recipes and cookbooks and should only
-be used when the other approaches are not applicable.
-
-{{< note >}}
-
-This approach should be used carefully when Chef Infra Client is run as
-a daemonized service. Some services---such as a runit service---should
-restart, but others---such as an init.d services---likely will not.
-
-{{< /note >}}
 
 ### node.run_state
 
