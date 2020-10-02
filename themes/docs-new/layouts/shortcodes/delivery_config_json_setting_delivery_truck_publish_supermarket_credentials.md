@@ -1,6 +1,6 @@
 Publish cookbooks to Chef Supermarket, but with custom credentials:
 
-``` javascript
+```javascript
 "delivery-truck":{
   "publish": {
     "supermarket": "https://supermarket.chef.io",

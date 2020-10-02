@@ -3,7 +3,7 @@ of two strings of characters. An (optional) integer may be used as part
 of the search query to more closely define the proximity. A fuzzy
 matching search pattern has the following syntax:
 
-``` ruby
+```ruby
 "search_query"~edit_distance
 ```
 

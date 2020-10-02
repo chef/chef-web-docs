@@ -2,7 +2,7 @@ Use the `load_current_value` method to load the specified property
 values from the node, and then use those values when the resource is
 converged. This method may take a block argument.
 
-``` ruby
+```ruby
 property :path, String
 property :content, String
 property :mode, String
@@ -18,7 +18,7 @@ end
 Use the `load_current_value` method to guard against property values
 being replaced. For example:
 
-``` ruby
+```ruby
 property :homepage, String
 property :page_not_found, String
 

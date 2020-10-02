@@ -73,7 +73,7 @@ you [find your Chef Automate
 instance](#find-opsworks-instance) you
 can go to the linked security group and add a new inbound rule.
 
-``` text
+```text
 Protocol: TCP
 Port Range: 8989
 Source: 0.0.0.0/0

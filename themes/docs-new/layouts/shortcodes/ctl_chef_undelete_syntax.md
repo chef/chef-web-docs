@@ -1,6 +1,6 @@
 This subcommand has the following syntax:
 
-``` bash
+```bash
 chef undelete (options)
 ```
 

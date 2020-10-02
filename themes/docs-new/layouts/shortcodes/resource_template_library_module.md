@@ -3,7 +3,7 @@ when extensions need to be reused across recipes or to make it easier to
 manage code that would otherwise be defined inline on a per-recipe
 basis.
 
-``` ruby
+```ruby
 template '/path/to/template.erb' do
   helpers(MyHelperModule)
 end

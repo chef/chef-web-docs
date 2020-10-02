@@ -1,7 +1,7 @@
 ---
 resource_reference: true
 properties_resources_common_windows_security: true
-properties_shortcode: 
+properties_shortcode:
 resource_directory_recursive_directories: true
 resources_common_guards: true
 resources_common_notification: true
@@ -28,7 +28,7 @@ resource_description_list:
 
     permission to access that location in the directory is required.'
 syntax_description: "A **directory** resource block declares a directory and the permissions\n\
-  needed on that directory. For example:\n\n``` ruby\ndirectory '/etc/apache2' do\n\
+  needed on that directory. For example:\n\n```ruby\ndirectory '/etc/apache2' do\n\
   \  owner 'root'\n  group 'root'\n  mode '0755'\n  action :create\nend\n```"
 syntax_properties_list:
 - '`''/etc/apache2''` specifies the directory'
@@ -200,11 +200,11 @@ properties_list:
 
       advanced rights options.'
 examples: "
-  Create a directory\n\n  ``` ruby\n  directory '/tmp/something' do\n\
+  Create a directory\n\n  ```ruby\n  directory '/tmp/something' do\n\
   \    owner 'root'\n    group 'root'\n    mode '0755'\n    action :create\n  end\n\
-  \  ```\n\n  Create a directory in Microsoft Windows\n\n  ``` ruby\n  directory \"\
+  \  ```\n\n  Create a directory in Microsoft Windows\n\n  ```ruby\n  directory \"\
   C:\\\\tmp\\\\something\" do\n    rights :full_control, \"DOMAIN\\\\User\"\n    inherits\
-  \ false\n    action :create\n  end\n  ```\n\n  or:\n\n  ``` ruby\n  directory 'C:\\\
+  \ false\n    action :create\n  end\n  ```\n\n  or:\n\n  ```ruby\n  directory 'C:\\\
   tmp\\something' do\n    rights :full_control, 'DOMAIN\\User'\n    inherits false\n\
   \    action :create\n  end\n  ```\n\n  <div class=\"admonition-note\">\n    <p class=\"\
   admonition-note-title\">Note</p>\n      <div class=\"admonition-note-text\">\n \
@@ -212,9 +212,9 @@ examples: "
   \ double-quoted strings, where if the double quotes are used, the backslash character\
   \ (<code>\\</code>) must be escaped using the Ruby escape character (which is a\
   \ backslash).</p>\n\n      </div>\n    </div>\n\n  Create a directory recursively\n\
-  \n  ``` ruby\n  %w{dir1 dir2 dir3}.each do |dir|\n    directory \"/tmp/mydirs/#{dir}\"\
+  \n  ```ruby\n  %w{dir1 dir2 dir3}.each do |dir|\n    directory \"/tmp/mydirs/#{dir}\"\
   \ do\n      mode '0755'\n      owner 'root'\n      group 'root'\n      action :create\n\
-  \      recursive true\n    end\n  end\n  ```\n\n  Delete a directory\n\n  ``` ruby\n\
+  \      recursive true\n    end\n  end\n  ```\n\n  Delete a directory\n\n  ```ruby\n\
   \  directory '/tmp/something' do\n    recursive true\n    action :delete\n  end\n\
   \  ```\n\n  Set directory permissions using a variable\n\n  The following example\
   \ shows how read/write/execute permissions can be\n  set using a variable named\
@@ -223,7 +223,7 @@ examples: "
   \ do\n    owner 'node[:matching_node][:user]'\n    group 'node[:matching_node][:group]'\n\
   \    mode '0755'\n    action :create\n  end\n  ```\n\n  where `matching_node` represents\
   \ a type of node. For example, if the\n  `user_home` variable specified `{node[:nginx]...}`,\
-  \ a recipe might look\n  similar to:\n\n  ``` ruby\n  user_home = \"/#{node[:nginx][:user]}\"\
+  \ a recipe might look\n  similar to:\n\n  ```ruby\n  user_home = \"/#{node[:nginx][:user]}\"\
   \n\n  directory user_home do\n    owner 'node[:nginx][:user]'\n    group 'node[:nginx][:group]'\n\
   \    mode '0755'\n    action :create\n  end\n  ```\n\n  Set directory permissions\
   \ for a specific type of node\n\n  The following example shows how permissions can\
@@ -238,7 +238,7 @@ examples: "
   \  -   identify the location from which Ohai plugins are stored\n  -   using the\
   \ `notifies` property and a **ruby_block** resource to\n      trigger an update\
   \ (if required) and to then reload the client.rb\n      file.\n\n  <!-- -->\n\n\
-  \  ``` ruby\n  directory 'node[:ohai][:plugin_path]' do\n    owner 'chef'\n    recursive\
+  \  ```ruby\n  directory 'node[:ohai][:plugin_path]' do\n    owner 'chef'\n    recursive\
   \ true\n  end\n\n  ruby_block 'reload_config' do\n    block do\n      Chef::Config.from_file('/etc/chef/client.rb')\n\
   \    end\n    action :nothing\n  end\n\n  if node[:ohai].key?(:plugins)\n    node[:ohai][:plugins].each\
   \ do |plugin|\n      remote_file node[:ohai][:plugin_path] +\"/#{plugin}\" do\n\
@@ -246,11 +246,11 @@ examples: "
   \ :immediately\n      end\n    end\n  end\n  ```\n\n  Manage dotfiles\n\n  The following\
   \ example shows using the **directory** and\n  **cookbook_file** resources to manage\
   \ dotfiles. The dotfiles are\n  defined by a JSON data structure similar to:\n\n\
-  \  ``` javascript\n  \"files\": {\n    \".zshrc\": {\n      \"mode\": '0755',\n\
+  \  ```javascript\n  \"files\": {\n    \".zshrc\": {\n      \"mode\": '0755',\n\
   \      \"source\": \"dot-zshrc\"\n      },\n    \".bashrc\": {\n      \"mode\":\
   \ '0755',\n      \"source\": \"dot-bashrc\"\n       },\n    \".bash_profile\": {\n\
   \      \"mode\": '0755',\n      \"source\": \"dot-bash_profile\"\n      },\n   \
-  \ }\n  ```\n\n  and then the following resources manage the dotfiles:\n\n  ``` ruby\n\
+  \ }\n  ```\n\n  and then the following resources manage the dotfiles:\n\n  ```ruby\n\
   \  if u.has_key?('files')\n    u['files'].each do |filename, file_data|\n\n    directory\
   \ \"#{home_dir}/#{File.dirname(filename)}\" do\n      recursive true\n      mode\
   \ '0755'\n    end if file_data['subdir']\n\n    cookbook_file \"#{home_dir}/#{filename}\"\

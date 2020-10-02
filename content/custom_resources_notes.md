@@ -42,7 +42,7 @@ not support subclassing).
 
 in `resources/whatever.rb`:
 
-``` ruby
+```ruby
 resource_name :my_resource
 provides :my_resource
 
@@ -75,7 +75,7 @@ code sharing (which is good).
 
 in `resources/my_resource.rb`:
 
-``` ruby
+```ruby
 resource_name :my_resource
 provides :my_resource
 
@@ -85,7 +85,7 @@ extend MyResourceHelperFunctions # probably only used for common properties whic
 
 in `providers/my_resource.rb`:
 
-``` ruby
+```ruby
 # you have to worry about this
 def whyrun_supported?
   true
@@ -125,7 +125,7 @@ actually behind the curve and are bad code examples.
 
 in `libraries/resource_my_resource.rb`:
 
-``` ruby
+```ruby
 class MyBaseClass
   class Resource
     class MyResource < Chef::Resource::LWRPBase # it is very important to inherit from LWRPBase
@@ -141,7 +141,7 @@ end
 
 in `libraries/resource_my_resource.rb`:
 
-``` ruby
+```ruby
 class MyBaseClass
   class Resource
     class MyProvider < Chef::Provider::LWRPBase # it is very important to inherit from LWRPBase
@@ -178,7 +178,7 @@ itself.
 
 THIS CODE IS WRONG:
 
-``` ruby
+```ruby
 action :run do
   t = file '/tmp/foo' do
     content 'foo'
@@ -195,7 +195,7 @@ please stop writing actions this way.
 
 THIS IS CORRECT:
 
-``` ruby
+```ruby
 def whyrun_supported?
   true
 end
@@ -225,7 +225,7 @@ what they would have done instead of doing it.
 If you do need to write code which mutates the system through pure-Ruby
 then you should do so like this:
 
-``` ruby
+```ruby
 def whyrun_supported?
   true
 end
@@ -250,7 +250,7 @@ should wrap all `converge_by` checks with an idempotency check. The
 block may be used instead which will wrap a `converge_by` block with an
 idempotency check for you.
 
-``` ruby
+```ruby
 action :run do
   # This code is bad, it lacks an idempotency check here.
   # It will always be updated
@@ -265,7 +265,7 @@ end
 Of course it is vastly simpler to just use Chef Infra Client resources
 when you can. Compare the equivalent implementations:
 
-``` ruby
+```ruby
 action :run do
   file '/tmp/foo'
 end
@@ -273,7 +273,7 @@ end
 
 is basically the same as this:
 
-``` ruby
+```ruby
 action :run do
   unless ::File.exist?('/tmp/foo')
     converge_by('touch /tmp/foo') do

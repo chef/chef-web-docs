@@ -112,20 +112,20 @@ the URL `https://10.10.10.10` will pass.
 
 2.  Change directory to `ca-certificates`.
 
-    ``` bash
+    ```bash
     cd /usr/local/share/ca-certificates
     ```
 
 3.  Copy your certificate into the `/usr/local/share/ca-certificates`
     directory.
 
-    ``` bash
+    ```bash
     openssl s_client -showcerts -connect {your-GitHub-server}:443 </dev/null 2>/dev/null|openssl x509 -outform PEM >{your-GitHub-server}.crt
     ```
 
 4.  Update the CA store on the Workflow server.
 
-    ``` bash
+    ```bash
     update-ca-certificates
     ```
 
@@ -135,7 +135,7 @@ the URL `https://10.10.10.10` will pass.
 
 2.  Install the `ca-certificates` package.
 
-    ``` bash
+    ```bash
     yum install ca-certificates
     ```
 
@@ -147,7 +147,7 @@ the URL `https://10.10.10.10` will pass.
 
 3.  Enable the dynamic CA configuration feature.
 
-    ``` bash
+    ```bash
     update-ca-trust force-enable
     ```
 
@@ -159,21 +159,21 @@ the URL `https://10.10.10.10` will pass.
 
 4.  Change directory to the `anchors` directory.
 
-    ``` bash
+    ```bash
     cd /etc/pki/ca-trust/source/anchors/
     ```
 
 5.  Copy your certificate into the `/etc/pki/ca-trust/source/anchors/`
     directory.
 
-    ``` bash
+    ```bash
     openssl s_client -showcerts -connect {your-GitHub-server}:443 </dev/null 2>/dev/null|openssl x509 -outform PEM >{your-GitHub-server}.crt
     ```
 
 6.  Create or update the generated CA certificate bundle files located
     in the `/etc/pki/ca-trust/extracted` directory hierarchy.
 
-    ``` bash
+    ```bash
     update-ca-trust extract
     ```
 
@@ -222,7 +222,7 @@ To begin, you will need:
 
 2.  Create a `.delivery/cli.toml` using `delivery setup`:
 
-    ``` bash
+    ```bash
     delivery setup --ent=$AUTOMATE_ENTERPRISE --org=$AUTOMATE_ORG --user=$AUTOMATE_USER_NAME --server=$AUTOMATE_SERVER
     ```
 
@@ -231,7 +231,7 @@ To begin, you will need:
 
 4.  Start the initialization process by running:
 
-    ``` bash
+    ```bash
     delivery init --github $GITHUB_ORGANIZATION --repo-name $REPOSITORY_NAME
     ```
 
@@ -332,13 +332,13 @@ and pipeline setup has already occurred.
     will store project repositories. Use `delivery setup` with arguments
     as shown below to create a `.delivery/cli.toml` file:
 
-    ``` bash
+    ```bash
     delivery setup --ent=$AUTOMATE_ENTERPRISE --org=$AUTOMATE_ORG --user=$AUTOMATE_USER --server=$AUTOMATE_SERVER
     ```
 
 2.  Create a local clone of the project repository.
 
-    ``` bash
+    ```bash
     delivery clone $PROJECT
     ```
 
@@ -349,7 +349,7 @@ and pipeline setup has already occurred.
     URL can be found on the project's page in the Workflow UI. To create
     the remote, run the following:
 
-    ``` bash
+    ```bash
     git remote add delivery $AUTOMATE_CLONE_URL
     ```
 

@@ -33,7 +33,7 @@ This configuration file has the following settings:
     Chef Infra Server. For example, specify protocol version 1.3 to
     enable support for SHA-256 algorithms:
 
-    ``` ruby
+    ```ruby
     knife[:authentication_protocol_version] = '1.3'
     ```
 
@@ -89,7 +89,7 @@ This configuration file has the following settings:
 
 :   The URL for the Chef Infra Server. For example:
 
-    ``` ruby
+    ```ruby
     https://localhost/organizations/ORG_NAME
     ```
 
@@ -344,7 +344,7 @@ This configuration file has the following settings:
 :   Additional options to pass to bundler when installing metadata for
     cookbook. Default value: `nil`. For example
 
-    ``` ruby
+    ```ruby
     gem_installer_bundler_options = [
       "--local", "--clean"
     ]
@@ -352,7 +352,7 @@ This configuration file has the following settings:
 
     or
 
-    ``` ruby
+    ```ruby
     gem_installer_bundler_options = "--local"
     ```
 
@@ -681,7 +681,7 @@ This configuration file has the following settings:
 :   A hash that contains the whitelist of allowed commands used by Chef
     Push Jobs. For example:
 
-    ``` ruby
+    ```ruby
     whitelist {
       'job-name' => 'command',
       'job-name' => 'command',
@@ -712,7 +712,7 @@ This configuration file has the following settings:
 A sample client.rb file that contains the most simple way to connect to
 <https://manage.chef.io>:
 
-``` ruby
+```ruby
 log_level        :info
 log_location     STDOUT
 chef_server_url  'https://api.chef.io/organizations/<orgname>'

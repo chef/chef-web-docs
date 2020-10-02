@@ -29,7 +29,7 @@ Chef Client, we strongly recommend updating it to support the extended
 set of exit codes. However, it's still possible to enable the old
 behavior. Add the setting
 
-``` ruby
+```ruby
 exit_status :disabled
 ```
 

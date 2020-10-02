@@ -81,7 +81,7 @@ To install Chef Server:
 
 4.  Run the following to start all of the services:
 
-    ``` bash
+    ```bash
     sudo chef-server-ctl reconfigure
     ```
 
@@ -102,14 +102,14 @@ your `/etc/opscode/chef-server.rb` file by following the process below:
 1.  On your Chef Infra Server, if the `chef-server.rb` file does not
     exist, create it.
 
-    ``` bash
+    ```bash
     sudo mkdir /etc/opscode && sudo touch /etc/opscode/chef-server.rb
     ```
 
 2.  Open up the newly created `chef-server.rb` file in your favorite
     text editor, for example:
 
-    ``` bash
+    ```bash
     sudo vi /etc/opscode/chef-server.rb
     ```
 
@@ -118,21 +118,21 @@ your `/etc/opscode/chef-server.rb` file by following the process below:
     you'll need to use the <span class="title-ref">i</span> key to
     insert the text.
 
-    ``` bash
+    ```bash
     license['nodes'] = N where N is the number of licensed nodes you have purchased
     ```
 
 4.  Save the file. If you're using vi, from the example above, use the
     <span class="title-ref">esc</span> key and then:
 
-    ``` bash
+    ```bash
     :wq
     ```
 
 5.  Run `chef-server-ctl reconfigure` for the changes to be picked up by
     your Chef Infra Server.
 
-    ``` bash
+    ```bash
     sudo chef-server-ctl reconfigure
     ```
 

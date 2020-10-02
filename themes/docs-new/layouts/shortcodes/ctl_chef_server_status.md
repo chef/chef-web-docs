@@ -3,7 +3,7 @@ available to the Chef Infra Server. The results will vary based on the
 configuration of a given server. This subcommand has the following
 syntax:
 
-``` bash
+```bash
 chef-server-ctl status
 ```
 
@@ -11,7 +11,7 @@ and will return the status for all services. Status can be returned for
 individual services by specifying the name of the service as part of the
 command:
 
-``` bash
+```bash
 chef-server-ctl status SERVICE_NAME
 ```
 
@@ -20,7 +20,7 @@ after running the `service-list` subcommand.
 
 When service status is requested, the output should be similar to:
 
-``` bash
+```bash
 run: service_name: (pid 12345) 12345s; run: log: (pid 1234) 67890s
 ```
 
@@ -34,7 +34,7 @@ where
 
 For example:
 
-``` bash
+```bash
 down: opscode-erchef: (pid 35546) 10s
 ```
 
@@ -45,7 +45,7 @@ particular service is not running as it should be, look for the services
 with the shortest uptimes. For example, the list below indicates that
 the **opscode-erchef** should be investigated further:
 
-``` bash
+```bash
 run: oc-id
 run: opscode-chef: (pid 4327) 13671s; run: log: (pid 4326) 13671s
 run: opscode-erchef: (pid 5383) 5s; run: log: (pid 4382) 13669s

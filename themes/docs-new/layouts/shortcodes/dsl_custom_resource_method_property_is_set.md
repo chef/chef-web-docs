@@ -1,7 +1,7 @@
 Use the `property_is_set?` method to check if the value for a property
 is set. The syntax is:
 
-``` ruby
+```ruby
 property_is_set?(:property_name)
 ```
 
@@ -12,7 +12,7 @@ properties, but not their password. The `property_is_set?` method checks
 if the user has specified a password and then tells Chef Infra Client
 what to do if the password is not identical:
 
-``` ruby
+```ruby
 action :create do
   converge_if_changed do
     shell_out!("rabbitmqctl create_or_update_user #{username} --prop1 #{prop1} ... ")

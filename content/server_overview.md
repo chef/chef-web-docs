@@ -277,7 +277,7 @@ Service (S3) set the following configuration settings in the
 
 An example `chef-server.rb` configuration:
 
-``` ruby
+```ruby
 bookshelf['vip'] = 's3-external-1.amazonaws.com'
 bookshelf['external_url'] = 'https://s3-external-1.amazonaws.com'
 bookshelf['access_key_id'] = '<ACCESS_ID>'
@@ -476,7 +476,7 @@ PostgreSQL on Microsoft Azure:
 An example `chef-server.rb` configuration for External PostgreSQL on
 Microsoft Azure:
 
-``` ruby
+```ruby
 topology 'standalone'
 postgresql['external'] = true
 postgresql['vip'] = 'my_postgresql.postgres.database.azure.com'
@@ -504,6 +504,6 @@ In instances that require cookbooks to be stored within a SQL backend,
 such as in a high availability setup, you must set the `storage_type` to
 `:sql`:
 
-``` ruby
+```ruby
 bookshelf['storage_type'] = :sql
 ```

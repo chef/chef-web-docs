@@ -18,7 +18,7 @@ under the value.
 
 The syntax for the `registry_data_exists?` method is as follows:
 
-``` ruby
+```ruby
 registry_data_exists?(
   KEY_PATH,
   { name: 'NAME', type: TYPE, data: DATA },

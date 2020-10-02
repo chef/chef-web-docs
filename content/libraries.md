@@ -43,7 +43,7 @@ A database can contain a list of virtual hosts that are used by
 customers. A custom namespace could be created that looks something
 like:
 
-``` ruby
+```ruby
 # Sample provided by "Arjuna (fujin)". Thank you!
 
 require 'sequel'
@@ -84,7 +84,7 @@ end
 After the custom namespace is created, it could then be used in a
 recipe, like this:
 
-``` ruby
+```ruby
 ISP.vhosts.each do |vhost|
   directory vhost[:documentroot] do
     owner vhost[:uid]
@@ -106,7 +106,7 @@ end
 
 A customer record is stored in an attribute file that looks like this:
 
-``` ruby
+```ruby
 mycompany_customers({
   bob: {
     homedir: '/home/bob',
@@ -118,7 +118,7 @@ mycompany_customers({
 
 A simple recipe may contain something like this:
 
-``` ruby
+```ruby
 directory node["mycompany_customers"]["bob"]["webdir"] do
   owner 'bob'
   group 'bob'
@@ -128,7 +128,7 @@ end
 
 Or a less verbose version of the same simple recipe:
 
-``` ruby
+```ruby
 directory customer(:bob)[:webdir] do
   owner 'bob'
   group 'bob'
@@ -139,7 +139,7 @@ end
 A simple library could be created that extends `Chef::Recipe::`, like
 this:
 
-``` ruby
+```ruby
 class Chef
   class Recipe
     # A shortcut to a customer
@@ -154,7 +154,7 @@ end
 
 A customer record is stored in an attribute file that looks like this:
 
-``` ruby
+```ruby
 mycompany_customers({
   bob: {
     homedir: '/home/bob',
@@ -167,7 +167,7 @@ mycompany_customers({
 If there are many customer records in an environment, a simple recipe
 can be used to loop over every customer, like this:
 
-``` ruby
+```ruby
 all_customers do |name, info|
   directory info[:webdir] do
     owner name
@@ -180,7 +180,7 @@ end
 A simple library could be created that extends `Chef::Recipe::`, like
 this:
 
-``` ruby
+```ruby
 class Chef
   class Recipe
     def all_customers(&block)

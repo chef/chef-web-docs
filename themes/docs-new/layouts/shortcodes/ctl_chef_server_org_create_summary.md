@@ -1,12 +1,12 @@
 Run the following command to create an organization:
 
-``` bash
+```bash
 sudo chef-server-ctl org-create short_name 'full_organization_name' --association_user user_name --filename ORGANIZATION-validator.pem
 ```
 
 For example:
 
-``` bash
+```bash
 sudo chef-server-ctl org-create 4thcoffee 'Fourth Coffee, Inc.' --association_user janedoe --filename /path/to/4thcoffee-validator.pem
 ```
 

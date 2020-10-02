@@ -34,7 +34,7 @@ usage.
 
 The syntax for an Ohai plugin is as follows:
 
-``` ruby
+```ruby
 Ohai.plugin(:Name) do
   provides 'attribute', 'attribute/subattribute'
   depends 'attribute', 'attribute'
@@ -95,7 +95,7 @@ For example, the following plugin looks up data on virtual machines
 hosted in Amazon EC2, Google Compute Engine, Rackspace, Eucalyptus,
 Linode, OpenStack, and Microsoft Azure:
 
-``` ruby
+```ruby
 Ohai.plugin(:Cloud) do
   provides 'cloud'
 
@@ -187,7 +187,7 @@ When Ohai runs, if there isn't a matching `collect_data` block for a
 platform, the `collect_data(:default)` block is used. The syntax for the
 `collect_data` method is:
 
-``` ruby
+```ruby
 collect_data(:default) do
   # some Ruby code
 end
@@ -195,7 +195,7 @@ end
 
 or:
 
-``` ruby
+```ruby
 collect_data(:platform) do
   # some Ruby code
 end
@@ -212,7 +212,7 @@ where:
 Use a mash to store data. This is done by creating a new mash, and then
 setting an attribute to it. For example:
 
-``` ruby
+```ruby
 provides 'name_of_mash'
 name_of_mash Mash.new
 name_of_mash[:attribute] = 'value'
@@ -222,7 +222,7 @@ name_of_mash[:attribute] = 'value'
 
 The following examples show how to use the `collect_data` block:
 
-``` ruby
+```ruby
 Ohai.plugin(:Azure) do
   provides 'azure'
 
@@ -242,7 +242,7 @@ end
 
 or:
 
-``` ruby
+```ruby
 require 'ohai/mixin/ec2_metadata'
 extend Ohai::Mixin::Ec2Metadata
 
@@ -281,7 +281,7 @@ used at the top of a Ruby file, it is recommended that the use of the
 `require` method be used as part of the platform-specific `collect_data`
 block. For example, the Ruby WMI is required with Microsoft Windows:
 
-``` ruby
+```ruby
 collect_data(:windows) do
   require 'ruby-wmi'
   WIN32OLE.codepage = WIN32OLE::CP_UTF8
@@ -302,13 +302,13 @@ end
 Ohai will attempt to fully qualify the name of any class by prepending
 `Ohai::` to the loaded class. For example both:
 
-``` ruby
+```ruby
 require Ohai::Mixin::ShellOut
 ```
 
 and:
 
-``` ruby
+```ruby
 require Mixin::ShellOut
 ```
 
@@ -318,7 +318,7 @@ are both understood by the Ohai in the same way:
 When a class is an external class (and therefore should not have
 `Ohai::` prepended), use `::` to let the Ohai know. For example:
 
-``` ruby
+```ruby
 ::External::Class::Library
 ```
 
@@ -328,7 +328,7 @@ The `/common` directory stores code that is used across all Ohai
 plugins. For example, a file in the `/common` directory named
 `virtualization.rb` that includes code like the following:
 
-``` ruby
+```ruby
 module Ohai
   module Common
     module Virtualization
@@ -374,7 +374,7 @@ can then be leveraged in a plugin by using the `require` method to
 require the `virtualization.rb` file and then later calling each of the
 methods in the required module:
 
-``` ruby
+```ruby
 require 'ohai/common/virtualization'
 
 Ohai.plugin(:Virtualization) do
@@ -411,7 +411,7 @@ A shared method defines behavior that may be used by more than one
 `collect_data` block, such as a data structure, a hash, or a mash. The
 syntax for a shared method is:
 
-``` ruby
+```ruby
 def a_shared_method
   # some Ruby code that defines the shared method
 end
@@ -421,7 +421,7 @@ For example, the following shared method is used to collect data about
 various cloud providers, depending on the cloud provider and the type of
 IP address:
 
-``` ruby
+```ruby
 def create_objects
   cloud Mash.new
   cloud[:public_ips] = Array.new
@@ -431,7 +431,7 @@ end
 
 and then later on in the same plugin, the `cloud` object can be reused:
 
-``` ruby
+```ruby
 def get_linode_values
   cloud[:public_ips] << linode['public_ip']
   cloud[:private_ips] << linode['private_ip']
@@ -445,7 +445,7 @@ end
 
 and
 
-``` ruby
+```ruby
 def get_azure_values
   cloud[:vm_name] = azure['vm_name']
   cloud[:public_ips] << azure['public_ip']
@@ -463,7 +463,7 @@ and so on, for each of the various cloud providers.
 Use the `Ohai::Log` class in an Ohai plugin to define log entries that
 are created by Ohai. The syntax for a log message is as follows:
 
-``` ruby
+```ruby
 Ohai::Log.log_type('message')
 ```
 
@@ -474,7 +474,7 @@ where
 
 For example:
 
-``` ruby
+```ruby
 Ohai.plugin do
   provides 'openstack'
 
@@ -506,7 +506,7 @@ end
 Use the `rescue` clause to make sure that a log message is always
 provided. For example:
 
-``` ruby
+```ruby
 rescue LoadError => e
   Ohai::Log.debug('ip_scopes: cannot load gem, plugin disabled: #{e}')
 end
@@ -528,7 +528,7 @@ The following examples show different ways of building Ohai plugins.
 The following Ohai plugin uses multiple `collect_data` blocks and shared
 methods to define platforms:
 
-``` ruby
+```ruby
 Ohai.plugin(:Hostname) do
   provides 'domain', 'fqdn', 'hostname'
 
@@ -617,7 +617,7 @@ end
 The following Ohai example shows a plugin can use a `mixin` library and
 also depend on another plugin:
 
-``` ruby
+```ruby
 require 'ohai/mixin/os'
 
 Ohai.plugin(:Os) do
@@ -636,7 +636,7 @@ end
 The following Ohai example shows part of a file that gets initial kernel
 attribute values:
 
-``` ruby
+```ruby
 Ohai.plugin(:Kernel) do
   provides 'kernel', 'kernel/modules'
 

@@ -1,7 +1,7 @@
 If the `config.json` file specifies the following cookbooks are
 published to a GitHub repository:
 
-``` javascript
+```javascript
 "delivery-truck":{
   "publish": {
     "github": "chef/chef-web-docs"

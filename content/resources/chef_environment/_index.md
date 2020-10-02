@@ -18,7 +18,7 @@ resource_description_list:
 resource_new_in: null
 handler_types: false
 syntax_description: "The syntax for using the **chef_environment** resource in a recipe\
-  \ is\nas follows:\n\n``` ruby\nchef_environment 'name' do\n  attribute 'value' #\
+  \ is\nas follows:\n\n```ruby\nchef_environment 'name' do\n  attribute 'value' #\
   \ see properties section below\n  ...\n  action :action # see actions section below\n\
   end\n```"
 syntax_code_block: null
@@ -128,7 +128,7 @@ properties_list:
   default_value: null
   new_in: null
   description_list:
-  - markdown: "The environment as JSON data. For example:\n\n``` javascript\n{\n \
+  - markdown: "The environment as JSON data. For example:\n\n```javascript\n{\n \
       \ \"name\":\"backend\",\n  \"description\":\"\",\n  \"cookbook_versions\":{},\n\
       \  \"json_class\":\"Chef::Environment\",\n  \"chef_type\":\"environment\",\n\
       \  \"default_attributes\":{},\n  \"override_attributes\":{}\n}\n```"

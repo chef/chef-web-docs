@@ -33,7 +33,7 @@ Azure Chef Extension that is running on the named virtual machine.
 
 This cmdlet has the following syntax:
 
-``` bash
+```bash
 Get-AzureVMChefExtension -VM <string>
 ```
 
@@ -44,7 +44,7 @@ cmdlet:
 
 **Get details for a virtual machine**
 
-``` bash
+```bash
 Get-AzureVM -ServiceName cloudservice1 -Name azurevm1 | Get-AzureVMExtension
 ```
 
@@ -59,13 +59,13 @@ This cmdlet has the following syntax.
 
 For Microsoft Windows:
 
-``` bash
+```bash
 Set-AzureVMChefExtension -ValidationPem <String> -VM <IPersistentVM> -Windows [-ChefServerUrl <String> ] [-ClientRb <String> ] [-OrganizationName <String> ] [-RunList <String> ] [-ValidationClientName <String> ] [-Version <String> ] [ <CommonParameters>]
 ```
 
 For Linux:
 
-``` bash
+```bash
 Set-AzureVMChefExtension -Linux -ValidationPem <String> -VM <IPersistentVM> [-ChefServerUrl <String> ] [-ClientRb <String> ] [-OrganizationName <String> ] [-RunList <String> ] [-ValidationClientName <String> ] [-Version <String> ] [ <CommonParameters>]
 ```
 
@@ -86,7 +86,7 @@ This cmdlet has the following options:
 :   A JSON string that is added to the first run of a Chef Infra Client.
     For example:
 
-    ``` bash
+    ```bash
     -BootstrapOptions '{"chef_node_name":"test_node"}'
     ```
 
@@ -146,7 +146,7 @@ cmdlet:
 
 **Create Windows virtual machine**
 
-``` bash
+```bash
 $vm1 = "azurechefwin"
 $svc = "azurechefwin"
 $username = 'azure'
@@ -167,7 +167,7 @@ New-AzureVM -Location 'West US' -ServiceName $svc -VM $vmObj1
 
 **Create CentOS virtual machine**
 
-``` bash
+```bash
 $vm1 = "azurecheflnx"
 $svc = "azurecheflnx"
 $username = 'azure'
@@ -189,7 +189,7 @@ New-AzureVM -Location 'West US' -ServiceName $svc -VM $vmObj1
 
 **Create Ubuntu virtual machine**
 
-``` bash
+```bash
 $vm1 = "azurecheflnx"
 $svc = "azurecheflnx"
 $username = 'azure'

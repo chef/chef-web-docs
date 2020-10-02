@@ -1,6 +1,6 @@
 For example:
 
-``` ruby
+```ruby
 name 'jenkins-master'
 run_list 'java', 'jenkins::master', 'recipe[policyfile_demo]'
 default_source :supermarket, 'https://mysupermarket.example'

@@ -41,14 +41,14 @@ A `Policyfile.rb` file may contain the following settings:
     Multiple cookbook sources may be specified. For example from the
     public Chef Supermarket and a monolithic repository:
 
-    ``` ruby
+    ```ruby
     default_source :supermarket
     default_source :chef_repo, 'path/to/repo'
     ```
 
     or from both a public and private Chef Supermarket:
 
-    ``` ruby
+    ```ruby
     default_source :supermarket
     default_source :supermarket, 'https://supermarket.example'
     ```
@@ -67,7 +67,7 @@ A `Policyfile.rb` file may contain the following settings:
     that is maintained by Chef. To specify a named source for a
     cookbook:
 
-    ``` ruby
+    ```ruby
     default_source :supermarket
     default_source :supermarket, 'https://supermarket.example' do |s|
       s.preferred_for 'chef-client'
@@ -76,7 +76,7 @@ A `Policyfile.rb` file may contain the following settings:
 
     List multiple cookbooks on the same line:
 
-    ``` ruby
+    ```ruby
     default_source :supermarket
     default_source :supermarket, 'https://supermarket.example' do |s|
       s.preferred_for 'chef-client', 'nginx', 'mysql'
@@ -95,13 +95,13 @@ A `Policyfile.rb` file may contain the following settings:
     specify an alternate source location, such as Chef Supermarket. For
     example, add a cookbook:
 
-    ``` ruby
+    ```ruby
     cookbook 'apache2'
     ```
 
     Specify a version constraint:
 
-    ``` ruby
+    ```ruby
     run_list 'jenkins::master'
 
     # Restrict the jenkins cookbook to version 2.x, greater than 2.1
@@ -110,19 +110,19 @@ A `Policyfile.rb` file may contain the following settings:
 
     Specify an alternate source:
 
-    ``` ruby
+    ```ruby
     cookbook 'my_app', path: 'cookbooks/my_app'
     ```
 
     or:
 
-    ``` ruby
+    ```ruby
     cookbook 'mysql', github: 'opscode-cookbooks/mysql', branch: 'master'
     ```
 
     or:
 
-    ``` ruby
+    ```ruby
     cookbook 'chef-ingredient', git: 'https://github.com/chef-cookbooks/chef-ingredient.git', tag: 'v0.12.0'
     ```
 
@@ -134,7 +134,7 @@ A `Policyfile.rb` file may contain the following settings:
     converge configuration for a single application on a host or for
     one-time setup tasks. For example:
 
-    ``` ruby
+    ```ruby
     named_run_list :update_app, 'my_app_cookbook::default'
     ```
 
@@ -153,27 +153,27 @@ A `Policyfile.rb` file may contain the following settings:
 
     Pull the policyfile lock from `./NAME.lock.json`:
 
-    ``` ruby
+    ```ruby
     include_policy 'NAME', path: '.'
     ```
 
     Pull the policyfile lock from `./foo.lock.json`.
 
-    ``` ruby
+    ```ruby
     include_policy 'NAME', path: './foo.lock.json'
     ```
 
     Pull the policyfile lock from `./bar.lock.json` with revision ID
     'revision1'.
 
-    ``` ruby
+    ```ruby
     include_policy 'NAME', policy_revision_id: 'revision1', path: './bar.lock.json'
     ```
 
     Pull the policyfile lock from a remote server
     `https://internal.example.com/foo.lock.json`.
 
-    ``` ruby
+    ```ruby
     include_policy 'NAME', remote: 'https://internal.example.com/foo.lock.json'
     ```
 
@@ -181,26 +181,26 @@ A `Policyfile.rb` file may contain the following settings:
     `https://internal.example.com/bar.lock.json` and with revision ID
     'revision1'.
 
-    ``` ruby
+    ```ruby
     include_policy 'NAME', policy_revision_id: 'revision1', remote: 'https://internal.example.com/foo.lock.json'
     ```
 
     Pull the policy `NAME` with revision ID `revision1` from the
     `http://chef-server.example` Chef Infra Server:
 
-    ``` ruby
+    ```ruby
     include_policy 'NAME', policy_revision_id: 'revision1', server: 'http://chef-server.example'
     ```
 
     Pull the policy `foo` with revision ID `revision1`:
 
-    ``` ruby
+    ```ruby
     include_policy 'NAME', policy_name: 'foo', policy_revision_id: 'revision1', server: 'http://chef-server.example'
     ```
 
     Pull and lock the current revision for policy `foo` in policy group
     `prod`:
 
-    ``` ruby
+    ```ruby
     include_policy 'NAME', policy_name: 'foo', policy_group: 'prod', server: 'http://chef-server.example'
     ```

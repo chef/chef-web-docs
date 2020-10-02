@@ -27,13 +27,13 @@ The Chef Infra Server has built-in support for easily tailing the logs
 that are generated. To view all the logs being generated on the Chef
 Infra Server, enter the following command:
 
-``` bash
+```bash
 chef-server-ctl tail
 ```
 
 To view logs for a specific service:
 
-``` bash
+```bash
 chef-server-ctl tail SERVICENAME
 ```
 
@@ -47,7 +47,7 @@ which log files will be viewed.
 Another common approach to tailing the log files for a service is to use
 the system utility `tail`. For example:
 
-``` bash
+```bash
 tail -50f /var/log/opscode/opscode-erchef/current
 ```
 
@@ -79,7 +79,7 @@ request made to the front-end machine and can be very useful when
 investigating request rates and usage patterns. The following is an
 example log entry:
 
-``` none
+```none
 175.185.9.6 - - [12/Jul/2013:15:56:54 +0000] "GET
 /organizations/exampleorg/data/firewall/nova_api HTTP/1.1" 200
 "0.850" 452 "-" "Chef Client/0.10.2 (ruby-1.8.7-p302; ohai-0.6.4;
@@ -109,13 +109,13 @@ API requests that have been processed by Erchef. These logs can be
 rotated quickly, therefore it is generally best to sort them by date,
 and then find the most recently updated log file:
 
-``` bash
+```bash
 ls -lrt /var/log/opscode/opscode-erchef/erchef.log.*
 ```
 
 The following is an example log entry:
 
-``` none
+```none
 2013-08-06T08:54:32Z erchef@127.0.0.1 INFO org_name=srwjedoqqoypgmvafmoi; req_id=g3IAA2QAEGVyY2hlZkAx
 ```
 
@@ -214,7 +214,7 @@ require external log rotation.
 
 The **nginx** access log format is as follows:
 
-``` bash
+```bash
 log_format opscode '$remote_addr - $remote_user [$time_local]  '
   '"$request" $status "$request_time" $body_bytes_sent '
   '"$http_referrer" "$http_user_agent" "$upstream_addr" '
@@ -225,7 +225,7 @@ log_format opscode '$remote_addr - $remote_user [$time_local]  '
 
 A sample log line:
 
-``` bash
+```bash
 192.0.2.0 - - [17/Feb/2012:16:02:42 -0800]
   "GET /organizations/nginx/cookbooks HTTP/1.1" 200
   "0.346" 12 "-"

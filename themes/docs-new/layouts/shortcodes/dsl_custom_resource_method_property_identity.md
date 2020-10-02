@@ -13,7 +13,7 @@ For example, the following properties define `username` and `password`
 properties with no default values specified, but with `identity` set to
 `true` for the user name:
 
-``` ruby
+```ruby
 property :username, String, identity: true
 property :password, String
 ```

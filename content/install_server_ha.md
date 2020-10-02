@@ -154,7 +154,7 @@ different from any other back-end node.
 2.  Update `/etc/chef-backend/chef-backend.rb` with the following
     content:
 
-    ``` ruby
+    ```ruby
     publish_address 'external_IP_address_of_this_box' # External ip address of this backend box
     ```
 
@@ -167,7 +167,7 @@ different from any other back-end node.
     Networks](/install_server_ha/#configuring-frontend-and-backend-members-on-different-networks)
     section for more information:
 
-    ``` ruby
+    ```ruby
     publish_address 'external_IP_address_of_this_box' # External ip address of this backend box
     postgresql.md5_auth_cidr_addresses = ["samehost", "samenet", "<NET-1_IN_CIDR>", ..., "<NET-N_IN_CIDR>"]
     ```
@@ -182,7 +182,7 @@ copy them directly, or expose them via a common mounted location.
 
 For example, to copy using ssh:
 
-``` bash
+```bash
 scp /etc/chef-backend/chef-backend-secrets.json <USER>@<IP_BE2>:/home/<USER>
 scp /etc/chef-backend/chef-backend-secrets.json <USER>@<IP_BE3>:/home/<USER>
 ```
@@ -212,14 +212,14 @@ join nodes in parallel the cluster may fail to become available):
     need to modify this node's `/etc/chef-backend/chef-backend.rb` at
     all.
 
-    ``` ruby
+    ```ruby
     publish_address 'external_IP_address_of_this_box' # External ip address of this backend box
     postgresql.md5_auth_cidr_addresses = ["samehost", "samenet", "<NET-1_IN_CIDR>", ..., "<NET-N_IN_CIDR>"]
     ```
 
 3.  As root or with sudo:
 
-    ``` bash
+    ```bash
     chef-backend-ctl join-cluster <IP_BE1> -s /home/<USER>/chef-backend-secrets.json
     ```
 
@@ -239,13 +239,13 @@ join nodes in parallel the cluster may fail to become available):
     is online and available. From any node in the backend HA cluster,
     run the following command:
 
-    ``` bash
+    ```bash
     chef-backend-ctl status
     ```
 
     should return something like:
 
-    ``` bash
+    ```bash
     Service        Local Status        Time in State  Distributed Node Status
     elasticsearch  running (pid 6661)  1d 5h 59m 41s  state: green; nodes online: 3/3
     etcd           running (pid 6742)  1d 5h 59m 39s  health: green; healthy nodes: 3/3
@@ -258,7 +258,7 @@ join nodes in parallel the cluster may fail to become available):
 Log into the node from Step 1, and we will generate our chef-server
 frontend node configuration:
 
-``` bash
+```bash
 chef-backend-ctl gen-server-config <FE1-FQDN> -f chef-server.rb.FE1
 scp chef-server.rb.FE1 USER@<IP_FE1>:/home/<USER>
 ```
@@ -289,7 +289,7 @@ For each additional frontend node you wish to add to your cluster:
 2.  Generate a new `/etc/opscode/chef-server.rb` from any of the backend
     nodes via
 
-    ``` bash
+    ```bash
     chef-backend-ctl gen-server-config <FE_NAME-FQDN> > chef-server.rb.<FE_NAME>
     ```
 
@@ -341,7 +341,7 @@ connect to the database server that runs it and the `pg_hba.conf` used
 by PostgreSQL controls network access to the server. The default
 `pg_hba.conf` has the following four entries:
 
-``` none
+```none
 host    all         all         samehost               md5
 hostssl replication replicator  samehost               md5
 host    all         all         samenet                md5
@@ -353,7 +353,7 @@ that might exist on a different network, you will need to authorize that
 usage by adding the following line to the
 `/etc/chef-backend/chef-backend.rb` file on all of the backend members.
 
-``` none
+```none
 postgresql.md5_auth_cidr_addresses = ["samehost", "samenet", "<YOURNET IN CIDR>"]
 ```
 
@@ -368,14 +368,14 @@ For example, if a frontend host at 192.168.1.3 can reach a backend
 member over the network, but the backend's local network is 192.168.2.x,
 you would add the following line to `/etc/chef-backend/chef-backend.rb`
 
-``` none
+```none
 postgresql.md5_auth_cidr_addresses = ["samehost", "samenet", "192.168.1.3/24"]
 ```
 
 which would result in the following two entries being added to the
 `pg_hba.conf` file.
 
-``` none
+```none
 host    all         all         samehost               md5
 hostssl replication replicator  samehost               md5
 host    all         all         samenet                md5

@@ -10,13 +10,13 @@ make requests to the Chef Infra Server.
 For example, without downloading the SSL certificate, the following
 knife command:
 
-``` bash
+```bash
 knife client list
 ```
 
 responds with an error similar to:
 
-``` bash
+```bash
 ERROR: SSL Validation failure connecting to host: chef-server.example.com ...
 ERROR: OpenSSL::SSL::SSLError: SSL_connect returned=1 errno=0 state=SSLv3 ...
 ```

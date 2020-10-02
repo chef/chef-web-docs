@@ -2,7 +2,7 @@ To reload a service that is based on a template, use the **template**
 and **service** resources together in the same recipe, similar to the
 following:
 
-``` ruby
+```ruby
 template '/tmp/somefile' do
   mode '0755'
   source 'somefile.erb'

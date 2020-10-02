@@ -49,9 +49,9 @@ handler_custom: false
 cookbook_file_specificity: false
 unit_file_verification: false
 examples: "
-  Set default logging level\n\n  ``` ruby\n  log 'a string to log'\n\
-  \  ```\n\n  Set debug logging level\n\n  ``` ruby\n  log 'a debug string' do\n \
-  \   level :debug\n  end\n  ```\n\n  Add a message to a log file\n\n  ``` ruby\n\
+  Set default logging level\n\n  ```ruby\n  log 'a string to log'\n\
+  \  ```\n\n  Set debug logging level\n\n  ```ruby\n  log 'a debug string' do\n \
+  \   level :debug\n  end\n  ```\n\n  Add a message to a log file\n\n  ```ruby\n\
   \  log 'message' do\n    message 'This is the message that will be added to the\
   \ log.'\n    level :info\n  end\n  ```\n"
 

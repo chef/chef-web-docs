@@ -49,7 +49,7 @@ non-cookbook workflows as well. You can wrap or modify the
 Here is an example of a build cookbook recipe that runs JUnit tests with
 Maven. For example:
 
-``` ruby
+```ruby
 log 'Running unit'
 
 repo = node['delivery_builder']['repo']

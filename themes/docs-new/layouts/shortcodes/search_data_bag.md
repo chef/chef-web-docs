@@ -4,14 +4,14 @@ during the search. For example, to use knife to search within a data bag
 named "admin_data" across all items, except for the "admin_users"
 item, enter the following:
 
-``` bash
+```bash
 knife search admin_data "(NOT id:admin_users)"
 ```
 
 Or, to include the same search query in a recipe, use a code block
 similar to:
 
-``` ruby
+```ruby
 search(:admin_data, 'NOT id:admin_users')
 ```
 
@@ -23,32 +23,32 @@ returned. The following examples show how a recipe can use a series of
 search queries to search within a data bag named "admins". For example,
 to find every administrator:
 
-``` ruby
+```ruby
 search(:admins, '*:*')
 ```
 
 Or to search for an administrator named "charlie":
 
-``` ruby
+```ruby
 search(:admins, 'id:charlie')
 ```
 
 Or to search for an administrator with a group identifier of "ops":
 
-``` ruby
+```ruby
 search(:admins, 'gid:ops')
 ```
 
 Or to search for an administrator whose name begins with the letter "c":
 
-``` ruby
+```ruby
 search(:admins, 'id:c*')
 ```
 
 Data bag items that are returned by a search query can be used as if
 they were a hash. For example:
 
-``` ruby
+```ruby
 charlie = search(:admins, 'id:charlie').first
 # => variable 'charlie' is set to the charlie data bag item
 charlie['gid']
@@ -62,7 +62,7 @@ by loading all of the items from the "admins" data bag, looping through
 each admin in the data bag, and then creating a user resource so that
 each of those admins exist:
 
-``` ruby
+```ruby
 admins = data_bag('admins')
 
 admins.each do |login|
@@ -83,7 +83,7 @@ end
 And then the same recipe, modified to load administrators using a search
 query (and using an array to store the results of the search query):
 
-``` ruby
+```ruby
 admins = []
 
 search(:admins, '*:*').each do |admin|

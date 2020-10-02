@@ -5,7 +5,7 @@ that each Chef Infra Client is maintaining. A recipe can load the data
 bag items and then create user accounts on the target system with code
 similar to the following:
 
-``` ruby
+```ruby
 # Load the keys of the items in the 'admins' data bag
 admins = data_bag('admins')
 

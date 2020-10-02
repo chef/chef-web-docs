@@ -5,7 +5,7 @@ Hash will be returned.
 The syntax for the `search` method that uses `:filter_result` is as
 follows:
 
-``` ruby
+```ruby
 search(:index, 'query',
   filter_result: { 'foo' => [ 'abc' ],
                       'bar' => [ '123' ],
@@ -29,7 +29,7 @@ where:
 
 For example:
 
-``` ruby
+```ruby
 search(:node, 'role:web',
   filter_result: { 'name' => [ 'name' ],
                       'ip' => [ 'ipaddress' ],

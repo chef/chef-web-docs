@@ -1,7 +1,7 @@
 The following example shows how to rename a computer, join a domain, and
 then reboot the computer:
 
-``` ruby
+```ruby
 reboot 'Restart Computer' do
   action :nothing
 end

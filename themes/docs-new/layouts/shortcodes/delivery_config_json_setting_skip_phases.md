@@ -6,7 +6,7 @@ Currently, the `functional.rb`, `quality.rb`, `security.rb`, and
 `smoke.rb` recipes are blank by default and should be set to skipped in
 the `config.json` file:
 
-``` javascript
+```javascript
 "skip_phases": [
   "functional",
   "quality",

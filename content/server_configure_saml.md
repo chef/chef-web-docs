@@ -29,7 +29,7 @@ protocol end-point that Chef Manage can use to initiate authentication.
 To configure the Chef Infra Server management console, first add the
 following code to `/etc/chef-manage/manage.rb`:
 
-``` ruby
+```ruby
 saml.enabled true
 saml.issuer_url '<AUTOMATE OIDC ENDPOINT>'
 ```
@@ -38,7 +38,7 @@ Second, store your OIDC client credentials with using the [Secrets
 Management](/ctl_chef_server/#ctl-chef-server-secrets-management)
 commands:
 
-``` bash
+```bash
 chef-server-ctl set-secret saml client_id '<CLIENT ID>'
 chef-server-ctl set-secret saml client_secret '<CLIENT SECRET>'
 ```
@@ -49,7 +49,7 @@ be known to the Chef Automate server. For development purposes only, you
 may also need to turn off the TLS verification for the OIDC client by
 adding
 
-``` ruby
+```ruby
 saml.verify_tls false
 ```
 

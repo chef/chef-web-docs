@@ -8,7 +8,7 @@ can be used to manage a configuration file named `/etc/sudoers`. Within
 a cookbook that uses sudo, the following resource could be added to
 `/recipes/default.rb`:
 
-``` ruby
+```ruby
 template '/etc/sudoers' do
   source 'sudoers.erb'
   mode '0440'
@@ -22,7 +22,7 @@ end
 And then create a template called `sudoers.erb` and save it to
 `templates/default/sudoers.erb`:
 
-``` ruby
+```ruby
 #
 # /etc/sudoers
 #
@@ -49,7 +49,7 @@ root          ALL=(ALL) ALL
 
 And then set the default attributes in `attributes/default.rb`:
 
-``` ruby
+```ruby
 default['authorization']['sudo']['groups'] = %w(sysadmin wheel admin)
 default['authorization']['sudo']['users'] = %w(jerry greg)
 ```

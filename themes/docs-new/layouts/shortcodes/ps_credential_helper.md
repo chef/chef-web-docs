@@ -8,7 +8,7 @@ For example, assuming the `CertificateID` is configured in the local
 configuration manager, the `SeaPower1@3` object is created and embedded
 within the `seapower-user` script:
 
-``` ruby
+```ruby
 dsc_script 'seapower-user' do
   code <<-EOH
     User AlbertAtom

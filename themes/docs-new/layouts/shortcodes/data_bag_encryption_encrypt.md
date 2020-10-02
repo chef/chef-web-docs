@@ -1,6 +1,6 @@
 A data bag item is encrypted using a knife command similar to:
 
-``` bash
+```bash
 knife data bag create passwords mysql --secret-file /tmp/my_data_bag_key
 ```
 

@@ -37,7 +37,7 @@ cookbook's `/resources` directory. This file:
 
 The syntax for a custom resource is. For example:
 
-``` ruby
+```ruby
 property :property_name, RubyType, default: 'value'
 
 action :action_name do
@@ -67,7 +67,7 @@ This example `site` utilizes Chef's built-in `file`, `service` and
 it uses built-in Chef Infra Client resources, besides defining the
 property and actions, the code is very similar to that of a recipe.
 
-``` ruby
+```ruby
 property :homepage, String, default: '<h1>Hello world!</h1>'
 
 action :create do
@@ -108,7 +108,7 @@ gets its name from the cookbook and from the file name in the
 example, a cookbook named `exampleco` with a custom resource named
 `site.rb` is used in a recipe like this:
 
-``` ruby
+```ruby
 exampleco_site 'httpd' do
   homepage '<h1>Welcome to the Example Co. website!</h1>'
 end
@@ -116,7 +116,7 @@ end
 
 and to delete the exampleco website, do the following:
 
-``` ruby
+```ruby
 exampleco_site 'httpd' do
   action :delete
 end
@@ -141,7 +141,7 @@ This scenario covers the following:
 This article assumes that a cookbook directory named `website` exists in
 a chef-repo with (at least) the following directories:
 
-``` text
+```text
 /website
   /recipes
   /resources
@@ -191,7 +191,7 @@ these variables.
 
 In the custom resource, add the following custom properties:
 
-``` ruby
+```ruby
 property :instance_name, String, name_property: true
 property :port, Integer, required: true
 ```
@@ -212,7 +212,7 @@ services, and virtual hosts.
 Each custom resource must have at least one action that is defined
 within an `action` block:
 
-``` ruby
+```ruby
 action :create do
   # the steps that define the action
 end
@@ -224,7 +224,7 @@ for when this resource is used in a recipe.
 For example, the `action` appears as a property when this custom
 resource is used in a recipe:
 
-``` ruby
+```ruby
 custom_resource 'name' do
   # some properties
   action :create
@@ -241,7 +241,7 @@ matters!
 
 Use the **package** resource to install httpd:
 
-``` ruby
+```ruby
 package 'httpd' do
   action :install
 end
@@ -252,7 +252,7 @@ end
 Use the **template** resource to create an `httpd.service` on the node
 based on the `httpd.service.erb` template located in the cookbook:
 
-``` ruby
+```ruby
 template "/lib/systemd/system/httpd-#{new_resource.instance_name}.service" do
   source 'httpd.service.erb'
   variables(
@@ -273,7 +273,7 @@ where
 Use the **template** resource to configure httpd on the node based on
 the `httpd.conf.erb` template located in the cookbook:
 
-``` ruby
+```ruby
 template "/etc/httpd/conf/httpd-#{new_resource.instance_name}.conf" do
   source 'httpd.conf.erb'
   variables(
@@ -306,7 +306,7 @@ resource and won't be able to find them. Example: `cookbook 'website'`
 Use the **directory** resource to create the `/var/www/vhosts` directory
 on the node:
 
-``` ruby
+```ruby
 directory "/var/www/vhosts/#{new_resource.instance_name}" do
   recursive true
   action :create
@@ -317,7 +317,7 @@ end
 
 Use the **service** resource to enable, and then start the service:
 
-``` ruby
+```ruby
 service "httpd-#{new_resource.instance_name}" do
   action [:enable, :start]
 end
@@ -336,7 +336,7 @@ The `/templates` directory must contain two templates:
 `httpd.conf.erb` stores information about the website and is typically
 located under the `/etc/httpd`:
 
-``` ruby
+```ruby
 ServerRoot "/etc/httpd"
 Listen <%= @port %>
 Include conf.modules.d/*.conf
@@ -376,7 +376,7 @@ They are:
 
 `httpd.service.erb` tells systemd how to start and stop the website:
 
-``` none
+```none
 [Unit]
 Description=The Apache HTTP Server - instance <%= @instance_name %>
 After=network.target remote-fs.target nss-lookup.target
@@ -400,7 +400,7 @@ Copy it as shown, add it under `/templates`, and then name it
 
 ### Final Resource
 
-``` ruby
+```ruby
 property :instance_name, String, name_property: true
 property :port, Integer, required: true
 
@@ -443,7 +443,7 @@ end
 When finished adding the templates and building the custom resource, the
 cookbook directory structure should look like this:
 
-``` text
+```text
 /website
   metadata.rb
   /recipes
@@ -463,7 +463,7 @@ The custom resource name is inferred from the name of the cookbook
 by an underscore(`_`): `website_httpd`. The custom resource may be used
 in a recipe.
 
-``` ruby
+```ruby
 website_httpd 'httpd_site' do
   port 81
   action :create
@@ -494,7 +494,7 @@ be defined directly in the `action_class` block. Code in the
 Assume a helper module has been created in the cookbook
 `libraries/helper.rb` file.
 
-``` ruby
+```ruby
 module Sample
   module Helper
     def helper_method
@@ -507,7 +507,7 @@ end
 Methods may be made available to the custom resource actions by using an
 `action_class` block.
 
-``` ruby
+```ruby
 property file, String
 
 action :delete do
@@ -602,6 +602,6 @@ evaluated.
 `coerce` is run in the context of the instance, which gives it access to
 other properties.
 
-``` ruby
+```ruby
 property :mode, coerce: proc { |m| m.is_a?(String) ? m.to_s(8) : m }
 ```

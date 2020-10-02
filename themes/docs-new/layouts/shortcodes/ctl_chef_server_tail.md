@@ -4,7 +4,7 @@ service by specifying the name of the service in the command.
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 chef-server-ctl tail SERVICE_NAME
 ```
 

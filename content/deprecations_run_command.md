@@ -20,7 +20,7 @@ run_command will be removed permanently in Chef Client 13.
 Previously to run a command from Chef Infra Client code you might have
 written:
 
-``` ruby
+```ruby
 run_command(command: '/sbin/ifconfig eth0')
 ```
 
@@ -28,6 +28,6 @@ run_command(command: '/sbin/ifconfig eth0')
 
 You now need to use shell_out! instead:
 
-``` ruby
+```ruby
 shell_out!('/sbin/ifconfig eth0')
 ```

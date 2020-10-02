@@ -19,7 +19,7 @@ removed in Chef Client 13.
 
 ## Example
 
-``` ruby
+```ruby
 file '/etc/nginx.conf' do
   verify 'nginx -t -c %{file}'
 end
@@ -29,7 +29,7 @@ end
 
 Replace `%{file}` with `%{path}`:
 
-``` ruby
+```ruby
 file '/etc/nginx.conf' do
   verify 'nginx -t -c %{path}'
 end

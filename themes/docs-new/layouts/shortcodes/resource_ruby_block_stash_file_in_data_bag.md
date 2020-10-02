@@ -2,7 +2,7 @@ The following example shows how to use the **ruby_block** resource to
 stash a BitTorrent file in a data bag so that it can be distributed to
 nodes in the organization.
 
-``` ruby
+```ruby
 # the following code sample comes from the ``seed`` recipe
 # in the following cookbook: https://github.com/mattray/bittorrent-cookbook
 

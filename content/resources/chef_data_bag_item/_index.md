@@ -18,7 +18,7 @@ resource_description_list:
 resource_new_in: null
 handler_types: false
 syntax_description: "The syntax for using the **chef_data_bag_item** resource in a\
-  \ recipe\nis as follows:\n\n``` ruby\nchef_data_bag_item 'name' do\n  attribute\
+  \ recipe\nis as follows:\n\n```ruby\nchef_data_bag_item 'name' do\n  attribute\
   \ 'value' # see properties section below\n  ...\n  action :action # see actions\
   \ section below\nend\n```"
 syntax_code_block: null
@@ -115,7 +115,7 @@ properties_list:
   default_value: null
   new_in: null
   description_list:
-  - markdown: "The data bag item as JSON data. For example:\n\n``` javascript\n{\n\
+  - markdown: "The data bag item as JSON data. For example:\n\n```javascript\n{\n\
       \  \"id\": \"adam\",\n  \"real_name\": \"Adam Brent Jacob\"\n}\n```"
 - property: retries
   ruby_type: Integer

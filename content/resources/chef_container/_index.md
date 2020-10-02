@@ -19,7 +19,7 @@ resource_description_list:
 resource_new_in: null
 handler_types: false
 syntax_description: "The syntax for using the **chef_container** resource in a recipe\
-  \ is as\nfollows:\n\n``` ruby\nchef_container 'name' do\n  attribute 'value' # see\
+  \ is as\nfollows:\n\n```ruby\nchef_container 'name' do\n  attribute 'value' # see\
   \ properties section below\n  ...\n  action :action # see actions section below\n\
   end\n```"
 syntax_code_block: null

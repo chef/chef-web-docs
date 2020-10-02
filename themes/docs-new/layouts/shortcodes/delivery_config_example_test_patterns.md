@@ -2,7 +2,7 @@ The following example shows how to configure Chef Automate to ignore
 and/or run certain Foodcritic rules, and to exclude running tests that
 are located in the specified cookbook directories:
 
-``` javascript
+```javascript
 {
   "version": "2",
   "build_cookbook": {

@@ -29,7 +29,7 @@ variables to specify the proxy settings using a lowercase value.
 To determine the current proxy server on the macOS and Linux platforms,
 check the environment variables. Run the following:
 
-``` bash
+```bash
 env | grep -i http_proxy
 ```
 
@@ -39,19 +39,19 @@ not, add a lowercase version of that proxy variable to the shell (e.g.
 
 For HTTP:
 
-``` bash
+```bash
 export http_proxy=http://myproxy.com:3168
 ```
 
 For HTTPS:
 
-``` bash
+```bash
 export https_proxy=http://myproxy.com:3168
 ```
 
 For FTP:
 
-``` bash
+```bash
 export ftp_proxy=ftp://myproxy.com:3168
 ```
 
@@ -164,7 +164,7 @@ list of addresses.
 
 Example:
 
-``` ruby
+```ruby
 no_proxy 'test.example.com,test.example2.com,test.example3.com'
 ```
 

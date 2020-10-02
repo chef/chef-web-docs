@@ -25,7 +25,7 @@ resource_description_list:
     `not_if` and `only_if` to guard this resource for idempotence.'
 resource_new_in: null
 handler_types: false
-syntax_description: "The python resource has the following syntax:\n\n``` ruby\npython\
+syntax_description: "The python resource has the following syntax:\n\n```ruby\npython\
   \ 'hello world' do\n  code <<-EOH\n    print \"Hello world! From Chef and Python.\"\
   \n  EOH\nend\n```"
 syntax_code_block: null

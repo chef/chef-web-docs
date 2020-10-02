@@ -4,7 +4,7 @@ example, to configure chef-shell to authenticate to the Chef Infra
 Server, copy the `node_name`, `client_key`, and `chef_server_url`
 settings from the config.rb file:
 
-``` ruby
+```ruby
 node_name                'your-knife-clientname'
 client_key               File.expand_path('~/.chef/my-client.pem')
 chef_server_url          'https://api.opscode.com/organizations/myorg'

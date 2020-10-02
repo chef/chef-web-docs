@@ -4,12 +4,12 @@ can be included within the search query syntax, but each occurrence of a
 special character must be escaped with a backslash (`\`), also (`/`)
 must be escaped against the Elasticsearch:
 
-``` ruby
+```ruby
 +  -  &&  | |  !  ( )  { }  [ ]  ^  "  ~  *  ?  :  \  /
 ```
 
 For example:
 
-``` ruby
+```ruby
 \(1\+1\)\:2
 ```

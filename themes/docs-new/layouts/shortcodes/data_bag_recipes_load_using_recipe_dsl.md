@@ -15,25 +15,25 @@ Some examples:
 
 To load the secret from a file:
 
-``` ruby
+```ruby
 data_bag_item('bag', 'item', IO.read('secret_file'))
 ```
 
 To load a single data bag item named `admins`:
 
-``` ruby
+```ruby
 data_bag('admins')
 ```
 
 The contents of a data bag item named `justin`:
 
-``` ruby
+```ruby
 data_bag_item('admins', 'justin')
 ```
 
 will return something similar to:
 
-``` ruby
+```ruby
 # => {'comment'=>'Justin Currie', 'gid'=>1005, 'id'=>'justin', 'uid'=>1005, 'shell'=>'/bin/zsh'}
 ```
 

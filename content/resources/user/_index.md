@@ -36,7 +36,7 @@ resource_description_list:
       system attributes during the current Chef Infra Client run.'
 resource_new_in: null
 handler_types: false
-syntax_description: "A **user** resource block manages users on a node:\n\n``` ruby\n\
+syntax_description: "A **user** resource block manages users on a node:\n\n```ruby\n\
   user 'a user' do\n  comment 'A random user'\n  uid 1234\n  gid 'groupname'\n  home\
   \ '/home/random'\n  shell '/bin/bash'\n  password '$1$JJsvHslasdfjVEroftprNn4JHtDi'\n\
   end\n```"
@@ -237,23 +237,23 @@ handler_custom: false
 cookbook_file_specificity: false
 unit_file_verification: false
 examples: "
-  Create a system user\n\n  ``` ruby\n  user 'systemguy' do\n    comment\
+  Create a system user\n\n  ```ruby\n  user 'systemguy' do\n    comment\
   \ 'system guy'\n    system true\n    shell '/bin/false'\n  end\n  ```\n\n  Create\
   \ a system user with a variable\n\n  The following example shows how to create a\
   \ system user. In this\n  instance, the `home` value is calculated and stored in\
   \ a variable called\n  `user_home` which sets the user's `home` attribute.\n\n \
-  \ ``` ruby\n  user_home = \"/home/#{node['cookbook_name']['user']}\"\n\n  user node['cookbook_name']['user']\
+  \ ```ruby\n  user_home = \"/home/#{node['cookbook_name']['user']}\"\n\n  user node['cookbook_name']['user']\
   \ do\n    gid node['cookbook_name']['group']\n    shell '/bin/bash'\n    home user_home\n\
   \    system true\n    action :create\n  end\n  ```\n\n  Use SALTED-SHA512-PBKDF2\
   \ passwords\n\n  macOS 10.8 (and higher) calculates the password shadow hash using\n\
   \  SALTED-SHA512-PBKDF2. The length of the shadow hash value is 128 bytes,\n  the\
   \ salt value is 32 bytes, and an integer specifies the number of\n  iterations.\
   \ The following code will calculate password shadow hashes for\n  macOS 10.8 (and\
-  \ higher):\n\n  ``` ruby\n  password = 'my_awesome_password'\n  salt = OpenSSL::Random.random_bytes(32)\n\
+  \ higher):\n\n  ```ruby\n  password = 'my_awesome_password'\n  salt = OpenSSL::Random.random_bytes(32)\n\
   \  iterations = 25000 # Any value above 20k should be fine.\n\n  shadow_hash = OpenSSL::PKCS5::pbkdf2_hmac(\n\
   \    password,\n    salt,\n    iterations,\n    128,\n    OpenSSL::Digest::SHA512.new\n\
   \  ).unpack('H*').first\n  salt_value = salt.unpack('H*').first\n  ```\n\n  Use\
-  \ the calculated password shadow hash with the **user** resource:\n\n  ``` ruby\n\
+  \ the calculated password shadow hash with the **user** resource:\n\n  ```ruby\n\
   \  user 'my_awesome_user' do\n    password 'cbd1a....fc843'  # Length: 256\n   \
   \ salt 'bd1a....fc83'        # Length: 64\n    iterations 25000\n  end\n  ```\n"
 

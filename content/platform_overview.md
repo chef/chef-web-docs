@@ -123,7 +123,7 @@ To get a sense of how the Chef InSpec language works, here are some
 examples. This Chef InSpec rule ensures that insecure services and
 protocols, such as telnet, are not used.
 
-``` ruby
+```ruby
 describe package('telnetd') do
   it { should_not be_installed }
 end

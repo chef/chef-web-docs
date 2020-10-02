@@ -1,5 +1,5 @@
 The syntax for `notifies` is:
 
-``` ruby
+```ruby
 notifies :action, 'resource[name]', :timer
 ```

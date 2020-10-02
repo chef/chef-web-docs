@@ -10,7 +10,7 @@ is running MySQL. This example does the following:
 
 <!-- -->
 
-``` ruby
+```ruby
 # the following code sample comes from the ``server_ec2``
 # recipe in the following cookbook:
 # https://github.com/chef-cookbooks/mysql

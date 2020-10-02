@@ -1,7 +1,7 @@
 The following example shows how to prevent concurrent Chef Infra Client
 runs from both holding a lock on etcd:
 
-``` ruby
+```ruby
 lock_key = "#{node.chef_environment}/#{node.name}"
 
 Chef.event_handler do

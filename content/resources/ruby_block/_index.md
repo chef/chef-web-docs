@@ -1,6 +1,6 @@
 ---
 resource_reference: true
-properties_shortcode: 
+properties_shortcode:
 title: ruby_block resource
 resource: ruby_block
 aliases:
@@ -24,7 +24,7 @@ resource_new_in: null
 handler_types: false
 syntax_description: "A **ruby_block** resource block executes a block of arbitrary\
   \ Ruby\ncode. For example, to reload the client.rb file during a Chef Infra\nClient\
-  \ run:\n\n``` ruby\nruby_block 'reload_client_config' do\n  block do\n    Chef::Config.from_file(\"\
+  \ run:\n\n```ruby\nruby_block 'reload_client_config' do\n  block do\n    Chef::Config.from_file(\"\
   /etc/chef/client.rb\")\n  end\n  action :run\nend\n```"
 syntax_code_block: null
 syntax_properties_list: null
@@ -134,13 +134,13 @@ handler_custom: false
 cookbook_file_specificity: false
 unit_file_verification: false
 examples: "
-  Re-read configuration data\n\n  ``` ruby\n  ruby_block 'reload_client_config'\
+  Re-read configuration data\n\n  ```ruby\n  ruby_block 'reload_client_config'\
   \ do\n    block do\n      Chef::Config.from_file('/etc/chef/client.rb')\n    end\n\
   \    action :run\n  end\n  ```\n\n  Install repositories from a file, trigger a\
   \ command, and force the\n  internal cache to reload\n\n  The following example\
   \ shows how to install new Yum repositories from a\n  file, where the installation\
   \ of the repository triggers a creation of\n  the Yum cache that forces the internal\
-  \ cache for Chef Infra Client to\n  reload:\n\n  ``` ruby\n  execute 'create-yum-cache'\
+  \ cache for Chef Infra Client to\n  reload:\n\n  ```ruby\n  execute 'create-yum-cache'\
   \ do\n   command 'yum -q makecache'\n   action :nothing\n  end\n\n  ruby_block 'reload-internal-yum-cache'\
   \ do\n    block do\n      Chef::Provider::Package::Yum::YumCache.instance.reload\n\
   \    end\n    action :nothing\n  end\n\n  cookbook_file '/etc/yum.repos.d/custom.repo'\
@@ -149,7 +149,7 @@ examples: "
   \  end\n  ```\n\n  Use an if statement with the platform recipe DSL method\n\n \
   \ The following example shows how an if statement can be used with the\n  `platform?`\
   \ method in the Recipe DSL to run code specific to Microsoft\n  Windows. The code\
-  \ is defined using the **ruby_block** resource:\n\n  ``` ruby\n  # the following\
+  \ is defined using the **ruby_block** resource:\n\n  ```ruby\n  # the following\
   \ code sample comes from the ``client`` recipe\n  # in the following cookbook: https://github.com/chef-cookbooks/mysql\n\
   \n  if platform?('windows')\n    ruby_block 'copy libmysql.dll into ruby path' do\n\
   \      block do\n        require 'fileutils'\n        FileUtils.cp \"#{node['mysql']['client']['lib_dir']}\\\
@@ -158,7 +158,7 @@ examples: "
   ) }\n    end\n  end\n  ```\n\n  Stash a file in a data bag\n\n  The following example\
   \ shows how to use the **ruby_block** resource to\n  stash a BitTorrent file in\
   \ a data bag so that it can be distributed to\n  nodes in the organization.\n\n\
-  \  ``` ruby\n  # the following code sample comes from the ``seed`` recipe\n  # in\
+  \  ```ruby\n  # the following code sample comes from the ``seed`` recipe\n  # in\
   \ the following cookbook: https://github.com/mattray/bittorrent-cookbook\n\n  ruby_block\
   \ 'share the torrent file' do\n    block do\n      f = File.open(node['bittorrent']['torrent'],'rb')\n\
   \      #read the .torrent file and base64 encode it\n      enc = Base64.encode64(f.read)\n\
@@ -169,23 +169,23 @@ examples: "
   \ \"bittorrent_torrent[#{node['bittorrent']['torrent']}]\", :immediately\n  end\n\
   \  ```\n\n  **Update the /etc/hosts file**\n\n  The following example shows how\
   \ the **ruby_block** resource can be used\n  to update the `/etc/hosts` file:\n\n\
-  \  ``` ruby\n  # the following code sample comes from the ``ec2`` recipe\n  # in\
+  \  ```ruby\n  # the following code sample comes from the ``ec2`` recipe\n  # in\
   \ the following cookbook: https://github.com/chef-cookbooks/dynect\n\n  ruby_block\
   \ 'edit etc hosts' do\n    block do\n      rc = Chef::Util::FileEdit.new('/etc/hosts')\n\
   \      rc.search_file_replace_line(/^127\\.0\\.0\\.1 localhost$/,\n         '127.0.0.1\
   \ #{new_fqdn} #{new_hostname} localhost')\n      rc.write_file\n    end\n  end\n\
   \  ```\n\n  Set environment variables\n\n  The following example shows how to use\
   \ variables within a Ruby block to\n  set environment variables using rbenv.\n\n\
-  \  ``` ruby\n  node.override[:rbenv][:root] = rbenv_root\n  node.override[:ruby_build][:bin_path]\
+  \  ```ruby\n  node.override[:rbenv][:root] = rbenv_root\n  node.override[:ruby_build][:bin_path]\
   \ = rbenv_binary_path\n\n  ruby_block 'initialize' do\n    block do\n      ENV['RBENV_ROOT']\
   \ = node[:rbenv][:root]\n      ENV['PATH'] = \"#{node[:rbenv][:root]}/bin:#{node[:ruby_build][:bin_path]}:#{ENV['PATH']}\"\
   \n    end\n  end\n  ```\n\n  Set JAVA_HOME\n\n  The following example shows how\
   \ to use a variable within a Ruby block to\n  set the `java_home` environment variable:\n\
-  \n  ``` ruby\n  ruby_block 'set-env-java-home' do\n    block do\n      ENV['JAVA_HOME']\
+  \n  ```ruby\n  ruby_block 'set-env-java-home' do\n    block do\n      ENV['JAVA_HOME']\
   \ = java_home\n    end\n  end\n  ```\n\n  Run specific blocks of Ruby code on specific\
   \ platforms\n\n  The following example shows how the `platform?` method and an if\n\
   \  statement can be used in a recipe along with the `ruby_block` resource\n  to\
-  \ run certain blocks of Ruby code on certain platforms:\n\n  ``` ruby\n  if platform_family?('debian',\
+  \ run certain blocks of Ruby code on certain platforms:\n\n  ```ruby\n  if platform_family?('debian',\
   \ 'rhel', 'fedora', 'amazon')\n    ruby_block 'update-java-alternatives' do\n  \
   \    block do\n        if platform?('ubuntu', 'debian') and version == 6\n     \
   \     run_context = Chef::RunContext.new(node, {})\n          r = Chef::Resource::Execute.new('update-java-alternatives',\
@@ -208,7 +208,7 @@ examples: "
   \ node are the\n      latest versions\n  -   identify the location from which Ohai\
   \ plugins are stored\n  -   using the `notifies` property and a **ruby_block** resource\
   \ to\n      trigger an update (if required) and to then reload the client.rb\n \
-  \     file.\n\n  <!-- -->\n\n  ``` ruby\n  directory 'node[:ohai][:plugin_path]'\
+  \     file.\n\n  <!-- -->\n\n  ```ruby\n  directory 'node[:ohai][:plugin_path]'\
   \ do\n    owner 'chef'\n    recursive true\n  end\n\n  ruby_block 'reload_config'\
   \ do\n    block do\n      Chef::Config.from_file('/etc/chef/client.rb')\n    end\n\
   \    action :nothing\n  end\n\n  if node[:ohai].key?(:plugins)\n    node[:ohai][:plugins].each\

@@ -16,7 +16,7 @@ interacting with the cloud provider, but their state has no impact on
 decision to converge the resource or not, so you would set
 `desired_state` to `false` for these properties.
 
-``` ruby
+```ruby
 property :volume_name, String
 property :volume_size, Integer
 property :volume_region, String

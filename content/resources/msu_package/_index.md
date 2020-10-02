@@ -66,14 +66,14 @@ properties_list:
   description_list:
   - markdown: The amount of time (in seconds) to wait before timing out.
 examples: "
-  Using local path in source\n\n  ``` ruby\n  msu_package 'Install\
+  Using local path in source\n\n  ```ruby\n  msu_package 'Install\
   \ Windows 2012R2 Update KB2959977' do\n    source 'C:\\Users\\xyz\\AppData\\Local\\\
   Temp\\Windows8.1-KB2959977-x64.msu'\n    action :install\n  end\n  ```\n\n  ```\
   \ ruby\n  msu_package 'Remove Windows 2012R2 Update KB2959977' do\n    source 'C:\\\
   Users\\xyz\\AppData\\Local\\Temp\\Windows8.1-KB2959977-x64.msu'\n    action :remove\n\
-  \  end\n  ```\n\n  Using URL in source\n\n  ``` ruby\n  msu_package 'Install Windows\
+  \  end\n  ```\n\n  Using URL in source\n\n  ```ruby\n  msu_package 'Install Windows\
   \ 2012R2 Update KB2959977' do\n    source 'https://s3.amazonaws.com/my_bucket/Windows8.1-KB2959977-x64.msu'\n\
-  \    action :install\n  end\n  ```\n\n  ``` ruby\n  msu_package 'Remove Windows\
+  \    action :install\n  end\n  ```\n\n  ```ruby\n  msu_package 'Remove Windows\
   \ 2012R2 Update KB2959977' do\n    source 'https://s3.amazonaws.com/my_bucket/Windows8.1-KB2959977-x64.msu'\n\
   \    action :remove\n  end\n  ```\n"
 

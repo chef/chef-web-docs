@@ -1,6 +1,6 @@
 ---
 resource_reference: true
-properties_shortcode: 
+properties_shortcode:
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
@@ -19,7 +19,7 @@ resource_description_list:
 resource_new_in: '12.9'
 syntax_description: "An **apt_repository** resource specifies APT repository information\
   \ and\nadds an additional APT repository to the existing list of repositories:\n\
-  \n``` ruby\napt_repository 'nginx' do\n  uri        'http://nginx.org/packages/ubuntu/'\n\
+  \n```ruby\napt_repository 'nginx' do\n  uri        'http://nginx.org/packages/ubuntu/'\n\
   \  components ['nginx']\nend\n```"
 syntax_full_code_block: |-
   apt_repository 'name' do
@@ -37,7 +37,7 @@ syntax_full_code_block: |-
     uri                String
     action             Symbol # defaults to :add if not specified
   end
-syntax_properties_list: 
+syntax_properties_list:
 syntax_full_properties_list:
 - "`apt_repository` is the resource."
 - "`name` is the name given to the resource block."

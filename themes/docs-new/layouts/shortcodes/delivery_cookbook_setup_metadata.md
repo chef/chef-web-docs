@@ -1,7 +1,7 @@
 The metadata.rb for a `build-cookbook` is located at
 `.delivery/build-cookbook/metadata.rb`. Update it to include:
 
-``` none
+```none
 depends 'delivery-truck'
 ```
 

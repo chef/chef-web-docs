@@ -30,10 +30,10 @@ resource_new_in: '12.16'
 handler_types: false
 syntax_description: "A **powershell_package** resource block manages a package on\
   \ a node,\ntypically by installing it. The simplest use of the\n**powershell_package**\
-  \ resource is:\n\n``` ruby\npowershell_package 'package_name'\n```\n\nwhich will\
+  \ resource is:\n\n```ruby\npowershell_package 'package_name'\n```\n\nwhich will\
   \ install the named package using all of the default options\nand the default action\
   \ (`:install`).\n\nThe powershell_package resource has the following syntax:\n\n\
-  ``` ruby\npowershell_package 'name' do\n  options                   String, Array\n\
+  ```ruby\npowershell_package 'name' do\n  options                   String, Array\n\
   \  package_name              String, Array\n  skip_publisher_check      true, false\
   \ # default value: false\n  source                    String\n  timeout        \
   \           String, Integer\n  version                   String, Array\n  action\
@@ -128,21 +128,21 @@ handler_custom: false
 cookbook_file_specificity: false
 unit_file_verification: false
 examples: "
-  Install a specific version of a package:\n\n  ``` ruby\n  powershell_package\
+  Install a specific version of a package:\n\n  ```ruby\n  powershell_package\
   \ 'xCertificate' do\n    action :install\n    version '1.1.0.0'\n  end\n  ```\n\n\
-  \  Install multiple packages:\n\n  ``` ruby\n  powershell_package 'Install Multiple\
+  \  Install multiple packages:\n\n  ```ruby\n  powershell_package 'Install Multiple\
   \ Packages' do\n    action :install\n    package_name %w(xCertificate xNetworking)\n\
-  \  end\n  ```\n\n  Install a package from a custom source:\n\n  ``` ruby\n  powershell_package\
+  \  end\n  ```\n\n  Install a package from a custom source:\n\n  ```ruby\n  powershell_package\
   \ 'xCertificate' do\n    action :install\n    source 'MyGallery'\n  end\n  ```\n\
-  \n  Install multiple packages, and specify package versions:\n\n  ``` ruby\n  powershell_package\
+  \n  Install multiple packages, and specify package versions:\n\n  ```ruby\n  powershell_package\
   \ 'Install Multiple Packages' do\n    action :install\n    package_name %w(xCertificate\
   \ xNetworking)\n    version ['2.0.0.0', '2.12.0.0']\n  end\n  ```\n\n  Install multiple\
   \ packages, specifying the package version for one\n  package but not the other:\n\
-  \n  ``` ruby\n  powershell_package 'Install Multiple Packages' do\n     action :install\n\
+  \n  ```ruby\n  powershell_package 'Install Multiple Packages' do\n     action :install\n\
   \     package_name %w(xCertificate xNetworking)\n     version [nil, '2.12.0.0']\n\
   \   end\n  ```\n\n  In this example, the `nil` tells `powershell_package` to install\
   \ the\n  most up to date version of `xCertificate` that is available, while\n  pinning\
-  \ `xNetworking` to version 2.12.0.0.\n\n  Remove a package:\n\n  ``` ruby\n  powershell_package\
+  \ `xNetworking` to version 2.12.0.0.\n\n  Remove a package:\n\n  ```ruby\n  powershell_package\
   \ 'xCertificate' do\n    action :remove\n  end\n  ```\n"
 
 ---

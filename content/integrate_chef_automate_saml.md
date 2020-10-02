@@ -65,7 +65,7 @@ and Okta's metadata is similar to
 able to look at the XML document served there, and find that it starts
 with the following:
 
-``` xml
+```xml
 <EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" ID="_f4168057-a418-4b84-a250-29b25e927b73" entityID="https://sts.windows.net/1b218ca8-3694-4fcb-ac12-d2112c657830/">
 ```
 
@@ -81,7 +81,7 @@ BitBucket](/integrate_delivery_bitbucket/) for more information.
 The periodic refresh can be controlled through `delivery.rb`. The
 following are the default settings:
 
-``` ruby
+```ruby
 auth['saml_metadata_refresh_interval'] = '1d'
 auth['saml_metadata_retry_interval'] = '1m'
 ```
@@ -107,7 +107,7 @@ often be found through your Identity Provider's metadata file.
 
     Metadata XML example:
 
-    ``` xml
+    ```xml
     <EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" ID="_0579740c-32a1-46a0-a8d0-fb583f0566e7" entityID="https://sts.windows.net/1b218ca8-3694-4fcb-ac12-d2112c657830/">
     ```
 
@@ -120,7 +120,7 @@ often be found through your Identity Provider's metadata file.
 
     Metadata XML example:
 
-    ``` xml
+    ```xml
     <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://login.microsoftonline.com/1b218ca8-3694-4fcb-ac12-d2112c657830/saml2"/>
     ```
 
@@ -145,7 +145,7 @@ often be found through your Identity Provider's metadata file.
 
     Metadata XML example:
 
-    ``` xml
+    ```xml
     <KeyDescriptor use="signing">
         <KeyInfo>
             <X509Data>
@@ -182,20 +182,20 @@ To configure your IdP to accept SAML requests, you need the following:
     this setting in your <span class="title-ref">delivery.rb</span> (see
     below), enter:
 
-    ``` none
+    ```none
     https://<yourChefAutomateDomain>/api/v0/e/<yourEnterprise>/saml/metadata
     ```
 
 -   Assertion Consumer Service / Reply URL. This is where Chef Automate
     receives SAML assertions from the Identity Provider:
 
-    ``` none
+    ```none
     https://<yourChefAutomateDomain>/api/v0/e/<yourEnterprise>/saml/consume
     ```
 
 -   Audience. This will be the metadata URL for Chef Automate:
 
-    ``` none
+    ```none
     https://<yourChefAutomateDomain>/api/v0/e/<yourEnterprise>/saml/metadata
     ```
 
@@ -317,7 +317,7 @@ By default, Chef Automate's SAML integration will use EntityId
 `https://<yourChef AutomateDomain>/api/v0/e/<yourEnterprise>/saml/metadata`.
 This can be overridden in `delivery.rb` as follows:
 
-``` ruby
+```ruby
 auth['saml_entity_id'] = 'https://delivery.corp.com/saml'
 ```
 
@@ -330,7 +330,7 @@ SAML-authenticated users:
     SAML-authenticating the user, and it will prompt the user to use
     their browser to login to Chef Automate:
 
-    ``` bash
+    ```bash
     delivery token
     Chef Chef Automate
     Loading configuration from /path/to/project
@@ -342,14 +342,14 @@ SAML-authenticated users:
 2.  The Chef Automate CLI will then wait for the user to enter the token
     retrieved from the web interface:
 
-    ``` none
+    ```none
     Enter token:
     ```
 
 3.  The token retrieved will then be verified and saved in the usual
     token store.
 
-    ``` none
+    ```none
     Enter token: [enter oMMoQ9N7XXYHI6X6lV7GaxEjxEP4Yv1TafTx7hFWH1U=]
     token: oMMoQ9N7XXYHI6X6lV7GaxEjxEP4Yv1TafTx7hFWH1U=
     saved API token to: /Users/alice/.delivery/api-tokens
@@ -372,7 +372,7 @@ following successful SAML authentication. To do that, a private signing
 key needs to be provided. An alternate location can be configured in
 `/etc/delivery/delivery.rb`:
 
-``` ruby
+```ruby
 auth['oidc_signing_private_key'] = '/etc/delivery/oidc_signing_private_key.pem' # this is the default
 ```
 
@@ -380,7 +380,7 @@ If the file does not exist, a 2048-bit RSA key will be generated using
 OpenSSL (when running `automate-ctl reconfigure`). You can also provide
 that RSA private key in PEM format yourself:
 
-``` none
+```none
 /etc/delivery# cat > oidc_signing_private_key.pem <<EOF
 -----BEGIN PRIVATE KEY-----
 MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDfBg/WS60hE8k/
@@ -396,7 +396,7 @@ EOF
 You can verify that Chef Automate can read and parse your key by
 accessing `https://<yourChef AutomateDomain>/api/v0/oidc/jwks`:
 
-``` bash
+```bash
 curl https://delivery.corp.com/api/v0/oidc/jwks | jq .
  {
    "keys": [
@@ -422,7 +422,7 @@ To allow Chef Infra Server to act as an OpenID Connect client to Chef
 Automate, it needs to be known to Chef Automate. To achieve this, add
 the following to your `/etc/delivery/delivery.rb`
 
-``` ruby
+```ruby
 auth['oidc_clients'] = {
    'manage-client-id' => {
      'client_secret' => 'ohai',

@@ -15,7 +15,7 @@ If Apache Solr is running out of memory, the
 `/var/log/opscode/opscode-solr4/current` log file will contain a message
 similar to:
 
-``` bash
+```bash
 SEVERE: java.lang.OutOfMemoryError: Java heap space
 ```
 

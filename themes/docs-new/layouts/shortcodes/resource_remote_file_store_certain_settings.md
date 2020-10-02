@@ -9,7 +9,7 @@ Python packages have versions, installation directories, URLs, and
 checksum files. An attributes file that exists to support this type of
 recipe would include settings like the following:
 
-``` ruby
+```ruby
 default['python']['version'] = '2.7.1'
 
 if python['install_method'] == 'package'
@@ -35,7 +35,7 @@ that is used to install Python will need to do the following:
 
 <!-- -->
 
-``` ruby
+```ruby
 #  the following code sample comes from the ``oc-nginx`` cookbook on |github|: https://github.com/cookbooks/oc-nginx
 
 version = node['python']['version']

@@ -1,7 +1,7 @@
 To initialize a project using a Bitbucket repository, run a command
 similar to:
 
-``` bash
+```bash
 delivery init --bitbucket PROJECT_KEY -r REPO_NAME
 ```
 
@@ -10,13 +10,13 @@ where `PROJECT_KEY` is the name of the project key in Bitbucket and
 initialize the `anagrams` repository in Bitbucket with the `TEST`
 project key:
 
-``` bash
+```bash
 delivery init --bitbucket TEST -r anagrams
 ```
 
 and returns output similar to:
 
-``` none
+```none
 Chef Delivery
 Loading configuration from /Users/justinc/chef/delivery/organizations/sandbox/anagrams
 Is /Users/justinc/chef/delivery/organizations/sandbox/anagrams a git repo?  yes

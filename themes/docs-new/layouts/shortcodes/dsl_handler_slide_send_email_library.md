@@ -2,7 +2,7 @@ Use a library to define the code that sends email when a Chef Infra
 Client run fails. Name the file `helper.rb` and add it to a cookbook's
 `/libraries` directory:
 
-``` ruby
+```ruby
 require 'net/smtp'
 
 module HandlerSendEmail

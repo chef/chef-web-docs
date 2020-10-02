@@ -35,7 +35,7 @@ This configuration file has the following settings:
 
 :   The URL for the Chef Infra Server. For example:
 
-    ``` ruby
+    ```ruby
     https://localhost/organizations/ORG_NAME
     ```
 
@@ -75,7 +75,7 @@ This configuration file has the following settings:
 :   A Hash that contains the whitelist used by Chef Push Jobs. For
     example:
 
-    ``` ruby
+    ```ruby
     whitelist {
       'job-name' => 'command',
       'job-name' => 'command',

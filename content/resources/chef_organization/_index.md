@@ -19,7 +19,7 @@ resource_description_list:
 resource_new_in: null
 handler_types: false
 syntax_description: "The syntax for using the **chef_organization** resource in a\
-  \ recipe is\nas follows:\n\n``` ruby\nchef_organization 'name' do\n  attribute 'value'\
+  \ recipe is\nas follows:\n\n```ruby\nchef_organization 'name' do\n  attribute 'value'\
   \ # see attributes section below\n  ...\n  action :action # see actions section\
   \ below\nend\n```"
 syntax_code_block: null
@@ -142,7 +142,7 @@ properties_list:
   default_value: null
   new_in: null
   description_list:
-  - markdown: "The organization as JSON data. For example:\n\n``` none\n{\n  \"name\"\
+  - markdown: "The organization as JSON data. For example:\n\n```none\n{\n  \"name\"\
       : \"chef\",\n  \"full_name\": \"Chef Software, Inc\",\n  \"guid\": \"f980d1asdfda0331235s00ff36862\n\
       \  ...\n}\n```"
 - property: remove_members

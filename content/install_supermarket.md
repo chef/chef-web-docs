@@ -89,7 +89,7 @@ To configure Chef Supermarket to use Chef Identity, do the following:
 
 3.  Reconfigure the Chef Infra Server.
 
-    ``` bash
+    ```bash
     sudo chef-server-ctl reconfigure
     ```
 
@@ -101,7 +101,7 @@ To configure Chef Supermarket to use Chef Identity, do the following:
     supermarket](/ctl_chef_server/#ctl-chef-server-oc-id-show-app)
     or is located in `/etc/opscode/oc-id-applications/supermarket.json`:
 
-    ``` javascript
+    ```javascript
     {
       "name": "supermarket",
       "uid": "0bad0f2eb04e935718e081fb71asdfec3681c81acb9968a8e1e32451d08b",
@@ -182,7 +182,7 @@ override the default attributes specified in the Chef Supermarket
 package](https://github.com/chef/supermarket/blob/master/omnibus/cookbooks/omnibus-supermarket/attributes/default.rb).
 For example:
 
-``` ruby
+```ruby
 default['supermarket_omnibus']['chef_server_url'] = 'https://chefserver.mycompany.com:443'
 default['supermarket_omnibus']['chef_oauth2_app_id'] = '14dfcf186221781cff51eedd5ac1616'
 default['supermarket_omnibus']['chef_oauth2_secret'] = 'a49402219627cfa6318d58b13e90aca'
@@ -195,13 +195,13 @@ line interface:
 
 1.  Generate the cookbook:
 
-    ``` bash
+    ```bash
     chef generate cookbook my_supermarket_wrapper
     ```
 
 2.  Change directories into that cookbook:
 
-    ``` bash
+    ```bash
     cd my_supermarket_wrapper
     ```
 
@@ -209,7 +209,7 @@ line interface:
     `supermarket-omnibus-cookbook` cookbook. Open the metadata.rb file
     of the newly-created cookbook, and then add the following line:
 
-    ``` ruby
+    ```ruby
     depends 'supermarket-omnibus-cookbook'
     ```
 
@@ -218,7 +218,7 @@ line interface:
 5.  Open the `/recipes/default.rb` recipe located within the
     newly-generated cookbook and add the following content:
 
-    ``` ruby
+    ```ruby
     include_recipe 'supermarket-omnibus-cookbook'
     ```
 
@@ -258,13 +258,13 @@ To define these attributes, do the following:
     example uses a data bag named `apps` and a data bag item named
     `supermarket`:
 
-    ``` ruby
+    ```ruby
     app = data_bag_item('apps', 'supermarket')
     ```
 
 2.  Set the attributes from the data bag:
 
-    ``` ruby
+    ```ruby
     node.override['supermarket_omnibus']['chef_server_url'] = app['chef_server_url']
     node.override['supermarket_omnibus']['chef_oauth2_app_id'] = app['chef_oauth2_app_id']
     node.override['supermarket_omnibus']['chef_oauth2_secret'] = app['chef_oauth2_secret']
@@ -273,7 +273,7 @@ To define these attributes, do the following:
     When finished, the `/recipes/default.rb` file should have code
     similar to:
 
-    ``` ruby
+    ```ruby
     app = data_bag_item('apps', 'supermarket')
 
     node.override['supermarket_omnibus']['chef_server_url'] = app['chef_server_url']
@@ -290,7 +290,7 @@ To define these attributes, do the following:
 If you are running your private Supermarket in AWS, you may need to set
 an additional attribute for the node's public IP address:
 
-``` ruby
+```ruby
 node.override['supermarket_omnibus']['config']['fqdn'] = your_node_public_ip
 ```
 
@@ -308,32 +308,32 @@ following:
 
 1.  Install Berkshelf:
 
-    ``` bash
+    ```bash
     berks install
     ```
 
 2.  Change directories into `~/.berkshelf/cookbooks`:
 
-    ``` bash
+    ```bash
     cd ~/.berkshelf/cookbooks
     ```
 
 3.  Upload all cookbooks to the Chef Infra Server:
 
-    ``` bash
+    ```bash
     knife cookbook upload -a
     ```
 
 4.  Change directories into the location in which the wrapper cookbook
     was created:
 
-    ``` bash
+    ```bash
     cd path/to/wrapper/cookbook/
     ```
 
 5.  Upload the wrapper cookbook to the Chef Infra Server:
 
-    ``` bash
+    ```bash
     knife cookbook upload -a
     ```
 
@@ -343,7 +343,7 @@ Bootstrap the node on which Chef Supermarket is to be installed. For
 example, to bootstrap a node running Ubuntu on Amazon Web Services
 (AWS), the command is similar to:
 
-``` bash
+```bash
 knife bootstrap ip_address -N supermarket-node -x ubuntu --sudo
 ```
 
@@ -360,7 +360,7 @@ When the bootstrap operation is finished, do the following:
 1.  Edit the node to add the wrapper cookbook's `/recipes/default.rb`
     recipe to the run-list:
 
-    ``` bash
+    ```bash
     knife node edit supermarket-node
     ```
 
@@ -369,7 +369,7 @@ When the bootstrap operation is finished, do the following:
 
 2.  Add the recipe to the run-list:
 
-    ``` ruby
+    ```ruby
     "run_list": [
       "recipe[my_supermarket_wrapper::default]"
     ]
@@ -378,13 +378,13 @@ When the bootstrap operation is finished, do the following:
 3.  Start Chef Infra Client on the newly-bootstrapped Chef Supermarket
     node. For example, using SSH:
 
-    ``` bash
+    ```bash
     ssh ubuntu@your-supermarket-node-public-dns
     ```
 
 4.  After accessing the Chef Supermarket node, run Chef Infra Client:
 
-    ``` bash
+    ```bash
     sudo chef-client
     ```
 
@@ -408,19 +408,19 @@ guide.
 
     -   For Ubuntu:
 
-        ``` bash
+        ```bash
         dpkg -i /path/to/package/supermarket*.deb
         ```
 
     -   For RHEL / CentOS:
 
-        ``` bash
+        ```bash
         rpm -Uvh /path/to/package/supermarket*.rpm
         ```
 
 3.  Run the `reconfigure` command to complete the initial installation:
 
-    ``` none
+    ```none
     sudo supermarket-ctl reconfigure
     ```
 
@@ -430,7 +430,7 @@ guide.
     created in the [previous
     section](/install_supermarket/#chef-identity):
 
-    ``` ruby
+    ```ruby
     {
         "chef_server_url": "https://chefserver.mycompany.com",
         "chef_oauth2_app_id": "0bad0f2eb04e935718e081fb71asdfec3681c81acb9968a8e1e32451d08b",
@@ -459,7 +459,7 @@ guide.
 
 5.  Issue another `reconfigure` command to apply your changes:
 
-    ``` none
+    ```none
     sudo supermarket-ctl reconfigure
     ```
 
@@ -508,7 +508,7 @@ and loaded. The public Chef Supermarket uses Amazon Relational Database
 Service (RDS). To use an external database, configure the following
 attributes in the `/recipes/default.rb` recipe of the wrapper cookbook:
 
-``` ruby
+```ruby
 node.override['supermarket_omnibus']['config']['postgresql']['enable'] = false
 node.override['supermarket_omnibus']['config']['database']['user'] = 'supermarket'
 node.override['supermarket_omnibus']['config']['database']['name'] = 'supermarket'
@@ -527,7 +527,7 @@ safely. Use Redis 2.8 (or higher) for a high availability pair. To use
 an external cache, configure the following attributes in the
 `/recipes/default.rb` recipe of the wrapper cookbook:
 
-``` ruby
+```ruby
 node.override['supermarket_omnibus']['config']['redis']['enable'] = false
 node.override['supermarket_omnibus']['config']['redis_url'] = 'redis://your-redis-instance:6379'
 ```
@@ -541,7 +541,7 @@ default) or in an Amazon Simple Storage Service (S3) bucket. To use an
 S3 bucket, configure the following attributes in the
 `/recipes/default.rb` recipe of the wrapper cookbook:
 
-``` ruby
+```ruby
 node.override['supermarket_omnibus']['config']['s3_access_key_id'] = 'yourkeyid'
 node.override['supermarket_omnibus']['config']['s3_bucket'] = 'all-our-awesome-cookbooks'
 node.override['supermarket_omnibus']['config']['s3_region'] = 'some-place-3'
@@ -564,19 +564,19 @@ Encrypted S3 buckets are currently not supported.
 
     -   For Ubuntu:
 
-        ``` bash
+        ```bash
         dpkg -i /path/to/package/supermarket*.deb
         ```
 
     -   For RHEL / CentOS:
 
-        ``` bash
+        ```bash
         rpm -Uvh /path/to/package/supermarket*.rpm
         ```
 
 1. [Reconfigure](/ctl_supermarket/#reconfigure) the server that Chef Supermarket is installed on:
 
-    ``` bash
+    ```bash
     sudo supermarket-ctl reconfigure
     ```
 
@@ -584,13 +584,13 @@ Private Supermarket is updated on your server now. We recommend restarting the s
 
 1. Get the name of the active unit:
 
-    ``` bash
+    ```bash
     systemctl list-units | grep runsvdir
     ```
 
 1. Restart the unit:
 
-    ``` bash
+    ```bash
     systemctl restart UNIT_NAME
     ```
 

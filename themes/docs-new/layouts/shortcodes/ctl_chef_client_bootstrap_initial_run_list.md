@@ -2,13 +2,13 @@ A node's initial run-list is specified using a JSON file on the host
 system. When running Chef Infra Client as an executable, use the `-j`
 option to tell Chef Infra Client which JSON file to use. For example:
 
-``` bash
+```bash
 chef-client -j /etc/chef/file.json --environment _default
 ```
 
 where `file.json` is similar to:
 
-``` javascript
+```javascript
 {
   "resolver": {
     "nameservers": [ "10.0.0.1" ],

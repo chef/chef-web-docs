@@ -41,11 +41,11 @@ resource_description_list:
 resource_new_in: null
 handler_types: false
 syntax_description: "A **link** resource block creates symbolic or hard links. For\
-  \ example,\nto create a hard link from `/tmp/file` to `/etc/file`:\n\n``` ruby\n\
+  \ example,\nto create a hard link from `/tmp/file` to `/etc/file`:\n\n```ruby\n\
   link '/tmp/file' do\n  to '/etc/file'\n  link_type :hard\nend\n```\n\nBecause the\
   \ default value for `link_type` is symbolic, and because\nproperties that are not\
   \ specified in the resource block will be assigned\ntheir default values, the following\
-  \ example creates a symbolic link:\n\n``` ruby\nlink '/tmp/file' do\n  to '/etc/file'\n\
+  \ example creates a symbolic link:\n\n```ruby\nlink '/tmp/file' do\n  to '/etc/file'\n\
   end\n```"
 syntax_code_block: null
 syntax_properties_list: null
@@ -199,23 +199,23 @@ cookbook_file_specificity: false
 unit_file_verification: false
 examples: "
   Create symbolic links\n\n  The following example will create a symbolic\
-  \ link from `/tmp/file` to\n  `/etc/file`:\n\n  ``` ruby\n  link '/tmp/file' do\n\
+  \ link from `/tmp/file` to\n  `/etc/file`:\n\n  ```ruby\n  link '/tmp/file' do\n\
   \    to '/etc/file'\n  end\n  ```\n\n  Create hard links\n\n  The following example\
-  \ will create a hard link from `/tmp/file` to\n  `/etc/file`:\n\n  ``` ruby\n  link\
+  \ will create a hard link from `/tmp/file` to\n  `/etc/file`:\n\n  ```ruby\n  link\
   \ '/tmp/file' do\n    to '/etc/file'\n    link_type :hard\n  end\n  ```\n\n  Delete\
   \ links\n\n  The following example will delete the `/tmp/file` symbolic link and\
   \ uses\n  the `only_if` guard to run the `test -L` command, which verifies that\n\
   \  `/tmp/file` is a symbolic link, and then only deletes `/tmp/file` if the\n  test\
-  \ passes:\n\n  ``` ruby\n  link '/tmp/file' do\n    action :delete\n    only_if\
+  \ passes:\n\n  ```ruby\n  link '/tmp/file' do\n    action :delete\n    only_if\
   \ 'test -L /tmp/file'\n  end\n  ```\n\n  Create multiple symbolic links\n\n  The\
   \ following example creates symbolic links from two files in the\n  `/vol/webserver/cert/`\
-  \ directory to files located in the\n  `/etc/ssl/certs/` directory:\n\n  ``` ruby\n\
+  \ directory to files located in the\n  `/etc/ssl/certs/` directory:\n\n  ```ruby\n\
   \  link '/vol/webserver/cert/server.crt' do\n    to '/etc/ssl/certs/ssl-cert-name.pem'\n\
   \  end\n\n  link '/vol/webserver/cert/server.key' do\n    to '/etc/ssl/certs/ssl-cert-name.key'\n\
   \  end\n  ```\n\n  Create platform-specific symbolic links\n\n  The following example\
   \ shows installing a filter module on Apache. The\n  package name is different for\
   \ different platforms, and for the Red Hat\n  Enterprise Linux family, a symbolic\
-  \ link is required:\n\n  ``` ruby\n  include_recipe 'apache2::default'\n\n  case\
+  \ link is required:\n\n  ```ruby\n  include_recipe 'apache2::default'\n\n  case\
   \ node['platform_family']\n  when 'debian'\n    ...\n  when 'suse'\n    ...\n  when\
   \ 'rhel', 'fedora'\n    ...\n\n    link '/usr/lib64/httpd/modules/mod_apreq.so'\
   \ do\n      to      '/usr/lib64/httpd/modules/mod_apreq2.so'\n      only_if 'test\
@@ -225,7 +225,7 @@ examples: "
   \ For the complete recipe, see\n  <https://github.com/onehealth-cookbooks/apache2/blob/68bdfba4680e70b3e90f77e40223dd535bf22c17/recipes/mod_apreq2.rb>.\n\
   \n  **Create Windows junction/reparse points**\n\n  This example demonstrates how\
   \ to create a directory junction/reparse\n  point. In this example, `C:\\destination`\
-  \ will be a junction/reparse\n  point to the `C:\\source` directory.\n\n  ``` ruby\n\
+  \ will be a junction/reparse\n  point to the `C:\\source` directory.\n\n  ```ruby\n\
   \  directory 'C:/source'\n\n  link 'C:/destination' do\n      link_type :symbolic\n\
   \      to 'C:/source'\n  end\n  ```\n"
 

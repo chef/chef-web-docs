@@ -2,7 +2,7 @@ The following example shows how an if statement can be used with the
 `platform?` method in the Recipe DSL to run code specific to Microsoft
 Windows. The code is defined using the **ruby_block** resource:
 
-``` ruby
+```ruby
 # the following code sample comes from the ``client`` recipe
 # in the following cookbook: https://github.com/chef-cookbooks/mysql
 

@@ -17,7 +17,7 @@ registry key exists at the specified path.
 
 The syntax for the `registry_key_exists?` method is as follows:
 
-``` ruby
+```ruby
 registry_key_exists?(KEY_PATH, ARCHITECTURE)
 ```
 

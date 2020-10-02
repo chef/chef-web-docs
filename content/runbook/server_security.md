@@ -58,14 +58,14 @@ key.
 
 For example:
 
-``` ruby
+```ruby
 nginx['ssl_certificate'] = '/etc/pki/tls/certs/your-host.crt'
 nginx['ssl_certificate_key'] = '/etc/pki/tls/private/your-host.key'
 ```
 
 Save the file, and then run the following command:
 
-``` bash
+```bash
 sudo chef-server-ctl reconfigure
 ```
 
@@ -91,13 +91,13 @@ Because the FQDN has already been configured, do the following:
 
 2.  Reconfigure the Chef Infra Server:
 
-    ``` bash
+    ```bash
     chef-server-ctl reconfigure
     ```
 
 3.  Restart the Nginx service to load the new key and certificate:
 
-    ``` bash
+    ```bash
     chef-server-ctl restart nginx
     ```
 
@@ -121,7 +121,7 @@ configures SSL certificates for Nginx. The cipher suite used by Nginx
 [is configurable](/config_rb_server/#ssl-protocols) using the
 `ssl_protocols` and `ssl_ciphers` settings.
 
-``` ruby
+```ruby
 ssl_keyfile = File.join(nginx_ca_dir, "#{node['private_chef']['nginx']['server_name']}.key")
 ssl_crtfile = File.join(nginx_ca_dir, "#{node['private_chef']['nginx']['server_name']}.crt")
 ssl_signing_conf = File.join(nginx_ca_dir, "#{node['private_chef']['nginx']['server_name']}-ssl.conf")
@@ -194,13 +194,13 @@ To use an internal certificate authority, append the server--optionally,
 any intermediate certificate as well--and root certificates into a
 single `.crt` file. For example:
 
-``` bash
+```bash
 cat server.crt [intermediate.crt] root.crt >> /var/opt/opscode/nginx/ca/FQDN.crt
 ```
 
 Check your combined certificate's validity on the Chef Infra Server:
 
-``` bash
+```bash
 openssl verify -verbose -purpose sslserver -CAfile cacert.pem  /var/opt/opscode/nginx/ca/FQDN.crt
 ```
 
@@ -215,7 +215,7 @@ For use with 3rd party certificate providers, for example, Verisign.
 To use an intermediate certificate, append both the server and
 intermediate certificates into a single `.crt` file. For example:
 
-``` bash
+```bash
 cat server.crt intermediate.crt >> /var/opt/opscode/nginx/ca/FQDN.crt
 ```
 
@@ -229,14 +229,14 @@ for this host was generated using a random key or a newly generated key.
 The symptoms of this issue will look like the following in the nginx log
 files:
 
-``` bash
+```bash
 nginx: [emerg] SSL_CTX_use_PrivateKey_file("/var/opt/opscode/nginx/ca/YOUR_HOSTNAME.key") failed (SSL: error:0B080074:x509    certificate routines:X509_check_private_key:key values mismatch)
 ```
 
 Here's how to tell for sure when the configured certificate doesn't
 match the key
 
-``` bash
+```bash
 ## openssl x509 -in /var/opt/opscode/nginx/ca/chef-432.lxc.crt -noout -modulus | openssl sha1
 (stdin)= 05b4f62e52fe7ce2351ff81d3e1060c0cdf1fa24
 
@@ -260,7 +260,7 @@ To regenerate SSL certificates:
 
 1.  Run the following command:
 
-    ``` bash
+    ```bash
     chef-server-ctl stop
     ```
 
@@ -269,7 +269,7 @@ To regenerate SSL certificates:
     the FQDN for the Chef Infra Server. To determine the FQDN for the
     server, run the following command:
 
-    ``` bash
+    ```bash
     hostname -f
     ```
 
@@ -287,13 +287,13 @@ To regenerate SSL certificates:
 4.  Run the following command, Chef server-generated SSL certificates
     will automatically be created if necessary:
 
-    ``` bash
+    ```bash
     chef-server-ctl reconfigure
     ```
 
 5.  Run the following command:
 
-    ``` bash
+    ```bash
     chef-server-ctl start
     ```
 
@@ -389,7 +389,7 @@ the user.
 
 1.  Run the following command on both machines to gain root access:
 
-    ``` bash
+    ```bash
     sudo -i
     ```
 
@@ -407,7 +407,7 @@ the user.
 5.  Enable SSL on PostgreSQL by editing the `postgresql.conf` file. Set
     `ssl = on` and specify the paths to the SSL certificates:
 
-    ``` text
+    ```text
     ssl=on
 
     ssl_cert_file='/path/to/cert/file'
@@ -422,7 +422,7 @@ the user.
     class="title-ref">hostssl</span> connections for Chef Infra Server
     (the contents of your `pg_hba.conf` will be different):
 
-    ``` text
+    ```text
     # "local" is for Unix domain socket connections only
     local      all             all                                     peer
 
@@ -439,20 +439,20 @@ the user.
 7.  Restart PostgreSQL. This can typically be done with the following
     command on the PostgreSQL machine:
 
-    ``` bash
+    ```bash
     /path/to/postgresql/postgresql restart
     ```
 
 8.  Edit `/etc/opscode/chef-server.rb` on the Chef Infra Server and add
     the following line:
 
-    ``` ruby
+    ```ruby
     postgresql['sslmode'] = 'require'
     ```
 
 9.  Run reconfigure on the Chef Infra Server:
 
-    ``` bash
+    ```bash
     chef-server-ctl reconfigure
     ```
 
@@ -464,14 +464,14 @@ the user.
 
     Start a psql session:
 
-    ``` bash
+    ```bash
     chef-server-ctl psql opscode_chef
     ```
 
     From the psql session, enter `postgres=# show ssl;` which will show
     if ssl is enabled:
 
-    ``` sql
+    ```sql
     postgres=# show ssl;
 
      ssl
@@ -483,7 +483,7 @@ the user.
     Then enter `postgres=# select * from pg_stat_ssl;` which will return
     true (`t`) in rows with SSL connections:
 
-    ``` sql
+    ```sql
     postgres=# select * from pg_stat_ssl;
 
       pid  | ssl | version |           cipher            | bits | compression | clientdn

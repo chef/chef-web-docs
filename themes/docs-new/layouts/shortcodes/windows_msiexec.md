@@ -2,7 +2,7 @@ Msiexec.exe is used to install Chef Infra Client on a node as part of a
 bootstrap operation. The actual command that is run by the default
 bootstrap script is:
 
-``` bash
+```bash
 msiexec /qn /i "%LOCAL_DESTINATION_MSI_PATH%"
 ```
 

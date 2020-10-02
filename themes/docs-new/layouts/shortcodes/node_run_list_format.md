@@ -15,6 +15,6 @@ or
 Use a comma to separate roles and recipes when adding more than one item
 the run-list:
 
-``` javascript
+```javascript
 "recipe[COOKBOOK::RECIPE],COOKBOOK::RECIPE,role[NAME]"
 ```

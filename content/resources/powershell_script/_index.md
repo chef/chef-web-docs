@@ -37,7 +37,7 @@ resource_new_in: null
 handler_types: false
 syntax_description: "A **powershell_script** resource block executes a batch script\
   \ using\nthe Windows PowerShell interpreter. For example, writing to an\ninterpolated\
-  \ path:\n\n``` ruby\npowershell_script 'write-to-interpolated-path' do\n  code <<-EOH\n\
+  \ path:\n\n```ruby\npowershell_script 'write-to-interpolated-path' do\n  code <<-EOH\n\
   \  $stream = [System.IO.StreamWriter] \"#{Chef::Config[:file_cache_path]}/powershell-test.txt\"\
   \n  $stream.WriteLine(\"In #{Chef::Config[:file_cache_path]}...word.\")\n  $stream.close()\n\
   \  EOH\nend\n```"
@@ -122,9 +122,9 @@ properties_list:
       \ common attribute is set to\n`:powershell_script`, a string command will be\
       \ evaluated as if this\nvalue were set to `true`. This is because the behavior\
       \ of this\nattribute is similar to the value of the `\"$?\"` expression common\
-      \ in\nUNIX interpreters. For example, this:\n\n``` ruby\npowershell_script 'make_safe_backup'\
+      \ in\nUNIX interpreters. For example, this:\n\n```ruby\npowershell_script 'make_safe_backup'\
       \ do\n  guard_interpreter :powershell_script\n  code 'cp ~/data/nodes.json ~/data/nodes.bak'\n\
-      \  not_if 'test-path ~/data/nodes.bak'\nend\n```\n\nis similar to:\n\n``` ruby\n\
+      \  not_if 'test-path ~/data/nodes.bak'\nend\n```\n\nis similar to:\n\n```ruby\n\
       bash 'make_safe_backup' do\n  code 'cp ~/data/nodes.json ~/data/nodes.bak'\n\
       \  not_if 'test -e ~/data/nodes.bak'\nend\n```"
 - property: creates
@@ -333,37 +333,37 @@ handler_custom: false
 cookbook_file_specificity: false
 unit_file_verification: false
 examples: "
-  Write to an interpolated path\n\n  ``` ruby\n  powershell_script\
+  Write to an interpolated path\n\n  ```ruby\n  powershell_script\
   \ 'write-to-interpolated-path' do\n    code <<-EOH\n    $stream = [System.IO.StreamWriter]\
   \ \"#{Chef::Config[:file_cache_path]}/powershell-test.txt\"\n    $stream.WriteLine(\"\
   In #{Chef::Config[:file_cache_path]}...word.\")\n    $stream.close()\n    EOH\n\
-  \  end\n  ```\n\n  Change the working directory\n\n  ``` ruby\n  powershell_script\
+  \  end\n  ```\n\n  Change the working directory\n\n  ```ruby\n  powershell_script\
   \ 'cwd-then-write' do\n    cwd Chef::Config[:file_cache_path]\n    code <<-EOH\n\
   \    $stream = [System.IO.StreamWriter] \"C:/powershell-test2.txt\"\n    $pwd =\
   \ pwd\n    $stream.WriteLine(\"This is the contents of: $pwd\")\n    $dirs = dir\n\
   \    foreach ($dir in $dirs) {\n      $stream.WriteLine($dir.fullname)\n    }\n\
   \    $stream.close()\n    EOH\n  end\n  ```\n\n  Change the working directory in\
-  \ Microsoft Windows\n\n  ``` ruby\n  powershell_script 'cwd-to-win-env-var' do\n\
+  \ Microsoft Windows\n\n  ```ruby\n  powershell_script 'cwd-to-win-env-var' do\n\
   \    cwd '%TEMP%'\n    code <<-EOH\n    $stream = [System.IO.StreamWriter] \"./temp-write-from-chef.txt\"\
   \n    $stream.WriteLine(\"chef on windows rox yo!\")\n    $stream.close()\n    EOH\n\
-  \  end\n  ```\n\n  Pass an environment variable to a script\n\n  ``` ruby\n  powershell_script\
+  \  end\n  ```\n\n  Pass an environment variable to a script\n\n  ```ruby\n  powershell_script\
   \ 'read-env-var' do\n    cwd Chef::Config[:file_cache_path]\n    environment ({'foo'\
   \ => 'BAZ'})\n    code <<-EOH\n    $stream = [System.IO.StreamWriter] \"./test-read-env-var.txt\"\
   \n    $stream.WriteLine(\"FOO is $env:foo\")\n    $stream.close()\n    EOH\n  end\n\
   \  ```\n\n  **Evaluate for true and/or false**\n\n  Use the `convert_boolean_return`\
   \ attribute to raise an exception when\n  certain conditions are met. For example,\
-  \ the following fragments will\n  run successfully without error:\n\n  ``` ruby\n\
+  \ the following fragments will\n  run successfully without error:\n\n  ```ruby\n\
   \  powershell_script 'false' do\n    code '$false'\n  end\n  ```\n\n  and:\n\n \
-  \ ``` ruby\n  powershell_script 'true' do\n    code '$true'\n  end\n  ```\n\n  whereas\
-  \ the following will raise an exception:\n\n  ``` ruby\n  powershell_script 'false'\
+  \ ```ruby\n  powershell_script 'true' do\n    code '$true'\n  end\n  ```\n\n  whereas\
+  \ the following will raise an exception:\n\n  ```ruby\n  powershell_script 'false'\
   \ do\n    convert_boolean_return true\n    code '$false'\n  end\n  ```\n\n  Use\
-  \ the flags attribute\n\n  ``` ruby\n  powershell_script 'Install IIS' do\n    code\
+  \ the flags attribute\n\n  ```ruby\n  powershell_script 'Install IIS' do\n    code\
   \ <<-EOH\n    Import-Module ServerManager\n    Add-WindowsFeature Web-Server\n \
   \   EOH\n    flags '-NoLogo, -NonInteractive, -NoProfile, -ExecutionPolicy Unrestricted,\
   \ -InputFormat None, -File'\n    guard_interpreter :powershell_script\n    not_if\
   \ '(Get-WindowsFeature -Name Web-Server).Installed'\n  end\n  ```\n\n  Rename computer,\
   \ join domain, reboot\n\n  The following example shows how to rename a computer,\
-  \ join a domain, and\n  then reboot the computer:\n\n  ``` ruby\n  reboot 'Restart\
+  \ join a domain, and\n  then reboot the computer:\n\n  ```ruby\n  reboot 'Restart\
   \ Computer' do\n    action :nothing\n  end\n\n  powershell_script 'Rename and Join\
   \ Domain' do\n    code <<-EOH\n      ...your rename and domain join logic here...\n\
   \    EOH\n    not_if <<-EOH\n      $ComputerSystem = gwmi win32_computersystem\n\
@@ -381,12 +381,12 @@ examples: "
   \ (aka\n  'SE_ASSIGNPRIMARYTOKEN_NAME') user right. By default only LocalSystem\n\
   \  and NetworkService have this right when running as a service. This is\n  necessary\
   \ even if the user is an Administrator.\n\n  This right can be added and checked\
-  \ in a recipe using this example:\n\n  ``` ruby\n  # Add 'SeAssignPrimaryTokenPrivilege'\
+  \ in a recipe using this example:\n\n  ```ruby\n  # Add 'SeAssignPrimaryTokenPrivilege'\
   \ for the user\n  Chef::ReservedNames::Win32::Security.add_account_right('<user>',\
   \ 'SeAssignPrimaryTokenPrivilege')\n\n  # Check if the user has 'SeAssignPrimaryTokenPrivilege'\
   \ rights\n  Chef::ReservedNames::Win32::Security.get_account_right('<user>').include?('SeAssignPrimaryTokenPrivilege')\n\
   \  ```\n\n  The following example shows how to run `mkdir test_dir` from a Chef\n\
-  \  Infra Client run as an alternate user.\n\n  ``` ruby\n  # Passing only username\
+  \  Infra Client run as an alternate user.\n\n  ```ruby\n  # Passing only username\
   \ and password\n  powershell_script 'mkdir test_dir' do\n   code \"mkdir test_dir\"\
   \n   cwd Chef::Config[:file_cache_path]\n   user \"username\"\n   password \"password\"\
   \n  end\n\n  # Passing username and domain\n  powershell_script 'mkdir test_dir'\

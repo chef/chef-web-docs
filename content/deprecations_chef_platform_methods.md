@@ -20,7 +20,7 @@ these APIs will become a hard error in Chef Client 13.
 Code which used to use `Chef::Platform.provider_for_resource` or
 `Chef::Platform.find_provider` to create providers for a resource:
 
-``` ruby
+```ruby
 resource = Chef::Resource::File.new("/tmp/foo.xyz", run_context)
 provider = Chef::Platform.provider_for_resource(resource, :create)
 
@@ -34,7 +34,7 @@ provider = Chef::Platform.find_provider_for_node(node, resource)
 Should instead use the `Chef::Resource#provider_for_action` API on the
 instance of the resource:
 
-``` ruby
+```ruby
 resource = Chef::Resource::File.new("/tmp/foo.xyz", run_context)
 provider = resource.provider_for_action(:create)
 ```
@@ -52,13 +52,13 @@ Also, code which used to use `Chef::Platform.set` to register providers
 for a platform/platform_version should use the `provides` keyword on
 the provider instead:
 
-``` ruby
+```ruby
 Chef::Platform.set platform: :fedora, version: '>= 19', resource: :mysql_service, provider: Chef::Provider::MysqlServiceSystemd
 ```
 
 Should be replaced by:
 
-``` ruby
+```ruby
 class Chef::Provider::MysqlServiceSystemd
 provides :mysql_service, platform: "fedora", platform_version: ">= 19"
 ```
@@ -68,7 +68,7 @@ although this form is less encouraged (which does not mean the same
 thing as discouraged -- but you gain better code organization with the
 prior code):
 
-``` ruby
+```ruby
 Chef::Provider::MysqlSserviceSystemd.provides :mysql_service, platform: "fedora", platform_version: ">= 19"
 ```
 
@@ -84,7 +84,7 @@ library-based resources and providers that do not declare provides in
 which case your Chef Infra Client run is likely full of a compilation of
 warnings and deprecations:
 
-``` none
+```none
 * foo[it] action doit[2016-12-07T14:28:59-08:00] WARN: Class Chef::Provider::Foo does not declare 'provides :foo'.
   [2016-12-07T14:28:59-08:00] WARN: This will no longer work in Chef Client 13: you must use 'provides' to use the resource's DSL.
   (up to date)
@@ -110,7 +110,7 @@ and gives the remediation.
 
 Code that looks like this:
 
-``` ruby
+```ruby
 class Chef::Provider::Foo < Chef::Provider::LWRPBase
   use_inline_resources
 
@@ -122,7 +122,7 @@ end
 
 Must be changed to explicitly declare the resource it provides:
 
-``` ruby
+```ruby
 class Chef::Provider::Foo < Chef::Provider::LWRPBase
   provides :foo
 

@@ -89,14 +89,14 @@ the reconfiguration run.
 
 To determine the current range of IDs, run the following command:
 
-``` bash
+```bash
 grep -E '(UID|GID)' /etc/login.defs
 ```
 
 The defaults for CentOS and Red Hat Enterprise Linux systems look like
 this:
 
-``` bash
+```bash
 UID_MIN             500
 UID_MAX           60000
 GID_MIN             500
@@ -124,7 +124,7 @@ creating them.
 To allow access to your Chef Infra Server on ports 80 and 443 via the
 iptables firewall, issue the following command with root privileges:
 
-``` bash
+```bash
 iptables -A INPUT -p tcp -m multiport --destination-ports 80,443 -j ACCEPT
 ```
 
@@ -138,7 +138,7 @@ On RHEL and CentOS versions 7 and above, the FirewallD firewall is
 enabled by default. Issue the following command with root privileges to
 open ports 80 and 443:
 
-``` bash
+```bash
 firewall-cmd --permanent --zone public --add-service http && firewall-cmd --permanent --zone public --add-service https && firewall-cmd --reload
 ```
 
@@ -148,7 +148,7 @@ While UFW is installed on Ubuntu, it is not enabled by default. However,
 if you wish to use a UFW-based firewall on your Chef Infra Server, issue
 the following command with root privileges to open ports 80 and 443:
 
-``` bash
+```bash
 ufw allow proto tcp from any to any port 80,443
 ```
 
@@ -163,7 +163,7 @@ run, SELinux must be disabled or set to `Permissive` mode.
 
 To determine if SELinux is installed, run the following command:
 
-``` bash
+```bash
 getenforce
 ```
 
@@ -172,13 +172,13 @@ SELinux must be disabled.
 
 To set SELinux to `Permissive` mode, run:
 
-``` bash
+```bash
 setenforce Permissive
 ```
 
 and then check the status:
 
-``` bash
+```bash
 getenforce
 ```
 
@@ -191,13 +191,13 @@ mode or disabled.
 
 To determine if AppArmor is installed, run the following command:
 
-``` bash
+```bash
 sudo apparmor_status
 ```
 
 To install AppArmor, run the following command:
 
-``` bash
+```bash
 sudo apt-get install apparmor-utils -yes
 ```
 
@@ -207,20 +207,20 @@ If a response other than `"0 processes are in enforce mode"` or
 
 To set AppArmor to `Complaining` mode, run:
 
-``` bash
+```bash
 sudo aa-complain /etc/apparmor.d/*
 ```
 
 Or to disable AppArmor entirely, run:
 
-``` bash
+```bash
 sudo invoke-rc.d apparmor kill
 sudo update-rc.d -f apparmor remove
 ```
 
 and then check the status:
 
-``` bash
+```bash
 sudo apparmor_status
 ```
 
@@ -231,26 +231,26 @@ is installed by default.
 
 To determine if Apache Qpid is installed, run the following command:
 
-``` bash
+```bash
 rpm -qa | grep qpid
 ```
 
 If Apache Qpid is installed, a response similar to the following is
 displayed:
 
-``` bash
+```bash
 qpid-cpp-server-0.12-6.el6.x86_64
 ```
 
 To disable Apache Qpid run:
 
-``` bash
+```bash
 service qpidd stop
 ```
 
 and then:
 
-``` bash
+```bash
 chkconfig --del qpidd
 ```
 
@@ -260,7 +260,7 @@ Periodic maintenance tasks are performed on the Chef Infra Server
 servers via cron and the `/etc/cron.d` directory. With certain CentOS 6
 configurations, an additional step is required to install crontab:
 
-``` bash
+```bash
 yum install crontabs
 ```
 
@@ -305,7 +305,7 @@ ensure that hostname is resolvable.
     bracketed (`[ ]`) or the Chef Infra Server will not be able to
     recognize it as an IPv6 address. For example:
 
-    ``` ruby
+    ```ruby
     bookshelf['url'] "https://[2001:db8:85a3:8d3:1319:8a2e:370:7348]"
     ```
 
@@ -325,13 +325,13 @@ Chef Infra Server.
 
 To verify if a hostname is a FQDN, run the following command:
 
-``` bash
+```bash
 hostname
 ```
 
 If the hostname is a FQDN, it will return something like:
 
-``` bash
+```bash
 mychefserver.example.com
 ```
 
@@ -342,13 +342,13 @@ If the hostname is not a FQDN, it must be configured so that it is one.
 To verify if the alphabetic parts of a FQDN are all lowercase, run the
 following command:
 
-``` bash
+```bash
 hostname -f | grep -E '^([[:digit:]]|[[:lower:]]|\.|-|_)+$' && echo yes
 ```
 
 If the hostname is all lowercase, it will return something like:
 
-``` bash
+```bash
 mychefserver.example.com
 yes
 ```
@@ -360,13 +360,13 @@ configured so that they are.
 
 To verify is a hostname is resolvable, run the following command:
 
-``` bash
+```bash
 hostname -f
 ```
 
 If the hostname is resolvable, it will return something like:
 
-``` bash
+```bash
 mychefserver.example.com
 ```
 
@@ -379,13 +379,13 @@ for the platform or contact a local systems administrator for specific
 guidance for a specific platform. The following example shows how a
 hostname can be changed when running Red Hat or CentOS:
 
-``` bash
+```bash
 sudo hostname 'mychefserver.example.com'
 ```
 
 and then:
 
-``` bash
+```bash
 echo "mychefserver.example.com" | sudo tee /etc/hostname
 ```
 
@@ -397,7 +397,7 @@ the Chef Infra Server is being into a testing environment, just add the
 hostname to `/etc/hosts`. The following example shows how a hostname can
 be added to `/etc/hosts` when running Red Hat or CentOS:
 
-``` bash
+```bash
 echo -e "127.0.0.2 `hostname` `hostname -s`" | sudo tee -a /etc/hosts
 ```
 
@@ -429,25 +429,25 @@ The Chef Infra Server requires that the systems on which it is running
 be connected to Network Time Protocol (NTP), as the Chef Infra Server is
 particularly sensitive to clock drift. For Red Hat and CentOS 6:
 
-``` bash
+```bash
 yum install ntp
 ```
 
 or:
 
-``` bash
+```bash
 chkconfig ntpd on
 ```
 
 or:
 
-``` bash
+```bash
 service ntpd start
 ```
 
 For Ubuntu:
 
-``` bash
+```bash
 apt-get install ntp
 ```
 
@@ -460,7 +460,7 @@ synchronized closely, the authentication process may fail when the
 clocks are out-of-sync by more than 15 minutes. A failure will trigger a
 `401 Unauthorized` response similar to:
 
-``` bash
+```bash
 [Tue, 01 Nov 2011 16:55:23 -0700] INFO: *** Chef 11.X.X ***
 [Tue, 01 Nov 2011 16:55:23 -0700] INFO: Client key /etc/chef/client.pem is not present - registering
 [Tue, 01 Nov 2011 16:55:24 -0700] INFO: HTTP Request Returned 401 Unauthorized:

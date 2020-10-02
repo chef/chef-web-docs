@@ -512,7 +512,7 @@ need it.
 
 Using with a Windows service that starts, but is not immediately ready:
 
-> ``` ruby
+> ```ruby
 > service 'Service that is slow to start and reports as started' do
 >   service_name 'my_database'
 >   action :start
@@ -544,13 +544,13 @@ since both types of comments will be honored by Cookstyle.
 
 Rubocop comment to disable a cop:
 
-> ``` ruby
+> ```ruby
 > node.normal[:foo] # rubocop: disable ChefCorrectness/Bar
 > ```
 
 Cookstyle comment to disable a cop:
 
-> ``` ruby
+> ```ruby
 > node.normal[:foo] # cookstyle: disable ChefCorrectness/Bar
 > ```
 
@@ -768,20 +768,20 @@ we now have the following departments:
 
 You can run cookstyle with just a single department:
 
-``` bash
+```bash
 cookstyle --only ChefDeprecations
 ```
 
 You can also exclude a specific department from the command line:
 
-``` bash
+```bash
 cookstyle --except ChefStyle
 ```
 
 You can also disable a specific department by adding the following to
 your `.rubocop.yml` config:
 
-``` yaml
+```yaml
 ChefStyle:
   Enabled: false
 ```
@@ -845,7 +845,7 @@ images.
 
 For example `knife google image list --gce_project "chef-msys"`:
 
-``` bash
+```bash
 NAME                             PROJECT        FAMILY         DISK SIZE  STATUS
 kpl-w-image                      chef-msys      windows        60 GB      READY
 centos-6-v20190916               centos-cloud   centos-6       10 GB      READY
@@ -1148,7 +1148,7 @@ makes provisioning systems in AWS even easier.
 This command lists all VPCs in your environment including the ID, which
 you need when provisioning new systems into a specific VPC.
 
-``` none
+```none
 knife ec2 vpc list
 ID            State      CIDR Block     Instance Tenancy  DHCP Options ID  Default VPC?
 vpc-b1bc8d9d  available  10.0.0.0/16    default           dopt-1d78412a    No
@@ -1160,7 +1160,7 @@ vpc-daafd931  available  172.0.0.0/16   default           dopt-1d78412a    Yes
 This command lists all ENIs in your environment including the ID, which
 you need when adding the ENI to a newly provisioned instance.
 
-``` none
+```none
 knife ec2 eni list
 ID                     Status  AZ          Public IP       Private IPs    IPv6 IPs  Subnet ID        VPC ID
 eni-0123f25ae7805b651  in-use  us-west-2a  63.192.209.236  10.0.0.204               subnet-4ef3b123  vpc-b1bc8d9d
@@ -1173,7 +1173,7 @@ This command lists all security groups in your environment including the
 ID, which you need when assigning a newly provisioned instance to a
 group.
 
-``` none
+```none
 $knife ec2 securitygroup list
 ID                    Name                                     VPC ID
 sg-12332d875a4a123d6  not-today-hackers                        vpc-dbbf59a2
@@ -1185,7 +1185,7 @@ sg-123708ab12388cac5  open-to-the-world                        vpc-dbbf59a2
 This command lists all subnets in your environment including the ID,
 which you need when placing a newly provisioned instance in a subnet.
 
-``` none
+```none
 knife ec2 subnet list
 ID               State      CIDR Block      AZ          Available IPs  AZ Default?  Maps Public IP?  VPC ID
 subnet-bd2333a9  available  172.31.0.0/20   us-west-2b  4091           Yes          Yes              vpc-b1bc8d9d
@@ -1355,7 +1355,7 @@ useful for local platform image testing.
 
 kitchen.yml example:
 
-``` none
+```none
 driver:
   name: dokken
   pull_platform_image: false
@@ -2238,7 +2238,7 @@ cookbook(s) given on the command line.
 
     Policyfiles now support git targets for included policies.
 
-    ``` ruby
+    ```ruby
     include_policy 'base_policy',
                   git: 'https://github.com/happychef/chef-repo.git',
                   branch: master,
@@ -2417,7 +2417,7 @@ cookbook(s) given on the command line.
     `chef push`, it can be used in another policy by adding code like
     the following to the ruby policyfile:
 
-    ``` ruby
+    ```ruby
     cookbook 'runit',
       chef_server_artifact: 'https://chef.example/organizations/myorg',
       identifier: '09d43fad354b3efcc5b5836fef5137131f60f974'
@@ -2434,7 +2434,7 @@ cookbook(s) given on the command line.
 
     Given a policyfile `base.rb`:
 
-    ``` ruby
+    ```ruby
     name 'base'
 
     default_source :supermarket
@@ -2446,7 +2446,7 @@ cookbook(s) given on the command line.
 
     Run:
 
-    ``` none
+    ```none
     chef install ./base.rb
 
     Building policy base
@@ -2462,7 +2462,7 @@ cookbook(s) given on the command line.
     This will produce the `base.lock.json` file that will be included in
     our next policy, `users.rb`:
 
-    ``` ruby
+    ```ruby
     name 'users'
 
     default_source :supermarket
@@ -2476,7 +2476,7 @@ cookbook(s) given on the command line.
 
     Run:
 
-    ``` none
+    ```none
     chef install ./users.rb
 
     Building policy users
@@ -2778,7 +2778,7 @@ rather than before every test case. To take advantage of this
 performance enhancer, simply set the `server_runner_clear_cookbooks`
 RSpec configuration value to `false` in your `spec_helper.rb`.
 
-``` ruby
+```ruby
 RSpec.configure do |config|
   config.server_runner_clear_cookbooks = false
 end
