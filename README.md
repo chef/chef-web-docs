@@ -185,9 +185,13 @@ in the go.mod file.
 
 #### What If Hugo Doesn't Want to Update a Module
 
-Sometimes Hugo gets a bit difficult and won't update a module cleanly or will leave
-references to older commits of a module in the go.sum file. In those cases, I give
-you the nuclear option. Re-initialize the modules:
+Sometimes Hugo and Git can be a bit difficult and won't update a module cleanly or will leave
+references to older commits of a module in the go.sum file.
+
+If you get an error indicating that a Git can't find a repository that's already
+been added as a module, try restarting your computer.
+
+If you are still having trouble, try rebuilding the go.mod and go.sum files:
 
 1. Delete the go.mod and go.sum files.
 1. Re-initialize the Hugo modules, `hugo mod init github.com/chef/chef-web-docs`
