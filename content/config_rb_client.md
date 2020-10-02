@@ -469,7 +469,7 @@ This configuration file has the following settings:
 
 `node_name`
 
-:   The name of the node. This determines which configuration should be
+:   The unique identifier of the node. This determines which configuration should be
     applied and sets the `client_name`, which is the name used when
     authenticating to a Chef Infra Server. By default, Chef Infra Client
     will use the system's FQDN as the node name. In general, Chef recommends

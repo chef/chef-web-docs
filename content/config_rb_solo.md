@@ -106,7 +106,7 @@ This configuration file has the following settings:
 
 `node_name`
 
-:   The name of the node.
+:   The unique identifier of the node.
 
 `recipe_url`
 

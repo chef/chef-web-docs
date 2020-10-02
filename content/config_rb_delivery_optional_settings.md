@@ -1558,7 +1558,7 @@ This configuration file has the following settings for `rabbitmq`:
 
 `rabbitmq['nodename']`
 
-:   The name of the node. Default value: `'rabbit@localhost'`.
+:   The unique identifier of the node. Default value: `'rabbit@localhost'`.
 
 `rabbitmq['password']`
 
