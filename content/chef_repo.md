@@ -91,9 +91,9 @@ version control data, build output data, and so on. The chefignore file
 uses the `File.fnmatch` Ruby syntax to define the ignore patterns using
 `*`, `**`, and `?` wildcards.
 
--   A pattern is relative to the cookbook root
--   A pattern may contain relative directory names
--   A pattern may match all files in a directory
+- A pattern is relative to the cookbook root
+- A pattern may contain relative directory names
+- A pattern may match all files in a directory
 
 The chefignore file can be located in any subdirectory of a chef-repo:
 `/`, `/cookbooks`, `/cookbooks/COOKBOOK_NAME/`, etc. It should contain

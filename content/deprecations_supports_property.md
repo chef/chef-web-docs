@@ -3,7 +3,6 @@ title = "Deprecation: Supports metaproperty (CHEF-8)"
 draft = false
 robots = "noindex"
 
-
 aliases = "/deprecations_supports_property.html"
 +++
 

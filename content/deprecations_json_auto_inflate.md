@@ -3,7 +3,6 @@ title = "Deprecation: JSON Auto Inflate (CHEF-1)"
 draft = false
 robots = "noindex"
 
-
 aliases = "/deprecations_json_auto_inflate.html"
 +++
 

@@ -16,9 +16,9 @@ aliases = ["/dsl_custom_resource.html"]
 
 Use the Custom Resource DSL to define behaviors within custom resources, such as:
 
--   Loading the value of a specific property
--   Comparing the current property value against a desired property value
--   Telling Chef Infra Client when and how to make changes
+- Loading the value of a specific property
+- Comparing the current property value against a desired property value
+- Telling Chef Infra Client when and how to make changes
 
 ## action_class
 
@@ -72,7 +72,7 @@ The Custom Resource DSL includes several helper methods for accessing and manipu
 
 {{< readFile_shortcode file="dsl_custom_resource_method_new_resource.md" >}}
 
-#### property_is_set?
+#### property_is_set
 
 {{% dsl_custom_resource_method_property_is_set %}}
 

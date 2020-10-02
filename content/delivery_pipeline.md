@@ -3,7 +3,6 @@ title = "About Chef Automate Pipelines"
 draft = false
 robots = "noindex"
 
-
 aliases = ["/delivery_pipeline.html", "/release/automate/delivery_pipeline.html"]
 
 [menu]
@@ -15,8 +14,6 @@ aliases = ["/delivery_pipeline.html", "/release/automate/delivery_pipeline.html"
 +++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/delivery_pipeline.md)
-
-
 
 {{% chef_automate_mark %}}
 
@@ -124,7 +121,7 @@ The following examples show how to specify the location of the
 
 {{% delivery_config_example_build_cookbook_git %}}
 
-**A public Supermarket (https://supermarket.chef.io)**
+**A public Supermarket (<https://supermarket.chef.io>)**
 
 {{% delivery_config_example_build_cookbook_supermarket_public %}}
 
@@ -153,13 +150,13 @@ The following examples show how to specify the location of the
 To set up a second pipeline, there is an assumption that the branch that
 will become the second pipeline exists in your local project.
 
-1.  Push that branch to the Chef Automate Server
+1. Push that branch to the Chef Automate Server
     `git push delivery $BRANCH_NAME`
-2.  Navigate to the project's page
+2. Navigate to the project's page
     (`e/$ENT_NAME/#/organizations/$ORG_NAME/projects/$PROJECT_NAME`) in
     the Chef Automate web UI and click on the `Pipelines` tab.
-3.  Click on `Add A New Pipeline` on the top of the page.
-4.  Give the new pipeline a descriptive name and input the base branch.
+3. Click on `Add A New Pipeline` on the top of the page.
+4. Give the new pipeline a descriptive name and input the base branch.
 
 To make a pipeline other than `master` the default for a single project,
 create a `cli.toml` file in the `/.delivery` directory in the root of
@@ -175,8 +172,8 @@ Example:
 
 The commands that take this flag are:
 
--   `delivery init`
--   `delivery review`
--   `delivery diff`
--   `delivery job`
--   `delivery setup`
+- `delivery init`
+- `delivery review`
+- `delivery diff`
+- `delivery job`
+- `delivery setup`

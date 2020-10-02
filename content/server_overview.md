@@ -132,17 +132,17 @@ CCRs/min (30k nodes).
 Several factors may influence server scalability. All server sizing
 recommendations are based on these assumptions:
 
--   Chef Infra Client runs are daemonized, and are not initiated by a
+- Chef Infra Client runs are daemonized, and are not initiated by a
     cron job. Using cron to schedule runs can create "thundering herd"
     problems
--   Chef Infra Client runs are set to a default 30-minute interval with
+- Chef Infra Client runs are set to a default 30-minute interval with
     a 5-minute splay
--   Search and `partial_search` are utilized, but not heavily
--   The number of cookbooks per organization, across all versions, on
+- Search and `partial_search` are utilized, but not heavily
+- The number of cookbooks per organization, across all versions, on
     the Chef Infra Server is under 500. (Multiple organizations with
     fewer than 500 cookbooks each, that still add up to a total of more
     than 500 cookbooks server-wide, is fine.)
--   The default maximum allowable size for a node object is 1MB,
+- The default maximum allowable size for a node object is 1MB,
     although it is rare for nodes to exceed 150KB. Though compressed,
     this data is replicated twice, once in Elasticsearch, and once in
     PostgreSQL. In practice, allowing a conservative 2MB of storage on
@@ -156,36 +156,36 @@ standalone topology to a high availability or tiered topology.
 
 **UP TO 33 CCRs/Min (approx. 1,000 nodes):**
 
--   Chef recommends a single virtual machine instance
--   Start with 2 CPU cores and 8GB of RAM, which is equivalent to an
+- Chef recommends a single virtual machine instance
+- Start with 2 CPU cores and 8GB of RAM, which is equivalent to an
     Amazon EC2 `m3.large` instance
--   Allocate 2MB of disk space on the data partition per managed node
+- Allocate 2MB of disk space on the data partition per managed node
 
 **UP TO 167 CCRs/Min (approx. 5,000 nodes):**
 
--   Chef recommends a single virtual machine instance
--   Start with 4 CPU cores and 16GB of RAM, which is equivalent to an
+- Chef recommends a single virtual machine instance
+- Start with 4 CPU cores and 16GB of RAM, which is equivalent to an
     Amazon EC2 `m3.xlarge` instance
 
 **UP TO 333 CCRs/Min (Approx. 10,000 nodes):**
 
--   Chef recommends a single virtual machine instance
--   Start with 8 CPU cores and 32GB of RAM, which is equivalent to an
+- Chef recommends a single virtual machine instance
+- Start with 8 CPU cores and 32GB of RAM, which is equivalent to an
     Amazon EC2 `m3.2xlarge` instance
 
 **UP TO 667 CCRs/Min (Approx. 20,000 nodes):**
 
--   Chef recommends two hosts, one front-end and one back-end
--   The disk requirement for the front-end server is negligible
--   Start with 8 CPU cores and 32GB of RAM for each host, which is
+- Chef recommends two hosts, one front-end and one back-end
+- The disk requirement for the front-end server is negligible
+- Start with 8 CPU cores and 32GB of RAM for each host, which is
     equivalent to an Amazon EC2 `m3.2xlarge` instance
 
 **Scaling beyond 20,000 nodes on a single cluster:**
 
--   Additional capacity can be gained by placing the front-end node
+- Additional capacity can be gained by placing the front-end node
     behind an HTTP load balancer, and then scaling front-end nodes
     horizontally
--   Chef recommends that Chef professional services be engaged to help
+- Chef recommends that Chef professional services be engaged to help
     with capacity and architectural planning at this size
 
 ## External Cookbooks

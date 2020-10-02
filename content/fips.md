@@ -14,18 +14,18 @@ aliases = ["/fips.html"]
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/fips.md)
 
-## What is FIPS?
+## What is FIPS
 
 {{% fips_intro %}}
 
-### Who should enable FIPS?
+### Who should enable FIPS
 
 You may be legally required to enable FIPS if you are a United States
 non-military government agency, or are contracting with one. If you are
 not sure if you need to enable FIPS, please check with your compliance
 department.
 
-### Who shouldn't enable FIPS?
+### Who shouldn't enable FIPS
 
 You will only need to enable FIPS if you are a US non-military
 government agency, or contracting with one, and you are contractually
@@ -177,7 +177,7 @@ Any time this certificate changes you must re-run this process.
 
 {{< /note >}}
 
--   Generate a pem file with your entire certificate chain of the Chef
+- Generate a pem file with your entire certificate chain of the Chef
     Automate instance and save it to a file. A client machine may run
     the above openssl command to avoid having to copy/paste the
     certificate chain around as well. For Example:
@@ -215,14 +215,14 @@ Any time this certificate changes you must re-run this process.
     -----END CERTIFICATE-----
     ```
 
--   Every workstation will need a copy of this file and the cli.toml
+- Every workstation will need a copy of this file and the cli.toml
     should be updated to include this configuration option.
 
     ``` none
     fips_custom_cert_filename = "/full/path/to/your/certificate-chain.pem"
     ```
 
--   When configuring runners you'll need to include the file generated
+- When configuring runners you'll need to include the file generated
     above as an argument to the <span
     class="title-ref">install-runner</span> command. See [Install
     Runner](/ctl_automate_server/#install-runner).
@@ -272,10 +272,10 @@ Replace OPEN_PORT with any port that is free on your machine.
 
 ### Unable to run any delivery commands when FIPS is enabled
 
-1.  Confirm FIPS is enabled on Chef Automate with `delivery status`. You
+1. Confirm FIPS is enabled on Chef Automate with `delivery status`. You
     should see `FIPS Mode: enabled`.
 
-2.  Confirm your project's `cli.toml` is configured correctly. The
+2. Confirm your project's `cli.toml` is configured correctly. The
     following configuration items should be present:
 
     ``` none
@@ -288,7 +288,7 @@ Replace OPEN_PORT with any port that is free on your machine.
     fips_custom_cert_filename = "/path/to/file/with/certificate-chain.pem"
     ```
 
-3.  On Windows you will need to kill the tunnel whenever you make a fips
+3. On Windows you will need to kill the tunnel whenever you make a fips
     configuration change to `cli.toml`. To restart the tunnel:
 
     ``` none
@@ -312,8 +312,8 @@ Management](/fips/#certificate-management).
 If you continue to have issues you should include the following logs
 with your support request:
 
-1.  Stunnel client log `~/.chefdk/log/stunnel.log` on your workstation
-2.  Stunnel server log `sudo automate-ctl log stunnel`
-3.  Stunnel configuration file on your workstation
+1. Stunnel client log `~/.chefdk/log/stunnel.log` on your workstation
+2. Stunnel server log `sudo automate-ctl log stunnel`
+3. Stunnel configuration file on your workstation
     `C:\\opscode\\chefdk\\embedded\\stunnel.conf` or
     `~/.chefdk/etc/stunnel.conf`

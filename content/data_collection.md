@@ -3,7 +3,6 @@ title = "Configure Data Collection"
 draft = false
 robots = "noindex"
 
-
 aliases = ["/data_collection.html", "/ingest_data_chef_automate.html", "/release/automate/ingest_data_chef_automate.html", "/release/automate/setup_visibility_chef_automate.html", "/setup_visibility_chef_automate.html"]
 
 [menu]
@@ -15,8 +14,6 @@ aliases = ["/data_collection.html", "/ingest_data_chef_automate.html", "/release
 +++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/data_collection.md)
-
-
 
 {{% chef_automate_mark %}}
 
@@ -35,9 +32,9 @@ Nodes can send their run data to Chef Automate through the Chef Infra
 Server automatically. To enable this functionality, you must perform the
 following steps:
 
--   [Configure a Data Collector token in Chef
+- [Configure a Data Collector token in Chef
     Automate](/data_collection/#step-1-configure-a-data-collector-token-in-chef-automate)
--   [Configure your Chef Infra Server to point to Chef
+- [Configure your Chef Infra Server to point to Chef
     Automate](/data_collection/#step-2-configure-your-chef-server-to-point-to-chef-automate)
 
 Multiple Chef Servers can send data to a single Chef Automate server.
@@ -222,8 +219,8 @@ more information, see
 
 ### Prerequisites
 
--   Chef Automate server
--   Elasticsearch (version 2.4.1 or greater; version 5.x is required for
+- Chef Automate server
+- Elasticsearch (version 2.4.1 or greater; version 5.x is required for
     Chef Automate 1.6 and above)
 
 ### Elasticsearch configuration
@@ -252,9 +249,9 @@ An additional Elasticsearch option is `elasticsearch['host_header']`.
 This is the HTTP `Host` header to send with the request. When this
 attribute is unspecified, the default behavior is as follows:
 
-> -   If the `urls` parameter contains a single entry, the host of the
+> - If the `urls` parameter contains a single entry, the host of the
 >     supplied URI will be sent as the Host header.
-> -   If the `urls` parameter contains more than one entry, no Host
+> - If the `urls` parameter contains more than one entry, no Host
 >     header will be sent.
 
 When this attribute **is** specified, the supplied string will be sent
@@ -267,7 +264,7 @@ third-party Elasticsearch offerings.
 
 ## Next Steps
 
--   [Perform a Compliance Scan](/perform_compliance_scan/)
--   [Data Collection with a Chef HA Cluster](/data_collection_ha/)
--   [Data Collection without Chef Infra
+- [Perform a Compliance Scan](/perform_compliance_scan/)
+- [Data Collection with a Chef HA Cluster](/data_collection_ha/)
+- [Data Collection without Chef Infra
     Server](/data_collection_without_server/)

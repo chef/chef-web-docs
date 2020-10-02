@@ -3,7 +3,6 @@ title = "automate-ctl (executable)"
 draft = false
 robots = "noindex"
 
-
 aliases = ["/ctl_automate_server.html", "/release/automate/ctl_delivery_server.html"]
 
 [menu]
@@ -16,8 +15,6 @@ aliases = ["/ctl_automate_server.html", "/release/automate/ctl_delivery_server.h
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/ctl_automate_server.md)
 
-
-
 {{% chef_automate_mark %}}
 
 {{% EOL_a1 %}}
@@ -25,10 +22,10 @@ aliases = ["/ctl_automate_server.html", "/release/automate/ctl_delivery_server.h
 The Chef Automate server includes a command-line utility named
 `automate-ctl`. Use this command-line tool to:
 
--   Manage enterprises, users, and projects
--   Reconfigure the Chef Automate server
--   Start and stop individual services
--   Tail Chef Automate server log files
+- Manage enterprises, users, and projects
+- Reconfigure the Chef Automate server
+- Start and stop individual services
+- Tail Chef Automate server log files
 
 {{< note >}}
 
@@ -44,8 +41,8 @@ The `cleanse` subcommand is used to re-set the Chef Automate server to
 the state it was in prior to the first time the `reconfigure` subcommand
 is run. This command will:
 
--   Destroy all data and logs
--   Create a backup of the system config files and place them in a
+- Destroy all data and logs
+- Create a backup of the system config files and place them in a
     directory in root, such as `/root/delivery-cleanse-2015-12-15T15:51`
 
 The software that was put on-disk by the package installation will
@@ -1359,11 +1356,11 @@ run: service_name: (pid 12345) 12345s; run: log: (pid 1234) 67890s
 
 where
 
--   `run:` is the state of the service (`run:` or `down:`)
--   `service_name:` is the name of the service for which status is
+- `run:` is the state of the service (`run:` or `down:`)
+- `service_name:` is the name of the service for which status is
     returned
--   `(pid 12345)` is the process identifier
--   `12345s` is the uptime of the service, in seconds
+- `(pid 12345)` is the process identifier
+- `12345s` is the uptime of the service, in seconds
 
 For example:
 
@@ -1395,13 +1392,13 @@ run: name_of_service: (pid 1486) 7819s; run: log: (pid 1485) 7819s
 
 where:
 
--   `run` describes the state in which the supervisor attempts to keep
+- `run` describes the state in which the supervisor attempts to keep
     processes. This state is either `run` or `down`. If a service is in
     a `down` state, it should be stopped
--   `name_of_service` is the service name
--   `(pid 1486) 7819s;` is the process identifier followed by the amount
+- `name_of_service` is the service name
+- `(pid 1486) 7819s;` is the process identifier followed by the amount
     of time (in seconds) the service has been running
--   `run: log: (pid 1485) 7819s` is the log process. It is typical for a
+- `run: log: (pid 1485) 7819s` is the log process. It is typical for a
     log process to have a longer run time than a service; this is
     because the supervisor does not need to restart the log process in
     order to connect the supervised process
@@ -1415,8 +1412,8 @@ down: elasticsearch: 3s, normally up; run: log: (pid 1485) 8526s
 
 where
 
--   `down` indicates that the service is in a down state
--   `3s, normally up;` indicates that the service is normally in a run
+- `down` indicates that the service is in a down state
+- `3s, normally up;` indicates that the service is normally in a run
     state and that the supervisor would attempt to restart this service
     after a reboot
 

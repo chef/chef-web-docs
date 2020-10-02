@@ -69,13 +69,13 @@ the existing node from a backup before proceeding. See the [Backup and
 Restore](/server_backup_restore/#backup-and-restore-a-chef-backend-install)
 documentation for details.
 
-1.  On the surviving node, run the following command:
+1. On the surviving node, run the following command:
 
     ``` none
     chef-backend-ctl create-cluster --quorum-loss-recovery
     ```
 
-2.  On each of the two new nodes, install `chef-backend-ctl` and join to
+2. On each of the two new nodes, install `chef-backend-ctl` and join to
     the cluster using:
 
     ``` none
@@ -113,16 +113,16 @@ between nodes.
 This procedure only works currently if the administrator can take action
 before the network split resolves itself.
 
-1.  Resolve the network partition. As the nodes come back online, they
+1. Resolve the network partition. As the nodes come back online, they
     will all move into a `waiting_for_leader` state.
-2.  To promote a node, run `chef-backend-ctl promote NODE_NAME_OR_IP`
+2. To promote a node, run `chef-backend-ctl promote NODE_NAME_OR_IP`
 
 #### Promoting a Previous Leader
 
 If a recently deposed leader is likely the node with the most up-to-date
 data, you may want to reinstate its leadership.
 
-1.  To ensure that the deposed leader can come up correctly, you will
+1. To ensure that the deposed leader can come up correctly, you will
     need to override the safety check that prevents deposed leaders from
     starting PostgreSQL. On the deposed leader node that is being
     promoted, run the following command:
@@ -131,13 +131,13 @@ data, you may want to reinstate its leadership.
     rm /var/opt/chef-backend/leaderl/data/no-start-pgsql
     ```
 
-2.  Then restart PostgresSQL:
+2. Then restart PostgresSQL:
 
     ``` none
     chef-backend-ctl restart postgresql
     ```
 
-3.  Finally, promote the deposed leader node:
+3. Finally, promote the deposed leader node:
 
     ``` none
     chef-backend-ctl promote NODE_NAME_OR_IP
@@ -169,15 +169,15 @@ resynced from the leader node.
 
 ### Elasticsearch
 
--   Elasticsearch manages its own availability. 1 of the 3 nodes can
+- Elasticsearch manages its own availability. 1 of the 3 nodes can
     have a service-level Elasticsearch failure without affecting the
     availability of the cluster.
--   Elasticsearch failovers are independent of PostgreSQL failovers;
+- Elasticsearch failovers are independent of PostgreSQL failovers;
     however, since the Chef Infra Server can only talk to a single
     Elasticsearch instance, if Elasticsearch fails on the leader node,
     Leaderl will failover (including a PostgreSQL failover) to another
     node.
--   Once the root cause of the service-level problems has been
+- Once the root cause of the service-level problems has been
     identified and solved, the failed node should be able to rejoin the
     cluster.
 
@@ -238,10 +238,10 @@ chef-backend-ctl start leaderl
 Initial attempts to recover should follow this general pattern and use
 the scenarios and tools shown above to assist in the recovery steps:
 
-1.  With the cluster down, take a filesystem level backup of all backend
+1. With the cluster down, take a filesystem level backup of all backend
     nodes.
 
-2.  Check the health of the leader and repair if necessary. If the <span
+2. Check the health of the leader and repair if necessary. If the <span
     class="title-ref">/var/log/chef-backend/leaderl/current</span> logs
     do not show leadership changes and the
     `chef-backend-ctl cluster-status` shows a solid etcd/pgsql leader,
@@ -261,12 +261,12 @@ the scenarios and tools shown above to assist in the recovery steps:
     section](#promoting-a-previous-leader)
     for more details.
 
-3.  If necessary, promote what is thought as the most recent leader.
+3. If necessary, promote what is thought as the most recent leader.
     Refer to the [Promoting a Previous Leader
     section](/backend_failure_recovery/#promoting-a-previous-leader)
     for more detail.
 
-4.  Sync the followers from the leader using a full basebackup because
+4. Sync the followers from the leader using a full basebackup because
     the WAL entries have likely already rotated. When the WAL entries
     have already rotated away, the followers will complain in the
     `/var/log/chef-backend/postgresql/X.Y/current` logfile about being

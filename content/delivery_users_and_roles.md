@@ -3,7 +3,6 @@ title = "Manage Users and Roles"
 draft = false
 robots = "noindex"
 
-
 aliases = ["/delivery_users_and_roles.html", "/release/automate/delivery_users_and_roles.html"]
 
 [menu]
@@ -121,13 +120,13 @@ successfully create changes from GitHub pull requests.
 To onboard a user for an integrated GitHub Enterprise project or one
 that is hosted at [GitHub.com](https://github.com/):
 
-1.  Have the user that you want to add clone the repo for the project
+1. Have the user that you want to add clone the repo for the project
     you want them to join. Ensure that they have write permissions to
     the repo if you want to allow them to submit pull requests.
 
-2.  Add or edit any users who are managed by the LDAP integration.
+2. Add or edit any users who are managed by the LDAP integration.
 
-3.  From a local checkout of a Chef Automate project, run the
+3. From a local checkout of a Chef Automate project, run the
     appropriate Chef Automate command that associates a GitHub user with
     a Chef Automate user.
 
@@ -175,8 +174,8 @@ feature branch and submit the changes for review.
 
 Note the following constraints:
 
--   You may not link two GitHub accounts to a single Chef Automate user.
--   Two users may not share a GitHub account
+- You may not link two GitHub accounts to a single Chef Automate user.
+- Two users may not share a GitHub account
 
 #### Submit Changes
 
@@ -184,11 +183,11 @@ For an integrated GitHub Enterprise project or a project that is hosted
 on [GitHub.com](https://github.com/), users of Chef Automate should
 submit changes as follows:
 
-1.  The standard GitHub process should be followed:
+1. The standard GitHub process should be followed:
 
-    -   Clone the desired repository
-    -   Make and test changes locally
-    -   Submit the changes and initiate the Chef Automate review process
+    - Clone the desired repository
+    - Make and test changes locally
+    - Submit the changes and initiate the Chef Automate review process
         by creating a pull request with the `delivery review` command
 
     The GitHub webui will display a **Delivery Status** box showing what
@@ -197,13 +196,13 @@ submit changes as follows:
     GitHub webui that approval must be manually entered for the pipeline
     to proceed.
 
-2.  When the "Approval Required" message appears, enter
+2. When the "Approval Required" message appears, enter
     `@delivery approve` in the comment box.
 
     The pull request moves to the next stage of the Chef Automate
     pipeline, **Build** and **Acceptance**.
 
-3.  When the pull request has passed the **Acceptance** stage, GitHub
+3. When the pull request has passed the **Acceptance** stage, GitHub
     will add another message indicating that that the `deliver` command
     must be issued for the pipeline to proceed. When this message
     appears, enter `@delivery deliver` in the comment box.
@@ -230,8 +229,8 @@ To onboard a user that is not using GitHub Enterprise or a project
 hosted at [GitHub.com](https://github.com/), but only the default git
 that comes with Chef Automate:
 
-1.  Add or edit any users who are managed by the LDAP integration.
-2.  Have the user log into the Chef Automate web UI and add their SSH
+1. Add or edit any users who are managed by the LDAP integration.
+2. Have the user log into the Chef Automate web UI and add their SSH
     public key to their profile.
 
 The associated user can now create a feature branch and submit changes
@@ -241,25 +240,25 @@ to Chef Automate for review.
 
 The change submission process is the familiar git process:
 
-1.  You must be onboarded to Chef Automate, a task likely to be done by
+1. You must be onboarded to Chef Automate, a task likely to be done by
     your sysadmin. Once your GitHub username is linked to your Chef
     Automate username and you have properly set up a workstation.
-2.  Clone the GitHub repo to which changes are submitted. Be sure you
+2. Clone the GitHub repo to which changes are submitted. Be sure you
     have the right permissions.
-3.  Workflow for making changes:
-    1.  Create feature branch: `git checkout -b <feature_branch_name>`.
-    2.  Make changes.
-    3.  Build and test the changes locally.
-    4.  Check status: `git status`.
-    5.  Add changes: `git add .` or `git add <changed file>`.
-    6.  Commit changes: `git commit -m <message>`.
-    7.  Submit changes to delivery: `delivery review`. The Chef Automate
+3. Workflow for making changes:
+    1. Create feature branch: `git checkout -b <feature_branch_name>`.
+    2. Make changes.
+    3. Build and test the changes locally.
+    4. Check status: `git status`.
+    5. Add changes: `git add .` or `git add <changed file>`.
+    6. Commit changes: `git commit -m <message>`.
+    7. Submit changes to delivery: `delivery review`. The Chef Automate
         web UI will open to show your change in the pipeline. Note, you
         may need to be on a VPN to access Chef Automate.
-    8.  When the change has passed **Verify**, approve change, or get
+    8. When the change has passed **Verify**, approve change, or get
         someone to, by clicking **Approve** in Chef Automate web UI.
         Doing this marks you as the "Signed-off-by" user of the change.
-    9.  After change is approved, sync your local branch to master:
+    9. After change is approved, sync your local branch to master:
         `git checkout master` and then `git pull delivery master`.
     10. Press the **Deliver** button in the Chef Automate web UI when it
         is active. Note that your change may be superseded by another
@@ -286,7 +285,7 @@ First install the Delivery CLI, and then generate the user's SSH keys.
 
 To add SSH keys to Chef Automate, do the following:
 
-1.  Check for an SSH key:
+1. Check for an SSH key:
 
     ``` bash
     cat .ssh/id_rsa.pub
@@ -298,7 +297,7 @@ To add SSH keys to Chef Automate, do the following:
     No such file or directory
     ```
 
-2.  Create an SSH key (without a passphrase):
+2. Create an SSH key (without a passphrase):
 
     ``` bash
     ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
@@ -329,7 +328,7 @@ To add SSH keys to Chef Automate, do the following:
     +-----------------+
     ```
 
-3.  Run the following:
+3. Run the following:
 
     ``` bash
     cat .ssh/id_rsa.pub
@@ -353,7 +352,7 @@ To add SSH keys to Chef Automate, do the following:
     Zo3h9Q== your_email@chef.io
     ```
 
-4.  Copy the SSH key and add it to Chef Automate.
+4. Copy the SSH key and add it to Chef Automate.
 
     Log into the Chef Automate web UI as an administrator.
 
@@ -366,7 +365,7 @@ To add SSH keys to Chef Automate, do the following:
 
     Click **Save & Close**.
 
-5.  Setup Chef Automate for that user. Run the following:
+5. Setup Chef Automate for that user. Run the following:
 
     ``` bash
     delivery setup --server SERVER_DNS --user USERNAME --ent ENTERPRISE --org ORGANIZATION
@@ -389,7 +388,7 @@ To add SSH keys to Chef Automate, do the following:
     user = "USERNAME"
     ```
 
-6.  Clone a repo from Chef Automate:
+6. Clone a repo from Chef Automate:
 
     ``` bash
     delivery clone PROJECT_REPO

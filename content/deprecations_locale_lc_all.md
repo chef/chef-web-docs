@@ -46,9 +46,9 @@ end
 
 Where `path_to_file` could be any one of:
 
-1.  /etc/default/locale
-2.  /etc/sysconfig/i18n
-3.  /etc/environment
+1. /etc/default/locale
+2. /etc/sysconfig/i18n
+3. /etc/environment
 
 Setting **LC_** variables varies by platform, but these are the common
 locations to configure **LC_** variables.

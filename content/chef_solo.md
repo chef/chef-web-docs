@@ -20,8 +20,8 @@ aliases = ["/chef_solo.html"]
 
 chef-solo supports two locations from which cookbooks can be run:
 
--   A local directory.
--   A URL at which a tar.gz archive is located.
+- A local directory.
+- A URL at which a tar.gz archive is located.
 
 Using a tar.gz archive is the more common approach, but requires that
 cookbooks be added to an archive. For example:

@@ -80,22 +80,22 @@ files, after the initial configuration of Chef Infra Server.
 
 The locations of the certificate and private key files are:
 
--   `/var/opt/opscode/nginx/ca/FQDN.crt`
--   `/var/opt/opscode/nginx/ca/FQDN.key`
+- `/var/opt/opscode/nginx/ca/FQDN.crt`
+- `/var/opt/opscode/nginx/ca/FQDN.key`
 
 Because the FQDN has already been configured, do the following:
 
-1.  Replace the contents of `/var/opt/opscode/nginx/ca/FQDN.crt` and
+1. Replace the contents of `/var/opt/opscode/nginx/ca/FQDN.crt` and
     `/var/opt/opscode/nginx/ca/FQDN.key` with the certifying authority's
     files.
 
-2.  Reconfigure the Chef Infra Server:
+2. Reconfigure the Chef Infra Server:
 
     ``` bash
     chef-server-ctl reconfigure
     ```
 
-3.  Restart the Nginx service to load the new key and certificate:
+3. Restart the Nginx service to load the new key and certificate:
 
     ``` bash
     chef-server-ctl restart nginx
@@ -258,13 +258,13 @@ from being compromised.
 
 To regenerate SSL certificates:
 
-1.  Run the following command:
+1. Run the following command:
 
     ``` bash
     chef-server-ctl stop
     ```
 
-2.  The Chef Infra Server can regenerate them. These certificates will
+2. The Chef Infra Server can regenerate them. These certificates will
     be located in `/var/opt/opscode/nginx/ca/` and will be named after
     the FQDN for the Chef Infra Server. To determine the FQDN for the
     server, run the following command:
@@ -276,7 +276,7 @@ To regenerate SSL certificates:
     Please delete the files found in the ca directory with names like
     this `$FQDN.crt` and `$FQDN.key`.
 
-3.  If your organization has provided custom SSL certificates to the
+3. If your organization has provided custom SSL certificates to the
     Chef Infra Server, the locations of that custom certificate and
     private key are defined in `/etc/opscode/chef-server.rb` as values
     for the `nginx['ssl_certificate']` and
@@ -284,14 +284,14 @@ To regenerate SSL certificates:
     in those two settings and regenerate new keys using the same
     authority.
 
-4.  Run the following command, Chef server-generated SSL certificates
+4. Run the following command, Chef server-generated SSL certificates
     will automatically be created if necessary:
 
     ``` bash
     chef-server-ctl reconfigure
     ```
 
-5.  Run the following command:
+5. Run the following command:
 
     ``` bash
     chef-server-ctl start
@@ -387,24 +387,24 @@ machine running Chef Infra Server and an external machine running
 PostgreSQL. Both machines must be networked together and accessible to
 the user.
 
-1.  Run the following command on both machines to gain root access:
+1. Run the following command on both machines to gain root access:
 
     ``` bash
     sudo -i
     ```
 
-2.  Ensure that [OpenSSL](https://www.openssl.org) is installed on the
+2. Ensure that [OpenSSL](https://www.openssl.org) is installed on the
     PostgreSQL machine.
 
-3.  Ensure that SSL support is compiled in on PostgreSQL. This applies
+3. Ensure that SSL support is compiled in on PostgreSQL. This applies
     whether you are compiling your own source or using a pre-compiled
     binary.
 
-4.  Place SSL certificates in the proper directories on the PostgreSQL
+4. Place SSL certificates in the proper directories on the PostgreSQL
     machine and ensure they have correct filenames, ownerships, and
     permissions.
 
-5.  Enable SSL on PostgreSQL by editing the `postgresql.conf` file. Set
+5. Enable SSL on PostgreSQL by editing the `postgresql.conf` file. Set
     `ssl = on` and specify the paths to the SSL certificates:
 
     ``` text
@@ -414,7 +414,7 @@ the user.
     ssl_key_file='/path/to/key/file'
     ```
 
-6.  To prevent PostgreSQL from accepting non-SSL connections, edit
+6. To prevent PostgreSQL from accepting non-SSL connections, edit
     `pg_hba.conf` on the PostgreSQL machine and change the relevant Chef
     Infra Server connections to `hostssl`.
 
@@ -436,21 +436,21 @@ the user.
     hostssl    all             all            192.168.33.100/32        md5
     ```
 
-7.  Restart PostgreSQL. This can typically be done with the following
+7. Restart PostgreSQL. This can typically be done with the following
     command on the PostgreSQL machine:
 
     ``` bash
     /path/to/postgresql/postgresql restart
     ```
 
-8.  Edit `/etc/opscode/chef-server.rb` on the Chef Infra Server and add
+8. Edit `/etc/opscode/chef-server.rb` on the Chef Infra Server and add
     the following line:
 
     ``` ruby
     postgresql['sslmode'] = 'require'
     ```
 
-9.  Run reconfigure on the Chef Infra Server:
+9. Run reconfigure on the Chef Infra Server:
 
     ``` bash
     chef-server-ctl reconfigure

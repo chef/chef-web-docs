@@ -100,24 +100,24 @@ with a request body similar to:
 
 where:
 
--   `command` is the command to be executed during the run.
+- `command` is the command to be executed during the run.
 
--   `run_timeout` is the number of seconds to wait for the run to
+- `run_timeout` is the number of seconds to wait for the run to
     complete.
 
--   `nodes` is the list of node names you wish to run the job on.
+- `nodes` is the list of node names you wish to run the job on.
 
--   `quorum` is the number of nodes from `nodes` that must acknowledge
+- `quorum` is the number of nodes from `nodes` that must acknowledge
     the request in order for the job to run.
 
--   `user` is the user you wish to run the job as on the node.
+- `user` is the user you wish to run the job as on the node.
 
--   `dir` is the directory you wish to run the job from on the node.
+- `dir` is the directory you wish to run the job from on the node.
 
--   `env` is a JSON object of key-value pairs to assign to the
+- `env` is a JSON object of key-value pairs to assign to the
     environment.
 
--   `file` is a string that will be stored as a file on each node, with
+- `file` is a string that will be stored as a file on each node, with
     the path provided to the command as an environment variable.
 
     {{< note spaces=4 >}}
@@ -128,7 +128,7 @@ where:
 
     {{< /note >}}
 
--   `capture_output` is a boolean indicating whether to capture the
+- `capture_output` is a boolean indicating whether to capture the
     STDOUT and STDERR for this job. Capture is enabled on a per-job
     basis, meaning that it will affect all nodes that run the job. It is
     not possible to enable capture on a per-node basis.
@@ -225,18 +225,18 @@ The response will return something similar to:
 
 where:
 
--   `command` is the command that is being run.
--   `run_timeout` is the number of seconds to wait for the run to
+- `command` is the command that is being run.
+- `run_timeout` is the number of seconds to wait for the run to
     complete.
--   `status` is one of the following: `aborted` (the job was aborted),
+- `status` is one of the following: `aborted` (the job was aborted),
     `complete` (the job completed; see `nodes` for individual node
     status), `quorum_failed` (the command was not run on any nodes),
     `running` (the command is running), `timed_out` (the command timed
     out), and `voting` (waiting for nodes; quorum not yet met).
--   `created_at` is the date and time at which the job started running
--   `updated_at` is the date and time at which the job entered its
+- `created_at` is the date and time at which the job started running
+- `updated_at` is the date and time at which the job entered its
     present `status`
--   `nodes` is one of the following: `aborted` (node ran command,
+- `nodes` is one of the following: `aborted` (node ran command,
     stopped before completion), `complete` (node ran command to
     completion), `crashed` (node went down after command started
     running), `nacked` (node was busy), `new` (node has not accepted or
@@ -244,11 +244,11 @@ where:
     not started running), `running` (node has accepted command, command
     is running), and `unavailable` (node went down before command
     started).
--   `user` is the user you wish to run the job as on the node.
--   `dir` is the directory you wish to run the job from on the node.
--   `file_specified` is a boolean indicated whether or not a file was
+- `user` is the user you wish to run the job as on the node.
+- `dir` is the directory you wish to run the job from on the node.
+- `file_specified` is a boolean indicated whether or not a file was
     passed in when the job was created.
--   `capture_output` is a boolean indicating whether the STDOUT and
+- `capture_output` is a boolean indicating whether the STDOUT and
     STDERR is being capture for this job. If this value is false, it is
     omitted from the output.
 
@@ -285,9 +285,9 @@ The response will return something similar to:
 
 where:
 
--   `env` is a JSON object of key-value pairs to assign to the
+- `env` is a JSON object of key-value pairs to assign to the
     environment.
--   `file` is the contents of the file that was passed in on job
+- `file` is the contents of the file that was passed in on job
     creation.
 
 <table>

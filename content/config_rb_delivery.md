@@ -3,7 +3,6 @@ title = "delivery.rb Settings"
 draft = false
 robots = "noindex"
 
-
 aliases = ["/config_rb_delivery.html", "/release/automate/config_rb_delivery.html"]
 
 [menu]
@@ -15,8 +14,6 @@ aliases = ["/config_rb_delivery.html", "/release/automate/config_rb_delivery.htm
 +++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/config_rb_delivery.md)
-
-
 
 {{% chef_automate_mark %}}
 

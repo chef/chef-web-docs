@@ -3,7 +3,6 @@ title = "Deprecation: Old Exit Codes (CHEF-2)"
 draft = false
 robots = "noindex"
 
-
 aliases = "/deprecations_exit_code.html"
 +++
 

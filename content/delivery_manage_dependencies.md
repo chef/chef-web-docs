@@ -3,7 +3,6 @@ title = "Managing Run-time Dependencies"
 draft = false
 robots = "noindex"
 
-
 aliases = ["/delivery_manage_dependencies.html", "/release/automate/delivery_manage_dependencies.html"]
 
 [menu]
@@ -15,8 +14,6 @@ aliases = ["/delivery_manage_dependencies.html", "/release/automate/delivery_man
 +++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/delivery_manage_dependencies.md)
-
-
 
 A run-time dependency in Chef Automate is defined as an API-level
 dependency between two distinct pieces of software that occurs after
@@ -99,11 +96,11 @@ dependency graphs are constructed in Chef Automate.
 
 Assume we have some projects with the following dependencies:
 
--   Projects B and C depend on the same pipeline of project A
--   D depends on a pipeline of B
--   E depends on a pipeline of C
--   F depends on a pipeline of E
--   and Y depends on a pipeline of X
+- Projects B and C depend on the same pipeline of project A
+- D depends on a pipeline of B
+- E depends on a pipeline of C
+- F depends on a pipeline of E
+- and Y depends on a pipeline of X
 
 Here it is represented graphically:
 

@@ -3,7 +3,6 @@ title = "Deprecation: run_command and popen4 helper method removal (OHAI-3)"
 draft = false
 robots = "noindex"
 
-
 aliases = "/deprecations_ohai_run_command_helpers.html"
 +++
 

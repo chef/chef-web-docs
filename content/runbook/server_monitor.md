@@ -58,14 +58,14 @@ Infra Server and contact Chef support.
 The following components should be monitored for signs that disks may be
 rapidly filling up:
 
--   **PostgreSQL** PostgreSQL is the data store for the Chef Infra
+- **PostgreSQL** PostgreSQL is the data store for the Chef Infra
     Server.
--   **Log files** If `/var/log/opscode` is taking up a lot of disk
+- **Log files** If `/var/log/opscode` is taking up a lot of disk
     space, ensure that the Chef Infra Server log rotation cron job is
     running without errors. These errors can be found in
     `/var/log/messages`, `/var/log/syslog` and/or the root user's local
     mail.
--   **Deleted file handles** Running processes with file handles
+- **Deleted file handles** Running processes with file handles
     associated with one (or more) deleted files will prevent the disk
     space being used by the deleted files from being reclaimed. Use the
     `sudo lsof | grep '(deleted)'` command to find all deleted file
@@ -131,9 +131,9 @@ then enter `q`, and then hit `ENTER` to exit the shell.
 Some commands should not be entered when interacting with a running
 service while using the command shell, including:
 
--   `q()` kills the Erlang node
--   `init:stop()`
--   `exit` or `exit()` does nothing
+- `q()` kills the Erlang node
+- `init:stop()`
+- `exit` or `exit()` does nothing
 
 #### `eper` tools
 
@@ -257,20 +257,20 @@ succeed even when the disk has been full for some time, and not just on
 edge cases where the disk becomes full as Redis is writing. To fix this
 issue, do the following:
 
-1.  Stop the **redis_lb** service:
+1. Stop the **redis_lb** service:
 
     ``` bash
     chef-server-ctl stop redis_lb
     ```
 
-2.  Remove the corrupt files:
+2. Remove the corrupt files:
 
     ``` bash
     cd /var/opt/opscode/redis_lb/data
     rm -fr *rdb
     ```
 
-3.  Start the **redis_lb** service:
+3. Start the **redis_lb** service:
 
     ``` bash
     chef-server-ctl start redis_lb
@@ -279,13 +279,13 @@ issue, do the following:
     2015-03-23_17:05:18.82516 [28676] 23 Mar 17:05:18.825 * The server is now ready to accept connections on port 16379
     ```
 
-4.  Reconfigure the Chef Infra Server to re-populate Redis:
+4. Reconfigure the Chef Infra Server to re-populate Redis:
 
     ``` bash
     chef-server-ctl reconfigure
     ```
 
-5.  Verify that Redis is re-populated, as indicated by the key
+5. Verify that Redis is re-populated, as indicated by the key
     `dl_default`:
 
     ``` bash
@@ -304,11 +304,11 @@ services running in the [Chef Backend server
 topology](/install_server_ha/). This command will verify the status
 of the following services on the node it is run on:
 
--   `leaderl`
--   `postgresql`
--   `etcd`
--   `epmd`
--   `elasticsearch`
+- `leaderl`
+- `postgresql`
+- `etcd`
+- `epmd`
+- `elasticsearch`
 
 It will also check on the status of other nodes in the cluster, from the
 current node's perspective. For example:
@@ -368,8 +368,8 @@ which will return something similar to:
 For each of the upstream services, `pong` or `fail` is returned. The
 possible upstream names are:
 
--   `chef_sql` (for the **postgresql** service)
--   `oc_chef_authz` (for the **opscode-authz** service)
+- `chef_sql` (for the **postgresql** service)
+- `oc_chef_authz` (for the **opscode-authz** service)
 
 If any of the status values return `fail`, this typically means the Chef
 Infra Server is unavailable for that service.

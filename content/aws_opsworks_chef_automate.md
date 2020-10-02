@@ -3,7 +3,6 @@ title = "AWS OpsWorks for Chef Automate"
 draft = false
 robots = "noindex"
 
-
 aliases = ["/aws_opsworks_chef_automate.html"]
 
 [menu]
@@ -43,19 +42,19 @@ access your Chef Automate instance, you can simply search for
 In order to add runners to your "AWS OpsWorks for Chef Automate"
 instance you need to do the following:
 
-1.  Make sure you have selected `Use an existing EC2 key pair` in the
+1. Make sure you have selected `Use an existing EC2 key pair` in the
     `Select an SSH key` section while creating your AWS OpsWorks for
     Chef Automate instance. In order to add a runner, you need to SSH
     into your instance and run the
     [install-runner](/ctl_automate_server/#install-runner)
     subcommand.
-2.  Your runner should be reachable via SSH from your Chef Automate
+2. Your runner should be reachable via SSH from your Chef Automate
     instance. For this to succeed, you need to make sure its subnet,
     security groups, and SSH key pair are configured correctly. We also
     recommend setting up a dedicated SSH key pair in AWS and copying the
     private key to your Chef Automate instance and use it while running
     [install-runner](/ctl_automate_server/#install-runner) command.
-3.  You can find the FQDN of your "AWS OpsWorks for Chef Automate"
+3. You can find the FQDN of your "AWS OpsWorks for Chef Automate"
     instance in the OpsWorks console. You can use `ec2-user` as the
     username to SSH into your instance. Assuming you have configured the
     SSH keys correctly, the SSH command should look like

@@ -19,17 +19,17 @@ via the [Server-Sent-Events (SSE)
 protocol](http://www.w3.org/TR/eventsource/). There are two SSE feeds
 available:
 
-1.  Job Feed: Stream of events for a particular job
-2.  Organization Feed: Stream of events for all jobs across an
+1. Job Feed: Stream of events for a particular job
+2. Organization Feed: Stream of events for all jobs across an
     organization
 
 ## Event Types
 
 As mandated by the SSE protocol, each event has:
 
--   a type-specifier (`event`)
--   an ID (`id`)
--   `data`
+- a type-specifier (`event`)
+- an ID (`id`)
+- `data`
 
 The structure of an individual event appears as follows:
 
@@ -39,14 +39,14 @@ id: EVENT_ID
 data: {"timestamp": "2014-07-10 05:17:44.995958Z", ...}
 ```
 
--   `EVENT_TYPE` varies depending on the stream you request. In a Job
+- `EVENT_TYPE` varies depending on the stream you request. In a Job
     Feed you could receive `start`, `quorum_vote`, `quorum_succeeded`,
     `run_start`, `run_complete`, `job_complete`, `rehab`, and `summary`.
     In the Organization Feed you could receive `start`, `job_complete`,
     and `start_of_history`.
--   `EVENT_ID` is not globally unique. It is an opaque string that is
+- `EVENT_ID` is not globally unique. It is an opaque string that is
     unique only to the individual stream.
--   `data` is a JSON object which content depends on the event. However,
+- `data` is a JSON object which content depends on the event. However,
     the JSON object for each event type includes a server-based
     timestamp in ISO8601 format.
 
@@ -68,13 +68,13 @@ data: {"timestamp":"2014-07-10 05:17:44.995958Z","job":"768b8d57-3cd0-434c-9f98-
 
 where:
 
--   `job` is the Job ID. (Not present in Job Feed)
--   `command` is the command that was run
--   `run_timeout` is the timeout in seconds specified in the job request
--   `user` is the user making the job request
--   `quorum` is the number of clients required to accept the command as
+- `job` is the Job ID. (Not present in Job Feed)
+- `command` is the command that was run
+- `run_timeout` is the timeout in seconds specified in the job request
+- `user` is the user making the job request
+- `quorum` is the number of clients required to accept the command as
     specified in the job request
--   `node_count` is the number of nodes in the request
+- `node_count` is the number of nodes in the request
 
 ### quorum_vote
 
@@ -91,8 +91,8 @@ data: {"timestamp":"2014-07-10 05:17:44.995958Z","node":"NODE1","status":"succes
 
 where:
 
--   `node` is the name of the node responding to the vote
--   `status` is one of the following: `client_died_while_voting` (node
+- `node` is the name of the node responding to the vote
+- `status` is one of the following: `client_died_while_voting` (node
     went offline during voting), `failure` (node rejected the job),
     `lost_availability` (node become unavailable during voting),
     `success` (node accepted the job), `unexpected_commit` (node
@@ -130,7 +130,7 @@ data: {"timestamp":"2014-07-10 05:17:44.995958Z","node":"NODE1"}
 
 where:
 
--   `node` is the name of the node
+- `node` is the name of the node
 
 ### run_complete
 
@@ -147,8 +147,8 @@ data: {"timestamp":"2014-07-10 05:17:44.995958Z","node":"NODE1","status":"crashe
 
 where:
 
--   `node` is the name of the node
--   `status` is one of the following: `client_died_while_running` (node
+- `node` is the name of the node
+- `status` is one of the following: `client_died_while_running` (node
     went offline before finishing the run), `crashed` (node terminated
     run without returning status), `failure` (run failed), `run_nacked`
     (node rejected the run after quorum was reached),
@@ -169,8 +169,8 @@ data: {"timestamp":"2014-07-10 05:17:44.995958Z","job":"768b8d57-3cd0-434c-9f98-
 
 where:
 
--   `job` is the Job ID (Not present in Job Feed)
--   `status` is one of the following: `aborted` (the job was aborted),
+- `job` is the Job ID (Not present in Job Feed)
+- `status` is one of the following: `aborted` (the job was aborted),
     `complete` (the job completed), `quorum_failed` (the command was not
     run on any nodes), or `timed_out` (the command timed out)
 
@@ -211,7 +211,7 @@ data: {"timestamp":"2014-07-10 05:17:44.995958Z","id":"aaaaaaaaaaaa25fd67fa8715f
 
 where:
 
--   `data` is the same Job Summary you would get from the `job/ID`
+- `data` is the same Job Summary you would get from the `job/ID`
     endpoint
 
 ## Event Stream Examples
@@ -220,12 +220,12 @@ An event stream should follow a standard structure:
 
 ### Job Feed (Normal Run Execution)
 
-1.  `start`
-2.  0 or more `quorum_vote`
-3.  `quorum_succeeded`
-4.  1 or more `run_start`
-5.  1 or more `run_complete`
-6.  `job_complete`
+1. `start`
+2. 0 or more `quorum_vote`
+3. `quorum_succeeded`
+4. 1 or more `run_start`
+5. 1 or more `run_complete`
+6. `job_complete`
 
 **Request**
 
@@ -280,9 +280,9 @@ data": {"timestamp":"2014-07-10 05:17:48.995958Z","status":"complete"}
 
 ### Job Feed (Failed Quorum)
 
-1.  `start`
-2.  1+ `quorum_failed`
-3.  `job_complete`
+1. `start`
+2. 1+ `quorum_failed`
+3. `job_complete`
 
 **Request**
 
@@ -315,11 +315,11 @@ data": {"timestamp":"2014-07-10 05:17:48.995958","status":"quorum_failed"}
 
 ### Organization Feed
 
-1.  `start` (job=B)
-2.  `job_complete` (job=A)
-3.  `start` (job=C)
-4.  `job_complete` (job=C)
-5.  `job_complete` (job=B)
+1. `start` (job=B)
+2. `job_complete` (job=A)
+3. `start` (job=C)
+4. `job_complete` (job=C)
+5. `job_complete` (job=B)
 
 **Request**
 
