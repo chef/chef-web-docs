@@ -432,17 +432,16 @@ approach is useful when there is no need to continue processing, such as
 when a package cannot be installed. In this situation, it's OK for a
 recipe to stop processing.
 
-#### fail/raise Keywords
+#### raise Keyword
 
 In certain situations it may be useful to stop a Chef Infra Client run
-entirely by using an unhandled exception. The `raise` and `fail`
-keywords can be used to stop a Chef Infra Client run in both the compile
-and execute phases.
+entirely by using an unhandled exception. The `raise` keyword can be used
+to stop a Chef Infra Client run in both the compile and execute phases.
 
 {{< note >}}
 
-Both `raise` and `fail` behave the same way when triggering unhandled
-exceptions and may be used interchangeably.
+You may also see code that uses the `fail` keyword, which behaves the same
+but is discouraged and will result in Cookstyle warnings.
 
 {{< /note >}}
 
@@ -471,7 +470,7 @@ unhandled exception during the execute phase. For example:
 ruby_block "name" do
   block do
     # Ruby code with a condition, e.g. if ::File.exist?(::File.join(path, "/tmp"))
-    fail "message"  # e.g. "Ordering issue with file path, expected foo"
+    raise "message"  # e.g. "Ordering issue with file path, expected foo"
   end
 end
 ```
@@ -494,7 +493,7 @@ or:
 
 ```ruby
 def custom_error
-  fail CustomError, "error message"
+  raise CustomError, "error message"
 end
 ```
 
