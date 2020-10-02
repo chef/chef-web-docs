@@ -3,6 +3,7 @@ title = "Configuring for SAML Authentication"
 draft = false
 robots = "noindex"
 
+
 aliases = ["/server_configure_saml.html", "/release/automate/server_configure_saml.html"]
 
 [menu]

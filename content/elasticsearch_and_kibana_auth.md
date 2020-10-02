@@ -3,6 +3,7 @@ title = "Authentication for Elasticsearch and Kibana"
 draft = false
 robots = "noindex"
 
+
 aliases = ["/elasticsearch_and_kibana_auth.html"]
 
 [menu]
@@ -31,13 +32,13 @@ authentication is enabled by default.
 
 ## How It Works
 
-- User logs into the Chef Automate UI normally.
-- Chef Automate stores information about the user's session in browser
+-   User logs into the Chef Automate UI normally.
+-   Chef Automate stores information about the user's session in browser
     local storage as well as a browser cookie.
-- If authentication is enabled for Elasticsearch or Kibana, Chef Automate's
+-   If authentication is enabled for Elasticsearch or Kibana, Chef Automate's
     web server will look for the session cookie and validate the session is valid and active.
-- If the session is valid and active, the request is permitted.
-- If the session is invalid, or if no session information is present, the
+-   If the session is valid and active, the request is permitted.
+-   If the session is invalid, or if no session information is present, the
     server returns a `401 Unauthorized` message.
 
 ## Accessing Elasticsearch with Authentication - Node Visibility UI
@@ -56,10 +57,10 @@ CLI tool (such as `curl`) or an API client (such as
 you must pass three additional HTTP headers in your requests for your
 request to be properly authenticated:
 
-- `chef-delivery-user`: the Chef Automate username for whom a token
+-   `chef-delivery-user`: the Chef Automate username for whom a token
     has been generated
-- `chef-delivery-token`: a valid token generated for the user
-- `chef-delivery-enterprise`: the Chef Automate enterprise name. This is the
+-   `chef-delivery-token`: a valid token generated for the user
+-   `chef-delivery-enterprise`: the Chef Automate enterprise name. This is the
     string after the `/e/` in your Chef Automate URLs.
 
 Example: if your Workflow dashboard URL is `https://my-automate-server.mycompany.biz/e/coolcompany/#/dashboard`
@@ -80,8 +81,8 @@ Your browser must have a valid cookie containing a valid token before
 access to Kibana will be permitted. If you encounter a "401
 Unauthorized" error message, follow these steps:
 
-- Log into the Chef Automate UI normally.
-- Change your browser URI to `/kibana`.
+-   Log into the Chef Automate UI normally.
+-   Change your browser URI to `/kibana`.
 
 Example: `https://my-automate-server.mycompany.biz/kibana`
 
@@ -100,12 +101,12 @@ If you wish to disable authentication for either Kibana or
 Elasticsearch, you may use the following configuration parameters in
 your `/etc/delivery/delivery.rb` configuration file:
 
-- `elasticsearch['enable_auth']`: If `true`, a valid
+-   `elasticsearch['enable_auth']`: If `true`, a valid
     user/enterprise/token must be supplied in a cookie or in HTTP
     headers for the request to be accepted and passed to Elasticsearch.
     If `false`, all Elasticsearch queries are permitted without
     authentication. Default: `true`
-- `kibana['enable_auth']`: If `true`, a valid user/enterprise/token
+-   `kibana['enable_auth']`: If `true`, a valid user/enterprise/token
     must be supplied in a cookie or in HTTP headers for access to be
     granted to the Kibana UI. If `false`, all Kibana access is permitted
     without authentication. Default: `true`

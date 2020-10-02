@@ -17,9 +17,9 @@ aliases = ["/debug.html"]
 Elements of good approaches to building cookbooks and recipes that are
 reliable include:
 
-- A consistent syntax pattern when constructing recipes
-- Using the same patterns in Ruby
-- Using resources included in Chef Infra Client or community cookbooks
+-   A consistent syntax pattern when constructing recipes
+-   Using the same patterns in Ruby
+-   Using resources included in Chef Infra Client or community cookbooks
     before creating custom ones
 
 Ideally, the best way to debug a recipe is to not have to debug it in
@@ -31,10 +31,10 @@ approaches to debugging recipes and failed Chef Infra Client runs.
 Some simple ways to quickly identify common issues that can trigger
 recipe and/or Chef Infra Client run failures include:
 
-- Using an empty run-list
-- Using verbose logging with knife
-- Using logging with Chef Infra Client
-- Using the **log** resource in a recipe to define custom logging
+-   Using an empty run-list
+-   Using verbose logging with knife
+-   Using logging with Chef Infra Client
+-   Using the **log** resource in a recipe to define custom logging
 
 ### Empty Run-lists
 
@@ -118,16 +118,16 @@ resources in recipes:
 Some more complex ways to debug issues with a Chef Infra Client run
 include:
 
-- Using the **chef_handler** cookbook
-- Using the chef-shell and the **breakpoint** resource to add
+-   Using the **chef_handler** cookbook
+-   Using the chef-shell and the **breakpoint** resource to add
     breakpoints to recipes, and to then step through the recipes using
     the breakpoints
-- Using the `debug_value` method from chef-shell to identify the
+-   Using the `debug_value` method from chef-shell to identify the
     location(s) from which attribute values are being set
-- Using the `ignore_failure` method in a recipe to force Chef Infra
+-   Using the `ignore_failure` method in a recipe to force Chef Infra
     Client to move past an error to see what else is going on in the
     recipe, outside of a known failure
-- Using chef-solo to run targeted Chef Infra Client runs for specific
+-   Using chef-solo to run targeted Chef Infra Client runs for specific
     scenarios
 
 ### chef_handler
@@ -257,12 +257,12 @@ without a value:
 
 where
 
-- `set_unless_enabled` indicates if the attribute collection is in
+-   `set_unless_enabled` indicates if the attribute collection is in
     `set_unless` mode; this typically returns `false`
-- Each attribute type is listed in order of precedence
-- Each attribute value shown is the value that is set for that
+-   Each attribute type is listed in order of precedence
+-   Each attribute value shown is the value that is set for that
     precedence level
-- `:not_present` is shown for any attribute precedence level that has
+-   `:not_present` is shown for any attribute precedence level that has
     no attributes
 
 A [blog post by Joshua

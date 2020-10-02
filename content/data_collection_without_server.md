@@ -3,6 +3,7 @@ title = "Data Collection without Chef Infra Server"
 draft = false
 robots = "noindex"
 
+
 aliases = ["/data_collection_without_server.html"]
 
 [menu]
@@ -14,6 +15,8 @@ aliases = ["/data_collection_without_server.html"]
 +++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/data_collection_without_server.md)
+
+
 
 {{< important >}}
 
@@ -27,10 +30,10 @@ to send their run data to Automate directly.
 
 To enable this functionality, you must perform the following steps:
 
-- Configure a Data Collector token in Chef Automate (see [prior
+-   Configure a Data Collector token in Chef Automate (see [prior
     section](/data_collection/#step-1-configure-a-data-collector-token-in-chef-automate))
-- Add Chef Automate SSL certificate to `trusted_certs` directory
-- Configure Chef Infra Client to use the Data Collector endpoint in
+-   Add Chef Automate SSL certificate to `trusted_certs` directory
+-   Configure Chef Infra Client to use the Data Collector endpoint in
     Chef Automate
 
 ## Add Chef Automate certificate to `trusted_certs` directory
@@ -84,7 +87,7 @@ where `my-automate-server.mycompany.com` is the fully-qualified domain
 name of your Chef Automate server and `TOKEN` is the token value you
 configured in the earlier step.
 
-### Additional Configuration Options
+### Additional Configuration Options:
 
 <table>
 <colgroup>
@@ -125,6 +128,6 @@ configured in the earlier step.
 
 #### Next Steps
 
-- [Perform a Compliance Scan](/perform_compliance_scan/)
-- [Data Collection](/data_collection/)
-- [Data Collection with a Chef HA Cluster](/data_collection_ha/)
+-   [Perform a Compliance Scan](/perform_compliance_scan/)
+-   [Data Collection](/data_collection/)
+-   [Data Collection with a Chef HA Cluster](/data_collection_ha/)

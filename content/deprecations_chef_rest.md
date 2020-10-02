@@ -3,6 +3,7 @@ title = "Deprecation: Chef REST (CHEF-9)"
 draft = false
 robots = "noindex"
 
+
 aliases = "/deprecations_chef_rest.html"
 
 +++

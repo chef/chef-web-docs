@@ -177,15 +177,15 @@ Chef management console.
 
 To view all of the nodes:
 
-1. Open the Chef management console.
+1.  Open the Chef management console.
 
-2. Click **Nodes**.
+2.  Click **Nodes**.
 
-3. Select a node.
+3.  Select a node.
 
-4. Select the **Details** tab.
+4.  Select the **Details** tab.
 
-5. The run-list for the node appears under the **Run List** header:
+5.  The run-list for the node appears under the **Run List** header:
 
     ![image](/images/step_manage_webui_nodes_view_run_list.png)
 

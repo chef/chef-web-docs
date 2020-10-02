@@ -27,10 +27,10 @@ class="title-ref">Install Chef Infra Server
 
 The following platforms are not tested by Chef Software:
 
-- Any Linux or UNIX distribution that is not listed as a Foundational
+-   Any Linux or UNIX distribution that is not listed as a Foundational
     platform.
-- Microsoft Windows
-- 32-bit architectures
+-   Microsoft Windows
+-   32-bit architectures
 
 ## Capacity Planning
 
@@ -62,10 +62,10 @@ created in advance of installing the Chef Infra Server if specific UIDs
 and GIDs are preferred. The user **and** group must be created as a pair
 to satisfy reconfiguration requirements.
 
-- A local user account named `opscode` under which services will run
-- A local user account named `opscode-pgsql` that is used by
+-   A local user account named `opscode` under which services will run
+-   A local user account named `opscode-pgsql` that is used by
     PostgreSQL
-- A group account for each user account, one named `opscode` and the
+-   A group account for each user account, one named `opscode` and the
     other named `opscode-pgsql` under which services will run
 
 {{< /note >}}
@@ -78,9 +78,9 @@ will not run correctly.
 
 The embedded Chef Infra Server cookbooks can handle two cases:
 
-- Both `opscode` and `opscode-pgsql` user and group not found on the
+-   Both `opscode` and `opscode-pgsql` user and group not found on the
     new server
-- Both `opscode` and `opscode-pgsql` user and group found on the new
+-   Both `opscode` and `opscode-pgsql` user and group found on the new
     server
 
 Having only the group and not the corresponding users present during a
@@ -295,12 +295,12 @@ DNS system. But when deploying Chef Infra Server into a testing
 environment, adding the hostname to the `/etc/hosts` file is enough to
 ensure that hostname is resolvable.
 
-- **FQDN Hostnames** When the hostname for the Chef Infra Server is a
+-   **FQDN Hostnames** When the hostname for the Chef Infra Server is a
     FQDN be sure to include the domain suffix. For example, something
     like `mychefserver.example.com` (and not something like
     `mychefserver`).
 
-- **IP Address Hostnames** When the Chef Infra Server is run in IPv6
+-   **IP Address Hostnames** When the Chef Infra Server is run in IPv6
     mode, a hostname specified using an IP address must also be
     bracketed (`[ ]`) or the Chef Infra Server will not be able to
     recognize it as an IPv6 address. For example:
@@ -414,10 +414,10 @@ the `CN` in a certificate to be no longer than 64 characters.
 The Chef Infra Server server uses email to send notifications for
 various events:
 
-- Password resets
-- User invitations
-- Failover notifications
-- Failed job notifications
+-   Password resets
+-   User invitations
+-   Failover notifications
+-   Failed job notifications
 
 Configure a local mail transfer agent on the Chef Infra Server using the
 steps appropriate for the platform on which the Chef Infra Server is

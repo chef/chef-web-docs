@@ -255,24 +255,24 @@ The JSON format has two additional settings:
 
 There are several ways to manage roles:
 
-- knife can be used to create, edit, view, list, tag, and delete
+-   knife can be used to create, edit, view, list, tag, and delete
     roles.
-- The Chef management console add-on can be used to create, edit,
+-   The Chef management console add-on can be used to create, edit,
     view, list, tag, and delete roles. In addition, role attributes can
     be modified and roles can be moved between environments.
-- The Chef Infra Client can be used to manage role data using the
+-   The Chef Infra Client can be used to manage role data using the
     command line and JSON files (that contain a hash, the elements of
     which are added as role attributes). In addition, the `run_list`
     setting allows roles and/or recipes to be added to the role.
-- The open source Chef Infra Server can be used to manage role data
+-   The open source Chef Infra Server can be used to manage role data
     using the command line and JSON files (that contain a hash, the
     elements of which are added as role attributes). In addition, the
     `run_list` setting allows roles and/or recipes to be added to the
     role.
-- The Chef Infra Server API can be used to create and manage roles
+-   The Chef Infra Server API can be used to create and manage roles
     directly, although using knife and/or the Chef management console is
     the most common way to manage roles.
-- The command line can also be used with JSON files and third-party
+-   The command line can also be used with JSON files and third-party
     services, such as Amazon EC2, where the JSON files can contain
     per-instance metadata stored in a file on-disk and then read by
     chef-solo or Chef Infra Client as required.
@@ -330,12 +330,12 @@ used. For example:
 
 where:
 
-- `webserver` is the name of the role
-- `env_run_lists` is a hash of per-environment run-lists for
+-   `webserver` is the name of the role
+-   `env_run_lists` is a hash of per-environment run-lists for
     `production`, `preprod`, `test`, and `dev`
-- `production` and `preprod` use the default run-list because they do
+-   `production` and `preprod` use the default run-list because they do
     not have a per-environment run-list
-- `run_list` defines the default run-list
+-   `run_list` defines the default run-list
 
 ### Delete from Run-list
 

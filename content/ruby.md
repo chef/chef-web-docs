@@ -415,8 +415,8 @@ This section covers best practices for cookbook and recipe authoring.
 Although not strictly a Chef style thing, please always ensure your
 `user.name` and `user.email` are set properly in your `.gitconfig` file.
 
-- `user.name` should be your given name (e.g., "Julian Dunn")
-- `user.email` should be an actual, working e-mail address
+-   `user.name` should be your given name (e.g., "Julian Dunn")
+-   `user.email` should be an actual, working e-mail address
 
 This will prevent commit log entries similar to
 `"guestuser <login@Bobs-Macbook-Pro.local>"`, which are unhelpful.
@@ -433,21 +433,21 @@ SecondMarket, use `sm` as a prefix: `sm_postgresql` or `sm_httpd`.
 
 ### Cookbook Versioning
 
-- Use semantic versioning when numbering cookbooks.
-- Only upload stable cookbooks from master.
-- Only upload unstable cookbooks from the dev branch. Merge to master
+-   Use semantic versioning when numbering cookbooks.
+-   Only upload stable cookbooks from master.
+-   Only upload unstable cookbooks from the dev branch. Merge to master
     and bump the version when stable.
-- Always update CHANGELOG.md with any changes, with the JIRA ticket
+-   Always update CHANGELOG.md with any changes, with the JIRA ticket
     and a brief description.
 
 ### Naming
 
 Name things uniformly for their system and component. For example:
 
-- attributes: `node['foo']['bar']`
-- recipe: `foo::bar`
-- role: `foo-bar`
-- directories: `foo/bar` (if specific to component), `foo` (if not).
+-   attributes: `node['foo']['bar']`
+-   recipe: `foo::bar`
+-   role: `foo-bar`
+-   directories: `foo/bar` (if specific to component), `foo` (if not).
     For example: `/var/log/foo/bar`.
 
 Name attributes after the recipe in which they are primarily used. e.g.
@@ -457,12 +457,12 @@ Name attributes after the recipe in which they are primarily used. e.g.
 
 Follow this order for information in each resource declaration:
 
-- Source
-- Cookbook
-- Resource ownership
-- Permissions
-- Notifications
-- Action
+-   Source
+-   Cookbook
+-   Resource ownership
+-   Permissions
+-   Notifications
+-   Action
 
 For example:
 
@@ -499,7 +499,7 @@ Wrong:
 mode 755
 ```
 
-### Specify Resource Action
+### Specify Resource Action?
 
 A resource declaration does not require the action to be specified
 because Chef Infra Client will apply the default action for a resource
@@ -524,7 +524,7 @@ ohai 'apache_modules' do
 end
 ```
 
-### Symbols or Strings
+### Symbols or Strings?
 
 Prefer strings over symbols, because they're easier to read and you
 don't need to explain to non-Rubyists what a symbol is. Please retrofit

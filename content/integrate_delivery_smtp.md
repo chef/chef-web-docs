@@ -3,6 +3,7 @@ title = "Integrate Workflow with SMTP"
 draft = false
 robots = "noindex"
 
+
 aliases = ["/integrate_delivery_smtp.html", "/release/automate/integrate_delivery_smtp.html"]
 
 [menu]
@@ -22,12 +23,12 @@ aliases = ["/integrate_delivery_smtp.html", "/release/automate/integrate_deliver
 Workflow may be configured to allow projects to send email notifications
 to users about changes submitted to that project's pipeline, such as:
 
-- A change passed verification
-- A change was approved by a teammate
-- A comment was added to the change request
-- A change was accepted
-- A change was delivered
-- A change failed at a specific stage in the pipeline
+-   A change passed verification
+-   A change was approved by a teammate
+-   A comment was added to the change request
+-   A change was accepted
+-   A change was delivered
+-   A change failed at a specific stage in the pipeline
 
 Users may subscribe to notifications per project by using the **Watch
 Project** button located on each project's home page in the Workflow web
@@ -37,25 +38,25 @@ UI.
 
 To configure Workflow for SMTP notifications:
 
-1. As an enterprise administrator on the Workflow server, select
+1.  As an enterprise administrator on the Workflow server, select
     **Admin**.
 
-2. Select the **Email Setup** tab in the web UI and complete the form:
+2.  Select the **Email Setup** tab in the web UI and complete the form:
 
     <img src="/images/delivery_integrate_smtp.svg" class="align-left" width="300" alt="image" />
 
-3. Enter the URL for the SMTP server. For example: `smtp.gmail.com`.
+3.  Enter the URL for the SMTP server. For example: `smtp.gmail.com`.
 
-4. Enter the port number for the SMTP server. Most connections use port
+4.  Enter the port number for the SMTP server. Most connections use port
     `25` by default. This setting will default to `25` if not specified.
 
-5. Enter the SMTP server credentials---login and password---for the
+5.  Enter the SMTP server credentials---login and password---for the
     account from which mail is sent. For example: `steved`, `p@ssw0rd!`.
 
-6. Optional. Enter the name for the sender from which mail is sent. For
+6.  Optional. Enter the name for the sender from which mail is sent. For
     example: `Steve Danno`.
 
-7. Click the **Send Test** button. This will send an email to your
+7.  Click the **Send Test** button. This will send an email to your
     email address, as specified in Workflow. The Workflow web UI will
     update the page if the email was sent successfully.
 
@@ -67,11 +68,11 @@ project that exists in the same enterprise.
 
 To subscribe to SMTP notifications:
 
-1. Navigate to a project in Workflow.
+1.  Navigate to a project in Workflow.
 
-2. Click the **Watch Project** button.
+2.  Click the **Watch Project** button.
 
-3. From the dropdown, select the categories of events for which
+3.  From the dropdown, select the categories of events for which
     notifications should be sent.
 
     The **Review** category enables notifications related to submitting,
@@ -88,8 +89,8 @@ To subscribe to SMTP notifications:
 
 A user may unsubscribe from notifications at any time.
 
-1. Navigate to a project in Workflow.
-2. Click the **Watch Project** button.
-3. From the dropdown, de-select the categories of events for which
+1.  Navigate to a project in Workflow.
+2.  Click the **Watch Project** button.
+3.  From the dropdown, de-select the categories of events for which
     notifications should no longer be sent. De-select all categories to
     stop receiving all notifications.

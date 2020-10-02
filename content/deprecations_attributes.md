@@ -3,10 +3,15 @@ title = "Deprecation: Some Attribute Methods (CHEF-4)"
 draft = false
 robots = "noindex"
 
+
 aliases = "/deprecations_attributes.html"
+
+
 +++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/deprecations_attributes.md)
+
+
 
 We are continuously improving and streamlining the way attributes work
 in Chef, to make it easier for users to reason about and safely

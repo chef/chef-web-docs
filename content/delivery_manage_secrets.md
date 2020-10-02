@@ -3,6 +3,7 @@ title = "Manage Secrets in a build-cookbook"
 draft = false
 robots = "noindex"
 
+
 aliases = ["/delivery_manage_secrets.html", "/release/automate/delivery_manage_secrets.html"]
 
 [menu]
@@ -21,12 +22,12 @@ aliases = ["/delivery_manage_secrets.html", "/release/automate/delivery_manage_s
 
 This topic describes how and why to use secrets in a `build-cookbook`:
 
-- This code is used in the `build-cookbook`
-- Secrets are managed at the project, organization and/or enterprise
+-   This code is used in the `build-cookbook`
+-   Secrets are managed at the project, organization and/or enterprise
     level
-- There are two mechanisms to manage secrets in Chef Automate:
-  - Using an encrypted data bag.
-  - Using chef vaults.
+-   There are two mechanisms to manage secrets in Chef Automate:
+    -   Using an encrypted data bag.
+    -   Using chef vaults.
 
 ## Using Encrypted Data Bags
 
@@ -68,11 +69,11 @@ the same organization.
 
 To use an encrypted data bag item, do the following:
 
-1. Ensure that `metadata.rb` for the `build-cookbook` shows that it
+1.  Ensure that `metadata.rb` for the `build-cookbook` shows that it
     depends on the `delivery-sugar` cookbook
     (<https://github.com/chef-cookbooks/delivery-sugar>)
 
-2. Update the Berksfile to point to GitHub for the cookbook. The line
+2.  Update the Berksfile to point to GitHub for the cookbook. The line
     in your Berksfile should be similar to:
 
     ``` javascript

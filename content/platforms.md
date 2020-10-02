@@ -23,10 +23,10 @@ support, see the [Supported Versions](/versions/) page.
 The sections below list the platforms that Chef Software Inc. supports.
 Support is divided into two levels:
 
-- **Commercial Support** consists of the platforms that are supported
+-   **Commercial Support** consists of the platforms that are supported
     as part of a paid commercial support contract with Chef Software
     Inc.
-- **Community Support** is made up of platforms for which support is
+-   **Community Support** is made up of platforms for which support is
     only available through the Chef community
 
 Any platforms or versions not explicitly listed here are unsupported,

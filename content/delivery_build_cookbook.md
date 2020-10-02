@@ -3,6 +3,7 @@ title = "About the build-cookbook"
 draft = false
 robots = "noindex"
 
+
 aliases = ["/delivery_build_cookbook.html", "/release/automate/delivery_build_cookbook.html"]
 
 [menu]
@@ -134,19 +135,19 @@ targets the master branch.
 
 To add a project using the Chef Automate web UI:
 
-1. Log into the Chef Automate web UI as user with **Admin** role.
+1.  Log into the Chef Automate web UI as user with **Admin** role.
 
-2. Open the **Organizations** page and select your organization.
+2.  Open the **Organizations** page and select your organization.
 
-3. Click the plus sign (**+**) next to **Add a New Project**.
+3.  Click the plus sign (**+**) next to **Add a New Project**.
 
-4. Enter a project name and select a **Source Code Provider**, either
+4.  Enter a project name and select a **Source Code Provider**, either
     **Chef Delivery** (the default), **GitHub**, or **Bitbucket**.
 
-5. If you choose **Chef Delivery**, simply click **Save and Close** to
+5.  If you choose **Chef Delivery**, simply click **Save and Close** to
     finish adding the project.
 
-6. If you choose **GitHub**, a text area opens. Enter the following:
+6.  If you choose **GitHub**, a text area opens. Enter the following:
 
     **GitHub Organization Name**
 
@@ -159,14 +160,14 @@ To add a project using the Chef Automate web UI:
     **Verify SSL** When selected, have GitHub perform SSL certificate
     verification when it connects to Chef Automate to run its web hooks.
 
-7. If you choose **Bitbucket**, you must follow the integration steps
+7.  If you choose **Bitbucket**, you must follow the integration steps
     in [Integrate Delivery with
     Bitbucket](/integrate_delivery_bitbucket/) before you can add a
     project. After you have done that you can add a new Chef Automate
     project through this web UI by entering the Bitbucket project key,
     repository, and target branch information.
 
-8. Click **Save and Close**.
+8.  Click **Save and Close**.
 
 ## Custom build-cookbook
 

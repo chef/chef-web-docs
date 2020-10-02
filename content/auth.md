@@ -366,17 +366,17 @@ Client run, the issue is most likely with the private key.
 If the authentication is happening on the node, there are a number of
 common causes:
 
-- The `client.pem` file is incorrect. This can be fixed by deleting
+-   The `client.pem` file is incorrect. This can be fixed by deleting
     the `client.pem` file and re-running Chef Infra Client. When Chef
     Infra Client re-runs, it will re-attempt to register with the Chef
     Infra Server and generate the correct key.
-- A `node_name` is different from the one used during the initial Chef
+-   A `node_name` is different from the one used during the initial Chef
     Infra Client run. This can happen for a number of reasons. For
     example, if the client.rb file does not specify the correct node
     name and the host name has recently changed. This issue can be
     resolved by explicitly setting the node name in the client.rb file
     or by using the `-N` option for the Chef Infra Client executable.
-- The system clock has drifted from the actual time by more than 15
+-   The system clock has drifted from the actual time by more than 15
     minutes. This can be fixed by syncing the clock with an Network Time
     Protocol (NTP) server.
 

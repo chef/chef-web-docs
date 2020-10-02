@@ -3,6 +3,7 @@ title = "Deprecation: Map Collision (CHEF-25)"
 draft = false
 robots = "noindex"
 
+
 aliases = "/deprecations_map_collision.html"
 +++
 

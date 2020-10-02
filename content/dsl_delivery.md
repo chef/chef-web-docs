@@ -3,6 +3,7 @@ title = "About the Workflow DSL"
 draft = false
 robots = "noindex"
 
+
 aliases = ["/dsl_delivery.html", "/release/automate/dsl_delivery.html"]
 
 [menu]
@@ -15,15 +16,17 @@ aliases = ["/dsl_delivery.html", "/release/automate/dsl_delivery.html"]
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/dsl_delivery.md)
 
+
+
 The Workflow DSL is a collection of helper methods that is used in
 recipes as a way to enhance the Recipe DSL to collect data about:
 
-- Which testing tools---Foodcritic, Kitchen, ChefSpec, and so on---are
+-   Which testing tools---Foodcritic, Kitchen, ChefSpec, and so on---are
     present in a cookbook?
-- What types of delivery environments are available?
-- Have files been changed?
-- Do the changes made to a cookbook require a version change?
-- Should a cookbook should be pushed to the Chef Infra Server and/or
+-   What types of delivery environments are available?
+-   Have files been changed?
+-   Do the changes made to a cookbook require a version change?
+-   Should a cookbook should be pushed to the Chef Infra Server and/or
     to GitHub?
 
 {{< warning >}}

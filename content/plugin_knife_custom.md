@@ -19,9 +19,9 @@ aliases = ["/plugin_knife_custom.html"]
 The Chef Infra Client will load knife plugins from the following
 locations:
 
-- The home directory: `~/.chef/plugins/knife/`
-- A `.chef/plugins/knife` directory in the cookbook repository
-- A plugin installed from RubyGems. (For more information about
+-   The home directory: `~/.chef/plugins/knife/`
+-   A `.chef/plugins/knife` directory in the cookbook repository
+-   A plugin installed from RubyGems. (For more information about
     releasing a plugin on RubyGems, see:
     <http://guides.rubygems.org/make-your-own-gem/>.)
 
@@ -65,34 +65,34 @@ end
 
 where:
 
-- `require` identifies any other knife subcommands and/or knife
+-   `require` identifies any other knife subcommands and/or knife
     plugins required by this plugin
-- `module ModuleName` declares the knife plugin as its own namespace
-- `class SubclassName < Chef::Knife` declares the plugin as a subclass
+-   `module ModuleName` declares the knife plugin as its own namespace
+-   `class SubclassName < Chef::Knife` declares the plugin as a subclass
     of `Knife`, which is in the `Chef` namespace. The capitalization of
     this name is important. For example, `SubclassName` would have a
     knife command of `knife subclass name`, whereas `Subclassname` would
     have a knife command of `knife subclassname`
-- `deps do` is a list of dependencies
-- `banner "knife subcommand argument VALUE (options)"` is displayed
+-   `deps do` is a list of dependencies
+-   `banner "knife subcommand argument VALUE (options)"` is displayed
     when a user enters `knife subclassName --help`
-- `option :name_of_option` defines each of the command-line options
+-   `option :name_of_option` defines each of the command-line options
     that are available for this plugin. For example,
     `knife subclass -l VALUE` or
     `knife subclass --long-option-name VALUE`
-- `def run` is the Ruby code that is executed when the command is run
+-   `def run` is the Ruby code that is executed when the command is run
 
 and where for each command-line option:
 
-- `:short` defines the short option name
-- `:long` defines the long option name
-- `:description` defines a description that is displayed when a user
+-   `:short` defines the short option name
+-   `:long` defines the long option name
+-   `:description` defines a description that is displayed when a user
     enters `knife subclassName --help`
-- `:boolean` defines whether the option is `true` or `false`; if the
+-   `:boolean` defines whether the option is `true` or `false`; if the
     `:short` and `:long` names define a `VALUE`, then this attribute
     must not be used
-- `:proc` defines code that determines the value for this option
-- `:default` defines a default value
+-   `:proc` defines code that determines the value for this option
+-   `:default` defines a default value
 
 The following example shows part of a knife plugin named
 `knife windows`:
@@ -427,12 +427,12 @@ end
 
 where
 
-- `unless name_args.size == 1` is used to check the number of
+-   `unless name_args.size == 1` is used to check the number of
     arguments given; the command should fail if the input does not make
     sense
-- `who = name_args.first` is used to access arguments using
+-   `who = name_args.first` is used to access arguments using
     `name_args`
-- `show_usage` is used to display the correct usage before exiting (if
+-   `show_usage` is used to display the correct usage before exiting (if
     the command fails)
 
 For example, the following command:
@@ -477,9 +477,9 @@ OMG HELLO CHEFS!!!1!!11
 Certain settings defined by a knife plugin can be configured so that
 they can be set using the config.rb file. This can be done in two ways:
 
-- By using the `:proc` attribute of the `option` method and code that
+-   By using the `:proc` attribute of the `option` method and code that
     references `Chef::Config[:knife][:setting_name]`
-- By specifying the configuration setting directly within the `def`
+-   By specifying the configuration setting directly within the `def`
     Ruby blocks using either `Chef::Config[:knife][:setting_name]` or
     `config[:setting_name]`
 
@@ -493,9 +493,9 @@ knife[:setting_name]
 This approach can be useful when a particular setting is used a lot. The
 order of precedence for a knife option is:
 
-1. A value passed via the command line
-2. A value saved in the config.rb file
-3. A default value
+1.  A value passed via the command line
+2.  A value saved in the config.rb file
+3.  A default value
 
 The following example shows how the `knife bootstrap` subcommand checks
 for a value in the config.rb file by using the `:proc` attribute:
@@ -534,13 +534,13 @@ end
 
 where
 
-- `ssh = Chef::Knife::Ssh.new` creates a new instance of the `Ssh`
+-   `ssh = Chef::Knife::Ssh.new` creates a new instance of the `Ssh`
     subclass named `ssh`
-- A series of settings in `knife ssh` are associated with
+-   A series of settings in `knife ssh` are associated with
     `knife bootstrap` using the `ssh.config[:setting_name]` syntax
-- `Chef::Config[:knife][:setting_name]` tells knife to check the
+-   `Chef::Config[:knife][:setting_name]` tells knife to check the
     config.rb file for various settings
-- Raises an exception if any aspect of the SSH operation fails
+-   Raises an exception if any aspect of the SSH operation fails
 
 ### Search
 
@@ -659,7 +659,7 @@ handling user interactions:
 <td>Use to ask a user the question contained in <code>question</code>. If <code>:default =&gt; default_value</code> is passed as the second argument, <code>default_value</code> will be used if the user does not provide an answer. This method will respect the <code>--default</code> command-line option.</td>
 </tr>
 <tr class="odd">
-<td><p><code>ui.color(string,*colors)</code></p></td>
+<td><p><code>ui.color(string, *colors)</code></p></td>
 <td><p>Use to specify a color. For example, from the <code>knife rackspace server list</code> subcommand:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb1-1"><a href="#cb1-1"></a>server_list = [</span>
 <span id="cb1-2"><a href="#cb1-2"></a>  ui.color(<span class="st">&#39;Instance ID&#39;</span>, <span class="st">:bold</span>),</span>
@@ -788,8 +788,8 @@ program.
 
 To install a knife plugin from a file, do one of the following:
 
-- Copy the file to the `~/.chef/plugins/knife` directory; the file's
+-   Copy the file to the `~/.chef/plugins/knife` directory; the file's
     extension must be `.rb`
-- Add the file to the chef-repo at the
+-   Add the file to the chef-repo at the
     `CHEF_REPO/.chef/plugins/knife`; the file's extension must be `.rb`
-- Install the plugin from RubyGems
+-   Install the plugin from RubyGems
