@@ -3,6 +3,7 @@ title = "Integrate Chef Automate with SAML for Authentication"
 draft = false
 robots = "noindex"
 
+
 aliases = ["/integrate_chef_automate_saml.html"]
 
 [menu]
@@ -97,7 +98,7 @@ next attempt to fetch the metadata will be at the next refresh interval.
 Fill out the following fields to configure SAML SSO. These details can
 often be found through your Identity Provider's metadata file.
 
-1. The Identity Provider's Id, which is a URL that uniquely identifies
+1.  The Identity Provider's Id, which is a URL that uniquely identifies
     your SAML identity provider. This is found as an attribute entityId
     under the EntityDescriptor element. Copy this value and put it in
     the Identity Provider URL text box. SAML assertions sent to Chef
@@ -110,7 +111,7 @@ often be found through your Identity Provider's metadata file.
     <EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" ID="_0579740c-32a1-46a0-a8d0-fb583f0566e7" entityID="https://sts.windows.net/1b218ca8-3694-4fcb-ac12-d2112c657830/">
     ```
 
-2. The Identity Provider's SSO Login location. This can be retrieved
+2.  The Identity Provider's SSO Login location. This can be retrieved
     from the metadata file. Look for the SingleSignOnService element and
     the Binding and Location attributes in that element. Ensure that the
     binding is a HTTP-Redirect binding. This is currently the only SSO
@@ -130,13 +131,13 @@ often be found through your Identity Provider's metadata file.
 
     {{< /note >}}
 
-3. Selection of a Name Id Policy option. The Name Id Policy is used to
+3.  Selection of a Name Id Policy option. The Name Id Policy is used to
     request a specific user identification format from your Identity
     Provider (IdP). This can be left at "Default (No Policy)" if a
     specific format is not required, in which case the IdP will identify
     the user with its default configured Name Id Policy.
 
-4. A certificate from the IdP is required to verify integrity and
+4.  A certificate from the IdP is required to verify integrity and
     authenticity of SAML assertions. From your metadata file copy only
     the certificate information from the KeyInfo block of XML, leaving
     out the XML tags. Paste this information into the Identity Provider
@@ -177,7 +178,7 @@ exist even after the SAML configuration has been removed.
 
 To configure your IdP to accept SAML requests, you need the following:
 
-- The entity identification, or the issuer. If you have not overridden
+-   The entity identification, or the issuer. If you have not overridden
     this setting in your <span class="title-ref">delivery.rb</span> (see
     below), enter:
 
@@ -185,14 +186,14 @@ To configure your IdP to accept SAML requests, you need the following:
     https://<yourChefAutomateDomain>/api/v0/e/<yourEnterprise>/saml/metadata
     ```
 
-- Assertion Consumer Service / Reply URL. This is where Chef Automate
+-   Assertion Consumer Service / Reply URL. This is where Chef Automate
     receives SAML assertions from the Identity Provider:
 
     ``` none
     https://<yourChefAutomateDomain>/api/v0/e/<yourEnterprise>/saml/consume
     ```
 
-- Audience. This will be the metadata URL for Chef Automate:
+-   Audience. This will be the metadata URL for Chef Automate:
 
     ``` none
     https://<yourChefAutomateDomain>/api/v0/e/<yourEnterprise>/saml/metadata
@@ -202,9 +203,9 @@ Chef Automate currently only supports a subset of existing SAML
 communication schemes. To ensure this works with your IdP, please ensure
 these configuration options are set up:
 
-- Check that the identity provider endpoints are configured to accept
+-   Check that the identity provider endpoints are configured to accept
     `HTTP-Redirect` from the service provider.
-- Check that the identity provider is configured to use `HTTP-POST` to
+-   Check that the identity provider is configured to use `HTTP-POST` to
     connect to the endpoints of the service provider.
 
 ## Enabling users to authenticate through SAML
@@ -240,13 +241,13 @@ information.
 
 To migrate an account:
 
-1. Click on the <span class="title-ref">Admin</span> menu item.
-2. Click on the user you wish to edit.
-3. The current authentication type will be highlighted. Change it to
+1.  Click on the <span class="title-ref">Admin</span> menu item.
+2.  Click on the user you wish to edit.
+3.  The current authentication type will be highlighted. Change it to
     <span class="title-ref">SAML</span>.
-4. Rename username to match the user's full email address associated
+4.  Rename username to match the user's full email address associated
     with their SAML account.
-5. Click <span class="title-ref">Save and Close</span>.
+5.  Click <span class="title-ref">Save and Close</span>.
 
 Chef Automate makes a SAML request to the Identity Provider with the
 NameIdPolicy Format of
@@ -291,7 +292,7 @@ Transient, X509Subject.
 
 For illustration purposes, below we discuss two common scenarios:
 
-1. Configure Name Id Policy on the IdP side: If you are using an IdP
+1.  Configure Name Id Policy on the IdP side: If you are using an IdP
     such as Okta, you can configure the Name Id Policy when your
     application is added to Okta . For more information, see
     <http://developer.okta.com/docs/guides/setting_up_a_saml_application_in_okta>.
@@ -300,7 +301,7 @@ For illustration purposes, below we discuss two common scenarios:
     Automate side to "Default (No Policy)", since the IdP will always
     return what is pre-configured.
 
-2. Configure Name Id Policy on the Chef Automate side: On the other
+2.  Configure Name Id Policy on the Chef Automate side: On the other
     hand, you may be using an IdP (for example Microsoft Azure), that
     does not allow configuration of the Name Id Policy during
     application setup. For more information, see
@@ -325,7 +326,7 @@ auth['saml_entity_id'] = 'https://delivery.corp.com/saml'
 The Workflow CLI in Chef Automate (`delivery-cli`) can be used with
 SAML-authenticated users:
 
-1. When SAML is configured, `delivery token` defaults to
+1.  When SAML is configured, `delivery token` defaults to
     SAML-authenticating the user, and it will prompt the user to use
     their browser to login to Chef Automate:
 
@@ -338,14 +339,14 @@ SAML-authenticated users:
     Launching browser.
     ```
 
-2. The Chef Automate CLI will then wait for the user to enter the token
+2.  The Chef Automate CLI will then wait for the user to enter the token
     retrieved from the web interface:
 
     ``` none
     Enter token:
     ```
 
-3. The token retrieved will then be verified and saved in the usual
+3.  The token retrieved will then be verified and saved in the usual
     token store.
 
     ``` none
@@ -356,7 +357,7 @@ SAML-authenticated users:
     Verifying Token: valid
     ```
 
-4. To log in as an internal user when SAML is configured, use the
+4.  To log in as an internal user when SAML is configured, use the
     option `--saml=false`
 
 ## Enabling SAML proxying for Chef Server

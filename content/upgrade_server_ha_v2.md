@@ -24,10 +24,10 @@ cluster. Please refer to the appropriate directions for the version of
 Chef Backend that you are using and the version that you intend to
 upgrade to:
 
-- [Update Chef Backend](#update-chef-backend)
-- [Chef Backend 1.x to 2.x Upgrade](#chef-backend-1.x-to-2.x-upgrade)
+-   [Update Chef Backend](#update-chef-backend)
+-   [Chef Backend 1.x to 2.x Upgrade](#chef-backend-1.x-to-2.x-upgrade)
     (downtime upgrade)
-- [DRBD/Keepalived HA to Chef Backend
+-   [DRBD/Keepalived HA to Chef Backend
     2.x](#drbdkeepalived-ha-to-chef-backend-2.x) (migration)
 
 ## Update Chef Backend
@@ -47,7 +47,7 @@ to all of the nodes.
 We don't want the cluster to fail over to a follower that is in the
 process of being updated. So we start by disabling failover
 
-1. Run `chef-backend-ctl set-cluster-failover off`
+1.  Run `chef-backend-ctl set-cluster-failover off`
 
 ### Step 2: Update the followers
 
@@ -55,7 +55,7 @@ Followers should be updated sequentially. Upgrading them simultaneously
 is not supported and may result in data loss. Verify the successful
 rejoin after each upgrade.
 
-1. Install the new chef-backend package
+1.  Install the new chef-backend package
 
     RHEL and CentOS:
 
@@ -72,7 +72,7 @@ rejoin after each upgrade.
     You may also want to look at the chef-ingredient cookbook to
     automate downloading and installing the latest package.
 
-2. Run the upgrade command
+2.  Run the upgrade command
 
     ``` bash
     chef-backend-ctl upgrade
@@ -118,7 +118,7 @@ cluster downtime.
 
 {{< /warning >}}
 
-1. Identify the node with the **leader** role using the
+1.  Identify the node with the **leader** role using the
     `chef-backend-ctl cluster-status` command:
 
     ``` none
@@ -131,7 +131,7 @@ cluster downtime.
     In this example, `backend-1` is the **leader** node, as indicated by
     its role in the **Role** column.
 
-2. Install the new Chef Backend package on all nodes in the cluster:
+2.  Install the new Chef Backend package on all nodes in the cluster:
 
     RHEL and CentOS:
 
@@ -145,39 +145,39 @@ cluster downtime.
     dpkg -i PATH_TO_FILE.deb
     ```
 
-3. On the leader, run the following command to take the node down for
+3.  On the leader, run the following command to take the node down for
     the upgrade:
 
     ``` bash
     chef-backend-ctl down-for-upgrade
     ```
 
-4. Then issue the same command on the follower nodes:
+4.  Then issue the same command on the follower nodes:
 
     ``` bash
     chef-backend-ctl down-for-upgrade
     ```
 
-5. Initiate the upgrade on the follower nodes first:
+5.  Initiate the upgrade on the follower nodes first:
 
     ``` bash
     chef-backend-ctl upgrade
     ```
 
-6. Then initiate the upgrade on the leader node:
+6.  Then initiate the upgrade on the leader node:
 
     ``` bash
     chef-backend-ctl upgrade
     ```
 
-7. On any Chef Infra Server frontend nodes using the Chef Backend
+7.  On any Chef Infra Server frontend nodes using the Chef Backend
     cluster upgraded in the previous steps, run:
 
     ``` bash
     chef-server-ctl reconfigure
     ```
 
-8. To continue the upgrades on Chef Infra Server frontend nodes using
+8.  To continue the upgrades on Chef Infra Server frontend nodes using
     this backend cluster, see [Upgrade Frontends Associated with a Chef
     Backend
     Cluster](/install_server_ha/#upgrading-chef-infra-server-on-the-frontend-machines)

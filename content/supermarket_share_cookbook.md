@@ -25,25 +25,25 @@ cookbooks.
 If you already use Hosted Chef as your Chef Infra Server, skip to the
 cookbook sharing method of your choice:
 
-- [Stove](/supermarket_share_cookbook/#share-cookbooks-via-stove)
-- [Knife](/supermarket_share_cookbook/#share-cookbooks-via-knife)
+-   [Stove](/supermarket_share_cookbook/#share-cookbooks-via-stove)
+-   [Knife](/supermarket_share_cookbook/#share-cookbooks-via-knife)
 
 {{< /note >}}
 
 ## Create a Hosted Chef Account
 
-1. Go to the [Hosted Chef signup page](https://manage.chef.io/signup)
+1.  Go to the [Hosted Chef signup page](https://manage.chef.io/signup)
     and enter the requested information to create your account.
 
-2. You will receive a confirmation email. Use the link in the email to
+2.  You will receive a confirmation email. Use the link in the email to
     confirm your confirm your email address.
 
-3. Log in to Hosted Chef and click the **Create New Organization**
+3.  Log in to Hosted Chef and click the **Create New Organization**
     button:
 
     ![image](/images/hosted_chef_welcome.png)
 
-4. Download and extract the Hosted Chef starter kit:
+4.  Download and extract the Hosted Chef starter kit:
 
     ![image](/images/download_starter_kit.png)
 
@@ -64,7 +64,7 @@ install Stove separately.
 
 {{< /note >}}
 
-1. Add your Hosted Chef credentials to Stove. Replace `USER` with your
+1.  Add your Hosted Chef credentials to Stove. Replace `USER` with your
     Hosted Chef user, and `KEY.pem` with your the full path to Hosted
     Chef private key:
 
@@ -77,7 +77,7 @@ install Stove separately.
     kit, the private key is located within its chef-repo under
     `/chef-repo/.chef/USERNAME.pem`.
 
-2. Navigate to the root of the cookbook that you want to upload, then
+2.  Navigate to the root of the cookbook that you want to upload, then
     initialize Stove:
 
     ``` none
@@ -104,7 +104,7 @@ the second step.
 
 {{< /note >}}
 
-1. The `config.rb` file located under `/chef-repo/.chef/config.rb`
+1.  The `config.rb` file located under `/chef-repo/.chef/config.rb`
     contains the basic information necessary to authenticate with Hosted
     Chef. It will look similar to the following:
 
@@ -128,7 +128,7 @@ the second step.
     cookbook_path            ['~/my-repo/cookbooks']
     ```
 
-2. Use the `knife supermarket` command to upload your cookbook to the
+2.  Use the `knife supermarket` command to upload your cookbook to the
     Supermarket:
 
     ``` none

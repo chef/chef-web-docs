@@ -3,6 +3,7 @@ title = "Configure a Project through config.json"
 draft = false
 robots = "noindex"
 
+
 aliases = ["/config_json_delivery.html", "/release/automate/config_json_delivery.html"]
 
 [menu]
@@ -231,6 +232,7 @@ The structure of the `config.json` file is similar to:
 
     {{< readFile_shortcode file="delivery_config_json_setting_skip_phases.md" >}}
 
+
 `version`
 
 :   **Required**
@@ -329,7 +331,7 @@ The following examples show how to specify the location of the
 
 {{% delivery_config_example_build_cookbook_git %}}
 
-**A public Supermarket (<https://supermarket.chef.io>)**
+**A public Supermarket (https://supermarket.chef.io)**
 
 {{% delivery_config_example_build_cookbook_supermarket_public %}}
 

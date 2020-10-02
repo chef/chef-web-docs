@@ -18,10 +18,10 @@ aliases = ["/libraries.html"]
 
 Use a library to:
 
-- Connect to a database
-- Fetch secrets from a cloud provider
-- Talk to an LDAP provider
-- Do anything that can be done with Ruby
+-   Connect to a database
+-   Fetch secrets from a cloud provider
+-   Talk to an LDAP provider
+-   Do anything that can be done with Ruby
 
 ## Syntax
 

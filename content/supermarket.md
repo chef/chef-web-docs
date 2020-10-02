@@ -41,8 +41,8 @@ supermarket](/workstation/knife_supermarket/) commands.
 The following tools are recommended for use with a private Chef
 Supermarket:
 
-- Berkshelf
-- Stove
+-   Berkshelf
+-   Stove
 
 #### Berkshelf
 
@@ -81,15 +81,15 @@ the private Chef Supermarket.
 To configure config.rb for the private Chef Supermarket, do the
 following:
 
-1. Open the config.rb file in an editor.
+1.  Open the config.rb file in an editor.
 
-2. Add the following setting:
+2.  Add the following setting:
 
     ``` ruby
     knife[:supermarket_site] = 'https://your-private-supermarket'
     ```
 
-3. Save and close the file.
+3.  Save and close the file.
 
 ### Create a Cookbook
 
@@ -168,13 +168,13 @@ end
 
 To upload a cookbook to Chef Supermarket, do the following:
 
-1. Add a setting for Chef Supermarket to the config.rb file:
+1.  Add a setting for Chef Supermarket to the config.rb file:
 
     ``` ruby
     knife[:supermarket_site] = 'https://your-private-supermarket'
     ```
 
-2. Resolve SSL errors by fetching, and then verifying the SSL
+2.  Resolve SSL errors by fetching, and then verifying the SSL
     certificate for Chef Supermarket:
 
     ``` bash
@@ -187,7 +187,7 @@ To upload a cookbook to Chef Supermarket, do the following:
     knife ssl check https://your-private-supermarket
     ```
 
-3. Upload the cookbook to Chef Supermarket:
+3.  Upload the cookbook to Chef Supermarket:
 
     ``` bash
     knife supermarket share mycookbook "Other"
@@ -262,20 +262,20 @@ certain metrics to determine the quality of the cookbook.
 If you are using a private Chef Supermarket, you can activate the Fieri
 service like this:
 
-1. Add Fieri to your features attribute.
+1.  Add Fieri to your features attribute.
 
     ``` ruby
     ['supermarket_omnibus']['config']['features'] = "tools,github,announcement,fieri"
     ```
 
-2. Add the following Fieri attributes:
+2.  Add the following Fieri attributes:
 
     ``` ruby
     ['supermarket_omnibus']['config']['fieri_key'] = "#{random string you generate}"
     ['supermarket_omnibus']['config']['fieri_supermarket_endpoint'] = "#{your_supermarket_url}"
     ```
 
-3. Reconfigure your Supermarket.
+3.  Reconfigure your Supermarket.
 
     ``` bash
     (your-supermarket-node) sudo supermarket-ctl reconfigure

@@ -42,13 +42,13 @@ executable can be run as a daemon.
 
 ## Related Content
 
-- [Chef Infra Client (executable)](/ctl_chef_client/)
-- [Chef Infra Server](/server_overview/)
-- [Cookbooks](/cookbooks/)
-- [Nodes](/nodes/)
-- [Run Lists](/run_lists/)
+-   [Chef Infra Client (executable)](/ctl_chef_client/)
+-   [Chef Infra Server](/server_overview/)
+-   [Cookbooks](/cookbooks/)
+-   [Nodes](/nodes/)
+-   [Run Lists](/run_lists/)
 
 ## Next Steps
 
-- [Install Chef Workstation](/workstation/install_workstation/)
-- [Bootstrap Nodes](/install_bootstrap/)
+-   [Install Chef Workstation](/workstation/install_workstation/)
+-   [Bootstrap Nodes](/install_bootstrap/)

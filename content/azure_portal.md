@@ -24,3 +24,4 @@ It can be installed using other command line tools, such as:
 3. [Knife Azure Plugin](/workstation/knife_azure/)
 
 {{< /warning >}}
+

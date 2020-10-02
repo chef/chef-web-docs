@@ -425,20 +425,20 @@ chef-server-ctl set-secret GROUP NAME
 
 There are various ways to pass the secret to this command:
 
-1. as a third argument:
+1.  as a third argument:
 
     ``` bash
     chef-server-ctl set-secret ldap bind_password secretpassword
     ```
 
-2. via an environment variable:
+2.  via an environment variable:
 
     ``` bash
     export LDAP.BIND_PASSWORD="secretpassword"
     chef-server-ctl set-secret ldap bind_password
     ```
 
-3. via an interactive prompt:
+3.  via an interactive prompt:
 
     ``` bash
     chef-server-ctl set-secret ldap bind_password
@@ -901,11 +901,11 @@ Password for adamjacobs successfully disabled for System Recovery.
 The `psql` subcommand is used to log into the PostgreSQL database
 associated with the named service. This subcommand:
 
-- Uses `psql` (the interactive terminal for PostgreSQL)
-- Has read-only access by default
-- Is the recommended way to interact with any PostgreSQL database that
+-   Uses `psql` (the interactive terminal for PostgreSQL)
+-   Has read-only access by default
+-   Is the recommended way to interact with any PostgreSQL database that
     is part of the Chef server
-- Automatically handles authentication
+-   Automatically handles authentication
 
 **Syntax**
 

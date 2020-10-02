@@ -3,6 +3,7 @@ title = "Deprecation: Resource Cloning (CHEF-3694)"
 draft = false
 robots = "noindex"
 
+
 aliases = "/deprecations_resource_cloning.html"
 +++
 

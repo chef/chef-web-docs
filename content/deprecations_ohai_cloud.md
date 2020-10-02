@@ -3,6 +3,7 @@ title = "Deprecation: Cloud plugin replaced by the Cloud_V2 plugin (OHAI-8)"
 draft = false
 robots = "noindex"
 
+
 aliases = "/deprecations_ohai_cloud.html"
 +++
 

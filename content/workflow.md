@@ -3,6 +3,7 @@ title = "An Overview of Workflow in Chef Automate"
 draft = false
 robots = "noindex"
 
+
 aliases = ["/workflow.html", "/release/automate/workflow.html"]
 
 [menu]
@@ -30,12 +31,12 @@ workstation, through automated tests, and out into production.
 
 Workflow handles many types of software systems. Use it to:
 
-- Upload new and updated cookbooks to the Chef Infra Server that
+-   Upload new and updated cookbooks to the Chef Infra Server that
     manages your infrastructure and applications
-- Publish new and updated cookbooks to a Chef Supermarket installation
-- Release source code or build artifacts to a repository such as
+-   Publish new and updated cookbooks to a Chef Supermarket installation
+-   Release source code or build artifacts to a repository such as
     GitHub
-- Push build artifacts to production servers in real time
+-   Push build artifacts to production servers in real time
 
 {{< note >}}
 
@@ -186,10 +187,10 @@ into production. This journey consists of three stages: Union,
 Rehearsal, and Delivered. These three stages are special for two
 reasons.
 
-1. The first reason is that they are fully automated. Once you ship a
+1.  The first reason is that they are fully automated. Once you ship a
     change into Union, it will automatically move through the Rehearsal
     and Delivered stages if all of the automated checks are successful.
-2. The second reason is that Union, Rehearsal, and Delivered form the
+2.  The second reason is that Union, Rehearsal, and Delivered form the
     shared pipeline. In these stages you evaluate a change in the
     context of your system as a whole. Ultimately, it is the health of
     the entire system-not a particular application-that matters. The
@@ -224,12 +225,12 @@ among the different stages.
 
 To summarize:
 
-- Each project pipeline has an associated Verify, Build and Acceptance
+-   Each project pipeline has an associated Verify, Build and Acceptance
     stage. These are called acceptance pipelines
-- The Union, Rehearsal, and Delivered stages constitute the shared
+-   The Union, Rehearsal, and Delivered stages constitute the shared
     delivery pipeline
-- The Verify and Build stages perform tests on the source code
-- The Acceptance, Union, Rehearsal and Delivered stages test
+-   The Verify and Build stages perform tests on the source code
+-   The Acceptance, Union, Rehearsal and Delivered stages test
     potentially releasable artifacts
 
 ### Verify Stage
@@ -240,11 +241,11 @@ of the following phases. (Remember that you can skip phases that do not
 apply to your project and you have complete control over what happens in
 a given phase job.)
 
-- **Lint**. Run tools that analyze your source code to identify
+-   **Lint**. Run tools that analyze your source code to identify
     stylistic problems.
-- **Syntax**. Check that the code can be parsed and, if applicable,
+-   **Syntax**. Check that the code can be parsed and, if applicable,
     that it compiles.
-- **Unit**. Run unit tests.
+-   **Unit**. Run unit tests.
 
 ### Build Stage
 
@@ -258,15 +259,15 @@ project and another change is approved before yours).
 In addition to the Verify checks, the Build stage provides three
 additional phases:
 
-- **Quality**. A place to run additional test suites and code analysis
+-   **Quality**. A place to run additional test suites and code analysis
     tools. Some tests are too time consuming to run in Verify and are
     better reserved for changes that have received approval.
-- **Security**. In many organizations, a suite of security tests must
+-   **Security**. In many organizations, a suite of security tests must
     be run before a change can be deployed. The Build phase is the place
     to run such scans and checks. (You can also add compliance checks
     into the functional test suites that run against the deployed
     artifacts.)
-- **Publish**. The goal of the publish phase is to produce the
+-   **Publish**. The goal of the publish phase is to produce the
     potentially releasable artifacts and to make them available to the
     rest of the pipeline.
 
@@ -279,18 +280,18 @@ is for the team to make a decision about whether the change should go
 all the way out to production or not. There are four phases in
 Acceptance:
 
-- **Provision**. Provision infrastructure needed to test the
+-   **Provision**. Provision infrastructure needed to test the
     artifact(s). Examples include instantiating new infrastructure with
     and manipulating Chef Infra Server environments to designate the
     nodes used by the current stage. Of course, what executes in any
     phase is up to you and determined by the project's build cookbook.
-- **Deploy**. Deploy the artifacts published in the Build stage to the
+-   **Deploy**. Deploy the artifacts published in the Build stage to the
     portion of your infrastructure that has been set aside for
     acceptance testing.
-- **Smoke**. Smoke tests should be relatively short-running tests that
+-   **Smoke**. Smoke tests should be relatively short-running tests that
     verify that the code that should have been deployed has indeed been
     deployed and that the system passes minimal health checks.
-- **Functional**. The functional tests should give you confidence that
+-   **Functional**. The functional tests should give you confidence that
     the system is meeting its business requirements.
 
 ### Union Stage

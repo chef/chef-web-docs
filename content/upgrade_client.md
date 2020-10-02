@@ -32,7 +32,8 @@ Using the `knife ssh` subcommand is one way to do this.
 
 ## Upgrade via Cookbook
 
-The [chef_client_updater](https://supermarket.chef.io/cookbooks/chef_client_updater)
+The
+[chef_client_updater](https://supermarket.chef.io/cookbooks/chef_client_updater)
 cookbook can be used to install or upgrade Chef Infra Client package on
 a node.
 

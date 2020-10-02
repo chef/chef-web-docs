@@ -3,6 +3,7 @@ title = "Chef Automate for Microsoft Azure"
 draft = false
 robots = "noindex"
 
+
 aliases = ["/automate_azure.html"]
 
 [menu]

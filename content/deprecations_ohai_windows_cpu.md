@@ -3,6 +3,7 @@ title = "Deprecation: Windows CPU plugin attribute changes. (OHAI-5)"
 draft = false
 robots = "noindex"
 
+
 aliases = "/deprecations_ohai_windows_cpu.html"
 +++
 

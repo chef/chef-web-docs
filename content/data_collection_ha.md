@@ -3,6 +3,7 @@ title = "Data Collection with a Chef Backend Cluster"
 draft = false
 robots = "noindex"
 
+
 aliases = ["/data_collection_ha.html"]
 
 [menu]
@@ -62,7 +63,7 @@ Chef servers.
 
 ## Next Steps
 
-- [Perform a Compliance Scan](/perform_compliance_scan/)
-- [Data Collection](/data_collection/)
-- [Data Collection without Chef Infra
+-   [Perform a Compliance Scan](/perform_compliance_scan/)
+-   [Data Collection](/data_collection/)
+-   [Data Collection without Chef Infra
     Server](/data_collection_without_server/)

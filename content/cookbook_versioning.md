@@ -203,9 +203,9 @@ Version 0.0.0 of cookbook redis is frozen. Use --force to override
 There are two strategies to consider when using version control as part
 of the cookbook management process:
 
-- Use maximum version control when it is important to keep every bit
+-   Use maximum version control when it is important to keep every bit
     of data within version control
-- Use branch tracking when cookbooks are being managed in separate
+-   Use branch tracking when cookbooks are being managed in separate
     environments using git branches and the versioning policy
     information is already stored in a cookbook's metadata.
 
@@ -224,10 +224,10 @@ being able to make changes to that cookbook).
 The typical workflow with a branch tracking version control strategy
 includes:
 
-1. Bumping the version number as appropriate.
-2. Making changes to a cookbook.
-3. Uploading and testing a cookbook.
-4. Moving a tested cookbook to production.
+1.  Bumping the version number as appropriate.
+2.  Making changes to a cookbook.
+3.  Uploading and testing a cookbook.
+4.  Moving a tested cookbook to production.
 
 For example, to bump a version number, first make changes to the
 cookbook, and then upload and test it. Repeat this process as required,
@@ -256,10 +256,10 @@ deployed to a production environment.
 
 The typical workflow with a maximum version control strategy includes:
 
-1. Bumping the version number as appropriate.
-2. Making changes to a cookbook.
-3. Uploading and testing a cookbook.
-4. Moving a tested cookbook to production.
+1.  Bumping the version number as appropriate.
+2.  Making changes to a cookbook.
+3.  Uploading and testing a cookbook.
+4.  Moving a tested cookbook to production.
 
 For example, to bump a version number, first make changes to the
 cookbook, and then upload and test it. Repeat this process as required,

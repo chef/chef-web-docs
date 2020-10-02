@@ -22,6 +22,7 @@ The [Terraform Chef Provisioner](https://www.terraform.io/docs/provisioners/chef
 
 If you are using [Chef Solo](/chef_solo/), you will most likely want to use the [Terraform remote-exec Provisioner](https://www.terraform.io/docs/provisioners/remote-exec.html) rather than the Terraform Chef Provisioner. The remote-exec Provisioner may be used to run a script or an inline set of commands on the newly created machine. Please refer to the [Terraform remote-exec Provisioner documentation](https://www.terraform.io/docs/provisioners/remote-exec.html) for further options and examples.
 
+
 #### Example remote-exec inline
 
 ```

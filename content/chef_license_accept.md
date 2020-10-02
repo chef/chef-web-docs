@@ -24,17 +24,17 @@ contract with Chef Software, and the EULA covers all other cases.
 
 There are three ways to accept the Chef MLSA:
 
-1. When running `chef-<PRODUCT-NAME>-ctl reconfigure` the Chef MLSA is
+1.  When running `chef-<PRODUCT-NAME>-ctl reconfigure` the Chef MLSA is
     printed. Type `yes` to accept it. Anything other than typing `yes`
     rejects the Chef MLSA, and the upgrade process will exit. Typing
     `yes` adds a `.license.accepted` file to the
     `/etc/chef/accepted_licenses/<PRODUCT-NAME>` file. As long as this
     file exists in this directory, the Chef MLSA is accepted and the
     reconfigure process will not prompt for `yes`.
-2. Run the `chef-<PRODUCT-NAME>-ctl reconfigure` command using the
+2.  Run the `chef-<PRODUCT-NAME>-ctl reconfigure` command using the
     `--chef-license=accept` option. This automatically types `yes` and
     skips printing the Chef MLSA.
-3. Add a `.license.accepted` file to the `/var/opt/<PRODUCT-NAME>/`
+3.  Add a `.license.accepted` file to the `/var/opt/<PRODUCT-NAME>/`
     directory. The contents of this file do not matter. As long as this
     file exists in this directory, the Chef MLSA is accepted and the
     reconfigure process will not prompt for `yes`.
@@ -50,9 +50,9 @@ Versions](/versions/) documentation.
 ### Workstation Products
 
 - Chef Workstation \>= 0.4, which also contains:
-  - Chef Infra Client
-  - Chef InSpec
-  - Push Jobs Client
+  -   Chef Infra Client
+  -   Chef InSpec
+  -   Push Jobs Client
 - Chef Infra Client \>= 15.0
 - Chef InSpec \>= 4.0
 - Chef Habitat \>= 0.80
@@ -60,18 +60,18 @@ Versions](/versions/) documentation.
 These products are typically installed on a user's workstation. Two
 methods are generally used to accept the license for these products:
 
-1. `--chef-license <value>` argument passed to the command line
+1.  `--chef-license <value>` argument passed to the command line
     invocation.
-2. `CHEF_LICENSE="<value>"` as an environment variable.
+2.  `CHEF_LICENSE="<value>"` as an environment variable.
 
 `<value>` can be specified as one of the following:
 
-1. `accept` - Accepts the license and attempts to persist a marker file
+1.  `accept` - Accepts the license and attempts to persist a marker file
     locally. Persisting these marker files means future invocations do
     not require accepting the license again.
-2. `accept-silent` - Similar to `accept` except no messaging is sent to
+2.  `accept-silent` - Similar to `accept` except no messaging is sent to
     STDOUT
-3. `accept-no-persist` - Similar to `accept-silent` except no marker
+3.  `accept-no-persist` - Similar to `accept-silent` except no marker
     file is persisted. Future invocation will require accepting the
     license again.
 
@@ -121,15 +121,15 @@ backwards-compatible to non-EULA versions of Chef Infra Client.
 
 Two methods are generally used to accept the Chef Habitat license:
 
-1. Users can execute `hab license accept` on the command line.
-2. Alternatively, users can set `HAB_LICENSE="<value>"` as an
+1.  Users can execute `hab license accept` on the command line.
+2.  Alternatively, users can set `HAB_LICENSE="<value>"` as an
     environment variable.
 
 `<value>` can be specified as one of the following:
 
-1. `accept` - Accepts the license and persists a marker file locally.
+1.  `accept` - Accepts the license and persists a marker file locally.
     Future invocations do not require accepting the license again.
-2. `accept-no-persist` - accepts the license without persisting a
+2.  `accept-no-persist` - accepts the license without persisting a
     marker file. Future invocation will require accepting the license
     again.
 
@@ -204,8 +204,8 @@ allow interactivity. Instead, the license is accepted during the
 `reconfigure` command or `upgrade` command for the Omnibus ctl command.
 For example:
 
-- `chef-server-ctl reconfigure --chef-license=accept`
-- `CHEF_LICENSE="accept-no-persist" supermarket-ctl reconfigure`
+-   `chef-server-ctl reconfigure --chef-license=accept`
+-   `CHEF_LICENSE="accept-no-persist" supermarket-ctl reconfigure`
 
 In addition, the Chef license can be accepted via the omnibus
 configuration file. Specify `chef_license 'accept'` in the
@@ -240,13 +240,13 @@ group.
 
 ### Remote Management Products
 
-- Test Kitchen
-- `knife bootstrap` in Chef Infra Client
-- `chef-run` in Chef Workstation
-- Packer
-- Terraform Chef Provisioner
-- Terraform Habitat Provisioner
-- Vagrant
+-   Test Kitchen
+-   `knife bootstrap` in Chef Infra Client
+-   `chef-run` in Chef Workstation
+-   Packer
+-   Terraform Chef Provisioner
+-   Terraform Habitat Provisioner
+-   Vagrant
 
 These products install or manage Chef on a remote instance. If a user
 has accepted the appropriate product license locally, it will be

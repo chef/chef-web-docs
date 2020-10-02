@@ -24,28 +24,28 @@ back end and multiple load-balanced frontend servers.
 Before installing the Chef Infra Server software, perform the following
 steps:
 
-- The backend server must be accessible from each frontend server. A
+-   The backend server must be accessible from each frontend server. A
     virtual IP address is created and managed by the Chef Infra Server,
     but will also need to be added to the DNS so that all machines in
     the tiered configuration may access it.
-- Persistent data on the backend Chef Infra Server is primarily
+-   Persistent data on the backend Chef Infra Server is primarily
     composed of cookbook files and directories. Separate disks should be
     dedicated entirely to storing this data prior to installing the Chef
     Infra Server.
-- Load-balancing should be used with frontend servers, along with a
+-   Load-balancing should be used with frontend servers, along with a
     DNS entry for the virtual IP address used for load balancing. This
     virtual IP address is added to the chef-server.rb file as the
     `api_fqdn`.
-- All required ports must be open. See the Firewalls section (below)
+-   All required ports must be open. See the Firewalls section (below)
     for the list of ports. All connections to and from the Chef Infra
     Server are accomplished via TCP. Refer to the operating system's
     manual or your systems administrators for instructions on how to
     configure to ports, if necessary.
-- The hostname for the Chef Infra Server must be an FQDN, including
+-   The hostname for the Chef Infra Server must be an FQDN, including
     the domain suffix, and must be resolvable by the backend and
     frontend servers. See [Hostnames,
     FQDNs](/install_server_pre/#hostnames) for more information.
-- `chef-server-ctl reconfigure` will not bind the `backend_vip` to the
+-   `chef-server-ctl reconfigure` will not bind the `backend_vip` to the
     backend server. The easiest thing to do is just define `backend_vip`
     as the already configured main IP address of the backend system. If
     you need to use an additional address, it will need to be configured
@@ -56,14 +56,14 @@ steps:
 For a tiered deployment, your backend server should support the
 following hardware requirements:
 
-- 64-bit architecture
-- 8 total cores (physical or virtual)
-- 16GB RAM
-- Fast, redundant storage (SSD/RAID-based solution)
-  - 50 GB/backend server (SSD if on premises, Premium Storage in
+-   64-bit architecture
+-   8 total cores (physical or virtual)
+-   16GB RAM
+-   Fast, redundant storage (SSD/RAID-based solution)
+    -   50 GB/backend server (SSD if on premises, Premium Storage in
         Microsoft Azure, EBS-Optimized GP2 in AWS)
-- 1 GigE NIC interface
-- A back-end server; all other systems will be front-end servers.
+-   1 GigE NIC interface
+-   A back-end server; all other systems will be front-end servers.
 
 ## Disk Configuration
 
@@ -74,11 +74,11 @@ the Chef Infra Server. These disks should be part of a SSD or hardware
 RAID-based solution that ensure redundancy and high IOPS. This
 configuration guide assumes that:
 
-- \~50GB of raw, unpartitioned disk space is available. Disk space
+-   \~50GB of raw, unpartitioned disk space is available. Disk space
     should scale up with the number of nodes that the backend server is
     managing. A good rule to follow is to allocate 2 MB per node.
-- The disk space presents as a single device. For example: `/dev/sdb`.
-- The storage is added to a volume group named `opscode` and is
+-   The disk space presents as a single device. For example: `/dev/sdb`.
+-   The storage is added to a volume group named `opscode` and is
     presented to the Chef Infra Server by mounting on `/var/opt/opscode`
     before a reconfiguration
 
@@ -106,7 +106,7 @@ lvcreate -l 80%VG -n tiered opscode
 To build and mount the storage device on the backend server, do the
 following:
 
-1. Create the file system. For example, an `ext4` type named `tiered`:
+1.  Create the file system. For example, an `ext4` type named `tiered`:
 
     ``` bash
     mkfs.ext4 /dev/opscode/tiered
@@ -128,7 +128,7 @@ following:
 
 Use the following steps to set up the backend Chef Infra Server:
 
-1. Download the packages from <https://downloads.chef.io/chef-server/>.
+1.  Download the packages from <https://downloads.chef.io/chef-server/>.
     For Red Hat and CentOS 6:
 
     ``` bash
@@ -143,7 +143,7 @@ Use the following steps to set up the backend Chef Infra Server:
 
     After a few minutes, the Chef Infra Server will be installed.
 
-2. Create a file named chef-server.rb that is located in the
+2.  Create a file named chef-server.rb that is located in the
     `/etc/opscode/` directory. See the chef-server.rb section below for
     an example of the settings and values that are required.
 
@@ -156,13 +156,13 @@ server, create a file named chef-server.rb and save it in the
 
 Add the following settings to the chef-server.rb file:
 
-1. Define the topology type:
+1.  Define the topology type:
 
     ``` ruby
     topology "tier"
     ```
 
-2. Define the backend server:
+2.  Define the backend server:
 
     ``` ruby
     server "FQDN",
@@ -175,7 +175,7 @@ Add the following settings to the chef-server.rb file:
     IP address of the server. The role is a backend server is
     `"backend"`.
 
-3. Define the backend virtual IP address:
+3.  Define the backend virtual IP address:
 
     ``` ruby
     backend_vip "FQDN",
@@ -193,7 +193,7 @@ Add the following settings to the chef-server.rb file:
     `backend_vip` address to an interface, this must be done on startup
     of the machine.
 
-4. Define each frontend server:
+4.  Define each frontend server:
 
     ``` ruby
     server "FQDN",
@@ -208,7 +208,7 @@ Add the following settings to the chef-server.rb file:
     Add separate entry in the chef-server.rb file for each frontend
     server.
 
-5. Define the API FQDN:
+5.  Define the API FQDN:
 
     ``` ruby
     api_fqdn "FQDN"
@@ -218,14 +218,14 @@ Add the following settings to the chef-server.rb file:
     address, which should be equal to the FQDN for the service URI that
     is used by the Chef Infra Server.
 
-6. {{% install_chef_server_reconfigure %}}
+6.  {{% install_chef_server_reconfigure %}}
 
 ## Frontend
 
 For each frontend server, use the following steps to set up the Chef
 Infra Server:
 
-1. Install the Chef Infra Server package. For Red Hat and CentOS 6:
+1.  Install the Chef Infra Server package. For Red Hat and CentOS 6:
 
     ``` bash
     rpm -Uvh /tmp/chef-server-core-<version>.rpm
@@ -239,13 +239,13 @@ Infra Server:
 
     After a few minutes, the Chef Infra Server will be installed.
 
-2. Create the `/etc/opscode/` directory, and then copy the entire
+2.  Create the `/etc/opscode/` directory, and then copy the entire
     contents of the `/etc/opscode` directory from the primary backend
     server, including all certificates and the chef-server.rb file.
 
-3. {{% install_chef_server_reconfigure %}}
+3.  {{% install_chef_server_reconfigure %}}
 
-4. Start the Chef Infra Server:
+4.  Start the Chef Infra Server:
 
     ``` bash
     chef-server-ctl start
@@ -254,8 +254,8 @@ Infra Server:
 On a single frontend server, create an administrator and an
 organization:
 
-1. {{% ctl_chef_server_user_create_admin %}}
-2. {{% ctl_chef_server_org_create_summary %}}
+1.  {{% ctl_chef_server_user_create_admin %}}
+2.  {{% ctl_chef_server_org_create_summary %}}
 
 ## Enable Features
 

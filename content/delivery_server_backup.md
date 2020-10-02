@@ -3,6 +3,7 @@ title = "Chef Automate Backups"
 draft = false
 robots = "noindex"
 
+
 aliases = ["/delivery_server_backup.html"]
 
 [menu]
@@ -254,23 +255,23 @@ Follow the process below for an example of restoring a Chef Automate
 cluster from a local backup archive and a shared filesystem
 Elasticsearch snapshot:
 
-1. Copy the Chef Automate backup archive to a directory that is large
+1.  Copy the Chef Automate backup archive to a directory that is large
     enough to expand the the archive, e.g.:
 
     `scp user@backup-server:2016-10-14-08-38-55-chef-automate-backup.zst /mnt/ephemeral/`
 
-2. Install the same version of Chef Automate that was used to take the
+2.  Install the same version of Chef Automate that was used to take the
     backup. If the versions do not match you be prompted with a
     compatibility warning but can still proceed with the restore if you
     choose to do so.
 
     `dpkg -i delivery.rpm`
 
-3. Mount the Elasticsearch shared filesystem to the same mount point.
+3.  Mount the Elasticsearch shared filesystem to the same mount point.
 
     `mount backup-server:/export/chef-automate/elasticsearch_backups /var/opt/delivery/elasticsearch_backups`
 
-4. Restore the backup archive and snapshot:
+4.  Restore the backup archive and snapshot:
 
     `automate-ctl restore-backup /mnt/ephemeral/2016-10-14-08-38-55-chef-automate-backup.zst 2016-10-14-08-38-55-chef-automate-backup --staging-dir /mnt/ephemeral/restore`
 
@@ -287,13 +288,13 @@ Follow the process below for an example of restoring a Chef Automate
 cluster from a backup archive and Elasticsearch snapshot in Amazon Web
 Services (AWS) S3:
 
-1. Install the same version of Chef Automate that was used to take the
+1.  Install the same version of Chef Automate that was used to take the
     backup. If the versions do not match you can still proceed with the
     restore but we cannot guarantee compatibility.
 
     `dpkg -i delivery.rpm`
 
-2. Restore the backup archive and snapshot by specifying the region,
+2.  Restore the backup archive and snapshot by specifying the region,
     bucket, backup artifact name and snapshot name:
 
     `automate-ctl restore-backup us-east-1:your-s3-bucket:2016-10-14-08-38-55-chef-automate-backup.zst 2016-10-14-08-38-55-chef-automate-backup`
@@ -304,11 +305,11 @@ It is possible to restore only specific data from a Chef Automate backup
 artifact. Below is an example of restoring only the PostgreSQL database
 and git repositories from a backup archive in S3:
 
-1. Determine the archive you want to restore
+1.  Determine the archive you want to restore
 
     `automate-ctl list-backups --automate`
 
-2. Restore it
+2.  Restore it
 
     `automate-ctl restore-backup us-east-1:your-s3-bucket:2016-10-14-08-38-55-chef-automate-backup.zst --no-census --no-license --no-config`
 
@@ -316,10 +317,10 @@ It is also possible to restore a functional Chef Automate cluster to a
 specific Elasticsearch snapshot. Below is an example of restoring only
 an Elasticsearch snapshot:
 
-1. Determine the snapshot you want to restore
+1.  Determine the snapshot you want to restore
 
     `automate-ctl list-backups --elasticsearch`
 
-2. Restore it
+2.  Restore it
 
     `automate-ctl restore-backup 2016-10-14-08-38-55-chef-automate-backup`

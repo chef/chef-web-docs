@@ -33,29 +33,29 @@ Though a definition looks like a resource, and at first glance seems
 like it could be used interchangeably, some important differences exist.
 Definitions:
 
-- Are not true resources
-- Are processed when resource collection is compiled, not when a node
+-   Are not true resources
+-   Are processed when resource collection is compiled, not when a node
     is converged
-- Don't support common resource properties, such as `notifies`,
+-   Don't support common resource properties, such as `notifies`,
     `subscribes`, `only_if`, `not_if`, and `sensitive`
-- Don't support input validation in passed arguments, unlike a
+-   Don't support input validation in passed arguments, unlike a
     resource which supports validation with properties
-- Don't support `why-run` mode
-- Can't report to Chef Automate
-- Cannot be tested with ChefSpec
-- There are known issues with the definition parameters hash where certain names, `timeout` for example,
+-   Don't support `why-run` mode
+-   Can't report to Chef Automate
+-   Cannot be tested with ChefSpec
+-   There are known issues with the definition parameters hash where certain names, `timeout` for example,
     will not work. These issues will not be fixed.
 
 ## Syntax
 
 A definition had four components:
 
-- A resource name
-- Zero or more arguments that define parameters their default values;
+-   A resource name
+-   Zero or more arguments that define parameters their default values;
     if a default value was not specified, it was assumed to be `nil`
-- A hash that could have been used within a definition's body to
+-   A hash that could have been used within a definition's body to
     provide access to parameters and their values
-- The body of the definition
+-   The body of the definition
 
 The basic syntax of a definition was:
 

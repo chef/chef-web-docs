@@ -28,6 +28,7 @@ This will help you control how and when the `chef-client` command will run and
 maintain your current configuration. Use the `-r` or `--run-list` option with the
 [`knife bootstrap`](/workstation/knife_bootstrap/) subcommand to set a run-list on a node, for example `-r recipe[myrecipe::cron]`.
 
+
 ### Windows
 
 By default, Windows systems will run the chef-client cookbook as a
@@ -69,11 +70,11 @@ The `knife bootstrap` subcommand is used to run a bootstrap operation
 that installs Chef Infra Client on the target node. The following steps
 describe how to bootstrap a node using knife.
 
-1. Identify the FQDN or IP address of the target node. The
+1.  Identify the FQDN or IP address of the target node. The
     `knife bootstrap` command requires the FQDN or the IP address for
     the node in order to complete the bootstrap operation.
 
-2. Once the workstation machine is configured, it can be used to
+2.  Once the workstation machine is configured, it can be used to
     install Chef Infra Client on one (or more) nodes across the
     organization using a knife bootstrap operation. The
     `knife bootstrap` command is used to SSH into the target machine,
@@ -154,7 +155,7 @@ describe how to bootstrap a node using knife.
     [172.16.1.233] Chef Infra Client finished, 0/0 resources updated in 11 seconds
     ```
 
-3. After the bootstrap operation has finished, verify that the node is
+3.  After the bootstrap operation has finished, verify that the node is
     recognized by the Chef Infra Server. To show only the node that was
     just bootstrapped, run the following command:
 

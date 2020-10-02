@@ -3,6 +3,7 @@ title = "Chef Automate Disaster Recovery"
 draft = false
 robots = "noindex"
 
+
 aliases = ["/delivery_server_disaster_recovery.html"]
 
 
@@ -41,7 +42,7 @@ as tuning the configuration to account for latency between data centers.
 A disaster recovery configuration for Chef Automate has the following
 requirements:
 
-- Two identically-configured Chef Automate servers, one to act as the
+-   Two identically-configured Chef Automate servers, one to act as the
     primary server and the other to act as a standby
 
     {{< note spaces=4 >}}
@@ -50,14 +51,14 @@ requirements:
 
     {{< /note >}}
 
-- SSH access between both Chef Automate servers via port 22
+-   SSH access between both Chef Automate servers via port 22
 
-- PostgreSQL replication allowed between both Chef Automate servers
+-   PostgreSQL replication allowed between both Chef Automate servers
     via port 5432
 
-- The latest version of ChefDK is installed on the provisioning node
+-   The latest version of ChefDK is installed on the provisioning node
 
-- A Chef Automate license
+-   A Chef Automate license
 
 ## Install a Standby Chef Automate Server
 
@@ -73,13 +74,13 @@ run as the root user or by using `sudo`.
 
 {{< /note >}}
 
-1. Provision a standby server that is exactly the same as the existing
+1.  Provision a standby server that is exactly the same as the existing
     Chef Automate server.
 
-2. Download the Chef Automate package to the standby server:
+2.  Download the Chef Automate package to the standby server:
     <https://downloads.chef.io/automate/>.
 
-3. As a root user, install the Chef Automate package on the server,
+3.  As a root user, install the Chef Automate package on the server,
     using the name of the package provided by Chef.
 
     For Debian:
@@ -96,7 +97,7 @@ run as the root user or by using `sudo`.
 
     After a few minutes, Chef Automate will be installed.
 
-4. Create the license directory:
+4.  Create the license directory:
 
     ``` bash
     sudo mkdir -p /var/opt/delivery/license
@@ -106,13 +107,13 @@ run as the root user or by using `sudo`.
     `/var/opt/delivery/license` directory on the primary Chef Automate
     server into the license directory.
 
-5. Create the configuration directory:
+5.  Create the configuration directory:
 
     ``` bash
     sudo mkdir -p /etc/delivery
     ```
 
-6. Edit the `/etc/delivery/delivery.rb` file:
+6.  Edit the `/etc/delivery/delivery.rb` file:
 
     ``` bash
     sudo vi /etc/delivery/delivery.rb ## you may use any editor you wish
@@ -140,14 +141,14 @@ run as the root user or by using `sudo`.
     and `STANDBY_IP_ADDRESS` values should be from a private network
     between the two machines.
 
-7. Create a directory for the SSH key--if one is not already
+7.  Create a directory for the SSH key--if one is not already
     present--on the primary Chef Automate server:
 
     ``` bash
     sudo mkdir -p /opt/delivery/embedded/.ssh
     ```
 
-8. Create a private key on the primary Chef Automate server. This key
+8.  Create a private key on the primary Chef Automate server. This key
     is used for file synchronization between the two servers. It will be
     created in `/opt/delivery/embedded/.ssh` and must not contain a
     passphrase.
@@ -167,7 +168,7 @@ run as the root user or by using `sudo`.
     and then save to a file (don't overwrite anything) and note the
     filename for later.
 
-9. On the standby server, create the directory
+9.  On the standby server, create the directory
     `/opt/delivery/embedded/.ssh/authorized_keys`:
 
     ``` bash
@@ -247,7 +248,7 @@ Chef Automate configuration to have a primary and standby server.
 
 To promote a standby Chef Automate server to primary, do the following:
 
-1. Log into the standby Chef Automate server (via SSH, and not the Chef
+1.  Log into the standby Chef Automate server (via SSH, and not the Chef
     Automate web UI) and make a backup of the data:
 
     ``` bash
@@ -257,14 +258,14 @@ To promote a standby Chef Automate server to primary, do the following:
     Move this data to a location that is not on the standby Chef
     Automate server.
 
-2. If the primary Chef Automate server is still accessible, log into it
+2.  If the primary Chef Automate server is still accessible, log into it
     and run the following command as the root user:
 
     ``` bash
     automate-ctl stop
     ```
 
-3. Convert the standby server to a standalone Chef Automate server.
+3.  Convert the standby server to a standalone Chef Automate server.
     Update the `delivery["primary"]`, `delivery["primary_ip"]`, and
     `postgresql["listen_address"]` settings in the
     `/etc/delivery/delivery.rb` file to be similar to:
@@ -275,7 +276,7 @@ To promote a standby Chef Automate server to primary, do the following:
     postgresql['listen_address'] = 'localhost,192.0.2.0'
     ```
 
-4. On the standby server, run the following command as the root user:
+4.  On the standby server, run the following command as the root user:
 
     ``` bash
     automate-ctl reconfigure
@@ -285,7 +286,7 @@ To promote a standby Chef Automate server to primary, do the following:
     Automate server, after which a new standby server can be installed
     and configured to be the new standby.
 
-5. Set the DNS/load balancer to redirect traffic to the new primary
+5.  Set the DNS/load balancer to redirect traffic to the new primary
     Chef Automate server, as required.
 
 ### Recreate the Standby
@@ -293,27 +294,27 @@ To promote a standby Chef Automate server to primary, do the following:
 Recreating the standby Chef Automate server requires the following
 steps:
 
-- Deleting the old primary server
-- Updating configuration if SSH provisioning is being used
-- Installing a Chef Automate server to act as a standby
+-   Deleting the old primary server
+-   Updating configuration if SSH provisioning is being used
+-   Installing a Chef Automate server to act as a standby
 
 #### Delete the Primary
 
 To delete the failed primary, do the following:
 
-1. Log in to the Chef Infra Server and delete the primary Chef Automate
+1.  Log in to the Chef Infra Server and delete the primary Chef Automate
     server node and client.
-2. Delete or destroy the primary Chef Automate machine.
+2.  Delete or destroy the primary Chef Automate machine.
 
 #### Configure SSH
 
 If provisioning uses the SSH driver, do the following:
 
-1. Remove the disaster recovery block in the Chef Automate cluster.
+1.  Remove the disaster recovery block in the Chef Automate cluster.
 
-2. Set the correct IP address for new primary node.
+2.  Set the correct IP address for new primary node.
 
-3. Run the following command:
+3.  Run the following command:
 
     ``` bash
     rm .chef/provisioning/ssh/delivery-server-test.json

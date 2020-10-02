@@ -3,6 +3,7 @@ title = "Delivery CLI"
 draft = false
 robots = "noindex"
 
+
 aliases = ["/delivery_cli.html", "/ctl_delivery.html"]
 
 [menu]
@@ -53,9 +54,9 @@ delivery api METHOD PATH (options)
 
 where:
 
-- `METHOD` is an HTTP method (`GET`, `POST`, `PUT`, `DELETE`) that is
+-   `METHOD` is an HTTP method (`GET`, `POST`, `PUT`, `DELETE`) that is
     supported by the Chef Automate API
-- `PATH` is an endpoint in the Chef Automate API scoped to the
+-   `PATH` is an endpoint in the Chef Automate API scoped to the
     specified Chef Automate enterprise
 
 ### Options
@@ -145,7 +146,7 @@ delivery checkout CHANGE (options)
 
 where:
 
-- `CHANGE` is the name of a feature branch
+-   `CHANGE` is the name of a feature branch
 
 ### Options
 
@@ -199,7 +200,7 @@ delivery clone PROJECT (options)
 
 where:
 
-- `PROJECT` is the Chef Automate project to be cloned
+-   `PROJECT` is the Chef Automate project to be cloned
 
 ### Options
 
@@ -261,7 +262,7 @@ delivery diff CHANGE (options)
 
 where:
 
-- `CHANGE` is the name of the feature branch associated with the
+-   `CHANGE` is the name of the feature branch associated with the
     change
 
 ### Options
@@ -578,9 +579,9 @@ delivery job STAGE PHASE (options)
 
 where:
 
-- `STAGE` is a stage in the Chef Automate pipeline: Verify, Build,
+-   `STAGE` is a stage in the Chef Automate pipeline: Verify, Build,
     Acceptance, Union, Rehearsal, Delivered
-- `PHASE` is a phase, which runs recipes, in a Chef Automate stage
+-   `PHASE` is a phase, which runs recipes, in a Chef Automate stage
 
 ### Options
 
@@ -731,14 +732,14 @@ delivery local PHASE|STAGE
 
 where `PHASE` is one of the following:
 
-- lint
-- syntax
-- unit
-- provision
-- deploy
-- smoke
-- functional
-- cleanup
+-   lint
+-   syntax
+-   unit
+-   provision
+-   deploy
+-   smoke
+-   functional
+-   cleanup
 
 and `STAGE` will execute a series of phases in the following order: \*
 verify: \[lint, syntax, unit\] \* acceptance: \[provision, deploy,

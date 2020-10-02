@@ -16,12 +16,12 @@ aliases = ["/install_server.html"]
 
 There are three configuration scenarios for the Chef Infra Server:
 
-- [Standalone](#standalone) (everything on a single
+-   [Standalone](#standalone) (everything on a single
     machine)
-- [High availability](#high-availability) (machines
+-   [High availability](#high-availability) (machines
     configured for front-end and back-end, allowing for failover on the
     back-end and load-balancing on the front-end, as required)
-- [Tiered](#tiered-single-backend) (machines
+-   [Tiered](#tiered-single-backend) (machines
     configured for front-end and back-end, with a single back-end and
     load-balancing on the front-end, as required)
 
@@ -33,23 +33,23 @@ There are three configuration scenarios for the Chef Infra Server:
 
 The Chef Infra Server has the following prerequisites:
 
-- An x86_64 compatible system architecture; Red Hat Enterprise Linux
+-   An x86_64 compatible system architecture; Red Hat Enterprise Linux
     and CentOS may require updates prior to installation
-- A resolvable hostname that is specified using a FQDN or an IP
+-   A resolvable hostname that is specified using a FQDN or an IP
     address
-- A connection to Network Time Protocol (NTP) to prevent clock drift
-- If host-based firewalls (iptables, ufw, etc.) are being used, ensure
+-   A connection to Network Time Protocol (NTP) to prevent clock drift
+-   If host-based firewalls (iptables, ufw, etc.) are being used, ensure
     that ports 80 and 443 are open. See the
     [firewalls](/install_server_pre/#firewalls) section of the
     install prerequisites for additional details.
-- A local mail transfer agent that allows the Chef Infra Server to
+-   A local mail transfer agent that allows the Chef Infra Server to
     send email notifications
-- Using cron and the `/etc/cron.d` directory for periodic maintenance
+-   Using cron and the `/etc/cron.d` directory for periodic maintenance
     tasks
-- Disabling the Apache Qpid daemon on CentOS and Red Hat systems. See
+-   Disabling the Apache Qpid daemon on CentOS and Red Hat systems. See
     the [Apache Qpid](/install_server_pre/#apache-qpid) of the
     prerequisite documentation for detailed steps.
-- Optional. A local user account under which services will run, a
+-   Optional. A local user account under which services will run, a
     local user account for PostgreSQL, and a group account under which
     services will run. See [UIDs and
     GIDs](/install_server_pre/#uids-and-gids) for more information.
@@ -71,15 +71,15 @@ loop.
 
 To install Chef Server:
 
-1. Download the package from <https://downloads.chef.io/chef-server/>.
+1.  Download the package from <https://downloads.chef.io/chef-server/>.
 
-2. Upload the package to the machine that will run the Chef Infra
+2.  Upload the package to the machine that will run the Chef Infra
     Server, and then record its location on the file system. The rest of
     these steps assume this location is in the `/tmp` directory.
 
-3. {{< readFile_shortcode file="install_chef_server_install_package.md" >}}
+3.  {{< readFile_shortcode file="install_chef_server_install_package.md" >}}
 
-4. Run the following to start all of the services:
+4.  Run the following to start all of the services:
 
     ``` bash
     sudo chef-server-ctl reconfigure
@@ -89,9 +89,9 @@ To install Chef Server:
     that work together to create a functioning system, this step may
     take a few minutes to complete.
 
-5. {{< readFile_shortcode file="ctl_chef_server_user_create_admin.md" >}}
+5.  {{< readFile_shortcode file="ctl_chef_server_user_create_admin.md" >}}
 
-6. {{< readFile_shortcode file="ctl_chef_server_org_create_summary.md" >}}
+6.  {{< readFile_shortcode file="ctl_chef_server_org_create_summary.md" >}}
 
 ## Update Configuration for Purchased Nodes
 
@@ -99,21 +99,21 @@ To use more than 25 nodes, you'll need to change Chef Infra Server
 configuration for the server to recognize your purchased licenses. Edit
 your `/etc/opscode/chef-server.rb` file by following the process below:
 
-1. On your Chef Infra Server, if the `chef-server.rb` file does not
+1.  On your Chef Infra Server, if the `chef-server.rb` file does not
     exist, create it.
 
     ``` bash
     sudo mkdir /etc/opscode && sudo touch /etc/opscode/chef-server.rb
     ```
 
-2. Open up the newly created `chef-server.rb` file in your favorite
+2.  Open up the newly created `chef-server.rb` file in your favorite
     text editor, for example:
 
     ``` bash
     sudo vi /etc/opscode/chef-server.rb
     ```
 
-3. Paste or add the following text. Please note the placement of the
+3.  Paste or add the following text. Please note the placement of the
     single quotation (') marks. If you're using the vi text editor,
     you'll need to use the <span class="title-ref">i</span> key to
     insert the text.
@@ -122,14 +122,14 @@ your `/etc/opscode/chef-server.rb` file by following the process below:
     license['nodes'] = N where N is the number of licensed nodes you have purchased
     ```
 
-4. Save the file. If you're using vi, from the example above, use the
+4.  Save the file. If you're using vi, from the example above, use the
     <span class="title-ref">esc</span> key and then:
 
     ``` bash
     :wq
     ```
 
-5. Run `chef-server-ctl reconfigure` for the changes to be picked up by
+5.  Run `chef-server-ctl reconfigure` for the changes to be picked up by
     your Chef Infra Server.
 
     ``` bash
@@ -146,7 +146,7 @@ The following links describe how to configure the Chef Infra Server for
 high availability. The **Backend Cluster** setup is strongly recommended
 for new installations:
 
-- [High Availability using Backend Cluster](/install_server_ha/)
+-   [High Availability using Backend Cluster](/install_server_ha/)
 
 ## Tiered (Single Backend)
 
@@ -155,4 +155,4 @@ a single backend machine and multiple frontend machines. Note that this
 process has been deprecated in favor of a [Backend
 Cluster](/install_server_ha/) setup:
 
-- [Tiered Installation](/install_server_tiered/)
+-   [Tiered Installation](/install_server_tiered/)

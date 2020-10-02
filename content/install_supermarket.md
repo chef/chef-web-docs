@@ -28,31 +28,31 @@ aliases = ["/install_supermarket.html"]
 
 A private Chef Supermarket has the following requirements:
 
-- An operational Chef Infra Server (Chef Server version 12.0 or
+-   An operational Chef Infra Server (Chef Server version 12.0 or
     higher) to act as the OAuth 2.0 provider
-- A user account on the Chef Infra Server with `admins` privileges
-- A key for the user account on the Chef server
-- An x86_64 compatible Linux host with at least 1 GB memory
-- System clocks synchronized on the Chef Infra Server and Supermarket
+-   A user account on the Chef Infra Server with `admins` privileges
+-   A key for the user account on the Chef server
+-   An x86_64 compatible Linux host with at least 1 GB memory
+-   System clocks synchronized on the Chef Infra Server and Supermarket
     hosts
-- Sufficient disk space on host to meet project cookbook storage
+-   Sufficient disk space on host to meet project cookbook storage
     capacity **or** credentials to store cookbooks in an Amazon Simple
     Storage Service (S3) bucket
 
 **Considerations with regard to storage capacity:**
 
-- PostgreSQL database size will grow linearly based on the number of
+-   PostgreSQL database size will grow linearly based on the number of
     cookbooks and the number of cookbook versions published
-- Redis database size is negligible as it is used only for background
+-   Redis database size is negligible as it is used only for background
     job queuing, and to cache a small number of API responses
-- Cookbook storage growth is entirely dependent on the size of the
+-   Cookbook storage growth is entirely dependent on the size of the
     cookbooks published. Cookbooks that include binaries or other large
     files will consume more space than code-only cookbooks
-- Opting to run a private Supermarket with off-host PostgreSQL, Redis,
+-   Opting to run a private Supermarket with off-host PostgreSQL, Redis,
     and cookbook store is less a decision about storage sizing; it is
     about data service uptime, backup, and restore procedure for your
     organization
-- As a point of reference: as of September 2017 after three years of
+-   As a point of reference: as of September 2017 after three years of
     operation, the public Supermarket has approx 70,000 users, 3,300
     cookbooks with a total of 20,000 versions published. The PostgreSQL
     database weighs in at 310 MB (50 MB when exported with `pg_dump`),
@@ -79,21 +79,21 @@ issue is typically with name resolution and firewall rules.
 
 To configure Chef Supermarket to use Chef Identity, do the following:
 
-1. Log on to the Chef Infra Server via SSH and elevate to an
+1.  Log on to the Chef Infra Server via SSH and elevate to an
     admin-level user. If running a multi-node Chef Infra Server cluster,
     log on to the node acting as the primary node in the cluster.
 
-2. Update the `/etc/opscode/chef-server.rb` configuration file.
+2.  Update the `/etc/opscode/chef-server.rb` configuration file.
 
     {{< readFile_shortcode file="config_ocid_application_hash_supermarket.md" >}}
 
-3. Reconfigure the Chef Infra Server.
+3.  Reconfigure the Chef Infra Server.
 
     ``` bash
     sudo chef-server-ctl reconfigure
     ```
 
-4. Retrieve Supermarket's OAuth 2.0 client credentials:
+4.  Retrieve Supermarket's OAuth 2.0 client credentials:
 
     Depending on your Chef Infra Server version and configuration (see
     [chef-server.rb](/config_rb_server_optional_settings/#config-rb-server-insecure-addon-compat)),
@@ -141,15 +141,15 @@ To install a private Chef Supermarket use the
 public](https://supermarket.chef.io/cookbooks/supermarket-omnibus-cookbook)
 Chef Supermarket.
 
-- The `supermarket-omnibus-cookbook` cookbook is attribute-driven; use
+-   The `supermarket-omnibus-cookbook` cookbook is attribute-driven; use
     a custom cookbook to specify your organization's unique
     `node[supermarket_omnibus]` attribute values.
-- The custom cookbook is a wrapper around
+-   The custom cookbook is a wrapper around
     `supermarket-omnibus-cookbook`, which performs the actual
     installation of the Chef Supermarket packages, and then writes the
     custom `node[supermarket_omnibus]` values to
     `/etc/supermarket/supermarket.json`.
-- The Chef Supermarket package itself contains an internal cookbook
+-   The Chef Supermarket package itself contains an internal cookbook
     which configures the already-installed package using the attributes
     defined in `/etc/supermarket/supermarket.json`.
 
@@ -193,19 +193,19 @@ default['supermarket_omnibus']['fqdn'] = 'supermarket.mycompany.com'
 On your workstation, generate a new cookbook using the `chef` command
 line interface:
 
-1. Generate the cookbook:
+1.  Generate the cookbook:
 
     ``` bash
     chef generate cookbook my_supermarket_wrapper
     ```
 
-2. Change directories into that cookbook:
+2.  Change directories into that cookbook:
 
     ``` bash
     cd my_supermarket_wrapper
     ```
 
-3. Defines the wrapper cookbook's dependency on the
+3.  Defines the wrapper cookbook's dependency on the
     `supermarket-omnibus-cookbook` cookbook. Open the metadata.rb file
     of the newly-created cookbook, and then add the following line:
 
@@ -213,9 +213,9 @@ line interface:
     depends 'supermarket-omnibus-cookbook'
     ```
 
-4. Save and close the metadata.rb file.
+4.  Save and close the metadata.rb file.
 
-5. Open the `/recipes/default.rb` recipe located within the
+5.  Open the `/recipes/default.rb` recipe located within the
     newly-generated cookbook and add the following content:
 
     ``` ruby
@@ -237,9 +237,9 @@ and then a data bag item within the data bag could be named
 
 The following attribute values must be defined:
 
-- `chef_server_url`
-- `chef_oauth2_app_id`
-- `chef_oauth2_secret`
+-   `chef_server_url`
+-   `chef_oauth2_app_id`
+-   `chef_oauth2_secret`
 
 Once configured, you can get the `chef_oauth2_app_id` and
 `chef_oauth2_secret` values from your Chef Infra Server within
@@ -253,7 +253,7 @@ For `chef_server_url`, enter in the url for your chef server. For
 
 To define these attributes, do the following:
 
-1. Open the `/recipes/default.rb` file and add the following, BEFORE
+1.  Open the `/recipes/default.rb` file and add the following, BEFORE
     the `include_recipe` line that was added in the previous step. This
     example uses a data bag named `apps` and a data bag item named
     `supermarket`:
@@ -262,7 +262,7 @@ To define these attributes, do the following:
     app = data_bag_item('apps', 'supermarket')
     ```
 
-2. Set the attributes from the data bag:
+2.  Set the attributes from the data bag:
 
     ``` ruby
     node.override['supermarket_omnibus']['chef_server_url'] = app['chef_server_url']
@@ -283,7 +283,7 @@ To define these attributes, do the following:
     include_recipe 'supermarket-omnibus-cookbook'
     ```
 
-3. Save and close the `/recipes/default.rb` file.
+3.  Save and close the `/recipes/default.rb` file.
 
 {{< note >}}
 
@@ -306,32 +306,32 @@ dependencies.
 To upload the cookbooks necessary to install Chef Supermarket, do the
 following:
 
-1. Install Berkshelf:
+1.  Install Berkshelf:
 
     ``` bash
     berks install
     ```
 
-2. Change directories into `~/.berkshelf/cookbooks`:
+2.  Change directories into `~/.berkshelf/cookbooks`:
 
     ``` bash
     cd ~/.berkshelf/cookbooks
     ```
 
-3. Upload all cookbooks to the Chef Infra Server:
+3.  Upload all cookbooks to the Chef Infra Server:
 
     ``` bash
     knife cookbook upload -a
     ```
 
-4. Change directories into the location in which the wrapper cookbook
+4.  Change directories into the location in which the wrapper cookbook
     was created:
 
     ``` bash
     cd path/to/wrapper/cookbook/
     ```
 
-5. Upload the wrapper cookbook to the Chef Infra Server:
+5.  Upload the wrapper cookbook to the Chef Infra Server:
 
     ``` bash
     knife cookbook upload -a
@@ -349,15 +349,15 @@ knife bootstrap ip_address -N supermarket-node -x ubuntu --sudo
 
 where
 
-- `-N` defines the name of the Chef Supermarket node:
+-   `-N` defines the name of the Chef Supermarket node:
     `supermarket-node`
-- `-x` defines the (ssh) user name: `ubuntu`
-- `--sudo` ensures that sudo is used while running commands on the
+-   `-x` defines the (ssh) user name: `ubuntu`
+-   `--sudo` ensures that sudo is used while running commands on the
     node during the bootstrap operation
 
 When the bootstrap operation is finished, do the following:
 
-1. Edit the node to add the wrapper cookbook's `/recipes/default.rb`
+1.  Edit the node to add the wrapper cookbook's `/recipes/default.rb`
     recipe to the run-list:
 
     ``` bash
@@ -367,7 +367,7 @@ When the bootstrap operation is finished, do the following:
     where `supermarket-node` is the name of the node that was just
     bootstrapped.
 
-2. Add the recipe to the run-list:
+2.  Add the recipe to the run-list:
 
     ``` ruby
     "run_list": [
@@ -375,14 +375,14 @@ When the bootstrap operation is finished, do the following:
     ]
     ```
 
-3. Start Chef Infra Client on the newly-bootstrapped Chef Supermarket
+3.  Start Chef Infra Client on the newly-bootstrapped Chef Supermarket
     node. For example, using SSH:
 
     ``` bash
     ssh ubuntu@your-supermarket-node-public-dns
     ```
 
-4. After accessing the Chef Supermarket node, run Chef Infra Client:
+4.  After accessing the Chef Supermarket node, run Chef Infra Client:
 
     ``` bash
     sudo chef-client
@@ -400,31 +400,31 @@ process detailed in the [Chef
 Identity](/install_supermarket/#chef-identity) section of this
 guide.
 
-1. [Download](https://downloads.chef.io/supermarket/) the correct
+1.  [Download](https://downloads.chef.io/supermarket/) the correct
     package for your operating system from `downloads.chef.io`.
 
-2. Install Supermarket using the appropriate package manager for your
+2.  Install Supermarket using the appropriate package manager for your
     distribution:
 
-    - For Ubuntu:
+    -   For Ubuntu:
 
         ``` bash
         dpkg -i /path/to/package/supermarket*.deb
         ```
 
-    - For RHEL / CentOS:
+    -   For RHEL / CentOS:
 
         ``` bash
         rpm -Uvh /path/to/package/supermarket*.rpm
         ```
 
-3. Run the `reconfigure` command to complete the initial installation:
+3.  Run the `reconfigure` command to complete the initial installation:
 
     ``` none
     sudo supermarket-ctl reconfigure
     ```
 
-4. Create an `/etc/supermarket/supermarket.json` file and add the
+4.  Create an `/etc/supermarket/supermarket.json` file and add the
     following information, substituting the values for each
     configuration option with the OAuth 2.0 client credentials that were
     created in the [previous
@@ -442,22 +442,22 @@ guide.
 
     Where:
 
-    - `"chef_server_url"` should contain the FQDN of your Chef Infra
+    -   `"chef_server_url"` should contain the FQDN of your Chef Infra
         Server. Note that if you're using a non-standard SSL port, this
         much be appended to the URL. For example:
         `https://chefserver.mycompany.com:65400`
-    - `"chef_oauth2_app_id"` should contain the `"uid"` value from
+    -   `"chef_oauth2_app_id"` should contain the `"uid"` value from
         your OAuth credentials
-    - `"chef_oauth2_secret"` should contain the `"secret"` value from
+    -   `"chef_oauth2_secret"` should contain the `"secret"` value from
         your OAuth credentials
-    - `chef_oauth2_verify_ssl` is set to false, which is necessary
+    -   `chef_oauth2_verify_ssl` is set to false, which is necessary
         when using a self-signed certificate without a properly
         configured certificate authority
-    - `fqdn` should contain the desired URL that will be used to
+    -   `fqdn` should contain the desired URL that will be used to
         access your private Supermarket. If not specified, this default
         to the FQDN of the machine
 
-5. Issue another `reconfigure` command to apply your changes:
+5.  Issue another `reconfigure` command to apply your changes:
 
     ``` none
     sudo supermarket-ctl reconfigure
@@ -470,15 +470,15 @@ be resolvable from a workstation. For production use, the hostname
 should have a DNS entry in an appropriate domain that is trusted by each
 user's workstation.
 
-1. Visit the Chef Supermarket hostname in the browser. A private Chef
+1.  Visit the Chef Supermarket hostname in the browser. A private Chef
     Supermarket will generate and use a self-signed certificate, if a
     certificate is not supplied as part of the installation process (via
     the wrapper cookbook).
-2. If an SSL notice is shown while connecting to Chef Supermarket via a
+2.  If an SSL notice is shown while connecting to Chef Supermarket via a
     web browser, accept the SSL certificate. A trusted SSL certificate
     should be used for private Chef Supermarket that is used in
     production.
-3. After opening Chef Supermarket in a web browser, click the **Create
+3.  After opening Chef Supermarket in a web browser, click the **Create
     Account** link. A prompt to log in to the Chef Infra Server is
     shown, but only if the user is not already logged in. Authorize the
     Chef Supermarket to use the Chef Infra Server account for
@@ -562,13 +562,13 @@ Encrypted S3 buckets are currently not supported.
 1. Download the [Chef Supermarket](https://downloads.chef.io/) package.
 1. Upgrade your system with the new package using the appropriate package manager for your distribution:
 
-    - For Ubuntu:
+    -   For Ubuntu:
 
         ``` bash
         dpkg -i /path/to/package/supermarket*.deb
         ```
 
-    - For RHEL / CentOS:
+    -   For RHEL / CentOS:
 
         ``` bash
         rpm -Uvh /path/to/package/supermarket*.rpm
