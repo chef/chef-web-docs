@@ -245,13 +245,13 @@ To search a top-level run-list for a role named `load_balancer` use the
 `knife search` subcommand from the command line or the `search` method
 in a recipe. For example:
 
-``` bash
+```bash
 knife search node role:load_balancer
 ```
 
 and from within a recipe:
 
-``` ruby
+```ruby
 search(:node, 'role:load_balancer')
 ```
 
@@ -259,13 +259,13 @@ To search an expanded run-list for all nodes with the role
 `load_balancer` use the `knife search` subcommand from the command line
 or the `search` method in a recipe. For example:
 
-``` bash
+```bash
 knife search node roles:load_balancer
 ```
 
 and from within a recipe:
 
-``` ruby
+```ruby
 search(:node, 'roles:load_balancer')
 ```
 
@@ -273,7 +273,7 @@ search(:node, 'roles:load_balancer')
 
 A node can be searched from a recipe by using the following syntax:
 
-``` ruby
+```ruby
 search(:node, "key:attribute")
 ```
 
@@ -325,7 +325,7 @@ If you just want to use each result of the search and don't care about
 the aggregate result you can provide a code block to the search method.
 Each result is then passed to the block:
 
-``` ruby
+```ruby
 # Print every node matching the search pattern
 search(:node, "*:*").each do |matching_node|
   puts matching_node.to_s
@@ -346,7 +346,7 @@ other service within an environment by using the settings located on
 another machine, such as a host name, IP address, or private IP address.
 The following example shows a simplified settings file:
 
-``` ruby
+```ruby
 username: "mysql"
 password: "MoveAlong"
 host:     "10.40.64.202"
@@ -356,14 +356,14 @@ port:     "3306"
 where `host` is the private IP address of the database server. Use the
 following knife query to view information about the node:
 
-``` bash
+```bash
 knife search node "name:name_of_database_server" --long
 ```
 
 To access these settings as part of a recipe that is run on the web
 server, use code similar to:
 
-``` ruby
+```ruby
 db_server = search(:node, "name:name_of_database_server")
 private_ip = "#{db_server[0][:rackspace][:private_ip]}"
 puts private_ip

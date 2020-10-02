@@ -22,7 +22,7 @@ resource_description_list:
       with the **cookbook_file** resource.
 syntax_description: "A **remote_file** resource block manages files by using files\
   \ that\nexist remotely. For example, to write the home page for an Apache\nwebsite:\n\
-  \n``` ruby\nremote_file '/var/www/customers/public_html/index.html' do\n  source\
+  \n```ruby\nremote_file '/var/www/customers/public_html/index.html' do\n  source\
   \ 'http://somesite.com/index.html'\n  owner 'web_admin'\n  group 'web_admin'\n \
   \ mode '0755'\n  action :create\nend\n```"
 syntax_code_block: null
@@ -146,7 +146,7 @@ properties_list:
   - markdown: 'A Hash of custom headers. For example:
 
 
-      ``` ruby
+      ```ruby
 
       headers({ "Cookie" => "user=grantmc; pass=p@ssw0rd!" })
 
@@ -156,7 +156,7 @@ properties_list:
       or:
 
 
-      ``` ruby
+      ```ruby
 
       headers({ "Referer" => "#{header}" })
 
@@ -166,7 +166,7 @@ properties_list:
       or:
 
 
-      ``` ruby
+      ```ruby
 
       headers( "Authorization"=>"Basic #{ Base64.encode64("#{username}:#{password}").gsub("\n",
       "") }" )
@@ -416,7 +416,7 @@ properties_list:
       using a path:
 
 
-      ``` ruby
+      ```ruby
 
       source ''http://couchdb.apache.org/img/sketch.png''
 
@@ -426,7 +426,7 @@ properties_list:
       By using FTP:
 
 
-      ``` ruby
+      ```ruby
 
       source ''ftp://remote_host/path/to/img/sketch.png''
 
@@ -436,7 +436,7 @@ properties_list:
       By using SFTP:
 
 
-      ``` ruby
+      ```ruby
 
       source ''sftp://username:password@remote_host:22/path/to/img/sketch.png''
 
@@ -446,7 +446,7 @@ properties_list:
       By using a local path:
 
 
-      ``` ruby
+      ```ruby
 
       source ''file:///path/to/img/sketch.png''
 
@@ -456,7 +456,7 @@ properties_list:
       By using a Microsoft Windows UNC:
 
 
-      ``` ruby
+      ```ruby
 
       source ''\\\\path\\to\\img\\sketch.png''
 
@@ -466,7 +466,7 @@ properties_list:
       By using a node attribute:
 
 
-      ``` ruby
+      ```ruby
 
       source node[''nginx''][''foo123''][''url'']
 
@@ -476,7 +476,7 @@ properties_list:
       By using attributes to define paths:
 
 
-      ``` ruby
+      ```ruby
 
       source "#{node[''python''][''url'']}/#{version}/Python-#{version}.tar.bz2"
 
@@ -486,7 +486,7 @@ properties_list:
       By defining multiple paths for multiple locations:
 
 
-      ``` ruby
+      ```ruby
 
       source ''http://seapower/spring.png'', ''http://seapower/has_sprung.png''
 
@@ -496,7 +496,7 @@ properties_list:
       By defining those same multiple paths as an array:
 
 
-      ``` ruby
+      ```ruby
 
       source [''http://seapower/spring.png'', ''http://seapower/has_sprung.png'']
 
@@ -580,13 +580,13 @@ properties_list:
       `true` is executed as a system command.\n\nA block is arbitrary Ruby defined\
       \ within the resource block by using\nthe `verify` property. When a block is\
       \ `true`, Chef Infra Client\nwill continue to update the file as appropriate.\n\
-      \nFor example, this should return `true`:\n\n``` ruby\nremote_file '/tmp/baz'\
-      \ do\n  verify { 1 == 1 }\nend\n```\n\nThis should return `true`:\n\n``` ruby\n\
+      \nFor example, this should return `true`:\n\n```ruby\nremote_file '/tmp/baz'\
+      \ do\n  verify { 1 == 1 }\nend\n```\n\nThis should return `true`:\n\n```ruby\n\
       remote_file '/etc/nginx.conf' do\n  verify 'nginx -t -c %{path}'\nend\n```"
-  - markdown: "This should return `true`:\n\n``` ruby\nremote_file '/tmp/bar' do\n\
-      \  verify { 1 == 1}\nend\n```\n\nAnd this should return `true`:\n\n``` ruby\n\
+  - markdown: "This should return `true`:\n\n```ruby\nremote_file '/tmp/bar' do\n\
+      \  verify { 1 == 1}\nend\n```\n\nAnd this should return `true`:\n\n```ruby\n\
       remote_file '/tmp/foo' do\n  verify do |path|\n    true\n  end\nend\n```\n\n\
-      Whereas, this should return `false`:\n\n``` ruby\nremote_file '/tmp/turtle'\
+      Whereas, this should return `false`:\n\n```ruby\nremote_file '/tmp/turtle'\
       \ do\n  verify '/usr/bin/false'\nend\n```\n\nIf a string or a block return `false`,\
       \ the Chef Infra Client run\nwill stop and an error is returned."
 properties_shortcode: null
@@ -611,10 +611,10 @@ handler_custom: false
 cookbook_file_specificity: false
 unit_file_verification: false
 examples: "
-  Transfer a file from a URL\n\n  ``` ruby\n  remote_file '/tmp/testfile'\
+  Transfer a file from a URL\n\n  ```ruby\n  remote_file '/tmp/testfile'\
   \ do\n    source 'http://www.example.com/tempfiles/testfile'\n    mode '0755'\n\
   \    checksum '3a7dac00b1' # A SHA256 (or portion thereof) of the file.\n  end\n\
-  \  ```\n\n  Transfer a file only when the source has changed\n\n  ``` ruby\n  remote_file\
+  \  ```\n\n  Transfer a file only when the source has changed\n\n  ```ruby\n  remote_file\
   \ '/tmp/couch.png' do\n    source 'http://couchdb.apache.org/img/sketch.png'\n \
   \   action :nothing\n  end\n\n  http_request 'HEAD http://couchdb.apache.org/img/sketch.png'\
   \ do\n    message ''\n    url 'http://couchdb.apache.org/img/sketch.png'\n    action\
@@ -625,7 +625,7 @@ examples: "
   \ This module adds shell-style functionality to an Nginx\n  configuration file and\
   \ does the following:\n\n  -   Declares three variables\n  -   Gets the Nginx file\
   \ from a remote location\n  -   Installs the file using Bash to the path specified\
-  \ by the\n      `src_filepath` variable\n\n  <!-- -->\n\n  ``` ruby\n  # the following\
+  \ by the\n      `src_filepath` variable\n\n  <!-- -->\n\n  ```ruby\n  # the following\
   \ code sample is similar to the ``upload_progress_module``\n  # recipe in the ``nginx``\
   \ cookbook:\n  # https://github.com/chef-cookbooks/nginx\n\n  src_filename = \"\
   foo123-nginx-module-v#{\n    node['nginx']['foo123']['version']\n  }.tar.gz\"\n\
@@ -644,7 +644,7 @@ examples: "
   \ settings\n  for Python that are then used across all nodes against which this\
   \ recipe\n  will run.\n\n  Python packages have versions, installation directories,\
   \ URLs, and\n  checksum files. An attributes file that exists to support this type\
-  \ of\n  recipe would include settings like the following:\n\n  ``` ruby\n  default['python']['version']\
+  \ of\n  recipe would include settings like the following:\n\n  ```ruby\n  default['python']['version']\
   \ = '2.7.1'\n\n  if python['install_method'] == 'package'\n    default['python']['prefix_dir']\
   \ = '/usr'\n  else\n    default['python']['prefix_dir'] = '/usr/local'\n  end\n\n\
   \  default['python']['url'] = 'http://www.python.org/ftp/python'\n  default['python']['checksum']\
@@ -655,7 +655,7 @@ examples: "
   \  -   Get the package from a remote location, but only if the package does\n  \
   \    not already exist on the target system\n  -   Use the **bash** resource to\
   \ install the package on the node, but\n      only when the package is not already\
-  \ installed\n\n  <!-- -->\n\n  ``` ruby\n  #  the following code sample comes from\
+  \ installed\n\n  <!-- -->\n\n  ```ruby\n  #  the following code sample comes from\
   \ the ``oc-nginx`` cookbook on |github|: https://github.com/cookbooks/oc-nginx\n\
   \n  version = node['python']['version']\n  install_path = \"#{node['python']['prefix_dir']}/lib/python#{version.split(/(^\\\
   d+\\.\\d+)/)[1]}\"\n\n  remote_file \"#{Chef::Config[:file_cache_path]}/Python-#{version}.tar.bz2\"\
@@ -671,17 +671,17 @@ examples: "
   \ is\n  being used to ensure that a specific binary is used for a specific\n  platform\
   \ before using the **remote_file** resource to download a file\n  from a remote\
   \ location, and then using the **execute** resource to\n  install that file by running\
-  \ a command.\n\n  ``` ruby\n  if platform_family?('rhel')\n    pip_binary = '/usr/bin/pip'\n\
+  \ a command.\n\n  ```ruby\n  if platform_family?('rhel')\n    pip_binary = '/usr/bin/pip'\n\
   \  else\n    pip_binary = '/usr/local/bin/pip'\n  end\n\n  remote_file \"#{Chef::Config[:file_cache_path]}/distribute_setup.py\"\
   \ do\n    source 'http://python-distribute.org/distribute_setup.py'\n    mode '0755'\n\
   \    not_if { File.exist?(pip_binary) }\n  end\n\n  execute 'install-pip' do\n \
   \   cwd Chef::Config[:file_cache_path]\n    command <<-EOF\n      # command for\
   \ installing Python goes here\n      EOF\n    not_if { File.exist?(pip_binary) }\n\
   \  end\n  ```\n\n  where a command for installing Python might look something like:\n\
-  \n  ``` ruby\n  #{node['python']['binary']} distribute_setup.py\n  #{::File.dirname(pip_binary)}/easy_install\
+  \n  ```ruby\n  #{node['python']['binary']} distribute_setup.py\n  #{::File.dirname(pip_binary)}/easy_install\
   \ pip\n  ```\n\n  Specify local Windows file path as a valid URI\n\n  When specifying\
   \ a local Microsoft Windows file path as a valid file URI,\n  an additional forward\
-  \ slash (`/`) is required. For example:\n\n  ``` ruby\n  remote_file 'file:///c:/path/to/file'\
+  \ slash (`/`) is required. For example:\n\n  ```ruby\n  remote_file 'file:///c:/path/to/file'\
   \ do\n    ...       # other attributes\n  end\n  ```\n"
 
 ---

@@ -62,19 +62,19 @@ For the Debian platform, do the following:
 
 2.  Run the following command:
 
-    ``` bash
+    ```bash
     cd /usr/local/share/ca-certificates
     ```
 
 3.  Run the following command:
 
-    ``` bash
+    ```bash
     openssl s_client -showcerts -connect {BITBUCKET_SERVER}:443 </dev/null 2>/dev/null|openssl x509 -outform PEM >{BITBUCKET_SERVER}.crt
     ```
 
 4.  Run the following command:
 
-    ``` bash
+    ```bash
     update-ca-certificates
     ```
 
@@ -87,7 +87,7 @@ higher), do the following:
 
 2.  Run the following command:
 
-    ``` bash
+    ```bash
     yum install ca-certificates
     ```
 
@@ -99,7 +99,7 @@ higher), do the following:
 
 3.  Run the following command:
 
-    ``` bash
+    ```bash
     update-ca-trust force-enable
     ```
 
@@ -111,19 +111,19 @@ higher), do the following:
 
 4.  Run the following command:
 
-    ``` bash
+    ```bash
     cd /etc/pki/ca-trust/source/anchors/
     ```
 
 5.  Run the following command:
 
-    ``` bash
+    ```bash
     openssl s_client -showcerts -connect {BITBUCKET_SERVER}:443 </dev/null 2>/dev/null|openssl x509 -outform PEM >{BITBUCKET_SERVER}.crt
     ```
 
 6.  Run the following command:
 
-    ``` bash
+    ```bash
     update-ca-trust extract
     ```
 
@@ -202,7 +202,7 @@ Workflow:
 
 2.  Create a `.delivery/cli.toml` using `delivery setup`:
 
-    ``` bash
+    ```bash
     delivery setup --ent=$DELIVERY_ENTERPRISE --org=$DELIVERY_ORG --user=$DELIVERY_USER_NAME --server=$DELIVERY_SERVER
     ```
 
@@ -275,13 +275,13 @@ project:
 3.  Use the `delivery setup` command with the following arguments to
     create the `.delivery/cli.toml` file:
 
-    ``` bash
+    ```bash
     delivery setup --ent=$DELIVERY_ENTERPRISE --org=$DELIVERY_ORG --user=$DELIVERY_USER --server=$DELIVERY_SERVER
     ```
 
 4.  Create a local clone of the project repository:
 
-    ``` bash
+    ```bash
     delivery clone $PROJECT
     ```
 
@@ -292,7 +292,7 @@ project:
 
 5.  Create a remote with the following:
 
-    ``` bash
+    ```bash
     git remote add delivery $DELIVERY_CLONE_URL
     ```
 

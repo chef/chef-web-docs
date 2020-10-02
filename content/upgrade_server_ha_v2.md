@@ -59,13 +59,13 @@ rejoin after each upgrade.
 
     RHEL and CentOS:
 
-    ``` bash
+    ```bash
     yum install PATH_TO_FILE.rpm
     ```
 
     Debian and Ubuntu:
 
-    ``` bash
+    ```bash
     dpkg -i PATH_TO_FILE.deb
     ```
 
@@ -74,7 +74,7 @@ rejoin after each upgrade.
 
 2.  Run the upgrade command
 
-    ``` bash
+    ```bash
     chef-backend-ctl upgrade
     ```
 
@@ -87,7 +87,7 @@ Repeat the previous steps in this section for each remaining follower.
 
 Unblock failover, trigger failover, block it again.
 
-``` bash
+```bash
 % chef-backend-ctl set-cluster-failover on
 % chef-backend-ctl upgrade --failover
 % chef-backend-ctl set-cluster-failover off
@@ -97,7 +97,7 @@ Unblock failover, trigger failover, block it again.
 
 Allow failover again:
 
-``` bash
+```bash
 % chef-backend-ctl set-cluster-failover on
 ```
 
@@ -105,7 +105,7 @@ Allow failover again:
 
 Check the status of the cluster:
 
-``` bash
+```bash
 chef-backend-ctl status
 ```
 
@@ -121,7 +121,7 @@ cluster downtime.
 1.  Identify the node with the **leader** role using the
     `chef-backend-ctl cluster-status` command:
 
-    ``` none
+    ```none
     Name       IP              GUID                              Role      PG        ES
     backend-1  192.168.33.215  dc0c6ea77a751f94037cd950e8451fa3  leader    leader    not_master
     backend-2  192.168.33.216  008782c59d3628b6bb7f43556ac0c66c  follower  follower  not_master
@@ -135,45 +135,45 @@ cluster downtime.
 
     RHEL and CentOS:
 
-    ``` bash
+    ```bash
     yum install PATH_TO_FILE.rpm
     ```
 
     Debian and Ubuntu:
 
-    ``` bash
+    ```bash
     dpkg -i PATH_TO_FILE.deb
     ```
 
 3.  On the leader, run the following command to take the node down for
     the upgrade:
 
-    ``` bash
+    ```bash
     chef-backend-ctl down-for-upgrade
     ```
 
 4.  Then issue the same command on the follower nodes:
 
-    ``` bash
+    ```bash
     chef-backend-ctl down-for-upgrade
     ```
 
 5.  Initiate the upgrade on the follower nodes first:
 
-    ``` bash
+    ```bash
     chef-backend-ctl upgrade
     ```
 
 6.  Then initiate the upgrade on the leader node:
 
-    ``` bash
+    ```bash
     chef-backend-ctl upgrade
     ```
 
 7.  On any Chef Infra Server frontend nodes using the Chef Backend
     cluster upgraded in the previous steps, run:
 
-    ``` bash
+    ```bash
     chef-server-ctl reconfigure
     ```
 

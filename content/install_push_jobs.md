@@ -37,7 +37,7 @@ To set up the Chef Push Jobs client:
 2.  Add the following default attributes on all nodes that are managed
     by Chef Push Jobs:
 
-    ``` javascript
+    ```javascript
     "push_jobs": {
       "package_url": "<package_url>",
       "package_checksum": "<checksum>"
@@ -49,13 +49,13 @@ To set up the Chef Push Jobs client:
 4.  Verify that the Chef Push Jobs client is running as a daemon or as a
     service:
 
-    ``` bash
+    ```bash
     knife node status node_name
     ```
 
     for a specific node and:
 
-    ``` bash
+    ```bash
     knife node status
     ```
 
@@ -87,7 +87,7 @@ managed using Chef Push Jobs.
 The whitelist is defined using the `node['push_jobs']['whitelist']`
 attribute located in the default attributes file:
 
-``` ruby
+```ruby
 default['push_jobs']['whitelist']   = {
      "job_name" => "command",
      "job_name" => "command",
@@ -102,7 +102,7 @@ after the initial installation of Chef Push Jobs.
 After the whitelist is defined, add the jobs to the client.rb file on
 each node that will be managed by Chef Push Jobs:
 
-``` ruby
+```ruby
 whitelist({ "job_name" => "command",
             "job_name" => "command",
             "chef-client" => "chef-client"
@@ -111,7 +111,7 @@ whitelist({ "job_name" => "command",
 
 For example:
 
-``` ruby
+```ruby
 {
   "chef-client": "sudo chef-client",
   "chef_client_with_special_run_list": "sudo chef-client -o recipe[special_recipe]",
@@ -122,13 +122,13 @@ For example:
 By default, any attempt to run a Chef Push Jobs command other than
 `chef-client` will be rejected with `nack`. For example:
 
-``` bash
+```bash
 knife job start some_command my_node
 ```
 
 will return something similar to:
 
-``` bash
+```bash
 Started.  Job ID: 67079444838d123456f0c1ea614c1fcaa0f
 Failed.
 command:     some_command
@@ -146,13 +146,13 @@ environments, and nodes. For example, to set all of the nodes in the
 `dev` environment to accept a Chef Push Jobs command to restart Apache,
 run the following command:
 
-``` bash
+```bash
 knife edit environments/dev.json
 ```
 
 and then update the default attributes to include something like:
 
-``` javascript
+```javascript
 {
   "name": "dev",
   "description": "The development environment",
@@ -171,7 +171,7 @@ and then update the default attributes to include something like:
 after which the following command can be run against nodes in the `dev`
 environment to restart Apache:
 
-``` bash
+```bash
 knife job start restart_apache NODE1 NODE2 ...
 ```
 

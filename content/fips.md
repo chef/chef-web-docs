@@ -182,7 +182,7 @@ Any time this certificate changes you must re-run this process.
     the above openssl command to avoid having to copy/paste the
     certificate chain around as well. For Example:
 
-    ``` none
+    ```none
     echo "q" | openssl s_client -showcerts -connect yourautomateserver.com:443 </dev/null 2> /dev/null
 
     CONNECTED(00000003)
@@ -206,7 +206,7 @@ Any time this certificate changes you must re-run this process.
     certificate sections in order. In this example the file should look
     like:
 
-    ``` none
+    ```none
     -----BEGIN CERTIFICATE-----
     (server certificate)
     -----END CERTIFICATE-----
@@ -218,7 +218,7 @@ Any time this certificate changes you must re-run this process.
 -   Every workstation will need a copy of this file and the cli.toml
     should be updated to include this configuration option.
 
-    ``` none
+    ```none
     fips_custom_cert_filename = "/full/path/to/your/certificate-chain.pem"
     ```
 
@@ -227,7 +227,7 @@ Any time this certificate changes you must re-run this process.
     class="title-ref">install-runner</span> command. See [Install
     Runner](/ctl_automate_server/#install-runner).
 
-    ``` none
+    ```none
     automate-ctl install-runner [server fqdn] [ssh user] --fips-custom-cert-filename path/to/your/certificate-chain.pem [other options...]
     ```
 
@@ -241,7 +241,7 @@ mode](/delivery_cli/#check-if-chef-automate-server-has-enabled-fips-mode).
 
 Running `delivery status` should return something like:
 
-``` none
+```none
 Status information for Automate server automate-server.dev
 
 Status: up (request took 97 ms)
@@ -263,7 +263,7 @@ Elasticsearch:
 Your Automate Server is configured in FIPS mode. Please add the
 following to your cli.toml to enable Automate FIPS mode on your machine:
 
-``` none
+```none
 fips = true
 fips_git_port = "OPEN_PORT"
 ```
@@ -278,7 +278,7 @@ Replace OPEN_PORT with any port that is free on your machine.
 2.  Confirm your project's `cli.toml` is configured correctly. The
     following configuration items should be present:
 
-    ``` none
+    ```none
     fips_enabled = true
     fips_git_port = "<some open port>"
 
@@ -291,7 +291,7 @@ Replace OPEN_PORT with any port that is free on your machine.
 3.  On Windows you will need to kill the tunnel whenever you make a fips
     configuration change to `cli.toml`. To restart the tunnel:
 
-    ``` none
+    ```none
     PS C:\Users\user> tasklist /fi "imagename eq stunnel.exe"
 
     Image Name                     PID Session Name        Session#    Mem Usage

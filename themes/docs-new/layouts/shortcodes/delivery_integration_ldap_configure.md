@@ -4,7 +4,7 @@ To configure LDAP for Workflow:
     want Workflow to use. If you do not specify an LDAP port, the
     default port of `3269` is used.
 
-    ``` ruby
+    ```ruby
     delivery['ldap_hosts'] = ['ldap.tld']
     delivery['ldap_port'] = 3269
     delivery['ldap_timeout'] = 5000
@@ -19,7 +19,7 @@ To configure LDAP for Workflow:
 
 2.  Run the following command to complete the configuration process:
 
-    ``` bash
+    ```bash
     sudo automate-ctl reconfigure
     ```
 

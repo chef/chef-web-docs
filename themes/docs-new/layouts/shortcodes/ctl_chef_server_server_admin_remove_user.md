@@ -4,7 +4,7 @@ removed.
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 chef-server-ctl remove-server-admin-permissions USER_NAME
 ```
 
@@ -13,13 +13,13 @@ administrators.
 
 For example:
 
-``` bash
+```bash
 chef-server-ctl remove-server-admin-permissions bob
 ```
 
 returns:
 
-``` bash
+```bash
 User bob was removed from server-admins. This user can no longer
 list, read, and create users for this Chef Infra Server except for where
 they have default permissions (such as within an org).

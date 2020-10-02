@@ -1,4 +1,4 @@
-``` ruby
+```ruby
 remote_file '/tmp/couch.png' do
   source 'http://couchdb.apache.org/img/sketch.png'
   action :nothing

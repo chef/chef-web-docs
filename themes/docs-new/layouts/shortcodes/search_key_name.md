@@ -1,7 +1,7 @@
 To see the available keys for a node, enter the following (for a node
 named `staging`):
 
-``` bash
+```bash
 knife node show staging -Fj | less
 ```
 

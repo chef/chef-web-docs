@@ -1,7 +1,7 @@
 The following example shows how to use the `search` method in the Recipe
 DSL to search for users:
 
-``` ruby
+```ruby
 #  the following code sample comes from the openvpn cookbook: https://github.com/chef-cookbooks/openvpn
 
 search("users", "*:*") do |u|

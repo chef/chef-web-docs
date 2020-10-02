@@ -27,7 +27,7 @@ resource_description_list:
 resource_new_in: null
 handler_types: false
 syntax_description: "A **file** resource block manages files that exist on nodes.\
-  \ For\nexample, to write the home page for an Apache website:\n\n``` ruby\nfile\
+  \ For\nexample, to write the home page for an Apache website:\n\n```ruby\nfile\
   \ '/var/www/customers/public_html/index.php' do\n  content '<html>This is a placeholder\
   \ for the home page.</html>'\n  mode '0755'\n  owner 'web_admin'\n  group 'web_admin'\n\
   end\n```"
@@ -343,7 +343,7 @@ properties_list:
         the `verify` property. When a block returns `true`, Chef Infra
 
         Client will continue to update the file as appropriate.'
-  - markdown: "For example, this should return `true`:\n\n``` ruby\nfile '/tmp/baz'\
+  - markdown: "For example, this should return `true`:\n\n```ruby\nfile '/tmp/baz'\
       \ do\n  verify { 1 == 1 }\nend\n```\n\nThis should also return `true`:\n\n```\
       \ ruby\nfile '/etc/nginx.conf' do\n  verify 'nginx -t -c %{path}'\nend\n```\n\
       \nIn this example, the `%{path}` portion of this command is expanded\nto the\
@@ -378,16 +378,16 @@ handler_custom: false
 cookbook_file_specificity: false
 unit_file_verification: false
 examples: "
-  Create a file\n\n  ``` ruby\n  file '/tmp/something' do\n    owner\
+  Create a file\n\n  ```ruby\n  file '/tmp/something' do\n    owner\
   \ 'root'\n    group 'root'\n    mode '0755'\n    action :create\n  end\n  ```\n\n\
   \  Create a file in Microsoft Windows\n\n  To create a file in Microsoft Windows,\
   \ be sure to add an escape\n  character---`\\`---before the backslashes in the paths:\n\
-  \n  ``` ruby\n  file 'C:\\\\tmp\\\\something.txt' do\n    rights :read, 'Everyone'\n\
+  \n  ```ruby\n  file 'C:\\\\tmp\\\\something.txt' do\n    rights :read, 'Everyone'\n\
   \    rights :full_control, 'DOMAIN\\\\User'\n    action :create\n  end\n  ```\n\n\
-  \  Remove a file\n\n  ``` ruby\n  file '/tmp/something' do\n    action :delete\n\
-  \  end\n  ```\n\n  Set file modes\n\n  ``` ruby\n  file '/tmp/something' do\n  \
+  \  Remove a file\n\n  ```ruby\n  file '/tmp/something' do\n    action :delete\n\
+  \  end\n  ```\n\n  Set file modes\n\n  ```ruby\n  file '/tmp/something' do\n  \
   \  mode '0755'\n  end\n  ```\n\n  Delete a repository using yum to scrub the cache\n\
-  \n  ``` ruby\n  # the following code sample thanks to gaffneyc @ https://gist.github.com/918711\n\
+  \n  ```ruby\n  # the following code sample thanks to gaffneyc @ https://gist.github.com/918711\n\
   \n  execute 'clean-yum-cache' do\n    command 'yum clean all'\n    action :nothing\n\
   \  end\n\n  file '/etc/yum.repos.d/bad.repo' do\n    action :delete\n    notifies\
   \ :run, 'execute[clean-yum-cache]', :immediately\n    notifies :create, 'ruby_block[reload-internal-yum-cache]',\
@@ -395,21 +395,21 @@ examples: "
   \  The following example shows how to get the contents of a data bag item\n  named\
   \ `impossible_things`, create a .pem file located at\n  `some/directory/path/`,\
   \ and then use the `content` attribute to update\n  the contents of that file with\
-  \ the value of the `impossible_things` data\n  bag item:\n\n  ``` ruby\n  private_key\
+  \ the value of the `impossible_things` data\n  bag item:\n\n  ```ruby\n  private_key\
   \ = data_bag_item('impossible_things', private_key_name)['private_key']\n\n  file\
   \ \"some/directory/path/#{private_key_name}.pem\" do\n    content private_key\n\
   \    owner 'root'\n    group 'group'\n    mode '0755'\n  end\n  ```\n\n  Write a\
   \ YAML file\n\n  The following example shows how to use the `content` property to\
-  \ write a\n  YAML file:\n\n  ``` ruby\n  file \"#{app['deploy_to']}/shared/config/settings.yml\"\
+  \ write a\n  YAML file:\n\n  ```ruby\n  file \"#{app['deploy_to']}/shared/config/settings.yml\"\
   \ do\n    owner \"app['owner']\"\n    group \"app['group']\"\n    mode '0755'\n\
   \    content app.to_yaml\n  end\n  ```\n\n  Write a string to a file\n\n  The following\
   \ example specifies a directory, and then uses the `content`\n  property to add\
-  \ a string to the file created in that directory:\n\n  ``` ruby\n  status_file =\
+  \ a string to the file created in that directory:\n\n  ```ruby\n  status_file =\
   \ '/path/to/file/status_file'\n\n  file status_file do\n    owner 'root'\n    group\
   \ 'root'\n    mode '0755'\n    content 'My favourite foremost coastal Antarctic\
   \ shelf, oh Larsen B!'\n  end\n  ```\n\n  Create a file from a copy\n\n  The following\
   \ example shows how to copy a file from one directory to\n  another, locally on\
-  \ a node:\n\n  ``` ruby\n  file '/root/1.txt' do\n    content IO.read('/tmp/1.txt')\n\
+  \ a node:\n\n  ```ruby\n  file '/root/1.txt' do\n    content IO.read('/tmp/1.txt')\n\
   \    action :create\n  end\n  ```\n\n  where the `content` attribute uses the Ruby\
   \ `IO.read` method to get the\n  contents of the `/tmp/1.txt` file.\n"
 

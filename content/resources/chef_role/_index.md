@@ -17,7 +17,7 @@ resource_description_list:
 resource_new_in: null
 handler_types: false
 syntax_description: "The syntax for using the **chef_role** resource in a recipe is\
-  \ as\nfollows:\n\n``` ruby\nchef_role 'name' do\n  attribute 'value' # see properties\
+  \ as\nfollows:\n\n```ruby\nchef_role 'name' do\n  attribute 'value' # see properties\
   \ section below\n  ...\n  action :action # see actions section below\nend\n```"
 syntax_code_block: null
 syntax_properties_list:
@@ -126,7 +126,7 @@ properties_list:
   default_value: null
   new_in: null
   description_list:
-  - markdown: "The role as JSON data. For example:\n\n``` javascript\n{\n  \"name\"\
+  - markdown: "The role as JSON data. For example:\n\n```javascript\n{\n  \"name\"\
       : \"webserver\",\n  \"chef_type\": \"role\",\n  \"json_class\": \"Chef::Role\"\
       ,\n  \"default_attributes\": {},\n  \"description\": \"A webserver\",\n  \"\
       run_list\": [\n    \"recipe[apache2]\"\n  ],\n  \"override_attributes\": {}\n\

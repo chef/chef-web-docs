@@ -28,7 +28,7 @@ systems installed with Windows 8.1.
 Use an array with the `source` property to define an explicit lookup
 path. For example:
 
-``` ruby
+```ruby
 template '/test' do
   source ["#{node.chef_environment}.erb", 'default.erb']
 end
@@ -37,7 +37,7 @@ end
 The following example emulates the entire file specificity pattern by
 defining it as an explicit path:
 
-``` ruby
+```ruby
 template '/test' do
   source %W(
     host-#{node['fqdn']}/test.erb

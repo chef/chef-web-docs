@@ -1,6 +1,6 @@
 To test a search query that will be used in a `knife ssh` subcommand:
 
-``` bash
+```bash
 knife search node "role:web NOT name:web03"
 ```
 

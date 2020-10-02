@@ -107,7 +107,7 @@ with the required permissions to create an S3 bucket called
 `example-backups`. A policy with these permissions is sufficient for the
 backup commands to function as expected.
 
-``` json
+```json
 {
   "Statement": [
     {
@@ -144,7 +144,7 @@ backup commands to function as expected.
 Next, configure Chef Automate to use S3 for both the backups and
 snapshots. For example:
 
-``` ruby
+```ruby
 backup['bucket']                    = 'example-backups'
 backup['region']                    = 'us-west-2'
 backup['type']                      = 's3'
@@ -178,7 +178,7 @@ restoration.
 See below for valid examples of `delivery.rb` configurations for server
 side encryption.
 
-``` ruby
+```ruby
 # Elasticsearch snapshot SSE-S3 AES256
 backup['elasticsearch']['server_side_encryption'] = true # default
 backup['elasticsearch']['server_side_encryption'] = false
@@ -202,7 +202,7 @@ To enable a backup cron job that will create new backups and prune older
 backups and snapshots, configure the following settings in
 `delivery.rb`:
 
-``` ruby
+```ruby
 backup['cron']['enabled']       = true
 backup['cron']['max_archives']  = 7
 backup['cron']['max_snapshots'] = 7

@@ -1,5 +1,5 @@
 To search for all nodes running Ubuntu, enter:
 
-``` bash
+```bash
 knife search node 'platform:ubuntu'
 ```

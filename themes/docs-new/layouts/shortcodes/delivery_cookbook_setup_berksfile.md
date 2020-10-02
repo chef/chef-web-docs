@@ -1,7 +1,7 @@
 The Berksfile for a `build-cookbook` is located at
 `.delivery/build-cookbook/Berksfile`. Update it to include:
 
-``` ruby
+```ruby
 source 'https://supermarket.chef.io'
 
 metadata

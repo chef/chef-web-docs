@@ -2,7 +2,7 @@ The following example shows how to add a rule named `test_rule` to an IP
 table using the **execute** resource to run a command using a template
 that is defined by the **template** resource:
 
-``` ruby
+```ruby
 execute 'test_rule' do
   command 'command_to_run
     --option value

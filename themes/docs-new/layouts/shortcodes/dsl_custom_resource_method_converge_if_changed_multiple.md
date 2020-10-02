@@ -3,7 +3,7 @@ following example shows how to use the `converge_if_changed` method to
 compare the multiple desired property values against the current
 property values (as loaded by the `load_current_value` method).
 
-``` ruby
+```ruby
 property :path, String
 property :content, String
 property :mode, String

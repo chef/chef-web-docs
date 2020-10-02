@@ -339,7 +339,7 @@ To include a shortcode in a list or definition list, just add its file name
 to the `file` parameter of `readFile_shortcode`.
 
 For example, if you wanted to add `shortcode_file_name.md` to a list:
-``` md
+```md
 1.  Here is some text introducing the shortcode, but it's not necessary.
 
     {{< readFile_shortcode file="shortcode_file_name.md" >}}

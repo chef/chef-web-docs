@@ -2,7 +2,7 @@ To get a list of nodes using a recipe named `postfix` use
 `search(:node,"recipe:postfix")`. To get a list of nodes using a
 sub-recipe named `delivery`, use chef-shell. For example:
 
-``` ruby
+```ruby
 search(:node, 'recipes:postfix\:\:delivery')
 ```
 

@@ -1,7 +1,7 @@
 This example uses the `:before` notification to restart the `php-fpm`
 service before restarting `nginx`:
 
-``` ruby
+```ruby
 service 'nginx' do
   action :restart
   notifies :restart, 'service[php-fpm]', :before

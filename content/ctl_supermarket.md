@@ -23,7 +23,7 @@ user an administrator.
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 sudo -u supermarket supermarket-ctl make-admin USER_NAME
 ```
 
@@ -39,7 +39,7 @@ metric visible only to admins.
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 sudo -u supermarket supermarket-ctl qm-flip-admin-only "METRIC_NAME"
 ```
 
@@ -53,7 +53,7 @@ visible only to admins.
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 sudo -u supermarket supermarket-ctl qm-flip-all-admin-only
 ```
 
@@ -64,7 +64,7 @@ visible to all users.
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 sudo -u supermarket supermarket-ctl qm-flip-all-public
 ```
 
@@ -75,7 +75,7 @@ metric visible to all users.
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 sudo -u supermarket supermarket-ctl qm-flip-public "METRIC_NAME"
 ```
 
@@ -89,7 +89,7 @@ defined currently in a Supermarket.
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 sudo -u supermarket supermarket-ctl qm-list
 ```
 
@@ -100,7 +100,7 @@ on the latest versions of all cookbooks.
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 sudo -u supermarket supermarket-ctl qm-run-all-the-latest
 ```
 
@@ -111,7 +111,7 @@ latest version of a named cookbook.
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 sudo -u supermarket supermarket-ctl qm-run-on-version COOKBOOK_NAME
 ```
 
@@ -125,7 +125,7 @@ given version of a named cookbook.
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 sudo -u supermarket supermarket-ctl qm-run-on-version COOKBOOK_NAME VERSION
 ```
 
@@ -142,7 +142,7 @@ destroy all data, configuration files, and logs.
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 supermarket-ctl cleanse
 ```
 
@@ -153,7 +153,7 @@ supermarket-ctl commands.
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 supermarket-ctl help
 ```
 
@@ -168,7 +168,7 @@ subcommand will also restart any services for which the
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 supermarket-ctl reconfigure
 ```
 
@@ -181,7 +181,7 @@ built properly prior to installation.
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 supermarket-ctl show-config
 ```
 
@@ -193,7 +193,7 @@ shut down all services (including the `runit` process supervisor).
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 supermarket-ctl uninstall
 ```
 
@@ -216,7 +216,7 @@ of the service in the command.
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 supermarket-ctl hup name_of_service
 ```
 
@@ -231,7 +231,7 @@ of the service in the command.
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 supermarket-ctl int name_of_service
 ```
 
@@ -246,7 +246,7 @@ of the service in the command.
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 supermarket-ctl kill name_of_service
 ```
 
@@ -269,7 +269,7 @@ command.
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 supermarket-ctl once name_of_service
 ```
 
@@ -284,7 +284,7 @@ of that service in the command.
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 supermarket-ctl restart name_of_service
 ```
 
@@ -292,7 +292,7 @@ where `name_of_service` represents the name of any service that is
 listed after running the `service-list` subcommand. When a service is
 successfully restarted the output should be similar to:
 
-``` bash
+```bash
 ok: run: service_name: (pid 12345) 1s
 ```
 
@@ -303,7 +303,7 @@ services. A service that is enabled is labeled with an asterisk (\*).
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 supermarket-ctl service-list
 ```
 
@@ -315,7 +315,7 @@ by specifying the name of the service in the command.
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 supermarket-ctl start name_of_service
 ```
 
@@ -323,7 +323,7 @@ where `name_of_service` represents the name of any service that is
 listed after running the `service-list` subcommand. When a service is
 successfully started the output should be similar to:
 
-``` bash
+```bash
 ok: run: service_name: (pid 12345) 1s
 ```
 
@@ -344,7 +344,7 @@ available to Chef Supermarket. The results will vary based on the
 configuration of a given server. This subcommand has the following
 syntax:
 
-``` bash
+```bash
 supermarket-ctl status
 ```
 
@@ -352,7 +352,7 @@ and will return the status for all services. Status can be returned for
 individual services by specifying the name of the service as part of the
 command:
 
-``` bash
+```bash
 supermarket-ctl status name_of_service
 ```
 
@@ -361,7 +361,7 @@ listed after running the `service-list` subcommand.
 
 When service status is requested, the output should be similar to:
 
-``` bash
+```bash
 run: service_name: (pid 12345) 12345s; run: log: (pid 1234) 67890s
 ```
 
@@ -375,7 +375,7 @@ where
 
 For example:
 
-``` bash
+```bash
 down: actions: (pid 35546) 10s
 ```
 
@@ -386,7 +386,7 @@ particular service is not running as it should be, look for the services
 with the shortest uptimes. For example, the list below indicates that
 the **actions** should be investigated further:
 
-``` bash
+```bash
 run: actions: (pid 6361) 4132s; run: log: (pid 6173) 4146s
 run: actions_consumer: (pid 6374) 5s; run: log: (pid 6227) 4139s
 run: actions_messages: (pid 6392) 4131s; run: log: (pid 6324) 4133s
@@ -398,7 +398,7 @@ run: memcached: (pid 6115) 4157s; run: log: (pid 6129) 4156s
 A typical status line for a service that is running in Chef Supermarket
 is similar to the following:
 
-``` bash
+```bash
 run: name_of_service: (pid 1486) 7819s; run: log: (pid 1485) 7819s
 ```
 
@@ -418,7 +418,7 @@ where:
 If the service is down, the status line will appear similar to the
 following:
 
-``` bash
+```bash
 down: actions: 3s, normally up; run: log: (pid 1485) 8526s
 ```
 
@@ -437,7 +437,7 @@ specifying the name of the service in the command.
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 supermarket-ctl stop name_of_service
 ```
 
@@ -445,19 +445,19 @@ where `name_of_service` represents the name of any service that is
 listed after running the `service-list` subcommand. When a service is
 successfully stopped the output should be similar to:
 
-``` bash
+```bash
 ok: diwb: service_name: 0s, normally up
 ```
 
 For example:
 
-``` bash
+```bash
 supermarket-ctl stop
 ```
 
 will return something similar to:
 
-``` bash
+```bash
 ok: down: actions: 1s, normally up
 ok: down: actions_consumer: 0s, normally up
 ok: down: actions_messages: 0s, normally up
@@ -472,7 +472,7 @@ specifying the name of the service in the command.
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 supermarket-ctl tail name_of_service
 ```
 
@@ -487,7 +487,7 @@ of the service in the command.
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 supermarket-ctl term name_of_service
 ```
 

@@ -1,7 +1,7 @@
 To notify multiple resources, and then have these resources run in a
 certain order, do something like the following:
 
-``` ruby
+```ruby
 execute 'foo' do
   command '...'
   notifies :create, 'template[baz]', :immediately

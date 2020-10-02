@@ -23,7 +23,7 @@ The behavior in Chef Client 12 and earlier, which is now deprecated, is
 that we will try to clone the existing resource, and then apply any
 properties from the new resource. For example:
 
-``` ruby
+```ruby
 file '/etc/my_file' do
   owner 'ken'
 end
@@ -35,7 +35,7 @@ end
 
 will result in the second instance having the following properties:
 
-``` ruby
+```ruby
 file '/etc/my_file' do
   owner 'ken'
   mode '0755'

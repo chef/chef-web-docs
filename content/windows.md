@@ -33,7 +33,7 @@ Microsoft Windows](/workstation/install_workstation/)
 
 This command has the following syntax:
 
-``` bash
+```bash
 chef-client OPTION VALUE OPTION VALUE ...
 ```
 

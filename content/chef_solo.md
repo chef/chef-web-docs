@@ -26,7 +26,7 @@ chef-solo supports two locations from which cookbooks can be run:
 Using a tar.gz archive is the more common approach, but requires that
 cookbooks be added to an archive. For example:
 
-``` bash
+```bash
 tar zcvf chef-solo.tar.gz ./cookbooks
 ```
 
@@ -43,7 +43,7 @@ tar.gz archive to have a directory structure similar to the following:
 The `cookbook_path` variable in the solo.rb file must include both
 directories. For example:
 
-``` bash
+```bash
 tar zcvf chef-solo.tar.gz ./cookbooks ./site-cookbooks
 ```
 
@@ -70,7 +70,7 @@ or a web server on the local network.
 The JSON file must also specify the recipes that are part of the
 run-list. For example:
 
-``` javascript
+```javascript
 {
   "resolver": {
     "nameservers": [ "10.0.0.1" ],
@@ -86,25 +86,25 @@ A data bag is defined using JSON. chef-solo will look for data bags in
 `/var/chef/data_bags`, but this location can be modified by changing the
 setting in solo.rb. For example, the following setting in solo.rb:
 
-``` ruby
+```ruby
 data_bag_path '/var/chef-solo/data_bags'
 ```
 
 Create a data bag by creating folders. For example:
 
-``` bash
+```bash
 mkdir /var/chef-solo/data_bags
 ```
 
 and:
 
-``` bash
+```bash
 mkdir /var/chef-solo/data_bags/admins
 ```
 
 and then create a JSON file in that location:
 
-``` javascript
+```javascript
 {
   "id": "ITEM_NAME"
 }
@@ -112,7 +112,7 @@ and then create a JSON file in that location:
 
 where the name of the file is the `ITEM_NAME`, for example:
 
-``` ruby
+```ruby
 /var/chef-solo/data_bags/admins/ITEM_NAME.json
 ```
 
@@ -123,13 +123,13 @@ roles in `/var/chef/roles`, but this location can be modified by
 changing the setting for `role_path` in solo.rb. For example, the
 following setting in solo.rb:
 
-``` ruby
+```ruby
 role_path '/var/chef-solo/roles'
 ```
 
 Role data looks like the following in JSON:
 
-``` javascript
+```javascript
 {
   "name": "test",
   "default_attributes": { },
@@ -143,7 +143,7 @@ Role data looks like the following in JSON:
 
 and like the following in the Ruby DSL:
 
-``` ruby
+```ruby
 name 'test'
 description 'This is just a test role, no big deal.'
 run_list 'recipe[test]'
@@ -151,7 +151,7 @@ run_list 'recipe[test]'
 
 and finally, JSON data passed to chef-solo:
 
-``` ruby
+```ruby
 { 'run_list': 'role[test]' }
 ```
 

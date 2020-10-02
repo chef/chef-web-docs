@@ -1,7 +1,7 @@
 A **log** resource block adds messages to the log file based on events
 that occur during a Chef Infra Client run:
 
-``` ruby
+```ruby
 log 'message' do
   message 'A message add to the log.'
   level :info
@@ -11,7 +11,7 @@ end
 The full syntax for all of the properties that are available to the
 **log** resource is:
 
-``` ruby
+```ruby
 log 'name' do
   level        Symbol # default value: :info
   message      String # default value: 'name' unless specified

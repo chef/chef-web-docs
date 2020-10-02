@@ -1,6 +1,6 @@
-Reconfigure the Chef Infra Server and the Chef management console (standalone 
+Reconfigure the Chef Infra Server and the Chef management console (standalone
 and frontend group members of a High Availabilty installation):
 
-``` bash
+```bash
 chef-server-ctl reconfigure
 ```

@@ -1,5 +1,5 @@
 The syntax for `subscribes` is:
 
-``` ruby
+```ruby
 subscribes :action, 'resource[name]', :timer
 ```

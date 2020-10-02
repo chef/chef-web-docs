@@ -6,7 +6,7 @@ that action.
 Note that `subscribes` does not apply the specified action to the
 resource that it listens to - for example:
 
-``` ruby
+```ruby
 file '/etc/nginx/ssl/example.crt' do
   mode '0600'
   owner 'root'

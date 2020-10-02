@@ -29,7 +29,7 @@ three parts (1.2.3.4) are not allowed.
 A version constraint is a string that combines the cookbook version
 syntax with an operator, in the following format:
 
-``` ruby
+```ruby
 operator cookbook_version_syntax
 ```
 
@@ -46,21 +46,21 @@ specify at least the major and minor version. For example, use `1.0` or
 For example, a version constraint for "equals version 1.0.7" is
 expressed like this:
 
-``` ruby
+```ruby
 = 1.0.7
 ```
 
 A version constraint for "greater than version 1.0.2" is expressed like
 this:
 
-``` ruby
+```ruby
 > 1.0.2
 ```
 
 An optimistic version constraint is one that looks for versions greater
 than or equal to the specified version. For example:
 
-``` ruby
+```ruby
 >= 2.6.5
 ```
 
@@ -72,7 +72,7 @@ version number within the range specified by the minor version number or
 patch version number. For example, a pessimistic version constraint for
 minor version numbers:
 
-``` ruby
+```ruby
 ~> 2.6
 ```
 
@@ -81,7 +81,7 @@ less than version 3.0.
 
 Or, a pessimistic version constraint for patch version numbers:
 
-``` ruby
+```ruby
 ~> 2.6.5
 ```
 
@@ -91,13 +91,13 @@ but less than version 2.7.0.
 Or, a pessimistic version constraint that matches cookbooks less than a
 version number:
 
-``` ruby
+```ruby
 < 2.3.4
 ```
 
 or will match cookbooks less than or equal to a specific version number:
 
-``` ruby
+```ruby
 <= 2.6.5
 ```
 
@@ -148,13 +148,13 @@ An environment can use version constraints to specify a list of allowed
 cookbook versions by specifying the cookbook's name, along with the
 version constraint. For example:
 
-``` ruby
+```ruby
 cookbook 'apache2', '~> 1.2.3'
 ```
 
 Or:
 
-``` ruby
+```ruby
 cookbook 'runit', '= 4.2.0'
 ```
 
@@ -173,13 +173,13 @@ development infrastructure.
 
 For example, to freeze a cookbook version using knife, enter:
 
-``` bash
+```bash
 knife cookbook upload redis --freeze
 ```
 
 To return:
 
-``` bash
+```bash
 Uploading redis...
 Upload completed
 ```
@@ -187,14 +187,14 @@ Upload completed
 Once a cookbook version is frozen, only by using the `--force` option
 can an update be made. For example:
 
-``` bash
+```bash
 knife cookbook upload redis --force
 ```
 
 Without the `--force` option specified, an error will be returned
 similar to:
 
-``` none
+```none
 Version 0.0.0 of cookbook redis is frozen. Use --force to override
 ```
 
@@ -233,7 +233,7 @@ For example, to bump a version number, first make changes to the
 cookbook, and then upload and test it. Repeat this process as required,
 and then upload it using a knife command similar to:
 
-``` bash
+```bash
 knife cookbook upload my-app
 ```
 
@@ -241,7 +241,7 @@ When the cookbook is finished, move those changes to the production
 environment and use the `--freeze` option to prevent others from making
 further changes:
 
-``` bash
+```bash
 knife cookbook upload  my-app -E production --freeze
 ```
 
@@ -265,7 +265,7 @@ For example, to bump a version number, first make changes to the
 cookbook, and then upload and test it. Repeat this process as required,
 and then upload it using a knife command similar to:
 
-``` bash
+```bash
 knife cookbook upload my-app
 ```
 
@@ -273,20 +273,20 @@ When the cookbook is finished, move those changes to the production
 environment and use the `--freeze` option to prevent others from making
 further changes:
 
-``` bash
+```bash
 knife cookbook upload  my-app -E production --freeze
 ```
 
 Then modify the environment so that it prefers the newly uploaded
 version:
 
-``` bash
+```bash
 (vim|emacs|mate|ed) YOUR_REPO/environments/production.rb
 ```
 
 Upload the updated environment:
 
-``` bash
+```bash
 knife environment from file production.rb
 ```
 

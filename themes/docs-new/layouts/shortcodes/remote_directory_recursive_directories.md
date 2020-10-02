@@ -13,7 +13,7 @@ A directory structure:
 
 The following example shows a way create a file in the `/baz` directory:
 
-``` ruby
+```ruby
 remote_directory '/foo/bar/baz' do
   owner 'root'
   group 'root'
@@ -27,7 +27,7 @@ will only be applied to `/baz`. Which is fine, if that's what you want.
 But most of the time, when the entire `/foo/bar/baz` directory structure
 is not there, you must be explicit about each directory. For example:
 
-``` ruby
+```ruby
 %w( /foo /foo/bar /foo/bar/baz ).each do |path|
   remote_directory path do
     owner 'root'

@@ -4,7 +4,7 @@ groups. Use the `rights` property can be used as many times as
 necessary; Chef Infra Client will apply them to the file or directory as
 required. The syntax for the `rights` property is as follows:
 
-``` ruby
+```ruby
 rights permission, principal, option_type => value
 ```
 
@@ -76,7 +76,7 @@ where
 
 For example:
 
-``` ruby
+```ruby
 resource 'x.txt' do
   rights :read, 'S-1-1-0'
   rights :write, 'domain\group'
@@ -87,7 +87,7 @@ end
 
 or:
 
-``` ruby
+```ruby
 rights :read, %w(Administrators Everyone)
 rights :full_control, 'Users', applies_to_children: true
 rights :write, 'Sally', applies_to_children: :containers_only, applies_to_self: false, one_level_deep: true
@@ -113,7 +113,7 @@ example, it doesn't matter if rights are granted to everyone is placed
 before or after `deny_rights :read, ['Julian', 'Lewis']`, both Julian
 and Lewis will be unable to read the document. For example:
 
-``` ruby
+```ruby
 resource 'x.txt' do
   rights :read, 'Everyone'
   rights :write, 'domain\group'
@@ -125,6 +125,6 @@ end
 
 or:
 
-``` ruby
+```ruby
 deny_rights :full_control, ['Sally']
 ```

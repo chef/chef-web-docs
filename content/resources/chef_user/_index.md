@@ -17,7 +17,7 @@ resource_description_list:
 resource_new_in: null
 handler_types: false
 syntax_description: "The syntax for using the **chef_user** resource in a recipe is\
-  \ as\nfollows:\n\n``` ruby\nchef_user 'value' # see properties section below\n \
+  \ as\nfollows:\n\n```ruby\nchef_user 'value' # see properties section below\n \
   \ ...\n  action :action # see actions section below\nend\n```"
 syntax_code_block: null
 syntax_properties_list:
@@ -133,7 +133,7 @@ properties_list:
   default_value: null
   new_in: null
   description_list:
-  - markdown: "The user as JSON data. For example:\n\n``` javascript\n{\n  \"name\"\
+  - markdown: "The user as JSON data. For example:\n\n```javascript\n{\n  \"name\"\
       : \"Robert Forster\"\n}\n```"
 - property: recovery_authentication_enabled
   ruby_type: null

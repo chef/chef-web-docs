@@ -1,7 +1,7 @@
 Use the `resource_name` method at the top of a custom resource to
 declare a custom name for that resource. For example:
 
-``` ruby
+```ruby
 resource_name :my_resource_name
 ```
 

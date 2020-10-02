@@ -34,7 +34,7 @@ family.
 
 Existing code only checking for the `rhel` platform family:
 
-``` ruby
+```ruby
 if platform_family?('rhel')
   service 'foo' do
     action :start
@@ -44,7 +44,7 @@ end
 
 Updated code to check for both `rhel` and `amazon` platform families:
 
-``` ruby
+```ruby
 if platform_family?('rhel', 'amazon')
   service 'foo' do
     action :start

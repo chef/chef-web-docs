@@ -1,6 +1,6 @@
 ---
 resource_reference: true
-properties_shortcode: 
+properties_shortcode:
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
@@ -26,7 +26,7 @@ syntax_full_code_block: |-
     workgroup_name      String # default value: 'name' unless specified
     action              Symbol # defaults to :join if not specified
   end
-syntax_properties_list: 
+syntax_properties_list:
 syntax_full_properties_list:
 - "`windows_workgroup` is the resource."
 - "`name` is the name given to the resource block."
@@ -71,13 +71,13 @@ properties_list:
 examples: |
   **Join a workgroup**:
 
-  ``` ruby
+  ```ruby
   windows_workgroup 'myworkgroup'
   ```
 
   **Join a workgroup using a specific user**:
 
-  ``` ruby
+  ```ruby
   windows_workgroup 'myworkgroup' do
     user 'Administrator'
     password 'passw0rd'

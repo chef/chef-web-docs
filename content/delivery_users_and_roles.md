@@ -143,13 +143,13 @@ that is hosted at [GitHub.com](https://github.com/):
 
     For GitHub Enterprise:
 
-    ``` bash
+    ```bash
     delivery api put users/$AUTOMATE_USERNAME/set-oauth-alias --data='{"app_name":"github-enterprise","alias":"$GITHUB_USERNAME"}'
     ```
 
     For GitHub:
 
-    ``` bash
+    ```bash
     delivery api put users/$AUTOMATE_USERNAME/set-oauth-alias --data='{"app_name":"github","alias":"$GITHUB_USERNAME"}'
     ```
 
@@ -160,13 +160,13 @@ that is hosted at [GitHub.com](https://github.com/):
 
     For GitHub Enterprise:
 
-    ``` bash
+    ```bash
     automate-ctl link-github-enterprise-user $AUTOMATE_ENTERPRISE_NAME $AUTOMATE_USERNAME $GITHUB_USERNAME
     ```
 
     For GitHub:
 
-    ``` bash
+    ```bash
     automate-ctl link-github-user $AUTOMATE_ENTERPRISE_NAME $AUTOMATE_USERNAME $GITHUB_USERNAME
     ```
 
@@ -288,25 +288,25 @@ To add SSH keys to Chef Automate, do the following:
 
 1.  Check for an SSH key:
 
-    ``` bash
+    ```bash
     cat .ssh/id_rsa.pub
     ```
 
     if it returns:
 
-    ``` none
+    ```none
     No such file or directory
     ```
 
 2.  Create an SSH key (without a passphrase):
 
-    ``` bash
+    ```bash
     ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
     ```
 
     The output is similar to:
 
-    ``` none
+    ```none
     Generating public/private rsa key pair.
     Enter file in which to save the key (/Users/username/.ssh/id_rsa):
     Enter passphrase (empty for no passphrase):
@@ -331,13 +331,13 @@ To add SSH keys to Chef Automate, do the following:
 
 3.  Run the following:
 
-    ``` bash
+    ```bash
     cat .ssh/id_rsa.pub
     ```
 
     The output is similar to:
 
-    ``` none
+    ```none
     ssh-rsa
     AAAAB3NzaC1yc2EAAAADAQABAAACAQDa8BR/9bj5lVUfQP9Rsqon5qJMkiVm+JAtGi
     wnhxqgyRhkYLIzm6+gcifDgMOMuwZA88Ib5WNRhxjlmTseapower4rH/jAAczdp1h1
@@ -368,13 +368,13 @@ To add SSH keys to Chef Automate, do the following:
 
 5.  Setup Chef Automate for that user. Run the following:
 
-    ``` bash
+    ```bash
     delivery setup --server SERVER_DNS --user USERNAME --ent ENTERPRISE --org ORGANIZATION
     ```
 
     The output is similar to:
 
-    ``` none
+    ```none
     Chef Delivery
     Loading configuration from /Users/USERNAME
     Writing configuration to /Users/USERNAME/.delivery/cli.toml
@@ -391,13 +391,13 @@ To add SSH keys to Chef Automate, do the following:
 
 6.  Clone a repo from Chef Automate:
 
-    ``` bash
+    ```bash
     delivery clone PROJECT_REPO
     ```
 
     The output is similar to:
 
-    ``` none
+    ```none
     Chef Delivery
     Loading configuration from /Users/USERNAME/Desktop
     Cloning ssh://USERNAME@chef@SERVER_DNS:8989/ENTERPRISE/ORGANIZATION/PROJECT to PROJECT

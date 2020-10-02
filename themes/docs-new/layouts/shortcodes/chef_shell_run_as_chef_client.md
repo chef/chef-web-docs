@@ -9,6 +9,6 @@ Chef Infra Server. Make sure that the settings in chef-shell.rb are the
 same as those in config.rb, and then use the `-z` option as part of the
 command. For example:
 
-``` bash
+```bash
 chef-shell -z
 ```

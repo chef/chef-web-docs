@@ -1,6 +1,6 @@
 On UNIX, Linux, and macOS systems, invoke the Chef Software Install script with:
 
-``` bash
+```bash
 curl -L https://omnitruck.chef.io/install.sh | sudo bash
 ```
 

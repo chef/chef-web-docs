@@ -2,13 +2,13 @@ The following user accounts exist on the Chef Infra Server: `pivotal` (a
 superuser account), `alice`, `bob`, `carol`, and `dan`. Run the
 following command to view a list of users on the Chef Infra Server:
 
-``` bash
+```bash
 chef-server-ctl user-list
 ```
 
 and it returns the same list of users:
 
-``` bash
+```bash
 pivotal
 alice
 bob
@@ -22,13 +22,13 @@ managing the user accounts on the Chef Infra Server that are used by the
 rest of the organization. From a workstation, Alice runs the following
 command:
 
-``` bash
+```bash
 knife user list -c ~/.chef/alice.rb
 ```
 
 and it returns the following error:
 
-``` bash
+```bash
 ERROR: You authenticated successfully to <chef_server_url> as alice
        but you are not authorized for this action
 Response: Missing read permission
@@ -38,13 +38,13 @@ Alice is not a superuser and does not have permissions on other users
 because user accounts are global to organizations in the Chef Infra
 Server. Let's add Alice to the `server-admins` group:
 
-``` bash
+```bash
 chef-server-ctl grant-server-admin-permissions alice
 ```
 
 and it returns the following response:
 
-``` bash
+```bash
 User alice was added to server-admins.
 ```
 
@@ -52,13 +52,13 @@ Alice can now create, read, update, and delete user accounts on the Chef
 Infra Server, even for organizations to which Alice is not a member.
 From a workstation, Alice re-runs the following command:
 
-``` bash
+```bash
 knife user list -c ~/.chef/alice.rb
 ```
 
 which now returns:
 
-``` bash
+```bash
 pivotal
 alice
 bob
@@ -77,7 +77,7 @@ subcommands to manage users on the Chef Infra Server:
 
 For example, Alice runs the following command:
 
-``` bash
+```bash
 knife user edit carol -c ~/.chef/alice.rb
 ```
 

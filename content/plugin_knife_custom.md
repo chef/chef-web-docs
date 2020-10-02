@@ -34,7 +34,7 @@ members, and distributable to the community using RubyGems.
 There are many ways to structure a knife plugin. The following syntax
 shows a typical knife plugin:
 
-``` ruby
+```ruby
 require 'chef/knife'
 # other require attributes, as needed
 
@@ -97,7 +97,7 @@ and where for each command-line option:
 The following example shows part of a knife plugin named
 `knife windows`:
 
-``` ruby
+```ruby
 require 'chef/knife'
 require 'chef/knife/winrm_base'
 
@@ -161,7 +161,7 @@ A knife plugin should have its own namespace (even though knife will
 load a command regardless of its namespace). The namespace is declared
 using the `module` method, for example:
 
-``` ruby
+```ruby
 require 'chef/knife'
 ## other require attributes, as needed
 
@@ -177,7 +177,7 @@ namespace, with a namespace of `MyNamespace`.
 The class name declares a plugin as a subclass of both `Knife` and
 `Chef`. For example:
 
-``` ruby
+```ruby
 class SubclassName < Chef::Knife
 ```
 
@@ -192,7 +192,7 @@ class name as the existing subcommand. For example, to override the
 current functionality of `knife cookbook upload`, use the following
 class name:
 
-``` ruby
+```ruby
 class CookbookUpload < Chef::Knife
 ```
 
@@ -202,7 +202,7 @@ A banner displays the syntax for the plugin to users when they enter the
 `--help` option. Use the `banner` method in the class body similar to
 the following:
 
-``` ruby
+```ruby
 module example
   class example < Chef::Knife
 
@@ -215,7 +215,7 @@ end
 and the when a user enters `knife --help`, the following will be
 displayed:
 
-``` bash
+```bash
 **EXAMPLE COMMANDS**
 knife example
 ```
@@ -228,7 +228,7 @@ The `deps` method acts as a lazy loader, ensuring that dependencies are
 only loaded into knife when the plugin which requires them is run. Use
 the following syntax just below the class declaration:
 
-``` ruby
+```ruby
 class subclassName < Chef::Knife
 
 deps do
@@ -260,7 +260,7 @@ object of the class of the plugin to be used.
 First, ensure that the correct files are available using the following
 syntax:
 
-``` ruby
+```ruby
 require 'chef/knife/name_of_command'
 ```
 
@@ -278,21 +278,21 @@ requirements on other plugins and search functionality.
 
 For example, use the following to require a plugin named `bootstrap`:
 
-``` ruby
+```ruby
 require 'chef/knife/bootstrap'
 ```
 
 Next, for the required plugin, create an object of that plugin, like
 this:
 
-``` ruby
+```ruby
 bootstrap = Chef::Knife::Bootstrap.new
 ```
 
 and then pass arguments or options to that object. This is done by
 altering that object's `config` and `name_arg` variables. For example:
 
-``` ruby
+```ruby
 bootstrap.config[:ssh_user] = "myuser"
 bootstrap.config[:distro] = "ubuntu10.04-gems"
 bootstrap.config[:use_sudo] = true
@@ -306,7 +306,7 @@ the source files for each plugin.
 
 And then call the object's `run` method, like this:
 
-``` ruby
+```ruby
 bootstrap.run
 ```
 
@@ -315,7 +315,7 @@ bootstrap.run
 Command-line options can be added to a knife plugin using the `option`
 method. An option can have a true/false value:
 
-``` ruby
+```ruby
 option :true_or_false,
   :short => "-t",
   :long => "--true-or-false",
@@ -326,7 +326,7 @@ option :true_or_false,
 
 and it can have a string value:
 
-``` ruby
+```ruby
 option :some_type_of_string_value,
   :short => "-s VALUE",
   :long => "--some-type-of-string-value VALUE",
@@ -336,7 +336,7 @@ option :some_type_of_string_value,
 
 and can specify code that is run to determine the option's value:
 
-``` ruby
+```ruby
 option :tags,
   :short => "-T T=V[,T=V,...]",
   :long => "--tags Tag=Value[,Tag=Value...]",
@@ -351,7 +351,7 @@ When a user enters `knife --help`, the description attributes are
 displayed as part of the help. Using the previous examples, something
 like the following will be displayed:
 
-``` bash
+```bash
 **EXAMPLE COMMANDS**
 knife example
   -s, --some-type-of-string-value     This is not a random string value.
@@ -363,7 +363,7 @@ When knife runs the command, the options are parsed from the
 command-line and make the settings available as a hash that can be used
 to access the `config` method. For example, the following option:
 
-``` ruby
+```ruby
 option :omg,
   :short => '-O',
   :long => '--omg',
@@ -374,7 +374,7 @@ option :omg,
 can be used to update the `run` method of a class to change its behavior
 based on the `config` flag, similar to the following:
 
-``` ruby
+```ruby
 def run
   if config[:omg]
     # Oh yeah, we are pumped.
@@ -389,13 +389,13 @@ end
 For a knife plugin with the `--omg` option, run `knife example --omg` to
 return something like:
 
-``` bash
+```bash
 OMG HELLO WORLD!!!1!!11
 ```
 
 or just `knife example` to return:
 
-``` bash
+```bash
 I am just a boring example.
 ```
 
@@ -405,7 +405,7 @@ A knife plugin can also take command-line arguments that are not
 specified using the `option` flag, for example: `knife node show NODE`.
 These arguments are added using the `name_args` method. For example:
 
-``` ruby
+```ruby
 banner "knife hello world WHO"
 
 def run
@@ -437,38 +437,38 @@ where
 
 For example, the following command:
 
-``` bash
+```bash
 knife hello world
 ```
 
 will return:
 
-``` bash
+```bash
 You need to say hello to someone!
 USAGE: knife hello world WHO
 ```
 
 the following command:
 
-``` bash
+```bash
 knife hello world chefs
 ```
 
 will return:
 
-``` bash
+```bash
 Hello, Chefs!
 ```
 
 and the following command:
 
-``` bash
+```bash
 knife hello world chefs --omg
 ```
 
 will return:
 
-``` bash
+```bash
 OMG HELLO CHEFS!!!1!!11
 ```
 
@@ -486,7 +486,7 @@ they can be set using the config.rb file. This can be done in two ways:
 An option that is defined in this manner may be configured using the
 config.rb file with the following syntax:
 
-``` ruby
+```ruby
 knife[:setting_name]
 ```
 
@@ -500,7 +500,7 @@ order of precedence for a knife option is:
 The following example shows how the `knife bootstrap` subcommand checks
 for a value in the config.rb file by using the `:proc` attribute:
 
-``` ruby
+```ruby
 option :ssh_port,
   :short => "-p PORT",
   :long => "--ssh-port PORT",
@@ -515,7 +515,7 @@ And the following example shows the `knife bootstrap` subcommand calling
 the `knife ssh` subcommand for the actual SSH part of running a
 bootstrap operation:
 
-``` ruby
+```ruby
 def knife_ssh
   ssh = Chef::Knife::Ssh.new
   ssh.ui = ui
@@ -549,13 +549,13 @@ information about the infrastructure to that plugin. Use the `require`
 method to ensure that search functionality is available with the
 following:
 
-``` ruby
+```ruby
 require 'chef/search/query'
 ```
 
 Create a search query object and assign it to a variable:
 
-``` ruby
+```ruby
 variable_name = Chef::Search::Query.new
 ```
 
@@ -565,7 +565,7 @@ example, using a variable named `query_nodes` a plugin could search for
 nodes with the `webserver` role and then return the name of each node
 found:
 
-``` ruby
+```ruby
 query = "role:webserver"
 
 query_nodes.search('node', query) do |node_item|
@@ -577,7 +577,7 @@ This result can then be used to edit nodes. For example, searching for
 nodes with the `webserver` role, and then changing the run_list for
 those nodes to a role named `apache2`:
 
-``` ruby
+```ruby
 query = "role:webserver"
 
 query_nodes.search('node', query) do |node_item|
@@ -590,7 +590,7 @@ end
 
 It's also possible to specify multiple items to add to the run_list:
 
-``` ruby
+```ruby
 node_item.run_list("role[apache2]", "recipe[mysql]")
 ```
 
@@ -599,7 +599,7 @@ example, if the command `knife envchange "web*"` is sent, then the
 command will search for any nodes in roles beginning with "web" and then
 change their environment to "web":
 
-``` ruby
+```ruby
 module MyKnifePlugins
 
   class Envchange < Chef::Knife
@@ -745,7 +745,7 @@ handling user interactions:
 For example, to show a fatal error in a plugin in the same way that it
 would be shown in knife do something similar to the following:
 
-``` ruby
+```ruby
 unless name_args.size == 1
   ui.fatal "Be sure to say hello to someone!"
   show_usage
@@ -759,7 +759,7 @@ A knife command is a Ruby class that inherits from the `Chef::Knife`
 class. A knife command is run by calling the `run` method on an instance
 of the command class. For example:
 
-``` ruby
+```ruby
 module MyKnifePlugins
   class HelloWorld < Chef::Knife
 
@@ -772,7 +772,7 @@ end
 
 and is run from the command line using:
 
-``` bash
+```bash
 knife hello world
 ```
 

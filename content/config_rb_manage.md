@@ -39,7 +39,7 @@ The configuration file is located at: `/etc/chef-manage/manage.rb`.
 All of the following settings should be specified without using the
 equals symbol (`=`). For example:
 
-``` ruby
+```ruby
 chef_documentation_url 'https://docs.chef.io'
 ```
 
@@ -261,7 +261,7 @@ is stored without any additional steps.
 
 To verify that the key is stored and ready to use by manage, run:
 
-``` bash
+```bash
 chef-server-ctl show-secret chef-server webui_key
 -----BEGIN RSA PRIVATE KEY-----
 MIIEpgIBAAKCAQEA3fJ+U+5prsJ8PtnbYzWAq+J2cE48u+iT7t/M9JS+3tlEgf3r
@@ -275,7 +275,7 @@ MIIEpgIBAAKCAQEA3fJ+U+5prsJ8PtnbYzWAq+J2cE48u+iT7t/M9JS+3tlEgf3r
 The following example shows how the settings look when added to the
 configuration file:
 
-``` ruby
+```ruby
 chef_documentation_url ''
 disable_sign_up false
 events.port 11001

@@ -1,4 +1,4 @@
-``` ruby
+```ruby
 ohai 'reload_passwd' do
   action :nothing
   plugin 'etc'

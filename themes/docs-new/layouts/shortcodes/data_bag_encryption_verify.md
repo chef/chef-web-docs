@@ -2,14 +2,14 @@ When the contents of a data bag item are encrypted, they will not be
 readable until they are decrypted. Encryption can be verified with a
 knife command similar to:
 
-``` bash
+```bash
 knife data bag show passwords mysql
 ```
 
 where "passwords" is the name of the data bag and "mysql" is the name of
 the data bag item. This will return something similar to:
 
-``` none
+```none
 id:   mysql
 pass:
 cipher:         aes-256-cbc

@@ -57,10 +57,10 @@ parameters to a property.
 
 Some examples of combining validation parameters:
 
-``` ruby
+```ruby
 property :spool_name, String, regex: /$\w+/
 ```
 
-``` ruby
+```ruby
 property :enabled, equal_to: [true, false, 'true', 'false'], default: true
 ```

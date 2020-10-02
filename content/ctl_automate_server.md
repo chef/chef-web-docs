@@ -54,7 +54,7 @@ and configuration files.
 
 This subcommand has the following syntax:
 
-``` none
+```none
 automate-ctl cleanse
 ```
 
@@ -71,7 +71,7 @@ enterprise. A public key is required.
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 automate-ctl create-enterprise ENT_NAME --ssh-pub-key-file=FILE_NAME
 ```
 
@@ -91,13 +91,13 @@ user with this command.)
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 automate-ctl create-user ENT-NAME USER-NAME --password [PASSWORD] --password-file [FILE] --roles ["COMMA-SEPARATED-LIST"]--ssh-pub-key-file=[PATH-TO-PUBLIC-KEY-FILE]
 ```
 
 **Example**
 
-``` bash
+```bash
 automate-ctl create-user enterprise john_smith --password my_password --roles reviewer,committer
 ```
 
@@ -110,13 +110,13 @@ TSV file.
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 automate-ctl create-user TSV-FILE-PATH
 ```
 
 **Example**
 
-``` bash
+```bash
 automate-ctl create-user MyUserList.TSV
 ```
 
@@ -133,7 +133,7 @@ output to specific data groupings.
 
 **Syntax**
 
-``` bash
+```bash
 automate-ctl data-summary [options]
     -c, --compliance                 Display compliance and inspec data
     -f, --format string              The output format ([text], json)
@@ -149,7 +149,7 @@ automate-ctl data-summary [options]
 Summarize Chef Automate's data usage using the `data-summary` command's
 default behavior.
 
-``` bash
+```bash
 automate-ctl data-summary
 CLUSTER NAME   DISK FREE  MEM FREE  AVG ES CPU %  AVG OS CPU %  AVG ES HEAP  AVG ES NON HEAP
 chef-insights  23.58 GB   0.45 GB   0             2             0.23 GB      0.08 GB
@@ -175,7 +175,7 @@ compliance-2017.10.16  1                  0.0 GB
 
 Summarize Chef Automate's compliance data in kilobytes.
 
-``` bash
+```bash
 automate-ctl data-summary -c -u kb
 INDICES GROUP  INDICES TOTAL  TOTAL INSPEC RUNS  AVG DAILY INSPEC RUNS  TOTAL SIZE  AVG DAILY SIZE
 compliance     1              1                  1                      22.79 KB    22.79 KB
@@ -186,7 +186,7 @@ compliance-2017.10.16  1                  22.79 KB
 
 Summarize Chef Automate's data usage with JSON formatting.
 
-``` bash
+```bash
 automate-ctl data-summary -f json
 {"cluster":{"name":"chef-insights","nodes":[{"es_cpu_percent":0,"es_max_file_descriptors":50000,"es_open_file_descriptors":219,"os_cpu_percent":3,"es_mem_total_virtual_in_b":4892397568,"fs_free_in_b":38063587328,"fs_total_in_b":63381999616,"jvm_heap_max_in_b":1064042496,"jvm_heap_used_in_b":250139784,"jvm_non_heap_used_in_b":89278448,"os_mem_total_in_b":4397072384,"os_mem_used_in_b":3916091392}],"averages":{"es_cpu_percent":0,"es_max_file_descriptors":50000,"es_open_file_descriptors":219,"os_cpu_percent":3,"es_mem_total_virtual_in_b":4892397568,"fs_free_in_b":38063587328,"fs_total_in_b":63381999616,"jvm_heap_max_in_b":1064042496,"jvm_heap_used_in_b":250139784,"jvm_non_heap_used_in_b":89278448,"os_mem_total_in_b":4397072384,"os_mem_used_in_b":3916091392}},"indices":{"totals":{"converges":2,"deleted_nodes":0,"docs":22,"indices":5,"inspec_summaries":1,"nodes":1,"size_in_bytes":502067},"insights":{"totals":{"converges":2,"docs":2,"indices":1,"size_in_b":229142},"averages":{"converges":2,"docs":2,"size_in_b":229142},"indices":[{"converges":2,"docs":2,"size_in_b":229142}]},"compliance":{"totals":{"docs":19,"indices":1,"inspec_summaries":1,"size_in_b":23333},"averages":{"docs":19,"inspec_summaries":1,"size_in_b":23333},"indices":[{"docs":19,"inspec_summaries":1,"size_in_b":23333}]},"node_state":{"totals":{"deleted_nodes":0,"docs":1,"nodes":1,"size_in_b":249592}}}}
 ```
@@ -288,7 +288,7 @@ matched backup or snapshot.
 
 **Syntax**
 
-``` bash
+```bash
 automate-ctl delete-backups REGEX [options]
      --force                      Agree to all warnings and prompts
      --max-archives [integer]     Maximum number of backup archives to keep
@@ -327,7 +327,7 @@ Added in Chef Automate version 1.6.87.
 
 **Syntax**
 
-``` bash
+```bash
 automate-ctl delete-elasticsearch-lock [options]
      --force                      Agree to all warnings and prompts
      --stale-lock-only            Only delete the lock if it is older than the Elasticsearch process
@@ -337,7 +337,7 @@ automate-ctl delete-elasticsearch-lock [options]
 
 **Examples**
 
-``` bash
+```bash
 automate-ctl delete-elasticsearch-lock
 
 HOSTNAME            PROCESS  PID    TIME
@@ -356,13 +356,13 @@ enterprise.
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 automate-ctl delete-enterprise ENT_NAME
 ```
 
 **Example**
 
-``` bash
+```bash
 automate-ctl delete-enterprise pedant-testing-org
 ```
 
@@ -375,7 +375,7 @@ project.
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 automate-ctl delete-project ENT_NAME ORG_NAME PROJECT_NAME
 ```
 
@@ -387,13 +387,13 @@ The `delete-user` subcommand is used to delete a user.
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 automate-ctl delete-user ENT_NAME USER_NAME
 ```
 
 **Example**
 
-``` bash
+```bash
 automate-ctl delete-user ENT_NAME john_smith
 ```
 
@@ -408,7 +408,7 @@ Added in Chef Automate version 1.7.114.
 
 **Syntax**
 
-``` bash
+```bash
 automate-ctl delete-runner FQDN [options]
 
   Arguments:
@@ -422,21 +422,21 @@ automate-ctl delete-runner FQDN [options]
 
 **Example**
 
-``` bash
+```bash
 automate-ctl delete-runner
 ```
 
 Delete the runner runner-hostname.mydomain.co when there is only one
 enterprise configured.
 
-``` bash
+```bash
 automate-ctl delete-runner runner-hostname.mydomain.co
 ```
 
 Delete the runner runner-hostname.mydomain.co when multiple enterprises
 are configured.
 
-``` bash
+```bash
 automate-ctl install-runner runner-hostname.mydomain.co -e myenterprise
 ```
 
@@ -465,7 +465,7 @@ delete these records.
 
 **Syntax**
 
-``` none
+```none
 automate-ctl delete-node OPTIONS
    -u, --uuid UUID                  The UUID of the node you wish to delete
    -n, --name NODE_NAME             The name of the node you wish to delete
@@ -481,7 +481,7 @@ automate-ctl delete-node OPTIONS
 
 **Examples**
 
-``` bash
+```bash
 automate-ctl delete-node -n chef-test
 Multiple nodes were found matching your request. Please specify the UUID and try again: automate-ctl delete-node --uuid <UUID>
 
@@ -492,7 +492,7 @@ chef-test  chef_dev   chef-server.dev   8703593e-723a-4394-a36d-34da11a2f668
 ERROR: Too many nodes found, please delete by node UUID
 ```
 
-``` bash
+```bash
 automate-ctl delete-node -u f44c40a4-a0bb-4120-bd75-079972d98072
 Delete 2 records associated with node 'chef-test f44c40a4-a0bb-4120-bd75-079972d98072'.
 Do you wish to proceed? (yes/no):
@@ -507,7 +507,7 @@ The `doctor` command validates the configuration files.
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 automate-ctl doctor
 ```
 
@@ -525,7 +525,7 @@ option is given, all log files are collected.
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 automate-ctl gather-logs
       --all-logs          Gather all of the logs, regardless of size or age.
 ```
@@ -557,13 +557,13 @@ tokens for this user will be revoked.
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 automate-ctl generate-password-reset-token ENTERPRISE_NAME USER_NAME
 ```
 
 **Example**
 
-``` bash
+```bash
 automate-ctl generate-password-reset-token Chef admin
 Password reset with token successful. Go to this URL to set a new password:
 URL: https://automate.fqdn/e/Chef/#/reset-password/admin/nzfcEPQULoY0NR-xg7OxxBl5Q3htausWXY92GskR3ZE
@@ -576,7 +576,7 @@ The `help` subcommand is used to print a list of all available
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 automate-ctl help
 ```
 
@@ -589,7 +589,7 @@ on delivery commands, please see [Delivery CLI](/delivery_cli/).
 
 **Syntax** This subcommand has the following syntax:
 
-``` bash
+```bash
 automate-ctl install-build-node [options]
      -h, --help                       Prints this help
      -I PATH_TO_INSTALLER,            The location of the ChefDK package for the build node (Required)
@@ -618,7 +618,7 @@ documentation](/runners/).
 
 **Syntax**
 
-``` bash
+```bash
 automate-ctl install-runner FQDN USERNAME [options]
 
   Arguments:
@@ -674,28 +674,28 @@ copied into the `/etc/chef/client.d` directory on the runner.
 
 **Example**
 
-``` bash
+```bash
 automate-ctl install-runner
 ```
 
 Installing the latest ChefDK via download and CLI prompt for SSH / Sudo
 password.
 
-``` bash
+```bash
 automate-ctl install-runner runner-hostname.mydomain.co ubuntu --password
 ```
 
 Installing with a ChefDK file local to your Workflow server, an SSH Key,
 and passwordless sudo.
 
-``` bash
+```bash
 automate-ctl install-runner runner-hostname.mydomain.co ubuntu -i ~/.ssh/id_rsa -I ./chefdk.deb
 ```
 
 Installing a custom version of ChefDK via download, a identity file for
 ssh access, and a Sudo password.
 
-``` bash
+```bash
 automate-ctl install-runner runner-hostname.mydomain.co ubuntu -v 0.18.30 -p my_password -i ~/.ssh/id_rsa
 ```
 
@@ -706,7 +706,7 @@ archives and Elasticsearch snapshots.
 
 **Syntax**
 
-``` bash
+```bash
 automate-ctl list-backups [options]
      --all                        List all backups and snapshots (default)
      --automate                   Only list Chef Automate's backup archives
@@ -730,7 +730,7 @@ currently present on the Chef Automate server.
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 automate-ctl list-enterprises
 ```
 
@@ -742,7 +742,7 @@ The `list-users` subcommand is used to view a list of users.
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 automate-ctl list-users ENT_NAME
 ```
 
@@ -755,7 +755,7 @@ change description live run.
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 automate-ctl migrate-change-description ENT_NAME ORG_NAME PROJECT_NAME CHANGE
 ```
 
@@ -768,7 +768,7 @@ dry run migration of the change description.
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 automate-ctl migrate-change-description-dry-run ENT_NAME ORG_NAME PROJECT_NAME CHANGE
 ```
 
@@ -784,7 +784,7 @@ New in Automate 1.7.114
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 automate-ctl migrate-compliance [options]
    -debug          Turn on debug logging
 ```
@@ -798,7 +798,7 @@ a project to a new GitHub integration.
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 automate-ctl migrate-github-project (ENTERPRISE | ENTERPRISE ORG | ENTERPRISE ORG PROJECT)
 ```
 
@@ -811,7 +811,7 @@ to include numstat.
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 automate-ctl migrate-patchset-diffs ENT_NAME ORG_NAME PROJECT_NAME PATCHSET_DIFF
 ```
 
@@ -824,7 +824,7 @@ run update of patchset diffs to include numstat.
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 automate-ctl migrate-patchset-diffs-dry-run ENT_NAME ORG_NAME PROJECT_NAME PATCHSET_DIFF
 ```
 
@@ -841,7 +841,7 @@ Chef InSpec, or the liveness agent.
 
 **Syntax**
 
-``` bash
+```bash
 automate-ctl node-summary [options]
     -f, --format string              The output format. 'text' or 'json'
     -r, --request-timeout int        The Elasticsearch client request timeout in seconds
@@ -853,7 +853,7 @@ automate-ctl node-summary [options]
 Produce a summary of nodes known to Automate using the `node-summary`
 default behavior.
 
-``` bash
+```bash
 automate-ctl node-summary
 NAME                              UUID                                  STATUS            LAST CHECKIN
 chef-test-1                       f44c40a4-a0bb-4120-bd75-079972d98072  success           2017-02-22T19:41:14.000Z
@@ -864,7 +864,7 @@ agentless-scan-node2.example.com  825e90c1-cb23-4f6a-6c0e-35e5b2d12ea4  scan-pas
 
 Produce a summary of nodes known to Automate in JSON.
 
-``` bash
+```bash
 automate-ctl node-summary --format json
 [
   {
@@ -976,7 +976,7 @@ New in Chef Automate 0.6.64.
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 automate-ctl preflight-check
 ```
 
@@ -994,7 +994,7 @@ seconds.
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 automate-ctl reconfigure
 ```
 
@@ -1007,7 +1007,7 @@ Automate enterprise.
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 automate-ctl rename-enterprise CURRENT_ENT_NAME NEW_ENT_NAME
 ```
 
@@ -1020,7 +1020,7 @@ existing Chef Automate user.
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 automate-ctl reset-password ENTERPRISE_NAME USER_NAME NEW_PASSWORD
 ```
 
@@ -1044,7 +1044,7 @@ please install the version of Chef Automate that took the backup and use
 
 **Syntax**
 
-``` console
+```console
 automate-ctl restore-backup /path/to/chef-automate-backup.zst [ELASTICSEARCH_SNAPSHOT] [options]
 automate-ctl restore-backup us-east-1:s3_bucket:chef-automate-backup.zst [ELASTICSEARCH_SNAPSHOT] [options]
 automate-ctl restore-backup ELASTICSEARCH_SNAPSHOT [options]
@@ -1088,7 +1088,7 @@ The `revoke-token` subcommand is used to revoke a user's token.
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 automate-ctl revoke-token ENT_NAME USER_NAME
 ```
 
@@ -1103,7 +1103,7 @@ built properly prior to installation.
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 automate-ctl show-config
 ```
 
@@ -1113,7 +1113,7 @@ The `setup` subcommand is used to configure the Chef Automate Server.
 
 **Syntax** This subcommand has the following syntax:
 
-``` bash
+```bash
 automate-ctl setup [options]
      -h, --help                       Prints this help
      --minimal                    [Pre-Release] Set up Chef Automate with a minimal default configuration.
@@ -1137,7 +1137,7 @@ server.
 
 **Syntax** This subcommand has the following syntax:
 
-``` bash
+```bash
 automate-ctl telemetry status
 ```
 
@@ -1157,7 +1157,7 @@ shut down all services (including the `runit` process supervisor).
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 automate-ctl uninstall
 ```
 
@@ -1177,7 +1177,7 @@ all projects.
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 automate-ctl update-project-hooks ENT_NAME ORG_NAME PROJECT_NAME
 ```
 
@@ -1193,7 +1193,7 @@ of the service in the command.
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 automate-ctl kill name_of_service
 ```
 
@@ -1208,7 +1208,7 @@ of the service in the command.
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 automate-ctl hup name_of_service
 ```
 
@@ -1223,7 +1223,7 @@ of the service in the command.
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 automate-ctl int name_of_service
 ```
 
@@ -1238,7 +1238,7 @@ of the service in the command.
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 automate-ctl kill name_of_service
 ```
 
@@ -1261,7 +1261,7 @@ command.
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 automate-ctl once name_of_service
 ```
 
@@ -1276,7 +1276,7 @@ the name of that service in the command.
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 automate-ctl restart name_of_service
 ```
 
@@ -1284,7 +1284,7 @@ where `name_of_service` represents the name of any service that is
 listed after running the `service-list` subcommand. When a service is
 successfully restarted the output should be similar to:
 
-``` bash
+```bash
 ok: run: service_name: (pid 12345) 1s
 ```
 
@@ -1295,7 +1295,7 @@ services. A service that is enabled is labeled with an asterisk (\*).
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 automate-ctl service-list
 ```
 
@@ -1307,7 +1307,7 @@ service by specifying the name of the service in the command.
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 automate-ctl start name_of_service
 ```
 
@@ -1315,7 +1315,7 @@ where `name_of_service` represents the name of any service that is
 listed after running the `service-list` subcommand. When a service is
 successfully started the output should be similar to:
 
-``` bash
+```bash
 ok: run: service_name: (pid 12345) 1s
 ```
 
@@ -1336,7 +1336,7 @@ available to the Chef Automate server. The results will vary based on
 the configuration of a given server. This subcommand has the following
 syntax:
 
-``` bash
+```bash
 automate-ctl status
 ```
 
@@ -1344,7 +1344,7 @@ and will return the status for all services. Status can be returned for
 individual services by specifying the name of the service as part of the
 command:
 
-``` bash
+```bash
 automate-ctl status name_of_service
 ```
 
@@ -1353,7 +1353,7 @@ listed after running the `service-list` subcommand.
 
 When service status is requested, the output should be similar to:
 
-``` bash
+```bash
 run: service_name: (pid 12345) 12345s; run: log: (pid 1234) 67890s
 ```
 
@@ -1367,7 +1367,7 @@ where
 
 For example:
 
-``` bash
+```bash
 down: opscode-erchef: (pid 35546) 10s
 ```
 
@@ -1378,7 +1378,7 @@ particular service is not running as it should be, look for the services
 with the shortest uptimes. For example, the list below indicates that
 the **opscode-erchef** should be investigated further:
 
-``` bash
+```bash
 run: oc-id
 run: opscode-chef: (pid 4327) 13671s; run: log: (pid 4326) 13671s
 run: opscode-erchef: (pid 5383) 5s; run: log: (pid 4382) 13669s
@@ -1389,7 +1389,7 @@ run: opscode-erchef: (pid 5383) 5s; run: log: (pid 4382) 13669s
 A typical status line for a service that is running any of the Chef
 Automate server front-end services is similar to the following:
 
-``` bash
+```bash
 run: name_of_service: (pid 1486) 7819s; run: log: (pid 1485) 7819s
 ```
 
@@ -1409,7 +1409,7 @@ where:
 If the service is down, the status line will appear similar to the
 following:
 
-``` bash
+```bash
 down: elasticsearch: 3s, normally up; run: log: (pid 1485) 8526s
 ```
 
@@ -1428,7 +1428,7 @@ by specifying the name of the service in the command.
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 automate-ctl stop name_of_service
 ```
 
@@ -1436,19 +1436,19 @@ where `name_of_service` represents the name of any service that is
 listed after running the `service-list` subcommand. When a service is
 successfully stopped the output should be similar to:
 
-``` bash
+```bash
 ok: diwb: service_name: 0s, normally up
 ```
 
 For example:
 
-``` bash
+```bash
 automate-ctl stop
 ```
 
 will return something similar to:
 
-``` bash
+```bash
 ok: down: nginx: 393s, normally up
 ok: down: opscode-chef: 391s, normally up
 ok: down: opscode-erchef: 391s, normally up
@@ -1464,7 +1464,7 @@ service by specifying the name of the service in the command.
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 automate-ctl tail name_of_service
 ```
 
@@ -1479,7 +1479,7 @@ of the service in the command.
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 automate-ctl term name_of_service
 ```
 

@@ -8,7 +8,7 @@
     plugins included in Ohai can be found in the `ohai/lib/ohai/plugins`
     directory. For example, disabling a single plugin:
 
-    ``` ruby
+    ```ruby
     ohai.disabled_plugins = [
       :MyPlugin
     ]
@@ -16,7 +16,7 @@
 
     or disabling multiple plugins:
 
-    ``` ruby
+    ```ruby
     ohai.disabled_plugins = [
       :MyPlugin,
       :MyPlugin2,
@@ -27,7 +27,7 @@
     When a plugin is disabled, the Chef Infra Client log file will
     contain entries similar to:
 
-    ``` ruby
+    ```ruby
     [2014-06-13T23:49:12+00:00] DEBUG: Skipping disabled plugin MyPlugin
     ```
 
@@ -50,13 +50,13 @@
     plugins are added, the paths must be added to the array. For
     example, a single plugin:
 
-    ``` ruby
+    ```ruby
     ohai.plugin_path << '/etc/chef/ohai_plugins'
     ```
 
     and for multiple plugins:
 
-    ``` ruby
+    ```ruby
     ohai.plugin_path += [
       '/etc/chef/ohai_plugins',
       '/path/to/other/plugins'

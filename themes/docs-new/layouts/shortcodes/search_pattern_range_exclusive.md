@@ -4,7 +4,7 @@ can be searched for using an exclusive search pattern.
 
 To search using an exclusive range, enter the following:
 
-``` bash
+```bash
 knife search sample "id:{bar TO foo}"
 ```
 

@@ -18,7 +18,7 @@ When we wish to remove a feature or an API in Chef, we try to first mark
 it with a deprecation warning that contains a link to a description of
 the change and how to fix it. For example:
 
-``` ruby
+```ruby
 Deprecated features used!
   JSON auto inflation is not supported (CHEF-1) at (irb):7:in `irb_binding`.
   Please see /chef-client/deprecations/json_auto_inflate.html for further details and information on how to correct this problem.
@@ -30,7 +30,7 @@ To test your code for deprecations, you can put Test Kitchen in a mode
 where any deprecations cause the chef run to fail. Ensure your
 `kitchen.yml` includes:
 
-``` yaml
+```yaml
 provisioner:
   deprecations_as_errors: true
 ```
@@ -64,13 +64,13 @@ line number where the deprecation is being raised from (e.g.
 An example of setting the `silence_deprecation_warnings` option in your
 `client.rb` or `solo.rb`:
 
-``` ruby
+```ruby
 silence_deprecation_warnings %w{deploy_resource chef-23 recipes/install.rb:22}
 ```
 
 or in your \`kitchen.yml\`:
 
-``` yaml
+```yaml
 provisioner:
   name: chef_solo
     solo_rb:
@@ -84,7 +84,7 @@ provisioner:
 You can also silence deprecations using a comment on the line that is
 raising the warning:
 
-``` ruby
+```ruby
 erl_call 'something' do # chef:silence_deprecation
 ```
 

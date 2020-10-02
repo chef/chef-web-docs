@@ -21,7 +21,7 @@ For the quickest way to get started using Chef Infra:
 
 2.  Generate a cookbook:
 
-    ``` bash
+    ```bash
     chef generate cookbook first_cookbook
     ```
 
@@ -32,7 +32,7 @@ For the quickest way to get started using Chef Infra:
 4.  Update the `cookbooks/first_cookbook/recipes/default.rb` recipe in
     the generated cookbook to contain:
 
-    ``` ruby
+    ```ruby
     file "#{ENV['HOME']}/test.txt" do
       content 'This file was created by Chef Infra!'
     end
@@ -40,7 +40,7 @@ For the quickest way to get started using Chef Infra:
 
 5.  Run Chef Infra Client using the `default.rb` recipe:
 
-    ``` bash
+    ```bash
     chef-client --local-mode --override-runlist first_cookbook
     ```
 

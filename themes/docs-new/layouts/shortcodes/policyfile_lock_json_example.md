@@ -1,6 +1,6 @@
 A `Policyfile.lock.json` file is similar to:
 
-``` javascript
+```javascript
 {
   "revision_id": "288ed244f8db8bff3caf58147e840bbe079f76e0",
   "name": "jenkins",

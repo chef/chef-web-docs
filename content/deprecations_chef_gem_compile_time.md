@@ -31,7 +31,7 @@ The first is to set the `compile_time` property on the resource. To
 maintain the same behavior as before, the property should be set to
 `true`:
 
-``` ruby
+```ruby
 chef_gem 'etcd' do
   compile_time true
 end
@@ -40,6 +40,6 @@ end
 The second, and preferred, is to add a [gem
 dependency](/config_rb_metadata/) in your cookbook metadata.
 
-``` ruby
+```ruby
 gem 'etcd'
 ```

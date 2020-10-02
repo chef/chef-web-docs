@@ -1,6 +1,6 @@
 ---
 resource_reference: true
-properties_shortcode: 
+properties_shortcode:
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
@@ -31,7 +31,7 @@ syntax_full_code_block: |-
     version           String
     action            Symbol # defaults to :install if not specified
   end
-syntax_properties_list: 
+syntax_properties_list:
 syntax_full_properties_list:
 - "`bff_package` is the resource."
 - "`name` is the name given to the resource block."
@@ -89,7 +89,7 @@ examples: "
   \ the IBM XL\n  C/C++ compiler.\n\n  Using the base **package** resource:\n\n  ```\
   \ ruby\n  package 'xlccmp.13.1.0' do\n    source '/var/tmp/IBM_XL_C_13.1.0/usr/sys/inst.images/xlccmp.13.1.0'\n\
   \    action :install\n  end\n  ```\n\n  Using the **bff_package** resource:\n\n\
-  \  ``` ruby\n  bff_package 'xlccmp.13.1.0' do\n    source '/var/tmp/IBM_XL_C_13.1.0/usr/sys/inst.images/xlccmp.13.1.0'\n\
+  \  ```ruby\n  bff_package 'xlccmp.13.1.0' do\n    source '/var/tmp/IBM_XL_C_13.1.0/usr/sys/inst.images/xlccmp.13.1.0'\n\
   \    action :install\n  end\n  ```\n"
 
 ---

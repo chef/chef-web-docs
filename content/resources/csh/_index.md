@@ -1,6 +1,6 @@
 ---
 resource_reference: true
-properties_shortcode: 
+properties_shortcode:
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
@@ -25,7 +25,7 @@ resource_description_list:
     typically unique to the environment in which they are run. Use `not_if`
 
     and `only_if` to guard this resource for idempotence.'
-syntax_description: "A **csh** resource block executes scripts using csh:\n\n``` ruby\n\
+syntax_description: "A **csh** resource block executes scripts using csh:\n\n```ruby\n\
   csh 'hello world' do\n  code <<-EOH\n    echo \"Hello world!\"\n    echo \"Current\
   \ directory: \" $cwd\n  EOH\nend\n```"
 syntax_code_block: null
