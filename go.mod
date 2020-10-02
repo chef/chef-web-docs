@@ -7,11 +7,11 @@ require (
 	github.com/chef/chef-workstation/docs-chef-io v0.0.0-20200929235226-aefb2c517dfe // indirect
 	github.com/chef/desktop-config/docs-chef-io v0.0.0-20200929171526-d4cef8a736df // indirect
 	github.com/chef/effortless/docs-chef-io v0.0.0-20200930175149-51c187882fba // indirect
-	github.com/inspec/inspec/docs-chef-io v0.0.0-20200925145959-ded881473f2b // indirect
+	github.com/inspec/inspec/docs-chef-io v0.0.0-20201001220658-93f5e0e30fc2 // indirect
 )
 
-//replace github.com/chef/effortless/effortless-chef-io => ../effortless
-//replace github.com/chef/chef-workstation/www => ../chef-workstation/www
-//replace github.com/chef/desktop-config/docs => ../desktop-config/docs
-//replace github.com/inspec/inspec/www => ../inspec/www
+//replace github.com/chef/effortless/docs-chef-io => ../effortless/docs-chef-io
+//replace github.com/chef/chef-workstation/docs-chef-io => ../chef-workstation/docs-chef-io
+//replace github.com/chef/desktop-config/docs-chef-io => ../desktop-config/docs-chef-io
+//replace github.com/inspec/inspec/docs-chef-io => ../inspec/docs-chef-io
 //replace github.com/chef/automate/components/docs-chef-io => ../automate/components/docs-chef-io
