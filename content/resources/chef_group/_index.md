@@ -19,7 +19,7 @@ resource_description_list:
 resource_new_in: null
 handler_types: false
 syntax_description: "The syntax for using the **chef_group** resource in a recipe\
-  \ is as\nfollows:\n\n``` ruby\nchef_group 'name' do\n  attribute 'value' # see properties\
+  \ is as\nfollows:\n\n```ruby\nchef_group 'name' do\n  attribute 'value' # see properties\
   \ section below\n  ...\n  action :action # see actions section below\nend\n```"
 syntax_code_block: null
 syntax_properties_list:
@@ -100,7 +100,7 @@ properties_list:
   default_value: null
   new_in: null
   description_list:
-  - markdown: "The group as JSON data. For example:\n\n``` javascript\n{\n  :groupname\
+  - markdown: "The group as JSON data. For example:\n\n```javascript\n{\n  :groupname\
       \ => \"chef\"\n}\n```"
 - property: remove_clients
   ruby_type: null

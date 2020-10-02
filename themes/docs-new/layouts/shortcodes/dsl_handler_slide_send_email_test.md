@@ -1,7 +1,7 @@
 Use the following code block to trigger the exception and have the Chef
 Infra Client send email to the specified email address:
 
-``` ruby
+```ruby
 ruby_block 'fail the run' do
   block do
     raise 'deliberately fail the run'

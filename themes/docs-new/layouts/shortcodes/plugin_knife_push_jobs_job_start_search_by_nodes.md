@@ -2,13 +2,13 @@ To search for a specific set of nodes (named `chico`, `harpo`,
 `groucho`, `gummo`, `zeppo`), and where 90% of those nodes must be
 available, run the following command:
 
-``` bash
+```bash
 knife job start --quorum 90% 'chef-client' chico harpo groucho gummo zeppo
 ```
 
 to return something similar to:
 
-``` bash
+```bash
 Started. Job ID: GUID12345abc
   quorum_failed
   Command: chef-client

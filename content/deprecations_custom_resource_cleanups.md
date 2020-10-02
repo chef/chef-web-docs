@@ -31,7 +31,7 @@ valid value.
 If it is valid for the property to be set to nil, then update the
 property to include that.
 
-``` ruby
+```ruby
 property :my_nillable_property, [ String, nil ], default: nil
 ```
 
@@ -43,7 +43,7 @@ Current versions of Chef emit a warning when a property's default value
 is not valid. This is often because the type of the default value
 doesn't match the specification of the property. For example:
 
-``` ruby
+```ruby
 property :my_property, [ String ], default: []
 ```
 
@@ -71,7 +71,7 @@ Current versions of Chef emit a warning if the property declaration has
 both `default` and `name_property` set. In Chef Client 13, that will
 become an error. For example:
 
-``` ruby
+```ruby
 property :my_property, [ String ], default: [], name_property: true
 ```
 
@@ -90,7 +90,7 @@ themselves with the `provides` call.
 
 ### Example
 
-``` ruby
+```ruby
 def provides?
   true
 end
@@ -98,7 +98,7 @@ end
 
 ### Remediation
 
-``` ruby
+```ruby
 provides :my_provider
 
 def provides?
@@ -129,7 +129,7 @@ course of action in nearly all cases.
 
 ### Example
 
-``` ruby
+```ruby
 action :foo do
   updated = true
 end
@@ -137,7 +137,7 @@ end
 
 ### Remediation
 
-``` ruby
+```ruby
 action :foo do
   new_resource.updated_by_last_action true
 end
@@ -150,13 +150,13 @@ The `dsl_name` method is deprecated and will be removed from Chef Client
 
 ### Example
 
-``` ruby
+```ruby
 my_resource = MyResource.dsl_name
 ```
 
 ### Remediation
 
-``` ruby
+```ruby
 my_resource = MyResource.resource_name
 ```
 

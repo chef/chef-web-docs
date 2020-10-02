@@ -22,7 +22,7 @@ A resource is a Ruby block with four components: a type, a name, one (or
 more) properties (with values), and one (or more) actions. The syntax
 for a resource is like this:
 
-``` ruby
+```ruby
 type 'name' do
   attribute 'value'
   action :type_of_action
@@ -38,7 +38,7 @@ idempotent.
 For example, a resource that is used to install a tar.gz package for
 version 1.16.1 may look something like this:
 
-``` ruby
+```ruby
 package 'tar' do
   version '1.16.1'
   action :install
@@ -52,14 +52,14 @@ defaults to the `name` of the resource. Therefore, it is possible to
 write a resource block that installs the latest tar.gz package like
 this:
 
-``` ruby
+```ruby
 package 'tar'
 ```
 
 and a resource block that installs a tar.gz package for version 1.6.1
 like this:
 
-``` ruby
+```ruby
 package 'tar' do
   version '1.16.1'
 end

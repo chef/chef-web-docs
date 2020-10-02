@@ -48,7 +48,7 @@ by the `token` subcommand.
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 delivery api METHOD PATH (options)
 ```
 
@@ -115,19 +115,19 @@ command to work.
 
 **Link a GitHub enterprise user name**
 
-``` bash
+```bash
 delivery api put users/$DELIVERY_NAME/set-oauth-alias --data='{"app":"github-enterprise","alias":"$GITHUB_NAME"}'
 ```
 
 **Link a GitHub.com user name**
 
-``` bash
+```bash
 delivery api put users/$DELIVERY_NAME/set-oauth-alias --data='{"app":"github","alias":"$GITHUB_NAME"}'
 ```
 
 **Get list of blocked projects**
 
-``` bash
+```bash
 delivery api get blocked_projects --ent ENTERPRISE --server URL
 ```
 
@@ -140,7 +140,7 @@ project.
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 delivery checkout CHANGE (options)
 ```
 
@@ -194,7 +194,7 @@ an existing project.
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 delivery clone PROJECT (options)
 ```
 
@@ -256,7 +256,7 @@ the pipeline.
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 delivery diff CHANGE (options)
 ```
 
@@ -312,7 +312,7 @@ subcommand.
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 delivery init (options)
 ```
 
@@ -422,7 +422,7 @@ This subcommand has the following options:
 To initialize a project using a GitHub repository, run a command similar
 to:
 
-``` bash
+```bash
 delivery init --github ORG_NAME -r REPO_NAME
 ```
 
@@ -430,13 +430,13 @@ where `ORG_NAME` is the name of the GitHub organization and `REPO_NAME`
 is the name of the repository in GitHub. For example to initialize the
 `seapower` repository in GitHub with the `chef-cookbooks` organization:
 
-``` bash
+```bash
 delivery init --github chef-cookbooks -r seapower
 ```
 
 and returns output similar to:
 
-``` bash
+```bash
 Chef Delivery
 Loading configuration from /Users/albertatom/chef/delivery/organizations/sandbox/seapower
 Is /Users/albertatom/chef/delivery/organizations/sandbox/seapower a git repo?  yes
@@ -468,14 +468,14 @@ Push add-delivery-config branch and create Pull Request
 The following example shows how to add a build cookbook after the
 initialization process
 
-``` bash
+```bash
 delivery init -skip-build-cookbook
 ```
 
 and then update the `config.json` file for the `delivery-truck` cookbook
 and the path to the cookbook in a private Chef Supermarket:
 
-``` javascript
+```javascript
 {
   "version": "2",
   "build_cookbook": {
@@ -492,7 +492,7 @@ and the path to the cookbook in a private Chef Supermarket:
 To initialize a project using a GitHub repository, run a command similar
 to:
 
-``` bash
+```bash
 delivery init --generator PATH_TO_COOKBOOK -c PATH_TO_CONFIG -f PIPELINE
 ```
 
@@ -502,13 +502,13 @@ the name of a pipeline in Chef Automate. For example to initialize a
 pipeline using the `bc-generator` cookbook generator and the `trunk`
 pipeline:
 
-``` bash
+```bash
 delivery init --generator https://github.com/albertatom/bc-generator.git -c /Users/albertatom/chef/delivery/.delivery/config.json -f trunk
 ```
 
 returns output similar to:
 
-``` bash
+```bash
 Chef Delivery
 Loading configuration from /Users/albertatom/chef/delivery/organizations/sandbox/seapower
 Is /Users/albertatom/chef/delivery/organizations/sandbox/seapower a git repo?  yes
@@ -573,7 +573,7 @@ Automate phase.
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 delivery job STAGE PHASE (options)
 ```
 
@@ -684,13 +684,13 @@ This subcommand has the following options:
 To run your unit tests on your local machine the same way they'd be run
 on Chef Automate, run the following command:
 
-``` bash
+```bash
 delivery job verify unit --local
 ```
 
 which will return output similar to:
 
-``` bash
+```bash
 Chef Delivery
 Loading configuration from /Users/adam/src/opscode/delivery/opscode/delivery-cli
 Starting job for verify unit
@@ -726,7 +726,7 @@ file located in the project's `.delivery` directory.
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 delivery local PHASE|STAGE
 ```
 
@@ -752,14 +752,14 @@ deploy, smoke, functional, cleanup\]
 
 Phases are defined in the `project.toml` file in the following format:
 
-``` ruby
+```ruby
 [local_phases]
 name_of_phase = 'command to execute locally'
 ```
 
 Example configuration for commands to run locally:
 
-``` ruby
+```ruby
 [local_phases]
 unit = 'rspec spec/'
 lint = 'cookstyle'
@@ -771,7 +771,7 @@ syntax = 'echo skipping syntax phase'
 You can use a `project.toml` file located in a remote location by
 specifying a URI in the following format:
 
-``` ruby
+```ruby
 remote_file = 'https://url-for-my-project.toml'
 ```
 
@@ -779,7 +779,7 @@ This is useful for teams that wish to centrally manage the behavior of
 the `delivery local` command across many different projects.
 Alternatively, you can provide the URI via the `-r` flag:
 
-``` bash
+```bash
 delivery local syntax -r https://url-for-my-project.toml
 ```
 
@@ -792,7 +792,7 @@ configured in the local `project.toml`.
 
 If the `project.toml` file contains:
 
-``` ruby
+```ruby
 unit = 'rspec spec/'
 lint = 'cookstyle --only ChefCorrectness'
 syntax = 'echo skipping syntax phase'
@@ -804,13 +804,13 @@ cleanup = 'kitchen destroy'
 
 the command
 
-``` bash
+```bash
 delivery local lint
 ```
 
 will run Cookstyle and execute the following command locally:
 
-``` bash
+```bash
 cookstyle --only ChefCorrectness
 ```
 
@@ -818,7 +818,7 @@ cookstyle --only ChefCorrectness
 
 If the `project.toml` file contains:
 
-``` ruby
+```ruby
 unit = 'rspec spec/'
 lint = 'cookstyle --only ChefCorrectness'
 syntax = 'echo skipping syntax phase'
@@ -830,13 +830,13 @@ cleanup = 'kitchen destroy'
 
 the command
 
-``` bash
+```bash
 delivery local lint
 ```
 
 will run lint, syntax and unit phases in that order:
 
-``` bash
+```bash
 Chef Delivery
 Running Lint Phase
 Inspecting 45 files
@@ -859,7 +859,7 @@ show the pipeline in Chef Automate.
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 delivery review (options)
 ```
 
@@ -904,13 +904,13 @@ This subcommand has the following options:
 
 **Bump version metadata automatically**
 
-``` bash
+```bash
 delivery review --auto-bump
 ```
 
 will return something similar to:
 
-``` none
+```none
 Chef Delivery
 Loading configuration from /Users/albertatom/delivery/organizations/sandbox/coffee
 Project coffee is a cookbook
@@ -933,7 +933,7 @@ that allows authorized requests to be made to the server.
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 delivery setup (options)
 ```
 
@@ -979,7 +979,7 @@ server's configuration.
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 delivery status (options)
 ```
 
@@ -1005,7 +1005,7 @@ This subcommand has the following options:
 
 ### Examples
 
-``` shell
+```shell
 delivery status
 
 Status information for Automate server automate.example.com...
@@ -1049,7 +1049,7 @@ must include `winpty` before `delivery token` to avoid errors.
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 delivery token (options)
 ```
 
@@ -1060,7 +1060,7 @@ variable to the <span class="title-ref">delivery token</span>
 subcommand. If this variable is set, you will not be asked to input your
 password.
 
-``` bash
+```bash
 AUTOMATE_PASSWORD=secret delivery token -s automate.example.com -e myent -u token
 ```
 
@@ -1098,13 +1098,13 @@ This subcommand has the following options:
 
 **Verify a token**
 
-``` bash
+```bash
 delivery token --verify
 ```
 
 returns something similar to:
 
-``` none
+```none
 Chef Delivery
 Loading configuration from /Users/dennisteck/chef/delivery
 token: GmTtD0t7asgy5KZyw//r/6etpXYfw8dfgQccjdeU=

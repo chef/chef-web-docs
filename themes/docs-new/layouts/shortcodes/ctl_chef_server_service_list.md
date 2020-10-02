@@ -3,6 +3,6 @@ services. A service that is enabled is labeled with an asterisk (\*).
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 chef-server-ctl service-list
 ```

@@ -2,7 +2,7 @@ The following example shows using the **directory** and
 **cookbook_file** resources to manage dotfiles. The dotfiles are
 defined by a JSON data structure similar to:
 
-``` javascript
+```javascript
 "files": {
   ".zshrc": {
     "mode": '0755',
@@ -21,7 +21,7 @@ defined by a JSON data structure similar to:
 
 and then the following resources manage the dotfiles:
 
-``` ruby
+```ruby
 if u.has_key?('files')
   u['files'].each do |filename, file_data|
 

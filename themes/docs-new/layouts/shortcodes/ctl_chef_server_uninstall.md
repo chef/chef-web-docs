@@ -4,7 +4,7 @@ shut down all services (including the `runit` process supervisor).
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 chef-server-ctl uninstall
 ```
 

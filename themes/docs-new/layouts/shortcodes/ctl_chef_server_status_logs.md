@@ -1,7 +1,7 @@
 A typical status line for a service that is running any of the Chef
 Infra Server front-end services is similar to the following:
 
-``` bash
+```bash
 run: name_of_service: (pid 1486) 7819s; run: log: (pid 1485) 7819s
 ```
 
@@ -21,7 +21,7 @@ where:
 If the service is down, the status line will appear similar to the
 following:
 
-``` bash
+```bash
 down: opscode-erchef: 3s, normally up; run: log: (pid 1485) 8526s
 ```
 

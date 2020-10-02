@@ -55,7 +55,7 @@ The Berksfile first looks for the cookbook on the private Chef
 Supermarket and, if not discovered there, then looks on the public Chef
 Supermarket.
 
-``` ruby
+```ruby
 source 'https://your_private_supermarket_url'
 source 'https://supermarket.chef.io'
 ```
@@ -85,7 +85,7 @@ following:
 
 2.  Add the following setting:
 
-    ``` ruby
+    ```ruby
     knife[:supermarket_site] = 'https://your-private-supermarket'
     ```
 
@@ -100,13 +100,13 @@ chef command that is built into Chef Workstation.
 
 To generate a chef-repo, run a command similar to:
 
-``` bash
+```bash
 chef generate repo my_chef_repo
 ```
 
 Access the chef-repo using the `cd` command:
 
-``` bash
+```bash
 cd my_chef_repo
 ```
 
@@ -121,7 +121,7 @@ verify that a cookbook name is available.
 
 To create the `my_apache2_cookbook` cookbook, run the following command:
 
-``` bash
+```bash
 chef generate cookbook cookbooks/my_apache2_cookbook
 ```
 
@@ -129,7 +129,7 @@ chef generate cookbook cookbooks/my_apache2_cookbook
 
 To generate a template, run a command similar to:
 
-``` bash
+```bash
 chef generate template cookbooks/my_apache2_cookbook index.html
 ```
 
@@ -137,7 +137,7 @@ This will create a file named `index.html.etb` in the
 `/cookbooks/my_apache2_cookbook` directory. Open the file using a text
 editor to add content. For example, some HTML:
 
-``` html
+```html
 <html>
   <body>
     <h1>Chef Love!</h1>
@@ -152,7 +152,7 @@ Save and close the file.
 The `default.rb` recipe is created when a cookbook is generated. A
 recipe is updated using a text editor. For example:
 
-``` ruby
+```ruby
 package 'apache2' # Installs the apache2 package
 
 service 'apache2' do
@@ -170,32 +170,32 @@ To upload a cookbook to Chef Supermarket, do the following:
 
 1.  Add a setting for Chef Supermarket to the config.rb file:
 
-    ``` ruby
+    ```ruby
     knife[:supermarket_site] = 'https://your-private-supermarket'
     ```
 
 2.  Resolve SSL errors by fetching, and then verifying the SSL
     certificate for Chef Supermarket:
 
-    ``` bash
+    ```bash
     knife ssl fetch https://your-private-supermarket
     ```
 
     and then:
 
-    ``` bash
+    ```bash
     knife ssl check https://your-private-supermarket
     ```
 
 3.  Upload the cookbook to Chef Supermarket:
 
-    ``` bash
+    ```bash
     knife supermarket share mycookbook "Other"
     ```
 
 ### Share a Cookbook
 
-``` bash
+```bash
 knife supermarket share 'my_cookbook'
 ```
 
@@ -203,7 +203,7 @@ knife supermarket share 'my_cookbook'
 
 If an SSL error is returned similar to:
 
-``` bash
+```bash
 ERROR: Error uploading cookbook my_cookbook to the Opscode Cookbook Site: SSL_connect returned=1 errno=0 state=SSLv3 read server certificate B: certificate verify failed. Increase log verbosity (-VV) for more information.
 ```
 
@@ -214,20 +214,20 @@ self-signed certificates by default. Use the `knife ssl fetch` and
 
 First fetch the SSL certificate for the private Chef Supermarket:
 
-``` bash
+```bash
 knife ssl fetch https://your-private-supermarket
 ```
 
 and then:
 
-``` bash
+```bash
 knife ssl check https://your-private-supermarket
 ```
 
 Re-share the cookbook. This time the message returned should be similar
 to:
 
-``` bash
+```bash
 Generating metadata for my_cookbook from (...)
 Making tarball my_cookbook.tgz
 Upload complete!
@@ -264,20 +264,20 @@ service like this:
 
 1.  Add Fieri to your features attribute.
 
-    ``` ruby
+    ```ruby
     ['supermarket_omnibus']['config']['features'] = "tools,github,announcement,fieri"
     ```
 
 2.  Add the following Fieri attributes:
 
-    ``` ruby
+    ```ruby
     ['supermarket_omnibus']['config']['fieri_key'] = "#{random string you generate}"
     ['supermarket_omnibus']['config']['fieri_supermarket_endpoint'] = "#{your_supermarket_url}"
     ```
 
 3.  Reconfigure your Supermarket.
 
-    ``` bash
+    ```bash
     (your-supermarket-node) sudo supermarket-ctl reconfigure
     (your-supermarket-node) sudo supermarket-ctl restart
     ```

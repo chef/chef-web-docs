@@ -25,7 +25,7 @@ syntax_description: 'A **ips_package** resource block manages a package on a nod
   by installing it. The simplest use of the **ips_package** resource is:
 
 
-  ``` ruby
+  ```ruby
 
   ips_package ''package_name''
 
@@ -133,7 +133,7 @@ handler_custom: false
 cookbook_file_specificity: false
 unit_file_verification: false
 examples: "
-  Install a package\n\n  ``` ruby\n  ips_package 'name of package'\
+  Install a package\n\n  ```ruby\n  ips_package 'name of package'\
   \ do\n    action :install\n  end\n  ```\n"
 
 ---

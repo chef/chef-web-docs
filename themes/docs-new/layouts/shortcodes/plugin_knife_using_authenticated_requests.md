@@ -34,7 +34,7 @@ Chef Infra Server using the following methods:
 
 For example:
 
-``` ruby
+```ruby
 module MyCommands
   class MyNodeDelete < Chef::Knife
     #An implementation of knife node delete

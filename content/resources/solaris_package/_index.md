@@ -1,6 +1,6 @@
 ---
 resource_reference: true
-properties_shortcode: 
+properties_shortcode:
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
@@ -26,7 +26,7 @@ syntax_full_code_block: |-
     version           String
     action            Symbol # defaults to :install if not specified
   end
-syntax_properties_list: 
+syntax_properties_list:
 syntax_full_properties_list:
 - "`solaris_package` is the resource."
 - "`name` is the name given to the resource block."
@@ -70,7 +70,7 @@ properties_list:
   description_list:
   - markdown: The version of a package to be installed or upgraded.
 examples: "
-  Install a package\n\n  ``` ruby\n  solaris_package 'name of package'\
+  Install a package\n\n  ```ruby\n  solaris_package 'name of package'\
   \ do\n    source '/packages_directory'\n    action :install\n  end\n  ```\n"
 
 ---

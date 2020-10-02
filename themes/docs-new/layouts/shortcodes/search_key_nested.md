@@ -12,7 +12,7 @@ card made by the specified vendor.
 
 Consider the following snippet of JSON data:
 
-``` javascript
+```javascript
 {"network":
   [
   //snipped...
@@ -69,7 +69,7 @@ Consider the following snippet of JSON data:
 Before this data is indexed on the Chef Infra Server, the nested fields
 are extracted into the top level, similar to:
 
-``` none
+```none
 "broadcast" => "192.168.0.255",
 "flags"     => ["UP", "BROADCAST", "SMART", "RUNNING", "SIMPLEX", "MULTICAST"]
 "mtu"       => "1500"
@@ -78,19 +78,19 @@ are extracted into the top level, similar to:
 which allows searches like the following to find data that is present in
 this node:
 
-``` ruby
+```ruby
 node "broadcast:192.168.0.*"
 ```
 
 or:
 
-``` ruby
+```ruby
 node "mtu:1500"
 ```
 
 or:
 
-``` ruby
+```ruby
 node "flags:UP"
 ```
 
@@ -98,7 +98,7 @@ This data is also flattened into various compound fields, which follow
 the same pattern as the JSON hierarchy and use underscores (`_`) to
 separate the levels of data, similar to:
 
-``` none
+```none
 # ...snip...
 "network_interfaces_en1_addresses_192.0.2.0_broadcast" => "192.168.0.255",
 "network_interfaces_en1_addresses_fe80::fa1e:tldr_family"  => "inet6",
@@ -109,7 +109,7 @@ separate the levels of data, similar to:
 which allows searches like the following to find data that is present in
 this node:
 
-``` ruby
+```ruby
 node "network_interfaces_en1_addresses:192.0.2.0"
 ```
 
@@ -119,7 +119,7 @@ structure that are not important to the search query. In the following
 example, an asterisk (`*`) is used to show where the wildcard can exist
 when searching for a nested field:
 
-``` ruby
+```ruby
 "network_interfaces_*_flags"     => ["UP", "BROADCAST", "SMART", "RUNNING", "SIMPLEX", "MULTICAST"]
 "network_interfaces_*_addresses" => ["fe80::fa1e:dfff:fed8:63a2", "192.0.2.0", "f8:1e:df:d8:63:a2"]
 "network_interfaces_en0_media_*" => ["autoselect", "none", "1000baseT", "10baseT/UTP", "100baseTX"]
@@ -133,7 +133,7 @@ contained within the brackets. When running a search query, the query
 syntax for wildcards is to simply omit the name of the node (while
 preserving the underscores), similar to:
 
-``` ruby
+```ruby
 network_interfaces__flags
 ```
 

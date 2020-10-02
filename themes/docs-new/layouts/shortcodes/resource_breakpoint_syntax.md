@@ -1,6 +1,6 @@
 A **breakpoint** resource block creates a breakpoint in a recipe:
 
-``` ruby
+```ruby
 breakpoint 'name' do
   action :break
 end

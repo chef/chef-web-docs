@@ -1,6 +1,6 @@
 ---
 resource_reference: true
-properties_shortcode: 
+properties_shortcode:
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
@@ -27,7 +27,7 @@ syntax_description: 'A **windows_package** resource block manages a package on a
   resource is:
 
 
-  ``` ruby
+  ```ruby
 
   windows_package ''package_name''
 
@@ -50,7 +50,7 @@ syntax_full_code_block: |-
     version                     String
     action                      Symbol # defaults to :install if not specified
   end
-syntax_properties_list: 
+syntax_properties_list:
 syntax_full_properties_list:
 - "`windows_package` is the resource."
 - "`name` is the name given to the resource block."
@@ -137,7 +137,7 @@ properties_list:
       appropriate registry key, which may be one of the following:
 
 
-      ``` ruby
+      ```ruby
 
       HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Uninstall
 

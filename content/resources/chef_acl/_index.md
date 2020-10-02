@@ -19,7 +19,7 @@ resource_description_list:
 resource_new_in: null
 handler_types: false
 syntax_description: "The syntax for using the **chef_acl** resource in a recipe is\
-  \ as\nfollows:\n\n``` ruby\nchef_acl 'name' do\n  attribute 'value' # see properties\
+  \ as\nfollows:\n\n```ruby\nchef_acl 'name' do\n  attribute 'value' # see properties\
   \ section below\n  ...\n  action :action # see actions section below\nend\n```"
 syntax_code_block: null
 syntax_properties_list:
@@ -98,7 +98,7 @@ properties_list:
   default_value: null
   new_in: null
   description_list:
-  - markdown: "Chef Infra Client as JSON data. For example:\n\n``` javascript\n{\n\
+  - markdown: "Chef Infra Client as JSON data. For example:\n\n```javascript\n{\n\
       \  \"clientname\": \"client_name\",\n  \"orgname\": \"org_name\",\n  \"validator\"\
       : false,\n  \"certificate\": \"-----BEGIN CERTIFICATE-----\\n\n            \
       \      ...\n                  1234567890abcdefghijklmnopq\\n\n             \
@@ -126,7 +126,7 @@ properties_list:
   - markdown: 'Use to remove rights. For example:
 
 
-      ``` ruby
+      ```ruby
 
       remove_rights :read, :users => ''jkeiser'', :groups => [ ''admins'', ''users''
       ]
@@ -137,7 +137,7 @@ properties_list:
       or:
 
 
-      ``` ruby
+      ```ruby
 
       remove_rights [ :create, :read ], :users => [ ''jkeiser'', ''adam'' ]
 
@@ -147,7 +147,7 @@ properties_list:
       or:
 
 
-      ``` ruby
+      ```ruby
 
       remove_rights :all, :users => [ ''jkeiser'', ''adam'' ]
 
@@ -179,7 +179,7 @@ properties_list:
       example:
 
 
-      ``` ruby
+      ```ruby
 
       rights :read, :users => ''jkeiser'', :groups => [ ''admins'', ''users'' ]
 
@@ -189,7 +189,7 @@ properties_list:
       or:
 
 
-      ``` ruby
+      ```ruby
 
       rights [ :create, :read ], :users => [ ''jkeiser'', ''adam'' ]
 
@@ -199,7 +199,7 @@ properties_list:
       or:
 
 
-      ``` ruby
+      ```ruby
 
       rights :all, :users => ''jkeiser''
 

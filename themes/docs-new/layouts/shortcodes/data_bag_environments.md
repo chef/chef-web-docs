@@ -7,7 +7,7 @@ items for each environment.
 A data bag that is storing a top-level key for an environment might look
 something like this:
 
-``` none
+```none
 {
   "id": "some_data_bag_item",
   "production" : {
@@ -22,7 +22,7 @@ something like this:
 When using the data bag in a recipe, that data can be accessed from a
 recipe using code similar to:
 
-``` ruby
+```ruby
 data_bag_item[node.chef_environment]['some_other_key']
 ```
 

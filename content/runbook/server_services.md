@@ -92,13 +92,13 @@ The following services are part of the Chef Infra Server:
 
 To view the status for the service:
 
-``` bash
+```bash
 chef-server-ctl status bifrost
 ```
 
 to return something like:
 
-``` bash
+```bash
 run: bifrost: (pid 1234) 123456s; run: log: (pid 5678) 789012s
 ```
 
@@ -106,7 +106,7 @@ run: bifrost: (pid 1234) 123456s; run: log: (pid 5678) 789012s
 
 To start the service:
 
-``` bash
+```bash
 chef-server-ctl start bifrost
 ```
 
@@ -114,7 +114,7 @@ chef-server-ctl start bifrost
 
 To stop the service:
 
-``` bash
+```bash
 chef-server-ctl stop bifrost
 ```
 
@@ -122,13 +122,13 @@ chef-server-ctl stop bifrost
 
 To restart the service:
 
-``` bash
+```bash
 chef-server-ctl restart bifrost
 ```
 
 to return something like:
 
-``` bash
+```bash
 ok: run: bifrost: (pid 1234) 1234s
 ```
 
@@ -136,7 +136,7 @@ ok: run: bifrost: (pid 1234) 1234s
 
 To kill the service (send a `SIGKILL` command):
 
-``` bash
+```bash
 chef-server-ctl kill bifrost
 ```
 
@@ -144,7 +144,7 @@ chef-server-ctl kill bifrost
 
 To run the service, but not restart it (if the service fails):
 
-``` bash
+```bash
 chef-server-ctl once bifrost
 ```
 
@@ -152,7 +152,7 @@ chef-server-ctl once bifrost
 
 To follow the logs for the service:
 
-``` bash
+```bash
 chef-server-ctl tail bifrost
 ```
 
@@ -164,13 +164,13 @@ chef-server-ctl tail bifrost
 
 To view the status for the service:
 
-``` bash
+```bash
 chef-server-ctl status bookshelf
 ```
 
 to return something like:
 
-``` bash
+```bash
 run: bookshelf: (pid 1234) 123456s; run: log: (pid 5678) 789012s
 ```
 
@@ -178,7 +178,7 @@ run: bookshelf: (pid 1234) 123456s; run: log: (pid 5678) 789012s
 
 To start the service:
 
-``` bash
+```bash
 chef-server-ctl start bookshelf
 ```
 
@@ -186,7 +186,7 @@ chef-server-ctl start bookshelf
 
 To stop the service:
 
-``` bash
+```bash
 chef-server-ctl stop bookshelf
 ```
 
@@ -194,13 +194,13 @@ chef-server-ctl stop bookshelf
 
 To restart the service:
 
-``` bash
+```bash
 chef-server-ctl restart bookshelf
 ```
 
 to return something like:
 
-``` bash
+```bash
 ok: run: bookshelf: (pid 1234) 1234s
 ```
 
@@ -208,7 +208,7 @@ ok: run: bookshelf: (pid 1234) 1234s
 
 To kill the service (send a `SIGKILL` command):
 
-``` bash
+```bash
 chef-server-ctl kill bookshelf
 ```
 
@@ -216,7 +216,7 @@ chef-server-ctl kill bookshelf
 
 To run the service, but not restart it (if the service fails):
 
-``` bash
+```bash
 chef-server-ctl once bookshelf
 ```
 
@@ -224,7 +224,7 @@ chef-server-ctl once bookshelf
 
 To follow the logs for the service:
 
-``` bash
+```bash
 chef-server-ctl tail bookshelf
 ```
 
@@ -234,13 +234,13 @@ chef-server-ctl tail bookshelf
 
 To view the status for the service:
 
-``` bash
+```bash
 chef-server-ctl status elasticsearch
 ```
 
 to return something like:
 
-``` bash
+```bash
 elasticsearch: (pid 12345) 1s; run: log: (pid 5678) 123456s
 ```
 
@@ -304,7 +304,7 @@ chef-server-ctl once elasticsearch
 
 To follow the logs for the service:
 
-``` bash
+```bash
 chef-server-ctl tail elasticsearch
 ```
 
@@ -316,13 +316,13 @@ chef-server-ctl tail elasticsearch
 
 To view the status for the service:
 
-``` bash
+```bash
 chef-server-ctl status nginx
 ```
 
 to return something like:
 
-``` bash
+```bash
 run: nginx: (pid 1234) 123456s; run: log: (pid 5678) 789012s
 ```
 
@@ -330,7 +330,7 @@ run: nginx: (pid 1234) 123456s; run: log: (pid 5678) 789012s
 
 To start the service:
 
-``` bash
+```bash
 chef-server-ctl start nginx
 ```
 
@@ -338,7 +338,7 @@ chef-server-ctl start nginx
 
 To stop the service:
 
-``` bash
+```bash
 chef-server-ctl stop nginx
 ```
 
@@ -346,13 +346,13 @@ chef-server-ctl stop nginx
 
 To restart the service:
 
-``` bash
+```bash
 chef-server-ctl restart nginx
 ```
 
 to return something like:
 
-``` bash
+```bash
 ok: run: nginx: (pid 1234) 1234s
 ```
 
@@ -360,7 +360,7 @@ ok: run: nginx: (pid 1234) 1234s
 
 To kill the service (send a `SIGKILL` command):
 
-``` bash
+```bash
 chef-server-ctl kill nginx
 ```
 
@@ -368,7 +368,7 @@ chef-server-ctl kill nginx
 
 To run the service, but not restart it (if the service fails):
 
-``` bash
+```bash
 chef-server-ctl once nginx
 ```
 
@@ -384,13 +384,13 @@ chef-server-ctl once nginx
 
 To view the status for the service:
 
-``` bash
+```bash
 chef-server-ctl status opscode-erchef
 ```
 
 to return something like:
 
-``` bash
+```bash
 run: opscode-erchefs: (pid 1234) 123456s; run: log: (pid 5678) 789012s
 ```
 
@@ -398,7 +398,7 @@ run: opscode-erchefs: (pid 1234) 123456s; run: log: (pid 5678) 789012s
 
 To start the service:
 
-``` bash
+```bash
 chef-server-ctl start opscode-erchef
 ```
 
@@ -406,7 +406,7 @@ chef-server-ctl start opscode-erchef
 
 To stop the service:
 
-``` bash
+```bash
 chef-server-ctl stop opscode-erchef
 ```
 
@@ -414,13 +414,13 @@ chef-server-ctl stop opscode-erchef
 
 To restart the service:
 
-``` bash
+```bash
 chef-server-ctl restart opscode-erchef
 ```
 
 to return something like:
 
-``` bash
+```bash
 ok: run: opscode-erchef: (pid 1234) 1234s
 ```
 
@@ -428,7 +428,7 @@ ok: run: opscode-erchef: (pid 1234) 1234s
 
 To kill the service (send a `SIGKILL` command):
 
-``` bash
+```bash
 chef-server-ctl kill opscode-erchef
 ```
 
@@ -436,7 +436,7 @@ chef-server-ctl kill opscode-erchef
 
 To run the service, but not restart it (if the service fails):
 
-``` bash
+```bash
 chef-server-ctl once opscode-erchef
 ```
 
@@ -444,7 +444,7 @@ chef-server-ctl once opscode-erchef
 
 To follow the logs for the service:
 
-``` bash
+```bash
 chef-server-ctl tail opscode-erchef
 ```
 
@@ -456,13 +456,13 @@ chef-server-ctl tail opscode-erchef
 
 To view the status for the service:
 
-``` bash
+```bash
 chef-server-ctl status postgresql
 ```
 
 to return something like:
 
-``` bash
+```bash
 run: postgresql: (pid 1234) 123456s; run: log: (pid 5678) 789012s
 ```
 
@@ -470,7 +470,7 @@ run: postgresql: (pid 1234) 123456s; run: log: (pid 5678) 789012s
 
 To start the service:
 
-``` bash
+```bash
 chef-server-ctl start postgresql
 ```
 
@@ -478,7 +478,7 @@ chef-server-ctl start postgresql
 
 To stop the service:
 
-``` bash
+```bash
 chef-server-ctl stop postgresql
 ```
 
@@ -486,13 +486,13 @@ chef-server-ctl stop postgresql
 
 To restart the service:
 
-``` bash
+```bash
 chef-server-ctl restart postgresql
 ```
 
 to return something like:
 
-``` bash
+```bash
 ok: run: postgresql: (pid 1234) 1234s
 ```
 
@@ -500,7 +500,7 @@ ok: run: postgresql: (pid 1234) 1234s
 
 To kill the service (send a `SIGKILL` command):
 
-``` bash
+```bash
 chef-server-ctl kill postgresql
 ```
 
@@ -508,7 +508,7 @@ chef-server-ctl kill postgresql
 
 To run the service, but not restart it (if the service fails):
 
-``` bash
+```bash
 chef-server-ctl once postgresqls
 ```
 
@@ -516,7 +516,7 @@ chef-server-ctl once postgresqls
 
 To follow the logs for the service:
 
-``` bash
+```bash
 chef-server-ctl tail postgresql
 ```
 
@@ -528,13 +528,13 @@ chef-server-ctl tail postgresql
 
 To view the status for the service:
 
-``` bash
+```bash
 chef-server-ctl status redis
 ```
 
 to return something like:
 
-``` bash
+```bash
 run: redis: (pid 1234) 123456s; run: log: (pid 5678) 789012s
 ```
 
@@ -542,7 +542,7 @@ run: redis: (pid 1234) 123456s; run: log: (pid 5678) 789012s
 
 To start the service:
 
-``` bash
+```bash
 chef-server-ctl start redis
 ```
 
@@ -550,7 +550,7 @@ chef-server-ctl start redis
 
 To stop the service:
 
-``` bash
+```bash
 chef-server-ctl stop redis
 ```
 
@@ -558,13 +558,13 @@ chef-server-ctl stop redis
 
 To restart the service:
 
-``` bash
+```bash
 chef-server-ctl restart redis
 ```
 
 to return something like:
 
-``` bash
+```bash
 ok: run: redis: (pid 1234) 1234s
 ```
 
@@ -572,7 +572,7 @@ ok: run: redis: (pid 1234) 1234s
 
 To kill the service (send a `SIGKILL` command):
 
-``` bash
+```bash
 chef-server-ctl kill name_of_service
 ```
 
@@ -580,7 +580,7 @@ chef-server-ctl kill name_of_service
 
 To run the service, but not restart it (if the service fails):
 
-``` bash
+```bash
 chef-server-ctl once redis
 ```
 
@@ -588,6 +588,6 @@ chef-server-ctl once redis
 
 To follow the logs for the service:
 
-``` bash
+```bash
 chef-server-ctl tail name_of_service
 ```

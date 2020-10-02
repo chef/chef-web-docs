@@ -4,7 +4,7 @@ custom resource that is the same as a property in a core resource, for
 the purpose of overriding that property when used with the custom
 resource. For example:
 
-``` ruby
+```ruby
 property :command, String, name_property: true
 property :version, String
 
@@ -41,7 +41,7 @@ resource, embedded as part of the `action :run` action. Because both the
 custom properties and the **execute** properties are identical, this
 will result in an error message similar to:
 
-``` ruby
+```ruby
 ArgumentError
 -------------
 wrong number of arguments (0 for 1)
@@ -51,7 +51,7 @@ To prevent this behavior, use `new_resource.` to tell Chef Infra Client
 to process the properties from the core resource instead of the
 properties in the custom resource. For example:
 
-``` ruby
+```ruby
 property :command, String, name_property: true
 property :version, String
 

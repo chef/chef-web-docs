@@ -2,7 +2,7 @@ The following example shows how to set up IPv4 packet forwarding using
 the **execute** resource to run a command named `forward_ipv4` that uses
 a template defined by the **template** resource:
 
-``` ruby
+```ruby
 execute 'forward_ipv4' do
   command 'echo > /proc/.../ipv4/ip_forward'
   action :nothing

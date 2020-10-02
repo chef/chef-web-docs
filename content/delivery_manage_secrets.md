@@ -39,7 +39,7 @@ Automate.
 Create an encrypted data bag item that is nested inside the
 `delivery-secrets` data bag. Give the encrypted data bag item the name:
 
-``` javascript
+```javascript
 <ENT>-<ORG>-<PROJECT>
 ```
 
@@ -47,7 +47,7 @@ For example, if the project is in the `chef` enterprise and is in the
 `CIA` organization with a name of `chef-web-www`, the encrypted data bag
 item would have the following name:
 
-``` javascript
+```javascript
 chef-CIA-chef-web-www
 ```
 
@@ -58,7 +58,7 @@ If the project item does not exist, `delivery-sugar` will try to load
 the secrets from the project's parent organization. It will look for an
 item called:
 
-``` javascript
+```javascript
 chef-CIA
 ```
 
@@ -76,14 +76,14 @@ To use an encrypted data bag item, do the following:
 2.  Update the Berksfile to point to GitHub for the cookbook. The line
     in your Berksfile should be similar to:
 
-    ``` javascript
+    ```javascript
     cookbook 'delivery-sugar', github: 'chef-cookbooks/delivery-sugar'
     ```
 
 From there, begin using the secrets by calling the `get_project_secrets`
 method. For example:
 
-``` ruby
+```ruby
 if push_repo_to_github?
   secrets = get_project_secrets
   github_repo = node['delivery']['config']['delivery-truck']['publish']['github']
@@ -113,7 +113,7 @@ In order to use Chef vaults you must follow hierarchical naming standard
 for your Chef vaults under the <span
 class="title-ref">workflow-vaults</span> data bag:
 
-``` javascript
+```javascript
 <ENT>
 <ENT>-<ORG>
 <ENT>-<ORG>-<PROJECT>
@@ -122,7 +122,7 @@ class="title-ref">workflow-vaults</span> data bag:
 For example, if the `chef` enterprise has a `cookbooks` organization
 with a `mysql` project, it would have the naming schema:
 
-``` javascript
+```javascript
 chef
 chef-cookbook
 chef-cookbook-mysql
@@ -144,7 +144,7 @@ using the secrets by calling the `get_chef_vault_data` method.
 
 For example:
 
-``` ruby
+```ruby
 vault = get_workflow_vault_data
 puts vault['my_key']
 ```

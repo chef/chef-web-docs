@@ -57,7 +57,7 @@ The following examples show ways to use the Handler DSL.
 In a cookbook library file, you can add this in order to print out all
 attribute changes in cookbooks:
 
-``` ruby
+```ruby
 Chef.event_handler do
   on :attribute_changed do |precedence, key, value|
     puts "setting attribute #{precedence}#{key.map { |n| "[\"#{n}\"]" }.join} = #{value}"
@@ -68,7 +68,7 @@ end
 If you want to setup a policy that override attributes should never be
 used:
 
-``` ruby
+```ruby
 Chef.event_handler do
   on :attribute_changed do |precedence, key, value|
     raise 'override policy violation' if precedence == :override

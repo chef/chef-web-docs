@@ -4,7 +4,7 @@ snapshots.
 
 **Syntax**
 
-``` none
+```none
 automate-ctl create-backup [NAME] [options]
      --chef-server-config         Backup up the Chef Infra Server config if present
      --digest [int]               The SHA digest length to output. 256, 384, and 512 are valid

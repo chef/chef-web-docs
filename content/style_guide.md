@@ -25,7 +25,7 @@ The HTML version of the doc set can be found at
 ## Building
 To build the docs, run the command:
 
-``` bash
+```bash
 make serve
 ```
 
@@ -363,7 +363,7 @@ The [figure shortcode](https://gohugo.io/content-management/shortcodes/#figure) 
 
 SVG images should be formatted using the `figure` shortcode.
 
-``` md
+```md
 {{</* figure src="/images/chef-logo.svg" title="Chef Logo" height="100" width="150" */>}}
 ```
 

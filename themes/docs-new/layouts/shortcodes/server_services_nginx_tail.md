@@ -1,5 +1,5 @@
 To follow the logs for the service:
 
-``` bash
+```bash
 chef-server-ctl tail nginx
 ```

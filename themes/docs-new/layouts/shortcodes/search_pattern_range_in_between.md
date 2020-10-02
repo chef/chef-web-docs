@@ -4,7 +4,7 @@ inclusive, can be searched for using an inclusive search pattern.
 
 To search using an inclusive range, enter the following:
 
-``` bash
+```bash
 knife search sample "id:[bar TO foo]"
 ```
 

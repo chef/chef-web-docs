@@ -1,12 +1,12 @@
 If the SSL certificate cannot be verified, the response to
 
-``` bash
+```bash
 knife ssl check
 ```
 
 is similar to:
 
-``` bash
+```bash
 Connecting to host chef-server.example.com:443
 ERROR: The SSL certificate of chef-server.example.com could not be verified
 Certificate issuer data:

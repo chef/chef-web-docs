@@ -28,7 +28,7 @@ project to publish to a pipeline.
 
 The structure of the `config.json` file is similar to:
 
-``` json
+```json
 {
   "version": "2",
   "build_cookbook": {
@@ -73,7 +73,7 @@ The structure of the `config.json` file is similar to:
     The `delivery-truck` setting specifies configurations for specific
     phases of the Chef Automate pipeline:
 
-    ``` javascript
+    ```javascript
     "delivery-truck": {
       "lint": {
         "foodcritic": {
@@ -113,7 +113,7 @@ The structure of the `config.json` file is similar to:
     -   `"version"` Set the value to "v2" if you wish to use runners and
         the new job dispatch system:
 
-        ``` javascript
+        ```javascript
         {
            ...
            "job_dispatch": {
@@ -147,7 +147,7 @@ The structure of the `config.json` file is similar to:
         project phase jobs to be executed on only ubuntu and centos
         platforms, you could write:
 
-        ``` javascript
+        ```javascript
         {
            ...
            "job_dispatch": {
@@ -171,7 +171,7 @@ The structure of the `config.json` file is similar to:
         Fedora 6 based systems that overrides a default of Windows, you
         could write:
 
-        ``` javascript
+        ```javascript
         {
            ...
            "job_dispatch": {
@@ -200,7 +200,7 @@ The structure of the `config.json` file is similar to:
         For example, if you want to unit test your project across
         multiple versions of Ubuntu, you could write something like:
 
-        ``` javascript
+        ```javascript
         {
            ...
            "job_dispatch": {
@@ -290,7 +290,7 @@ user, and when it prompts you to enable the user for Supermarket, enter
 If the `config.json` file may specify some or all of the publish options
 together as a single block:
 
-``` javascript
+```javascript
 "delivery-truck":{
   "publish": {
     "chef_server": "true"
@@ -304,7 +304,7 @@ together as a single block:
 
 or:
 
-``` javascript
+```javascript
 "delivery-truck":{
   "publish": {
     "chef_server": "true"
@@ -360,7 +360,7 @@ The following examples show how to specify the location of the
 The `"build_nodes"` section may also specify build nodes by stages
 and/or platform:
 
-``` javascript
+```javascript
 {
   ...
     "build_nodes": {
@@ -374,7 +374,7 @@ and/or platform:
 
 For example:
 
-``` javascript
+```javascript
 {
   ...
     "build_nodes": {

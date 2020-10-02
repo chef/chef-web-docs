@@ -1,7 +1,7 @@
 ---
 resource_reference: true
 debug_recipes_chef_shell: true
-properties_shortcode: 
+properties_shortcode:
 title: breakpoint resource
 resource: breakpoint
 aliases:
@@ -23,7 +23,7 @@ syntax_full_code_block: |-
   breakpoint 'name' do
     action      Symbol # defaults to :break if not specified
   end
-syntax_properties_list: 
+syntax_properties_list:
 syntax_full_properties_list:
 - "`breakpoint` is the resource."
 - "`name` is the name given to the resource block."
@@ -31,12 +31,12 @@ syntax_full_properties_list:
   the desired state."
 actions_list:
   :break:
-    markdown: 
+    markdown:
   :nothing:
     shortcode: resources_common_actions_nothing.md
 properties_list: []
 examples: "
-  A recipe without a breakpoint\n\n  ``` ruby\n  yum_key node['yum']['elrepo']['key']\
+  A recipe without a breakpoint\n\n  ```ruby\n  yum_key node['yum']['elrepo']['key']\
   \ do\n    url  node['yum']['elrepo']['key_url']\n    action :add\n  end\n\n  yum_repository\
   \ 'elrepo' do\n    description 'ELRepo.org Community Enterprise Linux Extras Repository'\n\
   \    key node['yum']['elrepo']['key']\n    mirrorlist node['yum']['elrepo']['url']\n\

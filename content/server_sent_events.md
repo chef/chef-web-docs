@@ -33,7 +33,7 @@ As mandated by the SSE protocol, each event has:
 
 The structure of an individual event appears as follows:
 
-``` xml
+```xml
 event: EVENT_TYPE
 id: EVENT_ID
 data: {"timestamp": "2014-07-10 05:17:44.995958Z", ...}
@@ -60,7 +60,7 @@ This event is issued when a job is requested.
 
 **Example Event**
 
-``` xml
+```xml
 event: start
 id: dcd37f50-2d77-4761-895b-33134dbf87d5
 data: {"timestamp":"2014-07-10 05:17:44.995958Z","job":"768b8d57-3cd0-434c-9f98-77e52cb96b86","command":"chef-client","run_timeout":300,"user":"rebecca","quorum":3,"node_count":3}
@@ -83,7 +83,7 @@ available in Organization Feed)
 
 **Example Event**
 
-``` xml
+```xml
 event: quorum_vote
 id: dcd37f50-2d77-4761-895b-33134dbf87d5
 data: {"timestamp":"2014-07-10 05:17:44.995958Z","node":"NODE1","status":"success"}
@@ -109,7 +109,7 @@ quorum fails, then the `job_complete` event will include a
 
 **Example Event**
 
-``` xml
+```xml
 event: quorum_succeeded
 id: dcd37f50-2d77-4761-895b-33134dbf87d5
 data: {"timestamp": "2014-07-10 05:17:44.995958Z"}
@@ -122,7 +122,7 @@ command. (Not available in Organization Feed)
 
 **Example Event**
 
-``` xml
+```xml
 event: run_start
 id: dcd37f50-2d77-4761-895b-33134dbf87d5
 data: {"timestamp":"2014-07-10 05:17:44.995958Z","node":"NODE1"}
@@ -139,7 +139,7 @@ in Organization Feed)
 
 **Example Event**
 
-``` xml
+```xml
 event: run_complete,
 id: dcd37f50-2d77-4761-895b-33134dbf87d5
 data: {"timestamp":"2014-07-10 05:17:44.995958Z","node":"NODE1","status":"crashed"}
@@ -161,7 +161,7 @@ This event is issued when the job completes.
 
 **Example Event**
 
-``` xml
+```xml
 event: job_complete
 id: dcd37f50-2d77-4761-895b-33134dbf87d5
 data: {"timestamp":"2014-07-10 05:17:44.995958Z","job":"768b8d57-3cd0-434c-9f98-77e52cb96b86","status":"complete"}
@@ -181,7 +181,7 @@ recognized. (Not available in Job Feed)
 
 **Example Event**
 
-``` xml
+```xml
 event: start_of_history
 id: dcd37f50-2d77-4761-895b-33134dbf87d5
 data: {"timestamp":"2014-07-10 05:17:44.995958Z"}
@@ -192,7 +192,7 @@ data: {"timestamp":"2014-07-10 05:17:44.995958Z"}
 This event is issued when the server detects an abnormality with a node
 and attempts to repair it. (Not available in Organization Feed)
 
-``` xml
+```xml
 event: rehab
 id: dcd37f50-2d77-4761-895b-33134dbf87d5
 data: {"timestamp":"2014-07-10 05:17:44.995958Z","node":"NODE1"}
@@ -203,7 +203,7 @@ data: {"timestamp":"2014-07-10 05:17:44.995958Z","node":"NODE1"}
 This event is issued when a request for the Job Feed comes in after the
 job has completed. (Not available in Organization Feed)
 
-``` xml
+```xml
 event: summary
 id: dcd37f50-2d77-4761-895b-33134dbf87d5
 data: {"timestamp":"2014-07-10 05:17:44.995958Z","id":"aaaaaaaaaaaa25fd67fa8715fd547d3d","command":"chef-client", ... }
@@ -229,7 +229,7 @@ An event stream should follow a standard structure:
 
 **Request**
 
-``` xml
+```xml
 Accept: text/event-stream
 GET /organizations/ORG_NAME/pushy/jobs_status_feed/JOBID
 ```
@@ -238,7 +238,7 @@ GET /organizations/ORG_NAME/pushy/jobs_status_feed/JOBID
 
 The response will return something similar to:
 
-``` xml
+```xml
 event: start
 id: dcd37f50-2d77-4761-895b-33134dbf87d1
 data: {"timestamp":"2014-07-10 05:17:40.995958Z","command":"ls /etc/chef","run_timeout":300,"user":"rebecca","quorum":2,"node_count":2}
@@ -286,7 +286,7 @@ data": {"timestamp":"2014-07-10 05:17:48.995958Z","status":"complete"}
 
 **Request**
 
-``` xml
+```xml
 Accept: text/event-stream
 GET /organizations/ORG_NAME/pushy/jobs_status_feed/JOBID
 ```
@@ -295,7 +295,7 @@ GET /organizations/ORG_NAME/pushy/jobs_status_feed/JOBID
 
 The response will return something similar to:
 
-``` xml
+```xml
 event: start
 id: dcd37f50-2d77-4761-895b-33134dbf87d1
 data": {"timestamp":"2014-07-10 05:17:40.995958Z","command":"ls /etc/chef","run_timeout":300,"user":"rebecca","quorum":2,"node_count":2}
@@ -323,7 +323,7 @@ data": {"timestamp":"2014-07-10 05:17:48.995958","status":"quorum_failed"}
 
 **Request**
 
-``` xml
+```xml
 Accept: text/event-stream
 GET /organizations/ORG_NAME/pushy/jobs_status_feed/JOBID
 ```
@@ -332,7 +332,7 @@ GET /organizations/ORG_NAME/pushy/jobs_status_feed/JOBID
 
 The response will return something similar to:
 
-``` xml
+```xml
 event: start
 id: dcd37f50-2d77-4761-895b-33134dbf87d1
 data: {"timestamp":"2014-07-10 05:10:40.995958Z","job":"B","command":"chef-client","run_timeout":300,"user":"rebecca","quorum":2,"node_count":2}

@@ -1,7 +1,7 @@
 Use the `property` method to define properties for the custom resource.
 The syntax is:
 
-``` ruby
+```ruby
 property :property_name, ruby_type, default: 'value', parameter: 'value'
 ```
 
@@ -17,7 +17,7 @@ where
 For example, the following properties define `username` and `password`
 properties with no default values specified:
 
-``` ruby
+```ruby
 property :username, String
 property :password, String
 ```

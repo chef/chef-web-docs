@@ -40,13 +40,13 @@ or exceed their quota.
 Use the following commands to monitor global disk usage on a Chef Infra
 Server with a typical installation:
 
-``` bash
+```bash
 du -sh /var/opt/opscode
 ```
 
 and:
 
-``` bash
+```bash
 du -sh /var/log/opscode
 ```
 
@@ -84,7 +84,7 @@ run on the BEAM virtual machine. One feature of Erlang and BEAM is the
 ability to interact with the running service using a command shell. For
 example:
 
-``` bash
+```bash
 cd /opt/opscode/embedded
   export PATH=$PATH:/opt/opscode/bin:/opt/opscode/embedded/bin
   bin/erl -setcookie service_name -name me@127.0.0.1 -remsh service_name@127.0.0.1
@@ -93,7 +93,7 @@ cd /opt/opscode/embedded
 where `service_name` is `bifrost` or `erchef`. This command will then
 open a shell that is connected to the Erchef processes:
 
-``` bash
+```bash
 Erlang R15B02 (erts-5.9.2) [source] [64-bit] ...
 ```
 
@@ -106,13 +106,13 @@ Chef support services.
 
 To connect to the **oc_bifrost** service, use the following command:
 
-``` bash
+```bash
 erl -setcookie oc_bifrost -name me@127.0.0.1 -remsh oc_bifrost@127.0.0.1
 ```
 
 To connect to the **opscode-erchef** service, use the following command:
 
-``` bash
+```bash
 erl -setcookie erchef -name me@127.0.0.1 -remsh erchef@127.0.0.1
 ```
 
@@ -121,7 +121,7 @@ To disconnect from the shell, use the following key sequence `CTRL-g`,
 
 The output from the shell after the `CTRL-g` looks similar to:
 
-``` bash
+```bash
 (erchef@127.0.0.1)1>
 User switch command
 ```
@@ -141,14 +141,14 @@ As root on the Chef Infra Server, point to the bundled `eper` package of
 debugging tools. Replace the 2nd and 5th path entries and the `X.XX.X`
 value in the following path with the items that occur on the system.
 
-``` bash
+```bash
 export ERL_LIB=:/opt/{chef-server,opscode}/embedded/service/{erchef,opscode-erchef}/lib/eper-X.XX.X/ebin/
 ```
 
 Open an Erlang command shell to begin diagnosing service issues on the
 Chef Infra Server:
 
-``` bash
+```bash
 Eshell V5.10.4  (abort with ^G)
 (erchef@127.0.0.1)1>
 ```
@@ -157,13 +157,13 @@ The `dtop` tool presents a view on the Erlang virtual machine that is
 similar to the `linuxdagnostic` command. The period at the end of the
 dtop command is required for the command to take effect.
 
-``` bash
+```bash
 (erchef@127.0.0.1)1> dtop:start().
 ```
 
 To stop the `dtop` command, run:
 
-``` bash
+```bash
 (erchef@127.0.0.1)1> dtop:stop().
 ```
 
@@ -172,7 +172,7 @@ To disconnect from the shell, use the following key sequence `CTRL-g`,
 
 The output from the shell after the `CTRL-g` looks similar to:
 
-``` bash
+```bash
 (erchef@127.0.0.1)1>
 User switch command
 ```
@@ -184,20 +184,20 @@ then enter `q`, and then hit `ENTER` to exit the shell.
 Use Nginx to monitor for services that may be returning 504 errors. Use
 the following command on a front-end machine:
 
-``` bash
+```bash
 grep 'HTTP/1.1" 504' /var/log/opscode/nginx/access.log
 ```
 
 and then extract the URLs and sort them by `uniq` count:
 
-``` bash
+```bash
 grep 'HTTP/1.1" 504' nginx-access.log | cut -d' ' -f8 | sort | uniq -c | sort
 ```
 
 In a large installation, restricting these results to a subset of
 results may be necessary:
 
-``` bash
+```bash
 tail -10000 nginx-access.log | grep 'HTTP/1.1" 504' | cut -d' ' -f8 | sort | uniq -c | sort
 ```
 
@@ -210,7 +210,7 @@ set appropriate for the version of PostgreSQL being used.
 
 To connect to the PostgreSQL database, run the following command:
 
-``` bash
+```bash
 cd /opt/opscode/embedded/service/postgresql/
   export PATH=$PATH:/opt/opscode/bin:/opt/opscode/embedded/bin
   bin/psql -U opscode_chef
@@ -236,7 +236,7 @@ corrupt and saved as a zero byte file.
 When this occurs, after the **redis_lb** service started, it's logs
 will show a statement similar to the following:
 
-``` bash
+```bash
 2015-03-23_16:11:31.44256 [11529] 23 Mar 16:10:09.624 # Server started, Redis version 2.8.2
 2015-03-23_16:11:31.44256 [11529] 23 Mar 16:10:09.624 # WARNING overcommit_memory is set to 0! Background save may fail under low memory condition. To fix this issue add 'vm.overcommit_memory = 1' to /etc/sysctl.conf and then reboot or run the command 'sysctl vm.overcommit_memory=1' for this to take effect.
 2015-03-23_16:11:31.44257 [11529] 23 Mar 16:11:31.438 # Short read or OOM loading DB. Unrecoverable error, aborting now.
@@ -244,7 +244,7 @@ will show a statement similar to the following:
 
 The `dump.rdb` file will be empty:
 
-``` bash
+```bash
 ls -al /var/opt/opscode/redis_lb/data/
 total 20
 drwxr-x--- 2 opscode opscode 4096 Mar 23 15:58 .
@@ -259,20 +259,20 @@ issue, do the following:
 
 1.  Stop the **redis_lb** service:
 
-    ``` bash
+    ```bash
     chef-server-ctl stop redis_lb
     ```
 
 2.  Remove the corrupt files:
 
-    ``` bash
+    ```bash
     cd /var/opt/opscode/redis_lb/data
     rm -fr *rdb
     ```
 
 3.  Start the **redis_lb** service:
 
-    ``` bash
+    ```bash
     chef-server-ctl start redis_lb
 
     less /var/log/opscode/redis_lb/current
@@ -281,14 +281,14 @@ issue, do the following:
 
 4.  Reconfigure the Chef Infra Server to re-populate Redis:
 
-    ``` bash
+    ```bash
     chef-server-ctl reconfigure
     ```
 
 5.  Verify that Redis is re-populated, as indicated by the key
     `dl_default`:
 
-    ``` bash
+    ```bash
     /opt/opscode/embedded/bin/redis-cli -p 16379 keys \*
     1) "dl_default"
     ```
@@ -313,7 +313,7 @@ of the following services on the node it is run on:
 It will also check on the status of other nodes in the cluster, from the
 current node's perspective. For example:
 
-``` bash
+```bash
 chef-backend-ctl status
 Service Local Status Time in State Distributed Node Status
 leaderl running (pid 1191) 53d 15h 11m 12s leader: 1; waiting: 0; follower: 2;    total: 3
@@ -335,14 +335,14 @@ The authz API provides a high-level view of the health of the
 **opscode-authz** service with a simple endpoint: `_ping`. This endpoint
 can be accessed using cURL and GNU Wget. For example:
 
-``` bash
+```bash
 curl http://localhost:9463/_ping
 ```
 
 This command typically prints a lot of information. Use Python to use
 pretty-print output:
 
-``` bash
+```bash
 curl http://localhost:9463/_ping | python -mjson.tool
 ```
 
@@ -352,13 +352,13 @@ The status API provides a high-level view of the health of the system
 with a simple endpoint: `_status`. This endpoint can be accessed using
 cURL and GNU Wget. For example:
 
-``` bash
+```bash
 curl http://localhost:8000/_status
 ```
 
 which will return something similar to:
 
-``` bash
+```bash
 {
   "status":"pong",
   "upstreams":{"upstream_service":"pong","upstream_service":"fail",...},

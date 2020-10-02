@@ -75,7 +75,7 @@ To upgrade to Chef Infra Server 14 from a standalone Chef Infra Server, do the f
 1.  Run the following command to make sure all services are in a sane
     state.
 
-    ``` bash
+    ```bash
     chef-server-ctl reconfigure
     ```
 
@@ -84,7 +84,7 @@ To upgrade to Chef Infra Server 14 from a standalone Chef Infra Server, do the f
 
 1.  Stop the server:
 
-    ``` bash
+    ```bash
     chef-server-ctl stop
     ```
 
@@ -92,20 +92,20 @@ To upgrade to Chef Infra Server 14 from a standalone Chef Infra Server, do the f
 
     For dpkg:
 
-    ``` bash
+    ```bash
     dpkg -i /path/to/chef-server-core-<version>.deb
     ```
 
     For RPM Package Manager:
 
-    ``` bash
+    ```bash
     rpm -Uvh --nopostun /path/to/chef-server-core-<version>.rpm
     ```
 
 1.  Upgrade the server with the following command. You will
     need to type `Yes` to accept the Chef License for version 13.
 
-    ``` bash
+    ```bash
     chef-server-ctl upgrade
     ```
 
@@ -117,7 +117,7 @@ To upgrade to Chef Infra Server 14 from a standalone Chef Infra Server, do the f
 
 1.  Start Chef Infra Server 14:
 
-    ``` bash
+    ```bash
     chef-server-ctl start
     ```
 
@@ -128,7 +128,7 @@ To upgrade to Chef Infra Server 14 from a standalone Chef Infra Server, do the f
     verified to be working properly, clean up the server by removing all
     of the old data:
 
-    ``` bash
+    ```bash
     chef-server-ctl cleanup
     ```
 
@@ -156,10 +156,10 @@ For the latest information on high availability and how to set up a highly-avail
 To upgrade to Chef Infra Server 14 from a tiered Chef Infra Server configuration, do the following:
 
 1. Back up the Chef Infra Server data before starting the upgrade process using [knife-ec-backup](https://github.com/chef/knife-ec-backup).
-   
+
 1.  Run the following on all servers to make sure all services are in a sane state.
 
-    ``` bash
+    ```bash
     chef-server-ctl reconfigure
     ```
 
@@ -167,7 +167,7 @@ To upgrade to Chef Infra Server 14 from a tiered Chef Infra Server configuration
 
 1.  Stop all of the front end servers:
 
-    ``` bash
+    ```bash
     chef-server-ctl stop
     ```
 
@@ -175,25 +175,25 @@ To upgrade to Chef Infra Server 14 from a tiered Chef Infra Server configuration
 
     For dpkg:
 
-    ``` bash
+    ```bash
     dpkg -i /path/to/chef-server-core-<version>.deb
     ```
 
     For RPM Package Manager:
 
-    ``` bash
+    ```bash
     rpm -Uvh --nopostun /path/to/chef-server-core-<version>.rpm
     ```
 
 1.  Stop the back end server:
 
-    ``` bash
+    ```bash
     chef-server-ctl stop
     ```
 
 1.  Upgrade the backend server with the following command. You will need to type `Yes` to accept Chef License for version 13.
 
-    ``` bash
+    ```bash
     chef-server-ctl upgrade
     ```
 
@@ -205,19 +205,19 @@ To upgrade to Chef Infra Server 14 from a tiered Chef Infra Server configuration
 
 1.  Copy the entire `/etc/opscode` directory from the back end server to all front end servers:
 
-    ``` none
+    ```none
     scp -r /etc/opscode <each server's IP>:/etc
     ```
 
 1.  Upgrade each of the front end servers:
 
-    ``` bash
+    ```bash
     chef-server-ctl upgrade
     ```
 
 1.  Run the following command on both the front end, and back end servers:
 
-    ``` bash
+    ```bash
     chef-server-ctl start
     ```
 
@@ -225,7 +225,7 @@ To upgrade to Chef Infra Server 14 from a tiered Chef Infra Server configuration
 
 1.  After the upgrade process is complete, the state of the system after the upgrade has been tested and verified, and everything looks satisfactory, remove old data, services, and configuration by running the following command on each server:
 
-    ``` bash
+    ```bash
     chef-server-ctl cleanup
     ```
 

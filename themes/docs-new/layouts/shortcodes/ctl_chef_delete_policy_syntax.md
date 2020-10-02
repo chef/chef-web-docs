@@ -1,5 +1,5 @@
 This subcommand has the following syntax:
 
-``` bash
+```bash
 chef delete-policy POLICY_NAME (options)
 ```

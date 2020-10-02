@@ -25,7 +25,7 @@ syntax_description: "An **execute** resource block typically executes a single c
   \ that\nis unique to the environment in which a recipe will run. Some\n**execute**\
   \ resource commands are run by themselves, but often they are\nrun in combination\
   \ with other Chef resources. For example, a single\ncommand that is run by itself:\n\
-  \n``` ruby\nexecute 'apache_configtest' do\n  command '/usr/sbin/apachectl configtest'\n\
+  \n```ruby\nexecute 'apache_configtest' do\n  command '/usr/sbin/apachectl configtest'\n\
   end\n```"
 syntax_code_block: null
 syntax_properties_list:
@@ -43,7 +43,7 @@ syntax_properties_list:
   Format (LDIF) file:
 
 
-  ``` ruby
+  ```ruby
 
   execute ''slapadd'' do command ''slapadd < /tmp/something.ldif'' creates ''/var/lib/slapd/uid.bdb''
   action :nothing
@@ -135,7 +135,7 @@ properties_list:
   ruby_type: String
   required: false
   new_in: '12.21'
-  description_list:	
+  description_list:
   - markdown: 'Windows only: The domain of the user user specified by the user property.
       If not specified, the user name and password specified by the user and password
       properties will be used to resolve that user against the domain in which the

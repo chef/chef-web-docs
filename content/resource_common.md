@@ -56,7 +56,7 @@ When using the `not_if` and `only_if` guards with the **execute**
 resource, the guard's environment is inherited from the resource's
 environment. For example:
 
-``` ruby
+```ruby
 execute 'bundle install' do
   cwd '/myapp'
   not_if 'bundle check' # This is run from /myapp
@@ -81,7 +81,7 @@ The following example shows how to use `not_if` to guard against running
 the `apt-get-update` command when a file already exists that is the same
 as the updated file:
 
-``` ruby
+```ruby
 execute 'apt-get-update' do
   command 'apt-get update'
   ignore_failure true
@@ -96,7 +96,7 @@ ensure that a node can resolve the host. If the node can resolve the
 host, Chef Infra Client will do nothing. If the node cannot resolve the
 host, Chef Infra Client will configure the host:
 
-``` ruby
+```ruby
 ruby_block 'ensure node can resolve API FQDN' do
   block do
     fe = Chef::Util::FileEdit.new('/etc/hosts')
@@ -114,7 +114,7 @@ The following example shows how to use `not_if` to prevent ZeroMQ from
 being installed when the node on which the install is to occur has a
 version of Red Hat Enterprise Linux that is older than version 6.0:
 
-``` ruby
+```ruby
 ark 'test_autogen' do
   url 'https://github.com/zeromq/libzmq/tarball/master'
   extension 'tar.gz'
@@ -128,7 +128,7 @@ end
 The following example shows how to set the administrator for Nagios on
 multiple nodes, except when the package already exists on a node:
 
-``` ruby
+```ruby
 %w(adminpassword adminpassword-repeat).each do |setting|
   execute "debconf-set-selections::#{node['nagios']['server']['vname']}-cgi::#{node['nagios']['server']['vname']}/#{setting}" do
     command "echo #{node['nagios']['server']['vname']}-cgi #{node['nagios']['server']['vname']}/#{setting} password #{random_initial_password} | debconf-set-selections"
@@ -151,7 +151,7 @@ packages on the target node before then asking Chef Infra Client to
 complete the process of installing these packages. If the packages are
 already present, Chef Infra Client will do nothing.
 
-``` ruby
+```ruby
 package 'libpcre3-dev' do
   only_if { node['haproxy']['source']['use_pcre'] }
 end
@@ -171,7 +171,7 @@ The following example shows how to use `only_if` to only remove a recipe
 named `recipe[ntp::undo]`, but only when that recipe is part of the
 `recipe[ntp::default]` run-list:
 
-``` ruby
+```ruby
 ruby_block 'remove ntp::undo from run list' do
   block do
     node.run_list.remove('recipe[ntp::undo]')
@@ -186,7 +186,7 @@ The following example shows how to use `only_if` to ensure that Chef
 Infra Client will attempt to register ASP.NET only if the executable is
 installed on the system, on both 32- and 64-bit systems:
 
-``` ruby
+```ruby
 aspnet_regiis = "#{ENV['WinDir']}\\Microsoft.NET\\Framework\\v4.0.30319\\aspnet_regiis.exe"
 execute 'Register ASP.NET v4' do
   command "#{aspnet_regiis} -i"

@@ -589,11 +589,11 @@ handler_custom: false
 cookbook_file_specificity: false
 unit_file_verification: false
 examples: "
-  Create a Launch Daemon from a cookbook file\n\n  ``` ruby\n  launchd\
+  Create a Launch Daemon from a cookbook file\n\n  ```ruby\n  launchd\
   \ 'com.chef.every15' do\n    source 'com.chef.every15.plist'\n  end\n  ```\n\n \
-  \ Create a Launch Daemon using keys\n\n  ``` ruby\n  launchd 'call.mom.weekly' do\n\
+  \ Create a Launch Daemon using keys\n\n  ```ruby\n  launchd 'call.mom.weekly' do\n\
   \    program '/Library/scripts/call_mom.sh'\n    start_calendar_interval 'Weekday'\
   \ => 7, 'Hourly' => 10\n    time_out 300\n  end\n  ```\n\n  Remove a Launch Daemon\n\
-  \n  ``` ruby\n  launchd 'com.chef.every15' do\n    action :delete\n  end\n  ```\n"
+  \n  ```ruby\n  launchd 'com.chef.every15' do\n    action :delete\n  end\n  ```\n"
 
 ---

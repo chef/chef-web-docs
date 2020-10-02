@@ -9,7 +9,7 @@ To use the `converge_if_changed` method, wrap it around the part of a
 recipe or custom resource that should only be converged when the current
 state is not the desired state:
 
-``` ruby
+```ruby
 action :some_action do
   converge_if_changed do
     # some property
@@ -23,7 +23,7 @@ method to load the property value to be compared, and then use the
 `converge_if_changed` method to tell Chef Infra Client what to do if
 that value is not the desired value:
 
-``` ruby
+```ruby
 property :content, String
 property :path, String, name_property: true
 
@@ -44,7 +44,7 @@ When the file does not exist, the
 `IO.write(new_resource.path, new_resource.content)` code is executed and
 the Chef Infra Client output will print something similar to:
 
-``` bash
+```bash
 Recipe: recipe_name::block
   * resource_name[blah] action create
     - update my_file[blah]

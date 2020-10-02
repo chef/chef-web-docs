@@ -2,7 +2,7 @@ The default action in a custom resource is, by default, the first action
 listed in the custom resource. For example, action `aaaaa` is the
 default resource:
 
-``` ruby
+```ruby
 property :property_name, RubyType, default: 'value'
 
 ...
@@ -19,7 +19,7 @@ end
 The `default_action` method may also be used to specify the default
 action. For example:
 
-``` ruby
+```ruby
 property :property_name, RubyType, default: 'value'
 
 default_action :aaaaa

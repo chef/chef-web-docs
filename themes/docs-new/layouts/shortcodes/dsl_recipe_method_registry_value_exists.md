@@ -18,7 +18,7 @@ of a registry key value.
 
 The syntax for the `registry_dvalue_exists?` method is as follows:
 
-``` ruby
+```ruby
 registry_value_exists?(
   KEY_PATH,
   { name: 'NAME' },

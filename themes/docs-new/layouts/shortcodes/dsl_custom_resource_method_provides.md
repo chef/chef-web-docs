@@ -11,7 +11,7 @@ from highest to lowest:
 
 For example:
 
-``` ruby
+```ruby
 provides :my_custom_resource, platform: 'redhat' do |node|
   node['platform_version'].to_i >= 7
 end

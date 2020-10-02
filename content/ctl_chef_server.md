@@ -47,7 +47,7 @@ and then to restore those backups.
 
 **Examples**
 
-``` bash
+```bash
 chef-server-ctl restore /path/to/tar/archive.tar.gz
 ```
 
@@ -73,7 +73,7 @@ This subcommand has the following options:
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 chef-server-ctl cleanse
 ```
 
@@ -85,7 +85,7 @@ system information.
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 chef-server-ctl gather-logs
 ```
 
@@ -96,7 +96,7 @@ chef-server-ctl commands.
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 chef-server-ctl help
 ```
 
@@ -119,7 +119,7 @@ packages are downloaded from Chef.
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 chef-server-ctl install name_of_addon (options)
 ```
 
@@ -157,7 +157,7 @@ Use the `add-client-key` subcommand to add a client key.
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 chef-server-ctl add-client-key ORG_NAME CLIENT_NAME [--public-key-path PATH] [--expiration-date DATE] [--key-name NAME]
 ```
 
@@ -204,7 +204,7 @@ Use the `add-user-key` subcommand to add a user key.
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 chef-server-ctl add-user-key USER_NAME [--public-key-path PATH] [--expiration-date DATE] [--key-name NAME]
 ```
 
@@ -247,7 +247,7 @@ Use the `delete-client-key` subcommand to delete a client key.
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 chef-server-ctl delete-client-key ORG_NAME CLIENT_NAME KEY_NAME
 ```
 
@@ -275,7 +275,7 @@ Use the `delete-user-key` subcommand to delete a user key.
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 chef-server-ctl delete-user-key USER_NAME KEY_NAME
 ```
 
@@ -305,7 +305,7 @@ Use the `list-client-keys` subcommand to list client keys.
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 chef-server-ctl list-client-keys ORG_NAME CLIENT_NAME [--verbose]
 ```
 
@@ -339,7 +339,7 @@ Use the `list-user-keys` subcommand to list client keys.
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 chef-server-ctl list-user-keys USER_NAME [--verbose]
 ```
 
@@ -365,13 +365,13 @@ This subcommand has the following options:
 
 To view a list of user keys (including public key output):
 
-``` bash
+```bash
 chef-server-ctl list-user-keys applejack --verbose
 ```
 
 Returns:
 
-``` bash
+```bash
 2 total key(s) found for user applejack
 
 key_name: test-key
@@ -419,7 +419,7 @@ credentials. Only secrets known to Chef Infra Server can be stored.
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 chef-server-ctl set-secret GROUP NAME
 ```
 
@@ -427,20 +427,20 @@ There are various ways to pass the secret to this command:
 
 1.  as a third argument:
 
-    ``` bash
+    ```bash
     chef-server-ctl set-secret ldap bind_password secretpassword
     ```
 
 2.  via an environment variable:
 
-    ``` bash
+    ```bash
     export LDAP.BIND_PASSWORD="secretpassword"
     chef-server-ctl set-secret ldap bind_password
     ```
 
 3.  via an interactive prompt:
 
-    ``` bash
+    ```bash
     chef-server-ctl set-secret ldap bind_password
     Enter ldap bind_password:    (no terminal output)
     Re-enter ldap bind_password: (no terminal output)
@@ -467,13 +467,13 @@ and service credential.
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 chef-server-ctl remove-secret GROUP NAME
 ```
 
 **Example**
 
-``` bash
+```bash
 chef-server-ctl remove-secret ldap bind_password
 ```
 
@@ -488,7 +488,7 @@ service credential.
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 chef-server-ctl show-secret GROUP NAME
 ```
 
@@ -503,7 +503,7 @@ superuser password.
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 chef-server-ctl set-db-superuser-password
 ```
 
@@ -521,7 +521,7 @@ Actions password.
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 chef-server-ctl set-actions-password
 ```
 
@@ -541,13 +541,13 @@ this data will no longer be written to `/etc/opscode/oc-id-applications/APP.json
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 chef-server-ctl oc-id-show-app APP
 ```
 
 **Example**
 
-``` bash
+```bash
 chef-server-ctl oc-id-show-app supermarket
 {
   "name": "supermarket",
@@ -581,7 +581,7 @@ uploaded.
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 chef-server-ctl require-credential-rotation (options)
 ```
 
@@ -608,7 +608,7 @@ running this subcommand on all the nodes.
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 chef-server-ctl rotate-all-credentials
 ```
 
@@ -626,7 +626,7 @@ this subcommand for that specific service on all the nodes.
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 chef-server-ctl rotate-credentials SERVICE_NAME
 ```
 
@@ -646,7 +646,7 @@ process.
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 chef-server-ctl rotate-shared-secrets
 ```
 
@@ -661,7 +661,7 @@ credentials for services running on the local Chef Infra Server.
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 chef-server-ctl show-service-credentials
 ```
 
@@ -681,7 +681,7 @@ New in Chef Server 12.16.9
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 chef-server-ctl cleanup-bifrost OPTIONS
 ```
 
@@ -728,19 +728,19 @@ This subcommand has the following options:
 
 **Examples**
 
-``` bash
+```bash
 chef-server-ctl org-create prod Production
 ```
 
-``` bash
+```bash
 chef-server-ctl org-create staging Staging -a chef-admin
 ```
 
-``` bash
+```bash
 chef-server-ctl org-create dev Development -f /tmp/id-dev.key
 ```
 
-``` bash
+```bash
 chef-server-ctl org-create dev Development --association_user grantmc
 ```
 
@@ -754,11 +754,11 @@ chef-server-ctl org-create dev Development --association_user grantmc
 
 **Examples**
 
-``` bash
+```bash
 chef-server-ctl org-delete infra-testing-20140909
 ```
 
-``` bash
+```bash
 chef-server-ctl org-delete pedant-testing-org
 ```
 
@@ -796,15 +796,15 @@ chef-server-ctl org-delete pedant-testing-org
 
 **Examples**
 
-``` bash
+```bash
 chef-server-ctl org-user-add prod john_smith
 ```
 
-``` bash
+```bash
 chef-server-ctl org-user-add preprod testmaster
 ```
 
-``` bash
+```bash
 chef-server-ctl org-user-add dev grantmc --admin
 ```
 
@@ -833,15 +833,15 @@ This subcommand has the following options:
 
 **Examples**
 
-``` bash
+```bash
 chef-server-ctl org-user-remove prod john_smith
 ```
 
-``` bash
+```bash
 chef-server-ctl org-user-remove prod testmaster
 ```
 
-``` bash
+```bash
 chef-server-ctl org-user-remove grantmc --force
 ```
 
@@ -853,7 +853,7 @@ the system recovery password for that user. For example:
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 chef-server-ctl password USERNAME
 ```
 
@@ -867,32 +867,32 @@ This subcommand has the following options:
 
 For example, to change a user's password, enter:
 
-``` bash
+```bash
 chef-server-ctl password adamjacobs
 ```
 
 and then enter the password and confirm it:
 
-``` bash
+```bash
 Enter the new password:  ******
 Enter the new password again:  ******
 ```
 
 to return:
 
-``` bash
+```bash
 Password for adamjacobs successfully set.
 ```
 
 To disable a system recovery password:
 
-``` bash
+```bash
 chef-server-ctl password adamjacobs --disable
 ```
 
 to return:
 
-``` bash
+```bash
 Password for adamjacobs successfully disabled for System Recovery.
 ```
 
@@ -911,7 +911,7 @@ associated with the named service. This subcommand:
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 chef-server-ctl psql SERVICE_NAME (options)
 ```
 
@@ -934,7 +934,7 @@ setting is set to `true`.
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 chef-server-ctl reconfigure
 ```
 
@@ -945,7 +945,7 @@ PostgreSQL to Elasticsearch.
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 chef-server-ctl reindex
 ```
 
@@ -1012,7 +1012,7 @@ built properly prior to installation.
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 chef-server-ctl show-config
 ```
 
@@ -1028,7 +1028,7 @@ The `upgrade` subcommand is used to upgrade the Chef Infra Server.
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 chef-server-ctl upgrade (options)
 ```
 
@@ -1113,15 +1113,15 @@ This subcommand has the following options:
 
 **Examples**
 
-``` bash
+```bash
 chef-server-ctl user-create john_smith John Smith john_smith@example.com p@s5w0rD!
 ```
 
-``` bash
+```bash
 chef-server-ctl user-create jane_doe Jane Doe jane_doe@example.com p@s5w0rD! -f /tmp/jane_doe.key
 ```
 
-``` bash
+```bash
 chef-server-ctl user-create waldendude Henry David Thoreau waldendude@example.com excursions
 ```
 
@@ -1135,11 +1135,11 @@ chef-server-ctl user-create waldendude Henry David Thoreau waldendude@example.co
 
 **Examples**
 
-``` bash
+```bash
 chef-server-ctl user-delete john_smith
 ```
 
-``` bash
+```bash
 chef-server-ctl user-delete jane_doe
 ```
 
@@ -1164,11 +1164,11 @@ This subcommand has the following options:
 
 **Examples**
 
-``` bash
+```bash
 chef-server-ctl user-edit john_smith
 ```
 
-``` bash
+```bash
 chef-server-ctl user-edit jane_doe
 ```
 

@@ -147,7 +147,7 @@ Keys should have `DELETE`, `GRANT`, `READ` and `UPDATE` permissions.
 
 Use the following code to set the correct permissions:
 
-``` ruby
+```ruby
 #!/usr/bin/env ruby
 require 'chef/knife'
 
@@ -170,7 +170,7 @@ Save it as a Ruby script---`chef_server_permissions.rb`, for
 example---in the `.chef/scripts` directory located in the chef-repo, and
 then run a knife command similar to:
 
-``` bash
+```bash
 knife exec chef_server_permissions.rb
 ```
 

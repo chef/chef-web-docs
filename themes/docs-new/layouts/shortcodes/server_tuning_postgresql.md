@@ -20,7 +20,7 @@ The following setting is often modified from the default as part of the tuning e
     Use the following formula to help determine what the increased value
     should be:
 
-    ``` ruby
+    ```ruby
     new_value = current_value + [
                 (# of front end machines - 2) * (25 * # of services)
              ]
@@ -30,6 +30,6 @@ The following setting is often modified from the default as part of the tuning e
     machines, and all add-ons are installed, then the formula looks
     like:
 
-    ``` ruby
+    ```ruby
     550 = 350 + [(4 - 2) * (25 * 4)]
     ```

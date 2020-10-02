@@ -1,7 +1,7 @@
 Use the `render` method in a template to reference a partial template
 file:
 
-``` ruby
+```ruby
 <%= render 'partial_name.txt.erb', :option => {} %>
 ```
 
@@ -41,6 +41,6 @@ where `partial_name` is the name of the partial template file and
 
 For example:
 
-``` ruby
+```ruby
 <%= render 'simple.txt.erb', :variables => {:user => Etc.getlogin }, :local => true %>
 ```

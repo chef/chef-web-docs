@@ -7,7 +7,7 @@ This is an example of something that should NOT be done. Use the
 
 Do something like this:
 
-``` ruby
+```ruby
 service 'tomcat' do
   action :start
 end
@@ -15,7 +15,7 @@ end
 
 and NOT something like this:
 
-``` ruby
+```ruby
 execute 'start-tomcat' do
   command '/etc/init.d/tomcat6 start'
   action :run

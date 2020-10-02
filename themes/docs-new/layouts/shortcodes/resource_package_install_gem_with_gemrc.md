@@ -1,7 +1,7 @@
 A template named `gemrc.erb` is located in a cookbook's `/templates`
 directory:
 
-``` ruby
+```ruby
 :sources:
 - http://<%= node['gem_file']['host'] %>:<%= node['gem_file']['port'] %>/
 ```
@@ -14,7 +14,7 @@ A recipe can be built that does the following:
 
 <!-- -->
 
-``` ruby
+```ruby
 template '/root/.gemrc' do
   source 'gemrc.erb'
   action :create

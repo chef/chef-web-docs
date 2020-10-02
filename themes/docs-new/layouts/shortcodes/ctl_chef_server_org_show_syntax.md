@@ -1,5 +1,5 @@
 This subcommand has the following syntax:
 
-``` bash
+```bash
 chef-server-ctl org-show ORG_NAME
 ```

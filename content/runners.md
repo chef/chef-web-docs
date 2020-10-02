@@ -87,13 +87,13 @@ Runner can also be removed using the `delivery-cli-api` command.
 
 To see a list of runners:
 
-``` bash
+```bash
 delivery api get runners
 ```
 
 To delete a runner:
 
-``` bash
+```bash
 delivery api delete runners/<runner_hostname>
 ```
 
@@ -118,7 +118,7 @@ Jobs-based build nodes, you must edit the file in the following manner:
 
 At the bare minimum, you must set the version to v2:
 
-``` javascript
+```javascript
 {
    ...
    "job_dispatch": {
@@ -130,7 +130,7 @@ At the bare minimum, you must set the version to v2:
 
 and remove the `build_nodes` setting from `config.json`.
 
-``` none
+```none
 "build_nodes": {
   "default"    : ["name:name_of_builder"]
 },

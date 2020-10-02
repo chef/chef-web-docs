@@ -7,7 +7,7 @@ file. This handler may be enabled in one of the following ways.
 By adding the following lines of Ruby code to either the client.rb file
 or the solo.rb file, depending on how Chef Infra Client is being run:
 
-``` ruby
+```ruby
 require 'chef/handler/json_file'
 report_handlers << Chef::Handler::JsonFile.new(:path => '/var/chef/reports')
 exception_handlers << Chef::Handler::JsonFile.new(:path => '/var/chef/reports')
@@ -16,7 +16,7 @@ exception_handlers << Chef::Handler::JsonFile.new(:path => '/var/chef/reports')
 By using the **chef_handler** resource in a recipe, similar to the
 following:
 
-``` ruby
+```ruby
 chef_handler 'Chef::Handler::JsonFile' do
   source 'chef/handler/json_file'
   arguments :path => '/var/chef/reports'
@@ -27,7 +27,7 @@ end
 After it has run, the run status data can be loaded and inspected via
 Interactive Ruby (IRb):
 
-``` ruby
+```ruby
 irb(main):002:0> require 'json' => true
 irb(main):003:0> require 'chef' => true
 irb(main):004:0> r = JSON.parse(IO.read('/var/chef/reports/chef-run-report-20110322060731.json')) => ... output truncated

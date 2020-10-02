@@ -5,7 +5,7 @@ and `ftp_proxy` are specified in the client.rb file, Chef Infra Client
 will configure the `ENV` variable based on these (and related) settings.
 For example:
 
-``` ruby
+```ruby
 http_proxy 'http://proxy.example.org:8080'
 http_proxy_user 'myself'
 http_proxy_pass 'Password1'
@@ -13,7 +13,7 @@ http_proxy_pass 'Password1'
 
 will be set to:
 
-``` ruby
+```ruby
 ENV['http_proxy'] = 'http://myself:Password1@proxy.example.org:8080'
 ```
 
@@ -21,7 +21,7 @@ Test Kitchen also supports `http_proxy` and `https_proxy` in the
 `kitchen.yml` file. You can set them manually or have them read from
 your local environment variables:
 
-``` yaml
+```yaml
 driver:
   name: vagrant
 

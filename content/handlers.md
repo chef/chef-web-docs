@@ -72,7 +72,7 @@ associated with each of the handler types for which it will run.
 
 For example:
 
-``` ruby
+```ruby
 require '/var/chef/handlers/email_me'         # the installation path
 
 email_handler = MyOrg::EmailMe.new            # a simple handler
@@ -117,7 +117,7 @@ following setting:
 For example, the Reporting start handler adds the following code to the
 top of the client.rb file:
 
-``` ruby
+```ruby
 begin
   require 'chef_reporting'
   start_handlers << Chef::Reporting::StartHandler.new()
@@ -131,7 +131,7 @@ This ensures that when a Chef Infra Client run begins the
 handler is part of a gem named `chef-reporting`. The **chef_gem**
 resource is used to install this gem:
 
-``` ruby
+```ruby
 chef_gem 'chef-reporting' do
   action :install
 end
@@ -269,7 +269,7 @@ is always installed using the **chef-client** cookbook.
 The following code shows the start handler used by the Reporting add-in
 for the Chef Infra Server:
 
-``` ruby
+```ruby
 require 'chef/handler'
 require 'chef/rest'
 require 'chef/version_constraint'

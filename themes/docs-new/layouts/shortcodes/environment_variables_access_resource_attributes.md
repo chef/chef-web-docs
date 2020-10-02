@@ -3,7 +3,7 @@ If processes is started by using the **execute** or **script** resources
 **bash**), use the `environment` attribute to alter the environment that
 will be passed to the process.
 
-``` bash
+```bash
 bash 'env_test' do
   code <<-EOF
   echo $FOO

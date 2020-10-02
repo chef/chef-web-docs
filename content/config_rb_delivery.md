@@ -52,7 +52,7 @@ Automate server to use SSL certificates:
     are not reconfigured. To use a pre-generated SSL certificate for the
     main FQDN (`delivery_fqdn`), follow this example:
 
-    ``` ruby
+    ```ruby
     delivery['ssl_certificates'] = {
       'delivery.example.com' => {
         'key' => 'file:///etc/ssl_certificates/delivery.example.com.key',
@@ -69,7 +69,7 @@ Automate server to use SSL certificates:
     link](https://www.openssl.org/docs/man1.0.2/man1/ciphers.html) for more
     information. Default value:
 
-    ``` ruby
+    ```ruby
     'RC4-SHA:RC4-MD5:RC4:RSA:HIGH:MEDIUM:!LOW:!kEDH:!aNULL:!ADH:!eNULL:!EXP:!SSLv2:!SEED:!CAMELLIA:!PSK'
     ```
 
@@ -78,7 +78,7 @@ Automate server to use SSL certificates:
 :   The SSL protocol versions that are enabled. For the highest possible
     security, disable SSL 3.0 and allow only TLS:
 
-    ``` ruby
+    ```ruby
     nginx['ssl_protocols'] = 'TLSv1 TLSv1.1 TLSv1.2'
     ```
 
@@ -98,7 +98,7 @@ to specify the paths to those files, and then (optionally) update the
 `nginx['ssl_ciphers']` and `nginx['ssl_protocols']` settings to reflect
 the desired level of hardness for the Chef Automate server:
 
-``` ruby
+```ruby
 delivery['ssl_certificates'] = {
     'delivery.example.com' => {
         'key' => 'file:///etc/ssl_certificates/delivery.example.com.key',
@@ -149,7 +149,7 @@ Automate server.
 When changes are made to the `delivery.rb` file the Chef Automate server
 must be reconfigured by running the following command:
 
-``` bash
+```bash
 delivery-server-ctl reconfigure
 ```
 

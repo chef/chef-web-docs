@@ -1,6 +1,6 @@
 ---
 resource_reference: true
-properties_shortcode: 
+properties_shortcode:
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
@@ -41,7 +41,7 @@ syntax_full_code_block: |-
     user               String, Integer
     action             Symbol # defaults to :sync if not specified
   end
-syntax_properties_list: 
+syntax_properties_list:
 syntax_full_properties_list:
 - "`subversion` is the resource."
 - "`name` is the name given to the resource block."
@@ -145,7 +145,7 @@ properties_list:
   description_list:
   - markdown: The system user that will own the checked-out code.
 examples: "
-  Get the latest version of an application\n\n  ``` ruby\n  subversion\
+  Get the latest version of an application\n\n  ```ruby\n  subversion\
   \ 'CouchDB Edge' do\n    repository 'http://svn.apache.org/repos/asf/couchdb/trunk'\n\
   \    revision 'HEAD'\n    destination '/opt/mysources/couch'\n    action :sync\n\
   \  end\n  ```\n"

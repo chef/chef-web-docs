@@ -1,5 +1,5 @@
 This subcommand has the following syntax:
 
-``` bash
+```bash
 chef generate repo REPO_NAME (options)
 ```

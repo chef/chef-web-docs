@@ -2,7 +2,7 @@ The following custom handler defines how cookbooks and cookbook versions
 that are used during a Chef Infra Client run will be compiled into a
 report using the `Chef::Log` class in Chef Infra Client:
 
-``` ruby
+```ruby
 require 'chef/log'
 
 module Opscode

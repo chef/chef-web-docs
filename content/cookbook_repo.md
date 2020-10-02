@@ -28,7 +28,7 @@ cookbooks.
 To create a cookbook (including all default components), run the
 following command:
 
-``` bash
+```bash
 chef generate cookbook COOKBOOK_NAME
 ```
 
@@ -41,7 +41,7 @@ preferred.
 To download a cookbook when git is used for version source control, run
 the following command:
 
-``` bash
+```bash
 knife supermarket install COOKBOOK_NAME
 ```
 
@@ -67,7 +67,7 @@ that:
 To download a cookbook when git is not used for version source control,
 run the following command:
 
-``` bash
+```bash
 knife supermarket download COOKBOOK_NAME
 ```
 
@@ -89,7 +89,7 @@ You can configure default values for the copyright, email, and license
 of new cookbooks by adding the following to the config.rb file in the
 chef-repo:
 
-``` bash
+```bash
 cookbook_copyright "Example, Com."
 cookbook_email     "cookbooks@example.com"
 cookbook_license   "apachev2"

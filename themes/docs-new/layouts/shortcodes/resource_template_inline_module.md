@@ -2,7 +2,7 @@ A template helper module can be defined inline on a per-resource basis.
 This approach can be useful when a template requires more complex
 information. For example:
 
-``` ruby
+```ruby
 template '/path' do
   helpers do
     def hello_world

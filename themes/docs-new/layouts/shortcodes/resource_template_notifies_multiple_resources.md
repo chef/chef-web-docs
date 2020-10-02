@@ -1,4 +1,4 @@
-``` ruby
+```ruby
 template '/etc/chef/server.rb' do
   source 'server.rb.erb'
   owner 'root'

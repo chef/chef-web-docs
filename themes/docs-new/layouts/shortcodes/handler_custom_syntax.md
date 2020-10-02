@@ -3,7 +3,7 @@ the handler is being asked to track, the type of handler being used, and
 so on. All custom exception and report handlers are defined using Ruby
 and must be a subclass of the `Chef::Handler` class.
 
-``` ruby
+```ruby
 require 'chef/log'
 
 module ModuleName
@@ -27,7 +27,7 @@ where:
 For example, the following shows a custom handler that sends an email
 that contains the exception data when a Chef Infra Client run fails:
 
-``` ruby
+```ruby
 require 'net/smtp'
 
 module OrgName
@@ -52,7 +52,7 @@ end
 
 and then is used in a recipe like:
 
-``` ruby
+```ruby
 send_email 'blah' do
   # recipe code
 end

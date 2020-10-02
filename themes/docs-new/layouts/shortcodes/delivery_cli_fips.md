@@ -33,7 +33,7 @@ mode, you must enable FIPS mode locally on your workstation for Delivery
 CLI. This can be done by adding the following to your
 `.delivery/cli.toml`:
 
-``` none
+```none
 fips = true
 fips_git_port = "OPEN_PORT"
 fips_custom_cert_filename = "/full/path/to/your/certificate-chain.pem" # optional

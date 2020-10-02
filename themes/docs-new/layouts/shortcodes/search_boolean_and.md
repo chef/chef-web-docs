@@ -1,12 +1,12 @@
 To join queries using the `AND` boolean operator, enter the following:
 
-``` bash
+```bash
 knife search sample "id:b* AND animal:dog"
 ```
 
 to return something like:
 
-``` bash
+```bash
 {
   "total": 1,
   "start": 0,
@@ -23,13 +23,13 @@ to return something like:
 Or, to find all of the computers running on the Microsoft Windows
 platform that are associated with a role named `jenkins`, enter:
 
-``` bash
+```bash
 knife search node 'platform:windows AND roles:jenkins'
 ```
 
 to return something like:
 
-``` bash
+```bash
 2 items found
 
 Node Name:   windows-server-2012r2.domain.com

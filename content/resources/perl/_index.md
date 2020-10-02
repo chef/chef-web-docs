@@ -24,7 +24,7 @@ resource_description_list:
     and `only_if` to guard this resource for idempotence.'
 resource_new_in: null
 handler_types: false
-syntax_description: "A **perl** resource block executes scripts Perl:\n\n``` perl\n\
+syntax_description: "A **perl** resource block executes scripts Perl:\n\n```perl\n\
   perl 'hello world' do\n  code <<-EOH\n    print \"Hello world! From Chef and Perl.\"\
   ;\n  EOH\nend\n```"
 syntax_code_block: null

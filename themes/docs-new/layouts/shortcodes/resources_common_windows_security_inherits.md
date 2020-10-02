@@ -7,7 +7,7 @@ directory.
 
 For example, the following example specifies the rights for a directory:
 
-``` ruby
+```ruby
 directory 'C:\mordor' do
   rights :read, 'MORDOR\Minions'
   rights :full_control, 'MORDOR\Sauron'
@@ -17,7 +17,7 @@ end
 and then the following example specifies how to use inheritance to deny
 access to the child directory:
 
-``` ruby
+```ruby
 directory 'C:\mordor\mount_doom' do
   rights :full_control, 'MORDOR\Sauron'
   inherits false # Sauron is the only person who should have any sort of access
@@ -29,7 +29,7 @@ slip through unless all users and groups were denied.
 
 Another example also shows how to specify rights for a directory:
 
-``` ruby
+```ruby
 directory 'C:\mordor' do
   rights :read, 'MORDOR\Minions'
   rights :full_control, 'MORDOR\Sauron'
@@ -40,7 +40,7 @@ end
 but then not use the `inherits` property to deny those rights on a child
 directory:
 
-``` ruby
+```ruby
 directory 'C:\mordor\mount_doom' do
   deny_rights :read, 'MORDOR\Minions' # Oops, not specific enough
 end

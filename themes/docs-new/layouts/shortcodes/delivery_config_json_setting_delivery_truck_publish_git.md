@@ -1,7 +1,7 @@
 If the `config.json` file specifies the following cookbooks are
 published to a git repository located on an open source git server:
 
-``` javascript
+```javascript
 "delivery-truck":{
   "publish": {
     "git": "ssh://git@stash:2222/<project-name>/<repo-name>"

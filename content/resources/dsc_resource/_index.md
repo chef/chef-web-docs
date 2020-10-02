@@ -42,10 +42,10 @@ resource_description_list:
       \ command cannot directly use them."
 resource_new_in: null
 syntax_description: "A **dsc_resource** resource block allows DSC resources to be\
-  \ used in a\nChef recipe. For example, the DSC `Archive` resource:\n\n``` powershell\n\
+  \ used in a\nChef recipe. For example, the DSC `Archive` resource:\n\n```powershell\n\
   Archive ExampleArchive {\n  Ensure = \"Present\"\n  Path = \"C:\\Users\\Public\\\
   Documents\\example.zip\"\n  Destination = \"C:\\Users\\Public\\Documents\\ExtractionPath\"\
-  \n}\n```\n\nand then the same **dsc_resource** with Chef:\n\n``` ruby\ndsc_resource\
+  \n}\n```\n\nand then the same **dsc_resource** with Chef:\n\n```ruby\ndsc_resource\
   \ 'example' do\n   resource :archive\n   property :ensure, 'Present'\n   property\
   \ :path, \"C:\\Users\\Public\\Documents\\example.zip\"\n   property :destination,\
   \ \"C:\\Users\\Public\\Documents\\ExtractionPath\"\n end```"
@@ -421,11 +421,11 @@ handler_custom: false
 cookbook_file_specificity: false
 unit_file_verification: false
 examples: "
-  Open a Zip file\n\n  ``` ruby\n  dsc_resource 'example' do\n    \
+  Open a Zip file\n\n  ```ruby\n  dsc_resource 'example' do\n    \
   \ resource :archive\n     property :ensure, 'Present'\n     property :path, 'C:\\\
   Users\\Public\\Documents\\example.zip'\n     property :destination, 'C:\\Users\\\
   Public\\Documents\\ExtractionPath'\n   end\n  ```\n\n  Manage users and groups\n\
-  \n  ``` ruby\n  dsc_resource 'demogroupadd' do\n    resource :group\n    property\
+  \n  ```ruby\n  dsc_resource 'demogroupadd' do\n    resource :group\n    property\
   \ :groupname, 'demo1'\n    property :ensure, 'present'\n  end\n\n  dsc_resource\
   \ 'useradd' do\n    resource :user\n    property :username, 'Foobar1'\n    property\
   \ :fullname, 'Foobar1'\n    property :password, ps_credential('P@assword!')\n  \
@@ -434,7 +434,7 @@ examples: "
   \ ['Foobar1']\n  end\n  ```\n\n  Create and register a windows service\n\n  The\
   \ following example creates a windows service, defines it's execution\n  path, and\
   \ prevents windows from starting the service in case the\n  executable is not at\
-  \ the defined location:\n\n  ``` ruby\n  dsc_resource 'NAME' do\n    resource :service\n\
+  \ the defined location:\n\n  ```ruby\n  dsc_resource 'NAME' do\n    resource :service\n\
   \    property :name, 'NAME'\n    property :startuptype, 'Disabled'\n    property\
   \ :path, 'D:\\\\Sites\\\\Site_name\\file_to_run.exe'\n    property :ensure, 'Present'\n\
   \    property :state, 'Stopped'\n  end\n  ```\n\n  Create a test message queue\n\
@@ -442,7 +442,7 @@ examples: "
   \ in a cookbook), unpacks the `MessageQueue.zip` Windows\n  PowerShell module, and\
   \ then uses the **dsc_resource** to ensure that\n  Message Queuing (MSMQ) sub-features\
   \ are installed, a test queue is\n  created, and that permissions are set on the\
-  \ test queue:\n\n  ``` ruby\n  cookbook_file 'cMessageQueue.zip' do\n    path \"\
+  \ test queue:\n\n  ```ruby\n  cookbook_file 'cMessageQueue.zip' do\n    path \"\
   #{Chef::Config[:file_cache_path]}\\\\MessageQueue.zip\"\n    action :create_if_missing\n\
   \  end\n\n  windows_zipfile \"#{ENV['PROGRAMW6432']}\\\\WindowsPowerShell\\\\Modules\"\
   \ do\n    source \"#{Chef::Config[:file_cache_path]}\\\\MessageQueue.zip\"\n   \
@@ -454,7 +454,7 @@ examples: "
   \ :cPrivateMsmqQueuePermissions\n    property :ensure, 'Present'\n    property :name,\
   \ 'Test_Queue_Permissions'\n    property :QueueNames, 'Test_Queue'\n    property\
   \ :ReadUsers, node['msmq']['read_user']\n  end\n  ```\n\n  Example to show usage\
-  \ of module properties\n\n  ``` ruby\n  dsc_resource 'test-cluster' do\n    resource\
+  \ of module properties\n\n  ```ruby\n  dsc_resource 'test-cluster' do\n    resource\
   \ :xCluster\n    module_name 'xFailOverCluster'\n    module_version '1.6.0.0'\n\
   \    property :name, 'TestCluster'\n    property :staticipaddress, '10.0.0.3'\n\
   \    property :domainadministratorcredential, ps_credential('abcd')\n  end\n  ```\n"

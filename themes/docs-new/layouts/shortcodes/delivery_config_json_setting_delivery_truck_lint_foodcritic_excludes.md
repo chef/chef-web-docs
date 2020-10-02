@@ -1,6 +1,6 @@
 If the `config.json` file specifies:
 
-``` javascript
+```javascript
 "delivery-truck": {
   "lint": {
     "foodcritic": {
