@@ -121,7 +121,7 @@ Some important tools and components of Chef Workstation include:
 </thead>
 <tbody>
 <tr class="odd">
-<td><img src="/images/icon_devkit.svg" class="align-center" width="100" alt="image" /></td>
+<td><img src="/images/icon_workstation.svg" class="align-center" width="100" alt="image" /></td>
 <td>{{< readFile_shortcode file="chef_workstation.md" >}}</td>
 </tr>
 <tr class="even">
