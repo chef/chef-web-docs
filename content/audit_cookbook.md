@@ -3,7 +3,6 @@ title = "Sending Compliance Data to Chef Automate with Audit Cookbook"
 draft = false
 robots = "noindex"
 
-
 aliases = ["/audit_cookbook.html", "/audit_supported_configurations.html"]
 
 [menu]
@@ -15,8 +14,6 @@ aliases = ["/audit_cookbook.html", "/audit_supported_configurations.html"]
 +++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/audit_cookbook.md)
-
-
 
 {{< note >}}
 
@@ -65,15 +62,15 @@ Collection](/data_collection/). Next, configure the audit cookbook
 collector by setting the `reporter`, `server`, `owner`, `refresh_token`
 and `profiles` attributes.
 
--   `reporter` - `'chef-automate'` to report to Chef Automate.
--   `server` - url of Chef Automate server with `/api`.
--   `owner` - Chef Automate user or organization that will receive this
+- `reporter` - `'chef-automate'` to report to Chef Automate.
+- `server` - url of Chef Automate server with `/api`.
+- `owner` - Chef Automate user or organization that will receive this
     scan report.
--   `refresh_token` - refresh token for Chef Automate API. Please note
+- `refresh_token` - refresh token for Chef Automate API. Please note
     that logging out of the user interface revokes the `refresh_token`.
     To workaround, log in once in a private browser session, grab the
     token and then close the browser without logging out.
--   `insecure` - a `true` value will skip the SSL certificate
+- `insecure` - a `true` value will skip the SSL certificate
     verification when retrieving an access token. The default value is
     `false`.
 

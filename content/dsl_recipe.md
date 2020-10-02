@@ -39,12 +39,12 @@ methods that can be used to check for a node's platform from the recipe
 to ensure that specific actions are taken for specific platforms. The
 helper methods are:
 
--   `platform?`
--   `platform_family?`
--   `value_for_platform`
--   `value_for_platform_family`
+- `platform?`
+- `platform_family?`
+- `value_for_platform`
+- `value_for_platform_family`
 
-### attribute?
+### attribute
 
 Use the `attribute?` method to ensure that certain actions only execute
 in the presence of a particular node attribute. The `attribute?` method
@@ -176,15 +176,15 @@ declare_resource(:resource_type, 'resource_name', resource_attrs_block)
 
 where:
 
--   `:resource_type` is the resource type, such as `:file` (for the
+- `:resource_type` is the resource type, such as `:file` (for the
     **file** resource), `:template` (for the **template** resource), and
     so on. Any resource available to Chef may be declared.
--   `resource_name` the property that is the default name of the
+- `resource_name` the property that is the default name of the
     resource, typically the string that appears in the
     `resource 'name' do` block of a resource (but not always); see the
     Syntax section for the resource to be declared to verify the default
     name property.
--   `resource_attrs_block` is a block in which properties of the
+- `resource_attrs_block` is a block in which properties of the
     instantiated resource are declared.
 
 For example:
@@ -216,10 +216,10 @@ delete_resource(:resource_type, 'resource_name')
 
 where:
 
--   `:resource_type` is the resource type, such as `:file` (for the
+- `:resource_type` is the resource type, such as `:file` (for the
     **file** resource), `:template` (for the **template** resource), and
     so on. Any resource available to Chef may be declared.
--   `resource_name` the property that is the default name of the
+- `resource_name` the property that is the default name of the
     resource, typically the string that appears in the
     `resource 'name' do` block of a resource (but not always); see the
     Syntax section for the resource to be declared to verify the default
@@ -231,8 +231,7 @@ For example:
 delete_resource(:template, '/x/y.erb')
 ```
 
-## delete_resource!
-
+## delete_resource
 
 Use the `delete_resource!` method to find a resource in the resource
 collection, and then delete it. If the resource is not found, an
@@ -246,10 +245,10 @@ delete_resource!(:resource_type, 'resource_name')
 
 where:
 
--   `:resource_type` is the resource type, such as `:file` (for the
+- `:resource_type` is the resource type, such as `:file` (for the
     **file** resource), `:template` (for the **template** resource), and
     so on. Any resource available to Chef may be declared.
--   `resource_name` the property that is the default name of the
+- `resource_name` the property that is the default name of the
     resource, typically the string that appears in the
     `resource 'name' do` block of a resource (but not always); see the
     Syntax section for the resource to be declared to verify the default
@@ -265,8 +264,8 @@ delete_resource!(:file, '/x/file.txt')
 
 Use the `edit_resource` method to:
 
--   Find a resource in the resource collection, and then edit it.
--   Define a resource block. If a resource block with the same name
+- Find a resource in the resource collection, and then edit it.
+- Define a resource block. If a resource block with the same name
     exists in the resource collection, it will be updated with the
     contents of the resource block defined by the `edit_resource`
     method. If a resource block does not exist in the resource
@@ -280,15 +279,15 @@ edit_resource(:resource_type, 'resource_name', resource_attrs_block)
 
 where:
 
--   `:resource_type` is the resource type, such as `:file` (for the
+- `:resource_type` is the resource type, such as `:file` (for the
     **file** resource), `:template` (for the **template** resource), and
     so on. Any resource available to Chef may be declared.
--   `resource_name` the property that is the default name of the
+- `resource_name` the property that is the default name of the
     resource, typically the string that appears in the
     `resource 'name' do` block of a resource (but not always); see the
     Syntax section for the resource to be declared to verify the default
     name property.
--   `resource_attrs_block` is a block in which properties of the
+- `resource_attrs_block` is a block in which properties of the
     instantiated resource are declared.
 
 For example:
@@ -310,12 +309,12 @@ edit_resource(:template, '/etc/aliases') do
 end
 ```
 
-## edit_resource!
+## edit_resource
 
 Use the `edit_resource!` method to:
 
--   Find a resource in the resource collection, and then edit it.
--   Define a resource block. If a resource with the same name exists in
+- Find a resource in the resource collection, and then edit it.
+- Define a resource block. If a resource with the same name exists in
     the resource collection, its properties will be updated with the
     contents of the resource block defined by the `edit_resource`
     method.
@@ -330,15 +329,15 @@ edit_resource!(:resource_type, 'resource_name')
 
 where:
 
--   `:resource_type` is the resource type, such as `:file` (for the
+- `:resource_type` is the resource type, such as `:file` (for the
     **file** resource), `:template` (for the **template** resource), and
     so on. Any resource available to Chef may be declared.
--   `resource_name` the property that is the default name of the
+- `resource_name` the property that is the default name of the
     resource, typically the string that appears in the
     `resource 'name' do` block of a resource (but not always); see the
     Syntax section for the resource to be declared to verify the default
     name property.
--   `resource_attrs_block` is a block in which properties of the
+- `resource_attrs_block` is a block in which properties of the
     instantiated resource are declared.
 
 For example:
@@ -351,8 +350,8 @@ edit_resource!(:file, '/x/y.rst')
 
 Use the `find_resource` method to:
 
--   Find a resource in the resource collection.
--   Define a resource block. If a resource block with the same name
+- Find a resource in the resource collection.
+- Define a resource block. If a resource block with the same name
     exists in the resource collection, it will be returned. If a
     resource block does not exist in the resource collection, it will be
     created.
@@ -365,10 +364,10 @@ find_resource(:resource_type, 'resource_name')
 
 where:
 
--   `:resource_type` is the resource type, such as `:file` (for the
+- `:resource_type` is the resource type, such as `:file` (for the
     **file** resource), `:template` (for the **template** resource), and
     so on. Any resource available to Chef may be declared.
--   `resource_name` the property that is the default name of the
+- `resource_name` the property that is the default name of the
     resource, typically the string that appears in the
     `resource 'name' do` block of a resource (but not always); see the
     Syntax section for the resource to be declared to verify the default
@@ -391,7 +390,7 @@ find_resource(:template, '/etc/seapower') do
 end
 ```
 
-## find_resource!
+## find_resource
 
 Use the `find_resource!` method to find a resource in the resource
 collection. If the resource is not found, an exception is returned.
@@ -404,10 +403,10 @@ find_resource!(:resource_type, 'resource_name')
 
 where:
 
--   `:resource_type` is the resource type, such as `:file` (for the
+- `:resource_type` is the resource type, such as `:file` (for the
     **file** resource), `:template` (for the **template** resource), and
     so on. Any resource available to Chef may be declared.
--   `resource_name` the property that is the default name of the
+- `resource_name` the property that is the default name of the
     resource, typically the string that appears in the
     `resource 'name' do` block of a resource (but not always); see the
     Syntax section for the resource to be declared to verify the default
@@ -419,7 +418,7 @@ For example:
 find_resource!(:template, '/x/y.erb')
 ```
 
-### platform?
+### platform
 
 Use the `platform?` method to ensure that certain actions are run for
 specific platform. The `platform?` method will return true if one of the
@@ -434,9 +433,9 @@ platform?('parameter', 'parameter')
 
 where:
 
--   `parameter` is a comma-separated list, each specifying a platform,
+- `parameter` is a comma-separated list, each specifying a platform,
     such as Red Hat, CentOS, or Fedora
--   `platform?` method is typically used with an `if`, `elsif`, or
+- `platform?` method is typically used with an `if`, `elsif`, or
     `case` statement that contains Ruby code that is specific for the
     platform, if detected
 
@@ -551,7 +550,7 @@ recipe.
 
 {{% resource_ruby_block_if_statement_use_with_platform %}}
 
-### platform_family?
+### platform_family
 
 Use the `platform_family?` method to ensure that certain actions are run
 for specific platform family. The `platform_family?` method will return
@@ -567,9 +566,9 @@ platform_family?('parameter', 'parameter')
 
 where:
 
--   `'parameter'` is a comma-separated list, each specifying a platform
+- `'parameter'` is a comma-separated list, each specifying a platform
     family, such as Debian, or Red Hat Enterprise Linux
--   `platform_family?` method is typically used with an `if`, `elsif`,
+- `platform_family?` method is typically used with an `if`, `elsif`,
     or `case` statement that contains Ruby code that is specific for the
     platform family, if detected
 
@@ -617,7 +616,7 @@ used in a recipe.
 
 {{< readFile_shortcode file="resource_remote_file_use_platform_family.md" >}}
 
-### reboot_pending?
+### reboot_pending
 
 Use the `reboot_pending?` method to test if a node needs a reboot, or is
 expected to reboot. `reboot_pending?` returns `true` when the node needs
@@ -700,10 +699,10 @@ search(:index, 'query')
 
 where:
 
--   `:index` is of name of the index on the Chef Infra Server against
+- `:index` is of name of the index on the Chef Infra Server against
     which the search query will run: `:client`, `:data_bag_name`,
     `:environment`, `:node`, and `:role`
--   `'query'` is a valid search query against an object on the Chef
+- `'query'` is a valid search query against an object on the Chef
     Infra Server (see below for more information about how to build the
     query)
 
@@ -789,7 +788,7 @@ shell_out(command_args)
 
 where `command_args` is the command that is run against the node.
 
-## shell_out!
+## shell_out
 
 The `shell_out!` method can be used to run a command against the node,
 display the output to the console when the log level is set to `debug`,
@@ -824,14 +823,14 @@ value_for_platform( ['platform', ...] => { 'version' => 'value' } )
 
 where:
 
--   `'platform', ...` is a comma-separated list of platforms, such as
+- `'platform', ...` is a comma-separated list of platforms, such as
     Red Hat, openSUSE, or Fedora
--   `version` specifies the version of that platform
--   Version constraints---`>`, `<`, `>=`, `<=`, `~>`---may be used with
+- `version` specifies the version of that platform
+- Version constraints---`>`, `<`, `>=`, `<=`, `~>`---may be used with
     `version`; an exception is raised if two version constraints match;
     an exact match will always take precedence over a match made from a
     version constraint
--   `value` specifies the value that will be used if the node's platform
+- `value` specifies the value that will be used if the node's platform
     matches the `value_for_platform` method
 
 When each value only has a single platform, use the following syntax:
@@ -912,9 +911,9 @@ value_for_platform_family( 'platform_family' => 'value', ... )
 
 where:
 
--   `'platform_family' => 'value', ...` is a comma-separated list of
+- `'platform_family' => 'value', ...` is a comma-separated list of
     platforms, such as Fedora, openSUSE, or Red Hat Enterprise Linux
--   `value` specifies the value that will be used if the node's platform
+- `value` specifies the value that will be used if the node's platform
     family matches the `value_for_platform_family` method
 
 When each value only has a single platform, use the following syntax:
@@ -966,8 +965,8 @@ end
 
 where `:type` may be one of the following:
 
--   `:root` runs the block as part of the root `run_context` hierarchy
--   `:parent` runs the block as part of the parent process in the
+- `:root` runs the block as part of the root `run_context` hierarchy
+- `:parent` runs the block as part of the parent process in the
     `run_context` hierarchy
 
 For example:
@@ -996,7 +995,7 @@ end
 
 {{< /note >}}
 
-### registry_data_exists?
+### registry_data_exists
 
 {{% dsl_recipe_method_registry_data_exists %}}
 
@@ -1008,15 +1007,15 @@ end
 
 {{% dsl_recipe_method_registry_get_values %}}
 
-### registry_has_subkeys?
+### registry_has_subkeys
 
 {{% dsl_recipe_method_registry_has_subkeys %}}
 
-### registry_key_exists?
+### registry_key_exists
 
 {{% dsl_recipe_method_registry_key_exists %}}
 
-### registry_value_exists?
+### registry_value_exists
 
 {{% dsl_recipe_method_registry_value_exists %}}
 

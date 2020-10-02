@@ -3,7 +3,6 @@ title = "About the delivery-truck Cookbook"
 draft = false
 robots = "noindex"
 
-
 aliases = ["/delivery_truck.html", "/release/automate/delivery_truck.html"]
 
 [menu]
@@ -132,19 +131,19 @@ configure nodes in the Chef Automate pipeline.
 Create a project cookbook. From the project's root directory, do the
 following:
 
-1.  Create a branch:
+1. Create a branch:
 
     ``` bash
     delivery checkout BRANCH_NAME
     ```
 
-2.  Generate a cookbook under `/cookbooks` in the project directory:
+2. Generate a cookbook under `/cookbooks` in the project directory:
 
     ``` bash
     chef generate cookbook PROJECT_NAME
     ```
 
-3.  Review the `metadata.rb` file. It should be similar to:
+3. Review the `metadata.rb` file. It should be similar to:
 
     ``` ruby
     name 'my_project'
@@ -174,19 +173,19 @@ nodes in the Chef Automate pipeline.
 
 To submit changes to Chef Automate, use commands similar to:
 
-1.  Update to match the working tree:
+1. Update to match the working tree:
 
     ``` bash
     git add -A
     ```
 
-2.  Commit the project:
+2. Commit the project:
 
     ``` bash
     git commit -m "Let us deploy our app."
     ```
 
-3.  Review the changes in Chef Automate:
+3. Review the changes in Chef Automate:
 
     ``` bash
     delivery review
@@ -197,7 +196,7 @@ To submit changes to Chef Automate, use commands similar to:
     approved. Once approved, the `provision.rb` recipe will deploy the
     project onto the acceptance stage's infrastructure nodes.
 
-4.  After the change has built successfully through the Acceptance
+4. After the change has built successfully through the Acceptance
     stage, approve the changes by clicking the **Deliver** button in the
     Chef Automate web UI. This sends the project to the Union,
     Rehearsal, and Delivered stages.
@@ -209,19 +208,19 @@ Update a file in the project, and then update the version number in the
 the old project cookbook, and then updating the project across each
 stage of the Chef Automate pipeline:
 
-1.  Check out the project from Chef Automate:
+1. Check out the project from Chef Automate:
 
     ``` bash
     delivery checkout master
     ```
 
-2.  Create a branch:
+2. Create a branch:
 
     ``` bash
     delivery checkout BRANCH_NAME
     ```
 
-3.  Edit the `version` in the `metadata.rb` file:
+3. Edit the `version` in the `metadata.rb` file:
 
     ``` ruby
     version '0.2.0'
@@ -229,19 +228,19 @@ stage of the Chef Automate pipeline:
 
     and then make the desired changes.
 
-4.  Update to match the working tree:
+4. Update to match the working tree:
 
     ``` bash
     git add -A
     ```
 
-5.  Add a commit message:
+5. Add a commit message:
 
     ``` bash
     git commit -m "Updated our project's code to version 0.2.0."
     ```
 
-6.  Review the changes in Chef Automate:
+6. Review the changes in Chef Automate:
 
     ``` bash
     delivery review
@@ -296,7 +295,7 @@ cookbook. This helper is available when the `publish.rb` recipe has
 
 To define a project application, do the following:
 
-1.  Open the `publish.rb` recipe in the `build-cookbook` and edit it to
+1. Open the `publish.rb` recipe in the `build-cookbook` and edit it to
     contain:
 
     ``` ruby
@@ -311,14 +310,14 @@ To define a project application, do the following:
 
     where
 
-    -   `<app_name>` is the name of the project application
-    -   `<app_version>` is version number to which the project
+    - `<app_name>` is the name of the project application
+    - `<app_version>` is version number to which the project
         application is pinned
-    -   `'attribute'` is Hash of attributes associated with this
+    - `'attribute'` is Hash of attributes associated with this
         version; each attribute is defined as a key-value pair:
         `'key = value'`
 
-2.  Set up the `build-cookbook` to know about this application. Add the
+2. Set up the `build-cookbook` to know about this application. Add the
     following to `.delivery/build-cookbook/attributes/default.rb`:
 
     ``` ruby
@@ -335,7 +334,7 @@ To define a project application, do the following:
 
     {{< /note >}}
 
-3.  Open the `default.rb` recipe in the `build-cookbook` and edit it to
+3. Open the `default.rb` recipe in the `build-cookbook` and edit it to
     contain:
 
     ``` ruby
@@ -361,7 +360,7 @@ This example shows how to use project applications to deploy a package
 into a `.deb` file during the deploy phase. (This example assumes a Chef
 Automate project exists with a properly configured `build-cookbook`.)
 
-1.  Open the `publish.rb` recipe in the `build-cookbook` and edit to
+1. Open the `publish.rb` recipe in the `build-cookbook` and edit to
     look like the following:
 
     ``` ruby
@@ -391,10 +390,10 @@ Automate project exists with a properly configured `build-cookbook`.)
     )
     ```
 
-2.  In the `publish.rb` recipe, update `<generated_artifact_location>`
+2. In the `publish.rb` recipe, update `<generated_artifact_location>`
     and `<package_checksum>` to be correct for this project.
 
-3.  Set up the `build-cookbook` to know about this application. Add the
+3. Set up the `build-cookbook` to know about this application. Add the
     following to `.delivery/build-cookbook/attributes/default.rb`:
 
     ``` ruby
@@ -409,7 +408,7 @@ Automate project exists with a properly configured `build-cookbook`.)
     that version of the application. The provisioning code in
     `delivery-truck` will automatically pin based on this version.
 
-4.  Configure the `build-cookbook` to know how to install the
+4. Configure the `build-cookbook` to know how to install the
     application. Add the following to
     `.delivery/build-cookbook/deploy.rb`:
 
@@ -462,20 +461,20 @@ Automate-backed cookbook projects.
 
 ### Prerequisites
 
--   Ensure you have a private Supermarket installed, setup, and running.
+- Ensure you have a private Supermarket installed, setup, and running.
     See [Install Private Supermarket](/install_supermarket/) for
     more information.
--   Ensure you have a Chef Infra Server with the Chef Identity
+- Ensure you have a Chef Infra Server with the Chef Identity
     authentication/authorization service configured, a Chef Automate
     server setup that references your private Supermarket, and at least
     one Chef Automate build node/runner installed, setup, and running.
     See [Install Chef Automate](/install_chef_automate/) and [Chef
     Identity](/install_supermarket/#chef-identity.html) for more
     information.
--   Ensure you have created a project in Chef Automate. Follow these
+- Ensure you have created a project in Chef Automate. Follow these
     instructions to [Set Up
     Projects](/delivery_build_cookbook/#set-up-projects).
--   Ensure you have [Chef
+- Ensure you have [Chef
     Workstation](https://downloads.chef.io/chef-workstation/) installed
     on your [workstation](/workstation/).
 
@@ -485,13 +484,13 @@ To use `delivery-truck` and its dependency, `delivery-sugar`, you must
 first share them with a private Supermarket that is authenticated with
 your Chef Infra Server.
 
-1.  From a workstation, create a cookbooks directory, `$COOKBOOKS_DIR`:
+1. From a workstation, create a cookbooks directory, `$COOKBOOKS_DIR`:
 
     ``` bash
     mkdir -p $COOKBOOKS_DIR
     ```
 
-2.  Clone the `delivery-truck` cookbook and its dependency
+2. Clone the `delivery-truck` cookbook and its dependency
     `deliver-sugar` from GitHub:
 
     ``` bash
@@ -500,7 +499,7 @@ your Chef Infra Server.
     git clone https://github.com/chef-cookbooks/delivery-truck.git
     ```
 
-3.  To ensure your private Supermarket does not try to connect to
+3. To ensure your private Supermarket does not try to connect to
     third-party services, log into it and set the `AIR_GAPPED`
     environment variable to `'true'` in the
     `/etc/supermarket/supermarket.rb` file.
@@ -509,15 +508,15 @@ your Chef Infra Server.
     default['supermarket']['air_gapped'] = 'true'
     ```
 
-4.  Save your changes and close the file.
+4. Save your changes and close the file.
 
-5.  Reconfigure your private Supermarket.
+5. Reconfigure your private Supermarket.
 
     ``` bash
     supermarket-ctl reconfigure
     ```
 
-6.  Share the `delivery-truck` and `delivery-sugar` cookbooks with your
+6. Share the `delivery-truck` and `delivery-sugar` cookbooks with your
     private Supermarket using the `knife` command-line tool. If you have
     not configured `knife` to share cookbooks with your private
     Supermarket, see [Upload a
@@ -531,7 +530,7 @@ your Chef Infra Server.
 
 ### Generate a cookbook
 
-1.  Use Chef Workstation's [cookbook generator
+1. Use Chef Workstation's [cookbook generator
     command](/ctl_chef/#chef-generate-cookbook) to create a default
     cookbook directory structure called `my_cookbook`.
 
@@ -539,7 +538,7 @@ your Chef Infra Server.
     chef generate cookbook my_cookbook
     ```
 
-2.  Run `delivery init` in your `my_cookbook` local directory to create
+2. Run `delivery init` in your `my_cookbook` local directory to create
     a new project in Chef Automate and push your first change for
     review.
 
@@ -548,13 +547,13 @@ your Chef Infra Server.
     delivery init
     ```
 
-3.  Finally, check out the added files and commit your changes.
+3. Finally, check out the added files and commit your changes.
 
 ### Use the `delivery-truck` cookbook in your project
 
 From the root of your project's directory, do the following:
 
-1.  Modify the build cookbook's Berksfile to reference `delivery-truck`
+1. Modify the build cookbook's Berksfile to reference `delivery-truck`
     and `delivery-sugar`. By default, this file is located at
     `.delivery/build-cookbook/Berksfile`.
 
@@ -569,7 +568,7 @@ From the root of your project's directory, do the following:
     end
     ```
 
-2.  Modify the build cookbook's metadata to include `delivery-truck`. By
+2. Modify the build cookbook's metadata to include `delivery-truck`. By
     default, this file is located at
     `.delivery/build-cookbook/metadata.rb`.
 
@@ -577,7 +576,7 @@ From the root of your project's directory, do the following:
     depends 'delivery-truck'
     ```
 
-3.  Edit your build cookbook's recipes to include the corresponding
+3. Edit your build cookbook's recipes to include the corresponding
     `delivery-truck` recipe.
 
     ``` none
@@ -592,8 +591,8 @@ From the root of your project's directory, do the following:
     By default, each build cookbook recipe `$RECIPE` is located at
     `.delivery/build-cookbook/recipes/$RECIPE.rb`.
 
-4.  Increment your build cookbook's version in the cookbook's metadata
+4. Increment your build cookbook's version in the cookbook's metadata
     file.
 
-5.  Commit your changes and run `delivery review`. Changes to your
+5. Commit your changes and run `delivery review`. Changes to your
     cookbook project can now be managed by your Chef Automate cluster.

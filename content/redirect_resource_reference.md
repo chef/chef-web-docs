@@ -6,5 +6,4 @@ aliases = ["/resource_reference.html", "/resources.html", "resource_examples.htm
 
 robots = "noindex"
 +++
-
 <meta http-equiv="refresh" content="0; url=/resources/" />

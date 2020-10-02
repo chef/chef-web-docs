@@ -3,7 +3,6 @@ title = "Deprecation: Deprecation of the erl_call resource (CHEF-22)"
 draft = false
 robots = "noindex"
 
-
 aliases = "/deprecations_erl_call_resource.html"
 +++
 

@@ -17,9 +17,9 @@ aliases = ["/config_rb_push_jobs_client.html"]
 A `push-jobs-client.rb` file is used to specify the configuration
 details for the Chef Push Jobs client.
 
--   This file is loaded every time this executable is run
--   This file is not created by default
--   When a `push-jobs-client.rb` file is present in the default
+- This file is loaded every time this executable is run
+- This file is not created by default
+- When a `push-jobs-client.rb` file is present in the default
     location, the settings contained within that file will override the
     default configuration settings
 

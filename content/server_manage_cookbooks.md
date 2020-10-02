@@ -3,7 +3,6 @@ title = "Manage Cookbooks"
 draft = false
 robots = "noindex"
 
-
 aliases = ["/server_manage_cookbooks.html"]
 
 [menu]
@@ -36,15 +35,15 @@ interface. Cookbooks are managed using knife.
 
 To view cookbook details:
 
-1.  Open the Chef management console.
+1. Open the Chef management console.
 
-2.  Click **Policy**.
+2. Click **Policy**.
 
-3.  Click **Cookbooks**.
+3. Click **Cookbooks**.
 
-4.  Select a cookbook.
+4. Select a cookbook.
 
-5.  Click the **Details** tab:
+5. Click the **Details** tab:
 
     ![image](/images/step_manage_webui_policy_cookbook_view_details.png)
 
@@ -98,41 +97,41 @@ Infra Server are visible from the Chef management console.
 
 To download a file that is located in a cookbook:
 
-1.  Open the Chef management console.
+1. Open the Chef management console.
 
-2.  Click **Policy**.
+2. Click **Policy**.
 
-3.  Click **Cookbooks**.
+3. Click **Cookbooks**.
 
-4.  Select the file type: **Attributes**, **Definitions**, **Files**,
+4. Select the file type: **Attributes**, **Definitions**, **Files**,
     **Recipes**, **Templates**, or **Root Files**.
 
-5.  Select a file.
+5. Select a file.
 
-6.  Click **Download File**:
+6. Click **Download File**:
 
     ![image](/images/step_manage_webui_policy_cookbook_download.png)
 
-7.  Specify the location to which the file should be saved.
+7. Specify the location to which the file should be saved.
 
 ### View a File
 
 To view a cookbook file:
 
-1.  Open the Chef management console.
+1. Open the Chef management console.
 
-2.  Click **Policy**.
+2. Click **Policy**.
 
-3.  Click **Cookbooks**.
+3. Click **Cookbooks**.
 
-4.  Select a cookbook.
+4. Select a cookbook.
 
-5.  Click the **Content** tab.
+5. Click the **Content** tab.
 
-6.  Select the file type: **Attributes**, **Definitions**, **Files**,
+6. Select the file type: **Attributes**, **Definitions**, **Files**,
     **Recipes**, **Templates**, or **Root Files**.
 
-7.  Select a file:
+7. Select a file:
 
     ![image](/images/step_manage_webui_policy_cookbook_file_view.png)
 
@@ -146,36 +145,36 @@ To view a cookbook file:
 
 To set permissions list for a cookbook object:
 
-1.  Open the Chef management console.
-2.  Click **Policy**.
-3.  Click **Cookbooks**.
-4.  Select a cookbook.
-5.  Click the **Permissions** tab.
-6.  For each group listed under **Name**, select or de-select the
+1. Open the Chef management console.
+2. Click **Policy**.
+3. Click **Cookbooks**.
+4. Select a cookbook.
+5. Click the **Permissions** tab.
+6. For each group listed under **Name**, select or de-select the
     **Read**, **Update**, **Delete**, and **Grant** permissions.
 
 ### Update
 
 To update the permissions list for a cookbook object:
 
-1.  Open the Chef management console.
-2.  Click **Policy**.
-3.  Click **Cookbooks**.
-4.  Select a cookbook.
-5.  Click the **Permissions** tab.
-6.  Click the **+ Add** button and enter the name of the user or group
+1. Open the Chef management console.
+2. Click **Policy**.
+3. Click **Cookbooks**.
+4. Select a cookbook.
+5. Click the **Permissions** tab.
+6. Click the **+ Add** button and enter the name of the user or group
     to be added.
-7.  Select or de-select **Read**, **Update**, **Delete**, and **Grant**
+7. Select or de-select **Read**, **Update**, **Delete**, and **Grant**
     to update the permissions list for the user or group.
 
 ### View
 
 To view permissions for a cookbook object:
 
-1.  Open the Chef management console.
-2.  Click **Policy**.
-3.  Click **Cookbooks**.
-4.  Select a cookbook.
-5.  Click the **Permissions** tab.
-6.  Set the appropriate permissions: **Delete**, **Grant**, **Read**,
+1. Open the Chef management console.
+2. Click **Policy**.
+3. Click **Cookbooks**.
+4. Select a cookbook.
+5. Click the **Permissions** tab.
+6. Set the appropriate permissions: **Delete**, **Grant**, **Read**,
     and/or **Update**.

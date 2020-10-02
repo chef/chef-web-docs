@@ -38,18 +38,17 @@ billing AMI:
 If you wish to use Chef Automate's built-in S3 backup support, or if you
 want to bring your own license, complete the following steps:
 
-1.  Navigate to the [S3
+1. Navigate to the [S3
     Console](https://s3.console.aws.amazon.com/s3/home) and create an S3
     bucket in the region where you intend to launch the Chef Automate
     AMI.
-2.  Copy the S3 bucket ARN.
-3.  Navigate to the [IAM Role section in the AWS
+2. Copy the S3 bucket ARN.
+3. Navigate to the [IAM Role section in the AWS
     console](https://console.aws.amazon.com/iam/home#roles).
-4.  Create an access policy for your bucket that allows listing,
+4. Create an access policy for your bucket that allows listing,
     getting, putting, deleting and multi-part uploads to your bucket
     ARN. You can use the following example with your bucket ARN in the
     Resource arrays:
-
 
 ``` json
 {
@@ -84,24 +83,24 @@ want to bring your own license, complete the following steps:
 }
 ```
 
-1.  Create an IAM role for your instance.
-2.  Attach the S3 bucket access policy to the role.
+1. Create an IAM role for your instance.
+2. Attach the S3 bucket access policy to the role.
 
 ### Launch the Metered AMI
 
-1.  Navigate back to the Chef Automate [product
+1. Navigate back to the Chef Automate [product
     page](https://aws.amazon.com/marketplace/pp/B01AMIH01Q) and continue
     to the launch wizard.
-2.  Click the 'Launch with EC2 Console' button next to the desired
+2. Click the 'Launch with EC2 Console' button next to the desired
     region.
-3.  Configure the Amazon EC2 instance type, Amazon Virtual Private Cloud
+3. Configure the Amazon EC2 instance type, Amazon Virtual Private Cloud
     (VPC) settings, SSH key pair, IAM Role and assign [a public IP
     address](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-instance-addressing.html#concepts-public-addresses).
-4.  Increase the root volume size to a minimum of 30GB. You might
+4. Increase the root volume size to a minimum of 30GB. You might
     consider even larger if you have hundreds of nodes or need to
     maintain months of node visibility data.
-5.  Launch the Amazon Machine Image (AMI).
-6.  [Install Chef
+5. Launch the Amazon Machine Image (AMI).
+6. [Install Chef
     Workstation](#install-chef-workstation).
 
 ## Bring Your Own License (BYOL) AMI
@@ -122,12 +121,12 @@ AMI:
 If you wish to use Chef Automate's built-in S3 backup support, or if you
 want to bring your own license, complete the following steps:
 
-1.  Navigate to the [S3
+1. Navigate to the [S3
     Console](https://s3.console.aws.amazon.com/s3/home) and create an S3
     bucket in the region where you intend to launch the Chef Automate
     AMI.
 
-2.  Select your bucket in the console and upload your Chef Automate
+2. Select your bucket in the console and upload your Chef Automate
     `delivery.license` file. Ensure that you've restricted access to the
     file, and that it is not publicly readable. If you do not have a
     license, skip this step.
@@ -142,12 +141,12 @@ want to bring your own license, complete the following steps:
 
     {{< /note >}}
 
-3.  Copy the S3 bucket ARN.
+3. Copy the S3 bucket ARN.
 
-4.  Navigate to the [IAM Role section in the AWS
+4. Navigate to the [IAM Role section in the AWS
     console](https://console.aws.amazon.com/iam/home#roles).
 
-5.  Create an access policy for your bucket that allows listing,
+5. Create an access policy for your bucket that allows listing,
     getting, putting, deleting and multi-part uploads to your bucket
     ARN. You can use the following example with your bucket ARN in the
     Resource arrays:
@@ -187,28 +186,28 @@ want to bring your own license, complete the following steps:
 }
 ```
 
-1.  Create an IAM role for your instance.
-2.  Attach the S3 bucket access policy to the role.
+1. Create an IAM role for your instance.
+2. Attach the S3 bucket access policy to the role.
 
 ### Launch the BYOL AMI
 
-1.  Navigate back to the Chef Automate [product
+1. Navigate back to the Chef Automate [product
     page](https://aws.amazon.com/marketplace/pp/B01AMIH01Q) and continue
     to the launch wizard.
 
-2.  If you're using your own license, create and copy a pre-signed link
+2. If you're using your own license, create and copy a pre-signed link
     with the AWS command line tools and save it. For example:
 
     ``` bash
     aws s3 presign yourbucket/delivery.license
     ```
 
-3.  Configure all fields in the CloudFormation template. Use the
+3. Configure all fields in the CloudFormation template. Use the
     pre-signed license URL for the `LicenseUrl` field.
 
-4.  Associate the IAM role for backup access.
+4. Associate the IAM role for backup access.
 
-5.  Run the CloudFormation template to create the Chef Automate
+5. Run the CloudFormation template to create the Chef Automate
     instance.
 
 ## Install Chef Workstation
@@ -226,7 +225,7 @@ After the instance has been provisioned and initial configuration has
 completed (usually 10 to 13 minutes) finish configuring Chef Automate
 and Chef Infra Server.
 
-1.  Access the initial configuration page by loading `/biscotti/setup`
+1. Access the initial configuration page by loading `/biscotti/setup`
     route. Build the URL by prepending `https://` and appending
     `/biscotti/setup` to the IP address or public hostname that was
     automatically assigned to the instance when the Amazon Machine
@@ -241,17 +240,17 @@ and Chef Infra Server.
 
     {{< /note >}}
 
-2.  Use the AWS console or command line tools to determine the Instance
+2. Use the AWS console or command line tools to determine the Instance
     ID of your Chef Automate instance. The instance ID is required for
     authorization to access the setup page.
 
-3.  Fill out the setup form and submit it.
+3. Fill out the setup form and submit it.
 
-4.  Follow the link and log into the Chef Automate webui.
+4. Follow the link and log into the Chef Automate webui.
 
 ## Configure the workstation
 
-1.  Download and extract the `starter_kit.zip` file to a directory on
+1. Download and extract the `starter_kit.zip` file to a directory on
     the workstation. Open a command prompt and change into the
     `chef-repo` directory extracted from the starter kit. For example:
 
@@ -261,7 +260,7 @@ and Chef Infra Server.
     cd starter_kit/chef-repo
     ```
 
-2.  {{% install_aws_chef_server_knife_client_list %}}
+2. {{% install_aws_chef_server_knife_client_list %}}
 
 ## Configure backups
 
@@ -307,31 +306,31 @@ from the AWS Marketplace:
 
 To update the hostname, do the following:
 
-1.  Run `sudo -i` to gain administrator privileges.
+1. Run `sudo -i` to gain administrator privileges.
 
-2.  Run `chef-marketplace-ctl hostname` to view the current hostname.
+2. Run `chef-marketplace-ctl hostname` to view the current hostname.
 
-3.  Configure the `api_fqdn` in `/etc/chef-marketplace/marketplace.rb`
+3. Configure the `api_fqdn` in `/etc/chef-marketplace/marketplace.rb`
 
     ``` none
     echo 'api_fqdn "<new.fully.qualified.hostname.com>"' | sudo tee -a /etc/chef-marketplace/marketplace.rb
     ```
 
-4.  Run `chef-marketplace-ctl reconfigure` to update Chef Automate and
+4. Run `chef-marketplace-ctl reconfigure` to update Chef Automate and
     Chef Infra Server configuration.
 
-5.  Run `chef-server-ctl stop` to stop Chef Infra Server.
+5. Run `chef-server-ctl stop` to stop Chef Infra Server.
 
-6.  Run `automate-ctl stop` to stop Chef Automate.
+6. Run `automate-ctl stop` to stop Chef Automate.
 
-7.  Run
+7. Run
     `chef-marketplace-ctl hostname <new.fully.qualified.hostname.com>`
     to update the hostname.
 
-8.  Run `automate-ctl reconfigure` to ensure Chef Automate has been
+8. Run `automate-ctl reconfigure` to ensure Chef Automate has been
     correctly configured with the new hostname.
 
-9.  Run `chef-server-ctl reconfigure` to ensure Chef Infra Server has
+9. Run `chef-server-ctl reconfigure` to ensure Chef Infra Server has
     been correctly configured with the new hostname.
 
 10. Run `automate-ctl restart` to restart Chef Automate
@@ -342,7 +341,7 @@ To update the hostname, do the following:
 
 To edit the Amazon Machine Images (AMI) instance size, do the following:
 
-1.  Login using SSH to access the Chef Automate instance. Use the SSH
+1. Login using SSH to access the Chef Automate instance. Use the SSH
     key pair and the IP address or public hostname that was
     automatically assigned when the Amazon Machine Images (AMI) was
     launched. The default user is `ec2-user`. For example:
@@ -351,35 +350,35 @@ To edit the Amazon Machine Images (AMI) instance size, do the following:
     ssh -i /path/to/ssh_key.pem ec2-user@<instance IP address>
     ```
 
-2.  Stop the Chef Infra Server services:
+2. Stop the Chef Infra Server services:
 
     ``` bash
     sudo chef-server-ctl stop
     ```
 
-3.  Stop then Chef Automate services:
+3. Stop then Chef Automate services:
 
     ``` bash
     sudo automate-ctl stop
     ```
 
-4.  Navigate to the Amazon Web Services (AWS) instance in the AWS
+4. Navigate to the Amazon Web Services (AWS) instance in the AWS
     Management Console.
 
-5.  From the **Actions** dropdown, select **Instance State**, and then
+5. From the **Actions** dropdown, select **Instance State**, and then
     **Stop**.
 
-6.  After the instance transitions to **Stopped**, edit the instance
+6. After the instance transitions to **Stopped**, edit the instance
     size. From the **Actions** dropdown, select **Instance Settings**,
     and then **Change Instance Type**.
 
-7.  From the dropdown, select the desired instance size, and then click
+7. From the dropdown, select the desired instance size, and then click
     **Apply**.
 
-8.  From the **Actions** dropdown, select **Instance State**, and then
+8. From the **Actions** dropdown, select **Instance State**, and then
     click **Start**.
 
-9.  After the instance has started it will have a **new public IP
+9. After the instance has started it will have a **new public IP
     address and public DNS**.
 
 10. Use SSH to log into the new instance. Use the SSH key pair and new
@@ -449,7 +448,7 @@ Server, upgrade Chef Marketplace; upgrade everything.
 
 To upgrade, do one of the following:
 
--   Upgrade the Chef Automate package by using the following command:
+- Upgrade the Chef Automate package by using the following command:
 
     ``` bash
     sudo chef-marketplace-ctl upgrade --automate
@@ -462,7 +461,7 @@ To upgrade, do one of the following:
 
     {{< /note >}}
 
--   Upgrade the Chef Infra Server package by using the following
+- Upgrade the Chef Infra Server package by using the following
     command:
 
     ``` bash
@@ -476,13 +475,13 @@ To upgrade, do one of the following:
 
     {{< /note >}}
 
--   Upgrade the Chef Marketplace package by using the following command:
+- Upgrade the Chef Marketplace package by using the following command:
 
     ``` bash
     sudo chef-marketplace-ctl upgrade --marketplace
     ```
 
--   Upgrade all the installed packages by using the following command:
+- Upgrade all the installed packages by using the following command:
 
     ``` bash
     sudo chef-marketplace-ctl upgrade -y
@@ -496,7 +495,7 @@ version is being used and the location in which it is deployed. In all
 scenarios, data is first migrated to the latest Chef Infra Server
 schema, after which it is migrated to the Amazon Machine Images (AMI).
 
--   Verify that the latest version of the Chef Infra Server is installed
+- Verify that the latest version of the Chef Infra Server is installed
     by using the platform package manager:
     `rpm -qa | grep chef-server-core` and compare the result to the
     latest version available on the [downloads
@@ -509,7 +508,7 @@ After verifying that your existing Chef Infra Server installation is up
 to date, do the following to migrate to the Amazon Machine Images (AMI)
 instance:
 
-1.  Backup the data on the Chef Infra Server using `knife ec backup`.
+1. Backup the data on the Chef Infra Server using `knife ec backup`.
     This method will export all of your existing Chef Infra Server data
     as JSON. We'll then re-import the same data into a new Chef Automate
     cluster. We use the JSON based backup and restore procedure because
@@ -522,28 +521,28 @@ instance:
     tar -czvf chef-backup.tgz -C /tmp/chef-backup
     ```
 
-1.  Copy the resulting tarball to your Amazon Machine Images (AMI)
+1. Copy the resulting tarball to your Amazon Machine Images (AMI)
     instance:
 
     ``` bash
     scp /tmp/chef-backup.tgz ec2-user@<MARKETPLACE AMI IP ADDRESS>:/tmp/
     ```
 
-1.  Login to the Amazon Machine Images (AMI) and ensure that it is
+1. Login to the Amazon Machine Images (AMI) and ensure that it is
     running the latest version of the Chef Infra Server:
 
     ``` bash
     chef-marketplace-ctl upgrade -y
     ```
 
-1.  Reconfigure Chef Automate and the Chef Infra Server:
+1. Reconfigure Chef Automate and the Chef Infra Server:
 
     ``` bash
     sudo automate-ctl reconfigure
     sudo chef-server-ctl reconfigure
     ```
 
-1.  Restore the backup:
+1. Restore the backup:
 
     ``` bash
     mkdir -p /tmp/chef-backup
@@ -553,13 +552,13 @@ instance:
     /opt/opscode/embedded/bin/knife ec restore /tmp/chef-backup --with-user-sql --with-key-sql
     ```
 
-1.  {{% install_update_aws_knife_rb %}}
+1. {{% install_update_aws_knife_rb %}}
 
-1.  {{% install_aws_chef_server_knife_ssl_fetch %}}
+1. {{% install_aws_chef_server_knife_ssl_fetch %}}
 
-1.  {{% install_aws_chef_server_knife_client_list %}}
+1. {{% install_aws_chef_server_knife_client_list %}}
 
-1.  Update the `/etc/chef/client.rb` on all of your nodes to use the new
+1. Update the `/etc/chef/client.rb` on all of your nodes to use the new
     public DNS. For example:
 
     ``` none

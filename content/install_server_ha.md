@@ -28,14 +28,14 @@ components in the system architecture. This type of configuration
 typically splits the servers into two segments: The backend cluster, and
 the frontend group.
 
--   The frontend group, comprised of one (or more) nodes running the
+- The frontend group, comprised of one (or more) nodes running the
     Chef Infra Server. Nodes in the frontend group handle requests to
     the Chef Infra Server API and access to the Chef management console.
     Frontend group nodes should be load balanced, and may be scaled
     horizontally by increasing the number of nodes available to handle
     requests.
 
--   The backend cluster, comprised of three nodes working together,
+- The backend cluster, comprised of three nodes working together,
     provides high availability data persistence for the frontend group.
 
     {{< note spaces=4 >}}
@@ -63,10 +63,10 @@ across multiple Availability Zones within the same region.
 
 ### Nodes
 
--   The HA backend installation requires three cluster nodes. Chef has
+- The HA backend installation requires three cluster nodes. Chef has
     not tested and does not support installations with other numbers of
     backend cluster nodes.
--   One or more frontend group nodes
+- One or more frontend group nodes
 
 #### Hardware Requirements
 
@@ -79,13 +79,13 @@ A good rule to follow is to allocate 2 MB per node. The disk values
 listed below should be a good default value that you will want to modify
 later if/when your node count grows.
 
--   64-bit architecture
+- 64-bit architecture
 
 {{% system_requirements_ha %}}
 
 ### Network Services
 
--   A load balancer between the rest of the network, and the frontend
+- A load balancer between the rest of the network, and the frontend
     group (Not provided). Because management console session data is
     stored on each node in the frontend group individually, the load
     balancer should be configured with sticky sessions.
@@ -94,29 +94,29 @@ later if/when your node count grows.
 
 #### Inbound from load balancer to frontend group
 
--   TCP 80 (HTTP)
--   TCP 443 (HTTPS)
+- TCP 80 (HTTP)
+- TCP 443 (HTTPS)
 
 #### Inbound from frontend group to backend cluster
 
--   TCP 2379 (etcd)
--   TCP 5432 (PostgreSQL)
--   TCP 7331 (leaderl)
--   TCP 9200-9300 (Elasticsearch)
+- TCP 2379 (etcd)
+- TCP 5432 (PostgreSQL)
+- TCP 7331 (leaderl)
+- TCP 9200-9300 (Elasticsearch)
 
 #### Peer communication, backend cluster
 
--   2379 (etcd)
--   2380 (etcd)
--   5432 (PostgreSQL)
--   9200-9400 (Elasticsearch)
+- 2379 (etcd)
+- 2380 (etcd)
+- 5432 (PostgreSQL)
+- 9200-9400 (Elasticsearch)
 
 ## Installation
 
 These instructions assume you are using the minimum versions:
 
--   Chef Server : 12.5.0
--   Chef Backend : 0.8.0
+- Chef Server : 12.5.0
+- Chef Backend : 0.8.0
 
 Download [Chef Infra Server](https://downloads.chef.io/chef-server/) and
 [Chef Backend (chef-backend)](https://downloads.chef.io/chef-backend/)
@@ -125,15 +125,15 @@ if you do not have them already.
 Before creating the backend HA cluster and building at least one Chef
 Infra Server to be part of the frontend group, verify:
 
--   The user who will install and build the backend HA cluster and
+- The user who will install and build the backend HA cluster and
     frontend group has root access to all nodes.
--   The number of backend and frontend nodes that are desired. It is
+- The number of backend and frontend nodes that are desired. It is
     required to have three backend nodes, but the number of frontend
     nodes may vary from a single node to a load-balanced tiered
     configuration.
--   SSH access to all boxes that will belong to the backend HA cluster
+- SSH access to all boxes that will belong to the backend HA cluster
     from the node that will be the initial bootstrap.
--   A time synchronization policy is in place, such as Network Time
+- A time synchronization policy is in place, such as Network Time
     Protocol (NTP). Drift of less than 1.5 seconds must exist across all
     nodes in the backend HA cluster.
 
@@ -144,21 +144,21 @@ used to bootstrap the cluster will be the cluster leader when the
 cluster comes online. After bootstrap completes this node is no
 different from any other back-end node.
 
-1.  Install the Chef Backend package on the first backend node as root.
+1. Install the Chef Backend package on the first backend node as root.
 
-    -   Download [Chef Backend
+    - Download [Chef Backend
         (chef-backend)](https://downloads.chef.io/chef-backend/)
-    -   In Red Hat/CentOS: `yum install PATH_TO_RPM`
-    -   In Debian/Ubuntu: `dpkg -i PATH_TO_DEB`
+    - In Red Hat/CentOS: `yum install PATH_TO_RPM`
+    - In Debian/Ubuntu: `dpkg -i PATH_TO_DEB`
 
-2.  Update `/etc/chef-backend/chef-backend.rb` with the following
+2. Update `/etc/chef-backend/chef-backend.rb` with the following
     content:
 
     ``` ruby
     publish_address 'external_IP_address_of_this_box' # External ip address of this backend box
     ```
 
-3.  If any of the backends or frontends are in different networks from
+3. If any of the backends or frontends are in different networks from
     each other then add a `postgresql.md5_auth_cidr_addresses` line to
     `/etc/chef-backend/chef-backend.rb` with the following content where
     `, "<NET-1_IN_CIDR>", ..., "<NET-N_IN_CIDR>"` is the list of all of
@@ -172,7 +172,7 @@ different from any other back-end node.
     postgresql.md5_auth_cidr_addresses = ["samehost", "samenet", "<NET-1_IN_CIDR>", ..., "<NET-N_IN_CIDR>"]
     ```
 
-4.  Run `chef-backend-ctl create-cluster`.
+4. Run `chef-backend-ctl create-cluster`.
 
 ### Step 2: Shared Credentials
 
@@ -195,14 +195,14 @@ for each backend being joined to the cluster.
 For each additional node do the following in sequence (if you attempt to
 join nodes in parallel the cluster may fail to become available):
 
-1.  Install the Chef Backend package on the node.
+1. Install the Chef Backend package on the node.
 
-    -   Download [Chef Backend
+    - Download [Chef Backend
         (chef-backend)](https://downloads.chef.io/chef-backend/)
-    -   In Red Hat/CentOS: `yum install PATH_TO_RPM`
-    -   In Debian/Ubuntu: `dpkg -i PATH_TO_DEB`
+    - In Red Hat/CentOS: `yum install PATH_TO_RPM`
+    - In Debian/Ubuntu: `dpkg -i PATH_TO_DEB`
 
-2.  If you added a `postgresql.md5_auth_cidr_addresses` line to the
+2. If you added a `postgresql.md5_auth_cidr_addresses` line to the
     leader's `/etc/chef-backend/chef-backend.rb` in [Step 1: Create
     Cluster](/install_server_ha/#step-1-create-cluster) then update
     this node's `/etc/chef-backend/chef-backend.rb` with the following
@@ -217,13 +217,13 @@ join nodes in parallel the cluster may fail to become available):
     postgresql.md5_auth_cidr_addresses = ["samehost", "samenet", "<NET-1_IN_CIDR>", ..., "<NET-N_IN_CIDR>"]
     ```
 
-3.  As root or with sudo:
+3. As root or with sudo:
 
     ``` bash
     chef-backend-ctl join-cluster <IP_BE1> -s /home/<USER>/chef-backend-secrets.json
     ```
 
-4.  Answer the prompts regarding which public IP to use. As an
+4. Answer the prompts regarding which public IP to use. As an
     alternative, you may specify them on the `chef-backend join-cluster`
     command line. See `chef-backend-ctl join-cluster --help` for more
     information. If you manually added the `publish_address` line to
@@ -232,10 +232,10 @@ join nodes in parallel the cluster may fail to become available):
     option to specify the the public IP on the
     `chef-backend join-cluster` command line.
 
-5.  If you copied the shared `chef-backend-secrets.json` file to a user
+5. If you copied the shared `chef-backend-secrets.json` file to a user
     HOME directory on this host, remove it now.
 
-6.  Repeat these steps for each follower node, after which the cluster
+6. Repeat these steps for each follower node, after which the cluster
     is online and available. From any node in the backend HA cluster,
     run the following command:
 
@@ -275,61 +275,61 @@ Chef Infra Server frontend nodes.
 On the first frontend node, assuming that the generated configuration
 was copied as detailed in Step 4:
 
-1.  Install the current chef-server-core package
-2.  Run
+1. Install the current chef-server-core package
+2. Run
     `cp /home/<USER>/chef-server.rb.<FE1> /etc/opscode/chef-server.rb`
-3.  As the root user, run `chef-server-ctl reconfigure`
+3. As the root user, run `chef-server-ctl reconfigure`
 
 ### Step 6: Adding More Frontend Nodes
 
 For each additional frontend node you wish to add to your cluster:
 
-1.  Install the current chef-server-core package.
+1. Install the current chef-server-core package.
 
-2.  Generate a new `/etc/opscode/chef-server.rb` from any of the backend
+2. Generate a new `/etc/opscode/chef-server.rb` from any of the backend
     nodes via
 
     ``` bash
     chef-backend-ctl gen-server-config <FE_NAME-FQDN> > chef-server.rb.<FE_NAME>
     ```
 
-3.  Copy it to `/etc/opscode` on the new frontend node.
+3. Copy it to `/etc/opscode` on the new frontend node.
 
-4.  From the first frontend node configured in Step 5, copy the
+4. From the first frontend node configured in Step 5, copy the
     following files from the first frontend to `/etc/opscode` on the new
     frontend node:
 
-    -   /etc/opscode/private-chef-secrets.json
+    - /etc/opscode/private-chef-secrets.json
 
     {{< note spaces=4 >}}
 
     For Chef Server versions prior to 12.14, you will also need to copy
     the key files:
 
-    -   /etc/opscode/webui_priv.pem
-    -   /etc/opscode/webui_pub.pem
-    -   /etc/opscode/pivotal.pem
+    - /etc/opscode/webui_priv.pem
+    - /etc/opscode/webui_pub.pem
+    - /etc/opscode/pivotal.pem
 
     {{< /note >}}
 
-5.  On the new frontend node run `mkdir -p /var/opt/opscode/upgrades/`.
+5. On the new frontend node run `mkdir -p /var/opt/opscode/upgrades/`.
 
-6.  From the first frontend node, copy
+6. From the first frontend node, copy
     `/var/opt/opscode/upgrades/migration-level` to the same location on
     the new node.
 
-7.  On the new frontend run `touch /var/opt/opscode/bootstrapped`.
+7. On the new frontend run `touch /var/opt/opscode/bootstrapped`.
 
-8.  On the new frontend run `chef-server-ctl reconfigure` as root.
+8. On the new frontend run `chef-server-ctl reconfigure` as root.
 
 ### Upgrading Chef Infra Server on the Frontend Machines
 
-1.  On one frontend server, follow the [standalone upgrade
+1. On one frontend server, follow the [standalone upgrade
     process](/upgrade_server/#standalone).
-2.  Copy `/var/opt/opscode/upgrades/migration-level` from the first
+2. Copy `/var/opt/opscode/upgrades/migration-level` from the first
     upgraded frontend to `/var/opt/opscode/upgrades/migration-level` on
     each of the remaining frontends.
-3.  Once the updated file has been copied to each of the remaining
+3. Once the updated file has been copied to each of the remaining
     frontends, perform the [standalone upgrade
     process](/upgrade_server/#standalone) on each of the frontend
     servers.

@@ -3,7 +3,6 @@ title = "chef-manage-ctl (executable)"
 draft = false
 robots = "noindex"
 
-
 aliases = ["/ctl_manage.html"]
 
 [menu]

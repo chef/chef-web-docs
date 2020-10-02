@@ -25,13 +25,13 @@ other components.
 
 To uninstall the Chef management console, do the following:
 
-1.  Run the following command:
+1. Run the following command:
 
     ``` bash
     chef-manage-ctl cleanse
     ```
 
-2.  Use the package manager for the platform on which the Chef
+2. Use the package manager for the platform on which the Chef
     management console is installed, and then uninstall the package
     named `chef-manage`.
 
@@ -84,11 +84,11 @@ To revert the `uninstall` subcommand, run the `reconfigure` subcommand
 
 To uninstall Chef Push Jobs, do the following:
 
-1.  Shut down the Chef Push Jobs service.
+1. Shut down the Chef Push Jobs service.
 
-2.  Uninstall the Chef Push Jobs package.
+2. Uninstall the Chef Push Jobs package.
 
-3.  Run the following command:
+3. Run the following command:
 
     ``` bash
     chef-server-ctl reconfigure

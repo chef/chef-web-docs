@@ -55,10 +55,10 @@ When a user makes a request to the Chef Infra Server using the Chef
 Infra Server API, permission to perform that action is determined by the
 following process:
 
-1.  Check if the user has permission to the object type
-2.  If no, recursively check if the user is a member of a security group
+1. Check if the user has permission to the object type
+2. If no, recursively check if the user is a member of a security group
     that has permission to that object
-3.  If yes, allow the user to perform the action
+3. If yes, allow the user to perform the action
 
 Permissions are managed using the Chef management console add-on in the
 Chef Infra Server web user interface.
@@ -76,8 +76,8 @@ organization on the Chef Infra Server.
 A user may belong to multiple organizations under the following
 conditions:
 
--   Role-based access control is configured per-organization
--   For a single user to interact with the Chef Infra Server using knife
+- Role-based access control is configured per-organization
+- For a single user to interact with the Chef Infra Server using knife
     from the same chef-repo, that user may need to edit their config.rb
     file prior to that interaction
 
@@ -86,11 +86,11 @@ the same toolset, coding patterns and practices, physical hardware, and
 product support effort is being applied across the entire company, even
 when:
 
--   Multiple product groups must be supported---each product group can
+- Multiple product groups must be supported---each product group can
     have its own security requirements, schedule, and goals
--   Updates occur on different schedules---the nodes in one organization
+- Updates occur on different schedules---the nodes in one organization
     are managed completely independently from the nodes in another
--   Individual teams have competing needs for object and object
+- Individual teams have competing needs for object and object
     types---data bags, environments, roles, and cookbooks are unique to
     each organization, even if they share the same name
 
@@ -296,8 +296,6 @@ The `admins` group is assigned the following:
 
 The `billing_admins` group is assigned the following:
 
-
-
 #### billing_admins
 
 The `billing_admins` group is assigned the following:
@@ -437,10 +435,10 @@ The `clients` group is assigned the following:
 The `public_key_read_access` group controls which users and clients have
 [read permissions to the following endpoints](/api_chef_server/):
 
--   GET /clients/CLIENT/keys
--   GET /clients/CLIENT/keys/KEY
--   GET /users/USER/keys
--   GET /users/USER/keys/
+- GET /clients/CLIENT/keys
+- GET /clients/CLIENT/keys/KEY
+- GET /users/USER/keys
+- GET /users/USER/keys/
 
 By default, the `public_key_read_access` assigns all members of the
 `users` and `clients` group permission to these endpoints:
@@ -495,8 +493,6 @@ By default, the `public_key_read_access` assigns all members of the
 #### users
 
 The `users` group is assigned the following:
-
-
 
 #### users
 

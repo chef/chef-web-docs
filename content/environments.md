@@ -86,9 +86,9 @@ pinning syntax.
 Environments may be stored on disk (any in source control) in two
 formats:
 
--   As Ruby (i.e. a file that ends with `.rb`); this format is not
+- As Ruby (i.e. a file that ends with `.rb`); this format is not
     available when running Chef Infra Client in local mode
--   As JSON (i.e. a file that ends with `.json`)
+- As JSON (i.e. a file that ends with `.json`)
 
 ### Ruby DSL
 
@@ -279,13 +279,13 @@ The JSON format has two additional settings:
 
 An environment can be created in five different ways:
 
--   Creating a Ruby file in the environments sub-directory of the
+- Creating a Ruby file in the environments sub-directory of the
     chef-repo and then pushing it to the Chef server
--   Creating a JSON file directly in the chef-repo and then pushing it
+- Creating a JSON file directly in the chef-repo and then pushing it
     to the Chef server
--   Using knife
--   Using the Chef management console web user interface
--   Using the Chef Infra Server REST API
+- Using knife
+- Using the Chef management console web user interface
+- Using the Chef Infra Server REST API
 
 Once an environment exists on the Chef Infra Server, a node can be
 associated with that environment using the `chef_environment` method.
@@ -294,9 +294,9 @@ associated with that environment using the `chef_environment` method.
 
 Once created, an environment can be managed in several ways:
 
--   By using knife and passing the `-E ENVIRONMENT_NAME` option with
+- By using knife and passing the `-E ENVIRONMENT_NAME` option with
     `knife cookbook upload`
--   By using Ruby or JSON files that are stored in a version source
+- By using Ruby or JSON files that are stored in a version source
     control system. These files are pushed to the Chef Infra Server
     using the `knife environment` subcommand and the `from file`
     argument. This approach allows environment data to be dynamically
@@ -390,12 +390,12 @@ cannot be set with normal or override attributes (i.e. in a role)
 because it is actually a method. An environment may be set explicitly
 using the following methods:
 
--   By using the `knife edit` and `knife exec` subcommands
+- By using the `knife edit` and `knife exec` subcommands
 
--   By editing the `chef_environment` directly using knife or the Chef
+- By editing the `chef_environment` directly using knife or the Chef
     management console
 
--   By editing the `environment` configuration details in the client.rb
+- By editing the `environment` configuration details in the client.rb
     file, and then using `knife bootstrap -e environment_name` to
     bootstrap the changes to the specified environment
 
@@ -408,7 +408,7 @@ using the following methods:
 
     {{< /note >}}
 
--   By setting the `environment` configuration entry in the client.rb
+- By setting the `environment` configuration entry in the client.rb
     file ; when Chef Infra Client runs, it will pick up the value and
     then set the `chef_environment` attribute of the node
 

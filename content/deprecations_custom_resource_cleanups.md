@@ -3,7 +3,6 @@ title = "Deprecation: Custom Resource Cleanups (CHEF-5)"
 draft = false
 robots = "noindex"
 
-
 aliases = "/deprecations_custom_resource_cleanups.html"
 
 +++
@@ -81,7 +80,7 @@ A property can either have a default, or it can be a "name" property
 (meaning that it will take the value of the resource's name if not
 otherwise specified), but not both.
 
-## Overriding provides?
+## Overriding provides
 
 Some providers override the `provides?` method, used to check whether
 they are a valid provider on the current platform. In Chef Client 13,
@@ -146,7 +145,8 @@ end
 ## Don't use the dsl_name method
 
 The `dsl_name` method is deprecated and will be removed from Chef Client
-1.  It has been replaced by `resource_name`.
+
+1. It has been replaced by `resource_name`.
 
 ### Example
 

@@ -3,7 +3,6 @@ title = "Deprecation: Ohai::Config removal (OHAI-1)"
 draft = false
 robots = "noindex"
 
-
 aliases = "/deprecations_ohai_legacy_config.html"
 +++
 

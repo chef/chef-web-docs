@@ -16,10 +16,10 @@ aliases = ["/quick_start.html"]
 
 For the quickest way to get started using Chef Infra:
 
-1.  Install Chef Workstation:
+1. Install Chef Workstation:
     <https://downloads.chef.io/chef-workstation/>.
 
-2.  Generate a cookbook:
+2. Generate a cookbook:
 
     ``` bash
     chef generate cookbook first_cookbook
@@ -27,9 +27,9 @@ For the quickest way to get started using Chef Infra:
 
     where `first_cookbook` is an arbitrary cookbook name.
 
-3.  Navigate to the `first_cookbook` directory.
+3. Navigate to the `first_cookbook` directory.
 
-4.  Update the `cookbooks/first_cookbook/recipes/default.rb` recipe in
+4. Update the `cookbooks/first_cookbook/recipes/default.rb` recipe in
     the generated cookbook to contain:
 
     ``` ruby
@@ -38,7 +38,7 @@ For the quickest way to get started using Chef Infra:
     end
     ```
 
-5.  Run Chef Infra Client using the `default.rb` recipe:
+5. Run Chef Infra Client using the `default.rb` recipe:
 
     ``` bash
     chef-client --local-mode --override-runlist first_cookbook
@@ -48,19 +48,19 @@ This will create a file named `test.txt` at the home path on your
 machine. Open that file and it will say
 `This file was created by Chef Infra!`.
 
--   Delete the file, run Chef Infra Client again, and Chef Infra will
+- Delete the file, run Chef Infra Client again, and Chef Infra will
     put the file back.
--   Change the string in the file, run Chef Infra Client again, and Chef
+- Change the string in the file, run Chef Infra Client again, and Chef
     Infra will make the string in the file the same as the string in the
     recipe.
--   Change the string in the recipe, run Chef Infra Client again, and
+- Change the string in the recipe, run Chef Infra Client again, and
     Chef Infra will update that string to be the same as the one in the
     recipe.
 
 There's a lot more that Chef Infra can do, obviously, but that was super
 easy!
 
--   See <https://learn.chef.io/> for more detailed setup scenarios.
--   Keep reading for more information about setting up a workstation,
+- See <https://learn.chef.io/> for more detailed setup scenarios.
+- Keep reading for more information about setting up a workstation,
     configuring Test Kitchen to run virtual environments, setting up a
     more detailed cookbook, resources, and more.

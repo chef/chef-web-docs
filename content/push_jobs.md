@@ -23,12 +23,12 @@ cookbook and a Chef Infra Client run on each of the target nodes.
 
 Chef Push Jobs has the following requirements:
 
--   An on-premises Chef Infra Server. Hosted Chef does not support Chef
+- An on-premises Chef Infra Server. Hosted Chef does not support Chef
     Push Jobs.
--   The Chef Push Jobs client can be configured using a **push-jobs**
+- The Chef Push Jobs client can be configured using a **push-jobs**
     cookbook, but Chef Infra Client must also be present on the node.
     Only Chef Infra Client can use a cookbook to configure a node.
--   {{% server_firewalls_and_ports_push_jobs %}}
+- {{% server_firewalls_and_ports_push_jobs %}}
 
 ## Components
 
@@ -39,13 +39,13 @@ initiated.
 
 All communication between these components is done with the following:
 
--   A heartbeat message between the Chef Push Jobs server and each
+- A heartbeat message between the Chef Push Jobs server and each
     managed node
--   A knife plugin named `knife push jobs` with four subcommands:
+- A knife plugin named `knife push jobs` with four subcommands:
     `job list`, `job start`, `job status`, and `node status`
--   Various job messages sent from a workstation to the Chef Push Jobs
+- Various job messages sent from a workstation to the Chef Push Jobs
     server
--   A single job message that is sent (per job) from the Chef Push Jobs
+- A single job message that is sent (per job) from the Chef Push Jobs
     server to one (or more) nodes that are being managed by the Chef
     server
 
@@ -433,7 +433,7 @@ The response will return something similar to:
 
 where:
 
--   `nodes` is one of the following: `aborted` (node ran command,
+- `nodes` is one of the following: `aborted` (node ran command,
     stopped before completion), `complete` (node ran command to
     completion), `crashed` (node went down after command started
     running), `nacked` (node was busy), `new` (node has not accepted or
@@ -441,12 +441,12 @@ where:
     not started running), `running` (node has accepted command, command
     is running), and `unavailable` (node went down before command
     started).
--   `status` is one of the following: `aborted` (the job was aborted),
+- `status` is one of the following: `aborted` (the job was aborted),
     `complete` (the job completed; see `nodes` for individual node
     status), `quorum_failed` (the command was not run on any nodes),
     `running` (the command is running), `timed_out` (the command timed
     out), and `voting` (waiting for nodes; quorum not yet met).
--   `updated_at` is the date and time at which the job entered its
+- `updated_at` is the date and time at which the job entered its
     present `status`
 
 <table>

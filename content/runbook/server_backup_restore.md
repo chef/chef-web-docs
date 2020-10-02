@@ -69,21 +69,21 @@ cluster or for a point-in-time rollback of an existing cluster.
 Restoring your data in the case of an emergency depends on having
 previously made backups of:
 
--   the data in your Chef Backend cluster
--   the configuration from your Chef server
+- the data in your Chef Backend cluster
+- the configuration from your Chef server
 
 To make backups for future use in disaster scenarios:
 
-1.  On a follower chef-backend node, run `chef-backend-ctl backup`
-2.  On a Chef Infra Server node run: `chef-server-ctl backup --config-only`
-3.  Move the tar archives created in steps (1) and (2) to a long-term
+1. On a follower chef-backend node, run `chef-backend-ctl backup`
+2. On a Chef Infra Server node run: `chef-server-ctl backup --config-only`
+3. Move the tar archives created in steps (1) and (2) to a long-term
     storage location.
 
 ### Restore
 
 To restore a Chef Backend-based Chef Infra Server cluster:
 
-1.  Restore the node and an IP address that can be used to reach the
+1. Restore the node and an IP address that can be used to reach the
     node on the first machine that you want to use in your new Chef
     Backend cluster. The argument to the `--publish_address` option
     should be the IP address for reaching the node you are restoring.
@@ -92,7 +92,7 @@ To restore a Chef Backend-based Chef Infra Server cluster:
     chef-backend-ctl restore --publish_address X.Y.Z.W /path/to/backup.tar.gz
     ```
 
-2.  Join additional nodes to your Chef Backend cluster. (If you are only
+2. Join additional nodes to your Chef Backend cluster. (If you are only
     testing and verifying your restore process you can test against a
     single Chef Backend node and a single Chef Infra Server node.)
 
@@ -100,7 +100,7 @@ To restore a Chef Backend-based Chef Infra Server cluster:
     chef-backend-ctl join-cluster IP_OF_FIRST_NODE --publish_address IP_OF_THIS_NODE
     ```
 
-3.  Restore Chef Infra Server from your backed up Infra Server configuration
+3. Restore Chef Infra Server from your backed up Infra Server configuration
     (See step 2 in the backup instructions above). Alternatively, you
     can generate new configuration for this node and reconfigure it
     using the steps found in [the installation
@@ -110,7 +110,7 @@ To restore a Chef Backend-based Chef Infra Server cluster:
     chef-server-ctl restore /path/to/chef-server-backup.tar.gz
     ```
 
-4.  Run the `reindex` command to re-populate your search index
+4. Run the `reindex` command to re-populate your search index
 
     ``` bash
     chef-server-ctl reindex --all

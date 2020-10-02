@@ -27,14 +27,14 @@ the associated RSA public key-pairs.
 
 The Chef Infra Server API has the following requirements:
 
--   The `Accept` header must be set to `application/json`.
--   For `PUT` and `POST` requests, the `Content-Type` header must be set
+- The `Accept` header must be set to `application/json`.
+- For `PUT` and `POST` requests, the `Content-Type` header must be set
     to `application/json`.
--   The `X-Chef-Version` header must be set to the version of the Chef
+- The `X-Chef-Version` header must be set to the version of the Chef
     Infra Server API that is being used.
--   A request must be signed by adding authentication headers.
+- A request must be signed by adding authentication headers.
     'Mixlib::Authentication' may be used to sign requests.
--   A request must be well-formatted. The easiest way to ensure a
+- A request must be well-formatted. The easiest way to ensure a
     well-formatted request is to use the `Chef::ServerAPI` library.
 
 ## Authentication Headers
@@ -151,16 +151,16 @@ X-Ops-UserId:USERID
 
 where:
 
--   `HTTP_METHOD` is the method used in the API request (`GET`, `POST`,
+- `HTTP_METHOD` is the method used in the API request (`GET`, `POST`,
     and so on)
--   `HASHED_PATH` is the path of the request:
+- `HASHED_PATH` is the path of the request:
     `/organizations/NAME/name_of_endpoint`. The `HASHED_PATH` must be
     hashed using SHA-1 and encoded using Base64, must not have repeated
     forward slashes (`/`), must not end in a forward slash (unless the
     path is `/`), and must not include a query string.
--   `X-Ops-Content-Hash` is the Base64 encoded SHA256 hash of the json body of the request.
--   `X-Ops-Timestamp` UTC time in RFC3339 format.
--   `X-Ops-UserId` is the plain text client or user name.
+- `X-Ops-Content-Hash` is the Base64 encoded SHA256 hash of the json body of the request.
+- `X-Ops-Timestamp` UTC time in RFC3339 format.
+- `X-Ops-UserId` is the plain text client or user name.
 
 The Chef Infra Server decrypts this header and ensures its content
 matches the content of the non-encrypted headers that were in the
@@ -230,15 +230,15 @@ X-Ops-Server-API-Version
 
 where:
 
--   `HTTP_METHOD` is the method used in the API request (`GET`, `POST`, ...)
--   `PATH` is the path of the request: `/organizations/NAME/name_of_endpoint`.
+- `HTTP_METHOD` is the method used in the API request (`GET`, `POST`, ...)
+- `PATH` is the path of the request: `/organizations/NAME/name_of_endpoint`.
     The value must not have repeated forward slashes (`/`), must not end
     in a forward slash (unless the path is `/`), and must not include a query string.
--   `X-Ops-Content-Hash` is the Base64 encoded SHA256 hash of the json body of the request.
--   `X-Ops-Sign` has the value "version=1.3".
--   `X-Ops-Timestamp` UTC time in RFC3339 format.
--   `X-Ops-UserId` is the plain text client or user name.
--   `X-Ops-Server-API-Version` is the numeric value of the Chef Infra Server API.
+- `X-Ops-Content-Hash` is the Base64 encoded SHA256 hash of the json body of the request.
+- `X-Ops-Sign` has the value "version=1.3".
+- `X-Ops-Timestamp` UTC time in RFC3339 format.
+- `X-Ops-UserId` is the plain text client or user name.
+- `X-Ops-Server-API-Version` is the numeric value of the Chef Infra Server API.
 
 ##### Example
 
@@ -523,10 +523,10 @@ with a request body similar to:
 
 where:
 
--   `name` must begin with a lower-case letter or digit, may only
+- `name` must begin with a lower-case letter or digit, may only
     contain lower-case letters, digits, hyphens, and underscores, and
     must be between 1 and 255 characters. For example: `chef`.
--   `full_name` must begin with a non-white space character and must be
+- `full_name` must begin with a non-white space character and must be
     between 1 and 1023 characters. For example: `Chef Software, Inc.`.
 
 {{< note >}}
@@ -953,8 +953,8 @@ The response will return something like the following:
 A user is an individual account that is created to allow access to the
 Chef Infra Server. For example:
 
--   A hosted Chef Infra Server account
--   The user that operates the workstation from which a Chef Infra
+- A hosted Chef Infra Server account
+- The user that operates the workstation from which a Chef Infra
     Server will be managed
 
 The `/users` endpoint has the following methods: `GET` and `POST`.
@@ -1111,21 +1111,21 @@ with a request body similar to:
 
 where:
 
--   `username` must begin with a lower-case letter or digit, may only
+- `username` must begin with a lower-case letter or digit, may only
     contain lower-case letters, digits, hyphens, and underscores. For
     example: `chef`.
     `username` is required to be present and have a valid value. A valid
     username is a dot separated list of elements matching
     `` a-z0-9!#$%&'*+/=?^_`{|}~- ``.
--   `display_name` is required to be present.
--   `email` is required to be present and have a valid value. The email
+- `display_name` is required to be present.
+- `email` is required to be present and have a valid value. The email
     validation doesn't allow for all unicode characters.
--   Either `external_authentication_uid` or `password` are required to
+- Either `external_authentication_uid` or `password` are required to
     be present and have a value.
--   During the POST, the `public_key` value will be broken out and
+- During the POST, the `public_key` value will be broken out and
     resubmitted to the keys portion of the API in the latest Chef Infra
     Server versions.
--   Only one of the keys, `create_key` or `public_key`, may be specified.  If `create_key` is specified, a default private key is generated and returned.
+- Only one of the keys, `create_key` or `public_key`, may be specified.  If `create_key` is specified, a default private key is generated and returned.
 
 **Response**
 
@@ -2292,7 +2292,6 @@ request with different values will return a 400 error. Either name
 may be specified to set both values.
 
 {{< /note >}}
-
 
 **Request**
 
@@ -3606,7 +3605,6 @@ The response is similar to:
 </tr>
 </tbody>
 </table>
-
 
 #### PUT
 
@@ -6889,10 +6887,10 @@ Chef Infra Server. This relationship is based on the policy group to
 which the node is associated, and then the policy settings assigned to
 that group:
 
--   A policy is typically named after the functional role ahost
+- A policy is typically named after the functional role ahost
     performs, such as "application server", "chat server", "load
     balancer", and so on
--   A policy group defines a set of hosts in a deployed units, typically
+- A policy group defines a set of hosts in a deployed units, typically
     mapped to organizational requirements such as "dev", "test",
     "staging", and "production", but can also be mapped to more detailed
     requirements as needed
@@ -7207,7 +7205,6 @@ The response is similar to:
 ```
 
 **Response Codes**
-
 
 <table>
 <colgroup>

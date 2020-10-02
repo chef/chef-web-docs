@@ -300,7 +300,6 @@ See [Elasticsearch's configuration documentation](https://www.elastic.co/guide/e
 
 ### Chef HA Backend Leader Management Service Settings
 
-
 `leaderl.db_timeout`
 : Socket timeout when connecting to PostgreSQL in
   milliseconds.

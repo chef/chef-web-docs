@@ -16,11 +16,11 @@ aliases = ["/install_push_jobs.html"]
 
 Chef Push Jobs is installed to the following locations:
 
--   The same machine as the Chef Infra Server (Chef Server version 12.6
+- The same machine as the Chef Infra Server (Chef Server version 12.6
     or higher)
--   One (or more) nodes on which Chef Infra Client (Chef Client version
+- One (or more) nodes on which Chef Infra Client (Chef Client version
     12 or higher) is installed
--   At least one management workstation
+- At least one management workstation
 
 ## Install the Server
 
@@ -31,10 +31,10 @@ to add Chef Push Jobs.
 
 To set up the Chef Push Jobs client:
 
-1.  Add the **push-jobs** cookbook to the run-list for each of the nodes
+1. Add the **push-jobs** cookbook to the run-list for each of the nodes
     on which Chef Push Jobs is to be configured.
 
-2.  Add the following default attributes on all nodes that are managed
+2. Add the following default attributes on all nodes that are managed
     by Chef Push Jobs:
 
     ``` javascript
@@ -44,9 +44,9 @@ To set up the Chef Push Jobs client:
     }
     ```
 
-3.  Run Chef Infra Client to configure Chef Push Jobs
+3. Run Chef Infra Client to configure Chef Push Jobs
 
-4.  Verify that the Chef Push Jobs client is running as a daemon or as a
+4. Verify that the Chef Push Jobs client is running as a daemon or as a
     service:
 
     ``` bash

@@ -3,7 +3,6 @@ title = "Deprecation: Deploy Resource (CHEF-20)"
 draft = false
 robots = "noindex"
 
-
 aliases = "/deprecations_deploy_resource.html"
 +++
 

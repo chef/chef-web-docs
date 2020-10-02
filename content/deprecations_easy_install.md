@@ -3,7 +3,6 @@ title = "Deprecation: Easy Install Resource (CHEF-6)"
 draft = false
 robots = "noindex"
 
-
 aliases = "/deprecations_easy_install.html"
 +++
 

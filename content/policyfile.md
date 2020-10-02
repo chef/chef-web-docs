@@ -16,7 +16,7 @@ aliases = ["/policyfile.html"]
 
 {{% policyfile_summary %}}
 
-## Why Policyfile?
+## Why Policyfile
 
 For some users of Chef, Policyfile will make it easier to test and
 promote code safely with a simpler interface. Policyfile improves the
@@ -24,13 +24,13 @@ user experience and resolves real-world problems that some workflows
 built around Chef must deal with. The following sections discuss in more
 detail some of the good reasons to use Policyfile, including:
 
--   Focus the workflow on the entire system
--   Safer development workflows
--   Less expensive computation
--   Code visibility
--   Role mutability
--   Cookbook mutability
--   Replaces Berkshelf and the environment cookbook pattern
+- Focus the workflow on the entire system
+- Safer development workflows
+- Less expensive computation
+- Code visibility
+- Role mutability
+- Cookbook mutability
+- Replaces Berkshelf and the environment cookbook pattern
 
 ### Focused System Workflows
 
@@ -63,13 +63,13 @@ cookbook or role from being applied immediately to all machines.
 When running Chef without Policyfile, the exact set of cookbooks that
 are applied to a node is defined by:
 
--   The node's `run_list` property
--   Any roles that are present in the node's run-list or recursively
+- The node's `run_list` property
+- Any roles that are present in the node's run-list or recursively
     included by those roles
--   The environment, which may restrict the set of valid cookbook
+- The environment, which may restrict the set of valid cookbook
     versions for a node based on a variety of constraint operators
--   Dependencies, as defined by each cookbook's metadata
--   Dependency resolution picks the "best" set of cookbooks that meet
+- Dependencies, as defined by each cookbook's metadata
+- Dependency resolution picks the "best" set of cookbooks that meet
     dependency and environment criteria
 
 These conditions are re-evaluated every time Chef Infra Client runs,
@@ -138,12 +138,12 @@ The opaque identifier that is computed from the content of a cookbook is
 the only place where an opaque identifier is necessary. When working
 with Policyfile, be sure to:
 
--   Use the same names and version constraints as normal in the
+- Use the same names and version constraints as normal in the
     `Policyfile.rb` file
--   Use the same references to cookbooks pulled from Chef Supermarket
--   Use the same branch, tag, and revision patterns for cookbooks pulled
+- Use the same references to cookbooks pulled from Chef Supermarket
+- Use the same branch, tag, and revision patterns for cookbooks pulled
     from git
--   Use the same paths for cookbooks pulled from disk
+- Use the same paths for cookbooks pulled from disk
 
 Extra metadata about the cookbook is stored and included in Chef Infra
 Server API responses and in the `Policyfile.lock.json` file, including

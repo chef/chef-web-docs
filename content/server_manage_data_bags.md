@@ -3,7 +3,6 @@ title = "Manage Data Bags"
 draft = false
 robots = "noindex"
 
-
 aliases = ["/server_manage_data_bags.html"]
 
 [menu]

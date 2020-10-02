@@ -3,7 +3,6 @@ title = "Manage Nodes"
 draft = false
 robots = "noindex"
 
-
 aliases = ["/server_manage_nodes.html"]
 
 [menu]
