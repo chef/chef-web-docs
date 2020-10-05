@@ -14,9 +14,9 @@ aliases = ["/install_windows.html"]
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/install_windows.md)
 
-## Nodes
+## Installation Methods
 
-{{% node %}}
+There are several methods available to install Chef Infra Client, depending on the needs of your organization
 
 {{% windows_install_overview %}}
 
@@ -24,7 +24,7 @@ aliases = ["/install_windows.html"]
 
 {{% knife_windows_summary %}}
 
-#### Ports
+#### Necessary Ports
 
 {{% knife_windows_winrm_ports %}}
 
