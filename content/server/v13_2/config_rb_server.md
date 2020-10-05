@@ -1,32 +1,23 @@
 +++
-title = "chef-server.rb 13 Settings"
-draft = false
-
-aliases = ["/config_rb_server.html"]
-
-[menu]
-  [menu.infra]
-    title = "chef-server.rb 13 Settings"
-    identifier = "chef_infra/managing_chef_infra_server/config_rb_server.md chef-server.rb"
-    parent = "chef_infra/managing_chef_infra_server"
-    weight = 160
+title = "chef-server.rb Settings"
+version = "13_2"
 +++
 
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/config_rb_server.md)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/server/v13_2/config_rb_server.md)
 
-{{% config_rb_server_summary %}}
+{{< reusable_text_versioned file="config_rb_server_summary">}}
 
 ## Use Conditions
 
-{{% config_add_condition %}}
+{{< reusable_text_versioned file="config_add_condition">}}
 
 ## Recommended Settings
 
-{{% server_tuning_general %}}
+{{< reusable_text_versioned file="server_tuning_general">}}
 
 ### NGINX SSL Protocols
 
-{{% server_tuning_nginx %}}
+{{< reusable_text_versioned file="server_tuning_nginx">}}
 
 ## Optional Settings
 
@@ -35,7 +26,7 @@ Infra Server in larger installations.
 
 {{< note >}}
 
-{{% notes_config_rb_server_must_reconfigure %}}
+{{< reusable_text_versioned file="notes_config_rb_server_must_reconfigure">}}
 
 {{< /note >}}
 
@@ -50,11 +41,11 @@ added without first consulting with Chef support.
 
 ### bookshelf
 
-{{% server_tuning_bookshelf %}}
+{{< reusable_text_versioned file="server_tuning_bookshelf">}}
 
 {{< warning >}}
 
-{{% notes_server_aws_cookbook_storage %}}
+{{< reusable_text_versioned file="notes_server_aws_cookbook_storage">}}
 
 {{< /warning >}}
 
@@ -72,7 +63,7 @@ tuning effort for the **opscode-account** service:
 
 ### opscode-erchef
 
-{{% server_tuning_erchef %}}
+{{< reusable_text_versioned file="server_tuning_erchef">}}
 
 #### Data Collector
 
@@ -90,27 +81,27 @@ application:
 
 ### opscode-expander
 
-{{% server_tuning_expander %}}
+{{< reusable_text_versioned file="server_tuning_expander">}}
 
 ### opscode-solr4
 
-{{% server_tuning_solr %}}
+{{< reusable_text_versioned file="server_tuning_solr">}}
 
 #### Available Memory
 
-{{% server_tuning_solr_available_memory %}}
+{{< reusable_text_versioned file="server_tuning_solr_available_memory">}}
 
 #### Large Node Sizes
 
-{{% server_tuning_solr_large_node_sizes %}}
+{{< reusable_text_versioned file="server_tuning_solr_large_node_sizes">}}
 
 #### Update Frequency
 
-{{% server_tuning_solr_update_frequency %}}
+{{< reusable_text_versioned file="server_tuning_solr_update_frequency">}}
 
 ### postgresql
 
-{{% server_tuning_postgresql %}}
+{{< reusable_text_versioned file="server_tuning_postgresql">}}
 
 `postgresql['sslmode']`
 
