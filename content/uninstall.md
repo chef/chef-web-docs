@@ -1,5 +1,5 @@
 +++
-title = "Uninstall"
+title = "Uninstalling Chef Software"
 draft = false
 
 aliases = ["/uninstall.html"]
@@ -7,8 +7,7 @@ aliases = ["/uninstall.html"]
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/uninstall.md)
 
-The following sections describe how to uninstall Chef, add-ons, and
-other components.
+The following sections describe how to uninstall various Chef Software products.
 
 ## Chef Infra Server
 
