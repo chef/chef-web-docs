@@ -3,13 +3,6 @@ title = "Uninstall"
 draft = false
 
 aliases = ["/uninstall.html"]
-
-[menu]
-  [menu.infra]
-    title = "Uninstall"
-    identifier = "chef_infra/getting_started/uninstall.md Uninstall"
-    parent = "chef_infra/getting_started"
-    weight = 80
 +++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/uninstall.md)
