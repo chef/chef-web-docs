@@ -176,10 +176,6 @@ listed below:
 <td><a href="https://github.com/chef-cookbooks/webpi">Webpi Cookbook</a></td>
 <td>The <code>webpi</code> cookbook is used to run the Microsoft Web Platform Installer (WebPI).</td>
 </tr>
-<tr class="odd">
-<td><a href="https://github.com/chef-cookbooks/windows_dns">Windows_dns Cookbook</a></td>
-<td>This cookbook provides a resource for managing DNS on Windows hosts.</td>
-</tr>
 </tbody>
 </table>
 
