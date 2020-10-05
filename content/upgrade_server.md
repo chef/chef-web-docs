@@ -48,7 +48,7 @@ Do not upgrade your production server. First, upgrade in your test server, and t
 Chef Infra Server 14 uses Elasticsearch as its search index.
 {{% server_upgrade_duration %}}
 
-No reindexing will occur for existing external Elasticsearch users upgrading to Chef Infra Server 14.
+The Chef Infra Server 14 upgrade does not reindex existing external Elasticsearch installations.
 
 ### Chef Infra Server 12.17.15 or Later
 
@@ -140,8 +140,8 @@ This section describes the upgrade process from a tiered server configuration.
 
 {{< note >}}
 
-These instructions are primarily intended for existing users of the `tier` Chef Infra Server topology.
-For the latest information on high availability and how to set up a highly-available server cluster, see [High Availability: Backend Cluster](/install_server_ha/).
+These instructions are intended for users of the Chef Infra Server `tier` topology.
+For the latest information on setting up a highly-available server cluster, see [High Availability: Backend Cluster](/install_server_ha/).
 
 {{< /note >}}
 
