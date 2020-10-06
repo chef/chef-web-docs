@@ -295,7 +295,7 @@ This command has the following options:
 
 `-N NODE_NAME`, `--node-name NODE_NAME`
 
-:   The name of the node.
+:   The unique identifier of the node.
 
 `-o RUN_LIST_ITEM`, `--override-runlist RUN_LIST_ITEM`
 
