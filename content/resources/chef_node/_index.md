@@ -99,7 +99,7 @@ properties_list:
   default_value: null
   new_in: null
   description_list:
-  - markdown: The name of the node.
+  - markdown: The unique identifier of the node.
 - property: normal_attributes
   ruby_type: null
   required: false

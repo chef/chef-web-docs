@@ -15,7 +15,7 @@ aliases = ["/config_rb_server_optional_settings.html"]
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/config_rb_server_optional_settings.md)
 
 {{< warning >}}
-This documentation covers Chef Infra Server 13, [which is deprecated and will reach EOL on December 31, 2020](https://docs.chef.io/versions/#deprecated-products-and-versions). For Chef Infra Server 14, use the [Chef Infra Server 14 Optional Settings](https://docs.chef.io/chef_infra/managing_chef_infra_server/config_rb_server_optional_settings_14.html) documentation.
+This documentation covers Chef Infra Server 13. For Chef Infra Server 14, use the [Chef Infra Server 14 Optional Settings](https://docs.chef.io/chef_infra/managing_chef_infra_server/config_rb_server_optional_settings_14.html) documentation.
 {{< /warning >}}
 
 {{% config_rb_server_summary %}}
@@ -1957,7 +1957,7 @@ This configuration file has the following settings for `rabbitmq`:
 
 `rabbitmq['nodename']`
 
-:   The name of the node. Default value: `'rabbit@localhost'`.
+:   The unique identifier of the node. Default value: `'rabbit@localhost'`.
 
 `rabbitmq['password']`
 

@@ -5,8 +5,8 @@
 `ohai.disabled_plugins`
 
 :   An array of Ohai plugins to be disabled on a node. The list of
-    plugins included in Ohai can be found in the `ohai/lib/ohai/plugins`
-    directory. For example, disabling a single plugin:
+    plugins included in Ohai can be found in the [ohai/lib/ohai/plugins](https://github.com/chef/ohai/tree/master/lib/ohai/plugins)
+    source. For example, disabling a single plugin:
 
     ```ruby
     ohai.disabled_plugins = [
