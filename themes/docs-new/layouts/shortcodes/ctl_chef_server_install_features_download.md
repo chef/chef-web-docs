@@ -9,7 +9,7 @@ For systems that are not behind a firewall (and have connectivity to <https://do
    sudo chef-server-ctl install chef-manage
    ```
 
-   Install push jobs with:
+   Install Push Jobs with:
 
    ```bash
    sudo chef-server-ctl install opscode-push-jobs-server-ctl
@@ -29,7 +29,7 @@ For systems that are not behind a firewall (and have connectivity to <https://do
    sudo chef-manage-ctl reconfigure
    ```
 
-   Reconfigure push jobs with:
+   Reconfigure Push Jobs with:
 
    ```bash
    sudo opscode-push-jobs-server reconfigure
