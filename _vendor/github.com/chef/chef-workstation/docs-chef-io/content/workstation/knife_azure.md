@@ -639,7 +639,7 @@ This argument has the following options:
 
 `-N NAME`, `--node-name NAME`
 
-:   The name of the node. Node names, when used with Microsoft Azure,
+:   The unique identifier of the node. Node names, when used with Microsoft Azure,
     must be 91 characters or shorter.
 
 `--[no-]host-key-verify`
