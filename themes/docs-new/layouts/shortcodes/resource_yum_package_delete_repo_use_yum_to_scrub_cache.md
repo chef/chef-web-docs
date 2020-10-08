@@ -1,4 +1,4 @@
-``` ruby
+```ruby
 # the following code sample thanks to gaffneyc @ https://gist.github.com/918711
 
 execute 'clean-yum-cache' do

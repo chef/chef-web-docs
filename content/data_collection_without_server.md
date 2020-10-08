@@ -77,7 +77,7 @@ your Chef config (that is `client.rb`, `solo.rb`, or add an additional
 config file in an appropriate directory, such as `client.d`) to contain
 the following configuration:
 
-``` ruby
+```ruby
 data_collector.server_url 'https://my-automate-server.mycompany.com/data-collector/v0/'
 data_collector.token 'TOKEN'
 profiles['root_url'] = 'https://my-automate-server.mycompany.com'

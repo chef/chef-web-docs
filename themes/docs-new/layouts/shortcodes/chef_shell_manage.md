@@ -4,7 +4,7 @@ environments, policyfiles, and data bags.
 
 The syntax for managing objects on the Chef Infra Server is as follows:
 
-``` bash
+```bash
 chef-shell -z named_configuration
 ```
 
@@ -16,7 +16,7 @@ Where:
 
 Once in chef-shell, commands can be run against objects as follows:
 
-``` bash
+```bash
 chef (preprod) > items.command
 ```
 
@@ -29,13 +29,13 @@ Where:
 For example, to list all of the nodes in a configuration named
 "preprod", enter:
 
-``` bash
+```bash
 chef (preprod) > nodes.list
 ```
 
 Which will return something similar to:
 
-``` bash
+```bash
 => [node[i-f09a939b], node[i-049a936f], node[i-eaaaa581], node[i-9154b1fb],
     node[i-6a213101], node[i-c2687aa9], node[i-7abeaa11], node[i-4eb8ac25],
     node[i-9a2030f1], node[i-a06875cb], node[i-145f457f], node[i-e032398b],
@@ -51,13 +51,13 @@ Which will return something similar to:
 The `list` command can take a code block, which will applied (but not
 saved), to each object that is returned from the server. For example:
 
-``` bash
+```bash
 chef (preprod) > nodes.list {|n| puts "#{n.name}: #{n.run_list}" }
 ```
 
 will return something similar to:
 
-``` bash
+```bash
 => i-f09a939b: role[lb], role[preprod], recipe[aws]
    i-049a936f: role[lb], role[preprod], recipe[aws]
    i-9154b1fb: recipe[erlang], role[base], role[couchdb], role[preprod],
@@ -67,44 +67,44 @@ will return something similar to:
 
 The `show` command can be used to display a specific node. For example:
 
-``` bash
+```bash
 chef (preprod) > load_balancer = nodes.show('i-f09a939b')
 ```
 
 will return something similar to:
 
-``` bash
+```bash
 => node[i-f09a939b]
 ```
 
 Or:
 
-``` bash
+```bash
 chef (preprod) > load_balancer.ec2.public_hostname
 ```
 
 will return something similar to:
 
-``` bash
+```bash
 => "ec2-111-22-333-44.compute-1.amazonaws.com"
 ```
 
 The `find` command can be used to search the Chef Infra Server from the
 chef-shell. For example:
 
-``` bash
+```bash
 chef (preprod) > pp nodes.find(:ec2_public_hostname => 'ec2*')
 ```
 
 You can also format the results with a code block. For example:
 
-``` bash
+```bash
 chef (preprod) > pp nodes.find(:ec2_public_hostname => 'ec2*') {|n| n.ec2.ami_id } and nil
 ```
 
 will return something similar to:
 
-``` bash
+```bash
 => ["ami-f8927a91",
     "ami-f8927a91",
     "ami-a89870c1",
@@ -117,14 +117,14 @@ will return something similar to:
 
 Or:
 
-``` bash
+```bash
 chef (preprod) > amis = nodes.find(:ec2_public_hostname => 'ec2*') {|n| n.ec2.ami_id }
 chef (preprod) > puts amis.uniq.sort
 ```
 
 will return something similar to:
 
-``` bash
+```bash
 => ami-4b4ba522
    ami-a89870c1
    ami-eef61587

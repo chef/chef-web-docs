@@ -47,7 +47,7 @@ with the full path to that file.
 
 These are the necessary settings for your `config.rb` file:
 
-``` ruby
+```ruby
 knife[:gce_project] = 'my-test-project'
 knife[:gce_zone]    = 'us-east1-b'
 ```
@@ -56,7 +56,7 @@ knife[:gce_zone]    = 'us-east1-b'
 
 **Create a server:**
 
-``` bash
+```bash
 knife google server create test-instance-1 --gce-image centos-7-v20160219 \
 --gce-machine-type n1-standard-2 --gce-public-ip ephemeral --connection-user myuser \
 --identity-file /Users/myuser/.ssh/google_compute_engine
@@ -64,13 +64,13 @@ knife google server create test-instance-1 --gce-image centos-7-v20160219 \
 
 **Delete multiple servers:**
 
-``` bash
+```bash
 knife google server delete my-instance-1 my-instance-2 --purge
 ```
 
 **List all servers:**
 
-``` bash
+```bash
 knife google server list
 ```
 
@@ -84,7 +84,7 @@ A test kitchen driver for Google Cloud Platform.
 
 The following is a basic `kitchen.yml` example:
 
-``` yaml
+```yaml
 ---
 driver:
   name: gce

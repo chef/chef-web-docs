@@ -1,4 +1,4 @@
-``` ruby
+```ruby
 template '/tmp/somefile' do
   mode '0755'
   source 'somefile.erb'

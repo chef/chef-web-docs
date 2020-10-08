@@ -10,6 +10,8 @@ draft = false
     weight = 10
 +++
 
+[\[edit on GitHub\]](https://github.com/chef/effortless/blob/master/docs-chef-io/content/effortless/_index.md)
+
 # Welcome to the Chef Effortless Patterns
 
 The Effortless Pattern is a way to better manage Chef Infra and Chef InSpec workloads using Chef Habitat, and to visualize your fleet using Chef Automate. We believe that each of these technologies working together can help you better manage your infrastructure.

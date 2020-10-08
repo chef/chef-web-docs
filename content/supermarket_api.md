@@ -39,7 +39,7 @@ This method has no parameters.
 
 **Request**
 
-``` none
+```none
 POST /api/v1/cookbooks/COOKBOOK_NAME
 ```
 
@@ -47,7 +47,7 @@ POST /api/v1/cookbooks/COOKBOOK_NAME
 
 The response is similar to:
 
-``` javascript
+```javascript
 {
   "name": "apt",
   "maintainer": "opscode",
@@ -129,13 +129,13 @@ are sorted. Use the `user` parameter to filter cookbooks by maintainer:
 
 **Request**
 
-``` none
+```none
 GET /api/v1/cookbooks?start=START&items=ITEMS
 ```
 
 or:
 
-``` none
+```none
 GET /api/v1/cookbooks?user=smith
 ```
 
@@ -147,7 +147,7 @@ total number of cookbooks on Supermarket API is shown, as well (if
 `start` is specified) the point at which the list of returned cookbooks
 began:
 
-``` javascript
+```javascript
 {
    "total": 5234,
    "start": 20,
@@ -214,7 +214,7 @@ This method has no parameters.
 
 **Request**
 
-``` none
+```none
 DELETE /api/v1/cookbooks/cookbook_name
 ```
 
@@ -222,7 +222,7 @@ DELETE /api/v1/cookbooks/cookbook_name
 
 The response is similar to:
 
-``` javascript
+```javascript
 {
   "name": "apt",
   "maintainer": "opscode",
@@ -277,7 +277,7 @@ This method has no parameters.
 
 **Request**
 
-``` none
+```none
 GET /api/v1/cookbooks/COOKBOOK_NAME
 ```
 
@@ -289,7 +289,7 @@ who maintains the cookbook, the URI for the latest version and previous
 versions, its description, and so on it also includes metrics about the
 cookbooks namely number of downloads and followers:
 
-``` javascript
+```javascript
 {
   "name": "yum",
   "maintainer": "opscode",
@@ -321,7 +321,7 @@ cookbooks namely number of downloads and followers:
 If a cookbook is deprecated, that status is noted by the `deprecated`
 field (being `true`):
 
-``` javascript
+```javascript
 {
   "name": "apache",
   "category": "web servers",
@@ -379,7 +379,7 @@ This method has no parameters.
 
 **Request**
 
-``` none
+```none
 DELETE /api/v1/cookbooks/cookbook_name/versions/version
 ```
 
@@ -387,7 +387,7 @@ DELETE /api/v1/cookbooks/cookbook_name/versions/version
 
 The response is similar to:
 
-``` javascript
+```javascript
 {
   "license": "Apache 2.0",
   "tarball_file_size": 18553,
@@ -445,13 +445,13 @@ This method has no parameters.
 
 **Request**
 
-``` none
+```none
 GET /api/v1/cookbooks/COOKBOOK_NAME/versions/latest
 ```
 
 or:
 
-``` none
+```none
 GET /api/v1/cookbooks/COOKBOOK_NAME/versions/VERSION
 ```
 
@@ -462,7 +462,7 @@ license under which the cookbook is distributed, the most recent update,
 version, URI, date of cookbook creation, path to the cookbook's tar.gz
 file, its dependencies and platforms it supports and so on:
 
-``` javascript
+```javascript
 {
   "license": "Apache 2.0",
   "tarball_file_size": 18553,
@@ -548,13 +548,13 @@ number of cookbooks returned:
 
 **Request**
 
-``` none
+```none
 GET /api/v1/search?q=SEARCH_QUERY
 ```
 
 or:
 
-``` none
+```none
 GET /api/v1/search?q=SEARCH_QUERY&start=START&items=ITEMS
 ```
 
@@ -568,7 +568,7 @@ addition, the total number of cookbooks on Supermarket API is shown, as
 well (if `start` is specified) the point at which the list of returned
 cookbooks began:
 
-``` javascript
+```javascript
 {
   "total": 2,
   "start": 0,
@@ -649,13 +649,13 @@ sorted.
 
 **Request**
 
-``` none
+```none
 GET /api/v1/tools?start=START&items=ITEMS
 ```
 
 or:
 
-``` none
+```none
 GET /api/v1/tools?order=recently_added
 ```
 
@@ -666,7 +666,7 @@ owner, source URL and URI. In addition, the total number of tools on
 Supermarket API is shown, as well (if `start` is specified) the point at
 which the list of returned tools began:
 
-``` javascript
+```javascript
 {
   "start": 0,
   "total": 56,
@@ -758,13 +758,13 @@ number of tools returned:
 
 **Request**
 
-``` none
+```none
 GET /api/v1/tools-search?q=SEARCH_QUERY
 ```
 
 or:
 
-``` none
+```none
 GET /api/v1/tools-search?q=SEARCH_QUERY&start=START&items=ITEMS
 ```
 
@@ -777,7 +777,7 @@ tools that match the query on Supermarket API is shown, as well (if
 `start` is specified) the point at which the list of returned tools
 began:
 
-``` javascript
+```javascript
 {
   "start": 0,
   "total": 1,
@@ -826,7 +826,7 @@ This method has no parameters.
 
 **Request**
 
-``` none
+```none
 GET /api/v1/tools/TOOL_SLUG
 ```
 
@@ -836,7 +836,7 @@ The response will return details for a tool, including the name of the
 tool, a type, description, owner, source URL and install instructions as
 markdown:
 
-``` javascript
+```javascript
 {
   "name": "Berkshelf",
   "slug": "berkshelf",
@@ -897,7 +897,7 @@ This method has no parameters.
 
 **Request**
 
-``` none
+```none
 GET /universe
 ```
 
@@ -907,7 +907,7 @@ The response will return an embedded hash, with the name of each
 cookbook as a top-level key. Each cookbook will list each version, along
 with its location information and dependencies:
 
-``` javascript
+```javascript
 {
   "ffmpeg": {
     "0.1.0": {
@@ -972,7 +972,7 @@ This method has no parameters.
 
 **Request**
 
-``` none
+```none
 GET /api/v1/users/USERNAME
 ```
 
@@ -984,7 +984,7 @@ that are associated with the user. Cookbooks are grouped into three
 categories: those that are owned by this user, those in which this user
 has collaborated, and those that are followed.
 
-``` javascript
+```javascript
 {
   "username": "stevedanno",
   "name": "Steve Danno",

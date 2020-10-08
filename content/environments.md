@@ -168,7 +168,7 @@ A Ruby file for each non-default environment must exist in the
 not have this subdirectory, then it should be created.) The complete
 environment has the following syntax:
 
-``` ruby
+```ruby
 name 'environment_name'
 description 'environment_description'
 cookbook OR cookbook_versions  'cookbook' OR 'cookbook' => 'cookbook_version'
@@ -181,7 +181,7 @@ cookbook or cookbook versions (one or more) are specified. For example,
 an environment named `dev` that uses the `couchdb` cookbook (version
 11.0.0 or higher) that listens on ports 80 and 443:
 
-``` ruby
+```ruby
 name 'dev'
 description 'The development environment'
 cookbook_versions  'couchdb' => '= 11.0.0'
@@ -191,13 +191,13 @@ default_attributes 'apache2' => { 'listen_ports' => %w(80 443) }
 Or (using the same scenario) to specify a version constraint for only
 one cookbook:
 
-``` ruby
+```ruby
 cookbook 'couchdb', '= 11.0.0'
 ```
 
 More than one cookbook version can be specified:
 
-``` ruby
+```ruby
 cookbook_versions({
   'couchdb' => '= 11.0.0',
   'my_rails_app' => '~> 1.2.0'
@@ -210,7 +210,7 @@ environment attribute will be applied to all nodes within the
 environment, except in places where it is overridden by an attribute
 with higher precedence. For example:
 
-``` ruby
+```ruby
 default_attributes 'apache2' => { 'listen_ports' => %w(80 443) }
 ```
 
@@ -218,7 +218,7 @@ will have all nodes in the environment (`node[:apache2][:listen_ports]`)
 set to `'80'` and `'443'` unless they were overridden by an attribute
 with higher precedence. For example:
 
-``` ruby
+```ruby
 override_attributes 'apache2' => { 'listen_ports' => %w(80 443) }
 ```
 
@@ -230,7 +230,7 @@ structure and organization, just formatted as JSON. When an environment
 is defined as JSON the file that contains that data must be defined as a
 file that ends with `.json`. For example:
 
-``` javascript
+```javascript
 {
   "name": "dev",
   "default_attributes": {
@@ -317,13 +317,13 @@ and by using recipes to call specific environment settings.
 
 Use the following syntax to find the current environment from a recipe:
 
-``` ruby
+```ruby
 node.environment
 ```
 
 or:
 
-``` ruby
+```ruby
 node.chef_environment
 ```
 
@@ -338,7 +338,7 @@ items for each environment.
 A data bag that is storing a top-level key for an environment might look
 something like this:
 
-``` javascript
+```javascript
 {
   "id": "some_data_bag_item",
   "production" : {
@@ -353,7 +353,7 @@ something like this:
 When using the data bag in a recipe, that data can be accessed from a
 recipe using code similar to:
 
-``` ruby
+```ruby
 bag_item[node.chef_environment]['some_other_key']
 ```
 
@@ -377,7 +377,7 @@ stored in a data bag.
 For example, to retrieve a value from a data bag based on a specific
 environment:
 
-``` ruby
+```ruby
 mything = data_bag_item('things', 'mything')
 attribute_i_want = mything[node.chef_environment]
 ```
@@ -417,7 +417,7 @@ using the following methods:
 Use the `knife exec` subcommand to move nodes between environments, such
 as from a "dev" to a "production" environment. For example:
 
-``` bash
+```bash
 knife exec -E 'nodes.transform("chef_environment:dev") { |n| n.chef_environment("production") }'
 ```
 

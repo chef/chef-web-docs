@@ -25,20 +25,20 @@ has been introduced to detect and autocorrect this deprecation.
 
 Set `LC_ALL` in current shell as:
 
-``` bash
+```bash
 export LC_ALL="<locale_name>"
 ```
 
 To check the `locale` value, run:
 
-``` bash
+```bash
 locale -v
 ```
 
 You can also use **file** Resource and add this variable in any other
 file of your choice and then can source that file to reflect changes.
 
-``` ruby
+```ruby
 file "<path_to_file>" do
   content "LC_ALL=<locale_name>"
 end

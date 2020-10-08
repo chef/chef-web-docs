@@ -1,6 +1,6 @@
 ---
 resource_reference: true
-properties_shortcode: 
+properties_shortcode:
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
@@ -31,7 +31,7 @@ syntax_full_code_block: |-
     username                   String
     action                     Symbol # defaults to :register if not specified
   end
-syntax_properties_list: 
+syntax_properties_list:
 syntax_full_properties_list:
 - "`rhsm_register` is the resource."
 - "`name` is the name given to the resource block."
@@ -117,7 +117,7 @@ properties_list:
       if using an activation key. If specified, password and environment properties
       are also required.
 examples: "
-  Register a node with RHSM\n\n  ``` ruby\n  rhsm_register 'myhost'\
+  Register a node with RHSM\n\n  ```ruby\n  rhsm_register 'myhost'\
   \ do\n    activation_key 'ABCD1234'\n    organization 'my_org'\n  end\n  ```\n"
 
 ---

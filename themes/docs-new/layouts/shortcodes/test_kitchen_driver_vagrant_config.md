@@ -1,7 +1,7 @@
 The `kitchen-vagrant` driver can predict the box name for Vagrant and
 the download URL that have been published by Chef. For example:
 
-``` ruby
+```ruby
 platforms:
 - name: ubuntu-16.04
 - name: ubuntu-18.04
@@ -12,7 +12,7 @@ platforms:
 
 which will generate a configuration file similar to:
 
-``` ruby
+```ruby
 platforms:
 - name: ubuntu-16.04
   driver:

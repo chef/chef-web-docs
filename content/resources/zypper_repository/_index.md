@@ -1,6 +1,6 @@
 ---
 resource_reference: true
-properties_shortcode: 
+properties_shortcode:
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
@@ -39,7 +39,7 @@ syntax_full_code_block: |-
     type                   String # default value: "NONE"
     action                 Symbol # defaults to :create if not specified
   end
-syntax_properties_list: 
+syntax_properties_list:
 syntax_full_properties_list:
 - "`zypper_repository` is the resource."
 - "`name` is the name given to the resource block."
@@ -161,7 +161,7 @@ properties_list:
 examples: |
   **Add the Apache repo on openSUSE Leap 15**:
 
-  ``` ruby
+  ```ruby
   zypper_repository 'apache' do
     baseurl 'http://download.opensuse.org/repositories/Apache'
     path '/openSUSE_Leap_15.0'

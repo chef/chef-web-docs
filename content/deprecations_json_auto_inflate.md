@@ -21,7 +21,7 @@ inflation will be removed permanently in Chef Client 13.
 When loading an environment from the Chef Infra Server, you might
 previously have written:
 
-``` ruby
+```ruby
 name = 'my_environment'
 chef_server_rest.get("environments/#{name}")
 ```
@@ -32,7 +32,7 @@ and received a `Chef::Environment` object back.
 
 You now need to explicitly create a new object of the desired type.
 
-``` ruby
+```ruby
 name = 'my_environment'
 Chef::Environment.from_hash chef_server_rest.get("environments/#{name}")
 ```

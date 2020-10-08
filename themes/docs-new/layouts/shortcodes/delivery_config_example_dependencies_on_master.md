@@ -1,7 +1,7 @@
 The following example shows a run-time dependency against the master
 branch of a project named `BackendAPI`:
 
-``` javascript
+```javascript
 {
   "version": "2",
   "build_cookbook": {

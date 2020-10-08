@@ -4,7 +4,7 @@ This method has no parameters.
 
 **Request**
 
-``` xml
+```xml
 GET /organizations/ORG_NAME/pushy/jobs
 ```
 
@@ -12,7 +12,7 @@ GET /organizations/ORG_NAME/pushy/jobs
 
 The response is similar to:
 
-``` javascript
+```javascript
 {
   "aaaaaaaaaaaa25fd67fa8715fd547d3d",
   "aaaaaaaaaaaa6af7b14dd8a025777cf0"

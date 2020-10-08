@@ -5,7 +5,7 @@ properties:
 
 :   Specify the user that a command will run as. For example:
 
-    ``` ruby
+    ```ruby
     not_if 'grep adam /etc/passwd', user: 'adam'
     ```
 
@@ -13,7 +13,7 @@ properties:
 
 :   Specify the group that a command will run as. For example:
 
-    ``` ruby
+    ```ruby
     not_if 'grep adam /etc/passwd', group: 'adam'
     ```
 
@@ -21,7 +21,7 @@ properties:
 
 :   Specify a Hash of environment variables to be set. For example:
 
-    ``` ruby
+    ```ruby
     not_if 'grep adam /etc/passwd', environment: {
       'HOME' => '/home/adam',
     }
@@ -32,7 +32,7 @@ properties:
 :   Set the current working directory before running a command. For
     example:
 
-    ``` ruby
+    ```ruby
     not_if 'grep adam passwd', cwd: '/etc'
     ```
 
@@ -40,6 +40,6 @@ properties:
 
 :   Set a timeout for a command. For example:
 
-    ``` ruby
+    ```ruby
     not_if 'sleep 10000', timeout: 10
     ```

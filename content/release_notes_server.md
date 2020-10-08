@@ -1,5 +1,5 @@
 +++
-title = "Release Notes: Chef Infra Server 12.0 - 13.2"
+title = "Release Notes: Chef Infra Server 12.0 - 14.0"
 draft = false
 
 aliases = ["/release_notes_server.html"]
@@ -16,6 +16,62 @@ aliases = ["/release_notes_server.html"]
 Chef Infra Server acts as a hub for configuration data by storing
 cookbooks, the policies that are applied to nodes, and metadata that
 describes each registered node that is managed by the Chef Infra Client.
+
+## What's New in 14.0
+
+### Upgrade Notes
+
+Upgrading to Chef Infra Server 14 will require a reindexing operation for most users. We expect this reindexing operation to take an estimated 2 minutes for each 1000 nodes. However, this estimate can be substantially impacted by your server hardware and the complexity of your Chef data. Generally the size of Elasticsearch indices is observed to be 1/10th of the Postgres database size. To be safe we would recommend that the filesystem containing the `/var/opt/opscode` directory should have at least 20% free space before upgrade. Learn more about [upgrading to Chef Infra Server 14](https://docs.chef.io/upgrade_server/).
+
+### Improvements
+
+- Elasticsearch-based search indexing: Chef Infra Server now uses Elasticsearch as its search index. Solr and RabbitMQ, which supported the older search indexing pipeline, have been removed. Hosted Chef and some of Chef Infra Server's largest customers are already using the Elasticsearch-based search indexing. The simplified indexing pipeline should reduce the operational complexity of Chef Infra Server.
+- Erlang 22: All Erlang components now run on Erlang 22. This upgrade sets the groundwork for new features and bug fixes currently in development.
+- Improved Indexing Metrics: The `/_stats` API endpoint now returns metrics about search indexing. These new metrics should allow us to more easily investigate problems that users report with search indexing.
+- Integration Testing: In Chef Infra Server 13.2, we added a new integration testing pipeline. We've further improved this pipeline, expanding the testing scenarios and improving the fidelity of the existing scenarios.
+- New Command: `chef-server-ctl` now features the `check-config` command, which runs only the configuration portion of the reconfigure cookbooks and preflight checks.
+
+### Bug Fixes
+
+- Reduced API errors caused by a change to the HTTP library used in Erchef.
+- Expanded the cases where we gracefully report errors that result from a `chef-server-ctl reindex` command instead of failing early.
+- Fixed a bug that prevented API Signing version 1.2 from working with FIPS-enabled Chef Infra Servers.
+- Updated NginX SSL configuration format to avoid warnings in the log.
+- Restricted permissions on the `dhparams.pem` file used by NginX.
+
+### Incompatibilities
+
+- The `/controls` API endpoint now always returns `HTTP 410 Gone`. This endpoint was disabled as it requires RabbitMQ to work. The `/controls` API endpoint was used by Chef Infra Client's audit mode. In Chef Infra Client 14, this change will produce a non-fatal error that results in the audit log being written to disk. This feature was removed in Chef Infra Client 15. The main consumer of this endpoint was Chef Analytics, which has been end-of-life since December 31, 2018.
+- Chef Infra Server no longer sends data to Chef Analytics. Chef Analytics was declared end-of-life on December 31, 2018.
+- Chef Reporting is not supported. Chef Reporting was declared end-of-life on December 31, 2018.
+- Chef Infra Server will no longer send data to Chef Automate 1.x via the Actions queue. Chef Infra Server still sends data to Chef Automate 2 and Chef Automate 1.x via the `data-collector` endpoint. Chef Automate 1.x was declared end-of-life on December 31, 2019.
+
+### Component Version Changes
+
+#### Updated Components
+
+- libiconv (1.15 -> 1.16)
+- pcre (8.38 -> 8.44)
+- cacerts (2019-10 -> 2020-07)
+- openssl (1.0.2u -> 1.0.2w)
+- openresty (1.15.8.1 -> 1.17.8.2)
+- veil-gem (58373899 -> 2875f29d)
+- erlang (20.3.8.9 -> 22.2)
+- server-open-jre (11.0.4+1 -> 11.0.7+1)
+- ohai (d78fd24c -> 0b8b5ccf)
+- liblzma (5.2.4 -> 5.2.5)
+- libarchive (3.4.2 -> 3.4.3)
+- chef (3fe96500 -> 20230f04)
+- knife-opc (5a3a804b -> dd17d445)
+- knife-ec-backup (61b8c43f -> 1f397622)
+- chef_fixie (04c686ac -> e445b2d7)
+
+#### Removed Components
+
+- rabbitmq (3.6.15)
+- server-jre (8u202)
+- opscode-solr4 (4.10.4)
+- opscode-expander
 
 ## What's New in 13.2
 
@@ -395,13 +451,13 @@ have not set a custom value, there is nothing to change:
 The `checkpoint_segments` configuration setting is gone, so if you
 previously used the following parameter:
 
-``` ruby
+```ruby
 postgresql['checkpoint_segments'] = 10
 ```
 
 You would instead use:
 
-``` ruby
+```ruby
 postgresql['max_wal_size'] = '3G'
 ```
 
@@ -511,7 +567,7 @@ Now, they are configurable. For example, if the user's LDAP record
 stores their email address in a field named 'address' instead of 'mail',
 then you could set the following in `private-chef.rb`:
 
-``` ruby
+```ruby
 ldap['email_attribute'] = 'address'
 ```
 
@@ -549,7 +605,7 @@ and keys to multiple files in `/etc/opscode`. However, if you are not
 using any Chef Server add-ons, or if you have updated to the latest
 releases of all add-ons, you can set the following:
 
-``` ruby
+```ruby
 insecure_addon_compat false
 ```
 
@@ -598,7 +654,7 @@ With this release, the admin UI of Solr4 has been removed. The
 underlying API has also been disabled. Users that depend on the admin
 API endpoints can enable them via adding:
 
-``` ruby
+```ruby
 opscode_solr4['enable_full_admin_api'] = true
 ```
 
@@ -650,7 +706,7 @@ upgrading to Chef server 12.12.
 To suppress the GC log completely, set the following option in
 `/etc/opscode/chef-server.rb`:
 
-``` ruby
+```ruby
 ## true (default) to enable gc logging,
 ## false to disable gc logging
 opscode_solr4['log_gc'] = false
@@ -663,7 +719,7 @@ ensure password reset emails can be sent correctly.
 
 You can now set the following options in `/etc/opscode/chef-server.rb`:
 
-``` ruby
+```ruby
 # defaults to the value of the from_email configuration option
 oc_id['email_from_address'] = 'oc_id@example.com'
 # defaults to the api_fqdn
@@ -687,7 +743,7 @@ The following items are new for Chef server 12.11:
     users must set both of the following options in
     /etc/opscode/chef-server.rb:
 
-    ``` ruby
+    ```ruby
     data_collector['token']
     data_collector['root_url']
     ```
@@ -699,7 +755,7 @@ The following items are new for Chef server 12.11:
     users must set both of the following options in
     \`/etc/opscode/chef-server.rb\`:
 
-    ``` ruby
+    ```ruby
     profiles['root_url']
     data_collector['token']
     ```
@@ -845,7 +901,7 @@ using `external_authentication_uid` in a GET request against the Chef
 server API. For example, to retrieve users where the
 `external_authentication_uid` is `jane@doe.com`, do the following:
 
-``` none
+```none
 GET /users?external_authentication_uid=jane%40doe.com
 ```
 
@@ -976,7 +1032,7 @@ This method has no parameters.
 
 **Request**
 
-``` none
+```none
 GET /universe
 ```
 
@@ -986,7 +1042,7 @@ The response will return an embedded hash, with the name of each
 cookbook as a top-level key. Each cookbook will list each version, along
 with its location information and dependencies:
 
-``` javascript
+```javascript
 {
   "ffmpeg": {
     "0.1.0": {
@@ -1050,7 +1106,7 @@ This method has no parameters.
 
 **Request**
 
-``` none
+```none
 GET /universe
 ```
 
@@ -1060,7 +1116,7 @@ The response will return an embedded hash, with the name of each
 cookbook as a top-level key. Each cookbook will list each version, along
 with its location information and dependencies:
 
-``` javascript
+```javascript
 {
   "ffmpeg": {
     "0.1.0": {
@@ -1128,13 +1184,13 @@ The following user accounts exist on the Chef server: `pivotal` (a
 superuser account), `alice`, `bob`, `carol`, and `dan`. Run the
 following command to view a list of users on the Chef server:
 
-``` bash
+```bash
 chef-server-ctl user-list
 ```
 
 and it returns the same list of users:
 
-``` bash
+```bash
 pivotal
 alice
 bob
@@ -1147,13 +1203,13 @@ day-to-day administration of the Chef server, in particular managing the
 user accounts on the Chef server that are used by the rest of the
 organization. From a workstation, Alice runs the following command:
 
-``` bash
+```bash
 knife user list -c ~/.chef/alice.rb
 ```
 
 and it returns the following error:
 
-``` bash
+```bash
 ERROR: You authenticated successfully to <chef_server_url> as alice
        but you are not authorized for this action
 Response: Missing read permission
@@ -1163,13 +1219,13 @@ Alice is not a superuser and does not have permissions on other users
 because user accounts are global to organizations in the Chef server.
 Let's add Alice to the `server-admins` group:
 
-``` bash
+```bash
 chef-server-ctl grant-server-admin-permissions alice
 ```
 
 and it returns the following response:
 
-``` bash
+```bash
 User alice was added to server-admins.
 ```
 
@@ -1177,13 +1233,13 @@ Alice can now create, read, update, and delete user accounts on the Chef
 server, even for organizations to which Alice is not a member. From a
 workstation, Alice re-runs the following command:
 
-``` bash
+```bash
 knife user list -c ~/.chef/alice.rb
 ```
 
 which now returns:
 
-``` bash
+```bash
 pivotal
 alice
 bob
@@ -1202,7 +1258,7 @@ subcommands to manage users on the Chef server:
 
 For example, Alice runs the following command:
 
-``` bash
+```bash
 knife user edit carol -c ~/.chef/alice.rb
 ```
 
@@ -1215,13 +1271,13 @@ Superuser accounts may not be managed by users who belong to the
 `server-admins` group. For example, Alice attempts to delete the
 `pivotal` superuser account:
 
-``` bash
+```bash
 knife user delete pivotal -c ~/.chef/alice.rb
 ```
 
 and the following error is returned:
 
-``` bash
+```bash
 ERROR: You authenticated successfully to <chef_server_url> as user1
        but you are not authorized for this action
 Response: Missing read permission
@@ -1246,7 +1302,7 @@ the `server-admins` group. Run the command once per user added.
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 chef-server-ctl grant-server-admin-permissions USER_NAME
 ```
 
@@ -1255,13 +1311,13 @@ administrators.
 
 For example:
 
-``` bash
+```bash
 chef-server-ctl grant-server-admin-permissions bob
 ```
 
 returns:
 
-``` bash
+```bash
 User bob was added to server-admins. This user can now list,
 read, and create users (even for orgs they are not members of)
 for this Chef Server.
@@ -1275,7 +1331,7 @@ removed.
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 chef-server-ctl remove-server-admin-permissions USER_NAME
 ```
 
@@ -1284,13 +1340,13 @@ administrators.
 
 For example:
 
-``` bash
+```bash
 chef-server-ctl remove-server-admin-permissions bob
 ```
 
 returns:
 
-``` bash
+```bash
 User bob was removed from server-admins. This user can no longer
 list, read, and create users for this Chef Server except for where
 they have default permissions (such as within an org).
@@ -1303,13 +1359,13 @@ who are members of the `server-admins` group.
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 chef-server-ctl list-server-admins
 ```
 
 and will return a list of users similar to:
 
-``` bash
+```bash
 pivotal
 alice
 bob
@@ -1639,7 +1695,7 @@ This subcommand has the following options:
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 chef-server-ctl backup
 ```
 
@@ -1677,13 +1733,13 @@ This subcommand has the following options:
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 chef-server-ctl restore PATH_TO_BACKUP (options)
 ```
 
 **Examples**
 
-``` bash
+```bash
 chef-server-ctl restore /path/to/tar/archive.tar.gz
 ```
 
@@ -1702,7 +1758,7 @@ associated with the named service. This subcommand:
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 chef-server-ctl psql SERVICE_NAME (options)
 ```
 
@@ -1758,7 +1814,7 @@ This method has no parameters.
 
 **Request**
 
-``` none
+```none
 DELETE /organizations/NAME/policy_groups/NAME
 ```
 
@@ -1766,7 +1822,7 @@ DELETE /organizations/NAME/policy_groups/NAME
 
 The response returns the policy details and is similar to:
 
-``` javascript
+```javascript
 {
   "uri": "https://chef.example/organizations/org1/policy_groups/dev",
   "policies": {
@@ -1827,7 +1883,7 @@ This method has no parameters.
 
 **Request**
 
-``` none
+```none
 GET /organizations/NAME/policies/NAME
 ```
 
@@ -1835,7 +1891,7 @@ GET /organizations/NAME/policies/NAME
 
 The response is similar to:
 
-``` none
+```none
 xxxxx
 ```
 
@@ -1880,7 +1936,7 @@ This method has no parameters.
 
 **Request**
 
-``` none
+```none
 DELETE /organizations/NAME/policies/NAME
 ```
 
@@ -1888,7 +1944,7 @@ DELETE /organizations/NAME/policies/NAME
 
 The response returns the policy details and is similar to:
 
-``` javascript
+```javascript
 {
   "revisions":
     {
@@ -1944,13 +2000,13 @@ This method has no parameters.
 
 **Request**
 
-``` none
+```none
 POST /organizations/NAME/policies/NAME/revisions
 ```
 
 with a request body similar to:
 
-``` none
+```none
 xxxxx
 ```
 
@@ -1958,7 +2014,7 @@ xxxxx
 
 The response is similar to:
 
-``` none
+```none
 xxxxx
 ```
 
@@ -2017,7 +2073,7 @@ This method has no parameters.
 
 **Request**
 
-``` none
+```none
 GET /organizations/NAME/GROUP/policies/NAME/revisions/ID
 ```
 
@@ -2025,7 +2081,7 @@ GET /organizations/NAME/GROUP/policies/NAME/revisions/ID
 
 The response is similar to:
 
-``` javascript
+```javascript
 {
   "revision_id": "37f9b658cdd1d9319bac8920581723efcc2014304b5f3827ee0779e10ffbdcc9",
   "name": "aar",
@@ -2131,7 +2187,7 @@ This method has no parameters.
 
 **Request**
 
-``` none
+```none
 DELETE /organizations/NAME/GROUP/policies/NAME/revisions/ID
 ```
 
@@ -2139,7 +2195,7 @@ DELETE /organizations/NAME/GROUP/policies/NAME/revisions/ID
 
 The response returns the policy details and is similar to:
 
-``` javascript
+```javascript
 {
   "revision_id": "37f9b658cdd1d9319bac8920581723efcc2014304b5f3827ee0779e10ffbdcc9",
   "name": "aar",
@@ -2290,7 +2346,7 @@ This method has no parameters.
 
 **Request**
 
-``` none
+```none
 GET /organizations/NAME/clients/CLIENT/keys
 ```
 
@@ -2298,7 +2354,7 @@ GET /organizations/NAME/clients/CLIENT/keys
 
 The response is similar to:
 
-``` javascript
+```javascript
 [
   { "name" : "default",
              "uri" : "https://chef.example/organizations/example/clients/client1/keys/default",
@@ -2350,13 +2406,13 @@ This method has no parameters.
 
 **Request**
 
-``` none
+```none
 POST /organizations/NAME/clients/CLIENT/keys
 ```
 
 with a request body similar to:
 
-``` javascript
+```javascript
 {
   "name": "key1",
   "public_key": "-------- BEGIN PUBLIC KEY ----and a valid key here",
@@ -2368,7 +2424,7 @@ with a request body similar to:
 
 The response is similar to:
 
-``` javascript
+```javascript
 {
   "uri": "https://chef.example/organizations/example/clients/client1/keys/key1"
 }
@@ -2421,7 +2477,7 @@ This method has no parameters.
 
 **Request**
 
-``` none
+```none
 DELETE /organizations/NAME/clients/CLIENT/keys/KEY
 ```
 
@@ -2430,7 +2486,7 @@ DELETE /organizations/NAME/clients/CLIENT/keys/KEY
 The response returns the information about the deleted key and is
 similar to:
 
-``` javascript
+```javascript
 {
   "name" : "default",
   "public_key" : "-------- BEGIN PUBLIC KEY --------- ...",
@@ -2480,7 +2536,7 @@ This method has no parameters.
 
 **Request**
 
-``` none
+```none
 GET /organizations/NAME/clients/CLIENT/keys/KEY
 ```
 
@@ -2488,7 +2544,7 @@ GET /organizations/NAME/clients/CLIENT/keys/KEY
 
 The response is similar to:
 
-``` javascript
+```javascript
 {
   "name" : "default",
   "public_key" : "-------- BEGIN PUBLIC KEY --------- ...",
@@ -2538,13 +2594,13 @@ This method has no parameters.
 
 **Request**
 
-``` none
+```none
 PUT /organizations/NAME/clients/CLIENT/keys/KEY
 ```
 
 with a request body similar to:
 
-``` javascript
+```javascript
 {
   "name" : "new_key_name",
   "public_key" : "-------- BEGIN PUBLIC KEY ----and a valid key here",
@@ -2557,7 +2613,7 @@ with a request body similar to:
 The response contains the updated information for the key, and is
 similar to:
 
-``` javascript
+```javascript
 {
   "name" : "new_key_name",
   "public_key" : "-------- BEGIN PUBLIC KEY --------- ...",
@@ -2616,7 +2672,7 @@ This method has no parameters.
 
 **Request**
 
-``` none
+```none
 GET /users/USER/keys/
 ```
 
@@ -2624,7 +2680,7 @@ GET /users/USER/keys/
 
 The response is similar to:
 
-``` javascript
+```javascript
 [
   { "name" : "default",
              "uri" : "https://chef.example/users/USER/keys/default",
@@ -2676,13 +2732,13 @@ This method has no parameters.
 
 **Request**
 
-``` none
+```none
 POST /users/USER/keys/
 ```
 
 with a request body similar to:
 
-``` javascript
+```javascript
 {
   "name" : "key1",
   "public_key" : "-------- BEGIN PUBLIC KEY ----and a valid key here",
@@ -2694,7 +2750,7 @@ with a request body similar to:
 
 The response is similar to:
 
-``` javascript
+```javascript
 {
   "uri" : "https://chef.example/users/user1/keys/key1"
 }
@@ -2747,7 +2803,7 @@ This method has no parameters.
 
 **Request**
 
-``` none
+```none
 DELETE /users/USER/keys/KEY
 ```
 
@@ -2756,7 +2812,7 @@ DELETE /users/USER/keys/KEY
 The response returns the information about the deleted key and is
 similar to:
 
-``` javascript
+```javascript
 {
   "name" : "default",
   "public_key" : "-------- BEGIN PUBLIC KEY --------- ...",
@@ -2806,7 +2862,7 @@ This method has no parameters.
 
 **Request**
 
-``` none
+```none
 GET /users/USER/keys/KEY
 ```
 
@@ -2814,7 +2870,7 @@ GET /users/USER/keys/KEY
 
 The response is similar to:
 
-``` javascript
+```javascript
 {
   "name" : "default",
   "public_key" : "-------- BEGIN PUBLIC KEY --------- ...",
@@ -2864,13 +2920,13 @@ This method has no parameters.
 
 **Request**
 
-``` none
+```none
 PUT /users/USER/keys/KEY
 ```
 
 with a request body similar to:
 
-``` javascript
+```javascript
 {
   "name" : "new_key_name",
   "public_key" : "-------- BEGIN PUBLIC KEY ----and a valid key here",
@@ -2883,7 +2939,7 @@ with a request body similar to:
 The response contains the updated information for the key, and is
 similar to:
 
-``` javascript
+```javascript
 {
   "name" : "new_key_name",
   "public_key" : "-------- BEGIN PUBLIC KEY --------- ...",
@@ -2941,7 +2997,7 @@ This method has no parameters.
 
 **Request**
 
-``` none
+```none
 GET /organizations/NAME/policies
 ```
 
@@ -2949,7 +3005,7 @@ GET /organizations/NAME/policies
 
 The response groups policies by name and revision and is similar to:
 
-``` javascript
+```javascript
 {
   "aar": {
     "uri": "https://chef.example/organizations/org1/policies/aar",
@@ -3026,7 +3082,7 @@ This method has no parameters.
 
 **Request**
 
-``` none
+```none
 GET /organizations/NAME/policy_groups
 ```
 
@@ -3034,7 +3090,7 @@ GET /organizations/NAME/policy_groups
 
 The response is similar to:
 
-``` javascript
+```javascript
 {
   "dev": {
     "uri": "https://chef.example/organizations/org1/policy_groups/dev",
@@ -3128,7 +3184,7 @@ This method has no parameters.
 
 **Request**
 
-``` none
+```none
 DELETE /organizations/NAME/GROUP/policies/NAME
 ```
 
@@ -3136,7 +3192,7 @@ DELETE /organizations/NAME/GROUP/policies/NAME
 
 The response returns the policy details and is similar to:
 
-``` javascript
+```javascript
 {
   "revision_id": "37f9b658cdd1d9319bac8920581723efcc2014304b5f3827ee0779e10ffbdcc9",
   "name": "aar",
@@ -3246,7 +3302,7 @@ This method has no parameters.
 
 **Request**
 
-``` none
+```none
 GET /organizations/NAME/GROUP/policies/NAME
 ```
 
@@ -3254,7 +3310,7 @@ GET /organizations/NAME/GROUP/policies/NAME
 
 The response is similar to:
 
-``` javascript
+```javascript
 {
   "revision_id": "37f9b658cdd1d9319bac8920581723efcc2014304b5f3827ee0779e10ffbdcc9",
   "name": "aar",
@@ -3365,13 +3421,13 @@ This method has no parameters.
 
 **Request**
 
-``` none
+```none
 PUT /organizations/NAME/GROUP/policies/NAME
 ```
 
 with a request body similar to:
 
-``` javascript
+```javascript
 {
   "revision_id": "37f9b658cdd1d9319bac8920581723efcc2014304b5f3827ee0779e10ffbdcc9",
   "name": "aar",
@@ -3443,7 +3499,7 @@ with a request body similar to:
 
 The response returns the policy details and is similar to:
 
-``` javascript
+```javascript
 {
   "revision_id": "37f9b658cdd1d9319bac8920581723efcc2014304b5f3827ee0779e10ffbdcc9",
   "name": "aar",
@@ -3724,7 +3780,7 @@ private-chef-ctl to chef-server-ctl. The same set of subcommands
 available for private-chef-ctl are also available for chef-server-ctl,
 but with an updated syntax:
 
-``` bash
+```bash
 chef-server-ctl command
 ```
 
@@ -3744,7 +3800,7 @@ replication.
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 chef-server-ctl install name_of_addon (options)
 ```
 
@@ -3807,13 +3863,13 @@ First download the package that is appropriate for the platform, save it
 to a local path, and then run the `install` command using the `--path`
 option to specify the directory in which the package is located:
 
-``` bash
+```bash
 sudo chef-server-ctl install PACKAGE_NAME --path /path/to/package/directory
 ```
 
 For example:
 
-``` bash
+```bash
 sudo chef-server-ctl install chef-manage --path /root/packages
 ```
 
@@ -3828,7 +3884,7 @@ information.
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 chef-server-ctl gather-logs
 ```
 
@@ -3846,7 +3902,7 @@ user with this command.)
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 chef-server-ctl user-create USER_NAME FIRST_NAME [MIDDLE_NAME] LAST_NAME EMAIL 'PASSWORD' (options)
 ```
 
@@ -3860,15 +3916,15 @@ This subcommand has the following options:
 
 **Examples**
 
-``` bash
+```bash
 chef-server-ctl user-create john_smith John Smith john_smith@example.com p@s5w0rD!
 ```
 
-``` bash
+```bash
 chef-server-ctl user-create jane_doe Jane Doe jane_doe@example.com p@s5w0rD! -f /tmp/jane_doe.key
 ```
 
-``` bash
+```bash
 chef-server-ctl user-create waldendude Henry David Thoreau waldendude@example.com excursions
 ```
 
@@ -3880,17 +3936,17 @@ The `user-delete` subcommand is used to delete a user.
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 chef-server-ctl user-delete USER_NAME
 ```
 
 **Examples**
 
-``` bash
+```bash
 chef-server-ctl user-delete john_smith
 ```
 
-``` bash
+```bash
 chef-server-ctl user-delete jane_doe
 ```
 
@@ -3903,17 +3959,17 @@ data will be made available in the \$EDITOR for editing.
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 chef-server-ctl user-edit USER_NAME
 ```
 
 **Examples**
 
-``` bash
+```bash
 chef-server-ctl user-edit john_smith
 ```
 
-``` bash
+```bash
 chef-server-ctl user-edit jane_doe
 ```
 
@@ -3925,7 +3981,7 @@ The `user-list` subcommand is used to view a list of users.
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 chef-server-ctl user-list (options)
 ```
 
@@ -3945,7 +4001,7 @@ The `user-show` subcommand is used to show the details for a user.
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 chef-server-ctl user-show USER_NAME (options)
 ```
 
@@ -3971,7 +4027,7 @@ creating an organization with this command.)
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 chef-server-ctl org-create ORG_NAME "ORG_FULL_NAME" (options)
 ```
 
@@ -4000,15 +4056,15 @@ This subcommand has the following options:
 
 **Examples**
 
-``` bash
+```bash
 chef-server-ctl org-create prod Production
 ```
 
-``` bash
+```bash
 chef-server-ctl org-create staging Staging -a chef-admin
 ```
 
-``` bash
+```bash
 chef-server-ctl org-create dev Development -f /tmp/id-dev.key
 ```
 
@@ -4020,17 +4076,17 @@ The `org-delete` subcommand is used to delete an organization.
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 chef-server-ctl org-delete ORG_NAME
 ```
 
 **Examples**
 
-``` bash
+```bash
 chef-server-ctl org-delete infra-testing-20140909
 ```
 
-``` bash
+```bash
 chef-server-ctl org-delete pedant-testing-org
 ```
 
@@ -4043,7 +4099,7 @@ currently present on the Chef server.
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 chef-server-ctl org-list (options)
 ```
 
@@ -4068,7 +4124,7 @@ organization.
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 chef-server-ctl org-show ORG_NAME
 ```
 
@@ -4089,7 +4145,7 @@ The `org-user-add` subcommand is used to add a user to an organization.
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 chef-server-ctl org-user-add ORG_NAME USER_NAME (options)
 ```
 
@@ -4103,15 +4159,15 @@ This subcommand has the following options:
 
 **Examples**
 
-``` bash
+```bash
 chef-server-ctl org-user-add prod john_smith
 ```
 
-``` bash
+```bash
 chef-server-ctl org-user-add preprod testmaster
 ```
 
-``` bash
+```bash
 chef-server-ctl org-user-add dev grantmc --admin
 ```
 
@@ -4132,17 +4188,17 @@ organization.
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 chef-server-ctl org-user-remove ORG_NAME USER_NAME (options)
 ```
 
 **Examples**
 
-``` bash
+```bash
 chef-server-ctl org-user-remove prod john_smith
 ```
 
-``` bash
+```bash
 chef-server-ctl org-user-remove prod testmaster
 ```
 
@@ -4265,13 +4321,13 @@ organizations are created. Use the Chef management console or the
 `knife-acl` plugin (<https://github.com/chef/knife-acl>) to manage
 permissions to data bags as required. For example:
 
-``` bash
+```bash
 knife acl add containers data update group clients
 ```
 
 For cookbooks that create or delete data bags:
 
-``` bash
+```bash
 knife acl add containers data create group clients
 
 knife acl add containers data delete group clients
@@ -4280,7 +4336,7 @@ knife acl add containers data delete group clients
 For existing organizations that want to remove the **Create**,
 **Delete**, or **Update** permissions from existing nodes:
 
-``` bash
+```bash
 knife acl remove containers data update group clients
 
 knife acl remove containers data delete group clients
@@ -4339,7 +4395,7 @@ Use the `add-client-key` subcommand to add a client key.
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 chef-server-ctl add-client-key ORG_NAME CLIENT_NAME [--public-key-path PATH] [--expiration-date DATE] [--key-name NAME]
 ```
 
@@ -4386,7 +4442,7 @@ Use the `add-user-key` subcommand to add a user key.
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 chef-server-ctl add-user-key USER_NAME [--public-key-path PATH] [--expiration-date DATE] [--key-name NAME]
 ```
 
@@ -4429,7 +4485,7 @@ Use the `delete-client-key` subcommand to delete a client key.
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 chef-server-ctl delete-client-key ORG_NAME CLIENT_NAME KEY_NAME
 ```
 
@@ -4457,7 +4513,7 @@ Use the `delete-user-key` subcommand to delete a user key.
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 chef-server-ctl delete-user-key USER_NAME KEY_NAME
 ```
 
@@ -4487,7 +4543,7 @@ Use the `list-client-keys` subcommand to list client keys.
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 chef-server-ctl list-client-keys ORG_NAME CLIENT_NAME [--verbose]
 ```
 
@@ -4521,7 +4577,7 @@ Use the `list-user-keys` subcommand to list client keys.
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 chef-server-ctl list-user-keys USER_NAME [--verbose]
 ```
 
@@ -4545,13 +4601,13 @@ This subcommand has the following options:
 
 **Example**
 
-``` bash
+```bash
 chef-server-ctl list-user-keys applejack
 ```
 
 Returns:
 
-``` bash
+```bash
 2 total key(s) found for user applejack
 
 key_name: test-key

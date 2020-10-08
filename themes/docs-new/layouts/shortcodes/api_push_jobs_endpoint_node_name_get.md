@@ -5,7 +5,7 @@ This method has no parameters.
 
 **Request**
 
-``` xml
+```xml
 GET /organizations/ORG_NAME/pushy/node_states/NODE_NAME
 ```
 
@@ -13,7 +13,7 @@ GET /organizations/ORG_NAME/pushy/node_states/NODE_NAME
 
 The response is similar to:
 
-``` javascript
+```javascript
 {
   "node_name": "FIONA",
   "status": "down",

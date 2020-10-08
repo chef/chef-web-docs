@@ -2,7 +2,7 @@ The `report` interface is used to define how a handler will behave and
 is a required part of any custom handler. The syntax for the `report`
 interface is as follows:
 
-``` ruby
+```ruby
 def report
   # Ruby code
 end
@@ -17,7 +17,7 @@ The
 [error_report](https://github.com/chef/chef/blob/master/lib/chef/handler/error_report.rb)
 handler:
 
-``` ruby
+```ruby
 require 'chef/handler'
 require 'chef/resource/directory'
 
@@ -37,7 +37,7 @@ The
 [json_file](https://github.com/chef/chef/blob/master/lib/chef/handler/json_file.rb)
 handler:
 
-``` ruby
+```ruby
 require 'chef/handler'
 require 'chef/resource/directory'
 

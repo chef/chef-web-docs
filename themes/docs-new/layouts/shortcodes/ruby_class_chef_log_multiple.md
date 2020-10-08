@@ -1,6 +1,6 @@
 The following example shows using multiple `Chef::Log` entry types:
 
-``` ruby
+```ruby
 ...
 
 begin

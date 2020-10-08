@@ -18,7 +18,7 @@ resource_description_list:
 resource_new_in: null
 handler_types: false
 syntax_description: "The syntax for using the **chef_node** resource in a recipe is\
-  \ as\nfollows:\n\n``` ruby\nchef_node 'name' do\n  attribute 'value' # see properties\
+  \ as\nfollows:\n\n```ruby\nchef_node 'name' do\n  attribute 'value' # see properties\
   \ section below\n  ...\n  action :action # see actions section below\nend\n```"
 syntax_code_block: null
 syntax_properties_list:
@@ -99,7 +99,7 @@ properties_list:
   default_value: null
   new_in: null
   description_list:
-  - markdown: The name of the node.
+  - markdown: The unique identifier of the node.
 - property: normal_attributes
   ruby_type: null
   required: false
@@ -133,7 +133,7 @@ properties_list:
   default_value: null
   new_in: null
   description_list:
-  - markdown: "The node as JSON data. For example:\n\n``` javascript\n{\n  \"overrides\"\
+  - markdown: "The node as JSON data. For example:\n\n```javascript\n{\n  \"overrides\"\
       : {},\n  \"name\": \"latte\",\n  \"chef_type\": \"node\",\n  \"json_class\"\
       : \"Chef::Node\",\n  \"attributes\": {\n    \"hardware_type\": \"laptop\"\n\
       \  },\n  \"run_list\": [\n    \"recipe[apache2]\"\n  ],\n  \"defaults\": {}\n\

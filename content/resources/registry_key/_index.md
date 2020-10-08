@@ -1,6 +1,6 @@
 ---
 resource_reference: true
-properties_shortcode: 
+properties_shortcode:
 registry_key: true
 title: registry_key resource
 resource: registry_key
@@ -50,10 +50,10 @@ resource_description_list:
 
       Reflection](https://msdn.microsoft.com/en-us/library/windows/desktop/aa384235(v=vs.85).aspx).'
 syntax_description: "A **registry_key** resource block creates and deletes registry\
-  \ keys in\nMicrosoft Windows:\n\n``` ruby\nregistry_key 'HKEY_LOCAL_MACHINE\\\\\
+  \ keys in\nMicrosoft Windows:\n\n```ruby\nregistry_key 'HKEY_LOCAL_MACHINE\\\\\
   ...\\\\System' do\n  values [{\n    name: 'NewRegistryKeyValue',\n    type: :multi_string,\n\
   \    data: %w(foo bar baz),\n  }]\n  action :create\nend\n```\n\nUse multiple registry\
-  \ key entries with key values that are based on node\nattributes:\n\n``` ruby\n\
+  \ key entries with key values that are based on node\nattributes:\n\n```ruby\n\
   registry_key 'HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\\
   name_of_registry_key' do\n  values [{name: 'key_name', type: :string, data: 'C:\\\
   Windows\\System32\\file_name.bmp'},\n          {name: 'key_name', type: :string,\
@@ -229,27 +229,27 @@ handler_custom: false
 cookbook_file_specificity: false
 unit_file_verification: false
 examples: "
-  Create a registry key\n\n  Use a double-quoted string:\n\n  ``` ruby\n\
+  Create a registry key\n\n  Use a double-quoted string:\n\n  ```ruby\n\
   \  registry_key \"HKEY_LOCAL_MACHINE\\\\path-to-key\\\\Policies\\\\System\" do\n\
   \    values [{\n      name: 'EnableLUA',\n      type: :dword,\n      data: 0\n \
   \   }]\n    action :create\n  end\n  ```\n\n  or a single-quoted string:\n\n  ```\
   \ ruby\n  registry_key 'HKEY_LOCAL_MACHINE\\path-to-key\\Policies\\System' do\n\
   \    values [{\n      name: 'EnableLUA',\n      type: :dword,\n      data: 0\n \
   \   }]\n    action :create\n  end\n  ```\n\n  Delete a registry key value\n\n  Use\
-  \ a double-quoted string:\n\n  ``` ruby\n  registry_key \"HKEY_LOCAL_MACHINE\\\\\
+  \ a double-quoted string:\n\n  ```ruby\n  registry_key \"HKEY_LOCAL_MACHINE\\\\\
   SOFTWARE\\\\path\\\\to\\\\key\\\\AU\" do\n    values [{\n      name: 'NoAutoRebootWithLoggedOnUsers',\n\
   \      type: :dword,\n      data: ''\n      }]\n    action :delete\n  end\n  ```\n\
-  \n  or a single-quoted string:\n\n  ``` ruby\n  registry_key 'HKEY_LOCAL_MACHINE\\\
+  \n  or a single-quoted string:\n\n  ```ruby\n  registry_key 'HKEY_LOCAL_MACHINE\\\
   SOFTWARE\\path\\to\\key\\AU' do\n    values [{\n      name: 'NoAutoRebootWithLoggedOnUsers',\n\
   \      type: :dword,\n      data: ''\n      }]\n    action :delete\n  end\n  ```\n\
   \n  <div class=\"admonition-note\">\n    <p class=\"admonition-note-title\">Note</p>\n\
   \      <div class=\"admonition-note-text\">\n        <p>If <code>data:</code> is\
   \ not specified, you get an error: <code>Missing data key in RegistryKey values\
   \ hash</code></p>\n\n</div> \n</div>\n\n  Delete a registry key and its\
-  \ subkeys, recursively\n\n  Use a double-quoted string:\n\n  ``` ruby\n  registry_key\
+  \ subkeys, recursively\n\n  Use a double-quoted string:\n\n  ```ruby\n  registry_key\
   \ \"HKCU\\\\SOFTWARE\\\\Policies\\\\path\\\\to\\\\key\\\\Themes\" do\n    recursive\
   \ true\n    action :delete_key\n  end\n  ```\n\n  or a single-quoted string:\n\n\
-  \  ``` ruby\n  registry_key 'HKCU\\SOFTWARE\\Policies\\path\\to\\key\\Themes' do\n\
+  \  ```ruby\n  registry_key 'HKCU\\SOFTWARE\\Policies\\path\\to\\key\\Themes' do\n\
   \    recursive true\n    action :delete_key\n  end\n  ```\n\n  <div class=\"admonition-note\"\
   >\n    <p class=\"admonition-note-title\">Note</p>\n      <div class=\"admonition-note-text\"\
   >\n        <p>Be careful when using the <code>:delete_key</code> action with the\
@@ -259,32 +259,32 @@ examples: "
   \ keys\n\n  In 64-bit versions of Microsoft Windows,\n  `HKEY_LOCAL_MACHINE\\SOFTWARE\\\
   Example` is a re-directed key. In the\n  following examples, because `HKEY_LOCAL_MACHINE\\\
   SOFTWARE\\Example` is a\n  32-bit key, the output will be \"Found 32-bit key\" if\
-  \ they are run on a\n  version of Microsoft Windows that is 64-bit:\n\n  ``` ruby\n\
+  \ they are run on a\n  version of Microsoft Windows that is 64-bit:\n\n  ```ruby\n\
   \  registry_key \"HKEY_LOCAL_MACHINE\\\\SOFTWARE\\\\Example\" do\n    architecture\
   \ :i386\n    recursive true\n    action :create\n  end\n  ```\n\n  or:\n\n  ```\
   \ ruby\n  registry_key \"HKEY_LOCAL_MACHINE\\\\SOFTWARE\\\\Example\" do\n    architecture\
   \ :x86_64\n    recursive true\n    action :delete_key\n  end\n  ```\n\n  or:\n\n\
-  \  ``` ruby\n  ruby_block 'check 32-bit' do\n    block do\n      puts 'Found 32-bit\
+  \  ```ruby\n  ruby_block 'check 32-bit' do\n    block do\n      puts 'Found 32-bit\
   \ key'\n    end\n    only_if {\n      registry_key_exists?(\"HKEY_LOCAL_MACHINE\\\
-  SOFTWARE\\\\Example\",\n      :i386)\n    }\n  end\n  ```\n\n  or:\n\n  ``` ruby\n\
+  SOFTWARE\\\\Example\",\n      :i386)\n    }\n  end\n  ```\n\n  or:\n\n  ```ruby\n\
   \  ruby_block 'check 64-bit' do\n    block do\n      puts 'Found 64-bit key'\n \
   \   end\n    only_if {\n      registry_key_exists?(\"HKEY_LOCAL_MACHINE\\\\SOFTWARE\\\
   \\Example\",\n      :x86_64)\n    }\n  end\n  ```\n\n  Set proxy settings to be\
   \ the same as those used by Chef Infra Client\n\n  Use a double-quoted string:\n\
-  \n  ``` ruby\n  proxy = URI.parse(Chef::Config[:http_proxy])\n  registry_key 'HKCU\\\
+  \n  ```ruby\n  proxy = URI.parse(Chef::Config[:http_proxy])\n  registry_key 'HKCU\\\
   Software\\Microsoft\\path\\to\\key\\Internet Settings' do\n    values [{name: 'ProxyEnable',\
   \ type: :reg_dword, data: 1},\n            {name: 'ProxyServer', data: \"#{proxy.host}:#{proxy.port}\"\
   },\n            {name: 'ProxyOverride', type: :reg_string, data: <local>},\n   \
   \        ]\n    action :create\n  end\n  ```\n\n  or a single-quoted string:\n\n\
-  \  ``` ruby\n  proxy = URI.parse(Chef::Config[:http_proxy])\n  registry_key 'HKCU\\\
+  \  ```ruby\n  proxy = URI.parse(Chef::Config[:http_proxy])\n  registry_key 'HKCU\\\
   Software\\Microsoft\\path\\to\\key\\Internet Settings' do\n    values [{name: 'ProxyEnable',\
   \ type: :reg_dword, data: 1},\n            {name: 'ProxyServer', data: \"#{proxy.host}:#{proxy.port}\"\
   },\n            {name: 'ProxyOverride', type: :reg_string, data: <local>},\n   \
   \        ]\n    action :create\n  end\n  ```\n\n  **Set the name of a registry key\
-  \ to \"(Default)\"**\n\n  Use a double-quoted string:\n\n  ``` ruby\n  registry_key\
+  \ to \"(Default)\"**\n\n  Use a double-quoted string:\n\n  ```ruby\n  registry_key\
   \ 'Set (Default) value' do\n    key \"HKLM\\\\Software\\\\Test\\\\Key\\\\Path\"\n\
   \    values [\n      {name: '', type: :string, data: 'test'},\n    ]\n    action\
-  \ :create\n  end\n  ```\n\n  or a single-quoted string:\n\n  ``` ruby\n  registry_key\
+  \ :create\n  end\n  ```\n\n  or a single-quoted string:\n\n  ```ruby\n  registry_key\
   \ 'Set (Default) value' do\n    key 'HKLM\\Software\\Test\\Key\\Path'\n    values\
   \ [\n      {name: '', type: :string, data: 'test'},\n    ]\n    action :create\n\
   \  end\n  ```\n\n  where `name: ''` contains an empty string, which will set the\

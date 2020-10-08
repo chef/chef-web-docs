@@ -83,7 +83,7 @@ please contact <amp@chef.io> to obtain a new license.
     workstation. Open a command prompt and change into the `chef-repo`
     directory extracted from the starter kit. For example:
 
-    ``` bash
+    ```bash
     cd ~/Downloads
     unzip starter_kit.zip
     cd starter_kit/chef-repo
@@ -96,7 +96,7 @@ please contact <amp@chef.io> to obtain a new license.
 
 11. Optionally, bootstrap a node using knife.
 
-    ``` bash
+    ```bash
     cd ~/Downloads/starter_kit/chef-repo
     knife bootstrap chef-automate-01.eastus.cloudapp.azure.com --connection-user azure --sudo
     ```
@@ -138,7 +138,7 @@ to date, do the following to migrate to the Chef Automate Azure VM:
 
     {{< /note >}}
 
-    ``` bash
+    ```bash
     mkdir -p /tmp/chef-backup
     /opt/opscode/embedded/bin/knife ec backup /tmp/chef-backup --with-user-sql --with-key-sql
     tar -czvf chef-backup.tgz -C /tmp/chef-backup
@@ -148,7 +148,7 @@ to date, do the following to migrate to the Chef Automate Azure VM:
     the Chef Automate Azure VM from the Azure portal, copy the resulting
     tarball to your Azure VM:
 
-    ``` bash
+    ```bash
     scp /tmp/chef-backup.tgz <Admin Username>@<FQDN>:/tmp/
     ```
 
@@ -164,20 +164,20 @@ to date, do the following to migrate to the Chef Automate Azure VM:
 1.  Login to your Chef Automate VM and ensure that it is running the
     latest version of the Chef Infra Server:
 
-    ``` bash
+    ```bash
     chef-marketplace-ctl upgrade --server
     ```
 
 1.  Reconfigure Chef Automate and the Chef Infra Server
 
-    ``` bash
+    ```bash
     sudo automate-ctl reconfigure
     sudo chef-server-ctl reconfigure
     ```
 
 1.  Restore the backup
 
-    ``` bash
+    ```bash
     mkdir -p /tmp/chef-backup
     mv /tmp/chef-backup.tgz /tmp/chef-backup
     cd /tmp/chef-backup
@@ -189,13 +189,13 @@ to date, do the following to migrate to the Chef Automate Azure VM:
     in a text editor and modify the `chef_server_url` with your Azure VM
     FQDN. For example:
 
-    ``` bash
+    ```bash
     vim ~/chef-repo/.chef/config.rb
     ```
 
     will open a `config.rb` file similar to:
 
-    ``` ruby
+    ```ruby
     current_dir = ::File.dirname(__FILE__)
     log_level                :info
     log_location             $stdout
@@ -214,6 +214,6 @@ to date, do the following to migrate to the Chef Automate Azure VM:
 1.  Update the `/etc/chef/client.rb` on all of your nodes to use the new
     FQDN. For example:
 
-    ``` none
+    ```none
     knife ssh name:* 'sudo sed -ie "s/chef_server_url.*/chef_server_url 'https://<FQDN>/organizations/your_org'/" /etc/chef/client.rb
     ```

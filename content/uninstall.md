@@ -27,7 +27,7 @@ To uninstall the Chef management console, do the following:
 
 1.  Run the following command:
 
-    ``` bash
+    ```bash
     chef-manage-ctl cleanse
     ```
 
@@ -50,7 +50,7 @@ shut down all services (including the `runit` process supervisor).
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 opscode-analytics-ctl uninstall
 ```
 
@@ -69,7 +69,7 @@ will shut down all services (including the `runit` process supervisor).
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 opscode-reporting-ctl uninstall
 ```
 
@@ -90,7 +90,7 @@ To uninstall Chef Push Jobs, do the following:
 
 3.  Run the following command:
 
-    ``` bash
+    ```bash
     chef-server-ctl reconfigure
     ```
 
@@ -116,7 +116,7 @@ appropriate for the platform on which Chef Workstation is installed.
 Use the following command to remove Chef Workstation on Debian-based
 platforms:
 
-``` bash
+```bash
 dpkg -P chef-workstation
 ```
 
@@ -126,19 +126,19 @@ Use the following commands to remove Chef Workstation on macOS.
 
 To remove installed files:
 
-``` bash
+```bash
 sudo rm -rf `/opt/chef-workstation
 ```
 
 To remove the system installation entry:
 
-``` bash
+```bash
 sudo pkgutil --forget com.getchef.pkg.chef-workstation
 ```
 
 To remove symlinks:
 
-> ``` bash
+> ```bash
 > sudo find /usr/local/bin -lname '`/opt/chef-workstation/*' -delete
 > ```
 
@@ -147,7 +147,7 @@ To remove symlinks:
 Use the following commands to remove Chef Workstation on Red Hat
 Enterprise Linux-based platforms:
 
-``` bash
+```bash
 rpm -qa *chef-workstation*
 sudo yum remove -y <package>
 ```

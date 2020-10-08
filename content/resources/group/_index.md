@@ -16,7 +16,7 @@ resource_description_list:
 - markdown: Use the **group** resource to manage a local group.
 resource_new_in: null
 handler_types: false
-syntax_description: "The group resource has the following syntax:\n\n``` ruby\ngroup\
+syntax_description: "The group resource has the following syntax:\n\n```ruby\ngroup\
   \ 'name' do\n  append                true, false # default value: false\n  comment\
   \               String\n  excluded_members      String, Array\n  gid           \
   \        String, Integer\n  group_name            String # default value: 'name'\
@@ -150,9 +150,9 @@ handler_custom: false
 cookbook_file_specificity: false
 unit_file_verification: false
 examples: "
-  Append users to groups\n\n  ``` ruby\n  group 'www-data' do\n   \
+  Append users to groups\n\n  ```ruby\n  group 'www-data' do\n   \
   \ action :modify\n    members 'maintenance'\n    append true\n  end\n  ```\n\n \
-  \ Add a user to group on the Windows platform\n\n  ``` ruby\n  group 'Administrators'\
+  \ Add a user to group on the Windows platform\n\n  ```ruby\n  group 'Administrators'\
   \ do\n    members ['domain\\foo']\n    append true\n    action :modify\n  end\n\
   \  ```\n"
 

@@ -5,7 +5,7 @@ square brackets ("\[ \]") to denote inclusive boundaries and curly
 braces ("{ }") to denote exclusive boundaries and with the following
 syntax:
 
-``` ruby
+```ruby
 boundary TO boundary
 ```
 

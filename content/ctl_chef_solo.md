@@ -20,7 +20,7 @@ aliases = ["/ctl_chef_solo.html"]
 
 This command has the following syntax:
 
-``` bash
+```bash
 chef-solo OPTION VALUE OPTION VALUE ...
 ```
 
@@ -131,7 +131,7 @@ This command has the following options:
 
 `-N NODE_NAME`, `--node-name NODE_NAME`
 
-:   The name of the node.
+:   The unique identifier of the node.
 
 `-o RUN_LIST_ITEM`, `--override-runlist RUN_LIST_ITEM`
 
@@ -182,7 +182,7 @@ This command has the following options:
 chef-solo may be run as a non-root user. For example, the `sudoers` file
 can be updated similar to:
 
-``` ruby
+```ruby
 # chef-solo privilege specification
 chef ALL=(ALL) NOPASSWD: /usr/bin/chef-solo
 ```
@@ -207,13 +207,13 @@ built-in root level access.
 
 **Run chef-solo using solo.rb settings**
 
-``` bash
+```bash
 chef-solo -c ~/chef/solo.rb
 ```
 
 **Use a URL**
 
-``` bash
+```bash
 chef-solo -c ~/solo.rb -j ~/node.json -r http://www.example.com/chef-solo.tar.gz
 ```
 
@@ -222,7 +222,7 @@ The tar.gz is archived into the `file_cache_path`, and then extracted to
 
 **Use a directory**
 
-``` bash
+```bash
 chef-solo -c ~/solo.rb -j ~/node.json
 ```
 
@@ -231,7 +231,7 @@ which cookbooks are located.
 
 **Use a URL for cookbook and JSON data**
 
-``` bash
+```bash
 chef-solo -c ~/solo.rb -j http://www.example.com/node.json --recipe-url http://www.example.com/chef-solo.tar.gz
 ```
 

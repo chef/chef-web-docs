@@ -6,7 +6,7 @@ platform before using the **remote_file** resource to download a file
 from a remote location, and then using the **execute** resource to
 install that file by running a command.
 
-``` ruby
+```ruby
 if platform_family?('rhel')
   pip_binary = '/usr/bin/pip'
 else
@@ -30,7 +30,7 @@ end
 
 where a command for installing Python might look something like:
 
-``` ruby
+```ruby
 #{node['python']['binary']} distribute_setup.py
 #{::File.dirname(pip_binary)}/easy_install pip
 ```

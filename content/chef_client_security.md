@@ -40,7 +40,7 @@ used to determine the authentication protocol that communicates with
 Chef Infra Server. For example, specify protocol version 1.3 to enable
 support for SHA-256 algorithms:
 
-``` ruby
+```ruby
 knife[:authentication_protocol_version] = '1.3'
 ```
 

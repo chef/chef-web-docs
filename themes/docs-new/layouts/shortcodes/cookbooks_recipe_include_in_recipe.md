@@ -5,19 +5,19 @@ where the `include_recipe` keyword is located.
 
 The syntax for including a recipe is like this:
 
-``` ruby
+```ruby
 include_recipe 'recipe'
 ```
 
 For example:
 
-``` ruby
+```ruby
 include_recipe 'apache2::mod_ssl'
 ```
 
 Multiple recipes can be included within a recipe. For example:
 
-``` ruby
+```ruby
 include_recipe 'cookbook::setup'
 include_recipe 'cookbook::install'
 include_recipe 'cookbook::configure'

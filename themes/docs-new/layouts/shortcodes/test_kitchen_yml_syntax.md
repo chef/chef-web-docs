@@ -1,6 +1,6 @@
 The basic structure of a kitchen.yml file is as follows:
 
-``` yaml
+```yaml
 driver:
   name: driver_name
 
@@ -70,7 +70,7 @@ where:
     grouping defining an aspect of a cookbook to be tested. Each
     `suite_name` must specify a run-list, for example:
 
-    ``` ruby
+    ```ruby
     run_list:
       - recipe[cookbook_name::default]
       - recipe[cookbook_name::recipe_name]
@@ -82,7 +82,7 @@ where:
 -   A `suite_name` grouping may use `excludes` and `includes` to
     exclude/include one (or more) platforms. For example:
 
-    ``` ruby
+    ```ruby
     excludes:
        - platform-version
        - platform-version       # for additional platforms
@@ -90,7 +90,7 @@ where:
 
 For example, a very simple kitchen.yml file:
 
-``` yaml
+```yaml
 driver:
   name: vagrant
 

@@ -1,6 +1,6 @@
 This subcommand has the following syntax:
 
-``` bash
+```bash
 chef-server-ctl org-create ORG_NAME "ORG_FULL_NAME" (options)
 ```
 

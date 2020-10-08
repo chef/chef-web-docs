@@ -21,7 +21,7 @@ Examples:
 
 **Access a file from a different domain account:**
 
-``` ruby
+```ruby
 remote_file 'E:/domain_test.txt' do
   source '\\myserver\myshare\mydirectory\myfile.txt'
   remote_domain 'domain'
@@ -32,7 +32,7 @@ end
 
 OR
 
-``` ruby
+```ruby
 remote_file 'E:/domain_test.txt' do
   source '\\myserver\myshare\mydirectory\myfile.txt'
   remote_user 'domain\username'
@@ -42,7 +42,7 @@ end
 
 **Access a file using a local account on the remote machine:**
 
-``` ruby
+```ruby
 remote_file 'E:/domain_test.txt' do
   source '\\myserver\myshare\mydirectory\myfile.txt'
   remote_domain '.'
@@ -53,7 +53,7 @@ end
 
 OR
 
-``` ruby
+```ruby
 remote_file 'E:/domain_test.txt' do
   source '\\myserver\myshare\mydirectory\myfile.txt'
   remote_user '.\username'

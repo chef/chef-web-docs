@@ -26,7 +26,7 @@ resource_description_list:
     `not_if` and `only_if` to guard this resource for idempotence.'
 resource_new_in: null
 handler_types: false
-syntax_description: "A **ksh** resource block executes scripts using ksh:\n\n``` ruby\n\
+syntax_description: "A **ksh** resource block executes scripts using ksh:\n\n```ruby\n\
   ksh 'hello world' do\n  code <<-EOH\n    echo \"Hello world!\"\n    echo \"Current\
   \ directory: \" $cwd\n  EOH\nend\n```"
 syntax_code_block: null

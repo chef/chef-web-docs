@@ -31,7 +31,7 @@ located in `/var/opt/chef-backup/`.
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 chef-backend-ctl backup (options)
 ```
 
@@ -45,7 +45,7 @@ chef-backend-ctl backup (options)
 
 From a follower node, run the following command:
 
-``` bash
+```bash
 chef-backend-ctl backup
 ```
 
@@ -60,7 +60,7 @@ HA cluster.
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 chef-backend-ctl create-cluster (options)
 ```
 
@@ -110,7 +110,7 @@ to recreate the default data and configuration files.
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 chef-backend-ctl cleanse
 ```
 
@@ -132,7 +132,7 @@ Elasticsearch.
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 chef-backend-ctl cluster-status (options)
 ```
 
@@ -148,7 +148,7 @@ This subcommand has the following options:
 
 **Return cluster health data as JSON**
 
-``` bash
+```bash
 chef-backend-ctl cluster-status --json
 ```
 
@@ -169,7 +169,7 @@ available followers in the backend HA cluster. This command will:
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 chef-backend-ctl demote
 ```
 
@@ -218,7 +218,7 @@ This command will:
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 chef-backend-ctl force-leader
 ```
 
@@ -234,7 +234,7 @@ all of the important log files and system information.
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 chef-backend-ctl gather-logs
 ```
 
@@ -260,7 +260,7 @@ cluster unless directed otherwise.
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 chef-backend-ctl gen-sample-backend-config
 ```
 
@@ -272,7 +272,7 @@ and output will vary, depending on the configuration. The
 `elasticsearch`, `etcd`, `leaderl`, and `postgresql` settings are
 generated automatically and should not be modified:
 
-``` ruby
+```ruby
 fqdn = 'be1'
 hide_sensitive = true
 ip_version = 'ipv4'
@@ -377,7 +377,7 @@ command will:
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 chef-backend-ctl gen-server-config FQDN
 ```
 
@@ -386,7 +386,7 @@ chef-backend-ctl gen-server-config FQDN
 1.  On any node in the backend HA cluster, run the following command for
     each node in the frontend group:
 
-    ``` bash
+    ```bash
     chef-backend-ctl gen-server-config FQDN -f chef-server.rb.fqdn
     ```
 
@@ -404,7 +404,7 @@ chef-backend-ctl gen-server-config FQDN
 4.  On each frontend machine, with root permission, run the following
     command:
 
-    ``` bash
+    ```bash
     chef-server-ctl reconfigure
     ```
 
@@ -415,7 +415,7 @@ The following example shows the results of running the
 will vary, depending on the configuration. These settings should be
 modified carefully:
 
-``` ruby
+```ruby
 fqdn "frontend1.chef-demo.com"
 postgresql['external'] = true
 postgresql['vip'] = '192.0.2.0'
@@ -450,7 +450,7 @@ chef-backend-ctl commands.
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 chef-backend-ctl help
 ```
 
@@ -494,7 +494,7 @@ If successful, this command will generate a `chef-backend.rb` file at
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 chef-backend-ctl join-cluster PEER_NODE_IP (options)
 ```
 
@@ -578,7 +578,7 @@ the backend HA cluster. This command will:
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 chef-backend-ctl promote NODE
 ```
 
@@ -595,7 +595,7 @@ services for which the `service_name['enabled']` setting is set to
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 chef-backend-ctl reconfigure
 ```
 
@@ -616,7 +616,7 @@ will return an error message and a non-zero exist code.
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 chef-backend-ctl remove-node NODE_NAME
 ```
 
@@ -643,7 +643,7 @@ existing data and replace it with the data in the backup archive.
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 chef-backend-ctl restore PATH (options)
 ```
 
@@ -670,7 +670,7 @@ This subcommand has the following options:
 
 From the leader node, run the following command:
 
-``` bash
+```bash
 chef-backend-ctl restore /var/opt/chef-backup/backup_file.tgz
 ```
 
@@ -683,7 +683,7 @@ across the backend HA cluster.
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 chef-backend-ctl set-cluster-failover STATE
 ```
 
@@ -699,7 +699,7 @@ a node in the backend HA cluster.
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 chef-backend-ctl set-node-failover STATE
 ```
 
@@ -715,7 +715,7 @@ built properly prior to installation.
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 chef-backend-ctl show-config
 ```
 
@@ -725,7 +725,7 @@ Use the `status` subcommand to show the status of all services available
 to a node in the backend HA cluster. This subcommand has the following
 syntax:
 
-``` bash
+```bash
 chef-backend-ctl status
 ```
 
@@ -733,19 +733,19 @@ and will return the status for all services. Status can be returned for
 individual services by specifying the name of the service as part of the
 command:
 
-``` bash
+```bash
 chef-backend-ctl status SERVICE_NAME
 ```
 
 For example, full output:
 
-``` bash
+```bash
 chef-backend-ctl status
 ```
 
 is similar to:
 
-``` bash
+```bash
 Service        Local Status        Time in State  Distributed Node Status
 elasticsearch  running (pid 6661)  1d 5h 59m 41s  state: green; nodes online: 3/3
 etcd           running (pid 6742)  1d 5h 59m 39s  health: green; healthy nodes: 3/3
@@ -765,13 +765,13 @@ local state. The `Distributed Node Status` column shows:
 
 Simple output:
 
-``` bash
+```bash
 chef-backend-ctl status --simple
 ```
 
 is similar to:
 
-``` bash
+```bash
 run: elasticsearch: (pid 6661) 106983s; run: log: (pid 6667) 106983s
 run: etcd: (pid 6742) 106981s; run: log: (pid 6630) 106984s
 run: leaderl: (pid 6788) 106976s; run: log: (pid 6739) 106982s
@@ -791,7 +791,7 @@ removing any of the data. This subcommand will shut down all services
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 chef-backend-ctl uninstall
 ```
 
@@ -823,7 +823,7 @@ the command.
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 chef-backend-ctl hup SERVICE_NAME
 ```
 
@@ -839,7 +839,7 @@ the command.
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 chef-backend-ctl int SERVICE_NAME
 ```
 
@@ -855,7 +855,7 @@ service in the command.
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 chef-backend-ctl kill SERVICE_NAME
 ```
 
@@ -878,7 +878,7 @@ command.
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 chef-backend-ctl once SERVICE_NAME
 ```
 
@@ -901,7 +901,7 @@ restarting all services may trigger failover.
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 chef-backend-ctl restart SERVICE_NAME
 ```
 
@@ -909,7 +909,7 @@ where `SERVICE_NAME` represents the name of any service that is listed
 after running the `service-list` subcommand. When a service is
 successfully restarted the output should be similar to:
 
-``` bash
+```bash
 ok: run: service_name: (pid 12345) 1s
 ```
 
@@ -921,7 +921,7 @@ service that is enabled is labeled with an asterisk (\*).
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 chef-backend-ctl service-list
 ```
 
@@ -934,7 +934,7 @@ service in the command.
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 chef-backend-ctl start SERVICE_NAME
 ```
 
@@ -942,7 +942,7 @@ where `SERVICE_NAME` represents the name of any service that is listed
 after running the `service-list` subcommand. When a service is
 successfully started the output should be similar to:
 
-``` bash
+```bash
 ok: run: service_name: (pid 12345) 1s
 ```
 
@@ -964,7 +964,7 @@ individual service by specifying the name of the service in the command.
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 chef-backend-ctl stop SERVICE_NAME
 ```
 
@@ -972,19 +972,19 @@ where `SERVICE_NAME` represents the name of any service that is listed
 after running the `service-list` subcommand. When a service is
 successfully stopped the output should be similar to:
 
-``` bash
+```bash
 ok: diwb: service_name: 0s, normally up
 ```
 
 For example:
 
-``` bash
+```bash
 chef-backend-ctl stop
 ```
 
 will return something similar to:
 
-``` bash
+```bash
 ok: down: etcd: 393s, normally up
 ok: down: postgresql: 388s, normally up
 ```
@@ -998,7 +998,7 @@ service in the command.
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 chef-backend-ctl tail SERVICE_NAME
 ```
 
@@ -1014,7 +1014,7 @@ service in the command.
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 chef-backend-ctl term SERVICE_NAME
 ```
 

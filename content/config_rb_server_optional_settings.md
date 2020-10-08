@@ -1,18 +1,22 @@
 +++
-title = "chef-server.rb Optional Settings"
+title = "chef-server.rb 13 Optional Settings"
 draft = false
 
 aliases = ["/config_rb_server_optional_settings.html"]
 
 [menu]
   [menu.infra]
-    title = "Chef Infra Server Optional Settings"
+    title = "Chef Infra Server 13 Optional Settings"
     identifier = "chef_infra/managing_chef_infra_server/config_rb_server_optional_settings.md Chef Infra Server Optional Settings"
     parent = "chef_infra/managing_chef_infra_server"
     weight = 170
 +++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/config_rb_server_optional_settings.md)
+
+{{< warning >}}
+This documentation covers Chef Infra Server 13. For Chef Infra Server 14, use the [Chef Infra Server 14 Optional Settings](https://docs.chef.io/chef_infra/managing_chef_infra_server/config_rb_server_optional_settings_14.html) documentation.
+{{< /warning >}}
 
 {{% config_rb_server_summary %}}
 
@@ -43,7 +47,7 @@ This configuration file has the following general settings:
 
 :   Default value:
 
-    ``` ruby
+    ```ruby
     %w{chef-manage opscode-push-jobs-server}
     ```
 
@@ -190,7 +194,7 @@ This configuration file has the following settings for `bookshelf`:
     they exceed `file_maxbytes`. The maximum number of log files in the
     rotation is defined by `num_to_keep`. Default value:
 
-    ``` ruby
+    ```ruby
     { 'file_maxbytes' => 104857600, 'num_to_keep' => 10 }
     ```
 
@@ -220,7 +224,7 @@ This configuration file has the following settings for `bookshelf`:
     backend, such as in a high availability setup, you must set
     `storage_type` to `:sql`:
 
-    ``` ruby
+    ```ruby
     bookshelf['storage_type'] = :sql
     ```
 
@@ -444,7 +448,7 @@ This configuration file has the following settings for `jetty`:
 :   The directory in which log data is stored. The default value is the
     recommended value. Default value:
 
-    ``` ruby
+    ```ruby
     '/var/opt/opscode/opscode-solr4/jetty/logs'
     ```
 
@@ -664,7 +668,7 @@ This configuration file has the following settings for `nginx`:
 
 :   Enable compression for the specified MIME-types. Default value:
 
-    ``` ruby
+    ```ruby
     [ 'text/plain',
       'text/css',
       'application/x-javascript',
@@ -731,7 +735,7 @@ This configuration file has the following settings for `nginx`:
     link](https://www.openssl.org/docs/man1.0.2/man1/ciphers.html) for more
     information. For example:
 
-    ``` ruby
+    ```ruby
     nginx['ssl_ciphers'] = HIGH: ... :!PSK
     ```
 
@@ -766,7 +770,7 @@ This configuration file has the following settings for `nginx`:
 :   The SSL protocol versions that are enabled. For the highest possible
     security, disable SSL 3.0 and allow only TLS:
 
-    ``` ruby
+    ```ruby
     nginx['ssl_protocols'] = 'TLSv1 TLSv1.1 TLSv1.2'
     ```
 
@@ -902,7 +906,7 @@ This configuration file has the following settings for `oc_bifrost`:
     they exceed `file_maxbytes`. The maximum number of log files in the
     rotation is defined by `num_to_keep`. Default value:
 
-    ``` ruby
+    ```ruby
     { 'file_maxbytes' => 104857600, 'num_to_keep' => 10 }
     ```
 
@@ -1000,7 +1004,7 @@ This configuration file has the following settings for `oc-chef-pedant`:
 :   The working directory. The default value is the recommended value.
     Default value:
 
-    ``` ruby
+    ```ruby
     '/var/opt/opscode/oc-chef-pedant'
     ```
 
@@ -1009,7 +1013,7 @@ This configuration file has the following settings for `oc-chef-pedant`:
 :   The directory in which log data is stored. The default value is the
     recommended value. Default value:
 
-    ``` ruby
+    ```ruby
     '/var/log/opscode/oc-chef-pedant'
     ```
 
@@ -1024,7 +1028,7 @@ This configuration file has the following settings for `oc-chef-pedant`:
     they exceed `file_maxbytes`. The maximum number of log files in the
     rotation is defined by `num_to_keep`. Default value:
 
-    ``` ruby
+    ```ruby
     { 'file_maxbytes' => 104857600, 'num_to_keep' => 10 }
     ```
 
@@ -1078,7 +1082,7 @@ This configuration file has the following settings for `oc-id`:
     they exceed `file_maxbytes`. The maximum number of log files in the
     rotation is defined by `num_to_keep`. Default value:
 
-    ``` ruby
+    ```ruby
     { 'file_maxbytes' => 104857600, 'num_to_keep' => 10 }
     ```
 
@@ -1152,7 +1156,7 @@ This configuration file has the following settings for
 :   The directory in which on-disk data is stored. The default value is
     the recommended value. Default value:
 
-    ``` ruby
+    ```ruby
     '/var/opt/opscode/opscode-chef-mover/data'
     ```
 
@@ -1161,7 +1165,7 @@ This configuration file has the following settings for
 :   The working directory. The default value is the recommended value.
     Default value:
 
-    ``` ruby
+    ```ruby
     '/var/opt/opscode/opscode-chef-mover'
     ```
 
@@ -1182,7 +1186,7 @@ This configuration file has the following settings for
 :   The directory in which log data is stored. The default value is the
     recommended value. Default value:
 
-    ``` ruby
+    ```ruby
     '/var/log/opscode/opscode-chef-mover'
     ```
 
@@ -1192,7 +1196,7 @@ This configuration file has the following settings for
     they exceed `file_maxbytes`. The maximum number of log files in the
     rotation is defined by `num_to_keep`. Default value:
 
-    ``` ruby
+    ```ruby
     { 'file_maxbytes' => 104857600, 'num_to_keep' => 10 }
     ```
 
@@ -1335,7 +1339,7 @@ This configuration file has the following settings for `opscode-erchef`:
     they exceed `file_maxbytes`. The maximum number of log files in the
     rotation is defined by `num_to_keep`. Default value:
 
-    ``` ruby
+    ```ruby
     { 'file_maxbytes' => 104857600, 'num_to_keep' => 10 }
     ```
 
@@ -1467,7 +1471,7 @@ This configuration file has the following settings for
 :   The working directory. The default value is the recommended value.
     Default value:
 
-    ``` ruby
+    ```ruby
     /var/opt/opscode/opscode-expander
     ```
 
@@ -1480,7 +1484,7 @@ This configuration file has the following settings for
 :   The directory in which log data is stored. The default value is the
     recommended value. Default value:
 
-    ``` ruby
+    ```ruby
     /var/log/opscode/opscode-expander
     ```
 
@@ -1490,7 +1494,7 @@ This configuration file has the following settings for
     they exceed `file_maxbytes`. The maximum number of log files in the
     rotation is defined by `num_to_keep`. Default value:
 
-    ``` ruby
+    ```ruby
     { 'file_maxbytes' => 104857600, 'num_to_keep' => 10 }
     ```
 
@@ -1503,7 +1507,7 @@ This configuration file has the following settings for
 :   The directory in which `opscode-expander-reindexer` logs files are
     located. Default value:
 
-    ``` ruby
+    ```ruby
     /var/log/opscode/opscode-expander-reindexer
     ```
 
@@ -1533,7 +1537,7 @@ This configuration file has the following settings for `opscode-solr4`:
 :   The directory in which on-disk data is stored. The default value is
     the recommended value. Default value:
 
-    ``` ruby
+    ```ruby
     /var/opt/opscode/opscode-solr4/data
     ```
 
@@ -1542,7 +1546,7 @@ This configuration file has the following settings for `opscode-solr4`:
 :   The working directory. The default value is the recommended value.
     Default value:
 
-    ``` ruby
+    ```ruby
     /var/opt/opscode/opscode-solr4
     ```
 
@@ -1581,7 +1585,7 @@ This configuration file has the following settings for `opscode-solr4`:
 :   The directory in which log data is stored. The default value is the
     recommended value. Default value:
 
-    ``` ruby
+    ```ruby
     /var/log/opscode/opscode-solr4
     ```
 
@@ -1597,7 +1601,7 @@ This configuration file has the following settings for `opscode-solr4`:
     they exceed `file_maxbytes`. The maximum number of log files in the
     rotation is defined by `num_to_keep`. Default value:
 
-    ``` ruby
+    ```ruby
     { 'file_maxbytes' => 104857600, 'num_to_keep' => 10 }
     ```
 
@@ -1917,7 +1921,7 @@ This configuration file has the following settings for `rabbitmq`:
     they exceed `file_maxbytes`. The maximum number of log files in the
     rotation is defined by `num_to_keep`. Default value:
 
-    ``` ruby
+    ```ruby
     { 'file_maxbytes' => 104857600, 'num_to_keep' => 10 }
     ```
 
@@ -1953,7 +1957,7 @@ This configuration file has the following settings for `rabbitmq`:
 
 `rabbitmq['nodename']`
 
-:   The name of the node. Default value: `'rabbit@localhost'`.
+:   The unique identifier of the node. Default value: `'rabbit@localhost'`.
 
 `rabbitmq['password']`
 
@@ -2141,7 +2145,7 @@ This configuration file has the following settings for `redis_lb`:
     they exceed `file_maxbytes`. The maximum number of log files in the
     rotation is defined by `num_to_keep`. Default value:
 
-    ``` ruby
+    ```ruby
     { 'file_maxbytes' => 104857600, 'num_to_keep' => 10 }
     ```
 
@@ -2177,7 +2181,7 @@ This configuration file has the following settings for `redis_lb`:
     `{ "seconds" => "keys", "seconds" => "keys", "seconds" => "keys" }`.
     Default value:
 
-    ``` ruby
+    ```ruby
     { '900' => '1', '300' => '10', '60' => '1000' }
     ```
 

@@ -4,7 +4,7 @@ snapshots.
 
 **Syntax**
 
-``` none
+```none
 automate-ctl create-backup [NAME] [options]
      --chef-server-config         Backup up the Chef Infra Server config if present
      --digest [int]               The SHA digest length to output. 256, 384, and 512 are valid
@@ -21,7 +21,6 @@ automate-ctl create-backup [NAME] [options]
      --no-wait                    Do not wait for non-blocking backup operations
      --no-wait-for-lock           Do not wait for Elasticsearch lock
      --quiet                      Do not output non-error information
-     --rabbit                     Back up Chef Automate's RabbitMQ queues
      --retry-limit                Maximum number of times to retry archive uploads to S3
      --staging-dir [string]       The path to use for temporary files during backup
  -h, --help                       Show the usage message

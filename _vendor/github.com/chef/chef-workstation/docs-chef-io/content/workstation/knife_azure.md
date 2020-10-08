@@ -11,7 +11,7 @@ aliases = ["/knife_azure.html", "/knife_azure/"]
     parent = "chef_workstation/chef_workstation_tools/knife"
 +++
 
-[\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/www/content/workstation/knife_azure.md)
+[\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/docs-chef-io/content/workstation/knife_azure.md)
 
 ## Knife Azure Overview
 
@@ -639,7 +639,7 @@ This argument has the following options:
 
 `-N NAME`, `--node-name NAME`
 
-:   The name of the node. Node names, when used with Microsoft Azure,
+:   The unique identifier of the node. Node names, when used with Microsoft Azure,
     must be 91 characters or shorter.
 
 `--[no-]host-key-verify`

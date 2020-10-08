@@ -98,7 +98,7 @@ requires two utilities: awk and openssl. The following example shows how
 an authenticated request can be made using the Chef Infra Server API and
 cURL:
 
-``` bash
+```bash
 #!/usr/bin/env bash
 
 _chef_dir () {
@@ -181,7 +181,7 @@ chef_api_request() {
 After saving this shell script to a file named `chef_api_request`, use
 it similar to the following:
 
-``` bash
+```bash
 bash chef_api_request GET "/clients"
 ```
 
@@ -193,7 +193,7 @@ interact with the Chef Infra Server. The following example shows how an
 authenticated request can be made using the Chef Infra Server API and
 PyChef:
 
-``` python
+```python
 from chef import autoconfigure, Node
 
 api = autoconfigure()
@@ -205,7 +205,7 @@ n.save()
 
 and the following example shows how to make API calls directly:
 
-``` python
+```python
 from chef import autoconfigure
 
 api = autoconfigure()
@@ -222,7 +222,7 @@ Chef Infra Client or knife. For more about PyChef, see:
 On a system with Chef Infra Client installed, use Ruby to make an
 authenticated request to the Chef Infra Server:
 
-``` ruby
+```ruby
 require 'chef/config'
 require 'chef/log'
 require 'chef/rest'
@@ -237,7 +237,7 @@ puts rest.get_rest('/clients')
 
 or:
 
-``` ruby
+```ruby
 require 'mixlib/cli'
 require 'chef'
 require 'chef/node'
@@ -329,7 +329,7 @@ available to be called by other methods. For example, the `api.get`
 method can be used to return a node named `foobar`, and then `.destroy`
 can be used to delete that node:
 
-``` none
+```none
 silly_node = api.get('/nodes/foobar')
 silly_node.destroy
 ```
@@ -340,7 +340,7 @@ In some cases, Chef Infra Client may receive a 401 response to the
 authentication request and a 403 response to an authorization request.
 An authentication error error may look like the following:
 
-``` bash
+```bash
 [Wed, 05 Oct 2011 15:43:34 -0700] INFO: HTTP Request Returned 401
 Unauthorized: Failed to authenticate as node_name. Ensure that your node_name and client key are correct.
 ```
@@ -350,13 +350,13 @@ attempting to authenticate. This is often found in the log messages for
 that Chef Infra Client. Debug logging can be enabled on a Chef Infra
 Client using the following command:
 
-``` bash
+```bash
 chef-client -l debug
 ```
 
 When debug logging is enabled, a log entry will look like the following:
 
-``` bash
+```bash
 [Wed, 05 Oct 2011 22:05:35 +0000] DEBUG: Signing the request as NODE_NAME
 ```
 

@@ -3,13 +3,13 @@ look for environments in `/var/chef/environments`, but this location can
 be modified by changing the setting for `environment_path` in solo.rb.
 For example, the following setting in solo.rb:
 
-``` ruby
+```ruby
 environment_path '/var/chef-solo/environments'
 ```
 
 Environment data looks like the following in JSON:
 
-``` javascript
+```javascript
 {
   "name": "dev",
   "default_attributes": {
@@ -31,7 +31,7 @@ Environment data looks like the following in JSON:
 
 and like the following in the Ruby DSL:
 
-``` ruby
+```ruby
 name 'environment_name'
 description 'environment_description'
 cookbook OR cookbook_versions  'cookbook' OR 'cookbook' => 'cookbook_version'

@@ -1,12 +1,12 @@
 To include run-lists in the status, enter:
 
-``` bash
+```bash
 knife status --run-list
 ```
 
 to return something like:
 
-``` bash
+```bash
 20 hours ago, dev-vm.chisamore.com, ubuntu 10.04, dev-vm.chisamore.com, 10.66.44.126, role[lb].
 3 hours ago, i-225f954f, ubuntu 10.04, ec2-67-202-63-102.compute-1.amazonaws.com, 67.202.63.102, role[web].
 3 hours ago, i-a45298c9, ubuntu 10.04, ec2-174-129-127-206.compute-1.amazonaws.com, 174.129.127.206, role[web].

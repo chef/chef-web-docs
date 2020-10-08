@@ -2,7 +2,7 @@ In chef-shell, it is possible to get verbose debugging using the tracing
 feature in Interactive Ruby (IRb). chef-shell provides a shortcut for
 turning tracing on and off. For example:
 
-``` bash
+```bash
 chef > tracing on
 tracing is on
 => nil
@@ -11,7 +11,7 @@ chef >
 
 and:
 
-``` bash
+```bash
 chef > tracing off
 #0:(irb):2:Object:-: tracing off
 #0:/opt/chef-workstation/embedded/lib/ruby/gems/2.6.0/gems/chef-15.8.23/lib/chef/shell/ext.rb:109:Shell::Extensions::ObjectCoreExtensions:>:       def off

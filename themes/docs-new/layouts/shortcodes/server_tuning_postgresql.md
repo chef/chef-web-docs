@@ -1,13 +1,8 @@
-The following setting is often modified from the default as part of the
-tuning effort for the **postgresql** service:
+The following setting is often modified from the default as part of the tuning effort for the **postgresql** service:
 
 `postgresql['max_connections']`
 
-:   The maximum number of allowed concurrent connections. This value
-    should only be tuned when the `opscode_erchef['db_pool_size']` value
-    used by the **opscode-erchef** service is modified. Default value:
-    `350`.
-
+:   The maximum number of allowed concurrent connections. This value should only be tuned when the `opscode_erchef['db_pool_size']` value used by the **opscode-erchef** service is modified. Default value: `350`.
     If there are more than two front end machines in a cluster, the
     `postgresql['max_connections']` setting should be increased. The
     increased value depends on the number of machines in the front end,
@@ -25,7 +20,7 @@ tuning effort for the **postgresql** service:
     Use the following formula to help determine what the increased value
     should be:
 
-    ``` ruby
+    ```ruby
     new_value = current_value + [
                 (# of front end machines - 2) * (25 * # of services)
              ]
@@ -35,6 +30,6 @@ tuning effort for the **postgresql** service:
     machines, and all add-ons are installed, then the formula looks
     like:
 
-    ``` ruby
+    ```ruby
     550 = 350 + [(4 - 2) * (25 * 4)]
     ```

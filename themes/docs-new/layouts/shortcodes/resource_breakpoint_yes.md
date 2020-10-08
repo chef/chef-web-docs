@@ -1,4 +1,4 @@
-``` ruby
+```ruby
 breakpoint "before yum_key node['yum']['repo_name']['key']" do
   action :break
 end

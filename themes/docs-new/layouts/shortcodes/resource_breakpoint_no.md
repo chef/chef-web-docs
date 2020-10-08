@@ -1,4 +1,4 @@
-``` ruby
+```ruby
 yum_key node['yum']['elrepo']['key'] do
   url  node['yum']['elrepo']['key_url']
   action :add

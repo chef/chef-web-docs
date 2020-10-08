@@ -9,7 +9,7 @@ bootstrap".
 To create a node via the USER.pem file, simply delete the
 ORGANIZATION-validator.pem file on the workstation. For example:
 
-``` bash
+```bash
 rm -f /home/lamont/.chef/myorg-validator.pem
 ```
 
@@ -28,7 +28,7 @@ ORGANIZATION-validator.pem file.
 When running a validatorless `knife bootstrap` operation, the output is
 similar to:
 
-``` bash
+```bash
 desktop% knife bootstrap 10.1.1.1 -N foo01.acme.org \
   -E dev -r 'role[base]' -j '{ "foo": "bar" }' \
   --ssh-user vagrant --sudo

@@ -73,7 +73,7 @@ more likely to cause issues if they are blacklisted incorrectly.
 
 For example, automatic attribute data similar to:
 
-``` javascript
+```javascript
 {
   "filesystem" => {
     "/dev/disk0s2" => {
@@ -95,7 +95,7 @@ For example, automatic attribute data similar to:
 To blacklist the `filesystem` attributes and allow the other attributes
 to be saved, update the client.rb file:
 
-``` ruby
+```ruby
 automatic_attribute_blacklist ['filesystem']
 ```
 
@@ -109,6 +109,6 @@ For attributes that contain slashes (`/`) within the attribute value,
 such as the `filesystem` attribute `'/dev/diskos2'`, use an array. For
 example:
 
-``` ruby
+```ruby
 automatic_attribute_blacklist [['filesystem', '/dev/diskos2']]
 ```

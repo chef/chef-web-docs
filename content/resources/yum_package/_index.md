@@ -1,7 +1,7 @@
 ---
 resource_reference: true
 common_resource_functionality_multiple_packages: true
-properties_shortcode: 
+properties_shortcode:
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
@@ -41,7 +41,7 @@ syntax_full_code_block: |-
     yum_binary           String
     action               Symbol # defaults to :install if not specified
   end
-syntax_properties_list: 
+syntax_properties_list:
 syntax_full_properties_list:
 - "`yum_package` is the resource."
 - "`name` is the name given to the resource block."
@@ -93,8 +93,8 @@ properties_list:
 
       in the form \[ :before, :after \].'
   - shortcode: resources_common_package_yum_cache.md
-  - markdown: "As an array:\n\n``` ruby\nyum_package 'some-package' do\n  #...\n \
-      \ flush_cache [ :before ]\n  #...\nend\n```\n\nand as a Hash:\n\n``` ruby\n\
+  - markdown: "As an array:\n\n```ruby\nyum_package 'some-package' do\n  #...\n \
+      \ flush_cache [ :before ]\n  #...\nend\n```\n\nand as a Hash:\n\n```ruby\n\
       yum_package 'some-package' do\n  #...\n  flush_cache( { :after => true } )\n\
       \  #...\nend\n```"
   - note:
@@ -143,32 +143,32 @@ properties_list:
 examples: |
   **Install an exact version**:
 
-  ``` ruby
+  ```ruby
   yum_package 'netpbm = 10.35.58-8.el8'
   ```
 
   **Install a minimum version**:
 
-  ``` ruby
+  ```ruby
   yum_package 'netpbm >= 10.35.58-8.el8'
   ```
 
   **Install a minimum version using the default action**:
 
-  ``` ruby
+  ```ruby
   yum_package 'netpbm'
   ```
 
   **Install a version without worrying about the exact release**:
 
-  ``` ruby
+  ```ruby
   yum_package 'netpbm-10.35*'
   ```
 
 
   **To install a package**:
 
-  ``` ruby
+  ```ruby
   yum_package 'netpbm' do
     action :install
   end
@@ -176,13 +176,13 @@ examples: |
 
   **To install a partial minimum version**:
 
-  ``` ruby
+  ```ruby
   yum_package 'netpbm >= 10'
   ```
 
   **To install a specific architecture**:
 
-  ``` ruby
+  ```ruby
   yum_package 'netpbm' do
     arch 'i386'
   end
@@ -190,13 +190,13 @@ examples: |
 
   or:
 
-  ``` ruby
+  ```ruby
   yum_package 'netpbm.x86_64'
   ```
 
   **To install a specific version-release**
 
-  ``` ruby
+  ```ruby
   yum_package 'netpbm' do
     version '10.35.58-8.el8'
   end
@@ -209,7 +209,7 @@ examples: |
   to dump the in-memory Yum cache, and then use the repository immediately
   to ensure that the correct package is installed:
 
-  ``` ruby
+  ```ruby
   cookbook_file '/etc/yum.repos.d/custom.repo' do
     source 'custom'
     mode '0755'

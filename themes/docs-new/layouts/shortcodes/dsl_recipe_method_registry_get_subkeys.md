@@ -17,7 +17,7 @@ values that are present for a Microsoft Windows registry key.
 
 The syntax for the `registry_get_subkeys` method is as follows:
 
-``` ruby
+```ruby
 subkey_array = registry_get_subkeys(KEY_PATH, ARCHITECTURE)
 ```
 

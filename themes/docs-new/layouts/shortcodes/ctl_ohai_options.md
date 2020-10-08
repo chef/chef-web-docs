@@ -1,6 +1,6 @@
 This command has the following syntax:
 
-``` bash
+```bash
 ohai OPTION
 ```
 

@@ -89,24 +89,18 @@ any firewalls that are in use:
 <td></td>
 </tr>
 <tr class="even">
-<td><p>8983</p></td>
-<td><p><strong>opscode-solr4</strong></p>
-<p>{{< readFile_shortcode file="server_services_solr4.md" >}}</p></td>
-<td></td>
-</tr>
-<tr class="odd">
 <td><p>5432</p></td>
 <td><p><strong>postgresql</strong></p>
 <p>{{< readFile_shortcode file="server_services_postgresql.md" >}}</p></td>
 <td></td>
 </tr>
-<tr class="even">
-<td><p>5672</p></td>
-<td><p><strong>rabbitmq</strong></p>
-<p>{{< readFile_shortcode file="server_services_rabbitmq.md" >}}</p></td>
+<tr class="odd">
+<td><p>9200</p></td>
+<td><p><strong>elasticsearch</strong></p>
+<p>{{< readFile_shortcode file="server_services_elasticsearch.md" >}}</p></td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><p>16379</p></td>
 <td><p><strong>redis_lb</strong></p>
 <p>{{< readFile_shortcode file="server_services_redis.md" >}}</p></td>

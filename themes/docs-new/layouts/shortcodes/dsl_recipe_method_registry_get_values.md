@@ -17,7 +17,7 @@ Use the `registry_get_values` method to get the registry key values
 
 The syntax for the `registry_get_values` method is as follows:
 
-``` ruby
+```ruby
 subkey_array = registry_get_values(KEY_PATH, ARCHITECTURE)
 ```
 

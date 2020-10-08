@@ -4,7 +4,7 @@ control. First, the application is synchronized, and then Bash changes
 its working directory to the location in which `ruby-build` is located,
 and then runs a command.
 
-``` ruby
+```ruby
 git "#{Chef::Config[:file_cache_path]}/ruby-build" do
   repository 'git://github.com/sstephenson/ruby-build.git'
   revision 'master'

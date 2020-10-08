@@ -31,6 +31,6 @@ Client. These options can be passed along with an Msiexec.exe command:
 First install Chef Infra Client, and then enable it to run as a
 scheduled task. For example:
 
-``` bash
+```bash
 msiexec /qn /i C:\inst\chef-client-15.3.14-1-x64.msi ADDLOCAL="ChefClientFeature,ChefSchTaskFeature,ChefPSModuleFeature"
 ```

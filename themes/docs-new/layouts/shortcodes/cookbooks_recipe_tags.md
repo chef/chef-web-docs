@@ -2,13 +2,13 @@ Tags can be added and removed. Machines can be checked to see if they
 already have a specific tag. To use tags in your recipe simply add the
 following:
 
-``` ruby
+```ruby
 tag('mytag')
 ```
 
 To test if a machine is tagged, add the following:
 
-``` ruby
+```ruby
 tagged?('mytag')
 ```
 
@@ -17,13 +17,13 @@ argument.
 
 To remove a tag:
 
-``` ruby
+```ruby
 untag('mytag')
 ```
 
 For example:
 
-``` ruby
+```ruby
 tag('machine')
 
 if tagged?('machine')
@@ -39,7 +39,7 @@ end
 
 Will return something like this:
 
-``` none
+```none
 [Thu, 22 Jul 2010 18:01:45 +0000] INFO: Hey I'm machine
 [Thu, 22 Jul 2010 18:01:45 +0000] INFO: I has no tagz
 ```

@@ -9,7 +9,7 @@ configuration file and does the following:
 
 <!-- -->
 
-``` ruby
+```ruby
 # the following code sample is similar to the ``upload_progress_module``
 # recipe in the ``nginx`` cookbook:
 # https://github.com/chef-cookbooks/nginx

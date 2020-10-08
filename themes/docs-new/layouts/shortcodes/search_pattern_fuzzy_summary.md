@@ -1,13 +1,13 @@
 To use a fuzzy search pattern enter something similar to:
 
-``` bash
+```bash
 knife search client "name:boo~"
 ```
 
 where `boo~` defines the fuzzy search pattern. This will return
 something similar to:
 
-``` javascript
+```javascript
 {
   "total": 1,
   "start": 0,

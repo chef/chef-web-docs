@@ -12,7 +12,7 @@ aliases = ["/config_rb_optional_settings.html", "/config_rb_knife_optional_setti
     weight = 80
 +++
 
-[\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/www/content/workstation/config_rb_optional_settings.md)
+[\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/docs-chef-io/content/workstation/config_rb_optional_settings.md)
 
 In addition to the default settings in a knife config.rb file, there are
 other subcommand-specific settings that can be added. When a subcommand
@@ -344,7 +344,7 @@ added to the configuration file:
 
 `knife[:node_name]`
 
-:   The name of the node. This may be a username with permission to
+:   The unique identifier of the node. This may be a username with permission to
     authenticate to the Chef Infra Server or it may be the name of the
     machine from which knife is run. For example:
 

@@ -1,6 +1,6 @@
 ---
 resource_reference: true
-properties_shortcode: 
+properties_shortcode:
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
@@ -28,7 +28,7 @@ syntax_full_code_block: |-
     verify               true, false # default value: true
     action               Symbol # defaults to :nothing if not specified
   end
-syntax_properties_list: 
+syntax_properties_list:
 syntax_full_properties_list:
 - "`systemd_unit` is the resource."
 - "`name` is the name given to the resource block."
@@ -116,7 +116,7 @@ properties_list:
       can be overly strict when verifying units, so in certain cases it is preferable
       not to verify the unit.
 examples: "
-  Create etcd systemd service unit file from a Hash\n\n  ``` ruby\n\
+  Create etcd systemd service unit file from a Hash\n\n  ```ruby\n\
   \  systemd_unit 'etcd.service' do\n    content({Unit: {\n              Description:\
   \ 'Etcd',\n              Documentation: ['https://coreos.com/etcd', 'man:etcd(1)'],\n\
   \              After: 'network.target',\n            },\n            Service: {\n\

@@ -1,6 +1,6 @@
 Invoke the library helper in a recipe:
 
-``` ruby
+```ruby
 Chef.event_handler do
   on :run_failed do
     HandlerSendEmail::Helper.new.send_email_on_run_failure(

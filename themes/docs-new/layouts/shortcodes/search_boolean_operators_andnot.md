@@ -9,7 +9,7 @@ and to form sub-queries.
 
 Using `AND NOT` together may trigger an error. For example:
 
-``` bash
+```bash
 ERROR: knife search failed: invalid search query:
 'datacenter%3A123%20AND%20NOT%20hostname%3Adev-%20AND%20NOT%20hostanem%3Asyslog-'
 Parse error at offset: 38 Reason: Expected one of \ at line 1, column 42 (byte 42) after AND
@@ -17,7 +17,7 @@ Parse error at offset: 38 Reason: Expected one of \ at line 1, column 42 (byte 4
 
 Use `-` instead of `NOT`. For example:
 
-``` bash
+```bash
 knife search sample "id:foo AND -id:bar"
 ```
 

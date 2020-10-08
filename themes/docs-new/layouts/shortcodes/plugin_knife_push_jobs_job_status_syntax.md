@@ -1,5 +1,5 @@
 This argument has the following syntax:
 
-``` bash
+```bash
 knife job status <job id>
 ```

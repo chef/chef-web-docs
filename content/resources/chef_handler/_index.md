@@ -20,10 +20,10 @@ resource_description_list:
     The **chef_handler** resource is typically defined early in a node's run-list (often being the first item). This ensures that all of the handlers will be available for the entire Chef Infra Client run.
 resource_new_in: '14.0'
 syntax_description: "A **chef_handler** resource block enables handlers during a chef-client\n\
-  run. Two handlers---`JsonFile` and `ErrorReport`---are built into Chef:\n\n``` ruby\n\
+  run. Two handlers---`JsonFile` and `ErrorReport`---are built into Chef:\n\n```ruby\n\
   chef_handler 'Chef::Handler::JsonFile' do\n  source 'chef/handler/json_file'\n \
   \ arguments :path => '/var/chef/reports'\n  action :enable\nend\n```\n\nand:\n\n\
-  ``` ruby\nchef_handler 'Chef::Handler::ErrorReport' do\n  source 'chef/handler/error_report'\n\
+  ```ruby\nchef_handler 'Chef::Handler::ErrorReport' do\n  source 'chef/handler/error_report'\n\
   \  action :enable\nend\n```\n\nshow how to enable those handlers in a recipe."
 syntax_full_code_block: |-
   chef_handler 'name' do
@@ -58,7 +58,7 @@ properties_list:
       handler class. For example:
 
 
-      ``` ruby
+      ```ruby
 
       arguments :key1 => ''val1''
 
@@ -68,7 +68,7 @@ properties_list:
       or:
 
 
-      ``` ruby
+      ```ruby
 
       arguments [:key1 => ''val1'', :key2 => ''val2'']
 

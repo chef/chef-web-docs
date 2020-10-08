@@ -1,6 +1,6 @@
 ---
 resource_reference: true
-properties_shortcode: 
+properties_shortcode:
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
@@ -153,7 +153,7 @@ handler_custom: false
 cookbook_file_specificity: false
 unit_file_verification: false
 examples: "
-  Use a named provider to run a script\n\n  ``` ruby\n  bash 'install_something'\
+  Use a named provider to run a script\n\n  ```ruby\n  bash 'install_something'\
   \ do\n    user 'root'\n    cwd '/tmp'\n    code <<-EOH\n      wget http://www.example.com/tarball.tar.gz\n\
   \      tar -zxf tarball.tar.gz\n      cd tarball\n      ./configure\n      make\n      make\
   \ install\n    EOH\n  end\n  ```\n\n  Install a file from a remote location using\
@@ -161,7 +161,7 @@ examples: "
   \  Nginx. This module adds shell-style functionality to an Nginx\n  configuration\
   \ file and does the following:\n\n  -   Declares three variables\n  -   Gets the\
   \ Nginx file from a remote location\n  -   Installs the file using Bash to the path\
-  \ specified by the\n      `src_filepath` variable\n\n  <!-- -->\n\n  ``` ruby\n\
+  \ specified by the\n      `src_filepath` variable\n\n  <!-- -->\n\n  ```ruby\n\
   \  # the following code sample is similar to the ``upload_progress_module``\n  #\
   \ recipe in the ``nginx`` cookbook:\n  # https://github.com/chef-cookbooks/nginx\n\
   \n  src_filename = \"foo123-nginx-module-v#{\n    node['nginx']['foo123']['version']\n\
@@ -177,7 +177,7 @@ examples: "
   \ shows how Bash can be used to install a plug-in\n  for rbenv named `ruby-build`,\
   \ which is located in git version source\n  control. First, the application is synchronized,\
   \ and then Bash changes\n  its working directory to the location in which `ruby-build`\
-  \ is located,\n  and then runs a command.\n\n  ``` ruby\n  git \"#{Chef::Config[:file_cache_path]}/ruby-build\"\
+  \ is located,\n  and then runs a command.\n\n  ```ruby\n  git \"#{Chef::Config[:file_cache_path]}/ruby-build\"\
   \ do\n    repository 'git://github.com/sstephenson/ruby-build.git'\n    revision\
   \ 'master'\n    action :sync\n  end\n\n  bash 'install_ruby_build' do\n    cwd \"\
   #{Chef::Config[:file_cache_path]}/ruby-build\"\n    user 'rbenv'\n    group 'rbenv'\n\
@@ -190,7 +190,7 @@ examples: "
   \  for Python that are then used across all nodes against which this recipe\n  will\
   \ run.\n\n  Python packages have versions, installation directories, URLs, and\n\
   \  checksum files. An attributes file that exists to support this type of\n  recipe\
-  \ would include settings like the following:\n\n  ``` ruby\n  default['python']['version']\
+  \ would include settings like the following:\n\n  ```ruby\n  default['python']['version']\
   \ = '2.7.1'\n\n  if python['install_method'] == 'package'\n    default['python']['prefix_dir']\
   \ = '/usr'\n  else\n    default['python']['prefix_dir'] = '/usr/local'\n  end\n\n\
   \  default['python']['url'] = 'http://www.python.org/ftp/python'\n  default['python']['checksum']\
@@ -201,7 +201,7 @@ examples: "
   \  -   Get the package from a remote location, but only if the package does\n  \
   \    not already exist on the target system\n  -   Use the **bash** resource to\
   \ install the package on the node, but\n      only when the package is not already\
-  \ installed\n\n  <!-- -->\n\n  ``` ruby\n  #  the following code sample comes from\
+  \ installed\n\n  <!-- -->\n\n  ```ruby\n  #  the following code sample comes from\
   \ the ``oc-nginx`` cookbook on |github|: https://github.com/cookbooks/oc-nginx\n\
   \n  version = node['python']['version']\n  install_path = \"#{node['python']['prefix_dir']}/lib/python#{version.split(/(^\\\
   d+\\.\\d+)/)[1]}\"\n\n  remote_file \"#{Chef::Config[:file_cache_path]}/Python-#{version}.tar.bz2\"\

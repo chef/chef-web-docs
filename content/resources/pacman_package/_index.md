@@ -24,7 +24,7 @@ syntax_description: 'A **pacman_package** resource block manages a package on a 
   resource is:
 
 
-  ``` ruby
+  ```ruby
 
   pacman_package ''package_name''
 
@@ -127,7 +127,7 @@ handler_custom: false
 cookbook_file_specificity: false
 unit_file_verification: false
 examples: "
-  Install a package\n\n  ``` ruby\n  pacman_package 'name of package'\
+  Install a package\n\n  ```ruby\n  pacman_package 'name of package'\
   \ do\n    action :install\n  end\n  ```\n"
 
 ---

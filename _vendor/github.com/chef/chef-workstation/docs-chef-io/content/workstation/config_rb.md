@@ -12,7 +12,7 @@ aliases = ["/config_rb.html", "/config_rb_knife.html", "/config_rb/"]
     weight = 40
 +++
 
-[\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/www/content/workstation/config_rb.md)
+[\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/docs-chef-io/content/workstation/config_rb.md)
 
 {{< warning >}}
 
@@ -177,7 +177,7 @@ This configuration file has the following settings:
 
 `node_name`
 
-:   The name of the node. This may be a username with permission to
+:   The unique identifier of the node. This may be a username with permission to
     authenticate to the Chef Infra Server or it may be the name of the
     machine from which knife is run. For example:
 

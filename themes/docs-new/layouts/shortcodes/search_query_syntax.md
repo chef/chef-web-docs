@@ -1,7 +1,7 @@
 A search query is comprised of two parts: the key and the search
 pattern. A search query has the following syntax:
 
-``` ruby
+```ruby
 key:search_pattern
 ```
 

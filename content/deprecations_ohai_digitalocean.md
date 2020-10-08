@@ -25,7 +25,7 @@ Update cookbooks to use the new network data format as seen below.
 
 Example of previous data format:
 
-``` json
+```json
 {
   "networks": {
     "v4": [
@@ -58,7 +58,7 @@ Example of previous data format:
 
 Example of new data format:
 
-``` json
+```json
 {
   "droplet_id": 12345678,
   "hostname": "mytestnode",

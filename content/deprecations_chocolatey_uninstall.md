@@ -27,7 +27,7 @@ using the `chocolatey_package` resource in recipes that you intend to
 use with Chef Client 14. For example, where you might previously have
 used the following code to uninstall `nginx`:
 
-``` ruby
+```ruby
 chocolatey_package 'nginx' do
   action :uninstall
 end
@@ -35,7 +35,7 @@ end
 
 You would instead use:
 
-``` ruby
+```ruby
 chocolatey_package 'nginx' do
   action :remove
 end

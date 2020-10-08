@@ -34,7 +34,7 @@ The Chef Infra Client executable is run as a command-line tool.
 
 This command has the following syntax:
 
-``` bash
+```bash
 chef-client OPTION VALUE OPTION VALUE ...
 ```
 
@@ -55,7 +55,7 @@ This command has the following options:
     multiple configuration options by adding another
     `--config-option OPTION`.
 
-    ``` ruby
+    ```ruby
     property :db_password, String, sensitive: true
     ```
 
@@ -171,13 +171,13 @@ This command has the following options:
 
     For example, run the following:
 
-    ``` bash
+    ```bash
     chef-client -j /path/to/file.json
     ```
 
     where `/path/to/file.json` is similar to:
 
-    ``` javascript
+    ```javascript
     {
       "chef_environment": "pre-production"
     }
@@ -226,7 +226,7 @@ This command has the following options:
 
     For example:
 
-    ``` javascript
+    ```javascript
     {
       "policy_name": "appserver",
       "policy_group": "staging"
@@ -295,7 +295,7 @@ This command has the following options:
 
 `-N NODE_NAME`, `--node-name NODE_NAME`
 
-:   The name of the node.
+:   The unique identifier of the node.
 
 `-o RUN_LIST_ITEM`, `--override-runlist RUN_LIST_ITEM`
 
@@ -581,7 +581,7 @@ supported.
 On Linux, the following error sometimes occurs when the permissions used
 to run the Chef Infra Client are incorrect:
 
-``` bash
+```bash
 chef-client
 [Tue, 29 Nov 2015 19:46:17 -0800] INFO: *** Chef 12.X.X ***
 [Tue, 29 Nov 2015 19:46:18 -0800] WARN: Failed to read the private key /etc/chef/client.pem: #<Errno::EACCES: Permission denied - /etc/chef/client.pem>
@@ -595,19 +595,19 @@ ways this can be done:
 -   Use `su` to become the root user, and then run the Chef Infra
     Client. For example:
 
-    ``` bash
+    ```bash
     su
     ```
 
     and then:
 
-    ``` bash
+    ```bash
     chef-client
     ```
 
 -   Use the sudo utility
 
-    ``` bash
+    ```bash
     sudo chef-client
     ```
 
@@ -652,13 +652,13 @@ setting to the client.rb file for the node that will run as the non-root
 user. Set the value of `file_cache_path` to be the home directory for
 the user that is running the Chef Infra Client. For example:
 
-``` ruby
+```ruby
 file_cache_path '~/.chef/cache'
 ```
 
 or:
 
-``` ruby
+```ruby
 file_cache_path File.join(File.expand_path('~'), '.chef', 'cache')
 ```
 
@@ -680,7 +680,7 @@ the **package**-based resources use the `options` attribute, and the
 
 A command can be elevated similar to the following:
 
-``` ruby
+```ruby
 service 'apache2' do
   start_command 'sudo /etc/init.d/apache2 start'
   action :start
@@ -718,7 +718,7 @@ The Chef Infra Client is distributed as a Backup File Format (BFF)
 binary and is installed on the AIX platform using the following command
 run as a root user:
 
-``` text
+```text
 # installp -aYgd chef-12.0.0-1.powerpc.bff all
 ```
 
@@ -736,19 +736,19 @@ threads. To increase the system process limits:
 2.  If they have not been increased, run the following commands as a
     root user:
 
-    ``` bash
+    ```bash
     chsec -f /etc/security/limits -s default -a "rss=-1"
     ```
 
     and then:
 
-    ``` bash
+    ```bash
     chsec -f /etc/security/limits -s default -a "data=-1"
     ```
 
     and then:
 
-    ``` bash
+    ```bash
     chsec -f /etc/security/limits -s default -a "nofiles=50000"
     ```
 
@@ -757,7 +757,7 @@ threads. To increase the system process limits:
     The previous commands may be run against the root user, instead of
     default. For example:
 
-    ``` bash
+    ```bash
     chsec -f /etc/security/limits -s root_user -a "rss=-1"
     ```
 
@@ -769,7 +769,7 @@ threads. To increase the system process limits:
 When the system process limits are too low, an error is returned similar
 to:
 
-``` none
+```none
 Error Syncing Cookbooks:
 ==================================================================
 
@@ -796,13 +796,13 @@ installing from CD.
 
 1.  From a root shell type:
 
-    ``` text
+    ```text
     # smit lang
     ```
 
     A screen similar to the following is returned:
 
-    ``` bash
+    ```bash
     Manage Language Environment
 
     Move cursor to desired item and press Enter.
@@ -822,7 +822,7 @@ installing from CD.
 2.  Select `Add Additional Language Environments` and press `Enter`. A
     screen similar to the following is returned:
 
-    ``` bash
+    ```bash
     Add Additional Language Environments
 
     Type or select values in entry fields. Press Enter AFTER making
@@ -895,7 +895,7 @@ configure Chef Infra Client to use a proxy server.
 
 **Run the Chef Infra Client**
 
-``` bash
+```bash
 sudo chef-client
 ```
 
@@ -905,7 +905,7 @@ A Chef Infra Client that is running as a daemon can be woken up and
 started by sending the process a `SIGUSR1`. For example, to trigger a
 Chef Infra Client run on a machine running Linux:
 
-``` bash
+```bash
 sudo killall -USR1 chef-client
 ```
 
