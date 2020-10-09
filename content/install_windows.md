@@ -16,7 +16,7 @@ aliases = ["/install_windows.html"]
 
 ## Installation Methods
 
-There are several methods available to install Chef Infra Client, depending on the needs of your organization
+There are several methods available to install Chef Infra Client depending on the needs of your organization.
 
 {{% windows_install_overview %}}
 
@@ -40,7 +40,7 @@ A Microsoft Installer Package (MSI) is available for installing Chef Infra Clien
 
 #### Running as a Scheduled Task
 
-On Microsoft Windows Chef Infra Client should be run periodically as a scheduled task. Scheduled tasks provides visibility, configurability, and reliability around log rotation and permissions. You can configure the Chef Infra Client to run as a scheduled task using the [chef_client_scheduled_task](/resources/chef_client_scheduled_task/) resource.
+On Microsoft Windows, run Chef Infra Client periodically as a scheduled task. Scheduled tasks provides visibility, configurability, and reliability around log rotation and permissions. You can configure the Chef Infra Client to run as a scheduled task using the [chef_client_scheduled_task](/resources/chef_client_scheduled_task/) resource.
 
 #### Scheduled Task Options
 
