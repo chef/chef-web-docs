@@ -60,7 +60,7 @@ This command has the following options:
 
 `-N NODE_NAME`, `--node-name NODE_NAME`
 
-:   The unique identifier of the node.
+:   The name of the node.
 
 `-S URL`, `--server URL`
 
