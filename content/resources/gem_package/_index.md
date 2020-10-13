@@ -1,9 +1,8 @@
 ---
 title: gem_package resource
 resource: gem_package
-draft: false
 aliases:
-- /resource_gem_package.html
+- "/resource_gem_package.html"
 menu:
   infra:
     title: gem_package
