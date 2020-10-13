@@ -16,25 +16,28 @@
       <div class="grid-x">
 
         <div class="cell position-left off-canvas-absolute reveal-for-medium col-sidebar" id="left-nav-on-canvas" data-off-canvas data-transition="overlap" >
-            {{ partial "sidebar-on-canvas" . }}
+          {{ partial "sidebar-on-canvas" . }}
         </div>
 
         <div id="main-content" class="cell off-canvas-content cell auto" data-off-canvas-content>
-            {{ block "main" . }}
-            {{ end }}
+          {{ block "main" . }}
+          {{ end }}
         </div>
 
         {{ $headers := findRE "<h[12].*?>(.|\n])+?</h[12]>" .Content }}
-        {{ if or (and (ge (len $headers) 1) (ne .Params.toc false )) (isset .Params "release_notes") }}
-          <div class="cell off-canvas position-right toc off-canvas-absolute reveal-for-large" id="onCanvasRightTOC" data-off-canvas >
-            {{ if .Params.toc_layout }}
+        {{ if or (and (ge (len $headers) 1) (ne .Params.toc false )) (isset .Params "release_notes") (.Params.version_docs_product)}}
+          {{ if .Params.toc_layout }}
+            <div class="cell off-canvas position-right toc off-canvas-absolute reveal-for-large" id="onCanvasRightTOC" data-off-canvas >
               {{ partial .Params.toc_layout . }}
-            {{ else }}
+            </div>
+          {{ else if (.Params.version_docs_product)}}
+            {{ partial "versioned-docs-toc" . }}
+          {{ else }}
+            <div class="cell off-canvas position-right toc off-canvas-absolute reveal-for-large" id="onCanvasRightTOC" data-off-canvas >
               {{ partial "table-of-contents" . }}
-            {{ end }}
-          </div>
+            </div>
+          {{ end }}
         {{ end }}
-
       </div>
     </div>
   </div>
