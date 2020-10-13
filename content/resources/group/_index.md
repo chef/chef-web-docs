@@ -1,9 +1,8 @@
 ---
 title: group resource
 resource: group
-draft: false
 aliases:
-- /resource_group.html
+- "/resource_group.html"
 menu:
   infra:
     title: group

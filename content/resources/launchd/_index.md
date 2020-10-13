@@ -1,6 +1,5 @@
 ---
 resource_reference: true
-properties_shortcode:
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
@@ -113,8 +112,6 @@ properties_list:
 - property: abandon_process_group
   ruby_type: true, false
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: 'If a job dies, all remaining processes with the same process ID may
 
@@ -122,8 +119,6 @@ properties_list:
 - property: backup
   ruby_type: Integer, false
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: 'The number of backups to be kept in `/var/chef/backup`. Set to
 
@@ -131,15 +126,11 @@ properties_list:
 - property: cookbook
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: The name of the cookbook in which the source files are located.
 - property: group
   ruby_type: String, Integer
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: 'When launchd is run as the root user, the group to run the job as.
 
@@ -149,15 +140,12 @@ properties_list:
 - property: label
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: The unique identifier for the job.
 - property: mode
   ruby_type: Integer, String
   required: false
   default_value: '''0755'''
-  new_in: null
   description_list:
   - markdown: 'A quoted 3-5 character string that defines the octal mode. For
 
@@ -165,8 +153,6 @@ properties_list:
 - property: owner
   ruby_type: Integer, String
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: 'A string or ID that identifies the group owner by user name,
 
@@ -180,8 +166,6 @@ properties_list:
 - property: path
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: 'The path to the directory. Using a fully qualified path is
 
@@ -193,15 +177,11 @@ properties_list:
 - property: plist_hash
   ruby_type: Hash
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: A Hash of key value pairs used to create the launchd property list.
 - property: session_type
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: 'The type of launchd plist to be created. Possible values: `system`
 
@@ -209,22 +189,16 @@ properties_list:
 - property: source
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: The path to the launchd property list.
 - property: type
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: 'The type of resource. Possible values: `daemon` (default), `agent`.'
 - property: abandon_process_group
   ruby_type: true, false
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: 'If a job dies, all remaining processes with the same process ID may
 
@@ -232,61 +206,43 @@ properties_list:
 - property: debug
   ruby_type: true, false
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: Sets the log mask to `LOG_DEBUG` for this job.
 - property: disabled
   ruby_type: true, false
   required: false
   default_value: 'false'
-  new_in: null
   description_list:
   - markdown: Hints to `launchctl` to not submit this job to launchd.
 - property: enable_globbing
   ruby_type: true, false
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: Update program arguments before invocation.
 - property: enable_transactions
   ruby_type: true, false
   required: false
-  default_value: null
-  new_in: null
   description_list:
-  - markdown: 'Track in-progress transactions; if none, then send the `SIGKILL`
-
-      signal.'
+  - markdown: Track in-progress transactions; if none, then send the `SIGKILL` signal.
 - property: environment_variables
   ruby_type: Hash
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: Additional environment variables to set before running a job.
 - property: exit_timeout
   ruby_type: Integer
   required: false
-  default_value: '20'
-  new_in: null
   description_list:
-  - markdown: 'The amount of time (in seconds) launchd waits before sending a
-
-      `SIGKILL` signal.'
+  - markdown: The amount of time (in seconds) launchd waits before sending a `SIGKILL`
+      signal.
 - property: hard_resource_limits
   ruby_type: Hash
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: A Hash of resource limits to be imposed on a job.
 - property: inetd_compatibility
   ruby_type: Hash
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: 'Specifies if a daemon expects to be run as if it were launched from
 
@@ -300,35 +256,25 @@ properties_list:
 - property: init_groups
   ruby_type: true, false
   required: false
-  default_value: 'true'
-  new_in: null
   description_list:
   - markdown: Specify if `initgroups` is called before running a job.
 - property: keep_alive
   ruby_type: true, false, Hash
   required: false
-  default_value: 'false'
-  new_in: null
+  new_in: '12.14'
   description_list:
-  - markdown: 'Keep a job running continuously (`true`) or allow demand and
-
-      conditions on the node to determine if the job keeps running
-
-      (`false`).'
+  - markdown: Keep a job running continuously (true) or allow demand and conditions
+      on the node to determine if the job keeps running (`false`).
 - property: launch_events
   ruby_type: Hash
   required: false
-  default_value: null
   new_in: '15.1'
   description_list:
-  - markdown: 'Specify higher-level event types to be used as launch-on-demand
-
-      event sources.'
+  - markdown: Specify higher-level event types to be used as launch-on-demand event
+      sources.
 - property: launch_only_once
   ruby_type: true, false
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: 'Specify if a job can be run only one time. Set this value to `true`
 
@@ -347,45 +293,32 @@ properties_list:
 - property: limit_load_to_hosts
   ruby_type: Array
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: An array of hosts to which this configuration file applies.
 - property: limit_load_to_session_type
   ruby_type: Array, String
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: The session type(s) to which this configuration file applies.
 - property: low_priority_io
   ruby_type: true, false
   required: false
-  default_value: null
-  new_in: null
   description_list:
-  - markdown: 'Specify if the kernel on the node should consider this daemon to be
-
-      low priority during file system I/O.'
+  - markdown: Specify if the kernel on the node should consider this daemon to be
+      low priority during file system I/O.
 - property: mach_services
   ruby_type: Hash
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: Specify services to be registered with the bootstrap subsystem.
 - property: nice
   ruby_type: Integer
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: The program scheduling priority value in the range `-20` to `20`.
 - property: on_demand
   ruby_type: true, false
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: 'Keep a job alive. Only applies to macOS version 10.4 (and earlier);
 
@@ -393,17 +326,12 @@ properties_list:
 - property: process_type
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
   description_list:
-  - markdown: 'The intended purpose of the job: `Adaptive`, `Background`,
-
-      `Interactive`, or `Standard`.'
+  - markdown: 'The intended purpose of the job: `Adaptive`, `Background`, `Interactive`,
+      or `Standard`.'
 - property: program
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: 'The first argument of `execvp`, typically the file name associated
 
@@ -413,8 +341,6 @@ properties_list:
 - property: program_arguments
   ruby_type: Array
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: 'The second argument of `execvp`. If `program` is not specified, this
 
@@ -424,68 +350,48 @@ properties_list:
 - property: queue_directories
   ruby_type: Array
   required: false
-  default_value: null
-  new_in: null
   description_list:
-  - markdown: 'An array of non-empty directories which, if any are modified, will
-
-      cause a job to be started.'
+  - markdown: An array of non-empty directories which, if any are modified, will cause
+      a job to be started.
 - property: root_directory
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
   description_list:
-  - markdown: '`chroot` to this directory, and then run the job.'
+  - markdown: "`chroot` to this directory, and then run the job."
 - property: run_at_load
   ruby_type: true, false
   required: false
-  default_value: 'false'
-  new_in: null
   description_list:
   - markdown: Launch a job once (at the time it is loaded).
 - property: sockets
   ruby_type: Hash
   required: false
-  default_value: null
-  new_in: null
   description_list:
-  - markdown: 'A Hash of on-demand sockets that notify launchd when a job should be
-
-      run.'
+  - markdown: A Hash of on-demand sockets that notify launchd when a job should be
+      run.
 - property: soft_resource_limits
   ruby_type: Array
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: A Hash of resource limits to be imposed on a job.
 - property: standard_error_path
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: The file to which standard error (`stderr`) is sent.
 - property: standard_in_path
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: The file to which standard input (`stdin`) is sent.
 - property: standard_out_path
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: The file to which standard output (`stdout`) is sent.
 - property: start_calendar_interval
   ruby_type: Hash
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: 'A Hash (similar to `crontab`) that defines the calendar frequency at
 
@@ -499,29 +405,22 @@ properties_list:
 - property: start_interval
   ruby_type: Integer
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: The frequency (in seconds) at which a job is started.
 - property: start_on_mount
   ruby_type: true, false
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: Start a job every time a file system is mounted.
 - property: throttle_interval
   ruby_type: Integer
   required: false
   default_value: '10'
-  new_in: null
   description_list:
   - markdown: The frequency (in seconds) at which jobs are allowed to spawn.
 - property: time_out
   ruby_type: Integer
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: 'The amount of time (in seconds) a job may be idle before it times
 
@@ -531,42 +430,30 @@ properties_list:
 - property: umask
   ruby_type: Integer
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: A decimal value to pass to `umask` before running a job.
 - property: username
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: When launchd is run as the root user, the user to run the job as.
 - property: wait_for_debugger
   ruby_type: true, false
   required: false
-  default_value: null
-  new_in: null
   description_list:
-  - markdown: 'Specify if launchd has a job wait for a debugger to attach before
-
-      executing code.'
+  - markdown: Specify if launchd has a job wait for a debugger to attach before executing
+      code.
 - property: watch_paths
   ruby_type: Array
   required: false
-  default_value: null
-  new_in: null
   description_list:
-  - markdown: 'An array of paths which, if any are modified, will cause a job to be
-
-      started.'
+  - markdown: An array of paths which, if any are modified, will cause a job to be
+      started.
 - property: working_directory
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
   description_list:
-  - markdown: '`chdir` to this directory, and then run the job.'
+  - markdown: "`chdir` to this directory, and then run the job."
 properties_shortcode: null
 properties_multiple_packages: false
 resource_directory_recursive_directories: false

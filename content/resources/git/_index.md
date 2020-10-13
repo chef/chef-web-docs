@@ -1,9 +1,8 @@
 ---
 title: git resource
 resource: git
-draft: false
 aliases:
-- /resource_git.html
+- "/resource_git.html"
 menu:
   infra:
     title: git

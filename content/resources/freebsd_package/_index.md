@@ -1,9 +1,8 @@
 ---
 title: freebsd_package resource
 resource: freebsd_package
-draft: false
 aliases:
-- /resource_freebsd_package.html
+- "/resource_freebsd_package.html"
 menu:
   infra:
     title: freebsd_package

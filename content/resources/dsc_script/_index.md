@@ -1,6 +1,5 @@
 ---
 resource_reference: true
-properties_shortcode:
 ps_credential_helper: true
 resources_common_guards: true
 resources_common_notification: true
