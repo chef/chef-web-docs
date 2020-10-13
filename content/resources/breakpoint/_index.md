@@ -1,7 +1,6 @@
 ---
 resource_reference: true
 debug_recipes_chef_shell: true
-properties_shortcode:
 title: breakpoint resource
 resource: breakpoint
 aliases:

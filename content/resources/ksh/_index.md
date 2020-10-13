@@ -1,9 +1,8 @@
 ---
 title: ksh resource
 resource: ksh
-draft: false
 aliases:
-- /resource_ksh.html
+- "/resource_ksh.html"
 menu:
   infra:
     title: ksh

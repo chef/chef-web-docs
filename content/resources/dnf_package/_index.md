@@ -2,7 +2,6 @@
 resource_reference: true
 common_resource_functionality_multiple_packages: true
 properties_multiple_packages: true
-properties_shortcode:
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true

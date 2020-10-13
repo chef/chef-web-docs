@@ -1,6 +1,5 @@
 ---
 resource_reference: true
-properties_shortcode:
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
@@ -159,7 +158,7 @@ examples: |
   end
   ```
 
-  **Add the JuJu PPA, grab the key from the keyserver, and add source repo**:
+  **Add the JuJu PPA, grab the key from the Ubuntu keyserver, and add source repo**:
 
   ```ruby
   apt_repository 'juju' do

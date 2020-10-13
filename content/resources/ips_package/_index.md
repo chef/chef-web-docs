@@ -1,9 +1,8 @@
 ---
 title: ips_package resource
 resource: ips_package
-draft: false
 aliases:
-- /resource_ips_package.html
+- "/resource_ips_package.html"
 menu:
   infra:
     title: ips_package
