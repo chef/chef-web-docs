@@ -22,7 +22,7 @@ syntax_full_code_block: |-
     additional_config              String
     chef_license                   String
     chef_server_url                String
-    config_directory               String # default value: "/etc/chef"
+    config_directory               String
     event_loggers                  Array # default value: []
     exception_handlers             Array # default value: []
     file_backup_path               String
@@ -91,7 +91,7 @@ properties_list:
 - property: config_directory
   ruby_type: String
   required: false
-  default_value: "/etc/chef"
+  default_value: "`/etc/chef/` on *nix-like systems and `C:\chef\` on Windows"
   description_list:
   - markdown: The directory to store the client.rb in.
 - property: event_loggers
@@ -195,17 +195,16 @@ properties_list:
 - property: node_name
   ruby_type: String
   required: false
-  default_value: The `node.name` value. Hard coding this value in the client.rb avoids
-    logic within Chef Infra Server that performs DNS lookups and may fail in the event
-    of a DNS outage. To skip this default value and instead use the built-in Chef
-    Infra Server logic, set this property to `nil`
+  default_value: The `node.name` value reported by Chef Infra Client.
   description_list:
-  - markdown: The name of the node. This determines which configuration should be
-      applied and sets the `client_name`, which is the name used when authenticating
-      to a Chef Infra Server. If this value is not provided Chef Infra Client will
-      use the node's FQDN as the node name. Leaving this setting blank and letting
-      the client assign the FQDN of the node as the node_name during each Chef Infra
-      Client run is recommended.
+  - markdown: 'The name of the node. This configuration sets the `node.name` value
+      used in cookbooks and the `client_name` value used when authenticating to a
+      Chef Infra Server to determine what configuration to apply. Note: By default
+      this configuration uses the `node.name` value which would be set during bootstrap.
+      Hard coding this value in the `client.rb` config avoids logic within Chef Infra
+      Server that performs DNS lookups and may fail in the event of a DNS outage.
+      To skip this default value and instead use the built-in Chef Infra Server logic,
+      set this property to `nil`'
 - property: ohai_disabled_plugins
   ruby_type: Array
   required: false
