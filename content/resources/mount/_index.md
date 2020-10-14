@@ -1,6 +1,5 @@
 ---
 resource_reference: true
-properties_shortcode:
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
@@ -78,7 +77,6 @@ properties_list:
   required: false
   description_list:
   - markdown: 'Windows only: Use to specify the domain in which the `username` and
-
       `password` are located.'
 - property: dump
   ruby_type: Integer, false
