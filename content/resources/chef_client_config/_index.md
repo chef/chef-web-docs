@@ -91,7 +91,7 @@ properties_list:
 - property: config_directory
   ruby_type: String
   required: false
-  default_value: "`/etc/chef/` on *nix-like systems and `C:\chef\` on Windows"
+  default_value: "`/etc/chef/` on *nix-like systems and `C:\\chef\\` on Windows"
   description_list:
   - markdown: The directory to store the client.rb in.
 - property: event_loggers
