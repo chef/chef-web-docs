@@ -13,44 +13,38 @@ menu:
     identifier: chef_infra/cookbook_reference/resources/powershell_script powershell_script
     parent: chef_infra/cookbook_reference/resources
 resource_description_list:
-- markdown: 'Use the **powershell_script** resource to execute a script using the
+- markdown: |-
+    Use the **powershell_script** resource to execute a script using the Windows PowerShell interpreter, much like how the script and script-based resources—**bash**, **csh**, **perl**, **python**, and **ruby**—are used. The powershell_script is specific to the Microsoft Windows platform and the Windows PowerShell interpreter.
 
-    Windows PowerShell interpreter, much like how the **script** and
-
-    **script**-based resources---**bash**, **csh**, **perl**, **python**,
-
-    and **ruby**---are used. The **powershell_script** is specific to the
-
-    Microsoft Windows platform and the Windows PowerShell interpreter.
-
-
-    The **powershell_script** resource creates and executes a temporary
-
-    file (similar to how the **script** resource behaves), rather than
-
-    running the command inline. Commands that are executed with this
-
-    resource are (by their nature) not idempotent, as they are typically
-
-    unique to the environment in which they are run. Use `not_if` and
-
-    `only_if` to guard this resource for idempotence.'
+     The powershell_script resource creates and executes a temporary file (similar to how the script resource behaves), rather than running the command inline. Commands that are executed with this resource are (by their nature) not idempotent, as they are typically unique to the environment in which they are run. Use `not_if` and `only_if` conditionals to guard this resource for idempotence.
 syntax_description: "A **powershell_script** resource block executes a batch script\
   \ using\nthe Windows PowerShell interpreter. For example, writing to an\ninterpolated\
   \ path:\n\n```ruby\npowershell_script 'write-to-interpolated-path' do\n  code <<-EOH\n\
   \  $stream = [System.IO.StreamWriter] \"#{Chef::Config[:file_cache_path]}/powershell-test.txt\"\
   \n  $stream.WriteLine(\"In #{Chef::Config[:file_cache_path]}...word.\")\n  $stream.close()\n\
   \  EOH\nend\n```"
-syntax_full_code_block: "powershell_script 'name' do\n  architecture             \
-  \  Symbol\n  code                       String\n  command                    String,\
-  \ Array\n  convert_boolean_return     true, false\n  creates                   \
-  \ String\n  cwd                        String\n  environment                Hash\n\
-  \  flags                      String\n  group                      String, Integer\n\
-  \  guard_interpreter          Symbol\n  interpreter                String\n  returns\
-  \                    Integer, Array\n  timeout                    Integer, Float\n\
-  \  user                       String\n  password                   String\n  domain\
-  \                     String\n  action                     Symbol # defaults to\
-  \ :run if not specified\n  elevated                   true, false\nend"
+syntax_full_code_block: |-
+  powershell_script 'name' do
+    code                        String
+    command                     String, Array # default value: 'name' unless specified
+    convert_boolean_return      true, false # default value: false
+    creates                     String
+    cwd                         String
+    domain                      String
+    elevated                    true, false # default value: false
+    environment                 Hash
+    flags                       String
+    group                       String, Integer
+    input                       String
+    interpreter                 String # default value: "powershell"
+    live_stream                 true, false # default value: false
+    password                    String
+    returns                     Integer, Array # default value: 0
+    sensitive                   true, false
+    timeout                     Integer, String, Float # default value: 3600
+    user                        String, Integer
+    action                      Symbol # defaults to :run if not specified
+  end
 syntax_properties_list:
 syntax_full_properties_list:
 - '`powershell_script` is the resource.'
