@@ -35,16 +35,12 @@ resource_description_list:
     unique to the environment in which they are run. Use `not_if` and
 
     `only_if` to guard this resource for idempotence.'
-resource_new_in: null
-handler_types: false
 syntax_description: "A **powershell_script** resource block executes a batch script\
   \ using\nthe Windows PowerShell interpreter. For example, writing to an\ninterpolated\
   \ path:\n\n```ruby\npowershell_script 'write-to-interpolated-path' do\n  code <<-EOH\n\
   \  $stream = [System.IO.StreamWriter] \"#{Chef::Config[:file_cache_path]}/powershell-test.txt\"\
   \n  $stream.WriteLine(\"In #{Chef::Config[:file_cache_path]}...word.\")\n  $stream.close()\n\
   \  EOH\nend\n```"
-syntax_code_block: null
-syntax_properties_list: null
 syntax_full_code_block: "powershell_script 'name' do\n  architecture             \
   \  Symbol\n  code                       String\n  command                    String,\
   \ Array\n  convert_boolean_return     true, false\n  creates                   \
@@ -55,6 +51,7 @@ syntax_full_code_block: "powershell_script 'name' do\n  architecture            
   \  user                       String\n  password                   String\n  domain\
   \                     String\n  action                     Symbol # defaults to\
   \ :run if not specified\n  elevated                   true, false\nend"
+syntax_properties_list:
 syntax_full_properties_list:
 - '`powershell_script` is the resource.'
 - '`name` is the name given to the resource block.'
@@ -67,16 +64,9 @@ syntax_full_properties_list:
   `sensitive`, `timeout`, `user`, `password`, `domain` and `elevated` are properties
   of this resource, with the Ruby type shown. See "Properties" section below for more
   information about all of the properties that may be used with this resource.'
-syntax_shortcode: null
-registry_key: false
-nameless_apt_update: false
-nameless_build_essential: false
-resource_package_options: false
 actions_list:
   :nothing:
-    markdown: Inherited from **execute** resource. Prevent a command from running.
-      This action is used to specify that a command is run only when another resource
-      notifies it.
+    shortcode: resources_common_actions_nothing.md
   :run:
     markdown: Default. Run the script.
 properties_list:
@@ -114,16 +104,26 @@ properties_list:
   required: false
   default_value: 'false'
   description_list:
-  - markdown: "Return `0` if the last line of a command is evaluated to be true or\n\
-      to return `1` if the last line is evaluated to be false.\n\nWhen the `guard_interpreter`\
-      \ common attribute is set to\n`:powershell_script`, a string command will be\
-      \ evaluated as if this\nvalue were set to `true`. This is because the behavior\
-      \ of this\nattribute is similar to the value of the `\"$?\"` expression common\
-      \ in\nUNIX interpreters. For example, this:\n\n```ruby\npowershell_script 'make_safe_backup'\
-      \ do\n  guard_interpreter :powershell_script\n  code 'cp ~/data/nodes.json ~/data/nodes.bak'\n\
-      \  not_if 'test-path ~/data/nodes.bak'\nend\n```\n\nis similar to:\n\n```ruby\n\
-      bash 'make_safe_backup' do\n  code 'cp ~/data/nodes.json ~/data/nodes.bak'\n\
-      \  not_if 'test -e ~/data/nodes.bak'\nend\n```"
+  - markdown: |
+      Return `0` if the last line of a command is evaluated to be true or to return `1` if the last line is evaluated to be false.
+
+      When the `guard_interpreter` common attribute is set to `:powershell_script`, a string command will be evaluated as if this value were set to `true`. This is because the behavior of this attribute is similar to the value of the `"$?"` expression common in UNIX interpreters. For example, this:
+
+      ```ruby
+      powershell_script 'make_safe_backup' do
+        guard_interpreter :powershell_script
+        code 'cp ~/data/nodes.json ~/data/nodes.bak'
+        not_if 'test-path ~/data/nodes.bak'
+      end
+      ```
+
+      is similar to:
+      ```ruby
+      bash 'make_safe_backup' do
+        code 'cp ~/data/nodes.json ~/data/nodes.bak'
+        not_if 'test -e ~/data/nodes.bak'
+      end
+      ```
 - property: creates
   ruby_type: String
   required: false
@@ -177,9 +177,7 @@ properties_list:
   ruby_type: String, Integer
   required: false
   description_list:
-  - markdown: 'The group name or group ID that must be changed before running a
-
-      command.'
+  - markdown: The group name or group ID that must be changed before running a command.
 - property: guard_interpreter
   ruby_type: Symbol
   required: false
@@ -244,8 +242,6 @@ properties_list:
 - property: user
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: 'The user name of the user identity with which to launch the new
 
@@ -264,100 +260,6 @@ properties_list:
       this property is specified, the <span
 
       class="title-ref">password</span> property must be specified.'
-- property: password
-  ruby_type: String
-  required: false
-  default_value: null
-  new_in: null
-  description_list:
-  - markdown: '*Windows only*: The password of the user specified by the <span
-
-      class="title-ref">user</span> property. Default value: <span
-
-      class="title-ref">nil</span>. This property is mandatory if <span
-
-      class="title-ref">user</span> is specified on Windows and may only
-
-      be specified if <span class="title-ref">user</span> is specified.
-
-      The <span class="title-ref">sensitive</span> property for this
-
-      resource will automatically be set to true if password is specified.'
-- property: domain
-  ruby_type: String
-  required: false
-  default_value: null
-  new_in: null
-  description_list:
-  - markdown: '*Windows only*: The domain of the user specified by the <span
-
-      class="title-ref">user</span> property. Default value: <span
-
-      class="title-ref">nil</span>. If not specified, the user name and
-
-      password specified by the <span class="title-ref">user</span> and
-
-      <span class="title-ref">password</span> properties will be used to
-
-      resolve that user against the domain in which the system running
-
-      Chef Infra Client is joined, or if that system is not joined to a
-
-      domain it will resolve the user as a local account on that system.
-
-      An alternative way to specify the domain is to leave this property
-
-      unspecified and specify the domain as part of the <span
-
-      class="title-ref">user</span> property.'
-- property: elevated
-  ruby_type: true, false
-  required: false
-  default_value: null
-  new_in: null
-  description_list:
-  - markdown: 'Determines whether the script will run with elevated permissions to
-
-      circumvent User Access Control (UAC) interactively blocking the
-
-      process.
-
-
-      This will cause the process to be run under a batch login instead of
-
-      an interactive login. The user running Chef needs the "Replace a
-
-      process level token" and "Adjust Memory Quotas for a process"
-
-      permissions. The user that is running the command needs the "Log on
-
-      as a batch job" permission.
-
-
-      Because this requires a login, the `user` and `password` properties
-
-      are required.'
-properties_shortcode: null
-properties_multiple_packages: false
-resource_directory_recursive_directories: false
-resources_common_atomic_update: false
-properties_resources_common_windows_security: false
-remote_file_prevent_re_downloads: false
-remote_file_unc_path: false
-ps_credential_helper: false
-ruby_style_basics_chef_log: false
-debug_recipes_chef_shell: false
-template_requirements: false
-resources_common_properties: true
-resources_common_notification: true
-resources_common_guards: true
-common_resource_functionality_multiple_packages: false
-resources_common_guard_interpreter: false
-remote_directory_recursive_directories: false
-common_resource_functionality_resources_common_windows_security: false
-handler_custom: false
-cookbook_file_specificity: false
-unit_file_verification: false
 examples: "
   Write to an interpolated path\n\n  ```ruby\n  powershell_script\
   \ 'write-to-interpolated-path' do\n    code <<-EOH\n    $stream = [System.IO.StreamWriter]\

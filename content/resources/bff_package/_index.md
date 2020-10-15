@@ -80,15 +80,24 @@ properties_list:
   required: false
   description_list:
   - markdown: The version of a package to be installed or upgraded.
-examples: "
-  Install a package\n\n  The **bff_package** resource is the default\
-  \ package provider on the AIX\n  platform. The base **package** resource may be\
-  \ used, and then when the\n  platform is AIX, Chef Infra Client will identify the\
-  \ correct package\n  provider. The following examples show how to install part of\
-  \ the IBM XL\n  C/C++ compiler.\n\n  Using the base **package** resource:\n\n  ```\
-  \ ruby\n  package 'xlccmp.13.1.0' do\n    source '/var/tmp/IBM_XL_C_13.1.0/usr/sys/inst.images/xlccmp.13.1.0'\n\
-  \    action :install\n  end\n  ```\n\n  Using the **bff_package** resource:\n\n\
-  \  ```ruby\n  bff_package 'xlccmp.13.1.0' do\n    source '/var/tmp/IBM_XL_C_13.1.0/usr/sys/inst.images/xlccmp.13.1.0'\n\
-  \    action :install\n  end\n  ```\n"
+examples: |
+  The **bff_package** resource is the default package provider on the AIX platform. The base **package** resource may be used, and then when the platform is AIX, Chef Infra Client will identify the correct package provider. The following examples show how to install part of the IBM XL C/C++ compiler.
 
+  **Installing using the base package resource**
+
+  ```ruby
+  package 'xlccmp.13.1.0' do
+    source '/var/tmp/IBM_XL_C_13.1.0/usr/sys/inst.images/xlccmp.13.1.0'
+    action :install
+  end
+  ```
+
+  **Installing using the bff_package resource**
+
+  ```ruby
+  bff_package 'xlccmp.13.1.0' do
+    source '/var/tmp/IBM_XL_C_13.1.0/usr/sys/inst.images/xlccmp.13.1.0'
+    action :install
+  end
+  ```
 ---
