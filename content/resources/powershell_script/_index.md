@@ -131,7 +131,7 @@ properties_list:
   new_in: '12.21'
   description_list:
   - markdown: 'The domain of the user user specified by the user property.
-      If not specified, the user name and password specified by the user and password
+      If not specified, the username and password specified by the `user` and `password`
       properties will be used to resolve that user against the domain in which the
       system running Chef Infra Client is joined, or if that system is not joined
       to a domain it will resolve the user as a local account on that system. An alternative
