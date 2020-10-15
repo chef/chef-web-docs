@@ -1,6 +1,5 @@
 ---
 resource_reference: true
-properties_shortcode: 
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
@@ -47,15 +46,16 @@ actions_list:
     markdown: Deletes a certificate.
   :fetch:
     markdown: Fetches a certificate.
-  :verify:
-    markdown: Verifies a certificate.
   :nothing:
     shortcode: resources_common_actions_nothing.md
+  :verify:
+    markdown: Verifies a certificate.
 properties_list:
 - property: cert_path
   ruby_type: String
   required: false
-  description_list: []
+  description_list:
+  - markdown: The path to the certificate.
 - property: pfx_password
   ruby_type: String
   required: false

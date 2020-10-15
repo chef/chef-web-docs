@@ -1,4 +1,8 @@
 ---
+resource_reference: true
+resources_common_guards: true
+resources_common_notification: true
+resources_common_properties: true
 title: powershell_script resource
 resource: powershell_script
 aliases:
@@ -8,8 +12,6 @@ menu:
     title: powershell_script
     identifier: chef_infra/cookbook_reference/resources/powershell_script powershell_script
     parent: chef_infra/cookbook_reference/resources
-resource_reference: true
-robots: null
 resource_description_list:
 - markdown: 'Use the **powershell_script** resource to execute a script using the
 
@@ -98,24 +100,19 @@ properties_list:
 - property: code
   ruby_type: String
   required: true
-  default_value: null
-  new_in: null
   description_list:
-  - markdown: A quoted (" ") string of code to be executed.
+  - markdown: A quoted string of code to be executed.
 - property: command
   ruby_type: String, Array
   required: false
   default_value: The resource block's name
-  new_in: null
   description_list:
-  - markdown: 'An optional property to set the command to be executed if it differs
-
-      from the resource block''s name.'
+  - markdown: An optional property to set the command to be executed if it differs
+      from the resource block's name.
 - property: convert_boolean_return
   ruby_type: true, false
   required: false
   default_value: 'false'
-  new_in: null
   description_list:
   - markdown: "Return `0` if the last line of a command is evaluated to be true or\n\
       to return `1` if the last line is evaluated to be false.\n\nWhen the `guard_interpreter`\
@@ -130,24 +127,38 @@ properties_list:
 - property: creates
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
   description_list:
-  - markdown: 'Prevent a command from creating a file when that file already
-
-      exists.'
+  - markdown: Prevent a command from creating a file when that file already exists.
 - property: cwd
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: The current working directory from which the command will be run.
+- property: domain
+  ruby_type: String
+  required: false
+  new_in: '12.21'
+  description_list:
+  - markdown: 'The domain of the user user specified by the user property.
+      If not specified, the user name and password specified by the user and password
+      properties will be used to resolve that user against the domain in which the
+      system running Chef Infra Client is joined, or if that system is not joined
+      to a domain it will resolve the user as a local account on that system. An alternative
+      way to specify the domain is to leave this property unspecified and specify
+      the domain as part of the user property.'
+- property: elevated
+  ruby_type: true, false
+  required: false
+  default_value: 'false'
+  new_in: '13.3'
+  description_list:
+  - markdown: |-
+      Determines whether the script will run with elevated permissions to circumvent User Access Control (UAC) interactively blocking the process.
+      This will cause the process to be run under a batch login instead of an interactive login. The user running chef-client needs the 'Replace a process level token' and 'Adjust Memory Quotas for a process' permissions. The user that is running the command needs the 'Log on as a batch job' permission.
+      Because this requires a login, the user and password properties are required.
 - property: environment
   ruby_type: Hash
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: 'A Hash of environment variables in the form of ({''ENV_VARIABLE'' =\>
 
@@ -155,8 +166,6 @@ properties_list:
 - property: flags
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: 'A string that is passed to the Windows PowerShell command. Default
 
@@ -167,8 +176,6 @@ properties_list:
 - property: group
   ruby_type: String, Integer
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: 'The group name or group ID that must be changed before running a
 
@@ -186,20 +193,39 @@ properties_list:
       strings values for the `not_if` and `only_if` properties. Set this
 
       value to `:default` to use the 32-bit version of the cmd.exe shell.'
+- property: input
+  ruby_type: String
+  required: false
+  new_in: '16.2'
+  description_list:
+  - markdown: An optional property to set the input sent to the command as STDIN.
 - property: interpreter
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
+  default_value: powershell
+  allowed_values: '"powershell", "pwsh"'
   description_list:
-  - markdown: 'The script interpreter to use during code execution. Changing the
-
-      default value of this property is not supported.'
+  - markdown: The interpreter type, `powershell` or `pwsh` (PowerShell Core)
+- property: live_stream
+  ruby_type: true, false
+  required: false
+  default_value: 'false'
+  description_list:
+  - markdown: Send the output of the command run by this execute resource block to
+      the Chef Infra Client event stream.
+- property: password
+  ruby_type: String
+  required: false
+  new_in: '12.21'
+  description_list:
+  - markdown: 'The password of the user specified by the user property.
+      This property is mandatory if user is specified on Windows and may only be specified
+      if user is specified. The sensitive property for this resource will automatically
+      be set to true if password is specified.'
 - property: returns
   ruby_type: Integer, Array
   required: false
   default_value: '0'
-  new_in: null
   description_list:
   - markdown: 'Inherited from **execute** resource. The return value for a command.
 

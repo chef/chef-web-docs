@@ -76,13 +76,12 @@ properties_list:
   - markdown: The architecture of the package to be installed or upgraded. This value
       can also be passed as part of the package name.
 - property: flush_cache
-  ruby_type: Array
+  ruby_type: Hash
   required: false
+  default_value: '{"before"=>false, "after"=>false}'
   description_list:
   - markdown: "Flush the in-memory cache before or after a DNF operation that\ninstalls,\
-      \ upgrades, or removes a package. Default value:\n`[ :before, :after ]`. The\
-      \ value may also be a Hash:\n`( { :before => true/false, :after => true/false\
-      \ } )`.\n\nDNF automatically synchronizes remote metadata to a local cache.\n\
+      \ upgrades, or removes a package.\n\nDNF automatically synchronizes remote metadata to a local cache.\n\
       Chef Infra Client creates a copy of the local cache, and then stores\nit in-memory\
       \ during a Chef Infra Client run. The in-memory cache\nallows packages to be\
       \ installed during a Chef Infra Client run\nwithout the need to continue synchronizing\

@@ -1,7 +1,6 @@
 ---
 resource_reference: true
 properties_resources_common_windows_security: true
-properties_shortcode:
 remote_file_prevent_re_downloads: true
 remote_file_unc_path: true
 resources_common_atomic_update: true
