@@ -144,7 +144,7 @@ properties_list:
   new_in: '13.3'
   description_list:
   - markdown: |-
-      Determines whether the script will run with elevated permissions to circumvent User Access Control (UAC) interactively blocking the process.
+      Determines whether the script will run with elevated permissions to circumvent User Access Control (UAC) from interactively blocking the process.
       This will cause the process to be run under a batch login instead of an interactive login. The user running chef-client needs the 'Replace a process level token' and 'Adjust Memory Quotas for a process' permissions. The user that is running the command needs the 'Log on as a batch job' permission.
       Because this requires a login, the user and password properties are required.
 - property: environment
