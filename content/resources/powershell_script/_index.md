@@ -47,17 +47,14 @@ syntax_full_code_block: |-
   end
 syntax_properties_list:
 syntax_full_properties_list:
-- '`powershell_script` is the resource.'
-- '`name` is the name given to the resource block.'
-- '`command` is the command to be run and `cwd` is the location from which the command
-  is run.'
-- '`action` identifies which steps Chef Infra Client will take to bring the node into
-  the desired state.'
-- '`architecture`, `code`, `command`, `convert_boolean_return`, `creates`, `cwd`,
-  `environment`, `flags`, `group`, `guard_interpreter`, `interpreter`, `returns`,
-  `sensitive`, `timeout`, `user`, `password`, `domain` and `elevated` are properties
-  of this resource, with the Ruby type shown. See "Properties" section below for more
-  information about all of the properties that may be used with this resource.'
+- "`powershell_script` is the resource."
+- "`name` is the name given to the resource block."
+- "`action` identifies which steps Chef Infra Client will take to bring the node into
+  the desired state."
+- "`code`, `command`, `convert_boolean_return`, `creates`, `cwd`, `domain`,
+  `elevated`, `environment`, `flags`, `group`, `input`, `interpreter`, `live_stream`,
+  `password`, `returns`, `sensitive`, `timeout`, and `user` are the properties
+  available to this resource."
 actions_list:
   :nothing:
     shortcode: resources_common_actions_nothing.md
