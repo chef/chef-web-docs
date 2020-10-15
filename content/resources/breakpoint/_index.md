@@ -87,5 +87,5 @@ examples: |
   end
   ```
 
-  where the name of each breakpoint is an arbitrary string. In the previous examples, the names are used to indicate if the breakpoint is before or after a resource, and then also to specify which resource.
+In the previous examples, the names are used to indicate if the breakpoint is before or after a resource and also to specify which resource it is before or after.
 ---
