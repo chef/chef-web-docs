@@ -55,6 +55,8 @@ examples: |
 
   **The same recipe with breakpoints**
 
+In the following example, the name of each breakpoint is an arbitrary string.
+
   ```ruby
   breakpoint "before yum_key node['yum']['repo_name']['key']" do
     action :break
