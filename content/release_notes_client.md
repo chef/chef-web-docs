@@ -63,7 +63,7 @@ end
 
 ##### chef-client Cookbook Future
 
-With the inclusion of the `chef_client_config` resource in Chef Infra Client 16.6, it is now possible to fully manage the Chef Infra Client without the need for the `chef-client` cookbook. We highly recommend using the `chef_client_config`, `chef_client_trusted_certicate`, and `chef_client_*` service resources to manage your clients instead of the `chef-client` cookbook. In the future we will mark that cookbook as deprecated, at which time it will no longer receive updates.
+With the inclusion of the `chef_client_config` resource in Chef Infra Client 16.6, it is now possible to fully manage the Chef Infra Client without the need for the `chef-client` cookbook. We highly recommend using the `chef_client_config`, `chef_client_trusted_certificate`, and `chef_client_*` service resources to manage your clients instead of the `chef-client` cookbook. In the future we will mark that cookbook as deprecated, at which time it will no longer receive updates.
 
 Here's a sample of fully managing Linux hosts with the built-in resources:
 
@@ -106,7 +106,7 @@ end
 
 ### Target Mode Improvements
 
-Chef Infra Client 16 introduced an experimental Target Mode feature for executing resources remotely against hosts that do not have a Chef Infra Client or even Ruby installed. For Chef Infra Client 16.6 we've improved this functionality by converting the majority of the Ohai plugins to run remotely. This means when using Target Mode you'll have the majority of Ohai data as if the Chef Infra Client was installed on the node. Keep in mind this data collection can be time consuming over high latency network connections, and cloud plugins which fetch metadata cannot currently be run remotely. Ohai also now includes a `--target` option for remote data gathering, which accepts a Train URI: `ohai --target ssh://foobar.example.org/`. We still consider Target Mode to be an experimental feature, and we'd love your feedback on what works and what doesn't in your environment.
+Chef Infra Client 16 introduced an experimental Target Mode feature for executing resources remotely against hosts that do not have a Chef Infra Client or even Ruby installed. For Chef Infra Client 16.6 we've improved this functionality by converting the majority of the Ohai plugins to run remotely. This means when using Target Mode you'll have the majority of Ohai data as if the Chef Infra Client was installed on the node. Keep in mind this data collection can be time consuming over high latency network connections, and cloud plugins which fetch metadata cannot currently be run remotely. Ohai also now includes a `--target` option for remote data gathering, which accepts a Train URI: `ohai --target ssh://foobar.example.org/`. We still consider Target Mode to be an experimental feature, and we'd love your feedback on what works and what doesn't in your environment. A super huge thanks for the countless hours of work put in by [tecRacer](https://www.tecracer.de/), [@tecracer-theinen](https://github.com/tecracer-theinen), and [burtlo](https://github.com/burtlo) to make this a reality.
 
 ### Updated Resources
 
