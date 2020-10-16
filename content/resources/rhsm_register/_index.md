@@ -1,6 +1,5 @@
 ---
 resource_reference: true
-properties_shortcode:
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
@@ -28,6 +27,7 @@ syntax_full_code_block: |-
     organization               String
     password                   String
     satellite_host             String
+    system_name                String
     username                   String
     action                     Symbol # defaults to :register if not specified
   end
@@ -109,6 +109,12 @@ properties_list:
   description_list:
   - markdown: The FQDN of the Satellite host to register with. If this property is
       not specified, the host will register with Red Hat's public RHSM service.
+- property: system_name
+  ruby_type: String
+  required: false
+  new_in: '16.5'
+  description_list:
+  - markdown: The name of the system to register, defaults to the hostname.
 - property: username
   ruby_type: String
   required: false

@@ -1,6 +1,5 @@
 ---
 resource_reference: true
-properties_shortcode: 
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
@@ -14,17 +13,11 @@ menu:
     identifier: chef_infra/cookbook_reference/resources/sudo sudo
     parent: chef_infra/cookbook_reference/resources
 resource_description_list:
-- markdown: 'Use the **sudo** resource to add or remove individual sudo entries using
-
-    `sudoers.d` files. Sudo version 1.7.2 or newer is required to use the
-
-    sudo resource, as it relies on the `#includedir` directive introduced in
-
-    version 1.7.2. This resource does not enforce installation of the
-
-    required sudo version. Chef-supported releases of Ubuntu, SuSE, Debian,
-
-    and RHEL (6+) all support this feature.'
+- markdown: Use the **sudo** resource to add or remove individual sudo entries using
+    sudoers.d files. Sudo version 1.7.2 or newer is required to use the sudo resource,
+    as it relies on the `#includedir` directive introduced in version 1.7.2. This
+    resource does not enforce installation of the required sudo version. Chef-supported
+    releases of Ubuntu, SuSE, Debian, and RHEL (6+) all support this feature.
 resource_new_in: '14.0'
 syntax_full_code_block: |-
   sudo 'name' do

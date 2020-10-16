@@ -1,6 +1,5 @@
 ---
 resource_reference: true
-properties_shortcode:
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
@@ -22,7 +21,7 @@ syntax_full_code_block: |-
   windows_user_privilege 'name' do
     principal      String # default value: 'name' unless specified
     privilege      Array, String
-    users          Array
+    users          Array, String
     action         Symbol # defaults to :add if not specified
   end
 syntax_properties_list:
@@ -55,9 +54,9 @@ properties_list:
   ruby_type: Array, String
   required: true
   description_list:
-  - markdown: Privilege to set for users.
+  - markdown: One or more privileges to set for users.
 - property: users
-  ruby_type: Array
+  ruby_type: Array, String
   required: false
   description_list:
   - markdown: An optional property to set the privilege for given users. Use only

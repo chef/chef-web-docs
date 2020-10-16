@@ -1,6 +1,5 @@
 ---
 resource_reference: true
-properties_shortcode: 
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
@@ -37,11 +36,10 @@ syntax_full_properties_list:
 actions_list:
   :delete:
     markdown: Deletes the specified pagefile.
-  :set:
-    markdown: Default. Configures the default pagefile, creating it if it doesn't
-      exist.
   :nothing:
     shortcode: resources_common_actions_nothing.md
+  :set:
+    markdown: Default. Configures the default pagefile, creating it if it doesn't exist.
 properties_list:
 - property: automatic_managed
   ruby_type: true, false

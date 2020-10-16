@@ -16,10 +16,6 @@ resource_description_list:
 - markdown: Use the **apt_repository** resource to specify additional APT repositories.
     Adding a new repository will update the APT package cache immediately.
 resource_new_in: '12.9'
-syntax_description: "An **apt_repository** resource specifies APT repository information\
-  \ and\nadds an additional APT repository to the existing list of repositories:\n\
-  \n```ruby\napt_repository 'nginx' do\n  uri        'http://nginx.org/packages/ubuntu/'\n\
-  \  components ['nginx']\nend\n```"
 syntax_full_code_block: |-
   apt_repository 'name' do
     arch               String, false
@@ -49,10 +45,10 @@ actions_list:
   :add:
     markdown: Default. Creates a repository file at `/etc/apt/sources.list.d/` and
       builds the repository listing.
-  :remove:
-    markdown: Removes the repository listing.
   :nothing:
     shortcode: resources_common_actions_nothing.md
+  :remove:
+    markdown: Removes the repository listing.
 properties_list:
 - property: arch
   ruby_type: String, false

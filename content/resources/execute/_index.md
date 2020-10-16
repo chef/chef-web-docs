@@ -1,6 +1,5 @@
 ---
 resource_reference: true
-properties_shortcode:
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
@@ -354,11 +353,11 @@ examples: |
 
   ```ruby
   execute 'test_rule' do
-    command 'command_to_run
+    command "command_to_run
       --option value
       --option value
       --source #{node[:name_of_node][:ipsec][:local][:subnet]}
-      -j test_rule'
+      -j test_rule"
 
     action :nothing
   end

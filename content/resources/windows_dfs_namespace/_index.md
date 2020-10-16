@@ -1,6 +1,5 @@
 ---
 resource_reference: true
-properties_shortcode: 
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
@@ -36,10 +35,10 @@ syntax_full_properties_list:
 - "`change_users`, `description`, `full_users`, `namespace_name`, `read_users`, and
   `root` are the properties available to this resource."
 actions_list:
-  :delete:
-    markdown: Deletes a DFS Namespace including the directory on disk.
   :create:
     markdown: Creates the dfs namespace on the server. Default.
+  :delete:
+    markdown: Deletes a DFS Namespace including the directory on disk.
   :nothing:
     shortcode: resources_common_actions_nothing.md
 properties_list:
