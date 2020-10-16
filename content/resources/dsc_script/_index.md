@@ -157,15 +157,11 @@ properties_list:
 - property: cwd
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: The current working directory.
 - property: environment
   ruby_type: Hash
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: 'A Hash of environment variables in the form of
 
@@ -175,8 +171,6 @@ properties_list:
 - property: flags
   ruby_type: Hash
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: 'Pass parameters to the DSC script that is specified by the `command`
 
@@ -243,12 +237,8 @@ properties_list:
 - property: timeout
   ruby_type: Integer
   required: false
-  default_value: null
-  new_in: null
   description_list:
-  - markdown: 'The amount of time (in seconds) a command is to wait before timing
-
-      out.'
+  - markdown: The amount of time (in seconds) a command is to wait before timing out.
 properties_shortcode: null
 properties_multiple_packages: false
 resource_directory_recursive_directories: false

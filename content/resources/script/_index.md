@@ -1,9 +1,8 @@
 ---
 title: script resource
 resource: script
-draft: false
 aliases:
-- /resource_script.html
+- "/resource_script.html"
 menu:
   infra:
     title: script

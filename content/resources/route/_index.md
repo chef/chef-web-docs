@@ -1,6 +1,5 @@
 ---
 resource_reference: true
-properties_shortcode:
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
@@ -71,9 +70,7 @@ properties_list:
   ruby_type: String
   required: false
   description_list:
-  - markdown: 'The decimal representation of the network mask. For example:
-
-      `255.255.255.0`.'
+  - markdown: 'The decimal representation of the network mask. For example: `255.255.255.0`.'
 - property: route_type
   ruby_type: Symbol, String
   required: false

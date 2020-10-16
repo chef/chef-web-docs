@@ -1,6 +1,5 @@
 ---
 resource_reference: true
-properties_shortcode:
 registry_key: true
 title: registry_key resource
 resource: registry_key

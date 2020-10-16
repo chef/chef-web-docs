@@ -1,7 +1,6 @@
 ---
 resource_reference: true
 common_resource_functionality_resources_common_windows_security: true
-properties_shortcode:
 remote_directory_recursive_directories: true
 resource_directory_recursive_directories: true
 resources_common_guards: true

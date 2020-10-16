@@ -1,6 +1,5 @@
 ---
 resource_reference: true
-properties_shortcode: 
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
@@ -99,7 +98,7 @@ examples: |
   ```ruby
   sysctl 'vm.swappiness' do
     value 19
-    comment 'define how aggressively the kernel will swap memory pages.'
+    comment "define how aggressively the kernel will swap memory pages."
   end
   ```
 
