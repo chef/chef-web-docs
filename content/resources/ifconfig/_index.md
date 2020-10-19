@@ -173,17 +173,58 @@ properties_list:
   new_in: '14.4'
   description_list:
   - markdown: The VLAN to assign the interface to.
-examples: "
-  Configure a network interface\n\n  ```ruby\n  ifconfig \"33.33.33.80\"\
-  \ do\n    bootproto \"dhcp\"\n    device \"eth1\"\n  end\n  ```\n\n  will create\
-  \ the following interface:\n\n  ```none\n  vagrant@default-ubuntu-2004:~cat /etc/network/interfaces.d/ifcfg-eth1\n\
-  \  iface eth1 inet dhcp\n  ```\n\n  Specify a boot protocol\n\n  ```ruby\n  ifconfig\
-  \ '192.186.0.1' do\n    device 'eth0'\n  end\n  ```\n\n  Specify a static IP address\n\
-  \n  ```ruby\n  ifconfig \"33.33.33.80\" do\n    device \"eth1\"\n  end\n  ```\n\
-  \n  will create the following interface:\n\n  ```none\n  iface eth1 inet static\n\
-  \    address 33.33.33.80\n  ```\n\n  Update a static IP address with a boot protocol\n\
-  \n  ```ruby\n  ifconfig \"33.33.33.80\" do\n    bootproto \"dhcp\"\n    device\
-  \ \"eth1\"\n  end\n  ```\n\n  will update the interface from `static` to `dhcp`:\n\
-  \n  ```none\n  iface eth1 inet dhcp\n    address 33.33.33.80\n  ```\n"
+examples: |
+  **Configure a network interface**
 
+  ```ruby
+  ifconfig "33.33.33.80" do
+    bootproto "dhcp"
+    device "eth1"
+  end
+  ```
+
+  will create the following interface configuration:
+
+  ```
+  iface eth1 inet dhcp
+  ```
+
+  **Specify a boot protocol**
+
+  ```ruby
+  ifconfig '192.186.0.1' do
+    device 'eth0'
+  end
+  ```
+
+  **Specify a static IP address**
+
+  ```ruby
+  ifconfig "33.33.33.80" do
+    device "eth1"
+  end
+  ```
+
+  will create the following interface configuration:
+
+  ```
+  iface eth1 inet static
+    address 33.33.33.80
+  ```
+
+  **Update a static IP address with a boot protocol**
+
+  ```ruby
+  ifconfig "33.33.33.80" do
+    bootproto "dhcp"
+    device "eth1"
+  end
+  ```
+
+  will update the interface configuration from static to dhcp:
+
+  ```
+  iface eth1 inet dhcp
+    address 33.33.33.80
+  ```
 ---
