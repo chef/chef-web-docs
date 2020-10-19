@@ -174,19 +174,19 @@ properties_list:
   description_list:
   - markdown: The VLAN to assign the interface to.
 examples: |
-  **Configure a network interface**
+  **Configure a network interface with a static IP**
 
   ```ruby
-  ifconfig "33.33.33.80" do
-    bootproto "dhcp"
-    device "eth1"
+  ifconfig '33.33.33.80' do
+    device 'eth1'
   end
   ```
 
   will create the following interface configuration:
 
   ```
-  iface eth1 inet dhcp
+  iface eth1 inet static
+    address 33.33.33.80
   ```
 
   **Specify a boot protocol**
@@ -197,19 +197,19 @@ examples: |
   end
   ```
 
-  **Specify a static IP address**
+  **Configure an interface to use DHCP**
 
   ```ruby
-  ifconfig "33.33.33.80" do
-    device "eth1"
+  ifconfig 'Set eth1 to DHCP' do
+    device 'eth1'
+    bootproto 'dhcp'
   end
   ```
 
   will create the following interface configuration:
 
   ```
-  iface eth1 inet static
-    address 33.33.33.80
+  iface eth1 inet dhcp
   ```
 
   **Update a static IP address with a boot protocol**
