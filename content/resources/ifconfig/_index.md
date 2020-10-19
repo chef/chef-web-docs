@@ -14,6 +14,11 @@ menu:
     parent: chef_infra/cookbook_reference/resources
 resource_description_list:
 - markdown: Use the **ifconfig** resource to manage interfaces on Unix and Linux systems.
+- note:
+    markdown: This resource requires the ifconfig binary to be present on the system
+      and may require additional packages to be installed first. On Ubuntu 18.04 or
+      later you will need to install the `ifupdown` package, which disables the built
+      in Netplan functionality.
 syntax_full_code_block: |-
   ifconfig 'name' do
     bcast             String
@@ -187,14 +192,6 @@ examples: |
   ```
   iface eth1 inet static
     address 33.33.33.80
-  ```
-
-  **Specify a boot protocol**
-
-  ```ruby
-  ifconfig '192.186.0.1' do
-    device 'eth0'
-  end
   ```
 
   **Configure an interface to use DHCP**
