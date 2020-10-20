@@ -2,7 +2,6 @@
 resource_reference: true
 cookbook_file_specificity: true
 properties_resources_common_windows_security: true
-properties_shortcode:
 resources_common_atomic_update: true
 resources_common_guards: true
 resources_common_notification: true
@@ -117,8 +116,6 @@ properties_list:
 - property: group
   ruby_type: Integer, String
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: 'A string or ID that identifies the group owner by group name or SID,
 
@@ -131,18 +128,13 @@ properties_list:
       group (if available).'
 - property: inherits
   ruby_type: true, false
-  required: false
   default_value: 'true'
-  new_in: null
   description_list:
-  - markdown: 'Microsoft Windows only. Whether a file inherits rights from its
-
-      parent directory.'
+  - markdown: 'Microsoft Windows only. Whether a file inherits rights from its parent directory.'
 - property: manage_symlink_source
   ruby_type: true, false
   required: false
   default_value: 'true'
-  new_in: null
   description_list:
   - markdown: '(with
 
@@ -170,8 +162,6 @@ properties_list:
 - property: mode
   ruby_type: Integer, String
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: 'If `mode` is not specified and if the file already exists, the
 
@@ -230,8 +220,6 @@ properties_list:
 - property: owner
   ruby_type: Integer, String
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: 'A string or ID that identifies the group owner by user name or SID,
 
@@ -285,7 +273,6 @@ properties_list:
   ruby_type: String, Array
   required: false
   default_value: The resource block's name
-  new_in: null
   description_list:
   - markdown: 'The name of the file in `COOKBOOK_NAME/files/default` or the path to
 

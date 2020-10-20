@@ -1,9 +1,8 @@
 ---
 title: macports_package resource
 resource: macports_package
-draft: false
 aliases:
-- /resource_macports_package.html
+- "/resource_macports_package.html"
 menu:
   infra:
     title: macports_package

@@ -1,7 +1,6 @@
 ---
 resource_reference: true
 properties_resources_common_windows_security: true
-properties_shortcode:
 resources_common_atomic_update: true
 resources_common_guards: true
 resources_common_notification: true

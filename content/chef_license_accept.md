@@ -105,8 +105,8 @@ required to accept the license for all the embedded products as well.
 The same license applies to all products, but each product must have its
 own license acceptance. `chef <command> --chef-license accept` will
 accept the license for Chef Workstation, Chef Infra Client, Chef InSpec,
-and Push Jobs Client. For example, <span class="title-ref">chef env
---chef-license accept</span>
+and Push Jobs Client. For example, `chef env
+--chef-license accept`.
 
 #### Chef Infra Client
 

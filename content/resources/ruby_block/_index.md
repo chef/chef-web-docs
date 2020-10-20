@@ -1,10 +1,9 @@
 ---
 resource_reference: true
-properties_shortcode:
 title: ruby_block resource
 resource: ruby_block
 aliases:
-- /resource_ruby_block.html
+- "/resource_ruby_block.html"
 menu:
   infra:
     title: ruby_block

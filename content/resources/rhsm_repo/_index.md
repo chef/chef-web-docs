@@ -1,6 +1,5 @@
 ---
 resource_reference: true
-properties_shortcode:
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
@@ -30,10 +29,10 @@ syntax_full_properties_list:
   the desired state."
 - "`repo_name` is the property available to this resource."
 actions_list:
-  :enable:
-    markdown: Default. Enable an RHSM repository.
   :disable:
     markdown: Disable an RHSM repository.
+  :enable:
+    markdown: Default. Enable an RHSM repository.
   :nothing:
     shortcode: resources_common_actions_nothing.md
 properties_list:
