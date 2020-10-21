@@ -3,7 +3,7 @@
 set -eoux pipefail
 
 
-branch="expeditor/update_docs_chef_automate_${EXPEDITOR_DATE}"
+branch="expeditor/update_docs_chef_automate"
 git checkout -b "$branch"
 
 # Update the semver version of the documentation module that chef-web-docs will
