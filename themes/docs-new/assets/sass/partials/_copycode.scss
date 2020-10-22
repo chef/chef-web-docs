@@ -37,3 +37,7 @@
     margin-top: 0;
 }
 
+/* reduce spacing when block follows a p */
+p + button.copy-code-button {
+  margin-top: -.5rem;
+}
