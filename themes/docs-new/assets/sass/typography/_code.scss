@@ -5,8 +5,8 @@ code {
   font-size: 0.9em;
   display: inline;
   max-width: 100%;
+  margin-bottom: .5rem;
 }
-
 
 a {
   code {
@@ -19,7 +19,7 @@ pre {
   background-color: $sidebargray;
   border: 1px solid $ash;
   border-radius: $border-radius-base;
-  margin-bottom: rem-calc(48);
+  margin: .5rem 0rem;
   padding: .25rem;
 
   code {

@@ -44,8 +44,8 @@ h2, .h2 {
 	letter-spacing: normal;
 	color: $charcoal;
 	text-transform: none;
-	margin-bottom: 12px;
-	margin-top: rem-calc(24px);
+	margin-bottom: 1rem;
+	margin-top: rem-calc(1rem);
 }
 
 h3, .h3 {
@@ -55,8 +55,8 @@ h3, .h3 {
 	letter-spacing: normal;
 	color: $charcoal;
 	text-transform: none;
-	margin-bottom: 17px;
-	margin-top: rem-calc(32px);
+	margin-bottom: .75rem;
+	margin-top: .75rem;
 }
 
 h4, .h4 {
@@ -64,10 +64,9 @@ h4, .h4 {
 	line-height: 1.36;
 	font-weight: $bold;
 	letter-spacing: normal;
-	color: $charcoal;
-	text-transform: none;
-    margin-bottom: rem-calc(18px);
-    margin-top: rem-calc(32px);
+  color: $charcoal;
+  text-transform: uppercase;
+  margin: .75rem 0;
 }
 
 h5, .h5 {
@@ -76,8 +75,8 @@ h5, .h5 {
 	font-weight: $bold;
 	letter-spacing: normal;
 	color: $charcoal;
-	text-transform: uppercase;
-	margin-bottom: 8px;
+  text-transform: capitalize;
+  margin-bottom: .05rem;
 }
 
 h6, .h6, {
@@ -86,6 +85,6 @@ h6, .h6, {
 	font-weight: $bold;
 	letter-spacing: normal;
 	color: $charcoal;
-	text-transform: uppercase;
-	margin-bottom: 8px;
+  font-variant: small-caps;
+  margin-bottom: .05rem;
 }

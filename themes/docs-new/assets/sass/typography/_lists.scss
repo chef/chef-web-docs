@@ -1,11 +1,16 @@
 #main-content,
 .content {
   ul, ol {
-    margin-bottom: 28px;
 
     li {
-      @extend .p;
-      margin-bottom: 0px;
+      p:first-of-type{
+        font-weight: bold;
+        margin-top: .5rem;
+      }
+      p {
+       margin-bottom: .0rem;
+       margin-top: 0;
+      }
     }
   }
 
@@ -31,10 +36,12 @@
         font-weight: 900;
         font-size: 1.2em;
       }
+
       p {
-        margin-top: -1.7em;
-        margin-bottom: 2em;
+        margin-top: -1.7rem;
+        margin-bottom: 2rem;
       }
+
       div.highlight{
         margin-top: -3em;
         margin-bottom: 3em;
