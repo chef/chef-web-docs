@@ -21,6 +21,7 @@ pre {
   border-radius: $border-radius-base;
   margin-bottom: rem-calc(48);
   padding: .25rem;
+  white-space: pre-wrap;
 
   code {
     background-color: transparent;
