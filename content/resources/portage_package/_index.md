@@ -1,9 +1,8 @@
 ---
 title: portage_package resource
 resource: portage_package
-draft: false
 aliases:
-- /resource_portage_package.html
+- "/resource_portage_package.html"
 menu:
   infra:
     title: portage_package
@@ -20,9 +19,9 @@ resource_new_in: null
 handler_types: false
 syntax_description: "A **portage_package** resource block manages a package on a node,\n\
   typically by installing it. The simplest use of the **portage_package**\nresource\
-  \ is:\n\n``` ruby\nportage_package 'package_name'\n```\n\nwhich will install the\
+  \ is:\n\n```ruby\nportage_package 'package_name'\n```\n\nwhich will install the\
   \ named package using all of the default options\nand the default action (`:install`).\n\
-  \nThe portage_package resource has the following syntax:\n\n``` ruby\nportage_package\
+  \nThe portage_package resource has the following syntax:\n\n```ruby\nportage_package\
   \ 'name' do\n  options           String, Array\n  package_name      String, Array\n\
   \  source            String\n  timeout           String, Integer # default value:\
   \ 3600\n  version           String, Array\n  action            Symbol # defaults\
@@ -117,7 +116,7 @@ handler_custom: false
 cookbook_file_specificity: false
 unit_file_verification: false
 examples: "
-  Install a package\n\n  ``` ruby\n  portage_package 'name of package'\
+  Install a package\n\n  ```ruby\n  portage_package 'name of package'\
   \ do\n    action :install\n  end\n  ```\n"
 
 ---

@@ -2,7 +2,6 @@
 <footer id="footer">
   <div class="grid-container">
     <div class="grid-x align-middle">
-      <div class="cell small-12 large-3 logo"><a href="/"><img src="{{ "images/chef-logo-light.svg" | relURL }}" alt="{{ .Site.Title }}"></a></div>
       <div class="cell small-12 large-9">
         <ul class="menu vertical medium-horizontal">
           <li><a href="/sitemap/" target="_self">Site Map</a></li>
@@ -15,7 +14,7 @@
         {{ if and (ne .Kind "taxonomy") (ne .Kind "taxonomyTerm") (ne .Kind "404")}}
           <p class="modified">Page Last Modified: {{ .Lastmod }}</p>
         {{ end }}
-        <p class="legal">&copy; 2008-{{ now.Format "2006" }} Chef Software, Inc. All Rights Reserved.</p>
+        <p class="legal">Copyright &copy; {{ now.Format "2006" }} Progress Software Corporation and/or its subsidiaries or affiliates. All Rights Reserved.</p>
       </div>
     </div>
   </div>

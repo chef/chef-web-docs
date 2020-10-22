@@ -1,7 +1,6 @@
 ---
 resource_reference: true
 nameless_apt_update: true
-properties_shortcode: 
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
@@ -51,8 +50,8 @@ examples: |
 
   ```ruby
   apt_update 'all platforms' do
-  frequency 86400
-  action :periodic
+    frequency 86400
+    action :periodic
   end
   ```
 

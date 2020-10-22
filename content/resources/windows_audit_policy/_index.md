@@ -1,6 +1,5 @@
 ---
 resource_reference: true
-properties_shortcode:
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
@@ -122,7 +121,7 @@ examples: |
 
   ```ruby
   windows_audit_policy "Set Audit Policy for 'Credential Validation' actions to 'Success'" do
-    subcategory  'Credential Validation'
+    subcategory 'Credential Validation'
     success true
     failure false
     action :set

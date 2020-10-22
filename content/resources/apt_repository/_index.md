@@ -1,6 +1,5 @@
 ---
 resource_reference: true
-properties_shortcode: 
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
@@ -17,10 +16,6 @@ resource_description_list:
 - markdown: Use the **apt_repository** resource to specify additional APT repositories.
     Adding a new repository will update the APT package cache immediately.
 resource_new_in: '12.9'
-syntax_description: "An **apt_repository** resource specifies APT repository information\
-  \ and\nadds an additional APT repository to the existing list of repositories:\n\
-  \n``` ruby\napt_repository 'nginx' do\n  uri        'http://nginx.org/packages/ubuntu/'\n\
-  \  components ['nginx']\nend\n```"
 syntax_full_code_block: |-
   apt_repository 'name' do
     arch               String, false
@@ -37,7 +32,7 @@ syntax_full_code_block: |-
     uri                String
     action             Symbol # defaults to :add if not specified
   end
-syntax_properties_list: 
+syntax_properties_list:
 syntax_full_properties_list:
 - "`apt_repository` is the resource."
 - "`name` is the name given to the resource block."
@@ -50,10 +45,10 @@ actions_list:
   :add:
     markdown: Default. Creates a repository file at `/etc/apt/sources.list.d/` and
       builds the repository listing.
-  :remove:
-    markdown: Removes the repository listing.
   :nothing:
     shortcode: resources_common_actions_nothing.md
+  :remove:
+    markdown: Removes the repository listing.
 properties_list:
 - property: arch
   ruby_type: String, false
@@ -133,7 +128,7 @@ properties_list:
 examples: |
   **Add repository with basic settings**:
 
-   ```ruby
+  ```ruby
   apt_repository 'nginx' do
     uri        'http://nginx.org/packages/ubuntu/'
     components ['nginx']
@@ -155,19 +150,18 @@ examples: |
 
   ```ruby
   apt_repository 'nginx-php' do
-    uri          'ppa:nginx/stable'
+    uri 'ppa:nginx/stable'
   end
   ```
 
-  **Add the JuJu PPA, grab the key from the keyserver, and add source repo**:
+  **Add the JuJu PPA, grab the key from the Ubuntu keyserver, and add source repo**:
 
   ```ruby
   apt_repository 'juju' do
-    uri 'http://ppa.launchpad.net/juju/stable/ubuntu'
+    uri 'ppa:juju/stable'
     components ['main']
     distribution 'xenial'
     key 'C8068B11'
-    keyserver 'keyserver.ubuntu.com'
     action :add
     deb_src true
   end

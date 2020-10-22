@@ -53,7 +53,7 @@ installed on your system for the full list:
 
 ### General Purpose Plugins
 
-``` ruby
+```ruby
 azure.rb
 c.rb
 chef.rb
@@ -119,7 +119,7 @@ zpools.rb
 
 ### Platform Specific Plugins
 
-``` ruby
+```ruby
 aix
   kernel.rb
   memory.rb
@@ -162,7 +162,7 @@ linux
   memory.rb
   network.rb
   platform.rb
-  sessons.rb
+  sessions.rb
   virtualization.rb
 netbsd
   cpu.rb
@@ -212,10 +212,10 @@ enabled in the [client.rb configuration file](/config_rb_client/).
 Optional plugins can be enabled in the [client.rb configuration
 file](/config_rb_client/):
 
-``` ruby
+```ruby
 ohai.optional_plugins = [
   :Sessions,
-  :Lspci
+  :Lspci,
 ]
 ```
 
@@ -250,14 +250,14 @@ hints directory, and return nil if the file does not exist.
 If the hint file contains JSON content, it will be returned as a hash
 from the call to `hint?`.
 
-``` javascript
+```javascript
 {
   "snow": true,
   "penguins": "many"
 }
 ```
 
-``` ruby
+```ruby
 antarctica_hint = hint?('antarctica')
 if antarctica_hint['snow']
   "There are #{antarctica_hint['penguins']} penguins here."

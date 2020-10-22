@@ -1,0 +1,339 @@
+---
+resource_reference: true
+resources_common_guards: true
+resources_common_notification: true
+resources_common_properties: true
+title: chef_client_config resource
+resource: chef_client_config
+aliases:
+- "/resource_chef_client_config.html"
+menu:
+  infra:
+    title: chef_client_config
+    identifier: chef_infra/cookbook_reference/resources/chef_client_config chef_client_config
+    parent: chef_infra/cookbook_reference/resources
+resource_description_list:
+- markdown: Use the **chef_client_config** resource to create a client.rb file in
+    the Chef Infra Client configuration directory. See the [client.rb docs](https://docs.chef.io/config_rb_client/)
+    for more details on options available in the client.rb configuration file.
+resource_new_in: '16.6'
+syntax_full_code_block: |-
+  chef_client_config 'name' do
+    additional_config              String
+    chef_license                   String
+    chef_server_url                String
+    config_directory               String
+    event_loggers                  Array # default value: []
+    exception_handlers             Array # default value: []
+    file_backup_path               String
+    file_cache_path                String
+    file_staging_uses_destdir      String
+    formatters                     Array # default value: []
+    ftp_proxy                      String
+    group                          String
+    http_proxy                     String
+    https_proxy                    String
+    log_level                      Symbol
+    log_location                   String, Symbol
+    minimal_ohai                   true, false
+    named_run_list                 String
+    no_proxy                       String, Array # default value: []
+    node_name                      String
+    ohai_disabled_plugins          Array # default value: []
+    ohai_optional_plugins          Array # default value: []
+    pid_file                       String
+    policy_group                   String
+    policy_name                    String
+    report_handlers                Array # default value: []
+    ssl_verify_mode                Symbol, String
+    start_handlers                 Array # default value: []
+    user                           String
+    action                         Symbol # defaults to :create if not specified
+  end
+syntax_properties_list:
+syntax_full_properties_list:
+- "`chef_client_config` is the resource."
+- "`name` is the name given to the resource block."
+- "`action` identifies which steps Chef Infra Client will take to bring the node into
+  the desired state."
+- "`additional_config`, `chef_license`, `chef_server_url`, `config_directory`, `event_loggers`,
+  `exception_handlers`, `file_backup_path`, `file_cache_path`, `file_staging_uses_destdir`,
+  `formatters`, `ftp_proxy`, `group`, `http_proxy`, `https_proxy`, `log_level`, `log_location`,
+  `minimal_ohai`, `named_run_list`, `no_proxy`, `node_name`, `ohai_disabled_plugins`,
+  `ohai_optional_plugins`, `pid_file`, `policy_group`, `policy_name`, `report_handlers`,
+  `ssl_verify_mode`, `start_handlers`, and `user` are the properties available to
+  this resource."
+actions_list:
+  :create:
+    markdown:
+  :nothing:
+    shortcode: resources_common_actions_nothing.md
+  :remove:
+    markdown:
+properties_list:
+- property: additional_config
+  ruby_type: String
+  required: false
+  description_list:
+  - markdown: Additional text to add at the bottom of the client.rb config. This can
+      be used to run custom Ruby or to add less common config options
+- property: chef_license
+  ruby_type: String
+  required: false
+  allowed_values: '"accept", "accept-no-persist", "accept-silent"'
+  description_list:
+  - markdown: Accept the [Chef EULA](https://www.chef.io/end-user-license-agreement/)
+- property: chef_server_url
+  ruby_type: String
+  required: true
+  description_list:
+  - markdown: The URL for the Chef Infra Server.
+- property: config_directory
+  ruby_type: String
+  required: false
+  default_value: "`/etc/chef/` on *nix-like systems and `C:\\chef\\` on Windows"
+  description_list:
+  - markdown: The directory to store the client.rb in.
+- property: event_loggers
+  ruby_type: Array
+  required: false
+  default_value: "[]"
+  description_list:
+  - markdown: ''
+- property: exception_handlers
+  ruby_type: Array
+  required: false
+  default_value: "[]"
+  description_list:
+  - markdown: 'An array of hashes that contain a exception handler class and the arguments
+      to pass to that class on initialization. The hash should include `class` and
+      `argument` keys where `class` is a String and `argument` is an array of quoted
+      String values. For example: `[{''class'' => ''MyHandler'', %w(''"argument1"'',
+      ''"argument2"'')}]`'
+- property: file_backup_path
+  ruby_type: String
+  required: false
+  description_list:
+  - markdown: The location in which backup files are stored. If this value is empty,
+      backup files are stored in the directory of the target file
+- property: file_cache_path
+  ruby_type: String
+  required: false
+  description_list:
+  - markdown: The location in which cookbooks (and other transient data) files are
+      stored when they are synchronized. This value can also be used in recipes to
+      download files with the `remote_file` resource.
+- property: file_staging_uses_destdir
+  ruby_type: String
+  required: false
+  description_list:
+  - markdown: How file staging (via temporary files) is done. When `true`, temporary
+      files are created in the directory in which files will reside. When `false`,
+      temporary files are created under `ENV['TMP']`
+- property: formatters
+  ruby_type: Array
+  required: false
+  default_value: "[]"
+  description_list:
+  - markdown: ''
+- property: ftp_proxy
+  ruby_type: String
+  required: false
+  description_list:
+  - markdown: The proxy server to use for FTP connections.
+- property: group
+  ruby_type: String
+  required: false
+  description_list:
+  - markdown: 'The group that should own the client.rb file and the configuration
+      directory if it needs to be created. Note: The configuration directory will
+      not be created if it already exists, which allows you to further control the
+      setup of that directory outside of this resource.'
+- property: http_proxy
+  ruby_type: String
+  required: false
+  description_list:
+  - markdown: The proxy server to use for HTTP connections.
+- property: https_proxy
+  ruby_type: String
+  required: false
+  description_list:
+  - markdown: The proxy server to use for HTTPS connections.
+- property: log_level
+  ruby_type: Symbol
+  required: false
+  allowed_values: ":auto, :debug, :fatal, :info, :trace, :warn"
+  description_list:
+  - markdown: The level of logging performed by the Chef Infra Client.
+- property: log_location
+  ruby_type: String, Symbol
+  required: false
+  description_list:
+  - markdown: The location to save logs to. This can either by a path to a log file
+      on disk `:syslog` to log to Syslog, `:win_evt` to log to the Windows Event Log,
+      or `'STDERR'`/`'STDOUT'` to log to the *nix text streams.
+- property: minimal_ohai
+  ruby_type: true, false
+  required: false
+  description_list:
+  - markdown: Run a minimal set of Ohai plugins providing data necessary for the execution
+      of Chef Infra Client's built-in resources. Setting this to true will skip many
+      large and time consuming data sets such as `cloud` or `packages`. Setting this
+      this to true may break cookbooks that assume all Ohai data will be present.
+- property: named_run_list
+  ruby_type: String
+  required: false
+  description_list:
+  - markdown: A specific named runlist defined in the node's applied Policyfile, which
+      the should be used when running Chef Infra Client.
+- property: no_proxy
+  ruby_type: String, Array
+  required: false
+  default_value: "[]"
+  description_list:
+  - markdown: A comma-separated list or an array of URLs that do not need a proxy.
+- property: node_name
+  ruby_type: String
+  required: false
+  default_value: The `node.name` value reported by Chef Infra Client.
+  description_list:
+  - markdown: 'The name of the node. This configuration sets the `node.name` value
+      used in cookbooks and the `client_name` value used when authenticating to a
+      Chef Infra Server to determine what configuration to apply. Note: By default
+      this configuration uses the `node.name` value which would be set during bootstrap.
+      Hard coding this value in the `client.rb` config avoids logic within Chef Infra
+      Server that performs DNS lookups and may fail in the event of a DNS outage.
+      To skip this default value and instead use the built-in Chef Infra Server logic,
+      set this property to `nil`'
+- property: ohai_disabled_plugins
+  ruby_type: Array
+  required: false
+  default_value: "[]"
+  description_list:
+  - markdown: Ohai plugins that should be disabled in order to speed up the Chef Infra
+      Client run and reduce the size of node data sent to Chef Infra Client
+- property: ohai_optional_plugins
+  ruby_type: Array
+  required: false
+  default_value: "[]"
+  description_list:
+  - markdown: Optional Ohai plugins that should be enabled to provide additional Ohai
+      data for use in cookbooks.
+- property: pid_file
+  ruby_type: String
+  required: false
+  description_list:
+  - markdown: 'The location in which a process identification number (pid) is saved.
+      An executable, when started as a daemon, writes the pid to the specified file. '
+- property: policy_group
+  ruby_type: String
+  required: false
+  description_list:
+  - markdown: The name of a `policy group` that exists on the Chef Infra Server. `policy_name`
+      must also be specified when setting this property.
+- property: policy_name
+  ruby_type: String
+  required: false
+  description_list:
+  - markdown: The name of a policy, as identified by the `name` setting in a Policyfile.rb
+      file. `policy_group`  when setting this property.
+- property: report_handlers
+  ruby_type: Array
+  required: false
+  default_value: "[]"
+  description_list:
+  - markdown: 'An array of hashes that contain a report handler class and the arguments
+      to pass to that class on initialization. The hash should include `class` and
+      `argument` keys where `class` is a String and `argument` is an array of quoted
+      String values. For example: `[{''class'' => ''MyHandler'', %w(''"argument1"'',
+      ''"argument2"'')}]`'
+- property: ssl_verify_mode
+  ruby_type: Symbol, String
+  required: false
+  allowed_values: ":verify_none, :verify_peer"
+  description_list:
+  - markdown: |
+      Set the verify mode for HTTPS requests.
+
+      * Use :verify_none for no validation of SSL certificates.
+      * Use :verify_peer for validation of all SSL certificates, including the Chef Infra Server connections, S3 connections, and any HTTPS remote_file resource URLs used in Chef Infra Client runs. This is the recommended setting.
+- property: start_handlers
+  ruby_type: Array
+  required: false
+  default_value: "[]"
+  description_list:
+  - markdown: 'An array of hashes that contain a report handler class and the arguments
+      to pass to that class on initialization. The hash should include `class` and
+      `argument` keys where `class` is a String and `argument` is an array of quoted
+      String values. For example: `[{''class'' => ''MyHandler'', %w(''"argument1"'',
+      ''"argument2"'')}]`'
+- property: user
+  ruby_type: String
+  required: false
+  description_list:
+  - markdown: 'The user that should own the client.rb file and the configuration directory
+      if it needs to be created. Note: The configuration directory will not be created
+      if it already exists, which allows you to further control the setup of that
+      directory outside of this resource.'
+examples: |
+  **Bare minimum Chef Infra Client client.rb**:
+
+  The absolute minimum configuration necessary for a node to communicate with the Infra Server is the URL of the Infra Server. All other configuration options either have values at the server side (Policyfiles, Roles, Environments, etc) or have default values determined at client startup.
+
+  ```ruby
+  chef_client_config 'Create client.rb' do
+    chef_server_url 'https://chef.example.dmz'
+  end
+  ```
+
+  **More complex Chef Infra Client client.rb**:
+
+  ```ruby
+  chef_client_config 'Create client.rb' do
+    chef_server_url 'https://chef.example.dmz'
+    log_level :info
+    log_location :syslog
+    http_proxy 'proxy.example.dmz'
+    https_proxy 'proxy.example.dmz'
+    no_proxy %w(internal.example.dmz)
+  end
+  ```
+
+  **Adding additional config content to the client.rb**:
+
+  This resource aims to provide common configuration options. Some configuration options are missing and some users may want to use arbitrary Ruby code within their configuration. For this we offer an `additional_config` property that can be used to add any configuration or code to the bottom of the `client.rb` file. Also keep in mind that within the configuration directory is a `client.d` directory where you can put additional `.rb` files containing configuration options. These can be created using `file` or `template` resources within your cookbooks as necessary.
+
+  ```ruby
+  chef_client_config 'Create client.rb' do
+    chef_server_url 'https://chef.example.dmz'
+    additional_config <<~CONFIG
+      # Extra config code to safely load a gem into the client run.
+      # Since the config is Ruby you can run any Ruby code you want via the client.rb.
+      # It's a great way to break things, so be careful
+      begin
+        require 'aws-sdk'
+      rescue LoadError
+        Chef::Log.warn "Failed to load aws-sdk."
+      end
+    CONFIG
+  end
+  ```
+
+  **Setup two report handlers in the client.rb**:
+
+  ```ruby
+  chef_client_config 'Create client.rb' do
+    chef_server_url 'https://chef.example.dmz'
+    report_handlers [
+      {
+       'class' => 'ReportHandler1Class',
+       'arguments' => ["'FirstArgument'", "'SecondArgument'"],
+      },
+      {
+       'class' => 'ReportHandler2Class',
+       'arguments' => ["'FirstArgument'", "'SecondArgument'"],
+      },
+    ]
+  end
+  ```
+---

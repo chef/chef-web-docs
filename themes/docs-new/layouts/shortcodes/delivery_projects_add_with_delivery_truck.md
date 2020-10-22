@@ -16,14 +16,14 @@ privileges on the Chef Automate server, do the following:
 
 1.  Make a working directory (`workspace` in the example):
 
-    ``` bash
+    ```bash
     mkdir ~/workspace && cd ~/workspace
     ```
 
 2.  Setup the Delivery CLI to, by default, contact the Chef Automate
     server at SERVER, with a default ENTERPRISE and ORGANIZATION:
 
-    ``` bash
+    ```bash
     delivery setup --server=SERVER --ent=ENTERPRISE --org=ORGANIZATION --user=USERNAME
     ```
 
@@ -35,7 +35,6 @@ privileges on the Chef Automate server, do the following:
 
     The server, enterprise, organization, and user must already exist.
 
-    
 
     </div>
 
@@ -43,11 +42,11 @@ privileges on the Chef Automate server, do the following:
 
 3.  Create a cookbook:
 
-    ``` bash
+    ```bash
     chef generate cookbook NEW-COOKBOOK-NAME
     ```
 
-    ``` bash
+    ```bash
     cd NEW-COOKBOOK-NAME
     ```
 
@@ -57,11 +56,11 @@ privileges on the Chef Automate server, do the following:
 4.  Create an initial commit (use `git status` to verify the change) on
     the "master" branch:
 
-    ``` bash
+    ```bash
     git add .
     ```
 
-    ``` bash
+    ```bash
     git commit -m 'Initial Commit'
     ```
 
@@ -71,7 +70,7 @@ privileges on the Chef Automate server, do the following:
 
 5.  Initialize the cookbook for Chef Automate:
 
-    ``` bash
+    ```bash
     delivery init
     ```
 

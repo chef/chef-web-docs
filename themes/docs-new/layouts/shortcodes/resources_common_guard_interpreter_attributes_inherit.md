@@ -25,7 +25,7 @@ respectively.
 For example, the `not_if` guard statement in the following resource
 example **does not inherit** the `environment` property:
 
-``` ruby
+```ruby
 bash 'javatooling' do
   environment 'JAVA_HOME' => '/usr/lib/java/jdk1.7/home'
   code 'java-based-daemon-ctl.sh -start'
@@ -37,7 +37,7 @@ and requires adding the `environment` property to the `not_if` guard
 statement so that it may use the `JAVA_HOME` path as part of its
 evaluation:
 
-``` ruby
+```ruby
 bash 'javatooling' do
   environment 'JAVA_HOME' => '/usr/lib/java/jdk1.7/home'
   code 'java-based-daemon-ctl.sh -start'
@@ -57,7 +57,7 @@ resource block and set it to the appropriate value:
 For example, using the same example as from above, but this time adding
 the `guard_interpreter` property and setting it to `:bash`:
 
-``` ruby
+```ruby
 bash 'javatooling' do
   guard_interpreter :bash
   environment 'JAVA_HOME' => '/usr/lib/java/jdk1.7/home'

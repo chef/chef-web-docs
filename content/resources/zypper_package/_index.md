@@ -2,7 +2,6 @@
 resource_reference: true
 common_resource_functionality_multiple_packages: true
 properties_multiple_packages: true
-properties_shortcode: 
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
@@ -31,7 +30,7 @@ syntax_full_code_block: |-
     version              String, Array
     action               Symbol # defaults to :install if not specified
   end
-syntax_properties_list: 
+syntax_properties_list:
 syntax_full_properties_list:
 - "`zypper_package` is the resource."
 - "`name` is the name given to the resource block."
@@ -110,7 +109,7 @@ properties_list:
 examples: |
   **Install a package using package manager:**
 
-  ``` ruby
+  ```ruby
   zypper_package 'name of package' do
     action :install
   end
@@ -118,7 +117,7 @@ examples: |
 
   **Install a package using local file:**
 
-  ``` ruby
+  ```ruby
   zypper_package 'jwhois' do
     action :install
     source '/path/to/jwhois.rpm'
@@ -127,9 +126,9 @@ examples: |
 
   **Install without using recommend packages as a dependency:**
 
-  ``` ruby
+  ```ruby
   package 'apache2' do
     options '--no-recommends'
-    end
+  end
   ```
 ---

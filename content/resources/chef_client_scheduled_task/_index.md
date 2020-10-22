@@ -151,32 +151,32 @@ examples: |
   **Setup Chef Infra Client to run using the default 30 minute cadence**:
 
   ```ruby
-    chef_client_scheduled_task "Run Chef Infra Client as a scheduled task"
+  chef_client_scheduled_task 'Run Chef Infra Client as a scheduled task'
   ```
 
   **Run Chef Infra Client on system start**:
 
   ```ruby
-    chef_client_scheduled_task 'Chef Infra Client on start' do
-      frequency 'onstart'
-    end
+  chef_client_scheduled_task 'Chef Infra Client on start' do
+    frequency 'onstart'
+  end
   ```
 
   **Run Chef Infra Client with extra options passed to the client**:
 
   ```ruby
-    chef_client_scheduled_task "Run an override recipe" do
-      daemon_options ["--override-runlist mycorp_base::default"]
-    end
+  chef_client_scheduled_task 'Run an override recipe' do
+    daemon_options ['--override-runlist mycorp_base::default']
+  end
   ```
 
   **Run Chef Infra Client daily at 01:00 am, specifying a named run-list**:
 
   ```ruby
-    chef_client_scheduled_task "Run chef-client named run-list daily" do
-      frequency 'daily'
-      start_time '01:00'
-      daemon_options ['-n audit_only']
-    end
+  chef_client_scheduled_task 'Run chef-client named run-list daily' do
+    frequency 'daily'
+    start_time '01:00'
+    daemon_options ['-n audit_only']
+  end
   ```
 ---

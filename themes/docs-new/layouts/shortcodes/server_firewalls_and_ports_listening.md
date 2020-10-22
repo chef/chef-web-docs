@@ -4,6 +4,6 @@ connections and service-specific tools may also be available. In
 addition, the generic system tool Telnet can also be used to initiate
 the connection:
 
-``` bash
+```bash
 telnet HOST_NAME PORT
 ```

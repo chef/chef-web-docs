@@ -85,13 +85,13 @@ run as the root user or by using `sudo`.
 
     For Debian:
 
-    ``` bash
+    ```bash
     dpkg -i $PATH_TO_AUTOMATE_SERVER_PACKAGE
     ```
 
     For Red Hat or Centos:
 
-    ``` bash
+    ```bash
     rpm -Uvh $PATH_TO_AUTOMATE_SERVER_PACKAGE
     ```
 
@@ -99,7 +99,7 @@ run as the root user or by using `sudo`.
 
 4.  Create the license directory:
 
-    ``` bash
+    ```bash
     sudo mkdir -p /var/opt/delivery/license
     ```
 
@@ -109,26 +109,26 @@ run as the root user or by using `sudo`.
 
 5.  Create the configuration directory:
 
-    ``` bash
+    ```bash
     sudo mkdir -p /etc/delivery
     ```
 
 6.  Edit the `/etc/delivery/delivery.rb` file:
 
-    ``` bash
+    ```bash
     sudo vi /etc/delivery/delivery.rb ## you may use any editor you wish
     ```
 
     and add the following settings:
 
-    ``` ruby
-    delivery_fqdn "<AUTOMATE_URL>"
+    ```ruby
+    delivery_fqdn '<AUTOMATE_URL>'
 
-    delivery['chef_username']    = "delivery"
-    delivery['chef_private_key'] = "/etc/delivery/delivery.pem"
-    delivery['chef_server']      = "https://<CHEF_SERVER_URL>/organizations/delivery"
+    delivery['chef_username']    = 'delivery'
+    delivery['chef_private_key'] = '/etc/delivery/delivery.pem'
+    delivery['chef_server']      = 'https://<CHEF_SERVER_URL>/organizations/delivery'
 
-    delivery['default_search']   = "((recipes:delivery_build OR recipes:delivery_build\\\\:\\\\:default) AND chef_environment:_default)"
+    delivery['default_search']   = '((recipes:delivery_build OR recipes:delivery_build\\\\:\\\\:default) AND chef_environment:_default)'
 
     delivery['primary'] = false
     delivery['primary_ip'] = '<PRIMARY_IP_ADDRESS>'
@@ -144,7 +144,7 @@ run as the root user or by using `sudo`.
 7.  Create a directory for the SSH key--if one is not already
     present--on the primary Chef Automate server:
 
-    ``` bash
+    ```bash
     sudo mkdir -p /opt/delivery/embedded/.ssh
     ```
 
@@ -155,13 +155,13 @@ run as the root user or by using `sudo`.
 
     Move into the directory:
 
-    ``` bash
+    ```bash
     cd /opt/delivery/embedded/.ssh
     ```
 
     then generate the key:
 
-    ``` bash
+    ```bash
     sudo ssh-keygen -t rsa -b 4096 -C "<EMAIL_ADDRESS>"
     ```
 
@@ -171,7 +171,7 @@ run as the root user or by using `sudo`.
 9.  On the standby server, create the directory
     `/opt/delivery/embedded/.ssh/authorized_keys`:
 
-    ``` bash
+    ```bash
     sudo mkdir -p /opt/delivery/embedded/.ssh/authorized_keys
     ```
 
@@ -181,12 +181,12 @@ run as the root user or by using `sudo`.
 11. On the primary Chef Automate server edit the
     `/etc/delivery/delivery.rb` file to add the following:
 
-    ``` ruby
+    ```ruby
     delivery['primary'] = true
     postgresql['trust_auth_cidr_addresses'] = [ '127.0.0.1/32',
                                                 '::1/128',
                                                 '<PRIMARY_IP_ADDRESS>/32',
-                                                '<STANDBY_IP_ADDRESS>/32'
+                                                '<STANDBY_IP_ADDRESS>/32',
                                               ]
     postgresql['listen_address'] = 'localhost,<PRIMARY_IP_ADDRESS>'
     delivery['standby_ip'] = '<STANDBY_IP_ADDRESS>'
@@ -207,7 +207,7 @@ run as the root user or by using `sudo`.
 13. On the standby server, create the `/etc/chef/trusted_certs`
     directory:
 
-    ``` bash
+    ```bash
     sudo mkdir -p /etc/chef/trusted_certs
     ```
 
@@ -217,7 +217,7 @@ run as the root user or by using `sudo`.
 15. Create the `/var/opt/delivery/nginx/ca/` directory on the standby
     server:
 
-    ``` bash
+    ```bash
     sudo mkdir -p /var/opt/delivery/nginx/ca/
     ```
 
@@ -226,13 +226,13 @@ run as the root user or by using `sudo`.
 
 17. Run the following command on the primary Chef Automate server:
 
-    ``` bash
+    ```bash
     sudo automate-ctl reconfigure
     ```
 
 18. Run the following command on the standby Chef Automate server:
 
-    ``` bash
+    ```bash
     sudo automate-ctl reconfigure
     ```
 
@@ -251,7 +251,7 @@ To promote a standby Chef Automate server to primary, do the following:
 1.  Log into the standby Chef Automate server (via SSH, and not the Chef
     Automate web UI) and make a backup of the data:
 
-    ``` bash
+    ```bash
     sudo automate-ctl create-backup
     ```
 
@@ -261,7 +261,7 @@ To promote a standby Chef Automate server to primary, do the following:
 2.  If the primary Chef Automate server is still accessible, log into it
     and run the following command as the root user:
 
-    ``` bash
+    ```bash
     automate-ctl stop
     ```
 
@@ -270,15 +270,15 @@ To promote a standby Chef Automate server to primary, do the following:
     `postgresql["listen_address"]` settings in the
     `/etc/delivery/delivery.rb` file to be similar to:
 
-    ``` ruby
-    delivery["primary"] = false
-    delivery["primary_ip"] = '192.0.2.0'
-    postgresql["listen_address"] = 'localhost,192.0.2.0'
+    ```ruby
+    delivery['primary'] = false
+    delivery['primary_ip'] = '192.0.2.0'
+    postgresql['listen_address'] = 'localhost,192.0.2.0'
     ```
 
 4.  On the standby server, run the following command as the root user:
 
-    ``` bash
+    ```bash
     automate-ctl reconfigure
     ```
 
@@ -316,7 +316,7 @@ If provisioning uses the SSH driver, do the following:
 
 3.  Run the following command:
 
-    ``` bash
+    ```bash
     rm .chef/provisioning/ssh/delivery-server-test.json
     ```
 

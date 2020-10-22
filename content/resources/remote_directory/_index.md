@@ -1,7 +1,6 @@
 ---
 resource_reference: true
 common_resource_functionality_resources_common_windows_security: true
-properties_shortcode: 
 remote_directory_recursive_directories: true
 resource_directory_recursive_directories: true
 resources_common_guards: true
@@ -28,7 +27,7 @@ resource_description_list:
     **remote_directory** resource will obey file specificity.'
 syntax_description: "A **remote_directory** resource block transfers a directory from\
   \ a\ncookbook to a node, and then assigns the permissions needed on that\ndirectory.\
-  \ For example:\n\n``` ruby\nremote_directory '/etc/apache2' do\n  source 'apache2'\n\
+  \ For example:\n\n```ruby\nremote_directory '/etc/apache2' do\n  source 'apache2'\n\
   \  owner 'root'\n  group 'root'\n  mode '0755'\n  action :create\nend\n```"
 syntax_code_block: null
 syntax_properties_list:
@@ -350,7 +349,7 @@ examples: "
   \    files_mode '0644'\n    owner 'nobody'\n    group 'nobody'\n    mode '0755'\n\
   \  end\n  ```\n\n  Use with the chef_handler resource\n\n  The following example\
   \ shows how to use the **remote_directory**\n  resource and the **chef_handler**\
-  \ resource to reboot a handler named\n  `WindowsRebootHandler`:\n\n  ``` ruby\n\
+  \ resource to reboot a handler named\n  `WindowsRebootHandler`:\n\n  ```ruby\n\
   \  # the following code sample comes from the\n  # ``reboot_handler`` recipe in\
   \ the ``windows`` cookbook:\n  # https://github.com/chef-cookbooks/windows\n\n \
   \ remote_directory node['chef_handler']['handler_path'] do\n    source 'handlers'\n\

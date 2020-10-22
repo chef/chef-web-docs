@@ -52,7 +52,7 @@ syntax_full_properties_list:
   available to this resource."
 actions_list:
   :add:
-    markdown: Add a cron job to run Chef Infra Client 
+    markdown: Add a cron job to run Chef Infra Client
   :nothing:
     shortcode: resources_common_actions_nothing.md
   :remove:
@@ -182,23 +182,23 @@ examples: |
   **Setup Chef Infra Client to run using the default 30 minute cadence**:
 
   ```ruby
-  chef_client_cron "Run Chef Infra Client as a cron job"
+  chef_client_cron 'Run Chef Infra Client as a cron job'
   ```
 
   **Run Chef Infra Client twice a day**:
 
   ```ruby
-  chef_client_cron "Run Chef Infra Client every 12 hours" do
+  chef_client_cron 'Run Chef Infra Client every 12 hours' do
     minute 0
-    hour "0,12"
+    hour '0,12'
   end
   ```
 
   **Run Chef Infra Client with extra options passed to the client**:
 
   ```ruby
-  chef_client_cron "Run an override recipe" do
-    daemon_options ["--override-runlist mycorp_base::default"]
+  chef_client_cron 'Run an override recipe' do
+    daemon_options ['--override-runlist mycorp_base::default']
   end
   ```
 ---

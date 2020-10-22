@@ -1,6 +1,5 @@
 ---
 resource_reference: true
-properties_shortcode:
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
@@ -78,7 +77,6 @@ properties_list:
   required: false
   description_list:
   - markdown: 'Windows only: Use to specify the domain in which the `username` and
-
       `password` are located.'
 - property: dump
   ruby_type: Integer, false
@@ -145,27 +143,27 @@ properties_list:
   description_list:
   - markdown: 'Windows only: Use to specify the user name.'
 examples: "
-  Mount a labeled file system\n\n  ``` ruby\n  mount '/mnt/volume1'\
+  Mount a labeled file system\n\n  ```ruby\n  mount '/mnt/volume1'\
   \ do\n    device 'volume1'\n    device_type :label\n    fstype 'xfs'\n    options\
-  \ 'rw'\n  end\n  ```\n\n  Mount a local block drive\n\n  ``` ruby\n  mount '/mnt/local'\
+  \ 'rw'\n  end\n  ```\n\n  Mount a local block drive\n\n  ```ruby\n  mount '/mnt/local'\
   \ do\n    device '/dev/sdb1'\n    fstype 'ext3'\n  end\n  ```\n\n  Mount a non-block\
-  \ file system\n\n  ``` ruby\n  mount '/mount/tmp' do\n    pass     0\n    fstype\
+  \ file system\n\n  ```ruby\n  mount '/mount/tmp' do\n    pass     0\n    fstype\
   \   'tmpfs'\n    device   '/dev/null'\n    options  'nr_inodes=999k,mode=755,size=500m'\n\
   \    action   [:mount, :enable]\n  end\n  ```\n\n  Mount and add to the file systems\
-  \ table\n\n  ``` ruby\n  mount '/export/www' do\n    device 'nas1prod:/export/web_sites'\n\
+  \ table\n\n  ```ruby\n  mount '/export/www' do\n    device 'nas1prod:/export/web_sites'\n\
   \    fstype 'nfs'\n    options 'rw'\n    action [:mount, :enable]\n  end\n  ```\n\
-  \n  Mount a remote file system\n\n  ``` ruby\n  mount '/export/www' do\n    device\
+  \n  Mount a remote file system\n\n  ```ruby\n  mount '/export/www' do\n    device\
   \ 'nas1prod:/export/web_sites'\n    fstype 'nfs'\n    options 'rw'\n  end\n  ```\n\
-  \n  Mount a remote folder in Microsoft Windows\n\n  ``` ruby\n  mount 'T:' do\n\
+  \n  Mount a remote folder in Microsoft Windows\n\n  ```ruby\n  mount 'T:' do\n\
   \    action :mount\n    device '\\\\\\\\hostname.example.com\\\\folder'\n  end\n\
-  \  ```\n\n  Unmount a remote folder in Microsoft Windows\n\n  ``` ruby\n  mount\
+  \  ```\n\n  Unmount a remote folder in Microsoft Windows\n\n  ```ruby\n  mount\
   \ 'T:' do\n    action :umount\n    device '\\\\\\\\hostname.example.com\\\\D$'\n\
   \  end\n  ```\n\n  Stop a service, do stuff, and then restart it\n\n  The following\
   \ example shows how to use the **execute**, **service**, and\n  **mount** resources\
   \ together to ensure that a node running on Amazon EC2\n  is running MySQL. This\
   \ example does the following:\n\n  -   Checks to see if the Amazon EC2 node has\
   \ MySQL\n  -   If the node has MySQL, stops MySQL\n  -   Installs MySQL\n  -   Mounts\
-  \ the node\n  -   Restarts MySQL\n\n  <!-- -->\n\n  ``` ruby\n  # the following\
+  \ the node\n  -   Restarts MySQL\n\n  <!-- -->\n\n  ```ruby\n  # the following\
   \ code sample comes from the ``server_ec2``\n  # recipe in the following cookbook:\n\
   \  # https://github.com/chef-cookbooks/mysql\n\n  if (node.attribute?('ec2') &&\
   \ ! FileTest.directory?(node['mysql']['ec2_path']))\n\n    service 'mysql' do\n\

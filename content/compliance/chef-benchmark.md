@@ -157,14 +157,14 @@ When a remediation action takes place, it works by executing a bash script found
 Chef InSpec scan:
 
 ```ruby
-control "1.3.1_Ensure_AIDE_is_installed" do
-  title "Ensure AIDE is installed"
+control '1.3.1_Ensure_AIDE_is_installed' do
+  title 'Ensure AIDE is installed'
   desc  "
     AIDE takes a snapshot of filesystem state including modification times, permissions, and file hashes which can then be used to compare against the current state of the filesystem to detect modifications to the system.
     Rationale: By monitoring the filesystem state compromised files can be detected to prevent or limit the exposure of accidental or malicious misconfigurations or modified binaries.
   "
   impact 1.0
-  describe package("aide") do
+  describe package('aide') do
     it { should be_installed }
   end
 end
@@ -299,7 +299,7 @@ The `config.yml` is the interface to the remediation system. You will express al
        run: false
      remediate:
        run: true
-       overlay_command:
+       overlay_commands:
          - local: echo "this is an overlay command"
      justification: "This control is disabled as the company standard is x"
    ```
@@ -317,9 +317,9 @@ The `config.yml` is the interface to the remediation system. You will express al
       # For an overlay command:
       # An overlay command replaces the command in the remediation
       # In this example, the remediation does not install the 'aide' package
-      # and instead outputs the overlay_command to the screen
+      # and instead outputs the overlay_commands to the screen
       # run: true
-      #  overlay_command:
+      #  overlay_commands:
       #    - local: echo "this is an overlay command"
      justification: "This is an example of another justification. But only use one justification."
    ```

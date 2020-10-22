@@ -2,7 +2,7 @@ The `report` interface is used to define how a handler will behave and
 is a required part of any custom handler. The syntax for the `report`
 interface is as follows:
 
-``` ruby
+```ruby
 def report
   # Ruby code
 end
@@ -17,7 +17,7 @@ The
 [error_report](https://github.com/chef/chef/blob/master/lib/chef/handler/error_report.rb)
 handler:
 
-``` ruby
+```ruby
 require 'chef/handler'
 require 'chef/resource/directory'
 
@@ -29,7 +29,7 @@ class Chef
         Chef::Log.fatal("Saving node information to #{Chef::FileCache.load('failed-run-data.json', false)}")
       end
     end
- end
+  end
 end
 ```
 
@@ -37,7 +37,7 @@ The
 [json_file](https://github.com/chef/chef/blob/master/lib/chef/handler/json_file.rb)
 handler:
 
-``` ruby
+```ruby
 require 'chef/handler'
 require 'chef/resource/directory'
 
@@ -45,11 +45,12 @@ class Chef
   class Handler
     class JsonFile < ::Chef::Handler
       attr_reader :config
-      def initialize(config={})
+      def initialize(config = {})
         @config = config
         @config[:path] ||= '/var/chef/reports'
         @config
       end
+
       def report
         if exception
           Chef::Log.error('Creating JSON exception report')
@@ -65,6 +66,7 @@ class Chef
           file.puts Chef::JSONCompat.to_json_pretty(run_data)
         end
       end
+
       def build_report_dir
         unless File.exist?(config[:path])
           FileUtils.mkdir_p(config[:path])

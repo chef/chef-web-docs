@@ -3,7 +3,7 @@ should be used.
 
 Right:
 
-``` ruby
+```ruby
 %w(openssl.cnf pkitool vars Rakefile).each do |foo|
   template "/etc/openvpn/easy-rsa/#{foo}" do
     source "#{foo}.erb"
@@ -14,7 +14,7 @@ end
 
 Wrong:
 
-``` ruby
+```ruby
 %w(openssl.cnf pkitool vars Rakefile).each do |foo|
   template '/etc/openvpn/easy-rsa/#{foo}' do
     source '#{foo}.erb'

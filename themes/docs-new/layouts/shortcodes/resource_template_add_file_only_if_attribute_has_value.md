@@ -2,7 +2,7 @@ The following example shows how to use the `only_if` condition to create
 a file based on a template and using the presence of an attribute on the
 node to specify the condition:
 
-``` ruby
+```ruby
 template '/tmp/somefile' do
   mode '0755'
   source 'somefile.erb'

@@ -176,7 +176,7 @@ developer. In the commit message of the contribution, the developer
 simply adds a Signed-off-by statement and thereby agrees to the DCO,
 which you can find below or at <https://developercertificate.org/>.
 
-``` console
+```console
 Developer's Certificate of Origin 1.1
 
 By making a contribution to this project, I certify that:
@@ -244,7 +244,7 @@ web pages, API documentation, source code, etc.
 Whenever you invoke the "obvious fix" rule, please say so in your commit
 message. For example:
 
-``` bash
+```bash
 ------------------------------------------------------------------------
 commit 370adb3f82d55d912b0cf9c1d1e99b132a8ed3b5
 Author: Julia Child <juliachild@chef.io>

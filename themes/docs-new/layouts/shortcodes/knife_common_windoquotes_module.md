@@ -7,14 +7,14 @@ is also appended to the `PSModulePath` environment variable. This
 feature is not enabled by default. To activate this feature, run the
 following command from within Windows PowerShell:
 
-``` bash
+```bash
 Import-Module chef
 ```
 
 or add `Import-Module chef` to the profile for Windows PowerShell
 located at:
 
-``` bash
+```bash
 ~\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1
 ```
 
@@ -23,31 +23,31 @@ tools---chef-client, knife, chef-apply---that are built into Chef.
 
 For example:
 
-``` bash
+```bash
 knife exec -E 'puts ARGV' """&s0meth1ng"""
 ```
 
 is now:
 
-``` bash
+```bash
 knife exec -E 'puts ARGV' '&s0meth1ng'
 ```
 
 and:
 
-``` bash
+```bash
 knife node run_list set test-node '''role[ssssssomething]'''
 ```
 
 is now:
 
-``` bash
+```bash
 knife node run_list set test-node 'role[ssssssomething]'
 ```
 
 To remove this feature, run the following command from within Windows
 PowerShell:
 
-``` bash
+```bash
 Remove-Module chef
 ```

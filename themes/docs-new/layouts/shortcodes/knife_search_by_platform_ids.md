@@ -1,13 +1,13 @@
 To search for the IDs of all nodes running on the Amazon EC2 platform,
 enter:
 
-``` bash
+```bash
 knife search node 'ec2:*' -i
 ```
 
 to return something like:
 
-``` bash
+```bash
 4 items found
 
 ip-0A7CA19F.ec2.internal

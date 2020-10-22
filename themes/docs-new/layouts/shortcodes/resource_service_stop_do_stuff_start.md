@@ -10,12 +10,12 @@ is running MySQL. This example does the following:
 
 <!-- -->
 
-``` ruby
+```ruby
 # the following code sample comes from the ``server_ec2``
 # recipe in the following cookbook:
 # https://github.com/chef-cookbooks/mysql
 
-if (node.attribute?('ec2') && ! FileTest.directory?(node['mysql']['ec2_path']))
+if node.attribute?('ec2') && !FileTest.directory?(node['mysql']['ec2_path'])
 
   service 'mysql' do
     action :stop
@@ -23,7 +23,7 @@ if (node.attribute?('ec2') && ! FileTest.directory?(node['mysql']['ec2_path']))
 
   execute 'install-mysql' do
     command "mv #{node['mysql']['data_dir']} #{node['mysql']['ec2_path']}"
-    not_if do FileTest.directory?(node['mysql']['ec2_path']) end
+    not_if { FileTest.directory?(node['mysql']['ec2_path']) }
   end
 
   [node['mysql']['ec2_path'], node['mysql']['data_dir']].each do |dir|

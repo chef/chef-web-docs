@@ -1,9 +1,8 @@
 ---
 title: freebsd_package resource
 resource: freebsd_package
-draft: false
 aliases:
-- /resource_freebsd_package.html
+- "/resource_freebsd_package.html"
 menu:
   infra:
     title: freebsd_package
@@ -26,7 +25,7 @@ syntax_description: 'A **freebsd_package** resource block manages a package on a
   resource is:
 
 
-  ``` ruby
+  ```ruby
 
   freebsd_package ''package_name''
 
@@ -124,7 +123,7 @@ handler_custom: false
 cookbook_file_specificity: false
 unit_file_verification: false
 examples: "
-  Install a package\n\n  ``` ruby\n  freebsd_package 'name of package'\
+  Install a package\n\n  ```ruby\n  freebsd_package 'name of package'\
   \ do\n    action :install\n  end\n  ```\n"
 
 ---

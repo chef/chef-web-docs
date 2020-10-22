@@ -1,9 +1,8 @@
 ---
 title: openbsd_package resource
 resource: openbsd_package
-draft: false
 aliases:
-- /resource_openbsd_package.html
+- "/resource_openbsd_package.html"
 menu:
   infra:
     title: openbsd_package
@@ -11,7 +10,6 @@ menu:
     parent: chef_infra/cookbook_reference/resources
 
 resource_reference: true
-robots: null
 resource_description_list:
 - markdown: 'Use the **openbsd_package** resource to manage packages for the OpenBSD
 
@@ -26,7 +24,7 @@ syntax_description: 'A **openbsd_package** resource block manages a package on a
   resource is:
 
 
-  ``` ruby
+  ```ruby
 
   openbsd_package ''package_name''
 
@@ -124,7 +122,7 @@ handler_custom: false
 cookbook_file_specificity: false
 unit_file_verification: false
 examples: "
-  Install a package\n\n  ``` ruby\n  openbsd_package 'name of package'\
+  Install a package\n\n  ```ruby\n  openbsd_package 'name of package'\
   \ do\n    action :install\n  end\n  ```\n"
 
 ---

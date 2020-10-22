@@ -1,6 +1,5 @@
 ---
 resource_reference: true
-properties_shortcode: 
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
@@ -14,12 +13,10 @@ menu:
     identifier: chef_infra/cookbook_reference/resources/reboot reboot
     parent: chef_infra/cookbook_reference/resources
 resource_description_list:
-- markdown: 'Use the **reboot** resource to reboot a node, a necessary step with some
-
-    installations on certain platforms. This resource is supported for use
-
-    on the Microsoft Windows, macOS, and Linux platforms.'
-resource_new_in: null
+- markdown: |-
+    Use the **reboot** resource to reboot a node, a necessary step with some installations on certain platforms. This resource is supported for use on the Microsoft Windows, macOS, and Linux platforms.
+    In using this resource via notifications, it's important to *only* use immediate notifications. Delayed notifications produce unintuitive and probably undesired results.
+resource_new_in: '12.0'
 syntax_full_code_block: |-
   reboot 'name' do
     delay_mins      Integer # default value: 0
@@ -57,17 +54,17 @@ properties_list:
   description_list:
   - markdown: A string that describes the reboot action.
 examples: "
-  Reboot a node immediately\n\n  ``` ruby\n  reboot 'now' do\n    action\
+  Reboot a node immediately\n\n  ```ruby\n  reboot 'now' do\n    action\
   \ :nothing\n    reason 'Cannot continue Chef run without a reboot.'\n    delay_mins\
   \ 2\n  end\n\n  execute 'foo' do\n    command '...'\n    notifies :reboot_now, 'reboot[now]',\
   \ :immediately\n  end\n  ```\n\n  Reboot a node at the end of a Chef Infra Client\
-  \ run\n\n  ``` ruby\n  reboot 'app_requires_reboot' do\n    action :request_reboot\n\
+  \ run\n\n  ```ruby\n  reboot 'app_requires_reboot' do\n    action :request_reboot\n\
   \    reason 'Need to reboot when the run completes successfully.'\n    delay_mins\
-  \ 5\n  end\n  ```\n\n  Cancel a reboot\n\n  ``` ruby\n  reboot 'cancel_reboot_request'\
+  \ 5\n  end\n  ```\n\n  Cancel a reboot\n\n  ```ruby\n  reboot 'cancel_reboot_request'\
   \ do\n    action :cancel\n    reason 'Cancel a previous end-of-run reboot request.'\n\
   \  end\n  ```\n\n  Rename computer, join domain, reboot\n\n  The following example\
   \ shows how to rename a computer, join a domain, and\n  then reboot the computer:\n\
-  \n  ``` ruby\n  reboot 'Restart Computer' do\n    action :nothing\n  end\n\n  powershell_script\
+  \n  ```ruby\n  reboot 'Restart Computer' do\n    action :nothing\n  end\n\n  powershell_script\
   \ 'Rename and Join Domain' do\n    code <<-EOH\n      ...your rename and domain\
   \ join logic here...\n    EOH\n    not_if <<-EOH\n      $ComputerSystem = gwmi win32_computersystem\n\
   \      ($ComputerSystem.Name -like '#{node['some_attribute_that_has_the_new_name']}')\

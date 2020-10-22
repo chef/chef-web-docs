@@ -25,7 +25,7 @@ The HTML version of the doc set can be found at
 ## Building
 To build the docs, run the command:
 
-``` bash
+```bash
 make serve
 ```
 
@@ -227,8 +227,8 @@ and command-line strings.
 Use this approach to show code blocks that use Ruby:
 
     ```ruby
-    default["apache"]["dir"]          = "/etc/apache2"
-    default["apache"]["listen_ports"] = [ "80","443" ]
+    default['apache']['dir']          = '/etc/apache2'
+    default['apache']['listen_ports'] = [ '80', '443' ]
     ```
 
 ### Bash
@@ -363,7 +363,7 @@ The [figure shortcode](https://gohugo.io/content-management/shortcodes/#figure) 
 
 SVG images should be formatted using the `figure` shortcode.
 
-``` md
+```md
 {{</* figure src="/images/chef-logo.svg" title="Chef Logo" height="100" width="150" */>}}
 ```
 
@@ -375,6 +375,178 @@ Raster images should be 96 dpi and no larger than 600 pixels wide.
 This helps ensure that the image can be printed and/or built into other output
 formats more easily; in some cases, separate 300 dpi files should be maintained
 for images that require inclusion in formats designed for printing and/or presentations.
+
+## Foundation Tabs Container
+
+There are four shortcodes that can be combined together to create a container that will allow
+the user to click on a tab to reveal content in a matching panel. For example, you
+may want to display matching Ruby and YAML code blocks. You can create two tabs,
+one titled **Ruby** and the other **YAML**, and the user could click on one tab to show
+the Ruby code block and another tab to show the YAML code block. See the [example](#example)
+below.
+
+The four shortcodes are:
+- `foundation_tabs`
+- `foundation_tab`
+- `foundation_tabs_panels`
+- `foundation_tabs_panel`
+
+These shortcodes use the [Zurb Foundation Tabs](https://get.foundation/sites/docs/tabs.html) component.
+
+The container consists of two parts, the tabs and the panels.
+
+### Tabs
+
+Each tab is created with a `foundation_tab` shortcode. Use as many `foundation_tab`
+shortcodes as you need to display the number of code blocks or text blocks that
+you want the user to be able click on and reveal.
+
+All `foundation_tab` shortcodes must be contained within opening and closing `foundation_tabs` shortcodes.
+
+For example:
+
+```
+{{</* foundation_tabs tabs-id="ruby-python-panel" */>}}
+  {{</* foundation_tab active="true" panel-link="ruby-panel" tab-text="Ruby" */>}}
+  {{</* foundation_tab panel-link="python-panel" tab-text="Python" */>}}
+{{</* /foundation_tabs */>}}
+```
+
+#### Parameters
+
+The **`foundation_tabs`** shortcode has one parameter:
+
+`tabs-id`
+: This value must be identical to the `tabs-id` value in the `foundation_tabs_panels`
+  shortcode, but otherwise it must be unique on the page.
+
+The **`foundation_tab`** shortcode has three parameters:
+
+`active`
+
+: Use `active="true"` to highlight the tab that user will see when they first load
+the page. Only add this value to one tab. The matching `foundation_tabs_panel`
+should also have `active="true"` in its parameters.
+
+`panel-link`
+: This is the value of the panel ID that this tab will link to. This must be identical to
+  the `panel-id` value in the matching `foundation_tabs_panel` shortcode.
+
+`tab-text`
+: The text in the tab that the user will click on.
+
+### Panels
+
+Each tab has a matching panel which is created with `foundation_tabs_panel` shortcodes.
+The Markdown text that is displayed in each panel must be contained in opening and
+closing `foundation_tabs_panel` shortcodes.
+
+All `foundation_tab_panel` shortcodes must contained within opening and closing
+`foundation_tabs_panels` shortcodes.
+
+For example:
+
+    {{</* foundation_tabs_panels tabs-id="ruby-python-panel" */>}}
+      {{</* foundation_tabs_panel active="true" panel-id="ruby-panel" */>}}
+      ```ruby
+      puts 'Hello, world!'
+      ```
+      {{</* /foundation_tabs_panel */>}}
+
+      {{</* foundation_tabs_panel panel-id="python-panel" */>}}
+      ```python
+      print('Hello, world!')
+      ```
+      {{</* /foundation_tabs_panel */>}}
+    {{</* /foundation_tabs_panels */>}}
+
+#### Parameters
+
+The **`foundation_tabs_panels`** shortcode has one parameter:
+
+`tabs-id`
+: This value must be identical to the `tabs-id` value in the `foundation_tabs`
+  shortcode, but otherwise it must be unique on the page.
+
+The **`foundation_tabs_panel`** shortcode has two parameters:
+
+`active`
+: Use `active="true"` to indicate which panel the user will see when they first
+  load the page. This value should also be added to the panels matching tab. Only
+  add this value to one panel.
+
+`panel-id`
+: The HTML ID attribute of the panel. This value must be identical to the `panel-link` value
+  in the matching `foundation_tab` shortcode that will link to this panel. This
+  value must be unique on the page.
+
+### Example
+
+Below is an example of a container that shows three code blocks in three languages.
+You can copy and paste the code below into a page to get started. Note that the `tabs-id`
+and `panel-id`/`panel-link` values must be unique on the page.
+
+{{< foundation_tabs tabs-id="ruby-python-go-panel" >}}
+  {{< foundation_tab active="true" panel-link="ruby-panel" tab-text="Ruby">}}
+  {{< foundation_tab panel-link="python-panel" tab-text="Python" >}}
+  {{< foundation_tab panel-link="golang-panel" tab-text="Go" >}}
+{{< /foundation_tabs >}}
+
+{{< foundation_tabs_panels tabs-id="ruby-python-go-panel" >}}
+  {{< foundation_tabs_panel active="true" panel-id="ruby-panel" >}}
+  ```ruby
+  puts 'Hello, world!'
+  ```
+  {{< /foundation_tabs_panel >}}
+
+  {{< foundation_tabs_panel panel-id="python-panel" >}}
+  ```python
+  print('Hello, world!')
+  ```
+  {{< /foundation_tabs_panel >}}
+  {{< foundation_tabs_panel panel-id="golang-panel" >}}
+  ```go
+  package main
+
+  import "fmt"
+
+  func main() {
+      fmt.Println("Hello, world!")
+  }
+  ```
+  {{< /foundation_tabs_panel >}}
+{{< /foundation_tabs_panels >}}
+
+    {{</* foundation_tabs tabs-id="ruby-python-go-panel" */>}}
+      {{</* foundation_tab active="true" panel-link="ruby-panel" tab-text="Ruby"*/>}}
+      {{</* foundation_tab panel-link="python-panel" tab-text="Python" */>}}
+      {{</* foundation_tab panel-link="golang-panel" tab-text="Go" */>}}
+    {{</* /foundation_tabs */>}}
+
+    {{</* foundation_tabs_panels tabs-id="ruby-python-go-panel" */>}}
+      {{</* foundation_tabs_panel active="true" panel-id="ruby-panel" */>}}
+      ```ruby
+      puts 'Hello, world!'
+      ```
+      {{</* /foundation_tabs_panel */>}}
+
+      {{</* foundation_tabs_panel panel-id="python-panel" */>}}
+      ```python
+      print('Hello, world!')
+      ```
+      {{</* /foundation_tabs_panel */>}}
+      {{</* foundation_tabs_panel panel-id="golang-panel" */>}}
+      ```go
+      package main
+
+      import "fmt"
+
+      func main() {
+          fmt.Println("Hello, world!")
+      }
+      ```
+      {{</* /foundation_tabs_panel */>}}
+    {{</* /foundation_tabs_panels */>}}
 
 ## Grammar
 
@@ -456,7 +628,7 @@ For Chef applications and components, use:
 
 If a new page is created or an old page is deleted, they must be added or removed from the `sitemap.md` page.
 
-In addition, pages must be placed in the left navigation menu properly. This may involve moving other pages up or down in the left navigation menu by increasing or decreasing their menu weight which is specificed in TOML front matter of each page or possibly in the `config.toml` file.
+In addition, pages must be placed in the left navigation menu properly. This may involve moving other pages up or down in the left navigation menu by increasing or decreasing their menu weight which is specified in TOML front matter of each page or possibly in the `config.toml` file.
 
 Contact the documentation team if you have any questions about adding or removing pages.
 

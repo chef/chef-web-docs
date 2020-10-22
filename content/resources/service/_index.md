@@ -1,6 +1,5 @@
 ---
 resource_reference: true
-properties_shortcode: 
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
@@ -199,37 +198,37 @@ properties_list:
   description_list:
   - markdown: 'systemd only: A username to run the service under.'
 examples: "
-  Start a service\n\n  ``` ruby\n  service 'example_service' do\n \
-  \   action :start\n  end\n  ```\n\n  Start a service, enable it\n\n  ``` ruby\n\
+  Start a service\n\n  ```ruby\n  service 'example_service' do\n \
+  \   action :start\n  end\n  ```\n\n  Start a service, enable it\n\n  ```ruby\n\
   \  service 'example_service' do\n    supports status: true, restart: true, reload:\
   \ true\n    action [ :enable, :start ]\n  end\n  ```\n\n  Use a pattern\n\n  ```\
   \ ruby\n  service 'samba' do\n    pattern 'smbd'\n    action [:enable, :start]\n\
-  \  end\n  ```\n\n  Use the :nothing common action\n\n  ``` ruby\n  service 'memcached'\
+  \  end\n  ```\n\n  Use the :nothing common action\n\n  ```ruby\n  service 'memcached'\
   \ do\n    action :nothing\n  end\n  ```\n\n  Use the retries common attribute\n\n\
-  \  ``` ruby\n  service 'apache' do\n    action [ :enable, :start ]\n    retries\
+  \  ```ruby\n  service 'apache' do\n    action [ :enable, :start ]\n    retries\
   \ 3\n  end\n  ```\n\n  Manage a service, depending on the node platform\n\n  ```\
   \ ruby\n  service 'example_service' do\n    if redhat?\n      service_name 'redhat_name'\n\
   \    else\n      service_name 'other_name'\n    end\n    supports restart: true\n\
   \    action [ :enable, :start ]\n  end\n  ```\n\n  Reload a service using a template\n\
   \n  To reload a service that is based on a template, use the **template**\n  and\
   \ **service** resources together in the same recipe, similar to the\n  following:\n\
-  \n  ``` ruby\n  template '/tmp/somefile' do\n    mode '0755'\n    source 'somefile.erb'\n\
+  \n  ```ruby\n  template '/tmp/somefile' do\n    mode '0755'\n    source 'somefile.erb'\n\
   \  end\n\n  service 'apache' do\n    action :enable\n    subscribes :reload, 'template[/tmp/somefile]',\
   \ :immediately\n  end\n  ```\n\n  where the `subscribes` notification is used to\
   \ reload the service\n  whenever the template is modified.\n\n  Enable a service\
-  \ after a restart or reload\n\n  ``` ruby\n  service 'apache' do\n    supports restart:\
+  \ after a restart or reload\n\n  ```ruby\n  service 'apache' do\n    supports restart:\
   \ true, reload: true\n    action :enable\n  end\n  ```\n\n  Set an IP address using\
   \ variables and a template\n\n  The following example shows how the **template**\
   \ resource can be used in\n  a recipe to combine settings stored in an attributes\
   \ file, variables\n  within a recipe, and a template to set the IP addresses that\
   \ are used by\n  the Nginx service. The attributes file contains the following:\n\
-  \n  ``` ruby\n  default['nginx']['dir'] = '/etc/nginx'\n  ```\n\n  The recipe then\
+  \n  ```ruby\n  default['nginx']['dir'] = '/etc/nginx'\n  ```\n\n  The recipe then\
   \ does the following to:\n\n  -   Declare two variables at the beginning of the\
   \ recipe, one for the\n      remote IP address and the other for the authorized\
   \ IP address\n  -   Use the **service** resource to restart and reload the Nginx\
   \ service\n  -   Load a template named `authorized_ip.erb` from the `/templates`\n\
   \      directory that is used to set the IP address values based on the\n      variables\
-  \ specified in the recipe\n\n  <!-- -->\n\n  ``` ruby\n  node.default['nginx']['remote_ip_var']\
+  \ specified in the recipe\n\n  <!-- -->\n\n  ```ruby\n  node.default['nginx']['remote_ip_var']\
   \ = 'remote_addr'\n  node.default['nginx']['authorized_ips'] = ['127.0.0.1/32']\n\
   \n  service 'nginx' do\n    supports :status => true, :restart => true, :reload\
   \ => true\n  end\n\n  template 'authorized_ip' do\n    path \"#{node['nginx']['dir']}/authorized_ip\"\
@@ -240,11 +239,11 @@ examples: "
   \ property tells the template to use the variables\n  set at the beginning of the\
   \ recipe and the `source` property is used to\n  call a template file located in\
   \ the cookbook's `/templates` directory.\n  The template file looks similar to:\n\
-  \n  ``` ruby\n  geo $<%= @remote_ip_var %> $authorized_ip {\n    default no;\n \
+  \n  ```ruby\n  geo $<%= @remote_ip_var %> $authorized_ip {\n    default no;\n \
   \   <% @authorized_ips.each do |ip| %>\n    <%= \"#{ip} yes;\" %>\n    <% end %>\n\
   \  }\n  ```\n\n  Use a cron timer to manage a service\n\n  The following example\
   \ shows how to install the crond application using\n  two resources and a variable:\n\
-  \n  ``` ruby\n  # the following code sample comes from the ``cron`` cookbook:\n\
+  \n  ```ruby\n  # the following code sample comes from the ``cron`` cookbook:\n\
   \  # https://github.com/chef-cookbooks/cron\n\n  cron_package = case node['platform']\n\
   \    when 'redhat', 'centos', 'scientific', 'fedora', 'amazon'\n      node['platform_version'].to_f\
   \ >= 6.0 ? 'cronie' : 'vixie-cron'\n    else\n      'cron'\n    end\n\n  package\
@@ -261,10 +260,10 @@ examples: "
   \ run Debian,\n      Ubuntu, or openSUSE\n\n  Restart a service, and then notify\
   \ a different service\n\n  The following example shows how start a service named\
   \ `example_service`\n  and immediately notify the Nginx service to restart.\n\n\
-  \  ``` ruby\n  service 'example_service' do\n    action :start\n    notifies :restart,\
+  \  ```ruby\n  service 'example_service' do\n    action :start\n    notifies :restart,\
   \ 'service[nginx]', :immediately\n  end\n  ```\n\n  Restart one service before restarting\
   \ another\n\n  This example uses the `:before` notification to restart the `php-fpm`\n\
-  \  service before restarting `nginx`:\n\n  ``` ruby\n  service 'nginx' do\n    action\
+  \  service before restarting `nginx`:\n\n  ```ruby\n  service 'nginx' do\n    action\
   \ :restart\n    notifies :restart, 'service[php-fpm]', :before\n  end\n  ```\n\n\
   \  With the `:before` notification, the action specified for the `nginx`\n  resource\
   \ will not run until action has been taken on the notified\n  resource (`php-fpm`).\n\
@@ -273,7 +272,7 @@ examples: "
   \ ensure that a node running on Amazon EC2\n  is running MySQL. This example does\
   \ the following:\n\n  -   Checks to see if the Amazon EC2 node has MySQL\n  -  \
   \ If the node has MySQL, stops MySQL\n  -   Installs MySQL\n  -   Mounts the node\n\
-  \  -   Restarts MySQL\n\n  <!-- -->\n\n  ``` ruby\n  # the following code sample\
+  \  -   Restarts MySQL\n\n  <!-- -->\n\n  ```ruby\n  # the following code sample\
   \ comes from the ``server_ec2``\n  # recipe in the following cookbook:\n  # https://github.com/chef-cookbooks/mysql\n\
   \n  if (node.attribute?('ec2') && ! FileTest.directory?(node['mysql']['ec2_path']))\n\
   \n    service 'mysql' do\n      action :stop\n    end\n\n    execute 'install-mysql'\
@@ -291,8 +290,8 @@ examples: "
   \ class=\"admonition-warning-title\">Warning</p><div class=\"admonition-warning-text\"\
   >\n\n  This is an example of something that should NOT be done. Use the\n  **service**\
   \ resource to control a service, not the **execute** resource.\n\n  </div></div>\n\
-  \n  Do something like this:\n\n  ``` ruby\n  service 'tomcat' do\n    action :start\n\
-  \  end\n  ```\n\n  and NOT something like this:\n\n  ``` ruby\n  execute 'start-tomcat'\
+  \n  Do something like this:\n\n  ```ruby\n  service 'tomcat' do\n    action :start\n\
+  \  end\n  ```\n\n  and NOT something like this:\n\n  ```ruby\n  execute 'start-tomcat'\
   \ do\n    command '/etc/init.d/tomcat6 start'\n    action :run\n  end\n  ```\n\n\
   \  There is no reason to use the **execute** resource to control a service\n  because\
   \ the **service** resource exposes the `start_command` property\n  directly, which\
@@ -305,7 +304,7 @@ examples: "
   \ or disabling services that are managed by\n  System Resource Controller (SRC)\
   \ is to use the **execute** resource to\n  invoke `mkitab`, and then use that command\
   \ to enable or disable the\n  service.\n\n  The following example shows how to install\
-  \ a service:\n\n  ``` ruby\n  execute \"install #{node['chef_client']['svc_name']}\
+  \ a service:\n\n  ```ruby\n  execute \"install #{node['chef_client']['svc_name']}\
   \ in SRC\" do\n    command \"mkssys -s #{node['chef_client']['svc_name']}\n    \
   \                -p #{node['chef_client']['bin']}\n                    -u root\n\
   \                    -S\n                    -n 15\n                    -f 9\n \
@@ -313,7 +312,7 @@ examples: "
   \          -e #{node['chef_client']['log_dir']}/client.log -a '\n              \
   \      -i #{node['chef_client']['interval']}\n                    -s #{node['chef_client']['splay']}'\"\
   \n    not_if \"lssrc -s #{node['chef_client']['svc_name']}\"\n    action :run\n\
-  \  end\n  ```\n\n  and then enable it using the `mkitab` command:\n\n  ``` ruby\n\
+  \  end\n  ```\n\n  and then enable it using the `mkitab` command:\n\n  ```ruby\n\
   \  execute \"enable #{node['chef_client']['svc_name']}\" do\n    command \"mkitab\
   \ '#{node['chef_client']['svc_name']}:2:once:/usr/bin/startsrc\n               \
   \     -s #{node['chef_client']['svc_name']} > /dev/console 2>&1'\"\n    not_if \"\

@@ -24,7 +24,7 @@ This configuration file has the following settings for `ldap`:
     directory structure. For Active Directory, this is typically
     `cn=users` and then the domain. For example:
 
-    ``` ruby
+    ```ruby
     'OU=Employees,OU=Domain users,DC=example,DC=com'
     ```
 
@@ -43,7 +43,7 @@ This configuration file has the following settings for `ldap`:
     access to the directory is required. This user must be specified as
     an LDAP distinguished name similar to:
 
-    ``` ruby
+    ```ruby
     'CN=user,OU=Employees,OU=Domainuser,DC=example,DC=com'
     ```
 
@@ -56,7 +56,7 @@ This configuration file has the following settings for `ldap`:
     escape
     character](https://social.technet.microsoft.com/wiki/contents/articles/5312.active-directory-characters-to-escape.aspx).
 
-    ``` ruby
+    ```ruby
     'CN=example\\user,OU=Employees,OU=Domainuser,DC=example,DC=com'
     ```
 
@@ -78,7 +78,7 @@ This configuration file has the following settings for `ldap`:
     Management](/ctl_chef_server.html#ctl-chef-server-secrets-management)
     commands.
 
-    ``` bash
+    ```bash
     chef-server-ctl set-secret ldap bind_password
     Enter ldap bind_password:    (no terminal output)
     Re-enter ldap bind_password: (no terminal output)
@@ -86,7 +86,7 @@ This configuration file has the following settings for `ldap`:
 
     Remove a set password via
 
-    ``` bash
+    ```bash
     chef-server-ctl remove-secret ldap bind_password
     ```
 
@@ -100,7 +100,7 @@ This configuration file has the following settings for `ldap`:
     `memberOf` attribute is `CN=abcxyz,OU=users,DC=company,DC=com`, then
     use:
 
-    ``` ruby
+    ```ruby
     ldap['group_dn'] = 'CN=abcxyz,OU=users,DC=company,DC=com'
     ```
 

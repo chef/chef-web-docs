@@ -1,7 +1,7 @@
 For example, the `httpd.rb` file in the `website` cookbook could be
 assigned a custom resource name like this:
 
-``` ruby
+```ruby
 resource_name :httpd
 
 property :homepage, String, default: '<h1>Hello world!</h1>'
@@ -21,7 +21,7 @@ end
 
 and is then usable in a recipe like this:
 
-``` ruby
+```ruby
 httpd 'build website' do
   homepage '<h1>Welcome to the Example Co. website!</h1>'
   action :create

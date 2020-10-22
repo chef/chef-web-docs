@@ -5,13 +5,13 @@ in the `delivery-truck` cookbook: `default.rb`, `deploy.rb`,
 build cookbook's recipe directory should contain an identical list of
 recipes. For example, run:
 
-``` bash
+```bash
 ls .delivery/build-cookbook/recipes/
 ```
 
 the list of recipes should be:
 
-``` bash
+```bash
 default.rb
 deploy.rb
 functional.rb
@@ -31,13 +31,13 @@ same-named recipe in the `delivery-truck` cookbook. For example, to
 include the `lint.rb` recipe from the `delivery-truck` cookbook, update
 the `lint.rb` recipe in the `build-cookbook` to add the following:
 
-``` ruby
+```ruby
 include_recipe 'delivery-truck::lint'
 ```
 
 and then add to the `unit.rb` recipe:
 
-``` none
+```none
 include_recipe 'delivery-truck::unit'
 ```
 

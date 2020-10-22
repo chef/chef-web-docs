@@ -41,16 +41,16 @@ A `Policyfile.rb` file may contain the following settings:
     Multiple cookbook sources may be specified. For example from the
     public Chef Supermarket and a monolithic repository:
 
-    ``` ruby
+    ```ruby
     default_source :supermarket
-    default_source :chef_repo, "path/to/repo"
+    default_source :chef_repo, 'path/to/repo'
     ```
 
     or from both a public and private Chef Supermarket:
 
-    ``` ruby
+    ```ruby
     default_source :supermarket
-    default_source :supermarket, "https://supermarket.example"
+    default_source :supermarket, 'https://supermarket.example'
     ```
 
     <div class="admonition-note">
@@ -67,23 +67,23 @@ A `Policyfile.rb` file may contain the following settings:
     that is maintained by Chef. To specify a named source for a
     cookbook:
 
-    ``` ruby
+    ```ruby
     default_source :supermarket
-    default_source :supermarket, "https://supermarket.example" do |s|
-      s.preferred_for "chef-client"
+    default_source :supermarket, 'https://supermarket.example' do |s|
+      s.preferred_for 'chef-client'
     end
     ```
 
     List multiple cookbooks on the same line:
 
-    ``` ruby
+    ```ruby
     default_source :supermarket
-    default_source :supermarket, "https://supermarket.example" do |s|
-      s.preferred_for "chef-client", "nginx", "mysql"
+    default_source :supermarket, 'https://supermarket.example' do |s|
+      s.preferred_for 'chef-client', 'nginx', 'mysql'
     end
     ```
 
-    
+
 
     </div>
 
@@ -95,34 +95,34 @@ A `Policyfile.rb` file may contain the following settings:
     specify an alternate source location, such as Chef Supermarket. For
     example, add a cookbook:
 
-    ``` ruby
-    cookbook "apache2"
+    ```ruby
+    cookbook 'apache2'
     ```
 
     Specify a version constraint:
 
-    ``` ruby
-    run_list "jenkins::master"
+    ```ruby
+    run_list 'jenkins::master'
 
     # Restrict the jenkins cookbook to version 2.x, greater than 2.1
-    cookbook "jenkins", "~> 2.1"
+    cookbook 'jenkins', '~> 2.1'
     ```
 
     Specify an alternate source:
 
-    ``` ruby
+    ```ruby
     cookbook 'my_app', path: 'cookbooks/my_app'
     ```
 
     or:
 
-    ``` ruby
+    ```ruby
     cookbook 'mysql', github: 'opscode-cookbooks/mysql', branch: 'master'
     ```
 
     or:
 
-    ``` ruby
+    ```ruby
     cookbook 'chef-ingredient', git: 'https://github.com/chef-cookbooks/chef-ingredient.git', tag: 'v0.12.0'
     ```
 
@@ -134,8 +134,8 @@ A `Policyfile.rb` file may contain the following settings:
     converge configuration for a single application on a host or for
     one-time setup tasks. For example:
 
-    ``` ruby
-    named_run_list :update_app, "my_app_cookbook::default"
+    ```ruby
+    named_run_list :update_app, 'my_app_cookbook::default'
     ```
 
 `include_policy "NAME", *args`
@@ -153,54 +153,54 @@ A `Policyfile.rb` file may contain the following settings:
 
     Pull the policyfile lock from `./NAME.lock.json`:
 
-    ``` ruby
-    include_policy "NAME", path: "."
+    ```ruby
+    include_policy 'NAME', path: '.'
     ```
 
     Pull the policyfile lock from `./foo.lock.json`.
 
-    ``` ruby
-    include_policy "NAME", path: "./foo.lock.json"
+    ```ruby
+    include_policy 'NAME', path: './foo.lock.json'
     ```
 
     Pull the policyfile lock from `./bar.lock.json` with revision ID
     'revision1'.
 
-    ``` ruby
-    include_policy "NAME", policy_revision_id: "revision1", path: "./bar.lock.json"
+    ```ruby
+    include_policy 'NAME', policy_revision_id: 'revision1', path: './bar.lock.json'
     ```
 
     Pull the policyfile lock from a remote server
     `https://internal.example.com/foo.lock.json`.
 
-    ``` ruby
-    include_policy "NAME", remote: "https://internal.example.com/foo.lock.json"
+    ```ruby
+    include_policy 'NAME', remote: 'https://internal.example.com/foo.lock.json'
     ```
 
     Pull the policyfile lock from a remote server
     `https://internal.example.com/bar.lock.json` and with revision ID
     'revision1'.
 
-    ``` ruby
-    include_policy "NAME", policy_revision_id: "revision1", remote: "https://internal.example.com/foo.lock.json"
+    ```ruby
+    include_policy 'NAME', policy_revision_id: 'revision1', remote: 'https://internal.example.com/foo.lock.json'
     ```
 
     Pull the policy `NAME` with revision ID `revision1` from the
     `http://chef-server.example` Chef Infra Server:
 
-    ``` ruby
-    include_policy "NAME", policy_revision_id: "revision1", server: "http://chef-server.example"
+    ```ruby
+    include_policy 'NAME', policy_revision_id: 'revision1', server: 'http://chef-server.example'
     ```
 
     Pull the policy `foo` with revision ID `revision1`:
 
-    ``` ruby
-    include_policy "NAME", policy_name: "foo", policy_revision_id: "revision1", server: "http://chef-server.example"
+    ```ruby
+    include_policy 'NAME', policy_name: 'foo', policy_revision_id: 'revision1', server: 'http://chef-server.example'
     ```
 
     Pull and lock the current revision for policy `foo` in policy group
     `prod`:
 
-    ``` ruby
-    include_policy "NAME", policy_name: "foo", policy_group: "prod", server: "http://chef-server.example"
+    ```ruby
+    include_policy 'NAME', policy_name: 'foo', policy_group: 'prod', server: 'http://chef-server.example'
     ```

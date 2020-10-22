@@ -210,21 +210,21 @@ attribute precedence hierarchy from which a particular attribute (or
 sub-attribute) is set. This method is available when running chef-shell
 in Chef Infra Client mode:
 
-``` bash
+```bash
 chef-shell -z
 ```
 
 For example, the following attributes exist in a cookbook. Some are
 defined in a role file:
 
-``` ruby
-default_attributes 'test' => {'source' => 'role default'}
-override_attributes 'test' => {'source' => 'role override'}
+```ruby
+default_attributes 'test' => { 'source' => 'role default' }
+override_attributes 'test' => { 'source' => 'role override' }
 ```
 
 And others are defined in an attributes file:
 
-``` ruby
+```ruby
 default[:test][:source]  = 'attributes default'
 set[:test][:source]      = 'attributes normal'
 override[:test][:source] = 'attributes override'
@@ -233,7 +233,7 @@ override[:test][:source] = 'attributes override'
 To debug the location in which the value of `node[:test][:source]` is
 set, use chef-shell and run a command similar to:
 
-``` none
+```none
 pp node.debug_value('test', 'source')
 ```
 
@@ -241,7 +241,7 @@ This will pretty-print return all of the attributes and sub-attributes
 as an array of arrays; `:not_present` is returned for any attribute
 without a value:
 
-``` bash
+```bash
 [['set_unless_enabled?', false],
  ['default', 'attributes default'],
  ['env_default', :not_present],

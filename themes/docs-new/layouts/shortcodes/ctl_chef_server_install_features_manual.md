@@ -1,14 +1,12 @@
-The `install` subcommand is used to install premium features of the Chef
-server: Chef management console(`chef-manage`) and push
-jobs(`opscode-push-jobs-server`).
+Use the `install` subcommand with the `--path` option to install the Chef Manage (`chef-manage`) and Push Jobs(`opscode-push-jobs-server`) add-ons for Chef Infra Server.
 
-``` bash
+```bash
 sudo chef-server-ctl install PACKAGE_NAME --path /path/to/package/directory
 ```
 
 For example:
 
-``` bash
+```bash
 sudo chef-server-ctl install chef-manage --path /root/packages
 ```
 

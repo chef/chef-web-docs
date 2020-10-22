@@ -5,13 +5,13 @@ Hash will be returned.
 The syntax for the `search` method that uses `:filter_result` is as
 follows:
 
-``` ruby
+```ruby
 search(:index, 'query',
-  :filter_result => { 'foo' => [ 'abc' ],
+  filter_result: { 'foo' => [ 'abc' ],
                       'bar' => [ '123' ],
-                      'baz' => [ 'sea', 'power' ]
+                      'baz' => %w(sea power),
                     }
-      ).each do |result|
+).each do |result|
   puts result['foo']
   puts result['bar']
   puts result['baz']
@@ -29,13 +29,13 @@ where:
 
 For example:
 
-``` ruby
+```ruby
 search(:node, 'role:web',
-  :filter_result => { 'name' => [ 'name' ],
+  filter_result: { 'name' => [ 'name' ],
                       'ip' => [ 'ipaddress' ],
-                      'kernel_version' => [ 'kernel', 'version' ]
+                      'kernel_version' => %w(kernel version),
                     }
-      ).each do |result|
+).each do |result|
   puts result['name']
   puts result['ip']
   puts result['kernel_version']

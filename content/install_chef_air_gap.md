@@ -71,7 +71,7 @@ bootstrapping a new node. It simply pulls the Chef Infra Client package
 from your artifact store, and then installs it. For example, on
 Debian-based Linux systems, it would look similar to this:
 
-``` bash
+```bash
 #!/bin/bash
 
 cd /tmp/
@@ -98,7 +98,7 @@ group.
 
 4.  Run the following to start all of the services:
 
-    ``` bash
+    ```bash
     sudo chef-server-ctl reconfigure
     ```
 
@@ -118,26 +118,26 @@ group.
     package](https://downloads.chef.io/chef-workstation). Use the
     appropriate tool to run the installer:
 
-    ``` bash
+    ```bash
     dpkg -i chef-workstation_0.14.16-1_amd64.deb
     ```
 
 2.  Use the `chef generate repo` command to generate your Chef repo:
 
-    ``` bash
+    ```bash
     chef generate repo chef-repo
     ```
 
 3.  Within your Chef repo, create a `.chef` directory:
 
-    ``` bash
+    ```bash
     mkdir /chef-repo/.chef
     ```
 
 4.  Copy the `USER.pem` and `ORGANIZATION.pem` files from the server,
     and move them into the `.chef` directory.
 
-    ``` bash
+    ```bash
     scp ssh-user@chef-server.example.com:/path/to/pem/files /chef-repo/.chef/
     ```
 
@@ -152,21 +152,21 @@ custom template, and then modify the package and Ruby gem sources.
 1.  Navigate to the `.chef` directory, and create a `bootstrap`
     directory within it:
 
-    ``` bash
+    ```bash
     mkdir bootstrap
     ```
 
 2.  Move to the `bootstrap` directory and create a blank template file;
     this example will use `airgap.erb` for the template name:
 
-    ``` bash
+    ```bash
     touch airgap.erb
     ```
 
 3.  Still in the `bootstrap` directory, issue the following command to
     copy the `chef-full` configuration to your new template:
 
-    ``` bash
+    ```bash
     find /opt/chef-workstation/embedded/lib/ruby -type f -name chef-full.erb -exec cat {} \; > airgap.erb
     ```
 
@@ -179,14 +179,14 @@ custom template, and then modify the package and Ruby gem sources.
 4.  Update `airgap.erb` to replace `omnitruck.chef.io` with the URL of
     `install.sh` on your artifact store:
 
-    ``` ruby
+    ```ruby
     install_sh="<%= knife_config[:bootstrap_url] ? knife_config[:bootstrap_url] : "http://packages.example.com/install.sh" %>"
     ```
 
 5.  Still in your text editor, locate the following line near the bottom
     of your `airgap.erb` file:
 
-    ``` ruby
+    ```ruby
     cat > /etc/chef/client.rb <<'EOP'
     <%= config_content %>
     EOP
@@ -195,7 +195,7 @@ custom template, and then modify the package and Ruby gem sources.
     Beneath it, add the following, replacing `gems.example.com` with the
     URL of your gem mirror:
 
-    ``` ruby
+    ```ruby
     cat >> /etc/chef/client.rb <<'EOP'
     rubygems_url "http://gems.example.com"
     EOP
@@ -212,7 +212,7 @@ Within the `.chef` directory, create a `config.rb` file and replace
 created on your Chef Infra Server; replace `chef-server.example.com`
 with your Chef Infra Server URL:
 
-``` ruby
+```ruby
 current_dir = File.dirname(__FILE__)
 log_level                :info
 log_location             STDOUT
@@ -235,7 +235,7 @@ bootstrapping a node. It should point to your custom template within the
 Now that `knife` is configured, copy the SSL certificates from your Chef
 Infra Server to your trusted certificates:
 
-``` ruby
+```ruby
 knife ssl fetch
 ```
 
@@ -295,7 +295,7 @@ Supermarket.
 
 3.  Reconfigure the Chef Infra Server.
 
-    ``` bash
+    ```bash
     sudo chef-server-ctl reconfigure
     ```
 
@@ -307,7 +307,7 @@ Supermarket.
     supermarket](/ctl_chef_server/#ctl-chef-server-oc-id-show-app)
     or is located in `/etc/opscode/oc-id-applications/supermarket.json`:
 
-    ``` javascript
+    ```javascript
     {
       "name": "supermarket",
       "uid": "0bad0f2eb04e935718e081fb71asdfec3681c81acb9968a8e1e32451d08b",
@@ -320,13 +320,13 @@ Supermarket.
 
 1.  Generate the cookbook:
 
-    ``` bash
+    ```bash
     chef generate cookbook my_supermarket_wrapper
     ```
 
 2.  Change directories into that cookbook:
 
-    ``` bash
+    ```bash
     cd my_supermarket_wrapper
     ```
 
@@ -334,7 +334,7 @@ Supermarket.
     `supermarket-omnibus-cookbook` cookbook. Open the `metadata.rb` file
     of the newly-created cookbook, and then add the following line:
 
-    ``` ruby
+    ```ruby
     depends 'supermarket-omnibus-cookbook'
     ```
 
@@ -343,7 +343,7 @@ Supermarket.
 5.  Open the `/recipes/default.rb` recipe located within the
     newly-generated cookbook and add the following content:
 
-    ``` ruby
+    ```ruby
     include_recipe 'supermarket-omnibus-cookbook'
     ```
 
@@ -375,13 +375,13 @@ To define these attributes, do the following:
     example uses a data bag named `apps` and a data bag item named
     `supermarket`:
 
-    ``` ruby
+    ```ruby
     app = data_bag_item('apps', 'supermarket')
     ```
 
 2.  Set the attributes from the data bag:
 
-    ``` ruby
+    ```ruby
     node.override['supermarket_omnibus']['chef_server_url'] = app['chef_server_url']
     node.override['supermarket_omnibus']['chef_oauth2_app_id'] = app['chef_oauth2_app_id']
     node.override['supermarket_omnibus']['chef_oauth2_secret'] = app['chef_oauth2_secret']
@@ -392,7 +392,7 @@ To define these attributes, do the following:
     the Supermarket package on your artifact store. When finished, the
     `/recipes/default.rb` file should have code similar to:
 
-    ``` ruby
+    ```ruby
     app = data_bag_item('apps', 'supermarket')
 
     node.override['supermarket_omnibus']['chef_server_url'] = app['chef_server_url']
@@ -405,7 +405,7 @@ To define these attributes, do the following:
     Alternatively, if you chose not to use a data bag to store these
     values, your `default.rb` should look similar to this:
 
-    ``` ruby
+    ```ruby
     node.override['supermarket_omnibus']['chef_server_url'] = 'https://chef-server.example.com:443'
     node.override['supermarket_omnibus']['chef_oauth2_app_id'] = '0bad0f2eb04e935718e081fb71asdfec3681c81acb9968a8e1e32451d08b'
     node.override['supermarket_omnibus']['chef_oauth2_secret'] = '17cf1141cc971a10ce307611beda7ffadstr4f1bc98d9f9ca76b9b127879'
@@ -419,7 +419,7 @@ To define these attributes, do the following:
 
 4.  Upload all of your cookbooks to the Chef Infra Server:
 
-    ``` ruby
+    ```ruby
     knife cookbook upload -a
     ```
 
@@ -429,7 +429,7 @@ Bootstrap the node on which Chef Supermarket is to be installed. For
 example, to bootstrap a node running Ubuntu on Amazon Web Services
 (AWS), the command is similar to:
 
-``` bash
+```bash
 knife bootstrap ip_address -N supermarket-node -x ubuntu --sudo
 ```
 
@@ -446,7 +446,7 @@ When the bootstrap operation is finished, do the following:
 1.  Add the wrapper cookbook's `/recipes/default.rb` recipe to the
     run-list:
 
-    ``` bash
+    ```bash
     knife node run_list set supermarket-node recipe[my_supermarket_wrapper::default]
     ```
 
@@ -456,13 +456,13 @@ When the bootstrap operation is finished, do the following:
 2.  Start Chef Infra Client on the newly-bootstrapped Chef Supermarket
     node. For example, using SSH:
 
-    ``` bash
+    ```bash
     ssh ubuntu@your-supermarket-node-public-dns
     ```
 
 3.  After accessing the Chef Supermarket node, run Chef Infra Client:
 
-    ``` bash
+    ```bash
     sudo chef-client
     ```
 
@@ -502,7 +502,7 @@ hostname of the Chef Supermarket server. The URI must also be correct:
 Update the `config.rb` file on your workstation to use your private
 Supermarket:
 
-``` ruby
+```ruby
 knife[:supermarket_site] = 'https://supermarket.example.com'
 ```
 
@@ -511,7 +511,7 @@ knife[:supermarket_site] = 'https://supermarket.example.com'
 If you're using Berkshelf, update your `Berksfile` to replace
 `https://supermarket.chef.io` with the URL of your private Supermarket:
 
-``` ruby
+```ruby
 source 'https://supermarket.example.com'
 ```
 
@@ -520,6 +520,6 @@ source 'https://supermarket.example.com'
 To upload new cookbooks to your private Supermarket, use the
 `knife supermarket share` command on your workstation:
 
-``` ruby
+```ruby
 knife supermarket share chef-ingredient
 ```

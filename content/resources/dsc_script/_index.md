@@ -1,6 +1,5 @@
 ---
 resource_reference: true
-properties_shortcode:
 ps_credential_helper: true
 resources_common_guards: true
 resources_common_notification: true
@@ -53,7 +52,7 @@ resource_description_list:
 resource_new_in: null
 handler_types: false
 syntax_description: "A **dsc_script** resource block embeds the code that defines\
-  \ a DSC\nconfiguration directly within a Chef recipe:\n\n``` ruby\ndsc_script 'get-dsc-resource-kit'\
+  \ a DSC\nconfiguration directly within a Chef recipe:\n\n```ruby\ndsc_script 'get-dsc-resource-kit'\
   \ do\n  code <<-EOH\n    Archive reskit\n    {\n      ensure = 'Present'\n     \
   \ path = \"#{Chef::Config[:file_cache_path]}\\\\DSCResourceKit620082014.zip\"\n\
   \      destination = \"#{ENV['PROGRAMW6432']}\\\\WindowsPowerShell\\\\Modules\"\n\
@@ -158,15 +157,11 @@ properties_list:
 - property: cwd
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: The current working directory.
 - property: environment
   ruby_type: Hash
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: 'A Hash of environment variables in the form of
 
@@ -176,8 +171,6 @@ properties_list:
 - property: flags
   ruby_type: Hash
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: 'Pass parameters to the DSC script that is specified by the `command`
 
@@ -202,7 +195,7 @@ properties_list:
       To import all resources from a module, specify only the module name:
 
 
-      ``` ruby
+      ```ruby
 
       imports ''module_name''
 
@@ -214,7 +207,7 @@ properties_list:
       specify the name for each resource in that module to import:
 
 
-      ``` ruby
+      ```ruby
 
       imports ''module_name'', ''resource_name_a'', ''resource_name_b'', ...
 
@@ -226,7 +219,7 @@ properties_list:
       `cRDPEnabled`:
 
 
-      ``` ruby
+      ```ruby
 
       imports ''cRDPEnabled''
 
@@ -236,7 +229,7 @@ properties_list:
       To import only the `PSHOrg_cRDPEnabled` resource:
 
 
-      ``` ruby
+      ```ruby
 
       imports ''cRDPEnabled'', ''PSHOrg_cRDPEnabled''
 
@@ -244,12 +237,8 @@ properties_list:
 - property: timeout
   ruby_type: Integer
   required: false
-  default_value: null
-  new_in: null
   description_list:
-  - markdown: 'The amount of time (in seconds) a command is to wait before timing
-
-      out.'
+  - markdown: The amount of time (in seconds) a command is to wait before timing out.
 properties_shortcode: null
 properties_multiple_packages: false
 resource_directory_recursive_directories: false
@@ -273,26 +262,26 @@ cookbook_file_specificity: false
 unit_file_verification: false
 examples: "
   Specify DSC code directly\n\n  DSC data can be specified directly\
-  \ in a recipe:\n\n  ``` ruby\n  dsc_script 'emacs' do\n    code <<-EOH\n    Environment\
+  \ in a recipe:\n\n  ```ruby\n  dsc_script 'emacs' do\n    code <<-EOH\n    Environment\
   \ 'texteditor'\n    {\n      Name = 'EDITOR'\n      Value = 'c:\\\\emacs\\\\bin\\\
   \\emacs.exe'\n    }\n    EOH\n  end\n  ```\n\n  Specify DSC code using a Windows\
   \ PowerShell data file\n\n  Use the `command` property to specify the path to a\
   \ Windows PowerShell\n  data file. For example, the following Windows PowerShell\
-  \ script defines\n  the `DefaultEditor`:\n\n  ``` powershell\n  Configuration 'DefaultEditor'\n\
+  \ script defines\n  the `DefaultEditor`:\n\n  ```powershell\n  Configuration 'DefaultEditor'\n\
   \  {\n    Environment 'texteditor'\n      {\n        Name = 'EDITOR'\n        Value\
   \ = 'c:\\emacs\\bin\\emacs.exe'\n      }\n  }\n  ```\n\n  Use the following recipe\
-  \ to specify the location of that data file:\n\n  ``` ruby\n  dsc_script 'DefaultEditor'\
+  \ to specify the location of that data file:\n\n  ```ruby\n  dsc_script 'DefaultEditor'\
   \ do\n    command 'c:\\dsc_scripts\\emacs.ps1'\n  end\n  ```\n\n  Pass parameters\
   \ to DSC configurations\n\n  If a DSC script contains configuration data that takes\
   \ parameters, those\n  parameters may be passed using the `flags` property. For\
   \ example, the\n  following Windows PowerShell script takes parameters for the\n\
-  \  `EditorChoice` and `EditorFlags` settings:\n\n  ``` powershell\n  $choices =\
+  \  `EditorChoice` and `EditorFlags` settings:\n\n  ```powershell\n  $choices =\
   \ @{'emacs' = 'c:\\emacs\\bin\\emacs';'vi' = 'c:\\vim\\vim.exe';'powershell' = 'powershell_ise.exe'}\n\
   \    Configuration 'DefaultEditor'\n      {\n        [CmdletBinding()]\n       \
   \ param\n          (\n            $EditorChoice,\n            $EditorFlags = ''\n\
   \          )\n        Environment 'TextEditor'\n        {\n          Name = 'EDITOR'\n\
   \          Value =  \"$($choices[$EditorChoice]) $EditorFlags\"\n        }\n   \
-  \   }\n  ```\n\n  Use the following recipe to set those parameters:\n\n  ``` ruby\n\
+  \   }\n  ```\n\n  Use the following recipe to set those parameters:\n\n  ```ruby\n\
   \  dsc_script 'DefaultEditor' do\n    flags ({ :EditorChoice => 'emacs', :EditorFlags\
   \ => '--maximized' })\n    command 'c:\\dsc_scripts\\editors.ps1'\n  end\n  ```\n\
   \n  Use custom configuration data\n\n  Configuration data in DSC scripts may be\
@@ -302,7 +291,7 @@ examples: "
   \ attribute\n  -   By using the `configuration_data_script` attribute\n  -   By\
   \ specifying the path to a valid Windows PowerShell data file\n\n  The following\
   \ example shows how to specify custom configuration data\n  using the `configuration_data`\
-  \ property:\n\n  ``` ruby\n  dsc_script 'BackupUser' do\n    configuration_data\
+  \ property:\n\n  ```ruby\n  dsc_script 'BackupUser' do\n    configuration_data\
   \ <<-EOH\n      @{\n       AllNodes = @(\n            @{\n            NodeName =\
   \ \"localhost\";\n            PSDscAllowPlainTextPassword = $true\n            })\n\
   \       }\n    EOH\n    code <<-EOH\n      $user = 'backup'\n      $password = ConvertTo-SecureString\
@@ -314,7 +303,7 @@ examples: "
   \ = $false\n       }\n     EOH\n  end\n  ```\n\n  The following example shows how\
   \ to specify custom configuration data\n  using the `configuration_name` property.\
   \ For example, the following\n  Windows PowerShell script defines the `vi` configuration:\n\
-  \n  ``` powershell\n  Configuration 'emacs'\n    {\n      Environment 'TextEditor'\n\
+  \n  ```powershell\n  Configuration 'emacs'\n    {\n      Environment 'TextEditor'\n\
   \      {\n        Name = 'EDITOR'\n        Value = 'c:\\emacs\\bin\\emacs.exe'\n\
   \      }\n  }\n\n  Configuration 'vi'\n  {\n      Environment 'TextEditor'\n   \
   \   {\n        Name = 'EDITOR'\n        Value = 'c:\\vim\\bin\\vim.exe'\n      }\n\
@@ -323,7 +312,7 @@ examples: "
   dsc_scripts\\editors.ps1'\n  end\n  ```\n\n  Using DSC with other Chef resources\n\
   \n  The **dsc_script** resource can be used with other resources. The\n  following\
   \ example shows how to download a file using the\n  **remote_file** resource, and\
-  \ then uncompress it using the DSC\n  `Archive` resource:\n\n  ``` ruby\n  remote_file\
+  \ then uncompress it using the DSC\n  `Archive` resource:\n\n  ```ruby\n  remote_file\
   \ \"#{Chef::Config[:file_cache_path]}\\\\DSCResourceKit620082014.zip\" do\n    source\
   \ 'http://gallery.technet.microsoft.com/DSC-Resource-Kit-All-c449312d/file/124481/1/DSC%20Resource%20Kit%20Wave%206%2008282014.zip'\n\
   \  end\n\n  dsc_script 'get-dsc-resource-kit' do\n    code <<-EOH\n      Archive\

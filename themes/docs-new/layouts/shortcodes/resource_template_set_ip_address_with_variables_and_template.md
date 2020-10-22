@@ -3,7 +3,7 @@ a recipe to combine settings stored in an attributes file, variables
 within a recipe, and a template to set the IP addresses that are used by
 the Nginx service. The attributes file contains the following:
 
-``` ruby
+```ruby
 default['nginx']['dir'] = '/etc/nginx'
 ```
 
@@ -18,7 +18,7 @@ The recipe then does the following to:
 
 <!-- -->
 
-``` ruby
+```ruby
 node.default['nginx']['remote_ip_var'] = 'remote_addr'
 node.default['nginx']['authorized_ips'] = ['127.0.0.1/32']
 
@@ -46,7 +46,7 @@ set at the beginning of the recipe and the `source` property is used to
 call a template file located in the cookbook's `/templates` directory.
 The template file looks similar to:
 
-``` ruby
+```ruby
 geo $<%= @remote_ip_var %> $authorized_ip {
   default no;
   <% @authorized_ips.each do |ip| %>

@@ -1,15 +1,13 @@
 ---
 title: perl resource
 resource: perl
-draft: false
 aliases:
-- /resource_perl.html
+- "/resource_perl.html"
 menu:
   infra:
     title: perl
     identifier: chef_infra/cookbook_reference/resources/perl perl
     parent: chef_infra/cookbook_reference/resources
-
 resource_reference: true
 robots: null
 resource_description_list:
@@ -26,7 +24,7 @@ resource_description_list:
     and `only_if` to guard this resource for idempotence.'
 resource_new_in: null
 handler_types: false
-syntax_description: "A **perl** resource block executes scripts Perl:\n\n``` perl\n\
+syntax_description: "A **perl** resource block executes scripts Perl:\n\n```perl\n\
   perl 'hello world' do\n  code <<-EOH\n    print \"Hello world! From Chef and Perl.\"\
   ;\n  EOH\nend\n```"
 syntax_code_block: null

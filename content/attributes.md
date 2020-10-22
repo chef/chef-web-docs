@@ -121,7 +121,7 @@ values on a node. For example, the `apache2` cookbook contains an
 attribute file called `default.rb`, which contains the following
 attributes:
 
-``` ruby
+```ruby
 default['apache']['dir']          = '/etc/apache2'
 default['apache']['listen_ports'] = [ '80','443' ]
 ```
@@ -130,7 +130,7 @@ The use of the node object (`node`) is implicit in the previous example;
 the following example defines the node object itself as part of the
 attribute:
 
-``` ruby
+```ruby
 node.default['apache']['dir']          = '/etc/apache2'
 node.default['apache']['listen_ports'] = [ '80','443' ]
 ```
@@ -158,7 +158,7 @@ a specific attribute exists.
 
 Using `attribute?()` in an attributes file:
 
-``` ruby
+```ruby
 if attribute?('ec2')
   # ... set stuff related to EC2
 end
@@ -166,7 +166,7 @@ end
 
 Using `attribute?()` in a recipe:
 
-``` ruby
+```ruby
 if node.attribute?('ec2')
   # ... do stuff on EC2 nodes
 end
@@ -208,62 +208,62 @@ The following examples are listed from low to high precedence.
 
 **Default attribute in /attributes/default.rb**
 
-``` ruby
+```ruby
 default['apache']['dir'] = '/etc/apache2'
 ```
 
 **Default attribute in node object in recipe**
 
-``` ruby
+```ruby
 node.default['apache']['dir'] = '/etc/apache2'
 ```
 
 **Default attribute in /environments/environment_name.rb**
 
-``` ruby
+```ruby
 default_attributes({ 'apache' => {'dir' => '/etc/apache2'}})
 ```
 
 **Default attribute in /roles/role_name.rb**
 
-``` ruby
+```ruby
 default_attributes({ 'apache' => {'dir' => '/etc/apache2'}})
 ```
 
 **Normal attribute set as a cookbook attribute**
 
-``` ruby
+```ruby
 set['apache']['dir'] = '/etc/apache2'
 normal['apache']['dir'] = '/etc/apache2'  #set is an alias of normal.
 ```
 
 **Normal attribute set in a recipe**
 
-``` ruby
+```ruby
 node.normal['apache']['dir'] = '/etc/apache2'
 ```
 
 **Override attribute in /attributes/default.rb**
 
-``` ruby
+```ruby
 override['apache']['dir'] = '/etc/apache2'
 ```
 
 **Override attribute in /roles/role_name.rb**
 
-``` ruby
+```ruby
 override_attributes({ 'apache' => {'dir' => '/etc/apache2'}})
 ```
 
 **Override attribute in /environments/environment_name.rb**
 
-``` ruby
+```ruby
 override_attributes({ 'apache' => {'dir' => '/etc/apache2'}})
 ```
 
 **Override attribute in a node object (from a recipe)**
 
-``` ruby
+```ruby
 node.override['apache']['dir'] = '/etc/apache2'
 ```
 
@@ -271,7 +271,7 @@ node.override['apache']['dir'] = '/etc/apache2'
 
 When a default attribute is set like this:
 
-``` ruby
+```ruby
 default['attribute'] = 'value'
 ```
 
@@ -279,13 +279,13 @@ any value set by a role or an environment will replace it. To prevent
 this value from being replaced, use the `force_default` attribute
 precedence:
 
-``` ruby
+```ruby
 force_default['attribute'] = 'I will crush you, role or environment attribute'
 ```
 
 or:
 
-``` ruby
+```ruby
 default!['attribute'] = "The '!' means I win!"
 ```
 
@@ -294,7 +294,7 @@ attributes**
 
 When an override attribute is set like this:
 
-``` ruby
+```ruby
 override['attribute'] = 'value'
 ```
 
@@ -302,13 +302,13 @@ any value set by a role or an environment will replace it. To prevent
 this value from being replaced, use the `force_override` attribute
 precedence:
 
-``` ruby
+```ruby
 force_override['attribute'] = 'I will crush you, role or environment attribute'
 ```
 
 or:
 
-``` ruby
+```ruby
 override!['attribute'] = "The '!' means I win!"
 ```
 
@@ -349,7 +349,7 @@ precedence level.
 
 Given the following code structure under `'foo'`:
 
-``` ruby
+```ruby
 node.default['foo'] = {
   'bar' => {
     'baz' => 52,
@@ -363,26 +363,26 @@ node.default['foo'] = {
 
 And some role attributes:
 
-``` ruby
+```ruby
 # Please don't ever do this in real code :)
 node.role_default['foo']['bar']['thing'] = 'otherstuff'
 ```
 
 And a force attribute:
 
-``` ruby
+```ruby
 node.force_default['foo']['bar']['thing'] = 'allthestuff'
 ```
 
 When the default attribute precedence `node['foo']['bar']` is removed:
 
-``` ruby
+```ruby
 node.rm_default('foo', 'bar') #=> {'baz' => 52, 'thing' => 'allthestuff'}
 ```
 
 What is left under `'foo'` is only `'bat'`:
 
-``` ruby
+```ruby
 node.attributes.combined_default['foo'] #=> {'bat' => { 'things' => [5,6] } }
 ```
 
@@ -390,7 +390,7 @@ node.attributes.combined_default['foo'] #=> {'bat' => { 'things' => [5,6] } }
 
 Given the following code structure:
 
-``` ruby
+```ruby
 node.default['foo'] = {
   'bar' => {
     'baz' => 52,
@@ -404,32 +404,32 @@ node.default['foo'] = {
 
 And some role attributes:
 
-``` ruby
+```ruby
 # Please don't ever do this in real code :)
 node.role_default['foo']['bar']['thing'] = 'otherstuff'
 ```
 
 And a force attribute:
 
-``` ruby
+```ruby
 node.force_default['foo']['bar']['thing'] = 'allthestuff'
 ```
 
 And also some override attributes:
 
-``` ruby
+```ruby
 node.override['foo']['bar']['baz'] = 99
 ```
 
 Same delete as before:
 
-``` ruby
+```ruby
 node.rm_default('foo', 'bar') #=> { 'baz' => 52, 'thing' => 'allthestuff' }
 ```
 
 The other attribute precedence levels are unaffected:
 
-``` ruby
+```ruby
 node.attributes.combined_override['foo'] #=> { 'bar' => {'baz' => 99} }
 node['foo'] #=> { 'bar' => {'baz' => 99}, 'bat' => { 'things' => [5,6] }
 ```
@@ -438,7 +438,7 @@ node['foo'] #=> { 'bar' => {'baz' => 99}, 'bat' => { 'things' => [5,6] }
 
 Given the following code structure, which has an override attribute:
 
-``` ruby
+```ruby
 node.override['foo'] = {
   'bar' => {
     'baz' => 52,
@@ -452,32 +452,32 @@ node.override['foo'] = {
 
 with a single default value:
 
-``` ruby
+```ruby
 node.default['foo']['bar']['baz'] = 11
 ```
 
 and a force at each attribute precedence:
 
-``` ruby
+```ruby
 node.force_default['foo']['bar']['baz'] = 55
 node.force_override['foo']['bar']['baz'] = 99
 ```
 
 Delete the override:
 
-``` ruby
+```ruby
 node.rm_override('foo', 'bar') #=> { 'baz' => 99, 'thing' => 'stuff' }
 ```
 
 The other attribute precedence levels are unaffected:
 
-``` ruby
+```ruby
 node.attributes.combined_default['foo'] #=> { 'bar' => {'baz' => 55} }
 ```
 
 **Non-existent key deletes return nil**
 
-``` ruby
+```ruby
 node.rm_default("no", "such", "thing") #=> nil
 ```
 
@@ -504,7 +504,7 @@ levels.
 
 Given the following code structure:
 
-``` ruby
+```ruby
 node.default['foo'] = {
   'bar' => {
     'baz' => 52,
@@ -518,25 +518,25 @@ node.default['foo'] = {
 
 With override attributes:
 
-``` ruby
+```ruby
 node.override['foo']['bar']['baz'] = 999
 ```
 
 Removing the `'bar'` key returns the computed value:
 
-``` ruby
+```ruby
 node.rm('foo', 'bar') #=> {'baz' => 999, 'thing' => 'stuff'}
 ```
 
 Looking at `'foo'`, all that's left is the `'bat'` entry:
 
-``` ruby
+```ruby
 node['foo'] #=> {'bat' => { 'things' => [5,6] } }
 ```
 
 **Non-existent key deletes return nil**
 
-``` ruby
+```ruby
 node.rm_default("no", "such", "thing") #=> nil
 ```
 
@@ -561,14 +561,14 @@ levels.
 
 Given the following code structure:
 
-``` ruby
+```ruby
 node.default['foo']['bar'] = {'a' => 'b'}
 node.default!['foo']['bar'] = {'c' => 'd'}
 ```
 
 The `'!'` caused the entire 'bar' key to be overwritten:
 
-``` ruby
+```ruby
 node['foo'] #=> {'bar' => {'c' => 'd'}
 ```
 
@@ -576,7 +576,7 @@ node['foo'] #=> {'bar' => {'c' => 'd'}
 
 Given the following code structure:
 
-``` ruby
+```ruby
 node.default['foo']['bar'] = {'a' => 'b'}
 # Please don't ever do this in real code :)
 node.role_default['foo']['bar'] = {'c' => 'd'}
@@ -586,7 +586,7 @@ node.default!['foo']['bar'] = {'d' => 'e'}
 The `'!'` write overwrote the "cookbook-default" value of `'bar'`, but
 since role data is later in the resolution list, it was unaffected:
 
-``` ruby
+```ruby
 node['foo'] #=> {'bar' => {'c' => 'd', 'd' => 'e'}
 ```
 
@@ -594,7 +594,7 @@ node['foo'] #=> {'bar' => {'c' => 'd', 'd' => 'e'}
 
 Given the following code structure:
 
-``` ruby
+```ruby
 node.default['foo']['bar'] = {'a' => 'b'}
 # Please don't ever do this in real code :)
 node.role_default['foo']['bar'] = {'c' => 'd'}
@@ -603,7 +603,7 @@ node.force_default!['foo']['bar'] = {'d' => 'e'}
 
 With `force_default!` there is no other data under `'bar'`:
 
-``` ruby
+```ruby
 node['foo'] #=> {'bar' => {'d' => 'e'}
 ```
 
@@ -611,7 +611,7 @@ node['foo'] #=> {'bar' => {'d' => 'e'}
 
 Given the following code structure:
 
-``` ruby
+```ruby
 node.default['foo'] = {
   'bar' => {
     'baz' => 52,
@@ -625,7 +625,7 @@ node.default['foo'] = {
 
 And some attributes:
 
-``` ruby
+```ruby
 # Please don't ever do this in real code :)
 node.role_default['foo']['bar']['baz'] = 55
 node.force_default['foo']['bar']['baz'] = 66
@@ -633,21 +633,21 @@ node.force_default['foo']['bar']['baz'] = 66
 
 And other precedence levels:
 
-``` ruby
+```ruby
 node.normal['foo']['bar']['baz'] = 88
 node.override['foo']['bar']['baz'] = 99
 ```
 
 With a full assignment:
 
-``` ruby
+```ruby
 node.default!['foo']['bar'] = {}
 ```
 
 Role default and force default are left in default, plus other
 precedence levels:
 
-``` ruby
+```ruby
 node.attributes.combined_default['foo'] #=> {'bar' => {'baz' => 66}, 'bat'=>{'things'=>[5, 6]}}
 node.attributes.normal['foo'] #=> {'bar' => {'baz' => 88}}
 node.attributes.combined_override['foo'] #=> {'bar' => {'baz' => 99}}
@@ -656,13 +656,13 @@ node['foo']['bar'] #=> {'baz' => 99}
 
 If `force_default!` is written:
 
-``` ruby
+```ruby
 node.force_default!['foo']['bar'] = {}
 ```
 
 the difference is:
 
-``` ruby
+```ruby
 node.attributes.combined_default['foo'] #=> {'bat'=>{'things'=>[5, 6]}, 'bar' => {}}
 node.attributes.normal['foo'] #=> {'bar' => {'baz' => 88}}
 node.attributes.combined_override['foo'] #=> {'bar' => {'baz' => 99}}
@@ -678,7 +678,7 @@ multi-level hash or array.
 
 For example, a group of attributes for web servers might be:
 
-``` ruby
+```ruby
 override_attributes(
   :apache => {
     :listen_ports => [ 80 ],
@@ -696,7 +696,7 @@ web servers required a single attribute to have a different value? You
 could store these settings in two locations, once just like the
 preceding example and once just like the following:
 
-``` ruby
+```ruby
 override_attributes(
   :apache => {
     :listen_ports => [ 80 ],
@@ -719,7 +719,7 @@ applied only when they are supposed to be.
 
 For example, a role named `baseline.rb`:
 
-``` ruby
+```ruby
 name "baseline"
 description "The most basic role for all configurations"
 run_list "recipe[baseline]"
@@ -738,7 +738,7 @@ override_attributes(
 
 and then a role named `web.rb`:
 
-``` ruby
+```ruby
 name 'web'
 description 'Web server config'
 run_list 'role[baseline]'
@@ -768,14 +768,14 @@ applied.
 
 This approach will allow a recipe like this:
 
-``` ruby
+```ruby
 include_recipe 'apache2'
 Chef::Log.info(node['apache']['prefork'].to_hash)
 ```
 
 and a `run_list` like this:
 
-``` ruby
+```ruby
 run_list/web.json
 {
   "run_list": [ "role[web]" ]
@@ -784,7 +784,7 @@ run_list/web.json
 
 to produce results like this:
 
-``` ruby
+```ruby
 [Tue, 16 Aug 2011 14:44:26 -0700] INFO:
          {
            "startservers"=>30,

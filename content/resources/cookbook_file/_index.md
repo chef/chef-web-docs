@@ -2,7 +2,6 @@
 resource_reference: true
 cookbook_file_specificity: true
 properties_resources_common_windows_security: true
-properties_shortcode:
 resources_common_atomic_update: true
 resources_common_guards: true
 resources_common_notification: true
@@ -29,7 +28,7 @@ resource_description_list:
     update are transferred from the Chef Infra Server to a node.'
 syntax_description: "A **cookbook_file** resource block manages files by using files\
   \ that\nexist within a cookbook's `/files` directory. For example, to write the\n\
-  home page for an Apache website:\n\n``` ruby\ncookbook_file '/var/www/customers/public_html/index.php'\
+  home page for an Apache website:\n\n```ruby\ncookbook_file '/var/www/customers/public_html/index.php'\
   \ do\n  source 'index.php'\n  owner 'web_admin'\n  group 'web_admin'\n  mode '0755'\n\
   \  action :create\nend\n```"
 syntax_code_block: null
@@ -117,8 +116,6 @@ properties_list:
 - property: group
   ruby_type: Integer, String
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: 'A string or ID that identifies the group owner by group name or SID,
 
@@ -131,18 +128,13 @@ properties_list:
       group (if available).'
 - property: inherits
   ruby_type: true, false
-  required: false
   default_value: 'true'
-  new_in: null
   description_list:
-  - markdown: 'Microsoft Windows only. Whether a file inherits rights from its
-
-      parent directory.'
+  - markdown: 'Microsoft Windows only. Whether a file inherits rights from its parent directory.'
 - property: manage_symlink_source
   ruby_type: true, false
   required: false
   default_value: 'true'
-  new_in: null
   description_list:
   - markdown: '(with
 
@@ -170,8 +162,6 @@ properties_list:
 - property: mode
   ruby_type: Integer, String
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: 'If `mode` is not specified and if the file already exists, the
 
@@ -230,8 +220,6 @@ properties_list:
 - property: owner
   ruby_type: Integer, String
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: 'A string or ID that identifies the group owner by user name or SID,
 
@@ -285,7 +273,6 @@ properties_list:
   ruby_type: String, Array
   required: false
   default_value: The resource block's name
-  new_in: null
   description_list:
   - markdown: 'The name of the file in `COOKBOOK_NAME/files/default` or the path to
 
@@ -306,13 +293,13 @@ properties_list:
       `true` is executed as a system command.\n\nA block is arbitrary Ruby defined\
       \ within the resource block by using\nthe `verify` property. When a block is\
       \ `true`, Chef Infra Client\nwill continue to update the file as appropriate.\n\
-      \nFor example, this should return `true`:\n\n``` ruby\ncookbook_file '/tmp/baz'\
-      \ do\n  verify { 1 == 1 }\nend\n```\n\nThis should return `true`:\n\n``` ruby\n\
+      \nFor example, this should return `true`:\n\n```ruby\ncookbook_file '/tmp/baz'\
+      \ do\n  verify { 1 == 1 }\nend\n```\n\nThis should return `true`:\n\n```ruby\n\
       cookbook_file '/etc/nginx.conf' do\n  verify 'nginx -t -c %{path}'\nend\n```"
-  - markdown: "This should return `true`:\n\n``` ruby\ncookbook_file '/tmp/bar' do\n\
-      \  verify { 1 == 1}\nend\n```\n\nAnd this should return `true`:\n\n``` ruby\n\
+  - markdown: "This should return `true`:\n\n```ruby\ncookbook_file '/tmp/bar' do\n\
+      \  verify { 1 == 1}\nend\n```\n\nAnd this should return `true`:\n\n```ruby\n\
       cookbook_file '/tmp/foo' do\n  verify do |path|\n    true\n  end\nend\n```\n\
-      \nWhereas, this should return `false`:\n\n``` ruby\ncookbook_file '/tmp/turtle'\
+      \nWhereas, this should return `false`:\n\n```ruby\ncookbook_file '/tmp/turtle'\
       \ do\n  verify '/usr/bin/false'\nend\n```\n\nIf a string or a block return `false`,\
       \ the Chef Infra Client run\nwill stop and an error is returned."
 properties_shortcode: null
@@ -337,19 +324,19 @@ handler_custom: false
 cookbook_file_specificity: true
 unit_file_verification: false
 examples: "
-  Transfer a file\n\n  ``` ruby\n  cookbook_file 'file.txt' do\n  \
+  Transfer a file\n\n  ```ruby\n  cookbook_file 'file.txt' do\n  \
   \  mode '0755'\n  end\n  ```\n\n  Handle cookbook_file and package resources in\
   \ the same recipe\n\n  When a **cookbook_file** resource and a **package** resource\
   \ are both\n  called from within the same recipe, use the `flush_cache` attribute\
   \ to\n  dump the in-memory Yum cache, and then use the repository immediately to\n\
-  \  ensure that the correct package is installed:\n\n  ``` ruby\n  cookbook_file\
+  \  ensure that the correct package is installed:\n\n  ```ruby\n  cookbook_file\
   \ '/etc/yum.repos.d/custom.repo' do\n    source 'custom'\n    mode '0755'\n  end\n\
   \n  package 'only-in-custom-repo' do\n    action :install\n    flush_cache [ :before\
   \ ]\n  end\n  ```\n\n  Install repositories from a file, trigger a command, and\
   \ force the\n  internal cache to reload\n\n  The following example shows how to\
   \ install new Yum repositories from a\n  file, where the installation of the repository\
   \ triggers a creation of\n  the Yum cache that forces the internal cache for Chef\
-  \ Infra Client to\n  reload:\n\n  ``` ruby\n  execute 'create-yum-cache' do\n  \
+  \ Infra Client to\n  reload:\n\n  ```ruby\n  execute 'create-yum-cache' do\n  \
   \ command 'yum -q makecache'\n   action :nothing\n  end\n\n  ruby_block 'reload-internal-yum-cache'\
   \ do\n    block do\n      Chef::Provider::Package::Yum::YumCache.instance.reload\n\
   \    end\n    action :nothing\n  end\n\n  cookbook_file '/etc/yum.repos.d/custom.repo'\
@@ -358,7 +345,7 @@ examples: "
   \  end\n  ```\n\n  Use a case statement\n\n  The following example shows how a case\
   \ statement can be used to handle a\n  situation where an application needs to be\
   \ installed on multiple\n  platforms, but where the install directories are different\
-  \ paths,\n  depending on the platform:\n\n  ``` ruby\n  cookbook_file 'application.pm'\
+  \ paths,\n  depending on the platform:\n\n  ```ruby\n  cookbook_file 'application.pm'\
   \ do\n    path case node['platform']\n      when 'centos','redhat'\n        '/usr/lib/version/1.2.3/dir/application.pm'\n\
   \      when 'arch'\n        '/usr/share/version/core_version/dir/application.pm'\n\
   \      else\n        '/etc/version/dir/application.pm'\n      end\n    source \"\
@@ -366,11 +353,11 @@ examples: "
   \ group 'root'\n    mode '0755'\n  end\n  ```\n\n  Manage dotfiles\n\n  The following\
   \ example shows using the **directory** and\n  **cookbook_file** resources to manage\
   \ dotfiles. The dotfiles are\n  defined by a JSON data structure similar to:\n\n\
-  \  ``` javascript\n  \"files\": {\n    \".zshrc\": {\n      \"mode\": '0755',\n\
+  \  ```javascript\n  \"files\": {\n    \".zshrc\": {\n      \"mode\": '0755',\n\
   \      \"source\": \"dot-zshrc\"\n      },\n    \".bashrc\": {\n      \"mode\":\
   \ '0755',\n      \"source\": \"dot-bashrc\"\n       },\n    \".bash_profile\": {\n\
   \      \"mode\": '0755',\n      \"source\": \"dot-bash_profile\"\n      },\n   \
-  \ }\n  ```\n\n  and then the following resources manage the dotfiles:\n\n  ``` ruby\n\
+  \ }\n  ```\n\n  and then the following resources manage the dotfiles:\n\n  ```ruby\n\
   \  if u.has_key?('files')\n    u['files'].each do |filename, file_data|\n\n    directory\
   \ \"#{home_dir}/#{File.dirname(filename)}\" do\n      recursive true\n      mode\
   \ '0755'\n    end if file_data['subdir']\n\n    cookbook_file \"#{home_dir}/#{filename}\"\

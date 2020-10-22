@@ -174,13 +174,13 @@ To add a project using the Chef Automate web UI:
 `chef generate` can also create a custom build cookbook for use with
 Delivery:
 
-``` bash
+```bash
 chef generate build-cookbook NAME [options]
 ```
 
 The following options are available with `chef generate build-cookbook`:
 
-``` none
+```none
 -C, --copyright COPYRIGHT        Name of the copyright holder - defaults to 'The Authors'
 -m, --email EMAIL                Email address of the author - defaults to 'you@example.com'
 -a, --generator-arg KEY=VALUE    Use to set arbitrary attribute KEY to VALUE in the code_generator cookbook

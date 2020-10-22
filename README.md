@@ -6,36 +6,78 @@ https://docs.chef.io/
 ## Documentation for Other Repositories
 
 We use [Hugo modules](https://gohugo.io/hugo-modules/) to grab documentation from
-other Chef repositories.
+other Chef repositories. The content from those repositories is [vendored](#hugo-vendoring)
+in chef-web-docs.
 
-The Chef Workstation documentation is stored in the `chef/chef-workstation` repository
-in the [`www`](https://github.com/chef/chef-workstation/tree/master/www) directory.
+If you want to make changes to the content from those repositories,
+please submit pull requests to those repositories and not to the vendored copy in chef-web-docs.
+We will update those changes after they're merged or after a new version of a product is released.
 
-The Chef Effortless documentation is stored in the `chef/effortless` repository
-in the [`effortless-chef-io`](https://github.com/chef/effortless/tree/master/effortless-chef-io) directory.
+The [Chef Workstation documentation](https://docs.chef.io/workstation/) is stored in the `chef/chef-workstation` repository
+in the [`docs-chef-io`](https://github.com/chef/chef-workstation/tree/master/docs-chef-io/) directory.
 
-The Chef Desktop documentation is stored in the `chef/desktop-config` repository
-in the `docs` directory. This is a private repository.
+The [Chef Effortless documentation](https://docs.chef.io/effortless/) is stored in the `chef/effortless` repository
+in the [`docs-chef-io`](https://github.com/chef/effortless/tree/master/docs-chef-io) directory.
 
-The Chef InSpec documentation is stored in the `inspec/inspec` repository
-in the `www` directory.
+The [Chef Desktop documentation](https://docs.chef.io/desktop/) is stored in the `chef/desktop-config` repository
+in the [`docs-chef-io`](https://github.com/chef/desktop-config/tree/master/docs-chef-io) directory.
+This is a private repository.
 
-The Chef Automate documentation is stored in the `chef/automate` repository
-in the `components/docs-chef-io` directory.
+The [Chef InSpec documentation](https://docs.chef.io/inspec/) is stored in the `inspec/inspec` repository
+in the [`docs-chef-io`](https://github.com/inspec/inspec/tree/master/docs-chef-io) directory.
 
-### Preview Local Changes to Documentation from Other Repos from chef-web-docs
+The [Chef Automate documentation](https://docs.chef.io/automate/) is stored in the `chef/automate` repository
+in the [`components/docs-chef-io`](https://github.com/chef/automate/tree/master/components/docs-chef-io) directory.
 
-Follow these steps to preview changes to the chef-workstation documentation while
+## Previewing Documentation
+
+There are two ways to preview documentation:
+- Submit a PR and look at the Netlify preview.
+- Build the documentation locally.
+
+### Submit a PR and Look at the Netlify Preview
+
+We've configured Netlify to generate deploy previews of pull requests to the chef-web-docs repository.
+Netlify will add a comment to the PR with a link to the deploy preview after it finishes building the preview.
+
+Netlify will automatically build deploy previews for PRs from contributors who are
+members of the Chef GitHub organization. The Documentation Team can manually tell Netlify
+to build previews from contributors who are not members of the Chef GitHub organization.
+
+### Preview Documentation Changes to chef-web-docs
+
+To build the docs and preview locally:
+
+- Run `make serve`
+- go to http://localhost:1313
+
+See the [Development Environment](#local-development-environment) instructions for setting up
+a local environment for Hugo.
+
+### Preview Documentation Changes to Content from other Repositories
+
+You can also preview documentation changes made in other repositories by running `make serve`
+from a local copy of that repository, or submitting a PR to that repository to see
+the Netlify preview deploy.
+
+#### Preview Local Changes to Documentation from Other Repos from chef-web-docs
+
+You can preview local changes to content from other repositories as they would appear
+on docs.chef.io. Note that this option is only available to members of the Chef GitHub organization.
+
+Follow these steps to preview local changes to documentation from other repositories while
 running Hugo from chef-web-docs.
 
 1. Clone `chef/chef-web-docs` and `chef/other-repo-with-docs` into the same directory.
 
 1. Modify the go.mod file in `chef-web-docs`.
 
-   Add a replace directive to the `go.mod` file that points that repo to your
-   local copy of the repo. For example, if you want to preview changes to chef-workstation,
-   add `replace github.com/chef/chef-workstation/www => ../chef-workstation/www` below the
-   `require` statement. The whole file should look something like this:
+   Add a [replace directive](https://gohugo.io/hugo-modules/use-modules/#make-and-test-changes-in-a-module)
+   to the `go.mod` file that points that repo to your local copy of the repo.
+
+   For example, if you want to preview local changes to chef-workstation,
+   add `replace github.com/chef/chef-workstation/docs-chef-io => ../chef-workstation/docs-chef-io` below the
+   `require` statement. The whole `go.mod` file should look something like this:
 
    ```
    module github.com/chef/chef-web-docs
@@ -44,13 +86,13 @@ running Hugo from chef-web-docs.
 
    require (
      github.com/chef/automate/components/docs-chef-io v0.0.0-<commit timestamp>-<commit SHA> // indirect
-     github.com/chef/chef-workstation/www v0.0.0-<commit timestamp>-<commit SHA> // indirect
-     github.com/chef/desktop-config/docs v0.0.0-<commit timestamp>-<commit SHA> // indirect
-     github.com/chef/effortless/effortless-chef-io v0.0.0-<commit timestamp>-<commit SHA> // indirect
-     github.com/inspec/inspec/www v0.0.0-<commit timestamp>-<commit SHA> // indirect
+     github.com/chef/chef-workstation/docs-chef-io v0.0.0-<commit timestamp>-<commit SHA> // indirect
+     github.com/chef/desktop-config/docs-chef-io v0.0.0-<commit timestamp>-<commit SHA> // indirect
+     github.com/chef/effortless/docs-chef-io v0.0.0-<commit timestamp>-<commit SHA> // indirect
+     github.com/inspec/inspec/docs-chef-io v0.0.0-<commit timestamp>-<commit SHA> // indirect
    )
 
-   replace github.com/chef/chef-workstation/www => ../chef-workstation/www
+   replace github.com/chef/chef-workstation/docs-chef-io => ../chef-workstation/docs-chef-io
    ```
 
 1. Start the Hugo server from `chef-web-docs`:
@@ -59,10 +101,8 @@ running Hugo from chef-web-docs.
    make serve_ignore_vendor
    ```
 
-You can preview any changes made to the documentation in `chef-workstation` as
-they would appear on https://docs.chef.io.
-
-See the documentation about Hugo vendoring below to understand the `--ignoreVendor` option.
+You can now preview any local changes made to the documentation in the other repository
+as they would appear on https://docs.chef.io.
 
 **Before you submit a PR**
 
@@ -81,11 +121,18 @@ hugo mod get github.com/chef/repo_to_update/subdirectory
 hugo mod tidy
 ```
 
+Then [vendor](#hugo-vendoring) the documentation:
+
+```
+hugo mod vendor
+```
+
 For example, to update the chef-workstation repository:
 
 ```
-hugo mod get github.com/chef/chef-workstation/www
+hugo mod get github.com/chef/chef-workstation/docs-chef-io
 hugo mod tidy
+hugo mod vendor
 ```
 
 This will update that repository to the most recent commit.
@@ -93,8 +140,9 @@ This will update that repository to the most recent commit.
 You can also update a module to a commit version number. For example:
 
 ```
-hugo mod get github.com/chef/chef-workstation/www@20.6.62
+hugo mod get github.com/chef/chef-workstation/docs-chef-io@20.6.62
 hugo mod tidy
+hugo mod vendor
 ```
 
 To update all Hugo modules at the same time, run:
@@ -102,6 +150,7 @@ To update all Hugo modules at the same time, run:
 ```
 hugo mod get -u
 hugo mod tidy
+hugo mod vendor
 ```
 
 The `hugo mod tidy` command removes references to commits in the
@@ -123,8 +172,8 @@ two or three lines. For example, the `chef/chef-workstation` repository document
 look like this:
 
 ```
-github.com/chef/chef-workstation/www v0.0.0-20200625161326-f43898a8e6c0 h1:MTVSgikrlIqceXki6uVwbf+iCVPwkpxsh1ERseRG31g=
-github.com/chef/chef-workstation/www v0.0.0-20200625161326-f43898a8e6c0/go.mod h1:rktT78z3KaWu7A+wf1g6KmYszrwn6Y3o3IFlTg8OpQg=
+github.com/chef/chef-workstation/docs-chef-io v0.0.0-20200625161326-f43898a8e6c0 h1:MTVSgikrlIqceXki6uVwbf+iCVPwkpxsh1ERseRG31g=
+github.com/chef/chef-workstation/docs-chef-io v0.0.0-20200625161326-f43898a8e6c0/go.mod h1:rktT78z3KaWu7A+wf1g6KmYszrwn6Y3o3IFlTg8OpQg=
 ```
 
 If there are references to older commits, delete those lines.
@@ -136,9 +185,13 @@ in the go.mod file.
 
 #### What If Hugo Doesn't Want to Update a Module
 
-Sometimes Hugo gets a bit difficult and won't update a module cleanly or will leave
-references to older commits of a module in the go.sum file. In those cases, I give
-you the nuclear option. Re-initialize the modules:
+Sometimes Hugo and Git can be a bit difficult and won't update a module cleanly or will leave
+references to older commits of a module in the go.sum file.
+
+If you get an error indicating that a Git can't find a repository that's already
+been added as a module, try restarting your computer.
+
+If you are still having trouble, try rebuilding the go.mod and go.sum files:
 
 1. Delete the go.mod and go.sum files.
 1. Re-initialize the Hugo modules, `hugo mod init github.com/chef/chef-web-docs`
@@ -164,8 +217,8 @@ that repository. To see which commits the vendored files reference, see the
 
 To vendor the modules in chef-web-docs, run `hugo mod vendor`.
 
-To update the vendored modules, first update the Hugo module(s) (see above), then
-run `hugo mod vendor`.
+To update the vendored modules, first update the [Hugo module(s)](#update-hugo-modules),
+then run `hugo mod vendor`.
 
 To ignore the vendored files in a Hugo build, run `make serve_ignore_vendor`. This
 is the same as `make serve` except it adds the `--ignoreVendor` flag. This will
@@ -197,7 +250,7 @@ then click on the "Propose file change" button at the bottom of the page and
 confirm your pull request. The CI system will do some checks and add a comment
 to your PR with the results.
 
-The Chef docs team can normally merge pull requests within seven days. We'll
+The Chef Documentation Team can normally merge pull requests within seven days. We'll
 fix build errors before we merge, so you don't have to
 worry about passing all of the CI checks, but it might add an extra
 few days. The important part is submitting your change.
@@ -290,7 +343,7 @@ To include a shortcode in a list or definition list, just add its file name
 to the `file` parameter of `readFile_shortcode`.
 
 For example, if you wanted to add `shortcode_file_name.md` to a list:
-``` md
+```md
 1.  Here is some text introducing the shortcode, but it's not necessary.
 
     {{< readFile_shortcode file="shortcode_file_name.md" >}}
@@ -340,7 +393,7 @@ This parameter also works on Danger and Warning shortcodes.
 
 ## Release Notes
 
-Release notes are added to release notes pages using Javascript and content from
+Release notes are added to release notes pages using JavaScript and content from
 https://omnitruck.chef.io and https://packages.chef.io.
 
 Chef Automate release versions, release dates, and links to release note Markdown
@@ -361,6 +414,9 @@ To add release notes to a page, add `release_notes = "<PRODUCT>"` to the page
 front matter. For example, `release_notes = "inspec"`.
 
 This will overwrite all content on that page.
+
+The `<PRODUCT>` value comes from the Product Key in the
+[Product Matrix](https://github.com/chef/mixlib-install/blob/master/PRODUCT_MATRIX.md).
 
 ## Sending feedback
 
@@ -397,7 +453,7 @@ to the archive repo will be merged; it's just for historical purposes.
 ## Questions
 
 If you need tips for making contributions to our docs, check out the
-[instructions](https://docs.chef.io/style_guide.html).
+[instructions](https://docs.chef.io/style_guide/).
 
 If you see an error, open an [issue](https://github.com/chef/chef-web-docs/issues)
 or submit a pull request.

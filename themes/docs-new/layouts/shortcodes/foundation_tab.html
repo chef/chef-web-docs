@@ -1,0 +1,5 @@
+<li class="tabs-title {{ if .Get "active" }}is-active{{ end }}">
+  <a {{ if not (.Get "active") }}data-tabs-target="{{- .Get "panel-link" -}}"{{ end }} href="#{{- .Get "panel-link" -}}" {{ if .Get "active"}}aria-selected="true"{{ end }}>
+    {{- .Get "tab-text" -}}
+  </a>
+</li>

@@ -24,7 +24,7 @@ on the upgrade process.
 To upgrade Chef Infra Client on a node via the command line, run the
 following command on each node to be upgraded:
 
-``` bash
+```bash
 curl -L https://chef.io/chef/install.sh | sudo bash
 ```
 

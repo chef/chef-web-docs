@@ -1,6 +1,5 @@
 ---
 resource_reference: true
-properties_shortcode: 
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
@@ -28,7 +27,7 @@ resource_description_list:
       that resource.'
 resource_new_in: '14.4'
 syntax_description: "A **cron_d** resource block manages cron.d files. For example,\
-  \ to get a\nweekly cookbook report from the Chef Supermarket:\n\n``` ruby\ncron_d\
+  \ to get a\nweekly cookbook report from the Chef Supermarket:\n\n```ruby\ncron_d\
   \ 'cookbooks_report' do\n  action :create\n  minute '0'\n  hour '0'\n  weekday '1'\n\
   \  user 'getchef'\n  mailto 'sysadmin@example.com'\n  home '/srv/supermarket/shared/system'\n\
   \  command %W{\n    cd /srv/supermarket/current &&\n    env RUBYLIB=\"/srv/supermarket/current/lib\"\
@@ -56,7 +55,7 @@ syntax_full_code_block: |-
     weekday               Integer, String, Symbol # default value: "*"
     action                Symbol # defaults to :create if not specified
   end
-syntax_properties_list: 
+syntax_properties_list:
 syntax_full_properties_list:
 - "`cron_d` is the resource."
 - "`name` is the name given to the resource block."
@@ -221,7 +220,7 @@ examples: |
     hour '8'
     weekday '6'
     mailto 'admin@example.com'
-    command "/bin/true"
+    command '/bin/true'
     action :create
   end
   ```
@@ -235,7 +234,7 @@ examples: |
     day '*'
     month '11'
     weekday '1-5'
-    command "/bin/true"
+    command '/bin/true'
     action :create
   end
   ```

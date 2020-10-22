@@ -4,8 +4,8 @@ lazy evaluation of property values can be helpful. Instead of a property
 being assigned a value, it may instead be assigned a code block. The
 syntax for using lazy evaluation is as follows:
 
-``` ruby
-attribute_name lazy { code_block }
+```ruby
+property_name lazy { code_block }
 ```
 
 where `lazy` is used to tell Chef Infra Client to evaluate the contents
@@ -15,18 +15,18 @@ provides the value.
 
 For example, a resource that is **not** doing lazy evaluation:
 
-``` ruby
+```ruby
 template 'template_name' do
-  # some attributes
+  # some properties
   path '/foo/bar'
 end
 ```
 
 and a resource block that is doing lazy evaluation:
 
-``` ruby
+```ruby
 template 'template_name' do
-  # some attributes
+  # some properties
   path lazy { ' some Ruby code ' }
 end
 ```
@@ -38,13 +38,13 @@ long as the contents of that code block are a valid resource property.
 The following example shows how to use lazy evaluation with template
 variables:
 
-``` ruby
+```ruby
 template '/tmp/canvey_island.txt' do
   source 'canvey_island.txt.erb'
   variables(
-    lazy {
+    lazy do
       { canvey_island: node.run_state['sea_power'] }
-    }
+    end
   )
 end
 ```

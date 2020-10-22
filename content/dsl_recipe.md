@@ -53,13 +53,13 @@ attribute that is detected by Ohai during every Chef Infra Client run.
 
 The syntax for the `attribute?` method is as follows:
 
-``` ruby
+```ruby
 attribute?('name_of_attribute')
 ```
 
 For example:
 
-``` ruby
+```ruby
 if node.attribute?('ipaddress')
   # the node has an ipaddress
 end
@@ -71,13 +71,13 @@ Use the `cookbook_name` method to return the name of a cookbook.
 
 The syntax for the `cookbook_name` method is as follows:
 
-``` ruby
+```ruby
 cookbook_name
 ```
 
 This method is often used as part of a log entry. For example:
 
-``` ruby
+```ruby
 Chef::Log.info('I am a message from the #{recipe_name} recipe in the #{cookbook_name} cookbook.')
 ```
 
@@ -89,7 +89,7 @@ Use the `data_bag` method to get a list of the contents of a data bag.
 
 The syntax for the `data_bag` method is as follows:
 
-``` ruby
+```ruby
 data_bag(bag_name)
 ```
 
@@ -111,7 +111,7 @@ of a data bag item.
 
 The syntax for the `data_bag_item` method is as follows:
 
-``` ruby
+```ruby
 data_bag_item(bag_name, item, secret)
 ```
 
@@ -135,7 +135,7 @@ The following example shows how to use the `data_bag` and
 `data_bag_item` methods in a recipe, also using a data bag named
 `sea-power`):
 
-``` ruby
+```ruby
 package 'sea-power' do
   action :install
 end
@@ -170,7 +170,7 @@ it to the resource collection.
 
 The syntax for the `declare_resource` method is as follows:
 
-``` ruby
+```ruby
 declare_resource(:resource_type, 'resource_name', resource_attrs_block)
 ```
 
@@ -189,7 +189,7 @@ where:
 
 For example:
 
-``` ruby
+```ruby
 declare_resource(:file, '/x/y.txy', caller[0]) do
   action :delete
 end
@@ -197,7 +197,7 @@ end
 
 is equivalent to:
 
-``` ruby
+```ruby
 file '/x/y.txt' do
   action :delete
 end
@@ -210,7 +210,7 @@ collection, and then delete it.
 
 The syntax for the `delete_resource` method is as follows:
 
-``` ruby
+```ruby
 delete_resource(:resource_type, 'resource_name')
 ```
 
@@ -227,7 +227,7 @@ where:
 
 For example:
 
-``` ruby
+```ruby
 delete_resource(:template, '/x/y.erb')
 ```
 
@@ -240,7 +240,7 @@ exception is returned.
 
 The syntax for the `delete_resource!` method is as follows:
 
-``` ruby
+```ruby
 delete_resource!(:resource_type, 'resource_name')
 ```
 
@@ -257,7 +257,7 @@ where:
 
 For example:
 
-``` ruby
+```ruby
 delete_resource!(:file, '/x/file.txt')
 ```
 
@@ -274,7 +274,7 @@ Use the `edit_resource` method to:
 
 The syntax for the `edit_resource` method is as follows:
 
-``` ruby
+```ruby
 edit_resource(:resource_type, 'resource_name', resource_attrs_block)
 ```
 
@@ -293,7 +293,7 @@ where:
 
 For example:
 
-``` ruby
+```ruby
 edit_resource(:template, '/x/y.txy') do
   cookbook 'cookbook_name'
 end
@@ -301,7 +301,7 @@ end
 
 and a resource block:
 
-``` ruby
+```ruby
 edit_resource(:template, '/etc/aliases') do
   source 'aliases.erb'
   cookbook 'aliases'
@@ -324,7 +324,7 @@ In both cases, if the resource is not found, an exception is returned.
 
 The syntax for the `edit_resource!` method is as follows:
 
-``` ruby
+```ruby
 edit_resource!(:resource_type, 'resource_name')
 ```
 
@@ -343,7 +343,7 @@ where:
 
 For example:
 
-``` ruby
+```ruby
 edit_resource!(:file, '/x/y.rst')
 ```
 
@@ -359,7 +359,7 @@ Use the `find_resource` method to:
 
 The syntax for the `find_resource` method is as follows:
 
-``` ruby
+```ruby
 find_resource(:resource_type, 'resource_name')
 ```
 
@@ -376,13 +376,13 @@ where:
 
 For example:
 
-``` ruby
+```ruby
 find_resource(:template, '/x/y.txy')
 ```
 
 and a resource block:
 
-``` ruby
+```ruby
 find_resource(:template, '/etc/seapower') do
   source 'seapower.erb'
   cookbook 'seapower'
@@ -398,7 +398,7 @@ collection. If the resource is not found, an exception is returned.
 
 The syntax for the `find_resource!` method is as follows:
 
-``` ruby
+```ruby
 find_resource!(:resource_type, 'resource_name')
 ```
 
@@ -415,7 +415,7 @@ where:
 
 For example:
 
-``` ruby
+```ruby
 find_resource!(:template, '/x/y.erb')
 ```
 
@@ -428,7 +428,7 @@ detected by Ohai during every Chef Infra Client run.
 
 The syntax for the `platform?` method is as follows:
 
-``` ruby
+```ruby
 platform?('parameter', 'parameter')
 ```
 
@@ -532,13 +532,13 @@ run and stores that information in the `node['platform']` attribute.
 
 For example:
 
-``` ruby
+```ruby
 platform?('debian')
 ```
 
 or:
 
-``` ruby
+```ruby
 platform?('redhat', 'debian')
 ```
 
@@ -561,7 +561,7 @@ every Chef Infra Client run.
 
 The syntax for the `platform_family?` method is as follows:
 
-``` ruby
+```ruby
 platform_family?('parameter', 'parameter')
 ```
 
@@ -575,7 +575,7 @@ where:
 
 For example:
 
-``` ruby
+```ruby
 if platform_family?('rhel')
   # do RHEL things
 end
@@ -583,7 +583,7 @@ end
 
 or:
 
-``` ruby
+```ruby
 if platform_family?('debian', 'rhel')
   # do things on debian and rhel families
 end
@@ -591,13 +591,13 @@ end
 
 For example:
 
-``` ruby
+```ruby
 platform_family?('gentoo')
 ```
 
 or:
 
-``` ruby
+```ruby
 platform_family?('slackware', 'suse', 'arch')
 ```
 
@@ -625,7 +625,7 @@ a reboot.
 
 The syntax for the `reboot_pending?` method is as follows:
 
-``` ruby
+```ruby
 reboot_pending?
 ```
 
@@ -635,13 +635,13 @@ Use the `recipe_name` method to return the name of a recipe.
 
 The syntax for the `recipe_name` method is as follows:
 
-``` ruby
+```ruby
 recipe_name
 ```
 
 This method is often used as part of a log entry. For example:
 
-``` ruby
+```ruby
 Chef::Log.info('I am a message from the #{recipe_name} recipe in the #{cookbook_name} cookbook.')
 ```
 
@@ -652,13 +652,13 @@ collection. The `resources` method returns the value for the resource
 that it finds in the resource collection. The preferred syntax for the
 `resources` method is as follows:
 
-``` ruby
+```ruby
 resources('resource_type[resource_name]')
 ```
 
 but the following syntax can also be used:
 
-``` ruby
+```ruby
 resources(:resource_type => 'resource_name')
 ```
 
@@ -669,7 +669,7 @@ Infra Client.
 The `resources` method can be used to modify a resource later on in a
 recipe. For example:
 
-``` ruby
+```ruby
 file '/etc/hosts' do
   content '127.0.0.1 localhost.localdomain localhost'
 end
@@ -677,7 +677,7 @@ end
 
 and then later in the same recipe, or elsewhere:
 
-``` ruby
+```ruby
 f = resources('file[/etc/hosts]')
 f.mode '0644'
 ```
@@ -694,7 +694,7 @@ Server from within a recipe.
 
 The syntax for the `search` method is as follows:
 
-``` ruby
+```ruby
 search(:index, 'query')
 ```
 
@@ -709,13 +709,13 @@ where:
 
 For example, using the results of a search query within a variable:
 
-``` ruby
+```ruby
 webservers = search(:node, 'role:webserver')
 ```
 
 and then using the results of that query to populate a template:
 
-``` ruby
+```ruby
 template '/tmp/list_of_webservers' do
   source 'list_of_webservers.erb'
   variables(:webservers => webservers)
@@ -783,7 +783,7 @@ and then display the output to the console when the log level is set to
 
 The syntax for the `shell_out` method is as follows:
 
-``` ruby
+```ruby
 shell_out(command_args)
 ```
 
@@ -797,7 +797,7 @@ and then raise an error when the method returns `false`.
 
 The syntax for the `shell_out!` method is as follows:
 
-``` ruby
+```ruby
 shell_out!(command_args)
 ```
 
@@ -818,7 +818,7 @@ These values are detected by Ohai during every Chef Infra Client run.
 
 The syntax for the `value_for_platform` method is as follows:
 
-``` ruby
+```ruby
 value_for_platform( ['platform', ...] => { 'version' => 'value' } )
 ```
 
@@ -836,7 +836,7 @@ where:
 
 When each value only has a single platform, use the following syntax:
 
-``` ruby
+```ruby
 value_for_platform(
   'platform' => { 'version' => 'value' },
   'platform' => { 'version' => 'value' },
@@ -846,7 +846,7 @@ value_for_platform(
 
 When each value has more than one platform, the syntax changes to:
 
-``` ruby
+```ruby
 value_for_platform(
   ['platform', 'platform', ... ] => {
     'version' => 'value'
@@ -863,7 +863,7 @@ value_for_platform(
 The following example will set `package_name` to `httpd` for the Red Hat
 platform and to `apache2` for the Debian platform:
 
-``` ruby
+```ruby
 package_name = value_for_platform(
   ['centos', 'redhat', 'suse', 'fedora' ] => {
     'default' => 'httpd'
@@ -878,7 +878,7 @@ The following example will set `package` to `apache-couchdb` for OpenBSD
 platforms, `dev-db/couchdb` for Gentoo platforms, and `couchdb` for all
 other platforms:
 
-``` ruby
+```ruby
 package = value_for_platform(
   'openbsd' => { 'default' => 'apache-couchdb' },
   'gentoo' => { 'default' => 'dev-db/couchdb' },
@@ -889,7 +889,7 @@ package = value_for_platform(
 The following example shows using version constraints to specify a value
 based on the version:
 
-``` ruby
+```ruby
 value_for_platform(
   'os1' => { '< 1.0' => 'less than 1.0',
              '~> 2.0' => 'version 2.x',
@@ -906,7 +906,7 @@ by Ohai during every Chef Infra Client run.
 
 The syntax for the `value_for_platform_family` method is as follows:
 
-``` ruby
+```ruby
 value_for_platform_family( 'platform_family' => 'value', ... )
 ```
 
@@ -919,7 +919,7 @@ where:
 
 When each value only has a single platform, use the following syntax:
 
-``` ruby
+```ruby
 value_for_platform_family(
   'platform_family' => 'value',
   'platform_family' => 'value',
@@ -929,7 +929,7 @@ value_for_platform_family(
 
 When each value has more than one platform, the syntax changes to:
 
-``` ruby
+```ruby
 value_for_platform_family(
   ['platform_family', 'platform_family', 'platform_family', 'platform_family' ] => 'value',
   ['platform_family', 'platform_family'] => 'value',
@@ -941,7 +941,7 @@ The following example will set `package` to `httpd-devel` for the Red
 Hat Enterprise Linux, Fedora, and openSUSE platforms and to
 `apache2-dev` for the Debian platform:
 
-``` ruby
+```ruby
 package = value_for_platform_family(
   ['rhel', 'fedora', 'suse'] => 'httpd-devel',
     'debian' => 'apache2-dev'
@@ -958,7 +958,7 @@ which contains their sub-resources.
 
 The syntax for the `with_run_context` method is as follows:
 
-``` ruby
+```ruby
 with_run_context :type do
   # some arbitrary pure Ruby stuff goes here
 end
@@ -972,7 +972,7 @@ where `:type` may be one of the following:
 
 For example:
 
-``` ruby
+```ruby
 action :run do
   with_run_context :root do
     edit_resource(:my_thing, "accumulated state") do

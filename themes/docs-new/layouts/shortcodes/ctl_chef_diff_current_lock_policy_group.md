@@ -1,3 +1,3 @@
-``` bash
+```bash
 chef diff staging
 ```

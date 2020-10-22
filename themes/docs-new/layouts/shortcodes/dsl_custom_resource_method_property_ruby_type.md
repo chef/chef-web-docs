@@ -3,30 +3,30 @@ property value is of a particular ruby class, such as `true`, `false`,
 `nil`, `String`, `Array`, `Hash`, `Integer`, `Symbol`. Use an array of
 ruby classes to allow a value to be of more than one type. For example:
 
-``` ruby
+```ruby
 property :aaaa, String
 ```
 
-``` ruby
+```ruby
 property :bbbb, Integer
 ```
 
-``` ruby
+```ruby
 property :cccc, Hash
 ```
 
-``` ruby
+```ruby
 property :dddd, [true, false]
 ```
 
-``` ruby
+```ruby
 property :eeee, [String, nil]
 ```
 
-``` ruby
+```ruby
 property :ffff, [Class, String, Symbol]
 ```
 
-``` ruby
+```ruby
 property :gggg, [Array, Hash]
 ```

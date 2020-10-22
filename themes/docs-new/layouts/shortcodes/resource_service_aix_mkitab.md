@@ -11,7 +11,7 @@ service.
 
 The following example shows how to install a service:
 
-``` ruby
+```ruby
 execute "install #{node['chef_client']['svc_name']} in SRC" do
   command "mkssys -s #{node['chef_client']['svc_name']}
                   -p #{node['chef_client']['bin']}
@@ -30,7 +30,7 @@ end
 
 and then enable it using the `mkitab` command:
 
-``` ruby
+```ruby
 execute "enable #{node['chef_client']['svc_name']}" do
   command "mkitab '#{node['chef_client']['svc_name']}:2:once:/usr/bin/startsrc
                   -s #{node['chef_client']['svc_name']} > /dev/console 2>&1'"

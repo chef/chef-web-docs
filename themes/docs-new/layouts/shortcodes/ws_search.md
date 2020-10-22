@@ -6,5 +6,4 @@ search is a full-text query that can be done from several locations,
 including from within a recipe, by using the `search` subcommand in
 knife, the `search` method in the Recipe DSL, the search box in the Chef
 management console, and by using the `/search` or `/search/INDEX`
-endpoints in the Chef Infra Server API. The search engine is based on
-Apache Solr and is run from the Chef Infra Server.
+endpoints in the Chef Infra Server API. The search engine is based on Elasticsearch and is run from the Chef Infra Server.

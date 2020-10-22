@@ -6,7 +6,7 @@ aliases = ["/api_chef_server.html"]
 
 [menu]
   [menu.infra]
-    title = "Chef Infra Server API"
+    title = "Chef Infra ServerAPI"
     identifier = "chef_infra/managing_chef_infra_server/api_chef_server.md Chef Infra Server API"
     parent = "chef_infra/managing_chef_infra_server"
     weight = 200
@@ -29,7 +29,7 @@ The Chef Infra Server API has the following requirements:
 -   The `X-Chef-Version` header must be set to the version of the Chef
     Infra Server API that is being used.
 -   A request must be signed by adding authentication headers.
-    'Mixlib::Authentication` may be used to sign requests.
+    'Mixlib::Authentication' may be used to sign requests.
 -   A request must be well-formatted. The easiest way to ensure a
     well-formatted request is to use the `Chef::ServerAPI` library.
 
@@ -80,7 +80,7 @@ The following authentication headers are required:
 </tr>
 <tr class="odd">
 <td><code>Host</code></td>
-<td>The host name (and port number) to which a request is sent. (Port number <code>80</code> does not need to be specified.) For example: <code>api.opscode.com</code> (which is the same as <code>api.opscode.com:80</code>) or <code>api.opscode.com:443</code>.</td>
+<td>The host name (and port number) to which a request is sent. (Port number <code>80</code> does not need to be specified.) For example: <code>api.chef.io</code> (which is the same as <code>api.chef.io:80</code>) or <code>api.chef.io:443</code>.</td>
 </tr>
 <tr class="even">
 <td><code>Method</code></td>
@@ -137,7 +137,7 @@ one or more X-Ops-Authorization-N headers of 60 character segments.
 The canonical header should be created by concatenating the following
 headers, encrypting and encoding:
 
-``` none
+```none
 Method:HTTP_METHOD
 Hashed Path:HASHED_PATH
 X-Ops-Content-Hash:HASHED_BODY
@@ -155,7 +155,7 @@ where:
     forward slashes (`/`), must not end in a forward slash (unless the
     path is `/`), and must not include a query string.
 -   `X-Ops-Content-Hash` is the Base64 encoded SHA256 hash of the json body of the request.
--   `X-Ops-Timestamp` UTC time in RFC3339 format. 
+-   `X-Ops-Timestamp` UTC time in RFC3339 format.
 -   `X-Ops-UserId` is the plain text client or user name.
 
 The Chef Infra Server decrypts this header and ensures its content
@@ -171,11 +171,11 @@ the one used by Chef Infra Client.
 
 The following example shows an authentication request:
 
-``` none
+```none
 GET /organizations/NAME/nodes HTTP/1.1
   Accept: application/json
   Accept-Encoding: gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-  Host: api.opscode.com:443
+  Host: api.chef.io:443
   User-Agent: Chef Knife/12.0.2 (ruby-2.1.1-p320; ohai-8.0.0; x86_64-darwin12.0.2; +http://chef.io)
   X-Chef-Version: 12.0.2
   X-Ops-Authorization-1: BE3NnBritishaf3ifuwLSPCCYasdfXaRN5oZb4c6hbW0aefI
@@ -197,24 +197,24 @@ Chef Infra Server versions 12.4.0 and above support signing protocol version
 1.3, which adds support for SHA-256 algorithms. It can be enabled on
 Chef Infra Client via the `client.rb` file:
 
-``` ruby
+```ruby
 authentication_protocol_version = '1.3'
 ```
 
 And for Chef's knife CLI via `config.rb`:
 
-``` ruby
+```ruby
 knife[:authentication_protocol_version] = '1.3'
 ```
 
-To create the signed headers for direct use. Gather the following 
+To create the signed headers for direct use. Gather the following
 headers in the order listed, convert the signature headers to a concatenated string,
 sign and Base64 encode the result. The concatenation of signature headers is
 signed using the client RSA private key, with SHA-256 hashing and PKCS1v15 padding.
 Chop the Base64 encoded value into 60 character chunks and create
 X-Ops-Authorization-N headers with the chunks.
 
-``` none
+```none
 Method:HTTP_METHOD
 Path:PATH
 X-Ops-Content-Hash:HASHED_BODY
@@ -232,7 +232,7 @@ where:
     in a forward slash (unless the path is `/`), and must not include a query string.
 -   `X-Ops-Content-Hash` is the Base64 encoded SHA256 hash of the json body of the request.
 -   `X-Ops-Sign` has the value "version=1.3".
--   `X-Ops-Timestamp` UTC time in RFC3339 format. 
+-   `X-Ops-Timestamp` UTC time in RFC3339 format.
 -   `X-Ops-UserId` is the plain text client or user name.
 -   `X-Ops-Server-API-Version` is the numeric value of the Chef Infra Server API.
 
@@ -240,11 +240,11 @@ where:
 
 The following example shows an authentication request:
 
-``` none
+```none
 GET /organizations/NAME/nodes HTTP/1.1
   Accept: application/json
   Accept-Encoding: gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-  Host: api.opscode.com:443
+  Host: api.chef.io:443
   Method: GET
   Path: /organizations/NAME/nodes
   User-Agent: Chef Knife/12.0.2 (ruby-2.1.1-p320; ohai-8.0.0; x86_64-darwin12.0.2; +http://chef.io)
@@ -287,13 +287,13 @@ This method has no parameters.
 
 **Request**
 
-``` none
+```none
 POST /authenticate_user
 ```
 
 with a request body similar to:
 
-``` javascript
+```javascript
 {
   "username" : "grantmc",
   "password" : "p@ssw0rd"
@@ -352,7 +352,7 @@ This method has no parameters.
 
 **Request**
 
-``` none
+```none
 GET /license
 ```
 
@@ -362,7 +362,7 @@ This method has no request body.
 
 The response is similar to:
 
-``` javascript
+```javascript
 {
   "limit_exceeded": false,
   "node_license": 25,
@@ -455,7 +455,7 @@ Infra Server.
 
 **Request**
 
-``` none
+```none
 GET /organizations
 ```
 
@@ -463,7 +463,7 @@ GET /organizations
 
 The response is similar to:
 
-``` none
+```none
 {
   "org_name1": https://url/for/org_name1",
   "org_name2": https://url/for/org_name2"
@@ -504,13 +504,13 @@ This method has no parameters.
 
 **Request**
 
-``` none
+```none
 POST /organizations
 ```
 
 with a request body similar to:
 
-``` javascript
+```javascript
 {
   "name": "org_name1",
   "full_name": "Org_name1 Full Name"
@@ -536,7 +536,7 @@ group is associated with the organization.
 
 The response is similar to:
 
-``` javascript
+```javascript
 {
   "clientname": "org_name1-validator",
   "private_key": "-----BEGIN RSA PRIVATE KEY----- MIIEpQIBAAKCAQEAx2uyX ...",
@@ -595,7 +595,7 @@ This method has no parameters.
 
 **Request**
 
-``` none
+```none
 DELETE /organizations/NAME
 ```
 
@@ -603,10 +603,10 @@ DELETE /organizations/NAME
 
 The response is similar to:
 
-``` javascript
+```javascript
 {
   "name": "chef",
-  "full_name": "Chef Software, Inc",
+  "full_name": "Chef Software, Inc.",
   "guid": "f980d1asdfda0331235s00ff36862"
 }
 ```
@@ -644,7 +644,7 @@ This method has no parameters.
 
 **Request**
 
-``` none
+```none
 GET /organizations/NAME
 ```
 
@@ -652,10 +652,10 @@ GET /organizations/NAME
 
 The response is similar to:
 
-``` none
+```none
 {
   "name": "chef",
-  "full_name": "Chef Software, Inc",
+  "full_name": "Chef Software, Inc.",
   "guid": "f980d1asdfda0331235s00ff36862"
      ...
 }
@@ -694,16 +694,16 @@ This method has no parameters.
 
 **Request**
 
-``` none
+```none
 PUT /organizations/NAME
 ```
 
 with a request body similar to:
 
-``` javascript
+```javascript
 {
   "name": "chef",
-  "full_name": "Chef Software, Inc"
+  "full_name": "Chef Software, Inc."
 }
 ```
 
@@ -711,10 +711,10 @@ with a request body similar to:
 
 The response is similar to:
 
-``` none
+```none
 {
   "name": "chef",
-  "full_name": "Chef Software, Inc",
+  "full_name": "Chef Software, Inc.",
   "guid": "f980d1asdfda0331235s00ff36862"
 }
 ```
@@ -791,7 +791,7 @@ This method has the following parameters:
 
 **Request**
 
-``` none
+```none
 GET /_stats
 ```
 
@@ -802,7 +802,7 @@ The `/_stats` endpoint does not require authentication headers.
 
 The response body is similar to:
 
-``` javascript
+```javascript
 [
   {
     "name": "erlang_vm_time_correction",
@@ -883,7 +883,7 @@ The `GET` method is used to get the Chef Infra Server status details.
 
 **Request**
 
-``` none
+```none
 GET /_status
 ```
 
@@ -893,7 +893,7 @@ This method has no parameters. This method has no request body.
 
 The response will return something like the following:
 
-``` javascript
+```javascript
 {
   "status": "pong",
   "upstreams":
@@ -1006,7 +1006,7 @@ This method has the following parameters:
 
 **Request**
 
-``` none
+```none
 GET /users
 ```
 
@@ -1014,7 +1014,7 @@ GET /users
 
 The response is similar to:
 
-``` none
+```none
 {
   "user1": "https://chef.example/users/user1",
   "user2": "https://chef.example/users/user2"
@@ -1023,7 +1023,7 @@ The response is similar to:
 
 The verbose response is similar to:
 
-``` none
+```none
 {
   "janechef": { "email": "jane.chef@user.com", "first_name": "jane", "last_name": "chef_user" },
   "yaelsmith": { "email": "yeal.chef@user.com", "first_name": "yeal", "last_name": "smith" }
@@ -1071,7 +1071,7 @@ Filtering on `/users` can be done with the
 As an example, to retrieve users whos `external_authentication_uid` is
 `jane@doe.com`, you would do the following:
 
-``` none
+```none
 GET /users?external_authentication_uid=jane%40doe.com
 ```
 
@@ -1085,13 +1085,13 @@ This method has no parameters.
 
 **Request**
 
-``` none
+```none
 POST /users
 ```
 
 with a request body similar to:
 
-``` javascript
+```javascript
 {
   "username": "robert-forster",
   "display_name": "robert",
@@ -1127,7 +1127,7 @@ where:
 
 The response is similar to:
 
-``` javascript
+```javascript
 {
   "uri": "https://chef.example/users/robert-forster",
   "chef_key": {
@@ -1200,7 +1200,7 @@ This method has no parameters.
 
 **Request**
 
-``` none
+```none
 DELETE /users/USER_NAME
 ```
 
@@ -1208,7 +1208,7 @@ DELETE /users/USER_NAME
 
 The response is similar to:
 
-``` javascript
+```javascript
 {
 }
 ```
@@ -1254,7 +1254,7 @@ This method has no parameters.
 
 **Request**
 
-``` none
+```none
 GET /users/USER_NAME
 ```
 
@@ -1262,7 +1262,7 @@ GET /users/USER_NAME
 
 The response is similar to:
 
-``` javascript
+```javascript
 {
   "username": "robert-forster",
   "display_name": "robert",
@@ -1330,13 +1330,13 @@ This method has no parameters.
 
 **Request**
 
-``` none
+```none
 PUT /users/NAME
 ```
 
 with a request body similar to:
 
-``` none
+```none
 {
   "username":     "grant.mclennan",
   "display_name": "Grant McLennan",
@@ -1352,7 +1352,7 @@ with a request body similar to:
 
 The response is similar to:
 
-``` javascript
+```javascript
 {
   "uri": "https://chef.example/users/grant.mclennan",
   "chef_key": {
@@ -1433,7 +1433,7 @@ This method has no parameters.
 
 **Request**
 
-``` none
+```none
 GET /users/USER/keys/
 ```
 
@@ -1441,7 +1441,7 @@ GET /users/USER/keys/
 
 The response is similar to:
 
-``` javascript
+```javascript
 [
   {
     "name" : "default",
@@ -1497,13 +1497,13 @@ This method has no parameters.
 
 **Request**
 
-``` none
+```none
 POST /users/USER/keys/
 ```
 
 with a request body similar to:
 
-``` javascript
+```javascript
 {
   "name" : "key1",
   "public_key" : "-------- BEGIN PUBLIC KEY ----and a valid key here",
@@ -1515,7 +1515,7 @@ with a request body similar to:
 
 The response is similar to:
 
-``` javascript
+```javascript
 {
   "name" : "key1",
   "uri" : "https://chapi_chef_server.mdef.example/users/user1/keys/key1",
@@ -1570,7 +1570,7 @@ This method has no parameters.
 
 **Request**
 
-``` none
+```none
 DELETE /users/USER/keys/KEY
 ```
 
@@ -1579,7 +1579,7 @@ DELETE /users/USER/keys/KEY
 The response returns the information about the deleted key and is
 similar to:
 
-``` javascript
+```javascript
 {
   "name" : "default",
   "public_key" : "-------- BEGIN PUBLIC KEY --------- ...",
@@ -1629,7 +1629,7 @@ This method has no parameters.
 
 **Request**
 
-``` none
+```none
 GET /users/USER/keys/KEY
 ```
 
@@ -1637,7 +1637,7 @@ GET /users/USER/keys/KEY
 
 The response is similar to:
 
-``` javascript
+```javascript
 {
   "name" : "default",
   "public_key" : "-------- BEGIN PUBLIC KEY --------- ...",
@@ -1687,13 +1687,13 @@ This method has no parameters.
 
 **Request**
 
-``` none
+```none
 PUT /users/USER/keys/KEY
 ```
 
 with a request body similar to:
 
-``` javascript
+```javascript
 {
   "name" : "new_key_name",
   "public_key" : "-------- BEGIN PUBLIC KEY ----and a valid key here",
@@ -1703,10 +1703,10 @@ with a request body similar to:
 
 **Response**
 
-The response contains the updated inforamtion for the key, and is
+The response contains the updated information for the key, and is
 similar to:
 
-``` javascript
+```javascript
 {
   "name" : "new_key_name",
   "public_key" : "-------- BEGIN PUBLIC KEY --------- ...",
@@ -1757,7 +1757,7 @@ Each organization-specific authentication request must include
 `/organizations/NAME` as part of the name for the endpoint. For example,
 the full endpoint for getting a list of roles:
 
-``` none
+```none
 GET /organizations/NAME/roles
 ```
 
@@ -1780,7 +1780,7 @@ This method has no parameters.
 
 **Request**
 
-``` none
+```none
 DELETE /organizations/NAME/association_requests/ID
 ```
 
@@ -1790,7 +1790,7 @@ This method has no request body.
 
 The response is similar to:
 
-``` javascript
+```javascript
 {
   "id":      "79b9382ab70e962907cee1747f9969a4",
   "orgname": "testorg",
@@ -1839,7 +1839,7 @@ This method has no parameters.
 
 **Request**
 
-``` none
+```none
 GET /organizations/NAME/association_requests
 ```
 
@@ -1849,7 +1849,7 @@ This method has no request body.
 
 The response returns a dictionary similar to:
 
-``` javascript
+```javascript
 [
   {
     "id": "79b9382ab70e962907cee1747f9969a4",
@@ -1899,7 +1899,7 @@ This method has no parameters.
 
 **Request**
 
-``` javascript
+```javascript
 {
  "user": "billysmith"
 }
@@ -1911,7 +1911,7 @@ POST /organizations/NAME/association_requests
 
 The response is similar to:
 
-``` javascript
+```javascript
 {
   "uri": "https://chef.example/organizations/test/association_requests/79b9382ab70e962907cee1747f9969a4",
   "organization_user": {
@@ -1991,7 +1991,7 @@ This method has no parameters.
 
 **Request**
 
-``` none
+```none
 GET /organizations/NAME/clients
 ```
 
@@ -2001,7 +2001,7 @@ This method has no request body.
 
 The response is similar to:
 
-``` javascript
+```javascript
 {
   "org1-validator" : "https://chef.example/orgaizations/org1/clients/org1-validator",
   "client1" : "https://chef.example/orgaizations/org1/clients/client1"
@@ -2053,13 +2053,13 @@ This method has no parameters.
 
 **Request**
 
-``` none
+```none
 POST /organizations/NAME/clients
 ```
 
 with a request body similar to:
 
-``` javascript
+```javascript
 {
   "name": "name_of_API_client",
   "clientname": "name_of_API_client",
@@ -2076,7 +2076,7 @@ client. Either name or clientname needs to be specified.
 
 The response is similar to:
 
-``` javascript
+```javascript
 {
   "uri": "https://chef.example/orgaizations/org1/clients/client1",
   "chef_key": {
@@ -2146,7 +2146,7 @@ This method has no parameters.
 
 **Request**
 
-``` none
+```none
 DELETE /organizations/NAME/clients/NAME
 ```
 
@@ -2197,7 +2197,7 @@ This method has no parameters.
 
 **Request**
 
-``` none
+```none
 GET /organizations/NAME/clients/NAME
 ```
 
@@ -2207,7 +2207,7 @@ This method has no request body.
 
 The response is similar to:
 
-``` javascript
+```javascript
 {
   "name": "user1",
   "clientname": "user1",
@@ -2292,13 +2292,13 @@ may be specified to set both values.
 
 **Request**
 
-``` none
+```none
 PUT /organizations/NAME/clients/NAME
 ```
 
 with a request body similar to:
 
-``` javascript
+```javascript
 {
   "name": "monkeypants",
   "validator": false
@@ -2309,7 +2309,7 @@ with a request body similar to:
 
 The response is similar to:
 
-``` javascript
+```javascript
 {
   "name": "monkeypants",
   "clientname": "monkeypants",
@@ -2378,7 +2378,7 @@ This method has no parameters.
 
 **Request**
 
-``` none
+```none
 GET /organizations/NAME/clients/CLIENT/keys
 ```
 
@@ -2388,7 +2388,7 @@ This method has no request body.
 
 The response is similar to:
 
-``` javascript
+```javascript
 [
   {
      "name": "default",
@@ -2444,13 +2444,13 @@ This method has no parameters.
 
 **Request**
 
-``` none
+```none
 POST /organizations/NAME/clients/CLIENT/keys
 ```
 
 with a request body similar to:
 
-``` javascript
+```javascript
 {
   "name": "key1",
   "public_key": "-------- BEGIN PUBLIC KEY ----and a valid key here",
@@ -2462,7 +2462,7 @@ with a request body similar to:
 
 The response is similar to:
 
-``` javascript
+```javascript
 {
   "uri": "https://chef.example/organizations/example/clients/client1/keys/key1"
 }
@@ -2515,7 +2515,7 @@ This method has no parameters.
 
 **Request**
 
-``` none
+```none
 DELETE /organizations/NAME/clients/CLIENT/keys/KEY
 ```
 
@@ -2526,7 +2526,7 @@ This method has no request body.
 The response returns the information about the deleted key and is
 similar to:
 
-``` javascript
+```javascript
 {
   "name": "default",
   "public_key": "-------- BEGIN PUBLIC KEY --------- ...",
@@ -2576,7 +2576,7 @@ This method has no parameters.
 
 **Request**
 
-``` none
+```none
 GET /organizations/NAME/clients/CLIENT/keys/KEY
 ```
 
@@ -2586,7 +2586,7 @@ This method has no request body.
 
 The response is similar to:
 
-``` javascript
+```javascript
 {
   "name" : "default",
   "public_key" : "-------- BEGIN PUBLIC KEY --------- ...",
@@ -2636,13 +2636,13 @@ This method has no parameters.
 
 **Request**
 
-``` none
+```none
 PUT /organizations/NAME/clients/CLIENT/keys/KEY
 ```
 
 with a request body similar to:
 
-``` javascript
+```javascript
 {
   "name": "new_key_name",
   "public_key": "-------- BEGIN PUBLIC KEY ----and a valid key here",
@@ -2655,7 +2655,7 @@ with a request body similar to:
 The response contains the updated information for the key and is
 similar to:
 
-``` javascript
+```javascript
 {
   "name": "new_key_name",
   "public_key": "-------- BEGIN PUBLIC KEY --------- ...",
@@ -2714,7 +2714,7 @@ This method has no parameters.
 
 **Request**
 
-``` none
+```none
 GET /organizations/NAME/containers
 ```
 
@@ -2724,7 +2724,7 @@ This method does not use a request body.
 
 The response is similar to:
 
-``` javascript
+```javascript
 {
   "clients": "https://chef.example/organizations/example/containers/clients",
   "containers": "https://chef.example/organizations/example/containers/containers",
@@ -2781,13 +2781,13 @@ This method has no parameters.
 
 **Request**
 
-``` none
+```none
 POST /organizations/NAME
 ```
 
 This method has a request body similar to:
 
-``` javascript
+```javascript
 {
   "containername": "mycontainer",
   "containerpath": "mycontainer"
@@ -2798,7 +2798,7 @@ This method has a request body similar to:
 
 The response is similar to:
 
-``` javascript
+```javascript
 {
   "uri"": "https://chef.example/organizations/test/containers/mycontainer"
 }
@@ -2845,13 +2845,13 @@ The `DELETE` method is used to remove a container.
 
 The `/containers/Name` endpoint has the following methods: `DELETE`, `GET`.
 
-Note: Using the `DELETE` method of the `/containers/NAME` endpoint may have unexpected effects and is likely to break your system. Use of this method is not supported. 
+Note: Using the `DELETE` method of the `/containers/NAME` endpoint may have unexpected effects and is likely to break your system. Use of this method is not supported.
 
 This method has no parameters.
 
 **Request**
 
-``` none
+```none
 DELETE /organizations/NAME/containers/NAME
 ```
 
@@ -2902,7 +2902,7 @@ This method has no parameters.
 
 **Request**
 
-``` none
+```none
 GET /organizations/NAME/containers/NAME
 ```
 
@@ -2912,7 +2912,7 @@ This method does not use a request body.
 
 The response is similar to:
 
-``` javascript
+```javascript
 {
   "containername"": "mycontainer",
   "containerpath"": "mycontainer"
@@ -2966,7 +2966,7 @@ This method has no parameters.
 
 **Request**
 
-``` none
+```none
 GET /organizations/NAME/cookbook_artifacts
 ```
 
@@ -2976,7 +2976,7 @@ This method has no request body.
 
 The response is similar to:
 
-``` javascript
+```javascript
 {
   "oc-influxdb": {
     "url": "https://chef.example/organizations/example-org/cookbook_artifacts/oc-influxdb",
@@ -2991,7 +2991,7 @@ The response is similar to:
       }
     ]
   },
-  "rabbitmq": {
+    "rabbitmq": {
     "url": "https://chef.example/organizations/example-org/cookbook_artifacts/rabbitmq",
     "versions": [
       {
@@ -3050,7 +3050,7 @@ This method has no parameters.
 
 **Request**
 
-``` none
+```none
 GET /organizations/NAME/cookbook_artifacts/NAME
 ```
 
@@ -3060,7 +3060,7 @@ This method has no request body.
 
 The response is similar to:
 
-``` javascript
+```javascript
 {
   "rabbitmq": {
     "url": "https://chef.example/organizations/example-org/cookbook_artifacts/rabbitmq",
@@ -3123,7 +3123,7 @@ This method has no parameters.
 
 **Request**
 
-``` none
+```none
 DELETE /organizations/NAME/cookbook_artifacts/NAME/ID
 ```
 
@@ -3133,7 +3133,7 @@ This method has no request body.
 
 The response contains the record of the deleted resource and is similar to:
 
-``` javascript
+```javascript
 {
   "version": "5.7.7",
   "name": "rabbitmq",
@@ -3253,7 +3253,7 @@ The response contains the record of the deleted resource and is similar to:
     "name": "rabbitmq",
     "description": "Installs and configures RabbitMQ server",
     "long_description": "",
-    "maintainer": "Chef, Inc. and contributors",
+    "maintainer": "Chef Software, Inc. and contributors",
     "maintainer_email": "mklishin@pivotal.io",
     "license": "Apache-2.0",
     "platforms": {
@@ -3367,7 +3367,7 @@ This method has no parameters.
 
 **Request**
 
-``` none
+```none
 GET /organizations/NAME/cookbook_artifacts/NAME/ID
 ```
 
@@ -3377,7 +3377,7 @@ This method has no request body.
 
 The response is similar to:
 
-``` javascript
+```javascript
 {
   "version": "5.7.7",
   "name": "rabbitmq",
@@ -3497,7 +3497,7 @@ The response is similar to:
     "name": "rabbitmq",
     "description": "Installs and configures RabbitMQ server",
     "long_description": "",
-    "maintainer": "Chef, Inc. and contributors",
+    "maintainer": "Chef Software, Inc. and contributors",
     "maintainer_email": "mklishin@pivotal.io",
     "license": "Apache-2.0",
     "platforms": {
@@ -3612,13 +3612,13 @@ This method has no parameters.
 
 **Request**
 
-``` none
+```none
 PUT /organizations/NAME/cookbook_artifacts/NAME/ID
 ```
 
 The request body is similar to:
 
-``` javascript
+```javascript
 {
   "definitions": [
     {
@@ -3639,7 +3639,7 @@ The request body is similar to:
     "license": "Apache 2.0",
     "suggestions": {},
     "platforms": {},
-    "maintainer": "Opscode, Inc",
+    "maintainer": "Chef Software, Inc.",
     "long_description": "= LICENSE AND AUTHOR:\\n\\nAuthor:: Adam Jacob...",
     "recommendations": {},
     "version": "0.1.2",
@@ -3779,7 +3779,7 @@ This method has the following parameters:
 
 **Request**
 
-``` none
+```none
 GET /organizations/NAME/cookbooks
 ```
 
@@ -3787,7 +3787,7 @@ GET /organizations/NAME/cookbooks
 
 The response is similar to:
 
-``` javascript
+```javascript
 {
   "apache2": {
     "url": "https://localhost/cookbooks/apache2",
@@ -3852,7 +3852,7 @@ This method has no parameters.
 
 **Request**
 
-``` none
+```none
 GET /organizations/NAME/cookbooks/_latest
 ```
 
@@ -3862,7 +3862,7 @@ For example, if cookbooks `foo` and `bar` both exist on the Chef Infra
 Server and both with versions `0.1.0` and `0.2.0`, the response is
 similar to:
 
-``` javascript
+```javascript
 {
   "foo": "https://localhost/cookbooks/foo/0.2.0",
   "bar": "https://localhost/cookbooks/bar/0.2.0"
@@ -3915,7 +3915,7 @@ This method has no parameters.
 
 **Request**
 
-``` none
+```none
 GET /organizations/NAME/cookbooks/_recipes
 ```
 
@@ -3923,7 +3923,7 @@ GET /organizations/NAME/cookbooks/_recipes
 
 The response is similar to:
 
-``` javascript
+```javascript
 {
 
 }
@@ -3974,7 +3974,7 @@ and for each version of the cookbook.
 
 **Request**
 
-``` none
+```none
 GET /organizations/NAME/cookbooks/NAME
 ```
 
@@ -3982,7 +3982,7 @@ GET /organizations/NAME/cookbooks/NAME
 
 The response is similar to:
 
-``` javascript
+```javascript
 {
   "apache2": {
     "url": "https://localhost/cookbooks/apache2",
@@ -4044,7 +4044,7 @@ This method has no parameters.
 
 **Request**
 
-``` none
+```none
 DELETE /organizations/NAME/cookbooks/NAME/VERSION
 ```
 
@@ -4095,7 +4095,7 @@ This method has no parameters.
 
 **Request**
 
-``` none
+```none
 GET /organizations/NAME/cookbooks/NAME/VERSION
 ```
 
@@ -4105,7 +4105,7 @@ where `VERSION` can be `_latest` in order to float to head.
 
 The response is similar to:
 
-``` javascript
+```javascript
 {
   "cookbook_name": "getting-started",
   "files": [
@@ -4197,7 +4197,7 @@ The response is similar to:
     "name": "getting-started",
     "description": "description",
     "version": "0.4.0",
-    "maintainer_email": "sysadmin@opscode.com",
+    "maintainer_email": "sysadmin@chef.io",
     "long_description": "= DESCRIPTION:\n\nThis cookbook is used to do some things.\n\n",
     "providing": { "getting-started": ">= 0.0.0" },
     "replacing": { },
@@ -4248,13 +4248,13 @@ This method has no parameters.
 
 **Request**
 
-``` none
+```none
 PUT /organizations/NAME/cookbooks/NAME/VERSION
 ```
 
 with a request body similar to:
 
-``` javascript
+```javascript
 {
   "definitions": [
     {
@@ -4272,12 +4272,12 @@ with a request body similar to:
   "metadata": {
     "dependencies": {"ruby": [], "rubygems": []},
     "name": "unicorn",
-    "maintainer_email": "ops@opscode.com",
+    "maintainer_email": "ops@chef.io",
     "attributes": {},
     "license": "Apache 2.0",
     "suggestions": {},
     "platforms": {},
-    "maintainer": "Opscode, Inc",
+    "maintainer": "Chef Software, Inc.",
     "long_description": "= LICENSE AND AUTHOR:\n\nAuthor:: Adam Jacob...",
     "recommendations": {},
     "version": "0.1.2",
@@ -4389,7 +4389,7 @@ This method has no parameters.
 
 **Request**
 
-``` none
+```none
 GET /organizations/NAME/data
 ```
 
@@ -4397,7 +4397,7 @@ GET /organizations/NAME/data
 
 The response is similar to:
 
-``` javascript
+```javascript
 {
   "users": "https://chef.example/organizations/NAME/data/users",
   "applications": "https://chef.example/organizations/NAME/data/applications"
@@ -4446,14 +4446,14 @@ This method has no parameters.
 
 **Request**
 
-``` none
+```none
 POST /organizations/NAME/data
 ```
 
 with a request body that contains the key-value pair for the data bag
 and is similar to:
 
-``` javascript
+```javascript
 {
   "name": "users"
 }
@@ -4465,7 +4465,7 @@ where (in the example above) `name` is the key and "users" is the value.
 
 The response is similar to:
 
-``` javascript
+```javascript
 {
    "uri": "https://organizations/NAME/data/users",
 }
@@ -4525,7 +4525,7 @@ This method has no parameters.
 
 **Request**
 
-``` none
+```none
 DELETE /organizations/NAME/data/NAME
 ```
 
@@ -4535,7 +4535,7 @@ This method has no request body.
 
 The response is similar to:
 
-``` javascript
+```javascript
 {
   "name": "users",
   "json_class": "Chef::DataBag",
@@ -4587,7 +4587,7 @@ This method has no parameters.
 
 **Request**
 
-``` none
+```none
 GET /organizations/NAME/data/NAME
 ```
 
@@ -4595,7 +4595,7 @@ GET /organizations/NAME/data/NAME
 
 The response is similar to:
 
-``` javascript
+```javascript
 {
    "adam": "https://chef.example/organizations/NAME/data/users/adam"
 }
@@ -4642,13 +4642,13 @@ This method has no parameters.
 
 **Request**
 
-``` none
+```none
 POST /organizations/NAME/data/NAME
 ```
 
 with a request body similar to:
 
-``` javascript
+```javascript
 {
   "id": "adam",
   "real_name": "Adam Jacob"
@@ -4723,7 +4723,7 @@ This method has no parameters.
 
 **Request**
 
-``` none
+```none
 DELETE /organizations/NAME/data/NAME/ITEM
 ```
 
@@ -4731,7 +4731,7 @@ DELETE /organizations/NAME/data/NAME/ITEM
 
 The response is similar to:
 
-``` javascript
+```javascript
 {
 }
 ```
@@ -4778,7 +4778,7 @@ This method has no parameters.
 
 **Request**
 
-``` none
+```none
 GET /organizations/NAME/data/NAME/ITEM
 ```
 
@@ -4786,7 +4786,7 @@ GET /organizations/NAME/data/NAME/ITEM
 
 The response is similar to:
 
-``` javascript
+```javascript
 {
   "real_name": "Adam Jacob",
   "id": "adam"
@@ -4835,13 +4835,13 @@ This method has no parameters.
 
 **Request**
 
-``` none
+```none
 PUT /organizations/NAME/data/NAME/ITEM
 ```
 
 with a request body similar to:
 
-``` javascript
+```javascript
 {
   "real_name": "Adam Brent Jacob",
   "id": "adam"
@@ -4854,7 +4854,7 @@ where `id` is required.
 
 The response is similar to:
 
-``` javascript
+```javascript
 {
 }
 ```
@@ -4912,7 +4912,7 @@ This method has no parameters.
 
 **Request**
 
-``` none
+```none
 GET /organizations/NAME/environments
 ```
 
@@ -4920,10 +4920,10 @@ GET /organizations/NAME/environments
 
 The response is similar to:
 
-``` javascript
+```javascript
 {
-  "_default": "https://api.opscode.com/organizations/org_name/environments/_default",
-  "webserver": "https://api.opscode.com/organizations/org_name/environments/webserver"
+  "_default": "https://api.chef.io/organizations/org_name/environments/_default",
+  "webserver": "https://api.chef.io/organizations/org_name/environments/webserver"
 }
 ```
 
@@ -4964,13 +4964,13 @@ This method has no parameters.
 
 **Request**
 
-``` none
+```none
 POST /organizations/NAME/environments
 ```
 
 with a request body similar to:
 
-``` javascript
+```javascript
 {
   "name": "dev",
   "default_attributes": {},
@@ -4985,7 +4985,7 @@ with a request body similar to:
 
 The response is similar to:
 
-``` javascript
+```javascript
 { "uri": "https://localhost/environments/dev" }
 ```
 
@@ -5043,7 +5043,7 @@ This method has no parameters.
 
 **Request**
 
-``` none
+```none
 GET /organizations/NAME/environments/_default
 ```
 
@@ -5051,7 +5051,7 @@ GET /organizations/NAME/environments/_default
 
 The response is similar to:
 
-``` javascript
+```javascript
 {
   "name": "_default",
   "description": "The default Chef environment",
@@ -5115,7 +5115,7 @@ This method has no parameters.
 
 **Request**
 
-``` none
+```none
 DELETE /organizations/NAME/environments/NAME
 ```
 
@@ -5124,7 +5124,7 @@ DELETE /organizations/NAME/environments/NAME
 The response will return the JSON for the environment that was deleted,
 similar to:
 
-``` javascript
+```javascript
 {
   "name":"backend",
   "description":"",
@@ -5178,7 +5178,7 @@ This method has no parameters.
 
 **Request**
 
-``` none
+```none
 GET /organizations/NAME/environments/NAME
 ```
 
@@ -5186,7 +5186,7 @@ GET /organizations/NAME/environments/NAME
 
 The response is similar to:
 
-``` javascript
+```javascript
 {
   "name": "_default",
   "description": "The default Chef environment",
@@ -5240,14 +5240,14 @@ This method has no parameters.
 
 **Request**
 
-``` none
+```none
 PUT /organizations/NAME/environments/NAME
 ```
 
 with a request body that contains the updated JSON for the environment
 and is similar to:
 
-``` javascript
+```javascript
 {
   "name": "dev",
   "attributes": {},
@@ -5332,7 +5332,7 @@ This method has the following parameters:
 
 **Request**
 
-``` none
+```none
 GET /organizations/NAME/environments/NAME/cookbooks/NAME
 ```
 
@@ -5343,7 +5343,7 @@ the second instance is the name of the cookbook.
 
 The response is similar to:
 
-``` none
+```none
 {
   "apache2": {
     "url": "https://localhost/cookbooks/apache2",
@@ -5408,13 +5408,13 @@ This method has no parameters.
 
 **Request**
 
-``` none
+```none
 POST /organizations/NAME/environments/NAME/cookbook_versions
 ```
 
 with a request body similar to:
 
-``` javascript
+```javascript
 {
   "run_list": [
     "zed@0.0.1",
@@ -5441,7 +5441,7 @@ latest cookbook version for each cookbook.
 
 The response is similar to:
 
-``` javascript
+```javascript
 {
   "cookbook_name": {
     "recipes": [
@@ -5771,7 +5771,7 @@ This method has the following parameters:
 
 **Request**
 
-``` none
+```none
 GET /organizations/NAME/environments/NAME/cookbooks
 ```
 
@@ -5779,7 +5779,7 @@ GET /organizations/NAME/environments/NAME/cookbooks
 
 The response is similar to:
 
-``` javascript
+```javascript
 {
   "apache2": {
     "url": "https://localhost/cookbooks/apache2",
@@ -5849,7 +5849,7 @@ This method has no parameters.
 
 **Request**
 
-``` none
+```none
 GET /organizations/NAME/environments/NAME/nodes
 ```
 
@@ -5857,11 +5857,11 @@ GET /organizations/NAME/environments/NAME/nodes
 
 The response is similar to:
 
-``` javascript
+```javascript
 {
-  "blah": "https://api.opscode.com/org/org_name/nodes/_default",
-  "boxer": "https://api.opscode.com/org/org_name/nodes/frontend",
-  "blarrrrgh": "https://api.opscode.com/org/org_name/nodes/backend"
+  "blah": "https://api.chef.io/org/org_name/nodes/_default",
+  "boxer": "https://api.chef.io/org/org_name/nodes/frontend",
+  "blarrrrgh": "https://api.chef.io/org/org_name/nodes/backend"
 }
 ```
 
@@ -5912,7 +5912,7 @@ This method has no parameters.
 
 **Request**
 
-``` none
+```none
 GET /organizations/NAME/environments/NAME/recipes
 ```
 
@@ -5923,7 +5923,7 @@ the second instance is the name of the recipe.
 
 The response is similar to:
 
-``` none
+```none
 [
   "ant",
   "apache2",
@@ -6002,7 +6002,7 @@ This method has no parameters.
 
 **Request**
 
-``` none
+```none
 GET /organizations/NAME/environments/NAME/roles/NAME
 ```
 
@@ -6013,7 +6013,7 @@ the second instance is the name of the role.
 
 The response is similar to:
 
-``` javascript
+```javascript
 {
   "run_list": [
     "recipe[recipe_name]",
@@ -6075,7 +6075,7 @@ This method has no parameters.
 
 **Request**
 
-``` none
+```none
 GET /organizations/NAME/groups
 ```
 
@@ -6083,7 +6083,7 @@ GET /organizations/NAME/groups
 
 The response is similar to:
 
-``` javascript
+```javascript
 {
   "33a5c28a8efe11e195005fsaes25400298d3f": "https://url/for/group1",
   "admins": "https://url/for/groups/admins",
@@ -6134,13 +6134,13 @@ Server for a single organization.
 
 **Request**
 
-``` none
+```none
 POST /organizations/NAME/groups
 ```
 
 with a request body similar to:
 
-``` javascript
+```javascript
 {
   "name": "group1",
   "groupname": "group1",
@@ -6156,7 +6156,7 @@ with a request body similar to:
 
 The response is similar to:
 
-``` javascript
+```javascript
 {
   "uri": "https://chef.example/organizations/test/groups/group1",
 }
@@ -6212,7 +6212,7 @@ This method has no parameters.
 
 **Request**
 
-``` none
+```none
 DELETE /organizations/NAME/groups/GROUP_NAME
 ```
 
@@ -6222,7 +6222,7 @@ without a request body.
 
 The response is similar to:
 
-``` javascript
+```javascript
 {
 }
 ```
@@ -6268,7 +6268,7 @@ This method has no parameters.
 
 **Request**
 
-``` none
+```none
 GET /organizations/NAME/groups/GROUP_NAME
 ```
 
@@ -6276,7 +6276,7 @@ GET /organizations/NAME/groups/GROUP_NAME
 
 The response is similar to:
 
-``` javascript
+```javascript
 {
   "actors": [
     "pivotal",
@@ -6334,20 +6334,20 @@ The response is similar to:
 #### PUT
 
 The `PUT` method is used to update a group on a single organization.
-Updating the clients, groups and users memberships replaces the definitons for
+Updating the clients, groups and users memberships replaces the definitions for
 the group. `GET` the group and merge changes to create the desired member lists.
 
 This method has no parameters.
 
 **Request**
 
-``` none
+```none
 PUT /organizations/NAME/groups/GROUP_NAME
 ```
 
 with a request body similar to:
 
-``` javascript
+```javascript
 {
   "name": "group1",
   "groupname": "groupnew",
@@ -6363,7 +6363,7 @@ with a request body similar to:
 
 The response is similar to:
 
-``` javascript
+```javascript
 {
   "name": "group1",
   "groupname": "groupnew",
@@ -6424,7 +6424,7 @@ This method has no parameters.
 
 **Request**
 
-``` none
+```none
 GET /organizations/NAME/nodes
 ```
 
@@ -6432,7 +6432,7 @@ GET /organizations/NAME/nodes
 
 The response is similar to:
 
-``` javascript
+```javascript
 {
   "latte": "https://localhost/nodes/latte"
 }
@@ -6475,13 +6475,13 @@ This method has no parameters.
 
 **Request**
 
-``` none
+```none
 POST /organizations/NAME/nodes
 ```
 
 with a request body similar to:
 
-``` javascript
+```javascript
 {
   "name": "latte",
   "chef_type": "node",
@@ -6502,7 +6502,7 @@ order of the `run_list` attribute matters.
 
 The response is similar to:
 
-``` javascript
+```javascript
 { "uri": "https://localhost/nodes/latte" }
 ```
 
@@ -6560,7 +6560,7 @@ This method has no parameters.
 
 **Request**
 
-``` none
+```none
 DELETE /organizations/NAME/nodes/NAME
 ```
 
@@ -6568,7 +6568,7 @@ DELETE /organizations/NAME/nodes/NAME
 
 The response will return the last known state of the node, similar to:
 
-``` javascript
+```javascript
 {
   "overrides": {},
   "name": "latte",
@@ -6625,7 +6625,7 @@ This method has no parameters.
 
 **Request**
 
-``` none
+```none
 GET /organizations/NAME/nodes/NAME
 ```
 
@@ -6633,7 +6633,7 @@ GET /organizations/NAME/nodes/NAME
 
 The response is similar to:
 
-``` javascript
+```javascript
 {
   "name": "node_name",
   "chef_environment": "_default",
@@ -6690,7 +6690,7 @@ This method has no parameters.
 
 **Request**
 
-``` none
+```none
 HEAD /organizations/NAME/nodes/NAME
 ```
 
@@ -6739,13 +6739,13 @@ This method has no parameters.
 
 **Request**
 
-``` none
+```none
 PUT /organizations/NAME/nodes/NAME
 ```
 
 with a request body similar to:
 
-``` javascript
+```javascript
 {
   "overrides": {},
   "name": "latte",
@@ -6816,7 +6816,7 @@ This method has no parameters.
 
 **Request**
 
-``` none
+```none
 GET /organizations/NAME/policies
 ```
 
@@ -6824,7 +6824,7 @@ GET /organizations/NAME/policies
 
 The response groups policies by name and revision and is similar to:
 
-``` javascript
+```javascript
 {
   "aar": {
     "uri": "https://chef.example/organizations/org1/policies/aar",
@@ -6907,7 +6907,7 @@ This method has no parameters.
 
 **Request**
 
-``` none
+```none
 GET /organizations/NAME/principals/NAME
 ```
 
@@ -6917,7 +6917,7 @@ For a user or client, the type value will vary. The response body
 returns an array of principals which allows for a client with the
 same name as a user. The response for a user or client is similar to:
 
-``` javascript
+```javascript
 {
   "Principals: [
     {
@@ -6965,7 +6965,7 @@ The `/required_recipe` endpoint has the following method: `GET`.
 Use the `GET` method to view a recipe specified by a
 Chef Infra Server administrator as part of the Chef Infra Server configuration.
 This recipe will be run by all Chef Infra Clients that connect to the Chef Infra Server.
-The `required_recipe` feature is aimed at expert level practioners delivering
+The `required_recipe` feature is aimed at expert level practitioners delivering
 isolated configuration changes to target systems. The returned text is
 the content of a single recipe file.
 
@@ -6973,7 +6973,7 @@ This method has no parameters.
 
 **Request**
 
-``` none
+```none
 GET /organizations/NAME/required_recipe
 ```
 
@@ -6983,7 +6983,7 @@ This method has no request body.
 
 The response is returned in plain text, not in JSON format. The response is similar to:
 
-``` javascript
+```javascript
   "# My required recipe
    file '/tmp/build'
    package 'secret_sauce'
@@ -7038,7 +7038,7 @@ This method has no parameters.
 
 **Request**
 
-``` none
+```none
 GET /organizations/NAME/roles
 ```
 
@@ -7046,7 +7046,7 @@ GET /organizations/NAME/roles
 
 The response is similar to:
 
-``` javascript
+```javascript
 {
   "webserver": "https://chef.example/organizations/org1/roles/webserver"
 }
@@ -7089,13 +7089,13 @@ This method has no parameters.
 
 **Request**
 
-``` none
+```none
 POST /organizations/NAME/roles
 ```
 
 with a request body similar to:
 
-``` javascript
+```javascript
 {
   "name": "webserver",
   "default_attributes": {},
@@ -7117,7 +7117,7 @@ with a request body similar to:
 
 The response is similar to:
 
-``` javascript
+```javascript
 { "uri": "https://chef.example/organizations/org1/roles/webserver" }
 ```
 
@@ -7175,7 +7175,7 @@ This method has no parameters.
 
 **Request**
 
-``` none
+```none
 DELETE /organizations/NAME/roles/NAME
 ```
 
@@ -7183,7 +7183,7 @@ DELETE /organizations/NAME/roles/NAME
 
 The response is similar to:
 
-``` javascript
+```javascript
 {
   "name": "webserver",
   "chef_type": "role",
@@ -7244,7 +7244,7 @@ This method has no parameters.
 
 **Request**
 
-``` none
+```none
 GET /organizations/NAME/roles/NAME
 ```
 
@@ -7252,7 +7252,7 @@ GET /organizations/NAME/roles/NAME
 
 The response is similar to:
 
-``` javascript
+```javascript
 {
   "name": "webserver",
   "chef_type": "role",
@@ -7309,13 +7309,13 @@ This method has no parameters.
 
 **Request**
 
-``` none
+```none
 PUT /organizations/NAME/roles/NAME
 ```
 
 with a request body similar to:
 
-``` javascript
+```javascript
 {
   "name": "webserver",
   "default_attributes": {},
@@ -7383,7 +7383,7 @@ This method has no parameters.
 
 **Request**
 
-``` none
+```none
 GET /organizations/NAME/roles/NAME/environments
 ```
 
@@ -7391,7 +7391,7 @@ GET /organizations/NAME/roles/NAME/environments
 
 The response is similar to:
 
-``` javascript
+```javascript
 ["_default","production","qa"]
 ```
 
@@ -7442,7 +7442,7 @@ This method has no parameters.
 
 **Request**
 
-``` none
+```none
 GET /organizations/NAME/roles/NAME/environments/NAME
 ```
 
@@ -7453,7 +7453,7 @@ name of the environment.
 
 The response is similar to:
 
-``` javascript
+```javascript
 {"run_list":["recipe[foo]"]}
 ```
 
@@ -7506,13 +7506,13 @@ This method has no parameters.
 
 **Request**
 
-``` none
+```none
 POST /organizations/NAME/sandboxes
 ```
 
 with a request body similar to:
 
-``` javascript
+```javascript
 {"checksums": {
   "385ea5490c86570c7de71070bce9384a":null,
   "f6f73175e979bd90af6184ec277f760c":null,
@@ -7525,9 +7525,9 @@ with a request body similar to:
 
 The response is similar to:
 
-``` javascript
+```javascript
 {"uri":
- "https://api.opscode.com/organizations/testorg/sandboxes/eff7b6f8b3ef44c6867216662d5eeb5f",
+ "https://api.chef.io/organizations/testorg/sandboxes/eff7b6f8b3ef44c6867216662d5eeb5f",
  "checksums":
    {"385ea5490c86570c7de71070bce9384a":
      {"url":
@@ -7598,13 +7598,13 @@ This method has no parameters.
 
 **Request**
 
-``` none
+```none
 PUT /organizations/NAME/sandboxes/ID
 ```
 
 with a request body similar to:
 
-``` javascript
+```javascript
 {"is_completed":true}
 ```
 
@@ -7612,7 +7612,7 @@ with a request body similar to:
 
 The response is similar to:
 
-``` javascript
+```javascript
 {
   "guid": guid,
   "name": guid,
@@ -7708,7 +7708,7 @@ This method has no parameters.
 
 **Request**
 
-``` none
+```none
 GET /organizations/NAME/search
 ```
 
@@ -7718,7 +7718,7 @@ This method has no request body.
 
 The response is similar to:
 
-``` javascript
+```javascript
 {
   "node": "https://chef.example/organizations/org1/search/node",
   "role": "https://chef.example/organizations/org1/search/role",
@@ -7800,7 +7800,7 @@ This method has the following parameters:
 
 **Request**
 
-``` none
+```none
 GET /organizations/NAME/search/INDEX
 ```
 
@@ -7809,7 +7809,7 @@ GET /organizations/NAME/search/INDEX
 The response contains the total number of rows that match the request
 and for a node index search is similar to:
 
-``` javascript
+```javascript
 {
  "total": 1,
  "start": 0,
@@ -7908,13 +7908,13 @@ This method has the following parameters:
 
 **Request**
 
-``` none
+```none
 POST /organizations/NAME/search
 ```
 
 with a request body similar to:
 
-``` none
+```none
 {
   "name": [ "name" ],
   "ip": [ "ipaddress" ],
@@ -7926,7 +7926,7 @@ with a request body similar to:
 
 The response is similar to:
 
-``` javascript
+```javascript
 {
   "total":1,
   "start":0,
@@ -7991,7 +7991,7 @@ This method has no parameters. This method has no request body.
 
 **Request**
 
-``` none
+```none
 GET /universe
 ```
 
@@ -8001,7 +8001,7 @@ The response will return a json hash, with the name of each cookbook as
 a top-level key. Each cookbook will list each version, along with its
 location information and dependencies:
 
-``` javascript
+```javascript
 {
   "ffmpeg": {
     "0.1.0": {
@@ -8079,7 +8079,7 @@ JSON.
 
 **Request**
 
-``` none
+```none
 GET /organizations/NAME/updated_since?seq=NUM
 ```
 
@@ -8090,7 +8090,7 @@ where `NUM` is the largest integer previously returned as an identifier.
 The response will return an array of paths for objects that have been
 created, updated, or deleted since `NUM`, similar to:
 
-``` javascript
+```javascript
 [
   {
     "action": "create",
@@ -8163,7 +8163,7 @@ This method has no parameters.
 
 **Request**
 
-``` none
+```none
 GET /organizations/NAME/users
 ```
 
@@ -8173,7 +8173,7 @@ This method has no request body.
 
 The response is similar to:
 
-``` javascript
+```javascript
 [
   { "user": { "username": "paperlatte" } }
 ]
@@ -8217,13 +8217,13 @@ This method has no parameters.
 
 **Request**
 
-``` none
+```none
 POST /organizations/NAME/users
 ```
 
 with a request body similar to:
 
-``` javascript
+```javascript
 {
   "username": "paperlatte",
 }
@@ -8285,7 +8285,7 @@ This method has no parameters.
 
 **Request**
 
-``` none
+```none
 DELETE /organizations/NAME/users/NAME
 ```
 
@@ -8293,7 +8293,7 @@ DELETE /organizations/NAME/users/NAME
 
 The response will return the end state of the user, similar to:
 
-``` javascript
+```javascript
 {
   "username": "paperlatte"
   "email": "latte",
@@ -8345,7 +8345,7 @@ This method has no parameters.
 
 **Request**
 
-``` none
+```none
 GET /organizations/NAME/users/NAME
 ```
 
@@ -8353,7 +8353,7 @@ GET /organizations/NAME/users/NAME
 
 The response is similar to:
 
-``` javascript
+```javascript
 {
   "username": "paperlatte"
   "email": "latte",
@@ -8412,13 +8412,13 @@ Infra Server.
 Run the following from a `.chef` directory that contains a `pivotal.rb`
 file:
 
-``` ruby
+```ruby
 require 'chef'
 require 'chef/server_api'
 
-Chef::Config.from_file(".chef/pivotal.rb")
+Chef::Config.from_file('.chef/pivotal.rb')
 rest = Chef::ServerAPI.new(Chef::Config[:chef_server_url])
-orgs = rest.get("/organizations")
+orgs = rest.get('/organizations')
 
 puts "\n=== Listing of organizations"
 orgs.each do |org|
@@ -8426,7 +8426,7 @@ orgs.each do |org|
 end
 
 puts "\n=== Listing of Users"
-users = rest.get("/users")
+users = rest.get('/users')
 users.each do |user|
   puts user
 end
@@ -8434,11 +8434,11 @@ end
 
 An example of a `.chef/pivotal.rb` file is shown below:
 
-``` ruby
+```ruby
 current_dir = File.dirname(__FILE__)
-node_name "pivotal"
-chef_server_url "https://192.0.2.0:443"
-chef_server_root "https://192.0.2.0:443"
+node_name 'pivotal'
+chef_server_url 'https://192.0.2.0:443'
+chef_server_root 'https://192.0.2.0:443'
 client_key "#{current_dir}/pivotal.pem"
 ```
 

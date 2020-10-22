@@ -71,7 +71,7 @@ CLI](/delivery_cli/).
 
 For example, to pass the required headers using curl:
 
-``` bash
+```bash
 curl https://my-automate-server.mycompany.biz/elasticsearch/_cat/indices -H "chef-delivery-user: myuser" -H "chef-delivery-enterprise: coolcompany" -H "chef-delivery-token: s00pers33krett0ken"
 ```
 

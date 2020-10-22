@@ -85,19 +85,19 @@ configuration guide assumes that:
 The following commands properly set up disk configuration on the backend
 server:
 
-``` bash
+```bash
 pvcreate /dev/sdb
 ```
 
 and:
 
-``` bash
+```bash
 vgcreate opscode /dev/sdb
 ```
 
 and:
 
-``` bash
+```bash
 lvcreate -l 80%VG -n tiered opscode
 ```
 
@@ -108,19 +108,19 @@ following:
 
 1.  Create the file system. For example, an `ext4` type named `tiered`:
 
-    ``` bash
+    ```bash
     mkfs.ext4 /dev/opscode/tiered
     ```
 
     then:
 
-    ``` bash
+    ```bash
     mkdir -p /var/opt/opscode
     ```
 
     and then:
 
-    ``` bash
+    ```bash
     mount /dev/opscode/tiered /var/opt/opscode
     ```
 
@@ -131,13 +131,13 @@ Use the following steps to set up the backend Chef Infra Server:
 1.  Download the packages from <https://downloads.chef.io/chef-server/>.
     For Red Hat and CentOS 6:
 
-    ``` bash
+    ```bash
     rpm -Uvh /tmp/chef-server-core-<version>.rpm
     ```
 
     For Ubuntu:
 
-    ``` bash
+    ```bash
     dpkg -i /tmp/chef-server-core-<version>.deb
     ```
 
@@ -158,13 +158,13 @@ Add the following settings to the chef-server.rb file:
 
 1.  Define the topology type:
 
-    ``` ruby
+    ```ruby
     topology "tier"
     ```
 
 2.  Define the backend server:
 
-    ``` ruby
+    ```ruby
     server "FQDN",
       :ipaddress => "IP_ADDRESS",
       :role => "backend",
@@ -177,7 +177,7 @@ Add the following settings to the chef-server.rb file:
 
 3.  Define the backend virtual IP address:
 
-    ``` ruby
+    ```ruby
     backend_vip "FQDN",
       :ipaddress => "IP_ADDRESS",
       :device => "eth0"
@@ -195,7 +195,7 @@ Add the following settings to the chef-server.rb file:
 
 4.  Define each frontend server:
 
-    ``` ruby
+    ```ruby
     server "FQDN",
       :ipaddress => "IP_ADDRESS",
       :role => "frontend"
@@ -210,7 +210,7 @@ Add the following settings to the chef-server.rb file:
 
 5.  Define the API FQDN:
 
-    ``` ruby
+    ```ruby
     api_fqdn "FQDN"
     ```
 
@@ -227,13 +227,13 @@ Infra Server:
 
 1.  Install the Chef Infra Server package. For Red Hat and CentOS 6:
 
-    ``` bash
+    ```bash
     rpm -Uvh /tmp/chef-server-core-<version>.rpm
     ```
 
     For Ubuntu:
 
-    ``` bash
+    ```bash
     dpkg -i /tmp/chef-server-core-<version>.deb
     ```
 
@@ -247,7 +247,7 @@ Infra Server:
 
 4.  Start the Chef Infra Server:
 
-    ``` bash
+    ```bash
     chef-server-ctl start
     ```
 
@@ -279,25 +279,25 @@ Chef Manage
     On each front end server in the Chef Infra Server configuration,
     run:
 
-    ``` bash
+    ```bash
     chef-server-ctl install chef-manage
     ```
 
     then:
 
-    ``` bash
+    ```bash
     chef-server-ctl reconfigure
     ```
 
     and then:
 
-    ``` bash
+    ```bash
     chef-manage-ctl reconfigure
     ```
 
     To accept the [Chef MLSA](/chef_license/):
 
-    ``` bash
+    ```bash
     sudo chef-manage-ctl reconfigure --accept-license
     ```
 
@@ -372,7 +372,7 @@ Chef Infra Server configuration, consisting of:
 
 Looks like this:
 
-``` ruby
+```ruby
 topology "tier"
 
 server "be1.example.com",

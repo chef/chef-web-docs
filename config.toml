@@ -92,7 +92,7 @@ notAlternative = true
   [[module.imports]]
     disable = false
     ignoreConfig = false
-    path = "github.com/chef/desktop-config/docs"
+    path = "github.com/chef/desktop-config/docs-chef-io"
 
   [[module.imports.mounts]]
     source = "content"
@@ -113,7 +113,7 @@ notAlternative = true
   [[module.imports]]
     disable = false
     ignoreConfig = false
-    path = "github.com/chef/chef-workstation/www"
+    path = "github.com/chef/chef-workstation/docs-chef-io"
 
   [[module.imports.mounts]]
     source = "content"
@@ -139,7 +139,7 @@ notAlternative = true
   [[module.imports]]
     disable = false
     ignoreConfig = false
-    path = "github.com/inspec/inspec/www"
+    path = "github.com/inspec/inspec/docs-chef-io"
 
   [[module.imports.mounts]]
     source = "content/inspec"

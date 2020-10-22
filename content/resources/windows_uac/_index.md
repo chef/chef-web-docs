@@ -1,6 +1,5 @@
 ---
 resource_reference: true
-properties_shortcode: 
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
@@ -27,7 +26,7 @@ syntax_full_code_block: |-
     require_signed_binaries       true, false # default value: false
     action                        Symbol # defaults to :configure if not specified
   end
-syntax_properties_list: 
+syntax_properties_list:
 syntax_full_properties_list:
 - "`windows_uac` is the resource."
 - "`name` is the name given to the resource block."
@@ -85,7 +84,7 @@ properties_list:
 examples: |
   **Disable UAC prompts for the admin**:
 
-  ``` ruby
+  ```ruby
   windows_uac 'Disable UAC prompts for the admin' do
     enable_uac true
     prompt_on_secure_desktop false
@@ -95,7 +94,7 @@ examples: |
 
   **Disable UAC entirely**:
 
-  ``` ruby
+  ```ruby
   windows_uac 'Disable UAC entirely' do
     enable_uac false
   end

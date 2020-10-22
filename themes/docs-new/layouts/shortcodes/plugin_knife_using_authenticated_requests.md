@@ -34,7 +34,7 @@ Chef Infra Server using the following methods:
 
 For example:
 
-``` ruby
+```ruby
 module MyCommands
   class MyNodeDelete < Chef::Knife
     #An implementation of knife node delete
@@ -43,7 +43,7 @@ module MyCommands
     def run
       if name_args.length < 1
         show_usage
-        ui.fatal("You must specify a node name.")
+        ui.fatal('You must specify a node name.')
         exit 1
       end
       nodename = name_args[0]

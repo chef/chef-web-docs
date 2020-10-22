@@ -3,10 +3,10 @@ file, where the installation of the repository triggers a creation of
 the Yum cache that forces the internal cache for Chef Infra Client to
 reload:
 
-``` ruby
+```ruby
 execute 'create-yum-cache' do
- command 'yum -q makecache'
- action :nothing
+  command 'yum -q makecache'
+  action :nothing
 end
 
 ruby_block 'reload-internal-yum-cache' do

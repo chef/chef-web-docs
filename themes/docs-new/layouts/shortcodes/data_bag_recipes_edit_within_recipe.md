@@ -20,7 +20,7 @@ create and edit the contents of a data bag or a data bag item using the
 
 To create a data bag from a recipe:
 
-``` ruby
+```ruby
 users = Chef::DataBag.new
 users.name('users')
 users.create
@@ -28,11 +28,11 @@ users.create
 
 To create a data bag item from a recipe:
 
-``` ruby
+```ruby
 sam = {
   'id' => 'sam',
   'Full Name' => 'Sammy',
-  'shell' => '/bin/zsh'
+  'shell' => '/bin/zsh',
 }
 databag_item = Chef::DataBagItem.new
 databag_item.data_bag('users')
@@ -42,7 +42,7 @@ databag_item.save
 
 To edit the contents of a data bag item from a recipe:
 
-``` ruby
+```ruby
 sam = data_bag_item('users', 'sam')
 sam['Full Name'] = 'Samantha'
 sam.save

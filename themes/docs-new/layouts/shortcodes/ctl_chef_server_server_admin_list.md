@@ -3,13 +3,13 @@ who are members of the `server-admins` group.
 
 This subcommand has the following syntax:
 
-``` bash
+```bash
 chef-server-ctl list-server-admins
 ```
 
 and will return a list of users similar to:
 
-``` bash
+```bash
 pivotal
 alice
 bob

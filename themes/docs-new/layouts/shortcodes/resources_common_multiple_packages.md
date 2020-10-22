@@ -10,13 +10,13 @@ to:
 
 For example, installing multiple packages:
 
-``` ruby
+```ruby
 package %w(package1 package2)
 ```
 
 Installing multiple packages with versions:
 
-``` ruby
+```ruby
 package %w(package1 package2) do
   version [ '1.3.4-2', '4.3.6-1']
 end
@@ -24,32 +24,32 @@ end
 
 Upgrading multiple packages:
 
-``` ruby
-package %w(package1 package2)  do
+```ruby
+package %w(package1 package2) do
   action :upgrade
 end
 ```
 
 Removing multiple packages:
 
-``` ruby
-package %w(package1 package2)  do
+```ruby
+package %w(package1 package2) do
   action :remove
 end
 ```
 
 Purging multiple packages:
 
-``` ruby
-package %w(package1 package2)  do
+```ruby
+package %w(package1 package2) do
   action :purge
 end
 ```
 
 Notifications, via an implicit name:
 
-``` ruby
-package %w(package1 package2)  do
+```ruby
+package %w(package1 package2) do
   action :nothing
 end
 

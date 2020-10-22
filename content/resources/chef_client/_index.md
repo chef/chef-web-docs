@@ -16,7 +16,7 @@ resource_description_list:
 - markdown: Use the **chef_client** resource to create clients on your Chef Infra Server from within Chef Infra cookbook code.
 handler_types: false
 syntax_description: "The syntax for using the **chef_client** resource in a recipe\
-  \ is as\nfollows:\n\n``` ruby\nchef_client 'name' do\n  attribute 'value' # see\
+  \ is as\nfollows:\n\n```ruby\nchef_client 'name' do\n  attribute 'value' # see\
   \ properties section below\n  ...\n  action :action # see actions section below\n\
   end\n```"
 syntax_properties_list:
@@ -118,7 +118,7 @@ properties_list:
   default_value: null
   new_in: null
   description_list:
-  - markdown: "Chef Infra Client as JSON data. For example:\n\n``` javascript\n{\n\
+  - markdown: "Chef Infra Client as JSON data. For example:\n\n```javascript\n{\n\
       \  \"clientname\": \"client_name\",\n  \"orgname\": \"org_name\",\n  \"validator\"\
       : false,\n  \"certificate\": \"-----BEGIN CERTIFICATE-----\\n\n            \
       \      ...\n                  1234567890abcdefghijklmnopq\\n\n             \

@@ -1,6 +1,5 @@
 ---
 resource_reference: true
-properties_shortcode: 
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
@@ -15,9 +14,8 @@ menu:
     identifier: chef_infra/cookbook_reference/resources/systemd_unit systemd_unit
     parent: chef_infra/cookbook_reference/resources
 resource_description_list:
-- markdown: 'Use the **systemd_unit** resource to create, manage, and run [systemd
-
-    units](https://www.freedesktop.org/software/systemd/man/systemd.html#Concepts).'
+- markdown: Use the **systemd_unit** resource to create, manage, and run [systemd
+    units](https://www.freedesktop.org/software/systemd/man/systemd.html#Concepts).
 resource_new_in: '12.11'
 syntax_full_code_block: |-
   systemd_unit 'name' do
@@ -28,7 +26,7 @@ syntax_full_code_block: |-
     verify               true, false # default value: true
     action               Symbol # defaults to :nothing if not specified
   end
-syntax_properties_list: 
+syntax_properties_list:
 syntax_full_properties_list:
 - "`systemd_unit` is the resource."
 - "`name` is the name given to the resource block."
@@ -116,7 +114,7 @@ properties_list:
       can be overly strict when verifying units, so in certain cases it is preferable
       not to verify the unit.
 examples: "
-  Create etcd systemd service unit file from a Hash\n\n  ``` ruby\n\
+  Create etcd systemd service unit file from a Hash\n\n  ```ruby\n\
   \  systemd_unit 'etcd.service' do\n    content({Unit: {\n              Description:\
   \ 'Etcd',\n              Documentation: ['https://coreos.com/etcd', 'man:etcd(1)'],\n\
   \              After: 'network.target',\n            },\n            Service: {\n\

@@ -10,7 +10,7 @@ Infra Client as the administrator:
 -   Run Chef Infra Client process from the administrator account while
     being logged into another account. Run the following command:
 
-    ``` bash
+    ```bash
     runas /user:Administrator "cmd /C chef-client"
     ```
 

@@ -1,9 +1,8 @@
 ---
 title: git resource
 resource: git
-draft: false
 aliases:
-- /resource_git.html
+- "/resource_git.html"
 menu:
   infra:
     title: git
@@ -21,7 +20,7 @@ resource_description_list:
 resource_new_in: null
 handler_types: false
 syntax_description: "A **git** resource block manages source control resources that\
-  \ exist in\na git repository:\n\n``` ruby\ngit \"#{Chef::Config[:file_cache_path]}/app_name\"\
+  \ exist in\na git repository:\n\n```ruby\ngit \"#{Chef::Config[:file_cache_path]}/app_name\"\
   \ do\n  repository node[:app_name][:git_repository]\n  revision node[:app_name][:git_revision]\n\
   \  action :sync\nend\n```"
 syntax_code_block: null
@@ -200,7 +199,7 @@ properties_list:
       branch:
 
 
-      ``` ruby
+      ```ruby
 
       revision ''master''
 
@@ -269,10 +268,10 @@ handler_custom: false
 cookbook_file_specificity: false
 unit_file_verification: false
 examples: "
-  Use the git mirror\n\n  ``` ruby\n  git '/opt/mysources/couch' do\n\
+  Use the git mirror\n\n  ```ruby\n  git '/opt/mysources/couch' do\n\
   \    repository 'git://git.apache.org/couchdb.git'\n    revision 'master'\n    action\
   \ :sync\n  end\n  ```\n\n  Use different branches\n\n  To use different branches,\
-  \ depending on the environment of the node:\n\n  ``` ruby\n  if node.chef_environment\
+  \ depending on the environment of the node:\n\n  ```ruby\n  if node.chef_environment\
   \ == 'QA'\n     branch_name = 'staging'\n  else\n     branch_name = 'master'\n \
   \ end\n\n  git '/home/user/deployment' do\n     repository 'git@github.com:gitsite/deployment.git'\n\
   \     revision branch_name\n     action :sync\n     user 'user'\n     group 'test'\n\
@@ -281,25 +280,25 @@ examples: "
   \ variable is used to set the revision for the repository.\n  If the `git status`\
   \ command is used after running the example above, it\n  will return the branch\
   \ name as `deploy`, as this is the default value.\n  Run Chef Infra Client in debug\
-  \ mode to verify that the correct branches\n  are being checked out:\n\n  ``` bash\n\
+  \ mode to verify that the correct branches\n  are being checked out:\n\n  ```bash\n\
   \  sudo chef-client -l debug\n  ```\n\n  Install an application from git using bash\n\
   \n  The following example shows how Bash can be used to install a plug-in\n  for\
   \ rbenv named `ruby-build`, which is located in git version source\n  control. First,\
   \ the application is synchronized, and then Bash changes\n  its working directory\
   \ to the location in which `ruby-build` is located,\n  and then runs a command.\n\
-  \n  ``` ruby\n  git \"#{Chef::Config[:file_cache_path]}/ruby-build\" do\n    repository\
+  \n  ```ruby\n  git \"#{Chef::Config[:file_cache_path]}/ruby-build\" do\n    repository\
   \ 'git://github.com/sstephenson/ruby-build.git'\n    revision 'master'\n    action\
   \ :sync\n  end\n\n  bash 'install_ruby_build' do\n    cwd \"#{Chef::Config[:file_cache_path]}/ruby-build\"\
   \n    user 'rbenv'\n    group 'rbenv'\n    code <<-EOH\n      ./install.sh\n   \
   \   EOH\n    environment 'PREFIX' => '/usr/local'\n  end\n  ```\n\n  To read more\
   \ about `ruby-build`, see here:\n  <https://github.com/sstephenson/ruby-build>.\n\
   \n  Upgrade packages from git\n\n  The following example uses the **git** resource\
-  \ to upgrade packages:\n\n  ``` ruby\n  # the following code sample comes from the\
+  \ to upgrade packages:\n\n  ```ruby\n  # the following code sample comes from the\
   \ ``source`` recipe\n  # in the ``libvpx-cookbook`` cookbook:\n  # https://github.com/enmasse-entertainment/libvpx-cookbook\n\
   \n  git \"#{Chef::Config[:file_cache_path]}/libvpx\" do\n    repository node[:libvpx][:git_repository]\n\
   \    revision node[:libvpx][:git_revision]\n    action :sync\n    notifies :run,\
   \ 'bash[compile_libvpx]', :immediately\n  end\n  ```\n\n  Pass in environment variables\n\
-  \n  ``` ruby\n  git '/opt/mysources/couch' do\n    repository 'git://git.apache.org/couchdb.git'\n\
+  \n  ```ruby\n  git '/opt/mysources/couch' do\n    repository 'git://git.apache.org/couchdb.git'\n\
   \    revision 'master'\n    environment 'VAR' => 'whatever'\n    action :sync\n\
   \  end\n  ```\n"
 

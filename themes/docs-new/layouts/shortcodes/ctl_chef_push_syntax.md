@@ -1,5 +1,5 @@
 This subcommand has the following syntax:
 
-``` bash
+```bash
 chef push POLICY_GROUP POLICY_FILE (options)
 ```

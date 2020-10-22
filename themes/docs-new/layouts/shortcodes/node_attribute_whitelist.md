@@ -73,7 +73,7 @@ likely to cause issues if they are whitelisted incorrectly.
 
 For example, automatic attribute data similar to:
 
-``` javascript
+```javascript
 {
   "filesystem" => {
     "/dev/disk0s2" => {
@@ -95,7 +95,7 @@ For example, automatic attribute data similar to:
 To whitelist the `network` attributes and prevent the other attributes
 from being saved, update the client.rb file:
 
-``` ruby
+```ruby
 automatic_attribute_whitelist ['network/interfaces/']
 ```
 
@@ -108,7 +108,7 @@ attributes will.
 Leave the value empty to prevent all attributes of that attribute type
 from being saved:
 
-``` ruby
+```ruby
 automatic_attribute_whitelist []
 ```
 
@@ -116,6 +116,6 @@ For attributes that contain slashes (`/`) within the attribute value,
 such as the `filesystem` attribute `'/dev/diskos2'`, use an array. For
 example:
 
-``` ruby
-automatic_attribute_whitelist [['filesystem','/dev/diskos2']]
+```ruby
+automatic_attribute_whitelist [['filesystem', '/dev/diskos2']]
 ```

@@ -1,6 +1,5 @@
 ---
 resource_reference: true
-properties_shortcode: 
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
@@ -17,7 +16,7 @@ resource_description_list:
 - markdown: Use the **route** resource to manage the system routing table in a Linux
     environment.
 syntax_description: "A **route** resource block manages the system routing table in\
-  \ a Linux\nenvironment:\n\n``` ruby\nroute '10.0.1.10/32' do\n  gateway '10.0.0.20'\n\
+  \ a Linux\nenvironment:\n\n```ruby\nroute '10.0.1.10/32' do\n  gateway '10.0.0.20'\n\
   \  device 'eth1'\nend\n```"
 syntax_full_code_block: |-
   route 'name' do
@@ -30,7 +29,7 @@ syntax_full_code_block: |-
     target          String # default value: 'name' unless specified
     action          Symbol # defaults to :add if not specified
   end
-syntax_properties_list: 
+syntax_properties_list:
 syntax_full_properties_list:
 - "`route` is the resource."
 - "`name` is the name given to the resource block."
@@ -71,9 +70,7 @@ properties_list:
   ruby_type: String
   required: false
   description_list:
-  - markdown: 'The decimal representation of the network mask. For example:
-
-      `255.255.255.0`.'
+  - markdown: 'The decimal representation of the network mask. For example: `255.255.255.0`.'
 - property: route_type
   ruby_type: Symbol, String
   required: false
@@ -86,5 +83,5 @@ properties_list:
   default_value: The resource block's name
   description_list:
   - markdown: The IP address of the target route.
-examples: 
+examples:
 ---

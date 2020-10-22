@@ -4,7 +4,7 @@ groups. Use the `rights` property can be used as many times as
 necessary; Chef Infra Client will apply them to the file or directory as
 required. The syntax for the `rights` property is as follows:
 
-``` ruby
+```ruby
 rights permission, principal, option_type => value
 ```
 
@@ -76,21 +76,21 @@ where
 
 For example:
 
-``` ruby
+```ruby
 resource 'x.txt' do
   rights :read, 'S-1-1-0'
   rights :write, 'domain\group'
   rights :full_control, 'group_name_or_user_name'
-  rights :full_control, 'user_name', :applies_to_children => true
+  rights :full_control, 'user_name', applies_to_children: true
 end
 ```
 
 or:
 
-``` ruby
-rights :read, ['Administrators','Everyone']
-rights :full_control, 'Users', :applies_to_children => true
-rights :write, 'Sally', :applies_to_children => :containers_only, :applies_to_self => false, :one_level_deep => true
+```ruby
+rights :read, %w(Administrators Everyone)
+rights :full_control, 'Users', applies_to_children: true
+rights :write, 'Sally', applies_to_children: :containers_only, applies_to_self: false, one_level_deep: true
 ```
 
 Some other important things to know when using the `rights` attribute:
@@ -113,18 +113,18 @@ example, it doesn't matter if rights are granted to everyone is placed
 before or after `deny_rights :read, ['Julian', 'Lewis']`, both Julian
 and Lewis will be unable to read the document. For example:
 
-``` ruby
+```ruby
 resource 'x.txt' do
   rights :read, 'Everyone'
   rights :write, 'domain\group'
   rights :full_control, 'group_name_or_user_name'
-  rights :full_control, 'user_name', :applies_to_children => true
-  deny_rights :read, ['Julian', 'Lewis']
+  rights :full_control, 'user_name', applies_to_children: true
+  deny_rights :read, %w(Julian Lewis)
 end
 ```
 
 or:
 
-``` ruby
+```ruby
 deny_rights :full_control, ['Sally']
 ```

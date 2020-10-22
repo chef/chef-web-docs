@@ -61,19 +61,19 @@ To set up an Apt package repository for Debian and Ubuntu platforms:
 
 1.  Enable Apt to fetch packages over HTTPS:
 
-    ``` bash
+    ```bash
     sudo apt-get install apt-transport-https
     ```
 
 2.  Install the public key for Chef Software Inc:
 
-    ``` bash
+    ```bash
     wget -qO - https://packages.chef.io/chef.asc | sudo apt-key add -
     ```
 
 3.  Create the Apt repository source file:
 
-    ``` bash
+    ```bash
     echo "deb https://packages.chef.io/repos/apt/<CHANNEL> <DISTRIBUTION> main" > chef-<CHANNEL>.list
     ```
 
@@ -89,13 +89,13 @@ To set up an Apt package repository for Debian and Ubuntu platforms:
 
 4.  Update the package repository list:
 
-    ``` bash
+    ```bash
     sudo mv chef-stable.list /etc/apt/sources.list.d/
     ```
 
 5.  Update the cache for the package repository:
 
-    ``` bash
+    ```bash
     sudo apt-get update
     ```
 
@@ -105,13 +105,13 @@ To set up a Yum package repository for Enterprise Linux platforms:
 
 1.  Install the public key for Chef Software Inc:
 
-    ``` bash
+    ```bash
     sudo rpm --import https://packages.chef.io/chef.asc
     ```
 
 2.  Create the Yum repository source file:
 
-    ``` bash
+    ```bash
     cat >chef-<CHANNEL>.repo <<EOL
     [chef-<CHANNEL>]
     name=chef-<CHANNEL>
@@ -128,7 +128,7 @@ To set up a Yum package repository for Enterprise Linux platforms:
 
 3.  Update the package repository list:
 
-    ``` bash
+    ```bash
     sudo yum-config-manager --add-repo chef-stable.repo
     ```
 
@@ -138,7 +138,7 @@ To set up a Yum package repository for Enterprise Linux platforms:
     can use the `mv` command to add the repository to the
     `/etc/yum.repos.d/` directory:
 
-    ``` bash
+    ```bash
     sudo mv chef-stable.repo /etc/yum.repos.d/
     ```
 

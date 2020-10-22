@@ -1,5 +1,5 @@
 +++
-title = "Release Notes: Chef Infra Client 12.0 - 16.4"
+title = "Release Notes: Chef Infra Client 12.0 - 16.6"
 draft = false
 
 aliases = ["/release_notes.html", "/release_notes_ohai.html", "/release_notes/"]
@@ -17,6 +17,270 @@ Chef Infra Client is released on a monthly schedule with new releases
 the first Wednesday of every month. Below are the major changes for each
 release. For a detailed list of changes see the [Chef Infra Client
 changelog](https://github.com/chef/chef/blob/master/CHANGELOG.md)
+
+## Whats New in 16.6
+
+### pwsh Support
+
+We've updated multiple parts of the Chef Infra Client to fully support Microsoft's `pwsh` (commonly known as PowerShell Core) in addition to our previous support for `PowerShell`.
+
+#### powershell_script resource
+
+The `powershell_script` resource includes a new `interpreter` property that accepts either `powershell` or `pwsh`.
+
+```ruby
+powershell_script 'check version table' do
+  code '$PSVersionTable'
+  interpreter 'pwsh'
+end
+```
+
+#### powershell_out / powershell_exec helpers
+
+The `powershell_out` and `powershell_exec` helpers for use in custom resources have been updated to support `pwsh` with a new argument that accepts either `:pwsh` or `:powershell`.
+
+```ruby
+powershell_exec('$PSVersionTable', :pwsh)
+```
+
+### Enhanced 32-bit Windows Support
+
+The `powershell_exec` helper now supports the 32-bit version of Windows. This ensures many of the newer PowerShell based resources in Chef Infra Client will function as expected on 32-bit systems.
+
+### New Resources
+
+#### chef_client_config
+
+The `chef_client_config` resource allows you to manage Chef Infra Client's `client.rb` file without the need for the `chef-client` cookbook.
+
+##### Example
+
+```ruby
+chef_client_config 'Create client.rb' do
+  chef_server_url 'https://chef.example.dmz'
+end
+```
+
+##### chef-client Cookbook Future
+
+With the inclusion of the `chef_client_config` resource in Chef Infra Client 16.6, it is now possible to fully manage the Chef Infra Client without the need for the `chef-client` cookbook. We highly recommend using the `chef_client_config`, `chef_client_trusted_certificate`, and `chef_client_*` service resources to manage your clients instead of the `chef-client` cookbook. In the future we will mark that cookbook as deprecated, at which time it will no longer receive updates.
+
+Here's a sample of fully managing Linux hosts with the built-in resources:
+
+```ruby
+chef_client_config 'Create client.rb' do
+  chef_server_url 'https://chef.example.dmz'
+end
+
+chef_client_trusted_certificate "chef.example.dmz" do
+  certificate <<~CERT
+  -----BEGIN CERTIFICATE-----
+  MIIDeTCCAmGgAwIBAgIJAPziuikCTox4MA0GCSqGSIb3DQEBCwUAMGIxCzAJBgNV
+  BAYTAlVTMRMwEQYDVQQIDApDYWxpZm9ybmlhMRYwFAYDVQQHDA1TYW4gRnJhbmNp
+  c2NvMQ8wDQYDVQQKDAZCYWRTU0wxFTATBgNVBAMMDCouYmFkc3NsLmNvbTAeFw0x
+  OTEwMDkyMzQxNTJaFw0yMTEwMDgyMzQxNTJaMGIxCzAJBgNVBAYTAlVTMRMwEQYD
+  VQQIDApDYWxpZm9ybmlhMRYwFAYDVQQHDA1TYW4gRnJhbmNpc2NvMQ8wDQYDVQQK
+  DAZCYWRTU0wxFTATBgNVBAMMDCouYmFkc3NsLmNvbTCCASIwDQYJKoZIhvcNAQEB
+  BQADggEPADCCAQoCggEBAMIE7PiM7gTCs9hQ1XBYzJMY61yoaEmwIrX5lZ6xKyx2
+  PmzAS2BMTOqytMAPgLaw+XLJhgL5XEFdEyt/ccRLvOmULlA3pmccYYz2QULFRtMW
+  hyefdOsKnRFSJiFzbIRMeVXk0WvoBj1IFVKtsyjbqv9u/2CVSndrOfEk0TG23U3A
+  xPxTuW1CrbV8/q71FdIzSOciccfCFHpsKOo3St/qbLVytH5aohbcabFXRNsKEqve
+  ww9HdFxBIuGa+RuT5q0iBikusbpJHAwnnqP7i/dAcgCskgjZjFeEU4EFy+b+a1SY
+  QCeFxxC7c3DvaRhBB0VVfPlkPz0sw6l865MaTIbRyoUCAwEAAaMyMDAwCQYDVR0T
+  BAIwADAjBgNVHREEHDAaggwqLmJhZHNzbC5jb22CCmJhZHNzbC5jb20wDQYJKoZI
+  hvcNAQELBQADggEBAGlwCdbPxflZfYOaukZGCaxYK6gpincX4Lla4Ui2WdeQxE95
+  w7fChXvP3YkE3UYUE7mupZ0eg4ZILr/A0e7JQDsgIu/SRTUE0domCKgPZ8v99k3A
+  vka4LpLK51jHJJK7EFgo3ca2nldd97GM0MU41xHFk8qaK1tWJkfrrfcGwDJ4GQPI
+  iLlm6i0yHq1Qg1RypAXJy5dTlRXlCLd8ufWhhiwW0W75Va5AEnJuqpQrKwl3KQVe
+  wGj67WWRgLfSr+4QG1mNvCZb2CkjZWmxkGPuoP40/y7Yu5OFqxP5tAjj4YixCYTW
+  EVA0pmzIzgBg+JIe3PdRy27T0asgQW/F4TY61Yk=
+  -----END CERTIFICATE-----
+  CERT
+end
+
+chef_client_systemd_timer "Run chef-client as a systemd timer" do
+  interval "1hr"
+  cpu_quota 50
+end
+```
+
+### Target Mode Improvements
+
+Chef Infra Client 16 introduced an experimental Target Mode feature for executing resources remotely against hosts that do not have a Chef Infra Client or even Ruby installed. For Chef Infra Client 16.6 we've improved this functionality by converting the majority of the Ohai plugins to run remotely. This means when using Target Mode you'll have the majority of Ohai data as if the Chef Infra Client was installed on the node. Keep in mind this data collection can be time consuming over high latency network connections, and cloud plugins which fetch metadata cannot currently be run remotely. Ohai also now includes a `--target` option for remote data gathering, which accepts a Train URI: `ohai --target ssh://foobar.example.org/`. We still consider Target Mode to be an experimental feature, and we'd love your feedback on what works and what doesn't in your environment. A super huge thanks for the countless hours of work put in by [tecRacer](https://www.tecracer.de/), [@tecracer-theinen](https://github.com/tecracer-theinen), and [burtlo](https://github.com/burtlo) to make this a reality.
+
+### Updated Resources
+
+#### ifconfig
+
+The `ifconfig` resource has been updated to no longer add empty blank lines to the configuration files. Thanks for this improvement [@jmherbst](https://github.com/jmherbst/)!
+
+#### windows_audit_policy
+
+The `windows_audit_policy` resource has been updated to fix a bug on failure-only auditing.
+
+## Ohai Improvements
+
+#### Passwd Plugin For Windows
+
+The optional Ohai `Passwd` plugin now supports Windows hosts in addition to Unix-like systems. To collect user/group data on Windows hosts you can use the `ohai_optional_plugins` property in the new `chef_client_config` resource to enable this plugin.
+
+```ruby
+chef_client_config 'Create client.rb' do
+  chef_server_url 'https://chef.example.dmz'
+  ohai_optional_plugins [:Passwd]
+end
+```
+
+Thanks for adding Windows support to this plugin [@jaymzh](https://github.com/jaymzh)!
+
+#### Improved Azure Detection
+
+The `Azure` plugin has been improved to better detect Windows hosts running on Azure. The plugin will now look for DHCP with the domain of `reddog.microsoft.com`. Thanks for this improvement [@jasonwbarnett](https://github.com/jasonwbarnett/)!
+
+#### EC2 IAM Role Data
+
+Ohai now collects IAM Role data on EC2 hosts including the role name and info. To address potential security concerns the data we collect is sanitized to ensure we don't report security credentials to the Chef Infra Server. Thanks for this improvement [@kcbraunschweig](https://github.com/kcbraunschweig)!
+
+### Security
+
+Ruby has been updated to 2.7.2, which includes a fix for [CVE-2020-25613](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-25613).
+
+## Whats New in 16.5.77
+
+* Added missing requires to prevent errors when loading `chef/policy_builder/dynamic`.
+* The `homebrew_package` resource will now check for the full and short package names. Both `homebrew_package 'homebrew/core/vim'` and `homebrew_package 'vim'` styles should now work correctly.
+* Resolved errors that occurred in cookbooks requiring `addressable/uri`.
+* Improved the license acceptance flow to give helpful information if the user passes an invalid value in the environment variable or command line argument.
+* Updated Chef InSpec to 4.23.11 in order to resolve issues when running the new `junit2` reporter.
+* Additional performance improvements to reduce the startup time of the `chef-client` and `knife` commands.
+* `knife vault` commands now output proper JSON or YAML when using the `-f json` or `-f yaml` flags.
+
+## What's New in 16.5
+
+### Performance Improvements
+
+We continue to reduce the size of the Chef Infra Client install and optimize the performance of the client. With Chef Infra Client 16.5 we've greatly reduced the startup time of the `chef-client` process. Startup times on macOS, Linux, and Windows hosts are now approximately 2x faster than the 16.4 release.
+
+### CLI Improvements
+
+* The client license acceptance logic has been improved to provide helpful error messages when an incorrect value is passed and to accept license values in any text case.
+* A new `chef-client` process exit code of 43 has been added to signal that an invalid configuration was specified. Thanks [@NaomiReeves](https://github.com/NaomiReeves)!
+* The `knife ssh` command no longer hangs when connecting to Windows nodes over SSH.
+* The `knife config` commands have been renamed to make them shorter and table output has been improved:
+  * knife config get-profile -> knife config use
+  * knife config use-profile [NAME] -> knife config use [NAME]
+  * knife config list-profiles -> knife config list
+  * knife config get -> knife config show
+
+### Chef InSpec 4.23.4
+
+Chef InSpec has been updated from 4.22.1 to 4.23.4. This new release includes the following improvements:
+
+* A new mechanism marks inputs as sensitive: true and replaces their values with `***`.
+* Use the `--no-diff` CLI option to suppress diff output for textual tests.
+* Control the order of controls in output, but not execution order, with the `--sort_results_by=none|control|file|random` CLI option.
+* Disable caching of inputs with a cache_inputs: true setting.
+
+### New Resources
+
+#### chef_client_launchd
+
+The `chef_client_launchd` resource allows you to configure Chef Infra Client to run as a global launchd daemon on macOS hosts. This resource mirrors the configuration of other `chef_client_*` resources and allows for simple out-of-the-box configuration of the daemon, while also providing advanced tunables. If you've used the `chef-client` cookbook in the past, you'll notice a number of improvements in the new resource including configuration update handling, splay times support, nice level support, and an out-of-the-box configuration of low IO priority execution. In order to handle restarting the Chef Infra Client launchd daemon when configuration changes occur, the resource also installs a new `com.chef.restarter` daemon. This daemon watches for daemon configuration changes and gracefully handles the restart to ensure the client process continues to run.
+
+```ruby
+chef_client_launchd 'Setup the Chef Infra Client to run every 30 minutes' do
+  interval 30
+  action :enable
+end
+```
+
+#### chef_client_trusted_certificate
+
+The `chef_client_trusted_certificate` resource allows you to add a certificate to Chef Infra Client's trusted certificate directory. The resource handles platform-specific locations and creates the trusted certificates directory if it doesn't already exist. Once a certificate is added, it will be used by the client itself to communicate with the Chef Infra Server and by resources such as `remote_file`.
+
+```ruby
+chef_client_trusted_certificate 'self-signed.badssl.com' do
+  certificate <<~CERT
+  -----BEGIN CERTIFICATE-----
+  MIIDeTCCAmGgAwIBAgIJAPziuikCTox4MA0GCSqGSIb3DQEBCwUAMGIxCzAJBgNV
+  BAYTAlVTMRMwEQYDVQQIDApDYWxpZm9ybmlhMRYwFAYDVQQHDA1TYW4gRnJhbmNp
+  c2NvMQ8wDQYDVQQKDAZCYWRTU0wxFTATBgNVBAMMDCouYmFkc3NsLmNvbTAeFw0x
+  OTEwMDkyMzQxNTJaFw0yMTEwMDgyMzQxNTJaMGIxCzAJBgNVBAYTAlVTMRMwEQYD
+  VQQIDApDYWxpZm9ybmlhMRYwFAYDVQQHDA1TYW4gRnJhbmNpc2NvMQ8wDQYDVQQK
+  DAZCYWRTU0wxFTATBgNVBAMMDCouYmFkc3NsLmNvbTCCASIwDQYJKoZIhvcNAQEB
+  BQADggEPADCCAQoCggEBAMIE7PiM7gTCs9hQ1XBYzJMY61yoaEmwIrX5lZ6xKyx2
+  PmzAS2BMTOqytMAPgLaw+XLJhgL5XEFdEyt/ccRLvOmULlA3pmccYYz2QULFRtMW
+  hyefdOsKnRFSJiFzbIRMeVXk0WvoBj1IFVKtsyjbqv9u/2CVSndrOfEk0TG23U3A
+  xPxTuW1CrbV8/q71FdIzSOciccfCFHpsKOo3St/qbLVytH5aohbcabFXRNsKEqve
+  ww9HdFxBIuGa+RuT5q0iBikusbpJHAwnnqP7i/dAcgCskgjZjFeEU4EFy+b+a1SY
+  QCeFxxC7c3DvaRhBB0VVfPlkPz0sw6l865MaTIbRyoUCAwEAAaMyMDAwCQYDVR0T
+  BAIwADAjBgNVHREEHDAaggwqLmJhZHNzbC5jb22CCmJhZHNzbC5jb20wDQYJKoZI
+  hvcNAQELBQADggEBAGlwCdbPxflZfYOaukZGCaxYK6gpincX4Lla4Ui2WdeQxE95
+  w7fChXvP3YkE3UYUE7mupZ0eg4ZILr/A0e7JQDsgIu/SRTUE0domCKgPZ8v99k3A
+  vka4LpLK51jHJJK7EFgo3ca2nldd97GM0MU41xHFk8qaK1tWJkfrrfcGwDJ4GQPI
+  iLlm6i0yHq1Qg1RypAXJy5dTlRXlCLd8ufWhhiwW0W75Va5AEnJuqpQrKwl3KQVe
+  wGj67WWRgLfSr+4QG1mNvCZb2CkjZWmxkGPuoP40/y7Yu5OFqxP5tAjj4YixCYTW
+  EVA0pmzIzgBg+JIe3PdRy27T0asgQW/F4TY61Yk=
+  -----END CERTIFICATE-----
+  CERT
+end
+```
+
+### Resource Updates
+
+#### chef_client_cron
+
+The `chef_client_cron` resource has been updated with a new `nice` property that allows you to set the nice level for the `chef-client` process. Nice level changes only apply to the `chef-client` process and not any subprocesses like `ohai` or system utility calls. If you need to ensure that the `chef-client` process does not negatively impact system performance, we highly recommend instead using the `cpu_quota` property in the `chef_client_systemd_timer` resource which applies to all child processes.
+
+#### chef_client_systemd_timer
+
+The `chef_client_systemd_timer` resource has been updated with a new `cpu_quota` property that allows you to control the systemd `CPUQuota` value for the `chef-client` process. This allows you to ensure `chef-client` execution doesn't adversely impact performance on your systems.
+
+#### launchd
+
+The `launchd` resource has been updated to better validate inputs to the `nice` property so we can make sure these are acceptable nice values.
+
+#### mount
+
+The `mount` resource on Linux has new improved idempotency in some scenarios by switching to `findmnt` to determine the current state of the system. Thanks for reporting this issue [@pollosp](https://github.com/pollosp)!
+
+#### osx_profile
+
+The `osx_profile` resource will now allow you to remove profiles from macOS 11 (Big Sur) systems. Due to security changes in macOS 11, it is no longer possible to locally install profiles, but this will allow you to cleanup existing profiles left over after an upgrade from an earlier macOS release. The resource has been updated to resolve a regression introduced in Chef Infra Client 16.4 that caused the resource to attempt to update profiles on each converge. Thanks for reporting these issues [@chilcote](https://github.com/chilcote)!
+
+#### rhsm_register
+
+The `rhsm_register` resource has been updated to reduce the load on the RedHat Satellite server when checking if a system is already registered. Thanks for reporting this issue [@donwlewis](https://github.com/donwlewis)! A new `system_name` property has also been added to allow you to register a name other than the system's hostname. Thanks for this improvement [@jasonwbarnett](https://github.com/jasonwbarnett/)!
+
+#### windows_ad_join
+
+The `windows_ad_join` resource has been updated with a new `reboot_delay` property which allows you to control the delay time before restarting systems.
+
+#### windows_firewall_profile
+
+The `windows_firewall_profile` resource was updated to prevent NilClass errors from loading the firewall state.
+
+#### windows_user_privilege
+
+The `windows_user_privilege` resource has been updated to better validate the `privilege` property and to allow the `users` property to accept String values. Thanks for reporting this issue [@jeremyciak](https://github.com/jeremyciak)!
+
+#### Windows securable resources
+
+All Windows securable resources now support using SID in addition to user or group name when specifying `owner`, `group`, or `rights` principal. These resources include the `template`, `file`, `remote_file`, `cookbook_file`, `directory`, and `remote_directory` resources. When using a SID, you may use either the standard string representation of a SID (S-R-I-S-S) or one of the [SDDL string constants](https://docs.microsoft.com/en-us/windows/win32/secauthz/sid-strings).
+
+### Ohai Improvements
+
+- Ohai now uses the same underlying code for shelling out to external commands as Chef Infra Client. This may resolve issues from determining the state on some non-English systems.
+- The `Packages` plugin has been updated to gather package installation information on macOS hosts.
+
+### Platform Packages
+
+- We are once again building Chef Infra Client packages for RHEL 7 / SLES 12 on the S390x architecture. In addition to these packages, we've also added S390x packages for RHEL 8 / SLES 15.
+- We now produce packages for Apple's upcoming macOS 11 Big Sur release.
+
+### Security
+
+OpenSSL has been updated to 1.0.2w which includes a fix for [CVE-2020-1968](https://cve.mitre.org/cgi-bin/cvename.cgi?name=2020-1968).
 
 ## What's New in 16.4
 
@@ -463,7 +727,7 @@ depends 'windows', '>> 1.0'
 
 #### Logging Improvements May Cause Behavior Changes
 
-We've made low level changes to how logging behaves in Chef Infra Client that resolves many complaints we've heard of the years. With these change you'll now see the same logging output when you run `chef-client` on the command line as you will in logs from a daemonzed client run. This also corrects often confusing behavior where running `chef-client` on the command line would log to the console, but not to the log file location defined your `client.rb`. In that scenario you'll now see logs in your console and in your log file. We believe this is the expected behavior and will mean that your on-disk log files can always be the source of truth for changes that were made by Chef Infra Client. This may cause unexpected behavior changes for users that relied on using the command line flags to override the `client.rb` log location. If you have daemons running that log using the command line options you want to make sure that `client.rb` log location either matches or isn't defined.
+We've made low level changes to how logging behaves in Chef Infra Client that resolves many complaints we've heard of the years. With these change you'll now see the same logging output when you run `chef-client` on the command line as you will in logs from a daemonized client run. This also corrects often confusing behavior where running `chef-client` on the command line would log to the console, but not to the log file location defined your `client.rb`. In that scenario you'll now see logs in your console and in your log file. We believe this is the expected behavior and will mean that your on-disk log files can always be the source of truth for changes that were made by Chef Infra Client. This may cause unexpected behavior changes for users that relied on using the command line flags to override the `client.rb` log location. If you have daemons running that log using the command line options you want to make sure that `client.rb` log location either matches or isn't defined.
 
 #### Red Hat / CentOS 6 Systems Require C11 GCC for Some Gem Installations
 
@@ -1119,7 +1383,7 @@ Chef Infra Client now includes a new `notify_group` feature that can be used to 
 
 Example notify_group that stops, sleeps, and then starts service when a service config is updated:
 
-``` ruby
+```ruby
 service "crude" do
   action [ :enable, :start ]
 end
@@ -2505,7 +2769,7 @@ Since Chef 13, `knife cookbook site` has actually called the `knife supermarket`
 
 #### Audit Mode
 
-Chef's Audit mode was introduced in 2015 as a beta that needed to be enabled via client.rb. Its functionality has been superceded by InSpec and we will be removing this beta feature in Chef Infra Client 15 (April 2019).
+Chef's Audit mode was introduced in 2015 as a beta that needed to be enabled via client.rb. Its functionality has been superseded by InSpec and we will be removing this beta feature in Chef Infra Client 15 (April 2019).
 
 #### Cookbook Shadowing
 
@@ -3933,7 +4197,7 @@ future releases.
 A resource which includes description and introduced values in the
 resource, actions, and properties:
 
-``` ruby
+```ruby
 description 'The apparmor_policy resource is used to add or remove policy files from a cookbook file'
  introduced '14.1'
 
@@ -4214,7 +4478,7 @@ in April 2018.
 
 See the detailed [change
 log](https://github.com/chef/chef/blob/master/CHANGELOG.md#v1353-2017-10-03)
-for additonal information.
+for additional information.
 
 ### Ohai 13.5
 
@@ -4287,7 +4551,7 @@ soon as possible.
     metadata endpoint, providing additional configuration details on
     nodes running in Azure. Sample data now available under Azure:
 
-    ``` none
+    ```none
     {
       "metadata": {
         "compute": {
@@ -4365,7 +4629,7 @@ soon as possible.
 -   **zypper_package Options** It is now possible to pass additional
     options to Zypper in the `zypper_package` resource. For example:
 
-    ``` ruby
+    ```ruby
     zypper_package 'foo' do
       options '--user-provided'
     end
@@ -4485,7 +4749,7 @@ more likely to cause issues if they are blacklisted incorrectly.
 
 For example, automatic attribute data similar to:
 
-``` javascript
+```javascript
 {
   "filesystem" => {
     "/dev/disk0s2" => {
@@ -4507,7 +4771,7 @@ For example, automatic attribute data similar to:
 To blacklist the `filesystem` attributes and allow the other attributes
 to be saved, update the client.rb file:
 
-``` ruby
+```ruby
 automatic_attribute_blacklist ['filesystem']
 ```
 
@@ -4521,7 +4785,7 @@ For attributes that contain slashes (`/`) within the attribute value,
 such as the `filesystem` attribute `'/dev/diskos2'`, use an array. For
 example:
 
-``` ruby
+```ruby
 automatic_attribute_blacklist [['filesystem','/dev/diskos2']]
 ```
 
@@ -4563,7 +4827,7 @@ argument, no need for `apt_update STING`.
 This can be used by any other resource by just overriding the name
 property and supplying a default:
 
-``` ruby
+```ruby
 property :name, String, default: ""
 ```
 
@@ -4751,7 +5015,7 @@ follow code with odd side effects before).
 
 For example:
 
-``` ruby
+```ruby
 node.default["foo"] = "fizz"
 n = node.to_hash   # or node.dup
 n["foo"] << "buzz"
@@ -4875,14 +5139,14 @@ Up until now, creating a `mycook/resources/thing.rb` would create a
 This const is no longer created for resources and providers. You can
 access resource classes through the resolver API like:
 
-``` ruby
+```ruby
 Chef::Resource.resource_for_node(:mycook_thing, node)
 ```
 
 Accessing a provider class is a bit more complex, as you need a resource
 against which to run a resolution like so:
 
-``` ruby
+```ruby
 Chef::ProviderResolver.new(node, find_resource!("mycook_thing[name]"), :nothing).resolve
 ```
 
@@ -4890,7 +5154,7 @@ Chef::ProviderResolver.new(node, find_resource!("mycook_thing[name]"), :nothing)
 
 A resource declaring something like:
 
-``` ruby
+```ruby
 property :x, default: {}
 ```
 
@@ -4899,7 +5163,7 @@ of modifying the default in one resource affecting others. If you want a
 per-resource mutable default value, define it inside a `lazy{}` helper
 like:
 
-``` ruby
+```ruby
 property :x, default: lazy { {} }
 ```
 
@@ -4908,7 +5172,7 @@ property :x, default: lazy { {} }
 Resources which later modify their name during creation will have their
 name changed on the ResourceCollection and notifications
 
-``` ruby
+```ruby
 some_resource "name_one" do
   name "name_two"
 ```
@@ -5113,7 +5377,7 @@ run. Critical plugins will cause Ohai to fail if they do not run
 successfully (and thus cause a Chef run using Ohai to fail). The syntax
 for this is:
 
-``` ruby
+```ruby
 ohai.critical_plugins << :Filesystem
 ```
 
@@ -5184,7 +5448,7 @@ provider. Chef will now prefer systemd where available.
 ### Handle the 'supports' property better
 
 Chef 13 removed the `supports` property from core resources. Chef 12 was
-incorrectly giving a deprecation notice for another propeerty called
+incorrectly giving a deprecation notice for another property called
 `support`, which prevented users from properly testing their cookbooks
 for upgrades.
 
@@ -5243,7 +5507,7 @@ necessary even if the user is an Administrator.
 
 This right can be added and checked in a recipe using this example:
 
-``` ruby
+```ruby
 # Add 'SeAssignPrimaryTokenPrivilege' for the user
 Chef::ReservedNames::Win32::Security.add_account_right('<user>', 'SeAssignPrimaryTokenPrivilege')
 
@@ -5291,7 +5555,7 @@ from them:
 The following examples explain how alternate user identity properties
 can be used in the execute resources:
 
-``` ruby
+```ruby
 powershell_script 'create powershell-test file' do
   code <<-EOH
   $stream = [System.IO.StreamWriter] "#{Chef::Config[:file_cache_path]}/powershell-test.txt"
@@ -5369,14 +5633,14 @@ packages on Microsoft Windows machines. Here are some examples:
 
 **Using local path in source**
 
-``` ruby
+```ruby
 msu_package 'Install Windows 2012R2 Update KB2959977' do
   source 'C:\Users\xyz\AppData\Local\Temp\Windows8.1-KB2959977-x64.msu'
   action :install
 end
 ```
 
-``` ruby
+```ruby
 msu_package 'Remove Windows 2012R2 Update KB2959977' do
   source 'C:\Users\xyz\AppData\Local\Temp\Windows8.1-KB2959977-x64.msu'
   action :remove
@@ -5385,14 +5649,14 @@ end
 
 **Using URL in source**
 
-``` ruby
+```ruby
 msu_package 'Install Windows 2012R2 Update KB2959977' do
   source 'https://s3.amazonaws.com/my_bucket/Windows8.1-KB2959977-x64.msu'
   action :install
 end
 ```
 
-``` ruby
+```ruby
 msu_package 'Remove Windows 2012R2 Update KB2959977' do
   source 'https://s3.amazonaws.com/my_bucket/Windows8.1-KB2959977-x64.msu'
   action :remove
@@ -5401,10 +5665,10 @@ end
 
 ### `unmount` alias for `umount` action
 
-Now you can use `action :unmount` to unmout a mount point through the
+Now you can use `action :unmount` to unmount a mount point through the
 mount resource. For example:
 
-``` ruby
+```ruby
 mount '/mount/tmp' do
   action :unmount
 end
@@ -5415,7 +5679,7 @@ end
 You can now pass multiple nodes/clients to `knife node delete` or
 `knife client delete` subcommands.
 
-``` bash
+```bash
 knife client delete client1,client2,client3
 ```
 
@@ -5425,7 +5689,7 @@ knife client delete client1,client2,client3
 
 Haskell is now detected in a new haskell language plugin:
 
-``` javascript
+```javascript
 "languages": {
   "haskell": {
     "stack": {
@@ -5458,7 +5722,7 @@ from previous versions. The short version:
 In a cookbook library file, you can add this in order to print out all
 attribute changes in cookbooks:
 
-``` ruby
+```ruby
 Chef.event_handler do
   on :attribute_changed do |precedence, key, value|
     puts "setting attribute #{precedence}#{key.map {|n| "[\"#{n}\"]" }.join} = #{value}"
@@ -5469,7 +5733,7 @@ end
 If you want to setup a policy that override attributes should never be
 used:
 
-``` ruby
+```ruby
 Chef.event_handler do
   on :attribute_changed do |precedence, key, value|
     raise "override policy violation" if precedence == :override
@@ -5502,7 +5766,7 @@ than `.`.
 
 In a situation where the *webapp* node has the following node data:
 
-``` javascript
+```javascript
 {
   "foo.bar": "baz",
   "alpha": {
@@ -5515,7 +5779,7 @@ Running `knife node show` with the default field separator (`.`) won't
 show us the data we're expecting for the `foo.bar` attribute because of
 the period:
 
-``` bash
+```bash
 knife node show webapp -a foo.bar
 webapp:
   foo.bar:
@@ -5528,7 +5792,7 @@ webapp:
 However, by specifying a field separator other than `.` we are now able
 to show the data.
 
-``` bash
+```bash
 knife node show webapp -S: -a foo.bar
 webapp:
   foo.bar: baz
@@ -5544,7 +5808,7 @@ To allow for more fine grain control of package installation the
 `apt_package`, `yum_package`, and `zypper_package` resources now support
 the `:lock` and `:unlock` actions.
 
-``` ruby
+```ruby
 package "httpd" do
   action :lock
 end
@@ -5575,14 +5839,14 @@ from previous versions. The short version:
 Supports the installation of cabinet packages on Microsoft Windows. For
 example:
 
-``` ruby
+```ruby
 cab_package 'Install .NET 3.5 sp1 via KB958488' do
   source 'C:\Users\xyz\AppData\Local\Temp\Windows6.1-KB958488-x64.cab'
   action :install
 end
 ```
 
-``` ruby
+```ruby
 cab_package 'Remove .NET 3.5 sp1 via KB958488' do
   source 'C:\Users\xyz\AppData\Local\Temp\Windows6.1-KB958488-x64.cab'
   action :remove
@@ -5643,7 +5907,7 @@ value of that property suppressed when exporting the resource's state.
 To do this, add `sensitive: true` when defining the property, such as in
 the following example:
 
-``` ruby
+```ruby
 property :db_password, String, sensitive: true
 ```
 
@@ -5667,7 +5931,7 @@ option when calling a command on `chef-client`. To override multiple
 configuration options, simply add additional `--config-option` options
 like in the following example:
 
-``` bash
+```bash
 chef-client --config-option chef_server_url=http://example --config-option policy_name=web"
 ```
 
@@ -5712,7 +5976,7 @@ from previous versions. The short version:
 
 The four methods `read`, `write`, `unlink`, and `exist?` (and their
 corresponding unsafe versions) can be used on node objects to set,
-retrieve, delete, and validate existance of attributes.
+retrieve, delete, and validate existence of attributes.
 
 #### read/read!
 
@@ -5871,7 +6135,7 @@ units](https://www.freedesktop.org/software/systemd/man/systemd.html#Concepts).
 A **systemd_unit** resource describes the configuration behavior for
 systemd units. For example:
 
-``` ruby
+```ruby
 systemd_unit 'sysstat-collect.timer' do
   content({
     'Unit' => {
@@ -5891,7 +6155,7 @@ end
 The full syntax for all of the properties that are available to the
 **systemd_unit** resource is:
 
-``` ruby
+```ruby
 systemd_unit 'name' do
   user                   String
   content                String or Hash
@@ -6038,7 +6302,7 @@ which contains their sub-resources.
 
 The syntax for the `with_run_context` method is as follows:
 
-``` ruby
+```ruby
 with_run_context :type do
   # some arbitrary pure Ruby stuff goes here
 end
@@ -6052,7 +6316,7 @@ where `:type` may be one of the following:
 
 For example:
 
-``` ruby
+```ruby
 action :run do
   with_run_context :root do
     edit_resource(:my_thing, "accumulated state") do
@@ -6073,7 +6337,7 @@ it to the resource collection.
 
 The syntax for the `declare_resource` method is as follows:
 
-``` ruby
+```ruby
 declare_resource(:resource_type, 'resource_name', resource_attrs_block)
 ```
 
@@ -6092,7 +6356,7 @@ where:
 
 For example:
 
-``` ruby
+```ruby
 declare_resource(:file, '/x/y.txy', caller[0]) do
   action :delete
 end
@@ -6100,7 +6364,7 @@ end
 
 is equivalent to:
 
-``` ruby
+```ruby
 file '/x/y.txt' do
   action :delete
 end
@@ -6113,7 +6377,7 @@ collection, and then delete it.
 
 The syntax for the `delete_resource` method is as follows:
 
-``` ruby
+```ruby
 delete_resource(:resource_type, 'resource_name')
 ```
 
@@ -6130,7 +6394,7 @@ where:
 
 For example:
 
-``` ruby
+```ruby
 delete_resource(:template, '/x/y.erb')
 ```
 
@@ -6142,7 +6406,7 @@ exception is returned.
 
 The syntax for the `delete_resource!` method is as follows:
 
-``` ruby
+```ruby
 delete_resource!(:resource_type, 'resource_name')
 ```
 
@@ -6159,7 +6423,7 @@ where:
 
 For example:
 
-``` ruby
+```ruby
 delete_resource!(:file, '/x/file.txt')
 ```
 
@@ -6176,7 +6440,7 @@ Use the `edit_resource` method to:
 
 The syntax for the `edit_resource` method is as follows:
 
-``` ruby
+```ruby
 edit_resource(:resource_type, 'resource_name', resource_attrs_block)
 ```
 
@@ -6195,7 +6459,7 @@ where:
 
 For example:
 
-``` ruby
+```ruby
 edit_resource(:template, '/x/y.txy') do
   cookbook 'cookbook_name'
 end
@@ -6203,7 +6467,7 @@ end
 
 and a resource block:
 
-``` ruby
+```ruby
 edit_resource(:template, '/etc/aliases') do
   source 'aliases.erb'
   cookbook 'aliases'
@@ -6226,7 +6490,7 @@ In both cases, if the resource is not found, an exception is returned.
 
 The syntax for the `edit_resource!` method is as follows:
 
-``` ruby
+```ruby
 edit_resource!(:resource_type, 'resource_name')
 ```
 
@@ -6245,7 +6509,7 @@ where:
 
 For example:
 
-``` ruby
+```ruby
 edit_resource!(:file, '/x/y.rst')
 ```
 
@@ -6261,7 +6525,7 @@ Use the `find_resource` method to:
 
 The syntax for the `find_resource` method is as follows:
 
-``` ruby
+```ruby
 find_resource(:resource_type, 'resource_name')
 ```
 
@@ -6278,13 +6542,13 @@ where:
 
 For example:
 
-``` ruby
+```ruby
 find_resource(:template, '/x/y.txy')
 ```
 
 and a resource block:
 
-``` ruby
+```ruby
 find_resource(:template, '/etc/seapower') do
   source 'seapower.erb'
   cookbook 'seapower'
@@ -6300,7 +6564,7 @@ collection. If the resource is not found, an exception is returned.
 
 The syntax for the `find_resource!` method is as follows:
 
-``` ruby
+```ruby
 find_resource!(:resource_type, 'resource_name')
 ```
 
@@ -6317,7 +6581,7 @@ where:
 
 For example:
 
-``` ruby
+```ruby
 find_resource!(:template, '/x/y.erb')
 ```
 
@@ -6375,7 +6639,7 @@ redirection policy.
 
 For example, consider the following script:
 
-``` ruby
+```ruby
 process_type = ENV['PROCESSOR_ARCHITECTURE'] == 'AMD64' ? '64-bit' : '32-bit'
 system32_dir = ::File.join(ENV['SYSTEMROOT'], 'system32')
 test_dir = ::File.join(system32_dir, 'cheftest')
@@ -6497,13 +6761,13 @@ chef-client executable command:
 
 **Bootstrap a node using FIPS**
 
-``` bash
+```bash
 knife bootstrap 192.0.2.0 -P vanilla -x root -r 'recipe[apt],recipe[xfs],recipe[vim]' --fips
 ```
 
 which shows something similar to:
 
-``` none
+```none
 OpenSSL FIPS 140 mode enabled
 ...
 192.0.2.0 Chef Client finished, 12/12 resources updated in 78.942455583 seconds
@@ -6565,7 +6829,7 @@ and per-user services (agents) on the macOS platform.
 A **launchd** resource manages system-wide services (daemons) and
 per-user services (agents) on the macOS platform:
 
-``` ruby
+```ruby
 launchd 'call.mom.weekly' do
   program '/Library/scripts/call_mom.sh'
   start_calendar_interval 'Weekday' => 7, 'Hourly' => 10
@@ -6576,7 +6840,7 @@ end
 The full syntax for all of the properties that are available to the
 **launchd** resource is:
 
-``` ruby
+```ruby
 launchd 'name' do
   abandon_process_group      true, false
   backup                     Integer, false
@@ -6809,7 +7073,7 @@ This resource has the following properties:
 
     The syntax for `notifies` is:
 
-    ``` ruby
+    ```ruby
     notifies :action, 'resource[name]', :timer
     ```
 
@@ -6869,7 +7133,7 @@ This resource has the following properties:
     Note that `subscribes` does not apply the specified action to the
     resource that it listens to - for example:
 
-    ``` ruby
+    ```ruby
     file '/etc/nginx/ssl/example.crt' do
       mode '0600'
       owner 'root'
@@ -6908,7 +7172,7 @@ This resource has the following properties:
 
     The syntax for `subscribes` is:
 
-    ``` ruby
+    ```ruby
     subscribes :action, 'resource[name]', :timer
     ```
 
@@ -7205,7 +7469,7 @@ documentation for launchd for more information about these keys:
 
 **Create a Launch Daemon from a cookbook file**
 
-``` ruby
+```ruby
 launchd 'com.chef.every15' do
   source 'com.chef.every15.plist'
 end
@@ -7213,7 +7477,7 @@ end
 
 **Create a Launch Daemon using keys**
 
-``` ruby
+```ruby
 launchd 'call.mom.weekly' do
   program '/Library/scripts/call_mom.sh'
   start_calendar_interval 'Weekday' => 7, 'Hourly' => 10
@@ -7223,7 +7487,7 @@ end
 
 **Remove a Launch Daemon**
 
-``` ruby
+```ruby
 launchd 'com.chef.every15' do
   action :delete
 end
@@ -7236,7 +7500,7 @@ bundler. The gem installation occurs after all cookbooks are
 synchronized but before loading any other cookbooks. Use this attribute
 one time for each gem dependency. For example:
 
-``` ruby
+```ruby
 gem "poise"
 gem "chef-sugar"
 ```
@@ -7273,7 +7537,7 @@ Internal API calls are moved from `Chef::REST` to `Chef::ServerAPI`. As
 a result of this move, `Chef::REST` is no longer globally required. Any
 code that uses `Chef::REST` must be required as follows:
 
-``` ruby
+```ruby
 require 'chef/rest'
 ```
 
@@ -7291,7 +7555,7 @@ A **chocolatey_package** resource block manages packages using
 Chocolatey for the Microsoft Windows platform. The simplest use of the
 **chocolatey_package** resource is:
 
-``` ruby
+```ruby
 chocolatey_package 'package_name'
 ```
 
@@ -7301,7 +7565,7 @@ and the default action (`:install`).
 The full syntax for all of the properties that are available to the
 **chocolatey_package** resource is:
 
-``` ruby
+```ruby
 chocolatey_package 'name' do
   notifies                   # see description
   options                    String
@@ -7404,7 +7668,7 @@ This resource has the following properties:
 
     The syntax for `notifies` is:
 
-    ``` ruby
+    ```ruby
     notifies :action, 'resource[name]', :timer
     ```
 
@@ -7451,7 +7715,7 @@ This resource has the following properties:
     Note that `subscribes` does not apply the specified action to the
     resource that it listens to - for example:
 
-    ``` ruby
+    ```ruby
     file '/etc/nginx/ssl/example.crt' do
       mode '0600'
       owner 'root'
@@ -7490,7 +7754,7 @@ This resource has the following properties:
 
     The syntax for `subscribes` is:
 
-    ``` ruby
+    ```ruby
     subscribes :action, 'resource[name]', :timer
     ```
 
@@ -7510,7 +7774,7 @@ This resource has the following properties:
 
 **Install a package**
 
-``` ruby
+```ruby
 chocolatey_package 'name of package' do
   action :install
 end
@@ -7520,7 +7784,7 @@ end
 
 This example uses Chocolatey's `--checksum` option:
 
-``` ruby
+```ruby
 chocolatey_package 'name of package' do
   options '--checksum 1234567890'
   action :install
@@ -7540,7 +7804,7 @@ the profile on the system.
 A **osx_profile** resource block manages configuration profiles on the
 macOS platform:
 
-``` ruby
+```ruby
 osx_profile 'Install screensaver profile' do
   profile 'com.company.screensaver.mobileconfig'
 end
@@ -7549,7 +7813,7 @@ end
 The full syntax for all of the properties that are available to the
 **osx_profile** resource is:
 
-``` ruby
+```ruby
 osx_profile 'name' do
   path                       # set automatically
   profile                    String, Hash
@@ -7629,7 +7893,7 @@ The osx_profile resource has the following properties:
 The `profiles` command will be used to install the specified
 configuration profile.
 
-``` ruby
+```ruby
 osx_profile 'com.company.screensaver.mobileconfig'
 ```
 
@@ -7638,7 +7902,7 @@ osx_profile 'com.company.screensaver.mobileconfig'
 The `profiles` command will be used to install the specified
 configuration profile. It can be in sub-directory within a cookbook.
 
-``` ruby
+```ruby
 osx_profile 'Install screensaver profile' do
   profile 'screensaver/com.company.screensaver.mobileconfig'
 end
@@ -7649,7 +7913,7 @@ end
 The `profiles` command will be used to install the configuration
 profile, which is provided as a hash.
 
-``` ruby
+```ruby
 profile_hash = {
   'PayloadIdentifier' => 'com.company.screensaver',
   'PayloadRemovalDisallowed' => false,
@@ -7692,7 +7956,7 @@ end
 The `profiles` command will be used to remove the configuration profile
 specified by the provided `identifier` property.
 
-``` ruby
+```ruby
 osx_profile 'com.company.screensaver' do
   action :remove
 end
@@ -7703,7 +7967,7 @@ end
 The `profiles` command will be used to remove the configuration profile
 specified by the provided `identifier` property.
 
-``` ruby
+```ruby
 osx_profile 'Remove screensaver profile' do
   identifier 'com.company.screensaver'
   action :remove
@@ -7720,7 +7984,7 @@ Debian and Ubuntu platforms.
 An **apt_update** resource block defines the update frequency for APT
 repositories:
 
-``` ruby
+```ruby
 apt_update 'name' do
   frequency                  Integer
   action                     Symbol # defaults to :periodic if not specified
@@ -7772,7 +8036,7 @@ The apt_update resource has the following properties:
 
 **Update the Apt repository at a specified interval**
 
-``` ruby
+```ruby
 apt_update 'all platforms' do
   frequency 86400
   action :periodic
@@ -7781,7 +8045,7 @@ end
 
 **Update the Apt repository at the start of a chef-client run**
 
-``` ruby
+```ruby
 apt_update 'update'
 ```
 
@@ -7882,7 +8146,7 @@ other script resources, rather than run inline.
 
 A **ksh** resource block executes scripts using ksh:
 
-``` ruby
+```ruby
 ksh 'hello world' do
   code <<-EOH
     echo "Hello world!"
@@ -7898,7 +8162,7 @@ where
 The full syntax for all of the properties that are available to the
 **ksh** resource is:
 
-``` ruby
+```ruby
 ksh 'name' do
   code                       String
   creates                    String
@@ -8005,7 +8269,7 @@ The ksh resource has the following properties:
 
     For example:
 
-    ``` ruby
+    ```ruby
     ksh 'mycommand' do
       environment 'PATH' => "/my/path/to/bin:#{ENV['PATH']}"
     end
@@ -8241,7 +8505,7 @@ cookbook's `/resources` directory. This file
 
 The syntax for a custom resource is. For example:
 
-``` ruby
+```ruby
 property :property_name, RubyType, default: 'value'
 
 load_current_value do
@@ -8273,7 +8537,7 @@ This example `site` utilizes Chef's built in `file`, `service` and
 it uses built in Chef resources, besides defining the property and
 actions, the code is very similar to that of a recipe.
 
-``` ruby
+```ruby
 property :homepage, String, default: '<h1>Hello world!</h1>'
 
 action :create do
@@ -8314,7 +8578,7 @@ an underscore (`_`) separating them. For example, a cookbook named
 `exampleco` with a custom resource named `site.rb` is used in a recipe
 like this:
 
-``` ruby
+```ruby
 exampleco_site 'httpd' do
   homepage '<h1>Welcome to the Example Co. website!</h1>'
 end
@@ -8322,7 +8586,7 @@ end
 
 and to delete the exampleco website, do the following:
 
-``` ruby
+```ruby
 exampleco_site 'httpd' do
   action :delete
 end
@@ -8349,7 +8613,7 @@ be defined directly in the `action_class` block. Code in the
 Assume a helper module has been created in the cookbook
 `libraries/helper.rb` file.
 
-``` ruby
+```ruby
 module Sample
   module Helper
     def helper_method
@@ -8362,7 +8626,7 @@ end
 Methods may be made available to the custom resource actions by using an
 `action_class` block.
 
-``` ruby
+```ruby
 property file, String
 
 action :delete do
@@ -8400,7 +8664,7 @@ To use the `converge_if_changed` method, wrap it around the part of a
 recipe or custom resource that should only be converged when the current
 state is not the desired state:
 
-``` ruby
+```ruby
 action :some_action do
 
   converge_if_changed do
@@ -8416,7 +8680,7 @@ method to load the property value to be compared, and then use the
 `converge_if_changed` method to tell Chef Client what to do if that
 value is not the desired value:
 
-``` ruby
+```ruby
 property :content, String
 property :path, String, name_property: true
 
@@ -8436,7 +8700,7 @@ end
 When the file does not exist, the `IO.write(path, content)` code is
 executed and Chef Client output will print something similar to:
 
-``` bash
+```bash
 Recipe: recipe_name::block
   * resource_name[blah] action create
     - update my_file[blah]
@@ -8450,7 +8714,7 @@ following example shows how to use the `converge_if_changed` method to
 compare the multiple desired property values against the current
 property values (as loaded by the `load_current_value` method).
 
-``` ruby
+```ruby
 property :path, String, name_property: true
 property :content, String
 property :mode, String
@@ -8489,7 +8753,7 @@ The default action in a custom resource is, by default, the first action
 listed in the custom resource. For example, action `aaaaa` is the
 default resource:
 
-``` ruby
+```ruby
 property :property_name, RubyType, default: 'value'
 
 ...
@@ -8506,7 +8770,7 @@ end
 The `default_action` method may also be used to specify the default
 action. For example:
 
-``` ruby
+```ruby
 property :property_name, RubyType, default: 'value'
 
 default_action :aaaaa
@@ -8535,7 +8799,7 @@ converged. This method may take a block argument.
 Use the `load_current_value` method to guard against property values
 being replaced. For example:
 
-``` ruby
+```ruby
 load_current_value do
   if ::File.exist?('/var/www/html/index.html')
     homepage IO.read('/var/www/html/index.html')
@@ -8558,7 +8822,7 @@ custom resource that is the same as a property in a core resource, for
 the purpose of overriding that property when used with the custom
 resource. For example:
 
-``` ruby
+```ruby
 resource_name :node_execute
 
 property :command, String, name_property: true
@@ -8597,7 +8861,7 @@ resource, embedded as part of the `action :run` action. Because both the
 custom properties and the **execute** properties are identical, this
 will result in an error message similar to:
 
-``` ruby
+```ruby
 ## ArgumentError
 wrong number of arguments (0 for 1)
 ```
@@ -8606,7 +8870,7 @@ To prevent this behavior, use `new_resource.` to tell Chef Client to
 process the properties from the core resource instead of the properties
 in the custom resource. For example:
 
-``` ruby
+```ruby
 resource_name :node_execute
 
 property :command, String, name_property: true
@@ -8649,7 +8913,7 @@ identically-named override properties of the custom resource.
 Use the `property` method to define properties for the custom resource.
 The syntax is:
 
-``` ruby
+```ruby
 property :property_name, ruby_type, default: 'value', parameter: 'value'
 ```
 
@@ -8665,7 +8929,7 @@ where
 For example, the following properties define `username` and `password`
 properties with no default values specified:
 
-``` ruby
+```ruby
 property :username, String
 property :password, String
 ```
@@ -8677,31 +8941,31 @@ property value is of a particular ruby class, such as `true`, `false`,
 `nil`, `String`, `Array`, `Hash`, `Integer`, `Symbol`. Use an array of
 ruby classes to allow a value to be of more than one type. For example:
 
-``` ruby
+```ruby
 property :aaaa, String
 ```
 
-``` ruby
+```ruby
 property :bbbb, Integer
 ```
 
-``` ruby
+```ruby
 property :cccc, Hash
 ```
 
-``` ruby
+```ruby
 property :dddd, [true, false]
 ```
 
-``` ruby
+```ruby
 property :eeee, [String, nil]
 ```
 
-``` ruby
+```ruby
 property :ffff, [Class, String, Symbol]
 ```
 
-``` ruby
+```ruby
 property :gggg, [Array, Hash]
 ```
 
@@ -8766,11 +9030,11 @@ parameters to a property.
 
 Some examples of combining validation parameters:
 
-``` ruby
+```ruby
 property :spool_name, String, regex: /$\w+/
 ```
 
-``` ruby
+```ruby
 property :enabled, equal_to: [true, false, 'true', 'false'], default: true
 ```
 
@@ -8794,7 +9058,7 @@ interacting with the cloud provider, but their state has no impact on
 decision to converge the resource or not, so you would set
 `desired_state` to `false` for these properties.
 
-``` ruby
+```ruby
 property :volume_name, String
 property :volume_size, Integer
 property :volume_region, String
@@ -8819,7 +9083,7 @@ For example, the following properties define `username` and `password`
 properties with no default values specified, but with `identity` set to
 `true` for the user name:
 
-``` ruby
+```ruby
 property :username, String, identity: true
 property :password, String
 ```
@@ -8832,7 +9096,7 @@ access to other properties of a resource is needed, use a block argument
 that contains all of the properties of the requested resource. For
 example:
 
-``` ruby
+```ruby
 resource_name :file
 
 load_current_value do |desired|
@@ -8845,7 +9109,7 @@ end
 Use the `property_is_set?` method to check if the value for a property
 is set. The syntax is:
 
-``` ruby
+```ruby
 property_is_set?(:property_name)
 ```
 
@@ -8856,7 +9120,7 @@ properties, but not their password. The `property_is_set?` method checks
 if the user has specified a password and then tells Chef Client what to
 do if the password is not identical:
 
-``` ruby
+```ruby
 action :create do
   converge_if_changed do
     shell_out!("rabbitmqctl create_or_update_user #{username} --prop1 #{prop1} ... ")
@@ -8887,7 +9151,7 @@ from highest to lowest:
 
 For example:
 
-``` ruby
+```ruby
 provides :my_custom_resource, platform: 'redhat' do |node|
   node['platform_version'].to_i >= 7
 end
@@ -8911,7 +9175,7 @@ platform or platform version logic within your resources.
 Chef will warn you if the Recipe DSL is provided by another custom
 resource or built-in resource. For example:
 
-``` ruby
+```ruby
 class X < Chef::Resource
   provides :file
 end
@@ -8924,7 +9188,7 @@ end
 This will emit a warning that `Y` is overriding `X`. To disable this
 warning, use `override: true`:
 
-``` ruby
+```ruby
 class X < Chef::Resource
   provides :file
 end
@@ -8940,7 +9204,7 @@ Use the `reset_property` method to clear the value for a property as if
 it had never been set, and then use the default value. For example, to
 clear the value for a property named `password`:
 
-``` ruby
+```ruby
 reset_property(:password)
 ```
 
@@ -8958,7 +9222,7 @@ The following examples show:
 The following definition processes unique hostnames and ports, passed on
 as parameters:
 
-``` ruby
+```ruby
 define :host_porter, :port => 4000, :hostname => nil do
   params[:hostname] ||= params[:name]
 
@@ -8976,7 +9240,7 @@ end
 
 The definition is improved by rewriting it as a custom resource:
 
-``` ruby
+```ruby
 property :port, Integer, default: 4000
 property :hostname, String, name_property: true
 
@@ -9000,7 +9264,7 @@ directory, with an underscore (`_`) separating them. For example, a
 cookbook named `host` with a custom resource in the `/resources`
 directory named `porter.rb`. Use it in a recipe like this:
 
-``` ruby
+```ruby
 host_porter node['hostname'] do
   port 4000
 end
@@ -9008,7 +9272,7 @@ end
 
 or:
 
-``` ruby
+```ruby
 host_porter 'www1' do
   port 4001
 end
@@ -9019,7 +9283,7 @@ end
 Unlike definitions, custom resources are able to use [common resource
 properties](/resource_common/). For example, `only_if`:
 
-``` ruby
+```ruby
 host_porter 'www1' do
   port 4001
   only_if '{ node['hostname'] == 'foo.bar.com' }'
@@ -9048,7 +9312,7 @@ callback defines what steps are taken if the event occurs during Chef
 Client run and is defined using arbitrary Ruby code. The syntax is as
 follows:
 
-``` ruby
+```ruby
 Chef.event_handler do
   on :event_type do
     # some Ruby
@@ -9068,7 +9332,7 @@ where
 
 For example:
 
-``` bash
+```bash
 Chef.event_handler do
   on :converge_start do
     puts "Ohai! I have started a converge."
@@ -9100,7 +9364,7 @@ Use a library to define the code that sends email when a chef-client run
 fails. Name the file `helper.rb` and add it to a cookbook's `/libraries`
 directory:
 
-``` ruby
+```ruby
 require 'net/smtp'
 
 module HandlerSendEmail
@@ -9125,7 +9389,7 @@ end
 
 Invoke the library helper in a recipe:
 
-``` ruby
+```ruby
 Chef.event_handler do
   on :run_failed do
     HandlerSendEmail::Helper.new.send_email_on_run_failure(
@@ -9146,7 +9410,7 @@ it's triggered.
 Use the following code block to trigger the exception and have Chef
 Client send email to the specified email address:
 
-``` ruby
+```ruby
 ruby_block 'fail the run' do
   block do
     fail 'deliberately fail the run'
@@ -9182,13 +9446,13 @@ The following property is new for the **deploy** resource:
 
 Use the following command to specify a policy revision:
 
-``` bash
+```bash
 chef client -j JSON
 ```
 
 where the JSON file is similar to:
 
-``` javascript
+```javascript
 {
   "policy_name": "appserver",
   "policy_group": "staging"
@@ -9295,7 +9559,7 @@ enable the use of policy files:
 
     For example:
 
-    ``` javascript
+    ```javascript
     {
       "policy_name": "appserver",
       "policy_group": "staging"
@@ -9317,13 +9581,13 @@ enable the use of policy files:
 
     For example, run the following:
 
-    ``` bash
+    ```bash
     chef-client -j /path/to/file.json
     ```
 
     where `/path/to/file.json` is similar to:
 
-    ``` javascript
+    ```javascript
     {
       "chef_environment": "pre-production"
     }
@@ -9375,7 +9639,7 @@ previous versions. The short version:
 When using the **remote_file** resource, the location of a source file
 may be specified using a Microsoft Windows UNC. For example:
 
-``` ruby
+```ruby
 source "\\\\path\\to\\img\\sketch.png"
 ```
 
@@ -9391,14 +9655,14 @@ environment variable. This feature is not enabled by default. To
 activate this feature, run the following command from within Windows
 PowerShell:
 
-``` bash
+```bash
 Import-Module chef
 ```
 
 or add `Import-Module chef` to the profile for Windows PowerShell
 located at:
 
-``` bash
+```bash
 ~\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1
 ```
 
@@ -9407,32 +9671,32 @@ tools---chef-client, knife, chef-apply---that are built into Chef.
 
 For example:
 
-``` bash
+```bash
 knife exec -E 'puts ARGV' """&s0meth1ng"""
 ```
 
 is now:
 
-``` bash
+```bash
 knife exec -E 'puts ARGV' '&s0meth1ng'
 ```
 
 and:
 
-``` bash
+```bash
 knife node run_list set test-node '''role[ssssssomething]'''
 ```
 
 is now:
 
-``` bash
+```bash
 knife node run_list set test-node 'role[ssssssomething]'
 ```
 
 To remove this feature, run the following command from within Windows
 PowerShell:
 
-``` bash
+```bash
 Remove-Module chef
 ```
 
@@ -9496,7 +9760,7 @@ Examples:
 
 **Specify a URL for the source attribute**
 
-``` ruby
+```ruby
 windows_package '7zip' do
   source 'http://www.7-zip.org/a/7z938-x64.msi'
 end
@@ -9504,7 +9768,7 @@ end
 
 **Specify path and checksum**
 
-``` ruby
+```ruby
 windows_package '7zip' do
   source 'http://www.7-zip.org/a/7z938-x64.msi'
   checksum '7c8e873991c82ad9cfc123415254ea6101e9a645e12977dcd518979e50fdedf3'
@@ -9521,7 +9785,7 @@ resource](/resources/remote_file/).
 
 For example:
 
-``` ruby
+```ruby
 windows_package '7zip' do
   source 'http://www.7-zip.org/a/7z938-x64.msi'
   remote_file_attributes ({
@@ -9546,7 +9810,7 @@ Use the `key create` argument to create a public key.
 
 This argument has the following syntax:
 
-``` bash
+```bash
 knife client key create CLIENT_NAME (options)
 ```
 
@@ -9584,7 +9848,7 @@ Use the `key delete` argument to delete a public key.
 
 This argument has the following syntax:
 
-``` bash
+```bash
 knife client key delete CLIENT_NAME KEY_NAME
 ```
 
@@ -9596,7 +9860,7 @@ Use the `key edit` argument to modify or rename a public key.
 
 This argument has the following syntax:
 
-``` bash
+```bash
 knife client key edit CLIENT_NAME KEY_NAME (options)
 ```
 
@@ -9641,7 +9905,7 @@ client.
 
 This argument has the following syntax:
 
-``` bash
+```bash
 knife client key list CLIENT_NAME (options)
 ```
 
@@ -9669,7 +9933,7 @@ Use the `key show` argument to view details for a specific public key.
 
 This argument has the following syntax:
 
-``` bash
+```bash
 knife client key show CLIENT_NAME KEY_NAME
 ```
 
@@ -9686,7 +9950,7 @@ Use the `key create` argument to create a public key.
 
 This argument has the following syntax:
 
-``` bash
+```bash
 knife user key create USER_NAME (options)
 ```
 
@@ -9723,7 +9987,7 @@ Use the `key delete` argument to delete a public key.
 
 This argument has the following syntax:
 
-``` bash
+```bash
 knife user key delete USER_NAME KEY_NAME
 ```
 
@@ -9735,7 +9999,7 @@ Use the `key edit` argument to modify or rename a public key.
 
 This argument has the following syntax:
 
-``` bash
+```bash
 knife user key edit USER_NAME KEY_NAME (options)
 ```
 
@@ -9780,7 +10044,7 @@ user.
 
 This argument has the following syntax:
 
-``` bash
+```bash
 knife user key list USER_NAME (options)
 ```
 
@@ -9808,7 +10072,7 @@ Use the `key show` argument to view details for a specific public key.
 
 This argument has the following syntax:
 
-``` bash
+```bash
 knife user key show USER_NAME KEY_NAME
 ```
 
@@ -9996,7 +10260,7 @@ and/or provider priority mapping before any recipes are compiled:
 
 For example:
 
-``` ruby
+```ruby
 Chef.set_resource_priority_array(:package, [ Chef::Resource::MacportsPackage ], os: 'darwin')
 ```
 
@@ -10081,7 +10345,7 @@ Using the **dsc_resource** has the following requirements:
 A **dsc_resource** resource block allows DSC resources to be used in a
 Chef recipe. For example, the DSC `Archive` resource:
 
-``` powershell
+```powershell
 Archive ExampleArchive {
   Ensure = "Present"
   Path = "C:\Users\Public\Documents\example.zip"
@@ -10091,7 +10355,7 @@ Archive ExampleArchive {
 
 and then the same **dsc_resource** with Chef:
 
-``` ruby
+```ruby
 dsc_resource 'example' do
    resource :archive
    property :ensure, 'Present'
@@ -10103,7 +10367,7 @@ dsc_resource 'example' do
 The full syntax for all of the properties that are available to the
 **dsc_resource** resource is:
 
-``` ruby
+```ruby
 dsc_resource 'name' do
   module_name                String
   notifies                   # see description
@@ -10168,7 +10432,7 @@ This resource has the following properties:
 
     The syntax for `notifies` is:
 
-    ``` ruby
+    ```ruby
     notifies :action, 'resource[name]', :timer
     ```
 
@@ -10340,7 +10604,7 @@ This resource has the following properties:
     Note that `subscribes` does not apply the specified action to the
     resource that it listens to - for example:
 
-    ``` ruby
+    ```ruby
     file '/etc/nginx/ssl/example.crt' do
       mode '0600'
       owner 'root'
@@ -10373,7 +10637,7 @@ This resource has the following properties:
 
     The syntax for `subscribes` is:
 
-    ``` ruby
+    ```ruby
     subscribes :action, 'resource[name]', :timer
     ```
 
@@ -10381,7 +10645,7 @@ This resource has the following properties:
 
 **Open a Zip file**
 
-``` ruby
+```ruby
 dsc_resource 'example' do
    resource :archive
    property :ensure, 'Present'
@@ -10392,7 +10656,7 @@ dsc_resource 'example' do
 
 **Manage users and groups**
 
-``` ruby
+```ruby
 dsc_resource 'demogroupadd' do
   resource :group
   property :groupname, 'demo1'
@@ -10549,7 +10813,7 @@ multiple `control` methods.
 
 The syntax for the `control` method is as follows:
 
-``` ruby
+```ruby
 control_group 'audit name' do
   control 'name' do
     it 'should do something' do
@@ -10931,7 +11195,7 @@ following matchers are available:
 
 For example, a package is installed:
 
-``` ruby
+```ruby
 control_group 'audit name' do
   control 'mysql package' do
     it 'should be installed' do
@@ -10945,7 +11209,7 @@ The `control_group` block is processed when Chef Client run is run in
 audit-mode. If the audit was successful, Chef Client will return output
 similar to:
 
-``` bash
+```bash
 Audit Mode
   mysql package
     should be installed
@@ -10953,7 +11217,7 @@ Audit Mode
 
 If an audit was unsuccessful, Chef Client will return output similar to:
 
-``` bash
+```bash
 Starting audit phase
 
 Audit Mode
@@ -10979,7 +11243,7 @@ rspec /var/chef/cache/cookbooks/grantmc/recipes/default.rb:21 # Audit Mode mysql
 
 A package that is installed with a specific version:
 
-``` ruby
+```ruby
 control_group 'audit name' do
   control 'mysql package' do
     it 'should be installed' do
@@ -10993,7 +11257,7 @@ end
 
 A package that is not installed:
 
-``` ruby
+```ruby
 control_group 'audit name' do
   control 'postgres package' do
     it 'should not be installed' do
@@ -11005,7 +11269,7 @@ end
 
 If the audit was successful, Chef Client will return output similar to:
 
-``` bash
+```bash
 Audit Mode
   postgres audit
     postgres package
@@ -11016,7 +11280,7 @@ Audit Mode
 
 A service that is enabled and running:
 
-``` ruby
+```ruby
 control_group 'audit name' do
   control 'mysql service' do
     let(:mysql_service) { service('mysql') }
@@ -11032,7 +11296,7 @@ end
 
 If the audit was successful, Chef Client will return output similar to:
 
-``` bash
+```bash
 Audit Mode
   mysql service audit
     mysql service
@@ -11046,7 +11310,7 @@ The following example shows how to verify `sshd` configuration, including
 whether it's installed, what the permissions are, and how it can be
 accessed:
 
-``` ruby
+```ruby
 control_group 'check sshd configuration' do
 
   control 'sshd package' do
@@ -11087,7 +11351,7 @@ where
 The following example shows how to verify that a file has the desired
 permissions and contents:
 
-``` ruby
+```ruby
 controls 'mysql config' do
   control 'mysql config file' do
     let(:config_file) { file('/etc/mysql/my.cnf') }
@@ -11104,7 +11368,7 @@ end
 
 If the audit was successful, Chef Client will return output similar to:
 
-``` bash
+```bash
 Audit Mode
   mysql config
     mysql config file
@@ -11120,7 +11384,7 @@ unique within the organization.
 
 The syntax for the `control_group` method is as follows:
 
-``` ruby
+```ruby
 control_group 'name' do
   control 'name' do
     it 'should do something' do
@@ -11152,7 +11416,7 @@ The following `control_group` ensures that MySQL is installed, that
 PostgreSQL is not installed, and that the services and configuration
 files associated with MySQL are configured correctly:
 
-``` ruby
+```ruby
 control_group 'Audit Mode' do
 
   control 'mysql package' do
@@ -11206,7 +11470,7 @@ The `control_group` block is processed when Chef Client is run in
 audit-mode. If Chef Client run was successful, Chef Client will return
 output similar to:
 
-``` bash
+```bash
 Audit Mode
   mysql package
     should be installed
@@ -11225,7 +11489,7 @@ Audit Mode
 
 If an audit was unsuccessful, Chef Client will return output similar to:
 
-``` bash
+```bash
 Starting audit phase
 
 Audit Mode
@@ -11305,7 +11569,7 @@ If two `control_group` blocks have the same name, Chef Client will raise
 an exception. For example, the following `control_group` blocks exist in
 different cookbooks:
 
-``` ruby
+```ruby
 control_group 'basic control group' do
   it 'should pass' do
     expect(2 - 2).to eq(0)
@@ -11313,7 +11577,7 @@ control_group 'basic control group' do
 end
 ```
 
-``` ruby
+```ruby
 control_group 'basic control group' do
   it 'should pass' do
     expect(3 - 2).to eq(1)
@@ -11324,7 +11588,7 @@ end
 Because the two `control_group` block names are identical, Chef Client
 will return an exception similar to:
 
-``` ruby
+```ruby
 Synchronizing Cookbooks:
   - audit_test
 Compiling Cookbooks...
@@ -11369,7 +11633,7 @@ Running handlers complete
 The following `control_group` verifies that the `git` package has been
 installed:
 
-``` ruby
+```ruby
 package 'git' do
   action :install
 end
@@ -11404,7 +11668,7 @@ known as a "validatorless bootstrap".
 To create a node via the USER.pem file, simply delete the
 ORGANIZATION-validator.pem file on the workstation. For example:
 
-``` bash
+```bash
 rm -f /home/lamont/.chef/myorg-validator.pem
 ```
 
@@ -11423,7 +11687,7 @@ ORGANIZATION-validator.pem file.
 When running a validatorless `knife bootstrap` operation, the output is
 similar to:
 
-``` bash
+```bash
 desktop% knife bootstrap 10.1.1.1 -N foo01.acme.org \
   -E dev -r 'role[base]' -j '{ "foo": "bar" }' \
   --ssh-user vagrant --sudo
@@ -11457,7 +11721,7 @@ chef-vault:
 
     For example:
 
-    ``` none
+    ```none
     --bootstrap-vault-json '{ "vault1": ["item1", "item2"], "vault2": "item2" }'
     ```
 
@@ -11486,7 +11750,7 @@ The `verify` attribute may be used with the **cookbook_file**,
 
     For example, this should return `true`:
 
-    ``` ruby
+    ```ruby
     template '/tmp/baz' do
       verify { 1 == 1 }
     end
@@ -11494,7 +11758,7 @@ The `verify` attribute may be used with the **cookbook_file**,
 
     This should return `true`:
 
-    ``` ruby
+    ```ruby
     template '/etc/nginx.conf' do
       verify 'nginx -t -c %{path}'
     end
@@ -11505,7 +11769,7 @@ The `verify` attribute may be used with the **cookbook_file**,
     For releases of Chef Client prior to 12.5 (chef-client 12.4 and
     earlier) the correct syntax is:
 
-    ``` ruby
+    ```ruby
     template '/etc/nginx.conf' do
       verify 'nginx -t -c %{file}'
     end
@@ -11519,7 +11783,7 @@ The `verify` attribute may be used with the **cookbook_file**,
 
     This should return `true`:
 
-    ``` ruby
+    ```ruby
     template '/tmp/bar' do
       verify { 1 == 1}
     end
@@ -11527,7 +11791,7 @@ The `verify` attribute may be used with the **cookbook_file**,
 
     And this should return `true`:
 
-    ``` ruby
+    ```ruby
     template '/tmp/foo' do
       verify do |path|
         true
@@ -11537,7 +11801,7 @@ The `verify` attribute may be used with the **cookbook_file**,
 
     Whereas, this should return `false`:
 
-    ``` ruby
+    ```ruby
     template '/tmp/turtle' do
       verify '/usr/bin/false'
     end
@@ -11555,27 +11819,27 @@ The following attribute is new for the **dsc_script** resource:
 :   Use to import DSC resources from a module. To import all resources
     from a module, specify only the module name:
 
-    ``` ruby
+    ```ruby
     imports "module_name"
     ```
 
     To import specific resources, specify the module name and then the
     name for each resource in that module to import:
 
-    ``` ruby
+    ```ruby
     imports "module_name", "resource_name_a", "resource_name_b", ...
     ```
 
     For example, to import all resources from a module named
     `cRDPEnabled`:
 
-    ``` ruby
+    ```ruby
     imports "cRDPEnabled"
     ```
 
     And to import only the `PSHOrg_cRDPEnabled` resource:
 
-    ``` ruby
+    ```ruby
     imports "cRDPEnabled", "PSHOrg_cRDPEnabled"
     ```
 
@@ -11604,7 +11868,7 @@ The following attribute is new for the **chef_gem** resource:
     12.1, use a `respond_to?` check to ensure backward compatibility.
     For example:
 
-    ``` ruby
+    ```ruby
     chef_gem 'aws-sdk' do
       compile_time false if respond_to?(:compile_time)
     end
@@ -11644,7 +11908,7 @@ A **paludis_package** resource block manages a package on a node,
 typically by installing it. The simplest use of the **paludis_package**
 resource is:
 
-``` ruby
+```ruby
 paludis_package 'package_name'
 ```
 
@@ -11654,7 +11918,7 @@ and the default action (`:install`).
 The full syntax for all of the properties that are available to the
 **paludis_package** resource is:
 
-``` ruby
+```ruby
 paludis_package 'name' do
   notifies                   # see description
   options                    String
@@ -11738,7 +12002,7 @@ This resource has the following properties:
 
     The syntax for `notifies` is:
 
-    ``` ruby
+    ```ruby
     notifies :action, 'resource[name]', :timer
     ```
 
@@ -11785,7 +12049,7 @@ This resource has the following properties:
     Note that `subscribes` does not apply the specified action to the
     resource that it listens to - for example:
 
-    ``` ruby
+    ```ruby
     file '/etc/nginx/ssl/example.crt' do
       mode '0600'
       owner 'root'
@@ -11818,7 +12082,7 @@ This resource has the following properties:
 
     The syntax for `subscribes` is:
 
-    ``` ruby
+    ```ruby
     subscribes :action, 'resource[name]', :timer
     ```
 
@@ -11838,7 +12102,7 @@ This resource has the following properties:
 
 **Install a package**
 
-``` ruby
+```ruby
 paludis_package 'name of package' do
   action :install
 end
@@ -11866,7 +12130,7 @@ A **openbsd_package** resource block manages a package on a node,
 typically by installing it. The simplest use of the **openbsd_package**
 resource is:
 
-``` ruby
+```ruby
 openbsd_package 'package_name'
 ```
 
@@ -11876,7 +12140,7 @@ and the default action (`:install`).
 The full syntax for all of the properties that are available to the
 **openbsd_package** resource is:
 
-``` ruby
+```ruby
 openbsd_package 'name' do
   options                    String
   package_name               String, Array # defaults to 'name' if not specified
@@ -11953,7 +12217,7 @@ This resource has the following properties:
 
     The syntax for `notifies` is:
 
-    ``` ruby
+    ```ruby
     notifies :action, 'resource[name]', :timer
     ```
 
@@ -12000,7 +12264,7 @@ This resource has the following properties:
     Note that `subscribes` does not apply the specified action to the
     resource that it listens to - for example:
 
-    ``` ruby
+    ```ruby
     file '/etc/nginx/ssl/example.crt' do
       mode '0600'
       owner 'root'
@@ -12033,7 +12297,7 @@ This resource has the following properties:
 
     The syntax for `subscribes` is:
 
-    ``` ruby
+    ```ruby
     subscribes :action, 'resource[name]', :timer
     ```
 
@@ -12053,7 +12317,7 @@ This resource has the following properties:
 
 **Install a package**
 
-``` ruby
+```ruby
 openbsd_package 'name of package' do
   action :install
 end
@@ -12082,7 +12346,7 @@ The following client.rb settings are new:
     12.1, use a `respond_to?` check to ensure backward compatibility.
     For example:
 
-    ``` ruby
+    ```ruby
     chef_gem 'aws-sdk' do
       compile_time false if respond_to?(:compile_time)
     end
@@ -12110,13 +12374,13 @@ to:
 
 For example, installing multiple packages:
 
-``` ruby
+```ruby
 package %w(package1 package2)
 ```
 
 Installing multiple packages with versions:
 
-``` ruby
+```ruby
 package %w(package1 package2) do
   version [ '1.3.4-2', '4.3.6-1']
 end
@@ -12124,7 +12388,7 @@ end
 
 Upgrading multiple packages:
 
-``` ruby
+```ruby
 package %w(package1 package2)  do
   action :upgrade
 end
@@ -12132,7 +12396,7 @@ end
 
 Removing multiple packages:
 
-``` ruby
+```ruby
 package %w(package1 package2)  do
   action :remove
 end
@@ -12140,7 +12404,7 @@ end
 
 Purging multiple packages:
 
-``` ruby
+```ruby
 package %w(package1 package2)  do
   action :purge
 end
@@ -12148,7 +12412,7 @@ end
 
 Notifications, via an implicit name:
 
-``` ruby
+```ruby
 package %w(package1 package2)  do
   action :nothing
 end
@@ -12356,7 +12620,7 @@ precedence level.
 
 Given the following code structure under `'foo'`:
 
-``` ruby
+```ruby
 node.default['foo'] = {
   'bar' => {
     'baz' => 52,
@@ -12370,26 +12634,26 @@ node.default['foo'] = {
 
 And some role attributes:
 
-``` ruby
+```ruby
 # Please don't ever do this in real code :)
 node.role_default['foo']['bar']['thing'] = 'otherstuff'
 ```
 
 And a force attribute:
 
-``` ruby
+```ruby
 node.force_default['foo']['bar']['thing'] = 'allthestuff'
 ```
 
 When the default attribute precedence `node['foo']['bar']` is removed:
 
-``` ruby
+```ruby
 node.rm_default('foo', 'bar') #=> {'baz' => 52, 'thing' => 'allthestuff'}
 ```
 
 What is left under `'foo'` is only `'bat'`:
 
-``` ruby
+```ruby
 node.attributes.combined_default['foo'] #=> {'bat' => { 'things' => [5,6] } }
 ```
 
@@ -12397,7 +12661,7 @@ node.attributes.combined_default['foo'] #=> {'bat' => { 'things' => [5,6] } }
 
 Given the following code structure:
 
-``` ruby
+```ruby
 node.default['foo'] = {
   'bar' => {
     'baz' => 52,
@@ -12411,32 +12675,32 @@ node.default['foo'] = {
 
 And some role attributes:
 
-``` ruby
+```ruby
 # Please don't ever do this in real code :)
 node.role_default['foo']['bar']['thing'] = 'otherstuff'
 ```
 
 And a force attribute:
 
-``` ruby
+```ruby
 node.force_default['foo']['bar']['thing'] = 'allthestuff'
 ```
 
 And also some override attributes:
 
-``` ruby
+```ruby
 node.override['foo']['bar']['baz'] = 99
 ```
 
 Same delete as before:
 
-``` ruby
+```ruby
 node.rm_default('foo', 'bar') #=> { 'baz' => 52, 'thing' => 'allthestuff' }
 ```
 
 The other attribute precedence levels are unaffected:
 
-``` ruby
+```ruby
 node.attributes.combined_override['foo'] #=> { 'bar' => {'baz' => 99} }
 node['foo'] #=> { 'bar' => {'baz' => 99}, 'bat' => { 'things' => [5,6] }
 ```
@@ -12445,7 +12709,7 @@ node['foo'] #=> { 'bar' => {'baz' => 99}, 'bat' => { 'things' => [5,6] }
 
 Given the following code structure, which has an override attribute:
 
-``` ruby
+```ruby
 node.override['foo'] = {
   'bar' => {
     'baz' => 52,
@@ -12459,32 +12723,32 @@ node.override['foo'] = {
 
 with a single default value:
 
-``` ruby
+```ruby
 node.default['foo']['bar']['baz'] = 11
 ```
 
 and a force at each attribute precedence:
 
-``` ruby
+```ruby
 node.force_default['foo']['bar']['baz'] = 55
 node.force_override['foo']['bar']['baz'] = 99
 ```
 
 Delete the override:
 
-``` ruby
+```ruby
 node.rm_override('foo', 'bar') #=> { 'baz' => 99, 'thing' => 'stuff' }
 ```
 
 The other attribute precedence levels are unaffected:
 
-``` ruby
+```ruby
 node.attributes.combined_default['foo'] #=> { 'bar' => {'baz' => 55} }
 ```
 
 **Non-existent key deletes return nil**
 
-``` ruby
+```ruby
 node.rm_default("no", "such", "thing") #=> nil
 ```
 
@@ -12511,7 +12775,7 @@ levels.
 
 Given the following code structure:
 
-``` ruby
+```ruby
 node.default['foo'] = {
   'bar' => {
     'baz' => 52,
@@ -12525,25 +12789,25 @@ node.default['foo'] = {
 
 With override attributes:
 
-``` ruby
+```ruby
 node.override['foo']['bar']['baz'] = 999
 ```
 
 Removing the `'bar'` key returns the computed value:
 
-``` ruby
+```ruby
 node.rm('foo', 'bar') #=> {'baz' => 999, 'thing' => 'stuff'}
 ```
 
 Looking at `'foo'`, all that's left is the `'bat'` entry:
 
-``` ruby
+```ruby
 node['foo'] #=> {'bat' => { 'things' => [5,6] } }
 ```
 
 **Non-existent key deletes return nil**
 
-``` ruby
+```ruby
 node.rm_default("no", "such", "thing") #=> nil
 ```
 
@@ -12568,14 +12832,14 @@ levels.
 
 Given the following code structure:
 
-``` ruby
+```ruby
 node.default['foo']['bar'] = {'a' => 'b'}
 node.default!['foo']['bar'] = {'c' => 'd'}
 ```
 
 The `'!'` caused the entire 'bar' key to be overwritten:
 
-``` ruby
+```ruby
 node['foo'] #=> {'bar' => {'c' => 'd'}
 ```
 
@@ -12583,7 +12847,7 @@ node['foo'] #=> {'bar' => {'c' => 'd'}
 
 Given the following code structure:
 
-``` ruby
+```ruby
 node.default['foo']['bar'] = {'a' => 'b'}
 # Please don't ever do this in real code :)
 node.role_default['foo']['bar'] = {'c' => 'd'}
@@ -12593,7 +12857,7 @@ node.default!['foo']['bar'] = {'d' => 'e'}
 The `'!'` write overwrote the "cookbook-default" value of `'bar'`, but
 since role data is later in the resolution list, it was unaffected:
 
-``` ruby
+```ruby
 node['foo'] #=> {'bar' => {'c' => 'd', 'd' => 'e'}
 ```
 
@@ -12601,7 +12865,7 @@ node['foo'] #=> {'bar' => {'c' => 'd', 'd' => 'e'}
 
 Given the following code structure:
 
-``` ruby
+```ruby
 node.default['foo']['bar'] = {'a' => 'b'}
 # Please don't ever do this in real code :)
 node.role_default['foo']['bar'] = {'c' => 'd'}
@@ -12610,7 +12874,7 @@ node.force_default!['foo']['bar'] = {'d' => 'e'}
 
 With `force_default!` there is no other data under `'bar'`:
 
-``` ruby
+```ruby
 node['foo'] #=> {'bar' => {'d' => 'e'}
 ```
 
@@ -12618,7 +12882,7 @@ node['foo'] #=> {'bar' => {'d' => 'e'}
 
 Given the following code structure:
 
-``` ruby
+```ruby
 node.default['foo'] = {
   'bar' => {
     'baz' => 52,
@@ -12632,7 +12896,7 @@ node.default['foo'] = {
 
 And some attributes:
 
-``` ruby
+```ruby
 # Please don't ever do this in real code :)
 node.role_default['foo']['bar']['baz'] = 55
 node.force_default['foo']['bar']['baz'] = 66
@@ -12640,21 +12904,21 @@ node.force_default['foo']['bar']['baz'] = 66
 
 And other precedence levels:
 
-``` ruby
+```ruby
 node.normal['foo']['bar']['baz'] = 88
 node.override['foo']['bar']['baz'] = 99
 ```
 
 With a full assignment:
 
-``` ruby
+```ruby
 node.default!['foo']['bar'] = {}
 ```
 
 Role default and force default are left in default, plus other
 precedence levels:
 
-``` ruby
+```ruby
 node.attributes.combined_default['foo'] #=> {'bar' => {'baz' => 66}, 'bat'=>{'things'=>[5, 6]}}
 node.attributes.normal['foo'] #=> {'bar' => {'baz' => 88}}
 node.attributes.combined_override['foo'] #=> {'bar' => {'baz' => 99}}
@@ -12663,13 +12927,13 @@ node['foo']['bar'] #=> {'baz' => 99}
 
 If `force_default!` is written:
 
-``` ruby
+```ruby
 node.force_default!['foo']['bar'] = {}
 ```
 
 the difference is:
 
-``` ruby
+```ruby
 node.attributes.combined_default['foo'] #=> {'bat'=>{'things'=>[5, 6]}, 'bar' => {}}
 node.attributes.normal['foo'] #=> {'bar' => {'baz' => 88}}
 node.attributes.combined_override['foo'] #=> {'bar' => {'baz' => 99}}
@@ -12704,7 +12968,7 @@ statement(s).
 
 The syntax for the `provides` method is as follows:
 
-``` ruby
+```ruby
 provides :resource_name, os: [ 'platform', 'platform', ...], platform_family: 'family'
 ```
 
@@ -12722,22 +12986,22 @@ where:
 A custom resource/provider may be mapped to more than one existing
 resource/provider. Multiple platform associations may be made. For
 example, to completely map a custom resource/provider to an existing
-custom resource/provider, only specificy the resource name:
+custom resource/provider, only specify the resource name:
 
-``` ruby
+```ruby
 provides :cookbook_file
 ```
 
 The same mapping, but only for the Linux platform:
 
-``` ruby
+```ruby
 provides :cookbook_file, os: 'linux'
 ```
 
 A similar mapping, but also for packages on the Microsoft Windows
 platform:
 
-``` ruby
+```ruby
 provides :cookbook_file
 provides :package, os: 'windows'
 ```
@@ -12745,7 +13009,7 @@ provides :package, os: 'windows'
 Use multiple `provides` statements to define multiple conditions: Use an
 array to match any of the platforms within the array:
 
-``` ruby
+```ruby
 provides :cookbook_file
 provides :package, os: 'windows'
 provides :rpm_package, os: [ 'linux', 'aix' ]
@@ -12753,7 +13017,7 @@ provides :rpm_package, os: [ 'linux', 'aix' ]
 
 Use an array to match any of the platforms within the array:
 
-``` ruby
+```ruby
 provides :package, os: 'solaris2', platform_family: 'solaris2' do |node|
   node[:platform_version].to_f <= 5.10
 end
@@ -12785,7 +13049,7 @@ Chef Client is distributed as a Backup File Format (BFF) binary and is
 installed on the AIX platform using the following command run as a root
 user:
 
-``` text
+```text
 # installp -aYgd chef-12.0.0-1.powerpc.bff all
 ```
 
@@ -12803,19 +13067,19 @@ system process limits:
 2.  If they have not been increased, run the following commands as a
     root user:
 
-    ``` bash
+    ```bash
     chsec -f /etc/security/limits -s default -a "rss=-1"
     ```
 
     and then:
 
-    ``` bash
+    ```bash
     chsec -f /etc/security/limits -s default -a "data=-1"
     ```
 
     and then:
 
-    ``` bash
+    ```bash
     chsec -f /etc/security/limits -s default -a "nofiles=50000"
     ```
 
@@ -12824,7 +13088,7 @@ system process limits:
     The previous commands may be run against the root user, instead of
     default. For example:
 
-    ``` bash
+    ```bash
     chsec -f /etc/security/limits -s root_user -a "rss=-1"
     ```
 
@@ -12836,7 +13100,7 @@ system process limits:
 When the system process limits are too low, an error is returned similar
 to:
 
-``` none
+```none
 Error Syncing Cookbooks:
 ==================================================================
 
@@ -12863,13 +13127,13 @@ installing from CD.
 
 1.  From a root shell type:
 
-    ``` text
+    ```text
     # smit lang
     ```
 
     A screen similar to the following is returned:
 
-    ``` bash
+    ```bash
     Manage Language Environment
 
     Move cursor to desired item and press Enter.
@@ -12889,7 +13153,7 @@ installing from CD.
 2.  Select `Add Additional Language Environments` and press `Enter`. A
     screen similar to the following is returned:
 
-    ``` bash
+    ```bash
     Add Additional Language Environments
 
     Type or select values in entry fields.
@@ -12967,7 +13231,7 @@ service.
 
 The following example shows how to install a service:
 
-``` ruby
+```ruby
 execute "install #{node['chef_client']['svc_name']} in SRC" do
   command "mkssys -s #{node['chef_client']['svc_name']}
                   -p #{node['chef_client']['bin']}
@@ -12986,7 +13250,7 @@ end
 
 and then enable it using the `mkitab` command:
 
-``` ruby
+```ruby
 execute "enable #{node['chef_client']['svc_name']}" do
   command "mkitab '#{node['chef_client']['svc_name']}:2:once:/usr/bin/startsrc
                   -s #{node['chef_client']['svc_name']} > /dev/console 2>&1'"
@@ -13013,25 +13277,25 @@ Some examples:
 
 To load the secret from a file:
 
-``` ruby
+```ruby
 data_bag_item('bag', 'item', IO.read('secret_file'))
 ```
 
 To load a single data bag item named `admins`:
 
-``` ruby
+```ruby
 data_bag('admins')
 ```
 
 The contents of a data bag item named `justin`:
 
-``` ruby
+```ruby
 data_bag_item('admins', 'justin')
 ```
 
 will return something similar to:
 
-``` ruby
+```ruby
 # => {'comment'=>'Justin Currie', 'gid'=>1005, 'id'=>'justin', 'uid'=>1005, 'shell'=>'/bin/zsh'}
 ```
 
@@ -13060,7 +13324,7 @@ platform, regardless of the file extension.
 A **bff_package** resource manages a package on a node, typically by
 installing it. The simplest use of the **bff_package** resource is:
 
-``` ruby
+```ruby
 bff_package 'package_name'
 ```
 
@@ -13070,7 +13334,7 @@ and the default action (`:install`).
 The full syntax for all of the properties that are available to the
 **bff_package** resource is:
 
-``` ruby
+```ruby
 bff_package 'name' do
   options                    String
   package_name               String, Array # defaults to 'name' if not specified
@@ -13152,7 +13416,7 @@ This resource has the following properties:
 
     The syntax for `notifies` is:
 
-    ``` ruby
+    ```ruby
     notifies :action, 'resource[name]', :timer
     ```
 
@@ -13201,7 +13465,7 @@ This resource has the following properties:
     Note that `subscribes` does not apply the specified action to the
     resource that it listens to - for example:
 
-    ``` ruby
+    ```ruby
     file '/etc/nginx/ssl/example.crt' do
       mode '0600'
       owner 'root'
@@ -13234,7 +13498,7 @@ This resource has the following properties:
 
     The syntax for `subscribes` is:
 
-    ``` ruby
+    ```ruby
     subscribes :action, 'resource[name]', :timer
     ```
 
@@ -13276,7 +13540,7 @@ compiler.
 
 Using the base **package** resource:
 
-``` ruby
+```ruby
 package 'xlccmp.13.1.0' do
   source '/var/tmp/IBM_XL_C_13.1.0/usr/sys/inst.images/xlccmp.13.1.0'
   action :install
@@ -13285,7 +13549,7 @@ end
 
 Using the **bff_package** resource:
 
-``` ruby
+```ruby
 bff_package 'xlccmp.13.1.0' do
   source '/var/tmp/IBM_XL_C_13.1.0/usr/sys/inst.images/xlccmp.13.1.0'
   action :install
@@ -13303,7 +13567,7 @@ A **homebrew_package** resource block manages a package on a node,
 typically by installing it. The simplest use of the
 **homebrew_package** resource is:
 
-``` ruby
+```ruby
 homebrew_package 'package_name'
 ```
 
@@ -13313,7 +13577,7 @@ and the default action (`:install`).
 The full syntax for all of the properties that are available to the
 **homebrew_package** resource is:
 
-``` ruby
+```ruby
 homebrew_package 'name' do
   homebrew_user              String, Integer
   options                    String
@@ -13418,7 +13682,7 @@ This resource has the following properties:
 
     The syntax for `notifies` is:
 
-    ``` ruby
+    ```ruby
     notifies :action, 'resource[name]', :timer
     ```
 
@@ -13465,7 +13729,7 @@ This resource has the following properties:
     Note that `subscribes` does not apply the specified action to the
     resource that it listens to - for example:
 
-    ``` ruby
+    ```ruby
     file '/etc/nginx/ssl/example.crt' do
       mode '0600'
       owner 'root'
@@ -13498,7 +13762,7 @@ This resource has the following properties:
 
     The syntax for `subscribes` is:
 
-    ``` ruby
+    ```ruby
     subscribes :action, 'resource[name]', :timer
     ```
 
@@ -13531,7 +13795,7 @@ This resource has the following providers:
 
 **Install a package**
 
-``` ruby
+```ruby
 homebrew_package 'name of package' do
   action :install
 end
@@ -13539,7 +13803,7 @@ end
 
 **Specify the Homebrew user with a UUID**
 
-``` ruby
+```ruby
 homebrew_package 'emacs' do
   homebrew_user 1001
 end
@@ -13547,7 +13811,7 @@ end
 
 **Specify the Homebrew user with a string**
 
-``` ruby
+```ruby
 homebrew_package 'vim' do
   homebrew_user 'user1'
 end
@@ -13563,7 +13827,7 @@ on the Microsoft Windows, macOS, and Linux platforms.
 
 A **reboot** resource block reboots a node:
 
-``` ruby
+```ruby
 reboot 'app_requires_reboot' do
   action :request_reboot
   reason 'Need to reboot when the run completes successfully.'
@@ -13574,7 +13838,7 @@ end
 The full syntax for all of the properties that are available to the
 **reboot** resource is:
 
-``` ruby
+```ruby
 reboot 'name' do
   delay_mins                 Fixnum
   notifies                   # see description
@@ -13682,7 +13946,7 @@ This resource has the following properties:
     Note that `subscribes` does not apply the specified action to the
     resource that it listens to - for example:
 
-    ``` ruby
+    ```ruby
     file '/etc/nginx/ssl/example.crt' do
       mode '0600'
       owner 'root'
@@ -13712,7 +13976,7 @@ This resource has the following properties:
 
 **Reboot a node immediately**
 
-``` ruby
+```ruby
 reboot 'now' do
   action :nothing
   reason 'Cannot continue Chef run without a reboot.'
@@ -13727,7 +13991,7 @@ end
 
 **Reboot a node at the end of a chef-client run**
 
-``` ruby
+```ruby
 reboot 'app_requires_reboot' do
   action :request_reboot
   reason 'Need to reboot when the run completes successfully.'
@@ -13737,7 +14001,7 @@ end
 
 **Cancel a reboot**
 
-``` ruby
+```ruby
 reboot 'cancel_reboot_request' do
   action :cancel
   reason 'Cancel a previous end-of-run reboot request.'
@@ -13754,7 +14018,7 @@ Microsoft Windows platform.
 A **windows_service** resource block manages the state of a service on
 a machine that is running Microsoft Windows. For example:
 
-``` ruby
+```ruby
 windows_service 'BITS' do
   action :configure_startup
   startup_type :manual
@@ -13764,7 +14028,7 @@ end
 The full syntax for all of the properties that are available to the
 **windows_service** resource is:
 
-``` ruby
+```ruby
 windows_service 'name' do
   init_command               String
   notifies                   # see description
@@ -13883,7 +14147,7 @@ This resource has the following properties:
 
     The syntax for `notifies` is:
 
-    ``` ruby
+    ```ruby
     notifies :action, 'resource[name]', :timer
     ```
 
@@ -13975,7 +14239,7 @@ This resource has the following properties:
     Note that `subscribes` does not apply the specified action to the
     resource that it listens to - for example:
 
-    ``` ruby
+    ```ruby
     file '/etc/nginx/ssl/example.crt' do
       mode '0600'
       owner 'root'
@@ -14008,7 +14272,7 @@ This resource has the following properties:
 
     The syntax for `subscribes` is:
 
-    ``` ruby
+    ```ruby
     subscribes :action, 'resource[name]', :timer
     ```
 
@@ -14042,7 +14306,7 @@ This resource has the following properties:
 
 **Start a service manually**
 
-``` ruby
+```ruby
 windows_service 'BITS' do
   action :configure_startup
   startup_type :manual
@@ -14179,7 +14443,7 @@ and then display the output to the console when the log level is set to
 
 The syntax for the `shell_out` method is as follows:
 
-``` ruby
+```ruby
 shell_out(command_args)
 ```
 
@@ -14193,7 +14457,7 @@ and then raise an error when the method returns `false`.
 
 The syntax for the `shell_out!` method is as follows:
 
-``` ruby
+```ruby
 shell_out!(command_args)
 ```
 
@@ -14208,7 +14472,7 @@ environment variable.
 
 The syntax for the `shell_out_with_systems_locale` method is as follows:
 
-``` ruby
+```ruby
 shell_out_with_systems_locale(command_args)
 ```
 
@@ -14220,7 +14484,7 @@ The `value_for_platform` helper may use version constraints, such as
 `>=` and `~>` to help resolve situations where version numbers look like
 `7.0.<buildnumber>`. For example:
 
-``` ruby
+```ruby
 value_for_platform(
   "redhat" => {
     "~> 7.0" => "version 7.x.y"
@@ -14251,7 +14515,7 @@ and the source attribute. The first pattern that matches is used:
 Use an array with the `source` attribute to define an explicit lookup
 path. For example:
 
-``` ruby
+```ruby
 file '/conf.py' do
   source ["#{node.chef_environment}.py", 'conf.py']
 end
@@ -14259,7 +14523,7 @@ end
 
 or:
 
-``` ruby
+```ruby
 template '/test' do
   source ["#{node.chef_environment}.erb", 'default.erb']
 end
@@ -14299,7 +14563,7 @@ length of the shadow hash value is 68 bytes, the salt value is the first
 4 bytes, with the remaining 64 being the shadow hash itself. The
 following code will calculate password shadow hashes for macOS 10.7:
 
-``` ruby
+```ruby
 password = 'my_awesome_password'
 salt = OpenSSL::Random.random_bytes(4)
 encoded_password = OpenSSL::Digest::SHA512.hexdigest(salt + password)
@@ -14308,7 +14572,7 @@ shadow_hash = salt.unpack('H*').first + encoded_password
 
 Use the calculated password shadow hash with the **user** resource:
 
-``` ruby
+```ruby
 user 'my_awesome_user' do
   password 'c9b3bd....d843'  # Length: 136
 end
@@ -14322,7 +14586,7 @@ the salt value is 32 bytes, and an integer specifies the number of
 iterations. The following code will calculate password shadow hashes for
 macOS 10.8 (and higher):
 
-``` ruby
+```ruby
 password = 'my_awesome_password'
 salt = OpenSSL::Random.random_bytes(32)
 iterations = 25000 # Any value above 20k should be fine.
@@ -14339,7 +14603,7 @@ salt_value = salt.unpack('H*').first
 
 Use the calculated password shadow hash with the **user** resource:
 
-``` ruby
+```ruby
 user 'my_awesome_user' do
   password 'cbd1a....fc843'  # Length: 256
   salt 'bd1a....fc83'        # Length: 64
@@ -14416,7 +14680,7 @@ Prior to chef-client 12.0, this functionality was available from the
 The syntax for the `search` method that uses `:filter_result` is as
 follows:
 
-``` ruby
+```ruby
 search(:index, 'query',
   :filter_result => { 'foo' => [ 'abc' ],
                       'bar' => [ '123' ],
@@ -14440,7 +14704,7 @@ where:
 
 For example:
 
-``` ruby
+```ruby
 search(:node, 'role:web',
   :filter_result => { 'name' => [ 'name' ],
                       'ip' => [ 'ipaddress' ],
@@ -14508,7 +14772,7 @@ For example, the `lvm_logical_volume` custom resource from the [lvm
 cookbook](https://github.com/chef-cookbooks/lvm/blob/master/libraries/provider_lvm_logical_volume.rb)
 uses the **directory** and **mount** resources:
 
-``` ruby
+```ruby
 class Chef
   class Provider
     class LvmLogicalVolume < Chef::Provider
@@ -14564,7 +14828,7 @@ a cookbook should:
 
 For example:
 
-``` ruby
+```ruby
 class Chef
   class Provider
     class LvmLogicalVolume < Chef::Provider::LWRPBase
@@ -14619,13 +14883,13 @@ Chef server.
 For example, without downloading the SSL certificate, the following
 knife command:
 
-``` bash
+```bash
 knife client list
 ```
 
 responds with an error similar to:
 
-``` bash
+```bash
 ERROR: SSL Validation failure connecting to host: chef-server.example.com ...
 ERROR: OpenSSL::SSL::SSLError: SSL_connect returned=1 errno=0 state=SSLv3 ...
 ```

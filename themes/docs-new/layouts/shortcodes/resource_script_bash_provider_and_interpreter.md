@@ -1,4 +1,4 @@
-``` ruby
+```ruby
 bash 'install_something' do
   user 'root'
   cwd '/tmp'

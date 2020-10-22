@@ -9,7 +9,7 @@ configuration file and does the following:
 
 <!-- -->
 
-``` ruby
+```ruby
 # the following code sample is similar to the ``upload_progress_module``
 # recipe in the ``nginx`` cookbook:
 # https://github.com/chef-cookbooks/nginx
@@ -20,7 +20,7 @@ src_filename = "foo123-nginx-module-v#{
 src_filepath = "#{Chef::Config['file_cache_path']}/#{src_filename}"
 extract_path = "#{
   Chef::Config['file_cache_path']
-  }/nginx_foo123_module/#{
+}/nginx_foo123_module/#{
   node['nginx']['foo123']['checksum']
 }"
 

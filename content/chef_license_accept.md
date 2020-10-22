@@ -105,8 +105,8 @@ required to accept the license for all the embedded products as well.
 The same license applies to all products, but each product must have its
 own license acceptance. `chef <command> --chef-license accept` will
 accept the license for Chef Workstation, Chef Infra Client, Chef InSpec,
-and Push Jobs Client. For example, <span class="title-ref">chef env
---chef-license accept</span>
+and Push Jobs Client. For example, `chef env
+--chef-license accept`.
 
 #### Chef Infra Client
 
@@ -289,7 +289,7 @@ locally.
 
 You can pin to a specific version of chef in your kitchen.yml:
 
-``` none
+```none
 provisioner:
   name: chef_zero
   product_name: chef
@@ -323,7 +323,7 @@ Workstation \<= 0.3 installed.
 
 Specify the following argument:
 
-``` bash
+```bash
 knife bootstrap --bootstrap-version 14.12.3
 ```
 
@@ -340,7 +340,7 @@ pass the `--chef-license` command line flag, set the `CHEF_LICENSE`
 environment variable, or add the following to your
 `~/.chef-workstation/config.toml` file:
 
-``` none
+```none
 [chef]
 chef_license = "accept"
 ```
@@ -351,7 +351,7 @@ Use a custom [Chef configuration
 template](https://www.packer.io/docs/provisioners/chef-client.html#chef-configuration).
 In your provisioners config, include:
 
-``` json
+```json
 {
   "type":            "chef-client",
   "config_template": "path/to/client.rb"
@@ -360,8 +360,8 @@ In your provisioners config, include:
 
 In `path/to/client.rb`, include:
 
-``` ruby
-chef_license "accept"
+```ruby
+chef_license 'accept'
 ```
 
 You may also add it to the
@@ -374,7 +374,7 @@ In your [Packer provisioners
 config](https://www.packer.io/docs/provisioners/chef-client.html#install_command),
 include:
 
-``` json
+```json
 {
   "type":            "chef-client",
   "install_command": "curl -L https://omnitruck.chef.io/install.sh | sudo bash -s -- -v 14.12.9"
@@ -387,7 +387,7 @@ The license can be accepted via the Chef Infra Client config file, which
 is specified by the `client_options` [Terraform provisioner
 config](https://www.terraform.io/docs/provisioners/chef.html#client_options-array-):
 
-``` none
+```none
 provisioner "chef" {
   client_options = ["chef_license 'accept'"]
 }
@@ -399,7 +399,7 @@ In your [Terraform provisioner
 config](https://www.terraform.io/docs/provisioners/chef.html#version-string-),
 include:
 
-``` none
+```none
 provisioner "chef" {
   version = "14.12.3"
 }
@@ -420,7 +420,7 @@ In your [Terraform provisioner
 config](https://www.terraform.io/docs/provisioners/habitat.html#version-string-),
 include:
 
-``` none
+```none
 provisioner "habitat" {
   version = "0.79.1"
 }
@@ -430,9 +430,9 @@ provisioner "habitat" {
 
 This license acceptance can be done via the arguments API:
 
-``` ruby
-config.vm.provision "chef_zero" do |chef|
-  chef.arguments = "--chef-license accept"
+```ruby
+config.vm.provision 'chef_zero' do |chef|
+  chef.arguments = '--chef-license accept'
 end
 ```
 
@@ -451,9 +451,9 @@ This version pinning can be done via the [version
 API](https://www.vagrantup.com/docs/provisioning/chef_common.html#version).
 In your Chef provisioner config:
 
-``` ruby
-config.vm.provision "chef_zero" do |chef|
-  chef.version = "14.12.3"
+```ruby
+config.vm.provision 'chef_zero' do |chef|
+  chef.version = '14.12.3'
 end
 ```
 

@@ -1,6 +1,5 @@
 ---
 resource_reference: true
-properties_shortcode:
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
@@ -25,7 +24,7 @@ resource_new_in: null
 handler_types: false
 syntax_description: "A **http_request** resource block sends HTTP requests with an\
   \ arbitrary\nmessage. For example, send a `DELETE` request to\n`'http://www.chef.io/some_page?message=please_delete_me'`.\n\
-  \n``` ruby\nhttp_request 'please_delete_me' do\n  url 'http://www.chef.io/some_page'\n\
+  \n```ruby\nhttp_request 'please_delete_me' do\n  url 'http://www.chef.io/some_page'\n\
   \  action :delete\nend\n```"
 syntax_code_block: null
 syntax_properties_list: null
@@ -84,16 +83,16 @@ properties_list:
   new_in: null
   description_list:
   - markdown: The URL to which an HTTP request is sent.
-examples: "\n  Send a GET request\n\n  ``` ruby\n  http_request 'some_message' do\n\
+examples: "\n  Send a GET request\n\n  ```ruby\n  http_request 'some_message' do\n\
   \    url 'http://example.com/check_in'\n  end\n  ```\n\n  The message is sent as\n\
   \  `http://example.com/check_in?message=some_message`.\n\n  Send a POST request\n\
   \n  To send a `POST` request as JSON data, convert the message to JSON and\n  include\
-  \ the correct content-type header. For example:\n\n  ``` ruby\n  http_request 'posting\
+  \ the correct content-type header. For example:\n\n  ```ruby\n  http_request 'posting\
   \ data' do\n    action :post\n    url 'http://example.com/check_in'\n    message\
   \ ({:some => 'data'}.to_json)\n    headers({'AUTHORIZATION' => \"Basic #{\n    \
   \  Base64.encode64('username:password')}\",\n      'Content-Type' => 'application/data'\n\
   \    })\n  end\n  ```\n\n  Transfer a file only when the remote source changes\n\
-  \n  ``` ruby\n  remote_file '/tmp/couch.png' do\n    source 'http://couchdb.apache.org/img/sketch.png'\n\
+  \n  ```ruby\n  remote_file '/tmp/couch.png' do\n    source 'http://couchdb.apache.org/img/sketch.png'\n\
   \    action :nothing\n  end\n\n  http_request 'HEAD http://couchdb.apache.org/img/sketch.png'\
   \ do\n    message ''\n    url 'http://couchdb.apache.org/img/sketch.png'\n    action\
   \ :head\n    if ::File.exist?('/tmp/couch.png')\n      headers 'If-Modified-Since'\

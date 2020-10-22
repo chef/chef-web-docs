@@ -18,6 +18,48 @@ aliases = ["/install_bootstrap.html"]
 
 {{% chef_client_bootstrap_stages %}}
 
+## Minimum Recommended Recipe Run-List on a Node
+
+You do not have to choose a complete recipe [run-list](/run_lists/) now if you are not sure which
+recipes you want to bootstrap a node with. When running Chef Infra Client 15.x, at a minimum
+we recommend adding the cron resource in the
+[chef-client cookbook](https://supermarket.chef.io/cookbooks/chef-client) to your run-list.
+This will help you control how and when the `chef-client` command will run and
+maintain your current configuration. Use the `-r` or `--run-list` option with the
+[`knife bootstrap`](/workstation/knife_bootstrap/) subcommand to set a run-list on a node, for example `-r recipe[myrecipe::cron]`.
+
+
+### Windows
+
+By default, Windows systems will run the chef-client cookbook as a
+scheduled task if your run-list looks like this: `recipe[chef-client::default]`.
+
+### Unix-like Clients
+
+Although it is not the default, you should configure Unix-like clients to run
+the chef-client cookbook as a scheduled task using either cronjob or systemd.
+
+**cronjob**
+
+For simplicity's sake or if you are running Chef Infra Client
+15.x, you should run a cronjob. Call the `chef_client_cron` resource
+and set the `:add` action in your own recipe for your initial run-list.
+In Chef Infra Client 16.x, do the same but you will not need the chef-client
+cookbook as the resource is available natively.
+
+**systemd**
+
+Use systemd if you are already comfortable with it and it is available
+and active on your system. For Chef Infra Client 15.x, choose the
+`recipe[chef-client::default]` recipe for your initial
+run-list and be sure the `node['chef_client']['systemd']['timer'] = true` attribute
+is set. For Chef Infra Client 16.x, use the native `chef_client_systemd_timer`
+resource with the `:add` action in your own recipe and set that recipe as your
+initial run-list.
+
+See the [chef-client cookbook repository](https://github.com/chef-cookbooks/chef-client)
+for more details on configuration.
+
 ## knife bootstrap
 
 {{% install_chef_client %}}
@@ -48,7 +90,7 @@ describe how to bootstrap a node using knife.
 
     In a command window, enter the following:
 
-    ``` bash
+    ```bash
     knife bootstrap 172.16.1.233 -U USERNAME --sudo
     ```
 
@@ -60,7 +102,7 @@ describe how to bootstrap a node using knife.
     Then while the bootstrap operation is running, the command
     window will show something similar to the following:
 
-    ``` bash
+    ```bash
     Enter password for ubuntu@172.16.1.233:
 
     Connecting to 172.16.1.233
@@ -117,7 +159,7 @@ describe how to bootstrap a node using knife.
     recognized by the Chef Infra Server. To show only the node that was
     just bootstrapped, run the following command:
 
-    ``` bash
+    ```bash
     knife client show NAME_OF_NODE
     ```
 
@@ -125,7 +167,7 @@ describe how to bootstrap a node using knife.
     bootstrapped. The Chef Infra Server will return something similar
     to:
 
-    ``` bash
+    ```bash
     admin:     false
     chef_type: client
     name:      NODE_NAME
@@ -135,13 +177,13 @@ describe how to bootstrap a node using knife.
     and to show the full list of nodes (and workstations) that are
     registered with the Chef Infra Server, run the following command:
 
-    ``` bash
+    ```bash
     knife client list
     ```
 
     The Chef Infra Server will return something similar to:
 
-    ``` bash
+    ```bash
     workstation1
     workstation2
     ...
@@ -199,7 +241,7 @@ access to the vault. (The `-S` search query option with the
 
 The following example shows how to recreate a data bag item:
 
-``` bash
+```bash
 knife vault delete sea power
 Do you really want to delete sea/power? (Y/N) Y
 Deleted chef_vault_item[sea/power]
@@ -218,7 +260,7 @@ vault.
 At this time, only the users `sean_horn` and `angle` are authorized to
 read and manage the vault.
 
-``` bash
+```bash
 knife vault show sea power  --mode client -p all
 admins:
   sean_horn
@@ -231,7 +273,7 @@ some:         content for them
 
 It is definitely an encrypted databag, see?
 
-``` bash
+```bash
 knife data_bag show sea power
 WARNING: Encrypted data bag detected, but no secret provided for decoding.  Displaying encrypted data.
 id:   power
@@ -248,7 +290,7 @@ version:        1
 Use the `sea:power` recreation step above first, to follow the
 difference in the vault permissions.
 
-``` bash
+```bash
 echo "{\"sea\":\"power\"}" > sea-power-bootstrap-vault-file.json
 
 knife bootstrap localhost -p 2200 -N ubuntu-20.04 -r 'role[group1]' --connection-user vagrant --sudo --bootstrap-vault-file sea-power-bootstrap-vault-file.json
@@ -277,7 +319,7 @@ localhost Chef Client finished, 1/1 resources updated in 34.307257232 seconds
 The client `ubuntu-20.04` was added to the `chef-vault` during the
 bootstrap.
 
-``` bash
+```bash
 knife vault show sea power  --mode client -p all
 admins:
   sean_horn
@@ -293,7 +335,7 @@ some:         content for them
 Use the `sea:power` re-creation step above first, to follow the
 difference in the vault permissions.
 
-``` bash
+```bash
 knife bootstrap localhost -p 2200 -N ubuntu-20.04 -r 'role[group1]' --connection-user vagrant --sudo --bootstrap-vault-item sea:power
 Node ubuntu-20.04 exists, overwrite it? (Y/N) Y
 Client ubuntu-20.04 exists, overwrite it? (Y/N) Y
@@ -322,7 +364,7 @@ During the above run, the `sea:power` vault item was updated with the
 `ubuntu-20.04` client during the validatorless bootstrap. Previously, it
 only had the two admins authorized to view the content
 
-``` bash
+```bash
 knife vault show sea power -p all
 admins:
   sean_horn
@@ -337,7 +379,7 @@ Then, let's check the `ubuntu-20.04` client. The client itself can decrypt and r
 the encrypted databag contents as well using the embedded knife CLI in the Chef Infra
 Client package.
 
-``` bash
+```bash
 sudo /opt/chef/bin/knife vault show sea power -c /etc/chef/client.rb -M client -p all
 admins:
   sean_horn
@@ -356,7 +398,7 @@ databag item
 Use the `sea:power` re-creation step above first, to follow the
 difference in the vault permissions.
 
-``` bash
+```bash
 knife bootstrap localhost -p 2200 -N ubuntu-20.04 -r 'role[group1]' --connection-user vagrant --sudo --bootstrap-vault-json '{"sea": "power"}'
 Node ubuntu-20.04 exists, overwrite it? (Y/N) Y
 Client ubuntu-20.04 exists, overwrite it? (Y/N) Y
@@ -381,7 +423,7 @@ localhost Running handlers complete
 localhost Chef Client finished, 1/1 resources updated in 33.732784033 seconds
 ```
 
-``` bash
+```bash
 knife vault show sea power -M client -p all
 admins:
   sean_horn
@@ -429,7 +471,7 @@ bootstrapping Windows and Linux nodes.
 
 #### PowerShell User Data
 
-``` powershell
+```powershell
 ## Set host file so the instance knows where to find chef-server
 $hosts = "1.2.3.4 hello.example.com"
 $file = "C:\Windows\System32\drivers\etc\hosts"
@@ -467,7 +509,7 @@ C:\opscode\chef\bin\chef-client.bat -j C:\chef\first-boot.json
 
 #### Bash User Data
 
-``` bash
+```bash
 #!/bin/bash -xev
 
 # Do some chef pre-work

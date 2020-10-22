@@ -106,7 +106,7 @@ The following sections show approaches to working with recipes.
 The contents of a data bag can be loaded into a recipe. For example, a
 data bag named `apps` and a data bag item named `my_app`:
 
-``` javascript
+```javascript
 {
   "id": "my_app",
   "repository": "git://github.com/company/my_app.git"
@@ -115,13 +115,13 @@ data bag named `apps` and a data bag item named `my_app`:
 
 can be accessed in a recipe, like this:
 
-``` ruby
+```ruby
 my_bag = data_bag_item('apps', 'my_app')
 ```
 
 The data bag item's keys and values can be accessed with a Hash:
 
-``` ruby
+```ruby
 my_bag['repository'] #=> 'git://github.com/company/my_app.git'
 ```
 
@@ -138,7 +138,7 @@ actual secret as the third argument, rather than a path to the secret
 file. In this case, you can use `EncryptedDataBagItem.load_secret` to
 slurp the secret file contents and then pass them:
 
-``` ruby
+```ruby
 # inside your attribute file:
 # default[:mysql][:secretpath] = 'C:\\chef\\any_secret_filename'
 #
@@ -164,13 +164,13 @@ Declaring cookbook dependencies is not required with chef-solo.
 For example, if the following recipe is included in a cookbook named
 `my_app`:
 
-``` ruby
+```ruby
 include_recipe 'apache2::mod_ssl'
 ```
 
 Then the metadata.rb file for that cookbook would have:
 
-``` ruby
+```ruby
 depends 'apache2'
 ```
 
@@ -195,7 +195,7 @@ A variable uses an equals sign (`=`) to assign a value.
 
 To assign a value to a variable:
 
-``` ruby
+```ruby
 package_name = 'apache2'
 ```
 
@@ -206,7 +206,7 @@ the code that matches.
 
 To select a package name based on platform:
 
-``` ruby
+```ruby
 package 'apache2' do
   case node['platform']
   when 'centos', 'redhat', 'fedora', 'suse'
@@ -226,7 +226,7 @@ An if expression can be used to check for conditions (true or false).
 
 To check for condition only for Debian and Ubuntu platforms:
 
-``` ruby
+```ruby
 if platform?('debian', 'ubuntu')
   # do something if node['platform'] is debian or ubuntu
 else
@@ -242,7 +242,7 @@ of an if statement).
 
 To use an expression to execute when a condition returns a false value:
 
-``` ruby
+```ruby
 unless node['platform_version'] == '5.0'
   # do stuff on everything but 5.0
 end
@@ -258,7 +258,7 @@ by an index.
 
 To loop over an array of package names by platform:
 
-``` ruby
+```ruby
 ['apache2', 'apache2-mpm'].each do |p|
   package p
 end
@@ -272,7 +272,7 @@ an array). The syntax for a hash is: `key => "value"`.
 
 To loop over a hash of gem package names:
 
-``` ruby
+```ruby
 { 'fog' => '0.6.0', 'highline' => '1.6.0' }.each do |g, v|
   gem_package g do
     version v
@@ -296,7 +296,7 @@ There are two recipes: a default recipe (that has the same name as the
 cookbook) and a recipe named `mod_ssl`. The syntax that applies a recipe
 to a run-list is similar to:
 
-``` ruby
+```ruby
 {
   'run_list': [
   'recipe[cookbook_name::default_recipe]',
@@ -309,7 +309,7 @@ where `::default_recipe` is implied (and does not need to be specified).
 On a node, these recipes can be assigned to a node's run-list similar
 to:
 
-``` ruby
+```ruby
 {
   'run_list': [
   'recipe[apache2]',
@@ -322,19 +322,19 @@ to:
 
 Use knife to add a recipe to the run-list for a node. For example:
 
-``` bash
+```bash
 knife node run list add NODENAME "recipe[apache2]"
 ```
 
 More than one recipe can be added:
 
-``` bash
+```bash
 % knife node run list add NODENAME "recipe[apache2],recipe[mysql],role[ssh]"
 ```
 
 which creates a run-list similar to:
 
-``` ruby
+```ruby
 run_list:
    recipe[apache2]
    recipe[mysql]
@@ -348,7 +348,7 @@ cookbook in which the recipe is located is available to the system on
 which chef-solo is running. For example, a file named `dna.json`
 contains the following details:
 
-``` none
+```none
 {
   "run_list": ["recipe[apache2]"]
 }
@@ -356,7 +356,7 @@ contains the following details:
 
 To add the run-list to the node, enter the following:
 
-``` bash
+```bash
 sudo chef-solo -j /etc/chef/dna.json
 ```
 
@@ -367,7 +367,7 @@ sudo chef-solo -j /etc/chef/dna.json
 The results of a search query can be loaded into a recipe. For example,
 a very simple search query (in a recipe) might look like this:
 
-``` ruby
+```ruby
 search(:node, 'attribute:value')
 ```
 
@@ -376,7 +376,7 @@ recipe. For example, to search for all nodes that have a role assignment
 named `webserver`, and then render a template which includes those role
 assignments:
 
-``` ruby
+```ruby
 webservers = search(:node, 'role:webserver')
 
 template '/tmp/list_of_webservers' do
@@ -403,8 +403,6 @@ this:
     triggering an unhandled exception
 -   Use a `rescue` block in Ruby code
 -   Use an [exception handler](/handlers/)
--   Use `Chef::Application.fatal!` to log a fatal message to the logger
-    and `STDERR`, and then stop a Chef Infra Client run
 
 The following sections show various approaches to ending a Chef Infra
 Client run.
@@ -414,7 +412,7 @@ Client run.
 The `return` keyword can be used to stop processing a recipe based on a
 condition, but continue processing a Chef Infra Client run. For example:
 
-``` ruby
+```ruby
 file '/tmp/name_of_file' do
   action :create
 end
@@ -432,24 +430,23 @@ approach is useful when there is no need to continue processing, such as
 when a package cannot be installed. In this situation, it's OK for a
 recipe to stop processing.
 
-#### fail/raise Keywords
+#### raise Keyword
 
 In certain situations it may be useful to stop a Chef Infra Client run
-entirely by using an unhandled exception. The `raise` and `fail`
-keywords can be used to stop a Chef Infra Client run in both the compile
-and execute phases.
+entirely by using an unhandled exception. The `raise` keyword can be used
+to stop a Chef Infra Client run in both the compile and execute phases.
 
 {{< note >}}
 
-Both `raise` and `fail` behave the same way when triggering unhandled
-exceptions and may be used interchangeably.
+You may also see code that uses the `fail` keyword, which behaves the same
+but is discouraged and will result in Cookstyle warnings.
 
 {{< /note >}}
 
 Use these keywords in a recipe---but outside of any resource blocks---to
 trigger an unhandled exception during the compile phase. For example:
 
-``` ruby
+```ruby
 file '/tmp/name_of_file' do
   action :create
 end
@@ -467,24 +464,24 @@ unhandled exception.
 Use these keywords in the **ruby_block** resource to trigger an
 unhandled exception during the execute phase. For example:
 
-``` ruby
+```ruby
 ruby_block "name" do
   block do
     # Ruby code with a condition, e.g. if ::File.exist?(::File.join(path, "/tmp"))
-    fail "message"  # e.g. "Ordering issue with file path, expected foo"
+    raise "message"  # e.g. "Ordering issue with file path, expected foo"
   end
 end
 ```
 
 Use these keywords in a class. For example:
 
-``` ruby
+```ruby
 class CustomError < StandardError; end
 ```
 
 and then later on:
 
-``` ruby
+```ruby
 def custom_error
   raise CustomError, "error message"
 end
@@ -492,9 +489,9 @@ end
 
 or:
 
-``` ruby
+```ruby
 def custom_error
-  fail CustomError, "error message"
+  raise CustomError, "error message"
 end
 ```
 
@@ -505,7 +502,7 @@ handle error conditions using the `rescue` block.
 
 For example:
 
-``` ruby
+```ruby
 begin
   dater = data_bag_item(:basket, 'flowers')
 rescue Net::HTTPClientException
@@ -521,35 +518,6 @@ to try to retry or otherwise handle the situation. If the `rescue` block
 is unable to handle the situation, then the `raise` keyword is used to
 specify the message to be raised.
 
-#### Fatal Messages
-
-A Chef Infra Client run is stopped after a fatal message is sent to the
-logger and `STDERR`. For example:
-
-``` ruby
-Chef::Application.fatal!("log_message", error_code) if condition
-```
-
-where `condition` defines when a `"log_message"` and an `error_code` are
-sent to the logger and `STDERR`, after which Chef Infra Client will
-exit. The `error_code` itself is arbitrary and is assigned by the
-individual who writes the code that triggers the fatal message.
-Assigning an error code is optional, but they can be useful during log
-file analysis.
-
-This approach is used within Chef Infra Client itself to help ensure
-consistent messaging around certain behaviors. That said, this approach
-is not recommended for use within recipes and cookbooks and should only
-be used when the other approaches are not applicable.
-
-{{< note >}}
-
-This approach should be used carefully when Chef Infra Client is run as
-a daemonized service. Some services---such as a runit service---should
-restart, but others---such as an init.d services---likely will not.
-
-{{< /note >}}
-
 ### node.run_state
 
 Use `node.run_state` to stash transient data during a Chef Infra Client
@@ -561,7 +529,7 @@ For example, the following recipe will install the Apache web server,
 randomly choose PHP or Perl as the scripting language, and then install
 that scripting language:
 
-``` ruby
+```ruby
 package 'httpd' do
   action :install
 end
@@ -598,7 +566,7 @@ where:
 When this recipe runs, Chef Infra Client will print something like the
 following:
 
-``` bash
+```bash
 * ruby_block[randomly_choose_language] action run
  - execute the ruby block randomly_choose_language
 

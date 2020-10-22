@@ -1,0 +1,20 @@
+// Styling for Foundation Tabs Shortcodes:
+// foundation_tabs, foundation_tab, foundation_tabs_panels, foundation_tabs_panel
+
+#main-content{
+  ul.tabs{
+    border: 2px solid $border;
+    border-bottom: 1px solid $border;
+    margin-bottom: 0;
+    li:before {
+      content: none;
+    }
+  }
+  
+  .tabs-content {
+    padding: 1rem;
+    margin-bottom: 2rem;
+    border: 2px solid $border;
+    border-top: 0;
+  }
+}

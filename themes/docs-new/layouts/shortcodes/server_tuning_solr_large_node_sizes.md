@@ -35,14 +35,14 @@ greater than the expected node file sizes:
 Use the `wc` command to get the byte count of a large node object file.
 For example:
 
-``` bash
+```bash
 wc -c NODE_NAME.json
 ```
 
 and then ensure there is a buffer beyond that value. For example, verify
 the size of the largest node object file:
 
-``` bash
+```bash
 wc -c nodebsp2016.json
 ```
 
@@ -54,6 +54,6 @@ If you don't have a node object file available then you can get an
 approximate size of the node data by running the following command on a
 node.
 
-``` bash
+```bash
 ohai | wc -c
 ```

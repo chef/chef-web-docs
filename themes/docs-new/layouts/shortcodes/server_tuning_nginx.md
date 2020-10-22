@@ -18,7 +18,7 @@ Infra Server to use SSL certificates:
     secure connection. To favor AES256 with ECDHE forward security, drop
     the `RC4-SHA:RC4-MD5:RC4:RSA` prefix. For example:
 
-    ``` ruby
+    ```ruby
     nginx['ssl_ciphers'] =  "HIGH:MEDIUM:!LOW:!kEDH: \
                              !aNULL:!ADH:!eNULL:!EXP: \
                              !SSLv2:!SEED:!CAMELLIA: \
@@ -37,8 +37,8 @@ Infra Server to use SSL certificates:
     disable SSL 3.0 and allow all versions of the TLS protocol. For
     example:
 
-    ``` ruby
-    nginx['ssl_protocols'] = "TLSv1 TLSv1.1 TLSv1.2"
+    ```ruby
+    nginx['ssl_protocols'] = 'TLSv1 TLSv1.1 TLSv1.2'
     ```
 
 <div class="admonition-note">
@@ -64,9 +64,9 @@ files, and then (optionally) update the `nginx['ssl_ciphers']` and
 `nginx['ssl_protocols']` settings to reflect the desired level of
 hardness for the Chef Infra Server:
 
-``` ruby
-nginx['ssl_certificate'] = "/etc/pki/tls/private/name.of.pem"
-nginx['ssl_certificate_key'] = "/etc/pki/tls/private/name.of.key"
-nginx['ssl_ciphers'] = "HIGH:MEDIUM:!LOW:!kEDH:!aNULL:!ADH:!eNULL:!EXP:!SSLv2:!SEED:!CAMELLIA:!PSK"
-nginx['ssl_protocols'] = "TLSv1 TLSv1.1 TLSv1.2"
+```ruby
+nginx['ssl_certificate'] = '/etc/pki/tls/private/name.of.pem'
+nginx['ssl_certificate_key'] = '/etc/pki/tls/private/name.of.key'
+nginx['ssl_ciphers'] = 'HIGH:MEDIUM:!LOW:!kEDH:!aNULL:!ADH:!eNULL:!EXP:!SSLv2:!SEED:!CAMELLIA:!PSK'
+nginx['ssl_protocols'] = 'TLSv1 TLSv1.1 TLSv1.2'
 ```

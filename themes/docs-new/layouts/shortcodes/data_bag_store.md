@@ -11,7 +11,7 @@ The `data_bags` directory can be placed under version source control.
 When deploying from a private repository using a data bag, use the
 `deploy_key` option to ensure the private key is present:
 
-``` ruby
+```ruby
 {
   'id': 'my_app',
   ... (truncated) ...

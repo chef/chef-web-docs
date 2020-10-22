@@ -33,7 +33,7 @@ This configuration file has the following settings:
     Chef Infra Server. For example, specify protocol version 1.3 to
     enable support for SHA-256 algorithms:
 
-    ``` ruby
+    ```ruby
     knife[:authentication_protocol_version] = '1.3'
     ```
 
@@ -89,7 +89,7 @@ This configuration file has the following settings:
 
 :   The URL for the Chef Infra Server. For example:
 
-    ``` ruby
+    ```ruby
     https://localhost/organizations/ORG_NAME
     ```
 
@@ -263,8 +263,7 @@ This configuration file has the following settings:
 `exit_status`
 
 :   When set to `:enabled`, Chef Infra Client will use [standardized
-    exit
-    codes](https://github.com/chef/chef-rfc/blob/master/rfc062-exit-status.md#exit-codes-in-use)
+    exit codes](https://github.com/chef/chef/blob/master/docs/dev/design_documents/client_exit_codes.md#exit-codes-in-use)
     for the Chef Infra Client run status, and any non-standard exit
     codes will be converted to `1` or `GENERIC_FAILURE`. This setting
     can also be set to `:disabled` to use the pre-Chef Infra Client 13
@@ -344,7 +343,7 @@ This configuration file has the following settings:
 :   Additional options to pass to bundler when installing metadata for
     cookbook. Default value: `nil`. For example
 
-    ``` ruby
+    ```ruby
     gem_installer_bundler_options = [
       "--local", "--clean"
     ]
@@ -352,7 +351,7 @@ This configuration file has the following settings:
 
     or
 
-    ``` ruby
+    ```ruby
     gem_installer_bundler_options = "--local"
     ```
 
@@ -394,8 +393,11 @@ This configuration file has the following settings:
 
 `interval`
 
-:   The frequency (in seconds) at which Chef Infra Client runs. Default
-    value: `1800`.
+:   The frequency (in seconds) at which Chef Infra Client runs when running
+    in daemonized mode. We do not recommend running
+    in daemonized mode. Instead you should rely on scheduled
+    execution from system schedulers like systemd timers,
+    cron jobs, or Windows Scheduled Tasks. Default value: `1800`.
 
 `json_attribs`
 
@@ -430,9 +432,9 @@ This configuration file has the following settings:
 `log_level`
 
 :   The level of logging to be stored in a log file. Possible levels:
-    `:auto` (default), `:trace`(starting in 14.0.202), `:debug`, `:info`, `:warn`, `:error`,
-    or `:fatal`. Default value: `:warn` (when a terminal is available)
-    or `:info` (when a terminal is not available).
+    `:auto` (default), `:trace`, `:debug`, `:info`, `:warn`, `:error`,
+    or `:fatal`. The `:auto` level will use `:warn` when a terminal is
+    available or `:info` when a terminal is not available.
 
 `log_location`
 
@@ -444,13 +446,16 @@ This configuration file has the following settings:
 
 `minimal_ohai`
 
-:   Run the Ohai plugins for name detection and resource/provider
-    selection and no other Ohai plugins. Set to `true` during
-    integration testing to speed up test cycles.
+:   Run a minimal set of Ohai plugins providing data necessary for the
+    execution of Chef Infra Client's built-in resources. Setting this
+    to true will skip many large and time consuming plugins such as
+    `cloud` or `packages`. Setting this to true may break cookbooks
+    that assume all Ohai data will be present.
 
 `named_run_list`
 
-:   The run-list associated with a policy file.
+:   A specific named runlist defined in the node's applied Policyfile
+    which should be used when running Chef Infra Client.
 
 `no_lazy_load`
 
@@ -464,11 +469,11 @@ This configuration file has the following settings:
 
 `node_name`
 
-:   The name of the node. Determines which configuration should be
+:   The unique identifier of the node. This determines which configuration should be
     applied and sets the `client_name`, which is the name used when
-    authenticating to a Chef Infra Server. The default value is the Chef
-    Infra Client FQDN, as detected by Ohai. In general, Chef recommends
-    that you leave this setting blank and let Ohai assign the FQDN of
+    authenticating to a Chef Infra Server. By default, Chef Infra Client
+    will use the system's FQDN as the node name. In general, Chef recommends
+    that you leave this setting blank and let the client assign the FQDN of
     the node as the `node_name` during each Chef Infra Client run.
 
 `node_path`
@@ -681,7 +686,7 @@ This configuration file has the following settings:
 :   A hash that contains the whitelist of allowed commands used by Chef
     Push Jobs. For example:
 
-    ``` ruby
+    ```ruby
     whitelist {
       'job-name' => 'command',
       'job-name' => 'command',
@@ -709,12 +714,9 @@ This configuration file has the following settings:
 
 ## Example
 
-A sample client.rb file that contains the most simple way to connect to
-<https://manage.chef.io>:
+A sample client.rb file that contains the most simple way to connect to Hosted Chef
 
-``` ruby
-log_level        :info
-log_location     STDOUT
+```ruby
 chef_server_url  'https://api.chef.io/organizations/<orgname>'
 validation_client_name '<orgname>-validator'
 validation_key '/etc/chef/validator.pem'

@@ -42,12 +42,12 @@ not support subclassing).
 
 in `resources/whatever.rb`:
 
-``` ruby
+```ruby
 resource_name :my_resource
 provides :my_resource
 
 property :foo, String, name_property: true
-extend MyResourceHelperFunctions  # probably only used for common properties which is why you extend with class methods
+extend MyResourceHelperFunctions # probably only used for common properties which is why you extend with class methods
 
 action :run do
   # helpers must be defined inside the action_class block
@@ -75,17 +75,17 @@ code sharing (which is good).
 
 in `resources/my_resource.rb`:
 
-``` ruby
+```ruby
 resource_name :my_resource
 provides :my_resource
 
 property :foo, String, name_property: true
-extend MyResourceHelperFunctions  # probably only used for common properties which is why you extend with class methods
+extend MyResourceHelperFunctions # probably only used for common properties which is why you extend with class methods
 ```
 
 in `providers/my_resource.rb`:
 
-``` ruby
+```ruby
 # you have to worry about this
 def whyrun_supported?
   true
@@ -98,6 +98,7 @@ end
 
 action :run do
   a_helper()
+
   # here you have to use new_resource.foo
   puts new_resource.foo
 end
@@ -124,15 +125,15 @@ actually behind the curve and are bad code examples.
 
 in `libraries/resource_my_resource.rb`:
 
-``` ruby
+```ruby
 class MyBaseClass
   class Resource
-    class MyResource < Chef::Resource::LWRPBase  # it is very important to inherit from LWRPBase
+    class MyResource < Chef::Resource::LWRPBase # it is very important to inherit from LWRPBase
       resource_name :my_resource
       provides :my_resource
 
       property :foo, String, name_property: true
-      extend MyResourceHelperFunctions  # probably only used for common properties which is why you extend with class methods
+      extend MyResourceHelperFunctions # probably only used for common properties which is why you extend with class methods
     end
   end
 end
@@ -140,11 +141,10 @@ end
 
 in `libraries/resource_my_resource.rb`:
 
-``` ruby
+```ruby
 class MyBaseClass
   class Resource
-    class MyProvider < Chef::Provider::LWRPBase  # it is very important to inherit from LWRPBase
-
+    class MyProvider < Chef::Provider::LWRPBase # it is very important to inherit from LWRPBase
       # you have to worry about this
       def whyrun_supported?
         true
@@ -161,8 +161,9 @@ class MyBaseClass
       # but you're now using a chainsaw without any guard...
       action :run do
         a_helper()
-          # here you have to use new_resource.foo
-          puts new_resource.foo
+
+        # here you have to use new_resource.foo
+        puts new_resource.foo
       end
     end
   end
@@ -177,10 +178,10 @@ itself.
 
 THIS CODE IS WRONG:
 
-``` ruby
+```ruby
 action :run do
-  t = file "/tmp/foo" do
-    content "foo"
+  t = file '/tmp/foo' do
+    content 'foo'
   end
   t.run_action(:install)
   # This is Chef Client 10 code which fell through a timewarp into 2016 -- never use updated_by_last_action in modern Chef Client 11.x/12.x code
@@ -194,14 +195,14 @@ please stop writing actions this way.
 
 THIS IS CORRECT:
 
-``` ruby
+```ruby
 def whyrun_supported?
   true
 end
 
 action :run do
-  file "/tmp/foo" do
-    content "foo"
+  file '/tmp/foo' do
+    content 'foo'
   end
 end
 ```
@@ -224,15 +225,15 @@ what they would have done instead of doing it.
 If you do need to write code which mutates the system through pure-Ruby
 then you should do so like this:
 
-``` ruby
+```ruby
 def whyrun_supported?
   true
 end
 
 action :run do
-  unless File.exist?("/tmp/foo")
-    converge_by("touch /tmp/foo") do
-      ::FileUtils.touch "/tmp/foo"
+  unless ::File.exist?('/tmp/foo')
+    converge_by('touch /tmp/foo') do
+      ::FileUtils.touch '/tmp/foo'
     end
   end
 end
@@ -249,14 +250,14 @@ should wrap all `converge_by` checks with an idempotency check. The
 block may be used instead which will wrap a `converge_by` block with an
 idempotency check for you.
 
-``` ruby
+```ruby
 action :run do
   # This code is bad, it lacks an idempotency check here.
   # It will always be updated
   # Chef Infra Client runs will always report a resource being updated
   # It will run the code in the block on every run
-  converge_by("touch /tmp/foo") do
-    ::FileUtils.touch "/tmp/foo"
+  converge_by('touch /tmp/foo') do
+    ::FileUtils.touch '/tmp/foo'
   end
 end
 ```
@@ -264,19 +265,19 @@ end
 Of course it is vastly simpler to just use Chef Infra Client resources
 when you can. Compare the equivalent implementations:
 
-``` ruby
+```ruby
 action :run do
-  file "/tmp/foo"
+  file '/tmp/foo'
 end
 ```
 
 is basically the same as this:
 
-``` ruby
+```ruby
 action :run do
-  unless File.exist?("/tmp/foo")
-    converge_by("touch /tmp/foo") do
-      ::FileUtils.touch "/tmp/foo"
+  unless ::File.exist?('/tmp/foo')
+    converge_by('touch /tmp/foo') do
+      ::FileUtils.touch '/tmp/foo'
     end
   end
 end

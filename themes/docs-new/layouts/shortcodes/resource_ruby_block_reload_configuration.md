@@ -6,7 +6,7 @@ The following example shows how to reload the configuration of Chef Infra Client
 
 <!-- -->
 
-``` ruby
+```ruby
 directory 'node['ohai']['plugin_path']' do
   owner 'chef'
   recursive true

@@ -1,6 +1,6 @@
 For example, if a kitchen.yml file contains the following:
 
-``` javascript
+```javascript
 - name: centos-7
 - name: centos-8
 - name: fedora-latest

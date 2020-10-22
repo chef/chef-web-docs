@@ -148,7 +148,7 @@ with Policyfile, be sure to:
 Extra metadata about the cookbook is stored and included in Chef Infra
 Server API responses and in the `Policyfile.lock.json` file, including
 the source of a cookbook (Chef Supermarket, git, local disk, etc.), as
-well as any upstream idenfiers, such as git revisions. For cookbooks
+well as any upstream identifiers, such as git revisions. For cookbooks
 that are loaded from the local disk that are in a git repo, the upstream
 URL, current revision ID, and the state of the repo are stored also.
 
@@ -168,7 +168,7 @@ said, Policyfile does not replace all Berkshelf scenarios.
 The following knife commands used to set the policy group and policy
 name on the Chef Infra Server. For example:
 
-``` bash
+```bash
 knife node policy set test-node 'test-policy-group-name' 'test-policy-name'
 ```
 
@@ -243,14 +243,14 @@ nodes that are part of the `dev` policy group.
 Kitchen may be used to test Policyfile files. Add the following to
 kitchen.yml:
 
-``` yaml
+```yaml
 provisioner:
   name: chef_zero
 ```
 
 A named run-list may be used on a per-suite basis:
 
-``` yaml
+```yaml
 suites:
   - name: client
     provisioner:
@@ -262,7 +262,7 @@ suites:
 
 or globally:
 
-``` yaml
+```yaml
 provisioner:
   name: chef_zero
   named_run_list: integration_test_run_list
@@ -271,7 +271,7 @@ provisioner:
 or testing with policies per-suite, once the Policyfile files are
 available in your repo:
 
-``` yaml
+```yaml
 suites:
    - name: defaultmega
       provisioner:

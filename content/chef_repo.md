@@ -99,7 +99,7 @@ The chefignore file can be located in any subdirectory of a chef-repo:
 `/`, `/cookbooks`, `/cookbooks/COOKBOOK_NAME/`, etc. It should contain
 sections similar to the following:
 
-``` none
+```none
 ## section
 *ignore_pattern
 
@@ -129,13 +129,13 @@ Many text editors leave files behind. To prevent these files from being
 uploaded to the Chef Infra Server, add an entry to the chefignore file.
 For Emacs, do something like:
 
-``` none
+```none
 *~
 ```
 
 and for vim, do something like:
 
-``` none
+```none
 *.sw[a-z]
 ```
 
@@ -150,14 +150,14 @@ upload that includes top-level Subversion data could be significant.
 To prevent the upload of top-level Subversion data, add something like
 the following to the chefignore file:
 
-``` none
+```none
 */.svn/*
 ```
 
 To verify that the top-level Subversion data is not being uploaded to
 the Chef Infra Server, use knife and run a command similar to:
 
-``` bash
+```bash
 knife cookbook show name_of_cookbook cookbook_version | grep .svn
 ```
 
@@ -166,13 +166,13 @@ knife cookbook show name_of_cookbook cookbook_version | grep .svn
 The chefignore file can be used to ignore all of the files in a
 directory. For example:
 
-``` none
+```none
 files/default/subdirectory/*
 ```
 
 or:
 
-``` none
+```none
 files/default/subdirectory/**
 ```
 
@@ -187,7 +187,7 @@ to create your chef-repo directory along with the base folder structure.
 This command uses the `chef` command-line tool that is packaged as part
 of Chef Workstation to create a chef-repo.
 
-``` bash
+```bash
 chef generate repo REPO_NAME
 ```
 

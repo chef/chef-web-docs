@@ -29,13 +29,13 @@ long to get up to speed with the basics. For example, it's useful to
 know how to check the syntax of a Ruby file, such as the contents of a
 cookbook named `my_cookbook.rb`:
 
-``` bash
+```bash
 ruby -c my_cookbook_file.rb
 ```
 
 to return:
 
-``` bash
+```bash
 Syntax OK
 ```
 
@@ -44,7 +44,7 @@ Syntax OK
 Use a comment to explain code that exists in a cookbook or recipe.
 Anything after a `#` is a comment.
 
-``` ruby
+```ruby
 # This is a comment.
 ```
 
@@ -52,7 +52,7 @@ Anything after a `#` is a comment.
 
 Assign a local variable:
 
-``` ruby
+```ruby
 x = 1
 ```
 
@@ -60,7 +60,7 @@ x = 1
 
 Do some basic arithmetic:
 
-``` ruby
+```ruby
 1 + 2           # => 3
 2 * 7           # => 14
 5 / 2           # => 2   (because both arguments are whole numbers)
@@ -72,7 +72,7 @@ Do some basic arithmetic:
 
 Work with strings:
 
-``` ruby
+```ruby
 'single quoted'   # => "single quoted"
 "double quoted"   # => "double quoted"
 'It\'s alive!'    # => "It's alive!" (the \ is an escape character)
@@ -82,7 +82,7 @@ Work with strings:
 Convert a string to uppercase or lowercase. For example, a hostname
 named "Foo":
 
-``` ruby
+```ruby
 node['hostname'].downcase    # => "foo"
 node['hostname'].upcase      # => "FOO"
 ```
@@ -91,7 +91,7 @@ node['hostname'].upcase      # => "FOO"
 
 Embed Ruby in a string:
 
-``` ruby
+```ruby
 x = 'Bob'
 "Hi, #{x}"      # => "Hi, Bob"
 'Hello, #{x}'   # => "Hello, \#{x}" Notice that single quotes don't work with #{}
@@ -103,7 +103,7 @@ Use the backslash character (`\`) as an escape character when quotes
 must appear within strings. However, you do not need to escape single
 quotes inside double quotes. For example:
 
-``` ruby
+```ruby
 'It\'s alive!'                        # => "It's alive!"
 "Won\'t you read Grant\'s book?"      # => "Won't you read Grant's book?"
 ```
@@ -114,19 +114,19 @@ When strings have quotes within quotes, use double quotes (`" "`) on the
 outer quotes, and then single quotes (`' '`) for the inner quotes. For
 example:
 
-``` ruby
+```ruby
 Chef::Log.info("Loaded from aws[#{aws['id']}]")
 ```
 
-``` ruby
+```ruby
 "node['mysql']['secretpath']"
 ```
 
-``` ruby
+```ruby
 "#{ENV['HOME']}/chef.txt"
 ```
 
-``` ruby
+```ruby
 antarctica_hint = hint?('antarctica')
 if antarctica_hint['snow']
   "There are #{antarctica_hint['penguins']} penguins here."
@@ -139,7 +139,7 @@ end
 
 Work with basic truths:
 
-``` ruby
+```ruby
 true            # => true
 false           # => false
 nil             # => nil
@@ -154,7 +154,7 @@ nil             # => nil
 
 Work with basic untruths (`!` means not!):
 
-``` ruby
+```ruby
 !true           # => false
 !false          # => true
 !nil            # => true
@@ -166,7 +166,7 @@ Work with basic untruths (`!` means not!):
 
 Convert something to either true or false (`!!` means not not!!):
 
-``` ruby
+```ruby
 !!true          # => true
 !!false         # => false
 !!nil           # => false (when pressed, nil is false)
@@ -177,7 +177,7 @@ Convert something to either true or false (`!!` means not not!!):
 
 Create lists using arrays:
 
-``` ruby
+```ruby
 x = ['a', 'b', 'c']   # => ["a", "b", "c"]
 x[0]                  # => "a" (zero is the first index)
 x.first               # => "a" (see?)
@@ -195,7 +195,7 @@ requiring quotes and commas around the elements.
 
 For example:
 
-``` ruby
+```ruby
 if %w(debian ubuntu).include?(node['platform'])
   # do debian/ubuntu things with the Ruby array %w() shortcut
 end
@@ -212,7 +212,7 @@ various input formats). The following example uses a whitespace array
 and the Chef InSpec `file` audit resource to verify if these three tools
 are present:
 
-``` ruby
+```ruby
 %w(
   candle.exe
   heat.exe
@@ -229,16 +229,16 @@ end
 A Hash is a list with keys and values. Sometimes hashes don't have a set
 order:
 
-``` ruby
+```ruby
 h = {
   'first_name' => 'Bob',
-  'last_name'  => 'Jones'
+  'last_name'  => 'Jones',
 }
 ```
 
 And sometimes they do. For example, first name then last name:
 
-``` ruby
+```ruby
 h.keys              # => ["first_name", "last_name"]
 h['first_name']     # => "Bob"
 h['last_name']      # => "Jones"
@@ -251,7 +251,7 @@ h.values            # => ["Jones", "Bob", 23]
 
 Use Perl-style regular expressions:
 
-``` ruby
+```ruby
 'I believe'  =~ /I/                       # => 0 (matches at the first character)
 'I believe'  =~ /lie/                     # => 4 (matches at the 5th character)
 'I am human' =~ /bacon/                   # => nil (no match - bacon comes from pigs)
@@ -263,7 +263,7 @@ Use Perl-style regular expressions:
 
 Use conditions! For example, an `if` statement
 
-``` ruby
+```ruby
 if false
   # this won't happen
 elsif nil
@@ -275,7 +275,7 @@ end
 
 or a `case` statement:
 
-``` ruby
+```ruby
 x = 'dog'
 case x
 when 'fish'
@@ -298,7 +298,7 @@ else.
 
 For example, using an `if` statement with the `platform` node attribute:
 
-``` ruby
+```ruby
 if node['platform'] == 'ubuntu'
   # do ubuntu things
 end
@@ -313,7 +313,7 @@ as are required.
 For example, using a `case` statement with the `platform` node
 attribute:
 
-``` ruby
+```ruby
 case node['platform']
 when 'debian', 'ubuntu'
   # do debian/ubuntu things
@@ -325,7 +325,7 @@ end
 For example, using a `case` statement with the `platform_family` node
 attribute:
 
-``` ruby
+```ruby
 case node['platform_family']
 when 'debian'
   # do things on debian-ish platforms (debian, ubuntu, linuxmint)
@@ -338,7 +338,7 @@ end
 
 Call a method on something with `.method_name()`:
 
-``` ruby
+```ruby
 x = 'My String'
 x.split(' ')            # => ["My", "String"]
 x.split(' ').join(', ') # => "My, String"
@@ -348,12 +348,12 @@ x.split(' ').join(', ') # => "My, String"
 
 Define a method (or a function, if you like):
 
-``` ruby
-def do_something_useless( first_argument, second_argument)
+```ruby
+def do_something_useless(first_argument, second_argument)
   puts "You gave me #{first_argument} and #{second_argument}"
 end
 
-do_something_useless( 'apple', 'banana')
+do_something_useless('apple', 'banana')
 # => "You gave me apple and banana"
 do_something_useless 1, 2
 # => "You gave me 1 and 2"
@@ -365,11 +365,11 @@ do_something_useless 1, 2
 Use the Ruby `File` class in a recipe. Because Chef has the **file**
 resource, use `File` to use the Ruby `File` class. For example:
 
-``` ruby
+```ruby
 execute 'apt-get-update' do
   command 'apt-get update'
   ignore_failure true
-  not_if { File.exist?('/var/lib/apt/periodic/update-success-stamp') }
+  not_if { ::File.exist?('/var/lib/apt/periodic/update-success-stamp') }
 end
 ```
 
@@ -377,8 +377,8 @@ end
 
 Use `:include` to include another Ruby class. For example:
 
-``` ruby
-::Chef::Recipe.send(:include, Opscode::OpenSSL::Password)
+```ruby
+::Chef::DSL::Recipe.include MyCookbook::Helpers
 ```
 
 In non-Chef Ruby, the syntax is `include` (without the `:` prefix), but
@@ -392,7 +392,7 @@ The `include?` method can be used to ensure that a specific parameter is
 included before an action is taken. For example, using the `include?`
 method to find a specific parameter:
 
-``` ruby
+```ruby
 if %w(debian ubuntu).include?(node['platform'])
   # do debian/ubuntu things
 end
@@ -400,8 +400,8 @@ end
 
 or:
 
-``` ruby
-if %w{rhel}.include?(node['platform_family'])
+```ruby
+if %w(rhel).include?(node['platform_family'])
   # do RHEL things
 end
 ```
@@ -440,15 +440,6 @@ SecondMarket, use `sm` as a prefix: `sm_postgresql` or `sm_httpd`.
 -   Always update CHANGELOG.md with any changes, with the JIRA ticket
     and a brief description.
 
-### Cookbook Patterns
-
-Good cookbook examples:
-
--   <https://github.com/chef-cookbooks/tomcat>
--   <https://github.com/chef-cookbooks/apparmor>
--   <https://github.com/chef-cookbooks/mysql>
--   <https://github.com/chef-cookbooks/httpd>
-
 ### Naming
 
 Name things uniformly for their system and component. For example:
@@ -475,7 +466,7 @@ Follow this order for information in each resource declaration:
 
 For example:
 
-``` ruby
+```ruby
 template '/tmp/foobar.txt' do
   source 'foobar.txt.erb'
   owner  'someuser'
@@ -494,17 +485,17 @@ end
 Always specify the file mode with a quoted 3-5 character string that
 defines the octal mode:
 
-``` ruby
+```ruby
 mode '755'
 ```
 
-``` ruby
+```ruby
 mode '0755'
 ```
 
 Wrong:
 
-``` ruby
+```ruby
 mode 755
 ```
 
@@ -515,7 +506,7 @@ because Chef Infra Client will apply the default action for a resource
 automatically if it's not specified within the resource block. For
 example:
 
-``` ruby
+```ruby
 package 'monit'
 ```
 
@@ -527,7 +518,7 @@ reader understands what the default action is for a custom resource or
 stating the action for a resource whose default may not be immediately
 obvious to the reader, specifying the default action is recommended:
 
-``` ruby
+```ruby
 ohai 'apache_modules' do
   action :reload
 end
@@ -541,13 +532,13 @@ old cookbooks as you come across them.
 
 Right:
 
-``` ruby
+```ruby
 default['foo']['bar'] = 'baz'
 ```
 
 Wrong:
 
-``` ruby
+```ruby
 default[:foo][:bar] = 'baz'
 ```
 
@@ -564,7 +555,7 @@ need interpolation.
 
 A recipe should be clean and well-commented. For example:
 
-``` ruby
+```ruby
 ###########
 # variables
 ###########
@@ -573,7 +564,7 @@ connection_info = {
   host: '127.0.0.1',
   port: '3306',
   username: 'root',
-  password: 'm3y3sqlr00t'
+  password: 'm3y3sqlr00t',
 }
 
 #################
@@ -670,7 +661,7 @@ httpd_config 'wordpress' do
     servername: 'wordpress',
     server_aliases: %w(computers.biz www.computers.biz),
     document_root: '/srv/wordpress_demo'
-    )
+  )
   notifies :restart, 'httpd_service[default]'
   action :create
 end
@@ -694,7 +685,7 @@ template '/srv/wordpress_demo/wp-config.php' do
     logged_in_salt: 'as well, but you take special care',
     nonce_salt: 'so they are not saved to your chef-server.',
     allow_multisite: 'false'
-    )
+  )
   action :create
 end
 ```
@@ -705,7 +696,7 @@ Chef Workstation includes Cookstyle for linting the Ruby-specific and
 Chef-specific portions of your cookbook code. All cookbooks should pass
 Cookstyle rules before being uploaded.
 
-``` bash
+```bash
 cookstyle your-cookbook
 ```
 

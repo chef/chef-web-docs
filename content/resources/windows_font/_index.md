@@ -1,6 +1,5 @@
 ---
 resource_reference: true
-properties_shortcode: 
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
@@ -54,7 +53,7 @@ examples: |
 
   ```ruby
   windows_font 'Custom.otf' do
-    source "https://example.com/Custom.otf"
+    source 'https://example.com/Custom.otf'
   end
   ```
 ---

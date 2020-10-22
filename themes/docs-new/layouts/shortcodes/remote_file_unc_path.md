@@ -1,6 +1,6 @@
 The `remote_file` resource on Windows supports accessing files from a
 remote SMB/CIFS share. The file name should be specified in the source
-property as a UNC path e.g. `\\myserver\myshare\mydirectory\myfile.txt`.
+property as a UNC path e.g. `\myserver\myshare\mydirectory\myfile.txt`.
 This allows access to the file at that path location even if the Chef
 Infra Client process identity does not have permission to access the
 file. Credentials for authenticating to the remote system can be
@@ -21,42 +21,42 @@ Examples:
 
 **Access a file from a different domain account:**
 
-``` ruby
-remote_file "E:/domain_test.txt"  do
-  source  "\\\\myserver\\myshare\\mydirectory\\myfile.txt"
-  remote_domain "domain"
-  remote_user "username"
-  remote_password "password"
+```ruby
+remote_file 'E:/domain_test.txt' do
+  source '\\myserver\myshare\mydirectory\myfile.txt'
+  remote_domain 'domain'
+  remote_user 'username'
+  remote_password 'password'
 end
 ```
 
 OR
 
-``` ruby
-remote_file "E:/domain_test.txt"  do
-  source  "\\\\myserver\\myshare\\mydirectory\\myfile.txt"
-  remote_user "domain\\username"
-  remote_password "password"
+```ruby
+remote_file 'E:/domain_test.txt' do
+  source '\\myserver\myshare\mydirectory\myfile.txt'
+  remote_user 'domain\username'
+  remote_password 'password'
 end
 ```
 
 **Access a file using a local account on the remote machine:**
 
-``` ruby
-remote_file "E:/domain_test.txt"  do
-  source  "\\\\myserver\\myshare\\mydirectory\\myfile.txt"
-  remote_domain "."
-  remote_user "username"
-  remote_password "password"
+```ruby
+remote_file 'E:/domain_test.txt' do
+  source '\\myserver\myshare\mydirectory\myfile.txt'
+  remote_domain '.'
+  remote_user 'username'
+  remote_password 'password'
 end
 ```
 
 OR
 
-``` ruby
-remote_file "E:/domain_test.txt"  do
-  source  "\\\\myserver\\myshare\\mydirectory\\myfile.txt"
-  remote_user ".\\username"
-  remote_password "password"
+```ruby
+remote_file 'E:/domain_test.txt' do
+  source '\\myserver\myshare\mydirectory\myfile.txt'
+  remote_user '.\username'
+  remote_password 'password'
 end
 ```

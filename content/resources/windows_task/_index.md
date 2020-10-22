@@ -1,6 +1,5 @@
 ---
 resource_reference: true
-properties_shortcode: 
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
@@ -53,7 +52,7 @@ syntax_full_code_block: |-
     user                                String # default value: The localized SYSTEM user for the node.
     action                              Symbol # defaults to :create if not specified
   end
-syntax_properties_list: 
+syntax_properties_list:
 syntax_full_properties_list:
 - "`windows_task` is the resource."
 - "`name` is the name given to the resource block."
@@ -255,7 +254,7 @@ examples: |
 
   **Create a scheduled task to run every 2 days**:
 
-  ``` ruby
+  ```ruby
   windows_task 'chef-client' do
     command 'chef-client'
     run_level :highest
@@ -282,7 +281,7 @@ examples: |
     command 'chef-client'
     run_level :highest
     frequency :once
-    start_time "16:10"
+    start_time '16:10'
   end
   ```
 

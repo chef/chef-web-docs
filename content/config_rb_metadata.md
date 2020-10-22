@@ -122,15 +122,15 @@ This configuration file has the following settings:
     For example, to match any 14.x version of the Chef Client, but not
     13.x or 15.x:
 
-    ``` ruby
+    ```ruby
     chef_version '~> 14.0'
     ```
 
     A more complex example where you set both a lower and upper bound of
     the Chef Infra Client version:
 
-    ``` ruby
-    chef_version ">= 14.2.1", "< 14.5.1"
+    ```ruby
+    chef_version '>= 14.2.1', '< 14.5.1'
     ```
 
 `depends`
@@ -148,14 +148,14 @@ This configuration file has the following settings:
 
     For example, to set a dependency a cookbook named `cats`:
 
-    ``` ruby
+    ```ruby
     depends 'cats'
     ```
 
     or, to set a dependency on the same cookbook, but only when the
     version is less than 1.0:
 
-    ``` ruby
+    ```ruby
     depends 'cats', '< 1.0'
     ```
 
@@ -165,7 +165,7 @@ This configuration file has the following settings:
 
     For example:
 
-    ``` ruby
+    ```ruby
     description 'A fancy cookbook that manages a herd of cats!'
     ```
 
@@ -176,9 +176,9 @@ This configuration file has the following settings:
     synchronized but before loading any other cookbooks. Use this
     attribute one time for each gem dependency. For example:
 
-    ``` ruby
-    gem "poise"
-    gem "chef-sugar"
+    ```ruby
+    gem 'loofah'
+    gem 'chef-sugar'
     ```
 
     {{< warning spaces=4 >}}
@@ -214,7 +214,7 @@ This configuration file has the following settings:
 
     For example:
 
-    ``` ruby
+    ```ruby
     issues_url 'https://github.com/chef-cookbooks/chef-client/issues'
     ```
 
@@ -228,25 +228,25 @@ This configuration file has the following settings:
 
     For example:
 
-    ``` ruby
+    ```ruby
     license 'Apache-2.0'
     ```
 
     or:
 
-    ``` ruby
+    ```ruby
     license 'GPL-3.0'
     ```
 
     or:
 
-    ``` ruby
+    ```ruby
     license 'MIT'
     ```
 
     or:
 
-    ``` ruby
+    ```ruby
     license 'Proprietary - All Rights Reserved'
     ```
 
@@ -257,7 +257,7 @@ This configuration file has the following settings:
 
     For example:
 
-    ``` ruby
+    ```ruby
     maintainer 'Adam Jacob'
     ```
 
@@ -270,7 +270,7 @@ This configuration file has the following settings:
 
     For example:
 
-    ``` ruby
+    ```ruby
     maintainer_email 'adam@example.com'
     ```
 
@@ -280,7 +280,7 @@ This configuration file has the following settings:
 
     For example:
 
-    ``` ruby
+    ```ruby
     name 'cats'
     ```
 
@@ -293,8 +293,8 @@ This configuration file has the following settings:
 
     For example, to match any 8.x version of Ohai, but not 7.x or 9.x:
 
-    ``` ruby
-    ohai_version "~> 8"
+    ```ruby
+    ohai_version '~> 8'
     ```
 
     {{< note spaces=4 >}}
@@ -309,7 +309,7 @@ This configuration file has the following settings:
 
     For example:
 
-    ``` ruby
+    ```ruby
     privacy true
     ```
 
@@ -322,7 +322,7 @@ This configuration file has the following settings:
 
     For example:
 
-    ``` ruby
+    ```ruby
     source_url 'https://github.com/chef-cookbooks/chef-client'
     ```
 
@@ -337,25 +337,25 @@ This configuration file has the following settings:
 
     For example, to support every version of Ubuntu:
 
-    ``` ruby
+    ```ruby
     supports 'ubuntu'
     ```
 
     or, to support versions of Ubuntu greater than or equal to 16.04:
 
-    ``` ruby
+    ```ruby
     supports 'ubuntu', '>= 16.04'
     ```
 
     or, to support only Ubuntu 18.04:
 
-    ``` ruby
+    ```ruby
     supports 'ubuntu', '= 18.04'
     ```
 
     Here is a list of all of the supported specific operating systems:
 
-    ``` ruby
+    ```ruby
     %w( aix amazon centos fedora freebsd debian oracle mac_os_x redhat suse opensuseleap ubuntu windows zlinux ).each do |os|
       supports os
     end
@@ -368,6 +368,6 @@ This configuration file has the following settings:
 
     For example:
 
-    ``` ruby
+    ```ruby
     version '2.0.0'
     ```

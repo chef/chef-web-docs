@@ -17,7 +17,7 @@ Windows registry key has one (or more) values.
 
 The syntax for the `registry_has_subkeys?` method is as follows:
 
-``` ruby
+```ruby
 registry_has_subkeys?(KEY_PATH, ARCHITECTURE)
 ```
 

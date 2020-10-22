@@ -1,6 +1,5 @@
 ---
 resource_reference: true
-properties_shortcode: 
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
@@ -28,7 +27,7 @@ resource_description_list:
 
     `only_if` to guard this resource for idempotence.'
 syntax_description: "A **batch** resource block executes a batch script using the\
-  \ cmd.exe\ninterpreter:\n\n``` ruby\nbatch 'echo some env vars' do\n  code <<-EOH\n\
+  \ cmd.exe\ninterpreter:\n\n```ruby\nbatch 'echo some env vars' do\n  code <<-EOH\n\
   \    echo %TEMP%\n    echo %SYSTEMDRIVE%\n    echo %PATH%\n    echo %WINDIR%\n \
   \ EOH\nend\n```"
 syntax_code_block: null
@@ -240,12 +239,12 @@ cookbook_file_specificity: false
 unit_file_verification: false
 examples: "
   Unzip a file, and then move it\n\n  To run a batch file that unzips\
-  \ and then moves Ruby, do something like:\n\n  ``` ruby\n  batch 'unzip_and_move_ruby'\
+  \ and then moves Ruby, do something like:\n\n  ```ruby\n  batch 'unzip_and_move_ruby'\
   \ do\n    code <<-EOH\n      7z.exe x #{Chef::Config[:file_cache_path]}/ruby-1.8.7-p352-i386-mingw32.7z\n\
   \        -oC:\\\\source -r -y\n      xcopy C:\\\\source\\\\ruby-1.8.7-p352-i386-mingw32\
   \ C:\\\\ruby /e /y\n    EOH\n  end\n\n  batch 'echo some env vars' do\n    code\
   \ <<-EOH\n      echo %TEMP%\n      echo %SYSTEMDRIVE%\n      echo %PATH%\n     \
-  \ echo %WINDIR%\n    EOH\n  end\n  ```\n\n  or:\n\n  ``` ruby\n  batch 'unzip_and_move_ruby'\
+  \ echo %WINDIR%\n    EOH\n  end\n  ```\n\n  or:\n\n  ```ruby\n  batch 'unzip_and_move_ruby'\
   \ do\n    code <<-EOH\n      7z.exe x #{Chef::Config[:file_cache_path]}/ruby-1.8.7-p352-i386-mingw32.7z\n\
   \        -oC:\\\\source -r -y\n      xcopy C:\\\\source\\\\ruby-1.8.7-p352-i386-mingw32\
   \ C:\\\\ruby /e /y\n    EOH\n  end\n\n  batch 'echo some env vars' do\n    code\
@@ -255,12 +254,12 @@ examples: "
   \ (aka\n  'SE_ASSIGNPRIMARYTOKEN_NAME') user right. By default only LocalSystem\n\
   \  and NetworkService have this right when running as a service. This is\n  necessary\
   \ even if the user is an Administrator.\n\n  This right can be added and checked\
-  \ in a recipe using this example:\n\n  ``` ruby\n  # Add 'SeAssignPrimaryTokenPrivilege'\
+  \ in a recipe using this example:\n\n  ```ruby\n  # Add 'SeAssignPrimaryTokenPrivilege'\
   \ for the user\n  Chef::ReservedNames::Win32::Security.add_account_right('<user>',\
   \ 'SeAssignPrimaryTokenPrivilege')\n\n  # Check if the user has 'SeAssignPrimaryTokenPrivilege'\
   \ rights\n  Chef::ReservedNames::Win32::Security.get_account_right('<user>').include?('SeAssignPrimaryTokenPrivilege')\n\
   \  ```\n\n  The following example shows how to run `mkdir test_dir` from a Chef\n\
-  \  Infra Client run as an alternate user.\n\n  ``` ruby\n  # Passing only username\
+  \  Infra Client run as an alternate user.\n\n  ```ruby\n  # Passing only username\
   \ and password\n  batch 'mkdir test_dir' do\n   code \"mkdir test_dir\"\n   cwd\
   \ Chef::Config[:file_cache_path]\n   user \"username\"\n   password \"password\"\
   \n  end\n\n  # Passing username and domain\n  batch 'mkdir test_dir' do\n   code\

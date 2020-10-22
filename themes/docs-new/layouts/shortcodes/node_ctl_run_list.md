@@ -1,7 +1,7 @@
 Use this option to define a `run_list` object. For example, a JSON file
 similar to:
 
-``` javascript
+```javascript
 "run_list": [
   "recipe[base]",
   "recipe[foo]",

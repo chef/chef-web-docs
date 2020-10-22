@@ -385,7 +385,7 @@ This configuration file has the following settings for nginx:
 
 `default['supermarket']['gzip_min_length']`
 
-:   The minimum reponse length that will be compressed by gzip, as
+:   The minimum response length that will be compressed by gzip, as
     determined by the `Content-Length` response header. Default value:
     `1000`.
 
@@ -840,7 +840,7 @@ This configuration file has the following settings for SSL:
     <https://www.openssl.org/docs/man1.0.2/man1/ciphers.html> for more
     information. For example:
 
-    ``` ruby
+    ```ruby
     nginx['ssl_ciphers'] = HIGH:MEDIUM:!LOW:!kEDH:!aNULL:!ADH:!eNULL:!EXP:!SSLv2:!SEED:!CAMELLIA:!PSK
     ```
 

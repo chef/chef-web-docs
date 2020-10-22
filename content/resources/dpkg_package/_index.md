@@ -1,6 +1,5 @@
 ---
 resource_reference: true
-properties_shortcode: 
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
@@ -25,7 +24,7 @@ syntax_description: 'A **dpkg_package** resource block manages a package on a no
   resource is:
 
 
-  ``` ruby
+  ```ruby
 
   dpkg_package ''package_name''
 
@@ -35,7 +34,7 @@ syntax_description: 'A **dpkg_package** resource block manages a package on a no
   which will install the named package using all of the default options
 
   and the default action (`:install`).'
-syntax_properties_list: 
+syntax_properties_list:
 syntax_full_code_block: "dpkg_package 'name' do\n  options                      String,\
   \ Array\n  package_name                 String, Array\n  response_file         \
   \       String\n  response_file_variables      Hash\n  source                  \
@@ -98,7 +97,7 @@ properties_list:
   description_list:
   - markdown: The version of a package to be installed or upgraded.
 examples: "
-  Install a package\n\n  ``` ruby\n  dpkg_package 'wget_1.13.4-2ubuntu1.4_amd64.deb'\
+  Install a package\n\n  ```ruby\n  dpkg_package 'wget_1.13.4-2ubuntu1.4_amd64.deb'\
   \ do\n    source '/foo/bar/wget_1.13.4-2ubuntu1.4_amd64.deb'\n    action :install\n\
   \  end\n  ```\n"
 

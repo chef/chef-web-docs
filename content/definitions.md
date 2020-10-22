@@ -59,7 +59,7 @@ A definition had four components:
 
 The basic syntax of a definition was:
 
-``` ruby
+```ruby
 define :my_definition_name do
   body
 end
@@ -67,16 +67,16 @@ end
 
 More commonly, the usage incorporated arguments to the definition:
 
-``` ruby
-define :my_definition_name, :parameter => :argument, :parameter => :argument do
-  body (likely referencing the params hash)
+```ruby
+define :my_definition_name, parameter: :argument, parameter: :argument do
+  body(likely referencing the params hash)
 end
 ```
 
 The following simple example shows a definition with no arguments (a
 parameterless macro in the truest sense):
 
-``` ruby
+```ruby
 define :prime_myfile do
   file '/etc/myfile' do
     content 'some content'
@@ -88,23 +88,23 @@ An example showing the use of parameters, with a parameter named `port`
 that defaults to `4000` rendered into a **template** resource, would
 look like:
 
-``` ruby
+```ruby
 define :prime_myfile, port: 4000 do
-  template '/etc/myfile' do
-    source 'myfile.erb'
-    variables({
-      port: params[:port],
-    })
-  end
- end
+   template '/etc/myfile' do
+     source 'myfile.erb'
+     variables({
+       port: params[:port],
+     })
+   end
+end
 ```
 
 Or the following definition, which looks like a resource when used in a
 recipe, but also contained **directory** and **file** resources that
 were repeated, but with slightly different parameters:
 
-``` ruby
-define :host_porter, :port => 4000, :hostname => nil do
+```ruby
+define :host_porter, port: 4000, hostname: nil do
   params[:hostname] ||= params[:name]
 
   directory '/etc/#{params[:hostname]}' do
@@ -119,9 +119,9 @@ end
 
 which was then used in a recipe like this:
 
-``` ruby
+```ruby
 host_porter node['hostname'] do
- port 4000
+  port 4000
 end
 
 host_porter 'www1' do
@@ -141,8 +141,8 @@ custom resource.
 The following definition processes unique hostnames and ports, passed on
 as parameters:
 
-``` ruby
-define :host_porter, :port => 4000, :hostname => nil do
+```ruby
+define :host_porter, port: 4000, hostname: nil do
   params[:hostname] ||= params[:name]
 
   directory '/etc/#{params[:hostname]}' do
@@ -160,12 +160,11 @@ end
 The definition is improved by rewriting it as a custom resource. This
 uses properties to accept input and has a single `:create` action:
 
-``` ruby
+```ruby
 property :port, Integer, default: 4000
 property :hostname, String, name_property: true
 
 action :create do
-
   directory "/etc/#{hostname}" do
     recursive true
   end
@@ -173,7 +172,6 @@ action :create do
   file "/etc/#{hostname}/#{port}" do
     content 'some content'
   end
-
 end
 ```
 
@@ -184,7 +182,7 @@ with an underscore (`_`) separating them. For example, a cookbook named
 `host` with a custom resource file named `porter.rb` in the `/resources`
 directory would be called `host_porter`. Use it in a recipe like this:
 
-``` ruby
+```ruby
 host_porter node['hostname'] do
   port 4000
 end
@@ -192,7 +190,7 @@ end
 
 or:
 
-``` ruby
+```ruby
 host_porter 'www1' do
   port 4001
 end

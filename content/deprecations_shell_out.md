@@ -9,7 +9,7 @@ aliases = "/deprecations_shell_out.html"
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/deprecations_shell_out.md)
 
-The functionality of mutiple old <span
+The functionality of multiple old <span
 class="title-ref">shell_out</span> APIs has been collapsed into the
 <span class="title-ref">shell_out</span> API itself, and the old
 methods have been deprecated.
@@ -36,20 +36,20 @@ use <span class="title-ref">shell_out!</span>.
 The following code examples need to be changed to the corresponding code
 below:
 
-``` ruby
-shell_out_compact("rpm", "-qa")
-shell_out_compact_timeout("rpm", "-qa")
-shell_out_with_timeout("rpm", "-qa")
-shell_out_with_systems_locale("rpm", "-qa")
+```ruby
+shell_out_compact('rpm', '-qa')
+shell_out_compact_timeout('rpm', '-qa')
+shell_out_with_timeout('rpm', '-qa')
+shell_out_with_systems_locale('rpm', '-qa')
 ```
 
 ## Remediation
 
 You now need to use shell_out! instead:
 
-``` ruby
-shell_out("rpm", "-qa")
-shell_out("rpm", "-qa", timeout: new_resource.timeout)
-shell_out("rpm", "-qa", timeout: new_resource.timeout)
-shell_out("rpm", "-qa", default_env: false)
+```ruby
+shell_out('rpm', '-qa')
+shell_out('rpm', '-qa', timeout: new_resource.timeout)
+shell_out('rpm', '-qa', timeout: new_resource.timeout)
+shell_out('rpm', '-qa', default_env: false)
 ```

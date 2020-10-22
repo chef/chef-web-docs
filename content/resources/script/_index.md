@@ -1,9 +1,8 @@
 ---
 title: script resource
 resource: script
-draft: false
 aliases:
-- /resource_script.html
+- "/resource_script.html"
 menu:
   infra:
     title: script
@@ -51,7 +50,7 @@ resource_description_list:
 resource_new_in: null
 handler_types: false
 syntax_description: "A **script** resource block typically executes scripts using\
-  \ a specified\ninterpreter, such as Bash, csh, Perl, Python, or Ruby:\n\n``` ruby\n\
+  \ a specified\ninterpreter, such as Bash, csh, Perl, Python, or Ruby:\n\n```ruby\n\
   script 'extract_module' do\n  interpreter \"bash\"\n  cwd ::File.dirname(src_filepath)\n\
   \  code <<-EOH\n    mkdir -p #{extract_path}\n    tar xzf #{src_filename} -C #{extract_path}\n\
   \    mv #{extract_path}/*/* #{extract_path}/\n  EOH\n  not_if { ::File.exist?(extract_path)\
@@ -70,7 +69,7 @@ syntax_properties_list:
 
   The same command as above, but run using the **bash** resource:
 
-  ``` ruby
+  ```ruby
   bash 'extract_module' do
     cwd ::File.dirname(src_filepath)
     code <<-EOH
@@ -291,14 +290,14 @@ handler_custom: false
 cookbook_file_specificity: false
 unit_file_verification: false
 examples: "
-  Use a named provider to run a script\n\n  ``` ruby\n  bash 'install_something'\
+  Use a named provider to run a script\n\n  ```ruby\n  bash 'install_something'\
   \ do\n    user 'root'\n    cwd '/tmp'\n    code <<-EOH\n      wget http://www.example.com/tarball.tar.gz\n\
   \      tar -zxf tarball.tar.gz\n      cd tarball\n      ./configure\n      make\n      make\
-  \   install\n    EOH\n  end\n  ```\n\n  Run a script\n\n  ``` ruby\n  script 'install_something'\
+  \   install\n    EOH\n  end\n  ```\n\n  Run a script\n\n  ```ruby\n  script 'install_something'\
   \ do\n    interpreter 'bash'\n    user 'root'\n    cwd '/tmp'\n    code <<-EOH\n\
   \      wget http://www.example.com/tarball.tar.gz\n      tar -zxf tarball.tar.gz\n \
   \     cd tarball\n      ./configure\n      make\n      make install\n    EOH\n  end\n  ```\n\
-  \n  or something like:\n\n  ``` ruby\n  bash 'openvpn-server-key' do\n    environment('KEY_CN'\
+  \n  or something like:\n\n  ```ruby\n  bash 'openvpn-server-key' do\n    environment('KEY_CN'\
   \ => 'server')\n    code <<-EOF\n      openssl req -batch -days #{node['openvpn']['key']['expire']}\
   \ \\\n        -nodes -new -newkey rsa:#{key_size} -keyout #{key_dir}/server.key\
   \ \\\n        -out #{key_dir}/server.csr -extensions server \\\n        -config\
@@ -310,7 +309,7 @@ examples: "
   \ module adds shell-style functionality to an Nginx\n  configuration file and does\
   \ the following:\n\n  -   Declares three variables\n  -   Gets the Nginx file from\
   \ a remote location\n  -   Installs the file using Bash to the path specified by\
-  \ the\n      `src_filepath` variable\n\n  <!-- -->\n\n  ``` ruby\n  # the following\
+  \ the\n      `src_filepath` variable\n\n  <!-- -->\n\n  ```ruby\n  # the following\
   \ code sample is similar to the ``upload_progress_module``\n  # recipe in the ``nginx``\
   \ cookbook:\n  # https://github.com/chef-cookbooks/nginx\n\n  src_filename = \"\
   foo123-nginx-module-v#{\n    node['nginx']['foo123']['version']\n  }.tar.gz\"\n\
@@ -326,7 +325,7 @@ examples: "
   \ shows how Bash can be used to install a plug-in\n  for rbenv named `ruby-build`,\
   \ which is located in git version source\n  control. First, the application is synchronized,\
   \ and then Bash changes\n  its working directory to the location in which `ruby-build`\
-  \ is located,\n  and then runs a command.\n\n  ``` ruby\n  git \"#{Chef::Config[:file_cache_path]}/ruby-build\"\
+  \ is located,\n  and then runs a command.\n\n  ```ruby\n  git \"#{Chef::Config[:file_cache_path]}/ruby-build\"\
   \ do\n    repository 'git://github.com/sstephenson/ruby-build.git'\n    revision\
   \ 'master'\n    action :sync\n  end\n\n  bash 'install_ruby_build' do\n    cwd \"\
   #{Chef::Config[:file_cache_path]}/ruby-build\"\n    user 'rbenv'\n    group 'rbenv'\n\
@@ -339,7 +338,7 @@ examples: "
   \  for Python that are then used across all nodes against which this recipe\n  will\
   \ run.\n\n  Python packages have versions, installation directories, URLs, and\n\
   \  checksum files. An attributes file that exists to support this type of\n  recipe\
-  \ would include settings like the following:\n\n  ``` ruby\n  default['python']['version']\
+  \ would include settings like the following:\n\n  ```ruby\n  default['python']['version']\
   \ = '2.7.1'\n\n  if python['install_method'] == 'package'\n    default['python']['prefix_dir']\
   \ = '/usr'\n  else\n    default['python']['prefix_dir'] = '/usr/local'\n  end\n\n\
   \  default['python']['url'] = 'http://www.python.org/ftp/python'\n  default['python']['checksum']\
@@ -350,7 +349,7 @@ examples: "
   \  -   Get the package from a remote location, but only if the package does\n  \
   \    not already exist on the target system\n  -   Use the **bash** resource to\
   \ install the package on the node, but\n      only when the package is not already\
-  \ installed\n\n  <!-- -->\n\n  ``` ruby\n  #  the following code sample comes from\
+  \ installed\n\n  <!-- -->\n\n  ```ruby\n  #  the following code sample comes from\
   \ the ``oc-nginx`` cookbook on |github|: https://github.com/cookbooks/oc-nginx\n\
   \n  version = node['python']['version']\n  install_path = \"#{node['python']['prefix_dir']}/lib/python#{version.split(/(^\\\
   d+\\.\\d+)/)[1]}\"\n\n  remote_file \"#{Chef::Config[:file_cache_path]}/Python-#{version}.tar.bz2\"\
@@ -365,12 +364,12 @@ examples: "
   \ (aka\n  'SE_ASSIGNPRIMARYTOKEN_NAME') user right. By default only LocalSystem\n\
   \  and NetworkService have this right when running as a service. This is\n  necessary\
   \ even if the user is an Administrator.\n\n  This right can be added and checked\
-  \ in a recipe using this example:\n\n  ``` ruby\n  # Add 'SeAssignPrimaryTokenPrivilege'\
+  \ in a recipe using this example:\n\n  ```ruby\n  # Add 'SeAssignPrimaryTokenPrivilege'\
   \ for the user\n  Chef::ReservedNames::Win32::Security.add_account_right('<user>',\
   \ 'SeAssignPrimaryTokenPrivilege')\n\n  # Check if the user has 'SeAssignPrimaryTokenPrivilege'\
   \ rights\n  Chef::ReservedNames::Win32::Security.get_account_right('<user>').include?('SeAssignPrimaryTokenPrivilege')\n\
   \  ```\n\n  The following example shows how to run `mkdir test_dir` from a Chef\n\
-  \  Infra Client run as an alternate user.\n\n  ``` ruby\n  # Passing only username\
+  \  Infra Client run as an alternate user.\n\n  ```ruby\n  # Passing only username\
   \ and password\n  script 'mkdir test_dir' do\n   interpreter \"bash\"\n   code \
   \ \"mkdir test_dir\"\n   cwd Chef::Config[:file_cache_path]\n   user \"username\"\
   \n   password \"password\"\n  end\n\n  # Passing username and domain\n  script 'mkdir\

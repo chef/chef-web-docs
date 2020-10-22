@@ -1,9 +1,8 @@
 ---
 title: gem_package resource
 resource: gem_package
-draft: false
 aliases:
-- /resource_gem_package.html
+- "/resource_gem_package.html"
 menu:
   infra:
     title: gem_package
@@ -118,8 +117,8 @@ examples: |
   **Install a gem file from the local file system**
 
   ```ruby
-  gem_package 'right_aws' do
-    source '/tmp/right_aws-1.11.0.gem'
+  gem_package 'loofah' do
+    source '/tmp/loofah-2.7.0.gem'
     action :install
   end
   ```

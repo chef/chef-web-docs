@@ -1,7 +1,7 @@
 Use `.run_action(:some_action)` at the end of a resource block to run
 the specified action during the compile phase. For example:
 
-``` ruby
+```ruby
 build_essential 'Install compilers' do
   action :nothing
 end.run_action(:install)
@@ -13,7 +13,7 @@ during the compile phase and not later during the execution phase.
 This can be simplified by using the `compile_time` flag in Chef Infra
 Client 16 and later versions:
 
-``` ruby
+```ruby
 build_essential 'Install compilers' do
   compile_time true
 end
@@ -32,7 +32,7 @@ them in recipe code.
 This is a poor pattern since gems may depend on native gems which
 may require installing compilers at compile time.
 
-``` ruby
+```ruby
 build_essential 'Install compilers' do
   compile_time true
 end
@@ -46,12 +46,12 @@ require 'aws-sdk'
 
 A better strategy is to move the code, which requires the gem, into
 a custom resource. Since all the actions of custom resources run
-at converge time, this defers requiring 
+at converge time, this defers requiring
 the gem until later in the overall Chef Infra Client execution. Unified
 mode can also be used in the resource to eliminate compile/converge
 mode issues entirely:
 
-``` ruby
+```ruby
 unified_mode true
 
 action :run do
@@ -76,7 +76,7 @@ Chef Infra Client.
 To download and parse a JSON file and render it in a template, it makes sense
 to download the file during compile time:
 
-``` ruby
+```ruby
   # the remote_file is being downloaded to a temporary file
   remote_file "#{Chef::Config[:file_cache_path]}/users.json" do
     source "https://jsonplaceholder.typicode.com/users"
@@ -98,7 +98,7 @@ This is considerably cleaner than the alternative of lazy evaluating both the pa
 JSON and the rendering of the data into the file template, which will happen if
 the `remote_file` resource is not run at compile time:
 
-``` ruby
+```ruby
   # the execution of this is now deferred
   remote_file "#{Chef::Config[:file_cache_path]}/users.json" do
     source "https://jsonplaceholder.typicode.com/users"
@@ -128,7 +128,7 @@ considerably harder to understand and write correctly.
 Resources that are executed during the compile phase cannot notify other
 resources. For example:
 
-``` ruby
+```ruby
 execute 'ifconfig'
 
 package 'vim-enhanced' do

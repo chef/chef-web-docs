@@ -45,7 +45,7 @@ output capture flag must have been set on `job start`; see the
 
 This argument has the following syntax:
 
-``` bash
+```bash
 knife job output (options) JOB_ID [NODE_NAME]
 ```
 
@@ -62,7 +62,7 @@ This argument has the following options:
 **View the STDOUT from my-node for job with ID
 26e98ba162fa7ba6fb2793125553c7ae**
 
-``` bash
+```bash
 knife job output --channel stdout 26e98ba162fa7ba6fb2793125553c7ae my-node
 ```
 

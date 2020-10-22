@@ -3,7 +3,7 @@ callback defines what steps are taken if the event occurs during a Chef
 Infra Client run and is defined using arbitrary Ruby code. The syntax is
 as follows:
 
-``` ruby
+```ruby
 Chef.event_handler do
   on :event_type do
     # some Ruby
@@ -24,7 +24,7 @@ where
 
 For example:
 
-``` bash
+```bash
 Chef.event_handler do
   on :converge_start do
     puts "Ohai! I have started a converge."

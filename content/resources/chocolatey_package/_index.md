@@ -1,6 +1,5 @@
 ---
 resource_reference: true
-properties_shortcode: 
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
@@ -34,7 +33,7 @@ syntax_description: 'A **chocolatey_package** resource manages packages using Ch
   **chocolatey_package** resource is:
 
 
-  ``` ruby
+  ```ruby
 
   chocolatey_package ''package_name''
 
@@ -57,7 +56,7 @@ syntax_full_code_block: |-
     version           String, Array
     action            Symbol # defaults to :install if not specified
   end
-syntax_properties_list: 
+syntax_properties_list:
 syntax_full_properties_list:
 - "`chocolatey_package` is the resource."
 - "`name` is the name given to the resource block."
@@ -132,7 +131,7 @@ properties_list:
       The syntax for `returns` is:
 
 
-      ``` ruby
+      ```ruby
 
       returns [0, 2, 1605, 1614, 1641]
 

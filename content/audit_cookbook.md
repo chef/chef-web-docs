@@ -80,7 +80,7 @@ and `profiles` attributes.
 A complete audit cookbook attribute configuration will look something
 like this:
 
-``` ruby
+```ruby
 ['audit']['reporter'] = 'chef-automate'
 ['audit']['server'] = 'https://chef-automate-server/api'
 ['audit']['owner'] = 'my-comp-org'
@@ -89,24 +89,24 @@ like this:
 ['audit']['profiles'] = [
   {
    'name': 'windows',
-   'compliance': 'base/windows'
-   }
+   'compliance': 'base/windows',
+   },
 ]
 ```
 
 Instead of a refresh token, it is also possible to use a `token` that
 expires in 12h after creation.
 
-``` ruby
+```ruby
 ['audit']['reporter'] = 'chef-automate'
-['audit']['server'] =  'https://chef-automate-fqdn/api'
+['audit']['server'] = 'https://chef-automate-fqdn/api'
 ['audit']['owner'] =  'my-comp-org'
 ['audit']['token'] =  'eyJ........................YQ'
 ['audit']['profiles'] = [
    {
      'name': 'windows',
-     'compliance': 'base/windows'
-     }
+     'compliance': 'base/windows',
+     },
  ]
 ```
 

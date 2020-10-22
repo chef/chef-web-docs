@@ -1,9 +1,8 @@
 ---
 title: package resource
 resource: package
-draft: false
 aliases:
-- /resource_package.html
+- "/resource_package.html"
 menu:
   infra:
     title: package
@@ -87,11 +86,11 @@ resource_description_list:
 resource_new_in: null
 handler_types: false
 syntax_description: "A **package** resource block manages a package on a node, typically\
-  \ by\ninstalling it. The simplest use of the **package** resource is:\n\n``` ruby\n\
+  \ by\ninstalling it. The simplest use of the **package** resource is:\n\n```ruby\n\
   package 'httpd'\n```\n\nwhich will install Apache using all of the default options\
   \ and the\ndefault action (`:install`).\n\nFor a package that has different package\
   \ names, depending on the\nplatform, use a `case` statement within the **package**:\n\
-  \n``` ruby\npackage 'Install Apache' do\n  case node[:platform]\n  when 'redhat',\
+  \n```ruby\npackage 'Install Apache' do\n  case node[:platform]\n  when 'redhat',\
   \ 'centos'\n    package_name 'httpd'\n  when 'ubuntu', 'debian'\n    package_name\
   \ 'apache2'\n  end\nend\n```"
 syntax_code_block: null
@@ -187,8 +186,8 @@ properties_list:
 
       `( { :before => true/false, :after => true/false } )`.'
   - shortcode: resources_common_package_yum_cache.md
-  - markdown: "As an array:\n\n``` ruby\nyum_package 'some-package' do\n  #...\n \
-      \ flush_cache [ :before ]\n  #...\nend\n```\n\nand as a Hash:\n\n``` ruby\n\
+  - markdown: "As an array:\n\n```ruby\nyum_package 'some-package' do\n  #...\n \
+      \ flush_cache [ :before ]\n  #...\nend\n```\n\nand as a Hash:\n\n```ruby\n\
       yum_package 'some-package' do\n  #...\n  flush_cache( { :after => true } )\n\
       \  #...\nend\n```"
   - note:
@@ -339,14 +338,14 @@ handler_custom: false
 cookbook_file_specificity: false
 unit_file_verification: false
 examples: "
-  Install a gems file for use in recipes\n\n  ``` ruby\n  chef_gem\
+  Install a gems file for use in recipes\n\n  ```ruby\n  chef_gem\
   \ 'right_aws' do\n    action :install\n  end\n\n  require 'right_aws'\n  ```\n\n\
-  \  Install a gems file from the local file system\n\n  ``` ruby\n  gem_package 'right_aws'\
+  \  Install a gems file from the local file system\n\n  ```ruby\n  gem_package 'right_aws'\
   \ do\n    source '/tmp/right_aws-1.11.0.gem'\n    action :install\n  end\n  ```\n\
-  \n  Install a package\n\n  ``` ruby\n  package 'tar' do\n    action :install\n \
-  \ end\n  ```\n\n  Install a package version\n\n  ``` ruby\n  package 'tar' do\n\
+  \n  Install a package\n\n  ```ruby\n  package 'tar' do\n    action :install\n \
+  \ end\n  ```\n\n  Install a package version\n\n  ```ruby\n  package 'tar' do\n\
   \    version '1.16.1-1'\n    action :install\n  end\n  ```\n\n  Install a package\
-  \ with options\n\n  ``` ruby\n  package 'debian-archive-keyring' do\n    action\
+  \ with options\n\n  ```ruby\n  package 'debian-archive-keyring' do\n    action\
   \ :install\n    options '--force-yes'\n  end\n  ```\n\n  Install a package with\
   \ a response_file\n\n  Use of a `response_file` is only supported on Debian and\
   \ Ubuntu at this\n  time. Custom resources must be written to support the use of\
@@ -354,17 +353,17 @@ examples: "
   \ asked by the package manager on installation. Put the file in\n  `/files/default`\
   \ of the cookbook where the package is specified and Chef\n  Infra Client will use\
   \ the **cookbook_file** resource to retrieve it.\n\n  To install a package with\
-  \ a `response_file`:\n\n  ``` ruby\n  package 'sun-java6-jdk' do\n    response_file\
+  \ a `response_file`:\n\n  ```ruby\n  package 'sun-java6-jdk' do\n    response_file\
   \ 'java.seed'\n  end\n  ```\n\n  Install a specified architecture using a named\
-  \ provider\n\n  ``` ruby\n  yum_package 'glibc-devel' do\n    arch 'i386'\n  end\n\
-  \  ```\n\n  Purge a package\n\n  ``` ruby\n  package 'tar' do\n    action :purge\n\
-  \  end\n  ```\n\n  Remove a package\n\n  ``` ruby\n  package 'tar' do\n    action\
-  \ :remove\n  end\n  ```\n\n  Upgrade a package\n\n  ``` ruby\n  package 'tar' do\n\
+  \ provider\n\n  ```ruby\n  yum_package 'glibc-devel' do\n    arch 'i386'\n  end\n\
+  \  ```\n\n  Purge a package\n\n  ```ruby\n  package 'tar' do\n    action :purge\n\
+  \  end\n  ```\n\n  Remove a package\n\n  ```ruby\n  package 'tar' do\n    action\
+  \ :remove\n  end\n  ```\n\n  Upgrade a package\n\n  ```ruby\n  package 'tar' do\n\
   \    action :upgrade\n  end\n  ```\n\n  Use the ignore_failure common attribute\n\
-  \n  ``` ruby\n  gem_package 'syntax' do\n    action :install\n    ignore_failure\
+  \n  ```ruby\n  gem_package 'syntax' do\n    action :install\n    ignore_failure\
   \ true\n  end\n  ```\n\n  Avoid unnecessary string interpolation\n\n  Do this:\n\
-  \n  ``` ruby\n  package 'mysql-server' do\n    version node['mysql']['version']\n\
-  \    action :install\n  end\n  ```\n\n  and not this:\n\n  ``` ruby\n  package 'mysql-server'\
+  \n  ```ruby\n  package 'mysql-server' do\n    version node['mysql']['version']\n\
+  \    action :install\n  end\n  ```\n\n  and not this:\n\n  ```ruby\n  package 'mysql-server'\
   \ do\n    version \"#{node['mysql']['version']}\"\n    action :install\n  end\n\
   \  ```\n\n  Install a package in a platform\n\n  The following example shows how\
   \ to use the **package** resource to\n  install an application named `app` and ensure\
@@ -374,7 +373,7 @@ examples: "
   \    end\n  when 'centos'\n    package 'app_name-html' do\n      action :install\n\
   \    end\n  end\n  ```\n\n  **Install sudo, then configure /etc/sudoers/ file**\n\
   \n  The following example shows how to install sudo and then configure the\n  `/etc/sudoers`\
-  \ file:\n\n  ``` ruby\n  #  the following code sample comes from the ``default``\
+  \ file:\n\n  ```ruby\n  #  the following code sample comes from the ``default``\
   \ recipe in the ``sudo`` cookbook: https://github.com/chef-cookbooks/sudo\n\n  package\
   \ 'sudo' do\n    action :install\n  end\n\n  if node['authorization']['sudo']['include_sudoers_d']\n\
   \    directory '/etc/sudoers.d' do\n      mode        '0755'\n      owner      \
@@ -393,29 +392,29 @@ examples: "
   \      files (that are located in the `templates/` directory for the\n      cookbook\n\
   \n  Use a case statement to specify the platform\n\n  The following example shows\
   \ how to use a case statement to tell Chef\n  Infra Client which platforms and packages\
-  \ to install using cURL.\n\n  ``` ruby\n  package 'curl'\n    case node[:platform]\n\
+  \ to install using cURL.\n\n  ```ruby\n  package 'curl'\n    case node[:platform]\n\
   \    when 'redhat', 'centos'\n      package 'package_1'\n      package 'package_2'\n\
   \      package 'package_3'\n    when 'ubuntu', 'debian'\n      package 'package_a'\n\
   \      package 'package_b'\n      package 'package_c'\n    end\n  end\n  ```\n\n\
   \  where `node[:platform]` for each node is identified by Ohai during every\n  Chef\
-  \ Infra Client run. For example:\n\n  ``` ruby\n  package 'curl'\n    case node[:platform]\n\
+  \ Infra Client run. For example:\n\n  ```ruby\n  package 'curl'\n    case node[:platform]\n\
   \    when 'redhat', 'centos'\n      package 'zlib-devel'\n      package 'openssl-devel'\n\
   \      package 'libc6-dev'\n    when 'ubuntu', 'debian'\n      package 'openssl'\n\
   \      package 'pkg-config'\n      package 'subversion'\n    end\n  end\n  ```\n\
   \n  Use symbols to reference attributes\n\n  Symbols may be used to reference attributes:\n\
-  \n  ``` ruby\n  package 'mysql-server' do\n    version node[:mysql][:version]\n\
-  \    action :install\n  end\n  ```\n\n  instead of strings:\n\n  ``` ruby\n  package\
+  \n  ```ruby\n  package 'mysql-server' do\n    version node[:mysql][:version]\n\
+  \    action :install\n  end\n  ```\n\n  instead of strings:\n\n  ```ruby\n  package\
   \ 'mysql-server' do\n    version node['mysql']['version']\n    action :install\n\
   \  end\n  ```\n\n  Use a whitespace array to simplify a recipe\n\n  The following\
   \ examples show different ways of doing the same thing. The\n  first shows a series\
-  \ of packages that will be upgraded:\n\n  ``` ruby\n  package 'package-a' do\n \
+  \ of packages that will be upgraded:\n\n  ```ruby\n  package 'package-a' do\n \
   \   action :upgrade\n  end\n\n  package 'package-b' do\n    action :upgrade\n  end\n\
   \n  package 'package-c' do\n    action :upgrade\n  end\n\n  package 'package-d'\
   \ do\n    action :upgrade\n  end\n  ```\n\n  and the next uses a single **package**\
-  \ resource and a whitespace array\n  (`%w`):\n\n  ``` ruby\n  package %w{package-a\
+  \ resource and a whitespace array\n  (`%w`):\n\n  ```ruby\n  package %w{package-a\
   \ package-b package-c package-d} do\n    action :upgrade\n  end\n  ```\n\n  Specify\
-  \ the Homebrew user with a UUID\n\n  ``` ruby\n  homebrew_package 'emacs' do\n \
+  \ the Homebrew user with a UUID\n\n  ```ruby\n  homebrew_package 'emacs' do\n \
   \   homebrew_user 1001\n  end\n  ```\n\n  Specify the Homebrew user with a string\n\
-  \n  ``` ruby\n  homebrew_package 'vim' do\n    homebrew_user 'user1'\n  end\n  ```\n"
+  \n  ```ruby\n  homebrew_package 'vim' do\n    homebrew_user 'user1'\n  end\n  ```\n"
 
 ---

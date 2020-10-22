@@ -39,12 +39,12 @@ Chef:
 
 These are the necessary settings for your `config.rb` file:
 
-``` ruby
-knife[:vsphere_host] = "vcenter-hostname"
-knife[:vsphere_user] = "privileged username" # Domain logins may need to be "user@domain.com"
-knife[:vsphere_pass] = "password"       # or %Q(mypasswordwithfunnycharacters)
-knife[:vsphere_dc] = "your-datacenter"
-knife[:vsphere_insecure] = true              # Set this if you have self signed certs
+```ruby
+knife[:vsphere_host] = 'vcenter-hostname'
+knife[:vsphere_user] = 'privileged username' # Domain logins may need to be "user@domain.com"
+knife[:vsphere_pass] = 'password' # or %Q(mypasswordwithfunnycharacters)
+knife[:vsphere_dc] = 'your-datacenter'
+knife[:vsphere_insecure] = true # Set this if you have self signed certs
 ```
 
 #### Usage Examples
@@ -52,7 +52,7 @@ knife[:vsphere_insecure] = true              # Set this if you have self signed 
 **Clone from a VMware template and bootstrap Chef with generic DHCP
 options:**
 
-``` bash
+```bash
 knife vsphere vm clone MACHINENAME --template TEMPLATENAME --bootstrap --cips dhcp
 ```
 
@@ -60,7 +60,7 @@ knife vsphere vm clone MACHINENAME --template TEMPLATENAME --bootstrap --cips dh
 template called "SPEC" to assist the bootstrapping process, and specify
 the SSH user and password:**
 
-``` bash
+```bash
 knife vsphere vm clone MACHINENAME --template TEMPLATENAME --bootstrap --cips dhcp \
 --cspec SPEC --connection-user USER --connection-password PASSWORD
 ```
@@ -75,14 +75,14 @@ created in `FOLDERNAME` instead of the root folder.
 
 **Clone from a folder into the "Datacenter Root" directory:**
 
-``` bash
+```bash
 knife vsphere vm clone MACHINENAME --template TEMPLATENAME -f /path/to/template \
 --bootstrap --start --cips dhcp --dest-folder /
 ```
 
 **List the available VMware templates:**
 
-``` bash
+```bash
 knife vsphere template list
 Template Name: ubuntu16-template
 knife vsphere template list -f FOLDERNAME
@@ -91,7 +91,7 @@ Template Name: centos7-template
 
 **Delete a machine:**
 
-``` bash
+```bash
 knife vsphere vm delete MACHINENAME
 ```
 
@@ -112,10 +112,10 @@ the Chef Infra Server.
 
 The main settings for your `config.rb`:
 
-``` ruby
-knife[:vcenter_username] = "user"
-knife[:vcenter_password] = "password"
-knife[:vcenter_host] = "172.16.20.2"
+```ruby
+knife[:vcenter_username] = 'user'
+knife[:vcenter_password] = 'password'
+knife[:vcenter_host] = '172.16.20.2'
 knife[:vcenter_disable_ssl_verify] = true # if you want to disable SSL checking
 ```
 
@@ -123,7 +123,7 @@ knife[:vcenter_disable_ssl_verify] = true # if you want to disable SSL checking
 
 **Clone a machine:**
 
-``` bash
+```bash
 knife vcenter vm clone example-01 --targethost 172.16.20.3 --folder example --connection-password \
 P@ssw0rd! --datacenter Datacenter --template ubuntu16-template -N example-01
 Creating new machine
@@ -139,7 +139,7 @@ Waiting for sshd to host (10.0.0.167)
 
 **Delete a machine:**
 
-``` bash
+```bash
 knife vcenter vm delete example-01 -N example-01 --purge
 Creating new machine
 Waiting for network interfaces to become available...
@@ -171,7 +171,7 @@ WARNING: Deleted client example-01
 
 The main settings for your `config.rb`:
 
-``` ruby
+```ruby
 knife[:vra_username] = 'user'
 knife[:vra_password] = 'password'
 knife[:vra_base_url] = 'https://vra.corp.local'
@@ -181,7 +181,7 @@ knife[:vra_disable_ssl_verify] = true # if you want to disable SSL checking.
 
 Additional `config.rb` settings are required to integrate with vRO:
 
-``` ruby
+```ruby
 knife[:vro_username] = 'user'
 knife[:vro_password] = 'password'
 knife[:vro_base_url] = 'https://vra.corp.local:8281'
@@ -220,7 +220,7 @@ Common parameters to specify are:
 
 <!-- -->
 
-``` bash
+```bash
 knife vra server create 5dcd1900-3b89-433d-8563-9606ae1249b8 --cpus 1 --memory 512 \
 --requested-for devmgr@corp.local --connection-password my_password --lease-days 5
 Catalog request d282fde8-6fd2-406c-998e-328d1b659078 submitted.
@@ -234,7 +234,7 @@ Current request status: IN_PROGRESS..
 
 **Delete a server from vRA:**
 
-``` bash
+```bash
 knife vra server delete 2e1f6632-1613-41d1-a07c-6137c9639609 --purge
 Server ID: 2e1f6632-1613-41d1-a07c-6137c9639609
 Server Name: hol-dev-43
@@ -255,7 +255,7 @@ the Chef Infra Server
 
 **Execute a vRO workflow:**
 
-``` bash
+```bash
 knife vro workflow execute "knife testing" key1=value1
 Starting workflow execution...
 Workflow execution 4028eece4effc046014f27da864d0187 started. Waiting for it to complete...
@@ -299,7 +299,7 @@ cookbook](https://github.com/jjasghar/vsphere_testing) that attempts to
 capture everything required. The following is a basic `kitchen.yml`
 example:
 
-``` yaml
+```yaml
 ---
 driver:
 name: vsphere
@@ -362,7 +362,7 @@ suites:
 
 The following is a basic `kitchen.yml` for vCenter:
 
-``` yaml
+```yaml
 driver:
   name: vcenter
   vcenter_username: <%= ENV['VCENTER_USER'] || "administrator@vsphere.local" %>
@@ -394,7 +394,7 @@ platforms:
 
 The following is a basic `kitchen.yml` example:
 
-``` yaml
+```yaml
 driver:
   name: vra
   username: user@corp.local
@@ -424,7 +424,7 @@ platforms:
 
 The following is a basic `kitchen.yml` example:
 
-``` yaml
+```yaml
 driver:
   name: vro
   vro_username: user@domain.com
@@ -464,11 +464,11 @@ VMware stack.
 
 An example demo control:
 
-``` ruby
-control "vmware-1" do
+```ruby
+control 'vmware-1' do
   impact 0.7
   title 'Checks that soft power off is disabled'
-  describe vmware_vm_advancedsetting({datacenter: 'ha-datacenter', vm: 'testvm'}) do
+  describe vmware_vm_advancedsetting({ datacenter: 'ha-datacenter', vm: 'testvm' }) do
     its('softPowerOff') { should cmp 'false' }
   end
 end

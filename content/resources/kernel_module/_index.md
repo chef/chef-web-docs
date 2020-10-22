@@ -1,6 +1,5 @@
 ---
 resource_reference: true
-properties_shortcode: 
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
@@ -92,7 +91,7 @@ examples: |
   kernel_module 'loop' do
     options [
       'max_loop=4',
-      'max_part=8'
+      'max_part=8',
     ]
   end
   ```

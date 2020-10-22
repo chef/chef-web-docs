@@ -68,7 +68,7 @@ install Stove separately.
     Hosted Chef user, and `KEY.pem` with your the full path to Hosted
     Chef private key:
 
-    ``` none
+    ```none
     stove login --username USER --key ~/chef-repo/.chef/KEY.pem
     ```
 
@@ -80,7 +80,7 @@ install Stove separately.
 2.  Navigate to the root of the cookbook that you want to upload, then
     initialize Stove:
 
-    ``` none
+    ```none
     stove
     ```
 
@@ -108,13 +108,13 @@ the second step.
     contains the basic information necessary to authenticate with Hosted
     Chef. It will look similar to the following:
 
-    ``` ruby
-    current_dir = File.dirname(__FILE__)
+    ```ruby
+    current_dir = __dir__
     log_level                :info
     log_location             STDOUT
-    node_name                "brewn"
+    node_name                'brewn'
     client_key               "#{current_dir}/brewn.pem"
-    chef_server_url          "https://api.chef.io/organizations/chfex"
+    chef_server_url          'https://api.chef.io/organizations/chfex'
     cookbook_path            ["#{current_dir}/../cookbooks"]
     ```
 
@@ -124,14 +124,14 @@ the second step.
     simply add the path to your cookbook repository under the
     `cookbook_path` setting in your Hosted Chef chef-repo. For example:
 
-    ``` ruby
-    cookbook_path            ["~/my-repo/cookbooks"]
+    ```ruby
+    cookbook_path            ['~/my-repo/cookbooks']
     ```
 
 2.  Use the `knife supermarket` command to upload your cookbook to the
     Supermarket:
 
-    ``` none
+    ```none
     knife supermarket share example_cookbook
     ```
 
@@ -139,6 +139,6 @@ the second step.
     cookbook repository within your `config.rb`, you can specify the
     cookbook path in your `knife` command:
 
-    ``` none
+    ```none
     knife supermarket share example_cookbook -o ~/my-repo/cookbooks
     ```

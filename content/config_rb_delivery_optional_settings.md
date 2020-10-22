@@ -17,6 +17,21 @@ aliases = ["/config_rb_delivery_optional_settings.html", "/release/automate/conf
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/config_rb_delivery_optional_settings.md)
 
+{{% chef_automate_mark %}}
+
+{{% EOL_a1 %}}
+
+The `delivery.rb` file, located at `/etc/delivery/delivery.rb`, contains
+all of the non-default configuration settings used by the Chef Automate.
+(The default settings are built-in to the Chef Automate configuration
+and should only be added to the `delivery.rb` file to apply non-default
+values.) These configuration settings are processed when the
+`delivery-server-ctl reconfigure` command is run, such as immediately
+after setting up Chef Automate or after making a change to the
+underlying configuration settings after the server has been deployed.
+The `delivery.rb` file is a Ruby file, which means that conditional
+statements can be used in the configuration file.
+
 {{< warning >}}
 
 The configuration settings in the `delivery.rb` file should not be
@@ -48,7 +63,7 @@ This configuration file has the following general settings:
 
 :   Default value:
 
-    ``` ruby
+    ```ruby
     File.join(
       node['delivery']['install_path'],
       "embedded", "cookbooks"
@@ -140,7 +155,7 @@ This configuration file has the following settings for `backup`:
 
 `backup['chef_server_config']`
 
-:   Back up the Chef Infra Server configuration directory. Usefull for
+:   Back up the Chef Infra Server configuration directory. Useful for
     instances when Chef Automate and Chef Infra Server are installed on
     a single node. Default value: `false`.
 
@@ -229,12 +244,12 @@ This configuration file has the following settings for `backup`:
 `backup['elasticsearch']['max_restore_bytes_per_sec']`
 
 :   Maximum snapshot speed when restoring shared filesystem
-    Elasticsearch snaphots. Default value: `40mb`.
+    Elasticsearch snapshots. Default value: `40mb`.
 
 `backup['elasticsearch']['max_snapshot_bytes_per_sec']`
 
 :   Maximum snapshot speed when creating shared filesystem Elasticsearch
-    snaphots. Default value: `40mb`.
+    snapshots. Default value: `40mb`.
 
 `backup['elasticsearch']['poll_interval']`
 
@@ -432,7 +447,7 @@ This configuration file has the following settings for `delivery`:
 
 :   Default value:
 
-    ``` ruby
+    ```ruby
     File.join(node['delivery']['delivery']['etc_dir'], "erlang.cfg")
     ```
 
@@ -472,7 +487,7 @@ This configuration file has the following settings for `delivery`:
 :   The default search to use for build nodes if it is not specified in
     `delivery.rb`. Default value:
 
-    ``` ruby
+    ```ruby
     "(recipes:delivery_builder OR " +
       "recipes:delivery_builder\\\\:\\\\:default OR " +
       "recipes:delivery_build OR " +
@@ -498,7 +513,7 @@ This configuration file has the following settings for `delivery`:
     consistent with where omnibus-delivery's 'delivery' software
     definition puts it. Default value:
 
-    ``` ruby
+    ```ruby
     ::File.join(node['delivery']['user']['home'], 'etc', 'deliv_git_repo_template')
     ```
 
@@ -506,7 +521,7 @@ This configuration file has the following settings for `delivery`:
 
 :   Default value:
 
-    ``` ruby
+    ```ruby
     ::File.join(node['delivery']['delivery']['dir'], 'git_repos')
     ```
 
@@ -515,7 +530,7 @@ This configuration file has the following settings for `delivery`:
 :   Define default directory location for the git working tree. Default
     value:
 
-    ``` ruby
+    ```ruby
     ::File.join(node['delivery']['delivery']['dir'], 'git_workspace')
     ```
 
@@ -544,7 +559,7 @@ This configuration file has the following settings for `delivery`:
 :   The root LDAP node under which all other nodes exist in the
     directory structure. Default value:
 
-    ``` ruby
+    ```ruby
     "OU=Employees,OU=Domain users,DC=examplecorp,DC=com"
     ```
 
@@ -679,7 +694,7 @@ This configuration file has the following settings for `delivery`:
     to use a pre-generated SSL certificate for the main fqdn
     (`delivery_fqdn`) you could specify that here. For example:
 
-    ``` ruby
+    ```ruby
     delivery['ssl_certificates'] = {
       'delivery.example.com' => {
         'key' => 'https://my_bucket/ssl_certificates/delivery.example.com.key',
@@ -693,7 +708,7 @@ This configuration file has the following settings for `delivery`:
 :   An array of hostnames that are whitelisted from requiring SSL
     verification. For example:
 
-    ``` ruby
+    ```ruby
     delivery['no_ssl_verification'] = ['self-signed.badssl.com', 'untrusted-root.badssl.com']
     ```
 
@@ -781,7 +796,7 @@ This configuration file has the following settings for `elasticsearch`:
 
 :   The Elasticsearch JVM's heap size. Default value:
 
-    ``` ruby
+    ```ruby
     "#{(node.memory.total.to_i * 0.4 ).floor / 1024}m"
     ```
 
@@ -845,7 +860,7 @@ later:**
 :   The 'new generation' heap size of the JVM running Elasticsearch.
     Default value:
 
-    ``` ruby
+    ```ruby
     "#{elasticsearch['memory'].to_i / 16}m"
     ```
 
@@ -855,7 +870,7 @@ later:**
     should not contain the heap memory size and the new generation
     memory size from above. Default value: `[]`. Example:
 
-    ``` ruby
+    ```ruby
     elasticsearch['jvm_opts'] = [
       "-xoption1",
       "-xoption2",
@@ -917,7 +932,7 @@ This configuration file has the following settings for `java`:
 
 :   Default value:
 
-    ``` ruby
+    ```ruby
     "#{node['delivery']['install_path']}/embedded/jre/bin"
     ```
 
@@ -1044,7 +1059,7 @@ This configuration file has the following settings for `lsyncd`:
 
 :   Default value:
 
-    ``` ruby
+    ```ruby
     "#{node['delivery']['user']['home']}/.ssh/id_rsa"
     ```
 
@@ -1117,7 +1132,7 @@ This configuration file has the following settings for `nginx`:
 
 :   Enable compression for the specified MIME-types. Default value:
 
-    ``` ruby
+    ```ruby
     [ "text/plain", "text/css",
       "application/x-javascript", "text/xml",
       "application/javascript", "application/xml",
@@ -1179,7 +1194,7 @@ This configuration file has the following settings for `nginx`:
     link](https://www.openssl.org/docs/man1.0.2/man1/ciphers.html) for more
     information. Default value:
 
-    ``` ruby
+    ```ruby
     "RC4-SHA:RC4-MD5:RC4:RSA:HIGH:MEDIUM:!LOW:!kEDH:!aNULL:!ADH:!eNULL:!EXP:!SSLv2:!SEED:!CAMELLIA:!PSK"
     ```
 
@@ -1214,7 +1229,7 @@ This configuration file has the following settings for `nginx`:
 :   The SSL protocol versions that are enabled. For the highest possible
     security, disable SSL 3.0 and allow only TLS:
 
-    ``` ruby
+    ```ruby
     nginx['ssl_protocols'] = 'TLSv1 TLSv1.1 TLSv1.2'
     ```
 
@@ -1340,7 +1355,7 @@ This configuration file has the following settings for `postgresql`:
 :   The directory in which on-disk data is stored. The default value is
     the recommended value. Default value:
 
-    ``` ruby
+    ```ruby
     "/var/opt/delivery/postgresql/#{node['delivery']['postgresql']['version']}/data"
     ```
 
@@ -1353,7 +1368,7 @@ This configuration file has the following settings for `postgresql`:
 :   The working directory. The default value is the recommended value.
     Default value:
 
-    ``` ruby
+    ```ruby
     "/var/opt/delivery/postgresql/#{node['delivery']['postgresql']['version']}"
     ```
 
@@ -1388,7 +1403,7 @@ This configuration file has the following settings for `postgresql`:
 :   The directory in which log data is stored. The default value is the
     recommended value. Default value:
 
-    ``` ruby
+    ```ruby
     "/var/log/delivery/postgresql/#{node['delivery']['postgresql']['version']}"
     ```
 
@@ -1424,7 +1439,7 @@ This configuration file has the following settings for `postgresql`:
 :   The amount of memory that is dedicated to PostgreSQL for data
     caching. Default value:
 
-    ``` ruby
+    ```ruby
     "#{(node['memory']['total'].to_i / 4) / (1024)}MB"
     ```
 
@@ -1467,7 +1482,7 @@ This configuration file has the following settings for `postgresql`:
 
 :   Default value:
 
-    ``` ruby
+    ```ruby
     "/opt/delivery/embedded/bin:/opt/delivery/bin:$PATH"
     ```
 
@@ -1508,7 +1523,7 @@ This configuration file has the following settings for `rabbitmq`:
 
 :   Default value:
 
-    ``` ruby
+    ```ruby
     '/opt/delivery/bin:/opt/delivery/embedded/bin:/usr/bin:/bin'
     ```
 
@@ -1517,7 +1532,7 @@ This configuration file has the following settings for `rabbitmq`:
 :   The directory in which log data is stored. The default value is the
     recommended value. Default value:
 
-    ``` ruby
+    ```ruby
     File.join(default_log_directory, "rabbitmq")
     ```
 
@@ -1558,7 +1573,7 @@ This configuration file has the following settings for `rabbitmq`:
 
 `rabbitmq['nodename']`
 
-:   The name of the node. Default value: `'rabbit@localhost'`.
+:   The unique identifier of the node. Default value: `'rabbit@localhost'`.
 
 `rabbitmq['password']`
 
@@ -1602,7 +1617,7 @@ This configuration file has the following settings for `ssh_git`:
 :   The working directory. The default value is the recommended value.
     Default value:
 
-    ``` ruby
+    ```ruby
     "#{node['delivery']['delivery']['etc_dir']}/ssh_git_server_keys"
     ```
 
@@ -1639,7 +1654,7 @@ This configuration file has the following settings for `statistics`:
 
 `statistics['log_rotation']['num_to_keep']`
 
-:   The maxiumum number of statistics log files. Default value: `10`.
+:   The maximum number of statistics log files. Default value: `10`.
 
 ### user
 

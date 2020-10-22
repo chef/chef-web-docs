@@ -71,14 +71,14 @@ documentation for details.
 
 1.  On the surviving node, run the following command:
 
-    ``` none
+    ```none
     chef-backend-ctl create-cluster --quorum-loss-recovery
     ```
 
 2.  On each of the two new nodes, install `chef-backend-ctl` and join to
     the cluster using:
 
-    ``` none
+    ```none
     chef-backend-ctl join-cluster IP_OF_LEADER -s PATH_TO_SHARED_SECRETS
     ```
 
@@ -127,19 +127,19 @@ data, you may want to reinstate its leadership.
     starting PostgreSQL. On the deposed leader node that is being
     promoted, run the following command:
 
-    ``` bash
+    ```bash
     rm /var/opt/chef-backend/leaderl/data/no-start-pgsql
     ```
 
 2.  Then restart PostgresSQL:
 
-    ``` none
+    ```none
     chef-backend-ctl restart postgresql
     ```
 
 3.  Finally, promote the deposed leader node:
 
-    ``` none
+    ```none
     chef-backend-ctl promote NODE_NAME_OR_IP
     ```
 
@@ -206,7 +206,7 @@ PostgreSQL may still be up and accepting connections.
 When a node starts to sync from a leader, Leaderl will write the
 following file to disk:
 
-``` none
+```none
 /var/opt/chef-backend/leaderl/data/unsynced
 ```
 
@@ -219,16 +219,16 @@ Resolving the issue requires an understanding of what caused the sync
 failure. One way to determine the cause is by manually running a sync
 and inspecting the output:
 
-``` none
+```none
 chef-backend-ctl stop leaderl
-PSQL_INTERNAL_OK-true chef-backend-ctl pgsql-follow LEADER_IP --verbose
+PSQL_INTERNAL_OK=true chef-backend-ctl pgsql-follow LEADER_IP --verbose
 ```
 
 Once you've resolved the issue and can run the `pgsql-follow` command
 successfully, you can manually remove the sentinel file and restart
 Leaderl:
 
-``` none
+```none
 rm /var/opt/chef-backend/leaderl/data/unsynced
 chef-backend-ctl start leaderl
 ```
@@ -268,7 +268,7 @@ the scenarios and tools shown above to assist in the recovery steps:
 
 4.  Sync the followers from the leader using a full basebackup because
     the WAL entries have likely already rotated. When the WAL entries
-    have already roated away, the followers will complain in the
+    have already rotated away, the followers will complain in the
     `/var/log/chef-backend/postgresql/X.Y/current` logfile about being
     unable to sync. Using just the <span
     class="title-ref">--recovery</span> flag will result in timeouts of
@@ -279,7 +279,7 @@ the scenarios and tools shown above to assist in the recovery steps:
 
 <!-- -->
 
-``` none
+```none
 2018-04-25_16:36:29.42242 FATAL:  the database system is starting up
 2018-04-25_16:36:30.90058 LOG:  started streaming WAL from primary at 16F3/2D000000 on timeline 88
 2018-04-25_16:36:30.90124 FATAL:  could not receive data from WAL stream: ERROR:  requested WAL segment      00000058000016F30000002D has already been removed
@@ -297,7 +297,7 @@ followers that will not sync. **Do this on one follower at a time.** You
 can check output from the `chef-backend cluster-status` command
 periodically to watch the state of the cluster change:
 
-``` bash
+```bash
 chef-backend-ctl stop leaderl
 chef-backend-ctl cluster-status
 PSQL_INTERNAL_OK=true chef-backend-ctl pgsql-follow --force-basebackup --verbose LAST_LEADER_IP

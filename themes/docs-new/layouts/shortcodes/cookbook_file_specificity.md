@@ -15,7 +15,7 @@ and the source attribute. The first pattern that matches is used:
 Use an array with the `source` attribute to define an explicit lookup
 path. For example:
 
-``` ruby
+```ruby
 file '/conf.py' do
   source ['#{node.chef_environment}.py', 'conf.py']
 end
@@ -24,14 +24,14 @@ end
 The following example emulates the entire file specificity pattern by
 defining it as an explicit path:
 
-``` ruby
+```ruby
 file '/conf.py' do
-  source %W{
+  source %W(
     host-#{node['fqdn']}/conf.py
     #{node['platform']}-#{node['platform_version']}/conf.py
     #{node['platform']}/conf.py
     default/conf.py
-  }
+  )
 end
 ```
 
@@ -49,7 +49,7 @@ A cookbook may have a `/files` directory structure like this:
 
 and a resource that looks something like the following:
 
-``` ruby
+```ruby
 cookbook_file '/usr/local/bin/apache2_module_conf_generate.pl' do
   source 'apache2_module_conf_generate.pl'
   mode '0755'
@@ -63,7 +63,7 @@ structure. For a node that is running Ubuntu 16.04, the second item
 would be the matching item and the location to which the file identified
 in the **cookbook_file** resource would be distributed:
 
-``` ruby
+```ruby
 host-foo.example.com/apache2_module_conf_generate.pl
 ubuntu-20.04/apache2_module_conf_generate.pl
 ubuntu-20/apache2_module_conf_generate.pl

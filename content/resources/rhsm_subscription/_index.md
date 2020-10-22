@@ -1,6 +1,5 @@
 ---
 resource_reference: true
-properties_shortcode: 
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
@@ -33,10 +32,10 @@ syntax_full_properties_list:
 actions_list:
   :attach:
     markdown: Default. Attach the node to a subscription pool.
-  :remove:
-    markdown: Remove the node from a subscription pool.
   :nothing:
     shortcode: resources_common_actions_nothing.md
+  :remove:
+    markdown: Remove the node from a subscription pool.
 properties_list:
 - property: pool_id
   ruby_type: String

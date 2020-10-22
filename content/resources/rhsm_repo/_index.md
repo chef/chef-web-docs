@@ -1,6 +1,5 @@
 ---
 resource_reference: true
-properties_shortcode: 
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
@@ -22,7 +21,7 @@ syntax_full_code_block: |-
     repo_name      String # default value: 'name' unless specified
     action         Symbol # defaults to :enable if not specified
   end
-syntax_properties_list: 
+syntax_properties_list:
 syntax_full_properties_list:
 - "`rhsm_repo` is the resource."
 - "`name` is the name given to the resource block."
@@ -30,10 +29,10 @@ syntax_full_properties_list:
   the desired state."
 - "`repo_name` is the property available to this resource."
 actions_list:
-  :enable:
-    markdown: Default. Enable an RHSM repository.
   :disable:
     markdown: Disable an RHSM repository.
+  :enable:
+    markdown: Default. Enable an RHSM repository.
   :nothing:
     shortcode: resources_common_actions_nothing.md
 properties_list:
@@ -45,8 +44,8 @@ properties_list:
   - markdown: An optional property for specifying the repository name if it differs
       from the resource block's name.
 examples: "
-  Enable an RHSM repository\n\n  ``` ruby\n  rhsm_repo 'rhel-7-server-extras-rpms'\n\
-  \  ```\n\n  Disable an RHSM repository\n\n  ``` ruby\n  rhsm_repo 'rhel-7-server-extras-rpms'\
+  Enable an RHSM repository\n\n  ```ruby\n  rhsm_repo 'rhel-7-server-extras-rpms'\n\
+  \  ```\n\n  Disable an RHSM repository\n\n  ```ruby\n  rhsm_repo 'rhel-7-server-extras-rpms'\
   \ do\n    action :disable\n  end\n  ```\n"
 
 ---
