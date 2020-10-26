@@ -21,6 +21,15 @@ $extrabold: 800;
   src: url('/fonts/Inter-Bold.ttf');
 }
 
+@media print {
+  h2 { page-break-after: avoid; }
+  p { page-break-inside: avoid; }
+
+  @page {
+    margin: 1in;
+  }
+}
+
 @import "vendor/fontawesome/fontawesome.scss";
 @import "vendor/fontawesome/solid.scss";
 @import "vendor/fontawesome/brands.scss";

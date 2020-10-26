@@ -60,6 +60,9 @@ $foundation-palette: (
   alert: #cc4b37,
 );
 
+$print-transparent-backgrounds: true;
+$print-hrefs: false;
+
 $breakpoint-classes: (small medium mediumlarge large xlarge xxlarge);
 
 $breakpoints: (
@@ -70,6 +73,7 @@ $breakpoints: (
   xlarge: 1200px,
   xxlarge: 1440px,
 );
+$print-breakpoint: small;
 
 $header-styles: (
   'small': (
