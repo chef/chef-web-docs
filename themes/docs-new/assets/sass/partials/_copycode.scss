@@ -40,8 +40,9 @@
 p + button.copy-code-button {
   margin-top: -.5rem;
 }
+
 @media print {
   .copy-code-button{
     display:none;
-  }
+  } 
 }
