@@ -79,7 +79,7 @@ notAlternative = true
 [params]
   enable_search = true
   robots = ''
-  menuOrder = ["overview", "compliance", "effortless", "infra",  "workstation", "desktop", "habitat", "inspec", "automate", "release_notes", "legacy", "api", "extra"]
+  menuOrder = ["overview", "compliance", "app_delivery", "effortless", "infra",  "workstation", "desktop", "habitat", "inspec", "automate", "release_notes", "legacy", "api", "extra"]
 
 [taxonomies]
   category = "categories"
