@@ -248,6 +248,19 @@ weight = 20
 # End Overview Menu
 ####
 
+####
+# Application Delivery Menu
+####
+
+[[menu.app_delivery]]
+title = "Chef App Delivery"
+identifier = "app_delivery"
+weight = 10
+
+####
+# End Application Delivery Menu
+####
+
 
 ####
 # Compliance Menu
