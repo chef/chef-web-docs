@@ -32,7 +32,7 @@ Infra Server in larger installations.
 {{< note >}}
 
 Review the full list of [optional
-settings](/config_rb_server_optional_settings/) that can be added to
+settings](/server/config_rb_server_optional_settings/) that can be added to
 the chef-server.rb file. Many of these optional settings should not be
 added without first consulting with Chef support.
 

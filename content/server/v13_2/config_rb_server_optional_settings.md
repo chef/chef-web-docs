@@ -125,7 +125,7 @@ This configuration file has the following settings for `bookshelf`:
 
 :   The access key identifier. This may point at an external storage
     location, such as Amazon EC2. See [AWS external bookshelf
-    settings](/server_overview/#external-bookshelf-settings) for
+    settings](/server/#aws-settings) for
     more information on configuring external bookshelf. Default value:
     **generated**. As of Chef Server 12.14, this is no longer the
     preferred command.
@@ -192,7 +192,7 @@ This configuration file has the following settings for `bookshelf`:
 
 :   The secret key. This may point at an external storage location, such
     as Amazon EC2. See [AWS external bookshelf
-    settings](/server_overview/#external-bookshelf-settings) for
+    settings](/server/#aws-settings) for
     more information on configuring external bookshelf. Default value:
     **generated**. As of Chef Server 12.14, this is no longer the
     preferred command.
@@ -237,7 +237,7 @@ This configuration file has the following settings for `bookshelf`:
 
 :   The virtual IP address. This may point at an external storage
     location, such as Amazon EC2. See [AWS external bookshelf
-    settings](/server_overview/#external-bookshelf-settings) for
+    settings](/server/#aws-settings) for
     more information on configuring external bookshelf. Default value:
     `127.0.0.1`.
 
@@ -1384,7 +1384,7 @@ This configuration file has the following settings for `opscode-erchef`:
 :   The name of the Amazon Simple Storage Service (S3) bucket. This may
     point at external storage locations, such as Amazon EC2. See [AWS
     external bookshelf
-    settings](/server_overview/#external-bookshelf-settings) for
+    settings](/server/#aws-settings) for
     more information on configuring external bookshelf.
 
 `opscode_erchef['s3_parallel_ops_fanout']`

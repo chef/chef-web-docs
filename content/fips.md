@@ -92,7 +92,7 @@ FIPS mode.
 To enable FIPS manually for the Chef Infra Server, can add `fips true`
 to the `/etc/opscode/chef-server.rb` and reconfigure. For more
 configuration information see [Chef
-Server](/config_rb_server_optional_settings/).
+Server](/server/config_rb_server_optional_settings/).
 
 ## How to enable FIPS mode for the Chef Infra Client
 
