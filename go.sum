@@ -27,6 +27,8 @@ github.com/google/go-cmp v0.3.0/go.mod h1:8QqcDgzrUqlUb/G2PQTWiueGozuR1884gddMyw
 github.com/google/go-cmp v0.3.1/go.mod h1:8QqcDgzrUqlUb/G2PQTWiueGozuR1884gddMywk6iLU=
 github.com/google/go-cmp v0.4.0/go.mod h1:v8dTdLbMG2kIc/vJvl+f65V22dbkXbowE6jgT/gNBxE=
 github.com/google/go-cmp v0.5.0/go.mod h1:v8dTdLbMG2kIc/vJvl+f65V22dbkXbowE6jgT/gNBxE=
+github.com/habitat-sh/habitat/components/docs-chef-io v0.0.0-20201026194658-c31b0859069f h1:m+bMqjMLeppe935JUK5tOF7XECBV+m1SE5+WPnI1NzM=
+github.com/habitat-sh/habitat/components/docs-chef-io v0.0.0-20201026194658-c31b0859069f/go.mod h1:luAy42opPrAM/T6hsqDyW3CNBaAMgy+a6l0+oi8sw8U=
 github.com/inspec/inspec/docs-chef-io v0.0.0-20201022004754-2d19011d6648 h1:nhB0xLmdFnTZEWB1UlT7KnQ3a0s91pl26SugXk5qAnA=
 github.com/inspec/inspec/docs-chef-io v0.0.0-20201022004754-2d19011d6648/go.mod h1:oudFvipU0DTMkp8+MiwdUGerVEoWcJG0MQciDEOd6G8=
 github.com/prometheus/client_model v0.0.0-20190812154241-14fe0d1b01d4/go.mod h1:xMI15A0UPsDsEKsMN9yxemIoYk6Tm2C1GtYGdfGttqA=
