@@ -2,17 +2,17 @@
 title = "Chef Infra Server Overview"
 draft = false
 
-aliases = ["/server_overview.html", "/server_components.html"]
+aliases = ["/server_overview.html", "/server_components.html", "/server_overview/"]
 
 [menu]
   [menu.infra]
     title = "Chef Infra Server Overview"
-    identifier = "chef_infra/concepts/server_overview.md Chef Infra Server Overview"
+    identifier = "chef_infra/concepts/Chef Infra Server Overview"
     parent = "chef_infra/concepts"
     weight = 20
 +++
 
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/server_overview.md)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/server/_index.md)
 
 {{% chef_server %}}
 
@@ -23,7 +23,7 @@ aliases = ["/server_overview.html", "/server_components.html"]
 The Chef Infra Server can be configured via the
 `/etc/opscode/chef-server.rb` file. Whenever this file is modified, the
 `chef-server-ctl reconfigure` command must be run to apply the changes.
-See the [Chef Infra Server settings](/config_rb_server/) guide for
+See the [Chef Infra Server settings](/server/config_rb_server/) guide for
 additional information.
 
 {{< /note >}}
