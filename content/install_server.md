@@ -137,8 +137,8 @@ your `/etc/opscode/chef-server.rb` file by following the process below:
     ```
 
 For more information on configuring your Chef Infra Server, see
-[chef-server.rb Settings](/config_rb_server/) and [chef-server.rb
-Optional Settings](/config_rb_server_optional_settings/).
+[chef-server.rb Settings](/server/config_rb_server/) and [chef-server.rb
+Optional Settings](/server/config_rb_server_optional_settings/).
 
 ## High Availability
 
