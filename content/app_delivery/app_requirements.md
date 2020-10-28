@@ -18,11 +18,11 @@ This Guide walks you through the Chef App Delivery process using a demo Java app
 
 This guide is divided into five parts, to show you how to:
 
-* [Install Chef Habitat and the demo app]({{< relref "app_setup.md" >}})
-* [Set Up Chef Habitat]({{< relref "app_iter_1.md" >}})
-* [Define the Application Manifest]({{< relref "app_iter_2.md" >}})
-* [Package a Chef Habitat Artifact]({{< relref "app_iter_3.md">}})
-* [Deliver an Application with the Chef Habitat Supervisor]({{< relref "app_iter_4.md">}})
+* Install Chef Habitat
+* Set Up Chef Habitat and the demo app
+* Define the Application Manifest
+* Package a Chef Habitat Artifact
+* Deliver an Application with the Chef Habitat Supervisor
 
 ## System Requirements
 

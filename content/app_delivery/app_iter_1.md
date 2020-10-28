@@ -175,6 +175,7 @@ After the source components are available, `do_install` can be used to move thes
 Another common variable for use within a Plan is `${PREFIX}`, which contains anything that should be packaged into the resulting binary. During the packaging phase Chef Habitat replaces `${PREFIX}` with the dynamically generated artifact name, which by default appends the date timestamp from when the package was built.
 
 ### Package Dependencies
+
 Within Plan files you can declare two types of dependencies: buildtime and runtime.
 
 **Buildtime dependencies** are available within the Studio and are needed to package the application and are declared with `pkg_build_deps`.
