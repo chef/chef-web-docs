@@ -560,7 +560,7 @@ examples: "
   admonition-note-title\">Note</p>\n      <div class=\"admonition-note-text\">\n \
   \       <p>There should not be a file named <code>database.yml</code> (without the\
   \ <code>.erb</code>), as the <code>database.yml</code> file is what will be rendered\
-  \ using the <strong>template</strong> resource.</p>\n\n      </div>\n    </div>\n\
+  \ using the <strong>template</strong> resource.</p>\n\n</div>\n</div>\n\
   \n  The deployment of the app will end up in `/srv`, so the full path to\n  this\
   \ template would be something like\n  `/srv/myapp/current/config/database.yml.erb`.\n\
   \n  The content of the template itself may look like this:\n\n  ```ruby\n  <%=\
