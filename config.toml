@@ -79,13 +79,16 @@ notAlternative = true
 [params]
   enable_search = true
   robots = ''
-  menuOrder = ["overview", "compliance", "effortless", "infra",  "workstation", "desktop", "habitat", "inspec", "automate", "release_notes", "legacy", "api", "extra"]
+  menuOrder = ["overview", "compliance", "app_delivery", "effortless", "infra",  "workstation", "desktop", "habitat", "inspec", "automate", "release_notes", "legacy", "api", "extra"]
 
 [taxonomies]
   category = "categories"
   tag = "tags"
   resource = "resources"
 
+[params.product_version]
+[params.product_version.chef-server]
+versions = ["13_2", "14_0"]
 
 [module]
 
@@ -243,6 +246,25 @@ weight = 20
 
 ####
 # End Overview Menu
+####
+
+####
+# Application Delivery Menu
+####
+
+[[menu.app_delivery]]
+title = "Chef App Delivery"
+identifier = "app_delivery"
+weight = 10
+
+  [[menu.app_delivery]]
+  title = "App Delivery Guide"
+  identifier = "app_delivery/app_guide"
+  parent = "app_delivery"
+  weight = 20
+
+####
+# End Application Delivery Menu
 ####
 
 
