@@ -245,7 +245,7 @@ Next, you'll build the package from within the Studio.
 
 Review the output and see if you understand what's going on. You should see Chef Habitat validating your Plan file, downloading and installing dependencies, building and signing the package, and finally generating the Habitat package artifact (.HART).
 
-I love  
+I love
 A Habitat "Build" takes your application definition, runs the tasks you've defined like building from source or downloading your software. Then packages that with it's instructions in a signed/compressed artifact you call a Habitat Artifact or .hart.
 
 You've successfully packaged your application if you see:
@@ -315,21 +315,25 @@ Starting and monitoring the service that's defined in the Habitat package.
 Receiving and acting upon configuration changes from other Supervisors.
 
 Now let's see what happens when you load your package as a running service.
-Chef Habitat Studio: Loading a Service
+
+### Chef Habitat Studio: Loading a Service
+
+```bash
 [default:/src:0]# hab svc load $pkg_ident
-✗✗✗
-✗✗✗ [Err: 0] Package is not runnable: myinitials_tryhab/sample/0.1.0/20200324174336
-✗✗✗
+...
+[Err: 0] Package is not runnable: myinitials_tryhab/sample/0.1.0/20200324174336
+```
 
 Uh-oh. Although the package was successfully built, it doesn't run! This scenario will feel familiar to anyone who has packaged up binaries or executables before, and it's why the Studio is a great environment for building and testing applications.
 Chef Habitat Studio: Troubleshooting a Run Failure
 To get a little more information about why the package won't run, you should check out the Supervisor logs to see what went wrong:
 
+```bash
 [default:/src:0]# sup-log
---> Tailing the Habitat Supervisor's output (use 'Ctrl+c' to stop)
-→ Using core/zlib/1.2.11/20190115003728
-✓ Installed core/hab-launcher/13458/20200318174911
-★ Install of core/hab-launcher/13458/20200318174911 complete with 1 new packages installed.
+Tailing the Habitat Supervisor's output (use 'Ctrl+c' to stop)
+Using core/zlib/1.2.11/20190115003728
+Installed core/hab-launcher/13458/20200318174911
+Install of core/hab-launcher/13458/20200318174911 complete with 1 new packages installed.
 Logging configuration file '/hab/sup/default/config/log.yml' not found; using default logging configuration
 hab-sup(MR): core/hab-sup (core/hab-sup/1.5.0/20200122225210)
 hab-sup(MR): Supervisor Member-ID c5380b47f33c4506b88f2b8093b6127c
@@ -337,6 +341,7 @@ hab-sup(MR): Starting gossip-listener on 0.0.0.0:9638
 hab-sup(MR): Starting ctl-gateway on 127.0.0.1:9632
 hab-sup(MR): Starting http-gateway on 0.0.0.0:9631
 hab-sup(UT): Can't start non-runnable service: myinitials_tryhab/sample/0.1.0/20200324174336
+```
 
 The first thing you notice here is at the end of the output: Can't start non-runnable service.
 

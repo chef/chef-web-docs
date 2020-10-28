@@ -26,6 +26,7 @@ First, you should understand that the tc/conf/server.xml file is the configurati
 This generic file is available in the java-sample-master/ directory you cloned down at the beginning of this guide, next to your .war file. You will move this file into your Chef Habitat Manifest, and then update the file to accept a configuration change.
 
 ### Defining Configurations: Configuration Templates
+
 Templates are stored in the Manifest's config/ directory. All files located here can have template variables added to them if desired. After a build these files are rendered to a config directory, /hab/svc/<pkg_name>/config/ for the running service, and are re-written when a template value changes.
 
 To start, move the provided server.xml template into the config directory:
@@ -96,8 +97,8 @@ Successfully built db5922196682
 Successfully tagged tryhabitat/sample:0.1.0-20200331211504
 Successfully tagged tryhabitat/sample:0.1.0
 Successfully tagged tryhabitat/sample:latest
-☒ Deleting temporary files
-★ Docker image 'tryhabitat/sample' created with tags: 0.1.0-20200331211504, 0.1.0, latest
+Deleting temporary files
+Docker image 'tryhabitat/sample' created with tags: 0.1.0-20200331211504, 0.1.0, latest
 ```
 
 Now you can exit the studio and test out the new Docker image.
@@ -136,13 +137,13 @@ First, ensure you are outside of the Studio. Then when the Supervisor is called 
 java-sample$ source results/last_build.env
 java-sample$ sudo hab sup run results/$pkg_artifact
 ...
-★ Install of core/hab-launcher/13606/20200420202330 complete with 1 new packages installed.
+Install of core/hab-launcher/13606/20200420202330 complete with 1 new packages installed.
 Logging configuration file '/hab/sup/default/config/log.yml' not found; using default logging configuration
 hab-sup(MR): core/hab-sup (core/hab-sup/1.6.0/20200420202331)
 hab-sup(MR): Supervisor Member-ID 052a215221b24be9a38db72aa730819a
-» Installing results/rab-tryhab-sample-0.1.0-20200427214706-x86_64-linux.hart
-☛ Verifying rab-tryhab/sample/0.1.0/20200427214706
-↓ Downloading rab-tryhab-20200427214647 public origin key
+Installing results/rab-tryhab-sample-0.1.0-20200427214706-x86_64-linux.hart
+Verifying rab-tryhab/sample/0.1.0/20200427214706
+Downloading rab-tryhab-20200427214647 public origin key
 [404 Not Found]
 [2020-04-27T21:58:55Z ERROR hab_launch] Launcher exiting with code 86
 ```
@@ -206,10 +207,10 @@ With the group as sample.default, you know how to apply your configuration chang
 ```bash
 $ java-sample$ echo 'server.port = 9001' | sudo hab config apply sample.default $(date +'%Y%m%d%H%M%S')
 
-» Setting new configuration version 20200427225542 for sample.default
-Ω Creating service configuration
-↑ Applying via peer 127.0.0.1:9632
-★ Applied configuration
+Setting new configuration version 20200427225542 for sample.default
+Creating service configuration
+Applying via peer 127.0.0.1:9632
+Applied configuration
 ```
 
 If all goes well, you should now be able to check for the sample app on the new port:
