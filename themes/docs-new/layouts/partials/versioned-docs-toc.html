@@ -1,0 +1,63 @@
+{{ $pageTitle := delimit (slice "<a href=\"#" ( anchorize .Title) "\">" .Title "</a>") "" }}
+{{ $tocContents := "" }}
+{{ $product := .Params.version_docs_product }}
+{{ $baseDir := .File.Dir }}
+{{ $splitBaseDir := trim $baseDir "/" }}
+{{ $LogicalName := .File.LogicalName }}
+
+{{ $versions := index .Site.Params.product_version .Params.version_docs_product }}
+{{ $headersExist := false }}
+{{ range $versions.versions }}
+  {{ $newTOC := "" }}
+
+  {{ $version := . }}
+  {{ $versionDir := delimit (slice "v" $version) "" }}
+  {{ $filePath := path.Join (slice "/" $splitBaseDir $versionDir) "/" }}
+
+  {{ with $.Site.GetPage $filePath }}
+    {{ with (index (.Resources.Match $LogicalName) 0) }}
+      {{ $headers := findRE "<h[12].*?>(.|\n])+?</h[12]>" .Content }}
+      {{ if ge (len $headers) 1 }}
+        {{ $headersExist = true }}
+
+        {{ $newTOC = delimit (slice `<div class="chef-product-version ` $product "_" $version `">` ) "" }}
+        {{ $newTOC = delimit (slice $newTOC .Page.TableOfContents) "" }}
+        {{ $newTOC = delimit (slice $newTOC "</div>") "" }}
+        {{ $replacementID := delimit (slice `$1-` $version `">`) "" }}
+        {{ $newTOC := replaceRE `(<a href="#[\w\-]+)\">` $replacementID $newTOC }}
+
+        {{ $tocContents = delimit (slice $tocContents $newTOC) "" }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+{{ if $headersExist }}
+<div class="cell off-canvas position-right toc off-canvas-absolute reveal-for-large" id="onCanvasRightTOC" data-off-canvas >
+  <aside class="sticky sidebar" data-sticky data-top-anchor="utility-bar:bottom" data-btm-anchor="footer:top">
+    <div class="TableOfContents">
+      <span>
+        <strong>
+          <h4 class="mini-toc-header">Table Of Contents</h4>
+        </strong>
+        <button class="close-button hide-for-large" aria-label="Close menu" type="button" data-close>
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </span>
+      {{ $pageTitle }}
+      {{- safeHTML $tocContents -}}
+    </div>
+  </aside>
+</div>
+
+
+<div class="off-canvas position-right toc off-canvas-absolute hide-for-large" id="offCanvasRightTOC" data-off-canvas
+data-transition="overlap">
+  <strong>
+    <h4 class="mini-toc-header">Table Of Contents</h4>
+  </strong>
+    {{ $pageTitle }}
+    {{- safeHTML $tocContents -}}
+</div>
+{{ end }}
+
+

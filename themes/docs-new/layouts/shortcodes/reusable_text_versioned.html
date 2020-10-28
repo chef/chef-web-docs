@@ -1,0 +1,33 @@
+{{ $page_file_path := $.Page.File.Path }}
+{{ $parent_page_file := $.Page.File.LogicalName }}
+{{ $path := replaceRE $parent_page_file "" $page_file_path }}
+
+{{ $reusable_text_file := print "content/" $path "reusable_text/" (.Get "file") ".md" }}
+{{ $reusable_text_content := readFile $reusable_text_file }}
+
+{{/* The code below handles reusable files that call for content from other reusable files */}}
+
+{{ if in $reusable_text_content "reusable_text_versioned" }}
+  {{ $more_reusable_text := newScratch }}
+  {{ $more_reusable_text.Set "text" "" }}
+  {{ range split (readFile $reusable_text_file) "\n"}}
+    {{ if in . "reusable_text_versioned" }}
+
+      {{ $more_reusable_text_match := index (findRE `{{< reusable_text_versioned \"([\w|-|_]+)\" >}}` . ) 0 }}
+      {{ $more_reusable_text_file := replaceRE `{{< reusable_text_versioned \"([\w|-|_]+)\" >}}` "$1" $more_reusable_text_match}}
+      {{ $more_reusable_text_file = print "content/" $path "reusable_text/" $more_reusable_text_file ".md" }}
+      {{ $more_reusable_text_content := readFile $more_reusable_text_file }}
+      {{ $newLineText := replaceRE $more_reusable_text_match $more_reusable_text_content . }}
+      {{ $more_reusable_text.Add "text" $newLineText }}
+      {{ $more_reusable_text.Add "text" "\n" }}
+
+    {{ else }}
+      {{ $more_reusable_text.Add "text" . }}
+      {{ $more_reusable_text.Add "text" "\n" }}
+    {{ end }}
+  {{ end }}
+
+  {{ $more_reusable_text.Get "text" | markdownify }}
+{{ else }}
+  {{ markdownify $reusable_text_content }}
+{{ end }}

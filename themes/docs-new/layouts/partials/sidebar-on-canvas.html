@@ -1,7 +1,7 @@
 {{ $currentPage := . }}
 {{ $currentSection := $currentPage.Section }}
 
-<aside class="sticky sidebar" data-sticky data-top-anchor="utility-bar:bottom" data-btm-anchor="footer:top">
+<aside class="sticky sidebar hide-for-print" data-sticky data-top-anchor="utility-bar:bottom" data-btm-anchor="footer:top">
   <nav id="sidebar-nav">
     {{ if .Site.Params.enable_search }}
       <div class="search">

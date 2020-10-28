@@ -26,7 +26,7 @@ aliases = ["/chef_overview.html"]
     Chef Infra. The Chef Infra Client is installed on each node and is
     used to configure the node to its desired state.
 -   **Chef Infra Server** acts as [a hub for configuration
-    data](/server_overview/). Chef Infra Server stores cookbooks,
+    data](/server/). Chef Infra Server stores cookbooks,
     the policies that are applied to nodes, and metadata that describes
     each registered node that is being managed by Chef. Nodes use the
     Chef Infra Client to ask the Chef Infra Server for configuration

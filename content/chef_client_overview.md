@@ -43,7 +43,7 @@ executable can be run as a daemon.
 ## Related Content
 
 -   [Chef Infra Client (executable)](/ctl_chef_client/)
--   [Chef Infra Server](/server_overview/)
+-   [Chef Infra Server](/server/)
 -   [Cookbooks](/cookbooks/)
 -   [Nodes](/nodes/)
 -   [Run Lists](/run_lists/)

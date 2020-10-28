@@ -70,7 +70,7 @@ sudo chef-server-ctl reconfigure
 ```
 
 For more information about the server configuration file, see
-[chef-server.rb](/config_rb_server/).
+[chef-server.rb](/server/config_rb_server/).
 
 ### Manual Installation
 
@@ -118,7 +118,7 @@ than 64 characters.
 
 The following example shows how the Chef Infra Server sets up and
 configures SSL certificates for Nginx. The cipher suite used by Nginx
-[is configurable](/config_rb_server/#ssl-protocols) using the
+[is configurable](/server/config_rb_server/#ssl-protocols) using the
 `ssl_protocols` and `ssl_ciphers` settings.
 
 ```ruby

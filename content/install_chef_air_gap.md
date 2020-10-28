@@ -302,7 +302,7 @@ Supermarket.
 4.  Retrieve Supermarket's OAuth 2.0 client credentials:
 
     Depending on your Chef Infra Server version and configuration (see
-    [chef-server.rb](/config_rb_server_optional_settings/#config-rb-server-insecure-addon-compat)),
+    [chef-server.rb](/server/config_rb_server_optional_settings/#config-rb-server-insecure-addon-compat)),
     this can be retrieved via [chef-server-ctl oc-id-show-app
     supermarket](/ctl_chef_server/#ctl-chef-server-oc-id-show-app)
     or is located in `/etc/opscode/oc-id-applications/supermarket.json`:

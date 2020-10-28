@@ -1,7 +1,7 @@
 (function (win, doc,$) {
   $(doc).foundation();
 
-  $(".prose > :header").each(function () {
+  $(".prose > :header" ).add(".chef-product-version > :header" ) .each(function () {
     $(this).append("<a href=\"\#" + $(this).attr("id") + "\"><i class=\"fas fa-link\"></i></a>");
   });
 
