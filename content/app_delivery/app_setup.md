@@ -42,13 +42,21 @@ hab --version
 
 Next, you will need to setup your system by generating or defining a set of origin keys. To do this, run the following command and answer the questions that are asked. Either select the answers you recommend at this time, or input your own origin keys if you know what you're doing (you can re-run hab setup at any time). For the default origin name, use your initials, first name, or preferred handle. This name will be a public origin near the end of the guide.
 
-~$ export HAB_ORIGIN='myinitials_tryhab'
-~$ hab origin key generate
-» Generating origin key for myinitials_tryhab
-★ Generated origin key pair myinitials_tryhab-20200521200652.
+```basy
+export HAB_ORIGIN='myinitials_tryhab'
+hab origin key generate
+```
 
-These keys are stored inside of ~/.hab/cache/keys . They are used to sign packages that you will build later on. Keep in mind that you'll need access to these keys later to run your packages!
-Key Concepts: Origin Keys -  What are they and why do you need them?
+returns something like:
+
+```bash
+Generating origin key for myinitials_tryhab
+Generated origin key pair myinitials_tryhab-20200521200652.
+```
+
+These keys are stored inside of `~/.hab/cache/keys` . They are used to sign packages that you will build later on. Keep in mind that you'll need access to these keys later to run your packages!
+
+### Key Concepts: Origin Keys -  What are they and why do you need them?
 https://www.habitat.sh/docs/glossary/#glossary-keys
 
 Every package that you build with Chef Habitat belongs to an origin and is cryptographically signed with that origin's private key. This ensures that the packages you build are safe to run, and are exactly the same packages that were built and tested in your development environment.
