@@ -3,7 +3,6 @@ resource_reference: true
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-notes_resource_based_on_package: true
 title: smartos_package resource
 resource: smartos_package
 aliases:
@@ -16,6 +15,7 @@ menu:
 resource_description_list:
 - markdown: Use the **smartos_package** resource to manage packages for the SmartOS
     platform.
+- notes_resource_based_on_package: true
 syntax_full_code_block: |-
   smartos_package 'name' do
     options           String, Array

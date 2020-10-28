@@ -4,7 +4,6 @@ properties_shortcode:
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-notes_resource_based_on_package: true
 title: windows_package resource
 resource: windows_package
 aliases:
@@ -18,6 +17,7 @@ resource_description_list:
 - markdown: 'Use the **windows_package** resource to manage Microsoft Installer
 
     Package (MSI) packages for the Microsoft Windows platform.'
+- notes_resource_based_on_package: true
 resource_new_in: null
 handler_types: false
 syntax_description: 'A **windows_package** resource block manages a package on a node,
