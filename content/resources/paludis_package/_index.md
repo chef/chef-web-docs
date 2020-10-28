@@ -1,4 +1,8 @@
 ---
+resource_reference: true
+resources_common_guards: true
+resources_common_notification: true
+resources_common_properties: true
 title: paludis_package resource
 resource: paludis_package
 aliases:
@@ -8,15 +12,9 @@ menu:
     title: paludis_package
     identifier: chef_infra/cookbook_reference/resources/paludis_package paludis_package
     parent: chef_infra/cookbook_reference/resources
-resource_reference: true
-robots: null
 resource_description_list:
-- markdown: 'Use the **paludis_package** resource to manage packages for the Paludis
-
-    platform.'
-- notes_resource_based_on_package: true
-resource_new_in: null
-handler_types: false
+- markdown: Use the **paludis_package** resource to manage packages for the Paludis
+    platform.
 syntax_description: 'A **paludis_package** resource block manages a package on a node,
 
   typically by installing it. The simplest use of the **paludis_package**
@@ -34,24 +32,17 @@ syntax_description: 'A **paludis_package** resource block manages a package on a
   which will install the named package using all of the default options
 
   and the default action (`:install`).'
-syntax_code_block: null
-syntax_properties_list: null
 syntax_full_code_block: "paludis_package 'name' do\n  options           String\n \
   \ package_name      String\n  source            String\n  timeout           Integer\
   \ # default value: 3600\n  version           String\n  action            Symbol\
   \ # defaults to :install if not specified\nend"
 syntax_full_properties_list:
-- '`paludis_package` is the resource.'
-- '`name` is the name given to the resource block.'
-- '`action` identifies which steps Chef Infra Client will take to bring the node into
-  the desired state.'
-- '`options`, `package_name`, `source`, `timeout`, and `version` are the properties
-  available to this resource.'
-syntax_shortcode: null
-registry_key: false
-nameless_apt_update: false
-nameless_build_essential: false
-resource_package_options: false
+- "`paludis_package` is the resource."
+- "`name` is the name given to the resource block."
+- "`action` identifies which steps Chef Infra Client will take to bring the node into
+  the desired state."
+- "`options`, `package_name`, `source`, `timeout`, and `version` are the properties
+  available to this resource."
 actions_list:
   :install:
     markdown: Default. Install a package. If a version is specified, install the specified
@@ -66,40 +57,28 @@ properties_list:
 - property: options
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
   description_list:
-  - markdown: 'One (or more) additional command options that are passed to the
-
-      command.'
+  - markdown: One (or more) additional command options that are passed to the command.
 - property: package_name
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
   description_list:
-  - markdown: 'An optional property to set the package name if it differs from the
-
-      resource block''s name.'
+  - markdown: An optional property to set the package name if it differs from the
+      resource block's name.
 - property: source
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: The optional path to a package on the local file system.
 - property: timeout
-  ruby_type: Integer
+  ruby_type: String, Integer
   required: false
   default_value: '3600'
-  new_in: null
   description_list:
   - markdown: The amount of time (in seconds) to wait before timing out.
 - property: version
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: The version of a package to be installed or upgraded.
 properties_shortcode: null
