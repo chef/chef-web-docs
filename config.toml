@@ -257,6 +257,12 @@ title = "Chef App Delivery"
 identifier = "app_delivery"
 weight = 10
 
+  [[menu.app_delivery]]
+  title = "App Delivery Guide"
+  identifier = "app_delivery/app_guide"
+  parent = "app_delivery"
+  weight = 20
+
 ####
 # End Application Delivery Menu
 ####
