@@ -3,7 +3,6 @@ resource_reference: true
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-notes_resource_based_on_package: true
 title: bff_package resource
 resource: bff_package
 aliases:
@@ -21,6 +20,7 @@ resource_description_list:
     markdown: A Backup File Format (BFF) package may not have a `.bff` file extension.
       Chef Infra Client will still identify the correct provider to use based on the
       platform, regardless of the file extension.
+- notes_resource_based_on_package: true
 syntax_full_code_block: |-
   bff_package 'name' do
     options           String, Array

@@ -4,7 +4,6 @@ common_resource_functionality_multiple_packages: true
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-notes_resource_based_on_package: true
 title: apt_package resource
 resource: apt_package
 aliases:
@@ -17,6 +16,7 @@ menu:
 resource_description_list:
 - markdown: Use the **apt_package** resource to manage packages on Debian and Ubuntu
     platforms.
+- notes_resource_based_on_package: true
 syntax_description: 'A **apt_package** resource block manages a package on a node,
   typically
 
