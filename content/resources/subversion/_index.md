@@ -141,12 +141,18 @@ properties_list:
 - property: user
   ruby_type: String, Integer
   required: false
+  default_value: "`HOME` environment variable of the user running chef-client"
   description_list:
   - markdown: The system user that will own the checked-out code.
-examples: "
-  Get the latest version of an application\n\n  ```ruby\n  subversion\
-  \ 'CouchDB Edge' do\n    repository 'http://svn.apache.org/repos/asf/couchdb/trunk'\n\
-  \    revision 'HEAD'\n    destination '/opt/mysources/couch'\n    action :sync\n\
-  \  end\n  ```\n"
+examples: |
+  **Get the latest version of an application**
 
+  ```ruby
+  subversion 'CouchDB Edge' do
+    repository 'http://svn.apache.org/repos/asf/couchdb/trunk'
+    revision 'HEAD'
+    destination '/opt/my_sources/couch'
+    action :sync
+  end
+  ```
 ---

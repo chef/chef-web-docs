@@ -113,18 +113,44 @@ properties_list:
   - markdown: Specifies if the unit will be verified before installation. Systemd
       can be overly strict when verifying units, so in certain cases it is preferable
       not to verify the unit.
-examples: "
-  Create etcd systemd service unit file from a Hash\n\n  ```ruby\n\
-  \  systemd_unit 'etcd.service' do\n    content({Unit: {\n              Description:\
-  \ 'Etcd',\n              Documentation: ['https://coreos.com/etcd', 'man:etcd(1)'],\n\
-  \              After: 'network.target',\n            },\n            Service: {\n\
-  \              Type: 'notify',\n              ExecStart: '/usr/local/etcd',\n  \
-  \            Restart: 'always',\n            },\n            Install: {\n      \
-  \        WantedBy: 'multi-user.target',\n            }})\n    action [:create, :enable]\n\
-  \  end\n  ```\n\n  Create etcd systemd service unit file from a String\n\n  ```\
-  \ ruby\n  systemd_unit 'sysstat-collect.timer' do\n    content <<-EOU.gsub(/^\\\
-  s+/, '')\n    [Unit]\n    Description=Run system activity accounting tool every\
-  \ 10 minutes\n\n    [Timer]\n    OnCalendar=*:00/10\n\n    [Install]\n    WantedBy=sysstat.service\n\
-  \    EOU\n\n    action [:create, :enable]\n  end\n  ```\n  ```\n"
+examples: |
+  **Create systemd service unit file from a Hash**
 
+  ```ruby
+  systemd_unit 'etcd.service' do
+    content({Unit: {
+              Description: 'Etcd',
+              Documentation: ['https://coreos.com/etcd', 'man:etcd(1)'],
+              After: 'network.target',
+            },
+            Service: {
+              Type: 'notify',
+              ExecStart: '/usr/local/etcd',
+              Restart: 'always',
+            },
+            Install: {
+              WantedBy: 'multi-user.target',
+            }})
+    action [:create, :enable]
+  end
+  ```
+
+  **Create systemd service unit file from a String**
+
+  ```ruby
+  systemd_unit 'sysstat-collect.timer' do
+    content <<~EOU
+    [Unit]
+    Description=Run system activity accounting tool every 10 minutes
+
+    [Timer]
+    OnCalendar=*:00/10
+
+    [Install]
+    WantedBy=sysstat.service
+    EOU
+
+    action [:create, :enable]
+  end
+  ```
 ---
