@@ -19,11 +19,14 @@ resource_description_list:
       and may require additional packages to be installed first. On Ubuntu 18.04 or
       later you will need to install the `ifupdown` package, which disables the built
       in Netplan functionality.
+- warning:
+    markdown: This resource will not work with Fedora release 33 or later.
 syntax_full_code_block: |-
   ifconfig 'name' do
     bcast             String
     bonding_opts      String
     bootproto         String
+    bridge            String
     device            String
     ethtool_opts      String
     family            String # default value: "inet"
@@ -48,9 +51,10 @@ syntax_full_properties_list:
 - "`name` is the name given to the resource block."
 - "`action` identifies which steps Chef Infra Client will take to bring the node into
   the desired state."
-- "`bcast`, `bonding_opts`, `bootproto`, `device`, `ethtool_opts`, `family`, `gateway`,
-  `hwaddr`, `inet_addr`, `mask`, `master`, `metric`, `mtu`, `network`, `onboot`, `onparent`,
-  `slave`, `target`, and `vlan` are the properties available to this resource."
+- "`bcast`, `bonding_opts`, `bootproto`, `bridge`, `device`, `ethtool_opts`, `family`,
+  `gateway`, `hwaddr`, `inet_addr`, `mask`, `master`, `metric`, `mtu`, `network`,
+  `onboot`, `onparent`, `slave`, `target`, and `vlan` are the properties available
+  to this resource."
 actions_list:
   :add:
     markdown: Default. Run ifconfig to configure a network interface and (on some
@@ -84,6 +88,13 @@ properties_list:
   required: false
   description_list:
   - markdown: The boot protocol used by a network interface.
+- property: bridge
+  ruby_type: String
+  required: false
+  new_in: '16.7'
+  description_list:
+  - markdown: The bridge interface this interface is a member of on Red Hat based
+      systems.
 - property: device
   ruby_type: String
   required: false

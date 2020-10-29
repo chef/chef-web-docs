@@ -74,10 +74,10 @@ actions_list:
     markdown: Enables a task.
   :end:
     markdown: Ends a task.
-  :run:
-    markdown: Runs a task.
   :nothing:
     shortcode: resources_common_actions_nothing.md
+  :run:
+    markdown: Runs a task.
 properties_list:
 - property: command
   ruby_type: String
