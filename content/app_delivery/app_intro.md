@@ -18,7 +18,7 @@ draft = false
 
 Chef App Delivery combines the power of open source community based software development and enterprise class support.
 
-Chef App Delivery is an automated process leveraging Chef Habitat and Chef Compliance for creating and software applications. Chef App Delivery supports Linux and Windows platforms and provides a modular strategy for defining, packaging and delivering applications and infrastructure, which you can deploy to on-prem, hybrid, and cloud environments.
+Chef App Delivery is an automated process that leverages Chef products for creating and software applications. Chef App Delivery supports Linux and Windows platforms and provides a modular strategy for defining, packaging and delivering applications and infrastructure, which you can deploy to on-prem, hybrid, and cloud environments.
 
 |Chef Habitat|Chef Infra|Chef Automate|Chef Enterprise Distributions|Chef Community|
 |---------------|---------------|---------------|---------------|---------------|

@@ -12,62 +12,72 @@ draft = false
 +++
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/app_delivery/app_setup.md)
 
-Everything you need to get started packaging applications is included with the Chef Habitat Command-Line Interface (CLI). This will include a clean-room environment to build packages and test them in an isolated fashion, ensuring that what you build in a development environment will exactly match what gets deployed in production, including runtime dependencies.
+Everything you need to get started packaging applications is included with the Chef Habitat Command-Line Interface (CLI), including the Chef Habitat Studio. The Studio is a clean-room environment where you build packages and test them in an isolated environment. This ensures that the app you build in your development environment is exactly the same app that you deploy in production, including runtime dependencies.
 
-{{< note >}}
-Start by provisioning your Centos workstation by following the App Deployment Guide [Requirements]({{ relref "app_requirements.md" }})
-{{< /note >}}
+## Home Directory
+
+You'll work out of the home directory `/home/centos/`, unless otherwise indicated.
+
+* Return to the home directory with `cd ~`
+* Check your current directory with `pwd`
 
 ## Install Chef Habitat
 
-The Chef Habitat installer CLI is supported on Linux, Mac, and Windows, but this guide will support Linux workstations. To learn more about installing, check out the [Chef Habitat docs](https://www.habitat.sh/docs/install-habitat/):
+Chef Habitat runs on Linux, Mac, and Windows, but for the purposes of this guide, you will need a Linux workstation.
+
+Install Chef Habitat with:
 
 ```bash
 curl https://raw.githubusercontent.com/habitat-sh/habitat/master/components/hab/install.sh | sudo bash
 ```
 
-This command downloads and installs the Chef Habitat in a single command. You can also download the rpm using wet or curl directly, and then install the package. The installation docs linked above link other installation options.
+This command downloads and installs the Chef Habitat in a single command. You can also download the `rpm` using `wget` or `curl` directly, and then install the package. See the [Chef Habitat docs](https://www.habitat.sh/docs/install-habitat/) for other installation methods.
 
 ### Accept the License
 
-Once the package has been installed, to run any command you will need to accept the End User-License Agreement (EULA). You can review the EULA here, but the important piece to keep in mind is whether Chef Habitat is being used for commercial purposes. If you are installing and using the software for learning purposes, such as completing the exercises in this guide or Learn Chef Rally tutorials, then you fall within the acceptable use guidelines for the EULA. However if you begin using the software commercially you will need to have a license agreement with Chef Software Inc.
+Once the installation finishes, you need to accept the End User-License Agreement (EULA) by entering `Y` on the command line before you can run any commands.
+
+You can review the [EULA](https://www.chef.io/end-user-license-agreement/), but the important part is the difference between learning and commercial uses. If you are installing and using the software for learning purposes, such as completing the exercises in this guide or Learn Chef Rally tutorials, then you fall within the acceptable use guidelines for the EULA. However, if you start using the software commercially, then you'll need to have a license agreement with Chef Software Inc.
 
 You can run the following command to accept the EULA and view the installed version of Chef Habitat:
 
 ```bash
+Y
 hab --version
 ```
 
-## Creating an Origin Keypair
+### Create an Origin and Origin Keys
 
-Next, you will need to setup your system by generating or defining a set of origin keys. To do this, run the following command and answer the questions that are asked. Either select the answers you recommend at this time, or input your own origin keys if you know what you're doing (you can re-run hab setup at any time). For the default origin name, use your initials, first name, or preferred handle. This name will be a public origin near the end of the guide.
+Chef Habitat stores your application packages inside of an origin, which you get to name. It uses origin keys to validate your application packages.
 
-```basy
+This command defines an origin and saves it as an environment variable:
+
+```bash
 export HAB_ORIGIN='myinitials_tryhab'
+```
+
+Finish setting up your system by generating origin keys or by adding an existing set of origin keys. For this guide, you should use the system defaults. For the default origin name, use your initials, first name, or preferred handle, for example "HC_tryhab". If you have existing origin keys, enter those when prompten. By the end of the guide, you'll have a public origin on Chef Habitat Builder under this name.
+
+To generate your origin keys, enter the following command and answer the questions on the command line:
+
+```bash
 hab origin key generate
 ```
 
-returns something like:
+At the end, you should see something like:
 
 ```bash
 Generating origin key for myinitials_tryhab
 Generated origin key pair myinitials_tryhab-20200521200652.
 ```
 
-These keys are stored inside of `~/.hab/cache/keys` . They are used to sign packages that you will build later on. Keep in mind that you'll need access to these keys later to run your packages!
+Chef Habitat stores you origin keys in `~/.hab/cache/keys`. It uses these keys to sign packages that you will build later on. Keep in mind that you'll need access to these keys later to run your packages!
 
-### Key Concepts: Origin Keys -  What are they and why do you need them?
-https://www.habitat.sh/docs/glossary/#glossary-keys
+For more information, see the Chef Habitat [Keys](https://www.habitat.sh/docs/using-builder/#origin-keys) documentation.
 
-Every package that you build with Chef Habitat belongs to an origin and is cryptographically signed with that origin's private key. This ensures that the packages you build are safe to run, and are exactly the same packages that were built and tested in your development environment.
+## Clone the Demo App
 
-Each origin has a public and private keypair. The public key is used to verify the integrity of downloaded artifacts before installing them, and can be distributed freely to systems that will run your application. The private key is used to sign packages during the build process that you will run shortly.
-
-## Clone the Demo App from GitHub
-
-In this guide you will work with a common Java sample application that is packaged up as a war file and deployed with Tomcat.
-
-You'll be working out of the home directory `/home/centos/ `for the duration of this guide, unless otherwise indicated. You can always get back home by running `cd ~`, and you can check your current directory by running `pwd` .
+You'll use a common Java sample application from a Chef GitHub repository for this guide. The app is packaged up as a `.war` file and deployed with Tomcat.
 
 Clone the sample application to your local machine:
 
@@ -75,7 +85,9 @@ Clone the sample application to your local machine:
 git clone https://github.com/chef-training/java-sample
 ```
 
-If you were to unpack the application with the command `jar -xvf sample.war`, you would see the following contents:
+### Demo App Contents
+
+If you were to unpack the java application with the `jar -xvf sample.war` command, you would see the following contents:
 
 ```text
 |-- META-INF
@@ -92,6 +104,46 @@ If you were to unpack the application with the command `jar -xvf sample.war`, yo
 -- index.html
 ```
 
-Generally, to deploy this application you would need to install Java SE and Tomcat on your target machine, download and move the `.war` file to the `CATALINA_HOME/webapps` directory and then start the Tomcat service to deploy the application on port 8080, by default.
+### Initialize the Demo App
 
-In the Habitat paradigm, you package up the `.war` file in a Habitat Artifact (.HART) that contains instructions for how the application should be deployed and managed. This creates a "no-touch" zone for the application, where the Habitat Supervisor is doing the work without human intervention. When a new version of the application is deployed, a new .HART file is handed off to the supervisor.
+Let's get started defining the instructions for how Chef Habitat should handle installing and deploying the Java application by defining a Habitat Manifest.
+
+To get started, let's add a Habitat Manifest to your existing application that you cloned down. Make sure you're running this command within the application folder.
+
+```bash
+cd java-sample/
+hab plan init
+```
+
+The `hab plan init` command adds a Chef Habitat Manifest Directory to the root of your application. A generic Manifest Directory for a packaged application has three parts: a `config.toml` file, the `habitat/` directory, and the `results/` directory. Your application won't have the `results` directory yet and it has two additional files: `sample.war` and `server.xml`.
+
+#### Generic Manifest Directory Structure
+
+The contents of the Manifest Directory will vary according to your application requirements. For example, a minimal manifest may not require any hooks or configuration templates at all, and these could be omitted.
+
+```text
+|-- config.toml
+|-- habitat
+|   |-- README.md
+|   |-- config
+|   |-- default.toml
+|   |-- hooks
+|   |-- plan.sh
+|-- results
+```
+
+### Demo App Manifest Directory Structure
+
+Your `java-sample` Manifest Directory should appear:
+
+```bash java-sample/
+|-- config.toml
+|-- habitat
+|   |-- README.md
+|   |-- config
+|   |-- default.toml
+|   |-- hooks
+|   |-- plan.sh
+|-- sample.war
+|-- server.xml
+```

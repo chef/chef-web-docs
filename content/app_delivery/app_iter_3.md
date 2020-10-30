@@ -1,5 +1,5 @@
 +++
-title = "Define Application Configuration"
+title = "Define the App Configuration"
 draft = false
 
 [menu]
@@ -12,7 +12,6 @@ draft = false
 +++
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/app_delivery/app_iter_3.md)
 
-Iteration 3: Defining Configurations
 While you want to get the application up and running quickly, you should also consider what tunables will be important for future behavior modifications. For example changing the port Tomcat hosts the application on is a value that should be easily configured.
 
 ## Configuration Templates
@@ -30,40 +29,43 @@ This generic file is available in the java-sample-master/ directory you cloned d
 Templates are stored in the Manifest's config/ directory. All files located here can have template variables added to them if desired. After a build these files are rendered to a config directory, /hab/svc/<pkg_name>/config/ for the running service, and are re-written when a template value changes.
 
 To start, move the provided server.xml template into the config directory:
-
+```bash
 [default:/src:0]# mv server.xml habitat/config/
-
+```
 Within this file you can find the configuration value for the port on line 67:
 
+```bash
+
     <Connector port="{{cfg.server.port}}" protocol="HTTP/1.1"
+```
 
 Normally this file has the Connector port value hard-coded, but Chef Habitat can use Handlebars syntax within templates to declare configuration elements. This syntax uses double-curly braces to declare elements, and then each element is pre-fixed with cfg.
 
-These values can be tuned by a user at runtime, or at buildtime using the default.toml file.
+These values can be tuned by a user at runtime, or at buildtime using the `default.toml` file.
 
-### Defining Configurations: default.toml
+### default.toml
 
-All cfg values referenced by templates can have their values pre-defined for buildtime in the default.toml file. This file uses a simple syntax to declare key-value pairs that are accessed in templates using dot syntax. Looking at the predefined template value above:
+All configuration values referenced by templates can have their values pre-defined for buildtime in the `default.toml` file. This file uses a simple syntax to declare key-value pairs that are accessed in templates using dot syntax. Looking at the predefined template value above:
 
 Key = server
 Value = port
 
-Open the default.toml file, and add the following to declare a key-value pair:
+Open the `default.toml` file, and add the following to declare a key-value pair:
 
-```bash
+```toml
 [server]
 port = "8000"
 ```
 
-This value will be rendered as any values in this file are rendered within templates as {{cfg.key.value}}, which is where the {{cfg.server.port}} comes from on line 67 of habitat/config/server.xml.
+This value will be rendered as any values in this file are rendered within templates as `{{cfg.key.value}}`, which is where the `{{cfg.server.port}}` comes from on line 67 of habitat/config/server.xml.
 
 You've successfully added your first template value to your Manifest!
 
-## Defining Configurations: Template Variables
+## Template Variables
 
-### Defining Configurations: Updating the init Hook
+###  Updating the init Hook
 
-Now that you have a template being generated for server.xml, you need to copy the config file into the tomcat service directory tc/conf/ to replace it's default configuration. This should be done as a part of the initialization phase for your app in your init Hook. But rather than copying the file when the hook runs you can simply link it to the generated template. This way if you want to regenerate the template while the service is loaded your changes can be applied without having to re-run the hook and copy the file.
+Now that you have a template being generated for `server.xml`, you need to copy the config file into the Tomcat service directory `tc/conf/` to replace its default configuration. This should be done as a part of the initialization phase for your app in your `init` Hook. But rather than copying the file when the hook runs you can simply link it to the generated template. This way if you want to regenerate the template while the service is loaded your changes can be applied without having to re-run the hook and copy the file.
 
 Add this line to your init Hook:
 
@@ -104,15 +106,19 @@ Docker image 'tryhabitat/sample' created with tags: 0.1.0-20200331211504, 0.1.0,
 Now you can exit the studio and test out the new Docker image.
 
 ```bash
-[default:/src:0]# exit
-logout
+exit
+```
 
-java-sample$ docker images
-REPOSITORY                            TAG                    IMAGE ID            CREATED             SIZE
-myinitials_tryhab/sample                     0.1.0                  db5922196682        17 minutes ago      493MB
-myinitials_tryhab/sample                     0.1.0-20200331211504   db5922196682        17 minutes ago      493MB
-myinitials_tryhab/sample                     latest                 db5922196682        17 minutes ago      493MB
-habitat/default-studio-x86_64-linux   1.5.71                 4059cb64c913        2 weeks ago         434MB
+```bash
+cd java-samples/
+docker images
+```
+```text
+REPOSITORY                           TAG                   IMAGE ID      CREATED         SIZE
+myinitials_tryhab/sample             0.1.0                 db5922196682  17 minutes ago  493MB
+myinitials_tryhab/sample             0.1.0-20200331211504  db5922196682  17 minutes ago  493MB
+myinitials_tryhab/sample             latest                db5922196682  17 minutes ago  493MB
+habitat/default-studio-x86_64-linux  1.5.71                4059cb64c913  2 weeks ago     434MB
 ```
 
 Notice that the `myinitials_tryhab/sample` image is listed three times and refers to the same Image ID, just with different tags.
@@ -120,7 +126,7 @@ Notice that the `myinitials_tryhab/sample` image is listed three times and refer
 You can run this container and see that it performs as expected:
 
 ```bash
-java-sample$ docker run -it myinitials_tryhab/sample
+docker run -it myinitials_tryhab/sample
 ```
 
 You will be prompted to accept the license agreement for Chef Habitat again, and after answering "yes" you should see the service being loaded as expected.
@@ -134,8 +140,11 @@ To accomplish this you simply need to ensure Chef Habitat is installed on the ta
 First, ensure you are outside of the Studio. Then when the Supervisor is called the necessary components will be downloaded:
 
 ```bash
-java-sample$ source results/last_build.env
-java-sample$ sudo hab sup run results/$pkg_artifact
+source results/last_build.env
+sudo hab sup run results/$pkg_artifact
+```
+
+```text
 ...
 Install of core/hab-launcher/13606/20200420202330 complete with 1 new packages installed.
 Logging configuration file '/hab/sup/default/config/log.yml' not found; using default logging configuration
@@ -148,31 +157,31 @@ Downloading rab-tryhab-20200427214647 public origin key
 [2020-04-27T21:58:55Z ERROR hab_launch] Launcher exiting with code 86
 ```
 
-Although the package installation executes correctly, notice that you get an error corresponding to your public origin key, stating that it cannot be found. This may be a little counterintuitive since your keys were generated long ago with hab origin key generate, but notice that you are running the Habitat Supervisor as root with sudo hab sup run. This is necessary for the Supervisor to manage loading services and installing components as needed. But this also means that the Supervisor is attempting to load keys from the /hab/cache/keys/ directory, and not ~/.hab/cache/keys/ where the keys were generated.
+Although the package installation executes correctly, notice that you get an error corresponding to your public origin key, stating that it cannot be found. This may be a little counterintuitive since your keys were generated long ago with hab origin key generate, but notice that you are running the Habitat Supervisor as root with sudo hab sup run. This is necessary for the Supervisor to manage loading services and installing components as needed. But this also means that the Supervisor is attempting to load keys from the `/hab/cache/keys`/ directory, and not `~/.hab/cache/keys/` where the keys were generated.
 
 You can easily fix this by copying your keys to the root location:
 
 ```bash
-java-sample$ sudo cp -r ~/.hab/cache/keys/* /hab/cache/keys/
+sudo cp -r ~/.hab/cache/keys/* /hab/cache/keys/
 ```
 
 Because most services run as the hab user by default, you'll also need to create a user called hab to run your service, and add it to the hab group.
 
 ```bash
-java-sample$ sudo groupadd hab
-java-sample$ sudo useradd -g hab hab
+sudo groupadd hab
+sudo useradd -g hab hab
 ```
 
 Now you can attempt to load the tryhab sample app again:
 
 ```bash
-java-sample$ sudo hab sup run results/$pkg_artifact
+sudo hab sup run results/$pkg_artifact
 ```
 
 Now you should be able to open a new terminal window and check that tomcat is running on the default port defined in the default.toml (probably 8000) and that the /sample endpoint doesn't return a 404:
 
 ```bash
-java-sample$ curl localhost:8000/sample
+curl localhost:8000/sample
 ```
 
 ### Runtime Configuration Updates
@@ -184,7 +193,7 @@ Default values are usually declared in the user.toml file. These can be overwrit
 To change a configuration value on the fly, define an environment variable and pass it to the Supervisor with hab config apply. With the service already loaded outside of the Studio, let's attempt to change the Tomcat port:
 
 ```bash
-java-sample$ echo 'port = 9001' | sudo hab config apply
+echo 'port = 9001' | sudo hab config apply
 error: The following required arguments were not provided:
     <SERVICE_GROUP>
     <VERSION_NUMBER>
@@ -197,7 +206,7 @@ You also need to give your update a "version". This is incremental, and intended
 Let's grab the service group by checking the status of the Supervisor:
 
 ```bash
-$ java-sample$ sudo hab sup status
+$ sudo hab sup status
 package     type        desired  state  elapsed (s)  pid   group
 $pkg_ident  standalone  up       up     447          7200  sample.default
 ```
@@ -205,7 +214,7 @@ $pkg_ident  standalone  up       up     447          7200  sample.default
 With the group as sample.default, you know how to apply your configuration changes. Let's do this and use the same timestamp format you use for package naming as the version for your update:
 
 ```bash
-$ java-sample$ echo 'server.port = 9001' | sudo hab config apply sample.default $(date +'%Y%m%d%H%M%S')
+$ echo 'server.port = 9001' | sudo hab config apply sample.default $(date +'%Y%m%d%H%M%S')
 
 Setting new configuration version 20200427225542 for sample.default
 Creating service configuration
@@ -216,7 +225,7 @@ Applied configuration
 If all goes well, you should now be able to check for the sample app on the new port:
 
 ```bash
-java-sample$ curl localhost:9001/java-sample
+curl localhost:9001/java-sample
 ```
 
 If you were to switch back to the other terminal you would see the Supervisor output as it updated the running service:
@@ -227,5 +236,5 @@ hab-sup(CMD): Setting new configuration version 20200427225542 for sample.defaul
 You can also check the Supervisor logs ourselves outside of the Studio by looking at journalctl:
 
 ```bash
-java-sample$ sudo journalctl -u sample.default
+sudo journalctl -u sample.default
 ```

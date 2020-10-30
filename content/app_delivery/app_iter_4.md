@@ -1,5 +1,5 @@
 +++
-title = "App Integration"
+title = "Deploy on Builder"
 draft = false
 
 [menu]
@@ -12,15 +12,9 @@ draft = false
 +++
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/app_delivery/app_iter_4.md)
 
-Iteration 4: Health Checks and Habitat Builder Integration
-
 In this final interaction you'll finish up by adding a final run hook to check on the health of your application, and then begin integrating Habitat Builder.
 
 Builder is a package distribution system that you can upload and pull your packages from. Your packages are stored under a public or private origin, and then pulled to verified systems to run by a Supervisor. When new versions of packages are available on a release channel they can be pulled and applied based on your update strategy.
-
-Define
-Run Hooks Revisited
-Supporting Package Promotion
 
 ## Defining a Health Check
 
@@ -30,17 +24,17 @@ A health-check Hook is run when the HTTP API gets a request at /health, meaning 
 
 Like any other Hook, a health-check is simply a script. The script should return one of these values to determine the state of the app:
 
-0- ok
-1- warning
-2- critical
-3- unknown
-any other code - failed health check with additional output taken from health-check stdout.
+* 0 - ok
+* 1 - warning
+* 2 - critical
+* 3 - unknown
+* any other code - failed health check with additional output taken from health-check stdout.
 
-You can start by defining a simple check to see if you get a response when curling the application endpoint, hosted at http://localhost:{{cfg.server.port}}/sample .
+You can start by defining a simple check to see if you get a response when curling the application endpoint, hosted at `http://localhost:{{cfg.server.port}}/sample` .
 
-Create a new file at habitat/hooks/health-check (note there is no file extension). Add this to the file:
+Create a new file at `habitat/hooks/health-check` (note there is no file extension). Add this to the file:
 
-```bash
+```bash health-check
 #!/bin/sh
 
 # define default return code as 0
@@ -74,7 +68,7 @@ The STATUS variable is set as the output of a subshell like this: `STATUS = $()`
 
 Next you add the`-s` option to curl to execute it silently, and pass the output to /dev/null with the `-o` option. Finally you use `-w` to set the output format to the `http_code` so you can map it's output to your desired health status. This simple check maps 200 as ok by returning 0, 404 "not found" as a warning by returning 1, and 444 "no response" as critical. Finally you pass the URL at http://localhost:{{cfg.server.port}}/sample/ .
 
-Once you have the desired code stored inside of $STATUS, you echo the status code, then select the appropriate return code based on it's value. The return code is then echoed as well, and you run exit $rc to make sure the script ends safely.
+Once you have the desired code stored inside of `$STATUS`, you echo the status code, then select the appropriate return code based on it's value. The return code is then echoed as well, and you run exit $rc to make sure the script ends safely.
 Package
 
 ## Uploading Packages to Habitat Builder
@@ -108,31 +102,36 @@ If you already have access to a token, you can simply use the same token to set 
 Now you can finish setting up locally by exporting your Personal Access Token:
 
 ```bash
-java-sample$ export HAB_AUTH_TOKEN=[PASTE TOKEN HERE]
-``
+export HAB_AUTH_TOKEN=[PASTE TOKEN HERE]
+```
+
 Then, create a new origin:
 
 ```bash
-java-sample$ hab origin create initials_tryhab
+hab origin create initials_tryhab
 ```
 
 And lastly, you'll upload your origin key into Builder:
 
-java-sample$ hab origin key upload --cache-key-path ~/.hab/cache/keys --pubfile ~/.hab/cache/keys/initials_tryhab*.pub
+```bash
+hab origin key upload --cache-key-path ~/.hab/cache/keys --pubfile ~/.hab/cache/keys/initials_tryhab*.pub
+```
 
-Uploading a Build
+## Uploading a Build
 
 Now you're ready to upload your package to Builder. You should note that when deploying applications with Habitat you don't usually build the packages on the machines you will be deploying them on. You iterate on them in the Studio, and then upload the packages to a Builder instance where they can be pulled from and loaded.
 
 [INSERT PATTERN DRAWING]
 
-Next, upload your package with hab pkg upload:
+Next, upload your package with `hab pkg upload`:
 
-java-sample$ source results/last_build.env
-java-sample$ hab pkg upload results/$pkg_artifact
+```
+source results/last_build.env
+hab pkg upload results/$pkg_artifact
+```
+
 Deliver
 Promoting Packages
 Release Channels
 Continuous Deployment
 Next Steps
-
