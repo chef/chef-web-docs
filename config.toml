@@ -173,6 +173,20 @@ versions = ["13_2", "14_0"]
     source = "layouts"
     target = "layouts"
 
+  [[module.imports]]
+    disable = false
+    ignoreConfig = false
+    path = "github.com/habitat-sh/habitat/components/docs-chef-io"
+
+  [[module.imports.mounts]]
+    source = "content/habitat"
+    target = "content/habitat"
+
+  [[module.imports.mounts]]
+    source = "static"
+    target = "static"
+
+
 ####
 ## Main Menu ##
 ####
@@ -929,22 +943,73 @@ weight = 999
 
 [[menu.habitat]]
 title = "Chef Habitat"
-identifier = "chef_habitat"
+identifier = "habitat"
 weight = 10
 
   [[menu.habitat]]
-  title = "Documentation"
-  identifier = "chef_habitat/https://www.habitat.sh/docs/ Documentation"
-  parent = "chef_habitat"
-  url = "https://www.habitat.sh/docs/"
+  title = "Install Habitat"
+  identifier = "habitat/get_started"
+  parent = "habitat"
+  weight = 10
+
+  [[menu.habitat]]
+  title = "Builder"
+  identifier = "habitat/builder"
+  parent = "habitat"
   weight = 20
 
   [[menu.habitat]]
-  title = "Learn Chef Habitat"
-  identifier = "chef_habitat/https://community.chef.io/products/chef-habitat/#learn Tutorials"
-  parent = "chef_habitat"
-  url = "https://community.chef.io/products/chef-habitat/#learn"
+  title = "Origins"
+  identifier = "habitat/origins"
+  parent = "habitat"
   weight = 30
+
+  [[menu.habitat]]
+  title = "Packages"
+  identifier = "habitat/packages"
+  parent = "habitat"
+  weight = 40
+
+  [[menu.habitat]]
+  title = "Plans"
+  identifier = "habitat/plans"
+  parent = "habitat"
+  weight = 50
+
+  [[menu.habitat]]
+  title = "Services"
+  identifier = "habitat/services"
+  parent = "habitat"
+  weight = 60
+
+  [[menu.habitat]]
+  title = "Supervisors"
+  identifier = "habitat/supervisors"
+  parent = "habitat"
+  weight = 70
+
+  [[menu.habitat]]
+  title = "Reference"
+  identifier = "habitat/reference"
+  parent = "habitat"
+  weight = 90
+
+  [[menu.habitat]]
+  title = "API"
+  identifier = "habitat/reference/api"
+  parent = "habitat/reference"
+
+  [[menu.habitat]]
+  title = "Containers"
+  identifier = "habitat/containers"
+  parent = "habitat"
+  weight = 200
+
+  [[menu.habitat]]
+  title = "Diagrams"
+  identifier = "habitat/diagrams"
+  parent = "habitat"
+  weight = 500
 
 ####
 # End Chef Habitat Menu
