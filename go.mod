@@ -7,7 +7,7 @@ require (
 	github.com/chef/chef-workstation/docs-chef-io v0.0.0-20201021170748-d1878a5c76b2 // indirect
 	github.com/chef/desktop-config/docs-chef-io v0.0.0-20200929171526-d4cef8a736df // indirect
 	github.com/chef/effortless/docs-chef-io v0.0.0-20200930175149-51c187882fba // indirect
-	github.com/habitat-sh/habitat/components/docs-chef-io v0.0.0-20201102184815-cff045bcb8b3 // indirect
+	github.com/habitat-sh/habitat/components/docs-chef-io v0.0.0-20201102225753-5f035d7c0811 // indirect
 	github.com/inspec/inspec/docs-chef-io v0.0.0-20201022004754-2d19011d6648 // indirect
 )
 
