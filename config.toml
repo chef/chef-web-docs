@@ -183,8 +183,8 @@ versions = ["13_2", "14_0"]
     target = "content/habitat"
 
   [[module.imports.mounts]]
-    source = "static/images/habitat"
-    target = "static/images/habitat"
+    source = "static"
+    target = "static"
 
 
 ####
