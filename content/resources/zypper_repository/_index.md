@@ -1,6 +1,5 @@
 ---
 resource_reference: true
-properties_shortcode:
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
@@ -52,12 +51,12 @@ syntax_full_properties_list:
 actions_list:
   :add:
     markdown: Default action. Add a new Zypper repository.
+  :nothing:
+    shortcode: resources_common_actions_nothing.md
   :refresh:
     markdown: Refresh a Zypper repository.
   :remove:
     markdown: Remove a Zypper repository.
-  :nothing:
-    shortcode: resources_common_actions_nothing.md
 properties_list:
 - property: autorefresh
   ruby_type: true, false

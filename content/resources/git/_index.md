@@ -1,4 +1,8 @@
 ---
+resource_reference: true
+resources_common_guards: true
+resources_common_notification: true
+resources_common_properties: true
 title: git resource
 resource: git
 aliases:
@@ -8,46 +12,40 @@ menu:
     title: git
     identifier: chef_infra/cookbook_reference/resources/git git
     parent: chef_infra/cookbook_reference/resources
-
-resource_reference: true
-robots: null
 resource_description_list:
-- markdown: 'Use the **git** resource to manage source control resources that exist
-
-    in a git repository. git version 1.6.5 (or higher) is required to use
-
-    all of the functionality in the **git** resource.'
-resource_new_in: null
-handler_types: false
+- markdown: Use the **git** resource to manage source control resources that exist
+    in a git repository. git version 1.6.5 (or higher) is required to use all of the
+    functionality in the git resource.
 syntax_description: "A **git** resource block manages source control resources that\
   \ exist in\na git repository:\n\n```ruby\ngit \"#{Chef::Config[:file_cache_path]}/app_name\"\
   \ do\n  repository node[:app_name][:git_repository]\n  revision node[:app_name][:git_revision]\n\
   \  action :sync\nend\n```"
-syntax_code_block: null
-syntax_properties_list: null
-syntax_full_code_block: "git 'name' do\n  additional_remotes      Hash\n  checkout_branch\
-  \         String # default value: \"deploy\"\n  depth                   Integer\n\
-  \  destination             String # default value: 'name' unless specified\n  enable_checkout\
-  \         true, false # default value: true\n  enable_submodules       true, false\
-  \ # default value: false\n  environment             Hash\n  group              \
-  \     String, Integer\n  remote                  String # default value: \"origin\"\
-  \n  repository              String\n  revision                String # default value:\
-  \ \"HEAD\"\n  ssh_wrapper             String\n  timeout                 Integer\n\
-  \  user                    String, Integer\n  action                  Symbol # defaults\
-  \ to :sync if not specified\nend"
+syntax_full_code_block: |-
+  git 'name' do
+    additional_remotes      Hash
+    checkout_branch         String
+    depth                   Integer
+    destination             String # default value: 'name' unless specified
+    enable_checkout         true, false # default value: true
+    enable_submodules       true, false # default value: false
+    environment             Hash
+    group                   String, Integer
+    remote                  String # default value: "origin"
+    repository              String
+    revision                String # default value: "HEAD"
+    ssh_wrapper             String
+    timeout                 Integer
+    user                    String, Integer
+    action                  Symbol # defaults to :sync if not specified
+  end
 syntax_full_properties_list:
-- '`git` is the resource.'
-- '`name` is the name given to the resource block.'
-- '`action` identifies which steps Chef Infra Client will take to bring the node into
-  the desired state.'
-- '`additional_remotes`, `checkout_branch`, `depth`, `destination`, `enable_checkout`,
+- "`git` is the resource."
+- "`name` is the name given to the resource block."
+- "`action` identifies which steps Chef Infra Client will take to bring the node into
+  the desired state."
+- "`additional_remotes`, `checkout_branch`, `depth`, `destination`, `enable_checkout`,
   `enable_submodules`, `environment`, `group`, `remote`, `repository`, `revision`,
-  `ssh_wrapper`, `timeout`, and `user` are the properties available to this resource.'
-syntax_shortcode: null
-registry_key: false
-nameless_apt_update: false
-nameless_build_essential: false
-resource_package_options: false
+  `ssh_wrapper`, `timeout`, and `user` are the properties available to this resource."
 actions_list:
   :checkout:
     markdown: Clone or check out the source. When a checkout is available, this provider
@@ -64,17 +62,11 @@ properties_list:
 - property: additional_remotes
   ruby_type: Hash
   required: false
-  default_value: null
-  new_in: null
   description_list:
-  - markdown: 'A Hash of additional remotes that are added to the git repository
-
-      configuration.'
+  - markdown: A Hash of additional remotes that are added to the git repository configuration.
 - property: checkout_branch
   ruby_type: String
   required: false
-  default_value: deploy
-  new_in: null
   description_list:
   - markdown: 'Do a one-time checkout from git **or** use when a branch in the
 
@@ -88,37 +80,28 @@ properties_list:
 - property: depth
   ruby_type: Integer
   required: false
-  default_value: null
-  new_in: null
   description_list:
-  - markdown: 'The number of past revisions to be included in the git shallow
-
-      clone. Unless specified the default behavior will do a full clone.'
+  - markdown: The number of past revisions to be included in the git shallow clone.
+      Unless specified the default behavior will do a full clone.
 - property: destination
   ruby_type: String
   required: false
   default_value: The resource block's name
-  new_in: null
   description_list:
   - markdown: 'The location path to which the source is to be cloned, checked out,
-
-      or exported. Default value: the `name` of the resource block.'
+      or exported. Default value: the name of the resource block.'
 - property: enable_checkout
   ruby_type: true, false
   required: false
   default_value: 'true'
-  new_in: null
   description_list:
-  - markdown: 'Check out a repo from master. Set to `false` when using the
-
-      `checkout_branch` attribute to prevent the **git** resource from
-
-      attempting to check out master from master.'
+  - markdown: Check out a repo from master. Set to `false` when using the `checkout_branch`
+      attribute to prevent the git resource from attempting to check out `master`
+      from `master`.
 - property: enable_submodules
   ruby_type: true, false
   required: false
   default_value: 'false'
-  new_in: null
   description_list:
   - markdown: Perform a sub-module initialization and update.
 - property: environment
@@ -143,29 +126,23 @@ properties_list:
 - property: group
   ruby_type: String, Integer
   required: false
-  default_value: null
-  new_in: null
   description_list:
-  - markdown: The system group that is responsible for the checked-out code.
+  - markdown: The system group that will own the checked-out code.
 - property: remote
   ruby_type: String
   required: false
-  default_value: '"origin"'
-  new_in: null
+  default_value: origin
   description_list:
   - markdown: The remote repository to use when synchronizing an existing clone.
 - property: repository
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
   description_list:
-  - markdown: The URI for the git repository.
+  - markdown: The URI of the code repository.
 - property: revision
   ruby_type: String
   required: false
   default_value: HEAD
-  new_in: null
   description_list:
   - markdown: 'A branch, tag, or commit to be synchronized with git. This can be
 
@@ -216,17 +193,12 @@ properties_list:
 - property: ssh_wrapper
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
   description_list:
-  - markdown: 'The path to the wrapper script used when running SSH with git. The
-
-      `GIT_SSH` environment variable is set to this.'
+  - markdown: The path to the wrapper script used when running SSH with git. The `GIT_SSH`
+      environment variable is set to this.
 - property: timeout
   ruby_type: Integer
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: 'The amount of time (in seconds) to wait for a command to execute
 
@@ -238,68 +210,87 @@ properties_list:
 - property: user
   ruby_type: String, Integer
   required: false
-  default_value: null
-  new_in: null
+  default_value: "`HOME` environment variable of the user running chef-client"
   description_list:
-  - markdown: 'The system user that is responsible for the checked-out code.
+  - markdown: The system user that will own the checked-out code.
+examples: |
+  **Use the git mirror**
 
-      Default value: the home directory of this user, as indicated by the
+  ```ruby
+  git '/opt/my_sources/couch' do
+    repository 'git://git.apache.org/couchdb.git'
+    revision 'master'
+    action :sync
+  end
+  ```
 
-      `HOME` environment variable.'
-properties_shortcode: null
-properties_multiple_packages: false
-resource_directory_recursive_directories: false
-resources_common_atomic_update: false
-properties_resources_common_windows_security: false
-remote_file_prevent_re_downloads: false
-remote_file_unc_path: false
-ps_credential_helper: false
-ruby_style_basics_chef_log: false
-debug_recipes_chef_shell: false
-template_requirements: false
-resources_common_properties: true
-resources_common_notification: true
-resources_common_guards: true
-common_resource_functionality_multiple_packages: false
-resources_common_guard_interpreter: false
-remote_directory_recursive_directories: false
-common_resource_functionality_resources_common_windows_security: false
-handler_custom: false
-cookbook_file_specificity: false
-unit_file_verification: false
-examples: "
-  Use the git mirror\n\n  ```ruby\n  git '/opt/mysources/couch' do\n\
-  \    repository 'git://git.apache.org/couchdb.git'\n    revision 'master'\n    action\
-  \ :sync\n  end\n  ```\n\n  Use different branches\n\n  To use different branches,\
-  \ depending on the environment of the node:\n\n  ```ruby\n  if node.chef_environment\
-  \ == 'QA'\n     branch_name = 'staging'\n  else\n     branch_name = 'master'\n \
-  \ end\n\n  git '/home/user/deployment' do\n     repository 'git@github.com:gitsite/deployment.git'\n\
-  \     revision branch_name\n     action :sync\n     user 'user'\n     group 'test'\n\
-  \  end\n  ```\n\n  where the `branch_name` variable is set to `staging` or `master`,\n\
-  \  depending on the environment of the node. Once this is determined, the\n  `branch_name`\
-  \ variable is used to set the revision for the repository.\n  If the `git status`\
-  \ command is used after running the example above, it\n  will return the branch\
-  \ name as `deploy`, as this is the default value.\n  Run Chef Infra Client in debug\
-  \ mode to verify that the correct branches\n  are being checked out:\n\n  ```bash\n\
-  \  sudo chef-client -l debug\n  ```\n\n  Install an application from git using bash\n\
-  \n  The following example shows how Bash can be used to install a plug-in\n  for\
-  \ rbenv named `ruby-build`, which is located in git version source\n  control. First,\
-  \ the application is synchronized, and then Bash changes\n  its working directory\
-  \ to the location in which `ruby-build` is located,\n  and then runs a command.\n\
-  \n  ```ruby\n  git \"#{Chef::Config[:file_cache_path]}/ruby-build\" do\n    repository\
-  \ 'git://github.com/sstephenson/ruby-build.git'\n    revision 'master'\n    action\
-  \ :sync\n  end\n\n  bash 'install_ruby_build' do\n    cwd \"#{Chef::Config[:file_cache_path]}/ruby-build\"\
-  \n    user 'rbenv'\n    group 'rbenv'\n    code <<-EOH\n      ./install.sh\n   \
-  \   EOH\n    environment 'PREFIX' => '/usr/local'\n  end\n  ```\n\n  To read more\
-  \ about `ruby-build`, see here:\n  <https://github.com/sstephenson/ruby-build>.\n\
-  \n  Upgrade packages from git\n\n  The following example uses the **git** resource\
-  \ to upgrade packages:\n\n  ```ruby\n  # the following code sample comes from the\
-  \ ``source`` recipe\n  # in the ``libvpx-cookbook`` cookbook:\n  # https://github.com/enmasse-entertainment/libvpx-cookbook\n\
-  \n  git \"#{Chef::Config[:file_cache_path]}/libvpx\" do\n    repository node[:libvpx][:git_repository]\n\
-  \    revision node[:libvpx][:git_revision]\n    action :sync\n    notifies :run,\
-  \ 'bash[compile_libvpx]', :immediately\n  end\n  ```\n\n  Pass in environment variables\n\
-  \n  ```ruby\n  git '/opt/mysources/couch' do\n    repository 'git://git.apache.org/couchdb.git'\n\
-  \    revision 'master'\n    environment 'VAR' => 'whatever'\n    action :sync\n\
-  \  end\n  ```\n"
+  **Use different branches**
 
+  To use different branches, depending on the environment of the node:
+
+  ```ruby
+  branch_name = if node.chef_environment == 'QA'
+                  'staging'
+                else
+                  'master'
+                end
+
+  git '/home/user/deployment' do
+     repository 'git@github.com:git_site/deployment.git'
+     revision branch_name
+     action :sync
+     user 'user'
+     group 'test'
+  end
+  ```
+
+  Where the `branch_name` variable is set to staging or master, depending on the environment of the node. Once this is determined, the `branch_name` variable is used to set the revision for the repository. If the git status command is used after running the example above, it will return the branch name as `deploy`, as this is the default value. Run Chef Infra Client in debug mode to verify that the correct branches are being checked out:
+
+  ```
+  sudo chef-client -l debug
+  ```
+
+  **Install an application from git using bash**
+
+  The following example shows how Bash can be used to install a plug-in for rbenv named ruby-build, which is located in git version source control. First, the application is synchronized, and then Bash changes its working directory to the location in which ruby-build is located, and then runs a command.
+
+  ```ruby
+  git "/Users/tsmith/.chef/cache/ruby-build" do
+    repository 'git://github.com/rbenv/ruby-build.git'
+    revision 'master'
+    action :sync
+  end
+
+  bash 'install_ruby_build' do
+    cwd "/Users/tsmith/.chef/cache/ruby-build"
+    user 'rbenv'
+    group 'rbenv'
+    code <<-EOH
+      ./install.sh
+      EOH
+    environment 'PREFIX' => '/usr/local'
+  end
+  ```
+
+  **Notify a resource post-checkout**
+
+  ```ruby
+  git "/Users/tsmith/.chef/cache/my_app" do
+    repository node['my_app']['git_repository']
+    revision node['my_app']['git_revision']
+    action :sync
+    notifies :run, 'bash[compile_my_app]', :immediately
+  end
+  ```
+
+  **Pass in environment variables**
+
+  ```ruby
+  git '/opt/my_sources/couch' do
+    repository 'git://git.apache.org/couchdb.git'
+    revision 'master'
+    environment 'VAR' => 'whatever'
+    action :sync
+  end
+  ```
 ---
