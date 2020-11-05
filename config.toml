@@ -79,7 +79,7 @@ notAlternative = true
 [params]
   enable_search = true
   robots = ''
-  menuOrder = ["overview", "automate", "compliance",  "desktop",  "infra", "habitat", "inspec", "workstation", "effortless", "release_notes", "legacy", "api", "extra"]
+  menuOrder = ["overview", "automate", "compliance",  "desktop",  "infra", "habitat", "inspec", "workstation", "effortless", "release_notes", "legacy", "extra"]
 
 [taxonomies]
   category = "categories"
@@ -508,7 +508,6 @@ identifier = "chef_infra"
     parent = "chef_infra/concepts"
     url = "/auth/#authentication"
     weight = 90
-    aliases = "/auth.html"
 
     [[menu.infra]]
     title = "Authorization"
@@ -606,7 +605,6 @@ identifier = "chef_infra"
     parent = "chef_infra/setup"
     url = "/ctl_chef_client/#run-in-fips-mode"
     weight = 50
-    aliases = "/ctl_chef_client.html"
 
     [[menu.infra]]
     title = "Integrations"
@@ -915,6 +913,58 @@ identifier = "chef_infra"
       url = "/ctl_push_jobs_client/"
       weight = 20
 
+  [[menu.infra]]
+  title = "Extension APIs"
+  identifier = "chef_infra/extension_apis"
+  parent = "chef_infra"
+  weight = 80
+
+    [[menu.infra]]
+    title = "Compliance DSL"
+    identifier = "chef_infra/extension_apis/inspec/dsl_inspec/ Compliance DSL"
+    parent = "chef_infra/extension_apis"
+    url = "/inspec/dsl_inspec/"
+    weight = 20
+
+    [[menu.infra]]
+    title = "Handlers"
+    identifier = "chef_infra/extension_apis/handlers"
+    parent = "chef_infra/extension_apis"
+    weight = 20
+
+      [[menu.infra]]
+      title = "Custom Handlers"
+      identifier = "chef_infra/extension_apis/handlers/handlers.md#custom-handlers Custom Handlers"
+      parent = "chef_infra/extension_apis/handlers"
+      url = "/handlers/#custom-handlers"
+      weight = 10
+
+      [[menu.infra]]
+      title = "Community Handlers"
+      identifier = "chef_infra/extension_apis/handlers/plugin_community.md#handlers Community Handlers"
+      parent = "chef_infra/extension_apis/handlers"
+      url = "/plugin_community/#handlers"
+      weight = 30
+
+    [[menu.infra]]
+    title = "Knife Plugins"
+    identifier = "chef_infra/extension_apis/knife_plugins"
+    parent = "chef_infra/extension_apis"
+    weight = 30
+
+    [[menu.infra]]
+    title = "Ohai Plugins"
+    identifier = "chef_infra/extension_apis/ohai_plugins"
+    parent = "chef_infra/extension_apis"
+    weight = 40
+
+      [[menu.infra]]
+      title = "Community Plugins"
+      identifier = "chef_infra/extension_apis/ohai_plugins/plugin_community.md#ohai Community Plugins"
+      parent = "chef_infra/extension_apis/ohai_plugins"
+      url = "/plugin_community/#ohai"
+      weight = 20
+
 ####
 # End Chef Infra Menu
 ####
@@ -1167,67 +1217,6 @@ weight = 10
 
 ####
 # End Legacy Menu
-####
-
-####
-# API Menu
-####
-
-[[menu.api]]
-title = "Extension APIs"
-identifier = "extension_apis"
-weight = 10
-
-  [[menu.api]]
-  title = "Compliance DSL"
-  identifier = "extension_apis/inspec/dsl_inspec/ Compliance DSL"
-  parent = "extension_apis"
-  url = "/inspec/dsl_inspec/"
-  weight = 20
-
-  [[menu.api]]
-  title = "Handlers"
-  identifier = "extension_apis/handlers"
-  parent = "extension_apis"
-  weight = 20
-
-    [[menu.api]]
-    title = "Custom Handlers"
-    identifier = "extension_apis/handlers/handlers.md#custom-handlers Custom Handlers"
-    parent = "extension_apis/handlers"
-    url = "/handlers/#custom-handlers"
-    weight = 10
-    aliases = "/handlers.html"
-
-    [[menu.api]]
-    title = "Community Handlers"
-    identifier = "extension_apis/handlers/plugin_community.md#handlers Community Handlers"
-    parent = "extension_apis/handlers"
-    url = "/plugin_community/#handlers"
-    weight = 30
-    aliases = "/plugin_community.html"
-
-  [[menu.api]]
-  title = "Knife Plugins"
-  identifier = "extension_apis/knife_plugins"
-  parent = "extension_apis"
-  weight = 30
-
-  [[menu.api]]
-  title = "Ohai Plugins"
-  identifier = "extension_apis/ohai_plugins"
-  parent = "extension_apis"
-  weight = 40
-
-    [[menu.api]]
-    title = "Community Plugins"
-    identifier = "extension_apis/ohai_plugins/plugin_community.md#ohai Community Plugins"
-    parent = "extension_apis/ohai_plugins"
-    url = "/plugin_community/#ohai"
-    weight = 20
-
-####
-# End API Menu
 ####
 
 ####
