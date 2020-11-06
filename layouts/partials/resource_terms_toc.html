@@ -37,8 +37,11 @@
 {{ $resources_common_guardsID := newScratch }}
 {{ $resources_common_guardsID.Set "Value" 0 }}
 
-{{ $common_resource_functionality_multiple_packagesID := newScratch }}
-{{ $common_resource_functionality_multiple_packagesID.Set "Value" 0 }}
+{{ $common_resource_functionality_multiple_packages_propertiesID := newScratch }}
+{{ $common_resource_functionality_multiple_packages_propertiesID.Set "Value" 0 }}
+
+{{ $common_resource_functionality_multiple_packages_commonID := newScratch }}
+{{ $common_resource_functionality_multiple_packages_commonID.Set "Value" 0 }}
 
 {{ $resources_common_guard_interpreterID := newScratch }}
 {{ $resources_common_guard_interpreterID.Set "Value" 0 }}
@@ -219,10 +222,10 @@
 		        <li>
 		          <a href="#properties-{{ $PropertiesID.Get "Value"}}">Properties</a>
 
-		          {{ if .Params.properties_multiple_packages }}
-		          {{ $common_resource_functionality_multiple_packagesID.Add "Value" 1 }}
+		          {{ if .Params.multi_package_resource }}
+		          {{ $common_resource_functionality_multiple_packages_propertiesID.Add "Value" 1 }}
 		          <ul>
-		            <li><a href="#multiple-packages-{{ $common_resource_functionality_multiple_packagesID.Get "Value" }}">Multiple
+		            <li><a href="#multiple-packages-properties-{{ $common_resource_functionality_multiple_packages_propertiesID.Get "Value" }}">Multiple
 		                Packages</a></li>
 		          </ul>
 		          {{ end }}
@@ -350,7 +353,7 @@
 							</li>
 						{{ end }}
 						
-						{{ if or (.Params.resources_common_properties ) ( .Params.resources_common_notification ) ( .Params.resources_common_guards ) ( .Params.common_resource_functionality_multiple_packages ) (  .Params.resources_common_guard_interpreter ) (  .Params.remote_directory_recursive_directories ) ( .Params.common_resource_functionality_resources_common_windows_security )}}
+						{{ if or (.Params.resources_common_properties ) ( .Params.resources_common_notification ) ( .Params.resources_common_guards ) ( .Params.multi_package_resource ) (  .Params.resources_common_guard_interpreter ) (  .Params.remote_directory_recursive_directories ) ( .Params.common_resource_functionality_resources_common_windows_security )}}
 		        <li>
 		          {{ $FunctionalityID.Add "Value" 1 }}
 		          <a href="#functionality-{{ $FunctionalityID.Get "Value" }}">Common Resource Functionality</a>
@@ -379,10 +382,10 @@
 		          </ul>
 		          {{ end }}
 
-		          {{ if .Params.common_resource_functionality_multiple_packages }}
-		          {{ $common_resource_functionality_multiple_packagesID.Add "Value" 1 }}
+		          {{ if .Params.multi_package_resource }}
+		          {{ $common_resource_functionality_multiple_packages_commonID.Add "Value" 1 }}
 		          <ul>
-		            <li><a href="#multiple-packages-{{ $common_resource_functionality_multiple_packagesID.Get "Value" }}">Multiple
+		            <li><a href="#multiple-packages-common-{{ $common_resource_functionality_multiple_packages_commonID.Get "Value" }}">Multiple
 		                Packages</a></li>
 		          </ul>
 		          {{ end }}

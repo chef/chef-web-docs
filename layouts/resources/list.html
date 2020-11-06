@@ -506,8 +506,8 @@
                   <p>This resource does not have any properties.</p>
                 {{ end }}
 
-              {{ if .Params.properties_multiple_packages }}
-                <h3 id="multiple-packages">Multiple Packages</h3>
+              {{ if .Params.multi_package_resource }}
+                <h3 id="multiple-packages-properties">Multiple Packages</h3>
                 {{ readFile "themes/docs-new/layouts/shortcodes/resources_common_multiple_packages.md" | markdownify }}
               {{ end }}
 
@@ -657,7 +657,7 @@
               <!-------------- Common Resource Functionality ------------------->
 
 
-              {{ if or (.Params.resources_common_properties ) ( .Params.resources_common_notification ) ( .Params.resources_common_guards ) ( .Params.common_resource_functionality_multiple_packages ) (  .Params.resources_common_guard_interpreter ) (  .Params.remote_directory_recursive_directories ) ( .Params.common_resource_functionality_resources_common_windows_security )}}
+              {{ if or (.Params.resources_common_properties ) ( .Params.resources_common_notification ) ( .Params.resources_common_guards ) ( .Params.multi_package_resource ) (  .Params.resources_common_guard_interpreter ) (  .Params.remote_directory_recursive_directories ) ( .Params.common_resource_functionality_resources_common_windows_security )}}
                 <br>
                 <h2 id = "functionality">Common Resource Functionality</h2>
                 <hr>
@@ -710,8 +710,8 @@
 
                 {{ end }}
 
-                {{ if .Params.common_resource_functionality_multiple_packages }}
-                  <h3 id="multiple-packages">Multiple Packages</h3>
+                {{ if .Params.multi_package_resource }}
+                  <h3 id="multiple-packages-common">Multiple Packages</h3>
 
                   {{ readFile "themes/docs-new/layouts/shortcodes/resources_common_multiple_packages.md" | markdownify }}
 
