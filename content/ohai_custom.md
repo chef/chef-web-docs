@@ -5,10 +5,10 @@ draft = false
 aliases = ["/ohai_custom.html"]
 
 [menu]
-  [menu.api]
+  [menu.infra]
     title = "Custom Plugins"
-    identifier = "extension_apis/ohai_plugins/ohai_custom.md Custom Plugins"
-    parent = "extension_apis/ohai_plugins"
+    identifier = "chef_infra/extension_apis/ohai_plugins/ohai_custom.md Custom Plugins"
+    parent = "chef_infra/extension_apis/ohai_plugins"
     weight = 10
 +++
 
