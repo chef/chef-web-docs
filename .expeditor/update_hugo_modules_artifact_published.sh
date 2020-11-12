@@ -25,7 +25,7 @@ fi
 # use to build the docs from.
 # See https://gohugo.io/hugo-modules/use-modules/#update-one-module
 
-hugo mod get github.com/$org/"${EXPEDITOR_PRODUCT_KEY}"/$subdirectory
+hugo mod get "github.com/${org}/${EXPEDITOR_PRODUCT_KEY}/${subdirectory}@v${EXPEDITOR_VERSION}"
 hugo mod tidy
 
 # Update the vendored files in chef-web-docs
