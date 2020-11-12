@@ -1,11 +1,10 @@
 ---
 resource_reference: true
-common_resource_functionality_multiple_packages: true
-properties_multiple_packages: true
+
+multi_package_resource: true
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-notes_resource_based_on_package: true
 title: zypper_package resource
 resource: zypper_package
 aliases:
@@ -18,6 +17,7 @@ menu:
 resource_description_list:
 - markdown: Use the **zypper_package** resource to install, upgrade, and remove packages
     with Zypper for the SUSE Enterprise and openSUSE platforms.
+- notes_resource_based_on_package: true
 syntax_full_code_block: |-
   zypper_package 'name' do
     allow_downgrade      true, false # default value: true

@@ -23,3 +23,7 @@ whenever its certificate file, located under
 changes to the certificate file itself, it merely listens for a change
 to the file, and executes the `:reload` action for its resource (in this
 example `nginx`) when a change is detected.
+
+If the other resource does not exist, the subscription will not raise an
+error. Contrast this with the stricter semantics of `notifies`, which
+will raise an error if the other resource does not exist.

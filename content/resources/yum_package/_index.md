@@ -1,10 +1,10 @@
 ---
 resource_reference: true
-common_resource_functionality_multiple_packages: true
+
+multi_package_resource: true
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-notes_resource_based_on_package: true
 title: yum_package resource
 resource: yum_package
 aliases:
@@ -27,6 +27,7 @@ resource_description_list:
       `yum_package "/bin/sh"`) is not available because the volume of data
 
       required to parse for this is excessive.'
+- notes_resource_based_on_package: true
 syntax_full_code_block: |-
   yum_package 'name' do
     allow_downgrade      true, false # default value: true

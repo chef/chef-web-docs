@@ -210,7 +210,7 @@ examples: "
   \       <p>The difference between the two previous examples is the single- versus\
   \ double-quoted strings, where if the double quotes are used, the backslash character\
   \ (<code>\\</code>) must be escaped using the Ruby escape character (which is a\
-  \ backslash).</p>\n\n      </div>\n    </div>\n\n  Create a directory recursively\n\
+  \ backslash).</p>\n\n</div>\n</div>\n\n  Create a directory recursively\n\
   \n  ```ruby\n  %w{dir1 dir2 dir3}.each do |dir|\n    directory \"/tmp/mydirs/#{dir}\"\
   \ do\n      mode '0755'\n      owner 'root'\n      group 'root'\n      action :create\n\
   \      recursive true\n    end\n  end\n  ```\n\n  Delete a directory\n\n  ```ruby\n\

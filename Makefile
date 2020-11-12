@@ -18,7 +18,7 @@ serve: assets
 	hugo server --buildDrafts --noHTTPCache --buildFuture
 
 serve_ignore_vendor: assets
-	hugo server --buildDrafts --noHTTPCache --buildFuture --ignoreVendor
+	hugo server --buildDrafts --noHTTPCache --buildFuture --ignoreVendorPaths github.com/**
 
 lint: assets
 	hugo -D

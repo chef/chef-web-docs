@@ -55,8 +55,11 @@
         {{ $resources_common_guardsID := newScratch }}
         {{ $resources_common_guardsID.Set "Value" 0 }}
 
-        {{ $common_resource_functionality_multiple_packagesID := newScratch }}
-        {{ $common_resource_functionality_multiple_packagesID.Set "Value" 0 }}
+        {{ $common_resource_functionality_multiple_packages_propertiesID := newScratch }}
+        {{ $common_resource_functionality_multiple_packages_propertiesID.Set "Value" 0 }}
+
+        {{ $common_resource_functionality_multiple_packages_commonID := newScratch }}
+        {{ $common_resource_functionality_multiple_packages_commonID.Set "Value" 0 }}
 
         {{ $resources_common_guard_interpreterID := newScratch }}
         {{ $resources_common_guard_interpreterID.Set "Value" 0 }}
@@ -828,9 +831,9 @@
                       <p>This resource does not have any properties.</p>
                     {{ end }}
 
-                    {{ if .Params.properties_multiple_packages }}
-                      {{ $common_resource_functionality_multiple_packagesID.Add "Value" 1 }}
-                      <h3 id="multiple-packages-{{ $common_resource_functionality_multiple_packagesID.Get "Value" }}">Multiple Packages</h3>
+                    {{ if .Params.multi_package_resource }}
+                      {{ $common_resource_functionality_multiple_packages_propertiesID.Add "Value" 1 }}
+                      <h3 id="multiple-packages-properties-{{ $common_resource_functionality_multiple_packages_propertiesID.Get "Value" }}">Multiple Packages</h3>
                       {{ readFile "themes/docs-new/layouts/shortcodes/resources_common_multiple_packages.md" | markdownify }}
                     {{ end }}
 
@@ -980,7 +983,7 @@
 
                     <!-------------- Common Resource Functionality ------------------->
 
-                    {{ if or (.Params.resources_common_properties ) ( .Params.resources_common_notification ) ( .Params.resources_common_guards ) ( .Params.common_resource_functionality_multiple_packages ) (  .Params.resources_common_guard_interpreter ) (  .Params.remote_directory_recursive_directories ) ( .Params.common_resource_functionality_resources_common_windows_security )}}
+                    {{ if or (.Params.resources_common_properties ) ( .Params.resources_common_notification ) ( .Params.resources_common_guards ) ( .Params.multi_package_resource ) (  .Params.resources_common_guard_interpreter ) (  .Params.remote_directory_recursive_directories ) ( .Params.common_resource_functionality_resources_common_windows_security )}}
                       <br>
                       {{ $FunctionalityID.Add "Value" 1 }}
                       <h2 id = "functionality-{{ $FunctionalityID.Get "Value" }}">Common Resource Functionality</h2>
@@ -1034,9 +1037,9 @@
 
                       {{ end }}
 
-                      {{ if .Params.common_resource_functionality_multiple_packages }}
-                        {{ $common_resource_functionality_multiple_packagesID.Add "Value" 1 }}
-                        <h3 id="multiple-packages-{{ $common_resource_functionality_multiple_packagesID.Get "Value" }}">Multiple Packages</h3>
+                      {{ if .Params.multi_package_resource }}
+                        {{ $common_resource_functionality_multiple_packages_commonID.Add "Value" 1 }}
+                        <h3 id="multiple-packages-common-{{ $common_resource_functionality_multiple_packages_commonID.Get "Value" }}">Multiple Packages</h3>
 
                         {{ readFile "themes/docs-new/layouts/shortcodes/resources_common_multiple_packages.md" | markdownify }}
 

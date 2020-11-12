@@ -1,10 +1,10 @@
 ---
 resource_reference: true
-common_resource_functionality_multiple_packages: true
+
+multi_package_resource: true
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-notes_resource_based_on_package: true
 title: homebrew_package resource
 resource: homebrew_package
 aliases:
@@ -20,6 +20,7 @@ resource_description_list:
 - note:
     markdown: Starting with Chef Infra Client 16 the homebrew resource now accepts
       an array of packages for installing multiple packages at once.
+- notes_resource_based_on_package: true
 resource_new_in: '12.0'
 syntax_full_code_block: |-
   homebrew_package 'name' do

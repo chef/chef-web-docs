@@ -5,10 +5,10 @@ draft = false
 aliases = ["/plugin_knife.html"]
 
 [menu]
-  [menu.api]
+  [menu.infra]
     title = "Cloud Plugins"
-    identifier = "extension_apis/knife_plugins/plugin_knife.md Cloud Plugins"
-    parent = "extension_apis/knife_plugins"
+    identifier = "chef_infra/extension_apis/knife_plugins/plugin_knife.md Cloud Plugins"
+    parent = "chef_infra/extension_apis/knife_plugins"
     weight = 10
 +++
 

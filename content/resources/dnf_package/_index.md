@@ -1,11 +1,10 @@
 ---
 resource_reference: true
-common_resource_functionality_multiple_packages: true
-properties_multiple_packages: true
+
+multi_package_resource: true
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-notes_resource_based_on_package: true
 title: dnf_package resource
 resource: dnf_package
 aliases:
@@ -21,6 +20,7 @@ resource_description_list:
     data for packages much like DNF can do when it is run from the command line. This
     allows a variety of options for installing packages, like minimum versions, virtual
     provides and library names.
+- notes_resource_based_on_package: true
 resource_new_in: '12.18'
 syntax_description: 'A **dnf_package** resource block manages a package on a node,
   typically

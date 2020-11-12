@@ -3,7 +3,6 @@ resource_reference: true
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-notes_resource_based_on_package: true
 title: solaris_package resource
 resource: solaris_package
 aliases:
@@ -16,6 +15,7 @@ menu:
 resource_description_list:
 - markdown: Use the **solaris_package** resource to manage packages on the Solaris
     platform.
+- notes_resource_based_on_package: true
 syntax_full_code_block: |-
   solaris_package 'name' do
     options           String, Array

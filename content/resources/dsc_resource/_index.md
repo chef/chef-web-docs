@@ -212,11 +212,9 @@ properties_list:
   new_in: '12.6'
   allowed_values: ":nothing, :reboot_now, :request_reboot"
   description_list:
-  - markdown: 'Use to request an immediate reboot or to queue a reboot using the
-
-      :reboot_now (immediate reboot) or :request_reboot (queued reboot)
-
-      actions built into the reboot resource.'
+  - markdown: Use to request an immediate reboot or to queue a reboot using the :reboot_now
+      (immediate reboot) or :request_reboot (queued reboot) actions built into the
+      reboot resource.
 - property: resource
   ruby_type: Symbol
   required: false

@@ -5,10 +5,10 @@ draft = false
 aliases = ["/dsl_handler.html"]
 
 [menu]
-  [menu.api]
+  [menu.infra]
     title = "Handler DSL"
-    identifier = "extension_apis/handlers/dsl_handler.md Handler DSL"
-    parent = "extension_apis/handlers"
+    identifier = "chef_infra/extension_apis/handlers/dsl_handler.md Handler DSL"
+    parent = "chef_infra/extension_apis/handlers"
     weight = 20
 +++
 

@@ -234,33 +234,110 @@ properties_list:
   default_value: '60'
   description_list:
   - markdown: The amount of time (in seconds) to wait before timing out.
-examples: "
-  Start a service manually\n\n  ```ruby\n  windows_service 'BITS'\
-  \ do\n    action :configure_startup\n    startup_type :manual\n  end\n  ```\n\n\
-  \  Create a service\n\n  ```ruby\n  windows_service 'chef-client' do\n    action\
-  \ :create\n    binary_path_name \"C:\\\\opscode\\\\chef\\\\bin\"\n  end\n  ```\n\
-  \n  Create service with 'service_name' and 'display_name':\n\n  ```ruby\n  windows_service\
-  \ 'Create chef client as service' do\n    action :create\n    display_name \"CHEF-CLIENT\"\
-  \n    service_name \"chef-client\"\n    binary_path_name \"C:\\\\opscode\\\\chef\\\
-  \\bin\"\n  end\n  ```\n\n  Create service with the `:manual` startup type:\n\n \
-  \ ```ruby\n  windows_service 'chef-client' do\n    action :create\n    binary_path_name\
-  \ \"C:\\\\opscode\\\\chef\\\\bin\"\n    startup_type :manual\n  end\n  ```\n\n \
-  \ Create a service with the `:disabled` startup type:\n\n  ```ruby\n  windows_service\
-  \ 'chef-client' do\n    action :create\n    binary_path_name \"C:\\\\opscode\\\\\
-  chef\\\\bin\"\n    startup_type :disabled\n  end\n  ```\n\n  Create service with\
-  \ the `:automatic` startup type and delayed start\n  enabled:\n\n  ```ruby\n  windows_service\
-  \ 'chef-client' do\n    action :create\n    binary_path_name \"C:\\\\opscode\\\\\
-  chef\\\\bin\"\n    startup_type :automatic\n    delayed_start true\n  end\n  ```\n\
-  \n  Create service with a description:\n\n  ```ruby\n  windows_service 'chef-client'\
-  \ do\n    action :create\n    binary_path_name \"C:\\\\opscode\\\\chef\\\\bin\"\n\
-  \    startup_type :automatic\n    description \"Chef client as service\"\n  end\n\
-  \  ```\n\n  Delete a service\n\n  Delete service with the `'name'` of `chef-client`:\n\
-  \n  ```ruby\n  windows_service 'chef-client' do\n    action :delete\n  end\n  ```\n\
-  \n  Delete service with `'service_name'`:\n\n  ```ruby\n  windows_service 'Delete\
-  \ chef client' do\n    action :delete\n    service_name \"chef-client\"\n  end\n\
-  \  ```\n\n  Configure a service\n\n  Change an existing service from automatic to\
-  \ manual startup:\n\n  ```ruby\n  windows_service 'chef-client' do\n    action\
-  \ :configure\n    binary_path_name \"C:\\\\opscode\\\\chef\\\\bin\"\n    startup_type\
-  \ :manual\n  end\n  ```\n"
+examples: |
+  **Starting Services**
 
+  Start a service with a `manual` startup type:
+
+  ```ruby
+  windows_service 'BITS' do
+    action :configure_startup
+    startup_type :manual
+  end
+  ```
+
+  **Creating Services**
+
+  Create a service named chef-client:
+
+  ```ruby
+  windows_service 'chef-client' do
+    action :create
+    binary_path_name "C:\opscode\chef\bin"
+  end
+  ```
+
+  Create a service with `service_name` and `display_name`:
+
+  ```ruby
+  windows_service 'Setup chef-client as a service' do
+    action :create
+    display_name 'CHEF-CLIENT'
+    service_name 'chef-client'
+    binary_path_name "C:\opscode\chef\bin"
+  end
+  ```
+
+  Create a service with the `manual` startup type:
+
+  ```ruby
+  windows_service 'chef-client' do
+    action :create
+    binary_path_name "C:\opscode\chef\bin"
+    startup_type :manual
+  end
+  ```
+
+  Create a service with the `disabled` startup type:
+
+  ```ruby
+  windows_service 'chef-client' do
+    action :create
+    binary_path_name "C:\opscode\chef\bin"
+    startup_type :disabled
+  end
+  ```
+
+  Create a service with the `automatic` startup type and delayed start enabled:
+
+  ```ruby
+  windows_service 'chef-client' do
+    action :create
+    binary_path_name "C:\opscode\chef\bin"
+    startup_type :automatic
+    delayed_start true
+  end
+  ```
+
+  Create a service with a description:
+
+  ```ruby
+  windows_service 'chef-client' do
+    action :create
+    binary_path_name "C:\opscode\chef\bin"
+    startup_type :automatic
+    description "Chef client as service"
+  end
+  ```
+
+  **Deleting Services**
+
+  Delete a service named chef-client:
+
+  ```ruby
+  windows_service 'chef-client' do
+    action :delete
+  end
+  ```
+
+  Delete a service with the `service_name` property:
+
+  ```ruby
+  windows_service 'Delete chef client' do
+    action :delete
+    service_name 'chef-client'
+  end
+  ```
+
+  **Configuring Services**
+
+  Change an existing service from automatic to manual startup:
+
+  ```ruby
+  windows_service 'chef-client' do
+    action :configure
+    binary_path_name "C:\opscode\chef\bin"
+    startup_type :manual
+  end
+  ```
 ---
