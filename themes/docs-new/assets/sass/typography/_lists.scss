@@ -3,8 +3,8 @@
   ul, ol {
 
     li {
-      p:first-of-type{
-        font-weight: bold;
+      &::marker{
+        font-weight: 600;
       }
     }
   }
