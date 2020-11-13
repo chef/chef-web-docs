@@ -4,7 +4,7 @@
 
     li {
       &::marker{
-        font-weight: 600;
+        font-weight: 500;
       }
     }
   }
@@ -79,7 +79,7 @@
           @extend .p;
           text-transform: uppercase;
           margin-bottom: rem-calc(8);
-          font-weight: bold;
+          font-weight: $bold;
           font-size: rem-calc(14);
         }
 
