@@ -880,13 +880,6 @@ identifier = "chef_infra"
     parent = "chef_infra/cookbook_reference"
     weight = 80
 
-      [[menu.infra]]
-      title = "All Resources (Single Page)"
-      identifier = "chef_infra/cookbook_reference/resources/resources All Resources (Single Page)"
-      parent = "chef_infra/cookbook_reference/resources"
-      url = "/resources/"
-      weight = 60
-
   [[menu.infra]]
   title = "Managing Chef Infra Server"
   identifier = "chef_infra/managing_chef_infra_server"
