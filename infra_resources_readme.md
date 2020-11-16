@@ -1,44 +1,36 @@
 # Infra Resource page YAML files
 
-The resource pages and [resource reference page](/resources/)
-are generated using YAML data located in `chef-web-docs/content/resources`.
+The resource pages and [resource reference page](https://docs.chef.io/resources/)
+are generated using YAML data located in `chef-web-docs/data`.
 The YAML data is generated directly from the Chef Infra code.
-Each resource page has its own subdirectory and the YAML data is stored in
-an `_index.md` page. For example, the apt package resource data is stored in
-`chef-web-docs/content/resources/apt_package/_index.md`.
+
+Each resource page has references a YAML data file stored in
+`chef-web-docs/data`. For example, the apt package resource data is stored in
+`chef-web-docs/data/infra/resources/apt_package.yaml`.
 
 The templates that generate those resource pages are found in
-`chef-web-docs/layouts/resources`. The templates that generate the tables of
-contents for the resource are stored in `chef-web-docs/layouts/partials`.
+`chef-web-docs/themes/docs-new/layouts`. The templates that generate the tables of
+contents for the resource are stored in `chef-web-docs/themes/docs-new/layouts/partials`.
 
-There are two template types, terms and list. The terms template is used to generate
-the [resources reference page](/resources/) and the list
-template generates the individual resource pages, for example
-https://docs.chef.io/resources/apt_package/.
-
-For more general information about lists and terms templates see Hugo's
-[taxonomy template documentation](https://gohugo.io/templates/taxonomy-templates/).
+There are two template types, `infra_resources.html` and `infra_resources_all.html`.
+The `infra_resources.html` template is used to generate each individual resource page,
+and the `infra_resources_all.html` template generates the
+[resources reference page](https://docs.chef.io/resources/).
 
 For general information about YAML see the official [YAML website](https://yaml.org/).
 
-## YAML data
+## Markdown Pages
 
-The YAML data is contained in a markdown page and surrounded by opening and closing
-dashes `---`.
+Each resource YAML file must have a Markdown page that calls it. You can use the `resource.md`
+archetype file to generate an individual Markdown page (`hugo new -k resource content/resources/<RESOURCE NAME.md`), or use the `make resource_files` to automatically generate new resource files for every resource in the
+`data/infra/resources` directory.
 
-The data in those files can be split into three categories: page metadata,
-resource data, and shortcodes.
-
-### Page metadata
+Each page has the following parameters:
 
 **title**
 
 This is the title of the page as it appears at the top of its page or at the top of
 its section in the resource reference page. For example, `apt_package resource`.
-
-**resource**
-
-This is the name of the resource. For example, `apt_package`.
 
 **draft**
 
@@ -48,6 +40,21 @@ Hugo will not render the page if set to `true`.
 
 Pages that you want to redirect to the page that you are editing. See Hugo's
 [aliases documentation](https://gohugo.io/content-management/urls/#aliases).
+
+**data_path**
+
+An array that specifies the path to the individual data file in the `data` directory.
+For example, the `alternatives.yaml` file in `data/infra/resources` is specified
+like this: `data_path = ["infra","resources","alternatives"]`
+
+The `_index.md` file reads through all of the YAML files, so its data_path value is
+`["infra","resources"]`
+
+**layout**
+
+The page layout that Hugo will use to render the page.
+Use `layout = "infra_resource"` for individual resource pages. Use
+`layout = "infra_resources_all"` for the `_index.md` page.
 
 **menu/docs**
 
@@ -73,11 +80,6 @@ See the example at the bottom of this section.
 	The location of the resource page in the left navigation menu. For resource pages
 	this is always `chef_infra/cookbook_reference/resources`.
 
-- weight
-
-	The location of the page in the left navigation menu in relation to the other pages.
-	This increments by 10. Higher numbers are lower down in the menu.
-
 Example menu section:
 
 ```
@@ -87,14 +89,7 @@ menu:
     identifier: chef_infra/cookbook_reference/resources/resource_name
       resource_name
     parent: chef_infra/cookbook_reference/resources
-    weight: 730
 ```
-
-**resource_reference**
-
-Display or hide a page. If set to `true`, the page will appear in the [resource
-reference](/resources) and its own individual page will
-appear in https://docs.chef.io/resources/page_name/. Values are `true` or `false`.
 
 **robots**
 
@@ -104,10 +99,27 @@ useful for removing a page from [Swiftype](https://swiftype.com/documentation/si
 and Google search results. See the [robotstxt.org](https://www.robotstxt.org/meta.html)
 site for more information about meta robots tags.
 
-If this is deleted or left blank Hugo will use the site robots parameter in the
+If this is deleted or left blank, Hugo will use the site robots parameter in the
 `config.toml` file.
 
+## YAML data
+
+The YAML data is contained in a YAML file in `chef-web-docs/data`
+
+The data in those files can be split into two categories:
+resource data, and shortcodes.
+
 ### Resource data
+
+**resource**
+
+This is the name of the resource. For example, `apt_package`.
+
+**resource_reference**
+
+Display or hide a page. If set to `true`, the page will appear in the [resource
+reference](/resources) and its own individual page will
+appear in https://docs.chef.io/resources/page_name/. Values are `true` or `false`.
 
 **resource_description_list**
 
@@ -412,7 +424,7 @@ section to the resource page.
 ## Resource page tables of contents
 
 The tables of contents templates for the resource pages are located in
-`chef-web-docs/layouts/partials`.
+`chef-web-docs/themes/docs-new/layouts/partials`.
 
 The tables of contents for the resource reference page and the individual resource
 pages are generated in the same way that the resource reference
