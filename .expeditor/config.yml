@@ -25,7 +25,7 @@ subscriptions:
   - workload: project_promoted:chef/automate:master:acceptance:*
     actions:
     - bash:.expeditor/update_hugo_modules_project_promoted.sh
-  - workload: project_promoted:habitat:acceptance:*
+  - workload: project_promoted:habitat:current:*
     actions:
     - bash:.expeditor/update_hugo_modules_project_promoted.sh
   - workload: pull_request_merged:chef/effortless:master:*

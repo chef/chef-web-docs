@@ -56,7 +56,7 @@ hugo mod vendor
 # - github.com/chef/chef-web-docs/blob/master/_vendor/github.com/habitat-sh/habitat/components/docs-chef-io/content/habitat/service_templates.md
 
 if [[ "${EXPEDITOR_PROJECT}" == *"habitat"* ]]; then
-  curl https://packages.chef.io/files/${EXPEDITOR_TARGET_CHANNEL}/habitat/latest/generated-documentation.tar.gz
+  curl --silent --output generated-documentation.tar.gz https://packages.chef.io/files/${EXPEDITOR_TARGET_CHANNEL}/habitat/latest/generated-documentation.tar.gz
   tar xvzf generated-documentation.tar.gz -C _vendor/github.com/habitat-sh/habitat/components/docs-chef-io/content/habitat
   rm generated-documentation.tar.gz
 fi
