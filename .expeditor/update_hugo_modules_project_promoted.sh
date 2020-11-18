@@ -12,9 +12,15 @@ if [[ "${EXPEDITOR_PROJECT}" == *"automate"* ]]; then
   subdirectory="components/docs-chef-io"
   manifest="https://packages.chef.io/files/${EXPEDITOR_TARGET_CHANNEL}/automate/latest/manifest.json"
   git_sha="$(curl -s $manifest | jq -r -c ".git_sha")"
+elif [[ "${EXPEDITOR_PROJECT}" == *"habitat"* ]]; then
+  org="habitat-sh"
+  product_key="habitat"
+  subdirectory="components/docs-chef-io"
+  manifest="https://packages.chef.io/files/${EXPEDITOR_TARGET_CHANNEL}/habitat/latest/manifest.json"
+  git_sha="$(curl -s $manifest | jq -r -c ".sha")"
 fi
 
-branch="expeditor/update_docs_${produt_key}_${git_sha}"
+branch="expeditor/update_docs_${product_key}_${git_sha}"
 git checkout -b "$branch"
 
 # Update the semver version of the documentation module that chef-web-docs will
@@ -28,6 +34,33 @@ hugo mod tidy
 # See https://gohugo.io/hugo-modules/use-modules/#vendor-your-modules
 
 hugo mod vendor
+
+###
+# Manage Habitat generated pages
+###
+
+# Habitat has two generated files (habitat_cli.md and service_templates.md) that
+# are made during the release pipeline.
+# Those two pages are generated and then pushed up to
+# https://packages.chef.io/files/stable/habitat/latest/generated-documentation.tar.gz
+
+# To add these files to chef-web-docs and doc.chef.io, this script uses curl to pull down the
+# generated-documentation.tar.gz file, and then overwrite the blank pages pulled
+# in by Hugo from github.com/habitat-sh/habitat
+
+# See:
+# - https://github.com/habitat-sh/habitat/pull/7993
+# - github.com/habitat-sh/habitat/blob/master/components/docs-chef-io/content/habitat/habitat_cli.md
+# - github.com/habitat-sh/habitat/blob/master/components/docs-chef-io/content/habitat/service_templates.md
+# - github.com/chef/chef-web-docs/blob/master/_vendor/github.com/habitat-sh/habitat/components/docs-chef-io/content/habitat/habitat_cli.md
+# - github.com/chef/chef-web-docs/blob/master/_vendor/github.com/habitat-sh/habitat/components/docs-chef-io/content/habitat/service_templates.md
+
+if [[ "${EXPEDITOR_PROJECT}" == *"habitat"* ]]; then
+  curl https://packages.chef.io/files/${EXPEDITOR_TARGET_CHANNEL}/habitat/latest/generated-documentation.tar.gz
+  tar xvzf generated-documentation.tar.gz -C _vendor/github.com/habitat-sh/habitat/components/docs-chef-io/content/habitat
+  rm generated-documentation.tar.gz
+fi
+
 
 # submit pull request to chef/chef-web-docs
 
