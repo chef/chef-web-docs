@@ -1,6 +1,5 @@
 [build]
   publish = "public"
-  command = "make assets; hugo --gc --minify --enableGitInfo"
 
 [build.environment]
   HUGO_VERSION = "0.76.4"
@@ -10,6 +9,11 @@
 
 [build.processing]
   skip_processing = true
+
+[context.production]
+  command = "make assets; hugo --gc --minify --enableGitInfo"
+  [context.production.environment]
+    HUGO_ENV = "production"
 
 [context.deploy-preview]
   command = "make assets; hugo --gc --minify --enableGitInfo --buildFuture"
