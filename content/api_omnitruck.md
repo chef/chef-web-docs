@@ -138,7 +138,7 @@ Omnitruck accepts the following platforms:
 <td>macOS</td>
 <td><code>mac_os_x</code></td>
 <td><code>x86_64</code></td>
-<td><code>10.6</code>, <code>10.7</code>, <code>10.8</code>, <code>10.9</code>, <code>10.10</code>, <code>10.11</code>, <code>10.12</code>, <code>10.13</code>, <code>10.14</code>, <code>10.15</code></td>
+<td><code>10.6</code>, <code>10.7</code>, <code>10.8</code>, <code>10.9</code>, <code>10.10</code>, <code>10.11</code>, <code>10.12</code>, <code>10.13</code>, <code>10.14</code>, <code>10.15</code>, <code>11.0</code></td>
 </tr>
 <tr class="even">
 <td>Solaris</td>
