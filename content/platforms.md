@@ -632,7 +632,7 @@ according to those vendors' terms:
 <tbody>
 <tr class="odd">
 <td>Apple macOS</td>
-<td>Apple has no official EOL dates published, but generally supports N-2 macOS releases</td>
+<td>Apple generally supports the last three macOS releases, for example: 10.14, 10.15, and 11.0. Apple does not officially publish EOL dates.</td>
 </tr>
 <tr class="even">
 <td>Debian</td>
