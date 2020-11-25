@@ -1,0 +1,286 @@
+<aside class="sticky sidebar" data-sticky data-top-anchor="utility-bar:bottom" data-btm-anchor="footer:top">
+  <span>
+    <strong>
+      <h4 class="mini-toc-header">Table Of Contents</h4>
+    </strong>
+
+    <button class="close-button hide-for-large" aria-label="Close menu" type="button" data-close>
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </span>
+  {{ $yaml_file := index $.Site.Data (.Params.data_path) }}
+  <a href="#{{ anchorize ( .Title )}}">{{ .Title }}</a>
+  <ul>
+    {{ if index $yaml_file "handler_types" }}
+    <ul>
+      <li>
+        <a href="#handler-types">Handler Types</a>
+        <ul>
+          <li>
+            <a href="#handler-type-exception-report">Exception / Report</a>
+          </li>
+          <li>
+            <a href="#handler-type-start">Start</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+    {{ end }}
+
+    <li>
+      <a href="#syntax">Syntax</a>
+      {{ if index $yaml_file "registry_key" }}
+      <ul>
+        <li><a href="#windows-registry-key-backslashes">Registry Key Path Separators</a></li>
+        <li>
+          <a href="#dsl-recipe-method-windows-methods">Recipe DSL Methods</a>
+          <ul>
+            <li><a href="#dsl-recipe-method-registry-data-exists">registry_data_exists?</a></li>
+            <li><a href="#dsl-recipe-method-registry-get-subkeys">registry_get_subkeys</a></li>
+            <li><a href="#dsl-recipe-method-registry-get-values">registry_get_values</a></li>
+            <li><a href="#dsl-recipe-method-registry-has-subkeys">registry_has_subkeys?</a></li>
+            <li><a href="#dsl-recipe-method-registry-key-exists">registry_key_exists?</a></li>
+            <li><a href="#dsl-recipe-method-registry-value-exists">registry_value_exists?</a></li>
+          </ul>
+        </li>
+      </ul>
+      {{ end }}
+    </li>
+
+    {{ if index $yaml_file "nameless_apt_update" }}
+    <li><a href="#nameless">Nameless</a> </li>
+    {{ end }}
+
+    {{ if index $yaml_file "nameless_build_essential" }}
+    <li><a href="#nameless">Nameless</a> </li>
+    {{ end }}
+
+    {{ if index $yaml_file "resource_package_options" }}
+    <li>
+      <a href="#resource-package-options">Gem Package Options</a>
+      <ul>
+        <li><a href="#resource-package-options-hash">Specify with Hash</a></li>
+        <li><a href="#resource-package-options-string">Specify with String</a></li>
+        <li><a href="#resource-package-options-gemrc">Specify with .gemrc File</a></li>
+      </ul>
+    </li>
+    {{ end }}
+
+    {{ if and ( index $yaml_file "actions_list" ) ( ne (index $yaml_file "actions_list") "" )}}
+    <li><a href="#actions">Actions</a></li>
+    {{ end }}
+
+    <li>
+      <a href="#properties">Properties</a>
+
+      {{ if index $yaml_file "multi_package_resource" }}
+      <ul>
+        <li>
+          <a href="#multiple-packages-properties">Multiple Packages</a>
+        </li>
+      </ul>
+      {{ end }}
+
+      {{ if index $yaml_file "resource_directory_recursive_directories" }}
+      <ul>
+        <li>
+          <a href="#resource-directory-recursive-directories">Recursive Directories</a>
+        </li>
+      </ul>
+      {{ end }}
+
+      {{ if index $yaml_file "resources_common_atomic_update" }}
+      <ul>
+        <li>
+          <a href="#resources-common-atomic-update">Atomic File Updates</a>
+        </li>
+      </ul>
+      {{ end }}
+
+      {{ if index $yaml_file "properties_resources_common_windows_security" }}
+      <ul>
+        <li>
+          <a href="#resources-common-windows-security">Windows File Security</a>
+        </li>
+      </ul>
+      {{ end }}
+
+      {{ if index $yaml_file "remote_file_prevent_re_downloads" }}
+      <ul>
+        <li>
+          <a href="#prevent-re-downloads">Prevent Re-downloads</a>
+        </li>
+      </ul>
+      {{ end }}
+
+      {{ if index $yaml_file "remote_file_unc_path" }}
+      <ul>
+        <li>
+          <a href="#access-a-remote-unc-path-on-windows">Access a remote UNC path on Windows</a>
+        </li>
+      </ul>
+      {{ end }}
+
+      {{ if index $yaml_file "ps_credential_helper" }}
+      <ul>
+        <li>
+          <a href="#ps-credential-helper">ps_credential Helper</a>
+        </li>
+      </ul>
+      {{ end }}
+    </li>
+
+    {{ if index $yaml_file "ruby_style_basics_chef_log" }}
+    <li>
+      <a href="#ruby-style-basics-chef-log">Chef::Log Entries</a>
+    </li>
+    {{ end }}
+
+    {{ if  index $yaml_file "debug_recipes_chef_shell" }}
+    <li>
+      <a href="#debug-recipes-chef-shell">Debug Recipes with chef-shell</a>
+      <ul>
+        <li><a href="#chef-shell-modes">Modes</a></li>
+        <li>
+          <a href="#debug-recipes-config">Configure</a>
+          <ul>
+            <li><a href="#chef-shell-config-rb">chef-shell.rb</a></li>
+            <li><a href="#chef-shell-run-as-chef-client">Run as a Chef Infra Client</a></li>
+          </ul>
+        </li>
+        <li><a href="#chef-shell-manage">Manage</a></li>
+        <li>
+          <a href="#chef-shell-breakpoints">Use Breakpoints</a>
+          <ul>
+            <li><a href="#chef-shell-step-through-run-list">Step Through Run-list</a></li>
+            <li><a href="#chef-shell-debug-existing-recipe">Debug Existing Recipe</a></li>
+            <li><a href="#chef-shell-advanced-debug">Advanced Debugging</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#chef-shell-debug-examples">Debug Examples</a>
+          <ul>
+            <li><a href="#chef-shell-debug-example-hello-world">"Hello World"</a></li>
+            <li><a href="#chef-shell-debug-examples-specific-nodes">Get Specific Nodes</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    {{ end }}
+
+    {{ if index $yaml_file "template_requirements" }}
+    <ul>
+      <li>
+        <a href="#template-requirements">Using Templates</a>
+        <ul>
+          <li><a href="#template-specificity">File Specificity</a></li>
+          <li>
+            <a href="#template-helpers">Helpers</a>
+            <ul>
+              <li><a href="#resource-template-inline-method">Inline Methods</a></li>
+              <li><a href="#resource-template-inline-module">Inline Modules</a></li>
+              <li><a href="#resource-template-library-module">Library Modules</a></li>
+            </ul>
+          </li>
+          <li><a href="#template-host-notation">Host Notation</a></li>
+          <li>
+            <a href="#template-partials">Partial Templates</a>
+            <ul>
+              <li><a href="#template-partials-render-method">render Method</a></li>
+            </ul>
+          </li>
+          <li><a href="#template-transfer-frequency">Transfer Frequency</a></li>
+          <li><a href="#template-variables">Variables</a></li>
+        </ul>
+      </li>
+    </ul>
+    {{ end }}
+    
+    {{ if index $yaml_file "unit_file_verification" }}
+      <li>
+        <a href="#unit-file-verification">Unit file verification</a>
+      </li>
+    {{ end }}
+    
+    {{ if or (index $yaml_file "resources_common_properties" ) ( index $yaml_file "resources_common_notification" ) ( index $yaml_file "resources_common_guards" ) ( index $yaml_file "multi_package_resource" ) ( index $yaml_file "resources_common_guard_interpreter" ) ( index $yaml_file "remote_directory_recursive_directories" ) ( index $yaml_file "common_resource_functionality_resources_common_windows_security" )}}
+      <li>
+        <a href="#functionality">Common Resource Functionality</a>
+
+        {{ if index $yaml_file "resources_common_properties" }}
+        <ul>
+          <li><a href="#resources-common-properties">Common Properties</a></li>
+        </ul>
+        {{ end }}
+
+        {{ if index $yaml_file "resources_common_notification" }}
+        <ul>
+          <li><a href="#resources-common-notifications">Notifications</a></li>
+        </ul>
+        {{ end }}
+
+        {{ if index $yaml_file "resources_common_guards" }}
+        <ul>
+          <li><a href="#guards">Guards</a></li>
+        </ul>
+        {{ end }}
+
+        {{ if index $yaml_file "multi_package_resource" }}
+        <ul>
+          <li><a href="#multiple-packages-common">Multiple Packages</a></li>
+        </ul>
+        {{ end }}
+
+        {{ if index $yaml_file "resources_common_guard_interpreter" }}
+        <ul>
+          <li><a href="#guard-interpreter">Guard Interpreter</a></li>
+        </ul>
+        {{ end }}
+
+        {{ if index $yaml_file "remote_directory_recursive_directories" }}
+        <ul>
+          <li>
+            <a href="#recursive-directories">Recursive Directories</a>
+            <ul>
+              <li><a href="#recursive-directories-example">Example</a></li>
+            </ul>
+          </li>
+        </ul>
+        {{ end }}
+
+
+        {{ if index $yaml_file "common_resource_functionality_resources_common_windows_security" }}
+        <ul>
+          <li><a href="#resources-common-windows-security">Windows File Security</a></li>
+        </ul>
+        {{ end }}
+      </li>
+    {{ end }}
+
+    {{ if index $yaml_file "handler_custom" }}
+    <li>
+      <a href="#handler-custom">Custom Handlers</a>
+      <ul>
+        <li><a href="#handler-custom-syntax">Syntax</a></li>
+        <li><a href="#handler-custom-interface-report">report Interface</a></li>
+        <li>
+          <a href="#handler-custom-optional-interfaces">Optional Interfaces</a>
+          <ul>
+            <li><a href="#handler-custom-interface-data">data</a></li>
+            <li><a href="#handler-custom-interface-run-report-safely">run_report_safely</a></li>
+            <li><a href="#handler-custom-interface-run-report-unsafe">run_report_unsafe</a></li>
+          </ul>
+        </li>
+        <li><a href="#handler-custom-object-run-status">run_status Object</a></li>
+      </ul>
+    </li>
+    {{ end }}
+    {{ if index $yaml_file "cookbook_file_specificity" }}
+    <ul>
+      <li><a href="#cookbook-file-specificity">File Specificity</a></li>
+    </ul>
+    {{ end }}
+
+    <li><a href="#examples">Examples</a></li>
+
+  </ul>
+</aside>

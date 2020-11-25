@@ -331,7 +331,7 @@ This release:
     -   `bookshelf['enable_request_logging']`
 
     See the [Chef server optional
-    settings](/config_rb_server_optional_settings/) guide for
+    settings](server/config_rb_server_optional_settings/) guide for
     additional details
 
 -   `chef-server-ctl reconfigure` fixes permissions on gems with an
@@ -339,7 +339,7 @@ This release:
 
 -   Makes the display of the welcome page configurable via the
     `nginx['show_welcome_page']` setting. See the [Chef server optional
-    settings](/config_rb_server_optional_settings/) guide for
+    settings](/server/config_rb_server_optional_settings/) guide for
     additional details
 
 -   Infers the current database migration level and necessary upgrades
@@ -380,7 +380,7 @@ The following items are new for Chef server 12.17.3:
     poisoning attacks by ensuring that nginx only responds to requests
     with host headers that match the configured FQDN for the given
     machine. See Chef server's [optional nginx
-    settings](/config_rb_server_optional_settings/#nginx) for
+    settings](/server/config_rb_server_optional_settings/#nginx) for
     additional details
 
 See the [change
@@ -1574,7 +1574,7 @@ Some `opscode_solr` settings are imported automatically, such as heap,
 new size, and Java options, but many settings are ignored. If your
 Enterprise Chef configuration is highly tuned for Apache Solr, review
 [these configuration
-settings](/config_rb_server_optional_settings/#opscode-solr4) before
+settings](/server/config_rb_server_optional_settings/#opscode-solr4) before
 re-tuning Apache Solr for Chef server version 12.
 
 ### External PostgreSQL

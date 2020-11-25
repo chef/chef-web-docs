@@ -176,14 +176,6 @@ listed below:
 <td><a href="https://github.com/chef-cookbooks/webpi">Webpi Cookbook</a></td>
 <td>The <code>webpi</code> cookbook is used to run the Microsoft Web Platform Installer (WebPI).</td>
 </tr>
-<tr class="odd">
-<td><a href="https://github.com/chef-cookbooks/windows">Windows Cookbook</a></td>
-<td>The <code>windows</code> cookbook is used to configure auto run, batch, reboot, enable built-in operating system packages, configure Microsoft Windows packages, reboot machines, and more.</td>
-</tr>
-<tr class="even">
-<td><a href="https://github.com/chef-cookbooks/windows_dns">Windows_dns Cookbook</a></td>
-<td>This cookbook provides a resource for managing DNS on Windows hosts.</td>
-</tr>
 </tbody>
 </table>
 
@@ -202,36 +194,37 @@ Two community supports two provisioners for Kitchen:
 
 Chef Infra provides a growing number of Windows-specific resources.
 
--   [Chocolatey_config](/resources/chocolatey_config/)
--   [Chocolatey_package](/resources/chocolatey_package/)
--   [Chocolatey_source](/resources/chocolatey_package/)
+-   [chocolatey_config](/resources/chocolatey_config/)
+-   [chocolatey_package](/resources/chocolatey_package/)
+-   [chocolatey_source](/resources/chocolatey_package/)
+-   [chef_client_scheduled_task](/resources/chef_client_scheduled_task/)
 -   [dsc_resource](/resources/dsc_resource/)
--   [resource_registry_key](/resources/registry_key/)
--   [Windows_ad_join](/resources/windows_ad_join/)
--   [Windows_auto_run](/resources/windows_auto_run/)
--   [Windows_certificate](/resources/windows_certificate/)
--   [Windows_dfs_folder](/resources/windows_dfs_folder/)
--   [Windows_dfs_namespace](/resources/windows_dfs_namespace/)
--   [Windows_dfs_server](/resources/windows_dfs_server/)
--   [Windows_dns_record](/resources/windows_dns_record/)
--   [Windows_dns_zone](/resources/windows_dns_zone/)
--   [Windows_env](/resources/windows_env/)
--   [Windows_feature_dism](/resources/windows_feature_dism/)
--   [Windows_feature_powershell](/resources/windows_feature_powershell/)
--   [Windows_feature](/resources/windows_feature/)
--   [Windows_firewall_rule](/resources/windows_firewall_rule/)
--   [Windows_font](/resources/windows_font/)
--   [Windows_package](/resources/windows_package/)
--   [Windows_pagefile](/resources/windows_pagefile/)
--   [Windows_path](/resources/windows_path/)
--   [Windows_windows_printer_port](/resources/windows_printer_port/)
--   [Windows_printer](/resources/windows_printer/)
--   [Windows_service](/resources/windows_service/)
--   [Windows_share](/resources/windows_share/)
--   [Windows_shortcut](/resources/windows_shortcut/)
--   [Windows_task](/resources/windows_task/)
--   [Windows_uac](/resources/windows_uac/)
--   [Windows_workgroup](/resources/windows_workgroup/)
+-   [registry_key](/resources/registry_key/)
+-   [windows_ad_join](/resources/windows_ad_join/)
+-   [windows_auto_run](/resources/windows_auto_run/)
+-   [windows_certificate](/resources/windows_certificate/)
+-   [windows_dfs_folder](/resources/windows_dfs_folder/)
+-   [windows_dfs_namespace](/resources/windows_dfs_namespace/)
+-   [windows_dfs_server](/resources/windows_dfs_server/)
+-   [windows_dns_record](/resources/windows_dns_record/)
+-   [windows_dns_zone](/resources/windows_dns_zone/)
+-   [windows_env](/resources/windows_env/)
+-   [windows_feature_dism](/resources/windows_feature_dism/)
+-   [windows_feature_powershell](/resources/windows_feature_powershell/)
+-   [windows_feature](/resources/windows_feature/)
+-   [windows_firewall_rule](/resources/windows_firewall_rule/)
+-   [windows_font](/resources/windows_font/)
+-   [windows_package](/resources/windows_package/)
+-   [windows_pagefile](/resources/windows_pagefile/)
+-   [windows_path](/resources/windows_path/)
+-   [windows_printer_port](/resources/windows_printer_port/)
+-   [windows_printer](/resources/windows_printer/)
+-   [windows_service](/resources/windows_service/)
+-   [windows_share](/resources/windows_share/)
+-   [windows_shortcut](/resources/windows_shortcut/)
+-   [windows_task](/resources/windows_task/)
+-   [windows_uac](/resources/windows_uac/)
+-   [windows_workgroup](/resources/windows_workgroup/)
 
 ### Windows Compatible Resources
 

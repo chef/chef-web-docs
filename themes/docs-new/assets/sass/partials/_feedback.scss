@@ -1,0 +1,27 @@
+#feedback{
+  margin-top: 2rem;
+  padding: 2rem 0 2rem 1rem;
+  border-top: 1px solid $border;
+
+  p{
+    font-weight: 500;
+  }
+
+  button{
+    display: inline-block;
+    border: 1px solid $blue;
+    padding: 1rem;
+    border-radius: $border-radius-base;
+    text-transform: uppercase;
+    font-size: .8rem;
+    &:not([disabled]):hover{
+      border: 2px solid $blue;
+      margin: -1px;
+    }
+    &:not([disabled]):active{
+      color: $white;
+      background-color: $blue;
+    }
+
+  }
+}

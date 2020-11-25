@@ -33,8 +33,8 @@ aliases = ["/knife_bootstrap.html", "/knife_bootstrap/"]
     automatically by running [knife ssl fetch](/workstation/knife_ssl_fetch/).
     These certificates are used during `knife` operations to communicate
     with the Chef Infra Server.
--   By default, `knife bootstrap` will attempt to use `ssh` to connect to
-    the target node. Use the `-o` to specify a different protocol, such as
+-   By default, `knife bootstrap` will attempt to use `ssh` to connect to 
+    the target node. Use the `-o` to specify a different protocol, such as 
     `winrm` for windows nodes.
 
 ## Syntax
@@ -69,7 +69,7 @@ knife bootstrap FQDN_or_IP_ADDRESS (options)
 
 `-o PROTOCOL`, `--connection-protocol PROTOCOL`
 
-:   The protocol to use to connect to the target node.
+:   The protocol to use to connect to the target node. 
     Options are `ssh` or `winrm`. `ssh` is default.
 
 `-W SECONDS`, `--max-wait SECONDS`

@@ -35,3 +35,14 @@
     /* Avoid pushing up the copy buttons. */
     margin-top: 0;
 }
+
+/* reduce spacing when block follows a p */
+p + button.copy-code-button {
+  margin-top: -.5rem;
+}
+
+@media print {
+  .copy-code-button{
+    display:none;
+  } 
+}

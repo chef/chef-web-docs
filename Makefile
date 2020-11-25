@@ -18,7 +18,20 @@ serve: assets
 	hugo server --buildDrafts --noHTTPCache --buildFuture
 
 serve_ignore_vendor: assets
-	hugo server --buildDrafts --noHTTPCache --buildFuture --ignoreVendor
+	hugo server --buildDrafts --noHTTPCache --buildFuture --ignoreVendorPaths github.com/**
 
 lint: assets
 	hugo -D
+
+
+# Generates blank resource pages, one for each yaml file in data/client/resources
+# And an index page that lists all the resources.
+resource_files:
+	rm content/resources/*
+	dataDir=data/infra/resources; \
+	for f in $$(ls $${dataDir}); \
+		do echo $${f}; \
+		file=$${f%.yaml}; \
+		hugo new -k resource content/resources/$${file}.md ; \
+	done
+	hugo new -k all_the_resources content/resources/_index.md ;

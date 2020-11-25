@@ -1,0 +1,67 @@
+---
+resource_reference: true
+resources_common_guards: true
+resources_common_notification: true
+resources_common_properties: true
+title: notify_group resource
+resource: notify_group
+aliases:
+- "/resource_notify_group.html"
+menu:
+  infra:
+    title: notify_group
+    identifier: chef_infra/cookbook_reference/resources/notify_group notify_group
+    parent: chef_infra/cookbook_reference/resources
+resource_description_list:
+- markdown: The notify_group resource does nothing, and always fires notifications
+    which are set on it.  Use it to DRY blocks of notifications that are common to
+    multiple resources, and provide a single target for other resources to notify.  Unlike
+    most resources, its default action is :nothing.
+resource_new_in: '15.8'
+syntax_full_code_block: |-
+  notify_group 'name' do
+    action      Symbol # defaults to :nothing if not specified
+  end
+syntax_properties_list:
+syntax_full_properties_list:
+- "`notify_group` is the resource."
+- "`name` is the name given to the resource block."
+- "`action` identifies which steps Chef Infra Client will take to bring the node into
+  the desired state."
+actions_list:
+  :nothing:
+    shortcode: resources_common_actions_nothing.md
+  :run:
+    markdown:
+properties_list: []
+examples: |
+  Wire up a notification from a service resource to stop and start the service with a 60 second delay.
+
+  ```ruby
+  service "crude" do
+    action [ :enable, :start ]
+  end
+
+  chef_sleep "60" do
+    action :nothing
+  end
+
+  # Example code for a hypothetical badly behaved service that requires
+  # 60 seconds between a stop and start in order to restart the service
+  # (due to race conditions, bleeding connections down, resources that only
+  # slowly unlock in the background, or other poor software behaviors that
+  # are sometimes encountered).
+  #
+  notify_group "crude_stop_and_start" do
+    notifies :stop, "service[crude]", :immediately
+    notifies :sleep, "chef_sleep[60]", :immediately
+    notifies :start, "service[crude]", :immediately
+  end
+
+  template "/etc/crude/crude.conf" do
+    source "crude.conf.erb"
+    variables node["crude"]
+    notifies :run, "notify_group[crude_stop_and_start]", :immediately
+  end
+  ```
+---
