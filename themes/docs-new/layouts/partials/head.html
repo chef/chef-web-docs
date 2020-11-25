@@ -8,7 +8,9 @@
   {{ $options := (dict "includePaths" (slice "node_modules")) }}
   {{ $style := resources.Get "sass/main.scss" | resources.ToCSS $options }}
   <link rel="stylesheet" href="{{ $style.Permalink }}" />
+  {{ template "_internal/opengraph.html" . }}
+  {{ template "_internal/schema.html" . }}
   {{ if eq (getenv "HUGO_ENV") "production" }}
-    {{ template "_internal/google_analytics.html" . }}
+    {{ template "_internal/google_analytics_async.html" . }}
   {{ end }}
 </head>

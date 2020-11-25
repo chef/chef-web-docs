@@ -80,12 +80,14 @@ notAlternative = true
 [params]
   enable_search = true
   robots = ''
+  images = ["chef-progress-logo.svg"]
   menuOrder = ["overview", "automate", "compliance",  "desktop",  "infra", "habitat", "inspec", "workstation", "effortless", "release_notes", "legacy", "extra"]
 
 [taxonomies]
   category = "categories"
   tag = "tags"
   resource = "resources"
+  series = "series"
 
 [params.product_version]
 [params.product_version.chef-server]
