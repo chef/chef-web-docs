@@ -1,11 +1,7 @@
 name: chef-automate
 synopsis: Chef Automate CLI
 usage: chef-automate COMMAND [flags]
-description: |-
-  A helpful utility to deploy and manage Chef Automate.
-
-  Docs: https://docs.chef.io/automate/cli_chef_automate/
-  Patents: https://www.chef.io/patents
+description: A helpful utility to deploy and manage Chef Automate.
 options:
 - name: debug
   shorthand: d
