@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700|Roboto:300,400,700" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{{ $.Page.Params.style_sheet }}">
     {{ if eq (getenv "HUGO_ENV") "production" }}
-      {{ template "_internal/google_analytics.html" . }}
+      {{ partial "gtag.html" . }}
     {{ end }}
   </head>
   <body>

@@ -16,7 +16,7 @@ function thanksFeedback(button){
 
 
 const sendFeedback = (value) => {
-  if (typeof ga !== 'function') return;
+  if (typeof gtag !== 'function') return;
   const args = {
     command: 'send',
     hitType: 'event',
@@ -25,8 +25,8 @@ const sendFeedback = (value) => {
     label: window.location.pathname,
     value: value
   };
-  ga(args.command, args.hitType, args.category, args.action, args.label, args.value);
-  //console.log(args.command, args.hitType, args.category, args.action, args.label, args.value)
+  gtag(args.command, args.hitType, args.category, args.action, args.label, args.value);
+  console.log(args.command, args.hitType, args.category, args.action, args.label, args.value)
 };
 
 
