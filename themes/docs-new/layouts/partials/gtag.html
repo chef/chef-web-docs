@@ -1,15 +1,13 @@
-{{ with .Site.GoogleAnalytics }}
 <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-183953607-1"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id={{ $.Site.Params.googleAnalyticsUA }}"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', 'UA-183953607-1');
-  gtag('config', 'G-CH0D7HCR73');
-
-
+  {{ $site := $.Site.BaseURL | replaceRE "^https?://(www\\.)?([^/]+).*" "$2" }}
+  gtag('config', '{{ $.Site.Params.googleAnalyticsUA }}', {'dimension1': '{{ $site }}', 'dimension2': '{{ getenv "BRANCH" }}'});
+  gtag('config', '{{ $.Site.Params.googleAnalyticsG }}', {'dimension1': '{{ $site }}', 'dimension2': '{{ getenv "BRANCH" }}'});
 /**
 * Function that tracks a click on an outbound link in Analytics.
 * Setting the transport method to 'beacon' lets the hit be sent
@@ -24,4 +22,3 @@ var trackOutboundLink = function(id, url) {
 }
 
 </script>
-{{ end }}
