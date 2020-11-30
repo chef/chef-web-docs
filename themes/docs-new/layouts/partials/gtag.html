@@ -7,7 +7,9 @@
 
   {{ $site := $.Site.BaseURL | replaceRE "^https?://(www\\.)?([^/]+).*" "$2" }}
   gtag('config', '{{ $.Site.Params.googleAnalyticsUA }}', {'dimension1': '{{ $site }}', 'dimension2': '{{ getenv "BRANCH" }}'});
+
   gtag('config', '{{ $.Site.Params.googleAnalyticsG }}', {'dimension1': '{{ $site }}', 'dimension2': '{{ getenv "BRANCH" }}'});
+
 /**
 * Function that tracks a click on an outbound link in Analytics.
 * Setting the transport method to 'beacon' lets the hit be sent
