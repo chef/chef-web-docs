@@ -30,7 +30,7 @@ During every Chef Infra Client run, the following happens:
 </tr>
 <tr class="even">
 <td><strong>Expand the run-list</strong></td>
-<td>Chef Infra Client expands the <a href="/run_lists/">run-list</a> from the rebuilt node object, compiling a full and complete list of roles and recipes that will be applied to the node, placing the roles and recipes in the same exact order they will be applied. (The run-list is stored in each node object's JSON file, grouped under <code>run_list</code>.)</td>
+<td>Chef Infra Client expands the <a href="/run_lists/">run-list</a> from the rebuilt node object, compiling a full and complete list of recipes that will be applied to the node, placing recipes in the same exact order they will be applied.</td>
 </tr>
 <tr class="odd">
 <td><strong>Synchronize cookbooks</strong></td>
