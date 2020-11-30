@@ -46,7 +46,7 @@ During every Chef Infra Client run, the following happens:
 </tr>
 <tr class="even">
 <td><strong>Converge the node</strong></td>
-<td>Chef Infra Client configures the system based on the information that has been collected. Each resource is executed in the order identified by the run-list, and then by the order in which each resource is listed in each recipe. Each resource in the resource collection is mapped to a provider. The provider examines the node, and then does the steps necessary to complete the action. And then the next resource is processed. Each action configures a specific part of the system. This process is also referred to as convergence. This is also referred to as the "execution phase".</td>
+<td>Chef Infra Client configures the system based on the information that has been collected. Each resource is executed in the order identified by the run-list, and then by the order in which each resource is listed in each recipe. Each resource defines an action to run, which configures a specific part of the system. This process is also referred to as convergence. This is also referred to as the "execution phase".</td>
 </tr>
 <tr class="odd">
 <td><p><strong>Update the node object, process exception and report handlers</strong></p></td>
