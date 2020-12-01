@@ -128,7 +128,7 @@ node.default['apache']['listen_ports'] = [ '80','443' ]
 
 {{% node_attribute_when_to_use_unless_variants %}}
 
-**File Methods**
+**Attribute File Methods**
 
 {{% cookbooks_attribute_file_methods %}}
 
