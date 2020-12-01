@@ -26,7 +26,8 @@ During every Chef Infra Client run, the following happens:
 </tr>
 <tr class="odd">
 <td><strong>Get, rebuild the node object</strong></td>
-<td>Chef Infra Client pulls down the node object from the Chef Infra Server. The node object is the combined set of system attributes discovered by Ohai and policy, attributes set by admins in Policyfiles or Cookbooks, and the run list of cookbooks to execute. If this is the first Chef Infra Client run for the node, there will not be a node object to pull down from the Chef Infra Server. After the node object is pulled down from the Chef Infra Server, Chef Infra Client rebuilds the node object. If this is the first Chef Infra Client run for the node, the rebuilt node object will contain only the default run-list. For any subsequent Chef Infra Client run, the rebuilt node object will also contain the run-list from the previous Chef Infra Client run.</td>
+<td>Chef Infra Client pulls down the node object from the Chef Infra Server and then rebuilds it. A node object is made up of the system attributes discovered by Ohai, the attributes set in Policyfiles or Cookbooks, and the run list of cookbooks.
+The first time Chef Infra Client runs on a node, it creates a node object from the the default run-list. A node that has not yet had a Chef Infra Client run will not have a node object or a Chef Infra Server entry for a node object. On any subsequent Chef Infra Client runs, the rebuilt node object will also contain the run-list from the previous Chef Infra Client run.</td>```
 </tr>
 <tr class="even">
 <td><strong>Expand the run-list</strong></td>
