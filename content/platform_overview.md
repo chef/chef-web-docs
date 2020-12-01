@@ -174,10 +174,8 @@ tolerance, immediately consistent search results, and accurate real-time
 data about your infrastructure. Chef Automate also provides a graphical
 management console for the Chef Infra Server.
 
-## More Resources
+## Learning More
 
 If you're interested in getting hands-on experience, go to
 <https://learn.chef.io/> for tutorials, information about formal
-training classes and community resources. The Chef Habitat web site at
-<https://www.habitat.sh/> has Habitat tutorials, along with
-documentation and other resources.
+training classes and community resources.
