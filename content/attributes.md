@@ -862,7 +862,7 @@ For adding a string using a multi-level array:
 
 ## Limiting Attribute Persistence
 
-Some organizations find it helpful to control attribute data stored to the Chef Infra Server in order to limit the disk and CPU resources used processing unused attributes. For example your organization may find the data from the Ohai `Package` plugin useful when writing cookbooks, but you don't see the need in savings ~100k of package information for each Chef Infra Client run. By limiting this data from being saved to the Chef Infra Server it will still be available on the node within cookbooks, but won't be saved to the Chef Infra Server, where it is available in searches.
+Some organizations find it helpful to control attribute data stored to the Chef Infra Server in order to limit the disk and CPU resources used when processing unused attributes. For example, your organization may find the data from the Ohai `Package` plugin useful when writing cookbooks, but you don't see the need in saving ~100k of package information for each Chef Infra Client run. By limiting the data that is saved to the Chef Infra Server, it will still be available on the node within cookbooks, but won't be saved to the Chef Infra Server where it is available in searches.
 
 {{< note >}}
 
