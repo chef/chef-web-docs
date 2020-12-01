@@ -101,9 +101,8 @@ An attribute file is located in the `attributes/` sub-directory for a
 cookbook. When a cookbook is run against a node, the attributes
 contained in all attribute files are evaluated in the context of the
 node object. Node methods (when present) are used to set attribute
-values on a node. For example, the `apache2` cookbook contains an
-attribute file called `default.rb`, which contains the following
-attributes:
+values on a node. For example, an `apache2` cookbook may contain an
+attribute file called `default.rb`, with the following attributes:
 
 ```ruby
 default['apache']['dir']          = '/etc/apache2'
@@ -144,7 +143,7 @@ Using `attribute?()` in an attributes file:
 
 ```ruby
 if attribute?('ec2')
-  # ... set stuff related to EC2
+  default['apache']['listen_ports'] = [ '443' ]
 end
 ```
 
@@ -152,7 +151,7 @@ Using `attribute?()` in a recipe:
 
 ```ruby
 if node.attribute?('ec2')
-  # ... do stuff on EC2 nodes
+  node.default['apache']['listen_ports'] = [ '443' ]
 end
 ```
 
