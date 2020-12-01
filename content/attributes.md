@@ -73,7 +73,7 @@ Infra Client chooses which attribute to apply.
 Attributes are provided to Chef Infra Client from the following locations:
 
 - JSON files passed via the `chef-client -j`
-- Nodes (collected by Ohai at the start of each Chef Infra Client run)
+- Ohai system configuration data collected at the start of each Chef Infra Client run
 - Attribute files (in cookbooks)
 - Recipes (in cookbooks)
 - Policyfiles
