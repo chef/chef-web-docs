@@ -35,7 +35,9 @@ The first time Chef Infra Client runs on a node, it creates a node object from t
 </tr>
 <tr class="odd">
 <td><strong>Synchronize cookbooks</strong></td>
-<td>Chef Infra Client asks the Chef Infra Server for a list of all <a href="/cookbooks/">cookbook files</a> (including recipes, templates, resources, providers, attributes, and libraries) that will be required to do every action identified in the run-list for the rebuilt node object. The Chef Infra Server provides to Chef Infra Client a list of all of those files. Chef Infra Client compares this list to the cookbook files cached on the node (from previous Chef Infra Client runs), and then downloads a copy of every file that has changed since the previous Chef Infra Client run, along with any new files.</td>
+<td>Chef Infra Client requests all off the <a href="/cookbooks/">cookbook files</a> (including recipes, templates, resources, providers, attributes, and libraries) that it needs for every action identified in the run-list from the Chef Infra Server. 
+The Chef Infra Server responds to Chef Infra Client with the complete list of files. 
+Chef Infra Client compares the list of files to the files that already exist on the node from previous runs, and then downloads a copy of every new or modified file from the Chef Infra Server.</td>
 </tr>
 <tr class="even">
 <td><strong>Reset node attributes</strong></td>
