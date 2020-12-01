@@ -140,18 +140,6 @@ end
 
 {{% cookbooks_attribute %}}
 
-### Roles
-
-{{% role %}}
-
-{{% role_attribute %}}
-
-### Environments
-
-{{% environment %}}
-
-{{% environment_attribute %}}
-
 ## Attribute Precedence
 
 {{% node_attribute_precedence %}}
