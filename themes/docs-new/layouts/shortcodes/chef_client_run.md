@@ -26,8 +26,7 @@ During every Chef Infra Client run, the following happens:
 </tr>
 <tr class="odd">
 <td><strong>Get, rebuild the node object</strong></td>
-<td>Chef Infra Client pulls down the node object from the Chef Infra Server and then rebuilds it. A node object is made up of the system attributes discovered by Ohai, the attributes set in Policyfiles or Cookbooks, and the run list of cookbooks.
-The first time Chef Infra Client runs on a node, it creates a node object from the the default run-list. A node that has not yet had a Chef Infra Client run will not have a node object or a Chef Infra Server entry for a node object. On any subsequent Chef Infra Client runs, the rebuilt node object will also contain the run-list from the previous Chef Infra Client run.</td>```
+<td>Chef Infra Client pulls down the node object from the Chef Infra Server and then rebuilds it. A node object is made up of the system attributes discovered by Ohai, the attributes set in Policyfiles or Cookbooks, and the run list of cookbooks. The first time Chef Infra Client runs on a node, it creates a node object from the the default run-list. A node that has not yet had a Chef Infra Client run will not have a node object or a Chef Infra Server entry for a node object. On any subsequent Chef Infra Client runs, the rebuilt node object will also contain the run-list from the previous Chef Infra Client run.</td>
 </tr>
 <tr class="even">
 <td><strong>Expand the run-list</strong></td>
@@ -35,9 +34,7 @@ The first time Chef Infra Client runs on a node, it creates a node object from t
 </tr>
 <tr class="odd">
 <td><strong>Synchronize cookbooks</strong></td>
-<td>Chef Infra Client requests all off the <a href="/cookbooks/">cookbook files</a> (including recipes, templates, resources, providers, attributes, and libraries) that it needs for every action identified in the run-list from the Chef Infra Server. 
-The Chef Infra Server responds to Chef Infra Client with the complete list of files. 
-Chef Infra Client compares the list of files to the files that already exist on the node from previous runs, and then downloads a copy of every new or modified file from the Chef Infra Server.</td>
+<td>Chef Infra Client requests all off the <a href="/cookbooks/">cookbook files</a> (including recipes, templates, resources, providers, attributes, and libraries) that it needs for every action identified in the run-list from the Chef Infra Server. The Chef Infra Server responds to Chef Infra Client with the complete list of files. Chef Infra Client compares the list of files to the files that already exist on the node from previous runs, and then downloads a copy of every new or modified file from the Chef Infra Server.</td>
 </tr>
 <tr class="even">
 <td><strong>Reset node attributes</strong></td>
