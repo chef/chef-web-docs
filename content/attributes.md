@@ -625,10 +625,7 @@ node['foo']['bar'] #=> {'baz' => 99}
 
 ## About Deep Merge
 
-Attributes are typically defined in cookbooks, recipes, roles, and
-environments. These attributes are rolled-up to the node level during a
-Chef Infra Client run. A recipe can store attribute values using a
-multi-level hash or array.
+Attributes are typically defined in cookbooks, recipes, and Policyfiles. These attributes are rolled-up to the node level during a Chef Infra Client run. A recipe can store attribute values using a multi-level hash or array.
 
 For example, a group of attributes for web servers might be:
 
@@ -665,8 +662,8 @@ override_attributes(
 
 But that is not very efficient, especially because most of them are
 identical. The deep merge capabilities of Chef Infra Client allows
-attributes to be layered across cookbooks, recipes, roles, and
-environments. This allows an attribute to be reused across nodes, making
+attributes to be layered across cookbooks, recipes, and
+Policyfiles. This allows an attribute to be reused across nodes, making
 use of default attributes set at the cookbook level, but also providing
 a way for certain attributes (with a higher attribute precedence) to be
 applied only when they are supposed to be.
