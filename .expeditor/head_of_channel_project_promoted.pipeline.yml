@@ -1,0 +1,16 @@
+steps:
+
+  - label: ":hugo: update hugo modules"
+    command:
+      - .expeditor/buildkite/update_hugo_modules_project_promoted.sh
+    timeout_in_minutes: 10
+    retry:
+      automatic:
+        limit: 1
+    expeditor:
+      secrets:
+        GITHUB_TOKEN:
+          account: github/chef
+          field: token
+      executor:
+        docker:

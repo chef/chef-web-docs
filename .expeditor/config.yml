@@ -12,6 +12,9 @@ pipelines:
   - verify:
       description: Pull Request validation tests
       public: true
+  - head_of_channel_project_promoted:
+      description: Updates Hugo Modules when a "head of channel" project is promoted
+      public: false
 
 subscriptions:
   # This will update version of the Chef product Hugo module

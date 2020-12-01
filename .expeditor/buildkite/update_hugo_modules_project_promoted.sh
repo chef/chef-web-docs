@@ -2,21 +2,30 @@
 
 set -eoux pipefail
 
+# Both of these values should be set when this script is executed in the
+# `head_of_channel_project_promoted` pipeline and triggered via the
+# `trigger_pipeline` built-in action. See more at:
+#
+#   https://expeditor.chef.io/docs/patterns/bash-scripts/#env-vars
+#
+project="${EXPEDITOR_PROJECT:?You must manually set the EXPEDITOR_PROJECT environment variable to an existing project name.}"
+target_channel="${EXPEDITOR_TARGET_CHANNEL:?You must manually set the EXPEDITOR_TARGET_CHANNEL environment variable to a valid channel name.}"
+
 # different chef product repos have their documentation in different subdirectories
 # this variable has to be defined so we can copy content from the proper subdirectory
 # that contains the docs content and properly execute the `hugo mod get` command.
 
-if [[ "${EXPEDITOR_PROJECT}" == *"automate"* ]]; then
+if [[ "${project}" == *"automate"* ]]; then
   org="chef"
   product_key="automate"
   subdirectory="components/docs-chef-io"
-  manifest="https://packages.chef.io/files/${EXPEDITOR_TARGET_CHANNEL}/automate/latest/manifest.json"
+  manifest="https://packages.chef.io/files/${target_channel}/automate/latest/manifest.json"
   git_sha="$(curl -s $manifest | jq -r -c ".git_sha")"
-elif [[ "${EXPEDITOR_PROJECT}" == *"habitat"* ]]; then
+elif [[ "${project}" == *"habitat"* ]]; then
   org="habitat-sh"
   product_key="habitat"
   subdirectory="components/docs-chef-io"
-  manifest="https://packages.chef.io/files/${EXPEDITOR_TARGET_CHANNEL}/habitat/latest/manifest.json"
+  manifest="https://packages.chef.io/files/${target_channel}/habitat/latest/manifest.json"
   git_sha="$(curl -s $manifest | jq -r -c ".sha")"
 fi
 
@@ -55,8 +64,8 @@ hugo mod vendor
 # - github.com/chef/chef-web-docs/blob/master/_vendor/github.com/habitat-sh/habitat/components/docs-chef-io/content/habitat/habitat_cli.md
 # - github.com/chef/chef-web-docs/blob/master/_vendor/github.com/habitat-sh/habitat/components/docs-chef-io/content/habitat/service_templates.md
 
-if [[ "${EXPEDITOR_PROJECT}" == *"habitat"* ]]; then
-  curl --silent --output generated-documentation.tar.gz https://packages.chef.io/files/${EXPEDITOR_TARGET_CHANNEL}/habitat/latest/generated-documentation.tar.gz
+if [[ "${project}" == *"habitat"* ]]; then
+  curl --silent --output generated-documentation.tar.gz https://packages.chef.io/files/${target_channel}/habitat/latest/generated-documentation.tar.gz
   tar xvzf generated-documentation.tar.gz -C _vendor/github.com/habitat-sh/habitat/components/docs-chef-io/content/habitat
   rm generated-documentation.tar.gz
 fi
