@@ -31,7 +31,7 @@ The first time Chef Infra Client runs on a node, it creates a node object from t
 </tr>
 <tr class="even">
 <td><strong>Expand the run-list</strong></td>
-<td>Chef Infra Client expands the <a href="/run_lists/">run-list</a> from the rebuilt node object, compiling a full and complete list of recipes that will be applied to the node, placing recipes in the same exact order they will be applied.</td>
+<td>Chef Infra Client expands the <a href="/run_lists/">run-list</a> from the rebuilt node object and compiles a complete list of recipes in the exact order that they will be applied to the node.</td>
 </tr>
 <tr class="odd">
 <td><strong>Synchronize cookbooks</strong></td>
