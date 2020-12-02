@@ -22,10 +22,10 @@ subscriptions:
   - workload: artifact_published:stable:inspec:*
     actions:
     - bash:.expeditor/update_hugo_modules_artifact_published.sh
-  - workload: project_promoted:chef/automate:master:acceptance:*
+  - workload: chef/automate:master_completed:project_promoted:chef/automate:master:acceptance:*
     actions:
     - bash:.expeditor/update_hugo_modules_project_promoted.sh
-  - workload: project_promoted:habitat:current:*
+  - workload: habitat-sh/habitat:master_completed:project_promoted:habitat-sh/habitat:master:current:*
     actions:
     - bash:.expeditor/update_hugo_modules_project_promoted.sh
   - workload: pull_request_merged:chef/effortless:master:*
