@@ -77,13 +77,13 @@ aliases = ["/recipes.html"]
 
 {{% node_attribute_precedence %}}
 
-### Blacklist Attributes
+### Blocklist Attributes
 
-{{% node_attribute_blacklist %}}
+{{% node_attribute_blocklist %}}
 
-#### Whitelist Attributes
+#### Blocklist Attributes
 
-{{% node_attribute_whitelist %}}
+{{% node_attribute_allowlist %}}
 
 ## File Methods
 

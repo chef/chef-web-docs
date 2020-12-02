@@ -37,13 +37,13 @@ information on Ohai.
 
 {{< /note >}}
 
-### Blacklist Attributes
+### Attributes Blocklist
 
-{{% node_attribute_blacklist %}}
+{{% node_attribute_blocklist %}}
 
-### Whitelist Attributes
+### Attribute Allowlist
 
-{{% node_attribute_whitelist %}}
+{{% node_attribute_allowlist %}}
 
 ## Default Plugins
 
