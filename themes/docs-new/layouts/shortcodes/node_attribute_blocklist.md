@@ -1,10 +1,10 @@
 <div class="admonition-warning"><p class="admonition-warning-title">Warning</p><div class="admonition-warning-text">
 
-When attribute blocklist settings are used, any attribute defined in a blocklist will not be saved to the Chef Infra Server and any attribute that is not defined in a blocklist will be saved. Each attribute type must be blocklisted independently of the other attribute types. For example, if `automatic_attribute_blocklist` defines attributes that will not be saved, but `normal_attribute_blocklist`, `default_attribute_blocklist`, and `override_attribute_blocklist` are not defined, then all normal attributes, default attributes, and override attributes will be saved, as well as the automatic attributes that were not specifically excluded through blocklisting.
+When attribute blocklist settings are used, any attribute defined in a blocklist will not be saved to the Chef Infra Server and any attribute that is not defined in a blocklist will be saved. Each attribute type must be blocklisted independently of the other attribute types. For example, if `blocked_automatic_attributes` defines attributes that will not be saved, but `blocked_normal_attributes`, `blocked_default_attributes`, and `blocked_override_attributes` are not defined, then all normal attributes, default attributes, and override attributes will be saved, as well as the automatic attributes that were not specifically excluded through blocklisting.
 
 </div></div>
 
-Attributes that should not be saved by a node may be blocklisted in the client.rb file. The blocklist is a Hash of keys that specify each attribute to be filtered out.
+Attributes that should not be saved by a node may be blocklisted in the [client.rb](/config_rb_client/) file. The blocklist is a Hash of keys that specify each attribute to be filtered out.
 
 Attributes are blocklisted by attribute type, with each attribute type being blocklisted independently. Each attribute type---`automatic`, `default`, `normal`, and `override`---may define blocklists by using the following settings in the client.rb file:
 
@@ -21,19 +21,19 @@ Attributes are blocklisted by attribute type, with each attribute type being blo
 </thead>
 <tbody>
 <tr class="odd">
-<td><code>automatic_attribute_blocklist</code></td>
+<td><code>blocked_automatic_attributes</code></td>
 <td>A hash that blocklists <code>automatic</code> attributes, preventing blocklisted attributes from being saved. For example: <code>['network/interfaces/eth0']</code>. Default value: <code>nil</code>, all attributes are saved. If the array is empty, all attributes are saved.</td>
 </tr>
 <tr class="even">
-<td><code>default_attribute_blocklist</code></td>
+<td><code>blocked_default_attributes</code></td>
 <td>A hash that blocklists <code>default</code> attributes, preventing blocklisted attributes from being saved. For example: <code>['filesystem/dev/disk0s2/size']</code>. Default value: <code>nil</code>, all attributes are saved. If the array is empty, all attributes are saved.</td>
 </tr>
 <tr class="odd">
-<td><code>normal_attribute_blocklist</code></td>
+<td><code>blocked_normal_attributes</code></td>
 <td>A hash that blocklists <code>normal</code> attributes, preventing blocklisted attributes from being saved. For example: <code>['filesystem/dev/disk0s2/size']</code>. Default value: <code>nil</code>, all attributes are saved. If the array is empty, all attributes are saved.</td>
 </tr>
 <tr class="even">
-<td><code>override_attribute_blocklist</code></td>
+<td><code>blocked_override_attributes</code></td>
 <td>A hash that blocklists <code>override</code> attributes, preventing blocklisted attributes from being saved. For example: <code>['map - autohome/size']</code>. Default value: <code>nil</code>, all attributes are saved. If the array is empty, all attributes are saved.</td>
 </tr>
 </tbody>
