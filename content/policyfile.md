@@ -56,7 +56,7 @@ cookbook or role from being applied immediately to all machines.
 
 ### Code Visibility
 
-When running Chef Infra without Policyfile, the exact set of cookbooks that
+When running Chef Infra without a Policyfile, the exact set of cookbooks that
 are applied to a node is defined by:
 
 - The node's `run_list` property
