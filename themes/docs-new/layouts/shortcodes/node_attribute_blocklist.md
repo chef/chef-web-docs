@@ -39,17 +39,9 @@ Attributes are blocklisted by attribute type, with each attribute type being blo
 </tbody>
 </table>
 
-<div class="admonition-warning">
+#### Blocklisting Ohai (automatic) Attributes
 
-<p class="admonition-warning-title">Warning</p>
-
-<div class="admonition-warning-text">
-
-The recommended practice is to use only `automatic_attribute_blocklist` for blocklisting attributes. This is primarily because automatic attributes generate the most data, but also that normal, default, and override attributes are typically much more important attributes and are more likely to cause issues if they are blocklisted incorrectly.
-
-</div>
-
-</div>
+The recommended practice is to use `blocked_automatic_attributes` to block attributes populated by Ohai's system information gathering. Ohai gathers a large number of attributes that can consume a signicant amount of storage space on the Chef Infra Server. Many of these attributes may be considered highly valuable, while others could be blocklisted without any impact to data available in search. Normal, default, and override attributes are typically much more important attributes used within cookbooks and are more likely to cause issues if they are blocklisted incorrectly.
 
 For example, automatic attribute data similar to:
 
@@ -75,7 +67,7 @@ For example, automatic attribute data similar to:
 To blocklist the `filesystem` attributes and allow the other attributes to be saved, update the client.rb file:
 
 ```ruby
-automatic_attribute_blocklist ['filesystem']
+blocked_automatic_attributes ['filesystem']
 ```
 
 When a blocklist is defined, any attribute of that type that is not specified in that attribute blocklist **will** be saved. So based on the previous blocklist for automatic attributes, the `filesystem` and `map - autohome` attributes will not be saved, but the `network` attributes will.
@@ -85,5 +77,5 @@ For attributes that contain slashes (`/`) within the attribute value, such as th
 example:
 
 ```ruby
-automatic_attribute_blocklist [['filesystem', '/dev/diskos2']]
+blocked_automatic_attributes [['filesystem', '/dev/diskos2']]
 ```

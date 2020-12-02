@@ -22,37 +22,27 @@ Attributes are allowlisted by attribute type, with each attribute type being all
 </thead>
 <tbody>
 <tr class="odd">
-<td><code>automatic_attribute_allowlist</code></td>
+<td><code>allowed_automatic_attributes</code></td>
 <td>A hash that allowlists <code>automatic</code> attributes, preventing non-allowlisted attributes from being saved. For example: <code>['network/interfaces/eth0']</code>. Default value: <code>nil</code>, all attributes are saved. If the hash is empty, no attributes are saved.</td>
 </tr>
 <tr class="even">
-<td><code>default_attribute_allowlist</code></td>
+<td><code>allowed_default_attributes</code></td>
 <td>A hash that allowlists <code>default</code> attributes, preventing non-allowlisted attributes from being saved. For example: <code>['filesystem/dev/disk0s2/size']</code>. Default value: <code>nil</code>, all attributes are saved. If the hash is empty, no attributes are saved.</td>
 </tr>
 <tr class="odd">
-<td><code>normal_attribute_allowlist</code></td>
+<td><code>allowed_normal_attributes</code></td>
 <td>A hash that allowlists <code>normal</code> attributes, preventing non-allowlisted attributes from being saved. For example: <code>['filesystem/dev/disk0s2/size']</code>. Default value: <code>nil</code>, all attributes are saved. If the hash is empty, no attributes are saved.</td>
 </tr>
 <tr class="even">
-<td><code>override_attribute_allowlist</code></td>
+<td><code>allowed_override_attributes</code></td>
 <td>A hash that allowlists <code>override</code> attributes, preventing non-allowlisted attributes from being saved. For example: <code>['map - autohome/size']</code>. Default value: <code>nil</code>, all attributes are saved. If the hash is empty, no attributes are saved.</td>
 </tr>
 </tbody>
 </table>
 
-<div class="admonition-warning">
+#### Allowlisting Ohai (automatic) Attributes
 
-<p class="admonition-warning-title">Warning</p>
-
-<div class="admonition-warning-text">
-
-The recommended practice is to only use `automatic_attribute_allowlist` to allowlist attributes. This is primarily because automatic attributes generate the most data, but also that normal, default, and override attributes are typically much more important attributes and are more likely to cause issues if they are allowlisted incorrectly.
-
-
-
-</div>
-
-</div>
+The recommended practice is to use `allowed_automatic_attributes` to allow specific attributes populated by Ohai's system information gathering. Ohai gathers a large number of attributes that can consume a signicant amount of storage space on the Chef Infra Server. Many of these attributes may be considered highly valuable, while others could be skipped without any impact to data available in search. Normal, default, and override attributes are typically much more important attributes used within cookbooks and are more likely to cause issues if they are ommited from an allowlist incorrectly.
 
 For example, automatic attribute data similar to:
 
@@ -78,7 +68,7 @@ For example, automatic attribute data similar to:
 To allowlist the `network` attributes and prevent the other attributes from being saved, update the client.rb file:
 
 ```ruby
-automatic_attribute_allowlist ['network/interfaces/']
+allowed_automatic_attributes ['network/interfaces/']
 ```
 
 When a allowlist is defined, any attribute of that type that is not specified in that attribute allowlist **will not** be saved. So based on the previous allowlist for automatic attributes, the `filesystem` and `map - autohome` attributes will not be saved, but the `network` attributes will.
@@ -86,11 +76,11 @@ When a allowlist is defined, any attribute of that type that is not specified in
 Leave the value empty to prevent all attributes of that attribute type from being saved:
 
 ```ruby
-automatic_attribute_allowlist []
+allowed_automatic_attributes []
 ```
 
 For attributes that contain slashes (`/`) within the attribute value, such as the `filesystem` attribute `'/dev/diskos2'`, use an array. For example:
 
 ```ruby
-automatic_attribute_allowlist [['filesystem', '/dev/diskos2']]
+allowed_automatic_attributes [['filesystem', '/dev/diskos2']]
 ```
