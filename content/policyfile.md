@@ -18,7 +18,7 @@ aliases = ["/policyfile.html"]
 
 ## Why Policyfiles?
 
-Policyfiles make it easier to test and promote code safely with a simpler interface. Policyfile improves the user eexperience and resolvs real-world problems that some workflows built around Chef Infra must deal with. The following sections discuss in more detail some of the good reasons to use Policyfile, including:
+Policyfiles make it easier to test and promote code safely with a simpler interface. Using a Policyfile improves the user experience and resolves real-world problems that some workflows built around Chef Infra must deal with. The following sections discuss in more detail some of the good reasons to use Policyfile, including:
 
 - Focus the workflow on the entire system
 - Safer development workflows
