@@ -9,6 +9,6 @@
   {{ $style := resources.Get "sass/main.scss" | resources.ToCSS $options }}
   <link rel="stylesheet" href="{{ $style.Permalink }}" />
   {{ if eq (getenv "HUGO_ENV") "production" }}
-    {{ template "_internal/google_analytics.html" . }}
+    {{ partial "gtag.html" . }}
   {{ end }}
 </head>
