@@ -868,6 +868,18 @@ Some organizations find it helpful to control attribute data stored to the Chef 
 
 In Chef Infra Client 16.3 the node Blacklist and Whitelist features were renamed to Blocklist and Allowlist. For backwards compatibility the old configuration values will continue to work, but this document will describe the Blocklist and Allowlist names. See each section below for the appropriate legacy configuration values if you are running legacy clients in your organization.
 
+Legacy config mapping:
+
+- automatic_attribute_blacklist -> blocked_automatic_attributes
+- default_attribute_blacklist -> blocked_default_attributes
+- normal_attribute_blacklist -> blocked_normal_attributes
+- override_attribute_blacklist -> blocked_override_attributes
+- automatic_attribute_whitelist -> allowed_automatic_attributes
+- default_attribute_whitelist -> allowed_default_attributes
+- normal_attribute_whitelist -> allowed_normal_attributes
+- override_attribute_whitelist -> allowed_override_attributes
+- enforce_path_sanity -> enforce_default_paths
+
 {{< /note >}}
 
 ### Attributes Blocklist
