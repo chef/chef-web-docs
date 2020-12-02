@@ -16,21 +16,17 @@ aliases = ["/policyfile.html"]
 
 {{% policyfile_summary %}}
 
-## Why Policyfile?
+## Why Policyfiles?
 
-For some users of Chef, Policyfile will make it easier to test and
-promote code safely with a simpler interface. Policyfile improves the
-user experience and resolves real-world problems that some workflows
-built around Chef must deal with. The following sections discuss in more
-detail some of the good reasons to use Policyfile, including:
+Policyfiles make it easier to test and promote code safely with a simpler interface. Policyfile improves the user eexperience and resolvs real-world problems that some workflows built around Chef Infra must deal with. The following sections discuss in more detail some of the good reasons to use Policyfile, including:
 
--   Focus the workflow on the entire system
--   Safer development workflows
--   Less expensive computation
--   Code visibility
--   Role mutability
--   Cookbook mutability
--   Replaces Berkshelf and the environment cookbook pattern
+- Focus the workflow on the entire system
+- Safer development workflows
+- Less expensive computation
+- Code visibility
+- Role mutability
+- Cookbook mutability
+- Replaces Berkshelf and the environment cookbook pattern
 
 ### Focused System Workflows
 
@@ -60,17 +56,14 @@ cookbook or role from being applied immediately to all machines.
 
 ### Code Visibility
 
-When running Chef without Policyfile, the exact set of cookbooks that
+When running Chef Infra without Policyfile, the exact set of cookbooks that
 are applied to a node is defined by:
 
--   The node's `run_list` property
--   Any roles that are present in the node's run-list or recursively
-    included by those roles
--   The environment, which may restrict the set of valid cookbook
-    versions for a node based on a variety of constraint operators
--   Dependencies, as defined by each cookbook's metadata
--   Dependency resolution picks the "best" set of cookbooks that meet
-    dependency and environment criteria
+- The node's `run_list` property
+- Any roles that are present in the node's run-list or recursively included by those roles
+- The environment, which may restrict the set of valid cookbook versions for a node based on a variety of constraint operators
+- Dependencies, as defined by each cookbook's metadata
+- Dependency resolution picks the "best" set of cookbooks that meet dependency and environment criteria
 
 These conditions are re-evaluated every time Chef Infra Client runs,
 which can make it harder to know which cookbooks will be run by Chef
@@ -85,7 +78,7 @@ is managed by that particular policy name and policy group.
 
 ### Less Expensive Computation
 
-When running Chef without Policyfile, the Chef Infra Server loads
+When running Chef Infra without Policyfile, the Chef Infra Server loads
 dependency data for all known versions of all known cookbooks, and then
 runs an expensive computation to determine the correct set.
 
@@ -94,7 +87,7 @@ less frequently.
 
 ### Role and Environment Mutability
 
-When running Chef without Policyfile roles and environments are global
+When running Chef Infra without Policyfile roles and environments are global
 objects. Changes to roles and environments are applied immediately to
 any node that contains that role in its run-list or belong to a
 particular environment. This can make it hard to update roles and
@@ -138,12 +131,10 @@ The opaque identifier that is computed from the content of a cookbook is
 the only place where an opaque identifier is necessary. When working
 with Policyfile, be sure to:
 
--   Use the same names and version constraints as normal in the
-    `Policyfile.rb` file
--   Use the same references to cookbooks pulled from Chef Supermarket
--   Use the same branch, tag, and revision patterns for cookbooks pulled
-    from git
--   Use the same paths for cookbooks pulled from disk
+- Use the same names and version constraints as normal in the `Policyfile.rb` file
+- Use the same references to cookbooks pulled from Chef Supermarket
+- Use the same branch, tag, and revision patterns for cookbooks pulled from git
+- Use the same paths for cookbooks pulled from disk
 
 Extra metadata about the cookbook is stored and included in Chef Infra
 Server API responses and in the `Policyfile.lock.json` file, including
@@ -276,11 +267,9 @@ suites:
    - name: defaultmega
       provisioner:
          policyfile: policies/default.rb
-      attributes:
    - name: defaultultra
       provisioner:
          policyfile: policies/defaulttwo.rb
-      attributes
 ```
 
 {{< note >}}
