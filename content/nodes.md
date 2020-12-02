@@ -181,10 +181,10 @@ copy on the Chef Infra Server at the end of each Chef Infra Client run.
 
 {{% node_attribute_precedence %}}
 
-## Blacklist Attributes
+## Blocklist Attributes
 
-{{% node_attribute_blacklist %}}
+{{% node_attribute_blocklist %}}
 
-### Whitelist Attributes
+### Allowlist Attributes
 
-{{% node_attribute_whitelist %}}
+{{% node_attribute_allowlist %}}

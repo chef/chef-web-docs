@@ -61,13 +61,13 @@ There are two types of attributes that can be used with roles:
 
 {{% node_attribute_precedence %}}
 
-### Blacklist Attributes
+### Attributes Blocklist
 
-{{% node_attribute_blacklist %}}
+{{% node_attribute_blocklist %}}
 
-#### Whitelist Attributes
+### Attribute Allowlist
 
-{{% node_attribute_whitelist %}}
+{{% node_attribute_allowlist %}}
 
 ## Role Formats
 
