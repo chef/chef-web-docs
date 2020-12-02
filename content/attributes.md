@@ -872,8 +872,8 @@ In Chef Infra Client 16.3 the node Blacklist and Whitelist features were renamed
 
 ### Attributes Blocklist
 
-{{% node_attribute_blacklist %}}
+{{% node_attribute_blocklist %}}
 
 ### Attribute Allowlist
 
-{{% node_attribute_whitelist %}}
+{{% node_attribute_allowlist %}}
