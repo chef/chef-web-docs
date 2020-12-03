@@ -163,6 +163,12 @@ A `Policyfile.rb` file may contain the following settings:
     include_policy 'NAME', path: './foo.lock.json'
     ```
 
+    Pull the policyfile lock `foo.lock.json` from the `example/foo` Git repository on the `git.example.com` Git server.
+
+    ```ruby
+    include_policy 'NAME', git: 'https://git.example.com/example/foo', path: 'foo.lock.json'
+    ```
+
     Pull the policyfile lock from `./bar.lock.json` with revision ID
     'revision1'.
 
