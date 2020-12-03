@@ -58,19 +58,25 @@ Chef Infra has the following major components:
 </thead>
 <tbody>
 <tr class="odd">
-<td><p><img src="/images/icon_workstation.svg" class="align-center" width="100" alt="image" /></p>
-<p><img src="/images/icon_cookbook.svg" class="align-center" width="100" alt="image" /></p>
-<p><img src="/images/icon_ruby.svg" class="align-center" width="100" alt="image" /></p></td>
+<td><p><img src="/images/icon_workstation.svg" class="align-center" width="100" alt="image" /></p></td>
 <td><p>One (or more) workstations are configured to allow users to author, test, and maintain cookbooks.</p>
-<p>Workstation systems run the Chef Workstation package which includes tools such as Chef Infra Client, Chef InSpec, Test Kitchen, ChefSpec, Cookstyle, and other tools necessary for developing and testing your infrastructure with Chef products.</p>
-<p>Cookbooks are uploaded to the Chef Infra Server from these workstations. Some cookbooks are custom to the organization and others are based on community cookbooks available from the Chef Supermarket.</p>
-<p>Ruby is the programming language that is the authoring syntax for cookbooks. Most recipes are simple patterns (blocks that define properties and values that map to specific configuration items like packages, files, services, templates, and users. The full power of Ruby is available for when you need a programming language.</p></td>
+<p>Workstation systems run the Chef Workstation package which includes tools such as Chef Infra Client, Chef InSpec, Test Kitchen, ChefSpec, Cookstyle, and other tools necessary for developing and testing your infrastructure with Chef products.</p></td>
+</tr>
+<tr class="odd">
+<td><p><img src="/images/icon_cookbook.svg" class="align-center" width="100" alt="image" /></p></td>
+<td><p>Cookbooks are uploaded to the Chef Infra Server from these workstations. Some cookbooks are custom to the organization and others are based on community cookbooks available from the Chef Supermarket.</p></td>
 </tr>
 <tr class="even">
-<td><p><img src="/images/icon_node.svg" class="align-center" width="100" alt="image" /></p>
-<p><img src="/images/icon_chef_client.svg" class="align-center" width="100" alt="image" /></p></td>
-<td><p>{{< readFile_shortcode file="node.md" >}}</p>
-<p>Chef Infra Client is installed on each node that is managed with Chef Infra. Chef Infra Client configures the node locally by performing the tasks specified in the run-list. Chef Infra Client will also pull down any required configuration data from the Chef Infra Server during a Chef Infra Client run.</p></td>
+<td><p><img src="/images/icon_ruby.svg" class="align-center" width="100" alt="image" /></p></td>
+<td><p>Ruby is the programming language that is the authoring syntax for cookbooks. Most recipes are simple patterns (blocks that define properties and values that map to specific configuration items like packages, files, services, templates, and users. The full power of Ruby is available for when you need a programming language.</p></td>
+</tr>
+<tr class="odd">
+<td><p><img src="/images/icon_node.svg" class="align-center" width="100" alt="image" /></p></td>
+<td><p>{{< readFile_shortcode file="node.md" >}}</p></td>
+</tr>
+<tr class="even">
+<td><p><img src="/images/icon_chef_client.svg" class="align-center" width="100" alt="image" /></p></td>
+<td><p>Chef Infra Client is installed on each node that is managed with Chef Infra. Chef Infra Client configures the node locally by performing the tasks specified in the run-list. Chef Infra Client will also pull down any required configuration data from the Chef Infra Server during a Chef Infra Client run.</p></td>
 </tr>
 <tr class="odd">
 <td><p><img src="/images/icon_chef_server.svg" class="align-center" width="100" alt="image" /></p></td>
