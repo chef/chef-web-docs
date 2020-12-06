@@ -97,7 +97,7 @@ See [Attributes](/attributes) for detailed information on the different types of
 
 You can manage nodes directly using Knife, Chef Automate, or by using command-line tools that are specific to Chef Infra Client.
 
-- [knife](/workstation/knife/) can be used to create, edit, view, list, tag, and delete nodes.
+- [Knife](/workstation/knife/) can be used to create, edit, view, list, tag, and delete nodes.
 - knife plug-ins can be used to create, edit, and manage nodes that are located on cloud providers.
 - Chef Infra Client can be used to manage node data using the command line and JSON files. Each JSON file contains a hash, the elements of which are added as node attributes. In addition, the `run_list` setting allows roles and/or recipes to be added to the node.
 - The command line can also be used to edit JSON files and files that are related to third-party services, such as Amazon EC2, where the JSON files can contain per-instance metadata that is stored in a file on-disk and then read by Chef Infra Client as required.
