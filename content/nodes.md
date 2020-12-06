@@ -95,9 +95,7 @@ See [Attributes](/attributes) for detailed information on the different types of
 
 ## Managing Nodes
 
-There are several ways to manage nodes directly: via knife, Chef
-Automate, or by using command-line tools that are specific to Chef Infra
-Client.
+You can manage nodes directly using Knife, Chef Automate, or by using command-line tools that are specific to Chef Infra Client.
 
 - [knife](/workstation/knife/) can be used to create, edit, view, list, tag, and delete nodes.
 - knife plug-ins can be used to create, edit, and manage nodes that are located on cloud providers.
