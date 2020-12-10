@@ -322,6 +322,17 @@ For each additional frontend node you wish to add to your cluster:
 
 8.  On the new frontend run `chef-server-ctl reconfigure` as root.
 
+    {{< note spaces=4 >}}
+
+    At this point you are ready to proceed with normal setup, see 
+    the [standalone documentation](https://docs.chef.io/install_server/#standalone) and proceed from step 
+    "5. Run the following command to create an administrator"
+
+    Alternatively, you can restore a backup to this system following
+    the [knife ec](https://github.com/chef/knife-ec-backup) or [chef-server-ctl](https://docs.chef.io/runbook/server_backup_restore/) restore directions.
+
+    {{< /note >}}
+
 ### Upgrading Chef Infra Server on the Frontend Machines
 
 1.  On one frontend server, follow the [standalone upgrade
