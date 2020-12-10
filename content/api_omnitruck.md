@@ -161,7 +161,7 @@ Omnitruck accepts the following platforms:
 <tr class="odd">
 <td>Ubuntu</td>
 <td><code>ubuntu</code></td>
-<td><code>i386</code>, <code>x86_64</code>, <code>aarch64</code>, <code>ppc64le</code></td>
+<td><code>i386</code>, <code>x86_64</code>, <code>aarch64</code></td>
 <td><code>10.04</code>, <code>10.10</code>, <code>11.04</code>, <code>11.10</code>, <code>12.04</code>, <code>12.10</code>, <code>13.04</code>, <code>13.10</code>, <code>14.04</code>, <code>14.10</code>, <code>16.04</code>, <code>16.10</code>, <code>17.04</code>, <code>17.10</code>, <code>18.04</code>, <code>20.04</code></td>
 </tr>
 <tr class="even">
