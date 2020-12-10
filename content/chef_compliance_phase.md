@@ -24,6 +24,8 @@ Compliance Phase needs to be configured for each node where the `chef-client` ru
 
 ### Configuration
 
+Specifying a profile is the minimal configuration necessary to enable Compliance Phase in a Chef Infra client run. This will use the default `json-file` reporter to write the results to disk.
+
 #### Profiles
 
 InSpec profiles are specified using the `node['audit']['profiles']` attribute.
@@ -73,7 +75,7 @@ default['audit']['profiles']['ssh2'] = {
 
 #### Attributes
 
-You can also pass in Chef InSpec [attributes](https://www.inspec.io/docs/reference/profiles/) to your audit run. Do this by defining the attributes:
+You can also pass in Chef InSpec [attributes](https://www.inspec.io/docs/reference/profiles/) to your audit run.
 
 ```ruby
 default['audit']['attributes'] = {
@@ -92,7 +94,63 @@ Setting the attribute `default['audit'['waiver_file']` to `true` will skip SSL c
 
 #### Reporters
 
-Add information about specifying reporters.
+Controls what is done with the resulting report after the Chef InSpec run. Accepts a single string value or an array of multiple values.
+
+##### chef-automate
+
+Sends the results to a Chef Automate instance. See the instructions on [using Chef Automate with Compliance Phase]() for more details.
+
+##### chef-server-automate
+
+Sends the results to a Chef Automate proxied by a Chef Infra Server instance. See the instructions on [using Chef Infra Srver with Compliance Phase]() for more details.
+
+##### json-file
+
+Writes the results to disk in the location specified with the [json-file location attribute]().
+
+##### audit-enforcer
+
+A special reporter that instead of sending the results of the Chef InSpec run somewhere instead will fail the Chef Infra run if any control of any Chef InSpec profile fails.
+
+##### JSON File Location
+
+The location on disk that Chef InSpec's json reports are saved to when using the 'json-file' reporter. Set this attribute with `default['audit']['json-file']['location']`. Defaults to: `<chef_cache_path>/compliance_reports/compliance-<timestamp>.json`
+
+#### InSpec Backend Cache
+
+If enabled, a cache is built for all backend calls. This should only be disabled if you are expecting unique results from the same backend call. Under the covers, this controls :command and :file caching on Chef InSpec's Train connection. This can be disabled by setting attribute `default['audit']['inspec_backend_cache']` to `false`.
+
+#### Fetcher
+
+Controls if Chef InSpec profiles should be fetched from Chef Automate or Chef Infra Server in addition to the default fetch locations provided by Chef Inspec. Set this attribute with `default['audit']['fetcher']. Accepted values: 'chef-server' or 'chef-automate'.
+
+##### Automate
+
+Fetches Chef InSpec profiles from a Chef Automate instance. Requires that the `data_collector.server_url` and `data_collector.token` options are set in `client.rb`. Further information is available at Chef Docs: [Configure a Data Collector token in Chef Automate](https://docs.chef.io/ingest_data_chef_automate.html)
+
+##### Chef Server
+
+Fetches Chef InSpec profiles from a Chef Automate instance proxied with Chef Server. Requires that the `chef_server_url` option is set in `client.rb`.
+
+#### Quiet
+
+Controls verbosity of the Chef InSpec runner. Defaults to `true`. To turn this off, set the attribute `default['audit']['quiet']` to `false`.
+
+#### Control Run Time Limit
+
+Control results that have a `run_time` below this limit will be stripped of the `start_time` and `run_time` fields to reduce the size of the reports being sent to Chef Automate. Defaults to `1.0`. Set this attribute with `default['audit']['run_time_limit']`.
+
+#### Control Result Message Size Limit
+
+A control result message that exceeds this character limit will be truncated. This helps keep reports to a reasonable size. On rare occasions, we've seen messages exceeding 9 MB, causing the report to not be ingested in the backend because of the 4 MB report size limitation. Chef InSpec will append this text at the end of any truncated messages: `[Truncated to 10000 characters]`. Defaults to `10000`. Set this attribute with `default['audit']['result_message_limit']`.
+
+#### Control Result Include Backtrace
+
+When a Chef InSpec resource throws an exception, results will contain a short error message and a detailed ruby stacktrace of the error. This attribute instructs Chef InSpec not to include the detailed stacktrace in order to keep the overall report to a manageable size. Defaults to `false`. Set this attribute with `default['audit']['result_include_backtrace']`.
+
+#### Control Result Count Limit
+
+The list of results per control will be truncated to this amount to avoid large reports that cannot be processed due to Chef Automate's report size limitation. A summary of removed results will be sent with each impacted control. Defaults to `50`. Set this attribute with `default['audit']['control_results_limit']`.
 
 ### Reporting
 
