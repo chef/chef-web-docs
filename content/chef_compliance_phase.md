@@ -14,39 +14,9 @@ aliases = ["/chef_compliance_phase.html"]
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/chef_compliance_phase.md)
 
-
-The Compliance Phase allows you to run Chef InSpec profiles as part of a Chef Infra client run. It downloads configured profiles from various sources like Chef Automate, Chef Supermarket or git, and reports audit runs to Chef Automate.
-
 ## Overview
 
-### Component Architecture
-```
- ┌──────────────────────┐    ┌──────────────────────┐    ┌─────────────────────┐
- │  Chef Infra Client   │    │  Chef Infra Server   │    │    Chef Automate    │
- │                      │    │      (optional)      │    │                     │
- │ ┌──────────────────┐ │    │                      │    │                     │
- │ │                  │◀┼────┼──────────────────────┼────│  Profiles           │
- │ │ Compliance Phase │ │    │                      │    │                     │
- │ │                  │─┼────┼──────────────────────┼───▶│  Reports            │
- │ └──────────────────┘ │    │                      │    │                     │
- │                      │    │                      │    │                     │
- └──────────────────────┘    └──────────────────────┘    └─────────────────────┘
-```
-
-Chef InSpec Profiles can be hosted from a variety of locations:
-
-```
- ┌──────────────────────┐                                ┌─────────────────────┐
- │  Chef Infra Client   │     ┌───────────────────────┐  │    Chef Automate    │
- │                      │  ┌──│ Profiles(Supermarket, │  │                     │
- │ ┌──────────────────┐ │  │  │ Github, local, etc)   │  │                     │
- │ │                  │◀┼──┘  └───────────────────────┘  │                     │
- │ │ Compliance Phase │◀┼────────────────────────────────│  Profiles           │
- │ │                  │─┼───────────────────────────────▶│  Reports            │
- │ └──────────────────┘ │                                │                     │
- │                      │                                │                     │
- └──────────────────────┘                                └─────────────────────┘
-```
+Compliance Phase enables Chef Infra to run Chef InSpec profiles as part of a client run, by downloading profiles from sources like Chef Automate, Chef Supermarket, or GitHub, and reporting the results to Chef Automate or saving the results locally. Compliance Phase has been implemented to be mostly compatible with [audit cookbook](), so that users of the audit cookbook can remove it from the node's runlist and get the same behavior.
 
 ## Usage
 
