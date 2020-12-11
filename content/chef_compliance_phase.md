@@ -130,9 +130,9 @@ Fetchers control if Chef InSpec profiles should be fetched from Chef Automate or
 
 Fetches Chef InSpec profiles from a Chef Automate instance. Enabled by setting the attribute `default['audit']['fetcher']` to `chef-automate`. Requires that the `data_collector.server_url` and `data_collector.token` options are set in `client.rb`. Further information is available at Chef Docs: [Configure a Data Collector token in Chef Automate](https://docs.chef.io/ingest_data_chef_automate.html)
 
-##### Chef Server
+##### Chef Infra Server
 
-Fetches Chef InSpec profiles from a Chef Automate instance proxied with Chef Server. Enabled by setting the attribute `default['audit']['fetcher'] to `chef-server`. Requires that the `chef_server_url` option is set in `client.rb`.
+Fetches Chef InSpec profiles from a Chef Automate instance proxied with Chef Infra Server. Enabled by setting the attribute `default['audit']['fetcher'] to `chef-server`. Requires that the `chef_server_url` option is set in `client.rb`.
 
 #### Quiet
 
@@ -333,7 +333,7 @@ end
 
 ## Converting from using audit cookbook to Compliance Phase
 
-Previously to Chef Infra including Compliance Phase, the [audit cookbook]() was the integration point between Chef Infra and Chef InSpec.  Compliance Phase has been implemented to be mostly compatible with [audit cookbook](), so that users of the audit cookbook can remove it from the node's runlist and get the same behavior.
+Previously to Chef Infra including Compliance Phase, the [audit cookbook]() was the integration point between Chef Infra and Chef InSpec. Compliance Phase has been implemented to be mostly compatible with [audit cookbook](), so that users of the audit cookbook can remove it from the node's runlist and get the same behavior.
 
 ## Troubleshooting
 
@@ -341,9 +341,9 @@ Previously to Chef Infra including Compliance Phase, the [audit cookbook]() was 
 
 #### 401, 403 Unauthorized - bad clock
 
-Occasionally, the system date/time will drift between client and server.  If this drift is greater than a couple of minutes, the Chef Server will throw a 401 unauthorized and the request will not be forwarded to the Compliance server.
+Occasionally, the system date/time will drift between client and server. If this drift is greater than a couple of minutes, the Chef Infra Server will throw a 401 unauthorized and the request will not be forwarded to the Chef Automate server.
 
-On the Chef Server you can see this in the following logs:
+On the Chef Infra Server you can see this in the following logs:
 ```
 # chef-server-ctl tail
 
@@ -364,6 +364,7 @@ On the Chef Server you can see this in the following logs:
 2016-08-28T14:57:36Z erchef@127.0.0.1 method=GET; path=/organizations/brewinc/nodes/vagrant-c0971990; status=401; req_id=g3IAA2QAEGVyY2hlZkAxMjcuMC4wLjEBAAOFrgAAAAAAAAAA; org_name=brewinc; msg=bad_clock; couchdb_groups=false; couchdb_organizations=false; couchdb_containers=false; couchdb_acls=false; 503_mode=false; couchdb_associations=false; couchdb_association_requests=false; req_time=1; user=vagrant-c0971990; req_api_version=1;
 
 ```
+
 Additionally, the chef_gate log will contain a similar message:
 ```
 # /var/log/opscode/chef_gate/current
@@ -373,7 +374,7 @@ Additionally, the chef_gate log will contain a similar message:
 
 #### 401 Token and Refresh Token Authentication
 
-In the event of a malformed or unset token, the Chef Compliance server will log the token error:
+In the event of a malformed or unset token, the Chef Automate server will log the token error:
 ```
 ==> /var/log/chef-compliance/core/current <==
 2016-08-28_20:41:46.17496 20:41:46.174 ERR => Token authentication: %!(EXTRA *errors.errorString=malformed JWS, only 1 segments)
@@ -385,7 +386,7 @@ In the event of a malformed or unset token, the Chef Compliance server will log 
 
 #### 413 Request Entity Too Large
 
-If the `audit` cookbook report handler prints this stacktrace and you are using the `chef-server-automate` reporter:
+If Compliance Phase prints this stacktrace and you are using the `chef-server-automate` reporter:
 ```
 Running handlers:
 [2017-12-21T16:21:15+00:00] WARN: Compliance report size is 1.71 MB.
@@ -405,7 +406,7 @@ and the Chef Infra Server Nginx logs confirm the `413` error:
 
 you most likely hit the `erchef` request size in Chef Infra Server. Prior to Infra Server 13.0, the default was ~1MB. Infra Server 13.0 and later default to ~2MB.
 
-As an example, to set the limit to ~3MB, add the following line in Chef Server's `/etc/opscode/chef-server.rb`:
+As an example, to set the limit to ~3MB, add the following line in Chef Infra Server's `/etc/opscode/chef-server.rb`:
 ```
 opscode_erchef['max_request_size'] = 3000000
 ```
@@ -413,7 +414,7 @@ and run `chef-server-ctl reconfigure` to apply this change.
 
 ### Chef Automate Backend Errors
 
-If a Compliance report is not becoming available in the Chef Automate UI or API and this error shows up in the `logstash` logs:
+If a Chef InSpec report is not becoming available in the Chef Automate UI or API and this error shows up in the `logstash` logs:
 ```
 /var/log/delivery/logstash/current
 2017-12-21_13:59:54.69949 DEBUG: Ruby filter is processing an 'inspec_profile' event
