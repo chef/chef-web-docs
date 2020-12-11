@@ -20,15 +20,13 @@ Compliance Phase enables Chef Infra to run Chef InSpec profiles as part of a cli
 
 ## Usage
 
-Compliance Phase needs to be configured for each node where the `chef-client` runs. All node-specific configuration is done via Chef Infra attributes.
-
 ### Configuration
 
-Specifying a profile is the minimal configuration necessary to enable Compliance Phase in a Chef Infra client run. This will use the default `json-file` reporter to write the results to disk.
+Compliance Phase needs to be configured for each node where the `chef-client` runs. All node-specific configuration is done via Chef Infra attributes. Specifying one or more Chef InSpec profiles is the minimum configuration necessary to enable Compliance Phase in a Chef Infra client run. With no further configuration, this will cause a Chef Infra client run to execute the Chef InSpec profiles and write the results to disk using the default `json-file` reporter.
 
 #### Profiles
 
-InSpec profiles are specified using the `node['audit']['profiles']` attribute.
+Chef InSpec profiles are specified using the `node['audit']['profiles']` attribute.
 
 ##### Automate
 
@@ -90,11 +88,11 @@ You can use Chef InSpec's [waivers](https://www.inspec.io/docs/reference/waivers
 
 #### Insecure
 
-Setting the attribute `default['audit'['waiver_file']` to `true` will skip SSL certificate verification for the `chef-automate` and `chef-server-automate` reporters. Default is `false`
+Setting the attribute `default['audit'['insecure']` to `true` will skip SSL certificate verification for the `chef-automate` and `chef-server-automate` reporters. Default is `false`
 
 #### Reporters
 
-Controls what is done with the resulting report after the Chef InSpec run. Accepts a single string value or an array of multiple values.
+Reporters control what is done with the resulting report after the Chef InSpec run. Either a single value or a list of multiple values is supported. The default is the `json-file` reporter.
 
 ##### chef-automate
 
@@ -118,19 +116,23 @@ The location on disk that Chef InSpec's json reports are saved to when using the
 
 #### InSpec Backend Cache
 
-If enabled, a cache is built for all backend calls. This should only be disabled if you are expecting unique results from the same backend call. Under the covers, this controls :command and :file caching on Chef InSpec's Train connection. This can be disabled by setting attribute `default['audit']['inspec_backend_cache']` to `false`.
+Chef InSpec provides the ability to cache the result of commands executed on the node being tested. This drastically improves Chef InSpec performance when slower-running commands are run multiple times during execution. This feature is enabled by default for Compliance Phase. If your Chef InSpec profile runs a command multiple times expecting different output, you may have to disable this feature. To do so set the `inspec_backend_cache` attribute to `false`:
 
-#### Fetcher
+```ruby
+node.normal['audit']['inspec_backend_cache'] = false
+```
 
-Controls if Chef InSpec profiles should be fetched from Chef Automate or Chef Infra Server in addition to the default fetch locations provided by Chef Inspec. Set this attribute with `default['audit']['fetcher']. Accepted values: 'chef-server' or 'chef-automate'.
+#### Fetchers
 
-##### Automate
+Fetchers control if Chef InSpec profiles should be fetched from Chef Automate or Chef Infra Server in addition to the default fetch locations provided by Chef Inspec. Set this attribute with `default['audit']['fetcher']. Accepted values: 'chef-server' or 'chef-automate'. With nothing specified for this attribute the [fetchers included in Chef InSpec]() are used. The fetchers included with Chef Infra are mutually exclusive so only one value can be specifed for this attribute.
 
-Fetches Chef InSpec profiles from a Chef Automate instance. Requires that the `data_collector.server_url` and `data_collector.token` options are set in `client.rb`. Further information is available at Chef Docs: [Configure a Data Collector token in Chef Automate](https://docs.chef.io/ingest_data_chef_automate.html)
+##### Chef Automate
+
+Fetches Chef InSpec profiles from a Chef Automate instance. Enabled by setting the attribute `default['audit']['fetcher']` to `chef-automate`. Requires that the `data_collector.server_url` and `data_collector.token` options are set in `client.rb`. Further information is available at Chef Docs: [Configure a Data Collector token in Chef Automate](https://docs.chef.io/ingest_data_chef_automate.html)
 
 ##### Chef Server
 
-Fetches Chef InSpec profiles from a Chef Automate instance proxied with Chef Server. Requires that the `chef_server_url` option is set in `client.rb`.
+Fetches Chef InSpec profiles from a Chef Automate instance proxied with Chef Server. Enabled by setting the attribute `default['audit']['fetcher'] to `chef-server`. Requires that the `chef_server_url` option is set in `client.rb`.
 
 #### Quiet
 
@@ -138,31 +140,29 @@ Controls verbosity of the Chef InSpec runner. Defaults to `true`. To turn this o
 
 #### Control Run Time Limit
 
-Control results that have a `run_time` below this limit will be stripped of the `start_time` and `run_time` fields to reduce the size of the reports being sent to Chef Automate. Defaults to `1.0`. Set this attribute with `default['audit']['run_time_limit']`.
+Control results that have a `run_time` below this limit will be stripped of the `start_time` and `run_time` fields to reduce the size of reports. Defaults to `1.0`. Set this attribute with `default['audit']['run_time_limit']`.
 
 #### Control Result Message Size Limit
 
-A control result message that exceeds this character limit will be truncated. This helps keep reports to a reasonable size. On rare occasions, we've seen messages exceeding 9 MB, causing the report to not be ingested in the backend because of the 4 MB report size limitation. Chef InSpec will append this text at the end of any truncated messages: `[Truncated to 10000 characters]`. Defaults to `10000`. Set this attribute with `default['audit']['result_message_limit']`.
+A control result message that exceeds this character limit will be truncated to help reduce the size of reports. Chef InSpec will append this text at the end of any truncated messages: `[Truncated to 10000 characters]`. Defaults to `10000`. Set this attribute with `default['audit']['result_message_limit']`.
 
 #### Control Result Include Backtrace
 
-When a Chef InSpec resource throws an exception, results will contain a short error message and a detailed ruby stacktrace of the error. This attribute instructs Chef InSpec not to include the detailed stacktrace in order to keep the overall report to a manageable size. Defaults to `false`. Set this attribute with `default['audit']['result_include_backtrace']`.
+When a Chef InSpec resource throws an exception, results will contain a short error message and a detailed ruby stacktrace of the error. This attribute instructs Chef InSpec not to include the detailed stacktrace in order to reduce the size of reports. Defaults to `false`. Set this attribute with `default['audit']['result_include_backtrace']`.
 
 #### Control Result Count Limit
 
-The list of results per control will be truncated to this amount to avoid large reports that cannot be processed due to Chef Automate's report size limitation. A summary of removed results will be sent with each impacted control. Defaults to `50`. Set this attribute with `default['audit']['control_results_limit']`.
+The list of results per control will be truncated to this amount to reduce the size of reports. A summary of removed results will be sent with each impacted control. Defaults to `50`. Set this attribute with `default['audit']['control_results_limit']`.
 
 ### Reporting
 
 #### Reporting to Chef Automate via Chef Infra Server
 
-To retrieve Chef InSpec profiles and report to Chef Automate through Chef Infra Server, set the `reporter` and `profiles` attributes.
-
 This requires Chef Infra Server version 12.11.1 and Chef Automate 0.6.6 or newer, as well as integration between the Chef Infra Server and Chef Automate. More details [here](https://docs.chef.io/integrate_compliance_chef_automate.html#collector-chef-server-automate).
 
 To upload profiles, you can use the [Chef Automate API](https://docs.chef.io/api_automate.html) or the `inspec compliance` subcommands.
 
-Attributes example of fetching from Chef Automate, reporting to Chef Automate both via Chef Infra Server:
+This is an example of attributes configuring Compliance Phase to fetch Chef InSpec profiles from Chef Automate and send reports to Chef Automate both via Chef Infra Server:
 
 ```ruby
 default['audit']['reporter'] = 'chef-server-automate'
@@ -174,9 +174,9 @@ default['audit']['profiles']['my-profile'] = {
 
 #### Direct reporting to Chef Automate
 
-To report directly to Chef Automate, set the `reporter` attribute to 'chef-automate' and specify where to fetch the `profiles` from.
-
 This method sends the report using the `data_collector.server_url` and `data_collector.token` options defined in `client.rb`. Further information is available at Chef Docs: [Configure a Data Collector token in Chef Automate](https://docs.chef.io/ingest_data_chef_automate.html)
+
+This is an example of attributes configuring Compliance Phase to fetch a Chef InSpec profile from GitHub and send reports to Chef Automate:
 
 ```ruby
 default['audit']['reporter'] = 'chef-automate'
@@ -199,7 +199,7 @@ Depending on your setup, there are some limits you need to be aware of. A common
 
 #### Write to file on disk
 
-To write the report to a file on disk, simply set the `reporter` to 'json-file' like so:
+To write the report to a file on disk, set the `reporter` to 'json-file' like so:
 
 ```ruby
 default['audit']['reporter'] = 'json-file'
@@ -220,7 +220,7 @@ Chef Infra's log:
 
 #### Enforce compliance with executed profiles
 
-The `audit-enforcer` enables you to enforce compliance with executed profiles. If the system under test is determined to be non-compliant, this reporter will raise an error and fail the Chef Infra Client run. To activate compliance enforcement, set the `reporter` attribute to 'audit-enforcer':
+The `audit-enforcer` reporter enables you to enforce compliance with executed Chef InSpec profiles. If the system under test is determined to be non-compliant, this reporter will raise an error and fail the Chef Infra Client run. To activate compliance enforcement, set the `reporter` attribute to 'audit-enforcer':
 
 ```ruby
 default['audit']['reporter'] = 'audit-enforcer'
@@ -234,7 +234,7 @@ Note: Detection of failed controls will immediately terminate the Chef Infra Cli
 
 To enable reporting to Chef Automate with profiles from Chef Automate, you need to have Chef Infra Server integrated with [Chef Automate](https://docs.chef.io/integrate_compliance_chef_automate.html#collector-chef-server-automate). You can then set the `fetcher` attribute to 'chef-server'.
 
-This allows the audit cookbook to fetch profiles stored in Chef Automate. For example:
+This allows Compliance Phase to fetch profiles stored in Chef Automate. For example:
 
 ```ruby
 default['audit']['reporter'] = 'chef-server-automate'
@@ -246,7 +246,7 @@ default['audit']['profiles']['ssh'] = {
 
 #### Fetch profiles directly from Chef Automate
 
-This method fetches profiles using the `data_collector.server_url` and `data_collector.token` options, in `client.rb`. Further information is available at Chef Docs: [Configure a Data Collector token in Chef Automate](https://docs.chef.io/ingest_data_chef_automate.html)
+This method fetches profiles using the `data_collector.server_url` and `data_collector.token` options in `client.rb`. Further information is available at Chef Docs: [Configure a Data Collector token in Chef Automate](https://docs.chef.io/ingest_data_chef_automate.html)
 
 ```ruby
 default['audit']['reporter'] = 'chef-automate'
@@ -262,17 +262,17 @@ While it is recommended that InSpec profiles should be self-contained and not re
 necessary, there are valid use cases where a profile's test may exhibit different behavior depending on
 aspects of the node under test.
 
-There are two primary ways to pass Chef data to the InSpec run via the audit cookbook.
+There are two primary ways to pass Chef Infra node data to Chef InSpec run in Compliance Phase.
 
 ### Option 1: Explicitly pass necessary data (recommended)
 
-Any data added to the `node['audit']['attributes']` hash will be passed as individual InSpec attributes.
-This provides a clean interface between the Chef run and InSpec profile, allowing for easy assignment
-of sane default values in the InSpec profile. This method is especially recommended if the InSpec profile
-is expected to be used outside of the context of the audit cookbook so it's extra clear to profile
+Any data added to the `node['audit']['attributes']` hash will be passed as individual Chef InSpec attributes.
+This provides a clean interface between the Chef Infra client run and Chef InSpec profile, allowing for easy assignment
+of default values in the InSpec profile. This method is especially recommended if the Chef InSpec profile
+is expected to be used outside of the context of Compliance Phase so it's made explicit to profile
 consumers what attributes are necessary.
 
-In a wrapper cookbook or similar, set your Chef attributes:
+In a wrapper cookbook or similar, set your Chef Infra attributes:
 
 ```ruby
 node.normal['audit']['attributes']['key1'] = 'value1'
@@ -280,14 +280,14 @@ node.normal['audit']['attributes']['debug_enabled'] = node['my_cookbook']['debug
 node.normal['audit']['attributes']['environment'] = node.chef_environment
 ```
 
-... and then use them in your InSpec profile:
+... and then use them in your Chef InSpec profile:
 
 ```ruby
-environment = attribute('environment', description: 'The chef environment for the node', default: 'dev')
+environment = attribute('environment', description: 'The Chef Infra environment for the node', default: 'dev')
 
 control 'debug-disabled-in-production' do
   title 'Debug logs disabled in production'
-  desc 'Debug logs contain potentially sensitive information and should not be on in prod.'
+  desc 'Debug logs contain potentially sensitive information and should not be on in production.'
   impact 1.0
 
   describe file('/path/to/my/app/config') do
@@ -298,14 +298,14 @@ control 'debug-disabled-in-production' do
 end
 ```
 
-### Option 2: Use the chef node object
+### Option 2: Use the Chef Infra node object
 
-In the event where it is not practical to opt-in to pass certain attributes and data, the audit cookbook will
-pass the Chef node object as an InSpec attribute named `chef_node`.
+In the event that it is not practical to opt-in to pass attributes and data, Compliance Phase can be configured to
+pass the Chef Infra node object as a Chef InSpec attribute named `chef_node`.
 
 While this provides the ability to write more flexible profiles, it makes it more difficult to reuse profiles
-outside of an audit cookbook run, requiring the profile user to know how to pass in a single attribute containing
-Chef-like data. Therefore, it is recommended to use Option 1 whenever possible.
+outside of Compliance Phase, requiring the Chef InSpec profile user to know how to pass in a single attribute containing
+Chef Infra-like data. Therefore, it is recommended to use Option 1 whenever possible.
 
 To use this option, first enable it in a wrapper cookbook or similar:
 
@@ -329,14 +329,4 @@ control 'no-password-auth-in-prod' do
 
   only_if { chef_node['chef_environment'] == 'production' }
 end
-```
-
-## Using the Chef InSpec Backend Cache
-
-InSpec provides the ability to cache the result of commands executed on the node being tested. This drastically improves Chef InSpec performance when slower-running commands are run multiple times during execution.
-
-This feature is **enabled by default** for Compliance Phase. If your profile runs a command multiple times and expects output to be different each time, you may have to disable this feature. To do so, set the `inspec_backend_cache` attribute to `false`:
-
-```ruby
-node.normal['audit']['inspec_backend_cache'] = false
 ```
