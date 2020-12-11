@@ -378,7 +378,7 @@ In the event of a malformed or unset token, the Chef Automate server will log th
 ```
 ==> /var/log/chef-compliance/core/current <==
 2016-08-28_20:41:46.17496 20:41:46.174 ERR => Token authentication: %!(EXTRA *errors.errorString=malformed JWS, only 1 segments)
-2016-08-28_20:41:46.17498 [GIN] 2016/08/28 - 20:41:46 | 401 |      53.824µs | 192.168.200.102 |   GET     /owners/base/compliance/linux/tar
+2016-08-28_20:41:46.17498 [GIN] 2016/08/28 - 20:41:46 | 401 |      53.824us | 192.168.200.102 |   GET     /owners/base/compliance/linux/tar
 
 ==> /var/log/chef-compliance/nginx/compliance.access.log <==
 192.168.200.102 - - [28/Aug/2016:21:23:46 +0000] "GET /api/owners/base/compliance/linux/tar HTTP/1.1" 401 0 "-" "Ruby"
