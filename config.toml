@@ -649,6 +649,12 @@ identifier = "chef_infra"
   weight = 60
 
     [[menu.infra]]
+    title = "Attributes"
+    identifier = "chef_infra/cookbook_reference/attributes"
+    parent = "chef_infra/cookbook_reference"
+    weight = 40
+
+    [[menu.infra]]
     title = "Recipes"
     identifier = "chef_infra/cookbook_reference/recipes"
     parent = "chef_infra/cookbook_reference"

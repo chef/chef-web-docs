@@ -206,7 +206,3 @@ every subsequent Chef Infra Client run.
 ### The Chef Infra Client Run
 
 {{% chef_client_run %}}
-
-### Attribute Evaluation Order
-
-{{% node_attribute_evaluation_order %}}

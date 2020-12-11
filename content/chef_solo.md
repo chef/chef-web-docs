@@ -118,7 +118,7 @@ where the name of the file is the `ITEM_NAME`, for example:
 
 ## Roles
 
-A role is defined using JSON or the Ruby DSL. chef-solo will look for
+A role is defined using JSON or the Chef Language (Ruby). chef-solo will look for
 roles in `/var/chef/roles`, but this location can be modified by
 changing the setting for `role_path` in solo.rb. For example, the
 following setting in solo.rb:
@@ -141,7 +141,7 @@ Role data looks like the following in JSON:
 }
 ```
 
-and like the following in the Ruby DSL:
+and like the following in the Chef Language:
 
 ```ruby
 name 'test'

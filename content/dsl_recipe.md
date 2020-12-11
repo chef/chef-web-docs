@@ -16,7 +16,7 @@ aliases = ["/dsl_recipe.html"]
 
 {{% dsl_recipe_summary %}}
 
-Because the Recipe DSL is a Ruby DSL, anything that can be done using
+Because the Recipe DSL is written in Ruby, anything that can be done using
 Ruby can also be done in a recipe or custom resource, including `if` and
 `case` statements, using the `include?` Ruby method, including recipes
 in recipes, and checking for dependencies. See the [Ruby
