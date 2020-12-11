@@ -331,6 +331,10 @@ control 'no-password-auth-in-prod' do
 end
 ```
 
+## Converting from using audit cookbook to Compliance Phase
+
+Previously to Chef Infra including Compliance Phase, the [audit cookbook]() was the integration point between Chef Infra and Chef InSpec.  Compliance Phase has been implemented to be mostly compatible with [audit cookbook](), so that users of the audit cookbook can remove it from the node's runlist and get the same behavior.
+
 ## Troubleshooting
 
 ### HTTP Errors
