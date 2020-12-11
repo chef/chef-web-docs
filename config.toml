@@ -1194,10 +1194,22 @@ identifier = "legacy"
 weight = 10
 
   [[menu.legacy]]
+  title = "Infra Client Legacy"
+  identifier = "legacy/client"
+  parent = "legacy"
+  weight = 10
+
+  [[menu.legacy]]
+  title = "Infra Server Legacy"
+  identifier = "legacy/server"
+  parent = "legacy"
+  weight = 20
+
+  [[menu.legacy]]
   title = "Workflow"
   identifier = "legacy/workflow"
   parent = "legacy"
-  weight = 10
+  weight = 30
 
     [[menu.legacy]]
     title = "Workflow Basics"
