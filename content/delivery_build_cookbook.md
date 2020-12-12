@@ -16,6 +16,8 @@ aliases = ["/delivery_build_cookbook.html", "/release/automate/delivery_build_co
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/delivery_build_cookbook.md)
 
+{{% EOL_a1 %}}
+
 Chef Automate uses Chef Infra Client to run recipes for each phase in a
 build pipeline. The phases are grouped into different stages.
 

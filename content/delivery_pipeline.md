@@ -16,8 +16,6 @@ aliases = ["/delivery_pipeline.html", "/release/automate/delivery_pipeline.html"
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/delivery_pipeline.md)
 
-
-
 {{% chef_automate_mark %}}
 
 {{% EOL_a1 %}}

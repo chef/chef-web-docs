@@ -16,6 +16,7 @@ aliases = ["/delivery_cli.html", "/ctl_delivery.html"]
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/delivery_cli.md)
 
+
 The Delivery CLI is the command-line interface for the workflow
 capabilities in Chef Automate. It sits in-between a local git repository
 and the Chef Automate server.

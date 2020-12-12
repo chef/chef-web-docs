@@ -7,22 +7,19 @@ robots = "noindex"
 aliases = ["/config_rb_manage.html"]
 
 [menu]
-  [menu.infra]
+  [menu.legacy]
     title = "manage.rb"
-    identifier = "chef_infra/features/management_console/config_rb_manage.md manage.rb"
-    parent = "chef_infra/features/management_console"
+    identifier = "legacy/manage/config_rb_manage.md manage.rb"
+    parent = "legacy/manage"
     weight = 100
+
 +++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/config_rb_manage.md)
 
 
-
-{{% chef_automate_mark %}}
-
 {{% EOL_manage %}}
 
-{{% EOL_a1 %}}
 
 {{% chef_manager %}}
 

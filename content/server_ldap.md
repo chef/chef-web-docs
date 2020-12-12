@@ -14,6 +14,14 @@ aliases = ["/server_ldap.html", "/install_server_post.html"]
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/server_ldap.md)
 
+{{% EOL_manage %}}
+
+{{< note >}}
+
+This topic is about using the Chef management console with AD/LDAP.
+
+{{< /note >}}
+
 The Chef Infra Server supports Active Directory and LDAP authentication,
 which enables users to log in to the Chef Infra Server using their
 corporate credential and the Manage interface. Without the Manage interface add-on installed,

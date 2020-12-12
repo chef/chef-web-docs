@@ -7,10 +7,10 @@ robots = "noindex"
 aliases = ["/ctl_manage.html"]
 
 [menu]
-  [menu.infra]
+  [menu.legacy]
     title = "chef-manage-ctl"
-    identifier = "chef_infra/features/management_console/ctl_manage.md chef-manage-ctl"
-    parent = "chef_infra/features/management_console"
+    identifier = "legacy/manage/ctl_manage.md chef-manage-ctl"
+    parent = "legacy/manage"
     weight = 110
 +++
 
@@ -19,8 +19,6 @@ aliases = ["/ctl_manage.html"]
 {{% chef_automate_mark %}}
 
 {{% EOL_manage %}}
-
-{{% EOL_a1 %}}
 
 The Chef management console includes a command-line utility named
 `chef-manage-ctl`. This command-line tool is used to reconfigure,

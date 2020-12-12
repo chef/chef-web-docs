@@ -7,10 +7,10 @@ robots = "noindex"
 aliases = ["/server_manage_roles.html"]
 
 [menu]
-  [menu.infra]
+  [menu.legacy]
     title = "Roles"
-    identifier = "chef_infra/features/management_console/server_manage_roles.md Roles"
-    parent = "chef_infra/features/management_console"
+    identifier = "legacy/manage/server_manage_roles.md Roles"
+    parent = "legacy/manage"
     weight = 80
 +++
 

@@ -7,10 +7,10 @@ robots = "noindex"
 aliases = ["/server_manage_nodes.html"]
 
 [menu]
-  [menu.infra]
+  [menu.legacy]
     title = "Nodes"
-    identifier = "chef_infra/features/management_console/server_manage_nodes.md Nodes"
-    parent = "chef_infra/features/management_console"
+    identifier = "legacy/manage/server_manage_nodes.md Nodes"
+    parent = "legacy/manage"
     weight = 70
 +++
 

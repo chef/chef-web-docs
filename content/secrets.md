@@ -84,6 +84,8 @@ One way to manage secrets used by Chef is with data bags.
 
 #### Using Chef Manage
 
+{{% EOL_manage %}}
+
 {{% manage_webui_policy_data_bag_edit_item %}}
 
 ### Use Data Bags

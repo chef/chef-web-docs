@@ -559,14 +559,14 @@ identifier = "chef_infra"
 
     [[menu.infra]]
     title = "Management Console"
-    identifier = "chef_infra/features/management_console"
+    identifier = "legacy/manage"
     parent = "chef_infra/features"
     weight = 50
 
       [[menu.infra]]
       title = "Users"
-      identifier = "chef_infra/features/management_console/server_users.md#chef-manage Users"
-      parent = "chef_infra/features/management_console"
+      identifier = "legacy/manage/server_users.md#chef-manage Users"
+      parent = "legacy/manage"
       url = "/server_users/#chef-manage"
       weight = 90
 
@@ -1186,6 +1186,12 @@ weight = 10
 title = "Legacy"
 identifier = "legacy"
 weight = 10
+
+  [[menu.legacy]]
+  title = "Chef Manage"
+  identifier = "legacy/manage"
+  parent = "legacy"
+  weight = 10
 
   [[menu.legacy]]
   title = "Workflow"

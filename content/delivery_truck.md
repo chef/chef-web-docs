@@ -16,6 +16,8 @@ aliases = ["/delivery_truck.html", "/release/automate/delivery_truck.html"]
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/delivery_truck.md)
 
+{{% EOL_a1 %}}
+
 {{% delivery_cookbook_delivery_truck %}}
 
 {{< note >}}
