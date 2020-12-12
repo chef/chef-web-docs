@@ -16,6 +16,7 @@ aliases = ["/delivery_manage_dependencies.html", "/release/automate/delivery_man
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/delivery_manage_dependencies.md)
 
+
 {{% EOL_a1 %}}
 
 A run-time dependency in Chef Automate is defined as an API-level
