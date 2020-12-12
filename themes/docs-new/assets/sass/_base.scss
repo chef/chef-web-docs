@@ -13,7 +13,7 @@ h3,
 h4,
 h5,
 h6 {
-    padding-top: 0.5em;
+    padding: rem-calc(6px) 0;
 }
 
 h1:focus,
@@ -25,6 +25,6 @@ h6:focus {
     outline: 0;
 }
 
-p {
-    margin-top: 0.25rem;
-}
+// p {
+//     margin-top: 0.25rem;
+// }

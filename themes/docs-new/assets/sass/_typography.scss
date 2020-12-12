@@ -22,7 +22,8 @@ $extrabold: 800;
 }
 
 @media print {
-  h2 { page-break-after: avoid; }
+
+  h2, h3 { page-break-after: avoid; }
   p { page-break-inside: avoid; }
 
   @page {

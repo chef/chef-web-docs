@@ -4,7 +4,7 @@ h3, .h3,
 h4, .h4,
 h5, .h5,
 h6, .h6,{
-	margin: 0;
+	// margin: 0;
 
 	// Adjust the anchor position to account for the fixed header
 	&:before {
@@ -27,14 +27,21 @@ h6, .h6,{
 	}
 }
 
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4,{
+  margin-top: .75em;
+  margin-bottom: .5em;
+  }
+
 h1, .h1 {
 	@include inter();
 	line-height: 1.25;
 	font-weight: normal;
 	letter-spacing: normal;
 	color: $charcoal;
-	text-transform: none;
-	margin-bottom: 26px;
+  text-transform: none;
 }
 
 h2, .h2 {
@@ -44,8 +51,6 @@ h2, .h2 {
 	letter-spacing: normal;
 	color: $charcoal;
 	text-transform: none;
-	margin-bottom: 12px;
-	margin-top: rem-calc(24px);
 }
 
 h3, .h3 {
@@ -55,8 +60,6 @@ h3, .h3 {
 	letter-spacing: normal;
 	color: $charcoal;
 	text-transform: none;
-	margin-bottom: 17px;
-	margin-top: rem-calc(32px);
 }
 
 h4, .h4 {
@@ -88,4 +91,14 @@ h6, .h6, {
 	color: $charcoal;
 	text-transform: uppercase;
 	margin-bottom: 8px;
+}
+
+@media print {
+
+  h1, .h1,
+  h2, .h2,
+  h3, .h3,
+  h4, .h4,{
+    margin-bottom: 12px;
+  }
 }

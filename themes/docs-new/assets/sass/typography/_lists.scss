@@ -1,11 +1,12 @@
 #main-content,
 .content {
   ul, ol {
+    margin-bottom: 1.5em;
+
 
     li {
-      &::marker{
-        font-weight: 500;
-      }
+      @extend .p;
+      margin-bottom: 0px;
     }
   }
 
@@ -31,12 +32,10 @@
         font-weight: 900;
         font-size: 1.2em;
       }
-
       p {
-        margin-top: -1.7rem;
-        margin-bottom: 2rem;
+        margin-top: -1.7em;
+        margin-bottom: 1em;
       }
-
       div.highlight{
         margin-top: -3em;
         margin-bottom: 3em;
@@ -79,7 +78,7 @@
           @extend .p;
           text-transform: uppercase;
           margin-bottom: rem-calc(8);
-          font-weight: $bold;
+          font-weight: bold;
           font-size: rem-calc(14);
         }
 
@@ -163,3 +162,13 @@
     }
   }
 }
+
+@media print {
+
+  #main-content,
+    .content {
+      ul, ol {
+        margin-bottom: 12px;
+      }
+    }
+  }

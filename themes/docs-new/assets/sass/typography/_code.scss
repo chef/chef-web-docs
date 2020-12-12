@@ -19,8 +19,9 @@ pre {
   background-color: $sidebargray;
   border: 1px solid $ash;
   border-radius: $border-radius-base;
-  margin-bottom: rem-calc(48);
-  padding: .25rem;
+  margin: 0 0 1.5em 1em;
+  // margin-bottom: 1.5em;
+  padding: .25em;
   white-space: pre-wrap;
 
   code {
@@ -70,9 +71,14 @@ pre {
   }
 }
 
-p + button {
-    background-color: yellow;
-    margin-bottom: .5rem;
-  }
+// p + button {
+//     background-color: yellow;
+//     margin-bottom: .5rem;
+//   }
+
+@media print {
+  margin: 12px;
+  padding: 4px;
+}
 
 @import "chroma";

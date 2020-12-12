@@ -8,7 +8,7 @@
 
   > p, .p {
     @include base-type();
-    margin-bottom: .5rem;
+    margin-bottom: rem-calc(12px);
     color: $charcoal;
 
     &.intro {
@@ -71,4 +71,10 @@
 
 .responsive-table {
   overflow-x: auto;
+}
+
+@media print {
+  p, .p {
+    margin-bottom: 12px
+  }
 }
