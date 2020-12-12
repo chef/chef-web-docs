@@ -12,18 +12,18 @@ git checkout -b "$branch"
 if [ "${EXPEDITOR_PRODUCT_KEY}" == "chef-workstation" ]; then
   subdirectory="docs-chef-io"
   org="chef"
-  tag_prefix=""
+  git_sha="$(git ls-remote https://github.com/chef/chef-workstation.git rev-list --refs -n 1 ${EXPEDITOR_VERSION} | cut -f 1)"
 elif [ "${EXPEDITOR_PRODUCT_KEY}" == "inspec" ]; then
   subdirectory="docs-chef-io"
   org="inspec"
-  tag_prefix="v"
+  git_sha="$(git ls-remote https://github.com/inspec/inspec.git rev-list --refs -n 1 v${EXPEDITOR_VERSION}^{} | cut -f 1)"
 fi
 
 # Update the semver version of the documentation module that chef-web-docs will
 # use to build the docs from.
 # See https://gohugo.io/hugo-modules/use-modules/#update-one-module
 
-hugo mod get "github.com/${org}/${EXPEDITOR_PRODUCT_KEY}/${subdirectory}@${tag_prefix}${EXPEDITOR_VERSION}"
+hugo mod get "github.com/${org}/${EXPEDITOR_PRODUCT_KEY}/${subdirectory}@${git_sha}"
 hugo mod tidy
 
 # Update the vendored files in chef-web-docs
