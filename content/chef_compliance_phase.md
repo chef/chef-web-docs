@@ -16,7 +16,7 @@ aliases = ["/chef_compliance_phase.html"]
 
 ## Overview
 
-Compliance Phase enables Chef Infra to run Chef InSpec profiles as part of a client run, by downloading profiles from sources like Chef Automate, Chef Supermarket, or GitHub, and reporting the results to Chef Automate or saving the results locally. Compliance Phase has been implemented to be mostly compatible with [audit cookbook](), so that users of the audit cookbook can remove it from the node's runlist and get the same behavior.
+Compliance Phase enables Chef Infra to run Chef InSpec profiles as part of a client run, by downloading profiles from sources like Chef Automate, Chef Supermarket, or GitHub, and reporting the results to Chef Automate or saving the results locally. Compliance Phase has been implemented to be mostly compatible with [audit cookbook](https://github.com/chef-cookbooks/audit), so that users of the audit cookbook can remove it from the node's runlist and get the same behavior.
 
 ## Usage
 
@@ -71,20 +71,20 @@ default['audit']['profiles']['ssh2'] = {
 }
 ```
 
-#### Attributes
+#### Chef InSpec Inputs
 
-You can also pass in Chef InSpec [attributes](https://www.inspec.io/docs/reference/profiles/) to your audit run.
+You can also pass [Chef InSpec inputs](https://docs.chef.io/inspec/inputs/) to the Chef InSpec runner. The attribute key is confusingly called 'attributes' for backward compatibility reasons.
 
 ```ruby
 default['audit']['attributes'] = {
-  first_attribute: 'some value',
-  second_attribute: 'another value',
+  first_input: 'some value',
+  second_input: 'another value',
 }
 ```
 
 #### Waivers
 
-You can use Chef InSpec's [waivers](https://www.inspec.io/docs/reference/waivers/) to mark individual failing controls as being administratively accepted, either on a temporary or permanent basis. Prepare a waiver file and use your Chef Infra cookbooks to deliver the file to your converging node (for example, using [cookbook_file](https://docs.chef.io/resource_cookbook_file.html) or [remote_file](https://docs.chef.io/resource_remote_file.html)). Then set the attribute `default['audit']['waiver_file']` to the location(s) of the waiver file(s) on the local node, and Chef InSpec will apply the waivers.
+You can use [Chef InSpec waivers](https://docs.chef.io/inspec/waivers/) to mark individual failing controls as being administratively accepted, either on a temporary or permanent basis. Prepare a waiver file and use your Chef Infra cookbooks to deliver the file to your converging node by, for example, using [cookbook_file](https://docs.chef.io/resources/cookbook_file/) or [remote_file](https://docs.chef.io/resources/remote_file/). Then set the attribute `default['audit']['waiver_file']` to the location(s) of the waiver file(s) on the local node, and Chef InSpec will apply the waivers.
 
 #### Insecure
 
@@ -96,15 +96,15 @@ Reporters control what is done with the resulting report after the Chef InSpec r
 
 ##### chef-automate
 
-Sends the results to a Chef Automate instance. See the instructions on [using Chef Automate with Compliance Phase]() for more details.
+Sends the results to a Chef Automate instance. See the instructions on [using Chef Automate with Compliance Phase](#direct-reporting-to-chef-automate) for more details.
 
 ##### chef-server-automate
 
-Sends the results to a Chef Automate proxied by a Chef Infra Server instance. See the instructions on [using Chef Infra Srver with Compliance Phase]() for more details.
+Sends the results to a Chef Automate proxied by a Chef Infra Server instance. See the instructions on [using Chef Infra Srver with Compliance Phase](#reporting-to-chef-automate-via-chef-infra-server) for more details.
 
 ##### json-file
 
-Writes the results to disk in the location specified with the [json-file location attribute]().
+Writes the results to disk in the location specified with the [json-file location attribute](#json-file-location).
 
 ##### audit-enforcer
 
@@ -158,9 +158,9 @@ The list of results per control will be truncated to this amount to reduce the s
 
 #### Reporting to Chef Automate via Chef Infra Server
 
-This requires Chef Infra Server version 12.11.1 and Chef Automate 0.6.6 or newer, as well as integration between the Chef Infra Server and Chef Automate. More details [here](https://docs.chef.io/integrate_compliance_chef_automate.html#collector-chef-server-automate).
+This requires Chef Infra Server version 12.11.1 and Chef Automate 0.6.6 or newer, as well as [integration between the Chef Infra Server and Chef Automate](https://docs.chef.io/automate/data_collection/#configure-your-chef-infra-server-to-send-data-to-chef-automate).
 
-To upload profiles, you can use the [Chef Automate API](https://docs.chef.io/api_automate.html) or the `inspec compliance` subcommands.
+To upload profiles, you can use the [Chef Automate API](https://docs.chef.io/automate/api/#operation/Create) or the `inspec compliance` subcommands.
 
 This is an example of attributes configuring Compliance Phase to fetch Chef InSpec profiles from Chef Automate and send reports to Chef Automate both via Chef Infra Server:
 
@@ -174,7 +174,7 @@ default['audit']['profiles']['my-profile'] = {
 
 #### Direct reporting to Chef Automate
 
-This method sends the report using the `data_collector.server_url` and `data_collector.token` options defined in `client.rb`. Further information is available at Chef Docs: [Configure a Data Collector token in Chef Automate](https://docs.chef.io/ingest_data_chef_automate.html)
+This method sends the report using the `data_collector.server_url` and `data_collector.token` options defined in `client.rb`. Further information is available in the [Chef Automate data collection documentation](https://docs.chef.io/automate/data_collection/#configure-your-chef-infra-client-to-send-data-to-chef-automate-without-chef-infra-server).
 
 This is an example of attributes configuring Compliance Phase to fetch a Chef InSpec profile from GitHub and send reports to Chef Automate:
 
@@ -185,8 +185,6 @@ default['audit']['profiles']['tmp_compliance_profile'] = {
 }
 ```
 
-If you are using a self-signed certificate, please also read [how to add the Chef Automate certificate to the trusted_certs directory](https://docs.chef.io/data_collection_without_server.html#add-chef-automate-certificate-to-trusted-certs-directory)
-
 #### Chef InSpec report size limitations
 
 The size of the report being generated from running the Compliance Phase is influenced by a few factors like:
@@ -195,7 +193,7 @@ The size of the report being generated from running the Compliance Phase is infl
  * controls metadata (title, description, tags, etc)
  * number of resources (users, processes, etc) that are being tested
 
-Depending on your setup, there are some limits you need to be aware of. A common one is Chef Infra Server default (1MB) request size. Exceeding this limit will reject the report with `ERROR: 413 "Request Entity Too Large"`. For more details about these limits, please refer to [TROUBLESHOOTING.md](TROUBLESHOOTING.md#413-request-entity-too-large).
+Depending on your setup, there are some limits you need to be aware of. A common one is Chef Infra Server default (1MB) request size. Exceeding this limit will reject the report with `ERROR: 413 "Request Entity Too Large"`. For more details about these limits, please refer to [the documentation on troubleshooting 413 errors](#413-request-entity-too-large).
 
 #### Write to file on disk
 
@@ -232,7 +230,7 @@ Note: Detection of failed controls will immediately terminate the Chef Infra Cli
 
 #### Fetch profiles from Chef Automate via Chef Infra Server
 
-To enable reporting to Chef Automate with profiles from Chef Automate, you need to have Chef Infra Server integrated with [Chef Automate](https://docs.chef.io/integrate_compliance_chef_automate.html#collector-chef-server-automate). You can then set the `fetcher` attribute to 'chef-server'.
+To enable reporting to Chef Automate with profiles from Chef Automate, you need to have Chef Infra Server integrated with [Chef Automate](https://docs.chef.io/automate/data_collection/#configure-your-chef-infra-server-to-send-data-to-chef-automate). You can then set the `fetcher` attribute to 'chef-server'.
 
 This allows Compliance Phase to fetch profiles stored in Chef Automate. For example:
 
@@ -246,7 +244,7 @@ default['audit']['profiles']['ssh'] = {
 
 #### Fetch profiles directly from Chef Automate
 
-This method fetches profiles using the `data_collector.server_url` and `data_collector.token` options in `client.rb`. Further information is available at Chef Docs: [Configure a Data Collector token in Chef Automate](https://docs.chef.io/ingest_data_chef_automate.html)
+This method fetches Chef InSpec profiles using the `data_collector.server_url` and `data_collector.token` options defined in `client.rb`. Further information is available in the [Chef Automate data collection documentation](https://docs.chef.io/automate/data_collection/#configure-your-chef-infra-client-to-send-data-to-chef-automate-without-chef-infra-server).
 
 ```ruby
 default['audit']['reporter'] = 'chef-automate'
@@ -333,7 +331,7 @@ end
 
 ## Converting from using audit cookbook to Compliance Phase
 
-Previously to Chef Infra including Compliance Phase, the [audit cookbook]() was the integration point between Chef Infra and Chef InSpec. Compliance Phase has been implemented to be mostly compatible with [audit cookbook](), so that users of the audit cookbook can remove it from the node's runlist and get the same behavior.
+Previously to Chef Infra including Compliance Phase, the [audit cookbook](https://github.com/chef-cookbooks/audit) was the integration point between Chef Infra and Chef InSpec. Compliance Phase has been implemented to be mostly compatible with [audit cookbook](https://github.com/chef-cookbooks/audit), so that users of the audit cookbook can remove it from the node's runlist and get the same behavior.
 
 ## Troubleshooting
 
