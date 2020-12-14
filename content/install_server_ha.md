@@ -281,7 +281,7 @@ was copied as detailed in Step 4:
     `cp /home/<USER>/chef-server.rb.<FE1> /etc/opscode/chef-server.rb`
     ```
 
-1.  **As root** , run
+1.  **As root**, run
 
     ```bash
     chef-server-ctl reconfigure
@@ -338,15 +338,15 @@ For each additional frontend node you wish to add to your cluster:
 
 ### Step 7: Configure the Server
 
-{{< note spaces=4 >}}
+{{< note >}}
 
 To restore a backup to this system, follow the [chef-server-ctl](https://docs.chef.io/runbook/server_backup_restore/) or the [knife ec](https://github.com/chef/knife-ec-backup) restore directions.
 
 {{< /note >}}
 
-9.  {{< readFile_shortcode file="ctl_chef_server_user_create_admin.md" >}}
+1.  {{< readFile_shortcode file="ctl_chef_server_user_create_admin.md" >}}
 
-10.  {{< readFile_shortcode file="ctl_chef_server_org_create_summary.md" >}}
+1.  {{< readFile_shortcode file="ctl_chef_server_org_create_summary.md" >}}
 
 
 ### Upgrading Chef Infra Server on the Frontend Machines
