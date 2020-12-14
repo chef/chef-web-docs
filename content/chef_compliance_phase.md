@@ -132,7 +132,7 @@ Fetches Chef InSpec profiles from a Chef Automate instance. Enabled by setting t
 
 ##### Chef Infra Server
 
-Fetches Chef InSpec profiles from a Chef Automate instance proxied with Chef Infra Server. Enabled by setting the attribute `default['audit']['fetcher'] to `chef-server`. Requires that the `chef_server_url` option is set in `client.rb`. More information on using the Chef Infra Server fetcher can be found in the [section on integrating Compliance Phase with Chef Automate via Chef Infra Server](#fetch-profiles-from-chef-automate-via-chef-infra-server).
+Fetches Chef InSpec profiles from a Chef Automate instance proxied with Chef Infra Server. Enabled by setting the attribute `default['audit']['fetcher']` to `chef-server`. Requires that the `chef_server_url` option is set in `client.rb`. More information on using the Chef Infra Server fetcher can be found in the [section on integrating Compliance Phase with Chef Automate via Chef Infra Server](#fetch-profiles-from-chef-automate-via-chef-infra-server).
 
 #### Quiet
 
