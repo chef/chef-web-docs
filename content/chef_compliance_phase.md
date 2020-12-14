@@ -128,11 +128,11 @@ Fetchers control if Chef InSpec profiles should be fetched from Chef Automate or
 
 ##### Chef Automate
 
-Fetches Chef InSpec profiles from a Chef Automate instance. Enabled by setting the attribute `default['audit']['fetcher']` to `chef-automate`. Requires that the `data_collector.server_url` and `data_collector.token` options are set in `client.rb`. Further information is available at Chef Docs: [Configure a Data Collector token in Chef Automate](https://docs.chef.io/ingest_data_chef_automate.html)
+Fetches Chef InSpec profiles from a Chef Automate instance. Enabled by setting the attribute `default['audit']['fetcher']` to `chef-automate`. Requires that the `data_collector.server_url` and `data_collector.token` options are set in `client.rb`, [described in more detail in the Chef Automate data collector documentation](https://docs.chef.io/ingest_data_chef_automate.html). More information on using the Chef Automate fetcher can be found in the [section on integrating Compliance Phase with Chef Automate](#fetch-profiles-directly-from-chef-automate).
 
 ##### Chef Infra Server
 
-Fetches Chef InSpec profiles from a Chef Automate instance proxied with Chef Infra Server. Enabled by setting the attribute `default['audit']['fetcher'] to `chef-server`. Requires that the `chef_server_url` option is set in `client.rb`.
+Fetches Chef InSpec profiles from a Chef Automate instance proxied with Chef Infra Server. Enabled by setting the attribute `default['audit']['fetcher'] to `chef-server`. Requires that the `chef_server_url` option is set in `client.rb`. More information on using the Chef Infra Server fetcher can be found in the [section on integrating Compliance Phase with Chef Automate via Chef Infra Server](#fetch-profiles-from-chef-automate-via-chef-infra-server).
 
 #### Quiet
 
