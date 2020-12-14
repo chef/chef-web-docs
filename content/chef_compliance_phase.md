@@ -154,6 +154,10 @@ When a Chef InSpec resource throws an exception, results will contain a short er
 
 The list of results per control will be truncated to this amount to reduce the size of reports. A summary of removed results will be sent with each impacted control. Defaults to `50`. Set this attribute with `default['audit']['control_results_limit']`.
 
+#### Alternate Chef Infra Server URL
+
+When reporting to a Chef Automate instance proxied via Chef Infra Server, Compliance Phase can be configured to use a different URL than the `chef_server_url` configured in `client.rb`. This is enabled with the attribute `default['audit']['server']`.
+
 ### Reporting
 
 #### Reporting to Chef Automate via Chef Infra Server
