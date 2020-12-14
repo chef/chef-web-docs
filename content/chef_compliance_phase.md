@@ -100,7 +100,7 @@ Sends the results to a Chef Automate instance. See the instructions on [using Ch
 
 ##### chef-server-automate
 
-Sends the results to a Chef Automate proxied by a Chef Infra Server instance. See the instructions on [using Chef Infra Srver with Compliance Phase](#reporting-to-chef-automate-via-chef-infra-server) for more details.
+Sends the results to a Chef Automate proxied by a Chef Infra Server instance. See the instructions on [using Chef Infra Server with Compliance Phase](#reporting-to-chef-automate-via-chef-infra-server) for more details.
 
 ##### json-file
 
@@ -124,7 +124,7 @@ node.normal['audit']['inspec_backend_cache'] = false
 
 #### Fetchers
 
-Fetchers control if Chef InSpec profiles should be fetched from Chef Automate or Chef Infra Server in addition to the default fetch locations provided by Chef Inspec. Set this attribute with `default['audit']['fetcher']`. Accepted values: 'chef-server' or 'chef-automate'. With nothing specified for this attribute the [fetchers included in Chef InSpec](https://docs.chef.io/inspec/profiles/#profile-dependencies) are used. The fetchers included with Chef Infra are mutually exclusive so only one value can be specifed for this attribute.
+Fetchers control if Chef InSpec profiles should be fetched from Chef Automate or Chef Infra Server in addition to the default fetch locations provided by Chef Inspec. Set this attribute with `default['audit']['fetcher']`. Accepted values: 'chef-server' or 'chef-automate'. With nothing specified for this attribute the [fetchers included in Chef InSpec](https://docs.chef.io/inspec/profiles/#profile-dependencies) are used. The fetchers included with Chef Infra are mutually exclusive so only one value can be specified for this attribute.
 
 ##### Chef Automate
 
