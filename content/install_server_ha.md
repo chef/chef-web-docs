@@ -144,7 +144,7 @@ used to bootstrap the cluster will be the cluster leader when the
 cluster comes online. After bootstrap completes this node is no
 different from any other back-end node.
 
-1.  Install the Chef Backend package on the first backend node as root.
+1.  Install the Chef Backend package on the first backend node **as root**.
 
     -   Download [Chef Backend
         (chef-backend)](https://downloads.chef.io/chef-backend/)
@@ -217,7 +217,7 @@ join nodes in parallel the cluster may fail to become available):
     postgresql.md5_auth_cidr_addresses = ["samehost", "samenet", "<NET-1_IN_CIDR>", ..., "<NET-N_IN_CIDR>"]
     ```
 
-3.  As root or with sudo:
+3.  **As root** or with sudo:
 
     ```bash
     chef-backend-ctl join-cluster <IP_BE1> -s /home/<USER>/chef-backend-secrets.json
@@ -255,8 +255,7 @@ join nodes in parallel the cluster may fail to become available):
 
 ### Step 4: Generate Chef Infra Server Configuration
 
-Log into the node from Step 1, and we will generate our chef-server
-frontend node configuration:
+Log into the node from Step 1 and generate a chef-server frontend node configuration:
 
 ```bash
 chef-backend-ctl gen-server-config <FE1-FQDN> -f chef-server.rb.FE1
@@ -270,34 +269,39 @@ Chef Infra Server frontend nodes.
 
 {{< /note >}}
 
-### Step 5: Install and Configure First Frontend
+### Step 5: Install and Configure the First Frontend
 
 On the first frontend node, assuming that the generated configuration
 was copied as detailed in Step 4:
 
-1.  Install the current chef-server-core package
-2.  Run
+1. Install the current `chef-server-core` package
+1. Copy the file to `/etc/opscode` with:
+
+    ```bash
     `cp /home/<USER>/chef-server.rb.<FE1> /etc/opscode/chef-server.rb`
-3.  As the root user, run `chef-server-ctl reconfigure`
+    ```
+
+1.  **As root**, run
+
+    ```bash
+    chef-server-ctl reconfigure
+    ```
 
 ### Step 6: Adding More Frontend Nodes
 
 For each additional frontend node you wish to add to your cluster:
 
-1.  Install the current chef-server-core package.
+1. Install the current `chef-server-core` package.
 
-2.  Generate a new `/etc/opscode/chef-server.rb` from any of the backend
-    nodes via
+1. Generate a new `/etc/opscode/chef-server.rb` from any of the backend nodes via
 
     ```bash
     chef-backend-ctl gen-server-config <FE_NAME-FQDN> > chef-server.rb.<FE_NAME>
     ```
 
-3.  Copy it to `/etc/opscode` on the new frontend node.
+1. Copy it to `/etc/opscode` on the new frontend node.
 
-4.  From the first frontend node configured in Step 5, copy the
-    following files from the first frontend to `/etc/opscode` on the new
-    frontend node:
+1. From the first frontend node configured in Step 5, copy the following files from the first frontend to `/etc/opscode` on the new frontend node:
 
     -   /etc/opscode/private-chef-secrets.json
 
@@ -312,15 +316,38 @@ For each additional frontend node you wish to add to your cluster:
 
     {{< /note >}}
 
-5.  On the new frontend node run `mkdir -p /var/opt/opscode/upgrades/`.
+1. On the new frontend node run:
 
-6.  From the first frontend node, copy
-    `/var/opt/opscode/upgrades/migration-level` to the same location on
-    the new node.
+   ```bash
+   mkdir -p /var/opt/opscode/upgrades/
+   ```
 
-7.  On the new frontend run `touch /var/opt/opscode/bootstrapped`.
+1. From the first frontend node, copy `/var/opt/opscode/upgrades/migration-level` to the same location on the new node.
 
-8.  On the new frontend run `chef-server-ctl reconfigure` as root.
+1. On the new frontend run:
+
+   ```bash
+   touch /var/opt/opscode/bootstrapped`
+   ```
+
+1. On the new frontend, **as root** run:
+
+   ```bash
+   chef-server-ctl reconfigure
+   ```
+
+### Step 7: Configure the Server
+
+{{< note >}}
+
+To restore a backup to this system, follow the [chef-server-ctl](https://docs.chef.io/runbook/server_backup_restore/) or the [knife ec](https://github.com/chef/knife-ec-backup) restore directions.
+
+{{< /note >}}
+
+1.  {{< readFile_shortcode file="ctl_chef_server_user_create_admin.md" >}}
+
+1.  {{< readFile_shortcode file="ctl_chef_server_org_create_summary.md" >}}
+
 
 ### Upgrading Chef Infra Server on the Frontend Machines
 
