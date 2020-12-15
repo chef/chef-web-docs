@@ -1,7 +1,6 @@
 ---
 title: user resource
 resource: user
-draft: false
 aliases:
 - /resource_user.html
 menu:
@@ -10,7 +9,6 @@ menu:
     identifier: chef_infra/cookbook_reference/resources/user user
     parent: chef_infra/cookbook_reference/resources
 resource_reference: true
-robots: null
 resource_description_list:
 - markdown: 'Use the **user** resource to add users, update existing users, remove
 

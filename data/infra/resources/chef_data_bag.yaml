@@ -1,7 +1,6 @@
 ---
 title: chef_data_bag resource
 resource: chef_data_bag
-draft: false
 aliases:
 - /resource_chef_data_bag.html
 menu:
@@ -11,7 +10,6 @@ menu:
     parent: chef_infra/cookbook_reference/resources
 
 resource_reference: true
-robots: null
 resource_description_list:
 - shortcode: data_bag.md
 - markdown: Use the **chef_data_bag** resource to manage data bags.

@@ -1,7 +1,6 @@
 ---
 title: chef_node resource
 resource: chef_node
-draft: false
 aliases:
 - /resource_chef_node.html
 menu:
@@ -11,7 +10,6 @@ menu:
     parent: chef_infra/cookbook_reference/resources
 
 resource_reference: true
-robots: null
 resource_description_list:
 - shortcode: node.md
 - markdown: Use the **chef_node** resource to manage nodes.

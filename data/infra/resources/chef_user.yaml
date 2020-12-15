@@ -1,7 +1,6 @@
 ---
 title: chef_user resource
 resource: chef_user
-draft: false
 aliases:
 - /resource_chef_user.html
 menu:
@@ -11,7 +10,6 @@ menu:
     parent: chef_infra/cookbook_reference/resources
 
 resource_reference: true
-robots: null
 resource_description_list:
 - markdown: Use the **chef_user** resource to manage users.
 resource_new_in: null

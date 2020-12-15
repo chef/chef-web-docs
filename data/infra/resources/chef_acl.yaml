@@ -1,7 +1,6 @@
 ---
 title: chef_acl resource
 resource: chef_acl
-draft: false
 aliases:
 - /resource_chef_acl.html
 menu:
@@ -11,7 +10,6 @@ menu:
     parent: chef_infra/cookbook_reference/resources
 
 resource_reference: true
-robots: null
 resource_description_list:
 - markdown: 'Use the **chef_acl** resource to interact with access control lists
 

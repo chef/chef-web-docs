@@ -1,7 +1,6 @@
 ---
 title: chef_container resource
 resource: chef_container
-draft: false
 aliases:
 - /resource_chef_container.html
 menu:
@@ -11,7 +10,6 @@ menu:
     parent: chef_infra/cookbook_reference/resources
 
 resource_reference: true
-robots: null
 resource_description_list:
 - markdown: 'Use the **chef_container** resource to interact with container objects
 

@@ -1,7 +1,6 @@
 ---
 title: chef_role resource
 resource: chef_role
-draft: false
 aliases:
 - /resource_chef_role.html
 menu:
@@ -10,7 +9,6 @@ menu:
     identifier: chef_infra/cookbook_reference/resources/chef_role chef_role
     parent: chef_infra/cookbook_reference/resources
 resource_reference: true
-robots: null
 resource_description_list:
 - shortcode: role.md
 - markdown: Use the **chef_role** resource to manage roles.

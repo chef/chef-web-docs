@@ -1,7 +1,6 @@
 ---
 title: chef_organization resource
 resource: chef_organization
-draft: false
 aliases:
 - /resource_chef_organization.html
 menu:
@@ -11,7 +10,6 @@ menu:
     parent: chef_infra/cookbook_reference/resources
 
 resource_reference: true
-robots: null
 resource_description_list:
 - markdown: 'Use the **chef_organization** resource to interact with organization
 

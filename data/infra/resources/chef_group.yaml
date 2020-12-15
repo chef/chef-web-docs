@@ -1,7 +1,6 @@
 ---
 title: chef_group resource
 resource: chef_group
-draft: false
 aliases:
 - /resource_chef_group.html
 menu:
@@ -11,7 +10,6 @@ menu:
     parent: chef_infra/cookbook_reference/resources
 
 resource_reference: true
-robots: null
 resource_description_list:
 - markdown: 'Use the **chef_group** resource to interact with group objects that
 

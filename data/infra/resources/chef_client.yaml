@@ -1,7 +1,6 @@
 ---
 title: chef_client resource
 resource: chef_client
-draft: false
 aliases:
 - /resource_chef_client.html
 menu:
@@ -11,7 +10,6 @@ menu:
     parent: chef_infra/cookbook_reference/resources
 
 resource_reference: true
-robots: null
 resource_description_list:
 - markdown: Use the **chef_client** resource to create clients on your Chef Infra Server from within Chef Infra cookbook code.
 handler_types: false

@@ -1,7 +1,6 @@
 ---
 title: chef_environment resource
 resource: chef_environment
-draft: false
 aliases:
 - /resource_chef_environment.html
 menu:
@@ -11,7 +10,6 @@ menu:
     parent: chef_infra/cookbook_reference/resources
 
 resource_reference: true
-robots: null
 resource_description_list:
 - shortcode: environment.md
 - markdown: Use the **chef_environment** resource to manage environments.
