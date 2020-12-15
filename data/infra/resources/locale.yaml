@@ -36,7 +36,6 @@ properties_list:
 - property: lc_env
   ruby_type: Hash
   required: false
-  default_value: null
   description_list:
   - markdown: "Sets the locale category that corresponds to environment variable.\n\
       \n-   *lc_env* is a hash of LC\\* env variables in the form of\n    ({'LC_ENV_VARIABLE'\

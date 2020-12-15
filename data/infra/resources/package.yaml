@@ -75,8 +75,6 @@ resource_description_list:
     -   [yum_package](/resources/yum_package/)
 
     -   [zypper_package](/resources/zypper_package/)'
-resource_new_in: null
-handler_types: false
 syntax_description: "A **package** resource block manages a package on a node, typically\
   \ by\ninstalling it. The simplest use of the **package** resource is:\n\n```ruby\n\
   package 'httpd'\n```\n\nwhich will install Apache using all of the default options\
@@ -139,7 +137,6 @@ properties_list:
   ruby_type: true, false
   required: false
   default_value: 'true'
-  new_in: null
   description_list:
   - markdown: '**yum_package** resource only. Downgrade a package to satisfy
 
@@ -147,8 +144,6 @@ properties_list:
 - property: arch
   ruby_type: String, Array
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: '**yum_package** resource only. The architecture of the package to
 
@@ -158,8 +153,6 @@ properties_list:
 - property: default_release
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: '**apt_package** resource only. The default release. For example:
 
@@ -167,8 +160,6 @@ properties_list:
 - property: flush_cache
   ruby_type: Array
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: 'Flush the in-memory cache before or after a Yum operation that
 
@@ -191,8 +182,6 @@ properties_list:
 - property: gem_binary
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: 'A property for the `gem_package` provider that is used to specify a
 
@@ -200,8 +189,6 @@ properties_list:
 - property: homebrew_user
   ruby_type: String, Integer
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: '**homebrew_package** resource only. The name of the Homebrew owner
 
@@ -210,14 +197,11 @@ properties_list:
   ruby_type: true, false
   required: false
   default_value: 'false'
-  new_in: null
   description_list:
   - markdown: Continue running a recipe if a resource fails for any reason.
 - property: notifies
   ruby_type: Symbol, Chef::Resource\[String\]
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - shortcode: resources_common_notification_notifies.md
   - markdown: ''
@@ -227,15 +211,11 @@ properties_list:
 - property: options
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: One (or more) additional options that are passed to the command.
 - property: package_name
   ruby_type: String, Array
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: 'The name of the package. Default value: the `name` of the resource
 
@@ -243,8 +223,6 @@ properties_list:
 - property: response_file
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: '**apt_package** and **dpkg_package** resources only. The direct
 
@@ -252,8 +230,6 @@ properties_list:
 - property: response_file_variables
   ruby_type: Hash
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: '**apt_package** and **dpkg_package** resources only. A Hash of
 
@@ -262,21 +238,17 @@ properties_list:
   ruby_type: Integer
   required: false
   default_value: '0'
-  new_in: null
   description_list:
   - markdown: The number of attempts to catch exceptions and retry the resource.
 - property: retry_delay
   ruby_type: Integer
   required: false
   default_value: '2'
-  new_in: null
   description_list:
   - markdown: The retry delay (in seconds).
 - property: source
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: Optional. The path to a package in the local file system.
   - note:
@@ -286,8 +258,6 @@ properties_list:
 - property: subscribes
   ruby_type: Symbol, Chef::Resource\[String\]
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - shortcode: resources_common_notification_subscribes.md
   - markdown: ''
@@ -297,15 +267,11 @@ properties_list:
 - property: timeout
   ruby_type: String, Integer
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: The amount of time (in seconds) to wait before timing out.
 - property: version
   ruby_type: String, Array
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: The version of a package to be installed or upgraded.
 properties_shortcode: null
@@ -323,12 +289,6 @@ resources_common_properties: false
 resources_common_notification: false
 resources_common_guards: false
 common_resource_functionality_multiple_packages: null
-resources_common_guard_interpreter: false
-remote_directory_recursive_directories: false
-common_resource_functionality_resources_common_windows_security: false
-handler_custom: false
-cookbook_file_specificity: false
-unit_file_verification: false
 examples: "
   Install a gems file for use in recipes\n\n  ```ruby\n  chef_gem\
   \ 'right_aws' do\n    action :install\n  end\n\n  require 'right_aws'\n  ```\n\n\

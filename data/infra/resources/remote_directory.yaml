@@ -139,8 +139,6 @@ properties_list:
 - property: group
   ruby_type: Integer, String
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: 'Use to configure permissions for directories. A string or ID that
 
@@ -155,7 +153,6 @@ properties_list:
   ruby_type: true, false
   required: false
   default_value: 'true'
-  new_in: null
   description_list:
   - markdown: 'Microsoft Windows only. Whether a file inherits rights from its
 
@@ -163,8 +160,6 @@ properties_list:
 - property: mode
   ruby_type: Integer, String
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: 'A quoted 3-5 character string that defines the octal mode. For
 
@@ -228,14 +223,11 @@ properties_list:
   ruby_type: true, false
   required: false
   default_value: 'true'
-  new_in: null
   description_list:
   - markdown: Overwrite a file when it is different.
 - property: owner
   ruby_type: Integer, String
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: 'Use to configure permissions for directories. A string or ID that
 
@@ -250,7 +242,6 @@ properties_list:
   ruby_type: String
   required: false
   default_value: The resource block's name
-  new_in: null
   description_list:
   - markdown: 'The path to the directory. Using a fully qualified path is
 
@@ -263,14 +254,12 @@ properties_list:
   ruby_type: true, false
   required: false
   default_value: 'false'
-  new_in: null
   description_list:
   - markdown: Purge extra files found in the target directory.
 - property: recursive
   ruby_type: true, false
   required: false
   default_value: 'true'
-  new_in: null
   description_list:
   - markdown: 'Create or delete directories recursively. Chef Infra Client must be
 
@@ -282,8 +271,6 @@ properties_list:
 - property: rights
   ruby_type: Integer, String
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: 'Microsoft Windows only. The permissions for users and groups in a
 
@@ -300,7 +287,6 @@ properties_list:
   ruby_type: String
   required: false
   default_value: The base portion of the 'path' property.
-  new_in: null
   description_list:
   - markdown: 'The base name of the source file (and inferred from the `path`
 
@@ -321,13 +307,8 @@ template_requirements: false
 resources_common_properties: true
 resources_common_notification: true
 resources_common_guards: true
-common_resource_functionality_multiple_packages: false
-resources_common_guard_interpreter: false
 remote_directory_recursive_directories: true
 common_resource_functionality_resources_common_windows_security: true
-handler_custom: false
-cookbook_file_specificity: false
-unit_file_verification: false
 examples: "
   Recursively transfer a directory from a remote location\n\n  ```\
   \ ruby\n  # create up to 10 backups of the files\n  # set the files owner different\

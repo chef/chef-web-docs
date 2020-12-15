@@ -24,8 +24,6 @@ resource_description_list:
       [cron](https://github.com/chef-cookbooks/cron) cookbook) for previous
 
       chef-client releases.'
-resource_new_in: null
-handler_types: false
 syntax_description: "A **cron** resource block manages cron entries. For example,\
   \ to get a\nweekly cookbook report from the Chef Supermarket:\n\n```ruby\ncron\
   \ 'cookbooks_report' do\n  action :create\n  minute '0'\n  hour '0'\n  weekday '1'\n\

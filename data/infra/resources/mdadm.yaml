@@ -28,10 +28,6 @@ syntax_properties_list:
 syntax_full_code_block: null
 syntax_full_properties_list: null
 syntax_shortcode: null
-registry_key: false
-nameless_apt_update: false
-nameless_build_essential: false
-resource_package_options: false
 actions_list:
   :assemble:
     markdown: Assemble a previously created array into an active array.
@@ -46,15 +42,12 @@ properties_list:
 - property: bitmap
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: The path to a file in which a write-intent bitmap is stored.
 - property: chunk
   ruby_type: Integer
   required: false
   default_value: '16'
-  new_in: null
   description_list:
   - markdown: 'The chunk size. This property should not be used for a RAID 1
 
@@ -62,15 +55,11 @@ properties_list:
 - property: devices
   ruby_type: Array
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: The devices to be part of a RAID array.
 - property: layout
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: 'The RAID5 parity algorithm. Possible values: `left-asymmetric` (or
 
@@ -81,46 +70,27 @@ properties_list:
   ruby_type: Integer
   required: false
   default_value: '1'
-  new_in: null
   description_list:
   - markdown: The RAID level.
 - property: metadata
   ruby_type: String
   required: false
   default_value: '"0.90"'
-  new_in: null
   description_list:
   - markdown: The superblock type for RAID metadata.
 - property: raid_device
   ruby_type: String
   required: false
   default_value: The resource block's name
-  new_in: null
   description_list:
   - markdown: 'An optional property to specify the name of the RAID device if it
 
       differs from the resource block''s name.'
 properties_shortcode: null
-properties_multiple_packages: false
-resource_directory_recursive_directories: false
-resources_common_atomic_update: false
-properties_resources_common_windows_security: false
-remote_file_prevent_re_downloads: false
-remote_file_unc_path: false
-ps_credential_helper: false
-ruby_style_basics_chef_log: false
-debug_recipes_chef_shell: false
 template_requirements: false
 resources_common_properties: true
 resources_common_notification: true
 resources_common_guards: true
-common_resource_functionality_multiple_packages: false
-resources_common_guard_interpreter: false
-remote_directory_recursive_directories: false
-common_resource_functionality_resources_common_windows_security: false
-handler_custom: false
-cookbook_file_specificity: false
-unit_file_verification: false
 examples: "
   Create and assemble a RAID 0 array\n\n  The mdadm command can be\
   \ used to create RAID arrays. For example, a RAID\n  0 array named `/dev/md0` with\

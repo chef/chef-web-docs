@@ -50,7 +50,6 @@ properties_list:
 - property: change_users
   ruby_type: Array
   required: false
-  default_value: null
   description_list:
   - markdown: The users that should have 'modify' permission on the share in domain\username
       format.
@@ -80,7 +79,6 @@ properties_list:
 - property: full_users
   ruby_type: Array
   required: false
-  default_value: null
   description_list:
   - markdown: The users that should have 'Full control' permissions on the share in
       domain\username format.
@@ -93,7 +91,6 @@ properties_list:
 - property: read_users
   ruby_type: Array
   required: false
-  default_value: null
   description_list:
   - markdown: The users that should have 'read' permission on the share in domain\username
       format.

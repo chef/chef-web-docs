@@ -29,8 +29,6 @@ resource_description_list:
       be removed unless a version is provided in the **version** property or unless it can be discovered in the installer
       file specified by the **source** property.
 - notes_resource_based_on_package: true
-resource_new_in: null
-handler_types: false
 syntax_description: 'A **windows_package** resource block manages a package on a node,
 
   typically by installing it. The simplest use of the **windows_package**

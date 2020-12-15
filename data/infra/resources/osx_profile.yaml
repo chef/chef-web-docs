@@ -41,8 +41,6 @@ properties_list:
 - property: path
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: The path to write the profile to disk before loading it.
 - property: profile

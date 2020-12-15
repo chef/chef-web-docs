@@ -167,14 +167,12 @@ properties_list:
   ruby_type: true, false
   required: false
   default_value: 'false'
-  new_in: null
   description_list:
   - markdown: Continue running a recipe if a resource fails for any reason.
 - property: inherits
   ruby_type: true, false
   required: false
   default_value: 'true'
-  new_in: null
   description_list:
   - markdown: 'Microsoft Windows only. Whether a file inherits rights from its
 
@@ -338,7 +336,6 @@ properties_list:
 - property: remote_domain
   ruby_type: String
   required: false
-  default_value: null
   new_in: '13.4'
   description_list:
   - markdown: '**Windows only** The domain of the user specified by the
@@ -360,21 +357,17 @@ properties_list:
   ruby_type: Integer
   required: false
   default_value: '0'
-  new_in: null
   description_list:
   - markdown: The number of attempts to catch exceptions and retry the resource.
 - property: retry_delay
   ruby_type: Integer
   required: false
   default_value: '2'
-  new_in: null
   description_list:
   - markdown: The retry delay (in seconds).
 - property: rights
   ruby_type: Integer, String
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: 'Microsoft Windows only. The permissions for users and groups in a
 
@@ -390,8 +383,6 @@ properties_list:
 - property: source
   ruby_type: String, Array
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: 'Required. The location of the source file. The location of the
 
@@ -502,8 +493,6 @@ properties_list:
 - property: subscribes
   ruby_type: Symbol, Chef::Resource\[String\]
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - shortcode: resources_common_notification_subscribes.md
   - markdown: ''
@@ -514,7 +503,6 @@ properties_list:
   ruby_type: true, false
   required: false
   default_value: 'true'
-  new_in: null
   description_list:
   - markdown: 'Enable conditional HTTP requests by using a conditional `GET` (with
 
@@ -527,7 +515,6 @@ properties_list:
   ruby_type: true, false
   required: false
   default_value: 'true'
-  new_in: null
   description_list:
   - markdown: 'Enable ETag headers. Set to `false` to disable ETag headers. To use
 
@@ -536,7 +523,6 @@ properties_list:
   ruby_type: true, false
   required: false
   default_value: 'true'
-  new_in: null
   description_list:
   - markdown: 'Enable If-Modified-Since headers. Set to `false` to disable
 
@@ -547,7 +533,6 @@ properties_list:
   ruby_type: true, false
   required: false
   default_value: 'false'
-  new_in: null
   description_list:
   - markdown: 'Displays the progress of the file download. Set to `true` to enable
 
@@ -556,7 +541,6 @@ properties_list:
   ruby_type: true, false
   required: false
   default_value: 'false'
-  new_in: null
   description_list:
   - markdown: 'Ensure that sensitive resource data is not logged by Chef Infra
 
@@ -564,8 +548,6 @@ properties_list:
 - property: verify
   ruby_type: String, Block
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: "A block or a string that returns `true` or `false`. A string, when\n\
       `true` is executed as a system command.\n\nA block is arbitrary Ruby defined\
@@ -594,13 +576,6 @@ template_requirements: false
 resources_common_properties: false
 resources_common_notification: false
 resources_common_guards: false
-common_resource_functionality_multiple_packages: false
-resources_common_guard_interpreter: false
-remote_directory_recursive_directories: false
-common_resource_functionality_resources_common_windows_security: false
-handler_custom: false
-cookbook_file_specificity: false
-unit_file_verification: false
 examples: "
   Transfer a file from a URL\n\n  ```ruby\n  remote_file '/tmp/testfile'\
   \ do\n    source 'http://www.example.com/tempfiles/testfile'\n    mode '0755'\n\

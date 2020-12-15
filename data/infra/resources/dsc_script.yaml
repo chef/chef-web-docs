@@ -49,8 +49,6 @@ resource_description_list:
       `Push`, whereas the **dsc_resource** resource requires it to be set to
 
       `Disabled`.'
-resource_new_in: null
-handler_types: false
 syntax_description: "A **dsc_script** resource block embeds the code that defines\
   \ a DSC\nconfiguration directly within a Chef recipe:\n\n```ruby\ndsc_script 'get-dsc-resource-kit'\
   \ do\n  code <<-EOH\n    Archive reskit\n    {\n      ensure = 'Present'\n     \
@@ -78,10 +76,6 @@ syntax_full_properties_list:
   with the Ruby type shown. See "Properties" section below for more information about
   all of the properties that may be used with this resource.'
 syntax_shortcode: null
-registry_key: false
-nameless_apt_update: false
-nameless_build_essential: false
-resource_package_options: false
 actions_list:
   :nothing:
     shortcode: resources_common_actions_nothing.md
@@ -92,8 +86,6 @@ properties_list:
 - property: code
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: 'The code for the DSC configuration script. This property may not be
 
@@ -101,8 +93,6 @@ properties_list:
 - property: command
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: 'The path to a valid Windows PowerShell data file that contains the
 
@@ -116,8 +106,6 @@ properties_list:
 - property: configuration_data
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: 'The configuration data for the DSC script. The configuration data
 
@@ -131,8 +119,6 @@ properties_list:
 - property: configuration_data_script
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: 'The path to a valid Windows PowerShell data file that also contains
 
@@ -142,8 +128,6 @@ properties_list:
 - property: configuration_name
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: 'The name of a valid Windows PowerShell cmdlet. The name may only
 
@@ -184,8 +168,6 @@ properties_list:
 - property: imports
   ruby_type: Array
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - warning:
     - markdown: This property **MUST** be used with the `code` attribute.
@@ -253,13 +235,6 @@ template_requirements: false
 resources_common_properties: true
 resources_common_notification: true
 resources_common_guards: true
-common_resource_functionality_multiple_packages: false
-resources_common_guard_interpreter: false
-remote_directory_recursive_directories: false
-common_resource_functionality_resources_common_windows_security: false
-handler_custom: false
-cookbook_file_specificity: false
-unit_file_verification: false
 examples: "
   Specify DSC code directly\n\n  DSC data can be specified directly\
   \ in a recipe:\n\n  ```ruby\n  dsc_script 'emacs' do\n    code <<-EOH\n    Environment\

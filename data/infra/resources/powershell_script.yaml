@@ -56,8 +56,6 @@ properties_list:
 - property: architecture
   ruby_type: Symbol
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: 'The architecture of the process under which a script is executed. If
 
@@ -165,7 +163,6 @@ properties_list:
   ruby_type: Symbol
   required: false
   default_value: :powershell_script
-  new_in: null
   description_list:
   - markdown: 'When this property is set to `:powershell_script`, the 64-bit
 
@@ -216,8 +213,6 @@ properties_list:
 - property: timeout
   ruby_type: Integer, Float
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: 'The amount of time (in seconds) a command is to wait before timing
 

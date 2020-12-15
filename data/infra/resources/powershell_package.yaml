@@ -42,10 +42,6 @@ syntax_properties_list:
 syntax_full_code_block: null
 syntax_full_properties_list: null
 syntax_shortcode: null
-registry_key: false
-nameless_apt_update: false
-nameless_build_essential: false
-resource_package_options: false
 actions_list:
   :install:
     markdown: Default. Install a package. If a version is specified, install the specified
