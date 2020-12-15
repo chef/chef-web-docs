@@ -215,4 +215,3 @@ examples: "
   \        source plugin\n        owner 'chef'\n        notifies :run, 'ruby_block[reload_config]',\
   \ :immediately\n      end\n    end\n  end\n  ```\n"
 
----

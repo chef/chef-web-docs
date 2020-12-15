@@ -99,4 +99,3 @@ examples: "\n  Send a GET request\n\n  ```ruby\n  http_request 'some_message' do
   \ => File.mtime('/tmp/couch.png').httpdate\n    end\n    notifies :create, 'remote_file[/tmp/couch.png]',\
   \ :immediately\n  end\n  ```\n"
 
----

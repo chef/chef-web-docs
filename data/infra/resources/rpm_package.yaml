@@ -80,4 +80,3 @@ examples: "
   Install a package\n\n  ```ruby\n  rpm_package 'name of package'\
   \ do\n    action :install\n  end\n  ```\n"
 
----

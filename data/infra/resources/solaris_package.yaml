@@ -72,4 +72,3 @@ examples: "
   Install a package\n\n  ```ruby\n  solaris_package 'name of package'\
   \ do\n    source '/packages_directory'\n    action :install\n  end\n  ```\n"
 
----

@@ -176,4 +176,3 @@ examples: "
   \  cron 'name_of_cron_entry' do\n    minute '0'\n    hour '20'\n    day '*'\n  \
   \  month '11'\n    weekday '1-5'\n    action :create\n  end\n  ```\n"
 
----

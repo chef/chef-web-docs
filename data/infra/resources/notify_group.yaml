@@ -64,4 +64,3 @@ examples: |
     notifies :run, "notify_group[crude_stop_and_start]", :immediately
   end
   ```
----

@@ -112,4 +112,3 @@ examples: "
   \ `xNetworking` to version 2.12.0.0.\n\n  Remove a package:\n\n  ```ruby\n  powershell_package\
   \ 'xCertificate' do\n    action :remove\n  end\n  ```\n"
 
----

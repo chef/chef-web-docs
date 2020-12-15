@@ -455,4 +455,3 @@ examples: "
   \    property :name, 'TestCluster'\n    property :staticipaddress, '10.0.0.3'\n\
   \    property :domainadministratorcredential, ps_credential('abcd')\n  end\n  ```\n"
 
----

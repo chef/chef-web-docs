@@ -88,4 +88,3 @@ properties_list:
   description_list:
   - markdown: The version of a package to be installed or upgraded.
 examples: 
----

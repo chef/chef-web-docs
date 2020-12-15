@@ -73,4 +73,3 @@ examples: |
     action  :create
   end
   ```
----

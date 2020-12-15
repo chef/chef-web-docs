@@ -48,4 +48,3 @@ examples: "
   \  ```\n\n  Disable an RHSM repository\n\n  ```ruby\n  rhsm_repo 'rhel-7-server-extras-rpms'\
   \ do\n    action :disable\n  end\n  ```\n"
 
----

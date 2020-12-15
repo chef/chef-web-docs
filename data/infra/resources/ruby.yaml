@@ -208,4 +208,3 @@ handler_custom: false
 cookbook_file_specificity: false
 unit_file_verification: false
 
----

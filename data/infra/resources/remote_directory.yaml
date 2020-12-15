@@ -358,4 +358,3 @@ examples: "
   \n    arguments node['windows']['allow_pending_reboots']\n    supports :report =>\
   \ true, :exception => false\n    action :enable\n  end\n  ```\n"
 
----

@@ -289,4 +289,3 @@ examples: "
   \  end\n  ```\n\n  where `name: ''` contains an empty string, which will set the\
   \ name of\n  the registry key to `(Default)`.\n"
 
----

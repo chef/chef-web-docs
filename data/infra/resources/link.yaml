@@ -229,4 +229,3 @@ examples: "
   \  directory 'C:/source'\n\n  link 'C:/destination' do\n      link_type :symbolic\n\
   \      to 'C:/source'\n  end\n  ```\n"
 
----

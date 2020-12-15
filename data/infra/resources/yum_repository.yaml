@@ -3,15 +3,7 @@ resource_reference: true
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-title: yum_repository resource
 resource: yum_repository
-aliases:
-- "/resource_yum_repository.html"
-menu:
-  infra:
-    title: yum_repository
-    identifier: chef_infra/cookbook_reference/resources/yum_repository yum_repository
-    parent: chef_infra/cookbook_reference/resources
 resource_description_list:
 - markdown: Use the **yum_repository** resource to manage a Yum repository configuration
     file located at `/etc/yum.repos.d/repositoryid.repo` on the local machine. This
@@ -392,4 +384,3 @@ examples: |
     action :delete
   end
   ```
----

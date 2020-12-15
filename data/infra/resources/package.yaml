@@ -417,4 +417,3 @@ examples: "
   \   homebrew_user 1001\n  end\n  ```\n\n  Specify the Homebrew user with a string\n\
   \n  ```ruby\n  homebrew_package 'vim' do\n    homebrew_user 'user1'\n  end\n  ```\n"
 
----

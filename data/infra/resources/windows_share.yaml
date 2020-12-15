@@ -3,15 +3,7 @@ resource_reference: true
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-title: windows_share resource
 resource: windows_share
-aliases:
-- "/resource_windows_share.html"
-menu:
-  infra:
-    title: windows_share
-    identifier: chef_infra/cookbook_reference/resources/windows_share windows_share
-    parent: chef_infra/cookbook_reference/resources
 resource_description_list:
 - markdown: Use the **windows_share** resource to create, modify and remove Windows
     shares.
@@ -144,4 +136,3 @@ examples: |
     action :delete
   end
   ```
----

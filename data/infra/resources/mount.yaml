@@ -179,4 +179,3 @@ examples: "
   \ **execute** resource is used to install MySQL\n  -   the **mount** resource is\
   \ used to mount the node and enable MySQL\n"
 
----

@@ -257,4 +257,3 @@ examples: "
   \  user 'my_awesome_user' do\n    password 'cbd1a....fc843'  # Length: 256\n   \
   \ salt 'bd1a....fc83'        # Length: 64\n    iterations 25000\n  end\n  ```\n"
 
----

@@ -45,4 +45,3 @@ properties_list:
   - markdown: An optional property for specifying the Pool ID if it differs from the
       resource block's name.
 examples: 
----

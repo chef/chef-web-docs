@@ -483,4 +483,3 @@ examples: "
   \ => 7, 'Hourly' => 10\n    time_out 300\n  end\n  ```\n\n  Remove a Launch Daemon\n\
   \n  ```ruby\n  launchd 'com.chef.every15' do\n    action :delete\n  end\n  ```\n"
 
----

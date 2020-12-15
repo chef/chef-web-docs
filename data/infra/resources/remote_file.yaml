@@ -683,4 +683,3 @@ examples: "
   \ slash (`/`) is required. For example:\n\n  ```ruby\n  remote_file 'file:///c:/path/to/file'\
   \ do\n    ...       # other attributes\n  end\n  ```\n"
 
----

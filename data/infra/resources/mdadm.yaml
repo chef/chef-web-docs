@@ -154,4 +154,3 @@ examples: "
   \ '/dev/s4' ]\n    level 5\n    metadata '0.90'\n    chunk 32\n    action :create\n\
   \  end\n  ```\n"
 
----

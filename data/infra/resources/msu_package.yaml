@@ -76,4 +76,3 @@ examples: "
   \ 2012R2 Update KB2959977' do\n    source 'https://s3.amazonaws.com/my_bucket/Windows8.1-KB2959977-x64.msu'\n\
   \    action :remove\n  end\n  ```\n"
 
----

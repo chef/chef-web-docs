@@ -84,4 +84,3 @@ properties_list:
   description_list:
   - markdown: The IP address of the target route.
 examples:
----

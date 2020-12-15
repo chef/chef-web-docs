@@ -49,4 +49,3 @@ examples: "
   \ ```ruby\n  rhsm_errata_level 'example_install_moderate' do\n    errata_level\
   \ 'moderate'\n  end\n  ```\n"
 
----

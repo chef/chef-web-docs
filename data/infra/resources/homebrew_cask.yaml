@@ -72,4 +72,3 @@ properties_list:
   description_list:
   - markdown: The owner of the Homebrew installation.
 examples:
----

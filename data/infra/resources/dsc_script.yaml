@@ -320,4 +320,3 @@ examples: "
   \\DSCResourceKit620082014.zip\"\n        destination = \"#{ENV['PROGRAMW6432']}\\\
   \\WindowsPowerShell\\\\Modules\"\n      }\n    EOH\n  end\n  ```\n"
 
----

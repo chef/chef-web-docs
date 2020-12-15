@@ -125,4 +125,3 @@ examples: "
   Install a package\n\n  ```ruby\n  openbsd_package 'name of package'\
   \ do\n    action :install\n  end\n  ```\n"
 
----

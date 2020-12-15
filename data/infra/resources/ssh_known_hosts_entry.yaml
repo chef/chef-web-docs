@@ -123,4 +123,3 @@ examples: |
     key 'node.example.com ssh-rsa ...'
   end
   ```
----

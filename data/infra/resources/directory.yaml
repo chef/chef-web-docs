@@ -257,4 +257,3 @@ examples: "
   \      group 'group_id'\n      mode 'file_data['mode']'\n      ignore_failure true\n\
   \      backup 0\n    end\n  end\n  ```\n"
 
----

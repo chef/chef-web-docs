@@ -272,4 +272,3 @@ examples: "
   \   cwd Chef::Config[:file_cache_path]\n   user \"username@domain-name\"\n   password\
   \ \"password\"\n  end\n  ```\n"
 
----

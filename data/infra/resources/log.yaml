@@ -55,4 +55,3 @@ examples: "
   \  log 'message' do\n    message 'This is the message that will be added to the\
   \ log.'\n    level :info\n  end\n  ```\n"
 
----

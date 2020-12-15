@@ -153,4 +153,3 @@ examples: |
     action [:create, :enable]
   end
   ```
----

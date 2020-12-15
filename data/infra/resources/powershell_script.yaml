@@ -321,4 +321,3 @@ examples: "
   mkdir test_dir\"\n   cwd Chef::Config[:file_cache_path]\n   user \"username\"\n\
   \   password \"password\"\n   elevated true\n  end\n  ```\n"
 
----

@@ -413,4 +413,3 @@ examples: "
   \    action :create\n  end\n  ```\n\n  where the `content` attribute uses the Ruby\
   \ `IO.read` method to get the\n  contents of the `/tmp/1.txt` file.\n"
 
----

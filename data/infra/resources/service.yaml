@@ -318,4 +318,3 @@ examples: "
   \     -s #{node['chef_client']['svc_name']} > /dev/console 2>&1'\"\n    not_if \"\
   lsitab #{node['chef_client']['svc_name']}\"\n  end\n  ```\n"
 
----

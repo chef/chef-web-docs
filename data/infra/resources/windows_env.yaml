@@ -3,16 +3,7 @@ resource_reference: true
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-title: windows_env resource
 resource: windows_env
-aliases:
-- /resource_windows_env.html
-- /resource_env.html
-menu:
-  infra:
-    title: windows_env
-    identifier: chef_infra/cookbook_reference/resources/windows_env windows_env
-    parent: chef_infra/cookbook_reference/resources
 resource_description_list:
 - markdown: 'Use the **windows_env** resource to manage environment keys in
 
@@ -96,4 +87,3 @@ examples: |
     value 'C:\Windows\system32\cmd.exe'
   end
   ```
----

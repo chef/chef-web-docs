@@ -235,4 +235,3 @@ examples: |
   iface eth1 inet dhcp
     address 33.33.33.80
   ```
----

@@ -179,4 +179,3 @@ examples: |
     daemon_options ['-n audit_only']
   end
   ```
----

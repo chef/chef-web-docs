@@ -53,4 +53,3 @@ examples: "**Set the Chocolatey cacheLocation config**:\n\n```ruby\nchocolatey_c
   'Set cacheLocation config' do\n  config_key 'cacheLocation'\n  value 'C:\temp\boco'\nend\n```\n\n**Unset
   a Chocolatey config**:\n\n```ruby\nchocolatey_config 'BogusConfig' do\n  action
   :unset\nend\n```\n"
----

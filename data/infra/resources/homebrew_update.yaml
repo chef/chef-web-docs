@@ -55,4 +55,3 @@ examples: |
   ```ruby
   homebrew_update 'update'
   ```
----

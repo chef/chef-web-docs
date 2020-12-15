@@ -77,4 +77,3 @@ examples: "
   \ tells the **reboot** resource block to run\n      if the **powershell_script**\
   \ block was executed during a Chef Infra\n      Client run\n"
 
----

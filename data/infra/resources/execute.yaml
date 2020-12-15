@@ -688,4 +688,3 @@ examples: |
   execute 'md5sum' do
     input File.read(__FILE__)
   end
----

@@ -88,4 +88,3 @@ properties_list:
   description_list:
   - markdown: The url to the package source.
 examples:
----

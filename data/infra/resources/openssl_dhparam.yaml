@@ -110,4 +110,3 @@ examples: |
     path '/etc/httpd/ssl/dhparam.pem'
   end
   ```
----

@@ -249,4 +249,3 @@ examples: |
     subject_alt_name ['IP:127.0.0.1', 'DNS:localhost.localdomain']
   end
   ```
----
