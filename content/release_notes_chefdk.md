@@ -132,7 +132,7 @@ Chef Infra Client has been updated from 15.13.8 to 15.14.0 with a large number o
 
 Chef InSpec has been updated from 4.22.1 to 4.22.22. This new release includes the following improvements:
 
-- Fix mysql_session stdout, stderr and exit_status parameters. Thanks [@ramereth](https://github.com/ramereth)!
+- Fix mysql_session stdout, stderr, and exit_status parameters. Thanks [@ramereth](https://github.com/ramereth)!
 - Add new windows_firewall and windows_firewall_rule resources. Thanks [@tecracer-theinen](https://github.com/tecracer-theinen)!
 
 #### Chef Vault
