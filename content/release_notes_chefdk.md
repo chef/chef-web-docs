@@ -17,7 +17,7 @@ Note: ChefDK will enter the end-of-life product phase on Dec 31st 2020. The 4.13
 
 ### Package Updates
 
-ChefDK packages are no longer produced for Debian 8 and RHEL/CentOS 6 as these platforms are now both EOL.
+ChefDK packages are no longer produced for Debian 8 and RHEL/CentOS 6, as these platforms are now both EOL.
 
 ### Updated Components
 
