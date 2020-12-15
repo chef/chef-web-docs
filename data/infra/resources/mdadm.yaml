@@ -1,30 +1,16 @@
 ---
-title: mdadm resource
-resource: mdadm
-aliases:
-- "/resource_mdadm.html"
-menu:
-  infra:
-    title: mdadm
-    identifier: chef_infra/cookbook_reference/resources/mdadm mdadm
-    parent: chef_infra/cookbook_reference/resources
 resource_reference: true
+resources_common_guards: true
+resources_common_notification: true
+resources_common_properties: true
+resource: mdadm
 resource_description_list:
-- markdown: 'Use the **mdadm** resource to manage RAID devices in a Linux environment
-
-    using the mdadm utility. The **mdadm** resource will create and assemble
-
-    an array, but it will not create the config file that is used to persist
-
-    the array upon reboot. If the config file is required, it must be done
-
-    by specifying a template with the correct array layout, and then by
-
-    using the **mount** resource to create a file systems table (fstab)
-
-    entry.'
-resource_new_in: null
-handler_types: false
+- markdown: Use the **mdadm** resource to manage RAID devices in a Linux environment
+    using the mdadm utility. The mdadm resource will create and assemble an array,
+    but it will not create the config file that is used to persist the array upon
+    reboot. If the config file is required, it must be done by specifying a template
+    with the correct array layout, and then by using the mount provider to create
+    a file systems table (fstab) entry.
 syntax_description: "The mdadm resource has the following syntax:\n\n```ruby\nmdadm\
   \ 'name' do\n  bitmap           String\n  chunk            Integer # default value:\
   \ 16\n  devices          Array\n  layout           String\n  level            Integer\

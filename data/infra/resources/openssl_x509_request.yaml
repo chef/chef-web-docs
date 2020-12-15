@@ -3,15 +3,7 @@ resource_reference: true
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-title: openssl_x509_request resource
 resource: openssl_x509_request
-aliases:
-- "/resource_openssl_x509_request.html"
-menu:
-  infra:
-    title: openssl_x509_request
-    identifier: chef_infra/cookbook_reference/resources/openssl_x509_request openssl_x509_request
-    parent: chef_infra/cookbook_reference/resources
 resource_description_list:
 - markdown: Use the **openssl_x509_request** resource to generate PEM-formatted x509
     certificates requests. If no existing key is specified, the resource will automatically

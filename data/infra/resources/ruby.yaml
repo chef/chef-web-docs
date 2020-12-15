@@ -1,37 +1,18 @@
 ---
 resource_reference: true
 resources_common_guards: true
-title: ruby resource
 resource: ruby
-aliases:
-- "/resource_ruby.html"
-menu:
-  infra:
-    title: ruby
-    identifier: chef_infra/cookbook_reference/resources/ruby ruby
-    parent: chef_infra/cookbook_reference/resources
 resource_description_list:
-- markdown: 'Use the **ruby** resource to execute scripts using the Ruby interpreter.
-
-    This resource may also use any of the actions and properties that are
-
-    available to the **execute** resource. Commands that are executed with
-
-    this resource are (by their nature) not idempotent, as they are
-
-    typically unique to the environment in which they are run. Use `not_if`
-
-    and `only_if` to guard this resource for idempotence.'
+- markdown: Use the **ruby** resource to execute scripts using the Ruby interpreter.
+    This resource may also use any of the actions and properties that are available
+    to the **execute** resource. Commands that are executed with this resource are
+    (by their nature) not idempotent, as they are typically unique to the environment
+    in which they are run. Use `not_if` and `only_if` to guard this resource for idempotence.
 - note:
-    markdown: 'The **ruby** script resource (which is based on the **script** resource)
-
-      is different from the **ruby_block** resource because Ruby code that is
-
-      run with this resource is created as a temporary file and executed like
-
-      other script resources, rather than run inline.'
-resource_new_in: null
-handler_types: false
+    markdown: The **ruby** script resource (which is based on the **script** resource)
+      is different from the **ruby_block** resource because Ruby code that is run
+      with this resource is created as a temporary file and executed like other script
+      resources, rather than run inline.
 syntax_description: |
   A **ruby** resource block executes scripts using Ruby:
   ```ruby

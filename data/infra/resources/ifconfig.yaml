@@ -3,15 +3,7 @@ resource_reference: true
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-title: ifconfig resource
 resource: ifconfig
-aliases:
-- "/resource_ifconfig.html"
-menu:
-  infra:
-    title: ifconfig
-    identifier: chef_infra/cookbook_reference/resources/ifconfig ifconfig
-    parent: chef_infra/cookbook_reference/resources
 resource_description_list:
 - markdown: Use the **ifconfig** resource to manage interfaces on Unix and Linux systems.
 - note:

@@ -1,15 +1,7 @@
 ---
-title: package resource
-resource: package
-aliases:
-- "/resource_package.html"
-menu:
-  infra:
-    title: package
-    identifier: chef_infra/cookbook_reference/resources/package package
-    parent: chef_infra/cookbook_reference/resources
 resource_reference: true
-robots: null
+resource_package_options: true
+resource: package
 resource_description_list:
 - markdown: 'Use the **package** resource to manage packages. When the package is
 

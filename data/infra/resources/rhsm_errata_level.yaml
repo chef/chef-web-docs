@@ -3,15 +3,7 @@ resource_reference: true
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-title: rhsm_errata_level resource
 resource: rhsm_errata_level
-aliases:
-- "/resource_rhsm_errata_level.html"
-menu:
-  infra:
-    title: rhsm_errata_level
-    identifier: chef_infra/cookbook_reference/resources/rhsm_errata_level rhsm_errata_level
-    parent: chef_infra/cookbook_reference/resources
 resource_description_list:
 - markdown: Use the **rhsm_errata_level** resource to install all packages of a specified
     errata level from the Red Hat Subscription Manager. For example, you can ensure

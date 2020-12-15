@@ -3,15 +3,7 @@ resource_reference: true
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-title: rpm_package resource
 resource: rpm_package
-aliases:
-- "/resource_rpm_package.html"
-menu:
-  infra:
-    title: rpm_package
-    identifier: chef_infra/cookbook_reference/resources/rpm_package rpm_package
-    parent: chef_infra/cookbook_reference/resources
 resource_description_list:
 - markdown: Use the **rpm_package** resource to manage packages using the RPM Package
     Manager.

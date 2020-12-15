@@ -1,17 +1,9 @@
 ---
-title: link resource
-resource: link
-draft: false
-aliases:
-- /resource_link.html
-menu:
-  infra:
-    title: link
-    identifier: chef_infra/cookbook_reference/resources/link link
-    parent: chef_infra/cookbook_reference/resources
-
 resource_reference: true
-robots: null
+resources_common_guards: true
+resources_common_notification: true
+resources_common_properties: true
+resource: link
 resource_description_list:
 - markdown: 'Use the **link** resource to create symbolic or hard links.
 

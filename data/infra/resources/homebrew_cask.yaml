@@ -3,15 +3,7 @@ resource_reference: true
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-title: homebrew_cask resource
 resource: homebrew_cask
-aliases:
-- "/resource_homebrew_cask.html"
-menu:
-  infra:
-    title: homebrew_cask
-    identifier: chef_infra/cookbook_reference/resources/homebrew_cask homebrew_cask
-    parent: chef_infra/cookbook_reference/resources
 resource_description_list:
 - markdown: Use the **homebrew_cask** resource to install binaries distributed via
     the Homebrew package manager.

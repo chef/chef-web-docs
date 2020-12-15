@@ -3,15 +3,7 @@ resource_reference: true
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-title: ssh_known_hosts_entry resource
 resource: ssh_known_hosts_entry
-aliases:
-- "/resource_ssh_known_hosts_entry.html"
-menu:
-  infra:
-    title: ssh_known_hosts_entry
-    identifier: chef_infra/cookbook_reference/resources/ssh_known_hosts_entry ssh_known_hosts_entry
-    parent: chef_infra/cookbook_reference/resources
 resource_description_list:
 - markdown: Use the **ssh_known_hosts_entry** resource to add an entry for the specified
     host in /etc/ssh/ssh_known_hosts or a user's known hosts file if specified.

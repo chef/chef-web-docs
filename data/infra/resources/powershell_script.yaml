@@ -3,15 +3,7 @@ resource_reference: true
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-title: powershell_script resource
 resource: powershell_script
-aliases:
-- "/resource_powershell_script.html"
-menu:
-  infra:
-    title: powershell_script
-    identifier: chef_infra/cookbook_reference/resources/powershell_script powershell_script
-    parent: chef_infra/cookbook_reference/resources
 resource_description_list:
 - markdown: |-
     Use the **powershell_script** resource to execute a script using the Windows PowerShell interpreter, much like how the script and script-based resources **bash**, **csh**, **perl**, **python**, and **ruby** are used. The powershell_script is specific to the Microsoft Windows platform, but may use both the the Windows PowerShell interpreter or the PowerShell Core (pwsh) interpreter as of Chef Infra Client 16.6 and later.

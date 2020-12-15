@@ -1,22 +1,13 @@
 ---
-title: openbsd_package resource
-resource: openbsd_package
-aliases:
-- "/resource_openbsd_package.html"
-menu:
-  infra:
-    title: openbsd_package
-    identifier: chef_infra/cookbook_reference/resources/openbsd_package openbsd_package
-    parent: chef_infra/cookbook_reference/resources
-
 resource_reference: true
+resources_common_guards: true
+resources_common_notification: true
+resources_common_properties: true
+resource: openbsd_package
 resource_description_list:
-- markdown: 'Use the **openbsd_package** resource to manage packages for the OpenBSD
-
-    platform.'
+- markdown: Use the **openbsd_package** resource to manage packages for the OpenBSD
+    platform.
 - notes_resource_based_on_package: true
-resource_new_in: null
-handler_types: false
 syntax_description: 'A **openbsd_package** resource block manages a package on a node,
 
   typically by installing it. The simplest use of the **openbsd_package**

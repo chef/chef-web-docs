@@ -3,15 +3,7 @@ resource_reference: true
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-title: kernel_module resource
 resource: kernel_module
-aliases:
-- "/resource_kernel_module.html"
-menu:
-  infra:
-    title: kernel_module
-    identifier: chef_infra/cookbook_reference/resources/kernel_module kernel_module
-    parent: chef_infra/cookbook_reference/resources
 resource_description_list:
 - markdown: Use the **kernel_module** resource to manage kernel modules on Linux systems.
     This resource can load, unload, blacklist, disable, install, and uninstall modules.

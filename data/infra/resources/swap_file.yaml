@@ -3,15 +3,7 @@ resource_reference: true
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-title: swap_file resource
 resource: swap_file
-aliases:
-- "/resource_swap_file.html"
-menu:
-  infra:
-    title: swap_file
-    identifier: chef_infra/cookbook_reference/resources/swap_file swap_file
-    parent: chef_infra/cookbook_reference/resources
 resource_description_list:
 - markdown: Use the **swap_file** resource to create or delete swap files on Linux
     systems, and optionally to manage the swappiness configuration for a host.

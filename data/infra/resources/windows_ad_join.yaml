@@ -3,15 +3,7 @@ resource_reference: true
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-title: windows_ad_join resource
 resource: windows_ad_join
-aliases:
-- "/resource_windows_ad_join.html"
-menu:
-  infra:
-    title: windows_ad_join
-    identifier: chef_infra/cookbook_reference/resources/windows_ad_join windows_ad_join
-    parent: chef_infra/cookbook_reference/resources
 resource_description_list:
 - markdown: Use the **windows_ad_join** resource to join a Windows Active Directory
     domain.

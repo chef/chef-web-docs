@@ -3,15 +3,7 @@ resource_reference: true
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-title: launchd resource
 resource: launchd
-aliases:
-- "/resource_launchd.html"
-menu:
-  infra:
-    title: launchd
-    identifier: chef_infra/cookbook_reference/resources/launchd launchd
-    parent: chef_infra/cookbook_reference/resources
 resource_description_list:
 - markdown: Use the **launchd** resource to manage system-wide services (daemons)
     and per-user services (agents) on the macOS platform.

@@ -3,15 +3,7 @@ resource_reference: true
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-title: mount resource
 resource: mount
-aliases:
-- "/resource_mount.html"
-menu:
-  infra:
-    title: mount
-    identifier: chef_infra/cookbook_reference/resources/mount mount
-    parent: chef_infra/cookbook_reference/resources
 resource_description_list:
 - markdown: Use the **mount** resource to manage a mounted file system.
 syntax_full_code_block: |-

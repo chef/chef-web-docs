@@ -3,15 +3,7 @@ resource_reference: true
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-title: rhsm_register resource
 resource: rhsm_register
-aliases:
-- "/resource_rhsm_register.html"
-menu:
-  infra:
-    title: rhsm_register
-    identifier: chef_infra/cookbook_reference/resources/rhsm_register rhsm_register
-    parent: chef_infra/cookbook_reference/resources
 resource_description_list:
 - markdown: Use the **rhsm_register** resource to register a node with the Red Hat
     Subscription Manager or a local Red Hat Satellite server.

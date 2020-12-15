@@ -3,15 +3,7 @@ resource_reference: true
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-title: paludis_package resource
 resource: paludis_package
-aliases:
-- "/resource_paludis_package.html"
-menu:
-  infra:
-    title: paludis_package
-    identifier: chef_infra/cookbook_reference/resources/paludis_package paludis_package
-    parent: chef_infra/cookbook_reference/resources
 resource_description_list:
 - markdown: Use the **paludis_package** resource to manage packages for the Paludis
     platform.

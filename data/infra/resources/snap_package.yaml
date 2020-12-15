@@ -1,17 +1,10 @@
 ---
 resource_reference: true
+multi_package_resource: true
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-title: snap_package resource
 resource: snap_package
-aliases:
-- "/resource_snap_package.html"
-menu:
-  infra:
-    title: snap_package
-    identifier: chef_infra/cookbook_reference/resources/snap_package snap_package
-    parent: chef_infra/cookbook_reference/resources
 resource_description_list:
 - markdown: Use the **snap_package** resource to manage snap packages on Debian and
     Ubuntu platforms.

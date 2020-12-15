@@ -3,15 +3,7 @@ resource_reference: true
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-title: openssl_ec_private_key resource
 resource: openssl_ec_private_key
-aliases:
-- "/resource_openssl_ec_private_key.html"
-menu:
-  infra:
-    title: openssl_ec_private_key
-    identifier: chef_infra/cookbook_reference/resources/openssl_ec_private_key openssl_ec_private_key
-    parent: chef_infra/cookbook_reference/resources
 resource_description_list:
 - markdown: Use the **openssl_ec_private_key** resource to generate an elliptic curve
     (EC) private key file. If a valid EC key file can be opened at the specified location,

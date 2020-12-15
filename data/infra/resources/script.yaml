@@ -1,15 +1,10 @@
 ---
-title: script resource
-resource: script
-aliases:
-- "/resource_script.html"
-menu:
-  infra:
-    title: script
-    identifier: chef_infra/cookbook_reference/resources/script script
-    parent: chef_infra/cookbook_reference/resources
 resource_reference: true
-robots: null
+resources_common_guard_interpreter: true
+resources_common_guards: true
+resources_common_notification: true
+resources_common_properties: true
+resource: script
 resource_description_list:
 - markdown: 'Use the **script** resource to execute scripts using a specified
 
@@ -47,8 +42,6 @@ resource_description_list:
     Changed in 12.19 to support windows alternate user identity in execute
 
     resources'
-resource_new_in: null
-handler_types: false
 syntax_description: "A **script** resource block typically executes scripts using\
   \ a specified\ninterpreter, such as Bash, csh, Perl, Python, or Ruby:\n\n```ruby\n\
   script 'extract_module' do\n  interpreter \"bash\"\n  cwd ::File.dirname(src_filepath)\n\

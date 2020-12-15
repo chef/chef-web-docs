@@ -3,15 +3,7 @@ resource_reference: true
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-title: route resource
 resource: route
-aliases:
-- "/resource_route.html"
-menu:
-  infra:
-    title: route
-    identifier: chef_infra/cookbook_reference/resources/route route
-    parent: chef_infra/cookbook_reference/resources
 resource_description_list:
 - markdown: Use the **route** resource to manage the system routing table in a Linux
     environment.

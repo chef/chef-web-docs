@@ -3,15 +3,7 @@ resource_reference: true
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-title: timezone resource
 resource: timezone
-aliases:
-- "/resource_timezone.html"
-menu:
-  infra:
-    title: timezone
-    identifier: chef_infra/cookbook_reference/resources/timezone timezone
-    parent: chef_infra/cookbook_reference/resources
 resource_description_list:
 - markdown: 'Use the **timezone** resource to change the system timezone on Windows,
     Linux, and macOS hosts. Timezones are specified in tz database format, with a

@@ -1,20 +1,11 @@
 ---
-title: group resource
-resource: group
-aliases:
-- "/resource_group.html"
-menu:
-  infra:
-    title: group
-    identifier: chef_infra/cookbook_reference/resources/group group
-    parent: chef_infra/cookbook_reference/resources
-
 resource_reference: true
-robots: null
+resources_common_guards: true
+resources_common_notification: true
+resources_common_properties: true
+resource: group
 resource_description_list:
 - markdown: Use the **group** resource to manage a local group.
-resource_new_in: null
-handler_types: false
 syntax_description: "The group resource has the following syntax:\n\n```ruby\ngroup\
   \ 'name' do\n  append                true, false # default value: false\n  comment\
   \               String\n  excluded_members      String, Array\n  gid           \

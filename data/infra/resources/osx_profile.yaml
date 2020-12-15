@@ -3,15 +3,7 @@ resource_reference: true
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-title: osx_profile resource
 resource: osx_profile
-aliases:
-- "/resource_osx_profile.html"
-menu:
-  infra:
-    title: osx_profile
-    identifier: chef_infra/cookbook_reference/resources/osx_profile osx_profile
-    parent: chef_infra/cookbook_reference/resources
 resource_description_list:
 - markdown: Use the **osx_profile** resource to manage configuration profiles (`.mobileconfig`
     files) on the macOS platform. The **osx_profile** resource installs profiles by

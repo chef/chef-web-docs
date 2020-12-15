@@ -3,27 +3,14 @@ resource_reference: true
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-title: ksh resource
 resource: ksh
-aliases:
-- "/resource_ksh.html"
-menu:
-  infra:
-    title: ksh
-    identifier: chef_infra/cookbook_reference/resources/ksh ksh
-    parent: chef_infra/cookbook_reference/resources
 resource_description_list:
-- markdown: 'Use the **ksh** resource to execute scripts using the Korn shell (ksh)
-
-    interpreter. This resource may also use any of the actions and
-
-    properties that are available to the **execute** resource. Commands that
-
-    are executed with this resource are (by their nature) not idempotent, as
-
-    they are typically unique to the environment in which they are run. Use
-
-    `not_if` and `only_if` to guard this resource for idempotence.'
+- markdown: Use the **ksh** resource to execute scripts using the Korn shell (ksh)
+    interpreter. This resource may also use any of the actions and properties that
+    are available to the **execute** resource. Commands that are executed with this
+    resource are (by their nature) not idempotent, as they are typically unique to
+    the environment in which they are run. Use `not_if` and `only_if` to guard this
+    resource for idempotence.
 syntax_description: "A **ksh** resource block executes scripts using ksh:\n\n```ruby\n\
   ksh 'hello world' do\n  code <<-EOH\n    echo \"Hello world!\"\n    echo \"Current\
   \ directory: \" $cwd\n  EOH\nend\n```"

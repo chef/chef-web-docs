@@ -4,15 +4,7 @@ resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
 unit_file_verification: true
-title: systemd_unit resource
 resource: systemd_unit
-aliases:
-- "/resource_systemd_unit.html"
-menu:
-  infra:
-    title: systemd_unit
-    identifier: chef_infra/cookbook_reference/resources/systemd_unit systemd_unit
-    parent: chef_infra/cookbook_reference/resources
 resource_description_list:
 - markdown: Use the **systemd_unit** resource to create, manage, and run [systemd
     units](https://www.freedesktop.org/software/systemd/man/systemd.html#Concepts).

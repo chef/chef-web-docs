@@ -1,23 +1,14 @@
 ---
 resource_reference: true
-
 multi_package_resource: true
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-notes_resource_based_on_package: true
-title: pacman_package resource
 resource: pacman_package
-aliases:
-- "/resource_pacman_package.html"
-menu:
-  infra:
-    title: pacman_package
-    identifier: chef_infra/cookbook_reference/resources/pacman_package pacman_package
-    parent: chef_infra/cookbook_reference/resources
 resource_description_list:
 - markdown: Use the **pacman_package** resource to manage packages (using pacman)
     on the Arch Linux platform.
+- notes_resource_based_on_package: true
 syntax_description: 'A **pacman_package** resource block manages a package on a node,
 
   typically by installing it. The simplest use of the **pacman_package**

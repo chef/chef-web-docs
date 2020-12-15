@@ -1,31 +1,18 @@
 ---
-title: file resource
-resource: file
-draft: false
-aliases:
-- /resource_file.html
-menu:
-  infra:
-    title: file
-    identifier: chef_infra/cookbook_reference/resources/file file
-    parent: chef_infra/cookbook_reference/resources
-
 resource_reference: true
-robots: null
+properties_resources_common_windows_security: true
+resources_common_atomic_update: true
+resources_common_guards: true
+resources_common_notification: true
+resources_common_properties: true
+resource: file
 resource_description_list:
 - markdown: Use the **file** resource to manage files directly on a node.
 - note:
-    markdown: 'Use the **cookbook_file** resource to copy a file from a cookbook''s
-
-      `/files` directory. Use the **template** resource to create a file based
-
-      on a template in a cookbook''s `/templates` directory. And use the
-
-      **remote_file** resource to transfer a file to a node from a remote
-
-      location.'
-resource_new_in: null
-handler_types: false
+    markdown: Use the **cookbook_file** resource to copy a file from a cookbook's
+      `/files` directory. Use the **template** resource to create a file based on
+      a template in a cookbook's `/templates` directory. And use the **remote_file**
+      resource to transfer a file to a node from a remote location.
 syntax_description: "A **file** resource block manages files that exist on nodes.\
   \ For\nexample, to write the home page for an Apache website:\n\n```ruby\nfile\
   \ '/var/www/customers/public_html/index.php' do\n  content '<html>This is a placeholder\

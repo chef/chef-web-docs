@@ -3,15 +3,7 @@ resource_reference: true
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-title: openssl_dhparam resource
 resource: openssl_dhparam
-aliases:
-- "/resource_openssl_dhparam.html"
-menu:
-  infra:
-    title: openssl_dhparam
-    identifier: chef_infra/cookbook_reference/resources/openssl_dhparam openssl_dhparam
-    parent: chef_infra/cookbook_reference/resources
 resource_description_list:
 - markdown: Use the **openssl_dhparam** resource to generate `dhparam.pem` files.
     If a valid `dhparam.pem` file is found at the specified location, no new file

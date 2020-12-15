@@ -1,23 +1,13 @@
 ---
-title: freebsd_package resource
-resource: freebsd_package
-aliases:
-- "/resource_freebsd_package.html"
-menu:
-  infra:
-    title: freebsd_package
-    identifier: chef_infra/cookbook_reference/resources/freebsd_package freebsd_package
-    parent: chef_infra/cookbook_reference/resources
-
 resource_reference: true
-robots: null
+resources_common_guards: true
+resources_common_notification: true
+resources_common_properties: true
+resource: freebsd_package
 resource_description_list:
-- markdown: 'Use the **freebsd_package** resource to manage packages for the FreeBSD
-
-    platform.'
+- markdown: Use the **freebsd_package** resource to manage packages for the FreeBSD
+    platform.
 - notes_resource_based_on_package: true
-resource_new_in: null
-handler_types: false
 syntax_description: 'A **freebsd_package** resource block manages a package on a node,
 
   typically by installing it. The simplest use of the **freebsd_package**

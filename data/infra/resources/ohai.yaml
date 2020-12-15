@@ -3,15 +3,7 @@ resource_reference: true
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-title: ohai resource
 resource: ohai
-aliases:
-- "/resource_ohai.html"
-menu:
-  infra:
-    title: ohai
-    identifier: chef_infra/cookbook_reference/resources/ohai ohai
-    parent: chef_infra/cookbook_reference/resources
 resource_description_list:
 - markdown: Use the **ohai** resource to reload the Ohai configuration on a node.
     This allows recipes that change system attributes (like a recipe that adds a user)

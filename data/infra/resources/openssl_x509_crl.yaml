@@ -3,15 +3,7 @@ resource_reference: true
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-title: openssl_x509_crl resource
 resource: openssl_x509_crl
-aliases:
-- "/resource_openssl_x509_crl.html"
-menu:
-  infra:
-    title: openssl_x509_crl
-    identifier: chef_infra/cookbook_reference/resources/openssl_x509_crl openssl_x509_crl
-    parent: chef_infra/cookbook_reference/resources
 resource_description_list:
 - markdown: Use the **openssl_x509_crl** resource to generate PEM-formatted x509 certificate
     revocation list (CRL) files.

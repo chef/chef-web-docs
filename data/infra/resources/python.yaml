@@ -1,30 +1,13 @@
 ---
-title: python resource
-resource: python
-aliases:
-- "/resource_python.html"
-menu:
-  infra:
-    title: python
-    identifier: chef_infra/cookbook_reference/resources/python python
-    parent: chef_infra/cookbook_reference/resources
-
 resource_reference: true
-robots: null
+resources_common_guards: true
+resource: python
 resource_description_list:
-- markdown: 'Use the **python** resource to execute scripts using the Python
-
-    interpreter. This resource may also use any of the actions and
-
-    properties that are available to the **execute** resource. Commands that
-
-    are executed with this resource are (by their nature) not idempotent, as
-
-    they are typically unique to the environment in which they are run. Use
-
-    `not_if` and `only_if` to guard this resource for idempotence.'
-resource_new_in: null
-handler_types: false
+- markdown: Use the **python** resource to execute scripts using the Python interpreter.
+    This resource may also use any of the actions and properties that are available
+    to the **execute** resource. Commands that are executed with this resource are
+    (by their nature) not idempotent, as they are typically unique to the environment
+    in which they are run. Use `not_if` and `only_if` to guard this resource for idempotence.
 syntax_description: "The python resource has the following syntax:\n\n```ruby\npython\
   \ 'hello world' do\n  code <<-EOH\n    print \"Hello world! From Chef and Python.\"\
   \n  EOH\nend\n```"

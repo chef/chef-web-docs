@@ -1,32 +1,15 @@
 ---
 resource_reference: true
-title: ruby_block resource
 resource: ruby_block
-aliases:
-- "/resource_ruby_block.html"
-menu:
-  infra:
-    title: ruby_block
-    identifier: chef_infra/cookbook_reference/resources/ruby_block ruby_block
-    parent: chef_infra/cookbook_reference/resources
 resource_description_list:
-- markdown: 'Use the **ruby_block** resource to execute Ruby code during a Chef
-
-    Infra Client run. Ruby code in the `ruby_block` resource is evaluated
-
-    with other resources during convergence, whereas Ruby code outside of a
-
-    `ruby_block` resource is evaluated before other resources, as the recipe
-
-    is compiled.'
-resource_new_in: null
-handler_types: false
+- markdown: Use the **ruby_block** resource to execute Ruby code during a Chef Infra
+    Client run. Ruby code in the `ruby_block` resource is evaluated with other resources
+    during convergence, whereas Ruby code outside of a `ruby_block` resource is evaluated
+    before other resources, as the recipe is compiled.
 syntax_description: "A **ruby_block** resource block executes a block of arbitrary\
   \ Ruby\ncode. For example, to reload the client.rb file during a Chef Infra\nClient\
   \ run:\n\n```ruby\nruby_block 'reload_client_config' do\n  block do\n    Chef::Config.from_file(\"\
   /etc/chef/client.rb\")\n  end\n  action :run\nend\n```"
-syntax_code_block: null
-syntax_properties_list: null
 syntax_full_code_block: "ruby_block 'name' do\n  block                      Block\n\
   \  block_name                 String # defaults to 'name' if not specified\n  action\
   \                     Symbol # defaults to :run if not specified\nend"

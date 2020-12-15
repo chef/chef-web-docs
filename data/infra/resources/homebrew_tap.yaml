@@ -3,15 +3,7 @@ resource_reference: true
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-title: homebrew_tap resource
 resource: homebrew_tap
-aliases:
-- "/resource_homebrew_tap.html"
-menu:
-  infra:
-    title: homebrew_tap
-    identifier: chef_infra/cookbook_reference/resources/homebrew_tap homebrew_tap
-    parent: chef_infra/cookbook_reference/resources
 resource_description_list:
 - markdown: Use the **homebrew_tap** resource to add additional formula repositories
     to the Homebrew package manager.

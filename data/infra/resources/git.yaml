@@ -3,15 +3,7 @@ resource_reference: true
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-title: git resource
 resource: git
-aliases:
-- "/resource_git.html"
-menu:
-  infra:
-    title: git
-    identifier: chef_infra/cookbook_reference/resources/git git
-    parent: chef_infra/cookbook_reference/resources
 resource_description_list:
 - markdown: Use the **git** resource to manage source control resources that exist
     in a git repository. git version 1.6.5 (or higher) is required to use all of the

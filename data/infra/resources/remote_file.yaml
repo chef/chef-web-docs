@@ -4,15 +4,7 @@ properties_resources_common_windows_security: true
 remote_file_prevent_re_downloads: true
 remote_file_unc_path: true
 resources_common_atomic_update: true
-title: remote_file resource
 resource: remote_file
-aliases:
-- "/resource_remote_file.html"
-menu:
-  infra:
-    title: remote_file
-    identifier: chef_infra/cookbook_reference/resources/remote_file remote_file
-    parent: chef_infra/cookbook_reference/resources
 resource_description_list:
 - markdown: Use the **remote_file** resource to transfer a file from a remote location
     using file specificity. This resource is similar to the **file** resource.

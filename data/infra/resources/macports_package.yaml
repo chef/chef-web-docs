@@ -3,15 +3,7 @@ resource_reference: true
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-title: macports_package resource
 resource: macports_package
-aliases:
-- "/resource_macports_package.html"
-menu:
-  infra:
-    title: macports_package
-    identifier: chef_infra/cookbook_reference/resources/macports_package macports_package
-    parent: chef_infra/cookbook_reference/resources
 resource_description_list:
 - markdown: Use the **macports_package** resource to manage packages for the macOS
     platform using the MacPorts package management system.

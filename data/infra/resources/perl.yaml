@@ -1,29 +1,13 @@
 ---
-title: perl resource
-resource: perl
-aliases:
-- "/resource_perl.html"
-menu:
-  infra:
-    title: perl
-    identifier: chef_infra/cookbook_reference/resources/perl perl
-    parent: chef_infra/cookbook_reference/resources
 resource_reference: true
-robots: null
+resources_common_guards: true
+resource: perl
 resource_description_list:
-- markdown: 'Use the **perl** resource to execute scripts using the Perl interpreter.
-
-    This resource may also use any of the actions and properties that are
-
-    available to the **execute** resource. Commands that are executed with
-
-    this resource are (by their nature) not idempotent, as they are
-
-    typically unique to the environment in which they are run. Use `not_if`
-
-    and `only_if` to guard this resource for idempotence.'
-resource_new_in: null
-handler_types: false
+- markdown: Use the **perl** resource to execute scripts using the Perl interpreter.
+    This resource may also use any of the actions and properties that are available
+    to the **execute** resource. Commands that are executed with this resource are
+    (by their nature) not idempotent, as they are typically unique to the environment
+    in which they are run. Use `not_if` and `only_if` to guard this resource for idempotence.
 syntax_description: "A **perl** resource block executes scripts Perl:\n\n```perl\n\
   perl 'hello world' do\n  code <<-EOH\n    print \"Hello world! From Chef and Perl.\"\
   ;\n  EOH\nend\n```"

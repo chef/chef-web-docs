@@ -6,25 +6,12 @@ resource_directory_recursive_directories: true
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-title: remote_directory resource
 resource: remote_directory
-aliases:
-- "/resource_remote_directory.html"
-menu:
-  infra:
-    title: remote_directory
-    identifier: chef_infra/cookbook_reference/resources/remote_directory remote_directory
-    parent: chef_infra/cookbook_reference/resources
 resource_description_list:
-- markdown: 'Use the **remote_directory** resource to incrementally transfer a
-
-    directory from a cookbook to a node. The directory that is copied from
-
-    the cookbook should be located under
-
-    `COOKBOOK_NAME/files/default/REMOTE_DIRECTORY`. The
-
-    **remote_directory** resource will obey file specificity.'
+- markdown: Use the **remote_directory** resource to incrementally transfer a directory
+    from a cookbook to a node. The director that is copied from the cookbook should
+    be located under `COOKBOOK_NAME/files/default/REMOTE_DIRECTORY`. The `remote_directory`
+    resource will obey file specificity.
 syntax_description: "A **remote_directory** resource block transfers a directory from\
   \ a\ncookbook to a node, and then assigns the permissions needed on that\ndirectory.\
   \ For example:\n\n```ruby\nremote_directory '/etc/apache2' do\n  source 'apache2'\n\

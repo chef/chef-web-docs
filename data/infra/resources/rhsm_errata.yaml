@@ -3,15 +3,7 @@ resource_reference: true
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-title: rhsm_errata resource
 resource: rhsm_errata
-aliases:
-- "/resource_rhsm_errata.html"
-menu:
-  infra:
-    title: rhsm_errata
-    identifier: chef_infra/cookbook_reference/resources/rhsm_errata rhsm_errata
-    parent: chef_infra/cookbook_reference/resources
 resource_description_list:
 - markdown: Use the **rhsm_errata** resource to install packages associated with a
     given Red Hat Subscription Manager Errata ID. This is helpful if packages to mitigate

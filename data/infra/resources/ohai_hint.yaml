@@ -3,15 +3,7 @@ resource_reference: true
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-title: ohai_hint resource
 resource: ohai_hint
-aliases:
-- "/resource_ohai_hint.html"
-menu:
-  infra:
-    title: ohai_hint
-    identifier: chef_infra/cookbook_reference/resources/ohai_hint ohai_hint
-    parent: chef_infra/cookbook_reference/resources
 resource_description_list:
 - markdown: Use the **ohai_hint** resource to aid in configuration detection by passing
     hint data to Ohai.

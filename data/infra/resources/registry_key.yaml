@@ -1,15 +1,7 @@
 ---
 resource_reference: true
 registry_key: true
-title: registry_key resource
 resource: registry_key
-aliases:
-- "/resource_registry_key.html"
-menu:
-  infra:
-    title: registry_key
-    identifier: chef_infra/cookbook_reference/resources/registry_key registry_key
-    parent: chef_infra/cookbook_reference/resources
 resource_description_list:
 - markdown: Use the **registry_key** resource to create and delete registry keys in
     Microsoft Windows.

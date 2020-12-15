@@ -3,15 +3,7 @@ resource_reference: true
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-title: sudo resource
 resource: sudo
-aliases:
-- "/resource_sudo.html"
-menu:
-  infra:
-    title: sudo
-    identifier: chef_infra/cookbook_reference/resources/sudo sudo
-    parent: chef_infra/cookbook_reference/resources
 resource_description_list:
 - markdown: Use the **sudo** resource to add or remove individual sudo entries using
     sudoers.d files. Sudo version 1.7.2 or newer is required to use the sudo resource,

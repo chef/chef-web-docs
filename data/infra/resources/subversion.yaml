@@ -3,15 +3,7 @@ resource_reference: true
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-title: subversion resource
 resource: subversion
-aliases:
-- "/resource_subversion.html"
-menu:
-  infra:
-    title: subversion
-    identifier: chef_infra/cookbook_reference/resources/subversion subversion
-    parent: chef_infra/cookbook_reference/resources
 resource_description_list:
 - markdown: Use the **subversion** resource to manage source control resources that
     exist in a Subversion repository.

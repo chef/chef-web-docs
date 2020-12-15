@@ -3,15 +3,7 @@ resource_reference: true
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-title: macos_userdefaults resource
 resource: macos_userdefaults
-aliases:
-- "/resource_macos_userdefaults.html"
-menu:
-  infra:
-    title: macos_userdefaults
-    identifier: chef_infra/cookbook_reference/resources/macos_userdefaults macos_userdefaults
-    parent: chef_infra/cookbook_reference/resources
 resource_description_list:
 - markdown: Use the **macos_userdefaults** resource to manage the macOS user defaults
     system. The properties of this resource are passed to the defaults command, and

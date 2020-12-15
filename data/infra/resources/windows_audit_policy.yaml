@@ -3,15 +3,7 @@ resource_reference: true
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-title: windows_audit_policy resource
 resource: windows_audit_policy
-aliases:
-- "/resource_windows_audit_policy.html"
-menu:
-  infra:
-    title: windows_audit_policy
-    identifier: chef_infra/cookbook_reference/resources/windows_audit_policy windows_audit_policy
-    parent: chef_infra/cookbook_reference/resources
 resource_description_list:
 - markdown: Use the **windows_audit_policy** resource to configure system level and
     per-user Windows advanced audit policy settings.

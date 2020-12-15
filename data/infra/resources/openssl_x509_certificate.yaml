@@ -3,15 +3,7 @@ resource_reference: true
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-title: openssl_x509_certificate resource
 resource: openssl_x509_certificate
-aliases:
-- "/resource_openssl_x509_certificate.html"
-menu:
-  infra:
-    title: openssl_x509_certificate
-    identifier: chef_infra/cookbook_reference/resources/openssl_x509_certificate openssl_x509_certificate
-    parent: chef_infra/cookbook_reference/resources
 resource_description_list:
 - markdown: Use the **openssl_x509_certificate** resource to generate signed or self-signed,
     PEM-formatted x509 certificates. If no existing key is specified, the resource

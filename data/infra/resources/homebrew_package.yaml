@@ -5,15 +5,7 @@ multi_package_resource: true
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-title: homebrew_package resource
 resource: homebrew_package
-aliases:
-- "/resource_homebrew_package.html"
-menu:
-  infra:
-    title: homebrew_package
-    identifier: chef_infra/cookbook_reference/resources/homebrew_package homebrew_package
-    parent: chef_infra/cookbook_reference/resources
 resource_description_list:
 - markdown: Use the **homebrew_package** resource to manage packages for the macOS
     platform.

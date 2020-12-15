@@ -3,15 +3,7 @@ resource_reference: true
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-title: msu_package resource
 resource: msu_package
-aliases:
-- "/resource_msu_package.html"
-menu:
-  infra:
-    title: msu_package
-    identifier: chef_infra/cookbook_reference/resources/msu_package msu_package
-    parent: chef_infra/cookbook_reference/resources
 resource_description_list:
 - markdown: Use the **msu_package** resource to install Microsoft Update(MSU) packages
     on Microsoft Windows machines.
