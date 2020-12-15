@@ -39,7 +39,7 @@ Kitchen Dokken has been updated to 2.11.2 to resolve failures from creating cont
 
 #### Chef InSpec
 
-Chef InSpec has been updated to 4.24.8 including the following improvements:
+Chef InSpec has been updated to 4.24.8, which includes the following improvements:
 
 - An unset `HOME` environment variable will not cause execution failures
 - You can use wildcards in `platform-name` and `release` in InSpec profiles. Thanks for this improvement [@yarick](https://github.com/yarick)!
