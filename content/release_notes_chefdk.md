@@ -163,7 +163,7 @@ The `kitchen-vagrant` plugin  has been updated from 1.6.1 to 1.7.0. This release
 
 #### OpenSSL
 
-OpenSSL has been updated to 1.0.2w which includes a fix for [CVE-2020-1968](https://cve.mitre.org/cgi-bin/cvename.cgi?name=2020-1968).
+OpenSSL has been updated to 1.0.2w, which includes a fix for [CVE-2020-1968](https://cve.mitre.org/cgi-bin/cvename.cgi?name=2020-1968).
 
 #### CA Root Certificates
 
