@@ -153,7 +153,7 @@ Kitchen AzureRM has been updated from 1.0.0 to 1.3.0. This release includes:
 
 #### Kitchen Vagrant
 
-The `kitchen-vagrant` plugin  has been updated from 1.6.1 to 1.7.0. This release adds new `box_auto_update` and box_auto_prune options to pull newer Vagrant base boxes. Thank you [@Stromweld](https://github.com/Stromweld)!
+The `kitchen-vagrant` plugin  has been updated from 1.6.1 to 1.7.0. This release adds new `box_auto_update` and `box_auto_prune` options to pull newer Vagrant base boxes. Thank you [@Stromweld](https://github.com/Stromweld)!
 
 ### Platform Packages
 
