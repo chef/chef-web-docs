@@ -3,15 +3,7 @@ resource_reference: true
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-title: user_ulimit resource
 resource: user_ulimit
-aliases:
-- "/resource_user_ulimit.html"
-menu:
-  infra:
-    title: user_ulimit
-    identifier: chef_infra/cookbook_reference/resources/user_ulimit user_ulimit
-    parent: chef_infra/cookbook_reference/resources
 resource_description_list:
 - markdown: Use the **user_ulimit** resource to create individual ulimit files that
     are installed into the `/etc/security/limits.d/` directory.
@@ -181,4 +173,3 @@ examples: |
     filename 'tomcat_filehandle_limits.conf'
   end
   ```
----

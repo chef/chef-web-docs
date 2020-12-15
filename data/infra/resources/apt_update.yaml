@@ -60,4 +60,3 @@ examples: |
   ```ruby
   apt_update 'update'
   ```
----

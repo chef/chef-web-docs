@@ -100,4 +100,3 @@ examples: |
     action :install
   end
   ```
----

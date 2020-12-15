@@ -101,4 +101,3 @@ examples: "
   \ do\n    source '/foo/bar/wget_1.13.4-2ubuntu1.4_amd64.deb'\n    action :install\n\
   \  end\n  ```\n"
 
----

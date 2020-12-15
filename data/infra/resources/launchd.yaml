@@ -3,15 +3,7 @@ resource_reference: true
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-title: launchd resource
 resource: launchd
-aliases:
-- "/resource_launchd.html"
-menu:
-  infra:
-    title: launchd
-    identifier: chef_infra/cookbook_reference/resources/launchd launchd
-    parent: chef_infra/cookbook_reference/resources
 resource_description_list:
 - markdown: Use the **launchd** resource to manage system-wide services (daemons)
     and per-user services (agents) on the macOS platform.
@@ -282,8 +274,6 @@ properties_list:
 - property: limit_load_from_hosts
   ruby_type: Array
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: 'An array of hosts to which this configuration file does not apply,
 
@@ -455,26 +445,10 @@ properties_list:
   description_list:
   - markdown: "`chdir` to this directory, and then run the job."
 properties_shortcode: null
-properties_multiple_packages: false
-resource_directory_recursive_directories: false
-resources_common_atomic_update: false
-properties_resources_common_windows_security: false
-remote_file_prevent_re_downloads: false
-remote_file_unc_path: false
-ps_credential_helper: false
-ruby_style_basics_chef_log: false
-debug_recipes_chef_shell: false
 template_requirements: false
 resources_common_properties: true
 resources_common_notification: true
 resources_common_guards: true
-common_resource_functionality_multiple_packages: false
-resources_common_guard_interpreter: false
-remote_directory_recursive_directories: false
-common_resource_functionality_resources_common_windows_security: false
-handler_custom: false
-cookbook_file_specificity: false
-unit_file_verification: false
 examples: "
   Create a Launch Daemon from a cookbook file\n\n  ```ruby\n  launchd\
   \ 'com.chef.every15' do\n    source 'com.chef.every15.plist'\n  end\n  ```\n\n \
@@ -483,4 +457,3 @@ examples: "
   \ => 7, 'Hourly' => 10\n    time_out 300\n  end\n  ```\n\n  Remove a Launch Daemon\n\
   \n  ```ruby\n  launchd 'com.chef.every15' do\n    action :delete\n  end\n  ```\n"
 
----

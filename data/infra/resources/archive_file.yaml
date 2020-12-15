@@ -112,4 +112,3 @@ examples: |
     destination '/srv/files'
   end
   ```
----

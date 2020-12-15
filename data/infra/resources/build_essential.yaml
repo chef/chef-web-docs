@@ -66,4 +66,3 @@ examples: |
     action :upgrade
   end
   ```
----

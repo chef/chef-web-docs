@@ -3,15 +3,7 @@ resource_reference: true
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-title: windows_feature resource
 resource: windows_feature
-aliases:
-- "/resource_windows_feature.html"
-menu:
-  infra:
-    title: windows_feature
-    identifier: chef_infra/cookbook_reference/resources/windows_feature windows_feature
-    parent: chef_infra/cookbook_reference/resources
 resource_description_list:
 - markdown: 'Use the **windows_feature** resource to add, remove or entirely delete
 
@@ -151,4 +143,3 @@ examples: |
     install_method :windows_feature_powershell
   end
   ```
----

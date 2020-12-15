@@ -3,25 +3,11 @@ resource_reference: true
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-title: http_request resource
 resource: http_request
-aliases:
-- "/resource_http_request.html"
-menu:
-  infra:
-    title: http_request
-    identifier: chef_infra/cookbook_reference/resources/http_request http_request
-    parent: chef_infra/cookbook_reference/resources
 resource_description_list:
-- markdown: 'Use the **http_request** resource to send an HTTP request (`GET`,
-
-    `PUT`, `POST`, `DELETE`, `HEAD`, or `OPTIONS`) with an arbitrary
-
-    message. This resource is often useful when custom callbacks are
-
-    necessary.'
-resource_new_in: null
-handler_types: false
+- markdown: Use the **http_request** resource to send an HTTP request (`GET`, `PUT`,
+    `POST`, `DELETE`, `HEAD`, or `OPTIONS`) with an arbitrary message. This resource
+    is often useful when custom callbacks are necessary.
 syntax_description: "A **http_request** resource block sends HTTP requests with an\
   \ arbitrary\nmessage. For example, send a `DELETE` request to\n`'http://www.chef.io/some_page?message=please_delete_me'`.\n\
   \n```ruby\nhttp_request 'please_delete_me' do\n  url 'http://www.chef.io/some_page'\n\
@@ -62,14 +48,11 @@ properties_list:
 - property: headers
   ruby_type: Hash
   required: false
-  default_value: null
   description_list:
   - markdown: A Hash of custom headers.
 - property: message
   ruby_type: Object
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: 'The message that is sent by the HTTP request. Default value: the
 
@@ -79,8 +62,6 @@ properties_list:
 - property: url
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: The URL to which an HTTP request is sent.
 examples: "\n  Send a GET request\n\n  ```ruby\n  http_request 'some_message' do\n\
@@ -99,4 +80,3 @@ examples: "\n  Send a GET request\n\n  ```ruby\n  http_request 'some_message' do
   \ => File.mtime('/tmp/couch.png').httpdate\n    end\n    notifies :create, 'remote_file[/tmp/couch.png]',\
   \ :immediately\n  end\n  ```\n"
 
----
