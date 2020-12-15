@@ -51,7 +51,7 @@ Chef InSpec has been updated to 4.24.8, which includes the following improvement
 
 #### chef-vault
 
-We've updated the release of chef-vault to 4.1. Chef Vault 4.1 properly handles escape strings in secrets and greatly improves performance for users with large numbers of secrets. Thanks for the performance work [@Annih](https://github.com/Annih)!
+Chef Vault has been updated to version 4.1, which properly handles escape strings in secrets and greatly improves performance for users with large numbers of secrets. Thanks for the performance work [@Annih](https://github.com/Annih)!
 
 #### knife-ec2
 
