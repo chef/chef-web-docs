@@ -149,7 +149,7 @@ Kitchen AzureRM has been updated from 1.0.0 to 1.3.0. This release includes:
 
 - Support for deletion or preservation of resource group tags with a new `destroy_explicit_resource_group_tags` config that defaults to true.
 - Default password generation increased to 25 characters to avoid failures on newer Windows releases.
-- Improve performance by loading depedencies only when we need them.
+- Improve performance by loading dependencies only when we need them.
 
 #### Kitchen Vagrant
 
