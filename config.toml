@@ -1178,13 +1178,11 @@ weight = 10
   title = "Push Jobs"
   identifier = "legacy/push_jobs"
   parent = "legacy"
-  weight = 10
 
   [[menu.legacy]]
   title = "Workflow"
   identifier = "legacy/workflow"
   parent = "legacy"
-  weight = 10
 
     [[menu.legacy]]
     title = "Workflow Basics"
