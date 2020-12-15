@@ -31,7 +31,7 @@ changelog](https://github.com/chef/chef/blob/master/CHANGELOG.md)
 
 Chef InSpec has been updated to 4.24.8 including the following improvements:
 
-- An unset `HOME environment variable will not cause execution failures
+- An unset `HOME` environment variable will not cause execution failures
 - You can use wildcards in `platform-name` and `release` in InSpec profiles
 - The support for arrays in the `WMI` resource, so it can return multiple objects
 - The `package` resource on Windows properly escapes package names
