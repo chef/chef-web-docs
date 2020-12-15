@@ -5,11 +5,10 @@ draft = false
 aliases = ["/api_push_jobs.html"]
 
 [menu]
-  [menu.infra]
+  [menu.legacy]
     title = "Push Jobs API"
-    identifier = "chef_infra/managing_chef_infra_server/push_jobs/api_push_jobs.md Push Jobs API"
-    parent = "chef_infra/managing_chef_infra_server/push_jobs"
-    weight = 50
+    identifier = "legacy/push_jobs/api_push_jobs.md Push Jobs API"
+    parent = "legacy/push_jobs"
 +++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/api_push_jobs.md)

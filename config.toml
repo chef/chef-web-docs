@@ -896,19 +896,6 @@ identifier = "chef_infra"
     url = "/runbook/"
     weight = 10
 
-    [[menu.infra]]
-    title = "Push Jobs"
-    identifier = "chef_infra/managing_chef_infra_server/push_jobs"
-    parent = "chef_infra/managing_chef_infra_server"
-    weight = 210
-
-      [[menu.infra]]
-      title = "push-jobs-client"
-      identifier = "chef_infra/managing_chef_infra_server/push_jobs/ctl_push_jobs_client.md push-jobs-client"
-      parent = "chef_infra/managing_chef_infra_server/push_jobs"
-      url = "/ctl_push_jobs_client/"
-      weight = 20
-
   [[menu.infra]]
   title = "Extension APIs"
   identifier = "chef_infra/extension_apis"
@@ -1188,10 +1175,14 @@ identifier = "legacy"
 weight = 10
 
   [[menu.legacy]]
+  title = "Push Jobs"
+  identifier = "legacy/push_jobs"
+  parent = "legacy"
+
+  [[menu.legacy]]
   title = "Workflow"
   identifier = "legacy/workflow"
   parent = "legacy"
-  weight = 10
 
     [[menu.legacy]]
     title = "Workflow Basics"
