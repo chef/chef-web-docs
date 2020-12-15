@@ -119,7 +119,7 @@ The `powershell_package` resource has been updated to better force connections t
 
 #### powershell_script
 
-The `powershell_script` resource has been updated to not fail when using a `not_if` or `only_if` guard when specifying the `user` property. Thanks for reporting this issue [@Blorpy](https://github.com/Blorpy)
+The `powershell_script` resource has been updated to not fail when using a `not_if` or `only_if` guard when specifying the `user` property. Thanks for reporting this issue [@Blorpy](https://github.com/Blorpy)!
 
 #### user
 
