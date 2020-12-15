@@ -162,4 +162,3 @@ examples: |
     daemon_options ['--override-runlist mycorp_base::default']
   end
   ```
----

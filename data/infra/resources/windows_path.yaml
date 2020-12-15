@@ -3,15 +3,7 @@ resource_reference: true
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-title: windows_path resource
 resource: windows_path
-aliases:
-- "/resource_windows_path.html"
-menu:
-  infra:
-    title: windows_path
-    identifier: chef_infra/cookbook_reference/resources/windows_path windows_path
-    parent: chef_infra/cookbook_reference/resources
 resource_description_list:
 - markdown: Use the **windows_path** resource to manage the path environment variable
     on Microsoft Windows.
@@ -59,4 +51,3 @@ examples: |
     action :remove
   end
   ```
----

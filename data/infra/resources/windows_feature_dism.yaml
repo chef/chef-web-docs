@@ -3,15 +3,7 @@ resource_reference: true
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-title: windows_feature_dism resource
 resource: windows_feature_dism
-aliases:
-- "/resource_windows_feature_dism.html"
-menu:
-  infra:
-    title: windows_feature_dism
-    identifier: chef_infra/cookbook_reference/resources/windows_feature_dism windows_feature_dism
-    parent: chef_infra/cookbook_reference/resources
 resource_description_list:
 - markdown: Use the **windows_feature_dism** resource to add, remove, or entirely
     delete Windows features and roles using DISM.
@@ -79,4 +71,3 @@ examples: |
   ```ruby
   windows_feature_dism %w(TelnetClient TFTP)
   ```
----

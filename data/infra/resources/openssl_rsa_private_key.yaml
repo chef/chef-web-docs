@@ -3,15 +3,7 @@ resource_reference: true
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-title: openssl_rsa_private_key resource
 resource: openssl_rsa_private_key
-aliases:
-- "/resource_openssl_rsa_private_key.html"
-menu:
-  infra:
-    title: openssl_rsa_private_key
-    identifier: chef_infra/cookbook_reference/resources/openssl_rsa_private_key openssl_rsa_private_key
-    parent: chef_infra/cookbook_reference/resources
 resource_description_list:
 - markdown: Use the **openssl_rsa_private_key** resource to generate RSA private key
     files. If a valid RSA key file can be opened at the specified location, no new
@@ -113,4 +105,3 @@ examples: |
     action :create
   end
   ```
----

@@ -149,4 +149,3 @@ examples: |
 
   chef_gem 'mysql'
   ```
----

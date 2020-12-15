@@ -3,15 +3,7 @@ resource_reference: true
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-title: windows_dns_zone resource
 resource: windows_dns_zone
-aliases:
-- "/resource_windows_dns_zone.html"
-menu:
-  infra:
-    title: windows_dns_zone
-    identifier: chef_infra/cookbook_reference/resources/windows_dns_zone windows_dns_zone
-    parent: chef_infra/cookbook_reference/resources
 resource_description_list:
 - markdown: The windows_dns_zone resource creates an Active Directory Integrated DNS
     Zone on the local server.
@@ -60,4 +52,3 @@ properties_list:
   - markdown: An optional property to set the dns zone name if it differs from the
       resource block's name.
 examples: 
----

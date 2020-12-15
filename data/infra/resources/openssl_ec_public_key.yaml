@@ -3,15 +3,7 @@ resource_reference: true
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-title: openssl_ec_public_key resource
 resource: openssl_ec_public_key
-aliases:
-- "/resource_openssl_ec_public_key.html"
-menu:
-  infra:
-    title: openssl_ec_public_key
-    identifier: chef_infra/cookbook_reference/resources/openssl_ec_public_key openssl_ec_public_key
-    parent: chef_infra/cookbook_reference/resources
 resource_description_list:
 - markdown: Use the **openssl_ec_public_key** resource to generate elliptic curve
     (EC) public key files from a given EC private key.
@@ -105,4 +97,3 @@ examples: |
     action :create
   end
   ```
----

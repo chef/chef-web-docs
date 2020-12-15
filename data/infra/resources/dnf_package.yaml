@@ -143,4 +143,3 @@ examples: "
   \ do\n    source 'custom'\n    mode '0755'\n  end\n\n  dnf_package 'only-in-custom-repo'\
   \ do\n    action :install\n    flush_cache [ :before ]\n  end\n  ```\n"
 
----

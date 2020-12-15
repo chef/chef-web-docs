@@ -1,32 +1,15 @@
 ---
 resource_reference: true
-title: ruby_block resource
 resource: ruby_block
-aliases:
-- "/resource_ruby_block.html"
-menu:
-  infra:
-    title: ruby_block
-    identifier: chef_infra/cookbook_reference/resources/ruby_block ruby_block
-    parent: chef_infra/cookbook_reference/resources
 resource_description_list:
-- markdown: 'Use the **ruby_block** resource to execute Ruby code during a Chef
-
-    Infra Client run. Ruby code in the `ruby_block` resource is evaluated
-
-    with other resources during convergence, whereas Ruby code outside of a
-
-    `ruby_block` resource is evaluated before other resources, as the recipe
-
-    is compiled.'
-resource_new_in: null
-handler_types: false
+- markdown: Use the **ruby_block** resource to execute Ruby code during a Chef Infra
+    Client run. Ruby code in the `ruby_block` resource is evaluated with other resources
+    during convergence, whereas Ruby code outside of a `ruby_block` resource is evaluated
+    before other resources, as the recipe is compiled.
 syntax_description: "A **ruby_block** resource block executes a block of arbitrary\
   \ Ruby\ncode. For example, to reload the client.rb file during a Chef Infra\nClient\
   \ run:\n\n```ruby\nruby_block 'reload_client_config' do\n  block do\n    Chef::Config.from_file(\"\
   /etc/chef/client.rb\")\n  end\n  action :run\nend\n```"
-syntax_code_block: null
-syntax_properties_list: null
 syntax_full_code_block: "ruby_block 'name' do\n  block                      Block\n\
   \  block_name                 String # defaults to 'name' if not specified\n  action\
   \                     Symbol # defaults to :run if not specified\nend"
@@ -40,10 +23,6 @@ syntax_full_properties_list:
   See "Properties" section below for more information about all of the properties
   that may be used with this resource.'
 syntax_shortcode: null
-registry_key: false
-nameless_apt_update: false
-nameless_build_essential: false
-resource_package_options: false
 actions_list:
   :create:
     markdown: The same as `:run`.
@@ -55,15 +34,12 @@ properties_list:
 - property: block
   ruby_type: Block
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: A block of Ruby code.
 - property: block_name
   ruby_type: String
   required: false
   default_value: The resource block's name
-  new_in: null
   description_list:
   - markdown: 'The name of the Ruby block. Default value: the `name` of the
 
@@ -72,14 +48,11 @@ properties_list:
   ruby_type: true, false
   required: false
   default_value: 'false'
-  new_in: null
   description_list:
   - markdown: Continue running a recipe if a resource fails for any reason.
 - property: notifies
   ruby_type: Symbol, Chef::Resource\[String\]
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - shortcode: resources_common_notification_notifies.md
   - markdown: ''
@@ -90,21 +63,17 @@ properties_list:
   ruby_type: Integer
   required: false
   default_value: '0'
-  new_in: null
   description_list:
   - markdown: The number of attempts to catch exceptions and retry the resource.
 - property: retry_delay
   ruby_type: Integer
   required: false
   default_value: '2'
-  new_in: null
   description_list:
   - markdown: The retry delay (in seconds).
 - property: subscribes
   ruby_type: Symbol, Chef::Resource\[String\]
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - shortcode: resources_common_notification_subscribes.md
   - markdown: ''
@@ -112,26 +81,10 @@ properties_list:
   - markdown: ''
   - shortcode: resources_common_notification_subscribes_syntax.md
 properties_shortcode: null
-properties_multiple_packages: false
-resource_directory_recursive_directories: false
-resources_common_atomic_update: false
-properties_resources_common_windows_security: false
-remote_file_prevent_re_downloads: false
-remote_file_unc_path: false
-ps_credential_helper: false
-ruby_style_basics_chef_log: false
-debug_recipes_chef_shell: false
 template_requirements: false
 resources_common_properties: false
 resources_common_notification: false
 resources_common_guards: false
-common_resource_functionality_multiple_packages: false
-resources_common_guard_interpreter: false
-remote_directory_recursive_directories: false
-common_resource_functionality_resources_common_windows_security: false
-handler_custom: false
-cookbook_file_specificity: false
-unit_file_verification: false
 examples: "
   Re-read configuration data\n\n  ```ruby\n  ruby_block 'reload_client_config'\
   \ do\n    block do\n      Chef::Config.from_file('/etc/chef/client.rb')\n    end\n\
@@ -215,4 +168,3 @@ examples: "
   \        source plugin\n        owner 'chef'\n        notifies :run, 'ruby_block[reload_config]',\
   \ :immediately\n      end\n    end\n  end\n  ```\n"
 
----

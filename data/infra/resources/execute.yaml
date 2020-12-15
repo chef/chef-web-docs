@@ -3,20 +3,12 @@ resource_reference: true
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-title: execute resource
 resource: execute
-aliases:
-- "/resource_execute.html"
-menu:
-  infra:
-    title: execute
-    identifier: chef_infra/cookbook_reference/resources/execute execute
-    parent: chef_infra/cookbook_reference/resources
 resource_description_list:
 - markdown: Use the **execute** resource to execute a single command. Commands that
     are executed with this resource are (by their nature) not idempotent, as they
-    are typically unique to the environment in which they are run. Use not_if and
-    only_if to guard this resource for idempotence.
+    are typically unique to the environment in which they are run. Use `not_if` and
+    `only_if` to guard this resource for idempotence.
 - note:
     markdown: Use the **script** resource to execute a script using a specific interpreter
       (Ruby, Python, Perl, csh, or Bash).
@@ -688,4 +680,3 @@ examples: |
   execute 'md5sum' do
     input File.read(__FILE__)
   end
----
