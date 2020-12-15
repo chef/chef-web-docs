@@ -137,7 +137,7 @@ Chef InSpec has been updated from 4.22.1 to 4.22.22. This new release includes t
 
 #### Chef Vault
 
-Chef Vault has been updated from 4.0.1 to 4.0.11. This release resolves errors when running some knife vault commands and better inputs command inputs.
+Chef Vault has been updated from 4.0.1 to 4.0.11. This release resolves errors when running some knife vault commands and improves how it handles command inputs.
 
 #### Test Kitchen
 
