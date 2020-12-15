@@ -13,7 +13,7 @@ GitHub](https://github.com/chef/chef-dk/blob/master/CHANGELOG.md)
 
 ## What's New In ChefDK 4.13
 
-Note: ChefDK will be enter end-of-life product phase Dec 31st 2020. The 4.13 release of ChefDK is the last planned release and all users should upgrade to Chef Workstation, which offers signicant improvements to all included tools.
+Note: ChefDK will be enter end-of-life product phase Dec 31st 2020. The 4.13 release of ChefDK is the last planned release and all users should upgrade to Chef Workstation, which offers significant improvements to all included tools.
 
 ### Package Updates
 
