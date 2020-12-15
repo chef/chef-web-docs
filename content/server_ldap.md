@@ -5,10 +5,10 @@ draft = false
 aliases = ["/server_ldap.html", "/install_server_post.html"]
 
 [menu]
-  [menu.infra]
+  [menu.legacy]
     title = "Active Directory & LDAP"
-    identifier = "chef_infra/managing_chef_infra_server/server_ldap.md Active Directory & LDAP"
-    parent = "chef_infra/managing_chef_infra_server"
+    identifier = "legacy/manage/server_ldap.md Active Directory & LDAP"
+    parent = "legacy/manage"
     weight = 50
 +++
 
