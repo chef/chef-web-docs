@@ -23,7 +23,7 @@ ChefDK packages are no longer produced for Debian 8 and RHEL/CentOS 6, as these 
 
 #### Test Kitchen
 
-Test Kitchen was updated from 2.7.2 to 2.8.0. This release improves how we execute commands on Windows hosts in order to avoid failures executing commands that are too long for the windows command line. Thanks for this fix [@ramereth](https://github.com/ramereth)!
+Test Kitchen was updated from 2.7.2 to 2.8.0. This release improves how we execute commands on Windows hosts in order to avoid failures from executing commands that are too long for the windows command line. Thanks for this fix [@ramereth](https://github.com/ramereth)!
 
 #### Kitchen Google
 
