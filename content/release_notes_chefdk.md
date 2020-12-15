@@ -126,7 +126,7 @@ We've reworked how the knife command loads dependencies to greatly improve perfo
 
 #### Chef Infra Client
 
-Chef Infra Client has been updated from 15.13.8 to 15.14.0 with a large number of improvements to built-in Chef Infra resources.
+Chef Infra Client has been updated from 15.13.8 to 15.14.0, with a large number of improvements to built-in Chef Infra resources.
 
 #### Chef InSpec
 
