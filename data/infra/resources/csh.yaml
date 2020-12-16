@@ -1,18 +1,9 @@
 ---
 resource_reference: true
-properties_shortcode:
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-title: csh resource
 resource: csh
-aliases:
-- "/resource_csh.html"
-menu:
-  infra:
-    title: csh
-    identifier: chef_infra/cookbook_reference/resources/csh csh
-    parent: chef_infra/cookbook_reference/resources
 resource_description_list:
 - markdown: 'Use the **csh** resource to execute scripts using the csh interpreter.
 
@@ -57,8 +48,6 @@ properties_list:
 - property: code
   ruby_type: String
   required: true
-  default_value: null
-  new_in: null
   description_list:
   - markdown: A quoted (" ") string of code to be executed.
 - property: creates
@@ -74,8 +63,6 @@ properties_list:
 - property: environment
   ruby_type: Hash
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: 'A Hash of environment variables in the form of
 
@@ -99,7 +86,6 @@ properties_list:
   ruby_type: Integer, Array
   required: false
   default_value: '0'
-  new_in: null
   description_list:
   - markdown: 'The return value for a command. This may be an array of accepted
 
@@ -110,7 +96,6 @@ properties_list:
   ruby_type: Integer, Float
   required: false
   default_value: '3600'
-  new_in: null
   description_list:
   - markdown: 'The amount of time (in seconds) a command is to wait before timing
 
@@ -118,8 +103,6 @@ properties_list:
 - property: user
   ruby_type: String, Integer
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: 'The user name or user ID that should be changed before running a
 
@@ -127,11 +110,7 @@ properties_list:
 - property: umask
   ruby_type: String, Integer
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: The file mode creation mask, or umask.
 
-examples_list: null
 
----

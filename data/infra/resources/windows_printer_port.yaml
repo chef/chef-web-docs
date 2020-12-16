@@ -3,15 +3,7 @@ resource_reference: true
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-title: windows_printer_port resource
 resource: windows_printer_port
-aliases:
-- "/resource_windows_printer_port.html"
-menu:
-  infra:
-    title: windows_printer_port
-    identifier: chef_infra/cookbook_reference/resources/windows_printer_port windows_printer_port
-    parent: chef_infra/cookbook_reference/resources
 resource_description_list:
 - markdown: Use the **windows_printer_port** resource to create and delete TCP/IPv4
     printer ports on Windows.
@@ -105,4 +97,3 @@ examples: |
     port_protocol 2
   end
   ```
----

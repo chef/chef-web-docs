@@ -1,17 +1,9 @@
 ---
-title: link resource
-resource: link
-draft: false
-aliases:
-- /resource_link.html
-menu:
-  infra:
-    title: link
-    identifier: chef_infra/cookbook_reference/resources/link link
-    parent: chef_infra/cookbook_reference/resources
-
 resource_reference: true
-robots: null
+resources_common_guards: true
+resources_common_notification: true
+resources_common_properties: true
+resource: link
 resource_description_list:
 - markdown: 'Use the **link** resource to create symbolic or hard links.
 
@@ -38,8 +30,6 @@ resource_description_list:
     the same inode as the original file. On Windows, this resource can be
 
     used to create directory junction/reparse points.'
-resource_new_in: null
-handler_types: false
 syntax_description: "A **link** resource block creates symbolic or hard links. For\
   \ example,\nto create a hard link from `/tmp/file` to `/etc/file`:\n\n```ruby\n\
   link '/tmp/file' do\n  to '/etc/file'\n  link_type :hard\nend\n```\n\nBecause the\
@@ -63,10 +53,6 @@ syntax_full_properties_list:
   this resource, with the Ruby type shown. See "Properties" section below for more
   information about all of the properties that may be used with this resource.'
 syntax_shortcode: null
-registry_key: false
-nameless_apt_update: false
-nameless_build_essential: false
-resource_package_options: false
 actions_list:
   :create:
     markdown: Default. Create a link. If a link already exists (but does not match),
@@ -79,8 +65,6 @@ properties_list:
 - property: group
   ruby_type: String, Integer
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: 'A group name or ID number that identifies the group associated with
 
@@ -89,7 +73,6 @@ properties_list:
   ruby_type: String, Symbol
   required: false
   default_value: :symbolic
-  new_in: null
   allowed_values: ':symbolic :hard'
   description_list:
   - markdown: 'The type of link: `:symbolic` or `:hard`. On Windows, `:symbolic` will create a junction point if the target is a directory.'
@@ -97,7 +80,6 @@ properties_list:
   ruby_type: Integer, String
   required: false
   default_value: '777'
-  new_in: null
   description_list:
   - markdown: 'If `mode` is not specified and if the file already exists, the
 
@@ -156,15 +138,12 @@ properties_list:
 - property: owner
   ruby_type: String, Integer
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: The owner associated with a symbolic link.
 - property: target_file
   ruby_type: String
   required: false
   default_value: The resource block's name
-  new_in: null
   description_list:
   - markdown: 'An optional property to set the target file if it differs from the
 
@@ -172,31 +151,13 @@ properties_list:
 - property: to
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: The actual file to which the link is to be created.
 properties_shortcode: null
-properties_multiple_packages: false
-resource_directory_recursive_directories: false
-resources_common_atomic_update: false
-properties_resources_common_windows_security: false
-remote_file_prevent_re_downloads: false
-remote_file_unc_path: false
-ps_credential_helper: false
-ruby_style_basics_chef_log: false
-debug_recipes_chef_shell: false
 template_requirements: false
 resources_common_properties: true
 resources_common_notification: true
 resources_common_guards: true
-common_resource_functionality_multiple_packages: false
-resources_common_guard_interpreter: false
-remote_directory_recursive_directories: false
-common_resource_functionality_resources_common_windows_security: false
-handler_custom: false
-cookbook_file_specificity: false
-unit_file_verification: false
 examples: "
   Create symbolic links\n\n  The following example will create a symbolic\
   \ link from `/tmp/file` to\n  `/etc/file`:\n\n  ```ruby\n  link '/tmp/file' do\n\
@@ -229,4 +190,3 @@ examples: "
   \  directory 'C:/source'\n\n  link 'C:/destination' do\n      link_type :symbolic\n\
   \      to 'C:/source'\n  end\n  ```\n"
 
----

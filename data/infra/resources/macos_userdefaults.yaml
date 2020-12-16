@@ -3,15 +3,7 @@ resource_reference: true
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-title: macos_userdefaults resource
 resource: macos_userdefaults
-aliases:
-- "/resource_macos_userdefaults.html"
-menu:
-  infra:
-    title: macos_userdefaults
-    identifier: chef_infra/cookbook_reference/resources/macos_userdefaults macos_userdefaults
-    parent: chef_infra/cookbook_reference/resources
 resource_description_list:
 - markdown: Use the **macos_userdefaults** resource to manage the macOS user defaults
     system. The properties of this resource are passed to the defaults command, and
@@ -84,8 +76,7 @@ properties_list:
   - markdown: The system user that the default will be applied to.
 - property: value
   ruby_type: Integer, Float, String, true, false, Hash, Array
-  required:
-  - write
+  required: true
   description_list:
   - markdown: 'The value of the key. Note: With the `type` property set to `bool`,
       `String` forms of Boolean true/false values that Apple accepts in the defaults
@@ -120,4 +111,3 @@ examples: |
     type 'bool'
   end
   ```
----

@@ -41,17 +41,23 @@
 
               <div class="prose">
 
-                {{ readFile "themes/docs-new/layouts/shortcodes/chef_server.md" | markdownify }}
+                <p>
+                  {{ readFile "themes/docs-new/layouts/shortcodes/chef_server.md" | markdownify }}
+                </p>
 
-                {{ readFile "themes/docs-new/layouts/shortcodes/chef_server_component_erchef_background.md" | markdownify }}
+                <p>
+                  {{ readFile "themes/docs-new/layouts/shortcodes/chef_server_component_erchef_background.md" | markdownify }}
+                </p>
 
                 <p>
                   The following diagram shows the various components that are part of a
                   Chef Infra Server deployment and how they relate to one another.
                 </p>
 
+                <p>
+                  <img src="/images/server_components_14.svg" width="500" alt="image" />
+                </p>
 
-                <img src="/images/server_components_14.svg" width="500" alt="image" />
 
                 <table style="width:99%;">
                 <colgroup>
@@ -75,10 +81,11 @@
                 <td>{{ readFile "themes/docs-new/layouts/shortcodes/chef_server_component_erchef.md" | markdownify }}</td>
                 </tr>
                 <tr class="odd">
-                <td><p>Messages</p></td>
-                <li>{{ readFile "themes/docs-new/layouts/shortcodes/chef_server_component_elasticsearch.md" | markdownify }}</li>
-                </ol>
-                <p>All messages are added to a dedicated search index repository.</p></td>
+                <td>Messages</td>
+                <td>
+                  <p>{{ readFile "themes/docs-new/layouts/shortcodes/chef_server_component_elasticsearch.md" | markdownify }}</p>
+                  <p>All messages are added to a dedicated search index repository.</p>
+                </td>
                 </tr>
                 <tr class="even">
                 <td>Nginx</td>

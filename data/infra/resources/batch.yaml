@@ -3,29 +3,14 @@ resource_reference: true
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-title: batch resource
 resource: batch
-aliases:
-- "/resource_batch.html"
-menu:
-  infra:
-    title: batch
-    identifier: chef_infra/cookbook_reference/resources/batch batch
-    parent: chef_infra/cookbook_reference/resources
 resource_description_list:
-- markdown: 'Use the **batch** resource to execute a batch script using the cmd.exe
-
-    interpreter on Windows. The **batch** resource creates and executes a
-
-    temporary file (similar to how the **script** resource behaves), rather
-
-    than running the command inline. Commands that are executed with this
-
-    resource are (by their nature) not idempotent, as they are typically
-
-    unique to the environment in which they are run. Use `not_if` and
-
-    `only_if` to guard this resource for idempotence.'
+- markdown: Use the **batch** resource to execute a batch script using the cmd.exe
+    interpreter on Windows. The batch resource creates and executes a temporary file
+    (similar to how the script resource behaves), rather than running the command
+    inline. Commands that are executed with this resource are (by their nature) not
+    idempotent, as they are typically unique to the environment in which they are
+    run. Use `not_if` and `only_if` to guard this resource for idempotence.
 syntax_description: "A **batch** resource block executes a batch script using the\
   \ cmd.exe\ninterpreter:\n\n```ruby\nbatch 'echo some env vars' do\n  code <<-EOH\n\
   \    echo %TEMP%\n    echo %SYSTEMDRIVE%\n    echo %PATH%\n    echo %WINDIR%\n \
@@ -59,8 +44,6 @@ properties_list:
 - property: architecture
   ruby_type: Symbol
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: 'The architecture of the process under which a script is executed. If
 
@@ -121,8 +104,6 @@ properties_list:
 - property: interpreter
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: 'The script interpreter to use during code execution. Changing the
 
@@ -131,7 +112,6 @@ properties_list:
   ruby_type: Integer, Array
   required: false
   default_value: '0'
-  new_in: null
   description_list:
   - markdown: 'The return value for a command. This may be an array of accepted
 
@@ -142,7 +122,6 @@ properties_list:
   ruby_type: Integer, Float
   required: false
   default_value: '3600'
-  new_in: null
   description_list:
   - markdown: 'The amount of time (in seconds) a command is to wait before timing
 
@@ -150,8 +129,6 @@ properties_list:
 - property: user
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: 'The user name of the user identity with which to launch the new
 
@@ -173,8 +150,6 @@ properties_list:
 - property: password
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: '*Windows only*: The password of the user specified by the <span
 
@@ -192,8 +167,6 @@ properties_list:
 - property: domain
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: '*Windows only*: The domain of the user user specified by the <span
 
@@ -217,26 +190,10 @@ properties_list:
 
       class="title-ref">user</span> property.'
 properties_shortcode: null
-properties_multiple_packages: false
-resource_directory_recursive_directories: false
-resources_common_atomic_update: false
-properties_resources_common_windows_security: false
-remote_file_prevent_re_downloads: false
-remote_file_unc_path: false
-ps_credential_helper: false
-ruby_style_basics_chef_log: false
-debug_recipes_chef_shell: false
 template_requirements: false
 resources_common_properties: true
 resources_common_notification: true
 resources_common_guards: true
-common_resource_functionality_multiple_packages: false
-resources_common_guard_interpreter: false
-remote_directory_recursive_directories: false
-common_resource_functionality_resources_common_windows_security: false
-handler_custom: false
-cookbook_file_specificity: false
-unit_file_verification: false
 examples: "
   Unzip a file, and then move it\n\n  To run a batch file that unzips\
   \ and then moves Ruby, do something like:\n\n  ```ruby\n  batch 'unzip_and_move_ruby'\
@@ -272,4 +229,3 @@ examples: "
   \   cwd Chef::Config[:file_cache_path]\n   user \"username@domain-name\"\n   password\
   \ \"password\"\n  end\n  ```\n"
 
----

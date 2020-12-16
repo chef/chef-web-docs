@@ -3,15 +3,7 @@ resource_reference: true
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-title: cab_package resource
 resource: cab_package
-aliases:
-- "/resource_cab_package.html"
-menu:
-  infra:
-    title: cab_package
-    identifier: chef_infra/cookbook_reference/resources/cab_package cab_package
-    parent: chef_infra/cookbook_reference/resources
 resource_description_list:
 - markdown: Use the **cab_package** resource to install or remove Microsoft Windows
     cabinet (.cab) packages.
@@ -94,4 +86,3 @@ examples: |
     action :remove
   end
   ```
----

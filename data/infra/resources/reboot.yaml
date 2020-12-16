@@ -3,15 +3,7 @@ resource_reference: true
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-title: reboot resource
 resource: reboot
-aliases:
-- "/resource_reboot.html"
-menu:
-  infra:
-    title: reboot
-    identifier: chef_infra/cookbook_reference/resources/reboot reboot
-    parent: chef_infra/cookbook_reference/resources
 resource_description_list:
 - markdown: |-
     Use the **reboot** resource to reboot a node, a necessary step with some installations on certain platforms. This resource is supported for use on the Microsoft Windows, macOS, and Linux platforms.
@@ -77,4 +69,3 @@ examples: "
   \ tells the **reboot** resource block to run\n      if the **powershell_script**\
   \ block was executed during a Chef Infra\n      Client run\n"
 
----

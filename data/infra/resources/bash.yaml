@@ -1,30 +1,15 @@
 ---
 resource_reference: true
-properties_shortcode:
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-title: bash resource
 resource: bash
-aliases:
-- "/resource_bash.html"
-menu:
-  infra:
-    title: bash
-    identifier: chef_infra/cookbook_reference/resources/bash bash
-    parent: chef_infra/cookbook_reference/resources
 resource_description_list:
-- markdown: 'Use the **bash** resource to execute scripts using the Bash interpreter.
-
-    This resource may also use any of the actions and properties that are
-
-    available to the **execute** resource. Commands that are executed with
-
-    this resource are (by their nature) not idempotent, as they are
-
-    typically unique to the environment in which they are run. Use `not_if`
-
-    and `only_if` to guard this resource for idempotence.'
+- markdown: Use the **bash** resource to execute scripts using the Bash interpreter.
+    This resource may also use any of the actions and properties that are available
+    to the **execute** resource. Commands that are executed with this resource are
+    (by their nature) not idempotent, as they are typically unique to the environment
+    in which they are run. Use `not_if` and `only_if` to guard this resource for idempotence.
 syntax_description: "A **bash** resource block executes scripts using Bash:\n\n```\
   \ ruby\nbash 'extract_module' do\n  cwd ::File.dirname(src_filepath)\n  code <<-EOH\n\
   \    mkdir -p #{extract_path}\n    tar xzf #{src_filename} -C #{extract_path}\n\
@@ -51,10 +36,6 @@ syntax_full_properties_list:
   "Properties" section below for more information about all of the properties that
   may be used with this resource.'
 syntax_shortcode: null
-registry_key: false
-nameless_apt_update: false
-nameless_build_essential: false
-resource_package_options: false
 actions_list:
   :nothing:
     shortcode: resources_common_actions_nothing.md
@@ -106,7 +87,6 @@ properties_list:
   ruby_type: Integer, Array
   required: false
   default_value: '0'
-  new_in: null
   description_list:
   - markdown: 'The return value for a command. This may be an array of accepted
 
@@ -132,26 +112,10 @@ properties_list:
   description_list:
   - markdown: The file mode creation mask, or umask.
 properties_shortcode: null
-properties_multiple_packages: false
-resource_directory_recursive_directories: false
-resources_common_atomic_update: false
-properties_resources_common_windows_security: false
-remote_file_prevent_re_downloads: false
-remote_file_unc_path: false
-ps_credential_helper: false
-ruby_style_basics_chef_log: false
-debug_recipes_chef_shell: false
 template_requirements: false
 resources_common_properties: true
 resources_common_notification: true
 resources_common_guards: true
-common_resource_functionality_multiple_packages: false
-resources_common_guard_interpreter: false
-remote_directory_recursive_directories: false
-common_resource_functionality_resources_common_windows_security: false
-handler_custom: false
-cookbook_file_specificity: false
-unit_file_verification: false
 examples: "
   Use a named provider to run a script\n\n  ```ruby\n  bash 'install_something'\
   \ do\n    user 'root'\n    cwd '/tmp'\n    code <<-EOH\n      wget http://www.example.com/tarball.tar.gz\n\
@@ -212,4 +176,3 @@ examples: "
   \ && ./configure #{configure_options})\n      (cd Python-#{version} && make && make\
   \ install)\n    EOF\n    not_if { ::File.exist?(install_path) }\n  end\n  ```\n"
 
----

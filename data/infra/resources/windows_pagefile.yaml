@@ -3,15 +3,7 @@ resource_reference: true
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-title: windows_pagefile resource
 resource: windows_pagefile
-aliases:
-- "/resource_windows_pagefile.html"
-menu:
-  infra:
-    title: windows_pagefile
-    identifier: chef_infra/cookbook_reference/resources/windows_pagefile windows_pagefile
-    parent: chef_infra/cookbook_reference/resources
 resource_description_list:
 - markdown: Use the **windows_pagefile** resource to configure pagefile settings on
     Windows.
@@ -97,4 +89,3 @@ examples: |
     maximum_size 200
   end
   ```
----

@@ -6,15 +6,7 @@ resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
 template_requirements: true
-title: template resource
 resource: template
-aliases:
-- "/resource_template.html"
-menu:
-  infra:
-    title: template
-    identifier: chef_infra/cookbook_reference/resources/template template
-    parent: chef_infra/cookbook_reference/resources
 resource_description_list:
 - shortcode: template.md
 - note:
@@ -33,8 +25,6 @@ resource_description_list:
     **template** resource follow the same file specificity rules as the
 
     **remote_file** and **file** resources.'
-resource_new_in: null
-handler_types: false
 syntax_description: "A **template** resource block typically declares the location\
   \ in which a\nfile is to be created, the source template that will be used to create\n\
   the file, and the permissions needed on that file. For example:\n\n```ruby\ntemplate\
@@ -75,10 +65,6 @@ syntax_full_properties_list:
   with the Ruby type shown. See "Properties" section below for more information about
   all of the properties that may be used with this resource.'
 syntax_shortcode: null
-registry_key: false
-nameless_apt_update: false
-nameless_build_essential: false
-resource_package_options: false
 actions_list:
   :create:
     markdown: Default. Create a file. If a file already exists (but does not match),
@@ -98,8 +84,6 @@ properties_list:
 - property: atomic_update
   ruby_type: true, false
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: 'Perform atomic file updates on a per-resource basis. Set to `true`
 
@@ -112,7 +96,6 @@ properties_list:
   ruby_type: Integer, false
   required: false
   default_value: '5'
-  new_in: null
   description_list:
   - markdown: 'The number of backups to be kept in `/var/chef/backup` (for UNIX-
 
@@ -124,8 +107,6 @@ properties_list:
 - property: cookbook
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: 'The cookbook in which a file is located (if it is not located in the
 
@@ -134,7 +115,6 @@ properties_list:
   ruby_type: true, false
   required: false
   default_value: 'false'
-  new_in: null
   description_list:
   - markdown: 'How Chef Infra Client handles certain situations when the target
 
@@ -148,8 +128,6 @@ properties_list:
 - property: group
   ruby_type: Integer, String
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: 'A string or ID that identifies the group owner by group name or SID,
 
@@ -164,7 +142,6 @@ properties_list:
   ruby_type: Method
   required: false
   default_value: '{}'
-  new_in: null
   description_list:
   - markdown: 'Define a helper method inline. For example:
 
@@ -177,7 +154,6 @@ properties_list:
   ruby_type: Module
   required: false
   default_value: '[]'
-  new_in: null
   description_list:
   - markdown: 'Define a helper module inline or in a library. For example, an
 
@@ -188,7 +164,6 @@ properties_list:
   ruby_type: true, false
   required: false
   default_value: 'true'
-  new_in: null
   description_list:
   - markdown: 'Microsoft Windows only. Whether a file inherits rights from its
 
@@ -197,7 +172,6 @@ properties_list:
   ruby_type: true, false
   required: false
   default_value: 'false'
-  new_in: null
   description_list:
   - markdown: 'Load a template from a local path. By default, Chef Infra Client
 
@@ -210,7 +184,6 @@ properties_list:
   ruby_type: true, false
   required: false
   default_value: 'true'
-  new_in: null
   description_list:
   - markdown: '(with
 
@@ -238,8 +211,6 @@ properties_list:
 - property: mode
   ruby_type: Integer, String
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: 'A quoted 3-5 character string that defines the octal mode. For
 
@@ -302,8 +273,6 @@ properties_list:
 - property: owner
   ruby_type: Integer, String
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: 'A string or ID that identifies the group owner by user name or SID,
 
@@ -318,7 +287,6 @@ properties_list:
   ruby_type: String
   required: false
   default_value: The resource block's name
-  new_in: null
   description_list:
   - markdown: 'The full path to the file, including the file name and its
 
@@ -337,8 +305,6 @@ properties_list:
 - property: rights
   ruby_type: Integer, String
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: 'Microsoft Windows only. The permissions for users and groups in a
 
@@ -354,8 +320,6 @@ properties_list:
 - property: source
   ruby_type: String, Array
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: 'The location of a template file. By default, Chef Infra Client looks
 
@@ -375,16 +339,12 @@ properties_list:
 - property: variables
   ruby_type: Hash
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: A Hash of variables that are passed into a Ruby template file.
   - shortcode: template_partials_variables_attribute.md
 - property: verify
   ruby_type: String, Block
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: "A block or a string that returns `true` or `false`. A string, when\n\
       `true` is executed as a system command.\n\nA block is arbitrary Ruby defined\
@@ -413,13 +373,6 @@ template_requirements: true
 resources_common_properties: true
 resources_common_notification: true
 resources_common_guards: true
-common_resource_functionality_multiple_packages: false
-resources_common_guard_interpreter: false
-remote_directory_recursive_directories: false
-common_resource_functionality_resources_common_windows_security: false
-handler_custom: false
-cookbook_file_specificity: false
-unit_file_verification: false
 examples: "
   Configure a file from a template\n\n  ```ruby\n  template '/tmp/config.conf'\
   \ do\n    source 'config.conf.erb'\n  end\n  ```\n\n  Configure a file from a local\
@@ -603,4 +556,3 @@ examples: "
   \ in the [chef-splunk\n  cookbook](https://github.com/chef-cookbooks/chef-splunk/)\
   \ that is\n  maintained by Chef.\n"
 
----

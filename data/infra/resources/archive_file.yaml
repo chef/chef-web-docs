@@ -3,15 +3,7 @@ resource_reference: true
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-title: archive_file resource
 resource: archive_file
-aliases:
-- "/resource_archive_file.html"
-menu:
-  infra:
-    title: archive_file
-    identifier: chef_infra/cookbook_reference/resources/archive_file archive_file
-    parent: chef_infra/cookbook_reference/resources
 resource_description_list:
 - markdown: Use the **archive_file** resource to extract archive files to disk. This
     resource uses the libarchive library to extract multiple archive formats including
@@ -112,4 +104,3 @@ examples: |
     destination '/srv/files'
   end
   ```
----

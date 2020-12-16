@@ -3,15 +3,7 @@ resource_reference: true
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-title: apt_repository resource
 resource: apt_repository
-aliases:
-- "/resource_apt_repository.html"
-menu:
-  infra:
-    title: apt_repository
-    identifier: chef_infra/cookbook_reference/resources/apt_repository apt_repository
-    parent: chef_infra/cookbook_reference/resources
 resource_description_list:
 - markdown: Use the **apt_repository** resource to specify additional APT repositories.
     Adding a new repository will update the APT package cache immediately.
@@ -198,4 +190,3 @@ examples: |
     action :remove
   end
   ```
----

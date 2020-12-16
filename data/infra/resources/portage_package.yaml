@@ -1,22 +1,13 @@
 ---
-title: portage_package resource
-resource: portage_package
-aliases:
-- "/resource_portage_package.html"
-menu:
-  infra:
-    title: portage_package
-    identifier: chef_infra/cookbook_reference/resources/portage_package portage_package
-    parent: chef_infra/cookbook_reference/resources
 resource_reference: true
-robots: null
+resources_common_guards: true
+resources_common_notification: true
+resources_common_properties: true
+resource: portage_package
 resource_description_list:
-- markdown: 'Use the **portage_package** resource to manage packages for the Gentoo
-
-    platform.'
+- markdown: Use the **portage_package** resource to manage packages for the Gentoo
+    platform.
 - notes_resource_based_on_package: true
-resource_new_in: null
-handler_types: false
 syntax_description: "A **portage_package** resource block manages a package on a node,\n\
   typically by installing it. The simplest use of the **portage_package**\nresource\
   \ is:\n\n```ruby\nportage_package 'package_name'\n```\n\nwhich will install the\
@@ -37,10 +28,6 @@ syntax_properties_list:
 syntax_full_code_block: null
 syntax_full_properties_list: null
 syntax_shortcode: null
-registry_key: false
-nameless_apt_update: false
-nameless_build_essential: false
-resource_package_options: false
 actions_list:
   :install:
     markdown: Default. Install a package. If a version is specified, install the specified
@@ -58,8 +45,6 @@ properties_list:
 - property: options
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: 'One (or more) additional command options that are passed to the
 
@@ -67,8 +52,6 @@ properties_list:
 - property: package_name
   ruby_type: String, Array
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: 'An optional property to set the package name if it differs from the
 
@@ -76,47 +59,25 @@ properties_list:
 - property: source
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: The optional path to a package on the local file system.
 - property: timeout
   ruby_type: String, Integer
   required: false
   default_value: '3600'
-  new_in: null
   description_list:
   - markdown: The amount of time (in seconds) to wait before timing out.
 - property: version
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: The version of a package to be installed or upgraded.
 properties_shortcode: null
-properties_multiple_packages: false
-resource_directory_recursive_directories: false
-resources_common_atomic_update: false
-properties_resources_common_windows_security: false
-remote_file_prevent_re_downloads: false
-remote_file_unc_path: false
-ps_credential_helper: false
-ruby_style_basics_chef_log: false
-debug_recipes_chef_shell: false
 template_requirements: false
 resources_common_properties: true
 resources_common_notification: true
 resources_common_guards: true
-common_resource_functionality_multiple_packages: false
-resources_common_guard_interpreter: false
-remote_directory_recursive_directories: false
-common_resource_functionality_resources_common_windows_security: false
-handler_custom: false
-cookbook_file_specificity: false
-unit_file_verification: false
 examples: "
   Install a package\n\n  ```ruby\n  portage_package 'name of package'\
   \ do\n    action :install\n  end\n  ```\n"
 
----

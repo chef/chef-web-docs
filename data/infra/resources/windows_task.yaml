@@ -3,15 +3,7 @@ resource_reference: true
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-title: windows_task resource
 resource: windows_task
-aliases:
-- "/resource_windows_task.html"
-menu:
-  infra:
-    title: windows_task
-    identifier: chef_infra/cookbook_reference/resources/windows_task windows_task
-    parent: chef_infra/cookbook_reference/resources
 resource_description_list:
 - markdown: Use the **windows_task** resource to create, delete or run a Windows scheduled
     task.
@@ -351,4 +343,3 @@ examples: |
     action :disable
   end
   ```
----

@@ -3,15 +3,7 @@ resource_reference: true
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-title: windows_dfs_folder resource
 resource: windows_dfs_folder
-aliases:
-- "/resource_windows_dfs_folder.html"
-menu:
-  infra:
-    title: windows_dfs_folder
-    identifier: chef_infra/cookbook_reference/resources/windows_dfs_folder windows_dfs_folder
-    parent: chef_infra/cookbook_reference/resources
 resource_description_list:
 - markdown: Use the **windows_dfs_folder** resource to creates a folder within DFS
     as many levels deep as required.
@@ -63,4 +55,3 @@ properties_list:
   description_list:
   - markdown: The target that this path will connect you to.
 examples: 
----

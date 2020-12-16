@@ -3,15 +3,7 @@ resource_reference: true
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-title: chef_client_cron resource
 resource: chef_client_cron
-aliases:
-- "/resource_chef_client_cron.html"
-menu:
-  infra:
-    title: chef_client_cron
-    identifier: chef_infra/cookbook_reference/resources/chef_client_cron chef_client_cron
-    parent: chef_infra/cookbook_reference/resources
 resource_description_list:
 - markdown: Use the **chef_client_cron** resource to setup the Chef Infra Client to
     run as a cron job. This resource will also create the specified log directory
@@ -201,4 +193,3 @@ examples: |
     daemon_options ['--override-runlist mycorp_base::default']
   end
   ```
----

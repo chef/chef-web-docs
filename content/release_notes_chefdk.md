@@ -1,5 +1,5 @@
 +++
-title = "Release Notes: ChefDK 0.19 - 4.10"
+title = "Release Notes: ChefDK 0.19 - 4.13"
 draft = false
 
 aliases = ["/release_notes_chefdk.html"]
@@ -10,6 +10,164 @@ aliases = ["/release_notes_chefdk.html"]
 This page documents the ChefDK major changes for each release. For
 a detailed list of changes, see the [ChefDK Changelog on
 GitHub](https://github.com/chef/chef-dk/blob/master/CHANGELOG.md)
+
+## What's New In ChefDK 4.13
+
+Note: ChefDK will enter the end-of-life product phase on Dec 31st 2020. The 4.13 release of ChefDK is the last planned release and all users should upgrade to Chef Workstation, which offers significant improvements to all included tools.
+
+### Package Updates
+
+ChefDK packages are no longer produced for Debian 8 and RHEL/CentOS 6, as these platforms are now both EOL.
+
+### Updated Components
+
+#### Test Kitchen
+
+Test Kitchen was updated from 2.7.2 to 2.8.0. This release improves how we execute commands on Windows hosts in order to avoid failures from executing commands that are too long for the windows command line. Thanks for this fix [@ramereth](https://github.com/ramereth)!
+
+#### Kitchen Google
+
+The Kitchen Google driver for Test Kitchen was updated from 2.0.3 to 2.1.0. This release adds a new network_ip config for an IPv4 internal IP address to assign to the instance. The driver automatically assigns an unused internal IP to an unconfigured network_ip. Thanks [@eReGeBe](https://github.com/eReGeBe) for this new feature!
+
+#### Kitchen Vagrant
+
+The kitchen-vagrant plugin is updated from version 1.7.1 to 1.7.2 with a bug fix to no longer stop with an error when updating a Vagrant box that has not yet been downloaded.
+
+#### Kitchen Dokken
+
+Kitchen Dokken has been updated to 2.11.2 to resolve failures from creating containers during the Test Kitchen converge. Thanks for reporting this issue [@emeshuris](https://github.com/emeshuris)!
+
+#### Chef InSpec
+
+Chef InSpec has been updated to 4.24.8, which includes the following improvements:
+
+- An unset `HOME` environment variable will not cause execution failures
+- You can use wildcards in `platform-name` and `release` in InSpec profiles. Thanks for this improvement [@yarick](https://github.com/yarick)!
+- The `WMI` resource now returns an array to support returning multiple WMI objects
+- The `package` resource on Windows properly escapes package names. Thanks for this improvement [@ramereth](https://github.com/ramereth)!
+- The `grub_conf` resource succeeds even if without a `menuentry` in the grub config
+- Loaded plugins won't try to re-load themselves
+- Waiver expiration is now always populated
+
+#### chef-vault
+
+Chef Vault has been updated to version 4.1, which properly handles escape strings in secrets and greatly improves performance for users with large numbers of secrets. Thanks for the performance work [@Annih](https://github.com/Annih)!
+
+#### knife-ec2
+
+The knife-ec2 plugin has been updated to 2.1.0, which allows for the creation of instances with ST1 or SC1 EBS volume types
+
+### Security
+
+#### openSSL
+
+The openSSL library has been updated to 1.0.2x to resolve [CVE-2020-1971](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-1971).
+
+## What's New In ChefDK 4.12
+
+### Updates Components
+
+#### Chef InSpec
+
+InSpec has been updated from 4.22.22 to 4.23.11. This release includes a `--no-diff` CLI option to suppress diff output for textual tests, a `--sort_results_by` CLI option to sort control output, and implements a sensitive mechanism to hide sensitive output.
+
+#### kitchen-azurerm
+
+The `kitchen-azurerm` plugin has been updated from 1.3.0 to 1.4.0. This release includes multiple bug fixes, as well as a new `use_fqdn_hostname` config option that forces using the instance's FQDN for all communication.
+
+#### kitchen-dokken
+
+The `kitchen-dokken` plugin has been updated from 2.10.0 to 2.11.0. This release works with newer Docker API releases and resolves Ruby 2.7 compatibility warnings.
+
+#### kitchen-ec2
+
+The `kitchen-ec2` plugin has been updated from 3.7.1 to 3.8.0. This release now avoids beta releases of Red Hat when searching for AMIs to converge, allows multiple IP addresses to be specified when creating a security group, and fixes `block_duration_minutes` when creating spot instances.
+
+#### kitchen-inspec
+
+The `kitchen-inspec` plugin has been updated from 2.0.0 to 2.2.1. This release includes the ability to disable input caching in InSpec, as well as a fix for using the `junit` reporter under Test Kitchen.
+
+#### Test Kitchen
+
+Test Kitchen has been updated from 2.7.0 to 2.7.2. This release marks the legacy `chef_solo` provisioner as unsafe for concurrency and includes various performance optimizations.
+
+#### knife-opc
+
+The `knife-opc` plugin has been updated from 0.4.6 to 0.4.7. This release includes a new `--all-info` flag for use with the `knife opc user list` command. This flag provides additional details on each listed user:
+
+```
+antima_gupta:
+  display_name: Antima Gupta
+  email:        agupta@example.com
+  first_name:   Antima
+  last_name:    Gupta
+pivotal:
+  display_name: Chef Server Superuser
+  email:        root@localhost.localdomain
+  first_name:   Chef
+  last_name:    Server
+```
+
+#### knife-ec2
+
+The `knife-ec2` plugin has been updated from 2.0.4 to 2.0.6. This release fixes an error that would occur when using the `--server-connect-attribute private_ip_address` flag.
+
+#### chef-vault
+
+The `chef-vault` gem has been updated from 4.0.11 to 4.0.12. This release fixes `vault show -F json` and `knife vault list -F json` displaying invalid JSON.
+
+## What's New In ChefDK 4.11
+
+### Knife Improvements
+
+We've reworked how the knife command loads dependencies to greatly improve performance. For some users this may result in a 2/3 reduction in the time knife commands take to load the first time. We also fixed the `knife ssh` command hanging when connecting to Windows nodes over SSH.
+
+### Updates Components
+
+#### Chef Infra Client
+
+Chef Infra Client has been updated from 15.13.8 to 15.14.0, with a large number of improvements to built-in Chef Infra resources.
+
+#### Chef InSpec
+
+Chef InSpec has been updated from 4.22.1 to 4.22.22. This new release includes the following improvements:
+
+- Fix mysql_session stdout, stderr, and exit_status parameters. Thanks [@ramereth](https://github.com/ramereth)!
+- Add new windows_firewall and windows_firewall_rule resources. Thanks [@tecracer-theinen](https://github.com/tecracer-theinen)!
+
+#### Chef Vault
+
+Chef Vault has been updated from 4.0.1 to 4.0.11. This release resolves errors when running some knife vault commands and improves how it handles command inputs.
+
+#### Test Kitchen
+
+Test Kitchen has been updated from 2.5.4 to 2.7.0, which adds the ability to mark plugins as unable to run with a concurrency (`-c`) level greater than 1. This will help prevent strange failures that occur with some plugins which cannot run concurrently in the future.
+
+#### Kitchen AzureRM
+
+Kitchen AzureRM has been updated from 1.0.0 to 1.3.0. This release includes:
+
+- Support for deletion or preservation of resource group tags with a new `destroy_explicit_resource_group_tags` config that defaults to true.
+- Default password generation increased to 25 characters to avoid failures on newer Windows releases.
+- Improve performance by loading dependencies only when we need them.
+
+#### Kitchen Vagrant
+
+The `kitchen-vagrant` plugin  has been updated from 1.6.1 to 1.7.0. This release adds new `box_auto_update` and `box_auto_prune` options to pull newer Vagrant base boxes. Thank you [@Stromweld](https://github.com/Stromweld)!
+
+### Platform Packages
+
+- We now produce packages for Apple's upcoming macOS 11 Big Sur release.
+
+### Security
+
+#### OpenSSL
+
+OpenSSL has been updated to 1.0.2w, which includes a fix for [CVE-2020-1968](https://cve.mitre.org/cgi-bin/cvename.cgi?name=2020-1968).
+
+#### CA Root Certificates
+
+The included `cacerts` bundle in Chef Infra Client has been updated to the 7-22-2020 release. This new release removes 4 legacy root certificates and adds 4 additional root certificates.
 
 ## What's New In 4.10
 
