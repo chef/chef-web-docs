@@ -5,15 +5,7 @@ handler_types: true
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-title: chef_handler resource
 resource: chef_handler
-aliases:
-- "/resource_chef_handler.html"
-menu:
-  infra:
-    title: chef_handler
-    identifier: chef_infra/cookbook_reference/resources/chef_handler chef_handler
-    parent: chef_infra/cookbook_reference/resources
 resource_description_list:
 - markdown: |-
     Use the **chef_handler** resource to enable handlers during a Chef Infra Client run. The resource allows arguments to be passed to Chef Infra Client, which then applies the conditions defined by the custom handler to the node attribute data collected during a Chef Infra Client run, and then processes the handler based on that data.

@@ -5,15 +5,7 @@ resource_directory_recursive_directories: true
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-title: directory resource
 resource: directory
-aliases:
-- "/resource_directory.html"
-menu:
-  infra:
-    title: directory
-    identifier: chef_infra/cookbook_reference/resources/directory directory
-    parent: chef_infra/cookbook_reference/resources
 resource_description_list:
 - markdown: 'Use the **directory** resource to manage a directory, which is a
 

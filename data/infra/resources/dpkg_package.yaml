@@ -1,17 +1,10 @@
 ---
 resource_reference: true
+multi_package_resource: true
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-title: dpkg_package resource
 resource: dpkg_package
-aliases:
-- "/resource_dpkg_package.html"
-menu:
-  infra:
-    title: dpkg_package
-    identifier: chef_infra/cookbook_reference/resources/dpkg_package dpkg_package
-    parent: chef_infra/cookbook_reference/resources
 resource_description_list:
 - markdown: Use the **dpkg_package** resource to manage packages for the dpkg platform.
     When a package is installed from a local file, it must be added to the node using

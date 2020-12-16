@@ -3,15 +3,7 @@ resource_reference: true
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-title: chocolatey_source resource
 resource: chocolatey_source
-aliases:
-- "/resource_chocolatey_source.html"
-menu:
-  infra:
-    title: chocolatey_source
-    identifier: chef_infra/cookbook_reference/resources/chocolatey_source chocolatey_source
-    parent: chef_infra/cookbook_reference/resources
 resource_description_list:
 - markdown: Use the **chocolatey_source** resource to add, remove, enable, or disable
     Chocolatey sources.
