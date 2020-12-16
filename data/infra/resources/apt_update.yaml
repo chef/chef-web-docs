@@ -4,15 +4,7 @@ nameless_apt_update: true
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-title: apt_update resource
 resource: apt_update
-aliases:
-- "/resource_apt_update.html"
-menu:
-  infra:
-    title: apt_update
-    identifier: chef_infra/cookbook_reference/resources/apt_update apt_update
-    parent: chef_infra/cookbook_reference/resources
 resource_description_list:
 - markdown: Use the **apt_update** resource to manage APT repository updates on Debian
     and Ubuntu platforms.

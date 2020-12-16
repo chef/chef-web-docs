@@ -3,15 +3,7 @@ resource_reference: true
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-title: csh resource
 resource: csh
-aliases:
-- "/resource_csh.html"
-menu:
-  infra:
-    title: csh
-    identifier: chef_infra/cookbook_reference/resources/csh csh
-    parent: chef_infra/cookbook_reference/resources
 resource_description_list:
 - markdown: 'Use the **csh** resource to execute scripts using the csh interpreter.
 

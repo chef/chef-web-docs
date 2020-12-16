@@ -76,8 +76,7 @@ properties_list:
   - markdown: The system user that the default will be applied to.
 - property: value
   ruby_type: Integer, Float, String, true, false, Hash, Array
-  required:
-  - write
+  required: true
   description_list:
   - markdown: 'The value of the key. Note: With the `type` property set to `bool`,
       `String` forms of Boolean true/false values that Apple accepts in the defaults

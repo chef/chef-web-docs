@@ -3,15 +3,7 @@ resource_reference: true
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-title: cron resource
 resource: cron
-aliases:
-- "/resource_cron.html"
-menu:
-  infra:
-    title: cron
-    identifier: chef_infra/cookbook_reference/resources/cron cron
-    parent: chef_infra/cookbook_reference/resources
 resource_description_list:
 - markdown: Use the **cron** resource to manage cron entries for time-based job scheduling.
 - warning:

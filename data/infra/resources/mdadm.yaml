@@ -11,23 +11,24 @@ resource_description_list:
     reboot. If the config file is required, it must be done by specifying a template
     with the correct array layout, and then by using the mount provider to create
     a file systems table (fstab) entry.
-syntax_description: "The mdadm resource has the following syntax:\n\n```ruby\nmdadm\
-  \ 'name' do\n  bitmap           String\n  chunk            Integer # default value:\
-  \ 16\n  devices          Array\n  layout           String\n  level            Integer\
-  \ # default value: 1\n  metadata         String # default value: \"0.90\"\n  raid_device\
-  \      String # default value: 'name' unless specified\n  action           Symbol\
-  \ # defaults to :create if not specified\nend\n```"
-syntax_code_block: null
+syntax_full_code_block: |-
+  mdadm 'name' do
+    bitmap           String
+    chunk            Integer # default value: 16
+    devices          Array
+    layout           String
+    level            Integer # default value: 1
+    metadata         String # default value: "0.90"
+    raid_device      String # default value: 'name' unless specified
+    action           Symbol # defaults to :create if not specified
+  end
 syntax_properties_list:
-- '`mdadm` is the resource.'
-- '`name` is the name given to the resource block.'
-- '`action` identifies which steps Chef Infra Client will take to bring the node into
-  the desired state.'
-- '`bitmap`, `chunk`, `devices`, `layout`, `level`, `metadata`, and `raid_device`
-  are the properties available to this resource.'
-syntax_full_code_block: null
-syntax_full_properties_list: null
-syntax_shortcode: null
+- "`mdadm` is the resource."
+- "`name` is the name given to the resource block."
+- "`action` identifies which steps Chef Infra Client will take to bring the node into
+  the desired state."
+- "`bitmap`, `chunk`, `devices`, `layout`, `level`, `metadata`, and `raid_device`
+  are the properties available to this resource."
 actions_list:
   :assemble:
     markdown: Assemble a previously created array into an active array.
@@ -49,9 +50,8 @@ properties_list:
   required: false
   default_value: '16'
   description_list:
-  - markdown: 'The chunk size. This property should not be used for a RAID 1
-
-      mirrored pair (i.e. when the `level` property is set to `1`).'
+  - markdown: The chunk size. This property should not be used for a RAID 1 mirrored
+      pair (i.e. when the `level` property is set to `1`).
 - property: devices
   ruby_type: Array
   required: false
@@ -62,10 +62,8 @@ properties_list:
   required: false
   description_list:
   - markdown: 'The RAID5 parity algorithm. Possible values: `left-asymmetric` (or
-
-      `la`), `left-symmetric` (or `ls`), `right-asymmetric` (or `ra`), or
-
-      `right-symmetric` (or `rs`).'
+      `la`), `left-symmetric` (or ls), `right-asymmetric` (or `ra`), or `right-symmetric`
+      (or `rs`).'
 - property: level
   ruby_type: Integer
   required: false
@@ -83,14 +81,8 @@ properties_list:
   required: false
   default_value: The resource block's name
   description_list:
-  - markdown: 'An optional property to specify the name of the RAID device if it
-
-      differs from the resource block''s name.'
-properties_shortcode: null
-template_requirements: false
-resources_common_properties: true
-resources_common_notification: true
-resources_common_guards: true
+  - markdown: An optional property to specify the name of the RAID device if it differs
+      from the resource block's name.
 examples: "
   Create and assemble a RAID 0 array\n\n  The mdadm command can be\
   \ used to create RAID arrays. For example, a RAID\n  0 array named `/dev/md0` with\

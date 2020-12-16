@@ -3,29 +3,14 @@ resource_reference: true
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-title: batch resource
 resource: batch
-aliases:
-- "/resource_batch.html"
-menu:
-  infra:
-    title: batch
-    identifier: chef_infra/cookbook_reference/resources/batch batch
-    parent: chef_infra/cookbook_reference/resources
 resource_description_list:
-- markdown: 'Use the **batch** resource to execute a batch script using the cmd.exe
-
-    interpreter on Windows. The **batch** resource creates and executes a
-
-    temporary file (similar to how the **script** resource behaves), rather
-
-    than running the command inline. Commands that are executed with this
-
-    resource are (by their nature) not idempotent, as they are typically
-
-    unique to the environment in which they are run. Use `not_if` and
-
-    `only_if` to guard this resource for idempotence.'
+- markdown: Use the **batch** resource to execute a batch script using the cmd.exe
+    interpreter on Windows. The batch resource creates and executes a temporary file
+    (similar to how the script resource behaves), rather than running the command
+    inline. Commands that are executed with this resource are (by their nature) not
+    idempotent, as they are typically unique to the environment in which they are
+    run. Use `not_if` and `only_if` to guard this resource for idempotence.
 syntax_description: "A **batch** resource block executes a batch script using the\
   \ cmd.exe\ninterpreter:\n\n```ruby\nbatch 'echo some env vars' do\n  code <<-EOH\n\
   \    echo %TEMP%\n    echo %SYSTEMDRIVE%\n    echo %PATH%\n    echo %WINDIR%\n \

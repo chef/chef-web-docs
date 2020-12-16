@@ -23,10 +23,10 @@ syntax_full_properties_list:
 - "`lang` and `lc_env` are the properties available to this resource."
 
 actions_list:
-  :update:
-    markdown: Updates the system's locale.
   :nothing:
     shortcode: resources_common_actions_nothing.md
+  :update:
+    markdown: Updates the system's locale.
 properties_list:
 - property: lang
   ruby_type: String

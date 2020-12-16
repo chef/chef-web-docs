@@ -6,15 +6,7 @@ resources_common_atomic_update: true
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-title: cookbook_file resource
 resource: cookbook_file
-aliases:
-- "/resource_cookbook_file.html"
-menu:
-  infra:
-    title: cookbook_file
-    identifier: chef_infra/cookbook_reference/resources/cookbook_file cookbook_file
-    parent: chef_infra/cookbook_reference/resources
 resource_description_list:
 - shortcode: resource_cookbook_file_summary.md
 - markdown: 'During a Chef Infra Client run, the checksum for each local file is

@@ -3,16 +3,7 @@ resource_reference: true
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-title: chef_client_trusted_certificate resource
 resource: chef_client_trusted_certificate
-aliases:
-- "/resource_chef_client_trusted_certificate.html"
-menu:
-  infra:
-    title: chef_client_trusted_certificate
-    identifier: chef_infra/cookbook_reference/resources/chef_client_trusted_certificate
-      chef_client_trusted_certificate
-    parent: chef_infra/cookbook_reference/resources
 resource_description_list:
 - markdown: Use the **chef_client_trusted_certificate** resource to add certificates
     to Chef Infra Client's trusted certificate directory. This allows the Chef Infra

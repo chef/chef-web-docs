@@ -3,15 +3,7 @@ resource_reference: true
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-title: dsc_resource resource
 resource: dsc_resource
-aliases:
-- "/resource_dsc_resource.html"
-menu:
-  infra:
-    title: dsc_resource
-    identifier: chef_infra/cookbook_reference/resources/dsc_resource dsc_resource
-    parent: chef_infra/cookbook_reference/resources
 resource_description_list:
 - shortcode: resources_common_powershell.md
 - shortcode: resources_common_powershell_dsc.md

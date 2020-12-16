@@ -4,15 +4,7 @@ nameless_build_essential: true
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-title: build_essential resource
 resource: build_essential
-aliases:
-- "/resource_build_essential.html"
-menu:
-  infra:
-    title: build_essential
-    identifier: chef_infra/cookbook_reference/resources/build_essential build_essential
-    parent: chef_infra/cookbook_reference/resources
 resource_description_list:
 - markdown: Use the **build_essential** resource to install the packages required
     for compiling C software from source.

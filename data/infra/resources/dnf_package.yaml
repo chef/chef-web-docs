@@ -5,15 +5,7 @@ multi_package_resource: true
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-title: dnf_package resource
 resource: dnf_package
-aliases:
-- "/resource_dnf_package.html"
-menu:
-  infra:
-    title: dnf_package
-    identifier: chef_infra/cookbook_reference/resources/dnf_package dnf_package
-    parent: chef_infra/cookbook_reference/resources
 resource_description_list:
 - markdown: Use the **dnf_package** resource to install, upgrade, and remove packages
     with DNF for Fedora and RHEL 8+. The dnf_package resource is able to resolve provides

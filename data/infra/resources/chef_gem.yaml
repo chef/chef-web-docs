@@ -3,15 +3,7 @@ resource_reference: true
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-title: chef_gem resource
 resource: chef_gem
-aliases:
-- "/resource_chef_gem.html"
-menu:
-  infra:
-    title: chef_gem
-    identifier: chef_infra/cookbook_reference/resources/chef_gem chef_gem
-    parent: chef_infra/cookbook_reference/resources
 resource_description_list:
 - markdown: |-
     Use the **chef_gem** resource to install a gem only for the instance of Ruby that is dedicated to the chef-client.
