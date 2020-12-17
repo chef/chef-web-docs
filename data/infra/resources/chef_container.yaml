@@ -18,7 +18,6 @@ syntax_description: "The syntax for using the **chef_container** resource in a r
   \ is as\nfollows:\n\n```ruby\nchef_container 'name' do\n  attribute 'value' # see\
   \ properties section below\n  ...\n  action :action # see actions section below\n\
   end\n```"
-syntax_code_block: null
 syntax_properties_list:
 - '`chef_container` tells Chef Infra Client to use the `Chef::Provider::ChefContainer`
   provider during a Chef Infra Client run'
@@ -26,9 +25,6 @@ syntax_properties_list:
 - '`attribute` is zero (or more) of the properties that are available for this resource'
 - '`action` identifies which steps Chef Infra Client will take to bring the node into
   the desired state'
-syntax_full_code_block: null
-syntax_full_properties_list: null
-syntax_shortcode: null
 actions_list:
   :create:
     markdown: Default.
@@ -83,5 +79,4 @@ properties_list:
   - shortcode: resources_common_notification_timers.md
   - markdown: ''
   - shortcode: resources_common_notification_subscribes_syntax.md
-properties_shortcode: null
 

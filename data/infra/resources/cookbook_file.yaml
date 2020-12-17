@@ -23,7 +23,6 @@ syntax_description: "A **cookbook_file** resource block manages files by using f
   home page for an Apache website:\n\n```ruby\ncookbook_file '/var/www/customers/public_html/index.php'\
   \ do\n  source 'index.php'\n  owner 'web_admin'\n  group 'web_admin'\n  mode '0755'\n\
   \  action :create\nend\n```"
-syntax_code_block: null
 syntax_properties_list:
 - '`''/var/www/customers/public_html/index.php''` is path to the file to be created'
 - '`''index.php''` is a file in the `/files` directory in a cookbook that is used
@@ -288,7 +287,6 @@ properties_list:
       \nWhereas, this should return `false`:\n\n```ruby\ncookbook_file '/tmp/turtle'\
       \ do\n  verify '/usr/bin/false'\nend\n```\n\nIf a string or a block return `false`,\
       \ the Chef Infra Client run\nwill stop and an error is returned."
-properties_shortcode: null
 properties_multiple_packages: false
 resource_directory_recursive_directories: false
 resources_common_atomic_update: true
@@ -298,7 +296,6 @@ remote_file_unc_path: false
 ps_credential_helper: false
 ruby_style_basics_chef_log: false
 debug_recipes_chef_shell: false
-template_requirements: false
 resources_common_properties: true
 resources_common_notification: true
 resources_common_guards: true

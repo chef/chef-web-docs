@@ -24,7 +24,6 @@ syntax_description: 'A **ips_package** resource block manages a package on a nod
   which will install the named package using all of the default options
 
   and the default action (`:install`).'
-syntax_code_block: null
 syntax_properties_list: null
 syntax_full_code_block: "ips_package 'name' do\n  accept_license             true,\
   \ false # default value: false\n  options                    String\n  package_name\

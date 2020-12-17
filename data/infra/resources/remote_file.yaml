@@ -16,7 +16,6 @@ syntax_description: "A **remote_file** resource block manages files by using fil
   \n```ruby\nremote_file '/var/www/customers/public_html/index.html' do\n  source\
   \ 'http://somesite.com/index.html'\n  owner 'web_admin'\n  group 'web_admin'\n \
   \ mode '0755'\n  action :create\nend\n```"
-syntax_code_block: null
 syntax_properties_list:
 - '`''/var/www/customers/public_html/index.html''` is path to the file to be created'
 - '`''http://somesite.com/index.html''` specifies the location of the remote file,
@@ -562,7 +561,6 @@ properties_list:
       Whereas, this should return `false`:\n\n```ruby\nremote_file '/tmp/turtle'\
       \ do\n  verify '/usr/bin/false'\nend\n```\n\nIf a string or a block return `false`,\
       \ the Chef Infra Client run\nwill stop and an error is returned."
-properties_shortcode: null
 properties_multiple_packages: false
 resource_directory_recursive_directories: false
 resources_common_atomic_update: true
@@ -572,7 +570,6 @@ remote_file_unc_path: true
 ps_credential_helper: false
 ruby_style_basics_chef_log: false
 debug_recipes_chef_shell: false
-template_requirements: false
 resources_common_properties: false
 resources_common_notification: false
 resources_common_guards: false

@@ -47,7 +47,6 @@ syntax_description: "A **dsc_script** resource block embeds the code that define
   \ path = \"#{Chef::Config[:file_cache_path]}\\\\DSCResourceKit620082014.zip\"\n\
   \      destination = \"#{ENV['PROGRAMW6432']}\\\\WindowsPowerShell\\\\Modules\"\n\
   \    }\n  EOH\nend\n```"
-syntax_code_block: null
 syntax_properties_list:
 - 'the **remote_file** resource is first used to download the
 
@@ -67,7 +66,6 @@ syntax_full_properties_list:
   `cwd`, `environment`, `flags`, `imports`, and `timeout` are properties of this resource,
   with the Ruby type shown. See "Properties" section below for more information about
   all of the properties that may be used with this resource.'
-syntax_shortcode: null
 actions_list:
   :nothing:
     shortcode: resources_common_actions_nothing.md
@@ -213,7 +211,6 @@ properties_list:
   required: false
   description_list:
   - markdown: The amount of time (in seconds) a command is to wait before timing out.
-properties_shortcode: null
 properties_multiple_packages: false
 resource_directory_recursive_directories: false
 resources_common_atomic_update: false
@@ -223,7 +220,6 @@ remote_file_unc_path: false
 ps_credential_helper: true
 ruby_style_basics_chef_log: false
 debug_recipes_chef_shell: false
-template_requirements: false
 resources_common_properties: true
 resources_common_notification: true
 resources_common_guards: true

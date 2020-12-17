@@ -22,7 +22,6 @@ syntax_full_properties_list:
 - '`block` and `block_name` are properties of this resource, with the Ruby type shown.
   See "Properties" section below for more information about all of the properties
   that may be used with this resource.'
-syntax_shortcode: null
 actions_list:
   :create:
     markdown: The same as `:run`.
@@ -80,8 +79,6 @@ properties_list:
   - shortcode: resources_common_notification_timers.md
   - markdown: ''
   - shortcode: resources_common_notification_subscribes_syntax.md
-properties_shortcode: null
-template_requirements: false
 resources_common_properties: false
 resources_common_notification: false
 resources_common_guards: false

@@ -14,7 +14,6 @@ syntax_description: "The group resource has the following syntax:\n\n```ruby\ngr
   \    true, false # default value: false\n  system                true, false # default\
   \ value: false\n  action                Symbol # defaults to :create if not specified\n\
   end\n```"
-syntax_code_block: null
 syntax_properties_list:
 - '`group` is the resource.'
 - '`name` is the name given to the resource block.'
@@ -22,9 +21,6 @@ syntax_properties_list:
   the desired state.'
 - '`append`, `comment`, `excluded_members`, `gid`, `group_name`, `members`, `non_unique`,
   and `system` are the properties available to this resource.'
-syntax_full_code_block: null
-syntax_full_properties_list: null
-syntax_shortcode: null
 actions_list:
   :create:
     markdown: Default. Create a group. If a group already exists (but does not match),
@@ -103,8 +99,6 @@ properties_list:
   - markdown: 'Set if a group belongs to a system group. Set to `true` if the group
 
       belongs to a system group.'
-properties_shortcode: null
-template_requirements: false
 resources_common_properties: true
 resources_common_notification: true
 resources_common_guards: true

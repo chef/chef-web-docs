@@ -24,9 +24,6 @@ syntax_properties_list:
 - '`attribute` is zero (or more) of the properties that are available for this resource'
 - '`action` identifies which steps Chef Infra Client will take to bring the node into
   the desired state'
-syntax_full_code_block: null
-syntax_full_properties_list: null
-syntax_shortcode: null
 actions_list:
   :create:
     markdown: Default. Use to create a chef-client.
@@ -149,5 +146,4 @@ properties_list:
   required: false
   description_list:
   - markdown: Use to specify if Chef Infra Client is a chef-validator.
-properties_shortcode: null
 

@@ -83,7 +83,6 @@ syntax_description: "A **package** resource block manages a package on a node, t
   \n```ruby\npackage 'Install Apache' do\n  case node[:platform]\n  when 'redhat',\
   \ 'centos'\n    package_name 'httpd'\n  when 'ubuntu', 'debian'\n    package_name\
   \ 'apache2'\n  end\nend\n```"
-syntax_code_block: null
 syntax_properties_list:
 - '`''redhat'', ''centos''` will install Apache using the `httpd` package
 
@@ -111,10 +110,7 @@ syntax_full_properties_list:
   `recursive`, `timeout`, and `version` are properties of this resource, with the
   Ruby type shown. See "Properties" section below for more information about all of
   the properties that may be used with this resource.'
-syntax_shortcode: null
 registry_key: false
-nameless_apt_update: false
-nameless_build_essential: false
 resource_package_options: true
 actions_list:
   :install:
@@ -274,7 +270,6 @@ properties_list:
   required: false
   description_list:
   - markdown: The version of a package to be installed or upgraded.
-properties_shortcode: null
 multi_package_resource: true
 resource_directory_recursive_directories: false
 resources_common_atomic_update: false
@@ -284,7 +279,6 @@ remote_file_unc_path: false
 ps_credential_helper: false
 ruby_style_basics_chef_log: false
 debug_recipes_chef_shell: false
-template_requirements: false
 resources_common_properties: false
 resources_common_notification: false
 resources_common_guards: false

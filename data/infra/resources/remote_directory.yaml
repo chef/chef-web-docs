@@ -16,7 +16,6 @@ syntax_description: "A **remote_directory** resource block transfers a directory
   \ a\ncookbook to a node, and then assigns the permissions needed on that\ndirectory.\
   \ For example:\n\n```ruby\nremote_directory '/etc/apache2' do\n  source 'apache2'\n\
   \  owner 'root'\n  group 'root'\n  mode '0755'\n  action :create\nend\n```"
-syntax_code_block: null
 syntax_properties_list:
 - '`''/etc/apache2''` specifies the directory'
 - '`source` specifies a directory in the current cookbook (use the `cookbook` property
@@ -293,7 +292,6 @@ properties_list:
       property). For example, in the default value, ''/some/path/'' would be
 
       ''path''.'
-properties_shortcode: null
 properties_multiple_packages: false
 resource_directory_recursive_directories: true
 resources_common_atomic_update: false
@@ -303,7 +301,6 @@ remote_file_unc_path: false
 ps_credential_helper: false
 ruby_style_basics_chef_log: false
 debug_recipes_chef_shell: false
-template_requirements: false
 resources_common_properties: true
 resources_common_notification: true
 resources_common_guards: true

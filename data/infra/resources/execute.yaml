@@ -18,7 +18,6 @@ syntax_description: "An **execute** resource block typically executes a single c
   \ with other Chef resources. For example, a single\ncommand that is run by itself:\n\
   \n```ruby\nexecute 'apache_configtest' do\n  command '/usr/sbin/apachectl configtest'\n\
   end\n```"
-syntax_code_block: null
 syntax_properties_list:
 - '`''/usr/sbin/apachectl configtest''` is a command that tests if the
 

@@ -36,7 +36,6 @@ syntax_description: "A **user** resource block manages users on a node:\n\n```ru
   user 'a user' do\n  comment 'A random user'\n  uid 1234\n  gid 'groupname'\n  home\
   \ '/home/random'\n  shell '/bin/bash'\n  password '$1$JJsvHslasdfjVEroftprNn4JHtDi'\n\
   end\n```"
-syntax_code_block: null
 syntax_properties_list: null
 syntax_full_code_block: "user 'name' do\n  comment                    String\n  force\
   \                      true, false # see description\n  gid                    \
@@ -56,7 +55,6 @@ syntax_full_properties_list:
   `salt`, `shell`, `system`, `uid`, and `username` are properties of this resource,
   with the Ruby type shown. See "Properties" section below for more information about
   all of the properties that may be used with this resource.'
-syntax_shortcode: null
 actions_list:
   :create:
     markdown: Default. Create a user with given properties. If a user already exists
@@ -181,8 +179,6 @@ properties_list:
   - markdown: 'The name of the user. Default value: the `name` of the resource
 
       block. See "Syntax" section above for more information.'
-properties_shortcode: null
-template_requirements: false
 resources_common_properties: true
 resources_common_notification: true
 resources_common_guards: true

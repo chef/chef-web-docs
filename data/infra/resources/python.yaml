@@ -11,7 +11,6 @@ resource_description_list:
 syntax_description: "The python resource has the following syntax:\n\n```ruby\npython\
   \ 'hello world' do\n  code <<-EOH\n    print \"Hello world! From Chef and Python.\"\
   \n  EOH\nend\n```"
-syntax_code_block: null
 syntax_properties_list:
 - '`code` specifies the command to run'
 syntax_full_code_block: "python 'name' do\n  code             String\n  command  \
@@ -33,7 +32,6 @@ syntax_full_properties_list:
 - '`code`, `command`, `creates`, `cwd`, `default_env`, `domain`, `elevated`, `environment`,
   `flags`, `group`, `interpreter`, `live_stream`, `password`, `returns`, `sensitive`,
   `timeout`, `umask`, and `user` are the properties available to this resource.'
-syntax_shortcode: null
 actions_list:
   :nothing:
     markdown: Prevent a command from running. This action is used to specify that

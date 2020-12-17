@@ -11,7 +11,6 @@ resource_description_list:
 syntax_description: "A **perl** resource block executes scripts Perl:\n\n```perl\n\
   perl 'hello world' do\n  code <<-EOH\n    print \"Hello world! From Chef and Perl.\"\
   ;\n  EOH\nend\n```"
-syntax_code_block: null
 syntax_properties_list:
 - '`code` specifies the command to run'
 syntax_full_code_block: "perl 'name' do\n  code                       String\n  creates\
@@ -32,7 +31,6 @@ syntax_full_properties_list:
   `user`, and `umask` are properties of this resource, with the Ruby type shown. See
   "Properties" section below for more information about all of the properties that
   may be used with this resource.'
-syntax_shortcode: null
 actions_list:
   :nothing:
     markdown: Prevent a command from running. This action is used to specify that
@@ -146,8 +144,6 @@ properties_list:
   required: false
   description_list:
   - markdown: The file mode creation mask, or umask.
-properties_shortcode: null
-template_requirements: false
 resources_common_properties: false
 resources_common_notification: false
 resources_common_guards: true

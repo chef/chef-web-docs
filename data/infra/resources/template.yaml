@@ -30,7 +30,6 @@ syntax_description: "A **template** resource block typically declares the locati
   the file, and the permissions needed on that file. For example:\n\n```ruby\ntemplate\
   \ '/etc/motd' do\n  source 'motd.erb'\n  owner 'root'\n  group 'root'\n  mode '0755'\n\
   end\n```"
-syntax_code_block: null
 syntax_properties_list:
 - '`''/etc/motd''` specifies the location in which the file is created'
 - '`''motd.erb''` specifies the name of a template that exists in in the `/templates`
@@ -64,7 +63,6 @@ syntax_full_properties_list:
   `sensitive`, `source`, `variables`, and `verify` are properties of this resource,
   with the Ruby type shown. See "Properties" section below for more information about
   all of the properties that may be used with this resource.'
-syntax_shortcode: null
 actions_list:
   :create:
     markdown: Default. Create a file. If a file already exists (but does not match),
@@ -359,7 +357,6 @@ properties_list:
       \ should return `false`:\n\n```ruby\ntemplate '/tmp/turtle' do\n  verify '/usr/bin/false'\n\
       end\n```\n\nIf a string or a block return `false`, the Chef Infra Client run\n\
       will stop and an error is returned."
-properties_shortcode: null
 properties_multiple_packages: false
 resource_directory_recursive_directories: false
 resources_common_atomic_update: true
