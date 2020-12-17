@@ -15,7 +15,6 @@ syntax_description: "A **bash** resource block executes scripts using Bash:\n\n`
   \    mkdir -p #{extract_path}\n    tar xzf #{src_filename} -C #{extract_path}\n\
   \    mv #{extract_path}/*/* #{extract_path}/\n  EOH\n  not_if { ::File.exist?(extract_path)\
   \ }\nend\n```"
-syntax_code_block: null
 syntax_properties_list:
 - '`cwd` specifies the directory from which the command is run'
 - '`code` specifies the command to run'
@@ -35,7 +34,6 @@ syntax_full_properties_list:
   `user`, and `umask` are properties of this resource, with the Ruby type shown. See
   "Properties" section below for more information about all of the properties that
   may be used with this resource.'
-syntax_shortcode: null
 actions_list:
   :nothing:
     shortcode: resources_common_actions_nothing.md
@@ -111,8 +109,6 @@ properties_list:
   required: false
   description_list:
   - markdown: The file mode creation mask, or umask.
-properties_shortcode: null
-template_requirements: false
 resources_common_properties: true
 resources_common_notification: true
 resources_common_guards: true

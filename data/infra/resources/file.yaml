@@ -18,7 +18,6 @@ syntax_description: "A **file** resource block manages files that exist on nodes
   \ '/var/www/customers/public_html/index.php' do\n  content '<html>This is a placeholder\
   \ for the home page.</html>'\n  mode '0755'\n  owner 'web_admin'\n  group 'web_admin'\n\
   end\n```"
-syntax_code_block: null
 syntax_properties_list:
 - '`''/var/www/customers/public_html/index.php''` is path to the file and also the
   filename to be managed'
@@ -42,7 +41,6 @@ syntax_full_properties_list:
   are properties of this resource, with the Ruby type shown. See "Properties" section
   below for more information about all of the properties that may be used with this
   resource.'
-syntax_shortcode: null
 actions_list:
   :create:
     markdown: Default. Create a file. If a file already exists (but does not match),
@@ -317,7 +315,6 @@ properties_list:
       \ ruby\nfile '/tmp/foo' do\n  content \"goodbye\"\n  verify do |path|\n    open(path).read.include?\
       \ \"hello\"\n  end\nend\n```\n\nIf a string or a block return `false`, the Chef\
       \ Infra Client run\nwill stop and an error is raised."
-properties_shortcode: null
 properties_multiple_packages: false
 resource_directory_recursive_directories: false
 resources_common_atomic_update: true
@@ -327,7 +324,6 @@ remote_file_unc_path: false
 ps_credential_helper: false
 ruby_style_basics_chef_log: false
 debug_recipes_chef_shell: false
-template_requirements: false
 resources_common_properties: true
 resources_common_notification: true
 resources_common_guards: true

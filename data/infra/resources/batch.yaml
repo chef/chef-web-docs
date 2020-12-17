@@ -15,7 +15,6 @@ syntax_description: "A **batch** resource block executes a batch script using th
   \ cmd.exe\ninterpreter:\n\n```ruby\nbatch 'echo some env vars' do\n  code <<-EOH\n\
   \    echo %TEMP%\n    echo %SYSTEMDRIVE%\n    echo %PATH%\n    echo %WINDIR%\n \
   \ EOH\nend\n```"
-syntax_code_block: null
 syntax_properties_list: null
 syntax_full_code_block: "batch 'name' do\n  architecture               Symbol\n  code\
   \                       String\n  command                    String, Array\n  creates\
@@ -189,8 +188,6 @@ properties_list:
       unspecified and specify the domain as part of the <span
 
       class="title-ref">user</span> property.'
-properties_shortcode: null
-template_requirements: false
 resources_common_properties: true
 resources_common_notification: true
 resources_common_guards: true

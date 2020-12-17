@@ -17,7 +17,6 @@ resource_description_list:
 syntax_description: "The syntax for using the **chef_group** resource in a recipe\
   \ is as\nfollows:\n\n```ruby\nchef_group 'name' do\n  attribute 'value' # see properties\
   \ section below\n  ...\n  action :action # see actions section below\nend\n```"
-syntax_code_block: null
 syntax_properties_list:
 - '`chef_group` tells Chef Infra Client to use the `Chef::Provider::ChefGroup` provider
   during a Chef Infra Client run'
@@ -25,9 +24,6 @@ syntax_properties_list:
 - '`attribute` is zero (or more) of the properties that are available for this resource'
 - '`action` identifies which steps Chef Infra Client will take to bring the node into
   the desired state'
-syntax_full_code_block: null
-syntax_full_properties_list: null
-syntax_shortcode: null
 actions_list:
   :create:
     markdown: Default.
@@ -122,5 +118,4 @@ properties_list:
   required: false
   description_list:
   - markdown: '...'
-properties_shortcode: null
 

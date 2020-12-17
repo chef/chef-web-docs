@@ -55,7 +55,6 @@ syntax_description: "A **registry_key** resource block creates and deletes regis
   \  key               String # default value: 'name' unless specified\n  recursive\
   \         true, false # default value: false\n  values\n  action            Symbol\
   \ # defaults to :create if not specified\nend\n```"
-syntax_code_block: null
 syntax_properties_list:
 - '`registry_key` is the resource'
 - '`name` is the name of the resource block'
@@ -72,13 +71,7 @@ syntax_properties_list:
 - '`architecture`, `key`, `recursive` and `values` are properties of this resource,
   with the Ruby type shown. See "Properties" section below for more information about
   all of the properties that may be used with this resource.'
-syntax_full_code_block: null
-syntax_full_properties_list: null
-syntax_shortcode: null
 registry_key: true
-nameless_apt_update: false
-nameless_build_essential: false
-resource_package_options: false
 actions_list:
   :create:
     markdown: Default. Create a registry key. If a registry key already exists (but
@@ -194,8 +187,6 @@ properties_list:
     - markdown: '`:multi_string` must be an array, even if there is only a single
 
         string.'
-properties_shortcode: null
-template_requirements: false
 resources_common_properties: false
 resources_common_notification: false
 resources_common_guards: false

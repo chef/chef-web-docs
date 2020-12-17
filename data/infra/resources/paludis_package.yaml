@@ -73,8 +73,6 @@ properties_list:
   required: false
   description_list:
   - markdown: The version of a package to be installed or upgraded.
-properties_shortcode: null
-template_requirements: false
 resources_common_properties: true
 resources_common_notification: true
 resources_common_guards: true

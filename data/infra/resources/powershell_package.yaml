@@ -31,7 +31,6 @@ syntax_description: "A **powershell_package** resource block manages a package o
   \ # default value: false\n  source                    String\n  timeout        \
   \           String, Integer\n  version                   String, Array\n  action\
   \                    Symbol # defaults to :install if not specified\nend\n```"
-syntax_code_block: null
 syntax_properties_list:
 - '`powershell_package` is the resource.'
 - '`name` is the name given to the resource block.'
@@ -39,9 +38,6 @@ syntax_properties_list:
   the desired state.'
 - '`options`, `package_name`, `skip_publisher_check`, `source`, `timeout`, and `version`
   are the properties available to this resource.'
-syntax_full_code_block: null
-syntax_full_properties_list: null
-syntax_shortcode: null
 actions_list:
   :install:
     markdown: Default. Install a package. If a version is specified, install the specified

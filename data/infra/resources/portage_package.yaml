@@ -17,7 +17,6 @@ syntax_description: "A **portage_package** resource block manages a package on a
   \  source            String\n  timeout           String, Integer # default value:\
   \ 3600\n  version           String, Array\n  action            Symbol # defaults\
   \ to :install if not specified\nend\n```"
-syntax_code_block: null
 syntax_properties_list:
 - '`portage_package` is the resource.'
 - '`name` is the name given to the resource block.'
@@ -25,9 +24,6 @@ syntax_properties_list:
   the desired state.'
 - '`options`, `package_name`, `source`, `timeout`, and `version` are the properties
   available to this resource.'
-syntax_full_code_block: null
-syntax_full_properties_list: null
-syntax_shortcode: null
 actions_list:
   :install:
     markdown: Default. Install a package. If a version is specified, install the specified
@@ -72,8 +68,6 @@ properties_list:
   required: false
   description_list:
   - markdown: The version of a package to be installed or upgraded.
-properties_shortcode: null
-template_requirements: false
 resources_common_properties: true
 resources_common_notification: true
 resources_common_guards: true

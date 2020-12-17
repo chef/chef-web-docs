@@ -444,8 +444,6 @@ properties_list:
   required: false
   description_list:
   - markdown: "`chdir` to this directory, and then run the job."
-properties_shortcode: null
-template_requirements: false
 resources_common_properties: true
 resources_common_notification: true
 resources_common_guards: true

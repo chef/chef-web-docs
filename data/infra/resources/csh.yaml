@@ -19,7 +19,6 @@ resource_description_list:
 syntax_description: "A **csh** resource block executes scripts using csh:\n\n```ruby\n\
   csh 'hello world' do\n  code <<-EOH\n    echo \"Hello world!\"\n    echo \"Current\
   \ directory: \" $cwd\n  EOH\nend\n```"
-syntax_code_block: null
 syntax_properties_list:
 - '`code` specifies the command to run'
 syntax_full_code_block: "csh 'name' do\n  code                       String\n  creates\

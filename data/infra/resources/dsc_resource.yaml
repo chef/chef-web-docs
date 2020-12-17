@@ -39,7 +39,6 @@ syntax_description: "A **dsc_resource** resource block allows DSC resources to b
   \ 'example' do\n   resource :archive\n   property :ensure, 'Present'\n   property\
   \ :path, \"C:\\Users\\Public\\Documents\\example.zip\"\n   property :destination,\
   \ \"C:\\Users\\Public\\Documents\\ExtractionPath\"\n end```"
-syntax_code_block: null
 syntax_properties_list: null
 syntax_full_code_block: "dsc_resource 'name' do\n  module_name                String\n\
   \  module_version             String\n  property                   Symbol\n  reboot_action\
@@ -379,8 +378,6 @@ properties_list:
   - markdown: 'The amount of time (in seconds) a command is to wait before timing
 
       out.'
-properties_shortcode: null
-template_requirements: false
 resources_common_properties: true
 resources_common_notification: true
 resources_common_guards: true

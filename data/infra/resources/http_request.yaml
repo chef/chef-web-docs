@@ -12,7 +12,6 @@ syntax_description: "A **http_request** resource block sends HTTP requests with 
   \ arbitrary\nmessage. For example, send a `DELETE` request to\n`'http://www.chef.io/some_page?message=please_delete_me'`.\n\
   \n```ruby\nhttp_request 'please_delete_me' do\n  url 'http://www.chef.io/some_page'\n\
   \  action :delete\nend\n```"
-syntax_code_block: null
 syntax_properties_list: null
 syntax_full_code_block: "http_request 'name' do\n  headers                    Hash\n\
   \  message                    Object # defaults to 'name' if not specified\n  url\
