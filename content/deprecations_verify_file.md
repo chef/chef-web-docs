@@ -1,13 +1,13 @@
 +++
 title = "Deprecation: Verify File Expansion (CHEF-7)"
 draft = false
+
+gh_repo = "chef-web-docs"
 robots = "noindex"
 
 
 aliases = "/deprecations_verify_file.html"
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/deprecations_verify_file.md)
 
 The `verify` metaproperty allows the user to specify a `{path}` variable
 that is expanded to the path of the file to be verified. Previously, it

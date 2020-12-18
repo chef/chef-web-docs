@@ -1,13 +1,13 @@
 +++
 title = "Deprecation: Local Mode Listen (CHEF-18)"
 draft = false
+
+gh_repo = "chef-web-docs"
 robots = "noindex"
 
 
 aliases = "/deprecations_local_listen.html"
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/deprecations_local_listen.md)
 
 When using <span class="title-ref">chef-client</span> Local Mode, there
 are two ways to launch the internal Chef Zero server. Originally we

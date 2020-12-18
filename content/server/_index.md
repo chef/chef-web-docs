@@ -2,6 +2,8 @@
 title = "Chef Infra Server Overview"
 draft = false
 
+gh_repo = "chef-web-docs"
+
 aliases = ["/server_overview.html", "/server_components.html", "/server_overview/"]
 
 [menu]
@@ -11,8 +13,6 @@ aliases = ["/server_overview.html", "/server_components.html", "/server_overview
     parent = "chef_infra/concepts"
     weight = 20
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/server/_index.md)
 
 {{% chef_server %}}
 

@@ -1,6 +1,8 @@
 +++
 title = "ruby_block Resource"
 draft = false
+
+gh_repo = "chef-web-docs"
 robots = ""
 
 data_path = ["infra","resources","ruby_block"]

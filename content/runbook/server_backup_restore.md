@@ -2,6 +2,8 @@
 title = "Backup and Restore a Standalone or Frontend install"
 draft = false
 
+gh_repo = "chef-web-docs"
+
 aliases = ["/server_backup_restore.html"]
 
 runbook_weight = 70
@@ -13,8 +15,6 @@ runbook_weight = 70
     parent = "chef_infra/managing_chef_infra_server"
     weight = 20
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/runbook/server_backup_restore.md)
 
 Periodic backups of Chef Infra Server data are an essential part of
 managing and maintaining a healthy configuration and ensuring that

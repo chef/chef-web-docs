@@ -1,6 +1,8 @@
 +++
 title = "Publish Cookbooks to Multiple Chef Infra Servers"
 draft = false
+
+gh_repo = "chef-web-docs"
 robots = "noindex"
 
 
@@ -13,8 +15,6 @@ aliases = ["/publish_cookbooks_multiple_servers.html"]
     parent = "legacy/workflow/managing_workflow"
     weight = 50
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/publish_cookbooks_multiple_servers.md)
 
 {{% chef_automate_mark %}}
 

@@ -2,6 +2,8 @@
 title = "Chef Infra Client Security"
 draft = false
 
+gh_repo = "chef-web-docs"
+
 aliases = ["/chef_client_security.html"]
 
 [menu]
@@ -11,8 +13,6 @@ aliases = ["/chef_client_security.html"]
     parent = "chef_infra/setup/nodes"
     weight = 60
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/chef_client_security.md)
 
 {{% chef_auth %}}
 

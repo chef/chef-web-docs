@@ -1,6 +1,8 @@
 +++
 title = "Manage Users and Roles"
 draft = false
+
+gh_repo = "chef-web-docs"
 robots = "noindex"
 
 
@@ -13,8 +15,6 @@ aliases = ["/delivery_users_and_roles.html", "/release/automate/delivery_users_a
     parent = "legacy/workflow/managing_workflow"
     weight = 110
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/delivery_users_and_roles.md)
 
 {{% chef_automate_mark %}}
 

@@ -2,6 +2,8 @@
 title = "Supermarket Backup and Restore"
 draft = false
 
+gh_repo = "chef-web-docs"
+
 aliases = ["/supermarket_backup_restore.html"]
 
 [menu]
@@ -11,8 +13,6 @@ aliases = ["/supermarket_backup_restore.html"]
     parent = "chef_infra/setup/supermarket"
     weight = 50
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/supermarket_backup_restore.md)
 
 Periodic backups of Supermarket data are an essential part of managing
 and maintaining a healthy configuration, and to help ensure that

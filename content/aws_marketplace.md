@@ -2,6 +2,8 @@
 title = "AWS Marketplace"
 draft = false
 
+gh_repo = "chef-web-docs"
+
 aliases = ["/aws_marketplace.html"]
 
 [menu]
@@ -11,8 +13,6 @@ aliases = ["/aws_marketplace.html"]
     parent = "chef_infra/setup/integrations"
     weight = 10
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/aws_marketplace.md)
 
 Chef provides Amazon Machine Images (AMIs) for Chef Automate and Chef
 Infra Server that can be launched from the [AWS

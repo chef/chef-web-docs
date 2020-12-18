@@ -93,6 +93,9 @@ notAlternative = true
 [params.product_version.chef-server]
 versions = ["13_2", "14_0"]
 
+[params.gh.chef-web-docs]
+path = "https://github.com/chef/chef-web-docs/blob/master/content/"
+
 [module]
 
   [[module.imports]]

@@ -2,6 +2,8 @@
 title = "Chef for Microsoft Windows"
 draft = false
 
+gh_repo = "chef-web-docs"
+
 aliases = ["/windows.html"]
 
 [menu]
@@ -11,8 +13,6 @@ aliases = ["/windows.html"]
     parent = "chef_infra/getting_started/chef_on_windows_guide"
     weight = 10
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/windows.md)
 
 ## Overview
 

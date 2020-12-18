@@ -2,6 +2,8 @@
 title = "About the Recipe DSL"
 draft = false
 
+gh_repo = "chef-web-docs"
+
 aliases = ["/dsl_recipe.html"]
 
 [menu]
@@ -11,8 +13,6 @@ aliases = ["/dsl_recipe.html"]
     parent = "chef_infra/cookbook_reference/recipe_dsl"
     weight = 10
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/dsl_recipe.md)
 
 {{% dsl_recipe_summary %}}
 

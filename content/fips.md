@@ -2,6 +2,8 @@
 title = "FIPS (Federal Information Processing Standards)"
 draft = false
 
+gh_repo = "chef-web-docs"
+
 aliases = ["/fips.html"]
 
 [menu]
@@ -11,8 +13,6 @@ aliases = ["/fips.html"]
     parent = "chef_infra/features"
     weight = 30
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/fips.md)
 
 ## What is FIPS?
 

@@ -2,6 +2,8 @@
 title = "Push Jobs API"
 draft = false
 
+gh_repo = "chef-web-docs"
+
 aliases = ["/api_push_jobs.html"]
 
 [menu]
@@ -10,8 +12,6 @@ aliases = ["/api_push_jobs.html"]
     identifier = "legacy/push_jobs/api_push_jobs.md Push Jobs API"
     parent = "legacy/push_jobs"
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/api_push_jobs.md)
 
 The Push Jobs API is used to create jobs and retrieve status using Chef
 Push Jobs, a tool that pushes jobs against a set of nodes in the

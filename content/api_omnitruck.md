@@ -2,6 +2,8 @@
 title = "Omnitruck API"
 draft = false
 
+gh_repo = "chef-web-docs"
+
 aliases = ["/api_omnitruck.html"]
 
 [menu]
@@ -11,8 +13,6 @@ aliases = ["/api_omnitruck.html"]
     parent = "overview/packages_&_platforms"
     weight = 50
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/api_omnitruck.md)
 
 Chef's Omnitruck API powers the Chef Software Install script as well as
 downloads.chef.io site. It can be used to query available versions of

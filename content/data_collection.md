@@ -1,6 +1,8 @@
 +++
 title = "Configure Data Collection"
 draft = false
+
+gh_repo = "chef-web-docs"
 robots = "noindex"
 
 
@@ -13,10 +15,6 @@ aliases = ["/data_collection.html", "/ingest_data_chef_automate.html", "/release
     parent = "legacy/workflow/workflow_basics"
     weight = 40
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/data_collection.md)
-
-
 
 {{% chef_automate_mark %}}
 

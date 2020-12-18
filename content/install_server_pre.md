@@ -2,6 +2,8 @@
 title = "Chef Infra Server Prerequisites"
 draft = false
 
+gh_repo = "chef-web-docs"
+
 aliases = ["/install_server_pre.html"]
 
 [menu]
@@ -11,8 +13,6 @@ aliases = ["/install_server_pre.html"]
     parent = "chef_infra/setup/chef_infra_server"
     weight = 40
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/install_server_pre.md)
 
 The following is a detailed discussion of the prerequisites for every
 installation of the Chef Infra Server. See <span

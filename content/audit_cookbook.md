@@ -1,6 +1,8 @@
 +++
 title = "Sending Compliance Data to Chef Automate with Audit Cookbook"
 draft = false
+
+gh_repo = "chef-web-docs"
 robots = "noindex"
 
 
@@ -13,10 +15,6 @@ aliases = ["/audit_cookbook.html", "/audit_supported_configurations.html"]
     parent = "legacy/workflow/workflow_basics"
     weight = 70
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/audit_cookbook.md)
-
-
 
 {{< note >}}
 

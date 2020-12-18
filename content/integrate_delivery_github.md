@@ -1,6 +1,8 @@
 +++
 title = "Integrate Workflow with GitHub"
 draft = false
+
+gh_repo = "chef-web-docs"
 robots = "noindex"
 
 
@@ -13,8 +15,6 @@ aliases = ["/integrate_delivery_github.html", "/release/automate/integrate_deliv
     parent = "legacy/workflow/managing_workflow"
     weight = 90
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/integrate_delivery_github.md)
 
 {{% chef_automate_mark %}}
 

@@ -1,6 +1,8 @@
 +++
 title = "Configuring for SAML Authentication"
 draft = false
+
+gh_repo = "chef-web-docs"
 robots = "noindex"
 
 
@@ -13,8 +15,6 @@ aliases = ["/server_configure_saml.html", "/release/automate/server_configure_sa
     parent = "chef_infra/features/management_console"
     weight = 20
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/server_configure_saml.md)
 
 {{% EOL_manage %}}
 

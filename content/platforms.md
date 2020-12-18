@@ -2,6 +2,8 @@
 title = "Platforms"
 draft = false
 
+gh_repo = "chef-web-docs"
+
 aliases = ["/platforms.html", "/supported_platforms.html"]
 
 [menu]
@@ -11,8 +13,6 @@ aliases = ["/platforms.html", "/supported_platforms.html"]
     parent = "overview/packages_&_platforms"
     weight = 20
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/platforms.md)
 
 Chef software is supported on the various operating systems (platforms)
 listed below. To see which versions of our software we currently

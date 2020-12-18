@@ -2,6 +2,8 @@
 title = "Accepting the Chef License"
 draft = false
 
+gh_repo = "chef-web-docs"
+
 aliases = ["/chef_license_accept.html"]
 
 [menu]
@@ -11,8 +13,6 @@ aliases = ["/chef_license_accept.html"]
     parent = "overview/packages_&_platforms/licensing"
     weight = 20
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/chef_license_accept.md)
 
 This page aims to document how to accept the Chef license for all Chef
 Software products. For an overview of the license, see the [Chef

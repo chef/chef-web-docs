@@ -1,6 +1,8 @@
 +++
 title = "Configure a Project through config.json"
 draft = false
+
+gh_repo = "chef-web-docs"
 robots = "noindex"
 
 
@@ -13,8 +15,6 @@ aliases = ["/config_json_delivery.html", "/release/automate/config_json_delivery
     parent = "legacy/workflow/workflow_basics"
     weight = 30
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/config_json_delivery.md)
 
 {{% chef_automate_mark %}}
 

@@ -2,6 +2,8 @@
 title = "Chef Software Install Script"
 draft = false
 
+gh_repo = "chef-web-docs"
+
 aliases = ["/install_omnibus.html", "/install_omnibus/"]
 
 [menu]
@@ -11,8 +13,6 @@ aliases = ["/install_omnibus.html", "/install_omnibus/"]
     parent = "overview/packages_&_platforms"
     weight = 40
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/chef_install_script.md)
 
 {{% packages_install_script %}}
 

@@ -2,6 +2,8 @@
 title = "Common Resource Functionality"
 draft = false
 
+gh_repo = "chef-web-docs"
+
 aliases = ["/resource_common.html"]
 
 [menu]
@@ -11,8 +13,6 @@ aliases = ["/resource_common.html"]
     parent = "chef_infra/cookbook_reference/resources"
     weight = 20
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/resource_common.md)
 
 All resources (including custom resources) share a set of common
 actions, properties, conditional executions, notifications, and relative

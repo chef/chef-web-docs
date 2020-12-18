@@ -1,12 +1,12 @@
 +++
 title = "Deprecation: Deprecation of lc_all from locale resource (CHEF-27)"
 draft = false
+
+gh_repo = "chef-web-docs"
 robots = "noindex"
 
 aliases = "/deprecations_locale_lc_all.html"
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/deprecations_locale_lc_all.md)
 
 Setting the `LC_ALL` variable is NOT recommended. As a system-wide
 setting, `LANG` should provide the desired behavior. `LC_ALL` is

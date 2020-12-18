@@ -1,6 +1,8 @@
 +++
 title = "Integrate Workflow with SMTP"
 draft = false
+
+gh_repo = "chef-web-docs"
 robots = "noindex"
 
 
@@ -13,8 +15,6 @@ aliases = ["/integrate_delivery_smtp.html", "/release/automate/integrate_deliver
     parent = "legacy/workflow/managing_workflow"
     weight = 80
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/integrate_delivery_smtp.md)
 
 {{% chef_automate_mark %}}
 

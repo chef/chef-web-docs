@@ -2,6 +2,8 @@
 title = "Community Contributions"
 draft = false
 
+gh_repo = "chef-web-docs"
+
 aliases = ["/community_contributions.html"]
 
 [menu]
@@ -11,8 +13,6 @@ aliases = ["/community_contributions.html"]
     parent = "overview/community"
     weight = 20
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/community_contributions.md)
 
 We're glad you want to contribute to a Chef project! This guide will
 help answer common questions you may have during your first

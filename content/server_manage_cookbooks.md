@@ -1,6 +1,8 @@
 +++
 title = "Manage Cookbooks"
 draft = false
+
+gh_repo = "chef-web-docs"
 robots = "noindex"
 
 
@@ -13,8 +15,6 @@ aliases = ["/server_manage_cookbooks.html"]
     parent = "chef_infra/features/management_console"
     weight = 40
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/server_manage_cookbooks.md)
 
 {{% EOL_manage %}}
 

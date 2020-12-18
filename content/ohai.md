@@ -2,6 +2,8 @@
 title = "About Ohai"
 draft = false
 
+gh_repo = "chef-web-docs"
+
 aliases = ["/ohai.html"]
 
 [menu]
@@ -11,8 +13,6 @@ aliases = ["/ohai.html"]
     parent = "chef_infra/features/ohai"
     weight = 10
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/ohai.md)
 
 {{% ohai_summary %}}
 

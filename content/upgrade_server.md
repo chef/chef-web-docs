@@ -2,6 +2,8 @@
 title = "Upgrade Chef Infra Server"
 draft = false
 
+gh_repo = "chef-web-docs"
+
 aliases = ["/upgrade_server.html"]
 
 [menu]
@@ -11,8 +13,6 @@ aliases = ["/upgrade_server.html"]
     parent = "chef_infra/managing_chef_infra_server"
     weight = 120
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/upgrade_server.md)
 
 ## Chef Infra Server Upgrade Matrix
 

@@ -2,6 +2,8 @@
 title = "High Availability: Upgrade to Chef Backend 2"
 draft = false
 
+gh_repo = "chef-web-docs"
+
 aliases = ["/upgrade_server_ha_v2.html"]
 
 [menu]
@@ -12,8 +14,6 @@ aliases = ["/upgrade_server_ha_v2.html"]
     parent = "chef_infra/managing_chef_infra_server"
     weight = 130
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/upgrade_server_ha_v2.md)
 
 This topic describes the process of upgrading a high availability Chef Infra Server cluster.
 

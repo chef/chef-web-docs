@@ -1,6 +1,8 @@
 +++
 title = "Data Collection without Chef Infra Server"
 draft = false
+
+gh_repo = "chef-web-docs"
 robots = "noindex"
 
 
@@ -13,10 +15,6 @@ aliases = ["/data_collection_without_server.html"]
     parent = "legacy/workflow/workflow_basics"
     weight = 60
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/data_collection_without_server.md)
-
-
 
 {{< important >}}
 

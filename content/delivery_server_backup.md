@@ -1,6 +1,8 @@
 +++
 title = "Chef Automate Backups"
 draft = false
+
+gh_repo = "chef-web-docs"
 robots = "noindex"
 
 
@@ -13,8 +15,6 @@ aliases = ["/delivery_server_backup.html"]
     parent = "legacy/workflow/managing_workflow"
     weight = 150
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/delivery_server_backup.md)
 
 Chef Automate provides tools for creating, managing and restoring backup
 archives and Elasticsearch snapshots of your Chef Automate data.

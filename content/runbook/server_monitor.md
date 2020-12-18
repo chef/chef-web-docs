@@ -2,6 +2,8 @@
 title = "Monitor"
 draft = false
 
+gh_repo = "chef-web-docs"
+
 aliases = ["/server_monitor.html"]
 
 runbook_weight = 10
@@ -13,8 +15,6 @@ runbook_weight = 10
     parent = "chef_infra/managing_chef_infra_server"
     weight = 70
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/runbook/server_monitor.md)
 
 Monitoring the Chef Infra Server involves two types of checks:
 application and system. In addition monitoring the HTTP requests that

@@ -2,6 +2,8 @@
 title = "Chef Compliance Guide"
 draft = false
 
+gh_repo = "chef-web-docs"
+
 [menu]
   [menu.compliance]
     title = "Chef Compliance Guide"
@@ -9,8 +11,6 @@ draft = false
     parent = "compliance"
     weight = 10
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/compliance/chef-benchmark.md)
 
 Chef Compliance uses premium Chef content to audit and harden your fleet for [CIS](https://www.cisecurity.org/). Chef Compliance uses a combination of Effortless Audit and a customized Effortless Remediation package, and gives you the ability to turn controls on and off with a single YAML configuration file.
 

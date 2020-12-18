@@ -1,13 +1,13 @@
 +++
 title = "Deprecation: Removal of support for Ohai version 6 plugins (OHAI-10)"
 draft = false
+
+gh_repo = "chef-web-docs"
 robots = "noindex"
 
 
 aliases = "/deprecations_ohai_v6_plugins.html"
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/deprecations_ohai_v6_plugins.md)
 
 Ohai 7.0 released with Chef Client 11.12 introduced an improved plugin
 DSL model. At the time we introduced deprecations for the existing

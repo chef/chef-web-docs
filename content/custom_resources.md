@@ -2,6 +2,8 @@
 title = "Custom Resources"
 draft = false
 
+gh_repo = "chef-web-docs"
+
 aliases = ["/custom_resources.html"]
 
 [menu]
@@ -11,8 +13,6 @@ aliases = ["/custom_resources.html"]
     parent = "chef_infra/cookbook_reference/resources"
     weight = 40
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/custom_resources.md)
 
 A custom resource:
 

@@ -2,6 +2,8 @@
 title = "Install Chef Push Jobs"
 draft = false
 
+gh_repo = "chef-web-docs"
+
 aliases = ["/install_push_jobs.html"]
 
 [menu]
@@ -10,8 +12,6 @@ aliases = ["/install_push_jobs.html"]
     identifier = "legacy/push_jobs/install_push_jobs.md Push Jobs"
     parent = "legacy/push_jobs"
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/install_push_jobs.md)
 
 Chef Push Jobs is installed to the following locations:
 

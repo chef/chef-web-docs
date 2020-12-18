@@ -1,6 +1,8 @@
 +++
 title = "Manage Secrets in a build-cookbook"
 draft = false
+
+gh_repo = "chef-web-docs"
 robots = "noindex"
 
 
@@ -13,8 +15,6 @@ aliases = ["/delivery_manage_secrets.html", "/release/automate/delivery_manage_s
     parent = "legacy/workflow/managing_workflow"
     weight = 40
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/delivery_manage_secrets.md)
 
 {{% chef_automate_mark %}}
 
