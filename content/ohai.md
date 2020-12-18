@@ -20,7 +20,7 @@ Ohai collects data for many platforms, including AIX, Darwin, Linux,
 FreeBSD, OpenBSD, NetBSD, Solaris, and any Microsoft Windows operating
 systems.
 
-View the [release notes](/release_notes_ohai/) for the latest
+See the [Chef Infra Client release notes](/release_notes_client/) for the latest
 information on Ohai.
 
 ## Automatic Attributes
