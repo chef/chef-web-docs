@@ -1,6 +1,6 @@
 +++
 title = "Compliance Phase"
-draft = true
+draft = false
 
 aliases = ["/chef_compliance_phase.html"]
 
