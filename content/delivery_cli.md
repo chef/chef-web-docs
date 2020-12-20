@@ -1,6 +1,8 @@
 +++
 title = "Delivery CLI"
 draft = false
+
+gh_repo = "chef-web-docs"
 robots = "noindex"
 
 
@@ -13,8 +15,6 @@ aliases = ["/delivery_cli.html", "/ctl_delivery.html"]
     parent = "legacy/workflow/reference"
     weight = 10
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/delivery_cli.md)
 
 The Delivery CLI is the command-line interface for the workflow
 capabilities in Chef Automate. It sits in-between a local git repository

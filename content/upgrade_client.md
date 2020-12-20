@@ -2,6 +2,8 @@
 title = "Upgrading Chef Infra Client"
 draft = false
 
+gh_repo = "chef-web-docs"
+
 aliases = ["/upgrade_client.html"]
 
 [menu]
@@ -11,8 +13,6 @@ aliases = ["/upgrade_client.html"]
     parent = "chef_infra/setup/nodes"
     weight = 50
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/upgrade_client.md)
 
 The following sections describe the upgrade process for Chef Client 12.
 

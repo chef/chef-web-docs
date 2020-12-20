@@ -2,6 +2,8 @@
 title = "ohai (executable)"
 draft = false
 
+gh_repo = "chef-web-docs"
+
 aliases = ["/ctl_ohai.html"]
 
 [menu]
@@ -11,8 +13,6 @@ aliases = ["/ctl_ohai.html"]
     parent = "chef_infra/features/ohai"
     weight = 20
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/ctl_ohai.md)
 
 {{% ctl_ohai_summary %}}
 

@@ -1,6 +1,7 @@
 +++
 title = "Chef InSpec: Version"
 draft = false
+
 release_notes = "inspec"
 
 [menu]

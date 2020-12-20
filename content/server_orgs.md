@@ -2,6 +2,8 @@
 title = "Organizations and Groups"
 draft = false
 
+gh_repo = "chef-web-docs"
+
 aliases = ["/server_orgs.html", "/auth_authorization.html"]
 
 [menu]
@@ -11,8 +13,6 @@ aliases = ["/server_orgs.html", "/auth_authorization.html"]
     parent = "chef_infra/managing_chef_infra_server"
     weight = 80
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/server_orgs.md)
 
 {{% server_rbac %}}
 

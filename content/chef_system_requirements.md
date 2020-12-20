@@ -2,6 +2,8 @@
 title = "System Requirements"
 draft = false
 
+gh_repo = "chef-web-docs"
+
 aliases = ["/chef_system_requirements.html"]
 
 [menu]
@@ -11,8 +13,6 @@ aliases = ["/chef_system_requirements.html"]
     parent = "chef_infra/getting_started"
     weight = 30
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/chef_system_requirements.md)
 
 Before installing Chef Infra:
 

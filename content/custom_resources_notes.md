@@ -2,6 +2,8 @@
 title = "Custom Resources Notes"
 draft = false
 
+gh_repo = "chef-web-docs"
+
 aliases = ["/custom_resources_notes.html"]
 
 [menu]
@@ -11,8 +13,6 @@ aliases = ["/custom_resources_notes.html"]
     parent = "chef_infra/cookbook_reference/resources"
     weight = 50
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/custom_resources_notes.md)
 
 {{< warning >}}
 

@@ -2,6 +2,8 @@
 title = "Server Tuning"
 draft = false
 
+gh_repo = "chef-web-docs"
+
 aliases = ["/server_tuning.html"]
 
 runbook_weight = 60
@@ -13,8 +15,6 @@ runbook_weight = 60
     parent = "chef_infra/managing_chef_infra_server"
     weight = 110
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/runbook/server_tuning.md)
 
 The server configuration file contains a list of all configuration
 options that are available for the Chef Infra Server. Some of these

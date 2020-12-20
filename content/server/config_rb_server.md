@@ -2,6 +2,8 @@
 title = "chef-server.rb Settings"
 draft = false
 
+gh_repo = "chef-web-docs"
+
 version_docs_product = "chef-server"
 
 aliases = ["/config_rb_server.html", "/config_rb_server_14/"]

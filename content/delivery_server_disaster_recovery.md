@@ -1,6 +1,8 @@
 +++
 title = "Chef Automate Disaster Recovery"
 draft = false
+
+gh_repo = "chef-web-docs"
 robots = "noindex"
 
 
@@ -14,8 +16,6 @@ aliases = ["/delivery_server_disaster_recovery.html"]
     parent = "legacy/workflow/managing_workflow"
     weight = 160
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/delivery_server_disaster_recovery.md)
 
 {{% chef_automate_mark %}}
 

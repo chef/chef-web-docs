@@ -2,6 +2,8 @@
 title = "About the Handler DSL"
 draft = false
 
+gh_repo = "chef-web-docs"
+
 aliases = ["/dsl_handler.html"]
 
 [menu]
@@ -11,8 +13,6 @@ aliases = ["/dsl_handler.html"]
     parent = "chef_infra/extension_apis/handlers"
     weight = 20
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/dsl_handler.md)
 
 {{% dsl_handler_summary %}}
 

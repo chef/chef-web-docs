@@ -2,6 +2,8 @@
 title = "About Resources"
 draft = false
 
+gh_repo = "chef-web-docs"
+
 aliases = ["/resource.html"]
 
 [menu]
@@ -11,8 +13,6 @@ aliases = ["/resource.html"]
     parent = "chef_infra/cookbook_reference/resources"
     weight = 10
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/resource.md)
 
 {{% resources_common %}}
 

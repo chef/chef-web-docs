@@ -2,6 +2,8 @@
 title = "supermarket-ctl (executable)"
 draft = false
 
+gh_repo = "chef-web-docs"
+
 aliases = ["/ctl_supermarket.html"]
 
 [menu]
@@ -11,8 +13,6 @@ aliases = ["/ctl_supermarket.html"]
     parent = "chef_infra/setup/supermarket"
     weight = 90
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/ctl_supermarket.md)
 
 {{% ctl_supermarket_summary %}}
 

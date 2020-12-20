@@ -2,6 +2,8 @@
 title = "Active Directory and LDAP"
 draft = false
 
+gh_repo = "chef-web-docs"
+
 aliases = ["/server_ldap.html", "/install_server_post.html"]
 
 [menu]
@@ -11,8 +13,6 @@ aliases = ["/server_ldap.html", "/install_server_post.html"]
     parent = "chef_infra/managing_chef_infra_server"
     weight = 50
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/server_ldap.md)
 
 The Chef Infra Server supports Active Directory and LDAP authentication,
 which enables users to log in to the Chef Infra Server using their

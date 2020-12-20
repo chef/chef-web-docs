@@ -2,6 +2,8 @@
 title = "Converting Definitions to Custom Resources"
 draft = false
 
+gh_repo = "chef-web-docs"
+
 aliases = ["/definitions.html"]
 
 [menu]
@@ -11,8 +13,6 @@ aliases = ["/definitions.html"]
     parent = "chef_infra/cookbook_reference/resources"
     weight = 30
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/definitions.md)
 
 This topic covers migrating existing definitions to custom resources.
 Custom resources are integral to the modern Chef Infra workflow. While

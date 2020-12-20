@@ -1,14 +1,14 @@
 +++
 title = "Deprecation: :uninstall Resource for chocolatey_package (CHEF-21)"
 draft = false
+
+gh_repo = "chef-web-docs"
 robots = "noindex"
 
 
 aliases = "/deprecations_chocolatey_uninstall.html"
 
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/deprecations_chocolatey_uninstall.md)
 
 The Chocolatey cookbook's `chocolatey_package` resource originally
 contained an `:uninstall` action. When

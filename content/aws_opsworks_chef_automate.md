@@ -1,6 +1,8 @@
 +++
 title = "AWS OpsWorks for Chef Automate"
 draft = false
+
+gh_repo = "chef-web-docs"
 robots = "noindex"
 
 
@@ -13,8 +15,6 @@ aliases = ["/aws_opsworks_chef_automate.html"]
     parent = "legacy/workflow"
     weight = 50
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/aws_opsworks_chef_automate.md)
 
 [AWS OpsWorks for Chef
 Automate](https://aws.amazon.com/opsworks/chefautomate/) is an AWS

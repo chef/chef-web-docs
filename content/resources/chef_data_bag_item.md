@@ -1,6 +1,8 @@
 +++
 title = "chef_data_bag_item Resource"
 draft = false
+
+gh_repo = "chef-web-docs"
 robots = ""
 
 data_path = ["infra","resources","chef_data_bag_item"]

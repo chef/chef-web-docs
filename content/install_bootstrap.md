@@ -2,6 +2,8 @@
 title = "Bootstrap a Node"
 draft = false
 
+gh_repo = "chef-web-docs"
+
 aliases = ["/install_bootstrap.html"]
 
 [menu]
@@ -11,8 +13,6 @@ aliases = ["/install_bootstrap.html"]
     parent = "chef_infra/setup/nodes"
     weight = 10
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/install_bootstrap.md)
 
 {{% chef_client_bootstrap_node %}}
 

@@ -2,6 +2,8 @@
 title = "Install Chef Infra Client on Windows Nodes"
 draft = false
 
+gh_repo = "chef-web-docs"
+
 aliases = ["/install_windows.html"]
 
 [menu]
@@ -11,8 +13,6 @@ aliases = ["/install_windows.html"]
     parent = "chef_infra/getting_started/chef_on_windows_guide"
     weight = 20
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/install_windows.md)
 
 ## Installation Methods
 

@@ -1,6 +1,8 @@
 +++
 title = "An Overview of Workflow in Chef Automate"
 draft = false
+
+gh_repo = "chef-web-docs"
 robots = "noindex"
 
 
@@ -13,8 +15,6 @@ aliases = ["/workflow.html", "/release/automate/workflow.html"]
     parent = "legacy/workflow/workflow_basics"
     weight = 10
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/workflow.md)
 
 {{% chef_automate_mark %}}
 

@@ -1,6 +1,8 @@
 +++
 title = "Data Collection with a Chef Backend Cluster"
 draft = false
+
+gh_repo = "chef-web-docs"
 robots = "noindex"
 
 
@@ -13,8 +15,6 @@ aliases = ["/data_collection_ha.html"]
     parent = "legacy/workflow/workflow_basics"
     weight = 50
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/data_collection_ha.md)
 
 {{< important >}}
 

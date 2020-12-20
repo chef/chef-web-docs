@@ -2,6 +2,8 @@
 title = "chef-server-ctl (executable)"
 draft = false
 
+gh_repo = "chef-web-docs"
+
 aliases = ["/ctl_chef_server.html"]
 
 [menu]
@@ -11,8 +13,6 @@ aliases = ["/ctl_chef_server.html"]
     parent = "chef_infra/managing_chef_infra_server"
     weight = 150
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/ctl_chef_server.md)
 
 {{% ctl_chef_server_summary %}}
 

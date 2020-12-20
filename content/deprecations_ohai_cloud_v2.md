@@ -1,13 +1,13 @@
 +++
 title = "Deprecation: Cloud_v2 attribute removal (OHAI-11)"
 draft = false
+
+gh_repo = "chef-web-docs"
 robots = "noindex"
 
 
 aliases = "/deprecations_ohai_cloud_v2.html"
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/deprecations_ohai_cloud_v2.md)
 
 In Ohai/Chef Client 13 we replaced the existing Cloud plugin with the
 Cloud V2 plugin. That was done by having Ohai populate both

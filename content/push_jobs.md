@@ -2,6 +2,8 @@
 title = "Chef Push Jobs"
 draft = false
 
+gh_repo = "chef-web-docs"
+
 aliases = ["/push_jobs.html"]
 
 [menu]
@@ -10,8 +12,6 @@ aliases = ["/push_jobs.html"]
     identifier = "legacy/push_jobs/push_jobs.md Push Jobs"
     parent = "legacy/push_jobs"
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/push_jobs.md)
 
 {{% push_jobs_summary %}}
 

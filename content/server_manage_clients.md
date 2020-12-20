@@ -1,6 +1,8 @@
 +++
 title = "Manage Client Keys"
 draft = false
+
+gh_repo = "chef-web-docs"
 robots = "noindex"
 
 
@@ -13,8 +15,6 @@ aliases = ["/server_manage_clients.html"]
     parent = "chef_infra/features/management_console"
     weight = 30
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/server_manage_clients.md)
 
 {{% EOL_manage %}}
 

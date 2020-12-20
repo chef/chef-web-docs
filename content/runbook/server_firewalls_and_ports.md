@@ -2,6 +2,8 @@
 title = "Firewalls and Ports"
 draft = false
 
+gh_repo = "chef-web-docs"
+
 aliases = ["/server_firewalls_and_ports.html"]
 
 runbook_weight = 30
@@ -13,8 +15,6 @@ runbook_weight = 30
     parent = "chef_infra/managing_chef_infra_server"
     weight = 40
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/runbook/server_firewalls_and_ports.md)
 
 {{% server_firewalls_and_ports_summary %}}
 

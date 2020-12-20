@@ -2,6 +2,8 @@
 title = "Supermarket Logs"
 draft = false
 
+gh_repo = "chef-web-docs"
+
 aliases = ["/supermarket_logs.html"]
 
 [menu]
@@ -11,8 +13,6 @@ aliases = ["/supermarket_logs.html"]
     parent = "chef_infra/setup/supermarket"
     weight = 60
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/supermarket_logs.md)
 
 The Chef Supermarket omnibus package does not log Ruby on Rails messages
 by default. To enable debug logging, edit the

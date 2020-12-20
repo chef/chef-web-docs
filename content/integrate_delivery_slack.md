@@ -1,6 +1,8 @@
 +++
 title = "Integrate Workflow with Slack"
 draft = false
+
+gh_repo = "chef-web-docs"
 robots = "noindex"
 
 
@@ -13,8 +15,6 @@ aliases = ["/integrate_delivery_slack.html", "/release/automate/integrate_delive
     parent = "legacy/workflow/managing_workflow"
     weight = 100
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/integrate_delivery_slack.md)
 
 {{% chef_automate_mark %}}
 

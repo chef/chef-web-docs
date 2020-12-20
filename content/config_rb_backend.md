@@ -2,6 +2,8 @@
 title = "chef-backend.rb Settings"
 draft = false
 
+gh_repo = "chef-web-docs"
+
 aliases = ["/config_rb_backend.html"]
 
 [menu]
@@ -11,8 +13,6 @@ aliases = ["/config_rb_backend.html"]
     parent = "chef_infra/managing_chef_infra_server"
     weight = 185
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/config_rb_backend.md)
 
 ## chef-backend.rb Options
 

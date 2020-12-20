@@ -2,6 +2,8 @@
 title = "opscode-push-jobs-server.rb"
 draft = false
 
+gh_repo = "chef-web-docs"
+
 aliases = ["/config_rb_push_jobs_server.html"]
 
 [menu]
@@ -10,8 +12,6 @@ aliases = ["/config_rb_push_jobs_server.html"]
     identifier = "legacy/push_jobs/config_rb_push_jobs_server.md push-jobs-server.rb"
     parent = "legacy/push_jobs"
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/config_rb_push_jobs_server.md)
 
 {{% config_rb_push_jobs_server_summary %}}
 

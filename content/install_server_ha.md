@@ -2,6 +2,8 @@
 title = "High Availability: Chef Backend"
 draft = false
 
+gh_repo = "chef-web-docs"
+
 aliases = ["/install_server_ha.html"]
 
 [menu]
@@ -11,8 +13,6 @@ aliases = ["/install_server_ha.html"]
     parent = "chef_infra/setup/chef_infra_server"
     weight = 60
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/install_server_ha.md)
 
 This topic introduces the underlying concepts behind the architecture of
 the high availability Chef Infra Server cluster. The topic then

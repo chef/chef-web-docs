@@ -1,6 +1,8 @@
 +++
 title = "Chef Automate"
 draft = false
+
+gh_repo = "chef-web-docs"
 robots = "noindex"
 
 aliases = "/chef_automate.html"

@@ -1,6 +1,8 @@
 +++
 title = "windows_dns_zone Resource"
 draft = false
+
+gh_repo = "chef-web-docs"
 robots = ""
 
 data_path = ["infra","resources","windows_dns_zone"]

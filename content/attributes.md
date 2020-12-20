@@ -2,6 +2,8 @@
 title = "About Attributes"
 draft = false
 
+gh_repo = "chef-web-docs"
+
 aliases = ["/attributes.html"]
 
 [menu]
@@ -11,8 +13,6 @@ aliases = ["/attributes.html"]
     parent = "chef_infra/cookbook_reference"
     weight = 20
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/attributes.md)
 
 {{% node_attribute %}}
 

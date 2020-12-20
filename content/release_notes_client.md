@@ -2,6 +2,8 @@
 title = "Release Notes: Chef Infra Client 12.0 - 16.8"
 draft = false
 
+gh_repo = "chef-web-docs"
+
 aliases = ["/release_notes.html", "/release_notes_ohai.html", "/release_notes/"]
 
 [menu]
@@ -10,8 +12,6 @@ aliases = ["/release_notes.html", "/release_notes_ohai.html", "/release_notes/"]
     identifier = "release_notes/release_notes_client.md Chef Infra Client"
     parent = "release_notes"
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/release_notes.md)
 
 Chef Infra Client is released on a monthly schedule with new releases
 the first Wednesday of every month. Below are the major changes for each

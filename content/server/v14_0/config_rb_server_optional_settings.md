@@ -1,8 +1,7 @@
 +++
 title = "chef-server.rb 14 Optional Settings"
+gh_repo = "chef-web-docs"
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/server/v14_0/config_rb_server_optional_settings.md)
 
 {{< reusable_text_versioned file="config_rb_server_summary" >}}
 

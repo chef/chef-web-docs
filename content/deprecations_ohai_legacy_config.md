@@ -1,13 +1,13 @@
 +++
 title = "Deprecation: Ohai::Config removal (OHAI-1)"
 draft = false
+
+gh_repo = "chef-web-docs"
 robots = "noindex"
 
 
 aliases = "/deprecations_ohai_legacy_config.html"
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/deprecations_ohai_legacy_config.md)
 
 Ohai 8.8.0 (Chef Client 12.6.0) introduced a new Ohai configuration
 system as defined in

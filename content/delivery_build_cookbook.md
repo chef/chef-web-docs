@@ -1,6 +1,8 @@
 +++
 title = "About the build-cookbook"
 draft = false
+
+gh_repo = "chef-web-docs"
 robots = "noindex"
 
 
@@ -13,8 +15,6 @@ aliases = ["/delivery_build_cookbook.html", "/release/automate/delivery_build_co
     parent = "legacy/workflow/managing_workflow"
     weight = 10
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/delivery_build_cookbook.md)
 
 Chef Automate uses Chef Infra Client to run recipes for each phase in a
 build pipeline. The phases are grouped into different stages.

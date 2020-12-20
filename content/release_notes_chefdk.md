@@ -2,10 +2,10 @@
 title = "Release Notes: ChefDK 0.19 - 4.13"
 draft = false
 
+gh_repo = "chef-web-docs"
+
 aliases = ["/release_notes_chefdk.html"]
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/release_notes_chefdk.md)
 
 This page documents the ChefDK major changes for each release. For
 a detailed list of changes, see the [ChefDK Changelog on

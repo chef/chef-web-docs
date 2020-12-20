@@ -1,6 +1,8 @@
 +++
 title = "windows_dfs_namespace Resource"
 draft = false
+
+gh_repo = "chef-web-docs"
 robots = ""
 
 data_path = ["infra","resources","windows_dfs_namespace"]

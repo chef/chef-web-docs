@@ -2,6 +2,8 @@
 title = "Platform Overview"
 draft = false
 
+gh_repo = "chef-web-docs"
+
 aliases = ["/platform_overview.html"]
 
 [menu]
@@ -11,8 +13,6 @@ aliases = ["/platform_overview.html"]
     parent = "overview"
     weight = 10
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/platform_overview.md)
 
 Chef is an automation company. Ever since it was founded in 2008, we've
 been bringing together developers and system administrators with our

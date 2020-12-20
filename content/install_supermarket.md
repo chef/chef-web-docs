@@ -2,6 +2,8 @@
 title = "Install Private Supermarket"
 draft = false
 
+gh_repo = "chef-web-docs"
+
 aliases = ["/install_supermarket.html"]
 
 [menu]
@@ -11,8 +13,6 @@ aliases = ["/install_supermarket.html"]
     parent = "chef_infra/setup/supermarket"
     weight = 20
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/install_supermarket.md)
 
 {{% supermarket_summary %}}
 

@@ -1,13 +1,13 @@
 +++
 title = "Deprecation: Map Collision (CHEF-25)"
 draft = false
+
+gh_repo = "chef-web-docs"
 robots = "noindex"
 
 
 aliases = "/deprecations_map_collision.html"
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/deprecations_map_collision.md)
 
 The resource(s) referenced in the error message has been loaded from a
 cookbook. This resource is now included in Chef Infra Client and will

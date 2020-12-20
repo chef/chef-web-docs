@@ -2,6 +2,8 @@
 title = "Troubleshooting"
 draft = false
 
+gh_repo = "chef-web-docs"
+
 aliases = ["/errors.html"]
 
 [menu]
@@ -11,8 +13,6 @@ aliases = ["/errors.html"]
     parent = "chef_infra"
     weight = 40
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/errors.md)
 
 The following sections describe how to troubleshoot the Chef Infra
 Server, Chef Infra Client, and Chef Workstation.

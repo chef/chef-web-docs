@@ -1,13 +1,13 @@
 +++
 title = "Deprecation: Launchd hash Property (CHEF-12)"
 draft = false
+
+gh_repo = "chef-web-docs"
 robots = "noindex"
 
 
 aliases = "/deprecations_launchd_hash_property.html"
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/deprecations_launchd_hash_property.md)
 
 The launchd resource has a property called `hash` which conflicts with
 the already-existing Ruby `hash` method that exists on every object.

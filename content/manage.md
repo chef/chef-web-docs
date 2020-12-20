@@ -2,6 +2,8 @@
 title = "Chef Manage"
 draft = false
 
+gh_repo = "chef-web-docs"
+
 aliases = ["/manage.html"]
 
 [menu]
@@ -11,8 +13,6 @@ aliases = ["/manage.html"]
     parent = "chef_infra/features/management_console"
     weight = 10
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/manage.md)
 
 {{% EOL_manage %}}
 

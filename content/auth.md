@@ -2,10 +2,10 @@
 title = "Authentication"
 draft = false
 
+gh_repo = "chef-web-docs"
+
 aliases = ["/auth.html"]
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/auth.md)
 
 {{% chef_auth %}}
 

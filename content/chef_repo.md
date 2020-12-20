@@ -2,6 +2,8 @@
 title = "About the chef-repo"
 draft = false
 
+gh_repo = "chef-web-docs"
+
 aliases = ["/chef_repo.html"]
 
 [menu]
@@ -11,8 +13,6 @@ aliases = ["/chef_repo.html"]
     parent = "chef_infra/concepts"
     weight = 30
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/chef_repo.md)
 
 {{% chef_repo_description %}}
 
