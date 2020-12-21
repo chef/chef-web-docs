@@ -10,6 +10,8 @@
   <link rel="stylesheet" href="{{ $style.Permalink }}" />
   {{ if eq (getenv "HUGO_ENV") "production" }}
     {{ partial "gtag.html" . }}
+  {{ end }}
+  {{ if eq (getenv "HUGO_ENV") "production" }}
     {{ template "_internal/google_analytics_async.html" . }}
   {{ end }}
 </head>
