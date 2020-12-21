@@ -7,12 +7,13 @@ gh_repo = "chef-web-docs"
 aliases = ["/manage.html"]
 
 [menu]
-  [menu.infra]
+  [menu.legacy]
     title = "About the Management Console"
-    identifier = "chef_infra/features/management_console/manage.md About the Management Console"
-    parent = "chef_infra/features/management_console"
+    identifier = "legacy/manage/manage.md About the Management Console"
+    parent = "legacy/manage"
     weight = 10
 +++
+{{% chef_automate_mark %}}
 
 {{% EOL_manage %}}
 
