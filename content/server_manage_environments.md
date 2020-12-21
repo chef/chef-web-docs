@@ -9,12 +9,15 @@ robots = "noindex"
 aliases = ["/server_manage_environments.html"]
 
 [menu]
-  [menu.infra]
+  [menu.legacy]
     title = "Environments"
-    identifier = "chef_infra/features/management_console/server_manage_environments.md Environments"
-    parent = "chef_infra/features/management_console"
+    identifier = "legacy/manage/server_manage_environments.md Environments"
+    parent = "legacy/manage"
     weight = 60
 +++
+{{% chef_automate_mark %}}
+
+{{% EOL_manage %}}
 
 {{< note >}}
 
@@ -22,8 +25,6 @@ This topic is about using the Chef management console to manage
 environments.
 
 {{< /note >}}
-
-{{% EOL_manage %}}
 
 {{% environment %}}
 

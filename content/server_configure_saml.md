@@ -9,12 +9,13 @@ robots = "noindex"
 aliases = ["/server_configure_saml.html", "/release/automate/server_configure_saml.html"]
 
 [menu]
-  [menu.infra]
+  [menu.legacy]
     title = "Configure SAML"
-    identifier = "chef_infra/features/management_console/server_configure_saml.md Configure SAML"
-    parent = "chef_infra/features/management_console"
+    identifier = "legacy/manage/server_configure_saml.md Configure SAML"
+    parent = "legacy/manage"
     weight = 20
 +++
+{{% chef_automate_mark %}}
 
 {{% EOL_manage %}}
 
