@@ -560,19 +560,6 @@ identifier = "chef_infra"
     parent = "chef_infra/features"
     weight = 20
 
-    [[menu.infra]]
-    title = "Management Console"
-    identifier = "chef_infra/features/management_console"
-    parent = "chef_infra/features"
-    weight = 50
-
-      [[menu.infra]]
-      title = "Users"
-      identifier = "chef_infra/features/management_console/server_users.md#chef-manage Users"
-      parent = "chef_infra/features/management_console"
-      url = "/server_users/#chef-manage"
-      weight = 90
-
   [[menu.infra]]
   title = "Setup"
   identifier = "chef_infra/setup"
@@ -1176,6 +1163,11 @@ weight = 10
 title = "Legacy"
 identifier = "legacy"
 weight = 10
+
+  [[menu.legacy]]
+  title = "Chef Manage"
+  identifier = "legacy/manage"
+  parent = "legacy"
 
   [[menu.legacy]]
   title = "Push Jobs"

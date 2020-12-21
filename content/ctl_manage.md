@@ -9,10 +9,10 @@ robots = "noindex"
 aliases = ["/ctl_manage.html"]
 
 [menu]
-  [menu.infra]
+  [menu.legacy]
     title = "chef-manage-ctl"
-    identifier = "chef_infra/features/management_console/ctl_manage.md chef-manage-ctl"
-    parent = "chef_infra/features/management_console"
+    identifier = "legacy/manage/ctl_manage.md chef-manage-ctl"
+    parent = "legacy/manage"
     weight = 110
 +++
 
