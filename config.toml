@@ -81,8 +81,6 @@ notAlternative = true
   enable_search = true
   robots = ''
   menuOrder = ["overview", "automate", "compliance",  "desktop",  "infra", "habitat", "inspec", "workstation", "effortless", "release_notes", "legacy", "extra"]
-  googleAnalytics = "UA-183953607-1"
-  googleAnalytics4 = "G-CH0D7HCR73"
 
 [taxonomies]
   category = "categories"
