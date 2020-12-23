@@ -41,7 +41,7 @@ Supported Release
 
 ### Upgrading to 14.x
 
-Chef Infra Server 14 uses Elasticsearch as its search index.
+Chef Infra Server 14 moved from Solr to Elasticsearch as its search index.
 {{% server_upgrade_duration %}}
 
 The Chef Infra Server 14 upgrade does not automatically reindex existing external Elasticsearch installations.
