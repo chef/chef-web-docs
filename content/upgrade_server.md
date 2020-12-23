@@ -14,7 +14,11 @@ aliases = ["/upgrade_server.html"]
     weight = 120
 +++
 
-## Chef Infra Server Upgrade Matrix
+Each new release of Chef Infra Server improves reliability and updates 3rd party components to ensure the security of the server. It is important to keep Chef Infra Server up to date in order to ensure the secure and reliable operation of Chef Infra in your organization.
+
+## Upgrade Paths
+
+If running a Chef Infra Server 12.17.15 or later you can upgrade directly to the latest releases of Chef Infra Server 14. If you are running a release prior to 12.17.15 you must perform a stepped upgrade as outlined below.
 
 | Running Version | Upgrade To Version | Requires License | Supported Version |
 |---------|---------|------|-----------|
@@ -29,15 +33,13 @@ Requires License
 Supported Release
 : Chef Infra Server 13 and later are currently supported Chef Software releases. Earlier releases are no longer supported as of 12/31/2020. For more information about supported Chef Software see the [Supported Versions](https://docs.chef.io/versions/#supported-commercial-distributions) documentation.
 
-## Upgrading to Chef Infra Server
-
 Three upgrade scenarios exist for upgrades from Chef Infra Server 12.17.15 to Chef Infra Server 13 or 14:
 
 - [Standalone](/upgrade_server/#standalone-upgrade)
 - [Chef Backend (HA)](/upgrade_server/#chef-backend-upgrade)
 - [Tiered](/upgrade_server/#tiered-upgrade)
 
-### Chef Infra Server 14
+### Upgrading to Chef Infra Server 14
 
 {{< warning >}}
 
@@ -50,7 +52,7 @@ Chef Infra Server 14 uses Elasticsearch as its search index.
 
 The Chef Infra Server 14 upgrade does not reindex existing external Elasticsearch installations.
 
-### Chef Infra Server 12.17.15 or Later
+### Upgrading to Chef Infra Server 12.17.15
 
 {{< warning >}}
 Upgrade Chef Infra Server and any add-ons to compatible versions before setting `insecure_addon_compat` to `false`.
