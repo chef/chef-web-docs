@@ -62,11 +62,13 @@ For more information on password generation, including a list of supported add-o
 
 If you are running a Chef Infra Server relese prior to 12.3.0 please contact Chef Support for additional guidance on upgrading your Chef Infra Server installation.
 
-## Standalone Upgrade
+## Chef Infra Server 14 Upgrade Process
+
+### Standalone Server
 
 {{% server_upgrade_duration %}}
 
-### Standalone Upgrade Steps
+#### Standalone Upgrade Steps
 
 1. Back up your Chef Infra Server data before starting the upgrade process using [knife-ec-backup](https://github.com/chef/knife-ec-backup).
 
@@ -126,13 +128,13 @@ If you are running a Chef Infra Server relese prior to 12.3.0 please contact Che
     chef-server-ctl cleanup
     ```
 
-## Chef Backend Upgrade
+### Chef Backend Install
 
 The Chef Infra Server can operate in a high availability configuration that provides automated load balancing and failover for stateful components in the system architecture.
 
 To upgrade your Chef Backend installation, see [High Availability: Upgrade to Chef Backend 2](/upgrade_server_ha_v2/).
 
-## Tiered Upgrade
+### Tiered Install
 
 This section describes the upgrade process from a tiered server configuration.
 
@@ -145,7 +147,7 @@ For the latest information on setting up a highly-available server cluster, see 
 
 {{< /note >}}
 
-## Tiered Upgrade Steps
+### Tiered Upgrade Steps
 
 To upgrade to Chef Infra Server on a tiered Chef Infra Server configuration, do the following:
 
@@ -225,16 +227,16 @@ To upgrade to Chef Infra Server on a tiered Chef Infra Server configuration, do 
    chef-server-ctl cleanup
    ```
 
-## Upgrading Manage Add-On
+### Upgrading Manage Add-On
 
 Chef Manage is a management console for  data bags, attributes, run-lists, roles, environments, and cookbooks from a web user interface.
 
 Chef Infra Server 13 and 14 support the Chef Manage add-on. This add-on is [deprecated](https://docs.chef.io/versions/#deprecated-products-and-versions) and will reach [EOL](https://docs.chef.io/versions/#deprecated-products-and-versions) on December 31, 2021. After upgrading Chef Infra Server, reinstall the add-on and then reconfigure Chef Infra Server and the add-on.
 
-### Use Downloads.chef.io
+#### Use Downloads.chef.io
 
 {{% ctl_chef_server_install_features_download %}}
 
-### Use Local Packages
+#### Use Local Packages
 
 {{% ctl_chef_server_install_features_manual %}}
