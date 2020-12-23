@@ -16,18 +16,18 @@ aliases = ["/upgrade_server.html"]
 
 ## Chef Infra Server Upgrade Matrix
 
-| Running Version | Upgrade Version | License | Version Support |
+| Running Version | Upgrade To Version | Requires License | Supported Version |
 |---------|---------|------|-----------|
 | 13 | 14 | Yes | Yes |
-| 12.17.15 | 14 | Yes | Yes |
+| 12.17.15 | 14 | Yes | No |
 | 12.3.0 | 12.17.15 | No | No |
 | 11 | 12.3.0 | No | No |
 
-License
-: Chef Infra Server 13 and 14 are governed by the [Chef License](https://docs.chef.io/chef_license_accept/#chef-infra-server). You will be required to accept these terms when using Chef Infra Server 13 or 14 for the first time by entering `Yes` when prompted.
+Requires License
+: Chef Infra Server 13 and later are governed by the [Chef EULA](/chef_license). You will be required to accept these terms when using Chef Infra Server for the first time by entering `Yes` when prompted.
 
-Version Support
-: Chef Infra Server 13 and 14 are supported Chef Software distributions. Earlier versions are no longer supported. For more information about supported Chef Software see the [Supported Versions](https://docs.chef.io/versions/#supported-commercial-distributions) documentation.
+Supported Release
+: Chef Infra Server 13 and later are currently supported Chef Software releases. Earlier releases are no longer supported as of 12/31/2020. For more information about supported Chef Software see the [Supported Versions](https://docs.chef.io/versions/#supported-commercial-distributions) documentation.
 
 ## Upgrading to Chef Infra Server
 
@@ -41,7 +41,7 @@ Three upgrade scenarios exist for upgrades from Chef Infra Server 12.17.15 to Ch
 
 {{< warning >}}
 
-Do not upgrade your production server. First, upgrade in your test server, and then upgrade your production server.
+Before upgrading a production server make sure to upgrade a test server to confirm the process.
 
 {{< /warning >}}
 
@@ -225,15 +225,11 @@ To upgrade to Chef Infra Server on a tiered Chef Infra Server configuration, do 
    chef-server-ctl cleanup
    ```
 
-## Upgrading Add-ons
+## Upgrading Manage Add-On
 
-Chef Infra Server 13 and 14 supports Chef Manage and Push Jobs. Both of these add-ons are [deprecated](https://docs.chef.io/versions/#deprecated-products-and-versions). Push Jobs will reach EOL on December 31, 2020 and Chef Manage will reach EOL on December 31, 2021. After upgrading Chef Infra Server, reinstall the add-on and then reconfigure Chef Infra Server and the add-on.
+Chef Manage is a management console for  data bags, attributes, run-lists, roles, environments, and cookbooks from a web user interface.
 
-Chef Manage
-: Chef Manage is deprecated and will reach [EOL](https://docs.chef.io/versions/#deprecated-products-and-versions) on December 31, 2021. Chef Manage is a management console for  data bags, attributes, run-lists, roles, environments, and cookbooks from a web user interface
-
-Push Jobs
-: Push Jobs deprecated and will reach [EOL](https://docs.chef.io/versions/#deprecated-products-and-versions) on December 31, 2020. Chef Push Jobs is an extension of the Chef Infra Server that allows for running jobs against nodes independently of a Chef Infra Client run.
+Chef Infra Server 13 and 14 support the Chef Manage add-on. This add-on is [deprecated](https://docs.chef.io/versions/#deprecated-products-and-versions) and will reach [EOL](https://docs.chef.io/versions/#deprecated-products-and-versions) on December 31, 2021. After upgrading Chef Infra Server, reinstall the add-on and then reconfigure Chef Infra Server and the add-on.
 
 ### Use Downloads
 
