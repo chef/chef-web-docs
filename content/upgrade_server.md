@@ -39,7 +39,7 @@ Three upgrade scenarios exist for upgrades from Chef Infra Server 12.17.15 to Ch
 - [Chef Backend (HA)](/upgrade_server/#chef-backend-upgrade)
 - [Tiered](/upgrade_server/#tiered-upgrade)
 
-### Upgrading to Chef Infra Server 14
+### Upgrading to 14.x
 
 {{< warning >}}
 
@@ -52,7 +52,7 @@ Chef Infra Server 14 uses Elasticsearch as its search index.
 
 The Chef Infra Server 14 upgrade does not automatically reindex existing external Elasticsearch installations.
 
-### Upgrading to Chef Infra Server 12.17.15
+### Upgrading to 12.17.15
 
 {{< warning >}}
 Upgrade Chef Infra Server and any add-ons to compatible versions before setting `insecure_addon_compat` to `false`.
@@ -64,7 +64,7 @@ and Chef Infra Server will write all credentials to a single location.
 
 For more information on password generation, including a list of supported add-on versions, see [Chef Infra Server Credentials Management](/server_security/#chef-infra-server-credentials-management).
 
-### Upgrading to Chef Infra Server 12.3.0
+### Upgrading to 12.3.0
 
 If you are running Chef Infra Server 11 please contact Chef Support for additional guidance on upgrading your Chef Infra Server installation.
 
