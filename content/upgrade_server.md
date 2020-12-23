@@ -16,7 +16,7 @@ aliases = ["/upgrade_server.html"]
 
 Each new release of Chef Infra Server improves reliability and updates 3rd party components to ensure the security of the server. It is important to keep Chef Infra Server up to date in order to ensure the secure and reliable operation of Chef Infra in your organization.
 
-## Upgrade Paths
+## Upgrade Matrix
 
 If running a Chef Infra Server 12.17.15 or later you can upgrade directly to the latest releases of Chef Infra Server 14. If you are running a release prior to 12.17.15 you must perform a stepped upgrade as outlined below.
 
@@ -50,7 +50,7 @@ Before upgrading a production server make sure to upgrade a test server to confi
 Chef Infra Server 14 uses Elasticsearch as its search index.
 {{% server_upgrade_duration %}}
 
-The Chef Infra Server 14 upgrade does not reindex existing external Elasticsearch installations.
+The Chef Infra Server 14 upgrade does not automatically reindex existing external Elasticsearch installations.
 
 ### Upgrading to Chef Infra Server 12.17.15
 
@@ -63,6 +63,10 @@ If you are using Chef Infra Server without add-ons, or if you are using the late
 and Chef Infra Server will write all credentials to a single location.
 
 For more information on password generation, including a list of supported add-on versions, see [Chef Infra Server Credentials Management](/server_security/#chef-infra-server-credentials-management).
+
+### Upgrading to Chef Infra Server 12.3.0
+
+If you are running Chef Infra Server 11 please contact Chef Support for additional guidance on upgrading your Chef Infra Server installation.
 
 ## Standalone Upgrade
 
