@@ -231,7 +231,7 @@ Chef Manage is a management console for  data bags, attributes, run-lists, roles
 
 Chef Infra Server 13 and 14 support the Chef Manage add-on. This add-on is [deprecated](https://docs.chef.io/versions/#deprecated-products-and-versions) and will reach [EOL](https://docs.chef.io/versions/#deprecated-products-and-versions) on December 31, 2021. After upgrading Chef Infra Server, reinstall the add-on and then reconfigure Chef Infra Server and the add-on.
 
-### Use Downloads
+### Use Downloads.chef.io
 
 {{% ctl_chef_server_install_features_download %}}
 
