@@ -33,12 +33,6 @@ Requires License
 Supported Release
 : Chef Infra Server 13 and later are currently supported Chef Software releases. Earlier releases are no longer supported as of 12/31/2020. For more information about supported Chef Software see the [Supported Versions](https://docs.chef.io/versions/#supported-commercial-distributions) documentation.
 
-Three upgrade scenarios exist for upgrades from Chef Infra Server 12.17.15 to Chef Infra Server 13 or 14:
-
-- [Standalone](/upgrade_server/#standalone-upgrade)
-- [Chef Backend (HA)](/upgrade_server/#chef-backend-upgrade)
-- [Tiered](/upgrade_server/#tiered-upgrade)
-
 ### Upgrading to 14.x
 
 {{< warning >}}
