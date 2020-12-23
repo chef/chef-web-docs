@@ -60,7 +60,7 @@ For more information on password generation, including a list of supported add-o
 
 ### Upgrading to 12.3.0
 
-If you are running Chef Infra Server 11 please contact Chef Support for additional guidance on upgrading your Chef Infra Server installation.
+If you are running a Chef Infra Server relese prior to 12.3.0 please contact Chef Support for additional guidance on upgrading your Chef Infra Server installation.
 
 ## Standalone Upgrade
 
