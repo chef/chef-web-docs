@@ -328,12 +328,6 @@ identifier = "automate"
   identifier = "automate/reference"
   parent = "automate"
 
-  [[menu.automate]]
-  name = "Workflow (Deprecated)"
-  weight = 140
-  identifier = "automate/workflow"
-  parent = "automate"
-
 ####
 # End Chef Automate Menu
 ####
