@@ -44,14 +44,6 @@ SLA-based assistance from our support desk.
 
 #### Commercial Support
 
-{{< important >}}
-
-**Chef Infra Client 16 currently cannot build for Solaris**
-
-Due to the impact of COVID-19, Chef's employees cannot access our physical data center, which is a requirement for Solaris support. Until we can physically access the data center, Solaris builds on Chef Infra Client 16 will not be supported. They are available on Chef Infra Client 15, and we will begin building for Chef Infra Client 16 as soon as we responsibly can.
-
-{{< /important >}}
-
 The following table lists the commercially-supported platforms and
 versions for Chef Infra Client:
 
