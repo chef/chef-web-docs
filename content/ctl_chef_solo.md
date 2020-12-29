@@ -179,6 +179,14 @@ This command has the following options:
 
 ## Run as Non-root User
 
+{{< warning >}}
+
+This configuration for the `chef` user provides root-level access through Chef script files that call system commands with `sudo` privileges.
+
+Use an alternative approach if your security profile forbids the `chef` user from having built-in root level access.
+
+{{< warning >}}
+
 chef-solo may be run as a non-root user. For example, the `sudoers` file
 can be updated similar to:
 
