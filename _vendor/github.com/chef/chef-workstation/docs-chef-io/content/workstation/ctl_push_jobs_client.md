@@ -66,10 +66,6 @@ This command has the following options:
 
 :   The URL for the Chef Infra Server.
 
-`-v`, `--version`
-
-:   The version of Chef Push Jobs.
-
 ## Examples
 
 None.

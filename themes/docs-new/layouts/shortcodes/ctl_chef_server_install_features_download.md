@@ -23,12 +23,6 @@ For systems that are not behind a firewall (and have connectivity to <https://do
    sudo chef-manage-ctl reconfigure
    ```
 
-   Reconfigure Push Jobs with:
-
-   ```bash
-   sudo opscode-push-jobs-server reconfigure
-   ```
-
 Finally, accept the [Chef License](https://docs.chef.io/chef_license/):
 
 ```bash

@@ -16,7 +16,7 @@ draft = false
 
 {{% warning %}}
 
-Chef Automate will not deploy the Chef Infra Server add-ons Chef Manage and Push Jobs Server.
+Chef Automate will not deploy the Chef Infra Server add-on Chef Manage.
 
 {{% /warning %}}
 

@@ -197,11 +197,6 @@ aliases = ["/glossary.html"]
     stored on the Chef Infra Server. See roles, environments, and data
     bags.
 
-**Push Jobs**
-
-:   Allows you to execute commands across hundreds or even thousands of
-    nodes in your Chef-managed infrastructure.
-
 **recipe**
 
 :   A recipe is a collection of resources that tells Chef Infra Client

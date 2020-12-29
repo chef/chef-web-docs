@@ -1912,11 +1912,6 @@ knife-vsphere has been updated to 2.1.3, which adds support for knife's
 `bootstrap_template` flag and removes the legacy `distro` and
 `template_file` flags.
 
-#### Push Jobs Client
-
-Push Jobs Client has been updated to 2.5.6, which includes significant
-optimizations and minor bug fixes.
-
 ### Security Updates
 
 #### Rubygems 2.7.9
