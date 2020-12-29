@@ -107,35 +107,29 @@ announcement](https://blog.chef.io/2019/04/02/chef-software-announces-the-enterp
 </tr>
 <tr class="even">
 <td>Chef Infra Server</td>
-<td>13.x</td>
-<td>GA</td>
-<td>n/a</td>
-</tr>
-<tr class="odd">
-<td>Chef Infra Server</td>
 <td>14.x</td>
 <td>GA</td>
 <td>n/a</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Chef Habitat</td>
 <td>0.81+</td>
 <td>GA</td>
 <td>n/a</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Chef InSpec</td>
 <td>4.x</td>
 <td>GA</td>
 <td>n/a</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Chef Workstation</td>
 <td>20.x (2020)</td>
 <td>GA</td>
 <td>n/a</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Chef Backend</td>
 <td>3.x</td>
 <td>Releasing 2020</td>
@@ -216,30 +210,36 @@ newer versions or products.
 <td>December 31, 2020</td>
 </tr>
 <tr class="odd">
+<td>Chef Infra Server</td>
+<td>13.x</td>
+<td>Deprecated</td>
+<td>June 30, 2021</td>
+</tr>
+<tr class="even">
 <td>ChefDK</td>
 <td>4.x</td>
 <td>Deprecated</td>
 <td>December 31, 2020</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Chef Manage</td>
 <td>2.5.x+</td>
 <td>Deprecated</td>
 <td>December 31, 2021</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Chef Workflow</td>
 <td>2.x</td>
 <td>Deprecated</td>
 <td>December 31, 2020</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Push Jobs</td>
 <td>2.5.x</td>
 <td>Deprecated</td>
 <td>December 31, 2020</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Chef InSpec</td>
 <td>3.x</td>
 <td>Deprecated</td>
