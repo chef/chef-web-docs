@@ -179,6 +179,14 @@ This command has the following options:
 
 ## Run as Non-root User
 
+{{< warning >}}
+
+This configuration for the `chef` user provides root-level access through Chef script files that call system commands with `sudo` privileges.
+
+Use an alternative approach if your security profile forbids the `chef` user from having built-in root level access.
+
+{{< warning >}}
+
 chef-solo may be run as a non-root user. For example, the `sudoers` file
 can be updated similar to:
 
@@ -189,19 +197,6 @@ chef ALL=(ALL) NOPASSWD: /usr/bin/chef-solo
 
 where `chef` is the name of the non-root user. This would allow
 chef-solo to run any command on the node without requiring a password.
-
-{{< warning >}}
-
-The configuration for the 'chef' user as described above will still 
-going to have root-level access by calling system commands from a Chef 
-script file with sudo privileges. 
-
-To prevent such kind of security issues, it is highly recommended to create 
-an alternate approach for the cases where 'chef' user should not have 
-built-in root level access.
-
-{{< warning >}}
-
 
 ## Examples
 
