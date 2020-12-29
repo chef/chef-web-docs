@@ -2,6 +2,8 @@
 title = "Share Cookbooks on the Chef Supermarket"
 draft = false
 
+gh_repo = "chef-web-docs"
+
 aliases = ["/supermarket_share_cookbook.html"]
 
 [menu]
@@ -11,8 +13,6 @@ aliases = ["/supermarket_share_cookbook.html"]
     parent = "chef_infra/concepts/supermarket"
     weight = 40
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/supermarket_share_cookbook.md)
 
 This guide will show you how to share a cookbook on the public [Chef
 Supermarket](https://supermarket.chef.io/). The public Supermarket uses

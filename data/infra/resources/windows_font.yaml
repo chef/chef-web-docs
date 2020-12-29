@@ -3,15 +3,7 @@ resource_reference: true
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-title: windows_font resource
 resource: windows_font
-aliases:
-- "/resource_windows_font.html"
-menu:
-  infra:
-    title: windows_font
-    identifier: chef_infra/cookbook_reference/resources/windows_font windows_font
-    parent: chef_infra/cookbook_reference/resources
 resource_description_list:
 - markdown: Use the **windows_font** resource to install font files on Windows. By
     default, the font is sourced from the cookbook using the resource, but a URI source
@@ -56,4 +48,3 @@ examples: |
     source 'https://example.com/Custom.otf'
   end
   ```
----

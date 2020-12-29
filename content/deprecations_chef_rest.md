@@ -1,14 +1,14 @@
 +++
 title = "Deprecation: Chef REST (CHEF-9)"
 draft = false
+
+gh_repo = "chef-web-docs"
 robots = "noindex"
 
 
 aliases = "/deprecations_chef_rest.html"
 
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/deprecations_chef_rest.md)
 
 The `Chef::REST` class will be removed.
 

@@ -2,6 +2,8 @@
 title = "Debug Recipes, Chef Infra Client Runs"
 draft = false
 
+gh_repo = "chef-web-docs"
+
 aliases = ["/debug.html"]
 
 [menu]
@@ -11,8 +13,6 @@ aliases = ["/debug.html"]
     parent = "chef_infra/cookbook_reference/recipes"
     weight = 20
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/debug.md)
 
 Elements of good approaches to building cookbooks and recipes that are
 reliable include:

@@ -2,6 +2,8 @@
 title = "About Chef Licenses"
 draft = false
 
+gh_repo = "chef-web-docs"
+
 aliases = ["/chef_license.html"]
 
 [menu]
@@ -11,8 +13,6 @@ aliases = ["/chef_license.html"]
     parent = "overview/packages_&_platforms/licensing"
     weight = 10
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/chef_license.md)
 
 All Chef products have a license that governs the entire product, while
 some have separate licenses for the project source code and the

@@ -2,6 +2,8 @@
 title = "Install Chef in an air-gapped environment"
 draft = false
 
+gh_repo = "chef-web-docs"
+
 aliases = ["/install_chef_air_gap.html"]
 
 [menu]
@@ -11,8 +13,6 @@ aliases = ["/install_chef_air_gap.html"]
     parent = "chef_infra/setup"
     weight = 40
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/install_chef_air_gap.md)
 
 This guide will show you how to run a fully functional Chef environment
 within an

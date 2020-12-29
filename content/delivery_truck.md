@@ -1,6 +1,8 @@
 +++
 title = "About the delivery-truck Cookbook"
 draft = false
+
+gh_repo = "chef-web-docs"
 robots = "noindex"
 
 
@@ -13,8 +15,6 @@ aliases = ["/delivery_truck.html", "/release/automate/delivery_truck.html"]
     parent = "legacy/workflow/managing_workflow"
     weight = 20
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/delivery_truck.md)
 
 {{% delivery_cookbook_delivery_truck %}}
 

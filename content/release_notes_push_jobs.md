@@ -2,16 +2,16 @@
 title = "Release Notes: Chef Push Jobs 1.0 - 2.5"
 draft = false
 
+gh_repo = "chef-web-docs"
+
 aliases = ["/release_notes_push_jobs.html"]
 
 [menu]
-  [menu.release_notes]
-    title = "Chef Push Jobs"
-    identifier = "release_notes/release_notes_push_jobs.md Chef Push Jobs"
-    parent = "release_notes"
+  [menu.legacy]
+    title = "Chef Push Jobs Release Notes"
+    identifier = "legacy/push_jobs/release_notes_push_jobs.md Chef Push Jobs"
+    parent = "legacy/push_jobs"
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/release_notes_push_jobs.md)
 
 Chef Push Jobs is an extension of the Chef server that allows jobs to be
 run against nodes independently of a chef-client run. A job is an action

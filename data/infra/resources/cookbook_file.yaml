@@ -6,15 +6,7 @@ resources_common_atomic_update: true
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-title: cookbook_file resource
 resource: cookbook_file
-aliases:
-- "/resource_cookbook_file.html"
-menu:
-  infra:
-    title: cookbook_file
-    identifier: chef_infra/cookbook_reference/resources/cookbook_file cookbook_file
-    parent: chef_infra/cookbook_reference/resources
 resource_description_list:
 - shortcode: resource_cookbook_file_summary.md
 - markdown: 'During a Chef Infra Client run, the checksum for each local file is
@@ -31,7 +23,6 @@ syntax_description: "A **cookbook_file** resource block manages files by using f
   home page for an Apache website:\n\n```ruby\ncookbook_file '/var/www/customers/public_html/index.php'\
   \ do\n  source 'index.php'\n  owner 'web_admin'\n  group 'web_admin'\n  mode '0755'\n\
   \  action :create\nend\n```"
-syntax_code_block: null
 syntax_properties_list:
 - '`''/var/www/customers/public_html/index.php''` is path to the file to be created'
 - '`''index.php''` is a file in the `/files` directory in a cookbook that is used
@@ -233,8 +224,6 @@ properties_list:
 - property: path
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: 'The path to the destination at which a file is to be created.
 
@@ -255,8 +244,6 @@ properties_list:
 - property: rights
   ruby_type: Integer, String
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: 'Microsoft Windows only. The permissions for users and groups in a
 
@@ -286,8 +273,6 @@ properties_list:
 - property: verify
   ruby_type: String, Block
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: "A block or a string that returns `true` or `false`. A string, when\n\
       `true` is executed as a system command.\n\nA block is arbitrary Ruby defined\
@@ -302,7 +287,6 @@ properties_list:
       \nWhereas, this should return `false`:\n\n```ruby\ncookbook_file '/tmp/turtle'\
       \ do\n  verify '/usr/bin/false'\nend\n```\n\nIf a string or a block return `false`,\
       \ the Chef Infra Client run\nwill stop and an error is returned."
-properties_shortcode: null
 properties_multiple_packages: false
 resource_directory_recursive_directories: false
 resources_common_atomic_update: true
@@ -312,17 +296,10 @@ remote_file_unc_path: false
 ps_credential_helper: false
 ruby_style_basics_chef_log: false
 debug_recipes_chef_shell: false
-template_requirements: false
 resources_common_properties: true
 resources_common_notification: true
 resources_common_guards: true
-common_resource_functionality_multiple_packages: false
-resources_common_guard_interpreter: false
-remote_directory_recursive_directories: false
-common_resource_functionality_resources_common_windows_security: false
-handler_custom: false
 cookbook_file_specificity: true
-unit_file_verification: false
 examples: "
   Transfer a file\n\n  ```ruby\n  cookbook_file 'file.txt' do\n  \
   \  mode '0755'\n  end\n  ```\n\n  Handle cookbook_file and package resources in\
@@ -365,4 +342,3 @@ examples: "
   \      group 'group_id'\n      mode 'file_data['mode']'\n      ignore_failure true\n\
   \      backup 0\n    end\n  end\n  ```\n"
 
----

@@ -2,6 +2,8 @@
 title = "Chef Supermarket"
 draft = false
 
+gh_repo = "chef-web-docs"
+
 aliases = ["/supermarket.html"]
 
 [menu]
@@ -11,8 +13,6 @@ aliases = ["/supermarket.html"]
     parent = "chef_infra/concepts/supermarket"
     weight = 10
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/supermarket.md)
 
 {{% supermarket_summary %}}
 

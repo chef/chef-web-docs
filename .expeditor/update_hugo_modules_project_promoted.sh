@@ -57,7 +57,7 @@ hugo mod vendor
 
 if [[ "${EXPEDITOR_PROJECT}" == *"habitat"* ]]; then
   curl --silent --output generated-documentation.tar.gz https://packages.chef.io/files/${EXPEDITOR_TARGET_CHANNEL}/habitat/latest/generated-documentation.tar.gz
-  tar xvzf generated-documentation.tar.gz -C _vendor/github.com/habitat-sh/habitat/components/docs-chef-io/content/habitat
+  tar xvzf generated-documentation.tar.gz -C content/habitat
   rm generated-documentation.tar.gz
 fi
 

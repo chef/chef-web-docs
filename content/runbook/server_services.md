@@ -2,6 +2,8 @@
 title = "Services"
 draft = false
 
+gh_repo = "chef-web-docs"
+
 aliases = ["/server_services.html"]
 
 runbook_weight = 40
@@ -13,8 +15,6 @@ runbook_weight = 40
     parent = "chef_infra/managing_chef_infra_server"
     weight = 100
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/runbook/server_services.md)
 
 The Chef Infra Server has a built in process supervisor, which ensures
 that all of the required services are in the appropriate state at any

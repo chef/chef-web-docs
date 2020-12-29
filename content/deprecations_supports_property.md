@@ -1,13 +1,13 @@
 +++
 title = "Deprecation: Supports metaproperty (CHEF-8)"
 draft = false
+
+gh_repo = "chef-web-docs"
 robots = "noindex"
 
 
 aliases = "/deprecations_supports_property.html"
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/deprecations_supports_property.md)
 
 The `user` resource previously allowed a cookbook author to set policy
 for the resource in two ways. The `supports` metaproperty, which is now

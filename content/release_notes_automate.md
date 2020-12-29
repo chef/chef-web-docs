@@ -1,6 +1,7 @@
 +++
 title = "Chef Automate: Version"
 draft = false
+
 release_notes = "automate"
 
 [menu]

@@ -1,13 +1,13 @@
 +++
 title = "Deprecation: Cloud plugin replaced by the Cloud_V2 plugin (OHAI-8)"
 draft = false
+
+gh_repo = "chef-web-docs"
 robots = "noindex"
 
 
 aliases = "/deprecations_ohai_cloud.html"
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/deprecations_ohai_cloud.md)
 
 In Ohai/Chef releases 13 we replaced the existing Cloud plugin with the
 Cloud_v2 plugin. This was done by having the Cloud_v2 plugin populate

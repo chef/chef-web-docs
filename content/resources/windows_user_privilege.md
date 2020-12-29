@@ -1,6 +1,8 @@
 +++
 title = "windows_user_privilege Resource"
 draft = false
+
+gh_repo = "chef-web-docs"
 robots = ""
 
 data_path = ["infra","resources","windows_user_privilege"]

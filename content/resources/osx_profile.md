@@ -1,6 +1,8 @@
 +++
 title = "osx_profile Resource"
 draft = false
+
+gh_repo = "chef-web-docs"
 robots = ""
 
 data_path = ["infra","resources","osx_profile"]

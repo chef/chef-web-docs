@@ -5,16 +5,7 @@ multi_package_resource: true
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-title: yum_package resource
 resource: yum_package
-aliases:
-- "/resource_yum_package.html"
-- /resource_yum.html
-menu:
-  infra:
-    title: yum_package
-    identifier: chef_infra/cookbook_reference/resources/yum_package yum_package
-    parent: chef_infra/cookbook_reference/resources
 resource_description_list:
 - markdown: Use the **yum_package** resource to install, upgrade, and remove packages
     with Yum for the Red Hat and CentOS platforms. The yum_package resource is able
@@ -220,4 +211,3 @@ examples: |
     flush_cache [ :before ]
   end
   ```
----

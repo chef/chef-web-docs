@@ -3,16 +3,7 @@ resource_reference: true
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-title: windows_feature_powershell resource
 resource: windows_feature_powershell
-aliases:
-- "/resource_windows_feature_powershell.html"
-menu:
-  infra:
-    title: windows_feature_powershell
-    identifier: chef_infra/cookbook_reference/resources/windows_feature_powershell
-      windows_feature_powershell
-    parent: chef_infra/cookbook_reference/resources
 resource_description_list:
 - markdown: 'Use the **windows_feature_powershell** resource to add, remove, or
 
@@ -111,4 +102,3 @@ examples: |
     management_tools true
   end
   ```
----

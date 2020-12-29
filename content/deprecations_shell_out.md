@@ -1,13 +1,13 @@
 +++
 title = "Deprecation: Deprecation of old shell_out APIs (CHEF-26)"
 draft = false
+
+gh_repo = "chef-web-docs"
 robots = "noindex"
 
 
 aliases = "/deprecations_shell_out.html"
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/deprecations_shell_out.md)
 
 The functionality of multiple old <span
 class="title-ref">shell_out</span> APIs has been collapsed into the

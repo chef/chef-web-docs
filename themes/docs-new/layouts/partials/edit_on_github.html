@@ -1,0 +1,6 @@
+{{ if and (.File) (.Params.gh_repo)}}
+<p>
+  <a href="{{ index .Site.Params.gh .Params.gh_repo "path" }}{{ .File.Path }}" alt="Link to page on GitHub repository">[edit on GitHub]</a>
+</p>
+
+{{ end }}

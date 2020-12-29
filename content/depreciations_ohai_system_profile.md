@@ -1,13 +1,13 @@
 +++
 title = "Deprecation: System Profile plugin (OHAI-14)"
 draft = false
+
+gh_repo = "chef-web-docs"
 robots = "noindex"
 
 
 aliases = "/depreciations_ohai_system_profile.html"
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/deprecations_ohai_system_profile.md)
 
 The system_profile plugin will be removed from Chef/Ohai 15 in April
 2019. This plugin does not correctly return data on modern Mac systems.

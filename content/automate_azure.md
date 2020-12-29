@@ -1,6 +1,8 @@
 +++
 title = "Chef Automate for Microsoft Azure"
 draft = false
+
+gh_repo = "chef-web-docs"
 robots = "noindex"
 
 
@@ -13,8 +15,6 @@ aliases = ["/automate_azure.html"]
     parent = "legacy/workflow"
     weight = 60
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/automate_azure.md)
 
 {{% cloud_azure_portal %}}
 

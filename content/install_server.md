@@ -2,6 +2,8 @@
 title = "Install the Chef Infra Server"
 draft = false
 
+gh_repo = "chef-web-docs"
+
 aliases = ["/install_server.html"]
 
 [menu]
@@ -11,8 +13,6 @@ aliases = ["/install_server.html"]
     parent = "chef_infra/setup/chef_infra_server"
     weight = 20
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/install_server.md)
 
 There are three configuration scenarios for the Chef Infra Server:
 

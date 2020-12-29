@@ -2,17 +2,18 @@
 title = "Chef Manage"
 draft = false
 
+gh_repo = "chef-web-docs"
+
 aliases = ["/manage.html"]
 
 [menu]
-  [menu.infra]
+  [menu.legacy]
     title = "About the Management Console"
-    identifier = "chef_infra/features/management_console/manage.md About the Management Console"
-    parent = "chef_infra/features/management_console"
+    identifier = "legacy/manage/manage.md About the Management Console"
+    parent = "legacy/manage"
     weight = 10
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/manage.md)
+{{% chef_automate_mark %}}
 
 {{% EOL_manage %}}
 

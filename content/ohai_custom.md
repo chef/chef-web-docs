@@ -2,6 +2,8 @@
 title = "Writing Ohai Custom Plugins"
 draft = false
 
+gh_repo = "chef-web-docs"
+
 aliases = ["/ohai_custom.html"]
 
 [menu]
@@ -11,8 +13,6 @@ aliases = ["/ohai_custom.html"]
     parent = "chef_infra/extension_apis/ohai_plugins"
     weight = 10
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/ohai_custom.md)
 
 Custom Ohai plugins describe additional configuration attributes to be
 collected by Ohai and provided to Chef Infra Client during runs.

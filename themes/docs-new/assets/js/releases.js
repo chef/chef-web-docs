@@ -72,12 +72,12 @@ function loadReleaseNotesContents(releases, version, product) {
       var friendlyDate = new Date(releases[index]["release_date"]);
       var options = { year: 'numeric', month: 'long', day: 'numeric' };
 
-      $("#main-content-col").html(html);
-      $("#main-content-col").prepend("<p><i>Released on " + friendlyDate.toLocaleString('en-US', options) + "</i></p>");
-      $("#main-content-col").prepend(pageTOCButton)
+      $(".col-content").html(html);
+      $(".col-content").prepend("<p><i>Released on " + friendlyDate.toLocaleString('en-US', options) + "</i></p>");
+      $(".col-content").prepend(pageTOCButton)
 
 
-      $("#main-content-col").prepend("<h1>" + productConverted + ": Version " + releases[index]["version"] + "</h1>");
+      $(".col-content").prepend("<h1>" + productConverted + ": Version " + releases[index]["version"] + "</h1>");
     });
   }
   else {
@@ -87,13 +87,13 @@ function loadReleaseNotesContents(releases, version, product) {
     $.get(releaseNoteURL, function(rawReleaseNotes) {
       var html = converter.makeHtml(rawReleaseNotes);
 
-      $("#main-content-col").html(html);
-      $("#main-content-col").prepend(pageTOCButton)
-      $("#main-content-col").prepend("<h1>" + productConverted + ": Version " + releases[index] + "</h1>");
+      $(".col-content").html(html);
+      $(".col-content").prepend(pageTOCButton)
+      $(".col-content").prepend("<h1>" + productConverted + ": Version " + releases[index] + "</h1>");
     }).fail( function() {
-      $("#main-content-col").html("<p>This release does not have any release notes.</p>");
-      $("#main-content-col").prepend(pageTOCButton)
-      $("#main-content-col").prepend("<h1>" + productConverted + ": Version " + releases[index] + "</h1>");
+      $(".col-content").html("<p>This release does not have any release notes.</p>");
+      $(".col-content").prepend(pageTOCButton)
+      $(".col-content").prepend("<h1>" + productConverted + ": Version " + releases[index] + "</h1>");
     });
   }
 }

@@ -1,23 +1,14 @@
 ---
 resource_reference: true
-
 multi_package_resource: true
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-notes_resource_based_on_package: true
-title: pacman_package resource
 resource: pacman_package
-aliases:
-- "/resource_pacman_package.html"
-menu:
-  infra:
-    title: pacman_package
-    identifier: chef_infra/cookbook_reference/resources/pacman_package pacman_package
-    parent: chef_infra/cookbook_reference/resources
 resource_description_list:
 - markdown: Use the **pacman_package** resource to manage packages (using pacman)
     on the Arch Linux platform.
+- notes_resource_based_on_package: true
 syntax_description: 'A **pacman_package** resource block manages a package on a node,
 
   typically by installing it. The simplest use of the **pacman_package**
@@ -35,7 +26,6 @@ syntax_description: 'A **pacman_package** resource block manages a package on a 
   which will install the named package using all of the default options
 
   and the default action (`:install`).'
-syntax_code_block: null
 syntax_properties_list: null
 syntax_full_code_block: "pacman_package 'name' do\n  options           String\n  package_name\
   \      String\n  source            String\n  timeout           String, Integer\n\
@@ -92,4 +82,3 @@ examples: "
   Install a package\n\n  ```ruby\n  pacman_package 'name of package'\
   \ do\n    action :install\n  end\n  ```\n"
 
----

@@ -3,15 +3,7 @@ resource_reference: true
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-title: windows_firewall_rule resource
 resource: windows_firewall_rule
-aliases:
-- "/resource_windows_firewall_rule.html"
-menu:
-  infra:
-    title: windows_firewall_rule
-    identifier: chef_infra/cookbook_reference/resources/windows_firewall_rule windows_firewall_rule
-    parent: chef_infra/cookbook_reference/resources
 resource_description_list:
 - markdown: Use the **windows_firewall_rule** resource to create, change or remove
     Windows firewall rules.
@@ -201,4 +193,3 @@ examples: |
     action :delete
   end
   ```
----

@@ -2,6 +2,8 @@
 title = "Chef Backend Failure Recovery"
 draft = false
 
+gh_repo = "chef-web-docs"
+
 aliases = ["/backend_failure_recovery.html"]
 
 [menu]
@@ -11,8 +13,6 @@ aliases = ["/backend_failure_recovery.html"]
     parent = "chef_infra/managing_chef_infra_server"
     weight = 30
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/backend_failure_recovery.md)
 
 This document contains the recommended actions for responding to
 failures in your Chef Backend cluster.

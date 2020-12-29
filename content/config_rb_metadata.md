@@ -2,6 +2,8 @@
 title = "metadata.rb"
 draft = false
 
+gh_repo = "chef-web-docs"
+
 aliases = ["/config_rb_metadata.html"]
 
 [menu]
@@ -11,8 +13,6 @@ aliases = ["/config_rb_metadata.html"]
     parent = "chef_infra/cookbook_reference"
     weight = 110
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/config_rb_metadata.md)
 
 {{% cookbooks_metadata %}}
 

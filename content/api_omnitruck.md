@@ -2,6 +2,8 @@
 title = "Omnitruck API"
 draft = false
 
+gh_repo = "chef-web-docs"
+
 aliases = ["/api_omnitruck.html"]
 
 [menu]
@@ -11,8 +13,6 @@ aliases = ["/api_omnitruck.html"]
     parent = "overview/packages_&_platforms"
     weight = 50
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/api_omnitruck.md)
 
 Chef's Omnitruck API powers the Chef Software Install script as well as
 downloads.chef.io site. It can be used to query available versions of
@@ -138,7 +138,7 @@ Omnitruck accepts the following platforms:
 <td>macOS</td>
 <td><code>mac_os_x</code></td>
 <td><code>x86_64</code></td>
-<td><code>10.6</code>, <code>10.7</code>, <code>10.8</code>, <code>10.9</code>, <code>10.10</code>, <code>10.11</code>, <code>10.12</code>, <code>10.13</code>, <code>10.14</code>, <code>10.15</code></td>
+<td><code>10.6</code>, <code>10.7</code>, <code>10.8</code>, <code>10.9</code>, <code>10.10</code>, <code>10.11</code>, <code>10.12</code>, <code>10.13</code>, <code>10.14</code>, <code>10.15</code>, <code>11.0</code></td>
 </tr>
 <tr class="even">
 <td>Solaris</td>

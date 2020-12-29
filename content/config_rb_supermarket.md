@@ -2,6 +2,8 @@
 title = "supermarket.rb Settings"
 draft = false
 
+gh_repo = "chef-web-docs"
+
 aliases = ["/config_rb_supermarket.html"]
 
 [menu]
@@ -11,8 +13,6 @@ aliases = ["/config_rb_supermarket.html"]
     parent = "chef_infra/setup/supermarket"
     weight = 40
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/config_rb_supermarket.md)
 
 {{% config_rb_supermarket_summary %}}
 

@@ -1,6 +1,8 @@
 +++
 title = "Integrate Workflow with Bitbucket"
 draft = false
+
+gh_repo = "chef-web-docs"
 robots = "noindex"
 
 
@@ -13,10 +15,6 @@ aliases = ["/integrate_delivery_bitbucket.html", "/release/automate/integrate_de
     parent = "legacy/workflow/managing_workflow"
     weight = 70
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/integrate_delivery_bitbucket.md)
-
-
 
 {{% chef_automate_mark %}}
 

@@ -1,6 +1,8 @@
 +++
 title = "About the Workflow DSL"
 draft = false
+
+gh_repo = "chef-web-docs"
 robots = "noindex"
 
 
@@ -13,10 +15,6 @@ aliases = ["/dsl_delivery.html", "/release/automate/dsl_delivery.html"]
     parent = "legacy/workflow/reference"
     weight = 40
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/dsl_delivery.md)
-
-
 
 The Workflow DSL is a collection of helper methods that is used in
 recipes as a way to enhance the Recipe DSL to collect data about:

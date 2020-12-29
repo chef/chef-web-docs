@@ -2,6 +2,8 @@
 title = "All Desktop Resources"
 draft = false
 
+gh_repo = "chef-web-docs"
+
 data_path = ["infra","resources"]
 layout = "infra_resources_all"
 

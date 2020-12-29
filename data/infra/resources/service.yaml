@@ -3,15 +3,7 @@ resource_reference: true
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-title: service resource
 resource: service
-aliases:
-- "/resource_service.html"
-menu:
-  infra:
-    title: service
-    identifier: chef_infra/cookbook_reference/resources/service service
-    parent: chef_infra/cookbook_reference/resources
 resource_description_list:
 - markdown: Use the **service** resource to manage a service.
 syntax_full_code_block: |-
@@ -318,4 +310,3 @@ examples: "
   \     -s #{node['chef_client']['svc_name']} > /dev/console 2>&1'\"\n    not_if \"\
   lsitab #{node['chef_client']['svc_name']}\"\n  end\n  ```\n"
 
----

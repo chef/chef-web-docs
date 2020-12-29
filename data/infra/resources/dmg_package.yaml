@@ -3,15 +3,7 @@ resource_reference: true
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-title: dmg_package resource
 resource: dmg_package
-aliases:
-- "/resource_dmg_package.html"
-menu:
-  infra:
-    title: dmg_package
-    identifier: chef_infra/cookbook_reference/resources/dmg_package dmg_package
-    parent: chef_infra/cookbook_reference/resources
 resource_description_list:
 - markdown: Use the **dmg_package** resource to install a package from a .dmg file.
     The resource will retrieve the dmg file from a remote URL, mount it using macOS'
@@ -167,4 +159,3 @@ examples: |
     accept_eula true
   end
   ```
----

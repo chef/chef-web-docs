@@ -1,6 +1,8 @@
 +++
 title = "Chef Automate Server Tuning"
 draft = false
+
+gh_repo = "chef-web-docs"
 robots = "noindex"
 
 
@@ -13,10 +15,6 @@ aliases = ["/delivery_server_tuning.html", "/release/automate/delivery_server_tu
     parent = "legacy/workflow/managing_workflow"
     weight = 170
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/delivery_server_tuning.md)
-
-
 
 {{% chef_automate_mark %}}
 

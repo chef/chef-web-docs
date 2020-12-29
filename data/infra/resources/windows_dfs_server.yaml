@@ -3,15 +3,7 @@ resource_reference: true
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-title: windows_dfs_server resource
 resource: windows_dfs_server
-aliases:
-- "/resource_windows_dfs_server.html"
-menu:
-  infra:
-    title: windows_dfs_server
-    identifier: chef_infra/cookbook_reference/resources/windows_dfs_server windows_dfs_server
-    parent: chef_infra/cookbook_reference/resources
 resource_description_list:
 - markdown: Use the **windows_dfs_server** resource to set system-wide DFS settings.
 resource_new_in: '15.0'
@@ -67,4 +59,3 @@ properties_list:
       this property is set to true, the server uses FQDNs in referrals. If this property
       is set to false then the server uses NetBIOS names.
 examples: 
----

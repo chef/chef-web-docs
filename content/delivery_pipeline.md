@@ -1,6 +1,8 @@
 +++
 title = "About Chef Automate Pipelines"
 draft = false
+
+gh_repo = "chef-web-docs"
 robots = "noindex"
 
 
@@ -13,10 +15,6 @@ aliases = ["/delivery_pipeline.html", "/release/automate/delivery_pipeline.html"
     parent = "legacy/workflow/workflow_basics"
     weight = 20
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/delivery_pipeline.md)
-
-
 
 {{% chef_automate_mark %}}
 

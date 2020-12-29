@@ -2,6 +2,8 @@
 title = "client.rb"
 draft = false
 
+gh_repo = "chef-web-docs"
+
 aliases = ["/config_rb_client.html"]
 
 [menu]
@@ -11,8 +13,6 @@ aliases = ["/config_rb_client.html"]
     parent = "chef_infra/setup/nodes"
     weight = 40
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/config_rb_client.md)
 
 {{% config_rb_client_summary %}}
 

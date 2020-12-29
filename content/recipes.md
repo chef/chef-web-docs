@@ -2,6 +2,8 @@
 title = "About Recipes"
 draft = false
 
+gh_repo = "chef-web-docs"
+
 aliases = ["/recipes.html"]
 
 [menu]
@@ -11,8 +13,6 @@ aliases = ["/recipes.html"]
     parent = "chef_infra/cookbook_reference/recipes"
     weight = 10
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/recipes.md)
 
 {{% cookbooks_recipe %}}
 
@@ -77,13 +77,13 @@ aliases = ["/recipes.html"]
 
 {{% node_attribute_precedence %}}
 
-### Blacklist Attributes
+### Blocklist Attributes
 
-{{% node_attribute_blacklist %}}
+{{% node_attribute_blocklist %}}
 
-#### Whitelist Attributes
+#### Blocklist Attributes
 
-{{% node_attribute_whitelist %}}
+{{% node_attribute_allowlist %}}
 
 ## File Methods
 

@@ -1,9 +1,8 @@
 +++
 title = "chef-server.rb Settings"
 version = "13_2"
+gh_repo = "chef-web-docs"
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/server/v13_2/config_rb_server.md)
 
 {{< reusable_text_versioned file="config_rb_server_summary">}}
 

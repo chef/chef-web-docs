@@ -1,6 +1,8 @@
 +++
 title = "delivery.rb Optional Settings"
 draft = false
+
+gh_repo = "chef-web-docs"
 robots = "noindex"
 
 
@@ -14,8 +16,6 @@ aliases = ["/config_rb_delivery_optional_settings.html", "/release/automate/conf
     parent = "legacy/workflow/reference"
     weight = 30
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/config_rb_delivery_optional_settings.md)
 
 {{% chef_automate_mark %}}
 

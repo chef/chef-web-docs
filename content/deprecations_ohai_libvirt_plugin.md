@@ -1,13 +1,13 @@
 +++
 title = "Deprecation: Libvirt plugin attributes changes (OHAI-4)"
 draft = false
+
+gh_repo = "chef-web-docs"
 robots = "noindex"
 
 
 aliases = "/deprecations_ohai_libvirt_plugin.html"
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/deprecations_ohai_libvirt_plugin.md)
 
 The Ohai libvirt plugin no longer places libvirt attributes under
 `node['virtualization']` and instead uses the `node['libvirt']`

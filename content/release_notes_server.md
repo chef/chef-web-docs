@@ -2,6 +2,8 @@
 title = "Release Notes: Chef Infra Server 12.0 - 14.0"
 draft = false
 
+gh_repo = "chef-web-docs"
+
 aliases = ["/release_notes_server.html"]
 
 [menu]
@@ -10,8 +12,6 @@ aliases = ["/release_notes_server.html"]
     identifier = "release_notes/release_notes_server.md Chef Infra Server"
     parent = "release_notes"
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/release_notes_server.md)
 
 Chef Infra Server acts as a hub for configuration data by storing
 cookbooks, the policies that are applied to nodes, and metadata that

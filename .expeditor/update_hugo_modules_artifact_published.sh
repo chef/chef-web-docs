@@ -13,17 +13,23 @@ if [ "${EXPEDITOR_PRODUCT_KEY}" == "chef-workstation" ]; then
   subdirectory="docs-chef-io"
   org="chef"
   tag_prefix=""
+  tag_suffix=""
 elif [ "${EXPEDITOR_PRODUCT_KEY}" == "inspec" ]; then
   subdirectory="docs-chef-io"
   org="inspec"
   tag_prefix="v"
+  tag_suffix="^{}"
 fi
 
-# Update the semver version of the documentation module that chef-web-docs will
-# use to build the docs from.
+# Return the commit SHA that matches the product tag.
+
+git_sha="$(git ls-remote https://github.com/${org}/${EXPEDITOR_PRODUCT_KEY}.git rev-list --refs -n 1 ${tag_prefix}${EXPEDITOR_VERSION}${tag_suffix} | cut -f 1)"
+
+# Update the repository commit that chef-web-docs will
+# use to build the InSpec or Workstation documentation.
 # See https://gohugo.io/hugo-modules/use-modules/#update-one-module
 
-hugo mod get "github.com/${org}/${EXPEDITOR_PRODUCT_KEY}/${subdirectory}@${tag_prefix}${EXPEDITOR_VERSION}"
+hugo mod get "github.com/${org}/${EXPEDITOR_PRODUCT_KEY}/${subdirectory}@${git_sha}"
 hugo mod tidy
 
 # Update the vendored files in chef-web-docs

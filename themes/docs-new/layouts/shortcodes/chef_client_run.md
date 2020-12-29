@@ -1,7 +1,4 @@
-A "Chef Infra Client run" is the term used to describe the steps Chef
-Infra Client takes to configure a node during a run. The following
-diagram shows the various stages that occur during a Chef Infra Client
-run.
+A "Chef Infra Client run" is the term used to describe the steps Chef Infra Client takes to configure a node when the chef-client command is run. The following diagram shows the various stages that occur during a Chef Infra Client run.
 
 ![image](/images/chef_run.png)
 
@@ -29,27 +26,27 @@ During every Chef Infra Client run, the following happens:
 </tr>
 <tr class="odd">
 <td><strong>Get, rebuild the node object</strong></td>
-<td>Chef Infra Client pulls down the node object from the Chef Infra Server. If this is the first Chef Infra Client run for the node, there will not be a node object to pull down from the Chef Infra Server. After the node object is pulled down from the Chef Infra Server, Chef Infra Client rebuilds the node object. If this is the first Chef Infra Client run for the node, the rebuilt node object will contain only the default run-list. For any subsequent Chef Infra Client run, the rebuilt node object will also contain the run-list from the previous Chef Infra Client run.</td>
+<td>Chef Infra Client pulls down the node object from the Chef Infra Server and then rebuilds it. A node object is made up of the system attributes discovered by Ohai, the attributes set in Policyfiles or Cookbooks, and the run list of cookbooks. The first time Chef Infra Client runs on a node, it creates a node object from the the default run-list. A node that has not yet had a Chef Infra Client run will not have a node object or a Chef Infra Server entry for a node object. On any subsequent Chef Infra Client runs, the rebuilt node object will also contain the run-list from the previous Chef Infra Client run.</td>
 </tr>
 <tr class="even">
 <td><strong>Expand the run-list</strong></td>
-<td>Chef Infra Client expands the <a href="/run_lists/">run-list</a> from the rebuilt node object, compiling a full and complete list of roles and recipes that will be applied to the node, placing the roles and recipes in the same exact order they will be applied. (The run-list is stored in each node object's JSON file, grouped under <code>run_list</code>.)</td>
+<td>Chef Infra Client expands the <a href="/run_lists/">run-list</a> from the rebuilt node object and compiles a complete list of recipes in the exact order that they will be applied to the node.</td>
 </tr>
 <tr class="odd">
 <td><strong>Synchronize cookbooks</strong></td>
-<td>Chef Infra Client asks the Chef Infra Server for a list of all <a href="/cookbooks/">cookbook files</a> (including recipes, templates, resources, providers, attributes, libraries, and definitions) that will be required to do every action identified in the run-list for the rebuilt node object. The Chef Infra Server provides to Chef Infra Client a list of all of those files. Chef Infra Client compares this list to the cookbook files cached on the node (from previous Chef Infra Client runs), and then downloads a copy of every file that has changed since the previous Chef Infra Client run, along with any new files.</td>
+<td>Chef Infra Client requests all off the <a href="/cookbooks/">cookbook files</a> (including recipes, templates, resources, providers, attributes, and libraries) that it needs for every action identified in the run-list from the Chef Infra Server. The Chef Infra Server responds to Chef Infra Client with the complete list of files. Chef Infra Client compares the list of files to the files that already exist on the node from previous runs, and then downloads a copy of every new or modified file from the Chef Infra Server.</td>
 </tr>
 <tr class="even">
 <td><strong>Reset node attributes</strong></td>
-<td>All attributes in the rebuilt node object are reset. All attributes from attribute files, environments, roles, and Ohai are loaded. Attributes that are defined in attribute files are first loaded according to cookbook order. For each cookbook, attributes in the <code>default.rb</code> file are loaded first, and then additional attribute files (if present) are loaded in lexical sort order. If attribute files are found within any cookbooks that are listed as dependencies in the <code>metadata.rb</code> file, these are loaded as well. All attributes in the rebuilt node object are updated with the attribute data according to attribute precedence. When all of the attributes are updated, the rebuilt node object is complete.</td>
+<td>All attributes in the rebuilt node object are reset. All attributes from attribute files, Policyfiles, and Ohai are loaded. Attributes that are defined in attribute files are first loaded according to cookbook order. For each cookbook, attributes in the <code>default.rb</code> file are loaded first, and then additional attribute files (if present) are loaded in lexical sort order. If attribute files are found within any cookbooks that are listed as dependencies in the <code>metadata.rb</code> file, these are loaded as well. All attributes in the rebuilt node object are updated with the attribute data according to attribute precedence. When all of the attributes are updated, the rebuilt node object is complete.</td>
 </tr>
 <tr class="odd">
 <td><strong>Compile the resource collection</strong></td>
-<td>Chef Infra Client identifies each resource in the node object and builds the resource collection. Libraries are loaded first to ensure that all language extensions and Ruby classes are available to all resources. Next, attributes are loaded, followed by custom resources, and then all definitions (to ensure that any pseudo-resources within definitions are available). Finally, all recipes are loaded in the order specified by the expanded run-list. This is also referred to as the "compile phase".</td>
+<td>Chef Infra Client identifies each resource in the node object and builds the resource collection. Libraries are loaded first to ensure that all language extensions and Ruby classes are available to all resources. Next, attributes are loaded, followed by custom resources. Finally, all recipes are loaded in the order specified by the expanded run-list. This is also referred to as the "compile phase".</td>
 </tr>
 <tr class="even">
 <td><strong>Converge the node</strong></td>
-<td>Chef Infra Client configures the system based on the information that has been collected. Each resource is executed in the order identified by the run-list, and then by the order in which each resource is listed in each recipe. Each resource in the resource collection is mapped to a provider. The provider examines the node, and then does the steps necessary to complete the action. And then the next resource is processed. Each action configures a specific part of the system. This process is also referred to as convergence. This is also referred to as the "execution phase".</td>
+<td>Chef Infra Client configures the system based on the information that has been collected. Each resource is executed in the order identified by the run-list, and then by the order in which each resource is listed in each recipe. Each resource defines an action to run, which configures a specific part of the system. This process is also referred to as convergence. This is also referred to as the "execution phase".</td>
 </tr>
 <tr class="odd">
 <td><p><strong>Update the node object, process exception and report handlers</strong></p></td>

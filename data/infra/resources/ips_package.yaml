@@ -3,19 +3,11 @@ resource_reference: true
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-notes_resource_based_on_package: true
-title: ips_package resource
 resource: ips_package
-aliases:
-- "/resource_ips_package.html"
-menu:
-  infra:
-    title: ips_package
-    identifier: chef_infra/cookbook_reference/resources/ips_package ips_package
-    parent: chef_infra/cookbook_reference/resources
 resource_description_list:
 - markdown: Use the **ips_package** resource to manage packages (using Image Packaging
     System (IPS)) on the Solaris 11 platform.
+- notes_resource_based_on_package: true
 syntax_description: 'A **ips_package** resource block manages a package on a node,
   typically
 
@@ -32,7 +24,6 @@ syntax_description: 'A **ips_package** resource block manages a package on a nod
   which will install the named package using all of the default options
 
   and the default action (`:install`).'
-syntax_code_block: null
 syntax_properties_list: null
 syntax_full_code_block: "ips_package 'name' do\n  accept_license             true,\
   \ false # default value: false\n  options                    String\n  package_name\
@@ -93,4 +84,3 @@ examples: "
   Install a package\n\n  ```ruby\n  ips_package 'name of package'\
   \ do\n    action :install\n  end\n  ```\n"
 
----

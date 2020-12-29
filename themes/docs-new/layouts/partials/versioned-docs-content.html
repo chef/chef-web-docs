@@ -45,6 +45,7 @@
         {{ $pageText := .Content }}
         {{ $replacementID := delimit (slice `<$1-` $version `"`) "" }}
         {{ $pageText := replaceRE `<(h\d id="[\w\-]+)"` $replacementID $pageText }}
+        {{ $pageText = delimit (slice ( partial "edit_on_github" . ) $pageText ) ""}}
         {{ safeHTML $pageText }}
       {{ end }}
 

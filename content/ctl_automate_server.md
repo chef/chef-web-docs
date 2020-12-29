@@ -1,6 +1,8 @@
 +++
 title = "automate-ctl (executable)"
 draft = false
+
+gh_repo = "chef-web-docs"
 robots = "noindex"
 
 
@@ -13,10 +15,6 @@ aliases = ["/ctl_automate_server.html", "/release/automate/ctl_delivery_server.h
     parent = "legacy/workflow"
     weight = 40
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/ctl_automate_server.md)
-
-
 
 {{% chef_automate_mark %}}
 

@@ -1,6 +1,8 @@
 +++
 title = "Integrate Chef Automate with SAML for Authentication"
 draft = false
+
+gh_repo = "chef-web-docs"
 robots = "noindex"
 
 
@@ -13,8 +15,6 @@ aliases = ["/integrate_chef_automate_saml.html"]
     parent = "legacy/workflow/managing_workflow"
     weight = 130
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/integrate_chef_automate_saml.md)
 
 {{% chef_automate_mark %}}
 

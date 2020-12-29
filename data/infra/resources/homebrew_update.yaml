@@ -3,15 +3,7 @@ resource_reference: true
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-title: homebrew_update resource
 resource: homebrew_update
-aliases:
-- "/resource_homebrew_update.html"
-menu:
-  infra:
-    title: homebrew_update
-    identifier: chef_infra/cookbook_reference/resources/homebrew_update homebrew_update
-    parent: chef_infra/cookbook_reference/resources
 resource_description_list:
 - markdown: Use the **homebrew_update** resource to manage Homebrew repository updates
     on macOS.
@@ -55,4 +47,3 @@ examples: |
   ```ruby
   homebrew_update 'update'
   ```
----

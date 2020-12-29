@@ -1,6 +1,8 @@
 +++
 title = "Integrate with LDAP for Authentication"
 draft = false
+
+gh_repo = "chef-web-docs"
 robots = "noindex"
 
 
@@ -13,8 +15,6 @@ aliases = ["/integrate_delivery_ldap.html", "/release/automate/integrate_deliver
     parent = "legacy/workflow/managing_workflow"
     weight = 120
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/integrate_delivery_ldap.md)
 
 {{% chef_automate_mark %}}
 

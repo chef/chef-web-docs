@@ -2,6 +2,8 @@
 title = "Security"
 draft = false
 
+gh_repo = "chef-web-docs"
+
 aliases = ["/server_security.html"]
 
 runbook_weight = 50
@@ -13,8 +15,6 @@ runbook_weight = 50
     parent = "chef_infra/managing_chef_infra_server"
     weight = 90
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/runbook/server_security.md)
 
 This guide covers the security features available in Chef Infra Server.
 

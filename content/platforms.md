@@ -2,6 +2,8 @@
 title = "Platforms"
 draft = false
 
+gh_repo = "chef-web-docs"
+
 aliases = ["/platforms.html", "/supported_platforms.html"]
 
 [menu]
@@ -11,8 +13,6 @@ aliases = ["/platforms.html", "/supported_platforms.html"]
     parent = "overview/packages_&_platforms"
     weight = 20
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/platforms.md)
 
 Chef software is supported on the various operating systems (platforms)
 listed below. To see which versions of our software we currently
@@ -97,7 +97,7 @@ versions for Chef Infra Client:
 <tr class="even">
 <td>macOS</td>
 <td><code>x86_64</code></td>
-<td><code>10.13</code>, <code>10.14</code>, <code>10.15</code></td>
+<td><code>10.14</code>, <code>10.15</code>, <code>11.0</code></td>
 </tr>
 <tr class="odd">
 <td>Oracle Enterprise Linux</td>
@@ -212,7 +212,7 @@ versions for the Chef Workstation:
 <tr class="odd">
 <td>macOS</td>
 <td><code>x86_64</code></td>
-<td><code>10.13</code>, <code>10.14</code>, <code>10.15</code></td>
+<td><code>10.14</code>, <code>10.15</code>, <code>11.0</code></td>
 </tr>
 <tr class="even">
 <td>Debian</td>
@@ -271,7 +271,7 @@ versions for Chef InSpec:
 <tr class="odd">
 <td>macOS</td>
 <td><code>x86_64</code></td>
-<td><code>10.13</code>, <code>10.14</code>, <code>10.15</code></td>
+<td><code>10.14</code>, <code>10.15</code>, <code>11.0</code></td>
 </tr>
 <tr class="even">
 <td>Red Hat Enterprise Linux</td>
@@ -329,7 +329,7 @@ versions for ChefDK:
 <tr class="even">
 <td>macOS</td>
 <td><code>x86_64</code></td>
-<td><code>10.13</code>, <code>10.14</code>, <code>10.15</code></td>
+<td><code>10.14</code>, <code>10.15</code>, <code>11.0</code></td>
 </tr>
 <tr class="odd">
 <td>Red Hat Enterprise Linux</td>
@@ -631,8 +631,8 @@ according to those vendors' terms:
 </thead>
 <tbody>
 <tr class="odd">
-<td>AIX</td>
-<td>IBM End of Support Date</td>
+<td>Apple macOS</td>
+<td>Apple generally supports the last three macOS releases, for example: 10.14, 10.15, and 11.0. Apple does not officially publish EOL dates.</td>
 </tr>
 <tr class="even">
 <td>Debian</td>
@@ -647,22 +647,26 @@ according to those vendors' terms:
 <td>End of Life</td>
 </tr>
 <tr class="odd">
+<td>IBM AIX</td>
+<td>IBM End of Support Date</td>
+</tr>
+<tr class="even">
 <td>Microsoft Windows</td>
 <td>End of Extended Support</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Oracle Enterprise Linux</td>
 <td>Premier Support Ends</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Oracle Solaris</td>
 <td>Premier Support Ends</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>SUSE Linux Enterprise Server</td>
 <td>General Support Ends</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Ubuntu Linux</td>
 <td>End of maintenance updates</td>
 </tr>
@@ -690,9 +694,9 @@ that platform and version.
 </thead>
 <tbody>
 <tr class="odd">
-<td>AIX 6.1</td>
-<td>April 30, 2017</td>
-<td>December 31, 2017</td>
+<td>Apple macOS 10.13</td>
+<td>Nov 13th, 2020</td>
+<td>Nov 13th, 2020</td>
 </tr>
 <tr class="even">
 <td>Debian 7 (Wheezy)</td>
@@ -725,61 +729,66 @@ that platform and version.
 <td>September 30, 2021</td>
 </tr>
 <tr class="even">
+<td>IBM AIX 6.1</td>
+<td>April 30, 2017</td>
+<td>December 31, 2017</td>
+</tr>
+<tr class="odd">
 <td>Microsoft Windows Server 2008 (SP2)/R2 (SP1)</td>
 <td>January 13, 2015</td>
 <td>January 14, 2020</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Microsoft Windows Server 2012/2012 R2</td>
 <td>October 10, 2023</td>
 <td>October 10, 2023</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Microsoft Windows Server 2016</td>
 <td>November 11, 2027</td>
 <td>November 11, 2027</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Microsoft Windows Server 2019</td>
 <td>October 10, 2028</td>
 <td>October 10, 2028</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Oracle Enterprise Linux 5</td>
 <td>June 30, 2017</td>
 <td>December 31, 2017</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Oracle Enterprise Linux 6</td>
 <td>March 31, 2021</td>
 <td>March 31, 2021</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Oracle Solaris 10</td>
 <td>January 30, 2018</td>
 <td>January 30, 2018</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>SUSE Linux Enterprise Server 11</td>
 <td>March 31, 2019</td>
 <td>March 31, 2019</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>SUSE Linux Enterprise Server 12</td>
 <td>October 31, 2024</td>
 <td>October 31, 2024</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Ubuntu Linux 12.04 LTS</td>
 <td>April 30, 2017</td>
 <td>April 30, 2017</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Ubuntu Linux 14.04 LTS</td>
 <td>April 30, 2019</td>
 <td>April 30, 2019</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Ubuntu Linux 16.04 LTS</td>
 <td>April 30, 2021</td>
 <td>April 30, 2021</td>

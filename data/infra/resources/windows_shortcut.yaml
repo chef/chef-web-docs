@@ -3,15 +3,7 @@ resource_reference: true
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-title: windows_shortcut resource
 resource: windows_shortcut
-aliases:
-- "/resource_windows_shortcut.html"
-menu:
-  infra:
-    title: windows_shortcut
-    identifier: chef_infra/cookbook_reference/resources/windows_shortcut windows_shortcut
-    parent: chef_infra/cookbook_reference/resources
 resource_description_list:
 - markdown: Use the **windows_shortcut** resource to create shortcut files on Windows.
 resource_new_in: '14.0'
@@ -82,4 +74,3 @@ examples: |
     description 'Make a shortcut to C:\original_dir'
   end
   ```
----

@@ -3,15 +3,7 @@ resource_reference: true
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-title: locale resource
 resource: locale
-aliases:
-- "/resource_locale.html"
-menu:
-  infra:
-    title: locale
-    identifier: chef_infra/cookbook_reference/resources/locale locale
-    parent: chef_infra/cookbook_reference/resources
 resource_description_list:
 - markdown: Use the **locale** resource to set the system's locale on Debian and Windows
     systems. Windows support was added in Chef Infra Client 16.0
@@ -31,10 +23,10 @@ syntax_full_properties_list:
 - "`lang` and `lc_env` are the properties available to this resource."
 
 actions_list:
-  :update:
-    markdown: Updates the system's locale.
   :nothing:
     shortcode: resources_common_actions_nothing.md
+  :update:
+    markdown: Updates the system's locale.
 properties_list:
 - property: lang
   ruby_type: String
@@ -44,7 +36,6 @@ properties_list:
 - property: lc_env
   ruby_type: Hash
   required: false
-  default_value: null
   description_list:
   - markdown: "Sets the locale category that corresponds to environment variable.\n\
       \n-   *lc_env* is a hash of LC\\* env variables in the form of\n    ({'LC_ENV_VARIABLE'\
@@ -62,4 +53,3 @@ examples: |
   ```
 
 
----

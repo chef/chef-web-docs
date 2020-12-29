@@ -1,13 +1,13 @@
 +++
 title = "Deprecation: JSON Auto Inflate (CHEF-1)"
 draft = false
+
+gh_repo = "chef-web-docs"
 robots = "noindex"
 
 
 aliases = "/deprecations_json_auto_inflate.html"
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/deprecations_json_auto_inflate.md)
 
 Internally, the `Chef::REST` class attempts to guess which Chef class a
 JSON document relates too, and then automatically turns the JSON in to

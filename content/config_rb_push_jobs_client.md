@@ -2,17 +2,16 @@
 title = "push-jobs-client.rb"
 draft = false
 
+gh_repo = "chef-web-docs"
+
 aliases = ["/config_rb_push_jobs_client.html"]
 
 [menu]
-  [menu.infra]
+  [menu.legacy]
     title = "push-jobs-client.rb"
-    identifier = "chef_infra/managing_chef_infra_server/push_jobs/config_rb_push_jobs_client.md push-jobs-client.rb"
-    parent = "chef_infra/managing_chef_infra_server/push_jobs"
-    weight = 30
+    identifier = "legacy/push_jobs/config_rb_push_jobs_client.md push-jobs-client.rb"
+    parent = "legacy/push_jobs"
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/config_rb_push_jobs_client.md)
 
 A `push-jobs-client.rb` file is used to specify the configuration
 details for the Chef Push Jobs client.

@@ -3,16 +3,7 @@ resource_reference: true
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-title: powershell_package_source resource
 resource: powershell_package_source
-aliases:
-- "/resource_powershell_package_source.html"
-menu:
-  infra:
-    title: powershell_package_source
-    identifier: chef_infra/cookbook_reference/resources/powershell_package_source
-      powershell_package_source
-    parent: chef_infra/cookbook_reference/resources
 resource_description_list:
 - markdown: Use the **powershell_package_source** resource to register a PowerShell
     package repository.
@@ -88,4 +79,3 @@ properties_list:
   description_list:
   - markdown: The url to the package source.
 examples:
----

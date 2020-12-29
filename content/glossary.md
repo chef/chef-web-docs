@@ -2,6 +2,8 @@
 title = "Glossary"
 draft = false
 
+gh_repo = "chef-web-docs"
+
 aliases = ["/glossary.html"]
 
 [menu]
@@ -11,8 +13,6 @@ aliases = ["/glossary.html"]
     parent = "chef_infra/getting_started"
     weight = 70
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/glossary.md)
 
 **Acceptance**
 

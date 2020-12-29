@@ -2,6 +2,8 @@
 title = "About Templates"
 draft = false
 
+gh_repo = "chef-web-docs"
+
 aliases = ["/templates.html"]
 
 [menu]
@@ -11,8 +13,6 @@ aliases = ["/templates.html"]
     parent = "chef_infra/cookbook_reference"
     weight = 90
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/templates.md)
 
 {{% template %}}
 

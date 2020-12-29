@@ -2,6 +2,8 @@
 title = "Release Notes: Chef Manage 3.0"
 draft = false
 
+gh_repo = "chef-web-docs"
+
 aliases = ["/release_notes_manage.html"]
 
 [menu]
@@ -10,8 +12,6 @@ aliases = ["/release_notes_manage.html"]
     identifier = "release_notes/release_notes_manage.md Chef Manage"
     parent = "release_notes"
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/release_notes_manage.md)
 
 Chef Manage provides a web-based user interface that manages Chef Infra nodes and
 other policy objects, such as data bags and roles, on the instance of Chef Infra Server

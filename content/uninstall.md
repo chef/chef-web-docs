@@ -2,6 +2,8 @@
 title = "Uninstall"
 draft = false
 
+gh_repo = "chef-web-docs"
+
 aliases = ["/uninstall.html"]
 
 [menu]
@@ -11,8 +13,6 @@ aliases = ["/uninstall.html"]
     parent = "chef_infra/getting_started"
     weight = 80
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/uninstall.md)
 
 The following sections describe how to uninstall Chef, add-ons, and
 other components.

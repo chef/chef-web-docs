@@ -3,15 +3,7 @@ resource_reference: true
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-title: cron_d resource
 resource: cron_d
-aliases:
-- "/resource_cron_d.html"
-menu:
-  infra:
-    title: cron_d
-    identifier: chef_infra/cookbook_reference/resources/cron_d cron_d
-    parent: chef_infra/cookbook_reference/resources
 resource_description_list:
 - markdown: 'Use the **cron_d** resource to manage cron job files in the /etc/cron.d
 
@@ -246,4 +238,3 @@ examples: |
     action :delete
   end
   ```
----
