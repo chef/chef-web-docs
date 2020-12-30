@@ -87,12 +87,11 @@ notAlternative = true
   tag = "tags"
   resource = "resources"
 
-[params.product_version]
-[params.product_version.chef-server]
+[params.chef-server]
 versions = ["13_2", "14_0"]
 
-[params.gh.chef-web-docs]
-path = "https://github.com/chef/chef-web-docs/blob/master/content/"
+[params.chef-web-docs]
+gh_path = "https://github.com/chef/chef-web-docs/blob/master/content/"
 
 [module]
 
