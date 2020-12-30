@@ -5,7 +5,7 @@
 {{ $splitBaseDir := trim $baseDir "/" }}
 {{ $LogicalName := .File.LogicalName }}
 
-{{ $versions := index .Site.Params.product_version .Params.version_docs_product }}
+{{ $versions := index .Site.Params .Params.version_docs_product }}
 {{ $headersExist := false }}
 {{ range $versions.versions }}
   {{ $newTOC := "" }}
