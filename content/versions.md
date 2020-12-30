@@ -204,42 +204,48 @@ newer versions or products.
 <td>December 31, 2021</td>
 </tr>
 <tr class="even">
+<td>Chef Infra Client</td>
+<td>15.x</td>
+<td>Deprecated</td>
+<td>April 30, 2021</td>
+</tr>
+<tr class="odd">
 <td>Chef Infra Server</td>
 <td>12.x</td>
 <td>Deprecated</td>
 <td>December 31, 2020</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Chef Infra Server</td>
 <td>13.x</td>
 <td>Deprecated</td>
 <td>June 30, 2021</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>ChefDK</td>
 <td>4.x</td>
 <td>Deprecated</td>
 <td>December 31, 2020</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Chef Manage</td>
 <td>2.5.x+</td>
 <td>Deprecated</td>
 <td>December 31, 2021</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Chef Workflow</td>
 <td>2.x</td>
 <td>Deprecated</td>
 <td>December 31, 2020</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Push Jobs</td>
 <td>2.5.x</td>
 <td>Deprecated</td>
 <td>December 31, 2020</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Chef InSpec</td>
 <td>3.x</td>
 <td>Deprecated</td>
