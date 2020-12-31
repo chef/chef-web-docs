@@ -666,7 +666,7 @@ suites:
 
 The following kitchen.yml file sets up a simple tiered configuration of
 the Chef Infra Server, including two front-end servers, a single
-back-end server, and an add-on (Chef management
+back-end server, and two add-ons (Chef Push Jobs and Chef management
 console). The `platforms` block uses an `attributes` section to define
 Chef server-specific attributes that are used by all three test suites:
 
@@ -691,6 +691,7 @@ platforms:
         urls:
           private_chef: http://123.456.789.0/path/to/private-chef_11.1.4-1_amd64.deb
           manage: http://123.456.789.0/path/to/opscode-manage_1.3.1-1_amd64.deb
+          push_jobs: http://123.456.789.0/path/to/opscode-push-jobs-server_1.1.1-1_amd64.deb
 
 suites:
   - name: frontend1
