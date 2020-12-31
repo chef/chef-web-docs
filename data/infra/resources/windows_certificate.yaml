@@ -3,15 +3,7 @@ resource_reference: true
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-title: windows_certificate resource
 resource: windows_certificate
-aliases:
-- "/resource_windows_certificate.html"
-menu:
-  infra:
-    title: windows_certificate
-    identifier: chef_infra/cookbook_reference/resources/windows_certificate windows_certificate
-    parent: chef_infra/cookbook_reference/resources
 resource_description_list:
 - markdown: Use the **windows_certificate** resource to install a certificate into
     the Windows certificate store from a file. The resource grants read-only access
@@ -22,6 +14,7 @@ resource_new_in: '14.7'
 syntax_full_code_block: |-
   windows_certificate 'name' do
     cert_path            String
+    exportable           true, false # default value: false
     pfx_password         String
     private_key_acl      Array
     source               String # default value: 'name' unless specified
@@ -35,8 +28,8 @@ syntax_full_properties_list:
 - "`name` is the name given to the resource block."
 - "`action` identifies which steps Chef Infra Client will take to bring the node into
   the desired state."
-- "`cert_path`, `pfx_password`, `private_key_acl`, `source`, `store_name`, and `user_store`
-  are the properties available to this resource."
+- "`cert_path`, `exportable`, `pfx_password`, `private_key_acl`, `source`, `store_name`,
+  and `user_store` are the properties available to this resource."
 actions_list:
   :acl_add:
     markdown: Adds read-only entries to a certificate's private key ACL.
@@ -56,6 +49,14 @@ properties_list:
   required: false
   description_list:
   - markdown: The path to the certificate.
+- property: exportable
+  ruby_type: true, false
+  required: false
+  default_value: 'false'
+  new_in: '16.8'
+  description_list:
+  - markdown: Ensure that imported pfx certificate is exportable. Please provide 'true'
+      if you want the certificate to be exportable.
 - property: pfx_password
   ruby_type: String
   required: false
@@ -114,4 +115,3 @@ examples: |
     action :delete
   end
   ```
----

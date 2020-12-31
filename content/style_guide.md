@@ -2,6 +2,8 @@
 title = "Documentation Style Guide"
 draft = false
 
+gh_repo = "chef-web-docs"
+
 aliases = ["/style_guide.html"]
 
 [menu]
@@ -11,8 +13,6 @@ aliases = ["/style_guide.html"]
     parent = "overview/community"
     weight = 40
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/style_guide.md)
 
 The Chef reference documentation is written using Markdown and built with Hugo.
 
@@ -37,6 +37,8 @@ Each page starts with [TOML front matter](https://gohugo.io/content-management/f
 title = "Documentation Style Guide"
 description = "DESCRIPTION"
 draft = false
+
+gh_repo = "chef-web-docs"
 
 aliases = "/style_guide.html"
 

@@ -2,6 +2,8 @@
 title = "Microsoft Azure CLI"
 draft = false
 
+gh_repo = "chef-web-docs"
+
 aliases = ["/azure_chef_cli.html"]
 
 [menu]
@@ -11,8 +13,6 @@ aliases = ["/azure_chef_cli.html"]
     parent = "chef_infra/getting_started/chef_on_azure_guide"
     weight = 40
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/azure_chef_cli.md)
 
 The Azure Chef Extension is an extension for Microsoft Azure to enable
 Chef on virtual machine instances. The extension makes available two

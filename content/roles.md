@@ -2,6 +2,8 @@
 title = "About Roles"
 draft = false
 
+gh_repo = "chef-web-docs"
+
 aliases = ["/roles.html"]
 
 [menu]
@@ -11,8 +13,6 @@ aliases = ["/roles.html"]
     parent = "chef_infra/concepts/policy"
     weight = 70
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/roles.md)
 
 {{% role %}}
 
@@ -61,13 +61,13 @@ There are two types of attributes that can be used with roles:
 
 {{% node_attribute_precedence %}}
 
-### Blacklist Attributes
+### Attributes Blocklist
 
-{{% node_attribute_blacklist %}}
+{{% node_attribute_blocklist %}}
 
-#### Whitelist Attributes
+### Attribute Allowlist
 
-{{% node_attribute_whitelist %}}
+{{% node_attribute_allowlist %}}
 
 ## Role Formats
 

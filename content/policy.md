@@ -2,6 +2,8 @@
 title = "About Policy"
 draft = false
 
+gh_repo = "chef-web-docs"
+
 aliases = ["/policy.html"]
 
 [menu]
@@ -11,8 +13,6 @@ aliases = ["/policy.html"]
     parent = "chef_infra/concepts/policy"
     weight = 10
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/policy.md)
 
 {{% policy_summary %}}
 

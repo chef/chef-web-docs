@@ -1,15 +1,7 @@
 ---
 resource_reference: true
 registry_key: true
-title: registry_key resource
 resource: registry_key
-aliases:
-- "/resource_registry_key.html"
-menu:
-  infra:
-    title: registry_key
-    identifier: chef_infra/cookbook_reference/resources/registry_key registry_key
-    parent: chef_infra/cookbook_reference/resources
 resource_description_list:
 - markdown: Use the **registry_key** resource to create and delete registry keys in
     Microsoft Windows.
@@ -63,7 +55,6 @@ syntax_description: "A **registry_key** resource block creates and deletes regis
   \  key               String # default value: 'name' unless specified\n  recursive\
   \         true, false # default value: false\n  values\n  action            Symbol\
   \ # defaults to :create if not specified\nend\n```"
-syntax_code_block: null
 syntax_properties_list:
 - '`registry_key` is the resource'
 - '`name` is the name of the resource block'
@@ -80,13 +71,7 @@ syntax_properties_list:
 - '`architecture`, `key`, `recursive` and `values` are properties of this resource,
   with the Ruby type shown. See "Properties" section below for more information about
   all of the properties that may be used with this resource.'
-syntax_full_code_block: null
-syntax_full_properties_list: null
-syntax_shortcode: null
 registry_key: true
-nameless_apt_update: false
-nameless_build_essential: false
-resource_package_options: false
 actions_list:
   :create:
     markdown: Default. Create a registry key. If a registry key already exists (but
@@ -140,7 +125,6 @@ properties_list:
   ruby_type: String
   required: false
   default_value: The resource block's name
-  new_in: null
   description_list:
   - markdown: 'The path to the location in which a registry key is to be created or
 
@@ -165,7 +149,6 @@ properties_list:
   ruby_type: true, false
   required: false
   default_value: 'false'
-  new_in: null
   description_list:
   - markdown: 'When creating a key, this value specifies that the required keys for
 
@@ -183,8 +166,6 @@ properties_list:
 - property: values
   ruby_type: Hash, Array
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: 'An array of hashes, where each Hash contains the values that are to
 
@@ -206,27 +187,9 @@ properties_list:
     - markdown: '`:multi_string` must be an array, even if there is only a single
 
         string.'
-properties_shortcode: null
-properties_multiple_packages: false
-resource_directory_recursive_directories: false
-resources_common_atomic_update: false
-properties_resources_common_windows_security: false
-remote_file_prevent_re_downloads: false
-remote_file_unc_path: false
-ps_credential_helper: false
-ruby_style_basics_chef_log: false
-debug_recipes_chef_shell: false
-template_requirements: false
 resources_common_properties: false
 resources_common_notification: false
 resources_common_guards: false
-common_resource_functionality_multiple_packages: false
-resources_common_guard_interpreter: false
-remote_directory_recursive_directories: false
-common_resource_functionality_resources_common_windows_security: false
-handler_custom: false
-cookbook_file_specificity: false
-unit_file_verification: false
 examples: "
   Create a registry key\n\n  Use a double-quoted string:\n\n  ```ruby\n\
   \  registry_key \"HKEY_LOCAL_MACHINE\\\\path-to-key\\\\Policies\\\\System\" do\n\
@@ -289,4 +252,3 @@ examples: "
   \  end\n  ```\n\n  where `name: ''` contains an empty string, which will set the\
   \ name of\n  the registry key to `(Default)`.\n"
 
----

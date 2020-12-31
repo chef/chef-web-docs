@@ -2,6 +2,8 @@
 title = "Manage Secrets"
 draft = false
 
+gh_repo = "chef-web-docs"
+
 aliases = ["/secrets.html"]
 
 [menu]
@@ -11,8 +13,6 @@ aliases = ["/secrets.html"]
     parent = "chef_infra/concepts"
     weight = 80
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/secrets.md)
 
 One way to manage secrets used by Chef is with data bags.
 

@@ -2,6 +2,8 @@
 title = "solo.rb"
 draft = false
 
+gh_repo = "chef-web-docs"
+
 aliases = ["/config_rb_solo.html"]
 
 [menu]
@@ -11,8 +13,6 @@ aliases = ["/config_rb_solo.html"]
     parent = "chef_infra/features/chef_solo"
     weight = 30
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/config_rb_solo.md)
 
 A solo.rb file is used to specify the configuration details for
 chef-solo.

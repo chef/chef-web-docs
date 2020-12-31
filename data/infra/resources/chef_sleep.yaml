@@ -3,15 +3,7 @@ resource_reference: true
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-title: chef_sleep resource
 resource: chef_sleep
-aliases:
-- "/resource_chef_sleep.html"
-menu:
-  infra:
-    title: chef_sleep
-    identifier: chef_infra/cookbook_reference/resources/chef_sleep chef_sleep
-    parent: chef_infra/cookbook_reference/resources
 resource_description_list:
 - markdown: Use the **chef_sleep** resource to pause (sleep) for a number of seconds
     during a Chef Infra Client run. Only use this resource when a command or service
@@ -70,4 +62,3 @@ examples: |
     action :nothing
   end
   ```
----

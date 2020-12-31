@@ -2,6 +2,8 @@
 title = "Chef Infra Client (executable)"
 draft = false
 
+gh_repo = "chef-web-docs"
+
 aliases = ["/ctl_chef_client.html"]
 
 [menu]
@@ -11,8 +13,6 @@ aliases = ["/ctl_chef_client.html"]
     parent = "chef_infra/setup/nodes"
     weight = 30
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/ctl_chef_client.md)
 
 {{% chef_client_summary %}}
 

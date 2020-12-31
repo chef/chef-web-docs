@@ -1,14 +1,14 @@
 +++
 title = "Deprecation: Custom Resource Cleanups (CHEF-5)"
 draft = false
+
+gh_repo = "chef-web-docs"
 robots = "noindex"
 
 
 aliases = "/deprecations_custom_resource_cleanups.html"
 
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/deprecations_custom_resource_cleanups.md)
 
 We are continuously improving and streamlining the way custom resources
 work in Chef, to make it easier for cookbook authors and Chef developers

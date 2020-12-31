@@ -2,6 +2,8 @@
 title = "About Handlers"
 draft = false
 
+gh_repo = "chef-web-docs"
+
 aliases = ["/handlers.html"]
 
 [menu]
@@ -11,8 +13,6 @@ aliases = ["/handlers.html"]
     parent = "chef_infra/features"
     weight = 40
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/handlers.md)
 
 {{% handler %}}
 

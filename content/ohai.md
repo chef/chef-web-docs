@@ -2,6 +2,8 @@
 title = "About Ohai"
 draft = false
 
+gh_repo = "chef-web-docs"
+
 aliases = ["/ohai.html"]
 
 [menu]
@@ -12,15 +14,13 @@ aliases = ["/ohai.html"]
     weight = 10
 +++
 
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/ohai.md)
-
 {{% ohai_summary %}}
 
 Ohai collects data for many platforms, including AIX, Darwin, Linux,
 FreeBSD, OpenBSD, NetBSD, Solaris, and any Microsoft Windows operating
 systems.
 
-View the [release notes](/release_notes_ohai/) for the latest
+See the [Chef Infra Client release notes](/release_notes_client/) for the latest
 information on Ohai.
 
 ## Automatic Attributes
@@ -37,13 +37,13 @@ information on Ohai.
 
 {{< /note >}}
 
-### Blacklist Attributes
+### Attributes Blocklist
 
-{{% node_attribute_blacklist %}}
+{{% node_attribute_blocklist %}}
 
-### Whitelist Attributes
+### Attribute Allowlist
 
-{{% node_attribute_whitelist %}}
+{{% node_attribute_allowlist %}}
 
 ## Default Plugins
 

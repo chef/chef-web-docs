@@ -2,6 +2,8 @@
 title = "Send Feedback"
 draft = false
 
+gh_repo = "chef-web-docs"
+
 aliases = ["/feedback.html"]
 
 [menu]
@@ -11,8 +13,6 @@ aliases = ["/feedback.html"]
     parent = "overview/community"
     weight = 50
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/feedback.md)
 
 chef-docs hopes that the documentation is always just what you are
 looking for, but when that isn't the case chef-docs does appreciate

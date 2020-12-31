@@ -3,15 +3,7 @@ resource_reference: true
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-title: chocolatey_package resource
 resource: chocolatey_package
-aliases:
-- "/resource_chocolatey_package.html"
-menu:
-  infra:
-    title: chocolatey_package
-    identifier: chef_infra/cookbook_reference/resources/chocolatey_package chocolatey_package
-    parent: chef_infra/cookbook_reference/resources
 resource_description_list:
 - markdown: Use the **chocolatey_package** resource to manage packages using Chocolatey
     on the Microsoft Windows platform.
@@ -183,4 +175,3 @@ examples: |
     action :install
   end
   ```
----

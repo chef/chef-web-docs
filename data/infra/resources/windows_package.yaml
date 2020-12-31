@@ -1,25 +1,34 @@
 ---
 resource_reference: true
-properties_shortcode:
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-title: windows_package resource
 resource: windows_package
-aliases:
-- "/resource_windows_package.html"
-menu:
-  infra:
-    title: windows_package
-    identifier: chef_infra/cookbook_reference/resources/windows_package windows_package
-    parent: chef_infra/cookbook_reference/resources
 resource_description_list:
-- markdown: 'Use the **windows_package** resource to manage Microsoft Installer
+- markdown: |-
+    Use the **windows_package** resource to manage packages on the Microsoft Windows platform.
+    The **windows_package** resource supports these installer formats:
+      * Microsoft Installer Package (MSI)
+      * Nullsoft Scriptable Install System (NSIS)
+      * Inno Setup (inno)
+      * Wise
+      * InstallShield
+      * Custom installers such as installing a non-.msi file that embeds an .msi-based installer
 
-    Package (MSI) packages for the Microsoft Windows platform.'
+    To enable idempotence of the `:install` action or to enable the `:remove` action with no source property specified,
+    `package_name` MUST be an exact match of the name used by the package installer. The names of installed packages
+    Windows knows about can be found in **Add/Remove programs**, in the output of `ohai packages`, or in the
+    `DisplayName` property in one of the following in the Windows registry:
+
+    * `HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Uninstall`
+    * `HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Uninstall`
+    * `HKEY_LOCAL_MACHINE\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall`
+- note:
+    markdown: |-
+      If there are multiple versions of a package installed with the same display name, all of those packages will
+      be removed unless a version is provided in the **version** property or unless it can be discovered in the installer
+      file specified by the **source** property.
 - notes_resource_based_on_package: true
-resource_new_in: null
-handler_types: false
 syntax_description: 'A **windows_package** resource block manages a package on a node,
 
   typically by installing it. The simplest use of the **windows_package**
@@ -224,4 +233,3 @@ examples: |
     options '/Q'
   end
   ```
----

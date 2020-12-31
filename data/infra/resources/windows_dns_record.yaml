@@ -3,15 +3,7 @@ resource_reference: true
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-title: windows_dns_record resource
 resource: windows_dns_record
-aliases:
-- "/resource_windows_dns_record.html"
-menu:
-  infra:
-    title: windows_dns_record
-    identifier: chef_infra/cookbook_reference/resources/windows_dns_record windows_dns_record
-    parent: chef_infra/cookbook_reference/resources
 resource_description_list:
 - markdown: The windows_dns_record resource creates a DNS record for the given domain.
 resource_new_in: '15.0'
@@ -72,4 +64,3 @@ properties_list:
   description_list:
   - markdown: The zone to create the record in.
 examples: 
----

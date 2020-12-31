@@ -3,15 +3,7 @@ resource_reference: true
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-title: apt_preference resource
 resource: apt_preference
-aliases:
-- "/resource_apt_preference.html"
-menu:
-  infra:
-    title: apt_preference
-    identifier: chef_infra/cookbook_reference/resources/apt_preference apt_preference
-    parent: chef_infra/cookbook_reference/resources
 resource_description_list:
 - markdown: Use the **apt_preference** resource to create APT [preference files](https://wiki.debian.org/AptPreferences).
     Preference files are used to control which package versions and sources are prioritized
@@ -94,4 +86,3 @@ examples: |
     pin_priority '700'
   end
   ```
----

@@ -3,15 +3,7 @@ resource_reference: true
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-title: smartos_package resource
 resource: smartos_package
-aliases:
-- "/resource_smartos_package.html"
-menu:
-  infra:
-    title: smartos_package
-    identifier: chef_infra/cookbook_reference/resources/smartos_package smartos_package
-    parent: chef_infra/cookbook_reference/resources
 resource_description_list:
 - markdown: Use the **smartos_package** resource to manage packages for the SmartOS
     platform.
@@ -71,4 +63,3 @@ properties_list:
   description_list:
   - markdown: The version of a package to be installed or upgraded.
 examples: 
----

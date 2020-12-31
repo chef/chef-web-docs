@@ -2,6 +2,8 @@
 title = "Users"
 draft = false
 
+gh_repo = "chef-web-docs"
+
 aliases = ["/server_users.html"]
 
 [menu]
@@ -11,8 +13,6 @@ aliases = ["/server_users.html"]
     parent = "chef_infra/managing_chef_infra_server"
     weight = 140
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/server_users.md)
 
 The following tasks are available for user management in Chef Infra
 Server:

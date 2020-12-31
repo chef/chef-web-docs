@@ -2,6 +2,8 @@
 title = "Organizations and Groups"
 draft = false
 
+gh_repo = "chef-web-docs"
+
 aliases = ["/server_orgs.html", "/auth_authorization.html"]
 
 [menu]
@@ -11,8 +13,6 @@ aliases = ["/server_orgs.html", "/auth_authorization.html"]
     parent = "chef_infra/managing_chef_infra_server"
     weight = 80
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/server_orgs.md)
 
 {{% server_rbac %}}
 
@@ -635,12 +635,6 @@ Infra Server, that Chef Infra Client is added to the `clients` group:
 </tr>
 </tbody>
 </table>
-
-### Chef Push Jobs Groups
-
-{{% push_jobs_summary %}}
-
-{{% server_rbac_groups_push_jobs %}}
 
 ## Server Admins
 

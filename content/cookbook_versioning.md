@@ -2,6 +2,8 @@
 title = "About Cookbook Versioning"
 draft = false
 
+gh_repo = "chef-web-docs"
+
 aliases = ["/cookbook_versioning.html", "/cookbook_versions.html"]
 
 [menu]
@@ -11,8 +13,6 @@ aliases = ["/cookbook_versioning.html", "/cookbook_versions.html"]
     parent = "chef_infra/cookbook_reference"
     weight = 120
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/cookbook_versioning.md)
 
 {{% cookbooks_version %}}
 

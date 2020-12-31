@@ -2,6 +2,8 @@
 title = "Working with Proxies"
 draft = false
 
+gh_repo = "chef-web-docs"
+
 aliases = ["/proxies.html"]
 
 [menu]
@@ -11,8 +13,6 @@ aliases = ["/proxies.html"]
     parent = "chef_infra/setup"
     weight = 30
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/proxies.md)
 
 In an environment that requires proxies to reach the Internet, many Chef
 commands will not work until they are configured correctly. To configure

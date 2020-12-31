@@ -3,15 +3,7 @@ resource_reference: true
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-title: windows_workgroup resource
 resource: windows_workgroup
-aliases:
-- "/resource_windows_workgroup.html"
-menu:
-  infra:
-    title: windows_workgroup
-    identifier: chef_infra/cookbook_reference/resources/windows_workgroup windows_workgroup
-    parent: chef_infra/cookbook_reference/resources
 resource_description_list:
 - markdown: Use the **windows_workgroup** resource to join or change the workgroup
     of a Windows host.
@@ -82,4 +74,3 @@ examples: |
     password 'passw0rd'
   end
   ```
----

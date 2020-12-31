@@ -2,6 +2,8 @@
 title = "Microsoft Azure Portal"
 draft = false
 
+gh_repo = "chef-web-docs"
+
 aliases = ["/azure_portal.html"]
 
 [menu]
@@ -11,8 +13,6 @@ aliases = ["/azure_portal.html"]
     parent = "chef_infra/getting_started/chef_on_azure_guide"
     weight = 10
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/azure_portal.md)
 
 {{< warning >}}
 

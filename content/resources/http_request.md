@@ -1,6 +1,8 @@
 +++
 title = "http_request Resource"
 draft = false
+
+gh_repo = "chef-web-docs"
 robots = ""
 
 data_path = ["infra","resources","http_request"]

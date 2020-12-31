@@ -2,6 +2,8 @@
 title = "Platform Overview"
 draft = false
 
+gh_repo = "chef-web-docs"
+
 aliases = ["/platform_overview.html"]
 
 [menu]
@@ -11,8 +13,6 @@ aliases = ["/platform_overview.html"]
     parent = "overview"
     weight = 10
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/platform_overview.md)
 
 Chef is an automation company. Ever since it was founded in 2008, we've
 been bringing together developers and system administrators with our
@@ -174,10 +174,8 @@ tolerance, immediately consistent search results, and accurate real-time
 data about your infrastructure. Chef Automate also provides a graphical
 management console for the Chef Infra Server.
 
-## More Resources
+## Learning More
 
 If you're interested in getting hands-on experience, go to
 <https://learn.chef.io/> for tutorials, information about formal
-training classes and community resources. The Chef Habitat web site at
-<https://www.habitat.sh/> has Habitat tutorials, along with
-documentation and other resources.
+training classes and community resources.

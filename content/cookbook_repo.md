@@ -2,6 +2,8 @@
 title = "Cookbook Directory"
 draft = false
 
+gh_repo = "chef-web-docs"
+
 aliases = ["/cookbook_repo.html"]
 
 [menu]
@@ -11,8 +13,6 @@ aliases = ["/cookbook_repo.html"]
     parent = "chef_infra/cookbook_reference"
     weight = 100
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/cookbook_repo.md)
 
 The `cookbooks/` directory of your Chef Infra repository is used to
 store the cookbooks that Chef Infra Client uses in configuring the

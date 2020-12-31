@@ -1,6 +1,8 @@
 +++
 title = "bash Resource"
 draft = false
+
+gh_repo = "chef-web-docs"
 robots = ""
 
 data_path = ["infra","resources","bash"]

@@ -2,6 +2,8 @@
 title = "Chef Software Inc Packages"
 draft = false
 
+gh_repo = "chef-web-docs"
+
 aliases = ["/packages.html"]
 
 [menu]
@@ -11,8 +13,6 @@ aliases = ["/packages.html"]
     parent = "overview/packages_&_platforms"
     weight = 10
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/packages.md)
 
 Packages for Chef Software Inc. products may be installed using
 platform-native package repositories or the Chef Software Install script. Both

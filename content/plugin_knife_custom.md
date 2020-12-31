@@ -2,6 +2,8 @@
 title = "Writing Custom Knife Plugins"
 draft = false
 
+gh_repo = "chef-web-docs"
+
 aliases = ["/plugin_knife_custom.html"]
 
 [menu]
@@ -11,8 +13,6 @@ aliases = ["/plugin_knife_custom.html"]
     parent = "chef_infra/extension_apis/knife_plugins"
     weight = 20
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/plugin_knife_custom.md)
 
 {{% plugin_knife_summary %}}
 

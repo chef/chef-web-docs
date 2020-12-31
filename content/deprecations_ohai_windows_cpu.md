@@ -1,13 +1,13 @@
 +++
 title = "Deprecation: Windows CPU plugin attribute changes. (OHAI-5)"
 draft = false
+
+gh_repo = "chef-web-docs"
 robots = "noindex"
 
 
 aliases = "/deprecations_ohai_windows_cpu.html"
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/deprecations_ohai_windows_cpu.md)
 
 The Windows Ohai plugin has been updated to correctly return CPU
 information. Previously the CPU plugin reported a `model_name` value,

@@ -3,15 +3,7 @@ resource_reference: true
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-title: windows_uac resource
 resource: windows_uac
-aliases:
-- "/resource_windows_uac.html"
-menu:
-  infra:
-    title: windows_uac
-    identifier: chef_infra/cookbook_reference/resources/windows_uac windows_uac
-    parent: chef_infra/cookbook_reference/resources
 resource_description_list:
 - markdown: The *windows_uac* resource configures UAC on Windows hosts by setting
     registry keys at `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System`
@@ -99,4 +91,3 @@ examples: |
     enable_uac false
   end
   ```
----

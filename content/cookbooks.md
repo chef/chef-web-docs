@@ -2,6 +2,8 @@
 title = "About Cookbooks"
 draft = false
 
+gh_repo = "chef-web-docs"
+
 aliases = ["/cookbooks.html"]
 
 [menu]
@@ -11,8 +13,6 @@ aliases = ["/cookbooks.html"]
     parent = "chef_infra/cookbook_reference"
     weight = 10
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/cookbooks.md)
 
 {{% cookbooks_summary %}}
 

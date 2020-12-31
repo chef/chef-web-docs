@@ -1,6 +1,8 @@
 +++
 title = "build_essential Resource"
 draft = false
+
+gh_repo = "chef-web-docs"
 robots = ""
 
 data_path = ["infra","resources","build_essential"]

@@ -2,6 +2,8 @@
 title = "chef-solo"
 draft = false
 
+gh_repo = "chef-web-docs"
+
 aliases = ["/chef_solo.html"]
 
 [menu]
@@ -11,8 +13,6 @@ aliases = ["/chef_solo.html"]
     parent = "chef_infra/features/chef_solo"
     weight = 10
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/chef_solo.md)
 
 {{% chef_solo_summary %}}
 

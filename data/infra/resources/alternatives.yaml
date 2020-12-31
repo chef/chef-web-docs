@@ -3,15 +3,7 @@ resource_reference: true
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-title: alternatives resource
 resource: alternatives
-aliases:
-- "/resource_alternatives.html"
-menu:
-  infra:
-    title: alternatives
-    identifier: chef_infra/cookbook_reference/resources/alternatives alternatives
-    parent: chef_infra/cookbook_reference/resources
 resource_description_list:
 - markdown: The alternatives resource allows for configuration of command alternatives
     in Linux using the alternatives or update-alternatives packages.
@@ -118,4 +110,3 @@ examples: |
     action :remove
   end
   ```
----
