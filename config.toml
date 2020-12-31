@@ -1243,34 +1243,6 @@ weight = 10
   identifier = "legacy/manage"
   parent = "legacy"
 
-  [[menu.legacy]]
-  title = "Push Jobs"
-  identifier = "legacy/push_jobs"
-  parent = "legacy"
-
-  [[menu.legacy]]
-  title = "Workflow"
-  identifier = "legacy/workflow"
-  parent = "legacy"
-
-    [[menu.legacy]]
-    title = "Workflow Basics"
-    identifier = "legacy/workflow/workflow_basics"
-    parent = "legacy/workflow"
-    weight = 10
-
-    [[menu.legacy]]
-    title = "Managing Workflow"
-    identifier = "legacy/workflow/managing_workflow"
-    parent = "legacy/workflow"
-    weight = 20
-
-    [[menu.legacy]]
-    title = "Reference"
-    identifier = "legacy/workflow/reference"
-    parent = "legacy/workflow"
-    weight = 30
-
 ####
 # End Legacy Menu
 ####

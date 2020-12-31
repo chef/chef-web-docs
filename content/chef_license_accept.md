@@ -52,7 +52,6 @@ Versions](/versions/) documentation.
 - Chef Workstation \>= 0.4, which also contains:
   -   Chef Infra Client
   -   Chef InSpec
-  -   Push Jobs Client
 - Chef Infra Client \>= 15.0
 - Chef InSpec \>= 4.0
 - Chef Habitat \>= 0.80
@@ -104,8 +103,7 @@ the `chef` command line tool and accepting the license, users are
 required to accept the license for all the embedded products as well.
 The same license applies to all products, but each product must have its
 own license acceptance. `chef <command> --chef-license accept` will
-accept the license for Chef Workstation, Chef Infra Client, Chef InSpec,
-and Push Jobs Client. For example, `chef env
+accept the license for Chef Workstation, Chef Infra Client, and Chef InSpec. For example, `chef env
 --chef-license accept`.
 
 #### Chef Infra Client
@@ -180,17 +178,13 @@ products when they are distributed as Habitat packages.
 <tbody>
 <tr class="odd">
 <td>Chef Infra Server</td>
-<td>&gt;= 13.0, which also contains Push Jobs Server</td>
+<td>&gt;= 13.0</td>
 </tr>
 <tr class="even">
 <td>Chef Automate</td>
 <td>&gt;= 2.0</td>
 </tr>
 <tr class="odd">
-<td>Push Jobs Server</td>
-<td>&gt;= 3.0</td>
-</tr>
-<tr class="even">
 <td>Supermarket</td>
 <td>&gt;= 4.0</td>
 </tr>

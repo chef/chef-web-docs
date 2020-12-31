@@ -9,12 +9,6 @@ For systems that are not behind a firewall (and have connectivity to <https://do
    sudo chef-server-ctl install chef-manage
    ```
 
-   Install Push Jobs with:
-
-   ```bash
-   sudo chef-server-ctl install opscode-push-jobs-server-ctl
-   ```
-
 1. Reconfigure the server
 
    ```bash
@@ -27,12 +21,6 @@ For systems that are not behind a firewall (and have connectivity to <https://do
 
    ```bash
    sudo chef-manage-ctl reconfigure
-   ```
-
-   Reconfigure Push Jobs with:
-
-   ```bash
-   sudo opscode-push-jobs-server reconfigure
    ```
 
 Finally, accept the [Chef License](https://docs.chef.io/chef_license/):

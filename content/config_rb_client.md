@@ -680,18 +680,6 @@ This configuration file has the following settings:
     Chef Infra Client uses the value of `ssl_verify_mode` to determine
     if the SSL certificate requires verification. Default value:
     `false`.
-
-`whitelist`
-
-:   A hash that contains the whitelist of allowed commands used by Chef
-    Push Jobs. For example:
-
-    ```ruby
-    whitelist {
-      'job-name' => 'command',
-      'job-name' => 'command',
-      'chef-client' => 'chef-client'
-    }
     ```
 
     A job entry may also be `'job-name' => {:lock => true}`, which will

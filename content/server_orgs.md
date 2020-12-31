@@ -636,12 +636,6 @@ Infra Server, that Chef Infra Client is added to the `clients` group:
 </tbody>
 </table>
 
-### Chef Push Jobs Groups
-
-{{% push_jobs_summary %}}
-
-{{% server_rbac_groups_push_jobs %}}
-
 ## Server Admins
 
 {{% server_rbac_server_admins %}}

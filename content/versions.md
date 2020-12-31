@@ -227,19 +227,7 @@ newer versions or products.
 <td>Deprecated</td>
 <td>December 31, 2021</td>
 </tr>
-<tr class="even">
-<td>Chef Workflow</td>
-<td>2.x</td>
-<td>Deprecated</td>
-<td>December 31, 2020</td>
-</tr>
 <tr class="odd">
-<td>Push Jobs</td>
-<td>2.5.x</td>
-<td>Deprecated</td>
-<td>December 31, 2020</td>
-</tr>
-<tr class="even">
 <td>Chef InSpec</td>
 <td>3.x</td>
 <td>Deprecated</td>
