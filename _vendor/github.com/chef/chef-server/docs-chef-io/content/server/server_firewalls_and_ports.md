@@ -123,4 +123,3 @@ Infra Server in a tiered configuration:
 ### Back End
 
 {{% server_firewalls_and_ports_tiered %}}
-
