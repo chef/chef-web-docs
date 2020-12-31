@@ -1,5 +1,19 @@
 # Configuring Hugo
 
+## Edit on GitHub Links
+
+We use a partial `edit_on_github.html` to add "Edit on GitHub" links to each page.
+
+Each page should have a `gh_repo` parameter set to the value of the GitHub repository
+that the page comes from. For example, `gh_repo = "chef-server"`
+
+Each repository with documentation has a `config.toml` file with a `params.<REPOSITORY>`
+map and a `gh_path` paramater set to the path of the docs content directory in
+that repository.
+
+The `edit_on_github` partial appends the page file name to the end of `gh_path`
+parameter and adds the link to the text of the page.
+
 ## Versioning Documentation
 
 We can provide versioned documentation for the following Chef products:
@@ -16,16 +30,15 @@ documentation for several versions of a product.
 
 ### Parameters
 
-In the site `config.toml` file, set the `params.product_version` setting to the
-product and versions that Hugo should build. Each `versions` parameter
+In the site `config.toml` file, set the `versions` setting in the `params.<PRODUCT>` parameter to the
+versions that Hugo should build. Each `versions` setting
 is a list with the major and minor version numbers separated by an underscore.
 For example:
 
 ```
-[params.product_version]
-[params.product_version.chef-server]
+[params.chef-server]
 versions = ["14_0", "13_2"]
-[params.product_version.chef]
+[params.chef]
 versions = ["16_6", "16_5", "16_4"]
 ```
 

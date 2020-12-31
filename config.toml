@@ -80,7 +80,7 @@ notAlternative = true
 [params]
   enable_search = true
   robots = ''
-  menuOrder = ["overview", "automate", "compliance",  "desktop", "infra", "habitat", "server", "inspec", "workstation", "effortless", "release_notes", "legacy", "extra"]
+  menuOrder = ["overview", "automate", "compliance",  "desktop", "habitat", "infra", "server", "inspec", "workstation", "effortless", "release_notes", "legacy", "extra"]
 
 [taxonomies]
   category = "categories"
