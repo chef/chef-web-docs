@@ -10,9 +10,12 @@ github.com/chef/chef-server/docs-chef-io v0.0.0-20201230190447-af59c5916107 h1:I
 github.com/chef/chef-server/docs-chef-io v0.0.0-20201230190447-af59c5916107/go.mod h1:gMSa25GUHmLimA0gjvRd3hs1buOBqkKPrdHzHvaJauY=
 github.com/chef/chef-server/docs-chef-io v0.0.0-20201231191135-6c6963a18168 h1:lPq9VR0vak2YkTu3gbA47MxBj1FtLk2uRd8BtrLa/7Q=
 github.com/chef/chef-server/docs-chef-io v0.0.0-20201231191135-6c6963a18168/go.mod h1:gMSa25GUHmLimA0gjvRd3hs1buOBqkKPrdHzHvaJauY=
+github.com/chef/chef-workstation v0.0.0-20201117215019-2a59d0a67f2d h1:5N5bg0pSjE96iQD/1qloI197XSVgC6Rl0dtdQe/rAyE=
 github.com/chef/chef-workstation v0.0.0-20201117215019-2a59d0a67f2d/go.mod h1:KZ1lmUGHzTKhRuHdDhB/I2ZEbet++4OTuABWlYb9MlQ=
 github.com/chef/chef-workstation/docs-chef-io v0.0.0-20201214222712-7749446a76af h1:ZevSNanqqdkB3VJhTeyMlHHk64hDzliNv+e9LeOv08I=
 github.com/chef/chef-workstation/docs-chef-io v0.0.0-20201214222712-7749446a76af/go.mod h1:gvoh6ov1YU98CVzBEWzEZeCLTRunfQ6r1VO7M3LFE9U=
+github.com/chef/chef-workstation/docs-chef-io v0.0.0-20201229181643-389df72aced5 h1:yJZdyfRwZCMvFjuZI3xWdv8E2W2dua8zH2hw8smpP+0=
+github.com/chef/chef-workstation/docs-chef-io v0.0.0-20201229181643-389df72aced5/go.mod h1:gvoh6ov1YU98CVzBEWzEZeCLTRunfQ6r1VO7M3LFE9U=
 github.com/chef/desktop-config/docs-chef-io v0.0.0-20200929171526-d4cef8a736df h1:tOwLfqjSj5y3rubKlIOBHLtmQy5vceQGuMkpw6WdcbU=
 github.com/chef/desktop-config/docs-chef-io v0.0.0-20200929171526-d4cef8a736df/go.mod h1:90xAx6sIfgSL50M2KzeBmx7V7s7dlhQU3xpUkJO0qW0=
 github.com/chef/effortless/docs-chef-io v0.0.0-20200930175149-51c187882fba h1:71JD3SIc9HWmbokoxw6vI9XTtcbi10PxKhKrhKonYZ0=
