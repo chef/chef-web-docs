@@ -1,4 +1,4 @@
-Use the `install` subcommand with the `--path` option to install the Chef Manage (`chef-manage`) and Push Jobs(`opscode-push-jobs-server`) add-ons for Chef Infra Server.
+Use the `install` subcommand with the `--path` option to install the Chef Manage (`chef-manage`) add-on for Chef Infra Server.
 
 ```bash
 sudo chef-server-ctl install PACKAGE_NAME --path /path/to/package/directory
