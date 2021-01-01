@@ -275,53 +275,47 @@ confused with the modern [Chef Compliance offering](/compliance/).
 </tr>
 <tr class="odd">
 <td>ChefDK</td>
-<td>3 and under</td>
-<td>EOL</td>
-<td>April 30, 2020</td>
-</tr>
-<tr class="even">
-<td>ChefDK</td>
-<td>4.x</td>
+<td>All</td>
 <td>EOL</td>
 <td>December 31, 2020</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Chef Infra Server</td>
 <td>12.x</td>
 <td>EOL</td>
 <td>December 31, 2020</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Chef InSpec</td>
 <td>2 and under</td>
 <td>EOL</td>
 <td>December 31, 2019</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Chef Provisioning</td>
 <td>All</td>
 <td>EOL</td>
 <td>August 31, 2019</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Chef Replication/Sync</td>
 <td>All</td>
 <td>EOL</td>
 <td>August 31, 2019</td>
 </tr>
-<tr class="odd"><td>Chef Server DRBD HA</td>
+<tr class="even"><td>Chef Server DRBD HA</td>
 <td>All</td>
 <td>EOL</td>
 <td>March 31, 2019</td>
 </tr>
 </tbody>
-<tr class="even">
+<tr class="odd">
 <td>Enterprise Chef</td>
 <td>All</td>
 <td>EOL</td>
 <td>December 31, 2018</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Reporting</td>
 <td>All</td>
 <td>EOL</td>
