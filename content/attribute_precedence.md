@@ -7,7 +7,6 @@ draft = false
     title = "Attribute Precedence"
     identifier = "chef_infra/cookbook_reference/attributes/attribute_precedence"
     parent = "chef_infra/cookbook_reference/attributes"
-    weight = 50
 +++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/attribute_precedence.md)

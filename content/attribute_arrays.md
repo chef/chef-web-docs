@@ -8,7 +8,6 @@ draft = false
     title = "Attributes Arrays"
     identifier = "chef_infra/cookbook_reference/attributes/attribute_arrays Attribute Arrays"
     parent = "chef_infra/cookbook_reference/attributes"
-    weight = 30
 +++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/attribute_arrays.md)

@@ -7,7 +7,6 @@ draft = false
     title = "Attribute Sources"
     identifier = "chef_infra/cookbook_reference/attributes/attribute_sources Attributes"
     parent = "chef_infra/cookbook_reference/attributes"
-    weight = 20
 +++
 
 Chef Infra Client evaluates attributes in the order that they are defined in the
