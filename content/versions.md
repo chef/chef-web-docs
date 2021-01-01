@@ -95,12 +95,6 @@ announcement](https://blog.chef.io/2019/04/02/chef-software-announces-the-enterp
 </tr>
 <tr class="even">
 <td>Chef Infra Client</td>
-<td>15.x</td>
-<td>GA</td>
-<td>April 30, 2021</td>
-</tr>
-<tr class="odd">
-<td>Chef Infra Client</td>
 <td>16.x</td>
 <td>GA</td>
 <td>April 30, 2022</td>
@@ -204,10 +198,10 @@ newer versions or products.
 <td>December 31, 2021</td>
 </tr>
 <tr class="even">
-<td>Chef Infra Server</td>
-<td>12.x</td>
+<td>Chef Infra Client</td>
+<td>15.x</td>
 <td>Deprecated</td>
-<td>December 31, 2020</td>
+<td>April 30, 2021</td>
 </tr>
 <tr class="odd">
 <td>Chef Infra Server</td>
@@ -216,12 +210,6 @@ newer versions or products.
 <td>June 30, 2021</td>
 </tr>
 <tr class="even">
-<td>ChefDK</td>
-<td>4.x</td>
-<td>Deprecated</td>
-<td>December 31, 2020</td>
-</tr>
-<tr class="odd">
 <td>Chef Manage</td>
 <td>2.5.x+</td>
 <td>Deprecated</td>
@@ -292,40 +280,52 @@ confused with the modern [Chef Compliance offering](/compliance/).
 <td>April 30, 2020</td>
 </tr>
 <tr class="even">
+<td>ChefDK</td>
+<td>4.x</td>
+<td>EOL</td>
+<td>December 31, 2020</td>
+</tr>
+<tr class="odd">
+<td>Chef Infra Server</td>
+<td>12.x</td>
+<td>EOL</td>
+<td>December 31, 2020</td>
+</tr>
+<tr class="even">
+<td>Chef InSpec</td>
+<td>2 and under</td>
+<td>EOL</td>
+<td>December 31, 2019</td>
+</tr>
+<tr class="odd">
+<td>Chef Provisioning</td>
+<td>All</td>
+<td>EOL</td>
+<td>August 31, 2019</td>
+</tr>
+<tr class="even">
+<td>Chef Replication/Sync</td>
+<td>All</td>
+<td>EOL</td>
+<td>August 31, 2019</td>
+</tr>
+<tr class="odd"><td>Chef Server DRBD HA</td>
+<td>All</td>
+<td>EOL</td>
+<td>March 31, 2019</td>
+</tr>
+</tbody>
+<tr class="even">
 <td>Enterprise Chef</td>
 <td>All</td>
 <td>EOL</td>
 <td>December 31, 2018</td>
 </tr>
 <tr class="odd">
-<td>Chef InSpec</td>
-<td>2 and under</td>
-<td>EOL</td>
-<td>December 31, 2019</td>
-</tr>
-<tr class="even">
-<td>Chef Provisioning</td>
-<td>All</td>
-<td>EOL</td>
-<td>August 31, 2019</td>
-</tr>
-<tr class="odd">
-<td>Chef Replication/Sync</td>
-<td>All</td>
-<td>EOL</td>
-<td>August 31, 2019</td>
-</tr>
-<tr class="even">
 <td>Reporting</td>
 <td>All</td>
 <td>EOL</td>
 <td>December 31, 2018</td>
 </tr>
-<tr class="odd">
-<td>Chef Server DRBD HA</td>
-<td>All</td>
-<td>EOL</td>
-<td>March 31, 2019</td>
-</tr>
-</tbody>
+
 </table>
