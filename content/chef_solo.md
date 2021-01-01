@@ -2,6 +2,8 @@
 title = "chef-solo"
 draft = false
 
+gh_repo = "chef-web-docs"
+
 aliases = ["/chef_solo.html"]
 
 [menu]
@@ -11,8 +13,6 @@ aliases = ["/chef_solo.html"]
     parent = "chef_infra/features/chef_solo"
     weight = 10
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/chef_solo.md)
 
 {{% chef_solo_summary %}}
 
@@ -118,7 +118,7 @@ where the name of the file is the `ITEM_NAME`, for example:
 
 ## Roles
 
-A role is defined using JSON or the Chef Language (Ruby). chef-solo will look for
+A role is defined using JSON or the Ruby DSL. chef-solo will look for
 roles in `/var/chef/roles`, but this location can be modified by
 changing the setting for `role_path` in solo.rb. For example, the
 following setting in solo.rb:
@@ -141,7 +141,7 @@ Role data looks like the following in JSON:
 }
 ```
 
-and like the following in the Chef Language:
+and like the following in the Ruby DSL:
 
 ```ruby
 name 'test'

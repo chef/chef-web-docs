@@ -1,4 +1,4 @@
-An environment is defined using JSON or the the Chef Language (Ruby). chef-solo will
+An environment is defined using JSON or the Ruby DSL. chef-solo will
 look for environments in `/var/chef/environments`, but this location can
 be modified by changing the setting for `environment_path` in solo.rb.
 For example, the following setting in solo.rb:
@@ -29,7 +29,7 @@ Environment data looks like the following in JSON:
   }
 ```
 
-and like the following in Chef:
+and like the following in the Ruby DSL:
 
 ```ruby
 name 'environment_name'

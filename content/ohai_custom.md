@@ -2,6 +2,8 @@
 title = "Writing Ohai Custom Plugins"
 draft = false
 
+gh_repo = "chef-web-docs"
+
 aliases = ["/ohai_custom.html"]
 
 [menu]
@@ -11,8 +13,6 @@ aliases = ["/ohai_custom.html"]
     parent = "chef_infra/extension_apis/ohai_plugins"
     weight = 10
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/ohai_custom.md)
 
 Custom Ohai plugins describe additional configuration attributes to be
 collected by Ohai and provided to Chef Infra Client during runs.
@@ -161,10 +161,10 @@ To see the rest of the code in this plugin, go to:
 
 ## Ohai DSL Methods
 
-The Ohai DSL is used to define an Ohai plugin and to
+The Ohai DSL is a Ruby DSL that is used to define an Ohai plugin and to
 ensure that Ohai collects the right data at the start of every Chef
-Infra Client run. The Ohai DSL is a single method that
-is specific to Ohai plugins. Because the Ohai DSL is written in Ruby,
+Infra Client run. The Ohai DSL is a small DSL with a single method that
+is specific to Ohai plugins. Because the Ohai DSL is a Ruby DSL,
 anything that can be done using Ruby can also be done when defining an
 Ohai plugin.
 
