@@ -11,10 +11,9 @@ gh_repo = "chef-web-docs"
     parent = "chef_infra/cookbook_reference/attributes"
 +++
 
-## Attribute Types
-
 {{% node_attribute_type %}}
 
+</br>
 <table>
 <colgroup>
 <col style="width: 40%" />

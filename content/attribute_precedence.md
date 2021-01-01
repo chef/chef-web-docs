@@ -11,8 +11,6 @@ draft = false
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/attribute_precedence.md)
 
-## Attribute Precedence
-
 {{% node_attribute_precedence %}}
 
 ### Examples
