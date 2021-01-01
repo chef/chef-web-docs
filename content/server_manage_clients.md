@@ -13,7 +13,6 @@ aliases = ["/server_manage_clients.html"]
     title = "Clients"
     identifier = "legacy/manage/server_manage_clients.md Clients"
     parent = "legacy/manage"
-    weight = 30
 +++
 {{% chef_automate_mark %}}
 

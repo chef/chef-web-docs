@@ -13,7 +13,6 @@ aliases = ["/server_manage_roles.html"]
     title = "Roles"
     identifier = "legacy/manage/server_manage_roles.md Roles"
     parent = "legacy/manage"
-    weight = 80
 +++
 {{% chef_automate_mark %}}
 

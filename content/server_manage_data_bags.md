@@ -13,7 +13,6 @@ aliases = ["/server_manage_data_bags.html"]
     title = "Data Bags"
     identifier = "legacy/manage/server_manage_data_bags.md Data Bags"
     parent = "legacy/manage"
-    weight = 50
 +++
 {{% chef_automate_mark %}}
 

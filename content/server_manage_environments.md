@@ -13,7 +13,6 @@ aliases = ["/server_manage_environments.html"]
     title = "Environments"
     identifier = "legacy/manage/server_manage_environments.md Environments"
     parent = "legacy/manage"
-    weight = 60
 +++
 {{% chef_automate_mark %}}
 

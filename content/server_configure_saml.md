@@ -13,7 +13,6 @@ aliases = ["/server_configure_saml.html", "/release/automate/server_configure_sa
     title = "Configure SAML"
     identifier = "legacy/manage/server_configure_saml.md Configure SAML"
     parent = "legacy/manage"
-    weight = 20
 +++
 {{% chef_automate_mark %}}
 
