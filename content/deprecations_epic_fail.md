@@ -1,13 +1,13 @@
 +++
 title = "Deprecation: epic_fail (CHEF-24)"
 draft = false
+
+gh_repo = "chef-web-docs"
 robots = "noindex"
 
 
 aliases = "/deprecations_epic_fail.html"
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/deprecations_epic_fail.md)
 
 The original name for the `ignore_failure` property in resources was
 `epic_fail`. Our documentation hasn't referred to `epic_fail` for years

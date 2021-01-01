@@ -3,15 +3,7 @@ resource_reference: true
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-title: powershell_package resource
 resource: powershell_package
-aliases:
-- "/resource_powershell_package.html"
-menu:
-  infra:
-    title: powershell_package
-    identifier: chef_infra/cookbook_reference/resources/powershell_package powershell_package
-    parent: chef_infra/cookbook_reference/resources
 resource_description_list:
 - markdown: 'Use the **powershell_package** resource to install and manage packages
 
@@ -39,7 +31,6 @@ syntax_description: "A **powershell_package** resource block manages a package o
   \ # default value: false\n  source                    String\n  timeout        \
   \           String, Integer\n  version                   String, Array\n  action\
   \                    Symbol # defaults to :install if not specified\nend\n```"
-syntax_code_block: null
 syntax_properties_list:
 - '`powershell_package` is the resource.'
 - '`name` is the name given to the resource block.'
@@ -47,13 +38,6 @@ syntax_properties_list:
   the desired state.'
 - '`options`, `package_name`, `skip_publisher_check`, `source`, `timeout`, and `version`
   are the properties available to this resource.'
-syntax_full_code_block: null
-syntax_full_properties_list: null
-syntax_shortcode: null
-registry_key: false
-nameless_apt_update: false
-nameless_build_essential: false
-resource_package_options: false
 actions_list:
   :install:
     markdown: Default. Install a package. If a version is specified, install the specified
@@ -112,4 +96,3 @@ examples: "
   \ `xNetworking` to version 2.12.0.0.\n\n  Remove a package:\n\n  ```ruby\n  powershell_package\
   \ 'xCertificate' do\n    action :remove\n  end\n  ```\n"
 
----

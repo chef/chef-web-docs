@@ -2,6 +2,8 @@
 title = "Uninstall"
 draft = false
 
+gh_repo = "chef-web-docs"
+
 aliases = ["/uninstall.html"]
 
 [menu]
@@ -11,8 +13,6 @@ aliases = ["/uninstall.html"]
     parent = "chef_infra/getting_started"
     weight = 80
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/uninstall.md)
 
 The following sections describe how to uninstall Chef, add-ons, and
 other components.
@@ -79,32 +79,6 @@ To revert the `uninstall` subcommand, run the `reconfigure` subcommand
 (because the `start` subcommand is disabled by the `uninstall` command).
 
 {{< /note >}}
-
-## Chef Push Jobs
-
-To uninstall Chef Push Jobs, do the following:
-
-1.  Shut down the Chef Push Jobs service.
-
-2.  Uninstall the Chef Push Jobs package.
-
-3.  Run the following command:
-
-    ```bash
-    chef-server-ctl reconfigure
-    ```
-
-{{< note >}}
-
-This will leave some data in PostgreSQL that is not used by any other
-Chef application or service.
-
-{{< /note >}}
-
-### push-jobs-client
-
-Use the package manager for the platform on which Chef Push Jobs is
-installed to uninstall Chef Push Jobs.
 
 ## Chef Workstation
 

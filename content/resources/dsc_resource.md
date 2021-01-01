@@ -1,6 +1,8 @@
 +++
 title = "dsc_resource Resource"
 draft = false
+
+gh_repo = "chef-web-docs"
 robots = ""
 
 data_path = ["infra","resources","dsc_resource"]

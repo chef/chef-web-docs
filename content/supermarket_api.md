@@ -2,6 +2,8 @@
 title = "Supermarket API"
 draft = false
 
+gh_repo = "chef-web-docs"
+
 aliases = ["/supermarket_api.html"]
 
 [menu]
@@ -11,8 +13,6 @@ aliases = ["/supermarket_api.html"]
     parent = "chef_infra/setup/supermarket"
     weight = 100
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/supermarket_api.md)
 
 {{% supermarket_api_summary %}} .. note:: In general, using
 knife (and the `knife supermarket` subcommand) to manage cookbooks that

@@ -3,15 +3,7 @@ resource_reference: true
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-title: windows_user_privilege resource
 resource: windows_user_privilege
-aliases:
-- "/resource_windows_user_privilege.html"
-menu:
-  infra:
-    title: windows_user_privilege
-    identifier: chef_infra/cookbook_reference/resources/windows_user_privilege windows_user_privilege
-    parent: chef_infra/cookbook_reference/resources
 resource_description_list:
 - markdown: |-
     The windows_user_privilege resource allows to add and set principal (User/Group) to the specified privilege.
@@ -110,4 +102,3 @@ examples: |
     action         :clear
   end
   ```
----

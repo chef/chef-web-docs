@@ -1,13 +1,13 @@
 +++
 title = "Deprecation: Amazon linux moved to the Amazon platform_family (OHAI-7)"
 draft = false
+
+gh_repo = "chef-web-docs"
 robots = "noindex"
 
 
 aliases = "/deprecations_ohai_amazon_linux.html"
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/deprecations_ohai_amazon_linux.md)
 
 In Ohai/Chef releases prior to Chef Client 13, Amazon Linux was
 identified as `platform_family 'rhel'`. In Ohai/Chef Client 13 and

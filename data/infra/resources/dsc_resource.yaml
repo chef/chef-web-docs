@@ -3,15 +3,7 @@ resource_reference: true
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-title: dsc_resource resource
 resource: dsc_resource
-aliases:
-- "/resource_dsc_resource.html"
-menu:
-  infra:
-    title: dsc_resource
-    identifier: chef_infra/cookbook_reference/resources/dsc_resource dsc_resource
-    parent: chef_infra/cookbook_reference/resources
 resource_description_list:
 - shortcode: resources_common_powershell.md
 - shortcode: resources_common_powershell_dsc.md
@@ -39,7 +31,6 @@ resource_description_list:
       \ Manager\n    (LCM) is concerned, there is no such thing as a composite resource.\n\
       \    Unless that changes, the **dsc_resource** resource and/or\n    `Invoke-DscResource`\
       \ command cannot directly use them."
-resource_new_in: null
 syntax_description: "A **dsc_resource** resource block allows DSC resources to be\
   \ used in a\nChef recipe. For example, the DSC `Archive` resource:\n\n```powershell\n\
   Archive ExampleArchive {\n  Ensure = \"Present\"\n  Path = \"C:\\Users\\Public\\\
@@ -48,7 +39,6 @@ syntax_description: "A **dsc_resource** resource block allows DSC resources to b
   \ 'example' do\n   resource :archive\n   property :ensure, 'Present'\n   property\
   \ :path, \"C:\\Users\\Public\\Documents\\example.zip\"\n   property :destination,\
   \ \"C:\\Users\\Public\\Documents\\ExtractionPath\"\n end```"
-syntax_code_block: null
 syntax_properties_list: null
 syntax_full_code_block: "dsc_resource 'name' do\n  module_name                String\n\
   \  module_version             String\n  property                   Symbol\n  reboot_action\
@@ -78,8 +68,6 @@ properties_list:
 - property: module_name
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: 'The name of the module from which a DSC resource originates. If this
 
@@ -97,8 +85,6 @@ properties_list:
 - property: property
   ruby_type: Symbol
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: 'A property from a Desired State Configuration (DSC) resource. Use
 
@@ -218,8 +204,6 @@ properties_list:
 - property: resource
   ruby_type: Symbol
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: 'The name of the DSC resource. This value is case-insensitive and
 
@@ -390,32 +374,13 @@ properties_list:
 - property: timeout
   ruby_type: Integer
   required: false
-  new_in: null
   description_list:
   - markdown: 'The amount of time (in seconds) a command is to wait before timing
 
       out.'
-properties_shortcode: null
-properties_multiple_packages: false
-resource_directory_recursive_directories: false
-resources_common_atomic_update: false
-properties_resources_common_windows_security: false
-remote_file_prevent_re_downloads: false
-remote_file_unc_path: false
-ps_credential_helper: false
-ruby_style_basics_chef_log: false
-debug_recipes_chef_shell: false
-template_requirements: false
 resources_common_properties: true
 resources_common_notification: true
 resources_common_guards: true
-common_resource_functionality_multiple_packages: false
-resources_common_guard_interpreter: false
-remote_directory_recursive_directories: false
-common_resource_functionality_resources_common_windows_security: false
-handler_custom: false
-cookbook_file_specificity: false
-unit_file_verification: false
 examples: "
   Open a Zip file\n\n  ```ruby\n  dsc_resource 'example' do\n    \
   \ resource :archive\n     property :ensure, 'Present'\n     property :path, 'C:\\\
@@ -455,4 +420,3 @@ examples: "
   \    property :name, 'TestCluster'\n    property :staticipaddress, '10.0.0.3'\n\
   \    property :domainadministratorcredential, ps_credential('abcd')\n  end\n  ```\n"
 
----

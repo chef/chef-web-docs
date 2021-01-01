@@ -3,15 +3,7 @@ resource_reference: true
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-title: windows_security_policy resource
 resource: windows_security_policy
-aliases:
-- "/resource_windows_security_policy.html"
-menu:
-  infra:
-    title: windows_security_policy
-    identifier: chef_infra/cookbook_reference/resources/windows_security_policy windows_security_policy
-    parent: chef_infra/cookbook_reference/resources
 resource_description_list:
 - markdown: Use the **windows_security_policy** resource to set a security policy
     on the Microsoft Windows platform.
@@ -79,4 +71,3 @@ examples: |
     action         :set
   end
   ```
----

@@ -3,15 +3,7 @@ resource_reference: true
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-title: windows_firewall_profile resource
 resource: windows_firewall_profile
-aliases:
-- "/resource_windows_firewall_profile.html"
-menu:
-  infra:
-    title: windows_firewall_profile
-    identifier: chef_infra/cookbook_reference/resources/windows_firewall_profile windows_firewall_profile
-    parent: chef_infra/cookbook_reference/resources
 resource_description_list:
 - markdown: Use the **windows_firewall_profile** resource to enable, disable, and
     configure the Windows firewall.
@@ -142,4 +134,3 @@ examples: |
     action :disable
   end
   ```
----

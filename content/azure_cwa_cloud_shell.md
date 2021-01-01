@@ -2,6 +2,8 @@
 title = "Chef Workstation in Azure Cloud Shell"
 draft = false
 
+gh_repo = "chef-web-docs"
+
 aliases = ["/azure_cwa_cloud_shell.html"]
 
 [menu]
@@ -11,8 +13,6 @@ aliases = ["/azure_cwa_cloud_shell.html"]
     parent = "chef_infra/getting_started/chef_on_azure_guide"
     weight = 20
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/azure_cwa_cloud_shell.md)
 
 Chef Workstation is available in Azure Cloud Shell, allowing users to
 run ad-hoc configurations on target systems and any other Chef command

@@ -2,6 +2,8 @@
 title = "About Roles"
 draft = false
 
+gh_repo = "chef-web-docs"
+
 aliases = ["/roles.html"]
 
 [menu]
@@ -11,8 +13,6 @@ aliases = ["/roles.html"]
     parent = "chef_infra/concepts/policy"
     weight = 70
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/roles.md)
 
 {{% role %}}
 

@@ -1,13 +1,13 @@
 +++
 title = "Deprecation: Filesystem plugin replaced by the Filesystem V2 plugin. (OHAI-9)"
 draft = false
+
+gh_repo = "chef-web-docs"
 robots = "noindex"
 
 
 aliases = "/deprecations_ohai_filesystem.html"
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/deprecations_ohai_filesystem.md)
 
 In Ohai/Chef Client 13 we replaced the existing Filesystem plugin with
 the Filesystem2 plugin. This was done by having the Filesystem2 plugin

@@ -2,6 +2,8 @@
 title = "About Data Bags"
 draft = false
 
+gh_repo = "chef-web-docs"
+
 aliases = ["/data_bags.html"]
 
 [menu]
@@ -11,8 +13,6 @@ aliases = ["/data_bags.html"]
     parent = "chef_infra/concepts/policy"
     weight = 40
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/data_bags.md)
 
 {{% data_bag %}}
 

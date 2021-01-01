@@ -2,6 +2,8 @@
 title = "About Environments"
 draft = false
 
+gh_repo = "chef-web-docs"
+
 aliases = ["/environments.html"]
 
 [menu]
@@ -11,8 +13,6 @@ aliases = ["/environments.html"]
     parent = "chef_infra/concepts/policy"
     weight = 60
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/environments.md)
 
 {{% environment %}}
 

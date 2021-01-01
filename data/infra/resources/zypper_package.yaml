@@ -1,19 +1,10 @@
 ---
 resource_reference: true
-
 multi_package_resource: true
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-title: zypper_package resource
 resource: zypper_package
-aliases:
-- "/resource_zypper_package.html"
-menu:
-  infra:
-    title: zypper_package
-    identifier: chef_infra/cookbook_reference/resources/zypper_package zypper_package
-    parent: chef_infra/cookbook_reference/resources
 resource_description_list:
 - markdown: Use the **zypper_package** resource to install, upgrade, and remove packages
     with Zypper for the SUSE Enterprise and openSUSE platforms.
@@ -131,4 +122,3 @@ examples: |
     options '--no-recommends'
   end
   ```
----

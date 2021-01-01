@@ -2,6 +2,8 @@
 title = "Custom Resource DSL"
 draft = false
 
+gh_repo = "chef-web-docs"
+
 aliases = ["/dsl_custom_resource.html"]
 
 [menu]
@@ -11,8 +13,6 @@ aliases = ["/dsl_custom_resource.html"]
     parent = "chef_infra/cookbook_reference"
     weight = 70
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/dsl_custom_resource.md)
 
 Use the Custom Resource DSL to define behaviors within custom resources, such as:
 

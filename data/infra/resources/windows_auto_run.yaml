@@ -3,15 +3,7 @@ resource_reference: true
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-title: windows_auto_run resource
 resource: windows_auto_run
-aliases:
-- "/resource_windows_auto_run.html"
-menu:
-  infra:
-    title: windows_auto_run
-    identifier: chef_infra/cookbook_reference/resources/windows_auto_run windows_auto_run
-    parent: chef_infra/cookbook_reference/resources
 resource_description_list:
 - markdown: Use the **windows_auto_run** resource to set applications to run at login.
 resource_new_in: '14.0'
@@ -73,4 +65,3 @@ examples: |
     action  :create
   end
   ```
----

@@ -2,6 +2,8 @@
 title = "Chef and Google"
 draft = false
 
+gh_repo = "chef-web-docs"
+
 aliases = ["/google.html"]
 
 [menu]
@@ -11,8 +13,6 @@ aliases = ["/google.html"]
     parent = "chef_infra/setup/integrations"
     weight = 20
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/google.md)
 
 Google Cloud Platform is a suite of cloud computing services that run on
 the same infrastructure that Google uses internally for its end-user

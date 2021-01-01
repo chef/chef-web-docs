@@ -3,15 +3,7 @@ resource_reference: true
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-title: windows_dfs_namespace resource
 resource: windows_dfs_namespace
-aliases:
-- "/resource_windows_dfs_namespace.html"
-menu:
-  infra:
-    title: windows_dfs_namespace
-    identifier: chef_infra/cookbook_reference/resources/windows_dfs_namespace windows_dfs_namespace
-    parent: chef_infra/cookbook_reference/resources
 resource_description_list:
 - markdown: Use the **windows_dfs_namespace** resource to creates a share and DFS
     namespace on a Windows server.
@@ -79,4 +71,3 @@ properties_list:
   description_list:
   - markdown: The root from which to create the DFS tree. Defaults to C:\DFSRoots.
 examples: 
----

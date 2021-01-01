@@ -1,6 +1,8 @@
 +++
 title = "rhsm_register Resource"
 draft = false
+
+gh_repo = "chef-web-docs"
 robots = ""
 
 data_path = ["infra","resources","rhsm_register"]

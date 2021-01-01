@@ -3,16 +3,7 @@ resource_reference: true
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-title: chef_client_scheduled_task resource
 resource: chef_client_scheduled_task
-aliases:
-- "/resource_chef_client_scheduled_task.html"
-menu:
-  infra:
-    title: chef_client_scheduled_task
-    identifier: chef_infra/cookbook_reference/resources/chef_client_scheduled_task
-      chef_client_scheduled_task
-    parent: chef_infra/cookbook_reference/resources
 resource_description_list:
 - markdown: Use the **chef_client_scheduled_task** resource to setup the Chef Infra
     Client to run as a Windows scheduled task. This resource will also create the
@@ -179,4 +170,3 @@ examples: |
     daemon_options ['-n audit_only']
   end
   ```
----

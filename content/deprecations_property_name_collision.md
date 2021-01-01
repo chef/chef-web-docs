@@ -1,13 +1,13 @@
 +++
 title = "Deprecation: Resource Property Name Collision (CHEF-11)"
 draft = false
+
+gh_repo = "chef-web-docs"
 robots = "noindex"
 
 
 aliases = "/deprecations_property_name_collision.html"
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/deprecations_property_name_collision.md)
 
 A resource property, defined with the `property` method, conflicts with
 an already-existing property or method. This could indicate an error

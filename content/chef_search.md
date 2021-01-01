@@ -2,6 +2,8 @@
 title = "About Search"
 draft = false
 
+gh_repo = "chef-web-docs"
+
 aliases = ["/chef_search.html"]
 
 [menu]
@@ -11,8 +13,6 @@ aliases = ["/chef_search.html"]
     parent = "chef_infra/features"
     weight = 70
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/chef_search.md)
 
 {{% search %}}
 

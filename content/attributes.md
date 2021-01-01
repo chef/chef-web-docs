@@ -2,6 +2,8 @@
 title = "About Attributes"
 draft = false
 
+gh_repo = "chef-web-docs"
+
 aliases = ["/attributes.html"]
 
 [menu]
@@ -12,9 +14,9 @@ aliases = ["/attributes.html"]
     weight = 10
 +++
 
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/attributes.md)
+{{% node_attribute %}}
 
-n attribute is a specific detail about a node. Attributes are used by Chef Infra Client to understand:
+An n attribute is a specific detail about a node. Attributes are used by Chef Infra Client to understand:
 
 - The current state of the node
 - What the state of the node was at the end of the previous Chef Infra Client run

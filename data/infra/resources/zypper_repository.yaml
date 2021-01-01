@@ -3,15 +3,7 @@ resource_reference: true
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-title: zypper_repository resource
 resource: zypper_repository
-aliases:
-- "/resource_zypper_repository.html"
-menu:
-  infra:
-    title: zypper_repository
-    identifier: chef_infra/cookbook_reference/resources/zypper_repository zypper_repository
-    parent: chef_infra/cookbook_reference/resources
 resource_description_list:
 - markdown: Use the **zypper_repository** resource to create Zypper package repositories
     on SUSE Enterprise Linux and openSUSE systems. This resource maintains full compatibility
@@ -168,4 +160,3 @@ examples: |
     priority '100'
   end
   ```
----

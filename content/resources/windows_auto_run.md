@@ -1,6 +1,8 @@
 +++
 title = "windows_auto_run Resource"
 draft = false
+
+gh_repo = "chef-web-docs"
 robots = ""
 
 data_path = ["infra","resources","windows_auto_run"]

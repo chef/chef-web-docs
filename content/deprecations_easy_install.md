@@ -1,13 +1,13 @@
 +++
 title = "Deprecation: Easy Install Resource (CHEF-6)"
 draft = false
+
+gh_repo = "chef-web-docs"
 robots = "noindex"
 
 
 aliases = "/deprecations_easy_install.html"
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/deprecations_easy_install.md)
 
 The Python community recommends that users prefer `pip` rather than
 `easy_install` to install python packages.

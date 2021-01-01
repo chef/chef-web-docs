@@ -1,6 +1,8 @@
 +++
 title = "windows_share Resource"
 draft = false
+
+gh_repo = "chef-web-docs"
 robots = ""
 
 data_path = ["infra","resources","windows_share"]

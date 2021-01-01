@@ -1,20 +1,21 @@
 +++
 title = "Manage Data Bags"
 draft = false
+
+gh_repo = "chef-web-docs"
 robots = "noindex"
 
 
 aliases = ["/server_manage_data_bags.html"]
 
 [menu]
-  [menu.infra]
+  [menu.legacy]
     title = "Data Bags"
-    identifier = "chef_infra/features/management_console/server_manage_data_bags.md Data Bags"
-    parent = "chef_infra/features/management_console"
+    identifier = "legacy/manage/server_manage_data_bags.md Data Bags"
+    parent = "legacy/manage"
     weight = 50
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/server_manage_data_bags.md)
+{{% chef_automate_mark %}}
 
 {{% EOL_manage %}}
 

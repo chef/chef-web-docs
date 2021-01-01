@@ -1,20 +1,21 @@
 +++
 title = "Manage Cookbooks"
 draft = false
+
+gh_repo = "chef-web-docs"
 robots = "noindex"
 
 
 aliases = ["/server_manage_cookbooks.html"]
 
 [menu]
-  [menu.infra]
+  [menu.legacy]
     title = "Cookbooks"
-    identifier = "chef_infra/features/management_console/server_manage_cookbooks.md Cookbooks"
-    parent = "chef_infra/features/management_console"
+    identifier = "legacy/manage/server_manage_cookbooks.md Cookbooks"
+    parent = "legacy/manage"
     weight = 40
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/server_manage_cookbooks.md)
+{{% chef_automate_mark %}}
 
 {{% EOL_manage %}}
 

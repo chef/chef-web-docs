@@ -2,6 +2,8 @@
 title = "Glossary"
 draft = false
 
+gh_repo = "chef-web-docs"
+
 aliases = ["/glossary.html"]
 
 [menu]
@@ -11,8 +13,6 @@ aliases = ["/glossary.html"]
     parent = "chef_infra/getting_started"
     weight = 70
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/glossary.md)
 
 **Acceptance**
 
@@ -196,11 +196,6 @@ aliases = ["/glossary.html"]
     requirements, such as process and workflow, to settings and objects
     stored on the Chef Infra Server. See roles, environments, and data
     bags.
-
-**Push Jobs**
-
-:   Allows you to execute commands across hundreds or even thousands of
-    nodes in your Chef-managed infrastructure.
 
 **recipe**
 

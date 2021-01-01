@@ -2,6 +2,8 @@
 title = "Chef Contributor Covenant Code of Conduct"
 draft = false
 
+gh_repo = "chef-web-docs"
+
 aliases = ["/community_guidelines.html"]
 
 [menu]
@@ -11,8 +13,6 @@ aliases = ["/community_guidelines.html"]
     parent = "overview/community"
     weight = 30
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/community_guidelines.md)
 
 **Note**: If you are in a physical space (e.g. ChefConf, Meetup, etc),
 please see the [Physical Spaces Code of

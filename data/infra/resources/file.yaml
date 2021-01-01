@@ -1,37 +1,23 @@
 ---
-title: file resource
-resource: file
-draft: false
-aliases:
-- /resource_file.html
-menu:
-  infra:
-    title: file
-    identifier: chef_infra/cookbook_reference/resources/file file
-    parent: chef_infra/cookbook_reference/resources
-
 resource_reference: true
-robots: null
+properties_resources_common_windows_security: true
+resources_common_atomic_update: true
+resources_common_guards: true
+resources_common_notification: true
+resources_common_properties: true
+resource: file
 resource_description_list:
 - markdown: Use the **file** resource to manage files directly on a node.
 - note:
-    markdown: 'Use the **cookbook_file** resource to copy a file from a cookbook''s
-
-      `/files` directory. Use the **template** resource to create a file based
-
-      on a template in a cookbook''s `/templates` directory. And use the
-
-      **remote_file** resource to transfer a file to a node from a remote
-
-      location.'
-resource_new_in: null
-handler_types: false
+    markdown: Use the **cookbook_file** resource to copy a file from a cookbook's
+      `/files` directory. Use the **template** resource to create a file based on
+      a template in a cookbook's `/templates` directory. And use the **remote_file**
+      resource to transfer a file to a node from a remote location.
 syntax_description: "A **file** resource block manages files that exist on nodes.\
   \ For\nexample, to write the home page for an Apache website:\n\n```ruby\nfile\
   \ '/var/www/customers/public_html/index.php' do\n  content '<html>This is a placeholder\
   \ for the home page.</html>'\n  mode '0755'\n  owner 'web_admin'\n  group 'web_admin'\n\
   end\n```"
-syntax_code_block: null
 syntax_properties_list:
 - '`''/var/www/customers/public_html/index.php''` is path to the file and also the
   filename to be managed'
@@ -55,11 +41,6 @@ syntax_full_properties_list:
   are properties of this resource, with the Ruby type shown. See "Properties" section
   below for more information about all of the properties that may be used with this
   resource.'
-syntax_shortcode: null
-registry_key: false
-nameless_apt_update: false
-nameless_build_essential: false
-resource_package_options: false
 actions_list:
   :create:
     markdown: Default. Create a file. If a file already exists (but does not match),
@@ -78,8 +59,6 @@ properties_list:
 - property: atomic_update
   ruby_type: true, false
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: 'Perform atomic file updates on a per-resource basis. Set to `true`
 
@@ -92,7 +71,6 @@ properties_list:
   ruby_type: Integer, false
   required: false
   default_value: '5'
-  new_in: null
   description_list:
   - markdown: 'The number of backups to be kept in `/var/chef/backup` (for UNIX-
 
@@ -104,8 +82,6 @@ properties_list:
 - property: checksum
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: 'The SHA-256 checksum of the file. Use to ensure that a specific file
 
@@ -115,8 +91,6 @@ properties_list:
 - property: content
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: 'A string that is written to the file. The contents of this property
 
@@ -129,7 +103,6 @@ properties_list:
   ruby_type: true, false
   required: false
   default_value: 'false'
-  new_in: null
   description_list:
   - markdown: 'How Chef Infra Client handles certain situations when the target
 
@@ -143,8 +116,6 @@ properties_list:
 - property: group
   ruby_type: Integer, String
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: 'A string or ID that identifies the group owner by group name or SID,
 
@@ -159,7 +130,6 @@ properties_list:
   ruby_type: true, false
   required: false
   default_value: 'true'
-  new_in: null
   description_list:
   - markdown: 'Microsoft Windows only. Whether a file inherits rights from its
 
@@ -168,7 +138,6 @@ properties_list:
   ruby_type: true, false
   required: false
   default_value: 'true'
-  new_in: null
   description_list:
   - markdown: '(with
 
@@ -196,8 +165,6 @@ properties_list:
 - property: mode
   ruby_type: Integer, String
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: 'A quoted 3-5 character string that defines the octal mode. For
 
@@ -260,8 +227,6 @@ properties_list:
 - property: owner
   ruby_type: Integer, String
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: 'A string or ID that identifies the group owner by user name or SID,
 
@@ -275,8 +240,6 @@ properties_list:
 - property: path
   ruby_type: String
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: 'The full path to the file, including the file name and its
 
@@ -299,8 +262,6 @@ properties_list:
 - property: rights
   ruby_type: Integer, String
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: 'Microsoft Windows only. The permissions for users and groups in a
 
@@ -316,8 +277,6 @@ properties_list:
 - property: verify
   ruby_type: String, Block
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: 'Allows verification of a file''s contents before it is created.
 
@@ -356,7 +315,6 @@ properties_list:
       \ ruby\nfile '/tmp/foo' do\n  content \"goodbye\"\n  verify do |path|\n    open(path).read.include?\
       \ \"hello\"\n  end\nend\n```\n\nIf a string or a block return `false`, the Chef\
       \ Infra Client run\nwill stop and an error is raised."
-properties_shortcode: null
 properties_multiple_packages: false
 resource_directory_recursive_directories: false
 resources_common_atomic_update: true
@@ -366,17 +324,9 @@ remote_file_unc_path: false
 ps_credential_helper: false
 ruby_style_basics_chef_log: false
 debug_recipes_chef_shell: false
-template_requirements: false
 resources_common_properties: true
 resources_common_notification: true
 resources_common_guards: true
-common_resource_functionality_multiple_packages: false
-resources_common_guard_interpreter: false
-remote_directory_recursive_directories: false
-common_resource_functionality_resources_common_windows_security: false
-handler_custom: false
-cookbook_file_specificity: false
-unit_file_verification: false
 examples: "
   Create a file\n\n  ```ruby\n  file '/tmp/something' do\n    owner\
   \ 'root'\n    group 'root'\n    mode '0755'\n    action :create\n  end\n  ```\n\n\
@@ -413,4 +363,3 @@ examples: "
   \    action :create\n  end\n  ```\n\n  where the `content` attribute uses the Ruby\
   \ `IO.read` method to get the\n  contents of the `/tmp/1.txt` file.\n"
 
----

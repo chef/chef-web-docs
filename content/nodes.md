@@ -2,6 +2,8 @@
 title = "About Nodes"
 draft = false
 
+gh_repo = "chef-web-docs"
+
 aliases = ["/nodes.html"]
 
 [menu]
@@ -11,8 +13,6 @@ aliases = ["/nodes.html"]
     parent = "chef_infra/concepts"
     weight = 60
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/nodes.md)
 
 {{% node %}}
 

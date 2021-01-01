@@ -1,15 +1,13 @@
 +++
 title = "Deprecation: Legacy HWRP mixins (CHEF-23)"
 draft = false
+
+gh_repo = "chef-web-docs"
 robots = "noindex"
 
 
 aliases = "/deprecations_legacy_hwrp_mixins.html"
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/deprecations_legacy_hwrp_mixins.md)
-
-
 
 In Chef Client 14 several legacy mixins will be removed. Usage of these
 mixins has resulted in deprecation warnings for several years. They were

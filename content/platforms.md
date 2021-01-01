@@ -2,6 +2,8 @@
 title = "Platforms"
 draft = false
 
+gh_repo = "chef-web-docs"
+
 aliases = ["/platforms.html", "/supported_platforms.html"]
 
 [menu]
@@ -11,8 +13,6 @@ aliases = ["/platforms.html", "/supported_platforms.html"]
     parent = "overview/packages_&_platforms"
     weight = 20
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/platforms.md)
 
 Chef software is supported on the various operating systems (platforms)
 listed below. To see which versions of our software we currently
@@ -43,14 +43,6 @@ SLA-based assistance from our support desk.
 ### Chef Infra Client
 
 #### Commercial Support
-
-{{< important >}}
-
-**Chef Infra Client 16 currently cannot build for Solaris**
-
-Due to the impact of COVID-19, Chef's employees cannot access our physical data center, which is a requirement for Solaris support. Until we can physically access the data center, Solaris builds on Chef Infra Client 16 will not be supported. They are available on Chef Infra Client 15, and we will begin building for Chef Infra Client 16 as soon as we responsibly can.
-
-{{< /important >}}
 
 The following table lists the commercially-supported platforms and
 versions for Chef Infra Client:
@@ -430,104 +422,6 @@ following platforms:
 <td>macOS</td>
 <td><code>x86_64</code></td>
 <td><code>10.12</code></td>
-</tr>
-</tbody>
-</table>
-
-### Chef Push Jobs Client
-
-#### Commercial Support
-
-The following table lists the commercially-supported platforms for the
-Chef Push Jobs client:
-
-<table>
-<colgroup>
-<col style="width: 30%" />
-<col style="width: 35%" />
-<col style="width: 35%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Platform</th>
-<th>Architecture</th>
-<th>Version</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>AIX</td>
-<td><code>powerpc</code></td>
-<td><code>7.1</code> (TL5 SP2 or higher, recommended)</td>
-</tr>
-<tr class="even">
-<td>CentOS</td>
-<td><code>i386</code>, <code>x86_64</code></td>
-<td><code>6.x</code>, <code>7.x</code></td>
-</tr>
-<tr class="odd">
-<td>Debian</td>
-<td><code>x86_64</code></td>
-<td><code>9</code></td>
-</tr>
-<tr class="even">
-<td>macOS</td>
-<td><code>x86_64</code></td>
-<td><code>10.11</code>, <code>10.12</code>, <code>10.13</code>, <code>10.14</code></td>
-</tr>
-<tr class="odd">
-<td>Red Hat Enterprise Linux</td>
-<td><code>x86_64</code></td>
-<td><code>6.x</code>, <code>7.x</code></td>
-</tr>
-<tr class="even">
-<td>Ubuntu (LTS releases)</td>
-<td><code>i386</code>, <code>x86_64</code></td>
-<td><code>16.04</code>, <code>18.04</code></td>
-</tr>
-<tr class="odd">
-<td>Microsoft Windows</td>
-<td><code>x86</code>, <code>x64</code></td>
-<td><code>2012</code>, <code>2012 R2</code>, <code>10</code></td>
-</tr>
-</tbody>
-</table>
-
-### Chef Push Jobs Server
-
-#### Commercial Support
-
-The following table lists the commercially-supported platforms for the
-Chef Push Jobs server:
-
-<table>
-<colgroup>
-<col style="width: 30%" />
-<col style="width: 35%" />
-<col style="width: 35%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Platform</th>
-<th>Architecture</th>
-<th>Version</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>CentOS</td>
-<td><code>x86_64</code></td>
-<td><code>6.x</code>, <code>7.x</code></td>
-</tr>
-<tr class="even">
-<td>Red Hat Enterprise Linux</td>
-<td><code>x86_64</code></td>
-<td><code>6.x</code>, <code>7.x</code></td>
-</tr>
-<tr class="odd">
-<td>Ubuntu (LTS releases)</td>
-<td><code>x86_64</code></td>
-<td><code>16.04</code></td>
 </tr>
 </tbody>
 </table>

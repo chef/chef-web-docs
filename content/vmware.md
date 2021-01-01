@@ -2,6 +2,8 @@
 title = "Chef and VMware"
 draft = false
 
+gh_repo = "chef-web-docs"
+
 aliases = ["/vmware.html"]
 
 [menu]
@@ -11,8 +13,6 @@ aliases = ["/vmware.html"]
     parent = "chef_infra/setup/integrations"
     weight = 30
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/vmware.md)
 
 VMware, Inc. is a subsidiary of Dell Technologies that provides cloud
 computing and platform virtualization software and services. This page

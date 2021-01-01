@@ -5,15 +5,7 @@ resource_directory_recursive_directories: true
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-title: directory resource
 resource: directory
-aliases:
-- "/resource_directory.html"
-menu:
-  infra:
-    title: directory
-    identifier: chef_infra/cookbook_reference/resources/directory directory
-    parent: chef_infra/cookbook_reference/resources
 resource_description_list:
 - markdown: 'Use the **directory** resource to manage a directory, which is a
 
@@ -59,8 +51,6 @@ properties_list:
 - property: group
   ruby_type: Integer, String
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: 'A string or ID that identifies the group owner by group name or SID,
 
@@ -75,7 +65,6 @@ properties_list:
   ruby_type: true, false
   required: false
   default_value: 'true'
-  new_in: null
   description_list:
   - markdown: 'Microsoft Windows only. Whether a file inherits rights from its
 
@@ -83,8 +72,6 @@ properties_list:
 - property: mode
   ruby_type: Integer, String
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: 'A quoted 3-5 character string that defines the octal mode. For
 
@@ -147,8 +134,6 @@ properties_list:
 - property: owner
   ruby_type: Integer, String
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: 'A string or ID that identifies the group owner by user name or SID,
 
@@ -184,8 +169,6 @@ properties_list:
 - property: rights
   ruby_type: Integer, String
   required: false
-  default_value: null
-  new_in: null
   description_list:
   - markdown: 'Microsoft Windows only. The permissions for users and groups in a
 
@@ -257,4 +240,3 @@ examples: "
   \      group 'group_id'\n      mode 'file_data['mode']'\n      ignore_failure true\n\
   \      backup 0\n    end\n  end\n  ```\n"
 
----

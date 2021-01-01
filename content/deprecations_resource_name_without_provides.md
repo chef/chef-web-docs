@@ -1,11 +1,11 @@
 +++
 title = "Deprecation: resource_name declaration without provides (CHEF-31)"
 draft = false
+
+gh_repo = "chef-web-docs"
 robots = "noindex"
 
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/deprecations_resource_name_without_provides.md)
 
 In Chef Client 12.5.1 through 15, resources could be addressed from
 recipe code using only the name of the resource, provided that no other

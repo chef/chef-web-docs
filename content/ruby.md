@@ -2,6 +2,8 @@
 title = "Ruby Guide"
 draft = false
 
+gh_repo = "chef-web-docs"
+
 aliases = ["/ruby.html"]
 
 [menu]
@@ -11,8 +13,6 @@ aliases = ["/ruby.html"]
     parent = "chef_infra/cookbook_reference"
     weight = 130
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/ruby.md)
 
 {{% ruby_summary %}}
 

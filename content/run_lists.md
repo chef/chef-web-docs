@@ -2,6 +2,8 @@
 title = "About Run-lists"
 draft = false
 
+gh_repo = "chef-web-docs"
+
 aliases = ["/run_lists.html"]
 
 [menu]
@@ -11,8 +13,6 @@ aliases = ["/run_lists.html"]
     parent = "chef_infra/concepts/policy"
     weight = 50
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/run_lists.md)
 
 {{% node_run_list %}}
 

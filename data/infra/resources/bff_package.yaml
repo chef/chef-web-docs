@@ -3,15 +3,7 @@ resource_reference: true
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-title: bff_package resource
 resource: bff_package
-aliases:
-- "/resource_bff_package.html"
-menu:
-  infra:
-    title: bff_package
-    identifier: chef_infra/cookbook_reference/resources/bff_package bff_package
-    parent: chef_infra/cookbook_reference/resources
 resource_description_list:
 - markdown: Use the **bff_package** resource to manage packages for the AIX platform
     using the installp utility. When a package is installed from a local file, it
@@ -100,4 +92,3 @@ examples: |
     action :install
   end
   ```
----

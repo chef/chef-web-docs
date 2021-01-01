@@ -2,6 +2,8 @@
 title = "Policyfile.rb"
 draft = false
 
+gh_repo = "chef-web-docs"
+
 aliases = ["/config_rb_policyfile.html"]
 
 [menu]
@@ -11,8 +13,6 @@ aliases = ["/config_rb_policyfile.html"]
     parent = "chef_infra/concepts/policy"
     weight = 30
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/config_rb_policyfile.md)
 
 {{% policyfile_summary %}}
 

@@ -2,6 +2,8 @@
 title = "Quick Start"
 draft = false
 
+gh_repo = "chef-web-docs"
+
 aliases = ["/quick_start.html"]
 
 [menu]
@@ -11,8 +13,6 @@ aliases = ["/quick_start.html"]
     parent = "chef_infra/getting_started"
     weight = 20
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/quick_start.md)
 
 For the quickest way to get started using Chef Infra:
 

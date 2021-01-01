@@ -1,6 +1,8 @@
 +++
 title = "systemd_unit Resource"
 draft = false
+
+gh_repo = "chef-web-docs"
 robots = ""
 
 data_path = ["infra","resources","systemd_unit"]

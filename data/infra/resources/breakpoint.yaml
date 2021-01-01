@@ -1,15 +1,7 @@
 ---
 resource_reference: true
 debug_recipes_chef_shell: true
-title: breakpoint resource
 resource: breakpoint
-aliases:
-- "/resource_breakpoint.html"
-menu:
-  infra:
-    title: breakpoint
-    identifier: chef_infra/cookbook_reference/resources/breakpoint breakpoint
-    parent: chef_infra/cookbook_reference/resources
 resource_description_list:
 - markdown: Use the **breakpoint** resource to add breakpoints to recipes. Run the
     chef-shell in Chef Infra Client mode, and then use those breakpoints to debug
@@ -90,4 +82,3 @@ examples: |
   ```
 
   In the previous examples, the names are used to indicate if the breakpoint is before or after a resource and also to specify which resource it is before or after.
----

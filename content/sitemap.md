@@ -2,11 +2,11 @@
 title = "Site Map"
 draft = false
 
+gh_repo = "chef-web-docs"
+
 toc = false
 
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/sitemap.md)
 
 This is the documentation for:
 
