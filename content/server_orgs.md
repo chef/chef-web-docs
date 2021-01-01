@@ -7,11 +7,10 @@ gh_repo = "chef-web-docs"
 aliases = ["/server_orgs.html", "/auth_authorization.html"]
 
 [menu]
-  [menu.infra]
+  [menu.legacy]
     title = "Organizations & Groups"
-    identifier = "chef_infra/managing_chef_infra_server/server_orgs.md Organizations & Groups"
-    parent = "chef_infra/managing_chef_infra_server"
-    weight = 80
+    identifier = "legacy/manage/server_orgs.md Organizations & Groups"
+    parent = "legacy/manage"
 +++
 
 {{% server_rbac %}}
