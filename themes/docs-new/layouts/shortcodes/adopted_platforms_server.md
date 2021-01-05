@@ -38,7 +38,7 @@ versions for the Chef Infra Server:
 <tr class="odd">
 <td>Ubuntu</td>
 <td><code>x86_64</code></td>
-<td><code>16.04</code>, <code>18.04</code></td>
+<td><code>16.04</code>, <code>18.04</code>, <code>20.04</code></td>
 </tr>
 </tbody>
 </table>
