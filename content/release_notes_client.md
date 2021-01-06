@@ -4345,78 +4345,55 @@ Ruby has been updated to from 2.4.4 to 2.4.5 to resolve multiple CVEs as well as
 
 ## What's New in 13.9.4
 
--   **Platform Updates**
+### Platform Updates
 
-    As Debian 7 is now end of life we will no longer produce Debian 7
-    chef-client packages.
+As Debian 7 is now end of life we will no longer produce Debian 7 chef-client packages.
 
--   **Ifconfig on Ubuntu 18.04**
+### Ifconfig on Ubuntu 18.04
 
-    Incompatibilities with Ubuntu 18.04 in the ifconfig resource have
-    been resolved.
+Incompatibilities with Ubuntu 18.04 in the ifconfig resource have been resolved.
 
-### Ohai 13.9.2
+### Ohai Updated to 13.9.2
 
--   **Virtualization detection on AWS**
+#### Virtualization detection on AWS
 
-    Ohai now detects the virtualization hypervisor amazonec2 when
-    running on Amazon's new C5/M5 instances.
+Ohai now detects the virtualization hypervisor `amazonec2` when running on Amazon's new C5/M5 instances.
 
--   **Configurable DMI Whitelist**
+#### Configurable DMI Whitelist
 
-    The whitelist of DMI IDs is now user configurable using the
-    additional_dmi_ids configuration setting, which takes an Array.
+The whitelist of DMI IDs is now user configurable using the `additional_dmi_ids` configuration setting, which takes an Array.
 
--   **Filesystem2 on BSD**
+#### Filesystem2 on BSD
 
-    The Filesystem2 functionality has been backported to BSD systems to
-    provide a consistent filesystem format.
+The Filesystem2 functionality has been backported to BSD systems to provide a consistent filesystem format.
 
 ### Security Updates
 
--   **Ruby has been updated to 2.4.4**
-    -   [CVE-2017-17742](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-17742):
-        HTTP response splitting in WEBrick
-    -   [CVE-2018-6914](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-6914):
-        Unintentional file and directory creation with directory
-        traversal in tempfile and tmpdir
-    -   [CVE-2018-8777](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-8777):
-        DoS by large request in WEBrick
-    -   [CVE-2018-8778](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-8778):
-        Buffer under-read in String\#unpack
-    -   [CVE-2018-8779](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-8779):
-        Unintentional socket creation by poisoned NUL byte in UNIXServer
-        and UNIXSocket
-    -   [CVE-2018-8780](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-8780):
-        Unintentional directory traversal by poisoned NUL byte in Dir
-    -   Multiple vulnerabilities in RubyGems
--   **OpenSSL has been updated to 1.0.2o**
-    -   CVE-2018-0739: Constructed ASN.1 types with a recursive
-        definition could exceed the stack.
+#### Ruby updated to 2.4.4
+
+- CVE-2017-17742: HTTP response splitting in WEBrick
+- CVE-2018-6914: Unintentional file and directory creation with directory traversal in tempfile and tmpdir
+- CVE-2018-8777: DoS by large request in WEBrick
+- CVE-2018-8778: Buffer under-read in String#unpack
+- CVE-2018-8779: Unintentional socket creation by poisoned NUL byte in UNIXServer and UNIXSocket
+- CVE-2018-8780: Unintentional directory traversal by poisoned NUL byte in Dir
+- Multiple vulnerabilities in RubyGems
+
+#### Nokogiri updated to 1.8.2
+
+- Behavior in libxml2 has been reverted which caused CVE-2018-8048 (loofah gem), CVE-2018-3740 (sanitize gem), and CVE-2018-3741 (rails-html-sanitizer gem).
+
+#### OpenSSL updated to 1.0.2o
+
+- CVE-2018-0739: Constructed ASN.1 types with a recursive definition could exceed the stack.
 
 ## What's New in 13.9.1
 
--   On Windows, the installer now correctly re-extracts files during
-    repair mode
--   The [mount](/resources/mount/) resource will not create duplicate
-    entries when the device type differs
--   Chef no longer requests every remote file when running with lazy
-    loading enabled
--   Fixes a bug that caused Chef to crash when retrieving access rights
-    for Windows system accounts
+## Platform Additions
 
-This release also includes the [custom resource
-improvements](/release_notes/#custom-resource-improvements) that
-were introduced in Chef 14.
+Enable Ubuntu-18.04 and Debian-9 tested chef-client packages.
 
-### Ohai 13.9
-
--   Fixes uptime parsing on AIX
--   Fixes Softlayer cloud detection
--   Uses the current Azure metadata endpoint
--   Correctly detects macOS guests on VMware and VirtualBox
-
-## What's New in 13.9
+## What's New in 13.9.0
 
 - On Windows, the installer now correctly re-extracts files during repair mode
 - The mount resource will now not create duplicate entries when the device type differs
@@ -4425,20 +4402,45 @@ were introduced in Chef 14.
 
 ### Custom Resource Improvements
 
-We've expanded the DSL for custom resources with new functionality to
-better document your resources and help users with errors and upgrades.
-Many resources in Chef itself are now using this new functionality, and
-you'll see more updated to take advantage of this it in the future.
+We've expanded the DSL for custom resources with new functionality to better document your resources and help users with errors and upgrades. Many resources in Chef itself are now using this new functionality, and you'll see more updated to take advantage of this it in the future.
 
 ### Deprecations in Cookbook Resources
 
--   Chef 13 provides new primitives that allow you to deprecate
-    resources or properties with the same functionality used for
-    deprecations in Chef Client resources. This allows you make breaking
-    changes to enterprise or community cookbooks with friendly
-    notifications to downstream cookbook consumers directly in the Chef
-    run.
--   Provide a friendly message when a regex fails:
+Chef 13 provides new primitives that allow you to deprecate resources or properties with the same functionality used for deprecations in Chef Client resources. This allows you make breaking changes to enterprise or community cookbooks with friendly notifications to downstream cookbook consumers directly in the Chef run.
+
+Deprecate the foo_bar resource in a cookbook:
+
+```ruby
+deprecated "The foo_bar resource has been deprecated and will be removed in the next major release of this cookbook scheduled for 12/25/2018!"
+
+property :thing, String, name_property: true
+
+action :create do
+ # you'd probably have some actual chef code here
+end
+```
+
+Deprecate the thing2 property in a resource
+
+```ruby
+property :thing2, String, deprecated: 'The thing2 property has been deprecated and will be removed in the next major release of this cookbook scheduled for 12/25/2018!'
+```
+
+Rename a property with a deprecation warning for users of the old property name
+
+```ruby
+deprecated_property_alias 'thing2', 'the_second_thing', 'The thing2 property was renamed the_second_thing in the 2.0 release of this cookbook. Please update your cookbooks to use the new property name.'
+```
+
+### validation_message
+
+Validation messages allow you give the user a friendly error message when any validation on a property fails.
+
+Provide a friendly message when a regex fails:
+
+```ruby
+property :repo_name, String, regex: [/^[^\/]+$/], validation_message: "The repo_name property cannot contain a forward slash '/'",
+```
 
 ### Resource Documentation
 
