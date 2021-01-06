@@ -1322,6 +1322,50 @@ Several legacy Windows helpers have been deprecated as they will always return t
 - Chef::Platform.supports_powershell_execution_bypass?
 - Chef::Platform.windows_nano_server?
 
+# What's new in 15.15
+
+## Chef InSpec 4.24.8
+
+Chef InSpec has been updated from 4.22.22 to 4.24.8 with the following improvements:
+
+- An unset `HOME environment variable will not cause execution failures
+- You can use wildcards in `platform-name` and `release` in InSpec profiles
+- The support for arrays in the `WMI` resource, so it can return multiple objects
+- The `package` resource on Windows properly escapes package names
+- The `grub_conf` resource succeeds even if without a `menuentry` in the grub config
+- Loaded plugins won't try to re-load themselves
+- A new mechanism marks inputs as sensitive: true and replaces their values with `***`.
+- Use the `--no-diff` CLI option to suppress diff output for textual tests.
+- Control the order of controls in output, but not execution order, with the `--sort_results_by=none|control|file|random` CLI option.
+- Disable caching of inputs with a cache_inputs: true setting.
+
+## Chef Vault 4.1
+
+We've updated the release of `chef-vault` bundled with Chef Infra Client to 4.1. Chef Vault 4.1 properly handles escape strings in secrets and greatly improves performance for users with large numbers of secrets. Thanks for the performance work [@Annih](https://github.com/Annih)!
+
+## Resource Improvements
+
+### cron_d
+
+The `cron_d` resource now respects the use of the `sensitive` property. Thanks for this fix [@axl89](https://github.com/axl89)!
+
+### homebrew_cask
+
+The `homebrew_cask` resource has been updated to work with the latest command syntax requirements in the `brew` command. Thanks for reporting this issue [@bcg62](https://github.com/bcg62)!
+
+### locale
+
+The allowed execution time for the `locale-gen` command in the `locale` resource has been extended to 1800 seconds to make sure the Chef Infra Client run doesn't fail before the command completes on slower systems. Thanks for reporting this issue [@janskarvall](https://github.com/janskarvall)!
+
+### plist / macosx_service / osx_profile / macos_userdefaults
+
+Parsing of plist files has been improved in the `plist`, `macosx_service`, `osx_profile`, and `macos_userdefaults` resources thanks to updates to the plist gem by [@reitermarkus](https://github.com/reitermarkus) and [@tboyko](https://github.com/tboyko).
+
+## Security
+
+- The bundled Nokogiri Ruby gem has been updated to 1.11 resolve [CVE-2020-26247](https://nvd.nist.gov/vuln/detail/CVE-2020-26247).
+- openSSL has been updated to 1.0.2x to resolve [CVE-2020-1971](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-1971).
+
 ## What's New In 15.14
 
 ### Chef InSpec 4.22.22
