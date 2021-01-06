@@ -1,5 +1,5 @@
 +++
-title = "Release Notes: Chef Infra Client 12.0 - 16.8"
+title = "Release Notes: Chef Infra Client 12.0 - 16.9"
 draft = false
 
 gh_repo = "chef-web-docs"
@@ -18,6 +18,47 @@ the first Wednesday of every month. Below are the major changes for each
 release. For a detailed list of changes see the [Chef Infra Client
 changelog](https://github.com/chef/chef/blob/master/CHANGELOG.md)
 
+## What's New in 16.9
+
+### Knife Improvements
+
+- The `knife bootstrap` command now properly formats the `trusted_certs_dir` configuration value on Windows hosts. Thanks for this fix [@axelrtgs](https://github.com/axelrtgs)!
+- The `knife bootstrap` command now only specifies the ssh option `-o IdentitiesOnly=yes` if keys are present. Thanks for this fix [@drbrain](https://github.com/drbrain)!
+- The `knife status` command with the `-F json` flag no longer fails if cloud nodes have no public IP.
+
+### Updated Resources
+
+#### cron_d
+
+The `cron_d` resource now respects the use of the `sensitive` property. Thanks for this fix [@axl89](https://github.com/axl89)!
+
+#### dnf
+
+The `dnf` resource has received a large number of improvements to provide improved idempotency and to better handle uses of the `version` and `arch` properties. Thanks for reporting these issues [@epilatow](https://github.com/epilatow) and [@Blorpy](https://github.com/Blorpy)!
+
+#### homebrew_cask
+
+The `homebrew_cask` resource has been updated to work with the latest command syntax requirements in the `brew` command. Thanks for reporting this issue [@bcg62](https://github.com/bcg62)!
+
+#### locale
+
+The allowed execution time for the `locale-gen` command in the `locale` resource has been extended to 1800 seconds to make sure the Chef Infra Client run doesn't fail before the command completes on slower systems. Thanks for reporting this issue [@janskarvall](https://github.com/janskarvall)!
+
+#### plist / macosx_service / osx_profile / macos_userdefaults
+
+Parsing of plist files has been improved in the `plist`, `macosx_service`, `osx_profile`, and `macos_userdefaults` resources thanks to updates to the plist gem by [@reitermarkus](https://github.com/reitermarkus) and [@tboyko](https://github.com/tboyko).
+
+#### user
+
+The `user` resource on Windows hosts now properly handles `uid` values passed as strings instead of integers. Thanks for reporting this issue [@jaymzh](https://github.com/jaymzh)!
+
+#### yum_repostiory
+
+The `yum_repository` resource has been updated with a new `reposdir` property to control the path where the Yum repository configuration files will be written. Thanks for suggesting this [@wildcrazyman](https://github.com/wildcrazyman)!
+
+### Security
+
+- The bundled Nokogiri Ruby gem has been updated to 1.11 resolve [CVE-2020-26247](https://nvd.nist.gov/vuln/detail/CVE-2020-26247).
 ## What's New in 16.8.14
 
 - Updated openSSL to 1.0.2x to resolve [CVE-2020-1971](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-1971).
@@ -271,13 +312,13 @@ Ruby has been updated to 2.7.2, which includes a fix for [CVE-2020-25613](https:
 
 ## Whats New in 16.5.77
 
-* Added missing requires to prevent errors when loading `chef/policy_builder/dynamic`.
-* The `homebrew_package` resource will now check for the full and short package names. Both `homebrew_package 'homebrew/core/vim'` and `homebrew_package 'vim'` styles should now work correctly.
-* Resolved errors that occurred in cookbooks requiring `addressable/uri`.
-* Improved the license acceptance flow to give helpful information if the user passes an invalid value in the environment variable or command line argument.
-* Updated Chef InSpec to 4.23.11 in order to resolve issues when running the new `junit2` reporter.
-* Additional performance improvements to reduce the startup time of the `chef-client` and `knife` commands.
-* `knife vault` commands now output proper JSON or YAML when using the `-f json` or `-f yaml` flags.
+- Added missing requires to prevent errors when loading `chef/policy_builder/dynamic`.
+- The `homebrew_package` resource will now check for the full and short package names. Both `homebrew_package 'homebrew/core/vim'` and `homebrew_package 'vim'` styles should now work correctly.
+- Resolved errors that occurred in cookbooks requiring `addressable/uri`.
+- Improved the license acceptance flow to give helpful information if the user passes an invalid value in the environment variable or command line argument.
+- Updated Chef InSpec to 4.23.11 in order to resolve issues when running the new `junit2` reporter.
+- Additional performance improvements to reduce the startup time of the `chef-client` and `knife` commands.
+- `knife vault` commands now output proper JSON or YAML when using the `-f json` or `-f yaml` flags.
 
 ## What's New in 16.5
 
@@ -287,23 +328,23 @@ We continue to reduce the size of the Chef Infra Client install and optimize the
 
 ### CLI Improvements
 
-* The client license acceptance logic has been improved to provide helpful error messages when an incorrect value is passed and to accept license values in any text case.
-* A new `chef-client` process exit code of 43 has been added to signal that an invalid configuration was specified. Thanks [@NaomiReeves](https://github.com/NaomiReeves)!
-* The `knife ssh` command no longer hangs when connecting to Windows nodes over SSH.
-* The `knife config` commands have been renamed to make them shorter and table output has been improved:
-  * knife config get-profile -> knife config use
-  * knife config use-profile [NAME] -> knife config use [NAME]
-  * knife config list-profiles -> knife config list
-  * knife config get -> knife config show
+- The client license acceptance logic has been improved to provide helpful error messages when an incorrect value is passed and to accept license values in any text case.
+- A new `chef-client` process exit code of 43 has been added to signal that an invalid configuration was specified. Thanks [@NaomiReeves](https://github.com/NaomiReeves)!
+- The `knife ssh` command no longer hangs when connecting to Windows nodes over SSH.
+- The `knife config` commands have been renamed to make them shorter and table output has been improved:
+  - knife config get-profile -> knife config use
+  - knife config use-profile [NAME] -> knife config use [NAME]
+  - knife config list-profiles -> knife config list
+  - knife config get -> knife config show
 
 ### Chef InSpec 4.23.4
 
 Chef InSpec has been updated from 4.22.1 to 4.23.4. This new release includes the following improvements:
 
-* A new mechanism marks inputs as sensitive: true and replaces their values with `***`.
-* Use the `--no-diff` CLI option to suppress diff output for textual tests.
-* Control the order of controls in output, but not execution order, with the `--sort_results_by=none|control|file|random` CLI option.
-* Disable caching of inputs with a cache_inputs: true setting.
+- A new mechanism marks inputs as sensitive: true and replaces their values with `***`.
+- Use the `--no-diff` CLI option to suppress diff output for textual tests.
+- Control the order of controls in output, but not execution order, with the `--sort_results_by=none|control|file|random` CLI option.
+- Disable caching of inputs with a cache_inputs: true setting.
 
 ### New Resources
 
@@ -1281,6 +1322,49 @@ Several legacy Windows helpers have been deprecated as they will always return t
 - Chef::Platform.supports_powershell_execution_bypass?
 - Chef::Platform.windows_nano_server?
 
+## What's New In 15.14
+
+### Chef InSpec 4.22.22
+
+Chef InSpec has been updated from 4.22.1 to 4.22.22. This new release includes the following improvements:
+
+- Fix mysql_session stdout, stderr and exit_status parameters. Thanks [@ramereth](https://github.com/ramereth)!
+- Add new windows_firewall and windows_firewall_rule resources. Thanks [@tecracer-theinen](https://github.com/tecracer-theinen)!
+
+### Fixes and Improvements
+
+- The `knife ssh` command no longer hangs when connecting to Windows nodes over SSH.
+- Resolved several failures that could occur in the included chef-vault gem.
+
+### Resource Updates
+
+#### hostname
+
+The `hostname` resource has been updated to improve logging on Windows systems.
+
+#### windows_feature
+
+The `windows_feature` resource has been updated to allow installing features that have been removed if a source location is provided. Thanks for reporting this [@stefanwb](https://github.com/stefanwb)!
+
+#### windows_font
+
+The `windows_font` resource will no longer fail on newer releases of Windows if a font is already installed. Thanks for reporting this [@bmiller08](https://github.com/bmiller08)!
+
+### Platform Packages
+
+- We are once again building Chef Infra Client packages for RHEL 7 / SLES 12 on the S390x architecture. In addition to these packages, we've also added S390x packages for SLES 15.
+- We now produce packages for Apple's upcoming macOS 11 Big Sur release.
+
+### Security
+
+#### OpenSSL
+
+OpenSSL has been updated to 1.0.2w which includes a fix for [CVE-2020-1968](https://cve.mitre.org/cgi-bin/cvename.cgi?name=2020-1968).
+
+#### CA Root Certificates
+
+The included `cacerts` bundle in Chef Infra Client has been updated to the 7-22-2020 release. This new release removes 4 legacy root certificates and adds 4 additional root certificates.
+
 ## What's New In 15.13
 
 ### Chef InSpec 4.22.1
@@ -1533,13 +1617,13 @@ end
 
 Chef InSpec has been updated from 4.18.39 to 4.18.85. This release includes a large number of bug fixes in addition to some great resource enhancements:
 
-* The service resource features new support for yocto-based linux distributions. Thank you to [@michaellihs](https://github.com/michaellihs) for this addition!
-* The package resource now includes support for FreeBSD. Thank you to [@fzipi](https://github.com/fzipi) for this work!
-* We standardized the platform for the etc_hosts, virtualization, ini, and xml resources.
-* The oracledb_session resource works again due to a missing quote fix.
-* The groups resource on macOS no longer reports duplicates anymore.
+- The service resource features new support for yocto-based linux distributions. Thank you to [@michaellihs](https://github.com/michaellihs) for this addition!
+- The package resource now includes support for FreeBSD. Thank you to [@fzipi](https://github.com/fzipi) for this work!
+- We standardized the platform for the etc_hosts, virtualization, ini, and xml resources.
+- The oracledb_session resource works again due to a missing quote fix.
+- The groups resource on macOS no longer reports duplicates anymore.
 command.exist? now conforms to POSIX standards. Thanks to [@PiQuer](https://github.com/PiQuer)!
-* Changed the postfix_conf resource's supported platform to the broader unix. Thank you to [@fzipi](https://github.com/fzipi) for this fix!
+- Changed the postfix_conf resource's supported platform to the broader unix. Thank you to [@fzipi](https://github.com/fzipi) for this fix!
 
 ### New Cookbook Helpers
 
@@ -1549,9 +1633,9 @@ New helpers have been added to make writing cookbooks easier.
 
 New helpers for checking platform versions have been added. These helpers return parsed version strings so there's no need to convert the returned values to Integers or Floats before comparing them. Additionally, comparisons with version objects properly understand the order of versions so `5.11` will compare as larger than `5.9`, whereas converting those values to Floats would result in `5.9` being larger than `5.11`.
 
-* `windows_nt_version` returns the NT kernel version which often differs from Microsoft's marketing versions. This helper offers a good way to find desktop and server releases that are based on the same codebase. For example, NT 6.3 is both Windows 8.1 and Windows 2012 R2.
-* `powershell_version` returns the version of PowerShell installed on the system.
-* `platform_version` returns the value of node['platform_version'].
+- `windows_nt_version` returns the NT kernel version which often differs from Microsoft's marketing versions. This helper offers a good way to find desktop and server releases that are based on the same codebase. For example, NT 6.3 is both Windows 8.1 and Windows 2012 R2.
+- `powershell_version` returns the version of PowerShell installed on the system.
+- `platform_version` returns the value of node['platform_version'].
 
 Example comparison using windows_nt_version:
 
@@ -1565,37 +1649,37 @@ end
 
 The cloud helpers from chef-sugar have been ported to Chef Infra Client:
 
-* `cloud?` - if the node is running in any cloud, including internal clouds
-* `ec2?` - if the node is running in ec2
-* `gce?` - if the node is running in gce
-* `rackspace?` - if the node is running in rackspace
-* `eucalyptus?` - if the node is running under eucalyptus
-* `linode?` - if the node is running in linode
-* `openstack?` - if the node is running under openstack
-* `azure?` - if the node is running in azure
-* `digital_ocean?` - if the node is running in digital ocean
-* `softlayer?` - if the node is running in softlayer
+- `cloud?` - if the node is running in any cloud, including internal clouds
+- `ec2?` - if the node is running in ec2
+- `gce?` - if the node is running in gce
+- `rackspace?` - if the node is running in rackspace
+- `eucalyptus?` - if the node is running under eucalyptus
+- `linode?` - if the node is running in linode
+- `openstack?` - if the node is running under openstack
+- `azure?` - if the node is running in azure
+- `digital_ocean?` - if the node is running in digital ocean
+- `softlayer?` - if the node is running in softlayer
 
 #### Virtualization Helpers
 
 The virtualization helpers from chef-sugar have been ported to Chef Infra Client and extended with helpers to detect hypervisor hosts, physical, and guest systems.
 
-* `kvm?` - if the node is a kvm guest
-* `kvm_host?` - if the node is a kvm host
-* `lxc?` - if the node is an lxc guest
-* `lxc_host?` - if the node is an lxc host
-* `parallels?`- if the node is a parallels guest
-* `parallels_host?`- if the node is a parallels host
-* `vbox?` - if the node is a virtualbox guest
-* `vbox_host?` - if the node is a virtualbox host
-* `vmware?` - if the node is a vmware guest
-* `vmware_host?` - if the node is a vmware host
-* `openvz?` - if the node is an openvz guest
-* `openvz_host?` - if the node is an openvz host
-* `guest?` - if the node is detected as any kind of guest
-* `hypervisor?` - if the node is detected as being any kind of hypervisor
-* `physical?` - the node is not running as a guest (may be a hypervisor or may be bare-metal)
-* `vagrant?` - attempts to identify the node as a vagrant guest (this check may be error-prone)
+- `kvm?` - if the node is a kvm guest
+- `kvm_host?` - if the node is a kvm host
+- `lxc?` - if the node is an lxc guest
+- `lxc_host?` - if the node is an lxc host
+- `parallels?`- if the node is a parallels guest
+- `parallels_host?`- if the node is a parallels host
+- `vbox?` - if the node is a virtualbox guest
+- `vbox_host?` - if the node is a virtualbox host
+- `vmware?` - if the node is a vmware guest
+- `vmware_host?` - if the node is a vmware host
+- `openvz?` - if the node is an openvz guest
+- `openvz_host?` - if the node is an openvz host
+- `guest?` - if the node is detected as any kind of guest
+- `hypervisor?` - if the node is detected as being any kind of hypervisor
+- `physical?` - the node is not running as a guest (may be a hypervisor or may be bare-metal)
+- `vagrant?` - attempts to identify the node as a vagrant guest (this check may be error-prone)
 
 #### include_recipe? helper
 
@@ -2195,6 +2279,7 @@ Chef Infra Client's Data Collection subsystem is used to report node changes dur
 A new `copy_properties_from` method for custom resources allows you copy properties from your custom resource into other resources you are calling, so you can avoid unnecessarily repeating code.
 
 To inherit all the properties of another resource:
+
 ```ruby
 resource_name :my_resource
 
