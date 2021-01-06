@@ -4466,7 +4466,7 @@ description 'The apparmor_policy resource is used to add or remove policy files 
  end
 ```
 
-### Ohai Release Notes 13.9
+### Ohai Improvements
 
 - Fix uptime parsing on AIX
 - Fix Softlayer cloud detection
