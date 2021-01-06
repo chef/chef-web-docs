@@ -1280,7 +1280,9 @@ See <https://medium.com/rubyinside/whats-new-in-ruby-2-7-79c98b265502> for detai
 Ohai has been improved to gather additional system configuration information for use when authoring recipes and resources.
 
 **filesystem2 Node Data available on Windows**
+
 In previous Chef Infra Clients we've introduced a modernized filesystem layout of Ohai data for many platforms. In Chef Infra Client 16.0, Windows now has this layout available in `node['filesystem2']`. In Chef Infra Client 17, it will replace `node['filesystem']` to match all other platforms.
+
 **Extended Azure Metadata**
 
 The `Azure` Ohai plugin now gathers the latest version of the metadata provided by the Azure metadata endpoint. This greatly expands the information available on Azure instances. See [Ohai PR 1427](https://github.com/chef/ohai/pull/1427) for an example of the new data gathered.
@@ -1895,7 +1897,7 @@ We've further optimized our install footprint and reduced the size of `/opt/chef
 
 ### filesystem2 Ohai Data on Windows
 
-Ohai 15.6 includes new `node['filesystem2']` data on Windows hosts. Fileystem2 presents filesystem data by both mountpoint and by device name. This data structure matches that of the filesystem plugin on Linux and other *nix operating systems. Thanks [@jaymzh](https://github.com/jaymzh) for this new data structure.
+Ohai 15.6 includes new `node['filesystem2']` data on Windows hosts. Filesystem2 presents filesystem data by both mountpoint and by device name. This data structure matches that of the filesystem plugin on Linux and other *nix operating systems. Thanks [@jaymzh](https://github.com/jaymzh) for this new data structure.
 
 ## What's New in 15.5.15
 
