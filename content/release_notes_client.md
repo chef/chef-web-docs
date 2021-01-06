@@ -2280,6 +2280,7 @@ This release includes critical bugfixes for the 15.0 release:
 ## What's New in 15.0.298
 
 This release includes critical bugfixes for the 15.0 release:
+
 - Allow accepting the license on non-interactive Windows sessions
 - Resolve license acceptance failures on Windows 2012 R2
 - Improve some `knife` and `chef-client` help text
@@ -2920,7 +2921,7 @@ In preparation for Chef Infra Client 15.0 we've added a placeholder `--chef-lice
 - You may now encrypt a previously unencrypted data bag.
 - Resolved a regression introduced in Chef Infra Client 14.12.3 that resulted in errors when managing Windows services
 
-## What's New in 14.12
+## What's New in 14.12.3
 
 ### Updated Resources
 
