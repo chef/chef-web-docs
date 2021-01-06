@@ -1,23 +1,22 @@
 +++
 title = "Service Template Data"
 
-date = 2020-10-26T17:19:44-07:00
+date = 2021-01-05T22:12:02.633Z
 draft = false
 
 [menu]
   [menu.habitat]
     title = "Service Template Data"
-    identifier = "habitat/reference/service_templates Service Template Configuration"
+    identifier = "habitat/reference/service_templates Service Template Data"
     parent = "habitat/reference"
 +++
-
-[\[edit on GitHub\]](https://github.com/habitat-sh/habitat/blob/master/components/docs-chef-io/content/habitat/service_templates.md)
 
 <!-- This is a generated file, do not edit it directly. See https://github.com/habitat-sh/habitat/blob/master/.expeditor/scripts/finish_release/generate-template-reference.js -->
 
 The following settings can be used during a Chef Habitat service's lifecycle. This means that you can use these settings in any of the plan hooks, such as `init`, or `run`, and also in any templatized configuration file for your application or service.
 
 These configuration settings are referenced using the [Handlebars.js](https://github.com/wycats/handlebars.js/) version of [Mustache-style](https://mustache.github.io/mustache.5.html) tags.
+
 
 ## sys
 
@@ -83,11 +82,11 @@ Information about the current service's service group
 | update_election_is_running | boolean | Whether an update leader election is currently running for this service |
 | update_election_is_no_quorum | boolean | Whether there is quorum for an update leader election for this service |
 | update_election_is_finished | boolean | Whether an update leader election for this service has finished |
-| me | [svc_member]({{< relref "#svc_member" >}}) | An object that provides information about the service running on the local Supervisor |
-| first | [svc_member]({{< relref "#svc_member" >}}) | The first member of this service group, or the leader, if running in a leader topology |
+| me | [svc_member](#svc_member) | An object that provides information about the service running on the local Supervisor |
+| first | [svc_member](#svc_member) | The first member of this service group, or the leader, if running in a leader topology |
 | members | array | All active members (`alive` and `suspect`) of the service group, across the entire ring. As of 0.56.0, does _not_ include `departed` or `confirmed` members |
-| leader | [svc_member]({{< relref "#svc_member" >}}) | The current leader of the service group, if any (`null` otherwise) |
-| update_leader | [svc_member]({{< relref "#svc_member" >}}) | The current update_leader of the service group, if any (`null` otherwise) |
+| leader | [svc_member](#svc_member) | The current leader of the service group, if any (`null` otherwise) |
+| update_leader | [svc_member](#svc_member) | The current update_leader of the service group, if any (`null` otherwise) |
 
 ## bind
 
@@ -95,8 +94,8 @@ Exposes information about the service groups this service is bound to. Each key 
 
 | Property | Type | Description |
 | -------- | ---- | ----------- |
-| first | [svc_member]({{< relref "#svc_member" >}}) | The first member of this service group. If the group is running in a leader topology, this will also be the leader. |
-| leader | [svc_member]({{< relref "#svc_member" >}}) | The current leader of this service group, if running in a leader topology |
+| first | [svc_member](#svc_member) | The first member of this service group. If the group is running in a leader topology, this will also be the leader. |
+| leader | [svc_member](#svc_member) | The current leader of this service group, if running in a leader topology |
 | members | array | All active members (`alive` and `suspect`) of the service group, across the entire ring. As of 0.56.0, does _not_ include `departed` or `confirmed` members |
 
 ## Reference Objects
@@ -135,7 +134,7 @@ Represents a member of a service group
 | follower | boolean | Whether this member is a follower in the service group (only meaningful in a leader topology) |
 | update_leader | boolean | Whether this member is the update leader in the service group (only meaningful in a leader topology) |
 | update_follower | boolean | Whether this member is an update follower in the service group (only meaningful in a leader topology) |
-| pkg | [package_identifier]({{< relref "#package_identifier" >}}) | The identifier of the release the member is running |
+| pkg | [package_identifier](#package_identifier) | The identifier of the release the member is running |
 | package | string | The package identifier |
 | sys | object | An abbreviated version of the top-level {{sys}} object, containing networking information for the member. |
 | cfg | object | The configuration the member is currently exporting. This is constrained by what is defined in `pkg_exports`, where the values are replaced with the current values (e.g., taking into account things like user.toml, gossiped configuration values, etc.) |

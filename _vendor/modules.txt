@@ -3,5 +3,5 @@
 # github.com/chef/effortless/docs-chef-io v0.0.0-20200930175149-51c187882fba
 # github.com/inspec/inspec/docs-chef-io v0.0.0-20201223142818-4ee82644e825
 # github.com/chef/automate/components/docs-chef-io v0.0.0-20201231221047-b00630388830
-# github.com/habitat-sh/habitat/components/docs-chef-io v0.0.0-20201105224549-ce890e79d550
+# github.com/habitat-sh/habitat/components/docs-chef-io v0.0.0-20210105205530-3dff2d6af000
 # github.com/chef/chef-server/docs-chef-io v0.0.0-20210101002519-8e5e0e23f5db
