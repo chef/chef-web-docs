@@ -3496,6 +3496,7 @@ Thank you [@dbresson](https://github.com/dbresson) for this contribution.
 #### OpenSSL
 
 OpenSSL updated to 1.0.2p to resolve:
+
 - Client DoS due to large DH parameter ([CVE-2018-0732](https://nvd.nist.gov/vuln/detail/CVE-2018-0732))
 - Cache timing vulnerability in RSA Key Generation ([CVE-2018-0737](https://nvd.nist.gov/vuln/detail/CVE-2018-0737))
 
