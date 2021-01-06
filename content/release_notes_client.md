@@ -4298,48 +4298,46 @@ Ruby has been updated to from 2.4.4 to 2.4.5 to resolve multiple CVEs as well as
 
 ## What's New in 13.11
 
--   **Sensitive Properties on Windows**
-    -   windows_service no longer logs potentially sensitive
-        information when a service is setup
-    -   windows_package now respects the sensitive property to avoid
-        logging sensitive data in the event of a package installation
-        failure
--   **Bugfixes**
-    -   `remote_directory` now properly loads files in the root of a
-        cookbook's files directory
-    -   `osx_profile` now uses the full path the profiles CLI tool to
-        avoid running other binaries of the same name in a users path
-    -   `package` resources that don't support the `allow_downgrade`
-        property will no longer fail
-    -   `knife bootstrap windows` error messages have been improved
--   **Security Updates**
-    -   [CVE-2018-0732](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-0732):
-        Fixes handshake violation in OpenSSL
-    -   [CVE-2018-0737](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-0737):
-        OpenSSL RSA Key generation algorithm has been shown to be
-        vulnerable to a cache timing side channel attack
-    -   [CVE-2018-1000544](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-1000544):
-        rubyzip gem rubyzip version 1.2.1 and earlier contains a
-        Directory Traversal vulnerability
+#### Sensitive Properties on Windows
+
+- `windows_service` no longer logs potentially sensitive information when a service is setup
+- `windows_package` now respects the `sensitive` property to avoid logging sensitive data in the event of a package installation failure
+
+#### Other Fixes
+
+- `remote_directory` now properly loads files in the root of a cookbook's `files` directory
+- `osx_profile` now uses the full path the profiles CLI tool to avoid running other binaries of the same name in a users path
+- `package` resources that don't support the `allow_downgrade` property will no longer fail
+- `knife bootstrap windows` error messages have been improved
+
+### Security Updates
+
+#### OpenSSL
+
+- OpenSSL has been updated to 1.0.2p to resolve [CVE-2018-0732](https://nvd.nist.gov/vuln/detail/CVE-2018-0732) and [CVE-2018-0737](https://nvd.nist.gov/vuln/detail/CVE-2018-0737)
+
+#### Rubyzip
+
+- Updated Rubyzip to 1.2.2 to resolve [CVE-2018-1000544](https://nvd.nist.gov/vuln/detail/CVE-2018-1000544)
 
 ## What's New in 13.10
 
--   **Bugfixes**
-    -   Resolves a duplicate logging getting created when redirecting
-        stdout
-    -   Using `--recipe-url` with a local file on Windows no longer
-        fails
-    -   `Service` resource no longer throws Ruby deprecation warnings on
-        Windows
--   **Ohai 13.10 Improvements**
-    -   Correctly identifies the `platform_version` on the final release
-        of Amazon Linux 2.0
-    -   Detects nodes with the DMI data of "OpenStack Compute" as
-        OpenStack nodes
--   **Security Updates**
-    -   [CVE-2018-1000201](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-1000201):
-        DLL loading issue which can be hijacked on Windows OS resolved
-        by updating FFI gem
+### Bugfixes
+
+- Resolves a duplicate logging getting created when redirecting stdout
+- Using --recipe-url with a local file on Windows no longer fails
+- Service resource no longer throws Ruby deprecation warnings on Windows
+
+### Ohai 13.10 Improvements
+
+- Correctly identify the platform_version on the final release of Amazon Linux 2.0
+- Detect nodes with the DMI data of "OpenStack Compute" as being OpenStack nodes
+
+### Security Updates
+
+#### ffi Gem
+
+- CVE-2018-1000201: DLL loading issue which can be hijacked on Windows OS
 
 ## What's New in 13.9.4
 
@@ -4444,12 +4442,9 @@ you'll see more updated to take advantage of this it in the future.
 
 ### Resource Documentation
 
-You can now include documentation that describes how a resource is to be
-used. Expect this data to be consumed by Chef and other tooling in
-future releases.
+You can now include documentation that describes how a resource is to be used. Expect this data to be consumed by Chef and other tooling in future releases.
 
-A resource which includes description and introduced values in the
-resource, actions, and properties:
+A resource which includes description and introduced values in the resource, actions, and properties:
 
 ```ruby
 description 'The apparmor_policy resource is used to add or remove policy files from a cookbook file'
@@ -4469,21 +4464,19 @@ description 'The apparmor_policy resource is used to add or remove policy files 
 
 ### Ohai Release Notes 13.9
 
--   Fix uptime parsing on AIX
--   Fix Softlayer cloud detection
--   Use the current Azure metadata endpoint
--   Correctly detect macOS guests on VMware and VirtualBox
--   Please see the CHANGELOG for the complete list of changes.
+- Fix uptime parsing on AIX
+- Fix Softlayer cloud detection
+- Use the current Azure metadata endpoint
+- Correctly detect macOS guests on VMware and VirtualBox
+- Please see the [Ohai Changelog](https://github.com/chef/ohai/blob/master/CHANGELOG.md) for the complete list of changes.
 
 ## What's New in 13.8.5
 
 This is a small bug fix release to resolve two issues we found in the
 13.8 release:
 
--   chef-client run failures due to a failure in a newer version of the
-    FFI gem on RHEL 6.x and 7.x
--   knife failures when running `knife cookbook site install` to install
-    a deprecated cookbook that has no replacement
+- chef-client run failures due to a failure in a newer version of the FFI gem on RHEL 6.x and 7.x
+- knife failures when running `knife cookbook site install` to install a deprecated cookbook that has no replacement
 
 ## What's New in 13.8.3
 
@@ -5738,26 +5731,17 @@ resource couldn't identify key fingerprints when gnupg 2.1.x was used.
 
 ## What's New in 12.19
 
-The following items are new for chef-client 12.19 and/or are changes
-from previous versions. The short version:
+### Highlighted enhancements for this release:
 
--   **Systemd unit files are now verified before being installed.**
--   **Added support for windows alternate user identity in execute
-    resources.**
--   **Added ed25519 key support for ssh connections.**
+- Systemd unit files are now verified before being installed.
+- Added support for windows alternate user identity in execute resources.
+- Added ed25519 key support for for ssh connections.
 
 ### Windows alternate user identity execute support
 
-The `execute` resource and similar resources such as `script`, `batch`,
-and `powershell_script` now support the specification of credentials on
-Windows so that the resulting process is created with the security
-identity that corresponds to those credentials.
+The `execute` resource and similar resources such as `script`, `batch`, and `powershell_script` now support the specification of credentials on Windows so that the resulting process is created with the security identity that corresponds to those credentials.
 
-**Note**: When Chef is running as a service, this feature requires that
-the user that Chef runs as has 'SeAssignPrimaryTokenPrivilege' (aka
-'SE_ASSIGNPRIMARYTOKEN_NAME') user right. By default only LocalSystem
-and NetworkService have this right when running as a service. This is
-necessary even if the user is an Administrator.
+**Note**: When Chef is running as a service, this feature requires that the user that Chef runs as has 'SeAssignPrimaryTokenPrivilege' (aka 'SE_ASSIGNPRIMARYTOKEN_NAME') user right. By default only LocalSystem and NetworkService have this right when running as a service. This is necessary even if the user is an Administrator.
 
 This right can be added and checked in a recipe using this example:
 
