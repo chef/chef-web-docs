@@ -4302,12 +4302,12 @@ Ruby has been updated to from 2.4.4 to 2.4.5 to resolve multiple CVEs as well as
 
 ## What's New in 13.11
 
-#### Sensitive Properties on Windows
+### Sensitive Properties on Windows
 
 - `windows_service` no longer logs potentially sensitive information when a service is setup
 - `windows_package` now respects the `sensitive` property to avoid logging sensitive data in the event of a package installation failure
 
-#### Other Fixes
+### Other Fixes
 
 - `remote_directory` now properly loads files in the root of a cookbook's `files` directory
 - `osx_profile` now uses the full path the profiles CLI tool to avoid running other binaries of the same name in a users path
@@ -4418,14 +4418,10 @@ were introduced in Chef 14.
 
 ## What's New in 13.9
 
--   On Windows, the installer now correctly re-extracts files during
-    repair mode
--   The [mount](/resources/mount/) resource will now not create
-    duplicate entries when the device type differs
--   Ensure we don't request every remote file when running with lazy
-    loading enabled
--   Don't crash when getting the access rights for Windows system
-    accounts
+- On Windows, the installer now correctly re-extracts files during repair mode
+- The mount resource will now not create duplicate entries when the device type differs
+- Ensure we don't request every remote file when running with lazy loading enabled
+- Don't crash when getting the access rights for Windows system accounts
 
 ### Custom Resource Improvements
 
