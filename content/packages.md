@@ -86,6 +86,7 @@ To set up an Apt package repository for Debian and Ubuntu platforms:
     -   For Debian 10: `buster`
     -   For Ubuntu 16.04: `xenial`
     -   For Ubuntu 18.04: `bionic`
+    -   For Ubuntu 20.04: `focal`
 
 4.  Update the package repository list:
 
