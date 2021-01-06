@@ -304,15 +304,29 @@ confused with the modern [Chef Compliance offering](/compliance/).
 <td>August 31, 2019</td>
 </tr>
 <tr class="even">
+<td>Chef Push Jobs</td>
+<td>All</td>
+<td>EOL</td>
+<td>December 31, 2020</td>
+</tr>
+<tr class="odd">
 <td>Chef Replication/Sync</td>
 <td>All</td>
 <td>EOL</td>
 <td>August 31, 2019</td>
 </tr>
-<tr class="odd"><td>Chef Server DRBD HA</td>
+<tr class="even">
+<td>Chef Server DRBD HA</td>
 <td>All</td>
 <td>EOL</td>
 <td>March 31, 2019</td>
+</tr>
+</tbody>
+<tr class="odd">
+<td>Chef Workflow (Delivery)</td>
+<td>All</td>
+<td>EOL</td>
+<td>December 31, 2020</td>
 </tr>
 </tbody>
 <tr class="even">
