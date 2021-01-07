@@ -4640,67 +4640,162 @@ Debug logs will show the length of time each plugin takes to run, making debuggi
 
 ## What's New in 13.4.24
 
+### Security
+
 This release includes Ruby 2.4.2 to fix the following CVEs:
 
--   [CVE-2017-0898](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-0898)
--   [CVE-2017-10784](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CxVE-2017-10784)
--   CVE-2017-14033
--   [CVE-2017-14064](https://nvd.nist.gov/vuln/detail/CVE-2017-14064)
-
-It contains no other changes from version 13.4.19.
-
-{{< note >}}
-
-Due to issues beyond our control, this release is only built for Linux
-(on x86, x86_64 and s390x), FreeBSD, and Windows. We'll release a new
-build with support for our other platforms (AIX, Solaris, and macOS) as
-soon as possible.
-
-{{< /note >}}
+- [CVE-2017-0898](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-0898)
+- [CVE-2017-10784](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-10784)
+- [CVE-2017-14033](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-14033)
+- [CVE-2017-14064](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-14064)
 
 ## What's New in 13.4.19
 
--   **Security release of RubyGems** RubyGems has been upgraded to
-    2.6.13 to address the following:
-    -   [CVE-2017-0899](https://nvd.nist.gov/vuln/detail/CVE-2017-0899)
-    -   [CVE-2017-0900](https://nvd.nist.gov/vuln/detail/CVE-2017-0900)
-    -   [CVE-2017-0901](https://nvd.nist.gov/vuln/detail/CVE-2017-0901)
-    -   [CVE-2017-0902](https://nvd.nist.gov/vuln/detail/CVE-2017-0902)
--   **Additional ifconfig options on RHEL and CentOS** The
-    `ethtool_opts`, `bonding_opts`, `master`, and `slave` properties
-    have been added. See the [ifconfig resource
-    documentation](/resources/ifconfig/) for additional details.
--   **Chef vault now included by default** Chef client 13.4 includes the
-    `chef-vault` gem, so users can more easily work with encrypted
-    items.
--   **Windows remote_file resource now supports alternative
-    credentials** The `remote_user`, `remote_domain`, and
-    `remote_password` options have been added to allow access to a file
-    even if the Chef client process identity does not have permission to
-    access it. This is mainly intended to be used for accessing files
-    between two nodes on different domains. See the [remote_file
-    documentation](/resources/remote_file/) for more information.
--   **New windows_path resource** `windows_path` has been moved from
-    the Windows cookbook to core Chef. The `windows_path` resource is
-    used to manage the path environment variable on Windows. See the
-    [windows_path documentation](/resources/windows_path/) for
-    additional details.
+### Security release of RubyGems
+
+Chef Client 13.4 includes RubyGems 2.6.13 to fix the following CVEs:
+
+- [CVE-2017-0899](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-0899)
+- [CVE-2017-0900](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-0900)
+- [CVE-2017-0901](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-0901)
+- [CVE-2017-0902](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-0902)
+
+### Ifconfig provider on Red Hat now supports additional properties
+
+It is now possible to set `ETHTOOL_OPTS`, `BONDING_OPTS`, `MASTER` and `SLAVE` properties on interfaces on Red Hat compatible systems. See <https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Deployment_Guide/s1-networkscripts-interfaces.html> for further information
+
+#### Properties
+
+- `ethtool_opts`<br>
+  **Ruby types:** String<br>
+  **Platforms:*- Fedora, RHEL, Amazon Linux A string containing arguments to ethtool. The string will be wrapped in double quotes, so ensure that any needed quotes in the property are surrounded by single quotes
+
+- `bonding_opts`<br>
+  **Ruby types:** String<br>
+  **Platforms:*- Fedora, RHEL, Amazon Linux A string containing configuration parameters for the bonding device.
+
+- `master`<br>
+  **Ruby types:** String<br>
+  **Platforms:*- Fedora, RHEL, Amazon Linux The channel bonding interface that this interface is linked to.
+
+- `slave`<br>
+  **Ruby types:** String<br>
+  **Platforms:*- Fedora, RHEL, Amazon Linux Whether the interface is controlled by the channel bonding interface defined by `master`, above.
+
+### Chef Vault is now included
+
+Chef Client 13.4 now includes the `chef-vault` gem, making it easier for users of chef-vault to use their encrypted items.
+
+### Windows `remote_file` resource with alternate credentials
+
+The `remote_file` resource now supports the use of credentials on Windows when accessing a remote UNC path on Windows such as `\\myserver\myshare\mydirectory\myfile.txt`. This allows access to the file at that path location even if the Chef client process identity does not have permission to access the file. The new properties `remote_user`, `remote_domain`, and `remote_password` may be used to specify credentials with access to the remote file so that it may be read.
+
+**Note**: This feature is mainly used for accessing files between two nodes in different domains and having different user accounts. In case the two nodes are in same domain, `remote_file` resource does not need `remote_user` and `remote_password` specified because the user has the same access on both systems through the domain.
+
+#### Properties
+
+The following properties are new for the `remote_file` resource:
+
+- `remote_user`<br>
+  **Ruby types:** String<br>
+  _Windows only:_ The user name of a user with access to the remote file specified by the `source` property. Default value: `nil`. The user name may optionally be specified with a domain, i.e. `domain\user` or `user@my.dns.domain.com` via Universal Principal Name (UPN) format. It can also be specified without a domain simply as `user` if the domain is instead specified using the `remote_domain` attribute. Note that this property is ignored if `source` is not a UNC path. If this property is specified, the `remote_password` property **must*- be specified.
+
+- `remote_password`<br>
+  **Ruby types*- String<br>
+  _Windows only:_ The password of the user specified by the `remote_user` property. Default value: `nil`. This property is mandatory if `remote_user` is specified and may only be specified if `remote_user` is specified. The `sensitive` property for this resource will automatically be set to `true` if `remote_password` is specified.
+
+- `remote_domain`<br>
+  **Ruby types*- String<br>
+  _Windows only:_ The domain of the user user specified by the `remote_user` property. Default value: `nil`. If not specified, the user and password properties specified by the `remote_user` and `remote_password` properties will be used to authenticate that user against the domain in which the system hosting the UNC path specified via `source` is joined, or if that system is not joined to a domain it will authenticate the user as a local account on that system. An alternative way to specify the domain is to leave this property unspecified and specify the domain as part of the `remote_user` property.
+
+#### Examples
+
+Accessing file from a (different) domain account
+
+```ruby
+remote_file "E://domain_test.txt"  do
+  source  "\\\\myserver\\myshare\\mydirectory\\myfile.txt"
+  remote_domain "domain"
+  remote_user "username"
+  remote_password "password"
+end
+```
+
+OR
+
+```ruby
+remote_file "E://domain_test.txt"  do
+  source  "\\\\myserver\\myshare\\mydirectory\\myfile.txt"
+  remote_user "domain\\username"
+  remote_password "password"
+end
+```
+
+Accessing file using a local account on the remote machine
+
+```ruby
+remote_file "E://domain_test.txt"  do
+  source  "\\\\myserver\\myshare\\mydirectory\\myfile.txt"
+  remote_domain "."
+  remote_user "username"
+  remote_password "password"
+end
+```
+
+OR
+
+```ruby
+remote_file "E://domain_test.txt"  do
+  source  "\\\\myserver\\myshare\\mydirectory\\myfile.txt"
+  remote_user ".\\username"
+  remote_password "password"
+end
+```
+
+### windows_path resource
+
+`windows_path` resource has been moved to core chef from windows cookbook. Use the `windows_path` resource to manage the path environment variable on Microsoft Windows.
+
+#### Actions
+
+- `:add` - Add an item to the system path
+- `:remove` - Remove an item from the system path
+
+#### Properties
+
+- `path` - Name attribute. The name of the value to add to the system path
+
+#### Examples
+
+Add Sysinternals to the system path
+
+```ruby
+windows_path 'C:\Sysinternals' do
+  action :add
+end
+```
+
+Remove 7-Zip from the system path
+
+```ruby
+windows_path 'C:\7-Zip' do
+  action :remove
+end
+```
 
 ### Ohai 13.4
 
--   **Windows EC2 Detection** Detection of nodes running in EC2 has been
-    greatly improved, and Ohai should now detect nodes 100% of the time,
-    including nodes that have been migrated to EC2 or were built with
-    custom AMIs.
+#### Windows EC2 Detection
 
--   **Package plugin supports Arch Linux** The Package plugin has been
-    updated to include package information on Arch Linux systems.
+Detection of nodes running in EC2 has been greatly improved and should now detect nodes 100% of the time including nodes that have been migrated to EC2 or were built with custom AMIs.
 
--   **Azure Metadata Endpoint Detection** Ohai now polls the new Azure
-    metadata endpoint, providing additional configuration details on
-    nodes running in Azure. Sample data now available under Azure:
+#### Azure Metadata Endpoint Detection
 
-    ```none
+Ohai now polls the new Azure metadata endpoint, giving us additional configuration details on nodes running in Azure
+
+Sample data now available under azure:
+
+```javascript
     {
       "metadata": {
         "compute": {
@@ -4757,26 +4852,25 @@ soon as possible.
     }
     ```
 
+#### Package Plugin Supports Arch Linux
+
+The Packages plugin has been updated to include package information on Arch Linux systems.
+
 ## What's New in 13.3
 
--   **Unprivileged symlink creation on Windows** Chef can now create
-    symlinks without privilege escalation, which allows for the creation
-    of symlinks on Windows 10 Creator Update.
+### Unprivileged Symlink Creation on Windows
 
--   **nokogiri Gem** The nokogiri gem is once again bundled with the
-    omnibus install of Chef.
+Chef can now create symlinks without privilege escalation, which allows for the creation of symlinks on Windows 10 Creator Update.
 
--   **New resources** This release introduces the
-    [apt_preference](/resources/apt_preference/) and
-    [zypper_repository](/resources/zypper_repository/) resources.
+### nokogiri Gem
 
--   **windows_task Improvements** The `windows_task` resource now
-    allows updating the configuration of a scheduled task when using the
-    `:create` action. The `:change` action from the windows cookbook has
-    been aliased to `:create` to provide backward compatibility.
+The nokogiri gem is once again bundled with the omnibus install of Chef
 
--   **zypper_package Options** It is now possible to pass additional
-    options to Zypper in the `zypper_package` resource. For example:
+### zypper_package Options
+
+It is now possible to pass additional options to the zypper in the zypper_package resource. This can be used to pass any zypper CLI option
+
+#### Example:
 
     ```ruby
     zypper_package 'foo' do
