@@ -4622,29 +4622,21 @@ The Packages plugin now supports gathering packages data on Amazon Linux
 
 In Ohai 13 we replaced the filesystem and cloud plugins with the filesystem2 and cloud_v2 plugins. To maintain compatibility with users of the previous V2 plugins we write data to both locations. We had originally planned to continue writing data to both locations until Chef Infra Client 15. Instead due to the large amount of duplicate node data this introduces we are updating OHAI-11 and OHAI-12 deprecations to remove node['cloud_v2'] and node['filesystem2'] with the release of Chef 14 in April 2018.
 
-## What's New in 13.5.3
+## What's New in 13.5
 
--   **The mount resource's password property is now marked as
-    sensitive** Passwords passed to mount won't show up in logs.
--   **The windows_task resource now correctly handles start_day**
-    Previously, the resource would accept any date that was formatted
-    correctly in the local locale, unlike the Windows cookbook and
-    Windows itself. We now support only the MM/DD/YYYY format, in
-    keeping with the Windows cookbook.
+- **The mount resource's password property is now marked as **sensitive** Passwords passed to mount won't show up in logs.
+- **The windows_task resource now correctly handles start_day** Previously, the resource would accept any date that was formatted correctly in the local locale, unlike the Windows cookbook and Windows itself. We now support only the MM/DD/YYYY format, in keeping with the Windows cookbook.
 -   **InSpec updated to 1.39.1**
-
-See the detailed [change
-log](https://github.com/chef/chef/blob/master/CHANGELOG.md#v1353-2017-10-03)
-for additional information.
 
 ### Ohai 13.5
 
--   **Correctly detect IPv6 routes ending in ::** Previously, Ohai would
-    ignore routes that ended with `::`, but now they can be detected
-    properly.
--   **Plugin run time is now measured** Debug logs will show the length
-    of time each plugin takes to run, which makes it easier to debug
-    long Ohai runs.
+### Correctly detect IPv6 routes ending in ::
+
+Previously we would ignore routes that ended `::`, and now we properly detect them.
+
+### Plugin run time is now measured
+
+Debug logs will show the length of time each plugin takes to run, making debugging of long ohai runs easier.
 
 ## What's New in 13.4.24
 
