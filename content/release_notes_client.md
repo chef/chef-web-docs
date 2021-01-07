@@ -4373,12 +4373,12 @@ The Filesystem2 functionality has been backported to BSD systems to provide a co
 
 #### Ruby updated to 2.4.4
 
-- CVE-2017-17742: HTTP response splitting in WEBrick
-- CVE-2018-6914: Unintentional file and directory creation with directory traversal in tempfile and tmpdir
-- CVE-2018-8777: DoS by large request in WEBrick
-- CVE-2018-8778: Buffer under-read in String#unpack
-- CVE-2018-8779: Unintentional socket creation by poisoned NUL byte in UNIXServer and UNIXSocket
-- CVE-2018-8780: Unintentional directory traversal by poisoned NUL byte in Dir
+- [CVE-2017-17742](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-17742/): HTTP response splitting in WEBrick
+- [CVE-2018-6914](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-6914/): Unintentional file and directory creation with directory traversal in tempfile and tmpdir
+- [CVE-2018-8777](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-8777/): DoS by large request in WEBrick
+- [CVE-2018-8778](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-8778/): Buffer under-read in String#unpack
+- [CVE-2018-8779](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-8779/): Unintentional socket creation by poisoned NUL byte in UNIXServer and UNIXSocket
+- [CVE-2018-8780](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-8780/): Unintentional directory traversal by poisoned NUL byte in Dir
 - Multiple vulnerabilities in RubyGems
 
 #### Nokogiri updated to 1.8.2
