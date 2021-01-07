@@ -4567,98 +4567,60 @@ The mdadm plugin has been updated to properly handle arrays with more than 10 di
 
 ## What's New in 13.6.4
 
--   **Resolved Debian / Ubuntu regression**
+### Bugfixes
 
-    This release resolves a regression in 13.6.0 that prevented the
-    upgrading of packages on Debian or Ubuntu when the package name
-    contained a tilde (`~`).
+- Resolved a regression in 13.6.0 that prevented upgrading packages on Debian/Ubuntu when the package name contained a tilde.
 
--   **Security Updates**
+### Security Updates
 
-    -   OpenSSL has been upgraded to 1.0.2m to resolve
-        [CVE-2017-3735](https://nvd.nist.gov/vuln/detail/CVE-2017-3735)
-        and
-        [CVE-2017-3736](https://nvd.nist.gov/vuln/detail/CVE-2017-3736)
-    -   RubyGems has been upgraded to 2.6.14 to resolve
-        [CVE-2017-0903](https://nvd.nist.gov/vuln/detail/CVE-2017-0903)
-
-See the full [change
-log](https://github.com/chef/chef/blob/master/CHANGELOG.md#v1364-2017-11-06)
-for additional details.
+- OpenSSL has been upgraded to 1.0.2m to resolve [CVE-2017-3735](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-3735) and [CVE-2017-3736](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-3736)
+- RubyGems has been upgraded to 2.6.14 to resolve [CVE-2017-0903](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-0903)
 
 ## What's New in 13.6.0
 
--   **The deploy resource is deprecated**
+### `deploy` Resource Is Deprecated
 
-    The `deploy` and `deploy_revision` resources have been deprecated,
-    to be removed in Chef 14. This is being done because this resource
-    is considered overcomplicated and error-prone in the modern Chef
-    ecosystem. A compatibility cookbook will be available to help users
-    migrate during the Chef 14 release cycle. See the [deprecation
-    documentation](/deprecations_deploy_resource/)
-    for more information.
+The `deploy` resource (and its alter ego `deploy_revision`) have been deprecated, to be removed in Chef 14. This is being done because this resource is considered overcomplicated and error-prone in the modern Chef ecosystem. A compatibility cookbook will be available to help users migrate during the Chef 14 release cycle. See [the deprecation documentation](https://docs.chef.io/deprecations_deploy_resource) for more information.
 
--   **zypper_package supports package downgrades**
+### zypper_package supports package downgrades
 
-    `zypper_package` now supports downgrading installed packages with
-    the `allow_downgrade` property.
+`zypper_package` now supports downgrading installed packages with the `allow_downgrade` property.
 
--   **InSpec has been updated to 1.42.3**
+### InSpec updated to 1.42.3
 
--   **Reserve certain Data Bag names**
+### Reserve certain Data Bag names
 
-    It's no longer possible to create data bags named `node`, `role`,
-    `client`, or `environment`. Existing data bags will continue to work
-    as they did previously.
+It's no longer possible to create data bags named `node`, `role`, `client`, or `environment`. Existing data bags will continue to work as before.
 
--   **Properly use YUM on RHEL and CentOS 7**
+### Properly use yum on RHEL 7
 
-    On systems with both DNF and YUM installed, there were instances
-    where the `yum` provider would choose to run `dnf` instead. It now
-    only runs `yum`.
+If both dnf and yum were installed, in some circumstances the yum provider might choose to run dnf, which is not what we intended it to do. It now properly runs yum, all the time.
 
 ### Ohai 13.6
 
--   **Critical Plugins**
+#### Critical Plugins
 
-    Users can now specify a list of plugins which are `critical`.
-    Critical plugins will cause Ohai to fail if they do not run
-    successfully, and thus cause a Chef run using Ohai to fail. The
-    syntax for this is:
+Users can now specify a list of plugins which are `critical`. Critical plugins will cause Ohai to fail if they do not run successfully (and thus cause a Chef run using Ohai to fail). The syntax for this is:
 
-    ```ruby
-    ohai.critical_plugins << :Filesystem
-    ```
+```ruby
+ohai.critical_plugins << :Filesystem
+```
 
--   **Filesystem now has an \`allow_partial_data\` configuration
-    option**
+#### Filesystem now has a `allow_partial_data` configuration option
 
-    The Filesystem plugin now has an `allow_partial_data` configuration
-    option. When set, the filesystem will return whatever data it can,
-    even if some of its attempted commands fail to execute.
+The Filesystem plugin now has a `allow_partial_data` configuration option. If set, the filesystem will return whatever data it can even if some commands it ran failed.
 
--   **Rackspace detection on Windows**
+#### Rackspace detection on Windows
 
-    Windows nodes running on Rackspace will now properly detect
-    themselves as running on Rackspace, without a hint file.
+Windows nodes running on Rackspace will now properly detect themselves as running on Rackspace without a hint file.
 
--   **Package data on Amazon Linux**
+#### Package data on Amazon Linux
 
-    The Packages plugin now supports gathering package data on Amazon
-    Linux
+The Packages plugin now supports gathering packages data on Amazon Linux
 
-#### Deprecation Updates
+#### Deprecation updates
 
-In Ohai 13 we replaced the `filesystem` and `cloud` plugins with the
-`filesystem2` and `cloud_v2` plugins. In order to maintain compatibility
-with users of the previous V2 plugins, we write data to both locations.
-We had originally planned to continue writing data to both locations
-until Chef 15. Instead, due to the large amount of duplicate node data
-this introduces, we are updating the
-[OHAI-11](/deprecations_ohai_cloud_v2/) and
-[OHAI-12](/deprecations_ohai_filesystem_v2/) deprecations to remove
-`node['cloud_v2']` and `node['filesystem2']` with the release of Chef 14
-in April 2018.
+In Ohai 13 we replaced the filesystem and cloud plugins with the filesystem2 and cloud_v2 plugins. To maintain compatibility with users of the previous V2 plugins we write data to both locations. We had originally planned to continue writing data to both locations until Chef Infra Client 15. Instead due to the large amount of duplicate node data this introduces we are updating OHAI-11 and OHAI-12 deprecations to remove node['cloud_v2'] and node['filesystem2'] with the release of Chef 14 in April 2018.
 
 ## What's New in 13.5.3
 
