@@ -4858,19 +4858,19 @@ The Packages plugin has been updated to include package information on Arch Linu
 
 ## What's New in 13.3
 
-## Unprivileged Symlink Creation on Windows
+### Unprivileged Symlink Creation on Windows
 
 Chef can now create symlinks without privilege escalation, which allows for the creation of symlinks on Windows 10 Creator Update.
 
-## nokogiri Gem
+### nokogiri Gem
 
 The nokogiri gem is once again bundled with the omnibus install of Chef
 
-## zypper_package Options
+### zypper_package Options
 
 It is now possible to pass additional options to the zypper in the zypper_package resource. This can be used to pass any zypper CLI option
 
-### Example:
+#### Example:
 
     ```ruby
     zypper_package 'foo' do
