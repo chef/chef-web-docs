@@ -44,8 +44,7 @@ default_attributes({ 'apache' => {'dir' => '/etc/apache2'}})
 **Normal attribute set as a cookbook attribute**
 
 ```ruby
-set['apache']['dir'] = '/etc/apache2'
-normal['apache']['dir'] = '/etc/apache2'  #set is an alias of normal.
+normal['apache']['dir'] = '/etc/apache2'
 ```
 
 **Normal attribute set in a recipe**
