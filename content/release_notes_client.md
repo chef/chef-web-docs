@@ -4878,39 +4878,170 @@ It is now possible to pass additional options to the zypper in the zypper_packag
     end
     ```
 
--   **Ohai support for F5 Big-IP** Ohai now detects the [F5
-    Big-IP](https://www.f5.com/) platform and platform_version:
+### windows_task Improvements
 
-    -   platform: bigip
-    -   platform_family: rhel
+The `windows_task` resource now properly allows updating the configuration of a scheduled task when using the `:create` action. Additionally the previous `:change` action from the windows cookbook has been aliased to `:create` to provide backwards compatibility.
+
+### apt_preference Resource
+
+The apt_preference resource has been ported from the apt cookbook. This resource allows for the creation of APT preference files controlling which packages take priority during installation.
+
+Further information regarding apt-pinning is available via <https://wiki.debian.org/AptPreferences> and <https://manpages.debian.org/stretch/apt/apt_preferences.5.en.html>
+
+#### Actions
+
+- `:add`: creates a preferences file under /etc/apt/preferences.d
+- `:remove`: Removes the file, therefore unpin the package
+
+#### Properties
+
+- `package_name`: name attribute. The name of the package
+- `glob`: Pin by glob() expression or regexp surrounded by /.
+- `pin`: The package version/repository to pin
+- `pin_priority`: The pinning priority aka "the highest package version wins"
+
+#### Examples
+
+Pin libmysqlclient16 to version 5.1.49-3:
+
+```ruby
+apt_preference 'libmysqlclient16' do
+  pin          'version 5.1.49-3'
+  pin_priority '700'
+end
+```
+
+Unpin libmysqlclient16:
+
+```ruby
+apt_preference 'libmysqlclient16' do
+  action :remove
+end
+```
+
+Pin all packages from dotdeb.org:
+
+```ruby
+apt_preference 'dotdeb' do
+  glob         '*'
+  pin          'origin packages.dotdeb.org'
+  pin_priority '700'
+end
+```
+
+### zypper_repository Resource
+
+The zypper_repository resource allows for the creation of Zypper package repositories on SUSE Enterprise Linux and openSUSE systems. This resource maintains full compatibility with the resource in the existing [zypper](https://supermarket.chef.io/cookbooks/zypper) cookbooks
+
+#### Actions
+
+- `:add` - adds a repo
+- `:delete` - removes a repo
+
+#### Properties
+
+- `repo_name` - repository name if different from the resource name (name property)
+- `type` - the repository type. default: 'NONE'
+- `description` - the description of the repo that will be shown in `zypper repos`
+- `baseurl` - the base url of the repo
+- `path` - the relative path from the `baseurl`
+- `mirrorlist` - the url to the mirrorlist to use
+- `gpgcheck` - should we gpg check the repo (true/false). default: true
+- `gpgkey` - location of repo key to import
+- `priority` - priority of the repo. default: 99
+- `autorefresh` - should the repository be automatically refreshed (true/false). default: true
+- `keeppackages` - should packages be saved (true/false). default: false
+- `refresh_cache` - should package cache be refreshed (true/false). default: true
+- `enabled` - should this repository be enabled (true/false). default: true
+- `mode` - the file mode of the repository file. default: "0644"
+
+#### Examples
+
+Add the Apache repository for openSUSE Leap 42.2
+
+```ruby
+zypper_repository 'apache' do
+  baseurl 'http://download.opensuse.org/repositories/Apache'
+  path '/openSUSE_Leap_42.2'
+  type 'rpm-md'
+  priority '100'
+end
+```
+
+### Ohai 13.3
+
+#### Additional Platform Support
+
+Ohai now properly detects the [F5 Big-IP](https://www.f5.com/) platform and platform_version.
+
+- platform: bigip
+- platform_family: rhel
 
 ## What's New in 13.2
 
--   **Properly send PolicyFile data** When sending events back to the
-    Chef Server, Chef client now correctly expands the run_list for
-    nodes that use PolicyFiles. This allows Automate to correctly report
-    the node.
+### Properly send policyfile data
 
--   **Reconfigure between runs when daemonized** When Chef performs a
-    reconfigure, it rereads the configuration files. It also reopens its
-    log files, which facilitates log file rotation.
+When sending events back to the Chef Server, we now correctly expand the run_list for nodes that use Policyfiles. This allows Automate to correctly report the node.
 
-    Normally, Chef will reconfigure when sent a HUP signal. As of this
-    release, if you send a HUP signal while it is converging, the
-    reconfigure happens at the end of the run. This is avoids the
-    potential Ruby issues that occur when the configuration file
-    contains additional Ruby code that is executed. While the daemon is
-    sleeping between runs, sending a SIGHUP will still cause an
-    immediate reconfigure.
+### Reconfigure between runs when daemonized
 
-    When daemonized, Chef now performs a reconfigure after every run.
+When Chef performs a reconfigure, it re-reads the configuration files. It also re-opens its log files, which facilitates log file rotation.
+
+Chef normally will reconfigure when sent a HUP signal. As of this release if you send a HUP signal while it is converging, the reconfigure happens at the end of the run. This is avoids potential Ruby issues when the configuration file contains additional Ruby code that is executed. While the daemon is sleeping between runs, sending a SIGHUP will still cause an immediate reconfigure.
+
+Additionally, Chef now always performs a reconfigure after every run when daemonized.
 
 ### New deprecations
 
--   [Explicit property methods](/deprecations_namespace_collisions/)
-    In Chef 14, custom resources will no longer assume property methods
-    are being called on `new_resource`, and will instead require the
-    resource author to be explicit.
+### Explicit property methods
+
+<https://docs.chef.io/deprecations_namespace_collisions>
+
+In Chef 14, custom resources will no longer assume property methods are being called on `new_resource`, and instead require the resource author to be explicit.
+
+### Ohai 13.2
+
+Ohai 13.2 has been a fantastic release in terms of community involvement with new plugins, platform support, and critical bug fixes coming from community members. A huge thank you to msgarbossa, albertomurillo, jaymzh, and davide125 for their work.
+
+#### New Features
+
+##### Systemd Paths Plugin
+
+A new plugin has been added to expose system and user paths from systemd-path (see <https://www.freedesktop.org/software/systemd/man/systemd-path.html> for details).
+
+##### Linux Network, Filesystem, and Mdadm Plugin Resilience
+
+The Network, Filesystem, and Mdadm plugins have been improved to greatly reduce failures to collect data. The Network plugin now better finds the binaries it requires for shelling out, filesystem plugin utilizes data from multiple sources, and mdadm handles arrays in bad states.
+
+##### Zpool Plugin Platform Expansion
+
+The Zpool plugin has been updated to support BSD and Linux in addition to Solaris.
+
+##### RPM version parsing on AIX
+
+The packages plugin now correctly parses RPM package name / version information on AIX systems.
+
+##### Additional Platform Support
+
+Ohai now properly detects the [Clear](https://clearlinux.org/) and [ClearOS](https://www.clearos.com/) Linux distributions.
+
+**Clear Linux**
+
+- platform: clearlinux
+- platform_family: clearlinux
+
+**ClearOS**
+
+- platform: clearos
+- platform_family: rhel
+
+#### New Deprecations
+
+##### Removal of IpScopes plugin. (OHAI-13)
+
+<https://docs.chef.io/deprecations_ohai_ipscopes>
+
+In Chef/Ohai 14 (April 2018) we will remove the IpScopes plugin. The data returned by this plugin is nearly identical to information already returned by individual network plugins and this plugin required the installation of an additional gem into the Chef installation. We believe that few users were installing the gem and users would be better served by the data returned from the network plugins.
 
 ## What's New in 13.0/13.1
 
