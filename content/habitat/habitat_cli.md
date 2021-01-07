@@ -1,30 +1,27 @@
 +++
-title = "hab CLI Reference"
+title = "Chef Habitat Command-Line Interface (CLI) Reference"
 draft= false
-
-aliases = ["/habitat/habitat-cli/"]
 
 [menu]
   [menu.habitat]
-    title = "hab CLI Reference"
-    identifier = "habitat/reference/habitat-cli CLI Reference"
+    title = "Habitat CLI Reference"
+    identifier = "habitat/reference/Habitat CLI Reference"
     parent = "habitat/reference"
     weight = 10
 +++
 
-[\[edit on GitHub\]](https://github.com/habitat-sh/habitat/blob/master/components/docs-chef-io/content/habitat/habitat_cli.md)
+<!-- This is a generated file, do not edit it directly. See https://github.com/habitat-sh/habitat/blob/master/.expeditor/scripts/finish_release/generate-cli-docs.js -->
 
-<!-- This is a generated file, do not edit it directly. See https://github.com/habitat-sh/habitat/blob/master/www/scripts/generate-cli-docs.js -->
-
-Chef Habitat Command-Line Interface (CLI) Reference
 
 The commands for the Chef Habitat CLI (`hab`) are listed below.
 
 | Applies to Version | Last Updated |
 | ------- | ------------ |
-| hab 1.6.175/20201026161911 (linux) | 28 Oct 2020 |
+| hab 1.6.235/20210105205801 (linux) | 5 Jan 2021 |
 
 ## hab
+
+
 
 **USAGE**
 
@@ -38,6 +35,8 @@ hab <SUBCOMMAND>
 -h, --help       Prints help information
 -V, --version    Prints version information
 ```
+
+
 
 **ALIASES**
 
@@ -55,20 +54,20 @@ term       Alias for: 'sup term'
 
 | Command | Description |
 | ------- | ----------- |
-| [hab bldr]({{< relref "#hab-bldr" >}}) | Commands relating to Habitat Builder |
-| [hab cli]({{< relref "#hab-cli" >}}) | Commands relating to Habitat runtime config |
-| [hab config]({{< relref "#hab-config" >}}) | Commands relating to a Service's runtime config |
-| [hab file]({{< relref "#hab-file" >}}) | Commands relating to Habitat files |
-| [hab license]({{< relref "#hab-license" >}}) | Commands relating to Habitat license agreements |
-| [hab origin]({{< relref "#hab-origin" >}}) | Commands relating to Habitat Builder origins |
-| [hab pkg]({{< relref "#hab-pkg" >}}) | Commands relating to Habitat packages |
-| [hab plan]({{< relref "#hab-plan" >}}) | Commands relating to plans and other app-specific configuration |
-| [hab ring]({{< relref "#hab-ring" >}}) | Commands relating to Habitat rings |
-| [hab studio]({{< relref "#hab-studio" >}}) | Commands relating to Habitat Studios |
-| [hab sup]({{< relref "#hab-sup" >}}) | The Habitat Supervisor |
-| [hab supportbundle]({{< relref "#hab-supportbundle" >}}) | Create a tarball of Habitat Supervisor data to send to support |
-| [hab svc]({{< relref "#hab-svc" >}}) | Commands relating to Habitat services |
-| [hab user]({{< relref "#hab-user" >}}) | Commands relating to Habitat users |
+| [hab bldr](#hab-bldr) | Commands relating to Habitat Builder |
+| [hab cli](#hab-cli) | Commands relating to Habitat runtime config |
+| [hab config](#hab-config) | Commands relating to a Service's runtime config |
+| [hab file](#hab-file) | Commands relating to Habitat files |
+| [hab license](#hab-license) | Commands relating to Habitat license agreements |
+| [hab origin](#hab-origin) | Commands relating to Habitat Builder origins |
+| [hab pkg](#hab-pkg) | Commands relating to Habitat packages |
+| [hab plan](#hab-plan) | Commands relating to plans and other app-specific configuration |
+| [hab ring](#hab-ring) | Commands relating to Habitat rings |
+| [hab studio](#hab-studio) | Commands relating to Habitat Studios |
+| [hab sup](#hab-sup) | The Habitat Supervisor |
+| [hab supportbundle](#hab-supportbundle) | Create a tarball of Habitat Supervisor data to send to support |
+| [hab svc](#hab-svc) | Commands relating to Habitat services |
+| [hab user](#hab-user) | Commands relating to Habitat users |
 ---
 
 ## hab bldr
@@ -88,12 +87,15 @@ hab bldr <SUBCOMMAND>
 -V, --version    Prints version information
 ```
 
+
+
+
 **SUBCOMMANDS**
 
 | Command | Description |
 | ------- | ----------- |
-| [hab bldr channel]({{< relref "#hab-bldr-channel" >}}) | Commands relating to Habitat Builder channels |
-| [hab bldr job]({{< relref "#hab-bldr-job" >}}) | Commands relating to Habitat Builder jobs |
+| [hab bldr channel](#hab-bldr-channel) | Commands relating to Habitat Builder channels |
+| [hab bldr job](#hab-bldr-job) | Commands relating to Habitat Builder jobs |
 ---
 
 ### hab bldr channel
@@ -113,15 +115,18 @@ hab bldr channel <SUBCOMMAND>
 -V, --version    Prints version information
 ```
 
+
+
+
 **SUBCOMMANDS**
 
 | Command | Description |
 | ------- | ----------- |
-| [hab bldr channel create]({{< relref "#hab-bldr-channel-create" >}}) | Creates a new channel |
-| [hab bldr channel demote]({{< relref "#hab-bldr-channel-demote" >}}) | Atomically demotes selected packages in a target channel |
-| [hab bldr channel destroy]({{< relref "#hab-bldr-channel-destroy" >}}) | Destroys a channel |
-| [hab bldr channel list]({{< relref "#hab-bldr-channel-list" >}}) | Lists origin channels |
-| [hab bldr channel promote]({{< relref "#hab-bldr-channel-promote" >}}) | Atomically promotes all packages in channel |
+| [hab bldr channel create](#hab-bldr-channel-create) | Creates a new channel |
+| [hab bldr channel demote](#hab-bldr-channel-demote) | Atomically demotes selected packages in a target channel |
+| [hab bldr channel destroy](#hab-bldr-channel-destroy) | Destroys a channel |
+| [hab bldr channel list](#hab-bldr-channel-list) | Lists origin channels |
+| [hab bldr channel promote](#hab-bldr-channel-promote) | Atomically promotes all packages in channel |
 ---
 
 ### hab bldr channel create
@@ -153,6 +158,10 @@ hab bldr channel create [OPTIONS] <CHANNEL>
 ```
 <CHANNEL>    The channel name
 ```
+
+
+
+---
 
 ### hab bldr channel demote
 
@@ -186,6 +195,10 @@ hab bldr channel demote [OPTIONS] <SOURCE_CHANNEL> <TARGET_CHANNEL> --origin <OR
 <TARGET_CHANNEL>    The channel selected packages will be removed from
 ```
 
+
+
+---
+
 ### hab bldr channel destroy
 
 Destroys a channel
@@ -216,6 +229,10 @@ hab bldr channel destroy [OPTIONS] <CHANNEL>
 <CHANNEL>    The channel name
 ```
 
+
+
+---
+
 ### hab bldr channel list
 
 Lists origin channels
@@ -242,8 +259,12 @@ hab bldr channel list [OPTIONS] [ORIGIN]
 **ARGS**
 
 ```
-<ORIGIN>    The origin for which channels will be listed. Default is from 'HAB_ORIGIN' or cli.
+<ORIGIN>    The origin for which channels will be listed. Default is from 'HAB_ORIGIN' or cli.toml
 ```
+
+
+
+---
 
 ### hab bldr channel promote
 
@@ -277,6 +298,10 @@ hab bldr channel promote [OPTIONS] <SOURCE_CHANNEL> <TARGET_CHANNEL> --origin <O
 <TARGET_CHANNEL>    The channel to which packages will be promoted
 ```
 
+
+
+---
+
 ### hab bldr job
 
 Commands relating to Habitat Builder jobs
@@ -294,15 +319,18 @@ hab bldr job <SUBCOMMAND>
 -V, --version    Prints version information
 ```
 
+
+
+
 **SUBCOMMANDS**
 
 | Command | Description |
 | ------- | ----------- |
-| [hab bldr job cancel]({{< relref "#hab-bldr-job-cancel" >}}) | Cancel a build job group and any in-progress builds |
-| [hab bldr job demote]({{< relref "#hab-bldr-job-demote" >}}) | Demote packages from a completed build job from a specified channel |
-| [hab bldr job promote]({{< relref "#hab-bldr-job-promote" >}}) | Promote packages from a completed build job to a specified channel |
-| [hab bldr job start]({{< relref "#hab-bldr-job-start" >}}) | Schedule a build job or group of jobs |
-| [hab bldr job status]({{< relref "#hab-bldr-job-status" >}}) | Get the status of one or more job groups |
+| [hab bldr job cancel](#hab-bldr-job-cancel) | Cancel a build job group and any in-progress builds |
+| [hab bldr job demote](#hab-bldr-job-demote) | Demote packages from a completed build job from a specified channel |
+| [hab bldr job promote](#hab-bldr-job-promote) | Promote packages from a completed build job to a specified channel |
+| [hab bldr job start](#hab-bldr-job-start) | Schedule a build job or group of jobs |
+| [hab bldr job status](#hab-bldr-job-status) | Get the status of one or more job groups |
 ---
 
 ### hab bldr job cancel
@@ -335,6 +363,10 @@ hab bldr job cancel [FLAGS] [OPTIONS] <GROUP_ID>
 ```
 <GROUP_ID>    The job group id that was returned from "hab bldr job start" (ex: 771100000000000000)
 ```
+
+
+
+---
 
 ### hab bldr job demote
 
@@ -369,6 +401,10 @@ hab bldr job demote [FLAGS] [OPTIONS] <GROUP_ID> <CHANNEL>
 <CHANNEL>     The name of the channel to demote from
 ```
 
+
+
+---
+
 ### hab bldr job promote
 
 Promote packages from a completed build job to a specified channel
@@ -402,6 +438,10 @@ hab bldr job promote [FLAGS] [OPTIONS] <GROUP_ID> <CHANNEL>
 <CHANNEL>     The target channel name
 ```
 
+
+
+---
+
 ### hab bldr job start
 
 Schedule a build job or group of jobs
@@ -433,6 +473,10 @@ hab bldr job start [FLAGS] [OPTIONS] <PKG_IDENT> [PKG_TARGET]
 <PKG_IDENT>     A package identifier (ex: core/redis, core/busybox-static/1.42.2)
 <PKG_TARGET>    A package target (ex: x86_64-windows) (default: system appropriate target) [env: HAB_PACKAGE_TARGET=]
 ```
+
+
+
+---
 
 ### hab bldr job status
 
@@ -466,6 +510,10 @@ hab bldr job status [FLAGS] [OPTIONS] <GROUP_ID|--origin <ORIGIN>>
 <GROUP_ID>    The job group id that was returned from "hab bldr job start" (ex: 771100000000000000)
 ```
 
+
+
+---
+
 ## hab cli
 
 Commands relating to Habitat runtime config
@@ -483,12 +531,15 @@ hab cli <SUBCOMMAND>
 -V, --version    Prints version information
 ```
 
+
+
+
 **SUBCOMMANDS**
 
 | Command | Description |
 | ------- | ----------- |
-| [hab cli completers]({{< relref "#hab-cli-completers" >}}) | Creates command-line completers for your shell |
-| [hab cli setup]({{< relref "#hab-cli-setup" >}}) | Sets up the CLI with reasonable defaults |
+| [hab cli completers](#hab-cli-completers) | Creates command-line completers for your shell |
+| [hab cli setup](#hab-cli-setup) | Sets up the CLI with reasonable defaults |
 ---
 
 ### hab cli completers
@@ -514,6 +565,11 @@ hab cli completers --shell <SHELL>
 -s, --shell <SHELL>    The name of the shell you want to generate the command-completion [possible values: Bash, Fish, Zsh, PowerShell]
 ```
 
+
+
+
+---
+
 ### hab cli setup
 
 Sets up the CLI with reasonable defaults
@@ -537,6 +593,11 @@ hab cli setup [OPTIONS]
 --cache-key-path <CACHE_KEY_PATH>    Cache for creating and searching for encryption keys [env: HAB_CACHE_KEY_PATH=]  [default: /hab/cache/keys]
 ```
 
+
+
+
+---
+
 ## hab config
 
 Commands relating to a Service's runtime config
@@ -554,12 +615,15 @@ hab config <SUBCOMMAND>
 -V, --version    Prints version information
 ```
 
+
+
+
 **SUBCOMMANDS**
 
 | Command | Description |
 | ------- | ----------- |
-| [hab config apply]({{< relref "#hab-config-apply" >}}) | Sets a configuration to be shared by members of a Service Group |
-| [hab config show]({{< relref "#hab-config-show" >}}) | Displays the default configuration options for a service |
+| [hab config apply](#hab-config-apply) | Sets a configuration to be shared by members of a Service Group |
+| [hab config show](#hab-config-show) | Displays the default configuration options for a service |
 ---
 
 ### hab config apply
@@ -595,6 +659,10 @@ hab config apply [OPTIONS] <SERVICE_GROUP> <VERSION_NUMBER> [FILE]
 <FILE>              Path to local file on disk (ex: /tmp/config.toml, default: <stdin>)
 ```
 
+
+
+---
+
 ### hab config show
 
 Displays the default configuration options for a service
@@ -624,6 +692,10 @@ hab config show [OPTIONS] <PKG_IDENT>
 <PKG_IDENT>    A package identifier (ex: core/redis, core/busybox-static/1.42.2)
 ```
 
+
+
+---
+
 ## hab file
 
 Commands relating to Habitat files
@@ -641,11 +713,14 @@ hab file <SUBCOMMAND>
 -V, --version    Prints version information
 ```
 
+
+
+
 **SUBCOMMANDS**
 
 | Command | Description |
 | ------- | ----------- |
-| [hab file upload]({{< relref "#hab-file-upload" >}}) | Uploads a file to be shared between members of a Service Group |
+| [hab file upload](#hab-file-upload) | Uploads a file to be shared between members of a Service Group |
 ---
 
 ### hab file upload
@@ -681,6 +756,10 @@ hab file upload [OPTIONS] <SERVICE_GROUP> <VERSION_NUMBER> <FILE>
 <FILE>              Path to local file on disk
 ```
 
+
+
+---
+
 ## hab license
 
 Commands relating to Habitat license agreements
@@ -698,11 +777,14 @@ hab license <SUBCOMMAND>
 -V, --version    Prints version information
 ```
 
+
+
+
 **SUBCOMMANDS**
 
 | Command | Description |
 | ------- | ----------- |
-| [hab license accept]({{< relref "#hab-license-accept" >}}) | Accept the Chef Binary Distribution Agreement without prompting |
+| [hab license accept](#hab-license-accept) | Accept the Chef Binary Distribution Agreement without prompting |
 ---
 
 ### hab license accept
@@ -722,6 +804,12 @@ hab license accept
 -V, --version    Prints version information
 ```
 
+
+
+
+
+---
+
 ## hab origin
 
 Commands relating to Habitat Builder origins
@@ -739,18 +827,22 @@ hab origin <SUBCOMMAND>
 -V, --version    Prints version information
 ```
 
+
+
+
 **SUBCOMMANDS**
 
 | Command | Description |
 | ------- | ----------- |
-| [hab origin create]({{< relref "#hab-origin-create" >}}) | Creates a new Builder origin |
-| [hab origin delete]({{< relref "#hab-origin-delete" >}}) | Removes an unused/empty origin |
-| [hab origin depart]({{< relref "#hab-origin-depart" >}}) | Departs membership from selected origin |
-| [hab origin info]({{< relref "#hab-origin-info" >}}) | Displays general information about an origin |
-| [hab origin invitations]({{< relref "#hab-origin-invitations" >}}) | Manage origin member invitations |
-| [hab origin key]({{< relref "#hab-origin-key" >}}) | Commands relating to Habitat origin key maintenance |
-| [hab origin secret]({{< relref "#hab-origin-secret" >}}) | Commands related to secret management |
-| [hab origin transfer]({{< relref "#hab-origin-transfer" >}}) | Transfers ownership of an origin to another member of that origin |
+| [hab origin create](#hab-origin-create) | Creates a new Builder origin |
+| [hab origin delete](#hab-origin-delete) | Removes an unused/empty origin |
+| [hab origin depart](#hab-origin-depart) | Departs membership from selected origin |
+| [hab origin info](#hab-origin-info) | Displays general information about an origin |
+| [hab origin invitations](#hab-origin-invitations) | Manage origin member invitations |
+| [hab origin key](#hab-origin-key) | Commands relating to Habitat origin key maintenance |
+| [hab origin rbac](#hab-origin-rbac) | Role Based Access Control for origin members |
+| [hab origin secret](#hab-origin-secret) | Commands related to secret management |
+| [hab origin transfer](#hab-origin-transfer) | Transfers ownership of an origin to another member of that origin |
 ---
 
 ### hab origin create
@@ -783,6 +875,10 @@ hab origin create [OPTIONS] <ORIGIN>
 <ORIGIN>    The origin to be created
 ```
 
+
+
+---
+
 ### hab origin delete
 
 Removes an unused/empty origin
@@ -813,6 +909,10 @@ hab origin delete [OPTIONS] <ORIGIN>
 <ORIGIN>    The origin name
 ```
 
+
+
+---
+
 ### hab origin depart
 
 Departs membership from selected origin
@@ -842,6 +942,10 @@ hab origin depart [OPTIONS] <ORIGIN>
 ```
 <ORIGIN>    The origin name
 ```
+
+
+
+---
 
 ### hab origin info
 
@@ -874,6 +978,10 @@ hab origin info [FLAGS] [OPTIONS] <ORIGIN>
 <ORIGIN>    The origin name to be queried
 ```
 
+
+
+---
+
 ### hab origin invitations
 
 Manage origin member invitations
@@ -891,16 +999,19 @@ hab origin invitations <SUBCOMMAND>
 -V, --version    Prints version information
 ```
 
+
+
+
 **SUBCOMMANDS**
 
 | Command | Description |
 | ------- | ----------- |
-| [hab origin invitations accept]({{< relref "#hab-origin-invitations-accept" >}}) | Accept an origin member invitation |
-| [hab origin invitations ignore]({{< relref "#hab-origin-invitations-ignore" >}}) | Ignore an origin member invitation |
-| [hab origin invitations list]({{< relref "#hab-origin-invitations-list" >}}) | List origin invitations sent to your account |
-| [hab origin invitations pending]({{< relref "#hab-origin-invitations-pending" >}}) | List pending invitations for a particular origin. Requires that you are the origin owner |
-| [hab origin invitations rescind]({{< relref "#hab-origin-invitations-rescind" >}}) | Rescind an existing origin member invitation |
-| [hab origin invitations send]({{< relref "#hab-origin-invitations-send" >}}) | Send an origin member invitation |
+| [hab origin invitations accept](#hab-origin-invitations-accept) | Accept an origin member invitation |
+| [hab origin invitations ignore](#hab-origin-invitations-ignore) | Ignore an origin member invitation |
+| [hab origin invitations list](#hab-origin-invitations-list) | List origin invitations sent to your account |
+| [hab origin invitations pending](#hab-origin-invitations-pending) | List pending invitations for a particular origin. Requires that you are the origin owner |
+| [hab origin invitations rescind](#hab-origin-invitations-rescind) | Rescind an existing origin member invitation |
+| [hab origin invitations send](#hab-origin-invitations-send) | Send an origin member invitation |
 ---
 
 ### hab origin invitations accept
@@ -934,6 +1045,10 @@ hab origin invitations accept [OPTIONS] <ORIGIN> <INVITATION_ID>
 <INVITATION_ID>    The id of the invitation to accept
 ```
 
+
+
+---
+
 ### hab origin invitations ignore
 
 Ignore an origin member invitation
@@ -965,6 +1080,10 @@ hab origin invitations ignore [OPTIONS] <ORIGIN> <INVITATION_ID>
 <INVITATION_ID>    The id of the invitation to ignore
 ```
 
+
+
+---
+
 ### hab origin invitations list
 
 List origin invitations sent to your account
@@ -988,6 +1107,11 @@ hab origin invitations list [OPTIONS]
 -z, --auth <AUTH_TOKEN>    Authentication token for Builder
 -u, --url <BLDR_URL>       Specify an alternate Builder endpoint. If not specified, the value will be taken from the HAB_BLDR_URL environment variable if defined. (default: https://bldr.habitat.sh)
 ```
+
+
+
+
+---
 
 ### hab origin invitations pending
 
@@ -1018,6 +1142,10 @@ hab origin invitations pending [OPTIONS] <ORIGIN>
 ```
 <ORIGIN>    The name of the origin you wish to list invitations for
 ```
+
+
+
+---
 
 ### hab origin invitations rescind
 
@@ -1050,6 +1178,10 @@ hab origin invitations rescind [OPTIONS] <ORIGIN> <INVITATION_ID>
 <INVITATION_ID>    The id of the invitation to rescind
 ```
 
+
+
+---
+
 ### hab origin invitations send
 
 Send an origin member invitation
@@ -1081,6 +1213,10 @@ hab origin invitations send [OPTIONS] <ORIGIN> <INVITEE_ACCOUNT>
 <INVITEE_ACCOUNT>    The account name to invite into the origin
 ```
 
+
+
+---
+
 ### hab origin key
 
 Commands relating to Habitat origin key maintenance
@@ -1098,15 +1234,18 @@ hab origin key <SUBCOMMAND>
 -V, --version    Prints version information
 ```
 
+
+
+
 **SUBCOMMANDS**
 
 | Command | Description |
 | ------- | ----------- |
-| [hab origin key download]({{< relref "#hab-origin-key-download" >}}) | Download origin key(s) |
-| [hab origin key export]({{< relref "#hab-origin-key-export" >}}) | Outputs the latest origin key contents to stdout |
-| [hab origin key generate]({{< relref "#hab-origin-key-generate" >}}) | Generates a Habitat origin key pair |
-| [hab origin key import]({{< relref "#hab-origin-key-import" >}}) | Reads a stdin stream containing a public or private origin key contents and writes the key to disk |
-| [hab origin key upload]({{< relref "#hab-origin-key-upload" >}}) | Upload origin keys to Builder |
+| [hab origin key download](#hab-origin-key-download) | Download origin key(s) |
+| [hab origin key export](#hab-origin-key-export) | Outputs the latest origin key contents to stdout |
+| [hab origin key generate](#hab-origin-key-generate) | Generates a Habitat origin key pair |
+| [hab origin key import](#hab-origin-key-import) | Reads a stdin stream containing a public or private origin key contents and writes the key to disk |
+| [hab origin key upload](#hab-origin-key-upload) | Upload origin keys to Builder |
 ---
 
 ### hab origin key download
@@ -1143,6 +1282,10 @@ hab origin key download [FLAGS] [OPTIONS] <ORIGIN> [REVISION]
 <REVISION>    The origin key revision
 ```
 
+
+
+---
+
 ### hab origin key export
 
 Outputs the latest origin key contents to stdout
@@ -1173,6 +1316,10 @@ hab origin key export [OPTIONS] <ORIGIN>
 <ORIGIN>    The origin name
 ```
 
+
+
+---
+
 ### hab origin key generate
 
 Generates a Habitat origin key pair
@@ -1202,6 +1349,10 @@ hab origin key generate [OPTIONS] [ORIGIN]
 <ORIGIN>    The origin name
 ```
 
+
+
+---
+
 ### hab origin key import
 
 Reads a stdin stream containing a public or private origin key contents and writes the key to disk
@@ -1224,6 +1375,11 @@ hab origin key import [OPTIONS]
 ```
 --cache-key-path <CACHE_KEY_PATH>    Cache for creating and searching for encryption keys [env: HAB_CACHE_KEY_PATH=]  [default: /hab/cache/keys]
 ```
+
+
+
+
+---
 
 ### hab origin key upload
 
@@ -1259,6 +1415,10 @@ hab origin key upload [FLAGS] [OPTIONS] <ORIGIN|--pubfile <PUBLIC_FILE>>
 <ORIGIN>    The origin name
 ```
 
+
+
+---
+
 ### hab origin rbac
 
 Role Based Access Control for origin members
@@ -1276,13 +1436,15 @@ hab origin rbac <SUBCOMMAND>
 -V, --version    Prints version information
 ```
 
+
+
+
 **SUBCOMMANDS**
 
 | Command | Description |
 | ------- | ----------- |
-| [hab origin secret delete]({{< relref "#hab-origin-secret-delete" >}}) | Delete a secret for your origin |
-| [hab origin secret list]({{< relref "#hab-origin-secret-list" >}}) | List all secrets for your origin |
-| [hab origin secret upload]({{< relref "#hab-origin-secret-upload" >}}) | Create and upload a secret for your origin |
+| [hab origin rbac set](#hab-origin-rbac-set) | Change an origin member's role |
+| [hab origin rbac show](#hab-origin-rbac-show) | Display an origin member's current role |
 ---
 
 ### hab origin rbac set
@@ -1318,6 +1480,10 @@ hab origin rbac set [FLAGS] [OPTIONS] <MEMBER_ACCOUNT> <ROLE> --origin <ORIGIN>
 <ROLE>              The role name to enforce for the member account [possible values: readonly_member, member, maintainer, administrator, owner]
 ```
 
+
+
+---
+
 ### hab origin rbac show
 
 Display an origin member's current role
@@ -1350,6 +1516,10 @@ hab origin rbac show [FLAGS] [OPTIONS] <MEMBER_ACCOUNT> --origin <ORIGIN>
 <MEMBER_ACCOUNT>    The account name of the role to display
 ```
 
+
+
+---
+
 ### hab origin secret
 
 Commands related to secret management
@@ -1366,6 +1536,9 @@ hab origin secret <SUBCOMMAND>
 -h, --help       Prints help information
 -V, --version    Prints version information
 ```
+
+
+
 
 **SUBCOMMANDS**
 
@@ -1407,6 +1580,10 @@ hab origin secret delete [OPTIONS] <KEY_NAME>
 <KEY_NAME>    The name of the variable key to be injected into the studio
 ```
 
+
+
+---
+
 ### hab origin secret list
 
 List all secrets for your origin
@@ -1431,6 +1608,11 @@ hab origin secret list [OPTIONS]
 -u, --url <BLDR_URL>       Specify an alternate Builder endpoint. If not specified, the value will be taken from the HAB_BLDR_URL environment variable if defined. (default: https://bldr.habitat.sh)
 -o, --origin <ORIGIN>      The origin for which secrets will be listed. Default is from 'HAB_ORIGIN' or cli.toml
 ```
+
+
+
+
+---
 
 ### hab origin secret upload
 
@@ -1465,6 +1647,10 @@ hab origin secret upload [OPTIONS] <KEY_NAME> <SECRET>
 <SECRET>      The contents of the variable to be injected into the studio
 ```
 
+
+
+---
+
 ### hab origin transfer
 
 Transfers ownership of an origin to another member of that origin
@@ -1496,6 +1682,10 @@ hab origin transfer [OPTIONS] <ORIGIN> <NEW_OWNER_ACCOUNT>
 <NEW_OWNER_ACCOUNT>    The account name of the new origin owner
 ```
 
+
+
+---
+
 ## hab pkg
 
 Commands relating to Habitat packages
@@ -1513,35 +1703,38 @@ hab pkg <SUBCOMMAND>
 -V, --version    Prints version information
 ```
 
+
+
+
 **SUBCOMMANDS**
 
 | Command | Description |
 | ------- | ----------- |
-| [hab pkg binds]({{< relref "#hab-pkg-binds" >}}) | Displays the binds for a service |
-| [hab pkg binlink]({{< relref "#hab-pkg-binlink" >}}) | Creates a binlink for a package binary in a common 'PATH' location |
-| [hab pkg build]({{< relref "#hab-pkg-build" >}}) | Builds a Plan using a Studio |
-| [hab pkg bulkupload]({{< relref "#hab-pkg-bulkupload" >}}) | Bulk Uploads Habitat Artifacts to a Depot from a local directory |
-| [hab pkg channels]({{< relref "#hab-pkg-channels" >}}) | Find out what channels a package belongs to |
-| [hab pkg config]({{< relref "#hab-pkg-config" >}}) | Displays the default configuration options for a service |
-| [hab pkg delete]({{< relref "#hab-pkg-delete" >}}) | Removes a package from Builder |
-| [hab pkg demote]({{< relref "#hab-pkg-demote" >}}) | Demote a package from a specified channel |
-| [hab pkg dependencies]({{< relref "#hab-pkg-dependencies" >}}) | Returns the Habitat Artifact dependencies. By default it will return the direct dependencies of the package |
-| [hab pkg download]({{< relref "#hab-pkg-download" >}}) | Download Habitat artifacts (including dependencies and keys) from Builder |
-| [hab pkg env]({{< relref "#hab-pkg-env" >}}) | Prints the runtime environment of a specific installed package |
-| [hab pkg exec]({{< relref "#hab-pkg-exec" >}}) | Executes a command using the 'PATH' context of an installed package |
-| [hab pkg export]({{< relref "#hab-pkg-export" >}}) | Exports the package to the specified format |
-| [hab pkg hash]({{< relref "#hab-pkg-hash" >}}) | Generates a blake2b hashsum from a target at any given filepath |
-| [hab pkg info]({{< relref "#hab-pkg-info" >}}) | Returns the Habitat Artifact information |
-| [hab pkg install]({{< relref "#hab-pkg-install" >}}) | Installs a Habitat package from Builder or locally from a Habitat Artifact |
-| [hab pkg list]({{< relref "#hab-pkg-list" >}}) | List all versions of installed packages |
-| [hab pkg path]({{< relref "#hab-pkg-path" >}}) | Prints the path to a specific installed release of a package |
-| [hab pkg promote]({{< relref "#hab-pkg-promote" >}}) | Promote a package to a specified channel |
-| [hab pkg provides]({{< relref "#hab-pkg-provides" >}}) | Search installed Habitat packages for a given file |
-| [hab pkg search]({{< relref "#hab-pkg-search" >}}) | Search for a package in Builder |
-| [hab pkg sign]({{< relref "#hab-pkg-sign" >}}) | Signs an archive with an origin key, generating a Habitat Artifact |
-| [hab pkg uninstall]({{< relref "#hab-pkg-uninstall" >}}) | Safely uninstall a package and dependencies from the local filesystem |
-| [hab pkg upload]({{< relref "#hab-pkg-upload" >}}) | Uploads a local Habitat Artifact to Builder |
-| [hab pkg verify]({{< relref "#hab-pkg-verify" >}}) | Verifies a Habitat Artifact with an origin key |
+| [hab pkg binds](#hab-pkg-binds) | Displays the binds for a service |
+| [hab pkg binlink](#hab-pkg-binlink) | Creates a binlink for a package binary in a common 'PATH' location |
+| [hab pkg build](#hab-pkg-build) | Builds a Plan using a Studio |
+| [hab pkg bulkupload](#hab-pkg-bulkupload) | Bulk Uploads Habitat Artifacts to a Depot from a local directory |
+| [hab pkg channels](#hab-pkg-channels) | Find out what channels a package belongs to |
+| [hab pkg config](#hab-pkg-config) | Displays the default configuration options for a service |
+| [hab pkg delete](#hab-pkg-delete) | Removes a package from Builder |
+| [hab pkg demote](#hab-pkg-demote) | Demote a package from a specified channel |
+| [hab pkg dependencies](#hab-pkg-dependencies) | Returns the Habitat Artifact dependencies. By default it will return the direct dependencies of the package |
+| [hab pkg download](#hab-pkg-download) | Download Habitat artifacts (including dependencies and keys) from Builder |
+| [hab pkg env](#hab-pkg-env) | Prints the runtime environment of a specific installed package |
+| [hab pkg exec](#hab-pkg-exec) | Executes a command using the 'PATH' context of an installed package |
+| [hab pkg export](#hab-pkg-export) | Exports the package to the specified format |
+| [hab pkg hash](#hab-pkg-hash) | Generates a blake2b hashsum from a target at any given filepath |
+| [hab pkg info](#hab-pkg-info) | Returns the Habitat Artifact information |
+| [hab pkg install](#hab-pkg-install) | Installs a Habitat package from Builder or locally from a Habitat Artifact |
+| [hab pkg list](#hab-pkg-list) | List all versions of installed packages |
+| [hab pkg path](#hab-pkg-path) | Prints the path to a specific installed release of a package |
+| [hab pkg promote](#hab-pkg-promote) | Promote a package to a specified channel |
+| [hab pkg provides](#hab-pkg-provides) | Search installed Habitat packages for a given file |
+| [hab pkg search](#hab-pkg-search) | Search for a package in Builder |
+| [hab pkg sign](#hab-pkg-sign) | Signs an archive with an origin key, generating a Habitat Artifact |
+| [hab pkg uninstall](#hab-pkg-uninstall) | Safely uninstall a package and dependencies from the local filesystem |
+| [hab pkg upload](#hab-pkg-upload) | Uploads a local Habitat Artifact to Builder |
+| [hab pkg verify](#hab-pkg-verify) | Verifies a Habitat Artifact with an origin key |
 ---
 
 ### hab pkg binds
@@ -1561,11 +1754,16 @@ hab pkg binds <PKG_IDENT>
 -V, --version    Prints version information
 ```
 
+
 **ARGS**
 
 ```
 <PKG_IDENT>    A package identifier (ex: core/redis, core/busybox-static/1.42.2)
 ```
+
+
+
+---
 
 ### hab pkg binlink
 
@@ -1597,6 +1795,10 @@ hab pkg binlink [FLAGS] [OPTIONS] <PKG_IDENT> [BINARY]
 <PKG_IDENT>    A package identifier (ex: core/redis, core/busybox-static/1.42.2)
 <BINARY>       The command to binlink (ex: bash)
 ```
+
+
+
+---
 
 ### hab pkg build
 
@@ -1632,6 +1834,10 @@ hab pkg build [FLAGS] [OPTIONS] <PLAN_CONTEXT>
 <PLAN_CONTEXT>    A directory containing a plan file or a habitat/ directory which contains the plan file
 ```
 
+
+
+---
+
 ### hab pkg bulkupload
 
 Bulk Uploads Habitat Artifacts to a Depot from a local directory
@@ -1666,6 +1872,10 @@ hab pkg bulkupload [FLAGS] [OPTIONS] <UPLOAD_DIRECTORY>
 <UPLOAD_DIRECTORY>    Directory Path from which artifacts will be uploaded
 ```
 
+
+
+---
+
 ### hab pkg channels
 
 Find out what channels a package belongs to
@@ -1697,6 +1907,10 @@ hab pkg channels [OPTIONS] <PKG_IDENT> [PKG_TARGET]
 <PKG_TARGET>    A package target (ex: x86_64-windows) (default: system appropriate target) [env: HAB_PACKAGE_TARGET=]
 ```
 
+
+
+---
+
 ### hab pkg config
 
 Displays the default configuration options for a service
@@ -1720,6 +1934,10 @@ hab pkg config <PKG_IDENT>
 ```
 <PKG_IDENT>    A package identifier (ex: core/redis, core/busybox-static/1.42.2)
 ```
+
+
+
+---
 
 ### hab pkg delete
 
@@ -1751,6 +1969,10 @@ hab pkg delete [OPTIONS] <PKG_IDENT> [PKG_TARGET]
 <PKG_IDENT>     A fully qualified package identifier (ex: core/busybox-static/1.42.2/20170513215502)
 <PKG_TARGET>    A package target (ex: x86_64-windows) (default: system appropriate target) [env: HAB_PACKAGE_TARGET=]
 ```
+
+
+
+---
 
 ### hab pkg demote
 
@@ -1784,6 +2006,10 @@ hab pkg demote [OPTIONS] <PKG_IDENT> <CHANNEL> [PKG_TARGET]
 <PKG_TARGET>    A package target (ex: x86_64-windows) (default: system appropriate target) [env: HAB_PACKAGE_TARGET=]
 ```
 
+
+
+---
+
 ### hab pkg dependencies
 
 Returns the Habitat Artifact dependencies. By default it will return the direct dependencies of the package
@@ -1803,11 +2029,16 @@ hab pkg dependencies [FLAGS] <PKG_IDENT>
 -V, --version       Prints version information
 ```
 
+
 **ARGS**
 
 ```
 <PKG_IDENT>    A package identifier (ex: core/redis, core/busybox-static/1.42.2)
 ```
+
+
+
+---
 
 ### hab pkg download
 
@@ -1846,6 +2077,10 @@ hab pkg download [FLAGS] [OPTIONS] [--] [PKG_IDENT]...
 <PKG_IDENT>...    One or more Habitat package identifiers (ex: acme/redis)
 ```
 
+
+
+---
+
 ### hab pkg env
 
 Prints the runtime environment of a specific installed package
@@ -1863,11 +2098,16 @@ hab pkg env <PKG_IDENT>
 -V, --version    Prints version information
 ```
 
+
 **ARGS**
 
 ```
 <PKG_IDENT>    A package identifier (ex: core/redis, core/busybox-static/1.42.2)
 ```
+
+
+
+---
 
 ### hab pkg exec
 
@@ -1886,6 +2126,7 @@ hab pkg exec <PKG_IDENT> <CMD> [ARGS]...
 -V, --version    Prints version information
 ```
 
+
 **ARGS**
 
 ```
@@ -1893,6 +2134,10 @@ hab pkg exec <PKG_IDENT> <CMD> [ARGS]...
 <CMD>          The command to execute (ex: ls)
 <ARGS>...      Arguments to the command
 ```
+
+
+
+---
 
 ### hab pkg export
 
@@ -1910,6 +2155,9 @@ hab pkg export <SUBCOMMAND>
 -h, --help       Prints help information
 -V, --version    Prints version information
 ```
+
+
+
 
 **SUBCOMMANDS**
 
@@ -1938,11 +2186,16 @@ hab pkg hash [SOURCE]
 -V, --version    Prints version information
 ```
 
+
 **ARGS**
 
 ```
 <SOURCE>    A filepath of the target
 ```
+
+
+
+---
 
 ### hab pkg info
 
@@ -1962,11 +2215,16 @@ hab pkg info [FLAGS] <SOURCE>
 -V, --version    Prints version information
 ```
 
+
 **ARGS**
 
 ```
 <SOURCE>    A path to a Habitat Artifact (ex: /home/acme-redis-3.0.7-21120102031201-x86_64-linux.hart)
 ```
+
+
+
+---
 
 ### hab pkg install
 
@@ -2003,6 +2261,10 @@ hab pkg install [FLAGS] [OPTIONS] <PKG_IDENT_OR_ARTIFACT>...
 <PKG_IDENT_OR_ARTIFACT>...    One or more Habitat package identifiers (ex: acme/redis) and/or filepaths to a Habitat Artifact (ex: /home/acme-redis-3.0.7-21120102031201-x86_64-linux.hart)
 ```
 
+
+
+---
+
 ### hab pkg list
 
 List all versions of installed packages
@@ -2033,6 +2295,10 @@ hab pkg list [OPTIONS] <--all|--origin <ORIGIN>|PKG_IDENT>
 <PKG_IDENT>    A package identifier (ex: core/redis, core/busybox-static/1.42.2)
 ```
 
+
+
+---
+
 ### hab pkg path
 
 Prints the path to a specific installed release of a package
@@ -2050,11 +2316,16 @@ hab pkg path <PKG_IDENT>
 -V, --version    Prints version information
 ```
 
+
 **ARGS**
 
 ```
 <PKG_IDENT>    A package identifier (ex: core/redis, core/busybox-static/1.42.2)
 ```
+
+
+
+---
 
 ### hab pkg promote
 
@@ -2088,6 +2359,10 @@ hab pkg promote [OPTIONS] <PKG_IDENT> <CHANNEL> [PKG_TARGET]
 <PKG_TARGET>    A package target (ex: x86_64-windows) (default: system appropriate target) [env: HAB_PACKAGE_TARGET=]
 ```
 
+
+
+---
+
 ### hab pkg provides
 
 Search installed Habitat packages for a given file
@@ -2107,11 +2382,16 @@ hab pkg provides [FLAGS] <FILE>
 -V, --version    Prints version information
 ```
 
+
 **ARGS**
 
 ```
 <FILE>    File name to find
 ```
+
+
+
+---
 
 ### hab pkg search
 
@@ -2144,6 +2424,10 @@ hab pkg search [OPTIONS] <SEARCH_TERM>
 <SEARCH_TERM>    Search term
 ```
 
+
+
+---
+
 ### hab pkg sign
 
 Signs an archive with an origin key, generating a Habitat Artifact
@@ -2174,6 +2458,10 @@ hab pkg sign [OPTIONS] <SOURCE> <DEST>
 <SOURCE>    A path to a source archive file (ex: /home/acme-redis-3.0.7-21120102031201.tar.xz)
 <DEST>      The destination path to the signed Habitat Artifact (ex: /home/acme-redis-3.0.7-21120102031201- x86_64-linux.hart)
 ```
+
+
+
+---
 
 ### hab pkg uninstall
 
@@ -2207,6 +2495,10 @@ hab pkg uninstall [FLAGS] [OPTIONS] <PKG_IDENT>
 ```
 <PKG_IDENT>    A package identifier (ex: core/redis, core/busybox-static/1.42.2)
 ```
+
+
+
+---
 
 ### hab pkg upload
 
@@ -2242,6 +2534,10 @@ hab pkg upload [FLAGS] [OPTIONS] <HART_FILE>...
 <HART_FILE>...    One or more filepaths to a Habitat Artifact (ex: /home/acme-redis-3.0.7-21120102031201-x86_64- linux.hart)
 ```
 
+
+
+---
+
 ### hab pkg verify
 
 Verifies a Habitat Artifact with an origin key
@@ -2271,6 +2567,10 @@ hab pkg verify [OPTIONS] <SOURCE>
 <SOURCE>    A path to a Habitat Artifact (ex: /home/acme-redis-3.0.7-21120102031201-x86_64-linux.hart)
 ```
 
+
+
+---
+
 ## hab plan
 
 Commands relating to plans and other app-specific configuration
@@ -2288,12 +2588,15 @@ hab plan <SUBCOMMAND>
 -V, --version    Prints version information
 ```
 
+
+
+
 **SUBCOMMANDS**
 
 | Command | Description |
 | ------- | ----------- |
-| [hab plan init]({{< relref "#hab-plan-init" >}}) | Generates common package specific configuration files. Executing without argument will create a habitat directory in your current folder for the plan. If PKG_NAME is specified it will create a folder with that name. Environment variables (those starting with 'pkg_') that are set will be used in the generated plan |
-| [hab plan render]({{< relref "#hab-plan-render" >}}) | Renders plan config files |
+| [hab plan init](#hab-plan-init) | Generates common package specific configuration files. Executing without argument will create a habitat directory in your current folder for the plan. If PKG_NAME is specified it will create a folder with that name. Environment variables (those starting with 'pkg_') that are set will be used in the generated plan |
+| [hab plan render](#hab-plan-render) | Renders plan config files |
 ---
 
 ### hab plan init
@@ -2326,6 +2629,10 @@ hab plan init [FLAGS] [OPTIONS] [PKG_NAME]
 ```
 <PKG_NAME>    Name for the new app
 ```
+
+
+
+---
 
 ### hab plan render
 
@@ -2362,6 +2669,10 @@ hab plan render [FLAGS] [OPTIONS] <TEMPLATE_PATH>
 <TEMPLATE_PATH>    Path to config to render
 ```
 
+
+
+---
+
 ## hab ring
 
 Commands relating to Habitat rings
@@ -2379,11 +2690,14 @@ hab ring <SUBCOMMAND>
 -V, --version    Prints version information
 ```
 
+
+
+
 **SUBCOMMANDS**
 
 | Command | Description |
 | ------- | ----------- |
-| [hab ring key]({{< relref "#hab-ring-key" >}}) | Commands relating to Habitat ring keys |
+| [hab ring key](#hab-ring-key) | Commands relating to Habitat ring keys |
 ---
 
 ### hab ring key
@@ -2403,13 +2717,16 @@ hab ring key <SUBCOMMAND>
 -V, --version    Prints version information
 ```
 
+
+
+
 **SUBCOMMANDS**
 
 | Command | Description |
 | ------- | ----------- |
-| [hab ring key export]({{< relref "#hab-ring-key-export" >}}) | Outputs the latest ring key contents to stdout |
-| [hab ring key generate]({{< relref "#hab-ring-key-generate" >}}) | Generates a Habitat ring key |
-| [hab ring key import]({{< relref "#hab-ring-key-import" >}}) | Reads a stdin stream containing ring key contents and writes the key to disk |
+| [hab ring key export](#hab-ring-key-export) | Outputs the latest ring key contents to stdout |
+| [hab ring key generate](#hab-ring-key-generate) | Generates a Habitat ring key |
+| [hab ring key import](#hab-ring-key-import) | Reads a stdin stream containing ring key contents and writes the key to disk |
 ---
 
 ### hab ring key export
@@ -2441,6 +2758,10 @@ hab ring key export [OPTIONS] <RING>
 <RING>    Ring key name
 ```
 
+
+
+---
+
 ### hab ring key generate
 
 Generates a Habitat ring key
@@ -2470,6 +2791,10 @@ hab ring key generate [OPTIONS] <RING>
 <RING>    Ring key name
 ```
 
+
+
+---
+
 ### hab ring key import
 
 Reads a stdin stream containing ring key contents and writes the key to disk
@@ -2493,7 +2818,14 @@ hab ring key import [OPTIONS]
 --cache-key-path <CACHE_KEY_PATH>    Cache for creating and searching for encryption keys [env: HAB_CACHE_KEY_PATH=]  [default: /hab/cache/keys]
 ```
 
+
+
+
+---
+
 ## hab studio
+
+
 
 **USAGE**
 
@@ -2501,19 +2833,25 @@ hab ring key import [OPTIONS]
 hab studio [FLAGS] [OPTIONS] <SUBCOMMAND> [ARG ..]
 ```
 
+
+
+
+
 **SUBCOMMANDS**
 
 | Command | Description |
 | ------- | ----------- |
-| [hab studio build]({{< relref "#hab-studio-build" >}}) | Build using a Studio |
-| [hab studio enter]({{< relref "#hab-studio-enter" >}}) | Interactively enter a Studio |
-| [hab studio new]({{< relref "#hab-studio-new" >}}) | Creates a new Studio |
-| [hab studio rm]({{< relref "#hab-studio-rm" >}}) | Destroys a Studio |
-| [hab studio run]({{< relref "#hab-studio-run" >}}) | Run a command in a Studio |
-| [hab studio version]({{< relref "#hab-studio-version" >}}) | Prints version information |
+| [hab studio build](#hab-studio-build) | Build using a Studio |
+| [hab studio enter](#hab-studio-enter) | Interactively enter a Studio |
+| [hab studio new](#hab-studio-new) | Creates a new Studio |
+| [hab studio rm](#hab-studio-rm) | Destroys a Studio |
+| [hab studio run](#hab-studio-run) | Run a command in a Studio |
+| [hab studio version](#hab-studio-version) | Prints version information |
 ---
 
 ### hab studio build
+
+
 
 **USAGE**
 
@@ -2527,7 +2865,15 @@ hab studio [COMMON_FLAGS] [COMMON_OPTIONS] build [FLAGS] [PLAN_DIR]
 -R  Reuse a previous Studio state (default: clean up before building)
 ```
 
+
+
+
+
+---
+
 ### hab studio enter
+
+
 
 **USAGE**
 
@@ -2535,7 +2881,16 @@ hab studio [COMMON_FLAGS] [COMMON_OPTIONS] build [FLAGS] [PLAN_DIR]
 hab studio [COMMON_FLAGS] [COMMON_OPTIONS] enter
 ```
 
+
+
+
+
+
+---
+
 ### hab studio new
+
+
 
 **USAGE**
 
@@ -2543,7 +2898,16 @@ hab studio [COMMON_FLAGS] [COMMON_OPTIONS] enter
 hab studio [COMMON_FLAGS] [COMMON_OPTIONS] new
 ```
 
+
+
+
+
+
+---
+
 ### hab studio rm
+
+
 
 **USAGE**
 
@@ -2551,7 +2915,16 @@ hab studio [COMMON_FLAGS] [COMMON_OPTIONS] new
 hab studio [COMMON_FLAGS] [COMMON_OPTIONS] rm
 ```
 
+
+
+
+
+
+---
+
 ### hab studio run
+
+
 
 **USAGE**
 
@@ -2559,10 +2932,28 @@ hab studio [COMMON_FLAGS] [COMMON_OPTIONS] rm
 hab studio [COMMON_FLAGS] [COMMON_OPTIONS] run [CMD] [ARG ..]
 ```
 
+
+
+
+
+
+---
+
 ### hab studio version
 
 
+
+
+
+
+
+
+
+---
+
 ## hab sup
+
+
 
 **USAGE**
 
@@ -2577,17 +2968,21 @@ hab sup <SUBCOMMAND>
 -V, --version    Prints version information
 ```
 
+
+
+
 **SUBCOMMANDS**
 
 | Command | Description |
 | ------- | ----------- |
-| [hab sup bash]({{< relref "#hab-sup-bash" >}}) | Start an interactive Bash-like shell |
-| [hab sup depart]({{< relref "#hab-sup-depart" >}}) | Depart a Supervisor from the gossip ring; kicking and banning the target from joining again with the same member-id |
-| [hab sup run]({{< relref "#hab-sup-run" >}}) | Run the Habitat Supervisor |
-| [hab sup secret]({{< relref "#hab-sup-secret" >}}) | Commands relating to a Habitat Supervisor's Control Gateway secret |
-| [hab sup sh]({{< relref "#hab-sup-sh" >}}) | Start an interactive Bourne-like shell |
-| [hab sup status]({{< relref "#hab-sup-status" >}}) | Query the status of Habitat services |
-| [hab sup term]({{< relref "#hab-sup-term" >}}) | Gracefully terminate the Habitat Supervisor and all of its running services |
+| [hab sup bash](#hab-sup-bash) | Start an interactive Bash-like shell |
+| [hab sup depart](#hab-sup-depart) | Depart a Supervisor from the gossip ring; kicking and banning the target from joining again with the same member-id |
+| [hab sup restart](#hab-sup-restart) | Restart a Supervisor without restarting its services |
+| [hab sup run](#hab-sup-run) | Run the Habitat Supervisor |
+| [hab sup secret](#hab-sup-secret) | Commands relating to a Habitat Supervisor's Control Gateway secret |
+| [hab sup sh](#hab-sup-sh) | Start an interactive Bourne-like shell |
+| [hab sup status](#hab-sup-status) | Query the status of Habitat services |
+| [hab sup term](#hab-sup-term) | Gracefully terminate the Habitat Supervisor and all of its running services |
 ---
 
 ### hab sup bash
@@ -2605,6 +3000,12 @@ hab sup bash
 ```
 -h, --help    Prints help information
 ```
+
+
+
+
+
+---
 
 ### hab sup depart
 
@@ -2634,6 +3035,10 @@ hab sup depart [OPTIONS] <MEMBER_ID>
 <MEMBER_ID>    The member-id of the Supervisor to depart
 ```
 
+
+
+---
+
 ### hab sup restart
 
 Restart a Supervisor without restarting its services
@@ -2655,6 +3060,11 @@ hab sup restart [OPTIONS]
 ```
 -r, --remote-sup <REMOTE_SUP>    Address to a remote Supervisor's Control Gateway [default: 127.0.0.1:9632]
 ```
+
+
+
+
+---
 
 ### hab sup run
 
@@ -2761,6 +3171,10 @@ hab sup run [FLAGS] [OPTIONS] [--] [PKG_IDENT_OR_ARTIFACT]
 <PKG_IDENT_OR_ARTIFACT>    Load a Habitat package as part of the Supervisor startup
 ```
 
+
+
+---
+
 ### hab sup secret
 
 Commands relating to a Habitat Supervisor's Control Gateway secret
@@ -2777,11 +3191,15 @@ hab sup secret <SUBCOMMAND>
 -h, --help    Prints help information
 ```
 
+
+
+
 **SUBCOMMANDS**
 
 | Command | Description |
 | ------- | ----------- |
-| [hab sup secret generate]({{< relref "#hab-sup-secret-generate" >}}) | Generate a secret key to use as a Supervisor's Control Gateway secret |
+| [hab sup secret generate](#hab-sup-secret-generate) | Generate a secret key to use as a Supervisor's Control Gateway secret |
+| [hab sup secret generate-tls](#hab-sup-secret-generate-tls) | Generate a private key and certificate for the Supervisor's Control Gateway TLS connection |
 ---
 
 ### hab sup secret generate
@@ -2800,6 +3218,12 @@ hab sup secret generate
 -h, --help       Prints help information
 -V, --version    Prints version information
 ```
+
+
+
+
+
+---
 
 ### hab sup secret generate-tls
 
@@ -2826,6 +3250,11 @@ hab sup secret generate-tls [OPTIONS] --subject-alternative-name <subject-altern
     --subject-alternative-name <subject-alternative-name> The DNS name to use in the certificates subject alternative name extension
 ```
 
+
+
+
+---
+
 ### hab sup sh
 
 Start an interactive Bourne-like shell
@@ -2841,6 +3270,12 @@ hab sup sh
 ```
 -h, --help    Prints help information
 ```
+
+
+
+
+
+---
 
 ### hab sup status
 
@@ -2870,6 +3305,10 @@ hab sup status [OPTIONS] [PKG_IDENT]
 <PKG_IDENT>    A package identifier (ex: core/redis, core/busybox-static/1.42.2)
 ```
 
+
+
+---
+
 ### hab sup term
 
 Gracefully terminate the Habitat Supervisor and all of its running services
@@ -2885,6 +3324,12 @@ hab sup term
 ```
 -h, --help    Prints help information
 ```
+
+
+
+
+
+---
 
 ## hab supportbundle
 
@@ -2904,6 +3349,11 @@ hab supportbundle
 ```
 
 
+
+
+
+---
+
 ## hab svc
 
 Commands relating to Habitat services
@@ -2921,16 +3371,20 @@ hab svc <SUBCOMMAND>
 -V, --version    Prints version information
 ```
 
+
+
+
 **SUBCOMMANDS**
 
 | Command | Description |
 | ------- | ----------- |
-| [hab svc key]({{< relref "#hab-svc-key" >}}) | Commands relating to Habitat service keys |
-| [hab svc load]({{< relref "#hab-svc-load" >}}) | Load a service to be started and supervised by Habitat from a package identifier. If an installed package doesn't satisfy the given package identifier, a suitable package will be installed from Builder |
-| [hab svc start]({{< relref "#hab-svc-start" >}}) | Start a loaded, but stopped, Habitat service |
-| [hab svc status]({{< relref "#hab-svc-status" >}}) | Query the status of Habitat services |
-| [hab svc stop]({{< relref "#hab-svc-stop" >}}) | Stop a running Habitat service |
-| [hab svc unload]({{< relref "#hab-svc-unload" >}}) | Unload a service loaded by the Habitat Supervisor. If the service is running it will additionally be stopped |
+| [hab svc key](#hab-svc-key) | Commands relating to Habitat service keys |
+| [hab svc load](#hab-svc-load) | Load a service to be started and supervised by Habitat from a package identifier. If an installed package doesn't satisfy the given package identifier, a suitable package will be installed from Builder |
+| [hab svc start](#hab-svc-start) | Start a loaded, but stopped, Habitat service |
+| [hab svc status](#hab-svc-status) | Query the status of Habitat services |
+| [hab svc stop](#hab-svc-stop) | Stop a running Habitat service |
+| [hab svc unload](#hab-svc-unload) | Unload a service loaded by the Habitat Supervisor. If the service is running it will additionally be stopped |
+| [hab svc update](#hab-svc-update) | Update how the Supervisor manages an already-running service. Depending on the given changes, they may be able to be applied without restarting the service |
 ---
 
 ### hab svc key
@@ -2950,11 +3404,14 @@ hab svc key <SUBCOMMAND>
 -V, --version    Prints version information
 ```
 
+
+
+
 **SUBCOMMANDS**
 
 | Command | Description |
 | ------- | ----------- |
-| [hab svc key generate]({{< relref "#hab-svc-key-generate" >}}) | Generates a Habitat service key |
+| [hab svc key generate](#hab-svc-key-generate) | Generates a Habitat service key |
 ---
 
 ### hab svc key generate
@@ -2986,6 +3443,10 @@ hab svc key generate [OPTIONS] <SERVICE_GROUP> [ORG]
 <SERVICE_GROUP>    Target service group service.group[@organization] (ex: redis.default or foo.default@bazcorp)
 <ORG>              The service organization
 ```
+
+
+
+---
 
 ### hab svc load
 
@@ -3035,6 +3496,10 @@ hab svc load [FLAGS] [OPTIONS] <PKG_IDENT>
 <PKG_IDENT>    A package identifier (ex: core/redis, core/busybox-static/1.42.2)
 ```
 
+
+
+---
+
 ### hab svc start
 
 Start a loaded, but stopped, Habitat service
@@ -3064,6 +3529,10 @@ hab svc start [OPTIONS] <PKG_IDENT>
 <PKG_IDENT>    A package identifier (ex: core/redis, core/busybox-static/1.42.2)
 ```
 
+
+
+---
+
 ### hab svc status
 
 Query the status of Habitat services
@@ -3092,6 +3561,10 @@ hab svc status [OPTIONS] [PKG_IDENT]
 ```
 <PKG_IDENT>    A package identifier (ex: core/redis, core/busybox-static/1.42.2)
 ```
+
+
+
+---
 
 ### hab svc stop
 
@@ -3124,6 +3597,10 @@ hab svc stop [OPTIONS] <PKG_IDENT>
 <PKG_IDENT>    A package identifier (ex: core/redis, core/busybox-static/1.42.2)
 ```
 
+
+
+---
+
 ### hab svc unload
 
 Unload a service loaded by the Habitat Supervisor. If the service is running it will additionally be stopped
@@ -3154,6 +3631,10 @@ hab svc unload [OPTIONS] <PKG_IDENT>
 ```
 <PKG_IDENT>    A package identifier (ex: core/redis, core/busybox-static/1.42.2)
 ```
+
+
+
+---
 
 ### hab svc update
 
@@ -3197,6 +3678,10 @@ hab svc update [OPTIONS] <PKG_IDENT>
 <PKG_IDENT>    A package identifier (ex: core/redis, core/busybox-static/1.42.2)
 ```
 
+
+
+---
+
 ## hab user
 
 Commands relating to Habitat users
@@ -3214,11 +3699,14 @@ hab user <SUBCOMMAND>
 -V, --version    Prints version information
 ```
 
+
+
+
 **SUBCOMMANDS**
 
 | Command | Description |
 | ------- | ----------- |
-| [hab user key]({{< relref "#hab-user-key" >}}) | Commands relating to Habitat user keys |
+| [hab user key](#hab-user-key) | Commands relating to Habitat user keys |
 ---
 
 ### hab user key
@@ -3238,11 +3726,14 @@ hab user key <SUBCOMMAND>
 -V, --version    Prints version information
 ```
 
+
+
+
 **SUBCOMMANDS**
 
 | Command | Description |
 | ------- | ----------- |
-| [hab user key generate]({{< relref "#hab-user-key-generate" >}}) | Generates a Habitat user key |
+| [hab user key generate](#hab-user-key-generate) | Generates a Habitat user key |
 ---
 
 ### hab user key generate
@@ -3273,3 +3764,8 @@ hab user key generate [OPTIONS] <USER>
 ```
 <USER>    Name of the user key
 ```
+
+
+
+---
+

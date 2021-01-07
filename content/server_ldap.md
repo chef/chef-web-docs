@@ -7,11 +7,10 @@ gh_repo = "chef-web-docs"
 aliases = ["/server_ldap.html", "/install_server_post.html"]
 
 [menu]
-  [menu.infra]
+  [menu.legacy]
     title = "Active Directory & LDAP"
-    identifier = "chef_infra/managing_chef_infra_server/server_ldap.md Active Directory & LDAP"
-    parent = "chef_infra/managing_chef_infra_server"
-    weight = 50
+    identifier = "legacy/manage/server_ldap.md Active Directory & LDAP"
+    parent = "legacy/manage"
 +++
 
 The Chef Infra Server supports Active Directory and LDAP authentication,

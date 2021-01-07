@@ -955,12 +955,6 @@ identifier = "chef_infra"
     weight = 80
 
   [[menu.infra]]
-  title = "Managing Chef Infra Server"
-  identifier = "chef_infra/managing_chef_infra_server"
-  parent = "chef_infra"
-  weight = 70
-
-  [[menu.infra]]
   title = "Extension APIs"
   identifier = "chef_infra/extension_apis"
   parent = "chef_infra"
