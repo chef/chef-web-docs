@@ -4504,113 +4504,66 @@ Per <https://discourse.chef.io/t/regression-in-chef-client-13-7-16/12518/1> , th
 
 ## What's New in 13.7.16
 
--   **The windows_task Resource should be better behaved**
+### The `windows_task` Resource should be better behaved
 
-    We've spent a considerable amount of time testing and fixing the
-    [windows_task](/resources/windows_task/) resource to ensure that
-    it is properly idempotent and correct in more situations.
+We've spent a considerable amount of time testing and fixing the `windows_task` resource to ensure that it is properly idempotent and correct in more situations.
 
--   **Credentials Handling**
+### Credentials handling
 
-    Previously, ChefDK workstations used `knife.rb` or `config.rb` to
-    handle credentials. This didn't do a great job of interacting with
-    multiple Chef servers, which lead to the need for tools like
-    [knife_block](https://github.com/knife-block/knife-block). We've
-    added support for a credentials file that contains configuration
-    information for many Chef servers / organizations, and we've made it
-    easy to indicate which account you mean to use.
+Previously, the `knife` CLI used `knife.rb` or `config.rb` to handle credentials. This didn't do a great job when interacting with multiple Chef servers, leading to the need for tools like `knife_block`. We've added support for a credentials file that can contain configuration for many Chef servers (or organizations), and we've made it easy to indicate which account you mean to use.
 
--   **Bug Fixes**
+### New deprecations
 
-    -   Resolved a bug where knife commands that resulted in a prompt on
-        Windows would never display the prompt
-    -   Fixed a bug that affected the hiding of sensitive resources when
-        [converge_if_changed](/dsl_custom_resource/#converge-if-changed)
-        was used
-    -   Fixes to certain scenarios that would result in services failing
-        to start on Solaris
+#### `erl_call` Resource
 
--   **Security Updates**
+We introduced `erl_call` to help us to manage CouchDB servers back in the olden times of Chef. Since then, we've noticed that no-one uses it, and so `erl_call` will be removed in Chef 14. Foodcritic rule [FC105(http://www.foodcritic.io/#FC105) has been introduced to detect usage of erl_call.
 
-    -   OpenSSL has been upgraded to 1.0.2n to resolve
-        [CVE-2017-3738](https://nvd.nist.gov/vuln/detail/CVE-2017-3738),
-        [CVE-2017-3737](https://nvd.nist.gov/vuln/detail/CVE-2017-3737),
-        [CVE-2017-3736](https://nvd.nist.gov/vuln/detail/CVE-2017-3736),
-        and
-        [CVE-2017-3735](https://nvd.nist.gov/vuln/detail/CVE-2017-3735)
-    -   Ruby has been upgraded to 2.4.3 to resolve
-        [CVE-2017-17405](https://nvd.nist.gov/vuln/detail/CVE-2017-17405)
+#### epic_fail
 
-### Deprecations
+The original name for the ignore_failure property in resources was epic_fail. Our documentation hasn't referred to epic_fail for years and out of the 3500 cookbooks on the Supermarket only one uses epic_fail. In Chef 14 we will remove the epic_fail property entirely. Foodcritic rule [FC107](http://www.foodcritic.io/#FC107) has been introduced to detect usage of epic_fail.
 
--   **erl_call Resource**
+#### Legacy Mixins
 
-    We introduced the `erl_call` resource to help us to manage CouchDB
-    servers back in the olden times of Chef. Since then we've noticed
-    that no one uses it, and so `erl_call` will be removed in Chef 14.
-    Foodcritic rule [FC105](http://www.foodcritic.io/#FC105) has been
-    introduced to detect usage of `erl_call`.
+In Chef 14 several legacy mixins will be removed. Usage of these mixins has resulted in deprecation warnings for several years. They were traditionally used in some HWRPs, but are rarely found in code available on the Supermarket. Foodcritic rules [FC097](http://www.foodcritic.io/#FC097), [FC098](http://www.foodcritic.io/#FC098), [FC099](http://www.foodcritic.io/#FC099), [FC100](http://www.foodcritic.io/#FC100), and [FC102](http://www.foodcritic.io/#FC102) have been introduced to detect these mixins:
 
--   **epic_fail**
+- `Chef::Mixin::LanguageIncludeAttribute`
+- `Chef::Mixin::RecipeDefinitionDSLCore`
+- `Chef::Mixin::LanguageIncludeRecipe`
+- `Chef::Mixin::Language`
+- `Chef::DSL::Recipe::FullDSL`
 
-    The original name for the `ignore_failure` property in resources was
-    `epic_fail`. Our documentation hasn't referred to `epic_fail` for
-    years and out of the 3500 cookbooks on the Supermarket only one uses
-    `epic_fail`. In Chef 14 we will remove the `epic_fail` property
-    entirely. Foodcritic rule [FC107](http://www.foodcritic.io/#FC107)
-    has been introduced to detect usage of `epic_fail`.
+### :uninstall action in chocolatey_package
 
--   **Legacy Mixins**
+The chocolatey cookbook's chocolatey_package resource originally contained an :uninstall action. When chocolatey_package was moved into core Chef we made :uninstall an alias for :remove. In Chef 14 :uninstall will no longer be a valid action. Foodcritic rule [FC103](http://www.foodcritic.io/#FC103) has been introduced to detect the usage of the :uninstall action.
 
-    In Chef 14 several legacy mixins will be removed. Usage of these
-    mixins has resulted in deprecation warnings for several years. They
-    were traditionally used in some HWRPs, but are rarely found in code
-    available on the Supermarket. Foodcritic rules
-    [FC097](http://www.foodcritic.io/#FC097),
-    [FC098](http://www.foodcritic.io/#FC098),
-    [FC099](http://www.foodcritic.io/#FC099),
-    [FC100](http://www.foodcritic.io/#FC100), and
-    [FC102](http://www.foodcritic.io/#FC102) have been introduced to
-    detect these mixins:
+## Bugfixes
 
-    -   `Chef::Mixin::LanguageIncludeAttribute`
-    -   `Chef::Mixin::RecipeDefinitionDSLCore`
-    -   `Chef::Mixin::LanguageIncludeRecipe`
-    -   `Chef::Mixin::Language`
-    -   `Chef::DSL::Recipe::FullDSL`
+- Resolved a bug where knife commands that prompted on Windows would never display the prompt
+- Fixed hiding of sensitive resources when converge_if_changed was used
+- Fixed scenarios where services would fail to start on Solaris
 
--   **:uninstall Action in chocolatey_package**
+### Security Updates
 
-    The chocolatey cookbook's `chocolatey_package` resource originally
-    contained an `:uninstall` action. When
-    [chocolatey_package](/resources/chocolatey_package/) was moved
-    into core Chef we made `:uninstall` an alias for `:remove`. In Chef
-    14, `:uninstall` will no longer be a valid action. Foodcritic rule
-    [FC103](http://www.foodcritic.io/#FC103) has been introduced to
-    detect usage of the `:uninstall` action.
+- OpenSSL has been upgraded to 1.0.2n to resolve [CVE-2017-3738](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-3738), [CVE-2017-3737](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-3737), [CVE-2017-3736](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-3736), and [CVE-2017-3735](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-3735).
+- Ruby has been upgraded to 2.4.3 to resolve [CVE-2017-17405](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-17405)
 
 ### Ohai 13.7
 
--   **Network Tunnel Information**
+#### Network Tunnel Information
 
-    The Network plugin on Linux hosts now gathers additional information
-    on tunnels.
+The Network plugin on Linux hosts now gathers additional information on tunnels
 
--   **LsPci Plugin**
+#### LsPci Plugin
 
-    The new LsPci plugin provides a `node['pci']` hash with information
-    about the PCI bus based on lspci. Only runs on Linux.
+The new LsPci plugin provides a `node[:pci]` hash with information about the PCI bus based on `lspci`. Only runs on Linux.
 
--   **EC2 C5 Detection**
+#### EC2 C5 Detection
 
-    The EC2 plugin has been updated to properly detect the new AWS
-    hypervisor used in the C5 instance types.
+The EC2 plugin has been updated to properly detect the new AWS hypervisor used in the C5 instance types
 
--   **mdadm**
+#### mdadm
 
-    The mdadm plugin has been updated to properly handle arrays with
-    more than 10 disks, and to properly handle journal and spare drives
-    in the disk counts.
+The mdadm plugin has been updated to properly handle arrays with more than 10 disks and to properly handle journal and spare drives in the disk counts
 
 ## What's New in 13.6.4
 
