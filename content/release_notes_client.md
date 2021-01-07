@@ -4858,24 +4858,19 @@ The Packages plugin has been updated to include package information on Arch Linu
 
 ## What's New in 13.3
 
--   **Unprivileged symlink creation on Windows** Chef can now create
-    symlinks without privilege escalation, which allows for the creation
-    of symlinks on Windows 10 Creator Update.
+## Unprivileged Symlink Creation on Windows
 
--   **nokogiri Gem** The nokogiri gem is once again bundled with the
-    omnibus install of Chef.
+Chef can now create symlinks without privilege escalation, which allows for the creation of symlinks on Windows 10 Creator Update.
 
--   **New resources** This release introduces the
-    [apt_preference](/resources/apt_preference/) and
-    [zypper_repository](/resources/zypper_repository/) resources.
+## nokogiri Gem
 
--   **windows_task Improvements** The `windows_task` resource now
-    allows updating the configuration of a scheduled task when using the
-    `:create` action. The `:change` action from the windows cookbook has
-    been aliased to `:create` to provide backward compatibility.
+The nokogiri gem is once again bundled with the omnibus install of Chef
 
--   **zypper_package Options** It is now possible to pass additional
-    options to Zypper in the `zypper_package` resource. For example:
+## zypper_package Options
+
+It is now possible to pass additional options to the zypper in the zypper_package resource. This can be used to pass any zypper CLI option
+
+### Example:
 
     ```ruby
     zypper_package 'foo' do
