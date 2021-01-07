@@ -4488,28 +4488,19 @@ This is a small bug fix release that updates Ohai to properly detect and
 poll SoftLayer metadata now that SoftLayer no longer supports TLS
 1.0/1.1. This update is only necessary if you're running on Softlayer.
 
-## What's New in 13.8
+## What's New in 13.8.0
 
--   **Fixes regression from 13.7.16**
+### Revert attributes changes from 13.7
 
-    This release fixes the
-    [regression](https://discourse.chef.io/t/regression-in-chef-client-13-7-16/12518)
-    in how arrays and hashes were handled in Chef 13.7. Version 13.8 has
-    reverted to the same code that was used in Chef 13.6.
+Per <https://discourse.chef.io/t/regression-in-chef-client-13-7-16/12518/1> , there was a regression in how arrays and hashes were handled in 13.7\. In 13.8, we've reverted to the same code as 13.6.
 
--   **Continued windows_task Improvements**
+### Continuing work on `windows_task`
 
-    Chef 13.8 has better validation for the `idle_time` property when
-    using the `on_idle` frequency option.
+13.8 has better validation for the `idle_time` property, when using the `on_idle` frequency.
 
--   **Security Updates**
+### Security Updates
 
-    Libxml2 has been updated to version 2.9.7 as a fix for
-    [CVE-2017-15412](https://access.redhat.com/security/cve/cve-2017-15412).
-
-See the detailed [change
-log](https://github.com/chef/chef/blob/chef-13/CHANGELOG.md#v1380-2018-02-27)
-for more information.
+- Updated libxml2 to 2.9.7; fixes: [CVE-2017-15412](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-15412)
 
 ## What's New in 13.7.16
 
