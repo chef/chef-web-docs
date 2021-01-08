@@ -81,11 +81,6 @@ One way to manage secrets used by Chef is with data bags.
 {{% knife_data_bag_edit %}}
 
 {{% knife_data_bag_edit_item %}}
-
-#### Using Chef Manage
-
-{{% manage_webui_policy_data_bag_edit_item %}}
-
 ### Use Data Bags
 
 Data bags can be accessed in the following ways:

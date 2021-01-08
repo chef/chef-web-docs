@@ -84,7 +84,7 @@ an attribute with the following syntax:
 
 ```bash
 chef:recipe_mode > attributes_mode
-  chef:attributes > set[:hello] = "ohai2u-again"
+  chef:attributes > default[:hello] = "ohai2u-again"
     => "ohai2u-again"
   chef:attributes >
 ```

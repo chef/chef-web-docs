@@ -584,20 +584,6 @@ identifier = "chef_infra"
     weight = 70
 
     [[menu.infra]]
-    title = "Authentication"
-    identifier = "chef_infra/concepts/auth.md#authentication Authentication"
-    parent = "chef_infra/concepts"
-    url = "/auth/#authentication"
-    weight = 90
-
-    [[menu.infra]]
-    title = "Authorization"
-    identifier = "chef_infra/concepts/auth.md#authorization Authorization"
-    parent = "chef_infra/concepts"
-    url = "/auth/#authorization"
-    weight = 100
-
-    [[menu.infra]]
     title = "Supermarket"
     identifier = "chef_infra/concepts/supermarket"
     parent = "chef_infra/concepts"
