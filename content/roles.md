@@ -257,9 +257,6 @@ There are several ways to manage roles:
 
 -   knife can be used to create, edit, view, list, tag, and delete
     roles.
--   The Chef management console add-on can be used to create, edit,
-    view, list, tag, and delete roles. In addition, role attributes can
-    be modified and roles can be moved between environments.
 -   The Chef Infra Client can be used to manage role data using the
     command line and JSON files (that contain a hash, the elements of
     which are added as role attributes). In addition, the `run_list`
@@ -270,8 +267,7 @@ There are several ways to manage roles:
     `run_list` setting allows roles and/or recipes to be added to the
     role.
 -   The Chef Infra Server API can be used to create and manage roles
-    directly, although using knife and/or the Chef management console is
-    the most common way to manage roles.
+    directly, although using knife directly is the most common way to manage roles.
 -   The command line can also be used with JSON files and third-party
     services, such as Amazon EC2, where the JSON files can contain
     per-instance metadata stored in a file on-disk and then read by
@@ -283,7 +279,7 @@ using files are compatible with all versions of Chef, including
 chef-solo. Roles created and edited using files can be kept in version
 source control, which also keeps a history of what changed when. When
 roles are created and edited using files, they should not be managed
-using knife or the Chef management console, as changes will be
+using knife, as changes will be
 overwritten.
 
 A run-list that is associated with a role can be edited using the Chef
@@ -291,15 +287,9 @@ management console add-on. The canonical source of a role's data is
 stored on the Chef Infra Server, which means that keeping role data in
 version source control can be challenging.
 
-When files are uploaded to a Chef Infra Server from a file and then
-edited using the Chef management console, if the file is edited and
-uploaded again, the changes made using the Chef management console user
-interface will be lost. The same is true with knife, in that if roles
-are created and managed using knife and then arbitrarily updated
-uploaded JSON data, that action will overwrite what has been done
-previously using knife. It is strongly recommended to keep to one
-process and not switch back and forth.
-
+If roles are created and managed using knife and then arbitrarily updated
+uploaded through JSON data, that action will overwrite the previous work with knife.
+It is strongly recommended to keep to one process and not switch back and forth.
 ### Set Per-environment Run-lists
 
 A per-environment run-list is a run-list that is associated with a role
