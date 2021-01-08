@@ -25,17 +25,17 @@ information on Ohai.
 
 ## Automatic Attributes
 
-{{% ohai_automatic_attribute %}}
-
-**Get a list of automatic attributes for a node**
-
-{{% ohai_attribute_list %}}
-
 {{< note >}}
 
 {{% notes_see_attributes_overview %}}
 
 {{< /note >}}
+
+{{% ohai_automatic_attribute %}}
+
+**Get a list of automatic attributes for a node**
+
+{{% ohai_attribute_list %}}
 
 ### Attributes Blocklist
 

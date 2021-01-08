@@ -18,13 +18,13 @@ aliases = ["/roles.html"]
 
 ## Role Attributes
 
-{{% role_attribute %}}
-
 {{< note >}}
 
 {{% notes_see_attributes_overview %}}
 
 {{< /note >}}
+
+{{% role_attribute %}}
 
 ### Attribute Types
 
@@ -53,28 +53,12 @@ There are two types of attributes that can be used with roles:
 </tbody>
 </table>
 
-### Attribute Persistence
-
-{{% node_attribute_persistence %}}
-
-### Attribute Precedence
-
-{{% node_attribute_precedence %}}
-
-### Attributes Blocklist
-
-{{% node_attribute_blocklist %}}
-
-### Attribute Allowlist
-
-{{% node_attribute_allowlist %}}
-
 ## Role Formats
 
 Role data is stored in two formats: as a Ruby file that contains
 domain-specific language and as JSON data.
 
-### Ruby DSL
+### Chef Language
 
 {{% ruby_summary %}}
 
@@ -151,10 +135,10 @@ Domain-specific Ruby attributes:
 </tbody>
 </table>
 
-A Ruby DSL file for each role must exist in the `roles/` subdirectory of
+Each role must be saved as a ruby file the `roles/` subdirectory of
 the chef-repo. (If the repository does not have this subdirectory, then
-create it using knife.) Each Ruby file should have the .rb suffix. The
-complete roles Ruby DSL has the following syntax:
+create it using knife.) Each Ruby file should have the .rb suffix. A
+complete role has the following syntax:
 
 ```javascript
 name "role_name"
@@ -273,8 +257,7 @@ There are several ways to manage roles:
     per-instance metadata stored in a file on-disk and then read by
     chef-solo or Chef Infra Client as required.
 
-By creating and editing files using the Ruby DSL or JSON, role data can
-be dynamically generated with the Ruby DSL. Roles created and edited
+By creating and editing files using the Chef Language (Ruby) or JSON, you can dynamically generate role data. Roles created and edited
 using files are compatible with all versions of Chef, including
 chef-solo. Roles created and edited using files can be kept in version
 source control, which also keeps a history of what changed when. When
