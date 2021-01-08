@@ -277,14 +277,13 @@ The JSON format has two additional settings:
 
 ## Create Environments
 
-An environment can be created in five different ways:
+An environment can be created in four different ways:
 
 -   Creating a Ruby file in the environments sub-directory of the
     chef-repo and then pushing it to the Chef server
 -   Creating a JSON file directly in the chef-repo and then pushing it
     to the Chef server
 -   Using knife
--   Using the Chef management console web user interface
 -   Using the Chef Infra Server REST API
 
 Once an environment exists on the Chef Infra Server, a node can be
