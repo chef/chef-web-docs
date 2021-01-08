@@ -226,7 +226,7 @@ And others are defined in an attributes file:
 
 ```ruby
 default[:test][:source]  = 'attributes default'
-set[:test][:source]      = 'attributes normal'
+normal[:test][:source]      = 'attributes normal'
 override[:test][:source] = 'attributes override'
 ```
 
