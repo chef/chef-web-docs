@@ -138,7 +138,7 @@
               <ul>
                 <li><a href="#windows-registry-key-backslashes">Registry Key Path Separators</a></li>
                 <li>
-                  <a href="#dsl-recipe-method-windows-methods">Recipe DSL Methods</a>
+                  <a href="#dsl-recipe-method-windows-methods">Chef Infra Language Methods</a>
                   <ul>
                     <li><a href="#dsl-recipe-method-registry-data-exists">registry_data_exists?</a></li>
                     <li><a href="#dsl-recipe-method-registry-get-subkeys">registry_get_subkeys</a></li>
@@ -313,7 +313,7 @@
                 <a href="#unit-file-verification">Unit file verification</a>
               </li>
             {{ end }}
-            
+
             {{ if or (index $yaml_file "resources_common_properties" ) ( index $yaml_file "resources_common_notification" ) ( index $yaml_file "resources_common_guards" ) ( index $yaml_file "multi_package_resource" ) ( index $yaml_file "resources_common_guard_interpreter" ) ( index $yaml_file "remote_directory_recursive_directories" ) ( index $yaml_file "common_resource_functionality_resources_common_windows_security" )}}
             <li>
               {{ $FunctionalityID = add $FunctionalityID 1 }}

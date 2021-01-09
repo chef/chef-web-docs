@@ -14,7 +14,7 @@ aliases = ["/secrets.html"]
     weight = 80
 +++
 
-One way to manage secrets used by Chef is with data bags.
+One way to manage secrets used by Chef Infra is with data bags.
 
 ## Data Bags
 
@@ -81,6 +81,7 @@ One way to manage secrets used by Chef is with data bags.
 {{% knife_data_bag_edit %}}
 
 {{% knife_data_bag_edit_item %}}
+
 ### Use Data Bags
 
 Data bags can be accessed in the following ways:
@@ -97,7 +98,7 @@ Data bags can be accessed in the following ways:
 
 {{% data_bag_recipes %}}
 
-**Load with Recipe DSL**
+**Load with Chef Infra Language**
 
 {{% data_bag_recipes_load_using_recipe_dsl %}}
 

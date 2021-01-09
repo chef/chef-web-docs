@@ -580,7 +580,7 @@ examples: "
   \ && ./configure #{configure_options})\n      (cd Python-#{version} && make && make\
   \ install)\n    EOF\n    not_if { ::File.exist?(install_path) }\n  end\n  ```\n\n\
   \  **Use the platform_family? method**\n\n  The following is an example of using\
-  \ the `platform_family?` method in\n  the Recipe DSL to create a variable that can\
+  \ the `platform_family?` method in\n  the Chef Infra Language to create a variable that can\
   \ be used with other\n  resources in the same recipe. In this example, `platform_family?`\
   \ is\n  being used to ensure that a specific binary is used for a specific\n  platform\
   \ before using the **remote_file** resource to download a file\n  from a remote\
@@ -597,4 +597,3 @@ examples: "
   \ a local Microsoft Windows file path as a valid file URI,\n  an additional forward\
   \ slash (`/`) is required. For example:\n\n  ```ruby\n  remote_file 'file:///c:/path/to/file'\
   \ do\n    ...       # other attributes\n  end\n  ```\n"
-

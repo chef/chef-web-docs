@@ -5448,12 +5448,12 @@ use of it has been pointless.
 This was deprecated and replaced a long time ago with mixlib-shellout
 and the shell_out mixin.
 
-#### Remove `method_missing` from the Recipe DSL
+#### Remove `method_missing` from the Chef Infra Language
 
-The core of chef hasn't used this to implement the Recipe DSL since
+The core of chef hasn't used this to implement the Chef Infra Language since
 12.5.1 and its unlikely that any external code depended upon it.
 
-#### Simplify Recipe DSL wiring
+#### Simplify Chef Infra Language wiring
 
 Support for actions with spaces and hyphens in the action name has been
 dropped. Resources and property names with spaces and hyphens most
@@ -6648,9 +6648,9 @@ from previous versions. The short version:
     to set the RAID5 parity algorithm. Possible values:
     `left-asymmetric` (or `la`), `left-symmetric` (or `ls`),
     `right-asymmetric` (or `ra`), or `right-symmetric` (or `rs`).
--   **New with_run_context for the Recipe DSL** Use `with_run_context`
+-   **New with_run_context for the Chef Infra Language** Use `with_run_context`
     to run resource blocks as part of the root or parent run context.
--   **New Recipe DSL methods for declaring, deleting, editing, and
+-   **New Chef Infra Language methods for declaring, deleting, editing, and
     finding resources** Use the `declare_resource`, `delete_resource`,
     `edit_resource`, and `find_resource` methods to interact with
     resources in the resource collection. Use the `delete_resource!`,
@@ -9537,7 +9537,7 @@ platform or platform version logic within your resources.
 
 **override**
 
-Chef will warn you if the Recipe DSL is provided by another custom
+Chef will warn you if the Chef Infra Language is provided by another custom
 resource or built-in resource. For example:
 
 ```ruby
@@ -11050,11 +11050,11 @@ previous versions. The short version:
 
 -   **chef-client may be run in audit-mode** Use audit-mode to run audit
     tests against a node.
--   **control method added to Recipe DSL** Use the `control` method to
+-   **control method added to Chef Infra Language** Use the `control` method to
     define specific tests that match directories, files, packages,
     ports, and services. A `control` method must be contained within a
     `control_group` block.
--   **control_group method added to Recipe DSL** Use the
+-   **control_group method added to Chef Infra Language** Use the
     `control_group` method to group one (or more) `control` methods into
     a single audit.
 -   **Bootstrap nodes without using the ORGANIZATION-validator.key
@@ -11098,7 +11098,7 @@ audit-mode may be run in the following ways:
     resources have been converged on the node
 
 Each audit is authored within a recipe using the `control_group` and
-`control` methods that are part of the Recipe DSL. Recipes that contain
+`control` methods that are part of the Chef Infra Language. Recipes that contain
 audits are added to the run-list, after which they can be processed by
 the chef-client. Output will appear in the same location as the regular
 chef-client run (as specified by the `log_location` setting in the
@@ -12863,7 +12863,7 @@ previous versions. The short version:
     hard-coded string is deprecated in Chef Client 12.0 release.
     Cookbooks that rely on this string need to be updated to manually
     add it to the URL as it is passed to the resource.
--   **New Recipe DSL methods** The Recipe DSL has three new methods:
+-   **New Chef Infra Language methods** The Chef Infra Language has three new methods:
     `shell_out`, `shell_out!`, and `shell_out_with_systems_locale`.
 -   **File specificity updates** File specificity for the **template**
     and **cookbook_file** resources now supports using the `source`
@@ -12874,12 +12874,12 @@ previous versions. The short version:
     attributes to calculate SALTED-SHA512 password shadow hashes for
     macOS version 10.7 and SALTED-SHA512-PBKDF2 password shadow hashes
     for version 10.8 (and higher).
--   **data_bag_item method in the Recipe DSL supports encrypted data
+-   **data_bag_item method in the Chef Infra Language supports encrypted data
     bag items** Use `data_bag_item(bag_name, item, secret)` to specify
     the secret to use for an encrypted data bag item. If `secret` is not
     specified, Chef Client looks for a secret at the path specified by
     the `encrypted_data_bag_secret` setting in the client.rb file.
--   **value_for_platform method in the Recipe DSL supports version
+-   **value_for_platform method in the Chef Infra Language supports version
     constraints** Version constraints---`>`, `<`, `>=`, `<=`, `~>`---may
     be used when specifying a version. An exception is raised if two
     version constraints match. An exact match will always take
@@ -13344,9 +13344,9 @@ where:
 -   `'platform'` is a comma-separated list of platforms: `'windows'`,
     `'solaris2'`, `'linux'`, and so on
 -   `platform_family` is optional and may specify the same parameters as
-    the `platform_family?` method in the Recipe DSL; `platform` is
+    the `platform_family?` method in the Chef Infra Language; `platform` is
     optional and also supported (and is the same as the `platform?`
-    method in the Recipe DSL)
+    method in the Chef Infra Language)
 
 A custom resource/provider may be mapped to more than one existing
 resource/provider. Multiple platform associations may be made. For
@@ -13623,9 +13623,9 @@ execute "enable #{node['chef_client']['svc_name']}" do
 end
 ```
 
-### Recipe DSL, Encrypted Data Bags
+### Chef Infra Language, Encrypted Data Bags
 
-The Recipe DSL provides access to data bags and data bag items
+The Chef Infra Language provides access to data bags and data bag items
 (including encrypted data bag items) with the following methods:
 
 -   `data_bag(bag)`, where `bag` is the name of the data bag.
@@ -14795,9 +14795,9 @@ hard-coded string is deprecated in Chef Client 12.0 release. Cookbooks
 that rely on this string need to be updated to manually add it to the
 URL as it is passed to the resource.
 
-### Recipe DSL
+### Chef Infra Language
 
-The following methods have been added to the Recipe DSL: `shell_out`,
+The following methods have been added to the Chef Infra Language: `shell_out`,
 `shell_out!`, and `shell_out_with_systems_locale`.
 
 #### shell_out
@@ -15130,7 +15130,7 @@ If a custom resource was created in the `/libraries` directory of a
 cookbook that also uses a core resource from Chef Client within the
 custom resource, the base class that is associated with that custom
 resource must be updated. In previous versions of the chef-client, the
-`Chef::Provider` class was all that was necessary because the Recipe DSL
+`Chef::Provider` class was all that was necessary because the Chef Infra Language
 was included in the `Chef::Provider` base class.
 
 For example, the `lvm_logical_volume` custom resource from the [lvm
@@ -15178,7 +15178,7 @@ class Chef
     end
 ```
 
-Starting with chef-client 12, the Recipe DSL is removed from the
+Starting with chef-client 12, the Chef Infra Language is removed from the
 `Chef::Provider` base class and is only available by using `LWRPBase`.
 Cookbooks that contain custom resources authored for Chef Client 11
 version should be inspected and updated.

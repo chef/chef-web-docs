@@ -1,48 +1,37 @@
 +++
-title = "About the Recipe DSL"
+title = "About the Chef Infra Language"
 draft = false
 
 gh_repo = "chef-web-docs"
 
-aliases = ["/dsl_recipe.html"]
+aliases = ["/dsl_recipe.html", "/dsl_recipe"]
 
 [menu]
   [menu.infra]
-    title = "DSL Overview"
-    identifier = "chef_infra/cookbook_reference/recipe_dsl/dsl_recipe.md DSL Overview"
-    parent = "chef_infra/cookbook_reference/recipe_dsl"
+    title = "Language Overview"
+    identifier = "chef_infra/cookbook_reference/infra_language/infra_language.md Language Overview"
+    parent = "chef_infra/cookbook_reference/infra_language"
     weight = 10
 +++
 
-{{% dsl_recipe_summary %}}
+{{% infra_lang_summary %}}
 
-Because the Recipe DSL is a Ruby DSL, anything that can be done using
-Ruby can also be done in a recipe or custom resource, including `if` and
-`case` statements, using the `include?` Ruby method, including recipes
-in recipes, and checking for dependencies. See the [Ruby
-Guide](/ruby/) for further information on built-in Ruby
-functionality.
+The Chef Infra Language is based on Ruby, giving you access to the power of Ruby when the built-in language doesn't meet your needs. Learn more about extending your Chef Infra code in our [Ruby Guide](/ruby/).
 
-## Include Recipes
+## Resources
 
-{{% cookbooks_recipe_include_in_recipe %}}
+The Chef Infra Language expresses the desired state of configurable objects in your system in resources. Resources are the building blocks of recipes and they are central to understanding configuration management with Chef Infra. Some resources are as simple as a directory name, while others as complex as a complete security policy. Chef Infra Client ships with over 150 pre-packaged resources for configuring components such as packages, files, directories, and firewalls. Learn more in the Chef Infra Client [Resources](/resources) documentation.
 
-### Reload Attributes
+## Language Helpers
 
-{{% cookbooks_attribute_file_reload_from_recipe %}}
-
-## Recipe DSL Methods
-
-The Recipe DSL provides support for using attributes, data bags (and
+The Chef Infra Language provides support for using attributes, data bags (and
 encrypted data), and search results in a recipe, as well as four helper
 methods that can be used to check for a node's platform from the recipe
-to ensure that specific actions are taken for specific platforms. The
-helper methods are:
+to ensure that specific actions are taken for specific platforms.
 
--   `platform?`
--   `platform_family?`
--   `value_for_platform`
--   `value_for_platform_family`
+### include_recipe
+
+{{% cookbooks_recipe_include_in_recipe %}}
 
 ### attribute?
 
@@ -100,7 +89,7 @@ recipe.
 
 **Get a data bag, and then iterate through each data bag item**
 
-{{% dsl_recipe_data_bag %}}
+{{% infra_lang_data_bag %}}
 
 ### data_bag_item
 
@@ -127,7 +116,7 @@ in a recipe.
 
 **Get a data bag, and then iterate through each data bag item**
 
-{{% dsl_recipe_data_bag %}}
+{{% infra_lang_data_bag %}}
 
 **Use the contents of a data bag in a recipe**
 
@@ -231,7 +220,7 @@ For example:
 delete_resource(:template, '/x/y.erb')
 ```
 
-## delete_resource!
+### delete_resource!
 
 
 Use the `delete_resource!` method to find a resource in the resource
@@ -310,7 +299,7 @@ edit_resource(:template, '/etc/aliases') do
 end
 ```
 
-## edit_resource!
+### edit_resource!
 
 Use the `edit_resource!` method to:
 
@@ -391,7 +380,7 @@ find_resource(:template, '/etc/seapower') do
 end
 ```
 
-## find_resource!
+### find_resource!
 
 Use the `find_resource!` method to find a resource in the resource
 collection. If the resource is not found, an exception is returned.
@@ -434,11 +423,8 @@ platform?('parameter', 'parameter')
 
 where:
 
--   `parameter` is a comma-separated list, each specifying a platform,
-    such as Red Hat, CentOS, or Fedora
--   `platform?` method is typically used with an `if`, `elsif`, or
-    `case` statement that contains Ruby code that is specific for the
-    platform, if detected
+-   `parameter` is a comma-separated list, each specifying a platform, such as Red Hat, CentOS, or Fedora
+-   `platform?` method is typically used with an `if`, `elsif`, or `case` statement that contains Ruby code that is specific for the platform, if detected
 
 #### Parameters
 
@@ -543,9 +529,9 @@ platform?('redhat', 'debian')
 The following example shows how the `platform?` method can be used in a
 recipe.
 
-**Use an if statement with the platform recipe DSL method**
+**Use an if statement with the helper**
 
-{{% resource_ruby_block_if_statement_use_with_platform %}}
+{{% resource_if_statement_use_with_platform %}}
 
 ### platform_family?
 
@@ -720,7 +706,7 @@ end
 
 #### :filter_result
 
-{{% dsl_recipe_method_search_filter_result %}}
+{{% infra_lang_method_search_filter_result %}}
 
 #### Query Syntax
 
@@ -785,7 +771,7 @@ shell_out(command_args)
 
 where `command_args` is the command that is run against the node.
 
-## shell_out!
+### shell_out!
 
 The `shell_out!` method can be used to run a command against the node,
 display the output to the console when the log level is set to `debug`,
@@ -984,37 +970,37 @@ end
 
 ## Windows Platform
 
-{{% dsl_recipe_method_windows_methods %}}
+{{% infra_lang_method_windows_methods %}}
 
 {{< note >}}
 
-{{% notes_dsl_recipe_order_for_windows_methods %}}
+{{% notes_infra_lang_order_for_windows_methods %}}
 
 {{< /note >}}
 
 ### registry_data_exists?
 
-{{% dsl_recipe_method_registry_data_exists %}}
+{{% infra_lang_method_registry_data_exists %}}
 
 ### registry_get_subkeys
 
-{{% dsl_recipe_method_registry_get_subkeys %}}
+{{% infra_lang_method_registry_get_subkeys %}}
 
 ### registry_get_values
 
-{{% dsl_recipe_method_registry_get_values %}}
+{{% infra_lang_method_registry_get_values %}}
 
 ### registry_has_subkeys?
 
-{{% dsl_recipe_method_registry_has_subkeys %}}
+{{% infra_lang_method_registry_has_subkeys %}}
 
 ### registry_key_exists?
 
-{{% dsl_recipe_method_registry_key_exists %}}
+{{% infra_lang_method_registry_key_exists %}}
 
 ### registry_value_exists?
 
-{{% dsl_recipe_method_registry_value_exists %}}
+{{% infra_lang_method_registry_value_exists %}}
 
 ## Log Entries
 
