@@ -41,7 +41,7 @@ Client the information and instruction that it needs so that it can do
 its job. As you are reviewing the rest of this topic, use the icons in
 the tables to refer back to this image.
 
-<img src="/images/chef_overview.svg" class="align-center" width="600" alt="image" />
+<img src="/images/chef_overview_2020.svg" class="align-center" width="600" alt="image" />
 
 Chef Infra has the following major components:
 
