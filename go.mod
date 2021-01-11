@@ -4,7 +4,7 @@ go 1.14
 
 require (
 	github.com/chef/automate/components/docs-chef-io v0.0.0-20210110033947-ab4d1693b20a // indirect
-	github.com/chef/chef-server/docs-chef-io v0.0.0-20210101002519-8e5e0e23f5db // indirect
+	github.com/chef/chef-server/docs-chef-io v0.0.0-20210111145116-cec7cf7e63da // indirect
 	github.com/chef/chef-workstation v0.0.0-20201117215019-2a59d0a67f2d // indirect
 	github.com/chef/chef-workstation/docs-chef-io v0.0.0-20210105232445-904f6f0643c7 // indirect
 	github.com/chef/desktop-config/docs-chef-io v0.0.0-20200929171526-d4cef8a736df // indirect
