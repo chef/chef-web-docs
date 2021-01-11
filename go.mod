@@ -3,15 +3,15 @@ module github.com/chef/chef-web-docs
 go 1.14
 
 require (
-	github.com/chef/automate/components/docs-chef-io v0.0.0-20201231221047-b00630388830 // indirect
-	github.com/chef/chef-server/docs-chef-io v0.0.0-20210101002519-8e5e0e23f5db // indirect
+	github.com/chef/automate/components/docs-chef-io v0.0.0-20210110033947-ab4d1693b20a // indirect
+	github.com/chef/chef-server/docs-chef-io v0.0.0-20210111145116-cec7cf7e63da // indirect
 	github.com/chef/chef-workstation v0.0.0-20201117215019-2a59d0a67f2d // indirect
 	github.com/chef/chef-workstation/docs-chef-io v0.0.0-20210105232445-904f6f0643c7 // indirect
 	github.com/chef/desktop-config/docs-chef-io v0.0.0-20200929171526-d4cef8a736df // indirect
 	github.com/chef/effortless/docs-chef-io v0.0.0-20200930175149-51c187882fba // indirect
 	github.com/habitat-sh/habitat/components/docs-chef-io v0.0.0-20210105205530-3dff2d6af000 // indirect
 	github.com/inspec/inspec v4.23.15+incompatible // indirect
-	github.com/inspec/inspec/docs-chef-io v0.0.0-20201223142818-4ee82644e825 // indirect
+	github.com/inspec/inspec/docs-chef-io v0.0.0-20210106210521-1ccaa3e482fd // indirect
 )
 
 //replace github.com/chef/effortless/docs-chef-io => ../effortless/docs-chef-io
