@@ -1,5 +1,5 @@
 The following is an example of using the `platform_family?` method in
-the Recipe DSL to create a variable that can be used with other
+the Chef Infra Language to create a variable that can be used with other
 resources in the same recipe. In this example, `platform_family?` is
 being used to ensure that a specific binary is used for a specific
 platform before using the **remote_file** resource to download a file

@@ -96,7 +96,7 @@ Upgrading to Chef Infra Server 14 will require a reindexing operation for most u
 
 - Chef Infra Server supports Elasticsearch version 6 for external Elasticsearch:
 
-  Chef Infra Server previously supported index creation for ElasticSearch versions 2 and 5. We now support index creation for ElasticSearch 6 as well.
+  Chef Infra Server previously supported index creation for Elasticsearch versions 2 and 5. We now support index creation for Elasticsearch 6 as well.
 
 - Cookstyle changes applied to the cookbooks.
 - Disable actions rabbitmq queue by default.
@@ -681,7 +681,7 @@ The following items are new for Chef server 12.12:
     tarball. This bug is now resolved. We recommend taking a new backup
     after upgrading to 12.12.0.
 -   **Correct number of rows are returned when searching with
-    ElasticSearch** When configured to use ElasticSearch, Chef server
+    Elasticsearch** When configured to use Elasticsearch, Chef server
     now correctly respects the `rows` parameter in search requests
     rather than returning all rows.
 -   **Solr 4 GC logging is now used by Chef server** Java's native
