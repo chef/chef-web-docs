@@ -9,7 +9,7 @@ resources_common_properties: true
 resource: remote_directory
 resource_description_list:
 - markdown: Use the **remote_directory** resource to incrementally transfer a directory
-    from a cookbook to a node. The director that is copied from the cookbook should
+    from a cookbook to a node. The directory that is copied from the cookbook should
     be located under `COOKBOOK_NAME/files/default/REMOTE_DIRECTORY`. The `remote_directory`
     resource will obey file specificity.
 syntax_description: "A **remote_directory** resource block transfers a directory from\
@@ -69,15 +69,10 @@ properties_list:
   ruby_type: String, Integer
   required: false
   description_list:
-  - markdown: 'Configure group permissions for files. A string or ID that
-
-      identifies the group owner by group name or SID, including fully qualified
-
-      group names such as `domain\group` or `group@domain`. If this value
-
-      is not specified, existing groups remain unchanged and new group
-
-      assignments use the default `POSIX` group (if available).'
+  - markdown: Configure group permissions for files. A string or ID that identifies
+      the group owner by group name, including fully qualified group names such as
+      `domain\group` or `group@domain`. If this value is not specified, existing groups
+      remain unchanged and new group assignments use the default POSIX group (if available).
 - property: files_mode
   ruby_type: String, Integer
   required: false
@@ -126,15 +121,10 @@ properties_list:
   ruby_type: String, Integer
   required: false
   description_list:
-  - markdown: 'Configure owner permissions for files. A string or ID that
-
-      identifies the group owner by user name or SID, including fully qualified
-
-      user names such as `domain\user` or `user@domain`. If this value is
-
-      not specified, existing owners remain unchanged and new owner
-
-      assignments use the current user (when necessary).'
+  - markdown: Configure owner permissions for files. A string or ID that identifies
+      the group owner by user name, including fully qualified user names such as `domain\user`
+      or `user@domain`. If this value is not specified, existing owners remain unchanged
+      and new owner assignments use the current user (when necessary).
 - property: group
   ruby_type: Integer, String
   required: false
