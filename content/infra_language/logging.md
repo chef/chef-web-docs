@@ -16,7 +16,7 @@ gh_repo = "chef-web-docs"
 
 {{% ruby_style_basics_chef_log %}}
 
-The following examples show using `Chef::Log` entries in a recipe.
+### Examples
 
 {{% ruby_class_chef_log_fatal %}}
 
