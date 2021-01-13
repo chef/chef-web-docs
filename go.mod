@@ -5,9 +5,9 @@ go 1.14
 require (
 	github.com/chef/automate/components/docs-chef-io v0.0.0-20210110033947-ab4d1693b20a // indirect
 	github.com/chef/chef-server/docs-chef-io v0.0.0-20210111145116-cec7cf7e63da // indirect
-	github.com/chef/chef-workstation v0.0.0-20201117215019-2a59d0a67f2d // indirect
-	github.com/chef/chef-workstation/docs-chef-io v0.0.0-20210105232445-904f6f0643c7 // indirect
-	github.com/chef/desktop-config/docs-chef-io v0.0.0-20200929171526-d4cef8a736df // indirect
+	github.com/chef/chef-workstation v0.0.0-20210112172648-852e97daa198 // indirect
+	github.com/chef/chef-workstation/docs-chef-io v0.0.0-20210112172648-852e97daa198 // indirect
+	github.com/chef/desktop-config/docs-chef-io v0.0.0-20210112020121-58047a6a6d6f // indirect
 	github.com/chef/effortless/docs-chef-io v0.0.0-20200930175149-51c187882fba // indirect
 	github.com/habitat-sh/habitat/components/docs-chef-io v0.0.0-20210105205530-3dff2d6af000 // indirect
 	github.com/inspec/inspec v4.23.15+incompatible // indirect

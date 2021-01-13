@@ -5,11 +5,12 @@ github.com/chef/automate/components/docs-chef-io v0.0.0-20210110033947-ab4d1693b
 github.com/chef/automate/components/docs-chef-io v0.0.0-20210110033947-ab4d1693b20a/go.mod h1:juvLC7Rt33YOCgJ5nnfl4rWZRAbSwqjTbWmcAoA0LtU=
 github.com/chef/chef-server/docs-chef-io v0.0.0-20210111145116-cec7cf7e63da h1:3W8cMBP+LBolm4FFDA8U+bX5zHtHIoIfSeyDMEVrfic=
 github.com/chef/chef-server/docs-chef-io v0.0.0-20210111145116-cec7cf7e63da/go.mod h1:gMSa25GUHmLimA0gjvRd3hs1buOBqkKPrdHzHvaJauY=
-github.com/chef/chef-workstation v0.0.0-20201117215019-2a59d0a67f2d/go.mod h1:KZ1lmUGHzTKhRuHdDhB/I2ZEbet++4OTuABWlYb9MlQ=
-github.com/chef/chef-workstation/docs-chef-io v0.0.0-20210105232445-904f6f0643c7 h1:F5T50U0Qq4oS0jk79S7b+JO7ZoZAFhDemkQLx14c8MU=
-github.com/chef/chef-workstation/docs-chef-io v0.0.0-20210105232445-904f6f0643c7/go.mod h1:gvoh6ov1YU98CVzBEWzEZeCLTRunfQ6r1VO7M3LFE9U=
-github.com/chef/desktop-config/docs-chef-io v0.0.0-20200929171526-d4cef8a736df h1:tOwLfqjSj5y3rubKlIOBHLtmQy5vceQGuMkpw6WdcbU=
-github.com/chef/desktop-config/docs-chef-io v0.0.0-20200929171526-d4cef8a736df/go.mod h1:90xAx6sIfgSL50M2KzeBmx7V7s7dlhQU3xpUkJO0qW0=
+github.com/chef/chef-workstation v0.0.0-20210112172648-852e97daa198 h1:8MoE5CVSpy0+TwTFkdpc2nik2SxRjlirQH7hzFu5y7o=
+github.com/chef/chef-workstation v0.0.0-20210112172648-852e97daa198/go.mod h1:KZ1lmUGHzTKhRuHdDhB/I2ZEbet++4OTuABWlYb9MlQ=
+github.com/chef/chef-workstation/docs-chef-io v0.0.0-20210112172648-852e97daa198 h1:tSmcap5vyW+RHOf3+yJCUn5RAeX44+KJAri8FmrEOGI=
+github.com/chef/chef-workstation/docs-chef-io v0.0.0-20210112172648-852e97daa198/go.mod h1:gvoh6ov1YU98CVzBEWzEZeCLTRunfQ6r1VO7M3LFE9U=
+github.com/chef/desktop-config/docs-chef-io v0.0.0-20210112020121-58047a6a6d6f h1:kS8U0K/HLRw+T8sqN4NfngUHWWBTTdE4CTF8FbHr03Q=
+github.com/chef/desktop-config/docs-chef-io v0.0.0-20210112020121-58047a6a6d6f/go.mod h1:90xAx6sIfgSL50M2KzeBmx7V7s7dlhQU3xpUkJO0qW0=
 github.com/chef/effortless/docs-chef-io v0.0.0-20200930175149-51c187882fba h1:71JD3SIc9HWmbokoxw6vI9XTtcbi10PxKhKrhKonYZ0=
 github.com/chef/effortless/docs-chef-io v0.0.0-20200930175149-51c187882fba/go.mod h1:Lfq+HjwAQwUJ41EPTO/8qbI1oJb2i415fR28d2Ig9kc=
 github.com/client9/misspell v0.3.4/go.mod h1:qj6jICC3Q7zFZvVWo7KLAzC3yx5G7kyvSDkc90ppPyw=
