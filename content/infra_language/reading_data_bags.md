@@ -24,10 +24,9 @@ The syntax for the `data_bag` method is as follows:
 data_bag(bag_name)
 ```
 
-**Examples**
+#### Examples
 
-The following example shows how the `data_bag` method can be used in a
-recipe.
+The following example shows how the `data_bag` method can be used in a recipe.
 
 **Get a data bag, and then iterate through each data bag item**
 
@@ -37,8 +36,7 @@ recipe.
 
 {{% data_bag %}}
 
-The `data_bag_item` method can be used in a recipe to get the contents
-of a data bag item.
+The `data_bag_item` method can be used in a recipe to get the contents of a data bag item.
 
 The syntax for the `data_bag_item` method is as follows:
 
@@ -46,15 +44,11 @@ The syntax for the `data_bag_item` method is as follows:
 data_bag_item(bag_name, item, secret)
 ```
 
-where `secret` is the secret used to load an encrypted data bag. If
-`secret` is not specified, Chef Infra Client looks for a secret at the
-path specified by the `encrypted_data_bag_secret` setting in the
-client.rb file.
+where `secret` is the secret used to load an encrypted data bag. If `secret` is not specified, Chef Infra Client looks for a secret at the path specified by the `encrypted_data_bag_secret` setting in the `client.rb` file.
 
-**Examples**
+#### Examples
 
-The following examples show how the `data_bag_item` method can be used
-in a recipe.
+The following examples show how the `data_bag_item` method can be used in a recipe.
 
 **Get a data bag, and then iterate through each data bag item**
 
@@ -62,9 +56,7 @@ in a recipe.
 
 **Use the contents of a data bag in a recipe**
 
-The following example shows how to use the `data_bag` and
-`data_bag_item` methods in a recipe, also using a data bag named
-`sea-power`):
+The following example shows how to use the `data_bag` and `data_bag_item` methods in a recipe, also using a data bag named `sea-power`):
 
 ```ruby
 package 'sea-power' do
@@ -89,7 +81,3 @@ template '/etc/seattle/power.list' do
   )
 end
 ```
-
-For a more complete version of the previous example, see the default
-recipe in the <https://github.com/hw-cookbooks/apt-mirror> community
-cookbook.

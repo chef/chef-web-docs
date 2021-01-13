@@ -16,8 +16,7 @@ gh_repo = "chef-web-docs"
 
 {{% search %}}
 
-Use the `search` method to perform a search query against the Chef Infra
-Server from within a recipe.
+Use the `search` method to perform a search query against the Chef Infra Server from within a recipe.
 
 The syntax for the `search` method is as follows:
 
@@ -27,12 +26,8 @@ search(:index, 'query')
 
 where:
 
--   `:index` is of name of the index on the Chef Infra Server against
-    which the search query will run: `:client`, `:data_bag_name`,
-    `:environment`, `:node`, and `:role`
--   `'query'` is a valid search query against an object on the Chef
-    Infra Server (see below for more information about how to build the
-    query)
+- `:index` is of name of the index on the Chef Infra Server against which the search query will run: `:client`, `:data_bag_name`, `:environment`, `:node`, and `:role`
+- `'query'` is a valid search query against an object on the Chef Infra Server (see below for more information about how to build the query)
 
 For example, using the results of a search query within a variable:
 
@@ -95,8 +90,7 @@ end
 
 #### Examples
 
-The following examples show how the `search` method can be used in a
-recipe.
+The following examples show how the `search` method can be used in a recipe.
 
 **Use the search recipe DSL method to find users**
 
