@@ -43,6 +43,7 @@ syntax_full_code_block: |-
     proxy_username             String
     repo_gpgcheck              true, false
     report_instanceid          true, false
+    reposdir                   String # default value: "/etc/yum.repos.d/"
     repositoryid               String # default value: 'name' unless specified
     skip_if_unavailable        true, false
     source                     String
@@ -66,9 +67,9 @@ syntax_full_properties_list:
   `include_config`, `includepkgs`, `keepalive`, `make_cache`, `max_retries`, `metadata_expire`,
   `metalink`, `mirror_expire`, `mirrorlist`, `mirrorlist_expire`, `mode`, `options`,
   `password`, `priority`, `proxy`, `proxy_password`, `proxy_username`, `repo_gpgcheck`,
-  `report_instanceid`, `repositoryid`, `skip_if_unavailable`, `source`, `sslcacert`,
-  `sslclientcert`, `sslclientkey`, `sslverify`, `throttle`, `timeout`, and `username`
-  are the properties available to this resource."
+  `report_instanceid`, `reposdir`, `repositoryid`, `skip_if_unavailable`, `source`,
+  `sslcacert`, `sslclientcert`, `sslclientkey`, `sslverify`, `throttle`, `timeout`,
+  and `username` are the properties available to this resource."
 actions_list:
   :create:
     markdown: Create a repository based on the properties.
@@ -308,6 +309,13 @@ properties_list:
   description_list:
   - markdown: Determines whether to report the instance ID when using Amazon Linux
       AMIs and repositories.
+- property: reposdir
+  ruby_type: String
+  required: false
+  default_value: "/etc/yum.repos.d/"
+  new_in: '16.9'
+  description_list:
+  - markdown: The directory where the Yum repository files should be stored
 - property: repositoryid
   ruby_type: String
   required: false

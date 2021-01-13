@@ -66,8 +66,8 @@ properties_list:
   ruby_type: Array
   required: false
   description_list:
-  - markdown: "An array of 'domain\account' entries to be granted read-only access
-      to the certificate's private key. Not idempotent."
+  - markdown: An array of 'domain\account' entries to be granted read-only access
+      to the certificate's private key. Not idempotent.
 - property: source
   ruby_type: String
   required: false
