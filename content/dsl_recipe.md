@@ -501,22 +501,18 @@ The following parameters can be used with this method:
 <td>openSUSE leap</td>
 </tr>
 <tr class="even">
-<td><code>slackware</code></td>
-<td>Slackware</td>
-</tr>
-<tr class="odd">
 <td><code>solaris</code></td>
 <td>Solaris. For Solaris-related platforms, the <code>platform_family</code> method does not support the Solaris platform family and will default back to <code>platform_family = platform</code>. For example, if the platform is OmniOS, the <code>platform_family</code> is <code>omnios</code>, if the platform is SmartOS, the <code>platform_family</code> is <code>smartos</code>, and so on. All platform variants of Solaris return <code>solaris</code>.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>suse</code></td>
 <td>SUSE Enterprise Linux Server.</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>ubuntu</code></td>
 <td>Ubuntu Linux.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>windows</code></td>
 <td>Microsoft Windows. All platform variants of Microsoft Windows return <code>windows</code>.</td>
 </tr>
