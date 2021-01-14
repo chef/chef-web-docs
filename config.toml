@@ -563,6 +563,11 @@ identifier = "chef_infra"
   parent = "chef_infra"
   weight = 20
 
+      [[menu.infra]]
+      title = "Compliance Phase"
+      identifier = "chef_infra/compliance_phase"
+      parent = "chef_infra"
+
     [[menu.infra]]
     title = "Cookbooks"
     identifier = "chef_infra/concepts/cookbooks.md Cookbooks"
