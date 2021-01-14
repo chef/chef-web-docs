@@ -27,7 +27,7 @@ where:
 - `parameter` is a comma-separated list, each specifying a platform, such as Red Hat, CentOS, or Fedora
 - `platform?` method is typically used with an `if`, `elsif`, or `case` statement that contains Ruby code that is specific for the platform, if detected
 
-### Platforms Values
+### platform Values
 
 <table>
 <colgroup>
@@ -43,7 +43,7 @@ where:
 <tbody>
 <tr class="odd">
 <td><code>aix</code></td>
-<td>IBM AIX.</td>
+<td>IBM AIX</td>
 </tr>
 <tr class="even">
 <td><code>amazon</code></td>
@@ -98,38 +98,42 @@ where:
 <td>OpenBSD</td>
 </tr>
 <tr class="odd">
+<td><code>openindiana</code></td>
+<td>OpenIndiana</td>
+</tr>
+<tr class="even">
 <td><code>opensuseleap</code></td>
 <td>openSUSE leap</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>pidora</code></td>
 <td>Pidora</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>raspbian</code></td>
 <td>Raspberry Pi OS</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>scientific</code></td>
 <td>Scientific Linux</td>
 </tr>
-<tr class="odd">
-<td><code>solaris</code></td>
+<tr class="even">
+<td><code>solaris2</code></td>
 <td>Oracle Solaris</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>suse</code></td>
 <td>SUSE Enterprise Linux Server.</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>ubuntu</code></td>
 <td>Ubuntu Linux</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>windows</code></td>
 <td>Microsoft Windows</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>xenserver</code></td>
 <td>Citrix XenServer</td>
 </tr>
@@ -173,7 +177,7 @@ where:
 - `'parameter'` is a comma-separated list, each specifying a platform family, such as Debian, or Red Hat Enterprise Linux
 - `platform_family?` method is typically used with an `if`, `elsif`, or `case` statement that contains Ruby code that is specific for the platform family, if detected
 
-### Platforms Values
+### platform_family Values
 
 <table>
 <colgroup>
@@ -232,18 +236,22 @@ where:
 <td><code>openbsd</code> platform</td>
 </tr>
 <tr class="even">
+<td><code>openindiana</code></td>
+<td><code>openindiana</code> platform</td>
+</tr>
+<tr class="odd">
 <td><code>rhel</code></td>
 <td><code>redhat</code>, <code>centos</code>, <code>oracle</code>, <code>scientific</code>, <code>xenserver</code>, <code>clearos</code>, <code>bigip</code>, <code>parallels</code>, <code>xcp</code>, and <code>ibm_powerkvm</code> platforms</td>
 </tr>
-<tr class="odd">
-<td><code>solaris2</code></td>
-<td><code>solaris</code>, <code>omnios</code>, and <code>smartos</code> platforms</td>
-</tr>
 <tr class="even">
+<td><code>solaris2</code></td>
+<td><code>solaris2</code> platform</td>
+</tr>
+<tr class="odd">
 <td><code>sles</code></td>
 <td><code>opensuse_leap</code>, <code>suse</code>, and <code>sled</code> platforms</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>windows</code></td>
 <td><code>windows</code> platform</td>
 </tr>
