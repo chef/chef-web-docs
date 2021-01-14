@@ -54,20 +54,36 @@ where:
 <td>Arch Linux</td>
 </tr>
 <tr class="even">
+<td><code>clearos</code></td>
+<td>ClearOS</td>
+</tr>
+<tr class="odd">
+<td><code>cloudlinux</code></td>
+<td>Cloud Linux OS</td>
+</tr>
+<tr class="even">
+<td><code>cumulus</code></td>
+<td>NVIDIA Cumulus Linux</td>
+</tr>
+<tr class="odd">
 <td><code>debian</code></td>
 <td>Debian GNU/Linux</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>fedora</code></td>
 <td>Fedora</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>freebsd</code></td>
 <td>FreeBSD</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>gentoo</code></td>
 <td>Gentoo Linux</td>
+</tr>
+<tr class="odd">
+<td><code>linuxmint</code></td>
+<td>Linux Mint</td>
 </tr>
 <tr class="even">
 <td><code>mac_os_x</code></td>
@@ -86,20 +102,36 @@ where:
 <td>openSUSE leap</td>
 </tr>
 <tr class="even">
+<td><code>pidora</code></td>
+<td>Pidora</td>
+</tr>
+<tr class="odd">
+<td><code>raspbian</code></td>
+<td>Raspberry Pi OS</td>
+</tr>
+<tr class="even">
+<td><code>scientific</code></td>
+<td>Scientific Linux</td>
+</tr>
+<tr class="odd">
 <td><code>solaris</code></td>
 <td>Oracle Solaris</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>suse</code></td>
 <td>SUSE Enterprise Linux Server.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>ubuntu</code></td>
 <td>Ubuntu Linux</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>windows</code></td>
 <td>Microsoft Windows</td>
+</tr>
+<tr class="odd">
+<td><code>xenserver</code></td>
+<td>Citrix XenServer</td>
 </tr>
 </tbody>
 </table>
