@@ -14,8 +14,7 @@ gh_repo = "chef-web-docs"
 
 ### declare_resource
 
-Use the `declare_resource` method to instantiate a resource and then add
-it to the resource collection.
+Use the `declare_resource` method to instantiate a resource and then add it to the resource collection.
 
 The syntax for the `declare_resource` method is as follows:
 
@@ -25,16 +24,9 @@ declare_resource(:resource_type, 'resource_name', resource_attrs_block)
 
 where:
 
--   `:resource_type` is the resource type, such as `:file` (for the
-    **file** resource), `:template` (for the **template** resource), and
-    so on. Any resource available to Chef may be declared.
--   `resource_name` the property that is the default name of the
-    resource, typically the string that appears in the
-    `resource 'name' do` block of a resource (but not always); see the
-    Syntax section for the resource to be declared to verify the default
-    name property.
--   `resource_attrs_block` is a block in which properties of the
-    instantiated resource are declared.
+- `:resource_type` is the resource type, such as `:file` (for the **file** resource), `:template` (for the **template** resource), and so on. Any resource available to Chef may be declared.
+- `resource_name` the property that is the default name of the resource, typically the string that appears in the `resource 'name' do` block of a resource (but not always); see the Syntax section for the resource to be declared to verify the default name property.
+- `resource_attrs_block` is a block in which properties of the instantiated resource are declared.
 
 For example:
 
@@ -54,8 +46,7 @@ end
 
 ### delete_resource
 
-Use the `delete_resource` method to find a resource in the resource
-collection, and then delete it.
+Use the `delete_resource` method to find a resource in the resource collection, and then delete it.
 
 The syntax for the `delete_resource` method is as follows:
 
@@ -65,14 +56,8 @@ delete_resource(:resource_type, 'resource_name')
 
 where:
 
--   `:resource_type` is the resource type, such as `:file` (for the
-    **file** resource), `:template` (for the **template** resource), and
-    so on. Any resource available to Chef may be declared.
--   `resource_name` the property that is the default name of the
-    resource, typically the string that appears in the
-    `resource 'name' do` block of a resource (but not always); see the
-    Syntax section for the resource to be declared to verify the default
-    name property.
+- `:resource_type` is the resource type, such as `:file` (for the **file** resource), `:template` (for the **template** resource), and so on. Any resource available to Chef may be declared.
+- `resource_name` the property that is the default name of the resource, typically the string that appears in the `resource 'name' do` block of a resource (but not always); see the Syntax section for the resource to be declared to verify the default name property.
 
 For example:
 
@@ -94,14 +79,8 @@ delete_resource!(:resource_type, 'resource_name')
 
 where:
 
--   `:resource_type` is the resource type, such as `:file` (for the
-    **file** resource), `:template` (for the **template** resource), and
-    so on. Any resource available to Chef may be declared.
--   `resource_name` the property that is the default name of the
-    resource, typically the string that appears in the
-    `resource 'name' do` block of a resource (but not always); see the
-    Syntax section for the resource to be declared to verify the default
-    name property.
+- `:resource_type` is the resource type, such as `:file` (for the **file** resource), `:template` (for the **template** resource), and so on. Any resource available to Chef Infra may be declared.
+- `resource_name` the property that is the default name of the resource, typically the string that appears in the `resource 'name' do` block of a resource (but not always); see the Syntax section for the resource to be declared to verify the default name property.
 
 For example:
 
@@ -113,12 +92,8 @@ delete_resource!(:file, '/x/file.txt')
 
 Use the `edit_resource` method to:
 
--   Find a resource in the resource collection, and then edit it.
--   Define a resource block. If a resource block with the same name
-    exists in the resource collection, it will be updated with the
-    contents of the resource block defined by the `edit_resource`
-    method. If a resource block does not exist in the resource
-    collection, it will be created.
+- Find a resource in the resource collection, and then edit it.
+- Define a resource block. If a resource block with the same name exists in the resource collection, it will be updated with the contents of the resource block defined by the `edit_resource` method. If a resource block does not exist in the resource collection, it will be created.
 
 The syntax for the `edit_resource` method is as follows:
 
@@ -128,16 +103,9 @@ edit_resource(:resource_type, 'resource_name', resource_attrs_block)
 
 where:
 
--   `:resource_type` is the resource type, such as `:file` (for the
-    **file** resource), `:template` (for the **template** resource), and
-    so on. Any resource available to Chef may be declared.
--   `resource_name` the property that is the default name of the
-    resource, typically the string that appears in the
-    `resource 'name' do` block of a resource (but not always); see the
-    Syntax section for the resource to be declared to verify the default
-    name property.
--   `resource_attrs_block` is a block in which properties of the
-    instantiated resource are declared.
+- `:resource_type` is the resource type, such as `:file` (for the **file** resource), `:template` (for the **template** resource), and so on. Any resource available to Chef may be declared.
+- `resource_name` the property that is the default name of the resource, typically the string that appears in the `resource 'name' do` block of a resource (but not always); see the Syntax section for the resource to be declared to verify the default name property.
+- `resource_attrs_block` is a block in which properties of the instantiated resource are declared.
 
 For example:
 
@@ -162,11 +130,8 @@ end
 
 Use the `edit_resource!` method to:
 
--   Find a resource in the resource collection, and then edit it.
--   Define a resource block. If a resource with the same name exists in
-    the resource collection, its properties will be updated with the
-    contents of the resource block defined by the `edit_resource`
-    method.
+- Find a resource in the resource collection, and then edit it.
+- Define a resource block. If a resource with the same name exists in the resource collection, its properties will be updated with the contents of the resource block defined by the `edit_resource` method.
 
 In both cases, if the resource is not found, an exception is returned.
 
@@ -178,16 +143,9 @@ edit_resource!(:resource_type, 'resource_name')
 
 where:
 
--   `:resource_type` is the resource type, such as `:file` (for the
-    **file** resource), `:template` (for the **template** resource), and
-    so on. Any resource available to Chef may be declared.
--   `resource_name` the property that is the default name of the
-    resource, typically the string that appears in the
-    `resource 'name' do` block of a resource (but not always); see the
-    Syntax section for the resource to be declared to verify the default
-    name property.
--   `resource_attrs_block` is a block in which properties of the
-    instantiated resource are declared.
+- `:resource_type` is the resource type, such as `:file` (for the **file** resource), `:template` (for the **template** resource), and so on. Any resource available to Chef may be declared.
+- `resource_name` the property that is the default name of the resource, typically the string that appears in the `resource 'name' do` block of a resource (but not always); see the Syntax section for the resource to be declared to verify the default name property.
+- `resource_attrs_block` is a block in which properties of the instantiated resource are declared.
 
 For example:
 
@@ -199,11 +157,8 @@ edit_resource!(:file, '/x/y.rst')
 
 Use the `find_resource` method to:
 
--   Find a resource in the resource collection.
--   Define a resource block. If a resource block with the same name
-    exists in the resource collection, it will be returned. If a
-    resource block does not exist in the resource collection, it will be
-    created.
+- Find a resource in the resource collection.
+- Define a resource block. If a resource block with the same name exists in the resource collection, it will be returned. If a resource block does not exist in the resource collection, it will be created.
 
 The syntax for the `find_resource` method is as follows:
 
@@ -213,14 +168,8 @@ find_resource(:resource_type, 'resource_name')
 
 where:
 
--   `:resource_type` is the resource type, such as `:file` (for the
-    **file** resource), `:template` (for the **template** resource), and
-    so on. Any resource available to Chef may be declared.
--   `resource_name` the property that is the default name of the
-    resource, typically the string that appears in the
-    `resource 'name' do` block of a resource (but not always); see the
-    Syntax section for the resource to be declared to verify the default
-    name property.
+- `:resource_type` is the resource type, such as `:file` (for the **file** resource), `:template` (for the **template** resource), and so on. Any resource available to Chef may be declared.
+- `resource_name` the property that is the default name of the resource, typically the string that appears in the `resource 'name' do` block of a resource (but not always); see the Syntax section for the resource to be declared to verify the default name property.
 
 For example:
 
@@ -241,8 +190,7 @@ end
 
 ### find_resource!
 
-Use the `find_resource!` method to find a resource in the resource
-collection. If the resource is not found, an exception is returned.
+Use the `find_resource!` method to find a resource in the resource collection. If the resource is not found, an exception is returned.
 
 The syntax for the `find_resource!` method is as follows:
 
@@ -252,14 +200,8 @@ find_resource!(:resource_type, 'resource_name')
 
 where:
 
--   `:resource_type` is the resource type, such as `:file` (for the
-    **file** resource), `:template` (for the **template** resource), and
-    so on. Any resource available to Chef may be declared.
--   `resource_name` the property that is the default name of the
-    resource, typically the string that appears in the
-    `resource 'name' do` block of a resource (but not always); see the
-    Syntax section for the resource to be declared to verify the default
-    name property.
+- `:resource_type` is the resource type, such as `:file` (for the **file** resource), `:template` (for the **template** resource), and so on. Any resource available to Chef may be declared.
+- `resource_name` the property that is the default name of the resource, typically the string that appears in the `resource 'name' do` block of a resource (but not always); see the Syntax section for the resource to be declared to verify the default name property.
 
 For example:
 

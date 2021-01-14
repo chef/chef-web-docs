@@ -14,10 +14,7 @@ gh_repo = "chef-web-docs"
 
 ### platform?
 
-Use the `platform?` method to ensure that certain actions are run for
-specific platform. The `platform?` method will return true if one of the
-listed parameters matches the `node['platform']` attribute that is
-detected by Ohai during every Chef Infra Client run.
+Use the `platform?` method to ensure that certain actions are run for specific platform. The `platform?` method will return true if one of the listed parameters matches the `node['platform']` attribute that is detected by Ohai during every Chef Infra Client run.
 
 The syntax for the `platform?` method is as follows:
 
@@ -27,8 +24,8 @@ platform?('parameter', 'parameter')
 
 where:
 
--   `parameter` is a comma-separated list, each specifying a platform, such as Red Hat, CentOS, or Fedora
--   `platform?` method is typically used with an `if`, `elsif`, or `case` statement that contains Ruby code that is specific for the platform, if detected
+- `parameter` is a comma-separated list, each specifying a platform, such as Red Hat, CentOS, or Fedora
+- `platform?` method is typically used with an `if`, `elsif`, or `case` statement that contains Ruby code that is specific for the platform, if detected
 
 #### Parameters
 
@@ -153,11 +150,8 @@ platform_family?('parameter', 'parameter')
 
 where:
 
--   `'parameter'` is a comma-separated list, each specifying a platform
-    family, such as Debian, or Red Hat Enterprise Linux
--   `platform_family?` method is typically used with an `if`, `elsif`,
-    or `case` statement that contains Ruby code that is specific for the
-    platform family, if detected
+- `'parameter'` is a comma-separated list, each specifying a platform family, such as Debian, or Red Hat Enterprise Linux
+- `platform_family?` method is typically used with an `if`, `elsif`, or `case` statement that contains Ruby code that is specific for the platform family, if detected
 
 For example:
 
@@ -196,8 +190,7 @@ is not explicitly defined.
 
 #### Examples
 
-The following examples show how the `platform_family?` method can be
-used in a recipe.
+The following examples show how the `platform_family?` method can be used in a recipe.
 
 **Use a specific binary for a specific platform**
 
@@ -205,9 +198,7 @@ used in a recipe.
 
 ### value_for_platform
 
-Use the `value_for_platform` method in a recipe to select a value based
-on the `node['platform']` and `node['platform_version']` attributes.
-These values are detected by Ohai during every Chef Infra Client run.
+Use the `value_for_platform` method in a recipe to select a value based on the `node['platform']` and `node['platform_version']` attributes. These values are detected by Ohai during every Chef Infra Client run.
 
 The syntax for the `value_for_platform` method is as follows:
 
@@ -217,15 +208,10 @@ value_for_platform( ['platform', ...] => { 'version' => 'value' } )
 
 where:
 
--   `'platform', ...` is a comma-separated list of platforms, such as
-    Red Hat, openSUSE, or Fedora
--   `version` specifies the version of that platform
--   Version constraints---`>`, `<`, `>=`, `<=`, `~>`---may be used with
-    `version`; an exception is raised if two version constraints match;
-    an exact match will always take precedence over a match made from a
-    version constraint
--   `value` specifies the value that will be used if the node's platform
-    matches the `value_for_platform` method
+- `'platform', ...` is a comma-separated list of platforms, such as Red Hat, openSUSE, or Fedora
+- `version` specifies the version of that platform
+- Version constraints---`>`, `<`, `>=`, `<=`, `~>`---may be used with `version`; an exception is raised if two version constraints match; an exact match will always take precedence over a match made from a version constraint
+- `value` specifies the value that will be used if the node's platform matches the `value_for_platform` method
 
 When each value only has a single platform, use the following syntax:
 
@@ -253,8 +239,7 @@ value_for_platform(
 
 #### Examples
 
-The following example will set `package_name` to `httpd` for the Red Hat
-platform and to `apache2` for the Debian platform:
+The following example will set `package_name` to `httpd` for the Red Hat platform and to `apache2` for the Debian platform:
 
 ```ruby
 package_name = value_for_platform(
@@ -267,9 +252,7 @@ package_name = value_for_platform(
 )
 ```
 
-The following example will set `package` to `apache-couchdb` for OpenBSD
-platforms, `dev-db/couchdb` for Gentoo platforms, and `couchdb` for all
-other platforms:
+The following example will set `package` to `apache-couchdb` for OpenBSD platforms, `dev-db/couchdb` for Gentoo platforms, and `couchdb` for all other platforms:
 
 ```ruby
 package = value_for_platform(
@@ -279,8 +262,7 @@ package = value_for_platform(
 )
 ```
 
-The following example shows using version constraints to specify a value
-based on the version:
+The following example shows using version constraints to specify a value based on the version:
 
 ```ruby
 value_for_platform(
@@ -293,9 +275,7 @@ value_for_platform(
 
 ### value_for_platform_family
 
-Use the `value_for_platform_family` method in a recipe to select a value
-based on the `node['platform_family']` attribute. This value is detected
-by Ohai during every Chef Infra Client run.
+Use the `value_for_platform_family` method in a recipe to select a value based on the `node['platform_family']` attribute. This value is detected by Ohai during every Chef Infra Client run.
 
 The syntax for the `value_for_platform_family` method is as follows:
 
@@ -305,10 +285,8 @@ value_for_platform_family( 'platform_family' => 'value', ... )
 
 where:
 
--   `'platform_family' => 'value', ...` is a comma-separated list of
-    platforms, such as Fedora, openSUSE, or Red Hat Enterprise Linux
--   `value` specifies the value that will be used if the node's platform
-    family matches the `value_for_platform_family` method
+- `'platform_family' => 'value', ...` is a comma-separated list of platforms, such as Fedora, openSUSE, or Red Hat Enterprise Linux
+- `value` specifies the value that will be used if the node's platform family matches the `value_for_platform_family` method
 
 When each value only has a single platform, use the following syntax:
 
@@ -330,9 +308,7 @@ value_for_platform_family(
 )
 ```
 
-The following example will set `package` to `httpd-devel` for the Red
-Hat Enterprise Linux, Fedora, and openSUSE platforms and to
-`apache2-dev` for the Debian platform:
+The following example will set `package` to `httpd-devel` for the Red Hat Enterprise Linux, Fedora, and openSUSE platforms and to `apache2-dev` for the Debian platform:
 
 ```ruby
 package = value_for_platform_family(
