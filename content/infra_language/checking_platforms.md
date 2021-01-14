@@ -175,13 +175,6 @@ or:
 platform_family?('slackware', 'suse', 'arch')
 ```
 
-{{< note >}}
-
-`platform_family?` will default to `platform?` when `platform_family?`
-is not explicitly defined.
-
-{{< /note >}}
-
 ### Examples
 
 The following examples show how the `platform_family?` method can be used in a recipe.
