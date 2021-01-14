@@ -106,7 +106,7 @@ where:
 
 ### Examples
 
-**Installing the cron pacakge on Debian systems**
+**Installing the cron package on Debian systems**
 
 ```ruby
 package 'cron' if platform?('debian')
@@ -141,21 +141,82 @@ where:
 - `'parameter'` is a comma-separated list, each specifying a platform family, such as Debian, or Red Hat Enterprise Linux
 - `platform_family?` method is typically used with an `if`, `elsif`, or `case` statement that contains Ruby code that is specific for the platform family, if detected
 
-For example:
+### Platforms Values
 
-```ruby
-if platform_family?('rhel')
-  # do RHEL things
-end
-```
-
-or:
-
-```ruby
-if platform_family?('debian', 'rhel')
-  # do things on debian and rhel families
-end
-```
+<table>
+<colgroup>
+<col style="width: 16%" />
+<col style="width: 83%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Parameter</th>
+<th>Platforms</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>aix</code></td>
+<td><code>aix</code> platform.</td>
+</tr>
+<tr class="even">
+<td><code>alpine</code></td>
+<td><code>alpine</code> platform.</td>
+</tr>
+<tr class="odd">
+<td><code>amazon</code></td>
+<td><code>amazon</code> platform.</td>
+</tr>
+<tr class="even">
+<td><code>arch</code></td>
+<td><code>arch</code>, <code>manjaro</code>, and <code>antergos</code> platforms.</td>
+</tr>
+<tr class="odd">
+<td><code>debian</code></td>
+<td><code>debian</code>, <code>ubuntu</code>, <code>linuxmint</code>, <code>raspbian</code>, <code>cumulus</code>, <code>kali</code>, <code>pop</code> platforms.</td>
+</tr>
+<tr class="even">
+<td><code>fedora</code></td>
+<td><code>fedora</code>, <code>pidora</code>, and <code>arista_eos</code> platform</td>
+</tr>
+<tr class="odd">
+<td><code>freebsd</code></td>
+<td><code>freebsd</code> platform</td>
+</tr>
+<tr class="even">
+<td><code>gentoo</code></td>
+<td><code>gentoo</code> platform</td>
+</tr>
+<tr class="odd">
+<td><code>mac_os_x</code></td>
+<td><code>mac_os_x</code> platform</td>
+</tr>
+<tr class="even">
+<td><code>netbsd</code></td>
+<td><code>netbsd</code> platform</td>
+</tr>
+<tr class="odd">
+<td><code>openbsd</code></td>
+<td><code>openbsd</code> platform</td>
+</tr>
+<tr class="even">
+<td><code>rhel</code></td>
+<td><code>redhat</code>, <code>centos</code>, <code>oracle</code>, <code>scientific</code>, <code>xenserver</code>, <code>clearos</code>, <code>bigip</code>, <code>parallels</code>, <code>xcp</code>, and <code>ibm_powerkvm</code> platforms</td>
+</tr>
+<tr class="odd">
+<td><code>solaris2</code></td>
+<td><code>solaris</code>, <code>omnios</code>, and <code>smartos</code> platforms</td>
+</tr>
+<tr class="even">
+<td><code>sles</code></td>
+<td><code>opensuse_leap</code>, <code>suse</code>, and <code>sled</code> platforms</td>
+</tr>
+<tr class="odd">
+<td><code>windows</code></td>
+<td><code>windows</code> platform</td>
+</tr>
+</tbody>
+</table>
 
 ### Examples
 
@@ -170,9 +231,6 @@ or:
 ```ruby
 platform_family?('slackware', 'suse', 'arch')
 ```
-
-
-
 
 **Use a specific binary for a specific platform**
 
