@@ -14,7 +14,7 @@ gh_repo = "chef-web-docs"
 
 ## platform?
 
-Use the `platform?` method to ensure that certain actions are run for specific platform. The `platform?` method will return true if one of the listed parameters matches the `node['platform']` attribute that is detected by Ohai during every Chef Infra Client run.
+Use the `platform?` helper method to ensure that certain actions are run for specific platforms. The `platform?` method will return true if one of the listed parameters matches the `node['platform']` attribute that is detected by [Ohai](/ohai) during every Chef Infra Client run.
 
 The syntax for the `platform?` method is as follows:
 
@@ -28,8 +28,6 @@ where:
 - `platform?` method is typically used with an `if`, `elsif`, or `case` statement that contains Ruby code that is specific for the platform, if detected
 
 ### Platforms Values
-
-Chef Infra Client detects the system platform when running [Ohai](/ohai) and any value detected by Ohai can be passed this helper method. Common platforms detected by Ohai:
 
 <table>
 <colgroup>
@@ -130,11 +128,7 @@ end
 
 ## platform_family?
 
-Use the `platform_family?` method to ensure that certain actions are run
-for specific platform family. The `platform_family?` method will return
-true if one of the listed parameters matches the
-`node['platform_family']` attribute that is detected by Ohai during
-every Chef Infra Client run.
+Use the `platform_family?` method to ensure that certain actions are run for specific platform family. The `platform_family?` method will return true if one of the listed parameters matches the `node['platform_family']` attribute that is detected by [Ohai](/ohai) during every Chef Infra Client run.
 
 The syntax for the `platform_family?` method is as follows:
 
@@ -163,6 +157,8 @@ if platform_family?('debian', 'rhel')
 end
 ```
 
+### Examples
+
 For example:
 
 ```ruby
@@ -175,9 +171,8 @@ or:
 platform_family?('slackware', 'suse', 'arch')
 ```
 
-### Examples
 
-The following examples show how the `platform_family?` method can be used in a recipe.
+
 
 **Use a specific binary for a specific platform**
 
