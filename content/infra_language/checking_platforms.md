@@ -43,7 +43,7 @@ where:
 <tbody>
 <tr class="odd">
 <td><code>aix</code></td>
-<td>AIX. All platform variants of AIX return <code>aix</code>.</td>
+<td>IBM AIX.</td>
 </tr>
 <tr class="even">
 <td><code>amazon</code></td>
@@ -55,7 +55,7 @@ where:
 </tr>
 <tr class="even">
 <td><code>debian</code></td>
-<td>Debian</td>
+<td>Debian GNU/Linux</td>
 </tr>
 <tr class="odd">
 <td><code>fedora</code></td>
@@ -63,11 +63,11 @@ where:
 </tr>
 <tr class="even">
 <td><code>freebsd</code></td>
-<td>FreeBSD. All platform variants of FreeBSD return <code>freebsd</code>.</td>
+<td>FreeBSD</td>
 </tr>
 <tr class="odd">
 <td><code>gentoo</code></td>
-<td>Gentoo</td>
+<td>Gentoo Linux</td>
 </tr>
 <tr class="even">
 <td><code>mac_os_x</code></td>
@@ -75,11 +75,11 @@ where:
 </tr>
 <tr class="odd">
 <td><code>netbsd</code></td>
-<td>NetBSD. All platform variants of NetBSD return <code>netbsd</code>.</td>
+<td>NetBSD</td>
 </tr>
 <tr class="even">
 <td><code>openbsd</code></td>
-<td>OpenBSD. All platform variants of OpenBSD return <code>openbsd</code>.</td>
+<td>OpenBSD</td>
 </tr>
 <tr class="odd">
 <td><code>opensuseleap</code></td>
@@ -87,7 +87,7 @@ where:
 </tr>
 <tr class="even">
 <td><code>solaris</code></td>
-<td>Solaris. For Solaris-related platforms, the <code>platform_family</code> method does not support the Solaris platform family and will default back to <code>platform_family = platform</code>. For example, if the platform is OmniOS, the <code>platform_family</code> is <code>omnios</code>, if the platform is SmartOS, the <code>platform_family</code> is <code>smartos</code>, and so on. All platform variants of Solaris return <code>solaris</code>.</td>
+<td>Oracle Solaris</td>
 </tr>
 <tr class="odd">
 <td><code>suse</code></td>
@@ -95,11 +95,11 @@ where:
 </tr>
 <tr class="even">
 <td><code>ubuntu</code></td>
-<td>Ubuntu Linux.</td>
+<td>Ubuntu Linux</td>
 </tr>
 <tr class="odd">
 <td><code>windows</code></td>
-<td>Microsoft Windows. All platform variants of Microsoft Windows return <code>windows</code>.</td>
+<td>Microsoft Windows</td>
 </tr>
 </tbody>
 </table>
