@@ -22,7 +22,7 @@ The Chef Infra Language is based on Ruby, allowing you to utilize the power of R
 
 Resources are the cornerstone of the Chef Infra Language. Resources define the desired state of an object on a system. A resource can be as simple as a directory or as complex or a complete security policy. Chef Infra Client ships with over 150 resources for configuring components such as packages, files, directories, or firewalls. For more information on resources in Chef Infra Client including a complete list of those included out of the box see [Resources](/resources).
 
-## Language Helpers
+## Helpers Methods
 
 The Chef Infra Language provides support for using attributes, data bags (and
 encrypted data), and search results in a recipe, as well as four helper

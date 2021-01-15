@@ -12,6 +12,20 @@ gh_repo = "chef-web-docs"
     weight = 20
 +++
 
+The Chef Infra Language includes helper methods for gathering information on the execution of the Chef Infra Client recipe and resource code. This information can be used in recipes and resources to take specific actions.
+
+### Chef Infra Client State
+
+### node
+
+Use the `node` method, often referred to as the node object, to access data collected on the system through [Ohai](/ohai) as well as node attributes set in cookbooks or Policyfiles.
+
+The syntax for the `cookbook_name` method is as follows:
+
+```ruby
+node['specific_attribute']
+```
+
 ### cookbook_name
 
 Use the `cookbook_name` method to return the name of a cookbook.
