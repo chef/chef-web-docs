@@ -20,7 +20,7 @@ aliases = ["/data_bags.html", "/secrets.html", "/secrets/"]
 
 {{% data_bag_create %}}
 
-### Using Knife
+### Create a Data Bag with Knife
 
 {{% data_bag_create_knife %}}
 
@@ -72,7 +72,7 @@ aliases = ["/data_bags.html", "/secrets.html", "/secrets/"]
 
 {{% data_bag_edit %}}
 
-### Using Knife
+### Edit a Data Bag with Knife
 
 {{% knife_data_bag_edit %}}
 
