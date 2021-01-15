@@ -49,7 +49,7 @@ Chef Infra Server deployment and how they relate to one another.
 <tbody>
 <tr class="odd">
 <td>Clients</td>
-<td>The Chef Infra Server is accessed primarily by nodes that are under management by Chef, as Chef Infra Client runs occur. It is also accessed by individuals who maintain cookbooks and policy that is stored on the Chef Infra Server, typically from a workstation. And also by individual users with credentials to Chef Infra Server components, such as the Chef management console.</td>
+<td>The Chef Infra Server is accessed primarily by nodes that are under management by Chef, as Chef Infra Client runs occur. It is also accessed by individuals who maintain cookbooks and policy that is stored on the Chef Infra Server, typically from a workstation. And also by individual users with credentials to Chef Infra Server components.</td>
 </tr>
 <tr class="even">
 <td>Load Balancer</td>

@@ -30,7 +30,7 @@ the frontend group.
 
 -   The frontend group, comprised of one (or more) nodes running the
     Chef Infra Server. Nodes in the frontend group handle requests to
-    the Chef Infra Server API and access to the Chef management console.
+    the Chef Infra Server API.
     Frontend group nodes should be load balanced, and may be scaled
     horizontally by increasing the number of nodes available to handle
     requests.
@@ -86,9 +86,7 @@ later if/when your node count grows.
 ### Network Services
 
 -   A load balancer between the rest of the network, and the frontend
-    group (Not provided). Because management console session data is
-    stored on each node in the frontend group individually, the load
-    balancer should be configured with sticky sessions.
+    group (Not provided).
 
 ### Network Port Requirements
 

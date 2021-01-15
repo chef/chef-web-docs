@@ -166,9 +166,6 @@ This configuration file has the following settings for `ldap`:
     <p class="admonition-warning-title">Warning</p>
     <div class="admonition-warning-text">
 
-    This setting is **not** used by the Chef Infra Server. It is used
-    only by the Chef management console.
-
     </div>
     </div>
 

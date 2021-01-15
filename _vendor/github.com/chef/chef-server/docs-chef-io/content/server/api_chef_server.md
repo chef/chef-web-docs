@@ -1763,8 +1763,7 @@ where `ORG_NAME` is the name of the organization.
 
 ### /association_requests
 
-Users may be invited to join organizations via the web user interface in
-the Chef management console or via the `POST` endpoint in the Chef Infra
+Users may be invited to join organizations via the web user interface via the `POST` endpoint in the Chef Infra
 Server API.
 
 The `/association_requests` endpoint has the following methods:

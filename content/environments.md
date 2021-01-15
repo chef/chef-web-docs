@@ -381,8 +381,7 @@ using the following methods:
 
 -   By using the `knife edit` and `knife exec` subcommands
 
--   By editing the `chef_environment` directly using knife or the Chef
-    management console
+-   By editing the `chef_environment` directly using knife
 
 -   By editing the `environment` configuration details in the client.rb
     file, and then using `knife bootstrap -e environment_name` to
@@ -391,8 +390,7 @@ using the following methods:
     {{< note spaces=4 >}}
 
     After the environment has been set via bootstrap, the environment is
-    set in the client.rb file and may not be modified using the Chef
-    management console or the `edit` argument of the `knife node`
+    set in the client.rb file and may not be modified using the  `edit` argument of the `knife node`
     subcommand.
 
     {{< /note >}}
