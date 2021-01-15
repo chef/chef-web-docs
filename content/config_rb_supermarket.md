@@ -443,7 +443,7 @@ This configuration file has the following settings for nginx:
 
 `default['supermarket']['nginx']['non_ssl_port']`
 
-:   The port on which the WebUI and API are bound for non-SSL
+:   The port on which the API are bound for non-SSL
     connections. Default value: `80`. Set to `false` to disable non-SSL
     connections.
 

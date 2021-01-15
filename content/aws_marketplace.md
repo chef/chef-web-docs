@@ -247,7 +247,7 @@ and Chef Infra Server.
 
 3.  Fill out the setup form and submit it.
 
-4.  Follow the link and log into the Chef Automate webui.
+4.  Follow the link and log into the Chef Automate.
 
 ## Configure the workstation
 
@@ -290,7 +290,7 @@ from the AWS Marketplace:
 <tbody>
 <tr class="odd">
 <td>443</td>
-<td>HTTPS for Chef Automate webui</td>
+<td>HTTPS for Chef Automate</td>
 </tr>
 <tr class="even">
 <td>8989</td>
