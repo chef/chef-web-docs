@@ -209,12 +209,6 @@ newer versions or products.
 <td>Deprecated</td>
 <td>December 31, 2021</td>
 </tr>
-<tr class="odd">
-<td>Chef InSpec</td>
-<td>3.x</td>
-<td>Deprecated</td>
-<td>April 30, 2020</td>
-</tr>
 </tbody>
 </table>
 
@@ -290,6 +284,12 @@ confused with the modern [Chef Compliance offering](/compliance/).
 <td>2 and under</td>
 <td>EOL</td>
 <td>December 31, 2019</td>
+</tr>
+<tr class="odd">
+<td>Chef InSpec</td>
+<td>3.x</td>
+<td>EOL</td>
+<td>April 30, 2020</td>
 </tr>
 <tr class="odd">
 <td>Chef Provisioning</td>
