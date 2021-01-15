@@ -25,10 +25,8 @@ Software in updating and maintaining each product.
 This stage indicates that the product or version is in active
 development and/or maintenance.
 
--   Chef continues to provide releases to the application or version in
-    response to customer needs and security vulnerabilities
--   Chef welcomes customer feature requests for the product roadmap for
-    the application
+- Chef continues to provide releases to the application or version in response to customer needs and security vulnerabilities
+- Chef welcomes customer feature requests for the product roadmap for the application
 
 ### Deprecated
 
@@ -37,11 +35,9 @@ active development and will eventually move to end of life status. Chef
 continues to provide support [according to our
 SLAs](https://www.chef.io/service-level-agreement/).
 
--   Chef no longer provides scheduled releases
--   Customers should use the GA alternative to these products; contact
-    us for help with product selection and deployment
--   Chef may provide a release for a critical defect or security
-    vulnerability
+- Chef no longer provides scheduled releases
+- Customers should use the GA alternative to these products; contact us for help with product selection and deployment
+- Chef may provide a release for a critical defect or security vulnerability
 
 ### End of Life (EOL)
 
@@ -49,10 +45,8 @@ This stage indicates that Chef has set a date after which the
 application or version will no longer be supported or recommended for
 use by customers.
 
--   As of the end of life date, the application will no longer be
-    supported by Chef and will no longer be available for download
--   Documentation for the application will be moved to
-    <https://docs-archive.chef.io>
+- As of the end of life date, the application will no longer be supported by Chef and will no longer be available for download
+- Documentation for the application will be moved to <https://docs-archive.chef.io>
 
 ### Versions and Status
 
@@ -119,14 +113,14 @@ announcement](https://blog.chef.io/2019/04/02/chef-software-announces-the-enterp
 </tr>
 <tr class="odd">
 <td>Chef Workstation</td>
-<td>20.x (2020)</td>
+<td>20.x (2020), 21.x (2021)</td>
 <td>GA</td>
 <td>n/a</td>
 </tr>
 <tr class="even">
 <td>Chef Backend</td>
 <td>3.x</td>
-<td>Releasing 2020</td>
+<td>Releasing 2021</td>
 <td>n/a</td>
 </tr>
 </tbody>
