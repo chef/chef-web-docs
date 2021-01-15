@@ -4,7 +4,7 @@ draft = false
 
 gh_repo = "chef-web-docs"
 
-aliases = ["/data_bags.html"]
+aliases = ["/data_bags.html", "/secrets.html", "/secrets/"]
 
 [menu]
   [menu.infra]
@@ -77,10 +77,6 @@ aliases = ["/data_bags.html"]
 {{% knife_data_bag_edit %}}
 
 {{% knife_data_bag_edit_item %}}
-
-### Using Chef Manage
-
-{{% manage_webui_policy_data_bag_edit_item %}}
 
 ## Use Data Bags
 

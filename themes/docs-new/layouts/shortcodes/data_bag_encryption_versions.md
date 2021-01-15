@@ -1,55 +1,45 @@
 The manner by which a data bag item is encrypted depends on the Chef
 Infra Client version used. See the following:
 
-![image](/images/essentials_data_bags_versions.png)
+|Infra Client version|Encryption v0|Encryption v1|Encryption v2|Encryption v3|
+|:--|:---:|:---:|:---:|:---:|
+|10.x|`R` `W`||||
+|11.0+|`R`|`R` `W`|||
+|11.6+|`R` `D`|`R` `D`|`R` `W`||
+|13.0.113+|`R` `D`|`R` `D`|`R` `D`|`R` `W`|
 
-where R is read, W is write, and D is disable. (Disabling support for
-older encryption version formats will be in the next version and, if
-desired, will require a configuration change.)
+`R` = read
+`W` = write
+`D` = disable
 
-For version 0 (default, through Chef Client 10.18):
+#### Version 0
 
--   An encrypted data bag item is written using YAML as the
-    serialization format
--   Base64 encoding is used to preserve special characters in encrypted
-    contents
--   Data is encrypted using AES-256-CBC (as defined by the OpenSSL
-    package in the Ruby Standard Library)
--   Chef Infra Client uses [shared secret
-    encryption](https://en.wikipedia.org/wiki/Symmetric-key_algorithm);
-    an encrypted file can only be decrypted by a node or a user with the
-    same shared secret
--   A recipe can load encrypted data as long as the shared secret is
-    present in a file on the node or is accessible from a URI path
--   Only the values of a data bag item are decrypted; keys are still
-    searchable. The values associated with the `id` key of a data bag
-    item are not encrypted (because they are needed when tracking the
-    data bag item)
+Chef Infra Client 10.0+
 
-For version 1 (default, starting with Chef Client 11.0):
+- Uses YAML serialization format to encrypt data bag items
+- Uses Base64 encoding to preserve special characters
+- Uses AES-256-CBC encryption, as defined by the OpenSSL package in the Ruby Standard Library
+- [Shared secret encryption](https://en.wikipedia.org/wiki/Symmetric-key_algorithm); an encrypted file can only be decrypted by a node or a user with the same shared secret
+- Recipes load encrypted data with access to the shared secret in a file on the node or from a URI path
+- Decrypts only data bag item values. Keys are encrypted but searchable
+- Data bag `id` value is unencrypted for tracking data bag items
 
--   An encrypted data bag item is written using JSON as the
-    serialization format
--   Base64 encoding is used to preserve special characters in encrypted
-    contents
--   Data is encrypted using AES-256-CBC (as defined by the OpenSSL
-    package in the Ruby Standard Library)
--   A data bag item is encrypted using a random initialization vector
-    each time a value is encrypted, which helps protect against some
-    forms of cryptanalysis
--   Chef Infra Client uses [shared secret
-    encryption](https://en.wikipedia.org/wiki/Symmetric-key_algorithm);
-    an encrypted file can only be decrypted by a node or a user with the
-    same shared secret
--   A recipe can load encrypted data as long as the shared secret is
-    present in a file on the node or is accessible from a URI path
--   Only the values of a data bag item are decrypted; keys are still
-    searchable. The values associated with the `id` key of a data bag
-    item are not encrypted (because they are needed by Chef Infra Client
-    when tracking the data bag item)
+#### Version 1
 
-For version 2 (available, starting with Chef Client 11.6):
+Chef Infra Client 11.0+
+- Version 0
+- Uses JSON serialization format _instead of_ YAML to encrypt data bag items
+- Adds random initialization vector encryption for each value to protect against cryptanalysis
 
--   Same as version 1
--   Can disable version 0 and version 1 data bag item encryption formats
--   Adds Encrypt-then-MAC(EtM) protection
+#### Version 2
+
+Chef Infra Client 11.6+
+
+- Version 1
+- Option to disable versions 0 and 1
+- Adds Encrypt-then-MAC(EtM) protection
+
+#### Version 3
+
+Chef Infra Client 13.0.113+
+- Option to  disable version 0, 1, and 2
