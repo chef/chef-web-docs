@@ -1230,11 +1230,6 @@ weight = 10
   identifier = "legacy/manage"
   parent = "legacy"
 
-  [[menu.legacy]]
-  title = "Chef Infra Client"
-  identifier = "legacy/client"
-  parent = "legacy"
-
 ####
 # End Legacy Menu
 ####
