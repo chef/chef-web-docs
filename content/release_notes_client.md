@@ -18,6 +18,28 @@ the first Wednesday of every month. Below are the major changes for each
 release. For a detailed list of changes see the [Chef Infra Client
 changelog](https://github.com/chef/chef/blob/master/CHANGELOG.md)
 
+## What's New in 16.9.29
+
+### Chef InSpec 4.25.1
+
+Chef InSpec has been updated from 4.24.8 to 4.25.1:
+
+- OpenSSH Client on Windows can now be tested with the ssh_config and sshd_config resources. Thanks [@rgeissert](https://github.com/rgeissert)!
+- The `--reporter-message-truncation` option now also truncates the `code_desc` field, preventing failures when sending large reports to Automate.
+
+### Bug Fixes
+
+- Resolved failures from running `chef-client` on some Windows systems.
+- Compliance Phase: Improved detection of the `audit` cookbook when it is used for compliance reporting.
+- chef-shell: Added support for loading configs in `client.d` directories - Thanks [@jaymzh](https://github.com/jaymzh)!
+- Duplicate gems in our packaging have been removed to further shrink the package sizes and improve load time.
+
+## What's New in 16.9.20
+
+- Updated the package resource on FreeBSD to work with recent changes to the pkgng executable. Thanks [@mrtazz](https://github.com/mrtazz/)
+- Added a missing dependency in the chef-zero binary that could cause failures when running chef-zero.
+- Resolved failures when running the audit cookbook from our yet-to-be-fully-released Chef Infra Compliance Phase. As it turns out, this dark launch was not as dark as we had hoped.
+
 ## What's New in 16.9
 
 ### Knife Improvements
@@ -52,7 +74,7 @@ Parsing of plist files has been improved in the `plist`, `macosx_service`, `osx_
 
 The `user` resource on Windows hosts now properly handles `uid` values passed as strings instead of integers. Thanks for reporting this issue [@jaymzh](https://github.com/jaymzh)!
 
-#### yum_repostiory
+#### yum_repository
 
 The `yum_repository` resource has been updated with a new `reposdir` property to control the path where the Yum repository configuration files will be written. Thanks for suggesting this [@wildcrazyman](https://github.com/wildcrazyman)!
 
