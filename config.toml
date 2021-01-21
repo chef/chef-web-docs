@@ -495,10 +495,16 @@ identifier = "server"
   weight = 50
 
   [[menu.server]]
+  title = "Security"
+  identifier = "server/security"
+  parent = "server"
+  weight = 60
+
+  [[menu.server]]
   title = "Reference"
   identifier = "server/reference"
   parent = "server"
-  weight = 60
+  weight = 70
 
 ####
 # End Chef Infra Server Menu
