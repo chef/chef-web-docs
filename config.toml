@@ -243,10 +243,6 @@ weight = 60
 ## End Main Menu ##
 ####
 
-[[menu.server]]
-title = "Chef Infra Server"
-identifier = "server"
-
 ####
 # Overview Menu
 ####
