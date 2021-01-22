@@ -243,10 +243,6 @@ weight = 60
 ## End Main Menu ##
 ####
 
-[[menu.server]]
-title = "Chef Infra Server"
-identifier = "server"
-
 ####
 # Overview Menu
 ####
@@ -712,226 +708,233 @@ identifier = "chef_infra"
     weight = 50
 
     [[menu.infra]]
-    title = "Recipe DSL"
-    identifier = "chef_infra/cookbook_reference/recipe_dsl"
+    title = "Chef Infra Language"
+    identifier = "chef_infra/cookbook_reference/infra_language"
     parent = "chef_infra/cookbook_reference"
     weight = 60
 
       [[menu.infra]]
+      title = "include_recipe"
+      identifier = "chef_infra/cookbook_reference/infra_language/infra_language.md#include_recipe"
+      parent = "chef_infra/cookbook_reference/infra_language"
+      url = "/infra_language/#include_recipe"
+      weight = 15
+
+      [[menu.infra]]
       title = "attribute?"
-      identifier = "chef_infra/cookbook_reference/recipe_dsl/dsl_recipe.md#attribute attribute?"
-      parent = "chef_infra/cookbook_reference/recipe_dsl"
-      url = "/dsl_recipe/#attribute"
+      identifier = "chef_infra/cookbook_reference/infra_language/infra_language.md#attribute attribute?"
+      parent = "chef_infra/cookbook_reference/infra_language"
+      url = "/infra_language/#attribute"
       weight = 20
 
       [[menu.infra]]
       title = "cookbook_name"
-      identifier = "chef_infra/cookbook_reference/recipe_dsl/dsl_recipe.md#cookbook-name cookbook_name"
-      parent = "chef_infra/cookbook_reference/recipe_dsl"
-      url = "/dsl_recipe/#cookbook-name"
+      identifier = "chef_infra/cookbook_reference/infra_language/infra_language.md#cookbook-name cookbook_name"
+      parent = "chef_infra/cookbook_reference/infra_language"
+      url = "/infra_language/#cookbook-name"
       weight = 30
 
       [[menu.infra]]
       title = "data_bag"
-      identifier = "chef_infra/cookbook_reference/recipe_dsl/dsl_recipe.md#data-bag data_bag"
-      parent = "chef_infra/cookbook_reference/recipe_dsl"
-      url = "/dsl_recipe/#data-bag"
+      identifier = "chef_infra/cookbook_reference/infra_language/infra_language.md#data-bag data_bag"
+      parent = "chef_infra/cookbook_reference/infra_language"
+      url = "/infra_language/#data-bag"
       weight = 40
 
       [[menu.infra]]
       title = "data_bag_item"
-      identifier = "chef_infra/cookbook_reference/recipe_dsl/dsl_recipe.md#data-bag-item data_bag_item"
-      parent = "chef_infra/cookbook_reference/recipe_dsl"
-      url = "/dsl_recipe/#data-bag-item"
+      identifier = "chef_infra/cookbook_reference/infra_language/infra_language.md#data-bag-item data_bag_item"
+      parent = "chef_infra/cookbook_reference/infra_language"
+      url = "/infra_language/#data-bag-item"
       weight = 50
 
       [[menu.infra]]
       title = "declare_resource"
-      identifier = "chef_infra/cookbook_reference/recipe_dsl/dsl_recipe.md#declare-resource declare_resource"
-      parent = "chef_infra/cookbook_reference/recipe_dsl"
-      url = "/dsl_recipe/#declare-resource"
+      identifier = "chef_infra/cookbook_reference/infra_language/infra_language.md#declare-resource declare_resource"
+      parent = "chef_infra/cookbook_reference/infra_language"
+      url = "/infra_language/#declare-resource"
       weight = 60
 
       [[menu.infra]]
       title = "delete_resource"
-      identifier = "chef_infra/cookbook_reference/recipe_dsl/dsl_recipe.md#delete-resource delete_resource"
-      parent = "chef_infra/cookbook_reference/recipe_dsl"
-      url = "/dsl_recipe/#delete-resource"
+      identifier = "chef_infra/cookbook_reference/infra_language/infra_language.md#delete-resource delete_resource"
+      parent = "chef_infra/cookbook_reference/infra_language"
+      url = "/infra_language/#delete-resource"
       weight = 70
 
       [[menu.infra]]
       title = "delete_resource!"
-      identifier = "chef_infra/cookbook_reference/recipe_dsl/dsl_recipe.md#id1 delete_resource!"
-      parent = "chef_infra/cookbook_reference/recipe_dsl"
-      url = "/dsl_recipe/#delete-resource-1"
+      identifier = "chef_infra/cookbook_reference/infra_language/infra_language.md#id1 delete_resource!"
+      parent = "chef_infra/cookbook_reference/infra_language"
+      url = "/infra_language/#delete-resource-1"
       weight = 80
 
       [[menu.infra]]
       title = "edit_resource"
-      identifier = "chef_infra/cookbook_reference/recipe_dsl/dsl_recipe.md#edit-resource edit_resource"
-      parent = "chef_infra/cookbook_reference/recipe_dsl"
-      url = "/dsl_recipe/#edit-resource"
+      identifier = "chef_infra/cookbook_reference/infra_language/infra_language.md#edit-resource edit_resource"
+      parent = "chef_infra/cookbook_reference/infra_language"
+      url = "/infra_language/#edit-resource"
       weight = 90
 
       [[menu.infra]]
       title = "edit_resource!"
-      identifier = "chef_infra/cookbook_reference/recipe_dsl/dsl_recipe.md#id2 edit_resource!"
-      parent = "chef_infra/cookbook_reference/recipe_dsl"
-      url = "/dsl_recipe/#edit-resource-1"
+      identifier = "chef_infra/cookbook_reference/infra_language/infra_language.md#id2 edit_resource!"
+      parent = "chef_infra/cookbook_reference/infra_language"
+      url = "/infra_language/#edit-resource-1"
       weight = 100
 
       [[menu.infra]]
       title = "find_resource"
-      identifier = "chef_infra/cookbook_reference/recipe_dsl/dsl_recipe.md#find-resource find_resource"
-      parent = "chef_infra/cookbook_reference/recipe_dsl"
-      url = "/dsl_recipe/#find-resource"
+      identifier = "chef_infra/cookbook_reference/infra_language/infra_language.md#find-resource find_resource"
+      parent = "chef_infra/cookbook_reference/infra_language"
+      url = "/infra_language/#find-resource"
       weight = 110
 
       [[menu.infra]]
       title = "find_resource!"
-      identifier = "chef_infra/cookbook_reference/recipe_dsl/dsl_recipe.md#id3 find_resource!"
-      parent = "chef_infra/cookbook_reference/recipe_dsl"
-      url = "/dsl_recipe/#find-resource-1"
+      identifier = "chef_infra/cookbook_reference/infra_language/infra_language.md#id3 find_resource!"
+      parent = "chef_infra/cookbook_reference/infra_language"
+      url = "/infra_language/#find-resource-1"
       weight = 120
 
       [[menu.infra]]
       title = "platform?"
-      identifier = "chef_infra/cookbook_reference/recipe_dsl/dsl_recipe.md#platform platform?"
-      parent = "chef_infra/cookbook_reference/recipe_dsl"
-      url = "/dsl_recipe/#platform"
+      identifier = "chef_infra/cookbook_reference/infra_language/infra_language.md#platform platform?"
+      parent = "chef_infra/cookbook_reference/infra_language"
+      url = "/infra_language/#platform"
       weight = 130
 
       [[menu.infra]]
       title = "platform_family?"
-      identifier = "chef_infra/cookbook_reference/recipe_dsl/dsl_recipe.md#platform-family platform_family?"
-      parent = "chef_infra/cookbook_reference/recipe_dsl"
-      url = "/dsl_recipe/#platform-family"
+      identifier = "chef_infra/cookbook_reference/infra_language/infra_language.md#platform-family platform_family?"
+      parent = "chef_infra/cookbook_reference/infra_language"
+      url = "/infra_language/#platform-family"
       weight = 140
 
       [[menu.infra]]
       title = "reboot_pending?"
-      identifier = "chef_infra/cookbook_reference/recipe_dsl/dsl_recipe.md#reboot-pending reboot_pending?"
-      parent = "chef_infra/cookbook_reference/recipe_dsl"
-      url = "/dsl_recipe/#reboot-pending"
+      identifier = "chef_infra/cookbook_reference/infra_language/infra_language.md#reboot-pending reboot_pending?"
+      parent = "chef_infra/cookbook_reference/infra_language"
+      url = "/infra_language/#reboot-pending"
       weight = 150
 
       [[menu.infra]]
       title = "recipe_name"
-      identifier = "chef_infra/cookbook_reference/recipe_dsl/dsl_recipe.md#recipe-name recipe_name"
-      parent = "chef_infra/cookbook_reference/recipe_dsl"
-      url = "/dsl_recipe/#recipe-name"
+      identifier = "chef_infra/cookbook_reference/infra_language/infra_language.md#recipe-name recipe_name"
+      parent = "chef_infra/cookbook_reference/infra_language"
+      url = "/infra_language/#recipe-name"
       weight = 160
 
       [[menu.infra]]
       title = "resources"
-      identifier = "chef_infra/cookbook_reference/recipe_dsl/dsl_recipe.md#resources resources"
-      parent = "chef_infra/cookbook_reference/recipe_dsl"
-      url = "/dsl_recipe/#resources"
+      identifier = "chef_infra/cookbook_reference/infra_language/infra_language.md#resources resources"
+      parent = "chef_infra/cookbook_reference/infra_language"
+      url = "/infra_language/#resources"
       weight = 170
 
       [[menu.infra]]
       title = "search"
-      identifier = "chef_infra/cookbook_reference/recipe_dsl/dsl_recipe.md#search search"
-      parent = "chef_infra/cookbook_reference/recipe_dsl"
-      url = "/dsl_recipe/#search"
+      identifier = "chef_infra/cookbook_reference/infra_language/infra_language.md#search search"
+      parent = "chef_infra/cookbook_reference/infra_language"
+      url = "/infra_language/#search"
       weight = 180
 
       [[menu.infra]]
       title = "shell_out"
-      identifier = "chef_infra/cookbook_reference/recipe_dsl/dsl_recipe.md#shell-out shell_out"
-      parent = "chef_infra/cookbook_reference/recipe_dsl"
-      url = "/dsl_recipe/#shell-out"
+      identifier = "chef_infra/cookbook_reference/infra_language/infra_language.md#shell-out shell_out"
+      parent = "chef_infra/cookbook_reference/infra_language"
+      url = "/infra_language/#shell-out"
       weight = 190
 
       [[menu.infra]]
       title = "shell_out!"
-      identifier = "chef_infra/cookbook_reference/recipe_dsl/dsl_recipe.md#id6 shell_out!"
-      parent = "chef_infra/cookbook_reference/recipe_dsl"
-      url = "/dsl_recipe/#shell-out-1"
+      identifier = "chef_infra/cookbook_reference/infra_language/infra_language.md#id6 shell_out!"
+      parent = "chef_infra/cookbook_reference/infra_language"
+      url = "/infra_language/#shell-out-1"
       weight = 200
 
       [[menu.infra]]
       title = "tag, tagged?, untag"
-      identifier = "chef_infra/cookbook_reference/recipe_dsl/dsl_recipe.md#tag-tagged-untag tag, tagged?, untag"
-      parent = "chef_infra/cookbook_reference/recipe_dsl"
-      url = "/dsl_recipe/#tag-tagged-untag"
+      identifier = "chef_infra/cookbook_reference/infra_language/infra_language.md#tag-tagged-untag tag, tagged?, untag"
+      parent = "chef_infra/cookbook_reference/infra_language"
+      url = "/infra_language/#tag-tagged-untag"
       weight = 210
 
       [[menu.infra]]
       title = "value_for_platform"
-      identifier = "chef_infra/cookbook_reference/recipe_dsl/dsl_recipe.md#value-for-platform value_for_platform"
-      parent = "chef_infra/cookbook_reference/recipe_dsl"
-      url = "/dsl_recipe/#value-for-platform"
+      identifier = "chef_infra/cookbook_reference/infra_language/infra_language.md#value-for-platform value_for_platform"
+      parent = "chef_infra/cookbook_reference/infra_language"
+      url = "/infra_language/#value-for-platform"
       weight = 220
 
       [[menu.infra]]
       title = "value_for_platform_family"
-      identifier = "chef_infra/cookbook_reference/recipe_dsl/dsl_recipe.md#value-for-platform-family value_for_platform_family"
-      parent = "chef_infra/cookbook_reference/recipe_dsl"
-      url = "/dsl_recipe/#value-for-platform-family"
+      identifier = "chef_infra/cookbook_reference/infra_language/infra_language.md#value-for-platform-family value_for_platform_family"
+      parent = "chef_infra/cookbook_reference/infra_language"
+      url = "/infra_language/#value-for-platform-family"
       weight = 230
 
       [[menu.infra]]
       title = "with_run_context"
-      identifier = "chef_infra/cookbook_reference/recipe_dsl/dsl_recipe.md#with-run-context with_run_context"
-      parent = "chef_infra/cookbook_reference/recipe_dsl"
-      url = "/dsl_recipe/#with-run-context"
+      identifier = "chef_infra/cookbook_reference/infra_language/infra_language.md#with-run-context with_run_context"
+      parent = "chef_infra/cookbook_reference/infra_language"
+      url = "/infra_language/#with-run-context"
       weight = 240
 
       [[menu.infra]]
       title = "Windows Platform"
-      identifier = "chef_infra/cookbook_reference/recipe_dsl/dsl_recipe.md#windows-platform Windows Platform"
-      parent = "chef_infra/cookbook_reference/recipe_dsl"
-      url = "/dsl_recipe/#windows-platform"
+      identifier = "chef_infra/cookbook_reference/infra_language/infra_language.md#windows-platform Windows Platform"
+      parent = "chef_infra/cookbook_reference/infra_language"
+      url = "/infra_language/#windows-platform"
       weight = 250
 
       [[menu.infra]]
       title = "registry_data_exists?"
-      identifier = "chef_infra/cookbook_reference/recipe_dsl/dsl_recipe.md#registry-data-exists registry_data_exists?"
-      parent = "chef_infra/cookbook_reference/recipe_dsl"
-      url = "/dsl_recipe/#registry-data-exists"
+      identifier = "chef_infra/cookbook_reference/infra_language/infra_language.md#registry-data-exists registry_data_exists?"
+      parent = "chef_infra/cookbook_reference/infra_language"
+      url = "/infra_language/#registry-data-exists"
       weight = 260
 
       [[menu.infra]]
       title = "registry_get_subkeys"
-      identifier = "chef_infra/cookbook_reference/recipe_dsl/dsl_recipe.md#registry-get-subkeys registry_get_subkeys"
-      parent = "chef_infra/cookbook_reference/recipe_dsl"
-      url = "/dsl_recipe/#registry-get-subkeys"
+      identifier = "chef_infra/cookbook_reference/infra_language/infra_language.md#registry-get-subkeys registry_get_subkeys"
+      parent = "chef_infra/cookbook_reference/infra_language"
+      url = "/infra_language/#registry-get-subkeys"
       weight = 270
 
       [[menu.infra]]
       title = "registry_get_values"
-      identifier = "chef_infra/cookbook_reference/recipe_dsl/dsl_recipe.md#registry-get-values registry_get_values"
-      parent = "chef_infra/cookbook_reference/recipe_dsl"
-      url = "/dsl_recipe/#registry-get-values"
+      identifier = "chef_infra/cookbook_reference/infra_language/infra_language.md#registry-get-values registry_get_values"
+      parent = "chef_infra/cookbook_reference/infra_language"
+      url = "/infra_language/#registry-get-values"
       weight = 280
 
       [[menu.infra]]
       title = "registry_has_subkeys?"
-      identifier = "chef_infra/cookbook_reference/recipe_dsl/dsl_recipe.md#registry-has-subkeys registry_has_subkeys?"
-      parent = "chef_infra/cookbook_reference/recipe_dsl"
-      url = "/dsl_recipe/#registry-has-subkeys"
+      identifier = "chef_infra/cookbook_reference/infra_language/infra_language.md#registry-has-subkeys registry_has_subkeys?"
+      parent = "chef_infra/cookbook_reference/infra_language"
+      url = "/infra_language/#registry-has-subkeys"
       weight = 290
 
       [[menu.infra]]
       title = "registry_key_exists?"
-      identifier = "chef_infra/cookbook_reference/recipe_dsl/dsl_recipe.md#registry-key-exists registry_key_exists?"
-      parent = "chef_infra/cookbook_reference/recipe_dsl"
-      url = "/dsl_recipe/#registry-key-exists"
+      identifier = "chef_infra/cookbook_reference/infra_language/infra_language.md#registry-key-exists registry_key_exists?"
+      parent = "chef_infra/cookbook_reference/infra_language"
+      url = "/infra_language/#registry-key-exists"
       weight = 300
 
       [[menu.infra]]
       title = "registry_value_exists?"
-      identifier = "chef_infra/cookbook_reference/recipe_dsl/dsl_recipe.md#registry-value-exists registry_value_exists?"
-      parent = "chef_infra/cookbook_reference/recipe_dsl"
-      url = "/dsl_recipe/#registry-value-exists"
+      identifier = "chef_infra/cookbook_reference/infra_language/infra_language.md#registry-value-exists registry_value_exists?"
+      parent = "chef_infra/cookbook_reference/infra_language"
+      url = "/infra_language/#registry-value-exists"
       weight = 310
 
       [[menu.infra]]
       title = "Log Entries"
-      identifier = "chef_infra/cookbook_reference/recipe_dsl/dsl_recipe.md#log-entries Log Entries"
-      parent = "chef_infra/cookbook_reference/recipe_dsl"
-      url = "/dsl_recipe/#log-entries"
+      identifier = "chef_infra/cookbook_reference/infra_language/infra_language.md#log-entries Log Entries"
+      parent = "chef_infra/cookbook_reference/infra_language"
+      url = "/infra_language/#log-entries"
       weight = 320
 
     [[menu.infra]]

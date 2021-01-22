@@ -308,7 +308,7 @@ to this resource page.
 **registry_key**
 
 Only used in the registry key resource. This adds the **Registry Key Path Separators**
-and **Recipe DSL Methods** sections to resource page.
+and **Chef Infra Language Methods** sections to resource page.
 
 **nameless_apt_update**
 

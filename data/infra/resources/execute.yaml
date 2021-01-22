@@ -489,7 +489,7 @@ examples: |
 
   **Use the search recipe DSL method to find users**:
 
-  The following example shows how to use the `search` method in the Recipe DSL to
+  The following example shows how to use the `search` method in the Chef Infra Language to
   search for users:
 
   ```ruby

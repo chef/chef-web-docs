@@ -16,7 +16,7 @@ aliases = ["/ruby.html"]
 
 {{% ruby_summary %}}
 
-As of Chef Infra Client 15.x, Chef Infra Client ships with Ruby 2.6.
+Chef Infra Client 15 ships with Ruby 2.6 and Chef Infra Client 16 ships with Ruby 2.7.
 
 ## Ruby Basics
 
@@ -522,24 +522,6 @@ obvious to the reader, specifying the default action is recommended:
 ohai 'apache_modules' do
   action :reload
 end
-```
-
-### Symbols or Strings?
-
-Prefer strings over symbols, because they're easier to read and you
-don't need to explain to non-Rubyists what a symbol is. Please retrofit
-old cookbooks as you come across them.
-
-Right:
-
-```ruby
-default['foo']['bar'] = 'baz'
-```
-
-Wrong:
-
-```ruby
-default[:foo][:bar] = 'baz'
 ```
 
 ### String Quoting
