@@ -14,17 +14,6 @@ aliases = ["/glossary.html"]
     weight = 70
 +++
 
-**Acceptance**
-
-:   A Workflow stage. The Acceptance stage is where your team decides
-    whether the submitted change should ship all the way out to its
-    final destination.
-
-**analytics rules**
-
-:   Event tracking during a Chef Infra Client run that generates data
-    made visible to Workflow.
-
 **Automate**
 
 :   A full suite of enterprise capabilities for maintaining continuous
@@ -33,14 +22,7 @@ aliases = ["/glossary.html"]
 
 **Berkshelf**
 
-:   Manage cookbook dependencies.
-
-**Build**
-
-:   A Workflow stage. The purpose of the Build stage is to assemble one
-    or more potentially releasable artifacts and make them available to
-    the remaining stages of the pipeline. Using Berkshelf can help to
-    manage cookbook dependencies.
+:   The legacy tool for managing cookbook dependencies. Policyfiles should be used instead.
 
 **chef-apply**
 
@@ -111,21 +93,6 @@ aliases = ["/glossary.html"]
 
 :   A data_bag is a global variable that is stored as JSON data and is
     accessible from a Chef Infra Server.
-
-**definition**
-
-:   A definition is code that is reused across recipes, similar to a
-    compile-time macro, and is defined in a cookbook. Definitions are
-    not recommended for new users and Custom Resources should be written
-    for reusable code instead.
-
-**Delivered**
-
-:   A Workflow stage. Delivered is the final stage of the pipeline, what
-    it means for your system is up to you. It could mean deploying the
-    change so that it is live and receiving production traffic, or it
-    might mean publishing a set of artifacts so they are accessible for
-    your customers.
 
 **environment**
 
@@ -202,18 +169,6 @@ aliases = ["/glossary.html"]
 :   A recipe is a collection of resources that tells Chef Infra Client
     how to configure a node.
 
-**Rehearsal**
-
-:   If all phases of Union succeed, then the Rehearsal stage is
-    triggered. Rehearsal increases confidence in the artifacts and the
-    deployment by repeating the process that occurred in Union in a
-    different environment.
-
-**Reporting**
-
-:   Capture and visualize what happens during the execution of Chef
-    Infra Client runs across all of your Chef-managed infrastructure.
-
 **resource**
 
 :   A resource is a statement of configuration policy that describes the
@@ -238,31 +193,3 @@ aliases = ["/glossary.html"]
 :   Test Kitchen is an integration framework that is used to
     automatically test cookbook data across any combination of platforms
     and test suites. Test Kitchen is packaged in Chef Workstation.
-
-**Union**
-
-:   A Workflow stage. Union is the first of the three shared pipeline
-    stages. The purpose of the Union stage is to assess the impact of
-    the change in the context of a complete (or as close as possible)
-    installation of the set of projects that comprise the system as a
-    whole.
-
-**Verify**
-
-:   A Workflow stage. The purpose of Verify is to run checks so that the
-    system can decide if it's worth the time of a human to review the
-    submitted change.
-
-**visibility**
-
-:   A feature of Workflow that provides real-time visibility into what
-    is happening on the Chef Infra Server, including what's changing,
-    who made those changes, and when they occurred.
-
-**workflow**
-
-:   A feature of Workflow that manages changes to both infrastructure
-    and application code, giving your operations and development teams a
-    common platform for developing, building, testing, and deploying
-    cookbooks, applications, and more. For more information see the
-    [Chef Automate Overview](/workflow%20.html).
