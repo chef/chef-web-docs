@@ -1,5 +1,5 @@
 +++
-title = "All Desktop Resources"
+title = "All Infra Resources"
 draft = false
 
 gh_repo = "chef-web-docs"
