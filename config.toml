@@ -196,6 +196,45 @@ gh_path = "https://github.com/chef/chef-web-docs/blob/master/content/"
     source = "static"
     target = "static"
 
+## Module mounts for packages added with NPM
+
+  [[module.mounts]]
+    source = "themes/docs-new/node_modules/jquery/dist"
+    target = "assets/js/vendor/jquery"
+
+  [[module.mounts]]
+    source = "themes/docs-new/node_modules/showdown/dist"
+    target = "assets/js/vendor/showdown"
+
+  [[module.mounts]]
+    source = "themes/docs-new/node_modules/ua-parser-js/dist"
+    target = "assets/js/vendor/ua-parser-js"
+
+  [[module.mounts]]
+    source = "themes/docs-new/node_modules/what-input/dist"
+    target = "assets/js/vendor/what-input"
+
+  [[module.mounts]]
+    source = "themes/docs-new/node_modules/@fortawesome/fontawesome-free/js"
+    target = "assets/js/vendor/fontawesome-free"
+
+  [[module.mounts]]
+    source = "themes/docs-new/node_modules/foundation-sites/dist/js"
+    target = "assets/js/vendor/foundation-sites"
+
+  [[module.mounts]]
+    source = "themes/docs-new/node_modules/redoc/bundles"
+    target = "assets/js/vendor/redoc"
+
+  ## Fontawesome font and SCSS modules
+
+  [[module.mounts]]
+    source = "themes/docs-new/node_modules/@fortawesome/fontawesome-free/webfonts"
+    target = "static/fonts/fontawesome"
+
+  [[module.mounts]]
+    source = "themes/docs-new/node_modules/@fortawesome/fontawesome-free/scss"
+    target = "assets/sass/vendor/fontawesome"
 
 ####
 ## Main Menu ##
