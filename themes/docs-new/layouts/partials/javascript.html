@@ -1,20 +1,28 @@
-{{- $fontawesome := resources.Get "js/vendor/fontawesome-all.min.js" }}
-{{- $jquery := resources.Get "js/vendor/jquery.min.js" }}
-{{- $foundation := resources.Get "js/vendor/foundation.min.js" }}
-{{- $whatInput := resources.Get "js/vendor/what-input.min.js" }}
-{{- $uaParser := resources.Get "js/vendor/ua-parser.min.js" }}
-{{- $showdown := resources.Get "js/vendor/showdown.min.js" }}
-{{- $coreJs := slice $fontawesome $jquery $foundation $whatInput $uaParser $showdown | resources.Concat "js/core-bundle.js" | minify | fingerprint }}
+{{- $fontawesome := resources.Get "js/vendor/fontawesome-free/all.min.js" -}}
+{{- $jquery := resources.Get "js/vendor/jquery/jquery.min.js" -}}
+{{- $foundation := resources.Get "js/vendor/foundation-sites/foundation.min.js" -}}
+{{- $whatInput := resources.Get "js/vendor/what-input/what-input.min.js" -}}
+{{- $uaParser := resources.Get "js/vendor/ua-parser-js/ua-parser.min.js" -}}
+{{- $showdown := resources.Get "js/vendor/showdown/showdown.min.js" -}}
+{{- $coreJs := slice $fontawesome $jquery $foundation $whatInput $uaParser $showdown  | resources.Concat "js/core-bundle.js" | minify | fingerprint -}}
 <script src="{{ $coreJs.Permalink }}" type="text/javascript"></script>
-{{- $segment := resources.Get "js/segment.js" }}
-{{- $omnitruck := resources.Get "js/omnitruck.js" }}
-{{- $copycodebutton := resources.Get "js/copy-code-button.js" }}
-{{- $chefHugo := resources.Get "js/chef-hugo.js" }}
-{{- $resourceNote := resources.Get "js/resource-note.js" }}
-{{- $versionDocs := resources.Get "js/version-docs.js" }}
-{{- $feedback := resources.Get "js/feedback.js" }}
-{{- $customJs := slice $segment $omnitruck $copycodebutton $chefHugo $resourceNote $versionDocs $feedback | resources.Concat "js/custom-bundle.js" | minify | fingerprint }}
-<script src="{{ $customJs.Permalink }}" type="text/javascript"></script>
+
+{{- $segment := resources.Get "js/segment.js" -}}
+{{- $omnitruck := resources.Get "js/omnitruck.js" -}}
+{{- $copycodebutton := resources.Get "js/copy-code-button.js" -}}
+{{- $chefHugo := resources.Get "js/chef-hugo.js" -}}
+{{- $resourceNote := resources.Get "js/resource-note.js" -}}
+{{- $versionDocs := resources.Get "js/version-docs.js" -}}
+{{- $feedback := resources.Get "js/feedback.js" -}}
+
+{{ if hugo.Environment | eq "development" }}
+  {{- $customJs := slice $segment $omnitruck $copycodebutton $chefHugo $resourceNote $versionDocs $feedback | resources.Concat "js/custom-bundle.js" -}}
+  <script src="{{ $customJs.Permalink }}" type="text/javascript"></script>
+{{ else }}
+  {{- $customJs := slice $segment $omnitruck $copycodebutton $chefHugo $resourceNote $versionDocs $feedback | resources.Concat "js/custom-bundle.js" | minify | fingerprint -}}
+  <script src="{{ $customJs.Permalink }}" type="text/javascript"></script>
+{{ end }}
+
 <script type="text/javascript">
   (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
   (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
