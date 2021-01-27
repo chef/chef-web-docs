@@ -82,10 +82,7 @@ notAlternative = true
   robots = ''
   menuOrder = ["overview", "automate", "compliance",  "desktop", "habitat", "infra", "server", "inspec", "workstation", "effortless", "release_notes", "legacy", "extra"]
 
-[taxonomies]
-  category = "categories"
-  tag = "tags"
-  resource = "resources"
+disableKinds = ["taxonomy", "term"]
 
 [params.chef-web-docs]
 gh_path = "https://github.com/chef/chef-web-docs/blob/master/content/"
