@@ -12,7 +12,7 @@ gh_repo = "chef-web-docs"
     weight = 30
 +++
 
-## platform?
+### platform?
 
 Use the `platform?` helper method to ensure that certain actions are run for specific platforms. The `platform?` method will return true if one of the listed parameters matches the `node['platform']` attribute that is detected by [Ohai](/ohai) during every Chef Infra Client run.
 
@@ -27,7 +27,7 @@ where:
 - `parameter` is a comma-separated list, each specifying a platform, such as Red Hat, CentOS, or Fedora
 - `platform?` method is typically used with an `if`, `elsif`, or `case` statement that contains Ruby code that is specific for the platform, if detected
 
-### platform Values
+#### platform Values
 
 <table>
 <colgroup>
@@ -140,7 +140,7 @@ where:
 </tbody>
 </table>
 
-### Examples
+#### Examples
 
 **Installing the cron package on Debian systems**
 
@@ -162,7 +162,7 @@ end
 
 {{% resource_if_statement_use_with_platform %}}
 
-## platform_family?
+### platform_family?
 
 Use the `platform_family?` method to ensure that certain actions are run for specific platform family. The `platform_family?` method will return true if one of the listed parameters matches the `node['platform_family']` attribute that is detected by [Ohai](/ohai) during every Chef Infra Client run.
 
@@ -177,7 +177,7 @@ where:
 - `'parameter'` is a comma-separated list, each specifying a platform family, such as Debian, or Red Hat Enterprise Linux
 - `platform_family?` method is typically used with an `if`, `elsif`, or `case` statement that contains Ruby code that is specific for the platform family, if detected
 
-### platform_family Values
+#### platform_family Values
 
 <table>
 <colgroup>
@@ -258,7 +258,7 @@ where:
 </tbody>
 </table>
 
-### Examples
+#### Examples
 
 For example:
 
@@ -276,7 +276,7 @@ platform_family?('slackware', 'suse', 'arch')
 
 {{< readFile_shortcode file="resource_remote_file_use_platform_family.md" >}}
 
-## value_for_platform
+### value_for_platform
 
 Use the `value_for_platform` method in a recipe to select a value based on the `node['platform']` and `node['platform_version']` attributes. These values are detected by Ohai during every Chef Infra Client run.
 
@@ -313,11 +313,11 @@ value_for_platform(
 )
 ```
 
-### Operators
+#### Operators
 
 {{% cookbooks_version_constraints_operators %}}
 
-### Examples
+#### Examples
 
 The following example will set `package_name` to `httpd` for the Red Hat platform and to `apache2` for the Debian platform:
 
@@ -353,7 +353,7 @@ value_for_platform(
 )
 ```
 
-## value_for_platform_family
+### value_for_platform_family
 
 Use the `value_for_platform_family` method in a recipe to select a value based on the `node['platform_family']` attribute. This value is detected by Ohai during every Chef Infra Client run.
 
