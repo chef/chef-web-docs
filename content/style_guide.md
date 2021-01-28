@@ -565,6 +565,77 @@ like "Create a new user" (by its very nature, a user created **is** a
 new user) or (for a setting named `cidr_block`) "The CIDR block for the
 VPC."
 
+## Examples
+
+### Example Domains
+
+Use the `example.com` domain for generic domains and email addresses in the documentation. Use the `chef.io` or `progress.com` domain for examples that should refer back to Chef Software.
+### Example Names
+
+Don't reveal personal information in examples, such as the names of real people, real email addresses, or phone numbers.
+
+Don't use the names of bands, musicians, or characters from works that are under copyright.
+
+Here is a list of some example names for you to use (all of the last names are translations of "Chef", according to the internet):
+
+Ares Koch
+Tamira Bucatar
+Dan Gotvach
+Lena Chushi
+Haris Shefu
+Booker Yolisa
+Kala Baavarchee
+Samuel Tagaluto
+
+### Example Email Addresses
+
+akoch@example.com
+tvucatar@example.com
+dgotvach@example.com
+lchushi@example.com
+hshefu@example.com
+byolisa@example.com
+kbaavarchee@example.com
+stagaluto@example.com
+
+Use `docs@chef.io` for the Chef Technical Documentation team.
+#### Example Phone Numbers
+
+Never use a real phone number in an example. For a US phone number, use one from the range reserved for examples in fiction, which is (800) 555-0100 through (800) 555-0199.
+
+### Example Addresses
+
+Use fictional street addresses in examples.
+
+Use these fictional addresses:
+
+2943 Conifer Drive
+Seattle, WA 98122
+
+1214 Hollow Road
+Boston, MA 02110
+
+### Example IP Addresses
+
+For IPv4 addresses, use one of the addresses provided in [RFC 5735](https://tools.ietf.org/html/rfc5737) for documentation.
+
+IPv4 addresses:
+
+  * `192.0.2.0`
+  * `198.51.100.0`
+  * `203.0.113.0`
+
+IPv4 address ranges:
+
+  * `192.0.2.0/24` (TEST-NET-1)
+  * `198.51.100.0/24` (TEST-NET-2)
+  * `203.0.113.0/24` (TEST-NET-3)
+
+For IPv6 addresses, use one of the addresses provided in [RFC 3849](https://tools.ietf.org/html/rfc3849) range for documentation.
+
+IPv6 address range:
+
+* `2001:DB8::/32`
 ## Documentation Repo
 
 The Chef reference documentation is located in: https://github.com/chef/chef-web-docs
@@ -595,7 +666,6 @@ If you forget to add a DCO sign-off before submitting a pull request, you can am
 
 See this [blog post](https://blog.chef.io/2016/09/19/introducing-developer-certificate-of-origin/) to understand why Chef started using the DCO signoff.
 
-
 ### Obvious Fix
 
 Small contributions, such as fixing spelling errors, where the content is small enough to not be considered intellectual property, can be submitted without signing the contribution for the DCO.
@@ -613,7 +683,6 @@ Changes that fall under our Obvious Fix policy include:
 To invoke the Obvious Fix rule, simply add `Obvious Fix.` to your commit message.
 
 See our Obvious Fix policy here: https://github.com/chef/chef/blob/master/CONTRIBUTING.md#chef-obvious-fix-policy
-
 
 ## Official Names
 
