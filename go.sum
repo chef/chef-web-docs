@@ -5,12 +5,10 @@ github.com/chef/automate/components/docs-chef-io v0.0.0-20210125154254-76612f53b
 github.com/chef/automate/components/docs-chef-io v0.0.0-20210125154254-76612f53b101/go.mod h1:juvLC7Rt33YOCgJ5nnfl4rWZRAbSwqjTbWmcAoA0LtU=
 github.com/chef/chef-server/docs-chef-io v0.0.0-20210111145116-cec7cf7e63da h1:3W8cMBP+LBolm4FFDA8U+bX5zHtHIoIfSeyDMEVrfic=
 github.com/chef/chef-server/docs-chef-io v0.0.0-20210111145116-cec7cf7e63da/go.mod h1:gMSa25GUHmLimA0gjvRd3hs1buOBqkKPrdHzHvaJauY=
-github.com/chef/chef-workstation v0.0.0-20210115154338-722aa33227d4 h1:IC71q7x3KDs/HfFHkAD4b22hYCqUogSCU7jgpFbJbbc=
-github.com/chef/chef-workstation v0.0.0-20210115154338-722aa33227d4/go.mod h1:KZ1lmUGHzTKhRuHdDhB/I2ZEbet++4OTuABWlYb9MlQ=
-github.com/chef/chef-workstation/docs-chef-io v0.0.0-20210115154338-722aa33227d4 h1:AzUWNePl8v5k9OlDLddnOH/Sv449f7cu0BIfBpPCVk8=
-github.com/chef/chef-workstation/docs-chef-io v0.0.0-20210115154338-722aa33227d4/go.mod h1:gvoh6ov1YU98CVzBEWzEZeCLTRunfQ6r1VO7M3LFE9U=
-github.com/chef/chef-workstation/docs-chef-io v0.0.0-20210128182718-c22743f75147 h1:LpkLyZIUbhQJsCY9e4tgeLqdnJCK7+5uGWX48cznNHs=
-github.com/chef/chef-workstation/docs-chef-io v0.0.0-20210128182718-c22743f75147/go.mod h1:gvoh6ov1YU98CVzBEWzEZeCLTRunfQ6r1VO7M3LFE9U=
+github.com/chef/chef-workstation v0.0.0-20210128210202-99b2f294dfed h1:/3pZrb9LLybtKRDUATTA45Mr85h5kvzmT/7sNyRbgQ0=
+github.com/chef/chef-workstation v0.0.0-20210128210202-99b2f294dfed/go.mod h1:KZ1lmUGHzTKhRuHdDhB/I2ZEbet++4OTuABWlYb9MlQ=
+github.com/chef/chef-workstation/docs-chef-io v0.0.0-20210128210202-99b2f294dfed h1:T8v7K1qUlqT6Arbzi/tioHz/Mn/e4L1C8L5sSYm10+I=
+github.com/chef/chef-workstation/docs-chef-io v0.0.0-20210128210202-99b2f294dfed/go.mod h1:gvoh6ov1YU98CVzBEWzEZeCLTRunfQ6r1VO7M3LFE9U=
 github.com/chef/desktop-config/docs-chef-io v0.0.0-20210112020121-58047a6a6d6f h1:kS8U0K/HLRw+T8sqN4NfngUHWWBTTdE4CTF8FbHr03Q=
 github.com/chef/desktop-config/docs-chef-io v0.0.0-20210112020121-58047a6a6d6f/go.mod h1:90xAx6sIfgSL50M2KzeBmx7V7s7dlhQU3xpUkJO0qW0=
 github.com/chef/effortless/docs-chef-io v0.0.0-20200930175149-51c187882fba h1:71JD3SIc9HWmbokoxw6vI9XTtcbi10PxKhKrhKonYZ0=
