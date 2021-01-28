@@ -124,8 +124,12 @@ gh_path = "https://github.com/chef/chef-web-docs/blob/master/content/"
     target = "static"
 
   [[module.imports.mounts]]
-    source = "layouts/shortcodes"
-    target = "layouts/shortcodes"
+    source = "layouts"
+    target = "layouts"
+
+  [[module.imports.mounts]]
+    source = "data"
+    target = "data"
 
   [[module.imports]]
     disable = false
@@ -982,6 +986,12 @@ identifier = "chef_workstation"
     parent = "chef_workstation/chef_workstation_tools"
     url = "/workstation/config_rb/"
     weight = 70
+
+    [[menu.workstation]]
+    title = "Cookstyle"
+    identifier = "chef_workstation/chef_workstation_tools/cookstyle"
+    parent = "chef_workstation/chef_workstation_tools"
+    weight = 90
 
     [[menu.workstation]]
     title = "Test Kitchen"
