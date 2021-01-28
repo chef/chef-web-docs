@@ -6,7 +6,7 @@ Infra Client version used. See the following:
 |10.x|`R` `W`||||
 |11.0+|`R`|`R` `W`|||
 |11.6+|`R` `D`|`R` `D`|`R` `W`||
-|13.0.113+|`R` `D`|`R` `D`|`R` `D`|`R` `W`|
+|13.0|`R` `D`|`R` `D`|`R` `D`|`R` `W`|
 
 `R` = read
 `W` = write
@@ -41,5 +41,5 @@ Chef Infra Client 11.6+
 
 #### Version 3
 
-Chef Infra Client 13.0.113+
+Chef Infra Client 13.0
 - Option to  disable version 0, 1, and 2
