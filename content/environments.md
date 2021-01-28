@@ -381,8 +381,6 @@ using the following methods:
 
 -   By using the `knife edit` and `knife exec` subcommands
 
--   By editing the `chef_environment` directly using knife
-
 -   By editing the `environment` configuration details in the client.rb
     file, and then using `knife bootstrap -e environment_name` to
     bootstrap the changes to the specified environment
