@@ -49,7 +49,8 @@ This subcommand has additional options:
 
 ## check
 
-Verify all tests at the specified path
+Verify metadata in inspec.yml. Verify control data has fields (title, description,
+impact) defined and that all controls have visible tests.
 
 ### Syntax
 
@@ -144,7 +145,9 @@ This subcommand has additional options:
     Whether to use disable sspi authentication, defaults to false (WinRM).
 * ``--winrm-transport=WINRM_TRANSPORT``
     Specify which transport to use, defaults to negotiate (WinRM).
-
+* ``--winrm-shell-type=WINRM_SHELL_TYPE``
+    Specify which shell type to use (powershell,elevated or cmd), defaults to powershell (WinRM).
+    
 ## env
 
 Output shell-appropriate completion configuration

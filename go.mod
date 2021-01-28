@@ -3,15 +3,15 @@ module github.com/chef/chef-web-docs
 go 1.14
 
 require (
-	github.com/chef/automate/components/docs-chef-io v0.0.0-20201231221047-b00630388830 // indirect
-	github.com/chef/chef-server/docs-chef-io v0.0.0-20201231191135-6c6963a18168 // indirect
-	github.com/chef/chef-workstation v0.0.0-20201117215019-2a59d0a67f2d // indirect
-	github.com/chef/chef-workstation/docs-chef-io v0.0.0-20201229181643-389df72aced5 // indirect
-	github.com/chef/desktop-config/docs-chef-io v0.0.0-20200929171526-d4cef8a736df // indirect
+	github.com/chef/automate/components/docs-chef-io v0.0.0-20210125154254-76612f53b101 // indirect
+	github.com/chef/chef-server/docs-chef-io v0.0.0-20210111145116-cec7cf7e63da // indirect
+	github.com/chef/chef-workstation v0.0.0-20210115154338-722aa33227d4 // indirect
+	github.com/chef/chef-workstation/docs-chef-io v0.0.0-20210115154338-722aa33227d4 // indirect
+	github.com/chef/desktop-config/docs-chef-io v0.0.0-20210112020121-58047a6a6d6f // indirect
 	github.com/chef/effortless/docs-chef-io v0.0.0-20200930175149-51c187882fba // indirect
-	github.com/habitat-sh/habitat/components/docs-chef-io v0.0.0-20201105224549-ce890e79d550 // indirect
-	github.com/inspec/inspec v4.23.15+incompatible // indirect
-	github.com/inspec/inspec/docs-chef-io v0.0.0-20201209191123-eefd96d86745 // indirect
+	github.com/habitat-sh/habitat/components/docs-chef-io v0.0.0-20210105205530-3dff2d6af000 // indirect
+	github.com/inspec/inspec v4.26.4+incompatible // indirect
+	github.com/inspec/inspec/docs-chef-io v0.0.0-20210127162405-a70f336800ac // indirect
 )
 
 //replace github.com/chef/effortless/docs-chef-io => ../effortless/docs-chef-io

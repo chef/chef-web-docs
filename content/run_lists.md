@@ -140,55 +140,6 @@ verify the status of run-lists.
 
 {{% knife_status_returned_by_query %}}
 
-## Management Console
-
-The following sections describe how to manage run-lists when using the
-Chef management console.
-
-### Add Recipe
-
-{{% manage_webui_node_run_list_add_role_or_recipe %}}
-
-### Add Role
-
-{{% manage_webui_node_run_list_add_role_or_recipe %}}
-
-### Edit Node
-
-{{% manage_webui_node_run_list_edit %}}
-
-### Edit Role
-
-{{% manage_webui_policy_role_edit_run_list %}}
-
-### Remove Recipe
-
-{{% manage_webui_node_run_list_remove_role_or_recipe %}}
-
-### Remove Role
-
-{{% manage_webui_node_run_list_remove_role_or_recipe %}}
-
-### View Current
-
-{{% manage_webui_node_run_list_view_current %}}
-
-### View Node
-
-To view all of the nodes:
-
-1.  Open the Chef management console.
-
-2.  Click **Nodes**.
-
-3.  Select a node.
-
-4.  Select the **Details** tab.
-
-5.  The run-list for the node appears under the **Run List** header:
-
-    ![image](/images/step_manage_webui_nodes_view_run_list.png)
-
 ## Run-lists, Applied
 
 A run-list will tell Chef Infra Client what to do when bootstrapping
@@ -206,7 +157,3 @@ every subsequent Chef Infra Client run.
 ### The Chef Infra Client Run
 
 {{% chef_client_run %}}
-
-### Attribute Evaluation Order
-
-{{% node_attribute_evaluation_order %}}

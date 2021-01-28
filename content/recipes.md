@@ -26,74 +26,31 @@ aliases = ["/recipes.html"]
 
 {{< /note >}}
 
-### Attribute Types
-
-{{% node_attribute_type %}}
-
-<table>
-<colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Attribute Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><code>default</code></td>
-<td>{{< readFile_shortcode file="node_attribute_type_default.md" >}}</td>
-</tr>
-<tr class="even">
-<td><code>force_default</code></td>
-<td>{{< readFile_shortcode file="node_attribute_type_force_default.md" >}}</td>
-</tr>
-<tr class="odd">
-<td><code>normal</code></td>
-<td>{{< readFile_shortcode file="node_attribute_type_normal.md" >}}</td>
-</tr>
-<tr class="even">
-<td><code>override</code></td>
-<td>{{< readFile_shortcode file="node_attribute_type_override.md" >}}</td>
-</tr>
-<tr class="odd">
-<td><code>force_override</code></td>
-<td>{{< readFile_shortcode file="node_attribute_type_force_override.md" >}}</td>
-</tr>
-<tr class="even">
-<td><code>automatic</code></td>
-<td>{{< readFile_shortcode file="node_attribute_type_automatic.md" >}}</td>
-</tr>
-</tbody>
-</table>
-
-### Attribute Persistence
-
-{{% node_attribute_persistence %}}
-
-### Attribute Precedence
-
-{{% node_attribute_precedence %}}
-
-### Blocklist Attributes
-
-{{% node_attribute_blocklist %}}
-
-#### Blocklist Attributes
-
-{{% node_attribute_allowlist %}}
-
-## File Methods
-
-{{% cookbooks_attribute_file_methods %}}
-
 ## Environment Variables
 
-{{% environment_variables_summary %}}
+In UNIX, a process environment is a set of key-value pairs made
+available to a process. Programs expect their environment to contain
+information required for the program to run. The details of how these
+key-value pairs are accessed depends on the API of the language being
+used.
 
-{{< readFile_shortcode file="environment_variables_access_resource_attributes.md" >}}
+If processes is started by using the **execute** or **script** resources
+(or any of the resources based on those two resources, such as
+**bash**), use the `environment` attribute to alter the environment that
+will be passed to the process.
+
+```bash
+bash 'env_test' do
+  code <<-EOF
+  echo $FOO
+EOF
+  environment ({ 'FOO' => 'bar' })
+end
+```
+
+The only environment being altered is the one being passed to the child
+process that is started by the **bash** resource. This will not affect
+the Chef Infra Client environment or any child processes.
 
 ## Work with Recipes
 

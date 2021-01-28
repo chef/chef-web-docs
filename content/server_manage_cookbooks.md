@@ -13,7 +13,6 @@ aliases = ["/server_manage_cookbooks.html"]
     title = "Cookbooks"
     identifier = "legacy/manage/server_manage_cookbooks.md Cookbooks"
     parent = "legacy/manage"
-    weight = 40
 +++
 {{% chef_automate_mark %}}
 

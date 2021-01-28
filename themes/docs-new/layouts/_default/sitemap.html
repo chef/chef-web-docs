@@ -1,0 +1,93 @@
+{{ define "main" }}
+  <main id="main-content-col" tabindex="-1">
+    <div class="col-content">
+      <div id="{{ anchorize ( .Title )}}"><h1>{{ .Title }}</h1></div>
+
+      <div class="prose">
+
+        <p>This is a site map for the following products:</p>
+
+        <ul>
+          {{ range $menu_name := .Site.Params.menuOrder }}
+          {{ if and (ne $menu_name "extra") (ne $menu_name "legacy") (ne $menu_name "release_notes") (ne $menu_name "effortless") (ne $menu_name "overview")}}
+            {{ $menu := index $.Site.Menus $menu_name }}
+            {{ range $index, $item := $menu }}
+                <li><a href="#{{ or .Title .Name | urlize }}">{{ or .Title .Name }}</a></li>
+            {{ end }}
+          {{ end }}
+        {{ end }}
+
+        </ul>
+
+        <p>
+          This page has links to each topic in this doc set. You can also use the
+          navigation tool or the search box to find what you're looking for.
+        </p>
+
+        <p>
+          If you need documentation for previous versions, see the <a href="https://docs-archive.chef.io">Docs
+          Archive</a>.
+        </p>
+
+        <div class = "site-map">
+          {{ range $menu_name := .Site.Params.menuOrder }}
+            {{ $menu := index $.Site.Menus $menu_name }}
+            {{ range $index,$item := $menu }}
+
+              {{ if .HasChildren }}
+                <h2 id="{{ or .Title .Name | urlize }}">
+                  {{ or .Title .Name }}
+                </h2>
+                <p>
+                {{ range $indexH2, $child := .Children }}
+                  {{ if .HasChildren }}
+                    </p>
+                    <h3 id="{{ or .Title .Name | urlize }}">
+                      {{ or .Title .Name }}
+                    </h3>
+                      <p>
+                      {{ range $indexH3, $child := .Children }}
+
+                        {{ if and .HasChildren }}
+                          </p>
+                          <p class="strong-child">
+                            <strong id="{{ or .Title .Name | urlize }}">
+                              {{ or .Title .Name }}
+                            </strong>:
+                            {{ range $indexStrong, $child := .Children }}
+                              {{ if not (hasPrefix .URL "http") }}
+                                {{ if (ne $indexStrong 0) }}|{{ end }}
+                                <a href="{{ .URL }}" {{ if hasPrefix .URL "http" }} class="external" target="_blank"{{ end }}>{{ or .Title .Name }}</a>
+                              {{ end }}
+                            {{ end }}
+                          </p><p>
+
+                        {{ else }}
+                          {{ if not (hasPrefix .URL "http") }}
+                            {{ if (ne $indexH3 0) }}|{{ end }}
+                            <a href="{{ .URL }}">{{ or .Title .Name }}</a>
+                          {{ end }}
+                        {{ end }}
+
+                      {{ end }}
+
+                  {{ else }}
+                    {{ if (ne $indexH2 0) }}|{{ end }}
+                    <a href="{{ .URL }}" {{ if hasPrefix .URL "http" }} class="external" target="_blank"{{ end }}>{{ or .Title .Name }}</a>
+                  {{ end }}
+                {{ end }}
+              {{ else }}
+                {{ if not (hasPrefix .URL "http") }}
+                  <a href="{{ .URL }}">{{ or .Title .Name }}</a>
+                {{ end }}
+              {{ end }}
+            {{ end }}
+          {{ end }}
+        </div>
+
+      </div>
+    </div>
+    {{ partial "feedback" . }}
+  </main>
+
+{{ end }}

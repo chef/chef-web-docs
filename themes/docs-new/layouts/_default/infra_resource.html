@@ -172,11 +172,11 @@
                 <h3 id="windows-registry-key-backslashes">Registry Key Path Separators</h3>
                 {{ readFile "themes/docs-new/layouts/shortcodes/windows_registry_key_backslashes.md" | markdownify }}
 
-                <h3 id="dsl-recipe-method-windows-methods">Recipe DSL Methods</h3>
-                {{ readFile "themes/docs-new/layouts/shortcodes/dsl_recipe_method_windows_methods.md" | markdownify }}
+                <h3 id="dsl-recipe-method-windows-methods">Chef Infra Language Methods</h3>
+                {{ readFile "themes/docs-new/layouts/shortcodes/infra_lang_method_windows_methods.md" | markdownify }}
 
                 <h4 id="dsl-recipe-method-registry-data-exists">registry_data_exists?</h4>
-                {{ $shortcode := "themes/docs-new/layouts/shortcodes/dsl_recipe_method_registry_data_exists.md" }}
+                {{ $shortcode := "themes/docs-new/layouts/shortcodes/infra_lang_method_registry_data_exists.md" }}
 
                 {{ if in (readFile $shortcode) "readFile" }}
                   {{ $shortcode_text := newScratch }}
@@ -203,7 +203,7 @@
                 {{ end }}
 
                 <h4 id="dsl-recipe-method-registry-get-subkeys">registry_get_subkeys</h4>
-                {{ $shortcode := "themes/docs-new/layouts/shortcodes/dsl_recipe_method_registry_get_subkeys.md" }}
+                {{ $shortcode := "themes/docs-new/layouts/shortcodes/infra_lang_method_registry_get_subkeys.md" }}
 
                 {{ if in (readFile $shortcode) "readFile" }}
                   {{ $shortcode_text := newScratch }}
@@ -230,7 +230,7 @@
                 {{ end }}
 
                 <h4 id="dsl-recipe-method-registry-get-values">registry_get_values</h4>
-                {{ $shortcode := "themes/docs-new/layouts/shortcodes/dsl_recipe_method_registry_get_values.md" }}
+                {{ $shortcode := "themes/docs-new/layouts/shortcodes/infra_lang_method_registry_get_values.md" }}
 
                 {{ if in (readFile $shortcode) "readFile" }}
                   {{ $shortcode_text := newScratch }}
@@ -257,7 +257,7 @@
                 {{ end }}
 
                 <h4 id="dsl-recipe-method-registry-has-subkeys">registry_has_subkeys?</h4>
-                {{ $shortcode := "themes/docs-new/layouts/shortcodes/dsl_recipe_method_registry_has_subkeys.md" }}
+                {{ $shortcode := "themes/docs-new/layouts/shortcodes/infra_lang_method_registry_has_subkeys.md" }}
 
                 {{ if in (readFile $shortcode) "readFile" }}
                   {{ $shortcode_text := newScratch }}
@@ -284,7 +284,7 @@
                 {{ end }}
 
                 <h4 id="dsl-recipe-method-registry-key-exists">registry_key_exists?</h4>
-                {{ $shortcode := "themes/docs-new/layouts/shortcodes/dsl_recipe_method_registry_key_exists.md" }}
+                {{ $shortcode := "themes/docs-new/layouts/shortcodes/infra_lang_method_registry_key_exists.md" }}
 
                 {{ if in (readFile $shortcode) "readFile" }}
                   {{ $shortcode_text := newScratch }}
@@ -311,7 +311,7 @@
                 {{ end }}
 
                 <h4 id="dsl-recipe-method-registry-value-exists">registry_value_exists?</h4>
-                {{ $shortcode := "themes/docs-new/layouts/shortcodes/dsl_recipe_method_registry_value_exists.md" }}
+                {{ $shortcode := "themes/docs-new/layouts/shortcodes/infra_lang_method_registry_value_exists.md" }}
 
                 {{ if in (readFile $shortcode) "readFile" }}
                   {{ $shortcode_text := newScratch }}

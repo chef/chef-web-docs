@@ -7,11 +7,10 @@ gh_repo = "chef-web-docs"
 aliases = ["/server_users.html"]
 
 [menu]
-  [menu.infra]
+  [menu.legacy]
     title = "Users"
-    identifier = "chef_infra/managing_chef_infra_server/server_users.md Users"
-    parent = "chef_infra/managing_chef_infra_server"
-    weight = 140
+    identifier = "legacy/manage/server_users.md Users"
+    parent = "legacy/manage"
 +++
 
 The following tasks are available for user management in Chef Infra

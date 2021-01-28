@@ -50,14 +50,12 @@ hugo mod vendor
 
 # See:
 # - https://github.com/habitat-sh/habitat/pull/7993
-# - github.com/habitat-sh/habitat/blob/master/components/docs-chef-io/content/habitat/habitat_cli.md
-# - github.com/habitat-sh/habitat/blob/master/components/docs-chef-io/content/habitat/service_templates.md
 # - github.com/chef/chef-web-docs/blob/master/_vendor/github.com/habitat-sh/habitat/components/docs-chef-io/content/habitat/habitat_cli.md
 # - github.com/chef/chef-web-docs/blob/master/_vendor/github.com/habitat-sh/habitat/components/docs-chef-io/content/habitat/service_templates.md
 
 if [[ "${EXPEDITOR_PROJECT}" == *"habitat"* ]]; then
   curl --silent --output generated-documentation.tar.gz https://packages.chef.io/files/${EXPEDITOR_TARGET_CHANNEL}/habitat/latest/generated-documentation.tar.gz
-  tar xvzf generated-documentation.tar.gz -C content/habitat
+  tar xvzf generated-documentation.tar.gz --strip-components 1 -C content/habitat
   rm generated-documentation.tar.gz
 fi
 

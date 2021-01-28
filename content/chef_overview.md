@@ -41,7 +41,7 @@ Client the information and instruction that it needs so that it can do
 its job. As you are reviewing the rest of this topic, use the icons in
 the tables to refer back to this image.
 
-<img src="/images/chef_overview.svg" class="align-center" width="600" alt="image" />
+<img src="/images/chef_overview_2020.svg" class="align-center" width="600" alt="image" />
 
 Chef Infra has the following major components:
 
@@ -212,7 +212,7 @@ Cookbooks are comprised of the following components:
 <p><img src="/images/icon_recipe_dsl.svg" class="align-center" width="100" alt="image" /></p></td>
 <td><p>{{< readFile_shortcode file="cookbooks_recipe.md" >}}</p>
 <p>The Chef Infra Client will run a recipe only when asked. When the Chef Infra Client runs the same recipe more than once, the results will be the same system state each time. When a recipe is run against a system, but nothing has changed on either the system or in the recipe, the Chef Infra Client won't change anything.</p>
-<p>{{< readFile_shortcode file="dsl_recipe_summary.md" >}}</p></td>
+<p>{{< readFile_shortcode file="infra_lang_summary.md" >}}</p></td>
 </tr>
 <tr class="even">
 <td><p><img src="/images/icon_cookbook_resources.svg" class="align-center" width="100" alt="image" /></p></td>

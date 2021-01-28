@@ -48,8 +48,9 @@ syntax_full_properties_list:
   the desired state."
 - "`atomic_update`, `authentication`, `backup`, `checksum`, `content`, `force_unlink`,
   `ftp_active_mode`, `group`, `headers`, `manage_symlink_source`, `mode`, `owner`,
-  `path`, `remote_domain`, `remote_password`, `remote_user`, `show_progress`, `use_etag`,
-  `use_last_modified`, and `verifications` are the properties available to this resource."
+  `path`, `remote_domain`, `remote_password`, `remote_user`, `show_progress`, `ssl_verify_mode`,
+  `use_etag`, `use_last_modified`, and `verifications` are the properties available
+  to this resource."
 actions_list:
   :create:
     markdown: Default. Create a file. If a file already exists (but does not match),
@@ -266,15 +267,6 @@ properties_list:
       effect if not specified, but when it and `rights` are both
 
       specified, the effects are cumulative.'
-- property: notifies
-  ruby_type: Symbol, Chef::Resource\[String\]
-  required: false
-  description_list:
-  - shortcode: resources_common_notification_notifies.md
-  - markdown: ''
-  - shortcode: resources_common_notification_timers.md
-  - markdown: ''
-  - shortcode: resources_common_notification_notifies_syntax.md
 - property: owner
   ruby_type: Integer, String
   required: false
@@ -298,60 +290,38 @@ properties_list:
       extension. Default value: the `name` of the resource block. See
 
       "Syntax" section above for more information.'
-- property: remote_user
-  ruby_type: String
-  required: false
-  new_in: '13.4'
-  description_list:
-  - markdown: '**Windows only** The name of a user with access to the remote file
-
-      specified by the `source` property. The user name may optionally be
-
-      specified with a domain, such as: `domain\user` or
-
-      `user@my.dns.domain.com` via Universal Principal Name (UPN) format.
-
-      The domain may also be set using the `remote_domain` property. Note
-
-      that this property is ignored if `source` is not a UNC path. If this
-
-      property is specified, the `remote_password` property is required.'
-- property: remote_password
-  ruby_type: String
-  required: false
-  new_in: '13.4'
-  description_list:
-  - markdown: '**Windows only** The password of the user specified by the
-
-      `remote_user` property. This property is required if <span
-
-      class="title-ref">remote_user</span> is specified and may only be
-
-      specified if `remote_user` is specified. The `sensitive` property
-
-      for this resource will automatically be set to `true` if
-
-      `remote_password` is specified.'
 - property: remote_domain
   ruby_type: String
   required: false
   new_in: '13.4'
   description_list:
-  - markdown: '**Windows only** The domain of the user specified by the
-
-      `remote_user` property. By default the resource will authenticate
-
-      against the domain of the remote system, or as a local account if
-
-      the remote system is not joined to a domain. If the remote system is
-
-      not part of a domain, it is necessary to authenticate as a local
-
-      user on the remote system by setting the domain to `.`, for example:
-
-      `remote_domain "."`. The domain may also be specified as part of the
-
-      `remote_user` property.'
+  - markdown: "**Windows only** The domain of the user specified by the `remote_user`
+      property. By default the resource will authenticate against the domain of the
+      remote system, or as a local account if the remote system is not joined to a
+      domain. If the remote system is not part of a domain, it is necessary to authenticate
+      as a local user on the remote system by setting the domain to `.`, for example:
+      remote_domain '.'. The domain may also be specified as part of the `remote_user`
+      property."
+- property: remote_password
+  ruby_type: String
+  required: false
+  new_in: '13.4'
+  description_list:
+  - markdown: "**Windows only** The password of the user specified by the `remote_user`
+      property. This property is required if `remote_user` is specified and may only
+      be specified if `remote_user` is specified. The `sensitive` property for this
+      resource will automatically be set to `true` if `remote_password` is specified."
+- property: remote_user
+  ruby_type: String
+  required: false
+  new_in: '13.4'
+  description_list:
+  - markdown: "**Windows only** The name of a user with access to the remote file
+      specified by the source property. The user name may optionally be specified
+      with a domain, such as: `domain\\user` or `user@my.dns.domain.com` via Universal
+      Principal Name (UPN) format. The domain may also be set using the `remote_domain`
+      property. Note that this property is ignored if source is not a UNC path. If
+      this property is specified, the `remote_password` property is required."
 - property: retries
   ruby_type: Integer
   required: false
@@ -489,15 +459,6 @@ properties_list:
       download the files in the order listed, stopping after the first
 
       successful download.'
-- property: subscribes
-  ruby_type: Symbol, Chef::Resource\[String\]
-  required: false
-  description_list:
-  - shortcode: resources_common_notification_subscribes.md
-  - markdown: ''
-  - shortcode: resources_common_notification_timers.md
-  - markdown: ''
-  - shortcode: resources_common_notification_subscribes_syntax.md
 - property: use_conditional_get
   ruby_type: true, false
   required: false
@@ -510,32 +471,34 @@ properties_list:
       If-Modified-Since headers, `use_last_modified` must also be set to
 
       `true`. To use ETag headers, `use_etag` must also be set to `true`.'
+- property: show_progress
+  ruby_type: true, false
+  required: false
+  default_value: 'false'
+  description_list:
+  - markdown: Displays the progress of the file download.
+- property: ssl_verify_mode
+  ruby_type: Symbol
+  required: false
+  new_in: '16.2'
+  allowed_values: ":verify_none, :verify_peer"
+  description_list:
+  - markdown: Optional property to override SSL policy. If not specified, uses the
+      SSL policy from `config.rb`.
 - property: use_etag
   ruby_type: true, false
   required: false
   default_value: 'true'
   description_list:
-  - markdown: 'Enable ETag headers. Set to `false` to disable ETag headers. To use
-
-      this setting, `use_conditional_get` must also be set to `true`.'
+  - markdown: Enable ETag headers. Set to false to disable ETag headers. To use this
+      setting, `use_conditional_get` must also be set to true.
 - property: use_last_modified
   ruby_type: true, false
   required: false
   default_value: 'true'
   description_list:
-  - markdown: 'Enable If-Modified-Since headers. Set to `false` to disable
-
-      If-Modified-Since headers. To use this setting,
-
-      `use_conditional_get` must also be set to `true`.'
-- property: show_progess
-  ruby_type: true, false
-  required: false
-  default_value: 'false'
-  description_list:
-  - markdown: 'Displays the progress of the file download. Set to `true` to enable
-
-      this feature.'
+  - markdown: Enable `If-Modified-Since` headers. Set to `false` to disable `If-Modified-Since`
+      headers. To use this setting, `use_conditional_get` must also be set to `true`.
 - property: sensitive
   ruby_type: true, false
   required: false
@@ -561,18 +524,6 @@ properties_list:
       Whereas, this should return `false`:\n\n```ruby\nremote_file '/tmp/turtle'\
       \ do\n  verify '/usr/bin/false'\nend\n```\n\nIf a string or a block return `false`,\
       \ the Chef Infra Client run\nwill stop and an error is returned."
-properties_multiple_packages: false
-resource_directory_recursive_directories: false
-resources_common_atomic_update: true
-properties_resources_common_windows_security: true
-remote_file_prevent_re_downloads: true
-remote_file_unc_path: true
-ps_credential_helper: false
-ruby_style_basics_chef_log: false
-debug_recipes_chef_shell: false
-resources_common_properties: false
-resources_common_notification: false
-resources_common_guards: false
 examples: "
   Transfer a file from a URL\n\n  ```ruby\n  remote_file '/tmp/testfile'\
   \ do\n    source 'http://www.example.com/tempfiles/testfile'\n    mode '0755'\n\
@@ -629,7 +580,7 @@ examples: "
   \ && ./configure #{configure_options})\n      (cd Python-#{version} && make && make\
   \ install)\n    EOF\n    not_if { ::File.exist?(install_path) }\n  end\n  ```\n\n\
   \  **Use the platform_family? method**\n\n  The following is an example of using\
-  \ the `platform_family?` method in\n  the Recipe DSL to create a variable that can\
+  \ the `platform_family?` method in\n  the Chef Infra Language to create a variable that can\
   \ be used with other\n  resources in the same recipe. In this example, `platform_family?`\
   \ is\n  being used to ensure that a specific binary is used for a specific\n  platform\
   \ before using the **remote_file** resource to download a file\n  from a remote\
@@ -646,4 +597,3 @@ examples: "
   \ a local Microsoft Windows file path as a valid file URI,\n  an additional forward\
   \ slash (`/`) is required. For example:\n\n  ```ruby\n  remote_file 'file:///c:/path/to/file'\
   \ do\n    ...       # other attributes\n  end\n  ```\n"
-

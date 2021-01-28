@@ -29,13 +29,13 @@ patterns and workflow. For example, creating `production`, `staging`,
 
 ## Environment Attributes
 
-{{% environment_attribute %}}
-
 {{< note >}}
 
 {{% notes_see_attributes_overview %}}
 
 {{< /note >}}
+
+{{% environment_attribute %}}
 
 ### Environment Attribute Types
 
@@ -64,23 +64,13 @@ There are two types of attributes that can be used with environments:
 </tbody>
 </table>
 
-### Attribute Precedence
-
-Environments are one of several locations where attributes can be
-applied in Chef Infra. It's important to understand how the precedence
-level works in order to understand, which attributes will be applied
-when Chef Infra Client runs.
-
-{{% node_attribute_precedence %}}
-
-## Cookbook Pinning
+## Pinning Environments in Cookbooks
 
 Cookbook versions can be pinned in each environment, which allows you to
 control the rollout of new cookbook releases through successive testing
 environments before releasing new cookbook versions into production
 environments. See the environment format examples below for the cookbook
 pinning syntax.
-
 ## Environment Formats
 
 Environments may be stored on disk (any in source control) in two
@@ -90,7 +80,7 @@ formats:
     available when running Chef Infra Client in local mode
 -   As JSON (i.e. a file that ends with `.json`)
 
-### Ruby DSL
+### Chef Langage
 
 Each environment is defined as a Ruby file (i.e. a file that ends with
 `.rb`). Each environment file should contain the following
@@ -277,14 +267,13 @@ The JSON format has two additional settings:
 
 ## Create Environments
 
-An environment can be created in five different ways:
+An environment can be created in four different ways:
 
 -   Creating a Ruby file in the environments sub-directory of the
     chef-repo and then pushing it to the Chef server
 -   Creating a JSON file directly in the chef-repo and then pushing it
     to the Chef server
 -   Using knife
--   Using the Chef management console web user interface
 -   Using the Chef Infra Server REST API
 
 Once an environment exists on the Chef Infra Server, a node can be

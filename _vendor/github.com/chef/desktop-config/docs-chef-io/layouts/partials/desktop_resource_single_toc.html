@@ -36,14 +36,14 @@
       <ul>
         <li><a href="#windows_registry_key_backslashes">Registry Key Path Separators</a></li>
         <li>
-          <a href="#dsl_recipe_method_windows_methods">Recipe DSL Methods</a>
+          <a href="#infra_lang_method_windows_methods">Chef Infra Language Methods</a>
           <ul>
-            <li><a href="#dsl_recipe_method_registry_data_exists">registry_data_exists?</a></li>
-            <li><a href="#dsl_recipe_method_registry_get_subkeys">registry_get_subkeys</a></li>
-            <li><a href="#dsl_recipe_method_registry_get_values">registry_get_values</a></li>
-            <li><a href="#dsl_recipe_method_registry_has_subkeys">registry_has_subkeys?</a></li>
-            <li><a href="#dsl_recipe_method_registry_key_exists">registry_key_exists?</a></li>
-            <li><a href="#dsl_recipe_method_registry_value_exists">registry_value_exists?</a></li>
+            <li><a href="#infra_lang_method_registry_data_exists">registry_data_exists?</a></li>
+            <li><a href="#infra_lang_method_registry_get_subkeys">registry_get_subkeys</a></li>
+            <li><a href="#infra_lang_method_registry_get_values">registry_get_values</a></li>
+            <li><a href="#infra_lang_method_registry_has_subkeys">registry_has_subkeys?</a></li>
+            <li><a href="#infra_lang_method_registry_key_exists">registry_key_exists?</a></li>
+            <li><a href="#infra_lang_method_registry_value_exists">registry_value_exists?</a></li>
           </ul>
         </li>
       </ul>
@@ -198,13 +198,13 @@
       </li>
     </ul>
     {{ end }}
-		
+
 		{{ if index $yaml_file "unit_file_verification" }}
 			<li>
 				<a href="#unit_file_verification">Unit file verification</a>
 			</li>
 		{{ end }}
-		
+
 		{{ if or ( index $yaml_file "resources_common_properties" ) ( index $yaml_file "resources_common_notification" ) ( index $yaml_file "resources_common_guards" ) ( index $yaml_file "common_resource_functionality_multiple_packages" ) ( index $yaml_file "resources_common_guard_interpreter" ) ( index $yaml_file "remote_directory_recursive_directories" ) ( index $yaml_file "common_resource_functionality_resources_common_windows_security" )}}
 	    <li>
 	      <a href="#functionality">Common Resource Functionality</a>
