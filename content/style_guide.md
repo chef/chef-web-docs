@@ -23,6 +23,7 @@ The HTML version of the doc set can be found at
 [docs.chef.io](https://docs.chef.io).
 
 ## Building
+
 To build the docs, run the command:
 
 ```bash
@@ -30,6 +31,7 @@ make serve
 ```
 
 ## TOML Front Matter
+
 Each page starts with [TOML front matter](https://gohugo.io/content-management/front-matter/) which contains metadata about the page and places it properly in the left navigation menu. Below is the TOML front matter for this page which you can use as a reference. Contact the Docs Team if you have any questions about properly formatting TOML front matter.
 
 ```toml
@@ -51,19 +53,26 @@ aliases = "/style_guide.html"
 +++
 ```
 
+## Page Metadata
+
 ### title
+
 The title of the page. This will appear at the top of the page.
 
 ### draft
+
 Set draft to `true` if you don't want Hugo to build the page.
 
 ### aliases
+
 Add an alias if you want Hugo to automatically redirect the user from another page to the page you are writing.
 
 ### menu title
+
 The title of the page as it would appear in the left navigation menu.
 
 ### menu identifier
+
 The identifier of the page that you are writing. Each identifier must be unique.
 
 The convention we've adopted is to use the identifier of the page's parent, a forward slash, then the page file, a space, and then the page title.
@@ -71,11 +80,13 @@ The convention we've adopted is to use the identifier of the page's parent, a fo
 For example, this page's parent identifier is `overview/community`, the page file is `style_guide.md` and the page title is `Docs Style Guide`, so the full page identifier is `overview/community/style_guide.md Docs Style Guide`
 
 ### menu parent
+
 The menu identifier of the page's parent.
 
 The convention we've adopted is to append the different menu levels together, separated by a forward slash, and starting with the highest level. For example, this page is nested under Overview and then Community, so the page's parent identifier is `overview/community`.
 
 ### menu weight
+
 The rank that the page will appear in the menu, incremented by 10. Higher numbers are lower in the menu.
 
 ## Section Headings
@@ -126,6 +137,7 @@ Use four hash characters (####) before the heading name to indicate H4 headings:
     This is the paragraph.
 
 ### Other headings
+
 If you need more than four heading levels, use bold emphasis and then
 white space to make the heading text stand out and separate the heading from the content:
 
@@ -163,8 +175,8 @@ Numbered lists are created like this:
     1. text goes here
     1. text goes here
 
-        1. sublist text
-        1. sublist text
+        1. sub-list text
+        1. sub-list text
 
     1. text goes here
 
@@ -194,20 +206,23 @@ Create tables in Markdown like this:
 Use three or more hyphens (---) to separate each column's header from the content of the table. Separate columns with a vertical bar or pipe (|).
 
 ## Inline Markup
+
 Adding emphasis within text strings can be done using **bold** and
 `code strings`.
 
 ### Bold
+
 Use two asterisks (\*) to mark a text string as **bold**:
 
     **text goes here**
 
 ### Code Strings
+
 Sometimes the name of a method or database field needs to be used inline
-in a paragraph. Use **one** backquote to mark certain strings as `code`
+in a paragraph. Use **one** back quote to mark certain strings as `code`
 within a regular string of text:
 
-    `code goes here`
+`code goes here`
 
 ## Links
 
@@ -222,10 +237,12 @@ will produce this:
 External links requires an HTTP address.
 
 ## Code Blocks
+
 Code blocks are used to show code samples, such as those for Ruby, JSON,
 and command-line strings.
 
 ### Ruby
+
 Use this approach to show code blocks that use Ruby:
 
     ```ruby
@@ -234,6 +251,7 @@ Use this approach to show code blocks that use Ruby:
     ```
 
 ### Bash
+
 Use this approach to show code blocks that use any type of shell
 command, such as for Knife or the Chef Infra Client or for any other
 command-line example that may be required:
@@ -243,6 +261,7 @@ command-line example that may be required:
     ```
 
 ### Javascript (and JSON)
+
 Use this approach to show code blocks that use any type of JavaScript,
 including any JSON code sample:
 
@@ -257,6 +276,7 @@ including any JSON code sample:
     ```
 
 ### Literal
+
 Literals should be used sparingly, but sometimes there is a need for a
 block of text that doesn't work in a fenced code block, such as showing a directory structure, basic syntax, or pseudocode. To make a literal code block, indent the text by **four** spaces:
 
@@ -271,9 +291,11 @@ block of text that doesn't work in a fenced code block, such as showing a direct
 ```
 
 ## Repeating Text Blocks
+
 Chef docs uses [shortcodes](https://gohugo.io/content-management/shortcodes/) to maintain text that appears in more than one location and must be consistent in every location.
 
 ### Writing a shortcode
+
 All shortcode files are written in **Markdown** and stored in the `layouts/shortcodes` directory in the `chef-web-docs` repo.
 
 ### Adding a Shortcode to a Page
@@ -343,7 +365,6 @@ This is what a danger block looks like after it's built:
 This is a danger block.
 {{< /danger >}}
 
-
 ## Images
 
 You have two options for formatting images in Hugo:
@@ -388,6 +409,7 @@ the Ruby code block and another tab to show the YAML code block. See the [exampl
 below.
 
 The four shortcodes are:
+
 - `foundation_tabs`
 - `foundation_tab`
 - `foundation_tabs_panels`
@@ -462,7 +484,7 @@ For example:
       {{</* /foundation_tabs_panel */>}}
     {{</* /foundation_tabs_panels */>}}
 
-#### Parameters
+#### Panel Parameters
 
 The **`foundation_tabs_panels`** shortcode has one parameter:
 
@@ -570,6 +592,7 @@ VPC."
 ### Example Domains
 
 Use the `example.com` domain for generic domains and email addresses in the documentation. Use the `chef.io` or `progress.com` domain for examples that should refer back to Chef Software.
+
 ### Example Names
 
 Don't reveal personal information in examples, such as the names of real people, real email addresses, or phone numbers.
@@ -601,6 +624,7 @@ kbaavarchee@example.com
 stagaluto@example.com
 
 Use `docs@chef.io` for the Chef Technical Documentation team.
+
 #### Example Phone Numbers
 
 Never use a real phone number in an example. For a US phone number, use one from the range reserved for examples in fiction, which is (800) 555-0100 through (800) 555-0199.
@@ -623,29 +647,29 @@ For IPv4 addresses, use one of the addresses provided in [RFC 5735](https://tool
 
 IPv4 addresses:
 
-  * `192.0.2.0`
-  * `198.51.100.0`
-  * `203.0.113.0`
+- `192.0.2.0`
+- `198.51.100.0`
+- `203.0.113.0`
 
 IPv4 address ranges:
 
-  * `192.0.2.0/24` (TEST-NET-1)
-  * `198.51.100.0/24` (TEST-NET-2)
-  * `203.0.113.0/24` (TEST-NET-3)
+- `192.0.2.0/24` (TEST-NET-1)
+- `198.51.100.0/24` (TEST-NET-2)
+- `203.0.113.0/24` (TEST-NET-3)
 
 For IPv6 addresses, use one of the addresses provided in [RFC 3849](https://tools.ietf.org/html/rfc3849) range for documentation.
 
 IPv6 address range:
 
-* `2001:DB8::/32`
+- `2001:DB8::/32`
+
 ## Documentation Repo
 
-The Chef reference documentation is located in: https://github.com/chef/chef-web-docs
+The Chef reference documentation is located in: `https://github.com/chef/chef-web-docs`
 
--   The `chef-web-docs` repo contains a `content` directory
-    which holds most the Markdown files in the doc set.
--   The `static/images` directory stores the image files used in the docs.
--   The `config.toml` tells Hugo how to build the navigation menus and contains other Hugo settings. Don't modify this file.
+- The `chef-web-docs` repo contains a `content` directory which holds most the Markdown files in the doc set.
+- The `static/images` directory stores the image files used in the docs.
+- The `config.toml` tells Hugo how to build the navigation menus and contains other Hugo settings. Don't modify this file.
 
 In the past, the `chef-web-docs` repo contained documentation for prior
 versions of Chef components. Currently, the repo is limited to the
@@ -655,12 +679,11 @@ current major versions of Chef components.
 
 Chef Software requires all contributors to include a [Developer Certificate of Origin](https://developercertificate.org/) (DCO) sign-off with their pull request as long as the pull request does not fall under the [Obvious Fix](#obvious-fix) rule. This attests that you have the right to submit the work that you are contributing in your pull request.
 
-Our full DCO signoff policy is available here: https://github.com/chef/chef/blob/master/CONTRIBUTING.md#developer-certification-of-origin-dco
+For more information, review our [full DCO signoff policy](https://github.com/chef/chef/blob/master/CONTRIBUTING.md#developer-certification-of-origin-dco).
 
-A proper DCO sign-off looks like this:
-```
-Signed-off-by: Julia Child <juliachild@chef.io>
-```
+A proper DCO sign-off looks like:
+
+`Signed-off-by: Tamira Bucatar <tbucatar@example.com>`
 
 You can add a DCO signoff to your pull request by adding it to the text of your commit message, or by using the `-s` or `--signoff` option when you make a commit.
 
@@ -684,7 +707,7 @@ Changes that fall under our Obvious Fix policy include:
 
 To invoke the Obvious Fix rule, simply add `Obvious Fix.` to your commit message.
 
-See our Obvious Fix policy here: https://github.com/chef/chef/blob/master/CONTRIBUTING.md#chef-obvious-fix-policy
+For more information, see our [Obvious Fix policy](https://github.com/chef/chef/blob/master/CONTRIBUTING.md#chef-obvious-fix-policy).
 
 ## Official Names
 
