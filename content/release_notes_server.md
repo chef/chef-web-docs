@@ -331,7 +331,7 @@ This release:
     -   `bookshelf['enable_request_logging']`
 
     See the [Chef server optional
-    settings](server/config_rb_server_optional_settings/) guide for
+    settings](/server/config_rb_server_optional_settings/) guide for
     additional details
 
 -   `chef-server-ctl reconfigure` fixes permissions on gems with an
@@ -3770,7 +3770,7 @@ the replica.
 
 ![image](/images/chef_server_replication_sequence.png)
 
-View the topic [Chef Replication](/server_replication/) for more
+View the topic Chef Replication for more
 information about how to set up the Chef server for replication.
 
 ### chef-server-ctl
