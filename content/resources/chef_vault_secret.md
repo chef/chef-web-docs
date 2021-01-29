@@ -7,6 +7,7 @@ robots = ""
 
 data_path = ["infra","resources","chef_vault_secret"]
 layout = "infra_resource"
+toc_layout = "infra_resource_toc"
 
 
 [menu]
