@@ -1,0 +1,45 @@
+{{ define "main" }}
+
+  <main id="main-content-col" tabindex="-1">
+    <div class="col-content">
+
+    <h1 id="{{ anchorize ( .Title )}}">{{ .Title }}</h1>
+
+    <button type="button" class="TOC-button hide-for-large" data-toggle="offCanvasRightTOC"
+      data-close="left-nav-off-canvas">
+      <i class="fas fa-bars"></i> Table of Contents
+    </button>
+
+    <div class="prose">
+
+
+    {{ $yaml_files := index $.Site.Data .Params.data_path }}
+
+    {{ $departments := index $yaml_files "departments" }}
+
+
+    {{ range $departments }}
+      {{ $department := . }}
+      <h2 id="{{ $department | urlize }}">{{ $department }}</h2>
+      <ul>
+      {{ range $key, $value := $yaml_files }}
+
+          {{ if ne $key "departments" }}
+            {{ if eq $value.department $department }}
+              <li><a href="/workstation/cookstyle/{{ $value.name | urlize }}/">{{ $value.department }}/{{ $value.name }}</a></li>
+            {{ end }}
+          {{ end }}
+
+
+      {{ end }}
+      </ul>
+    {{ end }}
+
+
+
+
+
+    </div>
+    {{ partialCached "feedback" . }}
+  </main>
+{{ end }}
