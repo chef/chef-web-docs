@@ -24,11 +24,6 @@ aliases = ["/glossary.html"]
 
 :   The legacy tool for managing cookbook dependencies. Policyfiles should be used instead.
 
-**chef-apply**
-
-:   A command-line tool that allows a single recipe to be run from the
-    command line.
-
 **ChefDK**
 
 :   The legacy package of tools for developing Chef Infra cookbooks.
