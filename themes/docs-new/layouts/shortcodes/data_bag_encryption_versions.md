@@ -14,7 +14,7 @@ Infra Client version used. See the following:
 
 #### Version 0
 
-Chef Infra Client 10.0+
+Chef Infra Client 0.10+
 
 - Uses YAML serialization format to encrypt data bag items
 - Uses Base64 encoding to preserve special characters
