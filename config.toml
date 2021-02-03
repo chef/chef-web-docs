@@ -236,6 +236,13 @@ gh_path = "https://github.com/chef/chef-web-docs/blob/master/content/"
     source = "themes/docs-new/node_modules/@fortawesome/fontawesome-free/scss"
     target = "assets/sass/vendor/fontawesome"
 
+## Mount static directory so the images work
+
+  [[module.mounts]]
+    source = "static"
+    target = "static"
+
+
 ####
 ## Main Menu ##
 ####
