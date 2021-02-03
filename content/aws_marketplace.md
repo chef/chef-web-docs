@@ -247,7 +247,7 @@ and Chef Infra Server.
 
 3.  Fill out the setup form and submit it.
 
-4.  Follow the link and log into the Chef Automate.
+4.  Follow the link and log into Chef Automate.
 
 ## Configure the workstation
 
