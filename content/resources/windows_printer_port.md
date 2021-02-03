@@ -7,7 +7,6 @@ robots = ""
 
 data_path = ["infra","resources","windows_printer_port"]
 layout = "infra_resource"
-toc_layout = "infra_resource_toc"
 
 
 [menu]

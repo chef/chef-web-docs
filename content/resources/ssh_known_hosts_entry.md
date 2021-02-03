@@ -7,7 +7,6 @@ robots = ""
 
 data_path = ["infra","resources","ssh_known_hosts_entry"]
 layout = "infra_resource"
-toc_layout = "infra_resource_toc"
 
 
 [menu]

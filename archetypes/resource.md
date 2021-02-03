@@ -7,7 +7,7 @@ gh_repo = "chef-web-docs"
 
 data_path = ["infra","resources","{{ .Name }}"]
 layout = "infra_resource"
-toc_layout = "infra_resource_toc"
+
 
 [menu]
   [menu.infra]

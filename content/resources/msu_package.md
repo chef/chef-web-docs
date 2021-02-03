@@ -7,7 +7,6 @@ robots = ""
 
 data_path = ["infra","resources","msu_package"]
 layout = "infra_resource"
-toc_layout = "infra_resource_toc"
 
 
 [menu]
