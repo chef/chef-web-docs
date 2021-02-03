@@ -7,7 +7,6 @@ robots = ""
 
 data_path = ["infra","resources","windows_ad_join"]
 layout = "infra_resource"
-toc_layout = "infra_resource_toc"
 
 
 [menu]

@@ -4,8 +4,8 @@
 <body>
   <a class="skip-main" href="#main-content-col">Skip to main content</a>
 
-  {{ partialCached "utility-bar" . }}
-  {{ partialCached "utility-bar-small" . }}
+  {{ partial "utility-bar" . }}
+  {{ partial "utility-bar-small" . }}
 
   <div id="left-nav-off-canvas" class="hide-for-medium hide-for-print" data-toggler=".reveal">
     {{ partial "sidebar-off-canvas" . }}
@@ -25,7 +25,7 @@
         </div>
 
         {{ $headers := findRE "<h[12].*?>(.|\n])+?</h[12]>" .Content }}
-        {{ if or (and (ge (len $headers) 1) (ne .Params.toc false )) (isset .Params "release_notes") (.Params.version_docs_product) (.Params.toc_layout)}}
+        {{ if or (and (ge (len $headers) 1) (ne .Params.toc false )) (isset .Params "release_notes") (.Params.version_docs_product)}}
           {{ if .Params.toc_layout }}
             <div class="cell off-canvas position-right toc off-canvas-absolute reveal-for-large" id="onCanvasRightTOC" data-off-canvas >
               {{ partial .Params.toc_layout . }}
@@ -64,9 +64,12 @@
       </div>
     </div>
   </div>
-  {{ partialCached "javascript" .  }}
-  {{ if $.Param "release_notes" }}
-    {{ partial "release_notes" . }}
+  {{ partial "javascript" . }}
+  {{ with $.Param "release_notes" }}
+    <script type="text/javascript" src="{{ (resources.Get "/js/releases.js").Permalink }}"></script>
+    <script type="text/javascript">
+      loadReleaseNotesPage('{{ $.Param "release_notes" | safeJS }}');
+    </script>
   {{ end }}
   </body>
 </html>

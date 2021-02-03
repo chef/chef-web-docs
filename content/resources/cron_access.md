@@ -7,7 +7,6 @@ robots = ""
 
 data_path = ["infra","resources","cron_access"]
 layout = "infra_resource"
-toc_layout = "infra_resource_toc"
 
 
 [menu]
