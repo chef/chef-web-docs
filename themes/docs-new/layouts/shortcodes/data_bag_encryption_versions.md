@@ -41,5 +41,5 @@ Chef Infra Client 11.6+
 
 #### Version 3
 
-Chef Infra Client 13.0
+Chef Infra Client 13.0+
 - Option to  disable version 0, 1, and 2
