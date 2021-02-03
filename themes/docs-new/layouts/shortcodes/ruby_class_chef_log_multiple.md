@@ -13,7 +13,3 @@ end
 
 ...
 ```
-
-The full recipe is in the `ebs_volume.rb` recipe of the [database
-cookbook](https://github.com/chef-cookbooks/database/) that is
-maintained by Chef.
