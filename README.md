@@ -245,7 +245,7 @@ in the comment section of every pull request, except for obvious fixes. You can
 add your DCO signoff to the comments by including `Signed-off-by:`, followed by
 your name and email address, like this:
 
-`Signed-off-by: Julia Child <juliachild@chef.io>`
+`Signed-off-by: Haris Shefu <hshefu@example.com>`
 
 See our [blog post](https://blog.chef.io/introducing-developer-certificate-of-origin/)
 for more information about the DCO and why we require it.
@@ -300,11 +300,11 @@ concerning Hugo modules and vendoring.
 To clean your local development environment:
 
 - Running `make clean` will delete the sass files, javascript, and fonts. These will
-	be rebuilt the next time you run `make serve`.
+  be rebuilt the next time you run `make serve`.
 
 - Running `make clean_all` will delete the node modules used to build this site
-	in addition to the functions of `make clean` described above. Those node
-	modules will be reinstalled the next time you run `make serve`.
+  in addition to the functions of `make clean` described above. Those node
+  modules will be reinstalled the next time you run `make serve`.
 
 Hugo uses [Goldmark](https://github.com/yuin/goldmark) which is a
 superset of Markdown that includes GitHub styled tables, task lists, and
