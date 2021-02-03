@@ -14,10 +14,7 @@ aliases = ["/upgrade_client.html"]
     weight = 50
 +++
 
-The following sections describe the upgrade process for Chef Client 12.
-
-Please [view the notes](/upgrade_client_notes/) for more background
-on the upgrade process.
+The following sections describe the upgrade process for Chef Infra Client.
 
 ## Upgrade via Command Line
 

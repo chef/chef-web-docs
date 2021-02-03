@@ -5,8 +5,6 @@ draft = false
 gh_repo = "chef-web-docs"
 robots = "noindex"
 
-
-aliases = "/depreciations_ohai_system_profile.html"
 +++
 
 The system_profile plugin will be removed from Chef/Ohai 15 in April
