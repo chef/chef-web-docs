@@ -57,11 +57,11 @@ properties_list:
   description_list:
   - markdown: 'The minimum required version of data bag encryption. Possible
 
-      values: `0`, `1`, and `2`. When all of the machines in an
+      values: `0`, `1`, `2`, and `3`. When all of the machines in an
 
-      organization are running chef-client version 11.6 (or higher), it is
+      organization are running chef-client version 13.0.113 (or higher), it is
 
-      recommended that this value be set to `2`.'
+      recommended that this value be set to `3`.'
 - property: ignore_failure
   ruby_type: true, false
   required: false
