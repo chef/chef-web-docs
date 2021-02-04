@@ -1,0 +1,35 @@
+---
+name: Chef/Modernize/OpensslX509Resource
+department: Chef/Modernize
+description: The openssl_x509 resource was renamed to openssl_x509_certificate in
+  Chef Infra Client 14.4. The new resource name should be used.
+autocorrection: true
+target_chef_version: 14.4+
+examples: |2-
+
+  #### incorrect
+
+  ```ruby
+  openssl_x509 '/etc/httpd/ssl/mycert.pem' do
+    common_name 'www.f00bar.com'
+    org 'Foo Bar'
+    org_unit 'Lab'
+    country 'US'
+  end
+  ```
+
+  #### correct
+
+  ```ruby
+  openssl_x509_certificate '/etc/httpd/ssl/mycert.pem' do
+    common_name 'www.f00bar.com'
+    org 'Foo Bar'
+    org_unit 'Lab'
+    country 'US'
+  end
+  ```
+version_added: 5.6.0
+enabled: true
+excluded_file_paths:
+- "/workspace/chef-cookstyle-master/**/metadata.rb"
+included_file_paths: 

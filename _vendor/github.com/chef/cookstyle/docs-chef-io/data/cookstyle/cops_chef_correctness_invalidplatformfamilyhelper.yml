@@ -1,0 +1,26 @@
+---
+name: Chef/Correctness/InvalidPlatformFamilyHelper
+department: Chef/Correctness
+description: Pass valid platform families to the platform_family? helper.
+autocorrection: true
+target_chef_version: All Versions
+examples: |2-
+
+  #### incorrect
+
+  ```ruby
+  platform_family?('redhat')
+  platform_family?('sles')
+
+  #### incorrect
+
+  ```ruby
+  platform_family?('rhel')
+  platform_family?('suse')
+  ```
+version_added: 5.15.0
+enabled: true
+excluded_file_paths:
+- "/workspace/chef-cookstyle-master/**/metadata.rb"
+- "/workspace/chef-cookstyle-master/**/Berksfile"
+included_file_paths: 

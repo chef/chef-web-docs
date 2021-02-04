@@ -1,0 +1,31 @@
+---
+name: Chef/Correctness/ResourceSetsNameProperty
+department: Chef/Correctness
+description: Use name properties instead of setting the name property in a resource.
+  Setting the name property directly causes notification and reporting issues.
+autocorrection: false
+target_chef_version: All Versions
+examples: |2-
+
+  #### incorrect
+
+  ```ruby
+  service 'foo' do
+   name 'bar'
+  end
+  ```
+
+  #### correct
+
+  ```ruby
+  service 'foo' do
+   service_name 'bar'
+  end
+  ```
+version_added: 5.5.0
+enabled: true
+excluded_file_paths:
+- "/workspace/chef-cookstyle-master/**/attributes/*.rb"
+- "/workspace/chef-cookstyle-master/**/metadata.rb"
+- "/workspace/chef-cookstyle-master/**/Berksfile"
+included_file_paths: 

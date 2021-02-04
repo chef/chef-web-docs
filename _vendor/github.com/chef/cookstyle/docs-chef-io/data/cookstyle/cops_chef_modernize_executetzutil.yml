@@ -1,0 +1,35 @@
+---
+name: Chef/Modernize/ExecuteTzUtil
+department: Chef/Modernize
+description: Instead of using the execute or powershell_script resources to run the
+  `tzutil` command, use Chef Infra Client's built-in timezone resource which is available
+  in Chef Infra Client 14.6 and later.
+autocorrection: false
+target_chef_version: 14.6+
+examples: |2-
+
+  #### incorrect
+
+  ```ruby
+  execute 'set tz' do
+    command 'tzutil.exe /s UTC'
+  end
+
+  execute 'tzutil /s UTC'
+
+  powershell_script 'set windows timezone' do
+    code "tzutil.exe /s UTC"
+    not_if { shell_out('tzutil.exe /g').stdout.include?('UTC') }
+  end
+  ```
+
+  #### correct
+
+  ```ruby
+  timezone 'UTC'
+  ```
+version_added: 5.6.0
+enabled: true
+excluded_file_paths:
+- "/workspace/chef-cookstyle-master/**/metadata.rb"
+included_file_paths: 

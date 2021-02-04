@@ -1,0 +1,13 @@
+---
+name: Chef/Deprecations/ChefSugarHelpers
+department: Chef/Deprecations
+autocorrection: false
+target_chef_version: All Versions
+examples: 
+version_added: 7.3.0
+enabled: true
+excluded_file_paths:
+- "/workspace/chef-cookstyle-master/**/metadata.rb"
+- "/workspace/chef-cookstyle-master/**/Berksfile"
+- "/workspace/chef-cookstyle-master/**/Rakefile"
+included_file_paths: 

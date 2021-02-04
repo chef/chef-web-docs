@@ -1,0 +1,31 @@
+---
+name: Chef/Deprecations/ResourceOverridesProvidesMethod
+department: Chef/Deprecations
+description: Some providers in resources override the provides? method, used to check
+  whether they are a valid provider on the current platform. In Chef Infra Client
+  13, this will cause an error. Instead use `provides :SOME_PROVIDER_NAME` to register
+  the provider.
+autocorrection: false
+target_chef_version: All Versions
+examples: |2-
+
+  #### incorrect
+
+  ```ruby
+  def provides?
+   true
+  end
+  ```
+
+  #### correct
+
+  ```ruby
+  provides :SOME_PROVIDER_NAME
+  ```
+version_added: 5.7.0
+enabled: true
+excluded_file_paths: 
+included_file_paths:
+- "**/libraries/*.rb"
+- "**/providers/*.rb"
+- "**/resources/*.rb"

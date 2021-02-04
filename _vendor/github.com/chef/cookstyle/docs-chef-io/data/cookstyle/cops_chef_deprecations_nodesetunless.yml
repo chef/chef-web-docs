@@ -1,0 +1,28 @@
+---
+name: Chef/Deprecations/NodeSetUnless
+department: Chef/Deprecations
+description: |-
+  The node.set_unless method has been removed in Chef Infra Client 13 and usage must be replaced with node.normal_unless.
+
+  This cop will autocorrect code to use node.normal_unless, which is functionally identical to node.set_unless, but we also discourage the use of that method as normal level attributes persist on the node even if the code setting the attribute is later removed.
+autocorrection: true
+target_chef_version: All Versions
+examples: |2-
+
+  #### incorrect
+
+  ```ruby
+  node.set_unless['foo'] = true
+  ```
+
+  #### correct
+
+  ```ruby
+  node.normal_unless['foo'] = true
+  ```
+version_added: 5.1.0
+enabled: true
+excluded_file_paths:
+- "/workspace/chef-cookstyle-master/**/metadata.rb"
+- "/workspace/chef-cookstyle-master/**/Berksfile"
+included_file_paths: 

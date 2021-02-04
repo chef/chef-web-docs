@@ -1,0 +1,24 @@
+---
+name: Chef/Deprecations/UseInlineResourcesDefined
+department: Chef/Deprecations
+description: |-
+  use_inline_resources became the default in Chef Infra Client 13+ and no longer needs
+  to be called in resources
+autocorrection: true
+target_chef_version: All Versions
+examples: |2-
+
+  #### incorrect
+
+  ```ruby
+  use_inline_resources
+  use_inline_resources if defined?(use_inline_resources)
+  use_inline_resources if respond_to?(:use_inline_resources)
+  ```
+version_added: 5.4.0
+enabled: true
+excluded_file_paths: 
+included_file_paths:
+- "**/libraries/*.rb"
+- "**/providers/*.rb"
+- "**/resources/*.rb"

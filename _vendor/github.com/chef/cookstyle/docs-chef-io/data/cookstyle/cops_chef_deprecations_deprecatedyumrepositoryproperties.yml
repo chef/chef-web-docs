@@ -1,0 +1,40 @@
+---
+name: Chef/Deprecations/DeprecatedYumRepositoryProperties
+department: Chef/Deprecations
+description: With the release of Chef Infra Client 12.14 and the yum cookbook 3.0
+  several properties in the yum_repository resource were renamed. url -> baseurl,
+  keyurl -> gpgkey, and mirrorexpire -> mirror_expire.
+autocorrection: true
+target_chef_version: 12.14+
+examples: |2-
+
+  #### incorrect
+
+  ```ruby
+  yum_repository 'OurCo' do
+    description 'OurCo yum repository'
+    url 'http://artifacts.ourco.org/foo/bar'
+    keyurl 'http://artifacts.ourco.org/pub/yum/RPM-GPG-KEY-OURCO-6'
+    mirrorexpire 1440
+    action :create
+  end
+  ```
+
+  #### correct
+
+  ```ruby
+  yum_repository 'OurCo' do
+    description 'OurCo yum repository'
+    baseurl 'http://artifacts.ourco.org/foo/bar'
+    gpgkey 'http://artifacts.ourco.org/pub/yum/RPM-GPG-KEY-OURCO-6'
+    mirror_expire 1440
+    action :create
+  end
+  ```
+version_added: 5.10.0
+enabled: true
+excluded_file_paths:
+- "/workspace/chef-cookstyle-master/**/metadata.rb"
+- "/workspace/chef-cookstyle-master/**/attributes/*.rb"
+- "/workspace/chef-cookstyle-master/**/Berksfile"
+included_file_paths: 

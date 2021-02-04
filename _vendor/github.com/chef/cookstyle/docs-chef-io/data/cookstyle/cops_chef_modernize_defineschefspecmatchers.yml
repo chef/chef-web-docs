@@ -1,0 +1,23 @@
+---
+name: Chef/Modernize/DefinesChefSpecMatchers
+department: Chef/Modernize
+description: ChefSpec 7.1 and later auto generate ChefSpec matchers. Matchers in cookbooks
+  can now be removed.
+autocorrection: true
+target_chef_version: All Versions
+examples: |2-
+
+  #### incorrect
+
+  ```ruby
+  if defined?(ChefSpec)
+    def create_yum_repository(resource_name)
+      ChefSpec::Matchers::ResourceMatcher.new(:yum_repository, :create, resource_name)
+    end
+  end
+  ```
+version_added: 5.3.0
+enabled: true
+excluded_file_paths: 
+included_file_paths:
+- "**/libraries/*.rb"

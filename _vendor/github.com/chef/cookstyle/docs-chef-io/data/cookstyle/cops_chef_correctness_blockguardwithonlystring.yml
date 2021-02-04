@@ -1,0 +1,36 @@
+---
+name: Chef/Correctness/BlockGuardWithOnlyString
+department: Chef/Correctness
+description: A resource guard (not_if/only_if) that is a string should not be wrapped
+  in {}. Wrapping a guard string in {} causes it to be executed as Ruby code which
+  will always returns true instead of a shell command that will actually run.
+autocorrection: true
+target_chef_version: All Versions
+examples: |2-
+
+  #### incorrect
+
+  ```ruby
+  template '/etc/foo' do
+    mode '0644'
+    source 'foo.erb'
+    only_if { 'test -f /etc/foo' }
+  end
+  ```
+
+  #### correct
+
+  ```ruby
+  template '/etc/foo' do
+    mode '0644'
+    source 'foo.erb'
+    only_if 'test -f /etc/foo'
+  end
+  ```
+version_added: 5.2.0
+enabled: true
+excluded_file_paths:
+- "/workspace/chef-cookstyle-master/**/attributes/*.rb"
+- "/workspace/chef-cookstyle-master/**/metadata.rb"
+- "/workspace/chef-cookstyle-master/**/Berksfile"
+included_file_paths: 

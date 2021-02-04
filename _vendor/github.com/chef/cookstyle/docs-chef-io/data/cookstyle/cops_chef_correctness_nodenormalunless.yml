@@ -1,0 +1,35 @@
+---
+name: Chef/Correctness/NodeNormalUnless
+department: Chef/Correctness
+description: |-
+  Normal attributes are discouraged since their semantics differ importantly from the
+  default and override levels. Their values persist in the node object even after
+  all code referencing them has been deleted, unlike default and override.
+
+  Code should be updated to use default or override levels, but this will change
+  attribute merging behavior so needs to be validated manually and force_default or
+  force_override levels may need to be used in recipe code.
+autocorrection: false
+target_chef_version: All Versions
+examples: |2-
+
+  #### incorrect
+
+  ```ruby
+  node.normal_unless['foo'] = true
+  ```
+
+  #### correct
+
+  ```ruby
+  node.default_unless['foo'] = true
+  node.override_unless['foo'] = true
+  node.force_default_unless['foo'] = true
+  node.force_override_unless['foo'] = true
+  ```
+version_added: 5.1.0
+enabled: true
+excluded_file_paths:
+- "/workspace/chef-cookstyle-master/**/metadata.rb"
+- "/workspace/chef-cookstyle-master/**/Berksfile"
+included_file_paths: 

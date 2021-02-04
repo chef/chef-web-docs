@@ -1,0 +1,25 @@
+---
+name: Chef/Correctness/TmpPath
+department: Chef/Correctness
+description: Use file_cache_path rather than hard-coding tmp paths
+autocorrection: false
+target_chef_version: All Versions
+examples: |2-
+
+  #### incorrect
+
+  ```ruby
+  remote_file '/tmp/large-file.tar.gz' do
+  ```
+
+  #### correct
+
+  ```ruby
+  remote_file "#{Chef::Config[:file_cache_path]}/large-file.tar.gz" do
+  ```
+version_added: 5.0.0
+enabled: true
+excluded_file_paths:
+- "/workspace/chef-cookstyle-master/**/metadata.rb"
+- "/workspace/chef-cookstyle-master/**/Berksfile"
+included_file_paths: 

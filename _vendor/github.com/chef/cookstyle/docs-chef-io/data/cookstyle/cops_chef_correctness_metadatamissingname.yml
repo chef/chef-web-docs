@@ -1,0 +1,11 @@
+---
+name: Chef/Correctness/MetadataMissingName
+department: Chef/Correctness
+autocorrection: false
+target_chef_version: All Versions
+examples: 
+version_added: 5.2.0
+enabled: true
+excluded_file_paths: 
+included_file_paths:
+- "**/metadata.rb"

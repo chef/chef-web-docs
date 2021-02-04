@@ -1,0 +1,24 @@
+---
+name: Chef/Modernize/IncludingMixinShelloutInResources
+department: Chef/Modernize
+description: There is no need to include Chef::Mixin::ShellOut or Chef::Mixin::PowershellOut
+  in resources or providers as this is already done by Chef Infra Client 12.4+.
+autocorrection: true
+target_chef_version: All Versions
+examples: |2-
+
+  #### incorrect
+
+  ```ruby
+  require 'chef/mixin/shell_out'
+  include Chef::Mixin::ShellOut
+  require 'chef/mixin/powershell_out'
+  include Chef::Mixin::PowershellOut
+  ```
+version_added: 5.4.0
+enabled: true
+excluded_file_paths: 
+included_file_paths:
+- "**/resources/*.rb"
+- "**/providers/*.rb"
+- "**/libraries/*.rb"

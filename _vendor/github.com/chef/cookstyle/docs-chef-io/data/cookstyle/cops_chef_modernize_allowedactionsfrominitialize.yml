@@ -1,0 +1,37 @@
+---
+name: Chef/Modernize/AllowedActionsFromInitialize
+department: Chef/Modernize
+description: The allowed actions can now be specified using the `allowed_actions`
+  helper instead of using the @actions or @allowed_actions variables in the resource's
+  initialize method. In general we recommend against writing HWRPs, but if HWRPs are
+  necessary you should utilize as much of the resource DSL as possible.
+autocorrection: true
+target_chef_version: All Versions
+examples: |2-
+
+  #### incorrect
+
+  ```ruby
+  def initialize(*args)
+    super
+    @actions = [ :create, :add ]
+  end
+
+  # also bad
+  def initialize(*args)
+    super
+    @allowed_actions = [ :create, :add ]
+  end
+  ```
+
+  #### correct
+
+  ```ruby
+  allowed_actions [ :create, :add ]
+  ```
+version_added: 5.15.0
+enabled: true
+excluded_file_paths: 
+included_file_paths:
+- "**/resources/*.rb"
+- "**/libraries/*.rb"

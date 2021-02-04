@@ -1,0 +1,19 @@
+---
+name: Chef/Modernize/MinitestHandlerUsage
+department: Chef/Modernize
+description: Use Chef InSpec for testing instead of the Minitest Handler cookbook
+  pattern.
+autocorrection: true
+target_chef_version: All Versions
+examples: |2-
+
+  #### incorrect
+
+  ```ruby
+  depends 'minitest-handler'
+  ```
+version_added: 5.4.0
+enabled: true
+excluded_file_paths: 
+included_file_paths:
+- "**/metadata.rb"

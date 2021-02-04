@@ -1,0 +1,27 @@
+---
+name: Chef/Modernize/ShellOutHelper
+department: Chef/Modernize
+description: Use the built-in `shell_out` helper available in Chef Infra Client 12.11+
+  instead of calling `Mixlib::ShellOut.new('foo').run_command`.
+autocorrection: true
+target_chef_version: 12.11+
+examples: |2-
+
+  #### incorrect
+
+  ```ruby
+  Mixlib::ShellOut.new('foo').run_command
+  ```
+
+  #### correct
+
+  ```ruby
+  shell_out('foo')
+  ```
+version_added: 6.5.0
+enabled: true
+excluded_file_paths:
+- "/workspace/chef-cookstyle-master/**/metadata.rb"
+- "/workspace/chef-cookstyle-master/**/Berksfile"
+- "/workspace/chef-cookstyle-master/**/libraries/*.rb"
+included_file_paths: 

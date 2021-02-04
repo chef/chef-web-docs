@@ -1,0 +1,30 @@
+---
+name: Chef/Modernize/RespondToProvides
+department: Chef/Modernize
+description: In Chef Infra Client 12+ is is no longer necessary to gate the use of
+  the provides methods in resources with `if respond_to?(:provides)` or `if defined?
+  provides`.
+autocorrection: true
+target_chef_version: All Versions
+examples: |2-
+
+  #### incorrect
+
+  ```ruby
+  provides :foo if respond_to?(:provides)
+
+  provides :foo if defined? provides
+  ```
+
+  #### correct
+
+  ```ruby
+  provides :foo
+  ```
+version_added: 5.2.0
+enabled: true
+excluded_file_paths: 
+included_file_paths:
+- "**/providers/*.rb"
+- "**/resources/*.rb"
+- "**/libraries/*.rb"

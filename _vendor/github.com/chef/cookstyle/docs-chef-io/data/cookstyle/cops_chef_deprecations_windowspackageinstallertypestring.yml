@@ -1,0 +1,35 @@
+---
+name: Chef/Deprecations/WindowsPackageInstallerTypeString
+department: Chef/Deprecations
+description: In Chef Infra Client 13 and later the `windows_package` resource's `installer_type`
+  property must be a symbol.
+autocorrection: true
+target_chef_version: All Versions
+examples: |2-
+
+  #### incorrect
+
+  ```ruby
+  windows_package 'AppveyorDeploymentAgent' do
+    source 'https://www.example.com/appveyor.msi'
+    installer_type 'msi'
+    options "/quiet /qn /norestart /log install.log"
+  end
+  ```
+
+  #### correct
+
+  ```ruby
+  windows_package 'AppveyorDeploymentAgent' do
+    source 'https://www.example.com/appveyor.msi'
+    installer_type :msi
+    options "/quiet /qn /norestart /log install.log"
+  end
+  ```
+version_added: 6.17.0
+enabled: true
+excluded_file_paths:
+- "/workspace/chef-cookstyle-master/**/metadata.rb"
+- "/workspace/chef-cookstyle-master/**/attributes/*.rb"
+- "/workspace/chef-cookstyle-master/**/Berksfile"
+included_file_paths: 

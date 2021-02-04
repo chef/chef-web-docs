@@ -1,0 +1,31 @@
+---
+name: Chef/Deprecations/VerifyPropertyUsesFileExpansion
+department: Chef/Deprecations
+description: In Chef Infra Client 13 the "file" variable for use within the verify
+  property was replaced with the "path" variable.
+autocorrection: true
+target_chef_version: 12.5+
+examples: |2-
+
+  #### incorrect
+
+  ```ruby
+  file '/etc/nginx.conf' do
+    verify 'nginx -t -c %{file}'
+  end
+  ```
+
+  #### correct
+
+  ```ruby
+  file '/etc/nginx.conf' do
+    verify 'nginx -t -c %{path}'
+  end
+  ```
+version_added: 5.10.0
+enabled: true
+excluded_file_paths:
+- "/workspace/chef-cookstyle-master/**/metadata.rb"
+- "/workspace/chef-cookstyle-master/**/attributes/*.rb"
+- "/workspace/chef-cookstyle-master/**/Berksfile"
+included_file_paths: 

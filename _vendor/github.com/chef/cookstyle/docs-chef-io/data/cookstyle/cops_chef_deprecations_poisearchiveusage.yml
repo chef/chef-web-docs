@@ -1,0 +1,31 @@
+---
+name: Chef/Deprecations/PoiseArchiveUsage
+department: Chef/Deprecations
+description: The poise_archive resource in the deprecated poise-archive should be
+  replaced with the archive_file resource found in Chef Infra Client 15+.
+autocorrection: false
+target_chef_version: 15.0+
+examples: |2-
+
+  #### incorrect
+
+  ```ruby
+  poise_archive 'https://example.com/myapp.tgz' do
+    destination '/opt/my_app'
+  end
+  ```
+
+  #### correct
+
+  ```ruby
+  archive_file 'https://example.com/myapp.tgz' do
+    destination '/opt/my_app'
+  end
+  ```
+version_added: 5.11.0
+enabled: true
+excluded_file_paths:
+- "/workspace/chef-cookstyle-master/**/metadata.rb"
+- "/workspace/chef-cookstyle-master/**/attributes/*.rb"
+- "/workspace/chef-cookstyle-master/**/Berksfile"
+included_file_paths: 

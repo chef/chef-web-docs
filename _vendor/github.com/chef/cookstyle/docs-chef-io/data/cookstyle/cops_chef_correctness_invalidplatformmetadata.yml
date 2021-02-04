@@ -1,0 +1,26 @@
+---
+name: Chef/Correctness/InvalidPlatformMetadata
+department: Chef/Correctness
+description: metadata.rb supports methods should contain valid platforms.
+autocorrection: true
+target_chef_version: All Versions
+examples: |2-
+
+  #### incorrect
+
+  ```ruby
+  supports 'darwin'
+  supports 'mswin'
+  ```
+
+  #### correct
+
+  ```ruby
+  supports 'mac_os_x'
+  supports 'windows'
+  ```
+version_added: 5.2.0
+enabled: true
+excluded_file_paths: 
+included_file_paths:
+- "**/metadata.rb"

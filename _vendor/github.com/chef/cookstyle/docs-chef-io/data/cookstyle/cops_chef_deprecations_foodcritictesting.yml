@@ -1,0 +1,21 @@
+---
+name: Chef/Deprecations/FoodcriticTesting
+department: Chef/Deprecations
+description: The Foodcritic cookbook linter has been deprecated and should no longer
+  be used for validating cookbooks.
+autocorrection: false
+target_chef_version: All Versions
+examples: |2-
+
+  #### incorrect
+
+  ```ruby
+  gem 'foodcritic'
+  require 'foodcritic'
+  ```
+version_added: 7.1.0
+enabled: true
+excluded_file_paths: 
+included_file_paths:
+- "**/Rakefile"
+- "**/Gemfile"

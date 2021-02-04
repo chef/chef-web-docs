@@ -1,0 +1,28 @@
+---
+name: Chef/RedundantCode/PropertySplatRegex
+department: Chef/RedundantCode
+description: When a property has a type of String it can accept any string. There
+  is no need to also validate string inputs against a regex that accept all values.
+autocorrection: true
+target_chef_version: All Versions
+examples: |2-
+
+  #### incorrect
+
+  ```ruby
+  property :config_file, String, regex: /.*/
+  attribute :config_file, String, regex: /.*/
+  ```
+
+  #### correct
+
+  ```ruby
+  property :config_file, String
+  attribute :config_file, String
+  ```
+version_added: 5.21.0
+enabled: true
+excluded_file_paths: 
+included_file_paths:
+- "**/resources/*.rb"
+- "**/libraries/*.rb"

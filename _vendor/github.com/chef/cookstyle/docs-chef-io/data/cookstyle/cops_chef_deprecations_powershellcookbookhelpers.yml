@@ -1,0 +1,30 @@
+---
+name: Chef/Deprecations/PowershellCookbookHelpers
+department: Chef/Deprecations
+description: Use `node['powershell']['version']` or the new `powershell_version` helper
+  available in Chef Infra Client 15.8+ instead of the deprecated PowerShell cookbook
+  helpers
+autocorrection: true
+target_chef_version: All Versions
+examples: |2-
+
+  #### incorrect
+
+  ```ruby
+  Powershell::VersionHelper.powershell_version?('4.0')
+  ```
+
+  #### correct
+
+  ```ruby
+  node['powershell']['version'].to_f == 4.0
+
+  # better (Chef Infra Client 15.8+)
+  powershell_version == 4.0
+  ```
+version_added: 6.1.0
+enabled: true
+excluded_file_paths:
+- "/workspace/chef-cookstyle-master/**/metadata.rb"
+- "/workspace/chef-cookstyle-master/**/Berksfile"
+included_file_paths: 

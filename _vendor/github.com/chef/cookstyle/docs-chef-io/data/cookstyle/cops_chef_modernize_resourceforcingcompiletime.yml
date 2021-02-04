@@ -1,0 +1,32 @@
+---
+name: Chef/Modernize/ResourceForcingCompileTime
+department: Chef/Modernize
+description: The hostname, build_essential, chef_gem, and ohai_hint resources include
+  'compile_time' properties, which should be used to force the resources to run at
+  compile time by setting `compile_time true`.
+autocorrection: false
+target_chef_version: All Versions
+examples: |2-
+
+  #### incorrect
+
+  ```ruby
+  build_essential 'install build tools' do
+   action :nothing
+  end.run_action(:install)
+  ```
+
+  #### correct
+
+  ```ruby
+  build_essential 'install build tools' do
+   compile_time true
+  end
+  ```
+version_added: 5.18.0
+enabled: true
+excluded_file_paths:
+- "/workspace/chef-cookstyle-master/**/metadata.rb"
+- "/workspace/chef-cookstyle-master/**/attributes/*.rb"
+- "/workspace/chef-cookstyle-master/**/Berksfile"
+included_file_paths: 

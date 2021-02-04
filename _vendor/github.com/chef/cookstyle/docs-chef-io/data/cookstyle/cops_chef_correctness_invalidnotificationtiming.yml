@@ -1,0 +1,33 @@
+---
+name: Chef/Correctness/InvalidNotificationTiming
+department: Chef/Correctness
+description: Valid notification timings are :immediately, :immediate (alias for :immediately),
+  :delayed, and :before.
+autocorrection: false
+target_chef_version: All Versions
+examples: |2-
+
+  #### incorrect
+
+  ```ruby
+
+  template '/etc/www/configures-apache.conf' do
+    notifies :restart, 'service[apache]', :nope
+  end
+  ```
+
+  #### correct
+
+  ```ruby
+
+  template '/etc/www/configures-apache.conf' do
+    notifies :restart, 'service[apache]', :immediately
+  end
+  ```
+version_added: 5.16.0
+enabled: true
+excluded_file_paths:
+- "/workspace/chef-cookstyle-master/**/attributes/*.rb"
+- "/workspace/chef-cookstyle-master/**/metadata.rb"
+- "/workspace/chef-cookstyle-master/**/Berksfile"
+included_file_paths: 

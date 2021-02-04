@@ -1,0 +1,33 @@
+---
+name: Chef/Deprecations/ChefShellout
+department: Chef/Deprecations
+description: |-
+  Don't use deprecated Chef::ShellOut which was removed in Chef Infra Client 13.
+  Use Mixlib::ShellOut instead, which behaves identically or convert to the shell_out
+  helper provided in chef-utils.
+autocorrection: true
+target_chef_version: All Versions
+examples: |2-
+
+  #### incorrect
+
+  ```ruby
+  include Chef::ShellOut
+  require 'chef/shellout'
+  Chef::ShellOut.new('some_command')
+  ```
+
+  #### correct
+
+  ```ruby
+  include Mixlib::ShellOut
+  require 'mixlib/shellout'
+  Mixlib::ShellOut.new('some_command')
+  ```
+version_added: 6.17.0
+enabled: true
+excluded_file_paths:
+- "/workspace/chef-cookstyle-master/**/metadata.rb"
+- "/workspace/chef-cookstyle-master/**/attributes/*.rb"
+- "/workspace/chef-cookstyle-master/**/Berksfile"
+included_file_paths: 

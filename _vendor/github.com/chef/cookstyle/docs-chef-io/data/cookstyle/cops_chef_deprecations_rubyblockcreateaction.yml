@@ -1,0 +1,37 @@
+---
+name: Chef/Deprecations/RubyBlockCreateAction
+department: Chef/Deprecations
+description: Use the :run action in the ruby_block resource instead of the deprecated
+  :create action
+autocorrection: true
+target_chef_version: All Versions
+examples: |2-
+
+  #### incorrect
+
+  ```ruby
+  ruby_block 'my special ruby block' do
+    block do
+      puts 'running'
+    end
+    action :create
+  end
+  ```
+
+  #### correct
+
+  ```ruby
+  ruby_block 'my special ruby block' do
+    block do
+      puts 'running'
+    end
+    action :run
+  end
+  ```
+version_added: 5.16.0
+enabled: true
+excluded_file_paths:
+- "/workspace/chef-cookstyle-master/**/metadata.rb"
+- "/workspace/chef-cookstyle-master/**/attributes/*.rb"
+- "/workspace/chef-cookstyle-master/**/Berksfile"
+included_file_paths: 

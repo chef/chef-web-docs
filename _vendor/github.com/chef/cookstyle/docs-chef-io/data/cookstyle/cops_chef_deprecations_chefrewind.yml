@@ -1,0 +1,26 @@
+---
+name: Chef/Deprecations/ChefRewind
+department: Chef/Deprecations
+description: Use delete_resource / edit_resource introduced in Chef Infra Client 12.10
+  instead of functionality in the deprecated chef-rewind gem
+autocorrection: true
+target_chef_version: 12.10+
+examples: |2-
+
+  chef_gem 'chef-rewind'
+
+  require 'chef/rewind'
+
+  rewind "user[postgres]" do
+    home '/var/lib/pgsql/9.2'
+    cookbook 'my-postgresql'
+  end
+
+  unwind "user[postgres]"
+  ```
+version_added: 5.14.0
+enabled: true
+excluded_file_paths:
+- "/workspace/chef-cookstyle-master/**/metadata.rb"
+- "/workspace/chef-cookstyle-master/**/attributes/*.rb"
+included_file_paths: 

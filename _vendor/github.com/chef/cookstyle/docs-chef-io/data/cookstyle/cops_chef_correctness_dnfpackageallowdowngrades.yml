@@ -1,0 +1,31 @@
+---
+name: Chef/Correctness/DnfPackageAllowDowngrades
+department: Chef/Correctness
+description: dnf_package does not support the allow_downgrades property
+autocorrection: true
+target_chef_version: All Versions
+examples: |2-
+
+  #### incorrect
+
+  ```ruby
+  dnf_package 'nginx' do
+    version '1.2.3'
+    allow_downgrades true
+  end
+  ```
+
+  #### correct
+
+  ```ruby
+  dnf_package 'nginx' do
+    version '1.2.3'
+  end
+  ```
+version_added: 5.16.0
+enabled: true
+excluded_file_paths:
+- "/workspace/chef-cookstyle-master/**/attributes/*.rb"
+- "/workspace/chef-cookstyle-master/**/metadata.rb"
+- "/workspace/chef-cookstyle-master/**/Berksfile"
+included_file_paths: 

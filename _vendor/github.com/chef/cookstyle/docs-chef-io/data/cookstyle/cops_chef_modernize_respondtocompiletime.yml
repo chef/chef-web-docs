@@ -1,0 +1,42 @@
+---
+name: Chef/Modernize/RespondToCompileTime
+department: Chef/Modernize
+description: There is no need to check if the chef_gem resource supports compile_time
+  as Chef Infra Client 12.1 and later support the compile_time property.
+autocorrection: true
+target_chef_version: 12.1+
+examples: |2-
+
+  #### incorrect
+
+  ```ruby
+  chef_gem 'ultradns-sdk' do
+    compile_time true if Chef::Resource::ChefGem.method_defined?(:compile_time)
+    action :nothing
+  end
+
+  chef_gem 'ultradns-sdk' do
+    compile_time true if Chef::Resource::ChefGem.instance_methods(false).include?(:compile_time)
+    action :nothing
+  end
+
+  chef_gem 'ultradns-sdk' do
+    compile_time true if respond_to?(:compile_time)
+    action :nothing
+  end
+  ```
+
+  #### correct
+
+  ```ruby
+  chef_gem 'ultradns-sdk' do
+    compile_time true
+    action :nothing
+  end
+  ```
+version_added: 6.3.0
+enabled: true
+excluded_file_paths:
+- "/workspace/chef-cookstyle-master/**/metadata.rb"
+- "/workspace/chef-cookstyle-master/**/Berksfile"
+included_file_paths: 

@@ -1,0 +1,11 @@
+---
+name: Chef/Deprecations/Cheffile
+department: Chef/Deprecations
+autocorrection: false
+target_chef_version: All Versions
+examples: 
+version_added: 5.12.0
+enabled: true
+excluded_file_paths: 
+included_file_paths:
+- "**/Cheffile"

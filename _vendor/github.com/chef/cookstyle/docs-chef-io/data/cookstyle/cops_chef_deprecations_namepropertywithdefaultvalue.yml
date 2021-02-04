@@ -1,0 +1,33 @@
+---
+name: Chef/Deprecations/NamePropertyWithDefaultValue
+department: Chef/Deprecations
+description: A resource property (or attribute) can't be marked as a name_property
+  (or name_attribute) and also have a default value. The name property is a special
+  property that is derived from the name of the resource block in and thus always
+  has a value passed to the resource. For example if you define `my_resource 'foo'`
+  in recipe, then the name property of `my_resource` will automatically be set to
+  `foo`. Setting a property to be both a name_property and have a default value will
+  cause Chef Infra Client failures in 13.0 and later releases.
+autocorrection: true
+target_chef_version: All Versions
+examples: |2-
+
+  #### incorrect
+
+  ```ruby
+  property :config_file, String, default: 'foo', name_property: true
+  attribute :config_file, String, default: 'foo', name_attribute: true
+  ```
+
+  #### correct
+
+  ```ruby
+  property :config_file, String, name_property: true
+  attribute :config_file, String, name_attribute: true
+  ```
+version_added: 5.7.0
+enabled: true
+excluded_file_paths: 
+included_file_paths:
+- "**/libraries/*.rb"
+- "**/resources/*.rb"

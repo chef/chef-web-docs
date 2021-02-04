@@ -13,4 +13,4 @@ layout = "cookstyle_cops_all"
     weight = 20
 +++
 
-<!-- The contents of this page are automatically generated from data files in the docs-chef-io/data/workstation/cookstyle directory in the chef/chef-workstation repository. -->
+<!-- The contents of this page are automatically generated from data files in the docs-chef-io/data/cookstyle directory in the chef/cookstyle repository. -->

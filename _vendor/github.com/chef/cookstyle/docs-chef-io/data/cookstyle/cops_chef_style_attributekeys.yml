@@ -1,0 +1,28 @@
+---
+name: Chef/Style/AttributeKeys
+department: Chef/Style
+description: |-
+  Check which style of keys are used to access node attributes.
+
+  There are two supported styles: "symbols" and "strings".
+autocorrection: true
+target_chef_version: All Versions
+examples: |2-
+
+  #### incorrect
+
+  ```ruby
+  node['foo']
+  node["foo"]
+  ```
+
+  #### correct
+
+  ```ruby
+  node[:foo]
+  ```
+version_added: 5.0.0
+enabled: true
+excluded_file_paths:
+- "/workspace/chef-cookstyle-master/**/metadata.rb"
+included_file_paths: 

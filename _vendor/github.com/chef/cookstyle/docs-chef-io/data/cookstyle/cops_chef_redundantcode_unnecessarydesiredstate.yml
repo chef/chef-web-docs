@@ -1,0 +1,28 @@
+---
+name: Chef/RedundantCode/UnnecessaryDesiredState
+department: Chef/RedundantCode
+description: 'There is no need to set a property/attribute to desired_state: true
+  as all properties/attributes have a desired_state of true by default.'
+autocorrection: true
+target_chef_version: All Versions
+examples: |2-
+
+  #### incorrect
+
+  ```ruby
+  property :foo, String, desired_state: true
+  attribute :foo, String, desired_state: true
+  ```
+
+  #### correct
+
+  ```ruby
+  property :foo, String
+  attribute :foo, String
+  ```
+version_added: 5.16.0
+enabled: true
+excluded_file_paths: 
+included_file_paths:
+- "**/resources/*.rb"
+- "**/libraries/*.rb"

@@ -1,0 +1,19 @@
+---
+name: Chef/Deprecations/LibrarianChefSpec
+department: Chef/Deprecations
+description: The Librarian-Chef depsolving project is no longer maintained and a Cheffile
+  should not be used for cookbook depsolving. Consider using Policyfiles instead.
+autocorrection: false
+target_chef_version: All Versions
+examples: |2-
+
+  #### incorrect
+
+  ```ruby
+  require 'chefspec/librarian'
+  ```
+version_added: 7.1.0
+enabled: true
+excluded_file_paths: 
+included_file_paths:
+- "**/specs/*.rb"

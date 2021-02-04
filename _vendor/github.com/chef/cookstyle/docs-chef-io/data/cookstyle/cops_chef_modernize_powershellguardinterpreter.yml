@@ -1,0 +1,40 @@
+---
+name: Chef/Modernize/PowerShellGuardInterpreter
+department: Chef/Modernize
+description: PowerShell is already set as the default guard interpreter for `powershell_script`
+  and `batch` resources in Chef Infra Client 13 and later and does not need to be
+  specified.
+autocorrection: true
+target_chef_version: 13.0+
+examples: |2-
+
+  #### incorrect
+
+  ```ruby
+  powershell_script 'Create Directory' do
+    code "New-Item -ItemType Directory -Force -Path C:\mydir"
+    guard_interpreter :powershell_script
+  end
+
+  batch 'Create Directory' do
+    code "mkdir C:\mydir"
+    guard_interpreter :powershell_script
+  end
+  ```
+
+  #### correct
+
+  ```ruby
+  powershell_script 'Create Directory' do
+    code "New-Item -ItemType Directory -Force -Path C:\mydir"
+  end
+
+  batch 'Create Directory' do
+    code "mkdir C:\mydir"
+  end
+  ```
+version_added: 5.9.0
+enabled: true
+excluded_file_paths:
+- "/workspace/chef-cookstyle-master/**/metadata.rb"
+included_file_paths: 

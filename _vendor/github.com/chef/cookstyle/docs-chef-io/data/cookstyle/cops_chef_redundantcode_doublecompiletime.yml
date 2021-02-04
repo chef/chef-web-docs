@@ -1,0 +1,33 @@
+---
+name: Chef/RedundantCode/DoubleCompileTime
+department: Chef/RedundantCode
+description: If a resource includes the `compile_time` property there's no need to
+  also use `.run_action(:some_action)` on the resource block
+autocorrection: true
+target_chef_version: All Versions
+examples: |2-
+
+  #### incorrect
+
+  ```ruby
+  chef_gem 'deep_merge' do
+    action :nothing
+    compile_time true
+  end.run_action(:install)
+  ```
+
+  #### correct
+
+  ```ruby
+  chef_gem 'deep_merge' do
+    action :install
+    compile_time true
+  end
+  ```
+version_added: 6.13.0
+enabled: true
+excluded_file_paths:
+- "/workspace/chef-cookstyle-master/**/metadata.rb"
+- "/workspace/chef-cookstyle-master/**/attributes/*.rb"
+- "/workspace/chef-cookstyle-master/**/Berksfile"
+included_file_paths: 

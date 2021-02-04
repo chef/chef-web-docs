@@ -14,30 +14,24 @@
 
 
     {{ $yaml_files := index $.Site.Data .Params.data_path }}
+    {{ $departments := slice }}
 
-    {{ $departments := index $yaml_files "departments" }}
-
-
-    {{ range $departments }}
-      {{ $department := . }}
-      <h2 id="{{ $department | urlize }}">{{ $department }}</h2>
-      <ul>
-      {{ range $key, $value := $yaml_files }}
-
-          {{ if ne $key "departments" }}
-            {{ if eq $value.department $department }}
-              <li><a href="/workstation/cookstyle/{{ $value.name | urlize }}/">{{ $value.department }}/{{ $value.name }}</a></li>
-            {{ end }}
-          {{ end }}
-
-
+      {{ range $yamlfile := $yaml_files }}
+        {{ $departments = $departments | append (slice $yamlfile.department ) | uniq }}
       {{ end }}
-      </ul>
+
+    {{ range $department := $departments }}
+      <h2 id={{anchorize $department }}>{{ $department }}</h2>
+      <ul>
+        {{ range $yamlfile, $yaml:= $yaml_files }}
+
+            {{ if eq $yaml.department $department}}
+              <li><a href="/workstation/cookstyle/{{ $yamlfile }}">{{ $yaml.name }}</a></li>
+            {{ end }}
+
+        {{ end }}
+        </ul>
     {{ end }}
-
-
-
-
 
     </div>
     {{ partialCached "feedback" . }}

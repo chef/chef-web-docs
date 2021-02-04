@@ -1,0 +1,24 @@
+---
+name: Chef/Modernize/PowershellInstallPackage
+department: Chef/Modernize
+description: |-
+  Use the powershell_package resource built into Chef Infra Client instead of the powershell_script resource to run Install-Package
+
+   #### correct
+   powershell_package 'docker'
+autocorrection: false
+target_chef_version: 12.16+
+examples: |2-
+
+  #### incorrect
+
+  ```ruby
+  powershell_script 'Expand website' do
+    code 'Install-Package -Name docker'
+  end
+  ```
+version_added: 5.5.0
+enabled: true
+excluded_file_paths:
+- "/workspace/chef-cookstyle-master/**/metadata.rb"
+included_file_paths: 

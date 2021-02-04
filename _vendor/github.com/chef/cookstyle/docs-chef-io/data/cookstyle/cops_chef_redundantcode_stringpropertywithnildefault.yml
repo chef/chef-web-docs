@@ -1,0 +1,28 @@
+---
+name: Chef/RedundantCode/StringPropertyWithNilDefault
+department: Chef/RedundantCode
+description: Properties have a nil value by default so there is no need to set the
+  default value to nil.
+autocorrection: true
+target_chef_version: All Versions
+examples: |2-
+
+  #### incorrect
+
+  ```ruby
+  property :config_file, String, default: nil
+  property :config_file, [String, NilClass], default: nil
+  ```
+
+  #### correct
+
+  ```ruby
+  property :config_file, String
+  property :config_file, [String, NilClass]
+  ```
+version_added: 5.21.0
+enabled: true
+excluded_file_paths: 
+included_file_paths:
+- "**/resources/*.rb"
+- "**/libraries/*.rb"

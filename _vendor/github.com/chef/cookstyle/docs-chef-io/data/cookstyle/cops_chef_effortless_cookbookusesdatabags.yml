@@ -1,0 +1,20 @@
+---
+name: Chef/Effortless/CookbookUsesDatabags
+department: Chef/Effortless
+description: Data bags cannot be used with the Effortless Infra pattern
+autocorrection: false
+target_chef_version: All Versions
+examples: |2-
+
+  #### incorrect
+
+  ```ruby
+  data_bag_item('admins', login)
+  data_bag(data_bag_name)
+  ```
+version_added: 5.1.0
+enabled: false
+excluded_file_paths:
+- "/workspace/chef-cookstyle-master/**/metadata.rb"
+- "/workspace/chef-cookstyle-master/**/Berksfile"
+included_file_paths: 

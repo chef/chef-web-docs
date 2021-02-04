@@ -1,0 +1,28 @@
+---
+name: Chef/RedundantCode/MultiplePlatformChecks
+department: Chef/RedundantCode
+description: You can pass multiple values to the platform? and platform_family? helpers
+  instead of calling the helpers multiple times.
+autocorrection: true
+target_chef_version: All Versions
+examples: |2-
+
+  #### incorrect
+
+  ```ruby
+  platform?('redhat') || platform?('ubuntu')
+  platform_family?('debian') || platform_family?('rhel')
+  ```
+
+  #### correct
+
+  ```ruby
+  platform?('redhat', 'ubuntu')
+  platform_family?('debian', 'rhel')
+  ```
+version_added: 6.10.0
+enabled: true
+excluded_file_paths:
+- "/workspace/chef-cookstyle-master/**/metadata.rb"
+- "/workspace/chef-cookstyle-master/**/Berksfile"
+included_file_paths: 

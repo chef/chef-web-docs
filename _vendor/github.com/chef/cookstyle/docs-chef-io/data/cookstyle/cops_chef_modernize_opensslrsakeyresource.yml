@@ -1,0 +1,29 @@
+---
+name: Chef/Modernize/OpensslRsaKeyResource
+department: Chef/Modernize
+description: The openssl_rsa_key resource was renamed to openssl_rsa_private_key in
+  Chef Infra Client 14.0. The new resource name should be used.
+autocorrection: true
+target_chef_version: 14.0+
+examples: |2-
+
+  #### incorrect
+
+  ```ruby
+  openssl_rsa_key '/etc/httpd/ssl/server.key' do
+    key_length 2048
+  end
+  ```
+
+  #### correct
+
+  ```ruby
+  openssl_rsa_private_key '/etc/httpd/ssl/server.key' do
+    key_length 2048
+  end
+  ```
+version_added: 5.6.0
+enabled: true
+excluded_file_paths:
+- "/workspace/chef-cookstyle-master/**/metadata.rb"
+included_file_paths: 

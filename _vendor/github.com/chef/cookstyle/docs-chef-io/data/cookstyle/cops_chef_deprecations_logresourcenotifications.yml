@@ -1,0 +1,41 @@
+---
+name: Chef/Deprecations/LogResourceNotifications
+department: Chef/Deprecations
+description: In Chef Infra Client 16 the log resource no longer notifies when logging
+  so notifications should not be triggered from log resources. Use the notify_group
+  resource introduced in Chef Infra Client 15.8 instead to aggregate notifications.
+autocorrection: false
+target_chef_version: 15.8+
+examples: |2-
+
+  #### incorrect
+
+  ```ruby
+  template '/etc/foo' do
+    source 'bar.erb'
+    notifies :write, 'log[Aggregate notifications using a single log resource]', :immediately
+  end
+
+  log 'Aggregate notifications using a single log resource' do
+    notifies :restart, 'service[foo]', :delayed
+  end
+  ```
+
+  #### correct
+
+  ```ruby
+  template '/etc/foo' do
+    source 'bar.erb'
+    notifies :run, 'notify_group[Aggregate notifications using a single notify_group resource]', :immediately
+  end
+
+  notify_group 'Aggregate notifications using a single notify_group resource' do
+    notifies :restart, 'service[foo]', :delayed
+  end
+  ```
+version_added: 6.0.0
+enabled: true
+excluded_file_paths:
+- "/workspace/chef-cookstyle-master/**/metadata.rb"
+- "/workspace/chef-cookstyle-master/**/Berksfile"
+included_file_paths: 

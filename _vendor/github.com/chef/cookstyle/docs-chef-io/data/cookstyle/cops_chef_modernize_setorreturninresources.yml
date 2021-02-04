@@ -1,0 +1,34 @@
+---
+name: Chef/Modernize/SetOrReturnInResources
+department: Chef/Modernize
+description: set_or_return within a method should not be used to define property in
+  a resource. Instead use the property method which properly validates and defines
+  properties in a way that works with reporting and documentation functionality in
+  Chef Infra Client
+autocorrection: false
+target_chef_version: All Versions
+examples: |2-
+
+  #### incorrect
+
+  ```ruby
+   def severity(arg = nil)
+     set_or_return(
+       :severity, arg,
+       :kind_of => String,
+       :default => nil
+     )
+   end
+  ```
+
+  #### correct
+
+  ```ruby
+  property :severity, String
+  ```
+version_added: 5.2.0
+enabled: true
+excluded_file_paths: 
+included_file_paths:
+- "**/resources/*.rb"
+- "**/libraries/*.rb"

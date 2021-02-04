@@ -1,0 +1,26 @@
+---
+name: Chef/Deprecations/RequireRecipe
+department: Chef/Deprecations
+description: Make sure to use include_recipe instead of require_recipe
+autocorrection: true
+target_chef_version: All Versions
+examples: |2-
+
+  #### incorrect
+
+  ```ruby
+  require_recipe 'foo'
+  ```
+
+  #### correct
+
+  ```ruby
+  include_recipe 'foo'
+  ```
+version_added: 5.2.0
+enabled: true
+excluded_file_paths:
+- "/workspace/chef-cookstyle-master/**/attributes/*.rb"
+- "/workspace/chef-cookstyle-master/**/metadata.rb"
+- "/workspace/chef-cookstyle-master/**/Berksfile"
+included_file_paths: 

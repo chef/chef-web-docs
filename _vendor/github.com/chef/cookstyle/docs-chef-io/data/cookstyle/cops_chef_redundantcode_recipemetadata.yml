@@ -1,0 +1,19 @@
+---
+name: Chef/RedundantCode/RecipeMetadata
+department: Chef/RedundantCode
+description: The recipe metadata.rb method is not used and is unnecessary in cookbooks.
+  Recipes should be documented in the cookbook's README.md file instead.
+autocorrection: true
+target_chef_version: All Versions
+examples: |2-
+
+  #### incorrect
+
+  ```ruby
+  recipe 'openldap::default', 'Install and configure OpenLDAP'
+  ```
+version_added: 5.6.0
+enabled: true
+excluded_file_paths: 
+included_file_paths:
+- "**/metadata.rb"

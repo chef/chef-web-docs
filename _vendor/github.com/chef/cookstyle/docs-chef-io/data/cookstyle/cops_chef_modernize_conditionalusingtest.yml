@@ -1,0 +1,27 @@
+---
+name: Chef/Modernize/ConditionalUsingTest
+department: Chef/Modernize
+description: Use ::File.exist?('/foo/bar') instead of the slower 'test -f /foo/bar'
+  which requires shelling out
+autocorrection: true
+target_chef_version: All Versions
+examples: |2-
+
+  #### incorrect
+
+  ```ruby
+  only_if 'test -f /bin/foo'
+  ```
+
+  #### correct
+
+  ```ruby
+  only_if { ::File.exist?('bin/foo') }
+  ```
+version_added: 6.11.0
+enabled: true
+excluded_file_paths:
+- "/workspace/chef-cookstyle-master/**/metadata.rb"
+- "/workspace/chef-cookstyle-master/**/Berksfile"
+- "/workspace/chef-cookstyle-master/**/attributes/*.rb"
+included_file_paths: 
