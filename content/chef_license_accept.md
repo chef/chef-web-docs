@@ -198,8 +198,8 @@ allow interactivity. Instead, the license is accepted during the
 `reconfigure` command or `upgrade` command for the Omnibus ctl command.
 For example:
 
--   `chef-server-ctl reconfigure --chef-license=accept`
--   `CHEF_LICENSE="accept-no-persist" supermarket-ctl reconfigure`
+- `chef-server-ctl reconfigure --chef-license=accept`
+- `CHEF_LICENSE="accept-no-persist" supermarket-ctl reconfigure`
 
 In addition, the Chef license can be accepted via the omnibus
 configuration file. Specify `chef_license 'accept'` in the
@@ -234,13 +234,11 @@ group.
 
 ### Remote Management Products
 
--   Test Kitchen
--   `knife bootstrap` in Chef Infra Client
--   `chef-run` in Chef Workstation
--   Packer
--   Terraform Chef Provisioner
--   Terraform Habitat Provisioner
--   Vagrant
+- Test Kitchen
+- `knife bootstrap` in Chef Infra Client
+- `chef-run` in Chef Workstation
+- Packer
+- Vagrant
 
 These products install or manage Chef on a remote instance. If a user
 has accepted the appropriate product license locally, it will be
@@ -374,52 +372,6 @@ include:
   "install_command": "curl -L https://omnitruck.chef.io/install.sh | sudo bash -s -- -v 14.12.9"
 }
 ```
-
-#### Terraform Chef Provisioner
-
-The license can be accepted via the Chef Infra Client config file, which
-is specified by the `client_options` [Terraform provisioner
-config](https://www.terraform.io/docs/provisioners/chef.html#client_options-array-):
-
-```none
-provisioner "chef" {
-  client_options = ["chef_license 'accept'"]
-}
-```
-
-**Pin to Chef 14**
-
-In your [Terraform provisioner
-config](https://www.terraform.io/docs/provisioners/chef.html#version-string-),
-include:
-
-```none
-provisioner "chef" {
-  version = "14.12.3"
-}
-```
-
-#### Terraform Habitat Provisioner
-
-Default behavior of this provisioner is to install the latest version of
-Habitat. [Documentation for this
-provisioner](https://www.terraform.io/docs/provisioners/habitat.html)
-will be updated in the near future once the provisioner is updated with
-options to accept license. For the time being, the provisioner can be
-pinned to a prior Habitat version as below.
-
-**Pin to Chef Habitat 0.79**
-
-In your [Terraform provisioner
-config](https://www.terraform.io/docs/provisioners/habitat.html#version-string-),
-include:
-
-```none
-provisioner "habitat" {
-  version = "0.79.1"
-}
-```
-
 #### Vagrant
 
 This license acceptance can be done via the arguments API:
