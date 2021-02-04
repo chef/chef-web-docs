@@ -1000,55 +1000,47 @@ identifier = "chef_workstation"
     parent = "chef_workstation/chef_workstation_tools"
     weight = 90
 
-
       [[menu.workstation]]
-      title = "Cops Chef/Correctness"
+      title = "Chef/Correctness"
       identifier = "chef_workstation/chef_workstation_tools/cookstyle/Cops Chef/Correctness"
       parent = "chef_workstation/chef_workstation_tools/cookstyle"
       url = "/workstation/cookstyle/cops/#chefcorrectness"
 
-
       [[menu.workstation]]
-      title = "Cops Chef/Deprecations"
+      title = "Chef/Deprecations"
       identifier = "chef_workstation/chef_workstation_tools/cookstyle/Cops Chef/Deprecations"
       parent = "chef_workstation/chef_workstation_tools/cookstyle"
       url = "/workstation/cookstyle/cops/#chefdeprecations"
 
-
       [[menu.workstation]]
-      title = "Cops Chef/Effortless"
+      title = "Chef/Effortless"
       identifier = "chef_workstation/chef_workstation_tools/cookstyle/Cops Chef/Effortless"
       parent = "chef_workstation/chef_workstation_tools/cookstyle"
       url = "/workstation/cookstyle/cops/#chefeffortless"
 
-
       [[menu.workstation]]
-      title = "Cops Chef/Modernize"
+      title = "Chef/Modernize"
       identifier = "chef_workstation/chef_workstation_tools/cookstyle/Cops Chef/Modernize"
       parent = "chef_workstation/chef_workstation_tools/cookstyle"
       url = "/workstation/cookstyle/cops/#chefmodernize"
 
-
       [[menu.workstation]]
-      title = "Cops Chef/RedundantCode"
+      title = "Chef/RedundantCode"
       identifier = "chef_workstation/chef_workstation_tools/cookstyle/Cops Chef/RedundantCode"
       parent = "chef_workstation/chef_workstation_tools/cookstyle"
       url = "/workstation/cookstyle/cops/#chefredundantcode"
 
-
       [[menu.workstation]]
-      title = "Cops Chef/Sharing"
+      title = "Chef/Sharing"
       identifier = "chef_workstation/chef_workstation_tools/cookstyle/Cops Chef/Sharing"
       parent = "chef_workstation/chef_workstation_tools/cookstyle"
       url = "/workstation/cookstyle/cops/#chefsharing"
 
-
       [[menu.workstation]]
-      title = "Cops Chef/Style"
+      title = "Chef/Style"
       identifier = "chef_workstation/chef_workstation_tools/cookstyle/Cops Chef/Style"
       parent = "chef_workstation/chef_workstation_tools/cookstyle"
       url = "/workstation/cookstyle/cops/#chefstyle"
-
 
     [[menu.workstation]]
     title = "Test Kitchen"
