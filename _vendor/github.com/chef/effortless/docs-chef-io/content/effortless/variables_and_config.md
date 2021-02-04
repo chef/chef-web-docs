@@ -1,6 +1,7 @@
 +++
 title = "Effortless Variables and Config"
 draft = false
+gh_repo = "effortless"
 
 [menu]
   [menu.effortless]
@@ -10,8 +11,6 @@ draft = false
     weight = 40
 +++
 
-[\[edit on GitHub\]](https://github.com/chef/effortless/blob/master/docs-chef-io/content/effortless/variables_and_config.md)
-
 # Plan Variables and Chef Habitat Configurations
 
 This documents the options for both your plan and your `habitat` configuration file.
@@ -20,7 +19,7 @@ This documents the options for both your plan and your `habitat` configuration f
 
 ### Effortless Config Plan Variables
 
-You can use all the default plan variables shipped with Chef Habitat. Read more about [plan variables](https://www.habitat.sh/docs/reference/#plan-variables) in the Chef Habitat documentation.
+You can use all the default plan variables shipped with Chef Habitat. Read more about [plan variables]({{< relref "/habitat/plan_variables" >}}) in the Chef Habitat documentation.
 
 scaffold_chef_client
 : The Chef Habitat `chef-infra-client` package used. Change to use a different package. Default is `chef/chef-infra-client`
@@ -68,7 +67,7 @@ rubygems_url
 This configuration needs to be under the `[chef_license]` block in the .toml file.
 
 acceptance
-: Determines the Chef license acceptance at run time. Required for Chef Infra Client. See Chef License [here](https://docs.chef.io/chef_license_accept/#accepting-the-chef-license). Default is `undefined`
+: Determines the Chef license acceptance at run time. Required for Chef Infra Client. See Chef License [here]({{< relref "/chef_license_accept#accepting-the-chef-license" >}}). Default is `undefined`
 
 #### Effortless Config Chef Automate
 
@@ -129,7 +128,7 @@ log_level
 This configuration needs to be under the `[chef_license]` block in the .toml file.
 
 acceptance
-: Determines the Chef license acceptance at run time. This setting is required for chef-client to run successfully. See Chef License [here](https://docs.chef.io/chef_license_accept/#accepting-the-chef-license). Default is `undefined`
+: Determines the Chef license acceptance at run time. This setting is required for chef-client to run successfully. See Chef License [here]({{< relref "/chef_license_accept#accepting-the-chef-license" >}}). Default is `undefined`
 
 #### Effortless Audit Chef Automate
 
