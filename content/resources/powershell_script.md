@@ -7,6 +7,7 @@ robots = ""
 
 data_path = ["infra","resources","powershell_script"]
 layout = "infra_resource"
+toc_layout = "infra_resource_toc"
 
 
 [menu]
