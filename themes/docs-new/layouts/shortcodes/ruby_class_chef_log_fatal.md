@@ -36,7 +36,3 @@ else
   raise
 end
 ```
-
-The full recipe is the `upgrade.rb` recipe of the [chef-splunk
-cookbook](https://github.com/chef-cookbooks/chef-splunk/) that is
-maintained by Chef.

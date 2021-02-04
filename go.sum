@@ -13,6 +13,8 @@ github.com/chef/desktop-config/docs-chef-io v0.0.0-20210112020121-58047a6a6d6f h
 github.com/chef/desktop-config/docs-chef-io v0.0.0-20210112020121-58047a6a6d6f/go.mod h1:90xAx6sIfgSL50M2KzeBmx7V7s7dlhQU3xpUkJO0qW0=
 github.com/chef/effortless/docs-chef-io v0.0.0-20200930175149-51c187882fba h1:71JD3SIc9HWmbokoxw6vI9XTtcbi10PxKhKrhKonYZ0=
 github.com/chef/effortless/docs-chef-io v0.0.0-20200930175149-51c187882fba/go.mod h1:Lfq+HjwAQwUJ41EPTO/8qbI1oJb2i415fR28d2Ig9kc=
+github.com/chef/effortless/docs-chef-io v0.0.0-20210203145823-a52b3ca52990 h1:5uxmrcpHYrqWrz76rYCwmfOicwsfyGjWntjvvaLKgTc=
+github.com/chef/effortless/docs-chef-io v0.0.0-20210203145823-a52b3ca52990/go.mod h1:Lfq+HjwAQwUJ41EPTO/8qbI1oJb2i415fR28d2Ig9kc=
 github.com/client9/misspell v0.3.4/go.mod h1:qj6jICC3Q7zFZvVWo7KLAzC3yx5G7kyvSDkc90ppPyw=
 github.com/envoyproxy/go-control-plane v0.9.1-0.20191026205805-5f8ba28d4473/go.mod h1:YTl/9mNaCwkRvm6d1a2C3ymFceY/DCBVvsKhRF0iEA4=
 github.com/envoyproxy/protoc-gen-validate v0.1.0/go.mod h1:iSmxcyjqTsJpI2R4NaDN7+kN2VEUnK/pcBlmesArF7c=
