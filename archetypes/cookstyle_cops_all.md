@@ -4,6 +4,7 @@ draft = false
 
 data_path = ["cookstyle"]
 layout = "cookstyle_cops_all"
+toc_layout = "cookstyle_cops_toc"
 
 [menu]
   [menu.workstation]
