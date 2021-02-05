@@ -52,6 +52,8 @@ syntax_full_properties_list:
   `use_etag`, `use_last_modified`, and `verifications` are the properties available
   to this resource."
 actions_list:
+  :nothing:
+    shortcode: resources_common_actions_nothing.md
   :create:
     markdown: Default. Create a file. If a file already exists (but does not match),
       update that file to match.
@@ -60,8 +62,6 @@ actions_list:
       nothing happens.
   :delete:
     markdown: Delete a file.
-  :nothing:
-    shortcode: resources_common_actions_nothing.md
   :touch:
     markdown: Touch a file. This updates the access (atime) and file modification
       (mtime) times for a file. (This action may be used with this resource, but is

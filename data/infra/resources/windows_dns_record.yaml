@@ -25,12 +25,12 @@ syntax_full_properties_list:
 - "`dns_server`, `record_name`, `record_type`, `target`, and `zone` are the properties
   available to this resource."
 actions_list:
-  :create:
-    markdown: Creates and updates the DNS entry.
-  :delete:
-    markdown: Deletes a DNS entry.
   :nothing:
     shortcode: resources_common_actions_nothing.md
+  :create:
+    markdown: Creates and updates the DNS entry
+  :delete:
+    markdown: Deletes a DNS entry
 properties_list:
 - property: dns_server
   ruby_type: String

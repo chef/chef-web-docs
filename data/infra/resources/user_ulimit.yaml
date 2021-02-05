@@ -43,12 +43,12 @@ syntax_full_properties_list:
   `stack_hard_limit`, `stack_limit`, `stack_soft_limit`, `username`, and `virt_limit`
   are the properties available to this resource."
 actions_list:
+  :nothing:
+    shortcode: resources_common_actions_nothing.md
   :create:
     markdown: Create a ulimit configuration file
   :delete:
-    markdown: Delete a ulimit configuration file
-  :nothing:
-    shortcode: resources_common_actions_nothing.md
+    markdown: Delete an existing ulimit configuration file
 properties_list:
 - property: core_hard_limit
   ruby_type: String, Integer

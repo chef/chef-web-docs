@@ -41,6 +41,8 @@ syntax_full_properties_list:
   `mode`, `overwrite`, `owner`, `path`, `purge`, `recursive`, and `source` are the
   properties available to this resource."
 actions_list:
+  :nothing:
+    shortcode: resources_common_actions_nothing.md
   :create:
     markdown: Default. Create a directory and/or the contents of that directory. If
       a directory or its contents already exist (but does not match), update that
@@ -50,8 +52,6 @@ actions_list:
       it does not exist.
   :delete:
     markdown: Delete a directory, including the contents of that directory.
-  :nothing:
-    shortcode: resources_common_actions_nothing.md
 properties_list:
 - property: cookbook
   ruby_type: String
