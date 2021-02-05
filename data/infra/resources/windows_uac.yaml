@@ -28,10 +28,10 @@ syntax_full_properties_list:
   `prompt_on_secure_desktop`, and `require_signed_binaries` are the properties available
   to this resource."
 actions_list:
-  :configure:
-    markdown: Configures UAC by setting registry keys at `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System`.
   :nothing:
     shortcode: resources_common_actions_nothing.md
+  :configure:
+    markdown: Configures UAC by setting registry keys at `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System`
 properties_list:
 - property: consent_behavior_admins
   ruby_type: Symbol

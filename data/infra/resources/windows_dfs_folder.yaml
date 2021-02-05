@@ -25,12 +25,12 @@ syntax_full_properties_list:
 - "`description`, `folder_path`, `namespace_name`, and `target_path` are the properties
   available to this resource."
 actions_list:
-  :create:
-    markdown: Creates the folder in dfs namespace. Default.
-  :delete:
-    markdown: Deletes the folder in the dfs namespace.
   :nothing:
     shortcode: resources_common_actions_nothing.md
+  :create:
+    markdown: Creates the folder in dfs namespace
+  :delete:
+    markdown: Deletes the folder in the dfs namespace
 properties_list:
 - property: description
   ruby_type: String
