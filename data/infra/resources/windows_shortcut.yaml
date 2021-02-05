@@ -26,10 +26,10 @@ syntax_full_properties_list:
 - "`arguments`, `cwd`, `description`, `iconlocation`, `shortcut_name`, and `target`
   are the properties available to this resource."
 actions_list:
-  :create:
-    markdown: Default. Create or modify a Windows shortcut.
   :nothing:
     shortcode: resources_common_actions_nothing.md
+  :create:
+    markdown: Create or modify a Windows shortcut
 properties_list:
 - property: arguments
   ruby_type: String
