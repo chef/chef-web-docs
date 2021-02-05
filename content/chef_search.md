@@ -117,7 +117,7 @@ Search queries may not contain newlines.
 
 ## Filter Search Results
 
-{{% dsl_recipe_method_search_filter_result %}}
+{{% infra_lang_method_search_filter_result %}}
 
 ## Keys
 

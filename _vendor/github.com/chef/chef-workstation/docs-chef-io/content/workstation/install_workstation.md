@@ -95,15 +95,9 @@ applications that may be running on the target machine.
 
 ### macOS
 
-1.  Dependency: Xcode is recommended for running Chef Workstation on
-    macOS. While Chef Workstation works without Xcode, it is required
-    for native Ruby Gem installation. Run `xcode-select --install` from
-    the terminal to install Xcode.
-2.  Visit the [Chef Workstation downloads
-    page](https://downloads.chef.io/chef-workstation#mac_os_x) and
-    select the appropriate package for your macOS version. Click on the
-    **Download** button.
-3.  Follow the steps to accept the license and install Chef Workstation.
+1. Dependency: Xcode is recommended for running Chef Workstation on macOS. While Chef Workstation works without Xcode, it is required for native Ruby Gem installation. Run `xcode-select --install` from the terminal to install Xcode.
+2. Visit the [Chef Workstation downloads page](https://downloads.chef.io/chef-workstation#mac_os_x) and select the appropriate package for your macOS version. Select on the **Download** button.
+3. Follow the steps to accept the license and install Chef Workstation.
 
 Alternately, install Chef Workstation using Homebrew:
 
@@ -111,21 +105,15 @@ Alternately, install Chef Workstation using Homebrew:
 
 ### Windows
 
-1.  Visit the [Chef Workstation downloads
-    page](https://downloads.chef.io/chef-workstation#windows) and select
-    the appropriate package for your Windows version. Click on the
-    **Download** button.
-2.  Follow the steps to accept the license and install Chef Workstation.
-    You will have the option to change your install location; by default
-    the installer uses the `C:\opscode\chef-workstation\` directory.
-3.  **Optional:** Set the default shell. On Microsoft Windows it is
-    strongly recommended to use Windows PowerShell instead of `cmd.exe`.
+1. Visit the [Chef Workstation downloads page](https://downloads.chef.io/chef-workstation#windows) and select the appropriate package for your Windows version. Click on the **Download** button.
+2. Follow the steps to accept the license and install Chef Workstation. You will have the option to change your install location; by default the installer uses the `C:\opscode\chef-workstation\` directory.
+3. **Optional:** Set the default shell. On Microsoft Windows it is strongly recommended to use Windows PowerShell instead of `cmd.exe`.
 
 #### Headless Unattended Install
 
-"Headless" systems are configured to operate without a monitor (the "head") keyboard, and mouse.  They are usually controlled over a network connection.
+"Headless" systems are configured to operate without a monitor (the "head") keyboard, and mouse. They are usually controlled over a network connection.
 
-To install Chef Workstation on a headless Windows system, exclude the Chef Workstation App from auto-starting on login by using the following command in Windows PowerShell or `cmd.exe`.  Replace `MsiPath` with the path of the downloaded Chef Workstation installer.
+To install Chef Workstation on a headless Windows system, exclude the Chef Workstation App from auto-starting on login by using the following command in Windows PowerShell or `cmd.exe`. Replace `MsiPath` with the path of the downloaded Chef Workstation installer.
 
 ```
 msiexec /q /i MsiPath ADDLOCAL=ALL REMOVE=ChefWSApp
@@ -141,26 +129,31 @@ msiexec /q /i MsiPath ADDLOCAL=ALL REMOVE=ChefWSApp
 
 ### Linux
 
-1.  Visit the [Chef Workstation downloads
-    page](https://downloads.chef.io/products/workstation) and download the
-    appropriate package for your distribution:
+1. Visit the [Chef Workstation downloads page](https://downloads.chef.io/products/workstation) and download the appropriate package for your distribution:
 
-    ``` bash
-    wget https://packages.chef.io/files/stable/chef-workstation/20.12.212/ubuntu/20.04/chef-workstation_20.12.212-1_amd64.deb
-    ```
+    - Red Hat Enterprise Linux
 
-2.  Use your distribution's package manager to install Chef Workstation:
+      ```bash
+      wget https://packages.chef.io/files/stable/chef-workstation/21.1.233/el/8/chef-workstation-21.1.233-1.el7.x86_64.rpm
+      ```
 
-    -   Red Hat Enterprise Linux:
+    - Debian/Ubuntu
+
+      ``` bash
+      wget https://packages.chef.io/files/stable/chef-workstation/21.1.233/ubuntu/20.04/chef-workstation_21.1.233-1_amd64.deb
+      ```
+
+1. Use your distribution's package manager to install Chef Workstation:
+   - Red Hat Enterprise Linux:
 
         ``` bash
-        rpm -Uvh chef-workstation-20.12.212-1.el7.x86_64.rpm
+        rpm -Uvh chef-workstation-21.1.233-1.el8.x86_64.rpm
         ```
 
-    -   Debian/Ubuntu:
+   - Debian/Ubuntu:
 
         ``` bash
-        dpkg -i chef-workstation_20.12.212-1_amd64.deb
+        dpkg -i chef-workstation_21.1.233-1_amd64.deb
         ```
 
 ## Verify the Installation
@@ -174,13 +167,13 @@ chef -v
 Which returns the versions of all installed Chef tools:
 
 ``` shell
-Chef Workstation version: 20.12.212
-Chef Infra Client version: 16.8.14
-Chef InSpec version: 4.24.8
-Chef CLI version: 3.0.33
+Chef Workstation version: 21.1.233
+Chef Infra Client version: 16.9.20
+Chef InSpec version: 4.24.32
+Chef CLI version: 3.0.35
 Chef Habitat version: 1.6.181
-Test Kitchen version: 2.8.0
-Cookstyle version: 7.4.0
+Test Kitchen version: 2.9.0
+Cookstyle version: 7.5.3
 ```
 
 ## Upgrading
@@ -217,7 +210,7 @@ For other platforms, follow the steps provided under [Installing]({{< ref "#inst
 
 ### Mac
 
-Run ```uninstall_chef_workstation``` in your terminal.
+Run `uninstall_chef_workstation` in your terminal.
 
 ### Windows
 

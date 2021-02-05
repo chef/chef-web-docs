@@ -189,38 +189,11 @@
       <h3 id="windows_registry_key_backslashes">Registry Key Path Separators</h3>
       {{ readFile "themes/docs-new/layouts/shortcodes/windows_registry_key_backslashes.md" | markdownify }}
 
-      <h3 id="dsl_recipe_method_windows_methods">Recipe DSL Methods</h3>
-      {{ readFile "themes/docs-new/layouts/shortcodes/dsl_recipe_method_windows_methods.md" | markdownify }}
+      <h3 id="infra_lang_method_windows_methods">Chef Infra Language Methods</h3>
+      {{ readFile "themes/docs-new/layouts/shortcodes/infra_lang_method_windows_methods.md" | markdownify }}
 
-      <h4 id="dsl_recipe_method_registry_data_exists">registry_data_exists?</h4>
-      {{ $shortcode := "themes/docs-new/layouts/shortcodes/dsl_recipe_method_registry_data_exists.md" }}
-
-      {{ if in (readFile $shortcode) "readFile" }}
-        {{ $shortcode_text := newScratch }}
-        {{ $shortcode_text.Set "text" "" }}
-        {{ range split (readFile $shortcode) "\n"}}
-          {{ if in . "readFile" }}
-            {{ if ne $shortcode_text "" }}
-              {{ $shortcode_text.Get "text" | markdownify }}
-              {{ $shortcode_text.Set "text" "" }}
-            {{ end }}
-
-            <p>
-              {{ readFile (. | replaceRE `{{ readFile \"(themes\/docs-new\/layouts\/shortcodes\/\w+\.md)\" \| markdownify }}` "$1" ) | markdownify }}
-            </p>
-
-          {{ else }}
-            {{ $shortcode_text.Add "text" . }}
-            {{ $shortcode_text.Add "text" "\n" }}
-          {{ end }}
-        {{ end }}
-        {{ $shortcode_text.Get "text" | markdownify }}
-      {{ else }}
-        {{ readFile $shortcode | markdownify }}
-      {{ end }}
-
-      <h4 id="dsl_recipe_method_registry_get_subkeys">registry_get_subkeys</h4>
-      {{ $shortcode := "themes/docs-new/layouts/shortcodes/dsl_recipe_method_registry_get_subkeys.md" }}
+      <h4 id="infra_lang_method_registry_data_exists">registry_data_exists?</h4>
+      {{ $shortcode := "themes/docs-new/layouts/shortcodes/infra_lang_method_registry_data_exists.md" }}
 
       {{ if in (readFile $shortcode) "readFile" }}
         {{ $shortcode_text := newScratch }}
@@ -246,8 +219,8 @@
         {{ readFile $shortcode | markdownify }}
       {{ end }}
 
-      <h4 id="dsl_recipe_method_registry_get_values">registry_get_values</h4>
-      {{ $shortcode := "themes/docs-new/layouts/shortcodes/dsl_recipe_method_registry_get_values.md" }}
+      <h4 id="infra_lang_method_registry_get_subkeys">registry_get_subkeys</h4>
+      {{ $shortcode := "themes/docs-new/layouts/shortcodes/infra_lang_method_registry_get_subkeys.md" }}
 
       {{ if in (readFile $shortcode) "readFile" }}
         {{ $shortcode_text := newScratch }}
@@ -273,8 +246,8 @@
         {{ readFile $shortcode | markdownify }}
       {{ end }}
 
-      <h4 id="dsl_recipe_method_registry_has_subkeys">registry_has_subkeys?</h4>
-      {{ $shortcode := "themes/docs-new/layouts/shortcodes/dsl_recipe_method_registry_has_subkeys.md" }}
+      <h4 id="infra_lang_method_registry_get_values">registry_get_values</h4>
+      {{ $shortcode := "themes/docs-new/layouts/shortcodes/infra_lang_method_registry_get_values.md" }}
 
       {{ if in (readFile $shortcode) "readFile" }}
         {{ $shortcode_text := newScratch }}
@@ -300,8 +273,8 @@
         {{ readFile $shortcode | markdownify }}
       {{ end }}
 
-      <h4 id="dsl_recipe_method_registry_key_exists">registry_key_exists?</h4>
-      {{ $shortcode := "themes/docs-new/layouts/shortcodes/dsl_recipe_method_registry_key_exists.md" }}
+      <h4 id="infra_lang_method_registry_has_subkeys">registry_has_subkeys?</h4>
+      {{ $shortcode := "themes/docs-new/layouts/shortcodes/infra_lang_method_registry_has_subkeys.md" }}
 
       {{ if in (readFile $shortcode) "readFile" }}
         {{ $shortcode_text := newScratch }}
@@ -327,8 +300,35 @@
         {{ readFile $shortcode | markdownify }}
       {{ end }}
 
-      <h4 id="dsl_recipe_method_registry_value_exists">registry_value_exists?</h4>
-      {{ $shortcode := "themes/docs-new/layouts/shortcodes/dsl_recipe_method_registry_value_exists.md" }}
+      <h4 id="infra_lang_method_registry_key_exists">registry_key_exists?</h4>
+      {{ $shortcode := "themes/docs-new/layouts/shortcodes/infra_lang_method_registry_key_exists.md" }}
+
+      {{ if in (readFile $shortcode) "readFile" }}
+        {{ $shortcode_text := newScratch }}
+        {{ $shortcode_text.Set "text" "" }}
+        {{ range split (readFile $shortcode) "\n"}}
+          {{ if in . "readFile" }}
+            {{ if ne $shortcode_text "" }}
+              {{ $shortcode_text.Get "text" | markdownify }}
+              {{ $shortcode_text.Set "text" "" }}
+            {{ end }}
+
+            <p>
+              {{ readFile (. | replaceRE `{{ readFile \"(themes\/docs-new\/layouts\/shortcodes\/\w+\.md)\" \| markdownify }}` "$1" ) | markdownify }}
+            </p>
+
+          {{ else }}
+            {{ $shortcode_text.Add "text" . }}
+            {{ $shortcode_text.Add "text" "\n" }}
+          {{ end }}
+        {{ end }}
+        {{ $shortcode_text.Get "text" | markdownify }}
+      {{ else }}
+        {{ readFile $shortcode | markdownify }}
+      {{ end }}
+
+      <h4 id="infra_lang_method_registry_value_exists">registry_value_exists?</h4>
+      {{ $shortcode := "themes/docs-new/layouts/shortcodes/infra_lang_method_registry_value_exists.md" }}
 
       {{ if in (readFile $shortcode) "readFile" }}
         {{ $shortcode_text := newScratch }}

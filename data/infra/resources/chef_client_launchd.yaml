@@ -6,7 +6,7 @@ resources_common_properties: true
 resource: chef_client_launchd
 resource_description_list:
 - markdown: Use the **chef_client_launchd** resource to configure the Chef Infra Client
-    to run on a schedule.
+    to run on a schedule on macOS systems.
 resource_new_in: '16.5'
 syntax_full_code_block: |-
   chef_client_launchd 'name' do

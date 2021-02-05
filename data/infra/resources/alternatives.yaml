@@ -5,8 +5,8 @@ resources_common_notification: true
 resources_common_properties: true
 resource: alternatives
 resource_description_list:
-- markdown: The alternatives resource allows for configuration of command alternatives
-    in Linux using the alternatives or update-alternatives packages.
+- markdown: Use the **alternatives** resource to configure command alternatives in
+    Linux using the alternatives or update-alternatives packages.
 resource_new_in: '16.0'
 syntax_full_code_block: |-
   alternatives 'name' do

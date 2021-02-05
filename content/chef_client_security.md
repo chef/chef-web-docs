@@ -29,7 +29,7 @@ aliases = ["/chef_client_security.html"]
 ### During a Chef Infra Client Run
 
 As part of [every Chef Infra Client
-run](/chef_client/#the-chef-client-run), Chef Infra Client
+run](/run_lists/#the-chef-infra-client-run), Chef Infra Client
 authenticates to the Chef Infra Server using an RSA private key and the
 Chef Infra Server API.
 

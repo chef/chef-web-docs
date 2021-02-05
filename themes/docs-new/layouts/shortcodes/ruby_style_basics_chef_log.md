@@ -1,9 +1,6 @@
-`Chef::Log` will print log entries to the default logger that is
-configured for the machine on which Chef Infra Client is running. (To
-create a log entry that is built into the resource collection, use the
-**log** resource instead of `Chef::Log`.)
+`Chef::Log` will print log entries to the default logger that is configured for the machine on which Chef Infra Client is running. (To create a log entry that is built into the resource collection, use the [log resource](/resources/log/) instead of `Chef::Log`.)
 
-The following log levels are supported:
+### Supported Log Levels
 
 <table>
 <colgroup>
@@ -39,18 +36,3 @@ The following log levels are supported:
 </tr>
 </tbody>
 </table>
-
-<div class="admonition-note">
-
-<p class="admonition-note-title">Note</p>
-
-<div class="admonition-note-text">
-
-The parentheses are optional, e.g. `Chef::Log.info 'string'` may be used
-instead of `Chef::Log.info('string')`.
-
-
-
-</div>
-
-</div>
