@@ -27,12 +27,12 @@ syntax_full_properties_list:
 - "`change_users`, `description`, `full_users`, `namespace_name`, `read_users`, and
   `root` are the properties available to this resource."
 actions_list:
-  :create:
-    markdown: Creates the dfs namespace on the server. Default.
-  :delete:
-    markdown: Deletes a DFS Namespace including the directory on disk.
   :nothing:
     shortcode: resources_common_actions_nothing.md
+  :create:
+    markdown: Creates the dfs namespace on the server
+  :delete:
+    markdown: Deletes a DFS Namespace including the directory on disk
 properties_list:
 - property: change_users
   ruby_type: Array
