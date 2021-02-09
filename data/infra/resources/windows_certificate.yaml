@@ -34,7 +34,7 @@ actions_list:
   :nothing:
     shortcode: resources_common_actions_nothing.md
   :create:
-    markdown: Creates or updates a certificate
+    markdown: Creates or updates a certificate (default)
   :acl_add:
     markdown: Adds read-only entries to a certificate's private key ACL
   :delete:
@@ -89,8 +89,9 @@ properties_list:
   required: false
   default_value: 'false'
   description_list:
-  - markdown: 'Use the `CurrentUser` store instead of the default `LocalMachine` store.
-      Note: Prior to chef-client. 16.10 this property was ignored.'
+  - markdown: Use the `CurrentUser` store instead of the default `LocalMachine` store.
+  - note:
+     - markdown: Prior to chef-client. 16.10 this property was ignored.
 examples: |
   **Add PFX cert to local machine personal store and grant accounts read-only access to private key**
 

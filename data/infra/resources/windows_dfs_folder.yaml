@@ -28,7 +28,7 @@ actions_list:
   :nothing:
     shortcode: resources_common_actions_nothing.md
   :create:
-    markdown: Creates the folder in dfs namespace
+    markdown: Creates the folder in dfs namespace (default)
   :delete:
     markdown: Deletes the folder in the dfs namespace
 properties_list:

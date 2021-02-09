@@ -34,12 +34,12 @@ syntax_full_properties_list:
   `description`, `encrypt_data`, `full_users`, `path`, `read_users`, `scope_name`,
   `share_name`, and `temporary` are the properties available to this resource."
 actions_list:
-  :create:
-    markdown: Create and modify Windows shares.
-  :delete:
-    markdown: Delete an existing Windows share.
   :nothing:
     shortcode: resources_common_actions_nothing.md
+  :create:
+    markdown: Create or modify a Windows share (default)
+  :delete:
+    markdown: Delete an existing Windows share
 properties_list:
 - property: ca_timeout
   ruby_type: Integer

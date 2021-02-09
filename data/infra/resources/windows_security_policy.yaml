@@ -25,7 +25,7 @@ actions_list:
   :nothing:
     shortcode: resources_common_actions_nothing.md
   :set:
-    markdown: Set the Windows security policy
+    markdown: Set the Windows security policy (default)
 properties_list:
 - property: secoption
   ruby_type: String

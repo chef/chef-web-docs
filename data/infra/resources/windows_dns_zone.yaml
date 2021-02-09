@@ -27,7 +27,7 @@ actions_list:
   :nothing:
     shortcode: resources_common_actions_nothing.md
   :create:
-    markdown: Creates and updates a DNS Zone
+    markdown: Creates and updates a DNS Zone (default)
   :delete:
     markdown: Deletes a DNS Zone
 properties_list:

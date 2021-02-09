@@ -28,7 +28,7 @@ actions_list:
   :nothing:
     shortcode: resources_common_actions_nothing.md
   :join:
-    markdown: Update the workgroup.
+    markdown: Update the workgroup. (default)
 properties_list:
 - property: password
   ruby_type: String

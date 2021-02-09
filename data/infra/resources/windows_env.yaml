@@ -5,29 +5,14 @@ resources_common_notification: true
 resources_common_properties: true
 resource: windows_env
 resource_description_list:
-- markdown: 'Use the **windows_env** resource to manage environment keys in
+- markdown: |-
+    Use the **windows_env** resource to manage environment keys in Microsoft Windows. After an environment key is set, Microsoft Windows must be restarted before the environment key will be available to the Task Scheduler.
 
-    Microsoft Windows. After an environment key is set, Microsoft Windows
-
-    must be restarted before the environment key will be available to the
-
-    Task Scheduler.
-
-
-    This resource was previously called the **env** resource; its name was
-
-    updated in Chef Client 14.0 to reflect the fact that only Windows is
-
-    supported. Existing cookbooks using `env` will continue to function, but
-
-    should be updated to use the new name.'
+    This resource was previously called the **env** resource; its name was updated in Chef Infra Client 14.0 to reflect the fact that only Windows is supported. Existing cookbooks using `env` will continue to function, but should be updated to use the new name.
 - note:
-    markdown: 'On UNIX-based systems, the best way to manipulate environment keys
-      is
-
-      with the `ENV` variable in Ruby; however, this approach does not have
-
-      the same permanent effect as using the **windows_env** resource.'
+    markdown: On UNIX-based systems, the best way to manipulate environment keys is
+      with the `ENV` variable in Ruby; however, this approach does not have the same
+      permanent effect as using the windows_env resource.
 syntax_full_code_block: |-
   windows_env 'name' do
     delim         String, false
@@ -44,16 +29,16 @@ syntax_full_properties_list:
   the desired state."
 - "`delim`, `key_name`, `user`, and `value` are the properties available to this resource."
 actions_list:
+  :nothing:
+    shortcode: resources_common_actions_nothing.md
   :create:
-    markdown: Default. Create an environment variable. If an environment variable
-      already exists (but does not match), update that environment variable to match.
+    markdown: Create an environment variable. If an environment variable already exists
+      (but does not match), update that environment variable to match. (default)
   :delete:
     markdown: Delete an environment variable.
   :modify:
     markdown: Modify an existing environment variable. This prepends the new value
       to the existing value, using the delimiter specified by the `delim` property.
-  :nothing:
-    shortcode: resources_common_actions_nothing.md
 properties_list:
 - property: delim
   ruby_type: String, false
