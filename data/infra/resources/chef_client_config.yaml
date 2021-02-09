@@ -56,12 +56,12 @@ syntax_full_properties_list:
   `ssl_verify_mode`, `start_handlers`, and `user` are the properties available to
   this resource."
 actions_list:
-  :create:
-    markdown:
   :nothing:
     shortcode: resources_common_actions_nothing.md
+  :create:
+    markdown: Create a client.rb config file (default)
   :remove:
-    markdown:
+    markdown: Remove a client.rb config file
 properties_list:
 - property: additional_config
   ruby_type: String

@@ -21,10 +21,10 @@ syntax_full_properties_list:
 - "`action` identifies which steps Chef Infra Client will take to bring the node into
   the desired state."
 actions_list:
-  :break:
-    markdown:
   :nothing:
     shortcode: resources_common_actions_nothing.md
+  :break:
+    markdown: Add a breakpoint for use with chef-shell (default)
 properties_list: []
 examples: |
   **A recipe without a breakpoint**

@@ -25,18 +25,19 @@ syntax_full_properties_list:
 - "`link`, `link_name`, `path`, and `priority` are the properties available to this
   resource."
 actions_list:
-  :auto:
-    markdown:
-  :install:
-    markdown:
   :nothing:
     shortcode: resources_common_actions_nothing.md
-  :refresh:
-    markdown:
-  :remove:
-    markdown:
+  :install:
+    markdown: Install an alternative on the system including symlinks (default)
   :set:
-    markdown:
+    markdown: Set the symlink for an alternative
+  :remove:
+    markdown: Remove an alternative and all associated links
+  :auto:
+    markdown: Set an alternative up in automatic mode with the highest priority automatically
+      selected
+  :refresh:
+    markdown: Refresh alternatives
 properties_list:
 - property: link
   ruby_type: String

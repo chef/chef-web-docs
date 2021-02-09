@@ -43,10 +43,10 @@ syntax_full_properties_list:
   `mailto`, `minute`, `month`, `nice`, `splay`, `user`, and `weekday` are the properties
   available to this resource."
 actions_list:
-  :add:
-    markdown: Add a cron job to run Chef Infra Client
   :nothing:
     shortcode: resources_common_actions_nothing.md
+  :add:
+    markdown: Add a cron job to run Chef Infra Client (default)
   :remove:
     markdown: Remove a cron job for Chef Infra Client
 properties_list:
@@ -82,7 +82,7 @@ properties_list:
 - property: daemon_options
   ruby_type: Array
   required: false
-  default_value: []
+  default_value: Empty Array
   description_list:
   - markdown: An array of options to pass to the chef-client command.
 - property: day
@@ -95,7 +95,7 @@ properties_list:
 - property: environment
   ruby_type: Hash
   required: false
-  default_value: {}
+  default_value: Empty Hash
   description_list:
   - markdown: A Hash containing additional arbitrary environment variables under which
       the cron job will be run in the form of `({'ENV_VARIABLE' => 'VALUE'})`.
