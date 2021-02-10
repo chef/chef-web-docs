@@ -30,7 +30,7 @@ actions_list:
   :nothing:
     shortcode: resources_common_actions_nothing.md
   :create:
-    markdown: Creates the dfs namespace on the server
+    markdown: Creates the dfs namespace on the server (default)
   :delete:
     markdown: Deletes a DFS Namespace including the directory on disk
 properties_list:

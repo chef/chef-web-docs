@@ -27,7 +27,7 @@ actions_list:
   :nothing:
     shortcode: resources_common_actions_nothing.md
   :add:
-    markdown: Add a user privilege
+    markdown: Add a user privilege (default)
   :set:
     markdown: Set the privileges that are listed in the `privilege` property for only
       the users listed in the `users` property

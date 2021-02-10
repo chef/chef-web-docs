@@ -28,7 +28,7 @@ actions_list:
   :nothing:
     shortcode: resources_common_actions_nothing.md
   :create:
-    markdown: Creates and updates the DNS entry
+    markdown: Creates and updates the DNS entry (default)
   :delete:
     markdown: Deletes a DNS entry
 properties_list:

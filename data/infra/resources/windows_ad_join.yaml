@@ -33,7 +33,7 @@ actions_list:
   :nothing:
     shortcode: resources_common_actions_nothing.md
   :join:
-    markdown: Join the Active Directory domain
+    markdown: Join the Active Directory domain (default)
   :leave:
     markdown: Leave an Active Directory domain and re-join a workgroup
 properties_list:
@@ -48,8 +48,8 @@ properties_list:
   ruby_type: String
   required: true
   description_list:
-  - markdown: 'The password for the domain user. Note that this resource is set to
-      hide sensitive information by default. '
+  - markdown: The password for the domain user. Note that this resource is set to
+      hide sensitive information by default.
 - property: domain_user
   ruby_type: String
   required: true

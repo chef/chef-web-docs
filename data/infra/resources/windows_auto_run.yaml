@@ -27,7 +27,7 @@ actions_list:
   :nothing:
     shortcode: resources_common_actions_nothing.md
   :create:
-    markdown: Create an item to be run at login
+    markdown: Create an item to be run at login (default)
   :remove:
     markdown: Remove an item that was previously configured to run at login
 properties_list:

@@ -29,7 +29,7 @@ actions_list:
   :nothing:
     shortcode: resources_common_actions_nothing.md
   :create:
-    markdown: Create or modify a Windows shortcut
+    markdown: Create or modify a Windows shortcut (default)
 properties_list:
 - property: arguments
   ruby_type: String
