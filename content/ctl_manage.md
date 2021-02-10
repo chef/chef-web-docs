@@ -27,21 +27,6 @@ The Chef management console includes a command-line utility named
 cleanse (reset the Chef management console to initial configuration
 settings), and uninstall the Chef management console.
 
-## cleanse
-
-The `cleanse` subcommand is used to re-set the Chef management console
-to the state it was in prior to the first time the `reconfigure`
-subcommand is run. This command will destroy all data, configuration
-files, and logs. The software that was put on-disk by the package
-installation will remain; re-run `chef-manage-ctl reconfigure` to
-recreate the default data and configuration files.
-
-This subcommand has the following syntax:
-
-```bash
-chef-manage-ctl cleanse
-```
-
 ## help
 
 The `help` subcommand is used to print a list of all available
