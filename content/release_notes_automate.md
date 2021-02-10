@@ -1,5 +1,5 @@
 +++
-title = "Chef Automate: Version"
+title = "Chef Automate Release Notes"
 draft = false
 
 release_notes = "automate"
