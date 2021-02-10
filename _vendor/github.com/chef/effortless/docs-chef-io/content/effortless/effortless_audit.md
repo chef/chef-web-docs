@@ -1,6 +1,7 @@
 +++
 title = "Effortless Audit"
 draft = false
+gh_repo = "effortless"
 
 [menu]
   [menu.effortless]
@@ -10,25 +11,23 @@ draft = false
     weight = 20
 +++
 
-[\[edit on GitHub\]](https://github.com/chef/effortless/blob/master/docs-chef-io/content/effortless/effortless_audit.md)
-
 # Effortless Audit
 
-Effortless Audit is the pattern for managing your Chef InSpec profiles. It uses [Chef Habitat](https://www.habitat.sh/docs/) and [Chef InSpec](/inspec/) to build an artifact that contains your profiles and its dependencies alongside the scripts necessary to run them on your systems.
+Effortless Audit is the pattern for managing your Chef InSpec profiles. It uses [Chef Habitat]({{< relref "/habitat/" >}}) and [Chef InSpec]({{< relref "/inspec/" >}}) to build an artifact that contains your profiles and its dependencies alongside the scripts necessary to run them on your systems.
 
-Learn more about [Chef InSpec profiles](/inspec/profiles/).
+Learn more about [Chef InSpec profiles]({{< relref "/inspec/profiles" >}}).
 
 ## Effortless Environment Set-up
 
 1. Install [Chef Workstation](https://downloads.chef.io/chef-workstation)
-1. Install [Chef Habitat](https://www.habitat.sh/docs/install-habitat/)
+1. Install [Chef Habitat]({{< relref "/habitat/install_habitat" >}})
 1. Configure Chef Habitat on your workstation by running `hab setup`
 
 ## Patterns
 
 ### Wrapper Profile Pattern
 
-In Chef InSpec, a common pattern is to write a wrapper profile that depends on another profile. This pattern pulls profiles from a main profile source like the [Chef Automate Profile Store](https://automate.chef.io/docs/profiles/). See an [example of this pattern](https://github.com/chef/effortless/tree/master/examples/effortless_audit).
+In Chef InSpec, a common pattern is to write a wrapper profile that depends on another profile. This pattern pulls profiles from a main profile source like the [Chef Automate Profile Store]({{< relref "/automate/profiles" >}}). See an [example of this pattern](https://github.com/chef/effortless/tree/master/examples/effortless_audit).
 
 1. To use this pattern, navigate to your profile:
 
@@ -161,7 +160,7 @@ In Chef InSpec, a common pattern is to write a wrapper profile that depends on a
    kitchen converge base-centos
    ```
 
-   If you experience failures when running the profile, know that most basic virtual machines are not fully hardened to your security policies. If you want to fix the failures, look at [Chef Infra and the Effortless Config Pattern](effortless-config.md).
+   If you experience failures when running the profile, know that most basic virtual machines are not fully hardened to your security policies. If you want to fix the failures, look at [Chef Infra and the Effortless Config Pattern]({{< relref "effortless_config" >}}).
 
 1. When ready, delete the VM instance by running:
 

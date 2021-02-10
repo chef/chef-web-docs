@@ -31,18 +31,18 @@ syntax_full_properties_list:
 - "`cert_path`, `exportable`, `pfx_password`, `private_key_acl`, `source`, `store_name`,
   and `user_store` are the properties available to this resource."
 actions_list:
-  :acl_add:
-    markdown: Adds read-only entries to a certificate's private key ACL.
-  :create:
-    markdown: Creates or updates a certificate.
-  :delete:
-    markdown: Deletes a certificate.
-  :fetch:
-    markdown: Fetches a certificate.
   :nothing:
     shortcode: resources_common_actions_nothing.md
+  :create:
+    markdown: Creates or updates a certificate (default)
+  :acl_add:
+    markdown: Adds read-only entries to a certificate's private key ACL
+  :delete:
+    markdown: Deletes a certificate
+  :fetch:
+    markdown: Fetches a certificate
   :verify:
-    markdown: Verifies a certificate.
+    markdown: Verifies a certificate and logs the result
 properties_list:
 - property: cert_path
   ruby_type: String
@@ -89,7 +89,9 @@ properties_list:
   required: false
   default_value: 'false'
   description_list:
-  - markdown: Use the user store of the local machine store if set to false.
+  - markdown: Use the `CurrentUser` store instead of the default `LocalMachine` store.
+  - note:
+     - markdown: Prior to chef-client. 16.10 this property was ignored.
 examples: |
   **Add PFX cert to local machine personal store and grant accounts read-only access to private key**
 

@@ -34,13 +34,13 @@ syntax_full_properties_list:
   `key_proxy`, `keyserver`, `repo_name`, `trusted`, and `uri` are the properties available
   to this resource."
 actions_list:
-  :add:
-    markdown: Default. Creates a repository file at `/etc/apt/sources.list.d/` and
-      builds the repository listing.
   :nothing:
     shortcode: resources_common_actions_nothing.md
+  :add:
+    markdown: Creates a repository file at `/etc/apt/sources.list.d/` and builds the
+      repository listing (default)
   :remove:
-    markdown: Removes the repository listing.
+    markdown: Removes the repository listing
 properties_list:
 - property: arch
   ruby_type: String, false

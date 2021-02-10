@@ -24,12 +24,12 @@ syntax_full_properties_list:
 - "`args`, `path`, `program_name`, and `root` are the properties available to this
   resource."
 actions_list:
-  :create:
-    markdown: Create an item to be run at login.
   :nothing:
     shortcode: resources_common_actions_nothing.md
+  :create:
+    markdown: Create an item to be run at login (default)
   :remove:
-    markdown: Remover an item that was previously configured to run at login.
+    markdown: Remove an item that was previously configured to run at login
 properties_list:
 - property: args
   ruby_type: String

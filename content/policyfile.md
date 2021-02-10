@@ -382,10 +382,6 @@ Server, the `policy_groups` concept is not applicable. The value of
 
 {{% ctl_chef_export_syntax %}}
 
-#### Configuration Settings
-
-{{% ctl_chef_export_config %}}
-
 #### Options
 
 {{% ctl_chef_export_options %}}

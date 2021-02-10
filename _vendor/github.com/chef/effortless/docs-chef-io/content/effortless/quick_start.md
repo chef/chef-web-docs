@@ -1,6 +1,7 @@
 +++
 title = "Effortless Quick Start"
 draft = false
+gh_repo = "effortless"
 
 [menu]
   [menu.effortless]
@@ -10,8 +11,6 @@ draft = false
     weight = 10
 +++
 
-[\[edit on GitHub\]](https://github.com/chef/effortless/blob/master/docs-chef-io/content/effortless/quick_start.md)
-
 # Quick Start
 
 This is a quick guide on how to get started with Effortless.
@@ -19,7 +18,7 @@ This is a quick guide on how to get started with Effortless.
 ## Effortless Environment Set-up
 
 1. Install [Chef Workstation](https://downloads.chef.io/chef-workstation)
-1. Install [Chef Habitat](https://www.habitat.sh/docs/install-habitat/)
+1. Install [Chef Habitat]({{< relref "/habitat/install_habitat" >}})
 1. Configure Chef Habitat on your workstation by running `hab setup`
 1. Clone the [Chef Effortless GitHub Repository](https://github.com/chef/effortless)
 

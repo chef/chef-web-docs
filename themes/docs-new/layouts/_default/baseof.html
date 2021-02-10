@@ -42,7 +42,7 @@
     </div>
   </div>
 
-  {{ if or (and (ge (len $headers) 1) (ne .Params.toc false )) (isset .Params "release_notes") }}
+  {{ if or (and (ge (len $headers) 1) (ne .Params.toc false )) (isset .Params "release_notes") (.Params.version_docs_product) (.Params.toc_layout)}}
 
     <div class="off-canvas position-right toc off-canvas-absolute hide-for-large hide-for-print" id="offCanvasRightTOC" data-off-canvas
       data-transition="overlap">

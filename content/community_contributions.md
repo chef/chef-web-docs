@@ -247,7 +247,7 @@ message. For example:
 ```bash
 ------------------------------------------------------------------------
 commit 370adb3f82d55d912b0cf9c1d1e99b132a8ed3b5
-Author: Julia Child <juliachild@chef.io>
+Author: Haris Shefu <hshefu@example.com>
 Date:   Wed Sep 18 11:44:40 2015 -0700
 
   Fix typo in the README.

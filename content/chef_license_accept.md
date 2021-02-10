@@ -24,7 +24,7 @@ contract with Chef Software, and the EULA covers all other cases.
 
 There are three ways to accept the Chef MLSA:
 
-1.  When running `chef-<PRODUCT-NAME>-ctl reconfigure` the Chef MLSA is
+1. When running `chef-<PRODUCT-NAME>-ctl reconfigure` the Chef MLSA is
     printed. Type `yes` to accept it. Anything other than typing `yes`
     rejects the Chef MLSA, and the upgrade process will exit. Typing
     `yes` adds a `.license.accepted` file to the
@@ -50,8 +50,8 @@ Versions](/versions/) documentation.
 ### Workstation Products
 
 - Chef Workstation \>= 0.4, which also contains:
-  -   Chef Infra Client
-  -   Chef InSpec
+  - Chef Infra Client
+  - Chef InSpec
 - Chef Infra Client \>= 15.0
 - Chef InSpec \>= 4.0
 - Chef Habitat \>= 0.80
@@ -141,7 +141,7 @@ at `$HOME/.hab/accepted-licenses/habitat` (if your hab commands run as a
 user other than root). For situations where hab commands run as multiple
 users, it is advisable to create both files.
 
-**Errors**
+#### Errors
 
 If the Chef Habitat License prompt cannot be displayed, then the product
 fails with an exit code 172. If Chef Habitat cannot persist the accepted
@@ -149,7 +149,7 @@ license, it sends a message STDOUT, but the product invocation will
 continue successfully. In a future invocation, however, the user will
 need to accept the license again.
 
-**Chef as Habitat packages**
+#### Chef as Habitat packages
 
 Chef Software products are also distributed as Habitat packages, such as
 Chef Infra Client, Chef InSpec, etc. When Chef products are installed as
@@ -198,8 +198,8 @@ allow interactivity. Instead, the license is accepted during the
 `reconfigure` command or `upgrade` command for the Omnibus ctl command.
 For example:
 
--   `chef-server-ctl reconfigure --chef-license=accept`
--   `CHEF_LICENSE="accept-no-persist" supermarket-ctl reconfigure`
+- `chef-server-ctl reconfigure --chef-license=accept`
+- `CHEF_LICENSE="accept-no-persist" supermarket-ctl reconfigure`
 
 In addition, the Chef license can be accepted via the omnibus
 configuration file. Specify `chef_license 'accept'` in the
@@ -234,13 +234,12 @@ group.
 
 ### Remote Management Products
 
--   Test Kitchen
--   `knife bootstrap` in Chef Infra Client
--   `chef-run` in Chef Workstation
--   Packer
--   Terraform Chef Provisioner
--   Terraform Habitat Provisioner
--   Vagrant
+- Test Kitchen
+- `knife bootstrap` in Chef Infra Client
+- `chef-run` in Chef Workstation
+- Packer
+- Terraform Chef Provider (Deprecated)
+- Vagrant
 
 These products install or manage Chef on a remote instance. If a user
 has accepted the appropriate product license locally, it will be
@@ -279,7 +278,7 @@ license in a similar way to the Chef Infra Client license - specify the
 under the verifier section in `kitchen.yml` or persist the acceptance
 locally.
 
-**Pin to Chef 14**
+##### Test Kitchen: Pin to Chef 14
 
 You can pin to a specific version of chef in your kitchen.yml:
 
@@ -304,7 +303,7 @@ installs Chef Workstation and the first command they ever run is
 `knife bootstrap`, it will perform the same license acceptance flow as
 the Chef Infra Client product.
 
-**`knife bootstrap` in Chef Client 14**
+##### `knife bootstrap` in Chef Client 14
 
 The `knife bootstrap` command in Chef Client 14 cannot accept the Chef
 Infra Client 15 EULA on remote nodes unless you use a [custom
@@ -313,7 +312,7 @@ and add chef_license "accept" to the client.rb. This applies to
 workstations who have Chef Infra Client \<= 14.x, ChefDK \<= 3.x or Chef
 Workstation \<= 0.3 installed.
 
-**Pin to Chef 14**
+##### `knife bootstrap`: Pin to Chef 14
 
 Specify the following argument:
 
@@ -362,7 +361,7 @@ You may also add it to the
 [execute_command](https://www.packer.io/docs/provisioners/chef-client.html#execute_command),
 but this is not backwards-compatible, so it is not suggested.
 
-**Pin to Chef 14**
+##### Packer: Pin to Chef 14
 
 In your [Packer provisioners
 config](https://www.packer.io/docs/provisioners/chef-client.html#install_command),
@@ -377,6 +376,10 @@ include:
 
 #### Terraform Chef Provisioner
 
+{{< warning >}}
+Terraform deprecated the Chef Provisioner in the [0.13.4](https://www.terraform.io/docs/language/resources/provisioners/chef.html) release and they will remove it in a future version. Terraform continues to support the Chef Provider.
+{{< /warning >}}
+
 The license can be accepted via the Chef Infra Client config file, which
 is specified by the `client_options` [Terraform provisioner
 config](https://www.terraform.io/docs/provisioners/chef.html#client_options-array-):
@@ -387,7 +390,7 @@ provisioner "chef" {
 }
 ```
 
-**Pin to Chef 14**
+##### Terraform: Pin to Chef 14
 
 In your [Terraform provisioner
 config](https://www.terraform.io/docs/provisioners/chef.html#version-string-),
@@ -408,7 +411,7 @@ will be updated in the near future once the provisioner is updated with
 options to accept license. For the time being, the provisioner can be
 pinned to a prior Habitat version as below.
 
-**Pin to Chef Habitat 0.79**
+##### Terraform: Pin to Chef Habitat 0.79
 
 In your [Terraform provisioner
 config](https://www.terraform.io/docs/provisioners/habitat.html#version-string-),
@@ -439,7 +442,7 @@ path](https://www.vagrantup.com/docs/provisioning/chef_common.html#custom_config
 and point at a local file, which specifies the `chef_license` config.
 The environment variable is not currently supported.
 
-**Pin to Chef 14**
+##### Vagrant: Pin to Chef 14
 
 This version pinning can be done via the [version
 API](https://www.vagrantup.com/docs/provisioning/chef_common.html#version).

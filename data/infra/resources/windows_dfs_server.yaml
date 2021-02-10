@@ -25,10 +25,10 @@ syntax_full_properties_list:
 - "`enable_site_costed_referrals`, `ldap_timeout_secs`, `prefer_login_dc`, `sync_interval_secs`,
   and `use_fqdn` are the properties available to this resource."
 actions_list:
-  :configure:
-    markdown: Configure DFS settings
   :nothing:
     shortcode: resources_common_actions_nothing.md
+  :configure:
+    markdown: Configure DFS settings (default)
 properties_list:
 - property: enable_site_costed_referrals
   ruby_type: true, false

@@ -26,9 +26,9 @@ actions_list:
     shortcode: resources_common_actions_nothing.md
   :periodic:
     markdown: Update the Apt repository at the interval specified by the `frequency`
-      property.
+      property (default)
   :update:
-    markdown: Update the Apt repository at the start of a Chef Infra Client run.
+    markdown: Update the Apt repository at the start of a Chef Infra Client run
 properties_list:
 - property: frequency
   ruby_type: Integer

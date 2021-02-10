@@ -1,6 +1,7 @@
 +++
 title = "Effortless Overview"
 draft = false
+gh_repo = "effortless"
 
 [menu]
   [menu.effortless]
@@ -9,8 +10,6 @@ draft = false
     parent = "effortless"
     weight = 10
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/effortless/blob/master/docs-chef-io/content/effortless/_index.md)
 
 # Welcome to the Chef Effortless Patterns
 
@@ -26,7 +25,7 @@ If you use Chef Infra or Chef InSpec to manage your operating system configs, yo
   * Effortless does not support situations that require a Chef Infra Server. For example, if you use search in your cookbooks, or use `chef vault` for secrets management, then Effortless will not work for those cookbooks
   * If you have complex applications, you should deploy them with Chef Habitat as it has more features that better support complex applications
 
-* If you have a bunch of nested cookbooks or Policyfiles in a complex [Chef Roles](https://docs.chef.io/roles/) and [Chef Environments](https://docs.chef.io/environments/) setup, you may not want to move to Effortless.
+* If you have a bunch of nested cookbooks or Policyfiles in a complex [Chef Roles]({{< relref "/roles" >}}) and [Chef Environments]({{< relref "/environments" >}}) setup, you may not want to move to Effortless.
   * When you have a base cookbook and a bunch of Applications cookbooks dependent on that base cookbook, managing the build graph can become difficult because a change to the base cookbook will require a build to all the application cookbooks. Effortless in this situation can quickly become difficult to manage.
 
 ## Purpose

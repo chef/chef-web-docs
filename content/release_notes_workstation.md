@@ -1,5 +1,5 @@
 +++
-title = "Chef Workstation: Version"
+title = "Chef Workstation Release Notes"
 draft = false
 release_notes = "chef-workstation"
 

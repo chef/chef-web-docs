@@ -9,30 +9,6 @@ $.urlParam = function(name){
   }
 }
 
-// return formal product name
-function chefProductConverter(chefProductLower){
-  if (chefProductLower === 'inspec'){
-    return 'Chef InSpec'
-  } else if (chefProductLower === 'chef-workstation') {
-    return 'Chef Workstation'
-  } else if (chefProductLower === 'chef-server'){
-    return 'Chef Infra Server'
-  } else if (chefProductLower === 'chef'){
-    return 'Chef Infra Client'
-  } else if (chefProductLower === 'chefdk'){
-    return 'ChefDK'
-  } else if (chefProductLower === 'chef-backend') {
-    return 'Chef Backend'
-  } else if (chefProductLower === 'push-jobs-client') {
-    return 'Push Jobs Client'
-  } else if (chefProductLower === 'push-jobs-server') {
-    return 'Push Jobs Server'
-  } else {
-    var capName = 'Chef ' + chefProductLower.charAt(0).toUpperCase() + chefProductLower.slice(1)
-    return capName
-  }
-}
-
 // Find the index for the object
 function findWithAttr(array, attr, value, product) {
   if (product === 'automate'){
@@ -54,8 +30,6 @@ function findWithAttr(array, attr, value, product) {
 // Load the Release Notes into the page
 function loadReleaseNotesContents(releases, version, product) {
 
-  var productConverted = chefProductConverter(product)
-
   if ( version == null ) {
     var index = releases.length - 1;
   } else {
@@ -72,12 +46,12 @@ function loadReleaseNotesContents(releases, version, product) {
       var friendlyDate = new Date(releases[index]["release_date"]);
       var options = { year: 'numeric', month: 'long', day: 'numeric' };
 
-      $(".col-content").html(html);
-      $(".col-content").prepend("<p><i>Released on " + friendlyDate.toLocaleString('en-US', options) + "</i></p>");
-      $(".col-content").prepend(pageTOCButton)
+      $(".prose").html(html);
+      $(".prose").prepend("<p><i>Released on " + friendlyDate.toLocaleString('en-US', options) + "</i></p>");
+      $(".prose").prepend(pageTOCButton)
 
 
-      $(".col-content").prepend("<h1>" + productConverted + ": Version " + releases[index]["version"] + "</h1>");
+      $(".prose").prepend('<p class="release-notes-version">Version: ' + releases[index]["version"] + "</p>");
     });
   }
   else {
@@ -87,13 +61,13 @@ function loadReleaseNotesContents(releases, version, product) {
     $.get(releaseNoteURL, function(rawReleaseNotes) {
       var html = converter.makeHtml(rawReleaseNotes);
 
-      $(".col-content").html(html);
-      $(".col-content").prepend(pageTOCButton)
-      $(".col-content").prepend("<h1>" + productConverted + ": Version " + releases[index] + "</h1>");
+      $(".prose").html(html);
+      $(".prose").prepend(pageTOCButton)
+      $(".prose").prepend('<p class="release-notes-version">Version: ' + releases[index] + "</p>");
     }).fail( function() {
-      $(".col-content").html("<p>This release does not have any release notes.</p>");
-      $(".col-content").prepend(pageTOCButton)
-      $(".col-content").prepend("<h1>" + productConverted + ": Version " + releases[index] + "</h1>");
+      $(".prose").html("<p>This release does not have any release notes.</p>");
+      $(".prose").prepend(pageTOCButton)
+      $(".prose").prepend('<p class="release-notes-version">Version: ' + releases[index] + "</p>");
     });
   }
 }
