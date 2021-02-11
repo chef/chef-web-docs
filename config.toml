@@ -984,13 +984,6 @@ identifier = "chef_workstation"
     weight = 70
 
     [[menu.workstation]]
-    title = "Delivery CLI"
-    identifier = "chef_workstation/chef_workstation_tools/delivery_cli.md Delivery CLI"
-    parent = "chef_workstation/chef_workstation_tools"
-    url = "/delivery_cli/"
-    weight = 100
-
-    [[menu.workstation]]
     title = "Test Kitchen"
     identifier = "chef_workstation/chef_workstation_tools/test_kitchen"
     parent = "chef_workstation/chef_workstation_tools"

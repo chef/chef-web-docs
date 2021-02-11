@@ -3726,7 +3726,7 @@ For more information about Amazon Elastic Block Store (EBS), see
 <http://aws.amazon.com/ebs/>.
 
 View the topic [High Availability: Backend
-Cluster](/install_server_ha/) for more information about how to set
+Cluster](/server/install_server_ha/) for more information about how to set
 up the Chef server for high availability in Amazon Web Services (AWS).
 
 ### Chef Replication

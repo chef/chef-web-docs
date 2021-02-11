@@ -312,7 +312,7 @@
           {{ if index . "resource_reference" }}
 
             <h2 id="{{ anchorize (print ( index . "resource" ) "-resource")}}">{{ index . "resource" }} resource</h2>
-            <a href="{{ print (index . "resource" ) "/" }}">{{ index . "resource" }} resource page</a>
+            <a href="/resources/{{ print (index . "resource" ) "/" }}">{{ index . "resource" }} resource page</a>
 
             <hr>
 

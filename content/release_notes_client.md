@@ -13050,7 +13050,7 @@ previous versions. The short version:
 -   **New encrypted a version 3** Format utilizes aes-256-gcm ciphers
     for enhanced security.
 
-Please [view the notes](/upgrade_client_notes/) for more background
+Please view the notes for more background
 on the upgrade process from chef-client 11 to chef-client 12.
 
 ### Change Attributes
