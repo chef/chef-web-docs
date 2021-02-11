@@ -5,10 +5,10 @@ github.com/chef/automate/components/docs-chef-io v0.0.0-20210129161106-3b5a3ab50
 github.com/chef/automate/components/docs-chef-io v0.0.0-20210129161106-3b5a3ab507b3/go.mod h1:juvLC7Rt33YOCgJ5nnfl4rWZRAbSwqjTbWmcAoA0LtU=
 github.com/chef/chef-server/docs-chef-io v0.0.0-20210111145116-cec7cf7e63da h1:3W8cMBP+LBolm4FFDA8U+bX5zHtHIoIfSeyDMEVrfic=
 github.com/chef/chef-server/docs-chef-io v0.0.0-20210111145116-cec7cf7e63da/go.mod h1:gMSa25GUHmLimA0gjvRd3hs1buOBqkKPrdHzHvaJauY=
-github.com/chef/chef-workstation v0.0.0-20210208215854-5868ce1261a9 h1:IRr5JX7m7fhWRtgB0ENtkNmlI4IJP510YimrTgrcs68=
-github.com/chef/chef-workstation v0.0.0-20210208215854-5868ce1261a9/go.mod h1:KZ1lmUGHzTKhRuHdDhB/I2ZEbet++4OTuABWlYb9MlQ=
-github.com/chef/chef-workstation/docs-chef-io v0.0.0-20210208215854-5868ce1261a9 h1:zmhVpQ6wf414P/8Ke+T9FfbrdtCD8LJg9r+1Ck5+2hk=
-github.com/chef/chef-workstation/docs-chef-io v0.0.0-20210208215854-5868ce1261a9/go.mod h1:gvoh6ov1YU98CVzBEWzEZeCLTRunfQ6r1VO7M3LFE9U=
+github.com/chef/chef-workstation v0.0.0-20210211000243-6ae3672edaf4 h1:yGTrFin4y6mSaapbKxLRMh/909FO6I7GsBf0q6LKuFg=
+github.com/chef/chef-workstation v0.0.0-20210211000243-6ae3672edaf4/go.mod h1:KZ1lmUGHzTKhRuHdDhB/I2ZEbet++4OTuABWlYb9MlQ=
+github.com/chef/chef-workstation/docs-chef-io v0.0.0-20210211000243-6ae3672edaf4 h1:mbA+IFzWFaY9ktHVHTXU9aqk9zNoWJCAcW5IMk6JIrw=
+github.com/chef/chef-workstation/docs-chef-io v0.0.0-20210211000243-6ae3672edaf4/go.mod h1:gvoh6ov1YU98CVzBEWzEZeCLTRunfQ6r1VO7M3LFE9U=
 github.com/chef/desktop-config/docs-chef-io v0.0.0-20210112020121-58047a6a6d6f h1:kS8U0K/HLRw+T8sqN4NfngUHWWBTTdE4CTF8FbHr03Q=
 github.com/chef/desktop-config/docs-chef-io v0.0.0-20210112020121-58047a6a6d6f/go.mod h1:90xAx6sIfgSL50M2KzeBmx7V7s7dlhQU3xpUkJO0qW0=
 github.com/chef/effortless/docs-chef-io v0.0.0-20200930175149-51c187882fba h1:71JD3SIc9HWmbokoxw6vI9XTtcbi10PxKhKrhKonYZ0=
