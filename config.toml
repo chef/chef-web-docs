@@ -1001,43 +1001,43 @@ identifier = "chef_workstation"
     weight = 90
 
       [[menu.workstation]]
-      title = "Chef/Correctness"
+      title = "Correctness Cops"
       identifier = "chef_workstation/chef_workstation_tools/cookstyle/Cops Chef/Correctness"
       parent = "chef_workstation/chef_workstation_tools/cookstyle"
       url = "/workstation/cookstyle/cops/#chefcorrectness"
 
       [[menu.workstation]]
-      title = "Chef/Deprecations"
+      title = "Deprecation Cops"
       identifier = "chef_workstation/chef_workstation_tools/cookstyle/Cops Chef/Deprecations"
       parent = "chef_workstation/chef_workstation_tools/cookstyle"
       url = "/workstation/cookstyle/cops/#chefdeprecations"
 
       [[menu.workstation]]
-      title = "Chef/Effortless"
+      title = "Effortless Cops"
       identifier = "chef_workstation/chef_workstation_tools/cookstyle/Cops Chef/Effortless"
       parent = "chef_workstation/chef_workstation_tools/cookstyle"
       url = "/workstation/cookstyle/cops/#chefeffortless"
 
       [[menu.workstation]]
-      title = "Chef/Modernize"
+      title = "Modernization Cops"
       identifier = "chef_workstation/chef_workstation_tools/cookstyle/Cops Chef/Modernize"
       parent = "chef_workstation/chef_workstation_tools/cookstyle"
       url = "/workstation/cookstyle/cops/#chefmodernize"
 
       [[menu.workstation]]
-      title = "Chef/RedundantCode"
+      title = "Redundant Code Cops"
       identifier = "chef_workstation/chef_workstation_tools/cookstyle/Cops Chef/RedundantCode"
       parent = "chef_workstation/chef_workstation_tools/cookstyle"
       url = "/workstation/cookstyle/cops/#chefredundantcode"
 
       [[menu.workstation]]
-      title = "Chef/Sharing"
+      title = "Sharing Cops"
       identifier = "chef_workstation/chef_workstation_tools/cookstyle/Cops Chef/Sharing"
       parent = "chef_workstation/chef_workstation_tools/cookstyle"
       url = "/workstation/cookstyle/cops/#chefsharing"
 
       [[menu.workstation]]
-      title = "Chef/Style"
+      title = "Style Cop"
       identifier = "chef_workstation/chef_workstation_tools/cookstyle/Cops Chef/Style"
       parent = "chef_workstation/chef_workstation_tools/cookstyle"
       url = "/workstation/cookstyle/cops/#chefstyle"
