@@ -1,5 +1,6 @@
 ---
-name: Chef/Modernize/SimplifyAptPpaSetup
+short_name: SimplifyAptPpaSetup
+full_name: Chef/Modernize/SimplifyAptPpaSetup
 department: Chef/Modernize
 description: The apt_repository resource allows setting up PPAs without using the
   full URL to ppa.launchpad.net, which should be used to simplify the resource code
@@ -32,7 +33,6 @@ examples: |2-
 version_added: 5.21.0
 enabled: true
 excluded_file_paths:
-- "/workspace/chef-cookstyle-master/**/metadata.rb"
-- "/workspace/chef-cookstyle-master/**/attributes/*.rb"
-- "/workspace/chef-cookstyle-master/**/Berksfile"
-included_file_paths: 
+- "**/metadata.rb"
+- "**/attributes/*.rb"
+- "**/Berksfile"

@@ -1,5 +1,6 @@
 ---
-name: Chef/Deprecations/LibrarianChefSpec
+short_name: LibrarianChefSpec
+full_name: Chef/Deprecations/LibrarianChefSpec
 department: Chef/Deprecations
 description: The Librarian-Chef depsolving project is no longer maintained and a Cheffile
   should not be used for cookbook depsolving. Consider using Policyfiles instead.
@@ -14,6 +15,5 @@ examples: |2-
   ```
 version_added: 7.1.0
 enabled: true
-excluded_file_paths: 
 included_file_paths:
 - "**/specs/*.rb"

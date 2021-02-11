@@ -1,5 +1,6 @@
 ---
-name: Chef/Modernize/UseBuildEssentialResource
+short_name: UseBuildEssentialResource
+full_name: Chef/Modernize/UseBuildEssentialResource
 department: Chef/Modernize
 description: Use the build_essential resource from the build-essential cookbook 5.0+
   or Chef Infra Client 14+ instead of using the build-essential::default recipe.
@@ -23,5 +24,4 @@ examples: |2-
 version_added: 5.1.0
 enabled: true
 excluded_file_paths:
-- "/workspace/chef-cookstyle-master/**/metadata.rb"
-included_file_paths: 
+- "**/metadata.rb"

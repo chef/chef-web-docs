@@ -1,5 +1,6 @@
 ---
-name: Chef/Deprecations/NodeSet
+short_name: NodeSet
+full_name: Chef/Deprecations/NodeSet
 department: Chef/Deprecations
 description: |-
   The `node.set` method has been removed in Chef Infra Client 13 and usage must be replaced with `node.normal`.
@@ -23,6 +24,5 @@ examples: |2-
 version_added: 5.0.0
 enabled: true
 excluded_file_paths:
-- "/workspace/chef-cookstyle-master/**/metadata.rb"
-- "/workspace/chef-cookstyle-master/**/Berksfile"
-included_file_paths: 
+- "**/metadata.rb"
+- "**/Berksfile"

@@ -1,5 +1,6 @@
 ---
-name: Chef/RedundantCode/UnnecessaryDesiredState
+short_name: UnnecessaryDesiredState
+full_name: Chef/RedundantCode/UnnecessaryDesiredState
 department: Chef/RedundantCode
 description: 'There is no need to set a property/attribute to desired_state: true
   as all properties/attributes have a desired_state of true by default.'
@@ -22,7 +23,6 @@ examples: |2-
   ```
 version_added: 5.16.0
 enabled: true
-excluded_file_paths: 
 included_file_paths:
 - "**/resources/*.rb"
 - "**/libraries/*.rb"

@@ -1,5 +1,6 @@
 ---
-name: Chef/Effortless/DependsChefVault
+short_name: DependsChefVault
+full_name: Chef/Effortless/DependsChefVault
 department: Chef/Effortless
 description: Chef Vault is not supported in the Effortless pattern, so usage of Chef
   Vault must be shifted to another secrets management solution before leveraging the
@@ -15,6 +16,5 @@ examples: |2-
   ```
 version_added: '6.19'
 enabled: false
-excluded_file_paths: 
 included_file_paths:
 - "**/metadata.rb"

@@ -1,5 +1,6 @@
 ---
-name: Chef/Modernize/CronDFileOrTemplate
+short_name: CronDFileOrTemplate
+full_name: Chef/Modernize/CronDFileOrTemplate
 department: Chef/Modernize
 description: Use the cron_d resource that ships with Chef Infra Client 14.4+ instead
   of manually creating the file with template, file, or cookbook_file resources.
@@ -52,7 +53,6 @@ examples: |2-
 version_added: 6.13.0
 enabled: true
 excluded_file_paths:
-- "/workspace/chef-cookstyle-master/**/metadata.rb"
-- "/workspace/chef-cookstyle-master/**/Berksfile"
-- "/workspace/chef-cookstyle-master/**/attributes/*.rb"
-included_file_paths: 
+- "**/metadata.rb"
+- "**/Berksfile"
+- "**/attributes/*.rb"

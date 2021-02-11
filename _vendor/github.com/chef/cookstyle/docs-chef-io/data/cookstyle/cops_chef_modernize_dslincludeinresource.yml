@@ -1,5 +1,6 @@
 ---
-name: Chef/Modernize/DslIncludeInResource
+short_name: DslIncludeInResource
+full_name: Chef/Modernize/DslIncludeInResource
 department: Chef/Modernize
 description: Chef Infra Client 12.4+ includes the Chef::DSL::Recipe in the resource
   and provider classed by default so there is no need to include this DSL in your
@@ -16,7 +17,6 @@ examples: |2-
   ```
 version_added: 5.17.0
 enabled: true
-excluded_file_paths: 
 included_file_paths:
 - "**/resources/*.rb"
 - "**/providers/*.rb"

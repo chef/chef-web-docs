@@ -1,5 +1,6 @@
 ---
-name: Chef/Style/FileMode
+short_name: FileMode
+full_name: Chef/Style/FileMode
 department: Chef/Style
 description: Use strings to represent file modes to avoid confusion between octal
   and base 10 integer formats.
@@ -43,7 +44,6 @@ examples: |2-
 version_added: 5.0.0
 enabled: true
 excluded_file_paths:
-- "/workspace/chef-cookstyle-master/**/attributes/*"
-- "/workspace/chef-cookstyle-master/**/metadata.rb"
-- "/workspace/chef-cookstyle-master/**/Berksfile"
-included_file_paths: 
+- "**/attributes/*"
+- "**/metadata.rb"
+- "**/Berksfile"

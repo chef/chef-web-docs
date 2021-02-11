@@ -1,5 +1,6 @@
 ---
-name: Chef/Deprecations/DeprecatedChefSpecPlatform
+short_name: DeprecatedChefSpecPlatform
+full_name: Chef/Deprecations/DeprecatedChefSpecPlatform
 department: Chef/Deprecations
 description: Use currently supported platforms in ChefSpec listed at https://github.com/chefspec/fauxhai/blob/master/PLATFORMS.md.
   Fauxhai / ChefSpec will perform fuzzy matching on platform version so it's always
@@ -12,6 +13,5 @@ examples: |2-
   ```
 version_added: 5.20.0
 enabled: true
-excluded_file_paths: 
 included_file_paths:
 - "**/spec/**/*.rb"

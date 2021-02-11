@@ -1,5 +1,6 @@
 ---
-name: Chef/Deprecations/PartialSearchClassUsage
+short_name: PartialSearchClassUsage
+full_name: Chef/Deprecations/PartialSearchClassUsage
 department: Chef/Deprecations
 description: Legacy Chef::PartialSearch class usage should be updated to use the `search`
   helper instead with the `filter_result` key.
@@ -39,5 +40,4 @@ examples: |2-
 version_added: 5.11.0
 enabled: true
 excluded_file_paths:
-- "/workspace/chef-cookstyle-master/**/metadata.rb"
-included_file_paths: 
+- "**/metadata.rb"

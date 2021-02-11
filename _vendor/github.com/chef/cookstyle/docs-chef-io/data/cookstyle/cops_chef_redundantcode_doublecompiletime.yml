@@ -1,5 +1,6 @@
 ---
-name: Chef/RedundantCode/DoubleCompileTime
+short_name: DoubleCompileTime
+full_name: Chef/RedundantCode/DoubleCompileTime
 department: Chef/RedundantCode
 description: If a resource includes the `compile_time` property there's no need to
   also use `.run_action(:some_action)` on the resource block
@@ -27,7 +28,6 @@ examples: |2-
 version_added: 6.13.0
 enabled: true
 excluded_file_paths:
-- "/workspace/chef-cookstyle-master/**/metadata.rb"
-- "/workspace/chef-cookstyle-master/**/attributes/*.rb"
-- "/workspace/chef-cookstyle-master/**/Berksfile"
-included_file_paths: 
+- "**/metadata.rb"
+- "**/attributes/*.rb"
+- "**/Berksfile"

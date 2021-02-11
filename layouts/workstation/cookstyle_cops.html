@@ -3,11 +3,7 @@
   <main id="main-content-col" tabindex="-1">
     <div class="col-content">
 
-
-    {{ $yaml_file := index $.Site.Data .Params.data_path }}
-    {{ with $yaml_file }}
-
-      <h1 id="{{ anchorize ( .Title )}}">{{ .name }}</h1>
+      <h1 id="{{ anchorize ( .Title )}}">{{ .Title }}</h1>
 
       <button type="button" class="TOC-button hide-for-large" data-toggle="offCanvasRightTOC"
         data-close="left-nav-off-canvas">
@@ -16,13 +12,18 @@
 
       <div class="prose">
 
-      
-
       <p>
         <a href="/workstation/cookstyle/cops/">All Cookstyle Cops</a>
       </p>
+      <br>
+      {{ $yaml_file := index $.Site.Data .Params.data_path }}
+      {{ with $yaml_file }}
 
-      
+        <p>
+          The full name of the cop is: <code>{{ .full_name }}</code>
+        </p>
+        <br>
+
         <p>
           <table style="width:80%">
             <tr>
@@ -74,7 +75,7 @@
             <td style="text-align: center">Array</td>
         </table>
 
-    {{ end }}
+      {{ end }}
 
     </div>
     {{ partialCached "feedback" . }}

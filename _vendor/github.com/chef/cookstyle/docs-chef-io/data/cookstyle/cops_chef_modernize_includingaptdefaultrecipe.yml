@@ -1,5 +1,6 @@
 ---
-name: Chef/Modernize/IncludingAptDefaultRecipe
+short_name: IncludingAptDefaultRecipe
+full_name: Chef/Modernize/IncludingAptDefaultRecipe
 department: Chef/Modernize
 description: For many users the apt::default cookbook is used only to update apt's
   package cache. Chef Infra Client 12.7 and later include an apt_update resource which
@@ -25,5 +26,4 @@ examples: |2-
 version_added: 5.3.0
 enabled: true
 excluded_file_paths:
-- "/workspace/chef-cookstyle-master/**/metadata.rb"
-included_file_paths: 
+- "**/metadata.rb"

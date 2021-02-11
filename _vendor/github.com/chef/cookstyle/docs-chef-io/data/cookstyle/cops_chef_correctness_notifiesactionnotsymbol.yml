@@ -1,5 +1,6 @@
 ---
-name: Chef/Correctness/NotifiesActionNotSymbol
+short_name: NotifiesActionNotSymbol
+full_name: Chef/Correctness/NotifiesActionNotSymbol
 department: Chef/Correctness
 description: When notifying or subscribing an action within a resource the action
   should always be a symbol. In Chef Infra Client releases before 14.0 this may result
@@ -34,7 +35,6 @@ examples: |2-
 version_added: 5.10.0
 enabled: true
 excluded_file_paths:
-- "/workspace/chef-cookstyle-master/**/attributes/*.rb"
-- "/workspace/chef-cookstyle-master/**/metadata.rb"
-- "/workspace/chef-cookstyle-master/**/Berksfile"
-included_file_paths: 
+- "**/attributes/*.rb"
+- "**/metadata.rb"
+- "**/Berksfile"

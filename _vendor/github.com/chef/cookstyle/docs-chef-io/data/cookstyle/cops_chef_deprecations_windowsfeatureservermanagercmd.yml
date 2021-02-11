@@ -1,5 +1,6 @@
 ---
-name: Chef/Deprecations/WindowsFeatureServermanagercmd
+short_name: WindowsFeatureServermanagercmd
+full_name: Chef/Deprecations/WindowsFeatureServermanagercmd
 department: Chef/Deprecations
 description: The `windows_feature` resource no longer supports setting the `install_method`
   to `:servermanagercmd`. `:windows_feature_dism` or `:windows_feature_powershell`
@@ -34,7 +35,6 @@ examples: |2-
 version_added: 5.22.0
 enabled: true
 excluded_file_paths:
-- "/workspace/chef-cookstyle-master/**/metadata.rb"
-- "/workspace/chef-cookstyle-master/**/attributes/*.rb"
-- "/workspace/chef-cookstyle-master/**/Berksfile"
-included_file_paths: 
+- "**/metadata.rb"
+- "**/attributes/*.rb"
+- "**/Berksfile"

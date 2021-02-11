@@ -1,5 +1,6 @@
 ---
-name: Chef/Deprecations/EasyInstallResource
+short_name: EasyInstallResource
+full_name: Chef/Deprecations/EasyInstallResource
 department: Chef/Deprecations
 description: Don't use the deprecated easy_install resource removed in Chef Infra
   Client 13
@@ -17,7 +18,6 @@ examples: |2-
 version_added: 5.1.0
 enabled: true
 excluded_file_paths:
-- "/workspace/chef-cookstyle-master/**/attributes/*.rb"
-- "/workspace/chef-cookstyle-master/**/metadata.rb"
-- "/workspace/chef-cookstyle-master/**/Berksfile"
-included_file_paths: 
+- "**/attributes/*.rb"
+- "**/metadata.rb"
+- "**/Berksfile"

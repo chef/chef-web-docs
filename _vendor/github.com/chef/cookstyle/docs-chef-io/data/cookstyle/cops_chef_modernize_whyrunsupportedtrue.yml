@@ -1,5 +1,6 @@
 ---
-name: Chef/Modernize/WhyRunSupportedTrue
+short_name: WhyRunSupportedTrue
+full_name: Chef/Modernize/WhyRunSupportedTrue
 department: Chef/Modernize
 description: whyrun_supported? no longer needs to be set to true as that is the default
   in Chef Infra Client 13+
@@ -16,7 +17,6 @@ examples: |2-
   ```
 version_added: 5.1.0
 enabled: true
-excluded_file_paths: 
 included_file_paths:
 - "**/resources/*.rb"
 - "**/providers/*.rb"

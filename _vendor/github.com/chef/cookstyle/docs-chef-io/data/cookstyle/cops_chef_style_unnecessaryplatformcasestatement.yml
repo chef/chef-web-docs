@@ -1,5 +1,6 @@
 ---
-name: Chef/Style/UnnecessaryPlatformCaseStatement
+short_name: UnnecessaryPlatformCaseStatement
+full_name: Chef/Style/UnnecessaryPlatformCaseStatement
 department: Chef/Style
 description: Use the platform?() and platform_family?() helpers instead of a case
   statement that only includes a single when statement.
@@ -35,6 +36,5 @@ examples: |2-
 version_added: 5.16.0
 enabled: true
 excluded_file_paths:
-- "/workspace/chef-cookstyle-master/**/metadata.rb"
-- "/workspace/chef-cookstyle-master/**/Berksfile"
-included_file_paths: 
+- "**/metadata.rb"
+- "**/Berksfile"

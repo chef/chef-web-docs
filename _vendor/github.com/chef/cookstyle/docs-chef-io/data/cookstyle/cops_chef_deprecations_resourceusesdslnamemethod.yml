@@ -1,5 +1,6 @@
 ---
-name: Chef/Deprecations/ResourceUsesDslNameMethod
+short_name: ResourceUsesDslNameMethod
+full_name: Chef/Deprecations/ResourceUsesDslNameMethod
 department: Chef/Deprecations
 description: Don't use the dsl_name method in a resource to find the name of the resource.
   Use the resource_name method instead. dsl_name was removed in Chef Infra Client
@@ -21,7 +22,6 @@ examples: |2-
   ```
 version_added: 5.7.0
 enabled: true
-excluded_file_paths: 
 included_file_paths:
 - "**/libraries/*.rb"
 - "**/providers/*.rb"

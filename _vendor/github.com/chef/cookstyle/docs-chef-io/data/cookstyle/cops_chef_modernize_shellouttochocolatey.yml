@@ -1,5 +1,6 @@
 ---
-name: Chef/Modernize/ShellOutToChocolatey
+short_name: ShellOutToChocolatey
+full_name: Chef/Modernize/ShellOutToChocolatey
 department: Chef/Modernize
 description: |-
   Use the Chocolatey resources built into Chef Infra Client instead of shelling out to the choco command
@@ -22,5 +23,4 @@ examples: |2-
 version_added: 5.5.0
 enabled: true
 excluded_file_paths:
-- "/workspace/chef-cookstyle-master/**/metadata.rb"
-included_file_paths: 
+- "**/metadata.rb"

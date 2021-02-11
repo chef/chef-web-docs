@@ -1,5 +1,6 @@
 ---
-name: Chef/Sharing/IncludePropertyDescriptions
+short_name: IncludePropertyDescriptions
+full_name: Chef/Sharing/IncludePropertyDescriptions
 department: Chef/Sharing
 description: Resource properties should include description fields to allow automated
   documentation. Requires Chef Infra Client 13.9 or later.
@@ -20,7 +21,6 @@ examples: |2-
   ```
 version_added: 6.1.0
 enabled: false
-excluded_file_paths: 
 included_file_paths:
 - "**/libraries/*.rb"
 - "**/resources/*.rb"

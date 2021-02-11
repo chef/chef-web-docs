@@ -1,5 +1,6 @@
 ---
-name: Chef/RedundantCode/StringPropertyWithNilDefault
+short_name: StringPropertyWithNilDefault
+full_name: Chef/RedundantCode/StringPropertyWithNilDefault
 department: Chef/RedundantCode
 description: Properties have a nil value by default so there is no need to set the
   default value to nil.
@@ -22,7 +23,6 @@ examples: |2-
   ```
 version_added: 5.21.0
 enabled: true
-excluded_file_paths: 
 included_file_paths:
 - "**/resources/*.rb"
 - "**/libraries/*.rb"

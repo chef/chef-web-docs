@@ -1,5 +1,6 @@
 ---
-name: Chef/Deprecations/UserDeprecatedSupportsProperty
+short_name: UserDeprecatedSupportsProperty
+full_name: Chef/Deprecations/UserDeprecatedSupportsProperty
 department: Chef/Deprecations
 description: The supports property was removed in Chef Infra Client 13 in favor of
   individual 'manage_home' and 'non_unique' properties.
@@ -33,5 +34,4 @@ examples: |2-
 version_added: 5.5.0
 enabled: true
 excluded_file_paths:
-- "/workspace/chef-cookstyle-master/**/metadata.rb"
-included_file_paths: 
+- "**/metadata.rb"

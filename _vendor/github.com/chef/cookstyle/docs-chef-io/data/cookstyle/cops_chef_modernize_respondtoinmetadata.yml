@@ -1,5 +1,6 @@
 ---
-name: Chef/Modernize/RespondToInMetadata
+short_name: RespondToInMetadata
+full_name: Chef/Modernize/RespondToInMetadata
 department: Chef/Modernize
 description: It is not longer necessary respond_to?(:foo) or defined?(foo) in metadata.
   This was used to support new metadata methods in Chef 11 and early versions of Chef
@@ -26,6 +27,5 @@ examples: |2-
   ```
 version_added: 5.2.0
 enabled: true
-excluded_file_paths: 
 included_file_paths:
 - "**/metadata.rb"

@@ -1,5 +1,6 @@
 ---
-name: Chef/RedundantCode/SensitivePropertyInResource
+short_name: SensitivePropertyInResource
+full_name: Chef/RedundantCode/SensitivePropertyInResource
 department: Chef/RedundantCode
 description: |-
   Every Chef Infra resource already includes a sensitive property with a default value of false.
@@ -11,7 +12,6 @@ target_chef_version: All Versions
 examples: 
 version_added: 5.16.0
 enabled: true
-excluded_file_paths: 
 included_file_paths:
 - "**/resources/*.rb"
 - "**/libraries/*.rb"

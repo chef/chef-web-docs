@@ -1,5 +1,6 @@
 ---
-name: Chef/Modernize/IncludingWindowsDefaultRecipe
+short_name: IncludingWindowsDefaultRecipe
+full_name: Chef/Modernize/IncludingWindowsDefaultRecipe
 department: Chef/Modernize
 description: Don't include the windows default recipe that is either full of gem install
   that are part of the Chef Infra Client, or empty (depends on version).
@@ -16,5 +17,4 @@ examples: |2-
 version_added: 5.3.0
 enabled: true
 excluded_file_paths:
-- "/workspace/chef-cookstyle-master/**/metadata.rb"
-included_file_paths: 
+- "**/metadata.rb"

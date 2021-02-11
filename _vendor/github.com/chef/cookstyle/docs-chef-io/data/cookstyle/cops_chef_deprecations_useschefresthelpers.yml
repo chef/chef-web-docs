@@ -1,5 +1,6 @@
 ---
-name: Chef/Deprecations/UsesChefRESTHelpers
+short_name: UsesChefRESTHelpers
+full_name: Chef/Deprecations/UsesChefRESTHelpers
 department: Chef/Deprecations
 description: Chef::REST was removed in Chef Infra Client 13.
 autocorrection: false
@@ -15,5 +16,4 @@ examples: |2-
 version_added: 5.5.0
 enabled: true
 excluded_file_paths:
-- "/workspace/chef-cookstyle-master/**/metadata.rb"
-included_file_paths: 
+- "**/metadata.rb"

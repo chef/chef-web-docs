@@ -1,5 +1,6 @@
 ---
-name: Chef/Style/AttributeKeys
+short_name: AttributeKeys
+full_name: Chef/Style/AttributeKeys
 department: Chef/Style
 description: |-
   Check which style of keys are used to access node attributes.
@@ -24,5 +25,4 @@ examples: |2-
 version_added: 5.0.0
 enabled: true
 excluded_file_paths:
-- "/workspace/chef-cookstyle-master/**/metadata.rb"
-included_file_paths: 
+- "**/metadata.rb"

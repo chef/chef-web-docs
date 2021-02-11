@@ -1,5 +1,6 @@
 ---
-name: Chef/RedundantCode/MultiplePlatformChecks
+short_name: MultiplePlatformChecks
+full_name: Chef/RedundantCode/MultiplePlatformChecks
 department: Chef/RedundantCode
 description: You can pass multiple values to the platform? and platform_family? helpers
   instead of calling the helpers multiple times.
@@ -23,6 +24,5 @@ examples: |2-
 version_added: 6.10.0
 enabled: true
 excluded_file_paths:
-- "/workspace/chef-cookstyle-master/**/metadata.rb"
-- "/workspace/chef-cookstyle-master/**/Berksfile"
-included_file_paths: 
+- "**/metadata.rb"
+- "**/Berksfile"

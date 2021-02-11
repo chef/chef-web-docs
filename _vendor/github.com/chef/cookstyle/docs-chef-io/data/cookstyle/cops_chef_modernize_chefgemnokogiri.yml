@@ -1,5 +1,6 @@
 ---
-name: Chef/Modernize/ChefGemNokogiri
+short_name: ChefGemNokogiri
+full_name: Chef/Modernize/ChefGemNokogiri
 department: Chef/Modernize
 description: The nokogiri gem ships in Chef Infra Client 12+ and does not need to
   be installed before being used
@@ -15,6 +16,5 @@ examples: |2-
 version_added: 5.14.0
 enabled: true
 excluded_file_paths:
-- "/workspace/chef-cookstyle-master/**/metadata.rb"
-- "/workspace/chef-cookstyle-master/**/attributes/*.rb"
-included_file_paths: 
+- "**/metadata.rb"
+- "**/attributes/*.rb"

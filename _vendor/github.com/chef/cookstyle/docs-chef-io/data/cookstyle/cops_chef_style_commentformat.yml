@@ -1,5 +1,6 @@
 ---
-name: Chef/Style/CommentFormat
+short_name: CommentFormat
+full_name: Chef/Style/CommentFormat
 department: Chef/Style
 description: Checks for incorrectly formatted headers
 autocorrection: true
@@ -30,5 +31,4 @@ examples: |2-
 version_added: 5.0.0
 enabled: true
 excluded_file_paths:
-- "/workspace/chef-cookstyle-master/**/Berksfile"
-included_file_paths: 
+- "**/Berksfile"

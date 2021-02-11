@@ -1,5 +1,6 @@
 ---
-name: Chef/RedundantCode/RecipeMetadata
+short_name: RecipeMetadata
+full_name: Chef/RedundantCode/RecipeMetadata
 department: Chef/RedundantCode
 description: The recipe metadata.rb method is not used and is unnecessary in cookbooks.
   Recipes should be documented in the cookbook's README.md file instead.
@@ -14,6 +15,5 @@ examples: |2-
   ```
 version_added: 5.6.0
 enabled: true
-excluded_file_paths: 
 included_file_paths:
 - "**/metadata.rb"

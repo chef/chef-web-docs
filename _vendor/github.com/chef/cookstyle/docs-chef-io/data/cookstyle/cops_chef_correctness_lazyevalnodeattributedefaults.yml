@@ -1,5 +1,6 @@
 ---
-name: Chef/Correctness/LazyEvalNodeAttributeDefaults
+short_name: LazyEvalNodeAttributeDefaults
+full_name: Chef/Correctness/LazyEvalNodeAttributeDefaults
 department: Chef/Correctness
 description: When setting a node attribute as the default value for a custom resource
   property, wrap the node attribute in `lazy {}` so that its value is available when
@@ -21,7 +22,6 @@ examples: |2-
   ```
 version_added: 6.6.0
 enabled: true
-excluded_file_paths: 
 included_file_paths:
 - "**/libraries/*.rb"
 - "**/resources/*.rb"

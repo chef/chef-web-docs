@@ -1,5 +1,6 @@
 ---
-name: Chef/Sharing/DefaultMetadataMaintainer
+short_name: DefaultMetadataMaintainer
+full_name: Chef/Sharing/DefaultMetadataMaintainer
 department: Chef/Sharing
 description: Metadata contains default maintainer information from the `chef generate
   cookbook` command. This should be updated to reflect that actual maintainer of the
@@ -24,6 +25,5 @@ examples: |2-
   ```
 version_added: 5.4.0
 enabled: true
-excluded_file_paths: 
 included_file_paths:
 - "**/metadata.rb"

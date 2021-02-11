@@ -1,5 +1,6 @@
 ---
-name: Chef/Correctness/DnfPackageAllowDowngrades
+short_name: DnfPackageAllowDowngrades
+full_name: Chef/Correctness/DnfPackageAllowDowngrades
 department: Chef/Correctness
 description: dnf_package does not support the allow_downgrades property
 autocorrection: true
@@ -25,7 +26,6 @@ examples: |2-
 version_added: 5.16.0
 enabled: true
 excluded_file_paths:
-- "/workspace/chef-cookstyle-master/**/attributes/*.rb"
-- "/workspace/chef-cookstyle-master/**/metadata.rb"
-- "/workspace/chef-cookstyle-master/**/Berksfile"
-included_file_paths: 
+- "**/attributes/*.rb"
+- "**/metadata.rb"
+- "**/Berksfile"

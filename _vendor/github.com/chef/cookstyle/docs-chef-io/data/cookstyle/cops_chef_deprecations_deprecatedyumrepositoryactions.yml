@@ -1,5 +1,6 @@
 ---
-name: Chef/Deprecations/DeprecatedYumRepositoryActions
+short_name: DeprecatedYumRepositoryActions
+full_name: Chef/Deprecations/DeprecatedYumRepositoryActions
 department: Chef/Deprecations
 description: With the release of Chef Infra Client 12.14 and the yum cookbook 3.0
   the actions the yum_repository resource actions were renamed. The `add` action became
@@ -33,8 +34,7 @@ examples: |2-
 version_added: 7.3.0
 enabled: true
 excluded_file_paths:
-- "/workspace/chef-cookstyle-master/**/metadata.rb"
-- "/workspace/chef-cookstyle-master/**/attributes/*.rb"
-- "/workspace/chef-cookstyle-master/**/Berksfile"
-- "/workspace/chef-cookstyle-master/**/Rakefile"
-included_file_paths: 
+- "**/metadata.rb"
+- "**/attributes/*.rb"
+- "**/Berksfile"
+- "**/Rakefile"

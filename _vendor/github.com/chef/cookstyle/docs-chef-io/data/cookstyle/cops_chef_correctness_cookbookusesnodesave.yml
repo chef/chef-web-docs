@@ -1,5 +1,6 @@
 ---
-name: Chef/Correctness/CookbookUsesNodeSave
+short_name: CookbookUsesNodeSave
+full_name: Chef/Correctness/CookbookUsesNodeSave
 department: Chef/Correctness
 description: |-
   Don't use node.save to save partial node data to the Chef Infra Server mid-run unless it's
@@ -17,6 +18,5 @@ examples: |2-
 version_added: 5.5.0
 enabled: true
 excluded_file_paths:
-- "/workspace/chef-cookstyle-master/**/metadata.rb"
-- "/workspace/chef-cookstyle-master/**/Berksfile"
-included_file_paths: 
+- "**/metadata.rb"
+- "**/Berksfile"

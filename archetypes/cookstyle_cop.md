@@ -1,11 +1,11 @@
 +++
-title = "{{ .Name | humanize | title | replaceRE `Chef\s` "Chef/" }}"
+title = "{{ .Name | replaceRE `Chef_` `Chef/` | replaceRE `_` ` ` }}"
 draft = false
 
 layout = "cookstyle_cops"
-data_path = ["cookstyle","{{ .Name }}"]
+data_path = ["cookstyle","cops_{{ .Name | lower }}"]
 
 +++
 
 <!-- The content of this page is automatically generated from the
-{{ .Name }}.yml file in github.com/chef/cookstyle/docs-chef-io/data/cookstyle. -->
+cops_{{ .Name | lower }}.yml file in github.com/chef/cookstyle/blob/master/docs-chef-io/data/cookstyle/. -->

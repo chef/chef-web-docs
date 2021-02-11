@@ -1,5 +1,6 @@
 ---
-name: Chef/Deprecations/ResourceUsesOnlyResourceName
+short_name: ResourceUsesOnlyResourceName
+full_name: Chef/Deprecations/ResourceUsesOnlyResourceName
 department: Chef/Deprecations
 description: Starting with Chef Infra Client 16, using `resource_name` without also
   using `provides` will result in resource failures. Make sure to use both `resource_name`
@@ -18,7 +19,6 @@ examples: |2-
   ```
 version_added: 6.7.0
 enabled: true
-excluded_file_paths: 
 included_file_paths:
 - "**/libraries/*.rb"
 - "**/resources/*.rb"

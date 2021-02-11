@@ -1,5 +1,6 @@
 ---
-name: Chef/Style/UsePlatformHelpers
+short_name: UsePlatformHelpers
+full_name: Chef/Style/UsePlatformHelpers
 department: Chef/Style
 description: Use the platform?() and platform_family?() helpers instead of node['platform]
   == 'foo' and node['platform_family'] == 'bar'. These helpers are easier to read
@@ -32,7 +33,6 @@ examples: |2-
 version_added: 5.6.0
 enabled: true
 excluded_file_paths:
-- "/workspace/chef-cookstyle-master/**/metadata.rb"
-- "/workspace/chef-cookstyle-master/**/libraries/*"
-- "/workspace/chef-cookstyle-master/**/Berksfile"
-included_file_paths: 
+- "**/metadata.rb"
+- "**/libraries/*"
+- "**/Berksfile"

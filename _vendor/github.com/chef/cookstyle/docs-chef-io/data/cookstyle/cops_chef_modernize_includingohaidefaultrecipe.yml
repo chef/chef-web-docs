@@ -1,5 +1,6 @@
 ---
-name: Chef/Modernize/IncludingOhaiDefaultRecipe
+short_name: IncludingOhaiDefaultRecipe
+full_name: Chef/Modernize/IncludingOhaiDefaultRecipe
 department: Chef/Modernize
 description: The Ohai default recipe previously allowed a user to ship custom Ohai
   plugins to a system by including them in a directory in the Ohai cookbook. This
@@ -18,6 +19,5 @@ examples: |2-
 version_added: 5.4.0
 enabled: true
 excluded_file_paths:
-- "/workspace/chef-cookstyle-master/**/metadata.rb"
-- "/workspace/chef-cookstyle-master/**/Berksfile"
-included_file_paths: 
+- "**/metadata.rb"
+- "**/Berksfile"

@@ -1,5 +1,6 @@
 ---
-name: Chef/Deprecations/IncludingXMLRubyRecipe
+short_name: IncludingXMLRubyRecipe
+full_name: Chef/Deprecations/IncludingXMLRubyRecipe
 department: Chef/Deprecations
 description: Do not include the deprecated xml::ruby recipe to install the nokogiri
   gem. Chef Infra Client 12 and later ships with nokogiri included.
@@ -15,7 +16,6 @@ examples: |2-
 version_added: 5.4.0
 enabled: true
 excluded_file_paths:
-- "/workspace/chef-cookstyle-master/**/attributes/*.rb"
-- "/workspace/chef-cookstyle-master/**/metadata.rb"
-- "/workspace/chef-cookstyle-master/**/Berksfile"
-included_file_paths: 
+- "**/attributes/*.rb"
+- "**/metadata.rb"
+- "**/Berksfile"

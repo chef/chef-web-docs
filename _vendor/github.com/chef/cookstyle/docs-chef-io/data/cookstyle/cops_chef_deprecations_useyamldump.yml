@@ -1,5 +1,6 @@
 ---
-name: Chef/Deprecations/UseYamlDump
+short_name: UseYamlDump
+full_name: Chef/Deprecations/UseYamlDump
 department: Chef/Deprecations
 description: Chef Infra Client 16.5 introduced performance enhancements to Ruby library
   loading. Due to the underlying implementation of Ruby's `.to_yaml` method, it does
@@ -22,5 +23,3 @@ examples: |2-
   ```
 version_added: 6.21.0
 enabled: true
-excluded_file_paths: 
-included_file_paths: 

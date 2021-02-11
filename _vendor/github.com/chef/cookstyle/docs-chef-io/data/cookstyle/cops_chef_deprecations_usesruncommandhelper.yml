@@ -1,5 +1,6 @@
 ---
-name: Chef/Deprecations/UsesRunCommandHelper
+short_name: UsesRunCommandHelper
+full_name: Chef/Deprecations/UsesRunCommandHelper
 department: Chef/Deprecations
 description: Use 'shell_out!' instead of the legacy 'run_command' or 'run_command_with_systems_locale'
   helpers for shelling out. The run_command helper was removed in Chef Infra Client
@@ -26,7 +27,6 @@ examples: |2-
 version_added: 5.9.0
 enabled: true
 excluded_file_paths:
-- "/workspace/chef-cookstyle-master/**/metadata.rb"
-- "/workspace/chef-cookstyle-master/**/Berksfile"
-- "/workspace/chef-cookstyle-master/**/Rakefile"
-included_file_paths: 
+- "**/metadata.rb"
+- "**/Berksfile"
+- "**/Rakefile"

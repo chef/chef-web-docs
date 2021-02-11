@@ -1,5 +1,6 @@
 ---
-name: Chef/Deprecations/NodeSetWithoutLevel
+short_name: NodeSetWithoutLevel
+full_name: Chef/Deprecations/NodeSetWithoutLevel
 department: Chef/Deprecations
 description: When setting a node attribute in Chef Infra Client 11 and later you must
   specify the precedence level.
@@ -27,6 +28,5 @@ examples: |2-
 version_added: 5.13.0
 enabled: true
 excluded_file_paths:
-- "/workspace/chef-cookstyle-master/**/metadata.rb"
-- "/workspace/chef-cookstyle-master/**/attributes/*.rb"
-included_file_paths: 
+- "**/metadata.rb"
+- "**/attributes/*.rb"

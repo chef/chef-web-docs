@@ -1,5 +1,6 @@
 ---
-name: Chef/Style/SimplifyPlatformMajorVersionCheck
+short_name: SimplifyPlatformMajorVersionCheck
+full_name: Chef/Style/SimplifyPlatformMajorVersionCheck
 department: Chef/Style
 description: When checking the major version number of a platform you can take the
   node['platform_version'] attribute and transform it to an integer to strip it down
@@ -29,6 +30,5 @@ examples: |2-
 version_added: 5.8.0
 enabled: true
 excluded_file_paths:
-- "/workspace/chef-cookstyle-master/**/metadata.rb"
-- "/workspace/chef-cookstyle-master/**/Berksfile"
-included_file_paths: 
+- "**/metadata.rb"
+- "**/Berksfile"

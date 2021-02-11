@@ -1,5 +1,6 @@
 ---
-name: Chef/RedundantCode/ReplacesMetadata
+short_name: ReplacesMetadata
+full_name: Chef/RedundantCode/ReplacesMetadata
 department: Chef/RedundantCode
 description: The replaces metadata.rb method is not used and is unnecessary in cookbooks.
   Replacements for existing cookbooks should be documented in the cookbook's README.md
@@ -16,6 +17,5 @@ examples: |2-
   ```
 version_added: 5.1.0
 enabled: true
-excluded_file_paths: 
 included_file_paths:
 - "**/metadata.rb"

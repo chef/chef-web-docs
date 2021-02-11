@@ -1,5 +1,6 @@
 ---
-name: Chef/RedundantCode/GroupingMetadata
+short_name: GroupingMetadata
+full_name: Chef/RedundantCode/GroupingMetadata
 department: Chef/RedundantCode
 description: The grouping metadata.rb method is not used and is unnecessary in cookbooks.
 autocorrection: true
@@ -13,6 +14,5 @@ examples: |2-
   ```
 version_added: 5.19.0
 enabled: true
-excluded_file_paths: 
 included_file_paths:
 - "**/metadata.rb"

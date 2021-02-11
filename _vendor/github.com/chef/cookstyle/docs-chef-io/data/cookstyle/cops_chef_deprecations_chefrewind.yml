@@ -1,5 +1,6 @@
 ---
-name: Chef/Deprecations/ChefRewind
+short_name: ChefRewind
+full_name: Chef/Deprecations/ChefRewind
 department: Chef/Deprecations
 description: Use delete_resource / edit_resource introduced in Chef Infra Client 12.10
   instead of functionality in the deprecated chef-rewind gem
@@ -21,6 +22,5 @@ examples: |2-
 version_added: 5.14.0
 enabled: true
 excluded_file_paths:
-- "/workspace/chef-cookstyle-master/**/metadata.rb"
-- "/workspace/chef-cookstyle-master/**/attributes/*.rb"
-included_file_paths: 
+- "**/metadata.rb"
+- "**/attributes/*.rb"

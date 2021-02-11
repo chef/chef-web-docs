@@ -1,5 +1,6 @@
 ---
-name: Chef/Deprecations/LegacyNotifySyntax
+short_name: LegacyNotifySyntax
+full_name: Chef/Deprecations/LegacyNotifySyntax
 department: Chef/Deprecations
 description: Use the new-style notification syntax which allows you to notify resources
   defined later in a recipe or resource.
@@ -49,7 +50,6 @@ examples: |2-
 version_added: 5.13.0
 enabled: true
 excluded_file_paths:
-- "/workspace/chef-cookstyle-master/**/metadata.rb"
-- "/workspace/chef-cookstyle-master/**/attributes/*.rb"
-- "/workspace/chef-cookstyle-master/**/Berksfile"
-included_file_paths: 
+- "**/metadata.rb"
+- "**/attributes/*.rb"
+- "**/Berksfile"

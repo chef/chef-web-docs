@@ -1,5 +1,6 @@
 ---
-name: Chef/Modernize/RespondToResourceName
+short_name: RespondToResourceName
+full_name: Chef/Modernize/RespondToResourceName
 department: Chef/Modernize
 description: Chef Infra Client 12.5 introduced the resource_name method for resources.
   Many cookbooks used respond_to?(:resource_name) to provide backwards compatibility
@@ -21,7 +22,6 @@ examples: |2-
   ```
 version_added: 5.2.0
 enabled: true
-excluded_file_paths: 
 included_file_paths:
 - "**/resources/*.rb"
 - "**/libraries/*.rb"

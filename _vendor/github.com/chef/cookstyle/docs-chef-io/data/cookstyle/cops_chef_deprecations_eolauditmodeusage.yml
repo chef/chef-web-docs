@@ -1,5 +1,6 @@
 ---
-name: Chef/Deprecations/EOLAuditModeUsage
+short_name: EOLAuditModeUsage
+full_name: Chef/Deprecations/EOLAuditModeUsage
 department: Chef/Deprecations
 description: The beta Audit Mode for Chef Infra Client was removed in Chef Infra Client
   15.0. Users should instead use InSpec and the audit cookbook. See https://www.inspec.io/
@@ -22,7 +23,6 @@ examples: |2-
 version_added: 5.10.0
 enabled: true
 excluded_file_paths:
-- "/workspace/chef-cookstyle-master/**/metadata.rb"
-- "/workspace/chef-cookstyle-master/**/attributes/*.rb"
-- "/workspace/chef-cookstyle-master/**/Berksfile"
-included_file_paths: 
+- "**/metadata.rb"
+- "**/attributes/*.rb"
+- "**/Berksfile"

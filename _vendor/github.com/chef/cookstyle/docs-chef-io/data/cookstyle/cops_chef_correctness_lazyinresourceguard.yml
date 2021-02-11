@@ -1,5 +1,6 @@
 ---
-name: Chef/Correctness/LazyInResourceGuard
+short_name: LazyInResourceGuard
+full_name: Chef/Correctness/LazyInResourceGuard
 department: Chef/Correctness
 description: Using `lazy {}` within a resource guard (not_if/only_if) will cause failures
   and is unnecessary as resource guards are always lazily evaluated.
@@ -29,6 +30,5 @@ examples: |2-
 version_added: 6.18.0
 enabled: true
 excluded_file_paths:
-- "/workspace/chef-cookstyle-master/**/metadata.rb"
-- "/workspace/chef-cookstyle-master/**/Berksfile"
-included_file_paths: 
+- "**/metadata.rb"
+- "**/Berksfile"

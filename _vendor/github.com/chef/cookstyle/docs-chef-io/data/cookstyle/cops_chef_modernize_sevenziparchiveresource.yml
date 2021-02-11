@@ -1,5 +1,6 @@
 ---
-name: Chef/Modernize/SevenZipArchiveResource
+short_name: SevenZipArchiveResource
+full_name: Chef/Modernize/SevenZipArchiveResource
 department: Chef/Modernize
 description: Use the archive_file resource built into Chef Infra Client 15+ instead
   of the seven_zip_archive
@@ -17,5 +18,4 @@ examples: |2-
 version_added: 5.5.0
 enabled: true
 excluded_file_paths:
-- "/workspace/chef-cookstyle-master/**/metadata.rb"
-included_file_paths: 
+- "**/metadata.rb"

@@ -1,5 +1,6 @@
 ---
-name: Chef/Sharing/InvalidLicenseString
+short_name: InvalidLicenseString
+full_name: Chef/Sharing/InvalidLicenseString
 department: Chef/Sharing
 description: |-
   metadata.rb license field should include a SPDX compliant string or "all right reserved" (not case sensitive)
@@ -29,6 +30,5 @@ examples: |2-
   ```
 version_added: 5.2.0
 enabled: true
-excluded_file_paths: 
 included_file_paths:
 - "**/metadata.rb"

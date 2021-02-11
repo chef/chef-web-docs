@@ -1,5 +1,6 @@
 ---
-name: Chef/Modernize/EmptyResourceInitializeMethod
+short_name: EmptyResourceInitializeMethod
+full_name: Chef/Modernize/EmptyResourceInitializeMethod
 department: Chef/Modernize
 description: There is no need for an empty initialize method in a resource
 autocorrection: true
@@ -15,7 +16,6 @@ examples: |2-
   ```
 version_added: 5.13.0
 enabled: true
-excluded_file_paths: 
 included_file_paths:
 - "**/resources/*.rb"
 - "**/providers/*.rb"

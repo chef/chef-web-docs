@@ -1,5 +1,6 @@
 ---
-name: Chef/Deprecations/ChocolateyPackageUninstallAction
+short_name: ChocolateyPackageUninstallAction
+full_name: Chef/Deprecations/ChocolateyPackageUninstallAction
 department: Chef/Deprecations
 description: Use the :remove action in the chocolatey_package resource instead of
   :uninstall which was removed in Chef Infra Client 14+
@@ -25,5 +26,4 @@ examples: |2-
 version_added: 5.5.0
 enabled: true
 excluded_file_paths:
-- "/workspace/chef-cookstyle-master/**/metadata.rb"
-included_file_paths: 
+- "**/metadata.rb"

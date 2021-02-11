@@ -1,5 +1,6 @@
 ---
-name: Chef/Correctness/SupportsMustBeFloat
+short_name: SupportsMustBeFloat
+full_name: Chef/Correctness/SupportsMustBeFloat
 department: Chef/Correctness
 description: Versions used in metadata.rb supports calls should be floats not integers.
 autocorrection: true
@@ -19,6 +20,5 @@ examples: |2-
   ```
 version_added: 6.13.0
 enabled: true
-excluded_file_paths: 
 included_file_paths:
 - "**/metadata.rb"

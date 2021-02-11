@@ -1,5 +1,6 @@
 ---
-name: Chef/Modernize/FoodcriticComments
+short_name: FoodcriticComments
+full_name: Chef/Modernize/FoodcriticComments
 department: Chef/Modernize
 description: Remove legacy code comments that disable Foodcritic rules. These comments
   are no longer necessary if you've migrated from Foodcritic to Cookstyle for cookbook
@@ -16,5 +17,4 @@ examples: |2-
 version_added: 5.16.0
 enabled: true
 excluded_file_paths:
-- "/workspace/chef-cookstyle-master/**/Berksfile"
-included_file_paths: 
+- "**/Berksfile"

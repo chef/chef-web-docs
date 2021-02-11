@@ -1,5 +1,6 @@
 ---
-name: Chef/Deprecations/ChefWindowsPlatformHelper
+short_name: ChefWindowsPlatformHelper
+full_name: Chef/Deprecations/ChefWindowsPlatformHelper
 department: Chef/Deprecations
 description: Use `platform?('windows')` instead of the legacy `Chef::Platform.windows?`
   helper
@@ -22,6 +23,5 @@ examples: |2-
 version_added: 6.0.0
 enabled: true
 excluded_file_paths:
-- "/workspace/chef-cookstyle-master/**/metadata.rb"
-- "/workspace/chef-cookstyle-master/**/Berksfile"
-included_file_paths: 
+- "**/metadata.rb"
+- "**/Berksfile"

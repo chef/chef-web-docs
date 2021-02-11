@@ -1,5 +1,6 @@
 ---
-name: Chef/Modernize/UnnecessaryMixlibShelloutRequire
+short_name: UnnecessaryMixlibShelloutRequire
+full_name: Chef/Modernize/UnnecessaryMixlibShelloutRequire
 department: Chef/Modernize
 description: Chef Infra Client 12.4+ includes mixlib/shellout automatically in resources
   and providers.
@@ -14,7 +15,6 @@ examples: |2-
   ```
 version_added: 5.12.0
 enabled: true
-excluded_file_paths: 
 included_file_paths:
 - "**/resources/*.rb"
 - "**/providers/*.rb"

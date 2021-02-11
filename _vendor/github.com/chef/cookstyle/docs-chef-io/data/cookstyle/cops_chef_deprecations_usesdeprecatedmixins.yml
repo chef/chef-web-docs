@@ -1,5 +1,6 @@
 ---
-name: Chef/Deprecations/UsesDeprecatedMixins
+short_name: UsesDeprecatedMixins
+full_name: Chef/Deprecations/UsesDeprecatedMixins
 department: Chef/Deprecations
 description: Don't use deprecated Mixins no longer included in Chef Infra Client 14
   and later
@@ -21,7 +22,6 @@ examples: |2-
   ```
 version_added: 5.4.0
 enabled: true
-excluded_file_paths: 
 included_file_paths:
 - "**/libraries/*.rb"
 - "**/providers/*.rb"

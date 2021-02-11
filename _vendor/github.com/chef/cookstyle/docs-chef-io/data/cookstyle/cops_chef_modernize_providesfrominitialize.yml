@@ -1,5 +1,6 @@
 ---
-name: Chef/Modernize/ProvidesFromInitialize
+short_name: ProvidesFromInitialize
+full_name: Chef/Modernize/ProvidesFromInitialize
 department: Chef/Modernize
 description: Provides should be set using the `provides` resource DSL method instead
   of instead of setting @provides in the initialize method.
@@ -23,7 +24,6 @@ examples: |2-
   ```
 version_added: 6.0.0
 enabled: true
-excluded_file_paths: 
 included_file_paths:
 - "**/resources/*.rb"
 - "**/providers/*.rb"

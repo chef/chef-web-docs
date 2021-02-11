@@ -1,5 +1,6 @@
 ---
-name: Chef/Correctness/NodeNormalUnless
+short_name: NodeNormalUnless
+full_name: Chef/Correctness/NodeNormalUnless
 department: Chef/Correctness
 description: |-
   Normal attributes are discouraged since their semantics differ importantly from the
@@ -30,6 +31,5 @@ examples: |2-
 version_added: 5.1.0
 enabled: true
 excluded_file_paths:
-- "/workspace/chef-cookstyle-master/**/metadata.rb"
-- "/workspace/chef-cookstyle-master/**/Berksfile"
-included_file_paths: 
+- "**/metadata.rb"
+- "**/Berksfile"

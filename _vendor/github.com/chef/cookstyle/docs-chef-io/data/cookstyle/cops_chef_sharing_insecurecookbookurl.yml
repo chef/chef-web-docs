@@ -1,5 +1,6 @@
 ---
-name: Chef/Sharing/InsecureCookbookURL
+short_name: InsecureCookbookURL
+full_name: Chef/Sharing/InsecureCookbookURL
 department: Chef/Sharing
 description: Use secure Github and Gitlab URLs for source_url and issues_url
 autocorrection: true
@@ -23,6 +24,5 @@ examples: |2-
   ```
 version_added: 5.1.0
 enabled: true
-excluded_file_paths: 
 included_file_paths:
 - "**/metadata.rb"

@@ -1,5 +1,6 @@
 ---
-name: Chef/Style/ImmediateNotificationTiming
+short_name: ImmediateNotificationTiming
+full_name: Chef/Style/ImmediateNotificationTiming
 department: Chef/Style
 description: Use :immediately instead of :immediate for resource notification timing
 autocorrection: true
@@ -26,7 +27,6 @@ examples: |2-
 version_added: 5.16.0
 enabled: true
 excluded_file_paths:
-- "/workspace/chef-cookstyle-master/**/attributes/*.rb"
-- "/workspace/chef-cookstyle-master/**/metadata.rb"
-- "/workspace/chef-cookstyle-master/**/Berksfile"
-included_file_paths: 
+- "**/attributes/*.rb"
+- "**/metadata.rb"
+- "**/Berksfile"

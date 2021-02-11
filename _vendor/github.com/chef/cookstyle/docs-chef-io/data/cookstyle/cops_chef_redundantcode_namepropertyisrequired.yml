@@ -1,5 +1,6 @@
 ---
-name: Chef/RedundantCode/NamePropertyIsRequired
+short_name: NamePropertyIsRequired
+full_name: Chef/RedundantCode/NamePropertyIsRequired
 department: Chef/RedundantCode
 description: |-
   When using properties in a custom resource you shouldn't set a property to
@@ -48,7 +49,6 @@ examples: |2-
   ```
 version_added: 5.1.0
 enabled: true
-excluded_file_paths: 
 included_file_paths:
 - "**/resources/*.rb"
 - "**/libraries/*.rb"

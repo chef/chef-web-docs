@@ -1,5 +1,6 @@
 ---
-name: Chef/Deprecations/ChefSpecLegacyRunner
+short_name: ChefSpecLegacyRunner
+full_name: Chef/Deprecations/ChefSpecLegacyRunner
 department: Chef/Deprecations
 description: Use ChefSpec::SoloRunner or ChefSpec::ServerRunner instead of the deprecated
   ChefSpec::Runner. These new runners were introduced in ChefSpec 4.1 (Oct 2014).
@@ -30,6 +31,5 @@ examples: |2-
   ```
 version_added: 5.8.0
 enabled: true
-excluded_file_paths: 
 included_file_paths:
 - "**/spec/*.rb"

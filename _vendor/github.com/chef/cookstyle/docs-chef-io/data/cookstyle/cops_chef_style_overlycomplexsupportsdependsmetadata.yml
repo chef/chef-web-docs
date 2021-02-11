@@ -1,5 +1,6 @@
 ---
-name: Chef/Style/OverlyComplexSupportsDependsMetadata
+short_name: OverlyComplexSupportsDependsMetadata
+full_name: Chef/Style/OverlyComplexSupportsDependsMetadata
 department: Chef/Style
 description: Don't loop over an array to set cookbook dependencies or supported platforms
   if you have fewer than three values to set. Setting multiple `supports` or `depends`
@@ -33,6 +34,5 @@ examples: |2-
   ```
 version_added: 5.19.0
 enabled: true
-excluded_file_paths: 
 included_file_paths:
 - "**/metadata.rb"

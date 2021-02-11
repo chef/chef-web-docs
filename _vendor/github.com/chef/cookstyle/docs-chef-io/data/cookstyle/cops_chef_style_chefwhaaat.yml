@@ -1,5 +1,6 @@
 ---
-name: Chef/Style/ChefWhaaat
+short_name: ChefWhaaat
+full_name: Chef/Style/ChefWhaaat
 department: Chef/Style
 description: Checks for comments that mention "Chef" without context. Do you mean
   Chef Infra or Chef Software?
@@ -22,5 +23,3 @@ examples: |2-
   ```
 version_added: 5.20.0
 enabled: false
-excluded_file_paths: 
-included_file_paths: 

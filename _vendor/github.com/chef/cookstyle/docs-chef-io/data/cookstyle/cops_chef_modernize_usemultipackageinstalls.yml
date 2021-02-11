@@ -1,5 +1,6 @@
 ---
-name: Chef/Modernize/UseMultipackageInstalls
+short_name: UseMultipackageInstalls
+full_name: Chef/Modernize/UseMultipackageInstalls
 department: Chef/Modernize
 description: Pass an array of packages to package resources instead of iterating over
   an array of packages when using multi-package capable package subsystem such as
@@ -27,7 +28,6 @@ examples: |2-
 version_added: 6.0.0
 enabled: true
 excluded_file_paths:
-- "/workspace/chef-cookstyle-master/**/metadata.rb"
-- "/workspace/chef-cookstyle-master/**/attributes/*.rb"
-- "/workspace/chef-cookstyle-master/**/Berksfile"
-included_file_paths: 
+- "**/metadata.rb"
+- "**/attributes/*.rb"
+- "**/Berksfile"

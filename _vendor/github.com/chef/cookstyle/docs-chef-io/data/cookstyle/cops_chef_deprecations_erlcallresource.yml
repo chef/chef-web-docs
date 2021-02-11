@@ -1,5 +1,6 @@
 ---
-name: Chef/Deprecations/ErlCallResource
+short_name: ErlCallResource
+full_name: Chef/Deprecations/ErlCallResource
 department: Chef/Deprecations
 description: Don't use the deprecated erl_call resource
 autocorrection: false
@@ -16,7 +17,6 @@ examples: |2-
 version_added: 5.1.0
 enabled: true
 excluded_file_paths:
-- "/workspace/chef-cookstyle-master/**/attributes/*.rb"
-- "/workspace/chef-cookstyle-master/**/metadata.rb"
-- "/workspace/chef-cookstyle-master/**/Berksfile"
-included_file_paths: 
+- "**/attributes/*.rb"
+- "**/metadata.rb"
+- "**/Berksfile"

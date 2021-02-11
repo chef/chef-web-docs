@@ -1,5 +1,6 @@
 ---
-name: Chef/Modernize/PowerShellGuardInterpreter
+short_name: PowerShellGuardInterpreter
+full_name: Chef/Modernize/PowerShellGuardInterpreter
 department: Chef/Modernize
 description: PowerShell is already set as the default guard interpreter for `powershell_script`
   and `batch` resources in Chef Infra Client 13 and later and does not need to be
@@ -36,5 +37,4 @@ examples: |2-
 version_added: 5.9.0
 enabled: true
 excluded_file_paths:
-- "/workspace/chef-cookstyle-master/**/metadata.rb"
-included_file_paths: 
+- "**/metadata.rb"

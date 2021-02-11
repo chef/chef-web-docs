@@ -1,5 +1,6 @@
 ---
-name: Chef/Modernize/WindowsZipfileUsage
+short_name: WindowsZipfileUsage
+full_name: Chef/Modernize/WindowsZipfileUsage
 department: Chef/Modernize
 description: Use the archive_file resource built into Chef Infra Client 15+ instead
   of the windows_zipfile from the Windows cookbook
@@ -17,5 +18,4 @@ examples: |2-
 version_added: 5.4.0
 enabled: true
 excluded_file_paths:
-- "/workspace/chef-cookstyle-master/**/metadata.rb"
-included_file_paths: 
+- "**/metadata.rb"

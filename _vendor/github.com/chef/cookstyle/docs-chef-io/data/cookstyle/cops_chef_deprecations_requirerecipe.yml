@@ -1,5 +1,6 @@
 ---
-name: Chef/Deprecations/RequireRecipe
+short_name: RequireRecipe
+full_name: Chef/Deprecations/RequireRecipe
 department: Chef/Deprecations
 description: Make sure to use include_recipe instead of require_recipe
 autocorrection: true
@@ -20,7 +21,6 @@ examples: |2-
 version_added: 5.2.0
 enabled: true
 excluded_file_paths:
-- "/workspace/chef-cookstyle-master/**/attributes/*.rb"
-- "/workspace/chef-cookstyle-master/**/metadata.rb"
-- "/workspace/chef-cookstyle-master/**/Berksfile"
-included_file_paths: 
+- "**/attributes/*.rb"
+- "**/metadata.rb"
+- "**/Berksfile"

@@ -1,5 +1,6 @@
 ---
-name: Chef/Modernize/ExecuteAptUpdate
+short_name: ExecuteAptUpdate
+full_name: Chef/Modernize/ExecuteAptUpdate
 department: Chef/Modernize
 description: Instead of using the execute resource to run the `apt-get update` use
   Chef Infra Client's built-n apt_update resource which is available in Chef Infra
@@ -36,5 +37,4 @@ examples: |2-
 version_added: 5.3.0
 enabled: true
 excluded_file_paths:
-- "/workspace/chef-cookstyle-master/**/metadata.rb"
-included_file_paths: 
+- "**/metadata.rb"

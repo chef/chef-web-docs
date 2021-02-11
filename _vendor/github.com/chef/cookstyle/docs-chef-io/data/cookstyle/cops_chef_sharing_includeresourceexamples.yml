@@ -1,5 +1,6 @@
 ---
-name: Chef/Sharing/IncludeResourceExamples
+short_name: IncludeResourceExamples
+full_name: Chef/Sharing/IncludeResourceExamples
 department: Chef/Sharing
 description: Resources should include examples field to allow automated documentation.
   Requires Chef Infra Client 13.9 or later.
@@ -24,6 +25,5 @@ examples: |-
   ```
 version_added: 6.10.0
 enabled: false
-excluded_file_paths: 
 included_file_paths:
 - "**/resources/*.rb"

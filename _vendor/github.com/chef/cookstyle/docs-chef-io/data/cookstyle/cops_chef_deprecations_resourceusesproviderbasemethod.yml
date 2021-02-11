@@ -1,5 +1,6 @@
 ---
-name: Chef/Deprecations/ResourceUsesProviderBaseMethod
+short_name: ResourceUsesProviderBaseMethod
+full_name: Chef/Deprecations/ResourceUsesProviderBaseMethod
 department: Chef/Deprecations
 description: The Resource.provider_base allows the developer to specify within a resource
   a module to load the resource's provider from. Instead, the provider should call
@@ -16,7 +17,6 @@ examples: |2-
   ```
 version_added: 5.7.0
 enabled: true
-excluded_file_paths: 
 included_file_paths:
 - "**/libraries/*.rb"
 - "**/resources/*.rb"

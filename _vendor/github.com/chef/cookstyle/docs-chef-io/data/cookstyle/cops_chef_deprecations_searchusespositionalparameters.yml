@@ -1,5 +1,6 @@
 ---
-name: Chef/Deprecations/SearchUsesPositionalParameters
+short_name: SearchUsesPositionalParameters
+full_name: Chef/Deprecations/SearchUsesPositionalParameters
 department: Chef/Deprecations
 description: |-
   correct
@@ -14,5 +15,4 @@ examples:
 version_added: 5.11.0
 enabled: true
 excluded_file_paths:
-- "/workspace/chef-cookstyle-master/**/metadata.rb"
-included_file_paths: 
+- "**/metadata.rb"

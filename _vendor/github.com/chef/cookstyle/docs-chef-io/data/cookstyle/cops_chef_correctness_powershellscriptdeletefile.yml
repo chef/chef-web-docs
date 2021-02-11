@@ -1,5 +1,6 @@
 ---
-name: Chef/Correctness/PowershellScriptDeleteFile
+short_name: PowershellScriptDeleteFile
+full_name: Chef/Correctness/PowershellScriptDeleteFile
 department: Chef/Correctness
 description: |-
   Use the `file` or `directory` resources built into Chef Infra Client with the :delete action to remove files/directories instead of using Remove-Item in a powershell_script resource
@@ -23,7 +24,6 @@ examples: |2-
 version_added: 6.0.0
 enabled: true
 excluded_file_paths:
-- "/workspace/chef-cookstyle-master/**/attributes/*.rb"
-- "/workspace/chef-cookstyle-master/**/metadata.rb"
-- "/workspace/chef-cookstyle-master/**/Berksfile"
-included_file_paths: 
+- "**/attributes/*.rb"
+- "**/metadata.rb"
+- "**/Berksfile"

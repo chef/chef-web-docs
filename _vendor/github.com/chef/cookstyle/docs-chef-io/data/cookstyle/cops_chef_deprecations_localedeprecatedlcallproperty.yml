@@ -1,5 +1,6 @@
 ---
-name: Chef/Deprecations/LocaleDeprecatedLcAllProperty
+short_name: LocaleDeprecatedLcAllProperty
+full_name: Chef/Deprecations/LocaleDeprecatedLcAllProperty
 department: Chef/Deprecations
 description: The local resource's lc_all property has been deprecated and will be
   removed in Chef Infra Client 17
@@ -18,5 +19,4 @@ examples: |2-
 version_added: 5.5.0
 enabled: true
 excluded_file_paths:
-- "/workspace/chef-cookstyle-master/**/metadata.rb"
-included_file_paths: 
+- "**/metadata.rb"

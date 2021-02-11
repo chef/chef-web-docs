@@ -1,5 +1,6 @@
 ---
-name: Chef/Style/TrueClassFalseClassResourceProperties
+short_name: TrueClassFalseClassResourceProperties
+full_name: Chef/Style/TrueClassFalseClassResourceProperties
 department: Chef/Style
 description: When setting the allowed types for a resource to accept either true or
   false values it's much simpler to use true and false instead of TrueClass and FalseClass.
@@ -20,7 +21,6 @@ examples: |2-
   ```
 version_added: 5.16.0
 enabled: true
-excluded_file_paths: 
 included_file_paths:
 - "**/libraries/*.rb"
 - "**/resources/*.rb"

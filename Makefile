@@ -38,11 +38,12 @@ resource_files:
 cookstyle_cops_pages:
 	rm -rf content/workstation/cookstyle/*
 	dataDir=_vendor/github.com/chef/cookstyle/docs-chef-io/data/cookstyle; \
-	for f in $$(ls $${dataDir}); \
-		do echo $${f}; \
-		file=$${f%.yml}; \
-		if [ $${file} != .gitkeep ]; then \
-			hugo new -k cookstyle_cop content/workstation/cookstyle/$${file}.md; \
+	for f in $$(ls $${dataDir}); do \
+		echo ${f}; \
+		if [ $${f} != .gitkeep ]; then \
+			name=$$(grep 'full_name:' $${dataDir}/$${f} | sed 's/^.*: //' | sed s'/\//_/g'); \
+			echo $${name}; \
+			hugo new -k cookstyle_cop workstation/cookstyle/$${name}.md; \
 		fi ; \
 	done
 	hugo new -k cookstyle_cops_all content/workstation/cookstyle/cops.md ;

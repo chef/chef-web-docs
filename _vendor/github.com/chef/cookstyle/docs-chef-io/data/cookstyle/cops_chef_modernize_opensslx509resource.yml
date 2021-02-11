@@ -1,5 +1,6 @@
 ---
-name: Chef/Modernize/OpensslX509Resource
+short_name: OpensslX509Resource
+full_name: Chef/Modernize/OpensslX509Resource
 department: Chef/Modernize
 description: The openssl_x509 resource was renamed to openssl_x509_certificate in
   Chef Infra Client 14.4. The new resource name should be used.
@@ -31,5 +32,4 @@ examples: |2-
 version_added: 5.6.0
 enabled: true
 excluded_file_paths:
-- "/workspace/chef-cookstyle-master/**/metadata.rb"
-included_file_paths: 
+- "**/metadata.rb"

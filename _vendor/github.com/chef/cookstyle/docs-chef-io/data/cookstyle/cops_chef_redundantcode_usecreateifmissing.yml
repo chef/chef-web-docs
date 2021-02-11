@@ -1,5 +1,6 @@
 ---
-name: Chef/RedundantCode/UseCreateIfMissing
+short_name: UseCreateIfMissing
+full_name: Chef/RedundantCode/UseCreateIfMissing
 department: Chef/RedundantCode
 description: Use the :create_if_missing action instead of not_if with a ::File.exist(FOO)
   check.
@@ -33,7 +34,6 @@ examples: |2-
 version_added: 6.2.0
 enabled: true
 excluded_file_paths:
-- "/workspace/chef-cookstyle-master/**/metadata.rb"
-- "/workspace/chef-cookstyle-master/**/attributes/*.rb"
-- "/workspace/chef-cookstyle-master/**/Berksfile"
-included_file_paths: 
+- "**/metadata.rb"
+- "**/attributes/*.rb"
+- "**/Berksfile"

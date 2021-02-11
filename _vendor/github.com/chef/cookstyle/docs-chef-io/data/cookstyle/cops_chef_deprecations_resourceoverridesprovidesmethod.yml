@@ -1,5 +1,6 @@
 ---
-name: Chef/Deprecations/ResourceOverridesProvidesMethod
+short_name: ResourceOverridesProvidesMethod
+full_name: Chef/Deprecations/ResourceOverridesProvidesMethod
 department: Chef/Deprecations
 description: Some providers in resources override the provides? method, used to check
   whether they are a valid provider on the current platform. In Chef Infra Client
@@ -24,7 +25,6 @@ examples: |2-
   ```
 version_added: 5.7.0
 enabled: true
-excluded_file_paths: 
 included_file_paths:
 - "**/libraries/*.rb"
 - "**/providers/*.rb"

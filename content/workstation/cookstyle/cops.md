@@ -14,4 +14,5 @@ toc_layout = "cookstyle_cops_toc"
     weight = 20
 +++
 
-<!-- The contents of this page are automatically generated from data files in the docs-chef-io/data/cookstyle directory in the chef/cookstyle repository. -->
+<!-- The contents of this page are automatically generated from data files
+github.com/chef/cookstyle/blob/master/docs-chef-io/data/cookstyle/. -->

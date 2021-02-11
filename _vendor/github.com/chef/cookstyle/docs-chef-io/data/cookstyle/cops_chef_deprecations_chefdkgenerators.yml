@@ -1,5 +1,6 @@
 ---
-name: Chef/Deprecations/ChefDKGenerators
+short_name: ChefDKGenerators
+full_name: Chef/Deprecations/ChefDKGenerators
 department: Chef/Deprecations
 description: Chef Workstation 0.8 and later renamed the ChefDK module used when writing
   custom cookbook generators from ChefDK to ChefCLI. For compatibility with the latest
@@ -30,6 +31,5 @@ examples: |2-
 version_added: 6.12.0
 enabled: true
 excluded_file_paths:
-- "/workspace/chef-cookstyle-master/**/metadata.rb"
-- "/workspace/chef-cookstyle-master/**/Berksfile"
-included_file_paths: 
+- "**/metadata.rb"
+- "**/Berksfile"

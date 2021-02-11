@@ -1,5 +1,6 @@
 ---
-name: Chef/Correctness/PropertyWithoutType
+short_name: PropertyWithoutType
+full_name: Chef/Correctness/PropertyWithoutType
 department: Chef/Correctness
 description: Resource properties or attributes should always define a type to help
   users understand the correct allowed values.
@@ -22,7 +23,6 @@ examples: |2-
   ```
 version_added: 6.18.0
 enabled: true
-excluded_file_paths: 
 included_file_paths:
 - "**/libraries/*.rb"
 - "**/resources/*.rb"

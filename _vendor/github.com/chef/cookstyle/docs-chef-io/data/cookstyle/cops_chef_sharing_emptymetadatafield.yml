@@ -1,5 +1,6 @@
 ---
-name: Chef/Sharing/EmptyMetadataField
+short_name: EmptyMetadataField
+full_name: Chef/Sharing/EmptyMetadataField
 department: Chef/Sharing
 description: metadata.rb should not include fields with an empty string. Either don't
   include the field or add a value.
@@ -20,6 +21,5 @@ examples: |2-
   ```
 version_added: 5.8.0
 enabled: true
-excluded_file_paths: 
 included_file_paths:
 - "**/metadata.rb"

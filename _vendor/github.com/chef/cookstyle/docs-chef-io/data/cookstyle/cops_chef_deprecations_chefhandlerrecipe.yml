@@ -1,5 +1,6 @@
 ---
-name: Chef/Deprecations/ChefHandlerRecipe
+short_name: ChefHandlerRecipe
+full_name: Chef/Deprecations/ChefHandlerRecipe
 department: Chef/Deprecations
 description: There is no need to include the empty and deprecated chef_handler::default
   recipe in order to use the chef_handler resource
@@ -16,6 +17,5 @@ examples: |2-
 version_added: 6.12.0
 enabled: true
 excluded_file_paths:
-- "/workspace/chef-cookstyle-master/**/metadata.rb"
-- "/workspace/chef-cookstyle-master/**/Berksfile"
-included_file_paths: 
+- "**/metadata.rb"
+- "**/Berksfile"

@@ -1,5 +1,6 @@
 ---
-name: Chef/Deprecations/LegacyYumCookbookRecipes
+short_name: LegacyYumCookbookRecipes
+full_name: Chef/Deprecations/LegacyYumCookbookRecipes
 department: Chef/Deprecations
 description: |-
   The Ohai default recipe previously allowed a user to ship custom Ohai plugins to a system by including them
@@ -22,5 +23,4 @@ examples: |2-
 version_added: 5.4.0
 enabled: true
 excluded_file_paths:
-- "/workspace/chef-cookstyle-master/**/metadata.rb"
-included_file_paths: 
+- "**/metadata.rb"

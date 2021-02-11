@@ -1,5 +1,6 @@
 ---
-name: Chef/Modernize/UseRequireRelative
+short_name: UseRequireRelative
+full_name: Chef/Modernize/UseRequireRelative
 department: Chef/Modernize
 description: Instead of using require with a File.expand_path and __FILE__ use the
   simpler require_relative method.
@@ -21,7 +22,6 @@ examples: |2-
 version_added: 5.22.0
 enabled: true
 excluded_file_paths:
-- "/workspace/chef-cookstyle-master/**/metadata.rb"
-- "/workspace/chef-cookstyle-master/**/attributes/*.rb"
-- "/workspace/chef-cookstyle-master/**/Berksfile"
-included_file_paths: 
+- "**/metadata.rb"
+- "**/attributes/*.rb"
+- "**/Berksfile"

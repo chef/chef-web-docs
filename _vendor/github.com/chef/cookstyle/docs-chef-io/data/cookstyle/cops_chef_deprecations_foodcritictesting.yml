@@ -1,5 +1,6 @@
 ---
-name: Chef/Deprecations/FoodcriticTesting
+short_name: FoodcriticTesting
+full_name: Chef/Deprecations/FoodcriticTesting
 department: Chef/Deprecations
 description: The Foodcritic cookbook linter has been deprecated and should no longer
   be used for validating cookbooks.
@@ -15,7 +16,6 @@ examples: |2-
   ```
 version_added: 7.1.0
 enabled: true
-excluded_file_paths: 
 included_file_paths:
 - "**/Rakefile"
 - "**/Gemfile"

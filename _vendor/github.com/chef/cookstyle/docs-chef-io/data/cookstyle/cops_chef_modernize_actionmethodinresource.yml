@@ -1,5 +1,6 @@
 ---
-name: Chef/Modernize/ActionMethodInResource
+short_name: ActionMethodInResource
+full_name: Chef/Modernize/ActionMethodInResource
 department: Chef/Modernize
 description: Use the custom resource language's `action :my_action` blocks instead
   of creating actions with methods.
@@ -24,7 +25,6 @@ examples: |2-
   ```
 version_added: 6.13.0
 enabled: true
-excluded_file_paths: 
 included_file_paths:
 - "**/resources/*.rb"
 - "**/providers/*.rb"

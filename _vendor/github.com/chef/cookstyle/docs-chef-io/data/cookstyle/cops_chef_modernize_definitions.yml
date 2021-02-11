@@ -1,5 +1,6 @@
 ---
-name: Chef/Modernize/Definitions
+short_name: Definitions
+full_name: Chef/Modernize/Definitions
 department: Chef/Modernize
 description: In 2016 with Chef Infra Client 12.5 Custom Resources were introduced
   as a way of writing reusable resource code that could be shipped in cookbooks. Custom
@@ -11,6 +12,5 @@ target_chef_version: All Versions
 examples: 
 version_added: 5.11.0
 enabled: true
-excluded_file_paths: 
 included_file_paths:
 - "**/definitions/*.rb"

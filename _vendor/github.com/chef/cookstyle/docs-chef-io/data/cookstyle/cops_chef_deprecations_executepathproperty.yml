@@ -1,5 +1,6 @@
 ---
-name: Chef/Deprecations/ExecutePathProperty
+short_name: ExecutePathProperty
+full_name: Chef/Deprecations/ExecutePathProperty
 department: Chef/Deprecations
 description: In Chef Infra Client 13 and later you must set path env vars in execute
   resources using the `environment` property not the legacy `path` property.
@@ -25,7 +26,6 @@ examples: |2-
 version_added: 6.17.0
 enabled: true
 excluded_file_paths:
-- "/workspace/chef-cookstyle-master/**/metadata.rb"
-- "/workspace/chef-cookstyle-master/**/attributes/*.rb"
-- "/workspace/chef-cookstyle-master/**/Berksfile"
-included_file_paths: 
+- "**/metadata.rb"
+- "**/attributes/*.rb"
+- "**/Berksfile"

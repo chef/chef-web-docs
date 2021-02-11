@@ -1,5 +1,6 @@
 ---
-name: Chef/Style/CommentSentenceSpacing
+short_name: CommentSentenceSpacing
+full_name: Chef/Style/CommentSentenceSpacing
 department: Chef/Style
 description: |-
   Replaces double spaces between sentences with a single space.
@@ -9,5 +10,3 @@ target_chef_version: All Versions
 examples: 
 version_added: 5.1.0
 enabled: false
-excluded_file_paths: 
-included_file_paths: 

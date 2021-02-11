@@ -1,5 +1,6 @@
 ---
-name: Chef/Correctness/InvalidPlatformInCase
+short_name: InvalidPlatformInCase
+full_name: Chef/Correctness/InvalidPlatformInCase
 department: Chef/Correctness
 description: Use valid platform values in case statements.
 autocorrection: true
@@ -17,6 +18,5 @@ examples: |2-
 version_added: 6.6.0
 enabled: true
 excluded_file_paths:
-- "/workspace/chef-cookstyle-master/**/metadata.rb"
-- "/workspace/chef-cookstyle-master/**/Berksfile"
-included_file_paths: 
+- "**/metadata.rb"
+- "**/Berksfile"

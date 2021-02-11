@@ -26,7 +26,8 @@
         {{ range $yamlfile, $yaml:= $yaml_files }}
 
             {{ if eq $yaml.department $department}}
-              <li><a href="/workstation/cookstyle/{{ $yamlfile }}">{{ $yaml.name }}</a></li>
+              {{ $full_name := $yaml.full_name | replaceRE `\/` `_` | lower }}
+              <li><a href="/workstation/cookstyle/{{ $full_name }}/">{{ $yaml.short_name }}</a></li>
             {{ end }}
 
         {{ end }}

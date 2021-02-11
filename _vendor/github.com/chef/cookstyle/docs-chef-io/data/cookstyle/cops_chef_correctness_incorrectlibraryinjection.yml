@@ -1,5 +1,6 @@
 ---
-name: Chef/Correctness/IncorrectLibraryInjection
+short_name: IncorrectLibraryInjection
+full_name: Chef/Correctness/IncorrectLibraryInjection
 department: Chef/Correctness
 description: Libraries should be injected into the Chef::DSL::Recipe class and not
   Chef::Recipe or Chef::Provider classes directly.
@@ -24,6 +25,5 @@ examples: |2-
 version_added: 5.10.0
 enabled: true
 excluded_file_paths:
-- "/workspace/chef-cookstyle-master/**/metadata.rb"
-- "/workspace/chef-cookstyle-master/**/Berksfile"
-included_file_paths: 
+- "**/metadata.rb"
+- "**/Berksfile"

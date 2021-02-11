@@ -1,5 +1,6 @@
 ---
-name: Chef/Modernize/ExecuteSysctl
+short_name: ExecuteSysctl
+full_name: Chef/Modernize/ExecuteSysctl
 department: Chef/Modernize
 description: Chef Infra Client 14.0 and later includes a sysctl resource that should
   be used to idempotently load sysctl values instead of templating files and using
@@ -31,7 +32,6 @@ examples: |2-
 version_added: 5.18.0
 enabled: true
 excluded_file_paths:
-- "/workspace/chef-cookstyle-master/**/metadata.rb"
-- "/workspace/chef-cookstyle-master/**/attributes/*.rb"
-- "/workspace/chef-cookstyle-master/**/Berksfile"
-included_file_paths: 
+- "**/metadata.rb"
+- "**/attributes/*.rb"
+- "**/Berksfile"

@@ -1,5 +1,6 @@
 ---
-name: Chef/Correctness/BlockGuardWithOnlyString
+short_name: BlockGuardWithOnlyString
+full_name: Chef/Correctness/BlockGuardWithOnlyString
 department: Chef/Correctness
 description: A resource guard (not_if/only_if) that is a string should not be wrapped
   in {}. Wrapping a guard string in {} causes it to be executed as Ruby code which
@@ -30,7 +31,6 @@ examples: |2-
 version_added: 5.2.0
 enabled: true
 excluded_file_paths:
-- "/workspace/chef-cookstyle-master/**/attributes/*.rb"
-- "/workspace/chef-cookstyle-master/**/metadata.rb"
-- "/workspace/chef-cookstyle-master/**/Berksfile"
-included_file_paths: 
+- "**/attributes/*.rb"
+- "**/metadata.rb"
+- "**/Berksfile"

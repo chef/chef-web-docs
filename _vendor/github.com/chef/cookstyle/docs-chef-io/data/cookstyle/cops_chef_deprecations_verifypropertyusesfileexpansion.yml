@@ -1,5 +1,6 @@
 ---
-name: Chef/Deprecations/VerifyPropertyUsesFileExpansion
+short_name: VerifyPropertyUsesFileExpansion
+full_name: Chef/Deprecations/VerifyPropertyUsesFileExpansion
 department: Chef/Deprecations
 description: In Chef Infra Client 13 the "file" variable for use within the verify
   property was replaced with the "path" variable.
@@ -25,7 +26,6 @@ examples: |2-
 version_added: 5.10.0
 enabled: true
 excluded_file_paths:
-- "/workspace/chef-cookstyle-master/**/metadata.rb"
-- "/workspace/chef-cookstyle-master/**/attributes/*.rb"
-- "/workspace/chef-cookstyle-master/**/Berksfile"
-included_file_paths: 
+- "**/metadata.rb"
+- "**/attributes/*.rb"
+- "**/Berksfile"

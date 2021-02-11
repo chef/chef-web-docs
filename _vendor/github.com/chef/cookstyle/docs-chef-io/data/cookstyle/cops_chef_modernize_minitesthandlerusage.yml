@@ -1,5 +1,6 @@
 ---
-name: Chef/Modernize/MinitestHandlerUsage
+short_name: MinitestHandlerUsage
+full_name: Chef/Modernize/MinitestHandlerUsage
 department: Chef/Modernize
 description: Use Chef InSpec for testing instead of the Minitest Handler cookbook
   pattern.
@@ -14,6 +15,5 @@ examples: |2-
   ```
 version_added: 5.4.0
 enabled: true
-excluded_file_paths: 
 included_file_paths:
 - "**/metadata.rb"

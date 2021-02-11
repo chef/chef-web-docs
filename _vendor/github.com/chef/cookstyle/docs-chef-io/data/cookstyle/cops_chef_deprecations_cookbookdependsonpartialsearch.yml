@@ -1,5 +1,6 @@
 ---
-name: Chef/Deprecations/CookbookDependsOnPartialSearch
+short_name: CookbookDependsOnPartialSearch
+full_name: Chef/Deprecations/CookbookDependsOnPartialSearch
 department: Chef/Deprecations
 description: Don't depend on the partial_search cookbook made obsolete by Chef Infra
   Client 13
@@ -14,6 +15,5 @@ examples: |2-
   ```
 version_added: 5.1.0
 enabled: true
-excluded_file_paths: 
 included_file_paths:
 - "**/metadata.rb"

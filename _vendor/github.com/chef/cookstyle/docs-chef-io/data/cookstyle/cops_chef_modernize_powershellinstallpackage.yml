@@ -1,5 +1,6 @@
 ---
-name: Chef/Modernize/PowershellInstallPackage
+short_name: PowershellInstallPackage
+full_name: Chef/Modernize/PowershellInstallPackage
 department: Chef/Modernize
 description: |-
   Use the powershell_package resource built into Chef Infra Client instead of the powershell_script resource to run Install-Package
@@ -20,5 +21,4 @@ examples: |2-
 version_added: 5.5.0
 enabled: true
 excluded_file_paths:
-- "/workspace/chef-cookstyle-master/**/metadata.rb"
-included_file_paths: 
+- "**/metadata.rb"

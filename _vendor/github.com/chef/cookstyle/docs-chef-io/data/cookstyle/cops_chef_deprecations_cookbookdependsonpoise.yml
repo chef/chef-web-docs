@@ -1,5 +1,6 @@
 ---
-name: Chef/Deprecations/CookbookDependsOnPoise
+short_name: CookbookDependsOnPoise
+full_name: Chef/Deprecations/CookbookDependsOnPoise
 department: Chef/Deprecations
 description: Cookbooks should not depend on the deprecated Poise framework cookbooks.
   They should instead be refactored to use standard Chef Infra custom resources.
@@ -15,6 +16,5 @@ examples: |2-
   ```
 version_added: 5.1.0
 enabled: true
-excluded_file_paths: 
 included_file_paths:
 - "**/metadata.rb"

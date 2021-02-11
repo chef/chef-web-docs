@@ -1,5 +1,6 @@
 ---
-name: Chef/Modernize/SetOrReturnInResources
+short_name: SetOrReturnInResources
+full_name: Chef/Modernize/SetOrReturnInResources
 department: Chef/Modernize
 description: set_or_return within a method should not be used to define property in
   a resource. Instead use the property method which properly validates and defines
@@ -28,7 +29,6 @@ examples: |2-
   ```
 version_added: 5.2.0
 enabled: true
-excluded_file_paths: 
 included_file_paths:
 - "**/resources/*.rb"
 - "**/libraries/*.rb"

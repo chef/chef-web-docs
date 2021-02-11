@@ -1,5 +1,6 @@
 ---
-name: Chef/RedundantCode/OhaiAttributeToString
+short_name: OhaiAttributeToString
+full_name: Chef/RedundantCode/OhaiAttributeToString
 department: Chef/RedundantCode
 description: Many Ohai node attributes are already strings and don't need to be cast
   to strings again
@@ -33,6 +34,5 @@ examples: |2-
 version_added: 6.10.0
 enabled: true
 excluded_file_paths:
-- "/workspace/chef-cookstyle-master/**/metadata.rb"
-- "/workspace/chef-cookstyle-master/**/Berksfile"
-included_file_paths: 
+- "**/metadata.rb"
+- "**/Berksfile"

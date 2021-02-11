@@ -1,5 +1,6 @@
 ---
-name: Chef/Deprecations/IncludingYumDNFCompatRecipe
+short_name: IncludingYumDNFCompatRecipe
+full_name: Chef/Deprecations/IncludingYumDNFCompatRecipe
 department: Chef/Deprecations
 description: |-
   Don't include the deprecated yum DNF compatibility recipe, which is no longer necessary
@@ -16,5 +17,4 @@ examples: |2-
 version_added: 5.3.0
 enabled: true
 excluded_file_paths:
-- "/workspace/chef-cookstyle-master/**/metadata.rb"
-included_file_paths: 
+- "**/metadata.rb"

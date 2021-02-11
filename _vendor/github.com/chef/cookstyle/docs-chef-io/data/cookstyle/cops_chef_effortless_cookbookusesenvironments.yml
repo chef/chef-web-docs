@@ -1,5 +1,6 @@
 ---
-name: Chef/Effortless/CookbookUsesEnvironments
+short_name: CookbookUsesEnvironments
+full_name: Chef/Effortless/CookbookUsesEnvironments
 department: Chef/Effortless
 description: Neither Policyfiles or Effortless Infra which is based on Policyfiles
   supports Chef Environments
@@ -16,6 +17,5 @@ examples: |2-
 version_added: 5.10.0
 enabled: false
 excluded_file_paths:
-- "/workspace/chef-cookstyle-master/**/metadata.rb"
-- "/workspace/chef-cookstyle-master/**/Berksfile"
-included_file_paths: 
+- "**/metadata.rb"
+- "**/Berksfile"

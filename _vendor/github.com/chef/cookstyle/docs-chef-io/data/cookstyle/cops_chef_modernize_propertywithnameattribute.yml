@@ -1,5 +1,6 @@
 ---
-name: Chef/Modernize/PropertyWithNameAttribute
+short_name: PropertyWithNameAttribute
+full_name: Chef/Modernize/PropertyWithNameAttribute
 department: Chef/Modernize
 description: When using properties in a custom resource you should use name_property
   not the legacy name_attribute from the days of attributes
@@ -20,7 +21,6 @@ examples: |2-
   ```
 version_added: 5.1.0
 enabled: true
-excluded_file_paths: 
 included_file_paths:
 - "**/resources/*.rb"
 - "**/libraries/*.rb"

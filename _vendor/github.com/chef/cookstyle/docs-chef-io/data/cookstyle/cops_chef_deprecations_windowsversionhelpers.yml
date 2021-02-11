@@ -1,5 +1,6 @@
 ---
-name: Chef/Deprecations/WindowsVersionHelpers
+short_name: WindowsVersionHelpers
+full_name: Chef/Deprecations/WindowsVersionHelpers
 department: Chef/Deprecations
 description: Use node['platform_version'] and node['kernel'] data instead of the deprecated
   Windows::VersionHelper helpers from the Windows cookbook.
@@ -27,6 +28,5 @@ examples: |2-
 version_added: 5.4.0
 enabled: true
 excluded_file_paths:
-- "/workspace/chef-cookstyle-master/**/metadata.rb"
-- "/workspace/chef-cookstyle-master/**/Berksfile"
-included_file_paths: 
+- "**/metadata.rb"
+- "**/Berksfile"

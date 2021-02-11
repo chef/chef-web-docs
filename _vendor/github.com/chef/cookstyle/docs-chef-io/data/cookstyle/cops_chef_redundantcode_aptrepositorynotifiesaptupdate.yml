@@ -1,5 +1,6 @@
 ---
-name: Chef/RedundantCode/AptRepositoryNotifiesAptUpdate
+short_name: AptRepositoryNotifiesAptUpdate
+full_name: Chef/RedundantCode/AptRepositoryNotifiesAptUpdate
 department: Chef/RedundantCode
 description: There is no need to notify an apt-get update when an apt_repository is
   created as this is done automatically by the apt_repository resource.
@@ -30,7 +31,6 @@ examples: |2-
 version_added: 5.17.0
 enabled: true
 excluded_file_paths:
-- "/workspace/chef-cookstyle-master/**/metadata.rb"
-- "/workspace/chef-cookstyle-master/**/attributes/*.rb"
-- "/workspace/chef-cookstyle-master/**/Berksfile"
-included_file_paths: 
+- "**/metadata.rb"
+- "**/attributes/*.rb"
+- "**/Berksfile"

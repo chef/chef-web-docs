@@ -1,5 +1,6 @@
 ---
-name: Chef/Deprecations/HWRPWithoutProvides
+short_name: HWRPWithoutProvides
+full_name: Chef/Deprecations/HWRPWithoutProvides
 department: Chef/Deprecations
 description: |-
   Chef Infra Client 16 and later a legacy HWRP resource must use `provides` to define how the resource is called in recipes or other resources. To maintain compatibility with Chef Infra Client < 16 use both `resource_name` and `provides`.
@@ -71,6 +72,5 @@ examples: |2-
   ```
 version_added: 6.0.0
 enabled: true
-excluded_file_paths: 
 included_file_paths:
 - "**/libraries/*.rb"

@@ -1,5 +1,6 @@
 ---
-name: Chef/Modernize/DefaultActionFromInitialize
+short_name: DefaultActionFromInitialize
+full_name: Chef/Modernize/DefaultActionFromInitialize
 department: Chef/Modernize
 description: |-
   The default actions can now be specified using the `default_action` helper instead of using the @action variable in the resource provider initialize method. In general we recommend against writing HWRPs, but if HWRPs are necessary you should utilize as much of the resource DSL as possible.
@@ -28,7 +29,6 @@ examples: |2-
   ```
 version_added: 5.10.0
 enabled: true
-excluded_file_paths: 
 included_file_paths:
 - "**/resources/*.rb"
 - "**/providers/*.rb"

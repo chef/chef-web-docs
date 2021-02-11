@@ -1,5 +1,6 @@
 ---
-name: Chef/Deprecations/UseInlineResourcesDefined
+short_name: UseInlineResourcesDefined
+full_name: Chef/Deprecations/UseInlineResourcesDefined
 department: Chef/Deprecations
 description: |-
   use_inline_resources became the default in Chef Infra Client 13+ and no longer needs
@@ -17,7 +18,6 @@ examples: |2-
   ```
 version_added: 5.4.0
 enabled: true
-excluded_file_paths: 
 included_file_paths:
 - "**/libraries/*.rb"
 - "**/providers/*.rb"

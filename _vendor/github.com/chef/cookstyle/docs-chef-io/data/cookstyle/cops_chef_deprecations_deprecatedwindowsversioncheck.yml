@@ -1,5 +1,6 @@
 ---
-name: Chef/Deprecations/DeprecatedWindowsVersionCheck
+short_name: DeprecatedWindowsVersionCheck
+full_name: Chef/Deprecations/DeprecatedWindowsVersionCheck
 department: Chef/Deprecations
 description: Don't use the deprecated older_than_win_2012_or_8? helper. Windows versions
   before 2012 and 8 are now end of life and this helper will always return false.
@@ -17,6 +18,5 @@ examples: |2-
 version_added: 6.0.0
 enabled: true
 excluded_file_paths:
-- "/workspace/chef-cookstyle-master/**/metadata.rb"
-- "/workspace/chef-cookstyle-master/**/Berksfile"
-included_file_paths: 
+- "**/metadata.rb"
+- "**/Berksfile"

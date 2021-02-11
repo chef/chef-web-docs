@@ -1,5 +1,6 @@
 ---
-name: Chef/Deprecations/ChefSpecCoverageReport
+short_name: ChefSpecCoverageReport
+full_name: Chef/Deprecations/ChefSpecCoverageReport
 department: Chef/Deprecations
 description: Don't use the deprecated ChefSpec Coverage report functionality in your
   specs. This feature has been removed as coverage reports encourage cookbook authors
@@ -17,6 +18,5 @@ examples: |2-
   ```
 version_added: 5.8.0
 enabled: true
-excluded_file_paths: 
 included_file_paths:
 - "**/spec/*.rb"

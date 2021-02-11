@@ -1,5 +1,6 @@
 ---
-name: Chef/Deprecations/LogResourceNotifications
+short_name: LogResourceNotifications
+full_name: Chef/Deprecations/LogResourceNotifications
 department: Chef/Deprecations
 description: In Chef Infra Client 16 the log resource no longer notifies when logging
   so notifications should not be triggered from log resources. Use the notify_group
@@ -36,6 +37,5 @@ examples: |2-
 version_added: 6.0.0
 enabled: true
 excluded_file_paths:
-- "/workspace/chef-cookstyle-master/**/metadata.rb"
-- "/workspace/chef-cookstyle-master/**/Berksfile"
-included_file_paths: 
+- "**/metadata.rb"
+- "**/Berksfile"

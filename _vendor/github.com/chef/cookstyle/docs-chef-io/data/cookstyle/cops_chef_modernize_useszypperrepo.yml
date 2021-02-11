@@ -1,5 +1,6 @@
 ---
-name: Chef/Modernize/UsesZypperRepo
+short_name: UsesZypperRepo
+full_name: Chef/Modernize/UsesZypperRepo
 department: Chef/Modernize
 description: The zypper_repo resource was renamed zypper_repository when it was added
   to Chef Infra Client 13.3.
@@ -31,5 +32,4 @@ examples: |2-
 version_added: 5.6.0
 enabled: true
 excluded_file_paths:
-- "/workspace/chef-cookstyle-master/**/metadata.rb"
-included_file_paths: 
+- "**/metadata.rb"

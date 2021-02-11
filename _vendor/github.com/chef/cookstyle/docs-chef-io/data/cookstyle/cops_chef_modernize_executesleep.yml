@@ -1,5 +1,6 @@
 ---
-name: Chef/Modernize/ExecuteSleep
+short_name: ExecuteSleep
+full_name: Chef/Modernize/ExecuteSleep
 department: Chef/Modernize
 description: Chef Infra Client 15.5 and later include a chef_sleep resource that should
   be used to sleep between executing resources if necessary instead of using the bash
@@ -31,7 +32,6 @@ examples: |2-
 version_added: 5.16.0
 enabled: true
 excluded_file_paths:
-- "/workspace/chef-cookstyle-master/**/metadata.rb"
-- "/workspace/chef-cookstyle-master/**/attributes/*.rb"
-- "/workspace/chef-cookstyle-master/**/Berksfile"
-included_file_paths: 
+- "**/metadata.rb"
+- "**/attributes/*.rb"
+- "**/Berksfile"

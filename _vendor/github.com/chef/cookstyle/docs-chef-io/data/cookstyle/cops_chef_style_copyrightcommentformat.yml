@@ -1,5 +1,6 @@
 ---
-name: Chef/Style/CopyrightCommentFormat
+short_name: CopyrightCommentFormat
+full_name: Chef/Style/CopyrightCommentFormat
 department: Chef/Style
 description: Checks for incorrectly formatted copyright comments.
 autocorrection: true
@@ -27,5 +28,3 @@ examples: |2-
   ```
 version_added: 5.0.0
 enabled: false
-excluded_file_paths: 
-included_file_paths: 

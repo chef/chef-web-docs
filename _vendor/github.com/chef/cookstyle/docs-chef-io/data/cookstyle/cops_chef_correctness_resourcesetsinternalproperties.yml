@@ -1,5 +1,6 @@
 ---
-name: Chef/Correctness/ResourceSetsInternalProperties
+short_name: ResourceSetsInternalProperties
+full_name: Chef/Correctness/ResourceSetsInternalProperties
 department: Chef/Correctness
 description: |-
   Chef Infra Client uses properties in several resources to track state. These
@@ -28,7 +29,6 @@ examples: |2-
 version_added: 5.5.0
 enabled: true
 excluded_file_paths:
-- "/workspace/chef-cookstyle-master/**/attributes/*.rb"
-- "/workspace/chef-cookstyle-master/**/metadata.rb"
-- "/workspace/chef-cookstyle-master/**/Berksfile"
-included_file_paths: 
+- "**/attributes/*.rb"
+- "**/metadata.rb"
+- "**/Berksfile"

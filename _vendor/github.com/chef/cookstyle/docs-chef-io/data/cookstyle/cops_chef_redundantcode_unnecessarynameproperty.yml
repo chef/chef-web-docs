@@ -1,5 +1,6 @@
 ---
-name: Chef/RedundantCode/UnnecessaryNameProperty
+short_name: UnnecessaryNameProperty
+full_name: Chef/RedundantCode/UnnecessaryNameProperty
 department: Chef/RedundantCode
 description: There is no need to define a property or attribute named :name in a resource
   as Chef Infra defines this on all resources by default.
@@ -18,7 +19,6 @@ examples: |2-
   ```
 version_added: 5.8.0
 enabled: true
-excluded_file_paths: 
 included_file_paths:
 - "**/resources/*.rb"
 - "**/libraries/*.rb"

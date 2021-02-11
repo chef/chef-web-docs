@@ -1,5 +1,6 @@
 ---
-name: Chef/Correctness/ServiceResource
+short_name: ServiceResource
+full_name: Chef/Correctness/ServiceResource
 department: Chef/Correctness
 description: Use a service resource to start and stop services
 autocorrection: false
@@ -15,7 +16,6 @@ examples: |2-
 version_added: 5.0.0
 enabled: true
 excluded_file_paths:
-- "/workspace/chef-cookstyle-master/**/attributes/*.rb"
-- "/workspace/chef-cookstyle-master/**/metadata.rb"
-- "/workspace/chef-cookstyle-master/**/Berksfile"
-included_file_paths: 
+- "**/attributes/*.rb"
+- "**/metadata.rb"
+- "**/Berksfile"

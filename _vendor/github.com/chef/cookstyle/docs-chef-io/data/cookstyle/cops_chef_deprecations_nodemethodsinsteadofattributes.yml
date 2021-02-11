@@ -1,5 +1,6 @@
 ---
-name: Chef/Deprecations/NodeMethodsInsteadofAttributes
+short_name: NodeMethodsInsteadofAttributes
+full_name: Chef/Deprecations/NodeMethodsInsteadofAttributes
 department: Chef/Deprecations
 description: Use node attributes to access data provided by Ohai instead of using
   node methods to access that data.
@@ -29,6 +30,5 @@ examples: |2-
 version_added: 5.4.0
 enabled: true
 excluded_file_paths:
-- "/workspace/chef-cookstyle-master/**/metadata.rb"
-- "/workspace/chef-cookstyle-master/**/Berksfile"
-included_file_paths: 
+- "**/metadata.rb"
+- "**/Berksfile"

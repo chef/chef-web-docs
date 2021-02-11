@@ -1,5 +1,6 @@
 ---
-name: Chef/RedundantCode/AttributeMetadata
+short_name: AttributeMetadata
+full_name: Chef/RedundantCode/AttributeMetadata
 department: Chef/RedundantCode
 description: The attribute metadata.rb method is not used and is unnecessary in cookbooks.
 autocorrection: true
@@ -19,6 +20,5 @@ examples: |2-
   ```
 version_added: 5.1.0
 enabled: true
-excluded_file_paths: 
 included_file_paths:
 - "**/metadata.rb"

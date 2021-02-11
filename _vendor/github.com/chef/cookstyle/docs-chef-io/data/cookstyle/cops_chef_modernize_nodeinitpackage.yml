@@ -1,5 +1,6 @@
 ---
-name: Chef/Modernize/NodeInitPackage
+short_name: NodeInitPackage
+full_name: Chef/Modernize/NodeInitPackage
 department: Chef/Modernize
 description: Use node['init_package'] to check for systemd instead of reading the
   contents of '/proc/1/comm'
@@ -31,6 +32,5 @@ examples: |2-
 version_added: 5.22.0
 enabled: true
 excluded_file_paths:
-- "/workspace/chef-cookstyle-master/**/metadata.rb"
-- "/workspace/chef-cookstyle-master/**/Berksfile"
-included_file_paths: 
+- "**/metadata.rb"
+- "**/Berksfile"

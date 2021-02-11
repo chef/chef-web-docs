@@ -1,5 +1,6 @@
 ---
-name: Chef/Correctness/ConditionalRubyShellout
+short_name: ConditionalRubyShellout
+full_name: Chef/Correctness/ConditionalRubyShellout
 department: Chef/Correctness
 description: Don't use Ruby to shellout in a only_if / not_if conditional when you
   can just shellout directly. Any string value used with only_if / not_if is executed
@@ -34,7 +35,6 @@ examples: |2-
 version_added: 6.1.0
 enabled: true
 excluded_file_paths:
-- "/workspace/chef-cookstyle-master/**/attributes/*.rb"
-- "/workspace/chef-cookstyle-master/**/metadata.rb"
-- "/workspace/chef-cookstyle-master/**/Berksfile"
-included_file_paths: 
+- "**/attributes/*.rb"
+- "**/metadata.rb"
+- "**/Berksfile"

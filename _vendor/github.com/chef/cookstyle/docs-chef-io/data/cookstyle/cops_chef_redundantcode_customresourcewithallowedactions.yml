@@ -1,5 +1,6 @@
 ---
-name: Chef/RedundantCode/CustomResourceWithAllowedActions
+short_name: CustomResourceWithAllowedActions
+full_name: Chef/RedundantCode/CustomResourceWithAllowedActions
 department: Chef/RedundantCode
 description: It is not necessary to set `actions` or `allowed_actions` in custom resources
   as Chef Infra Client determines these automatically from the set of all actions
@@ -18,6 +19,5 @@ examples: |2-
   ```
 version_added: 5.2.0
 enabled: true
-excluded_file_paths: 
 included_file_paths:
 - "**/resources/*.rb"

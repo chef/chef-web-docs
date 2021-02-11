@@ -1,5 +1,6 @@
 ---
-name: Chef/Modernize/CustomResourceWithAttributes
+short_name: CustomResourceWithAttributes
+full_name: Chef/Modernize/CustomResourceWithAttributes
 department: Chef/Modernize
 description: In HWRPs and LWRPs you defined attributes, but custom resources changed
   the name to be properties to avoid confusion with chef recipe attributes. When writing
@@ -29,6 +30,5 @@ examples: |2-
   ```
 version_added: 5.2.0
 enabled: true
-excluded_file_paths: 
 included_file_paths:
 - "**/resources/*.rb"

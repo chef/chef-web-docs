@@ -1,5 +1,6 @@
 ---
-name: Chef/Modernize/ConditionalUsingTest
+short_name: ConditionalUsingTest
+full_name: Chef/Modernize/ConditionalUsingTest
 department: Chef/Modernize
 description: Use ::File.exist?('/foo/bar') instead of the slower 'test -f /foo/bar'
   which requires shelling out
@@ -21,7 +22,6 @@ examples: |2-
 version_added: 6.11.0
 enabled: true
 excluded_file_paths:
-- "/workspace/chef-cookstyle-master/**/metadata.rb"
-- "/workspace/chef-cookstyle-master/**/Berksfile"
-- "/workspace/chef-cookstyle-master/**/attributes/*.rb"
-included_file_paths: 
+- "**/metadata.rb"
+- "**/Berksfile"
+- "**/attributes/*.rb"

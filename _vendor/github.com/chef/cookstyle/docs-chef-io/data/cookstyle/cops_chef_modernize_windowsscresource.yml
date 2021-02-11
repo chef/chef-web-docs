@@ -1,5 +1,6 @@
 ---
-name: Chef/Modernize/WindowsScResource
+short_name: WindowsScResource
+full_name: Chef/Modernize/WindowsScResource
 department: Chef/Modernize
 description: The sc_windows resource from the sc cookbook allowed for the creation
   of windows services on legacy Chef Infra Client releases. Chef Infra Client 14.0
@@ -30,7 +31,6 @@ examples: |2-
 version_added: 5.16.0
 enabled: true
 excluded_file_paths:
-- "/workspace/chef-cookstyle-master/**/metadata.rb"
-- "/workspace/chef-cookstyle-master/**/attributes/*.rb"
-- "/workspace/chef-cookstyle-master/**/Berksfile"
-included_file_paths: 
+- "**/metadata.rb"
+- "**/attributes/*.rb"
+- "**/Berksfile"

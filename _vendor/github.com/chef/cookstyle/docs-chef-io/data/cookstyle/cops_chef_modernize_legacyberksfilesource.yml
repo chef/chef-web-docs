@@ -1,5 +1,6 @@
 ---
-name: Chef/Modernize/LegacyBerksfileSource
+short_name: LegacyBerksfileSource
+full_name: Chef/Modernize/LegacyBerksfileSource
 department: Chef/Modernize
 description: There have been many different valid community site / Supermarket URLs
   to use in a cookbook's Berksfile. These old URLs continue to function via redirects,
@@ -24,6 +25,5 @@ examples: |2-
   ```
 version_added: 5.1.0
 enabled: true
-excluded_file_paths: 
 included_file_paths:
 - "**/Berksfile"

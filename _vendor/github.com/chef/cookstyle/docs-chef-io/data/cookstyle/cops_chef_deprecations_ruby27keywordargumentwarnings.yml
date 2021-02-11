@@ -1,5 +1,6 @@
 ---
-name: Chef/Deprecations/Ruby27KeywordArgumentWarnings
+short_name: Ruby27KeywordArgumentWarnings
+full_name: Chef/Deprecations/Ruby27KeywordArgumentWarnings
 department: Chef/Deprecations
 description: Pass options to shell_out helpers without the brackets to avoid Ruby
   2.7 deprecation warnings.
@@ -23,6 +24,5 @@ examples: |2-
 version_added: 6.5.0
 enabled: true
 excluded_file_paths:
-- "/workspace/chef-cookstyle-master/**/metadata.rb"
-- "/workspace/chef-cookstyle-master/**/Berksfile"
-included_file_paths: 
+- "**/metadata.rb"
+- "**/Berksfile"

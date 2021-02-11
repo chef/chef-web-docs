@@ -1,5 +1,6 @@
 ---
-name: Chef/Correctness/ChefApplicationFatal
+short_name: ChefApplicationFatal
+full_name: Chef/Correctness/ChefApplicationFatal
 department: Chef/Correctness
 description: Use raise to force Chef Infra Client to fail instead of using Chef::Application.fatal,
   which masks the full stack trace of the failure and makes debugging difficult.
@@ -21,6 +22,5 @@ examples: |2-
 version_added: 6.0.0
 enabled: true
 excluded_file_paths:
-- "/workspace/chef-cookstyle-master/**/metadata.rb"
-- "/workspace/chef-cookstyle-master/**/Berksfile"
-included_file_paths: 
+- "**/metadata.rb"
+- "**/Berksfile"

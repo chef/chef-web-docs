@@ -1,5 +1,6 @@
 ---
-name: Chef/Correctness/InvalidPlatformFamilyHelper
+short_name: InvalidPlatformFamilyHelper
+full_name: Chef/Correctness/InvalidPlatformFamilyHelper
 department: Chef/Correctness
 description: Pass valid platform families to the platform_family? helper.
 autocorrection: true
@@ -21,6 +22,5 @@ examples: |2-
 version_added: 5.15.0
 enabled: true
 excluded_file_paths:
-- "/workspace/chef-cookstyle-master/**/metadata.rb"
-- "/workspace/chef-cookstyle-master/**/Berksfile"
-included_file_paths: 
+- "**/metadata.rb"
+- "**/Berksfile"

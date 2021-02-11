@@ -1,5 +1,6 @@
 ---
-name: Chef/Deprecations/NodeDeepFetch
+short_name: NodeDeepFetch
+full_name: Chef/Deprecations/NodeDeepFetch
 department: Chef/Deprecations
 description: The node.deep_fetch method has been removed from Chef-Sugar, and must
   be replaced by the node.read API.
@@ -32,6 +33,5 @@ examples: |2-
 version_added: 5.12.0
 enabled: true
 excluded_file_paths:
-- "/workspace/chef-cookstyle-master/**/metadata.rb"
-- "/workspace/chef-cookstyle-master/**/Berksfile"
-included_file_paths: 
+- "**/metadata.rb"
+- "**/Berksfile"

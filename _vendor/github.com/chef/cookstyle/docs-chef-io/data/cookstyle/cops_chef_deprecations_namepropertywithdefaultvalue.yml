@@ -1,5 +1,6 @@
 ---
-name: Chef/Deprecations/NamePropertyWithDefaultValue
+short_name: NamePropertyWithDefaultValue
+full_name: Chef/Deprecations/NamePropertyWithDefaultValue
 department: Chef/Deprecations
 description: A resource property (or attribute) can't be marked as a name_property
   (or name_attribute) and also have a default value. The name property is a special
@@ -27,7 +28,6 @@ examples: |2-
   ```
 version_added: 5.7.0
 enabled: true
-excluded_file_paths: 
 included_file_paths:
 - "**/libraries/*.rb"
 - "**/resources/*.rb"

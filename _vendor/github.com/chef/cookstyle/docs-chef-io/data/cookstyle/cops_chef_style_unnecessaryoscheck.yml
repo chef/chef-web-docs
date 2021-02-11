@@ -1,5 +1,6 @@
 ---
-name: Chef/Style/UnnecessaryOSCheck
+short_name: UnnecessaryOSCheck
+full_name: Chef/Style/UnnecessaryOSCheck
 department: Chef/Style
 description: Use the platform_family?() helpers instead of node['os] == 'foo' for
   platform_families that match one-to-one with OS values. These helpers are easier
@@ -30,6 +31,5 @@ examples: |2-
 version_added: 5.21.0
 enabled: true
 excluded_file_paths:
-- "/workspace/chef-cookstyle-master/**/metadata.rb"
-- "/workspace/chef-cookstyle-master/**/Berksfile"
-included_file_paths: 
+- "**/metadata.rb"
+- "**/Berksfile"

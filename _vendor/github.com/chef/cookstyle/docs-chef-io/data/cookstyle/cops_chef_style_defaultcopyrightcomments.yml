@@ -1,5 +1,6 @@
 ---
-name: Chef/Style/DefaultCopyrightComments
+short_name: DefaultCopyrightComments
+full_name: Chef/Style/DefaultCopyrightComments
 department: Chef/Style
 description: Checks for default copyright comments from the chef generator cookbook
   command
@@ -22,5 +23,3 @@ examples: |2-
   ```
 version_added: 5.12.0
 enabled: true
-excluded_file_paths: 
-included_file_paths: 

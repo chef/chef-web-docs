@@ -1,5 +1,6 @@
 ---
-name: Chef/Correctness/InvalidNotificationTiming
+short_name: InvalidNotificationTiming
+full_name: Chef/Correctness/InvalidNotificationTiming
 department: Chef/Correctness
 description: Valid notification timings are :immediately, :immediate (alias for :immediately),
   :delayed, and :before.
@@ -27,7 +28,6 @@ examples: |2-
 version_added: 5.16.0
 enabled: true
 excluded_file_paths:
-- "/workspace/chef-cookstyle-master/**/attributes/*.rb"
-- "/workspace/chef-cookstyle-master/**/metadata.rb"
-- "/workspace/chef-cookstyle-master/**/Berksfile"
-included_file_paths: 
+- "**/attributes/*.rb"
+- "**/metadata.rb"
+- "**/Berksfile"

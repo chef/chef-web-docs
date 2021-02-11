@@ -1,5 +1,6 @@
 ---
-name: Chef/Deprecations/ResourceInheritsFromCompatResource
+short_name: ResourceInheritsFromCompatResource
+full_name: Chef/Deprecations/ResourceInheritsFromCompatResource
 department: Chef/Deprecations
 description: Resources written in the class based HWRP style should inherit from the
   'Chef::Resource' class and not the 'ChefCompat::Resource' class from the deprecated
@@ -28,6 +29,5 @@ examples: |2-
   ```
 version_added: 5.10.0
 enabled: true
-excluded_file_paths: 
 included_file_paths:
 - "**/libraries/*.rb"

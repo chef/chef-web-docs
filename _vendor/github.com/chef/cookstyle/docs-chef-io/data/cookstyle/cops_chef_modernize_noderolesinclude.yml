@@ -1,5 +1,6 @@
 ---
-name: Chef/Modernize/NodeRolesInclude
+short_name: NodeRolesInclude
+full_name: Chef/Modernize/NodeRolesInclude
 department: Chef/Modernize
 description: Use `node.role?('foo')` to check if a node includes a role instead of
   `node['roles'].include?('foo')`.
@@ -21,6 +22,5 @@ examples: |2-
 version_added: 6.1.0
 enabled: true
 excluded_file_paths:
-- "/workspace/chef-cookstyle-master/**/metadata.rb"
-- "/workspace/chef-cookstyle-master/**/Berksfile"
-included_file_paths: 
+- "**/metadata.rb"
+- "**/Berksfile"

@@ -1,5 +1,6 @@
 ---
-name: Chef/Modernize/AllowedActionsFromInitialize
+short_name: AllowedActionsFromInitialize
+full_name: Chef/Modernize/AllowedActionsFromInitialize
 department: Chef/Modernize
 description: The allowed actions can now be specified using the `allowed_actions`
   helper instead of using the @actions or @allowed_actions variables in the resource's
@@ -31,7 +32,6 @@ examples: |2-
   ```
 version_added: 5.15.0
 enabled: true
-excluded_file_paths: 
 included_file_paths:
 - "**/resources/*.rb"
 - "**/libraries/*.rb"
