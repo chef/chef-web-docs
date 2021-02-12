@@ -986,14 +986,14 @@ has collaborated, and those that are followed.
 
 ```javascript
 {
-  "username": "stevedanno",
-  "name": "Steve Danno",
+  "username": "tbucatar",
+  "name": "Tamira Bucatar",
   "company": "Chef Software, Inc",
   "github": [
-    "stevedanno"
+    "tbucatar"
   ],
-  "twitter": "stevedanno",
-  "irc": "stevedanno",
+  "twitter": "tbucatar",
+  "irc": "tbucatar",
   "cookbooks": {
     "owns": {
       "bacon": "https://supermarket.chef.io/api/v1/cookbooks/bacon"

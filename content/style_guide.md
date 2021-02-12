@@ -589,6 +589,18 @@ VPC."
 
 ## Examples
 
+### Example Company
+
+We use the fictional company "Fourth Coffee, Inc." as an example throughout the docs.
+
+Fourth Coffee, Inc.
+123579 4th Ave
+Seattle, WA 98122
+
+Examples in code:
+`admin@4thcoffee.com`
+`4thcoffee.pem`
+
 ### Example Domains
 
 Use the `example.com` domain for generic domains and email addresses in the documentation. Use the `chef.io` or `progress.com` domain for examples that should refer back to Chef Software.
@@ -599,7 +611,7 @@ Don't reveal personal information in examples, such as the names of real people,
 
 Don't use the names of bands, musicians, or characters from works that are under copyright.
 
-When writing about security, follow the accepted convention and use "Alice" and "Bob". Following this convention helps readers see that they are reading a topic about security and integrate the Chef information with their existing knowledge.
+Write concretely about security wherever possible, for example, "server security" and "server-to-client authentication". Try to avoid discussing security abstractly, but if it is unavoidable, follow the existing convention of the specialization and use "Alice" and "Bob". Following established convention helps readers identify that the topic is security and and integrate the Chef information with their existing knowledge.
 
 Here is a list of some example names for you to use (the last names are translations of "Chef"):
 
@@ -615,7 +627,7 @@ Here is a list of some example names for you to use (the last names are translat
 ### Example Email Addresses
 
 - akoch@example.com
-- tvucatar@example.com
+- tbucatar@example.com
 - dgotvach@example.com
 - lchushi@example.com
 - hshefu@example.com
