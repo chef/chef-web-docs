@@ -1,5 +1,5 @@
 +++
-title = "Chef/Effortless CookbookUsesRoles"
+title = "CookbookUsesRoles"
 draft = false
 
 layout = "cookstyle_cops"

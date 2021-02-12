@@ -1,5 +1,5 @@
 +++
-title = "Chef/Sharing InvalidLicenseString"
+title = "InvalidLicenseString"
 draft = false
 
 layout = "cookstyle_cops"

@@ -1,5 +1,5 @@
 +++
-title = "Chef/Correctness InvalidVersionMetadata"
+title = "InvalidVersionMetadata"
 draft = false
 
 layout = "cookstyle_cops"

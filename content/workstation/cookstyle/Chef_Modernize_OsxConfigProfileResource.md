@@ -1,5 +1,5 @@
 +++
-title = "Chef/Modernize OsxConfigProfileResource"
+title = "OsxConfigProfileResource"
 draft = false
 
 layout = "cookstyle_cops"

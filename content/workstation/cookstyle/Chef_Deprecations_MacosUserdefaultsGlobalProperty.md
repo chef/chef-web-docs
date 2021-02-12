@@ -1,5 +1,5 @@
 +++
-title = "Chef/Deprecations MacosUserdefaultsGlobalProperty"
+title = "MacosUserdefaultsGlobalProperty"
 draft = false
 
 layout = "cookstyle_cops"

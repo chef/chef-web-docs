@@ -1,5 +1,5 @@
 +++
-title = "Chef/Deprecations ChefSpecLegacyRunner"
+title = "ChefSpecLegacyRunner"
 draft = false
 
 layout = "cookstyle_cops"

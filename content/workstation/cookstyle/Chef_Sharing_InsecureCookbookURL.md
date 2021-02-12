@@ -1,5 +1,5 @@
 +++
-title = "Chef/Sharing InsecureCookbookURL"
+title = "InsecureCookbookURL"
 draft = false
 
 layout = "cookstyle_cops"

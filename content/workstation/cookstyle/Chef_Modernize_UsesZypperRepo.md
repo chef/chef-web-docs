@@ -1,5 +1,5 @@
 +++
-title = "Chef/Modernize UsesZypperRepo"
+title = "UsesZypperRepo"
 draft = false
 
 layout = "cookstyle_cops"

@@ -1,5 +1,5 @@
 +++
-title = "Chef/Deprecations ErlCallResource"
+title = "ErlCallResource"
 draft = false
 
 layout = "cookstyle_cops"

@@ -1,5 +1,5 @@
 +++
-title = "Chef/Deprecations WindowsPackageInstallerTypeString"
+title = "WindowsPackageInstallerTypeString"
 draft = false
 
 layout = "cookstyle_cops"

@@ -1,5 +1,5 @@
 +++
-title = "Chef/Style FileMode"
+title = "FileMode"
 draft = false
 
 layout = "cookstyle_cops"

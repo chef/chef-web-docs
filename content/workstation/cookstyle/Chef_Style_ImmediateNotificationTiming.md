@@ -1,5 +1,5 @@
 +++
-title = "Chef/Style ImmediateNotificationTiming"
+title = "ImmediateNotificationTiming"
 draft = false
 
 layout = "cookstyle_cops"

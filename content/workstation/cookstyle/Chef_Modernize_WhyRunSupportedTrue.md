@@ -1,5 +1,5 @@
 +++
-title = "Chef/Modernize WhyRunSupportedTrue"
+title = "WhyRunSupportedTrue"
 draft = false
 
 layout = "cookstyle_cops"

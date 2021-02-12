@@ -1,5 +1,5 @@
 +++
-title = "Chef/Deprecations EpicFail"
+title = "EpicFail"
 draft = false
 
 layout = "cookstyle_cops"

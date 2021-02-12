@@ -1,5 +1,5 @@
 +++
-title = "Chef/Deprecations UsesDeprecatedMixins"
+title = "UsesDeprecatedMixins"
 draft = false
 
 layout = "cookstyle_cops"

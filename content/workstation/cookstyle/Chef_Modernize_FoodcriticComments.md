@@ -1,5 +1,5 @@
 +++
-title = "Chef/Modernize FoodcriticComments"
+title = "FoodcriticComments"
 draft = false
 
 layout = "cookstyle_cops"

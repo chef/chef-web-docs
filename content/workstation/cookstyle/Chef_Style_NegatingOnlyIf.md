@@ -1,5 +1,5 @@
 +++
-title = "Chef/Style NegatingOnlyIf"
+title = "NegatingOnlyIf"
 draft = false
 
 layout = "cookstyle_cops"

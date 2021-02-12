@@ -1,5 +1,5 @@
 +++
-title = "Chef/Modernize ExecuteTzUtil"
+title = "ExecuteTzUtil"
 draft = false
 
 layout = "cookstyle_cops"

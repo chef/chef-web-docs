@@ -1,5 +1,5 @@
 +++
-title = "Chef/Modernize DatabagHelpers"
+title = "DatabagHelpers"
 draft = false
 
 layout = "cookstyle_cops"

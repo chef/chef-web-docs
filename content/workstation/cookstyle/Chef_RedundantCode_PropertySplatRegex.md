@@ -1,5 +1,5 @@
 +++
-title = "Chef/RedundantCode PropertySplatRegex"
+title = "PropertySplatRegex"
 draft = false
 
 layout = "cookstyle_cops"

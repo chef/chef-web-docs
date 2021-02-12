@@ -1,5 +1,5 @@
 +++
-title = "Chef/Deprecations ChefRewind"
+title = "ChefRewind"
 draft = false
 
 layout = "cookstyle_cops"

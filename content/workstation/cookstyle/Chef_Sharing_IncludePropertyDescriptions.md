@@ -1,5 +1,5 @@
 +++
-title = "Chef/Sharing IncludePropertyDescriptions"
+title = "IncludePropertyDescriptions"
 draft = false
 
 layout = "cookstyle_cops"

@@ -1,5 +1,5 @@
 +++
-title = "Chef/Correctness SupportsMustBeFloat"
+title = "SupportsMustBeFloat"
 draft = false
 
 layout = "cookstyle_cops"

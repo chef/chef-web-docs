@@ -1,5 +1,5 @@
 +++
-title = "Chef/Deprecations ResourceInheritsFromCompatResource"
+title = "ResourceInheritsFromCompatResource"
 draft = false
 
 layout = "cookstyle_cops"

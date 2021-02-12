@@ -1,5 +1,5 @@
 +++
-title = "Chef/Modernize UseBuildEssentialResource"
+title = "UseBuildEssentialResource"
 draft = false
 
 layout = "cookstyle_cops"

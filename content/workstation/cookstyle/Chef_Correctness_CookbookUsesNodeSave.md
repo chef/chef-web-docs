@@ -1,5 +1,5 @@
 +++
-title = "Chef/Correctness CookbookUsesNodeSave"
+title = "CookbookUsesNodeSave"
 draft = false
 
 layout = "cookstyle_cops"

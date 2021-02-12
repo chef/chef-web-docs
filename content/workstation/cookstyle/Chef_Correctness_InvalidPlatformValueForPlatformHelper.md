@@ -1,5 +1,5 @@
 +++
-title = "Chef/Correctness InvalidPlatformValueForPlatformHelper"
+title = "InvalidPlatformValueForPlatformHelper"
 draft = false
 
 layout = "cookstyle_cops"

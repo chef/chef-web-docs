@@ -1,5 +1,5 @@
 +++
-title = "Chef/Correctness ServiceResource"
+title = "ServiceResource"
 draft = false
 
 layout = "cookstyle_cops"

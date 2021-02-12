@@ -1,5 +1,5 @@
 +++
-title = "Chef/Deprecations ExecutePathProperty"
+title = "ExecutePathProperty"
 draft = false
 
 layout = "cookstyle_cops"

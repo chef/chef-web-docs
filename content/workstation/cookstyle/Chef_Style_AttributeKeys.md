@@ -1,5 +1,5 @@
 +++
-title = "Chef/Style AttributeKeys"
+title = "AttributeKeys"
 draft = false
 
 layout = "cookstyle_cops"

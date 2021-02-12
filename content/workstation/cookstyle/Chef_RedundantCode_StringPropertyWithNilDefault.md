@@ -1,5 +1,5 @@
 +++
-title = "Chef/RedundantCode StringPropertyWithNilDefault"
+title = "StringPropertyWithNilDefault"
 draft = false
 
 layout = "cookstyle_cops"

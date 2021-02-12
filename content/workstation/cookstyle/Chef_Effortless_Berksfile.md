@@ -1,5 +1,5 @@
 +++
-title = "Chef/Effortless Berksfile"
+title = "Berksfile"
 draft = false
 
 layout = "cookstyle_cops"

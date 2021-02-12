@@ -1,5 +1,5 @@
 +++
-title = "Chef/Deprecations WindowsTaskChangeAction"
+title = "WindowsTaskChangeAction"
 draft = false
 
 layout = "cookstyle_cops"

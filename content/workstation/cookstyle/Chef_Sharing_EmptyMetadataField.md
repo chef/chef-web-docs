@@ -1,5 +1,5 @@
 +++
-title = "Chef/Sharing EmptyMetadataField"
+title = "EmptyMetadataField"
 draft = false
 
 layout = "cookstyle_cops"

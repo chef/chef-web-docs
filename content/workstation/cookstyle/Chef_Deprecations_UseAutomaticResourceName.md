@@ -1,5 +1,5 @@
 +++
-title = "Chef/Deprecations UseAutomaticResourceName"
+title = "UseAutomaticResourceName"
 draft = false
 
 layout = "cookstyle_cops"

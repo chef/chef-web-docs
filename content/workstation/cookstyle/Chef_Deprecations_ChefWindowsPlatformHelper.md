@@ -1,5 +1,5 @@
 +++
-title = "Chef/Deprecations ChefWindowsPlatformHelper"
+title = "ChefWindowsPlatformHelper"
 draft = false
 
 layout = "cookstyle_cops"

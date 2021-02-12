@@ -1,5 +1,5 @@
 +++
-title = "Chef/Correctness LazyInResourceGuard"
+title = "LazyInResourceGuard"
 draft = false
 
 layout = "cookstyle_cops"

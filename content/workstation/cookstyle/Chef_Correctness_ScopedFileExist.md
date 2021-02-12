@@ -1,5 +1,5 @@
 +++
-title = "Chef/Correctness ScopedFileExist"
+title = "ScopedFileExist"
 draft = false
 
 layout = "cookstyle_cops"

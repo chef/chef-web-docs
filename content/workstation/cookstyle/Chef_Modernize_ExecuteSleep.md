@@ -1,5 +1,5 @@
 +++
-title = "Chef/Modernize ExecuteSleep"
+title = "ExecuteSleep"
 draft = false
 
 layout = "cookstyle_cops"

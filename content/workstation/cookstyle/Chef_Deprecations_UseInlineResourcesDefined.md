@@ -1,5 +1,5 @@
 +++
-title = "Chef/Deprecations UseInlineResourcesDefined"
+title = "UseInlineResourcesDefined"
 draft = false
 
 layout = "cookstyle_cops"

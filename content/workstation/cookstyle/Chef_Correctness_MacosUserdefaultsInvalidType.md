@@ -1,5 +1,5 @@
 +++
-title = "Chef/Correctness MacosUserdefaultsInvalidType"
+title = "MacosUserdefaultsInvalidType"
 draft = false
 
 layout = "cookstyle_cops"

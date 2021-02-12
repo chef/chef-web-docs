@@ -1,5 +1,5 @@
 +++
-title = "Chef/Deprecations ChocolateyPackageUninstallAction"
+title = "ChocolateyPackageUninstallAction"
 draft = false
 
 layout = "cookstyle_cops"

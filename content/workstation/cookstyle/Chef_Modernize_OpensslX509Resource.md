@@ -1,5 +1,5 @@
 +++
-title = "Chef/Modernize OpensslX509Resource"
+title = "OpensslX509Resource"
 draft = false
 
 layout = "cookstyle_cops"

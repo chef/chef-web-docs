@@ -1,5 +1,5 @@
 +++
-title = "Chef/RedundantCode UnnecessaryDesiredState"
+title = "UnnecessaryDesiredState"
 draft = false
 
 layout = "cookstyle_cops"

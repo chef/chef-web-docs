@@ -1,5 +1,5 @@
 +++
-title = "Chef/Modernize IncludingOhaiDefaultRecipe"
+title = "IncludingOhaiDefaultRecipe"
 draft = false
 
 layout = "cookstyle_cops"

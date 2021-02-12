@@ -1,5 +1,5 @@
 +++
-title = "Chef/RedundantCode SensitivePropertyInResource"
+title = "SensitivePropertyInResource"
 draft = false
 
 layout = "cookstyle_cops"

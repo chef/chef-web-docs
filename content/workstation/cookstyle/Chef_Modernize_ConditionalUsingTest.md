@@ -1,5 +1,5 @@
 +++
-title = "Chef/Modernize ConditionalUsingTest"
+title = "ConditionalUsingTest"
 draft = false
 
 layout = "cookstyle_cops"

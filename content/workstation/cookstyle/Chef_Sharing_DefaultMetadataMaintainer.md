@@ -1,5 +1,5 @@
 +++
-title = "Chef/Sharing DefaultMetadataMaintainer"
+title = "DefaultMetadataMaintainer"
 draft = false
 
 layout = "cookstyle_cops"

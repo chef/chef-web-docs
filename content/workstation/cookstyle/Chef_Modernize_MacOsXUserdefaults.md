@@ -1,5 +1,5 @@
 +++
-title = "Chef/Modernize MacOsXUserdefaults"
+title = "MacOsXUserdefaults"
 draft = false
 
 layout = "cookstyle_cops"

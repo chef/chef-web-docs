@@ -1,5 +1,5 @@
 +++
-title = "Chef/Modernize DslIncludeInResource"
+title = "DslIncludeInResource"
 draft = false
 
 layout = "cookstyle_cops"

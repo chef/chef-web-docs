@@ -1,5 +1,5 @@
 +++
-title = "Chef/Modernize SimplifyAptPpaSetup"
+title = "SimplifyAptPpaSetup"
 draft = false
 
 layout = "cookstyle_cops"

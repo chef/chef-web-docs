@@ -1,5 +1,5 @@
 +++
-title = "Chef/Modernize PowerShellGuardInterpreter"
+title = "PowerShellGuardInterpreter"
 draft = false
 
 layout = "cookstyle_cops"

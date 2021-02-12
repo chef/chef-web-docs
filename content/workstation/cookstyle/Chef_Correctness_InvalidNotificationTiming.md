@@ -1,5 +1,5 @@
 +++
-title = "Chef/Correctness InvalidNotificationTiming"
+title = "InvalidNotificationTiming"
 draft = false
 
 layout = "cookstyle_cops"

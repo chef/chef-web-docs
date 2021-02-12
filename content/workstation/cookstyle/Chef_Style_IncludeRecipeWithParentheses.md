@@ -1,5 +1,5 @@
 +++
-title = "Chef/Style IncludeRecipeWithParentheses"
+title = "IncludeRecipeWithParentheses"
 draft = false
 
 layout = "cookstyle_cops"

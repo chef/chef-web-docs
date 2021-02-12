@@ -1,5 +1,5 @@
 +++
-title = "Chef/Style CommentSentenceSpacing"
+title = "CommentSentenceSpacing"
 draft = false
 
 layout = "cookstyle_cops"

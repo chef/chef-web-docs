@@ -1,5 +1,5 @@
 +++
-title = "Chef/Deprecations UsesChefRESTHelpers"
+title = "UsesChefRESTHelpers"
 draft = false
 
 layout = "cookstyle_cops"

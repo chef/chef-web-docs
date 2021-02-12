@@ -1,5 +1,5 @@
 +++
-title = "Chef/Modernize OpensslRsaKeyResource"
+title = "OpensslRsaKeyResource"
 draft = false
 
 layout = "cookstyle_cops"

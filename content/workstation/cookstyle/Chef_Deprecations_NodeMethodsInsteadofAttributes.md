@@ -1,5 +1,5 @@
 +++
-title = "Chef/Deprecations NodeMethodsInsteadofAttributes"
+title = "NodeMethodsInsteadofAttributes"
 draft = false
 
 layout = "cookstyle_cops"

@@ -1,5 +1,5 @@
 +++
-title = "Chef/Modernize ResourceNameFromInitialize"
+title = "ResourceNameFromInitialize"
 draft = false
 
 layout = "cookstyle_cops"

@@ -1,5 +1,5 @@
 +++
-title = "Chef/Modernize PropertyWithNameAttribute"
+title = "PropertyWithNameAttribute"
 draft = false
 
 layout = "cookstyle_cops"

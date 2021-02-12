@@ -1,5 +1,5 @@
 +++
-title = "Chef/Deprecations LogResourceNotifications"
+title = "LogResourceNotifications"
 draft = false
 
 layout = "cookstyle_cops"

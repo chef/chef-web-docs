@@ -1,5 +1,5 @@
 +++
-title = "Chef/Style DefaultCopyrightComments"
+title = "DefaultCopyrightComments"
 draft = false
 
 layout = "cookstyle_cops"

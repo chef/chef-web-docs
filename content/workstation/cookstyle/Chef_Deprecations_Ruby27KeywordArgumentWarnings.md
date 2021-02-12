@@ -1,5 +1,5 @@
 +++
-title = "Chef/Deprecations Ruby27KeywordArgumentWarnings"
+title = "Ruby27KeywordArgumentWarnings"
 draft = false
 
 layout = "cookstyle_cops"

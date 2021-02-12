@@ -1,5 +1,5 @@
 +++
-title = "Chef/Modernize ResourceForcingCompileTime"
+title = "ResourceForcingCompileTime"
 draft = false
 
 layout = "cookstyle_cops"

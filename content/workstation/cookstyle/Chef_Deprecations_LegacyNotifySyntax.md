@@ -1,5 +1,5 @@
 +++
-title = "Chef/Deprecations LegacyNotifySyntax"
+title = "LegacyNotifySyntax"
 draft = false
 
 layout = "cookstyle_cops"

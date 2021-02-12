@@ -1,5 +1,5 @@
 +++
-title = "Chef/Deprecations FoodcriticTesting"
+title = "FoodcriticTesting"
 draft = false
 
 layout = "cookstyle_cops"

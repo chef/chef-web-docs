@@ -1,5 +1,5 @@
 +++
-title = "Chef/Deprecations CookbookDependsOnCompatResource"
+title = "CookbookDependsOnCompatResource"
 draft = false
 
 layout = "cookstyle_cops"

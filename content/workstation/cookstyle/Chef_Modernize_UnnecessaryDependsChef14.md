@@ -1,5 +1,5 @@
 +++
-title = "Chef/Modernize UnnecessaryDependsChef14"
+title = "UnnecessaryDependsChef14"
 draft = false
 
 layout = "cookstyle_cops"

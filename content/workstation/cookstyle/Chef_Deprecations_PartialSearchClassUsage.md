@@ -1,5 +1,5 @@
 +++
-title = "Chef/Deprecations PartialSearchClassUsage"
+title = "PartialSearchClassUsage"
 draft = false
 
 layout = "cookstyle_cops"

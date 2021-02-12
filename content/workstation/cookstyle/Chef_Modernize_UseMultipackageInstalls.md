@@ -1,5 +1,5 @@
 +++
-title = "Chef/Modernize UseMultipackageInstalls"
+title = "UseMultipackageInstalls"
 draft = false
 
 layout = "cookstyle_cops"

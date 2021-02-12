@@ -1,5 +1,5 @@
 +++
-title = "Chef/Deprecations RubyBlockCreateAction"
+title = "RubyBlockCreateAction"
 draft = false
 
 layout = "cookstyle_cops"

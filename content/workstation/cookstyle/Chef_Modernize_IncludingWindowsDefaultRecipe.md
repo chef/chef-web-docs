@@ -1,5 +1,5 @@
 +++
-title = "Chef/Modernize IncludingWindowsDefaultRecipe"
+title = "IncludingWindowsDefaultRecipe"
 draft = false
 
 layout = "cookstyle_cops"

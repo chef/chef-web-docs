@@ -1,5 +1,5 @@
 +++
-title = "Chef/RedundantCode CustomResourceWithAllowedActions"
+title = "CustomResourceWithAllowedActions"
 draft = false
 
 layout = "cookstyle_cops"

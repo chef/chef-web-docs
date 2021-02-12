@@ -1,5 +1,5 @@
 +++
-title = "Chef/Modernize DependsOnZypperCookbook"
+title = "DependsOnZypperCookbook"
 draft = false
 
 layout = "cookstyle_cops"

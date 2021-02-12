@@ -1,5 +1,5 @@
 +++
-title = "Chef/Style CommentFormat"
+title = "CommentFormat"
 draft = false
 
 layout = "cookstyle_cops"

@@ -1,5 +1,5 @@
 +++
-title = "Chef/Correctness NotifiesActionNotSymbol"
+title = "NotifiesActionNotSymbol"
 draft = false
 
 layout = "cookstyle_cops"

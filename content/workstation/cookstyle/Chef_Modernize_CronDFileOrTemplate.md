@@ -1,5 +1,5 @@
 +++
-title = "Chef/Modernize CronDFileOrTemplate"
+title = "CronDFileOrTemplate"
 draft = false
 
 layout = "cookstyle_cops"

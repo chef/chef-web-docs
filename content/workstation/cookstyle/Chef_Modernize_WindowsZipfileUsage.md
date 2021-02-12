@@ -1,5 +1,5 @@
 +++
-title = "Chef/Modernize WindowsZipfileUsage"
+title = "WindowsZipfileUsage"
 draft = false
 
 layout = "cookstyle_cops"

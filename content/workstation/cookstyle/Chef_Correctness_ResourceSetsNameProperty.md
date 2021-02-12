@@ -1,5 +1,5 @@
 +++
-title = "Chef/Correctness ResourceSetsNameProperty"
+title = "ResourceSetsNameProperty"
 draft = false
 
 layout = "cookstyle_cops"

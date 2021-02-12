@@ -1,5 +1,5 @@
 +++
-title = "Chef/Deprecations LocaleDeprecatedLcAllProperty"
+title = "LocaleDeprecatedLcAllProperty"
 draft = false
 
 layout = "cookstyle_cops"

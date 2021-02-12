@@ -1,5 +1,5 @@
 +++
-title = "Chef/Correctness BlockGuardWithOnlyString"
+title = "BlockGuardWithOnlyString"
 draft = false
 
 layout = "cookstyle_cops"

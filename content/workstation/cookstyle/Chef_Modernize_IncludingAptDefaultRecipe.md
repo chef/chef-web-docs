@@ -1,5 +1,5 @@
 +++
-title = "Chef/Modernize IncludingAptDefaultRecipe"
+title = "IncludingAptDefaultRecipe"
 draft = false
 
 layout = "cookstyle_cops"

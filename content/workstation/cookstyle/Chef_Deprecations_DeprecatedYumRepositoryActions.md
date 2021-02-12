@@ -1,5 +1,5 @@
 +++
-title = "Chef/Deprecations DeprecatedYumRepositoryActions"
+title = "DeprecatedYumRepositoryActions"
 draft = false
 
 layout = "cookstyle_cops"

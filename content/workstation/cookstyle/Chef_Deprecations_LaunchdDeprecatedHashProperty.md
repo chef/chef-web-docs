@@ -1,5 +1,5 @@
 +++
-title = "Chef/Deprecations LaunchdDeprecatedHashProperty"
+title = "LaunchdDeprecatedHashProperty"
 draft = false
 
 layout = "cookstyle_cops"

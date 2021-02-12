@@ -1,5 +1,5 @@
 +++
-title = "Chef/Style UnnecessaryOSCheck"
+title = "UnnecessaryOSCheck"
 draft = false
 
 layout = "cookstyle_cops"

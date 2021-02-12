@@ -1,5 +1,5 @@
 +++
-title = "Chef/Modernize IfProvidesDefaultAction"
+title = "IfProvidesDefaultAction"
 draft = false
 
 layout = "cookstyle_cops"

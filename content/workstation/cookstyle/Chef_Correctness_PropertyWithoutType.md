@@ -1,5 +1,5 @@
 +++
-title = "Chef/Correctness PropertyWithoutType"
+title = "PropertyWithoutType"
 draft = false
 
 layout = "cookstyle_cops"

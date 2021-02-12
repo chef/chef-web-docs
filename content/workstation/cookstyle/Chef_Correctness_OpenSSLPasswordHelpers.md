@@ -1,5 +1,5 @@
 +++
-title = "Chef/Correctness OpenSSLPasswordHelpers"
+title = "OpenSSLPasswordHelpers"
 draft = false
 
 layout = "cookstyle_cops"

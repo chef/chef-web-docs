@@ -1,5 +1,5 @@
 +++
-title = "Chef/Modernize EmptyResourceInitializeMethod"
+title = "EmptyResourceInitializeMethod"
 draft = false
 
 layout = "cookstyle_cops"

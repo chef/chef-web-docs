@@ -1,5 +1,5 @@
 +++
-title = "Chef/Sharing IncludeResourceExamples"
+title = "IncludeResourceExamples"
 draft = false
 
 layout = "cookstyle_cops"

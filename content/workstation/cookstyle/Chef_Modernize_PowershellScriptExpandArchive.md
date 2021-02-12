@@ -1,5 +1,5 @@
 +++
-title = "Chef/Modernize PowershellScriptExpandArchive"
+title = "PowershellScriptExpandArchive"
 draft = false
 
 layout = "cookstyle_cops"

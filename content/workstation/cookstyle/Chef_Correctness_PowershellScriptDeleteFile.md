@@ -1,5 +1,5 @@
 +++
-title = "Chef/Correctness PowershellScriptDeleteFile"
+title = "PowershellScriptDeleteFile"
 draft = false
 
 layout = "cookstyle_cops"

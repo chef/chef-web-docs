@@ -1,5 +1,5 @@
 +++
-title = "Chef/Correctness LazyEvalNodeAttributeDefaults"
+title = "LazyEvalNodeAttributeDefaults"
 draft = false
 
 layout = "cookstyle_cops"

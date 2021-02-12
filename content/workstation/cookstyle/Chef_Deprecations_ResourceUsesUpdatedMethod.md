@@ -1,5 +1,5 @@
 +++
-title = "Chef/Deprecations ResourceUsesUpdatedMethod"
+title = "ResourceUsesUpdatedMethod"
 draft = false
 
 layout = "cookstyle_cops"

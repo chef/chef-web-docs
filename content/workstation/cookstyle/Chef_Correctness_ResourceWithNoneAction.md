@@ -1,5 +1,5 @@
 +++
-title = "Chef/Correctness ResourceWithNoneAction"
+title = "ResourceWithNoneAction"
 draft = false
 
 layout = "cookstyle_cops"

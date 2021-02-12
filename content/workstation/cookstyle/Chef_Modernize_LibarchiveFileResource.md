@@ -1,5 +1,5 @@
 +++
-title = "Chef/Modernize LibarchiveFileResource"
+title = "LibarchiveFileResource"
 draft = false
 
 layout = "cookstyle_cops"

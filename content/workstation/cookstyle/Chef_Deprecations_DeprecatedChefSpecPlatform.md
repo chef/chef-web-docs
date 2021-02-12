@@ -1,5 +1,5 @@
 +++
-title = "Chef/Deprecations DeprecatedChefSpecPlatform"
+title = "DeprecatedChefSpecPlatform"
 draft = false
 
 layout = "cookstyle_cops"

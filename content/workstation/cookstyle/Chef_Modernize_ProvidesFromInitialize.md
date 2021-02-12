@@ -1,5 +1,5 @@
 +++
-title = "Chef/Modernize ProvidesFromInitialize"
+title = "ProvidesFromInitialize"
 draft = false
 
 layout = "cookstyle_cops"

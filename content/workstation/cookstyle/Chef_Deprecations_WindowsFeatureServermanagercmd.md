@@ -1,5 +1,5 @@
 +++
-title = "Chef/Deprecations WindowsFeatureServermanagercmd"
+title = "WindowsFeatureServermanagercmd"
 draft = false
 
 layout = "cookstyle_cops"

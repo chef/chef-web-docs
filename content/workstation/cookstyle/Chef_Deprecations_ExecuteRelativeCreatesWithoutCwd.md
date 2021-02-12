@@ -1,5 +1,5 @@
 +++
-title = "Chef/Deprecations ExecuteRelativeCreatesWithoutCwd"
+title = "ExecuteRelativeCreatesWithoutCwd"
 draft = false
 
 layout = "cookstyle_cops"

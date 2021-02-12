@@ -1,5 +1,5 @@
 +++
-title = "Chef/Deprecations PoiseArchiveUsage"
+title = "PoiseArchiveUsage"
 draft = false
 
 layout = "cookstyle_cops"

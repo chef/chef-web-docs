@@ -1,5 +1,5 @@
 +++
-title = "Chef/Modernize RespondToCompileTime"
+title = "RespondToCompileTime"
 draft = false
 
 layout = "cookstyle_cops"

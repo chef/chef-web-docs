@@ -1,5 +1,5 @@
 +++
-title = "Chef/RedundantCode AttributeMetadata"
+title = "AttributeMetadata"
 draft = false
 
 layout = "cookstyle_cops"

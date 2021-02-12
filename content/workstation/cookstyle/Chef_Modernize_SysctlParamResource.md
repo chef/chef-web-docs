@@ -1,5 +1,5 @@
 +++
-title = "Chef/Modernize SysctlParamResource"
+title = "SysctlParamResource"
 draft = false
 
 layout = "cookstyle_cops"

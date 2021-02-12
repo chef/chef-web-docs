@@ -1,5 +1,5 @@
 +++
-title = "Chef/Deprecations ChefShellout"
+title = "ChefShellout"
 draft = false
 
 layout = "cookstyle_cops"

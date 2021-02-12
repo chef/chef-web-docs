@@ -1,5 +1,5 @@
 +++
-title = "Chef/Modernize ZipfileResource"
+title = "ZipfileResource"
 draft = false
 
 layout = "cookstyle_cops"

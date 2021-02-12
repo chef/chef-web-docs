@@ -1,5 +1,5 @@
 +++
-title = "Chef/Modernize RespondToProvides"
+title = "RespondToProvides"
 draft = false
 
 layout = "cookstyle_cops"

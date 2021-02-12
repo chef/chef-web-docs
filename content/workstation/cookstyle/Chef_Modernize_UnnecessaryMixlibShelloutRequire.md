@@ -1,5 +1,5 @@
 +++
-title = "Chef/Modernize UnnecessaryMixlibShelloutRequire"
+title = "UnnecessaryMixlibShelloutRequire"
 draft = false
 
 layout = "cookstyle_cops"

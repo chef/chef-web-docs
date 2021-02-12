@@ -1,5 +1,5 @@
 +++
-title = "Chef/Effortless ChefVaultUsed"
+title = "ChefVaultUsed"
 draft = false
 
 layout = "cookstyle_cops"

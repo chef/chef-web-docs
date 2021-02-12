@@ -1,5 +1,5 @@
 +++
-title = "Chef/Deprecations UsesRunCommandHelper"
+title = "UsesRunCommandHelper"
 draft = false
 
 layout = "cookstyle_cops"

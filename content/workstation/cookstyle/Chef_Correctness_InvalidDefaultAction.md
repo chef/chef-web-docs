@@ -1,5 +1,5 @@
 +++
-title = "Chef/Correctness InvalidDefaultAction"
+title = "InvalidDefaultAction"
 draft = false
 
 layout = "cookstyle_cops"

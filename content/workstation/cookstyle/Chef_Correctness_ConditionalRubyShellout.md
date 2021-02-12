@@ -1,5 +1,5 @@
 +++
-title = "Chef/Correctness ConditionalRubyShellout"
+title = "ConditionalRubyShellout"
 draft = false
 
 layout = "cookstyle_cops"

@@ -1,5 +1,5 @@
 +++
-title = "Chef/Correctness NodeNormalUnless"
+title = "NodeNormalUnless"
 draft = false
 
 layout = "cookstyle_cops"

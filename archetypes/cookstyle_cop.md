@@ -1,5 +1,8 @@
 +++
-title = "{{ .Name | replaceRE `Chef_` `Chef/` | replaceRE `_` ` ` }}"
+{{- $yaml_file := delimit (slice "cops_"  (.Name | lower)) "" -}}
+{{- $yaml_data := index $.Site.Data "cookstyle" -}}
+{{- $yaml_data := index $yaml_data (print $yaml_file) }}
+title = "{{$yaml_data.short_name}}"
 draft = false
 
 layout = "cookstyle_cops"

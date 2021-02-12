@@ -1,5 +1,5 @@
 +++
-title = "Chef/Modernize WindowsRegistryUAC"
+title = "WindowsRegistryUAC"
 draft = false
 
 layout = "cookstyle_cops"

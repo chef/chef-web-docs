@@ -1,5 +1,5 @@
 +++
-title = "Chef/Correctness IncorrectLibraryInjection"
+title = "IncorrectLibraryInjection"
 draft = false
 
 layout = "cookstyle_cops"

@@ -1,5 +1,5 @@
 +++
-title = "Chef/Deprecations LegacyYumCookbookRecipes"
+title = "LegacyYumCookbookRecipes"
 draft = false
 
 layout = "cookstyle_cops"

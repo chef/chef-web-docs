@@ -1,5 +1,5 @@
 +++
-title = "Chef/Modernize SetOrReturnInResources"
+title = "SetOrReturnInResources"
 draft = false
 
 layout = "cookstyle_cops"

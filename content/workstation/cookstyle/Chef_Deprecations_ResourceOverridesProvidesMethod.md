@@ -1,5 +1,5 @@
 +++
-title = "Chef/Deprecations ResourceOverridesProvidesMethod"
+title = "ResourceOverridesProvidesMethod"
 draft = false
 
 layout = "cookstyle_cops"

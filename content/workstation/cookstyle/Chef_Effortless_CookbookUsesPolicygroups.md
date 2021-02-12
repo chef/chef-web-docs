@@ -1,5 +1,5 @@
 +++
-title = "Chef/Effortless CookbookUsesPolicygroups"
+title = "CookbookUsesPolicygroups"
 draft = false
 
 layout = "cookstyle_cops"

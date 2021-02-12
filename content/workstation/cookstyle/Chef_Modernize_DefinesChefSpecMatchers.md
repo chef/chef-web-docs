@@ -1,5 +1,5 @@
 +++
-title = "Chef/Modernize DefinesChefSpecMatchers"
+title = "DefinesChefSpecMatchers"
 draft = false
 
 layout = "cookstyle_cops"

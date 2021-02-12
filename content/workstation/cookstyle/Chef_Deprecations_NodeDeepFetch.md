@@ -1,5 +1,5 @@
 +++
-title = "Chef/Deprecations NodeDeepFetch"
+title = "NodeDeepFetch"
 draft = false
 
 layout = "cookstyle_cops"

@@ -1,5 +1,5 @@
 +++
-title = "Chef/Style OverlyComplexSupportsDependsMetadata"
+title = "OverlyComplexSupportsDependsMetadata"
 draft = false
 
 layout = "cookstyle_cops"

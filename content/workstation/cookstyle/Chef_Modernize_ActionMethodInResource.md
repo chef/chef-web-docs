@@ -1,5 +1,5 @@
 +++
-title = "Chef/Modernize ActionMethodInResource"
+title = "ActionMethodInResource"
 draft = false
 
 layout = "cookstyle_cops"

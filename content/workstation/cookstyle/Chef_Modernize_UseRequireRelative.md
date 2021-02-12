@@ -1,5 +1,5 @@
 +++
-title = "Chef/Modernize UseRequireRelative"
+title = "UseRequireRelative"
 draft = false
 
 layout = "cookstyle_cops"

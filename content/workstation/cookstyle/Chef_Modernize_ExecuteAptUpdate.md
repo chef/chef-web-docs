@@ -1,5 +1,5 @@
 +++
-title = "Chef/Modernize ExecuteAptUpdate"
+title = "ExecuteAptUpdate"
 draft = false
 
 layout = "cookstyle_cops"

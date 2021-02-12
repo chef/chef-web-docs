@@ -1,5 +1,5 @@
 +++
-title = "Chef/Style SimplifyPlatformMajorVersionCheck"
+title = "SimplifyPlatformMajorVersionCheck"
 draft = false
 
 layout = "cookstyle_cops"

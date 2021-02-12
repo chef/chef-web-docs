@@ -1,5 +1,5 @@
 +++
-title = "Chef/Modernize NodeInitPackage"
+title = "NodeInitPackage"
 draft = false
 
 layout = "cookstyle_cops"

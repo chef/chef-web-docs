@@ -1,5 +1,5 @@
 +++
-title = "Chef/Deprecations NodeSetWithoutLevel"
+title = "NodeSetWithoutLevel"
 draft = false
 
 layout = "cookstyle_cops"

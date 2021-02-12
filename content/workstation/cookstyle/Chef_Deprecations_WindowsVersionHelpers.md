@@ -1,5 +1,5 @@
 +++
-title = "Chef/Deprecations WindowsVersionHelpers"
+title = "WindowsVersionHelpers"
 draft = false
 
 layout = "cookstyle_cops"

@@ -1,5 +1,5 @@
 +++
-title = "Chef/Style UsePlatformHelpers"
+title = "UsePlatformHelpers"
 draft = false
 
 layout = "cookstyle_cops"

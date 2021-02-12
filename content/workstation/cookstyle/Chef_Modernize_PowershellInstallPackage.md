@@ -1,5 +1,5 @@
 +++
-title = "Chef/Modernize PowershellInstallPackage"
+title = "PowershellInstallPackage"
 draft = false
 
 layout = "cookstyle_cops"

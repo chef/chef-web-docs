@@ -1,5 +1,5 @@
 +++
-title = "Chef/RedundantCode AptRepositoryNotifiesAptUpdate"
+title = "AptRepositoryNotifiesAptUpdate"
 draft = false
 
 layout = "cookstyle_cops"

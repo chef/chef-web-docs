@@ -1,5 +1,5 @@
 +++
-title = "Chef/RedundantCode DoubleCompileTime"
+title = "DoubleCompileTime"
 draft = false
 
 layout = "cookstyle_cops"

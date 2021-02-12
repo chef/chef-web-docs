@@ -1,5 +1,5 @@
 +++
-title = "Chef/Style TrueClassFalseClassResourceProperties"
+title = "TrueClassFalseClassResourceProperties"
 draft = false
 
 layout = "cookstyle_cops"

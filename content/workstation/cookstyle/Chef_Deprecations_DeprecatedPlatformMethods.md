@@ -1,5 +1,5 @@
 +++
-title = "Chef/Deprecations DeprecatedPlatformMethods"
+title = "DeprecatedPlatformMethods"
 draft = false
 
 layout = "cookstyle_cops"

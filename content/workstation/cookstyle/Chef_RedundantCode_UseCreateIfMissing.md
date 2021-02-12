@@ -1,5 +1,5 @@
 +++
-title = "Chef/RedundantCode UseCreateIfMissing"
+title = "UseCreateIfMissing"
 draft = false
 
 layout = "cookstyle_cops"

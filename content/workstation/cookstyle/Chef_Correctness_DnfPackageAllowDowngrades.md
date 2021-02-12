@@ -1,5 +1,5 @@
 +++
-title = "Chef/Correctness DnfPackageAllowDowngrades"
+title = "DnfPackageAllowDowngrades"
 draft = false
 
 layout = "cookstyle_cops"

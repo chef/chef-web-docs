@@ -1,5 +1,5 @@
 +++
-title = "Chef/Deprecations EOLAuditModeUsage"
+title = "EOLAuditModeUsage"
 draft = false
 
 layout = "cookstyle_cops"

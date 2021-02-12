@@ -1,5 +1,5 @@
 +++
-title = "Chef/Deprecations IncludingXMLRubyRecipe"
+title = "IncludingXMLRubyRecipe"
 draft = false
 
 layout = "cookstyle_cops"

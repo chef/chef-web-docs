@@ -1,5 +1,5 @@
 +++
-title = "Chef/Modernize ExecuteScExe"
+title = "ExecuteScExe"
 draft = false
 
 layout = "cookstyle_cops"

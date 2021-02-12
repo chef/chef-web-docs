@@ -1,5 +1,5 @@
 +++
-title = "Chef/Style UnnecessaryPlatformCaseStatement"
+title = "UnnecessaryPlatformCaseStatement"
 draft = false
 
 layout = "cookstyle_cops"

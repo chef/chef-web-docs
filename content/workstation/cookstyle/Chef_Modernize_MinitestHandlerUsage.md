@@ -1,5 +1,5 @@
 +++
-title = "Chef/Modernize MinitestHandlerUsage"
+title = "MinitestHandlerUsage"
 draft = false
 
 layout = "cookstyle_cops"

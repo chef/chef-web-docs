@@ -1,5 +1,5 @@
 +++
-title = "Chef/Deprecations VerifyPropertyUsesFileExpansion"
+title = "VerifyPropertyUsesFileExpansion"
 draft = false
 
 layout = "cookstyle_cops"

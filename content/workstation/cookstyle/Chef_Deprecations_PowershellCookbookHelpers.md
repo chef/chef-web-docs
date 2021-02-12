@@ -1,5 +1,5 @@
 +++
-title = "Chef/Deprecations PowershellCookbookHelpers"
+title = "PowershellCookbookHelpers"
 draft = false
 
 layout = "cookstyle_cops"

@@ -1,5 +1,5 @@
 +++
-title = "Chef/Deprecations HWRPWithoutProvides"
+title = "HWRPWithoutProvides"
 draft = false
 
 layout = "cookstyle_cops"

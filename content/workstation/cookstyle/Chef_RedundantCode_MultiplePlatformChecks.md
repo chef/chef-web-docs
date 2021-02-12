@@ -1,5 +1,5 @@
 +++
-title = "Chef/RedundantCode MultiplePlatformChecks"
+title = "MultiplePlatformChecks"
 draft = false
 
 layout = "cookstyle_cops"

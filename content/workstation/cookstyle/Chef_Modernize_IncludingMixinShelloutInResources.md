@@ -1,5 +1,5 @@
 +++
-title = "Chef/Modernize IncludingMixinShelloutInResources"
+title = "IncludingMixinShelloutInResources"
 draft = false
 
 layout = "cookstyle_cops"

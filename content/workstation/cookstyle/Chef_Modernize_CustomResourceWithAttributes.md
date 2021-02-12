@@ -1,5 +1,5 @@
 +++
-title = "Chef/Modernize CustomResourceWithAttributes"
+title = "CustomResourceWithAttributes"
 draft = false
 
 layout = "cookstyle_cops"

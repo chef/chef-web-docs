@@ -1,5 +1,5 @@
 +++
-title = "Chef/Deprecations SearchUsesPositionalParameters"
+title = "SearchUsesPositionalParameters"
 draft = false
 
 layout = "cookstyle_cops"

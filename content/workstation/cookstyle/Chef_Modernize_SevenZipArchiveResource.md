@@ -1,5 +1,5 @@
 +++
-title = "Chef/Modernize SevenZipArchiveResource"
+title = "SevenZipArchiveResource"
 draft = false
 
 layout = "cookstyle_cops"

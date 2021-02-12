@@ -1,5 +1,5 @@
 +++
-title = "Chef/Correctness ChefApplicationFatal"
+title = "ChefApplicationFatal"
 draft = false
 
 layout = "cookstyle_cops"

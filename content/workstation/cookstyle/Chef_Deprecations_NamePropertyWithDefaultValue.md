@@ -1,5 +1,5 @@
 +++
-title = "Chef/Deprecations NamePropertyWithDefaultValue"
+title = "NamePropertyWithDefaultValue"
 draft = false
 
 layout = "cookstyle_cops"

@@ -1,5 +1,5 @@
 +++
-title = "Chef/Modernize ExecuteSysctl"
+title = "ExecuteSysctl"
 draft = false
 
 layout = "cookstyle_cops"

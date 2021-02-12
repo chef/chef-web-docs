@@ -1,5 +1,5 @@
 +++
-title = "Chef/Modernize AllowedActionsFromInitialize"
+title = "AllowedActionsFromInitialize"
 draft = false
 
 layout = "cookstyle_cops"

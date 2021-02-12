@@ -1,5 +1,5 @@
 +++
-title = "Chef/Deprecations UserDeprecatedSupportsProperty"
+title = "UserDeprecatedSupportsProperty"
 draft = false
 
 layout = "cookstyle_cops"

@@ -1,5 +1,5 @@
 +++
-title = "Chef/Modernize NodeRolesInclude"
+title = "NodeRolesInclude"
 draft = false
 
 layout = "cookstyle_cops"

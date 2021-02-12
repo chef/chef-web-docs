@@ -1,5 +1,5 @@
 +++
-title = "Chef/Deprecations ResourceUsesDslNameMethod"
+title = "ResourceUsesDslNameMethod"
 draft = false
 
 layout = "cookstyle_cops"

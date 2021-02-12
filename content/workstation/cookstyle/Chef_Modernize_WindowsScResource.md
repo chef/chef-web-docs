@@ -1,5 +1,5 @@
 +++
-title = "Chef/Modernize WindowsScResource"
+title = "WindowsScResource"
 draft = false
 
 layout = "cookstyle_cops"

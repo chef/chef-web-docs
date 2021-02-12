@@ -1,5 +1,5 @@
 +++
-title = "Chef/Modernize Definitions"
+title = "Definitions"
 draft = false
 
 layout = "cookstyle_cops"

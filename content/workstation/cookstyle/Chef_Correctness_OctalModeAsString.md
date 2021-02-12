@@ -1,5 +1,5 @@
 +++
-title = "Chef/Correctness OctalModeAsString"
+title = "OctalModeAsString"
 draft = false
 
 layout = "cookstyle_cops"

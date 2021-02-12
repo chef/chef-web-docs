@@ -1,5 +1,5 @@
 +++
-title = "Chef/Modernize ChefGemNokogiri"
+title = "ChefGemNokogiri"
 draft = false
 
 layout = "cookstyle_cops"

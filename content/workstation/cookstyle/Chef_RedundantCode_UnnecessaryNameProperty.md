@@ -1,5 +1,5 @@
 +++
-title = "Chef/RedundantCode UnnecessaryNameProperty"
+title = "UnnecessaryNameProperty"
 draft = false
 
 layout = "cookstyle_cops"

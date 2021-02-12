@@ -1,5 +1,5 @@
 +++
-title = "Chef/Correctness TmpPath"
+title = "TmpPath"
 draft = false
 
 layout = "cookstyle_cops"

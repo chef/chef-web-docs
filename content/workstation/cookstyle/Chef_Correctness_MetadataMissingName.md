@@ -1,5 +1,5 @@
 +++
-title = "Chef/Correctness MetadataMissingName"
+title = "MetadataMissingName"
 draft = false
 
 layout = "cookstyle_cops"

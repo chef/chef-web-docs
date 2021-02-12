@@ -1,5 +1,5 @@
 +++
-title = "Chef/Modernize CronManageResource"
+title = "CronManageResource"
 draft = false
 
 layout = "cookstyle_cops"

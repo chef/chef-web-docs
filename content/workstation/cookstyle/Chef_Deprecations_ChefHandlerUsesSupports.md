@@ -1,5 +1,5 @@
 +++
-title = "Chef/Deprecations ChefHandlerUsesSupports"
+title = "ChefHandlerUsesSupports"
 draft = false
 
 layout = "cookstyle_cops"

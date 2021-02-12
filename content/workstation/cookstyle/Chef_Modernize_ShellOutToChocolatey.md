@@ -1,5 +1,5 @@
 +++
-title = "Chef/Modernize ShellOutToChocolatey"
+title = "ShellOutToChocolatey"
 draft = false
 
 layout = "cookstyle_cops"

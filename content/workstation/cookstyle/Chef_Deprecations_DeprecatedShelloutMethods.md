@@ -1,5 +1,5 @@
 +++
-title = "Chef/Deprecations DeprecatedShelloutMethods"
+title = "DeprecatedShelloutMethods"
 draft = false
 
 layout = "cookstyle_cops"

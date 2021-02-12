@@ -1,5 +1,5 @@
 +++
-title = "Chef/Modernize LegacyBerksfileSource"
+title = "LegacyBerksfileSource"
 draft = false
 
 layout = "cookstyle_cops"

@@ -1,5 +1,5 @@
 +++
-title = "Chef/RedundantCode OhaiAttributeToString"
+title = "OhaiAttributeToString"
 draft = false
 
 layout = "cookstyle_cops"
