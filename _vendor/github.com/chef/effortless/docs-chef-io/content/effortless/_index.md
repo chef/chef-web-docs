@@ -3,6 +3,9 @@ title = "Effortless Overview"
 draft = false
 gh_repo = "effortless"
 
+[cascade]
+  product = ["infra", "client", "server", "inspec", "habitat", "automate"]
+
 [menu]
   [menu.effortless]
     title = "Effortless Overview"
