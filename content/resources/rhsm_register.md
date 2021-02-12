@@ -7,6 +7,7 @@ robots = ""
 
 data_path = ["infra","resources","rhsm_register"]
 layout = "infra_resource"
+toc_layout = "infra_resource_toc"
 
 
 [menu]

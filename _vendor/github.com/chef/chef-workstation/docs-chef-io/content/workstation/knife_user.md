@@ -28,11 +28,8 @@ an RSA key pair for the named user. The public key will be stored on the
 Chef Infra Server and the private key will be displayed on `STDOUT` or
 written to a named file.
 
--   For the user, the private key should be copied to the system as
-    `/etc/chef/client.pem`.
--   For knife, the private key is typically copied to
-    `~/.chef/client_name.pem` and referenced in the config.rb
-    configuration file.
+- For the user, the private key should be copied to the system as `/etc/chef/client.pem`.
+- For knife, the private key is typically copied to `~/.chef/client_name.pem` and referenced in the config.rb configuration file.
 
 ### Syntax
 
@@ -46,23 +43,17 @@ knife user create USERNAME DISPLAY_NAME FIRST_NAME LAST_NAME EMAIL PASSWORD (opt
 
 This argument has the following options:
 
-`-a`, `--admin`
+`-f FILE`, `--file FILE`
 
-:   Create a client as an admin client.
-
-`-f FILE_NAME`, `--file FILE_NAME`
-
-:   Save a private key to the specified file name.
+: Save a private key to the specified file name.
 
 `-p PASSWORD`, `--password PASSWORD`
 
-:   The user password.
+: The user password.
 
-`--user-key FILE_NAME`
+`--user-key FILENAME`
 
-:   The path to a file that contains the public key. If this option is
-    not specified, the Chef Infra Server will generate a public/private
-    key pair.
+: The path to a file that contains the public key. If this option is not specified, the Chef Infra Server will generate a public/private key pair.
 
 {{< note >}}
 
@@ -77,7 +68,7 @@ The following examples show how to use this knife subcommand:
 **Create a user**
 
 ``` bash
-knife user create rbirdman "Radio Birdman" Radio Birdman radio@bird.man -f /keys/radio_birdman
+knife user create tbucatar "Tamira Bucatar" tbucatar@example.com -f /keys/tbucatar
 ```
 
 ## delete
@@ -103,7 +94,7 @@ The following examples show how to use this knife subcommand:
 **Delete a user**
 
 ``` bash
-knife user delete "Steve Danno"
+knife user delete "Arjun Koch"
 ```
 
 ## edit
@@ -146,24 +137,19 @@ This argument has the following options:
 
 `-e DATE`, `--expiration-date DATE`
 
-:   The expiration date for the public key, specified as an ISO 8601
-    formatted string: `YYYY-MM-DDTHH:MM:SSZ`. If this option is not
-    specified, the public key will not have an expiration date. For
-    example: `2013-12-24T21:00:00Z`.
+: The expiration date for the public key, specified as an ISO 8601 formatted string: `YYYY-MM-DDTHH:MM:SSZ`. If this option is not specified, the public key will not have an expiration date. For example: `2013-12-24T21:00:00Z`.
 
 `-f FILE`, `--file FILE`
 
-:   Save a private key to the specified file name.
+: Save a private key to the specified file name.
 
 `-k NAME`, `--key-name NAME`
 
-:   The name of the public key.
+: The name of the public key.
 
 `-p FILE_NAME`, `--public-key FILE_NAME`
 
-:   The path to a file that contains the public key. If this option is
-    not specified, and only if `--key-name` is specified, the Chef Infra
-    Server will generate a public/private key pair.
+: The path to a file that contains the public key. If this option is not specified, and only if `--key-name` is specified, the Chef Infra Server will generate a public/private key pair.
 
 ### Examples
 
@@ -203,32 +189,23 @@ This argument has the following options:
 
 `-c`, `--create-key`
 
-:   Generate a new public/private key pair and replace an existing
-    public key with the newly-generated public key. To replace the
-    public key with an existing public key, use `--public-key` instead.
+: Generate a new public/private key pair and replace an existing public key with the newly-generated public key. To replace the public key with an existing public key, use `--public-key` instead.
 
 `-e DATE`, `--expiration-date DATE`
 
-:   The expiration date for the public key, specified as an ISO 8601
-    formatted string: `YYYY-MM-DDTHH:MM:SSZ`. If this option is not
-    specified, the public key will not have an expiration date. For
-    example: `2013-12-24T21:00:00Z`.
+: The expiration date for the public key, specified as an ISO 8601 formatted string: `YYYY-MM-DDTHH:MM:SSZ`. If this option is not specified, the public key will not have an expiration date. For example: `2013-12-24T21:00:00Z`.
 
 `-f FILE`, `--file FILE`
 
-:   Save a private key to the specified file name. If the `--public-key`
-    option is not specified the Chef Infra Server will generate a
-    private key.
+: Save a private key to the specified file name. If the `--public-key` option is not specified the Chef Infra Server will generate a private key.
 
 `-k NAME`, `--key-name NAME`
 
-:   The name of the public key.
+: The name of the public key.
 
 `-p FILE_NAME`, `--public-key FILE_NAME`
 
-:   The path to a file that contains the public key. If this option is
-    not specified, and only if `--key-name` is specified, the Chef Infra
-    Server will generate a public/private key pair.
+: The path to a file that contains the public key. If this option is not specified, and only if `--key-name` is specified, the Chef Infra Server will generate a public/private key pair.
 
 ### Examples
 
@@ -253,15 +230,15 @@ This argument has the following options:
 
 `-e`, `--only-expired`
 
-:   Show a list of public keys that have expired.
+: Show a list of public keys that have expired.
 
 `-n`, `--only-non-expired`
 
-:   Show a list of public keys that have not expired.
+: Show a list of public keys that have not expired.
 
 `-w`, `--with-details`
 
-:   Show a list of public keys, including URIs and expiration status.
+: Show a list of public keys, including URIs and expiration status.
 
 ### Examples
 
@@ -301,7 +278,7 @@ This argument has the following options:
 
 `-w`, `--with-uri`
 
-:   Show the corresponding URIs.
+: Show the corresponding URIs.
 
 ### Examples
 
@@ -334,7 +311,7 @@ This argument has the following options:
 
 `-f FILE_NAME`, `--file FILE_NAME`
 
-:   Save a private key to the specified file name.
+: Save a private key to the specified file name.
 
 {{< note >}}
 
@@ -349,7 +326,7 @@ The following examples show how to use this knife subcommand:
 **Regenerate the RSA key-pair**
 
 ``` bash
-knife user reregister "Robert Younger"
+knife user reregister "Arjun Koch"
 ```
 
 ## show
@@ -370,7 +347,7 @@ This argument has the following options:
 
 `-a ATTR`, `--attribute ATTR`
 
-:   The attribute (or attributes) to show.
+: The attribute (or attributes) to show.
 
 ### Examples
 
@@ -378,18 +355,18 @@ The following examples show how to use this knife subcommand:
 
 **Show user data**
 
-To view a user named `Dennis Teck`, enter:
+To view a user named `Tamira Bucatar`, enter:
 
 ``` bash
-knife user show "Dennis Teck"
+knife user show "Tamira Bucatar"
 ```
 
 to return something like:
 
 ``` bash
-chef_type:   user
+chef_type: user
 json_class:  Chef::User
-name:        Dennis Teck
+name:        Tamira Bucatar
 public_key:
 ```
 
@@ -399,7 +376,7 @@ To view information in JSON format, use the `-F` common option as part
 of the command like this:
 
 ``` bash
-knife user show "Dennis Teck" -F json
+knife user show "Tamira Bucatar" -F json
 ```
 
 (Other formats available include `text`, `yaml`, and `pp`, e.g.

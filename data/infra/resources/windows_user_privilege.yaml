@@ -24,16 +24,17 @@ syntax_full_properties_list:
   the desired state."
 - "`principal`, `privilege`, and `users` are the properties available to this resource."
 actions_list:
-  :add:
-    markdown: Add a user privilege
-  :clear:
-    markdown: Clear all user privileges
   :nothing:
     shortcode: resources_common_actions_nothing.md
+  :add:
+    markdown: Add a user privilege (default)
+  :set:
+    markdown: Set the privileges that are listed in the `privilege` property for only
+      the users listed in the `users` property
+  :clear:
+    markdown: Clear all user privileges
   :remove:
     markdown: Remove a user privilege
-  :set:
-    markdown: Set the privileges that are listed in the `privilege` property for only the users listed in the `users` property.
 properties_list:
 - property: principal
   ruby_type: String

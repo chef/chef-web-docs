@@ -22,7 +22,7 @@ During every Chef Infra Client run, the following happens:
 </tr>
 <tr class="even">
 <td><strong>Authenticate to the Chef Infra Server</strong></td>
-<td>Chef Infra Client <a href="/auth/">authenticates</a> to the Chef Infra Server using an RSA private key and the Chef Infra Server API. The name of the node is required as part of the authentication process to the Chef Infra Server. If this is the first Chef Infra Client run for a node, the chef-validator will be used to generate the RSA private key.</td>
+<td>Chef Infra Client <a href="/server/auth/">authenticates</a> to the Chef Infra Server using an RSA private key and the Chef Infra Server API. The name of the node is required as part of the authentication process to the Chef Infra Server. If this is the first Chef Infra Client run for a node, the chef-validator will be used to generate the RSA private key.</td>
 </tr>
 <tr class="odd">
 <td><strong>Get, rebuild the node object</strong></td>

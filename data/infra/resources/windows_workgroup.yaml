@@ -12,7 +12,6 @@ syntax_full_code_block: |-
   windows_workgroup 'name' do
     password            String
     reboot              Symbol # default value: :immediate
-    sensitive           true, false # default value: true
     user                String
     workgroup_name      String # default value: 'name' unless specified
     action              Symbol # defaults to :join if not specified
@@ -26,10 +25,10 @@ syntax_full_properties_list:
 - "`password`, `reboot`, `sensitive`, `user`, and `workgroup_name` are the properties
   available to this resource."
 actions_list:
-  :join:
-    markdown: Update the workgroup.
   :nothing:
     shortcode: resources_common_actions_nothing.md
+  :join:
+    markdown: Update the workgroup. (default)
 properties_list:
 - property: password
   ruby_type: String
