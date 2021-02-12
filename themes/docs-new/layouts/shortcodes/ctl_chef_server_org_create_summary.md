@@ -7,12 +7,12 @@ sudo chef-server-ctl org-create short_name 'full_organization_name' --associatio
 For example:
 
 ```bash
-sudo chef-server-ctl org-create 4thcoffee 'Fourth Coffee, Inc.' --association_user janedoe --filename /path/to/4thcoffee-validator.pem
+sudo chef-server-ctl org-create 4thcafe 'Fourth Coffee, Inc.' --association_user janedoe --filename /path/to/4thcafe-validator.pem
 ```
 
 The name must begin with a lower-case letter or digit, may only contain
 lower-case letters, digits, hyphens, and underscores, and must be
-between 1 and 255 characters. For example: `4thcoffee`.
+between 1 and 255 characters. For example: `4thcafe`.
 
 The full name must begin with a non-white space character and must be
 between 1 and 1023 characters. For example: `'Fourth Coffee, Inc.'`.

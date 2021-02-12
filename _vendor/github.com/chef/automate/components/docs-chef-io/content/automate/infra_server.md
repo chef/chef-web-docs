@@ -144,7 +144,7 @@ Installations require elevated privileges, so run the commands as the superuser 
     [erchef.v1.sys.data_collector]
     enabled = true
     ```
-  
+
    Then run `chef-automate config patch patch.toml` to patch your Chef Infra Server configuration.
 
 ### Install a Standalone Chef Infra Server with a Configuration File
@@ -257,7 +257,7 @@ On the Chef Infra Server host:
       sudo chef-server-ctl org-create SHORT_NAME 'FULL_ORGANIZATION_NAME' --association_user USER_NAME --filename ORGANIZATION-validator.pem
     ```
 
-    The short name must begin with a lower-case letter or digit, may contain lower-case letters, digits, hyphens, and underscores, and must be between 1 and 255 characters. For example: `4thcoffee`.
+    The short name must begin with a lower-case letter or digit, may contain lower-case letters, digits, hyphens, and underscores, and must be between 1 and 255 characters. For example: `4thcafe`.
 
     The full organization name must begin with a non-white space character and must be between 1 and 1023 characters. For example: `'Fourth Coffee, Inc.'`.
 

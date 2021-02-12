@@ -598,8 +598,8 @@ Fourth Coffee, Inc.
 Seattle, WA 98122
 
 Examples in code:
-`admin@4thcoffee.com`
-`4thcoffee.pem`
+`admin@4thcafe.com`
+`4thcafe.pem`
 
 ### Example Domains
 
