@@ -1,27 +1,53 @@
-Attributes are always applied by Chef Infra Client in the following
+Chef Infra Client applies attributes in the following
 order:
 
-1.  A `default` attribute located in a cookbook attribute file
-2.  A `default` attribute located in a recipe
-3.  A `default` attribute located in an environment
-4.  A `default` attribute located in a role
-5.  A `force_default` attribute located in a cookbook attribute file
-6.  A `force_default` attribute located in a recipe
-7.  A `normal` attribute located in a JSON file passed via
-    `chef-client -j`
-8.  A `normal` attribute located in a cookbook attribute file
-9.  A `normal` attribute located in a recipe
-10. An `override` attribute located in a cookbook attribute file
-11. An `override` attribute located in a recipe
-12. An `override` attribute located in a role
-13. An `override` attribute located in an environment
-14. A `force_override` attribute located in a cookbook attribute file
-15. A `force_override` attribute located in a recipe
-16. An `automatic` attribute identified by Ohai at the start of a Chef
-    Infra Client run
+<table>
+<colgroup>
+<col style="width: 15%" />
+<col style="width: 20%" />
+<col style="width: 30%" />
 
-where the last attribute in the list is the one that is applied to the
-node.
+</colgroup>
+<thead>
+  <tr>
+    <th>Application Order (Last One Wins)</th>
+    <th>Attribute Type</th>
+    <th>Source Order</th>
+  </tr>
+</thead>
+<tbody>
+  <tr class="odd">
+    <td>1</td>
+    <td><code>`default`</code></td>
+    <td>Cookbook attribute file<br>Recipe<br>Environment<br>Role</td>
+  </tr>
+  <tr class="even">
+    <td>2</td>
+    <td><code>`force_default`</code></td>
+    <td>Cookbook attribute file<br>Recipe</td>
+  </tr>
+  <tr class="odd">
+    <td>3</td>
+    <td><code>`normal`</code></td>
+    <td>JSON file passed with <code>`chef-client -j`</code><br>Cookbook attribute file<br>Recipe</td>
+  </tr>
+  <tr class="even">
+    <td>4</td>
+    <td><code>`override`</code></td>
+    <td>Cookbook attribute file<br>Recipe<br>Role<br>Environment</td>
+  </tr>
+  <tr class="odd">
+    <td>5</td>
+    <td><code>`force_override`</code></td>
+    <td>Cookbook attribute file<br>Recipe</td>
+  </tr>
+  <tr class="even">
+    <td>6</td>
+    <td><code>`automatic`</code></td>
+    <td>Identified by Ohai at the start of a Chef Infra Client Run</td>
+  </tr>
+</tbody>
+</table>
 
 <div class="admonition-note">
 
@@ -29,19 +55,12 @@ node.
 
 <div class="admonition-note-text">
 
-The attribute precedence order for roles and environments is reversed
-for `default` and `override` attributes. The precedence order for
-`default` attributes is environment, then role. The precedence order for
-`override` attributes is role, then environment. Applying environment
-`override` attributes after role `override` attributes allows the same
-role to be used across multiple environments, yet ensuring that values
-can be set that are specific to each environment (when required). For
-example, the role for an application server may exist in all
-environments, yet one environment may use a database server that is
-different from other environments.
+The attribute precedence order for the sources "roles" and "environments" are opposite in the `default` and `override`. The `default` order is **environment** then **role**. The `override` order is **role** then **environment**
 
+Applying the role `override` first lets you use the same role in a set of environments.
+Applying the environment `override` on top of the role `override` lets you define a subset of these with environment-specific settings.
 
-
+This is useful if you have an environment that is different within a sub-set of a role. For example, the role for an application server may exist in all environments, but one environment may use a different database server.
 </div>
 
 </div>
