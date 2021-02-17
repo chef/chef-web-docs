@@ -80,7 +80,7 @@ formats:
     available when running Chef Infra Client in local mode
 -   As JSON (i.e. a file that ends with `.json`)
 
-### Chef Langage
+### Chef Language
 
 Each environment is defined as a Ruby file (i.e. a file that ends with
 `.rb`). Each environment file should contain the following
