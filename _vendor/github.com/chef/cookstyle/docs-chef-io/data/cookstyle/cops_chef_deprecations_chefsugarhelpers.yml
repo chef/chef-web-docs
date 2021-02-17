@@ -1,0 +1,13 @@
+---
+short_name: ChefSugarHelpers
+full_name: Chef/Deprecations/ChefSugarHelpers
+department: Chef/Deprecations
+autocorrection: false
+target_chef_version: All Versions
+examples: 
+version_added: 7.3.0
+enabled: true
+excluded_file_paths:
+- "**/metadata.rb"
+- "**/Berksfile"
+- "**/Rakefile"

@@ -124,8 +124,12 @@ gh_path = "https://github.com/chef/chef-web-docs/blob/master/content/"
     target = "static"
 
   [[module.imports.mounts]]
-    source = "layouts/shortcodes"
-    target = "layouts/shortcodes"
+    source = "layouts"
+    target = "layouts"
+
+  [[module.imports.mounts]]
+    source = "data"
+    target = "data"
 
   [[module.imports]]
     disable = false
@@ -195,6 +199,13 @@ gh_path = "https://github.com/chef/chef-web-docs/blob/master/content/"
   [[module.imports.mounts]]
     source = "static"
     target = "static"
+
+  [[module.imports]]
+    path = "github.com/chef/cookstyle/docs-chef-io"
+
+  [[module.imports.mounts]]
+    source = "data"
+    target = "data"
 
 ## Module mounts for packages added with NPM
 
@@ -982,6 +993,54 @@ identifier = "chef_workstation"
     parent = "chef_workstation/chef_workstation_tools"
     url = "/workstation/config_rb/"
     weight = 70
+
+    [[menu.workstation]]
+    title = "Cookstyle"
+    identifier = "chef_workstation/chef_workstation_tools/cookstyle"
+    parent = "chef_workstation/chef_workstation_tools"
+    weight = 90
+
+      [[menu.workstation]]
+      title = "Correctness Cops"
+      identifier = "chef_workstation/chef_workstation_tools/cookstyle/Cops Chef/Correctness"
+      parent = "chef_workstation/chef_workstation_tools/cookstyle"
+      url = "/workstation/cookstyle/cops/#chefcorrectness"
+
+      [[menu.workstation]]
+      title = "Deprecation Cops"
+      identifier = "chef_workstation/chef_workstation_tools/cookstyle/Cops Chef/Deprecations"
+      parent = "chef_workstation/chef_workstation_tools/cookstyle"
+      url = "/workstation/cookstyle/cops/#chefdeprecations"
+
+      [[menu.workstation]]
+      title = "Effortless Cops"
+      identifier = "chef_workstation/chef_workstation_tools/cookstyle/Cops Chef/Effortless"
+      parent = "chef_workstation/chef_workstation_tools/cookstyle"
+      url = "/workstation/cookstyle/cops/#chefeffortless"
+
+      [[menu.workstation]]
+      title = "Modernization Cops"
+      identifier = "chef_workstation/chef_workstation_tools/cookstyle/Cops Chef/Modernize"
+      parent = "chef_workstation/chef_workstation_tools/cookstyle"
+      url = "/workstation/cookstyle/cops/#chefmodernize"
+
+      [[menu.workstation]]
+      title = "Redundant Code Cops"
+      identifier = "chef_workstation/chef_workstation_tools/cookstyle/Cops Chef/RedundantCode"
+      parent = "chef_workstation/chef_workstation_tools/cookstyle"
+      url = "/workstation/cookstyle/cops/#chefredundantcode"
+
+      [[menu.workstation]]
+      title = "Sharing Cops"
+      identifier = "chef_workstation/chef_workstation_tools/cookstyle/Cops Chef/Sharing"
+      parent = "chef_workstation/chef_workstation_tools/cookstyle"
+      url = "/workstation/cookstyle/cops/#chefsharing"
+
+      [[menu.workstation]]
+      title = "Style Cop"
+      identifier = "chef_workstation/chef_workstation_tools/cookstyle/Cops Chef/Style"
+      parent = "chef_workstation/chef_workstation_tools/cookstyle"
+      url = "/workstation/cookstyle/cops/#chefstyle"
 
     [[menu.workstation]]
     title = "Test Kitchen"

@@ -1,0 +1,21 @@
+---
+short_name: PowershellScriptExpandArchive
+full_name: Chef/Modernize/PowershellScriptExpandArchive
+department: Chef/Modernize
+description: Use the archive_file resource built into Chef Infra Client 15+ instead
+  of using the powershell_script resource to run Expand-Archive
+autocorrection: false
+target_chef_version: 15.0+
+examples: |2-
+
+  #### incorrect
+
+  ```ruby
+  powershell_script 'Expand website' do
+    code 'Expand-Archive "C:\\file.zip" -DestinationPath "C:\\inetpub\\wwwroot\\" -Force'
+  end
+  ```
+version_added: 5.5.0
+enabled: true
+excluded_file_paths:
+- "**/metadata.rb"

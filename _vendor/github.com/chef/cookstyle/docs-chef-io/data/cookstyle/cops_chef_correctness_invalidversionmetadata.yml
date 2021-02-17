@@ -1,0 +1,24 @@
+---
+short_name: InvalidVersionMetadata
+full_name: Chef/Correctness/InvalidVersionMetadata
+department: Chef/Correctness
+description: Cookbook metadata.rb version field should follow X.Y.Z version format.
+autocorrection: false
+target_chef_version: All Versions
+examples: |2-
+
+  #### incorrect
+
+  ```ruby
+  version '1.2.3.4'
+  ```
+
+  #### correct
+
+  ```ruby
+  version '1.2.3'
+  ```
+version_added: 5.8.0
+enabled: true
+included_file_paths:
+- "**/metadata.rb"

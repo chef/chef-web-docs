@@ -1,0 +1,32 @@
+---
+short_name: NodeSetWithoutLevel
+full_name: Chef/Deprecations/NodeSetWithoutLevel
+department: Chef/Deprecations
+description: When setting a node attribute in Chef Infra Client 11 and later you must
+  specify the precedence level.
+autocorrection: false
+target_chef_version: All Versions
+examples: |2-
+
+  #### incorrect
+
+  ```ruby
+  node['foo']['bar'] = 1
+  node['foo']['bar'] << 1
+  node['foo']['bar'] += 1
+  node['foo']['bar'] -= 1
+  ```
+
+  #### correct
+
+  ```ruby
+  node.default['foo']['bar'] = 1
+  node.default['foo']['bar'] << 1
+  node.default['foo']['bar'] += 1
+  node.default['foo']['bar'] -= 1
+  ```
+version_added: 5.13.0
+enabled: true
+excluded_file_paths:
+- "**/metadata.rb"
+- "**/attributes/*.rb"

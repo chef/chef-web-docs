@@ -1,0 +1,30 @@
+---
+short_name: EpicFail
+full_name: Chef/Deprecations/EpicFail
+department: Chef/Deprecations
+description: Make sure ignore_failure is used instead of epic_fail
+autocorrection: true
+target_chef_version: All Versions
+examples: |2-
+
+  #### incorrect
+
+  ```ruby
+  package "foo" do
+    epic_fail true
+  end
+  ```
+
+  #### correct
+
+  ```ruby
+  package "foo" do
+    ignore_failure true
+  end
+  ```
+version_added: 5.1.0
+enabled: true
+excluded_file_paths:
+- "**/attributes/*.rb"
+- "**/metadata.rb"
+- "**/Berksfile"
