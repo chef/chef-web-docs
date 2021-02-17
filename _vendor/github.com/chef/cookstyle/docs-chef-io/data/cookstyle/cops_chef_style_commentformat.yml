@@ -1,0 +1,34 @@
+---
+short_name: CommentFormat
+full_name: Chef/Style/CommentFormat
+department: Chef/Style
+description: Checks for incorrectly formatted headers
+autocorrection: true
+target_chef_version: All Versions
+examples: |2-
+
+  #### incorrect
+
+  ```ruby
+  Copyright 2013-2016 Chef Software, Inc.
+  Recipe default.rb
+  Attributes default.rb
+  License Apache2
+  Cookbook tomcat
+  Cookbook Name:: Tomcat
+  Attributes File:: default
+  ```
+
+  #### correct
+
+  ```ruby
+  Copyright:: 2013-2016 Chef Software, Inc.
+  Recipe:: default.rb
+  Attributes:: default.rb
+  License:: Apache License, Version 2.0
+  Cookbook:: Tomcat
+  ```
+version_added: 5.0.0
+enabled: true
+excluded_file_paths:
+- "**/Berksfile"

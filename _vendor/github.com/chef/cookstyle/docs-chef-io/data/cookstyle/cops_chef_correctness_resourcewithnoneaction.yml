@@ -1,0 +1,30 @@
+---
+short_name: ResourceWithNoneAction
+full_name: Chef/Correctness/ResourceWithNoneAction
+department: Chef/Correctness
+description: The :nothing action is often typo'd as :none
+autocorrection: true
+target_chef_version: All Versions
+examples: |2-
+
+  #### incorrect
+
+  ```ruby
+  service 'foo' do
+   action :none
+  end
+  ```
+
+  #### correct
+
+  ```ruby
+  service 'foo' do
+   action :nothing
+  end
+  ```
+version_added: 5.5.0
+enabled: true
+excluded_file_paths:
+- "**/attributes/*.rb"
+- "**/metadata.rb"
+- "**/Berksfile"

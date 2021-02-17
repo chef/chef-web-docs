@@ -1,0 +1,20 @@
+---
+short_name: DependsChefVault
+full_name: Chef/Effortless/DependsChefVault
+department: Chef/Effortless
+description: Chef Vault is not supported in the Effortless pattern, so usage of Chef
+  Vault must be shifted to another secrets management solution before leveraging the
+  Effortless pattern.
+autocorrection: false
+target_chef_version: All Versions
+examples: |2-
+
+  #### incorrect
+
+  ```ruby
+  depends 'chef-vault'
+  ```
+version_added: '6.19'
+enabled: false
+included_file_paths:
+- "**/metadata.rb"

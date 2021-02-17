@@ -1,0 +1,30 @@
+---
+short_name: OctalModeAsString
+full_name: Chef/Correctness/OctalModeAsString
+department: Chef/Correctness
+description: Don't represent file modes as Strings containing octal values.
+autocorrection: false
+target_chef_version: All Versions
+examples: |2-
+
+  #### incorrect
+
+  ```ruby
+  file '/etc/some_file' do
+    mode '0o755'
+  end
+  ```
+
+  #### correct
+
+  ```ruby
+  file '/etc/some_file' do
+    mode '0755'
+  end
+  ```
+version_added: 6.21.0
+enabled: true
+excluded_file_paths:
+- "**/attributes/*.rb"
+- "**/metadata.rb"
+- "**/Berksfile"

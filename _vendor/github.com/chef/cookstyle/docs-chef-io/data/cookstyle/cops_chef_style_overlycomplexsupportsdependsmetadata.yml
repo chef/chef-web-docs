@@ -1,0 +1,38 @@
+---
+short_name: OverlyComplexSupportsDependsMetadata
+full_name: Chef/Style/OverlyComplexSupportsDependsMetadata
+department: Chef/Style
+description: Don't loop over an array to set cookbook dependencies or supported platforms
+  if you have fewer than three values to set. Setting multiple `supports` or `depends`
+  values is simpler and easier to understand for new users.
+autocorrection: true
+target_chef_version: All Versions
+examples: |2-
+
+  #### incorrect
+
+  ```ruby
+
+  %w( debian ubuntu ).each do |os|
+    supports os
+  end
+
+  %w( apt yum ).each do |cb|
+    depends cb
+  end
+  ```
+
+  #### correct
+
+  ```ruby
+
+  supports 'debian'
+  supports 'ubuntu'
+
+  depends 'apt'
+  depends 'yum'
+  ```
+version_added: 5.19.0
+enabled: true
+included_file_paths:
+- "**/metadata.rb"

@@ -1,0 +1,28 @@
+---
+short_name: DatabagHelpers
+full_name: Chef/Modernize/DatabagHelpers
+department: Chef/Modernize
+description: Use the `data_bag_item` helper instead of `Chef::DataBagItem.load` or
+  `Chef::EncryptedDataBagItem.load`.
+autocorrection: true
+target_chef_version: All Versions
+examples: |2-
+
+  #### incorrect
+
+  ```ruby
+  plain_text_data = Chef::DataBagItem.load('foo', 'bar')
+  encrypted_data = Chef::EncryptedDataBagItem.load('foo2', 'bar2')
+  ```
+
+  #### correct
+
+  ```ruby
+  plain_text_data = data_bag_item('foo', 'bar')
+  encrypted_data = data_bag_item('foo2', 'bar2')
+  ```
+version_added: 6.0.0
+enabled: true
+excluded_file_paths:
+- "**/metadata.rb"
+- "**/Berksfile"

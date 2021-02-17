@@ -1,0 +1,27 @@
+---
+short_name: UseRequireRelative
+full_name: Chef/Modernize/UseRequireRelative
+department: Chef/Modernize
+description: Instead of using require with a File.expand_path and __FILE__ use the
+  simpler require_relative method.
+autocorrection: true
+target_chef_version: All Versions
+examples: |2-
+
+  #### incorrect
+
+  ```ruby
+  require File.expand_path('../../libraries/helpers', __FILE__)
+  ```
+
+  #### correct
+
+  ```ruby
+  require_relative '../libraries/helpers'
+  ```
+version_added: 5.22.0
+enabled: true
+excluded_file_paths:
+- "**/metadata.rb"
+- "**/attributes/*.rb"
+- "**/Berksfile"

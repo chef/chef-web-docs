@@ -1,0 +1,35 @@
+---
+short_name: UsesZypperRepo
+full_name: Chef/Modernize/UsesZypperRepo
+department: Chef/Modernize
+description: The zypper_repo resource was renamed zypper_repository when it was added
+  to Chef Infra Client 13.3.
+autocorrection: true
+target_chef_version: 13.3+
+examples: |2-
+
+  #### incorrect
+
+  ```ruby
+  zypper_repo 'apache' do
+    baseurl 'http://download.opensuse.org/repositories/Apache'
+    path '/openSUSE_Leap_42.2'
+    type 'rpm-md'
+    priority '100'
+  end
+  ```
+
+  #### correct
+
+  ```ruby
+  zypper_repository 'apache' do
+    baseurl 'http://download.opensuse.org/repositories/Apache'
+    path '/openSUSE_Leap_42.2'
+    type 'rpm-md'
+    priority '100'
+  end
+  ```
+version_added: 5.6.0
+enabled: true
+excluded_file_paths:
+- "**/metadata.rb"

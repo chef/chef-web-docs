@@ -1,0 +1,12 @@
+---
+short_name: InvalidDefaultAction
+full_name: Chef/Correctness/InvalidDefaultAction
+department: Chef/Correctness
+autocorrection: false
+target_chef_version: All Versions
+examples: 
+version_added: 6.13.0
+enabled: true
+included_file_paths:
+- "**/libraries/*.rb"
+- "**/resources/*.rb"
