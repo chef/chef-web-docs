@@ -1,0 +1,29 @@
+---
+short_name: PowershellScriptDeleteFile
+full_name: Chef/Correctness/PowershellScriptDeleteFile
+department: Chef/Correctness
+description: |-
+  Use the `file` or `directory` resources built into Chef Infra Client with the :delete action to remove files/directories instead of using Remove-Item in a powershell_script resource
+
+   #### correct
+   file 'C:\Windows\foo\bar.txt' do
+     action :delete
+   end
+autocorrection: false
+target_chef_version: All Versions
+examples: |2-
+
+  #### incorrect
+
+  ```ruby
+  powershell_script 'Cleanup old files' do
+    code 'Remove-Item C:\Windows\foo\bar.txt'
+    only_if { ::File.exist?('C:\\Windows\\foo\\bar.txt') }
+  end
+  ```
+version_added: 6.0.0
+enabled: true
+excluded_file_paths:
+- "**/attributes/*.rb"
+- "**/metadata.rb"
+- "**/Berksfile"

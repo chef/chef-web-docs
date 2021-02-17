@@ -1,0 +1,26 @@
+---
+short_name: PropertyWithNameAttribute
+full_name: Chef/Modernize/PropertyWithNameAttribute
+department: Chef/Modernize
+description: When using properties in a custom resource you should use name_property
+  not the legacy name_attribute from the days of attributes
+autocorrection: true
+target_chef_version: All Versions
+examples: |2-
+
+  #### incorrect
+
+  ```ruby
+  property :bob, String, name_attribute: true
+  ```
+
+  #### correct
+
+  ```ruby
+  property :bob, String, name_property: true
+  ```
+version_added: 5.1.0
+enabled: true
+included_file_paths:
+- "**/resources/*.rb"
+- "**/libraries/*.rb"

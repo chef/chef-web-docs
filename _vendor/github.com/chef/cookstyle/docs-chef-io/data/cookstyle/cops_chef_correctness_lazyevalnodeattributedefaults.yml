@@ -1,0 +1,27 @@
+---
+short_name: LazyEvalNodeAttributeDefaults
+full_name: Chef/Correctness/LazyEvalNodeAttributeDefaults
+department: Chef/Correctness
+description: When setting a node attribute as the default value for a custom resource
+  property, wrap the node attribute in `lazy {}` so that its value is available when
+  the resource executes.
+autocorrection: true
+target_chef_version: All Versions
+examples: |2-
+
+  #### incorrect
+
+  ```ruby
+  property :Something, String, default: node['hostname']
+  ```
+
+  #### correct
+
+  ```ruby
+  property :Something, String, default: lazy { node['hostname'] }
+  ```
+version_added: 6.6.0
+enabled: true
+included_file_paths:
+- "**/libraries/*.rb"
+- "**/resources/*.rb"

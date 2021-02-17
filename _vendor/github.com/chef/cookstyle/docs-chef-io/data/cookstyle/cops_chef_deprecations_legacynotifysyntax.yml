@@ -1,0 +1,55 @@
+---
+short_name: LegacyNotifySyntax
+full_name: Chef/Deprecations/LegacyNotifySyntax
+department: Chef/Deprecations
+description: Use the new-style notification syntax which allows you to notify resources
+  defined later in a recipe or resource.
+autocorrection: true
+target_chef_version: All Versions
+examples: |2-
+
+  #### incorrect
+
+  ```ruby
+  template '/etc/www/configures-apache.conf' do
+    notifies :restart, resources(service: 'apache')
+  end
+
+  template '/etc/www/configures-apache.conf' do
+    notifies :restart, resources(service: 'apache'), :immediately
+  end
+
+  template '/etc/www/configures-apache.conf' do
+    notifies :restart, resources(service: service_name_variable), :immediately
+  end
+
+  template '/etc/www/configures-apache.conf' do
+    subscribes :restart, resources(service: service_name_variable), :immediately
+  end
+  ```
+
+  #### correct
+
+  ```ruby
+  template '/etc/www/configures-apache.conf' do
+    notifies :restart, 'service[apache]'
+  end
+
+  template '/etc/www/configures-apache.conf' do
+    notifies :restart, 'service[apache]', :immediately
+  end
+
+  template '/etc/www/configures-apache.conf' do
+    notifies :restart, "service[#{service_name_variable}]", :immediately
+  end
+
+  template '/etc/www/configures-apache.conf' do
+    subscribes :restart, "service[#{service_name_variable}]", :immediately
+  end
+  ```
+version_added: 5.13.0
+enabled: true
+excluded_file_paths:
+- "**/metadata.rb"
+- "**/attributes/*.rb"
+- "**/Berksfile"

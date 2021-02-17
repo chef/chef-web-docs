@@ -1,0 +1,38 @@
+---
+short_name: OhaiAttributeToString
+full_name: Chef/RedundantCode/OhaiAttributeToString
+department: Chef/RedundantCode
+description: Many Ohai node attributes are already strings and don't need to be cast
+  to strings again
+autocorrection: true
+target_chef_version: All Versions
+examples: |2-
+
+  #### incorrect
+
+  ```ruby
+  node['platform'].to_s
+  node['platform_family'].to_s
+  node['platform_version'].to_s
+  node['fqdn'].to_s
+  node['hostname'].to_s
+  node['os'].to_s
+  node['name'].to_s
+  ```
+
+  #### correct
+
+  ```ruby
+  node['platform']
+  node['platform_family']
+  node['platform_version']
+  node['fqdn']
+  node['hostname']
+  node['os']
+  node['name']
+  ```
+version_added: 6.10.0
+enabled: true
+excluded_file_paths:
+- "**/metadata.rb"
+- "**/Berksfile"

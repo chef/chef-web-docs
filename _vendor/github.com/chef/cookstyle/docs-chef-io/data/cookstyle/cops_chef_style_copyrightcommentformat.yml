@@ -1,0 +1,30 @@
+---
+short_name: CopyrightCommentFormat
+full_name: Chef/Style/CopyrightCommentFormat
+department: Chef/Style
+description: Checks for incorrectly formatted copyright comments.
+autocorrection: true
+target_chef_version: All Versions
+examples: |2-
+
+  #### incorrect
+
+  ```ruby
+  Copyright:: 2013-2022 Opscode, Inc.
+  Copyright:: 2013-2022 Chef Inc.
+  Copyright:: 2013-2022 Chef Software Inc.
+  Copyright:: 2009-2010 2013-2022 Chef Software Inc.
+  Copyright:: Chef Software Inc.
+  Copyright:: Tim Smith
+  Copyright:: Copyright (c) 2015-2022 Chef Software, Inc.
+  ```
+
+  #### correct
+
+  ```ruby
+  Copyright:: 2013-2022 Chef Software, Inc.
+  Copyright:: 2013-2022 Tim Smith
+  Copyright:: 2019 37Signals, Inc.
+  ```
+version_added: 5.0.0
+enabled: false

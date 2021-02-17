@@ -1,0 +1,21 @@
+---
+short_name: SevenZipArchiveResource
+full_name: Chef/Modernize/SevenZipArchiveResource
+department: Chef/Modernize
+description: Use the archive_file resource built into Chef Infra Client 15+ instead
+  of the seven_zip_archive
+autocorrection: false
+target_chef_version: 15.0+
+examples: |2-
+
+  #### incorrect
+
+  ```ruby
+  seven_zip_archive "C:\file.zip" do
+    path 'C:\expand_here'
+  end
+  ```
+version_added: 5.5.0
+enabled: true
+excluded_file_paths:
+- "**/metadata.rb"
