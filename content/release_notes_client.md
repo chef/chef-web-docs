@@ -18,6 +18,26 @@ the first Wednesday of every month. Below are the major changes for each
 release. For a detailed list of changes see the [Chef Infra Client
 changelog](https://github.com/chef/chef/blob/master/CHANGELOG.md)
 
+## What's New in 16.10.17
+
+### Bugfixes
+
+- Resolved installation failures on some Windows systems
+- Fixed the `mount` resource for network mounts using the root level as the device. Thanks [@ramereth](https://github.com/ramereth)! 
+- Resolved a Compliance Phase failure with profile names using the `@` symbol.
+
+### Security
+
+Upgraded OpenSSL to 1.0.2y, which resolves the following CVEs:
+
+* [CVE-2021-23841](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-23841)
+* [CVE-2021-23839](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-23839)
+* [CVE-2021-23840](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-23840)
+
+### Platform Updates
+
+With the release of macOS 11 we will no longer produce packages for macOS 10.13 systems. See our [Platform End-of-Life Policy](https://docs.chef.io/platforms/#platform-end-of-life-policy) for details on the platform lifecycle.
+
 ## What's New in 16.10
 
 ### Improvements
@@ -289,7 +309,7 @@ The `zypper_package` resource has been refactored to improve idempotency when sp
 - Performance of system configuration gathering on AIX systems has been improved
 - The `Virtualization` plugin on AIX systems now gathers a state `state` per WPAR and properly gathers LPAR names that include spaces
 
-## Whats New in 16.6
+## What's New in 16.6
 
 ### pwsh Support
 
