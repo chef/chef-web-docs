@@ -40,12 +40,12 @@ syntax_full_properties_list:
   `protocol`, `remote_address`, `remote_port`, `rule_name`, and `service` are the
   properties available to this resource."
 actions_list:
-  :create:
-    markdown: Create a Windows firewall entry.
-  :delete:
-    markdown: Delete an existing Windows firewall entry.
   :nothing:
     shortcode: resources_common_actions_nothing.md
+  :create:
+    markdown: Create a Windows firewall entry (default)
+  :delete:
+    markdown: Delete an existing Windows firewall entry
 properties_list:
 - property: description
   ruby_type: String
