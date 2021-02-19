@@ -1,10 +1,9 @@
 +++
 title = "Platforms"
 draft = false
-
 gh_repo = "chef-web-docs"
-
 aliases = ["/platforms.html", "/supported_platforms.html"]
+product = ["automate", "client", "server", "habitat", "inspec", "workstation"]
 
 [menu]
   [menu.overview]

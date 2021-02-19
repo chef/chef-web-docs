@@ -1,10 +1,9 @@
 +++
 title = "Supported Versions"
 draft = false
-
 gh_repo = "chef-web-docs"
-
 aliases = ["/versions.html"]
+product = ["automate", "client", "server", "habitat", "inspec", "workstation"]
 
 [menu]
   [menu.overview]

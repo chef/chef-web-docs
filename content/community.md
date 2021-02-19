@@ -1,10 +1,9 @@
 +++
 title = "About the Chef Community"
 draft = false
-
 gh_repo = "chef-web-docs"
-
 aliases = ["/community.html"]
+product = []
 
 [menu]
   [menu.overview]

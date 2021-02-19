@@ -1,10 +1,9 @@
 +++
 title = "Cookbook Directory"
 draft = false
-
 gh_repo = "chef-web-docs"
-
 aliases = ["/cookbook_repo.html"]
+product = ["client", "server", "workstation"]
 
 [menu]
   [menu.infra]

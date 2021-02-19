@@ -1,12 +1,10 @@
 +++
 title = "Manage Client Keys"
 draft = false
-
 gh_repo = "chef-web-docs"
 robots = "noindex"
-
-
 aliases = ["/server_manage_clients.html"]
+product = []
 
 [menu]
   [menu.legacy]

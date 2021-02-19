@@ -1,10 +1,9 @@
 +++
 title = "Install Private Supermarket"
 draft = false
-
 gh_repo = "chef-web-docs"
-
 aliases = ["/install_supermarket.html"]
+product = ["client", "server", "workstation"]
 
 [menu]
   [menu.infra]

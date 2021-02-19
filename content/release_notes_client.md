@@ -1,10 +1,9 @@
 +++
 title = "Release Notes: Chef Infra Client 12.0 - 16.10"
 draft = false
-
 gh_repo = "chef-web-docs"
-
 aliases = ["/release_notes.html", "/release_notes_ohai.html", "/release_notes/"]
+product = ["client"]
 
 [menu]
   [menu.release_notes]
