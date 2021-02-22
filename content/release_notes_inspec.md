@@ -3,6 +3,7 @@ title = "Chef InSpec Release Notes"
 draft = false
 
 release_notes = "inspec"
+product = ["inspec"]
 
 [menu]
   [menu.release_notes]

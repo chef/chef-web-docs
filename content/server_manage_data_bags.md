@@ -1,12 +1,10 @@
 +++
 title = "Manage Data Bags"
 draft = false
-
 gh_repo = "chef-web-docs"
 robots = "noindex"
-
-
 aliases = ["/server_manage_data_bags.html"]
+product = []
 
 [menu]
   [menu.legacy]

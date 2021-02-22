@@ -1,10 +1,9 @@
 +++
 title = "About Run-lists"
 draft = false
-
 gh_repo = "chef-web-docs"
-
 aliases = ["/run_lists.html"]
+product = ["client", "server"]
 
 [menu]
   [menu.infra]

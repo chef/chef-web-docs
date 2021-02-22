@@ -1,10 +1,9 @@
 +++
 title = "Supermarket Backup and Restore"
 draft = false
-
 gh_repo = "chef-web-docs"
-
 aliases = ["/supermarket_backup_restore.html"]
+product = ["client", "server", "workstation"]
 
 [menu]
   [menu.infra]

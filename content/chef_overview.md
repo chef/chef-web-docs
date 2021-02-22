@@ -1,10 +1,9 @@
 +++
 title = "An Overview of Chef Infra"
 draft = false
-
 gh_repo = "chef-web-docs"
-
 aliases = ["/chef_overview.html"]
+product = ["client", "server", "workstation"]
 
 [menu]
   [menu.infra]

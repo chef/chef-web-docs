@@ -1,10 +1,9 @@
 +++
 title = "Knife Cloud Plugins"
 draft = false
-
 gh_repo = "chef-web-docs"
-
 aliases = ["/plugin_knife.html"]
+product = ["client", "server", "workstation"]
 
 [menu]
   [menu.infra]
