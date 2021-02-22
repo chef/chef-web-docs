@@ -6,6 +6,11 @@
   {{ with .Params.st_robots }}
     <meta name="st:robots" content="{{ . }}">
   {{ end }}
+  {{ with .Params.product }}
+    {{ $productArray := delimit . `", "` }}
+    {{ $productArray = delimit (slice `["` $productArray `"]`) "" }}
+    <meta class="swiftype" name="chef-product" data-type="string" content="{{ $productArray }}" />
+  {{ end }}
   <title>{{ .Title }}</title>
   {{ partialCached "scss" . }}
 </head>
