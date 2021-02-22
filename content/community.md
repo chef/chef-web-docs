@@ -26,8 +26,7 @@ community.
 
 -   [Chef events](https://events.chef.io/)
 -   [Chef meetups](https://www.meetup.com/topics/opscode/)
--   [Continuous delivery
-    meetups](https://www.meetup.com/topics/continuous-delivery/)
+-   [Continuous delivery meetups](https://www.meetup.com/topics/continuous-delivery/)
 -   [DevOps meetups](https://www.meetup.com/topics/devops/)
 
 ## Learn
@@ -68,7 +67,6 @@ community.
 ## Contribute
 
 -   [Chef on GitHub](https://github.com/chef)
--   [Chef-managed cookbooks](https://github.com/chef-cookbooks)
 -   [Community cookbooks](https://supermarket.chef.io)
 -   [Documentation](https://github.com/chef/chef-web-docs)
 -   [Share your Chef product ideas](https://www.chef.io/feedback/)
@@ -77,8 +75,7 @@ community.
 
 -   [About Supermarket](/supermarket/)
 -   [Visit Supermarket](https://supermarket.chef.io)
--   [Cookbooks available on
-    Supermarket](https://supermarket.chef.io/cookbooks-directory)
+-   [Cookbooks available on Supermarket](https://supermarket.chef.io/cookbooks-directory)
 
 ## Subscribe
 

@@ -26,12 +26,12 @@ syntax_full_properties_list:
 - "`automatic_managed`, `initial_size`, `maximum_size`, `path`, and `system_managed`
   are the properties available to this resource."
 actions_list:
-  :delete:
-    markdown: Deletes the specified pagefile.
   :nothing:
     shortcode: resources_common_actions_nothing.md
   :set:
-    markdown: Default. Configures the default pagefile, creating it if it doesn't exist.
+    markdown: Configures the default pagefile, creating if it doesn't exist (default)
+  :delete:
+    markdown: Deletes the specified pagefile
 properties_list:
 - property: automatic_managed
   ruby_type: true, false

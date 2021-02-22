@@ -15,7 +15,7 @@ syntax_full_code_block: |-
     source         String
     action         Symbol # defaults to :install if not specified
   end
-syntax_properties_list: 
+syntax_properties_list:
 syntax_full_properties_list:
 - "`windows_font` is the resource."
 - "`name` is the name given to the resource block."
@@ -23,10 +23,10 @@ syntax_full_properties_list:
   the desired state."
 - "`font_name` and `source` are the properties available to this resource."
 actions_list:
-  :install:
-    markdown: Default. Install the font to the system fonts directory.
   :nothing:
     shortcode: resources_common_actions_nothing.md
+  :install:
+    markdown: Install a font to the system fonts directory (default)
 properties_list:
 - property: font_name
   ruby_type: String

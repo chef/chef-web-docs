@@ -35,14 +35,14 @@ syntax_full_properties_list:
 - "`all`, `feature_name`, `management_tools`, `source`, and `timeout` are the properties
   available to this resource."
 actions_list:
-  :delete:
-    markdown: Delete a Windows role / feature from the image using PowerShell.
-  :install:
-    markdown: Default. Install a Windows role / feature using PowerShell.
-  :remove:
-    markdown: Remove a Windows role / feature using PowerShell.
   :nothing:
     shortcode: resources_common_actions_nothing.md
+  :install:
+    markdown: Install a Windows role / feature using PowerShell (default)
+  :remove:
+    markdown: Remove a Windows role / feature using PowerShell
+  :delete:
+    markdown: Delete a Windows role / feature from the image using PowerShell
 properties_list:
 - property: all
   ruby_type: true, false

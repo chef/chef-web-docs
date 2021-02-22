@@ -18,7 +18,7 @@ syntax_full_code_block: |-
     snmp_enabled          true, false # default value: false
     action                Symbol # defaults to :create if not specified
   end
-syntax_properties_list: 
+syntax_properties_list:
 syntax_full_properties_list:
 - "`windows_printer_port` is the resource."
 - "`name` is the name given to the resource block."
@@ -27,12 +27,12 @@ syntax_full_properties_list:
 - "`ipv4_address`, `port_description`, `port_name`, `port_number`, `port_protocol`,
   and `snmp_enabled` are the properties available to this resource."
 actions_list:
-  :create:
-    markdown: Default. Create the printer port, if one doesn't already exist.
-  :delete:
-    markdown: Delete an existing printer port.
   :nothing:
     shortcode: resources_common_actions_nothing.md
+  :create:
+    markdown: Create the printer port, if one doesn't already exist (default)
+  :delete:
+    markdown: Delete an existing printer port
 properties_list:
 - property: ipv4_address
   ruby_type: String
