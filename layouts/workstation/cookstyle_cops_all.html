@@ -1,12 +1,12 @@
 {{ define "main" }}
 
   <main id="main-content-col" tabindex="-1">
-    <div class="col-content">
+    <div class="col-content" data-swiftype-index='true'>
 
     <h1 id="{{ anchorize ( .Title )}}">{{ .Title }}</h1>
 
     <button type="button" class="TOC-button hide-for-large" data-toggle="offCanvasRightTOC"
-      data-close="left-nav-off-canvas">
+      data-close="left-nav-off-canvas" data-swiftype-index='false'>
       <i class="fas fa-bars"></i> Table of Contents
     </button>
 

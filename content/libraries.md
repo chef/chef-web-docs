@@ -1,9 +1,7 @@
 +++
 title = "About Libraries"
 draft = false
-
 gh_repo = "chef-web-docs"
-
 aliases = ["/libraries.html"]
 
 [menu]

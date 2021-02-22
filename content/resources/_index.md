@@ -1,12 +1,14 @@
 +++
 title = "All Infra Resources"
 draft = false
-
 gh_repo = "chef-web-docs"
 
 data_path = ["infra","resources"]
 layout = "infra_resources_all"
 toc_layout = "infra_resources_all_toc"
+
+[cascade]
+  product = ["client"]
 
 [menu]
   [menu.infra]

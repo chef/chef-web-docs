@@ -1,10 +1,9 @@
 +++
 title = "Release Notes: Chef Infra Server 12.0 - 14.0"
 draft = false
-
 gh_repo = "chef-web-docs"
-
 aliases = ["/release_notes_server.html"]
+product = ["server"]
 
 [menu]
   [menu.release_notes]

@@ -1,10 +1,9 @@
 +++
 title = "Share Cookbooks on the Chef Supermarket"
 draft = false
-
 gh_repo = "chef-web-docs"
-
 aliases = ["/supermarket_share_cookbook.html"]
+product = ["client", "server", "workstation"]
 
 [menu]
   [menu.infra]

@@ -1,10 +1,9 @@
 +++
 title = "Community Contributions"
 draft = false
-
 gh_repo = "chef-web-docs"
-
 aliases = ["/community_contributions.html"]
+product = []
 
 [menu]
   [menu.overview]

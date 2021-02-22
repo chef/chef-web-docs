@@ -1,13 +1,8 @@
 +++
 title = "Community Plugins"
 draft = false
-
 gh_repo = "chef-web-docs"
-
 aliases = "/plugin_community.html"
-
-
-
 +++
 
 This page lists plugins for Ohai plugins and Chef Infra Client handlers

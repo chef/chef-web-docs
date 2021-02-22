@@ -1,10 +1,9 @@
 +++
 title = "Supermarket API"
 draft = false
-
 gh_repo = "chef-web-docs"
-
 aliases = ["/supermarket_api.html"]
+product = ["client", "server", "workstation"]
 
 [menu]
   [menu.infra]
