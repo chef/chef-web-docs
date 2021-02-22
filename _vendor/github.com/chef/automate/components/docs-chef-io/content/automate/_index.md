@@ -1,8 +1,11 @@
 +++
 title = "Quick Start Demo"
-
 weight = 10
 draft = false
+gh_repo = "automate"
+
+[cascade]
+  product = ["automate"]
 
 [menu]
   [menu.automate]
@@ -11,8 +14,6 @@ draft = false
     identifier = "automate/getting_started/_index.md Quick Start Demo"
     weight = 10
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/automate/blob/master/components/docs-chef-io/content/automate/_index.md)
 
 Hello and welcome to Chef Automate! This Quickstart guides you through the initial installation and trial activation.
 
