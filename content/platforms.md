@@ -202,26 +202,31 @@ versions for the Chef Workstation:
 </thead>
 <tbody>
 <tr class="odd">
+<td>Amazon Linux</td>
+<td><code>x86_64</code></td>
+<td><code>2.0</code></td>
+</tr>
+<tr class="even">
 <td>macOS</td>
 <td><code>x86_64</code></td>
 <td><code>10.14</code>, <code>10.15</code>, <code>11.0</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Debian</td>
 <td><code>x86_64</code></td>
 <td><code>9</code>, <code>10</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Red Hat Enterprise Linux</td>
 <td><code>x86_64</code></td>
 <td><code>6.x</code>, <code>7.x</code>, <code>8.x</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Ubuntu</td>
 <td><code>x86_64</code></td>
 <td><code>16.04</code>, <code>18.04</code>, <code>20.04</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Microsoft Windows</td>
 <td><code>x64</code></td>
 <td><code>8.1</code>, <code>2012</code>, <code>2012 R2</code>, <code>2016</code>, <code>10 (all channels except "insider" builds)</code>, <code>2019 (Long-term servicing channel (LTSC), Desktop Experience only)</code></td>
