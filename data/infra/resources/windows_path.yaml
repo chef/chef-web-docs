@@ -21,10 +21,10 @@ syntax_full_properties_list:
   the desired state."
 - "`path` is the property available to this resource."
 actions_list:
-  :add:
-    markdown: Add an item to the system path
   :nothing:
     shortcode: resources_common_actions_nothing.md
+  :add:
+    markdown: Add an item to the system path (default)
   :remove:
     markdown: Remove an item from the system path
 properties_list:

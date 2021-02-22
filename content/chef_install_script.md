@@ -1,10 +1,9 @@
 +++
 title = "Chef Software Install Script"
 draft = false
-
 gh_repo = "chef-web-docs"
-
 aliases = ["/install_omnibus.html", "/install_omnibus/"]
+product = ["automate", "client", "server", "habitat", "inspec", "workstation"]
 
 [menu]
   [menu.overview]

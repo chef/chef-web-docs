@@ -3,6 +3,8 @@ title = "Chef Compliance"
 draft = false
 
 gh_repo = "chef-web-docs"
+[cascade]
+  product = ["client", "server", "inspec", "habitat"]
 
 [menu]
   [menu.compliance]

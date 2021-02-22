@@ -1,10 +1,9 @@
 +++
 title = "System Requirements"
 draft = false
-
 gh_repo = "chef-web-docs"
-
 aliases = ["/chef_system_requirements.html"]
+product = ["client", "server", "workstation"]
 
 [menu]
   [menu.infra]

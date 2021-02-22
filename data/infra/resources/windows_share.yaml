@@ -11,20 +11,20 @@ resource_new_in: '14.7'
 syntax_full_code_block: |-
   windows_share 'name' do
     ca_timeout                  Integer # default value: 0
-    change_users                Array
+    change_users                Array # default value: []
     concurrent_user_limit       Integer # default value: 0
     continuously_available      true, false # default value: false
     description                 String
     encrypt_data                true, false # default value: false
-    full_users                  Array
+    full_users                  Array # default value: []
     path                        String
-    read_users                  Array
+    read_users                  Array # default value: []
     scope_name                  String # default value: "*"
     share_name                  String # default value: 'name' unless specified
     temporary                   true, false # default value: false
     action                      Symbol # defaults to :create if not specified
   end
-syntax_properties_list: 
+syntax_properties_list:
 syntax_full_properties_list:
 - "`windows_share` is the resource."
 - "`name` is the name given to the resource block."
@@ -50,6 +50,7 @@ properties_list:
 - property: change_users
   ruby_type: Array
   required: false
+  default_value: "[]"
   description_list:
   - markdown: The users that should have 'modify' permission on the share in domain\username
       format.
@@ -79,6 +80,7 @@ properties_list:
 - property: full_users
   ruby_type: Array
   required: false
+  default_value: "[]"
   description_list:
   - markdown: The users that should have 'Full control' permissions on the share in
       domain\username format.
@@ -91,6 +93,7 @@ properties_list:
 - property: read_users
   ruby_type: Array
   required: false
+  default_value: "[]"
   description_list:
   - markdown: The users that should have 'read' permission on the share in domain\username
       format.

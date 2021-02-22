@@ -1,9 +1,7 @@
 +++
 title = "Custom Resource DSL"
 draft = false
-
 gh_repo = "chef-web-docs"
-
 aliases = ["/dsl_custom_resource.html"]
 
 [menu]

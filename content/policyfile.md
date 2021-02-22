@@ -1,10 +1,9 @@
 +++
 title = "About Policyfile"
 draft = false
-
 gh_repo = "chef-web-docs"
-
 aliases = ["/policyfile.html"]
+product = ["client", "server"]
 
 [menu]
   [menu.infra]

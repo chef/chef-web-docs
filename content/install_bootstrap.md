@@ -1,10 +1,9 @@
 +++
 title = "Bootstrap a Node"
 draft = false
-
 gh_repo = "chef-web-docs"
-
 aliases = ["/install_bootstrap.html"]
+product = ["client", "workstation"]
 
 [menu]
   [menu.infra]

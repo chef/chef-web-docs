@@ -3,6 +3,7 @@ title = "Chef and Terraform"
 draft = false
 
 gh_repo = "chef-web-docs"
+product = ["client", "server"]
 
 [menu]
   [menu.infra]

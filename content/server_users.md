@@ -5,6 +5,7 @@ draft = false
 gh_repo = "chef-web-docs"
 
 aliases = ["/server_users.html"]
+product = ["server"]
 
 [menu]
   [menu.legacy]
