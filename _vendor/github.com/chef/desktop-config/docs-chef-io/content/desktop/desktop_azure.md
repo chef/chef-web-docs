@@ -3,6 +3,8 @@ title = "Zero Touch Deployment for macOS and Windows on Azure"
 draft = false
 publishDate = "2020-06-02"
 
+gh_repo = "desktop-config"
+
 [menu]
   [menu.desktop]
     title = "Zero Touch Deployment for macOS and Windows on Azure"
@@ -10,7 +12,6 @@ publishDate = "2020-06-02"
     parent = "desktop"
     weight = 60
 +++
-[\[edit on GitHub\]](https://github.com/chef/desktop-config/blob/master/docs-chef-io/content/desktop/desktop_azure.md)
 
 {{< note >}}
 The application management documentation for Chef Desktop is under active development.

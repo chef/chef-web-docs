@@ -2,6 +2,7 @@
 title = "The Chef Desktop Development Pattern"
 draft = false
 publishDate = "2020-06-02"
+gh_repo = "desktop-config"
 
 [menu]
   [menu.desktop]
@@ -10,7 +11,6 @@ publishDate = "2020-06-02"
     parent = "desktop"
     weight = 50
 +++
-[\[edit on GitHub\]](https://github.com/chef/desktop-config/blob/master/content/desktop/desktop_pattern.md)
 
 ## Install the Chef Desktop Cookbook
 

@@ -2,6 +2,7 @@
 title = "Zero Touch Deployment with MicroMDM for macOS"
 draft = false
 publishDate = "2020-06-02"
+gh_repo = "desktop-config"
 
 [menu]
   [menu.desktop]
@@ -10,8 +11,6 @@ publishDate = "2020-06-02"
     parent = "desktop"
     weight = 70
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/desktop-config/blob/master/docs-chef-io/content/desktop/desktop_micromdm.md)
 
 Info:
 The application management documentation for Chef Desktop is under active development.
