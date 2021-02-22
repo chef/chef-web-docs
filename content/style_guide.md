@@ -591,9 +591,9 @@ VPC."
 
 ### Example Company
 
-We use the fictional company "Fourth Coffee, Inc." as an example throughout the docs.
+We use the fictional company "Fourth Cafe, Inc." as an example throughout the docs.
 
-Fourth Coffee, Inc.
+Fourth Cafe, Inc.
 123579 4th Ave
 Seattle, WA 98122
 

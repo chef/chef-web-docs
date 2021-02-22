@@ -259,7 +259,7 @@ On the Chef Infra Server host:
 
     The short name must begin with a lower-case letter or digit, may contain lower-case letters, digits, hyphens, and underscores, and must be between 1 and 255 characters. For example: `4thcafe`.
 
-    The full organization name must begin with a non-white space character and must be between 1 and 1023 characters. For example: `'Fourth Coffee, Inc.'`.
+    The full organization name must begin with a non-white space character and must be between 1 and 1023 characters. For example: `'Fourth Cafe, Inc.'`.
 
     The `--association_user` option will associate the `USER_NAME` with the `admins` security group on the Chef Infra Server.
 
