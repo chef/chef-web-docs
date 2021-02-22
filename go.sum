@@ -13,8 +13,8 @@ github.com/chef/cookstyle v7.7.5+incompatible h1:o3re6Y0vEKO2C3GVvT9Sze20Q98uku4
 github.com/chef/cookstyle v7.7.5+incompatible/go.mod h1:KUadmsdBr7Hpo5dtGVQMiwb8KlC91W3j1lfc0yuVwtw=
 github.com/chef/cookstyle/docs-chef-io v0.0.0-20210211034315-bf8938ff6d85 h1:pUpdF5gl3e8ea738qftcNZ8Qso2gyo4XlgNVCswyyEA=
 github.com/chef/cookstyle/docs-chef-io v0.0.0-20210211034315-bf8938ff6d85/go.mod h1:1JOEECsW9ozt1/RmprJjAQEvCrOHobpWepSQJRQOhnY=
-github.com/chef/desktop-config/docs-chef-io v0.0.0-20210112020121-58047a6a6d6f h1:kS8U0K/HLRw+T8sqN4NfngUHWWBTTdE4CTF8FbHr03Q=
-github.com/chef/desktop-config/docs-chef-io v0.0.0-20210112020121-58047a6a6d6f/go.mod h1:90xAx6sIfgSL50M2KzeBmx7V7s7dlhQU3xpUkJO0qW0=
+github.com/chef/desktop-config/docs-chef-io v0.0.0-20210219180412-c50c4ad0869d h1:TiB1oXBebvMVIyLQy5eAgMVi9rQWMQdX3aptZNIKBJ8=
+github.com/chef/desktop-config/docs-chef-io v0.0.0-20210219180412-c50c4ad0869d/go.mod h1:90xAx6sIfgSL50M2KzeBmx7V7s7dlhQU3xpUkJO0qW0=
 github.com/chef/effortless/docs-chef-io v0.0.0-20210212122821-321ee6f6699a h1:QWwhipxerx1oq6nABZARDak/qOwRQGBK5vSIhCXra50=
 github.com/chef/effortless/docs-chef-io v0.0.0-20210212122821-321ee6f6699a/go.mod h1:Lfq+HjwAQwUJ41EPTO/8qbI1oJb2i415fR28d2Ig9kc=
 github.com/client9/misspell v0.3.4/go.mod h1:qj6jICC3Q7zFZvVWo7KLAzC3yx5G7kyvSDkc90ppPyw=
@@ -37,12 +37,8 @@ github.com/google/go-cmp v0.4.0/go.mod h1:v8dTdLbMG2kIc/vJvl+f65V22dbkXbowE6jgT/
 github.com/google/go-cmp v0.5.0/go.mod h1:v8dTdLbMG2kIc/vJvl+f65V22dbkXbowE6jgT/gNBxE=
 github.com/habitat-sh/habitat/components/docs-chef-io v0.0.0-20210219230551-dce07027b152 h1:rXiK66nqIBAgRubhg32Zb+oaQoOT67KQagsH2Jhbcbk=
 github.com/habitat-sh/habitat/components/docs-chef-io v0.0.0-20210219230551-dce07027b152/go.mod h1:luAy42opPrAM/T6hsqDyW3CNBaAMgy+a6l0+oi8sw8U=
-github.com/inspec/inspec v4.26.4+incompatible h1:UEXDGo9VvWisDLi3S+eFnY8TrJB44N7/kPgrJgGRAws=
-github.com/inspec/inspec v4.26.4+incompatible/go.mod h1:SIjoxlQcQphYvY1Zzjh7iawaymQaMKfgtp35uAOByIM=
 github.com/inspec/inspec v4.26.11+incompatible h1:S7+DHa+3H/WIGu67/cgSHd9OHFepkswamnMHmwcI3yo=
 github.com/inspec/inspec v4.26.11+incompatible/go.mod h1:SIjoxlQcQphYvY1Zzjh7iawaymQaMKfgtp35uAOByIM=
-github.com/inspec/inspec/docs-chef-io v0.0.0-20210127162405-a70f336800ac h1:BeWf2iuov+myD0BCHip2ZOD37B/SpNW95JrTdtbQSU8=
-github.com/inspec/inspec/docs-chef-io v0.0.0-20210127162405-a70f336800ac/go.mod h1:oudFvipU0DTMkp8+MiwdUGerVEoWcJG0MQciDEOd6G8=
 github.com/inspec/inspec/docs-chef-io v0.0.0-20210222193013-69320a4a0ce1 h1:4ux7Xd6F6Bp0L+chBnvxOp1DzNcG9sGEbBHFvKD60fA=
 github.com/inspec/inspec/docs-chef-io v0.0.0-20210222193013-69320a4a0ce1/go.mod h1:oudFvipU0DTMkp8+MiwdUGerVEoWcJG0MQciDEOd6G8=
 github.com/prometheus/client_model v0.0.0-20190812154241-14fe0d1b01d4/go.mod h1:xMI15A0UPsDsEKsMN9yxemIoYk6Tm2C1GtYGdfGttqA=

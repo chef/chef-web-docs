@@ -2,6 +2,7 @@
 title = "Chef Desktop Development Environment"
 draft = false
 publishDate = "2020-06-02"
+gh_repo = "desktop-config"
 
 [menu]
   [menu.desktop]
@@ -10,7 +11,6 @@ publishDate = "2020-06-02"
     parent = "desktop"
     weight = 40
 +++
-[\[edit on GitHub\]](https://github.com/chef/desktop-config/blob/master/docs-chef-io/content/desktop/desktop_setup_cookbook.md)
 
 *Estimated time: 1 hour (with your own virtual machines)*
 
