@@ -5,10 +5,8 @@ github.com/chef/automate/components/docs-chef-io v0.0.0-20210129161106-3b5a3ab50
 github.com/chef/automate/components/docs-chef-io v0.0.0-20210129161106-3b5a3ab507b3/go.mod h1:juvLC7Rt33YOCgJ5nnfl4rWZRAbSwqjTbWmcAoA0LtU=
 github.com/chef/chef-server/docs-chef-io v0.0.0-20210111145116-cec7cf7e63da h1:3W8cMBP+LBolm4FFDA8U+bX5zHtHIoIfSeyDMEVrfic=
 github.com/chef/chef-server/docs-chef-io v0.0.0-20210111145116-cec7cf7e63da/go.mod h1:gMSa25GUHmLimA0gjvRd3hs1buOBqkKPrdHzHvaJauY=
-github.com/chef/chef-workstation v0.0.0-20210215213811-6ce826d5c2ad h1:EQUz2jokRjQKSulvGF0/pNPAYCahIpqU57BmpHWTcXA=
-github.com/chef/chef-workstation v0.0.0-20210215213811-6ce826d5c2ad/go.mod h1:KZ1lmUGHzTKhRuHdDhB/I2ZEbet++4OTuABWlYb9MlQ=
-github.com/chef/chef-workstation/docs-chef-io v0.0.0-20210215213811-6ce826d5c2ad h1:DX2UzIB9336VhzKxTn53w23KjiVn2nAykkML0UE5kC0=
-github.com/chef/chef-workstation/docs-chef-io v0.0.0-20210215213811-6ce826d5c2ad/go.mod h1:gvoh6ov1YU98CVzBEWzEZeCLTRunfQ6r1VO7M3LFE9U=
+github.com/chef/chef-workstation v0.0.0-20210219212935-cbc9523c0ecd h1:jIpkqvg1ZhY2TUX2EvoRnelw4NzI5CmoweC7g5nvBAI=
+github.com/chef/chef-workstation v0.0.0-20210219212935-cbc9523c0ecd/go.mod h1:KZ1lmUGHzTKhRuHdDhB/I2ZEbet++4OTuABWlYb9MlQ=
 github.com/chef/chef-workstation/docs-chef-io v0.0.0-20210219212935-cbc9523c0ecd h1:bPnChQK14EoU2M0BIxqcdFkkWncO8bnmiqR7nvUbgJE=
 github.com/chef/chef-workstation/docs-chef-io v0.0.0-20210219212935-cbc9523c0ecd/go.mod h1:gvoh6ov1YU98CVzBEWzEZeCLTRunfQ6r1VO7M3LFE9U=
 github.com/chef/cookstyle v7.7.5+incompatible h1:o3re6Y0vEKO2C3GVvT9Sze20Q98uku4maOEGdMcSDHI=
