@@ -1,9 +1,7 @@
 +++
 title = "About Recipes"
 draft = false
-
 gh_repo = "chef-web-docs"
-
 aliases = ["/recipes.html"]
 
 [menu]

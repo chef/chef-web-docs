@@ -1,10 +1,9 @@
 +++
 title = "supermarket-ctl (executable)"
 draft = false
-
 gh_repo = "chef-web-docs"
-
 aliases = ["/ctl_supermarket.html"]
+product = ["client", "server", "workstation"]
 
 [menu]
   [menu.infra]

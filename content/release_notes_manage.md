@@ -5,6 +5,7 @@ draft = false
 gh_repo = "chef-web-docs"
 
 aliases = ["/release_notes_manage.html"]
+product = []
 
 [menu]
   [menu.release_notes]

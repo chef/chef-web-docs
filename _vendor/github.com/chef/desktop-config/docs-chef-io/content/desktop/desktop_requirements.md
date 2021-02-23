@@ -3,6 +3,8 @@ title = "Chef Desktop Requirements"
 draft = false
 publishDate = "2020-06-02"
 
+gh_repo = "desktop-config"
+
 [menu]
   [menu.desktop]
     title = "Chef Desktop Requirements"
@@ -10,7 +12,6 @@ publishDate = "2020-06-02"
     parent = "desktop"
     weight = 20
 +++
-[\[edit on GitHub\]](https://github.com/chef/desktop-config/blob/master/docs-chef-io/content/desktop/desktop_requirements.md)
 
 *Estimated time: 1 hour*
 

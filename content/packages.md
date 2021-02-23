@@ -1,10 +1,9 @@
 +++
 title = "Chef Software Inc Packages"
 draft = false
-
 gh_repo = "chef-web-docs"
-
 aliases = ["/packages.html"]
+product = ["automate", "client", "server", "habitat", "inspec", "workstation"]
 
 [menu]
   [menu.overview]

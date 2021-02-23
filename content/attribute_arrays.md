@@ -2,6 +2,7 @@
 title = "Attribute Arrays"
 description = "Define multiple attributes in an array or hash and deep merge"
 draft = false
+gh_repo = "chef-web-docs"
 
 [menu]
   [menu.infra]
@@ -9,8 +10,6 @@ draft = false
     identifier = "chef_infra/cookbook_reference/attributes/attribute_arrays Attribute Arrays"
     parent = "chef_infra/cookbook_reference/attributes"
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/attribute_arrays.md)
 
 Attributes are typically defined in cookbooks, recipes, roles, and
 environments. These attributes are rolled-up to the node level during a

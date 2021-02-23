@@ -1,10 +1,12 @@
 +++
 title = "About the Chef Infra Language"
 draft = false
-
 gh_repo = "chef-web-docs"
 
 aliases = ["/dsl_recipe.html", "/dsl_recipe"]
+
+[cascade]
+  product = ["client"]
 
 [menu]
   [menu.infra]

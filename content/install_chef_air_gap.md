@@ -1,10 +1,9 @@
 +++
 title = "Install Chef in an air-gapped environment"
 draft = false
-
 gh_repo = "chef-web-docs"
-
 aliases = ["/install_chef_air_gap.html"]
+product = ["client", "server", "workstation"]
 
 [menu]
   [menu.infra]

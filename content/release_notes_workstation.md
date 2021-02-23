@@ -2,6 +2,7 @@
 title = "Chef Workstation Release Notes"
 draft = false
 release_notes = "chef-workstation"
+product = ["workstation"]
 
 [menu]
   [menu.release_notes]

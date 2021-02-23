@@ -3,6 +3,8 @@ title = "LDAP"
 
 date = 2018-05-11T09:27:09+00:00
 draft = false
+
+gh_repo = "automate"
 [menu]
   [menu.automate]
     title = "LDAP"
@@ -10,8 +12,6 @@ draft = false
     identifier = "automate/configuring_automate/ldap.md LDAP"
     weight = 30
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/automate/blob/master/components/docs-chef-io/content/automate/ldap.md)
 
 ## Authentication via Existing Identity Management Systems
 
@@ -77,6 +77,9 @@ bind_dn
 
 bind_password
 : "your bind_password"
+
+  `bind_password` may also be passed via the `AUTOMATE_SECRET_MSAD_PASSWORD` environment
+  variable when running `chef-automate` commands.
 
 ca_contents
 : Your certificate authority (CA) certificate contents. You can provide multiple PEM-encoded CA certs. Optional.
@@ -495,6 +498,9 @@ See below for the full configuration and additional details about all LDAP confi
    # users to authenticate for Chef Automate (and also to search for their group membership).
    # Example: "uid=seviceaccount,cn=users,dc=example,dc=com"
    bind_dn = "<your bind_dn>"
+
+   # bind_password may also be passed via the AUTOMATE_SECRET_LDAP_PASSWORD environment
+   # variable when running `chef-automate` commands.
    bind_password = "<your bind_password>"
 
    ###

@@ -1,10 +1,9 @@
 +++
 title = "Writing Custom Knife Plugins"
 draft = false
-
 gh_repo = "chef-web-docs"
-
 aliases = ["/plugin_knife_custom.html"]
+product = ["client", "server", "workstation"]
 
 [menu]
   [menu.infra]
