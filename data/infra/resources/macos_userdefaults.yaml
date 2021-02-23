@@ -30,12 +30,12 @@ syntax_full_properties_list:
 - "`domain`, `host`, `key`, `sudo`, `type`, `user`, and `value` are the properties
   available to this resource."
 actions_list:
-  :delete:
-    markdown: Remove a setting key from the specified domain.
   :nothing:
     shortcode: resources_common_actions_nothing.md
   :write:
-    markdown: Default. Writes the setting to the specified domain.
+    markdown: Write the value to the specified domain/key (default)
+  :delete:
+    markdown: Delete a key from a domain
 properties_list:
 - property: domain
   ruby_type: String
@@ -61,7 +61,7 @@ properties_list:
   default_value: 'false'
   description_list:
   - markdown: Set to true if the setting you wish to modify requires privileged access.
-      This requires passwordless sudo for the '/usr/bin/defaults' command to be setup
+      This requires passwordless sudo for the `/usr/bin/defaults` command to be setup
       for the user running Chef Infra Client.
 - property: type
   ruby_type: String
@@ -78,10 +78,11 @@ properties_list:
   ruby_type: Integer, Float, String, true, false, Hash, Array
   required: true
   description_list:
-  - markdown: 'The value of the key. Note: With the `type` property set to `bool`,
-      `String` forms of Boolean true/false values that Apple accepts in the defaults
-      command will be coerced: 0/1, ''TRUE''/''FALSE,'' ''true''/false'', ''YES''/''NO'',
-      or ''yes''/''no''.'
+  - markdown: The value of the key.
+  - note:
+    - markdown: 'With the `type` property set to `bool`, `String` forms of Boolean
+        true/false values that Apple accepts in the defaults command will be coerced:
+        0/1, ''TRUE''/''FALSE,'' ''true''/false'', ''YES''/''NO'', or ''yes''/''no''.'
 examples: |
   **Specify a global domain value**
 
