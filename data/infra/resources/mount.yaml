@@ -19,7 +19,7 @@ syntax_full_code_block: |-
     options          Array, String # default value: ["defaults"]
     pass             Integer, false # default value: 2
     password         String
-    supports         Array, Hash
+    supports         Array, Hash # default value: { remount: false }
     username         String
     action           Symbol # defaults to :mount if not specified
   end
@@ -52,11 +52,9 @@ properties_list:
   ruby_type: String
   required: false
   description_list:
-  - markdown: 'Required for `:umount` and `:remount` actions (for the purpose of
-
-      checking the mount command output for presence). The special block
-
-      device or remote node, a label, or a uuid to be mounted.'
+  - markdown: Required for `:umount` and `:remount` actions (for the purpose of checking
+      the mount command output for presence). The special block device or remote node,
+      a label, or a uuid to be mounted.
 - property: device_type
   ruby_type: String, Symbol
   required: false
@@ -123,12 +121,9 @@ properties_list:
 - property: supports
   ruby_type: Array, Hash
   required: false
+  default_value: "{ remount: false }"
   description_list:
-  - markdown: 'Specify a Hash of supported mount features. Default value:
-
-      `remount: false` (preferred). Array defaults to `remount: true`
-
-      (non-preferred).'
+  - markdown: Specify a Hash of supported mount features.
 - property: username
   ruby_type: String
   required: false

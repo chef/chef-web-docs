@@ -10,7 +10,7 @@ resource_description_list:
     will automatically generate a passwordless key with the certificate. If a CA private
     key and certificate are provided, the certificate will be signed with them.
 - note:
-    markdown: This resource was renamed from openssl_x509 to openssl_x509_certificate.
+  - markdown: This resource was renamed from openssl_x509 to openssl_x509_certificate.
       The legacy name will continue to function, but cookbook code should be updated
       for the new resource name.
 resource_new_in: '14.4'
@@ -25,7 +25,7 @@ syntax_full_code_block: |-
     csr_file                 String
     email                    String
     expire                   Integer # default value: 365
-    extensions               Hash
+    extensions               Hash # default value: {}
     group                    String, Integer
     key_curve                String # default value: "prime256v1"
     key_file                 String
@@ -39,7 +39,7 @@ syntax_full_code_block: |-
     path                     String # default value: 'name' unless specified
     renew_before_expiry      Integer
     state                    String
-    subject_alt_name         Array
+    subject_alt_name         Array # default value: []
     action                   Symbol # defaults to :create if not specified
   end
 syntax_properties_list:
@@ -115,6 +115,7 @@ properties_list:
 - property: extensions
   ruby_type: Hash
   required: false
+  default_value: "{}"
   description_list:
   - markdown: Hash of X509 Extensions entries, in format `{ 'keyUsage' => { 'values'
       => %w( keyEncipherment digitalSignature), 'critical' => true } }`.
@@ -203,6 +204,7 @@ properties_list:
 - property: subject_alt_name
   ruby_type: Array
   required: false
+  default_value: "[]"
   description_list:
   - markdown: Array of Subject Alternative Name entries, in format `DNS:example.com`
       or `IP:1.2.3.4`.

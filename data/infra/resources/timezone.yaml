@@ -15,7 +15,7 @@ syntax_full_code_block: |-
     timezone      String # default value: 'name' unless specified
     action        Symbol # defaults to :set if not specified
   end
-syntax_properties_list: 
+syntax_properties_list:
 syntax_full_properties_list:
 - "`timezone` is the resource."
 - "`name` is the name given to the resource block."
@@ -26,7 +26,7 @@ actions_list:
   :nothing:
     shortcode: resources_common_actions_nothing.md
   :set:
-    markdown: Set the system timezone
+    markdown: Set the system timezone (default)
 properties_list:
 - property: timezone
   ruby_type: String
