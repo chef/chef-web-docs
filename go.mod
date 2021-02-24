@@ -12,8 +12,8 @@ require (
 	github.com/chef/desktop-config/docs-chef-io v0.0.0-20210219180412-c50c4ad0869d // indirect
 	github.com/chef/effortless/docs-chef-io v0.0.0-20210212122821-321ee6f6699a // indirect
 	github.com/habitat-sh/habitat/components/docs-chef-io v0.0.0-20210219230551-dce07027b152 // indirect
-	github.com/inspec/inspec v4.26.11+incompatible // indirect
-	github.com/inspec/inspec/docs-chef-io v0.0.0-20210222193013-69320a4a0ce1 // indirect
+	github.com/inspec/inspec v4.26.13+incompatible // indirect
+	github.com/inspec/inspec/docs-chef-io v0.0.0-20210223170734-c212bb09026a // indirect
 )
 
 //replace github.com/chef/effortless/docs-chef-io => ../effortless/docs-chef-io
