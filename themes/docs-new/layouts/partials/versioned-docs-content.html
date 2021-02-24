@@ -24,8 +24,21 @@
   {{ errorf "No matching product name. Current valid version_docs_product values are chef-server, chef, chef-workstation, inspec, habitat, and desktop-config." }}
 {{ end }}
 
-{{ $versions := index .Site.Params $product }}
-{{ range $version_index, $version := (sort $versions.versions "value" "desc") }}
+{{ $versions := index .Site.Params $product "versions" }}
+
+{{ $float_string_versions := slice }}
+{{ range $versions }}
+  {{ $float_string_versions = $float_string_versions | append (replaceRE "_" "." . ) }}
+{{ end }}
+
+{{ $float_string_versions = sort $float_string_versions "value" "desc" }}
+
+{{ $sorted_versions := slice }}
+{{ range $float_string_versions }}
+  {{ $sorted_versions = $sorted_versions | append (replaceRE "\\." "_" . ) }}
+{{ end }}
+
+{{ range $version_index, $version := $sorted_versions }}
   {{ $versionDir := delimit (slice "v" $version) "" }}
   {{ $filePath := path.Join (slice "/" $splitBaseDir $versionDir) "/" }}
 
