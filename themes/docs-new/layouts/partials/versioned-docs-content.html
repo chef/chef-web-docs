@@ -27,7 +27,6 @@
 {{ $versions := index .Site.Params $product }}
 {{ range $version_index, $version := (sort $versions.versions "value" "desc") }}
   {{ $versionDir := delimit (slice "v" $version) "" }}
-  {{/* $filePath := path.Join (slice "/" $splitBaseDir $versionDir $LogicalName) "/" */}}
   {{ $filePath := path.Join (slice "/" $splitBaseDir $versionDir) "/" }}
 
   {{ if not ($.Site.GetPage $filePath) }}

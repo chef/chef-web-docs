@@ -21,21 +21,26 @@
   {{ $formalProductName = "Name Missing" }}
 {{ end }}
 
-{{ $versions := index .Site.Params $product }}
+{{ $versions := index .Site.Params $product "versions" }}
 
-{{ $sorted_versions := sort $versions.versions "value" "desc" }}
+{{ $float_string_versions := slice }}
+{{ range $versions }}
+  {{ $float_string_versions = $float_string_versions | append (replaceRE "_" "." . ) }}
+{{ end }}
 
-{{ $float_versions := slice }}
-{{ range sort $versions.versions "value" "desc" }}
-  {{$float_versions = $float_versions | append (float (replaceRE "_" "." . )) }}
+{{ $float_string_versions = sort $float_string_versions "value" "desc" }}
+
+{{ $sorted_versions := slice }}
+{{ range $float_string_versions }}
+  {{ $sorted_versions = $sorted_versions | append (replaceRE "\\." "_" . ) }}
 {{ end }}
 
 <div id="chef-product-version-dropdown" data-chef-product-key="{{ $product }}" data-default-version="{{ $product }}_{{ (index $sorted_versions 0) }}">
   <label id="chef-product-version-dropdown-label" for="chef_product">Version:</label>
   <select id="chef-product-version-dropdown-select" name="chef_product" onchange="selectProductVersion()" >
-    {{ range $version_index, $float_version := $float_versions }}
-      <option data-product="{{ $product }}" data-version="{{ lang.NumFmt 1 $float_version }}" value="{{ $product }}_{{ index $sorted_versions $version_index }}">
-        {{$formalProductName}} {{ lang.NumFmt 1 $float_version }}
+    {{ range $version_index, $float_version := $float_string_versions }}
+      <option data-product="{{ $product }}" data-version="{{  $float_version }}" value="{{ $product }}_{{ index $sorted_versions $version_index }}">
+        {{$formalProductName}} {{ $float_version }}
       </option>
     {{ end }}
   </select>
