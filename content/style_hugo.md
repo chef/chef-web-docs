@@ -14,7 +14,6 @@ gh_repo = "chef-web-docs"
 
 ## Deleting Pages or Making New Pages
 
-If a new page is created or an old page is deleted, they must be added or removed from the `sitemap.md` page.
 
 In addition, pages must be placed in the left navigation menu properly. This may involve moving other pages up or down in the left navigation menu by increasing or decreasing their menu weight which is specified in TOML front matter of each page or possibly in the `config.toml` file.
 
