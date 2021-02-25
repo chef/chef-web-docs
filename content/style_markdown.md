@@ -7,8 +7,8 @@ gh_repo = "chef-web-docs"
 [menu]
   [menu.overview]
     title = "Docs Markdown Guide"
-    identifier = "overview/community/style_markdown.md Chef "
-    parent = "overview/community"
+    identifier = "overview/community/contributing/style_markdown.md Chef "
+    parent = "overview/community/contributing"
     weight = 42
 +++
 

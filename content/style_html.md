@@ -7,8 +7,8 @@ gh_repo = "chef-web-docs"
 [menu]
   [menu.overview]
     title = "Docs HTML/CSS Style Guide"
-    identifier = "overview/community/style_html.md Docs API Style Guide"
-    parent = "overview/community"
+    identifier = "overview/community/contributing/style_html.md Docs API Style Guide"
+    parent = "overview/community/contributing"
     weight = 44
 +++
 

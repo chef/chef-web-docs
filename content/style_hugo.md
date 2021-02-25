@@ -6,9 +6,9 @@ gh_repo = "chef-web-docs"
 
 [menu]
   [menu.overview]
-    title = "Docs Markdown Guide"
-    identifier = "overview/community/style_hugo.md Chef "
-    parent = "overview/community"
+    title = "Docs Hugo Guide"
+    identifier = "overview/community/contributing/style_hugo.md Chef "
+    parent = "overview/community/contributing"
     weight = 43
 +++
 
