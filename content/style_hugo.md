@@ -1,5 +1,5 @@
 +++
-title = "Docs Hugo GUide"
+title = "Docs Hugo Guide"
 draft = true
 
 gh_repo = "chef-web-docs"
