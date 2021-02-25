@@ -25,19 +25,18 @@ Each page starts with [TOML front matter](https://gohugo.io/content-management/f
 
 ```toml
 +++
-title = "Documentation Style Guide"
+title = "Example Documentation Page"
 description = "DESCRIPTION"
 draft = false
-
 gh_repo = "chef-web-docs"
-
+product = ["client", "server"]
 aliases = "/style_guide.html"
 
 [menu]
   [menu.infra]
-    title = "Docs Style Guide"
-    identifier = "overview/community/style_guide.md Docs Style Guide"
-    parent = "overview/community"
+    title = "Example Page"
+    identifier = "infra/Example Documentation Page"
+    parent = "infra"
     weight = 40
 +++
 ```
@@ -57,6 +56,27 @@ Set draft to `true` if you don't want Hugo to build the page.
 #### aliases
 
 Add an alias if you want Hugo to automatically redirect the user from another page to the page you are writing.
+
+#### gh_repo
+
+The GitHub repository that the document originates from. This is used to generate "Edit on GitHub" links on each page.
+For example, `chef-server`, `chef-workstation`, `chef-web-docs`, `automate`.
+#### product
+
+`product` is a list of Chef products that are relevant to a page. This list is used to facet search
+results in our documentation search by the product. Each section of the documentation
+has a default product parameter configured using [Front Matter Cascade](https://gohugo.io/content-management/front-matter#front-matter-cascade), however you may want to add a product if a page references
+more than one Chef product. For example, if a page in the Chef InSpec documentation describes
+passing data to Chef Automate, you may want to add `product = ["inspec", "automate"]` to the page frontmatter.
+
+Relevant values:
+- `automate`
+- `desktop`
+- `client`
+- `server`
+- `habitat`
+- `inspec`
+- `workstation`
 
 #### menu title
 
