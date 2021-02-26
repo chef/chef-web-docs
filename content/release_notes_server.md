@@ -20,7 +20,7 @@ describes each registered node that is managed by the Chef Infra Client.
 
 ### Bug Fixes and Improvements
 
-- The server status endpoint can now be confused to include the version of the Chef Infra Server in status requests with a new `include_version_in_status` configuration in the `chef-server.rb` file.
+- The server status endpoint can now be configured to include the version of the Chef Infra Server in status requests with a new `include_version_in_status` configuration in the `chef-server.rb` file.
 - The `supports` field in cookbook metadata now allows version numbers that only reference a major version, such as ```supports 'debian', '>= 7'```. Thanks for reporting this issue [@acondrat](https://github.com/acondrat)!
 - A new `nginx['time_format']` configuration in the `chef-server.rb` file allows changing the timestamp format in NGINX logs from `time_iso8601` to `time_local`.
 
