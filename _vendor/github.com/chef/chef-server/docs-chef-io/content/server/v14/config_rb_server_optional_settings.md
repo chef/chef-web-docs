@@ -55,8 +55,6 @@ This configuration file has the following general settings:
     `false` to force the server to run without FIPS compliance mode.
     Default value is whatever the kernel is configured to.
 
-<div id="config_rb_server_insecure_addon_compat" markdown="1">
-
 `insecure_addon_compat`
 
 :   Set to `true` to keep Chef Infra Server compatible with older add-on
@@ -106,7 +104,22 @@ This configuration file has the following general settings:
 :   The topology of the Chef Infra Server. Possible values: `manual`,
     `standalone`, and `tier`. Default value: `'standalone'`.
 
-</div>
+`opscode_erchef["include_version_in_status"]`
+
+:   Set to `true` to include `server_version` as part of the `/_status` endpoint.
+
+    Default value : `false`.
+
+    **New in Chef Infra Server 14.1**
+
+`nginx["time_format"]`
+
+:   The time format of nginx `access.log`. Possible values : `"time_iso8601"` (ex: [2020-10-21T07:22:00+00:00]), `"time_local"` (ex: [07/Jun/2018:01:05:11 +0900]).
+
+    Default value : `"time_iso8601"`.
+
+    **New in Chef Infra Server 14.1**
+
 
 ### bookshelf
 

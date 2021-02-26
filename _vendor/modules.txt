@@ -4,5 +4,5 @@
 # github.com/inspec/inspec/docs-chef-io v0.0.0-20210223170734-c212bb09026a
 # github.com/chef/automate/components/docs-chef-io v0.0.0-20210219192423-95c6a5759347
 # github.com/habitat-sh/habitat/components/docs-chef-io v0.0.0-20210219230551-dce07027b152
-# github.com/chef/chef-server/docs-chef-io v0.0.0-20210111145116-cec7cf7e63da
+# github.com/chef/chef-server/docs-chef-io v0.0.0-20210226024924-842d8f7b97fc
 # github.com/chef/cookstyle/docs-chef-io v0.0.0-20210211034315-bf8938ff6d85
