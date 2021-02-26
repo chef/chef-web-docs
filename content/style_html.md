@@ -1,6 +1,6 @@
 +++
 title = "Docs Style for HTML and CSS"
-draft = true
+draft = false
 
 gh_repo = "chef-web-docs"
 

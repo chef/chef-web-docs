@@ -1,6 +1,6 @@
 +++
 title = "Chef House Style"
-draft = true
+draft = false
 
 gh_repo = "chef-web-docs"
 

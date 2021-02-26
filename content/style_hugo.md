@@ -1,6 +1,6 @@
 +++
 title = "Docs Hugo Guide"
-draft = true
+draft = false
 
 gh_repo = "chef-web-docs"
 
