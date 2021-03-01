@@ -1,0 +1,22 @@
+---
+short_name: SearchForEnvironmentsOrRoles
+full_name: Chef/Effortless/SearchForEnvironmentsOrRoles
+department: Chef/Effortless
+description: Policyfiles (and Effortless) do not use environments or roles so searching
+  for those will need to be refactored before migrating to Policyfiles and the Effortless
+  pattern.
+autocorrection: false
+target_chef_version: All Versions
+examples: |2-
+
+  #### incorrect
+
+  ```ruby
+  search(:node, 'chef_environment:foo')
+  search(:node, 'role:bar')
+  ```
+version_added: 5.11.0
+enabled: false
+excluded_file_paths:
+- "**/metadata.rb"
+- "**/Berksfile"

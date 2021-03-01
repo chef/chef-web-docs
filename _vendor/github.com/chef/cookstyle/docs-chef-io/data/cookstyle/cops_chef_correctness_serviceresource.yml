@@ -1,0 +1,21 @@
+---
+short_name: ServiceResource
+full_name: Chef/Correctness/ServiceResource
+department: Chef/Correctness
+description: Use a service resource to start and stop services
+autocorrection: false
+target_chef_version: All Versions
+examples: |2-
+
+  #### incorrect
+
+  ```ruby
+  command "/etc/init.d/mysql start"
+  command "/sbin/service/memcached start"
+  ```
+version_added: 5.0.0
+enabled: true
+excluded_file_paths:
+- "**/attributes/*.rb"
+- "**/metadata.rb"
+- "**/Berksfile"

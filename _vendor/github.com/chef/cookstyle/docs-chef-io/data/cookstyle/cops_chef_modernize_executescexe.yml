@@ -1,0 +1,34 @@
+---
+short_name: ExecuteScExe
+full_name: Chef/Modernize/ExecuteScExe
+department: Chef/Modernize
+description: Chef Infra Client 14.0 and later includes :create, :delete, and :configure
+  actions with the full idempotency of the windows_service resource. See the windows_service
+  documentation at https://docs.chef.io/resources/windows_service for additional details
+  on creating services with the windows_service resource.
+autocorrection: false
+target_chef_version: 14.0+
+examples: |2-
+
+  #### incorrect
+
+  ```ruby
+  execute "Delete chef-client service" do
+    command "sc.exe delete chef-client"
+    action :run
+  end
+  ```
+
+  #### correct
+
+  ```ruby
+  windows_service 'chef-client' do
+    action :delete
+  end
+  ```
+version_added: 5.16.0
+enabled: true
+excluded_file_paths:
+- "**/metadata.rb"
+- "**/attributes/*.rb"
+- "**/Berksfile"

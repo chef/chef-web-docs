@@ -1,0 +1,28 @@
+---
+short_name: NodeSet
+full_name: Chef/Deprecations/NodeSet
+department: Chef/Deprecations
+description: |-
+  The `node.set` method has been removed in Chef Infra Client 13 and usage must be replaced with `node.normal`.
+
+  This cop will autocorrect code to use node.normal, which is functionally identical to node.set, but we also discourage the use of that method as normal level attributes persist on the node even if the code setting the attribute is later removed.
+autocorrection: true
+target_chef_version: All Versions
+examples: |2-
+
+  #### incorrect
+
+  ```ruby
+  node.set['foo'] = true
+  ```
+
+  #### correct
+
+  ```ruby
+  node.normal['foo'] = true
+  ```
+version_added: 5.0.0
+enabled: true
+excluded_file_paths:
+- "**/metadata.rb"
+- "**/Berksfile"

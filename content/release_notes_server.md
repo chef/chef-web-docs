@@ -1,10 +1,9 @@
 +++
-title = "Release Notes: Chef Infra Server 12.0 - 14.0"
+title = "Release Notes: Chef Infra Server 12.0 - 14.1"
 draft = false
-
 gh_repo = "chef-web-docs"
-
 aliases = ["/release_notes_server.html"]
+product = ["server"]
 
 [menu]
   [menu.release_notes]
@@ -16,6 +15,54 @@ aliases = ["/release_notes_server.html"]
 Chef Infra Server acts as a hub for configuration data by storing
 cookbooks, the policies that are applied to nodes, and metadata that
 describes each registered node that is managed by the Chef Infra Client.
+
+## What's New in 14.1
+
+### Bug Fixes and Improvements
+
+- The server status endpoint can now be configured to include the version of the Chef Infra Server in status requests with a new `include_version_in_status` configuration in the `chef-server.rb` file.
+- The `supports` field in cookbook metadata now allows version numbers that only reference a major version, such as ```supports 'debian', '>= 7'```. Thanks for reporting this issue [@acondrat](https://github.com/acondrat)!
+- A new `nginx['time_format']` configuration in the `chef-server.rb` file allows changing the timestamp format in NGINX logs from `time_iso8601` to `time_local`.
+
+### Security
+
+#### Ruby
+
+Ruby has been updated from 2.6.5 to 2.6.6 to resolve [CVE-2020-10663](https://www.ruby-lang.org/en/news/2020/03/19/json-dos-cve-2020-10663/) and [CVE-2020-10933](https://www.ruby-lang.org/en/news/2020/03/31/heap-exposure-in-socket-cve-2020-10933/).
+
+#### Nokogiri
+
+Nokogiri has been updated from 1.10.10 to 1.11.1 to resolve [CVE-2020-26247](https://nvd.nist.gov/vuln/detail/CVE-2020-26247).
+
+#### OpenJDK
+
+The AdoptOpenJDK package has been updated from 11.0.7+10 to 11.0.10+9 to resolve the following CVEs:
+
+  - [CVE-2020-14779](https://nvd.nist.gov/vuln/detail/CVE-2020-14779)
+  - [CVE-2020-14781](https://nvd.nist.gov/vuln/detail/CVE-2020-14781)
+  - [CVE-2020-14782](https://nvd.nist.gov/vuln/detail/CVE-2020-14782)
+  - [CVE-2020-14792](https://nvd.nist.gov/vuln/detail/CVE-2020-14792)
+  - [CVE-2020-14796](https://nvd.nist.gov/vuln/detail/CVE-2020-14796)
+  - [CVE-2020-14797](https://nvd.nist.gov/vuln/detail/CVE-2020-14797)
+  - [CVE-2020-14798](https://nvd.nist.gov/vuln/detail/CVE-2020-14798)
+  - [CVE-2020-14803](https://nvd.nist.gov/vuln/detail/CVE-2020-14803)
+
+#### OpenSSL
+
+The OpenSSL library has been updated to 1.0.2y to resolve the following CVEs:
+
+* [CVE-2021-23841](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-23841)
+* [CVE-2021-23839](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-23839)
+* [CVE-2021-23840](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-23840)
+* [CVE-2020-1971](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-1971)
+
+### Platform Support
+
+We will no longer be producing Chef Infra Server packages for RHEL 6.x as this platform became end-of-life (EOL) Nov 2020. See the [Red Hat Linux Enterprise Lifecycle page](https://access.redhat.com/support/policy/updates/errata/) for additional information on the RHEL 6 lifecycle.
+
+### Upgrading From Earlier Releases
+
+Please keep in mind that upgrading from releases before 14.0 will run an automatic Elasticsearch reindexing operation for existing Solr users. We estimate the reindexing operation will take 2 minutes for each 1000 nodes, but it could take more time depending on your server hardware and the complexity of your Chef data.
 
 ## What's New in 14.0
 
@@ -3726,7 +3773,7 @@ For more information about Amazon Elastic Block Store (EBS), see
 <http://aws.amazon.com/ebs/>.
 
 View the topic [High Availability: Backend
-Cluster](/install_server_ha/) for more information about how to set
+Cluster](/server/install_server_ha/) for more information about how to set
 up the Chef server for high availability in Amazon Web Services (AWS).
 
 ### Chef Replication

@@ -1,10 +1,10 @@
 +++
 title = "Chef Workstation in Azure Cloud Shell"
 draft = false
-
 gh_repo = "chef-web-docs"
-
 aliases = ["/azure_cwa_cloud_shell.html"]
+
+product = ["client", "workstation"]
 
 [menu]
   [menu.infra]

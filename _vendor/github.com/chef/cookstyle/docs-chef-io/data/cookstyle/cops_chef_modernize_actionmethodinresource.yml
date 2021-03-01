@@ -1,0 +1,30 @@
+---
+short_name: ActionMethodInResource
+full_name: Chef/Modernize/ActionMethodInResource
+department: Chef/Modernize
+description: Use the custom resource language's `action :my_action` blocks instead
+  of creating actions with methods.
+autocorrection: true
+target_chef_version: All Versions
+examples: |2-
+
+  #### incorrect
+
+  ```ruby
+  def action_create
+   # :create action code here
+  end
+  ```
+
+  #### correct
+
+  ```ruby
+  action :create do
+   # :create action code here
+  end
+  ```
+version_added: 6.13.0
+enabled: true
+included_file_paths:
+- "**/resources/*.rb"
+- "**/providers/*.rb"

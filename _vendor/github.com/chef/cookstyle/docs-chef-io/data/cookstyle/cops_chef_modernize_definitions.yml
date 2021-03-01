@@ -1,0 +1,16 @@
+---
+short_name: Definitions
+full_name: Chef/Modernize/Definitions
+department: Chef/Modernize
+description: In 2016 with Chef Infra Client 12.5 Custom Resources were introduced
+  as a way of writing reusable resource code that could be shipped in cookbooks. Custom
+  Resources offer many advantages of legacy Definitions including unit testing with
+  ChefSpec, input validation, actions, common properties like not_if/only_if, and
+  resource reporting.
+autocorrection: false
+target_chef_version: All Versions
+examples: 
+version_added: 5.11.0
+enabled: true
+included_file_paths:
+- "**/definitions/*.rb"

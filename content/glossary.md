@@ -1,10 +1,9 @@
 +++
 title = "Glossary"
 draft = false
-
 gh_repo = "chef-web-docs"
-
 aliases = ["/glossary.html"]
+product = ["automate", "client", "server", "habitat", "inspec", "workstation"]
 
 [menu]
   [menu.infra]
@@ -23,11 +22,6 @@ aliases = ["/glossary.html"]
 **Berkshelf**
 
 :   The legacy tool for managing cookbook dependencies. Policyfiles should be used instead.
-
-**chef-apply**
-
-:   A command-line tool that allows a single recipe to be run from the
-    command line.
 
 **ChefDK**
 

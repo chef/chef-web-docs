@@ -12,7 +12,7 @@
           <li><a href="https://www.chef.io/cookie-policy/" target="_blank">Cookie Policy</a></li>
         </ul>
         {{ if and (ne .Kind "taxonomy") (ne .Kind "taxonomyTerm") (ne .Kind "404")}}
-          <p class="modified">Page Last Modified: {{ .Lastmod }}</p>
+          <p class="modified">Page Last Modified: {{ dateFormat "January 2, 2006" .Lastmod }}</p>
         {{ end }}
         <p class="legal">Copyright &copy; {{ now.Format "2006" }} Progress Software Corporation and/or its subsidiaries or affiliates. All Rights Reserved.</p>
       </div>

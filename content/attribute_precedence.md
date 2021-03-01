@@ -1,6 +1,7 @@
 +++
 title = "Attribute Precedence"
 draft = false
+gh_repo = "chef-web-docs"
 
 [menu]
   [menu.infra]
@@ -9,11 +10,9 @@ draft = false
     parent = "chef_infra/cookbook_reference/attributes"
 +++
 
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/attribute_precedence.md)
-
 {{% node_attribute_precedence %}}
 
-### Examples
+## Examples
 
 The following examples are listed from low to high precedence.
 

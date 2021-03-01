@@ -1,0 +1,40 @@
+---
+short_name: DeprecatedYumRepositoryActions
+full_name: Chef/Deprecations/DeprecatedYumRepositoryActions
+department: Chef/Deprecations
+description: With the release of Chef Infra Client 12.14 and the yum cookbook 3.0
+  the actions the yum_repository resource actions were renamed. The `add` action became
+  `create` and `delete` became `remove` to better match other resources in Chef Infra
+  Client.
+autocorrection: true
+target_chef_version: 12.14+
+examples: |2-
+
+  #### incorrect
+
+  ```ruby
+  yum_repository 'OurCo' do
+    description 'OurCo yum repository'
+    baseurl 'http://artifacts.ourco.org/foo/bar'
+    gpgkey 'http://artifacts.ourco.org/pub/yum/RPM-GPG-KEY-OURCO-6'
+    action :add
+  end
+  ```
+
+  #### correct
+
+  ```ruby
+  yum_repository 'OurCo' do
+    description 'OurCo yum repository'
+    baseurl 'http://artifacts.ourco.org/foo/bar'
+    gpgkey 'http://artifacts.ourco.org/pub/yum/RPM-GPG-KEY-OURCO-6'
+    action :create
+  end
+  ```
+version_added: 7.3.0
+enabled: true
+excluded_file_paths:
+- "**/metadata.rb"
+- "**/attributes/*.rb"
+- "**/Berksfile"
+- "**/Rakefile"

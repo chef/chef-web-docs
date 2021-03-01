@@ -1,0 +1,40 @@
+---
+short_name: UnnecessaryPlatformCaseStatement
+full_name: Chef/Style/UnnecessaryPlatformCaseStatement
+department: Chef/Style
+description: Use the platform?() and platform_family?() helpers instead of a case
+  statement that only includes a single when statement.
+autocorrection: true
+target_chef_version: All Versions
+examples: |2-
+
+  #### incorrect
+
+  ```ruby
+  case node['platform']
+  when 'ubuntu'
+    log "We're on Ubuntu"
+    apt_update
+  end
+
+  case node['platform_family']
+  when 'rhel'
+    include_recipe 'yum'
+  end
+  ```
+
+  #### correct
+
+  ```ruby
+  if platform?('ubuntu')
+    log "We're on Ubuntu"
+    apt_update
+  end
+
+  include_recipe 'yum' if platform_family?('rhel')
+  ```
+version_added: 5.16.0
+enabled: true
+excluded_file_paths:
+- "**/metadata.rb"
+- "**/Berksfile"

@@ -1,10 +1,9 @@
 +++
 title = "Supermarket Logs"
 draft = false
-
 gh_repo = "chef-web-docs"
-
 aliases = ["/supermarket_logs.html"]
+product = ["client", "server", "workstation"]
 
 [menu]
   [menu.infra]

@@ -1,10 +1,9 @@
 +++
 title = "About Data Bags"
 draft = false
-
 gh_repo = "chef-web-docs"
-
 aliases = ["/data_bags.html", "/secrets.html", "/secrets/"]
+product = ["client", "server"]
 
 [menu]
   [menu.infra]

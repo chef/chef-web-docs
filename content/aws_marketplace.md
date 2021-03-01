@@ -6,6 +6,8 @@ gh_repo = "chef-web-docs"
 
 aliases = ["/aws_marketplace.html"]
 
+product = ["client", "workstation"]
+
 [menu]
   [menu.infra]
     title = "AWS Marketplace"

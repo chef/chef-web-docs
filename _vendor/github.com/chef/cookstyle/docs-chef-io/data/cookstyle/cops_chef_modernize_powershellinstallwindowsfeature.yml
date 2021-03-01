@@ -1,0 +1,27 @@
+---
+short_name: PowershellInstallWindowsFeature
+full_name: Chef/Modernize/PowershellInstallWindowsFeature
+department: Chef/Modernize
+description: |-
+  Use the windows_feature resource built into Chef Infra Client 14+ instead of the powershell_script resource to run Install-WindowsFeature or Add-WindowsFeature
+
+   #### correct
+   windows_feature 'Net-framework-Core' do
+     action :install
+     install_method :windows_feature_powershell
+   end
+autocorrection: false
+target_chef_version: 14.0+
+examples: |2-
+
+  #### incorrect
+
+  ```ruby
+  powershell_script 'Install Feature' do
+    code 'Install-WindowsFeature -Name "Net-framework-Core"'
+  end
+  ```
+version_added: 5.5.0
+enabled: true
+excluded_file_paths:
+- "**/metadata.rb"

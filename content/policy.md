@@ -1,10 +1,9 @@
 +++
 title = "About Policy"
 draft = false
-
 gh_repo = "chef-web-docs"
-
 aliases = ["/policy.html"]
+product = ["client", "server"]
 
 [menu]
   [menu.infra]

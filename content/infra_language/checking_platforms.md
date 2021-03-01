@@ -248,7 +248,7 @@ where:
 <td><code>solaris2</code> platform</td>
 </tr>
 <tr class="odd">
-<td><code>sles</code></td>
+<td><code>suse</code></td>
 <td><code>opensuse_leap</code>, <code>suse</code>, and <code>sled</code> platforms</td>
 </tr>
 <tr class="even">
