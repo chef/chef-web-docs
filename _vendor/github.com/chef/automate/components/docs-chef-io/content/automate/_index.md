@@ -1,11 +1,10 @@
 +++
 title = "Quick Start Demo"
+
 weight = 10
 draft = false
-gh_repo = "automate"
 
-[cascade]
-  product = ["automate"]
+gh_repo = "automate"
 
 [menu]
   [menu.automate]
