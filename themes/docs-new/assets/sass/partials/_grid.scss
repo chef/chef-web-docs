@@ -43,7 +43,10 @@
     min-height: 100vh;
 
     p img {
-      margin-bottom: rem-calc(32);
+      display: block;
+      margin: rem-calc(32) auto;
+      box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      padding: 16px 24px;
     }
 
     a {
