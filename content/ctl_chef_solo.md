@@ -185,7 +185,7 @@ This configuration for the `chef` user provides root-level access through Chef s
 
 Use an alternative approach if your security profile forbids the `chef` user from having built-in root level access.
 
-{{< warning >}}
+{{< /warning >}}
 
 chef-solo may be run as a non-root user. For example, the `sudoers` file
 can be updated similar to:
