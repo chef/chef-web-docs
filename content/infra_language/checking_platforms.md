@@ -209,11 +209,11 @@ where:
 </tr>
 <tr class="odd">
 <td><code>debian</code></td>
-<td><code>debian</code>, <code>ubuntu</code>, <code>linuxmint</code>, <code>raspbian</code>, <code>cumulus</code>, <code>kali</code>, <code>pop</code> platforms.</td>
+<td><code>debian</code>, <code>ubuntu</code>, <code>linuxmint</code>, <code>raspbian</code>, <code>cumulus</code>, <code>kali</code>, <code>sangoma</code>, and <code>pop</code> platforms.</td>
 </tr>
 <tr class="even">
 <td><code>fedora</code></td>
-<td><code>fedora</code>, <code>pidora</code>, and <code>arista_eos</code> platform</td>
+<td><code>fedora</code>, <code>pidora</code>, and <code>arista_eos</code> platforms</td>
 </tr>
 <tr class="odd">
 <td><code>freebsd</code></td>
