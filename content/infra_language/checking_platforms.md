@@ -41,9 +41,13 @@ where:
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr class="even">
 <td><code>aix</code></td>
 <td>IBM AIX</td>
+</tr>
+<tr class="odd">
+<td><code>alibabalinux</code></td>
+<td>Alibaba Cloud Linux</td>
 </tr>
 <tr class="even">
 <td><code>amazon</code></td>
@@ -241,7 +245,7 @@ where:
 </tr>
 <tr class="odd">
 <td><code>rhel</code></td>
-<td><code>redhat</code>, <code>centos</code>, <code>oracle</code>, <code>scientific</code>, <code>xenserver</code>, <code>clearos</code>, <code>bigip</code>, <code>parallels</code>, <code>xcp</code>, and <code>ibm_powerkvm</code> platforms</td>
+<td><code>redhat</code>, <code>centos</code>, <code>oracle</code>, <code>scientific</code>, <code>xenserver</code>, <code>clearos</code>, <code>bigip</code>, <code>parallels</code>, <code>xcp</code>, <code>alibabalinux</code>, and <code>ibm_powerkvm</code> platforms</td>
 </tr>
 <tr class="even">
 <td><code>solaris2</code></td>
