@@ -9,14 +9,15 @@ preferred.
 
 **All Deployments**
 
--   64-bit architecture
+- 64-bit CPU architecture
+- CPU support for SSE4.2 extensions (Xeons starting in 2007 and Opterons in 2012)
 
 **Standalone Deployments**
 
--   4 total cores (physical or virtual)
--   8 GB of RAM or more
--   5 GB of free disk space in `/opt`
--   10 GB of free disk space in `/var`
+- 4 total cores (physical or virtual)
+- 8 GB of RAM or more
+- 5 GB of free disk space in `/opt`
+- 10 GB of free disk space in `/var`
 
 <div class="admonition-note">
 
@@ -24,14 +25,7 @@ preferred.
 
 <div class="admonition-note-text">
 
-The RAM requirement can be lowered down to a minimum of 4 GB of RAM if
-the number of Chef Infra Client runs (CCRs) per minute are low (i.e.
-less than 33 CCRs/min). See [Capacity
-Planning](/server_overview.html#capacity-planning) for more information
-on how this metric affects scalability.
-
-
-
+The RAM requirement can be lowered down to a minimum of 4 GB of RAM if the number of Chef Infra Client runs (CCRs) per minute are low (less than 33 CCRs/min). See [Capacity Planning](/server_overview.html#capacity-planning) for more information on how this metric affects scalability.
 </div>
 
 </div>
@@ -40,7 +34,7 @@ For a high availability deployment:
 
 **General Requirements**
 
--   Three backend servers; as many frontend servers as required
--   1 x GigE NIC interface (if on premises)
+- Three backend servers; as many frontend servers as required
+- 1 x GigE NIC interface (if on premises)
 
 {{ readFile "themes/docs-new/layouts/shortcodes/system_requirements_ha.md" | markdownify }}
