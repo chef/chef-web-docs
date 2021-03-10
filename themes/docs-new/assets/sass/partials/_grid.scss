@@ -45,8 +45,25 @@
     p img {
       display: block;
       margin: rem-calc(32) auto;
-      box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      box-shadow: $box-shadow;
       padding: 16px 24px;
+    }
+
+    figure {
+      display: inline-block;
+      margin: rem-calc(32) auto;
+      box-shadow: $box-shadow;
+      position: relative;
+      left: 50%;
+      transform: translateX(-50%);
+      img {
+        padding: 16px 24px;
+        display: block;
+      }
+    }
+
+    .no-shadow {
+      box-shadow: none;
     }
 
     a {
