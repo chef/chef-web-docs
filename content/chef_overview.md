@@ -40,7 +40,7 @@ Client the information and instruction that it needs so that it can do
 its job. As you are reviewing the rest of this topic, use the icons in
 the tables to refer back to this image.
 
-<img src="/images/chef_overview_2020.svg" class="align-center" width="600" alt="image" />
+{{< figure src="/images/chef_overview_2020.svg" width=600 alt="Diagram of Chef Infra Client, Server, and Workstation">}}
 
 Chef Infra has the following major components:
 
@@ -82,8 +82,8 @@ Chef Infra has the following major components:
 <td><p>The Chef Infra Server acts as a hub of information. Cookbooks and policy settings are uploaded to the Chef Infra Server by users from workstations.</p>
 <p>The Chef Infra Client accesses the Chef Infra Server from the node on which it's installed to get configuration data, performs searches of historical Chef Infra Client run data, and then pulls down the necessary configuration data. After a Chef Infra Client run is finished, the Chef Infra Client uploads updated run data to the Chef Infra Server.</p></td>
 </tr>
-<tr>
-<td><img src="/images/icon_chef_supermarket.svg" class="align-center" width="100" alt="image" /></td>
+<tr class="even">
+<td><p><img src="/images/icon_chef_supermarket.svg" class="align-center" width="100" alt="image" /></p></td>
 <td>Chef Supermarket is the location in which community cookbooks are shared and managed. Cookbooks that are part of the Chef Supermarket may be used by any Chef user. How community cookbooks are used varies from organization to organization.</td>
 </tr>
 </tbody>
@@ -125,8 +125,8 @@ Some important tools and components of Chef Workstation include:
 </tr>
 </thead>
 <tbody>
-<tr>
-<td><img src="/images/icon_workstation.svg" class="align-center" width="100" alt="image" /></td>
+<tr class="odd">
+<td><p><img src="/images/icon_workstation.svg" class="align-center" width="100" alt="image" /></p></td>
 <td>{{< readFile_shortcode file="chef_workstation.md" >}}</td>
 </tr>
 <tr>
@@ -152,12 +152,12 @@ Some important tools and components of Chef Workstation include:
 </ul>
 <p>The directory structure within the chef-repo varies. Some organizations prefer to keep all of their cookbooks in a single chef-repo, while other organizations prefer to use a chef-repo for every cookbook.</p></td>
 </tr>
-<tr>
-<td><img src="/images/icon_kitchen.svg" class="align-center" width="100" alt="image" /></td>
+<tr class="even">
+<td><p><img src="/images/icon_kitchen.svg" class="align-center" width="100" alt="image" /></p></td>
 <td>{{< readFile_shortcode file="test_kitchen.md" >}}</td>
 </tr>
-<tr>
-<td><img src="/images/icon_chefspec.svg" class="align-center" width="100" alt="image" /></td>
+<tr class="odd">
+<td><p><img src="/images/icon_chefspec.svg" class="align-center" width="100" alt="image" /></p></td>
 <td>{{< readFile_shortcode file="chefspec_summary.md" >}}</td>
 </tr>
 </tbody>
@@ -190,20 +190,20 @@ Cookbooks are comprised of the following components:
 </tr>
 </thead>
 <tbody>
-<tr>
-<td><img src="/images/icon_cookbook_attributes.svg" class="align-center" width="100" alt="image" /></td>
+<tr class="odd">
+<td><p><img src="/images/icon_cookbook_attributes.svg" class="align-center" width="100" alt="image" /></p></td>
 <td>{{< readFile_shortcode file="cookbooks_attribute.md" >}}</td>
 </tr>
-<tr>
-<td><img src="/images/icon_cookbook_files.svg" class="align-center" width="100" alt="image" /></td>
+<tr class="even">
+<td><p><img src="/images/icon_cookbook_files.svg" class="align-center" width="100" alt="image" /></p></td>
 <td>{{< readFile_shortcode file="resource_cookbook_file_summary.md" >}}</td>
 </tr>
-<tr>
-<td><img src="/images/icon_cookbook_libraries.svg" class="align-center" width="100" alt="image" /></td>
+<tr class="odd">
+<td><p><img src="/images/icon_cookbook_libraries.svg" class="align-center" width="100" alt="image" /></p></td>
 <td>{{< readFile_shortcode file="libraries_summary.md" >}}</td>
 </tr>
-<tr>
-<td><img src="/images/icon_cookbook_metadata.svg" class="align-center" width="100" alt="image" /></td>
+<tr class="even">
+<td><p><img src="/images/icon_cookbook_metadata.svg" class="align-center" width="100" alt="image" /></p></td>
 <td>{{< readFile_shortcode file="cookbooks_metadata.md" >}}</td>
 </tr>
 <tr>
@@ -218,12 +218,12 @@ Cookbooks are comprised of the following components:
 <td><p>{{< readFile_shortcode file="resources_common.md" >}}</p>
 <p>Chef has <a href="/resources/">many built-in resources</a> that cover all of the most common actions across all of the most common platforms. You can <a href="/custom_resources/">build your own resources</a> to handle any situation that isn't covered by a built-in resource.</p></td>
 </tr>
-<tr>
-<td><img src="/images/icon_cookbook_templates.svg" class="align-center" width="100" alt="image" /></td>
+<tr class="odd">
+<td><p><img src="/images/icon_cookbook_templates.svg" class="align-center" width="100" alt="image" /></p></td>
 <td>{{< readFile_shortcode file="template.md" >}}</td>
 </tr>
-<tr>
-<td><img src="/images/icon_cookbook_tests.svg" class="align-center" width="100" alt="image" /></td>
+<tr class="even">
+<td><p><img src="/images/icon_cookbook_tests.svg" class="align-center" width="100" alt="image" /></p></td>
 <td>Testing cookbooks improves the quality of those cookbooks by ensuring they are doing what they are supposed to do and that they are authored in a consistent manner. Unit and integration testing validates the recipes in cookbooks. Syntax testing---often called linting---validates the quality of the code itself. The following tools are popular tools used for testing Chef recipes: Test Kitchen, ChefSpec, and Cookstyle.</td>
 </tr>
 </tbody>
@@ -258,8 +258,8 @@ The key components of nodes that are under management by Chef include:
 <td><p>{{< readFile_shortcode file="chef_client_summary.md" >}}</p>
 <p>{{< readFile_shortcode file="security_key_pairs_chef_client.md" >}}</p></td>
 </tr>
-<tr>
-<td><img src="/images/icon_ohai.svg" class="align-center" width="100" alt="image" /></td>
+<tr class="even">
+<td><p><img src="/images/icon_ohai.svg" class="align-center" width="100" alt="image" /></p></td>
 <td>{{< readFile_shortcode file="ohai_summary.md" >}}</td>
 </tr>
 </tbody>
@@ -281,20 +281,20 @@ The key components of nodes that are under management by Chef include:
 </tr>
 </thead>
 <tbody>
-<tr>
-<td><img src="/images/icon_search.svg" class="align-center" width="100" alt="image" /></td>
+<tr class="odd">
+<td><p><img src="/images/icon_search.svg" class="align-center" width="100" alt="image" /></p></td>
 <td>{{< readFile_shortcode file="search.md" >}}</td>
 </tr>
-<tr>
-<td><img src="/images/icon_manage.svg" class="align-center" width="100" alt="image" /></td>
+<tr class="even">
+<td><p><img src="/images/icon_manage.svg" class="align-center" width="100" alt="image" /></p></td>
 <td>{{< readFile_shortcode file="chef_manager.md" >}}</td>
 </tr>
-<tr>
-<td><img src="/images/icon_data_bags.svg" class="align-center" width="100" alt="image" /></td>
+<tr class="odd">
+<td><p><img src="/images/icon_data_bags.svg" class="align-center" width="100" alt="image" /></p></td>
 <td>{{< readFile_shortcode file="data_bag.md" >}}</td>
 </tr>
-<tr>
-<td><img src="/images/icon_policy.svg" class="align-center" width="100" alt="image" /></td>
+<tr class="even">
+<td><p><img src="/images/icon_policy.svg" class="align-center" width="100" alt="image" /></p></td>
 <td>Policy defines how business and operational requirements, processes, and production workflows map to objects that are stored on the Chef Infra Server. Policy objects on the Chef Infra Server include roles, environments, and cookbook versions.</td>
 </tr>
 </tbody>
@@ -318,20 +318,20 @@ Some important aspects of policy include:
 </tr>
 </thead>
 <tbody>
-<tr>
-<td><img src="/images/icon_roles.svg" class="align-center" width="100" alt="image" /></td>
+<tr class="odd">
+<td><p><img src="/images/icon_roles.svg" class="align-center" width="100" alt="image" /></p></td>
 <td>{{< readFile_shortcode file="role.md" >}}</td>
 </tr>
-<tr>
-<td><img src="/images/icon_environments.svg" class="align-center" width="100" alt="image" /></td>
+<tr class="even">
+<td><p><img src="/images/icon_environments.svg" class="align-center" width="100" alt="image" /></p></td>
 <td>{{< readFile_shortcode file="environment.md" >}}</td>
 </tr>
-<tr>
-<td><img src="/images/icon_cookbook_versions.svg" class="align-center" width="100" alt="image" /></td>
+<tr class="odd">
+<td><p><img src="/images/icon_cookbook_versions.svg" class="align-center" width="100" alt="image" /></p></td>
 <td>{{< readFile_shortcode file="cookbooks_version.md" >}}</td>
 </tr>
-<tr>
-<td><img src="/images/icon_run_lists.svg" class="align-center" width="100" alt="image" /></td>
+<tr class="even">
+<td><p><img src="/images/icon_run_lists.svg" class="align-center" width="100" alt="image" /></p></td>
 <td>{{< readFile_shortcode file="node_run_list.md" >}}</td>
 </tr>
 </tbody>

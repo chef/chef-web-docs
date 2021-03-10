@@ -36,8 +36,8 @@ The key components of nodes that are under management by Chef include:
 <td><p>{{< readFile_shortcode file="chef_client_summary.md" >}}</p>
 <p>{{< readFile_shortcode file="security_key_pairs_chef_client.md" >}}</p></td>
 </tr>
-<tr>
-<td><img src="/images/icon_ohai.svg" class="align-center" width="100" alt="image" /></td>
+<tr class="even">
+<td><p><img src="/images/icon_ohai.svg" class="align-center" width="100" alt="image" /></p></td>
 <td>{{< readFile_shortcode file="ohai_summary.md" >}}</td>
 </tr>
 </tbody>

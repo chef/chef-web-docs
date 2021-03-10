@@ -20,7 +20,7 @@ has expanded. Today, Chef has a complete automation solution for both
 infrastructure and applications that takes you all the way from
 development to production. Here's the complete Chef solution.
 
-<img src="/images/automate_architecture.svg" class="align-center" width="500" alt="image" />
+{{< figure src="/images/automate_architecture.svg" width=500 alt="Diagram of Automate architecture.">}}
 
 ## Chef Infra
 
