@@ -12,7 +12,7 @@ gh_repo = "chef-web-docs"
     weight = 40
 +++
 
-### data_bag
+## data_bag
 
 {{% data_bag %}}
 
@@ -24,7 +24,7 @@ The syntax for the `data_bag` method is as follows:
 data_bag(bag_name)
 ```
 
-#### Examples
+### Examples
 
 The following example shows how the `data_bag` method can be used in a recipe.
 
@@ -32,7 +32,7 @@ The following example shows how the `data_bag` method can be used in a recipe.
 
 {{% infra_lang_data_bag %}}
 
-### data_bag_item
+## data_bag_item
 
 {{% data_bag %}}
 
@@ -46,7 +46,7 @@ data_bag_item(bag_name, item, secret)
 
 where `secret` is the secret used to load an encrypted data bag. If `secret` is not specified, Chef Infra Client looks for a secret at the path specified by the `encrypted_data_bag_secret` setting in the `client.rb` file.
 
-#### Examples
+### Examples
 
 The following examples show how the `data_bag_item` method can be used in a recipe.
 

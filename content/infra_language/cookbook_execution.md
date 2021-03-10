@@ -14,11 +14,11 @@ gh_repo = "chef-web-docs"
 
 The Chef Infra Language includes helper methods for gathering information on the execution of the Chef Infra Client recipe and resource code. This information can be used in recipes and resources to take specific actions.
 
-### Chef Infra Client State
+## Chef Infra Client State
 
 These helpers allow you to understand the state of the node that Chef Infra Client is executing on.
 
-#### node
+### node
 
 Use the `node` method, often referred to as the node object, to access data collected on the system through [Ohai](/ohai) as well as node attributes set in cookbooks or Policyfiles.
 
@@ -28,7 +28,7 @@ The syntax for the `cookbook_name` method is as follows:
 node['specific_attribute']
 ```
 
-#### cookbook_name
+### cookbook_name
 
 Use the `cookbook_name` method to return the name of a cookbook.
 
@@ -44,7 +44,7 @@ This method is often used as part of a log entry. For example:
 Chef::Log.info('I am a message from the #{recipe_name} recipe in the #{cookbook_name} cookbook.')
 ```
 
-#### recipe_name
+### recipe_name
 
 Use the `recipe_name` method to return the name of a recipe.
 
@@ -60,7 +60,7 @@ This method is often used as part of a log entry. For example:
 Chef::Log.info('I am a message from the #{recipe_name} recipe in the #{cookbook_name} cookbook.')
 ```
 
-#### resources
+### resources
 
 Use the `resources` method to look up a resource in the resource collection. The `resources` method returns the value for the resource that it finds in the resource collection. The preferred syntax for the `resources` method is as follows:
 
@@ -93,7 +93,7 @@ f.mode '0644'
 
 where `file` is the type of resource, `/etc/hosts` is the name, and `f.mode` is used to set the `mode` property on the **file** resource.
 
-#### attribute?
+### attribute?
 
 Use the `attribute?` method to ensure that certain actions only execute in the presence of a particular node attribute. The `attribute?` method will return true if one of the listed node attributes matches a node attribute that is detected by Ohai during every Chef Infra Client run.
 
@@ -111,7 +111,7 @@ if node.attribute?('ipaddress')
 end
 ```
 
-#### reboot_pending?
+### reboot_pending?
 
 Use the `reboot_pending?` method to test if a node needs a reboot, or is expected to reboot. `reboot_pending?` returns `true` when the node needs a reboot.
 
@@ -121,15 +121,15 @@ The syntax for the `reboot_pending?` method is as follows:
 reboot_pending?
 ```
 
-### Executing Code
+## Executing Code
 
 These helpers allow you to include recipes and impact how resources run on the system.
 
-#### include_recipe
+### include_recipe
 
 {{% cookbooks_recipe_include_in_recipe %}}
 
-#### with_run_context
+### with_run_context
 
 Use the `with_run_context` method to define a block that has a pointer to a location in the `run_context` hierarchy. Resources in recipes always run at the root of the `run_context` hierarchy, whereas custom resources and notification blocks always build a child `run_context` which contains their sub-resources.
 
