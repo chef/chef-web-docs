@@ -51,21 +51,25 @@
 
     figure {
       display: inline-block;
-      margin: rem-calc(32) auto;
+      text-align: center;
+      font-style: italic;
+      font-size: smaller;
+      text-indent: 0;
       box-shadow: $box-shadow;
+      padding: 0.5rem;
+      margin: rem-calc(32) auto;
       position: relative;
       left: 50%;
       transform: translateX(-50%);
+
       img {
-        padding: 16px 24px;
-        display: block;
+        padding: 1rem;
       }
     }
 
     .no-shadow {
       box-shadow: none;
     }
-
     a {
       .fa-link {
         margin-left: rem-calc(8);

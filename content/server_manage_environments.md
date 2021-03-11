@@ -12,7 +12,8 @@ product = []
     identifier = "legacy/manage/server_manage_environments.md Environments"
     parent = "legacy/manage"
 +++
-{{% chef_automate_mark %}}
+
+{{< figure src="/images/a2_docs_banner.svg" width=900 class="no-shadow" alt="Link to Chef Automate documentation." link="/automate/" >}}
 
 {{% EOL_manage %}}
 

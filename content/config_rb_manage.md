@@ -13,7 +13,7 @@ aliases = ["/config_rb_manage.html"]
     weight = 100
 +++
 
-{{% chef_automate_mark %}}
+{{< figure src="/images/a2_docs_banner.svg" width=900 class="no-shadow" alt="Link to Chef Automate documentation." link="/automte/" >}}
 
 {{% EOL_manage %}}
 

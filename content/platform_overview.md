@@ -152,7 +152,7 @@ language available through the UI and customizable dashboards.
 
 Here is an example of the Chef Automate dashboard.
 
-<img src="/images/visibility1.png" class="align-center" width="700" alt="image" />
+{{< figure src="/images/visibility1.png" width=700 alt="Image of Chef Automate dashboard showing the status of nodes under management with Chef Automate." >}}
 
 ### Compliance
 
