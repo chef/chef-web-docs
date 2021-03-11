@@ -31,13 +31,13 @@ The key components of nodes that are under management by Chef include:
 </tr>
 </thead>
 <tbody>
-<tr>
-<td><p><img src="/images/icon_chef_client.svg" class="align-center" width="100" alt="image" /></p></td>
+<tr class="odd">
+<td><p><img src="/images/icon_chef_client.svg" class="align-center" width="130" alt="image" /></p></td>
 <td><p>{{< readFile_shortcode file="chef_client_summary.md" >}}</p>
 <p>{{< readFile_shortcode file="security_key_pairs_chef_client.md" >}}</p></td>
 </tr>
 <tr class="even">
-<td><p><img src="/images/icon_ohai.svg" class="align-center" width="100" alt="image" /></p></td>
+<td><p><img src="/images/icon_ohai.svg" class="align-center" width="130" alt="image" /></p></td>
 <td>{{< readFile_shortcode file="ohai_summary.md" >}}</td>
 </tr>
 </tbody>
