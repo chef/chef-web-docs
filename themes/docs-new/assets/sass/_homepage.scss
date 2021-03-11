@@ -60,8 +60,10 @@
   }
 
   .cell{
-    border: 1px solid $border;
-    box-shadow: 0 3.2px 7.2px 0 $border-dark,0 .6px 1.8px 0 $border;
+    -webkit-box-shadow: $box-shadow;
+    -moz-box-shadow: $box-shadow;
+    box-shadow: $box-shadow;
+    border: 1px solid transparent;
   }
 
 }

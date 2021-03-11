@@ -6,8 +6,6 @@
   // Make sure the header offset does not layer above the nav
   z-index: 0;
 
-  //flex: 1 0 auto;
-
   > .grid-container {
     height: 100%;
 
@@ -45,8 +43,11 @@
     p img {
       display: block;
       margin: rem-calc(32) auto;
+      -webkit-box-shadow: $box-shadow;
+      -moz-box-shadow: $box-shadow;
       box-shadow: $box-shadow;
-      padding: 16px 24px;
+      border: 1px solid transparent;
+      padding: 1rem;
     }
 
     figure {
@@ -55,6 +56,9 @@
       font-style: italic;
       font-size: smaller;
       text-indent: 0;
+      border: 1px solid transparent;
+      -webkit-box-shadow: $box-shadow;
+      -moz-box-shadow: $box-shadow;
       box-shadow: $box-shadow;
       padding: 0.5rem;
       margin: rem-calc(32) auto;
