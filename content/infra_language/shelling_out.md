@@ -14,7 +14,7 @@ gh_repo = "chef-web-docs"
 
 In most cases when you need to run a particular command in a cookbook, you'll want to use the [execute resource](/resources/execute/). Helper methods for shelling out can be useful when writing custom resources or other more advanced Ruby code.
 
-### shell_out
+## shell_out
 
 The `shell_out` method can be used to run a command against the node, and then display the output to the console when the log level is set to `debug`.
 
@@ -26,7 +26,7 @@ shell_out(command_args)
 
 where `command_args` is the command that is run against the node.
 
-### shell_out!
+## shell_out!
 
 The `shell_out!` method can be used to run a command against the node, display the output to the console when the log level is set to `debug`, and then raise an error when the method returns `false`.
 

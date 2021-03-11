@@ -14,42 +14,42 @@ gh_repo = "chef-web-docs"
 
 Chef Infra Client 15.8 and later include a number of helper methods for checking if a node is running in a public or private cloud.
 
-### cloud?
+## cloud?
 
 Determine if the current node is running a known public or private cloud.
 
-### ec2?
+## ec2?
 
 Determine if the current node is running in AWS EC2.
 
-### gce?
+## gce?
 
 Determine if the current node is running in Google Compute Engine (GCE)
 
-### rackspace?
+## rackspace?
 
 Determine if the current node is running in Rackspace.
 
-### eucalyptus?
+## eucalyptus?
 
 Determine if the current node is running in Eucalyptus.
 
-### linode?
+## linode?
 
 Determine if the current node is running in Linode.
 
-### openstack?
+## openstack?
 
 Determine if the current node is running in OpenStack.
 
-### azure?
+## azure?
 
 Determine if the current node is running in Microsoft Azure.
 
-### digital_ocean?
+## digital_ocean?
 
 Determine if the current node is running in DigitalOcean.
 
-### softlayer?
+## softlayer?
 
 Determine if the current node is running in SoftLayer (IBM Cloud).

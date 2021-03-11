@@ -14,50 +14,50 @@ gh_repo = "chef-web-docs"
 
 Chef Infra Client 15.5 and later include a number of helper methods for checking the processor architecture of systems. These methods can be used in attribute files, recipes, and resources.
 
-### _32_bit?
+## _32_bit?
 
 Determines if the current architecture is 32-bit.
 
-### _64_bit?
+## _64_bit?
 
 Determines if the current architecture is 64-bit.
 
-### arm?
+## arm?
 
 Determines if the current architecture is arm.
 
-### armhf?
+## armhf?
 
 Determines if the current architecture is 32-bit ARM hard float.
 
-### i386?
+## i386?
 
 Determines if the current architecture is i386.
 
-### intel?
+## intel?
 
 Determines if the current architecture is Intel.
 
-### powerpc?
+## powerpc?
 
 Determines if the current architecture is PowerPC.
 
-### ppc64?
+## ppc64?
 
 Determines if the current architecture is PowerPC 64bit Big Endian.
 
-### ppc64le?
+## ppc64le?
 
 Determines if the current architecture is PowerPC 64bit Little Endian.
 
-### s390?
+## s390?
 
 Determines if the current architecture is s390.
 
-### s390x?
+## s390x?
 
 Determines if the current architecture is s390x.
 
-### sparc?
+## sparc?
 
 Determines if the current architecture is SPARC.
