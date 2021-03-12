@@ -279,7 +279,7 @@ versions for the Chef Workstation:
 </tr>
 <tr>
 <td>Ubuntu</td>
-<td><code>x86_64</code></td>
+<td><code>x86_64</code>,<code>aarch64</code> (18.04/20.04 only)</td>
 <td><code>16.04</code>, <code>18.04</code>, <code>20.04</code></td>
 </tr>
 <tr>
@@ -337,7 +337,7 @@ The following table lists the commercially-supported platforms and versions for 
 </tr>
 <tr>
 <td>SUSE Enterprise Linux Server</td>
-<td><code>x86_64</code></td>
+<td><code>x86_64</code>, <code>aarch64</code> (15.x only)</td>
 <td><code>12.x</code>, <code>15.x</code></td>
 </tr>
 <tr>
