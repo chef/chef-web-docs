@@ -390,7 +390,7 @@ for platforms that use:
 
 #### Commercial Support
 
-The following table lists the commercially-supported platforms for Chef Backend, the high-availability solution for Chef Infra Server:
+The following table lists the commercially-supported platforms for Chef Backend, which is the high-availability solution for Chef Infra Server:
 
 <table>
 <colgroup>
