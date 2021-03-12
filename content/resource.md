@@ -84,15 +84,15 @@ See these guides for additional information about resources:
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td><a href="/resource_common/">Common Properties</a></td>
 <td>Provides a detailed list of the common properties that are available in all resources.</td>
 </tr>
-<tr>
+<tr class="even">
 <td><a href="/resources/">Resource Reference</a></td>
 <td>A reference guide that lists both the common and individual options available to every resource that is bundled into Chef.</td>
 </tr>
-<tr>
+<tr class="odd">
 <td><a href="/custom_resources/">Custom Resources</a></td>
 <td>Shows you how to create your own Chef resources.</td>
 </tr>

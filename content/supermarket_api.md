@@ -72,11 +72,11 @@ The response is similar to:
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td><code>200</code></td>
 <td>OK. The request was successful. The cookbook was posted to the Supermarket API.</td>
 </tr>
-<tr>
+<tr class="even">
 <td><p><code>400</code></p></td>
 <td><p>The request was unsuccessful. The cookbook was not posted to the Supermarket API. For example:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb1-1"><a href="#cb1-1"></a><span class="op">{</span></span>
@@ -107,19 +107,19 @@ are sorted. Use the `user` parameter to filter cookbooks by maintainer:
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td><code>start</code></td>
 <td>The offset into a list of cookbooks, at which point the list of cookbooks will begin.</td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>items</code></td>
 <td>The number of items to be returned as a result of the request.</td>
 </tr>
-<tr>
+<tr class="odd">
 <td><code>order</code></td>
 <td>A token specifying how to order results. Possible values: <code>recently_updated</code>, <code>recently_added</code>, <code>most_downloaded</code>, or <code>most_followed</code>.</td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>user</code></td>
 <td>The username to filter by. Only cookbooks maintained by this user will be returned.</td>
 </tr>
@@ -193,7 +193,7 @@ began:
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td><code>200</code></td>
 <td>OK. The request was successful. One or more cookbooks were returned as a result of the search query.</td>
 </tr>
@@ -247,11 +247,11 @@ The response is similar to:
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td><code>200</code></td>
 <td>OK. The request was successful. The cookbook was deleted.</td>
 </tr>
-<tr>
+<tr class="even">
 <td><p><code>400</code></p></td>
 <td><p>The request was unsuccessful. The requested cookbook does not exist. For example:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb1-1"><a href="#cb1-1"></a><span class="op">{</span></span>
@@ -260,7 +260,7 @@ The response is similar to:
 <span id="cb1-4"><a href="#cb1-4"></a>   <span class="st">&quot;error_code&quot;</span><span class="op">:</span> <span class="st">&quot;NOT_FOUND&quot;</span></span>
 <span id="cb1-5"><a href="#cb1-5"></a><span class="op">}</span></span></code></pre></div></td>
 </tr>
-<tr>
+<tr class="odd">
 <td><p><code>403</code></p></td>
 <td><p>Unauthorized. The user who made the request is not authorized to perform the action. The user is not authorized to delete the cookbook. For example:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb2-1"><a href="#cb2-1"></a><span class="op">{}</span></span></code></pre></div></td>
@@ -342,11 +342,11 @@ field (being `true`):
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td><code>200</code></td>
 <td>OK. The request was successful. The requested cookbook exists.</td>
 </tr>
-<tr>
+<tr class="even">
 <td><p><code>400</code></p></td>
 <td><p>The request was unsuccessful. The requested cookbook does not exist. For example:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb1-1"><a href="#cb1-1"></a><span class="op">{</span></span>
@@ -414,11 +414,11 @@ The response is similar to:
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td><code>200</code></td>
 <td>OK. The request was successful. The cookbook version was deleted.</td>
 </tr>
-<tr>
+<tr class="even">
 <td><p><code>400</code></p></td>
 <td><p>The request was unsuccessful. The requested cookbook or cookbook version does not exist. For example:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb1-1"><a href="#cb1-1"></a><span class="op">{</span></span>
@@ -427,7 +427,7 @@ The response is similar to:
 <span id="cb1-4"><a href="#cb1-4"></a>   <span class="st">&quot;error_code&quot;</span><span class="op">:</span> <span class="st">&quot;NOT_FOUND&quot;</span></span>
 <span id="cb1-5"><a href="#cb1-5"></a><span class="op">}</span></span></code></pre></div></td>
 </tr>
-<tr>
+<tr class="odd">
 <td><p><code>403</code></p></td>
 <td><p>Unauthorized. The user who made the request is not authorized to perform the action. The user is not authorized to delete the cookbook version. For example:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb2-1"><a href="#cb2-1"></a><span class="op">{}</span></span></code></pre></div></td>
@@ -489,11 +489,11 @@ file, its dependencies and platforms it supports and so on:
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td><code>200</code></td>
 <td>OK. The request was successful. The requested cookbook exists.</td>
 </tr>
-<tr>
+<tr class="even">
 <td><p><code>400</code></p></td>
 <td><p>The request was unsuccessful. The requested cookbook does not exist. For example:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb1-1"><a href="#cb1-1"></a><span class="op">{</span></span>
@@ -530,15 +530,15 @@ number of cookbooks returned:
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td><code>q</code></td>
 <td>The search query used to identify a list of items on a Chef Infra Server. This option uses the same syntax as the <code>search</code> subcommand.</td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>start</code></td>
 <td>The row at which return results begin.</td>
 </tr>
-<tr>
+<tr class="odd">
 <td><code>items</code></td>
 <td>The number of rows to be returned.</td>
 </tr>
@@ -600,7 +600,7 @@ cookbooks began:
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td><code>200</code></td>
 <td>OK. The request was successful. One or more cookbooks were returned as a result of the search query.</td>
 </tr>
@@ -631,15 +631,15 @@ sorted.
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td><code>start</code></td>
 <td>The offset into a list of tools, at which point the list of tools will begin.</td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>items</code></td>
 <td>The number of items to be returned as a result of the request.</td>
 </tr>
-<tr>
+<tr class="odd">
 <td><code>order</code></td>
 <td>A token specifying how to order results. Possible values: <code>recently_added</code>.</td>
 </tr>
@@ -710,7 +710,7 @@ which the list of returned tools began:
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td><code>200</code></td>
 <td>OK. The request was successful. One or more tools were returned.</td>
 </tr>
@@ -740,15 +740,15 @@ number of tools returned:
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td><code>q</code></td>
 <td>The search query used to identify a list of items on a Chef Infra Server. This option uses the same syntax as the <code>search</code> subcommand.</td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>start</code></td>
 <td>The row at which return results begin.</td>
 </tr>
-<tr>
+<tr class="odd">
 <td><code>items</code></td>
 <td>The number of rows to be returned.</td>
 </tr>
@@ -805,7 +805,7 @@ began:
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td><code>200</code></td>
 <td>OK. The request was successful. One or more tools were returned as a result of the search query.</td>
 </tr>
@@ -859,11 +859,11 @@ markdown:
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td><code>200</code></td>
 <td>OK. The request was successful. The requested tool exists.</td>
 </tr>
-<tr>
+<tr class="even">
 <td><p><code>400</code></p></td>
 <td><p>The request was unsuccessful. The requested tool does not exist. For example:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb1-1"><a href="#cb1-1"></a><span class="op">{</span></span>
@@ -951,7 +951,7 @@ with its location information and dependencies:
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td><code>200</code></td>
 <td>OK. The request was successful. One (or more) cookbooks and associated cookbook version information was returned.</td>
 </tr>

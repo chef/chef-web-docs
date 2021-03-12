@@ -14,23 +14,23 @@
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>Fatal</td>
 <td><code>Chef::Log.fatal('string')</code></td>
 </tr>
-<tr>
+<tr class="even">
 <td>Error</td>
 <td><code>Chef::Log.error('string')</code></td>
 </tr>
-<tr>
+<tr class="odd">
 <td>Warn</td>
 <td><code>Chef::Log.warn('string')</code></td>
 </tr>
-<tr>
+<tr class="even">
 <td>Info</td>
 <td><code>Chef::Log.info('string')</code></td>
 </tr>
-<tr>
+<tr class="odd">
 <td>Debug</td>
 <td><code>Chef::Log.debug('string')</code></td>
 </tr>

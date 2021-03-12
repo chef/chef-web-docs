@@ -41,103 +41,103 @@ where:
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="even">
 <td><code>aix</code></td>
 <td>IBM AIX</td>
 </tr>
-<tr>
+<tr class="odd">
 <td><code>alibabalinux</code></td>
 <td>Alibaba Cloud Linux</td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>amazon</code></td>
 <td>Amazon Linux</td>
 </tr>
-<tr>
+<tr class="odd">
 <td><code>arch</code></td>
 <td>Arch Linux</td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>clearos</code></td>
 <td>ClearOS</td>
 </tr>
-<tr>
+<tr class="odd">
 <td><code>cloudlinux</code></td>
 <td>Cloud Linux OS</td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>cumulus</code></td>
 <td>NVIDIA Cumulus Linux</td>
 </tr>
-<tr>
+<tr class="odd">
 <td><code>debian</code></td>
 <td>Debian GNU/Linux</td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>fedora</code></td>
 <td>Fedora</td>
 </tr>
-<tr>
+<tr class="odd">
 <td><code>freebsd</code></td>
 <td>FreeBSD</td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>gentoo</code></td>
 <td>Gentoo Linux</td>
 </tr>
-<tr>
+<tr class="odd">
 <td><code>linuxmint</code></td>
 <td>Linux Mint</td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>mac_os_x</code></td>
 <td>macOS</td>
 </tr>
-<tr>
+<tr class="odd">
 <td><code>netbsd</code></td>
 <td>NetBSD</td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>openbsd</code></td>
 <td>OpenBSD</td>
 </tr>
-<tr>
+<tr class="odd">
 <td><code>openindiana</code></td>
 <td>OpenIndiana</td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>opensuseleap</code></td>
 <td>openSUSE leap</td>
 </tr>
-<tr>
+<tr class="odd">
 <td><code>pidora</code></td>
 <td>Pidora</td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>raspbian</code></td>
 <td>Raspberry Pi OS</td>
 </tr>
-<tr>
+<tr class="odd">
 <td><code>scientific</code></td>
 <td>Scientific Linux</td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>solaris2</code></td>
 <td>Oracle Solaris</td>
 </tr>
-<tr>
+<tr class="odd">
 <td><code>suse</code></td>
 <td>SUSE Enterprise Linux Server.</td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>ubuntu</code></td>
 <td>Ubuntu Linux</td>
 </tr>
-<tr>
+<tr class="odd">
 <td><code>windows</code></td>
 <td>Microsoft Windows</td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>xenserver</code></td>
 <td>Citrix XenServer</td>
 </tr>
@@ -195,67 +195,67 @@ where:
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td><code>aix</code></td>
 <td><code>aix</code> platform.</td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>alpine</code></td>
 <td><code>alpine</code> platform.</td>
 </tr>
-<tr>
+<tr class="odd">
 <td><code>amazon</code></td>
 <td><code>amazon</code> platform.</td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>arch</code></td>
 <td><code>arch</code>, <code>manjaro</code>, and <code>antergos</code> platforms.</td>
 </tr>
-<tr>
+<tr class="odd">
 <td><code>debian</code></td>
 <td><code>debian</code>, <code>ubuntu</code>, <code>linuxmint</code>, <code>raspbian</code>, <code>cumulus</code>, <code>kali</code>, <code>sangoma</code>, and <code>pop</code> platforms.</td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>fedora</code></td>
 <td><code>fedora</code>, <code>pidora</code>, and <code>arista_eos</code> platforms</td>
 </tr>
-<tr>
+<tr class="odd">
 <td><code>freebsd</code></td>
 <td><code>freebsd</code> platform</td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>gentoo</code></td>
 <td><code>gentoo</code> platform</td>
 </tr>
-<tr>
+<tr class="odd">
 <td><code>mac_os_x</code></td>
 <td><code>mac_os_x</code> platform</td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>netbsd</code></td>
 <td><code>netbsd</code> platform</td>
 </tr>
-<tr>
+<tr class="odd">
 <td><code>openbsd</code></td>
 <td><code>openbsd</code> platform</td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>openindiana</code></td>
 <td><code>openindiana</code> platform</td>
 </tr>
-<tr>
+<tr class="odd">
 <td><code>rhel</code></td>
 <td><code>redhat</code>, <code>centos</code>, <code>oracle</code>, <code>scientific</code>, <code>xenserver</code>, <code>clearos</code>, <code>bigip</code>, <code>parallels</code>, <code>xcp</code>, <code>alibabalinux</code>, and <code>ibm_powerkvm</code> platforms</td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>solaris2</code></td>
 <td><code>solaris2</code> platform</td>
 </tr>
-<tr>
+<tr class="odd">
 <td><code>suse</code></td>
 <td><code>opensuse_leap</code>, <code>suse</code>, and <code>sled</code> platforms</td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>windows</code></td>
 <td><code>windows</code> platform</td>
 </tr>

@@ -41,11 +41,11 @@ There are two types of attributes that can be used with roles:
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td><code>default</code></td>
 <td>{{< readFile_shortcode file="node_attribute_type_default.md" >}}</td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>override</code></td>
 <td>{{< readFile_shortcode file="node_attribute_type_override.md" >}}</td>
 </tr>
@@ -75,19 +75,19 @@ Domain-specific Ruby attributes:
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td><p><code>default_attributes</code></p></td>
 <td><p>Optional. A set of attributes to be applied to all nodes, assuming the node does not already have a value for the attribute. This is useful for setting global defaults that can then be overridden for specific nodes. If more than one role attempts to set a default value for the same attribute, the last role applied is the role to set the attribute value. When nested attributes are present, they are preserved. For example, to specify that a node that has the attribute <code>apache2</code> should listen on ports 80 and 443 (unless ports are already specified):</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb1-1"><a href="#cb1-1"></a>default_attributes <span class="st">&#39;apache2&#39;</span> =&gt; {</span>
 <span id="cb1-2"><a href="#cb1-2"></a>  <span class="st">&#39;listen_ports&#39;</span> =&gt; [ <span class="st">&#39;80&#39;</span>, <span class="st">&#39;443&#39;</span> ]</span>
 <span id="cb1-3"><a href="#cb1-3"></a>}</span></code></pre></div></td>
 </tr>
-<tr>
+<tr class="even">
 <td><p><code>description</code></p></td>
 <td><p>A description of the functionality that is covered. For example:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb2-1"><a href="#cb2-1"></a>description <span class="st">&#39;The base role for systems that serve HTTP traffic&#39;</span></span></code></pre></div></td>
 </tr>
-<tr>
+<tr class="odd">
 <td><p><code>env_run_lists</code></p></td>
 <td><p>Optional. A list of environments, each specifying a recipe or a role to be applied to that environment. This setting must specify the <code>_default</code> environment. If the <code>_default</code> environment is set to <code>[]</code> or <code>nil</code>, then the run-list is empty. For example:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb3-1"><a href="#cb3-1"></a>env_run_lists <span class="st">&#39;prod&#39;</span> =&gt; [<span class="st">&#39;recipe[apache2]&#39;</span>],</span>
@@ -96,12 +96,12 @@ Domain-specific Ruby attributes:
 <p>Using <code>env_run_lists</code> with roles is discouraged as it can be difficult to maintain over time. Instead, consider using multiple roles to define the required behavior.</p>
 {{< /warning >}}</td>
 </tr>
-<tr>
+<tr class="even">
 <td><p><code>name</code></p></td>
 <td><p>A unique name within the organization. Each name must be made up of letters (upper- and lower-case), numbers, underscores, and hyphens: [A-Z][a-z][0-9] and [_-]. Spaces are not allowed. For example:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb4-1"><a href="#cb4-1"></a>name <span class="st">&#39;dev01-24&#39;</span></span></code></pre></div></td>
 </tr>
-<tr>
+<tr class="odd">
 <td><p><code>override_attributes</code></p></td>
 <td><p>Optional. A set of attributes to be applied to all nodes, even if the node already has a value for an attribute. This is useful for ensuring that certain attributes always have specific values. If more than one role attempts to set an override value for the same attribute, the last role applied wins. When nested attributes are present, they are preserved. For example:</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb5-1"><a href="#cb5-1"></a>override_attributes <span class="st">&#39;apache2&#39;</span> =&gt; {</span>
@@ -123,7 +123,7 @@ Domain-specific Ruby attributes:
 <span id="cb7-7"><a href="#cb7-7"></a>  }</span>
 <span id="cb7-8"><a href="#cb7-8"></a>)</span></code></pre></div></td>
 </tr>
-<tr>
+<tr class="even">
 <td><p><code>run_list</code></p></td>
 <td><p>A list of recipes and/or roles to be applied and the order in which they are to be applied. For example, the following run-list:</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb8-1"><a href="#cb8-1"></a>run_list <span class="st">&#39;recipe[apache2]&#39;</span>,</span>
@@ -223,11 +223,11 @@ The JSON format has two additional settings:
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td><code>chef_type</code></td>
 <td>Always set this to <code>role</code>. Use this setting for any custom process that consumes role objects outside of Ruby.</td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>json_class</code></td>
 <td>Always set this to <code>Chef::Role</code>. The Chef Infra Client uses this setting to auto-inflate a role object. If objects are being rebuilt outside of Ruby, ignore it.</td>
 </tr>

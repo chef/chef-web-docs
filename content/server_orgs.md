@@ -29,20 +29,20 @@ role-based access control:
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td><img src="/images/icon_server_organization.svg" class="align-center" width="100" alt="image" /></td>
 <td>An organization is the top-level entity for role-based access control in the Chef Infra Server. Each organization contains the default groups (<code>admins</code>, <code>clients</code>, and <code>users</code>, plus <code>billing_admins</code> for the hosted Chef Infra Server), at least one user and at least one node (on which the Chef Infra Client is installed). The Chef Infra Server supports multiple organizations. The Chef Infra Server includes a single default organization that is defined during setup. Additional organizations can be created after the initial setup and configuration of the Chef Infra Server.</td>
 </tr>
-<tr>
+<tr class="even">
 <td><p><img src="/images/icon_server_groups.svg" class="align-center" width="100" alt="image" /></p></td>
 <td><p>A group is used to define access to object types and objects in the Chef Infra Server and also to assign permissions that determine what types of tasks are available to members of that group who are authorized to perform them. Groups are configured per-organization.</p>
 <p>Individual users who are members of a group will inherit the permissions assigned to the group. The Chef Infra Server includes the following default groups: <code>admins</code>, <code>clients</code>, and <code>users</code>. For users of the hosted Chef Infra Server, an additional default group is provided: <code>billing_admins</code>.</p></td>
 </tr>
-<tr>
+<tr class="odd">
 <td><img src="/images/icon_server_users.svg" class="align-center" width="100" alt="image" /></td>
 <td>A user is any non-administrator human being who will manage data that is uploaded to the Chef Infra Server from a workstation or who will log on to the Chef management console web user interface. The Chef Infra Server includes a single default user that is defined during setup and is automatically assigned to the <code>admins</code> group.</td>
 </tr>
-<tr>
+<tr class="even">
 <td><img src="/images/icon_chef_client.svg" class="align-center" width="100" alt="image" /></td>
 <td>A client is an actor that has permission to access the Chef Infra Server. A client is most often a node (on which the Chef Infra Client runs), but is also a workstation (on which knife runs), or some other machine that is configured to use the Chef Infra Server API. Each request to the Chef Infra Server that is made by a client uses a private key for authentication that must be authorized by the public key on the Chef Infra Server.</td>
 </tr>
@@ -116,11 +116,11 @@ The Chef Infra Server includes the following global permissions:
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td><strong>Create</strong></td>
 <td>Use the <strong>Create</strong> global permission to define which users and groups may create the following server object types: cookbooks, data bags, environments, nodes, roles, and tags. This permission is required for any user who uses the <code>knife [object] create</code> argument to interact with objects on the Chef Infra Server.</td>
 </tr>
-<tr>
+<tr class="even">
 <td><strong>List</strong></td>
 <td>Use the <strong>List</strong> global permission to define which users and groups may view the following server object types: cookbooks, data bags, environments, nodes, roles, and tags. This permission is required for any user who uses the <code>knife [object] list</code> argument to interact with objects on the Chef Infra Server.</td>
 </tr>
@@ -203,23 +203,23 @@ The Chef Infra Server includes the following default groups:
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td><code>admins</code></td>
 <td>The <code>admins</code> group defines the list of users who have administrative rights to all objects and object types for a single organization.</td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>billing_admins</code></td>
 <td>The <code>billing_admins</code> group defines the list of users who have permission to manage billing information. This permission exists only for the hosted Chef Infra Server.</td>
 </tr>
-<tr>
+<tr class="odd">
 <td><code>clients</code></td>
 <td>The <code>clients</code> group defines the list of nodes on which a Chef Infra Client is installed and under management by Chef. In general, think of this permission as "all of the non-human actors---Chef Infra Client, in nearly every case---that get data from, and/or upload data to, the Chef server". Newly-created Chef Infra Client instances are added to this group automatically.</td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>public_key_read_access</code></td>
 <td>The <code>public_key_read_access</code> group defines which users and clients have read permissions to key-related endpoints in the Chef Infra Server API.</td>
 </tr>
-<tr>
+<tr class="odd">
 <td><code>users</code></td>
 <td>The <code>users</code> group defines the list of users who use knife and the Chef management console to interact with objects and object types. In general, think of this permission as "all of the non-admin human actors who work with data that is uploaded to and/or downloaded from the Chef server".</td>
 </tr>
@@ -263,7 +263,7 @@ The `admins` group is assigned the following:
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>admins</td>
 <td>yes</td>
 <td>yes</td>
@@ -271,7 +271,7 @@ The `admins` group is assigned the following:
 <td>yes</td>
 <td>yes</td>
 </tr>
-<tr>
+<tr class="even">
 <td>clients</td>
 <td>yes</td>
 <td>yes</td>
@@ -279,7 +279,7 @@ The `admins` group is assigned the following:
 <td>yes</td>
 <td>yes</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>users</td>
 <td>yes</td>
 <td>yes</td>
@@ -318,7 +318,7 @@ The `billing_admins` group is assigned the following:
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>billing_admins</td>
 <td>no</td>
 <td>no</td>
@@ -350,77 +350,77 @@ The `clients` group is assigned the following:
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>clients</td>
 <td>no</td>
 <td>no</td>
 <td>no</td>
 <td>no</td>
 </tr>
-<tr>
+<tr class="even">
 <td>cookbooks</td>
 <td>no</td>
 <td>no</td>
 <td>yes</td>
 <td>no</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>cookbook_artifacts</td>
 <td>no</td>
 <td>no</td>
 <td>yes</td>
 <td>no</td>
 </tr>
-<tr>
+<tr class="even">
 <td>data</td>
 <td>no</td>
 <td>no</td>
 <td>yes</td>
 <td>no</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>environments</td>
 <td>no</td>
 <td>no</td>
 <td>yes</td>
 <td>no</td>
 </tr>
-<tr>
+<tr class="even">
 <td>nodes</td>
 <td>yes</td>
 <td>no</td>
 <td>yes</td>
 <td>no</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>organization</td>
 <td>no</td>
 <td>no</td>
 <td>yes</td>
 <td>no</td>
 </tr>
-<tr>
+<tr class="even">
 <td>policies</td>
 <td>no</td>
 <td>no</td>
 <td>yes</td>
 <td>no</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>policy_groups</td>
 <td>no</td>
 <td>no</td>
 <td>yes</td>
 <td>no</td>
 </tr>
-<tr>
+<tr class="even">
 <td>roles</td>
 <td>no</td>
 <td>no</td>
 <td>yes</td>
 <td>no</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>sandboxes</td>
 <td>no</td>
 <td>no</td>
@@ -463,7 +463,7 @@ By default, the `public_key_read_access` assigns all members of the
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>admins</td>
 <td>no</td>
 <td>no</td>
@@ -471,7 +471,7 @@ By default, the `public_key_read_access` assigns all members of the
 <td>no</td>
 <td>no</td>
 </tr>
-<tr>
+<tr class="even">
 <td>clients</td>
 <td>yes</td>
 <td>yes</td>
@@ -479,7 +479,7 @@ By default, the `public_key_read_access` assigns all members of the
 <td>yes</td>
 <td>yes</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>users</td>
 <td>yes</td>
 <td>yes</td>
@@ -518,77 +518,77 @@ The `users` group is assigned the following:
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>clients</td>
 <td>no</td>
 <td>yes</td>
 <td>yes</td>
 <td>no</td>
 </tr>
-<tr>
+<tr class="even">
 <td>cookbooks</td>
 <td>yes</td>
 <td>yes</td>
 <td>yes</td>
 <td>yes</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>cookbook_artifacts</td>
 <td>yes</td>
 <td>yes</td>
 <td>yes</td>
 <td>yes</td>
 </tr>
-<tr>
+<tr class="even">
 <td>data</td>
 <td>yes</td>
 <td>yes</td>
 <td>yes</td>
 <td>yes</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>environments</td>
 <td>yes</td>
 <td>yes</td>
 <td>yes</td>
 <td>yes</td>
 </tr>
-<tr>
+<tr class="even">
 <td>nodes</td>
 <td>yes</td>
 <td>yes</td>
 <td>yes</td>
 <td>yes</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>organization</td>
 <td>no</td>
 <td>no</td>
 <td>yes</td>
 <td>no</td>
 </tr>
-<tr>
+<tr class="even">
 <td>policies</td>
 <td>yes</td>
 <td>yes</td>
 <td>yes</td>
 <td>yes</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>policy_groups</td>
 <td>yes</td>
 <td>yes</td>
 <td>yes</td>
 <td>yes</td>
 </tr>
-<tr>
+<tr class="even">
 <td>roles</td>
 <td>yes</td>
 <td>yes</td>
 <td>yes</td>
 <td>yes</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>sandboxes</td>
 <td>yes</td>
 <td>no</td>
@@ -624,7 +624,7 @@ Infra Server, that Chef Infra Client is added to the `clients` group:
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>clients</td>
 <td>yes</td>
 <td>no</td>

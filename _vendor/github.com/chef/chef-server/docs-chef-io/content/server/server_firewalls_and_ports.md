@@ -53,13 +53,13 @@ any firewalls that are in use:
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td><p>4321</p></td>
 <td><p><strong>bookshelf</strong></p>
 <p>{{< readFile_shortcode file="server_services_bookshelf.md" >}}</p></td>
 <td><p>no</p></td>
 </tr>
-<tr>
+<tr class="even">
 <td><p>80, 443, 9683</p></td>
 <td><p><strong>nginx</strong></p>
 <p>{{< readFile_shortcode file="server_services_nginx.md" >}}</p>
@@ -68,37 +68,37 @@ any firewalls that are in use:
 {{< /note >}}</td>
 <td><p>yes</p></td>
 </tr>
-<tr>
+<tr class="odd">
 <td><p>9463</p></td>
 <td><p><strong>oc_bifrost</strong></p>
 <p>{{< readFile_shortcode file="server_services_bifrost.md" >}}</p></td>
 <td></td>
 </tr>
-<tr>
+<tr class="even">
 <td><p>9090</p></td>
 <td><p><strong>oc-id</strong></p>
 <p>{{< readFile_shortcode file="server_services_oc_id.md" >}}</p></td>
 <td></td>
 </tr>
-<tr>
+<tr class="odd">
 <td><p>8000</p></td>
 <td><p><strong>opscode-erchef</strong></p>
 <p>{{< readFile_shortcode file="server_services_erchef.md" >}}</p></td>
 <td></td>
 </tr>
-<tr>
+<tr class="even">
 <td><p>5432</p></td>
 <td><p><strong>postgresql</strong></p>
 <p>{{< readFile_shortcode file="server_services_postgresql.md" >}}</p></td>
 <td></td>
 </tr>
-<tr>
+<tr class="odd">
 <td><p>9200</p></td>
 <td><p><strong>elasticsearch</strong></p>
 <p>{{< readFile_shortcode file="server_services_elasticsearch.md" >}}</p></td>
 <td></td>
 </tr>
-<tr>
+<tr class="even">
 <td><p>16379</p></td>
 <td><p><strong>redis_lb</strong></p>
 <p>{{< readFile_shortcode file="server_services_redis.md" >}}</p></td>

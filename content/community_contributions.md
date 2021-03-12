@@ -54,31 +54,31 @@ of issues and bug reports:
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>Chef Infra Client</td>
 <td><a href="https://github.com/chef/chef">https://github.com/chef/chef</a></td>
 </tr>
-<tr>
+<tr class="even">
 <td>Ohai</td>
 <td><a href="https://github.com/chef/ohai">https://github.com/chef/ohai</a></td>
 </tr>
-<tr>
+<tr class="odd">
 <td>Chef Workstation</td>
 <td><a href="https://github.com/chef/chef-workstation">https://github.com/chef/chef-workstation</a></td>
 </tr>
-<tr>
+<tr class="even">
 <td>Chef InSpec</td>
 <td><a href="https://github.com/inspec/inspec">https://github.com/inspec/inspec</a></td>
 </tr>
-<tr>
+<tr class="odd">
 <td>Chef Infra Server</td>
 <td><a href="https://github.com/chef/chef-server">https://github.com/chef/chef-server</a></td>
 </tr>
-<tr>
+<tr class="even">
 <td>Chef Habitat</td>
 <td><a href="https://github.com/habitat-sh/habitat">https://github.com/habitat-sh/habitat</a></td>
 </tr>
-<tr>
+<tr class="odd">
 <td>Chef Automate</td>
 <td><a href="https://github.com/chef/automate">https://github.com/chef/automate</a></td>
 </tr>

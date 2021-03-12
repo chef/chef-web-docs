@@ -15,27 +15,27 @@ versions for the Chef Infra Server:
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>CentOS</td>
 <td><code>x86_64</code></td>
 <td><code>6.x</code>, <code>7.x</code>, <code>8.x</code></td>
 </tr>
-<tr>
+<tr class="even">
 <td>Oracle Enterprise Linux</td>
 <td><code>x86_64</code></td>
 <td><code>6.x</code>, <code>7.x</code>, <code>8.x</code></td>
 </tr>
-<tr>
+<tr class="odd">
 <td>Red Hat Enterprise Linux</td>
 <td><code>x86_64</code></td>
 <td><code>6.x</code>, <code>7.x</code>, <code>8.x</code></td>
 </tr>
-<tr>
+<tr class="even">
 <td>SUSE Enterprise Linux Server</td>
 <td><code>x86_64</code></td>
 <td><code>12</code>, <code>15</code></td>
 </tr>
-<tr>
+<tr class="odd">
 <td>Ubuntu</td>
 <td><code>x86_64</code></td>
 <td><code>16.04</code>, <code>18.04</code>, <code>20.04</code></td>

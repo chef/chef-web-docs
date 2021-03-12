@@ -32,19 +32,19 @@ requests to the Chef Infra Server using the following methods:
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td><code>api.delete</code></td>
 <td>Use to delete an object from the Chef Infra Server.</td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>api.get</code></td>
 <td>Use to get the details of an object on the Chef Infra Server.</td>
 </tr>
-<tr>
+<tr class="odd">
 <td><code>api.post</code></td>
 <td>Use to add an object to the Chef Infra Server.</td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>api.put</code></td>
 <td>Use to update an object on the Chef Infra Server.</td>
 </tr>

@@ -169,17 +169,17 @@ the person(s) assigned to each role:
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>Decider</td>
 <td>Jenny Armstrong-Owen</td>
 <td><a href="mailto:jowen@chef.io">jowen@chef.io</a></td>
 </tr>
-<tr>
+<tr class="even">
 <td>Community Advocate</td>
 <td>Benny Vasquez</td>
 <td><a href="mailto:bvasquez@chef.io">bvasquez@chef.io</a></td>
 </tr>
-<tr>
+<tr class="odd">
 <td>Community Advocate</td>
 <td>Robb Kidd</td>
 <td><a href="mailto:rkidd@chef.io">rkidd@chef.io</a></td>

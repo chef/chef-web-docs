@@ -16,32 +16,32 @@ order:
   </tr>
 </thead>
 <tbody>
-  <tr>
+  <tr class="odd">
     <td>1</td>
     <td><code>`default`</code></td>
     <td>Cookbook attribute file<br>Recipe<br>Environment<br>Role</td>
   </tr>
-  <tr>
+  <tr class="even">
     <td>2</td>
     <td><code>`force_default`</code></td>
     <td>Cookbook attribute file<br>Recipe</td>
   </tr>
-  <tr>
+  <tr class="odd">
     <td>3</td>
     <td><code>`normal`</code></td>
     <td>JSON file passed with <code>`chef-client -j`</code><br>Cookbook attribute file<br>Recipe</td>
   </tr>
-  <tr>
+  <tr class="even">
     <td>4</td>
     <td><code>`override`</code></td>
     <td>Cookbook attribute file<br>Recipe<br>Role<br>Environment</td>
   </tr>
-  <tr>
+  <tr class="odd">
     <td>5</td>
     <td><code>`force_override`</code></td>
     <td>Cookbook attribute file<br>Recipe</td>
   </tr>
-  <tr>
+  <tr class="even">
     <td>6</td>
     <td><code>`automatic`</code></td>
     <td>Identified by Ohai at the start of a Chef Infra Client Run</td>

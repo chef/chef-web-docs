@@ -13,19 +13,19 @@ Chef Infra Server using the following methods:
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td><code>rest.delete_rest</code></td>
 <td>Use to delete an object from the Chef Infra Server.</td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>rest.get_rest</code></td>
 <td>Use to get the details of an object on the Chef Infra Server.</td>
 </tr>
-<tr>
+<tr class="odd">
 <td><code>rest.post_rest</code></td>
 <td>Use to add an object to the Chef Infra Server.</td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>rest.put_rest</code></td>
 <td>Use to update an object on the Chef Infra Server.</td>
 </tr>

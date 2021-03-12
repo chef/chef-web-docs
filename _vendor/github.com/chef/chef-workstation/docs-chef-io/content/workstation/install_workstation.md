@@ -41,27 +41,27 @@ Supported Host Operating Systems:
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="even">
 <td>Amazon Linux</td>
 <td>2.x</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>Apple macOS</td>
 <td>10.14, 10.15, 11.0</td>
 </tr>
-<tr>
+<tr class="even">
 <td>Microsoft Windows</td>
 <td>10, Server 2012, Server 2012 R2, Server 2016, Server 2019</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>Red Hat Enterprise Linux / CentOS</td>
 <td>7.x, 8.x</td>
 </tr>
-<tr>
+<tr class="even">
 <td>Ubuntu</td>
 <td>16.04, 18.04, 20.04</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>Debian</td>
 <td>9.x, 10.x</td>
 </tr>

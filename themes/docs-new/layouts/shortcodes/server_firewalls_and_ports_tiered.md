@@ -16,7 +16,7 @@ column) are open and accessible via any firewalls that are in use:
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td><p>80, 443, 9683</p></td>
 <td><p><strong>nginx</strong></p>
 <p>{{ readFile "themes/docs-new/layouts/shortcodes/server_services_nginx.md" | markdownify }}</p>
@@ -28,37 +28,37 @@ column) are open and accessible via any firewalls that are in use:
 </div></td>
 <td><p>yes</p></td>
 </tr>
-<tr>
+<tr class="even">
 <td><p>9463</p></td>
 <td><p><strong>oc_bifrost</strong></p>
 <p>{{ readFile "themes/docs-new/layouts/shortcodes/server_services_bifrost.md" | markdownify }}</p></td>
 <td></td>
 </tr>
-<tr>
+<tr class="odd">
 <td><p>9200</p></td>
 <td><p><strong>elasticsearch</strong></p>
 <p>{{ readFile "themes/docs-new/layouts/shortcodes/server_services_elasticsearch.md" | markdownify }}</p></td>
 <td></td>
 </tr>
-<tr>
+<tr class="even">
 <td><p>5432</p></td>
 <td><p><strong>postgresql</strong></p>
 <p>{{ readFile "themes/docs-new/layouts/shortcodes/server_services_postgresql.md" | markdownify }}</p></td>
 <td></td>
 </tr>
-<tr>
+<tr class="odd">
 <td><p>16379</p></td>
 <td><p><strong>redis_lb</strong></p>
 <p>{{ readFile "themes/docs-new/layouts/shortcodes/server_services_redis.md" | markdownify }}</p></td>
 <td></td>
 </tr>
-<tr>
+<tr class="even">
 <td><p>4321</p></td>
 <td><p><strong>bookshelf</strong></p>
 <p>{{ readFile "themes/docs-new/layouts/shortcodes/server_services_bookshelf.md" | markdownify }}</p></td>
 <td></td>
 </tr>
-<tr>
+<tr class="odd">
 <td><p>8000</p></td>
 <td><p><strong>opscode-erchef</strong></p>
 <p>{{ readFile "themes/docs-new/layouts/shortcodes/server_services_erchef.md" | markdownify }}</p></td>

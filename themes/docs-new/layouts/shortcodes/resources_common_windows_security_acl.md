@@ -59,15 +59,15 @@ where
     </tr>
     </thead>
     <tbody>
-    <tr>
+    <tr class="odd">
     <td><code>:applies_to_children</code></td>
     <td>Specify how permissions are applied to children. Possible values: <code>true</code> to inherit both child directories and files; <code>false</code> to not inherit any child directories or files; <code>:containers_only</code> to inherit only child directories (and not files); <code>:objects_only</code> to recursively inherit files (and not child directories).</td>
     </tr>
-    <tr>
+    <tr class="even">
     <td><code>:applies_to_self</code></td>
     <td>Indicates whether a permission is applied to the parent directory. Possible values: <code>true</code> to apply to the parent directory or file and its children; <code>false</code> to not apply only to child directories and files.</td>
     </tr>
-    <tr>
+    <tr class="odd">
     <td><code>:one_level_deep</code></td>
     <td>Indicates the depth to which permissions will be applied. Possible values: <code>true</code> to apply only to the first level of children; <code>false</code> to apply to all children.</td>
     </tr>

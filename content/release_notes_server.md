@@ -1023,7 +1023,7 @@ By default, the `public_key_read_access` assigns all members of the
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>admins</td>
 <td>no</td>
 <td>no</td>
@@ -1031,7 +1031,7 @@ By default, the `public_key_read_access` assigns all members of the
 <td>no</td>
 <td>no</td>
 </tr>
-<tr>
+<tr class="even">
 <td>clients</td>
 <td>yes</td>
 <td>yes</td>
@@ -1039,7 +1039,7 @@ By default, the `public_key_read_access` assigns all members of the
 <td>yes</td>
 <td>yes</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>users</td>
 <td>yes</td>
 <td>yes</td>
@@ -1208,7 +1208,7 @@ with its location information and dependencies:
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td><code>200</code></td>
 <td>OK. The request was successful. One (or more) cookbooks and associated cookbook version information was returned.</td>
 </tr>
@@ -1648,11 +1648,11 @@ Chef server:
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>Chef Server</td>
 <td>The Chef server configuration file is updated to point to an independently configured set of servers for PostgreSQL.</td>
 </tr>
-<tr>
+<tr class="even">
 <td><p>PostgreSQL</p></td>
 <td><p>PostgreSQL is the data storage repository for the Chef server.</p>
 <p>This represents the independently configured set of servers that are running PostgreSQL and are configured to act as the data store for the Chef server.</p></td>
@@ -1686,23 +1686,23 @@ configure PostgreSQL for use with the Chef server:
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td><code>postgresql['db_superuser']</code></td>
 <td>Required when <code>postgresql['external']</code> is set to <code>true</code>. The PostgreSQL user name. This user must be granted either the <code>CREATE ROLE</code> and <code>CREATE DATABASE</code> permissions in PostgreSQL or be granted <code>SUPERUSER</code> permission. This user must also have an entry in the host-based authentication configuration file used by PostgreSQL (traditionally named <code>pg_hba.conf</code>). Default value: <code>'superuser_userid'</code>.</td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>postgresql['db_superuser_password']</code></td>
 <td>Required when <code>postgresql['external']</code> is set to <code>true</code>. The password for the user specified by <code>postgresql['db_superuser']</code>. Default value: <code>'the password'</code>.</td>
 </tr>
-<tr>
+<tr class="odd">
 <td><code>postgresql['external']</code></td>
 <td>Required. Set to <code>true</code> to run PostgreSQL external to the Chef server. Must be set once only on a new installation of the Chef server before the first <code>chef-server-ctl reconfigure</code> command is run. If this is set after a reconfigure or set to <code>false</code>, any reconfigure of the Chef server will return an error. Default value: <code>false</code>.</td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>postgresql['port']</code></td>
 <td>Optional when <code>postgresql['external']</code> is set to <code>true</code>. The port on which the service is to listen. The port used by PostgreSQL if that port is <strong>not</strong> 5432. Default value: <code>5432</code>.</td>
 </tr>
-<tr>
+<tr class="odd">
 <td><code>postgresql['vip']</code></td>
 <td>Required when <code>postgresql['external']</code> is set to <code>true</code>. The virtual IP address. The host for this IP address must be online and reachable from the Chef server via the port specified by <code>postgresql['port']</code>. Set this value to the IP address or hostname for the machine on which external PostgreSQL is located when <code>postgresql['external']</code> is set to <code>true</code>.</td>
 </tr>
@@ -1897,19 +1897,19 @@ The response returns the policy details and is similar to:
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td><code>200</code></td>
 <td>OK. The request was successful.</td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>401</code></td>
 <td>Unauthorized. The user or client who made the request could not be authenticated. Verify the user/client name, and that the correct key was used to sign the request.</td>
 </tr>
-<tr>
+<tr class="odd">
 <td><code>403</code></td>
 <td>Forbidden. The user who made the request is not authorized to perform the action.</td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>404</code></td>
 <td>Not found. The requested object does not exist.</td>
 </tr>
@@ -1956,19 +1956,19 @@ xxxxx
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td><code>200</code></td>
 <td>OK. The request was successful.</td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>401</code></td>
 <td>Unauthorized. The user or client who made the request could not be authenticated. Verify the user/client name, and that the correct key was used to sign the request.</td>
 </tr>
-<tr>
+<tr class="odd">
 <td><code>403</code></td>
 <td>Forbidden. The user who made the request is not authorized to perform the action.</td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>404</code></td>
 <td>Not found. The requested object does not exist.</td>
 </tr>
@@ -2016,19 +2016,19 @@ The response returns the policy details and is similar to:
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td><code>200</code></td>
 <td>OK. The request was successful.</td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>401</code></td>
 <td>Unauthorized. The user or client who made the request could not be authenticated. Verify the user/client name, and that the correct key was used to sign the request.</td>
 </tr>
-<tr>
+<tr class="odd">
 <td><code>403</code></td>
 <td>Forbidden. The user who made the request is not authorized to perform the action.</td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>404</code></td>
 <td>Not found. The requested object does not exist.</td>
 </tr>
@@ -2079,27 +2079,27 @@ xxxxx
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td><code>201</code></td>
 <td>OK. The request was successful.</td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>400</code></td>
 <td>Bad request. The contents of the request are not formatted correctly.</td>
 </tr>
-<tr>
+<tr class="odd">
 <td><code>401</code></td>
 <td>Unauthorized. The user or client who made the request could not be authenticated. Verify the user/client name, and that the correct key was used to sign the request.</td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>403</code></td>
 <td>Forbidden. The user who made the request is not authorized to perform the action.</td>
 </tr>
-<tr>
+<tr class="odd">
 <td><code>409</code></td>
 <td>Conflict. The object already exists.</td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>413</code></td>
 <td>Request entity too large. A request may not be larger than 1000000 bytes.</td>
 </tr>
@@ -2206,19 +2206,19 @@ The response is similar to:
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td><code>200</code></td>
 <td>OK. The request was successful.</td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>401</code></td>
 <td>Unauthorized. The user or client who made the request could not be authenticated. Verify the user/client name, and that the correct key was used to sign the request.</td>
 </tr>
-<tr>
+<tr class="odd">
 <td><code>403</code></td>
 <td>Forbidden. The user who made the request is not authorized to perform the action.</td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>404</code></td>
 <td>Not found. The requested object does not exist.</td>
 </tr>
@@ -2320,19 +2320,19 @@ The response returns the policy details and is similar to:
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td><code>200</code></td>
 <td>OK. The request was successful.</td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>401</code></td>
 <td>Unauthorized. The user or client who made the request could not be authenticated. Verify the user/client name, and that the correct key was used to sign the request.</td>
 </tr>
-<tr>
+<tr class="odd">
 <td><code>403</code></td>
 <td>Forbidden. The user who made the request is not authorized to perform the action.</td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>404</code></td>
 <td>Not found. The requested object does not exist.</td>
 </tr>
@@ -2426,19 +2426,19 @@ The response is similar to:
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td><code>200</code></td>
 <td>OK. The request was successful.</td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>401</code></td>
 <td>Unauthorized. The user or client who made the request could not be authenticated. Verify the user/client name, and that the correct key was used to sign the request.</td>
 </tr>
-<tr>
+<tr class="odd">
 <td><code>403</code></td>
 <td>Forbidden. The user who made the request is not authorized to perform the action.</td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>404</code></td>
 <td>Not found. The requested object does not exist.</td>
 </tr>
@@ -2491,19 +2491,19 @@ The response is similar to:
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td><code>201</code></td>
 <td>Created. The object was created.</td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>401</code></td>
 <td>Unauthorized. The user or client who made the request could not be authenticated. Verify the user/client name, and that the correct key was used to sign the request.</td>
 </tr>
-<tr>
+<tr class="odd">
 <td><code>403</code></td>
 <td>Forbidden. The user who made the request is not authorized to perform the action.</td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>404</code></td>
 <td>Not found. The requested object does not exist.</td>
 </tr>
@@ -2555,19 +2555,19 @@ similar to:
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td><code>200</code></td>
 <td>OK. The request was successful.</td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>401</code></td>
 <td>Unauthorized. The user or client who made the request could not be authenticated. Verify the user/client name, and that the correct key was used to sign the request.</td>
 </tr>
-<tr>
+<tr class="odd">
 <td><code>403</code></td>
 <td>Forbidden. The user who made the request is not authorized to perform the action.</td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>404</code></td>
 <td>Not found. The requested object does not exist.</td>
 </tr>
@@ -2613,19 +2613,19 @@ The response is similar to:
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td><code>200</code></td>
 <td>OK. The request was successful.</td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>401</code></td>
 <td>Unauthorized. The user or client who made the request could not be authenticated. Verify the user/client name, and that the correct key was used to sign the request.</td>
 </tr>
-<tr>
+<tr class="odd">
 <td><code>403</code></td>
 <td>Forbidden. The user who made the request is not authorized to perform the action.</td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>404</code></td>
 <td>Not found. The requested object does not exist.</td>
 </tr>
@@ -2682,23 +2682,23 @@ similar to:
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td><code>200</code></td>
 <td>OK. The request was successful.</td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>201</code></td>
 <td>Created. The object was created.</td>
 </tr>
-<tr>
+<tr class="odd">
 <td><code>401</code></td>
 <td>Unauthorized. The user or client who made the request could not be authenticated. Verify the user/client name, and that the correct key was used to sign the request.</td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>403</code></td>
 <td>Forbidden. The user who made the request is not authorized to perform the action.</td>
 </tr>
-<tr>
+<tr class="odd">
 <td><code>404</code></td>
 <td>Not found. The requested object does not exist.</td>
 </tr>
@@ -2752,19 +2752,19 @@ The response is similar to:
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td><code>200</code></td>
 <td>OK. The request was successful.</td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>401</code></td>
 <td>Unauthorized. The user or client who made the request could not be authenticated. Verify the user/client name, and that the correct key was used to sign the request.</td>
 </tr>
-<tr>
+<tr class="odd">
 <td><code>403</code></td>
 <td>Forbidden. The user who made the request is not authorized to perform the action.</td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>404</code></td>
 <td>Not found. The requested object does not exist.</td>
 </tr>
@@ -2817,19 +2817,19 @@ The response is similar to:
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td><code>201</code></td>
 <td>Created. The object was created.</td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>401</code></td>
 <td>Unauthorized. The user or client who made the request could not be authenticated. Verify the user/client name, and that the correct key was used to sign the request.</td>
 </tr>
-<tr>
+<tr class="odd">
 <td><code>403</code></td>
 <td>Forbidden. The user who made the request is not authorized to perform the action.</td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>404</code></td>
 <td>Not found. The requested object does not exist.</td>
 </tr>
@@ -2881,19 +2881,19 @@ similar to:
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td><code>200</code></td>
 <td>OK. The request was successful.</td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>401</code></td>
 <td>Unauthorized. The user or client who made the request could not be authenticated. Verify the user/client name, and that the correct key was used to sign the request.</td>
 </tr>
-<tr>
+<tr class="odd">
 <td><code>403</code></td>
 <td>Forbidden. The user who made the request is not authorized to perform the action.</td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>404</code></td>
 <td>Not found. The requested object does not exist.</td>
 </tr>
@@ -2939,19 +2939,19 @@ The response is similar to:
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td><code>200</code></td>
 <td>OK. The request was successful.</td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>401</code></td>
 <td>Unauthorized. The user or client who made the request could not be authenticated. Verify the user/client name, and that the correct key was used to sign the request.</td>
 </tr>
-<tr>
+<tr class="odd">
 <td><code>403</code></td>
 <td>Forbidden. The user who made the request is not authorized to perform the action.</td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>404</code></td>
 <td>Not found. The requested object does not exist.</td>
 </tr>
@@ -3008,23 +3008,23 @@ similar to:
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td><code>200</code></td>
 <td>OK. The request was successful.</td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>201</code></td>
 <td>Created. The object was created.</td>
 </tr>
-<tr>
+<tr class="odd">
 <td><code>401</code></td>
 <td>Unauthorized. The user or client who made the request could not be authenticated. Verify the user/client name, and that the correct key was used to sign the request.</td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>403</code></td>
 <td>Forbidden. The user who made the request is not authorized to perform the action.</td>
 </tr>
-<tr>
+<tr class="odd">
 <td><code>404</code></td>
 <td>Not found. The requested object does not exist.</td>
 </tr>
@@ -3093,11 +3093,11 @@ The response groups policies by name and revision and is similar to:
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td><code>200</code></td>
 <td>OK. The request was successful.</td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>403</code></td>
 <td>Forbidden. The user who made the request is not authorized to perform the action.</td>
 </tr>
@@ -3175,19 +3175,19 @@ The response is similar to:
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td><code>200</code></td>
 <td>OK. The request was successful.</td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>401</code></td>
 <td>Unauthorized. The user or client who made the request could not be authenticated. Verify the user/client name, and that the correct key was used to sign the request.</td>
 </tr>
-<tr>
+<tr class="odd">
 <td><code>403</code></td>
 <td>Forbidden. The user who made the request is not authorized to perform the action.</td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>404</code></td>
 <td>Not found. The requested object does not exist.</td>
 </tr>
@@ -3321,19 +3321,19 @@ The response returns the policy details and is similar to:
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td><code>200</code></td>
 <td>OK. The request was successful.</td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>401</code></td>
 <td>Unauthorized. The user or client who made the request could not be authenticated. Verify the user/client name, and that the correct key was used to sign the request.</td>
 </tr>
-<tr>
+<tr class="odd">
 <td><code>403</code></td>
 <td>Forbidden. The user who made the request is not authorized to perform the action.</td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>404</code></td>
 <td>Not found. The requested object does not exist.</td>
 </tr>
@@ -3439,19 +3439,19 @@ The response is similar to:
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td><code>200</code></td>
 <td>OK. The request was successful.</td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>401</code></td>
 <td>Unauthorized. The user or client who made the request could not be authenticated. Verify the user/client name, and that the correct key was used to sign the request.</td>
 </tr>
-<tr>
+<tr class="odd">
 <td><code>403</code></td>
 <td>Forbidden. The user who made the request is not authorized to perform the action.</td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>404</code></td>
 <td>Not found. The requested object does not exist.</td>
 </tr>
@@ -3628,23 +3628,23 @@ The response returns the policy details and is similar to:
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td><code>200</code></td>
 <td>OK. The request was successful.</td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>201</code></td>
 <td>Created. The object was created.</td>
 </tr>
-<tr>
+<tr class="odd">
 <td><code>401</code></td>
 <td>Unauthorized. The user or client who made the request could not be authenticated. Verify the user/client name, and that the correct key was used to sign the request.</td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>403</code></td>
 <td>Forbidden. The user who made the request is not authorized to perform the action.</td>
 </tr>
-<tr>
+<tr class="odd">
 <td><code>404</code></td>
 <td>Not found. The requested object does not exist.</td>
 </tr>
@@ -3667,7 +3667,7 @@ The following configuration settings are new for the Chef server:
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td><code>estatsd['protocol']</code></td>
 <td>Use to send application statistics with StatsD protocol formatting. Set this value to <code>statsd</code> to apply StatsD protocol formatting.</td>
 </tr>
@@ -3883,7 +3883,7 @@ packages can be installed as described below.
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td><p>Chef Manage</p></td>
 <td><p>Use Chef management console to manage data bags, attributes, run-lists, roles, environments, and cookbooks from a web user interface.</p>
 <p>On the Chef server, run:</p>
@@ -4267,11 +4267,11 @@ The following configuration settings are new for Chef server version 12:
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td><code>default_orgname</code></td>
 <td>The Chef server API used by the Open Source Chef server does not have an <code>/organizations/ORG_NAME</code> endpoint. Use this setting to ensure that migrated Open Source Chef servers are able to connect to the Chef server API. This value should be the same as the name of the organization that was created during the upgrade from Open Source Chef version 11 to Chef server version 12, which means it will be identical to the <code>ORG_NAME</code> part of the <code>/organizations</code> endpoint in Chef server version 12. Default value: the name of the organization specified during the upgrade process from Open Source Chef 11 to Chef server 12.</td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>postgresql['log_min_duration_statement']</code></td>
 <td>When to log a slow PostgreSQL query statement. Possible values: <code>-1</code> (disabled, do not log any statements), <code>0</code> (log every statement), or an integer greater than zero. When the integer is greater than zero, this value is the amount of time (in milliseconds) that a query statement must have run before it is logged. Default value: <code>-1</code>.</td>
 </tr>
@@ -4293,7 +4293,7 @@ starting with Chef server version 12:
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td><code>api_version</code></td>
 <td>The version of the Chef server. Default value: <code>"12.0.0"</code>.</td>
 </tr>
@@ -4315,11 +4315,11 @@ The following configuration settings are new in Chef server version
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td><code>opscode_erchef['nginx_bookshelf_caching']</code></td>
 <td>Whether Nginx is used to cache cookbooks. When <code>:on</code>, Nginx serves up the cached content instead of forwarding the request. Default value: <code>:off</code>.</td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>opscode_erchef['s3_url_expiry_window_size']</code></td>
 <td>The frequency at which unique URLs are generated. This value may be a specific amount of time, i.e. <code>15m</code> (fifteen minutes) or a percentage of the value of <code>s3_url_ttl</code>, i.e. <code>10%</code>. Default value: <code>:off</code>.</td>
 </tr>
@@ -4410,11 +4410,11 @@ The following settings are new:
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td><code>ldap['ssl_enabled']</code></td>
 <td>Use to enable SSL. Default value: <code>false</code>. Must be <code>false</code> when <code>ldap['tls_enabled']</code> is <code>true</code>.</td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>ldap['tls_enabled']</code></td>
 <td>Use to enable TLS. When enabled, communication with the LDAP server is done via a secure SSL connection on a dedicated port. When <code>true</code>, <code>ldap['port']</code> is also set to <code>636</code>. Default value: <code>false</code>. Must be <code>false</code> when <code>ldap['ssl_enabled']</code> is <code>true</code>.</td>
 </tr>

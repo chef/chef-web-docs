@@ -177,15 +177,15 @@ products when they are distributed as Habitat packages.
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>Chef Infra Server</td>
 <td>&gt;= 13.0</td>
 </tr>
-<tr>
+<tr class="even">
 <td>Chef Automate</td>
 <td>&gt;= 2.0</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>Supermarket</td>
 <td>&gt;= 4.0</td>
 </tr>

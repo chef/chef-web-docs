@@ -40,11 +40,11 @@ adding the following settings to the server configuration file:
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td><code>nginx['ssl_certificate']</code></td>
 <td>The SSL certificate used to verify communication over HTTPS.</td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>nginx['ssl_certificate_key']</code></td>
 <td>The certificate key used for SSL communication.</td>
 </tr>
@@ -334,11 +334,11 @@ These versions **require** Chef Server 12.14.0 or greater:
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>Chef Backend</td>
 <td><em>all</em></td>
 </tr>
-<tr>
+<tr class="even">
 <td>Chef Manage</td>
 <td>2.5.0</td>
 </tr>

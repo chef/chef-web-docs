@@ -285,7 +285,7 @@ within a recipe may be located:
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td><code>ignore_failure</code></td>
 <td>Continue running a recipe if a resource fails for any reason. Default value: <code>false</code>.</td>
 </tr>

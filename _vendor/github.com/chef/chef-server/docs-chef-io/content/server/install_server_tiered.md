@@ -337,32 +337,32 @@ Chef Infra Server configuration, consisting of:
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>be1.example.com</td>
 <td>192.0.2.0</td>
 <td>backend</td>
 </tr>
-<tr>
+<tr class="even">
 <td>fe1.example.com</td>
 <td>192.168.4.2</td>
 <td>frontend</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>fe2.example.com</td>
 <td>192.168.4.3</td>
 <td>frontend</td>
 </tr>
-<tr>
+<tr class="even">
 <td>fe3.example.com</td>
 <td>192.168.4.4</td>
 <td>frontend</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>chef.example.com</td>
 <td></td>
 <td>load balanced frontend VIP</td>
 </tr>
-<tr>
+<tr class="even">
 <td>be.example.com</td>
 <td>192.168.4.7</td>
 <td>load balanced backend VIP</td>

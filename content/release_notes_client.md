@@ -22,7 +22,7 @@ changelog](https://github.com/chef/chef/blob/master/CHANGELOG.md)
 ### Bugfixes
 
 - Resolved installation failures on some Windows systems
-- Fixed the `mount` resource for network mounts using the root level as the device. Thanks [@ramereth](https://github.com/ramereth)!
+- Fixed the `mount` resource for network mounts using the root level as the device. Thanks [@ramereth](https://github.com/ramereth)! 
 - Resolved a Compliance Phase failure with profile names using the `@` symbol.
 
 ### Security
@@ -5216,19 +5216,19 @@ following settings in the client.rb file:
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td><code>automatic_attribute_blacklist</code></td>
 <td>A hash that blacklists <code>automatic</code> attributes, preventing blacklisted attributes from being saved. For example: <code>['network/interfaces/eth0']</code>. Default value: <code>nil</code>, all attributes are saved. If the array is empty, all attributes are saved.</td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>default_attribute_blacklist</code></td>
 <td>A hash that blacklists <code>default</code> attributes, preventing blacklisted attributes from being saved. For example: <code>['filesystem/dev/disk0s2/size']</code>. Default value: <code>nil</code>, all attributes are saved. If the array is empty, all attributes are saved.</td>
 </tr>
-<tr>
+<tr class="odd">
 <td><code>normal_attribute_blacklist</code></td>
 <td>A hash that blacklists <code>normal</code> attributes, preventing blacklisted attributes from being saved. For example: <code>['filesystem/dev/disk0s2/size']</code>. Default value: <code>nil</code>, all attributes are saved. If the array is empty, all attributes are saved.</td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>override_attribute_blacklist</code></td>
 <td>A hash that blacklists <code>override</code> attributes, preventing blacklisted attributes from being saved. For example: <code>['map - autohome/size']</code>. Default value: <code>nil</code>, all attributes are saved. If the array is empty, all attributes are saved.</td>
 </tr>
@@ -8861,7 +8861,7 @@ The following settings are new for metadata.rb:
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td><p><code>chef_version</code></p></td>
 <td><p>A range of chef-client versions that are supported by this cookbook.</p>
 <p>For example, to match any 12.x version of the chef-client, but not 11.x or 13.x:</p>
@@ -8869,7 +8869,7 @@ The following settings are new for metadata.rb:
 <p>A more complex example where you set both a lower and upper bound of Chef Client version:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb2-1"><a href="#cb2-1"></a>chef_version <span class="st">&quot;&gt;= 14.2.1&quot;</span>, <span class="st">&quot;&lt; 14.5.1&quot;</span></span></code></pre></div></td>
 </tr>
-<tr>
+<tr class="even">
 <td><p><code>ohai_version</code></p></td>
 <td><p>A range of chef-client versions that are supported by this cookbook.</p>
 <p>For example, to match any 8.x version of Ohai, but not 7.x or 9.x:</p>
@@ -9475,7 +9475,7 @@ parameters to a property.
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td><p><code>:callbacks</code></p></td>
 <td><p>Use to define a collection of unique keys and values (a ruby hash) for which the key is the error message and the value is a lambda to validate the parameter. For example:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb1-1"><a href="#cb1-1"></a><span class="st">callbacks: </span>{</span>
@@ -9484,7 +9484,7 @@ parameters to a property.
 <span id="cb1-4"><a href="#cb1-4"></a>             }</span>
 <span id="cb1-5"><a href="#cb1-5"></a>           }</span></code></pre></div></td>
 </tr>
-<tr>
+<tr class="even">
 <td><p><code>:default</code></p></td>
 <td><p>Use to specify the default value for a property. For example:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb2-1"><a href="#cb2-1"></a><span class="st">default: &#39;a_string_value&#39;</span></span></code></pre></div>
@@ -9493,23 +9493,23 @@ parameters to a property.
 <div class="sourceCode" id="cb5"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb5-1"><a href="#cb5-1"></a><span class="st">default: </span>()</span></code></pre></div>
 <div class="sourceCode" id="cb6"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb6-1"><a href="#cb6-1"></a><span class="st">default: </span>{}</span></code></pre></div></td>
 </tr>
-<tr>
+<tr class="odd">
 <td><p><code>:equal_to</code></p></td>
 <td><p>Use to match a value with <code>==</code>. Use an array of values to match any of those values with <code>==</code>. For example:</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb7-1"><a href="#cb7-1"></a><span class="st">equal_to: </span>[<span class="dv">true</span>, <span class="dv">false</span>]</span></code></pre></div>
 <div class="sourceCode" id="cb8"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb8-1"><a href="#cb8-1"></a><span class="st">equal_to: </span>[<span class="st">&#39;php&#39;</span>, <span class="st">&#39;perl&#39;</span>]</span></code></pre></div></td>
 </tr>
-<tr>
+<tr class="even">
 <td><p><code>:regex</code></p></td>
 <td><p>Use to match a value to a regular expression. For example:</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb9-1"><a href="#cb9-1"></a><span class="st">regex: </span>[ <span class="ot">/^([a-z]|[A-Z]|[0-9]|_|-)+$/</span>, <span class="ot">/^\d+$/</span> ]</span></code></pre></div></td>
 </tr>
-<tr>
+<tr class="odd">
 <td><p><code>:required</code></p></td>
 <td><p>Indicates that a property is required. For example:</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb10-1"><a href="#cb10-1"></a><span class="st">required: </span><span class="dv">true</span></span></code></pre></div></td>
 </tr>
-<tr>
+<tr class="even">
 <td><p><code>:respond_to</code></p></td>
 <td><p>Use to ensure that a value has a given method. This can be a single method name or an array of method names. For example:</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb11-1"><a href="#cb11-1"></a><span class="st">respond_to: </span>valid_encoding?</span></code></pre></div></td>
@@ -9923,7 +9923,7 @@ The following property is new for the **deploy** resource:
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td><p><code>depth</code></p></td>
 <td><p><strong>Ruby Type:</strong> Integer</p>
 <p>The depth of a git repository, truncated to the specified number of revisions.</p></td>
@@ -9963,11 +9963,11 @@ client.rb file:
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td><code>policy_group</code></td>
 <td>The name of a policy group that exists on the Chef server.</td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>policy_name</code></td>
 <td>The name of a policy, as identified by the <code>name</code> setting in a Policyfile.rb file.</td>
 </tr>
@@ -9991,15 +9991,15 @@ of policy files:
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td><code>named_run_list</code></td>
 <td>The run-list associated with a policy file.</td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>policy_group</code></td>
 <td>The name of a policy group that exists on the Chef server. (See "Specify Policy Revision" in this readme for more information.)</td>
 </tr>
-<tr>
+<tr class="odd">
 <td><code>policy_name</code></td>
 <td>The name of a policy, as identified by the <code>name</code> setting in a Policyfile.rb file. (See "Specify Policy Revision" in this readme for more information.)</td>
 </tr>
@@ -10035,11 +10035,11 @@ enable the use of policy files:
     </tr>
     </thead>
     <tbody>
-    <tr>
+    <tr class="odd">
     <td><code>policy_group</code></td>
     <td>The name of a policy group that exists on the Chef server.</td>
     </tr>
-    <tr>
+    <tr class="even">
     <td><code>policy_name</code></td>
     <td>The name of a policy, as identified by the <code>name</code> setting in a Policyfile.rb file.</td>
     </tr>
@@ -10205,7 +10205,7 @@ The following settings have changed:
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td><code>log_location</code></td>
 <td>The location of the log file. Possible values: <code>/path/to/log_location</code>, <code>STDOUT</code>, <code>STDERR</code>, <code>Chef::Log::WinEvt.new</code> (Windows Event Logger), or <code>Chef::Log::Syslog.new("chef-client", ::Syslog::LOG_DAEMON)</code> (writes to the syslog daemon facility with the originator set as <code>chef-client</code>). The application log will specify the source as <code>Chef</code>. Default value: <code>STDOUT</code>.</td>
 </tr>
@@ -10230,15 +10230,15 @@ a URL:
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td><code>checksum</code></td>
 <td>The SHA-256 checksum of the file. Use to prevent a file from being re-downloaded. When the local file matches the checksum, Chef Client does not download it. Use when a URL is specified by the <code>source</code> attribute.</td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>remote_file_attributes</code></td>
 <td>A package at a remote location define as a Hash of properties that modifies the properties of the <strong>remote_file</strong> resource.</td>
 </tr>
-<tr>
+<tr class="odd">
 <td><code>source</code></td>
 <td>Optional. The path to a package in the local file system. The location of the package may be at a URL. Default value: the <code>name</code> of the resource block. See "Syntax" section above for more information.</td>
 </tr>
@@ -10699,7 +10699,7 @@ Or add the following setting to the client.rb file:
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td><code>listen</code></td>
 <td>Run chef-zero in socketless mode. Set to <code>false</code> to disable port binding and HTTP requests on localhost.</td>
 </tr>
@@ -10951,31 +10951,31 @@ This resource has the following properties:
     </tr>
     </thead>
     <tbody>
-    <tr>
+    <tr class="odd">
     <td><code>Array</code></td>
     <td><code>Object[]</code></td>
     </tr>
-    <tr>
+    <tr class="even">
     <td><code>Chef::Util::Powershell:PSCredential</code></td>
     <td><code>PSCredential</code></td>
     </tr>
-    <tr>
+    <tr class="odd">
     <td><code>False</code></td>
     <td><code>bool($false)</code></td>
     </tr>
-    <tr>
+    <tr class="even">
     <td><code>Fixnum</code></td>
     <td><code>Integer</code></td>
     </tr>
-    <tr>
+    <tr class="odd">
     <td><code>Float</code></td>
     <td><code>Double</code></td>
     </tr>
-    <tr>
+    <tr class="even">
     <td><code>Hash</code></td>
     <td><code>Hashtable</code></td>
     </tr>
-    <tr>
+    <tr class="odd">
     <td><code>True</code></td>
     <td><code>bool($true)</code></td>
     </tr>
@@ -11006,55 +11006,55 @@ This resource has the following properties:
     </tr>
     </thead>
     <tbody>
-    <tr>
+    <tr class="odd">
     <td><code>:archive</code></td>
     <td>Use to <a href="https://msdn.microsoft.com/en-us/powershell/dsc/archiveresource">unpack archive (.zip) files</a>.</td>
     </tr>
-    <tr>
+    <tr class="even">
     <td><code>:environment</code></td>
     <td>Use to <a href="https://msdn.microsoft.com/en-us/powershell/dsc/environmentresource">manage system environment variables</a>.</td>
     </tr>
-    <tr>
+    <tr class="odd">
     <td><code>:file</code></td>
     <td>Use to <a href="https://msdn.microsoft.com/en-us/powershell/dsc/fileresource">manage files and directories</a>.</td>
     </tr>
-    <tr>
+    <tr class="even">
     <td><code>:group</code></td>
     <td>Use to <a href="https://msdn.microsoft.com/en-us/powershell/dsc/groupresource">manage local groups</a>.</td>
     </tr>
-    <tr>
+    <tr class="odd">
     <td><code>:log</code></td>
     <td>Use to <a href="https://msdn.microsoft.com/en-us/powershell/dsc/logresource">log configuration messages</a>.</td>
     </tr>
-    <tr>
+    <tr class="even">
     <td><code>:package</code></td>
     <td>Use to <a href="https://msdn.microsoft.com/en-us/powershell/dsc/packageresource">install and manage packages</a>.</td>
     </tr>
-    <tr>
+    <tr class="odd">
     <td><code>:registry</code></td>
     <td>Use to <a href="https://msdn.microsoft.com/en-us/powershell/dsc/registryresource">manage registry keys and registry key values</a>.</td>
     </tr>
-    <tr>
+    <tr class="even">
     <td><code>:script</code></td>
     <td>Use to <a href="https://msdn.microsoft.com/en-us/powershell/dsc/scriptresource">run PowerShell script blocks</a>.</td>
     </tr>
-    <tr>
+    <tr class="odd">
     <td><code>:service</code></td>
     <td>Use to <a href="https://msdn.microsoft.com/en-us/powershell/dsc/serviceresource">manage services</a>.</td>
     </tr>
-    <tr>
+    <tr class="even">
     <td><code>:user</code></td>
     <td>Use to <a href="https://msdn.microsoft.com/en-us/powershell/dsc/userresource">manage local user accounts</a>.</td>
     </tr>
-    <tr>
+    <tr class="odd">
     <td><code>:windowsfeature</code></td>
     <td>Use to <a href="https://msdn.microsoft.com/en-us/powershell/dsc/windowsfeatureresource">add or remove Windows features and roles</a>.</td>
     </tr>
-    <tr>
+    <tr class="even">
     <td><code>:windowsoptionalfeature</code></td>
     <td>Use to configure Microsoft Windows optional features.</td>
     </tr>
-    <tr>
+    <tr class="odd">
     <td><code>:windowsprocess</code></td>
     <td>Use to <a href="https://msdn.microsoft.com/en-us/powershell/dsc/windowsprocessresource">configure Windows processes</a>.</td>
     </tr>
@@ -11262,23 +11262,23 @@ When Chef Client is run in audit-mode, the following happens:
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td><strong>chef-client Run ID</strong></td>
 <td>Chef Client run identifier is associated with each audit.</td>
 </tr>
-<tr>
+<tr class="even">
 <td><strong>Configure the Node</strong></td>
 <td>If audit-mode is run as part of the full chef-client run, audit-mode occurs after Chef Client has finished converging all resources in the resource collection.</td>
 </tr>
-<tr>
+<tr class="odd">
 <td><strong>Audit node based on controls in cookbooks</strong></td>
 <td>Each <code>control_group</code> and <code>control</code> block found in any recipe that was part of the run-list of for the node is evaluated, with each expression in each <code>control</code> block verified against the state of the node.</td>
 </tr>
-<tr>
+<tr class="even">
 <td><strong>Upload audit data to the Chef server</strong></td>
 <td>When audit-mode mode is complete, the data is uploaded to the Chef server.</td>
 </tr>
-<tr>
+<tr class="odd">
 <td><strong>Send to Chef Analytics</strong></td>
 <td>Most of this data is passed to the Chef Analytics platform for further analysis, such as rules processing (for notification events triggered by expected or unexpected audit outcomes) and visibility from the actions web user interface.</td>
 </tr>
@@ -11348,21 +11348,21 @@ are available for directories:
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td><p><code>be_directory</code></p></td>
 <td><p>Use to test if directory exists. For example:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb1-1"><a href="#cb1-1"></a>it <span class="st">&#39;should be a directory&#39;</span> <span class="kw">do</span></span>
 <span id="cb1-2"><a href="#cb1-2"></a>  expect(file(<span class="st">&#39;/var/directory&#39;</span>)).to be_directory</span>
 <span id="cb1-3"><a href="#cb1-3"></a><span class="kw">end</span></span></code></pre></div></td>
 </tr>
-<tr>
+<tr class="even">
 <td><p><code>be_linked_to</code></p></td>
 <td><p>Use to test if a subject is linked to the named directory. For example:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb2-1"><a href="#cb2-1"></a>it <span class="st">&#39;should be linked to the named directory&#39;</span> <span class="kw">do</span></span>
 <span id="cb2-2"><a href="#cb2-2"></a>  expect(file(<span class="st">&#39;/etc/directory&#39;</span>)).to be_linked_to(<span class="st">&#39;/etc/some/other/directory&#39;</span>)</span>
 <span id="cb2-3"><a href="#cb2-3"></a><span class="kw">end</span></span></code></pre></div></td>
 </tr>
-<tr>
+<tr class="odd">
 <td><p><code>be_mounted</code></p></td>
 <td><p>Use to test if a directory is mounted. For example:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb3-1"><a href="#cb3-1"></a>it <span class="st">&#39;should be mounted&#39;</span> <span class="kw">do</span></span>
@@ -11403,7 +11403,7 @@ for files:
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td><p><code>be_executable</code></p></td>
 <td><p>Use to test if a file is executable. For example:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb1-1"><a href="#cb1-1"></a>it <span class="st">&#39;should be executable&#39;</span> <span class="kw">do</span></span>
@@ -11422,42 +11422,42 @@ for files:
 <span id="cb4-2"><a href="#cb4-2"></a>  expect(file(<span class="st">&#39;/etc/file&#39;</span>)).to be_executable.by_user(<span class="st">&#39;foo&#39;</span>)</span>
 <span id="cb4-3"><a href="#cb4-3"></a><span class="kw">end</span></span></code></pre></div></td>
 </tr>
-<tr>
+<tr class="even">
 <td><p><code>be_file</code></p></td>
 <td><p>Use to test if a file exists. For example:</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb5-1"><a href="#cb5-1"></a>it <span class="st">&#39;should be a file&#39;</span> <span class="kw">do</span></span>
 <span id="cb5-2"><a href="#cb5-2"></a>  expect(file(<span class="st">&#39;/etc/file&#39;</span>)).to be_file</span>
 <span id="cb5-3"><a href="#cb5-3"></a><span class="kw">end</span></span></code></pre></div></td>
 </tr>
-<tr>
+<tr class="odd">
 <td><p><code>be_grouped_into</code></p></td>
 <td><p>Use to test if a file is grouped into the named group. For example:</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb6-1"><a href="#cb6-1"></a>it <span class="st">&#39;should be grouped into foo&#39;</span> <span class="kw">do</span></span>
 <span id="cb6-2"><a href="#cb6-2"></a>  expect(file(<span class="st">&#39;/etc/file&#39;</span>)).to be_grouped_into(<span class="st">&#39;foo&#39;</span>)</span>
 <span id="cb6-3"><a href="#cb6-3"></a><span class="kw">end</span></span></code></pre></div></td>
 </tr>
-<tr>
+<tr class="even">
 <td><p><code>be_linked_to</code></p></td>
 <td><p>Use to test if a subject is linked to the named file. For example:</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb7-1"><a href="#cb7-1"></a>it <span class="st">&#39;should be linked to the named file&#39;</span> <span class="kw">do</span></span>
 <span id="cb7-2"><a href="#cb7-2"></a>  expect(file(<span class="st">&#39;/etc/file&#39;</span>)).to be_linked_to(<span class="st">&#39;/etc/some/other/file&#39;</span>)</span>
 <span id="cb7-3"><a href="#cb7-3"></a><span class="kw">end</span></span></code></pre></div></td>
 </tr>
-<tr>
+<tr class="odd">
 <td><p><code>be_mode</code></p></td>
 <td><p>Use to test if a file is set to the specified mode. For example:</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb8-1"><a href="#cb8-1"></a>it <span class="st">&#39;should be mode 440&#39;</span> <span class="kw">do</span></span>
 <span id="cb8-2"><a href="#cb8-2"></a>  expect(file(<span class="st">&#39;/etc/file&#39;</span>)).to be_mode(<span class="dv">440</span>)</span>
 <span id="cb8-3"><a href="#cb8-3"></a><span class="kw">end</span></span></code></pre></div></td>
 </tr>
-<tr>
+<tr class="even">
 <td><p><code>be_owned_by</code></p></td>
 <td><p>Use to test if a file is owned by the named owner. For example:</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb9-1"><a href="#cb9-1"></a>it <span class="st">&#39;should be owned by the root user&#39;</span> <span class="kw">do</span></span>
 <span id="cb9-2"><a href="#cb9-2"></a>  expect(file(<span class="st">&#39;/etc/sudoers&#39;</span>)).to be_owned_by(<span class="st">&#39;root&#39;</span>)</span>
 <span id="cb9-3"><a href="#cb9-3"></a><span class="kw">end</span></span></code></pre></div></td>
 </tr>
-<tr>
+<tr class="odd">
 <td><p><code>be_readable</code></p></td>
 <td><p>Use to test if a file is readable. For example:</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb10-1"><a href="#cb10-1"></a>it <span class="st">&#39;should be readable&#39;</span> <span class="kw">do</span></span>
@@ -11476,28 +11476,28 @@ for files:
 <span id="cb13-2"><a href="#cb13-2"></a>  expect(file(<span class="st">&#39;/etc/file&#39;</span>)).to be_readable.by_user(<span class="st">&#39;foo&#39;</span>)</span>
 <span id="cb13-3"><a href="#cb13-3"></a><span class="kw">end</span></span></code></pre></div></td>
 </tr>
-<tr>
+<tr class="even">
 <td><p><code>be_socket</code></p></td>
 <td><p>Use to test if a file exists as a socket. For example:</p>
 <div class="sourceCode" id="cb14"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb14-1"><a href="#cb14-1"></a>it <span class="st">&#39;should be a socket&#39;</span> <span class="kw">do</span></span>
 <span id="cb14-2"><a href="#cb14-2"></a>  expect(file(<span class="st">&#39;/var/file.sock&#39;</span>)).to be_socket</span>
 <span id="cb14-3"><a href="#cb14-3"></a><span class="kw">end</span></span></code></pre></div></td>
 </tr>
-<tr>
+<tr class="odd">
 <td><p><code>be_symlink</code></p></td>
 <td><p>Use to test if a file exists as a symbolic link. For example:</p>
 <div class="sourceCode" id="cb15"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb15-1"><a href="#cb15-1"></a>it <span class="st">&#39;should be a symlink&#39;</span> <span class="kw">do</span></span>
 <span id="cb15-2"><a href="#cb15-2"></a>  expect(file(<span class="st">&#39;/etc/file&#39;</span>)).to be_symlink</span>
 <span id="cb15-3"><a href="#cb15-3"></a><span class="kw">end</span></span></code></pre></div></td>
 </tr>
-<tr>
+<tr class="even">
 <td><p><code>be_version</code></p></td>
 <td><p>Microsoft Windows only. Use to test if a file is the specified version. For example:</p>
 <div class="sourceCode" id="cb16"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb16-1"><a href="#cb16-1"></a>it <span class="st">&#39;should be version 1.2&#39;</span> <span class="kw">do</span></span>
 <span id="cb16-2"><a href="#cb16-2"></a>  expect(file(<span class="st">&#39;C:\\Windows\\path\\to\\file&#39;</span>)).to be_version(<span class="st">&#39;1.2&#39;</span>)</span>
 <span id="cb16-3"><a href="#cb16-3"></a><span class="kw">end</span></span></code></pre></div></td>
 </tr>
-<tr>
+<tr class="odd">
 <td><p><code>be_writable</code></p></td>
 <td><p>Use to test if a file is writable. For example:</p>
 <div class="sourceCode" id="cb17"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb17-1"><a href="#cb17-1"></a>it <span class="st">&#39;should be writable&#39;</span> <span class="kw">do</span></span>
@@ -11516,7 +11516,7 @@ for files:
 <span id="cb20-2"><a href="#cb20-2"></a>  expect(file(<span class="st">&#39;/etc/file&#39;</span>)).to be_writable.by_user(<span class="st">&#39;foo&#39;</span>)</span>
 <span id="cb20-3"><a href="#cb20-3"></a><span class="kw">end</span></span></code></pre></div></td>
 </tr>
-<tr>
+<tr class="even">
 <td><p><code>contain</code></p></td>
 <td><p>Use to test if a file contains specific contents. For example:</p>
 <div class="sourceCode" id="cb21"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb21-1"><a href="#cb21-1"></a>it <span class="st">&#39;should contain docs.chef.io&#39;</span> <span class="kw">do</span></span>
@@ -11544,7 +11544,7 @@ matchers are available:
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td><p><code>be_installed</code></p></td>
 <td><p>Use to test if the named package is installed. For example:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb1-1"><a href="#cb1-1"></a>it <span class="st">&#39;should be installed&#39;</span> <span class="kw">do</span></span>
@@ -11575,7 +11575,7 @@ test if a port is listening. The following matchers are available:
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td><p><code>be_listening</code></p></td>
 <td><p>Use to test if the named port is listening. For example:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb1-1"><a href="#cb1-1"></a>it <span class="st">&#39;should be listening&#39;</span> <span class="kw">do</span></span>
@@ -11624,7 +11624,7 @@ following matchers are available:
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td><p><code>be_enabled</code></p></td>
 <td><p>Use to test if the named service is enabled (i.e. will start up automatically). For example:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb1-1"><a href="#cb1-1"></a>it <span class="st">&#39;should be enabled&#39;</span> <span class="kw">do</span></span>
@@ -11635,14 +11635,14 @@ following matchers are available:
 <span id="cb2-2"><a href="#cb2-2"></a>  expect(service(<span class="st">&#39;ntpd&#39;</span>)).to be_enabled.with_level(<span class="dv">3</span>)</span>
 <span id="cb2-3"><a href="#cb2-3"></a><span class="kw">end</span></span></code></pre></div></td>
 </tr>
-<tr>
+<tr class="even">
 <td><p><code>be_installed</code></p></td>
 <td><p>Microsoft Windows only. Use to test if the named service is installed on the Microsoft Windows platform. For example:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb3-1"><a href="#cb3-1"></a>it <span class="st">&#39;should be installed&#39;</span> <span class="kw">do</span></span>
 <span id="cb3-2"><a href="#cb3-2"></a>  expect(service(<span class="st">&#39;DNS Client&#39;</span>)).to be_installed</span>
 <span id="cb3-3"><a href="#cb3-3"></a><span class="kw">end</span></span></code></pre></div></td>
 </tr>
-<tr>
+<tr class="odd">
 <td><p><code>be_running</code></p></td>
 <td><p>Use to test if the named service is running. For example:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb4-1"><a href="#cb4-1"></a>it <span class="st">&#39;should be running&#39;</span> <span class="kw">do</span></span>
@@ -11661,14 +11661,14 @@ following matchers are available:
 <span id="cb7-2"><a href="#cb7-2"></a>  expect(service(<span class="st">&#39;ntpd&#39;</span>)).to be_running.under(<span class="st">&#39;upstart&#39;</span>)</span>
 <span id="cb7-3"><a href="#cb7-3"></a><span class="kw">end</span></span></code></pre></div></td>
 </tr>
-<tr>
+<tr class="even">
 <td><p><code>be_monitored_by</code></p></td>
 <td><p>Use to test if the named service is being monitored by the named monitoring application. For example:</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb8-1"><a href="#cb8-1"></a>it <span class="st">&#39;should be monitored by&#39;</span> <span class="kw">do</span></span>
 <span id="cb8-2"><a href="#cb8-2"></a>  expect(service(<span class="st">&#39;ntpd&#39;</span>)).to be_monitored_by(<span class="st">&#39;monit&#39;</span>)</span>
 <span id="cb8-3"><a href="#cb8-3"></a><span class="kw">end</span></span></code></pre></div></td>
 </tr>
-<tr>
+<tr class="odd">
 <td><p><code>have_start_mode</code></p></td>
 <td><p>Microsoft Windows only. Use to test if the named service's startup mode is correct on the Microsoft Windows platform. For example:</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb9-1"><a href="#cb9-1"></a>it <span class="st">&#39;should start manually&#39;</span> <span class="kw">do</span></span>
@@ -13692,12 +13692,12 @@ platform:
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td><code>Chef::Provider::Service::Aix</code></td>
 <td><code>service</code></td>
 <td>The provider that is used with the AIX platforms. Use the <code>service</code> short name to start, stop, and restart services with System Resource Controller (SRC).</td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>Chef::Provider::Service::AixInit</code></td>
 <td><code>service</code></td>
 <td>The provider that is used to manage BSD-based init services on AIX.</td>
@@ -14869,7 +14869,7 @@ The following property is new for the **mount** resource:
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td><code>fsck_device</code></td>
 <td>The fsck device on the Solaris platform. Default value: <code>-</code>.</td>
 </tr>
@@ -14892,12 +14892,12 @@ The following settings are new:
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td><p><code>issues_url</code></p></td>
 <td><p>The URL for the location in which a cookbook's issue tracking is maintained. This setting is also used by Chef Supermarket. For example:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb1-1"><a href="#cb1-1"></a>source_url <span class="st">&quot;https://github.com/chef-cookbooks/chef-client/issues&quot;</span></span></code></pre></div></td>
 </tr>
-<tr>
+<tr class="even">
 <td><p><code>source_url</code></p></td>
 <td><p>The URL for the location in which a cookbook's source code is maintained. This setting is also used by Chef Supermarket. For example:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb2-1"><a href="#cb2-1"></a>source_url <span class="st">&quot;https://github.com/chef-cookbooks/chef-client&quot;</span></span></code></pre></div></td>
@@ -15034,11 +15034,11 @@ The following properties are new for the **user** resource:
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td><code>iterations</code></td>
 <td>The number of iterations for a password with a SALTED-SHA512-PBKDF2 shadow hash.</td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>salt</code></td>
 <td>The salt value for a password shadow hash. macOS version 10.7 uses SALTED-SHA512 and version 10.8 (and higher) uses SALTED-SHA512-PBKDF2 to calculate password shadow hashes.</td>
 </tr>
@@ -15134,19 +15134,19 @@ and now default to `true`:
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td><code>disable_event_logger</code></td>
 <td>Enable or disable sending events to the Microsoft Windows "Application" event log. When <code>false</code>, events are sent to the Microsoft Windows "Application" event log at the start and end of a chef-client run, and also if a chef-client run fails. Set to <code>true</code> to disable event logging. Default value: <code>true</code>.</td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>no_lazy_load</code></td>
 <td>Download all cookbook files and templates at the beginning of Chef Client run. Default value: <code>true</code>.</td>
 </tr>
-<tr>
+<tr class="odd">
 <td><code>file_staging_uses_destdir</code></td>
 <td>How file staging (via temporary files) is done. When <code>true</code>, temporary files are created in the directory in which files will reside. When <code>false</code>, temporary files are created under <code>ENV['TMP']</code>. Default value: <code>true</code>.</td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>local_key_generation</code></td>
 <td>Use to specify whether the Chef server or chef-client will generate the private/public key pair. When <code>true</code>, Chef Client will generate the key pair, and then send the public key to the Chef server. Default value: <code>true</code>.</td>
 </tr>
@@ -15238,7 +15238,7 @@ The following property is new for the **git** resource:
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td><p><code>environment</code></p></td>
 <td><p>A Hash of environment variables in the form of <code>({"ENV_VARIABLE" =&gt; "VALUE"})</code>. (These variables must exist for a command to be run successfully.)</p>
 {{< note >}}

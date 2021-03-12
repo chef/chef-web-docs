@@ -649,15 +649,15 @@ handling user interactions:
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td><code>ui.ask(*args, &amp;block)</code></td>
 <td></td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>ui.ask_question(question, opts={})</code></td>
 <td>Use to ask a user the question contained in <code>question</code>. If <code>:default =&gt; default_value</code> is passed as the second argument, <code>default_value</code> will be used if the user does not provide an answer. This method will respect the <code>--default</code> command-line option.</td>
 </tr>
-<tr>
+<tr class="odd">
 <td><p><code>ui.color(string, *colors)</code></p></td>
 <td><p>Use to specify a color. For example, from the <code>knife rackspace server list</code> subcommand:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb1-1"><a href="#cb1-1"></a>server_list = [</span>
@@ -678,63 +678,63 @@ handling user interactions:
 <span id="cb2-6"><a href="#cb2-6"></a>  puts <span class="st">&quot;</span><span class="ot">#{</span>ui.color(<span class="st">&quot;SSH Key&quot;</span>, <span class="st">:cyan</span>)<span class="ot">}</span><span class="st">: </span><span class="ot">#{</span>server.key_name<span class="ot">}</span><span class="st">&quot;</span></span>
 <span id="cb2-7"><a href="#cb2-7"></a>print <span class="st">&quot;\n</span><span class="ot">#{</span>ui.color(<span class="st">&quot;Waiting for server&quot;</span>, <span class="st">:magenta</span>)<span class="ot">}</span><span class="st">&quot;</span></span></code></pre></div></td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>ui.color?()</code></td>
 <td>Indicates that colored output should be used. (Colored output can only be used when output is sent to a terminal.)</td>
 </tr>
-<tr>
+<tr class="odd">
 <td><code>ui.confirm(question, append_instructions=true)</code></td>
 <td>Use to ask a Y/N question. If the user responds with <code>N</code>, immediately exit with status code 3.</td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>ui.edit_data(data, parse_output=true)</code></td>
 <td>Use to edit data. This opens the $EDITOR.</td>
 </tr>
-<tr>
+<tr class="odd">
 <td><code>ui.edit_object(klass, name)</code></td>
 <td></td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>ui.error</code></td>
 <td>Use to present an error to the user.</td>
 </tr>
-<tr>
+<tr class="odd">
 <td><code>ui.fatal</code></td>
 <td>Use to present a fatal error to the user.</td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>ui.highline</code></td>
 <td>Use to provide direct access to the <a href="http://highline.rubyforge.org/doc/">Highline object</a> used by many <code>ui</code> methods.</td>
 </tr>
-<tr>
+<tr class="odd">
 <td><code>ui.info</code></td>
 <td>Use to present a message to a user.</td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>ui.interchange</code></td>
 <td>Use to determine if the output is a data interchange format such as JSON or YAML.</td>
 </tr>
-<tr>
+<tr class="odd">
 <td><code>ui.list(*args)</code></td>
 <td></td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>ui.msg(message)</code></td>
 <td>Use to present a message to the user.</td>
 </tr>
-<tr>
+<tr class="odd">
 <td><code>ui.output(data)</code></td>
 <td>Use to present a data structure to the user. This method will respect the output requested when the <code>-F</code> command-line option is used. The output will use the generic default presenter.</td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>ui.pretty_print(data)</code></td>
 <td>Use to enable pretty-print output for JSON data.</td>
 </tr>
-<tr>
+<tr class="odd">
 <td><code>ui.use_presenter(presenter_class)</code></td>
 <td>Use to specify a custom output presenter.</td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>ui.warn(message)</code></td>
 <td>Use to present a warning to the user.</td>
 </tr>
