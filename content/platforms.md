@@ -459,8 +459,7 @@ Backend, the high-availability solution for Chef Infra Server:
 
 #### Commercial Support
 
-The following table lists the commercially-supported platforms for Chef
-Manage:
+The following table lists the commercially-supported platforms for Chef Manage:
 
 <table>
 <colgroup>
@@ -478,6 +477,11 @@ Manage:
 <tbody>
 <tr>
 <td>CentOS</td>
+<td><code>x86_64</code></td>
+<td><code>6.x</code>, <code>7.x</code>, <code>8.x</code></td>
+</tr>
+<tr>
+<td>Oracle Enterprise Linux</td>
 <td><code>x86_64</code></td>
 <td><code>6.x</code>, <code>7.x</code>, <code>8.x</code></td>
 </tr>
