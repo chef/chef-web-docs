@@ -35,7 +35,7 @@ Many of these platforms are forks, clones, or otherwise derivative of platforms 
 
 ## Platforms
 
-The sections below list the platforms that Chef software
+The sections below list the platforms that Chef Software Inc. supports.
 
 ### Chef Infra Client
 
