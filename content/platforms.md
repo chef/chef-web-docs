@@ -294,8 +294,7 @@ versions for the Chef Workstation:
 
 #### Commercial Support
 
-The following table lists the commercially-supported platforms and
-versions for Chef InSpec:
+The following table lists the commercially-supported platforms and versions for Chef InSpec:
 
 <table>
 <colgroup>
@@ -313,7 +312,7 @@ versions for Chef InSpec:
 <tbody>
 <tr>
 <td>Amazon Linux</td>
-<td><code>x86_64</code>, <code>aarch64</code></td>
+<td><code>x86_64</code>, <code>aarch64</code> (2.x only)</td>
 <td><code>2013+ and 2.0</code></td>
 </tr>
 <tr>
@@ -339,7 +338,7 @@ versions for Chef InSpec:
 <tr>
 <td>SUSE Enterprise Linux Server</td>
 <td><code>x86_64</code></td>
-<td><code>12</code>, <code>15</code></td>
+<td><code>12.x</code>, <code>15.x</code></td>
 </tr>
 <tr>
 <td>Ubuntu</td>
