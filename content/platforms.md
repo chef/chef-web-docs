@@ -515,6 +515,10 @@ according to those vendors' terms:
 </thead>
 <tbody>
 <tr>
+<td>Amazon Linux</td>
+<td>End of Life</td>
+</tr>
+<tr>
 <td>Apple macOS</td>
 <td>Apple generally supports the last three macOS releases, for example: 10.14, 10.15, and 11.x. Apple does not officially publish EOL dates.</td>
 </tr>
