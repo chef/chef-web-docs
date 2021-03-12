@@ -1,5 +1,4 @@
-The following table lists the commercially-supported platforms and
-versions for the Chef Infra Server:
+The following table lists the commercially-supported platforms and versions for the Chef Infra Server:
 
 <table>
 <colgroup>
@@ -18,22 +17,22 @@ versions for the Chef Infra Server:
 <tr class="odd">
 <td>CentOS</td>
 <td><code>x86_64</code></td>
-<td><code>6.x</code>, <code>7.x</code>, <code>8.x</code></td>
+<td><code>7.x</code>, <code>8.x</code></td>
 </tr>
 <tr class="even">
 <td>Oracle Enterprise Linux</td>
 <td><code>x86_64</code></td>
-<td><code>6.x</code>, <code>7.x</code>, <code>8.x</code></td>
+<td><code>7.x</code>, <code>8.x</code></td>
 </tr>
 <tr class="odd">
 <td>Red Hat Enterprise Linux</td>
 <td><code>x86_64</code></td>
-<td><code>6.x</code>, <code>7.x</code>, <code>8.x</code></td>
+<td><code>7.x</code>, <code>8.x</code></td>
 </tr>
 <tr class="even">
 <td>SUSE Enterprise Linux Server</td>
 <td><code>x86_64</code></td>
-<td><code>12</code>, <code>15</code></td>
+<td><code>12.x</code>, <code>15.x</code></td>
 </tr>
 <tr class="odd">
 <td>Ubuntu</td>
