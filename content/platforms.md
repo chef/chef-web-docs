@@ -578,6 +578,11 @@ that platform and version.
 </thead>
 <tbody>
 <tr>
+<td>Amazon Linux 201X</td>
+<td>Dec 31st, 2020</td>
+<td>Dec 31st, 2020</td>
+</tr>
+<tr>
 <td>Apple macOS 10.13</td>
 <td>Nov 13th, 2020</td>
 <td>Nov 13th, 2020</td>
