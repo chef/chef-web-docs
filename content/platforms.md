@@ -19,7 +19,7 @@ support, see the [Supported Versions](/versions/) page.
 
 ## Support
 
-We offer two levels of support for platforms (operating systems), [Commercial Support] and [Community Support].
+We offer two levels of support for platforms (operating systems), [Commercial Support]({{< relref "#commercial-support">}}) and [Community Support]({{< relref "#community-support" >}}).
 
 ### Commercial Support
 
