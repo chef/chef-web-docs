@@ -477,15 +477,15 @@ By service role, access requirements are as follows:
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>PostgreSQL</td>
 <td>All backend cluster members and all Chef Infra Server frontend group nodes.</td>
 </tr>
-<tr class="even">
+<tr>
 <td>Elasticsearch</td>
 <td>All backend cluster members and all Chef Infra Server frontend group nodes.</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>etcd</td>
 <td>All backend cluster members and all Chef Infra Server frontend group nodes.</td>
 </tr>
@@ -515,19 +515,19 @@ files on disk:
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><code>/etc/chef-backend/secrets.json</code></td>
 <td><code>root</code></td>
 <td><code>chef_pgsql</code></td>
 <td><code>0640</code></td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>/var/opt/chef-backend/leaderl/data/sys.config</code></td>
 <td><code>chef_pgsql</code></td>
 <td><code>chef_pgsql</code></td>
 <td><code>0600</code></td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>/var/opt/chef-backend/PostgreSQL/9.5/recovery.conf</code></td>
 <td><code>chef_pgsql</code></td>
 <td><code>chef_pgsql</code></td>
@@ -551,23 +551,23 @@ account under which the service runs as listed the second column:
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><code>postgresql</code></td>
 <td><code>chef_pgsql</code></td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>elasticsearch</code></td>
 <td><code>chef-backend</code></td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>etcd</code></td>
 <td><code>chef-backend</code></td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>leaderl</code></td>
 <td><code>chef_pgsql</code></td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>epmd</code></td>
 <td><code>chef_pgsql</code> (or first user launching an erlang process)</td>
 </tr>

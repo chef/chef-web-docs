@@ -35,27 +35,27 @@ Chef Infra Server deployment and how they relate to one another.
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><p>Bookshelf</p></td>
 <td><p>{{< readFile_shortcode file="chef_server_component_bookshelf.md" >}}</p>
 <p>All cookbooks are stored in a dedicated repository.</p></td>
 </tr>
-<tr class="even">
+<tr>
 <td>Erchef</td>
 <td>{{< readFile_shortcode file="chef_server_component_erchef.md" >}}</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>Messages</td>
 <td>
   <p>{{< readFile_shortcode file="chef_server_component_elasticsearch.md" >}}</p>
   <p>All messages are added to a dedicated search index repository.</p>
 </td>
 </tr>
-<tr class="even">
+<tr>
 <td>Nginx</td>
 <td>{{< readFile_shortcode file="chef_server_component_nginx.md" >}}</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>PostgreSQL</td>
 <td>{{< readFile_shortcode file="chef_server_component_postgresql.md" >}}</td>
 </tr>

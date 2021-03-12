@@ -16,7 +16,7 @@ firewalls that are in use:
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><p>80, 443, 9683</p></td>
 <td><p><strong>nginx</strong></p>
 <p>{{ readFile "themes/docs-new/layouts/shortcodes/server_services_nginx.md" | markdownify }}</p>
@@ -28,19 +28,19 @@ firewalls that are in use:
 </div></td>
 <td><p>yes</p></td>
 </tr>
-<tr class="even">
+<tr>
 <td><p>9463</p></td>
 <td><p><strong>oc_bifrost</strong></p>
 <p>{{ readFile "themes/docs-new/layouts/shortcodes/server_services_bifrost.md" | markdownify }}</p></td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr>
 <td><p>9090</p></td>
 <td><p><strong>oc-id</strong></p>
 <p>{{ readFile "themes/docs-new/layouts/shortcodes/server_services_oc_id.md" | markdownify }}</p></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr>
 <td><p>8000</p></td>
 <td><p><strong>opscode-erchef</strong></p>
 <p>{{ readFile "themes/docs-new/layouts/shortcodes/server_services_erchef.md" | markdownify }}</p></td>

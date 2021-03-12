@@ -495,7 +495,7 @@ The following group accounts are required:
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><code>opscode</code></td>
 <td>The group name under which services will run.</td>
 </tr>
@@ -518,11 +518,11 @@ The following user accounts are required:
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><code>opscode</code></td>
 <td>The user name under which services will run.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>opscode-pgsql</code></td>
 <td>The user name for PostgreSQL. (This is only required on the back end servers in a high availability setup.)</td>
 </tr>

@@ -146,27 +146,27 @@ indicate the result of an evaluation:
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><code>.</code></td>
 <td>The file does not have any issues.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>C</code></td>
 <td>The file has an issue with convention.</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>E</code></td>
 <td>The file contains an error.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>F</code></td>
 <td>The file contains a fatal error.</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>W</code></td>
 <td>The file contains a warning.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>R</code></td>
 <td>The file contains code that should be refactored.</td>
 </tr>

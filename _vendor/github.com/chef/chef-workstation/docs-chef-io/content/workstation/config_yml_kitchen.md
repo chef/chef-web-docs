@@ -54,149 +54,149 @@ Chef-specific settings:
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><code>attributes</code></td>
 <td>Chef attributes for use in the suite</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>chef_client_path</code></td>
 <td>Chef Infra Client provisioner only.</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>chef_metadata_url</code></td>
 <td><strong>This will be deprecated in a future version.</strong></td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>chef_omnibus_install_options</code></td>
 <td>Use to specify the package to be installed. Possible values: <code>-P chef</code> (for Chef Infra Client) and <code>-P chef-workstation</code> (for the Chef Infra Client that is packaged as part of Chef Workstation). Use <code>-n</code> to specify the nightly build. For example: <code>-P chef-workstation</code> or <code>-n -P chef-workstation</code>. <strong>This will be deprecated in a future version.</strong> See the <code>product_name</code>, <code>product_version</code>, and <code>channel</code> settings instead.</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>chef_omnibus_root</code></td>
 <td>Default value: <code>/etc/opt</code> for UNIX and Linux, <code>$env:systemdrive\\opscode\\chef</code> on Microsoft Windows.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>chef_omnibus_url</code></td>
 <td>The URL for an <code>install.sh</code> script that will install Chef Infra Client on the machine under test. Default value: <code>https://www.chef.io/chef/install.sh</code>. <strong>This will be deprecated in a future version.</strong></td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>chef_solo_path</code></td>
 <td>chef-solo provisioner only.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>chef_zero_host</code></td>
 <td>Chef Infra Client provisioner only.</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>chef_zero_port</code></td>
 <td>Chef Infra Client provisioner only. The port on which chef-zero is to listen.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><p><code>client_rb</code></p></td>
 <td><p>Chef Infra Client provisioner only. A list of client.rb file settings. For example:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">client_rb</span><span class="kw">:</span></span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="at">  </span><span class="fu">log_level</span><span class="kw">:</span><span class="at"> :warn</span></span></code></pre></div></td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>clients_path</code></td>
 <td>The relative path to the directory in which client data is located. This data must be defined as JSON.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>cookbook_files_glob</code></td>
 <td>A file glob (pattern) that matches files considered to be part of the cookbook. (Typically, this value does not need to be modified from the default.)</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>data_path</code></td>
 <td>Use to specify the path from which non-cookbook files are copied to a Kitchen instance.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>data_bags_path</code></td>
 <td>The relative path to a directory in which data bags and data bag items are defined. This data must be structured as if it were in the chef-repo.</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>deprecations_as_errors</code></td>
 <td>Set to <span class="title-ref">true</span> to treat deprecation warning messages as error messages.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>driver</code></td>
 <td>Use to specify a driver for a platform. This will override the default driver.</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>enforce_idempotency</code></td>
 <td>Use with <code>multiple_converge</code> &gt; 1. Set to <code>true</code> to force test-kitchen to fail if last converge has any updated resources.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>encrypted_data_bag_secret_key_path</code></td>
 <td>The path to an RSA key file that is used to decrypt encrypted data bag items.</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>environments_path</code></td>
 <td>The relative path to the directory in which environment data is located. This data must be defined as JSON.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>http_proxy</code></td>
 <td>The proxy server for HTTP connections.</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>https_proxy</code></td>
 <td>The proxy server for HTTPS connections.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>no_proxy</code></td>
 <td>The comma-separated exception list of host patterns to exclude from proxying.</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>install_msi_url</code></td>
 <td>An alternate URL for a Windows MSI package that will install Chef Infra Client on the machine under test. <strong>This will be deprecated in a future version.</strong> Use the <code>download_url</code> setting instead.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>json_attributes</code></td>
 <td>Chef Infra Client provisioner only.</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>log_file</code></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>multiple_converge</code></td>
 <td>Number of times to converge the node. Defaults to 1.</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>nodes_path</code></td>
 <td>The relative path to the directory in which node data is located. This data must be defined as JSON.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>require_chef_omnibus</code></td>
 <td>Use to install the latest version of Chef Infra Client on a node. Set to <code>true</code> to install the latest version, <code>false</code> to not install Chef Infra Client (assumes the box already has it installed), or a version specifier like <code>15.3.12</code> to install a particular version, or simply <code>15</code> to install the latest 15.x package. When set to <code>true</code> or a version number, the <code>chef_omnibus_url</code> may be used to specify the URL of the <code>install.sh</code> that installs the specified version of Chef Infra Client. Default value: <code>true</code>. <strong>This will be deprecated in a future version.</strong> See the <code>product_version</code> and <code>install_strategy</code> settings.</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>roles_path</code></td>
 <td>The relative path to the directory in which role data is located. This data must be defined as JSON.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>root_path</code></td>
 <td>The directory in which Kitchen will stage all content on the target node. This directory should be large enough to store all the content and must be writable. (Typically, this value does not need to be modified from the default value.) Default value: <code>/tmp/kitchen</code>.</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>ruby_bindir</code></td>
 <td>Chef Infra Client provisioner only.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>run_list</code></td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>solo_rb</code></td>
 <td>chef-solo provisioner only.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>retry_on_exit_code</code></td>
 <td>Takes an array of exit codes to indicate that kitchen should retry the converge command. Default value: <code>[35, 213]</code>.</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>max_retries</code></td>
 <td>Number of times to retry the converge before passing along the failed status. Defaults value: 1.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>wait_for_retry</code></td>
 <td>Number of seconds to wait between converge attempts. Default value: 30.</td>
 </tr>
@@ -224,55 +224,55 @@ kitchen.yml file when the provisioner is chef-zero or chef-solo.
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><code>product_name</code></td>
 <td><code>chef</code> or <code>chef-workstation</code>. This setting must be specified in order to use the new settings. Using this setting overrides Test Kitchen's default behavior based on the <code>require_chef_omnibus</code> setting.</td>
 <td></td>
 <td><code>chef_omnibus_install_options</code></td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>product_version</code></td>
 <td>Product version number. Supports partial version numbers.</td>
 <td><code>latest</code></td>
 <td><code>require_chef_omnibus</code></td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>channel</code></td>
 <td>Artifact repository name. <code>stable</code>, <code>current</code> or <code>unstable</code>.</td>
 <td><code>stable</code></td>
 <td><code>chef_omnibus_install_options</code></td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>install_strategy</code></td>
 <td>Product install strategy. <code>once</code> (Don't install if any product installation detected), <code>always</code> or <code>skip</code>.</td>
 <td><code>once</code></td>
 <td><code>require_chef_omnibus</code></td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>download_url</code></td>
 <td>Direct package URL. Supports all platforms.</td>
 <td></td>
 <td><code>install_msi_url</code></td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>checksum</code></td>
 <td>Optional setting when using <code>download_url</code>. Validates SHA256 checksum after download.</td>
 <td></td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>platform</code></td>
 <td>Override platform.</td>
 <td>&lt;auto detected&gt;</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>platform_version</code></td>
 <td>Override platform platform.</td>
 <td>&lt;auto detected&gt;</td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>architecture</code></td>
 <td>Override platform architecture.</td>
 <td>&lt;auto detected&gt;</td>
@@ -298,27 +298,27 @@ Kitchen can configure a transport with the following settings for either
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><code>connection_retries</code></td>
 <td>Maximum number of times to retry after a failed attempt to open a connection. The default is 5.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>connection_retry_sleep</code></td>
 <td>Number of seconds to wait until attempting to make another connection after a failure.</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>max_wait_until_ready</code></td>
 <td>Maximum number of attempts to determine if the test instance is ready to accept commands. This defaults to 600.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>password</code></td>
 <td>The password used for authenticating to the test instance.</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>port</code></td>
 <td>The port used to connect to the test instance. This defaults to <code>22</code> for the <code>ssh</code> transport and <code>5985</code> or <code>5986</code> for <code>winrm</code> using <code>http</code> or <code>https</code> respectively.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>username</code></td>
 <td>The username used for authenticating to the test instance. This defaults to <code>administrator</code> for the <code>winrm</code> transport and <code>root</code> for the <code>ssh</code> transport. Some drivers may change this default.</td>
 </tr>
@@ -340,31 +340,31 @@ kitchen.yml file when the transport is SSH:
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><code>compression</code></td>
 <td>Wether or not to use compression. The default is <code>false</code>.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>compression_level</code></td>
 <td>The default is 6 if <code>compression</code> is <code>true</code>.</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>connection_timeout</code></td>
 <td>Defaults to 15.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>keepalive</code></td>
 <td>Defaults to <code>true</code>.</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>keepalive_interval</code></td>
 <td>Defaults to 60.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>max_ssh_sessions</code></td>
 <td>Maximum number of parallel ssh sessions.</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>ssh_key</code></td>
 <td>Path to an ssh key identity file.</td>
 </tr>
@@ -386,23 +386,23 @@ kitchen.yml file when the transport is WinRM:
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><code>elevated</code></td>
 <td>When <code>true</code>, all commands are executed via a scheduled task. This may eliminate access denied errors related to double hop authentication, interacting with windows updates and installing some MSIs such as sql server and .net runtimes. Defaults to <code>false</code>.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>elevated_password</code></td>
 <td>The password used by the identity running the scheduled task. This may be <code>null</code> in the case of service accounts. Defaults to <code>password</code>.</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>elevated_username</code></td>
 <td>The identity that the task runs under. This may also be set to service accounts such as <code>System</code>. This defaults to <code>username</code>.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>rdp_port</code></td>
 <td>Port used making <code>rdp</code> connections for <code>kitchen login</code> commands. Defaults to 3389.</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>winrm_transport</code></td>
 <td>The transport type used by winrm as explained <a href="https://github.com/WinRb/WinRM">here</a>. The default is <code>negotiate</code>. <code>ssl</code> and <code>plaintext</code> are also acceptable values.</td>
 </tr>

@@ -65,27 +65,27 @@ The most important tools included in Chef Workstation are:
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>Chef CLI</td>
 <td>A workflow tool for Chef Infra.</td>
 </tr>
-<tr class="even">
+<tr>
 <td>knife</td>
 <td>A tool for managing systems on the Chef Infra Server.</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>Chef Infra Client</td>
 <td>The Chef Infra agent.</td>
 </tr>
-<tr class="even">
+<tr>
 <td>Chef InSpec</td>
 <td>A compliance as code tool that can also be used for testing Chef Infra cookbooks.</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>Cookstyle</td>
 <td>A linting tool that helps you write better Chef Infra cookbooks by detecting and automatically correcting style, syntax, and logic mistakes in your code.</td>
 </tr>
-<tr class="even">
+<tr>
 <td>Test Kitchen</td>
 <td>An integration testing framework tool that tests cookbooks across platforms and various cloud provider / hypervisors.</td>
 </tr>

@@ -213,11 +213,11 @@ This command has the following options:
     </tr>
     </thead>
     <tbody>
-    <tr class="odd">
+    <tr>
     <td><code>policy_group</code></td>
     <td>The name of a policy group that exists on the Chef Infra Server.</td>
     </tr>
-    <tr class="even">
+    <tr>
     <td><code>policy_name</code></td>
     <td>The name of a policy, as identified by the <code>name</code> setting in a Policyfile.rb file.</td>
     </tr>
@@ -869,12 +869,12 @@ platform:
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><code>Chef::Provider::Service::Aix</code></td>
 <td><code>service</code></td>
 <td>The provider that is used with the AIX platforms. Use the <code>service</code> short name to start, stop, and restart services with System Resource Controller (SRC).</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>Chef::Provider::Service::AixInit</code></td>
 <td><code>service</code></td>
 <td>The provider that is used to manage BSD-based init services on AIX.</td>
