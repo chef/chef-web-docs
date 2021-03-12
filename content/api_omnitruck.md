@@ -97,73 +97,73 @@ Omnitruck accepts the following platforms:
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>AIX</td>
 <td><code>aix</code></td>
 <td><code>powerpc</code></td>
 <td><code>6.1</code>, <code>7.1</code>, <code>7.2</code></td>
 </tr>
-<tr class="even">
+<tr>
 <td>Amazon Linux</td>
 <td><code>amazon</code></td>
 <td><code>x86_64</code>,<code>aarch64</code></td>
 <td><code>201X, 2</code></td>
 </tr>
-<tr class="odd">
+<tr>
 <td>Cisco IOS XR</td>
 <td><code>ios_xr</code></td>
 <td><code>x86_64</code></td>
 <td><code>6</code></td>
 </tr>
-<tr class="even">
+<tr>
 <td>Cisco NX-OS</td>
 <td><code>nexus</code></td>
 <td><code>x86_64</code></td>
 <td><code>7</code></td>
 </tr>
-<tr class="odd">
+<tr>
 <td>Debian</td>
 <td><code>debian</code></td>
 <td><code>i386</code>, <code>x86_64</code></td>
 <td><code>6</code>, <code>7</code>, <code>8</code>, <code>9</code>, <code>10</code></td>
 </tr>
-<tr class="even">
+<tr>
 <td>FreeBSD</td>
 <td><code>freebsd</code></td>
 <td><code>x86_64</code></td>
 <td><code>9</code>, <code>10</code>, <code>11</code>, <code>12</code></td>
 </tr>
-<tr class="odd">
+<tr>
 <td>macOS</td>
 <td><code>mac_os_x</code></td>
 <td><code>x86_64</code></td>
 <td><code>10.6</code>, <code>10.7</code>, <code>10.8</code>, <code>10.9</code>, <code>10.10</code>, <code>10.11</code>, <code>10.12</code>, <code>10.13</code>, <code>10.14</code>, <code>10.15</code>, <code>11.0</code></td>
 </tr>
-<tr class="even">
+<tr>
 <td>Solaris</td>
 <td><code>solaris2</code></td>
 <td><code>i386</code>, <code>sparc</code></td>
 <td><code>5.10</code>, <code>5.11</code></td>
 </tr>
-<tr class="odd">
+<tr>
 <td>SUSE Linux Enterprise Server</td>
 <td><code>sles</code></td>
 <td><code>x86_64</code>, <code>s390x</code>, <code>aarch64</code></td>
 <td><code>11</code>, <code>12</code>, <code>15</code></td>
 </tr>
-<tr class="even">
+<tr>
 <td>Red Hat Enterprise Linux / CentOS</td>
 <td><code>el</code></td>
 <td><code>i386</code>, <code>x86_64</code>, <code>ppc64</code>, <code>ppc64le</code>, <code>aarch64</code></td>
 <td><code>5</code>, <code>6</code>, <code>7</code>, <code>8</code></td>
 </tr>
-<tr class="odd">
+<tr>
 <td>Ubuntu</td>
 <td><code>ubuntu</code></td>
 <td><code>i386</code>, <code>x86_64</code>, <code>aarch64</code>, <code>ppc64le</code></td>
 <td><code>10.04</code>, <code>10.10</code>, <code>11.04</code>, <code>11.10</code>, <code>12.04</code>, <code>12.10</code>, <code>13.04</code>, <code>13.10</code>, <code>14.04</code>, <code>14.10</code>, <code>16.04</code>, <code>16.10</code>, <code>17.04</code>, <code>17.10</code>, <code>18.04</code>, <code>20.04</code></td>
 </tr>
-<tr class="even">
+<tr>
 <td>Microsoft Windows</td>
 <td><code>windows</code></td>
 <td><code>x86_64</code>, <code>i386</code></td>

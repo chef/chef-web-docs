@@ -34,19 +34,19 @@ The sub-directories in the chef-repo are:
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><code>.chef/</code></td>
 <td>A hidden directory that is used to store validation key files and optionally a <a href="/config_rb/">config.rb</a> file.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>cookbooks/</code></td>
 <td>Contains cookbooks that have been downloaded from the <a href="https://supermarket.chef.io/">Chef Supermarket</a> or created locally.</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>data_bags/</code></td>
 <td>Stores data bags (and data bag items) in JSON (.json) format.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>policyfiles/</code></td>
 <td>Stores Policyfiles in Ruby (.rb) format.</td>
 </tr>

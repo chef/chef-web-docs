@@ -66,7 +66,7 @@ Windows:
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>Windows</td>
 <td><code>x86</code>, <code>x64</code></td>
 <td><code>8.1</code>, <code>2012</code>, <code>2012 R2</code>, <code>2016</code>, <code>10 (all channels except "insider" builds)</code>, <code>2019 (Long-term servicing channel (LTSC), both Desktop Experience and Server Core)</code></td>
@@ -152,27 +152,27 @@ listed below:
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><a href="https://github.com/chef-cookbooks/iis">iis Cookbook</a></td>
 <td>The <code>iis</code> cookbook is used to install and configure Internet Information Services (IIS).</td>
 </tr>
-<tr class="even">
+<tr>
 <td><a href="https://github.com/chef-cookbooks/iis_urlrewrite">iis_urlrewrite Cookbook</a></td>
 <td>This cookbook downloads and installs the IIS URL Rewrite 2.0 extension into Microsoft Internet Information Server.</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><a href="https://github.com/chef-cookbooks/powershell">PowerShell Cookbook</a></td>
 <td>Installs and configures PowerShell 2.0, 3.0, 4.0 or 5.0.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><a href="https://github.com/chef-cookbooks/vcruntime">Microsoft Visual C++ Runtime Cookbook</a></td>
 <td>Installs Microsoft Visual C++ runtime version 6 (2005), 9 (2008), 10 (2010), 11 (2012), 12 (2013), 14 (2015) or 15 (2017) on Windows.</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><a href="https://github.com/chef-cookbooks/mingw">Mingw Cookbook</a></td>
 <td>Installs <code>msys/mingw</code> compiler toolchains on windows.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><a href="https://github.com/chef-cookbooks/webpi">Webpi Cookbook</a></td>
 <td>The <code>webpi</code> cookbook is used to run the Microsoft Web Platform Installer (WebPI).</td>
 </tr>
