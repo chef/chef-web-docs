@@ -226,7 +226,7 @@ The following platforms are supported only via the community:
 <tr>
 <td>SUSE Linux Enterprise Desktop</td>
 <td><code>x86_64</code>, <code>aarch64</code> (15.x only)</td>
-<td><code>12</code>, <code>15</code></td>
+<td><code>12.x</code>, <code>15.x</code></td>
 </tr>
 <tr>
 <td>Ubuntu</td>
