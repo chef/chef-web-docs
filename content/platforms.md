@@ -194,6 +194,16 @@ The following platforms are supported only via the community:
 <td>current non-EOL releases</td>
 </tr>
 <tr>
+<td>OmniOS Community Edition</td>
+<td><code>x86_64</code></td>
+<td>current non-EOL releases</td>
+</tr>
+<tr>
+<td>OpenIndiana Hipster</td>
+<td><code>x86_64</code></td>
+<td>current non-EOL releases</td>
+</tr>
+<tr>
 <td>openSUSE</td>
 <td><code>x86_64</code>, <code>aarch64</code></td>
 <td><code>15.x</code></td>
@@ -209,14 +219,14 @@ The following platforms are supported only via the community:
 <td>current non-EOL releases</td>
 </tr>
 <tr>
+<td>SmartOS</td>
+<td><code>x86_64</code></td>
+<td>current non-EOL releases</td>
+</tr>
+<tr>
 <td>SUSE Linux Enterprise Desktop</td>
 <td><code>x86_64</code>, <code>aarch64</code> (15.x only)</td>
 <td><code>12</code>, <code>15</code></td>
-</tr>
-<tr>
-<td>Raspberry Pi OS</td>
-<td><code>aarch64</code></td>
-<td>current non-EOL releases</td>
 </tr>
 <tr>
 <td>Ubuntu</td>
