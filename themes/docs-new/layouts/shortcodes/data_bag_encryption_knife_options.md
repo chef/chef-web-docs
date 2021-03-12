@@ -14,11 +14,11 @@ arguments and the following options:
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><code>--secret SECRET</code></td>
 <td>The encryption key that is used for values contained within a data bag item. If <code>secret</code> is not specified, Chef Infra Client looks for a secret at the path specified by the <code>encrypted_data_bag_secret</code> setting in the client.rb file.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>--secret-file FILE</code></td>
 <td>The path to the file that contains the encryption key.</td>
 </tr>

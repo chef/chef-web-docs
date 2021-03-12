@@ -52,11 +52,11 @@ There are two types of attributes that can be used with environments:
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><code>default</code></td>
 <td>{{< readFile_shortcode file="node_attribute_type_default.md" >}}</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>override</code></td>
 <td>{{< readFile_shortcode file="node_attribute_type_override.md" >}}</td>
 </tr>
@@ -97,7 +97,7 @@ domain-specific attributes:
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><p><code>cookbook</code></p></td>
 <td><p>A version constraint for a single cookbook. For example:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb1-1"><a href="#cb1-1"></a>cookbook <span class="st">&#39;couchdb&#39;</span>, <span class="st">&#39;&lt; 11.0.0&#39;</span></span></code></pre></div>
@@ -106,7 +106,7 @@ domain-specific attributes:
 <p>or:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb3-1"><a href="#cb3-1"></a>cookbook <span class="st">&#39;gems&#39;</span>, <span class="st">&#39;~&gt; 1.4&#39;</span></span></code></pre></div></td>
 </tr>
-<tr class="even">
+<tr>
 <td><p><code>cookbook_versions</code></p></td>
 <td><p>A version constraint for a group of cookbooks. For example:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb4-1"><a href="#cb4-1"></a>cookbook_versions(</span>
@@ -114,22 +114,22 @@ domain-specific attributes:
 <span id="cb4-3"><a href="#cb4-3"></a>  <span class="st">&#39;my_rails_app&#39;</span> =&gt; <span class="st">&#39;~&gt; 1.2.0&#39;</span></span>
 <span id="cb4-4"><a href="#cb4-4"></a>)</span></code></pre></div></td>
 </tr>
-<tr class="odd">
+<tr>
 <td><p><code>default_attributes</code></p></td>
 <td><p>Optional. A set of attributes to be applied to all nodes, assuming the node does not already have a value for the attribute. This is useful for setting global defaults that can then be overridden for specific nodes. If more than one role attempts to set a default value for the same attribute, the last role applied is the role to set the attribute value. When nested attributes are present, they are preserved. For example, to specify that a node that has the attribute <code>apache2</code> should listen on ports 80 and 443 (unless ports are already specified):</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb5-1"><a href="#cb5-1"></a>default_attributes <span class="st">&#39;apache2&#39;</span> =&gt; { <span class="st">&#39;listen_ports&#39;</span> =&gt;<span class="ot"> %w(</span><span class="st">80 443</span><span class="ot">)</span> }</span></code></pre></div></td>
 </tr>
-<tr class="even">
+<tr>
 <td><p><code>description</code></p></td>
 <td><p>A description of the functionality that is covered. For example:</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb6-1"><a href="#cb6-1"></a>description <span class="st">&#39;The development environment&#39;</span></span></code></pre></div></td>
 </tr>
-<tr class="odd">
+<tr>
 <td><p><code>name</code></p></td>
 <td><p>A unique name within the organization. Each name must be made up of letters (upper- and lower-case), numbers, underscores, and hyphens: [A-Z][a-z][0-9] and [_-]. Spaces are not allowed. For example:</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb7-1"><a href="#cb7-1"></a>name <span class="st">&#39;dev01-24&#39;</span></span></code></pre></div></td>
 </tr>
-<tr class="even">
+<tr>
 <td><p><code>override_attributes</code></p></td>
 <td><p>Optional. A set of attributes to be applied to all nodes, even if the node already has a value for an attribute. This is useful for ensuring that certain attributes always have specific values. If more than one role attempts to set an override value for the same attribute, the last role applied wins. When nested attributes are present, they are preserved. For example:</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb8-1"><a href="#cb8-1"></a>override_attributes <span class="st">&#39;apache2&#39;</span> =&gt; { <span class="st">&#39;max_children&#39;</span> =&gt; <span class="st">&#39;50&#39;</span> }</span></code></pre></div>
@@ -253,11 +253,11 @@ The JSON format has two additional settings:
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><code>chef_type</code></td>
 <td>Always set this to <code>environment</code>. Use this setting for any custom process that consumes environment objects outside of Ruby.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>json_class</code></td>
 <td>Always set this to <code>Chef::Environment</code>. Chef Infra Client uses this setting to auto-inflate an environment object. If objects are being rebuilt outside of Ruby, ignore it.</td>
 </tr>

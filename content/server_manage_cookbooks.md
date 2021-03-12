@@ -62,27 +62,27 @@ A cookbook can contain the following types of files:
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>Attributes</td>
 <td>{{< readFile_shortcode file="cookbooks_attribute.md" >}}</td>
 </tr>
-<tr class="even">
+<tr>
 <td>Files</td>
 <td>{{< readFile_shortcode file="resource_cookbook_file_summary.md" >}}</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>Libraries</td>
 <td>{{< readFile_shortcode file="libraries_summary.md" >}}</td>
 </tr>
-<tr class="even">
+<tr>
 <td>Recipes</td>
 <td>{{< readFile_shortcode file="cookbooks_recipe.md" >}}</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>Resources</td>
 <td>{{< readFile_shortcode file="resources_common.md" >}}</td>
 </tr>
-<tr class="even">
+<tr>
 <td>Templates</td>
 <td>{{< readFile_shortcode file="template.md" >}}</td>
 </tr>

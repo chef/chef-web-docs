@@ -46,11 +46,11 @@ following settings must be added:
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><code>exception_handlers</code></td>
 <td>A list of exception handlers that are available to Chef Infra Client during a Chef Infra Client run.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>report_handlers</code></td>
 <td>A list of report handlers that are available to Chef Infra Client during a Chef Infra Client run.</td>
 </tr>
@@ -107,7 +107,7 @@ following setting:
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><code>start_handlers</code></td>
 <td>A list of start handlers that are available to Chef Infra Client at the start of a Chef Infra Client run.</td>
 </tr>
