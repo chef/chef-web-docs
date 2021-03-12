@@ -64,8 +64,8 @@ The following table lists the commercially-supported platforms and versions for 
 </tr>
 <tr>
 <td>Amazon Linux</td>
-<td><code>x86_64</code>, <code>aarch64</code> (2.x only)</td>
-<td>2013+ and 2.0</td>
+<td><code>x86_64</code>, <code>aarch64</code></td>
+<td>2.x</td>
 </tr>
 <tr>
 <td>CentOS</td>
@@ -270,7 +270,7 @@ versions for the Chef Workstation:
 <tr>
 <td>Amazon Linux</td>
 <td><code>x86_64</code></td>
-<td><code>2.0</code></td>
+<td><code>2.x</code></td>
 </tr>
 <tr>
 <td>macOS</td>
@@ -280,7 +280,7 @@ versions for the Chef Workstation:
 <tr>
 <td>Debian</td>
 <td><code>x86_64</code></td>
-<td><code>9</code>, <code>10</code></td>
+<td><code>9.x</code>, <code>10.x</code></td>
 </tr>
 <tr>
 <td>Red Hat Enterprise Linux</td>
@@ -322,8 +322,8 @@ The following table lists the commercially-supported platforms and versions for 
 <tbody>
 <tr>
 <td>Amazon Linux</td>
-<td><code>x86_64</code>, <code>aarch64</code> (2.x only)</td>
-<td><code>2013+ and 2.0</code></td>
+<td><code>x86_64</code>, <code>aarch64</code></td>
+<td><code>2.x</code></td>
 </tr>
 <tr>
 <td>Debian</td>
