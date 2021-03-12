@@ -31,7 +31,7 @@ Commercial support is limited to the platforms listed in the "Commercial Support
 
 Community support for platforms means that members of the the Chef community have contributed these platforms and Chef does not actively work to maintain this functionality. Chef does not explicitly test community supported platforms as part of the the development and release process.
 
-Many of these platforms are forks, clones, or otherwise derivative of platforms that Chef commercially supports. Continued functionality for these platforms is likely, but not guaranteed. Unsupported platforms may have missing or non-operative functionality. As always, we welcome community contributions from anyone looking to expand communtiy support for platforms in Chef products.
+Many of these platforms are forks, clones, or otherwise derivative of platforms that Chef commercially supports. Continued functionality for these platforms is likely, but not guaranteed. Unsupported platforms may have missing or non-operative functionality. As always, we welcome community contributions from anyone looking to expand community support for platforms in Chef products.
 
 ## Platforms
 
