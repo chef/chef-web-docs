@@ -226,7 +226,7 @@ The following platforms are supported only via the community:
 <tr>
 <td>SUSE Linux Enterprise Desktop</td>
 <td><code>x86_64</code>, <code>aarch64</code> (15.x only)</td>
-<td><code>12</code>, <code>15</code></td>
+<td><code>12.x</code>, <code>15.x</code></td>
 </tr>
 <tr>
 <td>Ubuntu</td>
@@ -386,42 +386,11 @@ for platforms that use:
 - `useradd`
 - `curl` or `wget`
 
-### Chef Automate Job Runners
-
-#### Commercial Support
-
-Chef Automate Job Runners are supported on the Commercial Support
-platforms for Chef Automate Server listed above as well as on the
-following platforms:
-
-<table>
-<colgroup>
-<col style="width: 30%" />
-<col style="width: 35%" />
-<col style="width: 35%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Platform</th>
-<th>Architecture</th>
-<th>Version</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>macOS</td>
-<td><code>x86_64</code></td>
-<td><code>10.12</code></td>
-</tr>
-</tbody>
-</table>
-
 ### Chef Backend
 
 #### Commercial Support
 
-The following table lists the commercially-supported platforms for Chef
-Backend, the high-availability solution for Chef Infra Server:
+The following table lists the commercially-supported platforms for Chef Backend, which is the high-availability solution for Chef Infra Server:
 
 <table>
 <colgroup>
@@ -440,12 +409,22 @@ Backend, the high-availability solution for Chef Infra Server:
 <tr>
 <td>CentOS</td>
 <td><code>x86_64</code></td>
-<td><code>6.x</code>, <code>7.x</code></td>
+<td><code>6.x</code>, <code>7.x</code>, <code>8.x</code></td>
+</tr>
+<tr>
+<td>Oracle Enterprise Linux</td>
+<td><code>x86_64</code></td>
+<td><code>6.x</code>, <code>7.x</code>, <code>8.x</code></td>
 </tr>
 <tr>
 <td>Red Hat Enterprise Linux</td>
 <td><code>x86_64</code></td>
-<td><code>6.x</code>, <code>7.x</code></td>
+<td><code>6.x</code>, <code>7.x</code>, <code>8.x</code></td>
+</tr>
+<tr>
+<td>SUSE Linux Enterprise Server</td>
+<td><code>x86_64</code></td>
+<td><code>12.x</code></td>
 </tr>
 <tr>
 <td>Ubuntu (LTS releases)</td>
@@ -459,8 +438,7 @@ Backend, the high-availability solution for Chef Infra Server:
 
 #### Commercial Support
 
-The following table lists the commercially-supported platforms for Chef
-Manage:
+The following table lists the commercially-supported platforms for Chef Manage:
 
 <table>
 <colgroup>
@@ -478,6 +456,11 @@ Manage:
 <tbody>
 <tr>
 <td>CentOS</td>
+<td><code>x86_64</code></td>
+<td><code>6.x</code>, <code>7.x</code>, <code>8.x</code></td>
+</tr>
+<tr>
+<td>Oracle Enterprise Linux</td>
 <td><code>x86_64</code></td>
 <td><code>6.x</code>, <code>7.x</code>, <code>8.x</code></td>
 </tr>
@@ -514,6 +497,10 @@ according to those vendors' terms:
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>Amazon Linux</td>
+<td>End of Life</td>
+</tr>
 <tr>
 <td>Apple macOS</td>
 <td>Apple generally supports the last three macOS releases, for example: 10.14, 10.15, and 11.x. Apple does not officially publish EOL dates.</td>
