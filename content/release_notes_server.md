@@ -106,7 +106,6 @@ Upgrading to Chef Infra Server 14 will require a reindexing operation for most u
 
 - openssl (1.0.2u -> 1.0.2w)
 - openresty (1.15.8.1 -> 1.17.8.2)
-- erlang (20.3.8.9 -> 22.2)
 - server-open-jre (11.0.4+1 -> 11.0.7+1)
 
 #### Removed Components
@@ -148,24 +147,34 @@ Upgrading to Chef Infra Server 14 will require a reindexing operation for most u
 ### Bug Fixes
 
 - Fix a regression that broke FIPS 140-2 support in Chef Infra Server 13.1.13.
-- Fix habitat db config for external database.
+- Fix Habitat db config for external database.
 - Elasticsearch recipes should not create indexes at compile time.
 
 ### Updates
 
 - Chef Infra Client: 15.5.17 -> 15.8.23
-- rack(oc-chef-pedant): 2.0.7 -> 2.0.8
-- rack(oc-id): 1.6.11 -> 1.6.12
-- Ruby(oc-id): 1.6.11 -> 1.6.12
-- Ruby: 2.6.3 -> 2.6.5 fixes the following CVEs:
-  - CVE-2019-16255: A code injection vulnerability of Shell#[] and Shell#test
-  - CVE-2019-16254: HTTP response splitting in WEBrick (Additional fix)
-  - CVE-2019-15845: A NUL injection vulnerability of File.fnmatch and File.fnmatch?
-  - CVE-2019-16201: Regular Expression Denial of Service vulnerability of WEBrick's Digest access authentication
-  - CVE-2012-6708
-  - CVE-2015-9251
-- rubyzip(oc-id): 1.2.3 -> 1.3.0 (fixes CVE-2019-16892)
-- Erlang(habitat): 18 -> 20
+- Erlang in the Habitat package: 18 -> 20
+
+### Security
+
+#### Rack
+
+The `rack` gem in the `oc-id` Chef Infra Server component has been updated from 1.6.11 to 1.6.12 to resolve [CVE-2019-16782](https://nvd.nist.gov/vuln/detail/CVE-2019-16782)
+
+#### Ruby
+
+Ruby has been updated from 2.6.3 to 2.6.5 to resolve the following CVEs:
+
+- [CVE-2019-16255](https://nvd.nist.gov/vuln/detail/CVE-2019-16255): A code injection vulnerability of Shell#[] and Shell#test
+- [CVE-2019-16254](https://nvd.nist.gov/vuln/detail/CVE-2019-16254): HTTP response splitting in WEBrick (Additional fix)
+- [CVE-2019-15845](https://nvd.nist.gov/vuln/detail/CVE-2019-15845): A NUL injection vulnerability of File.fnmatch and File.fnmatch?
+- [CVE-2019-16201](https://nvd.nist.gov/vuln/detail/CVE-2019-16201): Regular Expression Denial of Service vulnerability of WEBrick's Digest access authentication
+- [CVE-2012-6708](https://nvd.nist.gov/vuln/detail/CVE-2012-6708): Cross-site Scripting vulnerability in RDoc
+- [CVE-2015-16892](https://nvd.nist.gov/vuln/detail/CVE-2015-9251): Cross-site Scripting vulnerability in RDoc
+
+#### rubyzip
+
+The release of rubyzip in the `oc-id` Chef Infra Server component has been updated from 1.2.3 to 1.3.0 to resolve [CVE-2019-16892](https://nvd.nist.gov/vuln/detail/CVE-2019-16892)
 
 ## What's New in 13.1.13
 
