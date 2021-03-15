@@ -38,23 +38,23 @@ Nokogiri has been updated from 1.10.10 to 1.11.1 to resolve [CVE-2020-26247](htt
 
 The AdoptOpenJDK package has been updated from 11.0.7+10 to 11.0.10+9 to resolve the following CVEs:
 
-  - [CVE-2020-14779](https://nvd.nist.gov/vuln/detail/CVE-2020-14779)
-  - [CVE-2020-14781](https://nvd.nist.gov/vuln/detail/CVE-2020-14781)
-  - [CVE-2020-14782](https://nvd.nist.gov/vuln/detail/CVE-2020-14782)
-  - [CVE-2020-14792](https://nvd.nist.gov/vuln/detail/CVE-2020-14792)
-  - [CVE-2020-14796](https://nvd.nist.gov/vuln/detail/CVE-2020-14796)
-  - [CVE-2020-14797](https://nvd.nist.gov/vuln/detail/CVE-2020-14797)
-  - [CVE-2020-14798](https://nvd.nist.gov/vuln/detail/CVE-2020-14798)
-  - [CVE-2020-14803](https://nvd.nist.gov/vuln/detail/CVE-2020-14803)
+- [CVE-2020-14779](https://nvd.nist.gov/vuln/detail/CVE-2020-14779)
+- [CVE-2020-14781](https://nvd.nist.gov/vuln/detail/CVE-2020-14781)
+- [CVE-2020-14782](https://nvd.nist.gov/vuln/detail/CVE-2020-14782)
+- [CVE-2020-14792](https://nvd.nist.gov/vuln/detail/CVE-2020-14792)
+- [CVE-2020-14796](https://nvd.nist.gov/vuln/detail/CVE-2020-14796)
+- [CVE-2020-14797](https://nvd.nist.gov/vuln/detail/CVE-2020-14797)
+- [CVE-2020-14798](https://nvd.nist.gov/vuln/detail/CVE-2020-14798)
+- [CVE-2020-14803](https://nvd.nist.gov/vuln/detail/CVE-2020-14803)
 
 #### OpenSSL
 
 The OpenSSL library has been updated to 1.0.2y to resolve the following CVEs:
 
-* [CVE-2021-23841](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-23841)
-* [CVE-2021-23839](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-23839)
-* [CVE-2021-23840](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-23840)
-* [CVE-2020-1971](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-1971)
+- [CVE-2021-23841](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-23841)
+- [CVE-2021-23839](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-23839)
+- [CVE-2021-23840](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-23840)
+- [CVE-2020-1971](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-1971)
 
 ### Platform Support
 
@@ -64,7 +64,14 @@ We will no longer be producing Chef Infra Server packages for RHEL 6.x as this p
 
 Please keep in mind that upgrading from releases before 14.0 will run an automatic Elasticsearch reindexing operation for existing Solr users. We estimate the reindexing operation will take 2 minutes for each 1000 nodes, but it could take more time depending on your server hardware and the complexity of your Chef data.
 
-## What's New in 14.0
+## What's New in 14.0.65
+
+- Elasticsearch has been upgraded from 6.8.1 to 6.8.12 to resolve [CVE-2020-7019](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-7019)
+- The `users` API endpoint now includes the `display_name` field for each user
+- Resolved failures starting Chef Infra Server on slower systems
+- Resolved failures when `/tmp` was mounted with `noexec`
+
+## What's New in 14.0.58
 
 ### Upgrade Notes
 
@@ -83,8 +90,8 @@ Upgrading to Chef Infra Server 14 will require a reindexing operation for most u
 - Reduced API errors caused by a change to the HTTP library used in Erchef.
 - Expanded the cases where we gracefully report errors that result from a `chef-server-ctl reindex` command instead of failing early.
 - Fixed a bug that prevented API Signing version 1.2 from working with FIPS-enabled Chef Infra Servers.
-- Updated NginX SSL configuration format to avoid warnings in the log.
-- Restricted permissions on the `dhparams.pem` file used by NginX.
+- Updated nginx SSL configuration format to avoid warnings in the log.
+- Restricted permissions on the `dhparams.pem` file used by nginx.
 
 ### Incompatibilities
 
@@ -97,21 +104,10 @@ Upgrading to Chef Infra Server 14 will require a reindexing operation for most u
 
 #### Updated Components
 
-- libiconv (1.15 -> 1.16)
-- pcre (8.38 -> 8.44)
-- cacerts (2019-10 -> 2020-07)
 - openssl (1.0.2u -> 1.0.2w)
 - openresty (1.15.8.1 -> 1.17.8.2)
-- veil-gem (58373899 -> 2875f29d)
 - erlang (20.3.8.9 -> 22.2)
 - server-open-jre (11.0.4+1 -> 11.0.7+1)
-- ohai (d78fd24c -> 0b8b5ccf)
-- liblzma (5.2.4 -> 5.2.5)
-- libarchive (3.4.2 -> 3.4.3)
-- chef (3fe96500 -> 20230f04)
-- knife-opc (5a3a804b -> dd17d445)
-- knife-ec-backup (61b8c43f -> 1f397622)
-- chef_fixie (04c686ac -> e445b2d7)
 
 #### Removed Components
 
@@ -175,18 +171,12 @@ Upgrading to Chef Infra Server 14 will require a reindexing operation for most u
 
 ### Improvements/Bug Fixes
 
--   The `_status` endpoint now reports healthy even if the
-    `data_collector` is down which will no longer cause unnecessary
-    failovers.
+-   The `_status` endpoint now reports healthy even if the `data_collector` is down which will no longer cause unnecessary failovers.
 -   Data collector proxy-header X-Forwarded is set as expected.
--   `chef-server-ctl` is no longer installed in the user path. Now only
-    the appbundled version is installed in the user path.
--   Fixed an issue with Chef Support Zendesk sign-ins when a first name
-    is not set in Hosted Chef.
--   Added support for running the Chef Infra Server on Red Hat
-    Enterprise Linux 8.
--   `chef-server-ctl gather-logs` was updated with the following
-    improvements:
+-   `chef-server-ctl` is no longer installed in the user path. Now only the appbundled version is installed in the user path.
+-   Fixed an issue with Chef Support Zendesk sign-ins when a first name is not set in Hosted Chef.
+-   Added support for running the Chef Infra Server on Red Hat Enterprise Linux 8.
+-   `chef-server-ctl gather-logs` was updated with the following improvements:
 
 -   Add AWS to known platforms
 -   Add AWS Native Chef Server info
@@ -195,22 +185,19 @@ Upgrading to Chef Infra Server 14 will require a reindexing operation for most u
 
 ### Deprecation Notice
 
--   SLES 11 is no longer supported per our [platform
-    policy](/platforms/#platform-end-of-life-policy), as upstream
-    support ended in March of this year.
+- SLES 11 is no longer supported per our [platform policy](/platforms/#platform-end-of-life-policy), as upstream support ended in March of this year.
 
 ### Updates and Improvements
 
--   Postgres 9.6.10 -\> 9.6.15
--   Chef Infra Client v15.3.14 -\> v15.4.45
--   OpenResty 1.13.6.2 -\> 1.15.8.1
--   Nokogiri 1.8.5 -\> 1.10.4
--   Rebar3 -\> 3.12.0
--   Updated erlang deps to be the latest
--   Loofah 2.2.3 -\> 2.3.1
--   Erlang R18 -\> 20.3.8.9
--   Updated for cookstyle
--   Ruby 2.5.5 -\> 2.6.3
+- Postgres 9.6.10 -\> 9.6.15
+- Chef Infra Client v15.3.14 -\> v15.4.45
+- OpenResty 1.13.6.2 -\> 1.15.8.1
+- Nokogiri 1.8.5 -\> 1.10.4
+- Rebar3 -\> 3.12.0
+- Updated erlang deps to be the latest
+- Loofah 2.2.3 -\> 2.3.1
+- Erlang R18 -\> 20.3.8.9
+- Ruby 2.5.5 -\> 2.6.3
 
 ## What's New in 13.0.11
 
