@@ -20,11 +20,6 @@
 
 > .nav {
   margin-bottom: 30px;
-  overflow-y: scroll;
-
-  @include breakpoint(medium) {
-    overflow-y: scroll;
-  };
 
   > .accordion-menu {
     font-size: rem-calc(14px);
