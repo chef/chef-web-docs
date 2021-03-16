@@ -164,7 +164,6 @@ OpenSSL was updated from 1.0.2u to 1.0.2w which includes a fix for [CVE-2020-196
 
 ### Updates
 
-- Chef Infra Client: 15.5.17 -> 15.8.23
 - Erlang in the Habitat package: 18 -> 20
 
 ### Security
@@ -205,7 +204,6 @@ The release of rubyzip in the `oc-id` Chef Infra Server component has been updat
 
 ### Updates and Improvements
 
-- Chef Infra Client v15.3.14 -\> v15.4.45
 - OpenResty 1.13.6.2 -\> 1.15.8.1
 - Nokogiri 1.8.5 -\> 1.10.4
 - Rebar3 -\> 3.12.0
@@ -294,7 +292,6 @@ This release contains some minor improvements and updates to include software:
 
 -   Added request id to nginx log to easily track the Chef request through the logs.
 -   Ruby updated to 2.5.3.
--   Chef Client updated to 14.5.
 -   Erchef and Bookshelf can optionally use mTLS protocol for their internal communications.
 -   Habitat package improvements:
     -   Increased `authn:keygen_timeout` amount for `oc_erchef` hab pkg.
@@ -334,7 +331,6 @@ This release:
 -   Fixed issue migrating rabbitmq passwords (migration 031).
 -   Chef indexing queue times now reported in stats in log messages and status endpoint.
 -   Ruby updated to 2.5.1
--   Chef Client updated to 14.3.
 -   Postgresql updated to 9.6.10 and 9.2.24 (latter only for upgrades from older Chef Servers).
 -   Fix for SUSE SLES-11 sysvinit install
 -   Removed nodejs (a build dependency that was shipped).
