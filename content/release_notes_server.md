@@ -171,33 +171,37 @@ Upgrading to Chef Infra Server 14 will require a reindexing operation for most u
 
 ### Improvements/Bug Fixes
 
--   The `_status` endpoint now reports healthy even if the `data_collector` is down which will no longer cause unnecessary failovers.
--   Data collector proxy-header X-Forwarded is set as expected.
--   `chef-server-ctl` is no longer installed in the user path. Now only the appbundled version is installed in the user path.
--   Fixed an issue with Chef Support Zendesk sign-ins when a first name is not set in Hosted Chef.
--   Added support for running the Chef Infra Server on Red Hat Enterprise Linux 8.
--   `chef-server-ctl gather-logs` was updated with the following improvements:
+- The `_status` endpoint now reports healthy even if the `data_collector` is down which will no longer cause unnecessary failovers.
+- Data collector proxy-header X-Forwarded is set as expected.
+-`chef-server-ctl` is no longer installed in the user path. Now only the appbundled version is installed in the user path.
+- Fixed an issue with Chef Support Zendesk sign-ins when a first name is not set in Hosted Chef.
+- `chef-server-ctl gather-logs` has been updated to provide better troubleshooting data and prevent failures gathering data.
 
--   Add AWS to known platforms
--   Add AWS Native Chef Server info
--   Add elasticsearch info
--   Switched compression from bzip2 to gzip
+### Packing Updates
 
-### Deprecation Notice
-
-- SLES 11 is no longer supported per our [platform policy](/platforms/#platform-end-of-life-policy), as upstream support ended in March of this year.
+- We now produce packages for Chef Infra Server on Red Hat Enterprise Linux 8.
+- SLES 11 packages are no longer produced per our [platform policy](/platforms/#platform-end-of-life-policy), as upstream support ended in March of this year.
 
 ### Updates and Improvements
 
-- Postgres 9.6.10 -\> 9.6.15
 - Chef Infra Client v15.3.14 -\> v15.4.45
 - OpenResty 1.13.6.2 -\> 1.15.8.1
 - Nokogiri 1.8.5 -\> 1.10.4
 - Rebar3 -\> 3.12.0
 - Updated erlang deps to be the latest
 - Loofah 2.2.3 -\> 2.3.1
-- Erlang R18 -\> 20.3.8.9
+- Erlang 18.3.4.9 -\> 20.3.8.9
 - Ruby 2.5.5 -\> 2.6.3
+
+### Security
+
+#### Loofah
+
+Loofah has been updated from 2.2.3 to 2.3.1 to resolve [CVE-2019-15587](https://nvd.nist.gov/vuln/detail/CVE-2019-15587)
+
+#### Postgresql
+
+Postgresql has been updated from 9.6.14 to 9.6.15 to resolve [CVE-2019-10208](https://nvd.nist.gov/vuln/detail/CVE-2019-10208)
 
 ## What's New in 13.0.11
 
@@ -213,10 +217,10 @@ class="title-ref">chef-server-ctl</span> remains the same.
 Chef Infra Server requires an EULA to be accepted by users before it can
 be installed. Users can accept the EULA in a variety of ways:
 
--   `chef-server-ctl reconfigure --chef-license accept`
--   `chef-server-ctl reconfigure --chef-license accept-no-persist`
--   `CHEF_LICENSE="accept" chef-server-ctl reconfigure`
--   `CHEF_LICENSE="accept-no-persist" chef-server-ctl reconfigure`
+- `chef-server-ctl reconfigure --chef-license accept`
+- `chef-server-ctl reconfigure --chef-license accept-no-persist`
+- `CHEF_LICENSE="accept" chef-server-ctl reconfigure`
+- `CHEF_LICENSE="accept-no-persist" chef-server-ctl reconfigure`
 
 Finally, if users run `chef-server-ctl reconfigure` without any of these
 options, they will receive an interactive prompt asking for license
