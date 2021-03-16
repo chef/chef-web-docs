@@ -51,10 +51,10 @@ The AdoptOpenJDK package has been updated from 11.0.7+10 to 11.0.10+9 to resolve
 
 The OpenSSL library has been updated to 1.0.2y to resolve the following CVEs:
 
-- [CVE-2021-23841](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-23841)
-- [CVE-2021-23839](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-23839)
-- [CVE-2021-23840](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-23840)
-- [CVE-2020-1971](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-1971)
+- [CVE-2021-23841](https://nvd.nist.gov/vuln/detail/CVE-2021-23841)
+- [CVE-2021-23839](https://nvd.nist.gov/vuln/detail/CVE-2021-23839)
+- [CVE-2021-23840](https://nvd.nist.gov/vuln/detail/CVE-2021-23840)
+- [CVE-2020-1971](https://nvd.nist.gov/vuln/detail/CVE-2020-1971)
 
 ### Platform Support
 
@@ -76,7 +76,7 @@ Please keep in mind that upgrading from releases before 14.0 will run an automat
 
 #### Elasticsearch
 
-Elasticsearch has been upgraded from 6.8.1 to 6.8.12 to resolve [CVE-2020-7019](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-7019)
+Elasticsearch has been upgraded from 6.8.1 to 6.8.12 to resolve [CVE-2020-7019](https://nvd.nist.gov/vuln/detail/CVE-2020-7019)
 
 ## What's New in 14.0.58
 
@@ -125,7 +125,7 @@ Upgrading to Chef Infra Server 14 will require a reindexing operation for most u
 
 #### OpenSSL
 
-OpenSSL was updated from 1.0.2u to 1.0.2w which includes a fix for [CVE-2020-1968](https://cve.mitre.org/cgi-bin/cvename.cgi?name=2020-1968) and multiple security hardening fixes not related to particular CVEs.
+OpenSSL was updated from 1.0.2u to 1.0.2w which includes a fix for [CVE-2020-1968](https://nvd.nist.gov/vuln/detail/2020-1968) and multiple security hardening fixes not related to particular CVEs.
 
 ## What's New in 13.2
 
