@@ -253,11 +253,7 @@ See our [Frequently Asked Questions document](https://www.chef.io/subscription-m
 
 -   Updated Ruby version to 2.5.5
 -   Updated Chef Infra Client to 14.11.21
--   Updated runit cookbook to 5.1.1
--   Migrated unit tests from Travis to Buildkite. Reorganized them for
-    improved speed, stability and portability.
--   Added some Habitat packaging improvements with parameterized
-    search_server.
+-   Added some Habitat packaging improvements with parameterized search_server.
 -   Erchef request size increased from 1,000,000 to 2,000,000 bytes to
     better support inspec scanning via the audit cookbook.
 -   Nginx error logs no longer log 404s. In the Chef API, 404s are
