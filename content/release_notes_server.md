@@ -255,21 +255,23 @@ See our [Frequently Asked Questions document](https://www.chef.io/subscription-m
 
 ### Updates and Improvements
 
--   Updated Ruby version to 2.5.5
--   Updated Chef Infra Client to 14.11.21
--   Added some Habitat packaging improvements with parameterized search_server.
--   Erchef request size increased from 1,000,000 to 2,000,000 bytes to
-    better support inspec scanning via the audit cookbook.
--   Nginx error logs no longer log 404s. In the Chef API, 404s are
-    typically not errors as they are often the expected response about
-    an object that doesn't exist. The logs will continue to show 404s in
-    the request logs.
--   Profiles and data-collector upstreams now render correctly if their
-    root_url is configured. If the data_collector token secret is not
-    set, a 401 response code and an error message will be seen instead
-    of 404.
+- Added some Habitat packaging improvements with parameterized search_server.
+- Erchef request size increased from 1,000,000 to 2,000,000 bytes to better support InSpec scanning via the audit cookbook.
+- Nginx error logs no longer log 404s. In the Chef API, 404s are typically not errors as they are often the expected response about an object that doesn't exist. The logs will continue to show 404s in the request logs.
+- Profiles and data-collector upstreams now render correctly if their root_url is configured. If the data_collector token secret is not set, a 401 response code and an error message will be seen instead of 404.
 
 ### Security
+
+#### Ruby
+
+Ruby has been updated from 2.5.3 to 2.5.4 to resolve the following CVEs:
+
+- [CVE-2019-8320](https://nvd.nist.gov/vuln/detail/CVE-2019-8320)
+- [CVE-2019-8321](https://nvd.nist.gov/vuln/detail/CVE-2019-8321)
+- [CVE-2019-8322](https://nvd.nist.gov/vuln/detail/CVE-2019-8322)
+- [CVE-2019-8323](https://nvd.nist.gov/vuln/detail/CVE-2019-8323)
+- [CVE-2019-8324](https://nvd.nist.gov/vuln/detail/CVE-2019-8324)
+- [CVE-2019-8325](https://nvd.nist.gov/vuln/detail/CVE-2019-8325)
 
 #### OpenResty
 
