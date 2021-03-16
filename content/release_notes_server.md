@@ -290,27 +290,18 @@ Omnibus release was done to keep in sync with the Habitat release.
 
 ## What's New in 12.19.26
 
-This release contains some minor improvements and updates to include
-software:
+This release contains some minor improvements and updates to include software:
 
--   Added request id to nginx log to easily track the Chef request
-    through the logs.
--   Bundler pinned to 1.17 to avoid taking the 2.0 upgrade.
+-   Added request id to nginx log to easily track the Chef request through the logs.
 -   Ruby updated to 2.5.3.
 -   Chef Client updated to 14.5.
--   Erchef and Bookshelf can optionally use mTLS protocol for their
-    internal communications.
--   Added configuration for pedant SSL-signed requests to include mTLS
-    support.
+-   Erchef and Bookshelf can optionally use mTLS protocol for their internal communications.
 -   Habitat package improvements:
     -   Increased `authn:keygen_timeout` amount for `oc_erchef` hab pkg.
     -   Removed `do_end` function from `chef-server-ctl` hab plan.
-    -   Enhanced `chef-server-ctl` to function in more habitat
-        environments.
-    -   `chef-server-ctl` commands pass relevant TLS options during
-        bifrost API calls.
--   Used standard ruby-cleanup definition, which shrinks install size by
-    \~5% on disk.
+    -   Enhanced `chef-server-ctl` to function in more habitat environments.
+    -   `chef-server-ctl` commands pass relevant TLS options during bifrost API calls.
+-   Used standard ruby-cleanup definition, which shrinks install size by \~5% on disk.
 -   Removed unused couchdb configurables.
 
 ### Security
@@ -335,21 +326,16 @@ This release:
 -   Optional disabling of welcome page
 -   chef-server-ctl now has version subcommand.
 -   chef-server-ctl appbundled to better control gem loading.
--   Support for SSL auth between internal Chef Server Services. This
-    includes connections to bifrost and the internal Postgresql server.
+-   Support for SSL auth between internal Chef Server Services. This includes connections to bifrost and the internal Postgresql server.
 -   All datestamps in logs are now in UTC. SOLR GC log now datestamped.
 -   Nginx logs now include the request id.
--   Fixie is now shipped with chef server.
--   Security issue with old doorkeeper fixed by upgrading.
-    CVE-2018-1000211
+-   Fixie is now shipped with Chef Server.
+-   Security issue with old doorkeeper fixed by upgrading. CVE-2018-1000211
 -   Fixed issue migrating rabbitmq passwords (migration 031).
--   Chef indexing queue times now reported in stats in log messages and
-    status endpoint.
+-   Chef indexing queue times now reported in stats in log messages and status endpoint.
 -   Ruby updated to 2.5.1
--   Update gems
 -   Chef Client updated to 14.3.
--   Postgresql updated to 9.6.10 and 9.2.24 (latter only for upgrades
-    from older Chef Servers).
+-   Postgresql updated to 9.6.10 and 9.2.24 (latter only for upgrades from older Chef Servers).
 -   Fix for SUSE SLES-11 sysvinit install
 -   Removed nodejs (a build dependency that was shipped).
 
