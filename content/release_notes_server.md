@@ -228,36 +228,26 @@ Postgresql has been updated from 9.6.14 to 9.6.15 to resolve [CVE-2019-10208](ht
 
 ### Chef Server is now Chef Infra Server
 
-Chef Server has a new name, but don't worry, it's the same Chef Server
-you've grown used to. You'll notice new branding throughout the
-application and documentation but the command <span
-class="title-ref">chef-server-ctl</span> remains the same.
+Chef Server has a new name, but don't worry, it's the same Chef Server you've grown used to. You'll notice new branding throughout the application and documentation but the command <span class="title-ref">chef-server-ctl</span> remains the same.
 
 ### Chef EULA
 
-Chef Infra Server requires an EULA to be accepted by users before it can
-be installed. Users can accept the EULA in a variety of ways:
+Chef Infra Server requires an EULA to be accepted by users before it can be installed. Users can accept the EULA in a variety of ways:
 
 - `chef-server-ctl reconfigure --chef-license accept`
 - `chef-server-ctl reconfigure --chef-license accept-no-persist`
 - `CHEF_LICENSE="accept" chef-server-ctl reconfigure`
 - `CHEF_LICENSE="accept-no-persist" chef-server-ctl reconfigure`
 
-Finally, if users run `chef-server-ctl reconfigure` without any of these
-options, they will receive an interactive prompt asking for license
-acceptance. If the license is accepted, a marker file will be written to
-the filesystem unless `accept-no-persist` is specified. Once this marker
-file is persisted, users no longer need to set any of these flags.
+Finally, if users run `chef-server-ctl reconfigure` without any of these options, they will receive an interactive prompt asking for license acceptance. If the license is accepted, a marker file will be written to the filesystem unless `accept-no-persist` is specified. Once this marker file is persisted, users no longer need to set any of these flags.
 
-See our [Frequently Asked Questions
-document](https://www.chef.io/bmc-faq/) for more information on the EULA
-and license acceptance.
+See our [Frequently Asked Questions document](https://www.chef.io/subscription-model-faq) for more information on the EULA and license acceptance.
 
 ### Deprecation notice
 
 - [Deprecated PowerPC and s390x platforms](https://blog.chef.io/2018/11/01/end-of-life-announcement-for-chef-server-for-linux-on-ibm-z-and-linux-on-ibm-power-systems/)
 - [Deprecated Keepalived/DRBD-based HA](https://blog.chef.io/2018/10/02/end-of-life-announcement-for-drbd-based-ha-support-in-chef-server/)
-- Deprecated Ubuntu 14.04 support. (Ubuntu 14 was EoL'd at the end of April 2019)
+- Deprecated Ubuntu 14.04 support. (Ubuntu 14.04 was EoL'd at the end of April 2019)
 
 ### Updates and Improvements
 
