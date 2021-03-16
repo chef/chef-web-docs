@@ -74,7 +74,7 @@ Please keep in mind that upgrading from releases before 14.0 will run an automat
 
 ### Security
 
-### Elasticsearch
+#### Elasticsearch
 
 Elasticsearch has been upgraded from 6.8.1 to 6.8.12 to resolve [CVE-2020-7019](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-7019)
 
@@ -255,12 +255,9 @@ and license acceptance.
 
 ### Deprecation notice
 
--   [Deprecated PowerPC and s390x
-    platforms](https://blog.chef.io/2018/11/01/end-of-life-announcement-for-chef-server-for-linux-on-ibm-z-and-linux-on-ibm-power-systems/)
--   [Deprecated Keepalived/DRBD-based
-    HA](https://blog.chef.io/2018/10/02/end-of-life-announcement-for-drbd-based-ha-support-in-chef-server/)
--   Deprecated Ubuntu 14.04 support. (Ubuntu 14 was EoL'd at the end of
-    April 2019)
+- [Deprecated PowerPC and s390x platforms](https://blog.chef.io/2018/11/01/end-of-life-announcement-for-chef-server-for-linux-on-ibm-z-and-linux-on-ibm-power-systems/)
+- [Deprecated Keepalived/DRBD-based HA](https://blog.chef.io/2018/10/02/end-of-life-announcement-for-drbd-based-ha-support-in-chef-server/)
+- Deprecated Ubuntu 14.04 support. (Ubuntu 14 was EoL'd at the end of April 2019)
 
 ### Updates and Improvements
 
@@ -292,7 +289,7 @@ This release was triggered by the update to Habitat base plans.
 (<https://blog.chef.io/2019/01/28/base-plans-refresh-is-coming-to-habitat-core-plans/>)
 Omnibus release was done to keep in sync with the Habitat release.
 
--   `chef-server-ctl` leverages HAB_LISTEN_CTL envvar if available.
+- `chef-server-ctl` leverages HAB_LISTEN_CTL envvar if available.
 
 ## What's New in 12.19.26
 
@@ -371,10 +368,9 @@ corresponding cookbook upload API request.
 
 This release:
 
--   Upgrades the version of Ruby to 2.4.3
--   Adds FIPS support for PPC64 (big-endian)
--   Fixes an Elasticsearch invalid search query issue caused by forward
-    slashes that were not escaped properly
+- Upgrades the version of Ruby to 2.4.3
+- Adds FIPS support for PPC64 (big-endian)
+- Fixes an Elasticsearch invalid search query issue caused by forward slashes that were not escaped properly
 
 ## What's New in 12.17.15
 
@@ -442,35 +438,28 @@ The following items are new for Chef server 12.17.3:
     settings](/server/config_rb_server_optional_settings/#nginx) for
     additional details
 
-See the [change
-log](https://github.com/chef/chef-server/blob/master/CHANGELOG.md#12173-2017-10-19)
-for a full list of changes.
+See the [change log](https://github.com/chef/chef-server/blob/master/CHANGELOG.md#12173-2017-10-19) for a full list of changes.
 
 ## What's New in 12.16.14
 
-This release updates Ruby to version 2.2.8 to take advantage of multiple
-[security
-fixes](https://www.ruby-lang.org/en/news/2017/09/14/ruby-2-2-8-released/).
-See the full [change
-log](https://github.com/chef/chef-server/blob/master/CHANGELOG.md#121614-2017-09-21)
-for details on minor changes.
+This release updates Ruby to version 2.2.8 to take advantage of multiple [security
+fixes](https://www.ruby-lang.org/en/news/2017/09/14/ruby-2-2-8-released/). See the full [change
+log](https://github.com/chef/chef-server/blob/master/CHANGELOG.md#121614-2017-09-21) for details on minor changes.
 
 ## What's New in 12.16.9
 
 The following items are new for Chef server 12.16.9:
 
--   **Minor fixes for the PostgreSQL upgrade process**
--   **Remove unused authorization objects from bifrost database**
+- **Minor fixes for the PostgreSQL upgrade process**
+- **Remove unused authorization objects from bifrost database**
 
 ### Fixes for the PostgreSQL upgrade process
 
 Chef server 12.16.9 adds the following features to make the PostgreSQL
 upgrade process easier:
 
--   Ensures that your disk has the required space before starting the
-    PostgreSQL upgrade
--   For users with large databases, `pg_upgrade` timeout is now
-    configurable. The default timeout has been increased to 2 hours.
+- Ensures that your disk has the required space before starting the PostgreSQL upgrade
+- For users with large databases, `pg_upgrade` timeout is now configurable. The default timeout has been increased to 2 hours.
 
 ### Remove unused authorization objects from bifrost database
 
@@ -490,12 +479,11 @@ subcommand documentation for syntax examples and additional options.
 
 The following items are new for Chef server 12.16.2:
 
--   **Upgrade to PostgreSQL 9.6**
--   **Elasticsearch 5 support**
--   **Changes to Erlang Port Mapper Daemon (EPMD) listening ports**
--   **RabbitMQ health check in status endpoint**
--   **Notification of affected services when updating secrets with
-    set-secret**
+- **Upgrade to PostgreSQL 9.6**
+- **Elasticsearch 5 support**
+- **Changes to Erlang Port Mapper Daemon (EPMD) listening ports**
+- **RabbitMQ health check in status endpoint**
+- **Notification of affected services when updating secrets with set-secret**
 
 ### Upgrade to PostgreSQL 9.6
 
