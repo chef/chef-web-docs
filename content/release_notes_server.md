@@ -294,11 +294,6 @@ software:
 -   Added request id to nginx log to easily track the Chef request
     through the logs.
 -   Bundler pinned to 1.17 to avoid taking the 2.0 upgrade.
--   Erlang updated to 18.3.4.9
-    -   Fixed two CVEs CVE-2017-1000385 and CVE-2016-10253. SSL headers
-        got stricter which unfortunately broke LDAP. (Issue \#1642)
-    -   Removed `et`, `debugger`, `gs`, and `observer` as they depend on
-        `wx`, which is not available on all platforms.
 -   Ruby updated to 2.5.3.
 -   Chef Client updated to 14.5.
 -   Erchef and Bookshelf can optionally use mTLS protocol for their
@@ -315,6 +310,15 @@ software:
 -   Used standard ruby-cleanup definition, which shrinks install size by
     \~5% on disk.
 -   Removed unused couchdb configurables.
+
+### Security
+
+#### Erlang
+
+Erlang has been updated to 18.3.4.9 to resolve the following CVEs:
+
+- [CVE-2017-1000385](https://nvd.nist.gov/vuln/detail/CVE-2017-1000385)
+- [CVE-2016-10253](https://nvd.nist.gov/vuln/detail/CVE-2016-10253)
 
 ## What's New in 12.18.14
 
