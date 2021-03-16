@@ -111,16 +111,21 @@ Upgrading to Chef Infra Server 14 will require a reindexing operation for most u
 
 #### Updated Components
 
-- openssl (1.0.2u -> 1.0.2w)
 - openresty (1.15.8.1 -> 1.17.8.2)
 - server-open-jre (11.0.4+1 -> 11.0.7+1)
 
 #### Removed Components
 
-- rabbitmq (3.6.15)
-- server-jre (8u202)
-- opscode-solr4 (4.10.4)
+- rabbitmq
+- server-jre
+- opscode-solr4
 - opscode-expander
+
+### Security
+
+#### OpenSSL
+
+OpenSSL was updated from 1.0.2u to 1.0.2w which includes a fix for [CVE-2020-1968](https://cve.mitre.org/cgi-bin/cvename.cgi?name=2020-1968) and multiple security hardening fixes not related to particular CVEs.
 
 ## What's New in 13.2
 
