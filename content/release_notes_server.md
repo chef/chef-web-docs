@@ -66,10 +66,17 @@ Please keep in mind that upgrading from releases before 14.0 will run an automat
 
 ## What's New in 14.0.65
 
-- Elasticsearch has been upgraded from 6.8.1 to 6.8.12 to resolve [CVE-2020-7019](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-7019)
+### Bug Fixes and Improvements
+
 - The `users` API endpoint now includes the `display_name` field for each user
 - Resolved failures starting Chef Infra Server on slower systems
 - Resolved failures when `/tmp` was mounted with `noexec`
+
+### Security
+
+### Elasticsearch
+
+Elasticsearch has been upgraded from 6.8.1 to 6.8.12 to resolve [CVE-2020-7019](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-7019)
 
 ## What's New in 14.0.58
 
