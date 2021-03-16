@@ -251,10 +251,6 @@ See our [Frequently Asked Questions document](https://www.chef.io/subscription-m
 
 ### Updates and Improvements
 
--   Updated OpenResty to 1.13.6.2
-    -   This fixes two CVEs: CVE-2018-9230 and CVE-2017-7529.
-    -   This version cannot be built on PowerPC and s390x because those
-        platforms are not supported in mainline luajit.
 -   Updated Ruby version to 2.5.5
 -   Updated Chef Infra Client to 14.11.21
 -   Updated runit cookbook to 5.1.1
@@ -272,6 +268,15 @@ See our [Frequently Asked Questions document](https://www.chef.io/subscription-m
     root_url is configured. If the data_collector token secret is not
     set, a 401 response code and an error message will be seen instead
     of 404.
+
+### Security
+
+#### OpenResty
+
+OpenResty was updated to 1.13.6.2 to resolve the following CVEs:
+
+- [CVE-2018-9230](https://nvd.nist.gov/vuln/detail/CVE-2018-9230)
+- [CVE-2017-7529](https://nvd.nist.gov/vuln/detail/CVE-2017-7529)
 
 ## What's New in 12.19.31
 
