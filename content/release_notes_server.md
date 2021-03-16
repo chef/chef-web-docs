@@ -224,7 +224,11 @@ Loofah has been updated from 2.2.3 to 2.3.1 to resolve [CVE-2019-15587](https://
 
 Postgresql has been updated from 9.6.14 to 9.6.15 to resolve [CVE-2019-10208](https://nvd.nist.gov/vuln/detail/CVE-2019-10208)
 
-## What's New in 13.0.11
+## What's New in 13.0.17
+
+This is an identical release to 13.0.16 that was performed for product packaging reasons.
+
+## What's New in 13.0.16
 
 ### Chef Server is now Chef Infra Server
 
