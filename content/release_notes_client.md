@@ -29,9 +29,9 @@ changelog](https://github.com/chef/chef/blob/master/CHANGELOG.md)
 
 Upgraded OpenSSL to 1.0.2y, which resolves the following CVEs:
 
-* [CVE-2021-23841](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-23841)
-* [CVE-2021-23839](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-23839)
-* [CVE-2021-23840](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-23840)
+- [CVE-2021-23841](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-23841)
+- [CVE-2021-23839](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-23839)
+- [CVE-2021-23840](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-23840)
 
 ### Platform Updates
 
@@ -67,11 +67,11 @@ On AWS instances, we now gather data from the latest metadata API versions, expo
 - placement/region
 - spot/instance-action
 
-#### Alma Linux Support
+#### Alma Linux Detection
 
-Chef Infra Client now maps [Alma Linux](https://almalinux.org/) to the `rhel` `platform_family` value. Alma Linux is a new open-source RHEL fork produced by the CloudLinux team.
+Chef Infra Client now maps [Alma Linux](https://almalinux.org/) to the `rhel` `platform_family` value. Alma Linux is a new open-source RHEL fork produced by the CloudLinux team. Alma Linux falls under Chef's [Community Support](https://docs.chef.io/platforms/#community-support) platform support policy providing community driven support without the extensive testing given to commercially supported platforms in Chef Infra Client.
 
-We've also added support for testing cookbooks on Alma Linux with new [Alma Linux 8 Vagrant Images](https://app.vagrantup.com/bento/boxes/almalinux-8) for use in Test Kitchen on VirtualBox, Parallels, and VMware. You can use these images today in Test Kitchen by specifying this new box in your config as follows:
+You can test cookbooks on Alma Linux in Test Kitchen using [Alma Linux 8 Vagrant Images](https://app.vagrantup.com/bento/boxes/almalinux-8 on VirtualBox, Parallels, and VMware hypervisors as follows:
 
 ```yaml
 platforms:
@@ -79,8 +79,6 @@ platforms:
     driver:
       box: bento/almalinux-8
 ```
-
-Note: In the upcoming release of Chef Workstation, you'll be able to skip the `box` config and Test Kitchen will automatically map `almalinux-8` to the appropriate Vagrant image.
 
 #### Knife Bootstrapping Without Sudo
 
@@ -408,7 +406,7 @@ The `ifconfig` resource has been updated to no longer add empty blank lines to t
 
 The `windows_audit_policy` resource has been updated to fix a bug on failure-only auditing.
 
-## Ohai Improvements
+### Ohai Improvements
 
 #### Passwd Plugin For Windows
 
