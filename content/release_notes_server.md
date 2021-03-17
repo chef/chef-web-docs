@@ -203,6 +203,12 @@ Ruby has been updated from 2.6.3 to 2.6.5 to resolve the following CVEs:
 
 The release of rubyzip in the `oc-id` Chef Infra Server component has been updated from 1.2.3 to 1.3.0 to resolve [CVE-2019-16892](https://nvd.nist.gov/vuln/detail/CVE-2019-16892)
 
+#### OpenSSL
+
+OpenSSL has been updated from 1.0.2t to 1.0.2u to resolve the following CVEs:
+
+- [CVE-2019-1551](https://nvd.nist.gov/vuln/detail/CVE-2019-1551)
+
 ## What's New in 13.1.13
 
 ### Improvements/Bug Fixes
