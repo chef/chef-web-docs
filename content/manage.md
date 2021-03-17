@@ -12,7 +12,7 @@ product = []
     parent = "legacy/manage"
     weight = 10
 +++
-{{< figure src="/images/a2_docs_banner.svg" width=1000 class="no-shadow" alt="Link to Chef Automate documentation." link="/automate/" >}}
+{{< chef_automate_mark >}}
 
 {{% EOL_manage %}}
 
