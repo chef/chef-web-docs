@@ -177,37 +177,18 @@ PCRE has been updated from 8.38 to 8.44 to resolve the following CVEs:
 ### Updates
 
 - Erlang in the Habitat package: 18 -> 20
-- Haproxy 1.6.4 -> 1.6.15
-- Redis 3.0.7 -> 5.0.7
 - libxml2 2.9.9 -> 2.9.10
 - libxslt 1.1.30 -> 1.1.34
 
 ### Security
 
-#### Rack
+#### haproxy
 
-The `rack` gem in the `oc-id` Chef Infra Server component has been updated from 1.6.11 to 1.6.12 to resolve [CVE-2019-16782](https://nvd.nist.gov/vuln/detail/CVE-2019-16782)
-
-#### Ruby
-
-Ruby has been updated from 2.6.3 to 2.6.5 to resolve the following CVEs:
-
-- [CVE-2019-16255](https://nvd.nist.gov/vuln/detail/CVE-2019-16255): A code injection vulnerability of Shell#[] and Shell#test
-- [CVE-2019-16254](https://nvd.nist.gov/vuln/detail/CVE-2019-16254): HTTP response splitting in WEBrick (Additional fix)
-- [CVE-2019-15845](https://nvd.nist.gov/vuln/detail/CVE-2019-15845): A NUL injection vulnerability of File.fnmatch and File.fnmatch?
-- [CVE-2019-16201](https://nvd.nist.gov/vuln/detail/CVE-2019-16201): Regular Expression Denial of Service vulnerability of WEBrick's Digest access authentication
-- [CVE-2012-6708](https://nvd.nist.gov/vuln/detail/CVE-2012-6708): Cross-site Scripting vulnerability in RDoc
-- [CVE-2015-16892](https://nvd.nist.gov/vuln/detail/CVE-2015-9251): Cross-site Scripting vulnerability in RDoc
-
-#### rubyzip
-
-The release of rubyzip in the `oc-id` Chef Infra Server component has been updated from 1.2.3 to 1.3.0 to resolve [CVE-2019-16892](https://nvd.nist.gov/vuln/detail/CVE-2019-16892)
-
-#### OpenSSL
-
-OpenSSL has been updated from 1.0.2t to 1.0.2u to resolve the following CVEs:
-
-- [CVE-2019-1551](https://nvd.nist.gov/vuln/detail/CVE-2019-1551)
+- [CVE-2018-10184](https://nvd.nist.gov/vuln/detail/CVE-2018-10184)
+- [CVE-2018-14645](https://nvd.nist.gov/vuln/detail/CVE-2018-14645)
+- [CVE-2018-20103](https://nvd.nist.gov/vuln/detail/CVE-2018-20103)
+- [CVE-2018-20102](https://nvd.nist.gov/vuln/detail/CVE-2018-20102)
+- [CVE-2019-11323](https://nvd.nist.gov/vuln/detail/CVE-2019-11323)
 
 #### Java JRE
 
@@ -225,6 +206,40 @@ The Java JRE has been updated from 8u162 to 8u202 to resolve the following CVEs:
 - [CVE-2018-2800](https://nvd.nist.gov/vuln/detail/CVE-2018-2800)
 - [CVE-2018-2811](https://nvd.nist.gov/vuln/detail/CVE-2018-2811)
 - [CVE-2018-2815](https://nvd.nist.gov/vuln/detail/CVE-2018-2815)
+
+#### OpenSSL
+
+OpenSSL has been updated from 1.0.2t to 1.0.2u to resolve the following CVEs:
+
+- [CVE-2019-1551](https://nvd.nist.gov/vuln/detail/CVE-2019-1551)
+
+#### Rack
+
+The `rack` gem in the `oc-id` Chef Infra Server component has been updated from 1.6.11 to 1.6.12 to resolve [CVE-2019-16782](https://nvd.nist.gov/vuln/detail/CVE-2019-16782)
+
+#### Redis
+
+Redis has been updated from 3.0.7 to 5.0.7 to resolve the following CVEs:
+
+- [CVE-2019-10193](https://nvd.nist.gov/vuln/detail/CVE-2019-10193)
+- [CVE-2019-10192](https://nvd.nist.gov/vuln/detail/CVE-2019-10192)
+- [CVE-2019-11218](https://nvd.nist.gov/vuln/detail/CVE-2019-11218)
+- [CVE-2019-11219](https://nvd.nist.gov/vuln/detail/CVE-2019-11219)
+
+#### Ruby
+
+Ruby has been updated from 2.6.3 to 2.6.5 to resolve the following CVEs:
+
+- [CVE-2019-16255](https://nvd.nist.gov/vuln/detail/CVE-2019-16255): A code injection vulnerability of Shell#[] and Shell#test
+- [CVE-2019-16254](https://nvd.nist.gov/vuln/detail/CVE-2019-16254): HTTP response splitting in WEBrick (Additional fix)
+- [CVE-2019-15845](https://nvd.nist.gov/vuln/detail/CVE-2019-15845): A NUL injection vulnerability of File.fnmatch and File.fnmatch?
+- [CVE-2019-16201](https://nvd.nist.gov/vuln/detail/CVE-2019-16201): Regular Expression Denial of Service vulnerability of WEBrick's Digest access authentication
+- [CVE-2012-6708](https://nvd.nist.gov/vuln/detail/CVE-2012-6708): Cross-site Scripting vulnerability in RDoc
+- [CVE-2015-16892](https://nvd.nist.gov/vuln/detail/CVE-2015-9251): Cross-site Scripting vulnerability in RDoc
+
+#### rubyzip
+
+The release of rubyzip in the `oc-id` Chef Infra Server component has been updated from 1.2.3 to 1.3.0 to resolve [CVE-2019-16892](https://nvd.nist.gov/vuln/detail/CVE-2019-16892)
 
 ## What's New in 13.1.13
 
