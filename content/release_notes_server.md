@@ -49,7 +49,7 @@ The AdoptOpenJDK package has been updated from 11.0.7+10 to 11.0.10+9 to resolve
 
 #### OpenSSL
 
-The OpenSSL library has been updated to 1.0.2y to resolve the following CVEs:
+The OpenSSL library has been updated from 1.0.2w to 1.0.2y to resolve the following CVEs:
 
 - [CVE-2021-23841](https://nvd.nist.gov/vuln/detail/CVE-2021-23841)
 - [CVE-2021-23839](https://nvd.nist.gov/vuln/detail/CVE-2021-23839)
@@ -126,6 +126,14 @@ Upgrading to Chef Infra Server 14 will require a reindexing operation for most u
 #### OpenSSL
 
 OpenSSL was updated from 1.0.2u to 1.0.2w which includes a fix for [CVE-2020-1968](https://nvd.nist.gov/vuln/detail/2020-1968) and multiple security hardening fixes not related to particular CVEs.
+
+#### PCRE
+
+PCRE has been updated from 8.38 to 8.44 to resolve the following CVEs:
+
+- [CVE-2016-3191](https://nvd.nist.gov/vuln/detail/CVE-2016-3191)
+- [CVE-2017-6004](https://nvd.nist.gov/vuln/detail/CVE-2017-6004)
+- [CVE-2016-1283](https://nvd.nist.gov/vuln/detail/CVE-2016-1283)
 
 ## What's New in 13.2
 
