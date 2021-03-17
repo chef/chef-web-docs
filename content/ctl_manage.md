@@ -14,7 +14,7 @@ product = []
     weight = 110
 +++
 
-{{< figure src="/images/a2_docs_banner.svg" width=900 class="no-shadow" alt="Link to Chef Automate documentation." link="/automate/" >}}
+{{< figure src="/images/a2_docs_banner.svg" width=1000 class="no-shadow" alt="Link to Chef Automate documentation." link="/automate/" >}}
 
 {{% EOL_manage %}}
 
