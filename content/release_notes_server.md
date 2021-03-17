@@ -416,26 +416,21 @@ Ruby has been updated from 2.5.1 to 2.5.3 to resolve the following CVEs:
 
 This release:
 
--   Segment free cookbooks are implemented.
-    (<https://github.com/chef/chef-rfc/blob/master/rfc067-cookbook-segment-deprecation.md>)
-    This bumps the API version.
--   ACLs for cookbook artifacts
--   /nodes/NODENAME endpoint has HEAD operation.
--   Security headers for HTTP
--   Optional disabling of welcome page
--   chef-server-ctl now has version subcommand.
--   chef-server-ctl appbundled to better control gem loading.
--   Support for SSL auth between internal Chef Server Services. This includes connections to bifrost and the internal Postgresql server.
--   All datestamps in logs are now in UTC. SOLR GC log now datestamped.
--   Nginx logs now include the request id.
--   Fixie is now shipped with Chef Server.
--   Security issue with old doorkeeper fixed by upgrading. CVE-2018-1000211
--   Fixed issue migrating rabbitmq passwords (migration 031).
--   Chef indexing queue times now reported in stats in log messages and status endpoint.
--   Ruby updated to 2.5.1
--   Postgresql updated to 9.6.10 and 9.2.24 (latter only for upgrades from older Chef Servers).
--   Fix for SUSE SLES-11 sysvinit install
--   Removed nodejs (a build dependency that was shipped).
+- Segment free cookbooks are implemented. (<https://github.com/chef/chef-rfc/blob/master/rfc067-cookbook-segment-deprecation.md>) This bumps the API version.
+- ACLs for cookbook artifacts
+- /nodes/NODENAME endpoint has HEAD operation.
+- Security headers for HTTP
+- Optional disabling of welcome page
+- chef-server-ctl now has version subcommand.
+- chef-server-ctl appbundled to better control gem loading.
+- Support for SSL auth between internal Chef Server Services. This includes connections to bifrost and the internal Postgresql server.
+- All datestamps in logs are now in UTC. SOLR GC log now datestamped.
+- Nginx logs now include the request id.
+- Fixie is now shipped with Chef Server.
+- Fixed issue migrating rabbitmq passwords (migration 031).
+- Chef indexing queue times now reported in stats in log messages and status endpoint.
+- Fix for SUSE SLES-11 sysvinit install
+- Removed nodejs (a build dependency that was shipped).
 
 {{< note >}}
 
@@ -448,6 +443,45 @@ containing `status=400` and `req_api_version=1` in the log line for the
 corresponding cookbook upload API request.
 
 {{< /note >}}
+
+### Security
+
+#### doorkeeper
+
+Doorkeeper has been updated to resolve [CVE-2018-1000211](https://nvd.nist.gov/vuln/detail/CVE-2018-1000211)
+
+#### OpenSSL
+
+OpenSSL has been updated from 1.0.2n to 1.0.2p to resolve the following CVEs:
+
+- [CVE-2018-0732](https://nvd.nist.gov/vuln/detail/CVE-2018-0732)
+- [CVE-2018-0737](https://nvd.nist.gov/vuln/detail/CVE-2018-0737)
+- [CVE-2018-0739](https://nvd.nist.gov/vuln/detail/CVE-2018-0739)
+
+#### Postgresql
+
+Postgresql has been updated from 9.6.4 9.6.10 to resolve the following CVEs:
+
+- [CVE-2017-15099](https://nvd.nist.gov/vuln/detail/CVE-2017-15099)
+- [CVE-2017-15098](https://nvd.nist.gov/vuln/detail/CVE-2017-15098)
+- [CVE-2017-12172](https://nvd.nist.gov/vuln/detail/CVE-2017-12172)
+- [CVE-2018-1053](https://nvd.nist.gov/vuln/detail/CVE-2018-1053)
+- [CVE-2018-1058](https://nvd.nist.gov/vuln/detail/CVE-2018-1058)
+- [CVE-2018-1115](https://nvd.nist.gov/vuln/detail/CVE-2018-1115)
+- [CVE-2018-10915](https://nvd.nist.gov/vuln/detail/CVE-2018-10915)
+- [CVE-2018-10925](https://nvd.nist.gov/vuln/detail/CVE-2018-10925)
+
+#### Ruby
+
+Ruby has been updated from 2.4.3 to 2.5.1 to resolve the following CVEs:
+
+- [CVE-2017-17742](https://nvd.nist.gov/vuln/detail/CVE-2017-17742)
+- [CVE-2018-6914](https://nvd.nist.gov/vuln/detail/CVE-2018-6914)
+- [CVE-2018-8777](https://nvd.nist.gov/vuln/detail/CVE-2018-8777)
+- [CVE-2018-8778](https://nvd.nist.gov/vuln/detail/CVE-2018-8778)
+- [CVE-2018-8779](https://nvd.nist.gov/vuln/detail/CVE-2018-8779)
+- [CVE-2018-8780](https://nvd.nist.gov/vuln/detail/CVE-2018-8780)
+- Multiple vulnerabilities in RubyGems
 
 ## What's New in 12.17.33
 
