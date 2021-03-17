@@ -460,7 +460,7 @@ OpenSSL has been updated from 1.0.2n to 1.0.2p to resolve the following CVEs:
 
 #### Postgresql
 
-Postgresql has been updated from 9.6.4 9.6.10 to resolve the following CVEs:
+Postgresql has been updated from 9.6.4 to 9.6.10 to resolve the following CVEs:
 
 - [CVE-2017-15099](https://nvd.nist.gov/vuln/detail/CVE-2017-15099)
 - [CVE-2017-15098](https://nvd.nist.gov/vuln/detail/CVE-2017-15098)
