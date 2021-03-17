@@ -269,6 +269,13 @@ The release of rubyzip in the `oc-id` Chef Infra Server component has been updat
 
 ### Security
 
+#### bzip2
+
+bzip has been updated from 1.0.6 to 1.0.8 to resolve the following CVEs
+
+- [CVE-2019-12900](https://nvd.nist.gov/vuln/detail/CVE-2019-12900)
+- [CVE-2016-3189](https://nvd.nist.gov/vuln/detail/CVE-2016-3189)
+
 #### Loofah
 
 Loofah has been updated from 2.2.3 to 2.3.1 to resolve [CVE-2019-15587](https://nvd.nist.gov/vuln/detail/CVE-2019-15587)
