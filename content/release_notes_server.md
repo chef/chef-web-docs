@@ -380,7 +380,6 @@ libxml2 has been updated from 2.9.8 to 2.9.9 to resolve the following CVEs:
 This release contains some minor improvements and updates to include software:
 
 -   Added request id to nginx log to easily track the Chef request through the logs.
--   Ruby updated to 2.5.3.
 -   Erchef and Bookshelf can optionally use mTLS protocol for their internal communications.
 -   Habitat package improvements:
     -   Increased `authn:keygen_timeout` amount for `oc_erchef` hab pkg.
@@ -398,6 +397,20 @@ Erlang has been updated to 18.3.4.9 to resolve the following CVEs:
 
 - [CVE-2017-1000385](https://nvd.nist.gov/vuln/detail/CVE-2017-1000385)
 - [CVE-2016-10253](https://nvd.nist.gov/vuln/detail/CVE-2016-10253)
+
+#### OpenSSL
+
+OpenSSL has been updated from 1.0.2p to 1.0.2q to resolve the following CVEs:
+
+- [CVE-2018-0734](https://nvd.nist.gov/vuln/detail/CVE-2018-0734)
+- [CVE-2018-5407](https://nvd.nist.gov/vuln/detail/CVE-2018-5407)
+
+#### Ruby
+
+Ruby has been updated from 2.5.1 to 2.5.3 to resolve the following CVEs:
+
+- [CVE-2018-16396](https://nvd.nist.gov/vuln/detail/CVE-2018-16396)
+- [CVE-2018-16395](https://nvd.nist.gov/vuln/detail/CVE-2018-16395)
 
 ## What's New in 12.18.14
 
