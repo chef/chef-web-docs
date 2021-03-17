@@ -220,11 +220,18 @@ The release of rubyzip in the `oc-id` Chef Infra Server component has been updat
 - Nokogiri 1.8.5 -\> 1.10.4
 - Rebar3 -\> 3.12.0
 - Updated erlang deps to be the latest
-- Loofah 2.2.3 -\> 2.3.1
 - Erlang 18.3.4.9 -\> 20.3.8.9
 - Ruby 2.5.5 -\> 2.6.3
 
 ### Security
+
+#### OpenSSL
+
+OpenSSL has been updated from 1.0.2s to 1.0.2t to resolve the following CVEs:
+
+- [CVE-2019-1547](https://nvd.nist.gov/vuln/detail/CVE-2019-1547)
+- [CVE-2019-1563](https://nvd.nist.gov/vuln/detail/CVE-2019-1563)
+- [CVE-2019-1552](https://nvd.nist.gov/vuln/detail/CVE-2019-1552)
 
 #### Loofah
 
