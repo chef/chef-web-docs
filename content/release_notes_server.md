@@ -91,6 +91,7 @@ Upgrading to Chef Infra Server 14 will require a reindexing operation for most u
 - Improved Indexing Metrics: The `/_stats` API endpoint now returns metrics about search indexing. These new metrics should allow us to more easily investigate problems that users report with search indexing.
 - Integration Testing: In Chef Infra Server 13.2, we added a new integration testing pipeline. We've further improved this pipeline, expanding the testing scenarios and improving the fidelity of the existing scenarios.
 - New Command: `chef-server-ctl` now features the `check-config` command, which runs only the configuration portion of the reconfigure cookbooks and preflight checks.
+- New smaller installation and package size. Up to 22% reduction in overall size.
 
 ### Bug Fixes
 
