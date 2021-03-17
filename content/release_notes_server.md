@@ -209,6 +209,23 @@ OpenSSL has been updated from 1.0.2t to 1.0.2u to resolve the following CVEs:
 
 - [CVE-2019-1551](https://nvd.nist.gov/vuln/detail/CVE-2019-1551)
 
+#### Java JRE
+
+The Java JRE has been updated from 8u162 to 8u202 to resolve the following CVEs:
+
+- [CVE-2018-3214](https://nvd.nist.gov/vuln/detail/CVE-2018-3214)
+- [CVE-2018-14048](https://nvd.nist.gov/vuln/detail/CVE-2018-14048)
+- [CVE-2018-3209](https://nvd.nist.gov/vuln/detail/CVE-2018-3209)
+- [CVE-2018-3211](https://nvd.nist.gov/vuln/detail/CVE-2018-3211)
+- [CVE-2018-2941](https://nvd.nist.gov/vuln/detail/CVE-2018-2941)
+- [CVE-2018-2942](https://nvd.nist.gov/vuln/detail/CVE-2018-2942)
+- [CVE-2018-2964](https://nvd.nist.gov/vuln/detail/CVE-2018-2964)
+- [CVE-2018-2798](https://nvd.nist.gov/vuln/detail/CVE-2018-2798)
+- [CVE-2018-2799](https://nvd.nist.gov/vuln/detail/CVE-2018-2799)
+- [CVE-2018-2800](https://nvd.nist.gov/vuln/detail/CVE-2018-2800)
+- [CVE-2018-2811](https://nvd.nist.gov/vuln/detail/CVE-2018-2811)
+- [CVE-2018-2815](https://nvd.nist.gov/vuln/detail/CVE-2018-2815)
+
 ## What's New in 13.1.13
 
 ### Improvements/Bug Fixes
