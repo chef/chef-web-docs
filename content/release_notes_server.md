@@ -177,6 +177,10 @@ PCRE has been updated from 8.38 to 8.44 to resolve the following CVEs:
 ### Updates
 
 - Erlang in the Habitat package: 18 -> 20
+- Haproxy 1.6.4 -> 1.6.15
+- Redis 3.0.7 -> 5.0.7
+- libxml2 2.9.9 -> 2.9.10
+- libxslt 1.1.30 -> 1.1.34
 
 ### Security
 
@@ -225,6 +229,10 @@ The release of rubyzip in the `oc-id` Chef Infra Server component has been updat
 
 ### Security
 
+#### Loofah
+
+Loofah has been updated from 2.2.3 to 2.3.1 to resolve [CVE-2019-15587](https://nvd.nist.gov/vuln/detail/CVE-2019-15587)
+
 #### OpenSSL
 
 OpenSSL has been updated from 1.0.2s to 1.0.2t to resolve the following CVEs:
@@ -232,10 +240,6 @@ OpenSSL has been updated from 1.0.2s to 1.0.2t to resolve the following CVEs:
 - [CVE-2019-1547](https://nvd.nist.gov/vuln/detail/CVE-2019-1547)
 - [CVE-2019-1563](https://nvd.nist.gov/vuln/detail/CVE-2019-1563)
 - [CVE-2019-1552](https://nvd.nist.gov/vuln/detail/CVE-2019-1552)
-
-#### Loofah
-
-Loofah has been updated from 2.2.3 to 2.3.1 to resolve [CVE-2019-15587](https://nvd.nist.gov/vuln/detail/CVE-2019-15587)
 
 #### Postgresql
 
