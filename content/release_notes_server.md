@@ -354,18 +354,26 @@ Ruby has been updated from 2.5.3 to 2.5.4 to resolve the following CVEs:
 
 #### OpenResty
 
-OpenResty was updated to 1.13.6.2 to resolve the following CVEs:
+OpenResty was updated from 1.11.2.1 to 1.13.6.2 to resolve the following CVEs:
 
 - [CVE-2018-9230](https://nvd.nist.gov/vuln/detail/CVE-2018-9230)
 - [CVE-2017-7529](https://nvd.nist.gov/vuln/detail/CVE-2017-7529)
 
 ## What's New in 12.19.31
 
-This release was triggered by the update to Habitat base plans.
-(<https://blog.chef.io/2019/01/28/base-plans-refresh-is-coming-to-habitat-core-plans/>)
-Omnibus release was done to keep in sync with the Habitat release.
+### Security
 
-- `chef-server-ctl` leverages HAB_LISTEN_CTL envvar if available.
+#### OpenSSL
+
+OpenSSL has been updated from 1.0.2q to 1.0.2r to resolve [CVE-2019-1559](https://nvd.nist.gov/vuln/detail/CVE-2019-1559)
+
+#### libxml2
+
+libxml2 has been updated from 2.9.8 to 2.9.9 to resolve the following CVEs:
+
+- [CVE-2018-9251](https://nvd.nist.gov/vuln/detail/CVE-2018-9251)
+- [CVE-2018-14567](https://nvd.nist.gov/vuln/detail/CVE-2018-14567)
+- [CVE-2018-14404](https://nvd.nist.gov/vuln/detail/CVE-2018-14404)
 
 ## What's New in 12.19.26
 
