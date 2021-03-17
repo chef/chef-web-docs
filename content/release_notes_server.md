@@ -184,6 +184,8 @@ PCRE has been updated from 8.38 to 8.44 to resolve the following CVEs:
 
 #### haproxy
 
+haproxy has been updated from 1.6.4 to 1.6.15 to resolve the following CVEs:
+
 - [CVE-2018-10184](https://nvd.nist.gov/vuln/detail/CVE-2018-10184)
 - [CVE-2018-14645](https://nvd.nist.gov/vuln/detail/CVE-2018-14645)
 - [CVE-2018-20103](https://nvd.nist.gov/vuln/detail/CVE-2018-20103)
@@ -281,7 +283,10 @@ OpenSSL has been updated from 1.0.2s to 1.0.2t to resolve the following CVEs:
 
 #### Postgresql
 
-Postgresql has been updated from 9.6.14 to 9.6.15 to resolve [CVE-2019-10208](https://nvd.nist.gov/vuln/detail/CVE-2019-10208)
+Postgresql has been updated from 9.6.10 to 9.6.15 to resolve the following CVEs:
+
+- [CVE-2019-10208](https://nvd.nist.gov/vuln/detail/CVE-2019-10208)
+- [CVE-2019-10130](https://nvd.nist.gov/vuln/detail/CVE-2019-10130)
 
 #### RabbitMQ
 
