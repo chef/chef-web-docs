@@ -112,8 +112,7 @@ Upgrading to Chef Infra Server 14 will require a reindexing operation for most u
 
 #### Updated Components
 
-- openresty (1.15.8.1 -> 1.17.8.2)
-- server-open-jre (11.0.4+1 -> 11.0.7+1)
+- server-open-jre (11.0.4+11 -> 11.0.7+10)
 
 #### Removed Components
 
@@ -127,6 +126,10 @@ Upgrading to Chef Infra Server 14 will require a reindexing operation for most u
 #### OpenSSL
 
 OpenSSL was updated from 1.0.2u to 1.0.2w which includes a fix for [CVE-2020-1968](https://nvd.nist.gov/vuln/detail/2020-1968) and multiple security hardening fixes not related to particular CVEs.
+
+#### OpenResty
+
+OpenResty was upgraded from 1.15.8.1 to 1.17.8.2 to resolve [CVE-2020-11724](https://nvd.nist.gov/vuln/detail/CVE-2020-11724).
 
 #### PCRE
 
