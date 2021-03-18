@@ -80,43 +80,43 @@ announcement](https://blog.chef.io/2019/04/02/chef-software-announces-the-enterp
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>Chef Automate</td>
 <td>Latest</td>
 <td>GA</td>
 <td>n/a</td>
 </tr>
-<tr class="even">
+<tr>
 <td>Chef Infra Client</td>
 <td>16.x</td>
 <td>GA</td>
 <td>April 30, 2022</td>
 </tr>
-<tr class="even">
+<tr>
 <td>Chef Infra Server</td>
 <td>14.x</td>
 <td>GA</td>
 <td>n/a</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>Chef Habitat</td>
 <td>0.81+</td>
 <td>GA</td>
 <td>n/a</td>
 </tr>
-<tr class="even">
+<tr>
 <td>Chef InSpec</td>
 <td>4.x</td>
 <td>GA</td>
 <td>n/a</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>Chef Workstation</td>
 <td>20.x (2020), 21.x (2021)</td>
 <td>GA</td>
 <td>n/a</td>
 </tr>
-<tr class="even">
+<tr>
 <td>Chef Backend</td>
 <td>3.x</td>
 <td>Releasing 2021</td>
@@ -154,7 +154,7 @@ version 2.0.
 </tr>
 </thead>
 <tbody>
-<tr class="even">
+<tr>
 <td>Supermarket</td>
 <td>3.x</td>
 <td>GA</td>
@@ -184,25 +184,25 @@ newer versions or products.
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>Chef Backend</td>
 <td>2.x</td>
 <td>Deprecated</td>
 <td>December 31, 2021</td>
 </tr>
-<tr class="even">
+<tr>
 <td>Chef Infra Client</td>
 <td>15.x</td>
 <td>Deprecated</td>
 <td>April 30, 2021</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>Chef Infra Server</td>
 <td>13.x</td>
 <td>Deprecated</td>
 <td>June 30, 2021</td>
 </tr>
-<tr class="even">
+<tr>
 <td>Chef Manage</td>
 <td>2.5.x+</td>
 <td>Deprecated</td>
@@ -236,99 +236,99 @@ confused with the modern [Chef Compliance offering](/compliance/).
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>Analytics</td>
 <td>All</td>
 <td>EOL</td>
 <td>December 31, 2018</td>
 </tr>
-<tr class="even">
+<tr>
 <td>Automate</td>
 <td>1.x</td>
 <td>EOL</td>
 <td>December 31, 2019</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>Chef Client</td>
 <td>14 and under</td>
 <td>EOL</td>
 <td>April 30, 2020</td>
 </tr>
-<tr class="even">
+<tr>
 <td>Chef Compliance Server</td>
 <td>All</td>
 <td>EOL</td>
 <td>December 31, 2018</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>ChefDK</td>
 <td>3 and under</td>
 <td>EOL</td>
 <td>April 30, 2020</td>
 </tr>
-<tr class="even">
+<tr>
 <td>ChefDK</td>
 <td>4.x</td>
 <td>EOL</td>
 <td>December 31, 2020</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>Chef Infra Server</td>
 <td>12.x</td>
 <td>EOL</td>
 <td>December 31, 2020</td>
 </tr>
-<tr class="even">
+<tr>
 <td>Chef InSpec</td>
 <td>2 and under</td>
 <td>EOL</td>
 <td>December 31, 2019</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>Chef InSpec</td>
 <td>3.x</td>
 <td>EOL</td>
 <td>April 30, 2020</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>Chef Provisioning</td>
 <td>All</td>
 <td>EOL</td>
 <td>August 31, 2019</td>
 </tr>
-<tr class="even">
+<tr>
 <td>Chef Push Jobs</td>
 <td>All</td>
 <td>EOL</td>
 <td>December 31, 2020</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>Chef Replication/Sync</td>
 <td>All</td>
 <td>EOL</td>
 <td>August 31, 2019</td>
 </tr>
-<tr class="even">
+<tr>
 <td>Chef Server DRBD HA</td>
 <td>All</td>
 <td>EOL</td>
 <td>March 31, 2019</td>
 </tr>
 </tbody>
-<tr class="odd">
+<tr>
 <td>Chef Workflow (Delivery)</td>
 <td>All</td>
 <td>EOL</td>
 <td>December 31, 2020</td>
 </tr>
 </tbody>
-<tr class="even">
+<tr>
 <td>Enterprise Chef</td>
 <td>All</td>
 <td>EOL</td>
 <td>December 31, 2018</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>Reporting</td>
 <td>All</td>
 <td>EOL</td>

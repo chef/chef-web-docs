@@ -290,15 +290,15 @@ from the AWS Marketplace:
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>443</td>
 <td>HTTPS for Chef Automate</td>
 </tr>
-<tr class="even">
+<tr>
 <td>8989</td>
 <td>Git access for the delivery-cli and workflow</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>22</td>
 <td>SSH</td>
 </tr>

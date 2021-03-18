@@ -12,7 +12,7 @@ gh_repo = "chef-web-docs"
     weight = 80
 +++
 
-### declare_resource
+## declare_resource
 
 Use the `declare_resource` method to instantiate a resource and then add it to the resource collection.
 
@@ -44,7 +44,7 @@ file '/x/y.txt' do
 end
 ```
 
-### delete_resource
+## delete_resource
 
 Use the `delete_resource` method to find a resource in the resource collection, and then delete it.
 
@@ -65,7 +65,7 @@ For example:
 delete_resource(:template, '/x/y.erb')
 ```
 
-### delete_resource!
+## delete_resource!
 
 Use the `delete_resource!` method to find a resource in the resource
 collection, and then delete it. If the resource is not found, an
@@ -88,7 +88,7 @@ For example:
 delete_resource!(:file, '/x/file.txt')
 ```
 
-### edit_resource
+## edit_resource
 
 Use the `edit_resource` method to:
 
@@ -126,7 +126,7 @@ edit_resource(:template, '/etc/aliases') do
 end
 ```
 
-### edit_resource!
+## edit_resource!
 
 Use the `edit_resource!` method to:
 
@@ -153,7 +153,7 @@ For example:
 edit_resource!(:file, '/x/y.rst')
 ```
 
-### find_resource
+## find_resource
 
 Use the `find_resource` method to:
 
@@ -188,7 +188,7 @@ find_resource(:template, '/etc/seapower') do
 end
 ```
 
-### find_resource!
+## find_resource!
 
 Use the `find_resource!` method to find a resource in the resource collection. If the resource is not found, an exception is returned.
 

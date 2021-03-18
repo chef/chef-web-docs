@@ -29,11 +29,11 @@ installation methods support the following release channels:
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><code>stable</code></td>
 <td>A build from this channel is an "official" release that has passed full user acceptance testing. Artifacts in this channel are retained indefinitely.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>current</code></td>
 <td>A build from this channel is an "integration" build that has passed full testing, but has not been officially released. Artifacts in this channel are retained for 30 days and then removed automatically.</td>
 </tr>

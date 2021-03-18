@@ -20,26 +20,26 @@ gh_repo = "chef-web-docs"
 
 {{< /note >}}
 
-### registry_data_exists?
+## registry_data_exists?
 
 {{% infra_lang_method_registry_data_exists %}}
 
-### registry_get_subkeys
+## registry_get_subkeys
 
 {{% infra_lang_method_registry_get_subkeys %}}
 
-### registry_get_values
+## registry_get_values
 
 {{% infra_lang_method_registry_get_values %}}
 
-### registry_has_subkeys?
+## registry_has_subkeys?
 
 {{% infra_lang_method_registry_has_subkeys %}}
 
-### registry_key_exists?
+## registry_key_exists?
 
 {{% infra_lang_method_registry_key_exists %}}
 
-### registry_value_exists?
+## registry_value_exists?
 
 {{% infra_lang_method_registry_value_exists %}}
