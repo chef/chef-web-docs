@@ -14,78 +14,78 @@ gh_repo = "chef-web-docs"
 
 Chef Infra Client 15.8 and later include a number of helper methods for checking if a hypervisor host or guest.
 
-### guest?
+## guest?
 
-Determine if the current node is running under any virtualization environment
+Determine if the current node is running under any virtualization environment.
 
-### hypervisor?
+## hypervisor?
 
-Determine if the current node supports running guests under any virtualization environment
+Determine if the current node supports running guests under any virtualization environment.
 
-### physical?
+## physical?
 
-Determine if the current node is NOT running under any virtualization environment (bare-metal or hypervisor on metal)
+Determine if the current node is NOT running under any virtualization environment (bare-metal or hypervisor on metal).
 
-### kvm?
+## kvm?
 
 Determine if the current node is a KVM guest.
 
-### kvm_host?
+## kvm_host?
 
 Determine if the current node is a KVM host.
 
-### lxc?
+## lxc?
 
 Determine if the current node is a LXC-based container.
 
-### lxc_host?
+## lxc_host?
 
 Determine if the current node is a LXC host.
 
-### parallels?
+## parallels?
 
 Determine if the current node is running under Parallels Desktop.
 
-### parallels_host?
+## parallels_host?
 
 Determine if the current node is a Parallels Desktop host.
 
-### vbox?
+## vbox?
 
 Determine if the current node is a VirtualBox guest.
 
-### vbox_host?
+## vbox_host?
 
 Determine if the current node is a VirtualBox host.
 
-### vmware?
+## vmware?
 
 Determine if the current node is a VMWare guest.
 
-### vmware_host?
+## vmware_host?
 
 Determine if the current node is VMware host.
 
-### openvz?
+## openvz?
 
 Determine if the current node is an openvz guest.
 
-### openvz_host?
+## openvz_host?
 
 Determine if the current node is an openvz host.
 
-### vagrant?
+## vagrant?
 
 Determine if the current node is running as a vagrant guest.
 
-### vagrant_key?
+## vagrant_key?
 
 Check if the `vagrant` key exists on the +node+ object. Note: This key is no longer populated by vagrant, but it is kept around for legacy purposes.
 
-### vagrant_domain?
+## vagrant_domain?
 
 Check if `vagrantup.com` is included in the node's domain.
 
-### vagrant_user?
+## vagrant_user?
 
 Check if the system contains a `vagrant` user.

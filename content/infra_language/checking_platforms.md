@@ -12,7 +12,7 @@ gh_repo = "chef-web-docs"
     weight = 30
 +++
 
-### platform?
+## platform?
 
 Use the `platform?` helper method to ensure that certain actions are run for specific platforms. The `platform?` method will return true if one of the listed parameters matches the `node['platform']` attribute that is detected by [Ohai](/ohai) during every Chef Infra Client run.
 
@@ -27,7 +27,7 @@ where:
 - `parameter` is a comma-separated list, each specifying a platform, such as Red Hat, CentOS, or Fedora
 - `platform?` method is typically used with an `if`, `elsif`, or `case` statement that contains Ruby code that is specific for the platform, if detected
 
-#### platform Values
+### platform Values
 
 <table>
 <colgroup>
@@ -41,110 +41,110 @@ where:
 </tr>
 </thead>
 <tbody>
-<tr class="even">
+<tr>
 <td><code>aix</code></td>
 <td>IBM AIX</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>alibabalinux</code></td>
 <td>Alibaba Cloud Linux</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>amazon</code></td>
 <td>Amazon Linux</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>arch</code></td>
 <td>Arch Linux</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>clearos</code></td>
 <td>ClearOS</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>cloudlinux</code></td>
 <td>Cloud Linux OS</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>cumulus</code></td>
 <td>NVIDIA Cumulus Linux</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>debian</code></td>
 <td>Debian GNU/Linux</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>fedora</code></td>
 <td>Fedora</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>freebsd</code></td>
 <td>FreeBSD</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>gentoo</code></td>
 <td>Gentoo Linux</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>linuxmint</code></td>
 <td>Linux Mint</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>mac_os_x</code></td>
 <td>macOS</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>netbsd</code></td>
 <td>NetBSD</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>openbsd</code></td>
 <td>OpenBSD</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>openindiana</code></td>
 <td>OpenIndiana</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>opensuseleap</code></td>
 <td>openSUSE leap</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>pidora</code></td>
 <td>Pidora</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>raspbian</code></td>
 <td>Raspberry Pi OS</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>scientific</code></td>
 <td>Scientific Linux</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>solaris2</code></td>
 <td>Oracle Solaris</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>suse</code></td>
 <td>SUSE Enterprise Linux Server.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>ubuntu</code></td>
 <td>Ubuntu Linux</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>windows</code></td>
 <td>Microsoft Windows</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>xenserver</code></td>
 <td>Citrix XenServer</td>
 </tr>
 </tbody>
 </table>
 
-#### Examples
+### Examples
 
 **Installing the cron package on Debian systems**
 
@@ -166,7 +166,7 @@ end
 
 {{% resource_if_statement_use_with_platform %}}
 
-### platform_family?
+## platform_family?
 
 Use the `platform_family?` method to ensure that certain actions are run for specific platform family. The `platform_family?` method will return true if one of the listed parameters matches the `node['platform_family']` attribute that is detected by [Ohai](/ohai) during every Chef Infra Client run.
 
@@ -181,7 +181,7 @@ where:
 - `'parameter'` is a comma-separated list, each specifying a platform family, such as Debian, or Red Hat Enterprise Linux
 - `platform_family?` method is typically used with an `if`, `elsif`, or `case` statement that contains Ruby code that is specific for the platform family, if detected
 
-#### platform_family Values
+### platform_family Values
 
 <table>
 <colgroup>
@@ -195,74 +195,74 @@ where:
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><code>aix</code></td>
 <td><code>aix</code> platform.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>alpine</code></td>
 <td><code>alpine</code> platform.</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>amazon</code></td>
 <td><code>amazon</code> platform.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>arch</code></td>
 <td><code>arch</code>, <code>manjaro</code>, and <code>antergos</code> platforms.</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>debian</code></td>
 <td><code>debian</code>, <code>ubuntu</code>, <code>linuxmint</code>, <code>raspbian</code>, <code>cumulus</code>, <code>kali</code>, <code>sangoma</code>, and <code>pop</code> platforms.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>fedora</code></td>
 <td><code>fedora</code>, <code>pidora</code>, and <code>arista_eos</code> platforms</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>freebsd</code></td>
 <td><code>freebsd</code> platform</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>gentoo</code></td>
 <td><code>gentoo</code> platform</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>mac_os_x</code></td>
 <td><code>mac_os_x</code> platform</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>netbsd</code></td>
 <td><code>netbsd</code> platform</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>openbsd</code></td>
 <td><code>openbsd</code> platform</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>openindiana</code></td>
 <td><code>openindiana</code> platform</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>rhel</code></td>
 <td><code>redhat</code>, <code>centos</code>, <code>oracle</code>, <code>scientific</code>, <code>xenserver</code>, <code>clearos</code>, <code>bigip</code>, <code>parallels</code>, <code>xcp</code>, <code>alibabalinux</code>, and <code>ibm_powerkvm</code> platforms</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>solaris2</code></td>
 <td><code>solaris2</code> platform</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>suse</code></td>
 <td><code>opensuse_leap</code>, <code>suse</code>, and <code>sled</code> platforms</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>windows</code></td>
 <td><code>windows</code> platform</td>
 </tr>
 </tbody>
 </table>
 
-#### Examples
+### Examples
 
 For example:
 
@@ -280,7 +280,7 @@ platform_family?('slackware', 'suse', 'arch')
 
 {{< readFile_shortcode file="resource_remote_file_use_platform_family.md" >}}
 
-### value_for_platform
+## value_for_platform
 
 Use the `value_for_platform` method in a recipe to select a value based on the `node['platform']` and `node['platform_version']` attributes. These values are detected by Ohai during every Chef Infra Client run.
 
@@ -317,11 +317,11 @@ value_for_platform(
 )
 ```
 
-#### Operators
+### Operators
 
 {{% cookbooks_version_constraints_operators %}}
 
-#### Examples
+### Examples
 
 The following example will set `package_name` to `httpd` for the Red Hat platform and to `apache2` for the Debian platform:
 
@@ -357,7 +357,7 @@ value_for_platform(
 )
 ```
 
-### value_for_platform_family
+## value_for_platform_family
 
 Use the `value_for_platform_family` method in a recipe to select a value based on the `node['platform_family']` attribute. This value is detected by Ohai during every Chef Infra Client run.
 

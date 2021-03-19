@@ -20,19 +20,19 @@ Attributes are blocklisted by attribute type, with each attribute type being blo
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><code>blocked_automatic_attributes</code></td>
 <td>A hash that blocklists <code>automatic</code> attributes, preventing blocklisted attributes from being saved. For example: <code>['network/interfaces/eth0']</code>. Default value: <code>nil</code>, all attributes are saved. If the array is empty, all attributes are saved.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>blocked_default_attributes</code></td>
 <td>A hash that blocklists <code>default</code> attributes, preventing blocklisted attributes from being saved. For example: <code>['filesystem/dev/disk0s2/size']</code>. Default value: <code>nil</code>, all attributes are saved. If the array is empty, all attributes are saved.</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>blocked_normal_attributes</code></td>
 <td>A hash that blocklists <code>normal</code> attributes, preventing blocklisted attributes from being saved. For example: <code>['filesystem/dev/disk0s2/size']</code>. Default value: <code>nil</code>, all attributes are saved. If the array is empty, all attributes are saved.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>blocked_override_attributes</code></td>
 <td>A hash that blocklists <code>override</code> attributes, preventing blocklisted attributes from being saved. For example: <code>['map - autohome/size']</code>. Default value: <code>nil</code>, all attributes are saved. If the array is empty, all attributes are saved.</td>
 </tr>

@@ -12,7 +12,7 @@ gh_repo = "chef-web-docs"
     weight = 50
 +++
 
-### search
+## search
 
 {{% search %}}
 
@@ -44,11 +44,11 @@ template '/tmp/list_of_webservers' do
 end
 ```
 
-#### :filter_result
+### :filter_result
 
 {{% infra_lang_method_search_filter_result %}}
 
-#### Query Syntax
+### Query Syntax
 
 {{% search_query_syntax %}}
 
@@ -88,7 +88,7 @@ end
 
 {{% search_special_characters %}}
 
-#### Examples
+### Examples
 
 The following examples show how the `search` method can be used in a recipe.
 
