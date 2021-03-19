@@ -13,7 +13,7 @@ aliases = ["/config_rb_manage.html"]
     weight = 100
 +++
 
-{{% chef_automate_mark %}}
+{{< chef_automate_mark >}}
 
 {{% EOL_manage %}}
 
