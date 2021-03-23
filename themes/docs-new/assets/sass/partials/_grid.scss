@@ -18,21 +18,6 @@
     }
   }
 
-  .col-sidebar {
-    margin-top: rem-calc(24);
-    padding: rem-calc(8 0);
-    background-color: $sidebargray;
-    overflow-y: hidden;
-
-    @include breakpoint(medium) {
-      margin-top: 0;
-    }
-
-    .sticky.is-stuck {
-      z-index: 1;
-    }
-  }
-
   .col-content {
     padding-top: rem-calc(14);
     background-color: $white;
@@ -87,6 +72,16 @@
       }
     }
   }
+}
+
+#left-nav-on-canvas {
+  margin-top: rem-calc(24);
+  padding: rem-calc(8 0);
+  z-index: 50;
+}
+
+#left-nav-off-canvas{
+  border-bottom: 1px solid $border;
 }
 
 .has-sidebar {
