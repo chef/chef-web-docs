@@ -12,7 +12,7 @@ product = []
     parent = "legacy/manage"
     weight = 10
 +++
-{{% chef_automate_mark %}}
+{{< chef_automate_mark >}}
 
 {{% EOL_manage %}}
 
