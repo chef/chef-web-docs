@@ -43,15 +43,17 @@ properties_list:
   - markdown: The value to set.
 examples: |
   **Set the Chocolatey cacheLocation config**:
-  ```
+
+  ```ruby
   chocolatey_config 'Set cacheLocation config' do
-    onfig_key 'cacheLocation'
-    value 'C:\temp\boco'
+    config_key 'cacheLocation'
+    value 'C:\temp\choco'
   end
   ```
+
   **Unset a Chocolatey config**:
-  
-  ```
+
+  ```ruby
   chocolatey_config 'BogusConfig' do
     action :unset
   end
