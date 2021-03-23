@@ -33,7 +33,7 @@ The commercial distributions of our products---such as Chef Infra
 Client, Chef Habitat, or Chef InSpec--- are governed by either the
 [Chef End User License Agreement (Chef
 EULA)](https://www.chef.io/end-user-license-agreement/) or your
-commercial agreement with Chef Software, Inc. as a customer. You are
+commercial agreement with Progress Software Corporation as a customer. You are
 required to accept these terms when using the distributions for the
 first time. For additional information on how to accept the license, see
 [Accepting the Chef License](/chef_license_accept/) documentation.
