@@ -12,14 +12,14 @@
   </div>
 
   <div class="off-canvas-wrapper">
-    <div class="grid-container">
+    <div class="grid-container fluid">
       <div class="grid-x">
 
-        <div class="cell position-left off-canvas-absolute reveal-for-medium col-sidebar" id="left-nav-on-canvas" data-off-canvas data-transition="overlap" >
+        <div id="left-nav-on-canvas" class="cell position-left off-canvas-absolute reveal-for-medium col-sidebar" data-off-canvas data-transition="overlap" >
           {{ partial "sidebar-on-canvas" . }}
         </div>
 
-        <div id="main-content" class="cell off-canvas-content cell auto" data-off-canvas-content>
+        <div id="main-content" class="cell off-canvas-content auto" data-off-canvas-content>
           {{ block "main" . }}
           {{ end }}
         </div>
@@ -27,13 +27,13 @@
         {{ $headers := findRE "<h[12].*?>(.|\n])+?</h[12]>" .Content }}
         {{ if or (and (ge (len $headers) 1) (ne .Params.toc false )) (isset .Params "release_notes") (.Params.version_docs_product) (.Params.toc_layout)}}
           {{ if .Params.toc_layout }}
-            <div class="cell off-canvas position-right toc off-canvas-absolute reveal-for-large" id="onCanvasRightTOC" data-off-canvas >
+            <div id="onCanvasRightTOC" class="cell off-canvas position-right toc off-canvas-absolute reveal-for-large" data-off-canvas >
               {{ partial .Params.toc_layout . }}
             </div>
           {{ else if (.Params.version_docs_product)}}
             {{ partial "versioned-docs-toc" . }}
           {{ else }}
-            <div class="cell off-canvas position-right toc off-canvas-absolute reveal-for-large" id="onCanvasRightTOC" data-off-canvas >
+            <div id="onCanvasRightTOC" class="cell off-canvas position-right toc off-canvas-absolute reveal-for-large" data-off-canvas >
               {{ partial "table-of-contents" . }}
             </div>
           {{ end }}
@@ -44,8 +44,7 @@
 
   {{ if or (and (ge (len $headers) 1) (ne .Params.toc false )) (isset .Params "release_notes") (.Params.version_docs_product) (.Params.toc_layout)}}
 
-    <div class="off-canvas position-right toc off-canvas-absolute hide-for-large hide-for-print" id="offCanvasRightTOC" data-off-canvas
-      data-transition="overlap">
+    <div id="offCanvasRightTOC" class="off-canvas position-right toc hide-for-large hide-for-print" data-off-canvas data-transition="overlap">
       {{ if .Params.toc_layout }}
         {{ partial .Params.toc_layout . }}
       {{ else }}
