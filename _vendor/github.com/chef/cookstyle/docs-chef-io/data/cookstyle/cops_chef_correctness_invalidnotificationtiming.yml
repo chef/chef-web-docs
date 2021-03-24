@@ -2,8 +2,8 @@
 short_name: InvalidNotificationTiming
 full_name: Chef/Correctness/InvalidNotificationTiming
 department: Chef/Correctness
-description: Valid notification timings are :immediately, :immediate (alias for :immediately),
-  :delayed, and :before.
+description: Valid notification timings are `:immediately`, `:immediate` (alias for
+  :immediately), `:delayed`, and `:before`.
 autocorrection: false
 target_chef_version: All Versions
 examples: |2-
