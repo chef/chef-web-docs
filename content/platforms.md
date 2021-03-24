@@ -332,7 +332,7 @@ The following table lists the commercially-supported platforms and versions for 
 </tr>
 <tr>
 <td>macOS</td>
-<td><code>x86_64</code></td>
+<td><code>x86_64</code><code>aarch64 (M1 processors)</code></td>
 <td><code>10.14</code>, <code>10.15</code>, <code>11.x</code></td>
 </tr>
 <tr>
