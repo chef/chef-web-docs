@@ -38,6 +38,5 @@ subscriptions:
           - docs-chef-io/*
   - workload: chef/cookstyle:master_completed:project_promoted:chef/cookstyle:master:*
     actions:
-    - bash:.expeditor/update_hugo_modules_cookstyle.sh:
-        only_if_modified:
-          - docs-chef-io/*
+    - bash:.expeditor/update_hugo_modules_cookstyle.sh
+
