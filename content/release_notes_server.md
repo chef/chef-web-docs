@@ -1,5 +1,5 @@
 +++
-title = "Release Notes: Chef Infra Server 12.0 - 14.1"
+title = "Release Notes: Chef Infra Server 12.0 - 14.2"
 draft = false
 gh_repo = "chef-web-docs"
 aliases = ["/release_notes_server.html"]
@@ -15,6 +15,18 @@ product = ["server"]
 Chef Infra Server acts as a hub for configuration data by storing
 cookbooks, the policies that are applied to nodes, and metadata that
 describes each registered node that is managed by the Chef Infra Client.
+
+## What's New in 14.2
+
+### Support for external Elasticsearch 7 installs
+
+New installations of Chef Infra Server can now use external Elasticsearch 7 installations. Chef Infra Server will automatically detect the version of Elastisearch, so no additional configuration is necessary. We do not currently support upgrading the embedded Elasticsearch or existing external Elasticsearch installations to 7. This functionality is currently under development and will ship in a future release.
+
+### Security
+
+- The `opscode` user which runs Chef Infra Server is no longer configured with an interactive shell.
+- Disabled the ability to update a user e-mail address in `oc-id` as e-mail verification was not being performed in this update process.
+- Updated the embedded Elasticsearch server from 6.8.12 to 6.8.14 to resolve [CVE-2020-7021](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-7021).
 
 ## What's New in 14.1
 
