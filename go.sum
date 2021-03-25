@@ -9,6 +9,8 @@ github.com/chef/chef-workstation v0.0.0-20210224180306-c98d1ffba769 h1:RfGR6IIGM
 github.com/chef/chef-workstation v0.0.0-20210224180306-c98d1ffba769/go.mod h1:KZ1lmUGHzTKhRuHdDhB/I2ZEbet++4OTuABWlYb9MlQ=
 github.com/chef/chef-workstation/docs-chef-io v0.0.0-20210224180306-c98d1ffba769 h1:x5X+nDsR3CuT7YRDe6ug9VKiG38ZZO24kM0b5PrkXbw=
 github.com/chef/chef-workstation/docs-chef-io v0.0.0-20210224180306-c98d1ffba769/go.mod h1:gvoh6ov1YU98CVzBEWzEZeCLTRunfQ6r1VO7M3LFE9U=
+github.com/chef/chef-workstation/docs-chef-io v0.0.0-20210325185229-f73ee34a0b4f h1:RhdujwcPOpWQABIfj7xilVy67pip54BpiT2+qfGZwxs=
+github.com/chef/chef-workstation/docs-chef-io v0.0.0-20210325185229-f73ee34a0b4f/go.mod h1:gvoh6ov1YU98CVzBEWzEZeCLTRunfQ6r1VO7M3LFE9U=
 github.com/chef/cookstyle v7.10.0+incompatible h1:05k64OISCkoSjY9r571GTLOoQxhsxcA4KHDCvs8Q2do=
 github.com/chef/cookstyle v7.10.0+incompatible/go.mod h1:KUadmsdBr7Hpo5dtGVQMiwb8KlC91W3j1lfc0yuVwtw=
 github.com/chef/cookstyle/docs-chef-io v0.0.0-20210324200148-f941dae22320 h1:ETrAxpm35ZxDvbS9AIunmG1ftgYbzajlHirprzAZ7P4=
