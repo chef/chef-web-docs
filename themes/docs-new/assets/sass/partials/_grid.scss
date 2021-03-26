@@ -6,8 +6,6 @@
   // Make sure the header offset does not layer above the nav
   z-index: 0;
 
-  //flex: 1 0 auto;
-
   > .grid-container {
     height: 100%;
 
@@ -20,21 +18,6 @@
     }
   }
 
-  .col-sidebar {
-    margin-top: rem-calc(24);
-    padding: rem-calc(8 0);
-    background-color: $sidebargray;
-    overflow-y: hidden;
-
-    @include breakpoint(medium) {
-      margin-top: 0;
-    }
-
-    .sticky.is-stuck {
-      z-index: 1;
-    }
-  }
-
   .col-content {
     padding-top: rem-calc(14);
     background-color: $white;
@@ -43,9 +26,39 @@
     min-height: 100vh;
 
     p img {
-      margin-bottom: rem-calc(32);
+      display: block;
+      margin: rem-calc(32) auto;
+      -webkit-box-shadow: $box-shadow;
+      -moz-box-shadow: $box-shadow;
+      box-shadow: $box-shadow;
+      border: 1px solid transparent;
+      padding: 1rem;
     }
 
+    figure {
+      display: inline-block;
+      text-align: center;
+      font-style: italic;
+      font-size: smaller;
+      text-indent: 0;
+      border: 1px solid transparent;
+      -webkit-box-shadow: $box-shadow;
+      -moz-box-shadow: $box-shadow;
+      box-shadow: $box-shadow;
+      padding: 0.5rem;
+      margin: rem-calc(32) auto;
+      position: relative;
+      left: 50%;
+      transform: translateX(-50%);
+
+      img {
+        padding: 1rem;
+      }
+    }
+
+    .no-shadow {
+      box-shadow: none;
+    }
     a {
       .fa-link {
         margin-left: rem-calc(8);
@@ -59,6 +72,16 @@
       }
     }
   }
+}
+
+#left-nav-on-canvas {
+  margin-top: rem-calc(24);
+  padding: rem-calc(8 0);
+  z-index: 50;
+}
+
+#left-nav-off-canvas{
+  border-bottom: 1px solid $border;
 }
 
 .has-sidebar {

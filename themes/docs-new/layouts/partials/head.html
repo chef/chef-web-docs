@@ -3,14 +3,12 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="{{ with .Params.robots }}{{ . }}{{ else }}{{ .Site.Params.robots }}{{ end }}">
-  {{ with .Params.st_robots }}
+  {{- with .Params.st_robots -}}
     <meta name="st:robots" content="{{ . }}">
-  {{ end }}
-  {{ with .Params.product }}
-    {{ $productArray := delimit . `", "` }}
-    {{ $productArray = delimit (slice `["` $productArray `"]`) "" }}
-    <meta class="swiftype" name="chef-product" data-type="string" content="{{ $productArray }}" />
-  {{ end }}
+  {{- end }}
+  {{ with .Params.product -}}
+    <meta class="swiftype" name="chef-product" data-type="string" content='["{{ range $i, $e := . }}{{ if $i }}", "{{ end }}{{ $e }}{{ end }}"]' />
+  {{- end }}
   <title>{{ .Title }}</title>
-  {{ partialCached "scss" . }}
+  {{ partialCached "scss" . -}}
 </head>

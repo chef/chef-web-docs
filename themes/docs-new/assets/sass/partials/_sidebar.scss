@@ -5,15 +5,11 @@
   width: 260px;
 }
 
-#left-nav-off-canvas{
-  border-bottom: 1px solid $border;
-}
-
 #sidebar-nav{
   height: 100%;
   z-index: 25;
-  width: 260px;
   overflow-y: scroll;
+  overflow-x: hidden;
 
   &.offCanvas{
     width: inherit;
@@ -21,11 +17,6 @@
 
 > .nav {
   margin-bottom: 30px;
-  overflow-y: scroll;
-
-  @include breakpoint(medium) {
-    overflow-y: scroll;
-  };
 
   > .accordion-menu {
     font-size: rem-calc(14px);
@@ -36,13 +27,17 @@
       > a {
         font-weight: 700;
         color: $charcoal;
+      }
 
-        @include breakpoint(medium) {
-          border-radius: $border-radius-base 0 0 $border-radius-base;
-        };
+      a {
+        text-overflow: ellipsis;
+        overflow: hidden;
+        &:focus {
+          outline: none;
+        }
       }
     }
-    
+
     .nested.is-active li.active a {
       font-weight: normal;
       background: none;
@@ -69,15 +64,5 @@
     text-align: center;
     margin: 12px 12px;
     object-fit: contain;
-  }
-}
-
-#header-logo {
-
-  img {
-    @include transition();
-    padding: 8px 0;
-    width: 90px;
-    margin: 2px 18px;
   }
 }

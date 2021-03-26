@@ -6,7 +6,7 @@ description: Use the platform_family?() helpers instead of node['os] == 'foo' fo
   platform_families that match one-to-one with OS values. These helpers are easier
   to read and can accept multiple platform arguments, which greatly simplifies complex
   platform logic. All values of `os` from Ohai match one-to-one with `platform_family`
-  values except for `linux`, which has no single equivalent `plaform_family`.
+  values except for `linux`, which has no single equivalent `platform_family`.
 autocorrection: true
 target_chef_version: All Versions
 examples: |2-

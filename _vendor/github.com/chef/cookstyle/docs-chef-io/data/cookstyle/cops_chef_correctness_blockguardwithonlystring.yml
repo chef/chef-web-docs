@@ -3,7 +3,7 @@ short_name: BlockGuardWithOnlyString
 full_name: Chef/Correctness/BlockGuardWithOnlyString
 department: Chef/Correctness
 description: A resource guard (not_if/only_if) that is a string should not be wrapped
-  in {}. Wrapping a guard string in {} causes it to be executed as Ruby code which
+  in `{}`. Wrapping a guard string in {} causes it to be executed as Ruby code which
   will always returns true instead of a shell command that will actually run.
 autocorrection: true
 target_chef_version: All Versions

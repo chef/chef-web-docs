@@ -14,7 +14,7 @@ product = []
     weight = 110
 +++
 
-{{% chef_automate_mark %}}
+{{< chef_automate_mark >}}
 
 {{% EOL_manage %}}
 

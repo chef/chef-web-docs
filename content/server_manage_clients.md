@@ -12,7 +12,8 @@ product = []
     identifier = "legacy/manage/server_manage_clients.md Clients"
     parent = "legacy/manage"
 +++
-{{% chef_automate_mark %}}
+
+{{< chef_automate_mark >}}
 
 {{% EOL_manage %}}
 

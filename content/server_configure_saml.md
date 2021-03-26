@@ -12,7 +12,8 @@ product = []
     identifier = "legacy/manage/server_configure_saml.md Configure SAML"
     parent = "legacy/manage"
 +++
-{{% chef_automate_mark %}}
+
+{{< chef_automate_mark >}}
 
 {{% EOL_manage %}}
 

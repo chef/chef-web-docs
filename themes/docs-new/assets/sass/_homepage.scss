@@ -3,7 +3,6 @@
 
   &-col {
     padding-right: rem-calc(12px);
-    max-width: 1000px;
     min-height: 100vh;
     margin-bottom: 30px;
     &:focus {
@@ -32,26 +31,6 @@
 
 }
 
-#hero {
-  padding: rem-calc(48) 0 rem-calc(96);
-  background-color: $white;
-
-  p {
-    margin-bottom: rem-calc(32);
-  }
-
-  img {
-    margin-top: rem-calc(32);
-    max-width: 100%;
-    width: 100%;
-    border-radius: $border-radius-base;
-
-    @include breakpoint(large) {
-      margin-top: 0;
-    };
-  }
-}
-
 .index-page {
 
   max-width: 1000px;
@@ -69,7 +48,6 @@
       margin: 0 8px 0 4px;
     }
   }
-  
 
   .grid-container{
     margin: 40px 0;
@@ -81,8 +59,10 @@
   }
 
   .cell{
-    border: 1px solid $border;
-    box-shadow: 0 3.2px 7.2px 0 $border-dark,0 .6px 1.8px 0 $border;
+    -webkit-box-shadow: $box-shadow;
+    -moz-box-shadow: $box-shadow;
+    box-shadow: $box-shadow;
+    border: 1px solid transparent;
   }
 
 }

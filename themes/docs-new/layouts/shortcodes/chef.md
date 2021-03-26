@@ -7,4 +7,4 @@ no matter its size.
 This diagram shows how you develop, test, and deploy your Chef Infra
 code.
 
-<img src="/images/start_chef.png" class="align-center" width="716" alt="image" />
+<img src="/images/start_chef.svg" class="align-center" width="716" alt="image" />
