@@ -7,10 +7,12 @@ gh_repo = "chef-web-docs"
 [menu]
   [menu.overview]
     title = "Chef House Style"
-    identifier = "ooverview/community/contributing/style_house.md Docs House Style Guide"
-    parent = "overview/community/contributing"
-    weight = 41
+    identifier = "overview/style/style_house.md Docs House Style Guide"
+    parent = "overview/style"
+    weight = 90
 +++
+
+We recommend that you use the conventions described in this guide when contributing to the Chef reference documentation.
 
 ## Official Names
 
@@ -40,9 +42,20 @@ VPC."
 
 ## Examples
 
+### Example Company
+
+We use the fictional company "Fourth Cafe, Inc." as an example throughout the docs.
+
+Fourth Cafe, Inc.
+123579 4th Ave
+Seattle, WA 98122
+
+Examples in code:
+`admin@4thcafe.com`
+`4thcafe.pem`
 ### Example Domains
 
-Use the `example.com` domain for generic domains and email addresses in the documentation. Use the `chef.io` or `progress.com` domain for examples that should refer back to Chef Software.
+Use the `4thcafe.com` domain for generic domains and email addresses in the documentation. Use the `chef.io` or `progress.com` for examples that should refer directly back to the company.
 
 ### Example Names
 
@@ -65,14 +78,14 @@ Here is a list of some example names for you to use (the last names are translat
 
 ### Example Email Addresses
 
-- akoch@example.com
-- tvucatar@example.com
-- dgotvach@example.com
-- lchushi@example.com
-- hshefu@example.com
-- byolisa@example.com
-- kbaavarchee@example.com
-- stagaluto@example.com
+- akoch@4thcafe.com
+- tbucatar@4thcafe.com
+- dgotvach@4thcafe.com
+- lchushi@4thcafe.com
+- hshefu@4thcafe.com
+- byolisa@4thcafe.com
+- kbaavarchee@4thcafe.com
+- stagaluto@4thcafe.com
 
 Use `docs@chef.io` for the Chef Technical Documentation team.
 

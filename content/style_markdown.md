@@ -1,15 +1,15 @@
 +++
-title = "Docs Markdown Guide"
+title = "Markdown Guide"
 draft = false
 
 gh_repo = "chef-web-docs"
 
 [menu]
   [menu.overview]
-    title = "Docs Markdown Guide"
-    identifier = "overview/community/contributing/style_markdown.md Chef "
-    parent = "overview/community/contributing"
-    weight = 42
+    title = "Markdown"
+    identifier = "overview/style/style_markdown.md"
+    parent = "overview/style"
+    weight = 120
 +++
 
 ## Section Headings

@@ -1,15 +1,15 @@
 +++
-title = "Docs Style for HTML and CSS"
+title = "HTML and CSS Guide"
 draft = false
 
 gh_repo = "chef-web-docs"
 
 [menu]
   [menu.overview]
-    title = "Docs HTML/CSS Style Guide"
-    identifier = "overview/community/contributing/style_html.md Docs API Style Guide"
-    parent = "overview/community/contributing"
-    weight = 44
+    title = "HTML & SCSS"
+    identifier = "overview/style/style_html.md Docs HTML and SCSS Style Guide"
+    parent = "overview/style"
+    weight = 140
 +++
 
 ## Content Reuse and Hugo Shortcodes
