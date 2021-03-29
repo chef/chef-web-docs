@@ -7,7 +7,9 @@
     <meta name="st:robots" content="{{ . }}">
   {{- end }}
   {{ with .Params.product -}}
-    <meta class="swiftype" name="chef-product" data-type="string" content='["{{ range $i, $e := . }}{{ if $i }}", "{{ end }}{{ $e }}{{ end }}"]' />
+    {{- range $tag := . -}}
+      <meta class="swiftype" name="chef-product" data-type="string" content="{{ $tag }}" />
+    {{- end -}}
   {{- end }}
   <title>{{ .Title }}</title>
   {{ partialCached "scss" . -}}
