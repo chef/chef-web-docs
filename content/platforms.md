@@ -84,7 +84,7 @@ The following table lists the commercially-supported platforms and versions for 
 </tr>
 <tr>
 <td>macOS</td>
-<td><code>x86_64</code></td>
+<td><code>x86_64</code>, <code>aarch64 (M1 processors)</code></td>
 <td><code>10.14</code>, <code>10.15</code>, <code>11.x</code></td>
 </tr>
 <tr>
@@ -100,7 +100,7 @@ The following table lists the commercially-supported platforms and versions for 
 <tr>
 <td>Solaris</td>
 <td><code>sparc</code>, <code>i86pc</code></td>
-<td><code>11.2</code>, <code>11.3</code>, <code>11.4</code></td>
+<td><code>11.4</code></td>
 </tr>
 <tr>
 <td>SUSE Enterprise Linux Server</td>
@@ -332,7 +332,7 @@ The following table lists the commercially-supported platforms and versions for 
 </tr>
 <tr>
 <td>macOS</td>
-<td><code>x86_64</code></td>
+<td><code>x86_64</code>, <code>aarch64 (M1 processors)</code></td>
 <td><code>10.14</code>, <code>10.15</code>, <code>11.x</code></td>
 </tr>
 <tr>
@@ -643,6 +643,11 @@ that platform and version.
 <td>Oracle Solaris 10</td>
 <td>January 30, 2018</td>
 <td>January 30, 2018</td>
+</tr>
+<tr>
+<td>Oracle Solaris 11.3</td>
+<td>January 30, 2021</td>
+<td>January 30, 2021</td>
 </tr>
 <tr>
 <td>SUSE Linux Enterprise Server 11</td>

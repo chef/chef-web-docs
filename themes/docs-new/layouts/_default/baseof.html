@@ -54,15 +54,10 @@
 
   {{ end }}
 
-  <div id="footer" class="cell small-12">
-    <div class="grid-x">
-      <div class="cell small-12">
-        <nav>
-          {{ partial "footer" . }}
-        </nav>
-      </div>
-    </div>
-  </div>
+  <nav>
+    {{ partial "footer" . }}
+  </nav>
+
   {{ partialCached "javascript" .  }}
   {{ if $.Param "release_notes" }}
     {{ partial "release_notes" . }}

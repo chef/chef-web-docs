@@ -12,9 +12,6 @@
 
 @import "base";
 @import "toc";
-
-@import "header";
-@import "footer";
 @import "homepage";
 
 body {
@@ -23,15 +20,10 @@ body {
 }
 
 @import "partials/alerts";
-@import "partials/grid";
-@import "partials/bg";
-
-@import "partials/callout";
-@import "partials/padding";
-@import "partials/sidebar";
-@import "partials/tabs";
-@import "partials/blurbs";
 @import "partials/copycode";
-@import "partials/runbook";
+@import "partials/feedback";
+@import "partials/footer";
+@import "partials/grid";
+@import "partials/sidebar";
 @import "partials/tab-container";
-@import "partials/feedback"
+@import "partials/utility-bar";
