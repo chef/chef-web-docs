@@ -5,7 +5,7 @@
 {{- $uaParser := resources.Get "js/vendor/ua-parser-js/ua-parser.min.js" -}}
 {{- $showdown := resources.Get "js/vendor/showdown/showdown.min.js" -}}
 {{- $coreJs := slice $fontawesome $jquery $foundation $whatInput $uaParser $showdown  | resources.Concat "js/core-bundle.js" | minify | fingerprint -}}
-<script src="{{ $coreJs.Permalink }}" type="text/javascript"></script>
+<script src="{{ $coreJs.Permalink }}" ></script>
 
 {{- $segment := resources.Get "js/segment.js" -}}
 {{- $omnitruck := resources.Get "js/omnitruck.js" -}}
@@ -18,13 +18,13 @@
 
 {{ if hugo.Environment | eq "development" }}
   {{- $customJs := $customJs | resources.Concat "js/custom-bundle.js" -}}
-  <script src="{{ $customJs.Permalink }}" type="text/javascript"></script>
+  <script src="{{ $customJs.Permalink }}" ></script>
 {{ else }}
   {{- $customJs := $customJs | resources.Concat "js/custom-bundle.js" | minify | fingerprint -}}
-  <script src="{{ $customJs.Permalink }}" type="text/javascript"></script>
+  <script src="{{ $customJs.Permalink }}" ></script>
 {{ end }}
 
-<script type="text/javascript">
+<script>
   (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
   (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
   e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
