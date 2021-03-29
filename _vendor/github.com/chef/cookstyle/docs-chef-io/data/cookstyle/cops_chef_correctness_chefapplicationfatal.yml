@@ -2,7 +2,7 @@
 short_name: ChefApplicationFatal
 full_name: Chef/Correctness/ChefApplicationFatal
 department: Chef/Correctness
-description: Use raise to force Chef Infra Client to fail instead of using Chef::Application.fatal,
+description: Use `raise` to force Chef Infra Client to fail instead of using `Chef::Application.fatal`,
   which masks the full stack trace of the failure and makes debugging difficult.
 autocorrection: true
 target_chef_version: All Versions

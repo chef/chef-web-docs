@@ -2,7 +2,9 @@
 short_name: InvalidPlatformHelper
 full_name: Chef/Correctness/InvalidPlatformHelper
 department: Chef/Correctness
-description: Pass valid platforms to the platform? helper.
+description: 'Pass valid platforms to the `platform?` helper. See [Infra Language:
+  Platform](https://docs.chef.io/infra_language/checking_platforms/#platform-values)
+  for a list of many common platform values.'
 autocorrection: false
 target_chef_version: All Versions
 examples: |2-

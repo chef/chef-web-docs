@@ -1,0 +1,164 @@
+
+[[imports]]
+  disable = false
+  ignoreConfig = false
+  path = "github.com/chef/desktop-config/docs-chef-io"
+
+[[imports.mounts]]
+  source = "content"
+  target = "content"
+
+[[imports.mounts]]
+  source = "static"
+  target = "static"
+
+[[imports.mounts]]
+  source = "data"
+  target = "data"
+
+[[imports.mounts]]
+  source = "layouts"
+  target = "layouts"
+
+[[imports]]
+  disable = false
+  ignoreConfig = false
+  path = "github.com/chef/chef-workstation/docs-chef-io"
+
+[[imports.mounts]]
+  source = "content"
+  target = "content"
+
+[[imports.mounts]]
+  source = "static"
+  target = "static"
+
+[[imports.mounts]]
+  source = "layouts"
+  target = "layouts"
+
+[[imports.mounts]]
+  source = "data"
+  target = "data"
+
+[[imports]]
+  disable = false
+  ignoreConfig = false
+  path = "github.com/chef/effortless/docs-chef-io"
+
+[[imports.mounts]]
+  source = "content/effortless"
+  target = "content/effortless"
+
+[[imports]]
+  disable = false
+  ignoreConfig = false
+  path = "github.com/inspec/inspec/docs-chef-io"
+
+[[imports.mounts]]
+  source = "content/inspec"
+  target = "content/inspec"
+
+[[imports.mounts]]
+  source = "static/images/inspec"
+  target = "static/images/inspec"
+
+[[imports]]
+  disable = false
+  ignoreConfig = false
+  path = "github.com/chef/automate/components/docs-chef-io"
+
+[[imports.mounts]]
+  source = "content/automate"
+  target = "content/automate"
+
+[[imports.mounts]]
+  source = "data"
+  target = "data"
+
+[[imports.mounts]]
+  source = "static"
+  target = "static"
+
+[[imports.mounts]]
+  source = "layouts"
+  target = "layouts"
+
+[[imports]]
+  disable = false
+  ignoreConfig = false
+  path = "github.com/habitat-sh/habitat/components/docs-chef-io"
+
+[[imports.mounts]]
+  source = "content/habitat"
+  target = "content/habitat"
+
+[[imports.mounts]]
+  source = "static"
+  target = "static"
+
+[[imports]]
+  disable = false
+  ignoreConfig = false
+  path = "github.com/chef/chef-server/docs-chef-io"
+
+[[imports.mounts]]
+  source = "content/server"
+  target = "content/server"
+
+[[imports.mounts]]
+  source = "static"
+  target = "static"
+
+[[imports]]
+  path = "github.com/chef/cookstyle/docs-chef-io"
+
+[[imports.mounts]]
+  source = "data"
+  target = "data"
+
+## Module mounts for packages added with NPM
+
+[[mounts]]
+  source = "themes/docs-new/node_modules/jquery/dist"
+  target = "assets/js/vendor/jquery"
+
+[[mounts]]
+  source = "themes/docs-new/node_modules/showdown/dist"
+  target = "assets/js/vendor/showdown"
+
+[[mounts]]
+  source = "themes/docs-new/node_modules/ua-parser-js/dist"
+  target = "assets/js/vendor/ua-parser-js"
+
+[[mounts]]
+  source = "themes/docs-new/node_modules/what-input/dist"
+  target = "assets/js/vendor/what-input"
+
+[[mounts]]
+  source = "themes/docs-new/node_modules/@fortawesome/fontawesome-free/js"
+  target = "assets/js/vendor/fontawesome-free"
+
+[[mounts]]
+  source = "themes/docs-new/node_modules/foundation-sites/dist/js"
+  target = "assets/js/vendor/foundation-sites"
+
+[[mounts]]
+  source = "themes/docs-new/node_modules/redoc/bundles"
+  target = "assets/js/vendor/redoc"
+
+## Fontawesome font and SCSS modules
+
+[[mounts]]
+  source = "themes/docs-new/node_modules/@fortawesome/fontawesome-free/webfonts"
+  target = "static/fonts/fontawesome"
+
+[[mounts]]
+  source = "themes/docs-new/node_modules/@fortawesome/fontawesome-free/scss"
+  target = "assets/sass/vendor/fontawesome"
+
+## Mount static directory so the images work
+
+[[mounts]]
+  source = "static"
+  target = "static"
