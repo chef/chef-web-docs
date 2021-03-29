@@ -7,7 +7,7 @@ gh_repo = "chef-web-docs"
 [menu]
   [menu.overview]
     title = "Markdown"
-    identifier = "overview/style/style_markdown.md"
+    identifier = "overview/style/style_markdown"
     parent = "overview/style"
     weight = 120
 +++

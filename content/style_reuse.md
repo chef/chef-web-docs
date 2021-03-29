@@ -8,7 +8,7 @@ product = []
 [menu]
   [menu.docs]
     title = "Content Reuse and Shortcodes Guide"
-    identifier = "overview/style/style_reuse.md "
+    identifier = "overview/style/style_reuse"
     parent = "overview/style"
     weight = 130
 +++

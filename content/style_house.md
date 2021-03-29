@@ -7,7 +7,7 @@ gh_repo = "chef-web-docs"
 [menu]
   [menu.overview]
     title = "Chef House Style"
-    identifier = "overview/style/style_house.md Docs House Style Guide"
+    identifier = "overview/style/style_house"
     parent = "overview/style"
     weight = 90
 +++

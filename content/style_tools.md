@@ -8,7 +8,7 @@ product = []
 [menu]
   [menu.overview]
     title = "Tools"
-    identifier = "overview/style/style_tools.md @docs-team tools"
+    identifier = "overview/style/style_tools"
     parent = "overview/style"
     weight = 100
 +++

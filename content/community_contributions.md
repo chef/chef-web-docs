@@ -8,8 +8,8 @@ product = []
 [menu]
   [menu.overview]
     title = "Community Contributions"
-    identifier = "overview/community/contributing/Contributing"
-    parent = "overview/community/contributing"
+    identifier = "overview/community/contributing"
+    parent = "overview/community"
     weight = 10
 +++
 

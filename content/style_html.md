@@ -7,7 +7,7 @@ gh_repo = "chef-web-docs"
 [menu]
   [menu.overview]
     title = "HTML & SCSS"
-    identifier = "overview/style/style_html.md Docs HTML and SCSS Style Guide"
+    identifier = "overview/style/style_html Guide"
     parent = "overview/style"
     weight = 140
 +++

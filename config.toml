@@ -308,7 +308,7 @@ weight = 60
 [[menu.overview]]
 title = "Overview"
 identifier = "overview"
-weight = 20
+weight = 10
 
   [[menu.overview]]
   title = "Community"
@@ -317,16 +317,10 @@ weight = 20
   weight = 20
 
   [[menu.overview]]
-  title = "Contributing"
-  identifier = "overview/community/contributing"
-  parent = "overview/community"
-  weight = 30
-
-  [[menu.overview]]
   title = "Packages & Platforms"
   identifier = "overview/packages_&_platforms"
   parent = "overview"
-  weight = 30
+  weight = 40
 
     [[menu.overview]]
     title = "Licensing"
@@ -338,7 +332,8 @@ weight = 20
   title = "Style Guide"
   identifier = "overview/style"
   parent = "overview"
-  weight = 70
+  weight = 80
+
 ####
 # End Overview Menu
 ####

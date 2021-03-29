@@ -1,5 +1,5 @@
 +++
-title = "Documentation Style Guide"
+title = "Docs Style"
 draft = false
 gh_repo = "chef-web-docs"
 aliases = ["/style_guide.html"]
@@ -7,8 +7,8 @@ product = []
 
 [menu]
   [menu.overview]
-    title = "Docs Style Guide"
-    identifier = "overview/style/style_index.md Chef Docs Style Guide"
+    title = "Docs Style"
+    identifier = "overview/style/style_index"
     parent = "overview/style"
     weight = 80
 +++
