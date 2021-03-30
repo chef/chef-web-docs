@@ -4,7 +4,7 @@ draft = false
 
 gh_repo = "chef-web-docs"
 
-aliases = ["/files.html"]
+aliases = ["/files.html", "essentials_cookbook_files.html"]
 
 [menu]
   [menu.infra]
