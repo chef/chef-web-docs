@@ -100,6 +100,12 @@ identifier = "automate"
   parent = "automate"
 
   [[automate]]
+  name = "Infrastructure"
+  weight = 50
+  identifier = "automate/infrastructure"
+  parent = "automate"
+
+  [[automate]]
   name = "Compliance"
   weight = 60
   identifier = "automate/compliance"
