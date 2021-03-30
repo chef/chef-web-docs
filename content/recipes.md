@@ -2,7 +2,7 @@
 title = "About Recipes"
 draft = false
 gh_repo = "chef-web-docs"
-aliases = ["/recipes.html"]
+aliases = ["/recipes.html", "essentials_cookbook_recipes.html"]
 
 [menu]
   [menu.infra]
