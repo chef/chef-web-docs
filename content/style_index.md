@@ -31,6 +31,7 @@ Our main repository (repo, for short) for [docs.chef.io](https://docs.chef.io) i
 
 We try to keep our documentation source as close to the code as possible, which means that our documentation files are distributed across several product repositories.
 
+<!-- markdownlint-disable -->
 | Product | GitHub Docs Directory |
 |---------|-----------------------|
 |Chef Automate |https://github.com/chef/automate/tree/master/components/docs-chef-io|
@@ -38,7 +39,7 @@ We try to keep our documentation source as close to the code as possible, which 
 |Chef Infra Client |https://github.com/chef/chef-web-docs|
 |Chef Infra Server |https://github.com/chef/chef-server/tree/master/docs-chef-io|
 |Chef Inspec| https://github.com/inspec/inspec/tree/master/docs-chef-io|
-
+<!-- markdownlint-enable -->
 ## How to Make a Change
 
 ### Finding the Right Repository

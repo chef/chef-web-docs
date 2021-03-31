@@ -53,6 +53,7 @@ Seattle, WA 98122
 Examples in code:
 `admin@4thcafe.com`
 `4thcafe.pem`
+
 ### Example Domains
 
 Use the `4thcafe.com` domain for generic domains and email addresses in the documentation. Use the `chef.io` or `progress.com` for examples that should refer directly back to the company.
