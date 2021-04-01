@@ -60,9 +60,9 @@ algorithms and keys during operation.
 All of the tools Chef produces that have FIPS support read this kernel
 setting and default their mode of operation to match it with the
 exception of the workstation, which requires designating a port in the
-`fips_git_port` setting of the `cli.toml`. For the other Chef tools,
+`fips_git_port` setting of the `cli.toml`. For the other Chef Infra tools,
 Chef Infra Client, for example, if `chef-client` is run on an operating
-system configured into FIPS mode and you run, that Chef run will
+system configured into FIPS mode and you run, that Chef Infra run will
 automatically be in FIPS mode unless the user disables it.
 
 To enable FIPS on your platform follow these instructions:
@@ -77,7 +77,7 @@ To enable FIPS on your platform follow these instructions:
 ### Prerequisites
 
 - Supported Systems - CentOS or Red Hat Enterprise Linux 6 or greater
-- Chef Infra Server version <span class="title-ref">12.13.0</span> or greater
+- Chef Infra Server version 12.13 or greater
 
 ### Configuration
 
@@ -87,8 +87,7 @@ FIPS mode.
 
 To enable FIPS manually for the Chef Infra Server, can add `fips true`
 to the `/etc/opscode/chef-server.rb` and reconfigure. For more
-configuration information see [Chef
-Server](/server/config_rb_server_optional_settings/).
+configuration information see [chef-server.rb Optional Settings](/server/config_rb_server_optional_settings/).
 
 ## How to enable FIPS mode for the Chef Infra Client
 
