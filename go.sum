@@ -3,8 +3,11 @@ github.com/BurntSushi/toml v0.3.1/go.mod h1:xHWCNGjB5oqiDr8zfno3MHue2Ht5sIBksp03
 github.com/census-instrumentation/opencensus-proto v0.2.1/go.mod h1:f6KPmirojxKA12rnyqOA5BBL4O983OfeGPqjHWSTneU=
 github.com/chef/automate/components/docs-chef-io v0.0.0-20210324170457-bfd674d7841b/go.mod h1:juvLC7Rt33YOCgJ5nnfl4rWZRAbSwqjTbWmcAoA0LtU=
 github.com/chef/chef-server/docs-chef-io v0.0.0-20210316181455-086b59abe39e/go.mod h1:gMSa25GUHmLimA0gjvRd3hs1buOBqkKPrdHzHvaJauY=
+github.com/chef/chef-workstation v0.0.0-20210224180306-c98d1ffba769 h1:RfGR6IIGMNTz86Qe8JADov3BmmL4PSS0qg12rfhFRNM=
 github.com/chef/chef-workstation v0.0.0-20210224180306-c98d1ffba769/go.mod h1:KZ1lmUGHzTKhRuHdDhB/I2ZEbet++4OTuABWlYb9MlQ=
 github.com/chef/chef-workstation/docs-chef-io v0.0.0-20210224180306-c98d1ffba769/go.mod h1:gvoh6ov1YU98CVzBEWzEZeCLTRunfQ6r1VO7M3LFE9U=
+github.com/chef/chef-workstation/docs-chef-io v0.0.0-20210405211109-b83e6df1a6b1 h1:L6S1bNEB5jIXsBTLiy8Oexd62x5TfVOlg+oXLiPtRHo=
+github.com/chef/chef-workstation/docs-chef-io v0.0.0-20210405211109-b83e6df1a6b1/go.mod h1:gvoh6ov1YU98CVzBEWzEZeCLTRunfQ6r1VO7M3LFE9U=
 github.com/chef/cookstyle v7.10.0+incompatible/go.mod h1:KUadmsdBr7Hpo5dtGVQMiwb8KlC91W3j1lfc0yuVwtw=
 github.com/chef/cookstyle/docs-chef-io v0.0.0-20210324200148-f941dae22320/go.mod h1:1JOEECsW9ozt1/RmprJjAQEvCrOHobpWepSQJRQOhnY=
 github.com/chef/desktop-config/docs-chef-io v0.0.0-20210219180412-c50c4ad0869d/go.mod h1:90xAx6sIfgSL50M2KzeBmx7V7s7dlhQU3xpUkJO0qW0=
