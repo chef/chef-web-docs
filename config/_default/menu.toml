@@ -100,6 +100,12 @@ identifier = "automate"
   parent = "automate"
 
   [[automate]]
+  name = "Infrastructure"
+  weight = 50
+  identifier = "automate/infrastructure"
+  parent = "automate"
+
+  [[automate]]
   name = "Compliance"
   weight = 60
   identifier = "automate/compliance"
@@ -652,85 +658,85 @@ identifier = "chef_workstation"
       title = "chef capture"
       identifier = "chef_workstation/chef_workstation_tools/chef_(executable)/ctl_chef.md#chef-capture chef capture"
       parent = "chef_workstation/chef_workstation_tools/chef_(executable)"
-      url = "/ctl_chef/#chef-capture"
+      url = "/workstation/ctl_chef/#chef-capture"
 
       [[workstation]]
       title = "chef env"
       identifier = "chef_workstation/chef_workstation_tools/chef_(executable)/ctl_chef.md#chef-env chef env"
       parent = "chef_workstation/chef_workstation_tools/chef_(executable)"
-      url = "/ctl_chef/#chef-env"
+      url = "/workstation/ctl_chef/#chef-env"
 
       [[workstation]]
       title = "chef exec"
       identifier = "chef_workstation/chef_workstation_tools/chef_(executable)/ctl_chef.md#chef-exec chef exec"
       parent = "chef_workstation/chef_workstation_tools/chef_(executable)"
-      url = "/ctl_chef/#chef-exec"
+      url = "/workstation/ctl_chef/#chef-exec"
 
       [[workstation]]
       title = "chef gem"
       identifier = "chef_workstation/chef_workstation_tools/chef_(executable)/ctl_chef.md#chef-gem chef gem"
       parent = "chef_workstation/chef_workstation_tools/chef_(executable)"
-      url = "/ctl_chef/#chef-gem"
+      url = "/workstation/ctl_chef/#chef-gem"
 
       [[workstation]]
       title = "chef generate attribute"
       identifier = "chef_workstation/chef_workstation_tools/chef_(executable)/ctl_chef.md#chef-generate-attribute chef generate attribute"
       parent = "chef_workstation/chef_workstation_tools/chef_(executable)"
-      url = "/ctl_chef/#chef-generate-attribute"
+      url = "/workstation/ctl_chef/#chef-generate-attribute"
 
       [[workstation]]
       title = "chef generate cookbook"
       identifier = "chef_workstation/chef_workstation_tools/chef_(executable)/ctl_chef.md#chef-generate-cookbook chef generate cookbook"
       parent = "chef_workstation/chef_workstation_tools/chef_(executable)"
-      url = "/ctl_chef/#chef-generate-cookbook"
+      url = "/workstation/ctl_chef/#chef-generate-cookbook"
 
       [[workstation]]
       title = "chef generate file"
       identifier = "chef_workstation/chef_workstation_tools/chef_(executable)/ctl_chef.md#chef-generate-file chef generate file"
       parent = "chef_workstation/chef_workstation_tools/chef_(executable)"
-      url = "/ctl_chef/#chef-generate-file"
+      url = "/workstation/ctl_chef/#chef-generate-file"
 
       [[workstation]]
       title = "chef generate recipe"
       identifier = "chef_workstation/chef_workstation_tools/chef_(executable)/ctl_chef.md#chef-generate-recipe chef generate recipe"
       parent = "chef_workstation/chef_workstation_tools/chef_(executable)"
-      url = "/ctl_chef/#chef-generate-recipe"
+      url = "/workstation/ctl_chef/#chef-generate-recipe"
 
       [[workstation]]
       title = "chef generate repo"
       identifier = "chef_workstation/chef_workstation_tools/chef_(executable)/ctl_chef.md#chef-generate-repo chef generate repo"
       parent = "chef_workstation/chef_workstation_tools/chef_(executable)"
-      url = "/ctl_chef/#chef-generate-repo"
+      url = "/workstation/ctl_chef/#chef-generate-repo"
 
       [[workstation]]
       title = "chef generate resource"
       identifier = "chef_workstation/chef_workstation_tools/chef_(executable)/ctl_chef.md#chef-generate-resource chef generate resource"
       parent = "chef_workstation/chef_workstation_tools/chef_(executable)"
-      url = "/ctl_chef/#chef-generate-resource"
+      url = "/workstation/ctl_chef/#chef-generate-resource"
 
       [[workstation]]
       title = "chef generate template"
       identifier = "chef_workstation/chef_workstation_tools/chef_(executable)/ctl_chef.md#chef-generate-template chef generate template"
       parent = "chef_workstation/chef_workstation_tools/chef_(executable)"
-      url = "/ctl_chef/#chef-generate-template"
+      url = "/workstation/ctl_chef/#chef-generate-template"
 
       [[workstation]]
       title = "chef report cookbooks"
       identifier = "chef_workstation/chef_workstation_tools/chef_(executable)/ctl_chef.md#chef-report-cookbooks chef report cookbooks"
       parent = "chef_workstation/chef_workstation_tools/chef_(executable)"
-      url = "/ctl_chef/#chef-report-cookbooks"
+      url = "/workstation/ctl_chef/#chef-report-cookbooks"
 
       [[workstation]]
       title = "chef report nodes"
       identifier = "chef_workstation/chef_workstation_tools/chef_(executable)/ctl_chef.md#chef-report-nodes chef report nodes"
       parent = "chef_workstation/chef_workstation_tools/chef_(executable)"
-      url = "/ctl_chef/#chef-report-nodes"
+      url = "/workstation/ctl_chef/#chef-report-nodes"
 
       [[workstation]]
       title = "chef shell-init"
       identifier = "chef_workstation/chef_workstation_tools/chef_(executable)/ctl_chef.md#chef-shell-init chef shell-init"
       parent = "chef_workstation/chef_workstation_tools/chef_(executable)"
-      url = "/ctl_chef/#chef-shell-init"
+      url = "/workstation/ctl_chef/#chef-shell-init"
 
     [[workstation]]
     title = "config.rb (knife.rb)"
