@@ -128,10 +128,6 @@
   target = "assets/js/vendor/showdown"
 
 [[mounts]]
-  source = "themes/docs-new/node_modules/ua-parser-js/dist"
-  target = "assets/js/vendor/ua-parser-js"
-
-[[mounts]]
   source = "themes/docs-new/node_modules/what-input/dist"
   target = "assets/js/vendor/what-input"
 

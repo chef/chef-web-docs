@@ -2,19 +2,23 @@
 {{- $jquery := resources.Get "js/vendor/jquery/jquery.min.js" -}}
 {{- $foundation := resources.Get "js/vendor/foundation-sites/foundation.min.js" -}}
 {{- $whatInput := resources.Get "js/vendor/what-input/what-input.min.js" -}}
-{{- $uaParser := resources.Get "js/vendor/ua-parser-js/ua-parser.min.js" -}}
 {{- $showdown := resources.Get "js/vendor/showdown/showdown.min.js" -}}
-{{- $coreJs := slice $fontawesome $jquery $foundation $whatInput $uaParser $showdown  | resources.Concat "js/core-bundle.js" | minify | fingerprint -}}
-<script src="{{ $coreJs.Permalink }}" ></script>
+{{- $coreJs := slice $fontawesome $jquery $foundation $whatInput $showdown -}}
 
-{{- $segment := resources.Get "js/segment.js" -}}
-{{- $omnitruck := resources.Get "js/omnitruck.js" -}}
+{{ if hugo.Environment | eq "development" }}
+  {{- $coreJs := $coreJs | resources.Concat "js/core-bundle.js" -}}
+  <script src="{{ $coreJs.Permalink }}" ></script>
+{{ else }}
+  {{- $coreJs := $coreJs | resources.Concat "js/core-bundle.js" | minify | fingerprint -}}
+  <script src="{{ $coreJs.Permalink }}" ></script>
+{{ end }}
+
 {{- $copycodebutton := resources.Get "js/copy-code-button.js" -}}
 {{- $chefHugo := resources.Get "js/chef-hugo.js" -}}
 {{- $resourceNote := resources.Get "js/resource-note.js" -}}
 {{- $versionDocs := resources.Get "js/version-docs.js" -}}
 {{- $feedback := resources.Get "js/feedback.js" -}}
-{{- $customJs := slice $segment $omnitruck $copycodebutton $chefHugo $resourceNote $versionDocs $feedback -}}
+{{- $customJs := slice $copycodebutton $chefHugo $resourceNote $versionDocs $feedback -}}
 
 {{ if hugo.Environment | eq "development" }}
   {{- $customJs := $customJs | resources.Concat "js/custom-bundle.js" -}}
