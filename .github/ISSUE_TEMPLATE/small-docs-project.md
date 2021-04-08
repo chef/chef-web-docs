@@ -1,6 +1,6 @@
 ---
 name: Small Docs Project
-about: Request for non-recurring (one sprint) documentation support on existing content
+about: Request for non-recurring (one sprint) documentation support on existing content.
 title: "[INTAKE]"
 labels: 'Documentation, Size: M, Status: Untriaged'
 assignees: ''
