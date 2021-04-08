@@ -1,6 +1,6 @@
 ---
 name: Large Docs Project
-about: Request for new, larg,e or recurring (multi-sprint) documentation work.
+about: Request for new, large, or recurring (multi-sprint) documentation support.
 title: ''
 labels: ''
 assignees: ''
@@ -160,4 +160,4 @@ If yes, who is the Marketing contact for this project:
 
 ## Other
 
-List any other details not requested above that might be important to know.
+**List any other details not requested above that might be important to know.**
