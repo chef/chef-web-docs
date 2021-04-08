@@ -27,7 +27,7 @@ swap:
   manmade:                     manufactured
   manpower:                    personnel
   men and girls:               men and women
-  middle(?:m[ae]n|wom[ae]n):   intermediary
+  # middle(?:m[ae]n|wom[ae]n):   intermediary
   news(?:m[ae]n|wom[ae]n):     journalist(s)
   ombuds(?:man|woman):         ombuds
   oneupmanship:                upstaging

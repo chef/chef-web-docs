@@ -268,3 +268,5 @@ tokens:
   - zealously
   - zestfully
   - zestily
+exceptions:
+  - nightly
