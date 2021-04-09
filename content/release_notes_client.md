@@ -1,5 +1,5 @@
 +++
-title = "Release Notes: Chef Infra Client 12.0 - 16.12"
+title = "Release Notes: Chef Infra Client 12.0 - 16.13"
 draft = false
 gh_repo = "chef-web-docs"
 aliases = ["/release_notes.html", "/release_notes_ohai.html", "/release_notes/"]
@@ -11,9 +11,80 @@ product = ["client"]
     identifier = "release_notes/release_notes_client.md Chef Infra Client"
     parent = "release_notes"
 +++
+
+## What's New in 16.13
+
+### Chef InSpec 4.31
+
+Chef InSpec has been updated from 4.29.3 to 4.31.1.
+
+#### New Features
+
+- Commands can now be set to timeout using the [command resource](https://docs.chef.io/inspec/resources/command/) or the [`--command-timeout`](https://docs.chef.io/inspec/cli/) option in the CLI. Commands timeout by default after one hour.
+- Added the [`--docker-url`](https://docs.chef.io/inspec/cli/) CLI option, which can be used to specify the URI to connect to the Docker Engine.
+- Added support for targeting Linux and Windows containers running on Docker for Windows.
+
+#### Bug Fixes
+
+- Hash inputs will now be loaded consistently and accessed as strings or symbols. ([#5446](https://github.com/inspec/inspec/pull/5446))
+
+### Ubuntu FIPS Support
+
+Our Ubuntu packages are now FIPS compliant for all your FedRAMP needs.
+
+### Chef Language Additions
+
+We now include a `centos_stream_platform?` helper to determine if your CentOS release is a standard [CentOS](https://www.centos.org/centos-linux/) release or a [CentOS Stream](https://www.centos.org/centos-stream/) release. This helper can be used in attributes files, recipes, and custom resources. Thanks for this new helper [@ramereth](https://github.com/ramereth)!
+
+### Resource Improvements
+
+#### dsc_script and dsc_resource
+
+Our PowerShell integration has been improved to better handle failures that were silently occurring when running some DSC code in Chef Infra Client 16.8 and later. Thanks for reporting this problem [@jeremyciak](https://github.com/jeremyciak)!
+
+### Platform Support Updates
+
+#### Ubuntu 16.04 EOL
+
+Packages will no longer be built for Ubuntu 16.04 as Canonical ended maintenance updates on April 30, 2021. See Chef's [Platform End-of-Life Policy](https://docs.chef.io/platforms/#platform-end-of-life-policy) for more information on when Chef ends support for an OS release.
+
+### Improved System Detection
+
+Ohai now includes a new `:OsRelease` plugin for Linux hosts that includes the content of `/etc/os_release`. This data can be very useful for accurately identifying the Linux distribution that Chef Infra Client is running on. Thanks for this new plugin [@ramereth](https://github.com/ramereth)!
+
+#### Sample `:OsRelease` Output
+
+```json
+{
+  "name": "Ubuntu",
+  "version": "18.04.5 LTS (Bionic Beaver)",
+  "id": "ubuntu",
+  "id_like": [
+    "debian"
+  ],
+  "pretty_name": "Ubuntu 18.04.5 LTS",
+  "version_id": "18.04",
+  "home_url": "https://www.ubuntu.com/",
+  "support_url": "https://help.ubuntu.com/",
+  "bug_report_url": "https://bugs.launchpad.net/ubuntu/",
+  "privacy_policy_url": "https://www.ubuntu.com/legal/terms-and-policies/privacy-policy",
+  "version_codename": "bionic",
+  "ubuntu_codename": "bionic"
+}
+```
+
+### Security
+
+#### Ruby 2.7.3
+
+Ruby has been updated to 2.7.3, which provides a large number of bug fixes and also resolves the following CVEs:
+
+- [CVE-2021-28966](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-28966)
+- [CVE-2021-28966](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-28966)
+
 ## What's New in 16.12
 
-### Chef InSpec
+### Chef InSpec 4.29
 
 Chef InSpec has been updated from 4.28 to 4.29.3.
 
