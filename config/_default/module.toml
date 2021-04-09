@@ -158,3 +158,33 @@
 [[mounts]]
   source = "static"
   target = "static"
+
+## Mount non-docs repositories
+
+[[imports]]
+  path = "github.com/cowboy/jquery-hashchange"
+
+[[imports.mounts]]
+  source = "jquery.ba-hashchange.min.js"
+  target = "assets/js/vendor/cowboy/jquery.ba-hashchange.min.js"
+
+[[imports]]
+  path = "github.com/swiftype/swiftype-autocomplete-jquery"
+
+[[imports.mounts]]
+  source = "jquery.swiftype.autocomplete.js"
+  target = "assets/js/vendor/swiftype/jquery.swiftype.autocomplete.js"
+
+[[imports]]
+  path = "github.com/swiftype/swiftype-search-jquery"
+
+[[imports.mounts]]
+  source = "jquery.swiftype.search.js"
+  target = "assets/js/vendor/swiftype/jquery.swiftype.search.js"
+
+[[imports]]
+  path = "github.com/twitter/hogan.js"
+
+[[imports.mounts]]
+  source = "web/builds/3.0.2/hogan-3.0.2.min.js"
+  target = "assets/js/vendor/twitter/hogan-3.0.2.min.js"

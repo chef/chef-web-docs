@@ -1,0 +1,123 @@
+<div id="swiftype-modal">
+  <div id="swiftype-modal-content">
+
+    <div id="swiftype-modal-search-form" class="swiftype-search-form grid-x">
+      <form class="cell auto">
+        <input id="swiftype-search-form-modal" class="swiftype-search-input" placeholder="Search..." aria-label="Search this site" id="st-overlay-search-input" />
+      </form>
+      <button id="swiftype-close-button" class="cell shrink">
+        close
+      </button>
+    </div>
+
+    <div id="swiftype-lower-container" class="grid-container fluid">
+      <div id="swiftype-modal-content-container" class="grid-x grid-margin-x">
+        <!-- LEFT SIDEBAR -->
+        <div id="swiftype-container-left-sidebar" class="cell small-12 medium-shrink">
+          <button id="swiftype-custom-facets-toggle-button">
+            <h3>Chef Product
+              <span id="swiftype-custom-facets-toggle-chevron" class="show-for-small-only">
+                <i class="fas fa-chevron-down"></i>
+                <i class="fas fa-chevron-up" style="display: none;"></i>
+              </span>
+            </h3>
+          </button>
+          <div id="swiftype-custom-facets">
+            <ul>
+              <li>
+                <input type="checkbox" class="product-filter" name="chef-product" id="swiftype-facet-automate" value="automate">
+                <label for="swiftype-facet-automate">Automate</label><br />
+              </li>
+              <li>
+                <input type="checkbox" class="product-filter" name="chef-product" id="swiftype-facet-desktop" value="desktop">
+                <label for="swiftype-facet-desktop">Desktop</label><br />
+              </li>
+              <li>
+                <input type="checkbox" class="product-filter" name="chef-product" id="swiftype-facet-habitat" value="habitat">
+                <label for="swiftype-facet-habitat">Habitat</label><br />
+              </li>
+              <li>
+                <input type="checkbox" class="product-filter" id="swiftype-facet-infra">
+                <label for="swiftype-facet-infra">Infra</label><br />
+                <ul>
+                  <li>
+                    <input type="checkbox" class="product-filter" name="chef-product" id="swiftype-facet-client" value="client">
+                    <label for="swiftype-facet-client">Infra Client</label><br />
+                  </li>
+                  <li>
+                    <input type="checkbox" class="product-filter" name="chef-product" id="swiftype-facet-server" value="server">
+                    <label for="swiftype-facet-server">Infra Server</label><br />
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <input type="checkbox" class="product-filter" name="chef-product" id="swiftype-facet-inspec" value="inspec">
+                <label for="swiftype-facet-inspec">InSpec</label><br />
+              </li>
+              <li>
+                <input type="checkbox" class="product-filter" name="chef-product" id="swiftype-facet-workstation" value="workstation">
+                <label for="swiftype-facet-workstation">Workstation</label><br />
+              </li>
+            </ul>
+          </div>
+        </div>
+        <!-- RESULTS CONTAINER -->
+        <div id="swiftype-results-container" class="cell auto">
+          <div id="swiftype-results-heading"><h3>Search Results</h3></div>
+          <div id="swiftype-search-results">
+            <a href="https://docs.chef.io/automate">
+              <span class="st-result-title">Some page</span>
+              <span class='st-result-detail'>About <em>Resources</em><span class='st-result-detail-body'> • A resource is a statement of configuration policy that: Describes the desired state for a configuration item Declares the steps needed to bring that item to the desired state Specifies a resource type—such as package, template</span></span>
+            </a>
+            <a href="https://docs.chef.io/workstation">
+              <span class="st-result-title">Some other page</span>
+              <span class='st-result-detail'>Custom <em>Resources</em><span class='st-result-detail-body'> • A custom resource: Is a simple extension of Chef Infra Client that adds your own <em>resources</em> Is implemented and shipped as part of a cookbook Follows easy, repeatable syntax patterns Effectively leverages <em>resources</em> that are built into </span></span>
+            </a>
+            <a href="https://docs.chef.io/automate">
+              <span class="st-result-title">Yet another <em>page</em></span>
+              <span class='st-result-detail'>About <em>Resources</em><span class='st-result-detail-body'> • A resource is a statement of configuration policy that: Describes the desired state for a configuration item Declares the steps needed to bring that item to the desired state Specifies a resource type—such as package, template</span></span>
+            </a>
+            <a href="https://docs.chef.io/workstation">
+              <span class="st-result-title">Some other page</span>
+              <span class='st-result-detail'>Custom <em>Resources</em><span class='st-result-detail-body'> • A custom resource: Is a simple extension of Chef Infra Client that adds your own <em>resources</em> Is implemented and shipped as part of a cookbook Follows easy, repeatable syntax patterns Effectively leverages <em>resources</em> that are built into </span></span>
+            </a>
+            <a href="https://docs.chef.io/automate">
+              <span class="st-result-title">Yet another page</span>
+              <span class='st-result-detail'>About <em>Resources</em><span class='st-result-detail-body'> • A resource is a statement of configuration policy that: Describes the desired state for a configuration item Declares the steps needed to bring that item to the desired state Specifies a resource type—such as package, template</span></span>
+            </a>
+            <a href="https://docs.chef.io/workstation">
+              <span class="st-result-title">Some other page</span>
+              <span class='st-result-detail'>Custom <em>Resources</em><span class='st-result-detail-body'> • A custom resource: Is a simple extension of Chef Infra Client that adds your own <em>resources</em> Is implemented and shipped as part of a cookbook Follows easy, repeatable syntax patterns Effectively leverages <em>resources</em> that are built into </span></span>
+            </a>
+            <a href="https://docs.chef.io/automate">
+              <span class="st-result-title">Yet another page</span>
+              <span class='st-result-detail'>About <em>Resources</em><span class='st-result-detail-body'> • A resource is a statement of configuration policy that: Describes the desired state for a configuration item Declares the steps needed to bring that item to the desired state Specifies a resource type—such as package, template</span></span>
+            </a>
+            <a href="https://docs.chef.io/workstation">
+              <span class="st-result-title">This page</span>
+              <span class='st-result-detail'>Custom <em>Resources</em><span class='st-result-detail-body'> • A custom resource: Is a simple extension of Chef Infra Client that adds your own <em>resources</em> Is implemented and shipped as part of a cookbook Follows easy, repeatable syntax patterns Effectively leverages <em>resources</em> that are built into </span></span>
+            </a>
+            <a href="https://docs.chef.io/automate">
+              <span class="st-result-title">That page</span>
+              <span class='st-result-detail'>About <em>Resources</em><span class='st-result-detail-body'> • A resource is a statement of configuration policy that: Describes the desired state for a configuration item Declares the steps needed to bring that item to the desired state Specifies a resource type—such as package, template</span></span>
+            </a>
+            <a href="https://docs.chef.io/workstation">
+              <span class="st-result-title">This other page</span>
+              <span class='st-result-detail'>Custom <em>Resources</em><span class='st-result-detail-body'> • A custom resource: Is a simple extension of Chef Infra Client that adds your own <em>resources</em> Is implemented and shipped as part of a cookbook Follows easy, repeatable syntax patterns Effectively leverages <em>resources</em> that are built into </span></span>
+            </a>
+            <a href="https://docs.chef.io/automate">
+              <span class="st-result-title">Still more pages?</span>
+              <span class='st-result-detail'>About <em>Resources</em><span class='st-result-detail-body'> • A resource is a statement of configuration policy that: Describes the desired state for a configuration item Declares the steps needed to bring that item to the desired state Specifies a resource type—such as package, template</span></span>
+            </a>
+            <a href="https://docs.chef.io/workstation">
+              <span class="st-result-title">Finally, the final page</span>
+              <span class='st-result-detail'>Custom <em>Resources</em><span class='st-result-detail-body'> • A custom resource: Is a simple extension of Chef Infra Client that adds your own <em>resources</em> Is implemented and shipped as part of a cookbook Follows easy, repeatable syntax patterns Effectively leverages <em>resources</em> that are built into </span></span>
+            </a>
+            <div class="st-page"><a href="#" class="st-prev" data-hash="true" data-page="1">« previous</a><a href="#" class="st-next" data-hash="true" data-page="3">next »</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
