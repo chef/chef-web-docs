@@ -72,9 +72,10 @@ Does this project roll up under a strategic leadership goal? If so, which one?
 
 **Where can the tech writer track work related to the project:**
 
-Ticketing system:
-Wiki:
-Code repository:
+GitHub Repository:
+Issue link(s):
+PR link(s):
+AHA! link(s):
 
 ## Release timelines
 
