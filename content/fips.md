@@ -94,7 +94,7 @@ configuration information see [chef-server.rb Optional Settings](/server/config_
 
 ### Prerequisites
 
-- Supported Systems - CentOS, Oracle Linux, or Red Hat Enterprise Linux 6 or later, and Ubuntu
+- Supported Systems - CentOS, Oracle Linux, Red Hat Enterprise Linux 6 or later, and Ubuntu
 - Chef Infra Client 16.13 or later for Ubuntu systems
 
 ### Configuration
