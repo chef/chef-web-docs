@@ -80,10 +80,8 @@ To set up an Apt package repository for Debian and Ubuntu platforms:
 
     Replace `<DISTRIBUTION>` with the appropriate distribution name:
 
-    -   For Debian 8: `jessie`
     -   For Debian 9: `stretch`
     -   For Debian 10: `buster`
-    -   For Ubuntu 16.04: `xenial`
     -   For Ubuntu 18.04: `bionic`
     -   For Ubuntu 20.04: `focal`
 
