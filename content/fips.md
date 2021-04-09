@@ -71,6 +71,7 @@ To enable FIPS on your platform follow these instructions:
 - [Red Hat Enterprise Linux 7](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Security_Guide/chap-Federal_Standards_and_Regulations.html#sec-Enabling-FIPS-Mode)
 - [Red Hat Enterprise Linux 8](https://www.redhat.com/en/blog/how-rhel-8-designed-fips-140-2-requirements)
 - [Windows](https://technet.microsoft.com/en-us/library/cc750357.aspx)
+- [Ubuntu](https://security-certs.docs.ubuntu.com/en/fips)
 
 ## How to enable FIPS mode for the Chef Infra Server
 
@@ -93,13 +94,12 @@ configuration information see [chef-server.rb Optional Settings](/server/config_
 
 ### Prerequisites
 
-- Supported Systems - CentOS, Oracle Linux, or Red Hat Enterprise Linux 6 or later
+- Supported Systems - CentOS, Oracle Linux, or Red Hat Enterprise Linux 6 or later, and Ubuntu
+- Chef Infra Client 16.13 or later for Ubuntu systems
 
 ### Configuration
 
-If you have FIPS compliance enabled at the kernel level then Chef Infra
-Client will default to running in FIPS mode. Otherwise you can add
-`fips true` to the `/etc/chef/client.rb` or `C:\\chef\\client.rb`.
+If you have FIPS compliance enabled at the kernel level then Chef Infra Client will default to running in FIPS mode. Otherwise you can add `fips true` to the `/etc/chef/client.rb` or `C:\\chef\\client.rb`.
 
 **Bootstrap a node using FIPS**
 
