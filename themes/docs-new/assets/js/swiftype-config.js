@@ -13,22 +13,31 @@ $(document).ready(function() {
 
   var showSearchModal = function() {
     $("#swiftype-modal").show(500);
+    $("#swiftype-search-form-modal").focus();
   }
 
   var hideSearchModal = function() {
     $("#swiftype-modal").hide(250);
     $("#swiftype-custom-facets input:checkbox[class='product-filter']").prop( "checked", false );
     window.location.hash = "";
+    $(".swiftype-search-input").val('');
+    $("div.swiftype-widget > div.autocomplete").html("<ul></ul>");
   }
 
   $("#swiftype-close-button").click(function(){
     hideSearchModal();
   });
 
+  $('body').click(function (event) {
+    if(!$(event.target).closest('#swiftype-modal-content').length && !$(event.target).is('#swiftype-modal-content')) {
+      hideSearchModal();
+    }
+  });
+
   $("#swiftype-custom-facets-toggle-button").click(function(){
     if ($(window).width() < 768) {
       $("#swiftype-custom-facets").toggle(500);
-      $("#swiftype-custom-facets-toggle-chevron").find('svg').toggle();
+      $("#swiftype-custom-facets-toggle-caret").find('svg').toggle();
     }
   });
 
@@ -59,12 +68,11 @@ $(document).ready(function() {
     };
     $('input#swiftype-search-form-modal').val(matchString);
   };
+
   // Watch for hashchange
   // #stq=[whatever]&stp=[number]
   // #stq=release notes&stp=1
   // it matches #stq
-
-
   $(window).on('hashchange', function() {
     if (searchHashRegex.test(window.location.hash)) {
       processLocationHash();
@@ -98,9 +106,10 @@ $(document).ready(function() {
   var resultTemplate = Hogan.compile([
     "<a class='swiftype-result' href='{{url}}'>",
       "<span class='st-result-title'>{{title}}</span>",
-      // "<span class='st-result-detail'>Product: {{product}} {{{sections}}}<span class='st-result-detail-body'> • {{{body}}}</span></span>",
       "<span class='st-result-detail'>{{{sections}}}<span class='st-result-detail-body'> • {{{body}}}</span></span>",
-    "</a>"
+      // "<span class='st-result-detail'><span class='st-result-highlight-product'>Product: {{product}} </span>{{{sections}}}<span class='st-result-detail-body'> • {{{body}}}</span></span>", //so we can audit the pages that are returned with facetted search
+    "</a>",
+
   ].join('') );
 
   var customRenderFunction = function(document_type, item) {

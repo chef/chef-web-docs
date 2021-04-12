@@ -159,7 +159,7 @@
   source = "static"
   target = "static"
 
-## Mount non-docs repositories
+## Import and mount non-docs repositories
 
 [[imports]]
   path = "github.com/cowboy/jquery-hashchange"

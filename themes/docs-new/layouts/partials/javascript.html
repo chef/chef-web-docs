@@ -28,10 +28,10 @@
 
 {{ if hugo.Environment | eq "development" }}
   {{- $customJs = $customJs | resources.Concat "js/custom-bundle.js" -}}
-  <script src="{{ $customJs.Permalink }}" type="text/javascript"></script>
+  <script src="{{ $customJs.Permalink }}"></script>
 {{ else }}
   {{- $customJs = $customJs | resources.Concat "js/custom-bundle.js" | minify | fingerprint -}}
-  <script src="{{ $customJs.Permalink }}" type="text/javascript"></script>
+  <script src="{{ $customJs.Permalink }}"></script>
 {{ end }}
 
 
