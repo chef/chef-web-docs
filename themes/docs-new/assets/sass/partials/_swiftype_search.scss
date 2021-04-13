@@ -115,6 +115,7 @@
               color:$lightgray;
               >.st-result-highlight-product{
                 color:red;
+                display: none;
               }
             }
           }
@@ -134,6 +135,12 @@
             }
           }
         }
+        > div.st-spelling-suggestion {
+          > a {
+            display: inline;
+            border-bottom: none;
+          }
+        }
       }
     }
   }
@@ -151,6 +158,9 @@
     #swiftype-modal-content-container {
       flex-direction: column;
     }
+  }
+  #swiftype-custom-facets {
+    display: none;
   }
 }
 

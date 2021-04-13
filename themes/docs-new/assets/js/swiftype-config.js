@@ -45,13 +45,28 @@ $(document).ready(function() {
     $('#swiftype-facet-client, #swiftype-facet-server').prop('checked',$(this).prop('checked'));
   });
 
-  $(window).resize(function() {
-    if ($(this).width() < 768) {
-      $('#swiftype-custom-facets').hide();
-    } else {
+  // trigger hideCustomFacets function after resize ends
+  var debounce = function(fn, interval) {
+    let timer;
+    return function debounced(...args) {
+      clearTimeout(timer);
+      timer = setTimeout(function call() {
+        fn(...args);
+      }, interval);
+    };
+  }
+
+  var hideCustomFacets = function() {
+    if ($(this).width() > 768) {
       $('#swiftype-custom-facets').show();
-      }
-  });
+    } else {
+      $('#swiftype-custom-facets').hide();
+      $("#swiftype-custom-facets-toggle-caret > svg.fa-caret-down").hide();
+      $("#swiftype-custom-facets-toggle-caret > svg.fa-caret-up").show();
+    }
+  }
+
+  $(window).resize(debounce(hideCustomFacets, 400));
 
   const searchHashRegex = /^#stq./;
   const searchStringMatchRegex = /^#stq=(.*)/;
@@ -104,12 +119,12 @@ $(document).ready(function() {
   // Handle Regular Search Results
   /////////
   var resultTemplate = Hogan.compile([
-    "<a class='swiftype-result' href='{{url}}'>",
-      "<span class='st-result-title'>{{title}}</span>",
-      "<span class='st-result-detail'>{{{sections}}}<span class='st-result-detail-body'> • {{{body}}}</span></span>",
-      // "<span class='st-result-detail'><span class='st-result-highlight-product'>Product: {{product}} </span>{{{sections}}}<span class='st-result-detail-body'> • {{{body}}}</span></span>", //so we can audit the pages that are returned with facetted search
-    "</a>",
-
+    "<li>",
+      "<a class='swiftype-result' href='{{url}}'>",
+        "<span class='st-result-title'>{{title}}</span>",
+        "<span class='st-result-detail'><span class='st-result-highlight-product'>Product: {{product}} </span>{{{sections}}}<span class='st-result-detail-body'> • {{{body}}}</span></span>",
+      "</a>",
+    "</li>"
   ].join('') );
 
   var customRenderFunction = function(document_type, item) {
