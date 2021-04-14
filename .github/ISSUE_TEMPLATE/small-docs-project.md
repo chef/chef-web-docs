@@ -22,6 +22,7 @@ Date update needs to be published:
 [ ] Chef Infra Client
 [ ] Chef Infra Server
 [ ] Chef InSpec
+[ ] Chef Workstation
 [ ] Other________________
 
 ## Update details
