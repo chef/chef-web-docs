@@ -20,8 +20,6 @@ $(document).ready(function() {
     $("#swiftype-modal").hide(250);
     $("#swiftype-custom-facets input:checkbox[class='product-filter']").prop( "checked", false );
     window.location.hash = "";
-    $(".swiftype-search-input").val('');
-    $("div.swiftype-widget > div.autocomplete").html("<ul></ul>");
   }
 
   $("#swiftype-close-button").click(function(){
@@ -29,7 +27,7 @@ $(document).ready(function() {
   });
 
   $('body').click(function (event) {
-    if(!$(event.target).closest('#swiftype-modal-content').length && !$(event.target).is('#swiftype-modal-content')) {
+    if($('#swiftype-modal').is(":visible") && !$(event.target).closest('#swiftype-modal-content').length && !$(event.target).is('#swiftype-modal-content')) {
       hideSearchModal();
     }
   });
