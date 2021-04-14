@@ -314,7 +314,7 @@ the expression is true. Favor modifier `if` usage when having a single-line body
 For example, using an `if` modifier with the `platform` node attribute:
 
 ```ruby
-do ubuntu thing if node['platform'] == 'ubuntu'
+do_ubuntu_thing if platform?('ubuntu')
 ```
 
 #### case
