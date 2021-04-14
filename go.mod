@@ -13,7 +13,7 @@ require (
 	github.com/chef/effortless/docs-chef-io v0.0.0-20210212122821-321ee6f6699a // indirect
 	github.com/habitat-sh/habitat/components/docs-chef-io v0.0.0-20210402191111-4b56ffe5d933 // indirect
 	github.com/inspec/inspec v4.29.3+incompatible // indirect
-	github.com/inspec/inspec/docs-chef-io v0.0.0-20210408194811-b3a0687fbe3e // indirect
+	github.com/inspec/inspec/docs-chef-io v0.0.0-20210414004145-7b2cba6579dd // indirect
 )
 
 //replace github.com/chef/effortless/docs-chef-io => ../effortless/docs-chef-io
