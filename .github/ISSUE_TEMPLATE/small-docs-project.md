@@ -17,12 +17,14 @@ Date update needs to be published:
 
 
 ## Product
-[ ] Chef Automate
-[ ] Chef Habitat
-[ ] Chef Infra Client
-[ ] Chef Infra Server
-[ ] Chef InSpec
-[ ] Other________________
+## Product
+- [ ] Chef Automate
+- [ ] Chef Habitat
+- [ ] Chef Infra Client
+- [ ] Chef Infra Server
+- [ ] Chef InSpec
+- [ ] Chef Workstation
+- [ ] Other:________________
 
 ## Update details
 
