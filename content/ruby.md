@@ -304,14 +304,13 @@ if node['platform'] == 'ubuntu'
 end
 ```
 
-##### if modifier
+**if modifier**
 
-`if` can be used as a modifier if the execution is a single line. The
-left side of the expression executes, if and only if the right side of
-the expression is true. Favor modifier `if` usage when having a single-line body.
-`else` and `elsif` statements are not supported when using `if` as a modifier.
+`if` can be used as a modifier that executes the left side of an expression
+if the right side of the expression is true. The `if` modifier expression must
+be a single line, and `else` and `elsif` statements are not supported.
 
-For example, using an `if` modifier with the `platform` node attribute:
+In the following example, the `do_ubuntu_thing` function will execute if the platform on a node is Ubuntu.
 
 ```ruby
 do_ubuntu_thing if platform?('ubuntu')
