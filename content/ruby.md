@@ -304,6 +304,18 @@ if node['platform'] == 'ubuntu'
 end
 ```
 
+**if modifier**
+
+`if` can be used as a modifier that executes the left side of an expression
+if the right side of the expression is true. The `if` modifier expression must
+be a single line, and `else` and `elsif` statements are not supported.
+
+In the following example, the `do_ubuntu_thing` function will execute if the platform on a node is Ubuntu.
+
+```ruby
+do_ubuntu_thing if platform?('ubuntu')
+```
+
 #### case
 
 A `case` statement can be used to handle a situation where there are a
