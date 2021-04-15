@@ -9,9 +9,9 @@ argument will have the values of the requested resource. For example:
 property :action, String, name_property: true
 property :content, String
 
-load_current_value do |desired|
+load_current_value do |new_resource|
   puts "The user requested action = #{action} in the resource"
-  puts "The user typed content = #{desired.content} in the resource"
+  puts "The user typed content = #{new_resource.content} in the resource"
 end
 ```
 
@@ -20,8 +20,8 @@ end
 property :action, String
 property :content, String
 
-load_current_value do |desired|
-  puts "The user requested action = #{desired.action} in the resource"
-  puts "The user typed content = #{desired.content} in the resource"
+load_current_value do |new_resource|
+  puts "The user requested action = #{new_resource.action} in the resource"
+  puts "The user typed content = #{new_resource.content} in the resource"
 end
 ```

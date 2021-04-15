@@ -8,10 +8,10 @@ property :path, String
 property :content, String
 property :mode, String
 
-load_current_value do |desired|
-  if ::File.exist?(desired.path)
-    content IO.read(desired.path)
-    mode ::File.stat(desired.path).mode
+load_current_value do |new_resource|
+  if ::File.exist?(new_resource.path)
+    content IO.read(new_resource.path)
+    mode ::File.stat(new_resource.path).mode
   end
 end
 
