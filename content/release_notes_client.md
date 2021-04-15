@@ -9785,8 +9785,8 @@ example:
 ```ruby
 resource_name :file
 
-load_current_value do |desired|
-  puts "The user typed content = #{desired.content} in the resource"
+load_current_value do |new_resource|
+  puts "The user typed content = #{new_resource.content} in the resource"
 end
 ```
 
