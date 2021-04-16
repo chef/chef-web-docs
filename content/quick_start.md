@@ -16,7 +16,7 @@ product = ["client", "server"]
 For the quickest way to get started using Chef Infra:
 
 1.  Install Chef Workstation:
-    <https://downloads.chef.io/chef-workstation/>.
+    <https://downloads.chef.io/tools/workstation>.
 
 2.  Generate a cookbook:
 
@@ -28,7 +28,7 @@ For the quickest way to get started using Chef Infra:
 
 3.  Navigate to the `first_cookbook` directory.
 
-4.  Update the `cookbooks/first_cookbook/recipes/default.rb` recipe in
+4.  Update the `first_cookbook/recipes/default.rb` recipe in
     the generated cookbook to contain:
 
     ```ruby
