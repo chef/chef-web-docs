@@ -259,4 +259,3 @@ and `panel-id`/`panel-link` values must be unique on the page.
       ```
       {{</* /foundation_tabs_panel */>}}
     {{</* /foundation_tabs_panels */>}}
-
