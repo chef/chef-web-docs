@@ -259,3 +259,29 @@ and `panel-id`/`panel-link` values must be unique on the page.
       ```
       {{</* /foundation_tabs_panel */>}}
     {{</* /foundation_tabs_panels */>}}
+
+
+## Fontawesome
+
+The Fontawesome shortcode will display any free [Font Awesome icon](https://fontawesome.com/icons) in a page. 
+
+It accepts the following parameters:
+
+- `class`
+- `font-size`
+- `border`
+- `padding`
+- `border-radius`
+- `color`
+- `background-color`
+
+The only required parameter is `class`, which is the same as the class name of the icon.
+
+The following shortcode examples will display these icons: {{< fontawesome class="fas fa-ellipsis-h">}} {{< fontawesome class="fas fa-anchor" font-size="3rem" border="2px dashed" padding="1px" border-radius="5px">}} {{< fontawesome class="fas fa-archive" color="#cc814b">}} {{< fontawesome class="far fa-address-book" background-color="DarkBlue" color="rgb(168, 218, 220)">}}
+
+```markdown
+{{</* fontawesome class="fas fa-ellipsis-h" */>}}
+{{</* fontawesome class="fas fa-anchor" font-size="3rem" border="2px dashed" padding="1px" border-radius="5px" */>}}
+{{</* fontawesome class="fas fa-archive" color="#cc814b" */>}}
+{{</* fontawesome class="far fa-address-book" background-color="DarkBlue" color="rgb(168, 218, 220)" */>}}
+```
