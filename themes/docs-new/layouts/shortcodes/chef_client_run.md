@@ -1,6 +1,6 @@
 A "Chef Infra Client run" is the term used to describe the steps Chef Infra Client takes to configure a node when the chef-client command is run. The following diagram shows the various stages that occur during a Chef Infra Client run.
 
-![image](/images/chef_run.png)
+![image](/images/chef_run.svg)
 
 During every Chef Infra Client run, the following happens:
 
