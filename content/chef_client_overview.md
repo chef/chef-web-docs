@@ -64,9 +64,27 @@ Consider a triangle with chef-client in the middle. Specify that it is automated
 The chef-client run on an interval to ensure that running nodes are configured correctly. It has four stages:
 
 Give an easy-to-understand explanation and give more depth in the next section.
-Compile
-Converge
-Compliance
+
+### Compile
+
+The compile phase is the firstpart of a Chef Infra Client run.
+During the compile phase, the chef-client agent gathers and organizes your infrastructure settings that you described in your cookbooks
+
+### Converge
+
+The converge phase is the second part of a Chef Infra Client run.During the converge phase applies your configuration to the devices, or "nodes", in your infrastructure.
+
+### Compliance
+
+The compliance phase is the third part of a Chef Infra Client run.  During the compliance phase scans your infrastructure settings to check that they meet the security standards that you defined as Chef InSpec profiles in your cookbooks.
+
+During the compliance phase, the chef-client agent:
+
+* downloads profiles from Chef Automate, Chef Supermarket, GitHub, or your local system
+* scans the settings for each node object
+* reports the results to Chef Automate or saves them locally.
+
+The compliance phase is the next evolution of the [audit cookbook](https://github.com/chef-cookbooks/audit). You should be able to remove the audit cookbook from your node runlists and get the same results as you did previously.
 Complete
 
 ## The Chef Infra Client Run
