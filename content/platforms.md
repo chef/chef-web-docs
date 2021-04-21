@@ -109,8 +109,8 @@ The following table lists the commercially-supported platforms and versions for 
 </tr>
 <tr>
 <td>Ubuntu (LTS releases)</td>
-<td><code>x86_64</code>,<code>aarch64</code> (18.04/20.04 only)</td>
-<td><code>16.04</code>, <code>18.04</code>, <code>20.04</code></td>
+<td><code>x86_64</code>,<code>aarch64</code></td>
+<td><code>18.04</code>, <code>20.04</code></td>
 </tr>
 <tr>
 <td>Microsoft Windows</td>
