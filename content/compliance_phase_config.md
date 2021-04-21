@@ -15,6 +15,7 @@ draft = false
 Compliance Phase runs on any node in your system that is set up--or "bootstrapped"--for a `chef-client` run. Just as you defined the configuration for each node with attributes in your cookbooks, you'll also need to define which Chef InSpec compliance profiles to run on each node with attributes in your cookbooks. In the simplest form, specifying one or more Chef InSpec profiles in your attributes enables the compliance phase in a Chef Infra Client run. This simple configuration causes the Chef Infra Client to fetch and execute the specific Chef InSpec profiles and write the results to disk using the default `json-file` reporter.
 
 You can fetch [Chef InSpec profiles]({{< relref "inspec/profiles/" >}}) from several different locations using the `node['audit']['profiles']` attribute.
+
 For example:
 {{< foundation_tabs tabs-id="compliance-phase-profile-panel" >}}
   {{< foundation_tab active="true" panel-link="automate-panel" tab-text="Automate">}}

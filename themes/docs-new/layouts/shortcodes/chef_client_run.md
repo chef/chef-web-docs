@@ -61,6 +61,10 @@ During every Chef Infra Client run, the following happens:
 <td><strong>Converge the node</strong></td>
 <td>Chef Infra Client configures the system based on the information that has been collected. Each resource is executed in the order identified by the run-list, and then by the order in which each resource is listed in each recipe. Each resource defines an action to run, which configures a specific part of the system. This process is also referred to as convergence. This is also referred to as the "execution phase".</td>
 </tr>
+<td><p><strong>Update the node object, process exception and report handlers</strong></p></td>
+<td><p>When all of the actions identified by resources in the resource collection have been done and Chef Infra Client finishes successfully, then Chef Infra Client updates the node object on the Chef Infra Server with the node object built during a Chef Infra Client run. (This node object will be pulled down by Chef Infra Client during the next Chef Infra Client run.) This makes the node object (and the data in the node object) available for search.</p>
+<p>Chef Infra Client always checks the resource collection for the presence of exception and report handlers. If any are present, each one is processed appropriately.</p></td>
+</tr>
 </tbody>
 </table>
 
@@ -79,11 +83,11 @@ During every Chef Infra Client run, the following happens:
 </thead>
 <tbody>
 <td><p><strong>Get, run Chef InSpec Compliance Profiles</p></td>
-<td><p>Yes. We get these from somewhere and do things with them</p>
+<td><p>If one or more Chef InSpec profiles are specified in the nde object, then Chef Infra Client downloads these InSpec profiles from sources like Chef Automate, Chef Supermarket, or GitHub. During the Chef Infra Client compliance phase, the chef-client calls on Chef InSpec to detect violations of the profiles. Chef InSpec works by comparing the node object with with the desired state in Chef InSpec compliance profiles.m</p>
 <p></td>
 </tr>
 <td><strong>Send or save Compliance reports</strong></td>
-<td>Yes, we let you know the results.</td>
+<td>fter each Chef InSpec scan, the chef-client sends the results to Chef Automate or saves the results locally.</td>
 </tr>
 </tbody>
 </table>
@@ -102,10 +106,6 @@ During every Chef Infra Client run, the following happens:
 </tr>
 </thead>
 <tbody>
-<td><p><strong>Update the node object, process exception and report handlers</strong></p></td>
-<td><p>When all of the actions identified by resources in the resource collection have been done and Chef Infra Client finishes successfully, then Chef Infra Client updates the node object on the Chef Infra Server with the node object built during a Chef Infra Client run. (This node object will be pulled down by Chef Infra Client during the next Chef Infra Client run.) This makes the node object (and the data in the node object) available for search.</p>
-<p>Chef Infra Client always checks the resource collection for the presence of exception and report handlers. If any are present, each one is processed appropriately.</p></td>
-</tr>
 <td><strong>Stop, wait for the next run</strong></td>
 <td>When everything is configured and the Chef Infra Client run is complete, Chef Infra Client stops and waits until the next time it is asked to run.</td>
 </tr>
