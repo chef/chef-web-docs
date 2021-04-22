@@ -18,8 +18,7 @@
     }
   }
 
-  .col-content {
-    padding-top: rem-calc(14);
+  #col-content {
     background-color: $white;
     height: 100%;
     word-wrap: break-word;
@@ -75,8 +74,8 @@
 }
 
 #left-nav-on-canvas {
-  margin-top: rem-calc(24);
-  padding: rem-calc(8 0);
+  margin-top: .5rem;
+  padding: rem-calc(18 0);
   z-index: 50;
 }
 
@@ -92,4 +91,3 @@
     }
   }
 }
-

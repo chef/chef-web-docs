@@ -33,8 +33,8 @@ url = "https://training.chef.io/"
 weight = 50
 
 [[main]]
-title = "Download"
-identifier = "download"
+title = "Downloads"
+identifier = "downloads"
 url = "https://downloads.chef.io/"
 weight = 60
 
@@ -254,6 +254,13 @@ identifier = "server"
   parent = "server"
   weight = 10
 
+    [[server]]
+    title = "Hosted Chef Server"
+    identifier = "server/overview/Hosted Chef Server"
+    parent = "server/overview"
+    url = "https://manage.chef.io/signup"
+    weight = 70
+
   [[server]]
   title = "Planning"
   identifier = "server/planning"
@@ -433,26 +440,6 @@ identifier = "chef_infra"
     identifier = "chef_infra/setup/nodes"
     parent = "chef_infra/setup"
     weight = 10
-
-    [[infra]]
-    title = "Chef Infra Server"
-    identifier = "chef_infra/setup/chef_infra_server"
-    parent = "chef_infra/setup"
-    weight = 20
-
-      [[infra]]
-      title = "Hosted Chef Server"
-      identifier = "chef_infra/setup/chef_infra_server/https://manage.chef.io/signup Hosted Chef Server"
-      parent = "chef_infra/setup/chef_infra_server"
-      url = "https://manage.chef.io/signup"
-      weight = 10
-
-      [[infra]]
-      title = "Install Standalone"
-      identifier = "chef_infra/setup/chef_infra_server/install_server.md#standalone Install Standalone"
-      parent = "chef_infra/setup/chef_infra_server"
-      url = "/install_server/#standalone"
-      weight = 30
 
     [[infra]]
     title = "FIPS-mode"
