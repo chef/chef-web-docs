@@ -4,7 +4,7 @@
 # github.com/inspec/inspec/docs-chef-io v0.0.0-20210420184249-6e55c9ed90c2
 # github.com/chef/automate/components/docs-chef-io v0.0.0-20210406034413-4e7c58a221b5
 # github.com/habitat-sh/habitat/components/docs-chef-io v0.0.0-20210402191111-4b56ffe5d933
-# github.com/chef/chef-server/docs-chef-io v0.0.0-20210316181455-086b59abe39e
+# github.com/chef/chef-server/docs-chef-io v0.0.0-20210422122944-3a004418c08d
 # github.com/chef/cookstyle/docs-chef-io v0.0.0-20210324200148-f941dae22320
 # github.com/cowboy/jquery-hashchange v0.0.0-20100902193700-0310f3847f90
 # github.com/swiftype/swiftype-autocomplete-jquery v0.0.0-20190222215504-a90008d64b30

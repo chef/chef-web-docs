@@ -6,8 +6,8 @@ github.com/census-instrumentation/opencensus-proto v0.2.1 h1:glEXhBS5PSLLv4IXzLA
 github.com/census-instrumentation/opencensus-proto v0.2.1/go.mod h1:f6KPmirojxKA12rnyqOA5BBL4O983OfeGPqjHWSTneU=
 github.com/chef/automate/components/docs-chef-io v0.0.0-20210406034413-4e7c58a221b5 h1:EmJLrS14DXcv+WxWS4uDGuj8mOD6Z3kditgASZEIf+I=
 github.com/chef/automate/components/docs-chef-io v0.0.0-20210406034413-4e7c58a221b5/go.mod h1:juvLC7Rt33YOCgJ5nnfl4rWZRAbSwqjTbWmcAoA0LtU=
-github.com/chef/chef-server/docs-chef-io v0.0.0-20210316181455-086b59abe39e h1:8wWzzjr0dKqxGejnu44Mf0/8zPjQSAf9nud+bfKKm20=
-github.com/chef/chef-server/docs-chef-io v0.0.0-20210316181455-086b59abe39e/go.mod h1:gMSa25GUHmLimA0gjvRd3hs1buOBqkKPrdHzHvaJauY=
+github.com/chef/chef-server/docs-chef-io v0.0.0-20210422122944-3a004418c08d h1:JFWnsdq7VNR/xIyJWihVT2TNZHSx53fkE7/V49gHft0=
+github.com/chef/chef-server/docs-chef-io v0.0.0-20210422122944-3a004418c08d/go.mod h1:gMSa25GUHmLimA0gjvRd3hs1buOBqkKPrdHzHvaJauY=
 github.com/chef/chef-workstation v0.0.0-20210224180306-c98d1ffba769 h1:RfGR6IIGMNTz86Qe8JADov3BmmL4PSS0qg12rfhFRNM=
 github.com/chef/chef-workstation v0.0.0-20210224180306-c98d1ffba769/go.mod h1:KZ1lmUGHzTKhRuHdDhB/I2ZEbet++4OTuABWlYb9MlQ=
 github.com/chef/chef-workstation/docs-chef-io v0.0.0-20210224180306-c98d1ffba769 h1:x5X+nDsR3CuT7YRDe6ug9VKiG38ZZO24kM0b5PrkXbw=
