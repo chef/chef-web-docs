@@ -35,6 +35,11 @@ hugo mod tidy
 
 hugo mod vendor
 
+# Clean the go.sum file
+
+rm go.sum
+hugo mod clean
+
 ###
 # Manage Habitat generated pages
 ###
