@@ -3,7 +3,7 @@
 # github.com/chef/effortless/docs-chef-io v0.0.0-20210212122821-321ee6f6699a
 # github.com/inspec/inspec/docs-chef-io v0.0.0-20210420184249-6e55c9ed90c2
 # github.com/chef/automate/components/docs-chef-io v0.0.0-20210406034413-4e7c58a221b5
-# github.com/habitat-sh/habitat/components/docs-chef-io v0.0.0-20210402191111-4b56ffe5d933
+# github.com/habitat-sh/habitat/components/docs-chef-io v0.0.0-20210423191645-f458a70af004
 # github.com/chef/chef-server/docs-chef-io v0.0.0-20210422122944-3a004418c08d
 # github.com/chef/cookstyle/docs-chef-io v0.0.0-20210324200148-f941dae22320
 # github.com/cowboy/jquery-hashchange v0.0.0-20100902193700-0310f3847f90
