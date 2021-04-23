@@ -39,8 +39,7 @@ properties_list:
       name of the resource block will be used instead.
 - property: certificate
   ruby_type: String
-  required:
-  - add
+  required: true
   description_list:
   - markdown: The text of the certificate file including the BEGIN/END comment lines.
 examples: |

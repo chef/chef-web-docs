@@ -21,12 +21,12 @@ syntax_full_properties_list:
   the desired state."
 - "`feature_name` is the property available to this resource."
 actions_list:
-  :disable:
-    markdown: Disable a Chocolatey Feature.
-  :enable:
-    markdown: Enable a Chocolatey Feature.
   :nothing:
     shortcode: resources_common_actions_nothing.md
+  :enable:
+    markdown: Enables a named Chocolatey feature (default)
+  :disable:
+    markdown: Disables a named Chocolatey feature
 properties_list:
 - property: feature_name
   ruby_type: String

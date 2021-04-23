@@ -27,16 +27,16 @@ syntax_full_properties_list:
 - "`admin_only`, `allow_self_service`, `bypass_proxy`, `priority`, `source`, and `source_name`
   are the properties available to this resource."
 actions_list:
-  :add:
-    markdown: Default. Adds a Chocolatey source.
-  :disable:
-    markdown: "Disables a Chocolatey source.\n **New in Chef Infra Client 15.1.**"
-  :enable:
-    markdown: "Enables a Chocolatey source.\n **New in Chef Infra Client 15.1.**"
-  :remove:
-    markdown: Removes a Chocolatey source.
   :nothing:
     shortcode: resources_common_actions_nothing.md
+  :add:
+    markdown: Adds a Chocolatey source (default)
+  :remove:
+    markdown: Removes a Chocolatey source
+  :disable:
+    markdown: Disables a Chocolatey source. **New in Chef Infra Client 15.1.**
+  :enable:
+    markdown: Enables a Chocolatey source. **New in Chef Infra Client 15.1.**
 properties_list:
 - property: admin_only
   ruby_type: true, false

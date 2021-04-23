@@ -14,10 +14,10 @@ syntax_full_code_block: |-
     chef_binary_path         String # default value: "/opt/chef/bin/chef-client"
     config_directory         String # default value: "/etc/chef"
     cpu_quota                Integer, String
-    daemon_options           Array
+    daemon_options           Array # default value: []
     delay_after_boot         String # default value: "1min"
     description              String # default value: "Chef Infra Client periodic execution"
-    environment              Hash
+    environment              Hash # default value: {}
     interval                 String # default value: "30min"
     job_name                 String # default value: "chef-client"
     run_on_battery           true, false # default value: true
@@ -71,7 +71,7 @@ properties_list:
 - property: daemon_options
   ruby_type: Array
   required: false
-  default_value: []
+  default_value: "[]"
   description_list:
   - markdown: An array of options to pass to the chef-client command.
 - property: delay_after_boot
@@ -92,7 +92,7 @@ properties_list:
 - property: environment
   ruby_type: Hash
   required: false
-  default_value: {}
+  default_value: "{}"
   description_list:
   - markdown: A Hash containing additional arbitrary environment variables under which
       the systemd timer will be run in the form of `({'ENV_VARIABLE' => 'VALUE'})`.
