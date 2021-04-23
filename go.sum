@@ -8,12 +8,8 @@ github.com/chef/automate/components/docs-chef-io v0.0.0-20210406034413-4e7c58a22
 github.com/chef/automate/components/docs-chef-io v0.0.0-20210406034413-4e7c58a221b5/go.mod h1:juvLC7Rt33YOCgJ5nnfl4rWZRAbSwqjTbWmcAoA0LtU=
 github.com/chef/chef-server/docs-chef-io v0.0.0-20210422122944-3a004418c08d h1:JFWnsdq7VNR/xIyJWihVT2TNZHSx53fkE7/V49gHft0=
 github.com/chef/chef-server/docs-chef-io v0.0.0-20210422122944-3a004418c08d/go.mod h1:gMSa25GUHmLimA0gjvRd3hs1buOBqkKPrdHzHvaJauY=
-github.com/chef/chef-workstation v0.0.0-20210224180306-c98d1ffba769 h1:RfGR6IIGMNTz86Qe8JADov3BmmL4PSS0qg12rfhFRNM=
-github.com/chef/chef-workstation v0.0.0-20210224180306-c98d1ffba769/go.mod h1:KZ1lmUGHzTKhRuHdDhB/I2ZEbet++4OTuABWlYb9MlQ=
 github.com/chef/chef-workstation/docs-chef-io v0.0.0-20210224180306-c98d1ffba769 h1:x5X+nDsR3CuT7YRDe6ug9VKiG38ZZO24kM0b5PrkXbw=
 github.com/chef/chef-workstation/docs-chef-io v0.0.0-20210224180306-c98d1ffba769/go.mod h1:gvoh6ov1YU98CVzBEWzEZeCLTRunfQ6r1VO7M3LFE9U=
-github.com/chef/cookstyle v7.10.1+incompatible h1:Uu/zOxaKDZt15QYYVQ+nlJzrSDfFEJ8sMe0b5+HDWYQ=
-github.com/chef/cookstyle v7.10.1+incompatible/go.mod h1:KUadmsdBr7Hpo5dtGVQMiwb8KlC91W3j1lfc0yuVwtw=
 github.com/chef/cookstyle/docs-chef-io v0.0.0-20210417214710-6a8e747f2a2c h1:9dD1G37Km0rrfouhManYY5vUy2prg4a9gUGqVUqadEg=
 github.com/chef/cookstyle/docs-chef-io v0.0.0-20210417214710-6a8e747f2a2c/go.mod h1:1JOEECsW9ozt1/RmprJjAQEvCrOHobpWepSQJRQOhnY=
 github.com/chef/desktop-config/docs-chef-io v0.0.0-20210219180412-c50c4ad0869d h1:TiB1oXBebvMVIyLQy5eAgMVi9rQWMQdX3aptZNIKBJ8=
@@ -47,10 +43,8 @@ github.com/google/go-cmp v0.3.1/go.mod h1:8QqcDgzrUqlUb/G2PQTWiueGozuR1884gddMyw
 github.com/google/go-cmp v0.4.0/go.mod h1:v8dTdLbMG2kIc/vJvl+f65V22dbkXbowE6jgT/gNBxE=
 github.com/google/go-cmp v0.5.0 h1:/QaMHBdZ26BB3SSst0Iwl10Epc+xhTquomWX0oZEB6w=
 github.com/google/go-cmp v0.5.0/go.mod h1:v8dTdLbMG2kIc/vJvl+f65V22dbkXbowE6jgT/gNBxE=
-github.com/habitat-sh/habitat/components/docs-chef-io v0.0.0-20210402191111-4b56ffe5d933 h1:HlMq6jJFS2RDvmBXBAC/P6l0+IJvPq4rEjxUHLax2OY=
-github.com/habitat-sh/habitat/components/docs-chef-io v0.0.0-20210402191111-4b56ffe5d933/go.mod h1:luAy42opPrAM/T6hsqDyW3CNBaAMgy+a6l0+oi8sw8U=
-github.com/inspec/inspec v4.33.1+incompatible h1:QKmWrvLubheIqXxiAKjbu+n1MbZTwv+ltzqy246If8k=
-github.com/inspec/inspec v4.33.1+incompatible/go.mod h1:SIjoxlQcQphYvY1Zzjh7iawaymQaMKfgtp35uAOByIM=
+github.com/habitat-sh/habitat/components/docs-chef-io v0.0.0-20210423191645-f458a70af004 h1:kzqrkfU1s0S0OPY3Ks0mO8UnWYNccmME0V9idoH9TT0=
+github.com/habitat-sh/habitat/components/docs-chef-io v0.0.0-20210423191645-f458a70af004/go.mod h1:luAy42opPrAM/T6hsqDyW3CNBaAMgy+a6l0+oi8sw8U=
 github.com/inspec/inspec/docs-chef-io v0.0.0-20210420184249-6e55c9ed90c2 h1:/5rge728z8g4VmMna4DXwJGpGKKPaD+MKl2p4sVP7C8=
 github.com/inspec/inspec/docs-chef-io v0.0.0-20210420184249-6e55c9ed90c2/go.mod h1:oudFvipU0DTMkp8+MiwdUGerVEoWcJG0MQciDEOd6G8=
 github.com/prometheus/client_model v0.0.0-20190812154241-14fe0d1b01d4 h1:gQz4mCbXsO+nc9n1hCxHcGA3Zx3Eo+UHZoInFGUIXNM=
