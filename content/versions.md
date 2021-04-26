@@ -59,7 +59,7 @@ Unless otherwise stated, versions older than those listed below are EOL.
 
 Use of these and later versions of these distributions must be in
 accordance with the [Chef End User License
-Agreement](https://www.chef.io/end-user-license-agreement/) or a
+Agreement](https://www.chef.io/end-user-license-agreement) or a
 commercial agreement with Chef. Additional information is available in
 [this
 announcement](https://blog.chef.io/2019/04/02/chef-software-announces-the-enterprise-automation-stack/).
