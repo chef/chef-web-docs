@@ -7,6 +7,9 @@ assignees: ''
 
 ---
 
+To request support for a large documentation project, open an issue using this template and then send the following information to docs@pchef.io
+
+
 ## Documentation project plan
 
 This project plan defines the scope and details for a larger doc project. Complete as much information as you can, as this will help us get better oriented and familiar with the doc needs.
