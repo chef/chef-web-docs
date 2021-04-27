@@ -5,6 +5,11 @@
     <!-- needed for adaptive design -->
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    {{ with .Params.product -}}
+      {{- range $tag := . -}}
+        <meta class="swiftype" name="chef-product" data-type="string" content="{{ $tag }}" />
+      {{- end -}}
+    {{- end }}
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700|Roboto:300,400,700" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{{ $.Page.Params.style_sheet }}">
   </head>
