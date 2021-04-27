@@ -137,10 +137,12 @@ properties_list:
   ruby_type: String
   required: false
   description_list:
-  - markdown: 'The group that should own the client.rb file and the configuration
-      directory if it needs to be created. Note: The configuration directory will
-      not be created if it already exists, which allows you to further control the
-      setup of that directory outside of this resource.'
+  - markdown: The group that should own the client.rb file and the configuration directory
+      if it needs to be created.
+  - note:
+    - markdown: The configuration directory will not be created if it already exists,
+        which allows you to further control the setup of that directory outside of
+        this resource.
 - property: http_proxy
   ruby_type: String
   required: false
@@ -189,14 +191,15 @@ properties_list:
   required: false
   default_value: The `node.name` value reported by Chef Infra Client.
   description_list:
-  - markdown: 'The name of the node. This configuration sets the `node.name` value
+  - markdown: The name of the node. This configuration sets the `node.name` value
       used in cookbooks and the `client_name` value used when authenticating to a
-      Chef Infra Server to determine what configuration to apply. Note: By default
-      this configuration uses the `node.name` value which would be set during bootstrap.
-      Hard coding this value in the `client.rb` config avoids logic within Chef Infra
-      Server that performs DNS lookups and may fail in the event of a DNS outage.
-      To skip this default value and instead use the built-in Chef Infra Server logic,
-      set this property to `nil`'
+      Chef Infra Server to determine what configuration to apply.
+  - note:
+    - markdown: By default this configuration uses the `node.name` value which would
+        be set during bootstrap. Hard coding this value in the `client.rb` config
+        avoids logic within Chef Infra Server that performs DNS lookups and may fail
+        in the event of a DNS outage. To skip this default value and instead use the
+        built-in Chef Infra Server logic, set this property to `nil`
 - property: ohai_disabled_plugins
   ruby_type: Array
   required: false
@@ -215,8 +218,8 @@ properties_list:
   ruby_type: String
   required: false
   description_list:
-  - markdown: 'The location in which a process identification number (pid) is saved.
-      An executable, when started as a daemon, writes the pid to the specified file. '
+  - markdown: The location in which a process identification number (pid) is saved.
+      An executable, when started as a daemon, writes the pid to the specified file.
 - property: policy_group
   ruby_type: String
   required: false
@@ -244,7 +247,7 @@ properties_list:
   required: false
   allowed_values: ":verify_none, :verify_peer"
   description_list:
-  - markdown: |
+  - markdown: |-
       Set the verify mode for HTTPS requests.
 
       * Use :verify_none for no validation of SSL certificates.
@@ -263,10 +266,12 @@ properties_list:
   ruby_type: String
   required: false
   description_list:
-  - markdown: 'The user that should own the client.rb file and the configuration directory
-      if it needs to be created. Note: The configuration directory will not be created
-      if it already exists, which allows you to further control the setup of that
-      directory outside of this resource.'
+  - markdown: The user that should own the client.rb file and the configuration directory
+      if it needs to be created.
+  - note:
+    - markdown: The configuration directory will not be created if it already exists,
+        which allows you to further control the setup of that directory outside of
+        this resource.
 examples: |
   **Bare minimum Chef Infra Client client.rb**:
 

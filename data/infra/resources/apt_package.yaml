@@ -26,7 +26,7 @@ syntax_full_code_block: |-
                       overwrite_config_files       true, false # default value: false
                       package_name                 String, Array
                       response_file                String
-                      response_file_variables      Hash
+                      response_file_variables      Hash # default value: {}
                       timeout                      String, Integer
                       version                      String, Array
                       action                       Symbol # defaults to :install if not specified
@@ -95,6 +95,7 @@ properties_list:
 - property: response_file_variables
   ruby_type: Hash
   required: false
+  default_value: "{}"
   description_list:
   - markdown: A Hash of response file variables in the form of {'VARIABLE' => 'VALUE'}.
 - property: timeout

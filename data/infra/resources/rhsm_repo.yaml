@@ -21,12 +21,12 @@ syntax_full_properties_list:
   the desired state."
 - "`repo_name` is the property available to this resource."
 actions_list:
-  :disable:
-    markdown: Disable an RHSM repository.
-  :enable:
-    markdown: Default. Enable an RHSM repository.
   :nothing:
     shortcode: resources_common_actions_nothing.md
+  :enable:
+    markdown: Enable a RHSM repository. (default)
+  :disable:
+    markdown: Disable a RHSM repository.
 properties_list:
 - property: repo_name
   ruby_type: String

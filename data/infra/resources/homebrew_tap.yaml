@@ -26,12 +26,12 @@ syntax_full_properties_list:
 - "`full`, `homebrew_path`, `owner`, `tap_name`, and `url` are the properties available
   to this resource."
 actions_list:
-  :tap:
-    markdown: Default. Add a Homebrew tap.
-  :untap:
-    markdown: Remove a Homebrew tap.
   :nothing:
     shortcode: resources_common_actions_nothing.md
+  :tap:
+    markdown: Add a Homebrew tap (default)
+  :untap:
+    markdown: Remove a Homebrew tap
 properties_list:
 - property: full
   ruby_type: true, false

@@ -10,7 +10,7 @@ resource_description_list:
 
     This resource was previously called the **env** resource; its name was updated in Chef Infra Client 14.0 to reflect the fact that only Windows is supported. Existing cookbooks using `env` will continue to function, but should be updated to use the new name.
 - note:
-    markdown: On UNIX-based systems, the best way to manipulate environment keys is
+  - markdown: On UNIX-based systems, the best way to manipulate environment keys is
       with the `ENV` variable in Ruby; however, this approach does not have the same
       permanent effect as using the windows_env resource.
 syntax_full_code_block: |-
