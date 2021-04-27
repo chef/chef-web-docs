@@ -30,15 +30,15 @@ syntax_full_properties_list:
 - "`action` identifies which steps Chef Infra Client will take to bring the node into
   the desired state."
 - "`activation_key`, `auto_attach`, `environment`, `force`, `https_for_ca_consumer`,
-  `install_katello_agent`, `organization`, `password`, `satellite_host`, and `username`
-  are the properties available to this resource."
+  `install_katello_agent`, `organization`, `password`, `satellite_host`, `system_name`,
+  and `username` are the properties available to this resource."
 actions_list:
-  :register:
-    markdown: Default. Register the node with RHSM.
-  :unregister:
-    markdown: Unregister the node from RHSM.
   :nothing:
     shortcode: resources_common_actions_nothing.md
+  :register:
+    markdown: Register the node with RHSM. (default)
+  :unregister:
+    markdown: Unregister the node from RHSM.
 properties_list:
 - property: activation_key
   ruby_type: String, Array
@@ -114,7 +114,12 @@ properties_list:
   - markdown: The username to use when registering. This property is not applicable
       if using an activation key. If specified, password and environment properties
       are also required.
-examples: "
-  Register a node with RHSM\n\n  ```ruby\n  rhsm_register 'myhost'\
-  \ do\n    activation_key 'ABCD1234'\n    organization 'my_org'\n  end\n  ```\n"
+examples: |
+  **Register a node with RHSM*
 
+  ```ruby
+  rhsm_register 'myhost' do
+    activation_key 'ABCD1234'
+    organization 'my_org'
+  end
+  ```

@@ -14,7 +14,7 @@ syntax_full_code_block: |-
     accept_chef_license      true, false # default value: false
     chef_binary_path         String # default value: "C:/opscode/chef/bin/chef-client"
     config_directory         String # default value: "/etc/chef"
-    daemon_options           Array
+    daemon_options           Array # default value: []
     frequency                String # default value: "minute"
     frequency_modifier       Integer, String # default value: "30 if frequency is 'minute', 1 otherwise"
     log_directory            String # default value: "CONFIG_DIRECTORY/log"
@@ -67,7 +67,7 @@ properties_list:
 - property: daemon_options
   ruby_type: Array
   required: false
-  default_value: lazy default
+  default_value: "[]"
   description_list:
   - markdown: An array of options to pass to the chef-client command.
 - property: frequency

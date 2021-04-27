@@ -39,10 +39,10 @@ syntax_full_properties_list:
   `dmg_passphrase`, `file`, `headers`, `owner`, `package_id`, `source`, `type`, and
   `volumes_dir` are the properties available to this resource."
 actions_list:
-  :install:
-    markdown: Default. Installs the application.
   :nothing:
     shortcode: resources_common_actions_nothing.md
+  :install:
+    markdown: Installs the application (default)
 properties_list:
 - property: accept_eula
   ruby_type: true, false

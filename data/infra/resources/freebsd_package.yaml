@@ -50,9 +50,7 @@ properties_list:
   ruby_type: String
   required: false
   description_list:
-  - markdown: 'One (or more) additional command options that are passed to the
-
-      command.'
+  - markdown: One (or more) additional command options that are passed to the command.
 - property: package_name
   ruby_type: String
   required: false

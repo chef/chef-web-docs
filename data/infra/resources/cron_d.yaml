@@ -31,7 +31,7 @@ syntax_full_code_block: |-
     comment               String
     cron_name             String # default value: 'name' unless specified
     day                   Integer, String # default value: "*"
-    environment           Hash
+    environment           Hash # default value: {}
     home                  String
     hour                  Integer, String # default value: "*"
     mailto                String
@@ -42,7 +42,7 @@ syntax_full_code_block: |-
     predefined_value      String
     random_delay          Integer
     shell                 String
-    time_out              Hash
+    time_out              Hash # default value: {}
     user                  String # default value: "root"
     weekday               Integer, String, Symbol # default value: "*"
     action                Symbol # defaults to :create if not specified
@@ -94,6 +94,7 @@ properties_list:
 - property: environment
   ruby_type: Hash
   required: false
+  default_value: "{}"
   description_list:
   - markdown: 'A Hash containing additional arbitrary environment variables under
       which the cron job will be run in the form of `({''ENV_VARIABLE'' => ''VALUE''})`.
@@ -159,6 +160,7 @@ properties_list:
 - property: time_out
   ruby_type: Hash
   required: false
+  default_value: "{}"
   new_in: '15.7'
   description_list:
   - markdown: |-
