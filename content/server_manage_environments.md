@@ -24,6 +24,12 @@ environments.
 
 {{< /note >}}
 
+{{< note >}}
+
+Chef Manage in all versions can only display 20 Environment items from the Chef Server search index.
+
+{{< /note >}}
+
 {{% environment %}}
 
 ## Manage
