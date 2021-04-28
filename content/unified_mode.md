@@ -81,136 +81,121 @@ rescue Mixlib::ShellOut::ShellCommandFailed => e
 end
 ```
 
-## Converting Resources to Unified Mode
+## Examples of Unified Mode Advantages
 
-### Identification of Declared Sub-Resources
+### Simple Example
 
-In order to safely convert Custom Resources to `unified_mode` is necessary to be able to read the Custom Resource and
-determine if the Resource is doing its work entirely at compile time, or entirely at converge time, or via some more
-complicated mix of compile and converge time.  The large majority of resources can be converted trivially to
-`unified_mode` by simply setting `unified_mode true` and then confirming that tests of the resource pass.  Users are
-encouraged, however, to scan and assess how their Custom Resources were written, and to make some modifications to
-the Custom Resource to clean up no longer useful idioms.
+A simple motivating example is to have a resource which downloads a JSON message using the `remote_file` resource, parses the
+JSON and then renders a value into a `file` or `template` resource.
 
-Declared Sub-Resources are define as resources which are declared in the Custom Resource's `resource_collection` and are
-run in the converge phase.  Resources declared normally via the Chef language (e.g. `file`, `template`, etc) are
-declared sub-resources.  Resources which are declared using `declare_resource` (e.g. `declare_resource(:file,...)`) are
-also declared sub-resources.
+Without `unified_mode` correctly writing this simple resource is complicated:
 
-Examples of declared sub-resource:
+```ruby
+provides :downloader
 
-``` ruby
-action :run do
-  # This is the typical of a properly declared sub-resource
-  file "/tmp/file1.xyz" do
-    contents "mycontents"
+action :doit do
+
+  remote_file "/tmp/users.json" do
+    source "https://jsonplaceholder.typicode.com/users"
   end
 
-  # This is an alternative way to properly declare a sub-resource
-  declare_resource(:file, "/tmp/file2.xyz") do
-    contents "mycontents"
-  end
-end
-```
+  array = nil
 
-Resources forced to the compile phase (e.g. using `run_action(:create)`), resources built using `build_resource` (e.g.
-`build_resource(:file, ...)` or resources built using the normal Ruby constructor (e.g. `Chef::Resource::File.new(..)`)
-are not declared sub-resources since they are not doing work in the converge phase.
-
-Examples of the use of Chef resources which are not declared sub-resources:
-
-``` ruby
-action :run do
-  # This is a compile time resource
-  file "/tmp/file3.xyz" do
-    contents "mycontents"
-    action :nothing
-  end.run_action(:create)
-
-  # This is a "built" and not a "declared" resource
-  build_resource(:file, "/tmp/file4.xyz") do
-    contents "mycontents"
-  end.run_action(:create)
-
-  # This is a "built" and not a "declared" resource
-  file_resource = Chef::Resource::File.new("/tmp/file5.xyz")
-  file.resource.run_action(:create)
-
-  # This is using the declared resource API but does not count
-  # as a proper declared sub-resource due to forcing execution to compile time
-  declare_resource(:file, "/tmp/file6.xyz") do
-    contents "mycontents"
-    action :nothing
-  end.run_action(:create)
-end
-```
-
-Any work done by ruby code inside a `converge_by` block is also clearly not a declared sub-resource, although they may
-be declared inside of a `converge_by` block.  This is almost certainly code written by someone who misunderstood the
-two-pass model and possibly a bug (although the resource may still work correctly if there is no other interaction).
-This complexity is the kind of issue that `unified_mode` is expected to eliminate, since the sub-resource is only
-declared when the `converge_by` block.
-
-``` ruby
-action_class do
-  def should_create_file?
-    ...
-  end
-end
-
-action :run do
-  if should_create_file?
-    converge_by "creating a file" do
-      # this counts as a subresource, and its action is deferred until later
-      file "/tmp/file3.xyz" do
-        contents "mycontents"
-      end
+  ruby_block "convert" do
+    block do
+      array = FFI_Yajl::Parser.parse(IO.read("/tmp/users.json"))
     end
   end
 
-  Chef::Log.warn "the file will be created after this line is output"
+  file "/tmp/phone" do
+    content lazy { array.last["phone"] }
+  end
 end
 ```
 
-This pattern is usually a bug and the author intends the file resource to run when the `converge_by` block is being
-parsed, which is not how Chef has behaved.  Unified mode will actually correct this execution order bug, so that the
-`file` resource in this example does its work during the execution of the `converge_by` block.
+Since the `remote_file` and `file` resources execute at converge time, the ruby code to parse the JSON needs to be wrapped in a
+`ruby_block` resource, the local variable then needs to be declared outside of that scope (requiring a fairly deep knowledge of
+ruby variable scoping rules) and then the content rendered into the `file` resource must be wrapped with `lazy` since the ruby
+parses all arguments of properties at compile time instead of converge time.
 
-Note, in general this mixing of resources inside of `converge_by` blocks is "code smell" and usually the `converge_by` block
-is being used in an attempt to only provide logging, and the author was unaware of the way that the `converge_by` is intended
-to be used to protect blocks against `why_run` mode and to dirty the updated status of the containing resource and to cause
-any notification to fire, which is often not what the author intended.  Consider removing the `converge_by` block entirely
-when this pattern is encountered.
+Using `unified_mode` this resource is greatly simplified:
 
-### Resources Without Sub-Resources
+```ruby
+unified_mode true
 
-Resources without any sub-resources do not strictly require any modification.  This is because they already do no work at
-converge time, and the `resource_collection` of the Custom Resource is not being used.  These are resources written
-"Chef-10 Style".
+provides :downloader
 
-It is highly encouraged, however, that any resources which are being invoked at compile time through any of the methods
-above (e.g. `Chef::Resource::File.new`) be converted to use the Chef language and become proper sub-resources.  This will
-allow the Custom Resource to do notifications correctly.  The only exception being where the built resource is deliberately
-not being placed in the resource collection to avoid causing the Custom Resource to fire notifications.
+action :doit do
+  remote_file "/tmp/users.json" do
+    source "https://jsonplaceholder.typicode.com/users"
+  end
 
-### Resource With Sub-Resources
+  array = FFI_Yajl::Parser.parse(IO.read("/tmp/users.json"))
 
-Custom Resources that use Sub-Resources that are written with good style and do not mix proper Sub-Resources with out of order
-ruby code and compile-time resources (most of them), do not require any modification.  This may, however, be difficult to determine
-and proper testing will be essential.  Since all of the execution of the Sub-Resources move from the end of execution during the
-compile time phase, into where they are actually declared resources may not behave exactly the same.
+  file "/tmp/phone" do
+    content array.last["phone"]
+  end
+end
+```
 
-Once the resource has been converted to Unified Mode, additional cleanup can make the code considerably easier to read:
+The need for the `ruby_block`, the `lazy` and the variable declaration are all removed, and all that is left is how a beginning
+programmer would attempt to write this resource without the need for deep Chef or Ruby knowledge.
 
-- Eliminate all `ruby_block` (or `whyrun_safe_ruby_block`) resources and just execute the code inside the block
-- Eliminate all use of `lazy {}`
-- In Chef Infra Client 16 calls to Chef::Log may be converted to log resources
+### Recovery and Exception Handling
 
-### Notifications and Accumulators
+Another advantage is in error recovery and the use of rescue:
 
-The Accumulator pattern works unchanged.  Notifications to the `:root` run context still behave identically.  Since the compile and
-converge phases of Custom Resources both fire in the converge time (typically) of the enclosing `run_context` the effect of eliminating
-the separate compile and converge phases of the Custom Resource has no visible effect from the outer context.
+```
+unified_mode true
+
+provides :redis_install
+
+action :install do
+  version = "5.0.5"
+
+  # the downloading of this file acts as a guard for all the later
+  # resources -- but if the download is successful while the later
+  # resources fail for some transient issue, will will not redownload on
+  # the next run -- we lose our edge trigger.
+  #
+  remote_file "/tmp/redis-#{version}.tar.gz" do
+    source "http://download.redis.io/releases/redis-#{version}.tar.gz"
+    notifies :run, "execute[unzip_redis_archive]", :immediately
+  end
+
+  begin
+    execute "unzip_redis_archive" do
+      command "tar xzf redis-#{version}.tar.gz"
+      cwd "/tmp"
+      action :nothing
+      notifies :run, "execute[build_and_install_redis]", :immediately
+    end
+
+    execute "build_and_install_redis" do
+      command 'make && make install'
+      cwd "/tmp/redis-#{version}"
+      action :nothing
+    end
+  rescue Exception
+    file "/tmp/redis-#{version}.tar.gz" do
+      action :delete
+    end
+    raise
+  end
+end
+```
+
+This simplified example shows how to trap exceptions from resources using normal ruby syntax and to clean up the resource.  Without
+`unified_mode` this syntax is not possible. Normally the `execute` resources when they are parsed only creates the objects in the
+`resource_collection` to later be evaluated so that no exception is thrown while ruby is parsing the `action` block at all.  Every
+action is delayed to the later converge phase.   In `unified_mode` the resource runs when ruby is done parsing its block, so exceptions
+happen in-line with ruby parsing, so the `rescue` now works as naively expected.
+
+The usefulness of this is that if the tar extraction throws an exception (for example, it could be out of disk space), then that Exception causes
+the tar file to be deleted and then redownloaded the next time `chef-client` is run.  Without the cleanup the tar file would exist, but
+the resource would not have completed, the extraction would not happen and the resource would be left in a broken, indeterminate state.
+
+## Converting Resources to Unified Mode
 
 ## Unified Mode and Notifications
 
@@ -356,8 +341,25 @@ service "ntpd" do
 end
 ```
 
+It is not possible to notify a resource before it has been parsed in `unified_mode` so total backwards compatibility
+could not be preserved.  This is still a useful feature since simple forward immediate notifications to a sequence
+of resources will still work, and does not require rewriting the sequence of resources backward.  
+
 ### Before Notifications to Previous Resource Works
 
+A before notification to a prior declared resource (or a before subscribes to a later declared resource) works identically
+with `unified_mode` set.   Since the resource is parsed first, it can be notified before the signaling
+resource runs, and everything works as expected.
 
 ### Before Notifications to Subsequent Resource is Broken
+
+A before notification to a later declared resource is a hard API break in `unified_mode` and cannot be made to work short of
+rearranging the resources to declare the notified resource first.  A before subscribes to an earlier declared resource is also
+broken (mentioned here for completeness since it is not likely to have ever been used).
+
+### Notifications and Accumulators
+
+The Accumulator pattern works unchanged.  Notifications to the `:root` run context still behave identically.  Since the compile and
+converge phases of Custom Resources both fire in the converge time (typically) of the enclosing `run_context` the effect of eliminating
+the separate compile and converge phases of the Custom Resource has no visible effect from the outer context.
 
