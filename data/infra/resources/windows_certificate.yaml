@@ -13,8 +13,8 @@ resource_description_list:
 resource_new_in: '14.7'
 syntax_full_code_block: |-
   windows_certificate 'name' do
-    cert_path            String
     exportable           true, false # default value: false
+    output_path          String
     pfx_password         String
     private_key_acl      Array
     source               String # default value: 'name' unless specified
@@ -28,27 +28,22 @@ syntax_full_properties_list:
 - "`name` is the name given to the resource block."
 - "`action` identifies which steps Chef Infra Client will take to bring the node into
   the desired state."
-- "`cert_path`, `exportable`, `pfx_password`, `private_key_acl`, `source`, `store_name`,
+- "`exportable`, `output_path`, `pfx_password`, `private_key_acl`, `source`, `store_name`,
   and `user_store` are the properties available to this resource."
 actions_list:
   :nothing:
     shortcode: resources_common_actions_nothing.md
   :create:
-    markdown: Creates or updates a certificate (default)
+    markdown: Creates or updates a certificate. (default)
   :acl_add:
-    markdown: Adds read-only entries to a certificate's private key ACL
+    markdown: Adds read-only entries to a certificate's private key ACL.
   :delete:
-    markdown: Deletes a certificate
+    markdown: Deletes a certificate.
   :fetch:
-    markdown: Fetches a certificate
+    markdown: Fetches a certificate.
   :verify:
     markdown: Verifies a certificate and logs the result
 properties_list:
-- property: cert_path
-  ruby_type: String
-  required: false
-  description_list:
-  - markdown: The path to the certificate.
 - property: exportable
   ruby_type: true, false
   required: false
@@ -57,11 +52,18 @@ properties_list:
   description_list:
   - markdown: Ensure that imported pfx certificate is exportable. Please provide 'true'
       if you want the certificate to be exportable.
+- property: output_path
+  ruby_type: String
+  required: false
+  new_in: '17.0'
+  description_list:
+  - markdown: A path on the node where a certificate object (PFX, PEM, CER, KEY, etc)
+      can be exported to.
 - property: pfx_password
   ruby_type: String
   required: false
   description_list:
-  - markdown: The password to access the source if it is a pfx file.
+  - markdown: The password to access the object with if it is a PFX file.
 - property: private_key_acl
   ruby_type: Array
   required: false
@@ -73,8 +75,9 @@ properties_list:
   required: false
   default_value: The resource block's name
   description_list:
-  - markdown: The source file (for create and acl_add), thumbprint (for delete and
-      acl_add) or subject (for delete) if it differs from the resource block's name.
+  - markdown: The source file (for `create` and `acl_add`), thumbprint (for `delete`,
+      `export`, and `acl_add`), or subject (for `delete` or `export`) if it differs
+      from the resource block's name.
 - property: store_name
   ruby_type: String
   required: false

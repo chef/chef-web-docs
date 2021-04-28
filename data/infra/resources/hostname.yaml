@@ -13,6 +13,7 @@ syntax_full_code_block: |-
   hostname 'name' do
     aliases             Array
     compile_time        true, false # default value: true
+    fqdn                String
     hostname            String # default value: 'name' unless specified
     ipaddress           String # default value: The node's IP address as determined by Ohai.
     windows_reboot      true, false # default value: true
@@ -24,13 +25,13 @@ syntax_full_properties_list:
 - "`name` is the name given to the resource block."
 - "`action` identifies which steps Chef Infra Client will take to bring the node into
   the desired state."
-- "`aliases`, `compile_time`, `hostname`, `ipaddress`, and `windows_reboot` are the
-  properties available to this resource."
+- "`aliases`, `compile_time`, `fqdn`, `hostname`, `ipaddress`, and `windows_reboot`
+  are the properties available to this resource."
 actions_list:
   :nothing:
     shortcode: resources_common_actions_nothing.md
   :set:
-    markdown: Default action. Set the node's hostname.
+    markdown: Sets the node's hostname (default)
 properties_list:
 - property: aliases
   ruby_type: Array
@@ -43,6 +44,13 @@ properties_list:
   default_value: 'true'
   description_list:
   - markdown: Determines whether or not the resource should be run at compile time.
+- property: fqdn
+  ruby_type: String
+  required: false
+  new_in: '17.0'
+  description_list:
+  - markdown: An optional property to set the fqdn if it differs from the resource
+      block's hostname.
 - property: hostname
   ruby_type: String
   required: false

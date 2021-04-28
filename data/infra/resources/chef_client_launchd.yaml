@@ -13,8 +13,8 @@ syntax_full_code_block: |-
     accept_chef_license      true, false # default value: false
     chef_binary_path         String # default value: "/opt/chef/bin/chef-client"
     config_directory         String # default value: "/etc/chef"
-    daemon_options           Array
-    environment              Hash
+    daemon_options           Array # default value: []
+    environment              Hash # default value: {}
     interval                 Integer, String # default value: 30
     log_directory            String # default value: "/Library/Logs/Chef"
     log_file_name            String # default value: "client.log"
