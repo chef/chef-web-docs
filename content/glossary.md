@@ -7,175 +7,136 @@ product = ["automate", "client", "server", "habitat", "inspec", "workstation"]
 
 [menu]
   [menu.infra]
-    title = "Glossary"
-    identifier = "chef_infra/getting_started/glossary.md Glossary"
-    parent = "chef_infra/getting_started"
-    weight = 70
+ title = "Glossary"
+ identifier = "chef_infra/getting_started/glossary.md Glossary"
+ parent = "chef_infra/getting_started"
+ weight = 70
 +++
 
-**Automate**
+Agent
 
-:   A full suite of enterprise capabilities for maintaining continuous
-    visibility into application, infrastructure, and security
-    automation.
+: Agents are programs that you configure to perform actions continuously and autonomously.
 
-**Berkshelf**
+Automate
+
+: A full suite of enterprise capabilities for maintaining continuous visibility into application, infrastructure, and security automation.
+
+Berkshelf
 
 :   The legacy tool for managing cookbook dependencies. Policyfiles should be used instead.
 
-**ChefDK**
+chef
 
-:   The legacy package of tools for developing Chef Infra cookbooks.
-    This product has been superseded by Chef Workstation which should be
-    used instead.
+: `chef` is the Chef Workstation command line tool for managing your Chef development environment including repositories, cookbooks, recipes, attributes, templates, custom resources, and Ruby dependencies.
 
-**Chef Infra Client**
+chef-client
 
-:   A command-line tool that that runs Chef. Also, the name of Chef as
-    it is installed on a node.
+: The `chef-client` is an agent that runs on nodes and a command line tool that runs on your local computer. The `chef-client` allows you to ensure the configuration of your systems through policy code. You install the chef-client on to nodes with the bootstrap process from your computer and configure it to run on an interval to ensure configuration compliance. You use the chef-client command line tool from your workstation to send instructions to the agent.
 
-**Chef Workstation**
+chef-apply
 
-:   A collection of tools to aide in development of Chef Infra
-    cookbooks. It uses the full stack installer to give you everything
-    you need to get going in one package. You can download it at [Chef
-    Workstation](https://downloads.chef.io/chef-workstation/).
+: A command-line tool that allows a single recipe to be run from the command line.
 
-**chef-repo**
+ChefDK
 
-:   The repository structure in which cookbooks are authored, tested,
-    and maintained. View [an example of
-    the](https://github.com/chef/chef-repo) chef-repo.
+: The legacy package of tools for developing Chef Infra cookbooks. This product has been superseded by Chef Workstation which should be used instead.
 
-**Chef Infra Server**
+Chef Infra Client
 
-:   The Chef Infra Server acts as a hub for configuration data. The Chef
-    Infra Server stores cookbooks, the policies that are applied to
-    nodes, and metadata that describes each registered node that is
-    being managed by Chef Infra Client. Nodes use Chef Infra Client to
-    ask the Chef Infra Server for configuration details, such as
-    recipes, templates, and file distributions.
+: A command-line tool that that runs Chef. Also, the name of Chef as it is installed on a node.
 
-**ChefSpec**
+Chef Workstation
 
-:   ChefSpec is a unit-testing framework for testing Chef Infra
-    cookbooks.
+: A collection of tools to aide in development of Chef Infra cookbooks. It uses the full stack installer to give you everything you need to get going in one package. You can download it at [Chef Workstation](https://downloads.chef.io/chef-workstation/).
 
-**chef-zero**
+chef-repo
 
-:   A very lightweight Chef Infra Server that runs in-memory on the
-    local machine during a Chef Infra Client run. Also known as local
-    mode.
+: The repository structure in which cookbooks are authored, tested, and maintained. View [an example of the](https://github.com/chef/chef-repo) chef-repo.
 
-**cookbook**
+Chef Infra Server
 
-:   A cookbook is the fundamental unit of configuration and policy
-    distribution.
+: The Chef Infra Server acts as a hub for configuration data. The Chef Infra Server stores cookbooks, the policies that are applied to nodes, and metadata that describes each registered node that is being managed by Chef Infra Client. Nodes use Chef Infra Client to ask the Chef Infra Server for configuration details, such as recipes, templates, and file distributions.
 
-**Cookstyle**
+ChefSpec
 
-:   A linting tool that helps you write better Chef Infra cookbooks by
-    detecting and automatically correcting style, syntax, and logic
-    mistakes in your code.
+: ChefSpec is a unit-testing framework for testing Chef Infra cookbooks.
 
-**custom resource**
+chef-zero
 
-:   An extension to Chef Infra Client that allows you to ship your own
-    reusable resources within a cookbook.
+: A very lightweight Chef Infra Server that runs in-memory on the local machine during a Chef Infra Client run. Also known as local mode.
 
-**data bag**
+cookbook
 
-:   A data_bag is a global variable that is stored as JSON data and is
-    accessible from a Chef Infra Server.
+: A cookbook is the fundamental unit of configuration and policy distribution.
 
-**environment**
+Cookstyle
 
-:   An environment is a way to map an organization's real-life workflow
-    to what can be configured and managed when using Chef Infra Server.
+: A linting tool that helps you write better Chef Infra cookbooks by detecting and automatically correcting style, syntax, and logic mistakes in your code.
 
-**Foodcritic**
+custom resource
 
-:   A legacy linting tool for doing static code analysis on cookbooks.
-    This tool has been replaced with Cookstyle which should be used
-    instead.
+: An extension to Chef Infra Client that allows you to ship your own reusable resources within a cookbook.
 
-**knife**
+data bag
 
-:   A command-line tool that provides an interface between a local
-    chef-repo and the Chef Infra Server. Use it to manage nodes,
-    cookbooks, recipes, roles, data bags, environments, bootstrapping
-    nodes, searching the Chef Infra Server, and more.
+: A data_bag is a global variable that is stored as JSON data and is accessible from a Chef Infra Server.
 
-**library**
+definition
 
-:   A library allows arbitrary Ruby code to be included in a cookbook,
-    either as a way of extending the classes that are built-in to Chef
-    Infra Client or by implementing entirely new functionality.
+: A definition is code that is reused across recipes, similar to a compile-time macro, and is defined in a cookbook. Definitions are not recommended for new users and Custom Resources should be written for reusable code instead.
 
-**node**
+environment
 
-:   A node is any physical, virtual, or cloud device that is configured
-    and maintained by an instance of Chef Infra Client.
+: An environment is a way to map an organization's real-life workflow to what can be configured and managed when using Chef Infra Server.
 
-**node object**
+Foodcritic
 
-:   A node object is a history of the attributes, run-lists, and roles
-    that were used to configure a node that is under management by Chef
-    Infra.
+: A legacy linting tool for doing static code analysis on cookbooks. This tool has been replaced with Cookstyle which should be used instead.
 
-**ohai**
+knife
 
-:   Ohai is a tool that is used to detect attributes on a node, and then
-    provide these attributes to Chef Infra Client at the start of every
-    run.
+: A command-line tool that provides an interface between a local chef-repo and the Chef Infra Server. Use it to manage nodes, cookbooks, recipes, roles, data bags, environments, bootstrapping nodes, searching the Chef Infra Server, and more.
 
-**organization**
+library
 
-:   An organization is a single instance of a Chef Infra Server,
-    including all of the nodes that are managed by that Chef Infra
-    Server and each of the workstations that will run knife and access
-    the Chef Infra Server using the Chef Infra Server API.
+: A library allows arbitrary Ruby code to be included in a cookbook, either as a way of extending the classes that are built-in to Chef Infra Client or by implementing entirely new functionality.
 
-**pipeline**
+node
 
-:   A pipeline is series of automated and manual quality gates that take
-    software changes from development to delivery. Pipelines in Workflow
-    have six stages: Verify, Build, Acceptance, Union, Rehearsal, and
-    Delivered.
+: A node is any physical, virtual, or cloud device that is configured and maintained by an instance of Chef Infra Client.
 
-**policy**
+node object
 
-:   Policy settings can be used to map business and operational
-    requirements, such as process and workflow, to settings and objects
-    stored on the Chef Infra Server. See roles, environments, and data
-    bags.
+: A node object is a history of the attributes, run-lists, and roles that were used to configure a node that is under management by Chef Infra.
 
-**recipe**
+ohai
 
-:   A recipe is a collection of resources that tells Chef Infra Client
-    how to configure a node.
+: Ohai is a tool that is used to detect attributes on a node, and then provide these attributes to Chef Infra Client at the start of every run.
 
-**resource**
+organization
 
-:   A resource is a statement of configuration policy that describes the
-    desired state of an piece within your infrastructure, along with the
-    steps needed to bring that item to the desired state.
+: An organization is a single instance of a Chef Infra Server, including all of the nodes that are managed by that Chef Infra Server and each of the workstations that will run knife and access the Chef Infra Server using the Chef Infra Server API.
 
-**role**
+policy
 
-:   A role is a way to define certain patterns and processes that exist
-    across nodes in an organization as belonging to a single job
-    function.
+: Policy settings can be used to map business and operational requirements, such as process and workflow, to settings and objects stored on the Chef Infra Server. See roles, environments, and data bags.
 
-**run-list**
+recipe
 
-:   A run-list defines all of the configuration settings that are
-    necessary for a node that is under management by Chef to be put into
-    the desired state and the order in which these configuration
-    settings are applied.
+: A recipe is a collection of resources that tells Chef Infra Client how to configure a node.
 
-**Test Kitchen**
+resource
 
-:   Test Kitchen is an integration framework that is used to
-    automatically test cookbook data across any combination of platforms
-    and test suites. Test Kitchen is packaged in Chef Workstation.
+: A resource is a statement of configuration policy that describes the desired state of an piece within your infrastructure, along with the steps needed to bring that item to the desired state.
+
+role
+
+A role is a way to define certain patterns and processes that exist across nodes in an organization as belonging to a single job function.
+
+run-list
+
+: A run-list defines all of the configuration settings that are necessary for a node that is under management by Chef to be put into the desired state and the order in which these configuration settings are applied.
+
+Test Kitchen
+
+: Test Kitchen is an integration framework that is used to automatically test cookbook data across any combination of platforms and test suites. Test Kitchen is packaged in Chef Workstation.
