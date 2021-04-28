@@ -18,7 +18,7 @@ in Chef Infra 17.0 have Unified Mode enabled.
 Unified Mode is a setting which is local to the resource it is declared inside, and it does not affect
 calling recipes or resources, and does not affect any sub-resources which are used.
 
-The default behavior of Chef Infra 17 is that resources do not run in Unified Mode, which is the same behavior as
+The default behavior of Chef Infra Client 17 is that resources do not run in Unified Mode, which is the same behavior as
 explicitly setting the Unified Mode flag to false.  Resources will continue to run the say way, but a
 message will be emitted warning that those resources should be converted.
 
