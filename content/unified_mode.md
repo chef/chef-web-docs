@@ -69,7 +69,7 @@ Several aspects of the Chef Language still work, but are no longer useful in Uni
 
 ### Rescue Blocks And Other Ruby Constructs Work Correctly
 
-In `unifed_mode` it is now easy to write a rescue wrapper around a Chef resource:
+In `unifed_mode` it is now easy to write a rescue wrapper around a Chef Infra resource:
 
 ```ruby
 begin
