@@ -1935,7 +1935,7 @@ CVEs:
 
 #### InSpec 3.6.6
 
-ChefDK now ships with Inspec 3.6.6. See
+ChefDK now ships with InSpec 3.6.6. See
 <https://github.com/inspec/inspec/releases/tag/v3.6.6> for more
 information on what's new.
 
@@ -2418,7 +2418,7 @@ cookbook(s) given on the command line.
         brings compliance automation to the cloud, with new resource
         types specifically built for AWS and Azure clouds. Along with
         these changes are major speed improvements and quality of life
-        updates. Please visit [Inspec](/inspec/) for more
+        updates. Please visit [InSpec](/inspec/) for more
         information.
 
     -   **ChefSpec**

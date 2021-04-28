@@ -568,7 +568,7 @@ identifier = "chef_infra"
 ####
 
 ####
-# Chef Inspec Menu
+# Chef InSpec Menu
 ####
 
 [[inspec]]
@@ -618,7 +618,7 @@ identifier = "inspec"
     weight = 60
 
 ####
-# End Chef Inspec Menu
+# End Chef InSpec Menu
 ####
 
 ####
