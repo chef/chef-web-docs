@@ -309,8 +309,7 @@ There are two primary ways to pass Chef Infra node data to Chef InSpec run durin
 #### Explicitly pass necessary data (recommended)
 
 Any data added to the `node['audit']['attributes']` hash will be passed as individual Chef InSpec attributes.
-This provides a clean interface between the Chef Infra client run and Chef InSpec profile, allowing for easy assignment
-of default values in the InSpec profile. This method is especially recommended if the Chef InSpec profile is expected to be used outside of the context of Compliance Phase so it's made explicit to profile consumers what attributes are necessary. Set the attributes in your cookbook attributes file and then use them in you InSpec profile.
+This provides a clean interface between the Chef Infra client run and Chef InSpec profile, allowing for easy assignment of default values in the InSpec profile. This method is especially recommended if the Chef InSpec profile is expected to be used outside of the context of Compliance Phase so it's made explicit to profile consumers what attributes are necessary. Set the attributes in your cookbook attributes file or use them in your InSpec profile.
 
 Set the attributes in a cookbook attributes file:
 
