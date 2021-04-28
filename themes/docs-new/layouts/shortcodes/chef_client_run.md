@@ -37,11 +37,11 @@ During every Chef Infra Client run, the following happens:
 </tr>
 <tr>
 <td><strong>Synchronize cookbooks</strong></td>
-<td>Chef Infra Client requests all off the <a href="/cookbooks/">cookbook files</a> (including recipes, templates, resources, providers, attributes, and libraries) that it needs for every action identified in the run-list from the Chef Infra Server. The Chef Infra Server responds to Chef Infra Client with the complete list of files. Chef Infra Client compares the list of files to the files that already exist on the node from previous runs, and then downloads a copy of every new or modified file from the Chef Infra Server.</td>
+<td>Chef Infra Client requests all the <a href="/cookbooks/">cookbook files</a> (including recipes, templates, resources, providers, attributes, and libraries) that it needs for every action identified in the run-list from the Chef Infra Server. The Chef Infra Server responds to Chef Infra Client with the complete list of files. Chef Infra Client compares the list of files to the files that already exist on the node from previous runs, and then downloads a copy of every new or modified file from the Chef Infra Server.</td>
 </tr>
 <tr>
 <td><strong>Reset node attributes</strong></td>
-<td>All attributes in the rebuilt node object are reset. All attributes from attribute files, Policyfiles, and Ohai are loaded. Attributes that are defined in attribute files are first loaded according to cookbook order. For each cookbook, attributes in the <code>default.rb</code> file are loaded first, and then additional attribute files (if present) are loaded in lexical sort order. If attribute files are found within any cookbooks that are listed as dependencies in the <code>metadata.rb</code> file, these are loaded as well. All attributes in the rebuilt node object are updated with the attribute data according to attribute precedence. When all of the attributes are updated, the rebuilt node object is complete.</td>
+<td>All attributes in the rebuilt node object are reset. All attributes from attribute files, Policyfiles, and Ohai are loaded. Attributes that are defined in attribute files are first loaded according to cookbook order. For each cookbook, attributes in the <code>default.rb</code> file are loaded first, and then additional attribute files (if present) are loaded in lexical sort order. If attribute files are found within any cookbooks that are listed as dependencies in the <code>metadata.rb</code> file, these are loaded as well. All attributes in the rebuilt node object are updated with the attribute data according to attribute precedence. When all the attributes are updated, the rebuilt node object is complete.</td>
 </tr>
 <tr>
 <td><strong>Compile the resource collection</strong></td>
@@ -53,16 +53,16 @@ During every Chef Infra Client run, the following happens:
 </tr>
 <tr>
 <td><p><strong>Update the node object, process exception and report handlers</strong></p></td>
-<td><p>When all of the actions identified by resources in the resource collection have been done and Chef Infra Client finishes successfully, then Chef Infra Client updates the node object on the Chef Infra Server with the node object built during a Chef Infra Client run. (This node object will be pulled down by Chef Infra Client during the next Chef Infra Client run.) This makes the node object (and the data in the node object) available for search.</p>
+<td><p>When all the actions identified by resources in the resource collection have been done and Chef Infra Client finishes successfully, then Chef Infra Client updates the node object on the Chef Infra Server with the node object built during a Chef Infra Client run. (This node object will be pulled down by Chef Infra Client during the next Chef Infra Client run.) This makes the node object (and the data in the node object) available for search.</p>
 <p>Chef Infra Client always checks the resource collection for the presence of exception and report handlers. If any are present, each one is processed appropriately.</p></td>
 </tr>
 <tr>
 <td><strong>Get, run Chef InSpec Compliance Profiles</strong></td>
-<td>After the Chef Infra Client run finishes, it begins the Compliance Phase, which is a Chef InSpec run  within the Chef Infra Client. Chef InSpec retrieves tests from either a legacy audit cookbook or a current InSpec profile.</td>
+<td>After the Chef Infra Client run finishes, it begins the Compliance Phase, which is a Chef InSpec run within the Chef Infra Client. Chef InSpec retrieves tests from either a legacy audit cookbook or a current InSpec profile.</td>
 </tr>
 <tr>
 <td><strong>Send or Save Compliance Report </strong></td>
-<td>When all of the InSpec tests finish running, Chef InSpec checks the reporting handlers defined in the legacy audit cookbook or in a current InSpec profile and processes them appropriately.</td>
+<td>When all the InSpec tests finish running, Chef InSpec checks the reporting handlers defined in the legacy audit cookbook or in a current InSpec profile and processes them appropriately.</td>
 </tr>
 <tr>
 <td><strong>Stop, wait for the next run</strong></td>
