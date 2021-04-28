@@ -586,7 +586,7 @@ In the event of a malformed or unset token, the Chef Automate server will log th
 
 #### 413 Request Entity Too Large
 
-This error indicates that you have exceeded limit the `erchef` request size in Chef Infra Server. The default for versions before 13.0  was 1MB. Starting with version 13.0 the default is 2MB.
+This error indicates that you have exceeded the `erchef` request size limit in Chef Infra Server. The default for versions before 13.0  was 1MB. Starting with version 13.0 the default is 2MB.
 
 To resolve this error, set the `opscode_erchef['max_request_size']` in Chef Infra Server's `/etc/opscode/chef-server.rb` to a larger amount. This example sets the limit to 3MB:
 
