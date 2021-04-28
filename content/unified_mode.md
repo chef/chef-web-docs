@@ -18,7 +18,7 @@ product = ["client"]
 ## Unified Mode
 
 Unified mode is a setting which eliminates the distinction between the compile and converge modes
-in the way that Chef recipe and resources are parsed.  The setting replaces Chef's two pass
+in the way that Chef Infra recipe and resources are parsed.  The setting replaces Chef Infra's two pass
 parsing with single pass parsing, so that resources are executed as soon as they are declared.
 
 This results in considerably clearer code, with considerably less Ruby knowledge required to understand
@@ -362,4 +362,3 @@ broken (mentioned here for completeness since it is not likely to have ever been
 The Accumulator pattern works unchanged.  Notifications to the `:root` run context still behave identically.  Since the compile and
 converge phases of Custom Resources both fire in the converge time (typically) of the enclosing `run_context` the effect of eliminating
 the separate compile and converge phases of the Custom Resource has no visible effect from the outer context.
-
