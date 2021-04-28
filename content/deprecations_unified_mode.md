@@ -43,8 +43,8 @@ For the vast majority of resources, no further action should be required aside f
 
 Since Unified Mode is one pass, immediate notifications to resources which have not yet been parsed cannot be
 executed.  Those notifications are now saved and executed when the resource is parsed.  This could cause subtle
-changes in behaviors in some resources, but we are not aware of any actual resources which are broken by this
-behavior.  The common idiom of chaining immediate notifications forward will result in the same behavior:
+changes in behaviors in some resources.  The common idiom of chaining immediate notifications forward will
+result in the same behavior:
 
 ```ruby
 remote_file "#{Chef::Config[:file_cache_path]}/myservice.tgz" do
