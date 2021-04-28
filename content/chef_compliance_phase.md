@@ -46,7 +46,7 @@ Add the following line to the `attributes/default.rb` file in your cookbook to t
 node['audit']['compliance_phase'] = true
 ```
 
-## Set Profiles
+### Set Profiles
 
 Setting one or more Chef InSpec profiles enables the compliance phase in a Chef Infra Client run. The presence of this configuration in your attributes file instructs Chef Infra Client to fetch and execute the specific Chef InSpec profiles and write the results to disk using the default `json-file` reporter.
 
@@ -123,7 +123,7 @@ The following examples:
 
 <!-- markdownlint-enable blanks-around-fences -->
 
-## Fetch Profiles
+### Fetch Profiles
 
 Set the fetcher attribute with `default['audit']['fetcher']` to retrieve InSpec compliance profiles from either Chef Automate or Chef Infra Server in addition to the location defined by `default ['audit']['profile']`. Left unset, the Compliance Phase defaults to the [fetchers included in Chef InSpec](https://docs.chef.io/inspec/profiles/#profile-dependencies). Chef Infra and Chef InSpec fetchers are mutually exclusive so, you can only use one of these configurations.
 
@@ -175,7 +175,7 @@ The following examples:
 
 <!-- markdownlint-enable blanks-around-fences -->
 
-## Reporters
+### Reporters
 
 Reporters control what is done with the resulting report after the Chef InSpec run. Either a single value or a list of multiple values is supported. The default is the `json-file` reporter.
 
@@ -302,15 +302,13 @@ Any data added to `['audit']['attributes']` as a hash is passed to Chef InSpec a
   }
   ```
 
-### Chef Node Data
+#### Chef Node Data
 
 There are two primary ways to pass Chef Infra node data to Chef InSpec run during the compliance phase.
 
-#### Explicitly pass necessary data (recommended)
+##### Explicitly pass necessary data (recommended)
 
-Any data added to the `node['audit']['attributes']` hash will be passed as individual Chef InSpec attributes.
-This provides a clean interface between the Chef Infra client run and Chef InSpec profile, allowing for easy assignment
-of default values in the InSpec profile. This method is especially recommended if the Chef InSpec profile is expected to be used outside of the context of Compliance Phase so it's made explicit to profile consumers what attributes are necessary. Set the attributes in your cookbook attributes file and then use them in you InSpec profile.
+Any data added to the `node['audit']['attributes']` hash will be passed as individual Chef InSpec attributes. This provides a clean interface between the Chef Infra client run and Chef InSpec profile, allowing for easy assignment of default values in the InSpec profile. This method is especially recommended if the Chef InSpec profile is expected to be used outside of the context of Compliance Phase so it's made explicit to profile consumers what attributes are necessary. Set the attributes in your cookbook attributes file and then use them in you InSpec profile.
 
 Set the attributes in a cookbook attributes file:
 
@@ -342,12 +340,10 @@ end
 
 #### Use the Chef Infra Node Object
 
-In the event that it is not practical to opt-in to pass attributes and data, Compliance Phase can be configured to
-pass the Chef Infra node object as a Chef InSpec attribute named `chef_node`.
+In the event that it is not practical to opt-in to pass attributes and data, Compliance Phase can be configured to pass the Chef Infra node object as a Chef InSpec attribute named `chef_node`.
 
-While this provides the ability to write more flexible profiles, it makes it more difficult to reuse profiles
-outside of Compliance Phase, requiring the Chef InSpec profile user to know how to pass in a single attribute containing
-Chef Infra-like data. Therefore, it is recommended to use Option 1 whenever possible.
+While this provides the ability to write more flexible profiles, it makes it more difficult to reuse profiles outside of Compliance Phase, requiring the Chef InSpec profile user to know how to pass in a single attribute containing
+Chef Infra-like data. Therefore, it is recommended explicitly passing external data  whenever possible.
 
 To use this option, first enable it in a wrapper cookbook or similar:
 
