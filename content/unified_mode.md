@@ -58,7 +58,7 @@ resources not using `unified_mode` and vice versa.
 In Unified Mode the Chef Infra Language executes from top to bottom, eliminating the compile and converge phases.
 
 With the deferred execution of resources to converge time, the user has to understand many different details
-of the Ruby parser to understand what constructs relate to Chef Resources and what constructs are parts of
+of the Ruby parser to understand what constructs relate to Chef Infra Resources and what constructs are parts of
 the core Ruby language to determine when those expression are executed.  All of that complexity is removed
 in Unified Mode.
 
