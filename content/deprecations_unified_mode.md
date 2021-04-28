@@ -11,11 +11,11 @@ aliases = "/deprecations_unified_mode.html"
 
 Starting in Chef Infra Client 17.0 resources should be converted to use Unified Mode, which eliminates the split between the compile and converge modes in the specific resource where it is declared.
 
-Unified Mode has been available starting with Chef Infra Client 14.14.14, Chef Infra Client 15.3.14, and Chef Infra Client 16.0.
+Unified Mode his available for use in custom resources starting with Chef Infra Client 14.14 and Chef Infra Client 15.3.
 
-Unified Mode is a setting that is local to the resource it is declared inside, and it does not affect calling recipes or resources, and does not affect any sub-resources which are used.
+Unified Mode is set in each custom resource and the change is isolated to those resource so there is no impact to other resources or recipes.
 
-The default behavior of Chef Infra Client 17 is that resources do not run in Unified Mode, which is the same behavior as explicitly setting the Unified Mode flag to false. Resources will continue to run the say way, but a message will be emitted warning that those resources should be converted.
+The default behavior of Chef Infra Client 17 is that resources do not run in Unified Mode, which is the same behavior as explicitly setting the Unified Mode flag to false. Without setting `unified_mode` in a resource, the resources will continue to operate as they did in the past, but a deprecation message will warn that those resources should be converted.
 
 ## Enabling Unified Mode
 
