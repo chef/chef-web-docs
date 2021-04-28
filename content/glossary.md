@@ -85,10 +85,6 @@ definition
 
 : A definition is code that is reused across recipes, similar to a compile-time macro, and is defined in a cookbook. Definitions are not recommended for new users and Custom Resources should be written for reusable code instead.
 
-Delivered
-
-: A Workflow stage. Delivered is the final stage of the pipeline, what it means for your system is up to you. It could mean deploying the change so that it is live and receiving production traffic, or it might mean publishing a set of artifacts so they are accessible for your customers.
-
 environment
 
 : An environment is a way to map an organization's real-life workflow to what can be configured and managed when using Chef Infra Server.
@@ -104,11 +100,6 @@ knife
 library
 
 : A library allows arbitrary Ruby code to be included in a cookbook, either as a way of extending the classes that are built-in to Chef Infra Client or by implementing entirely new functionality.
-
-Management Console
-
-: The Chef web-based management console you can use to manage Role Based Access Control (RBAC), edit and delete nodes, and reset private keys. Keep up to date with what's happening during Chef Infra Client runs across an entire organization or on specific
- nodes.
 
 node
 
@@ -134,17 +125,13 @@ recipe
 
 : A recipe is a collection of resources that tells Chef Infra Client how to configure a node.
 
-Rehearsal
-
-: If all phases of Union succeed, then the Rehearsal stage is triggered. Rehearsal increases confidence in the artifacts and the deployment by repeating the process that occurred in Union in a different environment.
-
-Reporting
-
-: Capture and visualize what happens during the execution of Chef Infra Client runs across all of your Chef-managed infrastructure.
-
 resource
 
 : A resource is a statement of configuration policy that describes the desired state of an piece within your infrastructure, along with the steps needed to bring that item to the desired state.
+
+role
+
+A role is a way to define certain patterns and processes that exist across nodes in an organization as belonging to a single job function.
 
 run-list
 
