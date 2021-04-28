@@ -18,7 +18,7 @@ Unified Mode is a setting which is local to the resource it is declared inside, 
 calling recipes or resources, and does not affect any sub-resources which are used.
 
 The default behavior of Chef Infra Client 17 is that resources do not run in Unified Mode, which is the same behavior as
-explicitly setting the Unified Mode flag to false.  Resources will continue to run the say way, but a
+explicitly setting the Unified Mode flag to false. Resources will continue to run the say way, but a
 message will be emitted warning that those resources should be converted.
 
 ## Enabling Unified Mode
@@ -41,8 +41,8 @@ For the vast majority of resources, no further action should be required aside f
 ## Unified Mode Delays Immediate Notifications to Later Resources
 
 Since Unified Mode is one pass, immediate notifications to resources which have not yet been parsed cannot be
-executed.  Those notifications are now saved and executed when the resource is parsed.  This could cause subtle
-changes in behaviors in some resources.  The common idiom of chaining immediate notifications forward will
+executed. Those notifications are now saved and executed when the resource is parsed. This could cause subtle
+changes in behaviors in some resources. The common idiom of chaining immediate notifications forward will
 result in the same behavior:
 
 ```ruby
@@ -73,11 +73,11 @@ The behavior of immediate notifications to prior resources and the behavior of d
 ## Unified Mode Can Break Resources Intended to Have Out Of Order Execution
 
 Unified Mode does fundamentally alter the execution of the resource so that it is one pass from the top
-to the bottom.  If a resource was written previously to require out of execution so that compile time
+to the bottom. If a resource was written previously to require out of execution so that compile time
 statements later in the resource must be run before resources declared earlier than Unified Mode would
 break those resources.
 
-In all the resources converted internally in Core Chef Infra this was not observed in any one of them.  The more
+In all the resources converted internally in Core Chef Infra this was not observed in any one of them. The more
 common finding was that the author of the resource intended code to be executed in order but was unaware that
 it was executing out of order and enabling Unified Mode fixed those errors rather than introducing bugs.
 
