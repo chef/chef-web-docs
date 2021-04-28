@@ -9,16 +9,16 @@ robots = "noindex"
 aliases = "/deprecations_unified_mode.html"
 +++
 
-Starting in Chef 17.0 resources should be converted to use Unified Mode, which eliminates the split between
+Starting in Chef Infra 17.0 resources should be converted to use Unified Mode, which eliminates the split between
 the compile and converge modes in the specific resource where it is declared.
 
-Unified Mode has been available since Chef 14.14.14, Chef 15.3.14 and Chef 16.0 and all core chef resources
-in Chef 17.0 have Unified Mode enabled.
+Unified Mode has been available since Chef Infra 14.14.14, Chef Infra 15.3.14 and Chef Infra 16.0 and all core chef resources
+in Chef Infra 17.0 have Unified Mode enabled.
 
 Unified Mode is a setting which is local to the resource it is declared inside, and it does not affect
 calling recipes or resources, and does not affect any sub-resources which are used.
 
-The default behavior of Chef 17 is that resources do not run in Unified Mode, which is the same behavior as
+The default behavior of Chef Infra 17 is that resources do not run in Unified Mode, which is the same behavior as
 explicitly setting the Unified Mode flag to false.  Resources will continue to run the say way, but a
 message will be emitted warning that those resources should be converted.
 
@@ -78,7 +78,7 @@ to the bottom.  If a resource was written previously to require out of execution
 statements later in the resource must be run before resources declared earlier than Unified Mode would
 break those resources.
 
-In all the resources converted internally in Core Chef this was not observed in any one of them.  The more
+In all the resources converted internally in Core Chef Infra this was not observed in any one of them.  The more
 common finding was that the author of the resource intended code to be executed in order but was unaware that
 it was executing out of order and enabling Unified Mode fixed those errors rather than introducing bugs.
 
