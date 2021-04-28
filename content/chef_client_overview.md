@@ -38,55 +38,6 @@ For the `chef-client` command line tool, see
 
 <!-- markdownlint-enable MD033 -->
 
-## Important Terms
-<!-- `chef` entry is temporary. Using to clarify terms -->
-
-agent
-: Agents are programs that you configure to perform actions continuously and autonomously.
-
-chef
-: `chef` is the Chef Workstation command line tool for managing your Chef development environment including repositories, cookbooks, recipes, attributes, templates, custom resources, and Ruby dependencies.
-
-chef-client
-: The `chef-client` is an agent that runs on nodes and a command line tool that runs on your local computer. The `chef-client` allows you to ensure the configuration of your systems through policy code. You install the chef-client on to nodes with the bootstrap process from your computer and configure it to run on an interval to ensure configuration compliance. You use the chef-client command line tool from your workstation to send instructions to the agent.
-
-knife
-: A command-line tool that provides an interface between a local chef-repo and the Chef Infra Server. Use it to manage nodes, cookbooks, recipes, roles, data bags, environments, bootstrapping nodes, searching the Chef Infra Server, and more.
-
-Ohai
-: Ohai is a tool that is used to detect attributes on a node, and then provide these attributes to Chef Infra Client at the start of every run.
-
-## Basic Chef Topology
-
-You are here: Workstation - Node - Server
-
-Consider a triangle with chef-client in the middle. Specify that it is automated.
-The chef-client run on an interval to ensure that running nodes are configured correctly. It has four stages:
-
-Give an easy-to-understand explanation and give more depth in the next section.
-
-### Compile
-
-The compile phase is the firstpart of a Chef Infra Client run.
-During the compile phase, the chef-client agent gathers and organizes your infrastructure settings that you described in your cookbooks
-
-### Converge
-
-The converge phase is the second part of a Chef Infra Client run.During the converge phase applies your configuration to the devices, or "nodes", in your infrastructure.
-
-### Compliance
-
-The compliance phase is the third part of a Chef Infra Client run.  During the compliance phase scans your infrastructure settings to check that they meet the security standards that you defined as Chef InSpec profiles in your cookbooks.
-
-During the compliance phase, the chef-client agent:
-
-* downloads profiles from Chef Automate, Chef Supermarket, GitHub, or your local system
-* scans the settings for each node object
-* reports the results to Chef Automate or saves them locally.
-
-The compliance phase is the next evolution of the [audit cookbook](https://github.com/chef-cookbooks/audit). You should be able to remove the audit cookbook from your node runlists and get the same results as you did previously.
-Complete
-
 ## The Chef Infra Client Run
 
 {{% chef_client_run %}}
