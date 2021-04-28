@@ -340,10 +340,9 @@ end
 
 #### Use the Chef Infra Node Object
 
-In the event that it is not practical to opt-in to pass attributes and data, Compliance Phase can be configured to pass the Chef Infra node object as a Chef InSpec attribute named `chef_node`.
+Compliance Phase can be configured to pass the Chef Infra node object as a Chef InSpec attribute named `chef_node`.
 
-While this provides the ability to write more flexible profiles, it makes it more difficult to reuse profiles outside of Compliance Phase, requiring the Chef InSpec profile user to know how to pass in a single attribute containing
-Chef Infra-like data. Therefore, it is recommended to explicitly pass external data whenever possible.
+While using the `chef_node` object provides the ability to write more flexible profiles, it is very difficult to reuse these profiles outside of the Compliance Phase. To reuse these profiles, you will need to understand how to pass in a single attribute containing Chef Infra-like data. We recommend passing external data explicitly whenever possible.
 
 To use this option, first enable it in a wrapper cookbook or similar:
 
