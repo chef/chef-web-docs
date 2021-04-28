@@ -55,7 +55,7 @@ resources not using `unified_mode` and vice versa.
 
 ### Single Pass Execution
 
-In Unified Mode the Chef Language executes from top to bottom, eliminating the compile and converge phases.
+In Unified Mode the Chef Infra Language executes from top to bottom, eliminating the compile and converge phases.
 
 With the deferred execution of resources to converge time, the user has to understand many different details
 of the Ruby parser to understand what constructs relate to Chef Resources and what constructs are parts of
