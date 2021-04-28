@@ -199,7 +199,7 @@ the resource would not have completed, the extraction would not happen and the r
 
 ## Unified Mode and Notifications
 
-Most Chef notification idioms continue to work exactly or nearly identically to how they worked without `unified_mode`, but there are
+Most Chef Infra notification idioms continue to work exactly or nearly identically to how they worked without `unified_mode`, but there are
 a few notable exceptions which are due to the fact that `unified_mode` is now one-pass.  This means that the resources are evaluated
 only once and the target resource of a notification may or may not have been parsed already.  The implementation of `unified_mode`
 does a lot of work to make it so that nearly all uses cases will still work unmodified, but there are some issues that users should
