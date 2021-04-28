@@ -308,7 +308,7 @@ There are two primary ways to pass Chef Infra node data to Chef InSpec run durin
 
 ##### Explicitly pass necessary data (recommended)
 
-Any data added to the `node['audit']['attributes']` hash will be passed as individual Chef InSpec attributes. This provides a clean interface between the Chef Infra client run and Chef InSpec profile, allowing for easy assignment of default values in the InSpec profile. This method is especially recommended if the Chef InSpec profile is expected to be used outside of the context of Compliance Phase so it's made explicit to profile consumers what attributes are necessary. Set the attributes in your cookbook attributes file and then use them in you InSpec profile.
+Any data added to the `node['audit']['attributes']` hash will be passed as individual Chef InSpec attributes. This provides a clean interface between the Chef Infra client run and Chef InSpec profile, allowing for easy assignment of default values in the InSpec profile. This method is especially recommended if the Chef InSpec profile is expected to be used outside of the context of Compliance Phase so it's made explicit to profile consumers what attributes are necessary. Set the attributes in your cookbook attributes file and then use them in your InSpec profile.
 
 Set the attributes in a cookbook attributes file:
 
@@ -343,7 +343,7 @@ end
 In the event that it is not practical to opt-in to pass attributes and data, Compliance Phase can be configured to pass the Chef Infra node object as a Chef InSpec attribute named `chef_node`.
 
 While this provides the ability to write more flexible profiles, it makes it more difficult to reuse profiles outside of Compliance Phase, requiring the Chef InSpec profile user to know how to pass in a single attribute containing
-Chef Infra-like data. Therefore, it is recommended explicitly passing external data  whenever possible.
+Chef Infra-like data. Therefore, it is recommended to explicitly passing external data whenever possible.
 
 To use this option, first enable it in a wrapper cookbook or similar:
 
@@ -445,7 +445,7 @@ default['audit']['inspec_backend_cache'] = false
 
 ### profiles
 
-Chef Inspec Compliance profiles to be used for scan of node.
+Chef InSpec Compliance profiles to be used for scanning nodes.
 
 ```ruby
 # use the ssh-hardening profile from Supermarket
@@ -587,7 +587,7 @@ In the event of a malformed or unset token, the Chef Automate server will log th
 
 #### 413 Request Entity Too Large
 
-This error indicates that you have exceeded limit the `erchef` request size in Chef Infra Server. Prior to version 13.0, the default was 1MB. Starting with version 13.0 the default is 2MB. If Compliance Phase prints this stacktrace and you are using the `chef-server-automate` reporter:
+This error indicates that you have exceeded the `erchef` request size limit in Chef Infra Server. Prior to version 13.0, the default was 1MB. Starting with version 13.0 the default is 2MB. If Compliance Phase prints this stacktrace and you are using the `chef-server-automate` reporter:
 
 ```text
 Running handlers:

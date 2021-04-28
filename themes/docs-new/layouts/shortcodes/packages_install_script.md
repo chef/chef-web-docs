@@ -1,4 +1,4 @@
-The Chef Software install script can be used to install any Chef Software, including things like Chef Infra Client, Chef Infra Server, Chef Inspec. This script does the following:
+The Chef Software install script can be used to install any Chef Software, including things like Chef Infra Client, Chef Infra Server, Chef InSpec. This script does the following:
 
 -   Detects the platform, version, and architecture of the machine on
     which the installer is being executed

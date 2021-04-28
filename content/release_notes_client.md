@@ -3900,7 +3900,7 @@ end
 
 ### InSpec 3.0
 
-Inspec has been updated to version 3.0 with addition resources, exception handling, and a new plugin system. See <https://blog.chef.io/2018/10/16/announcing-inspec-3-0/> for details.
+InSpec has been updated to version 3.0 with addition resources, exception handling, and a new plugin system. See <https://blog.chef.io/2018/10/16/announcing-inspec-3-0/> for details.
 
 ### macOS Mojave (10.14)
 
