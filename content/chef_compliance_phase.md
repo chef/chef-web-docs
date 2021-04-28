@@ -15,12 +15,10 @@ draft = false
 
 Chef Infra Client's Compliance Phase lets you automatically execute compliance audits and view the results as part of any Chef Infra Client Run. The Compliance Phase of the Chef Infra Client run replaces the legacy [audit cookbook](https://supermarket.chef.io/cookbooks/audit) and works with your existing audit cookbook attributes, and you can also set it up for new cookbooks. This additional phase gives you the latest compliance capabilities without having to manage cookbook dependencies or juggle versions during Chef Infra Client updates.
 
-The Compliance Phase features a new compliance reporter: `cli`. This reporter mimics the InSpec command line output giving you a visual indication of your system's compliance status.
-
 Existing audit cookbook users can migrate to the new Compliance Phase by removing the audit cookbook from their run_list and setting the `node['audit']['compliance_phase']` attribute to `true`.
 
-The Compliance Phase replaces the `audit cookbook` by integrating InSpec compliance profiles into the Chef Infra Client [run]{{< relref "chef_client_overview.md" >}}
-The Compliance Phase is designed to run on any node in your system that is set up--or ["bootstrapped"]{{< relref "install_bootstrap.md" >}}--for a `chef-client` run.
+The Compliance Phase replaces the `audit cookbook` by integrating InSpec compliance checks into the [Chef Infra Client run]({{< relref "chef_client_overview.md" >}})
+The Compliance Phase is designed to run on any node in your system that is set up--or ["bootstrapped"]({{< relref "install_bootstrap" >}})--for a `chef-client` run.
 
 ## Upgrade to Compliance Phase from Audit Cookbook
 
@@ -29,7 +27,7 @@ The Compliance Phase requires Chef Infra Client 17 or higher.
 If your system is configured to use the `audit cookbook`, make these changes to switch to the Compliance Phase:
 
 1. Add `node['audit']['compliance_phase'] = true` to your cookbook attributes file.
-1. Remove the `audit cookbook` from your ['run-list']{{< relref "run_lists.md" >}}.
+1. Remove the `audit cookbook` from your ['run-list']({{< relref "run_lists.md" >}}).
 1. [optional] Add `cli` to the reporter in your cookbook attributes file, which enables a chef-client cli feature that mimics InSpec command line output, so you can see your system's compliance status. For example:
 
       ```ruby
@@ -471,11 +469,11 @@ default['audit']['quiet'] = false
 
 ### reporter
 
-Controls what is done with the resulting report after the Chef InSpec run. Accepts a single string value or an array of multiple values. Accepted values: 'chef-server-automate', 'chef-automate', 'json-file', 'audit-enforcer', 'cli'
+Controls what is done with the resulting report after the Chef InSpec run. Accepts a single string value or an array of multiple values. The 'cli' reporter mimics the InSpec command line output in your terminal, which lets you see your system's compliance status at the end of the Compliance Phase. Accepted values: 'chef-server-automate', 'chef-automate', 'json-file', 'audit-enforcer', 'cli'
 
 ```ruby
 # set the reporter to Chef Automate
-default['audit']['reporter'] = 'chef-automate'
+default['audit']['reporter'] = 'chef-automate', 'cli'
 ```
 
 ### run_time_limit
@@ -550,7 +548,7 @@ Occasionally, the system date/time will drift between client and server. If this
 
 On the Chef Infra Server you can see this in the following logs:
 
-```bash
+```text
 # chef-server-ctl tail
 
 ==> /var/log/opscode/nginx/access.log <==
@@ -572,7 +570,7 @@ On the Chef Infra Server you can see this in the following logs:
 
 Additionally, the chef_gate log will contain a similar message:
 
-```bash
+```text
 # /var/log/opscode/chef_gate/current
 2016-08-28_15:01:34.88702 ['GIN'] 2016/08/28 - 15:01:34 | 401 |   13.650403ms | 192.168.200.102 |   POST    /compliance/organizations/4thcafe/inspec
 2016-08-28_15:01:34.88704 Error #01: Authentication failed. Please check your system's clock.
@@ -582,7 +580,7 @@ Additionally, the chef_gate log will contain a similar message:
 
 In the event of a malformed or unset token, the Chef Automate server will log the token error:
 
-```bash
+```text
 ==> /var/log/chef-compliance/core/current <==
 2016-08-28_20:41:46.17496 20:41:46.174 ERR => Token authentication: %!(EXTRA *errors.errorString=malformed JWS, only 1 segments)
 2016-08-28_20:41:46.17498 ['GIN'] 2016/08/28 - 20:41:46 | 401 |      53.824us | 192.168.200.102 |   GET     /owners/base/compliance/linux/tar
@@ -595,7 +593,7 @@ In the event of a malformed or unset token, the Chef Automate server will log th
 
 This error indicates that you have exceeded limit the `erchef` request size in Chef Infra Server. Prior to version 13.0, the default was 1MB. Starting with version 13.0 the default is 2MB. If Compliance Phase prints this stacktrace and you are using the `chef-server-automate` reporter:
 
-```bash
+```text
 Running handlers:
 ['2017-12-21T16:21:15+00:00'] WARN: Compliance report size is 1.71 MB.
 ['2017-12-21T16:21:15+00:00'] ERROR: 413 "Request Entity Too Large" (Net::HTTPServerException)
@@ -608,7 +606,7 @@ Running handlers:
 
 and the Chef Infra Server Nginx logs confirm the `413` error:
 
-```bash
+```text
 ==> /var/log/opscode/nginx/access.log <==
 192.168.56.40 - - ['21/Dec/2017:11:35:30 +0000']  "POST /organizations/eu_org/data-collector HTTP/1.1" 413 "0.803" 64 "-" "Chef Client/13.6.4 (ruby-2.4.2-p198; ohai-13.6.0; x86_64-linux; +https://chef.io)" "-" "-" "-" "13.6.4" "algorithm=sha1;version=1.1;" "bootstrapped-node" "2017-12-21T11:35:31Z" "GR6RyPvKkZDaGyQDYCPfoQGS8G4=" 1793064
 ```
@@ -625,7 +623,7 @@ and run `chef-server-ctl reconfigure` to apply this change.
 
 Chef Automate sets the `logstash` limit to 10% of the system memory automatically as part of the `automate-ctl reconfigure` command execution. You have reached the java heap size(`-Xmx`) limit of `logstash` if a Chef InSpec report does not become available in Chef Automate and this error is in the `logstash` logs:
 
-```bash
+```text
 /var/log/delivery/logstash/current
 2017-12-21_13:59:54.69949 DEBUG: Ruby filter is processing an 'inspec_profile' event
 2017-12-21_14:00:16.51553 java.lang.OutOfMemoryError: Java heap space
