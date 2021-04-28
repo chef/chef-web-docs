@@ -139,7 +139,7 @@ end
 ```
 
 The need for the `ruby_block`, the `lazy` and the variable declaration are all removed, and all that is left is how a beginning
-programmer would attempt to write this resource without the need for deep Chef or Ruby knowledge.
+programmer would attempt to write this resource without the need for deep Chef Infra or Ruby knowledge.
 
 ### Recovery and Exception Handling
 
