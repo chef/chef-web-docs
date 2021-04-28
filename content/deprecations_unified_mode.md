@@ -9,9 +9,9 @@ robots = "noindex"
 aliases = "/deprecations_unified_mode.html"
 +++
 
-Starting in Chef Infra Client 17.0 resources should be converted to use Unified Mode, which eliminates the split between the compile and converge modes in the specific resource where it is declared.
+Starting in Chef Infra Client 17.0 resources should be converted to use Unified Mode, which eliminates the split between the compile and converge modes in custom resources.
 
-Unified Mode his available for use in custom resources starting with Chef Infra Client 14.14 and Chef Infra Client 15.3.
+Unified Mode is available for use in custom resources starting with Chef Infra Client 14.14 and Chef Infra Client 15.3.
 
 Unified Mode is set in each custom resource and the change is isolated to those resource so there is no impact to other resources or recipes.
 
