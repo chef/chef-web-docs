@@ -1,10 +1,9 @@
 +++
 title = "Omnitruck API"
 draft = false
-
 gh_repo = "chef-web-docs"
-
 aliases = ["/api_omnitruck.html"]
+product = ["automate", "client", "server", "habitat", "inspec", "workstation"]
 
 [menu]
   [menu.overview]
@@ -20,8 +19,7 @@ Chef Software Inc. products and to provide direct download URLs.
 
 ## Syntax
 
-The URL from which these downloads can be obtained has the following
-syntax:
+The URL from which these downloads can be obtained has the following syntax:
 
 ```none
 https://omnitruck.chef.io/<CHANNEL>/<PRODUCT>/download?p=$PLATFORM&pv=$PLATFORM_VERSION&m=$MACHINE_ARCH&v=latest&prerelease=false&nightlies=false
@@ -40,8 +38,7 @@ single step.
 
 ## Downloads
 
-The `/metadata` and/or `/download` endpoints can be used to download
-packages for all products:
+The `/metadata` and/or `/download` endpoints can be used to download packages for all products:
 
 ```none
 https://omnitruck.chef.io/<CHANNEL>/<PRODUCT>/download?p=$PLATFORM&pv=$PLATFORM_VERSION&m=$MACHINE_ARCH&v=latest
@@ -55,28 +52,12 @@ https://omnitruck.chef.io/<CHANNEL>/<PRODUCT>/metadata?p=$PLATFORM&pv=$PLATFORM_
 
 where:
 
--   `<CHANNEL>` is the release channel to install from. See [Chef
-    Software Inc Packages](/packages/) for full details on the
-    available channels.
--   `<PRODUCT>` is the Chef Software Inc product to install. A list of
-    valid product keys can be found at
-    <https://github.com/chef/mixlib-install/blob/master/PRODUCT_MATRIX.md>
--   `p` is the platform. Possible values: `debian`, `el` (for CentOS),
-    `freebsd`, `mac_os_x`, `solaris2`, `sles`, `suse`, `ubuntu` or
-    `windows`.
--   `pv` is the platform version. Possible values depend on the
-    platform. For example, Ubuntu: `16.04`, or `18.04` or for macOS:
-    `10.14` or `10.15`.
--   `m` is the machine architecture for the machine on which the product
-    will be installed. Possible values depend on the platform. For
-    example, for Ubuntu or Debian: `i386` or `x86_64` or for macOS:
-    `x86_64`.
--   `v` is the version of the product to be installed. A version always
-    takes the form x.y.z, where x, y, and z are decimal numbers that are
-    used to represent major (x), minor (y), and patch (z) versions.
-    One-part (x) and two-part (x.y) versions are allowed. For more
-    information about application versioning, see <https://semver.org/>.
-    Default value: `latest`.
+- `<CHANNEL>` is the release channel to install from. See [Chef Software Inc Packages](/packages/) for full details on the available channels.
+- `<PRODUCT>` is the Chef Software Inc product to install. A list of valid product keys can be found at <https://github.com/chef/mixlib-install/blob/master/PRODUCT_MATRIX.md>
+- `p` is the platform. Possible values: `debian`, `el` (for RHEL derivatives), `freebsd`, `mac_os_x`, `solaris2`, `sles`, `suse`, `ubuntu` or `windows`.
+- `pv` is the platform version. Possible values depend on the platform. For example, Ubuntu: `18.04`, or `20.04` or for macOS: `10.15` or `11`.
+- `m` is the machine architecture for the machine on which the product will be installed. Possible values depend on the platform. For example, for Ubuntu or Debian: `i386` or `x86_64` or for macOS: `x86_64`.
+- `v` is the version of the product to be installed. A version always takes the form x.y.z, where x, y, and z are decimal numbers that are used to represent major (x), minor (y), and patch (z) versions. One-part (x) and two-part (x.y) versions are allowed. For more information about application versioning, see <https://semver.org/>. Default value: `latest`.
 
 ### Platforms
 
@@ -98,73 +79,73 @@ Omnitruck accepts the following platforms:
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>AIX</td>
 <td><code>aix</code></td>
 <td><code>powerpc</code></td>
 <td><code>6.1</code>, <code>7.1</code>, <code>7.2</code></td>
 </tr>
-<tr class="even">
+<tr>
 <td>Amazon Linux</td>
 <td><code>amazon</code></td>
 <td><code>x86_64</code>,<code>aarch64</code></td>
 <td><code>201X, 2</code></td>
 </tr>
-<tr class="odd">
+<tr>
 <td>Cisco IOS XR</td>
 <td><code>ios_xr</code></td>
 <td><code>x86_64</code></td>
 <td><code>6</code></td>
 </tr>
-<tr class="even">
+<tr>
 <td>Cisco NX-OS</td>
 <td><code>nexus</code></td>
 <td><code>x86_64</code></td>
 <td><code>7</code></td>
 </tr>
-<tr class="odd">
+<tr>
 <td>Debian</td>
 <td><code>debian</code></td>
-<td><code>i386</code>, <code>x86_64</code></td>
+<td><code>i386</code>, <code>x86_64</code>, <code>aarch64</code></td>
 <td><code>6</code>, <code>7</code>, <code>8</code>, <code>9</code>, <code>10</code></td>
 </tr>
-<tr class="even">
+<tr>
 <td>FreeBSD</td>
 <td><code>freebsd</code></td>
 <td><code>x86_64</code></td>
 <td><code>9</code>, <code>10</code>, <code>11</code>, <code>12</code></td>
 </tr>
-<tr class="odd">
+<tr>
 <td>macOS</td>
 <td><code>mac_os_x</code></td>
-<td><code>x86_64</code></td>
-<td><code>10.6</code>, <code>10.7</code>, <code>10.8</code>, <code>10.9</code>, <code>10.10</code>, <code>10.11</code>, <code>10.12</code>, <code>10.13</code>, <code>10.14</code>, <code>10.15</code>, <code>11.0</code></td>
+<td><code>x86_64</code>, <code>aarch64</code></td>
+<td><code>10.6</code>, <code>10.7</code>, <code>10.8</code>, <code>10.9</code>, <code>10.10</code>, <code>10.11</code>, <code>10.12</code>, <code>10.13</code>, <code>10.14</code>, <code>10.15</code>, <code>11</code></td>
 </tr>
-<tr class="even">
+<tr>
 <td>Solaris</td>
 <td><code>solaris2</code></td>
 <td><code>i386</code>, <code>sparc</code></td>
 <td><code>5.10</code>, <code>5.11</code></td>
 </tr>
-<tr class="odd">
+<tr>
 <td>SUSE Linux Enterprise Server</td>
 <td><code>sles</code></td>
 <td><code>x86_64</code>, <code>s390x</code>, <code>aarch64</code></td>
 <td><code>11</code>, <code>12</code>, <code>15</code></td>
 </tr>
-<tr class="even">
-<td>Red Hat Enterprise Linux / CentOS</td>
+<tr>
+<td>Red Hat Enterprise Linux / CentOS / Oracle Linux</td>
 <td><code>el</code></td>
 <td><code>i386</code>, <code>x86_64</code>, <code>ppc64</code>, <code>ppc64le</code>, <code>aarch64</code></td>
 <td><code>5</code>, <code>6</code>, <code>7</code>, <code>8</code></td>
 </tr>
-<tr class="odd">
+<tr>
 <td>Ubuntu</td>
 <td><code>ubuntu</code></td>
 <td><code>i386</code>, <code>x86_64</code>, <code>aarch64</code>, <code>ppc64le</code></td>
-<td><code>10.04</code>, <code>10.10</code>, <code>11.04</code>, <code>11.10</code>, <code>12.04</code>, <code>12.10</code>, <code>13.04</code>, <code>13.10</code>, <code>14.04</code>, <code>14.10</code>, <code>16.04</code>, <code>16.10</code>, <code>17.04</code>, <code>17.10</code>, <code>18.04</code>, <code>20.04</code></td>
+<td><code>10.04</code>, <code>10.10</code>, <code>11.04</code>, <code>11.10</code>, <code>12.04</code>, <code>12.10</code>, <code>13.04</code>, <code>13.10</code>, <code>14.04</code>, <code>14.10</code>, <code>16.04</code>, <code>16.10</code>, <code>17.04</code>, <code>17.10</code>, <code>18.04</code>, <code>18.10</code>, <code>19.04</code>, <code>20.04</code>, <code>20.10</code>, <code>21.04</code></td>
 </tr>
-<tr class="even">
+<tr>
 <td>Microsoft Windows</td>
 <td><code>windows</code></td>
 <td><code>x86_64</code>, <code>i386</code></td>
@@ -186,10 +167,10 @@ https://omnitruck.chef.io/stable/chef/metadata?p=ubuntu&pv=20.04&m=x86_64
 to return something like:
 
 ```none
-sha1 b56f0ebce281d360613ee4f8ca8ce654e915d726
-sha256 d28696b523eaa1040f5c17693fc102e2c22a9ecc0e1296284f9c610e250eb66c
-url https://packages.chef.io/files/stable/chef/16.0.257/ubuntu/20.04/chef_16.0.257-1_amd64.deb
-version 16.0.257
+sha1	32516ce8fe7ba09ea96d1e32e7f64087338a3b48
+sha256	156057bb0a39b73a9abc2ea940b38210dcf02da4a1b5a461bff3e714a290cc02
+url	https://packages.chef.io/files/stable/chef/16.10.17/ubuntu/20.04/chef_16.10.17-1_amd64.deb
+version	16.10.17
 ```
 
 **Download Directly**

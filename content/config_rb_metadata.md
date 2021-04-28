@@ -68,27 +68,27 @@ versions. There are a set of operators common to all fields:
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>Pessimistic (see note below)</td>
 <td><code>~&gt;</code></td>
 </tr>
-<tr class="even">
+<tr>
 <td>Equal to</td>
 <td><code>=</code></td>
 </tr>
-<tr class="odd">
+<tr>
 <td>Greater than or equal to</td>
 <td><code>&gt;=</code></td>
 </tr>
-<tr class="even">
+<tr>
 <td>Greater than</td>
 <td><code>&gt;</code></td>
 </tr>
-<tr class="odd">
+<tr>
 <td>Less than</td>
 <td><code>&lt;</code></td>
 </tr>
-<tr class="even">
+<tr>
 <td>Less than or equal to</td>
 <td><code>&lt;=</code></td>
 </tr>

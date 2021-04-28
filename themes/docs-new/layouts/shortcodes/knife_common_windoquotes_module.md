@@ -19,7 +19,7 @@ located at:
 ```
 
 This module exports cmdlets that have the same name as the command-line
-tools---chef-client, knife, chef-apply---that are built into Chef.
+tools---chef-client, knife---that are built into Chef.
 
 For example:
 

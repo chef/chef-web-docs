@@ -1,25 +1,38 @@
-{{- $fontawesome := resources.Get "js/vendor/fontawesome-all.min.js" }}
-{{- $jquery := resources.Get "js/vendor/jquery.min.js" }}
-{{- $foundation := resources.Get "js/vendor/foundation.min.js" }}
-{{- $whatInput := resources.Get "js/vendor/what-input.min.js" }}
-{{- $uaParser := resources.Get "js/vendor/ua-parser.min.js" }}
-{{- $showdown := resources.Get "js/vendor/showdown.min.js" }}
-{{- $coreJs := slice $fontawesome $jquery $foundation $whatInput $uaParser $showdown | resources.Concat "js/core-bundle.js" | minify | fingerprint }}
-<script src="{{ $coreJs.Permalink }}" type="text/javascript"></script>
-{{- $segment := resources.Get "js/segment.js" }}
-{{- $omnitruck := resources.Get "js/omnitruck.js" }}
-{{- $copycodebutton := resources.Get "js/copy-code-button.js" }}
-{{- $chefHugo := resources.Get "js/chef-hugo.js" }}
-{{- $resourceNote := resources.Get "js/resource-note.js" }}
-{{- $versionDocs := resources.Get "js/version-docs.js" }}
-{{- $feedback := resources.Get "js/feedback.js" }}
-{{- $customJs := slice $segment $omnitruck $copycodebutton $chefHugo $resourceNote $versionDocs $feedback | resources.Concat "js/custom-bundle.js" | minify | fingerprint }}
-<script src="{{ $customJs.Permalink }}" type="text/javascript"></script>
-<script type="text/javascript">
-  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
-  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
-  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
-  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+{{- $fontawesome := resources.Get "js/vendor/fontawesome-free/all.min.js" -}}
+{{- $jquery := resources.Get "js/vendor/jquery/jquery.min.js" -}}
+{{- $foundation := resources.Get "js/vendor/foundation-sites/foundation.min.js" -}}
+{{- $whatInput := resources.Get "js/vendor/what-input/what-input.min.js" -}}
+{{- $showdown := resources.Get "js/vendor/showdown/showdown.min.js" -}}
+{{- $browser := resources.Get "js/browser.js" -}}
+{{- $hogan := resources.Get "js/vendor/twitter/hogan-3.0.2.min.js"}}
+{{- $hashchange := resources.Get "js/vendor/cowboy/jquery.ba-hashchange.min.js" -}}
+{{- $swiftypeAutocomplete := resources.Get "js/vendor/swiftype/jquery.swiftype.autocomplete.js" -}}
+{{- $swiftype := resources.Get "js/vendor/swiftype/jquery.swiftype.search.js" -}}
+{{- $swiftypeConfig := resources.Get "js/swiftype-config.js" -}}
+{{- $coreJs := slice $fontawesome $jquery $foundation $whatInput $showdown $browser $hogan $hashchange $swiftypeAutocomplete $swiftype $swiftypeConfig -}}
 
-  _st('install','s1Pemn_yrUKJw9_K5zRT','2.0.0');
-</script>
+{{ if hugo.Environment | eq "development" }}
+  {{- $coreJs = $coreJs | resources.Concat "js/core-bundle.js" -}}
+  <script src="{{ $coreJs.Permalink }}"></script>
+{{ else }}
+  {{- $coreJs = $coreJs | resources.Concat "js/core-bundle.js" | minify | fingerprint -}}
+  <script src="{{ $coreJs.Permalink }}"></script>
+{{ end }}
+
+{{- $copycodebutton := resources.Get "js/copy-code-button.js" -}}
+{{- $chefHugo := resources.Get "js/chef-hugo.js" -}}
+{{- $resourceNote := resources.Get "js/resource-note.js" -}}
+{{- $versionDocs := resources.Get "js/version-docs.js" -}}
+{{- $feedback := resources.Get "js/feedback.js" -}}
+{{- $customJs := slice $copycodebutton $chefHugo $resourceNote $versionDocs $feedback -}}
+
+{{ if hugo.Environment | eq "development" }}
+  {{- $customJs = $customJs | resources.Concat "js/custom-bundle.js" -}}
+  <script src="{{ $customJs.Permalink }}"></script>
+{{ else }}
+  {{- $customJs = $customJs | resources.Concat "js/custom-bundle.js" | minify | fingerprint -}}
+  <script src="{{ $customJs.Permalink }}"></script>
+{{ end }}
+
+
+

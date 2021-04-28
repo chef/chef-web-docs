@@ -2,6 +2,8 @@
 title = "knife status"
 draft = false
 
+gh_repo = "chef-workstation"
+
 aliases = ["/knife_status.html", "/knife_status/"]
 
 [menu]
@@ -10,8 +12,6 @@ aliases = ["/knife_status.html", "/knife_status/"]
     identifier = "chef_workstation/chef_workstation_tools/knife/knife_status.md knife status"
     parent = "chef_workstation/chef_workstation_tools/knife"
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/docs-chef-io/content/workstation/knife_status.md)
 
 {{% knife_status_summary %}}
 
@@ -35,27 +35,24 @@ This subcommand has the following options:
 
 `QUERY`
 
-:   The search query used to identify a list of items on a Chef Infra
-    Server. This option uses the same syntax as the `search` subcommand.
+: The search query used to identify a list of items on a Chef Infra Server. This option uses the same syntax as the `search` subcommand.
 
 `--hide-by-mins`
 
-:   Hide nodes that have performed a successful Chef Infra Client run
-    within the last specified number of minutes. The number of minutes
-    to hide is provided as an integer, such as `--hide-by-mins 10`.
+: Hide nodes that have performed a successful Chef Infra Client run within the last specified number of minutes. The number of minutes to hide is provided as an integer, such as `--hide-by-mins 10`.
 
 `-l`, `--long`
 
-:   Display all attributes in the output and show the output as JSON.
+: Display all attributes in the output and show the output as JSON.
 
 `-m`, `--medium`
 
-:   Display normal attributes in the output and to show the output as
+: Display normal attributes in the output and to show the output as
     JSON.
 
 `-r RUN_LIST`, `--run-list RUN_LIST`
 
-:   A comma-separated list of roles and/or recipes to be applied.
+: A comma-separated list of roles and/or recipes to be applied.
 
 {{< note >}}
 

@@ -13,26 +13,26 @@ resource_description_list:
 resource_new_in: '14.0'
 syntax_full_code_block: |-
   sudo 'name' do
-    command_aliases        Array
+    command_aliases        Array # default value: []
     commands               Array # default value: ["ALL"]
     config_prefix          String # default value: "Prefix values based on the node's platform"
-    defaults               Array
-    env_keep_add           Array
-    env_keep_subtract      Array
+    defaults               Array # default value: []
+    env_keep_add           Array # default value: []
+    env_keep_subtract      Array # default value: []
     filename               String # default value: 'name' unless specified
-    groups                 String, Array
+    groups                 String, Array # default value: []
     host                   String # default value: "ALL"
     noexec                 true, false # default value: false
     nopasswd               true, false # default value: false
     runas                  String # default value: "ALL"
     setenv                 true, false # default value: false
     template               String
-    users                  String, Array
+    users                  String, Array # default value: []
     variables              Hash
     visudo_binary          String # default value: "/usr/sbin/visudo"
     action                 Symbol # defaults to :create if not specified
   end
-syntax_properties_list: 
+syntax_properties_list:
 syntax_full_properties_list:
 - "`sudo` is the resource."
 - "`name` is the name given to the resource block."
@@ -53,6 +53,7 @@ properties_list:
 - property: command_aliases
   ruby_type: Array
   required: false
+  default_value: "[]"
   description_list:
   - markdown: Command aliases that can be used as allowed commands later in the configuration.
 - property: commands
@@ -70,16 +71,19 @@ properties_list:
 - property: defaults
   ruby_type: Array
   required: false
+  default_value: "[]"
   description_list:
   - markdown: An array of defaults for the user/group.
 - property: env_keep_add
   ruby_type: Array
   required: false
+  default_value: "[]"
   description_list:
   - markdown: An array of strings to add to `env_keep`.
 - property: env_keep_subtract
   ruby_type: Array
   required: false
+  default_value: "[]"
   description_list:
   - markdown: An array of strings to remove from `env_keep`.
 - property: filename
@@ -92,6 +96,7 @@ properties_list:
 - property: groups
   ruby_type: String, Array
   required: false
+  default_value: "[]"
   description_list:
   - markdown: Group(s) to provide sudo privileges to. This property accepts either
       an array or a comma separated list. Leading % on group names is optional.
@@ -135,6 +140,7 @@ properties_list:
 - property: users
   ruby_type: String, Array
   required: false
+  default_value: "[]"
   description_list:
   - markdown: User(s) to provide sudo privileges to. This property accepts either
       an array or a comma separated list.

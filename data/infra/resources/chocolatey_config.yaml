@@ -25,7 +25,7 @@ actions_list:
   :nothing:
     shortcode: resources_common_actions_nothing.md
   :set:
-    markdown: Default. Sets a Chocolatey config value.
+    markdown: Sets a Chocolatey config value. (default)
   :unset:
     markdown: Unsets a Chocolatey config value.
 properties_list:
@@ -41,7 +41,20 @@ properties_list:
   required: false
   description_list:
   - markdown: The value to set.
-examples: "**Set the Chocolatey cacheLocation config**:\n\n```ruby\nchocolatey_config
-  'Set cacheLocation config' do\n  config_key 'cacheLocation'\n  value 'C:\temp\boco'\nend\n```\n\n**Unset
-  a Chocolatey config**:\n\n```ruby\nchocolatey_config 'BogusConfig' do\n  action
-  :unset\nend\n```\n"
+examples: |
+  **Set the Chocolatey cacheLocation config**:
+
+  ```ruby
+  chocolatey_config 'Set cacheLocation config' do
+    config_key 'cacheLocation'
+    value 'C:\temp\choco'
+  end
+  ```
+
+  **Unset a Chocolatey config**:
+
+  ```ruby
+  chocolatey_config 'BogusConfig' do
+    action :unset
+  end
+  ```

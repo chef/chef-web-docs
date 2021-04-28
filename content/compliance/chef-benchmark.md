@@ -80,7 +80,7 @@ The Chef Compliance pattern has two components. The first is the Chef Habitat `p
    To your company name:
 
    ```bash
-   pkg_name=4thcoffee-CIS-benchmark
+   pkg_name=4thcafe-CIS-benchmark
    ```
 
 1. Specify your Chef Habitat origin:

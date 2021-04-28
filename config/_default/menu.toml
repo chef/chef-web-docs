@@ -1,0 +1,879 @@
+
+####
+## Main Menu ##
+####
+[[main]]
+title = "Chef.io"
+identifier = "chef"
+url = "https://www.chef.io/"
+weight = 10
+
+[[main]]
+title = "Learn Chef"
+identifier = "learn chef"
+url = "https://learn.chef.io/"
+weight = 20
+
+[[main]]
+title = "Blog"
+identifier = "blog"
+url = "https://blog.chef.io/"
+weight = 30
+
+[[main]]
+title = "Community"
+identifier = "community"
+url = "https://community.chef.io/"
+weight = 40
+
+[[main]]
+title = "Training"
+identifier = "training"
+url = "https://training.chef.io/"
+weight = 50
+
+[[main]]
+title = "Downloads"
+identifier = "downloads"
+url = "https://downloads.chef.io/"
+weight = 60
+
+####
+## End Main Menu ##
+####
+
+####
+# Overview Menu
+####
+
+[[overview]]
+title = "Overview"
+identifier = "overview"
+weight = 20
+
+  [[overview]]
+  title = "Community"
+  identifier = "overview/community"
+  parent = "overview"
+  weight = 20
+
+  [[overview]]
+  title = "Packages & Platforms"
+  identifier = "overview/packages_&_platforms"
+  parent = "overview"
+  weight = 30
+
+    [[overview]]
+    title = "Licensing"
+    identifier = "overview/packages_&_platforms/licensing"
+    parent = "overview/packages_&_platforms"
+    weight = 60
+
+####
+# End Overview Menu
+####
+
+####
+# Chef Automate Menu
+####
+
+[[automate]]
+title = "Chef Automate"
+identifier = "automate"
+
+  [[automate]]
+  name = "Getting Started"
+  weight = 10
+  identifier = "automate/getting_started"
+  parent = "automate"
+
+  [[automate]]
+  name = "Configuring Automate"
+  weight = 20
+  identifier = "automate/configuring_automate"
+  parent = "automate"
+
+  [[automate]]
+  name = "Applications"
+  weight = 30
+  identifier = "automate/applications"
+  parent = "automate"
+
+  [[automate]]
+  name = "Infrastructure"
+  weight = 50
+  identifier = "automate/infrastructure"
+  parent = "automate"
+
+  [[automate]]
+  name = "Compliance"
+  weight = 60
+  identifier = "automate/compliance"
+  parent = "automate"
+
+  [[automate]]
+  name = "Settings"
+  weight = 90
+  identifier = "automate/settings"
+  parent = "automate"
+
+  [[automate]]
+  name = "Authorization"
+  weight = 100
+  identifier = "automate/authorization"
+  parent = "automate"
+
+  [[automate]]
+  name = "Reference"
+  weight = 110
+  identifier = "automate/reference"
+  parent = "automate"
+
+####
+# End Chef Automate Menu
+####
+
+####
+# Compliance Menu
+####
+
+[[compliance]]
+title = "Chef Compliance"
+identifier = "compliance"
+
+####
+# End Compliance Menu
+####
+
+####
+# Chef Desktop Menu
+####
+
+[[desktop]]
+title = "Chef Desktop"
+identifier = "desktop"
+
+[[desktop]]
+title = "Resources"
+identifier = "desktop/resources"
+parent = "desktop"
+
+####
+# End Chef Desktop Menu
+####
+
+####
+# Chef Habitat Menu
+####
+
+[[habitat]]
+title = "Chef Habitat"
+identifier = "habitat"
+
+  [[habitat]]
+  title = "Install Habitat"
+  identifier = "habitat/get_started"
+  parent = "habitat"
+  weight = 10
+
+  [[habitat]]
+  title = "Builder"
+  identifier = "habitat/builder"
+  parent = "habitat"
+  weight = 20
+
+  [[habitat]]
+  title = "Origins"
+  identifier = "habitat/origins"
+  parent = "habitat"
+  weight = 30
+
+  [[habitat]]
+  title = "Packages"
+  identifier = "habitat/packages"
+  parent = "habitat"
+  weight = 40
+
+  [[habitat]]
+  title = "Plans"
+  identifier = "habitat/plans"
+  parent = "habitat"
+  weight = 50
+
+  [[habitat]]
+  title = "Services"
+  identifier = "habitat/services"
+  parent = "habitat"
+  weight = 60
+
+  [[habitat]]
+  title = "Supervisors"
+  identifier = "habitat/supervisors"
+  parent = "habitat"
+  weight = 70
+
+  [[habitat]]
+  title = "Reference"
+  identifier = "habitat/reference"
+  parent = "habitat"
+  weight = 90
+
+  [[habitat]]
+  title = "API"
+  identifier = "habitat/reference/api"
+  parent = "habitat/reference"
+
+  [[habitat]]
+  title = "Containers"
+  identifier = "habitat/containers"
+  parent = "habitat"
+  weight = 200
+
+  [[habitat]]
+  title = "Diagrams"
+  identifier = "habitat/diagrams"
+  parent = "habitat"
+  weight = 500
+
+####
+# End Chef Habitat Menu
+####
+
+
+####
+# Chef Infra Server Menu
+####
+
+[[server]]
+title = "Chef Infra Server"
+identifier = "server"
+
+  [[server]]
+  title = "Overview"
+  identifier = "server/overview"
+  parent = "server"
+  weight = 10
+
+    [[server]]
+    title = "Hosted Chef Server"
+    identifier = "server/overview/Hosted Chef Server"
+    parent = "server/overview"
+    url = "https://manage.chef.io/signup"
+    weight = 70
+
+  [[server]]
+  title = "Planning"
+  identifier = "server/planning"
+  parent = "server"
+  weight = 20
+
+  [[server]]
+  title = "Installation"
+  identifier = "server/installation"
+  parent = "server"
+  weight = 30
+
+    [[server]]
+    title = "Airgap"
+    identifier = "server/installation/Airgap"
+    parent = "server/installation"
+    URL = "/install_chef_air_gap/#chef-infra-server"
+    weight = 30
+
+    [[server]]
+    title = "Hosted Chef Server"
+    identifier = "server/installation/Hosted Chef Server"
+    parent = "server/installation"
+    URL = "https://manage.chef.io/signup"
+    weight = 40
+
+  [[server]]
+  title = "Configure"
+  identifier = "server/configure"
+  parent = "server"
+  weight = 40
+
+    [[server]]
+    title = "Server Firewalls and Ports"
+    identifier = "server/configure/Server Firewalls and Ports"
+    parent = "server/configure"
+    URL = "/server/server_firewalls_and_ports/"
+    weight = 40
+
+  [[server]]
+  title = "Manage"
+  identifier = "server/manage"
+  parent = "server"
+  weight = 50
+
+  [[server]]
+  title = "Reference"
+  identifier = "server/reference"
+  parent = "server"
+  weight = 60
+
+####
+# End Chef Infra Server Menu
+####
+
+
+####
+# Chef Infra Menu
+####
+
+
+[[infra]]
+title = "Chef Infra"
+identifier = "chef_infra"
+
+  [[infra]]
+  title = "Getting Started"
+  identifier = "chef_infra/getting_started"
+  parent = "chef_infra"
+  weight = 10
+
+    [[infra]]
+    title = "Chef on Azure Guide"
+    identifier = "chef_infra/getting_started/chef_on_azure_guide"
+    parent = "chef_infra/getting_started"
+    weight = 40
+
+      [[infra]]
+      title = "Knife Azure"
+      identifier = "chef_infra/getting_started/chef_on_azure_guide/knife_azure.md Knife Azure"
+      parent = "chef_infra/getting_started/chef_on_azure_guide"
+      url = "/knife_azure/"
+      weight = 50
+
+      [[infra]]
+      title = "Knife Azurerm"
+      identifier = "chef_infra/getting_started/chef_on_azure_guide/knife_azurerm.md Knife Azurerm"
+      parent = "chef_infra/getting_started/chef_on_azure_guide"
+      url = "/knife_azurerm/"
+      weight = 60
+
+    [[infra]]
+    title = "Chef on Windows Guide"
+    identifier = "chef_infra/getting_started/chef_on_windows_guide"
+    parent = "chef_infra/getting_started"
+    weight = 50
+
+      [[infra]]
+      title = "Knife Windows"
+      identifier = "chef_infra/getting_started/chef_on_windows_guide/knife_windows.md Knife Windows"
+      parent = "chef_infra/getting_started/chef_on_windows_guide"
+      url = "/knife_windows/"
+      weight = 30
+
+  [[infra]]
+  title = "Concepts"
+  identifier = "chef_infra/concepts"
+  parent = "chef_infra"
+  weight = 20
+
+    [[infra]]
+    title = "Cookbooks"
+    identifier = "chef_infra/concepts/cookbooks.md Cookbooks"
+    parent = "chef_infra/concepts"
+    url = "/cookbooks/"
+    weight = 40
+
+    [[infra]]
+    title = "Custom Resources"
+    identifier = "chef_infra/concepts/custom_resources.md Custom Resources"
+    parent = "chef_infra/concepts"
+    url = "/custom_resources/"
+    weight = 50
+
+    [[infra]]
+    title = "Policy"
+    identifier = "chef_infra/concepts/policy"
+    parent = "chef_infra/concepts"
+    weight = 70
+
+    [[infra]]
+    title = "Supermarket"
+    identifier = "chef_infra/concepts/supermarket"
+    parent = "chef_infra/concepts"
+    weight = 110
+
+      [[infra]]
+      title = "Public Supermarket"
+      identifier = "chef_infra/concepts/supermarket/supermarket.md#public-supermarket Public Supermarket"
+      parent = "chef_infra/concepts/supermarket"
+      url = "/supermarket/#public-supermarket"
+      weight = 20
+
+      [[infra]]
+      title = "Private Supermarket"
+      identifier = "chef_infra/concepts/supermarket/supermarket.md#private-supermarket Private Supermarket"
+      parent = "chef_infra/concepts/supermarket"
+      url = "/supermarket/#private-supermarket"
+      weight = 30
+
+  [[infra]]
+  title = "Features"
+  identifier = "chef_infra/features"
+  parent = "chef_infra"
+  weight = 30
+
+    [[infra]]
+    title = "Chef Solo"
+    identifier = "chef_infra/features/chef_solo"
+    parent = "chef_infra/features"
+    weight = 10
+
+    [[infra]]
+    title = "Ohai"
+    identifier = "chef_infra/features/ohai"
+    parent = "chef_infra/features"
+    weight = 20
+
+  [[infra]]
+  title = "Setup"
+  identifier = "chef_infra/setup"
+  parent = "chef_infra"
+  weight = 50
+
+    [[infra]]
+    title = "Nodes"
+    identifier = "chef_infra/setup/nodes"
+    parent = "chef_infra/setup"
+    weight = 10
+
+    [[infra]]
+    title = "FIPS-mode"
+    identifier = "chef_infra/setup/ctl_chef_client.md#run-in-fips-mode FIPS-mode"
+    parent = "chef_infra/setup"
+    url = "/ctl_chef_client/#run-in-fips-mode"
+    weight = 50
+
+    [[infra]]
+    title = "Integrations"
+    identifier = "chef_infra/setup/integrations"
+    parent = "chef_infra/setup"
+    weight = 60
+
+    [[infra]]
+    title = "Supermarket"
+    identifier = "chef_infra/setup/supermarket"
+    parent = "chef_infra/setup"
+    weight = 70
+
+      [[infra]]
+      title = "Public Supermarket"
+      identifier = "chef_infra/setup/supermarket/https://supermarket.chef.io Public Supermarket"
+      parent = "chef_infra/setup/supermarket"
+      url = "https://supermarket.chef.io"
+      weight = 10
+
+      [[infra]]
+      title = "Customize Supermarket"
+      identifier = "chef_infra/setup/supermarket/install_supermarket.md#customize-supermarket Customize Supermarket"
+      parent = "chef_infra/setup/supermarket"
+      url = "/install_supermarket/#customize-supermarket"
+      weight = 30
+
+      [[infra]]
+      title = "knife supermarket"
+      identifier = "chef_infra/setup/supermarket/knife_supermarket.md knife supermarket"
+      parent = "chef_infra/setup/supermarket"
+      url = "/knife_supermarket/"
+      weight = 80
+
+  [[infra]]
+  title = "Cookbook Reference"
+  identifier = "chef_infra/cookbook_reference"
+  parent = "chef_infra"
+  weight = 60
+
+    [[infra]]
+    title = "Attributes"
+    identifier = "chef_infra/cookbook_reference/attributes"
+    parent = "chef_infra/cookbook_reference"
+    weight = 40
+
+    [[infra]]
+    title = "Recipes"
+    identifier = "chef_infra/cookbook_reference/recipes"
+    parent = "chef_infra/cookbook_reference"
+    weight = 50
+
+    [[infra]]
+    title = "Chef Infra Language"
+    identifier = "chef_infra/cookbook_reference/infra_language"
+    parent = "chef_infra/cookbook_reference"
+    weight = 60
+
+    [[infra]]
+    title = "Resources"
+    identifier = "chef_infra/cookbook_reference/resources"
+    parent = "chef_infra/cookbook_reference"
+    weight = 80
+
+  [[infra]]
+  title = "Extension APIs"
+  identifier = "chef_infra/extension_apis"
+  parent = "chef_infra"
+  weight = 80
+
+    [[infra]]
+    title = "Compliance DSL"
+    identifier = "chef_infra/extension_apis/inspec/dsl_inspec/ Compliance DSL"
+    parent = "chef_infra/extension_apis"
+    url = "/inspec/dsl_inspec/"
+    weight = 20
+
+    [[infra]]
+    title = "Handlers"
+    identifier = "chef_infra/extension_apis/handlers"
+    parent = "chef_infra/extension_apis"
+    weight = 20
+
+      [[infra]]
+      title = "Custom Handlers"
+      identifier = "chef_infra/extension_apis/handlers/handlers.md#custom-handlers Custom Handlers"
+      parent = "chef_infra/extension_apis/handlers"
+      url = "/handlers/#custom-handlers"
+      weight = 10
+
+      [[infra]]
+      title = "Community Handlers"
+      identifier = "chef_infra/extension_apis/handlers/plugin_community.md#handlers Community Handlers"
+      parent = "chef_infra/extension_apis/handlers"
+      url = "/plugin_community/#handlers"
+      weight = 30
+
+    [[infra]]
+    title = "Knife Plugins"
+    identifier = "chef_infra/extension_apis/knife_plugins"
+    parent = "chef_infra/extension_apis"
+    weight = 30
+
+    [[infra]]
+    title = "Ohai Plugins"
+    identifier = "chef_infra/extension_apis/ohai_plugins"
+    parent = "chef_infra/extension_apis"
+    weight = 40
+
+      [[infra]]
+      title = "Community Plugins"
+      identifier = "chef_infra/extension_apis/ohai_plugins/plugin_community.md#ohai Community Plugins"
+      parent = "chef_infra/extension_apis/ohai_plugins"
+      url = "/plugin_community/#ohai"
+      weight = 20
+
+####
+# End Chef Infra Menu
+####
+
+####
+# Chef Inspec Menu
+####
+
+[[inspec]]
+title = "Chef InSpec"
+identifier = "inspec"
+
+  [[inspec]]
+  title = "Chef InSpec Reference"
+  identifier = "inspec/reference"
+  parent = "inspec"
+  weight = 500
+
+  [[inspec]]
+  title = "Chef InSpec Resources"
+  identifier = "inspec/resources"
+  parent = "inspec"
+  weight = 999
+
+    [[inspec]]
+    title = "OS Resources"
+    identifier = "inspec/resources/os"
+    parent = "inspec/resources"
+    weight = 20
+
+    [[inspec]]
+    title = "AWS Resources"
+    identifier = "inspec/resources/aws"
+    parent = "inspec/resources"
+    weight = 30
+
+    [[inspec]]
+    title = "Azure Resources"
+    identifier = "inspec/resources/azure"
+    parent = "inspec/resources"
+    weight = 40
+
+    [[inspec]]
+    title = "GCP Resources"
+    identifier = "inspec/resources/gcp"
+    parent = "inspec/resources"
+    weight = 50
+
+    [[inspec]]
+    title = "Habitat Resources"
+    identifier = "inspec/resources/habitat"
+    parent = "inspec/resources"
+    weight = 60
+
+####
+# End Chef Inspec Menu
+####
+
+####
+# Chef Workstation Menu
+####
+
+[[workstation]]
+title = "Chef Workstation"
+identifier = "chef_workstation"
+
+  [[workstation]]
+  title = "Chef Workstation Tools"
+  identifier = "chef_workstation/chef_workstation_tools"
+  parent = "chef_workstation"
+  weight = 90
+
+    [[workstation]]
+    title = "chef (executable)"
+    identifier = "chef_workstation/chef_workstation_tools/chef_(executable)"
+    parent = "chef_workstation/chef_workstation_tools"
+    weight = 30
+
+      [[workstation]]
+      title = "chef capture"
+      identifier = "chef_workstation/chef_workstation_tools/chef_(executable)/ctl_chef.md#chef-capture chef capture"
+      parent = "chef_workstation/chef_workstation_tools/chef_(executable)"
+      url = "/workstation/ctl_chef/#chef-capture"
+
+      [[workstation]]
+      title = "chef env"
+      identifier = "chef_workstation/chef_workstation_tools/chef_(executable)/ctl_chef.md#chef-env chef env"
+      parent = "chef_workstation/chef_workstation_tools/chef_(executable)"
+      url = "/workstation/ctl_chef/#chef-env"
+
+      [[workstation]]
+      title = "chef exec"
+      identifier = "chef_workstation/chef_workstation_tools/chef_(executable)/ctl_chef.md#chef-exec chef exec"
+      parent = "chef_workstation/chef_workstation_tools/chef_(executable)"
+      url = "/workstation/ctl_chef/#chef-exec"
+
+      [[workstation]]
+      title = "chef gem"
+      identifier = "chef_workstation/chef_workstation_tools/chef_(executable)/ctl_chef.md#chef-gem chef gem"
+      parent = "chef_workstation/chef_workstation_tools/chef_(executable)"
+      url = "/workstation/ctl_chef/#chef-gem"
+
+      [[workstation]]
+      title = "chef generate attribute"
+      identifier = "chef_workstation/chef_workstation_tools/chef_(executable)/ctl_chef.md#chef-generate-attribute chef generate attribute"
+      parent = "chef_workstation/chef_workstation_tools/chef_(executable)"
+      url = "/workstation/ctl_chef/#chef-generate-attribute"
+
+      [[workstation]]
+      title = "chef generate cookbook"
+      identifier = "chef_workstation/chef_workstation_tools/chef_(executable)/ctl_chef.md#chef-generate-cookbook chef generate cookbook"
+      parent = "chef_workstation/chef_workstation_tools/chef_(executable)"
+      url = "/workstation/ctl_chef/#chef-generate-cookbook"
+
+      [[workstation]]
+      title = "chef generate file"
+      identifier = "chef_workstation/chef_workstation_tools/chef_(executable)/ctl_chef.md#chef-generate-file chef generate file"
+      parent = "chef_workstation/chef_workstation_tools/chef_(executable)"
+      url = "/workstation/ctl_chef/#chef-generate-file"
+
+      [[workstation]]
+      title = "chef generate recipe"
+      identifier = "chef_workstation/chef_workstation_tools/chef_(executable)/ctl_chef.md#chef-generate-recipe chef generate recipe"
+      parent = "chef_workstation/chef_workstation_tools/chef_(executable)"
+      url = "/workstation/ctl_chef/#chef-generate-recipe"
+
+      [[workstation]]
+      title = "chef generate repo"
+      identifier = "chef_workstation/chef_workstation_tools/chef_(executable)/ctl_chef.md#chef-generate-repo chef generate repo"
+      parent = "chef_workstation/chef_workstation_tools/chef_(executable)"
+      url = "/workstation/ctl_chef/#chef-generate-repo"
+
+      [[workstation]]
+      title = "chef generate resource"
+      identifier = "chef_workstation/chef_workstation_tools/chef_(executable)/ctl_chef.md#chef-generate-resource chef generate resource"
+      parent = "chef_workstation/chef_workstation_tools/chef_(executable)"
+      url = "/workstation/ctl_chef/#chef-generate-resource"
+
+      [[workstation]]
+      title = "chef generate template"
+      identifier = "chef_workstation/chef_workstation_tools/chef_(executable)/ctl_chef.md#chef-generate-template chef generate template"
+      parent = "chef_workstation/chef_workstation_tools/chef_(executable)"
+      url = "/workstation/ctl_chef/#chef-generate-template"
+
+      [[workstation]]
+      title = "chef report cookbooks"
+      identifier = "chef_workstation/chef_workstation_tools/chef_(executable)/ctl_chef.md#chef-report-cookbooks chef report cookbooks"
+      parent = "chef_workstation/chef_workstation_tools/chef_(executable)"
+      url = "/workstation/ctl_chef/#chef-report-cookbooks"
+
+      [[workstation]]
+      title = "chef report nodes"
+      identifier = "chef_workstation/chef_workstation_tools/chef_(executable)/ctl_chef.md#chef-report-nodes chef report nodes"
+      parent = "chef_workstation/chef_workstation_tools/chef_(executable)"
+      url = "/workstation/ctl_chef/#chef-report-nodes"
+
+      [[workstation]]
+      title = "chef shell-init"
+      identifier = "chef_workstation/chef_workstation_tools/chef_(executable)/ctl_chef.md#chef-shell-init chef shell-init"
+      parent = "chef_workstation/chef_workstation_tools/chef_(executable)"
+      url = "/workstation/ctl_chef/#chef-shell-init"
+
+    [[workstation]]
+    title = "config.rb (knife.rb)"
+    identifier = "chef_workstation/chef_workstation_tools/config_rb.md config.rb (knife.rb)"
+    parent = "chef_workstation/chef_workstation_tools"
+    url = "/workstation/config_rb/"
+    weight = 70
+
+    [[workstation]]
+    title = "Cookstyle"
+    identifier = "chef_workstation/chef_workstation_tools/cookstyle"
+    parent = "chef_workstation/chef_workstation_tools"
+    weight = 90
+
+      [[workstation]]
+      title = "Correctness Cops"
+      identifier = "chef_workstation/chef_workstation_tools/cookstyle/Cops Chef/Correctness"
+      parent = "chef_workstation/chef_workstation_tools/cookstyle"
+      url = "/workstation/cookstyle/cops/#chefcorrectness"
+
+      [[workstation]]
+      title = "Deprecation Cops"
+      identifier = "chef_workstation/chef_workstation_tools/cookstyle/Cops Chef/Deprecations"
+      parent = "chef_workstation/chef_workstation_tools/cookstyle"
+      url = "/workstation/cookstyle/cops/#chefdeprecations"
+
+      [[workstation]]
+      title = "Effortless Cops"
+      identifier = "chef_workstation/chef_workstation_tools/cookstyle/Cops Chef/Effortless"
+      parent = "chef_workstation/chef_workstation_tools/cookstyle"
+      url = "/workstation/cookstyle/cops/#chefeffortless"
+
+      [[workstation]]
+      title = "Modernization Cops"
+      identifier = "chef_workstation/chef_workstation_tools/cookstyle/Cops Chef/Modernize"
+      parent = "chef_workstation/chef_workstation_tools/cookstyle"
+      url = "/workstation/cookstyle/cops/#chefmodernize"
+
+      [[workstation]]
+      title = "Redundant Code Cops"
+      identifier = "chef_workstation/chef_workstation_tools/cookstyle/Cops Chef/RedundantCode"
+      parent = "chef_workstation/chef_workstation_tools/cookstyle"
+      url = "/workstation/cookstyle/cops/#chefredundantcode"
+
+      [[workstation]]
+      title = "Sharing Cops"
+      identifier = "chef_workstation/chef_workstation_tools/cookstyle/Cops Chef/Sharing"
+      parent = "chef_workstation/chef_workstation_tools/cookstyle"
+      url = "/workstation/cookstyle/cops/#chefsharing"
+
+      [[workstation]]
+      title = "Style Cop"
+      identifier = "chef_workstation/chef_workstation_tools/cookstyle/Cops Chef/Style"
+      parent = "chef_workstation/chef_workstation_tools/cookstyle"
+      url = "/workstation/cookstyle/cops/#chefstyle"
+
+    [[workstation]]
+    title = "Test Kitchen"
+    identifier = "chef_workstation/chef_workstation_tools/test_kitchen"
+    parent = "chef_workstation/chef_workstation_tools"
+    weight = 120
+
+    [[workstation]]
+    title = "Knife"
+    identifier = "chef_workstation/chef_workstation_tools/knife"
+    parent = "chef_workstation/chef_workstation_tools"
+    weight = 130
+
+####
+# End Chef Workstation Menu
+####
+
+####
+# Effortless Menu
+####
+
+[[effortless]]
+title = "Effortless Pattern"
+identifier = "effortless"
+
+####
+# End Effortless Menu
+####
+
+####
+# Release Notes Menu
+####
+
+[[release_notes]]
+title = "Release Notes"
+identifier = "release_notes"
+weight = 10
+
+####
+# End Release Notes Menu
+####
+
+####
+# Legacy Menu
+####
+
+[[legacy]]
+title = "Legacy"
+identifier = "legacy"
+weight = 10
+
+  [[legacy]]
+  title = "Chef Manage"
+  identifier = "legacy/manage"
+  parent = "legacy"
+
+####
+# End Legacy Menu
+####
+
+####
+# Extra Menu
+####
+
+[[extra]]
+title = "Available on GitHub"
+identifier = "github"
+url = "https://github.com/chef/chef-web-docs"
+weight = 10
+
+[[extra]]
+title = "Downloads"
+identifier = "get chef"
+url = "https://downloads.chef.io/"
+weight = 100
+
+[[extra]]
+title = "Send Feedback"
+identifier = "send feedback"
+url = "/feedback/"
+weight = 110
+
+[[extra]]
+title = "Support"
+identifier = "support"
+url = "https://www.chef.io/support/"
+weight = 120
+
+[[extra]]
+title = "Archive"
+identifier = "archive"
+url = "https://docs-archive.chef.io/"
+weight = 130
+
+
+####
+# End Extra Menu
+####

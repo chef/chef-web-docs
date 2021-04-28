@@ -24,12 +24,12 @@ syntax_full_properties_list:
 - "`replication_scope`, `server_type`, and `zone_name` are the properties available
   to this resource."
 actions_list:
-  :create:
-    markdown: Creates and updates a DNS Zone. Default.
-  :delete:
-    markdown: Deletes a DNS Zone.
   :nothing:
     shortcode: resources_common_actions_nothing.md
+  :create:
+    markdown: Creates and updates a DNS Zone (default)
+  :delete:
+    markdown: Deletes a DNS Zone
 properties_list:
 - property: replication_scope
   ruby_type: String

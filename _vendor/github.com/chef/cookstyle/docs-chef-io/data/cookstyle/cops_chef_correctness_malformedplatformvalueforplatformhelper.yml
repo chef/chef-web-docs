@@ -1,0 +1,42 @@
+---
+short_name: MalformedPlatformValueForPlatformHelper
+full_name: Chef/Correctness/MalformedPlatformValueForPlatformHelper
+department: Chef/Correctness
+description: When using the value_for_platform helper you must include a hash of possible
+  platforms where each platform contains a hash of versions and potential values.
+  If you don't wish to match on a particular version you can instead use the key 'default'.
+autocorrection: false
+target_chef_version: All Versions
+examples: |2-
+
+  #### incorrect
+
+  ```ruby
+  value_for_platform(
+    %w(redhat oracle) => 'baz'
+  )
+  ```
+
+  #### correct
+
+  ```ruby
+  value_for_platform(
+    %w(redhat oracle) => {
+      '5' => 'foo',
+      '6' => 'bar',
+      'default'd => 'baz',
+    }
+  )
+
+  value_for_platform(
+    %w(redhat oracle) => {
+      'default' => 'foo',
+    },
+    'default' => 'bar'
+  )
+  ```
+version_added: 5.16.0
+enabled: true
+excluded_file_paths:
+- "**/metadata.rb"
+- "**/Berksfile"

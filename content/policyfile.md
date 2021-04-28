@@ -1,10 +1,9 @@
 +++
 title = "About Policyfile"
 draft = false
-
 gh_repo = "chef-web-docs"
-
 aliases = ["/policyfile.html"]
+product = ["client", "server"]
 
 [menu]
   [menu.infra]
@@ -110,7 +109,6 @@ process does enforce good development habits, but at the same time it
 shouldn't be a required part of a workflow that ends with publishing an
 in-development cookbook to the Chef Infra Server for testing against
 real nodes.
-
 Policyfile solves this issue by using a cookbook publishing API for the
 Chef Infra Server that does not provide cookbook mutability. Name
 collisions are prevented by storing cookbooks by name and an opaque
@@ -381,10 +379,6 @@ Server, the `policy_groups` concept is not applicable. The value of
 #### Syntax
 
 {{% ctl_chef_export_syntax %}}
-
-#### Configuration Settings
-
-{{% ctl_chef_export_config %}}
 
 #### Options
 

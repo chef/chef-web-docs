@@ -3,6 +3,8 @@ title = "Installation Guide"
 
 draft = false
 
+gh_repo = "automate"
+
 [menu]
   [menu.automate]
     title = "Install Guide"
@@ -10,8 +12,6 @@ draft = false
     identifier = "automate/getting_started/install.md Install Guide"
     weight = 30
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/automate/blob/master/components/docs-chef-io/content/automate/install.md)
 
 Before beginning your installation, check the [System Requirements]({{< relref "system_requirements.md" >}}) for Chef Automate.
 
@@ -133,13 +133,14 @@ and retry opening Chef Automate in your browser.
 
 ### Configuring External Data Stores
 
-You can configure Chef Automate to use PostgreSQL and Elasticsearch clusters that are not
-deployed via Chef Automate itself. The directions provided below are intended for use only
-during initial deployment of Chef Automate. Please reach out to a Customer Support or
-Customer Success representative for assistance with migrating from a standalone
-installation of Chef Automate to one using externally-deployed data stores.
+You can configure Chef Automate to use PostgreSQL and Elasticsearch clusters that are not deployed via Chef Automate itself.
+The directions provided below are intended for use only during initial deployment of Chef Automate.
 
 #### Configuring External Elasticsearch
+
+{{< note >}}
+Chef Automate supports the official Elasticsearch Service by Elastic. Chef Automate does not test or support alternative services, such as Amazon Elasticsearch Service (Amazon ES).
+{{< /note >}}
 
 Add the following to your config.toml:
 
@@ -179,18 +180,18 @@ Name Servers can be added in two ways:
 
 1. **Add nameserver IPs:** Add the nameservers to your `config.toml` file to resolve the Elasticsearch nodes.
 
-  ```toml
-  [esgateway.v1.sys.ngx.main.resolvers]
-    # Multiple resolvers can be specified by adding the resolvers in the list.
-    nameservers = ["192.0.2.0:24", "198.51.100.0:24"]
-  ```
+    ```toml
+    [esgateway.v1.sys.ngx.main.resolvers]
+      # Multiple resolvers can be specified by adding the resolvers in the list.
+      nameservers = ["192.0.2.0:24", "198.51.100.0:24"]
+    ```
 
 1. **Set system DNS entries:** To use existing system nameserver entries from `/etc/resolv.conf`, add the following setting to `config.toml`:
 
-  ```toml
-  [esgateway.v1.sys.ngx.main.resolvers]
-    enable_system_nameservers = true
-  ```
+    ```toml
+    [esgateway.v1.sys.ngx.main.resolvers]
+      enable_system_nameservers = true
+    ```
 
 If both options are set, nameserver IPs takes precedence over the system nameserver entries.
 
@@ -353,18 +354,18 @@ Name Servers can be added in two ways:
 
 1. **Add nameserver IPs:** If you are aware of the nameservers which should resolve the PostgreSQL nodes, the nameservers can be added to your `config.toml` file.
 
-  ```toml
-  [pg_gateway.v1.sys.resolvers]
-    # Multiple resolvers can be specified by adding the resolvers in the list.
-    nameservers = ["127.0.0.53:53"]
-  ```
+    ```toml
+    [pg_gateway.v1.sys.resolvers]
+      # Multiple resolvers can be specified by adding the resolvers in the list.
+      nameservers = ["127.0.0.53:53"]
+    ```
 
 1. **Set system DNS entries:** To use existing system nameserver entries from `/etc/resolv.conf`, add the following setting to `config.toml`:
 
-  ```toml
-  [pg_gateway.v1.sys.resolvers]
-    enable_system_nameservers = false
-  ```
+    ```toml
+    [pg_gateway.v1.sys.resolvers]
+      enable_system_nameservers = true
+    ```
 
 If both options are set, nameserver IPs takes precedence over the system nameserver entries.
 

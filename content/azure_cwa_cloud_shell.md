@@ -1,10 +1,10 @@
 +++
 title = "Chef Workstation in Azure Cloud Shell"
 draft = false
-
 gh_repo = "chef-web-docs"
-
 aliases = ["/azure_cwa_cloud_shell.html"]
+
+product = ["client", "workstation"]
 
 [menu]
   [menu.infra]
@@ -22,12 +22,12 @@ machine.
 
 Chef Workstation on Azure Cloud Shell lets you use:
 
--   [chef](/ctl_chef/)
--   [kitchen](/workstation/ctl_kitchen/)
--   [inspec](/docs/reference/cli/)
--   [knife](/workstation/knife/)
--   [cookstyle](/workstation/cookstyle/)
--   [chef-run](https://www.chef.sh/docs/chef-workstation/getting-started/)
+- [chef](/ctl_chef/)
+- [kitchen](/workstation/ctl_kitchen/)
+- [inspec](/inspec/cli/)
+- [knife](/workstation/knife/)
+- [cookstyle](/workstation/cookstyle/)
+- [chef-run](/workstation/chef_run/)
 
 Combine the Chef Workstation command utilities with the other tools
 available in Cloud Shell, such as git, az-cli, terraform to write your

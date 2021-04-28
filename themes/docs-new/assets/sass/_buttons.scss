@@ -129,12 +129,9 @@ $extra: calc(#{$pad} * 1.2);
     white-space:nowrap
   }
   &-hide{
-    display:none!important
+    display: none;
   }
   &-container {
     padding:0.01rem 1rem;
-  }
-  &-show{
-    display:block!important
   }
 }

@@ -1,10 +1,9 @@
 +++
 title = "Share Cookbooks on the Chef Supermarket"
 draft = false
-
 gh_repo = "chef-web-docs"
-
 aliases = ["/supermarket_share_cookbook.html"]
+product = ["client", "server", "workstation"]
 
 [menu]
   [menu.infra]
@@ -41,11 +40,11 @@ cookbook sharing method of your choice:
 3.  Log in to Hosted Chef and click the **Create New Organization**
     button:
 
-    ![image](/images/hosted_chef_welcome.png)
+    {{< figure src="/images/hosted_chef_welcome.png" width=600 alt="Image of Chef Manage login window." class="no-shadow" >}}
 
 4.  Download and extract the Hosted Chef starter kit:
 
-    ![image](/images/download_starter_kit.png)
+    {{< figure src="/images/download_starter_kit.png" width=600 alt="Image showing the Administration tab and the Download Starter Kit button.">}}
 
 ## Share Cookbooks via Stove
 

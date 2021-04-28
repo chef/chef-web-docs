@@ -1,0 +1,38 @@
+---
+short_name: UsePlatformHelpers
+full_name: Chef/Style/UsePlatformHelpers
+department: Chef/Style
+description: Use the platform?() and platform_family?() helpers instead of node['platform]
+  == 'foo' and node['platform_family'] == 'bar'. These helpers are easier to read
+  and can accept multiple platform arguments, which greatly simplifies complex platform
+  logic.
+autocorrection: true
+target_chef_version: All Versions
+examples: |2-
+
+  #### incorrect
+
+  ```ruby
+  node['platform'] == 'ubuntu'
+  node['platform_family'] == 'debian'
+  node['platform'] != 'ubuntu'
+  node['platform_family'] != 'debian'
+  %w(rhel suse).include?(node['platform_family'])
+  node['platform'].eql?('ubuntu')
+  ```
+
+  #### correct
+
+  ```ruby
+  platform?('ubuntu')
+  !platform?('ubuntu')
+  platform_family?('debian')
+  !platform_family?('debian')
+  platform_family?('rhel', 'suse')
+  ```
+version_added: 5.6.0
+enabled: true
+excluded_file_paths:
+- "**/metadata.rb"
+- "**/libraries/*"
+- "**/Berksfile"

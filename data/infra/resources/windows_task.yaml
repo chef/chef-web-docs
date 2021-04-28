@@ -7,17 +7,10 @@ resource: windows_task
 resource_description_list:
 - markdown: Use the **windows_task** resource to create, delete or run a Windows scheduled
     task.
-- note:
-    markdown: 'The `windows_task` resource that was provided as part of the `windows`
-
-      cookbook included the `:change` action, which has been removed from
-
-      `windows_task` in Chef client. The `:create` action can be used instead
-
-      to update an existing task.'
 resource_new_in: '13.0'
 syntax_full_code_block: |-
   windows_task 'name' do
+    backup                              Integer, false # default value: 5
     command                             String
     cwd                                 String
     day                                 String, Integer
@@ -71,6 +64,14 @@ actions_list:
   :run:
     markdown: Runs a task.
 properties_list:
+- property: backup
+  ruby_type: Integer, false
+  required: false
+  default_value: '5'
+  new_in: '17.0'
+  description_list:
+  - markdown: Number of backups to keep of the task when modified/deleted. Set to
+      false to disable backups.
 - property: command
   ruby_type: String
   required: false

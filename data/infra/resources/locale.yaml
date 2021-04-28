@@ -11,22 +11,21 @@ resource_new_in: '14.5'
 syntax_full_code_block: |-
   locale 'name' do
     lang        String
-    lc_env      Hash
+    lc_env      Hash # default value: {}
     action      Symbol # defaults to :update if not specified
   end
-syntax_properties_list: 
+syntax_properties_list:
 syntax_full_properties_list:
 - "`locale` is the resource."
 - "`name` is the name given to the resource block."
 - "`action` identifies which steps Chef Infra Client will take to bring the node into
   the desired state."
 - "`lang` and `lc_env` are the properties available to this resource."
-
 actions_list:
   :nothing:
     shortcode: resources_common_actions_nothing.md
   :update:
-    markdown: Updates the system's locale.
+    markdown: Update the system's locale (default)
 properties_list:
 - property: lang
   ruby_type: String
@@ -36,6 +35,7 @@ properties_list:
 - property: lc_env
   ruby_type: Hash
   required: false
+  default_value: "{}"
   description_list:
   - markdown: "Sets the locale category that corresponds to environment variable.\n\
       \n-   *lc_env* is a hash of LC\\* env variables in the form of\n    ({'LC_ENV_VARIABLE'\

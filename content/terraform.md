@@ -3,6 +3,7 @@ title = "Chef and Terraform"
 draft = false
 
 gh_repo = "chef-web-docs"
+product = ["client", "server"]
 
 [menu]
   [menu.infra]
@@ -11,6 +12,10 @@ gh_repo = "chef-web-docs"
     parent = "chef_infra/getting_started"
     weight = 60
 +++
+
+{{< warning >}}
+Terraform deprecated the Chef Provisioner in the [0.13.4](https://www.terraform.io/docs/language/resources/provisioners/chef.html) release and they will remove it in a future version. Terraform continues to support the Chef Provider.
+{{< /warning >}}
 
 [Terraform](https://www.terraform.io/) is an open-source infrastructure-as-code provisioning tool from [HashiCorp](https://www.hashicorp.com/). Terraform allows you to write code to define and provision infrastructure for the cloud, virtual machines, and on-premises machines. Terraform is not a configuration management tool, it is responsible for deploying, maintaining, and destroying the infrastructure that servers and applications run on. When Terraform creates cloud or virtual servers, it uses [Provisioners](https://www.terraform.io/docs/provisioners/index.html) to enable configuration management to manage them. When Terraform talks to APIs to define or configure resources, it uses [Providers](https://www.terraform.io/docs/providers/index.html) to request those resources.
 
@@ -22,10 +27,9 @@ The [Terraform Chef Provisioner](https://www.terraform.io/docs/provisioners/chef
 
 If you are using [Chef Solo](/chef_solo/), you will most likely want to use the [Terraform remote-exec Provisioner](https://www.terraform.io/docs/provisioners/remote-exec.html) rather than the Terraform Chef Provisioner. The remote-exec Provisioner may be used to run a script or an inline set of commands on the newly created machine. Please refer to the [Terraform remote-exec Provisioner documentation](https://www.terraform.io/docs/provisioners/remote-exec.html) for further options and examples.
 
-
 #### Example remote-exec inline
 
-```
+```bash
 resource "aws_instance" "web" {
   # ...
 

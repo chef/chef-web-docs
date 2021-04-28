@@ -1,0 +1,11 @@
+---
+short_name: CookbooksDependsOnSelf
+full_name: Chef/Deprecations/CookbooksDependsOnSelf
+department: Chef/Deprecations
+autocorrection: true
+target_chef_version: All Versions
+examples: 
+version_added: 5.2.0
+enabled: true
+included_file_paths:
+- "**/metadata.rb"

@@ -1,10 +1,9 @@
 +++
 title = "Install Private Supermarket"
 draft = false
-
 gh_repo = "chef-web-docs"
-
 aliases = ["/install_supermarket.html"]
+product = ["client", "server", "workstation"]
 
 [menu]
   [menu.infra]
@@ -167,7 +166,7 @@ directory on a separate disk, and then use LVM so that may be expanded.
 A wrapper cookbook is used to define project- and/or
 organization-specific requirements around a community cookbook.
 
-<img src="/images/supermarket_wrapper_cookbook.svg" class="align-left" width="400" alt="image" />
+{{< figure src="/images/supermarket_wrapper_cookbook.svg" alt="Diagram showing a wrapper cookbook containing a private Supermarket." width="500">}}
 
 In the case of installing a private Chef Supermarket, Chef recommends
 the use of a wrapper cookbook to specify certain attributes that are

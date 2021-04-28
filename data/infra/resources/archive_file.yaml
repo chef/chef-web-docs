@@ -13,7 +13,7 @@ syntax_full_code_block: |-
   archive_file 'name' do
     destination      String
     group            String
-    mode             String, Integer # default value: "755"
+    mode             String, Integer # default value: "'755'"
     options          Array, Symbol
     overwrite        true, false, auto # default value: false
     owner            String
@@ -29,10 +29,10 @@ syntax_full_properties_list:
 - "`destination`, `group`, `mode`, `options`, `overwrite`, `owner`, and `path` are
   the properties available to this resource."
 actions_list:
-  :extract:
-    markdown: Extract and archive file.
   :nothing:
     shortcode: resources_common_actions_nothing.md
+  :extract:
+    markdown: Extract and archive file. (default)
 properties_list:
 - property: destination
   ruby_type: String
@@ -47,7 +47,7 @@ properties_list:
 - property: mode
   ruby_type: String, Integer
   required: false
-  default_value: '"755"'
+  default_value: "'755'"
   description_list:
   - markdown: The mode of the extracted files. Integer values are deprecated as octal
       values (ex. 0755) would not be interpreted correctly.

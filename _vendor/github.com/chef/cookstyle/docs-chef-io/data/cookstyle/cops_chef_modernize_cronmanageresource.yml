@@ -1,0 +1,26 @@
+---
+short_name: CronManageResource
+full_name: Chef/Modernize/CronManageResource
+department: Chef/Modernize
+description: The cron_manage resource was renamed to cron_access in the 6.1 release
+  of the cron cookbook, and later shipped in Chef Infra Client 14.4. The new resource
+  name should be used.
+autocorrection: true
+target_chef_version: 14.4+
+examples: |2-
+
+  #### incorrect
+
+  ```ruby
+  cron_manage 'mike'
+  ```
+
+  #### correct
+
+  ```ruby
+  cron_access 'mike'
+  ```
+version_added: 5.6.0
+enabled: true
+excluded_file_paths:
+- "**/metadata.rb"

@@ -43,6 +43,7 @@ syntax_full_code_block: |-
     proxy_username             String
     repo_gpgcheck              true, false
     report_instanceid          true, false
+    reposdir                   String # default value: "/etc/yum.repos.d/"
     repositoryid               String # default value: 'name' unless specified
     skip_if_unavailable        true, false
     source                     String
@@ -66,9 +67,9 @@ syntax_full_properties_list:
   `include_config`, `includepkgs`, `keepalive`, `make_cache`, `max_retries`, `metadata_expire`,
   `metalink`, `mirror_expire`, `mirrorlist`, `mirrorlist_expire`, `mode`, `options`,
   `password`, `priority`, `proxy`, `proxy_password`, `proxy_username`, `repo_gpgcheck`,
-  `report_instanceid`, `repositoryid`, `skip_if_unavailable`, `source`, `sslcacert`,
-  `sslclientcert`, `sslclientkey`, `sslverify`, `throttle`, `timeout`, and `username`
-  are the properties available to this resource."
+  `report_instanceid`, `reposdir`, `repositoryid`, `skip_if_unavailable`, `source`,
+  `sslcacert`, `sslclientcert`, `sslclientkey`, `sslverify`, `throttle`, `timeout`,
+  and `username` are the properties available to this resource."
 actions_list:
   :create:
     markdown: Create a repository based on the properties.
@@ -202,23 +203,18 @@ properties_list:
   ruby_type: String
   required: false
   description_list:
-  - markdown: 'Time (in seconds) after which the metadata will expire. If the current
+  - markdown: Time (in seconds) after which the metadata will expire. If the current
       metadata downloaded is less than the value specified, then Yum will not update
       the metadata against the repository. If you find that Yum is not downloading
       information on updates as often as you would like lower the value of this option.
       You can also change from the default of using seconds to using days, hours or
       minutes by appending a `d`, `h` or `m` respectively. The default is six hours
       to compliment yum-updates running once per hour. It is also possible to use
-      the word `never`, meaning that the metadata will never expire. Note: When using
-      a metalink file, the metalink must always be newer than the metadata for the
-      repository due to the validation, so this timeout also applies to the metalink
-      file.'
+      the word `never`, meaning that the metadata will never expire.
   - note:
-    - markdown: 'When using a metalink file, the metalink must always be newer than
-
-        the metadata for the repository due to the validation, so this
-
-        timeout also applies to the metalink file.'
+    - markdown: When using a metalink file, the metalink must always be newer than
+        the metadata for the repository due to the validation, so this timeout also
+        applies to the metalink file.
 - property: metalink
   ruby_type: String
   required: false
@@ -256,7 +252,7 @@ properties_list:
 - property: mode
   ruby_type: String, Integer
   required: false
-  default_value: '"0644"'
+  default_value: '0644'
   description_list:
   - markdown: Permissions mode of .repo file on disk. This is useful for scenarios
       where secrets are in the repo file. If this value is set to `600`, normal users
@@ -308,6 +304,13 @@ properties_list:
   description_list:
   - markdown: Determines whether to report the instance ID when using Amazon Linux
       AMIs and repositories.
+- property: reposdir
+  ruby_type: String
+  required: false
+  default_value: "/etc/yum.repos.d/"
+  new_in: '16.9'
+  description_list:
+  - markdown: The directory where the Yum repository files should be stored
 - property: repositoryid
   ruby_type: String
   required: false

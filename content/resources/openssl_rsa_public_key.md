@@ -7,6 +7,7 @@ robots = ""
 
 data_path = ["infra","resources","openssl_rsa_public_key"]
 layout = "infra_resource"
+toc_layout = "infra_resource_toc"
 
 
 [menu]

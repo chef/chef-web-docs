@@ -14,7 +14,7 @@ syntax_description: "A **git** resource block manages source control resources t
   \  action :sync\nend\n```"
 syntax_full_code_block: |-
   git 'name' do
-    additional_remotes      Hash
+    additional_remotes      Hash # default value: {}
     checkout_branch         String
     depth                   Integer
     destination             String # default value: 'name' unless specified

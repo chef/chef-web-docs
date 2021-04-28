@@ -1,10 +1,9 @@
 +++
 title = "About Cookbook Versioning"
 draft = false
-
 gh_repo = "chef-web-docs"
-
 aliases = ["/cookbook_versioning.html", "/cookbook_versions.html"]
+product = ["client", "server", "workstation"]
 
 [menu]
   [menu.infra]
@@ -122,7 +121,7 @@ not provided, `>= 0.0.0` is used as the default.
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><p><code>depends</code></p></td>
 <td><p>Show that a cookbook has a dependency on another cookbook. Use a version constraint to define dependencies for cookbook versions: <code>&lt;</code> (less than), <code>&lt;=</code> (less than or equal to), <code>=</code> (equal to), <code>&gt;=</code> (greater than or equal to; also known as "optimistically greater than", or "optimistic"), <code>~&gt;</code> (approximately greater than; also known as "pessimistically greater than", or "pessimistic"), or <code>&gt;</code> (greater than). This field requires that a cookbook with a matching name and version exists on the Chef Infra Server. When the match exists, the Chef Infra Server includes the dependency as part of the set of cookbooks that are sent to the node when Chef Infra Client runs. It is very important that the <code>depends</code> field contain accurate data. If a dependency statement is inaccurate, Chef Infra Client may not be able to complete the configuration of the system. For example:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb1-1"><a href="#cb1-1"></a>depends <span class="st">&#39;opscode-base&#39;</span></span></code></pre></div>
@@ -131,11 +130,11 @@ not provided, `>= 0.0.0` is used as the default.
 <p>or:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb3-1"><a href="#cb3-1"></a>depends <span class="st">&#39;runit&#39;</span>, <span class="st">&#39;~&gt; 1.2.3&#39;</span></span></code></pre></div></td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>provides</code></td>
 <td>Add a recipe, definition, or resource that is provided by this cookbook, should the auto-populated list be insufficient.</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>supports</code></td>
 <td>Show that a cookbook has a supported platform. Use a version constraint to define dependencies for platform versions: <code>&lt;</code> (less than), <code>&lt;=</code> (less than or equal to), <code>=</code> (equal to), <code>&gt;=</code> (greater than or equal to), <code>~&gt;</code> (approximately greater than), or <code>&gt;</code> (greater than). To specify more than one platform, use more than one <code>supports</code> field, once for each platform.</td>
 </tr>

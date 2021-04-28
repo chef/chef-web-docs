@@ -1,0 +1,23 @@
+---
+short_name: ResourceWithNothingAction
+full_name: Chef/RedundantCode/ResourceWithNothingAction
+department: Chef/RedundantCode
+description: Chef Infra Client provides the :nothing action by default for every resource.
+  There is no need to define a :nothing action in your resource code.
+autocorrection: true
+target_chef_version: All Versions
+examples: |2-
+
+  #### incorrect
+
+  ```ruby
+  action :nothing
+    # let's do nothing
+  end
+  ```
+version_added: 5.12.0
+enabled: true
+included_file_paths:
+- "**/libraries/*.rb"
+- "**/resources/*.rb"
+- "**/providers/*.rb"

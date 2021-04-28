@@ -3147,11 +3147,11 @@
     },
     "/api/v0/event_task_counts": {
       "get": {
-        "description": "Returns totals for update, create, and delete event tasks, which are the actions taken on the event.\n\nExample:\n```\nevent_task_counts?start=1592546400000&end=1593151199999\n```\n\nAuthorization Action:\n```\nevent:events:list\n```",
+        "description": "Returns the total counts of actions taken in an event. The counted actions are: update, create, and delete.\n\nExample:\n```\nevent_task_counts?start=1592546400000&end=1593151199999\n```\n\nAuthorization Action:\n```\nevent:events:list\n```",
         "tags": [
           "EventFeedService"
         ],
-        "summary": "List Counts Per Event Task Occurrence",
+        "summary": "List Counts of Individual Event Tasks",
         "operationId": "EventFeedService_GetEventTaskCounts",
         "parameters": [
           {
@@ -3197,11 +3197,11 @@
     },
     "/api/v0/event_type_counts": {
       "get": {
-        "description": "Returns totals for role, cookbook, and organization event types.\n\nExample:\n```\nevent_type_counts?start=1592546400000&end=1593151199999\n```\n\nAuthorization Action:\n```\nevent:events:list\n```",
+        "description": "Returns totals for role, cookbook, and organization events.\n\nExample:\n```\nevent_type_counts?start=1592546400000&end=1593151199999\n```\n\nAuthorization Action:\n```\nevent:events:list\n```",
         "tags": [
           "EventFeedService"
         ],
-        "summary": "List Count of Event Type Occurrence",
+        "summary": "List Counts of Event Types",
         "operationId": "EventFeedService_GetEventTypeCounts",
         "parameters": [
           {
@@ -3247,7 +3247,7 @@
     },
     "/api/v0/eventfeed": {
       "get": {
-        "description": "Returns a list of recorded events in Chef Automate, such as Infra Server events (cookbook creation, policyfile updates, and node creation) and Chef Automate internal events (profile installs and scan job creation).\nAdding a filter makes a list of all events that meet the filter criteria.\n\nExample:\n```\neventfeed?collapse=true&filter=organization:The%2520Watchmen&page_size=100&start=1592546400000&end=1593151199999\n```\n\nAuthorization Action:\n```\nevent:events:list\n```",
+        "description": "Returns a list of recorded events in Chef Automate, such as Infra Server events (cookbook creation, policyfile updates, and node creation) and Chef Automate internal events (profile installs and scan job creation).\nAdding a filter makes a list of all events that meet the filter criteria.\n\nExample:\n```\neventfeed?collapse=true&filter=organization:4thcafe&page_size=100&start=1592546400000&end=1593151199999\n```\n\nAuthorization Action:\n```\nevent:events:list\n```",
         "tags": [
           "EventFeedService"
         ],
@@ -3358,7 +3358,7 @@
         "tags": [
           "EventFeedService"
         ],
-        "summary": "List Summary Stats About Events",
+        "summary": "List Summary Data of Events",
         "operationId": "EventFeedService_GetEventStringBuckets",
         "parameters": [
           {
@@ -3916,6 +3916,26 @@
             "name": "org_id",
             "in": "path",
             "required": true
+          },
+          {
+            "type": "string",
+            "description": "The search query used to identify a list of items.",
+            "name": "search_query.q",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "Starting page for the results.",
+            "name": "search_query.page",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "The number of results on each page.",
+            "name": "search_query.per_page",
+            "in": "query"
           }
         ],
         "responses": {
@@ -3923,6 +3943,50 @@
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/chef.automate.api.infra_proxy.response.Clients"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/grpc.gateway.runtime.Error"
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "InfraProxy"
+        ],
+        "operationId": "InfraProxy_CreateClient",
+        "parameters": [
+          {
+            "type": "string",
+            "description": "Chef Infra Server ID.",
+            "name": "server_id",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "description": "Chef organization ID.",
+            "name": "org_id",
+            "in": "path",
+            "required": true
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/chef.automate.api.infra_proxy.request.CreateClient"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/chef.automate.api.infra_proxy.response.CreateClient"
             }
           },
           "default": {
@@ -3968,6 +4032,102 @@
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/chef.automate.api.infra_proxy.response.Client"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/grpc.gateway.runtime.Error"
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "InfraProxy"
+        ],
+        "operationId": "InfraProxy_DeleteClient",
+        "parameters": [
+          {
+            "type": "string",
+            "description": "Chef Infra Server ID.",
+            "name": "server_id",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "description": "Chef organization ID.",
+            "name": "org_id",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "description": "Client name.",
+            "name": "name",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/chef.automate.api.infra_proxy.response.Client"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/grpc.gateway.runtime.Error"
+            }
+          }
+        }
+      }
+    },
+    "/api/v0/infra/servers/{server_id}/orgs/{org_id}/clients/{name}/reset": {
+      "put": {
+        "tags": [
+          "InfraProxy"
+        ],
+        "operationId": "InfraProxy_ResetClientKey",
+        "parameters": [
+          {
+            "type": "string",
+            "description": "Chef Infra Server ID.",
+            "name": "server_id",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "description": "Chef organization ID.",
+            "name": "org_id",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "description": "Client name.",
+            "name": "name",
+            "in": "path",
+            "required": true
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/chef.automate.api.infra_proxy.request.ClientKey"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/chef.automate.api.infra_proxy.response.ResetClient"
             }
           },
           "default": {
@@ -4192,12 +4352,6 @@
             "name": "org_id",
             "in": "path",
             "required": true
-          },
-          {
-            "type": "string",
-            "description": "Data bag name.",
-            "name": "name",
-            "in": "query"
           }
         ],
         "responses": {
@@ -4261,6 +4415,69 @@
       }
     },
     "/api/v0/infra/servers/{server_id}/orgs/{org_id}/data_bags/{name}": {
+      "get": {
+        "tags": [
+          "InfraProxy"
+        ],
+        "operationId": "InfraProxy_GetDataBagItems",
+        "parameters": [
+          {
+            "type": "string",
+            "description": "Chef Infra Server ID.",
+            "name": "server_id",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "description": "Chef organization ID.",
+            "name": "org_id",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "description": "Data bag name.",
+            "name": "name",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "description": "The search query used to identify a list of items.",
+            "name": "search_query.q",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "Starting page for the results.",
+            "name": "search_query.page",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "The number of results on each page.",
+            "name": "search_query.per_page",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/chef.automate.api.infra_proxy.response.DataBagItems"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/grpc.gateway.runtime.Error"
+            }
+          }
+        }
+      },
       "post": {
         "tags": [
           "InfraProxy"
@@ -4338,12 +4555,6 @@
             "name": "name",
             "in": "path",
             "required": true
-          },
-          {
-            "type": "string",
-            "description": "Data bag item name.",
-            "name": "item",
-            "in": "query"
           }
         ],
         "responses": {
@@ -4462,7 +4673,57 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/chef.automate.api.infra_proxy.response.DataBag"
+              "$ref": "#/definitions/chef.automate.api.infra_proxy.response.DataBagItem"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/grpc.gateway.runtime.Error"
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "InfraProxy"
+        ],
+        "operationId": "InfraProxy_DeleteDataBagItem",
+        "parameters": [
+          {
+            "type": "string",
+            "description": "Chef Infra Server ID.",
+            "name": "server_id",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "description": "Chef organization ID.",
+            "name": "org_id",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "description": "Data bag name.",
+            "name": "name",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "description": "Data bag item name.",
+            "name": "item",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/chef.automate.api.infra_proxy.response.DataBagItem"
             }
           },
           "default": {
@@ -4494,6 +4755,26 @@
             "name": "org_id",
             "in": "path",
             "required": true
+          },
+          {
+            "type": "string",
+            "description": "The search query used to identify a list of items.",
+            "name": "search_query.q",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "Starting page for the results.",
+            "name": "search_query.page",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "The number of results on each page.",
+            "name": "search_query.per_page",
+            "in": "query"
           }
         ],
         "responses": {
@@ -4695,6 +4976,51 @@
         }
       }
     },
+    "/api/v0/infra/servers/{server_id}/orgs/{org_id}/environments/{name}/recipes": {
+      "get": {
+        "tags": [
+          "InfraProxy"
+        ],
+        "operationId": "InfraProxy_GetEnvironmentRecipes",
+        "parameters": [
+          {
+            "type": "string",
+            "description": "Chef Infra Server ID.",
+            "name": "server_id",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "description": "Chef organization ID.",
+            "name": "org_id",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "description": "Environment name.",
+            "name": "name",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/chef.automate.api.infra_proxy.response.EnvironmentRecipesList"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/grpc.gateway.runtime.Error"
+            }
+          }
+        }
+      }
+    },
     "/api/v0/infra/servers/{server_id}/orgs/{org_id}/nodes": {
       "get": {
         "tags": [
@@ -4734,6 +5060,49 @@
       }
     },
     "/api/v0/infra/servers/{server_id}/orgs/{org_id}/nodes/{name}": {
+      "get": {
+        "tags": [
+          "InfraProxy"
+        ],
+        "operationId": "InfraProxy_GetNode",
+        "parameters": [
+          {
+            "type": "string",
+            "description": "Chef Infra Server ID.",
+            "name": "server_id",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "description": "Chef organization ID.",
+            "name": "org_id",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "description": "Node name.",
+            "name": "name",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/chef.automate.api.infra_proxy.response.Node"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/grpc.gateway.runtime.Error"
+            }
+          }
+        }
+      },
       "put": {
         "tags": [
           "InfraProxy"
@@ -4766,7 +5135,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/chef.automate.api.infra_proxy.request.UpdateNode"
+              "$ref": "#/definitions/chef.automate.api.infra_proxy.request.NodeDetails"
             }
           }
         ],
@@ -4774,7 +5143,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/chef.automate.api.infra_proxy.response.UpdateNode"
+              "$ref": "#/definitions/chef.automate.api.infra_proxy.response.Node"
             }
           },
           "default": {
@@ -4818,6 +5187,112 @@
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/chef.automate.api.infra_proxy.response.DeleteNode"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/grpc.gateway.runtime.Error"
+            }
+          }
+        }
+      }
+    },
+    "/api/v0/infra/servers/{server_id}/orgs/{org_id}/nodes/{name}/environment": {
+      "put": {
+        "tags": [
+          "InfraProxy"
+        ],
+        "operationId": "InfraProxy_UpdateNodeEnvironment",
+        "parameters": [
+          {
+            "type": "string",
+            "description": "Chef Infra Server ID.",
+            "name": "server_id",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "description": "Chef organization ID.",
+            "name": "org_id",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "description": "Node name.",
+            "name": "name",
+            "in": "path",
+            "required": true
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/chef.automate.api.infra_proxy.request.UpdateNodeEnvironment"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/chef.automate.api.infra_proxy.response.UpdateNodeEnvironment"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/grpc.gateway.runtime.Error"
+            }
+          }
+        }
+      }
+    },
+    "/api/v0/infra/servers/{server_id}/orgs/{org_id}/nodes/{name}/tags": {
+      "put": {
+        "tags": [
+          "InfraProxy"
+        ],
+        "operationId": "InfraProxy_UpdateNodeTags",
+        "parameters": [
+          {
+            "type": "string",
+            "description": "Chef Infra Server ID.",
+            "name": "server_id",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "description": "Chef organization ID.",
+            "name": "org_id",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "description": "Node name.",
+            "name": "name",
+            "in": "path",
+            "required": true
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/chef.automate.api.infra_proxy.request.UpdateNodeTags"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/chef.automate.api.infra_proxy.response.UpdateNodeTags"
             }
           },
           "default": {
@@ -4938,6 +5413,26 @@
             "name": "org_id",
             "in": "path",
             "required": true
+          },
+          {
+            "type": "string",
+            "description": "The search query used to identify a list of items.",
+            "name": "search_query.q",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "Starting page for the results.",
+            "name": "search_query.page",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "The number of results on each page.",
+            "name": "search_query.per_page",
+            "in": "query"
           }
         ],
         "responses": {
@@ -12586,7 +13081,7 @@
           "$ref": "#/definitions/chef.automate.api.compliance.scanner.jobs.v1.Query.OrderType"
         },
         "page": {
-          "description": "The number of result pages to return.",
+          "description": "Starting page for the results.",
           "type": "integer",
           "format": "int32"
         },
@@ -15375,6 +15870,54 @@
         "V2"
       ]
     },
+    "chef.automate.api.infra_proxy.request.ClientKey": {
+      "type": "object",
+      "properties": {
+        "key": {
+          "description": "Client key name.",
+          "type": "string"
+        },
+        "name": {
+          "description": "Client name.",
+          "type": "string"
+        },
+        "org_id": {
+          "description": "Chef organization ID.",
+          "type": "string"
+        },
+        "server_id": {
+          "description": "Chef Infra Server ID.",
+          "type": "string"
+        }
+      }
+    },
+    "chef.automate.api.infra_proxy.request.CreateClient": {
+      "type": "object",
+      "properties": {
+        "create_key": {
+          "description": "Boolean indicates whether it's required to create a key or not.",
+          "type": "boolean",
+          "format": "boolean"
+        },
+        "name": {
+          "description": "Client name.",
+          "type": "string"
+        },
+        "org_id": {
+          "description": "Chef organization ID.",
+          "type": "string"
+        },
+        "server_id": {
+          "description": "Chef Infra Server ID.",
+          "type": "string"
+        },
+        "validator": {
+          "description": "Boolean indicates client type is validator or not.",
+          "type": "boolean",
+          "format": "boolean"
+        }
+      }
+    },
     "chef.automate.api.infra_proxy.request.CreateDataBag": {
       "type": "object",
       "properties": {
@@ -15565,6 +16108,58 @@
         }
       }
     },
+    "chef.automate.api.infra_proxy.request.NodeDetails": {
+      "type": "object",
+      "properties": {
+        "automatic_attributes": {
+          "description": "Node automatic attributes JSON.",
+          "type": "object"
+        },
+        "default_attributes": {
+          "description": "Node default attributes JSON.",
+          "type": "object"
+        },
+        "environment": {
+          "description": "Node environment.",
+          "type": "string"
+        },
+        "name": {
+          "description": "Node name.",
+          "type": "string"
+        },
+        "normal_attributes": {
+          "description": "Node normal attributes JSON.",
+          "type": "object"
+        },
+        "org_id": {
+          "description": "Chef organization ID.",
+          "type": "string"
+        },
+        "override_attributes": {
+          "description": "Node override attributes JSON.",
+          "type": "object"
+        },
+        "policy_group": {
+          "description": "Node policy group.",
+          "type": "string"
+        },
+        "policy_name": {
+          "description": "Node policy name.",
+          "type": "string"
+        },
+        "run_list": {
+          "description": "Node run-list.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "server_id": {
+          "description": "Chef Infra Server ID.",
+          "type": "string"
+        }
+      }
+    },
     "chef.automate.api.infra_proxy.request.ResetOrgAdminKey": {
       "type": "object",
       "properties": {
@@ -15578,6 +16173,25 @@
         },
         "server_id": {
           "description": "Chef Infra Server ID.",
+          "type": "string"
+        }
+      }
+    },
+    "chef.automate.api.infra_proxy.request.SearchQuery": {
+      "type": "object",
+      "properties": {
+        "page": {
+          "description": "Starting page for the results.",
+          "type": "integer",
+          "format": "int32"
+        },
+        "per_page": {
+          "description": "The number of results on each page.",
+          "type": "integer",
+          "format": "int32"
+        },
+        "q": {
+          "description": "The search query used to identify a list of items.",
           "type": "string"
         }
       }
@@ -15647,55 +16261,52 @@
         }
       }
     },
-    "chef.automate.api.infra_proxy.request.UpdateNode": {
+    "chef.automate.api.infra_proxy.request.UpdateNodeEnvironment": {
       "type": "object",
       "properties": {
-        "automatic_attributes": {
-          "description": "Node automatic attributes JSON.",
-          "type": "object"
-        },
-        "default_attributes": {
-          "description": "Node default attributes JSON.",
-          "type": "object"
-        },
         "environment": {
-          "description": "Node environment.",
+          "description": "Node environment name.",
           "type": "string"
         },
         "name": {
           "description": "Node name.",
           "type": "string"
         },
-        "normal_attributes": {
-          "description": "Node normal attributes JSON.",
-          "type": "object"
+        "org_id": {
+          "description": "Chef organization ID.",
+          "type": "string"
+        },
+        "server_id": {
+          "description": "Chef Infra Server ID.",
+          "type": "string"
+        }
+      }
+    },
+    "chef.automate.api.infra_proxy.request.UpdateNodeTags": {
+      "type": "object",
+      "properties": {
+        "action": {
+          "description": "Node tags action (e.g. 'add', 'delete', 'set').",
+          "type": "string"
+        },
+        "name": {
+          "description": "Node name.",
+          "type": "string"
         },
         "org_id": {
           "description": "Chef organization ID.",
           "type": "string"
         },
-        "override_attributes": {
-          "description": "Node override attributes JSON.",
-          "type": "object"
-        },
-        "policy_group": {
-          "description": "Node policy group.",
+        "server_id": {
+          "description": "Chef Infra Server ID.",
           "type": "string"
         },
-        "policy_name": {
-          "description": "Node policy name.",
-          "type": "string"
-        },
-        "run_list": {
-          "description": "Node run-list.",
+        "tags": {
+          "description": "Node tags.",
           "type": "array",
           "items": {
             "type": "string"
           }
-        },
-        "server_id": {
-          "description": "Chef Infra Server ID.",
-          "type": "string"
         }
       }
     },
@@ -15810,6 +16421,10 @@
           "description": "Chef object type.",
           "type": "string"
         },
+        "client_key": {
+          "description": "Client key detail.",
+          "$ref": "#/definitions/chef.automate.api.infra_proxy.response.ClientAccessKey"
+        },
         "client_name": {
           "description": "Client name return by Chef Infra Server API.",
           "type": "string"
@@ -15833,12 +16448,55 @@
         }
       }
     },
+    "chef.automate.api.infra_proxy.response.ClientAccessKey": {
+      "type": "object",
+      "properties": {
+        "expiration_date": {
+          "description": "Client key expiration date string.",
+          "type": "string"
+        },
+        "name": {
+          "description": "Client key name.",
+          "type": "string"
+        },
+        "public_key": {
+          "description": "Client public key.",
+          "type": "string"
+        }
+      }
+    },
+    "chef.automate.api.infra_proxy.response.ClientKey": {
+      "type": "object",
+      "properties": {
+        "expiration_date": {
+          "description": "Client key expiration date string.",
+          "type": "string"
+        },
+        "name": {
+          "description": "Client key name.",
+          "type": "string"
+        },
+        "private_key": {
+          "description": "Client private key.",
+          "type": "string"
+        },
+        "public_key": {
+          "description": "Client public key.",
+          "type": "string"
+        }
+      }
+    },
     "chef.automate.api.infra_proxy.response.ClientListItem": {
       "type": "object",
       "properties": {
         "name": {
           "description": "Client name.",
           "type": "string"
+        },
+        "validator": {
+          "description": "Boolean indicates client type is validator or not.",
+          "type": "boolean",
+          "format": "boolean"
         }
       }
     },
@@ -15851,6 +16509,16 @@
           "items": {
             "$ref": "#/definitions/chef.automate.api.infra_proxy.response.ClientListItem"
           }
+        },
+        "page": {
+          "description": "Starting page for the results.",
+          "type": "integer",
+          "format": "int32"
+        },
+        "total": {
+          "description": "Total number of records.",
+          "type": "integer",
+          "format": "int32"
         }
       }
     },
@@ -16096,6 +16764,19 @@
         }
       }
     },
+    "chef.automate.api.infra_proxy.response.CreateClient": {
+      "type": "object",
+      "properties": {
+        "client_key": {
+          "description": "Client key detail.",
+          "$ref": "#/definitions/chef.automate.api.infra_proxy.response.ClientKey"
+        },
+        "name": {
+          "description": "Client name.",
+          "type": "string"
+        }
+      }
+    },
     "chef.automate.api.infra_proxy.response.CreateDataBag": {
       "type": "object",
       "properties": {
@@ -16139,6 +16820,15 @@
     "chef.automate.api.infra_proxy.response.DataBag": {
       "type": "object",
       "properties": {
+        "name": {
+          "description": "Data bag name.",
+          "type": "string"
+        }
+      }
+    },
+    "chef.automate.api.infra_proxy.response.DataBagItem": {
+      "type": "object",
+      "properties": {
         "data": {
           "description": "Stringified json of data bag item.",
           "type": "string"
@@ -16150,6 +16840,32 @@
         "name": {
           "description": "Data bag name.",
           "type": "string"
+        }
+      }
+    },
+    "chef.automate.api.infra_proxy.response.DataBagItems": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "description": "Data bags item list.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/chef.automate.api.infra_proxy.response.DataBagListItem"
+          }
+        },
+        "name": {
+          "type": "string",
+          "title": "Data bag name"
+        },
+        "page": {
+          "description": "Starting page for the results.",
+          "type": "integer",
+          "format": "int32"
+        },
+        "total": {
+          "description": "Total number of records.",
+          "type": "integer",
+          "format": "int32"
         }
       }
     },
@@ -16240,9 +16956,25 @@
     "chef.automate.api.infra_proxy.response.EnvironmentListItem": {
       "type": "object",
       "properties": {
+        "description": {
+          "description": "Environment description.",
+          "type": "string"
+        },
         "name": {
           "description": "Environment name.",
           "type": "string"
+        }
+      }
+    },
+    "chef.automate.api.infra_proxy.response.EnvironmentRecipesList": {
+      "type": "object",
+      "properties": {
+        "recipes": {
+          "description": "Environment recipes list.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
         }
       }
     },
@@ -16255,6 +16987,16 @@
           "items": {
             "$ref": "#/definitions/chef.automate.api.infra_proxy.response.EnvironmentListItem"
           }
+        },
+        "page": {
+          "description": "Starting page for the results.",
+          "type": "integer",
+          "format": "int32"
+        },
+        "total": {
+          "description": "Total number of records.",
+          "type": "integer",
+          "format": "int32"
         }
       }
     },
@@ -16342,6 +17084,61 @@
         },
         "run_list": {
           "description": "Run list associated with the policy.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "chef.automate.api.infra_proxy.response.Node": {
+      "type": "object",
+      "properties": {
+        "automatic_attributes": {
+          "description": "Node automatic attributes JSON.",
+          "type": "string"
+        },
+        "default_attributes": {
+          "description": "Node default attributes JSON.",
+          "type": "string"
+        },
+        "environment": {
+          "description": "Node environment.",
+          "type": "string"
+        },
+        "name": {
+          "description": "Node name.",
+          "type": "string"
+        },
+        "node_id": {
+          "description": "Node ID.",
+          "type": "string"
+        },
+        "normal_attributes": {
+          "description": "Node normal attributes JSON.",
+          "type": "string"
+        },
+        "override_attributes": {
+          "description": "Node override attributes JSON.",
+          "type": "string"
+        },
+        "policy_group": {
+          "description": "Node policy group.",
+          "type": "string"
+        },
+        "policy_name": {
+          "description": "Node policy name.",
+          "type": "string"
+        },
+        "run_list": {
+          "description": "Node run-list.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "tags": {
+          "description": "Node tags.",
           "type": "array",
           "items": {
             "type": "string"
@@ -16523,6 +17320,19 @@
         }
       }
     },
+    "chef.automate.api.infra_proxy.response.ResetClient": {
+      "type": "object",
+      "properties": {
+        "client_key": {
+          "description": "Client key detail.",
+          "$ref": "#/definitions/chef.automate.api.infra_proxy.response.ClientKey"
+        },
+        "name": {
+          "description": "Client name.",
+          "type": "string"
+        }
+      }
+    },
     "chef.automate.api.infra_proxy.response.ResetOrgAdminKey": {
       "type": "object",
       "properties": {
@@ -16598,12 +17408,22 @@
     "chef.automate.api.infra_proxy.response.Roles": {
       "type": "object",
       "properties": {
+        "page": {
+          "description": "Starting page for the results.",
+          "type": "integer",
+          "format": "int32"
+        },
         "roles": {
           "description": "List of the roles item.",
           "type": "array",
           "items": {
             "$ref": "#/definitions/chef.automate.api.infra_proxy.response.RoleListItem"
           }
+        },
+        "total": {
+          "description": "Total number of records.",
+          "type": "integer",
+          "format": "int32"
         }
       }
     },
@@ -16718,12 +17538,28 @@
         }
       }
     },
-    "chef.automate.api.infra_proxy.response.UpdateNode": {
+    "chef.automate.api.infra_proxy.response.UpdateNodeEnvironment": {
       "type": "object",
       "properties": {
+        "environment": {
+          "description": "Node environment name.",
+          "type": "string"
+        },
         "name": {
           "description": "Node name.",
           "type": "string"
+        }
+      }
+    },
+    "chef.automate.api.infra_proxy.response.UpdateNodeTags": {
+      "type": "object",
+      "properties": {
+        "tags": {
+          "description": "Node tags.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
         }
       }
     },
@@ -17740,7 +18576,7 @@
           "$ref": "#/definitions/chef.automate.api.nodes.v1.Query.OrderType"
         },
         "page": {
-          "description": "The number of result pages to return.",
+          "description": "Starting page for the results.",
           "type": "integer",
           "format": "int32"
         },
@@ -18091,7 +18927,7 @@
           "$ref": "#/definitions/chef.automate.api.secrets.Query.OrderType"
         },
         "page": {
-          "description": "The number of result pages to return.",
+          "description": "Starting page for the results.",
           "type": "integer",
           "format": "int32"
         },
@@ -18299,7 +19135,7 @@
       "x-displayName": "Managed Nodes"
     },
     {
-      "name": "EventFeed",
+      "name": "EventFeedService",
       "x-displayName": "Event Feed"
     },
     {
@@ -18384,7 +19220,7 @@
     {
       "name": "Event Feed",
       "tags": [
-        "EventFeed"
+        "EventFeedService"
       ]
     },
     {

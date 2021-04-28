@@ -1,10 +1,9 @@
 +++
 title = "Chef Supermarket"
 draft = false
-
 gh_repo = "chef-web-docs"
-
 aliases = ["/supermarket.html"]
+product = ["client", "server", "workstation"]
 
 [menu]
   [menu.infra]
@@ -24,7 +23,7 @@ Supermarket](https://supermarket.chef.io/).
 To interact with the public Chef Supermarket, use [knife
 supermarket](/workstation/knife_supermarket/) commands.
 
-<img src="/images/public_supermarket.svg" class="align-center" width="700" alt="image" />
+{{< figure src="/images/public_supermarket.svg" width="700" alt="Image showing the Chef Supermarket website." >}}
 
 ## Private Supermarket
 

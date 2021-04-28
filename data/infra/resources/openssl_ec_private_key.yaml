@@ -88,7 +88,7 @@ properties_list:
   - markdown: An optional property for specifying the path to write the file to if
       it differs from the resource block's name.
 examples: |
-  Generate a new ec privatekey with prime256v1 key curve and default des3 cipher
+  **Generate a new ec privatekey with prime256v1 key curve and default des3 cipher**
 
   ```ruby
   openssl_ec_private_key '/etc/ssl_files/eckey_prime256v1_des3.pem' do
@@ -98,7 +98,7 @@ examples: |
   end
   ```
 
-  Generate a new EC private key with prime256v1 key curve and aes-128-cbc cipher
+  **Generate a new ec private key with prime256v1 key curve and aes-128-cbc cipher**
 
   ```ruby
   openssl_ec_private_key '/etc/ssl_files/eckey_prime256v1_des3.pem' do

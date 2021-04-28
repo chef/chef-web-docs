@@ -1,0 +1,43 @@
+---
+short_name: PartialSearchClassUsage
+full_name: Chef/Deprecations/PartialSearchClassUsage
+department: Chef/Deprecations
+description: Legacy Chef::PartialSearch class usage should be updated to use the `search`
+  helper instead with the `filter_result` key.
+autocorrection: false
+target_chef_version: All Versions
+examples: |2-
+
+  #### incorrect
+
+  ```ruby
+  ::Chef::PartialSearch.new.search((:node, 'role:web',
+    keys: { 'name' => [ 'name' ],
+            'ip' => [ 'ipaddress' ],
+            'kernel_version' => %w(kernel version),
+              }
+  ).each do |result|
+    puts result['name']
+    puts result['ip']
+    puts result['kernel_version']
+  end
+  ```
+
+  #### correct
+
+  ```ruby
+  search(:node, 'role:web',
+    filter_result: { 'name' => [ 'name' ],
+                     'ip' => [ 'ipaddress' ],
+                     'kernel_version' => %w(kernel version),
+              }
+  ).each do |result|
+    puts result['name']
+    puts result['ip']
+    puts result['kernel_version']
+  end
+  ```
+version_added: 5.11.0
+enabled: true
+excluded_file_paths:
+- "**/metadata.rb"

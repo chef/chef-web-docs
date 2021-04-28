@@ -1,0 +1,26 @@
+---
+short_name: UnnecessaryDependsChef14
+full_name: Chef/Modernize/UnnecessaryDependsChef14
+department: Chef/Modernize
+description: Don't depend on cookbooks made obsolete by Chef Infra Client 14+. These
+  community cookbooks contain resources that are now included in Chef Infra Client
+  itself.
+autocorrection: true
+target_chef_version: 14.0+
+examples: |2-
+
+  #### incorrect
+
+  ```ruby
+  depends 'build-essential'
+  depends 'chef_handler'
+  depends 'chef_hostname'
+  depends 'dmg'
+  depends 'mac_os_x'
+  depends 'swap'
+  depends 'sysctl'
+  ```
+version_added: 5.1.0
+enabled: true
+included_file_paths:
+- "**/metadata.rb"

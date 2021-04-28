@@ -1,6 +1,7 @@
 +++
 title = "Chef InSpec Shell"
 draft = false
+gh_repo = "inspec"
 
 [menu]
   [menu.inspec]
@@ -9,8 +10,6 @@ draft = false
     parent = "inspec/reference"
     weight = 110
 +++
-
-[\[edit on GitHub\]](https://github.com/inspec/inspec/blob/master/docs-chef-io/content/inspec/shell.md)
 
 The Chef InSpec interactive shell is a pry based REPL that can be used to
 quickly run Chef InSpec controls and tests without having to write it to a
@@ -230,4 +229,50 @@ $ inspec shell --format json -c 'describe file("/Users/test") do it { should exi
     "duration": 0.003171
   }
 }
+```
+
+## Running Chef InSpec Shell With Inputs
+
+With InSpec [profiles that support inputs](inspec/inputs/#which-profiles-support-inputs),
+you can set inputs using the InSpec `shell` command. This allows you to work more consistently with
+InSpec profiles when switching between the `shell` and `exec` commands.
+
+For more details on inputs, see the [inputs reference](/inspec/inputs/).
+
+### Set Inputs with Command-line Options
+
+The `shell` command accepts one or more inputs in the command line as single-quoted YAML or JSON structures.
+
+```bash
+$ inspec shell --input=input_name=input_value
+Welcome to the interactive InSpec Shell
+To find out how to use it, type: help
+
+inspec> control 'my_control' do
+inspec>   describe input('input_name') do
+inspec>     it { should cmp 'input_value' }
+inspec>   end
+inspec> end
+Profile: inspec-shell
+
+  ✔  my_control: input_value
+     ✔  input_value is expected to cmp == "input_value"
+
+Profile Summary: 1 successful control, 0 control failures, 0 controls skipped
+Test Summary: 1 successful, 0 failures, 0 skipped
+inspec> exit
+```
+
+### Set Inputs with YAML File
+
+You can also save inputs and values to one or more YAML files and pass them to `shell` in the command line.
+For example:
+
+```yaml
+input_name: input_value
+another_input: another_value
+```
+
+```bash
+inspec shell --input-file=<path>
 ```

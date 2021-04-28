@@ -30,14 +30,13 @@ syntax_full_properties_list:
 - "`comment`, `default`, `device_id`, `driver_name`, `ipv4_address`, `location`, `share_name`,
   and `shared` are the properties available to this resource."
 actions_list:
+  :nothing:
+    shortcode: resources_common_actions_nothing.md
   :create:
-    markdown: Default. Create a new printer and printer port, if one doesn't already
-      exist.
+    markdown: Create a new printer and printer port, if one doesn't already (default)
   :delete:
     markdown: Delete an existing printer. Note that this resource does not delete
       the associated printer port.
-  :nothing:
-    shortcode: resources_common_actions_nothing.md
 properties_list:
 - property: comment
   ruby_type: String

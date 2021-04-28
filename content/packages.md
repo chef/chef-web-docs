@@ -1,10 +1,9 @@
 +++
 title = "Chef Software Inc Packages"
 draft = false
-
 gh_repo = "chef-web-docs"
-
 aliases = ["/packages.html"]
+product = ["automate", "client", "server", "habitat", "inspec", "workstation"]
 
 [menu]
   [menu.overview]
@@ -30,11 +29,11 @@ installation methods support the following release channels:
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><code>stable</code></td>
 <td>A build from this channel is an "official" release that has passed full user acceptance testing. Artifacts in this channel are retained indefinitely.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>current</code></td>
 <td>A build from this channel is an "integration" build that has passed full testing, but has not been officially released. Artifacts in this channel are retained for 30 days and then removed automatically.</td>
 </tr>
@@ -81,10 +80,8 @@ To set up an Apt package repository for Debian and Ubuntu platforms:
 
     Replace `<DISTRIBUTION>` with the appropriate distribution name:
 
-    -   For Debian 8: `jessie`
     -   For Debian 9: `stretch`
     -   For Debian 10: `buster`
-    -   For Ubuntu 16.04: `xenial`
     -   For Ubuntu 18.04: `bionic`
     -   For Ubuntu 20.04: `focal`
 

@@ -2,6 +2,8 @@
 title = "knife role"
 draft = false
 
+gh_repo = "chef-workstation"
+
 aliases = ["/knife_role.html", "/knife_role/"]
 
 [menu]
@@ -10,8 +12,6 @@ aliases = ["/knife_role.html", "/knife_role/"]
     identifier = "chef_workstation/chef_workstation_tools/knife/knife_role.md knife role"
     parent = "chef_workstation/chef_workstation_tools/knife"
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/docs-chef-io/content/workstation/knife_role.md)
 
 {{% role %}}
 
@@ -81,7 +81,7 @@ This argument has the following options:
 
 `--description DESCRIPTION`
 
-:   The description of the role. This value populates the description
+: The description of the role. This value populates the description
     field for the role on the Chef Infra Server.
 
 {{< note >}}
@@ -254,7 +254,7 @@ This argument has the following options:
 
 `-w`, `--with-uri`
 
-:   Show the corresponding URIs.
+: Show the corresponding URIs.
 
 ### Examples
 
@@ -287,7 +287,7 @@ This argument has the following options:
 
 `-a ATTR`, `--attribute ATTR`
 
-:   The attribute (or attributes) to show.
+: The attribute (or attributes) to show.
 
 {{< note >}}
 

@@ -2,6 +2,8 @@
 title = "Telemetry"
 
 draft = false
+
+gh_repo = "automate"
 [menu]
   [menu.automate]
     title = "Telemetry"
@@ -10,11 +12,9 @@ draft = false
     weight = 50
 +++
 
-[\[edit on GitHub\]](https://github.com/chef/automate/blob/master/components/docs-chef-io/content/automate/telemetry.md)
-
 ### About Telemetry
 
-Users of this Chef Automate server may elect to share anonymized usage data with
+Users of this Chef Automate server may elect to share user-anonymized usage data with
 Chef Software, Inc.
 Chef uses this shared data to improve Chef Automate.
 Please see the [Chef Privacy Policy](https://chef.io/privacy-policy) for more information about the information Chef collects, and how that information is used.

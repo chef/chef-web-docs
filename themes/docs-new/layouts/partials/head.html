@@ -3,9 +3,14 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="{{ with .Params.robots }}{{ . }}{{ else }}{{ .Site.Params.robots }}{{ end }}">
+  {{- with .Params.st_robots -}}
+    <meta name="st:robots" content="{{ . }}">
+  {{- end }}
+  {{ with .Params.product -}}
+    {{- range $tag := . -}}
+      <meta class="swiftype" name="chef-product" data-type="string" content="{{ $tag }}" />
+    {{- end -}}
+  {{- end }}
   <title>{{ .Title }}</title>
-  <link rel="shortcut icon" type="image/png" href="{{ "images/favicon.ico" | relURL }}" />
-  {{ $options := (dict "includePaths" (slice "node_modules")) }}
-  {{ $style := resources.Get "sass/main.scss" | resources.ToCSS $options }}
-  <link rel="stylesheet" href="{{ $style.Permalink }}" />
+  {{ partialCached "scss" . -}}
 </head>

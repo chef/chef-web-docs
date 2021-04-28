@@ -22,10 +22,10 @@ syntax_full_properties_list:
   the desired state."
 - "`pool_id` is the property available to this resource."
 actions_list:
-  :attach:
-    markdown: Default. Attach the node to a subscription pool.
   :nothing:
     shortcode: resources_common_actions_nothing.md
+  :attach:
+    markdown: Attach the node to a subscription pool. (default)
   :remove:
     markdown: Remove the node from a subscription pool.
 properties_list:

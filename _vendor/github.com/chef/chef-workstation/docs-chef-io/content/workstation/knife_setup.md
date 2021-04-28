@@ -2,6 +2,8 @@
 title = "Setting up Knife"
 draft = false
 
+gh_repo = "chef-workstation"
+
 aliases = ["/knife_setup.html", "/knife_setup/"]
 
 [menu]
@@ -11,8 +13,6 @@ aliases = ["/knife_setup.html", "/knife_setup/"]
     parent = "chef_workstation/chef_workstation_tools/knife"
     weight = 20
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/docs-chef-io/content/workstation/knife_setup.md)
 
 knife is a command-line tool that provides an interface between a local chef-repo and the Chef Infra Server. The knife command line tool must be configured to communicate with the Chef Infra Server as well as any other infrastructure within your organization.
 
@@ -97,11 +97,10 @@ enable_password = "cisco"
 There are four ways to select which profile to use and are listed in
 priority order:
 
-1.  Pass the `--profile` option to knife, e.g.
-    `knife node list --profile dev`.
-2.  Set the profile name in the `CHEF_PROFILE` environment variable.
-3.  Write the profile name to the `~/.chef/context` file.
-4.  Otherwise, knife uses the 'default' profile.
+1. Pass the `--profile` option to knife, e.g. `knife node list --profile dev`.
+2. Set the profile name in the `CHEF_PROFILE` environment variable.
+3. Write the profile name to the `~/.chef/context` file.
+4. Otherwise, knife uses the 'default' profile.
 
 ## Knife Config
 

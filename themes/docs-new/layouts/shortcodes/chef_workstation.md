@@ -1,9 +1,10 @@
-Chef Workstation contains everything that is needed to start using Chef
-Infra and Chef InSpec:
+Start your infrastructure automation quickly and easily with [Chef Workstation](/workstation/). Chef Workstation gives you everything you need to get started with Chef - ad hoc remote execution, remote scanning, configuration tasks, cookbook creation tools as well as robust dependency and testing software - all in one easy-to-install package.
 
--   Chef Infra Client
--   Chef InSpec
--   chef and knife command line tools
--   Testing tools such as Test Kitchen, ChefSpec, and Cookstyle
--   Everything else needed to author cookbooks and upload them to the
-    Chef Infra Server
+Chef Workstation includes:
+
+- Chef Infra Client
+- Chef InSpec
+- Chef Habitat
+- chef and knife command line tools
+- Testing tools such as Test Kitchen and Cookstyle
+- Everything else needed to author cookbooks and upload them to the Chef Infra Server

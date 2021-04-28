@@ -524,7 +524,7 @@ examples: "
   \    :adapter => db_master['myapp']['db_adapter'],\n      :host => db_master['fqdn'],\n\
   \      :database => \"myapp_#{node.chef_environment}\",\n      :username => \"myapp\"\
   ,\n      :password => \"SUPERSECRET\",\n    )\n  end\n  ```\n\n  where:\n\n  - \
-  \  the `search` method in the Recipe DSL is used to find the first node\n      that\
+  \  the `search` method in the Chef Infra Language is used to find the first node\n      that\
   \ is the database master (of which there should only be one)\n  -   the `:adapter`\
   \ variable property may also require an attribute to\n      have been set on a role,\
   \ which then determines the correct adapter\n\n  The template will render similar\
@@ -552,4 +552,3 @@ examples: "
   \ `client.rb` recipe and the\n  `outputs.conf.erb` template files that are located\
   \ in the [chef-splunk\n  cookbook](https://github.com/chef-cookbooks/chef-splunk/)\
   \ that is\n  maintained by Chef.\n"
-

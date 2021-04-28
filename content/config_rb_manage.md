@@ -1,11 +1,8 @@
 +++
 title = "manage.rb"
 draft = false
-
 gh_repo = "chef-web-docs"
 robots = "noindex"
-
-
 aliases = ["/config_rb_manage.html"]
 
 [menu]
@@ -16,7 +13,7 @@ aliases = ["/config_rb_manage.html"]
     weight = 100
 +++
 
-{{% chef_automate_mark %}}
+{{< chef_automate_mark >}}
 
 {{% EOL_manage %}}
 

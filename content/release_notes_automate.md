@@ -1,8 +1,9 @@
 +++
-title = "Chef Automate: Version"
+title = "Chef Automate Release Notes"
 draft = false
 
 release_notes = "automate"
+product = ["automate"]
 
 [menu]
   [menu.release_notes]

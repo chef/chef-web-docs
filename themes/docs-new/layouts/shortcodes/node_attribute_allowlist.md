@@ -21,19 +21,19 @@ Attributes are allowlisted by attribute type, with each attribute type being all
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><code>allowed_automatic_attributes</code></td>
 <td>A hash that allowlists <code>automatic</code> attributes, preventing non-allowlisted attributes from being saved. For example: <code>['network/interfaces/eth0']</code>. Default value: <code>nil</code>, all attributes are saved. If the hash is empty, no attributes are saved.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>allowed_default_attributes</code></td>
 <td>A hash that allowlists <code>default</code> attributes, preventing non-allowlisted attributes from being saved. For example: <code>['filesystem/dev/disk0s2/size']</code>. Default value: <code>nil</code>, all attributes are saved. If the hash is empty, no attributes are saved.</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>allowed_normal_attributes</code></td>
 <td>A hash that allowlists <code>normal</code> attributes, preventing non-allowlisted attributes from being saved. For example: <code>['filesystem/dev/disk0s2/size']</code>. Default value: <code>nil</code>, all attributes are saved. If the hash is empty, no attributes are saved.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>allowed_override_attributes</code></td>
 <td>A hash that allowlists <code>override</code> attributes, preventing non-allowlisted attributes from being saved. For example: <code>['map - autohome/size']</code>. Default value: <code>nil</code>, all attributes are saved. If the hash is empty, no attributes are saved.</td>
 </tr>

@@ -1,10 +1,9 @@
 +++
 title = "Glossary"
 draft = false
-
 gh_repo = "chef-web-docs"
-
 aliases = ["/glossary.html"]
+product = ["automate", "client", "server", "habitat", "inspec", "workstation"]
 
 [menu]
   [menu.infra]
@@ -18,25 +17,13 @@ Agent
 
 : Agents are programs that you configure to perform actions continuously and autonomously.
 
-Acceptance
-
-: A Workflow stage. The Acceptance stage is where your team decides whether the submitted change should ship all the way out to its final destination.
-
-analytics rules
-
-: Event tracking during a Chef Infra Client run that generates data made visible to Workflow.
-
 Automate
 
 : A full suite of enterprise capabilities for maintaining continuous visibility into application, infrastructure, and security automation.
 
 Berkshelf
 
-: Manage cookbook dependencies.
-
-Build
-
-: A Workflow stage. The purpose of the Build stage is to assemble one or more potentially releasable artifacts and make them available to the remaining stages of the pipeline. Using Berkshelf can help to manage cookbook dependencies.
+:   The legacy tool for managing cookbook dependencies. Policyfiles should be used instead.
 
 chef
 
@@ -139,10 +126,6 @@ organization
 
 : An organization is a single instance of a Chef Infra Server, including all of the nodes that are managed by that Chef Infra Server and each of the workstations that will run knife and access the Chef Infra Server using the Chef Infra Server API.
 
-pipeline
-
-: A pipeline is series of automated and manual quality gates that take software changes from development to delivery. Pipelines in Workflow have six stages: Verify, Build, Acceptance, Union, Rehearsal, and Delivered.
-
 policy
 
 : Policy settings can be used to map business and operational requirements, such as process and workflow, to settings and objects stored on the Chef Infra Server. See roles, environments, and data bags.
@@ -163,10 +146,6 @@ resource
 
 : A resource is a statement of configuration policy that describes the desired state of an piece within your infrastructure, along with the steps needed to bring that item to the desired state.
 
-role
-
-: A role is a way to define certain patterns and processes that exist across nodes in an organization as belonging to a single job function.
-
 run-list
 
 : A run-list defines all of the configuration settings that are necessary for a node that is under management by Chef to be put into the desired state and the order in which these configuration settings are applied.
@@ -174,19 +153,3 @@ run-list
 Test Kitchen
 
 : Test Kitchen is an integration framework that is used to automatically test cookbook data across any combination of platforms and test suites. Test Kitchen is packaged in Chef Workstation.
-
-Union
-
-: A Workflow stage. Union is the first of the three shared pipeline stages. The purpose of the Union stage is to assess the impact of the change in the context of a complete (or as close as possible) installation of the set of projects that comprise the system as a whole.
-
-Verify
-
-: A Workflow stage. The purpose of Verify is to run checks so that the system can decide if it's worth the time of a human to review the submitted change.
-
-visibility
-
-: A feature of Workflow that provides real-time visibility into what is happening on the Chef Infra Server, including what's changing, who made those changes, and when they occurred.
-
-workflow
-
-: A feature of Workflow that manages changes to both infrastructure and application code, giving your operations and development teams a common platform for developing, building, testing, and deploying cookbooks, applications, and more.

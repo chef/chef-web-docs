@@ -1,10 +1,9 @@
 +++
-title = "Release Notes: Chef Infra Server 12.0 - 14.0"
+title = "Release Notes: Chef Infra Server 12.0 - 14.2"
 draft = false
-
 gh_repo = "chef-web-docs"
-
 aliases = ["/release_notes_server.html"]
+product = ["server"]
 
 [menu]
   [menu.release_notes]
@@ -17,7 +16,81 @@ Chef Infra Server acts as a hub for configuration data by storing
 cookbooks, the policies that are applied to nodes, and metadata that
 describes each registered node that is managed by the Chef Infra Client.
 
-## What's New in 14.0
+## What's New in 14.2
+
+### Support for external Elasticsearch 7 installs
+
+New installations of Chef Infra Server can now use external Elasticsearch 7 installations. Chef Infra Server will automatically detect the version of Elastisearch, so no additional configuration is necessary. We do not currently support upgrading the embedded Elasticsearch or existing external Elasticsearch installations to 7. This functionality is currently under development and will ship in a future release.
+
+### Security
+
+- The `opscode` user which runs Chef Infra Server is no longer configured with an interactive shell.
+- Disabled the ability to update a user e-mail address in `oc-id` as e-mail verification was not being performed in this update process.
+- Updated the embedded Elasticsearch server from 6.8.12 to 6.8.14 to resolve [CVE-2020-7021](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-7021).
+
+## What's New in 14.1
+
+### Bug Fixes and Improvements
+
+- The server status endpoint can now be configured to include the version of the Chef Infra Server in status requests with a new `include_version_in_status` configuration in the `chef-server.rb` file.
+- The `supports` field in cookbook metadata now allows version numbers that only reference a major version, such as ```supports 'debian', '>= 7'```. Thanks for reporting this issue [@acondrat](https://github.com/acondrat)!
+- A new `nginx['time_format']` configuration in the `chef-server.rb` file allows changing the timestamp format in NGINX logs from `time_iso8601` to `time_local`.
+
+### Security
+
+#### Ruby
+
+Ruby has been updated from 2.6.5 to 2.6.6 to resolve [CVE-2020-10663](https://www.ruby-lang.org/en/news/2020/03/19/json-dos-cve-2020-10663/) and [CVE-2020-10933](https://www.ruby-lang.org/en/news/2020/03/31/heap-exposure-in-socket-cve-2020-10933/).
+
+#### Nokogiri
+
+Nokogiri has been updated from 1.10.10 to 1.11.1 to resolve [CVE-2020-26247](https://nvd.nist.gov/vuln/detail/CVE-2020-26247).
+
+#### OpenJDK
+
+The AdoptOpenJDK package has been updated from 11.0.7+10 to 11.0.10+9 to resolve the following CVEs:
+
+- [CVE-2020-14779](https://nvd.nist.gov/vuln/detail/CVE-2020-14779)
+- [CVE-2020-14781](https://nvd.nist.gov/vuln/detail/CVE-2020-14781)
+- [CVE-2020-14782](https://nvd.nist.gov/vuln/detail/CVE-2020-14782)
+- [CVE-2020-14792](https://nvd.nist.gov/vuln/detail/CVE-2020-14792)
+- [CVE-2020-14796](https://nvd.nist.gov/vuln/detail/CVE-2020-14796)
+- [CVE-2020-14797](https://nvd.nist.gov/vuln/detail/CVE-2020-14797)
+- [CVE-2020-14798](https://nvd.nist.gov/vuln/detail/CVE-2020-14798)
+- [CVE-2020-14803](https://nvd.nist.gov/vuln/detail/CVE-2020-14803)
+
+#### OpenSSL
+
+The OpenSSL library has been updated from 1.0.2w to 1.0.2y to resolve the following CVEs:
+
+- [CVE-2021-23841](https://nvd.nist.gov/vuln/detail/CVE-2021-23841)
+- [CVE-2021-23839](https://nvd.nist.gov/vuln/detail/CVE-2021-23839)
+- [CVE-2021-23840](https://nvd.nist.gov/vuln/detail/CVE-2021-23840)
+- [CVE-2020-1971](https://nvd.nist.gov/vuln/detail/CVE-2020-1971)
+
+### Platform Support
+
+We will no longer be producing Chef Infra Server packages for RHEL 6.x as this platform became end-of-life (EOL) Nov 2020. See the [Red Hat Linux Enterprise Lifecycle page](https://access.redhat.com/support/policy/updates/errata/) for additional information on the RHEL 6 lifecycle.
+
+### Upgrading From Earlier Releases
+
+Please keep in mind that upgrading from releases before 14.0 will run an automatic Elasticsearch reindexing operation for existing Solr users. We estimate the reindexing operation will take 2 minutes for each 1000 nodes, but it could take more time depending on your server hardware and the complexity of your Chef data.
+
+## What's New in 14.0.65
+
+### Bug Fixes and Improvements
+
+- The `users` API endpoint now includes the `display_name` field for each user
+- Resolved failures starting Chef Infra Server on slower systems
+- Resolved failures when `/tmp` was mounted with `noexec`
+
+### Security
+
+#### Elasticsearch
+
+Elasticsearch has been upgraded from 6.8.1 to 6.8.12 to resolve [CVE-2020-7019](https://nvd.nist.gov/vuln/detail/CVE-2020-7019)
+
+## What's New in 14.0.58
 
 ### Upgrade Notes
 
@@ -30,14 +103,15 @@ Upgrading to Chef Infra Server 14 will require a reindexing operation for most u
 - Improved Indexing Metrics: The `/_stats` API endpoint now returns metrics about search indexing. These new metrics should allow us to more easily investigate problems that users report with search indexing.
 - Integration Testing: In Chef Infra Server 13.2, we added a new integration testing pipeline. We've further improved this pipeline, expanding the testing scenarios and improving the fidelity of the existing scenarios.
 - New Command: `chef-server-ctl` now features the `check-config` command, which runs only the configuration portion of the reconfigure cookbooks and preflight checks.
+- New smaller installation and package size. Up to 22% reduction in overall size.
 
 ### Bug Fixes
 
 - Reduced API errors caused by a change to the HTTP library used in Erchef.
 - Expanded the cases where we gracefully report errors that result from a `chef-server-ctl reindex` command instead of failing early.
 - Fixed a bug that prevented API Signing version 1.2 from working with FIPS-enabled Chef Infra Servers.
-- Updated NginX SSL configuration format to avoid warnings in the log.
-- Restricted permissions on the `dhparams.pem` file used by NginX.
+- Updated nginx SSL configuration format to avoid warnings in the log.
+- Restricted permissions on the `dhparams.pem` file used by nginx.
 
 ### Incompatibilities
 
@@ -50,28 +124,32 @@ Upgrading to Chef Infra Server 14 will require a reindexing operation for most u
 
 #### Updated Components
 
-- libiconv (1.15 -> 1.16)
-- pcre (8.38 -> 8.44)
-- cacerts (2019-10 -> 2020-07)
-- openssl (1.0.2u -> 1.0.2w)
-- openresty (1.15.8.1 -> 1.17.8.2)
-- veil-gem (58373899 -> 2875f29d)
-- erlang (20.3.8.9 -> 22.2)
-- server-open-jre (11.0.4+1 -> 11.0.7+1)
-- ohai (d78fd24c -> 0b8b5ccf)
-- liblzma (5.2.4 -> 5.2.5)
-- libarchive (3.4.2 -> 3.4.3)
-- chef (3fe96500 -> 20230f04)
-- knife-opc (5a3a804b -> dd17d445)
-- knife-ec-backup (61b8c43f -> 1f397622)
-- chef_fixie (04c686ac -> e445b2d7)
+- server-open-jre (11.0.4+11 -> 11.0.7+10)
 
 #### Removed Components
 
-- rabbitmq (3.6.15)
-- server-jre (8u202)
-- opscode-solr4 (4.10.4)
+- rabbitmq
+- server-jre
+- opscode-solr4
 - opscode-expander
+
+### Security
+
+#### OpenSSL
+
+OpenSSL was updated from 1.0.2u to 1.0.2w which includes a fix for [CVE-2020-1968](https://nvd.nist.gov/vuln/detail/2020-1968) and multiple security hardening fixes not related to particular CVEs.
+
+#### OpenResty
+
+OpenResty was upgraded from 1.15.8.1 to 1.17.8.2 to resolve [CVE-2020-11724](https://nvd.nist.gov/vuln/detail/CVE-2020-11724).
+
+#### PCRE
+
+PCRE has been updated from 8.38 to 8.44 to resolve the following CVEs:
+
+- [CVE-2016-3191](https://nvd.nist.gov/vuln/detail/CVE-2016-3191)
+- [CVE-2017-6004](https://nvd.nist.gov/vuln/detail/CVE-2017-6004)
+- [CVE-2016-1283](https://nvd.nist.gov/vuln/detail/CVE-2016-1283)
 
 ## What's New in 13.2
 
@@ -96,7 +174,7 @@ Upgrading to Chef Infra Server 14 will require a reindexing operation for most u
 
 - Chef Infra Server supports Elasticsearch version 6 for external Elasticsearch:
 
-  Chef Infra Server previously supported index creation for ElasticSearch versions 2 and 5. We now support index creation for ElasticSearch 6 as well.
+  Chef Infra Server previously supported index creation for Elasticsearch versions 2 and 5. We now support index creation for Elasticsearch 6 as well.
 
 - Cookstyle changes applied to the cookbooks.
 - Disable actions rabbitmq queue by default.
@@ -105,196 +183,266 @@ Upgrading to Chef Infra Server 14 will require a reindexing operation for most u
 ### Bug Fixes
 
 - Fix a regression that broke FIPS 140-2 support in Chef Infra Server 13.1.13.
-- Fix habitat db config for external database.
+- Fix Habitat db config for external database.
 - Elasticsearch recipes should not create indexes at compile time.
 
 ### Updates
 
-- Chef Infra Client: 15.5.17 -> 15.8.23
-- rack(oc-chef-pedant): 2.0.7 -> 2.0.8
-- rack(oc-id): 1.6.11 -> 1.6.12
-- Ruby(oc-id): 1.6.11 -> 1.6.12
-- Ruby: 2.6.3 -> 2.6.5 fixes the following CVEs:
-  - CVE-2019-16255: A code injection vulnerability of Shell#[] and Shell#test
-  - CVE-2019-16254: HTTP response splitting in WEBrick (Additional fix)
-  - CVE-2019-15845: A NUL injection vulnerability of File.fnmatch and File.fnmatch?
-  - CVE-2019-16201: Regular Expression Denial of Service vulnerability of WEBrick's Digest access authentication
-  - CVE-2012-6708
-  - CVE-2015-9251
-- rubyzip(oc-id): 1.2.3 -> 1.3.0 (fixes CVE-2019-16892)
-- Erlang(habitat): 18 -> 20
+- Erlang in the Habitat package: 18 -> 20
+- libxml2 2.9.9 -> 2.9.10
+- libxslt 1.1.30 -> 1.1.34
+
+### Security
+
+#### haproxy
+
+haproxy has been updated from 1.6.4 to 1.6.15 to resolve the following CVEs:
+
+- [CVE-2018-10184](https://nvd.nist.gov/vuln/detail/CVE-2018-10184)
+- [CVE-2018-14645](https://nvd.nist.gov/vuln/detail/CVE-2018-14645)
+- [CVE-2018-20103](https://nvd.nist.gov/vuln/detail/CVE-2018-20103)
+- [CVE-2018-20102](https://nvd.nist.gov/vuln/detail/CVE-2018-20102)
+- [CVE-2019-11323](https://nvd.nist.gov/vuln/detail/CVE-2019-11323)
+
+#### Java JRE
+
+The Java JRE has been updated from 8u162 to 8u202 to resolve the following CVEs:
+
+- [CVE-2018-3214](https://nvd.nist.gov/vuln/detail/CVE-2018-3214)
+- [CVE-2018-14048](https://nvd.nist.gov/vuln/detail/CVE-2018-14048)
+- [CVE-2018-3209](https://nvd.nist.gov/vuln/detail/CVE-2018-3209)
+- [CVE-2018-3211](https://nvd.nist.gov/vuln/detail/CVE-2018-3211)
+- [CVE-2018-2941](https://nvd.nist.gov/vuln/detail/CVE-2018-2941)
+- [CVE-2018-2942](https://nvd.nist.gov/vuln/detail/CVE-2018-2942)
+- [CVE-2018-2964](https://nvd.nist.gov/vuln/detail/CVE-2018-2964)
+- [CVE-2018-2798](https://nvd.nist.gov/vuln/detail/CVE-2018-2798)
+- [CVE-2018-2799](https://nvd.nist.gov/vuln/detail/CVE-2018-2799)
+- [CVE-2018-2800](https://nvd.nist.gov/vuln/detail/CVE-2018-2800)
+- [CVE-2018-2811](https://nvd.nist.gov/vuln/detail/CVE-2018-2811)
+- [CVE-2018-2815](https://nvd.nist.gov/vuln/detail/CVE-2018-2815)
+
+#### OpenSSL
+
+OpenSSL has been updated from 1.0.2t to 1.0.2u to resolve the following CVEs:
+
+- [CVE-2019-1551](https://nvd.nist.gov/vuln/detail/CVE-2019-1551)
+
+#### Rack
+
+The `rack` gem in the `oc-id` Chef Infra Server component has been updated from 1.6.11 to 1.6.12 to resolve [CVE-2019-16782](https://nvd.nist.gov/vuln/detail/CVE-2019-16782)
+
+#### Redis
+
+Redis has been updated from 3.0.7 to 5.0.7 to resolve the following CVEs:
+
+- [CVE-2019-10193](https://nvd.nist.gov/vuln/detail/CVE-2019-10193)
+- [CVE-2019-10192](https://nvd.nist.gov/vuln/detail/CVE-2019-10192)
+- [CVE-2019-11218](https://nvd.nist.gov/vuln/detail/CVE-2019-11218)
+- [CVE-2019-11219](https://nvd.nist.gov/vuln/detail/CVE-2019-11219)
+
+#### Ruby
+
+Ruby has been updated from 2.6.3 to 2.6.5 to resolve the following CVEs:
+
+- [CVE-2019-16255](https://nvd.nist.gov/vuln/detail/CVE-2019-16255): A code injection vulnerability of Shell#[] and Shell#test
+- [CVE-2019-16254](https://nvd.nist.gov/vuln/detail/CVE-2019-16254): HTTP response splitting in WEBrick (Additional fix)
+- [CVE-2019-15845](https://nvd.nist.gov/vuln/detail/CVE-2019-15845): A NUL injection vulnerability of File.fnmatch and File.fnmatch?
+- [CVE-2019-16201](https://nvd.nist.gov/vuln/detail/CVE-2019-16201): Regular Expression Denial of Service vulnerability of WEBrick's Digest access authentication
+- [CVE-2012-6708](https://nvd.nist.gov/vuln/detail/CVE-2012-6708): Cross-site Scripting vulnerability in RDoc
+- [CVE-2015-16892](https://nvd.nist.gov/vuln/detail/CVE-2015-9251): Cross-site Scripting vulnerability in RDoc
+
+#### rubyzip
+
+The release of rubyzip in the `oc-id` Chef Infra Server component has been updated from 1.2.3 to 1.3.0 to resolve [CVE-2019-16892](https://nvd.nist.gov/vuln/detail/CVE-2019-16892)
 
 ## What's New in 13.1.13
 
 ### Improvements/Bug Fixes
 
--   The `_status` endpoint now reports healthy even if the
-    `data_collector` is down which will no longer cause unnecessary
-    failovers.
--   Data collector proxy-header X-Forwarded is set as expected.
--   `chef-server-ctl` is no longer installed in the user path. Now only
-    the appbundled version is installed in the user path.
--   Fixed an issue with Chef Support Zendesk sign-ins when a first name
-    is not set in Hosted Chef.
--   Added support for running the Chef Infra Server on Red Hat
-    Enterprise Linux 8.
--   `chef-server-ctl gather-logs` was updated with the following
-    improvements:
+- The `_status` endpoint now reports healthy even if the `data_collector` is down which will no longer cause unnecessary failovers.
+- Data collector proxy-header X-Forwarded is set as expected.
+-`chef-server-ctl` is no longer installed in the user path. Now only the appbundled version is installed in the user path.
+- Fixed an issue with Chef Support Zendesk sign-ins when a first name is not set in Hosted Chef.
+- `chef-server-ctl gather-logs` has been updated to provide better troubleshooting data and prevent failures gathering data.
 
--   Add AWS to known platforms
--   Add AWS Native Chef Server info
--   Add elasticsearch info
--   Switched compression from bzip2 to gzip
+### Packing Updates
 
-### Deprecation Notice
-
--   SLES 11 is no longer supported per our [platform
-    policy](/platforms/#platform-end-of-life-policy), as upstream
-    support ended in March of this year.
+- We now produce packages for Chef Infra Server on Red Hat Enterprise Linux 8.
+- SLES 11 packages are no longer produced per our [platform policy](/platforms/#platform-end-of-life-policy), as upstream support ended in March of this year.
 
 ### Updates and Improvements
 
--   Postgres 9.6.10 -\> 9.6.15
--   Chef Infra Client v15.3.14 -\> v15.4.45
--   OpenResty 1.13.6.2 -\> 1.15.8.1
--   Nokogiri 1.8.5 -\> 1.10.4
--   Rebar3 -\> 3.12.0
--   Updated erlang deps to be the latest
--   Loofah 2.2.3 -\> 2.3.1
--   Erlang R18 -\> 20.3.8.9
--   Updated for cookstyle
--   Ruby 2.5.5 -\> 2.6.3
+- OpenResty 1.13.6.2 -\> 1.15.8.1
+- Nokogiri 1.8.5 -\> 1.10.4
+- Rebar3 -\> 3.12.0
+- Updated erlang deps to be the latest
+- Erlang 18.3.4.9 -\> 20.3.8.9
+- Ruby 2.5.5 -\> 2.6.3
 
-## What's New in 13.0.11
+### Security
+
+#### bzip2
+
+bzip has been updated from 1.0.6 to 1.0.8 to resolve the following CVEs
+
+- [CVE-2019-12900](https://nvd.nist.gov/vuln/detail/CVE-2019-12900)
+- [CVE-2016-3189](https://nvd.nist.gov/vuln/detail/CVE-2016-3189)
+
+#### Loofah
+
+Loofah has been updated from 2.2.3 to 2.3.1 to resolve [CVE-2019-15587](https://nvd.nist.gov/vuln/detail/CVE-2019-15587)
+
+#### OpenSSL
+
+OpenSSL has been updated from 1.0.2s to 1.0.2t to resolve the following CVEs:
+
+- [CVE-2019-1547](https://nvd.nist.gov/vuln/detail/CVE-2019-1547)
+- [CVE-2019-1563](https://nvd.nist.gov/vuln/detail/CVE-2019-1563)
+- [CVE-2019-1552](https://nvd.nist.gov/vuln/detail/CVE-2019-1552)
+
+#### Postgresql
+
+Postgresql has been updated from 9.6.10 to 9.6.15 to resolve the following CVEs:
+
+- [CVE-2019-10208](https://nvd.nist.gov/vuln/detail/CVE-2019-10208)
+- [CVE-2019-10130](https://nvd.nist.gov/vuln/detail/CVE-2019-10130)
+
+#### RabbitMQ
+
+RabbitMQ has been updated from 3.6.6 to 3.6.15 to resolve the following CVEs:
+
+- [CVE-2017-4967](https://nvd.nist.gov/vuln/detail/CVE-2017-4967)
+- [CVE-2017-4966](https://nvd.nist.gov/vuln/detail/CVE-2017-4966)
+- [CVE-2017-4965](https://nvd.nist.gov/vuln/detail/CVE-2017-4965)
+
+## What's New in 13.0.17
+
+This is an identical release to 13.0.16 that was performed for product packaging reasons.
+
+## What's New in 13.0.16
 
 ### Chef Server is now Chef Infra Server
 
-Chef Server has a new name, but don't worry, it's the same Chef Server
-you've grown used to. You'll notice new branding throughout the
-application and documentation but the command <span
-class="title-ref">chef-server-ctl</span> remains the same.
+Chef Server has a new name, but don't worry, it's the same Chef Server you've grown used to. You'll notice new branding throughout the application and documentation but the command <span class="title-ref">chef-server-ctl</span> remains the same.
 
 ### Chef EULA
 
-Chef Infra Server requires an EULA to be accepted by users before it can
-be installed. Users can accept the EULA in a variety of ways:
+Chef Infra Server requires an EULA to be accepted by users before it can be installed. Users can accept the EULA in a variety of ways:
 
--   `chef-server-ctl reconfigure --chef-license accept`
--   `chef-server-ctl reconfigure --chef-license accept-no-persist`
--   `CHEF_LICENSE="accept" chef-server-ctl reconfigure`
--   `CHEF_LICENSE="accept-no-persist" chef-server-ctl reconfigure`
+- `chef-server-ctl reconfigure --chef-license accept`
+- `chef-server-ctl reconfigure --chef-license accept-no-persist`
+- `CHEF_LICENSE="accept" chef-server-ctl reconfigure`
+- `CHEF_LICENSE="accept-no-persist" chef-server-ctl reconfigure`
 
-Finally, if users run `chef-server-ctl reconfigure` without any of these
-options, they will receive an interactive prompt asking for license
-acceptance. If the license is accepted, a marker file will be written to
-the filesystem unless `accept-no-persist` is specified. Once this marker
-file is persisted, users no longer need to set any of these flags.
+Finally, if users run `chef-server-ctl reconfigure` without any of these options, they will receive an interactive prompt asking for license acceptance. If the license is accepted, a marker file will be written to the filesystem unless `accept-no-persist` is specified. Once this marker file is persisted, users no longer need to set any of these flags.
 
-See our [Frequently Asked Questions
-document](https://www.chef.io/bmc-faq/) for more information on the EULA
-and license acceptance.
+See our [Frequently Asked Questions document](https://www.chef.io/subscription-model-faq) for more information on the EULA and license acceptance.
 
 ### Deprecation notice
 
--   [Deprecated PowerPC and s390x
-    platforms](https://blog.chef.io/2018/11/01/end-of-life-announcement-for-chef-server-for-linux-on-ibm-z-and-linux-on-ibm-power-systems/)
--   [Deprecated Keepalived/DRBD-based
-    HA](https://blog.chef.io/2018/10/02/end-of-life-announcement-for-drbd-based-ha-support-in-chef-server/)
--   Deprecated Ubuntu 14.04 support. (Ubuntu 14 was EoL'd at the end of
-    April 2019)
+- [Deprecated PowerPC and s390x platforms](https://blog.chef.io/2018/11/01/end-of-life-announcement-for-chef-server-for-linux-on-ibm-z-and-linux-on-ibm-power-systems/)
+- [Deprecated Keepalived/DRBD-based HA](https://blog.chef.io/2018/10/02/end-of-life-announcement-for-drbd-based-ha-support-in-chef-server/)
+- Deprecated Ubuntu 14.04 support. (Ubuntu 14.04 was EoL'd at the end of April 2019)
 
 ### Updates and Improvements
 
--   Updated OpenResty to 1.13.6.2
-    -   This fixes two CVEs: CVE-2018-9230 and CVE-2017-7529.
-    -   This version cannot be built on PowerPC and s390x because those
-        platforms are not supported in mainline luajit.
--   Updated Ruby version to 2.5.5
--   Updated Chef Infra Client to 14.11.21
--   Updated runit cookbook to 5.1.1
--   Migrated unit tests from Travis to Buildkite. Reorganized them for
-    improved speed, stability and portability.
--   Added some Habitat packaging improvements with parameterized
-    search_server.
--   Erchef request size increased from 1,000,000 to 2,000,000 bytes to
-    better support inspec scanning via the audit cookbook.
--   Nginx error logs no longer log 404s. In the Chef API, 404s are
-    typically not errors as they are often the expected response about
-    an object that doesn't exist. The logs will continue to show 404s in
-    the request logs.
--   Profiles and data-collector upstreams now render correctly if their
-    root_url is configured. If the data_collector token secret is not
-    set, a 401 response code and an error message will be seen instead
-    of 404.
+- Added some Habitat packaging improvements with parameterized search_server.
+- Erchef request size increased from 1,000,000 to 2,000,000 bytes to better support InSpec scanning via the audit cookbook.
+- Nginx error logs no longer log 404s. In the Chef API, 404s are typically not errors as they are often the expected response about an object that doesn't exist. The logs will continue to show 404s in the request logs.
+- Profiles and data-collector upstreams now render correctly if their root_url is configured. If the data_collector token secret is not set, a 401 response code and an error message will be seen instead of 404.
+
+### Security
+
+#### Ruby
+
+Ruby has been updated from 2.5.3 to 2.5.4 to resolve the following CVEs:
+
+- [CVE-2019-8320](https://nvd.nist.gov/vuln/detail/CVE-2019-8320)
+- [CVE-2019-8321](https://nvd.nist.gov/vuln/detail/CVE-2019-8321)
+- [CVE-2019-8322](https://nvd.nist.gov/vuln/detail/CVE-2019-8322)
+- [CVE-2019-8323](https://nvd.nist.gov/vuln/detail/CVE-2019-8323)
+- [CVE-2019-8324](https://nvd.nist.gov/vuln/detail/CVE-2019-8324)
+- [CVE-2019-8325](https://nvd.nist.gov/vuln/detail/CVE-2019-8325)
+
+#### OpenResty
+
+OpenResty was updated from 1.11.2.1 to 1.13.6.2 to resolve the following CVEs:
+
+- [CVE-2018-9230](https://nvd.nist.gov/vuln/detail/CVE-2018-9230)
+- [CVE-2017-7529](https://nvd.nist.gov/vuln/detail/CVE-2017-7529)
 
 ## What's New in 12.19.31
 
-This release was triggered by the update to Habitat base plans.
-(<https://blog.chef.io/2019/01/28/base-plans-refresh-is-coming-to-habitat-core-plans/>)
-Omnibus release was done to keep in sync with the Habitat release.
+### Security
 
--   `chef-server-ctl` leverages HAB_LISTEN_CTL envvar if available.
+#### OpenSSL
+
+OpenSSL has been updated from 1.0.2q to 1.0.2r to resolve [CVE-2019-1559](https://nvd.nist.gov/vuln/detail/CVE-2019-1559)
+
+#### libxml2
+
+libxml2 has been updated from 2.9.8 to 2.9.9 to resolve the following CVEs:
+
+- [CVE-2018-9251](https://nvd.nist.gov/vuln/detail/CVE-2018-9251)
+- [CVE-2018-14567](https://nvd.nist.gov/vuln/detail/CVE-2018-14567)
+- [CVE-2018-14404](https://nvd.nist.gov/vuln/detail/CVE-2018-14404)
 
 ## What's New in 12.19.26
 
-This release contains some minor improvements and updates to include
-software:
+This release contains some minor improvements and updates to include software:
 
--   Added request id to nginx log to easily track the Chef request
-    through the logs.
--   Bundler pinned to 1.17 to avoid taking the 2.0 upgrade.
--   Erlang updated to 18.3.4.9
-    -   Fixed two CVEs CVE-2017-1000385 and CVE-2016-10253. SSL headers
-        got stricter which unfortunately broke LDAP. (Issue \#1642)
-    -   Removed `et`, `debugger`, `gs`, and `observer` as they depend on
-        `wx`, which is not available on all platforms.
--   Ruby updated to 2.5.3.
--   Chef Client updated to 14.5.
--   Erchef and Bookshelf can optionally use mTLS protocol for their
-    internal communications.
--   Added configuration for pedant SSL-signed requests to include mTLS
-    support.
+-   Added request id to nginx log to easily track the Chef request through the logs.
+-   Erchef and Bookshelf can optionally use mTLS protocol for their internal communications.
 -   Habitat package improvements:
     -   Increased `authn:keygen_timeout` amount for `oc_erchef` hab pkg.
     -   Removed `do_end` function from `chef-server-ctl` hab plan.
-    -   Enhanced `chef-server-ctl` to function in more habitat
-        environments.
-    -   `chef-server-ctl` commands pass relevant TLS options during
-        bifrost API calls.
--   Used standard ruby-cleanup definition, which shrinks install size by
-    \~5% on disk.
+    -   Enhanced `chef-server-ctl` to function in more habitat environments.
+    -   `chef-server-ctl` commands pass relevant TLS options during bifrost API calls.
+-   Used standard ruby-cleanup definition, which shrinks install size by \~5% on disk.
 -   Removed unused couchdb configurables.
+
+### Security
+
+#### Erlang
+
+Erlang has been updated to 18.3.4.9 to resolve the following CVEs:
+
+- [CVE-2017-1000385](https://nvd.nist.gov/vuln/detail/CVE-2017-1000385)
+- [CVE-2016-10253](https://nvd.nist.gov/vuln/detail/CVE-2016-10253)
+
+#### OpenSSL
+
+OpenSSL has been updated from 1.0.2p to 1.0.2q to resolve the following CVEs:
+
+- [CVE-2018-0734](https://nvd.nist.gov/vuln/detail/CVE-2018-0734)
+- [CVE-2018-5407](https://nvd.nist.gov/vuln/detail/CVE-2018-5407)
+
+#### Ruby
+
+Ruby has been updated from 2.5.1 to 2.5.3 to resolve the following CVEs:
+
+- [CVE-2018-16396](https://nvd.nist.gov/vuln/detail/CVE-2018-16396)
+- [CVE-2018-16395](https://nvd.nist.gov/vuln/detail/CVE-2018-16395)
 
 ## What's New in 12.18.14
 
 This release:
 
--   Segment free cookbooks are implemented.
-    (<https://github.com/chef/chef-rfc/blob/master/rfc067-cookbook-segment-deprecation.md>)
-    This bumps the API version.
--   ACLs for cookbook artifacts
--   /nodes/NODENAME endpoint has HEAD operation.
--   Security headers for HTTP
--   Optional disabling of welcome page
--   chef-server-ctl now has version subcommand.
--   chef-server-ctl appbundled to better control gem loading.
--   Support for SSL auth between internal Chef Server Services. This
-    includes connections to bifrost and the internal Postgresql server.
--   All datestamps in logs are now in UTC. SOLR GC log now datestamped.
--   Nginx logs now include the request id.
--   Fixie is now shipped with chef server.
--   Security issue with old doorkeeper fixed by upgrading.
-    CVE-2018-1000211
--   Fixed issue migrating rabbitmq passwords (migration 031).
--   Chef indexing queue times now reported in stats in log messages and
-    status endpoint.
--   Ruby updated to 2.5.1
--   Update gems
--   Chef Client updated to 14.3.
--   Postgresql updated to 9.6.10 and 9.2.24 (latter only for upgrades
-    from older Chef Servers).
--   Fix for SUSE SLES-11 sysvinit install
--   Removed nodejs (a build dependency that was shipped).
+- Segment free cookbooks are implemented. (<https://github.com/chef/chef-rfc/blob/master/rfc067-cookbook-segment-deprecation.md>) This bumps the API version.
+- ACLs for cookbook artifacts
+- /nodes/NODENAME endpoint has HEAD operation.
+- Security headers for HTTP
+- Optional disabling of welcome page
+- chef-server-ctl now has version subcommand.
+- chef-server-ctl appbundled to better control gem loading.
+- Support for SSL auth between internal Chef Server Services. This includes connections to bifrost and the internal Postgresql server.
+- All datestamps in logs are now in UTC. SOLR GC log now datestamped.
+- Nginx logs now include the request id.
+- Fixie is now shipped with Chef Server.
+- Fixed issue migrating rabbitmq passwords (migration 031).
+- Chef indexing queue times now reported in stats in log messages and status endpoint.
+- Fix for SUSE SLES-11 sysvinit install
+- Removed nodejs (a build dependency that was shipped).
 
 {{< note >}}
 
@@ -308,14 +456,52 @@ corresponding cookbook upload API request.
 
 {{< /note >}}
 
+### Security
+
+#### doorkeeper
+
+Doorkeeper has been updated to resolve [CVE-2018-1000211](https://nvd.nist.gov/vuln/detail/CVE-2018-1000211)
+
+#### OpenSSL
+
+OpenSSL has been updated from 1.0.2n to 1.0.2p to resolve the following CVEs:
+
+- [CVE-2018-0732](https://nvd.nist.gov/vuln/detail/CVE-2018-0732)
+- [CVE-2018-0737](https://nvd.nist.gov/vuln/detail/CVE-2018-0737)
+- [CVE-2018-0739](https://nvd.nist.gov/vuln/detail/CVE-2018-0739)
+
+#### Postgresql
+
+Postgresql has been updated from 9.6.4 to 9.6.10 to resolve the following CVEs:
+
+- [CVE-2017-15099](https://nvd.nist.gov/vuln/detail/CVE-2017-15099)
+- [CVE-2017-15098](https://nvd.nist.gov/vuln/detail/CVE-2017-15098)
+- [CVE-2017-12172](https://nvd.nist.gov/vuln/detail/CVE-2017-12172)
+- [CVE-2018-1053](https://nvd.nist.gov/vuln/detail/CVE-2018-1053)
+- [CVE-2018-1058](https://nvd.nist.gov/vuln/detail/CVE-2018-1058)
+- [CVE-2018-1115](https://nvd.nist.gov/vuln/detail/CVE-2018-1115)
+- [CVE-2018-10915](https://nvd.nist.gov/vuln/detail/CVE-2018-10915)
+- [CVE-2018-10925](https://nvd.nist.gov/vuln/detail/CVE-2018-10925)
+
+#### Ruby
+
+Ruby has been updated from 2.4.3 to 2.5.1 to resolve the following CVEs:
+
+- [CVE-2017-17742](https://nvd.nist.gov/vuln/detail/CVE-2017-17742)
+- [CVE-2018-6914](https://nvd.nist.gov/vuln/detail/CVE-2018-6914)
+- [CVE-2018-8777](https://nvd.nist.gov/vuln/detail/CVE-2018-8777)
+- [CVE-2018-8778](https://nvd.nist.gov/vuln/detail/CVE-2018-8778)
+- [CVE-2018-8779](https://nvd.nist.gov/vuln/detail/CVE-2018-8779)
+- [CVE-2018-8780](https://nvd.nist.gov/vuln/detail/CVE-2018-8780)
+- Multiple vulnerabilities in RubyGems
+
 ## What's New in 12.17.33
 
 This release:
 
--   Upgrades the version of Ruby to 2.4.3
--   Adds FIPS support for PPC64 (big-endian)
--   Fixes an Elasticsearch invalid search query issue caused by forward
-    slashes that were not escaped properly
+- Upgrades the version of Ruby to 2.4.3
+- Adds FIPS support for PPC64 (big-endian)
+- Fixes an Elasticsearch invalid search query issue caused by forward slashes that were not escaped properly
 
 ## What's New in 12.17.15
 
@@ -331,7 +517,7 @@ This release:
     -   `bookshelf['enable_request_logging']`
 
     See the [Chef server optional
-    settings](server/config_rb_server_optional_settings/) guide for
+    settings](/server/config_rb_server_optional_settings/) guide for
     additional details
 
 -   `chef-server-ctl reconfigure` fixes permissions on gems with an
@@ -383,35 +569,28 @@ The following items are new for Chef server 12.17.3:
     settings](/server/config_rb_server_optional_settings/#nginx) for
     additional details
 
-See the [change
-log](https://github.com/chef/chef-server/blob/master/CHANGELOG.md#12173-2017-10-19)
-for a full list of changes.
+See the [change log](https://github.com/chef/chef-server/blob/master/CHANGELOG.md#12173-2017-10-19) for a full list of changes.
 
 ## What's New in 12.16.14
 
-This release updates Ruby to version 2.2.8 to take advantage of multiple
-[security
-fixes](https://www.ruby-lang.org/en/news/2017/09/14/ruby-2-2-8-released/).
-See the full [change
-log](https://github.com/chef/chef-server/blob/master/CHANGELOG.md#121614-2017-09-21)
-for details on minor changes.
+This release updates Ruby to version 2.2.8 to take advantage of multiple [security
+fixes](https://www.ruby-lang.org/en/news/2017/09/14/ruby-2-2-8-released/). See the full [change
+log](https://github.com/chef/chef-server/blob/master/CHANGELOG.md#121614-2017-09-21) for details on minor changes.
 
 ## What's New in 12.16.9
 
 The following items are new for Chef server 12.16.9:
 
--   **Minor fixes for the PostgreSQL upgrade process**
--   **Remove unused authorization objects from bifrost database**
+- **Minor fixes for the PostgreSQL upgrade process**
+- **Remove unused authorization objects from bifrost database**
 
 ### Fixes for the PostgreSQL upgrade process
 
 Chef server 12.16.9 adds the following features to make the PostgreSQL
 upgrade process easier:
 
--   Ensures that your disk has the required space before starting the
-    PostgreSQL upgrade
--   For users with large databases, `pg_upgrade` timeout is now
-    configurable. The default timeout has been increased to 2 hours.
+- Ensures that your disk has the required space before starting the PostgreSQL upgrade
+- For users with large databases, `pg_upgrade` timeout is now configurable. The default timeout has been increased to 2 hours.
 
 ### Remove unused authorization objects from bifrost database
 
@@ -431,12 +610,11 @@ subcommand documentation for syntax examples and additional options.
 
 The following items are new for Chef server 12.16.2:
 
--   **Upgrade to PostgreSQL 9.6**
--   **Elasticsearch 5 support**
--   **Changes to Erlang Port Mapper Daemon (EPMD) listening ports**
--   **RabbitMQ health check in status endpoint**
--   **Notification of affected services when updating secrets with
-    set-secret**
+- **Upgrade to PostgreSQL 9.6**
+- **Elasticsearch 5 support**
+- **Changes to Erlang Port Mapper Daemon (EPMD) listening ports**
+- **RabbitMQ health check in status endpoint**
+- **Notification of affected services when updating secrets with set-secret**
 
 ### Upgrade to PostgreSQL 9.6
 
@@ -681,7 +859,7 @@ The following items are new for Chef server 12.12:
     tarball. This bug is now resolved. We recommend taking a new backup
     after upgrading to 12.12.0.
 -   **Correct number of rows are returned when searching with
-    ElasticSearch** When configured to use ElasticSearch, Chef server
+    Elasticsearch** When configured to use Elasticsearch, Chef server
     now correctly respects the `rows` parameter in search requests
     rather than returning all rows.
 -   **Solr 4 GC logging is now used by Chef server** Java's native
@@ -976,7 +1154,7 @@ By default, the `public_key_read_access` assigns all members of the
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>admins</td>
 <td>no</td>
 <td>no</td>
@@ -984,7 +1162,7 @@ By default, the `public_key_read_access` assigns all members of the
 <td>no</td>
 <td>no</td>
 </tr>
-<tr class="even">
+<tr>
 <td>clients</td>
 <td>yes</td>
 <td>yes</td>
@@ -992,7 +1170,7 @@ By default, the `public_key_read_access` assigns all members of the
 <td>yes</td>
 <td>yes</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>users</td>
 <td>yes</td>
 <td>yes</td>
@@ -1161,7 +1339,7 @@ with its location information and dependencies:
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><code>200</code></td>
 <td>OK. The request was successful. One (or more) cookbooks and associated cookbook version information was returned.</td>
 </tr>
@@ -1601,11 +1779,11 @@ Chef server:
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>Chef Server</td>
 <td>The Chef server configuration file is updated to point to an independently configured set of servers for PostgreSQL.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><p>PostgreSQL</p></td>
 <td><p>PostgreSQL is the data storage repository for the Chef server.</p>
 <p>This represents the independently configured set of servers that are running PostgreSQL and are configured to act as the data store for the Chef server.</p></td>
@@ -1639,23 +1817,23 @@ configure PostgreSQL for use with the Chef server:
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><code>postgresql['db_superuser']</code></td>
 <td>Required when <code>postgresql['external']</code> is set to <code>true</code>. The PostgreSQL user name. This user must be granted either the <code>CREATE ROLE</code> and <code>CREATE DATABASE</code> permissions in PostgreSQL or be granted <code>SUPERUSER</code> permission. This user must also have an entry in the host-based authentication configuration file used by PostgreSQL (traditionally named <code>pg_hba.conf</code>). Default value: <code>'superuser_userid'</code>.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>postgresql['db_superuser_password']</code></td>
 <td>Required when <code>postgresql['external']</code> is set to <code>true</code>. The password for the user specified by <code>postgresql['db_superuser']</code>. Default value: <code>'the password'</code>.</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>postgresql['external']</code></td>
 <td>Required. Set to <code>true</code> to run PostgreSQL external to the Chef server. Must be set once only on a new installation of the Chef server before the first <code>chef-server-ctl reconfigure</code> command is run. If this is set after a reconfigure or set to <code>false</code>, any reconfigure of the Chef server will return an error. Default value: <code>false</code>.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>postgresql['port']</code></td>
 <td>Optional when <code>postgresql['external']</code> is set to <code>true</code>. The port on which the service is to listen. The port used by PostgreSQL if that port is <strong>not</strong> 5432. Default value: <code>5432</code>.</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>postgresql['vip']</code></td>
 <td>Required when <code>postgresql['external']</code> is set to <code>true</code>. The virtual IP address. The host for this IP address must be online and reachable from the Chef server via the port specified by <code>postgresql['port']</code>. Set this value to the IP address or hostname for the machine on which external PostgreSQL is located when <code>postgresql['external']</code> is set to <code>true</code>.</td>
 </tr>
@@ -1850,19 +2028,19 @@ The response returns the policy details and is similar to:
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><code>200</code></td>
 <td>OK. The request was successful.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>401</code></td>
 <td>Unauthorized. The user or client who made the request could not be authenticated. Verify the user/client name, and that the correct key was used to sign the request.</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>403</code></td>
 <td>Forbidden. The user who made the request is not authorized to perform the action.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>404</code></td>
 <td>Not found. The requested object does not exist.</td>
 </tr>
@@ -1909,19 +2087,19 @@ xxxxx
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><code>200</code></td>
 <td>OK. The request was successful.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>401</code></td>
 <td>Unauthorized. The user or client who made the request could not be authenticated. Verify the user/client name, and that the correct key was used to sign the request.</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>403</code></td>
 <td>Forbidden. The user who made the request is not authorized to perform the action.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>404</code></td>
 <td>Not found. The requested object does not exist.</td>
 </tr>
@@ -1969,19 +2147,19 @@ The response returns the policy details and is similar to:
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><code>200</code></td>
 <td>OK. The request was successful.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>401</code></td>
 <td>Unauthorized. The user or client who made the request could not be authenticated. Verify the user/client name, and that the correct key was used to sign the request.</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>403</code></td>
 <td>Forbidden. The user who made the request is not authorized to perform the action.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>404</code></td>
 <td>Not found. The requested object does not exist.</td>
 </tr>
@@ -2032,27 +2210,27 @@ xxxxx
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><code>201</code></td>
 <td>OK. The request was successful.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>400</code></td>
 <td>Bad request. The contents of the request are not formatted correctly.</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>401</code></td>
 <td>Unauthorized. The user or client who made the request could not be authenticated. Verify the user/client name, and that the correct key was used to sign the request.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>403</code></td>
 <td>Forbidden. The user who made the request is not authorized to perform the action.</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>409</code></td>
 <td>Conflict. The object already exists.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>413</code></td>
 <td>Request entity too large. A request may not be larger than 1000000 bytes.</td>
 </tr>
@@ -2159,19 +2337,19 @@ The response is similar to:
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><code>200</code></td>
 <td>OK. The request was successful.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>401</code></td>
 <td>Unauthorized. The user or client who made the request could not be authenticated. Verify the user/client name, and that the correct key was used to sign the request.</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>403</code></td>
 <td>Forbidden. The user who made the request is not authorized to perform the action.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>404</code></td>
 <td>Not found. The requested object does not exist.</td>
 </tr>
@@ -2273,19 +2451,19 @@ The response returns the policy details and is similar to:
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><code>200</code></td>
 <td>OK. The request was successful.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>401</code></td>
 <td>Unauthorized. The user or client who made the request could not be authenticated. Verify the user/client name, and that the correct key was used to sign the request.</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>403</code></td>
 <td>Forbidden. The user who made the request is not authorized to perform the action.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>404</code></td>
 <td>Not found. The requested object does not exist.</td>
 </tr>
@@ -2379,19 +2557,19 @@ The response is similar to:
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><code>200</code></td>
 <td>OK. The request was successful.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>401</code></td>
 <td>Unauthorized. The user or client who made the request could not be authenticated. Verify the user/client name, and that the correct key was used to sign the request.</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>403</code></td>
 <td>Forbidden. The user who made the request is not authorized to perform the action.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>404</code></td>
 <td>Not found. The requested object does not exist.</td>
 </tr>
@@ -2444,19 +2622,19 @@ The response is similar to:
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><code>201</code></td>
 <td>Created. The object was created.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>401</code></td>
 <td>Unauthorized. The user or client who made the request could not be authenticated. Verify the user/client name, and that the correct key was used to sign the request.</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>403</code></td>
 <td>Forbidden. The user who made the request is not authorized to perform the action.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>404</code></td>
 <td>Not found. The requested object does not exist.</td>
 </tr>
@@ -2508,19 +2686,19 @@ similar to:
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><code>200</code></td>
 <td>OK. The request was successful.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>401</code></td>
 <td>Unauthorized. The user or client who made the request could not be authenticated. Verify the user/client name, and that the correct key was used to sign the request.</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>403</code></td>
 <td>Forbidden. The user who made the request is not authorized to perform the action.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>404</code></td>
 <td>Not found. The requested object does not exist.</td>
 </tr>
@@ -2566,19 +2744,19 @@ The response is similar to:
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><code>200</code></td>
 <td>OK. The request was successful.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>401</code></td>
 <td>Unauthorized. The user or client who made the request could not be authenticated. Verify the user/client name, and that the correct key was used to sign the request.</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>403</code></td>
 <td>Forbidden. The user who made the request is not authorized to perform the action.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>404</code></td>
 <td>Not found. The requested object does not exist.</td>
 </tr>
@@ -2635,23 +2813,23 @@ similar to:
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><code>200</code></td>
 <td>OK. The request was successful.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>201</code></td>
 <td>Created. The object was created.</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>401</code></td>
 <td>Unauthorized. The user or client who made the request could not be authenticated. Verify the user/client name, and that the correct key was used to sign the request.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>403</code></td>
 <td>Forbidden. The user who made the request is not authorized to perform the action.</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>404</code></td>
 <td>Not found. The requested object does not exist.</td>
 </tr>
@@ -2705,19 +2883,19 @@ The response is similar to:
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><code>200</code></td>
 <td>OK. The request was successful.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>401</code></td>
 <td>Unauthorized. The user or client who made the request could not be authenticated. Verify the user/client name, and that the correct key was used to sign the request.</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>403</code></td>
 <td>Forbidden. The user who made the request is not authorized to perform the action.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>404</code></td>
 <td>Not found. The requested object does not exist.</td>
 </tr>
@@ -2770,19 +2948,19 @@ The response is similar to:
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><code>201</code></td>
 <td>Created. The object was created.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>401</code></td>
 <td>Unauthorized. The user or client who made the request could not be authenticated. Verify the user/client name, and that the correct key was used to sign the request.</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>403</code></td>
 <td>Forbidden. The user who made the request is not authorized to perform the action.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>404</code></td>
 <td>Not found. The requested object does not exist.</td>
 </tr>
@@ -2834,19 +3012,19 @@ similar to:
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><code>200</code></td>
 <td>OK. The request was successful.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>401</code></td>
 <td>Unauthorized. The user or client who made the request could not be authenticated. Verify the user/client name, and that the correct key was used to sign the request.</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>403</code></td>
 <td>Forbidden. The user who made the request is not authorized to perform the action.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>404</code></td>
 <td>Not found. The requested object does not exist.</td>
 </tr>
@@ -2892,19 +3070,19 @@ The response is similar to:
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><code>200</code></td>
 <td>OK. The request was successful.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>401</code></td>
 <td>Unauthorized. The user or client who made the request could not be authenticated. Verify the user/client name, and that the correct key was used to sign the request.</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>403</code></td>
 <td>Forbidden. The user who made the request is not authorized to perform the action.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>404</code></td>
 <td>Not found. The requested object does not exist.</td>
 </tr>
@@ -2961,23 +3139,23 @@ similar to:
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><code>200</code></td>
 <td>OK. The request was successful.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>201</code></td>
 <td>Created. The object was created.</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>401</code></td>
 <td>Unauthorized. The user or client who made the request could not be authenticated. Verify the user/client name, and that the correct key was used to sign the request.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>403</code></td>
 <td>Forbidden. The user who made the request is not authorized to perform the action.</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>404</code></td>
 <td>Not found. The requested object does not exist.</td>
 </tr>
@@ -3046,11 +3224,11 @@ The response groups policies by name and revision and is similar to:
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><code>200</code></td>
 <td>OK. The request was successful.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>403</code></td>
 <td>Forbidden. The user who made the request is not authorized to perform the action.</td>
 </tr>
@@ -3128,19 +3306,19 @@ The response is similar to:
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><code>200</code></td>
 <td>OK. The request was successful.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>401</code></td>
 <td>Unauthorized. The user or client who made the request could not be authenticated. Verify the user/client name, and that the correct key was used to sign the request.</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>403</code></td>
 <td>Forbidden. The user who made the request is not authorized to perform the action.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>404</code></td>
 <td>Not found. The requested object does not exist.</td>
 </tr>
@@ -3274,19 +3452,19 @@ The response returns the policy details and is similar to:
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><code>200</code></td>
 <td>OK. The request was successful.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>401</code></td>
 <td>Unauthorized. The user or client who made the request could not be authenticated. Verify the user/client name, and that the correct key was used to sign the request.</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>403</code></td>
 <td>Forbidden. The user who made the request is not authorized to perform the action.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>404</code></td>
 <td>Not found. The requested object does not exist.</td>
 </tr>
@@ -3392,19 +3570,19 @@ The response is similar to:
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><code>200</code></td>
 <td>OK. The request was successful.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>401</code></td>
 <td>Unauthorized. The user or client who made the request could not be authenticated. Verify the user/client name, and that the correct key was used to sign the request.</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>403</code></td>
 <td>Forbidden. The user who made the request is not authorized to perform the action.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>404</code></td>
 <td>Not found. The requested object does not exist.</td>
 </tr>
@@ -3581,23 +3759,23 @@ The response returns the policy details and is similar to:
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><code>200</code></td>
 <td>OK. The request was successful.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>201</code></td>
 <td>Created. The object was created.</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>401</code></td>
 <td>Unauthorized. The user or client who made the request could not be authenticated. Verify the user/client name, and that the correct key was used to sign the request.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>403</code></td>
 <td>Forbidden. The user who made the request is not authorized to perform the action.</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>404</code></td>
 <td>Not found. The requested object does not exist.</td>
 </tr>
@@ -3620,7 +3798,7 @@ The following configuration settings are new for the Chef server:
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><code>estatsd['protocol']</code></td>
 <td>Use to send application statistics with StatsD protocol formatting. Set this value to <code>statsd</code> to apply StatsD protocol formatting.</td>
 </tr>
@@ -3726,7 +3904,7 @@ For more information about Amazon Elastic Block Store (EBS), see
 <http://aws.amazon.com/ebs/>.
 
 View the topic [High Availability: Backend
-Cluster](/install_server_ha/) for more information about how to set
+Cluster](/server/install_server_ha/) for more information about how to set
 up the Chef server for high availability in Amazon Web Services (AWS).
 
 ### Chef Replication
@@ -3770,7 +3948,7 @@ the replica.
 
 ![image](/images/chef_server_replication_sequence.png)
 
-View the topic [Chef Replication](/server_replication/) for more
+View the topic Chef Replication for more
 information about how to set up the Chef server for replication.
 
 ### chef-server-ctl
@@ -3836,7 +4014,7 @@ packages can be installed as described below.
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><p>Chef Manage</p></td>
 <td><p>Use Chef management console to manage data bags, attributes, run-lists, roles, environments, and cookbooks from a web user interface.</p>
 <p>On the Chef server, run:</p>
@@ -4220,11 +4398,11 @@ The following configuration settings are new for Chef server version 12:
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><code>default_orgname</code></td>
 <td>The Chef server API used by the Open Source Chef server does not have an <code>/organizations/ORG_NAME</code> endpoint. Use this setting to ensure that migrated Open Source Chef servers are able to connect to the Chef server API. This value should be the same as the name of the organization that was created during the upgrade from Open Source Chef version 11 to Chef server version 12, which means it will be identical to the <code>ORG_NAME</code> part of the <code>/organizations</code> endpoint in Chef server version 12. Default value: the name of the organization specified during the upgrade process from Open Source Chef 11 to Chef server 12.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>postgresql['log_min_duration_statement']</code></td>
 <td>When to log a slow PostgreSQL query statement. Possible values: <code>-1</code> (disabled, do not log any statements), <code>0</code> (log every statement), or an integer greater than zero. When the integer is greater than zero, this value is the amount of time (in milliseconds) that a query statement must have run before it is logged. Default value: <code>-1</code>.</td>
 </tr>
@@ -4246,7 +4424,7 @@ starting with Chef server version 12:
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><code>api_version</code></td>
 <td>The version of the Chef server. Default value: <code>"12.0.0"</code>.</td>
 </tr>
@@ -4268,11 +4446,11 @@ The following configuration settings are new in Chef server version
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><code>opscode_erchef['nginx_bookshelf_caching']</code></td>
 <td>Whether Nginx is used to cache cookbooks. When <code>:on</code>, Nginx serves up the cached content instead of forwarding the request. Default value: <code>:off</code>.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>opscode_erchef['s3_url_expiry_window_size']</code></td>
 <td>The frequency at which unique URLs are generated. This value may be a specific amount of time, i.e. <code>15m</code> (fifteen minutes) or a percentage of the value of <code>s3_url_ttl</code>, i.e. <code>10%</code>. Default value: <code>:off</code>.</td>
 </tr>
@@ -4363,11 +4541,11 @@ The following settings are new:
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><code>ldap['ssl_enabled']</code></td>
 <td>Use to enable SSL. Default value: <code>false</code>. Must be <code>false</code> when <code>ldap['tls_enabled']</code> is <code>true</code>.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>ldap['tls_enabled']</code></td>
 <td>Use to enable TLS. When enabled, communication with the LDAP server is done via a secure SSL connection on a dedicated port. When <code>true</code>, <code>ldap['port']</code> is also set to <code>636</code>. Default value: <code>false</code>. Must be <code>false</code> when <code>ldap['ssl_enabled']</code> is <code>true</code>.</td>
 </tr>

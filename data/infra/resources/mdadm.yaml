@@ -15,7 +15,7 @@ syntax_full_code_block: |-
   mdadm 'name' do
     bitmap           String
     chunk            Integer # default value: 16
-    devices          Array
+    devices          Array # default value: []
     layout           String
     level            Integer # default value: 1
     metadata         String # default value: "0.90"
@@ -23,6 +23,7 @@ syntax_full_code_block: |-
     action           Symbol # defaults to :create if not specified
   end
 syntax_properties_list:
+syntax_full_properties_list:
 - "`mdadm` is the resource."
 - "`name` is the name given to the resource block."
 - "`action` identifies which steps Chef Infra Client will take to bring the node into
@@ -30,13 +31,13 @@ syntax_properties_list:
 - "`bitmap`, `chunk`, `devices`, `layout`, `level`, `metadata`, and `raid_device`
   are the properties available to this resource."
 actions_list:
-  :assemble:
-    markdown: Assemble a previously created array into an active array.
-  :create:
-    markdown: Default. Create an array with per-device superblocks. If an array already
-      exists (but does not match), update that array to match.
   :nothing:
     shortcode: resources_common_actions_nothing.md
+  :create:
+    markdown: Create an array with per-device superblocks. If an array already exists
+      (but does not match), update that array to match. (default)
+  :assemble:
+    markdown: Assemble a previously created array into an active array.
   :stop:
     markdown: Stop an active array.
 properties_list:
@@ -55,6 +56,7 @@ properties_list:
 - property: devices
   ruby_type: Array
   required: false
+  default_value: "[]"
   description_list:
   - markdown: The devices to be part of a RAID array.
 - property: layout
@@ -73,7 +75,7 @@ properties_list:
 - property: metadata
   ruby_type: String
   required: false
-  default_value: '"0.90"'
+  default_value: '0.90'
   description_list:
   - markdown: The superblock type for RAID metadata.
 - property: raid_device
@@ -83,22 +85,47 @@ properties_list:
   description_list:
   - markdown: An optional property to specify the name of the RAID device if it differs
       from the resource block's name.
-examples: "
-  Create and assemble a RAID 0 array\n\n  The mdadm command can be\
-  \ used to create RAID arrays. For example, a RAID\n  0 array named `/dev/md0` with\
-  \ 10 devices would have a command similar to\n  the following:\n\n  ```bash\n \
-  \ mdadm --create /dev/md0 --level=0 --raid-devices=10 /dev/s01.../dev/s10\n  ```\n\
-  \n  where `/dev/s01 .. /dev/s10` represents 10 devices (01, 02, 03, and so\n  on).\
-  \ This same command, when expressed as a recipe using the **mdadm**\n  resource,\
-  \ would be similar to:\n\n  ```ruby\n  mdadm '/dev/md0' do\n    devices [ '/dev/s01',\
-  \ ... '/dev/s10' ]\n    level 0\n    action :create\n  end\n  ```\n\n  (again, where\
-  \ `/dev/s01 .. /dev/s10` represents devices /dev/s01,\n  /dev/s02, /dev/s03, and\
-  \ so on).\n\n  Create and assemble a RAID 1 array\n\n  ```ruby\n  mdadm '/dev/md0'\
-  \ do\n    devices [ '/dev/sda', '/dev/sdb' ]\n    level 1\n    action [ :create,\
-  \ :assemble ]\n  end\n  ```\n\n  Create and assemble a RAID 5 array\n\n  The mdadm\
-  \ command can be used to create RAID arrays. For example, a RAID\n  5 array named\
-  \ `/dev/sd0` with 4, and a superblock type of `0.90` would\n  be similar to:\n\n\
-  \  ```ruby\n  mdadm '/dev/sd0' do\n    devices [ '/dev/s1', '/dev/s2', '/dev/s3',\
-  \ '/dev/s4' ]\n    level 5\n    metadata '0.90'\n    chunk 32\n    action :create\n\
-  \  end\n  ```\n"
+examples: |
+  **Create and assemble a RAID 0 array**
 
+  The mdadm command can be used to create RAID arrays. For example, a RAID 0 array named /dev/md0 with 10 devices would have a command similar to the following:
+
+  ```
+  mdadm --create /dev/md0 --level=0 --raid-devices=10 /dev/s01.../dev/s10
+  ```
+
+  where /dev/s01 .. /dev/s10 represents 10 devices (01, 02, 03, and so on). This same command, when expressed as a recipe using the mdadm resource, would be similar to:
+
+  ```ruby
+  mdadm '/dev/md0' do
+    devices [ '/dev/s01', ... '/dev/s10' ]
+    level 0
+    action :create
+  end
+  ```
+
+  (again, where /dev/s01 .. /dev/s10 represents devices /dev/s01, /dev/s02, /dev/s03, and so on).
+
+  **Create and assemble a RAID 1 array**
+
+  ```ruby
+  mdadm '/dev/md0' do
+    devices [ '/dev/sda', '/dev/sdb' ]
+    level 1
+    action [ :create, :assemble ]
+  end
+  ```
+
+  **Create and assemble a RAID 5 array**
+
+  The mdadm command can be used to create RAID arrays. For example, a RAID 5 array named /dev/sd0 with 4, and a superblock type of 0.90 would be similar to:
+
+  ```ruby
+  mdadm '/dev/sd0' do
+    devices [ '/dev/s1', '/dev/s2', '/dev/s3', '/dev/s4' ]
+    level 5
+    metadata '0.90'
+    chunk 32
+    action :create
+  end
+  ```

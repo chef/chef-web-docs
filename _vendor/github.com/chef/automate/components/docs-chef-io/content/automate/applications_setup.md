@@ -3,6 +3,8 @@ title = "Setting up the Applications Dashboard"
 
 date = 2019-10-18T18:54:09+00:00
 draft = false
+
+gh_repo = "automate"
 [menu]
   [menu.automate]
     title = "Setting up the Applications Dashboard"
@@ -11,12 +13,12 @@ draft = false
     weight = 20
 +++
 
-[\[edit on GitHub\]](https://github.com/chef/automate/blob/master/components/docs-chef-io/content/automate/applications_setup.md)
+
 <!-- ## Health Checks
 
 To maximize the utility of the Chef Automate EAS Applications feature, it is recommended to implement meaningful health check hooks for your services.
 When a health check hook returns a status other than "OK", Chef Automate will display the output of the hook along with the status, so it is recommended to include useful debugging information in the output of the health checks when returning a "critical", "warning", or "unknown" status result.
-Further information about writing Chef Habitat health check hooks can be found in the (https://www.Chef Habitat.sh/docs/reference/#related-article-runtime-settings "Chef Habitat documentation"). -->
+Further information about writing Chef Habitat health check hooks can be found in the https://docs.chef.io/habitat/application_lifecycle_hooks#health-check "Chef Habitat documentation". -->
 
 This Enterprise Application Stack (EAS) integration gives you immediate insight into the status of your Chef Habitat services, even when scaling out to large numbers of services.
 
@@ -47,7 +49,7 @@ For best results:
 
 For services that do not follow this layout, you should select environment and application names that help you find and filter the application data and are relevant to your typical job tasks.
 
-For more information on setting up Chef Habitat, see the Chef Habitat [Service Groups](https://www.habitat.sh/docs/using-habitat/#service-groups) documentation.
+For more information on setting up Chef Habitat, see the Chef Habitat [Service Groups]({{< relref "/habitat/about_services#service-group" >}}) documentation.
 
 ## Setting up the Applications Dashboard
 
@@ -73,7 +75,7 @@ hab sup run \
   --event-stream-token="API_TOKEN" \
 ```
 
-* [hab sup run](https://www.habitat.sh/docs/habitat-cli/#hab-sup-run) is the hab cli commant to start the Habitat supervisor.
+* [hab sup run]({{< relref "/habitat/habitat_cli#hab-sup-run" >}}) is the hab cli commant to start the Habitat supervisor.
 * `MY_APP` is the name of your application. Chef Automate groups services by application name in the Applications Dashboard
 * `MY_ENV` is the application environment for this supervisor. Chef Automate groups services by environment in the Applications Dashboard
 * `MY_SITE` describes the physical (for example, datacenter) or cloud-specific (for example, the AWS region) location where your services are deployed. The site field is a value filtering for services in the Applications Dashboard.
@@ -122,10 +124,18 @@ Use **one** of these three options:
 
 Chef Habitat automatically searches that directory and uses the certificate at start up.
 
-**On Linux systems**, copy the certificate to`/hab/cache/ssl` if you are the root user, or to `~/.hab/cache/ssl` if you are a non-root user. If you are a non-root user, the full file path is `/Users/username/.hab/cache/ssl/automate.cert`, located in your local user's home directory. Non-root users may need to use `sudo` with the command. For example, as the root user, copy the file with:
+**On Linux systems**, as a root user, copy the certificate to`/hab/cache/ssl` . As a non-root user, copy it to `~/.hab/cache/ssl`. The full file path for a non-root user certificate in your local directory is `/Users/username/.hab/cache/ssl/automate.cert`. You may need to use `sudo` with the command.
 
-```shell
+As the root user, copy the file with:
+
+```bash
 cp /path/to/automate.cert /hab/cache/ssl/automate.cert
+```
+
+As a non-root user, copy it with:
+
+```bash
+sudo /path/to/automate.cert ~/.hab/cache/ssl
 ```
 
 **On Windows systems**, store your certs in `C:\hab\cache\ssl`. For example, copy the file with:
@@ -222,7 +232,7 @@ To configure Chef Automate as an OAuth Provider for Habitat Builder, create a TO
 that contains the partial configuration below.
 Run `chef-automate config patch </path/to/your-file.toml>` to deploy your change.
 
-`bldr_client_id` and `bldr_client_secret` simply need to match what you configured for the corresponding values in Habitat Builder (see below). However, we strongly recommend those values follow [best practices](https://www.oauth.com/oauth2-servers/client-registration/client-id-secret/) for `client_id` and `client_secret` in the Oauth2 standard.
+`bldr_client_id` and `bldr_client_secret` need to match the settings of the values in Habitat Builder.  Follow the [best practices](https://www.oauth.com/oauth2-servers/client-registration/client-id-secret/) for setting these values `client_id` and `client_secret` in the Oauth2 standard.
 
 ```toml
 [session.v1.sys.service]
@@ -246,13 +256,13 @@ MIIDfDCCAmSgAcasldkaf...
 If you are using a certificate signed by a trusted certificate authority instead of the default certificate, you can provide Builder with the root certificate authority for the signed certificate.
 
 For more information, check out this further explanation on how to [configure Builder to authenticate via Chef Automate](https://github.com/habitat-sh/on-prem-builder).
+
 ## Related Resources
 
-For more information, see the [Chef Habitat documentation](https://www.habitat.sh/docs).
+For more information, see the [Chef Habitat documentation]({{< relref "/habitat" >}}).
 In particular, see the entries on:
 
-* [Chef Habitat Best Practices](https://www.habitat.sh/docs/best-practices/)
-* [Service Groups](https://www.habitat.sh/docs/using-habitat/#service-groups)
-* [Services](https://www.habitat.sh/docs/glossary/#glossary-services)
-* [Supervisor](https://www.habitat.sh/docs/glossary/#glossary-supervisor)
-* [Topology](https://www.habitat.sh/docs/glossary/#topology)
+* [Service Groups]({{< relref "/habitat/service_groups" >}})
+* [Services]({{< relref "/habitat/about_services" >}})
+* [Supervisor]({{< relref "/habitat/sup" >}})
+* [Topology]({{< relref "/habitat/about_services#topology" >}})

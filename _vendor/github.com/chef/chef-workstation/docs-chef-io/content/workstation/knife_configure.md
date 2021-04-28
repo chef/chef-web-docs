@@ -2,6 +2,8 @@
 title = "knife configure"
 draft = false
 
+gh_repo = "chef-workstation"
+
 aliases = ["/knife_configure.html", "/knife_configure/"]
 
 [menu]
@@ -10,8 +12,6 @@ aliases = ["/knife_configure.html", "/knife_configure/"]
     identifier = "chef_workstation/chef_workstation_tools/knife/knife_configure.md knife configure"
     parent = "chef_workstation/chef_workstation_tools/knife"
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/docs-chef-io/content/workstation/knife_configure.md)
 
 {{% knife_configure_summary %}}
 
@@ -42,30 +42,30 @@ config.rb file:
 
 `--admin-client-name NAME`
 
-:   The name of the client, typically the name of the admin client.
+: The name of the client, typically the name of the admin client.
 
 `--admin-client-key PATH`
 
-:   The path to the private key used by the client, typically a file
+: The path to the private key used by the client, typically a file
     named `admin.pem`.
 
 `-i`, `--initial`
 
-:   Create a API client, typically an administrator client on a
+: Create a API client, typically an administrator client on a
     freshly-installed Chef Infra Server.
 
 `-r REPO`, `--repository REPO`
 
-:   The path to the chef-repo.
+: The path to the chef-repo.
 
 `--validation-client-name NAME`
 
-:   The name of the validation client, typically a client named
+: The name of the validation client, typically a client named
     chef-validator.
 
 `--validation-key PATH`
 
-:   The path to the validation key used by the client, typically a file
+: The path to the validation key used by the client, typically a file
     named chef-validator.pem.
 
 {{< note >}}

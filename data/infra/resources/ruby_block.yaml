@@ -97,7 +97,7 @@ examples: "
   \ :immediately\n    notifies :create, 'ruby_block[reload-internal-yum-cache]', :immediately\n\
   \  end\n  ```\n\n  Use an if statement with the platform recipe DSL method\n\n \
   \ The following example shows how an if statement can be used with the\n  `platform?`\
-  \ method in the Recipe DSL to run code specific to Microsoft\n  Windows. The code\
+  \ method in the Chef Infra Language to run code specific to Microsoft\n  Windows. The code\
   \ is defined using the **ruby_block** resource:\n\n  ```ruby\n  # the following\
   \ code sample comes from the ``client`` recipe\n  # in the following cookbook: https://github.com/chef-cookbooks/mysql\n\
   \n  if platform?('windows')\n    ruby_block 'copy libmysql.dll into ruby path' do\n\
@@ -164,4 +164,3 @@ examples: "
   \ do |plugin|\n      remote_file node[:ohai][:plugin_path] +\"/#{plugin}\" do\n\
   \        source plugin\n        owner 'chef'\n        notifies :run, 'ruby_block[reload_config]',\
   \ :immediately\n      end\n    end\n  end\n  ```\n"
-

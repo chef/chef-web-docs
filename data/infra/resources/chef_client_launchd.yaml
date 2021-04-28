@@ -6,15 +6,15 @@ resources_common_properties: true
 resource: chef_client_launchd
 resource_description_list:
 - markdown: Use the **chef_client_launchd** resource to configure the Chef Infra Client
-    to run on a schedule.
+    to run on a schedule on macOS systems.
 resource_new_in: '16.5'
 syntax_full_code_block: |-
   chef_client_launchd 'name' do
     accept_chef_license      true, false # default value: false
     chef_binary_path         String # default value: "/opt/chef/bin/chef-client"
     config_directory         String # default value: "/etc/chef"
-    daemon_options           Array
-    environment              Hash
+    daemon_options           Array # default value: []
+    environment              Hash # default value: {}
     interval                 Integer, String # default value: 30
     log_directory            String # default value: "/Library/Logs/Chef"
     log_file_name            String # default value: "client.log"

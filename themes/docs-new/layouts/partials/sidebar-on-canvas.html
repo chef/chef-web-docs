@@ -5,8 +5,8 @@
   <nav id="sidebar-nav">
     {{ if .Site.Params.enable_search }}
       <div class="search">
-        <form class="basic-form" method="" action="">
-          <input type="text" class="st-default-search-input" placeholder="Search...">
+        <form role="search">
+          <input type="search" class="swiftype-search-input swiftype-search-autocomplete" placeholder="Search..." role="search" aria-label="Documentation Search">
         </form>
       </div>
     {{ end }}

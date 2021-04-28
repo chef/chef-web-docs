@@ -1,4 +1,4 @@
-The Recipe DSL provides access to data bags and data bag items
+The Chef Infra Language provides access to data bags and data bag items
 (including encrypted data bag items) with the following methods:
 
 -   `data_bag(bag)`, where `bag` is the name of the data bag.

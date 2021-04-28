@@ -42,6 +42,11 @@ hugo mod tidy
 
 hugo mod vendor
 
+# Clean the go.sum file
+
+rm go.sum
+hugo mod clean
+
 # submit pull request to chef/chef-web-docs
 
 git add .

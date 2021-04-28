@@ -1,10 +1,9 @@
 +++
 title = "Active Directory and LDAP"
 draft = false
-
 gh_repo = "chef-web-docs"
-
 aliases = ["/server_ldap.html", "/install_server_post.html"]
+product = ["server"]
 
 [menu]
   [menu.legacy]
@@ -86,23 +85,23 @@ settings into `ldapsearch` parameters:
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><code>ldap['host']</code> and <code>ldap['port']</code></td>
 <td><code>-H [HOST:PORT]</code></td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>ldap['bind_dn']</code></td>
 <td><code>-D [BIND_DN]</code></td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>ldap['bind_password']</code></td>
 <td><code>-W</code>; <code>ldapsearch</code> will prompt for this parameter</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>ldap['base_dn']</code></td>
 <td><code>-b [BASE_DN]</code></td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>ldap['login_attribute']</code></td>
 <td>Defaults to <code>SAMAccountName</code></td>
 </tr>

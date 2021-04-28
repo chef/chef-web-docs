@@ -1,6 +1,7 @@
 +++
 title = "InSpec CLI"
 draft = false
+gh_repo = "inspec"
 
 [menu]
   [menu.inspec]
@@ -9,8 +10,6 @@ draft = false
     parent = "inspec/reference"
     weight = 10
 +++
-
-[\[edit on GitHub\]](https://github.com/inspec/inspec/blob/master/docs-chef-io/content/inspec/cli.md)
 
 Use the InSpec CLI to run tests and audits against targets using local, SSH, WinRM, or Docker connections.
 
@@ -49,7 +48,8 @@ This subcommand has additional options:
 
 ## check
 
-Verify all tests at the specified path
+Verify metadata in inspec.yml. Verify control data has fields (title, description,
+impact) defined and that all controls have visible tests.
 
 ### Syntax
 
@@ -96,6 +96,8 @@ This subcommand has additional options:
     Specifies the bastion user if applicable
 * ``--config=CONFIG``
     Read configuration from JSON file (`-` reads from stdin).
+* ``--docker-url``
+    Provides path to Docker API endpoint (Docker).
 * ``--enable-password=ENABLE_PASSWORD``
     Password for enable mode on Cisco IOS devices.
 * ``--format=FORMAT``
@@ -144,6 +146,8 @@ This subcommand has additional options:
     Whether to use disable sspi authentication, defaults to false (WinRM).
 * ``--winrm-transport=WINRM_TRANSPORT``
     Specify which transport to use, defaults to negotiate (WinRM).
+* ``--winrm-shell-type=WINRM_SHELL_TYPE``
+    Specify which shell type to use (powershell,elevated or cmd), defaults to powershell (WinRM).
 
 ## env
 
@@ -161,9 +165,9 @@ inspec env
 
 Run all test files at the specified locations.
 
-loads the given profile(s) and fetches their dependencies if needed. then
+The subcommand loads the given profiles, fetches their dependencies if needed, then
 connects to the target and executes any controls contained in the profiles.
-one or more reporters are used to generate output.
+One or more reporters are used to generate the output.
 
 ```
 exit codes:
@@ -176,57 +180,57 @@ exit codes:
   172  chef license not accepted
 ```
 
-below are some examples of using `exec` with different test locations:
+Below are some examples of using `exec` with different test locations:
 
-automate:
+Chef Automate:
 ```
 inspec compliance login
 inspec exec compliance://username/linux-baseline
 ```
 
-supermarket:
+Chef Supermarket:
 ```
 inspec exec supermarket://username/linux-baseline
 ```
 
-local profile (executes all tests in `controls/`):
+Local profile (executes all tests in `controls/`):
 ```
 inspec exec /path/to/profile
 ```
 
-local single test (doesn't allow inputs or custom resources)
+Local single test (doesn't allow inputs or custom resources):
 ```
 inspec exec /path/to/a_test.rb
 ```
 
-git via ssh
+Git via SSH:
 ```
 inspec exec git@github.com:dev-sec/linux-baseline.git
 ```
 
-git via https (.git suffix is required):
+Git via HTTPS (.git suffix is required):
 ```
 inspec exec https://github.com/dev-sec/linux-baseline.git
 ```
 
-private git via https (.git suffix is required):
+Private Git via HTTPS (.git suffix is required):
 ```
 inspec exec https://api_token@github.com/dev-sec/linux-baseline.git
 ```
 
-private git via https and cached credentials (.git suffix is required):
+Private Git via HTTPS and cached credentials (.git suffix is required):
 ```
 git config credential.helper cache
 git ls-remote https://github.com/dev-sec/linux-baseline.git
 inspec exec https://github.com/dev-sec/linux-baseline.git
 ```
 
-web hosted fileshare (also supports .zip):
+Web-hosted file (also supports .zip):
 ```
 inspec exec https://webserver/linux-baseline.tar.gz
 ```
 
-web hosted fileshare with basic authentication (supports .zip):
+Web-hosted file with basic authentication (supports .zip):
 ```
 inspec exec https://username:password@webserver/linux-baseline.tar.gz
 ```
@@ -256,6 +260,8 @@ This subcommand has additional options:
     Specifies the bastion port if applicable
 * ``--bastion-user=BASTION_USER``
     Specifies the bastion user if applicable
+* ``--command-timeout=SECONDS``
+    Maximum seconds to allow a command to run.
 * ``--config=CONFIG``
     Read configuration from JSON file (`-` reads from stdin).
 * ``--controls=one two three``
@@ -264,8 +270,12 @@ This subcommand has additional options:
     Write out a lockfile based on this execution (unless one already exists)
 * ``--distinct-exit``, ``--no-distinct-exit``
     Exit with code 101 if any tests fail, and 100 if any are skipped (default).  If disabled, exit 0 on skips and 1 for failures.
+* ``--docker-url``
+    Provides path to Docker API endpoint (Docker). Defaults to unix:///var/run/docker.sock on Unix systems and tcp://localhost:2375 on Windows.
 * ``--enable-password=ENABLE_PASSWORD``
     Password for enable mode on Cisco IOS devices.
+* ``--filter-empty-profiles``, ``--no-filter-empty-profiles``
+    Filter empty profiles (profiles without controls) from the report.
 * ``--host=HOST``
     Specify a remote host which is tested.
 * ``--input=name1=value1 name2=value2``
@@ -290,6 +300,8 @@ This subcommand has additional options:
     Enable one or more output reporters: cli, documentation, html, progress, json, json-min, json-rspec, junit, yaml
 * ``--reporter-backtrace-inclusion``, ``--no-reporter-backtrace-inclusion``
     Include a code backtrace in report data (default: true)
+* ``--reporter-include-source``
+    Include full source code of controls in the CLI report
 * ``--reporter-message-truncation=REPORTER_MESSAGE_TRUNCATION``
     Number of characters to truncate failure messages in report data to (default: no truncation)
 * ``--self-signed``, ``--no-self-signed``
@@ -418,12 +430,16 @@ This subcommand has additional options:
     Specifies the bastion user if applicable
 * ``-c``, ``--command=COMMAND``
     A single command string to run instead of launching the shell
+* ``--command-timeout=SECONDS``
+    Maximum seconds to allow a command to run.
 * ``--config=CONFIG``
     Read configuration from JSON file (`-` reads from stdin).
 * ``--depends=one two three``
     A space-delimited list of local folders containing profiles whose libraries and resources will be loaded into the new shell
 * ``--distinct-exit``, ``--no-distinct-exit``
     Exit with code 100 if any tests fail, and 101 if any are skipped but none failed (default).  If disabled, exit 0 on skips and 1 for failures.
+* ``--docker-url``
+    Provides path to Docker API endpoint (Docker). Defaults to unix:///var/run/docker.sock on Unix systems and tcp://localhost:2375 on Windows.
 * ``--enable-password=ENABLE_PASSWORD``
     Password for enable mode on Cisco IOS devices.
 * ``--host=HOST``

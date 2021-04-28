@@ -1,10 +1,9 @@
 +++
-title = "Release Notes: Chef Infra Client 12.0 - 16.9"
+title = "Release Notes: Chef Infra Client 12.0 - 16.13"
 draft = false
-
 gh_repo = "chef-web-docs"
-
 aliases = ["/release_notes.html", "/release_notes_ohai.html", "/release_notes/"]
+product = ["client"]
 
 [menu]
   [menu.release_notes]
@@ -13,10 +12,278 @@ aliases = ["/release_notes.html", "/release_notes_ohai.html", "/release_notes/"]
     parent = "release_notes"
 +++
 
-Chef Infra Client is released on a monthly schedule with new releases
-the first Wednesday of every month. Below are the major changes for each
-release. For a detailed list of changes see the [Chef Infra Client
-changelog](https://github.com/chef/chef/blob/master/CHANGELOG.md)
+## What's New in 16.13
+
+### Chef InSpec 4.31
+
+Chef InSpec has been updated from 4.29.3 to 4.31.1.
+
+#### New Features
+
+- Commands can now be set to timeout using the [command resource](https://docs.chef.io/inspec/resources/command/) or the [`--command-timeout`](https://docs.chef.io/inspec/cli/) option in the CLI. Commands timeout by default after one hour.
+- Added the [`--docker-url`](https://docs.chef.io/inspec/cli/) CLI option, which can be used to specify the URI to connect to the Docker Engine.
+- Added support for targeting Linux and Windows containers running on Docker for Windows.
+
+#### Bug Fixes
+
+- Hash inputs will now be loaded consistently and accessed as strings or symbols. ([#5446](https://github.com/inspec/inspec/pull/5446))
+
+### Ubuntu FIPS Support
+
+Our Ubuntu packages are now FIPS compliant for all your FedRAMP needs.
+
+### Chef Language Additions
+
+We now include a `centos_stream_platform?` helper to determine if your CentOS release is a standard [CentOS](https://www.centos.org/centos-linux/) release or a [CentOS Stream](https://www.centos.org/centos-stream/) release. This helper can be used in attributes files, recipes, and custom resources. Thanks for this new helper [@ramereth](https://github.com/ramereth)!
+
+### Resource Improvements
+
+#### dsc_script and dsc_resource
+
+Our PowerShell integration has been improved to better handle failures that were silently occurring when running some DSC code in Chef Infra Client 16.8 and later. Thanks for reporting this problem [@jeremyciak](https://github.com/jeremyciak)!
+
+### Platform Support Updates
+
+#### Ubuntu 16.04 EOL
+
+Packages will no longer be built for Ubuntu 16.04 as Canonical ended maintenance updates on April 30, 2021. See Chef's [Platform End-of-Life Policy](https://docs.chef.io/platforms/#platform-end-of-life-policy) for more information on when Chef ends support for an OS release.
+
+### Improved System Detection
+
+Ohai now includes a new `:OsRelease` plugin for Linux hosts that includes the content of `/etc/os_release`. This data can be very useful for accurately identifying the Linux distribution that Chef Infra Client is running on. Thanks for this new plugin [@ramereth](https://github.com/ramereth)!
+
+#### Sample `:OsRelease` Output
+
+```json
+{
+  "name": "Ubuntu",
+  "version": "18.04.5 LTS (Bionic Beaver)",
+  "id": "ubuntu",
+  "id_like": [
+    "debian"
+  ],
+  "pretty_name": "Ubuntu 18.04.5 LTS",
+  "version_id": "18.04",
+  "home_url": "https://www.ubuntu.com/",
+  "support_url": "https://help.ubuntu.com/",
+  "bug_report_url": "https://bugs.launchpad.net/ubuntu/",
+  "privacy_policy_url": "https://www.ubuntu.com/legal/terms-and-policies/privacy-policy",
+  "version_codename": "bionic",
+  "ubuntu_codename": "bionic"
+}
+```
+
+### Security
+
+#### Ruby 2.7.3
+
+Ruby has been updated to 2.7.3, which provides a large number of bug fixes and also resolves the following CVEs:
+
+- [CVE-2021-28966](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-28966)
+- [CVE-2021-28966](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-28966)
+
+## What's New in 16.12
+
+### Chef InSpec 4.29
+
+Chef InSpec has been updated from 4.28 to 4.29.3.
+
+#### New Features
+
+- The JSON metadata pass through configuration has been moved from the Automate reporter to the JSON Reporter. ([#5430](https://github.com/inspec/inspec/pull/5430))
+
+#### Bug Fixes
+
+- The apt resource now correctly fetches all package repositories using the `-name` flag in an environment where ZSH is the user's default shell.  ([#5437](https://github.com/inspec/inspec/pull/5437))
+- Updates how InSpec profiles are created with GCP or AWS providers so they use `inputs` instead of `attributes`. ([#5435](https://github.com/inspec/inspec/pull/5435))
+
+### Resource Improvements
+
+#### service and chef_client_launchd
+
+The `service` and `chef_client_launchd` resources on macOS now use the full path to `launchctl` to avoid potential failures. Thanks [@krackajak](https://github.com/krackajak)!
+
+#### file
+
+Verifiers in the `file` resource are only run if the content actually changes. This can significantly speed execution of Chef Infra Client when no actual changes occur. Thanks [@joshuamiller01](https://github.com/joshuamiller01)!
+
+#### mount
+
+The mount resource now properly handles NFS mounts with a root of `/`. Thanks for reporting this [@eheydrick](https://github.com/eheydrick) and thanks for the fix [@ramereth](https://github.com/ramereth)!
+
+### powershell_script and dsc_script
+
+Our embedded PowerShell libraries have been updated for improved execution of PowerShell and DSC code on Windows systems.
+
+### Improved System Detection
+
+Ohai has been updated to better detect system configuration details:
+
+- Ohai now detects Chef Infra Clients running in the Effortless pattern at `node['chef_packages']['chef']['chef_effortless']`.
+- Windows packages installed for the current user are now detected in addition to system wide package installations. Thanks [@jaymzh](https://github.com/jaymzh)!
+- `Sangoma Linux` is now detected as part of the `rhel` platform family. Thanks [@hron84](https://github.com/hron84)!
+- Docker is now properly detected even if it's running on a virtualized system. Thanks [@jaymzh](https://github.com/jaymzh)!
+- Alibaba Cloud Linux is now detected as platform `alibabalinux` and platform family `rhel`.
+
+### Security
+
+Upgraded OpenSSL on macOS hosts to 1.1.1k, which resolves the following CVEs:
+
+- [CVE-2021-3450](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-3450)
+- [CVE-2021-3449](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-3449)
+
+## What's New in 16.11.7
+
+### Native Apple M1 Architecture Packages
+
+We now build and test native Apple M1 architecture builds of Chef Infra Client. These builds are available at [downloads.chef.io](https://downloads.chef.io), our `install.sh` scripts, and the [Omnitruck API](https://docs.chef.io/api_omnitruck/).
+
+### Chef InSpec 4.28
+
+Chef InSpec has been updated from 4.26.4 to 4.28.0.
+
+#### New Features
+
+- Added the option to filter out empty profiles from reports.
+- Exposed the `conf_path`, `content`, and `params` properties to the `auditd_conf` resource.
+- Added the ability to specify `--user` when connecting to docker containers.
+
+#### Bug Fixes
+
+- Fixed the `crontab` resource when passing a username to AIX.
+- Stopped a backtrace from occurring when using `cmp` to compare `nil` with a non-existing file.
+- Fixed `skip_control` to work on deeply nested profiles.
+- The `ssh_config` and `sshd_config` resources now correctly use the first value when a setting is repeated.
+
+### Fixes and Improvements
+
+- Upgraded openSSL on macOS from 1.0.2 to 1.1.1 in order to support Apple M1 builds.
+- Resolved an issue that caused the DNF and YUM package helpers to exit with error codes, which would show up in system logs.
+- Added a new attribute to make the upcoming Compliance Phase an opt-in feature: `node['audit']['compliance_phase']`. This should prevent the Compliance Phase from incorrectly running when using named run_lists or override run_lists. If you're currently testing this new phase, make sure to set this attribute to `true`.
+- `chef_client_cron`: the `append_log_file` property now sets up the cron job to use shell redirection (`>>`) instead of the `-L` flag
+
+## What's New in 16.10.17
+
+### Bugfixes
+
+- Resolved installation failures on some Windows systems
+- Fixed the `mount` resource for network mounts using the root level as the device. Thanks [@ramereth](https://github.com/ramereth)!
+- Resolved a Compliance Phase failure with profile names using the `@` symbol.
+
+### Security
+
+Upgraded OpenSSL to 1.0.2y, which resolves the following CVEs:
+
+- [CVE-2021-23841](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-23841)
+- [CVE-2021-23839](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-23839)
+- [CVE-2021-23840](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-23840)
+
+### Platform Updates
+
+With the release of macOS 11 we will no longer produce packages for macOS 10.13 systems. See our [Platform End-of-Life Policy](https://docs.chef.io/platforms/#platform-end-of-life-policy) for details on the platform lifecycle.
+
+## What's New in 16.10
+
+### Improvements
+
+#### Improved Linux Network Detection
+
+On Linux systems, Chef Infra Client now detects all installed NICs on systems with more than 10 interfaces and will populate Ethernet pause frame information if present. Thanks for these improvements [@kuba-moo](https://github.com/kuba-moo) and [@Babar](https://github.com/Babar)!
+
+#### AWS Instance Metadata Service Version 2 (IMDSv2) support
+
+Chef Infra Client now supports the latest generation of AWS metadata services (IMDSv2). This allows you to secure the contents of the metadata endpoint while still exposing this data for use in Chef Infra cookbooks. Thanks for this new functionality [@wilkosz](https://github.com/wilkosz) and [@sawanoboly](https://github.com/sawanoboly)!
+
+#### Improved AWS Metadata Gathering
+
+On AWS instances, we now gather data from the latest metadata API versions, exposing new AWS instance information for use in Infra Cookbooks:
+
+- elastic-gpus/associations/elastic-gpu-id
+- elastic-inference/associations/eia-id
+- events/maintenance/history
+- events/maintenance/scheduled
+- events/recommendations/rebalance
+- instance-life-cycle
+- network/interfaces/macs/mac/network-card-index
+- placement/availability-zone-id
+- placement/group-name
+- placement/host-id
+- placement/partition-number
+- placement/region
+- spot/instance-action
+
+#### Alma Linux Detection
+
+Chef Infra Client now maps [Alma Linux](https://almalinux.org/) to the `rhel` `platform_family` value. Alma Linux is a new open-source RHEL fork produced by the CloudLinux team. Alma Linux falls under Chef's [Community Support](https://docs.chef.io/platforms/#community-support) platform support policy providing community driven support without the extensive testing given to commercially supported platforms in Chef Infra Client.
+
+You can test cookbooks on Alma Linux in Test Kitchen using [Alma Linux 8 Vagrant Images](https://app.vagrantup.com/bento/boxes/almalinux-8 on VirtualBox, Parallels, and VMware hypervisors as follows:
+
+```yaml
+platforms:
+  - name: almalinux-8
+    driver:
+      box: bento/almalinux-8
+```
+
+#### Knife Bootstrapping Without Sudo
+
+The `knife bootstrap` command now supports elevating privileges on systems without `sudo` by using the `su` command instead. Use the new `--su-user` and `--su-password` flags to specify credentials for `su`.
+
+### Resource Updates
+
+#### dnf_package
+
+The `dnf_package` has been updated to maintain idempotency when using the `:upgrade` action when the RPM release "number" contains a dot (`.`).
+
+#### windows_certificate
+
+The `windows_certificate` resource now honors the `user_store` property to manage certificates in the User store instead of the System store.
+
+## What's New in 16.9.32
+
+### Improvements
+
+- Resolved orphaned PowerShell processes when using Compliance Remediation content.
+- Reduced Chef Infra Client install size by up to 5%.
+
+### Chef InSpec 4.26.4
+
+Chef InSpec has been updated from 4.25.1 to 4.26.4.
+
+#### New Features
+
+- You can now directly refer to settings in the `nginx_conf` resource using the `its` syntax. Thanks [@rgeissert](https://github.com/rgeissert)!
+- You can now specify the shell type for WinRM connections using the `--winrm-shell-type` option. Thanks [@catriona1](https://github.com/catriona1)!
+- Plugin settings can now be set programmatically. Thanks [@tecracer-theinen](https:/github.com/tecracer-theinen)!
+
+#### Bug Fixes
+
+- Updated the `oracledb_session` to use more general invocation options. Thanks [@pacopal](https://github.com/pacopal)!
+- Fixed an error with the `http` resource in Chef Infra Client by including `faraday_middleware` in the gemspec.
+- Fixed an incompatibility between `parslet` and `toml` in Chef Infra Client.
+- Improved programmatic plugin configuration.
+
+## What's New in 16.9.29
+
+### Chef InSpec 4.25.1
+
+Chef InSpec has been updated from 4.24.8 to 4.25.1:
+
+- OpenSSH Client on Windows can now be tested with the ssh_config and sshd_config resources. Thanks [@rgeissert](https://github.com/rgeissert)!
+- The `--reporter-message-truncation` option now also truncates the `code_desc` field, preventing failures when sending large reports to Automate.
+
+### Bug Fixes
+
+- Resolved failures from running `chef-client` on some Windows systems.
+- Compliance Phase: Improved detection of the `audit` cookbook when it is used for compliance reporting.
+- chef-shell: Added support for loading configs in `client.d` directories - Thanks [@jaymzh](https://github.com/jaymzh)!
+- Duplicate gems in our packaging have been removed to further shrink the package sizes and improve load time.
+
+## What's New in 16.9.20
+
+- Updated the package resource on FreeBSD to work with recent changes to the pkgng executable. Thanks [@mrtazz](https://github.com/mrtazz/)
+- Added a missing dependency in the chef-zero binary that could cause failures when running chef-zero.
+- Resolved failures when running the audit cookbook from our yet-to-be-fully-released Chef Infra Compliance Phase. As it turns out, this dark launch was not as dark as we had hoped.
 
 ## What's New in 16.9
 
@@ -52,7 +319,7 @@ Parsing of plist files has been improved in the `plist`, `macosx_service`, `osx_
 
 The `user` resource on Windows hosts now properly handles `uid` values passed as strings instead of integers. Thanks for reporting this issue [@jaymzh](https://github.com/jaymzh)!
 
-#### yum_repostiory
+#### yum_repository
 
 The `yum_repository` resource has been updated with a new `reposdir` property to control the path where the Yum repository configuration files will be written. Thanks for suggesting this [@wildcrazyman](https://github.com/wildcrazyman)!
 
@@ -184,7 +451,7 @@ The `zypper_package` resource has been refactored to improve idempotency when sp
 - Performance of system configuration gathering on AIX systems has been improved
 - The `Virtualization` plugin on AIX systems now gathers a state `state` per WPAR and properly gathers LPAR names that include spaces
 
-## Whats New in 16.6
+## What's New in 16.6
 
 ### pwsh Support
 
@@ -284,7 +551,7 @@ The `ifconfig` resource has been updated to no longer add empty blank lines to t
 
 The `windows_audit_policy` resource has been updated to fix a bug on failure-only auditing.
 
-## Ohai Improvements
+### Ohai Improvements
 
 #### Passwd Plugin For Windows
 
@@ -893,7 +1160,7 @@ depends 'windows', '>> 1.0'
 
 #### Logging Improvements May Cause Behavior Changes
 
-We've made low-level changes to how logging behaves in Chef Infra Client that resolves many complaints we've heard of the years. With these change you'll now see the same logging output when you run `chef-client` on the command line as you will in logs from a daemonized client run. This also corrects often confusing behavior where running `chef-client` on the command line would log to the console, but not to the log file location defined your `client.rb`. In that scenario you'll now see logs in your console and in your log file. We believe this is the expected behavior and will mean that your on-disk log files can always be the source of truth for changes that were made by Chef Infra Client. This may cause unexpected behavior changes for users that relied on using the command line flags to override the `client.rb` log location - in this case logging will be sent to *both- the locations in `client.rb` and on the command line. If you have daemons running that log using the command line options you want to make sure that `client.rb` log location either matches or isn't defined.
+We've made low-level changes to how logging behaves in Chef Infra Client that resolves many complaints we've heard of the years. With these change you'll now see the same logging output when you run `chef-client` on the command line as you will in logs from a daemonized client run. This also corrects often confusing behavior where running `chef-client` on the command line would log to the console, but not to the log file location defined your `client.rb`. In that scenario you'll now see logs in your console and in your log file. We believe this is the expected behavior and will mean that your on-disk log files can always be the source of truth for changes that were made by Chef Infra Client. This may cause unexpected behavior changes for users that relied on using the command line flags to override the `client.rb` log location - in this case logging will be sent to _both_ the location in the `client.rb` and on the command line. If you have daemons running that log using the command line options you want to make sure that `client.rb` log location either matches or isn't defined.
 
 #### Red Hat / CentOS 6 Systems Require C11 GCC for Some Gem Installations
 
@@ -1324,6 +1591,60 @@ Several legacy Windows helpers have been deprecated as they will always return t
 - Chef::Platform.older_than_win_2012_or_8?
 - Chef::Platform.supports_powershell_execution_bypass?
 - Chef::Platform.windows_nano_server?
+
+## What's new in 15.16
+
+### Fixes and Improvements
+
+- Improved license acceptance failure messaging if incorrect values are provided.
+- License acceptance values are no longer case sensitive.
+- Resolved several failures that could occur in the `windows_certificate` resource.
+- Improved handling of WinRM connections when bootstrapping Windows nodes.
+- Switched docker containers back to EL6 packages to prevent failures running the containers with Kitchen Dokken to test RHEL 6 systems.
+- Fixed non-0 exit codes in the Yum and DNF helper scripts which caused errors in system logs.
+- Fixed package failures in FreeBSD due to changes in `pkgng` exit codes.
+- Added support for `client.d` configuration files in `chef-shell`.
+
+### Chef InSpec
+
+Chef InSpec has been updated from 4.24.8 to 4.29.3.
+
+#### New Features
+
+- The JSON metadata pass-through configuration has been moved from the Automate reporter to the JSON Reporter.
+- Added the option to filter out empty profiles from reports.
+- Exposed the `conf_path`, `content`, and `params` properties to the `auditd_conf` resource.
+- You can now directly refer to settings in the `nginx_conf` resource using the `its` syntax. Thanks [@rgeissert](https://github.com/rgeissert)!
+- Plugin settings can now be set programmatically. Thanks [@tecracer-theinen](https:/github.com/tecracer-theinen)!
+- OpenSSH Client on Windows can now be tested with the `ssh_config` and `sshd_config` resources. Thanks [@rgeissert](https://github.com/rgeissert)!
+
+#### Bug Fixes
+
+- The `--reporter-message-truncation` option now also truncates the `code_desc` field, preventing failures when sending large reports to Automate.
+- Fixed `skip_control` to work on deeply nested profiles.
+- The `ssh_config` and `sshd_config` resources now correctly use the first value when a setting is repeated.
+- Fixed the `crontab` resource when passing a username to AIX.
+- Stopped a backtrace from occurring when using `cmp` to compare `nil` with a non-existing file.
+- The `apt` resource now correctly fetches all package repositories using the `-name` flag in an environment where ZSH is the user's default shell.
+- The `--controls` option in `inspec exec` now correctly filters the controls by name.
+- Updates how InSpec profiles are created with GCP or AWS providers so they use `inputs` instead of `attributes`.
+- `inspec exec` will now fetch profiles via Git regardless of the name of the default branches now correctly use the first value when a setting is repeated.
+- Updated the `oracledb_session` to use more general invocation options. Thanks [@pacopal](https://github.com/pacopal)!
+- Fixed an error with the `http` resource in Chef Infra Client by including `faraday_middleware` in the gemspec.
+- Fixed an incompatibility between `parslet` and `toml` in Chef Infra Client.
+- Improved programmatic plugin configuration.
+
+### Security
+
+Upgraded OpenSSL to 1.0.2y, which resolves the following CVEs:
+
+- [CVE-2021-23841](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-23841)
+- [CVE-2021-23839](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-23839)
+- [CVE-2021-23840](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-23840)
+
+### Platform Updates
+
+With the release of macOS 11, we will no longer produce packages for macOS 10.13 systems. See our [Platform End-of-Life Policy](https://docs.chef.io/platforms/#platform-end-of-life-policy) for details on the platform lifecycle.
 
 ## What's new in 15.15
 
@@ -5092,19 +5413,19 @@ following settings in the client.rb file:
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><code>automatic_attribute_blacklist</code></td>
 <td>A hash that blacklists <code>automatic</code> attributes, preventing blacklisted attributes from being saved. For example: <code>['network/interfaces/eth0']</code>. Default value: <code>nil</code>, all attributes are saved. If the array is empty, all attributes are saved.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>default_attribute_blacklist</code></td>
 <td>A hash that blacklists <code>default</code> attributes, preventing blacklisted attributes from being saved. For example: <code>['filesystem/dev/disk0s2/size']</code>. Default value: <code>nil</code>, all attributes are saved. If the array is empty, all attributes are saved.</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>normal_attribute_blacklist</code></td>
 <td>A hash that blacklists <code>normal</code> attributes, preventing blacklisted attributes from being saved. For example: <code>['filesystem/dev/disk0s2/size']</code>. Default value: <code>nil</code>, all attributes are saved. If the array is empty, all attributes are saved.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>override_attribute_blacklist</code></td>
 <td>A hash that blacklists <code>override</code> attributes, preventing blacklisted attributes from being saved. For example: <code>['map - autohome/size']</code>. Default value: <code>nil</code>, all attributes are saved. If the array is empty, all attributes are saved.</td>
 </tr>
@@ -5448,12 +5769,12 @@ use of it has been pointless.
 This was deprecated and replaced a long time ago with mixlib-shellout
 and the shell_out mixin.
 
-#### Remove `method_missing` from the Recipe DSL
+#### Remove `method_missing` from the Chef Infra Language
 
-The core of chef hasn't used this to implement the Recipe DSL since
+The core of chef hasn't used this to implement the Chef Infra Language since
 12.5.1 and its unlikely that any external code depended upon it.
 
-#### Simplify Recipe DSL wiring
+#### Simplify Chef Infra Language wiring
 
 Support for actions with spaces and hyphens in the action name has been
 dropped. Resources and property names with spaces and hyphens most
@@ -6648,9 +6969,9 @@ from previous versions. The short version:
     to set the RAID5 parity algorithm. Possible values:
     `left-asymmetric` (or `la`), `left-symmetric` (or `ls`),
     `right-asymmetric` (or `ra`), or `right-symmetric` (or `rs`).
--   **New with_run_context for the Recipe DSL** Use `with_run_context`
+-   **New with_run_context for the Chef Infra Language** Use `with_run_context`
     to run resource blocks as part of the root or parent run context.
--   **New Recipe DSL methods for declaring, deleting, editing, and
+-   **New Chef Infra Language methods for declaring, deleting, editing, and
     finding resources** Use the `declare_resource`, `delete_resource`,
     `edit_resource`, and `find_resource` methods to interact with
     resources in the resource collection. Use the `delete_resource!`,
@@ -8737,7 +9058,7 @@ The following settings are new for metadata.rb:
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><p><code>chef_version</code></p></td>
 <td><p>A range of chef-client versions that are supported by this cookbook.</p>
 <p>For example, to match any 12.x version of the chef-client, but not 11.x or 13.x:</p>
@@ -8745,7 +9066,7 @@ The following settings are new for metadata.rb:
 <p>A more complex example where you set both a lower and upper bound of Chef Client version:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb2-1"><a href="#cb2-1"></a>chef_version <span class="st">&quot;&gt;= 14.2.1&quot;</span>, <span class="st">&quot;&lt; 14.5.1&quot;</span></span></code></pre></div></td>
 </tr>
-<tr class="even">
+<tr>
 <td><p><code>ohai_version</code></p></td>
 <td><p>A range of chef-client versions that are supported by this cookbook.</p>
 <p>For example, to match any 8.x version of Ohai, but not 7.x or 9.x:</p>
@@ -9351,7 +9672,7 @@ parameters to a property.
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><p><code>:callbacks</code></p></td>
 <td><p>Use to define a collection of unique keys and values (a ruby hash) for which the key is the error message and the value is a lambda to validate the parameter. For example:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb1-1"><a href="#cb1-1"></a><span class="st">callbacks: </span>{</span>
@@ -9360,7 +9681,7 @@ parameters to a property.
 <span id="cb1-4"><a href="#cb1-4"></a>             }</span>
 <span id="cb1-5"><a href="#cb1-5"></a>           }</span></code></pre></div></td>
 </tr>
-<tr class="even">
+<tr>
 <td><p><code>:default</code></p></td>
 <td><p>Use to specify the default value for a property. For example:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb2-1"><a href="#cb2-1"></a><span class="st">default: &#39;a_string_value&#39;</span></span></code></pre></div>
@@ -9369,23 +9690,23 @@ parameters to a property.
 <div class="sourceCode" id="cb5"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb5-1"><a href="#cb5-1"></a><span class="st">default: </span>()</span></code></pre></div>
 <div class="sourceCode" id="cb6"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb6-1"><a href="#cb6-1"></a><span class="st">default: </span>{}</span></code></pre></div></td>
 </tr>
-<tr class="odd">
+<tr>
 <td><p><code>:equal_to</code></p></td>
 <td><p>Use to match a value with <code>==</code>. Use an array of values to match any of those values with <code>==</code>. For example:</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb7-1"><a href="#cb7-1"></a><span class="st">equal_to: </span>[<span class="dv">true</span>, <span class="dv">false</span>]</span></code></pre></div>
 <div class="sourceCode" id="cb8"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb8-1"><a href="#cb8-1"></a><span class="st">equal_to: </span>[<span class="st">&#39;php&#39;</span>, <span class="st">&#39;perl&#39;</span>]</span></code></pre></div></td>
 </tr>
-<tr class="even">
+<tr>
 <td><p><code>:regex</code></p></td>
 <td><p>Use to match a value to a regular expression. For example:</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb9-1"><a href="#cb9-1"></a><span class="st">regex: </span>[ <span class="ot">/^([a-z]|[A-Z]|[0-9]|_|-)+$/</span>, <span class="ot">/^\d+$/</span> ]</span></code></pre></div></td>
 </tr>
-<tr class="odd">
+<tr>
 <td><p><code>:required</code></p></td>
 <td><p>Indicates that a property is required. For example:</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb10-1"><a href="#cb10-1"></a><span class="st">required: </span><span class="dv">true</span></span></code></pre></div></td>
 </tr>
-<tr class="even">
+<tr>
 <td><p><code>:respond_to</code></p></td>
 <td><p>Use to ensure that a value has a given method. This can be a single method name or an array of method names. For example:</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb11-1"><a href="#cb11-1"></a><span class="st">respond_to: </span>valid_encoding?</span></code></pre></div></td>
@@ -9464,8 +9785,8 @@ example:
 ```ruby
 resource_name :file
 
-load_current_value do |desired|
-  puts "The user typed content = #{desired.content} in the resource"
+load_current_value do |new_resource|
+  puts "The user typed content = #{new_resource.content} in the resource"
 end
 ```
 
@@ -9537,7 +9858,7 @@ platform or platform version logic within your resources.
 
 **override**
 
-Chef will warn you if the Recipe DSL is provided by another custom
+Chef will warn you if the Chef Infra Language is provided by another custom
 resource or built-in resource. For example:
 
 ```ruby
@@ -9799,7 +10120,7 @@ The following property is new for the **deploy** resource:
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><p><code>depth</code></p></td>
 <td><p><strong>Ruby Type:</strong> Integer</p>
 <p>The depth of a git repository, truncated to the specified number of revisions.</p></td>
@@ -9839,11 +10160,11 @@ client.rb file:
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><code>policy_group</code></td>
 <td>The name of a policy group that exists on the Chef server.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>policy_name</code></td>
 <td>The name of a policy, as identified by the <code>name</code> setting in a Policyfile.rb file.</td>
 </tr>
@@ -9867,15 +10188,15 @@ of policy files:
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><code>named_run_list</code></td>
 <td>The run-list associated with a policy file.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>policy_group</code></td>
 <td>The name of a policy group that exists on the Chef server. (See "Specify Policy Revision" in this readme for more information.)</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>policy_name</code></td>
 <td>The name of a policy, as identified by the <code>name</code> setting in a Policyfile.rb file. (See "Specify Policy Revision" in this readme for more information.)</td>
 </tr>
@@ -9911,11 +10232,11 @@ enable the use of policy files:
     </tr>
     </thead>
     <tbody>
-    <tr class="odd">
+    <tr>
     <td><code>policy_group</code></td>
     <td>The name of a policy group that exists on the Chef server.</td>
     </tr>
-    <tr class="even">
+    <tr>
     <td><code>policy_name</code></td>
     <td>The name of a policy, as identified by the <code>name</code> setting in a Policyfile.rb file.</td>
     </tr>
@@ -10081,7 +10402,7 @@ The following settings have changed:
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><code>log_location</code></td>
 <td>The location of the log file. Possible values: <code>/path/to/log_location</code>, <code>STDOUT</code>, <code>STDERR</code>, <code>Chef::Log::WinEvt.new</code> (Windows Event Logger), or <code>Chef::Log::Syslog.new("chef-client", ::Syslog::LOG_DAEMON)</code> (writes to the syslog daemon facility with the originator set as <code>chef-client</code>). The application log will specify the source as <code>Chef</code>. Default value: <code>STDOUT</code>.</td>
 </tr>
@@ -10106,15 +10427,15 @@ a URL:
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><code>checksum</code></td>
 <td>The SHA-256 checksum of the file. Use to prevent a file from being re-downloaded. When the local file matches the checksum, Chef Client does not download it. Use when a URL is specified by the <code>source</code> attribute.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>remote_file_attributes</code></td>
 <td>A package at a remote location define as a Hash of properties that modifies the properties of the <strong>remote_file</strong> resource.</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>source</code></td>
 <td>Optional. The path to a package in the local file system. The location of the package may be at a URL. Default value: the <code>name</code> of the resource block. See "Syntax" section above for more information.</td>
 </tr>
@@ -10575,7 +10896,7 @@ Or add the following setting to the client.rb file:
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><code>listen</code></td>
 <td>Run chef-zero in socketless mode. Set to <code>false</code> to disable port binding and HTTP requests on localhost.</td>
 </tr>
@@ -10827,31 +11148,31 @@ This resource has the following properties:
     </tr>
     </thead>
     <tbody>
-    <tr class="odd">
+    <tr>
     <td><code>Array</code></td>
     <td><code>Object[]</code></td>
     </tr>
-    <tr class="even">
+    <tr>
     <td><code>Chef::Util::Powershell:PSCredential</code></td>
     <td><code>PSCredential</code></td>
     </tr>
-    <tr class="odd">
+    <tr>
     <td><code>False</code></td>
     <td><code>bool($false)</code></td>
     </tr>
-    <tr class="even">
+    <tr>
     <td><code>Fixnum</code></td>
     <td><code>Integer</code></td>
     </tr>
-    <tr class="odd">
+    <tr>
     <td><code>Float</code></td>
     <td><code>Double</code></td>
     </tr>
-    <tr class="even">
+    <tr>
     <td><code>Hash</code></td>
     <td><code>Hashtable</code></td>
     </tr>
-    <tr class="odd">
+    <tr>
     <td><code>True</code></td>
     <td><code>bool($true)</code></td>
     </tr>
@@ -10882,55 +11203,55 @@ This resource has the following properties:
     </tr>
     </thead>
     <tbody>
-    <tr class="odd">
+    <tr>
     <td><code>:archive</code></td>
     <td>Use to <a href="https://msdn.microsoft.com/en-us/powershell/dsc/archiveresource">unpack archive (.zip) files</a>.</td>
     </tr>
-    <tr class="even">
+    <tr>
     <td><code>:environment</code></td>
     <td>Use to <a href="https://msdn.microsoft.com/en-us/powershell/dsc/environmentresource">manage system environment variables</a>.</td>
     </tr>
-    <tr class="odd">
+    <tr>
     <td><code>:file</code></td>
     <td>Use to <a href="https://msdn.microsoft.com/en-us/powershell/dsc/fileresource">manage files and directories</a>.</td>
     </tr>
-    <tr class="even">
+    <tr>
     <td><code>:group</code></td>
     <td>Use to <a href="https://msdn.microsoft.com/en-us/powershell/dsc/groupresource">manage local groups</a>.</td>
     </tr>
-    <tr class="odd">
+    <tr>
     <td><code>:log</code></td>
     <td>Use to <a href="https://msdn.microsoft.com/en-us/powershell/dsc/logresource">log configuration messages</a>.</td>
     </tr>
-    <tr class="even">
+    <tr>
     <td><code>:package</code></td>
     <td>Use to <a href="https://msdn.microsoft.com/en-us/powershell/dsc/packageresource">install and manage packages</a>.</td>
     </tr>
-    <tr class="odd">
+    <tr>
     <td><code>:registry</code></td>
     <td>Use to <a href="https://msdn.microsoft.com/en-us/powershell/dsc/registryresource">manage registry keys and registry key values</a>.</td>
     </tr>
-    <tr class="even">
+    <tr>
     <td><code>:script</code></td>
     <td>Use to <a href="https://msdn.microsoft.com/en-us/powershell/dsc/scriptresource">run PowerShell script blocks</a>.</td>
     </tr>
-    <tr class="odd">
+    <tr>
     <td><code>:service</code></td>
     <td>Use to <a href="https://msdn.microsoft.com/en-us/powershell/dsc/serviceresource">manage services</a>.</td>
     </tr>
-    <tr class="even">
+    <tr>
     <td><code>:user</code></td>
     <td>Use to <a href="https://msdn.microsoft.com/en-us/powershell/dsc/userresource">manage local user accounts</a>.</td>
     </tr>
-    <tr class="odd">
+    <tr>
     <td><code>:windowsfeature</code></td>
     <td>Use to <a href="https://msdn.microsoft.com/en-us/powershell/dsc/windowsfeatureresource">add or remove Windows features and roles</a>.</td>
     </tr>
-    <tr class="even">
+    <tr>
     <td><code>:windowsoptionalfeature</code></td>
     <td>Use to configure Microsoft Windows optional features.</td>
     </tr>
-    <tr class="odd">
+    <tr>
     <td><code>:windowsprocess</code></td>
     <td>Use to <a href="https://msdn.microsoft.com/en-us/powershell/dsc/windowsprocessresource">configure Windows processes</a>.</td>
     </tr>
@@ -11050,11 +11371,11 @@ previous versions. The short version:
 
 -   **chef-client may be run in audit-mode** Use audit-mode to run audit
     tests against a node.
--   **control method added to Recipe DSL** Use the `control` method to
+-   **control method added to Chef Infra Language** Use the `control` method to
     define specific tests that match directories, files, packages,
     ports, and services. A `control` method must be contained within a
     `control_group` block.
--   **control_group method added to Recipe DSL** Use the
+-   **control_group method added to Chef Infra Language** Use the
     `control_group` method to group one (or more) `control` methods into
     a single audit.
 -   **Bootstrap nodes without using the ORGANIZATION-validator.key
@@ -11098,7 +11419,7 @@ audit-mode may be run in the following ways:
     resources have been converged on the node
 
 Each audit is authored within a recipe using the `control_group` and
-`control` methods that are part of the Recipe DSL. Recipes that contain
+`control` methods that are part of the Chef Infra Language. Recipes that contain
 audits are added to the run-list, after which they can be processed by
 the chef-client. Output will appear in the same location as the regular
 chef-client run (as specified by the `log_location` setting in the
@@ -11138,23 +11459,23 @@ When Chef Client is run in audit-mode, the following happens:
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><strong>chef-client Run ID</strong></td>
 <td>Chef Client run identifier is associated with each audit.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><strong>Configure the Node</strong></td>
 <td>If audit-mode is run as part of the full chef-client run, audit-mode occurs after Chef Client has finished converging all resources in the resource collection.</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><strong>Audit node based on controls in cookbooks</strong></td>
 <td>Each <code>control_group</code> and <code>control</code> block found in any recipe that was part of the run-list of for the node is evaluated, with each expression in each <code>control</code> block verified against the state of the node.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><strong>Upload audit data to the Chef server</strong></td>
 <td>When audit-mode mode is complete, the data is uploaded to the Chef server.</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><strong>Send to Chef Analytics</strong></td>
 <td>Most of this data is passed to the Chef Analytics platform for further analysis, such as rules processing (for notification events triggered by expected or unexpected audit outcomes) and visibility from the actions web user interface.</td>
 </tr>
@@ -11224,21 +11545,21 @@ are available for directories:
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><p><code>be_directory</code></p></td>
 <td><p>Use to test if directory exists. For example:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb1-1"><a href="#cb1-1"></a>it <span class="st">&#39;should be a directory&#39;</span> <span class="kw">do</span></span>
 <span id="cb1-2"><a href="#cb1-2"></a>  expect(file(<span class="st">&#39;/var/directory&#39;</span>)).to be_directory</span>
 <span id="cb1-3"><a href="#cb1-3"></a><span class="kw">end</span></span></code></pre></div></td>
 </tr>
-<tr class="even">
+<tr>
 <td><p><code>be_linked_to</code></p></td>
 <td><p>Use to test if a subject is linked to the named directory. For example:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb2-1"><a href="#cb2-1"></a>it <span class="st">&#39;should be linked to the named directory&#39;</span> <span class="kw">do</span></span>
 <span id="cb2-2"><a href="#cb2-2"></a>  expect(file(<span class="st">&#39;/etc/directory&#39;</span>)).to be_linked_to(<span class="st">&#39;/etc/some/other/directory&#39;</span>)</span>
 <span id="cb2-3"><a href="#cb2-3"></a><span class="kw">end</span></span></code></pre></div></td>
 </tr>
-<tr class="odd">
+<tr>
 <td><p><code>be_mounted</code></p></td>
 <td><p>Use to test if a directory is mounted. For example:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb3-1"><a href="#cb3-1"></a>it <span class="st">&#39;should be mounted&#39;</span> <span class="kw">do</span></span>
@@ -11279,7 +11600,7 @@ for files:
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><p><code>be_executable</code></p></td>
 <td><p>Use to test if a file is executable. For example:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb1-1"><a href="#cb1-1"></a>it <span class="st">&#39;should be executable&#39;</span> <span class="kw">do</span></span>
@@ -11298,42 +11619,42 @@ for files:
 <span id="cb4-2"><a href="#cb4-2"></a>  expect(file(<span class="st">&#39;/etc/file&#39;</span>)).to be_executable.by_user(<span class="st">&#39;foo&#39;</span>)</span>
 <span id="cb4-3"><a href="#cb4-3"></a><span class="kw">end</span></span></code></pre></div></td>
 </tr>
-<tr class="even">
+<tr>
 <td><p><code>be_file</code></p></td>
 <td><p>Use to test if a file exists. For example:</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb5-1"><a href="#cb5-1"></a>it <span class="st">&#39;should be a file&#39;</span> <span class="kw">do</span></span>
 <span id="cb5-2"><a href="#cb5-2"></a>  expect(file(<span class="st">&#39;/etc/file&#39;</span>)).to be_file</span>
 <span id="cb5-3"><a href="#cb5-3"></a><span class="kw">end</span></span></code></pre></div></td>
 </tr>
-<tr class="odd">
+<tr>
 <td><p><code>be_grouped_into</code></p></td>
 <td><p>Use to test if a file is grouped into the named group. For example:</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb6-1"><a href="#cb6-1"></a>it <span class="st">&#39;should be grouped into foo&#39;</span> <span class="kw">do</span></span>
 <span id="cb6-2"><a href="#cb6-2"></a>  expect(file(<span class="st">&#39;/etc/file&#39;</span>)).to be_grouped_into(<span class="st">&#39;foo&#39;</span>)</span>
 <span id="cb6-3"><a href="#cb6-3"></a><span class="kw">end</span></span></code></pre></div></td>
 </tr>
-<tr class="even">
+<tr>
 <td><p><code>be_linked_to</code></p></td>
 <td><p>Use to test if a subject is linked to the named file. For example:</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb7-1"><a href="#cb7-1"></a>it <span class="st">&#39;should be linked to the named file&#39;</span> <span class="kw">do</span></span>
 <span id="cb7-2"><a href="#cb7-2"></a>  expect(file(<span class="st">&#39;/etc/file&#39;</span>)).to be_linked_to(<span class="st">&#39;/etc/some/other/file&#39;</span>)</span>
 <span id="cb7-3"><a href="#cb7-3"></a><span class="kw">end</span></span></code></pre></div></td>
 </tr>
-<tr class="odd">
+<tr>
 <td><p><code>be_mode</code></p></td>
 <td><p>Use to test if a file is set to the specified mode. For example:</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb8-1"><a href="#cb8-1"></a>it <span class="st">&#39;should be mode 440&#39;</span> <span class="kw">do</span></span>
 <span id="cb8-2"><a href="#cb8-2"></a>  expect(file(<span class="st">&#39;/etc/file&#39;</span>)).to be_mode(<span class="dv">440</span>)</span>
 <span id="cb8-3"><a href="#cb8-3"></a><span class="kw">end</span></span></code></pre></div></td>
 </tr>
-<tr class="even">
+<tr>
 <td><p><code>be_owned_by</code></p></td>
 <td><p>Use to test if a file is owned by the named owner. For example:</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb9-1"><a href="#cb9-1"></a>it <span class="st">&#39;should be owned by the root user&#39;</span> <span class="kw">do</span></span>
 <span id="cb9-2"><a href="#cb9-2"></a>  expect(file(<span class="st">&#39;/etc/sudoers&#39;</span>)).to be_owned_by(<span class="st">&#39;root&#39;</span>)</span>
 <span id="cb9-3"><a href="#cb9-3"></a><span class="kw">end</span></span></code></pre></div></td>
 </tr>
-<tr class="odd">
+<tr>
 <td><p><code>be_readable</code></p></td>
 <td><p>Use to test if a file is readable. For example:</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb10-1"><a href="#cb10-1"></a>it <span class="st">&#39;should be readable&#39;</span> <span class="kw">do</span></span>
@@ -11352,28 +11673,28 @@ for files:
 <span id="cb13-2"><a href="#cb13-2"></a>  expect(file(<span class="st">&#39;/etc/file&#39;</span>)).to be_readable.by_user(<span class="st">&#39;foo&#39;</span>)</span>
 <span id="cb13-3"><a href="#cb13-3"></a><span class="kw">end</span></span></code></pre></div></td>
 </tr>
-<tr class="even">
+<tr>
 <td><p><code>be_socket</code></p></td>
 <td><p>Use to test if a file exists as a socket. For example:</p>
 <div class="sourceCode" id="cb14"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb14-1"><a href="#cb14-1"></a>it <span class="st">&#39;should be a socket&#39;</span> <span class="kw">do</span></span>
 <span id="cb14-2"><a href="#cb14-2"></a>  expect(file(<span class="st">&#39;/var/file.sock&#39;</span>)).to be_socket</span>
 <span id="cb14-3"><a href="#cb14-3"></a><span class="kw">end</span></span></code></pre></div></td>
 </tr>
-<tr class="odd">
+<tr>
 <td><p><code>be_symlink</code></p></td>
 <td><p>Use to test if a file exists as a symbolic link. For example:</p>
 <div class="sourceCode" id="cb15"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb15-1"><a href="#cb15-1"></a>it <span class="st">&#39;should be a symlink&#39;</span> <span class="kw">do</span></span>
 <span id="cb15-2"><a href="#cb15-2"></a>  expect(file(<span class="st">&#39;/etc/file&#39;</span>)).to be_symlink</span>
 <span id="cb15-3"><a href="#cb15-3"></a><span class="kw">end</span></span></code></pre></div></td>
 </tr>
-<tr class="even">
+<tr>
 <td><p><code>be_version</code></p></td>
 <td><p>Microsoft Windows only. Use to test if a file is the specified version. For example:</p>
 <div class="sourceCode" id="cb16"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb16-1"><a href="#cb16-1"></a>it <span class="st">&#39;should be version 1.2&#39;</span> <span class="kw">do</span></span>
 <span id="cb16-2"><a href="#cb16-2"></a>  expect(file(<span class="st">&#39;C:\\Windows\\path\\to\\file&#39;</span>)).to be_version(<span class="st">&#39;1.2&#39;</span>)</span>
 <span id="cb16-3"><a href="#cb16-3"></a><span class="kw">end</span></span></code></pre></div></td>
 </tr>
-<tr class="odd">
+<tr>
 <td><p><code>be_writable</code></p></td>
 <td><p>Use to test if a file is writable. For example:</p>
 <div class="sourceCode" id="cb17"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb17-1"><a href="#cb17-1"></a>it <span class="st">&#39;should be writable&#39;</span> <span class="kw">do</span></span>
@@ -11392,7 +11713,7 @@ for files:
 <span id="cb20-2"><a href="#cb20-2"></a>  expect(file(<span class="st">&#39;/etc/file&#39;</span>)).to be_writable.by_user(<span class="st">&#39;foo&#39;</span>)</span>
 <span id="cb20-3"><a href="#cb20-3"></a><span class="kw">end</span></span></code></pre></div></td>
 </tr>
-<tr class="even">
+<tr>
 <td><p><code>contain</code></p></td>
 <td><p>Use to test if a file contains specific contents. For example:</p>
 <div class="sourceCode" id="cb21"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb21-1"><a href="#cb21-1"></a>it <span class="st">&#39;should contain docs.chef.io&#39;</span> <span class="kw">do</span></span>
@@ -11420,7 +11741,7 @@ matchers are available:
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><p><code>be_installed</code></p></td>
 <td><p>Use to test if the named package is installed. For example:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb1-1"><a href="#cb1-1"></a>it <span class="st">&#39;should be installed&#39;</span> <span class="kw">do</span></span>
@@ -11451,7 +11772,7 @@ test if a port is listening. The following matchers are available:
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><p><code>be_listening</code></p></td>
 <td><p>Use to test if the named port is listening. For example:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb1-1"><a href="#cb1-1"></a>it <span class="st">&#39;should be listening&#39;</span> <span class="kw">do</span></span>
@@ -11500,7 +11821,7 @@ following matchers are available:
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><p><code>be_enabled</code></p></td>
 <td><p>Use to test if the named service is enabled (i.e. will start up automatically). For example:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb1-1"><a href="#cb1-1"></a>it <span class="st">&#39;should be enabled&#39;</span> <span class="kw">do</span></span>
@@ -11511,14 +11832,14 @@ following matchers are available:
 <span id="cb2-2"><a href="#cb2-2"></a>  expect(service(<span class="st">&#39;ntpd&#39;</span>)).to be_enabled.with_level(<span class="dv">3</span>)</span>
 <span id="cb2-3"><a href="#cb2-3"></a><span class="kw">end</span></span></code></pre></div></td>
 </tr>
-<tr class="even">
+<tr>
 <td><p><code>be_installed</code></p></td>
 <td><p>Microsoft Windows only. Use to test if the named service is installed on the Microsoft Windows platform. For example:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb3-1"><a href="#cb3-1"></a>it <span class="st">&#39;should be installed&#39;</span> <span class="kw">do</span></span>
 <span id="cb3-2"><a href="#cb3-2"></a>  expect(service(<span class="st">&#39;DNS Client&#39;</span>)).to be_installed</span>
 <span id="cb3-3"><a href="#cb3-3"></a><span class="kw">end</span></span></code></pre></div></td>
 </tr>
-<tr class="odd">
+<tr>
 <td><p><code>be_running</code></p></td>
 <td><p>Use to test if the named service is running. For example:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb4-1"><a href="#cb4-1"></a>it <span class="st">&#39;should be running&#39;</span> <span class="kw">do</span></span>
@@ -11537,14 +11858,14 @@ following matchers are available:
 <span id="cb7-2"><a href="#cb7-2"></a>  expect(service(<span class="st">&#39;ntpd&#39;</span>)).to be_running.under(<span class="st">&#39;upstart&#39;</span>)</span>
 <span id="cb7-3"><a href="#cb7-3"></a><span class="kw">end</span></span></code></pre></div></td>
 </tr>
-<tr class="even">
+<tr>
 <td><p><code>be_monitored_by</code></p></td>
 <td><p>Use to test if the named service is being monitored by the named monitoring application. For example:</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb8-1"><a href="#cb8-1"></a>it <span class="st">&#39;should be monitored by&#39;</span> <span class="kw">do</span></span>
 <span id="cb8-2"><a href="#cb8-2"></a>  expect(service(<span class="st">&#39;ntpd&#39;</span>)).to be_monitored_by(<span class="st">&#39;monit&#39;</span>)</span>
 <span id="cb8-3"><a href="#cb8-3"></a><span class="kw">end</span></span></code></pre></div></td>
 </tr>
-<tr class="odd">
+<tr>
 <td><p><code>have_start_mode</code></p></td>
 <td><p>Microsoft Windows only. Use to test if the named service's startup mode is correct on the Microsoft Windows platform. For example:</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb9-1"><a href="#cb9-1"></a>it <span class="st">&#39;should start manually&#39;</span> <span class="kw">do</span></span>
@@ -12863,7 +13184,7 @@ previous versions. The short version:
     hard-coded string is deprecated in Chef Client 12.0 release.
     Cookbooks that rely on this string need to be updated to manually
     add it to the URL as it is passed to the resource.
--   **New Recipe DSL methods** The Recipe DSL has three new methods:
+-   **New Chef Infra Language methods** The Chef Infra Language has three new methods:
     `shell_out`, `shell_out!`, and `shell_out_with_systems_locale`.
 -   **File specificity updates** File specificity for the **template**
     and **cookbook_file** resources now supports using the `source`
@@ -12874,12 +13195,12 @@ previous versions. The short version:
     attributes to calculate SALTED-SHA512 password shadow hashes for
     macOS version 10.7 and SALTED-SHA512-PBKDF2 password shadow hashes
     for version 10.8 (and higher).
--   **data_bag_item method in the Recipe DSL supports encrypted data
+-   **data_bag_item method in the Chef Infra Language supports encrypted data
     bag items** Use `data_bag_item(bag_name, item, secret)` to specify
     the secret to use for an encrypted data bag item. If `secret` is not
     specified, Chef Client looks for a secret at the path specified by
     the `encrypted_data_bag_secret` setting in the client.rb file.
--   **value_for_platform method in the Recipe DSL supports version
+-   **value_for_platform method in the Chef Infra Language supports version
     constraints** Version constraints---`>`, `<`, `>=`, `<=`, `~>`---may
     be used when specifying a version. An exception is raised if two
     version constraints match. An exact match will always take
@@ -12945,7 +13266,7 @@ previous versions. The short version:
 -   **New encrypted a version 3** Format utilizes aes-256-gcm ciphers
     for enhanced security.
 
-Please [view the notes](/upgrade_client_notes/) for more background
+Please view the notes for more background
 on the upgrade process from chef-client 11 to chef-client 12.
 
 ### Change Attributes
@@ -13344,9 +13665,9 @@ where:
 -   `'platform'` is a comma-separated list of platforms: `'windows'`,
     `'solaris2'`, `'linux'`, and so on
 -   `platform_family` is optional and may specify the same parameters as
-    the `platform_family?` method in the Recipe DSL; `platform` is
+    the `platform_family?` method in the Chef Infra Language; `platform` is
     optional and also supported (and is the same as the `platform?`
-    method in the Recipe DSL)
+    method in the Chef Infra Language)
 
 A custom resource/provider may be mapped to more than one existing
 resource/provider. Multiple platform associations may be made. For
@@ -13568,12 +13889,12 @@ platform:
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><code>Chef::Provider::Service::Aix</code></td>
 <td><code>service</code></td>
 <td>The provider that is used with the AIX platforms. Use the <code>service</code> short name to start, stop, and restart services with System Resource Controller (SRC).</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>Chef::Provider::Service::AixInit</code></td>
 <td><code>service</code></td>
 <td>The provider that is used to manage BSD-based init services on AIX.</td>
@@ -13623,9 +13944,9 @@ execute "enable #{node['chef_client']['svc_name']}" do
 end
 ```
 
-### Recipe DSL, Encrypted Data Bags
+### Chef Infra Language, Encrypted Data Bags
 
-The Recipe DSL provides access to data bags and data bag items
+The Chef Infra Language provides access to data bags and data bag items
 (including encrypted data bag items) with the following methods:
 
 -   `data_bag(bag)`, where `bag` is the name of the data bag.
@@ -14745,7 +15066,7 @@ The following property is new for the **mount** resource:
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><code>fsck_device</code></td>
 <td>The fsck device on the Solaris platform. Default value: <code>-</code>.</td>
 </tr>
@@ -14768,12 +15089,12 @@ The following settings are new:
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><p><code>issues_url</code></p></td>
 <td><p>The URL for the location in which a cookbook's issue tracking is maintained. This setting is also used by Chef Supermarket. For example:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb1-1"><a href="#cb1-1"></a>source_url <span class="st">&quot;https://github.com/chef-cookbooks/chef-client/issues&quot;</span></span></code></pre></div></td>
 </tr>
-<tr class="even">
+<tr>
 <td><p><code>source_url</code></p></td>
 <td><p>The URL for the location in which a cookbook's source code is maintained. This setting is also used by Chef Supermarket. For example:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb2-1"><a href="#cb2-1"></a>source_url <span class="st">&quot;https://github.com/chef-cookbooks/chef-client&quot;</span></span></code></pre></div></td>
@@ -14795,9 +15116,9 @@ hard-coded string is deprecated in Chef Client 12.0 release. Cookbooks
 that rely on this string need to be updated to manually add it to the
 URL as it is passed to the resource.
 
-### Recipe DSL
+### Chef Infra Language
 
-The following methods have been added to the Recipe DSL: `shell_out`,
+The following methods have been added to the Chef Infra Language: `shell_out`,
 `shell_out!`, and `shell_out_with_systems_locale`.
 
 #### shell_out
@@ -14910,11 +15231,11 @@ The following properties are new for the **user** resource:
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><code>iterations</code></td>
 <td>The number of iterations for a password with a SALTED-SHA512-PBKDF2 shadow hash.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>salt</code></td>
 <td>The salt value for a password shadow hash. macOS version 10.7 uses SALTED-SHA512 and version 10.8 (and higher) uses SALTED-SHA512-PBKDF2 to calculate password shadow hashes.</td>
 </tr>
@@ -15010,19 +15331,19 @@ and now default to `true`:
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><code>disable_event_logger</code></td>
 <td>Enable or disable sending events to the Microsoft Windows "Application" event log. When <code>false</code>, events are sent to the Microsoft Windows "Application" event log at the start and end of a chef-client run, and also if a chef-client run fails. Set to <code>true</code> to disable event logging. Default value: <code>true</code>.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>no_lazy_load</code></td>
 <td>Download all cookbook files and templates at the beginning of Chef Client run. Default value: <code>true</code>.</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>file_staging_uses_destdir</code></td>
 <td>How file staging (via temporary files) is done. When <code>true</code>, temporary files are created in the directory in which files will reside. When <code>false</code>, temporary files are created under <code>ENV['TMP']</code>. Default value: <code>true</code>.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>local_key_generation</code></td>
 <td>Use to specify whether the Chef server or chef-client will generate the private/public key pair. When <code>true</code>, Chef Client will generate the key pair, and then send the public key to the Chef server. Default value: <code>true</code>.</td>
 </tr>
@@ -15114,7 +15435,7 @@ The following property is new for the **git** resource:
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><p><code>environment</code></p></td>
 <td><p>A Hash of environment variables in the form of <code>({"ENV_VARIABLE" =&gt; "VALUE"})</code>. (These variables must exist for a command to be run successfully.)</p>
 {{< note >}}
@@ -15130,7 +15451,7 @@ If a custom resource was created in the `/libraries` directory of a
 cookbook that also uses a core resource from Chef Client within the
 custom resource, the base class that is associated with that custom
 resource must be updated. In previous versions of the chef-client, the
-`Chef::Provider` class was all that was necessary because the Recipe DSL
+`Chef::Provider` class was all that was necessary because the Chef Infra Language
 was included in the `Chef::Provider` base class.
 
 For example, the `lvm_logical_volume` custom resource from the [lvm
@@ -15178,7 +15499,7 @@ class Chef
     end
 ```
 
-Starting with chef-client 12, the Recipe DSL is removed from the
+Starting with chef-client 12, the Chef Infra Language is removed from the
 `Chef::Provider` base class and is only available by using `LWRPBase`.
 Cookbooks that contain custom resources authored for Chef Client 11
 version should be inspected and updated.

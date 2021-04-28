@@ -1,12 +1,10 @@
 +++
 title = "Configuring for SAML Authentication"
 draft = false
-
 gh_repo = "chef-web-docs"
 robots = "noindex"
-
-
 aliases = ["/server_configure_saml.html", "/release/automate/server_configure_saml.html"]
+product = []
 
 [menu]
   [menu.legacy]
@@ -14,7 +12,8 @@ aliases = ["/server_configure_saml.html", "/release/automate/server_configure_sa
     identifier = "legacy/manage/server_configure_saml.md Configure SAML"
     parent = "legacy/manage"
 +++
-{{% chef_automate_mark %}}
+
+{{< chef_automate_mark >}}
 
 {{% EOL_manage %}}
 

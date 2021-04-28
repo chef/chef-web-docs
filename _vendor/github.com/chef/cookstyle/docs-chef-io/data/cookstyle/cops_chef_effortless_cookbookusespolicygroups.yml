@@ -1,0 +1,19 @@
+---
+short_name: CookbookUsesPolicygroups
+full_name: Chef/Effortless/CookbookUsesPolicygroups
+department: Chef/Effortless
+description: Effortless Infra does not support Policyfile's Policygroup feature
+autocorrection: false
+target_chef_version: All Versions
+examples: |2-
+
+  #### incorrect
+
+  ```ruby
+  node.policy_group == "foo"
+  ```
+version_added: 5.10.0
+enabled: false
+excluded_file_paths:
+- "**/metadata.rb"
+- "**/Berksfile"

@@ -2,6 +2,8 @@
 title = "knife ssl check"
 draft = false
 
+gh_repo = "chef-workstation"
+
 aliases = ["/knife_ssl_check.html", "/knife_ssl_check/"]
 
 [menu]
@@ -10,8 +12,6 @@ aliases = ["/knife_ssl_check.html", "/knife_ssl_check/"]
     identifier = "chef_workstation/chef_workstation_tools/knife/knife_ssl_check.md knife ssl_check"
     parent = "chef_workstation/chef_workstation_tools/knife"
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/docs-chef-io/content/workstation/knife_ssl_check.md)
 
 {{% knife_ssl_check_summary %}}
 
@@ -29,9 +29,7 @@ This subcommand has the following options:
 
 `URL_or_URI`
 
-:   The URL or URI for the location at which the SSL certificate is
-    located. Default value: the URL for the Chef Infra Server, as
-    defined in the config.rb file.
+: The URL or URI for the location at which the SSL certificate is located. Default value: the URL for the Chef Infra Server, as defined in the config.rb file.
 
 ## Examples
 

@@ -6,6 +6,8 @@ gh_repo = "chef-web-docs"
 
 aliases = ["/aws_marketplace.html"]
 
+product = ["client", "workstation"]
+
 [menu]
   [menu.infra]
     title = "AWS Marketplace"
@@ -247,7 +249,7 @@ and Chef Infra Server.
 
 3.  Fill out the setup form and submit it.
 
-4.  Follow the link and log into the Chef Automate webui.
+4.  Follow the link and log into Chef Automate.
 
 ## Configure the workstation
 
@@ -288,15 +290,15 @@ from the AWS Marketplace:
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>443</td>
-<td>HTTPS for Chef Automate webui</td>
+<td>HTTPS for Chef Automate</td>
 </tr>
-<tr class="even">
+<tr>
 <td>8989</td>
 <td>Git access for the delivery-cli and workflow</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>22</td>
 <td>SSH</td>
 </tr>

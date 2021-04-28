@@ -13,15 +13,15 @@ Client. These options can be passed along with an Msiexec.exe command:
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><code>ChefClientFeature</code></td>
 <td>Use to install Chef Infra Client.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>ChefSchTaskFeature</code></td>
 <td>Use to configure Chef Infra Client as a scheduled task in Microsoft Windows.</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>ChefPSModuleFeature</code></td>
 <td>Used to install the chef PowerShell module. This will enable chef command line utilities within PowerShell.</td>
 </tr>

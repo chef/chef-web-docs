@@ -1,12 +1,10 @@
 +++
 title = "Manage Data Bags"
 draft = false
-
 gh_repo = "chef-web-docs"
 robots = "noindex"
-
-
 aliases = ["/server_manage_data_bags.html"]
+product = []
 
 [menu]
   [menu.legacy]
@@ -14,7 +12,8 @@ aliases = ["/server_manage_data_bags.html"]
     identifier = "legacy/manage/server_manage_data_bags.md Data Bags"
     parent = "legacy/manage"
 +++
-{{% chef_automate_mark %}}
+
+{{< chef_automate_mark >}}
 
 {{% EOL_manage %}}
 

@@ -23,10 +23,10 @@ syntax_full_properties_list:
   the desired state."
 - "`errata_level` is the property available to this resource."
 actions_list:
-  :install:
-    markdown: Default. Install all packages of the specified errata level.
   :nothing:
     shortcode: resources_common_actions_nothing.md
+  :install:
+    markdown: Install all packages of the specified errata level. (default)
 properties_list:
 - property: errata_level
   ruby_type: String
@@ -36,8 +36,11 @@ properties_list:
   description_list:
   - markdown: An optional property for specifying the errata level of packages to
       install if it differs from the resource block's name.
-examples: "
-  Specify an errata level that differs from the resource name\n\n \
-  \ ```ruby\n  rhsm_errata_level 'example_install_moderate' do\n    errata_level\
-  \ 'moderate'\n  end\n  ```\n"
+examples: |
+  **Specify an errata level that differs from the resource name**
 
+  ```ruby
+  rhsm_errata_level 'example_install_moderate' do
+    errata_level 'moderate'
+  end
+  ```

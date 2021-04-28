@@ -1,0 +1,52 @@
+nav#utility-bar {
+  background-color: $topbar-background;
+  border-bottom: 1px solid $border;
+  height: 70px;
+  padding: .2rem 1rem;
+  top: 0;
+  z-index: 10;
+
+
+  a.utility-bar-brand {
+    display: inline-block;
+    padding-top: .3125rem;
+    padding-bottom: .3125rem;
+    margin-right: 1rem;
+    line-height: inherit;
+    white-space: nowrap;
+    .chef {
+      height: 50px;
+      display: inline;
+    }
+  }
+
+  ul.top-nav {
+    a {
+      font-weight: 600;
+      font-size: 15px;
+      line-height: 26px;
+      color: $charcoal;
+      padding: .5rem;
+      &:hover {
+        color:$blue-darker;
+      }
+    }
+  }
+
+  button.utility-bar-nav-bars {
+    color: $charcoal;
+    display: inline;
+    font-size: 1.1rem;
+    margin: .5rem;
+  }
+}
+
+
+#left-nav-off-canvas{
+  display: none;
+
+  &.reveal{
+    display: block;
+    z-index: 10;
+  }
+}

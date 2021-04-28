@@ -2,6 +2,8 @@
 title = "knife raw"
 draft = false
 
+gh_repo = "chef-workstation"
+
 aliases = ["/knife_raw.html", "/knife_raw/"]
 
 [menu]
@@ -10,8 +12,6 @@ aliases = ["/knife_raw.html", "/knife_raw/"]
     identifier = "chef_workstation/chef_workstation_tools/knife/knife_raw.md knife raw"
     parent = "chef_workstation/chef_workstation_tools/knife"
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/chef-workstation/blob/master/docs-chef-io/content/workstation/knife_raw.md)
 
 {{% knife_raw_summary %}}
 
@@ -35,22 +35,19 @@ This subcommand has the following options:
 
 `-i FILE`, `--input FILE`
 
-:   The name of a file to be used with the `PUT` or a `POST` request.
+: The name of a file to be used with the `PUT` or a `POST` request.
 
 `--[no-]pretty`
 
-:   Use `--no-pretty` to disable pretty-print output for JSON. Default:
-    `--pretty`.
+: Use `--no-pretty` to disable pretty-print output for JSON. Default: `--pretty`.
 
 `-m METHOD`, `--method METHOD`
 
-:   The request method: `DELETE`, `GET`, `POST`, or `PUT`. Default
-    value: `GET`.
+: The request method: `DELETE`, `GET`, `POST`, or `PUT`. Default value: `GET`.
 
 `--proxy-auth`
 
-:   Enable proxy authentication to the Chef Infra Server web user
-    interface. Default value: `false`.
+: Enable proxy authentication to the Chef Infra Server web user interface. Default value: `false`.
 
 {{< note >}}
 

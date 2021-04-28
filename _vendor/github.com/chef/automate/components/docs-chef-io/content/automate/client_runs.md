@@ -3,15 +3,15 @@ title = "Client Runs"
 
 date = 2018-03-26T16:01:58-07:00
 draft = false
+
+gh_repo = "automate"
 [menu]
   [menu.automate]
     title = "Client Runs"
-    parent = "automate"
-    identifier = "automate/client_runs.md Client Runs"
-    weight = 60
+    parent = "automate/infrastructure"
+    identifier = "automate/infrastructure/client_runs.md Client Runs"
+    weight = 10
 +++
-
-[\[edit on GitHub\]](https://github.com/chef/automate/blob/master/components/docs-chef-io/content/automate/client_runs.md)
 
 ## Overview
 
@@ -37,7 +37,7 @@ This situation happens when data retention settings erase the most recent run hi
 In this case, a **no data** icon appears and you will be unable to view any node details.
 
 The node remains listed as a missing node until it is deleted from Automate.
-Automate automatically removes any modes deleted from the Chef Infra Server.
+Automate automatically removes any nodes deleted from the Chef Infra Server.
 
 ## Node Details
 

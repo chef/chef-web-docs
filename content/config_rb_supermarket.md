@@ -1,10 +1,9 @@
 +++
 title = "supermarket.rb Settings"
 draft = false
-
 gh_repo = "chef-web-docs"
-
 aliases = ["/config_rb_supermarket.html"]
+product = ["client", "server", "workstation"]
 
 [menu]
   [menu.infra]
@@ -443,7 +442,7 @@ This configuration file has the following settings for nginx:
 
 `default['supermarket']['nginx']['non_ssl_port']`
 
-:   The port on which the WebUI and API are bound for non-SSL
+:   The port on which the Automate interface and API are bound for non-SSL
     connections. Default value: `80`. Set to `false` to disable non-SSL
     connections.
 

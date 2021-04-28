@@ -1,12 +1,10 @@
 +++
 title = "chef-manage-ctl (executable)"
 draft = false
-
 gh_repo = "chef-web-docs"
 robots = "noindex"
-
-
 aliases = ["/ctl_manage.html"]
+product = []
 
 [menu]
   [menu.legacy]
@@ -16,7 +14,7 @@ aliases = ["/ctl_manage.html"]
     weight = 110
 +++
 
-{{% chef_automate_mark %}}
+{{< chef_automate_mark >}}
 
 {{% EOL_manage %}}
 
@@ -26,21 +24,6 @@ The Chef management console includes a command-line utility named
 `chef-manage-ctl`. This command-line tool is used to reconfigure,
 cleanse (reset the Chef management console to initial configuration
 settings), and uninstall the Chef management console.
-
-## cleanse
-
-The `cleanse` subcommand is used to re-set the Chef management console
-to the state it was in prior to the first time the `reconfigure`
-subcommand is run. This command will destroy all data, configuration
-files, and logs. The software that was put on-disk by the package
-installation will remain; re-run `chef-manage-ctl reconfigure` to
-recreate the default data and configuration files.
-
-This subcommand has the following syntax:
-
-```bash
-chef-manage-ctl cleanse
-```
 
 ## help
 

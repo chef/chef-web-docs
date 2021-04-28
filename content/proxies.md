@@ -77,15 +77,15 @@ environments that use an HTTP proxy:
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><code>http_proxy</code></td>
 <td>The proxy server for HTTP connections. Default value: <code>nil</code>.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>http_proxy_pass</code></td>
 <td>The password for the proxy server when the proxy server is using an HTTP connection. Default value: <code>nil</code>.</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>http_proxy_user</code></td>
 <td>The user name for the proxy server when the proxy server is using an HTTP connection. Default value: <code>nil</code>.</td>
 </tr>
@@ -109,15 +109,15 @@ environments that use an HTTPS proxy:
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><code>https_proxy</code></td>
 <td>The proxy server for HTTPS connections. Default value: <code>nil</code>.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>https_proxy_pass</code></td>
 <td>The password for the proxy server when the proxy server is using an HTTPS connection. Default value: <code>nil</code>.</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>https_proxy_user</code></td>
 <td>The user name for the proxy server when the proxy server is using an HTTPS connection. Default value: <code>nil</code>.</td>
 </tr>
@@ -141,15 +141,15 @@ environments that use an FTP proxy:
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><code>ftp_proxy</code></td>
 <td>The proxy server for FTP connections.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>ftp_proxy_pass</code></td>
 <td>The password for the proxy server when the proxy server is using an FTP connection. Default value: <code>nil</code>.</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>ftp_proxy_user</code></td>
 <td>The user name for the proxy server when the proxy server is using an FTP connection. Default value: <code>nil</code>.</td>
 </tr>

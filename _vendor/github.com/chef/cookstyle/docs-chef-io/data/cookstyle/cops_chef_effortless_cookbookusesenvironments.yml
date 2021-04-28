@@ -1,0 +1,21 @@
+---
+short_name: CookbookUsesEnvironments
+full_name: Chef/Effortless/CookbookUsesEnvironments
+department: Chef/Effortless
+description: Neither Policyfiles or Effortless Infra which is based on Policyfiles
+  supports Chef Environments
+autocorrection: false
+target_chef_version: All Versions
+examples: |2-
+
+  #### incorrect
+
+  ```ruby
+  node.environment == "production"
+  node.chef_environment == "production"
+  ```
+version_added: 5.10.0
+enabled: false
+excluded_file_paths:
+- "**/metadata.rb"
+- "**/Berksfile"

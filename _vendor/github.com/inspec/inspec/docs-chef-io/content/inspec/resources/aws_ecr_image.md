@@ -1,16 +1,15 @@
 +++
 title = "aws_ecr_image resource"
 draft = false
+gh_repo = "inspec"
 platform = "aws"
 
 [menu]
   [menu.inspec]
-    title = "aws_ecr_image Resource"
-    identifier = "inspec/resources/aws/aws_ecr_image.md About the aws_ecr_image Resource"
+    title = "aws_ecr_image"
+    identifier = "inspec/resources/aws/aws_ecr_image"
     parent = "inspec/resources/aws"
 +++
-
-[\[edit on GitHub\]](https://github.com/inspec/inspec/blob/master/docs-chef-io/content/inspec/resources/aws_ecr_image.md)
 
 Use the `aws_ecr_image` InSpec audit resource to test the properties of a single image in an AWS Elastic Container Registry (ECR) repository.
 This resource is available in InSpec AWS resource pack version **[1.11.0](https://github.com/inspec/inspec-aws/releases/tag/v1.11.0)** onwards.

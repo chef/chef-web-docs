@@ -1,0 +1,33 @@
+---
+short_name: MacOsXUserdefaults
+full_name: Chef/Modernize/MacOsXUserdefaults
+department: Chef/Modernize
+description: The mac_os_x_userdefaults resource was renamed to macos_userdefaults
+  when it was added to Chef Infra Client 14.0. The new resource name should be used.
+autocorrection: true
+target_chef_version: 14.0+
+examples: |2-
+
+  #### incorrect
+
+  ```ruby
+  mac_os_x_userdefaults 'full keyboard access to all controls' do
+    domain 'AppleKeyboardUIMode'
+    global true
+    value '2'
+  end
+  ```
+
+  #### correct
+
+  ```ruby
+  macos_userdefaults 'full keyboard access to all controls' do
+    domain 'AppleKeyboardUIMode'
+    global true
+    value '2'
+  end
+  ```
+version_added: 5.6.0
+enabled: true
+excluded_file_paths:
+- "**/metadata.rb"

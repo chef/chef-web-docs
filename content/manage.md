@@ -1,10 +1,9 @@
 +++
 title = "Chef Manage"
 draft = false
-
 gh_repo = "chef-web-docs"
-
 aliases = ["/manage.html"]
+product = []
 
 [menu]
   [menu.legacy]
@@ -13,7 +12,7 @@ aliases = ["/manage.html"]
     parent = "legacy/manage"
     weight = 10
 +++
-{{% chef_automate_mark %}}
+{{< chef_automate_mark >}}
 
 {{% EOL_manage %}}
 

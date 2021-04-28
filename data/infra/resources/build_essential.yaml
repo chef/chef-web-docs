@@ -22,12 +22,13 @@ syntax_full_properties_list:
   the desired state."
 - "`raise_if_unsupported` is the property available to this resource."
 actions_list:
-  :install:
-    markdown: Default. Install the build essential packages.
   :nothing:
     shortcode: resources_common_actions_nothing.md
+  :install:
+    markdown: Install build essential packages (default)
   :upgrade:
-    markdown: Upgrade the Xcode CLI Tools on macOS hosts. **New in Chef Infra Client 16**
+    markdown: Upgrade the Xcode CLI Tools on macOS hosts. **New in Chef Infra Client
+      16**
 properties_list:
 - property: raise_if_unsupported
   ruby_type: true, false

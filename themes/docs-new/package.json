@@ -2,17 +2,11 @@
   "name": "docs-new",
   "version": "0.1.0",
   "dependencies": {
-    "@fortawesome/fontawesome-free": "^5.14.0",
-    "autoprefixer": "^8.4.1",
-    "cssnano": "^4.1.10",
+    "@fortawesome/fontawesome-free": "^5.15.3",
     "foundation-sites": "^6.6.3",
-    "jquery": "^3.5.1",
-    "pixrem": "^4.0.1",
-    "postcss-cli": "^8.0.0",
-    "redoc": "^2.0.0-rc.40",
+    "jquery": "^3.6.0",
+    "redoc": "^2.0.0-rc.48",
     "showdown": "^1.9.1",
-    "ua-parser-js": "^0.7.22",
-    "what-input": "^5.2.10",
-    "without": "^1.2.3"
+    "what-input": "^5.2.10"
   }
 }

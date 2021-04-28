@@ -16,7 +16,7 @@ aliases = ["/ruby.html"]
 
 {{% ruby_summary %}}
 
-As of Chef Infra Client 15.x, Chef Infra Client ships with Ruby 2.6.
+Chef Infra Client 15 ships with Ruby 2.6 and Chef Infra Client 16 ships with Ruby 2.7.
 
 ## Ruby Basics
 
@@ -304,6 +304,18 @@ if node['platform'] == 'ubuntu'
 end
 ```
 
+**if modifier**
+
+`if` can be used as a modifier that executes the left side of an expression
+if the right side of the expression is true. The `if` modifier expression must
+be a single line, and `else` and `elsif` statements are not supported.
+
+In the following example, the `do_ubuntu_thing` function will execute if the platform on a node is Ubuntu.
+
+```ruby
+do_ubuntu_thing if platform?('ubuntu')
+```
+
 #### case
 
 A `case` statement can be used to handle a situation where there are a
@@ -522,24 +534,6 @@ obvious to the reader, specifying the default action is recommended:
 ohai 'apache_modules' do
   action :reload
 end
-```
-
-### Symbols or Strings?
-
-Prefer strings over symbols, because they're easier to read and you
-don't need to explain to non-Rubyists what a symbol is. Please retrofit
-old cookbooks as you come across them.
-
-Right:
-
-```ruby
-default['foo']['bar'] = 'baz'
-```
-
-Wrong:
-
-```ruby
-default[:foo][:bar] = 'baz'
 ```
 
 ### String Quoting

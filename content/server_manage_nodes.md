@@ -1,12 +1,10 @@
 +++
 title = "Manage Nodes"
 draft = false
-
 gh_repo = "chef-web-docs"
 robots = "noindex"
-
-
 aliases = ["/server_manage_nodes.html"]
+product = []
 
 [menu]
   [menu.legacy]
@@ -15,7 +13,7 @@ aliases = ["/server_manage_nodes.html"]
     parent = "legacy/manage"
 +++
 
-{{% chef_automate_mark %}}
+{{< chef_automate_mark >}}
 
 {{% EOL_manage %}}
 
@@ -46,7 +44,7 @@ To delete a node:
 
 5.  Confirm:
 
-    ![image](/images/step_manage_webui_node_delete.png)
+    {{< figure src="/images/step_manage_webui_node_delete.png" alt="Dialog box asking user if they want to delete a node." class="no-shadow">}}
 
 ### Reset Key
 
@@ -63,13 +61,13 @@ To reset the validation key for a node:
 5.  In the **Reset Key** dialog box, confirm that the key should be
     regenerated and click the **Regenerate Key** button:
 
-    ![image](/images/step_manage_webui_admin_organization_reset_key.png)
+    {{< figure src="/images/step_manage_webui_admin_organization_reset_key.png" alt="Dialog box asking user to confirm that they want to delete a key." class="no-shadow">}}
 
 6.  In the **Reset Key** dialog box, copy the key directly from the
     dialog box or click the **Download** button to download the key to
     your local machine:
 
-    ![image](/images/step_manage_webui_admin_organization_reset_key_regenerated.png)
+    {{< figure src="/images/step_manage_webui_admin_organization_reset_key_regenerated.png" alt="Dialog box showing newly generated key." class="no-shadow">}}
 
 ### Search
 

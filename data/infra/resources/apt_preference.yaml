@@ -26,12 +26,12 @@ syntax_full_properties_list:
 - "`glob`, `package_name`, `pin`, and `pin_priority` are the properties available
   to this resource."
 actions_list:
-  :add:
-    markdown: Default action. Creates a preferences file under `/etc/apt/preferences.d`.
   :nothing:
     shortcode: resources_common_actions_nothing.md
+  :add:
+    markdown: Creates a preferences file under `/etc/apt/preferences.d` (default)
   :remove:
-    markdown: Removes the preferences file, thus unpinning the package.
+    markdown: Removes the preferences file, thus unpinning the package
 properties_list:
 - property: glob
   ruby_type: String

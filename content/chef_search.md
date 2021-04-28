@@ -1,10 +1,9 @@
 +++
 title = "About Search"
 draft = false
-
 gh_repo = "chef-web-docs"
-
 aliases = ["/chef_search.html"]
+product = ["client", "server", "workstation"]
 
 [menu]
   [menu.infra]
@@ -38,23 +37,23 @@ following search indexes are built:
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><code>client</code></td>
 <td>API client</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>DATA_BAG_NAME</code></td>
 <td>A data bag is a global variable that is stored as JSON data and is accessible from a Chef Infra Server. The name of the search index is the name of the data bag. For example, if the name of the data bag was "admins" then a corresponding search query might look something like <code>search(:admins, "*:*")</code>.</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>environment</code></td>
 <td>An environment is a way to map an organization's real-life workflow to what can be configured and managed when using Chef Infra Server.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>node</code></td>
 <td>A node is any server or virtual server that is configured to be maintained by a Chef Infra Client.</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>role</code></td>
 <td>A role is a way to define certain patterns and processes that exist across nodes in an organization as belonging to a single job function.</td>
 </tr>
@@ -117,7 +116,7 @@ Search queries may not contain newlines.
 
 ## Filter Search Results
 
-{{% dsl_recipe_method_search_filter_result %}}
+{{% infra_lang_method_search_filter_result %}}
 
 ## Keys
 
@@ -226,13 +225,13 @@ on the node.
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><p>Top-level</p></td>
 <td><p>To find a node with a role in the top-level of its run-list, search within the <code>role</code> field (and escaping any special characters with the slash symbol) using the following syntax:</p>
 <pre><code>role:ROLE_NAME</code></pre>
 <p>where <code>role</code> (singular!) indicates the top-level run-list.</p></td>
 </tr>
-<tr class="even">
+<tr>
 <td><p>Expanded</p></td>
 <td><p>To find a node with a role in an expanded run-list, search within the <code>roles</code> field (and escaping any special characters with the slash symbol) using the following syntax:</p>
 <pre><code>roles:ROLE_NAME</code></pre>
@@ -305,14 +304,14 @@ on the node.
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><p>In a specified recipe</p></td>
 <td><p>To find a node with a specified recipe in the run-list, search within the <code>run_list</code> field (and escaping any special characters with the slash symbol) using the following syntax:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb1-1"><a href="#cb1-1"></a>search(<span class="st">:node</span>, <span class="st">&#39;run_list:recipe\[foo\:\:bar\]&#39;</span>)</span></code></pre></div>
 <p>where <code>recipe</code> (singular!) indicates the top-level run-list. Variables can be interpolated into search strings using the Ruby alternate quoting syntax:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb2-1"><a href="#cb2-1"></a>search(<span class="st">:node</span>,<span class="ot"> %Q{</span><span class="st">run_list:&quot;recipe[</span><span class="ot">#{</span>the_recipe<span class="ot">}</span><span class="st">]&quot;</span><span class="ot">}</span> )</span></code></pre></div></td>
 </tr>
-<tr class="even">
+<tr>
 <td><p>In an expanded run-list</p></td>
 <td><p>To find a node with a recipe in an expanded run-list, search within the <code>recipes</code> field (and escaping any special characters with the slash symbol) using the following syntax:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb3-1"><a href="#cb3-1"></a>recipes<span class="st">:RECIPE_NAME</span></span></code></pre></div>

@@ -15,15 +15,15 @@ operators:
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><code>AND</code></td>
 <td>Use to find a match when both terms exist.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>OR</code></td>
 <td>Use to find a match if either term exists.</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>NOT</code></td>
 <td>Use to exclude the term after <code>NOT</code> from the search results.</td>
 </tr>

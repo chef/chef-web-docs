@@ -1,6 +1,7 @@
 +++
 title = "postgres_ident_conf resource"
 draft = false
+gh_repo = "inspec"
 platform = "linux"
 
 [menu]
@@ -9,8 +10,6 @@ platform = "linux"
     identifier = "inspec/resources/os/postgres_ident_conf.md postgres_ident_conf resource"
     parent = "inspec/resources/os"
 +++
-
-[\[edit on GitHub\]](https://github.com/inspec/inspec/blob/master/docs-chef-io/content/inspec/resources/postgres_ident_conf.md)
 
 Use the `postgres_ident_conf` Chef InSpec audit resource to test the client authentication data defined in the pg_ident.conf file.
 
@@ -48,7 +47,7 @@ where
 
 `address` returns a an array of strings that matches the where condition of the filter table
 
-    describe pg_ident_conf.where { pg_username == 'name' } do
+    describe postgres_ident_conf.where { pg_username == 'name' } do
       its('map_name') { should eq ['value'] }
     end
 
@@ -56,7 +55,7 @@ where
 
 `pg_username` returns a an array of strings that matches the where condition of the filter table
 
-    describe pg_ident_conf.where { pg_username == 'name' } do
+    describe postgres_ident_conf.where { pg_username == 'name' } do
       its('pg_username') { should eq ['value'] }
     end
 
@@ -64,7 +63,7 @@ where
 
 `system_username` returns a an array of strings that matches the where condition of the filter table
 
-    describe pg_ident_conf.where { pg_username == 'name' } do
+    describe postgres_ident_conf.where { pg_username == 'name' } do
       its('system_username') { should eq ['value'] }
     end
 
