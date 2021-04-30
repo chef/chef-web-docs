@@ -95,6 +95,7 @@
         padding-right: 10px;
         width: 100%;
         flex: 1 1 auto;
+        margin-left: 0;
         a {
           padding: .5rem 0;
           border-bottom: 1px solid $border-dark;
@@ -113,6 +114,9 @@
               font-weight: 400;
               line-height: 1.4;
               color:$lightgray;
+              em {
+                color: $gray
+              }
               >.st-result-highlight-product{
                 color:red;
                 display: none;
