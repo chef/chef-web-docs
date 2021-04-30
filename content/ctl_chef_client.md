@@ -78,6 +78,9 @@ This command has the following options:
 :   Run the executable as a daemon. Use `SECONDS` to specify the number
     of seconds to wait before the first daemonized Chef Infra Client
     run. `SECONDS` is set to `0` by default.
+    
+    If not otherwise set, this will also make use of the default `--interval` 
+    and `--splay` values.
 
     This option is only available on machines that run in UNIX or Linux
     environments. For machines that are running Microsoft Windows that
