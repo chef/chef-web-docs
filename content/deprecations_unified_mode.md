@@ -33,6 +33,72 @@ end
 
 For the vast majority of resources, no further action should be required aside from testing and validation.
 
+## Unified Mode Will Break Resources That Create And Edit Sub-Resources
+
+Some resources create and edit other resources.  Unified Mode causes the resource to fire immediately after the
+block passed to the resource has been parsed, resulting in the execution of a partially constructed resource.
+The following code is an example from the dhcp cookbook showing the creation of a resource which is then
+subsequently edited:
+
+```ruby
+sr = edit_resource(:dhcp_subnet, "#{new_resource.name}_sharedsubnet_#{subnet}") do
+  owner new_resource.owner
+  group new_resource.group
+  mode new_resource.mode
+
+  ip_version new_resource.ip_version
+  conf_dir new_resource.conf_dir
+  shared_network true
+end
+
+properties.each do |property, value|
+  sr.send(property, value)
+end
+```
+
+This can be fixed by directly applying the properties inside of the block
+
+```ruby
+dhcp_subnet "#{new_resource.name}_sharedsubnet_#{subnet}" do
+  owner new_resource.owner
+  group new_resource.group
+  mode new_resource.mode
+
+  ip_version new_resource.ip_version
+  conf_dir new_resource.conf_dir
+  shared_network true
+
+  properties.each do |property, value|
+    send(property, value)
+  end
+end
+```
+
+Another tactic that could be used is declaring the resource as `action :nothing` and then explicitly running it:
+
+```ruby
+sr = edit_resource(:dhcp_subnet, "#{new_resource.name}_sharedsubnet_#{subnet}") do
+  owner new_resource.owner
+  group new_resource.group
+  mode new_resource.mode
+
+  ip_version new_resource.ip_version
+  conf_dir new_resource.conf_dir
+  shared_network true
+
+  action :nothing
+end
+
+properties.each do |property, value|
+  sr.send(property, value)
+end
+
+sr.run_action(:create)
+```
+
+This also shows that the pattern of saving a resource to a variable and forcing it to run at compile time with an explicit `run_action` still
+works, but it is redundant with Unified Mode which forces all resource execution to compile time by default.
+
 ## Unified Mode Delays Immediate Notifications to Later Resources
 
 Since Unified Mode is one pass, immediate notifications to resources that have not yet been parsed cannot be executed. Those notifications are now saved and executed when the resource is parsed. This could cause subtle changes in behaviors in some resources. The common idiom of chaining immediate notifications forward will result in the same behavior:
