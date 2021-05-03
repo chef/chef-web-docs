@@ -1,5 +1,6 @@
 +++
 title = "Omnitruck API"
+description = "{{.Summary}}"
 draft = false
 gh_repo = "chef-web-docs"
 aliases = ["/api_omnitruck.html"]
