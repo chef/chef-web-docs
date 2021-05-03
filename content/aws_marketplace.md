@@ -268,7 +268,7 @@ and Chef Infra Server.
 ## Configure backups
 
 Follow the Workflow
-[instructions](/delivery_server_backup/#s3-backups) for configuring
+[instructions]({{< relref "automate/backup/" >}}) for configuring
 backups.
 
 ## Troubleshooting
