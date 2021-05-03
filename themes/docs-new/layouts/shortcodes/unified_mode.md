@@ -1,12 +1,12 @@
-Starting in Chef Infra Client 17.0 resources should be converted to use Unified Mode, which eliminates the split between the compile and converge modes in custom resources.
+<!-- markdownlint-disable MD041 -->
+Unified Mode combines the compile and converge stages of the Chef Infra Client run into one phase. Unified mode means that the Chef Infra Client compiles and applies a custom resource in order, from top to bottom. The impact of Unified Mode is limited to the individual custom resource--other resources or recipes remain unchanged. Enable Unified Mode by setting `unified_mode true` on a custom resource. Left unset, the behavior defaults to `unified_mode false`, which means that the custom resource will continue to work as it has in the past (using separate Chef Infra Client run compile and converge stages), with an additional deprecation message warning that those resources should be converted.
 
-Unified Mode is available for use in custom resources starting with Chef Infra Client 14.14 and Chef Infra Client 15.3.
+Unified Mode is required for custom resources in Chef Infra Client 17.0 and higher.
+Unified Mode is available for custom resources in Chef Infra Client 15.3.
+Unified Mode is **NOT** available for custom resources in Chef Infra Client 15.0.
+Unified Mode is available for custom resources in Chef Infra Client 14.14.
 
-Unified Mode is set in each custom resource and the change is isolated to those resource so there is no impact to other resources or recipes.
-
-By default resources do not run using Unified Mode in Chef Infra Client 17, which is the same behavior as a resource that explicitly sets the `unified_mode false`. Without setting `unified_mode true` in a resource, the resources will continue to operate as they did in the past, but a deprecation message will warn that those resources should be converted.
-
-## Enabling Unified Mode
+## Enable Unified Mode
 
 Most resources can be converted to use Unified Mode with no work, apart from testing, by adding the flag to turn it on anywhere in the resource declaration:
 
@@ -20,14 +20,16 @@ actions :run do
 end
 ```
 
-For the vast majority of resources, no further action should be required aside from testing and validation.
+For most resources, no further action should be required aside from testing and validation.
 
-## Unified Mode Will Break Resources That Create And Edit Sub-Resources
+## Troubleshoot Unified Mode
 
-Some resources create and edit other resources.  Unified Mode causes the resource to fire immediately after the
-block passed to the resource has been parsed, resulting in the execution of a partially constructed resource.
-The following code is an example from the dhcp cookbook showing the creation of a resource which is then
-subsequently edited:
+### Resources that Create and Edit Sub-resources
+
+Some resources create and edit other resources. In Unified Mode, the resource parses a codeblock that creates or edits a sub-resource and immediately applies that change, which will result in the execution of an incomplete resource.
+
+For example, with unified mode enabled, this code from the _dhcp cookbook_ that creates a resource and
+subsequently edits it will not work as expected:
 
 ```ruby
 sr = edit_resource(:dhcp_subnet, "#{new_resource.name}_sharedsubnet_#{subnet}") do
@@ -45,7 +47,7 @@ properties.each do |property, value|
 end
 ```
 
-This can be fixed by directly applying the properties inside of the block
+#### Fix: Apply Properties in the Codeblock
 
 ```ruby
 dhcp_subnet "#{new_resource.name}_sharedsubnet_#{subnet}" do
@@ -63,7 +65,9 @@ dhcp_subnet "#{new_resource.name}_sharedsubnet_#{subnet}" do
 end
 ```
 
-Another tactic that could be used is declaring the resource as `action :nothing` and then explicitly running it:
+#### Fix: Run the Resource Explicitly
+
+Another solution is to is declaring the resource as `action :nothing` and then explicitly run it:
 
 ```ruby
 sr = edit_resource(:dhcp_subnet, "#{new_resource.name}_sharedsubnet_#{subnet}") do
@@ -85,8 +89,7 @@ end
 sr.run_action(:create)
 ```
 
-This also shows that the pattern of saving a resource to a variable and forcing it to run at compile time with an explicit `run_action` still
-works, but it is redundant with Unified Mode which forces all resource execution to compile time by default.
+<!-- This also shows that the pattern of saving a resource to a variable and forcing it to run at compile time with an explicit `run_action` still works, but it is redundant with Unified Mode which forces all resource execution to compile time by default. -->
 
 ## Unified Mode Delays Immediate Notifications to Later Resources
 

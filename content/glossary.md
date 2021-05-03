@@ -140,3 +140,7 @@ run-list
 Test Kitchen
 
 : Test Kitchen is an integration framework that is used to automatically test cookbook data across any combination of platforms and test suites. Test Kitchen is packaged in Chef Workstation.
+
+Unified Mode
+
+: Unified Mode combines the compile and converge stages of the Chef Infra Client run into one phase. Unified mode means that the Chef Infra Client compiles and applies a custom resource in order, from top to bottom. The impact of Unified Mode is limited to the individual custom resource--other resources or recipes remain unchanged. Enable Unified Mode by setting `unified_mode true` on a custom resource. Left unset, the behavior defaults to `unified_mode false`, which means that the custom resource will continue to work as it has in the past (with separate Chef Infra Client run compile and converge stages), only with an additional deprecation message warning that those resources should be converted.
