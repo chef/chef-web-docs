@@ -268,7 +268,7 @@ and Chef Infra Server.
 ## Configure backups
 
 Follow the Workflow
-[instructions](https://docs.chef.io/automate/backup/) for configuring
+[instructions]({{< relref "automate/backup/" >}}) for configuring
 backups.
 
 ## Troubleshooting
