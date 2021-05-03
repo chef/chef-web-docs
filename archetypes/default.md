@@ -1,6 +1,5 @@
 +++
 title = "{{ replace .Name "-" " " | title }}"
-summary = true
 draft = true
 
 gh_repo = "chef-web-docs"
