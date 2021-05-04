@@ -16,9 +16,7 @@ aliases = ["/chef_repo.html"]
 
 ## Directory Structure
 
-The chef-repo contains several directories, each with a README file that
-describes what it is for and how to use that directory when managing
-systems.
+The chef-repo contains several directories, each with a README file that describes what it is for and how to use that directory when managing systems.
 
 The sub-directories in the chef-repo are:
 
