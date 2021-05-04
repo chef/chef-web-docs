@@ -1,4 +1,4 @@
-baseURL = "/"
+baseURL = "https://docs.chef.io/"
 languageCode = "en-us"
 title = "Chef Web Docs"
 theme = "docs-new"
@@ -13,6 +13,7 @@ disableAliases = true
 # Use canonical URLS for SEO
 
 canonifyURLs = true
+relativeURLs = true
 
 [outputs]
 home = [ "HTML", "RSS", "REDIR" ]
