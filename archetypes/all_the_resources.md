@@ -1,6 +1,7 @@
 +++
 title = "All Infra Resources"
 draft = false
+description = "This reference describes each of the resources available to Chef Infra Client, including a list of actions, properties, and usage examples."
 
 gh_repo = "chef-web-docs"
 
