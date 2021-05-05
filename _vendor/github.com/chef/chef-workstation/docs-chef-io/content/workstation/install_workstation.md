@@ -50,7 +50,7 @@ Supported Host Operating Systems:
 </tr>
 <tr class="even">
 <td>Ubuntu</td>
-<td>16.04, 18.04, 20.04</td>
+<td>18.04, 20.04</td>
 </tr>
 <tr class="odd">
 <td>Debian</td>
@@ -204,4 +204,4 @@ sudo yum remove chef-workstation
 
 ## Next Steps
 
-Now that you've installed Chef Workstation, proceed to the [Getting Started](/workstation/getting_started/) guide to configure your Chef Workstation installation.
+Now that you've installed Chef Workstation, proceed to the [Setup]({{< relref "getting_started.md" >}}) guide to configure your Chef Workstation installation.
