@@ -2,7 +2,7 @@
 short_name: InvalidPlatformValueForPlatformFamilyHelper
 full_name: Chef/Correctness/InvalidPlatformValueForPlatformFamilyHelper
 department: Chef/Correctness
-description: 'Pass valid platforms families to the value_for_platform_family helper.
+description: 'Pass valid platform families to the value_for_platform_family helper.
   See [Infra Language: Platform Family](https://docs.chef.io/infra_language/checking_platforms/#platform_family-values)
   for a complete list of platform families.'
 autocorrection: false

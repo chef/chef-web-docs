@@ -2,7 +2,7 @@
 short_name: TmpPath
 full_name: Chef/Correctness/TmpPath
 department: Chef/Correctness
-description: Use file_cache_path rather than hard-coding tmp paths
+description: Use file_cache_path rather than hard-coding system temp paths
 autocorrection: false
 target_chef_version: All Versions
 examples: |2-
