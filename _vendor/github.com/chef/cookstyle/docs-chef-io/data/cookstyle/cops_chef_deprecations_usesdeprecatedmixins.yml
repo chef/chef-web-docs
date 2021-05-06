@@ -3,7 +3,7 @@ short_name: UsesDeprecatedMixins
 full_name: Chef/Deprecations/UsesDeprecatedMixins
 department: Chef/Deprecations
 description: Don't use deprecated Mixins no longer included in Chef Infra Client 14
-  and later
+  and later.
 autocorrection: true
 target_chef_version: All Versions
 examples: |2-

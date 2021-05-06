@@ -2,7 +2,8 @@
 short_name: ErlCallResource
 full_name: Chef/Deprecations/ErlCallResource
 department: Chef/Deprecations
-description: Don't use the deprecated erl_call resource
+description: Don't use the deprecated `erl_call` resource removed in Chef Infra Client
+  13."
 autocorrection: false
 target_chef_version: All Versions
 examples: |2-

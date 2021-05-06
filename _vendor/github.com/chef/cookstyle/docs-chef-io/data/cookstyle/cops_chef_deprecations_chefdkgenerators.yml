@@ -2,9 +2,10 @@
 short_name: ChefDKGenerators
 full_name: Chef/Deprecations/ChefDKGenerators
 department: Chef/Deprecations
-description: Chef Workstation 0.8 and later renamed the ChefDK module used when writing
-  custom cookbook generators from ChefDK to ChefCLI. For compatibility with the latest
-  Chef Workstation releases you'll need to reference the new class names.
+description: Chef Workstation 0.8 and later renamed the `ChefDK` module used when
+  writing custom cookbook generators from `ChefDK` to `ChefCLI`. For compatibility
+  with the latest Chef Workstation releases you'll need to reference the new class
+  names.
 autocorrection: true
 target_chef_version: All Versions
 examples: |2-
