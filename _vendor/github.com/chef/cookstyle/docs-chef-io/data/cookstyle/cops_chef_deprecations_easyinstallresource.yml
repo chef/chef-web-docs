@@ -3,7 +3,7 @@ short_name: EasyInstallResource
 full_name: Chef/Deprecations/EasyInstallResource
 department: Chef/Deprecations
 description: Don't use the deprecated easy_install resource removed in Chef Infra
-  Client 13
+  Client 13.
 autocorrection: false
 target_chef_version: All Versions
 examples: |2-

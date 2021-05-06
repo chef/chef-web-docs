@@ -2,7 +2,7 @@
 short_name: DeprecatedPlatformMethods
 full_name: Chef/Deprecations/DeprecatedPlatformMethods
 department: Chef/Deprecations
-description: Use provider_for_action or provides instead of the deprecated Chef::Platform
+description: Use `provider_for_action` or provides instead of the deprecated `Chef::Platform`
   methods in resources, which were removed in Chef Infra Client 13.
 autocorrection: false
 target_chef_version: All Versions

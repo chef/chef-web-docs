@@ -2,7 +2,7 @@
 short_name: InvalidPlatformMetadata
 full_name: Chef/Correctness/InvalidPlatformMetadata
 department: Chef/Correctness
-description: 'metadata.rb supports methods should contain valid platforms. See [Infra
+description: 'metadata.rb `supports` methods should contain valid platforms. See [Infra
   Language: Platform](https://docs.chef.io/infra_language/checking_platforms/#platform-values)
   for a list of many common platform values.'
 autocorrection: true
