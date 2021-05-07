@@ -7,10 +7,10 @@ product = []
 
 [menu]
   [menu.overview]
-    title = "Contributing"
-    identifier = "overview/community/community_contributions.md Contributing"
+    title = "Community Contributions"
+    identifier = "overview/community/contributing"
     parent = "overview/community"
-    weight = 20
+    weight = 10
 +++
 
 We're glad you want to contribute to a Chef project! This guide will

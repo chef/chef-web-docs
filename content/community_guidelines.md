@@ -10,7 +10,7 @@ product = []
     title = "Guidelines"
     identifier = "overview/community/community_guidelines.md Guidelines"
     parent = "overview/community"
-    weight = 30
+    weight = 20
 +++
 
 **Note**: If you are in a physical space (e.g. ChefConf, Meetup, etc),
