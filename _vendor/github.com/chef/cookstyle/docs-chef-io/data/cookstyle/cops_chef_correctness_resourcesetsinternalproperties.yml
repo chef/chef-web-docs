@@ -2,9 +2,8 @@
 short_name: ResourceSetsInternalProperties
 full_name: Chef/Correctness/ResourceSetsInternalProperties
 department: Chef/Correctness
-description: |-
-  Chef Infra Client uses properties in several resources to track state. These
-  should not be set in recipes as they break the internal workings of the Chef
+description: Chef Infra Client uses properties in several resources to track state.
+  These should not be set in recipes as they break the internal workings of the Chef
   Infra Client
 autocorrection: false
 target_chef_version: All Versions

@@ -2,6 +2,7 @@
 title = "All Infra Resources"
 draft = false
 gh_repo = "chef-web-docs"
+description = "This reference describes each of the resources available to Chef Infra Client, including a list of actions, properties, and usage examples."
 
 data_path = ["infra","resources"]
 layout = "infra_resources_all"

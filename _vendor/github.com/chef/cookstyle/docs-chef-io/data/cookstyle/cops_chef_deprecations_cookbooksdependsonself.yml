@@ -2,9 +2,24 @@
 short_name: CookbooksDependsOnSelf
 full_name: Chef/Deprecations/CookbooksDependsOnSelf
 department: Chef/Deprecations
+description: Make sure a cookbook doesn't depend on itself. This will fail on Chef
+  Infra Client 13+
 autocorrection: true
 target_chef_version: All Versions
-examples: 
+examples: |2-
+
+  #### incorrect
+
+  ```ruby
+  name 'foo'
+  depends 'foo'
+  ```
+
+  #### correct
+
+  ```ruby
+  name 'foo'
+  ```
 version_added: 5.2.0
 enabled: true
 included_file_paths:
