@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
+    {{- with .Params.description -}}
+      <meta name="description" content="{{.}}" />
+    {{- end -}}
     <title>{{.Title}}</title>
     <!-- needed for adaptive design -->
     <meta charset="utf-8"/>
