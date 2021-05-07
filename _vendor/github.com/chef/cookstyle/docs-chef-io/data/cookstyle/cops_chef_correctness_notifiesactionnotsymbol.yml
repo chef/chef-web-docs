@@ -2,9 +2,9 @@
 short_name: NotifiesActionNotSymbol
 full_name: Chef/Correctness/NotifiesActionNotSymbol
 department: Chef/Correctness
-description: When notifying or subscribing an action within a resource the action
-  should always be a symbol. In Chef Infra Client releases before 14.0 this may result
-  in double notification.
+description: When notifying or subscribing actions within a resource the action should
+  always be a symbol. In Chef Infra Client releases before 14.0, this may result in
+  double notification.
 autocorrection: true
 target_chef_version: All Versions
 examples: |2-

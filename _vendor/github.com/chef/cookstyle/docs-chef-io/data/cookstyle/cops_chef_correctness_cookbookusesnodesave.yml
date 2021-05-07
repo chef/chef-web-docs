@@ -2,10 +2,10 @@
 short_name: CookbookUsesNodeSave
 full_name: Chef/Correctness/CookbookUsesNodeSave
 department: Chef/Correctness
-description: |-
-  Don't use node.save to save partial node data to the Chef Infra Server mid-run unless it's
-  absolutely necessary. Node.save can result in failed Chef Infra runs appearing in search and
-  increases load on the Chef Infra Server."
+description: Don't use node.save to save partial node data to the Chef Infra Server
+  mid-run unless it's a requirement of cookbook design that can't be avoided. Node.save
+  can result in failed Chef Infra runs appearing in search and increases load on the
+  Chef Infra Server."
 autocorrection: false
 target_chef_version: All Versions
 examples: |2-

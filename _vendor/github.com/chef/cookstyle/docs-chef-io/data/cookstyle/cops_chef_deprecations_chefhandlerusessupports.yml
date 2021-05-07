@@ -2,9 +2,9 @@
 short_name: ChefHandlerUsesSupports
 full_name: Chef/Deprecations/ChefHandlerUsesSupports
 department: Chef/Deprecations
-description: Use the type property instead of the deprecated supports property in
-  the chef_handler resource. The supports property was removed in chef_handler cookbook
-  version 3.0 (June 2017) and Chef Infra Client 14.0.
+description: Use the type `property` instead of the deprecated `supports` property
+  in the `chef_handler` resource. The `supports` property was removed in `chef_handler`
+  cookbook version 3.0 (June 2017) and Chef Infra Client 14.0.
 autocorrection: true
 target_chef_version: All Versions
 examples: |2-

@@ -2,8 +2,8 @@
 short_name: CookbookDependsOnPartialSearch
 full_name: Chef/Deprecations/CookbookDependsOnPartialSearch
 department: Chef/Deprecations
-description: Don't depend on the partial_search cookbook made obsolete by Chef Infra
-  Client 13
+description: Don't depend on the `partial_search` cookbook made obsolete by Chef Infra
+  Client 13.
 autocorrection: false
 target_chef_version: 13.0+
 examples: |2-

@@ -2,9 +2,22 @@
 short_name: InvalidDefaultAction
 full_name: Chef/Correctness/InvalidDefaultAction
 department: Chef/Correctness
+description: Default actions in resources should be symbols or an array of symbols.
 autocorrection: false
 target_chef_version: All Versions
-examples: 
+examples: |2-
+
+  #### incorrect
+
+  ```ruby
+  default_action 'create'
+  ```
+
+  #### correct
+
+  ```ruby
+  default_action :create
+  ```
 version_added: 6.13.0
 enabled: true
 included_file_paths:

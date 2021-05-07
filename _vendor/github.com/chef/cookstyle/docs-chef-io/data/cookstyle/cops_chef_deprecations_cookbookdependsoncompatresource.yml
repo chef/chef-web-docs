@@ -2,8 +2,8 @@
 short_name: CookbookDependsOnCompatResource
 full_name: Chef/Deprecations/CookbookDependsOnCompatResource
 department: Chef/Deprecations
-description: Don't depend on the deprecated compat_resource cookbook made obsolete
-  by Chef Infra Client 12.19+
+description: Don't depend on the deprecated `compat_resource` cookbook made obsolete
+  by Chef Infra Client 12.19+.
 autocorrection: true
 target_chef_version: 12.19+
 examples: |2-

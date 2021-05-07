@@ -3,8 +3,8 @@ short_name: DeprecatedYumRepositoryProperties
 full_name: Chef/Deprecations/DeprecatedYumRepositoryProperties
 department: Chef/Deprecations
 description: With the release of Chef Infra Client 12.14 and the yum cookbook 3.0
-  several properties in the yum_repository resource were renamed. url -> baseurl,
-  keyurl -> gpgkey, and mirrorexpire -> mirror_expire.
+  several properties in the `yum_repository` resource were renamed. `url` -> `baseurl`,
+  `keyurl` -> `gpgkey`, and `mirrorexpire` -> `mirror_expire`.
 autocorrection: true
 target_chef_version: 12.14+
 examples: |2-
