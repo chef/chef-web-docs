@@ -2,7 +2,7 @@
 # github.com/chef/chef-workstation/docs-chef-io v0.0.0-20210505184733-3033fc75ae70
 # github.com/chef/effortless/docs-chef-io v0.0.0-20210212122821-321ee6f6699a
 # github.com/inspec/inspec/docs-chef-io v0.0.0-20210505161659-76926c6c27ff
-# github.com/chef/automate/components/docs-chef-io v0.0.0-20210420084556-a8f680b70e0e
+# github.com/chef/automate/components/docs-chef-io v0.0.0-20210504020652-4d682c47c78c
 # github.com/habitat-sh/habitat/components/docs-chef-io v0.0.0-20210423191645-f458a70af004
 # github.com/chef/chef-server/docs-chef-io v0.0.0-20210422122944-3a004418c08d
 # github.com/chef/cookstyle/docs-chef-io v0.0.0-20210506203120-1903319de2de
