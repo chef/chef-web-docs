@@ -1,0 +1,53 @@
+---
+short_name: HWRPWithoutUnifiedTrue
+full_name: Chef/Deprecations/HWRPWithoutUnifiedTrue
+department: Chef/Deprecations
+description: Chef Infra Client 15.3 and later include a new Unified Mode that simplies
+  the execution of resoures by replace the traditional compile and converge phases
+  with a single phase. Unified mode simplies writing advanced resources and avoids
+  confusing errors that often occur when mixing ruby and Chef Infra resources. Chef
+  Infra Client 17.0 and later will beging warning that `unified_mode true` should
+  be set in all resources to validate that they will continue to function in Chef
+  Infra Client 18.0 (April 2022) when Unified Mode becomes the default.
+autocorrection: false
+target_chef_version: 15.3+
+examples: |2-
+
+  #### incorrect
+
+  ```ruby
+   class Chef
+     class Resource
+       class UlimitRule < Chef::Resource
+         provides :ulimit_rule
+
+         property :type, [Symbol, String], required: true
+         property :item, [Symbol, String], required: true
+
+         # additional resource code
+       end
+     end
+   end
+  ```
+
+  #### correct
+
+  ```ruby
+   class Chef
+     class Resource
+       class UlimitRule < Chef::Resource
+         provides :ulimit_rule
+         unified_mode true
+
+         property :type, [Symbol, String], required: true
+         property :item, [Symbol, String], required: true
+
+         # additional resource code
+       end
+     end
+   end
+  ```
+version_added: 7.12.0
+enabled: true
+included_file_paths:
+- "**/libraries/*.rb"
