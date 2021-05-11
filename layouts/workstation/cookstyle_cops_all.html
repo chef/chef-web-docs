@@ -1,38 +1,38 @@
 {{ define "main" }}
 
   <main id="main-content-col" tabindex="-1">
-    <div class="col-content" data-swiftype-index='true'>
+    <div id="col-content" data-swiftype-index='true'>
 
-    <h1 id="{{ anchorize ( .Title )}}">{{ .Title }}</h1>
+      <h1 id="{{ anchorize ( .Title )}}">{{ .Title }}</h1>
 
-    <button type="button" class="TOC-button hide-for-large" data-toggle="offCanvasRightTOC"
-      data-close="left-nav-off-canvas" data-swiftype-index='false'>
-      <i class="fas fa-bars"></i> Table of Contents
-    </button>
+      <button type="button" class="TOC-button hide-for-large" data-toggle="offCanvasRightTOC"
+        data-close="left-nav-off-canvas" data-swiftype-index='false'>
+        <i class="fas fa-bars"></i> Table of Contents
+      </button>
 
-    <div class="prose">
+      <div class="prose">
 
 
-    {{ $yaml_files := index $.Site.Data .Params.data_path }}
-    {{ $departments := slice }}
+      {{ $yaml_files := index $.Site.Data .Params.data_path }}
+      {{ $departments := slice }}
 
-      {{ range $yamlfile := $yaml_files }}
-        {{ $departments = $departments | append (slice $yamlfile.department ) | uniq }}
-      {{ end }}
-
-    {{ range $department := $departments }}
-      <h2 id={{anchorize $department }}>{{ $department }}</h2>
-      <ul>
-        {{ range $yamlfile, $yaml:= $yaml_files }}
-
-            {{ if eq $yaml.department $department}}
-              {{ $full_name := $yaml.full_name | replaceRE `\/` `_` | lower }}
-              <li><a href="/workstation/cookstyle/{{ $full_name }}/">{{ $yaml.short_name }}</a></li>
-            {{ end }}
-
+        {{ range $yamlfile := $yaml_files }}
+          {{ $departments = $departments | append (slice $yamlfile.department ) | uniq }}
         {{ end }}
-        </ul>
-    {{ end }}
+
+      {{ range $department := $departments }}
+        <h2 id={{anchorize $department }}>{{ $department }}</h2>
+        <ul>
+          {{ range $yamlfile, $yaml:= $yaml_files }}
+
+              {{ if eq $yaml.department $department}}
+                {{ $full_name := $yaml.full_name | replaceRE `\/` `_` | lower }}
+                <li><a href="/workstation/cookstyle/{{ $full_name }}/">{{ $yaml.short_name }}</a></li>
+              {{ end }}
+
+          {{ end }}
+          </ul>
+      {{ end }}
 
     </div>
     {{ partialCached "feedback" . }}
