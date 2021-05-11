@@ -262,13 +262,7 @@ confused with the modern [Chef Compliance offering](/compliance/).
 </tr>
 <tr>
 <td>ChefDK</td>
-<td>3 and under</td>
-<td>EOL</td>
-<td>April 30, 2020</td>
-</tr>
-<tr>
-<td>ChefDK</td>
-<td>4.x</td>
+<td>ALL</td>
 <td>EOL</td>
 <td>December 31, 2020</td>
 </tr>
