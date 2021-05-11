@@ -43,11 +43,12 @@ syntax_full_properties_list:
 - "`name` is the name given to the resource block."
 - "`action` identifies which steps Chef Infra Client will take to bring the node into
   the desired state."
-- "`command`, `cwd`, `day`, `description`, `disallow_start_if_on_batteries`, `execution_time_limit`,
-  `force`, `frequency`, `frequency_modifier`, `idle_time`, `interactive_enabled`,
-  `minutes_duration`, `minutes_interval`, `months`, `password`, `priority`, `random_delay`,
-  `run_level`, `start_day`, `start_time`, `start_when_available`, `stop_if_going_on_batteries`,
-  `task_name`, and `user` are the properties available to this resource."
+- "`backup`, `command`, `cwd`, `day`, `description`, `disallow_start_if_on_batteries`,
+  `execution_time_limit`, `force`, `frequency`, `frequency_modifier`, `idle_time`,
+  `interactive_enabled`, `minutes_duration`, `minutes_interval`, `months`, `password`,
+  `priority`, `random_delay`, `run_level`, `start_day`, `start_time`, `start_when_available`,
+  `stop_if_going_on_batteries`, `task_name`, and `user` are the properties available
+  to this resource."
 actions_list:
   :create:
     markdown: Creates a task, or updates an existing task if any property has changed.
