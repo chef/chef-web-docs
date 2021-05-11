@@ -249,7 +249,7 @@ confused with the modern [Chef Compliance offering](/compliance/).
 <td>December 31, 2019</td>
 </tr>
 <tr>
-<td>Chef Client</td>
+<td>Chef Infra Client</td>
 <td>15 and under</td>
 <td>EOL</td>
 <td>April 30, 2021</td>
