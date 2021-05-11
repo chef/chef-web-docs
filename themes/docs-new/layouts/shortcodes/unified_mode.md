@@ -1,10 +1,18 @@
 <!-- markdownlint-disable MD041 -->
-Unified Mode combines the compile and converge stages of the Chef Infra Client run into one phase. Unified mode means that the Chef Infra Client compiles and applies a custom resource in order, from top to bottom. The impact of Unified Mode is limited to the individual custom resource--other resources or recipes remain unchanged. Enable Unified Mode by setting `unified_mode true` on a custom resource. Left unset, the behavior defaults to `unified_mode false`, which means that the custom resource will continue to work as it has in the past (using separate Chef Infra Client run compile and converge stages), with an additional deprecation message warning that those resources should be converted.
+Unified Mode combines the compile and converge stages of the Chef Infra Client run into one phase. In unified mode, Chef Infra Client compiles and applies a custom resource once, starting at the top of the file and working down to the bottom. Unified mode is only available on custom resources. Chef Infra Client will continue to process other resources with separate compile and converge phases.
 
-Unified Mode is required for custom resources in Chef Infra Client 17.0 and higher.
-Unified Mode is available for custom resources in Chef Infra Client 15.3.
-Unified Mode is **NOT** available for custom resources in Chef Infra Client 15.0.
-Unified Mode is available for custom resources in Chef Infra Client 14.14.
+Set `unified_mode true` to enable unified mode on a custom resource. Left unset, the default behavior is `unified_mode false`, and Chef Infra Client will show a deprecation message warning you to enable unified mode.
+
+|Chef Infra Client  | Unified Mode|
+|-------------------|------------|
+| 18.x (in 2022)    | Default: `unified_mode true` |
+| 17.x              | Default: `unified_mode false`|
+| 16.x              | Default: `unified_mode false`|
+| 15.3 and higher   | Default: `unified_mode false`|
+| 15.0 - 15.2       | Not available              |
+| 14.14 and higher  | Default: `unified_mode false`|
+| Lower than 14.14  | Not available              |
+
 
 ## Enable Unified Mode
 
