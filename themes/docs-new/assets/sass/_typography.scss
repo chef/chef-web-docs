@@ -6,19 +6,19 @@ $extrabold: 800;
 @font-face {
   font-family: 'Inter';
   font-weight: $regular;
-  src: url('/fonts/Inter-Regular.ttf');
+  src: url('../fonts/Inter-Regular.ttf');
 }
 
 @font-face {
   font-family: 'Inter';
   font-weight: $semibold;
-  src: url('/fonts/Inter-SemiBold.ttf');
+  src: url('../fonts/Inter-SemiBold.ttf');
 }
 
 @font-face {
   font-family: 'Inter';
   font-weight: $bold;
-  src: url('/fonts/Inter-Bold.ttf');
+  src: url('../fonts/Inter-Bold.ttf');
 }
 
 @media print {

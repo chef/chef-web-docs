@@ -12,6 +12,7 @@
       <meta class="swiftype" name="chef-product" data-type="string" content="{{ $tag }}" />
     {{- end -}}
   {{- end }}
+  <link rel="canonical" href="{{ .Permalink | absURL }}">
   <title>{{ .Title }}</title>
   {{ partialCached "scss" . -}}
 </head>
