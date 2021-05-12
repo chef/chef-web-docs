@@ -1,23 +1,18 @@
----
-name: Pull Request Template
-about: Let us know about your PR
-title: "[PR]"
-labels: 'Documentation, Status: Untriaged'
-assignees: ''
 
----
-### Description
+## Description
 
 [Please describe what this change achieves]
 
-### Definition of Done
+## Definition of Done
 
-### Issues Resolved
+## Issues Resolved
 
 [List any existing issues this PR resolves, or any Discourse or
 StackOverflow discussion that's relevant]
 
-### Check List
+## Related PRs
+
+## Check List
 
 - [ ] Spell Check
 - [ ] Local build
