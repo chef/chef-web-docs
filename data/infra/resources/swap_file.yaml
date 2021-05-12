@@ -26,12 +26,12 @@ syntax_full_properties_list:
 - "`path`, `persist`, `size`, `swappiness`, and `timeout` are the properties available
   to this resource."
 actions_list:
-  :create:
-    markdown: Default. Create a swap file.
   :nothing:
     shortcode: resources_common_actions_nothing.md
+  :create:
+    markdown: Create a swapfile. (default)
   :remove:
-    markdown: Remove a swap file and disable swap.
+    markdown: Remove a swapfile and disable swap.
 properties_list:
 - property: path
   ruby_type: String

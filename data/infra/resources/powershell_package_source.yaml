@@ -28,12 +28,12 @@ syntax_full_properties_list:
 - "`provider_name`, `publish_location`, `script_publish_location`, `script_source_location`,
   `source_name`, `trusted`, and `url` are the properties available to this resource."
 actions_list:
-  :register:
-    markdown: Default. Registers and updates the PowerShell package source.
-  :unregister:
-    markdown: Unregisters the PowerShell package source.
   :nothing:
     shortcode: resources_common_actions_nothing.md
+  :register:
+    markdown: Registers and updates the PowerShell package source. (default)
+  :unregister:
+    markdown: Unregisters the PowerShell package source.
 properties_list:
 - property: provider_name
   ruby_type: String

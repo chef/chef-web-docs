@@ -18,7 +18,7 @@ syntax_full_code_block: |-
     source_name             String # default value: 'name' unless specified
     action                  Symbol # defaults to :add if not specified
   end
-syntax_properties_list: 
+syntax_properties_list:
 syntax_full_properties_list:
 - "`chocolatey_source` is the resource."
 - "`name` is the name given to the resource block."
@@ -32,7 +32,7 @@ actions_list:
   :add:
     markdown: Adds a Chocolatey source (default)
   :remove:
-    markdown: Removes a Chocolatey source
+    markdown: Removes a Chocolatey source.
   :disable:
     markdown: Disables a Chocolatey source. **New in Chef Infra Client 15.1.**
   :enable:

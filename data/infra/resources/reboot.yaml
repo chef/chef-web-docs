@@ -23,15 +23,15 @@ syntax_full_properties_list:
   the desired state."
 - "`delay_mins` and `reason` are the properties available to this resource."
 actions_list:
-  :cancel:
-    markdown: Cancel a reboot request.
   :nothing:
     shortcode: resources_common_actions_nothing.md
-  :reboot_now:
-    markdown: Reboot a node so that Chef Infra Client may continue the installation
-      process.
   :request_reboot:
     markdown: Reboot a node at the end of a Chef Infra Client run.
+  :reboot_now:
+    markdown: Reboot a node so that the Chef Infra Client may continue the installation
+      process.
+  :cancel:
+    markdown: Cancel a pending reboot request.
 properties_list:
 - property: delay_mins
   ruby_type: Integer

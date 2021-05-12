@@ -38,10 +38,10 @@ actions_list:
     shortcode: resources_common_actions_nothing.md
   :enable:
     markdown: Enables the handler for the current Chef Infra Client run on the current
-      node (default)
+      node. (default)
   :disable:
     markdown: Disables the handler for the current Chef Infra Client run on the current
-      node
+      node.
 properties_list:
 - property: arguments
   ruby_type: Array, Hash

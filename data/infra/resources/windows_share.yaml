@@ -37,9 +37,9 @@ actions_list:
   :nothing:
     shortcode: resources_common_actions_nothing.md
   :create:
-    markdown: Create or modify a Windows share (default)
+    markdown: Create or modify a Windows share. (default)
   :delete:
-    markdown: Delete an existing Windows share
+    markdown: Delete an existing Windows share.
 properties_list:
 - property: ca_timeout
   ruby_type: Integer

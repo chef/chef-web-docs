@@ -30,9 +30,9 @@ actions_list:
   :nothing:
     shortcode: resources_common_actions_nothing.md
   :create:
-    markdown: Create the printer port, if one doesn't already exist (default)
+    markdown: Create the printer port, if one doesn't already exist. (default)
   :delete:
-    markdown: Delete an existing printer port
+    markdown: Delete an existing printer port.
 properties_list:
 - property: ipv4_address
   ruby_type: String

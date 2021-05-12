@@ -14,7 +14,7 @@ syntax_full_code_block: |-
     seconds      String, Integer # default value: 'name' unless specified
     action       Symbol # defaults to :sleep if not specified
   end
-syntax_properties_list: 
+syntax_properties_list:
 syntax_full_properties_list:
 - "`chef_sleep` is the resource."
 - "`name` is the name given to the resource block."
@@ -25,7 +25,7 @@ actions_list:
   :nothing:
     shortcode: resources_common_actions_nothing.md
   :sleep:
-    markdown: Pause the Chef Infra Client run for a specified number of seconds (default)
+    markdown: Pause the Chef Infra Client run for a specified number of seconds. (default)
 properties_list:
 - property: seconds
   ruby_type: String, Integer

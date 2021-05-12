@@ -26,7 +26,7 @@ actions_list:
   :nothing:
     shortcode: resources_common_actions_nothing.md
   :install:
-    markdown: Install a font to the system fonts directory (default)
+    markdown: Install a font to the system fonts directory. (default)
 properties_list:
 - property: font_name
   ruby_type: String
