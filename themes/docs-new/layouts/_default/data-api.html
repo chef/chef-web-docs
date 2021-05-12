@@ -20,6 +20,6 @@
     <a class="return" href="{{ $.Page.Params.return_page }}">Return to Docs</a>
     <ReDoc spec-url="{{ $.Page.Params.api_file_path }}" scroll-y-offset="34"></ReDoc>
     {{ $redocJs := resources.Get "js/vendor/redoc/redoc.standalone.js" }}
-    <script type="text/javascript" src="{{ $redocJs.Permalink }}"></script>
+    <script type="text/javascript" src="{{ $redocJs.RelPermalink }}"></script>
   </body>
 </html>

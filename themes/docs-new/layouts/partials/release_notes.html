@@ -1,5 +1,5 @@
 {{ with $.Param "release_notes" }}
-  <script type="text/javascript" src="{{ (resources.Get "/js/releases.js").Permalink }}"></script>
+  <script type="text/javascript" src="{{ (resources.Get "/js/releases.js").RelPermalink }}"></script>
   <script type="text/javascript">
     loadReleaseNotesPage('{{ . | safeJS }}');
   </script>
