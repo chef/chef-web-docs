@@ -586,25 +586,7 @@ In the event of a malformed or unset token, the Chef Automate server will log th
 
 #### 413 Request Entity Too Large
 
-This error indicates that you have exceeded the `erchef` request size limit in Chef Infra Server. Prior to version 13.0, the default was 1MB. Starting with version 13.0 the default is 2MB. If Compliance Phase prints this stacktrace and you are using the `chef-server-automate` reporter:
-
-```text
-Running handlers:
-['2017-12-21T16:21:15+00:00'] WARN: Compliance report size is 1.71 MB.
-['2017-12-21T16:21:15+00:00'] ERROR: 413 "Request Entity Too Large" (Net::HTTPServerException)
-/opt/chef/embedded/lib/ruby/2.4.0/net/http/response.rb:122:in `error!'
-/opt/chef/embedded/lib/ruby/gems/2.4.0/gems/chef-13.6.4/lib/chef/http.rb:152:in `request'
-/opt/chef/embedded/lib/ruby/gems/2.4.0/gems/chef-13.6.4/lib/chef/http.rb:131:in `post'
-/var/chef/cache/cookbooks/audit/libraries/reporters/cs_automate.rb:37:in `block in send_report'
-...
-```
-
-and the Chef Infra Server Nginx logs confirm the `413` error:
-
-```text
-==> /var/log/opscode/nginx/access.log <==
-192.168.56.40 - - ['21/Dec/2017:11:35:30 +0000']  "POST /organizations/eu_org/data-collector HTTP/1.1" 413 "0.803" 64 "-" "Chef Client/13.6.4 (ruby-2.4.2-p198; ohai-13.6.0; x86_64-linux; +https://chef.io)" "-" "-" "-" "13.6.4" "algorithm=sha1;version=1.1;" "bootstrapped-node" "2017-12-21T11:35:31Z" "GR6RyPvKkZDaGyQDYCPfoQGS8G4=" 1793064
-```
+This error indicates that you have exceeded limit the `erchef` request size in Chef Infra Server. The default for versions before 13.0  was 1MB. Starting with version 13.0 the default is 2MB.
 
 To resolve this error, set the `opscode_erchef['max_request_size']` in Chef Infra Server's `/etc/opscode/chef-server.rb` to a larger amount. This example sets the limit to 3MB:
 
@@ -612,7 +594,43 @@ To resolve this error, set the `opscode_erchef['max_request_size']` in Chef Infr
 opscode_erchef['max_request_size'] = 3000000
 ```
 
-and run `chef-server-ctl reconfigure` to apply this change.
+Then run `chef-server-ctl reconfigure` to apply this change.
+
+##### 413 Error Logs
+
+The 413 "Request Entity Too Large" error appears in both the stacktrace and the Chef Infra Server Nginx logs.
+
+<!-- markdownlint-disable blanks-around-fences -->
+
+{{< foundation_tabs tabs-id="compliance-413-panel" >}}
+  {{< foundation_tab active="true" panel-link="413-stacktrace" tab-text="Stacktrace">}}
+  {{< foundation_tab panel-link="413-server-nginx" tab-text="Nginx logs" >}}
+{{< /foundation_tabs >}}
+{{< foundation_tabs_panels tabs-id="compliance-413-panel" >}}
+  {{< foundation_tabs_panel active="true" panel-id="413-stacktrace" >}}
+  The stacktrace shows the 413 error:
+  ```text
+  Running handlers:
+  ['2017-12-21T16:21:15+00:00'] WARN: Compliance report size is 1.71 MB.
+  ['2017-12-21T16:21:15+00:00'] ERROR: 413 "Request Entity Too Large" (Net::HTTPServerException)
+  /opt/chef/embedded/lib/ruby/2.4.0/net/http/response.rb:122:in `error!'
+  /opt/chef/embedded/lib/ruby/gems/2.4.0/gems/chef-13.6.4/lib/chef/http.rb:152:in `request'
+  /opt/chef/embedded/lib/ruby/gems/2.4.0/gems/chef-13.6.4/lib/chef/http.rb:131:in `post'
+  /var/chef/cache/cookbooks/audit/libraries/reporters/cs_automate.rb:37:in `block in send_report'
+  ...
+  ```
+  {{< /foundation_tabs_panel >}}
+  {{< foundation_tabs_panel panel-id="413-server-nginx" >}}
+  The Chef Infra Server Nginx log confirms the `413` error:
+  ```text
+  ==> /var/log/opscode/nginx/access.log <==
+  192.168.56.40 - - ['21/Dec/2017:11:35:30 +0000']  "POST /organizations/eu_org/data-collector HTTP/1.1" 413 "0.803" 64 "-" "Chef Client/13.6.4 (ruby-2.4.2-p198; ohai-13.6.0; x86_64-linux; +https://chef.io)" "-" "-" "-" "13.6.4" "algorithm=sha1;version=1.1;" "bootstrapped-node" "2017-12-21T11:35:31Z" "GR6RyPvKkZDaGyQDYCPfoQGS8G4=" 1793064
+  ```
+  {{< /foundation_tabs_panel >}}
+
+{{< /foundation_tabs_panels >}}
+
+<!-- markdownlint-enable blanks-around-fences -->
 
 ## Chef Automate Backend Errors
 

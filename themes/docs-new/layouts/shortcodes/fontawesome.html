@@ -3,6 +3,7 @@
   border:{{ with .Get "border"}}{{.}}{{ else }}{{"2px solid"}}{{ end }}; 
   padding:{{ with .Get "padding"}}{{.}}{{ else }}{{"3px"}}{{ end }}; 
   border-radius:{{ with .Get "border-radius" }}{{.}}{{ else }}{{"3px"}}{{ end }};
+  margin:{{ with .Get "margin" }}{{.}}{{ else }}{{"0 4px"}}{{ end }};
   {{ with .Get "color" }}color: {{ . | safeCSS }};{{end}}
   {{ with .Get "background-color" }}background-color: {{ . | safeCSS }};{{end}}"
 ></i>

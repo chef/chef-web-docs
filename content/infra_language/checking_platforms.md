@@ -118,6 +118,10 @@ where:
 <td>Raspberry Pi OS</td>
 </tr>
 <tr>
+<td><code>rocky</code></td>
+<td>Rocky Linux</td>
+</tr>
+<tr>
 <td><code>scientific</code></td>
 <td>Scientific Linux</td>
 </tr>
@@ -168,7 +172,7 @@ end
 
 ## platform_family?
 
-Use the `platform_family?` method to ensure that certain actions are run for specific platform family. The `platform_family?` method will return true if one of the listed parameters matches the `node['platform_family']` attribute that is detected by [Ohai](/ohai) during every Chef Infra Client run.
+Use the `platform_family?` method to ensure that certain actions are run for specific platform families. The `platform_family?` method will return true if one of the listed parameters matches the `node['platform_family']` attribute that are detected by [Ohai](/ohai) during every Chef Infra Client run.
 
 The syntax for the `platform_family?` method is as follows:
 
@@ -245,7 +249,7 @@ where:
 </tr>
 <tr>
 <td><code>rhel</code></td>
-<td><code>redhat</code>, <code>centos</code>, <code>oracle</code>, <code>scientific</code>, <code>xenserver</code>, <code>clearos</code>, <code>bigip</code>, <code>parallels</code>, <code>xcp</code>, <code>alibabalinux</code>, and <code>ibm_powerkvm</code> platforms</td>
+<td><code>redhat</code>, <code>centos</code>, <code>oracle</code>, <code>rocky</code>, <code>scientific</code>, <code>xenserver</code>, <code>clearos</code>, <code>bigip</code>, <code>parallels</code>, <code>xcp</code>, <code>alibabalinux</code>, and <code>ibm_powerkvm</code> platforms</td>
 </tr>
 <tr>
 <td><code>solaris2</code></td>

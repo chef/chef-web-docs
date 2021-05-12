@@ -88,9 +88,9 @@ announcement](https://blog.chef.io/2019/04/02/chef-software-announces-the-enterp
 </tr>
 <tr>
 <td>Chef Infra Client</td>
-<td>16.x</td>
+<td>17.x</td>
 <td>GA</td>
-<td>April 30, 2022</td>
+<td>April 30, 2023</td>
 </tr>
 <tr>
 <td>Chef Infra Server</td>
@@ -120,7 +120,7 @@ announcement](https://blog.chef.io/2019/04/02/chef-software-announces-the-enterp
 <td>Chef Backend</td>
 <td>3.x</td>
 <td>Releasing 2021</td>
-<td>n/a</td>
+<td>2022</td>
 </tr>
 </tbody>
 </table>
@@ -188,13 +188,13 @@ newer versions or products.
 <td>Chef Backend</td>
 <td>2.x</td>
 <td>Deprecated</td>
-<td>December 31, 2021</td>
+<td>December 31, 2022</td>
 </tr>
 <tr>
 <td>Chef Infra Client</td>
-<td>15.x</td>
+<td>16.x</td>
 <td>Deprecated</td>
-<td>April 30, 2021</td>
+<td>April 30, 2022</td>
 </tr>
 <tr>
 <td>Chef Infra Server</td>
@@ -206,7 +206,7 @@ newer versions or products.
 <td>Chef Manage</td>
 <td>2.5.x+</td>
 <td>Deprecated</td>
-<td>December 31, 2021</td>
+<td>December 31, 2022</td>
 </tr>
 </tbody>
 </table>
@@ -249,10 +249,10 @@ confused with the modern [Chef Compliance offering](/compliance/).
 <td>December 31, 2019</td>
 </tr>
 <tr>
-<td>Chef Client</td>
-<td>14 and under</td>
+<td>Chef Infra Client</td>
+<td>15 and under</td>
 <td>EOL</td>
-<td>April 30, 2020</td>
+<td>April 30, 2021</td>
 </tr>
 <tr>
 <td>Chef Compliance Server</td>
@@ -262,13 +262,7 @@ confused with the modern [Chef Compliance offering](/compliance/).
 </tr>
 <tr>
 <td>ChefDK</td>
-<td>3 and under</td>
-<td>EOL</td>
-<td>April 30, 2020</td>
-</tr>
-<tr>
-<td>ChefDK</td>
-<td>4.x</td>
+<td>ALL</td>
 <td>EOL</td>
 <td>December 31, 2020</td>
 </tr>

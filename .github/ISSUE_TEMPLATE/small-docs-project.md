@@ -1,8 +1,8 @@
 ---
-name: Small Docs Project
+name: Medium Docs Project
 about: Request for non-recurring (one sprint) documentation support on existing content.
 title: "[INTAKE]"
-labels: 'Documentation, Size: M, Status: Untriaged'
+labels: 'Documentation, Type: Docs Intake, Size: M, Status: Untriaged'
 assignees: ''
 
 ---

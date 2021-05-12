@@ -3,7 +3,7 @@ short_name: ChefHandlerRecipe
 full_name: Chef/Deprecations/ChefHandlerRecipe
 department: Chef/Deprecations
 description: There is no need to include the empty and deprecated chef_handler::default
-  recipe in order to use the chef_handler resource
+  recipe to use the chef_handler resource
 autocorrection: true
 target_chef_version: All Versions
 examples: |2-

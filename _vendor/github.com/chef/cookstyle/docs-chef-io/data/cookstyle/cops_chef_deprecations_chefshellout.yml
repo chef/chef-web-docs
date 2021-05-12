@@ -2,10 +2,9 @@
 short_name: ChefShellout
 full_name: Chef/Deprecations/ChefShellout
 department: Chef/Deprecations
-description: |-
-  Don't use deprecated Chef::ShellOut which was removed in Chef Infra Client 13.
-  Use Mixlib::ShellOut instead, which behaves identically or convert to the shell_out
-  helper provided in chef-utils.
+description: Don't use the deprecated `Chef::ShellOut` class which was removed in
+  Chef Infra Client 13. Use the `Mixlib::ShellOut` class instead, which behaves identically
+  or convert to the simpler `shell_out` helper.
 autocorrection: true
 target_chef_version: All Versions
 examples: |2-

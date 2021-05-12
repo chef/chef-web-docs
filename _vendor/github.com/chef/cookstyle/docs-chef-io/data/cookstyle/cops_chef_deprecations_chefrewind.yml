@@ -2,8 +2,8 @@
 short_name: ChefRewind
 full_name: Chef/Deprecations/ChefRewind
 department: Chef/Deprecations
-description: Use delete_resource / edit_resource introduced in Chef Infra Client 12.10
-  instead of functionality in the deprecated chef-rewind gem
+description: Use `delete_resource` or `edit_resource` helpers introduced in Chef Infra
+  Client 12.10 instead of functionality in the deprecated `chef-rewind` gem
 autocorrection: true
 target_chef_version: 12.10+
 examples: |2-
