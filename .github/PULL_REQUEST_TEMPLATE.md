@@ -1,3 +1,11 @@
+---
+name: Pull Request Template
+about: Let us know about your PR
+title: "[PR]"
+labels: 'Documentation, Status: Untriaged'
+assignees: ''
+
+---
 ### Description
 
 [Please describe what this change achieves]
