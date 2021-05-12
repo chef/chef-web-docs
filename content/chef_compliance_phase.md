@@ -36,15 +36,15 @@ If your system is configured to use the `audit cookbook`, make these changes to 
 
 ### Enable the Compliance Phase
 
-Add the following line to the `attributes/default.rb` file in your cookbook to turn on the Compliance Phase.
+The Compliance Phase is enabled by setting the `node['audit']['compliance_phase']` attribute to `true` through cookbook attributes or Policyfiles. To enable Compliance Phase using cookbook atttributes add the following line to the `attributes/default.rb` file in your cookbook.
 
 ```ruby
 default['audit']['compliance_phase'] = true
 ```
 
-### Set Profiles
+### Set InSpec Profiles
 
-Setting one or more Chef InSpec profiles enables the compliance phase in a Chef Infra Client run. The presence of this configuration in your attributes file instructs Chef Infra Client to fetch and execute the specific Chef InSpec profiles and write the results to disk using the default `json-file` reporter.
+Setting one or more Chef InSpec profiles enables the compliance phase in a Chef Infra Client run. The presence of this configuration in your attributes file instructs Chef Infra Client to fetch and execute the specific Chef InSpec profiles and write the results to disk using the default `cli` and `json-file` reporters.
 
 Retrieve ['Chef InSpec profiles']({{< relref "inspec/profiles/" >}}) from Chef Automate, Supermarket, a local file, GitHub, or over HTTP with the `node['audit']['profiles']` attribute.
 
