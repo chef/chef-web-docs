@@ -1,0 +1,106 @@
+---
+resource_reference: true
+resources_common_guards: true
+resources_common_notification: true
+resources_common_properties: true
+resource: inspec_waiver_file_entry
+resource_description_list:
+- markdown: Use the **inspec_waiver_file_entry** resource to add or remove entries
+    from an InSpec waiver file. This can be used in conjunction with the Compliance
+    Phase.
+resource_new_in: '17.1'
+syntax_full_code_block: |-
+  inspec_waiver_file_entry 'name' do
+    backup             false, Integer # default value: false
+    control            String # default value: 'name' unless specified
+    expiration         String
+    file_path          String
+    justification      String
+    run_test           true, false
+    action             Symbol # defaults to :add if not specified
+  end
+syntax_properties_list:
+syntax_full_properties_list:
+- "`inspec_waiver_file_entry` is the resource."
+- "`name` is the name given to the resource block."
+- "`action` identifies which steps Chef Infra Client will take to bring the node into
+  the desired state."
+- "`backup`, `control`, `expiration`, `file_path`, `justification`, and `run_test`
+  are the properties available to this resource."
+actions_list:
+  :nothing:
+    shortcode: resources_common_actions_nothing.md
+  :add:
+    markdown: " (default)"
+  :remove:
+    markdown:
+properties_list:
+- property: backup
+  ruby_type: false, Integer
+  required: false
+  default_value: 'false'
+  description_list:
+  - markdown: The number of backups to be kept in /var/chef/backup (for UNIX- and
+      Linux-based platforms) or C:/chef/backup (for the Microsoft Windows platform).
+      Set to false to prevent backups from being kept.
+- property: control
+  ruby_type: String
+  required: false
+  default_value: The resource block's name
+  description_list:
+  - markdown: The name of the control being added or removed to the waiver file
+- property: expiration
+  ruby_type: String
+  required: false
+  description_list:
+  - markdown: The expiration date of the given waiver - provided in YYYY-MM-DD format
+- property: file_path
+  ruby_type: String
+  required: true
+  default_value: "`/etc/chef/inspec_waivers.yml` on Linux/Unix and `C:\\chef\\inspec_waivers.yml`
+    on Windows"
+  description_list:
+  - markdown: The path to the waiver file being modified
+- property: justification
+  ruby_type: String
+  required: false
+  description_list:
+  - markdown: Can be any text you want and might include a reason for the waiver as
+      well as who signed off on the waiver.
+- property: run_test
+  ruby_type: true, false
+  required: false
+  description_list:
+  - markdown: If present and true, the control will run and be reported, but failures
+      in it won’t make the overall run fail. If absent or false, the control will
+      not be run.
+examples: |
+  **Add an InSpec waiver entry to a given waiver file**:
+
+  ```ruby
+    inspec_waiver_file_entry 'Add waiver entry for control' do
+      file_path 'C:\chef\inspec_waiver_file.yml'
+      control 'my_inspec_control_01'
+      run_test false
+      justification "The subject of this control is not managed by Chef on the systems in policy group #{node['policy_group']}"
+      expiration '2022-01-01'
+      action :add
+    end
+  ```
+
+  **Add an InSpec waiver entry to a given waiver file using the 'name' property to identify the control**:
+
+  ```ruby
+    inspec_waiver_file_entry 'my_inspec_control_01' do
+      justification "The subject of this control is not managed by Chef on the systems in policy group #{node['policy_group']}"
+      action :add
+    end
+  ```
+
+  **Remove an InSpec waiver entry to a given waiver file**:
+
+  ```ruby
+    inspec_waiver_file_entry "my_inspec_control_01" do
+      action :remove
+    end
+  ```

@@ -85,7 +85,7 @@ properties_list:
   required: false
   default_value: 'false'
   description_list:
-  - markdown: |
+  - markdown: |-
       Return `0` if the last line of a command is evaluated to be true or to return `1` if the last line is evaluated to be false.
 
       When the `guard_interpreter` common attribute is set to `:powershell_script`, a string command will be evaluated as if this value were set to `true`. This is because the behavior of this attribute is similar to the value of the `"$?"` expression common in UNIX interpreters. For example, this:
