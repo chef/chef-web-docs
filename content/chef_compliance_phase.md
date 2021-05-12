@@ -28,11 +28,7 @@ If your system is configured to use the `audit cookbook`, make these changes to 
 
 1. Add `node['audit']['compliance_phase'] = true` to your cookbook attributes file.
 1. Remove the `audit cookbook` from your ['run-list']({{< relref "run_lists.md" >}}).
-1. [optional] Add `cli` to the reporter in your cookbook attributes file, which enables a chef-client cli feature that mimics InSpec command line output, so you can see your system's compliance status. For example:
 
-      ```ruby
-      default['audit']['reporter'] = 'chef-automate', 'cli'
-      ```
 
 1. On your next Chef Infra Client run, you should see the Compliance Phase results.
 
