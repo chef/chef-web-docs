@@ -186,3 +186,5 @@ To use GNU Wget to download a package directly, enter the following:
 ```bash
 wget --content-disposition https://omnitruck.chef.io/<CHANNEL>/<PRODUCT>/download?p=debian&pv=10&m=x86_64
 ```
+
+
