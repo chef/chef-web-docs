@@ -106,23 +106,18 @@ properties_list:
   ruby_type: String
   required: false
   description_list:
-  - markdown: 'The cookbook in which a file is located (if it is not located in the
-
-      current cookbook). The default value is the current cookbook.'
+  - markdown: The cookbook in which a file is located (if it is not located in the
+      current cookbook). The default value is the current cookbook.
 - property: force_unlink
   ruby_type: true, false
   required: false
   default_value: 'false'
   description_list:
-  - markdown: 'How Chef Infra Client handles certain situations when the target
-
-      file turns out not to be a file. For example, when a target file is
-
-      actually a symlink. Set to `true` for Chef Infra Client delete the
-
-      non-file target and replace it with the specified file. Set to
-
-      `false` for Chef Infra Client to raise an error.'
+  - markdown: How Chef Infra Client handles certain situations when the target file
+      turns out not to be a file. For example, when a target file is actually a symlink.
+      Set to `true` for Chef Infra Client to delete the non-file target and replace
+      it with the specified file. Set to `false` for Chef Infra Client to raise an
+      error.
 - property: group
   ruby_type: Integer, String
   required: false

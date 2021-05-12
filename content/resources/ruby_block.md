@@ -1,14 +1,11 @@
 +++
 title = "ruby_block Resource"
 draft = false
-
-gh_repo = "chef-web-docs"
 robots = ""
-
+gh_repo = "chef-web-docs"
 data_path = ["infra","resources","ruby_block"]
 layout = "infra_resource"
 toc_layout = "infra_resource_toc"
-
 
 [menu]
   [menu.infra]

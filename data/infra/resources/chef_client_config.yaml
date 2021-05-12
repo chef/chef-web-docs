@@ -59,9 +59,9 @@ actions_list:
   :nothing:
     shortcode: resources_common_actions_nothing.md
   :create:
-    markdown: Create a client.rb config file (default)
+    markdown: Create a client.rb config file. (default)
   :remove:
-    markdown: Remove a client.rb config file
+    markdown: Remove a client.rb config file.
 properties_list:
 - property: additional_config
   ruby_type: String
@@ -90,8 +90,7 @@ properties_list:
   ruby_type: Array
   required: false
   default_value: "[]"
-  description_list:
-  - markdown: ''
+  description_list: []
 - property: exception_handlers
   ruby_type: Array
   required: false
@@ -127,7 +126,7 @@ properties_list:
   required: false
   default_value: "[]"
   description_list:
-  - markdown: ''
+  - markdown: Client logging formatters to load
 - property: ftp_proxy
   ruby_type: String
   required: false

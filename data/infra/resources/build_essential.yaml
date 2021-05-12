@@ -14,7 +14,7 @@ syntax_full_code_block: |-
     raise_if_unsupported      true, false # default value: false
     action                    Symbol # defaults to :install if not specified
   end
-syntax_properties_list: 
+syntax_properties_list:
 syntax_full_properties_list:
 - "`build_essential` is the resource."
 - "`name` is the name given to the resource block."
@@ -25,7 +25,7 @@ actions_list:
   :nothing:
     shortcode: resources_common_actions_nothing.md
   :install:
-    markdown: Install build essential packages (default)
+    markdown: Install build essential packages. (default)
   :upgrade:
     markdown: Upgrade the Xcode CLI Tools on macOS hosts. **New in Chef Infra Client
       16**

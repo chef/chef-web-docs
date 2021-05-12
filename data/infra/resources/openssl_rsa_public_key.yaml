@@ -28,10 +28,10 @@ syntax_full_properties_list:
 - "`group`, `mode`, `owner`, `path`, `private_key_content`, `private_key_pass`, and
   `private_key_path` are the properties available to this resource."
 actions_list:
-  :create:
-    markdown: Default. Create the RSA public key.
   :nothing:
     shortcode: resources_common_actions_nothing.md
+  :create:
+    markdown: Create the RSA public key file. (default)
 properties_list:
 - property: group
   ruby_type: String, Integer

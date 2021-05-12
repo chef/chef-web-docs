@@ -19,7 +19,7 @@ syntax_description: "A **chef_handler** resource block enables handlers during a
   \  action :enable\nend\n```\n\nshow how to enable those handlers in a recipe."
 syntax_full_code_block: |-
   chef_handler 'name' do
-    arguments       Array, Hash
+    arguments       Array, Hash # default value: []
     class_name      String # default value: 'name' unless specified
     source          String
     type            Hash # default value: {"report"=>true, "exception"=>true}
@@ -34,16 +34,19 @@ syntax_full_properties_list:
 - "`arguments`, `class_name`, `source`, and `type` are the properties available to
   this resource."
 actions_list:
-  :disable:
-    markdown: Disable the handler for the current chef-client run on the current node.
-  :enable:
-    markdown: Enable the handler for the current chef-client run on the current node.
   :nothing:
     shortcode: resources_common_actions_nothing.md
+  :enable:
+    markdown: Enables the handler for the current Chef Infra Client run on the current
+      node. (default)
+  :disable:
+    markdown: Disables the handler for the current Chef Infra Client run on the current
+      node.
 properties_list:
 - property: arguments
   ruby_type: Array, Hash
   required: false
+  default_value: "[]"
   description_list:
   - markdown: 'An array of arguments that are passed to the initializer for the
 
@@ -209,7 +212,7 @@ examples: |
 
   **ErrorReport Handler**
 
-  The ErrorReport Handler is built into Chef Infra Client and can be used for both exceptions and reports. It serializes error report data to a JSON file. This handler may be enabled in one of the following ways.
+  The ErrorReport handler is built into Chef Infra Client and can be used for both exceptions and reports. It serializes error report data to a JSON file. This handler may be enabled in one of the following ways.
 
   By adding the following lines of Ruby code to either the client.rb file or the solo.rb file, depending on how Chef Infra Client is being run:
 

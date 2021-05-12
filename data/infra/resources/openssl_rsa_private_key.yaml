@@ -32,10 +32,10 @@ syntax_full_properties_list:
 - "`force`, `group`, `key_cipher`, `key_length`, `key_pass`, `mode`, `owner`, and
   `path` are the properties available to this resource."
 actions_list:
-  :create:
-    markdown:
   :nothing:
     shortcode: resources_common_actions_nothing.md
+  :create:
+    markdown: Create the RSA private key file. (default)
 properties_list:
 - property: force
   ruby_type: true, false

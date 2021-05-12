@@ -38,9 +38,9 @@ actions_list:
     shortcode: resources_common_actions_nothing.md
   :add:
     markdown: Creates a repository file at `/etc/apt/sources.list.d/` and builds the
-      repository listing (default)
+      repository listing. (default)
   :remove:
-    markdown: Removes the repository listing
+    markdown: Removes the repository listing.
 properties_list:
 - property: arch
   ruby_type: String, false

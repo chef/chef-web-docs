@@ -23,12 +23,14 @@ syntax_full_properties_list:
   the desired state."
 - "`cert_name` and `certificate` are the properties available to this resource."
 actions_list:
-  :add:
-    markdown: Add the trusted certificate
   :nothing:
     shortcode: resources_common_actions_nothing.md
+  :add:
+    markdown: Add a trusted certificate to Chef Infra Client's trusted certificate
+      directory (default)
   :remove:
-    markdown: Remove the trusted certificate
+    markdown: Remove a trusted certificate from Chef Infra Client's trusted certificate
+      directory
 properties_list:
 - property: cert_name
   ruby_type: String

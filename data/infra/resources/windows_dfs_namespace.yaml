@@ -18,7 +18,7 @@ syntax_full_code_block: |-
     root                String # default value: "C:\\DFSRoots"
     action              Symbol # defaults to :create if not specified
   end
-syntax_properties_list: 
+syntax_properties_list:
 syntax_full_properties_list:
 - "`windows_dfs_namespace` is the resource."
 - "`name` is the name given to the resource block."
@@ -30,9 +30,9 @@ actions_list:
   :nothing:
     shortcode: resources_common_actions_nothing.md
   :create:
-    markdown: Creates the dfs namespace on the server (default)
+    markdown: Creates the dfs namespace on the server. (default)
   :delete:
-    markdown: Deletes a DFS Namespace including the directory on disk
+    markdown: Deletes a DFS Namespace including the directory on disk.
 properties_list:
 - property: change_users
   ruby_type: Array

@@ -5,7 +5,7 @@ resources_common_notification: true
 resources_common_properties: true
 resource: cron_d
 resource_description_list:
-- markdown: 'Use the **cron_d** resource to manage cron job files in the /etc/cron.d
+- markdown: 'Use the **cron_d** resource to manage cron job files in the `/etc/cron.d`
 
     directory.'
 - warning:
@@ -57,15 +57,15 @@ syntax_full_properties_list:
   `minute`, `mode`, `month`, `path`, `predefined_value`, `random_delay`, `shell`,
   `time_out`, `user`, and `weekday` are the properties available to this resource."
 actions_list:
-  :create:
-    markdown: Default. Add a cron definition file to /etc/cron.d.
-  :delete:
-    markdown: Remove a cron definition file from /etc/cron.d if it exists.
-  :create_if_missing:
-    markdown: Add a cron definition file to /etc/cron.d, but do not update an existing
-      file.
   :nothing:
     shortcode: resources_common_actions_nothing.md
+  :create:
+    markdown: " (default)"
+  :create_if_missing:
+    markdown: Add a cron definition file to `/etc/cron.d`, but do not update an existing
+      file.
+  :delete:
+    markdown: Remove a cron definition file from `/etc/cron.d` if it exists.
 properties_list:
 - property: command
   ruby_type: String
@@ -124,7 +124,7 @@ properties_list:
 - property: mode
   ruby_type: String, Integer
   required: false
-  default_value: '"0600"'
+  default_value: '0600'
   description_list:
   - markdown: The octal mode of the generated crontab file.
 - property: month

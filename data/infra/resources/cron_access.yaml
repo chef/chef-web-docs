@@ -28,7 +28,7 @@ actions_list:
   :nothing:
     shortcode: resources_common_actions_nothing.md
   :allow:
-    markdown: Add the user to the cron.allow file (default)
+    markdown: Add the user to the cron.allow file. (default)
   :deny:
     markdown: Add the user to the cron.deny file.
 properties_list:
@@ -62,4 +62,3 @@ examples: |
     action :deny
   end
   ```
-

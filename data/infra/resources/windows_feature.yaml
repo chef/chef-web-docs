@@ -41,11 +41,11 @@ actions_list:
   :nothing:
     shortcode: resources_common_actions_nothing.md
   :install:
-    markdown: Install a Windows role / feature (default)
+    markdown: Install a Windows role or feature. (default)
   :remove:
-    markdown: Remove a Windows role / feature
+    markdown: Remove a Windows role or feature.
   :delete:
-    markdown: Remove a Windows role/feature from the image
+    markdown: Remove a Windows role or feature from the image.
 properties_list:
 - property: all
   ruby_type: true, false

@@ -25,7 +25,7 @@ actions_list:
   :nothing:
     shortcode: resources_common_actions_nothing.md
   :update:
-    markdown: Update the system's locale (default)
+    markdown: Update the system's locale. (default)
 properties_list:
 - property: lang
   ruby_type: String

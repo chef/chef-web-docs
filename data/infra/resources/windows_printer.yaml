@@ -33,7 +33,7 @@ actions_list:
   :nothing:
     shortcode: resources_common_actions_nothing.md
   :create:
-    markdown: Create a new printer and printer port, if one doesn't already (default)
+    markdown: Create a new printer and printer port, if one doesn't already. (default)
   :delete:
     markdown: Delete an existing printer. Note that this resource does not delete
       the associated printer port.
