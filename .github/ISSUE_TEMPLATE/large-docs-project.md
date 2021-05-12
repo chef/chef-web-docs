@@ -2,7 +2,7 @@
 name: Large Docs Project
 about: Request for new, large, or recurring (multi-sprint) documentation support.
 title: ''
-labels: 'documentation'
+labels: 'Type: Bug, Status: Untriaged, Documentation'
 assignees: ''
 
 ---
@@ -10,7 +10,7 @@ assignees: ''
 To request support for a large documentation project:
 
 1. Fill in the `Documentation project plan` and open an issue
-2. Send an email with the rest of information in this template (as much as you have) to docs@pchef.io. 
+2. Send an email with the rest of information in this template (as much as you have) to docs@chef.io. 
 
 We will follow up with you soon!
 
