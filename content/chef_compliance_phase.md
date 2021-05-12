@@ -181,8 +181,9 @@ Reporters control what is done with the resulting report after the Chef InSpec r
 
 Reporters can send Compliance Phase results to:
 
-- Directly to Chef Automate.
 - Chef Automate proxied by Chef Infra Server.
+- Directly to Chef Automate (requires additional authentication).
+- The terminal if Chef Infra Client is run interactively by a user.
 - A file on disk.
 
 The following examples:
