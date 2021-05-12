@@ -2,7 +2,7 @@
 name: Large Docs Project
 about: Request for new, large, or recurring (multi-sprint) documentation support.
 title: ''
-labels: 'Type: Bug, Status: Untriaged, Documentation'
+labels: 'Documentation, Type: Docs Intake, Size: L, Status: Untriaged'
 assignees: ''
 
 ---
