@@ -293,7 +293,7 @@ InSpec profiles should be self-contained and independent from external data. In 
 
 #### InSpec Input
 
-You can pass['Chef InSpec inputs'](https://docs.chef.io/inspec/inputs/) to the Chef InSpec runner. Chef InSpec inputs were previously called `attributes` and you will set them in an `['audit']['attributes']` hash in your attributes file.
+You can pass ['Chef InSpec inputs'](https://docs.chef.io/inspec/inputs/) to the Chef InSpec runner. Chef InSpec inputs were previously called `attributes` and you will set them in an `['audit']['attributes']` hash in your attributes file.
 Any data added to `['audit']['attributes']` as a hash is passed to Chef InSpec as individual attributes.
 
   ```ruby
