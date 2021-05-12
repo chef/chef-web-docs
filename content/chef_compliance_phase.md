@@ -74,7 +74,9 @@ The following examples:
     'version': '2.1.0'
   }
   ```
-  **Note**: Fetching InSpec profiles from a Chef Automate server requires additional setup for authorization and authentication.
+  {{< warning >}}
+  Fetching profiles from Automate requires setting `data_collector.server_url` and `data_collector.token` in your `client.rb` to fetch profiles from Chef Automate. This configuration is described in more detail in the Chef Automate [data collector documentation]({{< relref "automate/data_collection/" >}}).
+  {{< /warning >}}
   {{< /foundation_tabs_panel >}}
   {{< foundation_tabs_panel panel-id="supermarket-panel" >}}
   ```ruby
