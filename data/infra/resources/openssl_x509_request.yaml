@@ -39,10 +39,10 @@ syntax_full_properties_list:
   `key_pass`, `key_type`, `mode`, `org`, `org_unit`, `owner`, `path`, and `state`
   are the properties available to this resource."
 actions_list:
-  :create:
-    markdown: Default. Create the certificate request file.
   :nothing:
     shortcode: resources_common_actions_nothing.md
+  :create:
+    markdown: Generate a certificate request file. (default)
 properties_list:
 - property: city
   ruby_type: String

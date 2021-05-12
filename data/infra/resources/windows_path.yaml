@@ -13,7 +13,7 @@ syntax_full_code_block: |-
     path      String # default value: 'name' unless specified
     action    Symbol # defaults to :add if not specified
   end
-syntax_properties_list: 
+syntax_properties_list:
 syntax_full_properties_list:
 - "`windows_path` is the resource."
 - "`name` is the name given to the resource block."
@@ -24,9 +24,9 @@ actions_list:
   :nothing:
     shortcode: resources_common_actions_nothing.md
   :add:
-    markdown: Add an item to the system path (default)
+    markdown: Add an item to the system path. (default)
   :remove:
-    markdown: Remove an item from the system path
+    markdown: Remove an item from the system path.
 properties_list:
 - property: path
   ruby_type: String

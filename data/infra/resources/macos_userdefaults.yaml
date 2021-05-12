@@ -33,9 +33,9 @@ actions_list:
   :nothing:
     shortcode: resources_common_actions_nothing.md
   :write:
-    markdown: Write the value to the specified domain/key (default)
+    markdown: Write the value to the specified domain/key. (default)
   :delete:
-    markdown: Delete a key from a domain
+    markdown: Delete a key from a domain.
 properties_list:
 - property: domain
   ruby_type: String

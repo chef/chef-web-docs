@@ -31,14 +31,14 @@ syntax_full_properties_list:
 - "`file_location`, `group`, `hash_entries`, `host`, `key`, `key_type`, `mode`, `owner`,
   `port`, and `timeout` are the properties available to this resource."
 actions_list:
-  :create:
-    markdown: Default. Create an entry in the ssh_known_hosts file.
-  :flush:
-    markdown: Immediately flush the entries to the config file. Without this the actual
-      writing of the file is delayed in the Chef run so all entries can be accumulated
-      before writing the file out.
   :nothing:
     shortcode: resources_common_actions_nothing.md
+  :create:
+    markdown: Create an entry in the ssh_known_hosts file. (default)
+  :flush:
+    markdown: Immediately flush the entries to the config file. Without this the actual
+      writing of the file is delayed in the Chef Infra Client run so all entries can
+      be accumulated before writing the file out.
 properties_list:
 - property: file_location
   ruby_type: String
@@ -79,7 +79,7 @@ properties_list:
 - property: mode
   ruby_type: String
   required: false
-  default_value: '"0644"'
+  default_value: '0644'
   description_list:
   - markdown: The file mode for the ssh_known_hosts file.
 - property: owner

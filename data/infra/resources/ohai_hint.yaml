@@ -24,12 +24,12 @@ syntax_full_properties_list:
 - "`compile_time`, `content`, and `hint_name` are the properties available to this
   resource."
 actions_list:
-  :create:
-    markdown: Default. Create an Ohai hint file.
-  :delete:
-    markdown: Delete an Ohai hint file.
   :nothing:
     shortcode: resources_common_actions_nothing.md
+  :create:
+    markdown: Create an Ohai hint file. (default)
+  :delete:
+    markdown: Delete an Ohai hint file.
 properties_list:
 - property: compile_time
   ruby_type: true, false

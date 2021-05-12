@@ -16,7 +16,7 @@ syntax_full_code_block: |-
     timeout           Integer # default value: 600
     action            Symbol # defaults to :install if not specified
   end
-syntax_properties_list: 
+syntax_properties_list:
 syntax_full_properties_list:
 - "`windows_feature_dism` is the resource."
 - "`name` is the name given to the resource block."
@@ -28,11 +28,11 @@ actions_list:
   :nothing:
     shortcode: resources_common_actions_nothing.md
   :install:
-    markdown: " (default)"
+    markdown: Install a Windows role/feature using DISM. (default)
   :remove:
-    markdown: Remove a Windows role / feature using DISM
+    markdown: Remove a Windows role or feature using DISM.
   :delete:
-    markdown: Remove a Windows role / feature from the image using DISM
+    markdown: Remove a Windows role or feature from the image using DISM.
 properties_list:
 - property: all
   ruby_type: true, false

@@ -16,7 +16,7 @@ syntax_full_code_block: |-
     zone             String
     action           Symbol # defaults to :create if not specified
   end
-syntax_properties_list: 
+syntax_properties_list:
 syntax_full_properties_list:
 - "`windows_dns_record` is the resource."
 - "`name` is the name given to the resource block."
@@ -28,9 +28,9 @@ actions_list:
   :nothing:
     shortcode: resources_common_actions_nothing.md
   :create:
-    markdown: Creates and updates the DNS entry (default)
+    markdown: Creates and updates the DNS entry. (default)
   :delete:
-    markdown: Deletes a DNS entry
+    markdown: Deletes a DNS entry.
 properties_list:
 - property: dns_server
   ruby_type: String

@@ -17,7 +17,7 @@ syntax_full_code_block: |-
     pin_priority      String, Integer
     action            Symbol # defaults to :add if not specified
   end
-syntax_properties_list: 
+syntax_properties_list:
 syntax_full_properties_list:
 - "`apt_preference` is the resource."
 - "`name` is the name given to the resource block."
@@ -29,9 +29,9 @@ actions_list:
   :nothing:
     shortcode: resources_common_actions_nothing.md
   :add:
-    markdown: Creates a preferences file under `/etc/apt/preferences.d` (default)
+    markdown: Creates a preferences file under `/etc/apt/preferences.d`. (default)
   :remove:
-    markdown: Removes the preferences file, thus unpinning the package
+    markdown: Removes the preferences file, thus unpinning the package.
 properties_list:
 - property: glob
   ruby_type: String

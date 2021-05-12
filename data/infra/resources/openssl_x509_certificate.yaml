@@ -53,10 +53,10 @@ syntax_full_properties_list:
   `key_pass`, `key_type`, `mode`, `org`, `org_unit`, `owner`, `path`, `renew_before_expiry`,
   `state`, and `subject_alt_name` are the properties available to this resource."
 actions_list:
-  :create:
-    markdown: Default. Create the certificate file.
   :nothing:
     shortcode: resources_common_actions_nothing.md
+  :create:
+    markdown: Generate a certificate file. (default)
 properties_list:
 - property: ca_cert_file
   ruby_type: String

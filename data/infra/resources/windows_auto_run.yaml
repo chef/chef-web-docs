@@ -15,7 +15,7 @@ syntax_full_code_block: |-
     root              Symbol # default value: :machine
     action            Symbol # defaults to :create if not specified
   end
-syntax_properties_list: 
+syntax_properties_list:
 syntax_full_properties_list:
 - "`windows_auto_run` is the resource."
 - "`name` is the name given to the resource block."
@@ -27,9 +27,9 @@ actions_list:
   :nothing:
     shortcode: resources_common_actions_nothing.md
   :create:
-    markdown: Create an item to be run at login (default)
+    markdown: Create an item to be run at login. (default)
   :remove:
-    markdown: Remove an item that was previously configured to run at login
+    markdown: Remove an item that was previously configured to run at login.
 properties_list:
 - property: args
   ruby_type: String

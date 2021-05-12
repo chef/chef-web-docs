@@ -25,24 +25,21 @@ syntax_full_properties_list:
 - "`load_dir`, `modname`, `options`, and `unload_dir` are the properties available
   to this resource."
 actions_list:
-  :blacklist:
-    markdown: Blacklist a kernel module.
-  :disable:
-    markdown: 'Disable a kernel module
-
-
-      **New in Chef Client 15.2.**'
+  :nothing:
+    shortcode: resources_common_actions_nothing.md
   :install:
-    markdown: Default. Load kernel module, and ensure it loads on reboot.
-  :load:
-    markdown: Load a kernel module.
+    markdown: Load kernel module, and ensure it loads on reboot. (default)
   :uninstall:
     markdown: Unload a kernel module and remove module config, so it doesn't load
       on reboot.
+  :blacklist:
+    markdown: Blacklist a kernel module.
+  :disable:
+    markdown: Disable a kernel module. **New in Chef Infra Client 15.2.**
+  :load:
+    markdown: Load a kernel module.
   :unload:
     markdown: Unload kernel module.
-  :nothing:
-    shortcode: resources_common_actions_nothing.md
 properties_list:
 - property: load_dir
   ruby_type: String

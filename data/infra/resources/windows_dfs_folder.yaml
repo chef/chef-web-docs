@@ -16,7 +16,7 @@ syntax_full_code_block: |-
     target_path         String
     action              Symbol # defaults to :create if not specified
   end
-syntax_properties_list: 
+syntax_properties_list:
 syntax_full_properties_list:
 - "`windows_dfs_folder` is the resource."
 - "`name` is the name given to the resource block."
@@ -28,9 +28,9 @@ actions_list:
   :nothing:
     shortcode: resources_common_actions_nothing.md
   :create:
-    markdown: Creates the folder in dfs namespace (default)
+    markdown: Creates the folder in dfs namespace. (default)
   :delete:
-    markdown: Deletes the folder in the dfs namespace
+    markdown: Deletes the folder in the dfs namespace.
 properties_list:
 - property: description
   ruby_type: String

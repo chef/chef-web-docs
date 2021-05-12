@@ -1,14 +1,11 @@
 +++
 title = "windows_task Resource"
 draft = false
-
-gh_repo = "chef-web-docs"
 robots = ""
-
+gh_repo = "chef-web-docs"
 data_path = ["infra","resources","windows_task"]
 layout = "infra_resource"
 toc_layout = "infra_resource_toc"
-
 
 [menu]
   [menu.infra]

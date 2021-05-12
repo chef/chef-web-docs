@@ -26,12 +26,12 @@ syntax_full_properties_list:
 - "`cask_name`, `homebrew_path`, `install_cask`, `options`, and `owner` are the properties
   available to this resource."
 actions_list:
-  :install:
-    markdown: Default. Install an application that is packaged as a Homebrew cask.
-  :remove:
-    markdown: Remove an application that is packaged as a Homebrew cask.
   :nothing:
     shortcode: resources_common_actions_nothing.md
+  :install:
+    markdown: Install an application that is packaged as a Homebrew cask. (default)
+  :remove:
+    markdown: Remove an application that is packaged as a Homebrew cask.
 properties_list:
 - property: cask_name
   ruby_type: String

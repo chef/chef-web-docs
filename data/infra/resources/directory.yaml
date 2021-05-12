@@ -7,17 +7,12 @@ resources_common_notification: true
 resources_common_properties: true
 resource: directory
 resource_description_list:
-- markdown: 'Use the **directory** resource to manage a directory, which is a
-
-    hierarchy of folders that comprises all of the information stored on a
-
-    computer. The root directory is the top-level, under which the rest of
-
-    the directory is organized. The **directory** resource uses the `name`
-
-    property to specify the path to a location in a directory. Typically,
-
-    permission to access that location in the directory is required.'
+- markdown: Use the **directory** resource to manage a directory, which is a hierarchy
+    of folders that comprises all of the information stored on a computer. The root
+    directory is the top-level, under which the rest of the directory is organized.
+    The directory resource uses the name property to specify the path to a location
+    in a directory. Typically, permission to access that location in the directory
+    is required.
 syntax_description: "A **directory** resource block declares a directory and the permissions\n\
   needed on that directory. For example:\n\n```ruby\ndirectory '/etc/apache2' do\n\
   \  owner 'root'\n  group 'root'\n  mode '0755'\n  action :create\nend\n```"
@@ -161,11 +156,8 @@ properties_list:
   required: false
   default_value: 'false'
   description_list:
-  - markdown: 'Create parent directories recursively and delete directories,
-
-      subdirectories, and files recursively. The `owner`, `group`, and
-
-      `mode` properties apply only to the leaf directory.'
+  - markdown: Create or delete parent directories recursively. For the owner, group,
+      and mode properties, the value of this property applies only to the leaf directory.
 - property: rights
   ruby_type: Integer, String
   required: false

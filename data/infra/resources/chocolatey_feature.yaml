@@ -13,7 +13,7 @@ syntax_full_code_block: |-
     feature_name      String # default value: 'name' unless specified
     action            Symbol # defaults to :enable if not specified
   end
-syntax_properties_list: 
+syntax_properties_list:
 syntax_full_properties_list:
 - "`chocolatey_feature` is the resource."
 - "`name` is the name given to the resource block."
@@ -24,9 +24,9 @@ actions_list:
   :nothing:
     shortcode: resources_common_actions_nothing.md
   :enable:
-    markdown: Enables a named Chocolatey feature (default)
+    markdown: Enables a named Chocolatey feature. (default)
   :disable:
-    markdown: Disables a named Chocolatey feature
+    markdown: Disables a named Chocolatey feature.
 properties_list:
 - property: feature_name
   ruby_type: String

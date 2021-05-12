@@ -64,14 +64,13 @@ properties_list:
   ruby_type: String, Integer
   required: false
   description_list:
-  - markdown: 'A group name or ID number that identifies the group associated with
-
-      a symbolic link.'
+  - markdown: A group name or ID number that identifies the group associated with
+      a symbolic link.
 - property: link_type
   ruby_type: String, Symbol
   required: false
-  default_value: :symbolic
-  allowed_values: ':symbolic :hard'
+  default_value: ":symbolic"
+  allowed_values: ":hard, :symbolic"
   description_list:
   - markdown: 'The type of link: `:symbolic` or `:hard`. On Windows, `:symbolic` will create a junction point if the target is a directory.'
 - property: mode

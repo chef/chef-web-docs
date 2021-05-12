@@ -39,12 +39,12 @@ syntax_full_properties_list:
   `run_on_battery`, `splay`, `start_date`, `start_time`, `task_name`, and `user` are
   the properties available to this resource."
 actions_list:
-  :add:
-    markdown: Add a Windows Scheduled Task that runs Chef Infra Client.
   :nothing:
     shortcode: resources_common_actions_nothing.md
+  :add:
+    markdown: Add a Windows Scheduled Task that runs Chef Infra Client (default)
   :remove:
-    markdown: Remove a Windows Scheduled Task that runs Chef Infra Client.
+    markdown: Remove a Windows Scheduled Task that runs Chef Infra Client
 properties_list:
 - property: accept_chef_license
   ruby_type: true, false

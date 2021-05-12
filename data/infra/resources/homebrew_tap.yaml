@@ -17,7 +17,7 @@ syntax_full_code_block: |-
     url                String
     action             Symbol # defaults to :tap if not specified
   end
-syntax_properties_list: 
+syntax_properties_list:
 syntax_full_properties_list:
 - "`homebrew_tap` is the resource."
 - "`name` is the name given to the resource block."
@@ -29,9 +29,9 @@ actions_list:
   :nothing:
     shortcode: resources_common_actions_nothing.md
   :tap:
-    markdown: Add a Homebrew tap (default)
+    markdown: Add a Homebrew tap. (default)
   :untap:
-    markdown: Remove a Homebrew tap
+    markdown: Remove a Homebrew tap.
 properties_list:
 - property: full
   ruby_type: true, false

@@ -36,9 +36,9 @@ actions_list:
   :nothing:
     shortcode: resources_common_actions_nothing.md
   :enable:
-    markdown: Enable and optionally configure a Windows Firewall profile (default)
+    markdown: Enable and optionally configure a Windows Firewall profile. (default)
   :disable:
-    markdown: Disable a Windows Firewall profile
+    markdown: Disable a Windows Firewall profile.
 properties_list:
 - property: allow_inbound_rules
   ruby_type: true, false, String
