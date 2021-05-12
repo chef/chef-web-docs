@@ -13,10 +13,10 @@
 
 {{ if hugo.Environment | eq "development" }}
   {{- $coreJs = $coreJs | resources.Concat "js/core-bundle.js" -}}
-  <script src="{{ $coreJs.Permalink }}"></script>
+  <script src="{{ $coreJs.RelPermalink }}"></script>
 {{ else }}
   {{- $coreJs = $coreJs | resources.Concat "js/core-bundle.js" | minify | fingerprint -}}
-  <script src="{{ $coreJs.Permalink }}"></script>
+  <script src="{{ $coreJs.RelPermalink }}"></script>
 {{ end }}
 
 {{- $copycodebutton := resources.Get "js/copy-code-button.js" -}}
@@ -28,11 +28,8 @@
 
 {{ if hugo.Environment | eq "development" }}
   {{- $customJs = $customJs | resources.Concat "js/custom-bundle.js" -}}
-  <script src="{{ $customJs.Permalink }}"></script>
+  <script src="{{ $customJs.RelPermalink }}"></script>
 {{ else }}
   {{- $customJs = $customJs | resources.Concat "js/custom-bundle.js" | minify | fingerprint -}}
-  <script src="{{ $customJs.Permalink }}"></script>
+  <script src="{{ $customJs.RelPermalink }}"></script>
 {{ end }}
-
-
-
