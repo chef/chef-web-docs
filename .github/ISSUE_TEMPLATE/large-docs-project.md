@@ -2,7 +2,7 @@
 name: Large Docs Project
 about: Request for new, large, or recurring (multi-sprint) documentation support.
 title: ''
-labels: ''
+labels: 'documentation'
 assignees: ''
 
 ---
