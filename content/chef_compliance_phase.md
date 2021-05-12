@@ -51,6 +51,7 @@ Retrieve ['Chef InSpec profiles']({{< relref "inspec/profiles/" >}}) from Chef A
 The following examples:
 
 - Retrieve profiles from Chef Automate, Supermarket, a local file, GitHub, or over HTTP.
+- Display the results on the command line using the default `cli` reporter.
 - Write the results to disk using the default `json-file` reporter to `<chef_cache_path>/compliance_reports/compliance-<timestamp>.json`.
 
 <!-- markdownlint-disable blanks-around-fences -->
@@ -127,6 +128,7 @@ The following examples:
 
 - Retrieve the 'ssh' profile from Chef Supermarket.
 - Fetch additional profiles from Chef Automate or Chef Server.
+- Display the results on the command line using the default `cli` reporter.
 - Write the results to disk using the default `json-file` reporter to `<chef_cache_path>/compliance_reports/compliance-<timestamp>.json`.
 
 <!-- markdownlint-disable blanks-around-fences -->
@@ -173,7 +175,7 @@ The following examples:
 
 ### Reporters
 
-Reporters control what is done with the resulting report after the Chef InSpec run. Either a single value or a list of multiple values is supported. The default is the `json-file` reporter.
+Reporters control what is done with the resulting report after the Chef InSpec run. Either a single value or a list of multiple values is supported. The default is the `cli` and `json-file` reporters.
 
 Reporters can send Compliance Phase results to:
 
