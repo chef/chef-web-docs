@@ -28,16 +28,16 @@ actions_list:
   :nothing:
     shortcode: resources_common_actions_nothing.md
   :install:
-    markdown: Install an alternative on the system including symlinks (default)
+    markdown: Install an alternative on the system including symlinks. (default)
   :set:
-    markdown: Set the symlink for an alternative
+    markdown: Set the symlink for an alternative.
   :remove:
-    markdown: Remove an alternative and all associated links
+    markdown: Remove an alternative and all associated links.
   :auto:
     markdown: Set an alternative up in automatic mode with the highest priority automatically
-      selected
+      selected.
   :refresh:
-    markdown: Refresh alternatives
+    markdown: Refresh alternatives.
 properties_list:
 - property: link
   ruby_type: String

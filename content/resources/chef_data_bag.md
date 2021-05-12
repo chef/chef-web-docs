@@ -1,14 +1,11 @@
 +++
 title = "chef_data_bag Resource"
 draft = false
-
-gh_repo = "chef-web-docs"
 robots = ""
-
+gh_repo = "chef-web-docs"
 data_path = ["infra","resources","chef_data_bag"]
 layout = "infra_resource"
 toc_layout = "infra_resource_toc"
-
 
 [menu]
   [menu.infra]

@@ -31,7 +31,7 @@ actions_list:
   :nothing:
     shortcode: resources_common_actions_nothing.md
   :configure:
-    markdown: Configures UAC by setting registry keys at `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System`
+    markdown: Configures UAC by setting registry keys at `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System`.
       (default)
 properties_list:
 - property: consent_behavior_admins

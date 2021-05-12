@@ -29,7 +29,7 @@ syntax_full_code_block: |-
     volumes_dir          String # default value: The value passed for the application name.
     action               Symbol # defaults to :install if not specified
   end
-syntax_properties_list: 
+syntax_properties_list:
 syntax_full_properties_list:
 - "`dmg_package` is the resource."
 - "`name` is the name given to the resource block."
@@ -42,7 +42,7 @@ actions_list:
   :nothing:
     shortcode: resources_common_actions_nothing.md
   :install:
-    markdown: Installs the application (default)
+    markdown: Installs the application. (default)
 properties_list:
 - property: accept_eula
   ruby_type: true, false

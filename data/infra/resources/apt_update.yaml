@@ -14,7 +14,7 @@ syntax_full_code_block: |-
     frequency      Integer # default value: 86400
     action         Symbol # defaults to :periodic if not specified
   end
-syntax_properties_list: 
+syntax_properties_list:
 syntax_full_properties_list:
 - "`apt_update` is the resource."
 - "`name` is the name given to the resource block."
@@ -26,9 +26,9 @@ actions_list:
     shortcode: resources_common_actions_nothing.md
   :periodic:
     markdown: Update the Apt repository at the interval specified by the `frequency`
-      property (default)
+      property. (default)
   :update:
-    markdown: Update the Apt repository at the start of a Chef Infra Client run
+    markdown: Update the Apt repository at the start of a Chef Infra Client run.
 properties_list:
 - property: frequency
   ruby_type: Integer

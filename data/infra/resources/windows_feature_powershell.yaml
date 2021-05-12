@@ -38,11 +38,11 @@ actions_list:
   :nothing:
     shortcode: resources_common_actions_nothing.md
   :install:
-    markdown: Install a Windows role / feature using PowerShell (default)
+    markdown: Install a Windows role or feature using PowerShell. (default)
   :remove:
-    markdown: Remove a Windows role / feature using PowerShell
+    markdown: Remove a Windows role or feature using PowerShell.
   :delete:
-    markdown: Delete a Windows role / feature from the image using PowerShell
+    markdown: Delete a Windows role or feature from the image using PowerShell.
 properties_list:
 - property: all
   ruby_type: true, false

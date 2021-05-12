@@ -17,7 +17,7 @@ syntax_full_code_block: |-
     target             String
     action             Symbol # defaults to :create if not specified
   end
-syntax_properties_list: 
+syntax_properties_list:
 syntax_full_properties_list:
 - "`windows_shortcut` is the resource."
 - "`name` is the name given to the resource block."
@@ -29,7 +29,7 @@ actions_list:
   :nothing:
     shortcode: resources_common_actions_nothing.md
   :create:
-    markdown: Create or modify a Windows shortcut (default)
+    markdown: Create or modify a Windows shortcut. (default)
 properties_list:
 - property: arguments
   ruby_type: String

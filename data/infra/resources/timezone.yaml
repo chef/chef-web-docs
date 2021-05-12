@@ -26,7 +26,7 @@ actions_list:
   :nothing:
     shortcode: resources_common_actions_nothing.md
   :set:
-    markdown: Set the system timezone (default)
+    markdown: Set the system timezone. (default)
 properties_list:
 - property: timezone
   ruby_type: String

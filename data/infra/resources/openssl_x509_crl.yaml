@@ -33,10 +33,10 @@ syntax_full_properties_list:
   `path`, `renewal_threshold`, `revocation_reason`, and `serial_to_revoke` are the
   properties available to this resource."
 actions_list:
-  :create:
-    markdown: Default. Create the certificate revocation list file.
   :nothing:
     shortcode: resources_common_actions_nothing.md
+  :create:
+    markdown: Create the certificate revocation list (CRL) file. (default)
 properties_list:
 - property: ca_cert_file
   ruby_type: String

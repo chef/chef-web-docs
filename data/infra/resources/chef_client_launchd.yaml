@@ -36,12 +36,12 @@ syntax_full_properties_list:
   `nice`, `splay`, `user`, and `working_directory` are the properties available to
   this resource."
 actions_list:
-  :disable:
-    markdown: Disable running Chef Infra Client on a schedule using launchd
-  :enable:
-    markdown: Enable running Chef Infra Client on a schedule using launchd
   :nothing:
     shortcode: resources_common_actions_nothing.md
+  :enable:
+    markdown: Enable running Chef Infra Client on a schedule using launchd (default)
+  :disable:
+    markdown: Disable running Chef Infra Client on a schedule using launchd
 properties_list:
 - property: accept_chef_license
   ruby_type: true, false
@@ -64,11 +64,13 @@ properties_list:
 - property: daemon_options
   ruby_type: Array
   required: false
+  default_value: "[]"
   description_list:
   - markdown: An array of options to pass to the chef-client command.
 - property: environment
   ruby_type: Hash
   required: false
+  default_value: "{}"
   description_list:
   - markdown: A Hash containing additional arbitrary environment variables under which
       the launchd daemon will be run in the form of `({'ENV_VARIABLE' => 'VALUE'})`.

@@ -17,7 +17,7 @@ syntax_full_code_block: |-
     system_managed         true, false
     action                 Symbol # defaults to :set if not specified
   end
-syntax_properties_list: 
+syntax_properties_list:
 syntax_full_properties_list:
 - "`windows_pagefile` is the resource."
 - "`name` is the name given to the resource block."
@@ -29,9 +29,9 @@ actions_list:
   :nothing:
     shortcode: resources_common_actions_nothing.md
   :set:
-    markdown: Configures the default pagefile, creating if it doesn't exist (default)
+    markdown: Configures the default pagefile, creating if it doesn't exist. (default)
   :delete:
-    markdown: Deletes the specified pagefile
+    markdown: Deletes the specified pagefile.
 properties_list:
 - property: automatic_managed
   ruby_type: true, false

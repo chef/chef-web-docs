@@ -19,7 +19,7 @@ syntax_full_code_block: |-
     windows_reboot      true, false # default value: true
     action              Symbol # defaults to :set if not specified
   end
-syntax_properties_list: 
+syntax_properties_list:
 syntax_full_properties_list:
 - "`hostname` is the resource."
 - "`name` is the name given to the resource block."
@@ -31,7 +31,7 @@ actions_list:
   :nothing:
     shortcode: resources_common_actions_nothing.md
   :set:
-    markdown: Sets the node's hostname (default)
+    markdown: Sets the node's hostname. (default)
 properties_list:
 - property: aliases
   ruby_type: Array
