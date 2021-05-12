@@ -2,7 +2,7 @@
 name: Feature request
 about: Suggest an idea for improving your docs experience!
 title: ''
-labels: 'Documentation, Status: Untriaged'
+labels: 'Type: Bug, Status: Untriaged, Documentation'
 assignees: ''
 
 ---
