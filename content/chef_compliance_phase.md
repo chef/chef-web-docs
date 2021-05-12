@@ -632,14 +632,6 @@ The 413 "Request Entity Too Large" error appears in both the stacktrace and the 
 
 <!-- markdownlint-enable blanks-around-fences -->
 
-
-
-
-
-
-
-
-
 ## Chef Automate Backend Errors
 
 Chef Automate sets the `logstash` limit to 10% of the system memory automatically as part of the `automate-ctl reconfigure` command execution. You have reached the java heap size(`-Xmx`) limit of `logstash` if a Chef InSpec report does not become available in Chef Automate and this error is in the `logstash` logs:
