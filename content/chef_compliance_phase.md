@@ -26,7 +26,7 @@ The Compliance Phase requires Chef Infra Client 17 or higher.
 
 If your system is configured to use the `audit cookbook`, make these changes to switch to the Compliance Phase:
 
-1. Add `node['audit']['compliance_phase'] = true` to your cookbook attributes file.
+1. Set the `node['audit']['compliance_phase']` attribute to `true` through a Policyfile or cookbook attributes file.
 1. Remove the `audit cookbook` from your ['run-list']({{< relref "run_lists.md" >}}).
 
 
