@@ -39,7 +39,7 @@ If your system is configured to use the `audit cookbook`, make these changes to 
 Add the following line to the `attributes/default.rb` file in your cookbook to turn on the Compliance Phase.
 
 ```ruby
-node['audit']['compliance_phase'] = true
+default['audit']['compliance_phase'] = true
 ```
 
 ### Set Profiles
@@ -67,7 +67,7 @@ The following examples:
   {{< foundation_tabs_panel active="true" panel-id="automate-panel" >}}
   ```ruby
   # Invoke the Compliance Phase
-  node['audit']['compliance_phase']
+  default['audit']['compliance_phase'] = true
   # Set profile locations
   default['audit']['profiles']['linux-baseline'] = {
     'compliance': 'user/linux-baseline',
@@ -79,7 +79,7 @@ The following examples:
   {{< foundation_tabs_panel panel-id="supermarket-panel" >}}
   ```ruby
   # Invoke the Compliance Phase
-  node['audit']['compliance_phase']
+  default['audit']['compliance_phase'] = true
   # Set profile locations
   default['audit']['profiles']['ssh'] = {
     'supermarket': 'hardening/ssh-hardening'
@@ -89,7 +89,7 @@ The following examples:
   {{< foundation_tabs_panel panel-id="local-path-panel" >}}
   ```ruby
   # Invoke the Compliance Phase
-  node['audit']['compliance_phase']
+  default['audit']['compliance_phase'] = true
   # Set profile locations
   default['audit']['profiles']['4thcafe/win2012_audit'] = {
     'path': 'E:/profiles/win2012_audit'
@@ -99,7 +99,7 @@ The following examples:
   {{< foundation_tabs_panel panel-id="git-panel" >}}
   ```ruby
   # Invoke the Compliance Phase
-  node['audit']['compliance_phase']
+  default['audit']['compliance_phase'] = true
   # Set profile locations
   default['audit']['profiles']['ssl'] = {
     'git': 'https://github.com/dev-sec/ssl-benchmark.git'
@@ -109,7 +109,7 @@ The following examples:
   {{< foundation_tabs_panel panel-id="http-panel" >}}
   ```ruby
   # Invoke the Compliance Phase
-  node['audit']['compliance_phase']
+  default['audit']['compliance_phase'] = true
   # Set profile locations
   default['audit']['profiles']['ssh2'] = {
     'url': 'https://github.com/dev-sec/tests-ssh-hardening/archive/master.zip'
@@ -141,7 +141,7 @@ The following examples:
   {{< foundation_tabs_panel active="true" panel-id="automate-fetcher" >}}
   ```ruby
   # Invoke the Compliance Phase
-  node['audit']['compliance_phase']
+  default['audit']['compliance_phase'] = true
   # Set profile location
   default['audit']['profiles']['ssh'] = {
   'supermarket': 'hardening/ssh-hardening'
@@ -156,7 +156,7 @@ The following examples:
   {{< foundation_tabs_panel panel-id="server-fetcher" >}}
   ```ruby
   # Invoke the Compliance Phase
-  node['audit']['compliance_phase']
+  default['audit']['compliance_phase'] = true
   # Set profile location
   default['audit']['profiles']['ssh'] = {
   'supermarket': 'hardening/ssh-hardening'
@@ -200,7 +200,7 @@ The following examples:
   {{< foundation_tabs_panel active="true" panel-id="automate-reporter" >}}
   ```ruby
   # Invoke the Compliance Phase
-  node['audit']['compliance_phase']
+  default['audit']['compliance_phase'] = true
   # Set profile location
   default['audit']['profiles']['ssh'] = {
   'supermarket': 'hardening/ssh-hardening'
@@ -217,7 +217,7 @@ The following examples:
   {{< foundation_tabs_panel panel-id="server-reporter" >}}
   ```ruby
   # Invoke the Compliance Phase
-  node['audit']['compliance_phase']
+  default['audit']['compliance_phase'] = true
   # Set profile location
   default['audit']['profiles']['ssh'] = {
   'supermarket': 'hardening/ssh-hardening'
@@ -237,7 +237,7 @@ The following examples:
     {{< foundation_tabs_panel panel-id="local-reporter" >}}
   ```ruby
   # Invoke the Compliance Phase
-  node['audit']['compliance_phase']
+  default['audit']['compliance_phase'] = true
   # Set profile location
   default['audit']['profiles']['ssh'] = {
   'supermarket': 'hardening/ssh-hardening'
