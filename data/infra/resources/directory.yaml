@@ -161,11 +161,8 @@ properties_list:
   required: false
   default_value: 'false'
   description_list:
-  - markdown: 'Create parent directories recursively and delete directories,
-
-      subdirectories, and files recursively. The `owner`, `group`, and
-
-      `mode` properties apply only to the leaf directory.'
+  - markdown: Create or delete parent directories recursively. For the owner, group,
+      and mode properties, the value of this property applies only to the leaf directory.
 - property: rights
   ruby_type: Integer, String
   required: false
