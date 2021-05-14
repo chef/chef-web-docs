@@ -166,10 +166,6 @@ The following examples:
   # Fetch additional profiles
   default['audit']['fetcher'] = 'chef-server'
   ```
-
-  {{< warning >}}
-  Fetching profiles from Chef Infra Server requires setting `chef_server_url` in your `client.rb`.
-  {{< /warning >}}
   {{< /foundation_tabs_panel >}}
 {{< /foundation_tabs_panels >}}
 
