@@ -13,7 +13,7 @@ draft = false
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/chef_compliance_phase.md)
 
-Chef Infra Client's Compliance Phase lets you automatically execute compliance audits and view the results as part of any Chef Infra Client Run. The Compliance Phase of the Chef Infra Client run replaces the legacy [audit cookbook](https://supermarket.chef.io/cookbooks/audit) and works with your existing audit cookbook attributes, and you can also set it up for new cookbooks. This additional phase gives you the latest compliance capabilities without having to manage cookbook dependencies or juggle versions during Chef Infra Client updates.
+Chef Infra Client's Compliance Phase lets you automatically execute compliance audits and view the results as part of any Chef Infra Client run. The Compliance Phase of the Chef Infra Client run replaces the legacy [audit cookbook](https://supermarket.chef.io/cookbooks/audit) and works with your existing audit cookbook attributes, and you can also set it up for new cookbooks. This additional phase gives you the latest compliance capabilities without having to manage cookbook dependencies or juggle versions during Chef Infra Client updates.
 
 Existing audit cookbook users can migrate to the new Compliance Phase by removing the audit cookbook from their run_list and setting the `node['audit']['compliance_phase']` attribute to `true`.
 
@@ -26,13 +26,9 @@ The Compliance Phase requires Chef Infra Client 17 or higher.
 
 If your system is configured to use the `audit cookbook`, make these changes to switch to the Compliance Phase:
 
-1. Add `node['audit']['compliance_phase'] = true` to your cookbook attributes file.
+1. Set the `node['audit']['compliance_phase']` attribute to `true` through a Policyfile or cookbook attributes file.
 1. Remove the `audit cookbook` from your ['run-list']({{< relref "run_lists.md" >}}).
-1. [optional] Add `cli` to the reporter in your cookbook attributes file, which enables a chef-client cli feature that mimics InSpec command line output, so you can see your system's compliance status. For example:
 
-      ```ruby
-      default['audit']['reporter'] = 'chef-automate', 'cli'
-      ```
 
 1. On your next Chef Infra Client run, you should see the Compliance Phase results.
 
@@ -40,21 +36,22 @@ If your system is configured to use the `audit cookbook`, make these changes to 
 
 ### Enable the Compliance Phase
 
-Add the following line to the `attributes/default.rb` file in your cookbook to turn on the Compliance Phase.
+The Compliance Phase is enabled by setting the `node['audit']['compliance_phase']` attribute to `true` through cookbook attributes or Policyfiles. To enable Compliance Phase using cookbook atttributes add the following line to the `attributes/default.rb` file in your cookbook.
 
 ```ruby
-node['audit']['compliance_phase'] = true
+default['audit']['compliance_phase'] = true
 ```
 
-### Set Profiles
+### Set InSpec Profiles
 
-Setting one or more Chef InSpec profiles enables the compliance phase in a Chef Infra Client run. The presence of this configuration in your attributes file instructs Chef Infra Client to fetch and execute the specific Chef InSpec profiles and write the results to disk using the default `json-file` reporter.
+Setting one or more Chef InSpec profiles enables the compliance phase in a Chef Infra Client run. The presence of this configuration in your attributes file instructs Chef Infra Client to fetch and execute the specific Chef InSpec profiles and write the results to disk using the default `cli` and `json-file` reporters.
 
 Retrieve ['Chef InSpec profiles']({{< relref "inspec/profiles/" >}}) from Chef Automate, Supermarket, a local file, GitHub, or over HTTP with the `node['audit']['profiles']` attribute.
 
 The following examples:
 
 - Retrieve profiles from Chef Automate, Supermarket, a local file, GitHub, or over HTTP.
+- Display the results on the command line using the default `cli` reporter.
 - Write the results to disk using the default `json-file` reporter to `<chef_cache_path>/compliance_reports/compliance-<timestamp>.json`.
 
 <!-- markdownlint-disable blanks-around-fences -->
@@ -70,19 +67,21 @@ The following examples:
   {{< foundation_tabs_panel active="true" panel-id="automate-panel" >}}
   ```ruby
   # Invoke the Compliance Phase
-  node['audit']['compliance_phase']
+  default['audit']['compliance_phase'] = true
   # Set profile locations
   default['audit']['profiles']['linux-baseline'] = {
     'compliance': 'user/linux-baseline',
     'version': '2.1.0'
   }
   ```
-  **Note**: Fetching InSpec profiles from a Chef Automate server requires additional setup for authorization and authentication.
+  {{< warning >}}
+  Fetching profiles from Automate requires setting `data_collector.server_url` and `data_collector.token` in your `client.rb` to fetch profiles from Chef Automate. This configuration is described in more detail in the Chef Automate [data collector documentation]({{< relref "automate/data_collection/" >}}).
+  {{< /warning >}}
   {{< /foundation_tabs_panel >}}
   {{< foundation_tabs_panel panel-id="supermarket-panel" >}}
   ```ruby
   # Invoke the Compliance Phase
-  node['audit']['compliance_phase']
+  default['audit']['compliance_phase'] = true
   # Set profile locations
   default['audit']['profiles']['ssh'] = {
     'supermarket': 'hardening/ssh-hardening'
@@ -92,7 +91,7 @@ The following examples:
   {{< foundation_tabs_panel panel-id="local-path-panel" >}}
   ```ruby
   # Invoke the Compliance Phase
-  node['audit']['compliance_phase']
+  default['audit']['compliance_phase'] = true
   # Set profile locations
   default['audit']['profiles']['4thcafe/win2012_audit'] = {
     'path': 'E:/profiles/win2012_audit'
@@ -102,7 +101,7 @@ The following examples:
   {{< foundation_tabs_panel panel-id="git-panel" >}}
   ```ruby
   # Invoke the Compliance Phase
-  node['audit']['compliance_phase']
+  default['audit']['compliance_phase'] = true
   # Set profile locations
   default['audit']['profiles']['ssl'] = {
     'git': 'https://github.com/dev-sec/ssl-benchmark.git'
@@ -112,7 +111,7 @@ The following examples:
   {{< foundation_tabs_panel panel-id="http-panel" >}}
   ```ruby
   # Invoke the Compliance Phase
-  node['audit']['compliance_phase']
+  default['audit']['compliance_phase'] = true
   # Set profile locations
   default['audit']['profiles']['ssh2'] = {
     'url': 'https://github.com/dev-sec/tests-ssh-hardening/archive/master.zip'
@@ -131,6 +130,7 @@ The following examples:
 
 - Retrieve the 'ssh' profile from Chef Supermarket.
 - Fetch additional profiles from Chef Automate or Chef Server.
+- Display the results on the command line using the default `cli` reporter.
 - Write the results to disk using the default `json-file` reporter to `<chef_cache_path>/compliance_reports/compliance-<timestamp>.json`.
 
 <!-- markdownlint-disable blanks-around-fences -->
@@ -143,7 +143,7 @@ The following examples:
   {{< foundation_tabs_panel active="true" panel-id="automate-fetcher" >}}
   ```ruby
   # Invoke the Compliance Phase
-  node['audit']['compliance_phase']
+  default['audit']['compliance_phase'] = true
   # Set profile location
   default['audit']['profiles']['ssh'] = {
   'supermarket': 'hardening/ssh-hardening'
@@ -158,7 +158,7 @@ The following examples:
   {{< foundation_tabs_panel panel-id="server-fetcher" >}}
   ```ruby
   # Invoke the Compliance Phase
-  node['audit']['compliance_phase']
+  default['audit']['compliance_phase'] = true
   # Set profile location
   default['audit']['profiles']['ssh'] = {
   'supermarket': 'hardening/ssh-hardening'
@@ -166,10 +166,6 @@ The following examples:
   # Fetch additional profiles
   default['audit']['fetcher'] = 'chef-server'
   ```
-
-  {{< warning >}}
-  Fetching profiles from Chef Infra Server requires setting `chef_server_url` in your `client.rb`.
-  {{< /warning >}}
   {{< /foundation_tabs_panel >}}
 {{< /foundation_tabs_panels >}}
 
@@ -177,12 +173,13 @@ The following examples:
 
 ### Reporters
 
-Reporters control what is done with the resulting report after the Chef InSpec run. Either a single value or a list of multiple values is supported. The default is the `json-file` reporter.
+Reporters control what is done with the resulting report after the Chef InSpec run. Either a single value or a list of multiple values is supported. The default is the `cli` and `json-file` reporters.
 
 Reporters can send Compliance Phase results to:
 
-- Directly to Chef Automate.
 - Chef Automate proxied by Chef Infra Server.
+- Directly to Chef Automate (requires additional authentication).
+- The terminal if Chef Infra Client is run interactively by a user.
 - A file on disk.
 
 The following examples:
@@ -202,7 +199,7 @@ The following examples:
   {{< foundation_tabs_panel active="true" panel-id="automate-reporter" >}}
   ```ruby
   # Invoke the Compliance Phase
-  node['audit']['compliance_phase']
+  default['audit']['compliance_phase'] = true
   # Set profile location
   default['audit']['profiles']['ssh'] = {
   'supermarket': 'hardening/ssh-hardening'
@@ -219,7 +216,7 @@ The following examples:
   {{< foundation_tabs_panel panel-id="server-reporter" >}}
   ```ruby
   # Invoke the Compliance Phase
-  node['audit']['compliance_phase']
+  default['audit']['compliance_phase'] = true
   # Set profile location
   default['audit']['profiles']['ssh'] = {
   'supermarket': 'hardening/ssh-hardening'
@@ -239,7 +236,7 @@ The following examples:
     {{< foundation_tabs_panel panel-id="local-reporter" >}}
   ```ruby
   # Invoke the Compliance Phase
-  node['audit']['compliance_phase']
+  default['audit']['compliance_phase'] = true
   # Set profile location
   default['audit']['profiles']['ssh'] = {
   'supermarket': 'hardening/ssh-hardening'
@@ -292,7 +289,7 @@ InSpec profiles should be self-contained and independent from external data. In 
 
 #### InSpec Input
 
-You can pass['Chef InSpec inputs'](https://docs.chef.io/inspec/inputs/) to the Chef InSpec runner. Chef InSpec inputs were previously called `attributes` and you will set them in an `['audit']['attributes']` hash in your attributes file.
+You can pass ['Chef InSpec inputs'](https://docs.chef.io/inspec/inputs/) to the Chef InSpec runner. Chef InSpec inputs were previously called `attributes` and you will set them in an `['audit']['attributes']` hash in your attributes file.
 Any data added to `['audit']['attributes']` as a hash is passed to Chef InSpec as individual attributes.
 
   ```ruby
