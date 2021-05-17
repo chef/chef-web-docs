@@ -2,15 +2,8 @@
 short_name: WindowsRegistryUAC
 full_name: Chef/Modernize/WindowsRegistryUAC
 department: Chef/Modernize
-description: |-
-  Chef Infra Client 15.0 and later includes a windows_uac resource that should be used to set Windows UAC values instead of setting registry keys directly.
-
-   #### correct
-   windows_uac 'Set Windows UAC settings' do
-     enable_uac false
-     prompt_on_secure_desktop true
-     consent_behavior_admins :no_prompt
-   end
+description: Chef Infra Client 15.0 and later includes a windows_uac resource that
+  should be used to set Windows UAC values instead of setting registry keys directly.
 autocorrection: false
 target_chef_version: 15.0+
 examples: |2-
@@ -24,6 +17,16 @@ examples: |2-
             { name: 'ConsentPromptBehaviorAdmin', type: :dword, data: 0 },
            ]
     action :create
+  end
+  ```
+
+  #### correct
+
+  ```ruby
+  windows_uac 'Set Windows UAC settings' do
+    enable_uac false
+    prompt_on_secure_desktop true
+    consent_behavior_admins :no_prompt
   end
   ```
 version_added: 5.22.0
