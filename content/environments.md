@@ -63,7 +63,7 @@ There are two types of attributes that can be used with environments:
 </tbody>
 </table>
 
-## Pinning Environments in Cookbooks
+## Pinning Cookbooks in Environments
 
 Cookbook versions can be pinned in each environment, which allows you to
 control the rollout of new cookbook releases through successive testing
