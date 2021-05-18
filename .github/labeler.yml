@@ -1,2 +1,4 @@
 documentation:
-- chef-web-docs/*
+  - '**'
+  - '.*'
+  - '.*/**'
