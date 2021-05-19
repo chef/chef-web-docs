@@ -1,5 +1,5 @@
 +++
-title = "Release Notes: Chef Infra Server 12.0 - 14.2"
+title = "Release Notes: Chef Infra Server 12.0 - 14.3"
 draft = false
 gh_repo = "chef-web-docs"
 aliases = ["/release_notes_server.html"]
@@ -15,6 +15,60 @@ product = ["server"]
 Chef Infra Server acts as a hub for configuration data by storing
 cookbooks, the policies that are applied to nodes, and metadata that
 describes each registered node that is managed by the Chef Infra Client.
+
+## What's New in 14.3
+
+### Security Improvements
+
+#### TLS 1.2 Communication By Default
+
+Chef Infra Server now defaults to supporting only TLS 1.2 for API communication. This new default may require upgrading older releases of Chef Infra Client, which do not support TLS 1.2. On Linux/Unix/macOS systems TLS 1.2 is supported in Chef Infra Client 10.16.4 and later. On Windows systems, TLS 1.2 is supported on Chef Infra Client 12.8 or later.
+
+#### Bifrost No Longer Externally Exposed
+
+The Bifrost service was previously exposed externally on port `9683`. This service is no longer required externally and is now only exposed to the local system to improve security.
+
+#### HTTP Strict-Transport-Security (HSTS) Max Age Configuration
+
+The HTTP Strict-Transport-Security (HSTS) max-age value for the default Chef Infra Server website can now be configured. Set the new `node['private_chef']['nginx']['hsts_max_age']` to define the time in seconds the browser should remember that a site is only to be accessed using HTTPS. This configuration defaults to `31536000` (1 year) and accepts a maximum value of `63072000` (2 years).
+
+#### Additional Security Headers Set on Default Website
+
+The default website for the Chef Infra Server now sets `Content-Security-Policy` and `X-Frame-Options` headers to better secure this default website.
+
+#### Ruby 2.6.7
+
+We updated Ruby from 2.6.6 to 2.6.7 to resolve a large number of bugs as well as the following CVEs:
+
+- [CVE-2021-28966](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-28966)
+- [CVE-2021-28965](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-28965)
+- [CVE-2020-25613](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-25613)
+
+#### PostgreSQL 9.6.21
+
+We updated Postgresql from 9.6.15 to 9.6.21 to resolve a large number of bugs as well as the following CVEs:
+
+- [CVE-2020-25695](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-25695)
+- [CVE-2020-25694](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-25694)
+- [CVE-2020-25696](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-25696)
+- [CVE-2020-14350](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-14350)
+- [CVE-2020-1720](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-1720)
+
+### Platform Support Updates
+
+- Packages are no longer produced for Ubuntu 16.04, which reaches End-of-Life status on April 30th. See our [Platform End-of-Life Policy](https://docs.chef.io/platforms/#platform-end-of-life-policy) for additional information.
+- Packages are now produced for Amazon Linux 2. See a complete list of platforms and versions we support at [downloads.chef.io](https://downloads.chef.io/tools/infra-server)
+- Ubuntu packages now support FIPS.
+
+### Other Improvements
+
+#### Improved Reindexing
+
+Reindexing will now gracefully fail if there is not 2.2x the current ElasticSearch data available on disk before attempting the reindex. This will prevent reindexing from resulting in non-functional server installs when disk space is low.
+
+#### Improved Performance
+
+The OpenResty engine that powers the Chef Infra Server API has been updated to the latest release (1.19.3.1). This release includes significant performance improvements, which may result in improved API performance under some conditions.
 
 ## What's New in 14.2
 
