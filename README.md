@@ -19,9 +19,6 @@ in the [`components/docs-chef-io`](https://github.com/chef/automate/tree/master/
 The [Chef Desktop documentation](https://docs.chef.io/desktop/) is stored in the `chef/desktop-config` repository
 in the [`docs-chef-io`](https://github.com/chef/desktop-config/tree/master/docs-chef-io) directory. This is a private repository.
 
-The [Chef Effortless documentation](https://docs.chef.io/effortless/) is stored in the `chef/effortless` repository
-in the [`docs-chef-io`](https://github.com/chef/effortless/tree/master/docs-chef-io) directory.
-
 The [Chef Habitat documentation](https://docs.chef.io/habitat/) is stored in the `habitat-sh/habitat` repository
 in the [`components/docs-chef-io`](https://github.com/habitat-sh/habitat/tree/master/components/docs-chef-io) directory.
 
@@ -93,7 +90,6 @@ running Hugo from chef-web-docs.
      github.com/chef/automate/components/docs-chef-io v0.0.0-<commit timestamp>-<commit SHA> // indirect
      github.com/chef/chef-workstation/docs-chef-io v0.0.0-<commit timestamp>-<commit SHA> // indirect
      github.com/chef/desktop-config/docs-chef-io v0.0.0-<commit timestamp>-<commit SHA> // indirect
-     github.com/chef/effortless/docs-chef-io v0.0.0-<commit timestamp>-<commit SHA> // indirect
      github.com/inspec/inspec/docs-chef-io v0.0.0-<commit timestamp>-<commit SHA> // indirect
    )
 

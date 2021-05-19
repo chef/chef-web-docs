@@ -751,42 +751,6 @@ identifier = "chef_workstation"
 ####
 
 ####
-# Effortless Menu
-####
-
-[[effortless]]
-title = "Effortless Pattern"
-identifier = "effortless"
-
-####
-# End Effortless Menu
-####
-
-####
-# Supermarket Menu
-####
-
-[[supermarket]]
-title = "Supermarket"
-identifier = "supermarket"
-
-  [[supermarket]]
-  title = "Private Supermarket"
-  identifier = "supermarket/server"
-  parent = "supermarket"
-  weight = 30
-
-  [[supermarket]]
-  title = "Reference"
-  identifier = "supermarket/reference"
-  parent = "supermarket"
-  weight = 40
-
-####
-# End Content Menu
-####
-
-####
 # Release Notes Menu
 ####
 
