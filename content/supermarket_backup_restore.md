@@ -6,10 +6,10 @@ aliases = ["/supermarket_backup_restore.html"]
 product = ["client", "server", "workstation"]
 
 [menu]
-  [menu.content]
+  [menu.supermarket]
     title = "Backup and Restore"
-    identifier = "content/supermarket/server/supermarket_backup_restore.md"
-    parent = "content/supermarket/server"
+    identifier = "supermarket/server/supermarket_backup_restore.md"
+    parent = "supermarket/server"
     weight = 30
 +++
 

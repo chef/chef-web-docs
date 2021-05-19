@@ -6,10 +6,10 @@ aliases = ["/install_supermarket.html"]
 product = ["client", "server", "workstation"]
 
 [menu]
-  [menu.content]
+  [menu.supermarket]
     title = "Install Private Supermarket"
-    identifier = "content/supermarket/server/install_supermarket.md Install Private Supermarket"
-    parent = "content/supermarket/server"
+    identifier = "supermarket/server/install_supermarket.md Install Private Supermarket"
+    parent = "supermarket/server"
     weight = 10
 +++
 

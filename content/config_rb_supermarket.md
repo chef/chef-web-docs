@@ -6,10 +6,10 @@ aliases = ["/config_rb_supermarket.html"]
 product = ["client", "server", "workstation"]
 
 [menu]
-  [menu.content]
+  [menu.supermarket]
     title = "Configure"
-    identifier = "content/supermarket/server/config_rb_supermarket.md Settings"
-    parent = "content/supermarket/server"
+    identifier = "supermarket/server/config_rb_supermarket.md Settings"
+    parent = "supermarket/server"
     weight = 20
 +++
 

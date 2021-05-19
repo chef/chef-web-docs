@@ -763,36 +763,24 @@ identifier = "effortless"
 ####
 
 ####
-# Content Menu
+# Supermarket Menu
 ####
 
-[[content]]
-title = "Content"
-identifier = "content"
+[[supermarket]]
+title = "Supermarket"
+identifier = "supermarket"
 
-  [[content]]
-  title = "Chef Premium Content"
-  identifier = "content/compliance"
-  parent = "content"
-  weight = 10
+  [[supermarket]]
+  title = "Private Supermarket"
+  identifier = "supermarket/server"
+  parent = "supermarket"
+  weight = 30
 
-  [[content]]
-  title = "Supermarket"
-  identifier = "content/supermarket"
-  parent = "content"
-  weight = 20
-
-      [[content]]
-      title = "Private Supermarket"
-      identifier = "content/supermarket/server"
-      parent = "content/supermarket"
-      weight = 30
-
-      [[content]]
-      title = "Reference"
-      identifier = "content/supermarket/reference"
-      parent = "content/supermarket"
-      weight = 40
+  [[supermarket]]
+  title = "Reference"
+  identifier = "supermarket/reference"
+  parent = "supermarket"
+  weight = 40
 
 ####
 # End Content Menu

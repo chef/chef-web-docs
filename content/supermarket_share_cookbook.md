@@ -6,10 +6,10 @@ aliases = ["/supermarket_share_cookbook.html"]
 product = ["client", "server", "workstation"]
 
 [menu]
-  [menu.content]
+  [menu.supermarket]
     title = "Share Cookbooks"
-    identifier = "content/supermarket/supermarket_share_cookbook.md Share Cookbooks"
-    parent = "content/supermarket"
+    identifier = "supermarket/supermarket_share_cookbook.md Share Cookbooks"
+    parent = "supermarket"
     weight = 25
 
 +++
