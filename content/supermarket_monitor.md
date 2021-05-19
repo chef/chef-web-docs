@@ -6,11 +6,11 @@ aliases = ["/supermarket_monitor.html"]
 product = ["client", "server", "workstation"]
 
 [menu]
-  [menu.infra]
-    title = "Monitoring"
-    identifier = "chef_infra/setup/supermarket/supermarket_monitor.md Monitoring"
-    parent = "chef_infra/setup/supermarket"
-    weight = 70
+  [menu.content]
+    title = "Monitor"
+    identifier = "content/supermarket/server/supermarket_monitor.md"
+    parent = "content/supermarket/server"
+    weight = 40
 +++
 
 A private Chef Supermarket includes a URL for status monitoring:

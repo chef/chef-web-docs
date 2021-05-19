@@ -5,10 +5,10 @@ draft = false
 gh_repo = "chef-web-docs"
 
 [menu]
-  [menu.compliance]
+  [menu.content]
     title = "Chef Compliance Guide"
-    identifier = "compliance/chef-benchmark.md Chef Compliance Guide"
-    parent = "compliance"
+    identifier = "content/compliance/chef-benchmark.md Chef Compliance Guide"
+    parent = "content/compliance"
     weight = 10
 +++
 

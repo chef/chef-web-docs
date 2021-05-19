@@ -7,10 +7,10 @@ gh_repo = "chef-web-docs"
   product = ["client", "server", "inspec", "habitat"]
 
 [menu]
-  [menu.compliance]
+  [menu.content]
     title = "About Chef Compliance"
-    identifier = "compliance/index.md Chef Compliance"
-    parent = "compliance"
+    identifier = "content/compliance/index.md Chef Compliance"
+    parent = "content/compliance"
     weight = 10
 +++
 

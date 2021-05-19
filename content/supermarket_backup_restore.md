@@ -6,11 +6,11 @@ aliases = ["/supermarket_backup_restore.html"]
 product = ["client", "server", "workstation"]
 
 [menu]
-  [menu.infra]
+  [menu.content]
     title = "Backup and Restore"
-    identifier = "chef_infra/setup/supermarket/supermarket_backup_restore.md Backup and Restore"
-    parent = "chef_infra/setup/supermarket"
-    weight = 50
+    identifier = "content/supermarket/server/supermarket_backup_restore.md"
+    parent = "content/supermarket/server"
+    weight = 30
 +++
 
 Periodic backups of Supermarket data are an essential part of managing

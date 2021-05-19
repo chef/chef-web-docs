@@ -6,11 +6,10 @@ aliases = ["/supermarket_api.html"]
 product = ["client", "server", "workstation"]
 
 [menu]
-  [menu.infra]
+  [menu.content]
     title = "Supermarket API"
-    identifier = "chef_infra/setup/supermarket/supermarket_api.md Supermarket API"
-    parent = "chef_infra/setup/supermarket"
-    weight = 100
+    identifier = "content/supermarket/reference/supermarket_api.md Supermarket API"
+    parent = "content/supermarket/reference"
 +++
 
 {{% supermarket_api_summary %}} .. note:: In general, using

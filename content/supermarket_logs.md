@@ -6,11 +6,11 @@ aliases = ["/supermarket_logs.html"]
 product = ["client", "server", "workstation"]
 
 [menu]
-  [menu.infra]
+  [menu.content]
     title = "Log Files"
-    identifier = "chef_infra/setup/supermarket/supermarket_logs.md Log Files"
-    parent = "chef_infra/setup/supermarket"
-    weight = 60
+    identifier = "content/supermarket/server/supermarket_logs.md"
+    parent = "content/supermarket/server"
+    weight = 50
 +++
 
 The Chef Supermarket omnibus package does not log Ruby on Rails messages

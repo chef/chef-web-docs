@@ -6,11 +6,12 @@ aliases = ["/supermarket_share_cookbook.html"]
 product = ["client", "server", "workstation"]
 
 [menu]
-  [menu.infra]
+  [menu.content]
     title = "Share Cookbooks"
-    identifier = "chef_infra/concepts/supermarket/supermarket_share_cookbook.md Share Cookbooks"
-    parent = "chef_infra/concepts/supermarket"
-    weight = 40
+    identifier = "content/supermarket/supermarket_share_cookbook.md Share Cookbooks"
+    parent = "content/supermarket"
+    weight = 25
+
 +++
 
 This guide will show you how to share a cookbook on the public [Chef
