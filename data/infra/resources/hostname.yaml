@@ -86,3 +86,11 @@ examples: |
     ipaddress '198.51.100.2'
   end
   ```
+
+  **Change the hostname of a Windows, Non-Domain joined node**:
+
+  ```ruby
+  hostname 'renaming a workgroup computer' do
+    hostname 'Foo'
+  end
+  ```

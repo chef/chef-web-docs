@@ -105,9 +105,8 @@ properties_list:
   ruby_type: true, false
   required: false
   description_list:
-  - markdown: 'If a job dies, all remaining processes with the same process ID may
-
-      be kept running. Set to true to kill all remaining processes.'
+  - markdown: If a job dies, all remaining processes with the same process ID may
+      be kept running. Set to true to kill all remaining processes.
 - property: backup
   ruby_type: Integer, false
   required: false

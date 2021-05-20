@@ -59,9 +59,9 @@ actions_list:
   :nothing:
     shortcode: resources_common_actions_nothing.md
   :create:
-    markdown: Create a client.rb config file. (default)
+    markdown: Create a client.rb config file for configuring Chef Infra Client. (default)
   :remove:
-    markdown: Remove a client.rb config file.
+    markdown: Remove a client.rb config file for configuring Chef Infra Client.
 properties_list:
 - property: additional_config
   ruby_type: String
@@ -126,7 +126,7 @@ properties_list:
   required: false
   default_value: "[]"
   description_list:
-  - markdown: Client logging formatters to load
+  - markdown: Client logging formatters to load.
 - property: ftp_proxy
   ruby_type: String
   required: false
@@ -139,7 +139,7 @@ properties_list:
   - markdown: The group that should own the client.rb file and the configuration directory
       if it needs to be created.
   - note:
-    - markdown: The configuration directory will not be created if it already exists,
+      markdown: The configuration directory will not be created if it already exists,
         which allows you to further control the setup of that directory outside of
         this resource.
 - property: http_proxy
@@ -194,7 +194,7 @@ properties_list:
       used in cookbooks and the `client_name` value used when authenticating to a
       Chef Infra Server to determine what configuration to apply.
   - note:
-    - markdown: By default this configuration uses the `node.name` value which would
+      markdown: By default this configuration uses the `node.name` value which would
         be set during bootstrap. Hard coding this value in the `client.rb` config
         avoids logic within Chef Infra Server that performs DNS lookups and may fail
         in the event of a DNS outage. To skip this default value and instead use the
@@ -268,7 +268,7 @@ properties_list:
   - markdown: The user that should own the client.rb file and the configuration directory
       if it needs to be created.
   - note:
-    - markdown: The configuration directory will not be created if it already exists,
+      markdown: The configuration directory will not be created if it already exists,
         which allows you to further control the setup of that directory outside of
         this resource.
 examples: |

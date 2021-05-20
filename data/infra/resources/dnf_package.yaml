@@ -1,6 +1,5 @@
 ---
 resource_reference: true
-
 multi_package_resource: true
 resources_common_guards: true
 resources_common_notification: true
