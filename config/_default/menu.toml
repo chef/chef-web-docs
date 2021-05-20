@@ -140,14 +140,6 @@ identifier = "automate"
 ####
 
 ####
-# Compliance Menu
-####
-
-[[compliance]]
-title = "Chef Compliance"
-identifier = "compliance"
-
-####
 # End Compliance Menu
 ####
 
@@ -397,25 +389,7 @@ identifier = "chef_infra"
     parent = "chef_infra/concepts"
     weight = 70
 
-    [[infra]]
-    title = "Supermarket"
-    identifier = "chef_infra/concepts/supermarket"
-    parent = "chef_infra/concepts"
-    weight = 110
 
-      [[infra]]
-      title = "Public Supermarket"
-      identifier = "chef_infra/concepts/supermarket/supermarket.md#public-supermarket Public Supermarket"
-      parent = "chef_infra/concepts/supermarket"
-      url = "/supermarket/#public-supermarket"
-      weight = 20
-
-      [[infra]]
-      title = "Private Supermarket"
-      identifier = "chef_infra/concepts/supermarket/supermarket.md#private-supermarket Private Supermarket"
-      parent = "chef_infra/concepts/supermarket"
-      url = "/supermarket/#private-supermarket"
-      weight = 30
 
   [[infra]]
   title = "Features"
@@ -460,32 +434,6 @@ identifier = "chef_infra"
     parent = "chef_infra/setup"
     weight = 60
 
-    [[infra]]
-    title = "Supermarket"
-    identifier = "chef_infra/setup/supermarket"
-    parent = "chef_infra/setup"
-    weight = 70
-
-      [[infra]]
-      title = "Public Supermarket"
-      identifier = "chef_infra/setup/supermarket/https://supermarket.chef.io Public Supermarket"
-      parent = "chef_infra/setup/supermarket"
-      url = "https://supermarket.chef.io"
-      weight = 10
-
-      [[infra]]
-      title = "Customize Supermarket"
-      identifier = "chef_infra/setup/supermarket/install_supermarket.md#customize-supermarket Customize Supermarket"
-      parent = "chef_infra/setup/supermarket"
-      url = "/install_supermarket/#customize-supermarket"
-      weight = 30
-
-      [[infra]]
-      title = "knife supermarket"
-      identifier = "chef_infra/setup/supermarket/knife_supermarket.md knife supermarket"
-      parent = "chef_infra/setup/supermarket"
-      url = "/knife_supermarket/"
-      weight = 80
 
   [[infra]]
   title = "Cookbook Reference"
@@ -812,6 +760,30 @@ identifier = "effortless"
 
 ####
 # End Effortless Menu
+####
+
+####
+# Supermarket Menu
+####
+
+[[supermarket]]
+title = "Supermarket"
+identifier = "supermarket"
+
+  [[supermarket]]
+  title = "Private Supermarket"
+  identifier = "supermarket/server"
+  parent = "supermarket"
+  weight = 30
+
+  [[supermarket]]
+  title = "Reference"
+  identifier = "supermarket/reference"
+  parent = "supermarket"
+  weight = 40
+
+####
+# End Content Menu
 ####
 
 ####

@@ -6,10 +6,10 @@ aliases = ["/ctl_supermarket.html"]
 product = ["client", "server", "workstation"]
 
 [menu]
-  [menu.infra]
+  [menu.supermarket]
     title = "supermarket-ctl"
-    identifier = "chef_infra/setup/supermarket/ctl_supermarket.md supermarket-ctl"
-    parent = "chef_infra/setup/supermarket"
+    identifier = "supermarket/reference/ctl_supermarket.md supermarket-ctl"
+    parent = "supermarket/reference"
     weight = 90
 +++
 
