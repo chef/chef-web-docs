@@ -24,7 +24,7 @@ describes each registered node that is managed by the Chef Infra Client.
 
 PostgreSQL was upgraded from 9.6.21 to 9.6.22 to resolve [CVE-2021-22137](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-32027) and [CVE-2021-22137](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-32028).
 
-#### Elasticsearch
+#### Elasticsearch 6.8.15
 
 Elasticsearch was upgraded from 6.8.14 to 6.8.15 to resolve [CVE-2021-22137](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-22137).
 
