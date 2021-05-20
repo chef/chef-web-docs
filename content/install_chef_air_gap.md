@@ -213,15 +213,11 @@ with your Chef Infra Server URL:
 
 ```ruby
 current_dir = File.dirname(__FILE__)
-log_level                :info
-log_location             STDOUT
 node_name                'USER'
 client_key               "#{current_dir}/USER.pem"
 validation_client_name   'ORGANIZATION-validator'
 validation_key           "#{current_dir}/ORGANIZATION.pem"
 chef_server_url          'https://chef-server.example.com/organizations/ORGANIZATION'
-cache_type               'BasicFile'
-cache_options( :path => "#{ENV['HOME']}/.chef/checksums" )
 cookbook_path            ["#{current_dir}/../cookbooks"]
 knife[:bootstrap_template] = "#{current_dir}/bootstrap/airgap.erb"
 ```
