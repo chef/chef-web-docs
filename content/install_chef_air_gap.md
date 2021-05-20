@@ -266,16 +266,12 @@ installed before you will be able to use the Supermarket cookbook
 wrapper. In addition the necessary cookbooks, a private Chef Supermarket
 has the following requirements:
 
--   An operational Chef Infra Server (version 12.0 or higher) to act as
-    the OAuth 2.0 provider
+-   An operational Chef Infra Server to act as the OAuth 2.0 provider
 -   A user account on the Chef Infra Server with `admins` privileges
 -   A key for the user account on the Chef server
--   An x86_64 compatible Linux host with at least 1 GB memory
--   System clocks synchronized on the Chef Infra Server and Supermarket
-    hosts
--   Sufficient disk space to meet project cookbook storage capacity or
-    credentials to store cookbooks in an Amazon Simple Storage Service
-    (S3) bucket
+-   An x86_64 Ubuntu, RHEL, or Amazon Linux host with at least 1 GB memory
+-   System clocks synchronized on the Chef Infra Server and Supermarket hosts
+-   Sufficient disk space to meet project cookbook storage capacity or credentials to store cookbooks in an Amazon Simple Storage Service (S3) bucket
 
 ### Configure credentials
 
