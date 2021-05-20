@@ -22,11 +22,8 @@ cookbooks.
 
 {{< note >}}
 
-If you already use Hosted Chef as your Chef Infra Server, skip to the
-cookbook sharing method of your choice:
-
--   [Stove](/supermarket_share_cookbook/#share-cookbooks-via-stove)
--   [Knife](/supermarket_share_cookbook/#share-cookbooks-via-knife)
+If you already use Hosted Chef as your Chef Infra Server, you can skip
+directly to the sharing your cookbook.
 
 {{< /note >}}
 
@@ -46,49 +43,6 @@ cookbook sharing method of your choice:
 4.  Download and extract the Hosted Chef starter kit:
 
     {{< figure src="/images/download_starter_kit.png" width=600 alt="Image showing the Administration tab and the Download Starter Kit button.">}}
-
-## Share Cookbooks via Stove
-
-[Stove](https://github.com/chef/stove) is a cookbook release
-utility that keeps the upload process localized to the cookbook itself,
-as opposed to the
-[Knife](/supermarket_share_cookbook/#share-cookbooks-via-knife)
-method which requires a cookbook repository.
-
-{{< note >}}
-
-Stove is included in Chef Workstation. If you are not using Chef
-Workstation, follow the [Stove installation
-instructions](https://github.com/chef/stove) to
-install Stove separately.
-
-{{< /note >}}
-
-1.  Add your Hosted Chef credentials to Stove. Replace `USER` with your
-    Hosted Chef user, and `KEY.pem` with your the full path to Hosted
-    Chef private key:
-
-    ```none
-    stove login --username USER --key ~/chef-repo/.chef/KEY.pem
-    ```
-
-    Stove will save this information to its configuration file under
-    `~/.stove`. Note that if you've downloaded the Hosted Chef starter
-    kit, the private key is located within its chef-repo under
-    `/chef-repo/.chef/USERNAME.pem`.
-
-2.  Navigate to the root of the cookbook that you want to upload, then
-    initialize Stove:
-
-    ```none
-    stove
-    ```
-
-    Stove will package the cookbook, tag the cookbook version, and
-    publish it to the public Supermarket. By default, Stove will tag the
-    current commit of the Git repo with the version number declared in
-    the cookbook's metadata, and will push that tag to the Git remote;
-    Use `stove --no-git` to disable this feature.
 
 ## Share Cookbooks via Knife
 
