@@ -6,22 +6,14 @@ aliases = ["/install_supermarket.html"]
 product = ["client", "server", "workstation"]
 
 [menu]
-  [menu.infra]
+  [menu.supermarket]
     title = "Install Private Supermarket"
-    identifier = "chef_infra/setup/supermarket/install_supermarket.md Install Private Supermarket"
-    parent = "chef_infra/setup/supermarket"
-    weight = 20
+    identifier = "supermarket/server/install_supermarket.md Install Private Supermarket"
+    parent = "supermarket/server"
+    weight = 10
 +++
 
-{{% supermarket_summary %}}
-
-{{% supermarket_private %}}
-
-{{< note >}}
-
 {{% supermarket_private_source_code %}}
-
-{{< /note >}}
 
 ## Requirements
 
