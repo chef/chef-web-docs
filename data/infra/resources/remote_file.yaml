@@ -9,7 +9,7 @@ resource_description_list:
 - markdown: Use the **remote_file** resource to transfer a file from a remote location
     using file specificity. This resource is similar to the **file** resource.
 - note:
-    markdown: Fetching files from the `files/` directory in a cookbook should be done
+  - markdown: Fetching files from the `files/` directory in a cookbook should be done
       with the **cookbook_file** resource.
 syntax_description: "A **remote_file** resource block manages files by using files\
   \ that\nexist remotely. For example, to write the home page for an Apache\nwebsite:\n\
@@ -48,8 +48,7 @@ syntax_full_properties_list:
 - "`atomic_update`, `authentication`, `backup`, `checksum`, `content`, `force_unlink`,
   `ftp_active_mode`, `group`, `headers`, `manage_symlink_source`, `mode`, `owner`,
   `path`, `remote_domain`, `remote_password`, `remote_user`, `show_progress`, `ssl_verify_mode`,
-  `use_etag`, `use_last_modified`, and `verifications` are the properties available
-  to this resource."
+  `use_etag`, and `use_last_modified` are the properties available to this resource."
 actions_list:
   :nothing:
     shortcode: resources_common_actions_nothing.md
