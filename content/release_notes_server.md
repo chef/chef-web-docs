@@ -30,7 +30,7 @@ Elasticsearch was upgraded from 6.8.14 to 6.8.15 to resolve [CVE-2021-22137](htt
 
 #### OpenResty Version in Errors
 
-Error pages will no longer display the running version of OpenResty.
+Error pages no longer display the running version of OpenResty.
 
 ## What's New in 14.3
 
