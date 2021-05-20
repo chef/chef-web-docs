@@ -24,8 +24,7 @@ syntax_properties_list:
 syntax_full_code_block: "remote_file 'name' do\n  atomic_update              true,\
   \ false\n  authentication             # default value: remote\n  backup        \
   \             Integer, false # default value: 5\n  checksum                   String\n\
-  \  content                    String, nil\n  diff                       String,\
-  \ nil\n  force_unlink               true, false # default value: false\n  ftp_active_mode\
+  \  content                    String, nil\n  force_unlink               true, false # default value: false\n  ftp_active_mode\
   \            true, false # default value: false\n  group                      String,\
   \ Integer\n  headers                    Hash\n  inherits                   true,\
   \ false\n  manage_symlink_source      true, false\n  mode                      \
