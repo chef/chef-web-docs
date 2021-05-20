@@ -207,8 +207,7 @@ Cookbooks are comprised of the following components:
 <td>{{< readFile_shortcode file="cookbooks_metadata.md" >}}</td>
 </tr>
 <tr>
-<td><p><img src="/images/icon_cookbook_recipes.svg" class="align-center" width="130" alt="image" /></p>
-<p><img src="/images/icon_recipe_dsl.svg" class="align-center" width="130" alt="image" /></p></td>
+<td><p><img src="/images/icon_cookbook_recipes.svg" class="align-center" width="130" alt="image" /></p></td>
 <td><p>{{< readFile_shortcode file="cookbooks_recipe.md" >}}</p>
 <p>The Chef Infra Client will run a recipe only when asked. When the Chef Infra Client runs the same recipe more than once, the results will be the same system state each time. When a recipe is run against a system, but nothing has changed on either the system or in the recipe, the Chef Infra Client won't change anything.</p>
 <p>{{< readFile_shortcode file="infra_lang_summary.md" >}}</p></td>
