@@ -321,7 +321,7 @@ identifier = "server"
 
 
 [[infra]]
-title = "Chef Infra Client"
+title = "Chef Infra"
 identifier = "chef_infra"
 
   [[infra]]
