@@ -48,8 +48,7 @@ syntax_full_properties_list:
 - "`atomic_update`, `authentication`, `backup`, `checksum`, `content`, `force_unlink`,
   `ftp_active_mode`, `group`, `headers`, `manage_symlink_source`, `mode`, `owner`,
   `path`, `remote_domain`, `remote_password`, `remote_user`, `show_progress`, `ssl_verify_mode`,
-  `use_etag`, `use_last_modified`, and `verifications` are the properties available
-  to this resource."
+  `use_etag`, and `use_last_modified` are the properties available to this resource."
 actions_list:
   :nothing:
     shortcode: resources_common_actions_nothing.md
