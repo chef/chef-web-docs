@@ -7,12 +7,12 @@ resource: ifconfig
 resource_description_list:
 - markdown: Use the **ifconfig** resource to manage interfaces on Unix and Linux systems.
 - note:
-  - markdown: This resource requires the ifconfig binary to be present on the system
+    markdown: This resource requires the ifconfig binary to be present on the system
       and may require additional packages to be installed first. On Ubuntu 18.04 or
       later you will need to install the `ifupdown` package, which disables the built
       in Netplan functionality.
 - warning:
-  - markdown: This resource will not work with Fedora release 33 or later.
+    markdown: This resource will not work with Fedora release 33 or later.
 syntax_full_code_block: |-
   ifconfig 'name' do
     bcast             String

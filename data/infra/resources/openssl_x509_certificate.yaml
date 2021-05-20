@@ -10,7 +10,7 @@ resource_description_list:
     will automatically generate a passwordless key with the certificate. If a CA private
     key and certificate are provided, the certificate will be signed with them.
 - note:
-  - markdown: This resource was renamed from openssl_x509 to openssl_x509_certificate.
+    markdown: This resource was renamed from openssl_x509 to openssl_x509_certificate.
       The legacy name will continue to function, but cookbook code should be updated
       for the new resource name.
 resource_new_in: '14.4'
