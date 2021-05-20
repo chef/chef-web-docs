@@ -20,7 +20,7 @@ describes each registered node that is managed by the Chef Infra Client.
 
 ### Security Updates
 
-#### PostgreSQL
+#### PostgreSQL 9.6.22
 
 PostgreSQL was upgraded from 9.6.21 to 9.6.22 to resolve [CVE-2021-22137](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-32027) and [CVE-2021-22137](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-32028).
 
