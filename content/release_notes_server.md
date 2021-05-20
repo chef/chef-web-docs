@@ -1,5 +1,5 @@
 +++
-title = "Release Notes: Chef Infra Server 12.0 - 14.3"
+title = "Release Notes: Chef Infra Server 12.0 - 14.4"
 draft = false
 gh_repo = "chef-web-docs"
 aliases = ["/release_notes_server.html"]
@@ -15,6 +15,22 @@ product = ["server"]
 Chef Infra Server acts as a hub for configuration data by storing
 cookbooks, the policies that are applied to nodes, and metadata that
 describes each registered node that is managed by the Chef Infra Client.
+
+## What's New in 14.4
+
+### Security Updates
+
+#### PostgreSQL
+
+PostgreSQL was upgraded from 9.6.21 to 9.6.22 to resolve [CVE-2021-22137](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-32027) and [CVE-2021-22137](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-32028).
+
+#### Elasticsearch
+
+Elasticsearch was upgraded from 6.8.14 to 6.8.15 to resolve [CVE-2021-22137](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-22137).
+
+#### OpenResty Version in Errors
+
+Error pages will no longer display the running version of OpenResty.
 
 ## What's New in 14.3
 
