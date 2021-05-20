@@ -8,7 +8,7 @@ resource_description_list:
 - markdown: Use the **cron_access** resource to manage cron's cron.allow and cron.deny
     files.
 - note:
-  - markdown: This resource previously shipped in the `cron` cookbook as `cron_manage`,
+    markdown: This resource previously shipped in the `cron` cookbook as `cron_manage`,
       which it can still be used as for backwards compatibility with existing Chef
       Infra Client releases.
 resource_new_in: '14.4'

@@ -9,7 +9,7 @@ resource_description_list:
 - markdown: Use the **homebrew_package** resource to manage packages for the macOS
     platform.
 - note:
-  - markdown: Starting with Chef Infra Client 16 the homebrew resource now accepts
+    markdown: Starting with Chef Infra Client 16 the homebrew resource now accepts
       an array of packages for installing multiple packages at once.
 - notes_resource_based_on_package: true
 resource_new_in: '12.0'
