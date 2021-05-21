@@ -80,7 +80,7 @@ properties_list:
   description_list:
   - markdown: The value of the key.
   - note:
-    - markdown: 'With the `type` property set to `bool`, `String` forms of Boolean
+      markdown: 'With the `type` property set to `bool`, `String` forms of Boolean
         true/false values that Apple accepts in the defaults command will be coerced:
         0/1, ''TRUE''/''FALSE,'' ''true''/false'', ''YES''/''NO'', or ''yes''/''no''.'
 examples: |

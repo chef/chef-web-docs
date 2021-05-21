@@ -212,7 +212,7 @@ properties_list:
       to compliment yum-updates running once per hour. It is also possible to use
       the word `never`, meaning that the metadata will never expire.
   - note:
-    - markdown: When using a metalink file, the metalink must always be newer than
+      markdown: When using a metalink file, the metalink must always be newer than
         the metadata for the repository due to the validation, so this timeout also
         applies to the metalink file.
 - property: metalink

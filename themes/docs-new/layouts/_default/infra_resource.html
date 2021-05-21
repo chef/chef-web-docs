@@ -406,16 +406,16 @@
                         <div class="admonition-note">
                           <p class="admonition-note-title">Note</p>
                           <div class="admonition-note-text">
-                            {{ range $value }}
-                              {{ range $subkey, $subvalue := . }}
-                                {{ if eq $subkey "shortcode" }}
-                                  <p>
-                                    {{ readFile (delimit (slice `themes/docs-new/layouts/shortcodes/` $subvalue ) "") | markdownify }}
-                                  </p>
-                                {{ end }}
-                                {{ if eq $subkey "markdown" }}
-                                  <p>{{- $subvalue | markdownify -}}</p>
-                                {{ end }}
+                            {{ range $subkey, $subvalue := $value }}
+                              {{ if eq $subkey "markdown" }}
+                                <p>
+                                  {{- $subvalue | markdownify -}}
+                                </p>
+                              {{ end }}
+                              {{ if eq $subkey "shortcode" }}
+                                <p>
+                                  {{ readFile (delimit (slice `themes/docs-new/layouts/shortcodes/` $subvalue ) "") | markdownify }}
+                                </p>
                               {{ end }}
                             {{ end }}
                           </div>
@@ -425,18 +425,16 @@
                         <div class="admonition-warning">
                           <p class="admonition-warning-title">Warning</p>
                           <div class="admonition-warning-text">
-                            {{ range $value }}
-                              {{ range $subkey, $subvalue := . }}
-                                {{ if eq $subkey "shortcode" }}
-                                  <p>
-                                    {{ readFile (delimit (slice `themes/docs-new/layouts/shortcodes/` $subvalue ) "") | markdownify }}
-                                  </p>
-                                {{ end }}
-                                {{ if eq $subkey "markdown" }}
-                                  <p>
-                                    {{- $subvalue | markdownify -}}
-                                  </p>
-                                {{ end }}
+                            {{ range $subkey, $subvalue := $value }}
+                              {{ if eq $subkey "markdown" }}
+                                <p>
+                                  {{- $subvalue | markdownify -}}
+                                </p>
+                              {{ end }}
+                              {{ if eq $subkey "shortcode" }}
+                                <p>
+                                  {{ readFile (delimit (slice `themes/docs-new/layouts/shortcodes/` $subvalue ) "") | markdownify }}
+                                </p>
                               {{ end }}
                             {{ end }}
                           </div>

@@ -100,7 +100,7 @@ properties_list:
 
       the resource block. See "Syntax" section above for more information.'
   - note:
-    - markdown: 'Use the **execute** resource to run a single command. Use multiple
+      markdown: 'Use the **execute** resource to run a single command. Use multiple
 
         **execute** resource blocks to run multiple commands.'
 - property: creates

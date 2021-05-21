@@ -82,7 +82,7 @@ properties_list:
       \ [ :before ]\n  #...\nend\n```\n\nand as a Hash:\n\n```ruby\ndnf_package 'some-package'\
       \ do\n  #...\n  flush_cache( { :after => true } )\n  #...\nend\n```"
   - note:
-    - markdown: 'The `flush_cache` property does not flush the local DNF cache! Use
+      markdown: 'The `flush_cache` property does not flush the local DNF cache! Use
 
         dnf tools---`dnf clean metadata`, `dnf clean packages`,
 

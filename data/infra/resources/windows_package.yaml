@@ -156,7 +156,7 @@ properties_list:
 
       ```'
   - note:
-    - markdown: 'If there are multiple versions of a package installed with the same
+      markdown: 'If there are multiple versions of a package installed with the same
 
         display name, all of those packages will be removed unless a version
 
