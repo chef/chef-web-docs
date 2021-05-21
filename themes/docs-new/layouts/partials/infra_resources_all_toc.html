@@ -32,89 +32,16 @@
 
   </span>
   <a href="#{{ anchorize ( .Title )}}">{{ .Title }}</a>
-  <ul>
-    <li>
-      <a href="#common-functionality">Common Functionality</a>
-      <ul>
-        <li>
-          <a href="#common-functionality-actions">Actions</a>
 
-          <ul>
-            <li>
-              <a href="#common-functionality-actions-examples">Examples</a>
-            </li>
-          </ul>
-        </li>
-        <li>
-          <a href="#common-functionality-properties">Properties</a>
-          <ul>
-            <li>
-              <a href="#common-functionality-properties-examples">Examples</a>
-            </li>
-          </ul>
-        </li>
-        <li>
-          <a href="#common-functionality-guards">Guards</a>
-          <ul>
-            <li><a href="#common-functionality-guards-properties">Properties</a></li>
-            <li><a href="#common-functionality-guards-arguments">Arguments</a></li>
-            <li><a href="#common-functionality-guards-not-if-examples">not_if Examples</a></li>
-            <li><a href="#common-functionality-guards-only-if-examples">only_if Examples</a></li>
-          </ul>
-        </li>
-        <li>
-          <a href="#common-functionality-guard-interpreters">Guard Interpreters</a>
-          <ul>
-            <li><a href="#common-functionality-guard-interpreters-attributes">Attributes</a></li>
-            <li><a href="#common-functionality-guard-interpreters-inheritance">Inheritance</a></li>
-            <li><a href="#common-functionality-guard-interpreters-examples">Examples</a></li>
-          </ul>
-        </li>
-        <li><a href="#common-functionality-lazy-evaluation">Lazy Evaluation</a></li>
-        <li>
-          <a href="#common-functionality-resources_common_notification">Notifications</a>
-          <ul>
-            <li><a href="#common-functionality-resources_common_notification-timers">Timers</a></li>
-            <li>
-              <a href="#common-functionality-resources_common_notification-notifies">Notifies</a>
-              <ul>
-                <li><a href="#common-functionality-resources_common_notification-notifies-examples">Examples</a></li>
-              </ul>
-            </li>
-            <li>
-              <a href="#common-functionality-resources_common_notification-subscribes">Subscribes</a>
-              <ul>
-                <li><a href="#common-functionality-resources_common_notification-subscribes-examples">Examples</a></li>
-              </ul>
-            </li>
-          </ul>
-        </li>
-        <li>
-          <a href="#common-functionality-relative-paths">Relative Paths</a>
-          <ul>
-            <li><a href="#common-functionality-relative-paths-examples">Examples</a></li>
-          </ul>
-        </li>
-        <li>
-          <a href="#common-functionality-run-in-compile-phase">Run in Compile Phase</a>
-          <ul>
-            <li><a href="#common-functionality-run-in-compile-phase-run-actions">run_action</a></li>
-          </ul>
-        </li>
-        <li>
-          <a href="#common-functionality-resources_common_atomic_update">Atomic File Updates</a>
-        </li>
-        <li>
-          <a href="#common-functionality-resources_common_windows_security">Windows File Security</a>
-        </li>
-      </ul>
-    </li>
+  {{ $tableOfContents := .TableOfContents }}
 
-    {{ range index $.Site.Data ( .Params.data_path )}}
-      {{ $yaml_file := . }}
-      {{ if index . "resource_reference" }}
-
-        <li>
+  {{ $tableOfContents = replaceRE `(?m)</li>\s+</ul>\n</nav>$` "\n" $tableOfContents 1 }}
+  {{ $tableOfContents | safeHTML }}
+    <ul>
+      {{ range index $.Site.Data ( .Params.data_path )}}
+        {{ $yaml_file := . }}
+        {{ if index . "resource_reference" }}
+          <li>
           <a href="#{{ anchorize (print ( index . "resource" ) "-resource") }}">{{ index . "resource" }} resource</a>
           <ul>
             {{ if index $yaml_file "handler_types" }}
@@ -413,9 +340,12 @@
             <li><a href="#examples-{{ $ExamplesID }}">Examples</a></li>
 
           </ul>
-        </li>
+          </li>
+        {{ end }}
       {{ end }}
-    {{ end }}
-    <!-- End of range .Data.Pages TOC list items -->
-  </ul> <!-- End TOC List -->
+      <!-- End of range .Data.Pages TOC list items -->
+    </ul> <!-- End TOC List -->
+  </li>
+</ul>
+</nav>
 </aside>
