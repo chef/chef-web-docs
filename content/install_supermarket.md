@@ -6,22 +6,14 @@ aliases = ["/install_supermarket.html"]
 product = ["client", "server", "workstation"]
 
 [menu]
-  [menu.infra]
+  [menu.supermarket]
     title = "Install Private Supermarket"
-    identifier = "chef_infra/setup/supermarket/install_supermarket.md Install Private Supermarket"
-    parent = "chef_infra/setup/supermarket"
-    weight = 20
+    identifier = "supermarket/server/install_supermarket.md Install Private Supermarket"
+    parent = "supermarket/server"
+    weight = 10
 +++
 
-{{% supermarket_summary %}}
-
-{{% supermarket_private %}}
-
-{{< note >}}
-
 {{% supermarket_private_source_code %}}
-
-{{< /note >}}
 
 ## Requirements
 
@@ -51,12 +43,11 @@ A private Chef Supermarket has the following requirements:
     and cookbook store is less a decision about storage sizing; it is
     about data service uptime, backup, and restore procedure for your
     organization
--   As a point of reference: as of September 2017 after three years of
-    operation, the public Supermarket has approx 70,000 users, 3,300
-    cookbooks with a total of 20,000 versions published. The PostgreSQL
-    database weighs in at 310 MB (50 MB when exported with `pg_dump`),
-    and the S3 bucket containing all of the published community
-    cookbooks weighs in at 2.7 GB
+-   As a point of reference: as of May 2021 after six years of
+    operation, the public Supermarket has approx 83,000 users, 4,000
+    cookbooks with a total of 27,000 versions published. The PostgreSQL
+    database weighs in at 435 MB, and the S3 bucket containing all of
+    the published community cookbooks weighs in at 3.1 GB
 
 ## Chef Identity
 

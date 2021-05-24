@@ -9,10 +9,10 @@ resource_description_list:
     Use the **gem_package** resource to manage gem packages that are only included in recipes.
     When a gem is installed from a local file, it must be added to the node using the **remote_file** or **cookbook_file** resources.
 - note:
-  - markdown: The **gem_package** resource must be specified as `gem_package` and
+    markdown: The **gem_package** resource must be specified as `gem_package` and
       cannot be shortened to `package` in a recipe.
 - warning:
-  - markdown: |-
+    markdown: |-
       The **chef_gem** and **gem_package** resources are both used to install Ruby gems. For any machine on which Chef Infra Client is
       installed, there are two instances of Ruby. One is the standard, system-wide instance of Ruby and the other is a dedicated instance that is
       available only to Chef Infra Client.

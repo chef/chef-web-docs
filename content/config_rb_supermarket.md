@@ -6,11 +6,11 @@ aliases = ["/config_rb_supermarket.html"]
 product = ["client", "server", "workstation"]
 
 [menu]
-  [menu.infra]
-    title = "supermarket.rb Settings"
-    identifier = "chef_infra/setup/supermarket/config_rb_supermarket.md supermarket.rb Settings"
-    parent = "chef_infra/setup/supermarket"
-    weight = 40
+  [menu.supermarket]
+    title = "Configure"
+    identifier = "supermarket/server/config_rb_supermarket.md Settings"
+    parent = "supermarket/server"
+    weight = 20
 +++
 
 {{% config_rb_supermarket_summary %}}

@@ -16,7 +16,7 @@ resource_description_list:
     - Runs its actions immediately, before convergence, allowing a gem to be used in a recipe immediately after it is installed.
     - Runs `Gem.clear_paths` after the action, ensuring that gem is aware of changes so that it can be required immediately after it is installed.
 - warning:
-  - markdown: |-
+    markdown: |-
       The **chef_gem** and **gem_package** resources are both used to install Ruby gems. For any machine on which Chef Infra Client is
       installed, there are two instances of Ruby. One is the standard, system-wide instance of Ruby and the other is a dedicated instance that is
       available only to Chef Infra Client.
