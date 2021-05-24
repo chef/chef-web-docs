@@ -10,7 +10,7 @@ assignees: ''
 To request support for a large documentation project:
 
 1. Fill in the `Documentation project plan` and open an issue
-2. Send an email with the rest of information in this template (as much as you have) to docs@chef.io. 
+2. Send an email with the rest of the information in this template (as much as you have) to docs@chef.io. 
 
 We will follow up with you soon!
 
