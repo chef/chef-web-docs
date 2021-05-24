@@ -136,7 +136,7 @@ resource_description_list:
 - markdown: 'This is markdown text. It will be added before the note below.'
 - note:
     shortcode: shortcode_file_name.md
-		markdown: This Markown text will appear in a note but after the shortcode above.
+		markdown: This Markdown text will appear in a note but after the shortcode above.
 ```
 
 **resource_new_in**
@@ -267,10 +267,10 @@ properties_list:
   new_in: 14.0
   description_list:
   - markdown: Some text describing the property.
-	- note:
-		- shortcode: shortcode_file.md
-	- warning:
-		- markdown: Markdown text warning the user about the propery.
+  - note:
+      shortcode: shortcode_file.md
+  - warning:
+      markdown: Markdown text warning the user about the property.
 ```
 
 **examples**

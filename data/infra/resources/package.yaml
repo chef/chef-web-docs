@@ -170,7 +170,7 @@ properties_list:
       yum_package 'some-package' do\n  #...\n  flush_cache( { :after => true } )\n\
       \  #...\nend\n```"
   - note:
-    - markdown: 'The `flush_cache` property does not flush the local Yum cache! Use
+      markdown: 'The `flush_cache` property does not flush the local Yum cache! Use
 
         Yum tools---`yum clean headers`, `yum clean packages`,
 
@@ -248,7 +248,7 @@ properties_list:
   description_list:
   - markdown: Optional. The path to a package in the local file system.
   - note:
-    - markdown: 'The AIX platform requires `source` to be a local file system path
+      markdown: 'The AIX platform requires `source` to be a local file system path
 
         because `installp` does not retrieve packages using HTTP or FTP.'
 - property: subscribes

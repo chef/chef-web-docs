@@ -88,7 +88,7 @@ properties_list:
       yum_package 'some-package' do\n  #...\n  flush_cache( { :after => true } )\n\
       \  #...\nend\n```"
   - note:
-    - markdown: 'The `flush_cache` property does not flush the local Yum cache! Use
+      markdown: 'The `flush_cache` property does not flush the local Yum cache! Use
 
         Yum tools---`yum clean headers`, `yum clean packages`,
 

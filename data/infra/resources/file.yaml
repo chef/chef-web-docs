@@ -297,7 +297,7 @@ properties_list:
 
       command returns a non-zero exit status code.'
   - note:
-    - markdown: 'A block is arbitrary Ruby defined within the resource block by using
+      markdown: 'A block is arbitrary Ruby defined within the resource block by using
 
         the `verify` property. When a block returns `true`, Chef Infra
 

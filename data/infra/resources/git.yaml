@@ -106,7 +106,7 @@ properties_list:
 
       command to be run successfully.)'
   - note:
-    - markdown: 'The **git** provider automatically sets the `ENV[''HOME'']` and
+      markdown: 'The **git** provider automatically sets the `ENV[''HOME'']` and
 
         `ENV[''GIT_SSH'']` environment variables. To override this behavior
 

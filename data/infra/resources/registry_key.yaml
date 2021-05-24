@@ -64,8 +64,11 @@ syntax_properties_list:
 - "`type:` represents the values available for registry keys in Microsoft Windows.\
   \ Use `:binary` for REG_BINARY, `:string` for REG_SZ, `:multi_string` for REG_MULTI_SZ,\
   \ `:expand_string` for REG_EXPAND_SZ, `:dword` for REG_DWORD, `:dword_big_endian`\
-  \ for REG_DWORD_BIG_ENDIAN, or `:qword` for REG_QWORD.\n {{< warning >}}\n `:multi_string`\
-  \ must be an array, even if there is only a single string.\n {{< /warning >}}"
+  \ for REG_DWORD_BIG_ENDIAN, or `:qword` for REG_QWORD.
+  \ <div class='admonition-warning'>\
+  \ <p class='admonition-warning-title'>Warning</p>\
+  \ <div class='admonition-warning-text'> `:multi_string`\
+  \ must be an array, even if there is only a single string.</div></div>"
 - '`action` identifies the steps Chef Infra Client will take to bring the node into
   the desired state'
 - '`architecture`, `key`, `recursive` and `values` are properties of this resource,
