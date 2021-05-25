@@ -39,9 +39,12 @@ git add .
 # audit of our codebase that no DCO sign-off is needed for this sort of PR since
 # it contains no intellectual property
 
-dco_safe_git_commit "Bump Hugo module ${EXPEDITOR_PROJECT} to latest ${EXPEDITOR_TARGET_CHANNEL}."
+git commit \
+    --signoff \
+    --message "Bump Hugo module chef/cookstyle to latest ${EXPEDITOR_TARGET_CHANNEL}."
 
-open_pull_request
+gh pr create --title "Bump Hugo module chef/cookstyle" \
+    --body "Bump Hugo module chef/cookstyle to latest ${EXPEDITOR_TARGET_CHANNEL}"
 
 # Get back to master and cleanup the leftovers - any changed files left over at
 # the end of this script will get committed to master.
