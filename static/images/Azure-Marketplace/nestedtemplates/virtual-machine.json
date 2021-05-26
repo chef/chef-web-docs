@@ -1,0 +1,189 @@
+{  
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+  
+      "vmName": {
+        "type": "string",
+        "metadata": {
+          "description": "Name of the VM as it will appear in Azure"
+        }
+      },
+  
+      "vmSize": {
+        "type": "string",
+        "metadata": {
+          "description": "Size of the machine to create"
+        }
+      },
+
+      "adminUsername": {
+        "type": "string"
+      },
+
+      "sshPublicKeys": {
+        "defaultValue": [],
+        "metadata": {
+          "description": "Administrator user SSH public keys"
+        },
+        "type": "array"
+      },
+  
+      "authenticationType": {
+        "allowedValues": [
+          "password",
+          "sshPublicKey"
+        ],
+        "defaultValue": "password",
+        "metadata": {
+          "description": "Authentication type"
+        },
+        "type": "string"
+      },
+  
+      "storageAccountName": {
+        "type": "string"
+      },
+
+      "customerNicRef": {
+          "type": "string",
+          "metadata": {
+              "description": "Reference to the NIC that is connected to the Customer network"
+          }
+      },
+
+      "fqdn": {
+        "type": "string",
+        "metadata": {
+          "description": "FQDN of the machine to set"
+        },
+        "defaultValue": ""
+      },
+      "tags": {
+          "type": "object"
+      },
+      "location": {
+        "type": "string"
+      }
+    },
+    "variables": {
+  
+      "location": "[parameters('location')]",
+  
+      "name": {
+        "vm": "[parameters('vmName')]",
+        "computer": "[first(split(parameters('fqdn'), '.'))]",
+        "sa": {
+          "name": "[parameters('storageAccountName')]"
+        },
+        "disk": {
+          "os": "[concat(first(split(parameters('fqdn'), '.')), '-OSDisk')]"
+        }
+      },
+
+      "customData": "[concat('#cloud-config\nmanage_etc_hosts: true\n\npackage_update: true\npackage_upgrade: false\nfqdn: ', parameters('fqdn'))]",
+  
+      "osProfile": "[variables(concat('osprofile', parameters('authenticationType')))]",
+
+      "osProfilesshPublicKey": {
+        "adminUsername": "[parameters('adminUsername')]",
+        "computerName": "[variables('name').computer]",
+        "customData": "[base64(variables('customData'))]",
+        "linuxConfiguration": {
+          "disablePasswordAuthentication": "true",
+          "ssh": {
+            "publicKeys": "[parameters('sshPublicKeys')]"
+          }
+        }
+      },
+      
+      "dataDisks": [
+        {
+          "name": "[concat(first(split(parameters('fqdn'), '.')), '-DataDisk')]",
+          "size": "100"
+        }
+      ],
+  
+      "ref": {
+        "customerNic": "[parameters('customerNicRef')]"
+      },
+  
+      "vmSize": "[parameters('vmSize')]",
+  
+      "image": {
+        "publisher": "canonical",
+        "offer": "ubuntuserver",
+        "sku": "18.04-LTS"
+      },
+
+      "tags": "[parameters('tags')]"
+  
+    },
+    "resources": [
+  
+      {
+        "type": "Microsoft.Compute/virtualMachines",
+        "name": "[variables('name').vm]",
+        "apiVersion": "2019-03-01",
+        "location": "[variables('location')]",
+        "tags": "[variables('tags')]",
+        "properties": {
+          "hardwareProfile": {
+            "vmSize": "[variables('vmSize')]"
+          },
+          "osProfile": "[variables('osprofile')]",
+          "storageProfile": {
+            "imageReference": {
+              "publisher": "[variables('image').publisher]",
+              "offer": "[variables('image').offer]",
+              "sku": "[variables('image').sku]",
+              "version": "latest"
+            },
+            "osDisk": {
+              "name": "[variables('name').disk.os]",
+              "caching": "ReadOnly",
+              "createOption": "FromImage"
+            },
+            "copy": [
+              {
+                "name": "dataDisks",
+                "count": "[length(variables('dataDisks'))]",
+                "input": {
+                  "diskSizeGB": "[variables('dataDisks')[copyIndex('dataDisks')].size]",
+                  "lun": "[copyIndex('dataDisks')]",
+                  "createOption": "Empty",
+                  "name": "[concat(variables('dataDisks')[copyIndex('dataDisks')].name, '-', copyIndex('dataDisks', 1))]"
+                }
+              }
+            ]
+          },
+          "networkProfile": {
+            "networkInterfaces": [
+              {
+                "id": "[variables('ref').customerNic]",
+                "properties": {
+                  "primary": true
+                }
+              }
+            ]
+          },
+          "diagnosticsProfile": {
+            "bootDiagnostics": {
+                "enabled": true,
+                "storageUri": "[reference(resourceId(resourceGroup().name, 'Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2019-04-01').primaryEndpoints['blob']]"
+            }
+          }
+        }
+      }
+    ],
+    "outputs": {
+      "fqdn": {
+        "type": "string",
+        "value": "[parameters('fqdn')]"
+      },
+      "dataDiskCount": {
+        "type": "int",
+        "value": "[length(variables('dataDisks'))]"
+      }
+    }
+  }
