@@ -1,0 +1,558 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "prefix": {
+            "type": "string",
+            "metadata": {
+                "description": "Prefix to be applied to the name and hostname of the Chef and Automate servers"
+            },
+            "defaultValue": "chef"
+        },
+
+        "automateVMSize": {
+            "type": "string",
+            "metadata": {
+                "description": "VM size for the Chef Automate server"
+            },
+            "defaultValue": "Standard_D4s_v3"
+        },
+
+        "existingVNet": {
+            "type": "bool",
+            "metadata": {
+                "description": "State if an existing VNet and Subnet shoulod be used. If true then `customerResourceGroupName`, `virtualNetworkName` and `subnetName` must be supplied"
+            },
+            "defaultValue": false
+        },
+
+        "customerResourceGroupName": {
+            "type": "string",
+            "metadata": {
+                "description": "Name of the resource group that contains the Virtual network to which the Chef and Automate servers should be connected to"
+            },
+            "defaultValue": ""
+        },
+
+        "virtualNetworkName": {
+            "type": "string",
+            "metadata": {
+                "description": "Name of the Virtual Network which contains the Subnet to which the machines should be connected"
+            },
+            "defaultValue": ""
+        },
+
+        "subnetName": {
+            "type": "string",
+            "metadata": {
+                "description": "Name of the subnet to which the machines should be connected to"
+            },
+            "defaultValue": ""
+        },
+
+        "uniqueShort": {
+            "type": "string",
+            "metadata": {
+                "description": "A string of 4 or 5 characters that will be used to help uniquely identify the resources that are created. If this is not specified then a value will be automatically created."
+            },
+            "defaultValue": ""
+        },
+
+        "sshSourceAddresses": {
+            "type": "array",
+            "metadata": {
+                "description": "Source ranges from which SSH access is permitted."
+            },
+            "defaultValue": [
+                "0.0.0.0/0"
+            ]
+        },
+ 
+        "chefOrg": {
+            "type": "string",
+            "metadata": {
+                "description": "Name of the first Chef Server organization to be created"
+            },
+            "defaultValue": "trial"
+        },
+
+        "chefOrgDescription": {
+            "type": "string",
+            "metadata": {
+                "description": "Description of the Chef org"
+            },
+            "defaultValue": "Trial Organization"
+        },
+
+        "location": {
+            "type": "string",
+            "metadata": {
+                "description": "Location that the resources should be deployed to. Defaults to the Resource Group location"
+            },
+            "defaultValue": "[resourceGroup().location]"
+        },
+        "autoDiscoverSASToken": {
+            "type": "bool",
+            "defaultValue": false,
+            "metadata": {
+                "description": "State if the template should try to auto discover the SAS token from the deployment. This is used when building and testing the template in VSTS."
+            }
+        },
+        "_artifactsLocation": {
+            "type": "string",
+            "metadata": {
+                "description": "The base URI where artifacts required by this template are located including a trailing '/'"
+            },
+        "defaultValue": "[deployment().properties.templateLink.uri]"
+        },
+        "_artifactsLocationSasToken": {
+            "type": "securestring",
+            "metadata": {
+                "description": "The sasToken required to access _artifactsLocation.  When the template is deployed using the accompanying scripts, a sasToken will be automatically generated. Use the defaultValue if the staging location is not secured."
+            },
+            "defaultValue": ""
+        },
+        "sshUser": {
+            "type": "string",
+            "metadata": {
+                "description": "Username for the ssh user"
+            },
+            "defaultValue": ""
+        },
+
+        "sshPublicKey": {
+            "type": "string",
+            "metadata": {
+                "description": "SSH public keys that should be applied to the user on the machines"
+            },
+            "defaultValue": ""
+        },
+
+        "vnetPrefix": {
+            "type": "string",
+            "metadata": {
+                "description": "Prefix for the virtual network. Only used when creating a new network for deployment"
+            },
+            "defaultValue": "10.0.0.0/24"
+        },
+
+        "subnetPrefix": {
+            "type": "string",
+            "metadata": {
+                "description": "Prefix for the subnet. Only used when creating a new virtual network"
+            },
+            "defaultValue": "10.0.0.0/24"
+        },
+
+        "existingVNetFromUI": {
+            "type": "string",
+            "metadata": {
+                "description": "The output from the UI does not provide a boolean value, only `new` or `existing`. This parameter will take this value and produce a boolean if it is set. This should not be used for manual template deployments."
+            },
+            "defaultValue": "",
+            "allowedValues": [
+                "",
+                "new",
+                "existing"
+            ]
+        }
+
+    },
+    "variables": {
+
+        "unique": "[uniqueString(subscription().subscriptionId, resourceGroup().id, deployment().name, parameters('prefix'))]",
+        "uniqueShort": "[if(empty(parameters('uniqueShort')), substring(variables('unique'), 0, 4), parameters('uniqueShort'))]",
+        "location": "[parameters('location')]",
+
+        "name": {
+            "storageAccount": "[variables('unique')]",
+            "container": {
+                "backup": "backup"
+            },
+            "network": {
+                "vnet": "[if(empty(parameters('virtualNetworkName')), concat(parameters('prefix'), '-', variables('uniqueShort'), '-VNet'), parameters('virtualNetworkName'))]",
+                "subnet": "[if(empty(parameters('subnetName')), concat(parameters('prefix'), '-', variables('uniqueShort'), '-Subnet'), parameters('subnetName'))]"
+            },
+            "appServicePlan": "[concat(parameters('prefix'), '-', variables('uniqueShort'), '-AppServicePlan')]",
+            "appService": "[concat(parameters('prefix'), '-', variables('uniqueShort'), '-AppService')]",
+            "appServiceFunctions": "[concat(parameters('prefix'), '-', variables('uniqueShort'), '-AppService-Functions')]",
+            "applicationInsights": "[concat(parameters('prefix'), '-', variables('uniqueShort'), '-AppInsights')]",
+            "sa": "[concat(parameters('prefix'), '-', variables('uniqueShort'), '-SA')]",
+            "la": "[concat(parameters('prefix'), '-', variables('uniqueShort'), '-LogAnalytics')]",
+            "alerting": "[concat(parameters('prefix'), '-', variables('uniqueShort'), '-Alerts')]",
+            "actionGroup": "[concat(parameters('prefix'), '-', variables('uniqueShort'), '-ActionGroup')]",
+            "vm": {
+                "chef": "[concat(parameters('prefix'), '-chef-', variables('uniqueShort'), '-VM')]",
+                "automate": "[concat(parameters('prefix'), '-automate-', variables('uniqueShort'), '-VM')]"
+            },
+            "computer": {
+                "chef": "[concat(parameters('prefix'), '-chef-', variables('uniqueShort'))]",
+                "automate": "[concat(parameters('prefix'), '-automate-', variables('uniqueShort'))]"
+            },
+            "publicIPAddress": {
+                "chef": "[concat(parameters('prefix'), '-chef-', variables('uniqueShort'), '-PublicIP')]",
+                "automate": "[concat(parameters('prefix'), '-automate-', variables('uniqueShort'), '-PublicIP')]"
+            },
+            "nic": {
+                "customer": {
+                    "chef": "[concat(parameters('prefix'), '-chef-', variables('uniqueShort'), '-Customer-VNet-NIC')]",
+                    "automate": "[concat(parameters('prefix'), '-automate-', variables('uniqueShort'), '-Customer-VNet-NIC')]"
+                }
+            },
+            "nsg": {
+                "chef": "[concat(parameters('prefix'), '-chef-', variables('uniqueShort'), '-Customer-NSG')]",
+                "automate": "[concat(parameters('prefix'), '-automate-', variables('uniqueShort'), '-Customer-NSG')]"
+            },
+            "resourceGroup": "[parameters('customerResourceGroupName')]",
+            "extension": {
+                "chef": "[concat(parameters('prefix'), '-chef-', variables('uniqueShort'), '-ScriptExtension')]",
+                "automate": "[concat(parameters('prefix'), '-automate-', variables('uniqueShort'), '-ScriptExtension')]"
+            },
+            "laExtension": {
+                "chef": "[concat(parameters('prefix'), '-chef-', variables('uniqueShort'), '-LAExtension')]",
+                "automate": "[concat(parameters('prefix'), '-automate-', variables('uniqueShort'), '-LAExtension')]"                
+            },
+            "apiConnection": "[concat(parameters('prefix'), '-AzureBlob-APIConnection')]",
+            "logicApps": {
+                "housekeeping": "[concat(parameters('prefix'), '-Backup-HouseKeeping-LogicApp')]"
+            }
+        },
+
+        "vmSize": {
+            "automate": "[parameters('automateVMSize')]"
+        },
+
+        "adminUsername": "[parameters('sshUser')]",
+        "admin": {
+            "sshPublicKeys": [
+                {
+                    "path": "[concat('/home/', variables('adminUsername'), '/.ssh/authorized_keys')]",
+                    "keyData": "[parameters('sshPublicKey')]"
+                }]
+        },
+
+        "network": {
+            "existing": "[if(empty(parameters('existingVNetFromUI')), parameters('existingVNet'), if(equals(parameters('existingVNetFromUI'), 'new'), bool(0), bool(1)))]",
+            "resourceGroup": "[parameters('customerResourceGroupName')]",
+            "prefix": {
+                "vnet": "[parameters('vnetPrefix')]",
+                "subnet": "[parameters('subnetPrefix')]"
+            }
+        },
+
+        "sourceAddresses": {
+            "ssh": "[parameters('sshSourceAddresses')]"
+        },
+
+        "sasTokenFromDeployment": "[if(parameters('autoDiscoverSASToken'), if(contains(deployment().properties, 'templateLink'), if(equals(length(split(deployment().properties.templateLink.uri, '?')), 2), last(split(deployment().properties.templateLink.uri, '?')), ''), ''), '')]",
+        "templateUrlQueryString": "[if(empty(parameters('_artifactsLocationSasToken')), if(empty(variables('sasTokenFromDeployment')), '', concat('?', variables('sasTokenFromDeployment'))), concat('?', parameters('_artifactsLocationSasToken')))]",
+
+        "urls": {
+            "storageAccount": "[uri(parameters('_artifactsLocation'), concat('nestedtemplates/storage-account.json', variables('templateUrlQueryString')))]",
+            "virtualNetwork": "[uri(parameters('_artifactsLocation'), concat('nestedtemplates/virtual-network.json', variables('templateUrlQueryString')))]",
+            "publicIPAddress": "[uri(parameters('_artifactsLocation'), concat('nestedtemplates/public-ipaddress.json', variables('templateUrlQueryString')))]",
+            "networkInterfacePublic": "[uri(parameters('_artifactsLocation'), concat('nestedtemplates/network-interface-public.json', variables('templateUrlQueryString')))]",
+            "networkSecurityGroup": "[uri(parameters('_artifactsLocation'), concat('nestedtemplates/network-security-group.json', variables('templateUrlQueryString')))]",
+            "virtualMachine": "[uri(parameters('_artifactsLocation'), concat('nestedtemplates/virtual-machine.json', variables('templateUrlQueryString')))]",
+            "scriptExtension": "[uri(parameters('_artifactsLocation'), concat('nestedtemplates/script-extension.json', variables('templateUrlQueryString')))]",
+            "scripts": {
+                "automateserver": "[uri(parameters('_artifactsLocation'), concat('scripts/automate-server.sh', variables('templateUrlQueryString')))]"
+            }
+        }
+    },
+    "resources": [
+        {
+            "comments": "Resource to track Chef Automate installations using this template",
+            "type": "Microsoft.Resources/deployments",
+            "name": "pid-2680257b-9f22-4261-b1ef-72412d367a68",
+            "apiVersion": "2019-05-01",  
+            "properties": {
+                "mode": "Incremental",
+                "template": {
+                    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+                    "contentVersion": "1.0.0.0",
+                    "resources": []
+                }
+            }
+        },
+
+        {
+            "type": "Microsoft.Resources/deployments",
+            "name": "[concat(variables('name').sa, '-Deployment')]",
+            "apiVersion": "2019-05-01",
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri": "[variables('urls').storageAccount]",
+                    "contentVersion": "1.0.0.0"
+                },
+                "parameters": {
+                    "location": {
+                        "value": "[variables('location')]"
+                    },
+                    "storageAccountName": {
+                        "value": "[variables('name').storageAccount]"
+                    },
+                    "tags": {
+                        "value": {
+                            "description": "Storage account used for troubleshooting and function storage"
+                        }
+                    }
+                }
+            }
+        },
+
+        {
+            "comments": "Virtual Network resource to either create a network or return the details of an existing one",
+            "type": "Microsoft.Resources/deployments",
+            "name": "[concat(variables('name').network.vnet, '-Deployment')]",
+            "apiVersion": "2019-05-01",
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri": "[variables('urls').virtualNetwork]",
+                    "contentVersion": "1.0.0.0"
+                },
+                "parameters": {
+                    "location": {
+                        "value": "[variables('location')]"
+                    },
+                    "resourceGroup": {
+                        "value": "[variables('network').resourceGroup]"
+                    },
+                    "vnetName": {
+                        "value": "[variables('name').network.vnet]"
+                    },
+                    "subnetName": {
+                        "value": "[variables('name').network.subnet]"
+                    },
+                    "vnetPrefix": {
+                        "value": "[variables('network').prefix.vnet]"
+                    },
+                    "subnetPrefix": {
+                        "value": "[variables('network').prefix.subnet]"
+                    },
+                    "existingVnet": {
+                        "value": "[variables('network').existing]"
+                    },
+                    "tags": {
+                        "value": {
+                            "description": "Virtual Network resource to either create a network or return the details of an existing one"
+                        }                        
+                    }
+                }
+            }
+        },
+
+        {
+            "type": "Microsoft.Resources/deployments",
+            "name": "[concat(variables('name').nsg.automate, '-Deployment')]",
+            "apiVersion": "2019-05-01",
+            "properties": {
+                "mode":"Incremental",
+                "templateLink": {
+                    "uri": "[variables('urls').networkSecurityGroup]",
+                    "contentVersion": "1.0.0.0"
+                },
+                "parameters": {
+                    "location": {
+                        "value": "[variables('location')]"
+                    },
+                    "groupName": {
+                        "value": "[variables('name').nsg.automate]"
+                    },
+                    "sshSourceAddresses": {
+                        "value": "[variables('sourceAddresses').ssh]"
+                    },
+                    "tags": {
+                        "value": {
+                            "description": "network security group limiting access to the Automate server"
+                        }
+                    }
+                }
+            }
+        },
+
+        {
+            "type": "Microsoft.Resources/deployments",
+            "name": "[concat(variables('name').publicIPAddress.automate, '-Deployment')]",
+            "apiVersion": "2019-05-01",
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri": "[variables('urls').publicIPAddress]",
+                    "contentVersion": "1.0.0.0"
+                },
+                "parameters": {
+                    "location": {
+                        "value": "[variables('location')]"
+                    },
+                    "publicIPAddressName": {
+                        "value": "[variables('name').publicIPAddress.automate]"
+                    },
+                    "publicIPAddressType": {
+                        "value": "Dynamic"
+                    },
+                    "dnsLabelPrefix": {
+                        "value": "[variables('name').computer.automate]"
+                    },
+                    "tags": {
+                        "value": {
+                            "description": "Public IP address for the Automate server"
+                        }
+                    }
+                }
+            }
+        },
+        
+        {
+            "type": "Microsoft.Resources/deployments",
+            "name": "[concat(variables('name').nic.customer.automate, '-Deployment')]",
+            "apiVersion": "2019-05-01",
+            "dependsOn": [
+                "[concat('Microsoft.Resources/deployments/', variables('name').publicIPAddress.automate, '-Deployment')]",
+                "[concat('Microsoft.Resources/deployments/', variables('name').nsg.automate, '-Deployment')]"
+            ],
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri": "[variables('urls').networkInterfacePublic]",
+                    "contentVersion": "1.0.0.0"
+                },
+                "parameters": {
+                    "location": {
+                        "value": "[variables('location')]"
+                    },
+                    "nicName": {
+                        "value": "[variables('name').nic.customer.automate]"
+                    },
+                    "publicIPAddressRef": {
+                        "value": "[reference(concat(variables('name').publicIPAddress.automate, '-Deployment')).outputs.publicIpId.value]"
+                    },
+                    "subnetRef": {
+                        "value": "[reference(concat(variables('name').network.vnet, '-Deployment')).outputs.subnetRef.value]"
+                    },
+                    "nsgRef": {
+                        "value": "[reference(concat(variables('name').nsg.automate, '-Deployment')).outputs.nsgId.value]"
+                    },
+                    "tags": {
+                        "value": {
+                            "description": "Network card for the Automate server connected to the customer subnet"
+                        }
+                    }
+                }
+            }
+        },
+
+        {
+            "type": "Microsoft.Resources/deployments",
+            "name": "[concat(variables('name').vm.automate, '-Deployment')]",
+            "apiVersion": "2019-05-01",
+            "dependsOn": [
+                "[concat('Microsoft.Resources/deployments/', variables('name').nic.customer.automate, '-Deployment')]",
+                "[concat('Microsoft.Resources/deployments/', variables('name').sa, '-Deployment')]"
+            ],
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri": "[variables('urls').virtualMachine]",
+                    "contentVersion": "1.0.0.0"
+                },
+                "parameters": {
+                    "location": {
+                        "value": "[variables('location')]"
+                    },
+                    "vmName": {
+                        "value": "[variables('name').vm.automate]"
+                    },
+                    "vmSize": {
+                        "value": "[variables('vmSize').automate]"
+                    },
+                    "adminUsername": {
+                        "value": "[variables('adminUsername')]"
+                    },
+                    "sshPublicKeys": {
+                        "value": "[variables('admin').sshPublicKeys]"
+                    },
+                    "authenticationType": {
+                        "value": "sshPublicKey"
+                    },
+                    "storageAccountName": {
+                        "value": "[variables('name').storageAccount]"
+                    },
+                    "customerNicRef": {
+                        "value": "[reference(concat(variables('name').nic.customer.automate, '-Deployment')).outputs.ref.value]"
+                    },
+                    "fqdn": {
+                        "value": "[variables('name').vm.automate]"
+                    },
+                    "tags": {
+                        "value": {
+                            "description": "Automate Server Virtual Machine"
+                        }
+                    }
+                }
+            }
+        },
+
+        {
+            "type": "Microsoft.Resources/deployments",
+            "name": "[concat(variables('name').extension.automate, '-Deployment')]",
+            "apiVersion": "2019-05-01",
+            "dependsOn": [
+                "[concat('Microsoft.Resources/deployments/', variables('name').vm.automate, '-Deployment')]"
+            ],
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri": "[variables('urls').scriptExtension]",
+                    "contentVersion": "1.0.0.0"
+                },
+                "parameters": {
+                    "location": {
+                        "value": "[variables('location')]"
+                    },
+                    "vmname": {
+                        "value": "[variables('name').vm.automate]"
+                    },
+                    "scriptUrl": {
+                        "value": "[variables('urls').scripts.automateserver]"
+                    },
+                    "scriptName": {
+                        "value": "automate-server.sh"
+                    },
+                    "arguments": {
+                        "value": {
+                            "USERNAME": "[parameters('sshUser')]",
+                            "FQDN": "[concat(reference(concat(variables('name').publicIPAddress.automate, '-Deployment')).outputs.fqdn.value)]",
+                            "CHEFORG": "[parameters('chefOrg')]",
+                            "CHEFORGDESCRIPTION": "[parameters('chefOrgDescription')]"
+                        }
+                    },
+                    "extensionName": {
+                        "value": "InstallAndConfigureAutomate"
+                    },
+                    "tags": {
+                        "value": {
+                            "description": "Script to install and configure the Automate server"
+                        }
+                    }
+                }
+            }
+        }
+    ],
+    "outputs": {
+        "ScpStarterKitCommand": {
+            "type": "string",
+            "value": "[concat('scp ',parameters('sshUser'),'@',reference(concat(variables('name').publicIPAddress.automate, '-Deployment')).outputs.fqdn.value, ':~/starterkit-trial.zip starterkit-trial.zip')]"
+        },
+        "ApplianceSshLoginCommand": {
+            "type": "string",
+            "value": "[concat('ssh ',parameters('sshUser'),'@',reference(concat(variables('name').publicIPAddress.automate, '-Deployment')).outputs.fqdn.value)]"
+        },
+        "ChefAutomateUrl": {
+            "type": "string",
+            "value": "[concat('https://',reference(concat(variables('name').publicIPAddress.automate, '-Deployment')).outputs.fqdn.value)]"
+        }
+    }
+}

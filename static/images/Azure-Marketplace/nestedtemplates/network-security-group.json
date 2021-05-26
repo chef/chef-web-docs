@@ -1,0 +1,96 @@
+{
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+      "groupName": {
+        "type": "string",
+        "metadata": {
+          "description": "Name of the security group"
+        }
+      },
+      "sshSourceAddresses": {
+        "type": "array",
+        "metadata": {
+          "description": "Array of source address ranges that SSH access is permitted from"
+        }
+      },
+      "location": {
+        "type": "string"
+      },
+      "tags": {
+          "type": "object"
+      }
+    },
+    "variables": {
+      "name": {
+        "group": "[parameters('groupName')]"
+      },
+      "location": "[parameters('location')]",
+      "tags": "[parameters('tags')]"
+    },
+    "resources": [
+      {
+        "apiVersion": "2019-09-01",
+        "type": "Microsoft.Network/networkSecurityGroups",
+        "name": "[variables('name').group]",
+        "location": "[variables('location')]",
+        "tags": "[variables('tags')]",
+        "properties": {
+          "securityRules": [
+            {
+              "name": "HTTP-80",
+              "properties": {
+                "description": "Allow HTTP port 80 traffic",
+                "protocol": "Tcp",
+                "sourcePortRange": "*",
+                "destinationPortRange": "80",
+                "sourceAddressPrefix": "Internet",
+                "destinationAddressPrefix": "VirtualNetwork",
+                "access": "Allow",
+                "priority": 100,
+                "direction": "Inbound"
+              }
+            },
+            {
+              "name": "HTTP-443",
+              "properties": {
+                "description": "Allow HTTP port 443 traffic",
+                "protocol": "Tcp",
+                "sourcePortRange": "*",
+                "destinationPortRange": "443",
+                "sourceAddressPrefix": "Internet",
+                "destinationAddressPrefix": "VirtualNetwork",
+                "access": "Allow",
+                "priority": 110,
+                "direction": "Inbound"
+              }
+            },
+            {
+              "name": "SSH-22",
+              "properties": {
+                "description": "Allow SSH port 22 traffic",
+                "protocol": "Tcp",
+                "sourcePortRange": "*",
+                "destinationPortRange": "22",
+                "sourceAddressPrefixes": "[parameters('sshSourceAddresses')]",
+                "destinationAddressPrefix": "VirtualNetwork",
+                "access": "Allow",
+                "priority": 120,
+                "direction": "Inbound"
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "outputs": {
+      "nsgId": {
+        "value": "[resourceId('Microsoft.Network/networkSecurityGroups', variables('name').group)]",
+        "type": "string"
+      },
+      "groupName": {
+        "type": "string",
+        "value": "[variables('name').group]"
+      }
+    }
+  }

@@ -1,0 +1,80 @@
+{  
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+  
+      "nicName": {
+        "type": "string"
+      },
+  
+      "publicIPAddressRef": {
+        "type": "string",
+        "defaultValue": ""
+      },
+  
+      "subnetRef": {
+        "type": "string"
+      },
+      
+      "nsgRef": {
+        "type": "string"
+      },
+      "tags": {
+          "type": "object"
+      },
+      "location": {
+        "type": "string"
+      }
+    },
+    "variables": {
+  
+      "location": "[parameters('location')]",
+  
+      "name": {
+        "nic": "[parameters('nicName')]"
+      },
+  
+      "ref": {
+        "publicIPAddress": "[parameters('publicIPAddressRef')]",
+        "subnet": "[parameters('subnetRef')]",
+        "nsg": "[parameters('nsgRef')]"
+      },
+  
+      "tags": "[parameters('tags')]"
+  
+    },
+    "resources": [
+      {
+        "type": "Microsoft.Network/networkInterfaces",
+        "name": "[variables('name').nic]",
+        "apiVersion": "2019-09-01",
+        "location": "[variables('location')]",
+        "tags": "[variables('tags')]",
+        "properties": {
+          "ipConfigurations": [
+              {
+              "name": "ipconfig1",
+              "properties": {
+                "privateIPAllocationMethod": "Dynamic",
+                "publicIPAddress": {
+                  "id": "[variables('ref').publicIPAddress]"
+                },
+                "subnet": {
+                  "id": "[variables('ref').subnet]"
+                }
+              }
+            }
+          ],
+          "networkSecurityGroup": {
+            "id": "[variables('ref').nsg]"
+          }
+        }
+      }
+    ],
+    "outputs": {
+      "ref": {
+        "type": "string",
+        "value": "[resourceId('Microsoft.Network/networkInterfaces', variables('name').nic)]"
+      }
+    }
+  }

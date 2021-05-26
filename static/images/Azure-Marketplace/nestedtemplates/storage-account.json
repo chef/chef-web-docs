@@ -1,0 +1,44 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+      "location": {
+        "type": "string"
+      },
+      "storageAccountName": {
+        "type": "string",
+        "metadata": {
+          "Description": "The name of the storage account"
+        }
+      },
+      "storageAccountType": {
+        "type": "string",
+        "allowedValues": [
+          "Standard_LRS"
+        ],
+        "metadata": {
+          "Description": "The type of the Storage Account created"
+        },
+        "defaultValue": "Standard_LRS"
+      },
+      "tags": {
+          "type": "object"
+      }
+    },
+    "resources": [
+      {
+        "type": "Microsoft.Storage/storageAccounts",
+        "kind": "StorageV2",
+        "name": "[parameters('storageAccountName')]",
+        "apiVersion": "2019-04-01",
+        "location": "[parameters('location')]",
+        "tags": "[parameters('tags')]",
+        "sku": {
+          "name": "[parameters('storageAccountType')]"
+        }
+      }
+    ],
+    "outputs": {
+    }
+  }
+  
