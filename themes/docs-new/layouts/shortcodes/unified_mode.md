@@ -1,24 +1,28 @@
 <!-- markdownlint-disable MD041 -->
-Unified Mode combines the compile and converge stages of the Chef Infra Client run into one phase. In unified mode, Chef Infra Client compiles and applies a custom resource once, starting at the top of the file and working down to the bottom. Unified mode is only available on custom resources. Chef Infra Client will continue to process other resources with separate compile and converge phases.
+Unified mode combines the compile and converge stages of the Chef Infra Client run into one phase. In unified mode, Chef Infra Client compiles and converges a custom resource in one pass and in the order that the code is compiled, from the beginning to the end.
 
-Set `unified_mode true` to enable unified mode on a custom resource. Left unset, the default behavior is `unified_mode false`, and Chef Infra Client will show a deprecation message warning you to enable unified mode.
+Unified mode is only available on custom resources. Chef Infra Client processes all other resources with separate compile and converge phases.
 
-|Chef Infra Client  | Unified Mode|
-|-------------------|------------|
-| 18.x (in 2022)    | Default: `unified_mode true` |
+In Chef Infra Client 17.x and some earlier versions, the default behavior is `unified_mode false`. Enable unified mode on a custom resource with `unified_mode true`. Chef Infra Client displays a deprecation message with `unified_mode false`.
+
+In Chef Infra Client 18.x, `unified_mode true` will become the default behavior.
+
+|Chef Infra Client  | Unified Mode                 |
+|-------------------|-----------------------------|
+| 18.x (2022)       | Default: `unified_mode true` |
 | 17.x              | Default: `unified_mode false`|
 | 16.x              | Default: `unified_mode false`|
 | 15.3 and higher   | Default: `unified_mode false`|
-| 15.0 - 15.2       | Not available              |
+| 15.0–15.2        | Not available               |
 | 14.14 and higher  | Default: `unified_mode false`|
-| Lower than 14.14  | Not available              |
-
+| Lower than 14.14  | Not available               |
 
 ## Enable Unified Mode
 
-Most resources can be converted to use Unified Mode with no work, apart from testing, by adding the flag to turn it on anywhere in the resource declaration:
+Enable unified mode by adding the `unified_mode true` in the resource declaration. You can upgrade most custom resources to use unified mode without additional work other than testing and validation.
 
 ```ruby
+# enable unified mode
 unified_mode true
 
 provides :myresource
@@ -26,30 +30,30 @@ provides :myresource
 actions :run do
   [...]
 end
-```
 
-For most resources, no further action should be required aside from testing and validation.
+```
 
 ## Troubleshoot Unified Mode
 
-Unified Mode fundamentally alters the execution of a custom resource so it is run in one phase, from top to bottom. Custom resources designed to use two phases may need modification. These fall into three general types:
+Unified mode changes the execution of a custom resource to run in one phase, in the order that the code is written, from first line of the code to the last. Custom resources designed to use two phases may need modification. These fall into three general types:
 
-- Actions in resources during declaration
-- Actions on resources that are not yet declared
-- Out-of-order execution of the custom resource file
+- Resources with changes to internal sub-resources
+- Resources with actions on later resources
+- Resources that rely on the out-of-order execution
 
-In unified mode,
+When designing a custom resource for unified mode:
 
-- Fully declare resources before acting on them
-- Write custom resources in run-time order, from start to finish
+- Declare a resource first and then declare actions on it
+- Write resources in run-time order
 
-### Resources that Create and Modifiy Sub-resources
+### Resources with Changes to Internal Sub-resources
 
-Some resources are designed to create and edit other resources in one declaration. In unified mode, the resource parses a codeblock that creates or edits a sub-resource and immediately applies that change, resulting in the execution of an incomplete resource.
+Some resources are designed to create and edit other sub-resources as part of the resource declaration. In unified mode, the Chef Infra Client parses a resource codeblock that creates or edits a sub-resource and immediately and tries to apply that change, even though the sub-resource does not yet exist. This results in the execution of an incomplete resource.
 
-For example, with unified mode enabled, this code from the _dhcp cookbook_ creates a resource and subsequently edits it will not work as expected:
+For example, with unified mode enabled, this code from the _dhcp cookbook_ is designed to create and edit a shared `dhcp_subnet` resource does not work as expected:
 
 ```ruby
+# 'edit_resource' results in an incomple subresource
 sr = edit_resource(:dhcp_subnet, "#{new_resource.name}_sharedsubnet_#{subnet}") do
   owner new_resource.owner
   group new_resource.group
@@ -65,7 +69,14 @@ properties.each do |property, value|
 end
 ```
 
-#### Fix: Apply Properties in the Codeblock
+To fix resources that change sub-resources during their declaration, you can:
+
+- Apply properties in the codeblock (preferred)
+- Run the resource explicitly (not preferred)
+
+#### Apply Properties in the Codeblock
+
+This pattern declares the sub-resource in one codeblock and then changes it in the next codeblock. This is the preferred pattern in unified mode because all resources execute in order at compile time.
 
 ```ruby
 dhcp_subnet "#{new_resource.name}_sharedsubnet_#{subnet}" do
@@ -83,9 +94,11 @@ dhcp_subnet "#{new_resource.name}_sharedsubnet_#{subnet}" do
 end
 ```
 
-#### Fix: Run the Resource Explicitly
+#### Run the Resource Explicitly
 
-Another solution is to declare the resource as `action :nothing` and then explicitly run it:
+Another solution is to continue saving the resource as a variable, declaring `action :nothing` within the codeblock and then explicitly running the action in another codeblock.
+
+The pattern of saving a resource as a variable and then forcing it to run at compile time with an explicit `run_action` works as it has in the past, but it not a preferred pattern. Unified mode forces resource execution to compile time by default, which makes this pattern redundant.
 
 ```ruby
 sr = edit_resource(:dhcp_subnet, "#{new_resource.name}_sharedsubnet_#{subnet}") do
@@ -104,18 +117,24 @@ properties.each do |property, value|
   sr.send(property, value)
 end
 
+# Run the action explicitly
 sr.run_action(:create)
 ```
 
-<!-- This also shows that the pattern of saving a resource to a variable and forcing it to run at compile time with an explicit `run_action` still works, but it is redundant with Unified Mode which forces all resource execution to compile time by default. -->
+## Actions on Later Resources
 
-## Notifications
+Since unified mode executes your resource as it is compiled, you cannot send immediate notifications to resources declared later.
 
-### Unified Mode Delays Immediate Notifications to Later Resources
+### `:immediate` Notifications to Later Resources
 
-Since unified mode runs your file from top to bottom, you cannot send immediate notifications to resources described later in the file. Instead, these notifications are saved and executed when the resource is parsed. The behavior of immediate notifications to prior resources and the behavior of delayed notification are unchanged.
+Unified mode delays immediate notifications to later resources.
+In unified mode the Chef Infra Client saves immediate notifications and executes them when the later resource is parsed. Immediate notifications to prior resources and delayed notifications behave the same as they did before unified mode.
 
-The common idiom of chaining immediate notifications forward will result in the same behavior:
+Chaining immediate notifications results in the same behavior as before unified mode. Changing the order of resources results does not change the results of a notification chain. Chained notifications in the same order during the Chef Infra Client run and immediately sends a notification to a target resource that was parsed earlier and saves a notification and sends it immediately after it parses a later resource.
+
+The changes to sending immediate notification could result in subtle changes to behaviors in some resources, but it not a breaking change to common patterns of writing resources.
+
+Chaining immediate notifications to later resources:
 
 ```ruby
 remote_file "#{Chef::Config[:file_cache_path]}/myservice.tgz" do
@@ -134,15 +153,13 @@ service "myservice" do
 end
 ```
 
-Even with this pattern, shuffling the resources in any arbitrary order will result in the same behavior in unified mode since the notification chain will still fire in the same order, and either the target resource will be already parsed and fire immediately or else will be fired when the resource is parsed.
+### `:before` Notifications to Later Resources
 
-This could cause subtle changes in behaviors in some resources.
-We are unaware of any common pattern of writing a resource that would be broken by this behavior of Unified Mode.
-### `:before` Notifications To Resources Declared Later
+Unified mode breaks resources with `before` notifications to later resources. In unified mode, you must declare a resource before you can act on it.
 
-One known breaking change with Unified Mode is that resources notified with a `:before` notification must be declared before they are notified:
+Resources that subscribe to a `before` notification to a later resource must be declared after the resource that triggers the notification.
 
-Change post-declarations:
+This resource declares `before` notification to a later resource and will no longer work:
 
 ```ruby
 package "myservice" do
@@ -150,15 +167,15 @@ package "myservice" do
   notifies :start, "service[myservice]", :immediately
 end
 
-service "myseervice" do
+service "myservice" do
   action :nothing
 end
 ```
 
-To pre-declarations:
+Instead, declare the resource and then declare actions. For example:
 
 ```ruby
-service "myseervice" do
+service "myservice" do
   action :nothing
 end
 
@@ -167,18 +184,9 @@ package "myservice" do
   notifies :start, "service[myservice]", :immediately
 end
 ```
-
-The same is true for pre-declarations of resources that subscribe to a before notification of later resources which must be moved to a post-declaration.
-
-We are unaware of either of these patterns being used in community cookbooks and we expect no impact to users, but this is included out of completeness.
 
 ### Out Of Order Execution
 
-Out-of-order execution means that compile-time statements positioned later in the custom resource must be executed before resources declared earlier in the file. Custom resources using out-of-order execution will break in unified mode.
+Unified mode  break custom resources that rely on the out-of-order execution of compile-time statements. Move any affected compile-time statements to the location in the code where they are intended to execute.
 
-Out-of-order execution is theoretically possible, but rare. Custom resource authors generally write resources in the order that they are intended to execute.
-
-Chef experienced zero cases of out-of-order execution breakage during the conversion of Chef Infra resources to unified mode. We did discover cases where the author of the resource intended code to be executed in order and was unaware that the Chef Infra Client executed it out of order. In these cases, enabling unified mode fixed errors instead of introducing bugs.
-
-Breaking custom resources that rely on out-of-order execution by enabling unified mode is unlikely, but it theoretically possible. To avoid inadvertently breaking resources, we have introduced unified mode as positive declaration instead of as default. As always, we recommend recommend testing your changes.
-
+Out-of-order execution is rare. At Chef, none of our custom resources broke during our conversion custom resources to unified mode. Instead, we discovered a few cases in which custom resource code was intended run in order, but Chef Infra Client executed it out of order. In these cases, unified mode fixed errors instead of introducing bugs.
