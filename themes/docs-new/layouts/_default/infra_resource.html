@@ -1,4 +1,5 @@
 {{ define "main" }}
+{{ $product := index .Params.data_path 0 }}
 
   <main id="main-content-col" tabindex="-1">
     <div id="col-content" data-swiftype-index='true'>
@@ -11,16 +12,22 @@
       </button>
 
       <div class="prose">
-        <p data-swiftype-index='false'>
-          <button onclick="resource_note_function('resource_note')" class="note-btn note-block note-left-align">Edit this page in the Chef repository</button>
-          <div id="resource_note" class="note-container note-hide">
-            <p>
-              This page is generated from the <a href="https://github.com/chef/chef">Chef Infra Client source code</a>.</br>
-              To suggest a change, edit the <a href="https://github.com/chef/chef/blob/master/lib/chef/resource/{{ index .Params.data_path 2 }}.rb">{{ index .Params.data_path 2 }}.rb</a> file and submit a pull request to the <a href="https://github.com/chef/chef">Chef Infra Client repository</a>.</br>
-            </p>
-          </div>
-        </p>
-        <p data-swiftype-index='false'><a href="/resources/">All Infra resources page</a></p>
+        {{ if eq $product "infra" }}
+          <p data-swiftype-index='false'>
+            <button onclick="resource_note_function('resource_note')" class="note-btn note-block note-left-align">Edit this page in the Chef repository</button>
+            <div id="resource_note" class="note-container note-hide">
+              <p>
+                This page is generated from the <a href="https://github.com/chef/chef">Chef Infra Client source code</a>.</br>
+                To suggest a change, edit the <a href="https://github.com/chef/chef/blob/master/lib/chef/resource/{{ index .Params.data_path 2 }}.rb">{{ index .Params.data_path 2 }}.rb</a> file and submit a pull request to the <a href="https://github.com/chef/chef">Chef Infra Client repository</a>.</br>
+              </p>
+            </div>
+          </p>
+        {{ end }}
+        {{ if eq $product "infra" }}
+          <p data-swiftype-index='false'><a href="/resources/">All Infra resources page</a></p>
+        {{ else }}
+          <p data-swiftype-index='false'><a href="/{{ $product }}/resources/">All {{ $product | title }} resources page</a></p>
+        {{ end }}
         <hr>
         {{ $yaml_file := index $.Site.Data (.Params.data_path) }}
         {{ with $yaml_file }}
