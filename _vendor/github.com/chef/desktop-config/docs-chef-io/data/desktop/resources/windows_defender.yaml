@@ -1,18 +1,9 @@
 ---
 resource_reference: true
-properties_shortcode:
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-title: windows_defender resource
 resource: windows_defender
-aliases:
-- "/resource_windows_defender.html"
-menu:
-  desktop:
-    title: windows_defender
-    identifier: desktop/resources/windows_defender windows_defender
-    parent: desktop/resources
 resource_description_list:
 - markdown: Use the **windows_defender** resource to enable or disable the Microsoft
     Windows Defender service.
@@ -20,15 +11,15 @@ resource_new_in: '1.0'
 syntax_full_code_block: |-
   windows_defender 'name' do
     intrusion_protection_system      true, false # default value: true
-    lock_ui                          true, false
-    realtime_protection              true, false
+    lock_ui                          true, false # default value: false
+    realtime_protection              true, false # default value: true
     scan_archives                    true, false # default value: true
-    scan_email                       true, false # default value: true
+    scan_email                       true, false # default value: false
     scan_mapped_drives               true, false # default value: true
-    scan_network_files               true, false # default value: true
-    scan_removable_drives            true, false # default value: true
-    scan_scripts                     true, false # default value: true
-    action      Symbol # defaults to :enable if not specified
+    scan_network_files               true, false # default value: false
+    scan_removable_drives            true, false # default value: false
+    scan_scripts                     true, false # default value: false
+    action                           Symbol # defaults to :enable if not specified
   end
 syntax_properties_list:
 syntax_full_properties_list:
@@ -57,12 +48,14 @@ properties_list:
 - property: lock_ui
   ruby_type: true, false
   required: false
+  default_value: 'false'
   new_in: '1.1'
   description_list:
   - markdown: Lock the UI to prevent users from changing Windows Defender settings.
 - property: realtime_protection
   ruby_type: true, false
   required: false
+  default_value: 'true'
   new_in: '1.1'
   description_list:
   - markdown: Enable realtime scanning of downloaded files and attachments.
@@ -76,7 +69,7 @@ properties_list:
 - property: scan_email
   ruby_type: true, false
   required: false
-  default_value: 'true'
+  default_value: 'false'
   new_in: '1.1'
   description_list:
   - markdown: Scan e-mails for malware.
@@ -90,22 +83,46 @@ properties_list:
 - property: scan_network_files
   ruby_type: true, false
   required: false
-  default_value: 'true'
+  default_value: 'false'
   new_in: '1.1'
   description_list:
   - markdown: Scan files on a network.
 - property: scan_removable_drives
   ruby_type: true, false
   required: false
-  default_value: 'true'
+  default_value: 'false'
   new_in: '1.1'
   description_list:
   - markdown: Scan content of removable drives.
 - property: scan_scripts
   ruby_type: true, false
   required: false
-  default_value: 'true'
+  default_value: 'false'
   new_in: '1.1'
   description_list:
   - markdown: Scan scripts in malware scans.
-examples:
+examples: |
+  **Configure Windows Defender AV settings**:
+
+  ```ruby
+  windows_defender 'Configure Defender' do
+    realtime_protection true
+    intrusion_protection_system true
+    lock_ui true
+    scan_archives true
+    scan_scripts true
+    scan_email true
+    scan_removable_drives true
+    scan_network_files false
+    scan_mapped_drives false
+    action :enable
+  end
+  ```
+
+  **Disable Windows Defender AV**:
+
+  ```ruby
+  windows_defender 'Disable Defender' do
+    action :disable
+  end
+  ```

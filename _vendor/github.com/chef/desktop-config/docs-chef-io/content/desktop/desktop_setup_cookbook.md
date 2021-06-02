@@ -77,7 +77,7 @@ In this step, you will prepare your workstation for developing, testing, and dep
     license 'All Rights Reserved'
     description 'Installs/Configures my_cookbook'
     version '0.1.0'
-    chef_version '>= 16.0'
+    chef_version '>= 16.5'
     ```
 
 1. Edit the default recipe

@@ -1,18 +1,9 @@
 ---
 resource_reference: true
-properties_shortcode:
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-title: macos_power_management resource
 resource: macos_power_management
-aliases:
-- "/resource_macos_power_management.html"
-menu:
-  desktop:
-    title: macos_power_management
-    identifier: desktop/resources/macos_power_management macos_power_management
-    parent: desktop/resources
 resource_description_list:
 - markdown: Use the **macos_power_management** resource to set the power settings
     of a kiosk-style device when you need it always-on
@@ -59,4 +50,14 @@ properties_list:
   description_list:
   - markdown: A time value between 1-60 minutes or "never" to use to set the display
       to sleep after. Defaults to never
-examples:
+examples: |
+  **Configure Power Management settings**:
+
+  ```ruby
+  macos_power_management 'Set the Device to a defined power level' do
+    computer_sleep_time 'never'
+    display_sleep_time 'never'
+    disk_sleep_time 'never'
+    action :set
+  end
+  ```

@@ -1,21 +1,13 @@
 ---
 resource_reference: true
-properties_shortcode: 
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-title: windows_desktop_screensaver resource
 resource: windows_desktop_screensaver
-aliases:
-- "/resource_windows_desktop_screensaver.html"
-menu:
-  desktop:
-    title: windows_desktop_screensaver
-    identifier: desktop/resources/windows_desktop_screensaver windows_desktop_screensaver
-    parent: desktop/resources
 resource_description_list:
 - markdown: Use the **windows_desktop_screensaver** resource to configure secure screensaver
     settings on Windows systems.
+resource_new_in: '1.0'
 syntax_full_code_block: |-
   windows_desktop_screensaver 'name' do
     allow_lower_user_idle_time      true, false # default value: false
@@ -24,7 +16,7 @@ syntax_full_code_block: |-
     screensaver_name                String
     action                          Symbol # defaults to :enable if not specified
   end
-syntax_properties_list: 
+syntax_properties_list:
 syntax_full_properties_list:
 - "`windows_desktop_screensaver` is the resource."
 - "`name` is the name given to the resource block."
@@ -64,4 +56,23 @@ properties_list:
   required: false
   description_list:
   - markdown: The name of a specific or custom screensaver to enable.
-examples:
+examples: |
+  **Secure the desktop with a screensaver and password**:
+
+  ```ruby
+  desktop_screensaver 'Sets up a Screensaver to come on and require a password after xx minutes' do
+    require_password true
+    idle_time 20
+    allow_lower_user_idle_time false
+    screensaver_name 'mystify.scr'
+    action :enable
+  end
+  ```
+
+  **Disable requiring a screensaver with a password**:
+
+  ```ruby
+  desktop_screensaver 'Disable the screensaver' do
+    action :disable
+  end
+  ```

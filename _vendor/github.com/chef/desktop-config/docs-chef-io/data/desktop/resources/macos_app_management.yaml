@@ -1,18 +1,9 @@
 ---
 resource_reference: true
-properties_shortcode:
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-title: macos_app_management resource
 resource: macos_app_management
-aliases:
-- "/resource_macos_app_management.html"
-menu:
-  desktop:
-    title: macos_app_management
-    identifier: desktop/resources/macos_app_management macos_app_management
-    parent: desktop/resources
 resource_description_list:
 - markdown: Use the **macos_app_management** resource to configure nodes to use Munki
     to manage apps
@@ -60,4 +51,15 @@ properties_list:
   required: false
   description_list:
   - markdown: A username used to connect to the munki_repo_url with
-examples:
+examples: |
+  **Set up managed app management for clients**:
+
+  ```ruby
+  macos_app_management 'Configure Munki on the node' do
+    munki_client_download_url 'https://github.com/munki/munki/releases/download/v5.0.0/munkitools-5.0.0.4034.pkg'
+    munki_repo_url 'https://something.something.tld'
+    munki_user 'munki'
+    munki_password 'ILoveMunki'
+    action :install
+  end
+  ```

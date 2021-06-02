@@ -1,18 +1,9 @@
 ---
 resource_reference: true
-properties_shortcode:
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-title: macos_admin_control resource
 resource: macos_admin_control
-aliases:
-- "/resource_macos_admin_control.html"
-menu:
-  desktop:
-    title: macos_admin_control
-    identifier: desktop/resources/macos_admin_control macos_admin_control
-    parent: desktop/resources
 resource_description_list:
 - markdown: Use the **macos_admin_control** resource to require Admin level privileges
     to make system-wide changes
@@ -35,4 +26,19 @@ actions_list:
   :nothing:
     shortcode: resources_common_actions_nothing.md
 properties_list: []
-examples:
+examples: |
+  **Set Admin control to require Admin access**:
+
+  ```ruby
+  admin_control 'Require Admin rights to perform system-wide changes' do
+    action :enable
+  end
+  ```
+
+  **Do not require Admin access for System-Wide changes**:
+
+  ```ruby
+  admin_control 'Require Admin rights to perform system-wide changes' do
+    action :disable
+  end
+  ```
