@@ -1,26 +1,5 @@
 
 {{ define "main" }}
-  {{ $SyntaxID := 0 }}
-  {{ $NamelessID := 0 }}
-  {{ $ActionsID := 0 }}
-  {{ $PropertiesID := 0 }}
-  {{ $resources_common_atomic_updateID := 0 }}
-  {{ $resources_common_windows_securityID := 0 }}
-  {{ $remote_file_prevent_re_downloadsID := 0 }}
-  {{ $remote_file_unc_pathID := 0 }}
-  {{ $ps_credential_helperID := 0 }}
-  {{ $FunctionalityID := 0 }}
-  {{ $resources_common_propertiesID := 0 }}
-  {{ $resources_common_notificationID := 0 }}
-  {{ $resources_common_guardsID := 0 }}
-  {{ $common_resource_functionality_multiple_packages_propertiesID := 0 }}
-  {{ $common_resource_functionality_multiple_packages_commonID := 0 }}
-  {{ $resources_common_guard_interpreterID := 0 }}
-  {{ $resource_directory_recursive_directoriesID := 0 }}
-  {{ $remote_directory_recursive_directoriesID := 0 }}
-  {{ $remote_directory_recursive_directories_exampleID := 0 }}
-  {{ $cookbook_file_specificityID := 0 }}
-  {{ $ExamplesID := 0 }}
   {{ $product := index .Params.data_path 0 }}
   <main id="main-content-col" tabindex="-1">
     <div id="col-content" data-swiftype-index='true'>
@@ -37,13 +16,14 @@
         {{ range index $.Site.Data ( .Params.data_path )}}
           {{ $yaml_file := . }}
 
-          {{ if index . "resource_reference" }}
-
-            <h2 id="{{ anchorize (print ( index . "resource" ) "-resource")}}">{{ index . "resource" }} resource</h2>
+          {{ if index $yaml_file "resource_reference" }}
+            {{ $resource := index $yaml_file "resource" }}
+            {{ $resource_ID := replace $resource "_" "-" }}
+            <h2 id="{{ $resource_ID}}-resource">{{ $resource }} resource</h2>
             {{ if eq $product "infra" }}
-              <a href="/resources/{{ print (index . "resource" ) "/" }}">{{ index . "resource" }} resource page</a>
+              <a href="/resources/{{ $resource }}/">{{ $resource }} resource page</a>
             {{ else }}
-              <a href="/{{ $product }}/resources/{{ print (index . "resource" ) "/" }}">{{ index . "resource" }} resource page</a>
+              <a href="/{{ $product }}/resources/{{ $resource }}/">{{ $resource }} resource page</a>
             {{ end }}
 
             <hr>
@@ -133,8 +113,7 @@
 
             <!-------------- Syntax ------------------->
 
-            {{ $SyntaxID = add $SyntaxID 1 }}
-            <h3 id = "syntax-{{$SyntaxID}}">Syntax</h3>
+            <h3 id = "syntax-{{$resource_ID}}">Syntax</h3>
 
             <hr>
 
@@ -345,35 +324,33 @@
             <!-------------- Nameless ------------------->
 
             {{ with index $yaml_file "nameless_apt_update" }}
-              {{ $NamelessID = add $NamelessID 1 }}
-              <h3 id="nameless-{{ $NamelessID }}">Nameless</h3>
+              <h3 id="nameless-{{ $resource_ID }}">Nameless</h3>
               {{ readFile "themes/docs-new/layouts/shortcodes/nameless_apt_update.md" | markdownify }}
             {{ end }}
 
             {{ with index $yaml_file "nameless_build_essential" }}
-              {{ $NamelessID = add $NamelessID 1 }}
-              <h3 id="nameless-{{ $NamelessID }}">Nameless</h3>
+              <h3 id="nameless-{{ $resource_ID }}">Nameless</h3>
               {{ readFile "themes/docs-new/layouts/shortcodes/nameless_build_essential.md" | markdownify }}
             {{ end }}
 
             <!-------------- Gem Package Options ------------------->
 
             {{ with index $yaml_file "resource_package_options" }}
-              <h3 id="resource-package-options">Gem Package Options</h3>
+              <h3 id="package-options">Gem Package Options</h3>
               {{ readFile "themes/docs-new/layouts/shortcodes/resource_package_options.md" | markdownify }}
 
-              <h4 id="resource-package-options-hash">Specify with Hash</h4>
+              <h4 id="package-options-hash">Specify with Hash</h4>
               {{ readFile "themes/docs-new/layouts/shortcodes/resource_package_options_hash.md" | markdownify }}
               <strong>Example</strong>
               {{ readFile "themes/docs-new/layouts/shortcodes/resource_package_install_gem_with_hash_options.md" | markdownify }}
 
 
-              <h4 id="resource-package-options-string">Specify with String</h4>
+              <h4 id="package-options-string">Specify with String</h4>
               {{ readFile "themes/docs-new/layouts/shortcodes/resource_package_options_string.md" | markdownify }}
               <strong>Example</strong>
               {{ readFile "themes/docs-new/layouts/shortcodes/resource_package_install_gem_with_options_string.md" | markdownify }}
 
-              <h4 id="resource-package-options-gemrc">Specify with .gemrc File</h4>
+              <h4 id="package-options-gemrc">Specify with .gemrc File</h4>
               {{ readFile "themes/docs-new/layouts/shortcodes/resource_package_options_gemrc.md" | markdownify }}
               {{ readFile "themes/docs-new/layouts/shortcodes/resource_package_install_gem_with_gemrc.md" | markdownify }}
             {{ end }}
@@ -382,8 +359,8 @@
 
             {{ if and ( index $yaml_file "actions_list" ) ( ne (index $yaml_file "actions_list") "" )}}
               {{ with index $yaml_file "actions_list" }}
-                {{ $ActionsID = add $ActionsID 1}}
-                <h3 id = "actions-{{$ActionsID}}">Actions</h3>
+
+                <h3 id = "actions-{{$resource_ID}}">Actions</h3>
                 <hr>
 
                 <p>The <strong>{{ index $yaml_file "resource" }}</strong> resource has the following actions:</p>
@@ -404,8 +381,8 @@
             {{ end }}
 
             <!-------------- Properties ------------------->
-            {{ $PropertiesID = add $PropertiesID 1 }}
-            <h3 id = "properties-{{$PropertiesID}}">Properties</h3>
+
+            <h3 id = "properties-{{$resource_ID}}">Properties</h3>
             <hr>
             {{ if or (index $yaml_file "properties_shortcode") (index $yaml_file "properties_list") }}
               {{ with index $yaml_file "properties_list" }}
@@ -505,26 +482,22 @@
 
 
             {{ with index $yaml_file "multi_package_resource" }}
-              {{ $common_resource_functionality_multiple_packages_propertiesID = add $common_resource_functionality_multiple_packages_propertiesID 1 }}
-              <h4 id="multiple-packages-properties-{{$common_resource_functionality_multiple_packages_propertiesID}}">Multiple Packages</h4>
+              <h4 id="multiple-packages-properties-{{$resource_ID}}">Multiple Packages</h4>
               {{ readFile "themes/docs-new/layouts/shortcodes/resources_common_multiple_packages.md" | markdownify }}
             {{ end }}
 
             {{ with index $yaml_file "resource_directory_recursive_directories" }}
-              {{ $resource_directory_recursive_directoriesID = add $resource_directory_recursive_directoriesID 1 }}
-              <h4 id="resource-directory-recursive-directories-{{$resource_directory_recursive_directoriesID}}">Recursive Directories</h4>
+              <h4 id="directory-recursive-directories-{{$resource_ID}}">Recursive Directories</h4>
               {{ readFile "themes/docs-new/layouts/shortcodes/remote_directory_recursive_directories.md" | markdownify }}
             {{ end }}
 
             {{ with index $yaml_file "resources_common_atomic_update" }}
-              {{ $resources_common_atomic_updateID = add $resources_common_atomic_updateID 1 }}
-              <h4 id="resources-common-atomic-update-{{$resources_common_atomic_updateID}}">Atomic File Updates</h4>
+              <h4 id="common-atomic-update-{{$resource_ID}}">Atomic File Updates</h4>
               {{ readFile "themes/docs-new/layouts/shortcodes/resources_common_atomic_update.md" | markdownify }}
             {{ end }}
 
             {{ with index $yaml_file "properties_resources_common_windows_security" }}
-              {{ $resources_common_windows_securityID = add $resources_common_windows_securityID 1 }}
-              <h4 id="resources-common-windows-security-{{$resources_common_windows_securityID}}">Windows File Security</h4>
+              <h4 id="common-windows-security-{{$resource_ID}}">Windows File Security</h4>
               {{ readFile "themes/docs-new/layouts/shortcodes/resources_common_windows_security.md" | markdownify }}
               <strong>Access Control Lists (ACLs)</strong>
               {{ readFile "themes/docs-new/layouts/shortcodes/resources_common_windows_security_acl.md" | markdownify }}
@@ -533,20 +506,17 @@
             {{ end }}
 
             {{ with index $yaml_file "remote_file_prevent_re_downloads" }}
-              {{ $remote_file_prevent_re_downloadsID = add $remote_file_prevent_re_downloadsID 1 }}
-              <h4 id="prevent-re-downloads-{{$remote_file_prevent_re_downloadsID}}">Prevent Re-downloads</h4>
+              <h4 id="prevent-re-downloads-{{$resource_ID}}">Prevent Re-downloads</h4>
               {{ readFile "themes/docs-new/layouts/shortcodes/remote_file_prevent_re_downloads.md" | markdownify }}
             {{ end }}
 
             {{ with index $yaml_file "remote_file_unc_path" }}
-              {{ $remote_file_unc_pathID = add $remote_file_unc_pathID 1 }}
-              <h4 id="access-a-remote-unc-path-on-windows-{{$remote_file_unc_pathID}}">Access a remote UNC path on Windows</h4>
+              <h4 id="access-a-remote-unc-path-on-windows-{{$resource_ID}}">Access a remote UNC path on Windows</h4>
               {{ readFile "themes/docs-new/layouts/shortcodes/remote_file_unc_path.md" | markdownify }}
             {{ end }}
 
             {{ with index $yaml_file "ps_credential_helper" }}
-              {{ $ps_credential_helperID = add $ps_credential_helperID 1 }}
-              <h4 id="ps-credential-helper-{{$ps_credential_helperID}}">ps_credential Helper</h4>
+              <h4 id="ps-credential-helper-{{$resource_ID}}">ps_credential Helper</h4>
               {{ readFile "themes/docs-new/layouts/shortcodes/ps_credential_helper.md" | markdownify }}
             {{ end }}
 
@@ -619,13 +589,13 @@
               <h4 id="template-helpers">Helpers</h4>
               {{ readFile "themes/docs-new/layouts/shortcodes/template_helpers.md" | markdownify}}
 
-              <h5 id="resource-template-inline-method">Inline Methods</h5>
+              <h5 id="template-inline-method">Inline Methods</h5>
               {{ readFile "themes/docs-new/layouts/shortcodes/resource_template_inline_method.md" | markdownify}}
 
-              <h5 id="resource-template-inline-module">Inline Modules</h5>
+              <h5 id="template-inline-module">Inline Modules</h5>
               {{ readFile "themes/docs-new/layouts/shortcodes/resource_template_inline_module.md" | markdownify}}
 
-              <h5 id="resource-template-library-module">Library Modules</h5>
+              <h5 id="template-library-module">Library Modules</h5>
               {{ readFile "themes/docs-new/layouts/shortcodes/resource_template_library_module.md" | markdownify}}
 
               <h4 id="template-host-notation">Host Notation</h4>
@@ -656,23 +626,21 @@
 
             {{ if or (index $yaml_file "resources_common_properties" ) ( index $yaml_file "resources_common_notification" ) ( index $yaml_file "resources_common_guards" ) ( index $yaml_file "multi_package_resource" ) ( index $yaml_file "resources_common_guard_interpreter" ) ( index $yaml_file "remote_directory_recursive_directories" ) ( index $yaml_file "common_resource_functionality_resources_common_windows_security" )}}
               <br>
-              {{ $FunctionalityID = add $FunctionalityID 1 }}
-              <h3 id = "functionality-{{$FunctionalityID}}">Common Resource Functionality</h3>
+
+              <h3 id = "functionality-{{$resource_ID}}">Common Resource Functionality</h3>
               <hr>
 
               <p>Chef resources include common properties, notifications, and resource guards.</p>
 
               {{ if index $yaml_file "resources_common_properties" }}
-                {{ $resources_common_propertiesID = add $resources_common_propertiesID 1 }}
-                <h4 id="resources-common-properties-{{$resources_common_propertiesID}}">Common Properties</h4>
+                <h4 id="common-properties-{{$resource_ID}}">Common Properties</h4>
 
                 {{ readFile "themes/docs-new/layouts/shortcodes/resources_common_properties.md" | markdownify }}
 
               {{ end }}
 
               {{ if index $yaml_file "resources_common_notification" }}
-                {{ $resources_common_notificationID = add $resources_common_notificationID 1 }}
-                <h4 id="resources-common-notifications-{{$resources_common_notificationID}}">Notifications</h4>
+                <h4 id="common-notifications-{{$resource_ID}}">Notifications</h4>
 
                 <dl>
                   <dt>
@@ -702,8 +670,7 @@
               {{ end }}
 
               {{ if index $yaml_file "resources_common_guards" }}
-                {{ $resources_common_guardsID = add $resources_common_guardsID 1 }}
-                <h4 id = "guards-{{$resources_common_guardsID}}">Guards</h4>
+                <h4 id = "guards-{{$resource_ID}}">Guards</h4>
 
                 {{ readFile "themes/docs-new/layouts/shortcodes/resources_common_guards.md" | markdownify }}
                 <strong>Properties</strong>
@@ -712,16 +679,14 @@
               {{ end }}
 
               {{ if index $yaml_file "multi_package_resource" }}
-                {{ $common_resource_functionality_multiple_packages_commonID = add $common_resource_functionality_multiple_packages_commonID 1 }}
-                <h4 id="multiple-packages-common-{{$common_resource_functionality_multiple_packages_commonID}}">Multiple Packages</h4>
+                <h4 id="multiple-packages-common-{{$resource_ID}}">Multiple Packages</h4>
 
                 {{ readFile "themes/docs-new/layouts/shortcodes/resources_common_multiple_packages.md" | markdownify }}
 
               {{ end }}
 
               {{ if index $yaml_file "resources_common_guard_interpreter" }}
-                {{ $resources_common_guard_interpreterID = add $resources_common_guard_interpreterID 1 }}
-                <h4 id="guard-interpreter-{{$resources_common_guard_interpreterID}}">Guard Interpreter</h4>
+                <h4 id="guard-interpreter-{{$resource_ID}}">Guard Interpreter</h4>
 
                 <p>
                   {{ readFile "themes/docs-new/layouts/shortcodes/resources_common_guard_interpreter.md" | markdownify }}
@@ -744,18 +709,15 @@
               {{ end }}
 
               {{ if index $yaml_file "remote_directory_recursive_directories" }}
-                {{ $remote_directory_recursive_directoriesID = add $remote_directory_recursive_directoriesID 1 }}
-                {{ $remote_directory_recursive_directories_exampleID = add $remote_directory_recursive_directories_exampleID 1 }}
-                <h4 id="recursive-directories-{{$remote_directory_recursive_directoriesID}}">Recursive Directories</h4>
+                <h4 id="recursive-directories-{{$resource_ID}}">Recursive Directories</h4>
                 {{ readFile "themes/docs-new/layouts/shortcodes/remote_directory_recursive_directories.md" | markdownify }}
-                <h5 id="recursive-directories-example-{{$remote_directory_recursive_directories_exampleID}}">Example</h5>
+                <h5 id="recursive-directories-example-{{$resource_ID}}">Example</h5>
                 {{ readFile "themes/docs-new/layouts/shortcodes/remote_directory_recursive_directories_example.md" | markdownify }}
 
               {{ end }}
 
               {{ if index $yaml_file "common_resource_functionality_resources_common_windows_security" }}
-                {{ $resources_common_windows_securityID = add $resources_common_windows_securityID 1 }}
-                <h4 id="resources-common-windows-security-{{$resources_common_windows_securityID}}">Windows File Security</h4>
+                <h4 id="common-windows-security-{{$resource_ID}}">Windows File Security</h4>
 
                 {{ readFile "themes/docs-new/layouts/shortcodes/resources_common_windows_security.md" | markdownify }}
                 <strong>Access Control Lists (ACLs)</strong>
@@ -798,15 +760,13 @@
             <!-------------- File Specificity ------------------->
 
             {{ if index $yaml_file "cookbook_file_specificity" }}
-              {{ $cookbook_file_specificityID = add $cookbook_file_specificityID 1 }}
-              <h3 id="cookbook-file-specificity-{{ $cookbook_file_specificityID }}">File Specificity</h3>
+              <h3 id="cookbook-file-specificity-{{ $resource_ID }}">File Specificity</h3>
               {{ readFile "themes/docs-new/layouts/shortcodes/cookbook_file_specificity.md" | markdownify }}
             {{ end }}
 
 
             <!-------------- Examples ------------------->
-            {{ $ExamplesID = add $ExamplesID 1 }}
-            <h3 id = "examples-{{$ExamplesID}}">Examples</h3>
+            <h3 id = "examples-{{$resource_ID}}">Examples</h3>
             <hr>
             {{ with index $yaml_file "examples" }}
               <p>The following examples demonstrate various approaches for using the <strong>{{ index $yaml_file "resource" }}</strong> resource in recipes:</p>
