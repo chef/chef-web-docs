@@ -9,7 +9,7 @@ In case you have a need of running automate in HA mode, please contact [Chef Sup
 please contact [Chef Support](https://www.chef.io/support).
 
 
-# Test drive Deployment
+# Marketplace Deployment
 
 - **Go to [Azure Marketplace](https://azure.microsoft.com/en-in/marketplace/) and search for this keyword `Chef Automate`** 
 
