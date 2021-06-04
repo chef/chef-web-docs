@@ -48,9 +48,9 @@ When designing a custom resource for unified mode:
 
 ### Resources with Changes to Internal Sub-resources
 
-Some custom resources are designed to create and edit other sub-resources as part of the resource declaration. In unified mode, the Chef Infra Client parses a resource code block that creates or edits a sub-resource and immediately and tries to apply that change, even though the sub-resource does not yet exist. This results in the execution of an incomplete resource.
+Some custom resources are designed to create and edit other sub-resources as part of the resource declaration. In unified mode, the Chef Infra Client parses a resource code block that creates or edits a sub-resource and immediately tries to apply that change, even though the sub-resource does not yet exist. This results in the execution of an incomplete resource.
 
-For example, with unified mode enabled, this code from the _dhcp cookbook_ is designed to create and edit a shared `dhcp_subnet` resource does not work as expected:
+For example, with unified mode enabled, this code from the _dhcp cookbook_ is designed to create and edit a shared `dhcp_subnet` resource, but it will not work as expected:
 
 ```ruby
 # 'edit_resource' results in an incomple subresource
@@ -123,7 +123,7 @@ sr.run_action(:create)
 
 ## Actions on Later Resources
 
-Since unified mode executes your resource as it is compiled, the behavior of immediate notifications to resources declared later is different.
+Since unified mode executes your resource as it is compiled, `:immediate` notifications that execute later resources are handled differently than in the past.
 
 ### `:immediate` Notifications to Later Resources
 
@@ -159,7 +159,7 @@ In unified mode, you must declare a resource before sending a `before` notificat
 
 Resources that subscribe to a `before` notification to a later resource must be declared after the resource that triggers the notification.
 
-This resource declares `before` notification to a later resource and will no longer work:
+This resource declares a `before` notification to a later resource and will no longer work:
 
 ```ruby
 package "myservice" do
