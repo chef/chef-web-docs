@@ -18,11 +18,11 @@ product = ["client", "workstation"]
 
 Chef Automate is an enterprise platform that allows developers, operations, and security engineers to collaborate on application and infrastructure changes with speed and at scale. Chef Automate provides actionable insights across data centers and cloud providers, wherever your nodes live.
 
-Chef Automate is the center of the modern Chef platform, providing users with a single source of truth for infrastructure, security, and application automation. The comprehensive dashboard provides real-time views of your configuration management activity. Chef Automate comes bundled with the latest Chef Infra Server, providing the core tools you need to manage your enterprise infrastructure. Data collection is enabled by default, allowing your nodes to report activity in real-time. This instance is free for 60 days or you can bring your license (BYOL).
+Chef Automate is the center of the modern Chef platform, providing users with a single source of truth for infrastructure, security, and application automation. The comprehensive dashboard provides real-time views of your configuration management activity. Chef Automate comes bundled with the latest Chef Infra Server, providing the core tools you need to manage your enterprise infrastructure. Data collection is enabled by default, allowing your nodes to report activity in real-time. This instance is free for 60 days or you can bring your own license (BYOL).
 
 Use this instance with Chef Workstation installed on your laptop or a separate AWS instance.
 
-{{< workstation >}}
+{{% workstation %}}
 
 If you need to run Automate with a high availability (HA) topology, please contact [Chef Support](https://www.chef.io/support).
 
@@ -110,7 +110,7 @@ AWS provides 5 VPCs per region. If you require more VPCs, please contact [AWS Su
 
 1. Select **Add Chef Organization**.
 
-  <img src="/images/OrgPageDetails.png" style="width: 30%" />
+  {{< figure src="/images/automate/add-chef-organization-popup-menu.png" width="500" alt="Add Chef Organization Form">}}
 
 ## AWS Deployment Security
 
