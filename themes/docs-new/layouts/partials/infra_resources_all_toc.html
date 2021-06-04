@@ -1,25 +1,3 @@
-{{ $SyntaxID := 0 }}
-{{ $NamelessID := 0 }}
-{{ $ActionsID := 0 }}
-{{ $PropertiesID := 0 }}
-{{ $resources_common_atomic_updateID := 0 }}
-{{ $resources_common_windows_securityID := 0 }}
-{{ $remote_file_prevent_re_downloadsID := 0 }}
-{{ $remote_file_unc_pathID := 0 }}
-{{ $ps_credential_helperID := 0 }}
-{{ $FunctionalityID := 0 }}
-{{ $resources_common_propertiesID := 0 }}
-{{ $resources_common_notificationID := 0 }}
-{{ $resources_common_guardsID := 0 }}
-{{ $common_resource_functionality_multiple_packages_propertiesID := 0 }}
-{{ $common_resource_functionality_multiple_packages_commonID := 0 }}
-{{ $resources_common_guard_interpreterID := 0 }}
-{{ $resource_directory_recursive_directoriesID := 0 }}
-{{ $remote_directory_recursive_directoriesID := 0 }}
-{{ $remote_directory_recursive_directories_exampleID := 0 }}
-{{ $cookbook_file_specificityID := 0 }}
-{{ $ExamplesID := 0 }}
-
 <aside class="sticky sidebar" data-sticky data-top-anchor="utility-bar:bottom" data-btm-anchor="footer:top">
   <span>
     <strong>
@@ -40,9 +18,11 @@
     <ul>
       {{ range index $.Site.Data ( .Params.data_path )}}
         {{ $yaml_file := . }}
-        {{ if index . "resource_reference" }}
+        {{ $resource := index $yaml_file "resource" }}
+        {{ $resource_ID := replace $resource "_" "-" }}
+        {{ if index $yaml_file "resource_reference" }}
           <li>
-          <a href="#{{ anchorize (print ( index . "resource" ) "-resource") }}">{{ index . "resource" }} resource</a>
+          <a href="#{{ $resource_ID}}-resource">{{ $resource }} resource</a>
           <ul>
             {{ if index $yaml_file "handler_types" }}
               <li>
@@ -59,8 +39,7 @@
             {{ end }}
 
             <li>
-              {{ $SyntaxID = add $SyntaxID 1 }}
-              <a href="#syntax-{{ $SyntaxID }}">Syntax</a>
+              <a href="#syntax-{{$resource_ID}}">Syntax</a>
               {{ if index $yaml_file "registry_key" }}
               <ul>
                 <li><a href="#windows-registry-key-backslashes">Registry Key Path Separators</a></li>
@@ -80,14 +59,12 @@
             </li>
 
             {{ if index $yaml_file "nameless_apt_update" }}
-              {{ $NamelessID = add $NamelessID 1 }}
-              <li><a href="#nameless-{{ $NamelessID }}">Nameless</a> </li>
+              <li><a href="#nameless-{{ $resource_ID }}">Nameless</a> </li>
 
             {{ end }}
 
             {{ if index $yaml_file "nameless_build_essential" }}
-              {{ $NamelessID = add $NamelessID 1 }}
-              <li><a href="#nameless-{{ $NamelessID }}">Nameless</a> </li>
+              <li><a href="#nameless-{{ $resource_ID }}">Nameless</a> </li>
             {{ end }}
 
             {{ if index $yaml_file "resource_package_options" }}
@@ -102,72 +79,62 @@
             {{ end }}
 
             {{ if and ( index $yaml_file "actions_list" ) ( ne (index $yaml_file "actions_list") "" )}}
-            {{ $ActionsID = add $ActionsID 1 }}
-            <li><a href="#actions-{{ $ActionsID }}">Actions</a></li>
+            <li><a href="#actions-{{$resource_ID}}">Actions</a></li>
             {{ end }}
 
-            {{ $PropertiesID = add $PropertiesID 1 }}
             <li>
-              <a href="#properties-{{ $PropertiesID }}">Properties</a>
+              <a href="#properties-{{$resource_ID}}">Properties</a>
 
               {{ if index $yaml_file "multi_package_resource" }}
-              {{ $common_resource_functionality_multiple_packages_propertiesID = add $common_resource_functionality_multiple_packages_propertiesID 1 }}
-              <ul>
-                <li><a href="#multiple-packages-properties-{{ $common_resource_functionality_multiple_packages_propertiesID }}">Multiple
-                    Packages</a></li>
-              </ul>
+                <ul>
+                  <li><a href="#multiple-packages-properties-{{ $resource_ID }}">Multiple Packages</a></li>
+                </ul>
               {{ end }}
 
               {{ if index $yaml_file "resource_directory_recursive_directories" }}
-                {{ $resource_directory_recursive_directoriesID = add $resource_directory_recursive_directoriesID 1 }}
                 <ul>
                   <li>
-                    <a href="#resource-directory-recursive-directories-{{ $resource_directory_recursive_directoriesID }}">Recursive Directories</a>
+                    <a href="#directory-recursive-directories-{{ $resource_ID }}">Recursive Directories</a>
                   </li>
                 </ul>
               {{ end }}
 
               {{ if index $yaml_file "resources_common_atomic_update" }}
-                {{ $resources_common_atomic_updateID = add $resources_common_atomic_updateID 1 }}
                 <ul>
-                  <li><a href="#resources-common-atomic-update-{{ $resources_common_atomic_updateID }}">Atomic File
+                  <li><a href="#common-atomic-update-{{ $resource_ID }}">Atomic File
                       Updates</a></li>
                 </ul>
               {{ end }}
 
               {{ if index $yaml_file "properties_resources_common_windows_security" }}
-                {{ $resources_common_windows_securityID = add $resources_common_windows_securityID 1 }}
                 <ul>
-                  <li><a href="#resources-common-windows-security-{{ $resources_common_windows_securityID }}">Windows
+                  <li><a href="#common-windows-security-{{ $resource_ID }}">Windows
                       File Security</a></li>
                 </ul>
               {{ end }}
 
               {{ if index $yaml_file "remote_file_prevent_re_downloads" }}
-                {{ $remote_file_prevent_re_downloadsID = add $remote_file_prevent_re_downloadsID 1 }}
                 <ul>
                   <li>
-                    <a href="#prevent-re-downloads-{{ $remote_file_prevent_re_downloadsID }}">Prevent
+                    <a href="#prevent-re-downloads-{{ $resource_ID }}">Prevent
                       Re-downloads</a>
                   </li>
                 </ul>
               {{ end }}
 
               {{ if index $yaml_file "remote_file_unc_path" }}
-                {{ $remote_file_unc_pathID = add $remote_file_unc_pathID 1 }}
               <ul>
                 <li>
-                  <a href="#access-a-remote-unc-path-on-windows-{{ $remote_file_unc_pathID }}">Access a remote
+                  <a href="#access-a-remote-unc-path-on-windows-{{ $resource_ID }}">Access a remote
                     UNC path on Windows</a>
                 </li>
               </ul>
               {{ end }}
 
               {{ if index $yaml_file "ps_credential_helper" }}
-                {{ $ps_credential_helperID = add $ps_credential_helperID 1 }}
                 <ul>
                   <li>
-                    <a href="#ps-credential-helper-{{ $ps_credential_helperID }}">ps_credential Helper</a></li>
+                    <a href="#ps-credential-helper-{{ $resource_ID }}">ps_credential Helper</a></li>
                 </ul>
               {{ end }}
             </li>
@@ -217,9 +184,9 @@
                   <li>
                     <a href="#template-helpers">Helpers</a>
                     <ul>
-                      <li><a href="#resource-template-inline-method">Inline Methods</a></li>
-                      <li><a href="#resource-template-inline-module">Inline Modules</a></li>
-                      <li><a href="#resource-template-library-module">Library Modules</a></li>
+                      <li><a href="#template-inline-method">Inline Methods</a></li>
+                      <li><a href="#template-inline-module">Inline Modules</a></li>
+                      <li><a href="#template-library-module">Library Modules</a></li>
                     </ul>
                   </li>
                   <li><a href="#template-host-notation">Host Notation</a></li>
@@ -243,57 +210,49 @@
 
             {{ if or (index $yaml_file "resources_common_properties" ) ( index $yaml_file "resources_common_notification" ) ( index $yaml_file "resources_common_guards" ) ( index $yaml_file "multi_package_resource" ) ( index $yaml_file "resources_common_guard_interpreter" ) ( index $yaml_file "remote_directory_recursive_directories" ) ( index $yaml_file "common_resource_functionality_resources_common_windows_security" )}}
             <li>
-              {{ $FunctionalityID = add $FunctionalityID 1 }}
-              <a href="#functionality-{{ $FunctionalityID }}">Common Resource Functionality</a>
+              <a href="#functionality-{{$resource_ID}}">Common Resource Functionality</a>
 
               {{ if index $yaml_file "resources_common_properties" }}
-                {{ $resources_common_propertiesID = add $resources_common_propertiesID 1 }}
                 <ul>
-                  <li><a href="#resources-common-properties-{{ $resources_common_propertiesID }}">Common
+                  <li><a href="#common-properties-{{ $resource_ID }}">Common
                     Properties</a></li>
                 </ul>
               {{ end }}
 
               {{ if index $yaml_file "resources_common_notification" }}
-                {{ $resources_common_notificationID = add $resources_common_notificationID 1 }}
                 <ul>
-                  <li><a href="#resources-common-notifications-{{ $resources_common_notificationID }}">Notifications</a>
+                  <li><a href="#common-notifications-{{ $resource_ID }}">Notifications</a>
                   </li>
                 </ul>
               {{ end }}
 
               {{ if index $yaml_file "resources_common_guards" }}
-                {{ $resources_common_guardsID = add $resources_common_guardsID 1 }}
                 <ul>
-                  <li><a href="#guards-{{ $resources_common_guardsID }}">Guards</a></li>
+                  <li><a href="#guards-{{ $resource_ID }}">Guards</a></li>
                 </ul>
               {{ end }}
 
               {{ if index $yaml_file "multi_package_resource" }}
-                {{ $common_resource_functionality_multiple_packages_commonID = add $common_resource_functionality_multiple_packages_commonID 1 }}
                 <ul>
-                  <li><a href="#multiple-packages-common-{{ $common_resource_functionality_multiple_packages_commonID }}">Multiple Packages</a></li>
+                  <li><a href="#multiple-packages-common-{{ $resource_ID }}">Multiple Packages</a></li>
                 </ul>
               {{ end }}
 
               {{ if index $yaml_file "resources_common_guard_interpreter" }}
-                {{ $resources_common_guard_interpreterID = add $resources_common_guard_interpreterID 1 }}
                 <ul>
-                  <li><a href="#guard-interpreter-{{ $resources_common_guard_interpreterID }}">Guard Interpreter</a>
+                  <li><a href="#guard-interpreter-{{ $resource_ID }}">Guard Interpreter</a>
                   </li>
                 </ul>
               {{ end }}
 
               {{ if index $yaml_file "remote_directory_recursive_directories" }}
-                {{ $remote_directory_recursive_directoriesID = add $remote_directory_recursive_directoriesID 1 }}
-                {{ $remote_directory_recursive_directories_exampleID = add $remote_directory_recursive_directories_exampleID 1 }}
                 <ul>
                   <li>
-                    <a href="#recursive-directories-{{ $remote_directory_recursive_directoriesID }}">Recursive
+                    <a href="#recursive-directories-{{ $resource_ID }}">Recursive
                       Directories</a>
                     <ul>
                       <li>
-                        <a href="#recursive-directories-example-{{ $remote_directory_recursive_directories_exampleID }}">Example</a>
+                        <a href="#recursive-directories-example-{{ $resource_ID }}">Example</a>
                       </li>
                     </ul>
                   </li>
@@ -302,10 +261,9 @@
 
 
               {{ if index $yaml_file "common_resource_functionality_resources_common_windows_security" }}
-                {{ $resources_common_windows_securityID = add $resources_common_windows_securityID 1 }}
                 <ul>
                   <li>
-                    <a href="#resources-common-windows-security-{{ $resources_common_windows_securityID }}">Windows File Security</a>
+                    <a href="#common-windows-security-{{ $resource_ID }}">Windows File Security</a>
                   </li>
                 </ul>
               {{ end }}
@@ -330,14 +288,12 @@
             </li>
             {{ end }}
             {{ if index $yaml_file "cookbook_file_specificity" }}
-              {{ $cookbook_file_specificityID = add $cookbook_file_specificityID 1 }}
             <ul>
               <li><a href="#cookbook-file-specificity">File Specificity</a></li>
             </ul>
             {{ end }}
 
-            {{ $ExamplesID = add $ExamplesID 1 }}
-            <li><a href="#examples-{{ $ExamplesID }}">Examples</a></li>
+            <li><a href="#examples-{{$resource_ID}}">Examples</a></li>
 
           </ul>
           </li>
