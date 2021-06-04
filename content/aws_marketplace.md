@@ -110,7 +110,6 @@ AWS provides 5 VPCs per region. If you require more VPCs, please contact [AWS Su
 Update the AWS Deployment **Security Group** to require source IP addresses for a secure SSH connection.
 
 1. Select the **Instance Security** group in the **Resources** tab of your AWS Chef Automate deployment.
-
 ![ ](/images/aws_resources.png "Resources Page")
 
 1. Select the **Security Group ID** for your Chef Automate deployment.
