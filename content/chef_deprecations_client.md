@@ -262,7 +262,7 @@ of Chef comes out.
 </tr>
 <tr>
 <td><a href="/deprecations_unified_mode/">CHEF-33</a></td>
-<td>Enabling Unified Mode on resources</td>
+<td>Enabling Unified Mode in custom resources</td>
 <td>17.0</td>
 </tr>
 <tr>
