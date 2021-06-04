@@ -6,7 +6,7 @@ gh_repo = "chef-web-docs"
 
 aliases = ["/aws_marketplace.html", "/aws_ami.html"]
 
-product = ["client", "workstation"]
+product = ["client", "workstation", "automate"]
 
 [menu]
   [menu.infra]
@@ -36,7 +36,7 @@ Every CloudFormation Stack deployment creates a new [Virtual Private Cloud](http
 AWS provides 5 VPCs per region. If you require more VPCs, please contact [AWS Support](https://aws.amazon.com/contact-us/).
 {{< /note >}}
 
-### Specify the Stack Details
+### Start Chef Automate with CloudFormation
 
 1. Enter the following values for your deployment.
 
@@ -56,35 +56,29 @@ AWS provides 5 VPCs per region. If you require more VPCs, please contact [AWS Su
 
 ## Post-Installation
 
-1. Navigate to the AWS deployment **output** tab and locate the Chef Automate URL, user name, and password. You will need these in the next steps.
+1. Navigate to the AWS deployment **Outputs** tab and locate the Chef Automate URL, user name, and password. You will need these in the next steps.
+![AWS Chef Automate deployment **Outputs** tab contains your instance URL, user name, and password ](/images/OutputPage.png "Output")
 
-![AWS Chef Automate deployment output tab contains your instance URL, user name, and password ](/images/OutputPage.png "Output Page")
+1. Open your browser and paste the Chef Automate URL, which will open an alert page.
 
-- Open your browser and paste the Chef Automate URL, which will open an alert page.
-
-- Select **Advanced** and continue.
-
+1. Select **Advanced** and continue.
 ![Select 'advanced' to bypass the warning that the page is not secure](/images/NotSecurePage.png "Not Secure Page").
 
-- Enter your **Username** and **Password** and select **Sign In**.
+1. Enter your **Username** and **Password** and select **Sign In**.
+![ ](/images/chef_automate_login.png "Automate")
 
-![ ](/images/AutomateUI.png "Automate")
+1. Fill out the registration form and [Accept the Chef License](https://docs.chef.io/chef_license_accept/).
 
-- Fill out the registration form and [Accept the Chef License](https://docs.chef.io/chef_license_accept/).
-
-- Select **Register** to enter Chef Automate.
-
+1. Select **Register** to enter Chef Automate.
 ![ ](/images/WelcomePage.png "Welcome Page")
 
-- Congratulations! You've started Chef Automate!
-
+1. Congratulations! You've started Chef Automate!
 ![ ](/images/DashboardsPage.png "Dashboards Page")
 
 ## Add Chef Servers
 
 1. Add Chef-Server Details, select the Add Chef Infra Server Button.
-
-  ![ ](/images/AddChefServer.png "Add Chef Server")
+![ ](/images/chef_automate_add_server.png "Add Chef Server")
 
 1. Enter the server name, FQDN, and IP address. Then select **Add Chef Infra Server** to create the server.
 
@@ -92,15 +86,13 @@ AWS provides 5 VPCs per region. If you require more VPCs, please contact [AWS Su
     - FQDN: It would be the same as Automate FQDN.
     - IP Address: Public IP Address of the EC2-Instance.
 
-  <img src="/images/ChefServerDetails.png" style="width: 30%" />
+    ![Add Chef Infra Server Form](/images/automate/add-chef-server-popup-menu.png)
 
 1. The Chef Infra Server will appear in the list of servers. Select the server and view information about it.
-
-  ![ ](/images/AddChefServer01.png "Add Chef Server")
+![Select a server from the list](/images/chef_automate_single_server.png "Single Server View")
 
 1. Select **Add Chef Organization**.
-
-  ![ ](/images/AddOrgPage.png "Add Org Page")
+{{< figure src="/images/chef_automate_add_org_page.png" style="width: 30%;" >}}
 
 1. Enter the following information:
 
@@ -109,8 +101,7 @@ AWS provides 5 VPCs per region. If you require more VPCs, please contact [AWS Su
     - Admin Key: _copy the key from starter kit_
 
 1. Select **Add Chef Organization**.
-
-  {{< figure src="/images/automate/add-chef-organization-popup-menu.png" width="500" alt="Add Chef Organization Form">}}
+![Select the Add Chef Organization button to complete this action](/images/OrgPageDetails.png")
 
 ## AWS Deployment Security
 
@@ -118,18 +109,15 @@ Update the AWS Deployment **Security Group** to require source IP addresses for 
 
 1. Select the **Instance Security** group in the **Resources** tab of your AWS Chef Automate deployment.
 
-![ ](/images/ResourcesPage.png "Resources Page")
+![ ](/images/aws_resources.png "Resources Page")
 
 1. Select the **Security Group ID** for your Chef Automate deployment.
-
-![ ](/images/SecurityGroup.png "Security Group")
+![Locate and copy your security group ID from the second column](/images/aws_security_group.png "Security Group")
 
 1. Select **Edit inbound rules**.
-
-![ ](/images/InBoundRules.png "Inbound Rules")
+![Select the Edit inbound rules button](/images/aws_inbound_rules_edit.png "Edit Inbound Rules")
 
 1. Select **Add rule** and then **SSH** and enter the source IP.
 
 1. Select **Save rules** to finish.
-
-![ ](/images/AddRule.png "Add Rule")
+![Add your IP address range as a custom SSH rule](/images/aws_inbound_rule.png "Add Rule")
