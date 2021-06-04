@@ -4,7 +4,7 @@ draft = false
 
 gh_repo = "chef-web-docs"
 
-aliases = ["/aws_marketplace.html"]
+aliases = ["/aws_marketplace.html", "/aws_ami.html"]
 
 product = ["client", "workstation"]
 
@@ -31,7 +31,7 @@ In case you have a need of running automate in HA mode, please contact [Chef Sup
 TODO: Select the Chef Automate AWS Marketplace [CloudFormation template](NEED LINK
 )
 
-Every Cloudformation Stack deployment creates a new [Virtual Private Cloud](https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html) (VPC)
+Every CloudFormation Stack deployment creates a new [Virtual Private Cloud](https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html) (VPC)
 
 {{< note >}}
 AWS provides 5 VPCs per region. If you requires more VPCs please contact [AWS Support](https://aws.amazon.com/contact-us/).
@@ -56,7 +56,7 @@ AWS provides 5 VPCs per region. If you requires more VPCs please contact [AWS Su
 
 ## Post-Installation
 
-1. Navigate to the AWS deployment "output" tab and locate the Chef Automate URL, user name, and password. You will need these in the next steps.
+1. Navigate to the AWS deployment **output** tab and locate the Chef Automate URL, user name, and password. You will need these in the next steps.
 
 ![AWS Chef Automate deployment output tab contains your instance URL, user name, and password ](/images/OutputPage.png "Output Page")
 
