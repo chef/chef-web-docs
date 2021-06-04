@@ -16,7 +16,7 @@ product = ["client", "workstation"]
     weight = 10
 +++
 
-Chef Automate is an enterprise platform that allows the developers, operations, and security engineers to collaborate to offer application and infrastructural changes with speed and scale as per the demands of the modern business. Chef Automate provides actionable insights across data centers and the cloud providers where your nodes live.
+Chef Automate is an enterprise platform that allows developers, operations, and security engineers to collaborate on application and infrastructure changes with speed and at scale. Chef Automate provides actionable insights across data centers and cloud providers, wherever your nodes live.
 
 Chef Automate is the center of the modern Chef platform, providing users with a single source of truth for infrastructure, security, and application automation. The comprehensive dashboard provides real-time views of your configuration management activity. Chef Automate comes bundled with the latest Chef Infra Server, providing the core tools you need to manage your enterprise infrastructure. Data collection is enabled by default, allowing your nodes to report activity in real-time. This instance is free for 60 days or you can bring your license (BYOL).
 
@@ -24,11 +24,11 @@ Use this instance with Chef Workstation installed on your laptop or a separate A
 
 {{< workstation >}}
 
-In case, you need to run Automate in the HA mode, please contact [Chef Support](https://www.chef.io/support).
+If you need to run Automate with a high availability (HA) topology, please contact [Chef Support](https://www.chef.io/support).
 
 ## Installation
 
-TODO: Select the Chef Automate AWS Marketplace [CloudFormation template](NEED LINK).
+Select the Chef Automate AWS Marketplace [CloudFormation template](https://aws.amazon.com/marketplace/pp/prodview-r26bs6uknftps?ref_=srh_res_product_title).
 
 Every CloudFormation Stack deployment creates a new [Virtual Private Cloud](https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html) (VPC).
 
@@ -60,7 +60,7 @@ AWS provides 5 VPCs per region. If you require more VPCs, please contact [AWS Su
 
 ![AWS Chef Automate deployment output tab contains your instance URL, user name, and password ](/images/OutputPage.png "Output Page")
 
-- Open your browser and paste the Chef Automate URL, which will open an alert page. 
+- Open your browser and paste the Chef Automate URL, which will open an alert page.
 
 - Select **Advanced** and continue.
 
@@ -70,7 +70,7 @@ AWS provides 5 VPCs per region. If you require more VPCs, please contact [AWS Su
 
 ![ ](/images/AutomateUI.png "Automate")
 
-- Fill out the registration form and [Accept the Chef License](https://docs.chef.io/chef_license_accept/). 
+- Fill out the registration form and [Accept the Chef License](https://docs.chef.io/chef_license_accept/).
 
 - Select **Register** to enter Chef Automate.
 
@@ -86,7 +86,7 @@ AWS provides 5 VPCs per region. If you require more VPCs, please contact [AWS Su
 
   ![ ](/images/AddChefServer.png "Add Chef Server")
 
-1. Enter the server name, FQDN, and IP address and then select **Add Chef Infra Server**.
+1. Enter the server name, FQDN, and IP address. Then select **Add Chef Infra Server** to create the server.
 
     - Name: Add Proper Name for the Sever.
     - FQDN: It would be the same as Automate FQDN.
@@ -128,7 +128,7 @@ Update the AWS Deployment **Security Group** to require source IP addresses for 
 
 ![ ](/images/InBoundRules.png "Inbound Rules")
 
-1. Select **Add rule** and then **SSH** and enter the source IP. 
+1. Select **Add rule** and then **SSH** and enter the source IP.
 
 1. Select **Save rules** to finish.
 
