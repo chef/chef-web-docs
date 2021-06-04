@@ -22,36 +22,39 @@ Chef Automate is the center of the modern Chef platform, providing users with a 
 
 Use this instance with Chef Workstation installed on your laptop or a separate AWS instance.
 
-The AWS Marketplace image deploys Chef Automate and Chef Infrastructure Server on a shared instance that can be used with [Chef Workstation](https://docs.chef.io/workstation/) tools like `chef`, `knife`, `inspec` and `hab`. The Chef Automate stack provides the dashboard, data aggregation, and analytics layer for all Chef products.
+{{< workstation >}}
 
 In case you have a need of running automate in HA mode, please contact [Chef Support](https://www.chef.io/support).
 
-Please select here<hyperlink> for Automate's AWS marketplace CloudFormation template. (will not be available till image is published)
+## Installation
 
-# Installation
+TODO: Select the Chef Automate AWS Marketplace [CloudFormation template](NEED LINK
+)
 
-New VPC will be created for every Cloudformation Stack deployment
+Every Cloudformation Stack deployment creates a new [Virtual Private Cloud](https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html) (VPC)
 
-Note: By default AWS provides 5 VPC's per region. If you requires more VPC please contact [AWS Support](https://aws.amazon.com/contact-us/).
+{{< note >}}
+AWS provides 5 VPCs per region. If you requires more VPCs please contact [AWS Support](https://aws.amazon.com/contact-us/).
+{{< /note >}}
 
 ### Specify the Stack Details
 
 1. Enter the following values for your deployment.
 
-     - Stack Name: < Any name for your reference >  `Eg: Chef-Automate`
-     - EC2RootVolumeSize: < Change to req. size >  `Default: 40`
-     - Instance Type: < Select EC2 Instance type > `Default: t2.xlarge`
-     - KeyName: < Select your existing keypair >
-     - SecurityGroupCidrIp: `Eg: 0.0.0.0/0`  (Source IP to access the Automate application through internet)
-     - SubnetCIDR: `Eg: 10.0.0.0/24`  (Range for Subnet CIDR)
-     - VpcCIDR: `Eg: 10.0.0.0/16`  (Range for VPC CIDR)
+     - Stack Name: `Chef-Automate`
+     - EC2RootVolumeSize: `Default: 40`
+     - Instance Type:`Default: t2.xlarge`
+     - KeyName: _Enter your existing keypair_
+     - SecurityGroupCidrIp: `0.0.0.0/0`
+     - SubnetCIDR: `10.0.0.0/24`
+     - VpcCIDR: `10.0.0.0/16`
 
 1. Select **Next** and create your Chef Automate deployment. This process can take several minutes.
-1. Give Chef Automate an additional five minutes for all of the services to start running.
+1. Give Chef Automate an additional five minutes for all the services to start running.
 
 ![Select next to create stack](/images/StackDetails.png "Stack Details")
 
-# Post Installation
+## Post-Installation
 
 1. Navigate to the AWS deployment "output" tab and locate the Chef Automate URL, user name, and password. You will need these in the next steps.
 
@@ -69,10 +72,9 @@ Note: By default AWS provides 5 VPC's per region. If you requires more VPC pleas
 
 ![ ](/images/WelcomePage.png "Welcome Page")
 
-- Congratulations! You've sucessfully started Chef Automate!
+- Congratulations! You've started Chef Automate!
 
 ![ ](/images/DashboardsPage.png "Dashboards Page")
-
 
 ## Add Chef Servers
 
@@ -80,48 +82,48 @@ Note: By default AWS provides 5 VPC's per region. If you requires more VPC pleas
 
   ![ ](/images/AddChefServer.png "Add Chef Server")
 
-1. Please fill the details and select Add Chef Infra Server
-  - Name : Add Proper Name for the Sever
-  - FQDN : It would be same as Automate FQDN
-  - IP Address : Public IP Address of the EC2-Instance
+1. Enter the server name, FQDN, and IP address then select **Add Chef Infra Server**
 
-  ![ ](/images/ChefServerDetails.png "Chef Server Details")
+    - Name : Add Proper Name for the Sever
+    - FQDN : It would be same as Automate FQDN
+    - IP Address : Public IP Address of the EC2-Instance
 
-1. After Adding the Chef-Server
+  <img src="/images/ChefServerDetails.png" style="width: 30%" />
+
+1. The Chef Infra Server will appear in the list of servers. Select the server on the view information about it.
 
   ![ ](/images/AddChefServer01.png "Add Chef Server")
 
-1. Select the Add Chef Organization Button
+1. Select **Add Chef Organization**
 
   ![ ](/images/AddOrgPage.png "Add Org Page")
 
-1. Add Organization Details
-  - Name : demo (By-default demo Organization is created)
-  - Admin User : admin (For demo Organization we have user admin)
-  - Admin Key : copy the key from stater kit
+1. Enter the following information:
 
-1. after adding the details, select the Add Chef Organization
+    - Name : **demo**
+    - Admin User : **admin**
+    - Admin Key : _copy the key from starter kit_
 
-  ![ ](/images/OrgPageDetails.png "Org Page Details")
+1. Select **Add Chef Organization**
 
-## Update Security Group to enable SSH connection
+  <img src="/images/OrgPageDetails.png" style="width: 30%" />
 
-1. Select Instance Security group under Resources section in CloudFormation stack.
+## AWS Deployment Security
 
-![ ](/images/RecourcesPage.png "Recources Page")
+Update the AWS Deployment **Security Group** to require source IP addresses for a secure SSH connection.
 
-1. Select Security group ID as shown below.
+1. Select the **Instance Security** group in the Resources tab of your AWS Chef Automate deployment.
+
+![ ](/images/ResourcesPage.png "Resources Page")
+
+1. Select the **Security Group ID** for your Chef Automate deployment.
 
 ![ ](/images/SecurityGroup.png "Security Group")
 
-1. Select Edit inbound rules.
+1. Select **Edit inbound rules**.
 
 ![ ](/images/InBoundRules.png "Inbound Rules")
 
-
-1. Select Add rule and select SSH and provide source IP and save the rules.
-
-Note:  To access SSH securely select required source IP's.
+1. Select **Add rule** and then **SSH** and enter the source IP. Select **Save rules** to finish.
 
 ![ ](/images/AddRule.png "Add Rule")
-
