@@ -130,7 +130,7 @@ Since unified mode executes your resource as it is compiled, the behavior of imm
 Unified mode delays immediate notifications to later resources.
 In unified mode the Chef Infra Client saves immediate notifications and executes them when the later resource is parsed. Immediate notifications to prior resources and delayed notifications behave the same as they did before unified mode.
 
-The end result of chaining immediate notifications is the same as before unified mode.  Instead of immediately notifying results, the notifications fire sequentially as they are parsed, which has the same outcome.  If the parse order and the intended execution order are very different, the results may be different and reflect parse order.
+The end result of sequentially chaining immediate notifications is the same as before unified mode. Instead of immediately notifying results, the notifications fire _in order_ as they are parsed, which has the same outcome. If the parse order and the intended execution order are very different, then the results may be different and are a reflection of the parse order.
 
 The changes to sending immediate notification could result in subtle changes to behaviors in some resources, but it not a breaking change to common patterns of writing resources.
 
