@@ -12,4 +12,4 @@ product = ["client"]
     weight = 20
 +++
 
-{{< readFile_shortcode file="unified_mode.md" >}}
+{{% unified_mode %}}

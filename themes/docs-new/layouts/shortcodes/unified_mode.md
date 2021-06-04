@@ -1,4 +1,3 @@
-<!-- markdownlint-disable MD041 -->
 Unified mode combines the compile and converge stages of the Chef Infra Client run into one phase. In unified mode, Chef Infra Client compiles and converges a custom resource in one pass and in the order that the code is compiled, from the beginning to the end.
 
 Unified mode is only available on custom resources. Chef Infra Client processes all other resources with separate compile and converge phases.
@@ -30,12 +29,11 @@ provides :myresource
 actions :run do
   [...]
 end
-
 ```
 
 ## Troubleshoot Unified Mode
 
-Unified mode changes the execution of a custom resource to run in one phase, in the order that the code is written, from first line of the code to the last. Custom resources designed to use two phases may need modification. These fall into three general types:
+Unified mode changes the execution of a custom resource to run in one phase, in the order that the code is written, from the first line of the code to the last. Custom resources designed to use two phases may need modification. These fall into three general types:
 
 - Resources with changes to internal sub-resources
 - Resources with actions on later resources

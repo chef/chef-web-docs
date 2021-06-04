@@ -9,4 +9,4 @@ robots = "noindex"
 aliases = "/deprecations_unified_mode.html"
 +++
 
-{{< readFile_shortcode file="unified_mode.md" >}}
+{{% unified_mode %}}
