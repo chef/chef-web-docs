@@ -171,6 +171,8 @@ This simplified example shows how to trap exceptions from resources using normal
 
 The usefulness of this is that if the tar extraction throws an exception (for example, it could be out of disk space), then that Exception causes the tar file to be deleted and then redownloaded the next time `chef-client` is run. Without the cleanup the tar file would exist, but the resource would not have completed, the extraction would not happen and the resource would be left in a broken, indeterminate state.
 
+[NOTE: UNIFIED MODE SHORTCODE STARTS HERE]
+
 {{% unified_mode %}}
 
 ### Notifications and Accumulators
