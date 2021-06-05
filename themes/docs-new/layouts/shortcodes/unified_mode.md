@@ -183,7 +183,7 @@ package "myservice" do
 end
 ```
 
-### Out Of Order Execution
+### Out of Order Execution
 
 Unified mode breaks custom resources that rely on the out-of-order execution of compile-time statements. Move any affected compile-time statements to the location in the code where they are intended to execute.
 
