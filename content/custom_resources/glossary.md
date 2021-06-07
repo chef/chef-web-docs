@@ -399,19 +399,20 @@ property :cloud_password, String, desired_state: false
 
 ## identity
 
-<!-- TODO: this sentence doesn't make any sense yet -->
+{{< note >}}
 
-- When `true`, data for that property is returned as part of the
-  resource data set and may be available to external applications,
-  such as reporting
+The `identity` setting is kept for backwards compatability. It is no longer used.
+
+{{< /note >}}
+
+The identity setting is used for reporting purposes.
+
+- When `true`, data for that property is returned as part of the resource data set and may be available to external applications, such as reporting
 - When `false`, no data for that property is returned.
 
-If no properties are marked `true`, the property that defaults to the
-`name` of the resource is marked `true`.
+If no properties are marked `true`, the property that defaults to the `name` of the resource is marked `true`.
 
-For example, the following properties define `username` and `password`
-properties with no default values specified, but with `identity` set to
-`true` for the user name:
+For example, the following properties define `username` and `password` properties with no default values specified, but with `identity` set to `true` for the user name:
 
 ```ruby
 provides :user
@@ -538,7 +539,7 @@ If you are modifying the properties type, you will also need to accept that Ruby
 
 {{< note >}}
 
-The `resource_name` setting is necessary for backwards compatibility with Chef Infra Client 12 through 15. It is no longer recommended. Please use the [`provides`](#provides) method instead
+The `resource_name` setting is necessary for backwards compatibility with Chef Infra Client 12 through 15. It's use is no longer recommended, please use the [`provides`](#provides) method instead.
 
 {{< /note >}}
 
