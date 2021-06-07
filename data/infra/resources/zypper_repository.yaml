@@ -66,7 +66,7 @@ properties_list:
   required: false
   description_list:
   - markdown: The cookbook to source the repository template file from. Only necessary
-      if you're not using the built in template.
+      if you're using a custom template for the repository file.
 - property: description
   ruby_type: String
   required: false
@@ -142,7 +142,7 @@ properties_list:
   required: false
   description_list:
   - markdown: The name of the template for the repository file. Only necessary if
-      you're not using the built in template.
+      you're using a custom template for the repository file.
 - property: type
   ruby_type: String
   required: false
@@ -155,8 +155,24 @@ examples: |
   ```ruby
   zypper_repository 'apache' do
     baseurl 'http://download.opensuse.org/repositories/Apache'
-    path '/openSUSE_Leap_15.0'
+    path '/openSUSE_Leap_15.2'
     type 'rpm-md'
     priority '100'
+  end
+  ```
+
+  **Remove the repo named 'apache'**:
+
+  ```ruby
+  zypper_repository 'apache' do
+    action :delete
+  end
+  ```
+
+  **Refresh the repo named 'apache'**:
+
+  ```ruby
+  zypper_repository 'apache' do
+    action :refresh
   end
   ```
