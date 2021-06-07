@@ -192,6 +192,16 @@ This ensures the values for `homepage` and `page_not_found` are not
 changed to the default values when Chef Infra Client configures the
 node.
 
+## current_value_does_not_exist!
+
+When using the `load_current_value` block, use `current_value_does_not_exist!` to indicate that the value does not exist and that `current_resource` should therefore be `nil`.
+
+```ruby
+load_current_value do
+  current_value_does_not_exist!
+end
+```
+
 ## new_resource.property
 
 {{ partial dsl/new_resource . }}
