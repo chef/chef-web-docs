@@ -1,6 +1,5 @@
 +++
 title = "Converting Definitions to Custom Resources"
-draft = false
 gh_repo = "chef-web-docs"
 
 [menu]
