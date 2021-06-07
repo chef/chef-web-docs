@@ -1,14 +1,13 @@
 +++
-title = "Migrating from Definitions to Custom Resources"
-draft = false
+title = "Migrating from LWRPs to Custom Resources"
 gh_repo = "chef-web-docs"
 
 [menu]
   [menu.infra]
-    title = "About Custom Resources"
-    identifier = "chef_infra/cookbook_reference/custom_resources/attribute_arrays Migrating from Definitions"
+    title = "Migrating from LWRPs"
+    identifier = "chef_infra/cookbook_reference/custom_resources/lwrp"
     parent = "chef_infra/cookbook_reference/custom_resources"
-    weight = 30
+    weight = 50
 +++
 
 ## Overview
