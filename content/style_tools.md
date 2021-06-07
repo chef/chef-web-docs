@@ -136,30 +136,17 @@ Add this configuration to exclude code blocks from spellcheck:
 
 ### Markdownlint
 
-[Markdownlint](https://github.com/DavidAnson/markdownlint)
-Here's a list of Markdownlint [rules](https://github.com/DavidAnson/markdownlint/blob/main/doc/Rules.md#md041)
+[Markdownlint-CLI2](https://github.com/DavidAnson/markdownlint-cli2) is a fast, flexible, configuration-based command-line interface for linting Markdown files.
 
-Add this to your configuration:
+Install the Markdownlint CLI into your local environment:
 
-```json
-  "markdownlint.config": {
-
-    "MD010": false,
-    "MD013": false,
-    "MD028": false,
-    "MD029": {
-      "style": "one_or_ordered"
-    },
-    "MD033": false,
-    "MD041": false,
-    "MD046": {
-      "style": "fenced"
-    },
-    "MD048": {
-      "style": "backtick"
-    }
-  },
+```bash
+npm install markdownlint-cli2 --global
 ```
+
+`chef/chef-web-docs/.markdownlint.yaml` is the configuration file with the Markdown rules for Chef documentation files.
+
+This is a full list of  Markdownlint [rules](https://github.com/DavidAnson/markdownlint/blob/main/doc/Rules.md)
 
 ### Vale
 
