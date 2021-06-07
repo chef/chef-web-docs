@@ -1,6 +1,5 @@
 +++
-title = "About Custom Resources"
-draft = false
+title = "Custom Resources"
 gh_repo = "chef-web-docs"
 aliases = ["/custom_resources.html"]
 
@@ -428,5 +427,4 @@ end
 
 ## Further Reading
 
-See the [dsl reference](dsl_reference.md) for a description of available methods.
-
+See the [Custom Resources Glossary](/custom_resource_glossary) for a description of available methods.
