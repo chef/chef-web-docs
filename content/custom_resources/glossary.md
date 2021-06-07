@@ -364,7 +364,7 @@ exported to data collection and sent to an Automate server.
 
 ## validators
 
-{{ partial dsl/property_validation_parameter . }}
+{{ dsl/property_validation_parameter }}
 
 ## desired_state
 
@@ -426,6 +426,12 @@ user 'chef' do
   password '12345'
 end
 ```
+
+## run_context
+
+Chef loads and tracks the current run in the run context object.
+
+root
 
 ## property_is_set?
 
