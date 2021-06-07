@@ -116,7 +116,7 @@ resources in recipes:
 Some more complex ways to debug issues with a Chef Infra Client run
 include:
 
--   Using the **chef_handler** cookbook
+-   Using the **chef_handler** resource
 -   Using the chef-shell and the **breakpoint** resource to add
     breakpoints to recipes, and to then step through the recipes using
     the breakpoints
