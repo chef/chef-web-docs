@@ -148,6 +148,25 @@ npm install markdownlint-cli2 --global
 
 This is a full list of  Markdownlint [rules](https://github.com/DavidAnson/markdownlint/blob/main/doc/Rules.md)
 
+To enable or disable rules for specific lines, add the appropriate marker:
+
+- Disable all rules: `<!-- markdownlint-disable -->`
+- Enable all rules: `<!-- markdownlint-enable -->`
+- Disable all rules for the next line only: `<!-- markdownlint-disable-next-line -->`
+- Disable one or more rules by name: `<!-- markdownlint-disable MD001 MD005 -->`
+- Enable one or more rules by name: `<!-- markdownlint-enable MD001 MD005 -->`
+- Disable one or more rules by name for the next line only: `<!-- markdownlint-disable-next-line MD001 MD005 -->`
+- Capture the current rule configuration: `<!-- markdownlint-capture -->`
+- Restore the captured rule configuration: `<!-- markdownlint-restore -->`
+
+To enable or disable rules for entire files, use:
+
+- Disable all rules: <!-- markdownlint-disable-file -->
+- Enable all rules: <!-- markdownlint-enable-file -->
+- Disable one or more rules by name: <!-- markdownlint-disable-file MD001 -->
+- Enable one or more rules by name: <!-- markdownlint-enable-file MD001 -->
+
+For more information about customizing Markdownlint, see the Markdownlint GitHub Repository [README](https://github.com/DavidAnson/markdownlint/blob/main/README.md#configuration).
 ### Vale
 
 [Vale](https://docs.errata.ai/vale/about)
