@@ -8,7 +8,7 @@ gh_repo = "chef-web-docs"
     title = "Custom Resource Helpers"
     identifier = "chef_infra/cookbook_reference/custom_resources/helpers Library Helpers"
     parent = "chef_infra/cookbook_reference/custom_resources"
-    weight = 50
+    weight = 20
 +++
 
 Helper classes enable users to share code between Custom Resources. Rspec method test are possible when code is abstracted into plain Ruby files.
