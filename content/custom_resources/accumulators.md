@@ -1,18 +1,15 @@
 +++
 title = "Accumulators"
 gh_repo = "chef-web-docs"
-aliases = ["/custom_resources.html"]
 
 [menu]
   [menu.infra]
     title = "Accumulators"
-    identifier = "chef_infra/cookbook_reference/custom_resources/accumulators Accumulators"
+    identifier = "chef_infra/cookbook_reference/custom_resources/accumulators"
     parent = "chef_infra/cookbook_reference/custom_resources"
-    weight = 10
+    weight = 15
 +++
 
-
-<!-- Target Audience, previous knowledge, knowledge after -->
 This is an advanced topic. You should have already written a Custom Resource and be familiar with:
 
 - the Chef template resource
