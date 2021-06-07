@@ -1,14 +1,13 @@
 +++
 title = "Partials"
-draft = false
 gh_repo = "chef-web-docs"
 
 [menu]
   [menu.infra]
-    title = "Custom Resource Partials"
-    identifier = "chef_infra/cookbook_reference/custom_resources/partials Partials"
+    title = "Partials"
+    identifier = "chef_infra/cookbook_reference/custom_resources/partials"
     parent = "chef_infra/cookbook_reference/custom_resources"
-    weight = 10
+    weight = 20
 +++
 
 [InfoQ article](https://www.infoq.com/news/2020/05/chef-infra-16/)
