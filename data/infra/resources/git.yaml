@@ -30,6 +30,7 @@ syntax_full_code_block: |-
     user                    String, Integer
     action                  Symbol # defaults to :sync if not specified
   end
+syntax_properties_list:
 syntax_full_properties_list:
 - "`git` is the resource."
 - "`name` is the name given to the resource block."
@@ -54,6 +55,7 @@ properties_list:
 - property: additional_remotes
   ruby_type: Hash
   required: false
+  default_value: "{}"
   description_list:
   - markdown: A Hash of additional remotes that are added to the git repository configuration.
 - property: checkout_branch

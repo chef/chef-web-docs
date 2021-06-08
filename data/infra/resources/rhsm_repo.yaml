@@ -35,8 +35,17 @@ properties_list:
   description_list:
   - markdown: An optional property for specifying the repository name if it differs
       from the resource block's name.
-examples: "
-  Enable an RHSM repository\n\n  ```ruby\n  rhsm_repo 'rhel-7-server-extras-rpms'\n\
-  \  ```\n\n  Disable an RHSM repository\n\n  ```ruby\n  rhsm_repo 'rhel-7-server-extras-rpms'\
-  \ do\n    action :disable\n  end\n  ```\n"
+examples: |
+  **Enable an RHSM repository**
 
+  ```ruby
+  rhsm_repo 'rhel-7-server-extras-rpms'
+  ```
+
+  **Disable an RHSM repository**
+
+  ```ruby
+  rhsm_repo 'rhel-7-server-extras-rpms' do
+    action :disable
+  end
+  ```

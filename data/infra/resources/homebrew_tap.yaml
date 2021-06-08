@@ -12,7 +12,7 @@ syntax_full_code_block: |-
   homebrew_tap 'name' do
     full               true, false # default value: false
     homebrew_path      String # default value: "/usr/local/bin/brew"
-    owner              String
+    owner              String # default value: "Calculated default username"
     tap_name           String # default value: 'name' unless specified
     url                String
     action             Symbol # defaults to :tap if not specified
