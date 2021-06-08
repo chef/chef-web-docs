@@ -14,18 +14,23 @@ Request for a large or ongoing documentation project:
 This project plan defines the scope and details for a larger doc project. Complete as much information as you can, as this will help us get better oriented and familiar with the doc needs.
 
 ## Product
-[ ] Chef Automate
-[ ] Chef Habitat
-[ ] Chef Infra Client
-[ ] Chef Infra Server
-[ ] Chef InSpec
-[ ] Other________________
+- [ ] Chef Automate
+- [ ] Chef Habitat
+- [ ] Chef Infra Client
+- [ ] Chef Infra Server
+- [ ] Chef InSpec
+- [ ] Other________________
 
 Brief product description: [3-4 lines]
 
 Product manager:
 
 ## Project overview
+
+This is a pubilc repository. If you would prefer to keep the following information confidential, please email this part of the form us at docs@chef.io.
+
+- [ ] It's all good. I'll use the form
+- [ ] That's a big nope. Look for my email.
 
 **Tell us about the project:**
 
