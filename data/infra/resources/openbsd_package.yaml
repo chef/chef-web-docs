@@ -50,16 +50,13 @@ properties_list:
   ruby_type: String
   required: false
   description_list:
-  - markdown: 'One (or more) additional command options that are passed to the
-
-      command.'
+  - markdown: One (or more) additional command options that are passed to the command.
 - property: package_name
-  ruby_type: String, Array
+  ruby_type: String
   required: false
   description_list:
-  - markdown: 'An optional property to set the package name if it differs from the
-
-      resource block''s name.'
+  - markdown: An optional property to set the package name if it differs from the
+      resource block's name.
 - property: source
   ruby_type: String
   required: false
@@ -71,14 +68,23 @@ properties_list:
   description_list:
   - markdown: The amount of time (in seconds) to wait before timing out.
 - property: version
-  ruby_type: String, Array
+  ruby_type: String
   required: false
   description_list:
   - markdown: The version of a package to be installed or upgraded.
-resources_common_properties: true
-resources_common_notification: true
-resources_common_guards: true
-examples: "
-  Install a package\n\n  ```ruby\n  openbsd_package 'name of package'\
-  \ do\n    action :install\n  end\n  ```\n"
+examples: |
+  **Install a package**
 
+  ```ruby
+  openbsd_package 'name of package' do
+    action :install
+  end
+  ```
+
+  **Remove a package**
+
+  ```ruby
+  openbsd_package 'name of package' do
+    action :remove
+  end
+  ```

@@ -42,13 +42,13 @@ syntax_full_properties_list:
   `filename`, `groups`, `host`, `noexec`, `nopasswd`, `runas`, `setenv`, `template`,
   `users`, `variables`, and `visudo_binary` are the properties available to this resource."
 actions_list:
-  :create:
-    markdown: Default. Create a single sudoers configuration file in the `sudoers.d`
-      directory.
-  :delete:
-    markdown: Removed a sudoers configuration file from the `sudoers.d` directory.
   :nothing:
     shortcode: resources_common_actions_nothing.md
+  :create:
+    markdown: Create a single sudoers configuration file in the `sudoers.d` directory.
+      (default)
+  :delete:
+    markdown: Remove a sudoers configuration file from the `sudoers.d` directory.
 properties_list:
 - property: command_aliases
   ruby_type: Array

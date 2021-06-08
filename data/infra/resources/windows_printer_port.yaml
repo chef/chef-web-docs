@@ -10,13 +10,12 @@ resource_description_list:
 resource_new_in: '14.0'
 syntax_full_code_block: |-
   windows_printer_port 'name' do
-    ipv4_address          String # default value: 'name' unless specified
-    port_description      String
-    port_name             String
-    port_number           Integer # default value: 9100
-    port_protocol         Integer # default value: 1
-    snmp_enabled          true, false # default value: false
-    action                Symbol # defaults to :create if not specified
+    ipv4_address       String # default value: 'name' unless specified
+    port_name          String
+    port_number        Integer # default value: 9100
+    port_protocol      Integer # default value: 1
+    snmp_enabled       true, false # default value: false
+    action             Symbol # defaults to :create if not specified
   end
 syntax_properties_list:
 syntax_full_properties_list:
@@ -24,8 +23,8 @@ syntax_full_properties_list:
 - "`name` is the name given to the resource block."
 - "`action` identifies which steps Chef Infra Client will take to bring the node into
   the desired state."
-- "`ipv4_address`, `port_description`, `port_name`, `port_number`, `port_protocol`,
-  and `snmp_enabled` are the properties available to this resource."
+- "`ipv4_address`, `port_name`, `port_number`, `port_protocol`, and `snmp_enabled`
+  are the properties available to this resource."
 actions_list:
   :nothing:
     shortcode: resources_common_actions_nothing.md
@@ -41,14 +40,10 @@ properties_list:
   description_list:
   - markdown: An optional property for the IPv4 address of the printer if it differs
       from the resource block's name.
-- property: port_description
-  ruby_type: String
-  required: false
-  description_list:
-  - markdown: The description of the port.
 - property: port_name
   ruby_type: String
   required: false
+  default_value: The resource block name or the ipv4_address prepended with IP_.
   description_list:
   - markdown: The port name.
 - property: port_number
@@ -56,7 +51,7 @@ properties_list:
   required: false
   default_value: '9100'
   description_list:
-  - markdown: The port number.
+  - markdown: The TCP port number.
 - property: port_protocol
   ruby_type: Integer
   required: false
