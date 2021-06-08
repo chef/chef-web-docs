@@ -7,13 +7,7 @@ assignees: ''
 
 ---
 
-To request support for a large documentation project:
-
-1. Fill in the `Documentation project plan` and open an issue
-2. Send an email with the rest of the information in this template (as much as you have) to docs@chef.io. 
-
-We will follow up with you soon!
-
+Request for a large or ongoing documentation project:
 
 ## Documentation project plan
 
@@ -31,9 +25,7 @@ Brief product description: [3-4 lines]
 
 Product manager:
 
-## Send this information to docs@chef.io
-
-### Project overview
+## Project overview
 
 **Tell us about the project:**
 
@@ -44,13 +36,6 @@ Project status page:
 Business requirements doc:
 Design documents:
 Functional analysis documents:
-
-### Business group
-
-**Which business does this project fall under:**
-
-Business group: (ex. product, engineering, marketing)
-Team:
 
 ### Product team
 
@@ -97,16 +82,6 @@ Beta partner release date:
 General availability (GA) launch date:
 Date docs must be ready to distribute:
 
-### Information sources
-
-**How does information flow within your team:**
-
-Key team meetings:
-Team sprints:
-Scrum leader:
-Email lists:
-Slack channels:
-
 ### Code repositories
 
 **Where the code is stored:**
@@ -124,25 +99,9 @@ Terraform or Vagrantfiles:
 
 **How do we report problems:**
 
-### Will this documentation be public or protected:
-
-Protected behind a login: y/n
-Public to everyone: y/n
-
 ### Documentation size estimate
 
 **How much documentation do you anticipate for this project:**
-
-### Scope of content requests
-
-**What type of content do you need:**
-
-Documentation: y/n
-UX microcopy: y/n
-Screencasts: y/n
-Email campaign content: y/n
-Blog articles: y/n
-Other: y/n
 
 ### Reviewers for content
 
@@ -150,28 +109,6 @@ Other: y/n
 
 Person 1:
 Person 2:
-
-### Support post-launch
-
-**Who will support the product post-launch:**
-
-Support team:
-Is the support aware of this project: y/n
-Long-term owner post-launch:
-
-### Internal product wiki/resource pages
-
-**What wiki/resource pages are important to be aware of for this project:**
-
-page:
-page:
-page:
-
-### Marketing support
-
-Do you need Marketing support? y/n
-Have you reached out to anyone in Marketing? y/n
-If yes, who is the Marketing contact for this project:
 
 ### Other
 
