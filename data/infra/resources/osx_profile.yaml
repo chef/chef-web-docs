@@ -26,10 +26,10 @@ syntax_full_properties_list:
 - "`identifier`, `profile`, and `profile_name` are the properties available to this
   resource."
 actions_list:
-  :install:
-    markdown: Default. Install the specified configuration profile.
   :nothing:
     shortcode: resources_common_actions_nothing.md
+  :install:
+    markdown: Install the specified configuration profile. (default)
   :remove:
     markdown: Remove the specified configuration profile.
 properties_list:
