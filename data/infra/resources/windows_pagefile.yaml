@@ -10,7 +10,7 @@ resource_description_list:
 resource_new_in: '14.0'
 syntax_full_code_block: |-
   windows_pagefile 'name' do
-    automatic_managed      true, false # default value: false
+    automatic_managed      true, false
     initial_size           Integer
     maximum_size           Integer
     path                   String # default value: 'name' unless specified
@@ -36,7 +36,6 @@ properties_list:
 - property: automatic_managed
   ruby_type: true, false
   required: false
-  default_value: 'false'
   description_list:
   - markdown: Enable automatic management of pagefile initial and maximum size. Setting
       this to true ignores `initial_size` and `maximum_size` properties.
@@ -75,16 +74,26 @@ examples: |
 
   ```ruby
   windows_pagefile 'Delete the pagefile' do
-    path 'C:pagefile.sys'
+    path 'C'
     action :delete
+  end
+  ```
+
+  **Switch to system managed pagefiles**:
+
+  ```ruby
+  windows_pagefile 'Change the pagefile to System Managed' do
+    path 'E:'
+    system_managed true
+    action :set
   end
   ```
 
   **Create a pagefile with an initial and maximum size**:
 
   ```ruby
-  windows_pagefile 'create the pagefile' do
-    path 'C:pagefile.sys'
+  windows_pagefile 'create the pagefile with these sizes' do
+    path 'f:'
     initial_size 100
     maximum_size 200
   end
