@@ -7,11 +7,12 @@ assignees: ''
 
 ---
 
-Request for a large or ongoing documentation project:
+# Large documentation  project plan
+Request for a large or multi-sprint documentation project:
 
-## Documentation project plan
+This project plan defines the scope and details for a larger doc project. 
 
-This project plan defines the scope and details for a larger doc project. Complete as much information as you can, as this will help us get better oriented and familiar with the doc needs.
+Complete as much information as you can, as this will help us get better oriented and familiar with the documentation needs.
 
 ## Product
 - [ ] Chef Automate
@@ -34,28 +35,28 @@ This is a pubilc repository. If you would prefer to keep the following informati
 
 **Tell us about the project:**
 
-Product name:
-Product code name:
+- Product name:
+- Product code name:
 
-Project status page:
-Business requirements doc:
-Design documents:
-Functional analysis documents:
+- Project status page:
+- Business requirements doc:
+- Design documents:
+- Functional analysis documents:
 
 ### Product team
 
 **Who’s who on the project team:**
 
-Product manager:
-Project manager:
-Software developers:
-Quality assurance:
-Marketing:
-Developer outreach:
-Legal:
-Field engineer:
-Evangelist:
-Security:
+- Product manager:
+- Project manager:
+- Software developers:
+- Quality assurance:
+- Marketing:
+- Legal:
+- Security:
+- Field engineer:
+- Evangelist:
+
 
 ### Priority
 
@@ -67,40 +68,40 @@ Does this project roll up under a strategic leadership goal? If so, which one?
 
 **Who is the documentation for:**
 
-[ ] Sysadmins
-[ ] Developers
-[ ] Internal engineers
-[ ] Business decision-makers
+- [ ] Sysadmins
+- [ ] Developers
+- [ ] Internal engineers
+- [ ] Business decision-makers
 
 ### Issue tracking
 
 **Where can the tech writer track work related to the project:**
 
-GitHub Repository:
-Issue link(s):
-PR link(s):
-AHA! link(s):
+- GitHub Repository:
+- Issue link(s):
+- PR link(s):
+- AHA! link(s):
 
 ### Release timelines
 
-Beta partner release date:
-General availability (GA) launch date:
-Date docs must be ready to distribute:
+- Beta partner release date:
+- General availability (GA) launch date:
+- Date docs must be ready to distribute:
 
 ### Code repositories
 
 **Where the code is stored:**
 
-Repository:
-Relevant directories and files:
+- Repository:
+- Relevant directories and files:
 
 ### Testing
 
 **How do we validate the product:**
 
-Test environment:
-Test scripts:
-Terraform or Vagrantfiles:
+- Test environment:
+- Test scripts:
+- Terraform or Vagrantfiles:
 
 **How do we report problems:**
 
@@ -108,12 +109,14 @@ Terraform or Vagrantfiles:
 
 **How much documentation do you anticipate for this project:**
 
+**How many sprints do you anticipate for the documentation in this project:**
+
 ### Reviewers for content
 
-**Who will provide the technical review for the docs and other content:
+**Who will provide the technical review for the docs and other content:**
 
-Person 1:
-Person 2:
+- Person 1:
+- Person 2:
 
 ### Other
 
