@@ -69,13 +69,11 @@ Running handlers complete
 Chef Infra Client finished, 0/1 resources updated in 03 seconds
 ```
 
-Add a slow resources report to chef-client - https://github.com/chef/chef/pull/11642
-
 ### Improved YAML Recipe Support
 
 Chef Infra Client now supports both `.yaml` and `.yml` file extensions for recipes. If a `.yml` and `.yaml` recipe of the same name is present, Chef Infra Client will now fail as there is no way to determine which recipe should be loaded in this case.
 
-#### Improved Reporting to Automate
+### Improved Reporting to Automate
 
 Chef Infra Client run reporting to Automate now respects attribute `allowlist` and `denylist` configurations set in the `client.rb`. This change allows users to limit the data sent to their Automate servers to prevent indexing sensitive data or to reduce the necessary storage space on the Automate server.
 
