@@ -83,7 +83,7 @@ syntax_full_properties_list:
 - "`action` identifies which steps Chef Infra Client will take to bring the node into
   the desired state."
 - "`command`, `creates`, `cwd`, `default_env`, `domain`, `elevated`, `environment`,
-  `group`, `input`, `live_stream`, `login`, `password`, `returns`, `sensitive`, `timeout`,
+  `group`, `input`, `live_stream`, `login`, `password`, `returns`, `timeout`,
   `umask`, and `user` are the properties available to this resource."
 actions_list:
   :nothing:
