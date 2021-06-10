@@ -68,9 +68,9 @@ syntax_full_code_block: |-
     group            String, Integer
     input            String
     live_stream      true, false # default value: false
+    login            true, false # default value: false
     password         String
     returns          Integer, Array # default value: 0
-    sensitive        true, false
     timeout          Integer, String, Float # default value: 3600
     umask            String, Integer
     user             String, Integer
@@ -83,7 +83,7 @@ syntax_full_properties_list:
 - "`action` identifies which steps Chef Infra Client will take to bring the node into
   the desired state."
 - "`command`, `creates`, `cwd`, `default_env`, `domain`, `elevated`, `environment`,
-  `group`, `input`, `live_stream`, `password`, `returns`, `sensitive`, `timeout`,
+  `group`, `input`, `live_stream`, `login`, `password`, `returns`, `timeout`,
   `umask`, and `user` are the properties available to this resource."
 actions_list:
   :nothing:
@@ -96,13 +96,11 @@ properties_list:
   required: false
   default_value: The resource block's name
   description_list:
-  - markdown: 'The name of the command to be executed. Default value: the `name` of
-
-      the resource block. See "Syntax" section above for more information.'
+  - markdown: An optional property to set the command to be executed if it differs
+      from the resource block's name.
   - note:
-      markdown: 'Use the **execute** resource to run a single command. Use multiple
-
-        **execute** resource blocks to run multiple commands.'
+      markdown: Use the **execute** resource to run a single command. Use multiple
+        **execute** resource blocks to run multiple commands.
 - property: creates
   ruby_type: String
   required: false
@@ -127,7 +125,7 @@ properties_list:
   new_in: '12.21'
   description_list:
   - markdown: 'Windows only: The domain of the user user specified by the user property.
-      If not specified, the user name and password specified by the user and password
+      If not specified, the username and password specified by the `user` and `password`
       properties will be used to resolve that user against the domain in which the
       system running Chef Infra Client is joined, or if that system is not joined
       to a domain it will resolve the user as a local account on that system. An alternative
@@ -140,7 +138,7 @@ properties_list:
   new_in: '13.3'
   description_list:
   - markdown: |-
-      Determines whether the script will run with elevated permissions to circumvent User Access Control (UAC) interactively blocking the process.
+      Determines whether the script will run with elevated permissions to circumvent User Access Control (UAC) from interactively blocking the process.
       This will cause the process to be run under a batch login instead of an interactive login. The user running chef-client needs the 'Replace a process level token' and 'Adjust Memory Quotas for a process' permissions. The user that is running the command needs the 'Log on as a batch job' permission.
       Because this requires a login, the user and password properties are required.
 - property: environment
@@ -168,6 +166,14 @@ properties_list:
   description_list:
   - markdown: Send the output of the command run by this execute resource block to
       the Chef Infra Client event stream.
+- property: login
+  ruby_type: true, false
+  required: false
+  default_value: 'false'
+  new_in: '17.0'
+  description_list:
+  - markdown: Use a login shell to run the commands instead of inheriting the existing
+      execution environment.
 - property: password
   ruby_type: String
   required: false
@@ -184,13 +190,6 @@ properties_list:
   description_list:
   - markdown: The return value for a command. This may be an array of accepted values.
       An exception is raised when the return value(s) do not match.
-- property: sensitive
-  ruby_type: true, false
-  required: false
-  default_value: True if the password property is set. False otherwise.
-  description_list:
-  - markdown: Ensure that sensitive resource data is not logged by the Chef Infra
-      Client.
 - property: timeout
   ruby_type: Integer, String, Float
   required: false
@@ -207,8 +206,8 @@ properties_list:
   required: false
   description_list:
   - markdown: The user name of the user identity with which to launch the new process.
-      The user name may optionally be specified with a domain, i.e. domainuser or
-      user@my.dns.domain.com via Universal Principal Name (UPN)format. It can also
+      The user name may optionally be specified with a domain, i.e. `domainuser` or
+      `user@my.dns.domain.com` via Universal Principal Name (UPN)format. It can also
       be specified without a domain simply as user if the domain is instead specified
       using the domain property. On Windows only, if this property is specified, the
       password property must be specified.
@@ -487,7 +486,7 @@ examples: |
   gives a recipe full control over the command issued in a much cleaner, more
   direct manner.
 
-  **Use the search helper to find users**:
+  **Use the search Infra Language helper to find users**:
 
   The following example shows how to use the `search` method in the Chef Infra Language to
   search for users:
