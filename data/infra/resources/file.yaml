@@ -59,26 +59,22 @@ properties_list:
 - property: atomic_update
   ruby_type: true, false
   required: false
+  default_value: False if modifying /etc/hosts, /etc/hostname, or /etc/resolv.conf
+    within Docker containers. Otherwise default to the client.rb 'file_atomic_update'
+    config value.
   description_list:
-  - markdown: 'Perform atomic file updates on a per-resource basis. Set to `true`
-
-      for atomic file updates. Set to `false` for non-atomic file updates.
-
-      This setting overrides `file_atomic_update`, which is a global
-
-      setting found in the client.rb file.'
+  - markdown: Perform atomic file updates on a per-resource basis. Set to true for
+      atomic file updates. Set to false for non-atomic file updates. This setting
+      overrides `file_atomic_update`, which is a global setting found in the `client.rb`
+      file.
 - property: backup
   ruby_type: Integer, false
   required: false
   default_value: '5'
   description_list:
-  - markdown: 'The number of backups to be kept in `/var/chef/backup` (for UNIX-
-
-      and Linux-based platforms) or `C:/chef/backup` (for the Microsoft
-
-      Windows platform). Set to `false` to prevent backups from being
-
-      kept.'
+  - markdown: The number of backups to be kept in `/var/chef/backup` (for UNIX- and
+      Linux-based platforms) or `C:/chef/backup` (for the Microsoft Windows platform).
+      Set to `false` to prevent backups from being kept.
 - property: checksum
   ruby_type: String
   required: false
@@ -92,27 +88,19 @@ properties_list:
   ruby_type: String
   required: false
   description_list:
-  - markdown: 'A string that is written to the file. The contents of this property
-
-      replace any previous content when this property has something other
-
-      than the default value. The default behavior will not modify
-
-      content.'
+  - markdown: A string that is written to the file. The contents of this property
+      replace any previous content when this property has something other than the
+      default value. The default behavior will not modify content.
 - property: force_unlink
   ruby_type: true, false
   required: false
   default_value: 'false'
   description_list:
-  - markdown: 'How Chef Infra Client handles certain situations when the target
-
-      file turns out not to be a file. For example, when a target file is
-
-      actually a symlink. Set to `true` for Chef Infra Client delete the
-
-      non-file target and replace it with the specified file. Set to
-
-      `false` for Chef Infra Client to raise an error.'
+  - markdown: How Chef Infra Client handles certain situations when the target file
+      turns out not to be a file. For example, when a target file is actually a symlink.
+      Set to `true` for Chef Infra Client to delete the non-file target and replace
+      it with the specified file. Set to `false` for Chef Infra Client to raise an
+      error.
 - property: group
   ruby_type: Integer, String
   required: false

@@ -261,6 +261,11 @@ of Chef comes out.
 <td>16.2</td>
 </tr>
 <tr>
+<td><a href="/deprecations_unified_mode/">CHEF-33</a></td>
+<td>Enabling unified mode in custom resources</td>
+<td>17.0</td>
+</tr>
+<tr>
 <td><a href="/deprecations_resource_cloning/">CHEF-3694</a></td>
 <td>Resource Cloning will no longer work.</td>
 <td>10.18</td>

@@ -4,9 +4,9 @@ draft = false
 
 gh_repo = "chef-web-docs"
 
-aliases = ["/aws_marketplace.html"]
+aliases = ["/aws_marketplace.html", "/aws_ami.html"]
 
-product = ["client", "workstation"]
+product = ["client", "workstation", "automate"]
 
 [menu]
   [menu.infra]
@@ -16,557 +16,109 @@ product = ["client", "workstation"]
     weight = 10
 +++
 
-Chef provides Amazon Machine Images (AMIs) for Chef Automate and Chef
-Infra Server that can be launched from the [AWS
-Marketplace](https://aws.amazon.com/marketplace/seller-profile/ref=srh_res_product_vendor?ie=UTF8&id=e7b7691e-634a-4d35-b729-a8b576175e8c).
-Hourly metered billing and Bring Your Own License (BYOL) options are
-available.
-
-## Metered AMI
-
-The Chef Automate Amazon Machine Image (AMI) is preinstalled with Chef
-Automate and Chef Infra Server on a single instance. When using the
-metered billing AMI, an hourly aggregate of your Chef Automate usage is
-calculated and billed through your Amazon Web Services (AWS) account.
-Follow the steps in the sections below to use the Chef Automate metered
-billing AMI:
-
-### Accept software terms
-
-{{% accept_aws_marketplace_terms %}}
-
-### Create S3 bucket and access role
-
-If you wish to use Chef Automate's built-in S3 backup support, or if you
-want to bring your own license, complete the following steps:
-
-1.  Navigate to the [S3
-    Console](https://s3.console.aws.amazon.com/s3/home) and create an S3
-    bucket in the region where you intend to launch the Chef Automate
-    AMI.
-2.  Copy the S3 bucket ARN.
-3.  Navigate to the [IAM Role section in the AWS
-    console](https://console.aws.amazon.com/iam/home#roles).
-4.  Create an access policy for your bucket that allows listing,
-    getting, putting, deleting and multi-part uploads to your bucket
-    ARN. You can use the following example with your bucket ARN in the
-    Resource arrays:
-
-
-```json
-{
-  "Statement": [
-    {
-      "Action": [
-        "s3:ListBucket",
-        "s3:GetBucketLocation",
-        "s3:ListBucketMultipartUploads",
-        "s3:ListBucketVersions"
-      ],
-      "Effect": "Allow",
-      "Resource": [
-        "arn:aws:s3:::yourbucket"
-      ]
-    },
-    {
-      "Action": [
-        "s3:GetObject",
-        "s3:PutObject",
-        "s3:DeleteObject",
-        "s3:AbortMultipartUpload",
-        "s3:ListMultipartUploadParts"
-      ],
-      "Effect": "Allow",
-      "Resource": [
-        "arn:aws:s3:::yourbucket/*"
-      ]
-    }
-  ],
-  "Version": "2012-10-17"
-}
-```
-
-1.  Create an IAM role for your instance.
-2.  Attach the S3 bucket access policy to the role.
-
-### Launch the Metered AMI
-
-1.  Navigate back to the Chef Automate [product
-    page](https://aws.amazon.com/marketplace/pp/B01AMIH01Q) and continue
-    to the launch wizard.
-2.  Click the 'Launch with EC2 Console' button next to the desired
-    region.
-3.  Configure the Amazon EC2 instance type, Amazon Virtual Private Cloud
-    (VPC) settings, SSH key pair, IAM Role and assign [a public IP
-    address](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-instance-addressing.html#concepts-public-addresses).
-4.  Increase the root volume size to a minimum of 30GB. You might
-    consider even larger if you have hundreds of nodes or need to
-    maintain months of node visibility data.
-5.  Launch the Amazon Machine Image (AMI).
-6.  [Install Chef
-    Workstation](#install-chef-workstation).
-
-## Bring Your Own License (BYOL) AMI
-
-The Chef Automate Amazon Machine Image (AMI) is preinstalled with Chef
-Automate and Chef Infra Server on a single instance. The BYOL image
-includes a 30 day trial license, but it can also be configured to use an
-existing Chef Automate license that you have procured from Chef. Follow
-the steps in the sections below to use the Chef Automate metered billing
-AMI:
-
-### Accept software terms
-
-{{% accept_aws_marketplace_terms %}}
-
-### Create S3 bucket and access role
-
-If you wish to use Chef Automate's built-in S3 backup support, or if you
-want to bring your own license, complete the following steps:
-
-1.  Navigate to the [S3
-    Console](https://s3.console.aws.amazon.com/s3/home) and create an S3
-    bucket in the region where you intend to launch the Chef Automate
-    AMI.
-
-2.  Select your bucket in the console and upload your Chef Automate
-    `delivery.license` file. Ensure that you've restricted access to the
-    file, and that it is not publicly readable. If you do not have a
-    license, skip this step.
-
-    {{< note spaces=4 >}}
-
-    Placing your license file in S3 is not a requirement for using the
-    BYOL functionality, the instance just needs a fully-qualified URL to
-    the license file. For the sake of these instructions we're using S3
-    to safely store the file and make it accessible to the Chef Automate
-    instance.
-
-    {{< /note >}}
-
-3.  Copy the S3 bucket ARN.
-
-4.  Navigate to the [IAM Role section in the AWS
-    console](https://console.aws.amazon.com/iam/home#roles).
-
-5.  Create an access policy for your bucket that allows listing,
-    getting, putting, deleting and multi-part uploads to your bucket
-    ARN. You can use the following example with your bucket ARN in the
-    Resource arrays:
-
-<!-- -->
-
-```json
-{
-  "Statement": [
-    {
-      "Action": [
-        "s3:ListBucket",
-        "s3:GetBucketLocation",
-        "s3:ListBucketMultipartUploads",
-        "s3:ListBucketVersions"
-      ],
-      "Effect": "Allow",
-      "Resource": [
-        "arn:aws:s3:::yourbucket"
-      ]
-    },
-    {
-      "Action": [
-        "s3:GetObject",
-        "s3:PutObject",
-        "s3:DeleteObject",
-        "s3:AbortMultipartUpload",
-        "s3:ListMultipartUploadParts"
-      ],
-      "Effect": "Allow",
-      "Resource": [
-        "arn:aws:s3:::yourbucket/*"
-      ]
-    }
-  ],
-  "Version": "2012-10-17"
-}
-```
-
-1.  Create an IAM role for your instance.
-2.  Attach the S3 bucket access policy to the role.
-
-### Launch the BYOL AMI
-
-1.  Navigate back to the Chef Automate [product
-    page](https://aws.amazon.com/marketplace/pp/B01AMIH01Q) and continue
-    to the launch wizard.
-
-2.  If you're using your own license, create and copy a pre-signed link
-    with the AWS command line tools and save it. For example:
-
-    ```bash
-    aws s3 presign yourbucket/delivery.license
-    ```
-
-3.  Configure all fields in the CloudFormation template. Use the
-    pre-signed license URL for the `LicenseUrl` field.
-
-4.  Associate the IAM role for backup access.
-
-5.  Run the CloudFormation template to create the Chef Automate
-    instance.
-
-## Install Chef Workstation
-
-While the Amazon Machine Images (AMI) for Chef Automate is provisioning,
-download and install Chef Workstation. Chef Workstation is a collection
-of tools and libraries that are packaged together to make it easy to
-develop cookbooks and resources for a Chef / Chef Automate environment.
-You'll need this to interact with Chef Automate and Chef Infra Server
-from the command line.
-
-## Configure Chef Automate
-
-After the instance has been provisioned and initial configuration has
-completed (usually 10 to 13 minutes) finish configuring Chef Automate
-and Chef Infra Server.
-
-1.  Access the initial configuration page by loading `/biscotti/setup`
-    route. Build the URL by prepending `https://` and appending
-    `/biscotti/setup` to the IP address or public hostname that was
-    automatically assigned to the instance when the Amazon Machine
-    Images (AMI) was launched. For example,
-    `https://<fqdn>/biscotti/setup`. If you used the BYOL image, the
-    CloudFormation stack will have the setup URL in the `Outputs`
-    section.
+Chef Automate is an enterprise platform that allows developers, operations, and security engineers to collaborate on application and infrastructure changes with speed and at scale. Chef Automate provides actionable insights across data centers and cloud providers, wherever your nodes live.
 
-    {{< note spaces=4 >}}
+Chef Automate is the center of the modern Chef platform, providing users with a single source of truth for infrastructure, security, and application automation. The comprehensive dashboard provides real-time views of your configuration management activity. Chef Automate comes bundled with the latest Chef Infra Server, providing the core tools you need to manage your enterprise infrastructure. Data collection is enabled by default, allowing your nodes to report activity in real-time. This instance is free for 60 days or you can bring your own license (BYOL).
 
-    {{% notes_chef_aws_ssl %}}
+Use this instance with Chef Workstation installed on your laptop or a separate AWS instance.
 
-    {{< /note >}}
+{{% workstation %}}
 
-2.  Use the AWS console or command line tools to determine the Instance
-    ID of your Chef Automate instance. The instance ID is required for
-    authorization to access the setup page.
+If you need to run Automate with a high availability (HA) topology, please contact [Chef Support](https://www.chef.io/support).
 
-3.  Fill out the setup form and submit it.
+## Installation
 
-4.  Follow the link and log into Chef Automate.
+Select [Chef Automate](https://aws.amazon.com/marketplace/pp/prodview-r26bs6uknftps?ref_=srh_res_product_title) in the AWS Marketplace.
 
-## Configure the workstation
+The Chef Automate AWS deployment uses [CloudFormation](https://aws.amazon.com/cloudformation/). [Download the CloudFormation template](https://aws-ami-chef-automate-v2.s3.amazonaws.com/cloudformation_template.yaml) or use the [view the template in CloudFormation Designer](https://console.aws.amazon.com/cloudformation/designer/home?templateURL=https://s3.amazonaws.com/awsmp-fulfillment-cf-templates-prod/658820ac-955d-4f73-bbcd-ab19b598d852/ec282ef4e8434b46a9df737571e1e0ac.template)
 
-1.  Download and extract the `starter_kit.zip` file to a directory on
-    the workstation. Open a command prompt and change into the
-    `chef-repo` directory extracted from the starter kit. For example:
+Every CloudFormation Stack deployment creates a new [Virtual Private Cloud](https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html) (VPC).
 
-    ```bash
-    cd ~/Downloads
-    unzip starter_kit.zip
-    cd starter_kit/chef-repo
-    ```
+{{< note >}}
+AWS provides 5 VPCs per region. If you require more VPCs, please contact [AWS Support](https://aws.amazon.com/contact-us/).
+{{< /note >}}
 
-2.  {{% install_aws_chef_server_knife_client_list %}}
+### Start Chef Automate with CloudFormation
 
-## Configure backups
+1. Enter the following values for your deployment.
 
-Follow the Workflow
-[instructions]({{< relref "automate/backup/" >}}) for configuring
-backups.
+     - Stack Name: `Chef-Automate`
+     - EC2RootVolumeSize: `Default: 40`
+     - Instance Type:`Default: t2.xlarge`
+     - KeyName: _Enter your existing keypair_
+     - SecurityGroupCidrIp: `0.0.0.0/0`
+     - SubnetCIDR: `10.0.0.0/24`
+     - VpcCIDR: `10.0.0.0/16`
 
-## Troubleshooting
+1. Select **Next** and create your Chef Automate deployment. This process can take several minutes.
 
-### Required ports
+1. Give Chef Automate an additional five minutes for all the services to start running.
 
-The following are recommended security group rules for Chef Automate
-from the AWS Marketplace:
+![Select next to create stack](/images/StackDetails.png "Stack Details")
 
-<table>
-<colgroup>
-<col style="width: 12%" />
-<col style="width: 87%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Port</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>443</td>
-<td>HTTPS for Chef Automate</td>
-</tr>
-<tr>
-<td>8989</td>
-<td>Git access for the delivery-cli and workflow</td>
-</tr>
-<tr>
-<td>22</td>
-<td>SSH</td>
-</tr>
-</tbody>
-</table>
+## Post-Installation
 
-### Change the hostname
+1. Navigate to the AWS deployment **Outputs** tab and locate the Chef Automate URL, user name, and password. You will need these in the next steps.
+![AWS Chef Automate deployment **Outputs** tab contains your instance URL, user name, and password ](/images/OutputPage.png "Output")
 
-To update the hostname, do the following:
+1. Open your browser and paste the Chef Automate URL, which will open an alert page.
 
-1.  Run `sudo -i` to gain administrator privileges.
+1. Select **Advanced** and continue.
+![Select 'advanced' to bypass the warning that the page is not secure](/images/NotSecurePage.png "Not Secure Page").
 
-2.  Run `chef-marketplace-ctl hostname` to view the current hostname.
+1. Enter your **Username** and **Password** and select **Sign In**.
+![ ](/images/chef_automate_login.png "Automate")
 
-3.  Configure the `api_fqdn` in `/etc/chef-marketplace/marketplace.rb`
+1. Fill out the registration form and [Accept the Chef License](https://docs.chef.io/chef_license_accept/).
 
-    ```none
-    echo 'api_fqdn "<new.fully.qualified.hostname.com>"' | sudo tee -a /etc/chef-marketplace/marketplace.rb
-    ```
+1. Select **Register** to enter Chef Automate.
+![ ](/images/WelcomePage.png "Welcome Page")
 
-4.  Run `chef-marketplace-ctl reconfigure` to update Chef Automate and
-    Chef Infra Server configuration.
+1. Congratulations! You've started Chef Automate!
+![ ](/images/DashboardsPage.png "Dashboards Page")
 
-5.  Run `chef-server-ctl stop` to stop Chef Infra Server.
+## Add Chef Servers
 
-6.  Run `automate-ctl stop` to stop Chef Automate.
+1. Add Chef-Server Details, select the Add Chef Infra Server Button.
+![ ](/images/chef_automate_add_server.png "Add Chef Server")
 
-7.  Run
-    `chef-marketplace-ctl hostname <new.fully.qualified.hostname.com>`
-    to update the hostname.
+1. Enter the server name, FQDN, and IP address. Then select **Add Chef Infra Server** to create the server.
 
-8.  Run `automate-ctl reconfigure` to ensure Chef Automate has been
-    correctly configured with the new hostname.
+    - Name: Add Proper Name for the Sever.
+    - FQDN: It would be the same as Automate FQDN.
+    - IP Address: Public IP Address of the EC2-Instance.
 
-9.  Run `chef-server-ctl reconfigure` to ensure Chef Infra Server has
-    been correctly configured with the new hostname.
+    ![Add Chef Infra Server Form](/images/automate/add-chef-server-popup-menu.png)
 
-10. Run `automate-ctl restart` to restart Chef Automate
+1. The Chef Infra Server will appear in the list of servers. Select the server and view information about it.
+![Select a server from the list](/images/chef_automate_single_server.png "Single Server View")
 
-11. Run `chef-server-ctl restart` to restart Chef server
+1. Select **Add Chef Organization**.
+{{< figure src="/images/chef_automate_add_org_page.png" style="width: 30%;" >}}
 
-### Change instance size
+1. Enter the following information:
 
-To edit the Amazon Machine Images (AMI) instance size, do the following:
+    - Name: **demo**
+    - Admin User: **admin**
+    - Admin Key: _copy the key from starter kit_
 
-1.  Login using SSH to access the Chef Automate instance. Use the SSH
-    key pair and the IP address or public hostname that was
-    automatically assigned when the Amazon Machine Images (AMI) was
-    launched. The default user is `ec2-user`. For example:
+1. Select **Add Chef Organization**.
+![Select the Add Chef Organization button to complete this action](/images/OrgPageDetails.png")
 
-    ```bash
-    ssh -i /path/to/ssh_key.pem ec2-user@<instance IP address>
-    ```
+## AWS Deployment Security
 
-2.  Stop the Chef Infra Server services:
+Update the AWS Deployment **Security Group** to require source IP addresses for a secure SSH connection.
 
-    ```bash
-    sudo chef-server-ctl stop
-    ```
+1. Select the **Instance Security** group in the **Resources** tab of your AWS Chef Automate deployment.
+![ ](/images/aws_resources.png "Resources Page")
 
-3.  Stop then Chef Automate services:
+1. Select the **Security Group ID** for your Chef Automate deployment.
+![Locate and copy your security group ID from the second column](/images/aws_security_group.png "Security Group")
 
-    ```bash
-    sudo automate-ctl stop
-    ```
+1. Select **Edit inbound rules**.
+![Select the Edit inbound rules button](/images/aws_inbound_rules_edit.png "Edit Inbound Rules")
 
-4.  Navigate to the Amazon Web Services (AWS) instance in the AWS
-    Management Console.
+1. Select **Add rule** and then **SSH** and enter the source IP.
 
-5.  From the **Actions** dropdown, select **Instance State**, and then
-    **Stop**.
-
-6.  After the instance transitions to **Stopped**, edit the instance
-    size. From the **Actions** dropdown, select **Instance Settings**,
-    and then **Change Instance Type**.
-
-7.  From the dropdown, select the desired instance size, and then click
-    **Apply**.
-
-8.  From the **Actions** dropdown, select **Instance State**, and then
-    click **Start**.
-
-9.  After the instance has started it will have a **new public IP
-    address and public DNS**.
-
-10. Use SSH to log into the new instance. Use the SSH key pair and new
-    IP address:
-
-    ```bash
-    ssh -i /path/to/ssh_key.pem ec2-user@<instance IP address>
-    ```
-
-11. Follow the [instructions for changing the
-    hostname](#change-automate-hostname)
-
-12. Verify that you can login to Chef Automate webui by navigating to
-    `https://<YOUR NEW PUBLIC DNS>/e/default`.
-
-    {{< note spaces=4 >}}
-
-    {{% notes_chef_aws_ssl %}}
-
-    {{< /note >}}
-
-13. Open a command prompt and change into your `chef-repo` directory.
-
-14. {{% install_update_aws_knife_rb %}}
-
-15. Open `.chef/pivotal.rb` in a text editor and modify the
-    `chef_server_url` and `chef_server_root` with your new public DNS.
-    For example:
-
-    ```bash
-    vim ~/chef-repo/.chef/pivotal.rb
-    ```
-
-    will open a `pivotal.rb` file similar to:
-
-    ```ruby
-    node_name        'pivotal'
-    chef_server_url  '<YOUR NEW PUBLIC DNS>'
-    chef_server_root '<YOUR NEW PUBLIC DNS>'
-    client_key       ::File.join(__dir__, 'pivotal.pem')
-    ```
-
-16. {{% install_aws_chef_server_knife_ssl_fetch %}}
-
-17. {{% install_aws_chef_server_knife_client_list %}}
-
-18. Update the `/etc/chef/client.rb` on all of your nodes to use the new
-    public DNS. For example:
-
-    ```bash
-    knife ssh name:* 'sudo sed -ie "s/chef_server_url.*/chef_server_url 'https://ec2-52-6-31-230.compute-1.amazonaws.com/organizations/your_org'/"' /etc/chef/client.rb
-    ```
-
-    Replace `ec2-52-6-31-230.compute-1.amazonaws.com` with your new
-    public DNS name and `your_org` with your organization name.
-
-### Upgrade Chef Automate
-
-The Chef Automate Amazon Machine Images (AMI) can perform in-place
-upgrades of all of the pre-bundled software. This makes it easy to stay
-up-to-date with the latest version of Chef Automate, the Chef Infra
-Server and Chef Marketplace, while not requiring data to be migrated to
-the latest published Amazon Machine Images (AMI).
-
-There are three options: upgrade Chef Automate, upgrade Chef Infra
-Server, upgrade Chef Marketplace; upgrade everything.
-
-To upgrade, do one of the following:
-
--   Upgrade the Chef Automate package by using the following command:
-
-    ```bash
-    sudo chef-marketplace-ctl upgrade --automate
-    ```
-
-    {{< note spaces=4 >}}
-
-    Chef Automate and Chef Infra Server services will be unavailable
-    while the software is updated.
-
-    {{< /note >}}
-
--   Upgrade the Chef Infra Server package by using the following
-    command:
-
-    ```bash
-    sudo chef-marketplace-ctl upgrade --server
-    ```
-
-    {{< note spaces=4 >}}
-
-    Chef Infra Server services will be unavailable while the software is
-    updated.
-
-    {{< /note >}}
-
--   Upgrade the Chef Marketplace package by using the following command:
-
-    ```bash
-    sudo chef-marketplace-ctl upgrade --marketplace
-    ```
-
--   Upgrade all the installed packages by using the following command:
-
-    ```bash
-    sudo chef-marketplace-ctl upgrade -y
-    ```
-
-### Migrate to Chef Automate on AWS
-
-The process of migrating from an existing Chef Infra Server installation
-to the Amazon Machine Images (AMI) differs depending on which software
-version is being used and the location in which it is deployed. In all
-scenarios, data is first migrated to the latest Chef Infra Server
-schema, after which it is migrated to the Amazon Machine Images (AMI).
-
--   Verify that the latest version of the Chef Infra Server is installed
-    by using the platform package manager:
-    `rpm -qa | grep chef-server-core` and compare the result to the
-    latest version available on the [downloads
-    site](https://downloads.chef.io/). If this is not the latest
-    version, download the package, and then
-    [upgrade](/upgrade_server/#from-chef-server-12) to the latest
-    version.
-
-After verifying that your existing Chef Infra Server installation is up
-to date, do the following to migrate to the Amazon Machine Images (AMI)
-instance:
-
-1.  Backup the data on the Chef Infra Server using `knife ec backup`.
-    This method will export all of your existing Chef Infra Server data
-    as JSON. We'll then re-import the same data into a new Chef Automate
-    cluster. We use the JSON based backup and restore procedure because
-    the Chef Infra Server data on the Chef Automate Marketplace AMI is
-    stored in shared databases so copying of binary files won't work.
-
-    ```bash
-    mkdir -p /tmp/chef-backup
-    /opt/opscode/embedded/bin/knife ec backup /tmp/chef-backup --with-user-sql --with-key-sql
-    tar -czvf chef-backup.tgz -C /tmp/chef-backup
-    ```
-
-1.  Copy the resulting tarball to your Amazon Machine Images (AMI)
-    instance:
-
-    ```bash
-    scp /tmp/chef-backup.tgz ec2-user@<MARKETPLACE AMI IP ADDRESS>:/tmp/
-    ```
-
-1.  Login to the Amazon Machine Images (AMI) and ensure that it is
-    running the latest version of the Chef Infra Server:
-
-    ```bash
-    chef-marketplace-ctl upgrade -y
-    ```
-
-1.  Reconfigure Chef Automate and the Chef Infra Server:
-
-    ```bash
-    sudo automate-ctl reconfigure
-    sudo chef-server-ctl reconfigure
-    ```
-
-1.  Restore the backup:
-
-    ```bash
-    mkdir -p /tmp/chef-backup
-    mv /tmp/chef-backup.tgz /tmp/chef-backup
-    cd /tmp/chef-backup
-    tar -ztf chef-backup.tgz
-    /opt/opscode/embedded/bin/knife ec restore /tmp/chef-backup --with-user-sql --with-key-sql
-    ```
-
-1.  {{% install_update_aws_knife_rb %}}
-
-1.  {{% install_aws_chef_server_knife_ssl_fetch %}}
-
-1.  {{% install_aws_chef_server_knife_client_list %}}
-
-1.  Update the `/etc/chef/client.rb` on all of your nodes to use the new
-    public DNS. For example:
-
-    ```none
-    knife ssh name:* 'sudo sed -ie "s/chef_server_url.*/chef_server_url 'https://ec2-52-6-31-230.compute-1.amazonaws.com/organizations/your_org'/" /etc/chef/client.rb
-    ```
-
-    Replace `ec2-52-6-31-230.compute-1.amazonaws.com` with your new
-    public DNS name and `your_org` with your organization name.
+1. Select **Save rules** to finish.
+![Add your IP address range as a custom SSH rule](/images/aws_inbound_rule.png "Add Rule")

@@ -6,21 +6,26 @@ resources_common_properties: true
 resource: group
 resource_description_list:
 - markdown: Use the **group** resource to manage a local group.
-syntax_description: "The group resource has the following syntax:\n\n```ruby\ngroup\
-  \ 'name' do\n  append                true, false # default value: false\n  comment\
-  \               String\n  excluded_members      String, Array\n  gid           \
-  \        String, Integer\n  group_name            String # default value: 'name'\
-  \ unless specified\n  members               String, Array\n  non_unique        \
-  \    true, false # default value: false\n  system                true, false # default\
-  \ value: false\n  action                Symbol # defaults to :create if not specified\n\
-  end\n```"
+syntax_full_code_block: |-
+  group 'name' do
+    append                true, false # default value: false
+    comment               String
+    excluded_members      String, Array # default value: []
+    gid                   String, Integer
+    group_name            String # default value: 'name' unless specified
+    members               String, Array # default value: []
+    non_unique            true, false # default value: false
+    system                true, false # default value: false
+    action                Symbol # defaults to :create if not specified
+  end
 syntax_properties_list:
-- '`group` is the resource.'
-- '`name` is the name given to the resource block.'
-- '`action` identifies which steps Chef Infra Client will take to bring the node into
-  the desired state.'
-- '`append`, `comment`, `excluded_members`, `gid`, `group_name`, `members`, `non_unique`,
-  and `system` are the properties available to this resource.'
+syntax_full_properties_list:
+- "`group` is the resource."
+- "`name` is the name given to the resource block."
+- "`action` identifies which steps Chef Infra Client will take to bring the node into
+  the desired state."
+- "`append`, `comment`, `excluded_members`, `gid`, `group_name`, `members`, `non_unique`,
+  and `system` are the properties available to this resource."
 actions_list:
   :create:
     markdown: Default. Create a group. If a group already exists (but does not match),
@@ -41,13 +46,9 @@ properties_list:
   required: false
   default_value: 'false'
   description_list:
-  - markdown: 'How members should be appended and/or removed from a group. When
-
-      `true`, `members` are appended and `excluded_members` are removed.
-
-      When `false`, group members are reset to the value of the `members`
-
-      property.'
+  - markdown: How members should be appended and/or removed from a group. When true,
+      `members` are appended and `excluded_members` are removed. When `false`, group
+      members are reset to the value of the `members` property.
 - property: comment
   ruby_type: String
   required: false
@@ -57,10 +58,10 @@ properties_list:
 - property: excluded_members
   ruby_type: String, Array
   required: false
+  default_value: "[]"
   description_list:
-  - markdown: 'Remove users from a group. May only be used when `append` is set to
-
-      `true`.'
+  - markdown: Remove users from a group. May only be used when `append` is set to
+      `true`.
 - property: gid
   ruby_type: String, Integer
   required: false
@@ -75,8 +76,9 @@ properties_list:
 
       block. See "Syntax" section above for more information.'
 - property: members
-  ruby_type: Array
+  ruby_type: String, Array
   required: false
+  default_value: "[]"
   description_list:
   - markdown: 'Which users should be set or appended to a group. When more than one
 
@@ -88,21 +90,15 @@ properties_list:
   required: false
   default_value: 'false'
   description_list:
-  - markdown: 'Allow `gid` duplication. May only be used with the `Groupadd`
-
-      provider.'
+  - markdown: Allow gid duplication. May only be used with the `Groupadd` user resource
+      provider.
 - property: system
   ruby_type: true, false
   required: false
   default_value: 'false'
   description_list:
-  - markdown: 'Set if a group belongs to a system group. Set to `true` if the group
-
-      belongs to a system group.'
-resources_common_properties: true
-resources_common_notification: true
-resources_common_guards: true
-examples: "
+  - markdown: Set to `true` if the group belongs to a system group.
+examples:
   Append users to groups\n\n  ```ruby\n  group 'www-data' do\n   \
   \ action :modify\n    members 'maintenance'\n    append true\n  end\n  ```\n\n \
   \ Add a user to group on the Windows platform\n\n  ```ruby\n  group 'Administrators'\

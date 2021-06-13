@@ -23,7 +23,7 @@ syntax_full_code_block: |-
     profile              Symbol, String, Array # default value: :any
     program              String
     protocol             String # default value: "TCP"
-    remote_address       String
+    remote_address       String, Array
     remote_port          String, Integer, Array
     rule_name            String # default value: 'name' unless specified
     service              String
@@ -130,10 +130,10 @@ properties_list:
   description_list:
   - markdown: The protocol the firewall rule applies to.
 - property: remote_address
-  ruby_type: String
+  ruby_type: String, Array
   required: false
   description_list:
-  - markdown: The remote address the firewall rule applies to.
+  - markdown: The remote address(es) the firewall rule applies to.
 - property: remote_port
   ruby_type: String, Integer, Array
   required: false
@@ -159,6 +159,19 @@ examples: |
     local_port '80'
     protocol 'TCP'
     firewall_action :allow
+  end
+  ```
+
+  **Configuring multiple remote-address ports on a rule**:
+
+  ```ruby
+  windows_firewall_rule 'MyRule' do
+    description          'Testing out remote address arrays'
+    enabled              false
+    local_port           1434
+    remote_address       %w(10.17.3.101 172.7.7.53)
+    protocol             'TCP'
+    action               :create
   end
   ```
 

@@ -31,7 +31,7 @@ actions_list:
   :nothing:
     shortcode: resources_common_actions_nothing.md
   :set:
-    markdown: 
+    markdown: Set a value in a plist file. (default)
 properties_list:
 - property: encoding
   ruby_type: String

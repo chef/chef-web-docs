@@ -32,6 +32,7 @@
       box-shadow: $box-shadow;
       border: 1px solid transparent;
       padding: 1rem;
+      max-width: 75%;
     }
 
     figure {
@@ -49,6 +50,7 @@
       position: relative;
       left: 50%;
       transform: translateX(-50%);
+      max-width: 75%;
 
       img {
         padding: 1rem;

@@ -11,7 +11,7 @@ resource_new_in: '14.3'
 syntax_full_code_block: |-
   ssh_known_hosts_entry 'name' do
     file_location      String # default value: "/etc/ssh/ssh_known_hosts"
-    group              String, Integer
+    group              String, Integer # default value: The root user's group depending on platform.
     hash_entries       true, false # default value: false
     host               String # default value: 'name' unless specified
     key                String
@@ -50,6 +50,7 @@ properties_list:
 - property: group
   ruby_type: String, Integer
   required: false
+  default_value: The root user's group depending on platform.
   description_list:
   - markdown: The file group for the ssh_known_hosts file.
 - property: hash_entries
