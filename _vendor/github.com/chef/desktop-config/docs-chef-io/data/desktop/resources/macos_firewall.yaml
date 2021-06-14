@@ -1,18 +1,9 @@
 ---
 resource_reference: true
-properties_shortcode:
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-title: macos_firewall resource
 resource: macos_firewall
-aliases:
-- "/resource_macos_firewall.html"
-menu:
-  desktop:
-    title: macos_firewall
-    identifier: desktop/resources/macos_firewall macos_firewall
-    parent: desktop/resources
 resource_description_list:
 - markdown: Use the **macos_firewall** resource to enable the firewall on macOS systems.
 syntax_full_code_block: |-
@@ -33,4 +24,21 @@ actions_list:
   :nothing:
     shortcode: resources_common_actions_nothing.md
 properties_list: []
-examples:
+examples: |+
+  **Turn on the macOS Firewall**:
+
+  ```ruby
+  macos_firewall 'Enable Firewall Protection' do
+    action :enable
+  end
+  ```
+
+  **Turn off the macOS Firewall**:
+
+  ```ruby
+  macos_firewall 'Disable Firewall Protection' do
+    action :disable
+  end
+  ```
+
+...

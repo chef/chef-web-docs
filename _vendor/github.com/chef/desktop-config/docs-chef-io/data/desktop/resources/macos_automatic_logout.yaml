@@ -1,18 +1,9 @@
 ---
 resource_reference: true
-properties_shortcode:
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-title: macos_automatic_logout resource
 resource: macos_automatic_logout
-aliases:
-- "/resource_macos_automatic_logout.html"
-menu:
-  desktop:
-    title: macos_automatic_logout
-    identifier: desktop/resources/macos_automatic_logout macos_automatic_logout
-    parent: desktop/resources
 resource_description_list:
 - markdown: Use the **macos_automatic_logout** resource to set the system to automatically
     logout after a set time.
@@ -44,4 +35,20 @@ properties_list:
   description_list:
   - markdown: The amount of time in seconds to elapse before logging the system out.
       Defaults to 1 hour
-examples:
+examples: |
+  **Setup Automatic Logouts**:
+
+  ```ruby
+  automatic_logout 'Automatically logout for inactivity' do
+    autologout_time 900
+    action :enable
+  end
+  ```
+
+  **Disable Automatic Logouts**:
+
+  ```ruby
+  automatic_logout 'Automatically logout for inactivity' do
+    action :disable
+  end
+  ```

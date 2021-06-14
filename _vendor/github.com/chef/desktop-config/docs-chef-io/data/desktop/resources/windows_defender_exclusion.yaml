@@ -1,18 +1,9 @@
 ---
 resource_reference: true
-properties_shortcode:
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-title: windows_defender_exclusion resource
 resource: windows_defender_exclusion
-aliases:
-- "/resource_windows_defender_exclusion.html"
-menu:
-  desktop:
-    title: windows_defender_exclusion
-    identifier: desktop/resources/windows_defender_exclusion windows_defender_exclusion
-    parent: desktop/resources
 resource_description_list:
 - markdown: Use the **windows_defender_exclusion** resource to exclude paths, processes,
     or file types from Windows Defender realtime protection scanning.
@@ -58,4 +49,23 @@ properties_list:
   default_value: "[]"
   description_list:
   - markdown: Paths to executables to exclude from scanning.
-examples:
+examples: |
+  **Add excluded items to Windows Defender scans**:
+
+  ```ruby
+  windows_defender_exclusion 'Add to things to be excluded from scanning' do
+    paths 'c:\foo\bar, d:\bar\baz'
+    extensions 'png, foo, ppt, doc'
+    process_paths 'c:\windows\system32'
+    action :add
+  end
+  ```
+
+  **Remove excluded items from Windows Defender scans**:
+
+  ```ruby
+  windows_defender_exclusion 'Remove things from the list to be excluded' do
+    process_paths 'c:\windows\system32'
+    action :remove
+  end
+  ```

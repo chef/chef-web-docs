@@ -1,8 +1,9 @@
 +++
 title = "windows_defender_exclusion Resource"
 draft = false
-desktop_resource = "windows_defender_exclusion"
-toc_layout = "desktop_resource_single_toc"
+data_path = ["desktop","resources","windows_defender_exclusion"]
+layout = "infra_resource"
+toc_layout = "infra_resource_toc"
 
 [menu]
   [menu.desktop]
@@ -11,4 +12,4 @@ toc_layout = "desktop_resource_single_toc"
     parent = "desktop/resources"
 +++
 
-{{< desktop_resource_yaml >}}
+<!-- The contents of this page are automatically generated from the windows_defender_exclusion.yaml file in the data/desktop/resources directory. -->
