@@ -1,21 +1,34 @@
-# Overview
++++
+title = "Azure Marketplace"
+draft = false
 
-About Azure Marketplace
+gh_repo = "chef-web-docs"
 
-The Azure Marketplace image deploys Chef Automate and Chef Infrastructure Server on a shared instance that can be used with [Chef Workstation](https://docs.chef.io/workstation/) tools like `chef`, `knife`, `inspec` and `hab`. The Chef Automate stack provides the dashboard, data aggregation, and analytics layer for all Chef products.
+aliases = ["/azure_portal"]
 
-In case you have a need of running automate in HA mode, please contact [Chef Support](https://www.chef.io/support).
+product = ["client", "workstation", "automate"]
 
-please contact [Chef Support](https://www.chef.io/support).
+[menu]
+  [menu.infra]
+    title = "Azure Marketplace"
+    identifier = "chef_infra/integrations/azure/azure_marketplace"
+    parent = "chef_infra/integrations/azure"
+    weight = 10
++++
 
+{{% azure_marketplace %}}
 
-# Marketplace Deployment
+{{% workstation %}}
 
-- **Go to [Azure Marketplace](https://azure.microsoft.com/en-in/marketplace/) and search for this keyword `Chef Automate`** 
+{{% automate_ha_support %}}
+
+## Marketplace Deployment
+
+- **Go to [Azure Marketplace](https://azure.microsoft.com/marketplace/) and search for this keyword `Chef Automate`**
 
 ![MarketPlacePage](/images/Az-marketplace-images/MarketPlacePage.png)
 
-- **Click on `Get it Now` button as show below**
+- **Select on `Get it Now` button as show below**
 
 ![TestDrivePage](/images/Az-marketplace-images/TestDrivePage.png)
 
@@ -23,39 +36,35 @@ please contact [Chef Support](https://www.chef.io/support).
 
 ![SignInPage](/images/Az-marketplace-images/SignInPage.png)
 
-- **It will prompt you to login page, enter password and click on sign in**
+- **It will prompt you to login page, enter password and select on sign in**
 
 ![PasswordPage](/images/Az-marketplace-images/PasswordPage.png)
 
-- **Click on continue as shown below**
+- **Select on continue as shown below**
 
 ![ContinuePage](/images/Az-marketplace-images/ContinuePage.png)
 
-- **Click on create** 
+- **Select on create**
 
 ![CreateAutomatePage](/images/Az-marketplace-images/CreateAutomatePage.png)
 
-- **Provide the required details as shown below and click on Next**
+- **Provide the required details as shown below and select on Next**
 
     - **`Subscription`: Select the required subscription**
-
-    - **`Resource group`: Create new or Select existing one** 
-
+    - **`Resource group`: Create new or Select existing one**
     - **`Region`: Select the required region**
 
 ![SubscriptionPage](/images/Az-marketplace-images/SubscriptionPage.png)
 
-- **Fill the custom settings and click on Next**
+- **Fill the custom settings and select on Next**
 
     - **`Username`: <Anyname> Eg:`chefuser`**
-
     - **`SSH public key`: use your existing or new public key**
-
     - **`Size`: Select the size based on requirement Eg:`Standard D4s v3`**
 
 ![NextReviewPage](Az-marketplace-images/NextReviewPage.png)
 
-- **Review it once and click on create to start deployment**
+- **Review it once and select on create to start deployment**
 
 ![ValidationPage](Az-marketplace-images/ValidationPage.png)
 
@@ -63,7 +72,7 @@ please contact [Chef Support](https://www.chef.io/support).
 
 ![DeployInProgressPage](/images/Az-marketplace-images/DeployInProgressPage.png)
 
-- **Click on Go to resource group**
+- **Select on Go to resource group**
 
 ![DeployCompletePage](/images/Az-marketplace-images/DeployCompletePage.png)
 
@@ -87,15 +96,15 @@ sudo cat /root/automate-credentials.toml
 
 ![AutomateCredPage](/images/Az-marketplace-images/AutomateCredPage.png)
 
-- **Open your favorite browser and Access the Chef Automate URL and click on Advanced and continue as shown below**
+- **Open your favorite browser and Access the Chef Automate URL and select on Advanced and continue as shown below**
 
 ![InSecurePage](/images/Az-marketplace-images/InSecurePage.png)
 
-- **Enter your username, Password and click on Sign In to Access Chef Automate WebUI**
+- **Enter your username, Password and select on Sign In to Access Chef Automate WebUI**
 
 ![AutomateLoginPage](/images/Az-marketplace-images/AutomateLoginPage.png)
 
-- **Fill the required details and click on Register**
+- **Fill the required details and select on Register**
 
 ![AutomateWelcomePage](/images/Az-marketplace-images/AutomateWelcomePage.png)
 

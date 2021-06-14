@@ -1,18 +1,28 @@
-# Overview
++++
+title = "Azure Testdrive"
+draft = false
 
-About Azure Testdrive
+gh_repo = "chef-web-docs"
 
-The Azure Testdrive Marketplace image deploys Chef Automate and Chef Infrastructure Server on a shared instance that can be used with [Chef Workstation](https://docs.chef.io/workstation/) tools like `chef`, `knife`, `inspec` and `hab`. The Chef Automate stack provides the dashboard, data aggregation, and analytics layer for all Chef products.
+product = ["client", "workstation", "automate"]
 
-In case you have a need of running automate in HA mode, please contact [Chef Support](https://www.chef.io/support).
+[menu]
+  [menu.infra]
+    title = "Azure Testdrive"
+    identifier = "chef_infra/integrations/azure/azure_testdrive"
+    parent = "chef_infra/integrations/azure"
+    weight = 10
++++
 
-please contact [Chef Support](https://www.chef.io/support).
+{{% azure_marketplace %}}
 
+{{% workstation %}}
 
+{{% automate_ha_support %}}
 
 # Test drive Deployment
 
-- **Go to [Azure Marketplace](https://azure.microsoft.com/en-in/marketplace/) and search for this keyword `Chef Automate`** 
+- **Go to [Azure Marketplace](https://azure.microsoft.com/en-in/marketplace/) and search for this keyword `Chef Automate`**
 
 ![AzureHomePage](/images/Azure-Images/AzureHomePage.png)
 
@@ -36,11 +46,11 @@ please contact [Chef Support](https://www.chef.io/support).
 
 ![InProgressPage](/images/Azure-Images/InProgressPage.png)
 
-- **Your test drive is ready and you have `2 hours` time**  
+- **Your test drive is ready and you have `2 hours` time**
 
 ![DriveReadyPage](/images/Azure-Images/DriveReadyPage.png)
 
-- **After sucessful test drive deployment you will recive `login` details information with in 5 minutes to the provided `email`** 
+- **After sucessful test drive deployment you will recive `login` details information with in 5 minutes to the provided `email`**
 
 ![GoToTDPage](/images/Azure-Images/GoToTDPage.png)
 

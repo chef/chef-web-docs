@@ -8,8 +8,8 @@ product = ["client", "server", "workstation"]
 [menu]
   [menu.infra]
     title = "Google Cloud Platform"
-    identifier = "chef_infra/setup/integrations/google.md Google Cloud Platform"
-    parent = "chef_infra/setup/integrations"
+    identifier = "chef_infra/integrations/google.md Google Cloud Platform"
+    parent = "chef_infra/integrations"
     weight = 20
 +++
 

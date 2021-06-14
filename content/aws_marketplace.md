@@ -11,8 +11,8 @@ product = ["client", "workstation", "automate"]
 [menu]
   [menu.infra]
     title = "AWS Marketplace"
-    identifier = "chef_infra/setup/integrations/aws_marketplace.md AWS Marketplace"
-    parent = "chef_infra/setup/integrations"
+    identifier = "chef_infra/integrations/aws_marketplace.md AWS Marketplace"
+    parent = "chef_infra/integrations"
     weight = 10
 +++
 
@@ -24,7 +24,7 @@ Use this instance with Chef Workstation installed on your laptop or a separate A
 
 {{% workstation %}}
 
-If you need to run Automate with a high availability (HA) topology, please contact [Chef Support](https://www.chef.io/support).
+{{% automate_ha_support %}}
 
 ## Installation
 
