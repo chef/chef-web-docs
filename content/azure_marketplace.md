@@ -26,27 +26,27 @@ product = ["client", "workstation", "automate"]
 
 - **Go to [Azure Marketplace](https://azure.microsoft.com/marketplace/) and search for this keyword `Chef Automate`**
 
-![MarketPlacePage](/images/Az-marketplace-images/MarketPlacePage.png)
+![MarketPlacePage](/images/az_home.png)
 
 - **Select on `Get it Now` button as show below**
 
-![TestDrivePage](/images/Az-marketplace-images/TestDrivePage.png)
+![TestDrivePage](/images/az_getitnow.png)
 
 - **Sign in to Microsoft account with a valid `Azure portal email` address**
 
-![SignInPage](/images/Az-marketplace-images/SignInPage.png)
+![SignInPage](/images/az_signin.png)
 
 - **It will prompt you to login page, enter password and select on sign in**
 
-![PasswordPage](/images/Az-marketplace-images/PasswordPage.png)
+![PasswordPage](/images/ms_signin.png)
 
 - **Select on continue as shown below**
 
-![ContinuePage](/images/Az-marketplace-images/ContinuePage.png)
+![ContinuePage](/images/az_continue.png)
 
 - **Select on create**
 
-![CreateAutomatePage](/images/Az-marketplace-images/CreateAutomatePage.png)
+![CreateAutomatePage](/images/az_automate_create.png)
 
 - **Provide the required details as shown below and select on Next**
 
@@ -54,7 +54,7 @@ product = ["client", "workstation", "automate"]
     - **`Resource group`: Create new or Select existing one**
     - **`Region`: Select the required region**
 
-![SubscriptionPage](/images/Az-marketplace-images/SubscriptionPage.png)
+![SubscriptionPage](/images/az_automate_basics.png)
 
 - **Fill the custom settings and select on Next**
 
@@ -62,31 +62,31 @@ product = ["client", "workstation", "automate"]
     - **`SSH public key`: use your existing or new public key**
     - **`Size`: Select the size based on requirement Eg:`Standard D4s v3`**
 
-![NextReviewPage](Az-marketplace-images/NextReviewPage.png)
+![NextReviewPage](/images/az_automate_custom_settings.png)
 
 - **Review it once and select on create to start deployment**
 
-![ValidationPage](Az-marketplace-images/ValidationPage.png)
+![ValidationPage](/images/az_automate_review.png)
 
 - **Chef Automate deployment is in progress it tooks around `15 min` to complete deployment**
 
-![DeployInProgressPage](/images/Az-marketplace-images/DeployInProgressPage.png)
+![DeployInProgressPage](/images/az_automate_progress.png)
 
 - **Select on Go to resource group**
 
-![DeployCompletePage](/images/Az-marketplace-images/DeployCompletePage.png)
+![DeployCompletePage](/images/az_automate_complete.png)
 
 - **Open Chef Automate Virtual machine**
 
-![OverviewPage](/images/Az-marketplace-images/OverviewPage.png)
+![OverviewPage](/images/az_automate_overview.png)
 
 - **Copy the `Public IP` to ssh into VM
 
-![DeployDescPage](/images/Az-marketplace-images/DeployDescPage.png)
+![DeployDescPage](/images/az_automate_essentials.png)
 
 - **SSH into the Chef Automate VM as shown**
 
-![SSHPage](/images/Az-marketplace-images/SSHPage.png)
+![SSHPage](/images/az_ssh.png)
 
 - **Execute the below command to get the Chef Automate `URL` and `login credentials`**
 
@@ -94,20 +94,24 @@ product = ["client", "workstation", "automate"]
 sudo cat /root/automate-credentials.toml
 ```
 
-![AutomateCredPage](/images/Az-marketplace-images/AutomateCredPage.png)
+Which returns something like:
+
+```
+TODO: Fill this codesample in
+```
 
 - **Open your favorite browser and Access the Chef Automate URL and select on Advanced and continue as shown below**
 
-![InSecurePage](/images/Az-marketplace-images/InSecurePage.png)
+![automate_insecure_page](/images/automate_insecure_page.png)
 
 - **Enter your username, Password and select on Sign In to Access Chef Automate WebUI**
 
-![AutomateLoginPage](/images/Az-marketplace-images/AutomateLoginPage.png)
+![Automate Login Page](/images/automate_signin.png)
 
 - **Fill the required details and select on Register**
 
-![AutomateWelcomePage](/images/Az-marketplace-images/AutomateWelcomePage.png)
+![AutomateWelcomePage](/images/automate_welcome.png)
 
 - **Congratulations: Here is the Chef Automate WebUI you can play around with CHEF**
 
-![AutomateEventPage](/images/Az-marketplace-images/AutomateEventPage.png)
+![Automate Event Feed](/images/automate_event_feed_empty.png)
