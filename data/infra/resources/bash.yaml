@@ -63,11 +63,9 @@ properties_list:
   default_value:
   new_in:
   description_list:
-  - markdown: 'A Hash of environment variables in the form of
-
-      `({"ENV_VARIABLE" => "VALUE"})`. (These variables must exist for a
-
-      command to be run successfully.)'
+  - markdown: 'A Hash of environment variables in the form of `({''ENV_VARIABLE''
+      => ''VALUE''})`. **Note**: These variables must exist for a command to be run
+      successfully.'
 - property: flags
   ruby_type: String
   required: false

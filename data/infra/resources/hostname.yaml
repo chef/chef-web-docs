@@ -11,13 +11,15 @@ resource_description_list:
 resource_new_in: '14.0'
 syntax_full_code_block: |-
   hostname 'name' do
-    aliases             Array
-    compile_time        true, false # default value: true
-    fqdn                String
-    hostname            String # default value: 'name' unless specified
-    ipaddress           String # default value: The node's IP address as determined by Ohai.
-    windows_reboot      true, false # default value: true
-    action              Symbol # defaults to :set if not specified
+    aliases              Array
+    compile_time         true, false # default value: true
+    domain_password      String
+    domain_user          String
+    fqdn                 String
+    hostname             String # default value: 'name' unless specified
+    ipaddress            String # default value: The node's IP address as determined by Ohai.
+    windows_reboot       true, false # default value: true
+    action               Symbol # defaults to :set if not specified
   end
 syntax_properties_list:
 syntax_full_properties_list:
@@ -25,8 +27,8 @@ syntax_full_properties_list:
 - "`name` is the name given to the resource block."
 - "`action` identifies which steps Chef Infra Client will take to bring the node into
   the desired state."
-- "`aliases`, `compile_time`, `fqdn`, `hostname`, `ipaddress`, and `windows_reboot`
-  are the properties available to this resource."
+- "`aliases`, `compile_time`, `domain_password`, `domain_user`, `fqdn`, `hostname`,
+  `ipaddress`, and `windows_reboot` are the properties available to this resource."
 actions_list:
   :nothing:
     shortcode: resources_common_actions_nothing.md
@@ -44,6 +46,19 @@ properties_list:
   default_value: 'true'
   description_list:
   - markdown: Determines whether or not the resource should be run at compile time.
+- property: domain_password
+  ruby_type: String
+  required: false
+  new_in: '17.2'
+  description_list:
+  - markdown: The password to accompany the domain_user parameter
+- property: domain_user
+  ruby_type: String
+  required: false
+  new_in: '17.2'
+  description_list:
+  - markdown: A domain account specified in the form of DOMAIN\user used when renaming
+      a domain-joined device
 - property: fqdn
   ruby_type: String
   required: false
@@ -84,5 +99,23 @@ examples: |
   hostname 'statically_configured_host' do
     hostname 'example'
     ipaddress '198.51.100.2'
+  end
+  ```
+
+  **Change the hostname of a Windows, Non-Domain joined node**:
+
+  ```ruby
+  hostname 'renaming a workgroup computer' do
+    hostname 'Foo'
+  end
+  ```
+
+  **Change the hostname of a Windows, Domain-joined node (new in 17.2)**:
+
+  ```ruby
+  hostname 'renaming a domain-joined computer' do
+    hostname 'Foo'
+    domain_user "Domain\Someone"
+    domain_password 'SomePassword'
   end
   ```

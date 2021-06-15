@@ -26,6 +26,8 @@ syntax_full_properties_list:
 - "`options`, `package_name`, `source`, `timeout`, and `version` are the properties
   available to this resource."
 actions_list:
+  :nothing:
+    shortcode: resources_common_actions_nothing.md
   :install:
     markdown: Installs the cabinet package.
   :remove:
