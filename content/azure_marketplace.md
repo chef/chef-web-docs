@@ -24,75 +24,79 @@ product = ["client", "workstation", "automate"]
 
 ## Marketplace Deployment
 
-- **Go to [Azure Marketplace](https://azure.microsoft.com/marketplace/) and search for this keyword `Chef Automate`**
+The **Marketplace Deployment** is a test-level Chef Automate environment. This deployment requires an Azure account or subscription. You can provision Chef Automate directly from Azure. This Chef Automate solution requires that you bring your own license (BYOL). New users may try this solution for up to 60 days. Contact us at amp@chef.io to obtain a license.
 
-![MarketPlacePage](/images/az_home.png)
+### Get Started
 
-- **Select on `Get it Now` button as show below**
+1. Navigate to Chef Automate on the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/chef-software.chef-automate).
 
-![TestDrivePage](/images/az_getitnow.png)
 
-- **Sign in to Microsoft account with a valid `Azure portal email` address**
+1. Select **Get it Now**.
+  ![Get It Now](/images/az_getitnow.png)
 
-![SignInPage](/images/az_signin.png)
+1. Sign in to your Microsoft account with your Microsoft account email address.
+  ![SignIn](/images/az_signin.png)
 
-- **It will prompt you to login page, enter password and select on sign in**
+1. Enter your password and select **Sign In**.
+  ![Enter Password](/images/ms_pass.png)
 
-![PasswordPage](/images/ms_signin.png)
+1. Select **Continue** to accept the Microsoft information terms.
+  ![Continue](/images/az_continue.png)
 
-- **Select on continue as shown below**
+### Create Automate
 
-![ContinuePage](/images/az_continue.png)
+1. Select **Create** to spin up your Chef Automate instance.
+  ![CreateAutomate](/images/az_automate_create.png)
 
-- **Select on create**
+1. Enter the project details and select **Next**:
 
-![CreateAutomatePage](/images/az_automate_create.png)
+    1. `Subscription`: Select the your subscription
+    1. `Resource group`: Create new or select an existing one
+    1. `Region`: Select the region for your instance
 
-- **Provide the required details as shown below and select on Next**
+    ![SubscriptionPage](/images/az_automate_basics.png)
 
-    - **`Subscription`: Select the required subscription**
-    - **`Resource group`: Create new or Select existing one**
-    - **`Region`: Select the required region**
+1. Enter your custom settings and select **Next: Review + create** to validate your configuration.
 
-![SubscriptionPage](/images/az_automate_basics.png)
+    1. `Username`: <NAME>.Example:`chefuser`
+    1. `SSH public key`: Copy your existing public key or make a new key pair.
+    1. `Size`: The vCPUs and memory for your instance. The recommended minimum is 4vCPUs and 16GB memory.Example:`Standard D4s v3`
 
-- **Fill the custom settings and select on Next**
+    ![NextReviewPage](/images/az_automate_custom_settings.png)
 
-    - **`Username`: <Anyname> Eg:`chefuser`**
-    - **`SSH public key`: use your existing or new public key**
-    - **`Size`: Select the size based on requirement Eg:`Standard D4s v3`**
+1. Review your validated configuration and select **Create** to deploy Chef Automate.
+  ![ValidationPage](/images/az_automate_review.png)
 
-![NextReviewPage](/images/az_automate_custom_settings.png)
+1. The Chef Automate takes about `15 min` to complete
+  ![DeployInProgressPage](/images/az_automate_progress.png)
 
-- **Review it once and select on create to start deployment**
+1. Once the Chef Automate deployment completes, select **Go to resource group**.
+  ![DeployCompletePage](/images/az_automate_complete.png)
 
-![ValidationPage](/images/az_automate_review.png)
+### Connect
 
-- **Chef Automate deployment is in progress it tooks around `15 min` to complete deployment**
+<!-- Are we making this too hard? Why not just connect through RDP? -->
+<!-- 1. On the _Resource group_ page for your installation, select the Chef Automate virtual machine (VM), which is named `RESOURCE-GROUP-ipg6-VM`.
+  ![OverviewPage](/images/az_automate_overview.png)
 
-![DeployInProgressPage](/images/az_automate_progress.png)
+1. Locate and copy the `Public IP` on the _Virtual machine_ page. You will use this to connect to your VM.
+  ![DeployDescPage](/images/az_automate_essentials.png) -->
 
-- **Select on Go to resource group**
+1. Select the **Connect** button in the Azure portal to start a Remote Desktop (RDP) session from your workstation. You will need to install a RDP client on [macOS](https://apps.apple.com/us/app/microsoft-remote-desktop/id1295203466).
 
-![DeployCompletePage](/images/az_automate_complete.png)
+1. From the command line, connect to your VM:
 
-- **Open Chef Automate Virtual machine**
+  ```bash
+  ssh -i chefkey.pem chefuser@13.92.241.41
+  ```
 
-![OverviewPage](/images/az_automate_overview.png)
+  ![SSHPage](/images/az_ssh.png)`
 
-- **Copy the `Public IP` to ssh into VM
+1. Execute the below command to get the Chef Automate `URL` and `login credentials`**
 
-![DeployDescPage](/images/az_automate_essentials.png)
-
-- **SSH into the Chef Automate VM as shown**
-
-![SSHPage](/images/az_ssh.png)
-
-- **Execute the below command to get the Chef Automate `URL` and `login credentials`**
-
-```bash
-sudo cat /root/automate-credentials.toml
-```
+    ```bash
+    sudo cat /root/automate-credentials.toml
+    ```
 
 Which returns something like:
 
@@ -100,18 +104,14 @@ Which returns something like:
 TODO: Fill this codesample in
 ```
 
-- **Open your favorite browser and Access the Chef Automate URL and select on Advanced and continue as shown below**
+1. Open your favorite browser and Access the Chef Automate URL and Select **Advanced and continue as shown below**
+  ![automate_insecure_page](/images/automate_insecure_page.png)
 
-![automate_insecure_page](/images/automate_insecure_page.png)
+1. Enter your username, Password and Select **Sign In to Access Chef Automate WebUI**
+  ![Automate Login Page](/images/automate_signin.png)
 
-- **Enter your username, Password and select on Sign In to Access Chef Automate WebUI**
+1. Fill the required details and Select **Register**
+  ![AutomateWelcomePage](/images/automate_welcome.png)
 
-![Automate Login Page](/images/automate_signin.png)
-
-- **Fill the required details and select on Register**
-
-![AutomateWelcomePage](/images/automate_welcome.png)
-
-- **Congratulations: Here is the Chef Automate WebUI you can play around with CHEF**
-
-![Automate Event Feed](/images/automate_event_feed_empty.png)
+1. Congratulations: Here is the Chef Automate WebUI you can play around with CHEF**
+  ![Automate Event Feed](/images/automate_event_feed_empty.png)

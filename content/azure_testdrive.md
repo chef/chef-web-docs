@@ -15,59 +15,59 @@ product = ["client", "workstation", "automate"]
 +++
 
 {{% azure_marketplace %}}
-
 {{% workstation %}}
-
 {{% automate_ha_support %}}
 
-# Test drive Deployment
+# Test Drive Deployment
 
-- **Go to [Azure Marketplace](https://azure.microsoft.com/en-in/marketplace/) and search for this keyword `Chef Automate`**
+A **Test Drive** is a ready-to-go environment that allows you to experience Chef Automate for free without an Azure subscription. The Test Drive comes already provisioned---you don’t need to download, set up, or configure it---instead, you can spend your time evaluating the user experience, key features, and benefits of the product.
+
+### Test Drive
+
+1.  Navigate to Chef Automate on the [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/chef-software.chef-automate).
 
 ![AzureHomePage](/images/az_home.png)
 
-- **Click on test drive button as show below**
+1. Select **Test Drive**
+  ![TestDrivePage](/images/az_testdrive.png)
 
-![TestDrivePage](/images/az_test_drive.png)
+1. Sign in to Microsoft account with a valid email address.
+  ![SignInPage](/images/az_signin.png)
 
-- **Sign in to Microsoft account with a valid email address**
+1. Enter your password and select **Sign In**
 
-![SignInPage](/images/az_signin.png)
+![PasswordPage](/images/ms_pass.png)
 
-- **It will prompt you to login page, enter password and click on sign in**
-
-![PasswordPage](/images/ms_signin.png)
-
-- **Accept the permission and click on continue**
+1. Select **Continue** to accept the Microsoft information terms.
 
 ![ContinuePage](/images/az_test_continue.png)
 
-- **Now test drive deployment got started and it will take around `15 min` to comeup**
+1. Now test drive deployment got started and it will take around `15 min` to comeup**
 
 ![InProgressPage](/images/az_test_progress.png)
 
-- **Your test drive is ready and you have `2 hours` time**
+1. Your test drive is ready and you have `2 hours` time**
 
 ![DriveReadyPage](/images/az_test_ready.png)
 
-- **After sucessful test drive deployment you will recive `login` details information with in 5 minutes to the provided `email`**
+1. After sucessful test drive deployment you will recive `login` details information with in 5 minutes to the provided `email`**
 
 ![GoToTDPage](/images/az_test_goto.png)
 
-- **Open your favorite browser and Access the Chef Automate URL and click on Advanced and continue as shown below**
+1. Open your favorite browser and Access the Chef Automate URL and click on Advanced and continue as shown below**
 
 ![InsecurePage](/images/automate_insecure_page.png)
 
-- **Enter your username, Password and click on Sign In to Access Chef Automate WebUI**
+1. Enter your username, Password and click on Sign In to Access Chef Automate WebUI**
 
 **Note:**  your login credentials will be recived to `email` as shown above
 
 ![automate_signin](/images/automate_signin.png)
 
-- **Fill the required details and click on Register**
+1. Fill the required details and click on Register**
 
 ![AutomateWelcomePage](/images/automate_welcome.png)
 
-- **Congratulations: Here is the Chef Automate WebUI you can play around with CHEF**
+1. Congratulations: Here is the Chef Automate WebUI you can play around with CHEF**
 
 ![automate_event_feed](/images/automate_event_feed_empty.png)
