@@ -85,9 +85,7 @@ properties_list:
   ruby_type: String, Integer
   required: false
   description_list:
-  - markdown: 'The group name or group ID that must be changed before running a
-
-      command.'
+  - markdown: The group name or group ID that must be changed before running a command.
 - property: guard_interpreter
   ruby_type: Symbol
   required: false
@@ -112,19 +110,14 @@ properties_list:
   required: false
   default_value: '0'
   description_list:
-  - markdown: 'The return value for a command. This may be an array of accepted
-
-      values. An exception is raised when the return value(s) do not
-
-      match.'
+  - markdown: The return value for a command. This may be an array of accepted values.
+      An exception is raised when the return value(s) do not match.
 - property: timeout
-  ruby_type: Integer, Float
+  ruby_type: Integer, String, Float
   required: false
   default_value: '3600'
   description_list:
-  - markdown: 'The amount of time (in seconds) a command is to wait before timing
-
-      out.'
+  - markdown: The amount of time (in seconds) a command is to wait before timing out.
 - property: user
   ruby_type: String
   required: false
