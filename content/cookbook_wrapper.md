@@ -42,7 +42,7 @@ Generate a new cookbook using the `chef` command from your workstation:
     cd my_supermarket_wrapper
     ```
 
-3. Defines the wrapper cookbook's dependency on the `SOMETHING` cookbook. Open the metadata.rb file of the newly-created cookbook, and then add the following line:
+3. Defines the wrapper cookbook's dependency on the `SOMETHING` cookbook. Open the metadata.rb file of the new cookbook, and then add the following line:
 
     ```ruby
     depends 'SOMETHING'
@@ -50,7 +50,7 @@ Generate a new cookbook using the `chef` command from your workstation:
 
 4. Save and close the metadata.rb file.
 
-5. Open the `/recipes/default.rb` recipe located within the newly-generated cookbook and add the following content:
+5. Open the `/recipes/default.rb` recipe located within the new cookbook and add the following content:
 
     ```ruby
     include_recipe 'SOMETHING'
@@ -118,31 +118,20 @@ The wrapper cookbook around the `SOMETHING` cookbook must be uploaded to the Che
 
 To upload the cookbooks necessary to install Chef Supermarket, do the following:
 
-1. Install Berkshelf:
 
-    ```bash
-    berks install
-    ```
-
-2. Change directories into `~/.berkshelf/cookbooks`:
-
-    ```bash
-    cd ~/.berkshelf/cookbooks
-    ```
-
-3. Upload all cookbooks to the Chef Infra Server:
+1. Upload all cookbooks to the Chef Infra Server:
 
     ```bash
     knife cookbook upload -a
     ```
 
-4. Change directories into the location in which the wrapper cookbook was created:
+1. Change directories into the location in which the wrapper cookbook was created:
 
     ```bash
     cd path/to/wrapper/cookbook/
     ```
 
-5. Upload the wrapper cookbook to the Chef Infra Server:
+1. Upload the wrapper cookbook to the Chef Infra Server:
 
     ```bash
     knife cookbook upload -a
