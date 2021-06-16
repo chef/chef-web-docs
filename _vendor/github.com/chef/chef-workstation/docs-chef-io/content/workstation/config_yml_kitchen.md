@@ -278,6 +278,12 @@ kitchen.yml file when the provisioner is chef-zero or chef-solo.
 <td>&lt;auto detected&gt;</td>
 <td></td>
 </tr>
+<tr class="even">
+<td><code>always_update_cookbooks</code></td>
+<td>Updates the policyfile.lock.json when changes are made to the cookbook. Supports <code>true</code> or <code>false</code> </td>
+<td>&lt;auto detected&gt;</td>
+<td></td>
+</tr>
 </tbody>
 </table>
 
