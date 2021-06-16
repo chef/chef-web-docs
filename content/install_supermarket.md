@@ -26,13 +26,13 @@ A private Chef Supermarket has the following requirements:
 - System clocks synchronized on the Chef Infra Server and Supermarket hosts
 - Sufficient disk space on host to meet project cookbook storage capacity **or** credentials to store cookbooks in an Amazon Simple Storage Service (S3) bucket
 
-**Considerations with regard to storage capacity:**
+**Considerations regarding storage capacity:**
 
 - PostgreSQL database size will grow linearly based on the number of cookbooks and the number of cookbook versions published
 - Redis database size is negligible as it is used only for background job queuing, and to cache a small number of API responses
 - Cookbook storage growth is entirely dependent on the size of the cookbooks published. Cookbooks that include binaries or other large files will consume more space than code-only cookbooks
 - Opting to run a private Supermarket with off-host PostgreSQL, Redis, and cookbook store is less a decision about storage sizing; it is about data service uptime, backup, and restore procedure for your organization
-- As a point of reference: as of May 2021 after six years of operation, the public Supermarket has approx 83,000 users, 4,000 cookbooks with a total of 27,000 versions published. The PostgreSQL database weighs in at 435 MB, and the S3 bucket containing all of the published community cookbooks weighs in at 3.1 GB
+- As a point of reference: as of May 2021 after six years of operation, the public Supermarket has approx 83,000 users, 4,000 cookbooks with a total of 27,000 versions published. The PostgreSQL database weighs in at 435 MB, and the S3 bucket containing all the published community cookbooks weighs in at 3.1 GB
 
 ## Chef Identity
 
@@ -109,7 +109,7 @@ A wrapper cookbook is used to define project- and/or organization-specific requi
 
 In the case of installing a private Chef Supermarket, Chef recommends the use of a wrapper cookbook to specify certain attributes that are unique to your organization, while enabling the use of the generic installer cookbook which, in turn, installs the Chef Supermarket package behind your firewall.
 
-All of the keys under `node['supermarket_omnibus']` are written out as `/etc/supermarket/supermarket.json`. Add other keys as needed to override the default attributes specified in the Chef Supermarket [omnibus package](https://github.com/chef/supermarket/blob/master/omnibus/cookbooks/omnibus-supermarket/attributes/default.rb).
+All the keys under `node['supermarket_omnibus']` are written out as `/etc/supermarket/supermarket.json`. Add other keys as needed to override the default attributes specified in the Chef Supermarket [omnibus package](https://github.com/chef/supermarket/blob/master/omnibus/cookbooks/omnibus-supermarket/attributes/default.rb).
 
 For example:
 
@@ -135,7 +135,7 @@ On your workstation, generate a new cookbook using the `chef` command line inter
     cd my_supermarket_wrapper
     ```
 
-3. Defines the wrapper cookbook's dependency on the `supermarket-omnibus-cookbook` cookbook. Open the metadata.rb file of the newly-created cookbook, and then add the following line:
+3. Defines the wrapper cookbook's dependency on the `supermarket-omnibus-cookbook` cookbook. Open the metadata.rb file of the new cookbook, and then add the following line:
 
     ```ruby
     depends 'supermarket-omnibus-cookbook'
@@ -143,7 +143,7 @@ On your workstation, generate a new cookbook using the `chef` command line inter
 
 4. Save and close the metadata.rb file.
 
-5. Open the `/recipes/default.rb` recipe located within the newly-generated cookbook and add the following content:
+5. Open the `/recipes/default.rb` recipe located within the new cookbook and add the following content:
 
     ```ruby
     include_recipe 'supermarket-omnibus-cookbook'
@@ -163,7 +163,7 @@ The following attribute values must be defined:
 
 Once configured, you can get the `chef_oauth2_app_id` and `chef_oauth2_secret` values from your Chef Infra Server within `/etc/opscode/oc-id-applications/supermarket.json`:
 
-For `chef_server_url`, enter in the url for your chef server. For `chef_oauth2_app_id`, enter in the uid from `/etc/opscode/oc-id-applications/supermarket.json` For `chef_oauth2_secret`, enter in the secret from `/etc/opscode/oc-id-applications/supermarket.json`
+For `chef_server_url`, enter in the url of your chef server. For `chef_oauth2_app_id`, enter in the uid from `/etc/opscode/oc-id-applications/supermarket.json` For `chef_oauth2_secret`, enter in the secret from `/etc/opscode/oc-id-applications/supermarket.json`
 
 To define these attributes, do the following:
 
@@ -273,7 +273,7 @@ When the bootstrap operation is finished, do the following:
     ]
     ```
 
-3. Start Chef Infra Client on the newly-bootstrapped Chef Supermarket node. For example, using SSH:
+3. Start Chef Infra Client on the bootstrapped Chef Supermarket node. For example, using SSH:
 
     ```bash
     ssh ubuntu@your-supermarket-node-public-dns
@@ -330,8 +330,8 @@ Before following these steps, be sure to complete the OAuth setup process detail
     - `"chef_server_url"` should contain  the FQDN of your Chef  Infra Server. Note that if you're using a non-standard SSL port, you must append this to the URL. For example:`https://chefserver.mycompany.com:65400`
     - `"chef_oauth2_app_id"` should contain the `"uid"` value from your OAuth credentials
     - `"chef_oauth2_secret"` should contain the `"secret"` value from your OAuth credentials
-    - `chef_oauth2_verify_ssl` is set to false, which is necessary when using a self-signed certificate without a properly configured certificate authority
-    - `fqdn` should contain the desired URL that will be used to access your private Supermarket. If not specified, this defaultto the FQDN of the machine
+    - `chef_oauth2_verify_ssl` is set to false, which is necessary to use a self-signed certificate that is not from a recognized certificate authority
+    - `fqdn` should contain the desired URL that will be used to access your private Supermarket. If not specified, this default to the FQDN of the machine
 
 5. Issue another `reconfigure` command to apply your changes:
 
@@ -355,7 +355,7 @@ The redirect URL specified for Chef Identity **MUST** match the fqdn hostname of
 
 ## Customize Supermarket
 
-Chef Supermarket is a Ruby on Rails application with a PostgreSQL backend. The private Chef Supermarket configuration may be scaled-out, such as using an external database, using an external cache, and using an external cookbook storage location.
+Chef Supermarket is a Ruby on Rails application with a PostgreSQL database. The private Chef Supermarket configuration may be scaled-out, such as using an external database, using an external cache, and using an external cookbook storage location.
 
 ### External Database
 
@@ -373,7 +373,7 @@ node.override['supermarket_omnibus']['config']['database']['password'] = 'topsec
 
 ### External Cache
 
-Chef Supermarket installations can also use an external cache store. The public Chef Supermarket uses Redis on Amazon ElastiCache. One Redis instance per private Chef Supermarket application server may be run safely. Use Redis 2.8 (or higher) for a high availability pair. To use an external cache, configure the following attributes in the
+Chef Supermarket installations can use an external cache store. The public Chef Supermarket uses Redis on Amazon ElastiCache. It is safe to run one Redis instance per private Chef Supermarket. Use Redis 2.8 (or higher) for a high availability pair. To use an external cache, configure the following attributes in the
 `/recipes/default.rb` recipe of the wrapper cookbook:
 
 ```ruby
@@ -423,7 +423,7 @@ Encrypted S3 buckets are currently not supported.
     sudo supermarket-ctl reconfigure
     ```
 
-Private Supermarket is updated on your server now. We recommend restarting the services that run Chef Supermarket to ensure that the old installation of Chef Supermarket doesn't persist in the server memory.
+Private Supermarket is updated on your server. Restarting the services that run Chef Supermarket will ensure that the old installation of Chef Supermarket doesn't persist in the server memory.
 
 1. Get the name of the active unit:
 
@@ -437,4 +437,4 @@ Private Supermarket is updated on your server now. We recommend restarting the s
     systemctl restart UNIT_NAME
     ```
 
-    This will restart the `runsvdir`, `runsv`, and `svlogd` service processes that run Chef Supermarket.
+    This restart the `runsvdir`, `runsv`, and `svlogd` service processes that run Chef Supermarket.
