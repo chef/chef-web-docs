@@ -6,9 +6,7 @@ github.com/chef/chef-server/docs-chef-io v0.0.0-20210602202006-e666dbd3ac63/go.m
 github.com/chef/chef-workstation/docs-chef-io v0.0.0-20210609201322-237fb76378a3/go.mod h1:gvoh6ov1YU98CVzBEWzEZeCLTRunfQ6r1VO7M3LFE9U=
 github.com/chef/cookstyle v7.13.0+incompatible/go.mod h1:KUadmsdBr7Hpo5dtGVQMiwb8KlC91W3j1lfc0yuVwtw=
 github.com/chef/cookstyle/docs-chef-io v0.0.0-20210527205158-80206dd3ece6/go.mod h1:1JOEECsW9ozt1/RmprJjAQEvCrOHobpWepSQJRQOhnY=
-github.com/chef/desktop-config/docs-chef-io v0.0.0-20210602220752-69ae81c4bd88 h1:WNLABirEsrrCA1F0DTYV0bLTit5sKOGN9PFZRwutIs0=
 github.com/chef/desktop-config/docs-chef-io v0.0.0-20210602220752-69ae81c4bd88/go.mod h1:90xAx6sIfgSL50M2KzeBmx7V7s7dlhQU3xpUkJO0qW0=
-github.com/chef/effortless/docs-chef-io v0.0.0-20210212122821-321ee6f6699a h1:QWwhipxerx1oq6nABZARDak/qOwRQGBK5vSIhCXra50=
 github.com/chef/effortless/docs-chef-io v0.0.0-20210212122821-321ee6f6699a/go.mod h1:Lfq+HjwAQwUJ41EPTO/8qbI1oJb2i415fR28d2Ig9kc=
 github.com/client9/misspell v0.3.4/go.mod h1:qj6jICC3Q7zFZvVWo7KLAzC3yx5G7kyvSDkc90ppPyw=
 github.com/cowboy/jquery-hashchange v0.0.0-20100902193700-0310f3847f90/go.mod h1:N/6F0+wmdvL6k0AjqyKIncMRClKAN92atjZdTLtYMaw=
@@ -30,7 +28,7 @@ github.com/google/go-cmp v0.3.1/go.mod h1:8QqcDgzrUqlUb/G2PQTWiueGozuR1884gddMyw
 github.com/google/go-cmp v0.4.0/go.mod h1:v8dTdLbMG2kIc/vJvl+f65V22dbkXbowE6jgT/gNBxE=
 github.com/google/go-cmp v0.5.0/go.mod h1:v8dTdLbMG2kIc/vJvl+f65V22dbkXbowE6jgT/gNBxE=
 github.com/habitat-sh/habitat/components/docs-chef-io v0.0.0-20210528235446-126930a330e0/go.mod h1:luAy42opPrAM/T6hsqDyW3CNBaAMgy+a6l0+oi8sw8U=
-github.com/inspec/inspec/docs-chef-io v0.0.0-20210604032505-52c4fe586a06/go.mod h1:oudFvipU0DTMkp8+MiwdUGerVEoWcJG0MQciDEOd6G8=
+github.com/inspec/inspec/docs-chef-io v0.0.0-20210616214837-54ff42297493/go.mod h1:oudFvipU0DTMkp8+MiwdUGerVEoWcJG0MQciDEOd6G8=
 github.com/prometheus/client_model v0.0.0-20190812154241-14fe0d1b01d4/go.mod h1:xMI15A0UPsDsEKsMN9yxemIoYk6Tm2C1GtYGdfGttqA=
 github.com/swiftype/swiftype-autocomplete-jquery v0.0.0-20190222215504-a90008d64b30/go.mod h1:qnxTyatkwE84LvoaQLPaLB4h5M3n6Q2z+SB/96DcAK8=
 github.com/swiftype/swiftype-search-jquery v1.1.0/go.mod h1:ozrXd90Gb0yopbWx+Iw4poOxjLe2lBFcKHDfIHrFHmA=
