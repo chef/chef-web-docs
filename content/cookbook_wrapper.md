@@ -28,6 +28,8 @@ default['supermarket_omnibus']['chef_oauth2_verify_ssl'] = false
 default['supermarket_omnibus']['fqdn'] = 'supermarket.mycompany.com'
 ```
 
+## Create a Wrapper
+
 Generate a new cookbook using the `chef` command from your workstation:
 
 1. Generate the cookbook:
@@ -41,6 +43,8 @@ Generate a new cookbook using the `chef` command from your workstation:
     ```bash
     cd my_supermarket_wrapper
     ```
+
+## Define Wrapper Dependencies
 
 3. Defines the wrapper cookbook's dependency on the `SOMETHING` cookbook. Open the metadata.rb file of the new cookbook, and then add the following line:
 
@@ -58,7 +62,7 @@ Generate a new cookbook using the `chef` command from your workstation:
 
     This ensures that the `default.rb` file in the `SOMETHING` is run.
 
-### Define Attributes
+## Define Attributes
 
 Define the attributes for the Chef Supermarket installation and how it connects to the Chef Infra Server. One approach is to hard-code attributes in the wrapper cookbook's `default.rb` recipe. A better approach is to place these attributes in a data bag, and then reference them from the recipe. For example, the data bag could be named `apps` and then a data bag item within the data bag could be named `supermarket`.
 
@@ -112,7 +116,10 @@ node.override['supermarket_omnibus']['config']['fqdn'] = your_node_public_ip
 
 {{< /note >}}
 
-### Upload the Wrapper
+## Test the Wrapper
+
+SINCE THIS IS AN INTRODUCTION, LET'S THROW IN TESTING FOR KICKS. ALSO BECAUSE IT IS THE RIGHT WAY TO DO THINGS.
+## Upload the Wrapper
 
 The wrapper cookbook around the `SOMETHING` cookbook must be uploaded to the Chef Infra Server, along with any cookbooks against which the `SOMETHING` cookbook has dependencies.
 
