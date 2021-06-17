@@ -5,7 +5,7 @@ go 1.16
 require (
 	github.com/chef/automate/components/docs-chef-io v0.0.0-20210601120041-ab41288ad78c // indirect
 	github.com/chef/chef-server/docs-chef-io v0.0.0-20210602202006-e666dbd3ac63 // indirect
-	github.com/chef/chef-workstation/docs-chef-io v0.0.0-20210609201322-237fb76378a3 // indirect
+	github.com/chef/chef-workstation/docs-chef-io v0.0.0-20210617182153-97cafe177128 // indirect
 	github.com/chef/cookstyle v7.13.0+incompatible // indirect
 	github.com/chef/cookstyle/docs-chef-io v0.0.0-20210527205158-80206dd3ece6 // indirect
 	github.com/chef/desktop-config/docs-chef-io v0.0.0-20210602220752-69ae81c4bd88 // indirect
