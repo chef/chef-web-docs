@@ -29,7 +29,7 @@ If you add a **Markdown** shortcode to a page using **HTML** shortcode delimiter
 
 ### Markdown Shortcodes
 
-To include a Markdown shortcode in a page, wrap the name of the shortcode file, without the file type suffix, in double curly braces and percent characters. For example, if you wanted to add the [`chef.md`](https://github.com/chef/chef-web-docs/blob/master/themes/docs-new/layouts/shortcodes/chef.md) shortcode to a page, add the following text to the Markdown page:
+To include a Markdown shortcode in a page, wrap the name of the shortcode file, without the file type suffix, in between double curly braces and percent characters, `{{%/* SHORTCODE */%}}`. For example, if you wanted to add the [`chef.md`](https://github.com/chef/chef-web-docs/blob/master/themes/docs-new/layouts/shortcodes/chef.md) shortcode to a page, add the following text to the Markdown page:
 
 ```go
 {{%/* chef */%}}
@@ -37,7 +37,7 @@ To include a Markdown shortcode in a page, wrap the name of the shortcode file, 
 
 ### HTML Shortcodes
 
-To include an HTML shortcode in a page, wrap the name of the shortcode file, without the file type suffix, in double curly braces and less than and greater than characters. For example, add the following text to a page if you wanted to add the [`chef_automate_mark.html`](https://github.com/chef/chef-web-docs/blob/master/themes/docs-new/layouts/shortcodes/chef_automate_mark.html) shortcode:
+To include an HTML shortcode in a page, wrap the name of the shortcode file, without the file type suffix, in between double curly braces and angle brackets, `{{</* SHORTCODE */>}}`. For example, add the following text to a page if you wanted to add the [`chef_automate_mark.html`](https://github.com/chef/chef-web-docs/blob/master/themes/docs-new/layouts/shortcodes/chef_automate_mark.html) shortcode:
 
 ```go
 {{</* chef_automate_mark */>}}
@@ -54,7 +54,6 @@ See the [Fontawesome Shortcode](#fontawesome-shortcode) section for more example
 ### Nested Content
 
 We have some shortcodes that nest around Markdown content that is included in the text of a page. Those shortcodes are all written in HTML. Note the slash `/` before the name of the closing shortcode.
-
 
 ```md
 {{</* shortcode_name */>}}
