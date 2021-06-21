@@ -27,11 +27,14 @@ Though a definition looks like a resource, and at first glance seems like it cou
 Definitions:
 
 - Are not true resources
-- Are processed when resource collection is compiled, not when a node is converged
-- Don't support common resource properties, such as `notifies`, `subscribes`, `only_if`, `not_if`, and `sensitive`
-- Don't support input validation in passed arguments, unlike a resource which supports validation with properties
-- Don't support `why-run` mode
-- Can't report to Chef Automate
+- Are processed when resource collection is compiled, not when a node
+  is converged
+- Don't support common resource properties, such as `notifies`, `compile_time`,
+  `subscribes`, `only_if`, `not_if`, and `sensitive`
+- Do not support input validation in passed arguments, unlike a
+  resource which supports validation with properties
+- Do not support `why-run` mode
+- Cannot report to Chef Automate
 - Cannot be tested with ChefSpec
 - Some Definition parameters have known bugs, and will not be fixed
 

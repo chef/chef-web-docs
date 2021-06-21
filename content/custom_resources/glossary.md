@@ -204,7 +204,7 @@ end
 
 ## new_resource.property
 
-Custom resources are designed to use core resources that are built into Chef. In some cases, it may be necessary to specify a property in the
+Custom resources are designed to use core resources that are built into Chef Infra. In some cases, it may be necessary to specify a property in the
 custom resource that is the same as a property in a core resource, for the purpose of overriding that property when used with the custom
 resource. It is still consider good practise to use `new_resource.property_name` to access the correct value.
 
@@ -356,7 +356,6 @@ property :gggg, [Array, Hash]
 
 ## sensitive
 
-Introduced: Chef Infra Client 12.14
 
 A property can be marked sensitive by specifying `sensitive: true` on
 the property. This prevents the contents of the property from being
