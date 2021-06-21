@@ -33,7 +33,7 @@ Definitions:
 - Don't support `why-run` mode
 - Can't report to Chef Automate
 - Cannot be tested with ChefSpec
-- There are known issues with the definition parameters hash where certain names, `timeout` for example, will not work. These issues will not be fixed.
+- Some Definition parameters have known bugs, and will not be fixed
 
 ## Syntax
 
