@@ -20,7 +20,7 @@ If you are creating a Custom Resource from scratch please see the [Custom Resour
 
 ## Convert files to Custom Resources Layout
 
-LWRPs are a pair of library files one provider, one resource.
+LWRPs consist of two library files: a resource and a provider for that resource.
 
 ```text
 └── libraries
@@ -37,9 +37,7 @@ These files are merged into one, and moved into the resources directory.
 
 ## Drop LWRP classes
 
-LWRPs required telling Chef, that they were not regular library files, but Providers and Resources. This is now taken care of for us.
-
-The following two files are stripped of their classes.
+LWRPs used classes to separate Provider and Resource behaviors, but Custom Resources do not need this distinction. This means that we remove the class definitions in their entirety, as shown in the following example:
 
 ```ruby
 #rvm/libraries/resource_rvm_ruby.rb
@@ -100,7 +98,7 @@ end
 
 It is best practise to use properties to change the behaviour of resources.
 
-In the example example we used an attribute to change the `installer_url`.
+In the previous example example we used an attribute to change the `installer_url`.
 
 Instead, we should use a property that we can perform checks on. In this case, we can make sure we only accept a String.
 

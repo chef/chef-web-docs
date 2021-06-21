@@ -12,7 +12,7 @@ gh_repo = "chef-web-docs"
 
 [InfoQ article](https://www.infoq.com/news/2020/05/chef-infra-16/)
 
-Resoruce partials are a way of DRYing up resource code.
+Resource partials are a way of allowing resources to share common code. We recommend using partials any time you need to share code across three or more resources.
 
 If you have three resources all which require the proprties, `user` and `group` to be set. You can write the property definition in one file and include it in the three resources.
 
