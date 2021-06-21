@@ -23,16 +23,16 @@ If you are creating a Custom Resource from scratch please see the [Custom Resour
 LWRPs consist of two library files: a resource and a provider for that resource.
 
 ```text
-└── libraries
-    ├── provider_rvm_ruby.rb
-    └── resource_rvm_ruby.rb
+|- libraries
+  |- provider_rvm_ruby.rb
+  |- resource_rvm_ruby.rb
 ```
 
 These files are merged into one, and moved into the resources directory.
 
 ```text
-└── resources
-    └── rvm_ruby.rb
+|- resources
+    |- rvm_ruby.rb
 ```
 
 ## Drop LWRP classes
