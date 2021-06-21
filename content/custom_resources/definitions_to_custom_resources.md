@@ -29,7 +29,7 @@ Definitions:
 - Are not true resources
 - Are processed when resource collection is compiled, not when a node
   is converged
-- Don't support common resource properties, such as `notifies`, `compile_time`,
+- Do not support common resource properties, such as `notifies`, `compile_time`,
   `subscribes`, `only_if`, `not_if`, and `sensitive`
 - Do not support input validation in passed arguments, unlike a
   resource which supports validation with properties
@@ -43,7 +43,7 @@ Definitions:
 A definition had four components:
 
 - A resource name
-- Zero or more arguments that define parameters their default values;
+- Zero or more arguments that define parameters and their default values;
   if a default value was not specified, it was assumed to be `nil`
 - A hash that could have been used within a definition's body to
   provide access to parameters and their values

@@ -192,21 +192,27 @@ This ensures the values for `homepage` and `page_not_found` are not
 changed to the default values when Chef Infra Client configures the
 node.
 
-## current_value_does_not_exist!
+## `current_value_does_not_exist!`
 
 When using the `load_current_value` block, use `current_value_does_not_exist!` to indicate that the value does not exist and that `current_resource` should therefore be `nil`.
 
 ```ruby
-load_current_value do
-  current_value_does_not_exist!
+load_current_value do |new_resource|
+    port_data = powershell_exec(%Q{Get-WmiObject -Class Win32_TCPIPPrinterPort -Filter "Name='#{new_resource.port_name}'"}).result
+
+    if port_data.empty?
+      current_value_does_not_exist!
+    else
+      ipv4_address port_data["HostAddress"]
+    end
+  endo
 end
 ```
 
 ## new_resource.property
 
-Custom resources are designed to use core resources that are built into Chef Infra. In some cases, it may be necessary to specify a property in the
-custom resource that is the same as a property in a core resource, for the purpose of overriding that property when used with the custom
-resource. It is still consider good practise to use `new_resource.property_name` to access the correct value.
+Custom resources are designed to use resources that are built into Chef Infra and external custom resources.
+To disambiguate from the current resource being used and other resources, `new_resource.property` is required.
 
 For example:
 
@@ -396,41 +402,11 @@ property :cloud_login, String, desired_state: false
 property :cloud_password, String, desired_state: false
 ```
 
-## identity
-
-{{< note >}}
-
-The `identity` setting is kept for backwards compatability. It is no longer used.
-
-{{< /note >}}
-
-The identity setting is used for reporting purposes.
-
-- When `true`, data for that property is returned as part of the resource data set and may be available to external applications, such as reporting
-- When `false`, no data for that property is returned.
-
-If no properties are marked `true`, the property that defaults to the `name` of the resource is marked `true`.
-
-For example, the following properties define `username` and `password` properties with no default values specified, but with `identity` set to `true` for the user name:
-
-```ruby
-provides :user
-
-property :username, String, identity: true
-property :password, String
-```
-
-```ruby
-user 'chef' do
-  password '12345'
-end
-```
-
 ## run_context
 
 Chef loads and tracks the current run in the run context object.
 
-root
+root_context
 
 ## property_is_set?
 
@@ -564,11 +540,7 @@ The `provides` statement is the prefered method of specificying the resources na
 
 In Chef Infra Client 16 and later, the first `provides` in a resource declaration also sets the fallback `resource_name`, so we do not recommend that users set the `resource_name` at all.
 
-## deprecated
-
 ## Deprecating entire resources
-
-Introduced in: Chef Infra Client 14.x <!-- TODO: >
 
 Deprecate resources that you no longer wish to maintain.
 This allows you make breaking changes to enterprise or community cookbooks with friendly notifications to downstream cookbook consumers directly in the Chef Infra Client run.
