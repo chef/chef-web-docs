@@ -20,7 +20,7 @@ product = ["client", "workstation", "automate"]
 
 # Test Drive Deployment
 
-A **Test Drive** is a ready-to-go environment that allows you to experience Chef Automate for free without an Azure subscription. The Test Drive comes already provisioned---you don’t need to download, set up, or configure it---instead, you can spend your time evaluating the user experience, key features, and benefits of the product.
+A **Test Drive** is a ready-to-go environment that allows you to experience Chef Automate for free without an Azure subscription. The Test Drive comes already provisioned---you don't need to download, set up, or configure it---instead, you can spend your time evaluating the user experience, key features, and benefits of the product.
 
 ### Test Drive
 
