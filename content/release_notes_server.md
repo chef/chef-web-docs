@@ -16,6 +16,58 @@ Chef Infra Server acts as a hub for configuration data by storing
 cookbooks, the policies that are applied to nodes, and metadata that
 describes each registered node that is managed by the Chef Infra Client.
 
+## What's New in 14.5
+
+### Bug Fixes
+
+- Resolved restore failures by adding retries to the Elasticsearch, Redis, and NGINX service starts.
+- Improved error messages for failed Elastisearch reindexing.
+- Resolved failures on FIPS-enabled systems during upgrades from Chef Infra Server 13 to 14.
+
+### Maintenance
+
+#### Elasticsearch 6.8.18
+
+Updated the embedded Elasticsearch to 6.8.16 to resolve multiple bugs. See the [Elasticsearch 6.8.16](https://www.elastic.co/guide/en/elasticsearch/reference/6.8/release-notes-6.8.16.html) release notes for a complete list of changes.
+
+#### HAProxy 1.8
+
+Updated the HAProxy used by Chef Infra Server for HA configurations with Chef Backend from 1.6 to 1.8. This update includes performance and bug fixes. See the [HAProxy 1.8 Changelog](https://www.haproxy.org/download/1.8/src/CHANGELOG) for a complete list of changes.
+
+### Security
+
+#### Security Improvements
+
+##### Locking E-mail Updates
+
+The new Chef Infra Server configuration option allow_email_update_only_from_manage lets you define that users can update their email addresses through Chef Manage and not with the knife command. Chef Manage provides validation for email addresses that is not available through knife.
+
+##### Updated Error Messages
+We removed the disclosure of OpenResty as the underlying server in Chef Infra Server API HTTP error messages. This change improves your system security by making it more difficult to fingerprint an unknown server as a Chef Infra Server.
+
+#### Security Updates
+
+##### Rails
+
+Updated the Rails engine used by the Chef Infra Server oc-id component to resolve the following CVEs:
+
+- [CVE-2019-5418](https://nvd.nist.gov/vuln/detail/CVE-2019-5418)
+- [CVE-2019-5419](https://nvd.nist.gov/vuln/detail/CVE-2019-5419)
+- [CVE-2020-8163](https://nvd.nist.gov/vuln/detail/CVE-2020-8163)
+- OpenResty 1.19.3.2
+- Updated the OpenResty engine to 1.19.3.2 to resolve [CVE-2021-23017](https://nvd.nist.gov/vuln/detail/CVE-2021-23017).
+
+##### Adopt OpenJDK 11.0.11
+
+Updated the Adopt OpenJDK runtime used by Elasticsearch to 11.0.11. This update includes the following security enhancements:
+
+- JDK-8244473: Contextualize registration for JNDI
+- JDK-8244543: Enhanced handling of abstract classes
+- JDK-8249906, [CVE-2021-2163](https://nvd.nist.gov/vuln/detail/CVE-2021-2163): Enhance opening JARs
+- JDK-8250568, [CVE-2021-2161](https://nvd.nist.gov/vuln/detail/CVE-2021-2161): Less ambiguous processing
+- JDK-8253799: Make lists of normal filenames
+- JDK-8257001: Improve Http Client Support
+
 ## What's New in 14.4
 
 ### Security Updates
