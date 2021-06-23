@@ -23,6 +23,14 @@ method block by declaring it as the event type.
 <td>The Chef Infra Client run has started.</td>
 </tr>
 <tr>
+<td><code>:run_completed</code></td>
+<td>The Chef Infra Client run has completed.</td>
+</tr>
+<tr>
+<td><code>:run_failed</code></td>
+<td>The Chef Infra Client run has failed.</td>
+</tr>
+<tr>
 <td><code>:ohai_completed</code></td>
 <td>The Ohai run has completed.</td>
 </tr>
@@ -45,6 +53,10 @@ method block by declaring it as the event type.
 <tr>
 <td><code>:node_load_start</code></td>
 <td>The Chef Infra Client is attempting to load node data from the Chef Infra Server.</td>
+</tr>
+<tr>
+<td><code>:node_load_success</code></td>
+<td>The Chef Infra Client successfully loaded node data from the policy builder.</td>
 </tr>
 <tr>
 <td><code>:node_load_failed</code></td>
@@ -107,6 +119,30 @@ method block by declaring it as the event type.
 <td>The Chef Infra Client is finished synchronizing cookbooks.</td>
 </tr>
 <tr>
+<td><code>:cookbook_gem_start</code></td>
+<td>The Chef Infra Client is collecting gems from the cookbooks.</td>
+</tr>
+<tr>
+<td><code>:cookbook_gem_installing</code></td>
+<td>The Chef Infra Client is installing a cookbook gem.</td>
+</tr>
+<tr>
+<td><code>:cookbook_gem_using</code></td>
+<td>The Chef Infra Client is using a cookbook gem.</td>
+</tr>
+<tr>
+<td><code>:cookbook_gem_finished</code></td>
+<td>The Chef Infra Client finished installing cookbook gems.</td>
+</tr>
+<tr>
+<td><code>:cookbook_gem_failed</code></td>
+<td>The Chef Infra Client failed to install cookbook gems.</td>
+</tr>
+<tr>
+<td><code>:cookbook_compilation_start</code></td>
+<td> The Chef Infra Client created the run_context and is starting cookbook compilation.</td>
+</tr>
+<tr>
 <td><code>:library_load_start</code></td>
 <td>The Chef Infra Client is loading library files.</td>
 </tr>
@@ -137,6 +173,22 @@ method block by declaring it as the event type.
 <tr>
 <td><code>:lwrp_load_complete</code></td>
 <td>The Chef Infra Client is finished loading custom resources.</td>
+</tr>
+<tr>
+<td><code>:ohai_plugin_load_start</code></td>
+<td>Ohai has started loading plugins.</td>
+</tr>
+<tr>
+<td><code>:ohai_plugin_file_loaded</code></td>
+<td>Ohai has loaded a plugin.</td>
+</tr>
+<tr>
+<td><code>:ohai_plugin_file_load_failed</code></td>
+<td>Ohai failed to load a plugin.</td>
+</tr>
+<tr>
+<td><code>:ohai_plugin_load_complete</code></td>
+<td>Ohai has completed loading plugins.</td>
 </tr>
 <tr>
 <td><code>:attribute_load_start</code></td>
@@ -191,8 +243,16 @@ method block by declaring it as the event type.
 <td>The Chef Infra Client is finished loading recipes.</td>
 </tr>
 <tr>
+<td><code>:cookbook_compilation_complete</code></td>
+<td>The Chef Infra Client completed all cookbook compilation phases.</td>
+</tr>
+<tr>
 <td><code>:converge_start</code></td>
 <td>The Chef Infra Client run converge phase has started.</td>
+</tr>
+<tr>
+<td><code>:action_collection_registration</code></td>
+<td>Provides a reference to the action_collection before cookbooks are compiled.</td>
 </tr>
 <tr>
 <td><code>:converge_complete</code></td>
@@ -227,6 +287,10 @@ method block by declaring it as the event type.
 <td>A resource's current state was loaded.</td>
 </tr>
 <tr>
+<td><code>:resource_after_state_loaded</code></td>
+<td>A resource's after state was loaded.</td>
+</tr>
+<tr>
 <td><code>:resource_current_state_load_bypassed</code></td>
 <td>A resource's current state was not loaded because the resource does not support why-run mode.</td>
 </tr>
@@ -237,6 +301,9 @@ method block by declaring it as the event type.
 <tr>
 <td><code>:resource_update_applied</code></td>
 <td>A change has been made to a resource. (This event occurs for each change made to a resource.)</td>
+<tr>
+<td><code>:resource_update_progress</code></td>
+<td>A resource sent a progress notification to the user to indicate overall progress of a long running operation.</td>
 </tr>
 <tr>
 <td><code>:resource_failed_retriable</code></td>
@@ -290,13 +357,8 @@ method block by declaring it as the event type.
 <td><code>:whyrun_assumption</code></td>
 <td>An assertion declared by a provider has failed, but execution is allowed to continue because the Chef Infra Client is running in why-run mode.</td>
 </tr>
-<tr>
-<td><code>:run_completed</code></td>
-<td>The Chef Infra Client run has completed.</td>
-</tr>
-<tr>
-<td><code>:run_failed</code></td>
-<td>The Chef Infra Client run has failed.</td>
+<td><code>:deprecation</code></td>
+<td>A deprecation message has been emitted.</td>
 </tr>
 <tr>
 <td><code>:attribute_changed</code></td>
