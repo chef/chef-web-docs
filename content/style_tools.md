@@ -136,31 +136,37 @@ Add this configuration to exclude code blocks from spellcheck:
 
 ### Markdownlint
 
-[Markdownlint](https://github.com/DavidAnson/markdownlint)
-Here's a list of Markdownlint [rules](https://github.com/DavidAnson/markdownlint/blob/main/doc/Rules.md#md041)
+[Markdownlint-CLI2](https://github.com/DavidAnson/markdownlint-cli2) is a fast, flexible, configuration-based command-line interface for linting Markdown files.
 
-Add this to your configuration:
+Install the Markdownlint CLI into your local environment:
 
-```json
-  "markdownlint.config": {
-
-    "MD010": false,
-    "MD013": false,
-    "MD028": false,
-    "MD029": {
-      "style": "one_or_ordered"
-    },
-    "MD033": false,
-    "MD041": false,
-    "MD046": {
-      "style": "fenced"
-    },
-    "MD048": {
-      "style": "backtick"
-    }
-  },
+```bash
+npm install markdownlint-cli2 --global
 ```
 
+`chef/chef-web-docs/.markdownlint.yaml` is the configuration file with the Markdown rules for Chef documentation files.
+
+This is a full list of  Markdownlint [rules](https://github.com/DavidAnson/markdownlint/blob/main/doc/Rules.md)
+
+To enable or disable rules for specific lines, add the appropriate marker:
+
+- Disable all rules: `<!-- markdownlint-disable -->`
+- Enable all rules: `<!-- markdownlint-enable -->`
+- Disable all rules for the next line only: `<!-- markdownlint-disable-next-line -->`
+- Disable one or more rules by name: `<!-- markdownlint-disable MD001 MD005 -->`
+- Enable one or more rules by name: `<!-- markdownlint-enable MD001 MD005 -->`
+- Disable one or more rules by name for the next line only: `<!-- markdownlint-disable-next-line MD001 MD005 -->`
+- Capture the current rule configuration: `<!-- markdownlint-capture -->`
+- Restore the captured rule configuration: `<!-- markdownlint-restore -->`
+
+To enable or disable rules for entire files, use:
+
+- Disable all rules: <!-- markdownlint-disable-file -->
+- Enable all rules: <!-- markdownlint-enable-file -->
+- Disable one or more rules by name: <!-- markdownlint-disable-file MD001 -->
+- Enable one or more rules by name: <!-- markdownlint-enable-file MD001 -->
+
+For more information about customizing Markdownlint, see the Markdownlint GitHub Repository [README](https://github.com/DavidAnson/markdownlint/blob/main/README.md#configuration).
 ### Vale
 
 [Vale](https://docs.errata.ai/vale/about)
