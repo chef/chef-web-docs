@@ -1,18 +1,9 @@
 ---
 resource_reference: true
-properties_shortcode: 
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-title: windows_update_settings resource
 resource: windows_update_settings
-aliases:
-- "/resource_windows_update_settings.html"
-menu:
-  desktop:
-    title: windows_update_settings
-    identifier: desktop/resources/windows_update_settings windows_update_settings
-    parent: desktop/resources
 resource_description_list:
 - markdown: Use the **windows_update_settings** resource to manage the various Windows
     Update patching options.
@@ -29,7 +20,7 @@ syntax_full_code_block: |-
     elevate_non_admins                       true, false # default value: true
     enable_detection_frequency               true, false # default value: false
     no_reboot_with_users_logged_on           true, false # default value: true
-    scheduled_install_day                    Integer # default value: 0
+    scheduled_install_day                    String # default value: "Everyday"
     scheduled_install_hour                   Integer
     target_wsus_group_name                   String
     update_other_ms_products                 true, false # default value: true
@@ -38,7 +29,7 @@ syntax_full_code_block: |-
     wsus_status_server_url                   String
     action                                   Symbol # defaults to :enable if not specified
   end
-syntax_properties_list: 
+syntax_properties_list:
 syntax_full_properties_list:
 - "`windows_update_settings` is the resource."
 - "`name` is the name given to the resource block."
@@ -121,12 +112,14 @@ properties_list:
   - markdown: Prevents the OS from rebooting while someone is on the console. Default
       is True
 - property: scheduled_install_day
-  ruby_type: Integer
+  ruby_type: String
   required: false
-  default_value: '0'
+  default_value: Everyday
+  allowed_values: '"Everyday", "Friday", "Monday", "Saturday", "Sunday", "Thursday",
+    "Tuesday", "Wednesday"'
   description_list:
-  - markdown: A number value to tell Windows when to install updates. Defaults to
-      0 - every day
+  - markdown: A day of the week to tell Windows when to install updates. Defaults
+      to Everyday
 - property: scheduled_install_hour
   ruby_type: Integer
   required: false
@@ -162,4 +155,25 @@ properties_list:
   description_list:
   - markdown: URL for the WSUS Status server. It can be the same as the URL for the
       WSUS server itself
-examples: 
+examples: |
+  **Set Windows Update settings**:
+
+  ```ruby
+  windows_update_settings 'Settings to Configure Windows Nodes to automatically receive updates' do
+    disable_os_upgrades false
+    elevate_non_admins true
+    add_to_target_wsus_group false
+    block_windows_update_website false
+    automatic_update_option 4
+    automatically_install_minor_updates false
+    enable_detection_frequency false
+    custom_detection_frequency 22
+    no_reboot_with_users_logged_on true
+    disable_automatic_updates false
+    scheduled_install_day 'Monday'
+    scheduled_install_hour 20
+    update_other_ms_products false
+    use_custom_update_server false
+    action :enable
+  end
+  ```

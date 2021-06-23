@@ -1,18 +1,9 @@
 ---
 resource_reference: true
-properties_shortcode:
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-title: windows_firewall resource
 resource: windows_firewall
-aliases:
-- "/resource_windows_firewall.html"
-menu:
-  desktop:
-    title: windows_firewall
-    identifier: desktop/resources/windows_firewall windows_firewall
-    parent: desktop/resources
 resource_description_list:
 - markdown: Use the **windows_firewall** resource to enable or disable the Windows
     firewall service and all profiles.
@@ -35,4 +26,11 @@ actions_list:
   :nothing:
     shortcode: resources_common_actions_nothing.md
 properties_list: []
-examples:
+examples: |
+  **Set the Windows firewall**:
+
+  ```ruby
+  windows_firewall 'Enable the node firewall' do
+    action :enable
+  end
+  ```

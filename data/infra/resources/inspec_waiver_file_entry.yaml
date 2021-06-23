@@ -82,7 +82,7 @@ examples: |
       file_path 'C:\chef\inspec_waiver_file.yml'
       control 'my_inspec_control_01'
       run_test false
-      justification "The subject of this control is not managed by Chef on the systems in policy group #{node['policy_group']}"
+      justification "The subject of this control is not managed by Chef Infra Client on the systems in policy group #{node['policy_group']}"
       expiration '2022-01-01'
       action :add
     end
@@ -92,7 +92,7 @@ examples: |
 
   ```ruby
     inspec_waiver_file_entry 'my_inspec_control_01' do
-      justification "The subject of this control is not managed by Chef on the systems in policy group #{node['policy_group']}"
+      justification "The subject of this control is not managed by Chef Infra Client on the systems in policy group #{node['policy_group']}"
       action :add
     end
   ```

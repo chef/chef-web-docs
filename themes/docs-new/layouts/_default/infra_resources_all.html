@@ -730,33 +730,6 @@
 
             <!-------------- Custom Handlers ------------------->
 
-            {{ if index $yaml_file "handler_custom" }}
-              <h3 id="handler-custom">Custom Handlers</h3>
-              {{ readFile "themes/docs-new/layouts/shortcodes/handler_custom.md" | markdownify }}
-
-              <h4 id="handler-custom-syntax">Syntax</h4>
-              {{ readFile "themes/docs-new/layouts/shortcodes/handler_custom_syntax.md" | markdownify }}
-
-              <h4 id="handler-custom-interface-report">report Interface</h4>
-              {{ readFile "themes/docs-new/layouts/shortcodes/handler_custom_interface_report.md" | markdownify }}
-
-              <h4 id="handler-custom-optional-interfaces">Optional Interfaces</h4>
-              {{ readFile "themes/docs-new/layouts/shortcodes/handler_custom_optional_interfaces.md" | markdownify }}
-
-              <h5 id="handler-custom-interface-data">data</h5>
-              {{ readFile "themes/docs-new/layouts/shortcodes/handler_custom_interface_data.md" | markdownify }}
-
-              <h5 id="handler-custom-interface-run-report-safely">run_report_safely</h5>
-              {{ readFile "themes/docs-new/layouts/shortcodes/handler_custom_interface_run_report_safely.md" | markdownify }}
-
-              <h5 id="handler-custom-interface-run-report-unsafe">run_report_unsafe</h5>
-              {{ readFile "themes/docs-new/layouts/shortcodes/handler_custom_interface_run_report_unsafe.md" | markdownify }}
-
-              <h4 id="handler-custom-object-run-status">run_status Object</h4>
-              {{ readFile "themes/docs-new/layouts/shortcodes/handler_custom_object_run_status.md" | markdownify }}
-
-            {{ end }}
-
             <!-------------- File Specificity ------------------->
 
             {{ if index $yaml_file "cookbook_file_specificity" }}

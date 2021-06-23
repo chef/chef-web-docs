@@ -1,18 +1,9 @@
 ---
 resource_reference: true
-properties_shortcode:
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-title: rescue_account resource
 resource: rescue_account
-aliases:
-- "/resource_rescue_account.html"
-menu:
-  desktop:
-    title: rescue_account
-    identifier: desktop/resources/rescue_account rescue_account
-    parent: desktop/resources
 resource_description_list:
 - markdown: Use the **rescue_account** resource to provide Administrators with a rescue
     account.
@@ -52,4 +43,40 @@ properties_list:
   required: true
   description_list:
   - markdown: Corresponding password for that user
-examples:
+examples: |
+  **Create a managed user account**:
+
+  ```ruby
+  rescue_account 'Configure an Admin level account for IT to use' do
+    account_name 'MyAdmin'
+    password '123Opscode!!'
+    action :create
+  end
+  ```
+
+  **Delete a managed user account**:
+
+  ```ruby
+  rescue_account 'Delete an Admin level account for IT to use' do
+    account_name 'MyAdmin'
+    action :delete
+  end
+  ```
+
+  **Enable an existing managed user account**:
+
+  ```ruby
+  rescue_account 'Enable an Admin level account for IT to use' do
+    account_name 'MyAdmin'
+    action :enable
+  end
+  ```
+
+  **Disable an existing managed user account**:
+
+  ```ruby
+  rescue_account 'Disable an Admin level account' do
+    account_name 'MyAdmin'
+    action :disable
+  end
+  ```
