@@ -185,12 +185,12 @@ Client run.
 ### chef_handler
 
 Exception and report handlers can be distributed using the
-**chef_handler** cookbook. This cookbook is authored and maintained by
-Chef and exposes a custom resource that can be used to enable custom
-handlers from within recipes and to include product-specific handlers
-from cookbooks. The **chef_handler** cookbook can be accessed here:
-<https://github.com/chef-cookbooks/chef_handler>. See the `README.md`
-for additional information.
+**chef_handler** resource. This resource is included with Chef 14 and above.
+It can be used to enable custom handlers from within recipes and to
+include product-specific handlers from cookbooks.
+
+More information on the **chef_handler** resource can be accessed in the
+resource documentation [here](resources/chef_handler.md).
 
 ### Chef Infra Client
 
