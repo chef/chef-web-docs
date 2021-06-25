@@ -45,7 +45,7 @@ The **Marketplace Deployment** is a test-level Chef Automate environment. This d
 
 ### Create Automate
 
-1. Select **Create** to spin up your Chef Automate instance.
+1. Select **Create** to create your Chef Automate instance.
   ![CreateAutomate](/images/az_automate_create.png)
 
 1. Enter the project details and select **Next**:
@@ -67,7 +67,7 @@ The **Marketplace Deployment** is a test-level Chef Automate environment. This d
 1. Review your validated configuration and select **Create** to deploy Chef Automate.
   ![ValidationPage](/images/az_automate_review.png)
 
-1. The Chef Automate takes about `15 min` to complete
+1. Chef Automate takes about 15 minutes to deploy.
   ![DeployInProgressPage](/images/az_automate_progress.png)
 
 1. Once the Chef Automate deployment completes, select **Go to resource group**.
@@ -75,34 +75,33 @@ The **Marketplace Deployment** is a test-level Chef Automate environment. This d
 
 ### Connect
 
-<!-- Are we making this too hard? Why not just connect through RDP? -->
-<!-- 1. On the _Resource group_ page for your installation, select the Chef Automate virtual machine (VM), which is named `RESOURCE-GROUP-ipg6-VM`.
+1. On the _Resource group_ page for your installation, select the Chef Automate virtual machine (VM), which is named `RESOURCE-GROUP-ipg6-VM`.
   ![OverviewPage](/images/az_automate_overview.png)
 
 1. Locate and copy the `Public IP` on the _Virtual machine_ page. You will use this to connect to your VM.
   ![DeployDescPage](/images/az_automate_essentials.png) -->
 
-1. Select the **Connect** button in the Azure portal to start a Remote Desktop (RDP) session from your workstation. You will need to install a RDP client on [macOS](https://apps.apple.com/us/app/microsoft-remote-desktop/id1295203466).
-
 1. From the command line, connect to your VM:
 
-  ```bash
-  ssh -i chefkey.pem chefuser@13.92.241.41
-  ```
+    ```bash
+    ssh -i chefkey.pem chefuser@13.92.241.41
+    ```
 
   ![SSHPage](/images/az_ssh.png)`
 
-1. Execute the below command to get the Chef Automate `URL` and `login credentials`**
+1. Execute the below command to get the Chef Automate `URL` and `login credentials`
 
     ```bash
     sudo cat /root/automate-credentials.toml
     ```
 
-Which returns something like:
+    Which returns something like:
 
-```
-TODO: Fill this codesample in
-```
+    ```
+    url = "https://chef-automate-example.eastus.cloudapp.azure.com"
+    username = "admin"
+    password = "EXAMPLE1234567890abcdefghijklmno"
+    ```
 
 1. Open your favorite browser and Access the Chef Automate URL and Select **Advanced and continue as shown below**
   ![automate_insecure_page](/images/automate_insecure_page.png)

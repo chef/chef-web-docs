@@ -24,7 +24,7 @@ A **Test Drive** is a ready-to-go environment that allows you to experience Chef
 
 ### Test Drive
 
-1.  Navigate to Chef Automate on the [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/chef-software.chef-automate).
+1. Navigate to Chef Automate on the [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/chef-software.chef-automate).
 
 ![AzureHomePage](/images/az_home.png)
 
@@ -54,7 +54,7 @@ A **Test Drive** is a ready-to-go environment that allows you to experience Chef
 
 ![GoToTDPage](/images/az_test_goto.png)
 
-1. Open your favorite browser and Access the Chef Automate URL and click on Advanced and continue as shown below**
+1. Open your favorite browser and Access the Chef Automate URL and click on Advanced and continue as shown below
 
 ![InsecurePage](/images/automate_insecure_page.png)
 
@@ -64,10 +64,10 @@ A **Test Drive** is a ready-to-go environment that allows you to experience Chef
 
 ![automate_signin](/images/automate_signin.png)
 
-1. Fill the required details and click on Register**
+1. Fill the required details and click on Register
 
 ![AutomateWelcomePage](/images/automate_welcome.png)
 
-1. Congratulations: Here is the Chef Automate WebUI you can play around with CHEF**
+1. Congratulations: Here is the Chef Automate WebUI you can play around with CHEF
 
 ![automate_event_feed](/images/automate_event_feed_empty.png)
