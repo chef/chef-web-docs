@@ -27,12 +27,9 @@
     p img {
       display: block;
       margin: rem-calc(32) auto;
-      -webkit-box-shadow: $box-shadow;
-      -moz-box-shadow: $box-shadow;
-      box-shadow: $box-shadow;
-      border: 1px solid transparent;
+      border: 1px solid lightgray;
       padding: 1rem;
-      max-width: 75%;
+      max-width: 80%;
     }
 
     figure {
@@ -41,19 +38,17 @@
       font-style: italic;
       font-size: smaller;
       text-indent: 0;
-      border: 1px solid transparent;
-      -webkit-box-shadow: $box-shadow;
-      -moz-box-shadow: $box-shadow;
-      box-shadow: $box-shadow;
-      padding: 0.5rem;
+      padding: 0;
       margin: rem-calc(32) auto;
       position: relative;
       left: 50%;
       transform: translateX(-50%);
-      max-width: 75%;
+      max-width: 90%;
 
       img {
-        padding: 1rem;
+        padding: 0;
+        max-width: 100%;
+        border: 1px solid lightgray;
       }
     }
 
