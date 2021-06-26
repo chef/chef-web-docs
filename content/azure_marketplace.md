@@ -43,7 +43,7 @@ The **Marketplace Deployment** is a test-level Chef Automate environment. This d
 1. Select **Continue** to accept the Microsoft information terms.
   {{< figure src="/images/az_continue.png" alt="Continue" >}}
 
-### Create Automate
+### Deploy Automate
 
 1. Select **Create** to create your Chef Automate instance.
   {{< figure src="/images/az_automate_create.png" alt="Create Automate" >}}

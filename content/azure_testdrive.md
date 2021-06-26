@@ -20,49 +20,48 @@ product = ["client", "workstation", "automate"]
 
 {{% automate_ha_support %}}
 
-## Test Drive Deployment
+## Test Drive
 
 A **Test Drive** is a ready-to-go environment that allows you to experience Chef Automate for free, without an Azure subscription (You will need a [Microsoft account](https://signup.live.com/). The Test Drive comes already provisioned---you don't need to download, set up, or configure it---instead, you can spend two hours evaluating the user experience, key features, and benefits of the product.
 
-### Test Drive
+### Get Started
 
 1. Navigate to Chef Automate on the [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/chef-software.chef-automate).
-  ![AzureHomePage](/images/az_home.png)
+  {{< figure src="/images/az_home.png" alt="Azure Home Page" >}}
 
 1. Select **Test Drive**.
-  ![TestDrivePage](/images/az_testdrive.png)
+  {{< figure src="/images/az_testdrive.png" alt="Test Drive" >}}
 
 1. Sign in with your Microsoft account email address.
-  ![SignInPage](/images/az_signin.png)
-
+  {{< figure src="/images/az_signin.png" alt="Sign In" >}}
+  
 1. Enter your password and select **Sign In**
-  ![PasswordPage](/images/ms_pass.png)
+  {{< figure src="/images/ms_pass.png" alt="Enter Password" >}}
 
 1. Select **Continue** to accept the Microsoft information terms.
-  ![ContinuePage](/images/az_test_continue.png)
+  {{< figure src="/images/az_test_continue.png" alt=" Agree to MS information use policy and select continue" >}}  
 
-1. Chef Automate takes about 15 minutes to deploy.
-  ![InProgressPage](/images/az_test_progress.png)
+### Deploy Automate
+
+1. Chef Automate deploys automatically. It takes about 15 minutes to finish.
+  {{< figure src="/images/az_test_progress.png" alt="Deploy In Progress" >}}
 
 1. Once Chef Automate deploys, you have **2 hours** to explore.
-  ![DriveReadyPage](/images/az_test_ready.png)
+  {{< figure src="images/az_test_ready.png" alt="Chef Automate Deployed" >}}
 
-1. Within 5 minutes of the Chef Automate deployment, you will receive an email with your username and password.
-  ![GoToTDPage](/images/az_test_goto.png)
+### Connect
 
-1. Open your browser and access the Chef Automate URL and click on Advanced and continue as shown below
-  ![InsecurePage](/images/automate_insecure_page.png)
+1. Within 5 minutes of the Chef Automate deployment, you will receive an email with your username, password, and the URL for your deployment.
+  {{< figure src="/images/az_test_goto.png" alt="GoToTDPage" >}}
 
-1. Enter your username, Password and click on Sign In to Access Chef Automate WebUI**
+1. Open your browser and access the Chef Automate URL and select Advanced and continue as shown below
+  {{< figure src="/images/automate_insecure_page.png" alt="insecure site warning" >}}
 
-**Note:**  your login credentials will be received to `email` as shown above
+1. Enter your username, password from the email and select **Sign In** to Access Chef Automate
+  {{< figure src="/images/automate_signin.png" alt="automate_signin" >}}
 
-![automate_signin](/images/automate_signin.png)
+1. Enter your name and email address, accept the Chef license, and then select **Register**
+  {{< figure src="/images/automate_welcome.png" alt="AutomateWelcomePage" >}}
 
-1. Fill the required details and click on Register
-
-![AutomateWelcomePage](/images/automate_welcome.png)
-
-1. Congratulations! You're ready to explore Chef Automate
-
-![automate_event_feed](/images/automate_event_feed_empty.png)
+1. Congratulations! You're ready to explore Chef Automate!
+  {{< figure src="/images/automate_event_feed_empty.png" alt="automate_event_feed" >}}
