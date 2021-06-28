@@ -699,7 +699,7 @@ identifier = "chef_workstation"
       url = "/workstation/cookstyle/cops/#chefcorrectness"
 
       [[workstation]]
-      title = "Deprecation Cops"
+      title = "Chef Deprecation Cops"
       identifier = "chef_workstation/chef_workstation_tools/cookstyle/Cops Chef/Deprecations"
       parent = "chef_workstation/chef_workstation_tools/cookstyle"
       url = "/workstation/cookstyle/cops/#chefdeprecations"
@@ -729,10 +729,16 @@ identifier = "chef_workstation"
       url = "/workstation/cookstyle/cops/#chefsharing"
 
       [[workstation]]
-      title = "Style Cop"
+      title = "Style Cops"
       identifier = "chef_workstation/chef_workstation_tools/cookstyle/Cops Chef/Style"
       parent = "chef_workstation/chef_workstation_tools/cookstyle"
       url = "/workstation/cookstyle/cops/#chefstyle"
+
+      [[workstation]]
+      title = "InSpec Deprecations Cops"
+      identifier = "chef_workstation/chef_workstation_tools/cookstyle/Cops InSpec/Deprecations"
+      parent = "chef_workstation/chef_workstation_tools/cookstyle"
+      url = "/workstation/cookstyle/cops/#inspecdeprecations"
 
     [[workstation]]
     title = "Test Kitchen"
