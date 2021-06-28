@@ -67,7 +67,7 @@ AWS provides 5 VPCs per region. If you require more VPCs, please contact [AWS Su
 ![Select 'advanced' to bypass the warning that the page is not secure](/images/NotSecurePage.png "Not Secure Page").
 
 1. Enter your **Username** and **Password** and select **Sign In**.
-![ ](/images/chef_automate_login.png "Automate")
+![ ](/images/chef_automate_login.png "Chef Automate Login")
 
 1. Fill out the registration form and [Accept the Chef License](https://docs.chef.io/chef_license_accept/).
 
@@ -103,7 +103,7 @@ AWS provides 5 VPCs per region. If you require more VPCs, please contact [AWS Su
     - Admin Key: _copy the key from starter kit_
 
 1. Select **Add Chef Organization**.
-![Select the Add Chef Organization button to complete this action](/images/OrgPageDetails.png")
+![Select the Add Chef Organization button to complete this action](/images/OrgPageDetails.png)
 
 ## AWS Deployment Security
 
