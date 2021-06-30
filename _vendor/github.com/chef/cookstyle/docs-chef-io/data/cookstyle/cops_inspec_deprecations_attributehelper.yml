@@ -1,0 +1,25 @@
+---
+short_name: AttributeHelper
+full_name: InSpec/Deprecations/AttributeHelper
+department: InSpec/Deprecations
+description: InSpec attributes have been renamed to inputs. Use the `input` method
+  not the deprecation `attribute` method to access these values.
+autocorrection: true
+target_chef_version: All Versions
+examples: |2-
+
+  #### incorrect
+
+  ```ruby
+  login_defs_umask = attribute('login_defs_umask', value: '077', description: 'Default umask to set in login.defs')
+  ```
+
+  #### correct
+
+  ```ruby
+  login_defs_umask = input('login_defs_umask', value: '077', description: 'Default umask to set in login.defs')
+  ```
+version_added: 7.14.0
+enabled: true
+included_file_paths:
+- "**/controls/*.rb"
