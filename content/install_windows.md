@@ -9,8 +9,8 @@ aliases = ["/install_windows.html"]
 [menu]
   [menu.infra]
     title = "Windows Installation Guide"
-    identifier = "chef_infra/getting_started/chef_on_windows_guide/install_windows.md Chef Infra Client on Windows"
-    parent = "chef_infra/getting_started/chef_on_windows_guide"
+    identifier = "chef_infra/integrations/windows/install_windows.md Chef Infra Client on Windows"
+    parent = "chef_infra/integrations/windows"
     weight = 20
 +++
 
