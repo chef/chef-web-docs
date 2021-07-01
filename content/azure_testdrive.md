@@ -35,7 +35,7 @@ A **Test Drive** is a ready-to-go environment that allows you to experience Chef
 1. Sign in with your Microsoft account email address.
   {{< figure src="/images/az_signin.png" alt="Sign In" >}}
   
-1. Enter your password and select **Sign In**
+1. Enter your password and select **Sign In**.
   {{< figure src="/images/ms_pass.png" alt="Enter Password" >}}
 
 1. Select **Continue** to accept the Microsoft information terms.
@@ -47,7 +47,7 @@ A **Test Drive** is a ready-to-go environment that allows you to experience Chef
   {{< figure src="/images/az_test_progress.png" alt="Deploy In Progress" >}}
 
 1. Once Chef Automate deploys, you have **2 hours** to explore.
-  {{< figure src="images/az_test_ready.png" alt="Chef Automate Deployed" >}}
+  {{< figure src="/images/az_test_ready.png" alt="Chef Automate Deployed" >}}
 
 ### Connect
 

@@ -61,7 +61,7 @@ The **Marketplace Deployment** is a test-level Chef Automate environment. This d
     1. `Username`: <NAME>
     Example:`chefuser`
     1. `SSH public key`: Copy your existing public key or make a new key pair.
-    1. `Size`: The vCPUs and memory for your instance. The recommended minimum is 4vCPUs and 16GB memory.Example:`Standard D4s v3`
+    1. `Size`: The vCPUs and memory for your instance. The recommended minimum is 4vCPUs and 16GB memory. Example: `Standard D4s v3`
 
     {{< figure src="/images/az_automate_custom_settings.png" alt=" Custom Settings" >}}
 
@@ -104,13 +104,13 @@ The **Marketplace Deployment** is a test-level Chef Automate environment. This d
     password = "EXAMPLE1234567890abcdefghijklmno"
     ```
 
-1. Open your favorite browser and Access the Chef Automate URL and Select **Advanced and continue as shown below**
+1. Open your favorite browser and Access the Chef Automate URL and Select **Advanced** and continue as shown below:
   {{< figure src="/images/automate_insecure_page.png" alt="Insecure site warning" >}}
 
-1. Enter your username, Password and Select **Sign In to Access Chef Automate WebUI**
+1. Enter your username, password and select **Sign In to Access Chef Automate WebUI**.
   {{< figure src="/images/automate_signin.png" alt="Automate Sign In " >}}
 
-1. Enter your name and email address, accept the Chef license, and then select **Register**
+1. Enter your name and email address, accept the Chef license, and then select **Register**.
   {{< figure src="/images/automate_welcome.png" alt="Automate Welcome" >}}
 
 1. Congratulations! You're ready to explore Chef Automate!
