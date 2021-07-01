@@ -1,0 +1,25 @@
+---
+short_name: AttributeDefault
+full_name: InSpec/Deprecations/AttributeDefault
+department: InSpec/Deprecations
+description: The InSpec inputs `default` option has been replaced with the `value`
+  option.
+autocorrection: true
+target_chef_version: All Versions
+examples: |2-
+
+  #### incorrect
+
+  ```ruby
+  login_defs_umask = input('login_defs_umask', default: '077', description: 'Default umask to set in login.defs')
+  ```
+
+  #### correct
+
+  ```ruby
+  login_defs_umask = input('login_defs_umask', value: '077', description: 'Default umask to set in login.defs')
+  ```
+version_added: 7.14.0
+enabled: true
+included_file_paths:
+- "**/controls/*.rb"
