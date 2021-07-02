@@ -44,7 +44,7 @@ This configuration file has the following settings:
 
     {{< /note >}}
 
-`automatic_attribute_blacklist`
+`blocked_automatic_attributes`
 
 :   A hash that blacklists `automatic` attributes, preventing
     blacklisted attributes from being saved.
@@ -193,7 +193,7 @@ This configuration file has the following settings:
     successfully POST to the data collector server. Default value:
     `false`.
 
-`default_attribute_blacklist`
+`blocked_default_attributes`
 
 :   A hash that blacklists `default` attributes, preventing blacklisted
     attributes from being saved.
@@ -246,9 +246,9 @@ This configuration file has the following settings:
 
 :   The subdirectory in which encrypted data bag secrets are located.
 
-`enforce_path_sanity`
+`enforce_default_paths`
 
-:   Turn on path sanity in resources that shellout so that expected
+:   Turn on path defaults in resources that shellout so that expected
     paths like /sbin or /bin are added to the PATH. Disabled by default.
 
 `environment`
@@ -491,12 +491,12 @@ This configuration file has the following settings:
 :   A hash that blacklists `override` attributes, preventing blacklisted
     attributes from being saved.
 
-`normal_attribute_whitelist`
+`allowed_normal_attributes`
 
 :   A hash that whitelists `normal` attributes, preventing
     non-whitelisted attributes from being saved.
 
-`override_attribute_whitelist`
+`allowed_override_attributes`
 
 :   A hash that whitelists `override` attributes, preventing
     non-whitelisted attributes from being saved.
