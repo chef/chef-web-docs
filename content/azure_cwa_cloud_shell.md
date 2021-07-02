@@ -9,8 +9,8 @@ product = ["client", "workstation"]
 [menu]
   [menu.infra]
     title = "Chef Workstation in Azure Cloud Shell"
-    identifier = "chef_infra/getting_started/chef_on_azure_guide/azure_cwa_cloud_shell.md Chef Workstation in Azure Cloud Shell"
-    parent = "chef_infra/getting_started/chef_on_azure_guide"
+    identifier = "chef_infra/integrations/azure/azure_cwa_cloud_shell.md Chef Workstation in Azure Cloud Shell"
+    parent = "chef_infra/integrations/azure"
     weight = 20
 +++
 

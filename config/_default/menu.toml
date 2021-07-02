@@ -330,39 +330,6 @@ identifier = "chef_infra"
   parent = "chef_infra"
   weight = 10
 
-    [[infra]]
-    title = "Chef on Azure Guide"
-    identifier = "chef_infra/getting_started/chef_on_azure_guide"
-    parent = "chef_infra/getting_started"
-    weight = 40
-
-      [[infra]]
-      title = "Knife Azure"
-      identifier = "chef_infra/getting_started/chef_on_azure_guide/knife_azure.md Knife Azure"
-      parent = "chef_infra/getting_started/chef_on_azure_guide"
-      url = "/knife_azure/"
-      weight = 50
-
-      [[infra]]
-      title = "Knife Azurerm"
-      identifier = "chef_infra/getting_started/chef_on_azure_guide/knife_azurerm.md Knife Azurerm"
-      parent = "chef_infra/getting_started/chef_on_azure_guide"
-      url = "/knife_azurerm/"
-      weight = 60
-
-    [[infra]]
-    title = "Chef on Windows Guide"
-    identifier = "chef_infra/getting_started/chef_on_windows_guide"
-    parent = "chef_infra/getting_started"
-    weight = 50
-
-      [[infra]]
-      title = "Knife Windows"
-      identifier = "chef_infra/getting_started/chef_on_windows_guide/knife_windows.md Knife Windows"
-      parent = "chef_infra/getting_started/chef_on_windows_guide"
-      url = "/knife_windows/"
-      weight = 30
-
   [[infra]]
   title = "Concepts"
   identifier = "chef_infra/concepts"
@@ -388,8 +355,6 @@ identifier = "chef_infra"
     identifier = "chef_infra/concepts/policy"
     parent = "chef_infra/concepts"
     weight = 70
-
-
 
   [[infra]]
   title = "Features"
@@ -427,13 +392,6 @@ identifier = "chef_infra"
     parent = "chef_infra/setup"
     url = "/ctl_chef_client/#run-in-fips-mode"
     weight = 50
-
-    [[infra]]
-    title = "Integrations"
-    identifier = "chef_infra/setup/integrations"
-    parent = "chef_infra/setup"
-    weight = 60
-
 
   [[infra]]
   title = "Cookbook Reference"
@@ -516,6 +474,22 @@ identifier = "chef_infra"
       parent = "chef_infra/extension_apis/ohai_plugins"
       url = "/plugin_community/#ohai"
       weight = 20
+
+  [[infra]]
+  title = "Integrations"
+  identifier = "chef_infra/integrations"
+  parent = "chef_infra"
+  weight = 90
+
+    [[infra]]
+    title = "Microsoft Azure"
+    identifier = "chef_infra/integrations/azure"
+    parent = "chef_infra/integrations"
+
+    [[infra]]
+    title = "Microsoft Windows"
+    identifier = "chef_infra/integrations/windows"
+    parent = "chef_infra/integrations"
 
 ####
 # End Chef Infra Menu
@@ -699,7 +673,7 @@ identifier = "chef_workstation"
       url = "/workstation/cookstyle/cops/#chefcorrectness"
 
       [[workstation]]
-      title = "Deprecation Cops"
+      title = "Chef Deprecation Cops"
       identifier = "chef_workstation/chef_workstation_tools/cookstyle/Cops Chef/Deprecations"
       parent = "chef_workstation/chef_workstation_tools/cookstyle"
       url = "/workstation/cookstyle/cops/#chefdeprecations"
@@ -729,10 +703,16 @@ identifier = "chef_workstation"
       url = "/workstation/cookstyle/cops/#chefsharing"
 
       [[workstation]]
-      title = "Style Cop"
+      title = "Style Cops"
       identifier = "chef_workstation/chef_workstation_tools/cookstyle/Cops Chef/Style"
       parent = "chef_workstation/chef_workstation_tools/cookstyle"
       url = "/workstation/cookstyle/cops/#chefstyle"
+
+      [[workstation]]
+      title = "InSpec Deprecations Cops"
+      identifier = "chef_workstation/chef_workstation_tools/cookstyle/Cops InSpec/Deprecations"
+      parent = "chef_workstation/chef_workstation_tools/cookstyle"
+      url = "/workstation/cookstyle/cops/#inspecdeprecations"
 
     [[workstation]]
     title = "Test Kitchen"
