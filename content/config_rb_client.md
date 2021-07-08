@@ -38,7 +38,8 @@ This configuration file has the following settings:
 
     {{< /note >}}
 
-`automatic_attribute_blacklist`: A hash that blocks `automatic` attributes, preventing blocked attributes from being saved. **Deprecated. EOL Chef Infra Client 18 (April 2022)**: Use `blocked_automatic_attributes`.
+`automatic_attribute_blacklist`
+: A hash that blocks `automatic` attributes, preventing blocked attributes from being saved. **Deprecated. EOL Chef Infra Client 18 (April 2022)**: Use `blocked_automatic_attributes`.
 
 `automatic_attribute_whitelist`
 : A hash that allows `automatic` attributes, preventing non-allowed attributes from being saved. **Deprecated. EOL Chef Infra Client 18 (April 2022)**: Use `allowed_automatic_attributes`.
