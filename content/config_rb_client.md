@@ -34,7 +34,7 @@ This configuration file has the following settings:
 
     {{< note spaces=4 >}}
 
-    Authentication protocol 1.3 is only supported on Chef Serve versions 12.4.0 and above.
+    Authentication protocol 1.3 is only supported on Chef Server versions 12.4.0 and above.
 
     {{< /note >}}
 
