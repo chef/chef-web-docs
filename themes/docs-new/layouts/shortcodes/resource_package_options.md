@@ -9,6 +9,6 @@ command to install will be spawned under the following conditions:
     will span a gems command with those options when installing the gem.
 -   The Chef installer will search the `PATH` for a gem command rather
     than defaulting to the current gem environment. As part of
-    `enforce_path_sanity`, the `bin` directories area added to the
+    `enforce_default_paths`, the `bin` directories area added to the
     `PATH`, which means when there are no other proceeding RubyGems, the
     installation will still be operated against it.
