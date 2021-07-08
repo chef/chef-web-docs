@@ -23,15 +23,15 @@ In Chef Infra Client 16.3 the node Blacklist and Whitelist features were renamed
 
 Legacy config mapping:
 
-- blocked_automatic_attributes -> blocked_automatic_attributes
-- blocked_default_attributes -> blocked_default_attributes
-- blocked_normal_attributes -> blocked_normal_attributes
-- blocked_override_attributes -> blocked_override_attributes
+- automatic_attribute_blacklist -> blocked_automatic_attributes
+- default_attribute_blacklist -> blocked_default_attributes
+- normal_attribute_blacklist -> blocked_normal_attributes
+- override_attribute_blacklist -> blocked_override_attributes
 - automatic_attribute_whitelist -> allowed_automatic_attributes
-- allowed_default_attributes -> allowed_default_attributes
-- allowed_normal_attributes -> allowed_normal_attributes
-- allowed_override_attributes -> allowed_override_attributes
-- enforce_default_paths -> enforce_default_paths
+- default_attribute_whitelist -> allowed_default_attributes
+- normal_attribute_whitelist -> allowed_normal_attributes
+- override_attribute_whitelist -> allowed_override_attributes
+- enforce_path_sanity -> enforce_default_paths
 
 {{< /note >}}
 
