@@ -87,13 +87,13 @@ of issues and bug reports:
 
 For additional support about Chef products, including documentation,
 learning, and opening tickets with the support team, see [Chef
-Support](https://www.chef.io/support/) .
+Support](https://www.chef.io/support) .
 
 {{< warning >}}
 
 If you require a response from Chef per the terms of a support level
 agreement (SLA), please contact [Chef
-Support](https://www.chef.io/support/) directly.
+Support](https://www.chef.io/support) directly.
 
 {{< /warning >}}
 

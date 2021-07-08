@@ -29,7 +29,7 @@ weight = 40
 [[main]]
 title = "Training"
 identifier = "training"
-url = "https://training.chef.io/"
+url = "https://www.chef.io/training"
 weight = 50
 
 [[main]]
@@ -822,7 +822,7 @@ weight = 110
 [[extra]]
 title = "Support"
 identifier = "support"
-url = "https://www.chef.io/support/"
+url = "https://www.chef.io/support"
 weight = 120
 
 [[extra]]

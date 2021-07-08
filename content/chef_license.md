@@ -43,7 +43,7 @@ first time. For additional information on how to accept the license, see
 Distributions of older proprietary Chef products---such as Chef Automate
 1.x and the Chef Management Console---are governed by the [Chef Master
 License and Services Agreement (Chef
-MLSA)](https://www.chef.io/online-master-agreement/), which must be
+MLSA)](https://www.chef.io/online-master-agreement), which must be
 accepted as part of any install or upgrade process.
 
 ## Apache 2.0

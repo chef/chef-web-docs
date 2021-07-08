@@ -51,7 +51,7 @@ properties_list:
   required: false
   default_value: 'false'
   description_list:
-  - markdown: Accept the Chef Online Master License and Services Agreement. See <https://www.chef.io/online-master-agreement/>
+  - markdown: Accept the Chef Online Master License and Services Agreement. See <https://www.chef.io/online-master-agreement>
 - property: chef_binary_path
   ruby_type: String
   required: false
