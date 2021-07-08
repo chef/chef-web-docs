@@ -31,7 +31,7 @@ community.
 
 ## Learn
 
--   [Chef training](https://training.chef.io/)
+-   [Chef training](https://www.chef.io/training)
 -   [Self-guided learning](https://learn.chef.io/)
 
 ## Interact
