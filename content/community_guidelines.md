@@ -315,9 +315,3 @@ This Code of Conduct is adapted from the following:
 -   [Rust Code of
     Conduct](https://www.rust-lang.org/policies/code-of-conduct)
 -   [Citizen Code of Conduct](http://citizencodeofconduct.org/)
-
-## Community Members in Crisis
-
-If a community member is in or appears to be in crisis, please refer to
-the [Community Members in Crisis
-Guide](https://github.com/chef/chef-oss-practices/blob/master/communication/community-members-in-crisis.md).

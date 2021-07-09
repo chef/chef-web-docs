@@ -13618,7 +13618,7 @@ previous versions. The short version:
 -   **Ruby 2.0 (or higher) for Windows; and Ruby 2.1 (or higher) for
     Unix/Linux** Ruby versions 1.8.7, 1.9.1, 1.9.2, and 1.9.3 are no
     longer supported. See [this blog
-    post](https://www.chef.io/blog/2014/11/25/ruby-1-9-3-eol-and-chef-12/)
+    post](https://blog.chef.io/ruby-1-9-3-eol-and-chef-12)
     for more info.
 -   **The number of changes between Ruby 1.9 and 2.0 is small** Please
     review the [Ruby 2.0 release
