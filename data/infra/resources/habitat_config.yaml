@@ -1,0 +1,81 @@
+---
+resource_reference: true
+resources_common_guards: true
+resources_common_notification: true
+resources_common_properties: true
+resource: habitat_config
+resource_description_list:
+- markdown: Applies a given configuration to a habitat service using `hab config apply`.
+resource_new_in: '17.3'
+syntax_full_code_block: |-
+  habitat_config 'name' do
+    config                  ChefUtils::Mash
+    gateway_auth_token      String
+    remote_sup              String # default value: "127.0.0.1:9632"
+    remote_sup_http         String # default value: "127.0.0.1:9631"
+    service_group           String # default value: 'name' unless specified
+    user                    String
+    action                  Symbol # defaults to :apply if not specified
+  end
+syntax_properties_list:
+syntax_full_properties_list:
+- "`habitat_config` is the resource."
+- "`name` is the name given to the resource block."
+- "`action` identifies which steps Chef Infra Client will take to bring the node into
+  the desired state."
+- "`config`, `gateway_auth_token`, `remote_sup`, `remote_sup_http`, `service_group`,
+  and `user` are the properties available to this resource."
+actions_list:
+  :nothing:
+    shortcode: resources_common_actions_nothing.md
+  :apply:
+    markdown: applies the given configuration (default)
+properties_list:
+- property: config
+  ruby_type: ChefUtils::Mash
+  required: true
+  description_list:
+  - markdown: 'The configuration to apply as a ruby hash, for example, `{ worker_count:
+      2, http: { keepalive_timeout: 120 } }`.'
+- property: gateway_auth_token
+  ruby_type: String
+  required: false
+  description_list:
+  - markdown: Auth token for accessing the remote supervisor's http port.
+- property: remote_sup
+  ruby_type: String
+  required: false
+  default_value: 127.0.0.1:9632
+  description_list:
+  - markdown: 'Address to a remote Supervisor''s Control Gateway [default: 127.0.0.1:9632].'
+- property: remote_sup_http
+  ruby_type: String
+  required: false
+  default_value: 127.0.0.1:9631
+  description_list:
+  - markdown: Address for remote supervisor http port. Used to pull existing.
+- property: service_group
+  ruby_type: String
+  required: false
+  default_value: The resource block's name
+  description_list:
+  - markdown: The service group to apply the configuration to. For example, `nginx.default`
+- property: user
+  ruby_type: String
+  required: false
+  description_list:
+  - markdown: Name of user key to use for encryption. Passes `--user` to `hab config
+      apply`.
+examples: |
+  ```ruby
+  **Configure your nginx defaults**
+
+  habitat_config 'nginx.default' do
+    config({
+      worker_count: 2,
+      http: {
+        keepalive_timeout: 120
+      }
+      })
+    end
+    ```

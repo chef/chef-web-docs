@@ -1,0 +1,57 @@
+---
+resource_reference: true
+resources_common_guards: true
+resources_common_notification: true
+resources_common_properties: true
+resource: habitat_user_toml
+resource_description_list:
+- markdown: Templates a user.toml for the specified service. This is written to `/hab/user/<service_name>/config/user.toml`.
+    User.toml can be used to set configuration overriding the default.toml for a given
+    package as an alternative to applying service group level configuration.
+resource_new_in: '17.3'
+syntax_full_code_block: |-
+  habitat_user_toml 'name' do
+    config            ChefUtils::Mash
+    service_name      String # default value: 'name' unless specified
+    action            Symbol # defaults to :create if not specified
+  end
+syntax_properties_list:
+syntax_full_properties_list:
+- "`habitat_user_toml` is the resource."
+- "`name` is the name given to the resource block."
+- "`action` identifies which steps Chef Infra Client will take to bring the node into
+  the desired state."
+- "`config` and `service_name` are the properties available to this resource."
+actions_list:
+  :nothing:
+    shortcode: resources_common_actions_nothing.md
+  :create:
+    markdown: "(default action) Create the user.toml from the specified config. (default)"
+  :delete:
+    markdown: Delete the user.toml
+properties_list:
+- property: config
+  ruby_type: ChefUtils::Mash
+  required: true
+  description_list:
+  - markdown: 'Only valid for `:create` action. The configuration to apply as a ruby
+      hash, for example, `{ worker_count: 2, http: { keepalive_timeout: 120 } }`.'
+- property: service_name
+  ruby_type: String
+  required: false
+  default_value: The resource block's name
+  description_list:
+  - markdown: The service group to apply the configuration to, for example, `nginx.default`.
+examples: |
+  ```ruby
+  **Configure user specific settings to nginx**
+
+  habitat_user_toml 'nginx' do
+    config({
+      worker_count: 2,
+      http: {
+        keepalive_timeout: 120
+      }
+      })
+    end
+    ```

@@ -8,7 +8,7 @@ resource_description_list:
 - markdown: Use the **windows_printer** resource to setup Windows printers. This resource
     will automatically install the driver specified in the `driver_name` property
     and will automatically create a printer port using either the `ipv4_address` property
-    or the `port_name property.
+    or the `port_name` property.
 resource_new_in: '14.0'
 syntax_full_code_block: |-
   windows_printer 'name' do

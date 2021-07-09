@@ -1,0 +1,90 @@
+---
+resource_reference: true
+resources_common_guards: true
+resources_common_notification: true
+resources_common_properties: true
+resource: habitat_install
+resource_description_list:
+- markdown: This resource will install the newest stable version of habitat.
+resource_new_in: '17.3'
+syntax_full_code_block: |-
+  habitat_install 'name' do
+    bldr_url         String
+    create_user      true, false # default value: true
+    hab_version      String
+    install_url      String
+    license          String
+    tmp_dir          String
+    action           Symbol # defaults to :install if not specified
+  end
+syntax_properties_list:
+syntax_full_properties_list:
+- "`habitat_install` is the resource."
+- "`name` is the name given to the resource block."
+- "`action` identifies which steps Chef Infra Client will take to bring the node into
+  the desired state."
+- "`bldr_url`, `create_user`, `hab_version`, `install_url`, `license`, and `tmp_dir`
+  are the properties available to this resource."
+actions_list:
+  :nothing:
+    shortcode: resources_common_actions_nothing.md
+  :install:
+    markdown: Installs Habitat. Does nothing if the `hab` binary is found in the default
+      location for the system (`/bin/hab` on Linux, `/usr/local/bin/hab` on macOS,
+      `C:/habitat/hab.exe` on Windows) (default)
+properties_list:
+- property: bldr_url
+  ruby_type: String
+  required: false
+  description_list:
+  - markdown: Optional URL to an alternate Habitat Builder.
+- property: create_user
+  ruby_type: true, false
+  required: false
+  default_value: 'true'
+  description_list:
+  - markdown: Creates the `hab` system user.
+- property: hab_version
+  ruby_type: String
+  required: false
+  description_list:
+  - markdown: Specify the version of `Habitat` you would like to install.
+- property: install_url
+  ruby_type: String
+  required: false
+  default_value: https://raw.githubusercontent.com/habitat-sh/habitat/master/components/hab/install.sh
+  description_list:
+  - markdown: URL to the install script, default is from the [habitat repo](https://raw.githubusercontent.com/habitat-sh/habitat/master/components/hab/install.sh)
+      .
+- property: license
+  ruby_type: String
+  required: false
+  allowed_values: '"accept"'
+  description_list:
+  - markdown: Specifies acceptance of habitat license when set to `accept`.
+- property: tmp_dir
+  ruby_type: String
+  required: false
+  description_list:
+  - markdown: Sets TMPDIR environment variable for location to place temp files.
+  - note:
+      markdown: This is required if `/tmp` and `/var/tmp` are mounted `noexec`.
+examples: |
+  ```ruby
+  **Nameless Installation**
+
+  habitat_install
+
+  **Installation specifying a habitat builder URL**
+
+  habitat_install 'install habitat' do
+    bldr_url 'http://localhost'
+  end
+
+  **Installation specifying version and habitat builder URL**
+
+  habitat_install 'install habitat' do
+    bldr_url 'http://localhost'
+    hab_version '1.5.50'
+  end
+  ```

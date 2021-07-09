@@ -1,0 +1,219 @@
+---
+resource_reference: true
+resources_common_guards: true
+resources_common_notification: true
+resources_common_properties: true
+resource: habitat_service
+resource_description_list:
+- markdown: Manages a Habitat application service using `hab sup`/`hab service`. This
+    requires that `core/hab-sup` be running as a service. See the `habitat_sup` resource
+    documentation below for more information about how to set that up with this cookbook.
+- note:
+    markdown: Applications may run as a specific user. Often with Habitat, the default
+      is `hab`, or `root`. If the application requires another user, then it should
+      be created with Chef's `user` resource.
+resource_new_in: '17.3'
+syntax_full_code_block: |-
+  habitat_service 'name' do
+    bind                       String, Array # default value: []
+    binding_mode               Symbol, String # default value: :strict
+    bldr_url                   String # default value: "https://bldr.habitat.sh/"
+    channel                    Symbol, String # default value: :stable
+    gateway_auth_token         String
+    health_check_interval      Integer # default value: 30
+    loaded                     true, false # default value: false
+    remote_sup                 String # default value: "127.0.0.1:9632"
+    remote_sup_http            String # default value: "127.0.0.1:9631"
+    running                    true, false # default value: false
+    service_group              String # default value: "default"
+    service_name               String # default value: 'name' unless specified
+    shutdown_timeout           Integer # default value: 8
+    strategy                   Symbol, String # default value: :none
+    topology                   Symbol, String # default value: :standalone
+    update_condition           Symbol, String # default value: :latest
+    action                     Symbol # defaults to :load if not specified
+  end
+syntax_properties_list:
+syntax_full_properties_list:
+- "`habitat_service` is the resource."
+- "`name` is the name given to the resource block."
+- "`action` identifies which steps Chef Infra Client will take to bring the node into
+  the desired state."
+- "`bind`, `binding_mode`, `bldr_url`, `channel`, `gateway_auth_token`, `health_check_interval`,
+  `loaded`, `remote_sup`, `remote_sup_http`, `running`, `service_group`, `service_name`,
+  `shutdown_timeout`, `strategy`, `topology`, and `update_condition` are the properties
+  available to this resource."
+actions_list:
+  :nothing:
+    shortcode: resources_common_actions_nothing.md
+  :load:
+    markdown: "(default action) runs `hab service load` to load and start the specified
+      application service (default)"
+  :unload:
+    markdown: runs `hab service unload` to unload and stop the specified application
+      service
+  :start:
+    markdown: runs `hab service start` to start the specified application service
+  :stop:
+    markdown: runs `hab service stop` to stop the specified application service
+  :restart:
+    markdown: runs the `:stop` and then `:start` actions
+  :reload:
+    markdown: runs the `:unload` and then `:load` actions
+properties_list:
+- property: bind
+  ruby_type: String, Array
+  required: false
+  default_value: "[]"
+  description_list:
+  - markdown: Passes `--bind` with the specified services to bind to the hab command.
+      If an array of multiple service binds are specified then a `--bind` flag is
+      added for each.
+- property: binding_mode
+  ruby_type: Symbol, String
+  required: false
+  default_value: ":strict"
+  allowed_values: ':strict, "strict", :relaxed, "relaxed"'
+  description_list:
+  - markdown: Passes `--binding-mode` with the specified binding mode. Defaults to
+      `:strict`. Options are `:strict` or `:relaxed`
+- property: bldr_url
+  ruby_type: String
+  required: false
+  default_value: https://bldr.habitat.sh/
+  description_list:
+  - markdown: |-
+      Passes `--url` with the specified Habitat Builder URL to the hab command. Depending on the type of Habitat Builder you are connecting to, this URL will look different, here are the **3** current types:
+            - Public Habitat Builder (default) - `https://bldr.habitat.sh`
+            - On-Prem Habitat Builder installed using the [Source Install Method](https://github.com/habitat-sh/on-prem-builder) - `https://your.bldr.url`
+            - On-Prem Habitat Builder installed using the [Automate Installer](https://automate.chef.io/docs/on-prem-builder/) - `https://your.bldr.url/bldr/v1`
+- property: channel
+  ruby_type: Symbol, String
+  required: false
+  default_value: ":stable"
+  description_list:
+  - markdown: Passes `--channel` with the specified channel to the hab command
+- property: gateway_auth_token
+  ruby_type: String
+  required: false
+  description_list:
+  - markdown: Auth token for accessing the remote supervisor's http port.
+- property: health_check_interval
+  ruby_type: Integer
+  required: false
+  default_value: '30'
+  description_list:
+  - markdown: The interval (seconds) on which to run health checks (defaults to 30)
+- property: loaded
+  ruby_type: true, false
+  required: false
+  default_value: 'false'
+  description_list:
+  - markdown: state property indicating whether the service is loaded in the supervisor
+- property: remote_sup
+  ruby_type: String
+  required: false
+  default_value: 127.0.0.1:9632
+  description_list:
+  - markdown: 'Address to a remote Supervisor''s Control Gateway [default: 127.0.0.1:9632]'
+- property: remote_sup_http
+  ruby_type: String
+  required: false
+  default_value: 127.0.0.1:9631
+  description_list:
+  - markdown: Address for remote supervisor http port. Used to pull existing configuration
+      data. If this is invalid, config will be applied on every Chef run.
+- property: running
+  ruby_type: true, false
+  required: false
+  default_value: 'false'
+  description_list:
+  - markdown: state property indicating whether the service is running in the supervisor
+- property: service_group
+  ruby_type: String
+  required: false
+  default_value: default
+  description_list:
+  - markdown: Passes `--group` with the specified service group to the hab command
+- property: service_name
+  ruby_type: String
+  required: false
+  default_value: The resource block's name
+  description_list:
+  - markdown: name property, the name of the service, must be in the form of `origin/name`
+- property: shutdown_timeout
+  ruby_type: Integer
+  required: false
+  default_value: '8'
+  description_list:
+  - markdown:
+- property: strategy
+  ruby_type: Symbol, String
+  required: false
+  default_value: ":none"
+  allowed_values: ':none, "none", :"at-once", "at-once", :rolling, "rolling"'
+  description_list:
+  - markdown: Passes `--strategy` with the specified update strategy to the hab command.
+      Defaults to `:none`. Other options are `:'at-once'` and `:rolling`
+- property: topology
+  ruby_type: Symbol, String
+  required: false
+  default_value: ":standalone"
+  allowed_values: ':standalone, "standalone", :leader, "leader"'
+  description_list:
+  - markdown: Passes `--topology` with the specified service topology to the hab command
+- property: update_condition
+  ruby_type: Symbol, String
+  required: false
+  default_value: ":latest"
+  allowed_values: ':latest, "latest", :"track-channel", "track-channel"'
+  description_list:
+  - markdown: Passes `--update-condition` dictating when this service should updated.
+      Defaults to `latest`. Options are `latest` or `track-channel` **_
+  - note:
+      markdown: |-
+        This requires a minimum habitat version of 1.5.71_**
+              - `latest`: Runs the latest package that can be found in the configured channel and local packages.
+              - `track-channel`: Always run what is at the head of a given channel. This enables service rollback where demoting a package from a channel will cause the package to rollback to an older version of the package. A ramification of enabling this condition is packages newer than the package at the head of the channel will be automatically uninstalled during a service rollback.
+examples: |2
+
+  ```ruby
+  **Install and load nginx**
+
+  habitat_package 'core/nginx'
+  habitat_service 'core/nginx'
+
+  habitat_service 'core/nginx unload' do
+    service_name 'core/nginx'
+    action :unload
+  end
+
+  **Pass the `strategy` and `topology` options to hab service commands**
+
+  habitat_service 'core/redis' do
+    strategy 'rolling'
+    topology 'standalone'
+  end
+
+  **Using update_condition**
+
+  habitat_service 'core/redis' do
+    strategy 'rolling'
+    update_condition 'track-channel'
+    topology 'standalone'
+  end
+  ```
+
+  **If the service has it's own user specified that is not the `hab` user, don't create the `hab` user on install, and instead create the application user with Chef's `user` resource**
+
+  ```ruby
+  habitat_install 'install habitat' do
+    create_user false
+  end
+
+  user 'acme-apps' do
+    system true
+  end
+
+  habitat_service 'acme/apps'
+  ```
