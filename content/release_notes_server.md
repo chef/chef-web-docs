@@ -4645,7 +4645,7 @@ knife acl remove containers data create group clients
 ```
 
 See this blog post for more information about the `knife-acl` plugin:
-<https://www.chef.io/blog/2014/11/10/security-update-hosted-chef/>
+<https://blog.chef.io/security-update-hosted-chef/>
 
 ### New Settings for LDAP
 

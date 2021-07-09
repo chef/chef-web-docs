@@ -189,8 +189,7 @@ Exception and report handlers can be distributed using the
 It can be used to enable custom handlers from within recipes and to
 include product-specific handlers from cookbooks.
 
-More information on the **chef_handler** resource can be accessed in the
-resource documentation [here](resources/chef_handler.md).
+See the [chef_handler Resource]({{< relref "/resources/chef_handler">}}) documentation for more information.
 
 ### Chef Infra Client
 
