@@ -57,7 +57,7 @@ This configuration file has the following settings:
 : A hash that allows `automatic` attributes, preventing non-allowed attributes from being saved. **Deprecated. EOL Chef Infra Client 18 (April 2022)**: Use `allowed_automatic_attributes`.
 
 `blocked_automatic_attributes`
-: A hash that blocks `automatic` attributes, preventing blocked attributes from being saved. Use instead of
+: A hash that blocks `automatic` attributes, preventing blocked attributes from being saved.
 
 `blocked_default_attributes`
 : A hash that blocks `default` attributes, preventing block attributes from being saved.
