@@ -263,10 +263,6 @@ where
 -   `:not_present` is shown for any attribute precedence level that has
     no attributes
 
-A [blog post by Joshua
-Timberman](http://jtimberman.housepub.org/blog/2014/09/02/chef-node-dot-debug-value/)
-provides another example of using this method.
-
 ### ignore_failure Method
 
 All resources share a set of common actions, attributes, and so on. Use
