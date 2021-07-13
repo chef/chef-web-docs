@@ -34,9 +34,9 @@ actions_list:
   :nothing:
     shortcode: resources_common_actions_nothing.md
   :enable:
-    markdown: " (default)"
+    markdown: Enable and configure Windows Defender. (default)
   :disable:
-    markdown:
+    markdown: Disable Windows Defender.
 properties_list:
 - property: intrusion_protection_system
   ruby_type: true, false

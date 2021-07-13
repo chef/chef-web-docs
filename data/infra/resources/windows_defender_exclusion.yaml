@@ -27,9 +27,9 @@ actions_list:
   :nothing:
     shortcode: resources_common_actions_nothing.md
   :add:
-    markdown: " (default)"
+    markdown: Add an exclusion to Windows Defender. (default)
   :remove:
-    markdown:
+    markdown: Remove an exclusion to Windows Defender.
 properties_list:
 - property: extensions
   ruby_type: String, Array
