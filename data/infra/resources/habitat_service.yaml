@@ -7,8 +7,7 @@ resource: habitat_service
 resource_description_list:
 - markdown: Use the **habitat_service** resource to manage Chef Habitat services.
     This requires that `core/hab-sup` be running as a service. See the `habitat_sup`
-    resource documentation below for more information about how to set that up with
-    this cookbook.
+    resource documentation for more information.
 - note:
     markdown: Applications may run as a specific user. Often with Habitat, the default
       is `hab`, or `root`. If the application requires another user, then it should
@@ -114,8 +113,9 @@ properties_list:
   required: false
   default_value: 127.0.0.1:9631
   description_list:
-  - markdown: Address for remote supervisor http port. Used to pull existing configuration
-      data. If this is invalid, config will be applied on every Chef run.
+  - markdown: IP address and port used to communicate with the remote supervisor.
+      If this value is invalid, the resource will attempt to update configuration
+      each time Chef Infra Server runs.
 - property: service_group
   ruby_type: String
   required: false
@@ -161,7 +161,7 @@ properties_list:
       markdown: |-
         This requires a minimum habitat version of 1.5.71_**
                 - `latest`: Runs the latest package that can be found in the configured channel and local packages.
-                - `track-channel`: Always run what is at the head of a given channel. This enables service rollback where demoting a package from a channel will cause the package to rollback to an older version of the package. A ramification of enabling this condition is packages newer than the package at the head of the channel will be automatically uninstalled during a service rollback.
+                - `track-channel`: Always run the package at the head of a given channel. This enables service rollback, where demoting a package from a channel will cause the package to rollback to an older version of the package. A ramification of enabling this condition is that packages that are newer than the package at the head of the channel are also uninstalled during a service rollback.
 examples: |
   **Install and load nginx**
 

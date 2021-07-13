@@ -39,7 +39,7 @@ actions_list:
   :nothing:
     shortcode: resources_common_actions_nothing.md
   :enable:
-    markdown: Enable running Chef Infra Client on a schedule using launchd (default)
+    markdown: Enable running Chef Infra Client on a schedule using launchd. (default)
   :disable:
     markdown: Disable running Chef Infra Client on a schedule using launchd
 properties_list:
@@ -48,7 +48,7 @@ properties_list:
   required: false
   default_value: 'false'
   description_list:
-  - markdown: Accept the Chef Online Master License and Services Agreement. See <https://www.chef.io/online-master-agreement/>
+  - markdown: Accept the Chef Online Master License and Services Agreement. See <https://www.chef.io/online-master-agreement>
 - property: chef_binary_path
   ruby_type: String
   required: false
