@@ -70,19 +70,23 @@ properties_list:
   - note:
       markdown: This is required if `/tmp` and `/var/tmp` are mounted `noexec`.
 examples: |
-  ```ruby
-  **Nameless Installation**
+  **Installation Without a Resource Name**
 
+  ```ruby
   habitat_install
+  ```
 
   **Installation specifying a habitat builder URL**
 
+  ```ruby
   habitat_install 'install habitat' do
     bldr_url 'http://localhost'
   end
+  ```
 
   **Installation specifying version and habitat builder URL**
 
+  ```ruby
   habitat_install 'install habitat' do
     bldr_url 'http://localhost'
     hab_version '1.5.50'

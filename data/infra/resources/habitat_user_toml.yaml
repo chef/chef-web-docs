@@ -43,9 +43,9 @@ properties_list:
   description_list:
   - markdown: The service group to apply the configuration to, for example, `nginx.default`.
 examples: |
-  ```ruby
   **Configure user specific settings to nginx**
 
+  ```ruby
   habitat_user_toml 'nginx' do
     config({
       worker_count: 2,

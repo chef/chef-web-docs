@@ -237,35 +237,43 @@ properties_list:
               - `latest`: Runs the latest package that can be found in the configured channel and local packages.
               - `track-channel`: Always run what is at the head of a given channel. This enables service rollback where demoting a package from a channel will cause the package to rollback to an older version of the package. A ramification of enabling this condition is packages newer than the package at the head of the channel will be automatically uninstalled during a service rollback.
 examples: |
-  ```ruby
   **Set up with just the defaults**
 
+  ```ruby
   habitat_sup 'default'
+  ```
 
   **Update listen ports and use Supervisor toml config**
 
+  ```ruby
   habitat_sup 'test-options' do
     listen_http '0.0.0.0:9999'
     listen_gossip '0.0.0.0:9998'
     toml_config true
   end
+  ```
 
   **Use with an on-prem Habitat Builder. Note: Access to public builder may not be available due to your company policies**
 
+  ```ruby
   habitat_sup 'default' do
     bldr_url 'https://bldr.private.net'
   end
+  ```
 
   **Using update_condition**
 
+  ```ruby
   habitat_sup 'default' do
     bldr_url 'https://bldr.private.net'
     habitat_channel 'dev'
     update_condition 'track-channel'
   end
+  ```
 
   **Provide event_stream_* information**
 
+  ```ruby
   habitat_sup 'default' do
     license 'accept'
     event_stream_application 'myapp'
@@ -275,15 +283,18 @@ examples: |
     event_stream_token 'myawesomea2clitoken='
     event_stream_cert '/hab/cache/ssl/mycert.crt'
   end
+  ```
 
   **Provide specific versions**
 
+  ```ruby
   habitat_sup 'default' do
     bldr_url 'https://bldr.private.net'
     sup_version '1.5.50'
     launcher_version '13458'
     service_version '0.6.0' # WINDOWS ONLY
   end
+  ```
 
   **Set latest version of packages to retain**
 

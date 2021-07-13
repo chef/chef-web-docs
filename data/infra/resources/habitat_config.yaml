@@ -48,7 +48,7 @@ properties_list:
   required: false
   default_value: 127.0.0.1:9632
   description_list:
-  - markdown: 'Address to a remote Supervisor''s Control Gateway [default: 127.0.0.1:9632].'
+  - markdown: Address to a remote Supervisor's Control Gateway.
 - property: remote_sup_http
   ruby_type: String
   required: false
@@ -68,9 +68,9 @@ properties_list:
   - markdown: Name of user key to use for encryption. Passes `--user` to `hab config
       apply`.
 examples: |
-  ```ruby
   **Configure your nginx defaults**
 
+  ```ruby
   habitat_config 'nginx.default' do
     config({
       worker_count: 2,

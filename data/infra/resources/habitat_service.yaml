@@ -85,9 +85,9 @@ properties_list:
   description_list:
   - markdown: |-
       Passes `--url` with the specified Habitat Builder URL to the hab command. Depending on the type of Habitat Builder you are connecting to, this URL will look different, here are the **3** current types:
-            - Public Habitat Builder (default) - `https://bldr.habitat.sh`
-            - On-Prem Habitat Builder installed using the [Source Install Method](https://github.com/habitat-sh/on-prem-builder) - `https://your.bldr.url`
-            - On-Prem Habitat Builder installed using the [Automate Installer](https://automate.chef.io/docs/on-prem-builder/) - `https://your.bldr.url/bldr/v1`
+              - Public Habitat Builder (default) - `https://bldr.habitat.sh`
+              - On-Prem Habitat Builder installed using the [Source Install Method](https://github.com/habitat-sh/on-prem-builder) - `https://your.bldr.url`
+              - On-Prem Habitat Builder installed using the [Automate Installer](https://automate.chef.io/docs/on-prem-builder/) - `https://your.bldr.url/bldr/v1`
 - property: channel
   ruby_type: Symbol, String
   required: false
@@ -104,7 +104,7 @@ properties_list:
   required: false
   default_value: '30'
   description_list:
-  - markdown: The interval (seconds) on which to run health checks (defaults to 30)
+  - markdown: The interval (seconds) on which to run health checks.
 - property: loaded
   ruby_type: true, false
   required: false
@@ -116,7 +116,7 @@ properties_list:
   required: false
   default_value: 127.0.0.1:9632
   description_list:
-  - markdown: 'Address to a remote Supervisor''s Control Gateway [default: 127.0.0.1:9632]'
+  - markdown: Address to a remote Supervisor's Control Gateway
 - property: remote_sup_http
   ruby_type: String
   required: false
@@ -141,13 +141,13 @@ properties_list:
   required: false
   default_value: The resource block's name
   description_list:
-  - markdown: name property, the name of the service, must be in the form of `origin/name`
+  - markdown: The name of the service, must be in the form of `origin/name`
 - property: shutdown_timeout
   ruby_type: Integer
   required: false
   default_value: '8'
   description_list:
-  - markdown:
+  - markdown: The timeout in seconds allowed during shutdown.
 - property: strategy
   ruby_type: Symbol, String
   required: false
@@ -174,13 +174,12 @@ properties_list:
   - note:
       markdown: |-
         This requires a minimum habitat version of 1.5.71_**
-              - `latest`: Runs the latest package that can be found in the configured channel and local packages.
-              - `track-channel`: Always run what is at the head of a given channel. This enables service rollback where demoting a package from a channel will cause the package to rollback to an older version of the package. A ramification of enabling this condition is packages newer than the package at the head of the channel will be automatically uninstalled during a service rollback.
-examples: |2
-
-  ```ruby
+                - `latest`: Runs the latest package that can be found in the configured channel and local packages.
+                - `track-channel`: Always run what is at the head of a given channel. This enables service rollback where demoting a package from a channel will cause the package to rollback to an older version of the package. A ramification of enabling this condition is packages newer than the package at the head of the channel will be automatically uninstalled during a service rollback.
+examples: |
   **Install and load nginx**
 
+  ```ruby
   habitat_package 'core/nginx'
   habitat_service 'core/nginx'
 
@@ -188,16 +187,20 @@ examples: |2
     service_name 'core/nginx'
     action :unload
   end
+  ```
 
   **Pass the `strategy` and `topology` options to hab service commands**
 
+  ```ruby
   habitat_service 'core/redis' do
     strategy 'rolling'
     topology 'standalone'
   end
+  ```
 
   **Using update_condition**
 
+  ```ruby
   habitat_service 'core/redis' do
     strategy 'rolling'
     update_condition 'track-channel'
