@@ -10,7 +10,7 @@ resource_description_list:
 resource_new_in: '17.3'
 syntax_full_code_block: |-
   habitat_config 'name' do
-    config                  ChefUtils::Mash
+    config                  Mash (Hash-like)
     gateway_auth_token      String
     remote_sup              String # default value: "127.0.0.1:9632"
     remote_sup_http         String # default value: "127.0.0.1:9631"
@@ -33,7 +33,7 @@ actions_list:
     markdown: applies the given configuration (default)
 properties_list:
 - property: config
-  ruby_type: ChefUtils::Mash
+  ruby_type: Mash (Hash-like)
   required: true
   description_list:
   - markdown: 'The configuration to apply as a ruby hash, for example, `{ worker_count:

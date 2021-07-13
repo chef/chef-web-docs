@@ -11,7 +11,7 @@ resource_description_list:
 resource_new_in: '17.3'
 syntax_full_code_block: |-
   habitat_user_toml 'name' do
-    config            ChefUtils::Mash
+    config            Mash (Hash-like)
     service_name      String # default value: 'name' unless specified
     action            Symbol # defaults to :create if not specified
   end
@@ -31,7 +31,7 @@ actions_list:
     markdown: Delete the user.toml
 properties_list:
 - property: config
-  ruby_type: ChefUtils::Mash
+  ruby_type: Mash (Hash-like)
   required: true
   description_list:
   - markdown: 'Only valid for `:create` action. The configuration to apply as a ruby
