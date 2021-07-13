@@ -5,7 +5,8 @@ resources_common_notification: true
 resources_common_properties: true
 resource: habitat_package
 resource_description_list:
-- markdown: Install the specified Habitat package from Habitat Builder.
+- markdown: Use the **habitat_package** to install or remove Chef Habitat packages
+    from Habitat Builder.
 resource_new_in: '17.3'
 syntax_full_code_block: |-
   habitat_package 'name' do
@@ -123,7 +124,6 @@ properties_list:
   - markdown: The version of a package to be installed or upgraded.
 examples: |
   ```ruby
-
   **Install core/redis**
 
   habitat_package 'core/redis'

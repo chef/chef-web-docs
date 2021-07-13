@@ -5,9 +5,10 @@ resources_common_notification: true
 resources_common_properties: true
 resource: habitat_sup
 resource_description_list:
-- markdown: Runs a Habitat Supervisor for one or more Habitat Services. It is used
-    in conjunction with `habitat_service` which will manage the services loaded and
-    started within the supervisor.
+- markdown: Use the **habitat_sup** resource to runs a Chef Habitat supervisor for
+    one or more Chef Habitat services. The resourceis commonly used in conjunction
+    with `habitat_service` which will manage the services loaded and started within
+    the supervisor.
 resource_new_in: '17.3'
 syntax_full_code_block: |-
   habitat_sup 'name' do

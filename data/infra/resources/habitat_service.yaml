@@ -5,9 +5,10 @@ resources_common_notification: true
 resources_common_properties: true
 resource: habitat_service
 resource_description_list:
-- markdown: Manages a Habitat application service using `hab sup`/`hab service`. This
-    requires that `core/hab-sup` be running as a service. See the `habitat_sup` resource
-    documentation below for more information about how to set that up with this cookbook.
+- markdown: Use the **habitat_service** resource to manage Chef Habitat services.
+    This requires that `core/hab-sup` be running as a service. See the `habitat_sup`
+    resource documentation below for more information about how to set that up with
+    this cookbook.
 - note:
     markdown: Applications may run as a specific user. Often with Habitat, the default
       is `hab`, or `root`. If the application requires another user, then it should

@@ -5,9 +5,9 @@ resources_common_notification: true
 resources_common_properties: true
 resource: habitat_user_toml
 resource_description_list:
-- markdown: Templates a user.toml for the specified service. This is written to `/hab/user/<service_name>/config/user.toml`.
-    User.toml can be used to set configuration overriding the default.toml for a given
-    package as an alternative to applying service group level configuration.
+- markdown: Use the **habitat_user_toml** to templates a `user.toml` for Chef Habitat
+    services. User.toml can be used to set configuration overriding the default.toml
+    for a given package as an alternative to applying service group level configuration.
 resource_new_in: '17.3'
 syntax_full_code_block: |-
   habitat_user_toml 'name' do

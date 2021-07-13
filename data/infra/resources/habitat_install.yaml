@@ -5,7 +5,7 @@ resources_common_notification: true
 resources_common_properties: true
 resource: habitat_install
 resource_description_list:
-- markdown: This resource will install the newest stable version of habitat.
+- markdown: Use the **habitat_install** resource to install Chef Habitat.
 resource_new_in: '17.3'
 syntax_full_code_block: |-
   habitat_install 'name' do
