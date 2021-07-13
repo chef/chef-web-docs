@@ -210,7 +210,7 @@ The following examples:
   default['audit']['reporter'] = 'chef-automate'
   ```
   {{< warning >}}
-  Reporting Compliance Phase results directly to Chef Automate requires setting `data_collector.server_url` and `data_collector.token` in your `client.rb` to fetch profiles from Chef Automate. This configuration is described in more detail in the Chef Automate ['data collector documentation'](https://docs.chef.io/ingest_data_chef_automate.html).
+  Reporting Compliance Phase results directly to Chef Automate requires setting `data_collector.server_url` and `data_collector.token` in your `client.rb` to fetch profiles from Chef Automate. This configuration is described in more detail in the Chef Automate ['data collector documentation']({{< relref "automate/data_collection/" >}}).
   {{< /warning >}}
   {{< /foundation_tabs_panel >}}
   {{< foundation_tabs_panel panel-id="server-reporter" >}}

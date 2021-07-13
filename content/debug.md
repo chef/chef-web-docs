@@ -116,7 +116,7 @@ resources in recipes:
 Some more complex ways to debug issues with a Chef Infra Client run
 include:
 
--   Using the **chef_handler** cookbook
+-   Using the **chef_handler** resource
 -   Using the chef-shell and the **breakpoint** resource to add
     breakpoints to recipes, and to then step through the recipes using
     the breakpoints
@@ -262,10 +262,6 @@ where
     precedence level
 -   `:not_present` is shown for any attribute precedence level that has
     no attributes
-
-A [blog post by Joshua
-Timberman](http://jtimberman.housepub.org/blog/2014/09/02/chef-node-dot-debug-value/)
-provides another example of using this method.
 
 ### ignore_failure Method
 

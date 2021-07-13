@@ -406,11 +406,6 @@ section to the Common Resource Functionality section of the resource page.
 Used in the remote directory resource page. Adds the **Windows File Security**
 section to the Common Resource Functionality section of the resource page.
 
-**handler_custom**
-
-Used in the chef handler resource page. Adds the **Custom Handlers**
-section to the resource page.
-
 **cookbook_file_specificity**
 
 Used in the cookbook file resource page. Adds the **File Specificity**

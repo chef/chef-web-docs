@@ -8,8 +8,8 @@ product = ["workstation"]
 [menu]
   [menu.infra]
     title = "VMware"
-    identifier = "chef_infra/setup/integrations/vmware.md VMware"
-    parent = "chef_infra/setup/integrations"
+    identifier = "chef_infra/integrations/vmware.md VMware"
+    parent = "chef_infra/integrations"
     weight = 30
 +++
 
