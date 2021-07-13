@@ -205,6 +205,8 @@ Chef Infra provides a growing number of Windows-specific resources.
 - [windows_audit_policy](/resources/windows_audit_policy/)
 - [windows_auto_run](/resources/windows_auto_run/)
 - [windows_certificate](/resources/windows_certificate/)
+- [windows_defender](/resources/windows_defender/)
+- [windows_defender_exclusion](/resources/windows_defender_exclusion/)
 - [windows_dfs_folder](/resources/windows_dfs_folder/)
 - [windows_dfs_namespace](/resources/windows_dfs_namespace/)
 - [windows_dfs_server](/resources/windows_dfs_server/)
