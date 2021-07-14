@@ -194,17 +194,25 @@ Two community supports two provisioners for Kitchen:
 
 Chef Infra provides a growing number of Windows-specific resources.
 
+- [cab_package](/resources/cab_package/)
+- [chef_client_scheduled_task](/resources/chef_client_scheduled_task/)
 - [chocolatey_config](/resources/chocolatey_config/)
+- [chocolatey_feature](/resources/chocolatey_feature/)
 - [chocolatey_package](/resources/chocolatey_package/)
 - [chocolatey_source](/resources/chocolatey_package/)
-- [chef_client_scheduled_task](/resources/chef_client_scheduled_task/)
 - [dsc_resource](/resources/dsc_resource/)
 - [dsc_script](/resources/dsc_script/)
+- [msu_package](/resources/msu_package/)
+- [powershell_package_source](/resources/powershell_package_source/)
+- [powershell_package](/resources/powershell_package/)
+- [powershell_script](/resources/powershell_script/)
 - [registry_key](/resources/registry_key/)
 - [windows_ad_join](/resources/windows_ad_join/)
 - [windows_audit_policy](/resources/windows_audit_policy/)
 - [windows_auto_run](/resources/windows_auto_run/)
 - [windows_certificate](/resources/windows_certificate/)
+- [windows_defender_exclusion](/resources/windows_defender_exclusion/)
+- [windows_defender](/resources/windows_defender/)
 - [windows_dfs_folder](/resources/windows_dfs_folder/)
 - [windows_dfs_namespace](/resources/windows_dfs_namespace/)
 - [windows_dfs_server](/resources/windows_dfs_server/)
@@ -234,7 +242,7 @@ Chef Infra provides a growing number of Windows-specific resources.
 ### Windows Compatible Resources
 
 The most popular core resources in Chef Infra Client work the same way
-in Microsoft Windows as they do on any UNIX- or Linux-based platform.
+in Microsoft Windows as they do on any UNIX or Linux-based platform.
 
 - [cookbook_file](/resources/cookbook_file/)
 - [directory](/resources/directory/)
