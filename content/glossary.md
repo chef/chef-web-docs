@@ -81,10 +81,6 @@ data bag
 
 : A data_bag is a global variable that is stored as JSON data and is accessible from a Chef Infra Server.
 
-definition
-
-: A definition is code that is reused across recipes, similar to a compile-time macro, and is defined in a cookbook. Definitions are not recommended for new users and Custom Resources should be written for reusable code instead.
-
 environment
 
 : An environment is a way to map an organization's real-life workflow to what can be configured and managed when using Chef Infra Server.
