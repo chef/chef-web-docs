@@ -51,7 +51,7 @@ package repositories:
 -   Apt (Debian and Ubuntu platforms)
 -   Yum (Enterprise Linux platforms)
 
-Chef Software Inc. GPG public key is can be downloaded
+Chef Software Inc. GPG public key can be downloaded
 [here](https://packages.chef.io/chef.asc).
 
 ### Debian / Ubuntu
