@@ -402,7 +402,6 @@ To define these attributes, do the following:
     node.override['supermarket_omnibus']['chef_oauth2_secret'] = '17cf1141cc971a10ce307611beda7ffadstr4f1bc98d9f9ca76b9b127879'
     node.override['supermarket_omnibus']['package_url'] = 'http://packages.example.com/supermarket_3.1.22-1_amd64.deb'
 
-
     include_recipe 'supermarket-omnibus-cookbook'
     ```
 

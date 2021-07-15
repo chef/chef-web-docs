@@ -18,8 +18,6 @@ configurations:
 
 chef-solo can be run as a daemon.
 
-
-
 </div>
 
 </div>

@@ -29,7 +29,7 @@ then run:
 
 ```
 # rpm -Uvh /path/to/chef-manage-*.rpm
-or 
+or
 # dpkg -i /path/to/chef-manage-*.deb
 
 then
@@ -50,7 +50,7 @@ SSL connections to the Chef Infra Server.
 
 ### SSL Support
 
-The major version upgrade of Chef Infra Client in this release brings in SSL support 
+The major version upgrade of Chef Infra Client in this release brings in SSL support
 between Chef Manage and Chef Infra Server. These services always run on the
 same system so this feature is of limited value in most cases. For compatibility
 with self-signed certificates which are commonly used on the Chef Infra Server, this
@@ -70,7 +70,6 @@ will require a Chef Manage to verify the SSL certificate of the Chef Infra Serve
 certificates. This is empty by default, but `/etc/chef/trusted_certs` is the
 most likely setting for reusing certificates installed by Chef Infra Client.
 
-
 ### Bug Fixes
 
 Generating a Knife Config now produces a `config.rb` instead of `knife.rb` file.
@@ -87,14 +86,14 @@ have the latest security updates.
 
 #### Added Platform Support
 
-RHEL 7 
-RHEL 8 
-Ubuntu 16.04 
+RHEL 7
+RHEL 8
+Ubuntu 16.04
 Ubuntu 18.04
 
 #### Removed Platform Support
 
-Ubuntu 10.04 
-Ubuntu 12.04 
+Ubuntu 10.04
+Ubuntu 12.04
 Ubuntu 14.04
 

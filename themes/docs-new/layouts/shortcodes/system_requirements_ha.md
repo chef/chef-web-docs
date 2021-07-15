@@ -24,8 +24,6 @@ database operates quickly. The behavior of operations, such as the
 writing of log files, will be unpredictable when run over a network file
 system.
 
-
-
 </div>
 
 </div>

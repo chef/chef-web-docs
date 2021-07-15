@@ -9,8 +9,6 @@ registry key exists at the specified path.
 
 {{ readFile "themes/docs-new/layouts/shortcodes/notes_registry_key_not_if_only_if.md" | markdownify }}
 
-
-
 </div>
 
 </div>

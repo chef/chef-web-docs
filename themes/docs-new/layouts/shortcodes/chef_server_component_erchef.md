@@ -15,8 +15,6 @@ Ruby.
 Even though the Chef Infra Server is authored in Erlang, writing code in
 Erlang is NOT a requirement for using Chef.
 
-
-
 </div>
 
 </div>

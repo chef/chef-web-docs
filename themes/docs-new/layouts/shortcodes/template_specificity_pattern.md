@@ -19,8 +19,6 @@ number](https://docs.microsoft.com/en-us/windows/win32/sysinfo/operating-system-
 For example, a template in `templates/windows-6.3` will be deployed on
 systems installed with Windows 8.1.
 
-
-
 </div>
 
 </div>

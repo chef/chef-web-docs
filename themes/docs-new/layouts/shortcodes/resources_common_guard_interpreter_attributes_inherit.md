@@ -16,8 +16,6 @@ default. The `guard_interpreter` property is set to `:batch` or
 guard statement within a **batch** or **powershell_script** resource,
 respectively.
 
-
-
 </div>
 
 </div>

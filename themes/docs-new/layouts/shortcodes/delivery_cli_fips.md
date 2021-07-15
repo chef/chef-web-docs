@@ -73,8 +73,6 @@ You could also pass `--fips` and `--fips-git-port=OPEN_PORT` into
 project specific commands if you do not wish to edit your
 `.delivery/cli.toml`. See list of commands below for details..
 
-
-
 </div>
 
 </div>

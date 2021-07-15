@@ -9,8 +9,6 @@ Windows registry key has one (or more) values.
 
 {{ readFile "themes/docs-new/layouts/shortcodes/notes_registry_key_not_if_only_if.md" | markdownify }}
 
-
-
 </div>
 
 </div>

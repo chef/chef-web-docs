@@ -5,10 +5,7 @@ draft = false
 gh_repo = "chef-web-docs"
 robots = "noindex"
 
-
 aliases = "/deprecations_chef_gem_compile_time.html"
-
-
 
 +++
 

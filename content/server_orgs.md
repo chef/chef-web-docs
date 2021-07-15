@@ -294,8 +294,6 @@ The `admins` group is assigned the following:
 
 The `billing_admins` group is assigned the following:
 
-
-
 #### billing_admins
 
 The `billing_admins` group is assigned the following:
@@ -493,8 +491,6 @@ By default, the `public_key_read_access` assigns all members of the
 #### users
 
 The `users` group is assigned the following:
-
-
 
 #### users
 

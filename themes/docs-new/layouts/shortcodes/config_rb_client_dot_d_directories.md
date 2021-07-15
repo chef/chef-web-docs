@@ -34,8 +34,6 @@ configuration file.
 If multiple configuration files exists in a `.d` directory, ensure that
 the same setting has the same value in all files.
 
-
-
 </div>
 
 </div>
