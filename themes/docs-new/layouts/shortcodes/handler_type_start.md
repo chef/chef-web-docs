@@ -8,8 +8,8 @@ handler.
 Start handlers are made available to a Chef Infra Client run in one of
 the following ways:
 
--   By adding a start handler to the **chef-client** cookbook, which
+- By adding a start handler to the **chef-client** cookbook, which
     installs the handler on the node so that it is available to Chef
     Infra Client at the start of a Chef Infra Client run
--   By adding the handler to one of the following settings in the node's
+- By adding the handler to one of the following settings in the node's
     client.rb file: `start_handlers`

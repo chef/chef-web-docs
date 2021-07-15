@@ -18,13 +18,13 @@ aliases = ["/config_rb_metadata.html"]
 
 A metadata.rb file is:
 
--   Located at the top level of a cookbook's directory structure.
--   Compiled whenever a cookbook is uploaded to the Chef Infra Server or
+- Located at the top level of a cookbook's directory structure.
+- Compiled whenever a cookbook is uploaded to the Chef Infra Server or
     when the `knife cookbook metadata` subcommand is run, and then
     stored as JSON data.
--   Created automatically by knife whenever the `knife cookbook create`
+- Created automatically by knife whenever the `knife cookbook create`
     subcommand is run.
--   Edited using a text editor, and then re-uploaded to the Chef Infra
+- Edited using a text editor, and then re-uploaded to the Chef Infra
     Server as part of a cookbook upload.
 
 ## Error Messages

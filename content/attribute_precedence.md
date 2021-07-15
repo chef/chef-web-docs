@@ -125,9 +125,9 @@ override!['attribute'] = "The '!' means I win!"
 
 Attribute precedence levels may be:
 
--   Removed for a specific, named attribute precedence level.
--   Removed for all attribute precedence levels.
--   Fully assigned attributes.
+- Removed for a specific, named attribute precedence level.
+- Removed for all attribute precedence levels.
+- Fully assigned attributes.
 
 ### Remove Precedence Level
 
@@ -136,15 +136,15 @@ attributes may be removed by using one of the following syntax patterns.
 
 For default attributes:
 
--   `node.rm_default('foo', 'bar')`
+- `node.rm_default('foo', 'bar')`
 
 For normal attributes:
 
--   `node.rm_normal('foo', 'bar')`
+- `node.rm_normal('foo', 'bar')`
 
 For override attributes:
 
--   `node.rm_override('foo', 'bar')`
+- `node.rm_override('foo', 'bar')`
 
 These patterns return the computed value of the key being deleted for
 the specified precedence level.
@@ -295,7 +295,7 @@ node.rm_default("no", "such", "thing") #=> nil
 All attribute precedence levels may be removed by using the following
 syntax pattern:
 
--   `node.rm('foo', 'bar')`
+- `node.rm('foo', 'bar')`
 
 {{< note >}}
 
@@ -355,11 +355,11 @@ Use `!` to clear out the key for the named attribute precedence level,
 and then complete the write by using one of the following syntax
 patterns:
 
--   `node.default!['foo']['bar'] = {...}`
--   `node.force_default!['foo']['bar'] = {...}`
--   `node.normal!['foo']['bar'] = {...}`
--   `node.override!['foo']['bar'] = {...}`
--   `node.force_override!['foo']['bar'] = {...}`
+- `node.default!['foo']['bar'] = {...}`
+- `node.force_default!['foo']['bar'] = {...}`
+- `node.normal!['foo']['bar'] = {...}`
+- `node.override!['foo']['bar'] = {...}`
+- `node.force_override!['foo']['bar'] = {...}`
 
 #### Examples
 

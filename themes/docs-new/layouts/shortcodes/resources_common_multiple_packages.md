@@ -3,9 +3,9 @@ that use Apt, Chocolatey, DNF, Homebrew, Pacman, or Zypper package managers.
 Specifying multiple packages and/or versions allows a single transaction
 to:
 
--   Download the specified packages and versions via a single HTTP
+- Download the specified packages and versions via a single HTTP
     transaction
--   Update or install multiple packages with a single resource during a
+- Update or install multiple packages with a single resource during a
     Chef Infra Client run
 
 For example, installing multiple packages:

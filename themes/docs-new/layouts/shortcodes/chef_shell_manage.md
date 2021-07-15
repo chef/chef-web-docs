@@ -10,7 +10,7 @@ chef-shell -z named_configuration
 
 Where:
 
--   `named_configuration` is an existing configuration file in
+- `named_configuration` is an existing configuration file in
     `~/.chef/named_configuration/chef_shell.rb`, such as `production`,
     `staging`, or `test`.
 
@@ -22,9 +22,9 @@ chef (preprod) > items.command
 
 Where:
 
--   `items` is the type of item to search for: `cookbooks`, `clients`,
+- `items` is the type of item to search for: `cookbooks`, `clients`,
     `nodes`, `roles`, `environments` or a data bag.
--   `command` is the command: `list`, `show`, `find`, or `edit`.
+- `command` is the command: `list`, `show`, `find`, or `edit`.
 
 For example, to list all of the nodes in a configuration named
 "preprod", enter:

@@ -15,7 +15,7 @@ of a data bag item is that it must have an `id`:
 
 where
 
--   `key` and `value` are the `key:value` pair for each additional
+- `key` and `value` are the `key:value` pair for each additional
     attribute within the data bag item
--   `/* ... */` and `// ...` show two ways to add comments to the data
+- `/* ... */` and `// ...` show two ways to add comments to the data
     bag item

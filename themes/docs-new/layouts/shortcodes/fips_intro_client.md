@@ -26,7 +26,7 @@ and is not used for any cryptographic purpose.
 
 Notes about FIPS:
 
--   May be enabled for nodes running on Microsoft Windows and Enterprise
+- May be enabled for nodes running on Microsoft Windows and Enterprise
     Linux platforms
--   Should only be enabled for environments that require FIPS 140-2
+- Should only be enabled for environments that require FIPS 140-2
     compliance

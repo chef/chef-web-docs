@@ -384,8 +384,8 @@ This configuration file has the following settings:
 `ssl_verify_mode`
 : Set the verify mode for HTTPS requests.
 
-    -   Use `:verify_none` for no validation of SSL certificates.
-    -   Use `:verify_peer` for validation of all SSL certificates, including the Chef Infra Server connections, S3 connections, and any HTTPS **remote_file** resource URLs used in Chef Infra Client runs. This is the recommended setting.
+    - Use `:verify_none` for no validation of SSL certificates.
+    - Use `:verify_peer` for validation of all SSL certificates, including the Chef Infra Server connections, S3 connections, and any HTTPS **remote_file** resource URLs used in Chef Infra Client runs. This is the recommended setting.
 
     Depending on how OpenSSL is configured, the `ssl_ca_path` may nee to be specified. Default value: `:verify_peer`.
 

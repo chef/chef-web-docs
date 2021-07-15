@@ -1,8 +1,8 @@
 The Chef Infra Language provides access to data bags and data bag items
 (including encrypted data bag items) with the following methods:
 
--   `data_bag(bag)`, where `bag` is the name of the data bag.
--   `data_bag_item('bag_name', 'item', 'secret')`, where `bag` is the
+- `data_bag(bag)`, where `bag` is the name of the data bag.
+- `data_bag_item('bag_name', 'item', 'secret')`, where `bag` is the
     name of the data bag and `item` is the name of the data bag item. If
     `'secret'` is not specified, Chef Infra Client will look for a
     secret at the path specified by the `encrypted_data_bag_secret`
