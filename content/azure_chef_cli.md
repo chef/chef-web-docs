@@ -260,10 +260,10 @@ The extension has the following options that can be provided in the
 
 `node_verify_api_cert`
 
-:   Verify the SSL certificate on the Chef Infra Server. When `true`,
-    Chef Infra Client always verifies the SSL certificate. When `false`,
+:   Verify the TLS/TLS/SSL certificate on the Chef Infra Server. When `true`,
+    Chef Infra Client always verifies the TLS/TLS/SSL certificate. When `false`,
     Chef Infra Client uses the value of `ssl_verify_mode` to determine
-    if the SSL certificate requires verification.
+    if the TLS/TLS/SSL certificate requires verification.
 
 **Protected Settings**
 
@@ -277,7 +277,7 @@ The following options can be provided to the extension through the
 
 `chef_server_crt`
 
-:   The SSL certificate of your Chef Infra Server that will be added to
+:   The TLS/TLS/SSL certificate of your Chef Infra Server that will be added to
     the trusted certificates.
 
 `client_pem`
@@ -347,7 +347,7 @@ configured from an ARM template.
 }
 ```
 
-**Installing the Azure Chef extension on a Linux system with SSL peer
+**Installing the Azure Chef extension on a Linux system with TLS/TLS/SSL peer
 verification turned off and given a data bag secret**
 
 ```javascript

@@ -1,4 +1,4 @@
-If the SSL certificate can be verified, the response to
+If the TLS/SSL certificate can be verified, the response to
 
 ```bash
 knife ssl check

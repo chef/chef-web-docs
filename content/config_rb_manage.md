@@ -192,12 +192,12 @@ This configuration file has the following settings:
 
 `ssl_verify_mode`
 
-:   Enable or disable SSL verification for the connection to the Chef Infra
+:   Enable or disable TLS/TLS/SSL verification for the connection to the Chef Infra
 Server. Valid settings: `:verify_none` and `:verify_peer`. Default value: `:verify_none`
 
 `trusted_certs_dir`
 
-:   Path to a directory containing trusted SSL certificates for verification
+:   Path to a directory containing trusted TLS/TLS/SSL certificates for verification
 when connecting to the Infra Server. Most common setting:
 `"/etc/chef/trusted_certs"` Default value: `""`
 

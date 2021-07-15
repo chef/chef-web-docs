@@ -1,2 +1,2 @@
-Run `knife ssl fetch` to add the Chef Infra Server SSL certificate as a
-trusted SSL certificate.
+Run `knife ssl fetch` to add the Chef Infra Server TLS/SSL certificate as a
+trusted TLS/SSL certificate.

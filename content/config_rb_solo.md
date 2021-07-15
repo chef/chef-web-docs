@@ -167,7 +167,7 @@ This configuration file has the following settings:
 
 This example solo.rb file uses the `data_collector` settings to send
 data to an available Chef Automate system. Since Chef Automate generates
-a self-signed SSL certificate by default, you will need to add the
+a self-signed TLS/TLS/SSL certificate by default, you will need to add the
 certificate (located under `/var/opt/delivery/nginx/` on the Chef
 Automate server) to your `trusted_certs_dir` directory, as seen in this
 example:

@@ -390,7 +390,7 @@ This configuration file has the following settings:
     Depending on how OpenSSL is configured, the `ssl_ca_path` may nee to be specified. Default value: `:verify_peer`.
 
 `trusted_certs_dir`
-: A directory that contains additional SSL certificates to trust. Any certificates in this directory will be added to whatever CA bundle ruby is using. Use this to add self-signed certs for your Chef Infra Server or local HTTP file servers. Default value: `trusted_certs` directory in your chef configuration directory.
+: A directory that contains additional TLS/TLS/SSL certificates to trust. Any certificates in this directory will be added to whatever CA bundle ruby is using. Use this to add self-signed certs for your Chef Infra Server or local HTTP file servers. Default value: `trusted_certs` directory in your chef configuration directory.
 
 `umask`
 : The file mode creation mask, or umask. Default value: `0022`.
@@ -411,7 +411,7 @@ This configuration file has the following settings:
 : Set the log level. Options: `true`, `nil`, and `false`. When this is set to `false`, notifications about individual resources being processed are suppressed (and are output at the `:info` logging level). Setting this to `false` can be useful when a Chef Infra Client is run as a daemon. Default value: `nil`.
 
 `verify_api_cert`
-: Verify the SSL certificate on the Chef Infra Server. When `true`, Chef Infra Client always verifies the SSL certificate. When `false`, Chef Infra Client uses the value of `ssl_verify_mode` to determine if the SSL certificate requires verification. Default value: `false`.
+: Verify the TLS/TLS/SSL certificate on the Chef Infra Server. When `true`, Chef Infra Client always verifies the TLS/TLS/SSL certificate. When `false`, Chef Infra Client uses the value of `ssl_verify_mode` to determine if the TLS/TLS/SSL certificate requires verification. Default value: `false`.
 A job entry may also be `'job-name' => {:lock => true}`, which will check the `lockfile` setting in the client.rb file before starting the job.
 
 ### Automatic Proxy Config

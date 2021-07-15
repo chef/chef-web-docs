@@ -6,7 +6,7 @@ Use `knife ssl fetch` to download the self-signed certificate from the Chef Infr
 knife ssl fetch
 ```
 
-For example, without downloading the SSL certificate, the following knife command:
+For example, without downloading the TLS/SSL certificate, the following knife command:
 
 ```bash
 knife client list
@@ -15,8 +15,8 @@ knife client list
 responds with an error similar to:
 
 ```bash
-ERROR: SSL Validation failure connecting to host: chef-server.example.com ...
-ERROR: OpenSSL::SSL::SSLError: SSL_connect returned=1 errno=0 state=SSLv3 ...
+ERROR: TLS/SSL Validation failure connecting to host: chef-server.example.com ...
+ERROR: OpenSSL::TLS/SSL::SSLError: SSL_connect returned=1 errno=0 state=SSLv3 ...
 ```
 
 This is by design and will occur until a verifiable certificate is added to the machine from which the request is sent.

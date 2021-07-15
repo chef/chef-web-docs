@@ -232,7 +232,7 @@ Upgrading to Chef Infra Server 14 will require a reindexing operation for most u
 - Reduced API errors caused by a change to the HTTP library used in Erchef.
 - Expanded the cases where we gracefully report errors that result from a `chef-server-ctl reindex` command instead of failing early.
 - Fixed a bug that prevented API Signing version 1.2 from working with FIPS-enabled Chef Infra Servers.
-- Updated nginx SSL configuration format to avoid warnings in the log.
+- Updated nginx TLS/TLS/SSL configuration format to avoid warnings in the log.
 - Restricted permissions on the `dhparams.pem` file used by nginx.
 
 ### Incompatibilities
@@ -557,7 +557,7 @@ This release:
 - Optional disabling of welcome page
 - chef-server-ctl now has version subcommand.
 - chef-server-ctl appbundled to better control gem loading.
-- Support for SSL auth between internal Chef Server Services. This includes connections to bifrost and the internal Postgresql server.
+- Support for TLS/TLS/SSL auth between internal Chef Server Services. This includes connections to bifrost and the internal Postgresql server.
 - All datestamps in logs are now in UTC. SOLR GC log now datestamped.
 - Nginx logs now include the request id.
 - Fixie is now shipped with Chef Server.
@@ -1095,7 +1095,7 @@ The following items are new for Chef server 12.10:
 - The change of TLS ciphers can cause older tooling to fail to
     negotiate SSL sessions with the Chef Server. The changes to the
     cipher list are captured here. Upgrading any custom clients of the
-    Chef Server API to use a current SSL release will resolve this.
+    Chef Server API to use a current TLS/TLS/SSL release will resolve this.
 
     Alternatively, you can set `nginx['ssl_protocols']` in
     `/etc/opscode/chef-server.rb` to a set of ciphers that are
@@ -1836,7 +1836,7 @@ Chef Analytics and the Chef server:
 
 `rabbitmq['ssl_versions']`
 
-:   The SSL versions used by the rabbitmq-management plugin. (See
+:   The TLS/TLS/SSL versions used by the rabbitmq-management plugin. (See
     [RabbitMQ TLS Support](https://www.rabbitmq.com/ssl.html) for more
     details.) Default value: `['tlsv1.2', 'tlsv1.1']`.
 
@@ -4663,11 +4663,11 @@ The following settings are new:
 <tbody>
 <tr>
 <td><code>ldap['ssl_enabled']</code></td>
-<td>Use to enable SSL. Default value: <code>false</code>. Must be <code>false</code> when <code>ldap['tls_enabled']</code> is <code>true</code>.</td>
+<td>Use to enable TLS/TLS/SSL. Default value: <code>false</code>. Must be <code>false</code> when <code>ldap['tls_enabled']</code> is <code>true</code>.</td>
 </tr>
 <tr>
 <td><code>ldap['tls_enabled']</code></td>
-<td>Use to enable TLS. When enabled, communication with the LDAP server is done via a secure SSL connection on a dedicated port. When <code>true</code>, <code>ldap['port']</code> is also set to <code>636</code>. Default value: <code>false</code>. Must be <code>false</code> when <code>ldap['ssl_enabled']</code> is <code>true</code>.</td>
+<td>Use to enable TLS. When enabled, communication with the LDAP server is done via a secure TLS/TLS/SSL connection on a dedicated port. When <code>true</code>, <code>ldap['port']</code> is also set to <code>636</code>. Default value: <code>false</code>. Must be <code>false</code> when <code>ldap['ssl_enabled']</code> is <code>true</code>.</td>
 </tr>
 </tbody>
 </table>
@@ -4675,7 +4675,7 @@ The following settings are new:
 {{< note >}}
 
 Previous versions of the Chef server used the `ldap['ssl_enabled']`
-setting to first enable SSL, and then the `ldap['encryption']` setting
+setting to first enable TLS/TLS/SSL, and then the `ldap['encryption']` setting
 to specify the encryption type. These settings are deprecated.
 
 {{< /note >}}

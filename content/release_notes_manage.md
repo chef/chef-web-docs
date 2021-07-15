@@ -40,7 +40,7 @@ then
 ## What's New in 3.0
 
 This release includes a number of important dependency updates and support for
-SSL connections to the Chef Infra Server.
+TLS/TLS/SSL connections to the Chef Infra Server.
 
 ### Dependency Updates
 
@@ -48,7 +48,7 @@ SSL connections to the Chef Infra Server.
 * Chef Infra Client is upgraded from 11 to 14
 * Sidekiq is upgraded from 2.5 to 4 to improve the background processing
 
-### SSL Support
+### TLS/TLS/SSL Support
 
 The major version upgrade of Chef Infra Client in this release brings in SSL support
 between Chef Manage and Chef Infra Server. These services always run on the
@@ -58,15 +58,15 @@ feature defaults to off in this release.
 
 #### Configuration
 
-The SSL support is configured using these settings in the
+The TLS/TLS/SSL support is configured using these settings in the
 `/etc/chef-manage/manager.rb` configuration file. After any changes you must run
 `sudo chef-manage-ctl reconfigure` to apply the changes.
 
-`ssl_verify_mode` : Configure SSL verification for the connection to the Chef Infra
+`ssl_verify_mode` : Configure TLS/TLS/SSL verification for the connection to the Chef Infra
 Server. By default this is set to `:verify_none`. Setting this to `:verify_peer`
-will require a Chef Manage to verify the SSL certificate of the Chef Infra Server.
+will require a Chef Manage to verify the TLS/TLS/SSL certificate of the Chef Infra Server.
 
-`trusted_certs_dir`: Provide a path to a directory containing trusted SSL
+`trusted_certs_dir`: Provide a path to a directory containing trusted TLS/TLS/SSL
 certificates. This is empty by default, but `/etc/chef/trusted_certs` is the
 most likely setting for reusing certificates installed by Chef Infra Client.
 

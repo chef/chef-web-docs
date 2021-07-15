@@ -227,7 +227,7 @@ specify the template that `knife bootstrap` will use by default when
 bootstrapping a node. It should point to your custom template within the
 `bootstrap` directory.
 
-Now that `knife` is configured, copy the SSL certificates from your Chef
+Now that `knife` is configured, copy the TLS/TLS/SSL certificates from your Chef
 Infra Server to your trusted certificates:
 
 ```ruby
@@ -467,9 +467,9 @@ user's workstation.
     Supermarket will generate and use a self-signed certificate, if a
     certificate is not supplied as part of the installation process (via
     the wrapper cookbook).
-2.  If an SSL notice is shown due to your self-signed certificate while
-    connecting to Chef Supermarket via a web browser, accept the SSL
-    certificate. A trusted SSL certificate should be used for private
+2.  If an TLS/TLS/SSL notice is shown due to your self-signed certificate while
+    connecting to Chef Supermarket via a web browser, accept the TLS/TLS/SSL
+    certificate. A trusted TLS/TLS/SSL certificate should be used for private
     Chef Supermarket that is used in production.
 3.  After opening Chef Supermarket in a web browser, click the **Create
     Account** link. A prompt to log in to the Chef Infra Server is

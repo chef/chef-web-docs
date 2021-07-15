@@ -464,8 +464,8 @@ user's workstation.
     Supermarket will generate and use a self-signed certificate, if a
     certificate is not supplied as part of the installation process (via
     the wrapper cookbook).
-2.  If an SSL notice is shown while connecting to Chef Supermarket via a
-    web browser, accept the SSL certificate. A trusted SSL certificate
+2.  If an TLS/TLS/SSL notice is shown while connecting to Chef Supermarket via a
+    web browser, accept the TLS/TLS/SSL certificate. A trusted TLS/TLS/SSL certificate
     should be used for private Chef Supermarket that is used in
     production.
 3.  After opening Chef Supermarket in a web browser, click the **Create
