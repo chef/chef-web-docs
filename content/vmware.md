@@ -115,7 +115,7 @@ The main settings for your `config.rb`:
 knife[:vcenter_username] = 'user'
 knife[:vcenter_password] = 'password'
 knife[:vcenter_host] = '172.16.20.2'
-knife[:vcenter_disable_ssl_verify] = true # if you want to disable TLS/TLS/SSL checking
+knife[:vcenter_disable_ssl_verify] = true # if you want to disable TLS/SSL checking
 ```
 
 #### Usage Examples
@@ -175,7 +175,7 @@ knife[:vra_username] = 'user'
 knife[:vra_password] = 'password'
 knife[:vra_base_url] = 'https://vra.corp.local'
 knife[:vra_tenant]   = 'tenant'
-knife[:vra_disable_ssl_verify] = true # if you want to disable TLS/TLS/SSL checking.
+knife[:vra_disable_ssl_verify] = true # if you want to disable TLS/SSL checking.
 ```
 
 Additional `config.rb` settings are required to integrate with vRO:

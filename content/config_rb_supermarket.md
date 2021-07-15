@@ -347,7 +347,7 @@ This configuration file has the following settings for nginx:
 
 `default['supermarket']['nginx']['force_ssl']`
 
-:   Force connections to use TLS/TLS/SSL. Default value: `true`.
+:   Force connections to use TLS/SSL. Default value: `true`.
 
 `default['supermarket']['nginx']['group']`
 
@@ -442,8 +442,8 @@ This configuration file has the following settings for nginx:
 
 `default['supermarket']['nginx']['non_ssl_port']`
 
-:   The port on which the Automate interface and API are bound for non-TLS/TLS/SSL
-    connections. Default value: `80`. Set to `false` to disable non-TLS/TLS/SSL
+:   The port on which the Automate interface and API are bound for non-TLS/SSL
+    connections. Default value: `80`. Set to `false` to disable non-TLS/SSL
     connections.
 
 `default['supermarket']['nginx']['pid']`
@@ -478,7 +478,7 @@ This configuration file has the following settings for nginx:
 
 `default['supermarket']['nginx']['ssl_port']`
 
-:   The port that is used by nginx to terminate TLS/TLS/SSL connections. Default
+:   The port that is used by nginx to terminate TLS/SSL connections. Default
     value: `443`.
 
 `default['supermarket']['nginx']['types_hash_bucket_size']`
@@ -542,7 +542,7 @@ Server identity service:
 
 `default['supermarket']['chef_oauth2_verify_ssl']`
 
-:   Determines whether or not Supermarket performs TLS/TLS/SSL verification.
+:   Determines whether or not Supermarket performs TLS/SSL verification.
     Default value: `true`. If your Chef Infra Server is using a
     self-signed certificate without a properly configured certificate
     authority, this must be set to `false`.
@@ -779,17 +779,17 @@ This configuration file has the following settings for SMTP:
 :   The default sender address of all Supermarket mailers. Default
     value: `nil`.
 
-### TLS/TLS/SSL
+### TLS/SSL
 
-This configuration file has the following settings for TLS/TLS/SSL:
+This configuration file has the following settings for TLS/SSL:
 
 `default['supermarket']['ssl']['certificate']`
 
-:   The TLS/TLS/SSL certificate used to verify communication over HTTPS.
+:   The TLS/SSL certificate used to verify communication over HTTPS.
 
 `default['supermarket']['ssl']['certificate_key']`
 
-:   The certificate key used for TLS/TLS/SSL communication.
+:   The certificate key used for TLS/SSL communication.
 
 `default['supermarket']['ssl']['company_name']`
 
@@ -825,7 +825,7 @@ This configuration file has the following settings for TLS/TLS/SSL:
 
 `default['supermarket']['ssl']['session_cache']`
 
-:   Default value: `'shared:TLS/TLS/SSL:4m'`.
+:   Default value: `'shared:TLS/SSL:4m'`.
 
 `default['supermarket']['ssl']['session_timeout']`
 
@@ -845,7 +845,7 @@ This configuration file has the following settings for TLS/TLS/SSL:
 
 `default['supermarket']['ssl']['protocols']`
 
-:   The TLS/TLS/SSL protocol versions that are enabled. Default value:
+:   The TLS/SSL protocol versions that are enabled. Default value:
     `'TLSv1 TLSv1.1 TLSv1.2'`.
 
 `default['supermarket']['ssl']['state_name']`

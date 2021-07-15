@@ -413,7 +413,7 @@ default[audit][fetcher] = 'chef-server'
 
 ### insecure
 
-Setting the attribute `default['audit']['insecure']` to `true` will skip TLS/TLS/SSL certificate verification for the `chef-automate` and `chef-server-automate` reporters. This allows connections to HTTPS endpoints with self-signed ssl certificates. Default is `false`
+Setting the attribute `default['audit']['insecure']` to `true` will skip TLS/SSL certificate verification for the `chef-automate` and `chef-server-automate` reporters. This allows connections to HTTPS endpoints with self-signed ssl certificates. Default is `false`
 
 ```ruby
 # allow self-signed certificates

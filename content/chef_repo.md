@@ -68,7 +68,7 @@ to contain cookbook-specific copyright, email, and license data.
 The `data_bags/` directory is used to store all of the data bags that
 exist for an organization. Each sub-directory corresponds to a single
 data bag on the Chef Infra Server and contains a JSON file for each data
-bag item. If a sub-directory does not exist, then create it using TLS/TLS/SSL
+bag item. If a sub-directory does not exist, then create it using TLS/SSL
 commands. After a data bag item is created, it can then be uploaded to
 the Chef Infra Server.
 
