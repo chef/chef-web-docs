@@ -1,5 +1,5 @@
 +++
-title = "Deprecation: Deprecation of old shell_out APIs (CHEF-26)"
+title = "Deprecation: Deprecation of legacy shell_out APIs (CHEF-26)"
 draft = false
 
 gh_repo = "chef-web-docs"
@@ -9,9 +9,9 @@ robots = "noindex"
 aliases = "/deprecations_shell_out.html"
 +++
 
-The functionality of multiple old <span
+The functionality of multiple legacy <span
 class="title-ref">shell_out</span> APIs has been collapsed into the
-<span class="title-ref">shell_out</span> API itself, and the old
+<span class="title-ref">shell_out</span> API itself, and the legacy
 methods have been deprecated.
 
 The <span class="title-ref">shell_out_compact</span> API has been
