@@ -91,27 +91,27 @@ ensure the correct value is specified for `SSL_CERT_FILE`.
 Use following client.rb settings to manage TLS/SSL certificate preferences:
 
 local_key_generation
-:Whether the Chef Infra Server or Chef Infra Client generates the private/public key pair. When `true`, Chef Infra Client generates the key pair, and then sends the public key to the Chef Infra Server. Default value: `true`.
+: Whether the Chef Infra Server or Chef Infra Client generates the private/public key pair. When `true`, Chef Infra Client generates the key pair, and then sends the public key to the Chef Infra Server. Default value: `true`.
 
 ssl_ca_file
-:The file in which the OpenSSL key is saved. Chef Infra Client generates this setting automatically and most users do not need to modify it.
+: The file in which the OpenSSL key is saved. Chef Infra Client generates this setting automatically and most users do not need to modify it.
 
 ssl_ca_path
-:The path to where the OpenSSL key is located. Chef Infra Client generates this setting automatically and most users do not need to modify it.
+: The path to where the OpenSSL key is located. Chef Infra Client generates this setting automatically and most users do not need to modify it.
 
 ssl_client_cert
-:The OpenSSL X.509 certificate used for mutual certificate validation. This setting is only necessary when mutual certificate validation is configured on the Chef Infra Server. Default value: `nil`.
+: The OpenSSL X.509 certificate used for mutual certificate validation. This setting is only necessary when mutual certificate validation is configured on the Chef Infra Server. Default value: `nil`.
 
 ssl_client_key
-:The OpenSSL X.509 key used for mutual certificate validation. This setting is only necessary when mutual certificate validation is configured on the Chef Infra Server. Default value: `nil`.
+: The OpenSSL X.509 key used for mutual certificate validation. This setting is only necessary when mutual certificate validation is configured on the Chef Infra Server. Default value: `nil`.
 
 `ssl_verify_mode`<
-:Set the verify mode for HTTPS requests. Use `:verify_none` to do no validation of TLS/SSL certificates. Use `:verify_peer` to do validation of all TLS/SSL certificates, including the Chef Infra Server connections, S3 connections, and any HTTPS **remote_file** resource URLs used in a Chef Infra Client run. This is the recommended setting.
+: Set the verify mode for HTTPS requests. Use `:verify_none` to do no validation of TLS/SSL certificates. Use `:verify_peer` to do validation of all TLS/SSL certificates, including the Chef Infra Server connections, S3 connections, and any HTTPS **remote_file** resource URLs used in a Chef Infra Client run. This is the recommended setting.
 
 Depending on how OpenSSL is configured, the `ssl_ca_path` may need to be specified. Default value: `:verify_peer`.</p>
 
 verify_api_cert
-:Verify the TLS/SSL certificate on the Chef Infra Server. When `true`, Chef Infra Client always verifies the TLS/SSL certificate. When `false`, Chef Infra Client uses the value of `ssl_verify_mode` to determine if the TLS/SSL certificate requires verification. Default value: `false`.
+: Verify the TLS/SSL certificate on the Chef Infra Server. When `true`, Chef Infra Client always verifies the TLS/SSL certificate. When `false`, Chef Infra Client uses the value of `ssl_verify_mode` to determine if the TLS/SSL certificate requires verification. Default value: `false`.
 
 ### Knife Subcommands
 
