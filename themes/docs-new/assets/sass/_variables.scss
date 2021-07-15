@@ -1,6 +1,14 @@
 // Foundation overrides
 // https://raw.githubusercontent.com/zurb/foundation-sites/master/scss/settings/_settings.scss
 
+// Sass Deprecation Fixes
+$primary-color: null
+$secondary-color: null
+$success-color: null
+$alert-color: null
+$-zf-size: null
+$-zf-bp-value: null
+
 // TODO: Pull these colors into Sass variables.
 
 $charcoal: #424242;
