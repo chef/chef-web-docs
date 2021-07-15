@@ -151,10 +151,41 @@ identifier = "automate"
 title = "Chef Desktop"
 identifier = "desktop"
 
-[[desktop]]
-title = "Resources"
-identifier = "desktop/resources"
-parent = "desktop"
+  [[desktop]]
+  title = "Getting Started"
+  identifier = "desktop/getting_started"
+  parent = "desktop"
+  weight = 20
+
+  [[desktop]]
+  title = "Setup and Installation"
+  identifier = "desktop/setup_and_installation"
+  parent = "desktop"
+  weight = 30
+
+  [[desktop]]
+  title = "Zero Touch Deployment"
+  identifier = "desktop/zero_touch_deployment"
+  parent = "desktop"
+  weight = 40
+
+    [[desktop]]
+    title = "macOS"
+    identifier = "desktop/zero_touch_deployment/macOS"
+    parent = "desktop/zero_touch_deployment"
+    weight = 10
+
+    [[desktop]]
+    title = "Windows"
+    identifier = "desktop/zero_touch_deployment/windows"
+    parent = "desktop/zero_touch_deployment"
+    weight = 20
+
+  [[desktop]]
+  title = "Resources"
+  identifier = "desktop/resources"
+  parent = "desktop"
+  weight = 70
 
 ####
 # End Chef Desktop Menu
