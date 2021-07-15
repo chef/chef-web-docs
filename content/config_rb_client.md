@@ -157,7 +157,7 @@ This configuration file has the following settings:
 : The maximum size (in bytes) of a diff file Chef Infra Client can create. Default value: `1000000`.
 
 `disable_event_logger`
-: Enable or disable sending events to the Microsoft Windows "Application" event log. Set to `false` to send events to the Microsoft Windows "Application" event log at the start and end of a Chef Infra Client run, and also if a Chef Infra Client run fails. Set to `true` to disable event logging. Default value: `false`.
+: Enable or disable sending Chef Infra Client internal state events to the Microsoft Windows "Application" event log. Set to `false` to send events to the Microsoft Windows "Application" event log at the start and end of a Chef Infra Client run, and also if a Chef Infra Client run fails. This setting works in combination with `log_location` below. See `log_location` if you need to change the ultimate destination of your Chef Infra Client logs to the Windows Eventlog.  Set to `true` to disable event logging. Default value: `false`.
 
 `enable_reporting`
 : Cause Chef Infra Client to send run data to the Automate server.
