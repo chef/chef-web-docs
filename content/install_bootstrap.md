@@ -27,7 +27,6 @@ This will help you control how and when the `chef-client` command will run and
 maintain your current configuration. Use the `-r` or `--run-list` option with the
 [`knife bootstrap`](/workstation/knife_bootstrap/) subcommand to set a run-list on a node, for example `-r recipe[myrecipe::cron]`.
 
-
 ### Windows
 
 By default, Windows systems will run the chef-client cookbook as a

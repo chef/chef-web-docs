@@ -15,8 +15,6 @@ resource in the updated resource count at the end of a Chef run. You can
 disable this behavior by adding `count_log_resource_updates false` to
 your Chef `client.rb` configuration file.
 
-
-
 </div>
 
 </div>

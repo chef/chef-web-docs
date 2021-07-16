@@ -6,7 +6,6 @@ gh_repo = "chef-web-docs"
 
 aliases = ["/azure_powershell.html"]
 
-
 [menu]
   [menu.infra]
     title = "Microsoft Azure PowerShell"

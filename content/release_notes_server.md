@@ -1375,8 +1375,6 @@ with its location information and dependencies:
 }
 ```
 
-
-
 ## What's New in 12.4
 
 The following items are new for Chef server 12.4:

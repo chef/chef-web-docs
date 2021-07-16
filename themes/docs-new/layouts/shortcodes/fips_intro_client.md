@@ -18,8 +18,6 @@ Chef uses MD5 hashes to uniquely identify files that are stored on the
 Chef Infra Server. MD5 is used only to generate a unique hash identifier
 and is not used for any cryptographic purpose.
 
-
-
 </div>
 
 </div>

@@ -9,8 +9,6 @@ Use the `registry_get_values` method to get the registry key values
 
 {{ readFile "themes/docs-new/layouts/shortcodes/notes_registry_key_not_if_only_if.md" | markdownify }}
 
-
-
 </div>
 
 </div>

@@ -32,8 +32,6 @@ This approach may be used to update
 be used to update any other attribute type, as all attributes updated
 using this option are treated as `normal` attributes.
 
-
-
 </div>
 
 </div>

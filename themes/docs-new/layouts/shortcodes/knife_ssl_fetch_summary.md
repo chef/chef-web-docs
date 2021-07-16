@@ -20,8 +20,6 @@ is forged, malicious, or otherwise harmful. Therefore it is essential
 that users take the proper steps before downloading certificates into
 this directory.
 
-
-
 </div>
 
 </div>

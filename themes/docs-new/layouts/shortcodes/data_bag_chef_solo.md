@@ -19,8 +19,6 @@ member "edelight" and available from GitHub) to add data bag search
 capabilities to a chef-solo environment:
 <https://github.com/edelight/chef-solo-search>.
 
-
-
 </div>
 
 </div>

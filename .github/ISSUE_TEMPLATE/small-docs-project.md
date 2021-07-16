@@ -15,7 +15,6 @@ Product owner:
 Team:
 Date update needs to be published:
 
-
 ## Product
 ## Product
 - [ ] Chef Automate

@@ -23,8 +23,6 @@ attacks." To configure SSL for Chef Infra Client, set `ssl_verify_mode`
 to `:verify_peer` (recommended) **or** `verify_api_cert` to `true` in
 the client.rb file.
 
-
-
 </div>
 
 </div>
