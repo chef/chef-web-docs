@@ -1,27 +1,22 @@
-// Get the modal
+// Get the modal IDs from layouts/partials/image_modal.html
 var modal = document.getElementById("image_modal");
+var modalImg = document.getElementById("image_modal_content_image");
+var captionText = document.getElementById("image_modal_content_caption");
 
-// Get the image and insert it inside the modal - use its "alt" text as a caption
-//var img = document.getElementsByTagName("IMG");
+// Run imageModal function on any image that is clicked
 var images = document.getElementsByTagName("IMG");
 for (var i = 0; i < images.length; i++) {
   images[i].addEventListener("click", imageModal);
 }
 
+// Get the image and insert it inside the modal - use its "alt" text as a caption
 function imageModal(){
-  var modal = document.getElementById("image_modal");
-  var modalImg = document.getElementById("image_modal_content_image");
-  var captionText = document.getElementById("image_modal_content_caption");
-  console.log('Display image')
   modal.style.display = "block";
   modalImg.src = this.src;
   captionText.innerHTML = this.alt;
 }
 
-// Get the <closeModal> element that closes the modal
-var closeModal = document.getElementById("image_modal_close");
-
-// When the user clicks on <closeModal> (x), close the modal
+// When the user clicks on image_modal_close (x), close the modal
 function closeImageModal() {
   modal.style.display = "none";
 }
