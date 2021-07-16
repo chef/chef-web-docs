@@ -45,10 +45,10 @@ end
 
 where
 
--   the search will use both of the **execute** resources, unless the
+- the search will use both of the **execute** resources, unless the
     condition specified by the `not_if` commands are met
--   the `environments` property in the first **execute** resource is
+- the `environments` property in the first **execute** resource is
     being used to define values that appear as variables in the OpenVPN
     configuration
--   the **template** resource tells Chef Infra Client which template to
+- the **template** resource tells Chef Infra Client which template to
     use

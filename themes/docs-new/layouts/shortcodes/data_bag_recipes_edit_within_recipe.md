@@ -4,12 +4,12 @@ bag or a data bag item is to use knife and the `knife data bag`
 subcommand. If this action must be done from a recipe, please note the
 following:
 
--   If two operations concurrently attempt to update the contents of a
+- If two operations concurrently attempt to update the contents of a
     data bag, the last-written attempt will be the operation to update
     the contents of the data bag. This situation can lead to data loss,
     so organizations should take steps to ensure that only one Chef
     Infra Client is making updates to a data bag at a time.
--   Altering data bags from the node when using the open source Chef
+- Altering data bags from the node when using the open source Chef
     Infra Server requires the node's API client to be granted admin
     privileges. In most cases, this is not advisable.
 

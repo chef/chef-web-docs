@@ -202,9 +202,9 @@ Version 0.0.0 of cookbook redis is frozen. Use --force to override
 There are two strategies to consider when using version control as part
 of the cookbook management process:
 
--   Use maximum version control when it is important to keep every bit
+- Use maximum version control when it is important to keep every bit
     of data within version control
--   Use branch tracking when cookbooks are being managed in separate
+- Use branch tracking when cookbooks are being managed in separate
     environments using git branches and the versioning policy
     information is already stored in a cookbook's metadata.
 

@@ -2,11 +2,11 @@ The following example shows how to use the **execute**, **service**, and
 **mount** resources together to ensure that a node running on Amazon EC2
 is running MySQL. This example does the following:
 
--   Checks to see if the Amazon EC2 node has MySQL
--   If the node has MySQL, stops MySQL
--   Installs MySQL
--   Mounts the node
--   Restarts MySQL
+- Checks to see if the Amazon EC2 node has MySQL
+- If the node has MySQL, stops MySQL
+- Installs MySQL
+- Mounts the node
+- Restarts MySQL
 
 <!-- -->
 
@@ -49,7 +49,7 @@ end
 
 where
 
--   the two **service** resources are used to stop, and then restart the
+- the two **service** resources are used to stop, and then restart the
     MySQL service
--   the **execute** resource is used to install MySQL
--   the **mount** resource is used to mount the node and enable MySQL
+- the **execute** resource is used to install MySQL
+- the **mount** resource is used to mount the node and enable MySQL

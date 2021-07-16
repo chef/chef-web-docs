@@ -13,12 +13,12 @@ end
 
 where
 
--   `Chef.event_handler` declares a block of code within a recipe that
+- `Chef.event_handler` declares a block of code within a recipe that
     is processed when the named event occurs during a Chef Infra Client
     run
--   `on` defines the block of code that will tell Chef Infra Client how
+- `on` defines the block of code that will tell Chef Infra Client how
     to handle the event
--   `:event_type` is a valid exception event type, such as `:run_start`,
+- `:event_type` is a valid exception event type, such as `:run_start`,
     `:run_failed`, `:converge_failed`, `:resource_failed`, or
     `:recipe_not_found`
 

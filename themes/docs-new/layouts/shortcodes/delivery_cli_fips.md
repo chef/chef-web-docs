@@ -2,7 +2,7 @@
 
 ### Prerequisites
 
--   Supported Systems - CentOS or Red Hat Enterprise Linux 6 or later
+- Supported Systems - CentOS or Red Hat Enterprise Linux 6 or later
 
 ### Configuration
 
@@ -52,7 +52,7 @@ generate the file.
 
 ### Prerequisites
 
--   Supported Systems - Windows, CentOS and Red Hat Enterprise Linux
+- Supported Systems - Windows, CentOS and Red Hat Enterprise Linux
 
 Now that FIPS mode is enabled in your `.delivery/cli.toml`, running any
 project-specific Delivery CLI command will automatically use

@@ -29,16 +29,16 @@ credentials instead of having a separate username and password.
 
 The following attributes **MUST** be in the user LDAP record:
 
--   `mail:`
--   `sAMAccountName:` or `uid:`
+- `mail:`
+- `sAMAccountName:` or `uid:`
 
 The following attributes **SHOULD** be in the user LDAP record:
 
--   `displayname:`
--   `givenname:`
--   `sn:`
--   `c:`
--   `l:`
+- `displayname:`
+- `givenname:`
+- `sn:`
+- `c:`
+- `l:`
 
 {{< /warning >}}
 

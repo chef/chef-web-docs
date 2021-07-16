@@ -1,15 +1,15 @@
 **Frontend Requirements**
 
--   4 cores (physical or virtual)
--   4GB RAM
--   20 GB of free disk space (SSD if on premises, Premium Storage in
+- 4 cores (physical or virtual)
+- 4GB RAM
+- 20 GB of free disk space (SSD if on premises, Premium Storage in
     Microsoft Azure, EBS-Optimized GP2 in AWS)
 
 **Backend Requirements**
 
--   2 cores (physical or virtual)
--   8GB RAM
--   50 GB/backend server (SSD if on premises, Premium Storage in
+- 2 cores (physical or virtual)
+- 8GB RAM
+- 50 GB/backend server (SSD if on premises, Premium Storage in
     Microsoft Azure, EBS-Optimized GP2 in AWS)
 
 <div class="admonition-warning">
