@@ -163,13 +163,13 @@ Properties that can be accessed from the `google_sql_database_instance` resource
     : The password for the replication connection.
 
     `ssl_cipher`
-    : A list of permissible ciphers to use for TLS/SSL encryption.
+    : A list of permissible ciphers to use for SSL encryption.
 
     `username`
     : The username for the replication connection.
 
     `verify_server_certificate`
-    : Whether or not to check the master's Common Name value in the certificate that it sends during the TLS/SSL handshake.
+    : Whether or not to check the master's Common Name value in the certificate that it sends during the SSL handshake.
 
   `replica_names`
   : The replicas of the instance.

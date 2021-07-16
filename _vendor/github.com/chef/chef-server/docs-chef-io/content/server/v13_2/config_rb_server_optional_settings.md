@@ -609,7 +609,7 @@ This configuration file has the following settings for `nginx`:
 
 :   Allow port 80 redirects to port 443. When this value is set to
     `true`, load balancers on the front-end hardware are allowed to do
-    TLS/SSL termination of the WebUI and API. Default value: `false`.
+    SSL termination of the WebUI and API. Default value: `false`.
 
 `nginx['enable_stub_status']`
 
@@ -680,7 +680,7 @@ This configuration file has the following settings for `nginx`:
 
 :   The port on which the WebUI and API are bound for non-SSL
     connections. Default value: `80`. Use `nginx['enable_non_ssl']` to
-    enable or disable TLS/SSL redirects on this port number. Set to `false`
+    enable or disable SSL redirects on this port number. Set to `false`
     to disable non-SSL connections.
 
 `nginx['sendfile']`
@@ -694,12 +694,12 @@ This configuration file has the following settings for `nginx`:
 
 `nginx['ssl_certificate']`
 
-:   The TLS/SSL certificate used to verify communication over HTTPS. Default
+:   The SSL certificate used to verify communication over HTTPS. Default
     value: `nil`.
 
 `nginx['ssl_certificate_key']`
 
-:   The certificate key used for TLS/SSL communication. Default value:
+:   The certificate key used for SSL communication. Default value:
     `nil`.
 
 `nginx['ssl_ciphers']`
@@ -742,8 +742,8 @@ This configuration file has the following settings for `nginx`:
 
 `nginx['ssl_protocols']`
 
-:   The TLS/SSL protocol versions that are enabled. For enhanced security set
-    this value to `'TLSv1.2'`. TLS 1.2 is supported on Chef Infra Client 10.16.4
+:   The SSL protocol versions that are enabled. For enhanced security set
+    this value to `'TLSv1.2'`. TLS 1.2 is supported on Chef Infra Client 10.16.4 
     and later on Linux, Unix, and macOS, and on Chef Infra Client 12.8 and later on
     Windows. If it is necessary to support these older end-of-life
     Chef Infra Client releases, set this value to `'TLSv1.1 TLSv1.2'`.
@@ -1780,7 +1780,7 @@ This configuration file has the following settings for `postgresql`:
 
 `postgresql['sslmode']`
 
-:   TLS/SSL encryption mode between the Chef Infra Server and PostgreSQL.
+:   SSL encryption mode between the Chef Infra Server and PostgreSQL.
     Valid settings are `'disable'` and `'require'`. Default value:
     `'disable'`.
 
@@ -2011,7 +2011,7 @@ This configuration file has the following settings for `rabbitmq`:
 
 `rabbitmq['ssl_versions']`
 
-:   The TLS/SSL versions used by the rabbitmq-management plugin. (See
+:   The SSL versions used by the rabbitmq-management plugin. (See
     [RabbitMQ TLS support](https://www.rabbitmq.com/ssl.html) for more
     information.) Default value: `['tlsv1.2', 'tlsv1.1']`.
 

@@ -203,7 +203,7 @@ ssl_verify = false
 #### ssl
 
 Description
-: Enable TLS/SSL for WinRM session encryption
+: Enable SSL for WinRM session encryption
 
 Values
 : `true`, `false`

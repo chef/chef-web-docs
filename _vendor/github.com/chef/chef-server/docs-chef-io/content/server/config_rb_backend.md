@@ -433,20 +433,20 @@ you are advised to do so by Support.
 `leaderl.etcd_pool.max_count`
 : Default value: `10`.
 
-### TLS/SSL Settings
+### SSL Settings
 
-If `certificate` and `certificate_key` are nil, the TLS/SSL Certificate will
+If `certificate` and `certificate_key` are nil, the SSL Certificate will
 be auto-generated using the other parameters provided. Otherwise, they
 are on-disk locations to user-provided certificate.
 
 `ssl.certificate`
-: Provide this path if you have a pre-generated TLS/SSL cert.
+: Provide this path if you have a pre-generated SSL cert.
 
 `ssl.certificate_key`
-: Provide this path if you have a pre-generated TLS/SSL cert.
+: Provide this path if you have a pre-generated SSL cert.
 
 `ssl.ciphers`
-: Ordered list of allowed TLS/SSL ciphers. This will be
+: Ordered list of allowed SSL ciphers. This will be
   updated based on security considerations and the version of OpenSSL
   being shipped.
 

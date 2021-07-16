@@ -151,11 +151,11 @@ This argument has the following options:
 
 `--cert-passphrase PASSWORD`
 
-: TLS/SSL Certificate Password.
+: SSL Certificate Password.
 
 `--cert-path PATH`
 
-: TLS/SSL Certificate Path.
+: SSL Certificate Path.
 
 `--chef-daemon-interval INTERVAL`
 
@@ -239,11 +239,11 @@ This argument has the following options:
 
 `--node-ssl-verify-mode [peer|none]`
 
-: Whether or not to verify the TLS/SSL cert for all HTTPS requests.
+: Whether or not to verify the SSL cert for all HTTPS requests.
 
 `--[no-]node-verify-api-cert`
 
-: Verify the TLS/SSL cert for HTTPS requests to the Chef Infra Server API.
+: Verify the SSL cert for HTTPS requests to the Chef Infra Server API.
 
 `--ohai-hints HINT_OPTIONS`
 

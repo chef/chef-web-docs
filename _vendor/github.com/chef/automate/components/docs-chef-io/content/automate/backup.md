@@ -92,8 +92,8 @@ To store backups in an existing AWS S3 bucket, use the supported S3-related sett
   session_key = "<session_key>"
 
 [global.v1.backups.s3.ssl]
-  # root_cert (optional): The root certificate used for TLS/SSL validation.
-  # For S3 compatible APIs, you can set the TLS/SSL root cert if needed
+  # root_cert (optional): The root certificate used for SSL validation.
+  # For S3 compatible APIs, you can set the SSL root cert if needed
   root_cert = """
   -----BEGIN CERTIFICATE-----
   ...

@@ -41,7 +41,7 @@ particular setting.
 
 {{% server_tuning_general %}}
 
-### TLS/SSL Protocols
+### SSL Protocols
 
 {{% server_tuning_nginx %}}
 

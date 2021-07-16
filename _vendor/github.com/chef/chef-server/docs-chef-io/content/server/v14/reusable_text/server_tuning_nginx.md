@@ -1,15 +1,15 @@
 The following settings are often modified from the default as part of
 the tuning effort for the **nginx** service and to configure the Chef
-Infra Server to use TLS/SSL certificates:
+Infra Server to use SSL certificates:
 
 `nginx['ssl_certificate']`
 
-:   The TLS/SSL certificate used to verify communication over HTTPS. Default
+:   The SSL certificate used to verify communication over HTTPS. Default
     value: `nil`.
 
 `nginx['ssl_certificate_key']`
 
-:   The certificate key used for TLS/SSL communication. Default value:
+:   The certificate key used for SSL communication. Default value:
     `nil`.
 
 `nginx['ssl_ciphers']`
@@ -27,10 +27,10 @@ Infra Server to use TLS/SSL certificates:
 
 `nginx['ssl_protocols']`
 
-:   The TLS/SSL protocol versions that are enabled for the Chef Infra Server API.
+:   The SSL protocol versions that are enabled for the Chef Infra Server API.
     Starting with Chef Infra Server 14.3, this value defaults to `'TLSv1.2'` for
     enhanced security. Previous releases defaulted to `'TLSv1 TLSv1.1 TLSv1.2'`,
-    which allowed for less secure TLS/SSL connections. TLS 1.2 is supported on
+    which allowed for less secure SSL connections. TLS 1.2 is supported on
     Chef Infra Client 10.16.4 and later on Linux, Unix, and macOS, and on Chef
     Infra Client 12.8 and later on Windows. If it is necessary to support these
     older end-of-life Chef Infra Client releases, set this value to `'TLSv1.1 TLSv1.2'`.
@@ -53,7 +53,7 @@ information about the values used with the `nginx['ssl_ciphers']` and
 
 </div>
 
-For example, after copying the TLS/SSL certificate files to the Chef Infra
+For example, after copying the SSL certificate files to the Chef Infra
 Server, update the `nginx['ssl_certificate']` and
 `nginx['ssl_certificate_key']` settings to specify the paths to those
 files, and then (optionally) update the `nginx['ssl_ciphers']` and

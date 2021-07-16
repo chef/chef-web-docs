@@ -118,13 +118,13 @@ A site may have multiple bindings; use a `have_binding` matcher for each unique 
 
 ##### Binding Attributes
 
-The `have_binding` matcher can also test attributes that are defined for a site binding. For example, the `sslFlags` attribute defines if TLS/SSL is enabled, and (when enabled) what level of TLS/SSL is applied to the site.
+The `have_binding` matcher can also test attributes that are defined for a site binding. For example, the `sslFlags` attribute defines if SSL is enabled, and (when enabled) what level of SSL is applied to the site.
 
-Testing a site with TLS/SSL disabled:
+Testing a site with SSL disabled:
 
     it { should have_binding('https :443:www.contoso.com sslFlags=0') }
 
-Testing a site with TLS/SSL enabled:
+Testing a site with SSL enabled:
 
     it { should have_binding('https :443:www.contoso.com sslFlags=Ssl') }
 
@@ -132,7 +132,7 @@ Testing a site with certificate mapping authentication enabled:
 
     it { should have_binding('https :443:www.contoso.com sslFlags=SslMapCert') }
 
-Testing a site with 128-bit TLS/SSL enabled:
+Testing a site with 128-bit SSL enabled:
 
     it { should have_binding('https :443:www.contoso.com sslFlags=Ssl128') }
 

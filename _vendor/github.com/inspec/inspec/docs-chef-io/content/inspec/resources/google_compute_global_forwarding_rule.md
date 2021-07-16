@@ -85,7 +85,7 @@ Properties that can be accessed from the `google_compute_global_forwarding_rule`
 : (Beta only) The fingerprint used for optimistic locking of this resource. Used internally during updates.
 
 `load_balancing_scheme`
-: This signifies what the GlobalForwardingRule will be used for. The value of INTERNAL_SELF_MANAGED means that this will be used for Internal Global HTTP(S) LB. The value of EXTERNAL means that this will be used for External Global Load Balancing (HTTP(S) LB, External TCP/UDP LB, TLS/SSL Proxy) NOTE: Currently global forwarding rules cannot be used for INTERNAL load balancing.
+: This signifies what the GlobalForwardingRule will be used for. The value of INTERNAL_SELF_MANAGED means that this will be used for Internal Global HTTP(S) LB. The value of EXTERNAL means that this will be used for External Global Load Balancing (HTTP(S) LB, External TCP/UDP LB, SSL Proxy) NOTE: Currently global forwarding rules cannot be used for INTERNAL load balancing.
 
   Possible values:
 

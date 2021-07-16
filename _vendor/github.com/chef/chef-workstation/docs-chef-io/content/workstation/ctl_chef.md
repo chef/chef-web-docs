@@ -55,7 +55,7 @@ chef capture NODE-NAME [options]
 
 `-o`, `--ssl-no-verify`
 
-: Do not verify TLS/SSL when connecting to Chef Infra Server (default: verify).
+: Do not verify SSL when connecting to Chef Infra Server (default: verify).
 
 `-p`, `--profile`
 
@@ -782,7 +782,7 @@ This subcommand has the following options:
 
 `-o`, `--ssl-no-verify`
 
-: Do not verify TLS/SSL when connecting to Chef Infra Server (default: verify).
+: Do not verify SSL when connecting to Chef Infra Server (default: verify).
 
 `-p`, `--profile`
 
@@ -887,7 +887,7 @@ This subcommand has the following options:
 
 `-o`, `--ssl-no-verify`
 
-: Do not verify TLS/SSL when connecting to Chef Infra Server (default: verify).
+: Do not verify SSL when connecting to Chef Infra Server (default: verify).
 
 `-p`, `--profile`
 

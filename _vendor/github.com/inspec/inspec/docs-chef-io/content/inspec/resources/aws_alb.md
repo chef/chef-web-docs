@@ -51,7 +51,7 @@ See also the [AWS documentation on Elastic Load Balancing](https://docs.aws.amaz
 | vpc_id                   | The ID of the VPC for the load balancer.                                           |
 | zone_names               | A collection of the names of the availability zones.                               |
 | listeners                | A collection of the listeners for the load balancer.                               |
-| ssl_policies             | A list of the TLS/SSL Policies configured for the listeners of the load balancer.      |
+| ssl_policies             | A list of the SSL Policies configured for the listeners of the load balancer.      |
 | external_ports           | A list of the ports configured for the listeners of the load balancer.             |
 | protocols                | A list of the protocols configured for the listeners of the load balancer.         |
 

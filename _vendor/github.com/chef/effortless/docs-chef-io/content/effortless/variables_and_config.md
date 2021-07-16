@@ -54,7 +54,7 @@ env_path_prefix
 : String that will be the Environment Path variable for the chef-client run. Linux Default is `/sbin:/usr/sbin:/usr/local/sbin:/usr/local/bin:/usr/bin:/bin`. Windows Default is `;C:/WINDOWS;C:/WINDOWS/system32/;C:/WINDOWS/system32/WindowsPowerShell/v1.0;C:/ProgramData/chocolatey/bin`
 
 ssl_verify_mode
-: TLS/SSL Verification mode for the Chef Infra Client. Default is `:verify_peer`
+: SSL Verification mode for the Chef Infra Client. Default is `:verify_peer`
 
 verify_api_cert
 : Boolean option to determine if the API certification should be verified. Default is `false`
