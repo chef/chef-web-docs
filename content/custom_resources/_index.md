@@ -41,11 +41,11 @@ The layout for a custom resource is:
 property :property_name, RubyType, default: 'value'
 
 action :action_a do
- # a mix of built-in Chef resources and Ruby
+ # a mix of built-in Chef Infra resources and Ruby
 end
 
 action :action_b do
- # a mix of built-in Chef resources and Ruby
+ # a mix of built-in Chef Infra resources and Ruby
 end
 ```
 
@@ -53,7 +53,7 @@ The first action listed is the default action.
 
 ### Example Resource
 
-This example `site` utilizes Chef's built-in `file`, `service` and
+This example `site` utilizes Chef Infra's built-in `file`, `service` and
 `package` resources, and includes `:create` and `:delete` actions. Since
 it uses built-in Chef Infra Client resources, besides defining the
 property and actions, the code is very similar to that of a recipe.
@@ -246,6 +246,12 @@ package 'httpd' # Ommiting the action uses the default action and properties on 
 
 ```
 
+where
+
+- `source` gets the `httpd.service.erb` template from this cookbook
+- `variables` assigns the `instance_name` property to a variable in
+    the template
+
 #### template, httpd.conf
 
 Use the **template** resource to configure httpd on the node based on
@@ -300,6 +306,81 @@ service "httpd-#{new_resource.instance_name}" do
   action [:enable, :start]
 end
 ```
+
+### Create Templates
+
+The `/templates` directory must contain two templates:
+
+- `httpd.conf.erb` to configure Apache httpd
+- `httpd.service.erb` to tell systemd how to start and stop the
+    website
+
+#### httpd.conf.erb
+
+`httpd.conf.erb` stores information about the website and is typically
+located under the `/etc/httpd`:
+
+```ruby
+ServerRoot "/etc/httpd"
+Listen <%= @port %>
+Include conf.modules.d/*.conf
+User apache
+Group apache
+<Directory />
+  AllowOverride none
+  Require all denied
+</Directory>
+DocumentRoot "/var/www/vhosts/<%= @instance_name %>"
+<IfModule mime_module>
+  TypesConfig /etc/mime.types
+</IfModule>
+```
+
+Copy it as shown, add it under `/templates`, and then name the file
+`httpd.conf.erb`.
+
+**Template Variables**
+
+The `httpd.conf.erb` template has two variables:
+
+- `<%= @instance_name %>`
+- `<%= @port %>`
+
+They are:
+
+- Declared as properties of the custom resource
+- Defined as variables in a **template** resource block within the
+    custom resource
+- Tunable from a recipe when using `port` and `instance_name` as
+    properties in that recipe
+- `instance_name` defaults to the `'name'` of the custom resource if
+    not specified as a property
+
+#### httpd.service.erb
+
+`httpd.service.erb` tells systemd how to start and stop the website:
+
+```none
+[Unit]
+Description=The Apache HTTP Server - instance <%= @instance_name %>
+After=network.target remote-fs.target nss-lookup.target
+
+[Service]
+Type=notify
+
+ExecStart=/usr/sbin/httpd -f /etc/httpd/conf/httpd-<%= @instance_name %>.conf -DFOREGROUND
+ExecReload=/usr/sbin/httpd -f /etc/httpd/conf/httpd-<%= @instance_name %>.conf -k graceful
+ExecStop=/bin/kill -WINCH ${MAINPID}
+
+KillSignal=SIGCONT
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target
+```
+
+Copy it as shown, add it under `/templates`, and then name it
+`httpd.service.erb`.
 
 ### Final Resource
 

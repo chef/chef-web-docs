@@ -12,7 +12,7 @@ gh_repo = "chef-web-docs"
 
 This is an advanced topic. You should have already written a Custom Resource and be familiar with:
 
-- the Chef template resource
+- the built-in Chef Infra `template` resource
 - resource `[run_context](dsl/run_context.md)`
 
 ## Overview
@@ -23,7 +23,7 @@ In the context of Custom Resources, this means we collect a set of properties fr
 
 If the software you are automating has a single configuration file, but you wish to split out each configuration section into its own resource this can be done with the accumulator pattern.
 
-For example, Samba uses a single file for configuration. You may wish to share multiple directories within the same configuration file. This is not be possible without multiple `samba_share` resources.
+For example, Samba uses a single file for configuration. You may wish to share multiple directories within the same configuration file. This is not possible without multiple `samba_share` resources.
 
 ```ruby
 samba_share 'first_share' do
@@ -53,7 +53,7 @@ To setup the accumulator pattern we need to:
 
 - delcare a resource
 - edit the resource
-- put both resources in the :root run_context
+- put both resources in the :root `run_context`
 - delay the actions on the resources
 
 In the example below we:

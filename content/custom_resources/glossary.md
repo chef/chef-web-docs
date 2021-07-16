@@ -23,7 +23,7 @@ For further information about how to write custom resources please see [about cu
 
 ### Example
 
-You have a template that requires `'yes'` or `'no'` written as a String, but you would like the user to use `true` or `false` for convenience. To allow both the `:add` and `:remove` actions to have access to this method, place the method in the `action_class` block.
+You have a template that requires `'yes'` or `'no'` written as a `String`, but you would like the user to use `true` or `false` for convenience. To allow both the `:add` and `:remove` actions to have access to this method, place the method in the `action_class` block.
 
 ```ruby
 property :example, [true, false], default: true
@@ -95,7 +95,6 @@ load_current_value do |new_resource|
 end
 
 action :create do
-
   # If the value of content has changed
   # write file
   converge_if_changed :content do
@@ -305,7 +304,7 @@ where:
 - `user new_resource.user`
 - `sensitive new_resource.sensitive`
 
-correctly use the properties of the **execute** resource and not the identically-named override properties of the custom resource.
+Correctly use the properties of the **execute** resource and not the identically-named override properties of the custom resource.
 
 ## property
 
@@ -362,10 +361,10 @@ property :gggg, [Array, Hash]
 
 ## sensitive
 
-
 A property can be marked sensitive by specifying `sensitive: true` on
 the property. This prevents the contents of the property from being
-exported to data collection and sent to an Automate server.
+exported to data collection and sent to an Automate server or shown in the
+logs of the Chef Infra Client run.
 
 ## validators
 
@@ -410,7 +409,9 @@ root_context
 
 ## property_is_set?
 
-Use the `property_is_set?` method to check if the value for a property is set. The syntax is:
+Use the `property_is_set?` method to check if the value for a property has been passed into the resource.
+
+The syntax is:
 
 ```ruby
 property_is_set?(:property_name)
@@ -442,8 +443,6 @@ end
 ## provides
 
 ### Introduced
-
-Chef Infra Client <!-- TODO:  -->
 
 Use the `provides` method to associate multiple custom resource files with the same resources name
 For example:
