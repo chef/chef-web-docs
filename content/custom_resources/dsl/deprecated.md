@@ -1,15 +1,14 @@
-
 ## Deprecating entire resources
 
-Chef Infra Client 14+ provides new primitives that allow you to deprecate resources or properties with the same
-functionality used for deprecations in Chef Infra Client resources. This allows you make breaking changes
-to enterprise or community cookbooks with friendly notifications to downstream cookbook consumers
-directly in the Chef Infra Client run.
+Introduced in: Chef Infra Client 14.x <!-- TODO: >
 
-Deprecate the foo_bar resource in a cookbook
+Deprecate resources that you no longer wish to maintain.
+This allows you make breaking changes to enterprise or community cookbooks with friendly notifications to downstream cookbook consumers directly in the Chef Infra Client run.
+
+Deprecate the `foo_bar` resource in a cookbook
 
 ```ruby
-deprecated 'The foo_bar resource has been deprecated and will be removed in the next major release of this cookbook scheduled for 12/25/2021!'
+deprecated 'The foo_bar resource has been deprecated and will be removed in the next major release of this cookbook scheduled for 25/01/2021!'
 
 property :thing, String, name_property: true
 

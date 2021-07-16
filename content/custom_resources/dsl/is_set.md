@@ -1,5 +1,4 @@
-Use the `property_is_set?` method to check if the value for a property
-is set. The syntax is:
+Use the `property_is_set?` method to check if the value for a property is set. The syntax is:
 
 ```ruby
 property_is_set?(:property_name)

@@ -1,3 +1,6 @@
+
+TODO: this sentence doesn't make any sense yet
+
 Add `identity:` to set a resource to a particular set of properties.
 This value may be `true` or `false`.
 

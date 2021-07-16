@@ -1,3 +1,7 @@
+<!--
+The read needs to know why they should use converge_if_changed
+ -->
+
 Use the `converge_if_changed` method inside an `action` block in a
 custom resource to compare the desired property values against the
 current property values (as loaded by the `load_current_value` method).

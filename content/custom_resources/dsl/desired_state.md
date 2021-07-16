@@ -1,10 +1,13 @@
 Add `desired_state:` to set the desired state property for a resource.
-This value may be `true` or `false`, and all properties default to true.
+
+| Allowed values | Default |
+| -------------- | ------- |
+| `true` `false` | `true`  |
 
 - When `true`, the state of the property is determined by the state of
-    the system
+  the system
 - When `false`, the value of the property impacts how the resource
-    executes, but it is not determined by the state of the system.
+  executes, but it is not determined by the state of the system.
 
 For example, if you were to write a resource to create volumes on a
 cloud provider you would need define properties such as `volume_name`,

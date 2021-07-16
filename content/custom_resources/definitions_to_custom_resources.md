@@ -1,10 +1,7 @@
 +++
 title = "Converting Definitions to Custom Resources"
 draft = false
-
 gh_repo = "chef-web-docs"
-
-aliases = ["/definitions.html"]
 
 [menu]
   [menu.infra]
@@ -14,7 +11,13 @@ aliases = ["/definitions.html"]
     weight = 20
 +++
 
-This topic covers migrating existing definitions to custom resources. Custom resources are integral to the modern Chef Infra workflow. While definitions are not yet deprecated, we *strongly* advise migrating to custom resources immediately. You'll benefit from the many features of Chef Infra such as notifications, reporting, why-run mode, and ChefSpec unit testing.
+## Migrating from Definitions to Custom Resources
+
+It is no longer recommended to write resources in the Definitions format.
+
+This guide describes how to migrate from an existing Definition to a Custom Resource.
+
+If you are creating a Custom Resource from scratch please see the [Custom Resource Getting Started Guide](getting-started.md) instead.
 
 ## Definitions
 
@@ -38,8 +41,10 @@ Definitions:
 A definition had four components:
 
 - A resource name
-- Zero or more arguments that define parameters their default values; if a default value was not specified, it was assumed to be `nil`
-- A hash that could have been used within a definition's body to provide access to parameters and their values
+- Zero or more arguments that define parameters their default values;
+  if a default value was not specified, it was assumed to be `nil`
+- A hash that could have been used within a definition's body to
+  provide access to parameters and their values
 - The body of the definition
 
 The basic syntax of a definition was:

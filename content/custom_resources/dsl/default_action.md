@@ -22,7 +22,8 @@ action. For example:
 ```ruby
 property :property_name, RubyType, default: 'value'
 
-default_action :aaaaa
+# Define bbbbb aas the default action
+default_action :bbbbb
 
 action :aaaaa do
  # the first action listed in the custom resource
@@ -32,9 +33,3 @@ action :bbbbb do
  # the second action listed in the custom resource
 end
 ```
-
-defines action `aaaaa` as the default action. If `default_action :bbbbb`
-is specified, then action `bbbbb` is the default action. Use this method
-for clarity in custom resources, if deliberately stating the default
-resource is desired, or to specify a default action that is not listed
-first in the custom resource.

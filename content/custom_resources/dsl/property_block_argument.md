@@ -1,11 +1,9 @@
-Any properties that are marked `identity: true`, `desired_state: false`,
-or `name_property: true` will be directly available from
-`load_current_value`. If access to other properties of a resource is
-needed, use a block argument with load_current_value. The block
-argument will have the values of the requested resource. For example:
+Any properties that are marked `identity: true`, `desired_state: false`, or `name_property: true` will be directly available from `load_current_value`.
+
+If access to other properties of a resource is needed, use a block argument with load_current_value. The block argument will have the values of the requested resource. For example:
 
 ```ruby
-// Property is directly available example
+# Example: Property is directly available
 property :action, String, name_property: true
 property :content, String
 
@@ -16,7 +14,7 @@ end
 ```
 
 ```ruby
-// Block argument example
+# Example: Using a block argument to 
 property :action, String
 property :content, String
 

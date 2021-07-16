@@ -9,9 +9,9 @@ where
 
 - `:property_name` is the name of the property
 - `ruby_type` is the optional Ruby type or array of types, such as
-    `String`, `Integer`, `true`, or `false`
+  `String`, `Integer`, `true`, or `false`
 - `default: 'value'` is the optional default value loaded into the
-    resource
+  resource
 - `parameter: 'value'` optional parameters
 
 For example, the following properties define `username` and `password`
