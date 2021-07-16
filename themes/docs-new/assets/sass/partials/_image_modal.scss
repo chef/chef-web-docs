@@ -1,4 +1,4 @@
-.image_modal {
+#image_modal {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 100; /* Sit on top */
@@ -10,69 +10,60 @@
   overflow: auto; /* Enable scroll if needed */
   background-color: rgb(0,0,0); /* Fallback color */
   background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
-}
 
-#image_modal_content {
-  background-color: $white;
-  display: block;
-  width: 90%;
-  margin: auto;
-  &_caption {
-    color: $body-font-color;
-    text-align: center;
-    font-size: 1.5rem;
-    padding: 1rem;
-  }
-  &_image {
-    margin: auto;
-    width: 85%;
-    max-height: 85%;
+  &_content {
+    background-color: $white;
     display: block;
-    padding: 2rem;
-  }
-}
+    margin: auto;
+    @include breakpoint(large) {
+      max-width: 100%;
+    }
+    @include breakpoint(xlarge) {
+      max-width: 90%;
+    }
 
-#image_modal_close {
-  position: absolute;
-  top: 15px;
-  right: 35px;
-  color: #f1f1f1;
-  font-size: 40px;
-  font-weight: bold;
-  transition: 0.3s;
-  &:hover, &:focus {
-    color: #bbb;
-    text-decoration: none;
-    cursor: pointer;
+    &_caption {
+      /* Caption of Modal Image (Image Text) - Same Width as the Image */
+      margin: auto;
+      display: block;
+      width: 80%;
+      padding: 10px 0;
+      color: $body-font-color;
+      text-align: center;
+      font-size: 1.2rem;
+      font-weight: 500;
+    }
+    &_image {
+      margin: auto;
+      max-height: 85%;
+      display: block;
+      padding: 2rem;
+    }
   }
-}
-
-/* Caption of Modal Image (Image Text) - Same Width as the Image */
-#image_modal_caption {
-  margin: auto;
-  display: block;
-  width: 80%;
-  max-width: 700px;
-  text-align: center;
-  color: #ccc;
-  padding: 10px 0;
-  height: 150px;
+  &_close {
+    // Close button styling
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    &:hover, &:focus {
+      color: $gray;
+      text-decoration: none;
+      cursor: pointer;
+    }
+  }
 }
 
 /* Add Animation - Zoom in the Modal */
-.image_modal_image, #image_modal_caption {
+#image_modal_content_image, #image_modal_caption {
   animation-name: zoom;
-  animation-duration: 0.6s;
+  animation-duration: 0.4s;
 }
 
 @keyframes zoom {
   from {transform:scale(0)}
   to {transform:scale(1)}
-}
-
-/* 100% Image Width on Smaller Screens */
-@media only screen and (max-width: 700px){
-  .modal-content {
-    width: 100%;
-  }
 }
