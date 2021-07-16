@@ -43,7 +43,7 @@ where
 - `data` may be specified for http request body
 - `open_timeout` may be specified for a timeout for opening connections (default to 60)
 - `read_timeout` may be specified for a timeout for reading connections (default to 60)
-- `ssl_verify` may be specified to enable or disable verification of SSL certificates (default to `true`)
+- `ssl_verify` may be specified to enable or disable verification of TLS/SSL certificates (default to `true`)
 - `max_redirects` may be specified to control how many HTTP Redirects to follow (defaults to `0`)
 
 ## Example
@@ -160,7 +160,7 @@ In Chef InSpec 2.0, the HTTP test will automatically execute remotely whenever C
 
 ### ssl_verify
 
-`ssl_verify` may be specified to enable or disable verification of SSL certificates (default to `true`).
+`ssl_verify` may be specified to enable or disable verification of TLS/SSL certificates (default to `true`).
 
     describe http('http://localhost:8080/ping',
                   ssl_verify: true) do

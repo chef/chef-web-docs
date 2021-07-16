@@ -16,7 +16,7 @@ Use the `x509_certificate` Chef InSpec audit resource to test the fields and val
 X.509 certificates use public/private key pairs to sign and encrypt documents
 or communications over a network. They may also be used for authentication.
 
-Examples include SSL certificates, S/MIME certificates and VPN authentication
+Examples include TLS/SSL certificates, S/MIME certificates and VPN authentication
 certificates.
 
 ## Availability

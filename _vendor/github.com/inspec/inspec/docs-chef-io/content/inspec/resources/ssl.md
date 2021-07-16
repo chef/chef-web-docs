@@ -11,7 +11,7 @@ platform = "os"
     parent = "inspec/resources/os"
 +++
 
-Use the `ssl` Chef InSpec audit resource to test SSL settings for the named port.
+Use the `ssl` Chef InSpec audit resource to test TLS/SSL settings for the named port.
 
 ## Availability
 
@@ -25,7 +25,7 @@ This resource first became available in v1.0.0 of InSpec.
 
 ## Syntax
 
-An `ssl` resource block declares an SSL port, and then other properties of the test like cipher and/or protocol:
+An `ssl` resource block declares an TLS/SSL port, and then other properties of the test like cipher and/or protocol:
 
     describe ssl(port: #) do
       it { should be_enabled }
@@ -53,7 +53,7 @@ The following shows how to use the `ssl` Chef InSpec audit resource to find all 
     ...
 
     control 'tls1.2' do
-      title 'Run TLS 1.2 whenever SSL is active on a port'
+      title 'Run TLS 1.2 whenever TLS/SSL is active on a port'
       impact 0.5
 
       sslports.each do |socket|
@@ -80,7 +80,7 @@ The following shows how to use the `ssl` Chef InSpec audit resource to find all 
       end
     end
 
-There are two ways to run the `ssl-baseline` example profile to test SSL via the `ssl` resource.
+There are two ways to run the `ssl-baseline` example profile to test TLS/SSL via the `ssl` resource.
 
 Clone the profile:
 
@@ -100,7 +100,7 @@ For a full list of available matchers, please visit our [matchers page](/inspec/
 
 ### be_enabled
 
-The `be_enabled` matcher tests if SSL is enabled:
+The `be_enabled` matcher tests if TLS/SSL is enabled:
 
     it { should be_enabled }
 

@@ -52,7 +52,7 @@ Properties that can be accessed from the `google_compute_ssl_policy` resource:
 : Name of the resource. Provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035. Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]*[a-z0-9])?` which means the first character must be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash.
 
 `profile`
-: Profile specifies the set of SSL features that can be used by the load balancer when negotiating SSL with clients. If using `CUSTOM`, the set of SSL features to enable must be specified in the `customFeatures` field.
+: Profile specifies the set of TLS/SSL features that can be used by the load balancer when negotiating TLS/SSL with clients. If using `CUSTOM`, the set of TLS/SSL features to enable must be specified in the `customFeatures` field.
 
   Possible values:
 
@@ -63,7 +63,7 @@ Properties that can be accessed from the `google_compute_ssl_policy` resource:
 
 
 `min_tls_version`
-: The minimum version of SSL protocol that can be used by the clients to establish a connection with the load balancer.
+: The minimum version of TLS/SSL protocol that can be used by the clients to establish a connection with the load balancer.
 
   Possible values:
 
@@ -72,7 +72,7 @@ Properties that can be accessed from the `google_compute_ssl_policy` resource:
   - TLS_1_2
 
 `enabled_features`
-: The list of features enabled in the SSL policy.
+: The list of features enabled in the TLS/SSL policy.
 
 `custom_features`
 : A list of features enabled when the selected profile is CUSTOM. The method returns the set of features that can be specified in this list. This field must be empty if the profile is not CUSTOM.
@@ -81,7 +81,7 @@ Properties that can be accessed from the `google_compute_ssl_policy` resource:
 : Fingerprint of this resource. A hash of the contents stored in this object. This field is used in optimistic locking.
 
 `warnings`
-: If potential misconfigurations are detected for this SSL policy, this field will be populated with warning messages.
+: If potential misconfigurations are detected for this TLS/SSL policy, this field will be populated with warning messages.
 
 `code`
 : A warning code, if applicable.

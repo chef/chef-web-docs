@@ -105,7 +105,7 @@ This subcommand has additional options:
 * ``--host=HOST``
     Specify a remote host which is tested.
 * ``--insecure``, ``--no-insecure``
-    Disable SSL verification on select targets
+    Disable TLS/SSL verification on select targets
 * ``-i``, ``--key-files=one two three``
     Login key or certificate file for a remote scan.
 * ``--password=PASSWORD``
@@ -125,7 +125,7 @@ This subcommand has additional options:
 * ``--shell-options=SHELL_OPTIONS``
     Additional shell options.
 * ``--ssl``, ``--no-ssl``
-    Use SSL for transport layer encryption (WinRM).
+    Use TLS/SSL for transport layer encryption (WinRM).
 * ``--sudo``, ``--no-sudo``
     Run scans with sudo. Only activates on Unix and non-root user.
 * ``--sudo-command=SUDO_COMMAND``
@@ -289,7 +289,7 @@ This subcommand has additional options:
 * ``--input-file=one two three``
     Load one or more input files, a YAML file with values for the profile to use
 * ``--insecure``, ``--no-insecure``
-    Disable SSL verification on select targets
+    Disable TLS/SSL verification on select targets
 * ``-i``, ``--key-files=one two three``
     Login key or certificate file for a remote scan.
 * ``--password=PASSWORD``
@@ -323,7 +323,7 @@ This subcommand has additional options:
 * ``--silence-deprecations=all|GROUP GROUP...``
     Suppress deprecation warnings. See install_dir/etc/deprecations.json for list of GROUPs or use 'all'.
 * ``--ssl``, ``--no-ssl``
-    Use SSL for transport layer encryption (WinRM).
+    Use TLS/SSL for transport layer encryption (WinRM).
 * ``--sudo``, ``--no-sudo``
     Run scans with sudo. Only activates on Unix and non-root user.
 * ``--sudo-command=SUDO_COMMAND``
@@ -451,7 +451,7 @@ This subcommand has additional options:
 * ``--host=HOST``
     Specify a remote host which is tested.
 * ``--insecure``, ``--no-insecure``
-    Disable SSL verification on select targets
+    Disable TLS/SSL verification on select targets
 * ``--inspect``, ``--no-inspect``
     Use verbose/debugging output for resources.
 * ``-i``, ``--key-files=one two three``
@@ -475,7 +475,7 @@ This subcommand has additional options:
 * ``--shell-options=SHELL_OPTIONS``
     Additional shell options.
 * ``--ssl``, ``--no-ssl``
-    Use SSL for transport layer encryption (WinRM).
+    Use TLS/SSL for transport layer encryption (WinRM).
 * ``--sudo``, ``--no-sudo``
     Run scans with sudo. Only activates on Unix and non-root user.
 * ``--sudo-command=SUDO_COMMAND``

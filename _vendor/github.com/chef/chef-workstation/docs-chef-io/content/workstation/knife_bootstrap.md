@@ -20,7 +20,7 @@ aliases = ["/knife_bootstrap.html", "/knife_bootstrap/"]
 **Considerations:**
 
 - Knife will copy the contents of the `~/.chef/client.d` directory on your local workstation to the `client.d` directory on the device being bootstrapped with the `knife bootstrap` command. You can also set the `client_d_dir` option in the `config.rb` file to point to an arbitrary directory instead of `~/.chef/client.d`, and the contents of that directory will be copied to the device being bootstrapped. All config files inside the `client.d` directory will get copied into the `/etc/chef/client.d` directory on the system being bootstrapped.
-- SSL certificates from an on-premises Chef Infra Server can be copied to the `/trusted_certs_dir` directory on your local workstation automatically by running [knife ssl fetch](/workstation/knife_ssl_fetch/). These certificates are used during `knife` operations to communicate with the Chef Infra Server.
+- TLS/SSL certificates from an on-premises Chef Infra Server can be copied to the `/trusted_certs_dir` directory on your local workstation automatically by running [knife ssl fetch](/workstation/knife_ssl_fetch/). These certificates are used during `knife` operations to communicate with the Chef Infra Server.
 - By default, `knife bootstrap` will attempt to use `ssh` to connect to the target node. Use the `-o` to specify a different protocol, such as `winrm` for windows nodes.
 
 ## Syntax
@@ -69,19 +69,19 @@ knife bootstrap FQDN_or_IP_ADDRESS (options)
 
 `--winrm-ssl-peer-fingerprint FINGERPRINT`
 
-: SSL certificate fingerprint expected from the target.
+: TLS/SSL certificate fingerprint expected from the target.
 
 `-f CA_TRUST_PATH`, `--ca-trust-file CA_TRUST_PATH`
 
-: The Certificate Authority (CA) trust file used for SSL transport
+: The Certificate Authority (CA) trust file used for TLS/SSL transport
 
 `--winrm-no-verify-cert`
 
-: Do not verify the SSL certificate of the target node for WinRM.
+: Do not verify the TLS/SSL certificate of the target node for WinRM.
 
 `--winrm-ssl`
 
-: Use SSL in the WinRM connection.
+: Use TLS/SSL in the WinRM connection.
 
 `-w AUTH-METHOD`, `--winrm-auth-method AUTH-METHOD`
 
@@ -259,15 +259,15 @@ knife bootstrap FQDN_or_IP_ADDRESS (options)
 
 `--[no-]node-verify-api-cert`
 
-: Verify the SSL certificate on the Chef Infra Server. When `true`, Chef Infra Client always verifies the SSL certificate. When `false`, Chef Infra Client uses the value of `ssl_verify_mode` to determine if the SSL certificate requires verification. If this option is not specified, the setting for `verify_api_cert` in the configuration file is applied.
+: Verify the TLS/SSL certificate on the Chef Infra Server. When `true`, Chef Infra Client always verifies the TLS/SSL certificate. When `false`, Chef Infra Client uses the value of `ssl_verify_mode` to determine if the TLS/SSL certificate requires verification. If this option is not specified, the setting for `verify_api_cert` in the configuration file is applied.
 
 `--node-ssl-verify-mode MODE`
 
 : Set the verify mode for HTTPS requests. Options: `none` or `peer`.
 
-  Use `none` to do no validation of SSL certificates.
+  Use `none` to do no validation of TLS/SSL certificates.
 
-   Use `peer` to do validation of all SSL certificates, including the
+   Use `peer` to do validation of all TLS/SSL certificates, including the
    Chef Infra Server connections, S3 connections, and any HTTPS
    **remote_file** resource URLs used in a Chef Infra Client run. This
    is the recommended setting.

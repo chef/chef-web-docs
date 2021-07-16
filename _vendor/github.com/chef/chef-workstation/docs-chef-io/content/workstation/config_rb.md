@@ -155,8 +155,8 @@ This configuration file has the following settings:
 `ssl_verify_mode`
 : Set the verify mode for HTTPS requests.
 
-  - Use `:verify_none` to do no validation of SSL certificates.
-  - Use `:verify_peer` to do validation of all SSL certificates, including the Chef Infra Server connections, S3 connections, and any HTTPS **remote_file** resource URLs used in a Chef Infra Client run. This is the recommended setting.
+  - Use `:verify_none` to do no validation of TLS/SSL certificates.
+  - Use `:verify_peer` to do validation of all TLS/SSL certificates, including the Chef Infra Server connections, S3 connections, and any HTTPS **remote_file** resource URLs used in a Chef Infra Client run. This is the recommended setting.
 
   Depending on how OpenSSL is configured, the `ssl_ca_path` may need to be specified. Default value: `:verify_peer`.
 
@@ -181,7 +181,7 @@ This configuration file has the following settings:
   ```
 
 `verify_api_cert`
-: Verify the SSL certificate on the Chef Infra Server. When `true`, Chef Infra Client always verifies the SSL certificate. When `false`. Chef Infra Client uses the value of `ssl_verify_mode` to determine if the SSL certificate requires verification. Default value: `false`.
+: Verify the TLS/SSL certificate on the Chef Infra Server. When `true`, Chef Infra Client always verifies the TLS/SSL certificate. When `false`. Chef Infra Client uses the value of `ssl_verify_mode` to determine if the TLS/SSL certificate requires verification. Default value: `false`.
 
 `versioned_cookbooks`
 : Append cookbook versions to cookbooks. Set to `false` to hide cookbook versions: `cookbooks/apache`. Set to `true` to show cookbook versions: `cookbooks/apache-1.0.0` and/or `cookbooks/apache-1.0.1`. When this setting is `true`, `knife download` downloads ALL cookbook versions, which can be useful if a full-fidelity backup of data on the Chef Infra Server is required. For example:

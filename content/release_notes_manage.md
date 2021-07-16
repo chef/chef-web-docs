@@ -50,7 +50,7 @@ TLS/SSL connections to the Chef Infra Server.
 
 ### TLS/SSL Support
 
-The major version upgrade of Chef Infra Client in this release brings in SSL support
+The major version upgrade of Chef Infra Client in this release brings in TLS/SSL support
 between Chef Manage and Chef Infra Server. These services always run on the
 same system so this feature is of limited value in most cases. For compatibility
 with self-signed certificates which are commonly used on the Chef Infra Server, this

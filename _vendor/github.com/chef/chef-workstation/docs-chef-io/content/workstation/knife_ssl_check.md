@@ -29,7 +29,7 @@ This subcommand has the following options:
 
 `URL_or_URI`
 
-: The URL or URI for the location at which the SSL certificate is located. Default value: the URL for the Chef Infra Server, as defined in the config.rb file.
+: The URL or URI for the location at which the TLS/SSL certificate is located. Default value: the URL for the Chef Infra Server, as defined in the config.rb file.
 
 ## Examples
 
@@ -43,9 +43,9 @@ The following examples show how to use this knife subcommand:
 
 {{% knife_ssl_check_bad_ssl_certificate %}}
 
-**Verify the SSL configuration for Chef Infra Client**
+**Verify the TLS/SSL configuration for Chef Infra Client**
 
-The SSL certificates that are used by Chef Infra Client may be verified
+The TLS/SSL certificates that are used by Chef Infra Client may be verified
 by specifying the path to the client.rb file. Use the `--config` option
 (that is available to any knife command) to specify this path:
 
@@ -53,7 +53,7 @@ by specifying the path to the client.rb file. Use the `--config` option
 knife ssl check --config /etc/chef/client.rb
 ```
 
-**Verify an external server's SSL certificate**
+**Verify an external server's TLS/SSL certificate**
 
 ``` bash
 knife ssl check URL_or_URI

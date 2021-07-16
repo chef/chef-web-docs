@@ -46,7 +46,7 @@ The `elasticsearch` resource accepts a number of optional resource parameters:
 : a password to use to log in with HTTP-Basic authentication. If `password` is provided, a `username` must also be provided.
 
 `ssl_verify`
-: if `false`, SSL certificate validation will be disabled. Default: `true`
+: if `false`, TLS/SSL certificate validation will be disabled. Default: `true`
 
 In addition, the `elasticsearch` resource allows for filtering the nodes returned by property before executing the tests:
 

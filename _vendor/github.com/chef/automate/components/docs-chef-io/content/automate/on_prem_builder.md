@@ -291,7 +291,7 @@ Once the repository is successfully cloned, move into the `on-prem-builder` repo
 cd on-prem-builder
 ```
 
-The Chef Automate installer uses a self-signed certificate. Copy the SSL public key certificate chain from Chef Automate into `/hab/cache/ssl` with this command:
+The Chef Automate installer uses a self-signed certificate. Copy the TLS/SSL public key certificate chain from Chef Automate into `/hab/cache/ssl` with this command:
 
 ```shell
 cp /hab/svc/automate-load-balancer/data/{{< example_fqdn "automate" >}}.cert /hab/cache/ssl/{{< example_fqdn "automate" >}}.cert

@@ -137,7 +137,7 @@ This configuration file has the following settings for `ldap`:
     <p class="admonition-note-title">Note</p>
     <div class="admonition-note-text">
 
-    It's recommended that you enable SSL for Active Directory.
+    It's recommended that you enable TLS/SSL for Active Directory.
 
     </div>
     </div>
@@ -180,7 +180,7 @@ This configuration file has the following settings for `ldap`:
 `ldap['tls_enabled']`
 
 :   Enable TLS. When enabled, communication with the LDAP server is done
-    via a secure SSL connection on a dedicated port. When `true`,
+    via a secure TLS/SSL connection on a dedicated port. When `true`,
     `ldap['port']` is also set to `636`. Default value: `false`. Must be
     `false` when `ldap['ssl_enabled']` is `true`.
 

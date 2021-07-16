@@ -13652,11 +13652,11 @@ previous versions. The short version:
     name of a template, such as `chef-full`, or specify the path to a
     custom bootstrap template. This option deprecates the `--distro` and
     `--template-file` options.
-- **New SSL options for bootstrap operations** The `knife bootstrap`
-    subcommand has new options that support SSL with bootstrap
+- **New TLS/SSL options for bootstrap operations** The `knife bootstrap`
+    subcommand has new options that support TLS/SSL with bootstrap
     operations. Use the `--[no-]node-verify-api-cert` option to perform
-    SSL validation of the connection to the Chef server. Use the
-    `--node-ssl-verify-mode` option to validate SSL certificates.
+    TLS/SSL validation of the connection to the Chef server. Use the
+    `--node-ssl-verify-mode` option to validate TLS/SSL certificates.
 - **New format options for knife status** Use the `--medium` and
     `--long` options to include attributes in the output and to format
     that output as JSON.
@@ -13747,7 +13747,7 @@ previous versions. The short version:
 - **The path property is deprecated for the execute resource** Use the
     `environment` property instead.
 - **SSL certificate validation improvements** The default settings for
-    SSL certificate validation now default in favor of validation. In
+    TLS/SSL certificate validation now default in favor of validation. In
     addition, using the `knife ssl fetch` subcommand is now an important
     part of setting up your workstation.
 - **New property for git resource** The **git** resource has a new

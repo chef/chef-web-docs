@@ -48,7 +48,7 @@ See also the [AWS documentation on Elastic Load Balancing](https://docs.aws.amaz
 | vpc_id             | The ID of the VPC for the load balancer.                                                                |
 | subnet_ids         | The IDs of the subnets for the load balancer.                                                           |
 | listeners          | A collection of the listeners for the load balancer.                                                    |
-| ssl_policies       | A collection of the SSL Policies configured in-use for the load balancer (and their policy attributes). |
+| ssl_policies       | A collection of the TLS/SSL Policies configured in-use for the load balancer (and their policy attributes). |
 | protocols          | A list of the protocols configured for the listeners of the load balancer.                              |
 
 ## Examples

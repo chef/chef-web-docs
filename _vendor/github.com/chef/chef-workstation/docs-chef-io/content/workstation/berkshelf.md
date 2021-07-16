@@ -351,7 +351,7 @@ This command has the following options:
 
 `--ssl-verify`
 
-: Use to enable (`true`) or disable (`false`) SSL verification when applying Berksfile version locks to an environment.
+: Use to enable (`true`) or disable (`false`) TLS/SSL verification when applying Berksfile version locks to an environment.
 
 ### berks contingent
 
@@ -644,7 +644,7 @@ This command has the following options:
 
 `--ssl-verify`
 
-: Use to enable (`true`) or disable (`false`) SSL verification when uploading cookbooks to the Chef Infra Server.
+: Use to enable (`true`) or disable (`false`) TLS/SSL verification when uploading cookbooks to the Chef Infra Server.
 
 `-s`, `--skip-syntax-check`
 

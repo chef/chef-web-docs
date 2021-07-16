@@ -247,7 +247,7 @@ Properties that can be accessed from the `google_dataproc_cluster` resource:
       : The uri of the KMS key used to encrypt various sensitive files.
 
       `keystore_uri`
-      : The Cloud Storage URI of the keystore file used for SSL encryption.
+      : The Cloud Storage URI of the keystore file used for TLS/SSL encryption.
 
       `truststore_uri`
       : The Cloud Storage URI of a KMS encrypted file containing the password to the user provided keystore.

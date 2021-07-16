@@ -433,7 +433,7 @@ guide.
     Where:
 
     - `"chef_server_url"` should contain the FQDN of your Chef Infra
-        Server. Note that if you're using a non-standard SSL port, this
+        Server. Note that if you're using a non-standard TLS/SSL port, this
         much be appended to the URL. For example:
         `https://chefserver.mycompany.com:65400`
     - `"chef_oauth2_app_id"` should contain the `"uid"` value from

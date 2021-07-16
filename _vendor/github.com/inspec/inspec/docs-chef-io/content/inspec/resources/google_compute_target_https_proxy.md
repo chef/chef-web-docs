@@ -59,10 +59,10 @@ Properties that can be accessed from the `google_compute_target_https_proxy` res
   - DISABLE
 
 `ssl_certificates`
-: A list of SslCertificate resources that are used to authenticate connections between users and the load balancer. At least one SSL certificate must be specified.
+: A list of SslCertificate resources that are used to authenticate connections between users and the load balancer. At least one TLS/SSL certificate must be specified.
 
 `ssl_policy`
-: A reference to the SslPolicy resource that will be associated with the TargetHttpsProxy resource. If not set, the TargetHttpsProxy resource will not have any SSL policy configured.
+: A reference to the SslPolicy resource that will be associated with the TargetHttpsProxy resource. If not set, the TargetHttpsProxy resource will not have any TLS/SSL policy configured.
 
 `url_map`
 : A reference to the UrlMap resource that defines the mapping from URL to the BackendService.

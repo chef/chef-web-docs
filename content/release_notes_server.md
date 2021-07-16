@@ -1062,7 +1062,7 @@ The following items are new for Chef server 12.11:
 
 ### Security Updates
 
-- The default allowed SSL ciphers now include AES256-GCM-SHA384 to
+- The default allowed TLS/SSL ciphers now include AES256-GCM-SHA384 to
     ensure compatibility with AWS's Classic ELB health check tool.
 - **chef-server-ctl psql** previously revealed the postgresql password
     via <span class="title-ref">ps</span>.
@@ -1093,7 +1093,7 @@ The following items are new for Chef server 12.10:
 ### Compatibility Notes
 
 - The change of TLS ciphers can cause older tooling to fail to
-    negotiate SSL sessions with the Chef Server. The changes to the
+    negotiate TLS/SSL sessions with the Chef Server. The changes to the
     cipher list are captured here. Upgrading any custom clients of the
     Chef Server API to use a current TLS/SSL release will resolve this.
 

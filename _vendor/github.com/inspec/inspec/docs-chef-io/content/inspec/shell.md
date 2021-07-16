@@ -41,7 +41,7 @@ WinRM and docker. If no target is provided, we implicitly support the
 InSpec. For an SSH connection, use `-i` for specifying SSH key files,
 and the `--sudo*` commands for requesting a privilege escalation after
 logging in. For a WinRM connection, use `--path` to change the login
-path, `--ssl` to use SSL for transport layer encryption.
+path, `--ssl` to use TLS/SSL for transport layer encryption.
 
 ```bash
 inspec shell -t ssh://root@192.168.64.2:11022  # Login to remote machine using ssh as root.

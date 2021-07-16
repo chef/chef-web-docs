@@ -194,19 +194,19 @@ If you do not use a Chef Infra Server in your environment (if you only use `chef
 
 can configure your Chef Infra Clients to send their run data to Chef Automate directly by performing the following:
 
-1. Add Chef Automate SSL certificate to `trusted_certs` directory.
+1. Add Chef Automate TLS/SSL certificate to `trusted_certs` directory.
 
 2. Configure Chef Infra Client to use the Data Collector endpoint and API token in Chef Automate.
 
 ### Add Chef Automate certificate to `trusted_certs` directory
 
-**Note:** This step only applies to self-signed SSL certificates. If you are using an SSL certificate
+**Note:** This step only applies to self-signed TLS/SSL certificates. If you are using an TLS/SSL certificate
 signed by a valid certificate authority, you may skip this step.
 
-Chef requires that the self-signed Chef Automate SSL certificate
+Chef requires that the self-signed Chef Automate TLS/SSL certificate
 (`HOSTNAME.crt`) is located in the `/etc/chef/trusted_certs` directory
 on any node that wants to send data to Chef Automate. This directory is
-the location into which SSL certificates are placed when a node has been
+the location into which TLS/SSL certificates are placed when a node has been
 bootstrapped with chef-client.
 
 To fetch the certificate onto your workstation, use `knife ssl fetch`

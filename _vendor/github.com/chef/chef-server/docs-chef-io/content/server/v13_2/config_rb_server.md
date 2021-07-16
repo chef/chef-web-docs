@@ -13,7 +13,7 @@ gh_repo = "chef-server"
 
 {{< reusable_text_versioned file="server_tuning_general">}}
 
-### NGINX SSL Protocols
+### NGINX TLS/SSL Protocols
 
 {{< reusable_text_versioned file="server_tuning_nginx">}}
 
@@ -103,6 +103,6 @@ application:
 
 `postgresql['sslmode']`
 
-:   SSL encryption mode between the Chef Infra Server and PostgreSQL.
+:   TLS/SSL encryption mode between the Chef Infra Server and PostgreSQL.
     Valid settings are `'disable'` and `'require'`. Default value:
     `'disable'`.

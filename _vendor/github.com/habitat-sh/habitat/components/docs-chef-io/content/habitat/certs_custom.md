@@ -10,7 +10,7 @@ gh_repo = "habitat"
     parent = "habitat/reference"
 +++
 
-Many enterprise environments use custom certificates (for example, self-signed). For example, an on-premises Chef Habitat Builder Depot might have a self-signed SSL certificate.
+Many enterprise environments use custom certificates (for example, self-signed). For example, an on-premises Chef Habitat Builder Depot might have a self-signed TLS/SSL certificate.
 
 Attempting to perform an operation using the Habitat client to communicate with a service that has a custom certificate can produce an error, such as:
 
