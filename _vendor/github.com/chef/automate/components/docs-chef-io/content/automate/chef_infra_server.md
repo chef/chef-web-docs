@@ -39,11 +39,11 @@ The _Chef Infra Server_ panel starts out with an empty list of servers.
 
 To add existing Chef Infra Servers to the Chef Automate infrastructure, select **Add Chef Server** which will request the name, FQDN, and IP address of your Chef Infra Server:
 
-{{< figure src="/images/automate/add-chef-server-popup-menu.png" width="500" alt="Add Chef Server Form">}}
+{{< figure src="/images/automate/add-chef-server-popup-menu.png" width="60%" alt="Add Chef Server Form">}}
 
 Chef Automate will warn you if you enter an invalid FQDN or IP address:
 
-{{< figure src="/images/automate/add-chef-server-popup-menu-with-error.png" width="500" alt="Add Chef Server Form">}}
+{{< figure src="/images/automate/add-chef-server-popup-menu-with-error.png" width="60%" alt="Add Chef Server Form">}}
 
 Once you are finished, select **Add Chef Server** and you will see your server in the list of Chef Infra Servers.
 
