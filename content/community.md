@@ -45,6 +45,7 @@ community.
 - Join the "Chef Software Users Group" on LinkedIn
 - [Chef Software Mailing List](https://discourse.chef.io/) (for
     discussion among users, developers, and other interested parties)
+- [Chef Software on Twitch](https://www.twitch.tv/chefsoftware)
 
 ## Read
 
