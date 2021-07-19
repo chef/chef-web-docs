@@ -1,4 +1,4 @@
-Use the `knife ssl check` subcommand to verify the SSL configuration for
+Use the `knife ssl check` subcommand to verify the TLS/SSL configuration for
 the Chef Infra Server or a location specified by a URL or URI. Invalid
 certificates will not be used by OpenSSL.
 
@@ -15,11 +15,11 @@ any certificates.
 
 <div class="admonition-warning-text">
 
-When verification of a remote server's SSL certificate is disabled, Chef
-Infra Client will issue a warning similar to "SSL validation of HTTPS
+When verification of a remote server's TLS/SSL certificate is disabled, Chef
+Infra Client will issue a warning similar to "TLS/SSL validation of HTTPS
 requests is disabled. HTTPS connections are still encrypted, but Chef
 Infra Client is not able to detect forged replies or man-in-the-middle
-attacks." To configure SSL for Chef Infra Client, set `ssl_verify_mode`
+attacks." To configure TLS/SSL for Chef Infra Client, set `ssl_verify_mode`
 to `:verify_peer` (recommended) **or** `verify_api_cert` to `true` in
 the client.rb file.
 

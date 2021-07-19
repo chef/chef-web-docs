@@ -1,4 +1,4 @@
-The SSL certificate that is downloaded to the `/.chef/trusted_certs`
+The TLS/SSL certificate that is downloaded to the `/.chef/trusted_certs`
 directory should be verified to ensure that it is, in fact, the same
 certificate as the one located on the Chef Infra Server. This can be
 done by comparing the SHA-256 checksums.

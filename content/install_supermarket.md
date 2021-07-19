@@ -433,7 +433,7 @@ guide.
     Where:
 
     - `"chef_server_url"` should contain the FQDN of your Chef Infra
-        Server. Note that if you're using a non-standard SSL port, this
+        Server. Note that if you're using a non-standard TLS/SSL port, this
         much be appended to the URL. For example:
         `https://chefserver.mycompany.com:65400`
     - `"chef_oauth2_app_id"` should contain the `"uid"` value from
@@ -464,8 +464,8 @@ user's workstation.
     Supermarket will generate and use a self-signed certificate, if a
     certificate is not supplied as part of the installation process (via
     the wrapper cookbook).
-2.  If an SSL notice is shown while connecting to Chef Supermarket via a
-    web browser, accept the SSL certificate. A trusted SSL certificate
+2.  If an TLS/SSL notice is shown while connecting to Chef Supermarket via a
+    web browser, accept the TLS/SSL certificate. A trusted TLS/SSL certificate
     should be used for private Chef Supermarket that is used in
     production.
 3.  After opening Chef Supermarket in a web browser, click the **Create

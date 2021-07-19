@@ -125,7 +125,7 @@ This configuration file has the following settings for `ldap`:
 
 `ldap['ssl_enabled']`
 
-:   Cause the Chef Infra Server to connect to the LDAP server using SSL.
+:   Cause the Chef Infra Server to connect to the LDAP server using TLS/SSL.
     Default value: `false`. Must be `false` when `ldap['tls_enabled']`
     is `true`.
 
@@ -133,7 +133,7 @@ This configuration file has the following settings for `ldap`:
     <p class="admonition-note-title">Note</p>
     <div class="admonition-note-text">
 
-    It's recommended that you enable SSL for Active Directory.
+    It's recommended that you enable TLS/SSL for Active Directory.
 
     </div>
     </div>
@@ -143,7 +143,7 @@ This configuration file has the following settings for `ldap`:
     <div class="admonition-note-text">
 
     Previous versions of the Chef Infra Server used the
-    `ldap['ssl_enabled']` setting to first enable SSL, and then the
+    `ldap['ssl_enabled']` setting to first enable TLS/SSL, and then the
     `ldap['encryption']` setting to specify the encryption type. These
     settings are deprecated.
 
@@ -176,7 +176,7 @@ This configuration file has the following settings for `ldap`:
 `ldap['tls_enabled']`
 
 :   Enable TLS. When enabled, communication with the LDAP server is done
-    via a secure SSL connection on a dedicated port. When `true`,
+    via a secure TLS/SSL connection on a dedicated port. When `true`,
     `ldap['port']` is also set to `636`. Default value: `false`. Must be
     `false` when `ldap['ssl_enabled']` is `true`.
 
@@ -185,7 +185,7 @@ This configuration file has the following settings for `ldap`:
     <div class="admonition-note-text">
 
     Previous versions of the Chef Infra Server used the
-    `ldap['ssl_enabled']` setting to first enable SSL, and then the
+    `ldap['ssl_enabled']` setting to first enable TLS/SSL, and then the
     `ldap['encryption']` setting to specify the encryption type. These
     settings are deprecated.
 
