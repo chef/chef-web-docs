@@ -88,13 +88,13 @@ title = "Chef Automate"
 identifier = "automate"
 
   [[automate]]
-  name = "Getting Started"
+  name = "Get Started"
   weight = 10
   identifier = "automate/getting_started"
   parent = "automate"
 
   [[automate]]
-  name = "Configuring Automate"
+  name = "Configure Automate"
   weight = 20
   identifier = "automate/configuring_automate"
   parent = "automate"
@@ -106,15 +106,33 @@ identifier = "automate"
   parent = "automate"
 
   [[automate]]
-  name = "Infrastructure"
-  weight = 50
-  identifier = "automate/infrastructure"
+  name = "Authorization"
+  weight = 40
+  identifier = "automate/authorization"
   parent = "automate"
 
   [[automate]]
   name = "Compliance"
+  weight = 50
+  identifier = "automate/compliance"
+  parent = "automate"
+
+  [[automate]]
+  name = "Dashboards"
   weight = 60
   identifier = "automate/compliance"
+  parent = "automate"
+
+  [[automate]]
+  name = "Infrastructure"
+  weight = 70
+  identifier = "automate/infrastructure"
+  parent = "automate"
+
+  [[automate]]
+  name = "Integrations"
+  weight = 80
+  identifier = "automate/integrations"
   parent = "automate"
 
   [[automate]]
@@ -124,14 +142,8 @@ identifier = "automate"
   parent = "automate"
 
   [[automate]]
-  name = "Authorization"
-  weight = 100
-  identifier = "automate/authorization"
-  parent = "automate"
-
-  [[automate]]
   name = "Reference"
-  weight = 110
+  weight = 200
   identifier = "automate/reference"
   parent = "automate"
 
