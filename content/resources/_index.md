@@ -20,7 +20,7 @@ toc_layout = "infra_resources_all_toc"
 <!-- The contents of this page are generated from the Markdown below and from YAML files in the data/infra/resources directory. -->
 <!-- To suggest a change to the yaml data files, submit a pull request to the https://github.com/chef/chef repository. -->
 
-<!-- NOTE: The Markdown in this page comes from the archetype file archetypes/all_the_resources.md. If you update the Markdown in this page, 
+<!-- NOTE: The Markdown in this page comes from the archetype file archetypes/all_the_resources.md. If you update the Markdown in this page,
 you must also update the Markdown in the archetype page as well, otherwise your changes in this page may be overwritten. -->
 
 This reference describes each of the resources available to Chef Infra Client, including a list of actions, properties, and usage examples.
@@ -76,7 +76,6 @@ The following examples show how to use common properties in a recipe.
 **Use the retries common property**
 
 {{% resource_service_use_supports_attribute %}}
-
 
 ### Guards
 

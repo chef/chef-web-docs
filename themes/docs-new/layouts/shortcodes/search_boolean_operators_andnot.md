@@ -21,8 +21,6 @@ Use `-` instead of `NOT`. For example:
 knife search sample "id:foo AND -id:bar"
 ```
 
-
-
 </div>
 
 </div>

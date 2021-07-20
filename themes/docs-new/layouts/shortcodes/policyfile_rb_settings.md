@@ -81,8 +81,6 @@ A `Policyfile.rb` file may contain the following settings:
     end
     ```
 
-
-
     </div>
 
     </div>

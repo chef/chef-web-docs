@@ -48,5 +48,5 @@ the Chef Infra Client output will print something similar to:
 Recipe: recipe_name::block
   * resource_name[blah] action create
     - update my_file[blah]
-    -   set content to "hola mundo" (was "hello world")
+    - set content to "hola mundo" (was "hello world")
 ```

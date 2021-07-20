@@ -19,31 +19,31 @@ product = ["client", "server", "workstation"]
 
 A private Chef Supermarket has the following requirements:
 
--   An operational Chef Infra Server (Chef Server version 12.0 or
+- An operational Chef Infra Server (Chef Server version 12.0 or
     higher) to act as the OAuth 2.0 provider
--   A user account on the Chef Infra Server with `admins` privileges
--   A key for the user account on the Chef server
--   An x86_64 compatible Linux host with at least 1 GB memory
--   System clocks synchronized on the Chef Infra Server and Supermarket
+- A user account on the Chef Infra Server with `admins` privileges
+- A key for the user account on the Chef server
+- An x86_64 compatible Linux host with at least 1 GB memory
+- System clocks synchronized on the Chef Infra Server and Supermarket
     hosts
--   Sufficient disk space on host to meet project cookbook storage
+- Sufficient disk space on host to meet project cookbook storage
     capacity **or** credentials to store cookbooks in an Amazon Simple
     Storage Service (S3) bucket
 
 **Considerations with regard to storage capacity:**
 
--   PostgreSQL database size will grow linearly based on the number of
+- PostgreSQL database size will grow linearly based on the number of
     cookbooks and the number of cookbook versions published
--   Redis database size is negligible as it is used only for background
+- Redis database size is negligible as it is used only for background
     job queuing, and to cache a small number of API responses
--   Cookbook storage growth is entirely dependent on the size of the
+- Cookbook storage growth is entirely dependent on the size of the
     cookbooks published. Cookbooks that include binaries or other large
     files will consume more space than code-only cookbooks
--   Opting to run a private Supermarket with off-host PostgreSQL, Redis,
+- Opting to run a private Supermarket with off-host PostgreSQL, Redis,
     and cookbook store is less a decision about storage sizing; it is
     about data service uptime, backup, and restore procedure for your
     organization
--   As a point of reference: as of May 2021 after six years of
+- As a point of reference: as of May 2021 after six years of
     operation, the public Supermarket has approx 83,000 users, 4,000
     cookbooks with a total of 27,000 versions published. The PostgreSQL
     database weighs in at 435 MB, and the S3 bucket containing all of
@@ -131,15 +131,15 @@ To install a private Chef Supermarket use the
 public](https://supermarket.chef.io/cookbooks/supermarket-omnibus-cookbook)
 Chef Supermarket.
 
--   The `supermarket-omnibus-cookbook` cookbook is attribute-driven; use
+- The `supermarket-omnibus-cookbook` cookbook is attribute-driven; use
     a custom cookbook to specify your organization's unique
     `node[supermarket_omnibus]` attribute values.
--   The custom cookbook is a wrapper around
+- The custom cookbook is a wrapper around
     `supermarket-omnibus-cookbook`, which performs the actual
     installation of the Chef Supermarket packages, and then writes the
     custom `node[supermarket_omnibus]` values to
     `/etc/supermarket/supermarket.json`.
--   The Chef Supermarket package itself contains an internal cookbook
+- The Chef Supermarket package itself contains an internal cookbook
     which configures the already-installed package using the attributes
     defined in `/etc/supermarket/supermarket.json`.
 
@@ -227,9 +227,9 @@ and then a data bag item within the data bag could be named
 
 The following attribute values must be defined:
 
--   `chef_server_url`
--   `chef_oauth2_app_id`
--   `chef_oauth2_secret`
+- `chef_server_url`
+- `chef_oauth2_app_id`
+- `chef_oauth2_secret`
 
 Once configured, you can get the `chef_oauth2_app_id` and
 `chef_oauth2_secret` values from your Chef Infra Server within
@@ -339,10 +339,10 @@ knife bootstrap ip_address -N supermarket-node -x ubuntu --sudo
 
 where
 
--   `-N` defines the name of the Chef Supermarket node:
+- `-N` defines the name of the Chef Supermarket node:
     `supermarket-node`
--   `-x` defines the (ssh) user name: `ubuntu`
--   `--sudo` ensures that sudo is used while running commands on the
+- `-x` defines the (ssh) user name: `ubuntu`
+- `--sudo` ensures that sudo is used while running commands on the
     node during the bootstrap operation
 
 When the bootstrap operation is finished, do the following:
@@ -396,13 +396,13 @@ guide.
 2.  Install Supermarket using the appropriate package manager for your
     distribution:
 
-    -   For Ubuntu:
+    - For Ubuntu:
 
         ```bash
         dpkg -i /path/to/package/supermarket*.deb
         ```
 
-    -   For RHEL / CentOS:
+    - For RHEL / CentOS:
 
         ```bash
         rpm -Uvh /path/to/package/supermarket*.rpm
@@ -432,18 +432,18 @@ guide.
 
     Where:
 
-    -   `"chef_server_url"` should contain the FQDN of your Chef Infra
+    - `"chef_server_url"` should contain the FQDN of your Chef Infra
         Server. Note that if you're using a non-standard SSL port, this
         much be appended to the URL. For example:
         `https://chefserver.mycompany.com:65400`
-    -   `"chef_oauth2_app_id"` should contain the `"uid"` value from
+    - `"chef_oauth2_app_id"` should contain the `"uid"` value from
         your OAuth credentials
-    -   `"chef_oauth2_secret"` should contain the `"secret"` value from
+    - `"chef_oauth2_secret"` should contain the `"secret"` value from
         your OAuth credentials
-    -   `chef_oauth2_verify_ssl` is set to false, which is necessary
+    - `chef_oauth2_verify_ssl` is set to false, which is necessary
         when using a self-signed certificate without a properly
         configured certificate authority
-    -   `fqdn` should contain the desired URL that will be used to
+    - `fqdn` should contain the desired URL that will be used to
         access your private Supermarket. If not specified, this default
         to the FQDN of the machine
 
@@ -552,13 +552,13 @@ Encrypted S3 buckets are currently not supported.
 1. Download the [Chef Supermarket](https://downloads.chef.io/) package.
 1. Upgrade your system with the new package using the appropriate package manager for your distribution:
 
-    -   For Ubuntu:
+    - For Ubuntu:
 
         ```bash
         dpkg -i /path/to/package/supermarket*.deb
         ```
 
-    -   For RHEL / CentOS:
+    - For RHEL / CentOS:
 
         ```bash
         rpm -Uvh /path/to/package/supermarket*.rpm

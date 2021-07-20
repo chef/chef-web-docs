@@ -69,11 +69,11 @@ dan
 Alice is now a server administrator and can use the following knife
 subcommands to manage users on the Chef Infra Server:
 
--   `knife user-create`
--   `knife user-delete`
--   `knife user-edit`
--   `knife user-list`
--   `knife user-show`
+- `knife user-create`
+- `knife user-delete`
+- `knife user-edit`
+- `knife user-list`
+- `knife user-show`
 
 For example, Alice runs the following command:
 

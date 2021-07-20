@@ -10,8 +10,8 @@ Chef.event_handler do
 end
 ```
 
--   Use `Chef.event_handler` to define the event handler
--   Use the `on` method to specify the event type
+- Use `Chef.event_handler` to define the event handler
+- Use the `on` method to specify the event type
 
 Within the `on` block, tell Chef Infra Client how to handle the event
 when it's triggered.

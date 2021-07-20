@@ -5,18 +5,21 @@ resources_common_notification: true
 resources_common_properties: true
 resource: windows_printer
 resource_description_list:
-- markdown: Use the **windows_printer** resource to setup Windows printers. Note that
-    this doesn't currently install a printer driver. You must already have the driver
-    installed on the system.
+- markdown: Use the **windows_printer** resource to setup Windows printers. This resource
+    will automatically install the driver specified in the `driver_name` property
+    and will automatically create a printer port using either the `ipv4_address` property
+    or the `port_name` property.
 resource_new_in: '14.0'
 syntax_full_code_block: |-
   windows_printer 'name' do
     comment           String
+    create_port       true, false # default value: true
     default           true, false # default value: false
     device_id         String # default value: 'name' unless specified
     driver_name       String
     ipv4_address      String
     location          String
+    port_name         String
     share_name        String
     shared            true, false # default value: false
     action            Symbol # defaults to :create if not specified
@@ -27,8 +30,9 @@ syntax_full_properties_list:
 - "`name` is the name given to the resource block."
 - "`action` identifies which steps Chef Infra Client will take to bring the node into
   the desired state."
-- "`comment`, `default`, `device_id`, `driver_name`, `ipv4_address`, `location`, `share_name`,
-  and `shared` are the properties available to this resource."
+- "`comment`, `create_port`, `default`, `device_id`, `driver_name`, `ipv4_address`,
+  `location`, `port_name`, `share_name`, and `shared` are the properties available
+  to this resource."
 actions_list:
   :nothing:
     shortcode: resources_common_actions_nothing.md
@@ -43,6 +47,15 @@ properties_list:
   required: false
   description_list:
   - markdown: Optional descriptor for the printer queue.
+- property: create_port
+  ruby_type: true, false
+  required: false
+  default_value: 'true'
+  new_in: '17.3'
+  description_list:
+  - markdown: Create a printer port for the printer. Set this to false and specify
+      the `port_name` property if using the `windows_printer_port` resource to create
+      the port instead.
 - property: default
   ruby_type: true, false
   required: false
@@ -71,6 +84,13 @@ properties_list:
   required: false
   description_list:
   - markdown: Printer location, such as `Fifth floor copy room`.
+- property: port_name
+  ruby_type: String
+  required: false
+  default_value: The resource block name or the ipv4_address prepended with IP_.
+  new_in: '17.3'
+  description_list:
+  - markdown: The port name.
 - property: share_name
   ruby_type: String
   required: false
@@ -99,5 +119,22 @@ examples: |
   ```ruby
   windows_printer 'HP LaserJet 5th Floor' do
     action :delete
+  end
+  ```
+
+  **Create a printer port and a printer that uses that port (new in 17.3)**
+
+  ```ruby
+  windows_printer_port '10.4.64.39' do
+    port_name 'My awesome printer port'
+    snmp_enabled true
+    port_protocol 2
+  end
+
+  windows_printer 'HP LaserJet 5th Floor' do
+    driver_name 'HP LaserJet 4100 Series PCL6'
+    port_name 'My awesome printer port'
+    ipv4_address '10.4.64.38'
+    create_port false
   end
   ```

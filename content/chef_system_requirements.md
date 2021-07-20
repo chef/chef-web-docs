@@ -15,11 +15,11 @@ product = ["client", "server", "workstation"]
 
 Before installing Chef Infra:
 
--   Ensure that each system you will be managing is running a [supported
+- Ensure that each system you will be managing is running a [supported
     platform](/platforms/)
--   Ensure that the machine that will run the Chef Infra Server is
+- Ensure that the machine that will run the Chef Infra Server is
     sufficiently powerful
--   Ensure that any network and firewall settings are configured
+- Ensure that any network and firewall settings are configured
     correctly
 
 Install and configure the Chef Infra Server, then install and configure
@@ -35,9 +35,9 @@ Infra Server.
 
 The hosted Chef Infra Server has the following requirements:
 
--   **Browser** --- Firefox, Google Chrome, Safari, or Internet Explorer
+- **Browser** --- Firefox, Google Chrome, Safari, or Internet Explorer
     (versions 9 or better)
--   Every node that will be configured by Chef Infra Client and every
+- Every node that will be configured by Chef Infra Client and every
     workstation that will upload data to the Chef Infra Server must be
     able to communicate with the hosted Chef server
 
@@ -47,16 +47,16 @@ The hosted Chef Infra Server has the following requirements:
 
 ## Chef Infra Client
 
--   The recommended amount of RAM available to Chef Infra Client during
+- The recommended amount of RAM available to Chef Infra Client during
     a Chef Infra Client run is 512MB
--   The Chef Infra Client binaries are stored in the `/opt/chef`
+- The Chef Infra Client binaries are stored in the `/opt/chef`
     directory, which requires a minimum of 200MB of disk space. On
     Windows, the Chef Infra Client binaries can be found in
     `C:\opscode\`, and they require a minimum of 600MB of disk space.
--   The processor must be [supported](/platforms/). We recommend
+- The processor must be [supported](/platforms/). We recommend
     a 1 gigahertz (GHz) or faster processor, but the processor speed
     should be based on the other system loads.
--   Chef Infra Client caches to `/var/chef/cache` during a Chef Infra
+- Chef Infra Client caches to `/var/chef/cache` during a Chef Infra
     Client run. This is the location in which downloaded cookbooks,
     packages required by those cookbooks, and other large files are
     stored. This directory requires enough space to save all of this
@@ -68,6 +68,6 @@ The hosted Chef Infra Server has the following requirements:
 
 ## Chef Workstation
 
--   64-bit architecture
--   4 GB of RAM or more
--   2 GB of free disk space
+- 64-bit architecture
+- 4 GB of RAM or more
+- 2 GB of free disk space

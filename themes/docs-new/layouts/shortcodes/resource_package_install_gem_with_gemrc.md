@@ -8,9 +8,9 @@ directory:
 
 A recipe can be built that does the following:
 
--   Builds a `.gemrc` file based on a `gemrc.erb` template
--   Runs a `Gem.configuration` command
--   Installs a package using the `.gemrc` file
+- Builds a `.gemrc` file based on a `gemrc.erb` template
+- Runs a `Gem.configuration` command
+- Installs a package using the `.gemrc` file
 
 <!-- -->
 

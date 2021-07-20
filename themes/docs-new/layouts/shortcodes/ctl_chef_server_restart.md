@@ -11,8 +11,6 @@ name of that service in the command.
 When running the Chef Infra Server in a high availability configuration,
 restarting all services may trigger failover.
 
-
-
 </div>
 
 </div>

@@ -47,19 +47,19 @@ This will create a file named `test.txt` at the home path on your
 machine. Open that file and it will say
 `This file was created by Chef Infra!`.
 
--   Delete the file, run Chef Infra Client again, and Chef Infra will
+- Delete the file, run Chef Infra Client again, and Chef Infra will
     put the file back.
--   Change the string in the file, run Chef Infra Client again, and Chef
+- Change the string in the file, run Chef Infra Client again, and Chef
     Infra will make the string in the file the same as the string in the
     recipe.
--   Change the string in the recipe, run Chef Infra Client again, and
+- Change the string in the recipe, run Chef Infra Client again, and
     Chef Infra will update that string to be the same as the one in the
     recipe.
 
 There's a lot more that Chef Infra can do, obviously, but that was super
 easy!
 
--   See <https://learn.chef.io/> for more detailed setup scenarios.
--   Keep reading for more information about setting up a workstation,
+- See <https://learn.chef.io/> for more detailed setup scenarios.
+- Keep reading for more information about setting up a workstation,
     configuring Test Kitchen to run virtual environments, setting up a
     more detailed cookbook, resources, and more.

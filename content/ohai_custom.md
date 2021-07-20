@@ -58,36 +58,36 @@ end
 
 where
 
--   Required. `(:Name)` is used to identify the plugin; when two plugins
+- Required. `(:Name)` is used to identify the plugin; when two plugins
     have the same `(:Name)`, those plugins are joined together and run
     as if they were a single plugin. This value must be a valid Ruby
     class name, starting with a capital letter and containing only
     alphanumeric characters
--   Required. `provides` is a comma-separated list of one (or more)
+- Required. `provides` is a comma-separated list of one (or more)
     attributes that are defined by this plugin. This attribute will
     become an automatic attribute (i.e. `node['attribute']`) after it is
     collected by Ohai at the start of a Chef Infra Client run. An
     attribute can also be defined using an `attribute/subattribute`
     pattern
--   `depends` is a comma-separated list of one (or more) attributes that
+- `depends` is a comma-separated list of one (or more) attributes that
     are collected by another plugin; as long as the value is collected
     by another Ohai plugin, it can be used by any plugin
--   `shared_method` defines code that can be shared among one (or more)
+- `shared_method` defines code that can be shared among one (or more)
     `collect_data` blocks; for example, instead of defining a mash for
     each `collect_data` block, the code can be defined as a shared
     method, and then called from any `collect_data` block
--   `collect_data` is a block of Ruby code that is called by Ohai when
+- `collect_data` is a block of Ruby code that is called by Ohai when
     it runs; one (or more) `collect_data` blocks can be defined in a
     plugin, but only a single `collect_data` block is ever run.
--   `collect_data(:default)` is the code block that runs when a node's
+- `collect_data(:default)` is the code block that runs when a node's
     platform is not defined by a platform-specific `collect_data` block
--   `collect_data(:platform)` is a platform-specific code block that is
+- `collect_data(:platform)` is a platform-specific code block that is
     run when a match exists between the node's platform and this
     `collect_data` block; only one `collect_data` block may exist for
     each platform; possible values: `:aix`, `:darwin`, `:freebsd`,
     `:linux`, `:openbsd`, `:netbsd`, `:solaris2`, `:windows`, or any
     other value from `RbConfig::CONFIG['host_os']`
--   `my_data` is string (`a string value`) or an empty mash
+- `my_data` is string (`a string value`) or an empty mash
     (`{ :setting_a => 'value_a', :setting_b => 'value_b' }`). This is
     used to define the data that should be collected by the plugin
 
@@ -149,10 +149,10 @@ Ohai.plugin(:Cloud) do
 
 where
 
--   `provides` defines the `cloud` attribute, which is then turned into
+- `provides` defines the `cloud` attribute, which is then turned into
     an object using the `create_objects` shared method, which then
     generates a hash based on public or private IP addresses
--   if the cloud provider is Google Compute Engine, then based on the IP
+- if the cloud provider is Google Compute Engine, then based on the IP
     address for the node, the `cloud` attribute data is populated into a
     hash
 
@@ -177,10 +177,10 @@ plugin, but only a single `collect_data` block is ever run. The
 the node is running, which is then matched up against the available
 `collect_data` blocks in the plugin.
 
--   A `collect_data(:default)` block is used when Ohai is not able to
+- A `collect_data(:default)` block is used when Ohai is not able to
     match the platform of the node with a `collect_data(:platform)`
     block in the plugin
--   A `collect_data(:platform)` block is required for each platform that
+- A `collect_data(:platform)` block is required for each platform that
     requires non-default behavior
 
 When Ohai runs, if there isn't a matching `collect_data` block for a
@@ -203,8 +203,8 @@ end
 
 where:
 
--   `:default` is the name of the default `collect_data` block
--   `:platform` is the name of a platform, such as `:aix` for AIX or
+- `:default` is the name of the default `collect_data` block
+- `:platform` is the name of a platform, such as `:aix` for AIX or
     `:windows` for Microsoft Windows
 
 #### Use a Mash
@@ -469,8 +469,8 @@ Ohai::Log.log_type('message')
 
 where
 
--   `log_type` can be `.debug`, `.info`, `.warn`, `.error`, or `.fatal`
--   `'message'` is the message that is logged.
+- `log_type` can be `.debug`, `.info`, `.warn`, `.error`, or `.fatal`
+- `'message'` is the message that is logged.
 
 For example:
 

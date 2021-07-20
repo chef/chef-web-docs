@@ -35,7 +35,6 @@ privileges on the Chef Automate server, do the following:
 
     The server, enterprise, organization, and user must already exist.
 
-
     </div>
 
     </div>

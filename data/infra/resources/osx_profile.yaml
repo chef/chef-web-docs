@@ -38,11 +38,6 @@ properties_list:
   required: false
   description_list:
   - markdown: Use to specify the identifier for the profile, such as `com.company.screensaver`.
-- property: path
-  ruby_type: String
-  required: false
-  description_list:
-  - markdown: The path to write the profile to disk before loading it.
 - property: profile
   ruby_type: String, Hash
   required: false

@@ -17,8 +17,6 @@ chef-server-ctl uninstall
 To revert the `uninstall` subcommand, run the `reconfigure` subcommand
 (because the `start` subcommand is disabled by the `uninstall` command).
 
-
-
 </div>
 
 </div>

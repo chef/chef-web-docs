@@ -1,9 +1,9 @@
 The following settings are typically added to the server configuration
 file, including:
 
--   Logging directories
--   Maximum file sizes at which log rotation occurs
--   The number of log files to keep
+- Logging directories
+- Maximum file sizes at which log rotation occurs
+- The number of log files to keep
 
 These values have the same default across all Chef Automate services,
 but individual services can have their values overwritten. Add the

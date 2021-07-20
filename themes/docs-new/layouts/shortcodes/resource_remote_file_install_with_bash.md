@@ -2,9 +2,9 @@ The following is an example of how to install the `foo123` module for
 Nginx. This module adds shell-style functionality to an Nginx
 configuration file and does the following:
 
--   Declares three variables
--   Gets the Nginx file from a remote location
--   Installs the file using Bash to the path specified by the
+- Declares three variables
+- Gets the Nginx file from a remote location
+- Installs the file using Bash to the path specified by the
     `src_filepath` variable
 
 <!-- -->

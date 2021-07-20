@@ -16,8 +16,6 @@ changes are committed to production.
 Any Test Kitchen subcommand that does not specify an instance will be
 applied to all instances.
 
-
-
 </div>
 
 </div>

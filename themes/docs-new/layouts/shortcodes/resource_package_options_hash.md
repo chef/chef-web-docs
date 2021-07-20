@@ -6,13 +6,13 @@ needing to spawn an external gem process.
 The following RubyGems options are available for inclusion within a hash
 and are passed to the RubyGems DependencyInstaller:
 
--   `:env_shebang`
--   `:force`
--   `:format_executable`
--   `:ignore_dependencies`
--   `:prerelease`
--   `:security_policy`
--   `:wrappers`
+- `:env_shebang`
+- `:force`
+- `:format_executable`
+- `:ignore_dependencies`
+- `:prerelease`
+- `:security_policy`
+- `:wrappers`
 
 For more information about these options, see the RubyGems
 documentation:

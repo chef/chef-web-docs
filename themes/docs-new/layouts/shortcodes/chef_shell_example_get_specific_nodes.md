@@ -16,8 +16,6 @@ Single (' ') vs. double (" ") is important. This is because a backslash
 () needs to be included in the string, instead of having Ruby interpret
 it as an escape.
 
-
-
 </div>
 
 </div>

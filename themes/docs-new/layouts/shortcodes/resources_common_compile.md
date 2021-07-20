@@ -24,8 +24,6 @@ available to other resources during the execution phase.
 Use the **chef_gem** resource to install gems that are needed by Chef
 Infra Client during the execution phase.
 
-
-
 </div>
 
 </div>

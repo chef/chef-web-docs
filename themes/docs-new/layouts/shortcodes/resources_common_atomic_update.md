@@ -22,8 +22,6 @@ correct location by running the `restorecon` command. On the Microsoft
 Windows platform, Chef Infra Client will create files so that ACL
 inheritance works as expected.
 
-
-
 </div>
 
 </div>

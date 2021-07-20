@@ -27,10 +27,10 @@ end
 
 where
 
--   `load_current_value` loads the property values for both `content`
+- `load_current_value` loads the property values for both `content`
     and `mode`
--   A `converge_if_changed` block tests only `content`
--   A `converge_if_changed` block tests only `mode`
+- A `converge_if_changed` block tests only `content`
+- A `converge_if_changed` block tests only `mode`
 
 Chef Infra Client will only update the property values that require
 updates and will not make changes when the property values are already

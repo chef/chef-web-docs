@@ -5437,7 +5437,7 @@ In Ohai 13 we replaced the filesystem and cloud plugins with the filesystem2 and
 
 - **The mount resource's password property is now marked as **sensitive** Passwords passed to mount won't show up in logs.
 - **The windows_task resource now correctly handles start_day** Previously, the resource would accept any date that was formatted correctly in the local locale, unlike the Windows cookbook and Windows itself. We now support only the MM/DD/YYYY format, in keeping with the Windows cookbook.
--   **InSpec updated to 1.39.1**
+- **InSpec updated to 1.39.1**
 
 ### Ohai 13.5
 
@@ -5856,12 +5856,12 @@ In Chef/Ohai 14 (April 2018) we will remove the IpScopes plugin. The data return
 
 ## What's New in 13.0/13.1
 
--   **Blacklist attributes**
--   **RubyGems sources**
--   **windows_task resource**
--   **Chef client will now exit using the rfc062 defined exit codes**
--   **New default encrypted databag format**
--   **Backwards compatibility breaks**
+- **Blacklist attributes**
+- **RubyGems sources**
+- **windows_task resource**
+- **Chef client will now exit using the rfc062 defined exit codes**
+- **New default encrypted databag format**
+- **Backwards compatibility breaks**
 
 ### It is now possible to blacklist node attributes
 
@@ -6433,22 +6433,22 @@ directories are still appended.
 
 Some examples of changes:
 
--   `which ruby` in 12.x will return any system ruby and fall back to
+- `which ruby` in 12.x will return any system ruby and fall back to
     the embedded ruby if using omnibus
--   `which ruby` in 13.x will return any system ruby and will not find
+- `which ruby` in 13.x will return any system ruby and will not find
     the embedded ruby if using omnibus
--   `shell_out_with_systems_locale("which ruby")` behaves the same as
+- `shell_out_with_systems_locale("which ruby")` behaves the same as
     `which ruby` above
--   `shell_out("which ruby")` in 12.x will return any system ruby and
+- `shell_out("which ruby")` in 12.x will return any system ruby and
     fall back to the embedded ruby if using omnibus
--   `shell_out("which ruby")` in 13.x will always return the omnibus
+- `shell_out("which ruby")` in 13.x will always return the omnibus
     ruby first (but will find the system ruby if not using omnibus)
 
 The PATH in `shell_out` can also be overridden:
 
--   `shell_out("which ruby", env: { "PATH" => nil })` - behaves like
+- `shell_out("which ruby", env: { "PATH" => nil })` - behaves like
     shell_out_with_systems_locale()
--   `shell_out("which ruby", env: { "PATH" => [...include PATH string here...] })` -
+- `shell_out("which ruby", env: { "PATH" => [...include PATH string here...] })` -
     set it arbitrarily however you need
 
 Since most providers which launch custom user commands use
@@ -6477,7 +6477,7 @@ to be set in Chef Client's configuration file.
 
 ### New deprecations
 
--   [Removal of support for Ohai version 6
+- [Removal of support for Ohai version 6
     plugins](/deprecations_ohai_v6_plugins/)
 
 ## What's New in 12.22.3
@@ -6500,59 +6500,59 @@ information](https://www.chef.io/eol-chef12-and-chefdk1).
 
 ## What's New in 12.22.1
 
--   **Security Updates**
-    -   Ruby has been updated to 2.3.6 to resolve
+- **Security Updates**
+    - Ruby has been updated to 2.3.6 to resolve
         [CVE-2017-17405](https://nvd.nist.gov/vuln/detail/CVE-2017-17405)
-    -   Libxml2 has been updated to 2.9.7 to resolve
+    - Libxml2 has been updated to 2.9.7 to resolve
         [CVE-2017-15412](https://access.redhat.com/security/cve/cve-2017-15412)
--   **Ohai 8.26.1**
-    -   Ohai now provides EC2 metadata configuration information on the
+- **Ohai 8.26.1**
+    - Ohai now provides EC2 metadata configuration information on the
         new C5/M5 instance types running on Amazon's new hypervisor
-    -   The new LsPci plugin provides a `node['pci']` hash with
+    - The new LsPci plugin provides a `node['pci']` hash with
         information about the PCI bus based on `lspci`. Only runs on
         Linux.
-    -   The virtualization plugin has been updated to properly detect
+    - The virtualization plugin has been updated to properly detect
         Docker CE
 
 ## What's New in 12.21.31
 
--   **Support for AArch64 platform on Red Hat Enterprise Linux**
--   **mdadm support for arrays with more than 10 disks**
--   **OpenSSL updated to version 1.0.2**
+- **Support for AArch64 platform on Red Hat Enterprise Linux**
+- **mdadm support for arrays with more than 10 disks**
+- **OpenSSL updated to version 1.0.2**
 
 ## What's New in 12.21.26
 
--   **Security release of libxml2** libxml2 has been upgraded to 2.9.5
+- **Security release of libxml2** libxml2 has been upgraded to 2.9.5
     to resolve the following CVEs:
-    -   [CVE-2017-9050](https://www.cvedetails.com/cve/CVE-2017-9050/)
-    -   [CVE-2017-9049](https://www.cvedetails.com/cve/CVE-2017-9049/)
-    -   [CVE-2017-9048](https://www.cvedetails.com/cve/CVE-2017-9048/)
-    -   [CVE-2017-9047](https://www.cvedetails.com/cve/CVE-2017-9047/)
-    -   [CVE-2017-8872](https://www.cvedetails.com/cve/CVE-2017-8872/)
-    -   [CVE-2017-5969](https://www.cvedetails.com/cve/CVE-2017-5969/)
-    -   [CVE-2016-9318](https://www.cvedetails.com/cve/CVE-2016-9318/)
-    -   [CVE-2016-5131](https://www.cvedetails.com/cve/CVE-2016-5131/)
--   **Security release of libxlst** libxlst has been upgraded to 1.1.30
+    - [CVE-2017-9050](https://www.cvedetails.com/cve/CVE-2017-9050/)
+    - [CVE-2017-9049](https://www.cvedetails.com/cve/CVE-2017-9049/)
+    - [CVE-2017-9048](https://www.cvedetails.com/cve/CVE-2017-9048/)
+    - [CVE-2017-9047](https://www.cvedetails.com/cve/CVE-2017-9047/)
+    - [CVE-2017-8872](https://www.cvedetails.com/cve/CVE-2017-8872/)
+    - [CVE-2017-5969](https://www.cvedetails.com/cve/CVE-2017-5969/)
+    - [CVE-2016-9318](https://www.cvedetails.com/cve/CVE-2016-9318/)
+    - [CVE-2016-5131](https://www.cvedetails.com/cve/CVE-2016-5131/)
+- **Security release of libxlst** libxlst has been upgraded to 1.1.30
     to resolve the following CVEs:
-    -   [CVE-2017-5029](http://www.cvedetails.com/cve/CVE-2017-5029/)
-    -   [CVE-2015-9019](http://www.cvedetails.com/cve/CVE-2015-9019/)
--   **Security release of zlib** zlib has been upgraded to 1.2.11 to
+    - [CVE-2017-5029](http://www.cvedetails.com/cve/CVE-2017-5029/)
+    - [CVE-2015-9019](http://www.cvedetails.com/cve/CVE-2015-9019/)
+- **Security release of zlib** zlib has been upgraded to 1.2.11 to
     resolve the following CVEs:
-    -   [CVE-2016-9840](https://www.cvedetails.com/cve/CVE-2016-9840/)
-    -   [CVE-2016-9841](https://www.cvedetails.com/cve/CVE-2016-9841/)
-    -   [CVE-2016-9842](https://www.cvedetails.com/cve/CVE-2016-9842/)
-    -   [CVE-2016-9843](https://www.cvedetails.com/cve/CVE-2016-9843/)
--   **Security release of openssl** openssl has been upgraded to 1.0.2j
+    - [CVE-2016-9840](https://www.cvedetails.com/cve/CVE-2016-9840/)
+    - [CVE-2016-9841](https://www.cvedetails.com/cve/CVE-2016-9841/)
+    - [CVE-2016-9842](https://www.cvedetails.com/cve/CVE-2016-9842/)
+    - [CVE-2016-9843](https://www.cvedetails.com/cve/CVE-2016-9843/)
+- **Security release of openssl** openssl has been upgraded to 1.0.2j
     to resolve the following CVEs:
-    -   [CVE-2017-3731](http://www.cvedetails.com/cve/CVE-2017-3731)
-    -   [CVE-2017-3732](http://www.cvedetails.com/cve/CVE-2017-3732)
-    -   [CVE-2016-7055](http://www.cvedetails.com/cve/CVE-2016-7055)
--   **Security release of rubygems** rubygems has been upgraded to
+    - [CVE-2017-3731](http://www.cvedetails.com/cve/CVE-2017-3731)
+    - [CVE-2017-3732](http://www.cvedetails.com/cve/CVE-2017-3732)
+    - [CVE-2016-7055](http://www.cvedetails.com/cve/CVE-2016-7055)
+- **Security release of rubygems** rubygems has been upgraded to
     2.6.14 to resolve the following CVEs:
-    -   [CVE-2017-0903](http://www.cvedetails.com/cve/CVE-2017-0903)
--   **Ruby 2.2 compatibility** a regression in the 12.21.20 release has
+    - [CVE-2017-0903](http://www.cvedetails.com/cve/CVE-2017-0903)
+- **Ruby 2.2 compatibility** a regression in the 12.21.20 release has
     been corrected to restore full compatibility with Ruby 2.2 and later
--   **Ohai Critical Plugins** Ohai has been upgraded to 8.25 with
+- **Ohai Critical Plugins** Ohai has been upgraded to 8.25 with
     support for Ohai critical plugins.
 
 ### Ohai Critical Plugins Functionality
@@ -6568,48 +6568,48 @@ ohai.critical_plugins << :Filesystem
 
 ## What's New in 12.21.20
 
--   **Improved dsc_script logging** Converge logging in `dsc_script`
+- **Improved dsc_script logging** Converge logging in `dsc_script`
     has been improved
--   **DNF Improvements** Accuracy in determining when to use the
+- **DNF Improvements** Accuracy in determining when to use the
     `dnf_package` resource has been improved. DNF will no longer be used
     on RHEL 7 systems that have it installed, and the determination
     logic performance has been greatly improved.
 
 ## What's New in 12.21.14
 
--   **apt_repository APT key fingerprint fixes** `apt_repository` now
+- **apt_repository APT key fingerprint fixes** `apt_repository` now
     correctly checks APT key fingerprints on newer systems
 
 ## What's New in 12.21.12
 
--   **DSC Windows Management Framework 5** DSC has been updated to work
+- **DSC Windows Management Framework 5** DSC has been updated to work
     properly with Windows Management Framework 5
--   **Security release of Ruby** RubyGems has been upgraded to 2.3.5 to
+- **Security release of Ruby** RubyGems has been upgraded to 2.3.5 to
     address the following CVEs:
-    -   [CVE-2017-0898](https://nvd.nist.gov/vuln/detail/CVE-2017-0898)
-    -   [CVE-2017-10784](https://nvd.nist.gov/vuln/detail/CVE-2017-10784)
-    -   [CVE-2017-14033](https://nvd.nist.gov/vuln/detail/CVE-2017-14033)
-    -   [CVE-2017-14064](https://nvd.nist.gov/vuln/detail/CVE-2017-14064)
+    - [CVE-2017-0898](https://nvd.nist.gov/vuln/detail/CVE-2017-0898)
+    - [CVE-2017-10784](https://nvd.nist.gov/vuln/detail/CVE-2017-10784)
+    - [CVE-2017-14033](https://nvd.nist.gov/vuln/detail/CVE-2017-14033)
+    - [CVE-2017-14064](https://nvd.nist.gov/vuln/detail/CVE-2017-14064)
 
 ## What's New in 12.21.10
 
--   **Security release of RubyGems** RubyGems has been upgraded to
+- **Security release of RubyGems** RubyGems has been upgraded to
     2.6.13 to address the following:
-    -   [CVE-2017-0899](https://nvd.nist.gov/vuln/detail/CVE-2017-0899)
-    -   [CVE-2017-0900](https://nvd.nist.gov/vuln/detail/CVE-2017-0900)
-    -   [CVE-2017-0901](https://nvd.nist.gov/vuln/detail/CVE-2017-0901)
-    -   [CVE-2017-0902](https://nvd.nist.gov/vuln/detail/CVE-2017-0902)
--   **Attribute Performance** Attribute performance has been improved
+    - [CVE-2017-0899](https://nvd.nist.gov/vuln/detail/CVE-2017-0899)
+    - [CVE-2017-0900](https://nvd.nist.gov/vuln/detail/CVE-2017-0900)
+    - [CVE-2017-0901](https://nvd.nist.gov/vuln/detail/CVE-2017-0901)
+    - [CVE-2017-0902](https://nvd.nist.gov/vuln/detail/CVE-2017-0902)
+- **Attribute Performance** Attribute performance has been improved
     when utilizing large numbers of merged attributes
 
 ## What's New in 12.21.4
 
--   **Improved Resource Reporting** Resource reporting for Chef Automate
+- **Improved Resource Reporting** Resource reporting for Chef Automate
     has been improved
--   **Ruby Upgrade** Ruby has been updated to 2.3.4
--   **RubyGems Upgrade** RubyGems has been updated to 2.6.12 to prevent
+- **Ruby Upgrade** Ruby has been updated to 2.3.4
+- **RubyGems Upgrade** RubyGems has been updated to 2.6.12 to prevent
     a segfault on Windows
--   **Policyfile fix** Chef client now properly sends expanded run list
+- **Policyfile fix** Chef client now properly sends expanded run list
     events for policy file nodes
 
 ## What's New in 12.21.1
@@ -6618,10 +6618,10 @@ ohai.critical_plugins << :Filesystem
 
 zlib has been updated to resolve the following CVEs:
 
--   [CVE-2016-98406](https://nvd.nist.gov/vuln/detail/CVE-2016-98406)
--   [CVE-2016-98414](https://nvd.nist.gov/vuln/detail/CVE-2016-98414)
--   [CVE-2016-98423](https://nvd.nist.gov/vuln/detail/CVE-2016-98423)
--   [CVE-2016-98434](https://nvd.nist.gov/vuln/detail/CVE-2016-98434)
+- [CVE-2016-98406](https://nvd.nist.gov/vuln/detail/CVE-2016-98406)
+- [CVE-2016-98414](https://nvd.nist.gov/vuln/detail/CVE-2016-98414)
+- [CVE-2016-98423](https://nvd.nist.gov/vuln/detail/CVE-2016-98423)
+- [CVE-2016-98434](https://nvd.nist.gov/vuln/detail/CVE-2016-98434)
 
 ### On Debian prefer Systemd to Upstart
 
@@ -6767,9 +6767,9 @@ end
 
 ### Highlighted bug fixes for this release:
 
--   **Ensure that the Windows Administrator group can access the
+- **Ensure that the Windows Administrator group can access the
     chef-solo nodes directory**
--   **When loading a cookbook in Chef Solo, use \`\`metadata.json\`\` in
+- **When loading a cookbook in Chef Solo, use \`\`metadata.json\`\` in
     preference to \`\`metadata.rb\`\`.**
 
 ## What's New in 12.18
@@ -6777,19 +6777,19 @@ end
 The following items are new for chef-client 12.18 and/or are changes
 from previous versions. The short version:
 
--   **Can now specify the acceptable return codes from the
+- **Can now specify the acceptable return codes from the
     chocolatey_package resource using the returns property**
--   **Can now enable chef-client to run as a scheduled task directly
+- **Can now enable chef-client to run as a scheduled task directly
     from the client MSI on Windows hosts**
--   **Package provider now supports DNF packages for Fedora and upcoming
+- **Package provider now supports DNF packages for Fedora and upcoming
     RHEL releases**
 
 ### New deprecations
 
--   [Chef::Platform helper
+- [Chef::Platform helper
     methods](/deprecations_chef_platform_methods/)
--   [run_command helper method](/deprecations_run_command/)
--   [DNF package allow_downgrade
+- [run_command helper method](/deprecations_run_command/)
+- [DNF package allow_downgrade
     property](/deprecations_dnf_package_allow_downgrade/)
 
 ## What's New in 12.17
@@ -6797,10 +6797,10 @@ from previous versions. The short version:
 The following items are new for chef-client 12.17 and/or are changes
 from previous versions. The short version:
 
--   **Added msu_package resource and provider**
--   **Added alias unmount to umount action for mount resource**
--   **Can now delete multiple nodes/clients in knife**
--   **Haskell language plugin added to Ohai**
+- **Added msu_package resource and provider**
+- **Added alias unmount to umount action for mount resource**
+- **Can now delete multiple nodes/clients in knife**
+- **Haskell language plugin added to Ohai**
 
 ### msu_package resource
 
@@ -6888,10 +6888,10 @@ reflect the change.
 The following items are new for chef-client 12.16 and/or are changes
 from previous versions. The short version:
 
--   **Added new attribute_changed event hook**
--   **Automatic connection to Chef Automate's data collector through
+- **Added new attribute_changed event hook**
+- **Automatic connection to Chef Automate's data collector through
     Chef server**
--   **Added new --field-separator flag to knife show commands**
+- **Added new --field-separator flag to knife show commands**
 
 ### `attribute_changed` event hook
 
@@ -6999,15 +6999,15 @@ end
 The following items are new for chef-client 12.15 and/or are changes
 from previous versions. The short version:
 
--   **Omnibus packages are now available for Ubuntu 16.04**
--   **New cab_package resource** Supports the installation of cabinet
+- **Omnibus packages are now available for Ubuntu 16.04**
+- **New cab_package resource** Supports the installation of cabinet
     packages on Microsoft Windows.
--   **Added new Chef client exit code (213)** New exit code when Chef
+- **Added new Chef client exit code (213)** New exit code when Chef
     client exits during upgrade.
--   **Default for gpgcheck on yum_repository resource is set to true**
--   **Allow deletion of registry_key without the need for users to pass
+- **Default for gpgcheck on yum_repository resource is set to true**
+- **Allow deletion of registry_key without the need for users to pass
     data key in values hash**
--   **If provided, knife ssh will pass the -P option on the command line
+- **If provided, knife ssh will pass the -P option on the command line
     as the sudo password and will bypass prompting**
 
 ### cab_package
@@ -7049,14 +7049,14 @@ in the omnibus_updater cookbook for more information.
 The following items are new for chef-client 12.14 and/or are changes
 from previous versions. The short version:
 
--   **Upgraded Ruby version from 2.1.9 to 2.3.1** Adds several
+- **Upgraded Ruby version from 2.1.9 to 2.3.1** Adds several
     performance and functionality enhancements.
--   **Now support for Chef client runs on Windows Nano Server** A small
+- **Now support for Chef client runs on Windows Nano Server** A small
     patch to Ruby 2.3.1 and improvements to the Ohai network plugin now
     allow you to do chef client runs on Windows Nano Server.
--   **New yum_repository resource** Use the **yum_repository**
+- **New yum_repository resource** Use the **yum_repository**
     resource to manage a yum repository configuration file.
--   **Added the ability to mark a property of a custom resource as
+- **Added the ability to mark a property of a custom resource as
     sensitive** This will suppress the property's value when it's used
     in other outputs, such as messages used by the data collector.
 
@@ -7092,11 +7092,11 @@ property :db_password, String, sensitive: true
 The following items are new for chef-client 12.13 and/or are changes
 from previous versions. The short version:
 
--   **Ohai 8.18 includes new plugin for gathering available user
+- **Ohai 8.18 includes new plugin for gathering available user
     shells** Other additions include a new hardware plugin for macOS
     that gathers system information and detection of VMWare and
     VirtualBox installations.
--   **New Chef client option to override any config key/value pair** Use
+- **New Chef client option to override any config key/value pair** Use
     `chef-client --config-option` to override any config setting from
     the command line.
 
@@ -7113,39 +7113,39 @@ chef-client --config-option chef_server_url=http://example --config-option polic
 
 ### Updated Dependencies
 
--   ruby - 2.1.9 (from 2.1.8)
+- ruby - 2.1.9 (from 2.1.8)
 
 #### Updated Gems
 
--   chef-zero - 4.8.0 (from 4.7.0)
--   cheffish - 2.0.5 (from 2.0.4)
--   compat_resource - 12.10.7 (from 12.10.6)
--   ffi - 1.9.14 (from 1.9.10)
--   ffi-yajl - 2.3.0 (from 2.2.3)
--   fuzzyurl - 0.9.0 (from 0.8.0)
--   mixlib-cli - 1.7.0 (from 1.6.0)
--   mixlib-log - 1.7.0 (from 1.6.0)
--   ohai - 8.18.0 (from 8.17.1)
--   pry - 0.10.4 (from 0.10.3)
--   rspec - 3.5.0 (from 3.4.0)
--   rspec-core - 3.5.2 (from 3.4.4)
--   rspec-expectations - 3.5.0 (from 3.4.0)
--   rspec-mocks - 3.5.0 (from 3.4.1)
--   rspec-support - 3.5.0 (from 3.4.1)
--   simplecov - 0.12.0 (from 0.11.2)
--   specinfra - 2.60.3 (from 2.59.4)
--   mixlib-archive - 0.2.0 (added to package)
+- chef-zero - 4.8.0 (from 4.7.0)
+- cheffish - 2.0.5 (from 2.0.4)
+- compat_resource - 12.10.7 (from 12.10.6)
+- ffi - 1.9.14 (from 1.9.10)
+- ffi-yajl - 2.3.0 (from 2.2.3)
+- fuzzyurl - 0.9.0 (from 0.8.0)
+- mixlib-cli - 1.7.0 (from 1.6.0)
+- mixlib-log - 1.7.0 (from 1.6.0)
+- ohai - 8.18.0 (from 8.17.1)
+- pry - 0.10.4 (from 0.10.3)
+- rspec - 3.5.0 (from 3.4.0)
+- rspec-core - 3.5.2 (from 3.4.4)
+- rspec-expectations - 3.5.0 (from 3.4.0)
+- rspec-mocks - 3.5.0 (from 3.4.1)
+- rspec-support - 3.5.0 (from 3.4.1)
+- simplecov - 0.12.0 (from 0.11.2)
+- specinfra - 2.60.3 (from 2.59.4)
+- mixlib-archive - 0.2.0 (added to package)
 
 ## What's New in 12.12
 
 The following items are new for chef-client 12.12 and/or are changes
 from previous versions. The short version:
 
--   **New node attribute APIs** Common set of methods to read, write,
+- **New node attribute APIs** Common set of methods to read, write,
     delete, and check if node attributes exist.
--   **Data collector updates** Minor enhancements to data that the data
+- **Data collector updates** Minor enhancements to data that the data
     collector reports on.
--   **knife cookbook create has been deprecated** You should use [chef
+- **knife cookbook create has been deprecated** You should use [chef
     generate cookbook](/ctl_chef/#chef-generate-cookbook) instead.
 
 ### New node attribute read, write, unlink, and exist? APIs
@@ -7217,13 +7217,13 @@ see if `node.default["foo"]["bar"]` exists.
 
 The following methods have been deprecated in this release:
 
--   `node.set`
--   `node.set_unless`
+- `node.set`
+- `node.set_unless`
 
 ### data_collector updates
 
--   Adds `node` to the data_collector message.
--   `data_collector` reports on all resources and not just those that
+- Adds `node` to the data_collector message.
+- `data_collector` reports on all resources and not just those that
     have been processed.
 
 ## What's New in 12.11
@@ -7231,17 +7231,17 @@ The following methods have been deprecated in this release:
 The following items are new for chef-client 12.11 and/or are changes
 from previous versions. The short version:
 
--   **Support for standard exit codes in Chef client** Standard exit
+- **Support for standard exit codes in Chef client** Standard exit
     codes are now used by Chef client and should be identical across all
     OS platforms. New configuration setting `exit_status` has been added
     to specify how Chef client reports non-standard exit codes.
--   **New data collector functionality for run statistics** New feature
+- **New data collector functionality for run statistics** New feature
     that provides a unified method for sharing statistics about your
     Chef runs in webhook-like manner.
--   **Default chef-solo behavior is equivalent to chef-client local
+- **Default chef-solo behavior is equivalent to chef-client local
     mode** chef-solo now uses chef-client local mode. To use the
     previous `chef-solo` behavior, run in `chef-solo --legacy-mode`.
--   **New systemd_unit resource** Use the **systemd_unit** to manage
+- **New systemd_unit resource** Use the **systemd_unit** to manage
     systemd units.
 
 ### exit_status
@@ -7272,12 +7272,12 @@ solo legacy mode.
 To enable the data collector, specify the following settings in your
 client configuration file:
 
--   `data_collector.server_url`: Required. The URL to which the Chef
+- `data_collector.server_url`: Required. The URL to which the Chef
     client will POST the data collector messages
--   `data_collector.token`: Optional. An token which will be sent in a
+- `data_collector.token`: Optional. An token which will be sent in a
     x-data-collector-token HTTP header which can be used to authenticate
     the message.
--   `data_collector.mode`: The Chef mode in which the data collector
+- `data_collector.mode`: The Chef mode in which the data collector
     should run. Chef client mode is chef client configured to use Chef
     server to provide Chef client its resources and artifacts. Chef solo
     mode is Chef client configured to use a local Chef zero server
@@ -7285,10 +7285,10 @@ client configuration file:
     enable data collector in Chef solo mode but not Chef client mode.
     Available options are `:solo`, `:client`, or `:both`. Default is
     `:both`.
--   `data_collector.raise_on_failure`: If enabled, Chef will raise an
+- `data_collector.raise_on_failure`: If enabled, Chef will raise an
     exception and fail to run if the data collector cannot be reached at
     the start of the Chef run. Defaults to false.
--   `data_collector.organization`: Optional. In Chef solo mode, the
+- `data_collector.organization`: Optional. In Chef solo mode, the
     organization field in the messages will be set to this value.
     Default is `chef_solo`. This field does not apply to Chef client
     mode.
@@ -7341,11 +7341,11 @@ end
 
 where
 
--   `name` is the name of the unit
--   `user` is the user account that systemd units run under. If not
+- `name` is the name of the unit
+- `user` is the user account that systemd units run under. If not
     specified, systemd units will run under the system account.
--   `content` describes the behavior of the unit
--   `triggers_reload` controls if a <span
+- `content` describes the behavior of the unit
+- `triggers_reload` controls if a <span
     class="title-ref">daemon-reload</span> is executed to load the unit
 
 #### Actions
@@ -7455,13 +7455,13 @@ This resource has the following properties:
 The following items are new for chef-client 12.10 and/or are changes
 from previous versions. The short version:
 
--   **New layout property for mdadm resource** Use the `layout` property
+- **New layout property for mdadm resource** Use the `layout` property
     to set the RAID5 parity algorithm. Possible values:
     `left-asymmetric` (or `la`), `left-symmetric` (or `ls`),
     `right-asymmetric` (or `ra`), or `right-symmetric` (or `rs`).
--   **New with_run_context for the Chef Infra Language** Use `with_run_context`
+- **New with_run_context for the Chef Infra Language** Use `with_run_context`
     to run resource blocks as part of the root or parent run context.
--   **New Chef Infra Language methods for declaring, deleting, editing, and
+- **New Chef Infra Language methods for declaring, deleting, editing, and
     finding resources** Use the `declare_resource`, `delete_resource`,
     `edit_resource`, and `find_resource` methods to interact with
     resources in the resource collection. Use the `delete_resource!`,
@@ -7486,8 +7486,8 @@ end
 
 where `:type` may be one of the following:
 
--   `:root` runs the block as part of the root `run_context` hierarchy
--   `:parent` runs the block as part of the parent process in the
+- `:root` runs the block as part of the root `run_context` hierarchy
+- `:parent` runs the block as part of the parent process in the
     `run_context` hierarchy
 
 For example:
@@ -7519,15 +7519,15 @@ declare_resource(:resource_type, 'resource_name', resource_attrs_block)
 
 where:
 
--   `:resource_type` is the resource type, such as `:file` (for the
+- `:resource_type` is the resource type, such as `:file` (for the
     **file** resource), `:template` (for the **template** resource), and
     so on. Any resource available to Chef may be declared.
--   `resource_name` the property that is the default name of the
+- `resource_name` the property that is the default name of the
     resource, typically the string that appears in the
     `resource 'name' do` block of a resource (but not always); see the
     Syntax section for the resource to be declared to verify the default
     name property.
--   `resource_attrs_block` is a block in which properties of the
+- `resource_attrs_block` is a block in which properties of the
     instantiated resource are declared.
 
 For example:
@@ -7559,10 +7559,10 @@ delete_resource(:resource_type, 'resource_name')
 
 where:
 
--   `:resource_type` is the resource type, such as `:file` (for the
+- `:resource_type` is the resource type, such as `:file` (for the
     **file** resource), `:template` (for the **template** resource), and
     so on. Any resource available to Chef may be declared.
--   `resource_name` the property that is the default name of the
+- `resource_name` the property that is the default name of the
     resource, typically the string that appears in the
     `resource 'name' do` block of a resource (but not always); see the
     Syntax section for the resource to be declared to verify the default
@@ -7588,10 +7588,10 @@ delete_resource!(:resource_type, 'resource_name')
 
 where:
 
--   `:resource_type` is the resource type, such as `:file` (for the
+- `:resource_type` is the resource type, such as `:file` (for the
     **file** resource), `:template` (for the **template** resource), and
     so on. Any resource available to Chef may be declared.
--   `resource_name` the property that is the default name of the
+- `resource_name` the property that is the default name of the
     resource, typically the string that appears in the
     `resource 'name' do` block of a resource (but not always); see the
     Syntax section for the resource to be declared to verify the default
@@ -7607,8 +7607,8 @@ delete_resource!(:file, '/x/file.txt')
 
 Use the `edit_resource` method to:
 
--   Find a resource in the resource collection, and then edit it.
--   Define a resource block. If a resource block with the same name
+- Find a resource in the resource collection, and then edit it.
+- Define a resource block. If a resource block with the same name
     exists in the resource collection, it will be updated with the
     contents of the resource block defined by the `edit_resource`
     method. If a resource block does not exist in the resource
@@ -7622,15 +7622,15 @@ edit_resource(:resource_type, 'resource_name', resource_attrs_block)
 
 where:
 
--   `:resource_type` is the resource type, such as `:file` (for the
+- `:resource_type` is the resource type, such as `:file` (for the
     **file** resource), `:template` (for the **template** resource), and
     so on. Any resource available to Chef may be declared.
--   `resource_name` the property that is the default name of the
+- `resource_name` the property that is the default name of the
     resource, typically the string that appears in the
     `resource 'name' do` block of a resource (but not always); see the
     Syntax section for the resource to be declared to verify the default
     name property.
--   `resource_attrs_block` is a block in which properties of the
+- `resource_attrs_block` is a block in which properties of the
     instantiated resource are declared.
 
 For example:
@@ -7656,8 +7656,8 @@ end
 
 Use the `edit_resource!` method to:
 
--   Find a resource in the resource collection, and then edit it.
--   Define a resource block. If a resource with the same name exists in
+- Find a resource in the resource collection, and then edit it.
+- Define a resource block. If a resource with the same name exists in
     the resource collection, its properties will be updated with the
     contents of the resource block defined by the `edit_resource`
     method.
@@ -7672,15 +7672,15 @@ edit_resource!(:resource_type, 'resource_name')
 
 where:
 
--   `:resource_type` is the resource type, such as `:file` (for the
+- `:resource_type` is the resource type, such as `:file` (for the
     **file** resource), `:template` (for the **template** resource), and
     so on. Any resource available to Chef may be declared.
--   `resource_name` the property that is the default name of the
+- `resource_name` the property that is the default name of the
     resource, typically the string that appears in the
     `resource 'name' do` block of a resource (but not always); see the
     Syntax section for the resource to be declared to verify the default
     name property.
--   `resource_attrs_block` is a block in which properties of the
+- `resource_attrs_block` is a block in which properties of the
     instantiated resource are declared.
 
 For example:
@@ -7693,8 +7693,8 @@ edit_resource!(:file, '/x/y.rst')
 
 Use the `find_resource` method to:
 
--   Find a resource in the resource collection.
--   Define a resource block. If a resource block with the same name
+- Find a resource in the resource collection.
+- Define a resource block. If a resource block with the same name
     exists in the resource collection, it will be returned. If a
     resource block does not exist in the resource collection, it will be
     created.
@@ -7707,10 +7707,10 @@ find_resource(:resource_type, 'resource_name')
 
 where:
 
--   `:resource_type` is the resource type, such as `:file` (for the
+- `:resource_type` is the resource type, such as `:file` (for the
     **file** resource), `:template` (for the **template** resource), and
     so on. Any resource available to Chef may be declared.
--   `resource_name` the property that is the default name of the
+- `resource_name` the property that is the default name of the
     resource, typically the string that appears in the
     `resource 'name' do` block of a resource (but not always); see the
     Syntax section for the resource to be declared to verify the default
@@ -7746,10 +7746,10 @@ find_resource!(:resource_type, 'resource_name')
 
 where:
 
--   `:resource_type` is the resource type, such as `:file` (for the
+- `:resource_type` is the resource type, such as `:file` (for the
     **file** resource), `:template` (for the **template** resource), and
     so on. Any resource available to Chef may be declared.
--   `resource_name` the property that is the default name of the
+- `resource_name` the property that is the default name of the
     resource, typically the string that appears in the
     `resource 'name' do` block of a resource (but not always); see the
     Syntax section for the resource to be declared to verify the default
@@ -7766,28 +7766,28 @@ find_resource!(:template, '/x/y.erb')
 The following items are new for chef-client 12.9 and/or are changes from
 previous versions. The short version:
 
--   **New apt_repository resource**
--   **64-bit chef-client for Microsoft Windows** Starting with
+- **New apt_repository resource**
+- **64-bit chef-client for Microsoft Windows** Starting with
     chef-client 12.9, 64-bit
--   **New property for the mdadm resource** Use the `mdadm_defaults`
+- **New property for the mdadm resource** Use the `mdadm_defaults`
     property to set the default values for `chunk` and `metadata` to
     `nil`, which allows mdadm to apply its own default values.
--   **File redirection in Windows for 32-bit applications** Files on
+- **File redirection in Windows for 32-bit applications** Files on
     Microsoft Windows that are managed by the **file** and **directory**
     resources are subject to file redirection, depending if Chef Client
     is 64-bit or 32-bit.
--   **Registry key redirection in Windows for 32-bit applications**
+- **Registry key redirection in Windows for 32-bit applications**
     Registry keys on Microsoft Windows that are managed by the
     **registry_key** resource are subject to key redirection, depending
     if Chef Client is 64-bit or 32-bit.
--   **New values for log_location** Use `:win_evt` to write log output
+- **New values for log_location** Use `:win_evt` to write log output
     to the (Windows Event Logger and `:syslog` to write log output to
     the syslog daemon facility with the originator set as `chef-client`.
--   **New timeout setting for knife ssh** Set the `--ssh-timeout`
+- **New timeout setting for knife ssh** Set the `--ssh-timeout`
     setting to an integer (in seconds) as part of a `knife ssh` command.
     The `ssh_timeout` setting may also be configured (as seconds) in the
     knife.rb file.
--   **New "seconds to wait before first chef-client run" setting** The
+- **New "seconds to wait before first chef-client run" setting** The
     `-daemonized` option for Chef Client now allows the seconds to wait
     before starting Chef Client run to be specified. For example, if
     `--daemonize 10` is specified, Chef Client will wait ten seconds.
@@ -7802,8 +7802,8 @@ to depend on the apt cookbook to use the apt_repository resource.
 
 Chef Client now runs on 64-bit Microsoft Windows operating systems.
 
--   Support for file redirection
--   Support for key redirection
+- Support for file redirection
+- Support for key redirection
 
 #### File Redirection
 
@@ -7866,22 +7866,22 @@ Reflection](https://msdn.microsoft.com/en-us/library/windows/desktop/aa384235(v=
 The following items are new for chef-client 12.8 and/or are changes from
 previous versions. The short version:
 
--   **Support for OpenSSL validation of FIPS** Chef Client can be
+- **Support for OpenSSL validation of FIPS** Chef Client can be
     configured to allow OpenSSL to enforce FIPS-validated security
     during a chef-client run.
--   **Support for multiple configuration files** Chef Client supports
+- **Support for multiple configuration files** Chef Client supports
     reading multiple configuration files by putting them inside a `.d`
     configuration directory.
--   **New launchd resource** Use the **launchd** resource to manage
+- **New launchd resource** Use the **launchd** resource to manage
     system-wide services (daemons) and per-user services (agents) on the
     macOS platform.
--   **chef-zero support for Chef Server API endpoints** chef-zero now
+- **chef-zero support for Chef Server API endpoints** chef-zero now
     supports using all Chef server API version 12 endpoints, with the
     exception of `/universe`.
--   **Updated support for OpenSSL** OpenSSL is updated to version 1.0.1.
--   **Ohai auto-detects hosts for Azure instances** Ohai will
+- **Updated support for OpenSSL** OpenSSL is updated to version 1.0.1.
+- **Ohai auto-detects hosts for Azure instances** Ohai will
     auto-detect hosts for instances that are hosted by Microsoft Azure.
--   **gem attribute added to metadata.rb** Specify a gem dependency to
+- **gem attribute added to metadata.rb** Specify a gem dependency to
     be installed via the **chef_gem** resource after all cookbooks are
     synchronized, but before any other cookbook loading is done.
 
@@ -7907,22 +7907,22 @@ is not used for any cryptographic purpose.
 
 Notes about FIPS:
 
--   May be enabled for nodes running on Microsoft Windows and Enterprise
+- May be enabled for nodes running on Microsoft Windows and Enterprise
     Linux platforms
--   Should only be enabled for environments that require FIPS 140-2
+- Should only be enabled for environments that require FIPS 140-2
     compliance
--   May not be enabled for any version of Chef Client earlier than 12.8
+- May not be enabled for any version of Chef Client earlier than 12.8
 
 #### Enable FIPS Mode
 
 Allowing OpenSSL to enforce FIPS-validated security may be enabled by
 using any of the following ways:
 
--   Set the `fips` configuration setting to `true` in the client.rb or
+- Set the `fips` configuration setting to `true` in the client.rb or
     knife.rb files
--   Set the `--fips` command-line option when running any knife command
+- Set the `--fips` command-line option when running any knife command
     or Chef Client executable
--   Set the `--fips` command-line option when bootstrapping a node using
+- Set the `--fips` command-line option when bootstrapping a node using
     the `knife bootstrap` command
 
 #### Command Option
@@ -7969,19 +7969,19 @@ are loaded; other non-`.rb` files are ignored.
 `.d` directories may exist in any location where the `client.rb`,
 `config.rb`, or `solo.rb` files are present, such as:
 
--   `/etc/chef/client.d`
--   `/etc/chef/config.d`
--   `~/chef/solo.d`
+- `/etc/chef/client.d`
+- `/etc/chef/config.d`
+- `~/chef/solo.d`
 
 (There is no support for a `knife.d` directory; use `config.d` instead.)
 
 For example, when using knife, the following configuration files would
 be loaded:
 
--   `~/.chef/config.rb`
--   `~/.chef/config.d/company_settings.rb`
--   `~/.chef/config.d/ec2_configuration.rb`
--   `~/.chef/config.d/old_settings.rb.bak`
+- `~/.chef/config.rb`
+- `~/.chef/config.d/company_settings.rb`
+- `~/.chef/config.d/ec2_configuration.rb`
+- `~/.chef/config.d/old_settings.rb.bak`
 
 The `old_settings.rb.bak` file is ignored because it's not a
 configuration file. The `config.rb`, `company_settings.rb`, and
@@ -8079,11 +8079,11 @@ end
 
 where
 
--   `launchd` is the resource
--   `name` is the name of the resource block
--   `action` identifies the steps Chef Client will take to bring the
+- `launchd` is the resource
+- `name` is the name of the resource block
+- `action` identifies the steps Chef Client will take to bring the
     node into the desired state
--   `abandon_process_group`, `backup`, `cookbook`, `debug`, `disabled`,
+- `abandon_process_group`, `backup`, `cookbook`, `debug`, `disabled`,
     `enable_globbing`, `enable_transactions`, `environment_variables`,
     `exit_timeout`, `group`, `hard_resource_limits`, `hash`,
     `inetd_compatibility`, `init_groups`, `keep_alive`, `label`,
@@ -8686,23 +8686,23 @@ gem "chef-sugar"
 The following items are new for chef-client 12.7 and/or are changes from
 previous versions. The short version:
 
--   **Chef::REST =\> require 'chef/rest'** Internal API calls are moved
+- **Chef::REST =\> require 'chef/rest'** Internal API calls are moved
     from `Chef::REST` to `Chef::ServerAPI`. Any code that uses
     `Chef::REST` must use `require 'chef/rest'`.
--   **New chocolatey_package resource** Use the **chocolatey_package**
+- **New chocolatey_package resource** Use the **chocolatey_package**
     resource to manage packages using Chocolatey for the Microsoft
     Windows platform.
--   **New osx_profile resource** Use the **osx_profile** resource to
+- **New osx_profile resource** Use the **osx_profile** resource to
     manage configuration profiles (`.mobileconfig` files) on the macOS
     platform.
--   **New apt_update resource** Use the **apt_update** resource to
+- **New apt_update resource** Use the **apt_update** resource to
     manage Apt repository updates on Debian and Ubuntu platforms.
--   **Improved support for UTF-8** Chef Client 12.7 release fixes a
+- **Improved support for UTF-8** Chef Client 12.7 release fixes a
     UTF-8 handling bug present in chef-client versions 12.4, 12.5, and
     12.6.
--   **New options for the chef-client** Chef Client has a new option:
+- **New options for the chef-client** Chef Client has a new option:
     `--delete-entire-chef-repo`.
--   **Multi-package support for Chocolatey and Zypper** A resource may
+- **Multi-package support for Chocolatey and Zypper** A resource may
     specify multiple packages and/or versions for platforms that use
     Zypper or Chocolatey package managers (in addition to the existing
     support for specifying multiple packages for Yum and Apt packages).
@@ -8756,11 +8756,11 @@ end
 
 where
 
--   `chocolatey_package` tells Chef Client to manage a package
--   `'name'` is the name of the package
--   `action` identifies which steps Chef Client will take to bring the
+- `chocolatey_package` tells Chef Client to manage a package
+- `'name'` is the name of the package
+- `action` identifies which steps Chef Client will take to bring the
     node into the desired state
--   `options`, `package_name`, `source`, `timeout`, and `version` are
+- `options`, `package_name`, `source`, `timeout`, and `version` are
     properties of this resource, with the Ruby type shown. See
     "Properties" section below for more information about all of the
     properties that may be used with this resource.
@@ -9001,11 +9001,11 @@ end
 
 where
 
--   `osx_profile` is the resource
--   `name` is the name of the resource block
--   `action` identifies the steps Chef Client will take to bring the
+- `osx_profile` is the resource
+- `name` is the name of the resource block
+- `action` identifies the steps Chef Client will take to bring the
     node into the desired state
--   `profile`, `profile_name`, and `identifier` are properties of this
+- `profile`, `profile_name`, and `identifier` are properties of this
     resource, with the Ruby type shown. See "Properties" section below
     for more information about all of the properties that may be used
     with this resource.
@@ -9169,11 +9169,11 @@ end
 
 where
 
--   `apt_update` is the resource
--   `name` is the name of the resource block
--   `action` identifies the steps Chef Client will take to bring the
+- `apt_update` is the resource
+- `name` is the name of the resource block
+- `action` identifies the steps Chef Client will take to bring the
     node into the desired state
--   `frequency` is a property of this resource, with the Ruby type
+- `frequency` is a property of this resource, with the Ruby type
     shown. See "Properties" section below for more information about all
     of the properties that may be used with this resource.
 
@@ -9240,42 +9240,42 @@ Chef Client has the following new options:
 The following items are new for chef-client 12.6 and/or are changes from
 previous versions. The short version:
 
--   **New timer for resource notifications** Use the `:before` timer
+- **New timer for resource notifications** Use the `:before` timer
     with the `notifies` and `subscribes` properties to specify that the
     action on a notified resource should be run before processing the
     resource block in which the notification is located.
--   **New ksh resource** The **ksh** resource is added and is based on
+- **New ksh resource** The **ksh** resource is added and is based on
     the **script** resource.
--   **New metadata.rb settings** The metadata.rb file has settings for
+- **New metadata.rb settings** The metadata.rb file has settings for
     `chef_version` and `ohai_version` that allow ranges to be specified
     that declare the supported versions of Chef Client and Ohai.
--   **dsc_resource supports reboots** The **dsc_resource** resource
+- **dsc_resource supports reboots** The **dsc_resource** resource
     supports immediate and queued reboots. This uses the **reboot**
     resource and its `:reboot_now` or `:request_reboot` actions.
--   **New and changed knife bootstrap options** The `--identify-file`
+- **New and changed knife bootstrap options** The `--identify-file`
     option for the `knife bootstrap` subcommand is renamed to
     `--ssh-identity-file`; the `--sudo-preserve-home` is new.
--   **New installer types for the windows_package resource** The
+- **New installer types for the windows_package resource** The
     **windows_package** resource now supports the following installer
     types: `:custom`, Inno Setup (`:inno`), InstallShield
     (`:installshield`), Microsoft Installer Package (MSI) (`:msi`),
     Nullsoft Scriptable Install System (NSIS) (`:nsis`), Wise (`:wise`).
     Prior versions of Chef supported only `:msi`.
--   **dsc_resource resource may be run in non-disabled refresh mode**
+- **dsc_resource resource may be run in non-disabled refresh mode**
     The latest version of Windows Management Framework (WMF) 5 has
     relaxed the limitation that prevented Chef Client from running in
     non-disabled refresh mode. Requires Windows PowerShell 5.0.10586.0
     or higher.
--   **dsc_script and dsc_resource resources may be in the same
+- **dsc_script and dsc_resource resources may be in the same
     run-list** The latest version of Windows Management Framework (WMF)
     5 has relaxed the limitation that prevented Chef Client from running
     in non-disabled refresh mode, which allows the Local Configuration
     Manager to be set to `Push`. Requires Windows PowerShell 5.0.10586.0
     or higher.
--   **New --profile-ruby option** Use the `--profile-ruby` option to
+- **New --profile-ruby option** Use the `--profile-ruby` option to
     dump a (large) profiling graph into
     `/var/chef/cache/graph_profile.out`.
--   **New live_stream property for the execute resource** Set the
+- **New live_stream property for the execute resource** Set the
     `live_stream` property to `true` to send the output of a command run
     by the **execute** resource to Chef Client event stream.
 
@@ -9333,7 +9333,7 @@ end
 
 where
 
--   `code` specifies the command to run
+- `code` specifies the command to run
 
 The full syntax for all of the properties that are available to the
 **ksh** resource is:
@@ -9359,11 +9359,11 @@ end
 
 where
 
--   `ksh` is the resource
--   `name` is the name of the resource block
--   `action` identifies the steps Chef Client will take to bring the
+- `ksh` is the resource
+- `name` is the name of the resource block
+- `action` identifies the steps Chef Client will take to bring the
     node into the desired state
--   `code`, `creates`, `cwd`, `environment`, `flags`, `group`, `path`,
+- `code`, `creates`, `cwd`, `environment`, `flags`, `group`, `path`,
     `returns`, `timeout`, `user`, and `umask` are properties of this
     resource, with the Ruby type shown. See "Properties" section below
     for more information about all of the properties that may be used
@@ -9483,10 +9483,10 @@ The ksh resource has the following properties:
 
 Using the **dsc_resource** has the following requirements:
 
--   Windows Management Framework (WMF) 5.0 February Preview (or higher),
+- Windows Management Framework (WMF) 5.0 February Preview (or higher),
     which includes Windows PowerShell 5.0.10018.0 (or higher).
 
--   The `RefreshMode` configuration setting in the Local Configuration
+- The `RefreshMode` configuration setting in the Local Configuration
     Manager must be set to `Disabled`.
 
     {{< note spaces=4 >}}
@@ -9499,7 +9499,7 @@ Using the **dsc_resource** has the following requirements:
 
     {{< /note >}}
 
--   The **dsc_script** resource may not be used in the same run-list
+- The **dsc_script** resource may not be used in the same run-list
     with the **dsc_resource**. This is because the **dsc_script**
     resource requires that `RefreshMode` in the Local Configuration
     Manager be set to `Push`, whereas the **dsc_resource** resource
@@ -9516,7 +9516,7 @@ Using the **dsc_resource** has the following requirements:
 
     {{< /note >}}
 
--   The **dsc_resource** resource can only use binary- or script-based
+- The **dsc_resource** resource can only use binary- or script-based
     resources. Composite DSC resources may not be used.
 
     This is because composite resources aren't "real" resources from the
@@ -9588,25 +9588,25 @@ Use the `--profile-ruby` option to dump a (large) profiling graph into
 identify, and then resolve performance bottlenecks in a chef-client run.
 This option:
 
--   Generates a large amount of data about the chef-client run.
--   Has a dependency on the `ruby-prof` gem, which is packaged as part
+- Generates a large amount of data about the chef-client run.
+- Has a dependency on the `ruby-prof` gem, which is packaged as part
     of Chef and the ChefDK.
--   Increases the amount of time required to complete the chef-client
+- Increases the amount of time required to complete the chef-client
     run.
--   Should not be used in a production environment.
+- Should not be used in a production environment.
 
 ## What's New in 12.5
 
 The following items are new for chef-client 12.5 and/or are changes from
 previous versions. The short version:
 
--   **New way to build custom resources** The process for extending the
+- **New way to build custom resources** The process for extending the
     collection of resources that are built into Chef has been
     simplified. It is defined only in the `/resources` directory using a
     simplified syntax that easily leverages the built-in collection of
     resources. (All of the ways you used to build custom resources still
     work.)
--   **"resource attributes" are now known as "resource properties"** In
+- **"resource attributes" are now known as "resource properties"** In
     previous releases of Chef, resource properties are referred to as
     attributes, but this is confusing for users because nodes also have
     attributes. Starting with chef-client 12.5 release---and
@@ -9614,20 +9614,20 @@ previous versions. The short version:
     documentation---"resource attributes" are now referred to as
     "resource properties" and the word "attribute" now refers
     specifically to "node attributes".
--   **ps_credential helper to embed usernames and passwords** Use the
+- **ps_credential helper to embed usernames and passwords** Use the
     `ps_credential` helper on Microsoft Windows to create a
     `PSCredential` object---security credentials, such as a user name or
     password---that can be used in the **dsc_script** resource.
--   **New Handler DSL** A new DSL exists to make it easier to use events
+- **New Handler DSL** A new DSL exists to make it easier to use events
     that occur during Chef Client run from recipes. The `on` method is
     easily associated with events. The action Chef Client takes as a
     result of that event (when it occurs) is up to you.
--   **The -j / --json-attributes supports policy revisions and
+- **The -j / --json-attributes supports policy revisions and
     environments** The JSON file used by the `--json-attributes` option
     for Chef Client may now contain the policy name and policy group
     associated with a policy revision or may contain the name of the
     environment to which the node is associated.
--   **verify property now uses path, not file** The `verify` property,
+- **verify property now uses path, not file** The `verify` property,
     used by file-based resources such as **remote_file** and **file**,
     runs user-defined correctness checks against the proposed new file
     before making the change. For versions of Chef Client prior to 12.5,
@@ -9635,12 +9635,12 @@ previous versions. The short version:
     chef-client 12.5, use `path`. This change is documented as a warning
     across all versions in any topic in which the `version` attribute is
     documented.
--   **depth property added to deploy resource** The `depth` property
+- **depth property added to deploy resource** The `depth` property
     allows the depth of a git repository to be truncated to the
     specified number of versions.
--   **The knife ssl check subcommand supports SNI** Support for Server
+- **The knife ssl check subcommand supports SNI** Support for Server
     Name Indication (SNI) is added to the `knife ssl check` subcommand.
--   **Chef Policy group and name can now be part of the node object**
+- **Chef Policy group and name can now be part of the node object**
     Chef policy is a beta feature of Chef Client that will eventually
     replace roles, environments or manually specifying the run_list.
     Policy group and name can now be stored as part of the node object
@@ -9652,12 +9652,12 @@ previous versions. The short version:
 
 A custom resource:
 
--   Is a simple extension of Chef that adds your own resources
--   Is implemented and shipped as part of a cookbook
--   Follows easy, repeatable syntax patterns
--   Effectively leverages resources that are built into Chef and/or
+- Is a simple extension of Chef that adds your own resources
+- Is implemented and shipped as part of a cookbook
+- Follows easy, repeatable syntax patterns
+- Effectively leverages resources that are built into Chef and/or
     custom Ruby code
--   Is reusable in the same way as resources that are built into Chef
+- Is reusable in the same way as resources that are built into Chef
 
 For example, Chef includes built-in resources to manage files, packages,
 templates, and services, but it does not include a resource that manages
@@ -9675,9 +9675,9 @@ including a scenario that shows how to build a `website` resource.
 A custom resource is defined as a Ruby file and is located in a
 cookbook's `/resources` directory. This file
 
--   Declares the properties of the custom resource
--   Loads current state of properties, if the resource already exists
--   Defines each action the custom resource may take
+- Declares the properties of the custom resource
+- Loads current state of properties, if the resource already exists
+- Defines each action the custom resource may take
 
 The syntax for a custom resource is. For example:
 
@@ -9737,13 +9737,13 @@ end
 
 where
 
--   `homepage` is a property that sets the default HTML for the
+- `homepage` is a property that sets the default HTML for the
     `index.html` file with a default value of `'<h1>Hello world!</h1>'`
--   the `action` block uses the built-in collection of resources to tell
+- the `action` block uses the built-in collection of resources to tell
     Chef Client how to install Apache, start the service, and then
     create the contents of the file located at
     `/var/www/html/index.html`
--   `action :create` is the default resource, because it is listed
+- `action :create` is the default resource, because it is listed
     first; `action :delete` must be called specifically (because it is
     not the default resource)
 
@@ -9773,10 +9773,10 @@ end
 Use the Custom Resource DSL to define property behaviors within custom
 resources, such as:
 
--   Loading the value of a specific property
--   Comparing the current property value against a desired property
+- Loading the value of a specific property
+- Comparing the current property value against a desired property
     value
--   Telling Chef Client when and how to make changes
+- Telling Chef Client when and how to make changes
 
 #### action_class
 
@@ -9880,7 +9880,7 @@ executed and Chef Client output will print something similar to:
 Recipe: recipe_name::block
   * resource_name[blah] action create
     - update my_file[blah]
-    -   set content to "hola mundo" (was "hello world")
+    - set content to "hola mundo" (was "hello world")
 ```
 
 **Multiple Properties**
@@ -9914,10 +9914,10 @@ end
 
 where
 
--   `load_current_value` loads the property values for both `content`
+- `load_current_value` loads the property values for both `content`
     and `mode`
--   A `converge_if_changed` block tests only `content`
--   A `converge_if_changed` block tests only `mode`
+- A `converge_if_changed` block tests only `content`
+- A `converge_if_changed` block tests only `mode`
 
 Chef Client will only update the property values that require updates
 and will not make changes when the property values are already in the
@@ -10095,12 +10095,12 @@ property :property_name, ruby_type, default: 'value', parameter: 'value'
 
 where
 
--   `:property_name` is the name of the property
--   `ruby_type` is the optional Ruby type or array of types, such as
+- `:property_name` is the name of the property
+- `ruby_type` is the optional Ruby type or array of types, such as
     `String`, `Integer`, `true`, or `false`
--   `default: 'value'` is the optional default value loaded into the
+- `default: 'value'` is the optional default value loaded into the
     resource
--   `parameter: 'value'` optional parameters
+- `parameter: 'value'` optional parameters
 
 For example, the following properties define `username` and `password`
 properties with no default values specified:
@@ -10219,9 +10219,9 @@ property :enabled, equal_to: [true, false, 'true', 'false'], default: true
 Add `desired_state:` to set the desired state property for a resource.
 This value may be `true` or `false`, and all properties default to true.
 
--   When `true`, the state of the property is determined by the state of
+- When `true`, the state of the property is determined by the state of
     the system
--   When `false`, the value of the property impacts how the resource
+- When `false`, the value of the property impacts how the resource
     executes, but it is not determined by the state of the system.
 
 For example, if you were to write a resource to create volumes on a
@@ -10247,10 +10247,10 @@ property :cloud_password, String, desired_state: false
 Add `identity:` to set a resource to a particular set of properties.
 This value may be `true` or `false`.
 
--   When `true`, data for that property is returned as part of the
+- When `true`, data for that property is returned as part of the
     resource data set and may be available to external applications,
     such as reporting
--   When `false`, no data for that property is returned.
+- When `false`, no data for that property is returned.
 
 If no properties are marked `true`, the property that defaults to the
 `name` of the resource is marked `true`.
@@ -10476,9 +10476,9 @@ Use the Handler DSL to attach a callback to an event. If the event
 occurs during Chef Infra Client run, the associated callback is
 executed. For example:
 
--   Sending email if a chef-client run fails
--   Sending a notification to chat application if an audit run fails
--   Aggregating statistics about resources updated during a chef-client
+- Sending email if a chef-client run fails
+- Sending a notification to chat application if an audit run fails
+- Aggregating statistics about resources updated during a chef-client
     runs to StatsD
 
 #### on Method
@@ -10498,11 +10498,11 @@ end
 
 where
 
--   `Chef.event_handler` declares a block of code within a recipe that
+- `Chef.event_handler` declares a block of code within a recipe that
     is processed when the named event occurs during a chef-client run
--   `on` defines the block of code that will tell Chef Client how to
+- `on` defines the block of code that will tell Chef Client how to
     handle the event
--   `:event_type` is a valid exception event type, such as `:run_start`,
+- `:event_type` is a valid exception event type, such as `:run_start`,
     `:run_failed`, `:converge_failed`, `:resource_failed`, or
     `:recipe_not_found`
 
@@ -10521,10 +10521,10 @@ end
 Use the `on` method to create an event handler that sends email when
 Chef Client run fails. This will require:
 
--   A way to tell Chef Client how to send email
--   An event handler that describes what to do when the `:run_failed`
+- A way to tell Chef Client how to send email
+- An event handler that describes what to do when the `:run_failed`
     event is triggered
--   A way to trigger the exception and test the behavior of the event
+- A way to trigger the exception and test the behavior of the event
     handler
 
 {{< note >}}
@@ -10575,8 +10575,8 @@ Chef.event_handler do
 end
 ```
 
--   Use `Chef.event_handler` to define the event handler
--   Use the `on` method to specify the event type
+- Use `Chef.event_handler` to define the event handler
+- Use the `on` method to specify the event type
 
 Within the `on` block, tell Chef Client how to handle the event when
 it's triggered.
@@ -10776,36 +10776,36 @@ enable the use of policy files:
 The following items are new for chef-client 12.4 and/or are changes from
 previous versions. The short version:
 
--   **Validatorless bootstrap now requires the node name** Use of the
+- **Validatorless bootstrap now requires the node name** Use of the
     `-N node_name` option with a validatorless bootstrap is now
     required.
--   **remote_file resource supports Windows UNC paths for source
+- **remote_file resource supports Windows UNC paths for source
     location** A Microsoft Windows UNC path may be used to specify the
     location of a remote file.
--   **Run PowerShell commands without excessive quoting** Use the
+- **Run PowerShell commands without excessive quoting** Use the
     `Import-Module chef` module to run Windows PowerShell commands
     without excessive quotation.
--   **Logging may use the Windows Event Logger** Log files may be sent
+- **Logging may use the Windows Event Logger** Log files may be sent
     to the Windows Event Logger. Set the `log_location` setting in the
     client.rb file to `Chef::Log::WinEvt.new`.
--   **Logging may be configured to use daemon facility available to the
+- **Logging may be configured to use daemon facility available to the
     chef-client** Log files may be sent to the syslog available to the
     chef-client. Set the `log_location` setting in the client.rb file to
     `Chef::Log::Syslog.new("chef-client", ::Syslog::LOG_DAEMON)`.
--   **Package locations on the Windows platform may be specified using a
+- **Package locations on the Windows platform may be specified using a
     URL** The location of a package may be at URL when using the
     **windows_package** resource.
--   **Package locations on the Windows platform may be specified by
+- **Package locations on the Windows platform may be specified by
     passing attributes to the remote_file resource** Use the
     `remote_file_attributes` attribute to pass a Hash of attributes that
     modifies the **remote_file** resource.
--   **Public key management for users and clients** The `knife client`
+- **Public key management for users and clients** The `knife client`
     and `knife user` subcommands may now create, delete, edit, list, and
     show public keys.
--   **knife client create and knife user create options have changed**
+- **knife client create and knife user create options have changed**
     With the new key management subcommands, the options for
     `knife client create` and `knife user create` have changed.
--   **chef-client audit-mode is no longer marked as "experimental"** The
+- **chef-client audit-mode is no longer marked as "experimental"** The
     recommended version of audit-mode is chef-client 12.4, where it is
     no longer marked as experimental. Chef Client will report audit
     failures independently of converge failures.
@@ -11348,14 +11348,14 @@ This argument has the following options:
 The following items are new for chef-client 12.3 and/or are changes from
 previous versions. The short version:
 
--   **Socketless local mode with chef-zero** Port binding and HTTP
+- **Socketless local mode with chef-zero** Port binding and HTTP
     requests on localhost may be disabled in favor of socketless mode.
--   **Minimal Ohai plugins** Run only the plugins required for name
+- **Minimal Ohai plugins** Run only the plugins required for name
     resolution and resource/provider detection.
--   **Dynamic resource and provider resolution** Four helper methods may
+- **Dynamic resource and provider resolution** Four helper methods may
     be used in a library file to get resource and/or provider mapping
     details, and then set them per-resource or provider.
--   **New clear_sources attribute for the chef_gem and gem_package
+- **New clear_sources attribute for the chef_gem and gem_package
     resources** Set to `true` to download a gem from the path specified
     by the `source` property (and not from RubyGems).
 
@@ -11445,9 +11445,9 @@ Chef.set_resource_priority_array(:package, [ Chef::Resource::MacportsPackage ], 
 The following items are new for chef-client 12.2 and/or are changes from
 previous versions. The short version:
 
--   **New dsc_resource** Use the **dsc_resource** resource to use any
+- **New dsc_resource** Use the **dsc_resource** resource to use any
     DSC resource in a Chef recipe.
--   **New --exit-on-error option for knife-ssh** Use the
+- **New --exit-on-error option for knife-ssh** Use the
     `--exit-on-error` option to have the `knife ssh` subcommand exit on
     any error.
 
@@ -11479,10 +11479,10 @@ resource collection.
 
 Using the **dsc_resource** has the following requirements:
 
--   Windows Management Framework (WMF) 5.0 February Preview (or higher),
+- Windows Management Framework (WMF) 5.0 February Preview (or higher),
     which includes Windows PowerShell 5.0.10018.0 (or higher).
 
--   The `RefreshMode` configuration setting in the Local Configuration
+- The `RefreshMode` configuration setting in the Local Configuration
     Manager must be set to `Disabled`.
 
     {{< note spaces=4 >}}
@@ -11495,13 +11495,13 @@ Using the **dsc_resource** has the following requirements:
 
     {{< /note >}}
 
--   The **dsc_script** resource may not be used in the same run-list
+- The **dsc_script** resource may not be used in the same run-list
     with the **dsc_resource**. This is because the **dsc_script**
     resource requires that `RefreshMode` in the Local Configuration
     Manager be set to `Push`, whereas the **dsc_resource** resource
     requires it to be set to `Disabled`.
 
--   The **dsc_resource** resource can only use binary- or script-based
+- The **dsc_resource** resource can only use binary- or script-based
     resources. Composite DSC resources may not be used. This is because
     composite resources aren't "real" resources from the perspective of
     the Local Configuration Manager (LCM). Composite resources are used
@@ -11555,13 +11555,13 @@ end
 
 where
 
--   `dsc_resource` is the resource
--   `name` is the name of the resource block
--   `property` is zero (or more) properties in the DSC resource, where
+- `dsc_resource` is the resource
+- `name` is the name of the resource block
+- `property` is zero (or more) properties in the DSC resource, where
     each property is entered on a separate line, `:dsc_property_name` is
     the case-insensitive name of that property, and `"property_value"`
     is a Ruby value to be applied by the chef-client
--   `module_name`, `property`, and `resource` are properties of this
+- `module_name`, `property`, and `resource` are properties of this
     resource, with the Ruby type shown. See "Properties" section below
     for more information about all of the properties that may be used
     with this resource.
@@ -11859,41 +11859,41 @@ end
 The following items are new for chef-client 12.1 and/or are changes from
 previous versions. The short version:
 
--   **chef-client may be run in audit-mode** Use audit-mode to run audit
+- **chef-client may be run in audit-mode** Use audit-mode to run audit
     tests against a node.
--   **control method added to Chef Infra Language** Use the `control` method to
+- **control method added to Chef Infra Language** Use the `control` method to
     define specific tests that match directories, files, packages,
     ports, and services. A `control` method must be contained within a
     `control_group` block.
--   **control_group method added to Chef Infra Language** Use the
+- **control_group method added to Chef Infra Language** Use the
     `control_group` method to group one (or more) `control` methods into
     a single audit.
--   **Bootstrap nodes without using the ORGANIZATION-validator.key
+- **Bootstrap nodes without using the ORGANIZATION-validator.key
     file** A node may now be bootstrapped using the USER.pem file,
     instead of the ORGANIZATION-validator.pem file. Also known as a
     "validatorless bootstrap".
--   **New options for knife-bootstrap** Use the
+- **New options for knife-bootstrap** Use the
     `--bootstrap-vault-file`, `--bootstrap-vault-item`, and
     `--bootstrap-vault-json` options with `knife bootstrap` to specify
     items that are stored in chef-vault.
--   **New verify attribute for cookbook_file, file, remote_file, and
+- **New verify attribute for cookbook_file, file, remote_file, and
     template resources** Use the `verify` attribute to test a file using
     a block of code or a string.
--   **New imports attribute for dsc_script resource** Use the `imports`
+- **New imports attribute for dsc_script resource** Use the `imports`
     attribute to import DSC resources from modules.
--   **New attribute for chef_gem resource** Use the `compile_time`
+- **New attribute for chef_gem resource** Use the `compile_time`
     attribute to disable compile-time installation of gems.
--   **New openbsd_package resource** Use the **openbsd_package**
+- **New openbsd_package resource** Use the **openbsd_package**
     resource to install packages on the OpenBSD platform.
--   **New --proxy-auth option for knife raw subcommand** Enable proxy
+- **New --proxy-auth option for knife raw subcommand** Enable proxy
     authentication to the Chef server web user interface..
--   **New watchdog_timeout setting for the Windows platform** Use the
+- **New watchdog_timeout setting for the Windows platform** Use the
     `windows_service.watchdog_timeout` setting in the client.rb file to
     specify the maximum amount of time allowed for a chef-client run on
     the Microsoft Windows platform.
--   **Support for multiple packages and versions** Multiple packages and
+- **Support for multiple packages and versions** Multiple packages and
     versions may be specified for platforms that use Yum or Apt.
--   **New attributes for windows_service resource** Use the
+- **New attributes for windows_service resource** Use the
     `run_as_user` and `run_as_password` attributes to specify the user
     under which a Microsoft Windows service should run.
 
@@ -11903,9 +11903,9 @@ Chef Client may be run in audit-mode. Use audit-mode to evaluate custom
 rules---also referred to as audits---that are defined in recipes.
 audit-mode may be run in the following ways:
 
--   By itself (i.e. a chef-client run that does not build the resource
+- By itself (i.e. a chef-client run that does not build the resource
     collection or converge the node)
--   As part of Chef Client run, where audit-mode runs after all
+- As part of Chef Client run, where audit-mode runs after all
     resources have been converged on the node
 
 Each audit is authored within a recipe using the `control_group` and
@@ -12001,19 +12001,19 @@ end
 
 where:
 
--   `control_group` groups one (or more) `control` blocks
--   `control 'name' do` defines an individual audit
--   Each `control` block must define at least one validation
--   Each `it` statement defines a single validation. `it` statements are
+- `control_group` groups one (or more) `control` blocks
+- `control 'name' do` defines an individual audit
+- Each `control` block must define at least one validation
+- Each `it` statement defines a single validation. `it` statements are
     processed individually when Chef Client is run in audit-mode
--   An `expect(something).to/.to_not be_something` is a statement that
+- An `expect(something).to/.to_not be_something` is a statement that
     represents the individual test. In other words, this statement tests
     if something is expected to be (or not be) something. For example, a
     test that expects the PostgreSQL package to not be installed would
     be similar to `expect(package('postgresql')).to_not be_installed`
     and a test that ensures a service is enabled would be similar to
     `expect(service('init')).to be_enabled`
--   An `it` statement may contain multiple `expect` statements
+- An `it` statement may contain multiple `expect` statements
 
 #### directory Matcher
 
@@ -12518,7 +12518,7 @@ end
 
 where
 
--   `let(:config_file) { file('/etc/ssh/sshd_config') }` uses the `file`
+- `let(:config_file) { file('/etc/ssh/sshd_config') }` uses the `file`
     matcher to test specific settings within the `sshd` configuration
     file
 
@@ -12576,11 +12576,11 @@ end
 
 where:
 
--   `control_group` groups one (or more) `control` blocks
--   `'name'` is the unique name for the `control_group`; Chef Client
+- `control_group` groups one (or more) `control` blocks
+- `'name'` is the unique name for the `control_group`; Chef Client
     will raise an exception if duplicate `control_group` names are
     present
--   `control` defines each individual audit within the `control_group`
+- `control` defines each individual audit within the `control_group`
     block. There is no limit to the number of `control` blocks that may
     defined within a `control_group` block
 
@@ -12850,8 +12850,8 @@ rm -f /home/lamont/.chef/myorg-validator.pem
 
 and then make the following changes in the config.rb file:
 
--   Remove the `validation_client_name` setting
--   Edit the `validation_key` setting to be something that isn't a path
+- Remove the `validation_client_name` setting
+- Edit the `validation_key` setting to be something that isn't a path
     to an existent ORGANIZATION-validator.pem file. For example:
     `/nonexist`.
 
@@ -13109,11 +13109,11 @@ end
 
 where:
 
--   `paludis_package` is the resource.
--   `name` is the name given to the resource block.
--   `action` identifies which steps Chef Client will take to bring the
+- `paludis_package` is the resource.
+- `name` is the name given to the resource block.
+- `action` identifies which steps Chef Client will take to bring the
     node into the desired state.
--   `options`, `package_name`, `source`, `recursive`, `timeout`, and
+- `options`, `package_name`, `source`, `recursive`, `timeout`, and
     `version` are properties of this resource, with the Ruby type shown.
     See "Properties" section below for more information about all of the
     properties that may be used with this resource.
@@ -13329,11 +13329,11 @@ end
 
 where:
 
--   `openbsd_package` is the resource.
--   `name` is the name given to the resource block.
--   `action` identifies which steps Chef Client will take to bring the
+- `openbsd_package` is the resource.
+- `name` is the name given to the resource block.
+- `action` identifies which steps Chef Client will take to bring the
     node into the desired state
--   `options`, `package_name`, `source`, `timeout`, and `version` are
+- `options`, `package_name`, `source`, `timeout`, and `version` are
     properties of this resource, with the Ruby type shown. See
     "Properties" section below for more information about all of the
     properties that may be used with this resource.
@@ -13543,9 +13543,9 @@ that use Yum, DNF, Apt, Zypper, or Chocolatey package managers.
 Specifying multiple packages and/or versions allows a single transaction
 to:
 
--   Download the specified packages and versions via a single HTTP
+- Download the specified packages and versions via a single HTTP
     transaction
--   Update or install multiple packages with a single resource during
+- Update or install multiple packages with a single resource during
     Chef Client run
 
 For example, installing multiple packages:
@@ -13611,149 +13611,149 @@ properties.
 The following items are new for chef-client 12.0 and/or are changes from
 previous versions. The short version:
 
--   **Changing attributes** Attributes may be modified for named
+- **Changing attributes** Attributes may be modified for named
     precedence levels, all precedence levels, and be fully assigned.
     These changes were [based on
     RFC-23](https://github.com/chef/chef-rfc/blob/master/rfc023-chef-12-attributes-changes.md).
--   **Ruby 2.0 (or higher) for Windows; and Ruby 2.1 (or higher) for
+- **Ruby 2.0 (or higher) for Windows; and Ruby 2.1 (or higher) for
     Unix/Linux** Ruby versions 1.8.7, 1.9.1, 1.9.2, and 1.9.3 are no
     longer supported. See [this blog
     post](https://blog.chef.io/ruby-1-9-3-eol-and-chef-12)
     for more info.
--   **The number of changes between Ruby 1.9 and 2.0 is small** Please
+- **The number of changes between Ruby 1.9 and 2.0 is small** Please
     review the [Ruby 2.0 release
     notes](https://github.com/ruby/ruby/blob/v2_0_0_0/NEWS) or [Ruby 2.1
     release notes](https://github.com/ruby/ruby/blob/v2_1_0/NEWS) for
     the full list of changes.
--   **provides method for building custom resources** Use the `provides`
+- **provides method for building custom resources** Use the `provides`
     method to associate a custom resource with a built-in chef-client
     resource and to specify platforms on which the custom resource may
     be used.
--   **Chef Client supports the AIX platform** Chef Client may now be
+- **Chef Client supports the AIX platform** Chef Client may now be
     used to configure nodes that are running on the AIX platform,
     versions 6.1 (TL6 or higher, recommended) and 7.1 (TL0 SP3 or
     higher, recommended). The **service** resource supports starting,
     stopping, and restarting services that are managed by System
     Resource Controller (SRC), as well as managing all service states
     with BSD-based init systems.
--   **New bff_package resource** Use the **bff_package** resource to
+- **New bff_package resource** Use the **bff_package** resource to
     install packages on the AIX platform.
--   **New homebrew_package resource** Use the **homebrew_package**
+- **New homebrew_package resource** Use the **homebrew_package**
     resource to install packages on the macOS platform. The
     **homebrew_package** resource also replaces the
     **macports_package** resource as the default package installer on
     the macOS platform.
--   **New reboot resource** Use the **reboot** resource to reboot a node
+- **New reboot resource** Use the **reboot** resource to reboot a node
     during or at the end of a chef-client run.
--   **New windows_service resource** Use the **windows_service**
+- **New windows_service resource** Use the **windows_service**
     resource to manage services on the Microsoft Windows platform.
--   **New --bootstrap-template option** Use the `--bootstrap-template`
+- **New --bootstrap-template option** Use the `--bootstrap-template`
     option to install Chef Client with a bootstrap template. Specify the
     name of a template, such as `chef-full`, or specify the path to a
     custom bootstrap template. This option deprecates the `--distro` and
     `--template-file` options.
--   **New SSL options for bootstrap operations** The `knife bootstrap`
+- **New SSL options for bootstrap operations** The `knife bootstrap`
     subcommand has new options that support SSL with bootstrap
     operations. Use the `--[no-]node-verify-api-cert` option to perform
     SSL validation of the connection to the Chef server. Use the
     `--node-ssl-verify-mode` option to validate SSL certificates.
--   **New format options for knife status** Use the `--medium` and
+- **New format options for knife status** Use the `--medium` and
     `--long` options to include attributes in the output and to format
     that output as JSON.
--   **New fsck_device property for mount resource** The **mount**
+- **New fsck_device property for mount resource** The **mount**
     resource supports fsck devices for the Solaris platform with the
     `fsck_device` property.
--   **New settings for metadata.rb** The metadata.rb file has two new
+- **New settings for metadata.rb** The metadata.rb file has two new
     settings: `issues_url` and `source_url`. These settings are used to
     capture the source location and issues tracking location for a
     cookbook. These settings are also used with Chef Supermarket. In
     addition, the `name` setting is now **required**.
--   **The http_request GET and HEAD requests drop the hard-coded query
+- **The http_request GET and HEAD requests drop the hard-coded query
     string** The `:get` and `:head` actions appended a hard-coded query
     string---`?message=resource_name`---that cannot be overridden. This
     hard-coded string is deprecated in Chef Client 12.0 release.
     Cookbooks that rely on this string need to be updated to manually
     add it to the URL as it is passed to the resource.
--   **New Chef Infra Language methods** The Chef Infra Language has three new methods:
+- **New Chef Infra Language methods** The Chef Infra Language has three new methods:
     `shell_out`, `shell_out!`, and `shell_out_with_systems_locale`.
--   **File specificity updates** File specificity for the **template**
+- **File specificity updates** File specificity for the **template**
     and **cookbook_file** resources now supports using the `source`
     attribute to define an explicit lookup path as an array.
--   **Improved user password security for the user resource, macOS
+- **Improved user password security for the user resource, macOS
     platform** The **user** resource now supports salted password hashes
     for macOS 10.7 (and higher). Use the `iterations` and `salt`
     attributes to calculate SALTED-SHA512 password shadow hashes for
     macOS version 10.7 and SALTED-SHA512-PBKDF2 password shadow hashes
     for version 10.8 (and higher).
--   **data_bag_item method in the Chef Infra Language supports encrypted data
+- **data_bag_item method in the Chef Infra Language supports encrypted data
     bag items** Use `data_bag_item(bag_name, item, secret)` to specify
     the secret to use for an encrypted data bag item. If `secret` is not
     specified, Chef Client looks for a secret at the path specified by
     the `encrypted_data_bag_secret` setting in the client.rb file.
--   **value_for_platform method in the Chef Infra Language supports version
+- **value_for_platform method in the Chef Infra Language supports version
     constraints** Version constraints---`>`, `<`, `>=`, `<=`, `~>`---may
     be used when specifying a version. An exception is raised if two
     version constraints match. An exact match will always take
     precedence over a match made from a version constraint.
--   **knife cookbook site share supports --dry-run** Use the `--dry-run`
+- **knife cookbook site share supports --dry-run** Use the `--dry-run`
     option with the `knife cookbook site` to take no action and only
     print out results.
--   **chef-client configuration setting updates** Chef Client now
+- **chef-client configuration setting updates** Chef Client now
     supports running an override run-list (via the `--override-runlist`
     option) without clearing the cookbook cache on the node. In
     addition, the `--chef-zero-port` option allows specifying a range of
     ports.
--   **Unforked interval runs are no longer allowed** The `--[no-]fork`
+- **Unforked interval runs are no longer allowed** The `--[no-]fork`
     option may no longer be used in the same command with the
     `--daemonize` and `--interval` options.
--   **Splay and interval values are applied before Chef Client run** The
+- **Splay and interval values are applied before Chef Client run** The
     `--interval` and `--splay` values are applied before Chef Client run
     when using Chef Client and chef-solo executables.
--   **All files and templates in a cookbook are synchronized at the
+- **All files and templates in a cookbook are synchronized at the
     start of Chef Client run** The `no_lazy_load` configuration setting
     in the client.rb file now defaults to `true`. This avoids issues
     where time-sensitive URLs in a cookbook manifest timeout before the
     **cookbook_file** or **template** resources converged.
--   **File staging now defaults to the destination directory by
+- **File staging now defaults to the destination directory by
     default** Staging into a system's temporary directory---typically
     `/tmp` or `/var/tmp`---as opposed to the destination directory may
     cause issues with permissions, available space, or cross-device
     renames. Files are now staged to the destination directory by
     default.
--   **Partial search updates** Use `:filter_result` to build search
+- **Partial search updates** Use `:filter_result` to build search
     results into a Hash. This replaces the previous functionality that
     was provided by the `partial_search` cookbook, albeit with a
     different API. Use the `--filter-result` option to return only
     attributes that match the specified filter. For example:
     `\"ServerName=name, Kernel=kernel.version\"`.
--   **Client-side key generation is enabled by default** When a new
+- **Client-side key generation is enabled by default** When a new
     chef-client is created using the validation client account, the Chef
     server allows Chef Client to generate a key-pair locally, and then
     send the public key to the Chef server. This behavior is controlled
     by the `local_key_generation` attribute in the client.rb file and
     now defaults to `true`.
--   **New guard_interpreter property defaults** The `guard_interpreter`
+- **New guard_interpreter property defaults** The `guard_interpreter`
     property now defaults to `:batch` for the **batch** resource and
     `:powershell_script` for the **powershell_script** resource.
--   **Events are sent to the Application event log on the Windows
+- **Events are sent to the Application event log on the Windows
     platform by default** Events are sent to the Microsoft Windows
     "Application" event log at the start and end of a chef-client run,
     and also if a chef-client run fails. Set the `disable_event_logger`
     configuration setting in the client.rb file to `true` to disable
     event logging.
--   **The installer_type property for the windows_package resource
+- **The installer_type property for the windows_package resource
     uses a symbol instead of a string** Previous versions of Chef Client
     (starting with version 11.8) used a string.
--   **The path property is deprecated for the execute resource** Use the
+- **The path property is deprecated for the execute resource** Use the
     `environment` property instead.
--   **SSL certificate validation improvements** The default settings for
+- **SSL certificate validation improvements** The default settings for
     SSL certificate validation now default in favor of validation. In
     addition, using the `knife ssl fetch` subcommand is now an important
     part of setting up your workstation.
--   **New property for git resource** The **git** resource has a new
+- **New property for git resource** The **git** resource has a new
     property: `environment`, which takes a Hash of environment variables
     in the form of `{"ENV_VARIABLE" => "VALUE"}`.
--   **New encrypted a version 3** Format utilizes aes-256-gcm ciphers
+- **New encrypted a version 3** Format utilizes aes-256-gcm ciphers
     for enhanced security.
 
 Please view the notes for more background
@@ -13763,9 +13763,9 @@ on the upgrade process from chef-client 11 to chef-client 12.
 
 Starting with chef-client 12.0, attribute precedence levels may be
 
--   Removed for a specific, named attribute precedence level
--   Removed for all attribute precedence levels
--   Fully assigned attributes
+- Removed for a specific, named attribute precedence level
+- Removed for all attribute precedence levels
+- Fully assigned attributes
 
 #### Remove Precedence Level
 
@@ -13774,15 +13774,15 @@ attributes may be removed by using one of the following syntax patterns.
 
 For default attributes:
 
--   `node.rm_default('foo', 'bar')`
+- `node.rm_default('foo', 'bar')`
 
 For normal attributes:
 
--   `node.rm_normal('foo', 'bar')`
+- `node.rm_normal('foo', 'bar')`
 
 For override attributes:
 
--   `node.rm_override('foo', 'bar')`
+- `node.rm_override('foo', 'bar')`
 
 These patterns return the computed value of the key being deleted for
 the specified precedence level.
@@ -13933,7 +13933,7 @@ node.rm_default("no", "such", "thing") #=> nil
 All attribute precedence levels may be removed by using the following
 syntax pattern:
 
--   `node.rm('foo', 'bar')`
+- `node.rm('foo', 'bar')`
 
 {{< note >}}
 
@@ -13993,11 +13993,11 @@ Use `!` to clear out the key for the named attribute precedence level,
 and then complete the write by using one of the following syntax
 patterns:
 
--   `node.default!['foo']['bar'] = {...}`
--   `node.force_default!['foo']['bar'] = {...}`
--   `node.normal!['foo']['bar'] = {...}`
--   `node.override!['foo']['bar'] = {...}`
--   `node.force_override!['foo']['bar'] = {...}`
+- `node.default!['foo']['bar'] = {...}`
+- `node.force_default!['foo']['bar'] = {...}`
+- `node.normal!['foo']['bar'] = {...}`
+- `node.override!['foo']['bar'] = {...}`
+- `node.force_override!['foo']['bar'] = {...}`
 
 **Examples**
 
@@ -14123,15 +14123,15 @@ existing resource/provider, and then to also specify the platform(s) on
 which the behavior of the custom resource/provider will be applied. This
 method enables scenarios like:
 
--   Building a custom resource that is based on an existing resource
--   Defining platform mapping specific to a custom resource
--   Handling situations where a resource on a particular platform may
+- Building a custom resource that is based on an existing resource
+- Defining platform mapping specific to a custom resource
+- Handling situations where a resource on a particular platform may
     have more than one provider, such as the behavior on the Ubuntu
     platform where both SysVInit and systemd are present
--   Allowing the custom resource to declare what platforms are
+- Allowing the custom resource to declare what platforms are
     supported, enabling the creator of the custom resource to use
     arbitrary criteria if desired
--   Not using the previous naming
+- Not using the previous naming
     convention---`#{cookbook_name}_#{provider_filename}`
 
 {{< warning >}}
@@ -14150,11 +14150,11 @@ provides :resource_name, os: [ 'platform', 'platform', ...], platform_family: 'f
 
 where:
 
--   `:resource_name` is a chef-client resource: `:cookbook_file`,
+- `:resource_name` is a chef-client resource: `:cookbook_file`,
     `:package`, `:rpm_package`, and so on
--   `'platform'` is a comma-separated list of platforms: `'windows'`,
+- `'platform'` is a comma-separated list of platforms: `'windows'`,
     `'solaris2'`, `'linux'`, and so on
--   `platform_family` is optional and may specify the same parameters as
+- `platform_family` is optional and may specify the same parameters as
     the `platform_family?` method in the Chef Infra Language; `platform` is
     optional and also supported (and is the same as the `platform?`
     method in the Chef Infra Language)
@@ -14213,10 +14213,10 @@ Chef Client has the [same system
 requirements](/chef_system_requirements/#chef-infra-client) on the
 AIX platform as any other platform, with the following notes:
 
--   Expand the file system on the AIX platform using `chfs` or by
+- Expand the file system on the AIX platform using `chfs` or by
     passing the `-X` flag to `installp` to automatically expand the
     logical partition (LPAR)
--   The EN_US (UTF-8) character set should be installed on the logical
+- The EN_US (UTF-8) character set should be installed on the logical
     partition prior to installing the chef-client
 
 **Install Chef Client on the AIX platform**
@@ -14439,8 +14439,8 @@ end
 The Chef Infra Language provides access to data bags and data bag items
 (including encrypted data bag items) with the following methods:
 
--   `data_bag(bag)`, where `bag` is the name of the data bag.
--   `data_bag_item('bag_name', 'item', 'secret')`, where `bag` is the
+- `data_bag(bag)`, where `bag` is the name of the data bag.
+- `data_bag_item('bag_name', 'item', 'secret')`, where `bag` is the
     name of the data bag and `item` is the name of the data bag item. If
     `'secret'` is not specified, Chef Client will look for a secret at
     the path specified by the `encrypted_data_bag_secret` setting in the
@@ -14523,11 +14523,11 @@ end
 
 where:
 
--   `bff_package` is the resource.
--   `name` is the name given to the resource block.
--   `action` identifies which steps Chef Client will take to bring the
+- `bff_package` is the resource.
+- `name` is the name given to the resource block.
+- `action` identifies which steps Chef Client will take to bring the
     node into the desired state.
--   `options`, `package_name`, `source`, `timeout`, and `version` are
+- `options`, `package_name`, `source`, `timeout`, and `version` are
     properties of this resource, with the Ruby type shown. See
     "Properties" section below for more information about all of the
     properties that may be used with this resource.
@@ -14767,11 +14767,11 @@ end
 
 where:
 
--   `homebrew_package` is the resource.
--   `name` is the name given to the resource block.
--   `action` identifies which steps Chef Client will take to bring the
+- `homebrew_package` is the resource.
+- `name` is the name given to the resource block.
+- `action` identifies which steps Chef Client will take to bring the
     node into the desired state.
--   `homebrew_user`, `options`, `package_name`, `source`, `timeout`, and
+- `homebrew_user`, `options`, `package_name`, `source`, `timeout`, and
     `version` are properties of this resource, with the Ruby type shown.
     See "Properties" section below for more information about all of the
     properties that may be used with this resource.
@@ -15026,11 +15026,11 @@ end
 
 where
 
--   `reboot` is the resource
--   `name` is the name of the resource block
--   `action` identifies the steps Chef Client will take to bring the
+- `reboot` is the resource
+- `name` is the name of the resource block
+- `action` identifies the steps Chef Client will take to bring the
     node into the desired state
--   `delay_mins` and `reason` are properties of this resource, with the
+- `delay_mins` and `reason` are properties of this resource, with the
     Ruby type shown. See "Properties" section below for more information
     about all of the properties that may be used with this resource.
 
@@ -15228,11 +15228,11 @@ end
 
 where
 
--   `windows_service` is the resource
--   `name` is the name of the resource block
--   `action` identifies the steps Chef Client will take to bring the
+- `windows_service` is the resource
+- `name` is the name of the resource block
+- `action` identifies the steps Chef Client will take to bring the
     node into the desired state
--   `init_command`, `pattern`, `reload_command`, `restart_command`,
+- `init_command`, `pattern`, `reload_command`, `restart_command`,
     `run_as_password`, `run_as_user`, `service_name`, `start_command`,
     `startup_type`, `status_command`, `stop_command`, `supports`, and
     `timeout` are properties of this resource, with the Ruby type shown.
@@ -15871,12 +15871,12 @@ end
 
 where:
 
--   `:index` is of name of the index on the Chef server against which
+- `:index` is of name of the index on the Chef server against which
     the search query will run: `:client`, `:data_bag_name`,
     `:environment`, `:node`, and `:role`
--   `'query'` is a valid search query against an object on the Chef
+- `'query'` is a valid search query against an object on the Chef
     server
--   `:filter_result` defines a Hash of values to be returned
+- `:filter_result` defines a Hash of values to be returned
 
 For example:
 
@@ -15997,10 +15997,10 @@ version should be inspected and updated.
 Cookbooks that contain custom resources in the `/libraries` directory of
 a cookbook should:
 
--   Be inspected for instances of a) the `Chef::Provider` base class,
+- Be inspected for instances of a) the `Chef::Provider` base class,
     and then b) for the presence of any core resources from the
     chef-client
--   Be updated to use the `LWRPBase` base class
+- Be updated to use the `LWRPBase` base class
 
 For example:
 

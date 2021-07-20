@@ -17,8 +17,6 @@ Because the contents of encrypted data bag items are not visible to the
 Chef Infra Server, search queries against data bags with encrypted items
 will not return any results.
 
-
-
 </div>
 
 </div>

@@ -16,11 +16,11 @@ aliases = ["/custom_resources.html"]
 
 A custom resource:
 
--   Is a simple extension of Chef Infra Client that adds your own resources
--   Is implemented and shipped as part of a cookbook
--   Follows easy, repeatable syntax patterns
--   Effectively leverages resources that are built into Chef Infra Client and/or custom Ruby code
--   Is reusable in the same way as resources that are built into Chef Infra Client
+- Is a simple extension of Chef Infra Client that adds your own resources
+- Is implemented and shipped as part of a cookbook
+- Follows easy, repeatable syntax patterns
+- Effectively leverages resources that are built into Chef Infra Client and/or custom Ruby code
+- Is reusable in the same way as resources that are built into Chef Infra Client
 
 For example, Chef Infra Client includes built-in resources to manage
 files, packages, templates, and services, but it does not include a
@@ -31,9 +31,9 @@ resource that manages websites.
 A custom resource is defined as a Ruby file and is located in a
 cookbook's `/resources` directory. This file:
 
--   Declares the properties of the custom resource
--   Loads current state of properties, if the resource already exists
--   Defines each action the custom resource may take
+- Declares the properties of the custom resource
+- Loads current state of properties, if the resource already exists
+- Defines each action the custom resource may take
 
 The syntax for a custom resource is. For example:
 
@@ -91,13 +91,13 @@ end
 
 where
 
--   `homepage` is a property that sets the default HTML for the
+- `homepage` is a property that sets the default HTML for the
     `index.html` file with a default value of `'<h1>Hello world!</h1>'`
--   the `action` block uses the built-in collection of resources to tell
+- the `action` block uses the built-in collection of resources to tell
     Chef Infra Client how to install Apache, start the service, and then
     create the contents of the file located at
     `/var/www/html/index.html`
--   `action :create` is the default resource, because it is listed
+- `action :create` is the default resource, because it is listed
     first; `action :delete` must be called specifically (because it is
     not the default action)
 
@@ -161,10 +161,10 @@ Define a custom resource!
 
 A custom resource typically contains:
 
--   A list of defined custom properties (property values are specified
+- A list of defined custom properties (property values are specified
     in recipes)
--   At least one action (actions tell Chef Infra Client what to do)
--   For each action, use a collection of resources that are built into
+- At least one action (actions tell Chef Infra Client what to do)
+- For each action, use a collection of resources that are built into
     Chef Infra Client to define the steps required to complete the
     action
 
@@ -172,9 +172,9 @@ A custom resource typically contains:
 
 This custom resource requires:
 
--   Two template files
--   Two properties
--   An action that defines all of the steps necessary to create the
+- Two template files
+- Two properties
+- An action that defines all of the steps necessary to create the
     website
 
 ### Define Properties
@@ -182,8 +182,8 @@ This custom resource requires:
 Custom properties are defined in the resource. This custom resource
 needs two:
 
--   `instance_name`
--   `port`
+- `instance_name`
+- `port`
 
 These properties are defined as variables in the `httpd.conf.erb` file.
 A **template** block in recipes will tell Chef Infra Client how to apply
@@ -198,9 +198,9 @@ property :port, Integer, required: true
 
 where
 
--   `String` and `Integer` are Ruby types (all custom properties must
+- `String` and `Integer` are Ruby types (all custom properties must
     have an assigned Ruby type)
--   `name_property: true` allows the value for this property to be equal
+- `name_property: true` allows the value for this property to be equal
     to the `'name'` of the resource block
 
 The `instance_name` property is then used within the custom resource in
@@ -264,8 +264,8 @@ end
 
 where
 
--   `source` gets the `httpd.service.erb` template from this cookbook
--   `variables` assigns the `instance_name` property to a variable in
+- `source` gets the `httpd.service.erb` template from this cookbook
+- `variables` assigns the `instance_name` property to a variable in
     the template
 
 #### template, httpd.conf
@@ -286,8 +286,8 @@ end
 
 where
 
--   `source` gets the `httpd.conf.erb` template from this cookbook
--   `variables` assigns the `instance_name` and `port` properties to
+- `source` gets the `httpd.conf.erb` template from this cookbook
+- `variables` assigns the `instance_name` and `port` properties to
     variables in the template
 
 {{< note >}}
@@ -327,8 +327,8 @@ end
 
 The `/templates` directory must contain two templates:
 
--   `httpd.conf.erb` to configure Apache httpd
--   `httpd.service.erb` to tell systemd how to start and stop the
+- `httpd.conf.erb` to configure Apache httpd
+- `httpd.service.erb` to tell systemd how to start and stop the
     website
 
 #### httpd.conf.erb
@@ -359,17 +359,17 @@ Copy it as shown, add it under `/templates`, and then name the file
 
 The `httpd.conf.erb` template has two variables:
 
--   `<%= @instance_name %>`
--   `<%= @port %>`
+- `<%= @instance_name %>`
+- `<%= @port %>`
 
 They are:
 
--   Declared as properties of the custom resource
--   Defined as variables in a **template** resource block within the
+- Declared as properties of the custom resource
+- Defined as variables in a **template** resource block within the
     custom resource
--   Tunable from a recipe when using `port` and `instance_name` as
+- Tunable from a recipe when using `port` and `instance_name` as
     properties in that recipe
--   `instance_name` defaults to the `'name'` of the custom resource if
+- `instance_name` defaults to the `'name'` of the custom resource if
     not specified as a property
 
 #### httpd.service.erb
@@ -472,11 +472,11 @@ end
 
 which does the following:
 
--   Installs Apache httpd
--   Assigns an instance name of `httpd_site` that uses port 81
--   Configures httpd and systemd from a template
--   Creates the virtual host for the website
--   Starts the website using systemd
+- Installs Apache httpd
+- Assigns an instance name of `httpd_site` that uses port 81
+- Configures httpd and systemd from a template
+- Creates the virtual host for the website
+- Starts the website using systemd
 
 ## Custom Resource DSL
 
