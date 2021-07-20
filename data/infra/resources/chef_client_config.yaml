@@ -36,6 +36,7 @@ syntax_full_code_block: |-
     pid_file                       String
     policy_group                   String
     policy_name                    String
+    policy_persist_run_list        true, false
     report_handlers                Array # default value: []
     ssl_verify_mode                Symbol, String
     start_handlers                 Array # default value: []
@@ -52,9 +53,9 @@ syntax_full_properties_list:
   `exception_handlers`, `file_backup_path`, `file_cache_path`, `file_staging_uses_destdir`,
   `formatters`, `ftp_proxy`, `group`, `http_proxy`, `https_proxy`, `log_level`, `log_location`,
   `minimal_ohai`, `named_run_list`, `no_proxy`, `node_name`, `ohai_disabled_plugins`,
-  `ohai_optional_plugins`, `pid_file`, `policy_group`, `policy_name`, `report_handlers`,
-  `ssl_verify_mode`, `start_handlers`, and `user` are the properties available to
-  this resource."
+  `ohai_optional_plugins`, `pid_file`, `policy_group`, `policy_name`, `policy_persist_run_list`,
+  `report_handlers`, `ssl_verify_mode`, `start_handlers`, and `user` are the properties
+  available to this resource."
 actions_list:
   :nothing:
     shortcode: resources_common_actions_nothing.md
@@ -231,6 +232,13 @@ properties_list:
   description_list:
   - markdown: The name of a policy, as identified by the `name` setting in a Policyfile.rb
       file. `policy_group`  when setting this property.
+- property: policy_persist_run_list
+  ruby_type: true, false
+  required: false
+  new_in: '17.3'
+  description_list:
+  - markdown: Override run lists defined in a Policyfile with the `run_list` defined
+      on the Chef Infra Server.
 - property: report_handlers
   ruby_type: Array
   required: false
@@ -274,7 +282,7 @@ properties_list:
 examples: |
   **Bare minimum Chef Infra Client client.rb**:
 
-  The absolute minimum configuration necessary for a node to communicate with the Infra Server is the URL of the Infra Server. All other configuration options either have values at the server side (Policyfiles, Roles, Environments, etc) or have default values determined at client startup.
+  The absolute minimum configuration necessary for a node to communicate with the Chef Infra Server is the URL of the Chef Infra Server. All other configuration options either have values at the server side (Policyfiles, Roles, Environments, etc) or have default values determined at client startup.
 
   ```ruby
   chef_client_config 'Create client.rb' do

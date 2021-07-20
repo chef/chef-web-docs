@@ -83,14 +83,6 @@ This subcommand has the following options:
 
 : The SSH password. This can be used to pass the password directly on the command line. If this option is not specified (and a password is required) knife prompts for the password.
 
-`--[no-]pty`
-
-: Use `--no-pty` to disable pseudo-terminal allocation. Default setting: `--pty`.
-
-`--[no-]require-pty`
-
-: Use `--require-pty` to raise an exception if a pseudo-terminal cannot be acquired. Default setting: `--no-require-pty`.
-
 `SEARCH_QUERY`
 
 : The search query used to return a list of servers to be accessed using SSH and the specified `SSH_COMMAND`. This option uses the same syntax as the search subcommand. If the `SEARCH_QUERY` does not contain a colon character (`:`), then the default query pattern is `tags:*#{@query}* OR roles:*#{@query}* OR fqdn:*#{@query}* OR addresses:*#{@query}*`, which means the following two search queries are effectively the same:
