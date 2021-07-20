@@ -1,5 +1,5 @@
 +++
-title = "Release Notes: Chef Infra Server 12.0 - 14.4"
+title = "Release Notes: Chef Infra Server 12.0 - 14.6.32"
 draft = false
 gh_repo = "chef-web-docs"
 aliases = ["/release_notes_server.html"]
@@ -17,9 +17,11 @@ cookbooks, the policies that are applied to nodes, and metadata that
 describes each registered node that is managed by the Chef Infra Client.
 
 
-## Enhancements
+## What's New in 14.6.32
 
-### Maintenance Mode
+### Enhancements
+
+#### Maintenance Mode
 
 You can now place your Chef Infra Server into maintenance mode to block requests from Chef Infra Clients or tools like `knife`. Maintenance mode also allows you to specify allowed IP addresses for testing your Infra Server without allowing access to all clients.
 
@@ -29,9 +31,9 @@ You can now place your Chef Infra Server into maintenance mode to block requests
 * Remove an allowed IP address: `chef-server-ctl maintenance -r IP_ADDRESS`
 * List all allowed IP address: `chef-server-ctl maintenance -l`
 
-## Security Improvements
+### Security Improvements
 
-### Rails
+#### Rails
 
 We've upgraded the Rails engine used in oc-id from 4.2 to 6.0.3.2. This upgrade improves performance, adds new capabilities, and also resolves the following CVEs:
 
@@ -53,11 +55,11 @@ We've upgraded the Rails engine used in oc-id from 4.2 to 6.0.3.2. This upgrade 
 - CVE-2021-22903
 - CVE-2021-22904
 
-### Addressable
+#### Addressable
 
 We've updated the addressable gem used in the `oc-id` engine from 2.7 to 2.8 to resolve CVE-2021-32740.
 
-### Ruby
+#### Ruby
 
 We've upgraded Ruby from 2.6.7 to 2.7.4. This upgrade improves performance and also resolves the following CVEs:
 
@@ -65,11 +67,9 @@ We've upgraded Ruby from 2.6.7 to 2.7.4. This upgrade improves performance and a
 - CVE-2021-32066
 - CVE-2021-31799
 
-### Elasticsearch
+#### Elasticsearch
 
 We've upgraded Elasticsearch from 6.8.16 to 6.8.17 to resolve CVE-2021-22144.
-
-
 
 ## What's New in 14.5
 
