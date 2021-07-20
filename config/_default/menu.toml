@@ -344,13 +344,6 @@ identifier = "chef_infra"
     weight = 40
 
     [[infra]]
-    title = "Custom Resources"
-    identifier = "chef_infra/concepts/custom_resources.md Custom Resources"
-    parent = "chef_infra/concepts"
-    url = "/custom_resources/"
-    weight = 50
-
-    [[infra]]
     title = "Policy"
     identifier = "chef_infra/concepts/policy"
     parent = "chef_infra/concepts"
@@ -420,6 +413,12 @@ identifier = "chef_infra"
     [[infra]]
     title = "Resources"
     identifier = "chef_infra/cookbook_reference/resources"
+    parent = "chef_infra/cookbook_reference"
+    weight = 70
+
+    [[infra]]
+    title = "Custom Resources"
+    identifier = "chef_infra/cookbook_reference/custom_resources"
     parent = "chef_infra/cookbook_reference"
     weight = 80
 

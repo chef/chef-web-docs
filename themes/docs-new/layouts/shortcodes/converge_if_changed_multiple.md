@@ -8,6 +8,7 @@ property :path, String
 property :content, String
 property :mode, String
 
+# Load the current value for content and mode
 load_current_value do |new_resource|
   if ::File.exist?(new_resource.path)
     content IO.read(new_resource.path)
@@ -16,9 +17,15 @@ load_current_value do |new_resource|
 end
 
 action :create do
+
+  # If the value of content has changed
+  # write file
   converge_if_changed :content do
     IO.write(new_resource.path, new_resource.content)
   end
+
+  # If the value of mode has changed then
+  # chmod file
   converge_if_changed :mode do
     ::File.chmod(new_resource.mode, new_resource.path)
   end
@@ -34,4 +41,4 @@ where
 
 Chef Infra Client will only update the property values that require
 updates and will not make changes when the property values are already
-in the desired state
+in the desired state.

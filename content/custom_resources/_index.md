@@ -1,30 +1,30 @@
 +++
 title = "Custom Resources"
-draft = false
-
 gh_repo = "chef-web-docs"
-
 aliases = ["/custom_resources.html"]
 
 [menu]
   [menu.infra]
     title = "Custom Resources"
-    identifier = "chef_infra/cookbook_reference/resources/custom_resources.md Custom Resources"
-    parent = "chef_infra/cookbook_reference/resources"
-    weight = 40
+    identifier = "chef_infra/cookbook_reference/custom_resources/custom_resources Custom Resources"
+    parent = "chef_infra/cookbook_reference/custom_resources"
+    weight = 10
 +++
 
 A custom resource:
 
 - Is a simple extension of Chef Infra Client that adds your own resources
 - Is implemented and shipped as part of a cookbook
-- Follows easy, repeatable syntax patterns
-- Effectively leverages resources that are built into Chef Infra Client and/or custom Ruby code
+- Leverages resources that are built into Chef Infra Client and/or custom Ruby code
 - Is reusable in the same way as resources that are built into Chef Infra Client
 
 For example, Chef Infra Client includes built-in resources to manage
 files, packages, templates, and services, but it does not include a
 resource that manages websites.
+
+## Alternative Reading
+
+Learn Chef interactive tutorial - [Extending Chef Infra: Custom Resources](https://learn.chef.io/courses/course-v1:chef+Infra201+Perpetual/about)
 
 ## Syntax
 
@@ -35,34 +35,25 @@ cookbook's `/resources` directory. This file:
 - Loads current state of properties, if the resource already exists
 - Defines each action the custom resource may take
 
-The syntax for a custom resource is. For example:
+The layout for a custom resource is:
 
 ```ruby
 property :property_name, RubyType, default: 'value'
 
-action :action_name do
- # a mix of built-in Chef resources and Ruby
+action :action_a do
+ # a mix of built-in Chef Infra resources and Ruby
 end
 
-action :another_action_name do
- # a mix of built-in Chef resources and Ruby
+action :action_b do
+ # a mix of built-in Chef Infra resources and Ruby
 end
 ```
 
-where the first action listed is the default action.
+The first action listed is the default action.
 
-{{< warning >}}
+### Example Resource
 
-Do not use existing keywords from the Chef Infra Client resource system
-in a custom resource, like "name". For example,
-`property :property_name` in the following invalid syntax:
-`property :name, String, default: 'thename'`.
-
-{{< /warning >}}
-
-### Example
-
-This example `site` utilizes Chef's built-in `file`, `service` and
+This example `site` utilizes Chef Infra's built-in `file`, `service` and
 `package` resources, and includes `:create` and `:delete` actions. Since
 it uses built-in Chef Infra Client resources, besides defining the
 property and actions, the code is very similar to that of a recipe.
@@ -86,20 +77,24 @@ action :delete do
   package 'httpd' do
     action :remove
   end
+
+  file '/var/www/html/index.html' do
+    action :delete
+  end
 end
 ```
 
 where
 
 - `homepage` is a property that sets the default HTML for the
-    `index.html` file with a default value of `'<h1>Hello world!</h1>'`
+  `index.html` file with a default value of `'<h1>Hello world!</h1>'`
 - the `action` block uses the built-in collection of resources to tell
-    Chef Infra Client how to install Apache, start the service, and then
-    create the contents of the file located at
-    `/var/www/html/index.html`
+  Chef Infra Client how to install Apache, start the service, and then
+  create the contents of the file located at
+  `/var/www/html/index.html`
 - `action :create` is the default resource, because it is listed
-    first; `action :delete` must be called specifically (because it is
-    not the default action)
+  first; `action :delete` must be called specifically (because it is
+  not the default action)
 
 Once written, the custom resource may be used in a recipe just like any
 of the resources that are built into Chef Infra Client. The resource
@@ -129,12 +124,12 @@ Linux 7 and CentOS 7.
 
 This scenario covers the following:
 
-1.  Defining a cookbook named `website`
-2.  Defining two properties
-3.  Defining an action
-4.  For the action, defining the steps to configure the system using resources that are built into Chef Infra
-5.  Creating two templates that support the custom resource
-6.  Adding the resource to a recipe
+1. Defining a cookbook named `website`
+2. Defining two properties
+3. Defining an action
+4. For the action, defining the steps to configure the system using resources that are built into Chef Infra
+5. Creating two templates that support the custom resource
+6. Adding the resource to a recipe
 
 ### Create a Cookbook
 
@@ -162,11 +157,11 @@ Define a custom resource!
 A custom resource typically contains:
 
 - A list of defined custom properties (property values are specified
-    in recipes)
+  in recipes)
 - At least one action (actions tell Chef Infra Client what to do)
 - For each action, use a collection of resources that are built into
-    Chef Infra Client to define the steps required to complete the
-    action
+  Chef Infra Client to define the steps required to complete the
+  action
 
 #### What is needed?
 
@@ -175,7 +170,7 @@ This custom resource requires:
 - Two template files
 - Two properties
 - An action that defines all of the steps necessary to create the
-    website
+  website
 
 ### Define Properties
 
@@ -199,9 +194,9 @@ property :port, Integer, required: true
 where
 
 - `String` and `Integer` are Ruby types (all custom properties must
-    have an assigned Ruby type)
+  have an assigned Ruby type)
 - `name_property: true` allows the value for this property to be equal
-    to the `'name'` of the resource block
+  to the `'name'` of the resource block
 
 The `instance_name` property is then used within the custom resource in
 many locations, including defining paths to configuration files,
@@ -242,24 +237,13 @@ matters!
 Use the **package** resource to install httpd:
 
 ```ruby
+# These are equivalent
 package 'httpd' do
   action :install
 end
-```
 
-#### template, httpd.service
+package 'httpd' # Ommiting the action uses the default action and properties on the resource
 
-Use the **template** resource to create an `httpd.service` on the node
-based on the `httpd.service.erb` template located in the cookbook:
-
-```ruby
-template "/lib/systemd/system/httpd-#{new_resource.instance_name}.service" do
-  source 'httpd.service.erb'
-  variables(
-    instance_name: new_resource.instance_name
-  )
-  action :create
-end
 ```
 
 where
@@ -528,80 +512,6 @@ action_class do
 end
 ```
 
-### converge_if_changed
+## Further Reading
 
-{{% dsl_custom_resource_method_converge_if_changed %}}
-
-#### Multiple Properties
-
-{{% dsl_custom_resource_method_converge_if_changed_multiple %}}
-
-### default_action
-
-{{% dsl_custom_resource_method_default_action %}}
-
-### load_current_value
-
-{{% dsl_custom_resource_method_load_current_value %}}
-
-### new_resource.property
-
-{{< readFile_shortcode file="dsl_custom_resource_method_new_resource.md" >}}
-
-### property
-
-{{% dsl_custom_resource_method_property %}}
-
-#### ruby_type
-
-{{% dsl_custom_resource_method_property_ruby_type %}}
-
-#### sensitive
-
-A property can be marked sensitive by specifying `sensitive: true` on
-the property. This prevents the contents of the property from being
-exported to data collection and sent to an Automate server.
-
-Note: This feature was introduced in Chef Client 12.14.
-
-#### validators
-
-{{% dsl_custom_resource_method_property_validation_parameter %}}
-
-#### desired_state
-
-{{% dsl_custom_resource_method_property_desired_state %}}
-
-#### identity
-
-{{% dsl_custom_resource_method_property_identity %}}
-
-### Block Arguments
-
-{{% dsl_custom_resource_method_property_block_argument %}}
-
-### property_is_set?
-
-{{% dsl_custom_resource_method_property_is_set %}}
-
-### provides
-
-{{% dsl_custom_resource_method_provides %}}
-
-### reset_property
-
-{{% dsl_custom_resource_method_reset_property %}}
-
-### coerce
-
-`coerce` is used to transform user input into a canonical form. The
-value is passed in, and the transformed value returned as output. Lazy
-values will **not** be passed to this method until after they are
-evaluated.
-
-`coerce` is run in the context of the instance, which gives it access to
-other properties.
-
-```ruby
-property :mode, coerce: proc { |m| m.is_a?(String) ? m.to_s(8) : m }
-```
+See the [Custom Resources Glossary](/custom_resource_glossary) for a description of available methods.
