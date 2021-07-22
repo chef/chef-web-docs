@@ -94,21 +94,15 @@ identifier = "automate"
   parent = "automate"
 
   [[automate]]
-  name = "Configuring Automate"
-  weight = 20
-  identifier = "automate/configuring_automate"
-  parent = "automate"
-
-  [[automate]]
   name = "Applications"
   weight = 30
   identifier = "automate/applications"
   parent = "automate"
 
   [[automate]]
-  name = "Infrastructure"
-  weight = 50
-  identifier = "automate/infrastructure"
+  name = "Authorization"
+  weight = 100
+  identifier = "automate/authorization"
   parent = "automate"
 
   [[automate]]
@@ -118,15 +112,21 @@ identifier = "automate"
   parent = "automate"
 
   [[automate]]
-  name = "Settings"
-  weight = 90
-  identifier = "automate/settings"
+  name = "Configure"
+  weight = 20
+  identifier = "automate/configuring_automate"
   parent = "automate"
 
   [[automate]]
-  name = "Authorization"
-  weight = 100
-  identifier = "automate/authorization"
+  name = "Infrastructure"
+  weight = 50
+  identifier = "automate/infrastructure"
+  parent = "automate"
+
+  [[automate]]
+  name = "Settings"
+  weight = 90
+  identifier = "automate/settings"
   parent = "automate"
 
   [[automate]]
