@@ -130,8 +130,14 @@ identifier = "automate"
   parent = "automate"
 
   [[automate]]
-  name = "Settings"
+  name = "Integrations"
   weight = 70
+  identifier = "automate/integrations"
+  parent = "automate"
+
+  [[automate]]
+  name = "Settings"
+  weight = 80
   identifier = "automate/settings"
   parent = "automate"
 
