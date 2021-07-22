@@ -24,7 +24,7 @@ community.
 
 ## Meet
 
-- [Chef events](https://events.chef.io/)
+- [Chef events](https://www.chef.io/events)
 - [Chef meetups](https://www.meetup.com/topics/opscode/)
 - [Continuous delivery meetups](https://www.meetup.com/topics/continuous-delivery/)
 - [DevOps meetups](https://www.meetup.com/topics/devops/)
@@ -38,7 +38,6 @@ community.
 
 - [Community Guidelines](/community_guidelines/)
 - [@chef](https://twitter.com/chef)
-- [@chef-docs](https://twitter.com/chefdocs)
 - [@opscode_status](https://twitter.com/opscode_status)
 - [Facebook](https://www.facebook.com/getchefdotcom)
 - [Chef Community Slack](https://community-slack.chef.io/)
