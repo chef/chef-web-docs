@@ -2,7 +2,7 @@
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 100; /* Sit on top */
-  padding-top: 100px; /* Location of the box */
+  padding-top: 70px; /* Location of the box */
   left: 0;
   top: 0;
   width: 100%; /* Full width */
@@ -15,6 +15,7 @@
     background-color: $white;
     display: block;
     margin: auto;
+    overflow: hidden;
     @include breakpoint(large) {
       max-width: 100%;
     }
@@ -35,7 +36,7 @@
     }
     &_image {
       margin: auto;
-      max-height: 85%;
+      max-height: 80vh;
       display: block;
       padding: 2rem;
     }
@@ -43,8 +44,8 @@
   &_close {
     // Close button styling
     position: absolute;
-    top: 15px;
-    right: 35px;
+    top: 0px;
+    right: 25px;
     color: #f1f1f1;
     font-size: 40px;
     font-weight: bold;
