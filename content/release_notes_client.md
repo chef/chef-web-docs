@@ -10,6 +10,7 @@ product = ["client"]
     title = "Chef Infra Client"
     identifier = "release_notes/release_notes_client.md Chef Infra Client"
     parent = "release_notes"
+    weight = 20
 +++
 
 ## What's New in 17.3
