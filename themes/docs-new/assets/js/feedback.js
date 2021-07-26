@@ -1,5 +1,6 @@
 const yesButton = document.querySelector('.feedback-yes');
 const noButton = document.querySelector('.feedback-no');
+
 const disableButtons = () => {
   yesButton.disabled = true;
   noButton.disabled = true;
@@ -14,7 +15,6 @@ function thanksFeedback(button){
   }, 2000);
 }
 
-
 const sendFeedback = (value) => {
   if (typeof ga !== 'function') return;
   const args = {
@@ -26,18 +26,20 @@ const sendFeedback = (value) => {
     value: value
   };
   ga(args.command, args.hitType, args.category, args.action, args.label, args.value);
-  //console.log(args.command, args.hitType, args.category, args.action, args.label, args.value)
 };
 
+if (yesButton !== null ) {
+  yesButton.addEventListener('click', () => {
+    thanksFeedback(yesButton);
+    disableButtons();
+    sendFeedback(1);
+  });
+}
 
-yesButton.addEventListener('click', () => {
-  thanksFeedback(yesButton);
-  disableButtons();
-  sendFeedback(1);
-});
-
-noButton.addEventListener('click', () => {
-  thanksFeedback(noButton);
-  disableButtons();
-  sendFeedback(0);
-});
+if (noButton !== null ) {
+  noButton.addEventListener('click', () => {
+    thanksFeedback(noButton);
+    disableButtons();
+    sendFeedback(0);
+  });
+}
