@@ -30,6 +30,9 @@ nav#utility-bar {
       &:hover {
         color:$blue-darker;
       }
+      &.chefconflink:hover {
+        color: rgb(255, 163, 0)
+      }
     }
   }
 
