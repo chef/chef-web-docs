@@ -2,7 +2,7 @@
 title = "Troubleshooting"
 draft = false
 gh_repo = "chef-web-docs"
-aliases = ["/errors.html"]
+aliases = ["/errors.html", "/error_messages.html"]
 product = ["client", "server", "workstation"]
 
 [menu]
