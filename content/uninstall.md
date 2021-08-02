@@ -102,7 +102,7 @@ Use the following commands to remove Chef Workstation on macOS.
 To remove installed files:
 
 ```bash
-sudo rm -rf `/opt/chef-workstation
+sudo rm -rf /opt/chef-workstation
 ```
 
 To remove the system installation entry:
