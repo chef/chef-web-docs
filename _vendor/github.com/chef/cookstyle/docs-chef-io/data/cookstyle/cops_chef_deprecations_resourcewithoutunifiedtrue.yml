@@ -38,6 +38,7 @@ examples: |2-
 version_added: 7.12.0
 enabled: true
 excluded_file_paths:
+- "**/resources/_*.rb"
 - "**/spec/**/*.rb"
 included_file_paths:
 - "**/resources/*.rb"
