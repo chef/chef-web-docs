@@ -139,8 +139,8 @@ The following platforms are supported only via the community:
 </thead>
 <tbody>
 <tr>
-<td>Alma Linux</td>
-<td><code>x86_64</code></td>
+<td>AlmaLinux</td>
+<td><code>x86_64</code>, <code>aarch64</code></td>
 <td><code>8.x</code></td>
 </tr>
 <tr>
@@ -217,6 +217,11 @@ The following platforms are supported only via the community:
 <td>Raspberry Pi OS</td>
 <td><code>aarch64</code></td>
 <td>current non-EOL releases</td>
+</tr>
+<tr>
+<td>Rocky Linux</td>
+<td><code>x86_64</code>, <code>aarch64</code></td>
+<td>8.x</td>
 </tr>
 <tr>
 <td>SmartOS</td>
