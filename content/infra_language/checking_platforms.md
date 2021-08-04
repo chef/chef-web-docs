@@ -50,6 +50,10 @@ where:
 <td>Alibaba Cloud Linux</td>
 </tr>
 <tr>
+<td><code>almalinux</code></td>
+<td>AlmaLinux</td>
+</tr>
+<tr>
 <td><code>amazon</code></td>
 <td>Amazon Linux</td>
 </tr>
@@ -120,6 +124,10 @@ where:
 <tr>
 <td><code>rocky</code></td>
 <td>Rocky Linux</td>
+</tr>
+<tr>
+<td><code>sangoma</code></td>
+<td>Sangoma Linux</td>
 </tr>
 <tr>
 <td><code>scientific</code></td>
@@ -253,7 +261,7 @@ where:
 </tr>
 <tr>
 <td><code>rhel</code></td>
-<td><code>redhat</code>, <code>centos</code>, <code>oracle</code>, <code>rocky</code>, <code>scientific</code>, <code>xenserver</code>, <code>clearos</code>, <code>bigip</code>, <code>parallels</code>, <code>xcp</code>, <code>virtuozzo</code>, <code>alibabalinux</code>, and <code>ibm_powerkvm</code> platforms</td>
+<td><code>redhat</code>, <code>centos</code>, <code>oracle</code>, <code>almalinux</code>, <code>rocky</code>, <code>scientific</code>, <code>xenserver</code>, <code>clearos</code>, <code>bigip</code>, <code>parallels</code>, <code>xcp</code>, <code>virtuozzo</code>, <code>alibabalinux</code>, and <code>ibm_powerkvm</code> platforms</td>
 </tr>
 <tr>
 <td><code>solaris2</code></td>
