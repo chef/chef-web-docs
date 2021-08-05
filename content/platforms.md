@@ -139,8 +139,8 @@ The following platforms are supported only via the community:
 </thead>
 <tbody>
 <tr>
-<td>Alma Linux</td>
-<td><code>x86_64</code></td>
+<td>AlmaLinux</td>
+<td><code>x86_64</code>, <code>aarch64</code></td>
 <td><code>8.x</code></td>
 </tr>
 <tr>
@@ -219,6 +219,11 @@ The following platforms are supported only via the community:
 <td>current non-EOL releases</td>
 </tr>
 <tr>
+<td>Rocky Linux</td>
+<td><code>x86_64</code>, <code>aarch64</code></td>
+<td>8.x</td>
+</tr>
+<tr>
 <td>SmartOS</td>
 <td><code>x86_64</code></td>
 <td>current non-EOL releases</td>
@@ -289,7 +294,7 @@ versions for the Chef Workstation:
 <tr>
 <td>Red Hat Enterprise Linux</td>
 <td><code>x86_64</code></td>
-<td><code>6.x</code>, <code>7.x</code>, <code>8.x</code></td>
+<td><code>7.x</code>, <code>8.x</code></td>
 </tr>
 <tr>
 <td>Ubuntu</td>
@@ -337,7 +342,7 @@ The following table lists the commercially-supported platforms and versions for 
 <tr>
 <td>macOS</td>
 <td><code>x86_64</code>, <code>aarch64 (M1 processors)</code></td>
-<td><code>10.14</code>, <code>10.15</code>, <code>11.x</code></td>
+<td><code>10.14</code>, <code>10.15</code>, <code>11.x</code>, <code>12.x</code></td>
 </tr>
 <tr>
 <td>Oracle Enterprise Linux</td>
