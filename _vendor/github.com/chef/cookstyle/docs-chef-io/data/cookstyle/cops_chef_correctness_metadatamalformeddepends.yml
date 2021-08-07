@@ -1,0 +1,27 @@
+---
+short_name: MetadataMalformedDepends
+full_name: Chef/Correctness/MetadataMalformedDepends
+department: Chef/Correctness
+description: metadata.rb cookbook dependencies and version constraints should be comma
+  separated
+autocorrection: true
+target_chef_version: All Versions
+examples: |2-
+
+  #### incorrect
+
+  ```ruby
+  depends 'some_awesome_cookbook' '= 4.5.5'
+  depends 'some_other_cool_cookbook' '< 8.0'
+  ```
+
+  #### correct
+
+  ```ruby
+  depends 'some_awesome_cookbook', '= 4.5.5'
+  depends 'some_other_cool_cookbook', '< 8.0'
+  ```
+version_added: '7.16'
+enabled: true
+included_file_paths:
+- "**/metadata.rb"

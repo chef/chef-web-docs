@@ -4,7 +4,7 @@ full_name: Chef/Correctness/MetadataMissingName
 department: Chef/Correctness
 description: metadata.rb needs to include the name method or it will fail on Chef
   Infra Client 12 and later.
-autocorrection: false
+autocorrection: true
 target_chef_version: All Versions
 examples: |-
   ```
