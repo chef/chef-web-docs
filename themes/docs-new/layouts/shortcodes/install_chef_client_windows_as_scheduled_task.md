@@ -12,7 +12,7 @@ SCHTASKS.EXE /CREATE /TN ChefClientSchTask /SC MINUTE /MO 30 /F /RU "System" /RP
 ```
 
 Refer to the [Schtasks
-documentation](https://docs.microsoft.com/en-us/windows/win32/taskschd/schtasks)
+documentation](https://docs.microsoft.com/windows/win32/taskschd/schtasks)
 for more details.
 
 After Chef Infra Client is configured to run as a scheduled task, the

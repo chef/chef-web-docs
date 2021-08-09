@@ -15,7 +15,7 @@ path and the source. The first pattern that matches is used:
 
 To specify a particular Windows version, use the [operating system
 version
-number](https://docs.microsoft.com/en-us/windows/win32/sysinfo/operating-system-version).
+number](https://docs.microsoft.com/windows/win32/sysinfo/operating-system-version).
 For example, a template in `templates/windows-6.3` will be deployed on
 systems installed with Windows 8.1.
 

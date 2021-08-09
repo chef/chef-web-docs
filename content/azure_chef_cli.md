@@ -193,7 +193,7 @@ The extension has the following options that can be provided in the
     internet access.
     {{< note spaces=4 >}}
     Azure extensions have network access limitations. See the
-    [Azure documentation](https://docs.microsoft.com/en-us/azure/virtual-machines/extensions/features-linux#network-access)
+    [Azure documentation](https://docs.microsoft.com/azure/virtual-machines/extensions/features-linux#network-access)
     for more information.
     {{< /note >}}
 

@@ -39,7 +39,7 @@ resource_description_list:
 
       For more information, see: [Registry
 
-      Reflection](https://msdn.microsoft.com/en-us/library/windows/desktop/aa384235(v=vs.85).aspx).'
+      Reflection](https://msdn.microsoft.com/library/windows/desktop/aa384235(v=vs.85).aspx).'
 syntax_description: "A **registry_key** resource block creates and deletes registry\
   \ keys in\nMicrosoft Windows:\n\n```ruby\nregistry_key 'HKEY_LOCAL_MACHINE\\\\\
   ...\\\\System' do\n  values [{\n    name: 'NewRegistryKeyValue',\n    type: :multi_string,\n\

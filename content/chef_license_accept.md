@@ -342,7 +342,7 @@ chef_license = "accept"
 #### Packer
 
 Use a custom [Chef configuration
-template](https://www.packer.io/docs/provisioners/chef/chef-client#chef-configuration).
+template](https://www.packer.io/docs/provisioners/chef/chef-client#execute-command).
 In your provisioners config, include:
 
 ```json

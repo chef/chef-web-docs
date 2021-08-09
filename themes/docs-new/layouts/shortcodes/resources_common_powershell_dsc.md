@@ -1,6 +1,6 @@
 Desired State Configuration (DSC) is a feature of Windows PowerShell
 that provides [a set of language extensions, cmdlets, and
-resources](https://docs.microsoft.com/en-us/powershell/dsc/overview)
+resources](https://docs.microsoft.com/powershell/dsc/overview)
 that can be used to declaratively configure software. DSC is similar to
 Chef, in that both tools are idempotent, take similar approaches to the
 concept of resources, describe the configuration of a system, and then

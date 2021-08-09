@@ -67,10 +67,10 @@ automatically be in FIPS mode unless the user disables it.
 
 To enable FIPS on your platform follow these instructions:
 
-- [Red Hat Enterprise Linux 6](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Security_Guide/sect-Security_Guide-Federal_Standards_And_Regulations-Federal_Information_Processing_Standard.html)
-- [Red Hat Enterprise Linux 7](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Security_Guide/chap-Federal_Standards_and_Regulations.html#sec-Enabling-FIPS-Mode)
+- [Red Hat Enterprise Linux 6](https://access.redhat.com/documentation/Red_Hat_Enterprise_Linux/6/html/Security_Guide/sect-Security_Guide-Federal_Standards_And_Regulations-Federal_Information_Processing_Standard.html)
+- [Red Hat Enterprise Linux 7](https://access.redhat.com/documentation/Red_Hat_Enterprise_Linux/7/html/Security_Guide/chap-Federal_Standards_and_Regulations.html#sec-Enabling-FIPS-Mode)
 - [Red Hat Enterprise Linux 8](https://www.redhat.com/en/blog/how-rhel-8-designed-fips-140-2-requirements)
-- [Windows](https://technet.microsoft.com/en-us/library/cc750357.aspx)
+- [Windows](https://technet.microsoft.com/library/cc750357.aspx)
 - [Ubuntu](https://security-certs.docs.ubuntu.com/en/fips)
 
 ## How to enable FIPS mode for the Chef Infra Server

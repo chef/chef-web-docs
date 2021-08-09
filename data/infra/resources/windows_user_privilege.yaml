@@ -7,7 +7,7 @@ resource: windows_user_privilege
 resource_description_list:
 - markdown: |-
     The windows_user_privilege resource allows to add and set principal (User/Group) to the specified privilege.
-     Ref: https://docs.microsoft.com/en-us/windows/security/threat-protection/security-policy-settings/user-rights-assignment
+     Ref: https://docs.microsoft.com/windows/security/threat-protection/security-policy-settings/user-rights-assignment
 resource_new_in: '16.0'
 syntax_full_code_block: |-
   windows_user_privilege 'name' do

@@ -15,5 +15,5 @@ toc_layout = "infra_resource_toc"
 +++
 
 <!-- The contents of this page are automatically generated from the cron_d.yaml file in the data directory. -->
-<!-- To suggest a change, edit the https://github.com/chef/chef/blob/master/lib/chef/resource/cron_d.rb file
+<!-- To suggest a change, edit the https://github.com/chef/chef/blob/master/lib/chef/resource/cron/cron_d.rb file
       and submit a pull request to the https://github.com/chef/chef repository. -->

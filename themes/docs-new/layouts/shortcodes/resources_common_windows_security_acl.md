@@ -35,7 +35,7 @@ where
     entered in the login box for Microsoft Windows, such as `user_name`,
     `domain\user_name`, or `user_name@fully_qualified_domain_name`. When
     using a SID, you may use either the standard string representation of
-    a SID (S-R-I-S-S) or one of the [SDDL string constants](https://docs.microsoft.com/en-us/windows/win32/secauthz/sid-strings). Chef
+    a SID (S-R-I-S-S) or one of the [SDDL string constants](https://docs.microsoft.com/windows/win32/secauthz/sid-strings). Chef
     Infra Client does not need to know if a principal is a user or a
     group.
 

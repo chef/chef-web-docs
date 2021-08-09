@@ -1478,7 +1478,7 @@ The `windows_user_privilege` resource has been updated to better validate the `p
 
 #### Windows securable resources
 
-All Windows securable resources now support using SID in addition to user or group name when specifying `owner`, `group`, or `rights` principal. These resources include the `template`, `file`, `remote_file`, `cookbook_file`, `directory`, and `remote_directory` resources. When using a SID, you may use either the standard string representation of a SID (S-R-I-S-S) or one of the [SDDL string constants](https://docs.microsoft.com/en-us/windows/win32/secauthz/sid-strings).
+All Windows securable resources now support using SID in addition to user or group name when specifying `owner`, `group`, or `rights` principal. These resources include the `template`, `file`, `remote_file`, `cookbook_file`, `directory`, and `remote_directory` resources. When using a SID, you may use either the standard string representation of a SID (S-R-I-S-S) or one of the [SDDL string constants](https://docs.microsoft.com/windows/win32/secauthz/sid-strings).
 
 ### Ohai Improvements
 
@@ -5789,7 +5789,7 @@ Chef Client 13.4 includes RubyGems 2.6.13 to fix the following CVEs:
 
 ### Ifconfig provider on Red Hat now supports additional properties
 
-It is now possible to set `ETHTOOL_OPTS`, `BONDING_OPTS`, `MASTER` and `SLAVE` properties on interfaces on Red Hat compatible systems. See <https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Deployment_Guide/s1-networkscripts-interfaces.html> for further information
+It is now possible to set `ETHTOOL_OPTS`, `BONDING_OPTS`, `MASTER` and `SLAVE` properties on interfaces on Red Hat compatible systems. See <https://access.redhat.com/documentation/Red_Hat_Enterprise_Linux/6/html/Deployment_Guide/s1-networkscripts-interfaces.html> for further information
 
 #### Properties
 
@@ -8153,7 +8153,7 @@ script will write a file to the `C:\Windows\System32` directory, as
 expected.
 
 For more information, see: [File System
-Redirector](https://msdn.microsoft.com/en-us/library/windows/desktop/aa384187(v=vs.85).aspx).
+Redirector](https://msdn.microsoft.com/library/windows/desktop/aa384187(v=vs.85).aspx).
 
 #### Key Redirection
 
@@ -8175,7 +8175,7 @@ from a redirected registry location using chef-client version 12.9 (and
 later).
 
 For more information, see: [Registry
-Reflection](https://msdn.microsoft.com/en-us/library/windows/desktop/aa384235(v=vs.85).aspx).
+Reflection](https://msdn.microsoft.com/library/windows/desktop/aa384235(v=vs.85).aspx).
 
 ## What's New in 12.8
 
@@ -11774,12 +11774,12 @@ language developed by Microsoft. Windows PowerShell uses a
 document-oriented approach for managing Microsoft Windows-based
 machines, similar to the approach that is used for managing Unix and
 Linux-based machines. Windows PowerShell is [a tool-agnostic
-platform](https://docs.microsoft.com/en-us/powershell/scripting/powershell-scripting)
+platform](https://docs.microsoft.com/powershell/scripting/powershell-scripting)
 that supports using Chef for configuration management.
 
 Desired State Configuration (DSC) is a feature of Windows PowerShell
 that provides [a set of language extensions, cmdlets, and
-resources](https://docs.microsoft.com/en-us/powershell/dsc/overview)
+resources](https://docs.microsoft.com/powershell/dsc/overview)
 that can be used to declaratively configure software. DSC is similar to
 Chef, in that both tools are idempotent, take similar approaches to the
 concept of resources, describe the configuration of a system, and then
@@ -12011,47 +12011,47 @@ This resource has the following properties:
     <tbody>
     <tr>
     <td><code>:archive</code></td>
-    <td>Use to <a href="https://msdn.microsoft.com/en-us/powershell/dsc/archiveresource">unpack archive (.zip) files</a>.</td>
+    <td>Use to <a href="https://msdn.microsoft.com/powershell/dsc/archiveresource">unpack archive (.zip) files</a>.</td>
     </tr>
     <tr>
     <td><code>:environment</code></td>
-    <td>Use to <a href="https://msdn.microsoft.com/en-us/powershell/dsc/environmentresource">manage system environment variables</a>.</td>
+    <td>Use to <a href="https://msdn.microsoft.com/powershell/dsc/environmentresource">manage system environment variables</a>.</td>
     </tr>
     <tr>
     <td><code>:file</code></td>
-    <td>Use to <a href="https://msdn.microsoft.com/en-us/powershell/dsc/fileresource">manage files and directories</a>.</td>
+    <td>Use to <a href="https://msdn.microsoft.com/powershell/dsc/fileresource">manage files and directories</a>.</td>
     </tr>
     <tr>
     <td><code>:group</code></td>
-    <td>Use to <a href="https://msdn.microsoft.com/en-us/powershell/dsc/groupresource">manage local groups</a>.</td>
+    <td>Use to <a href="https://msdn.microsoft.com/powershell/dsc/groupresource">manage local groups</a>.</td>
     </tr>
     <tr>
     <td><code>:log</code></td>
-    <td>Use to <a href="https://msdn.microsoft.com/en-us/powershell/dsc/logresource">log configuration messages</a>.</td>
+    <td>Use to <a href="https://msdn.microsoft.com/powershell/dsc/logresource">log configuration messages</a>.</td>
     </tr>
     <tr>
     <td><code>:package</code></td>
-    <td>Use to <a href="https://msdn.microsoft.com/en-us/powershell/dsc/packageresource">install and manage packages</a>.</td>
+    <td>Use to <a href="https://msdn.microsoft.com/powershell/dsc/packageresource">install and manage packages</a>.</td>
     </tr>
     <tr>
     <td><code>:registry</code></td>
-    <td>Use to <a href="https://msdn.microsoft.com/en-us/powershell/dsc/registryresource">manage registry keys and registry key values</a>.</td>
+    <td>Use to <a href="https://msdn.microsoft.com/powershell/dsc/registryresource">manage registry keys and registry key values</a>.</td>
     </tr>
     <tr>
     <td><code>:script</code></td>
-    <td>Use to <a href="https://msdn.microsoft.com/en-us/powershell/dsc/scriptresource">run PowerShell script blocks</a>.</td>
+    <td>Use to <a href="https://msdn.microsoft.com/powershell/dsc/scriptresource">run PowerShell script blocks</a>.</td>
     </tr>
     <tr>
     <td><code>:service</code></td>
-    <td>Use to <a href="https://msdn.microsoft.com/en-us/powershell/dsc/serviceresource">manage services</a>.</td>
+    <td>Use to <a href="https://msdn.microsoft.com/powershell/dsc/serviceresource">manage services</a>.</td>
     </tr>
     <tr>
     <td><code>:user</code></td>
-    <td>Use to <a href="https://msdn.microsoft.com/en-us/powershell/dsc/userresource">manage local user accounts</a>.</td>
+    <td>Use to <a href="https://msdn.microsoft.com/powershell/dsc/userresource">manage local user accounts</a>.</td>
     </tr>
     <tr>
     <td><code>:windowsfeature</code></td>
-    <td>Use to <a href="https://msdn.microsoft.com/en-us/powershell/dsc/windowsfeatureresource">add or remove Windows features and roles</a>.</td>
+    <td>Use to <a href="https://msdn.microsoft.com/powershell/dsc/windowsfeatureresource">add or remove Windows features and roles</a>.</td>
     </tr>
     <tr>
     <td><code>:windowsoptionalfeature</code></td>
@@ -12059,7 +12059,7 @@ This resource has the following properties:
     </tr>
     <tr>
     <td><code>:windowsprocess</code></td>
-    <td>Use to <a href="https://msdn.microsoft.com/en-us/powershell/dsc/windowsprocessresource">configure Windows processes</a>.</td>
+    <td>Use to <a href="https://msdn.microsoft.com/powershell/dsc/windowsprocessresource">configure Windows processes</a>.</td>
     </tr>
     </tbody>
     </table>

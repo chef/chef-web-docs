@@ -1027,7 +1027,7 @@ our users who do not have it installed another way and fixes two CVEs:
 - non-Windows systems:
     [CVE-2017-14867](https://www.cvedetails.com/cve/CVE-2017-14867/)
 - Windows systems:
-    [CVE-2019-1211](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2019-1211)
+    [CVE-2019-1211](https://portal.msrc.microsoft.com/security-guidance/advisory/CVE-2019-1211)
 
 #### Nokogiri
 
@@ -1095,7 +1095,7 @@ for a complete list of new rules.
 kitchen-azurerm has been updated from 0.14.8 to 0.14.9, which adds a new
 `use_ephemeral_osdisk` configuration option. See Microsoft's [Ephemeral
 OS Disk
-Announcement](https://azure.microsoft.com/en-us/updates/azure-ephemeral-os-disk-now-generally-available/)
+Announcement](https://azure.microsoft.com/updates/azure-ephemeral-os-disk-now-generally-available/)
 for more information on this new feature.
 
 #### kitchen-ec2
@@ -1702,7 +1702,7 @@ to the PolicyFile.
 kitchen-azurerm has been updated from 0.14.8 to 0.14.9, which adds a new
 `use_ephemeral_osdisk` configuration option. See Microsoft's [Ephemeral
 OS Disk
-Announcement](https://azure.microsoft.com/en-us/updates/azure-ephemeral-os-disk-now-generally-available/)
+Announcement](https://azure.microsoft.com/updates/azure-ephemeral-os-disk-now-generally-available/)
 for more information on this new feature.
 
 #### kitchen-digitalocean 0.10.4
