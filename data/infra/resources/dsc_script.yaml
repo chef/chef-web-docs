@@ -101,7 +101,7 @@ properties_list:
 
       must be [a valid Windows PowerShell data
 
-      file](https://docs.microsoft.com/powershell/developer/windows-powershell).
+      file](https://docs.microsoft.com/en-us/powershell/scripting/dsc/configurations/configurations).
 
       This property may not be used in conjunction with the
 

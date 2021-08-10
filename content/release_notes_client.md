@@ -12011,47 +12011,47 @@ This resource has the following properties:
     <tbody>
     <tr>
     <td><code>:archive</code></td>
-    <td>Use to <a href="https://msdn.microsoft.com/powershell/dsc/archiveresource">unpack archive (.zip) files</a>.</td>
+    <td>Use to <a href="https://docs.microsoft.com/en-us/powershell/scripting/dsc/reference/resources/windows/archiveresource">unpack archive (.zip) files</a>.</td>
     </tr>
     <tr>
     <td><code>:environment</code></td>
-    <td>Use to <a href="https://msdn.microsoft.com/powershell/dsc/environmentresource">manage system environment variables</a>.</td>
+    <td>Use to <a href="https://docs.microsoft.com/en-us/powershell/scripting/dsc/reference/resources/windows/environmentresource">manage system environment variables</a>.</td>
     </tr>
     <tr>
     <td><code>:file</code></td>
-    <td>Use to <a href="https://msdn.microsoft.com/powershell/dsc/fileresource">manage files and directories</a>.</td>
+    <td>Use to <a href="https://docs.microsoft.com/en-us/powershell/scripting/dsc/reference/resources/windows/fileresource">manage files and directories</a>.</td>
     </tr>
     <tr>
     <td><code>:group</code></td>
-    <td>Use to <a href="https://msdn.microsoft.com/powershell/dsc/groupresource">manage local groups</a>.</td>
+    <td>Use to <a href="https://docs.microsoft.com/en-us/powershell/scripting/dsc/reference/resources/windows/groupresource">manage local groups</a>.</td>
     </tr>
     <tr>
     <td><code>:log</code></td>
-    <td>Use to <a href="https://msdn.microsoft.com/powershell/dsc/logresource">log configuration messages</a>.</td>
+    <td>Use to <a href="https://docs.microsoft.com/en-us/powershell/scripting/dsc/reference/resources/windows/logresource">log configuration messages</a>.</td>
     </tr>
     <tr>
     <td><code>:package</code></td>
-    <td>Use to <a href="https://msdn.microsoft.com/powershell/dsc/packageresource">install and manage packages</a>.</td>
+    <td>Use to <a href="https://docs.microsoft.com/en-us/powershell/scripting/dsc/reference/resources/windows/packageresource">install and manage packages</a>.</td>
     </tr>
     <tr>
     <td><code>:registry</code></td>
-    <td>Use to <a href="https://msdn.microsoft.com/powershell/dsc/registryresource">manage registry keys and registry key values</a>.</td>
+    <td>Use to <a href="https://docs.microsoft.com/en-us/powershell/scripting/dsc/reference/resources/windows/registryresource">manage registry keys and registry key values</a>.</td>
     </tr>
     <tr>
     <td><code>:script</code></td>
-    <td>Use to <a href="https://msdn.microsoft.com/powershell/dsc/scriptresource">run PowerShell script blocks</a>.</td>
+    <td>Use to <a href="https://docs.microsoft.com/en-us/powershell/scripting/dsc/reference/resources/windows/scriptresource">run PowerShell script blocks</a>.</td>
     </tr>
     <tr>
     <td><code>:service</code></td>
-    <td>Use to <a href="https://msdn.microsoft.com/powershell/dsc/serviceresource">manage services</a>.</td>
+    <td>Use to <a href="https://docs.microsoft.com/en-us/powershell/scripting/dsc/reference/resources/windows/serviceresource">manage services</a>.</td>
     </tr>
     <tr>
     <td><code>:user</code></td>
-    <td>Use to <a href="https://msdn.microsoft.com/powershell/dsc/userresource">manage local user accounts</a>.</td>
+    <td>Use to <a href="https://docs.microsoft.com/en-us/powershell/scripting/dsc/reference/resources/windows/userresource">manage local user accounts</a>.</td>
     </tr>
     <tr>
     <td><code>:windowsfeature</code></td>
-    <td>Use to <a href="https://msdn.microsoft.com/powershell/dsc/windowsfeatureresource">add or remove Windows features and roles</a>.</td>
+    <td>Use to <a href="https://docs.microsoft.com/en-us/powershell/scripting/dsc/reference/resources/windows/windowsfeatureresource">add or remove Windows features and roles</a>.</td>
     </tr>
     <tr>
     <td><code>:windowsoptionalfeature</code></td>
@@ -12059,7 +12059,7 @@ This resource has the following properties:
     </tr>
     <tr>
     <td><code>:windowsprocess</code></td>
-    <td>Use to <a href="https://msdn.microsoft.com/powershell/dsc/windowsprocessresource">configure Windows processes</a>.</td>
+    <td>Use to <a href="https://docs.microsoft.com/en-us/powershell/scripting/dsc/reference/resources/windows/windowsprocessresource">configure Windows processes</a>.</td>
     </tr>
     </tbody>
     </table>
