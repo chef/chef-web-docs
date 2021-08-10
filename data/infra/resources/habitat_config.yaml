@@ -48,7 +48,7 @@ properties_list:
   required: false
   default_value: 127.0.0.1:9632
   description_list:
-  - markdown: Address to a remote Supervisor's Control Gateway.
+  - markdown: Address to a remote supervisor's control gateway.
 - property: remote_sup_http
   ruby_type: String
   required: false
