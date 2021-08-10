@@ -5,7 +5,6 @@ draft = false
 gh_repo = "chef-web-docs"
 robots = "noindex"
 
-
 aliases = "/deprecations_legacy_hwrp_mixins.html"
 +++
 
@@ -18,8 +17,8 @@ The [Cookstyle](/workstation/cookstyle/) cop
 [ChefDeprecations/UsesDeprecatedMixins](https://github.com/chef/cookstyle/blob/master/docs/cops_chefdeprecations.md#chefdeprecationsusesdeprecatedmixins)
 has been introduced to detect these mixins:
 
--   `Chef::Mixin::LanguageIncludeAttribute`
--   `Chef::Mixin::RecipeDefinitionDSLCore`
--   `Chef::Mixin::LanguageIncludeRecipe`
--   `Chef::Mixin::Language`
--   `Chef::DSL::Recipe::FullDSL`
+- `Chef::Mixin::LanguageIncludeAttribute`
+- `Chef::Mixin::RecipeDefinitionDSLCore`
+- `Chef::Mixin::LanguageIncludeRecipe`
+- `Chef::Mixin::Language`
+- `Chef::DSL::Recipe::FullDSL`

@@ -26,11 +26,11 @@ run: service_name: (pid 12345) 12345s; run: log: (pid 1234) 67890s
 
 where
 
--   `run:` is the state of the service (`run:` or `down:`)
--   `service_name:` is the name of the service for which status is
+- `run:` is the state of the service (`run:` or `down:`)
+- `service_name:` is the name of the service for which status is
     returned
--   `(pid 12345)` is the process identifier
--   `12345s` is the uptime of the service, in seconds
+- `(pid 12345)` is the process identifier
+- `12345s` is the uptime of the service, in seconds
 
 For example:
 

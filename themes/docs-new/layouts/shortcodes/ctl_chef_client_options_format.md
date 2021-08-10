@@ -1,8 +1,8 @@
 The output format: `doc` (default) or `min`.
 
--   Use `doc` to print the progress of a Chef Infra Client run using
+- Use `doc` to print the progress of a Chef Infra Client run using
     full strings that display a summary of updates as they occur.
--   Use `min` to print the progress of a Chef Infra Client run using
+- Use `min` to print the progress of a Chef Infra Client run using
     single characters.
 
 A summary of updates is printed at the end of a Chef Infra Client run. A

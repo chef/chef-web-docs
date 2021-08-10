@@ -15,9 +15,9 @@ product = ["client", "server", "workstation"]
 
 {{% plugin_knife_summary %}}
 
--   The same [common options](/workstation/knife_options/) used by knife
+- The same [common options](/workstation/knife_options/) used by knife
     subcommands can also be used by knife plug-ins
--   A knife plugin can make authenticated API requests to the Chef
+- A knife plugin can make authenticated API requests to the Chef
     server
 
 The following knife plug-ins are maintained by Chef:

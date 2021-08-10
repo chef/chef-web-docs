@@ -24,18 +24,18 @@ Since a variety of different practices are used to create an air-gapped
 network, this guide focuses solely on the implementation of Chef
 software - as such, it makes the following assumptions:
 
--   You have a way to get packages to your air-gapped machines
--   Machines on your air-gapped network are able to resolve each other
+- You have a way to get packages to your air-gapped machines
+- Machines on your air-gapped network are able to resolve each other
     via DNS
--   A server's Fully Qualified Domain Name (FQDN) is the name that will
+- A server's Fully Qualified Domain Name (FQDN) is the name that will
     be used by other servers to access it
--   You have a private Ruby gem mirror to supply gems as needed
--   You have an artifact store for file downloads. At a minimum, it
+- You have a private Ruby gem mirror to supply gems as needed
+- You have an artifact store for file downloads. At a minimum, it
     should have the following packages available:
-    -   Chef Workstation
-    -   Chef Infra Client
-    -   Chef Supermarket
-    -   An [install
+    - Chef Workstation
+    - Chef Infra Client
+    - Chef Supermarket
+    - An [install
         script](/install_chef_air_gap/#create-an-install-script) for
         Chef Infra Client
 
@@ -47,19 +47,19 @@ of the cookbooks required to complete the entire guide:
 
 For Chef Supermarket:
 
--   [supermarket-omnibus-cookbook](https://supermarket.chef.io/cookbooks/supermarket-omnibus-cookbook)
--   [chef-ingredient](https://supermarket.chef.io/cookbooks/chef-ingredient)
--   [hostsfile](https://supermarket.chef.io/cookbooks/hostsfile)
+- [supermarket-omnibus-cookbook](https://supermarket.chef.io/cookbooks/supermarket-omnibus-cookbook)
+- [chef-ingredient](https://supermarket.chef.io/cookbooks/chef-ingredient)
+- [hostsfile](https://supermarket.chef.io/cookbooks/hostsfile)
 
 ### Required Gems
 
 The following Ruby gems are required to install private Supermarket via
 the supermarket-omnibus-cookbook:
 
--   mixlib-install
--   mixlib-shellout
--   mixlib-versioning
--   artifactory
+- mixlib-install
+- mixlib-shellout
+- mixlib-versioning
+- artifactory
 
 These should be accessible from your Gem mirror.
 
@@ -247,27 +247,27 @@ In this section, you will use a wrapper around the
 to install private Supermarket. The Supermarket cookbook depends upon
 the following cookbooks:
 
--   [chef-ingredient](https://supermarket.chef.io/cookbooks/chef-ingredient)
--   [hostsfile](https://supermarket.chef.io/cookbooks/hostsfile)
+- [chef-ingredient](https://supermarket.chef.io/cookbooks/chef-ingredient)
+- [hostsfile](https://supermarket.chef.io/cookbooks/hostsfile)
 
 The following Gems must be accessible via your Gem mirror:
 
--   mixlib-install
--   mixlib-shellout
--   mixlib-versioning
--   artifactory
+- mixlib-install
+- mixlib-shellout
+- mixlib-versioning
+- artifactory
 
 Your `cookbooks` directory must have all three of these cookbooks
 installed before you will be able to use the Supermarket cookbook
 wrapper. In addition the necessary cookbooks, a private Chef Supermarket
 has the following requirements:
 
--   An operational Chef Infra Server to act as the OAuth 2.0 provider
--   A user account on the Chef Infra Server with `admins` privileges
--   A key for the user account on the Chef server
--   An x86_64 Ubuntu, RHEL, or Amazon Linux host with at least 1 GB memory
--   System clocks synchronized on the Chef Infra Server and Supermarket hosts
--   Sufficient disk space to meet project cookbook storage capacity or credentials to store cookbooks in an Amazon Simple Storage Service (S3) bucket
+- An operational Chef Infra Server to act as the OAuth 2.0 provider
+- A user account on the Chef Infra Server with `admins` privileges
+- A key for the user account on the Chef server
+- An x86_64 Ubuntu, RHEL, or Amazon Linux host with at least 1 GB memory
+- System clocks synchronized on the Chef Infra Server and Supermarket hosts
+- Sufficient disk space to meet project cookbook storage capacity or credentials to store cookbooks in an Amazon Simple Storage Service (S3) bucket
 
 ### Configure credentials
 
@@ -351,12 +351,12 @@ and then reference them from the recipe. For example, the data bag could
 be named `apps` and then a data bag item within the data bag could be
 named `supermarket`. The following attributes are required:
 
--   `chef_server_url`: the url for your chef server.
--   `chef_oauth2_app_id`: the Chef Identity uid from
+- `chef_server_url`: the url for your chef server.
+- `chef_oauth2_app_id`: the Chef Identity uid from
     `/etc/opscode/oc-id-applications/supermarket.json`
--   `chef_oauth2_secret`: The Chef Identity secret from
+- `chef_oauth2_secret`: The Chef Identity secret from
     `/etc/opscode/oc-id-applications/supermarket.json`
--   `package_url`: The location of the Supermarket package on your
+- `package_url`: The location of the Supermarket package on your
     artifact store
 
 To define these attributes, do the following:
@@ -402,7 +402,6 @@ To define these attributes, do the following:
     node.override['supermarket_omnibus']['chef_oauth2_secret'] = '17cf1141cc971a10ce307611beda7ffadstr4f1bc98d9f9ca76b9b127879'
     node.override['supermarket_omnibus']['package_url'] = 'http://packages.example.com/supermarket_3.1.22-1_amd64.deb'
 
-
     include_recipe 'supermarket-omnibus-cookbook'
     ```
 
@@ -426,10 +425,10 @@ knife bootstrap ip_address -N supermarket-node -x ubuntu --sudo
 
 where:
 
--   `-N` defines the name of the Chef Supermarket node:
+- `-N` defines the name of the Chef Supermarket node:
     `supermarket-node`
--   `-x` defines the (ssh) user name: `ubuntu`
--   `--sudo` ensures that sudo is used while running commands on the
+- `-x` defines the (ssh) user name: `ubuntu`
+- `--sudo` ensures that sudo is used while running commands on the
     node during the bootstrap operation
 
 When the bootstrap operation is finished, do the following:

@@ -83,38 +83,36 @@ syntax_full_properties_list:
   `username`, `wait_for_debugger`, `watch_paths`, and `working_directory` are the
   properties available to this resource."
 actions_list:
+  :nothing:
+    shortcode: resources_common_actions_nothing.md
   :create:
-    markdown: Default. Create a launchd property list.
+    markdown: Create a launchd property list. (default)
   :create_if_missing:
     markdown: Create a launchd property list, if it does not already exist.
   :delete:
     markdown: Delete a launchd property list. This will unload a daemon or agent,
       if loaded.
-  :disable:
-    markdown: Disable a launchd property list.
   :enable:
     markdown: Create a launchd property list, and then ensure that it is enabled.
       If a launchd property list already exists, but does not match, updates the property
       list to match, and then restarts the daemon or agent.
+  :disable:
+    markdown: Disable a launchd property list.
   :restart:
     markdown: Restart a launchd managed daemon or agent.
-  :nothing:
-    shortcode: resources_common_actions_nothing.md
 properties_list:
 - property: abandon_process_group
   ruby_type: true, false
   required: false
   description_list:
-  - markdown: 'If a job dies, all remaining processes with the same process ID may
-
-      be kept running. Set to true to kill all remaining processes.'
+  - markdown: If a job dies, all remaining processes with the same process ID may
+      be kept running. Set to true to kill all remaining processes.
 - property: backup
   ruby_type: Integer, false
   required: false
   description_list:
-  - markdown: 'The number of backups to be kept in `/var/chef/backup`. Set to
-
-      `false` to prevent backups from being kept.'
+  - markdown: The number of backups to be kept in `/var/chef/backup`. Set to `false`
+      to prevent backups from being kept.
 - property: cookbook
   ruby_type: String
   required: false
@@ -236,15 +234,10 @@ properties_list:
   ruby_type: Hash
   required: false
   description_list:
-  - markdown: 'Specifies if a daemon expects to be run as if it were launched from
-
-      `inetd`. Set to `wait => true` to pass standard input, output, and
-
-      error file descriptors. Set to `wait => false` to call the `accept`
-
-      system call on behalf of the job, and then pass standard input,
-
-      output, and error file descriptors.'
+  - markdown: Specifies if a daemon expects to be run as if it were launched from
+      inetd. Set to `wait => true` to pass standard input, output, and error file
+      descriptors. Set to `wait => false` to call the accept system call on behalf
+      of the job, and then pass standard input, output, and error file descriptors.
 - property: init_groups
   ruby_type: true, false
   required: false
@@ -268,18 +261,14 @@ properties_list:
   ruby_type: true, false
   required: false
   description_list:
-  - markdown: 'Specify if a job can be run only one time. Set this value to `true`
-
-      if a job cannot be restarted without a full machine reboot.'
+  - markdown: Specify if a job can be run only one time. Set this value to true if
+      a job cannot be restarted without a full machine reboot.
 - property: limit_load_from_hosts
   ruby_type: Array
   required: false
   description_list:
-  - markdown: 'An array of hosts to which this configuration file does not apply,
-
-      i.e. "apply this configuration file to all hosts not specified in
-
-      this array".'
+  - markdown: An array of hosts to which this configuration file does not apply, i.e.
+      'apply this configuration file to all hosts not specified in this array'.
 - property: limit_load_to_hosts
   ruby_type: Array
   required: false
@@ -305,14 +294,13 @@ properties_list:
   ruby_type: Integer
   required: false
   description_list:
-  - markdown: The program scheduling priority value in the range `-20` to `20`.
+  - markdown: The program scheduling priority value in the range -20 to 19.
 - property: on_demand
   ruby_type: true, false
   required: false
   description_list:
-  - markdown: 'Keep a job alive. Only applies to macOS version 10.4 (and earlier);
-
-      use `keep_alive` instead for newer versions.'
+  - markdown: Keep a job alive. Only applies to macOS version 10.4 (and earlier);
+      use `keep_alive` instead for newer versions.
 - property: process_type
   ruby_type: String
   required: false
@@ -323,20 +311,15 @@ properties_list:
   ruby_type: String
   required: false
   description_list:
-  - markdown: 'The first argument of `execvp`, typically the file name associated
-
-      with the file to be executed. This value must be specified if
-
-      `program_arguments` is not specified, and vice-versa.'
+  - markdown: The first argument of `execvp`, typically the file name associated with
+      the file to be executed. This value must be specified if `program_arguments`
+      is not specified, and vice-versa.
 - property: program_arguments
   ruby_type: Array
   required: false
   description_list:
-  - markdown: 'The second argument of `execvp`. If `program` is not specified, this
-
-      property must be specified and will be handled as if it were the
-
-      first argument.'
+  - markdown: The second argument of `execvp`. If program is not specified, this property
+      must be specified and will be handled as if it were the first argument.
 - property: queue_directories
   ruby_type: Array
   required: false
@@ -412,11 +395,8 @@ properties_list:
   ruby_type: Integer
   required: false
   description_list:
-  - markdown: 'The amount of time (in seconds) a job may be idle before it times
-
-      out. If no value is specified, the default timeout value for launchd
-
-      will be used.'
+  - markdown: The amount of time (in seconds) a job may be idle before it times out.
+      If no value is specified, the default timeout value for launchd will be used.
 - property: umask
   ruby_type: Integer
   required: false
@@ -444,9 +424,6 @@ properties_list:
   required: false
   description_list:
   - markdown: "`chdir` to this directory, and then run the job."
-resources_common_properties: true
-resources_common_notification: true
-resources_common_guards: true
 examples: "
   Create a Launch Daemon from a cookbook file\n\n  ```ruby\n  launchd\
   \ 'com.chef.every15' do\n    source 'com.chef.every15.plist'\n  end\n  ```\n\n \

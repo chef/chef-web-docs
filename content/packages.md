@@ -48,8 +48,8 @@ products on production systems.
 The `stable` and `current` release channels support the following
 package repositories:
 
--   Apt (Debian and Ubuntu platforms)
--   Yum (Enterprise Linux platforms)
+- Apt (Debian and Ubuntu platforms)
+- Yum (Enterprise Linux platforms)
 
 Chef Software Inc. GPG public key can be downloaded
 [here](https://packages.chef.io/chef.asc).
@@ -80,10 +80,10 @@ To set up an Apt package repository for Debian and Ubuntu platforms:
 
     Replace `<DISTRIBUTION>` with the appropriate distribution name:
 
-    -   For Debian 9: `stretch`
-    -   For Debian 10: `buster`
-    -   For Ubuntu 18.04: `bionic`
-    -   For Ubuntu 20.04: `focal`
+    - For Debian 9: `stretch`
+    - For Debian 10: `buster`
+    - For Ubuntu 18.04: `bionic`
+    - For Ubuntu 20.04: `focal`
 
 4.  Update the package repository list:
 

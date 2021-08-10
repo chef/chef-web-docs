@@ -101,7 +101,6 @@ For more information, see our [Obvious Fix policy](https://github.com/chef/chef/
 
 ## Preview the Build
 
-
 ## Deleting Pages or Making New Pages
 
 Contact the documentation team if you would like to suggest adding or removing pages.

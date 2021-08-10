@@ -5,9 +5,7 @@ draft = false
 gh_repo = "chef-web-docs"
 robots = "noindex"
 
-
 aliases = "/deprecations_attributes.html"
-
 
 +++
 

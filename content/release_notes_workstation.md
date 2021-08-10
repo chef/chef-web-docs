@@ -9,4 +9,5 @@ product = ["workstation"]
     title = "Chef Workstation"
     identifier = "release_notes/release_notes.md Chef Workstation"
     parent = "release_notes"
+    weight = 60
 +++

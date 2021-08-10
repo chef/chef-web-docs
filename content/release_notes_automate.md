@@ -10,4 +10,5 @@ product = ["automate"]
     title = "Chef Automate"
     identifier = "release_notes/release_notes.md Chef Automate"
     parent = "release_notes"
+    weight = 10
 +++

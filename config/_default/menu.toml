@@ -3,6 +3,12 @@
 ## Main Menu ##
 ####
 [[main]]
+title = "ChefConf '21"
+identifier = "chefconf"
+url = "https://www.chef.io/chefconf"
+weight = 5
+
+[[main]]
 title = "Chef.io"
 identifier = "chef"
 url = "https://www.chef.io/"
@@ -94,44 +100,44 @@ identifier = "automate"
   parent = "automate"
 
   [[automate]]
-  name = "Configuring Automate"
-  weight = 20
-  identifier = "automate/configuring_automate"
-  parent = "automate"
-
-  [[automate]]
   name = "Applications"
-  weight = 30
+  weight = 20
   identifier = "automate/applications"
   parent = "automate"
 
   [[automate]]
-  name = "Infrastructure"
-  weight = 50
-  identifier = "automate/infrastructure"
-  parent = "automate"
-
-  [[automate]]
-  name = "Compliance"
-  weight = 60
-  identifier = "automate/compliance"
-  parent = "automate"
-
-  [[automate]]
-  name = "Settings"
-  weight = 90
-  identifier = "automate/settings"
-  parent = "automate"
-
-  [[automate]]
   name = "Authorization"
-  weight = 100
+  weight = 30
   identifier = "automate/authorization"
   parent = "automate"
 
   [[automate]]
+  name = "Compliance"
+  weight = 49
+  identifier = "automate/compliance"
+  parent = "automate"
+
+  [[automate]]
+  name = "Configure"
+  weight = 50
+  identifier = "automate/configuring_automate"
+  parent = "automate"
+
+  [[automate]]
+  name = "Infrastructure"
+  weight = 60
+  identifier = "automate/infrastructure"
+  parent = "automate"
+
+  [[automate]]
+  name = "Settings"
+  weight = 70
+  identifier = "automate/settings"
+  parent = "automate"
+
+  [[automate]]
   name = "Reference"
-  weight = 110
+  weight = 200
   identifier = "automate/reference"
   parent = "automate"
 

@@ -49,16 +49,16 @@ and mitigate many common issues.
 
 Install the version of chef client you plan on using after the upgrade on a small number of test nodes and verify:
 
-:   -   All nodes can authenticate and converge successfully.
-    -   Custom Ohai plugins still work as expected.
-    -   Custom Handlers still work as expected.
+:   - All nodes can authenticate and converge successfully.
+    - Custom Ohai plugins still work as expected.
+    - Custom Handlers still work as expected.
 
 Ensure that all of the cookbooks used by your organization are correctly located and identified:
 
-:   -   Do all cookbooks used by your organization exist in source
+:   - Do all cookbooks used by your organization exist in source
         control? Upload any missing cookbooks and dependencies.
-    -   Do all cookbooks have a `metadata.rb` or `metadata.json` file?
-    -   Delete unused cookbook versions. First, run
+    - Do all cookbooks have a `metadata.rb` or `metadata.json` file?
+    - Delete unused cookbook versions. First, run
         `knife cookbook list` to view a list of cookbooks. Next, for
         each cookbook, run `knife cookbook show COOKBOOK_NAME` to view
         its versions. Then, delete each unused version with
@@ -66,9 +66,9 @@ Ensure that all of the cookbooks used by your organization are correctly located
 
 Download all cookbooks and validate the following against each cookbook:
 
-:   -   Run `egrep -L ^name */metadata.rb`. Does each have a
+:   - Run `egrep -L ^name */metadata.rb`. Does each have a
         `metadata.rb` file?
-    -   Does the cookbook name in the `metadata.rb` file match the name
+    - Does the cookbook name in the `metadata.rb` file match the name
         in the run-list? (Some older versions of Chef Infra Client used
         the cookbook name for the run-list based on the directory name
         of the cookbook and not the cookbook_name in the `metadata.rb`
@@ -76,20 +76,20 @@ Download all cookbooks and validate the following against each cookbook:
 
 Cook as lean as possible:
 
-:   -   Verify cookbook size and mitigate the size of large cookbooks
+:   - Verify cookbook size and mitigate the size of large cookbooks
         where possible. Most cookbooks are quite small, under \~200 KB.
         For any cookbook over 200 KB, consider why they are that large.
         Are there binary files?
-    -   Clean up `git` history for any cookbook found to be excessively
+    - Clean up `git` history for any cookbook found to be excessively
         large.
 
 Verify nodes and clients that are in use:
 
-:   -   Are all nodes and/or clients in use? Clean up any extra nodes
+:   - Are all nodes and/or clients in use? Clean up any extra nodes
         and clients. Use the `knife node list`, `knife client list`, and
         [knife status](/workstation/knife_status/) commands to verify nodes and
         clients in use.
-    -   Use the
+    - Use the
         `` knife client delete` command to remove unused clients. Use the ``knife
         node delete\`\` command to remove unused nodes.
 

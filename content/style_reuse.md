@@ -296,7 +296,6 @@ and `panel-id`/`panel-link` values must be unique on the page.
       {{</* /foundation_tabs_panel */>}}
     {{</* /foundation_tabs_panels */>}}
 
-
 ## Fontawesome Shortcode
 
 The Fontawesome shortcode will display any free [Font Awesome icon](https://fontawesome.com/icons) in a page.

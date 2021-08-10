@@ -5,7 +5,6 @@ draft = false
 gh_repo = "chef-web-docs"
 robots = "noindex"
 
-
 aliases = "/deprecations_ohai_windows_cpu.html"
 +++
 

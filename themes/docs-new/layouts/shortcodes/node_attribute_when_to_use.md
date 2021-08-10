@@ -7,11 +7,11 @@ using knife, or are retrieved by Ohai from each node prior to every Chef
 Infra Client run. All attributes are indexed for search on the Chef
 Infra Server. Good candidates for attributes include:
 
--   any cross-platform abstraction for an application, such as the path
+- any cross-platform abstraction for an application, such as the path
     to a configuration file
--   default values for tunable settings, such as the amount of memory
+- default values for tunable settings, such as the amount of memory
     assigned to a process or the number of workers to spawn
--   anything that may need to be persisted in node data between Chef
+- anything that may need to be persisted in node data between Chef
     Infra Client runs
 
 In general, attribute precedence is set to enable cookbooks and roles to

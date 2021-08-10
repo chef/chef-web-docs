@@ -21,12 +21,12 @@ end
 
 where:
 
--   The **powershell_script** resource block renames a computer, and
+- The **powershell_script** resource block renames a computer, and
     then joins a domain
--   The **reboot** resource restarts the computer
--   The `not_if` guard prevents the Windows PowerShell script from
+- The **reboot** resource restarts the computer
+- The `not_if` guard prevents the Windows PowerShell script from
     running when the settings in the `not_if` guard match the desired
     state
--   The `notifies` statement tells the **reboot** resource block to run
+- The `notifies` statement tells the **reboot** resource block to run
     if the **powershell_script** block was executed during a Chef Infra
     Client run

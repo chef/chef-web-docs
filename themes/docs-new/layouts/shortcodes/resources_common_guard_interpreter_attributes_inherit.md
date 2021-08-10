@@ -16,8 +16,6 @@ default. The `guard_interpreter` property is set to `:batch` or
 guard statement within a **batch** or **powershell_script** resource,
 respectively.
 
-
-
 </div>
 
 </div>
@@ -48,11 +46,11 @@ end
 To inherit properties, add the `guard_interpreter` property to the
 resource block and set it to the appropriate value:
 
--   `:bash` for **bash**
--   `:csh` for **csh**
--   `:perl` for **perl**
--   `:python` for **python**
--   `:ruby` for **ruby**
+- `:bash` for **bash**
+- `:csh` for **csh**
+- `:perl` for **perl**
+- `:python` for **python**
+- `:ruby` for **ruby**
 
 For example, using the same example as from above, but this time adding
 the `guard_interpreter` property and setting it to `:bash`:

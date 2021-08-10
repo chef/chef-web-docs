@@ -10,4 +10,5 @@ product = ["inspec"]
     title = "Chef InSpec"
     identifier = "release_notes/release_notes_inspec.md Chef InSpec"
     parent = "release_notes"
+    weight = 40
 +++

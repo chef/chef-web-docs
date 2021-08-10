@@ -13,9 +13,7 @@ Ruby.
 <div class="admonition-note-text">
 
 Even though the Chef Infra Server is authored in Erlang, writing code in
-Erlang is NOT a requirement for using Chef.
-
-
+Erlang is NOT a requirement for using Chef Infra.
 
 </div>
 
