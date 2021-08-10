@@ -79,11 +79,8 @@ properties_list:
   ruby_type: String
   required: false
   description_list:
-  - markdown: 'The SHA-256 checksum of the file. Use to ensure that a specific file
-
+  - markdown: The SHA-256 checksum of the file. Use to ensure that a specific file
       is used. If the checksum does not match, the file is not used.
-
-      Default value: no checksum required.'
 - property: content
   ruby_type: String
   required: false
