@@ -49,11 +49,11 @@ weight = 60
 ####
 
 ####
-# Overview Menu
+# Chef Menu
 ####
 
 [[overview]]
-title = "Overview"
+title = "Chef"
 identifier = "overview"
 weight = 20
 
@@ -82,7 +82,7 @@ weight = 20
   weight = 80
 
 ####
-# End Overview Menu
+# End Chef Menu
 ####
 
 ####
