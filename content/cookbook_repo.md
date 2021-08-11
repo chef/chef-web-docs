@@ -19,8 +19,7 @@ various systems in the organization.
 
 ## Working with Cookbooks
 
-Use the following knife subcommands to create, install, and/or download
-cookbooks.
+Use the following commands to create, install, and/or download cookbooks.
 
 ### Create
 
@@ -34,6 +33,10 @@ chef generate cookbook COOKBOOK_NAME
 where `COOKBOOK_NAME` is the name of the cookbook that will be created.
 Any unneeded directory components can be left unused or deleted, if
 preferred.
+
+#### Cookbook Directory Structure
+
+{{% cookbooks_content %}}
 
 ### Install
 
