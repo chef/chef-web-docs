@@ -16,7 +16,7 @@ aliases = ["/ohai.html"]
 
 {{% ohai_summary %}}
 
-Ohai collects data for many platforms, including AIX, Darwin, Linux, FreeBSD, OpenBSD, NetBSD, Solaris, and any Microsoft Windows operating systems.
+Ohai collects data for many platforms, including AIX, macOS, Linux, FreeBSD, Solaris, and any Microsoft Windows operating systems.
 
 See the [Chef Infra Client release notes](/release_notes_client/) for the latest information on Ohai.
 
@@ -193,6 +193,7 @@ windows
 
 Ohai ships several optional plugins that you can enable in the [client.rb configuration file](/config_rb_client/).
 
+- `:Grub2` - Information from the Linux Grub2 bootloader
 - `:IPC` - SysV IPC shmem information (New in Chef Infra Client 16)
 - `:Interupts` - Data from /proc/interrupts and /proc/irq (New in Chef Infra Client 16)
 - `:Lspci` - PCI device information on Linux hosts.
@@ -252,7 +253,7 @@ end
 
 Hint files are located in the `/etc/chef/ohai/hints/` directory by default. Use the `Ohai.config[:hints_path]` setting in the [client.rb configuration file](/config_rb_client/) to customize this location.
 
-## ohai Cookbook Resource
+## `ohai` Resource
 
 Chef Infra Client includes an `ohai` resource that allows you to reload the Ohai data on a node. This allows recipes or resources that change system attributes (like a recipe that adds a user) to refer to those attributes later on during a Chef Infra Client run. See the [ohai resource](/resources/ohai) for complete usage information.
 
