@@ -1,7 +1,7 @@
-A cookbook generated with`chef generate cookbook chefdocs` creates a cookbook named `chefdocs` with the directory structure:
+A cookbook generated with`chef generate cookbook 4thcafe_web` creates a cookbook named `4thcafe_web` with the directory structure:
 
 ```text
-chefdocs
+4thcafe_web
  ├ .delivery
  | └ project.toml
  ├ recipes

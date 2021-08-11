@@ -23,7 +23,15 @@ See [About Ohai](/ohai/) for information on Ohai configuration and usage.
 
 ## Install Ohai Plugins
 
+Install custom Ohai plugins by creating an `ohai` directory in your cookbook and saving your plugin code to this location.
 
+To migrate custom Ohai plugins from the deprecated ohai cookbook:
+
+1. Create an `ohai` directory in your cookbook
+1. Move your plugin into the `ohai` directory
+1. Remove the outdated custom Ohai plugin installation code from your code
+
+Chef Infra Client will move the file into the correct location, load it, and return the data in the next configuration run. Chef Infra Client will provide other cookbooks that depend on the custom Ohai plugin with the correct data.
 
 ## Syntax
 
