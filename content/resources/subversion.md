@@ -10,8 +10,8 @@ toc_layout = "infra_resource_toc"
 [menu]
   [menu.infra]
     title = "subversion"
-    identifier = "chef_infra/cookbook_reference/resources/subversion"
-    parent = "chef_infra/cookbook_reference/resources"
+    identifier = "chef_infra/resources/subversion"
+    parent = "chef_infra/resources"
 +++
 
 <!-- The contents of this page are automatically generated from the subversion.yaml file in the data directory. -->

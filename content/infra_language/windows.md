@@ -7,9 +7,8 @@ gh_repo = "chef-web-docs"
 [menu]
   [menu.infra]
     title = "Windows"
-    identifier = "chef_infra/cookbook_reference/infra_language/windows.md Windows"
-    parent = "chef_infra/cookbook_reference/infra_language"
-    weight = 39
+    identifier = "chef_infra/infra_language/windows.md Windows"
+    parent = "chef_infra/infra_language"
 +++
 
 Chef Infra Client 15.8 and later include Windows-specific helpers for checking platform and package information.

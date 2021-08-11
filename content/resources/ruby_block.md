@@ -10,8 +10,8 @@ toc_layout = "infra_resource_toc"
 [menu]
   [menu.infra]
     title = "ruby_block"
-    identifier = "chef_infra/cookbook_reference/resources/ruby_block"
-    parent = "chef_infra/cookbook_reference/resources"
+    identifier = "chef_infra/resources/ruby_block"
+    parent = "chef_infra/resources"
 +++
 
 <!-- The contents of this page are automatically generated from the ruby_block.yaml file in the data directory. -->

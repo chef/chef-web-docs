@@ -10,8 +10,8 @@ toc_layout = "infra_resource_toc"
 [menu]
   [menu.infra]
     title = "windows_path"
-    identifier = "chef_infra/cookbook_reference/resources/windows_path"
-    parent = "chef_infra/cookbook_reference/resources"
+    identifier = "chef_infra/resources/windows_path"
+    parent = "chef_infra/resources"
 +++
 
 <!-- The contents of this page are automatically generated from the windows_path.yaml file in the data directory. -->

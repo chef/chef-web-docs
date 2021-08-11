@@ -10,8 +10,8 @@ toc_layout = "infra_resource_toc"
 [menu]
   [menu.infra]
     title = "mount"
-    identifier = "chef_infra/cookbook_reference/resources/mount"
-    parent = "chef_infra/cookbook_reference/resources"
+    identifier = "chef_infra/resources/mount"
+    parent = "chef_infra/resources"
 +++
 
 <!-- The contents of this page are automatically generated from the mount.yaml file in the data directory. -->

@@ -7,9 +7,8 @@ gh_repo = "chef-web-docs"
 [menu]
   [menu.infra]
     title = "Logging"
-    identifier = "chef_infra/cookbook_reference/infra_language/logging.md Logging"
-    parent = "chef_infra/cookbook_reference/infra_language"
-    weight = 70
+    identifier = "chef_infra/infra_language/logging.md Logging"
+    parent = "chef_infra/infra_language"
 +++
 
 ## Log Entries

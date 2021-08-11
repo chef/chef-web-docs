@@ -7,8 +7,8 @@ product = ["client"]
 
 [menu]
   [menu.infra]
-    identifier = "chef_infra/cookbook_reference/resources/unified_mode.md Use Unified Mode"
-    parent = "chef_infra/cookbook_reference/resources"
+    identifier = "chef_infra/resources/unified_mode.md Use Unified Mode"
+    parent = "chef_infra/resources"
     weight = 20
 +++
 

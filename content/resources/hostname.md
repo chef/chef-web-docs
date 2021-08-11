@@ -10,8 +10,8 @@ toc_layout = "infra_resource_toc"
 [menu]
   [menu.infra]
     title = "hostname"
-    identifier = "chef_infra/cookbook_reference/resources/hostname"
-    parent = "chef_infra/cookbook_reference/resources"
+    identifier = "chef_infra/resources/hostname"
+    parent = "chef_infra/resources"
 +++
 
 <!-- The contents of this page are automatically generated from the hostname.yaml file in the data directory. -->

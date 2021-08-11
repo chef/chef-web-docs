@@ -11,8 +11,8 @@ aliases = ["/dsl_recipe.html", "/dsl_recipe"]
 [menu]
   [menu.infra]
     title = "Language Overview"
-    identifier = "chef_infra/cookbook_reference/infra_language/ Language Overview"
-    parent = "chef_infra/cookbook_reference/infra_language"
+    identifier = "chef_infra/infra_language/ Language Overview"
+    parent = "chef_infra/infra_language"
     weight = 10
 +++
 

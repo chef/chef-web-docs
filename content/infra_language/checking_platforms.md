@@ -7,9 +7,8 @@ gh_repo = "chef-web-docs"
 [menu]
   [menu.infra]
     title = "Checking Platforms"
-    identifier = "chef_infra/cookbook_reference/infra_language/checking_platforms.md Checking Platforms"
-    parent = "chef_infra/cookbook_reference/infra_language"
-    weight = 30
+    identifier = "chef_infra/infra_language/checking_platforms.md Checking Platforms"
+    parent = "chef_infra/infra_language"
 +++
 
 ## platform?

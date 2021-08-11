@@ -10,8 +10,8 @@ toc_layout = "infra_resource_toc"
 [menu]
   [menu.infra]
     title = "breakpoint"
-    identifier = "chef_infra/cookbook_reference/resources/breakpoint"
-    parent = "chef_infra/cookbook_reference/resources"
+    identifier = "chef_infra/resources/breakpoint"
+    parent = "chef_infra/resources"
 +++
 
 <!-- The contents of this page are automatically generated from the breakpoint.yaml file in the data directory. -->

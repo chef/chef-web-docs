@@ -10,8 +10,8 @@ toc_layout = "infra_resource_toc"
 [menu]
   [menu.infra]
     title = "apt_package"
-    identifier = "chef_infra/cookbook_reference/resources/apt_package"
-    parent = "chef_infra/cookbook_reference/resources"
+    identifier = "chef_infra/resources/apt_package"
+    parent = "chef_infra/resources"
 +++
 
 <!-- The contents of this page are automatically generated from the apt_package.yaml file in the data directory. -->

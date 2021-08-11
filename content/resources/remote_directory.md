@@ -10,8 +10,8 @@ toc_layout = "infra_resource_toc"
 [menu]
   [menu.infra]
     title = "remote_directory"
-    identifier = "chef_infra/cookbook_reference/resources/remote_directory"
-    parent = "chef_infra/cookbook_reference/resources"
+    identifier = "chef_infra/resources/remote_directory"
+    parent = "chef_infra/resources"
 +++
 
 <!-- The contents of this page are automatically generated from the remote_directory.yaml file in the data directory. -->
