@@ -12,8 +12,8 @@ toc_layout = "infra_resources_all_toc"
 [menu]
   [menu.infra]
     title = "All Resources (Single Page)"
-    identifier = "chef_infra/cookbook_reference/resources/All Resources"
-    parent = "chef_infra/cookbook_reference/resources"
+    identifier = "chef_infra/resources/All Resources"
+    parent = "chef_infra/resources"
     weight = 60
 +++
 

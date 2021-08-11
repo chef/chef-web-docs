@@ -6,8 +6,8 @@ aliases:
 menu:
   infra:
     title: chef_acl
-    identifier: chef_infra/cookbook_reference/resources/chef_acl chef_acl
-    parent: chef_infra/cookbook_reference/resources
+    identifier: chef_infra/resources/chef_acl chef_acl
+    parent: chef_infra/resources
 
 resource_reference: true
 resource_description_list:

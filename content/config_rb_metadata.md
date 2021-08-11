@@ -11,12 +11,11 @@ aliases = ["/config_rb_metadata.html"]
     title = "metadata.rb"
     identifier = "chef_infra/cookbook_reference/config_rb_metadata.md metadata.rb"
     parent = "chef_infra/cookbook_reference"
-    weight = 110
+    weight = 60
 +++
 
 {{% cookbooks_metadata %}}
 
-A metadata.rb file is:
 
 - Located at the top level of a cookbook's directory structure.
 - Compiled whenever a cookbook is uploaded to the Chef Infra Server or when the `knife cookbook metadata` subcommand is run, and then stored as JSON data.

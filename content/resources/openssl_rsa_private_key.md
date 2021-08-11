@@ -10,8 +10,8 @@ toc_layout = "infra_resource_toc"
 [menu]
   [menu.infra]
     title = "openssl_rsa_private_key"
-    identifier = "chef_infra/cookbook_reference/resources/openssl_rsa_private_key"
-    parent = "chef_infra/cookbook_reference/resources"
+    identifier = "chef_infra/resources/openssl_rsa_private_key"
+    parent = "chef_infra/resources"
 +++
 
 <!-- The contents of this page are automatically generated from the openssl_rsa_private_key.yaml file in the data directory. -->

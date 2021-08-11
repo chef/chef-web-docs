@@ -9,8 +9,8 @@ aliases = ["/custom_resources_notes.html"]
 [menu]
   [menu.infra]
     title = "Custom Resource Guide"
-    identifier = "chef_infra/cookbook_reference/resources/custom_resources_notes.md Custom Resource Guide"
-    parent = "chef_infra/cookbook_reference/resources"
+    identifier = "chef_infra/resources/custom_resources_notes.md Custom Resource Guide"
+    parent = "chef_infra/resources"
     weight = 50
 +++
 

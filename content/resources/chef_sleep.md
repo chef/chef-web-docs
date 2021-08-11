@@ -10,8 +10,8 @@ toc_layout = "infra_resource_toc"
 [menu]
   [menu.infra]
     title = "chef_sleep"
-    identifier = "chef_infra/cookbook_reference/resources/chef_sleep"
-    parent = "chef_infra/cookbook_reference/resources"
+    identifier = "chef_infra/resources/chef_sleep"
+    parent = "chef_infra/resources"
 +++
 
 <!-- The contents of this page are automatically generated from the chef_sleep.yaml file in the data directory. -->

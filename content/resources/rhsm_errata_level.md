@@ -10,8 +10,8 @@ toc_layout = "infra_resource_toc"
 [menu]
   [menu.infra]
     title = "rhsm_errata_level"
-    identifier = "chef_infra/cookbook_reference/resources/rhsm_errata_level"
-    parent = "chef_infra/cookbook_reference/resources"
+    identifier = "chef_infra/resources/rhsm_errata_level"
+    parent = "chef_infra/resources"
 +++
 
 <!-- The contents of this page are automatically generated from the rhsm_errata_level.yaml file in the data directory. -->

@@ -10,8 +10,8 @@ toc_layout = "infra_resource_toc"
 [menu]
   [menu.infra]
     title = "rhsm_subscription"
-    identifier = "chef_infra/cookbook_reference/resources/rhsm_subscription"
-    parent = "chef_infra/cookbook_reference/resources"
+    identifier = "chef_infra/resources/rhsm_subscription"
+    parent = "chef_infra/resources"
 +++
 
 <!-- The contents of this page are automatically generated from the rhsm_subscription.yaml file in the data directory. -->

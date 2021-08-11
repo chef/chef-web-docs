@@ -11,7 +11,7 @@ aliases = ["/files.html", "essentials_cookbook_files.html"]
     title = "Files"
     identifier = "chef_infra/cookbook_reference/files.md Files"
     parent = "chef_infra/cookbook_reference"
-    weight = 30
+    weight = 40
 +++
 
 The `files` directory in Chef Infra cookbooks stores files that are used

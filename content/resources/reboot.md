@@ -10,8 +10,8 @@ toc_layout = "infra_resource_toc"
 [menu]
   [menu.infra]
     title = "reboot"
-    identifier = "chef_infra/cookbook_reference/resources/reboot"
-    parent = "chef_infra/cookbook_reference/resources"
+    identifier = "chef_infra/resources/reboot"
+    parent = "chef_infra/resources"
 +++
 
 <!-- The contents of this page are automatically generated from the reboot.yaml file in the data directory. -->

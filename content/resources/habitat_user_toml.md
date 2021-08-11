@@ -10,8 +10,8 @@ toc_layout = "infra_resource_toc"
 [menu]
   [menu.infra]
     title = "habitat_user_toml"
-    identifier = "chef_infra/cookbook_reference/resources/habitat_user_toml"
-    parent = "chef_infra/cookbook_reference/resources"
+    identifier = "chef_infra/resources/habitat_user_toml"
+    parent = "chef_infra/resources"
 +++
 
 <!-- The contents of this page are automatically generated from the habitat_user_toml.yaml file in the data directory. -->
