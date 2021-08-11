@@ -1,4 +1,7 @@
 <aside class="sticky sidebar" data-sticky data-top-anchor="utility-bar:bottom" data-btm-anchor="footer:top">
+  <div>
+    {{- partialCached "feedback" . -}}
+  </div>
   <span>
     <strong>
       <h4 class="mini-toc-header">Table Of Contents</h4>
@@ -9,6 +12,7 @@
     </button>
 
   </span>
+
   <a href="#{{ anchorize ( .Title )}}">{{ .Title }}</a>
 
   {{ $tableOfContents := .TableOfContents }}
