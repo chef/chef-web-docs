@@ -1,9 +1,4 @@
-Ohai is a tool that is used to collect system configuration data, which
-is provided to Chef Infra Client for use within cookbooks. Ohai is run
-by Chef Infra Client at the beginning of every Chef Infra run to determine
-system state. Ohai includes many built-in plugins to detect common
-configuration details as well as a plugin model for writing custom
-plugins.
+Ohai is a tool for collecting system configuration data, which it then provides to Chef Infra Client to use in cookbooks. Chef Infra Client runs Ohai at the start of every Chef Infra run to determine system state. The attributes that Ohai collects are called `automatic attributes`. Chef Infra Client uses these attributes to ensure that nodes are in the desired state after each configuration run.
 
 The types of attributes Ohai collects include but are not limited to:
 
@@ -18,7 +13,4 @@ The types of attributes Ohai collects include but are not limited to:
 - Virtualization
 - Cloud provider metadata
 
-Attributes that are collected by Ohai are automatic level attributes, in
-that these attributes are used by Chef Infra Client to ensure that these
-attributes remain unchanged after Chef Infra Client is done configuring
-the node.
+Ohai includes required and optional plugins to detect common configuration information. Ohai has a plugin model and language to write [custom plugins](/ohai_custom/) to collect additional system state information.
