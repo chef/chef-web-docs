@@ -1,5 +1,5 @@
 +++
-title = "Cookbook Directory"
+title = "Get Started"
 draft = false
 gh_repo = "chef-web-docs"
 aliases = ["/cookbook_repo.html"]
@@ -8,7 +8,7 @@ product = ["client", "server", "workstation"]
 [menu]
   [menu.infra]
     title = "Cookbook Directory"
-    identifier = "chef_infra/cookbook_reference/cookbook_repo.md Cookbook Repo"
+    identifier = "chef_infra/cookbook_reference/cookbook_repo.md Get Started"
     parent = "chef_infra/cookbook_reference"
     weight = 20
 +++
@@ -17,9 +17,17 @@ The `cookbooks/` directory of your Chef Infra repository is used to
 store the cookbooks that Chef Infra Client uses in configuring the
 various systems in the organization.
 
-## Working with Cookbooks
+## Chef Repository
 
-Use the following commands to create, install, and/or download cookbooks.
+The the `\cookbook` directory is automatically generated as part of your Chef Infra repository.
+
+```bash
+chef generate repo REPO_NAME
+```
+
+## Cookbook Commands
+
+Use the following commands to create a cookbook, install a cookbook from Supermarket, and/or download cookbooks.
 
 ### Create
 

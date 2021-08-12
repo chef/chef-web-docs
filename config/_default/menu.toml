@@ -392,6 +392,12 @@ identifier = "chef_infra"
   weight = 50
 
   [[infra]]
+  title = "Install"
+  identifier = "chef_infra/configure"
+  parent = "chef_infra"
+  weight = 50
+
+  [[infra]]
   title = "Features"
   identifier = "chef_infra/features"
   parent = "chef_infra"
@@ -436,12 +442,6 @@ identifier = "chef_infra"
   identifier = "chef_infra/security"
   parent = "chef_infra"
   weight = 80
-
-    [[infra]]
-    title = "FIPS"
-    identifier = "chef_infra/security/fips.md FIPS"
-    parent = "chef_infra/security"
-    weight = 20
 
     [[infra]]
     title = "FIPS-mode"
