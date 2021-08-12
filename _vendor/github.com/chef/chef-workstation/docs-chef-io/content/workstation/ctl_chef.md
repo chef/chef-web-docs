@@ -462,18 +462,7 @@ Recipe: code_generator::cookbook
     - create new file /Users/grantmc/chefdocs/.gitignore
 ```
 
-and which creates a directory structure similar to:
-
-    /chefdocs
-      /.git
-      .gitignore
-      kitchen.yml
-      Berksfile
-      chefignore
-      metadata.rb
-      README.md
-      /recipes
-        default.rb
+{{% cookbooks_content %}}
 
 **Create a cookbook using a custom skeleton cookbook**
 
