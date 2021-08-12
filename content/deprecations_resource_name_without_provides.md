@@ -4,7 +4,7 @@ draft = false
 
 gh_repo = "chef-web-docs"
 robots = "noindex"
-
+sitemapExclude = true
 +++
 
 In Chef Client 12.5.1 through 15, resources could be addressed from

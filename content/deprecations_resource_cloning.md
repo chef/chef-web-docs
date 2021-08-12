@@ -4,7 +4,7 @@ draft = false
 
 gh_repo = "chef-web-docs"
 robots = "noindex"
-
+sitemapExclude = true
 aliases = "/deprecations_resource_cloning.html"
 +++
 
