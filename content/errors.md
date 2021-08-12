@@ -8,8 +8,8 @@ product = ["client", "server", "workstation"]
 [menu]
   [menu.infra]
     title = "Troubleshooting"
-    identifier = "chef_infra/errors.md Troubleshooting"
-    parent = "chef_infra"
+    identifier = "chef_infra/install/errors.md Troubleshooting"
+    parent = "chef_infra/install"
     weight = 40
 +++
 

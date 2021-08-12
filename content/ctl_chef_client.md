@@ -9,9 +9,9 @@ aliases = ["/ctl_chef_client.html"]
 [menu]
   [menu.infra]
     title = "chef-client (executable)"
-    identifier = "chef_infra/setup/nodes/ctl_chef_client.md chef-client (executable)"
-    parent = "chef_infra/setup/nodes"
-    weight = 30
+    identifier = "chef_infra/reference/ctl_chef_client.md chef-client Commands"
+    parent = "chef_infra/reference"
+    weight = 10
 +++
 
 {{% chef_client_summary %}}

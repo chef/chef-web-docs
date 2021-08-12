@@ -8,9 +8,8 @@ product = ["automate", "client", "server", "habitat", "inspec", "workstation"]
 [menu]
   [menu.infra]
  title = "Glossary"
- identifier = "chef_infra/getting_started/glossary.md Glossary"
- parent = "chef_infra/getting_started"
- weight = 70
+ identifier = "chef_infra/reference/glossary.md Glossary"
+ parent = "chef_infra/reference"
 +++
 
 Agent

@@ -8,7 +8,7 @@ product = ["client", "server", "workstation"]
 [menu]
   [menu.supermarket]
     title = "Configure"
-    identifier = "supermarket/server/config_rb_supermarket.md Settings"
+    identifier = "supermarket/server/config_rb_supermarket.md supermarket.rb Configuration"
     parent = "supermarket/server"
     weight = 20
 +++

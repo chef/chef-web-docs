@@ -9,7 +9,7 @@ aliases = ["/ctl_chef_solo.html"]
 [menu]
   [menu.infra]
     title = "chef-solo (executable)"
-    identifier = "chef_infra/features/chef_solo/ctl_chef_solo.md chef-solo (executable)"
+    identifier = "chef_infra/features/chef_solo/ctl_chef_solo.md chef-solo Commands"
     parent = "chef_infra/features/chef_solo"
     weight = 20
 +++
