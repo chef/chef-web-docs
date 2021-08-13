@@ -12,11 +12,9 @@ resource_description_list:
     the command line. This allows a variety of options for installing packages, like
     minimum versions, virtual provides, and library names.
 - note:
-    markdown: 'Support for using file names to install packages (as in
-
-      `yum_package "/bin/sh"`) is not available because the volume of data
-
-      required to parse for this is excessive.'
+    markdown: Support for using file names to install packages (as in `yum_package
+      '/bin/sh'`) is not available because the volume of data required to parse for
+      this is excessive.
 - notes_resource_based_on_package: true
 syntax_full_code_block: |-
   yum_package 'name' do

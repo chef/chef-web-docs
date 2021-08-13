@@ -54,4 +54,4 @@ properties_list:
   required: false
   description_list:
   - markdown: The target that this path will connect you to.
-examples: 
+examples:

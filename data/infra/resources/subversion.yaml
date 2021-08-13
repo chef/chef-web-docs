@@ -8,14 +8,9 @@ resource_description_list:
 - markdown: Use the **subversion** resource to manage source control resources that
     exist in a Subversion repository.
 - warning:
-    markdown: 'The subversion resource has known bugs and may not work as expected.
-      For
-
-      more information see Chef GitHub issues, particularly
-
-      [\#4050](https://github.com/chef/chef/issues/4050) and
-
-      [\#4257](https://github.com/chef/chef/issues/4257).'
+    markdown: The subversion resource has known bugs and may not work as expected.
+      For more information see Chef GitHub issues, particularly [#4050](https://github.com/chef/chef/issues/4050)
+      and [#4257](https://github.com/chef/chef/issues/4257).
 syntax_full_code_block: |-
   subversion 'name' do
     destination        String # default value: 'name' unless specified
@@ -42,6 +37,12 @@ syntax_full_properties_list:
   `svn_binary`, `svn_info_args`, `svn_password`, `svn_username`, `timeout`, and `user`
   are the properties available to this resource."
 actions_list:
+  :nothing:
+    shortcode: resources_common_actions_nothing.md
+  :sync:
+    markdown: Update the source to the specified version, or get a new clone or checkout.
+      This action causes a hard reset of the index and working tree, discarding any
+      uncommitted changes. (default)
   :checkout:
     markdown: Clone or check out the source. When a checkout is available, this provider
       does nothing.
@@ -51,12 +52,6 @@ actions_list:
     markdown: Export the source, excluding or removing any version control artifacts
       and force an export of the source that is overwriting the existing copy (if
       it exists).
-  :nothing:
-    shortcode: resources_common_actions_nothing.md
-  :sync:
-    markdown: Default. Update the source to the specified version, or get a new clone
-      or checkout. This action causes a hard reset of the index and working tree,
-      discarding any uncommitted changes.
 properties_list:
 - property: destination
   ruby_type: String
@@ -123,13 +118,7 @@ properties_list:
   ruby_type: Integer
   required: false
   description_list:
-  - markdown: 'The amount of time (in seconds) to wait for a command to execute
-
-      before timing out. When this property is specified using the
-
-      **deploy** resource, the value of the `timeout` property is passed
-
-      from the **deploy** resource to the **subversion** resource.'
+  - markdown: The amount of time (in seconds) to wait before timing out.
 - property: user
   ruby_type: String, Integer
   required: false
