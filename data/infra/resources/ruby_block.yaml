@@ -44,7 +44,7 @@ properties_list:
 
       resource block. See "Syntax" section above for more information.'
 examples: |
-  Re-read configuration data
+  **Re-read configuration data**
 
   ```ruby
   ruby_block 'reload_client_config' do
