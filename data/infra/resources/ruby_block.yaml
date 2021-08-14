@@ -112,7 +112,7 @@ examples: |
   end
   ```
 
-  Set environment variables
+  **Set environment variables**
 
   The following example shows how to use variables within a Ruby block to set environment variables using rbenv.
 
