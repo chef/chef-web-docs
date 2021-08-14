@@ -27,10 +27,10 @@ syntax_full_properties_list:
 - "`comment`, `conf_dir`, `ignore_error`, `key`, and `value` are the properties available
   to this resource."
 actions_list:
-  :apply:
-    markdown: Default. Set the kernel parameter and update the `sysctl` settings.
   :nothing:
     shortcode: resources_common_actions_nothing.md
+  :apply:
+    markdown: Set the kernel parameter and update the `sysctl` settings. (default)
   :remove:
     markdown: Remove the kernel parameter and update the `sysctl` settings.
 properties_list:
