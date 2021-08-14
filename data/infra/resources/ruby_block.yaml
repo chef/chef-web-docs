@@ -97,7 +97,7 @@ examples: |
   end
   ```
 
-  Update the /etc/hosts file
+  **Update the /etc/hosts file**
 
   The following example shows how the ruby_block resource can be used to update the /etc/hosts file:
 
