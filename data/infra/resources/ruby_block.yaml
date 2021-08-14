@@ -128,7 +128,7 @@ examples: |
   end
   ```
 
-  Call methods in a gem
+  **Call methods in a gem**
 
   The following example shows how to call methods in gems not shipped in Chef Infra Client
 
