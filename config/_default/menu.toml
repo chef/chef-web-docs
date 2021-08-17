@@ -176,22 +176,22 @@ identifier = "desktop"
   weight = 40
 
  [[desktop]]
-  title = "Zero Touch"
+  title = "Zero Touch Deployment"
   identifier = "desktop/zero_touch"
   parent = "desktop"
   weight = 50
 
-  [[desktop]]
-  title = "macOS"
-  identifier = "desktop/zero_touch/macos"
-  parent = "desktop/zero_touch"
-  weight = 50
+    [[desktop]]
+    title = "macOS"
+    identifier = "desktop/zero_touch/macos"
+    parent = "desktop/zero_touch"
+    weight = 50
 
-  [[desktop]]
-  title = "Windows"
-  identifier = "desktop/zero_touch/windows"
-  parent = "desktop/zero_touch"
-  weight = 50
+    [[desktop]]
+    title = "Windows"
+    identifier = "desktop/zero_touch/windows"
+    parent = "desktop/zero_touch"
+    weight = 50
 
   [[desktop]]
   title = "Resources"
