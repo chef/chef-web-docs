@@ -89,9 +89,7 @@ Ensure the policy attached to the role used by the instance you have Chef Automa
 }
 ```
 
-{{< note >}}
 `"ssm:*"` uses a wildcard match on the AWS EC2 Systems Manager (SSM); You may wish to use a more restrictive policy.
-{{< /note >}}
 
 ### Install AWS EC2 Systems Manager on Instances
 

@@ -1,8 +1,6 @@
-Set up Chef Automate to detect and scan the nodes in your Azure account by providing your Azure Credentials and creating an _Azure VM Node Manager_. To add an Azure VM Node Manager, navigate to the [_Node Integrations_]({{< relref "node_integrations.md" >}}) page in the Settings tab, select `Create Integration`, and you should see _Azure_ as one of your node management service options.
+Set up Chef Automate to detect and scan the nodes in your Azure account by providing your Azure Credentials and creating an _Azure VM Node Manager_. To add an Azure VM Node Manager, navigate to the **Node Integrations** page in the Settings tab, select `Create Integration`, and you should see _Azure_ as one of your node management service options.
 
-{{< note >}}
-We do not support Azure Government Cloud.
-{{< /note >}}
+Chef Automate does not support Azure Government Cloud.
 
 ### Adding an Azure VM Node Manager
 
