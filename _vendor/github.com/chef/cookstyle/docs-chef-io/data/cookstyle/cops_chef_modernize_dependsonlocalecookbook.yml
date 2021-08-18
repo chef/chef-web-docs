@@ -1,0 +1,19 @@
+---
+short_name: DependsOnLocaleCookbook
+full_name: Chef/Modernize/DependsOnLocaleCookbook
+department: Chef/Modernize
+description: Don't depend on the locale cookbook made obsolete by Chef Infra Client
+  14.5. The locale resource is now included in Chef Infra Client itself.
+autocorrection: true
+target_chef_version: 14.5+
+examples: |2-
+
+  #### incorrect
+
+  ```ruby
+  depends 'locale'
+  ```
+version_added: 7.19.0
+enabled: true
+included_file_paths:
+- "**/metadata.rb"

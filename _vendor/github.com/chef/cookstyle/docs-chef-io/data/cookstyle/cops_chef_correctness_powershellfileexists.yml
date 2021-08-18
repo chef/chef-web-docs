@@ -1,0 +1,26 @@
+---
+short_name: PowershellFileExists
+full_name: Chef/Correctness/PowershellFileExists
+department: Chef/Correctness
+description: Use Ruby's built-in `File.exist?('C:\somefile') instead of executing
+  PowerShell's `Test-Path` cmdlet, which takes longer to load.
+autocorrection: false
+target_chef_version: All Versions
+examples: |2-
+
+  #### incorrect
+
+  ```ruby
+  powershell_out('Test-Path "C:\\Program Files\\LAPS\\CSE\\AdmPwd.dll"').stdout.strip == 'True'
+  ```
+
+  #### correct
+
+  ```ruby
+  ::File.exist?('C:\Program Files\LAPS\CSE\AdmPwd.dll')
+  ```
+version_added: '7.19'
+enabled: true
+excluded_file_paths:
+- "**/metadata.rb"
+- "**/Berksfile"
