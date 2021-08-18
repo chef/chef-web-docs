@@ -7,4 +7,4 @@ A cookbook defines a scenario and contains everything that is required to suppor
 - Custom Resources used to extend Chef Infra beyond the built-in resources.
 - Files and Templates for distribution to systems.
 - Custom Ohai Plugins for extending system configuration collection.
-- The `metadata.rb` file describing the cookbook itself and any dependendencies it may have.
+- The `metadata.rb` file, which describes the cookbook itself and any dependencies it may have.
