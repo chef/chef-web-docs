@@ -10,3 +10,14 @@ server. This subcommand:
 - Should not be run in a Chef Infra Server configuration with an
     external PostgreSQL database; [use knife ec
     backup](https://github.com/chef/knife-ec-backup) instead
+
+Ideally, the server you restore to will have the same FQDN as the one you
+backed up. If this is not possible, perform the following additional steps
+before running `chef-server-ctl reconfigure` and `chef-server-ctl restore`:
+
+- Edit /etc/opscode/chef-server.rb and /etc/opscode/chef-server-running.json
+    to replace the old FQDN with the new one
+- Delete the old SSL certificate, key and -ssl.conf file from
+    /var/opt/opscode/nginx/ca . If you use a CA-issued certificate instead of a
+    self-signed certificate, copy that certificate and key into the same directory.
+- On each client, update the /etc/chef/client.rb file to point to the new server.
