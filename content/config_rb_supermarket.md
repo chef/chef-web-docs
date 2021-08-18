@@ -15,17 +15,9 @@ product = ["client", "server", "workstation"]
 
 {{% config_rb_supermarket_summary %}}
 
-{{< note >}}
-
-The `supermarket.rb` file does not exist by default. To modify the
-settings for the Supermarket server, create a file named
-`supermarket.rb` in the `/etc/supermarket/` directory.
-
-{{< /note >}}
-
 ## Settings
 
-The following settings are available in the `supermarket.rb` file.
+The following settings are available in the `/etc/supermarket/supermarket.rb` file.
 
 {{< note >}}
 
