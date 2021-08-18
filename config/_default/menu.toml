@@ -135,6 +135,18 @@ identifier = "automate"
   identifier = "automate/integrations"
   parent = "automate"
 
+    [[automate]]
+    name = "Cloud Integrations"
+    weight = 10
+    identifier = "automate/integrations/cloud"
+    parent = "automate/integrations"
+
+    [[automate]]
+    name = "ServiceNow"
+    weight = 20
+    identifier = "automate/integrations/servicenow"
+    parent = "automate/integrations"
+
   [[automate]]
   name = "Settings"
   weight = 80
