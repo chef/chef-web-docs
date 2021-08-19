@@ -4,6 +4,8 @@ github.com/census-instrumentation/opencensus-proto v0.2.1/go.mod h1:f6KPmirojxKA
 github.com/chef/automate/components/docs-chef-io v0.0.0-20210813111200-173aeec7ca88/go.mod h1:juvLC7Rt33YOCgJ5nnfl4rWZRAbSwqjTbWmcAoA0LtU=
 github.com/chef/chef-server/docs-chef-io v0.0.0-20210813172518-ae03494fee1b/go.mod h1:gMSa25GUHmLimA0gjvRd3hs1buOBqkKPrdHzHvaJauY=
 github.com/chef/chef-workstation/docs-chef-io v0.0.0-20210802193136-81aa3f57cd64/go.mod h1:gvoh6ov1YU98CVzBEWzEZeCLTRunfQ6r1VO7M3LFE9U=
+github.com/chef/chef-workstation/docs-chef-io v0.0.0-20210819005555-da94693ada3f h1:/OPQv3jqFfSYkmDpHlJbJ/Uzy8l4CeJzStLBpvGSRE0=
+github.com/chef/chef-workstation/docs-chef-io v0.0.0-20210819005555-da94693ada3f/go.mod h1:gvoh6ov1YU98CVzBEWzEZeCLTRunfQ6r1VO7M3LFE9U=
 github.com/chef/cookstyle v7.17.0+incompatible/go.mod h1:KUadmsdBr7Hpo5dtGVQMiwb8KlC91W3j1lfc0yuVwtw=
 github.com/chef/cookstyle/docs-chef-io v0.0.0-20210812163753-feb9418c5d47/go.mod h1:1JOEECsW9ozt1/RmprJjAQEvCrOHobpWepSQJRQOhnY=
 github.com/chef/cookstyle/docs-chef-io v0.0.0-20210818152129-1dad963cc0cd h1:MXV5Y18x++t3lv56o11ZE1HxhmhYgT71CVrht9h1Y1o=
