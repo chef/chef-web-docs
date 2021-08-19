@@ -6,4 +6,6 @@ swap:
   'Microsoft Windows': Windows
   'windows': Windows
   'linux': Linux
+  'postgreSQL' : PostgreSQL
+  'postgresql' : PostgreSQL
 
