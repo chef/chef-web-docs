@@ -13,7 +13,7 @@ product = ["client", "server"]
     weight = 20
 +++
 
-The quickest way to get started using Chef Infra is to install Chef Workstation to create your first Chef Infra Cookbook:
+The quickest way to get started using Chef Infra is to install Chef Workstation and create your first Chef Infra Cookbook:
 
 1.  Install Chef Workstation:
     <https://downloads.chef.io/tools/workstation>.
