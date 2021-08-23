@@ -13,7 +13,7 @@ product = ["client", "server"]
     weight = 20
 +++
 
-For the quickest way to get started using Chef Infra:
+The quickest way to get started using Chef Infra is to install Chef Workstation to create your first Chef Infra Cookbook:
 
 1.  Install Chef Workstation:
     <https://downloads.chef.io/tools/workstation>.
@@ -43,18 +43,11 @@ For the quickest way to get started using Chef Infra:
     chef-client --local-mode --override-runlist first_cookbook
     ```
 
-This will create a file named `test.txt` at the home path on your
-machine. Open that file and it will say
-`This file was created by Chef Infra!`.
+This will create a file named `test.txt` at the home path on your machine. Open that file and it will say `This file was created by Chef Infra!`.
 
-- Delete the file, run Chef Infra Client again, and Chef Infra will
-    put the file back.
-- Change the string in the file, run Chef Infra Client again, and Chef
-    Infra will make the string in the file the same as the string in the
-    recipe.
-- Change the string in the recipe, run Chef Infra Client again, and
-    Chef Infra will update that string to be the same as the one in the
-    recipe.
+- Delete the file, run Chef Infra Client again, and Chef Infra will put the file back.
+- Change the string in the file, run Chef Infra Client again, and Chef Infra will make the string in the file the same as the string in the recipe.
+- Change the string in the recipe, run Chef Infra Client again, and Chef Infra will update that string to be the same as the one in the recipe.
 
 There's a lot more that Chef Infra can do, obviously, but that was super
 easy!
