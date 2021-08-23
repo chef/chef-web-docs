@@ -45,7 +45,7 @@ The quickest way to get started using Chef Infra is to install Chef Workstation 
 
 This creates a file named `test.txt` at the home path on your computer. Open that file and it will say `This file was created by Chef Infra!`.
 
-- Delete the file, run Chef Infra Client again, and Chef Infra will put the file back.
+- Delete the file, run Chef Infra Client again, and Chef Infra will replace the file.
 - Change the string in the file, run Chef Infra Client again, and Chef Infra will make the string in the file the same as the string in the recipe.
 - Change the string in the recipe, run Chef Infra Client again, and Chef Infra will update that string to be the same as the one in the recipe.
 
