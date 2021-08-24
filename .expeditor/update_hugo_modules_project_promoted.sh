@@ -55,8 +55,8 @@ hugo mod clean
 
 # See:
 # - https://github.com/habitat-sh/habitat/pull/7993
-# - github.com/chef/chef-web-docs/blob/master/_vendor/github.com/habitat-sh/habitat/components/docs-chef-io/content/habitat/habitat_cli.md
-# - github.com/chef/chef-web-docs/blob/master/_vendor/github.com/habitat-sh/habitat/components/docs-chef-io/content/habitat/service_templates.md
+# - github.com/chef/chef-web-docs/blob/main/_vendor/github.com/habitat-sh/habitat/components/docs-chef-io/content/habitat/habitat_cli.md
+# - github.com/chef/chef-web-docs/blob/main/_vendor/github.com/habitat-sh/habitat/components/docs-chef-io/content/habitat/service_templates.md
 
 if [[ "${EXPEDITOR_PROJECT}" == *"habitat"* ]]; then
   curl --silent --output generated-documentation.tar.gz https://packages.chef.io/files/${EXPEDITOR_TARGET_CHANNEL}/habitat/latest/generated-documentation.tar.gz
