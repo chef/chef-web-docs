@@ -21,9 +21,9 @@ product = ["client", "server", "workstation"]
     Kitchen](/workstation/kitchen/) and interact with the Chef Infra Server
     using the [knife](/workstation/knife/) and [chef](/ctl_chef/) command
     line tools.
-- **Chef Infra Client nodes** are the machines that are managed by
-    Chef Infra. The Chef Infra Client is installed on each node and is
-    used to configure the node to its desired state.
+- **Chef Infra Client** Chef Infra Client runs on systems that are managed by
+    Chef Infra. The Chef Infra Client executes on a schedule to configure a system to
+    the desired state.
 - **Chef Infra Server** acts as [a hub for configuration
     data](/server/). Chef Infra Server stores cookbooks,
     the policies that are applied to nodes, and metadata that describes

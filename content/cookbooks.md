@@ -110,6 +110,10 @@ Chef maintains a large collection of cookbooks. In addition, there are thousands
 <td>Chef maintains a collection of cookbooks that are widely used by the community.</td>
 </tr>
 <tr>
+<td><a href="https://github.com/sous-chefs">Cookbooks Maintained by Sous Chefs</a></td>
+<td>Sous Chefs is a community organization that collaborates to maintain many of the most used Chef cookbooks.</td>
+</tr>
+<tr>
 <td><a href="https://supermarket.chef.io/cookbooks">Cookbooks Maintained by the Community</a></td>
 <td>The community has authored thousands of cookbooks, ranging from niche cookbooks that are used by only a few organizations to popular cookbooks used by nearly everyone.</td>
 </tr>

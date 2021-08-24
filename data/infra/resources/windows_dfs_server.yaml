@@ -58,4 +58,4 @@ properties_list:
   - markdown: Indicates whether a DFS namespace server uses FQDNs in referrals. If
       this property is set to true, the server uses FQDNs in referrals. If this property
       is set to false then the server uses NetBIOS names.
-examples: 
+examples:

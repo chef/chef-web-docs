@@ -7,7 +7,7 @@ github:
   delete_branch_on_merge: true
   
 release_branches:
-  - master
+  - main
 
 pipelines:
   - verify:

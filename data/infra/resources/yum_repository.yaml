@@ -71,14 +71,15 @@ syntax_full_properties_list:
   `sslcacert`, `sslclientcert`, `sslclientkey`, `sslverify`, `throttle`, `timeout`,
   and `username` are the properties available to this resource."
 actions_list:
-  :create:
-    markdown: Create a repository based on the properties.
-  :makecache:
-    markdown: Force the creation of the repository cache. This is also done automatically when a repository is updated.
   :nothing:
     shortcode: resources_common_actions_nothing.md
-  :remove:
-    markdown: Remove a repository. 
+  :create:
+    markdown: Create a repository based on the properties. (default)
+  :makecache:
+    markdown: Force the creation of the repository cache. This is also done automatically
+      when a repository is updated.
+  :delete:
+    markdown: Remove a repository.
 properties_list:
 - property: baseurl
   ruby_type: String, Array

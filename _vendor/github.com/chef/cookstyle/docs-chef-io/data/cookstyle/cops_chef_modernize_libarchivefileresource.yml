@@ -3,7 +3,7 @@ short_name: LibarchiveFileResource
 full_name: Chef/Modernize/LibarchiveFileResource
 department: Chef/Modernize
 description: Use the archive_file resource built into Chef Infra Client 15+ instead
-  of the libarchive_file resource.
+  of the libarchive_file resource from the libarchive cookbook.
 autocorrection: true
 target_chef_version: 15.0+
 examples: |2-
@@ -11,6 +11,8 @@ examples: |2-
   #### incorrect
 
   ```ruby
+  depends 'libarchive'
+
   libarchive_file "C:\file.zip" do
     path 'C:\expand_here'
   end

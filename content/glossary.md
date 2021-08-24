@@ -67,7 +67,7 @@ chef-zero
 
 cookbook
 
-: A cookbook is the fundamental unit of configuration and policy distribution.
+: A cookbook is the fundamental unit of configuration and policy distribution in Chef Infra.
 
 Cookstyle
 

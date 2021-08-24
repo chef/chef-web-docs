@@ -116,7 +116,7 @@ This configuration file has the following settings:
 
 :   A range of Chef Client versions that are supported by this cookbook.
     All [version constraint
-    operators](/config_rb_metadata/#cookbook-version-constraints)
+    operators](#version-constraints)
     are applicable to this field.
 
     For example, to match any 14.x version of the Chef Client, but not
@@ -143,7 +143,7 @@ This configuration file has the following settings:
     dependency statement is inaccurate, Chef Infra Client may not be
     able to complete the configuration of the system. All [version
     constraint
-    operators](#cookbook-version-constraints)
+    operators](#version-constraints)
     are applicable to this field.
 
     For example, to set a dependency a cookbook named `cats`:
@@ -288,7 +288,7 @@ This configuration file has the following settings:
 
 :   A range of Ohai versions that are supported by this cookbook. All
     [version constraint
-    operators](#cookbook-version-constraints)
+    operators](#version-constraints)
     are applicable to this field.
 
     For example, to match any 8.x version of Ohai, but not 7.x or 9.x:
