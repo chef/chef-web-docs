@@ -43,7 +43,7 @@ dco_safe_git_commit "Bump Hugo module ${EXPEDITOR_PROJECT} to latest ${EXPEDITOR
 
 open_pull_request
 
-# Get back to master and cleanup the leftovers - any changed files left over at
-# the end of this script will get committed to master.
+# Get back to main and cleanup the leftovers - any changed files left over at
+# the end of this script will get committed to main.
 git checkout -
 git branch -D "$branch"
