@@ -1,14 +1,12 @@
 +++
-title = "Chef Desktop Development Environment"
+title = "Set up Cookbook for Windows 10 and macOS Platforms"
 draft = false
-publishDate = "2020-06-02"
-gh_repo = "desktop-config"
 
 [menu]
   [menu.desktop]
-    title = "Chef Desktop Development Environment"
-    identifier = "desktop/desktop_setup_cookbook.md Cookbook Development Setup"
-    parent = "desktop"
+    title = "Cookbook Setup"
+    identifier = "desktop/install/coobook_repository.md Cookbook Setup for Windows 10 and macOS Platforms"
+    parent = "desktop/install"
     weight = 40
 +++
 
@@ -22,7 +20,7 @@ This step introduces you to fundamentals of cookbook development and walks you t
 1. Test your cookbook locally
 1. Test your cookbook with Test Kitchen, once you have your virtual machine images
 
-## Development and Testing Cookbooks for Windows 10 and macOS Platforms
+## Developing Cookbooks
 
 Testing is central to good software development. Testing your Chef Desktop cookbook provides you the opportunity to detect and correct problems before putting changes into production. Testing saves time and money, but it adds value by helping your organization achieve and maintain operational velocity.
 
@@ -33,14 +31,6 @@ The best place to begin is find and understand your SLA:
 
 * [Windows Licenses](https://www.microsoft.com/licensing/default)
 * [Apple macOS SLA](https://www.apple.com/legal/sla/)
-
-## Test Kitchen
-
-Test Kitchen was installed with Chef Workstation. It provides Chef Infra with a testing harness for cookbooks that uses virtual machines(VMs). Consult your Apple and Microsoft licenses and service level agreements (SLA) to understand your options for acquiring or creating VMs for development.
-
-### Test Kitchen Integrations
-
-Test Kitchen uses a driver plugin architecture to enable Test Kitchen to test instances on cloud providers such as Amazon EC2, Google Compute Engine, and Microsoft Azure. You can also test on multiple local hypervisors, such as VMware, Hyper-V, or VirtualBox. [Test Kitchen Documentation](https://docs.chef.io/workstation/kitchen/) and the [Test Kitchen GitHub Repository](https://github.com/test-kitchen).
 
 ### Setup Your Development Environment
 
@@ -77,7 +67,7 @@ In this step, you will prepare your workstation for developing, testing, and dep
     license 'All Rights Reserved'
     description 'Installs/Configures my_cookbook'
     version '0.1.0'
-    chef_version '>= 16.5'
+    chef_version '>= 16.0'
     ```
 
 1. Edit the default recipe
@@ -108,20 +98,34 @@ In this step, you will prepare your workstation for developing, testing, and dep
     * Spacing matters! Be mindful of spaces
     * Use LF line spacing and not CRLF. (Look to the bottom right of the status bar in Visual Studio Code)
 
-### Test Your Cookbook
+{{<note>}}
 
-  In the command line, navigate to your cookbook directory. That path should be similar to `c:\my_repo\cookbooks\my_cookbook`. Then run the following command to test your code out:
+If you want to use the Chef Desktop cookbook you received from Chef instead of creating a new one, then navigate and unzip that file into your cookbooks directory. Now you have two cookbooks. Update the `metadata.rb` file for the Chef Desktop cookbook to add your contact details.
 
-  ```powershell
-  cd c:\my_repo\cookbooks\my_cookbook
-  chef-client -z -o my_cookbook
-  ```
+Chef Desktop comes with a large number of options for configuring your Windows and Mac desktops. Look through the `mac.rb` and `windows.rb` files to explore what settings you want to turn on for your testing and evaluation. For those resources you do not want to explore yet, set their action to ':nothing'. See the [Chef Desktop cookbook documentation]({{< relref "desktop-cookbook.md" >}}) for more information about settings.
 
-  You should see the cookbook path displayed in the 'run' command output. If it did not run or if it returned an error, go back and check your spelling and spacing.
+{{</note>}}
 
-#### Test With Test Kitchen
 
-1. Apply the Cookbooks to the Images
+## Testing cookbooks with Test Kitchen
+
+Test Kitchen was installed with Chef Workstation. It provides Chef Infra with a testing harness for cookbooks that uses virtual machines(VMs). Consult your Apple and Microsoft licenses and service level agreements (SLA) to understand your options for acquiring or creating VMs for development.
+
+### Test Kitchen Integrations
+
+Test Kitchen uses a driver plugin architecture to enable Test Kitchen to test instances on cloud providers such as Amazon EC2, Google Compute Engine, and Microsoft Azure. You can also test on multiple local hypervisors, such as VMware, Hyper-V, or VirtualBox. [Test Kitchen Documentation](https://docs.chef.io/workstation/kitchen/) and the [Test Kitchen GitHub Repository](https://github.com/test-kitchen).
+
+### Run Test Kitchen
+
+1. **Run the Virtual Devices**
+
+    When working with desktop cookbook that you recieved from Chef, you downloaded the two virtual devices, also called testing images. Now issue the following command to get them started:
+
+    ```powershell
+    kitchen create
+    ```
+
+1. **Apply the Cookbooks to the Images**
 
     Run the following command to apply, or 'converge', the cookbooks with the base OS image:
 
@@ -129,7 +133,7 @@ In this step, you will prepare your workstation for developing, testing, and dep
     kitchen converge
     ```
 
-1. Verify the settings
+1. **Verify the settings**
 
     Confirm that the converged code is the code that you meant to apply. In VSCode, navigate to the `test\integration\default` directory and examine the generated integration tests. Carefully go through these tests and adjust them to match the setting to the changes in the `default.rb` file. Next, run:
 
@@ -137,7 +141,9 @@ In this step, you will prepare your workstation for developing, testing, and dep
     kitchen verify
     ```
 
-1. Cleanup
+    If any of the tests fail, check the output and compare your settings in the `mac.rb` or `windows.rb` files against the matching tests.
+
+1. **Cleanup**
 
     When you finish with your testing, you can run the following command to delete the running test images:
 
@@ -152,6 +158,3 @@ Once you are familiar with Test Kitchen, you can perform all of the steps at onc
   ```powershell
   kitchen test
   ```
-
-- Next: [Chef Desktop Cookbook Development Environment]({{< relref "desktop_pattern.md" >}})
-- Last: [Install Chef Components]({{< relref "desktop_setup_chef.md" >}})

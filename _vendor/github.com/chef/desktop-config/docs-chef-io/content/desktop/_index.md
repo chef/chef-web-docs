@@ -47,4 +47,4 @@ Chef Workstation ships with Chef Infra Client, Chef InSpec, Chef CLI, Test Kitch
 Chef InSpec
 : Chef InSpec is a testing framework with a human- and machine-readable language for specifying compliance, security and policy requirements. When compliance is expressed as code, you can integrate it into your deployment pipeline and automatically test for adherence to security policies.
 
-- Next: [Chef Desktop Requirements]({{< relref  "desktop_requirements.md" >}})
+- Next: [Chef Desktop Requirements]({{< relref  "requirements.md" >}})
