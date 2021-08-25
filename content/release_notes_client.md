@@ -1,5 +1,5 @@
 +++
-title = "Release Notes: Chef Infra Client 12.0 - 17.3"
+title = "Release Notes: Chef Infra Client 12.0 - 17.4"
 draft = false
 gh_repo = "chef-web-docs"
 aliases = ["/release_notes.html", "/release_notes_ohai.html", "/release_notes/"]
@@ -12,6 +12,100 @@ product = ["client"]
     parent = "release_notes"
     weight = 20
 +++
+
+## What's New in 17.4
+
+### Compliance Phase Improvements
+
+#### Chef InSpec 4.41.2
+
+Chef InSpec has been updated from 4.38.3 to 4.41.2 with the following improvements for Compliance Phase
+
+- New Open Policy Agent resources `opa_cli` and `opa_api`
+- New `mongodb_session` resource
+- The `mssql_session` resource now allows named connections by no longer forcing a port.
+- The PostgreSQL resources (`postgres_session`, `postgres_conf`, `postgres_hba_conf`, and `postgres_ident_conf`) now work with Windows.
+- Fixed a bug where the year in an expiration date was misinterpreted in waiver files
+
+#### json-file Reporter Off By Default
+
+The InSpec `json-file` reporter is no longer enabled by default in Compliance Phase. Outputting compliance data to file by default potentially exposed sensitive data to the filesystem, without much upside. If you rely on this file for processing by external systems you can produce it by setting the reporter attribute `node['audit']['reporter']` to `%w{json-file cli}`.
+
+#### Chef Attribute Integration
+
+The `chef_node_attribute_enabled` configuration option for Compliance Phase is now enabled by default. This provides a `chef_node` object in InSpec profiles containing all attributes from the Chef Infra Client including Ohai configuration attributes.
+
+#### Compliance Phase Inputs Attribute
+
+In 2019 we renamed InSpec attributes to inputs to avoid confusion between InSpec attributes and Chef Infra attributes. Compliance Phase is now updated to use the updated inputs name. Instead of passing `node['audit']['attributes']` you can now use `node['audit']['inputs']`. Don't worry about rushing to update your code though because Compliance Phase will still work with the existing attributes, giving you time to migrate to the new name.
+
+### Secrets Manager Integration
+
+We've updated our beta secrets management integration helper to improve the experience of fetching secrets from AWS Secrets Manager and Azure Key Vault. We'd still love to hear from you if you are integrating Chef Infra with a secrets management system or you'd like to do so in the future. E-mail us at secrets_management_beta@progress.com.
+
+#### Simpler Azure Key Vault Names Declaration
+
+The `secrets` helper has been updated to allow specifying the Azure Key Vault to fetch a secret using the name instead of the config hash:
+
+Specifying the Vault in the Name:
+
+```ruby
+secret(name: "test-chef-infra-secrets/test-secret-1", service: :azure_key_vault)
+```
+
+Specifying the Vault in the Options Hash:
+
+```ruby
+secret(name: "test-secret-1", service: :azure_key_vault, config: {vault: "test-chef-infra-secrets" })
+```
+
+#### AWS Default to Node's Region in AWS Secrets Manager
+
+When fetching secrets from AWS Secrets Manager, the `secrets` helper now defaults to fetching secrets from the region where the node resides. If you need to fetch secrets from another region, you can use the region config option:
+
+Specifying AWS Region:
+
+```ruby
+secret(name: 'test1', service: :aws_secrets_manager, config: { region: 'us-west-2' })
+```
+
+Using the Node's Region:
+
+```ruby
+secret(name: 'test1', service: :aws_secrets_manager)
+```
+
+### Resource Updates
+
+#### group
+
+The `group` resource has been updated to prevent failures on macOS systems when passing the GID as an Integer. Thanks for reporting this [@rb2k](https://github.com/rb2k)!
+
+#### homebrew_cask
+
+The `homebrew_cask` resource now supports Homebrew Casks with '-' or '@' in their name. Thanks for this fix [@byplayer](https://github.com/byplayer)!
+
+#### rhsm_subscription
+
+The `rhsm_subscription` resource now flushes all DNF or YUM caches after adding a new subscription so that subsequent package installs can use packages from the subscription. Thanks for fixing this [@jasonwbarnett](https://github.com/jasonwbarnett)!
+
+#### systemd_unit
+
+The `systemd_unit` resource now generates valid unit files when passing a hash of data. Thanks for reporting this issue [@gregkare](https://github.com/gregkare)
+
+#### user
+
+The `user` resource on macOS no longer fails if the `shell` or `hidden` fields are not present for the user being updated.
+
+#### yum_repository
+
+The `yum_repository` has been refactored to better flush cache on RHEL and Fedora derivatives Linux distributions.
+
+### Packaging
+
+#### Arm64 Docker Containers
+
+Chef Infra Client Docker containers are now published for the `arm64` architecture on DockerHub at https://hub.docker.com/r/chef/chef. These containers can be used for testing Chef Infra Client on `arm64` architecture Linux distributions with Test Kitchen.
 
 ## What's New in 17.3
 
@@ -234,7 +328,7 @@ end
 
 ### Experimental Secrets Management
 
-With Chef Infra Client 17.3, we're introducing experimental secrets management integration with a new `secrets` helper in the Infra Language. This helper has a pluggable model for fetching secrets from multiple secrets management systems. In this release of Chef Infra Client we're support AWS Secrets Manager and Azure Key Vault with additional secrets managers coming in future releases. This new functionality should be considered a beta and not not necessarily ready for production usage. We'd love to get feedback on how how this works for you and additional features you'd like, or need, in order to utilize secrets from secret managers within your cookbooks. E-mail us at secrets_management_beta@progress.com.
+With Chef Infra Client 17.3, we're introducing experimental secrets management integration with a new `secrets` helper in the Infra Language. This helper has a plugable model for fetching secrets from multiple secrets management systems. In this release of Chef Infra Client we're support AWS Secrets Manager and Azure Key Vault with additional secrets managers coming in future releases. This new functionality should be considered a beta and not not necessarily ready for production usage. We'd love to get feedback on how how this works for you and additional features you'd like, or need, in order to utilize secrets from secret managers within your cookbooks. E-mail us at secrets_management_beta@progress.com.
 
 #### Authentication
 
@@ -550,7 +644,7 @@ Chef Infra Client can be configured to run as a scheduled task using the [chef-c
 
 #### Gem Resource Ruby 1.9+
 
-The `gem` resource used to install Ruby Gems into the system's Ruby installation will now assume Ruby 1.9 or later. As Ruby 1.8 and below reached endof life almost 7 years ago, we believe there is little to no impact in this change.
+The `gem` resource used to install Ruby Gems into the system's Ruby installation will now assume Ruby 1.9 or later. As Ruby 1.8 and below reached end of life almost 7 years ago, we believe there is little to no impact in this change.
 
 #### Legacy node['filesystem2'] removed on AIX/Solaris/FreeBSD
 
@@ -791,6 +885,88 @@ On AIX, Solaris, macOS, and Linux platforms the Chef Infra Client packages will 
 
 In Chef Infra Client 16 we introduced Unified Mode allowing you to collapse the sometimes confusing compile and converge phases into a single unified phase. Unified mode makes it easier to write and troubleshoot failures in custom resources and for Chef Infra Client 18 we plan to make this the default execution phase for custom resources. We've backported the unified mode feature to the Chef Infra Client 14 and 15 systems and for Chef Infra Client 17 we will now begin warning if resources don't explicitly set this new mode. Enabling unified mode now lets you validate that resources will continue to function as expected in Chef Infra Client 18. To enable unified  mode in your resource add `unified_mode true` to the file.
 
+## What's New in 16.14
+
+## Bug Fixes
+
+- `bundle install` now correctly installs gems from cookbook `metadata.rb` files. Thanks for this fix [@nvwls](https://github.com/nvwls)
+- `knife bootstrap` on Windows now correctly uses `https://omnitruck.chef.io` to download packages.
+
+### Chef InSpec 4.31
+
+Chef InSpec has been updated from 4.31.1 to 4.38.9 with the following changes:
+
+#### New Features
+
+- Added the new `--reporter-include-source` CLI option, which includes the source code of the controls in the output of the CLI reporter.
+- Added ability to pass inputs to InSpec shell using input file and CLI.
+- Added a new mongodb_conf resource.
+- Fixed the inspec shell to allow loading profiles that have their own dependent profiles.
+- Updated the inspec init plugin command with the following changes.
+  - The values of flags passed to the inspec init plugin command are now wrapped in double quotes instead of single quotes.
+  - Template files are now ERB files.
+  - The activator flag replaces the hook flag, which is now an alias.
+- Added support for zfs_pool and zfs_dataset resources on Linux.
+- Improved port resource performance: adding more specific search while using ss command.
+- The new inspec automate command replaces the inspec compliance command, which is now deprecated.
+- Added the selinux resource which includes support for modules and booleans.
+- Added the pattern input option for DSL and metadata inputs.
+- Added the members_array property for group & groups resources.
+- Train now reads the username and port from the .ssh/config file and will use these values if present.
+
+#### Bug Fixes
+
+- Removed the default of 3600 seconds for `--command-timeout` CLI option.
+- Fix SSH Timeout PTY allocation.
+- Changed the Windows local pipe server connection to retry once on EPIPE.
+- Fixed the postgres_session resource to raise an exception if there is an error in a connection or query.
+- Fixed the mysql_session resource to raise an exception if there is an error in a connection or query.
+- Removed support for Chef Compliance Server and Chef Automate 1 from the inspec automate command, as both products are EOL.
+- `inspec detect --no-color` returns color-free output.
+- file resource more_permissive_than matcher returns nil instead of throwing exception when file does not exist.
+- The HTTP resource response body is now coerced into UTF-8.
+- Modified the windows_feature resource to indicate if a feature is enabled rather than just available.
+- Fixed an error when using profile dependencies and require_controls.
+- Fixed the windows_firewall_rule resource when it failed to validate more than one rule.
+- Switch to GNU timeout-based implementation of SSH timeouts.
+- Fixed the group resource when a member does not exist.
+
+### Packaging
+
+#### M1 macOS Monterey Packages
+
+Chef Infra Client packages are now produced for Apple's macOS Monterey preview release. Packages for Intel-based Macs will ship at a later date.
+
+#### Solaris 11.3 EOL / Solaris 11.4 Packages
+
+Oracle Solaris 11.3 became end-of-life (EOL) in January 2021. Chef Infra Client packages are no longer produced for Solaris 11.3 and new Solaris 11.4 packages are available in their place.
+
+### PowerPC RHEL FIPS Support
+
+We now produce FIPS capable packages for RHEL on PowerPC.
+
+#### RHEL 8 Packages
+
+We improved our RHEL 8 packages with additional RHEL 8 optimizations and EL8 in the filename.
+
+#### RPM Package Digests
+
+The file digest in Chef Infra RPM packages has been updated from MD5 to SHA256 to prevent failures installing on some FIPS-enabled systems.
+
+### Security
+
+#### Ruby 2.7.4
+
+Ruby has been updated to 2.7.4 to resolve a large number of bugs as well as the following CVEs:
+
+- [CVE-2021-31810](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-31810)
+- [CVE-2021-32066](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-32066)
+- [CVE-2021-31799](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-31799)
+
+#### Addressable
+
+We've updated the addressable gem from 2.7 to 2.8 to resolve [CVE-2021-32740](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-32740).
+
 ## What's New in 16.13
 
 ### Chef InSpec 4.31
@@ -993,7 +1169,7 @@ On AWS instances, we now gather data from the latest metadata API versions, expo
 
 #### AlmaLinux Detection
 
-Chef Infra Client now maps [AlmaLinux](https://almalinux.org/) to the `rhel` `platform_family` value. AlmaLinux is a new open-source RHEL fork produced by the CloudLinux team. Alma Linux falls under Chef's [Community Support](https://docs.chef.io/platforms/#community-support) platform support policy providing community driven support without the extensive testing given to commercially supported platforms in Chef Infra Client.
+Chef Infra Client now maps [AlmaLinux](https://almalinux.org/) to the `rhel` `platform_family` value. AlmaLinux is a new open-source RHEL fork produced by the CloudLinux team. AlmaLinux falls under Chef's [Community Support](https://docs.chef.io/platforms/#community-support) platform support policy providing community driven support without the extensive testing given to commercially supported platforms in Chef Infra Client.
 
 You can test cookbooks on AlmaLinux in Test Kitchen using [AlmaLinux 8 Vagrant Images](https://app.vagrantup.com/bento/boxes/almalinux-8 on VirtualBox, Parallels, and VMware hypervisors as follows:
 
@@ -5923,61 +6099,61 @@ Ohai now polls the new Azure metadata endpoint, giving us additional configurati
 Sample data now available under azure:
 
 ```javascript
-    {
-      "metadata": {
-        "compute": {
-          "location": "westus",
-          "name": "timtest",
-          "offer": "UbuntuServer",
-          "osType": "Linux",
-          "platformFaultDomain": "0",
-          "platformUpdateDomain": "0",
-          "publisher": "Canonical",
-          "sku": "17.04",
-          "version": "17.04.201706191",
-          "vmId": "8d523242-71cf-4dff-94c3-1bf660878743",
-          "vmSize": "Standard_DS1_v2"
-        },
-        "network": {
-          "interfaces": {
-            "000D3A33AF03": {
-              "mac": "000D3A33AF03",
-              "public_ipv6": [
+{
+  "metadata": {
+    "compute": {
+      "location": "westus",
+      "name": "timtest",
+      "offer": "UbuntuServer",
+      "osType": "Linux",
+      "platformFaultDomain": "0",
+      "platformUpdateDomain": "0",
+      "publisher": "Canonical",
+      "sku": "17.04",
+      "version": "17.04.201706191",
+      "vmId": "8d523242-71cf-4dff-94c3-1bf660878743",
+      "vmSize": "Standard_DS1_v2"
+    },
+    "network": {
+      "interfaces": {
+        "000D3A33AF03": {
+          "mac": "000D3A33AF03",
+          "public_ipv6": [
 
-              ],
-              "public_ipv4": [
-                "52.160.95.99",
-                "23.99.10.211"
-              ],
-              "local_ipv6": [
-
-              ],
-              "local_ipv4": [
-                "10.0.1.5",
-                "10.0.1.4",
-                "10.0.1.7"
-              ]
-            }
-          },
+          ],
           "public_ipv4": [
             "52.160.95.99",
             "23.99.10.211"
+          ],
+          "local_ipv6": [
+
           ],
           "local_ipv4": [
             "10.0.1.5",
             "10.0.1.4",
             "10.0.1.7"
-          ],
-          "public_ipv6": [
-
-          ],
-          "local_ipv6": [
-
           ]
         }
-      }
+      },
+      "public_ipv4": [
+        "52.160.95.99",
+        "23.99.10.211"
+      ],
+      "local_ipv4": [
+        "10.0.1.5",
+        "10.0.1.4",
+        "10.0.1.7"
+      ],
+      "public_ipv6": [
+
+      ],
+      "local_ipv6": [
+
+      ]
     }
-    ```
+  }
+}
+```
 
 #### Package Plugin Supports Arch Linux
 
