@@ -22,8 +22,8 @@ syntax_full_properties_list:
 - "`name` is the name given to the resource block."
 - "`action` identifies which steps Chef Infra Client will take to bring the node into
   the desired state."
-- "`password`, `reboot`, `sensitive`, `user`, and `workgroup_name` are the properties
-  available to this resource."
+- "`password`, `reboot`, `user`, and `workgroup_name` are the properties available
+  to this resource."
 actions_list:
   :nothing:
     shortcode: resources_common_actions_nothing.md
