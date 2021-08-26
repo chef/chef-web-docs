@@ -18,17 +18,17 @@ For the quickest way to get started using Chef Infra:
 1.  Install Chef Workstation:
     <https://downloads.chef.io/tools/workstation>.
 
-2.  Generate a cookbook:
+2.  Generate a Chef Infra repository with an example cookbook:
 
     ```bash
-    chef generate cookbook first_cookbook
+    chef generate repo my_first_repo
     ```
 
-    where `first_cookbook` is an arbitrary cookbook name.
+    where `my_first_repo` is an arbitrary name for your Chef Infra repository.
 
-3.  Navigate to the `first_cookbook` directory.
+3.  Navigate to the `cookbooks/example` directory.
 
-4.  Update the `first_cookbook/recipes/default.rb` recipe in
+4.  Update the `cookbooks/example/recipes/default.rb` recipe in
     the generated cookbook to contain:
 
     ```ruby
