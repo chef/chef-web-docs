@@ -18,7 +18,7 @@ For the quickest way to get started using Chef Infra:
 1.  Install Chef Workstation:
     <https://downloads.chef.io/tools/workstation>.
 
-2.  Generate a Chef Infra repo with an example cookbook:
+2.  Generate a Chef Infra repository with an example cookbook:
 
     ```bash
     chef generate repo my_first_repo
