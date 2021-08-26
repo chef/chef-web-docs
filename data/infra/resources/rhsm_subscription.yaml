@@ -14,7 +14,7 @@ syntax_full_code_block: |-
     pool_id      String # default value: 'name' unless specified
     action       Symbol # defaults to :attach if not specified
   end
-syntax_properties_list: 
+syntax_properties_list:
 syntax_full_properties_list:
 - "`rhsm_subscription` is the resource."
 - "`name` is the name given to the resource block."
@@ -36,4 +36,4 @@ properties_list:
   description_list:
   - markdown: An optional property for specifying the Pool ID if it differs from the
       resource block's name.
-examples: 
+examples:

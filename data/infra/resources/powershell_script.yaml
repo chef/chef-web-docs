@@ -32,7 +32,6 @@ syntax_full_code_block: |-
     live_stream                 true, false # default value: false
     password                    String
     returns                     Integer, Array # default value: 0
-    sensitive                   true, false
     timeout                     Integer, String, Float # default value: 3600
     user                        String, Integer
     action                      Symbol # defaults to :run if not specified
@@ -45,7 +44,7 @@ syntax_full_properties_list:
   the desired state."
 - "`code`, `command`, `convert_boolean_return`, `creates`, `cwd`, `domain`,
   `elevated`, `environment`, `flags`, `group`, `input`, `interpreter`, `live_stream`,
-  `password`, `returns`, `sensitive`, `timeout`, and `user` are the properties
+  `password`, `returns`, `timeout`, and `user` are the properties
   available to this resource."
 actions_list:
   :nothing:
@@ -205,11 +204,8 @@ properties_list:
   required: false
   default_value: '0'
   description_list:
-  - markdown: 'Inherited from **execute** resource. The return value for a command.
-
-      This may be an array of accepted values. An exception is raised when
-
-      the return value(s) do not match.'
+  - markdown: The return value for a command. This may be an array of accepted values.
+      An exception is raised when the return value(s) do not match.
 - property: timeout
   ruby_type: Integer, String, Float
   required: false
