@@ -7,9 +7,9 @@ gh_repo = "desktop-config"
 
 [menu]
   [menu.desktop]
-    title = "Chef Desktop Requirements"
-    identifier = "desktop/requirements.md Prerequisites"
-    parent = "desktop"
+    title = "Requirements"
+    identifier = "desktop/getting_started/requirements.md Prerequisites"
+    parent = "desktop/getting_started"
     weight = 20
 +++
 
@@ -121,5 +121,4 @@ Test Kitchen, the environment that you will use for testing your Chef Desktop co
 [Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)
 : Storage Explorer is a free tool from Microsoft for managing your Azure cloud storage resources.
 
-Next: [Install Chef Components]({{< relref "desktop_setup_chef.md" >}})
 Last: [About Chef Desktop]({{< relref "_index.md" >}})
