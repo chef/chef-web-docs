@@ -11,6 +11,8 @@ github.com/chef/cookstyle/docs-chef-io v0.0.0-20210812163753-feb9418c5d47/go.mod
 github.com/chef/cookstyle/docs-chef-io v0.0.0-20210818152129-1dad963cc0cd h1:MXV5Y18x++t3lv56o11ZE1HxhmhYgT71CVrht9h1Y1o=
 github.com/chef/cookstyle/docs-chef-io v0.0.0-20210818152129-1dad963cc0cd/go.mod h1:1JOEECsW9ozt1/RmprJjAQEvCrOHobpWepSQJRQOhnY=
 github.com/chef/desktop-config/docs-chef-io v0.0.0-20210602220752-69ae81c4bd88/go.mod h1:90xAx6sIfgSL50M2KzeBmx7V7s7dlhQU3xpUkJO0qW0=
+github.com/chef/desktop-config/docs-chef-io v0.0.0-20210825184531-4ed0951b134d h1:WB4Wq72NygDg6GjTdUUhl61R6Ej/zKaPt34YnF1Y034=
+github.com/chef/desktop-config/docs-chef-io v0.0.0-20210825184531-4ed0951b134d/go.mod h1:90xAx6sIfgSL50M2KzeBmx7V7s7dlhQU3xpUkJO0qW0=
 github.com/chef/effortless/docs-chef-io v0.0.0-20210212122821-321ee6f6699a/go.mod h1:Lfq+HjwAQwUJ41EPTO/8qbI1oJb2i415fR28d2Ig9kc=
 github.com/client9/misspell v0.3.4/go.mod h1:qj6jICC3Q7zFZvVWo7KLAzC3yx5G7kyvSDkc90ppPyw=
 github.com/cowboy/jquery-hashchange v0.0.0-20100902193700-0310f3847f90/go.mod h1:N/6F0+wmdvL6k0AjqyKIncMRClKAN92atjZdTLtYMaw=
