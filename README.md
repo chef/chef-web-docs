@@ -240,7 +240,7 @@ the top of the page that you want to edit. The link takes you to that topic's Gi
 page. In GitHub, click on the pencil icon and make your changes. You can preview
 how they'll look right on the page ("Preview Changes" tab).
 
-We also require contributors to include their [DCO signoff](https://github.com/chef/chef/blob/master/CONTRIBUTING.md#developer-certification-of-origin-dco)
+We also require contributors to include their [DCO signoff](https://github.com/chef/chef/blob/main/CONTRIBUTING.md#developer-certification-of-origin-dco)
 in the comment section of every pull request, except for obvious fixes. You can
 add your DCO signoff to the comments by including `Signed-off-by:`, followed by
 your name and email address, like this:
@@ -421,7 +421,7 @@ front matter. For example, `release_notes = "inspec"`.
 This will overwrite all content on that page.
 
 The `<PRODUCT>` value comes from the Product Key in the
-[Product Matrix](https://github.com/chef/mixlib-install/blob/master/PRODUCT_MATRIX.md).
+[Product Matrix](https://github.com/chef/mixlib-install/blob/main/PRODUCT_MATRIX.md).
 
 ## Sending feedback
 
