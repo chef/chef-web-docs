@@ -1,23 +1,17 @@
 The `restore` subcommand is used to restore Chef Infra Server data from
 a backup that was created by the `backup` subcommand. This subcommand
 may also be used to add Chef Infra Server data to a newly-installed
-server. This subcommand:
+server. Do not run this command in a Chef Infra Server configuration that uses an external PostgreSQL database; [use knife ec backup](https://github.com/chef/knife-ec-backup) instead. This subcommand:
 
-- Requires rsync to be installed on the Chef Infra Server prior to
-    running the command
-- Requires a `chef-server-ctl reconfigure` prior to running the
-    command
-- Should not be run in a Chef Infra Server configuration with an
-    external PostgreSQL database; [use knife ec
-    backup](https://github.com/chef/knife-ec-backup) instead
+- Requires rsync installed on the Chef Infra Server before running the command
+- Requires a `chef-server-ctl reconfigure` before running the command
 
-Ideally, the server you restore to will have the same FQDN as the one you
-backed up. If this is not possible, perform the following additional steps
-before running `chef-server-ctl reconfigure` and `chef-server-ctl restore`:
+Ideally, the restore server will have the same FQDN as the server that you backed up. If the restore server has a different FQDN, then:
 
-- Edit /etc/opscode/chef-server.rb and /etc/opscode/chef-server-running.json
-    to replace the old FQDN with the new one
-- Delete the old SSL certificate, key and -ssl.conf file from
-    /var/opt/opscode/nginx/ca . If you use a CA-issued certificate instead of a
-    self-signed certificate, copy that certificate and key into the same directory.
-- On each client, update the /etc/chef/client.rb file to point to the new server.
+1. Replace the FQDN in the `/etc/opscode/chef-server.rb`.
+2. Replace the FQDN in the `/etc/opscode/chef-server-running.json`.
+3. Delete the old SSL certificate, key and `-ssl.conf` file` from `/var/opt/opscode/nginx/ca`.
+4. If you use a CA-issued certificate instead of a self-signed certificate, copy the CA-issued certificate and key into /var/opt/opscode/nginx/ca.
+5. Update the `/etc/chef/client.rb` file on each client to point to the new server FQDN.
+6. Run `chef-server-ctl reconfigure`.
+7. Run ``chef-server-ctl restore`.
