@@ -6,4 +6,4 @@ enable_search = true
 robots = ''
 
 [chef-web-docs]
-  gh_path = "https://github.com/chef/chef-web-docs/blob/master/content/"
+  gh_path = "https://github.com/chef/chef-web-docs/blob/main/content/"

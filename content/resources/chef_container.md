@@ -15,5 +15,5 @@ toc_layout = "infra_resource_toc"
 +++
 
 <!-- The contents of this page are automatically generated from the chef_container.yaml file in the data directory. -->
-<!-- To suggest a change, edit the https://github.com/chef/chef/blob/master/lib/chef/resource/chef_container.rb file
+<!-- To suggest a change, edit the https://github.com/chef/chef/blob/main/lib/chef/resource/chef_container.rb file
       and submit a pull request to the https://github.com/chef/chef repository. -->
