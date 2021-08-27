@@ -1,5 +1,5 @@
 The
-[json_file](https://github.com/chef/chef/blob/master/lib/chef/handler/json_file.rb)
+[json_file](https://github.com/chef/chef/blob/main/lib/chef/handler/json_file.rb)
 handler is available from the **chef_handler** resource and can be used
 with exceptions and reports. It serializes run status data to a JSON
 file. This handler may be enabled in one of the following ways.

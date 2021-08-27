@@ -15,4 +15,4 @@ toc_layout = "cookstyle_cops_toc"
 +++
 
 <!-- The contents of this page are automatically generated from data files
-github.com/chef/cookstyle/blob/master/docs-chef-io/data/cookstyle/. -->
+github.com/chef/cookstyle/blob/main/docs-chef-io/data/cookstyle/. -->

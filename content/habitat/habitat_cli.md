@@ -10,7 +10,7 @@ draft= false
     weight = 10
 +++
 
-<!-- This is a generated file, do not edit it directly. See https://github.com/habitat-sh/habitat/blob/master/.expeditor/scripts/finish_release/generate-cli-docs.js -->
+<!-- This is a generated file, do not edit it directly. See https://github.com/habitat-sh/habitat/blob/main/.expeditor/scripts/finish_release/generate-cli-docs.js -->
 
 The commands for the Chef Habitat CLI (`hab`) are listed below.
 
