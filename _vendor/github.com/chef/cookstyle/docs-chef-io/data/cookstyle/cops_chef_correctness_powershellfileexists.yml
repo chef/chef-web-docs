@@ -2,7 +2,7 @@
 short_name: PowershellFileExists
 full_name: Chef/Correctness/PowershellFileExists
 department: Chef/Correctness
-description: Use Ruby's built-in `File.exist?('C:\somefile') instead of executing
+description: Use Ruby's built-in `File.exist?('C:\somefile')` method instead of executing
   PowerShell's `Test-Path` cmdlet, which takes longer to load.
 autocorrection: false
 target_chef_version: All Versions
