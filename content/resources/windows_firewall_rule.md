@@ -6,6 +6,7 @@ gh_repo = "chef-web-docs"
 data_path = ["infra","resources","windows_firewall_rule"]
 layout = "infra_resource"
 toc_layout = "infra_resource_toc"
+aliases = [ "/resource_windows_firewall_rule.html"]
 
 [menu]
   [menu.infra]
