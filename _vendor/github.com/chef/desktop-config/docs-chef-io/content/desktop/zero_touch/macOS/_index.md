@@ -11,18 +11,16 @@ draft = false
 +++
 
 
-Info:
+{{< note >}}
 The application management documentation for Chef Desktop is under active development.
 Check back for upcoming enhancements and improvements.
+{{< /note >}}
 
 ## Introduction
 
-The Chef Desktop management pattern allows you to manage all your macOS devices
-using a MicroMDM server for a fully automated experience.
+The Chef Desktop management pattern allows you to manage all your macOS devices using a MicroMDM server for a fully automated experience.
 
-If you have not done so, read [The Chef Desktop Development Pattern](/desktop/desktop_pattern/)
-to familiarize yourself with some of the basic steps for getting started. We will
-repeat a number of those steps here.
+If you have not done so, read [The Chef Desktop Development Pattern](/desktop/desktop_pattern/) to familiarize yourself with some of the basic steps for getting started. We will repeat a number of those steps here.
 
 ## Overview
 
@@ -36,10 +34,7 @@ This document describes how to set up the following things:
 
 ## Setting up the MDM
 
-We need a Mobile Device Management (MDM) service to capture macOS machines as they
-boot, and to securely connect and push applications and configuration settings to them.
-In this document we use MicroMDM, but there are others on the market like VMware
-Airwatch, SimpleMDM, and others.
+We need a Mobile Device Management (MDM) service to capture macOS machines as they boot, and to securely connect and push applications and configuration settings to them. In this document we use MicroMDM, but there are others on the market like VMware Airwatch, SimpleMDM, and others.
 
 Your configuration and setup may begin like this:
 
@@ -96,55 +91,37 @@ Your configuration and setup may begin like this:
 
 ### Securing the MDM
 
-Read this [guide](https://github.com/micromdm/micromdm/blob/master/docs/user-guide/quickstart.md)
-which describes the steps necessary to create both the DEP and APNS certificates
+Read this [guide](https://github.com/micromdm/micromdm/blob/main/docs/user-guide/quickstart.md) which describes the steps necessary to create both the DEP and APNS certificates
 that you need for your MicroMDM server.
 
 ## Initial App Deployment to a Node
 
-`InstallApplication` is a stage in the Apple setup process that occurs between
-the time the display shows up for the user and when the user reaches the
-desktop for the first time.
+`InstallApplication` is a stage in the Apple setup process that occurs between the time the display shows up for the user and when the user reaches the desktop for the first time.
 
-[InstallApplications](https://github.com/macadmins/installapplications)
-(plural) is a corresponding application that will install applications or settings
-during that stage of configuration.
+[InstallApplications](https://github.com/macadmins/installapplications) (plural) is a corresponding application that will install applications or settings during that stage of configuration.
 
 1. Start by loading these apps on your macOS machines:
 
    - The current release of Chef Infra Client
    - DepNotify
 
-     [Depnotify](https://gitlab.com/Mactroll/DEPNotify) is an open source tool that
-     tells users how much more time their macOS machine needs to install applications
-     before they can starting using it.
+     [Depnotify](https://gitlab.com/Mactroll/DEPNotify) is an open source tool that tells users how much more time their macOS machine needs to install applications before they can starting using it.
 
    - Caffeinate
 
-     [Caffeinate](https://ss64.com/osx/caffeinate.html) keeps the desktop active
-     so that the screensaver does not turn on during installation. The screensaver
-     will turn off network connections and break the setup if it activates.
+     [Caffeinate](https://ss64.com/osx/caffeinate.html) keeps the desktop active so that the screensaver does not turn on during installation. The screensaver will turn off network connections and break the setup if it activates.
 
    - [Chef Bootstrap](/install_bootstrap/)
 
-     The last thing we pull down is a python script to configure the `chef/client.rb`
-     file and run `chef-client` the first time to configure the laptop to its desired
-     state and keep it in that state.
+     The last thing we pull down is a python script to configure the `chef/client.rb` file and run `chef-client` the first time to configure the laptop to its desired state and keep it in that state.
 
 1. Install the latest version of [InstallApplications](https://github.com/macadmins/installapplications).
 
-1. Modify the LaunchDaemon plist to look like the [first example](#example-munki-catalog)
-   below. Notice that we updated the JSONUrl and a couple of the identity sections.
-   Also notice that we enabled some of the commands needed to properly populate DepNotify so
-   it displays useful information to the user.
+1. Modify the LaunchDaemon plist to look like the [first example](#example-munki-catalog) below. Notice that we updated the JSONUrl and a couple of the identity sections. Also notice that we enabled some of the commands needed to properly populate DepNotify so it displays useful information to the user.
 
-1. Modify the build-info.json file on the identity line to correctly
-   reference your developer certificate. Read the
-   [InstallApplications documentation](https://github.com/erikng/installapplications/wiki/Packaging)
-   for information about the type of accounts that Apple requires to install packages.
+1. Modify the build-info.json file on the identity line to correctly reference your developer certificate. Read the [InstallApplications documentation](https://github.com/erikng/installapplications/wiki/Packaging) for information about the type of accounts that Apple requires to install packages.
 
-1. Use `munkipkg` to create the actual pkg file. See the [munkipkg documentation](https://github.com/munki/munki-pkg)
-   for instructions.
+1. Use `munkipkg` to create the actual pkg file. See the [munkipkg documentation](https://github.com/munki/munki-pkg) for instructions.
 
 1. Upload the compiled package to your MDM server.
 
