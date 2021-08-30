@@ -10,6 +10,10 @@ draft = false
     weight = 10
 +++
 
+{{< note >}}
+The application management documentation for Chef Desktop is under active development.
+Check back for upcoming enhancements and improvements.
+{{< /note >}}
 
 Chef Software's Desktop pattern and tools expands familiar device management systems with extensive application and configuration capabilities that are designed to scale with automation.
 
@@ -50,7 +54,7 @@ Integrating Chef Desktop with Microsoft Intune and Windows Autopilot software an
 The solution in this guide requires:
 
 [Microsoft Azure](https://azure.microsoft.com)
-: If you do not already have one, sign up for your account at https://azure.microsoft.com
+: If you do not already have one, sign up for an [Azure account](https://azure.microsoft.com)
 
 [Microsoft Intune](https://www.microsoft.com/microsoft-365/enterprise-mobility-security/microsoft-intune)
 : Microsoft Intune is a cloud-based service that you will use to capture and push configuration to devices.

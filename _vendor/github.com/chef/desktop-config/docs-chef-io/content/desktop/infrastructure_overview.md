@@ -15,7 +15,7 @@ gh_repo = "desktop-config"
 
 With the Chef Desktop pattern completely set up to manage configurations and applications for your organization's devices, it would look something like in the diagram below.
 
-![Chef Desktop pattern](/images/desktop-config/infrastructure-overview.png)
+![Chef Desktop pattern](/images/desktop-config/infrastructure-overview.webp)
 
 Ideally, you would have a chef repository with all the cookbooks either containing our premium Chef Desktop cookbook content or your custom cookbooks, which are maintained in a remote repository and pushed to the Automate 2 server via a CI/CD pipeline. You can also push it directly from your local workstation system, if that suits your workflow better.
 
