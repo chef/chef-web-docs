@@ -25,3 +25,8 @@
   from = "/inspec/reference/*"
   to = "/inspec/:splat"
   status = 301
+
+[[redirects]]
+  from = "/resource_*.html"
+  to = "/resources/:splat"
+  status = 301
