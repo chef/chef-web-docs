@@ -27,6 +27,6 @@
   status = 301
 
 [[redirects]]
-  from = "/resource_*.html"
+  from = "/resource_*"
   to = "/resources/:splat"
   status = 301
