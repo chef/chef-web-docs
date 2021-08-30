@@ -19,13 +19,9 @@ aliases = ["/config_rb_metadata.html"]
 A metadata.rb file is:
 
 - Located at the top level of a cookbook's directory structure.
-- Compiled whenever a cookbook is uploaded to the Chef Infra Server or
-    when the `knife cookbook metadata` subcommand is run, and then
-    stored as JSON data.
-- Created automatically by knife whenever the `knife cookbook create`
-    subcommand is run.
-- Edited using a text editor, and then re-uploaded to the Chef Infra
-    Server as part of a cookbook upload.
+- Compiled whenever a cookbook is uploaded to the Chef Infra Server or when the `knife cookbook metadata` subcommand is run, and then stored as JSON data.
+- Created automatically by knife whenever the `knife cookbook create` subcommand is run.
+- Edited using a text editor, and then re-uploaded to the Chef Infra Server as part of a cookbook upload.
 
 ## Error Messages
 
@@ -119,18 +115,18 @@ This configuration file has the following settings:
     operators](#version-constraints)
     are applicable to this field.
 
-    For example, to match any 14.x version of the Chef Client, but not
-    13.x or 15.x:
+    For example, to match any 16.x version of the Chef Client, but not
+    15.x or 17.x:
 
     ```ruby
-    chef_version '~> 14.0'
+    chef_version '~> 16.0'
     ```
 
     A more complex example where you set both a lower and upper bound of
     the Chef Infra Client version:
 
     ```ruby
-    chef_version '>= 14.2.1', '< 14.5.1'
+    chef_version '>= 17.2', '< 17.4'
     ```
 
 `depends`
@@ -258,7 +254,7 @@ This configuration file has the following settings:
     For example:
 
     ```ruby
-    maintainer 'Adam Jacob'
+    maintainer 'Bob Bobberson'
     ```
 
 `maintainer_email`
@@ -271,7 +267,7 @@ This configuration file has the following settings:
     For example:
 
     ```ruby
-    maintainer_email 'adam@example.com'
+    maintainer_email 'bob@example.com'
     ```
 
 `name`
@@ -341,16 +337,16 @@ This configuration file has the following settings:
     supports 'ubuntu'
     ```
 
-    or, to support versions of Ubuntu greater than or equal to 16.04:
+    or, to support versions of Ubuntu greater than or equal to 20.04:
 
     ```ruby
-    supports 'ubuntu', '>= 16.04'
+    supports 'ubuntu', '>= 20.04'
     ```
 
-    or, to support only Ubuntu 18.04:
+    or, to support only Ubuntu 20.04:
 
     ```ruby
-    supports 'ubuntu', '= 18.04'
+    supports 'ubuntu', '= 20.04'
     ```
 
     Here is a list of all of the supported specific operating systems:

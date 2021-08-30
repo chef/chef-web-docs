@@ -58,7 +58,7 @@ where:
     other operating systems.
 
 - `platform-version` is the name of a platform on which Test Kitchen
-    will perform cookbook testing, for example, `ubuntu-16.04` or
+    will perform cookbook testing, for example, `ubuntu-20.04` or
     `centos-7`; depending on the platform, additional driver
     details---for example, instance names and URLs used with cloud
     platforms like OpenStack or Amazon EC2---may be required
@@ -98,7 +98,7 @@ provisioner:
   name: chef_zero
 
 platforms:
-  - name: ubuntu-18.04
+  - name: ubuntu-20.04
   - name: centos-8
   - name: debian-10
 
@@ -110,7 +110,7 @@ suites:
       - debian-10
 ```
 
-This file uses Vagrant as the driver, which requires no additional
+This file uses HashiCorp Vagrant as the driver, which requires no additional
 configuration because it's the default driver used by Test Kitchen,
 chef-zero as the provisioner, and a single (default) test suite that
-runs on Ubuntu 18.04, and CentOS 7.
+runs on Ubuntu 20.04, and CentOS 7.
