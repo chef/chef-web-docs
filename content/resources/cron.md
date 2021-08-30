@@ -6,7 +6,7 @@ gh_repo = "chef-web-docs"
 data_path = ["infra","resources","cron"]
 layout = "infra_resource"
 toc_layout = "infra_resource_toc"
-aliases = [ "/resource_chron.html"]
+aliases = [ "/resource_cron.html"]
 
 [menu]
   [menu.infra]

@@ -6,7 +6,7 @@ gh_repo = "chef-web-docs"
 data_path = ["infra","resources","chef_client_launchd"]
 layout = "infra_resource"
 toc_layout = "infra_resource_toc"
-aliases = [ "/resource_chef_client_launch.html"]
+aliases = [ "/resource_chef_client_launchd.html"]
 
 [menu]
   [menu.infra]

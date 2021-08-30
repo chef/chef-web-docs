@@ -6,7 +6,7 @@ gh_repo = "chef-web-docs"
 data_path = ["infra","resources","archive_file"]
 layout = "infra_resource"
 toc_layout = "infra_resource_toc"
-aliases = [ "/resource_archive_filehtml"]
+aliases = [ "/resource_archive_file.html"]
 
 [menu]
   [menu.infra]
