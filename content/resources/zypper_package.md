@@ -6,6 +6,8 @@ gh_repo = "chef-web-docs"
 data_path = ["infra","resources","zypper_package"]
 layout = "infra_resource"
 toc_layout = "infra_resource_toc"
+aliases = [ "/resource_windows_audit_policy.html"]
+aliases = [ "/resource_zypper_package.html"]
 
 [menu]
   [menu.infra]
