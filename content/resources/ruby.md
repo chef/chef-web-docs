@@ -6,6 +6,7 @@ gh_repo = "chef-web-docs"
 data_path = ["infra","resources","ruby"]
 layout = "infra_resource"
 toc_layout = "infra_resource_toc"
+aliases = [ "/resource_ruby.html"]
 
 [menu]
   [menu.infra]

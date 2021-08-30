@@ -6,6 +6,7 @@ gh_repo = "chef-web-docs"
 data_path = ["infra","resources","rhsm_subscription"]
 layout = "infra_resource"
 toc_layout = "infra_resource_toc"
+aliases = [ "/resource_rhsm_subscription.html"]
 
 [menu]
   [menu.infra]

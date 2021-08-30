@@ -6,6 +6,7 @@ gh_repo = "chef-web-docs"
 data_path = ["infra","resources","ssh_known_hosts_entry"]
 layout = "infra_resource"
 toc_layout = "infra_resource_toc"
+aliases = [ "/resource_ssh_known_hosts_entry.html"]
 
 [menu]
   [menu.infra]

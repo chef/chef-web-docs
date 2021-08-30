@@ -6,6 +6,7 @@ gh_repo = "chef-web-docs"
 data_path = ["infra","resources","rhsm_errata_level"]
 layout = "infra_resource"
 toc_layout = "infra_resource_toc"
+aliases = [ "/resource_rhsm_errata_level.html"]
 
 [menu]
   [menu.infra]

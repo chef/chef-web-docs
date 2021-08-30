@@ -6,6 +6,7 @@ gh_repo = "chef-web-docs"
 data_path = ["infra","resources","inspec_waiver_file_entry"]
 layout = "infra_resource"
 toc_layout = "infra_resource_toc"
+aliases = [ "/resource_inspec_waiver_file_entry.html"]
 
 [menu]
   [menu.infra]

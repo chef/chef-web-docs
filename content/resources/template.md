@@ -8,7 +8,6 @@ layout = "infra_resource"
 toc_layout = "infra_resource_toc"
 aliases = [ "/resource_template.html"]
 
-
 [menu]
   [menu.infra]
     title = "template"
