@@ -10,7 +10,7 @@ draft = false
     weight = 40
 +++
 
-*Estimated time: 1 hour (with your own virtual machines)*
+Estimated time: 1 hour (with your own virtual machines)
 
 This step introduces you to fundamentals of cookbook development and walks you through the process of creating, editing, and testing a simple cookbook. These are the same basic steps that you will expand on in developing your Chef Desktop cookbook.
 
@@ -98,14 +98,13 @@ In this step, you will prepare your workstation for developing, testing, and dep
     * Spacing matters! Be mindful of spaces
     * Use LF line spacing and not CRLF. (Look to the bottom right of the status bar in Visual Studio Code)
 
-{{<note>}}
+{{< note >}}
 
 If you want to use the Chef Desktop cookbook you received from Chef instead of creating a new one, then navigate and unzip that file into your cookbooks directory. Now you have two cookbooks. Update the `metadata.rb` file for the Chef Desktop cookbook to add your contact details.
 
 Chef Desktop comes with a large number of options for configuring your Windows and Mac desktops. Look through the `mac.rb` and `windows.rb` files to explore what settings you want to turn on for your testing and evaluation. For those resources you do not want to explore yet, set their action to ':nothing'. See the [Chef Desktop cookbook documentation]({{< relref "desktop-cookbook.md" >}}) for more information about settings.
 
-{{</note>}}
-
+{{< /note >}}
 
 ## Testing cookbooks with Test Kitchen
 
