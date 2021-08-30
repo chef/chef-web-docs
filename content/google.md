@@ -108,10 +108,10 @@ platforms:
     driver:
       image_project: centos-cloud
       image_name: centos-7-v20170124
-  - name: ubuntu-16.04
+  - name: ubuntu-18.04
     driver:
      image_project: ubuntu-os-cloud
-     image_family: ubuntu-1604-lts
+     image_family: ubuntu-1804-lts
   - name: windows
     driver:
      image_project: windows-cloud
