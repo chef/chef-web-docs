@@ -10,39 +10,29 @@ draft = false
     weight = 10
 +++
 
-One of the great things about an automated management setup like this is being
-able to actively manage the applications that show up on user's desktops. To handle
-that on macOS we use Munki. Our initial goal is to push a couple of required
-applications out to our users.
+{{< note >}}
+The application management documentation for Chef Desktop is under active development.
+Check back for upcoming enhancements and improvements.
+{{< /note >}}
 
-Munki will handle managed installations and uninstallations.
-Munki also provides a ready-made application that offers users
-unmanaged applications that they can download if they choose.
+One of the great things about an automated management setup like this is being able to actively manage the applications that show up on user's desktops. To handle that on macOS we use Munki. Our initial goal is to push a couple of required applications out to our users.
+
+Munki will handle managed installations and uninstallations. Munki also provides a ready-made application that offers users unmanaged applications that they can download if they choose.
 
 ### Create a CDN to hold the content
 
-To get started, follow [these instructions](https://docs.microsoft.com/azure/cdn/cdn-create-a-storage-account-with-cdn)
-for setting up an empty Azure CDN or [these instructions](https://github.com/grahamgilbert/terraform-aws-munki-repo)
-for setting up an empty AWS CDN. This empty CDN will host all the application content
-that will be deployed for both macOS and Windows devices. However, each OS type
-requires a slightly different directory and file structure.
+To get started, follow [these instructions](https://docs.microsoft.com/azure/cdn/cdn-create-a-storage-account-with-cdn) for setting up an empty Azure CDN or [these instructions](https://github.com/grahamgilbert/terraform-aws-munki-repo) for setting up an empty AWS CDN. This empty CDN will host all the application content that will be deployed for both macOS and Windows devices. However, each OS type requires a slightly different directory and file structure.
 
 ### Create containers in your Storage account
 
-Create a container in the storage account to hold the content for users.
-For macOS, all the content, either managed or unmanaged, goes here.
+Create a container in the storage account to hold the content for users. For macOS, all the content, either managed or unmanaged, goes here.
 
 1. Go to your storage account
 1. Navigate to Blob Storage -> Containers.
 1. Create a container labeled Munki
 1. Set the access level to 'Container'
 
-Next, create the basic directory structure in each container that
-the app clients expect to see. In the Gorilla container, create folders to match
-this structure. We're going to build the files that go in the folders just below.
-Build the top level folders for both clients, the child folders are indicated to
-give you a reference of how the whole thing looks over time as applications are
-added.
+Next, create the basic directory structure in each container that the app clients expect to see. In the Gorilla container, create folders to match this structure. We're going to build the files that go in the folders just below. Build the top level folders for both clients, the child folders are indicated to give you a reference of how the whole thing looks over time as applications are added.
 
 Build out a folder structure that looks like this:
 
@@ -62,13 +52,11 @@ Build out a folder structure that looks like this:
 
 ### Create a Catalog and Manifest for your Clients
 
-These steps demonstrate installing Firefox and VS Code on clients to give you an
-idea of how to deploy an application on each OS type.
+These steps demonstrate installing Firefox and VS Code on clients to give you an idea of how to deploy an application on each OS type.
 
 #### Munki Setup
 
-With [Munki](https://github.com/munki/munki), the configuration files are in XML and editing them directly
-can produce errors so we recommend using command line tools.
+With [Munki](https://github.com/munki/munki), the configuration files are in XML and editing them directly can produce errors so we recommend using command line tools.
 
 1. Install the Munki tools locally
 
@@ -76,14 +64,11 @@ can produce errors so we recommend using command line tools.
 
 1. Setup a local File Share on the macOS machine
 
-   Setup a local file share on the macOS machine. Use the tools below to populate it
-   with the settings and configuration you need. Follow this [document](https://github.com/munki/munki/wiki/Demonstration-Setup) to setup a local
-   repo, use Server Explorer to sync it to Azure - go to "Building a "server" repository"
+   Setup a local file share on the macOS machine. Use the tools below to populate it with the settings and configuration you need. Follow this [document](https://github.com/munki/munki/wiki/Demonstration-Setup) to setup a local repo, use Server Explorer to sync it to Azure - go to "Building a "server" repository"
 
 1. Configure Munki
 
-   Run this command to configure Munki. The repo path must match the one you created
-   above. Note that the path must have 3 slashes in it, e.g. "file:///".
+   Run this command to configure Munki. The repo path must match the one you created above. Note that the path must have 3 slashes in it, e.g. "file:///".
 
    ```bash
    munkiimport --configure
@@ -96,8 +81,7 @@ can produce errors so we recommend using command line tools.
    munkiimport - VSCode
    ```
 
-1. Next, run the following Autopkg commands to get all the Munki tools pulled in
-   for the nodes (laptops) to use
+1. Next, run the following Autopkg commands to get all the Munki tools pulled in for the nodes (laptops) to use
 
    ```bash
    autopkg repo-add recipes
@@ -110,9 +94,7 @@ can produce errors so we recommend using command line tools.
    makecatalogs
    ```
 
-1. Finally, run `manifestutil` too create the manifest and pull your apps under
-   managed installs. If you run into issues with the tool, use the MunkiAdmin GUI.
-   It makes it much easier to see what's going on with the configuration files.
+1. Finally, run `manifestutil` too create the manifest and pull your apps under managed installs. If you run into issues with the tool, use the MunkiAdmin GUI. It makes it much easier to see what's going on with the configuration files.
 
    ```bash
    /usr/local/Munki/manifestutil
@@ -134,9 +116,7 @@ Now you can use Storage Explorer to move the entire thing into your Azure Blob S
 
 #### Example Munki Catalog
 
-Below is a section of a Munki catalog. You can manually edit the details if you
-need to, but we strongly encourage you to use the tools above to reduce the
-chances of introducing an error.
+Below is a section of a Munki catalog. You can manually edit the details if you need to, but we strongly encourage you to use the tools above to reduce the chances of introducing an error.
 
 ```xml
 <plist version="1.0">
@@ -224,11 +204,9 @@ Notice that the format for the manifest is similar to what Gorilla uses:
 </plist>
 ```
 
-Now that the catalog and manifest are ready, test this out from a
-macOS node by running the following commands from a terminal window.
+Now that the catalog and manifest are ready, test this out from a macOS node by running the following commands from a terminal window.
 
-Run the first command from the macOS client to verify that the correct configuration
-got to that node and then run the second command to actually install the managed applications.
+Run the first command from the macOS client to verify that the correct configuration got to that node and then run the second command to actually install the managed applications.
 
 ```bash
 sudo /usr/local/munki/managedsoftwareupdate --show-config
@@ -250,6 +228,4 @@ You are almost ready to start the process. Please ensure that you have completed
 
 ## Bootstrapping the first Node
 
-If all goes according to plan, the first node should be ready to restart,
-pull down all the packages and/or scripts, load Chef Infra Client, and do the
-first client run.
+If all goes according to plan, the first node should be ready to restart, pull down all the packages and/or scripts, load Chef Infra Client, and do the first client run.

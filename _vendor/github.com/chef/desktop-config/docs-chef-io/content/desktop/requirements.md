@@ -13,7 +13,7 @@ gh_repo = "desktop-config"
     weight = 20
 +++
 
-*Estimated time: 1 hour*
+Estimated time: 1 hour
 
 ## System Requirements
 
