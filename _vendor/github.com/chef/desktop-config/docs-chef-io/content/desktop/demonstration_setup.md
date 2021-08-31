@@ -26,7 +26,7 @@ But before we start using these modules, we would first need to set up our local
 
 There are two ways we can get the modules:
 
-1. We can download the modules directly from [this link](https://github.com/chef/chef-desktop-quick-setup/archive/refs/heads/master.zip), or
+1. We can download the modules directly from [this link](https://github.com/chef/chef-desktop-quick-setup/archive/refs/heads/main.zip), or
 1. Clone it from the public repository on GitHub.
 
 To get the modules from the public GitHub repository, with the git tool installed in your system, run this on the command line:

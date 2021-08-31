@@ -14,9 +14,9 @@ We recommend starting with a clean installation of Chef Automate, Chef Infra Ser
 
 For the purposes of this demonstration, we recommend installing Chef Automate and Chef Infra Server together on the same host. Talk to your account representative to decide if you should follow a different deployment pattern in production.
 
-{{<note>}}
+{{< note >}}
 Proceed with the instructions provided in the following sections after you have logged in to the server where you want to install and set up Automate.
-{{</note>}}
+{{< /note >}}
 
 ## Prepare the System
 
