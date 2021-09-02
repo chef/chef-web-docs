@@ -3,7 +3,7 @@ short_name: UseChefLanguageCloudHelpers
 full_name: Chef/Modernize/UseChefLanguageCloudHelpers
 department: Chef/Modernize
 description: Chef Infra Client 15.5 and later include cloud helpers to make detecting
-  instance that run on public and private clouds easier.
+  instances that run on public and private clouds easier.
 autocorrection: true
 target_chef_version: All Versions
 examples: |2-
