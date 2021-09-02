@@ -4,7 +4,7 @@ full_name: Chef/Deprecations/ResourceWithoutUnifiedTrue
 department: Chef/Deprecations
 description: Chef Infra Client 15.3 and later include a new Unified Mode that simplifies
   the execution of resources by replace the traditional compile and converge phases
-  with a single phase. Unified mode simplies writing advanced resources and avoids
+  with a single phase. Unified mode simplifies writing advanced resources and avoids
   confusing errors that often occur when mixing ruby and Chef Infra resources. Chef
   Infra Client 17.0 and later will begin warning that `unified_mode true` should be
   set in all resources to validate that they will continue to function in Chef Infra
