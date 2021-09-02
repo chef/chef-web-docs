@@ -7,7 +7,7 @@ description: Chef Infra Client 15.5 and later include a large number of new help
   and resources. These should be used when possible over more complex attributes or
   ENV var comparisons.
 autocorrection: true
-target_chef_version: All Versions
+target_chef_version: 15.5+
 examples: |2-
 
   #### incorrect
