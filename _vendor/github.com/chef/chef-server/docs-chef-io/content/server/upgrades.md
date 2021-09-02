@@ -61,7 +61,19 @@ Set the `postgresql['pg_upgrade_timeout']` attribute in [chef-server.rb]({{< rel
 1. Run `VACUUM FULL` on the PostgreSQL database if you don't have automatic vacuuming set up. This process will reduce the size of the database by deleting unnecessary data and speeds up the migration. The `VACUUM FULL` operation takes around 1 to 2 minutes per gigabyte of data depending on the complexity of the data, and requires free disk space at least as large as the size of your database.
 
     ```bash
-    /opt/opscode/embedded/bin/vacuumdb --all --full
+       sudo su - opscode-pgsql
+       /opt/opscode/embedded/bin/vacuumdb --all --full
+    ```
+
+You should then see output like
+
+    ```bash
+       vacuumdb: vacuuming database "bifrost"
+       vacuumdb: vacuuming database "oc_id"
+       vacuumdb: vacuuming database "opscode-pgsql"
+       vacuumdb: vacuuming database "opscode_chef"
+       vacuumdb: vacuuming database "postgres"
+       vacuumdb: vacuuming database "template1"
     ```
 
 1. Back up the PostgreSQL database before upgrading so you can restore the full database to a previous release in the event of a failure. See [Backup and Restore]({{< relref "server_backup_restore" >}}) for additional information.
@@ -101,9 +113,20 @@ If you are running a Chef Infra Server release before 12.3.0, please contact Che
 1. Run `vacuumdb` before starting the upgrade:
 
    ```bash
-   sudo su postgres
-   /usr/bin/vacuumdb --all --full
+   sudo su - opscode-pgsql
+   /opt/opscode/embedded/bin/vacuumdb --all --full
    exit
+   ```
+
+You should see output like
+
+   ```bash
+   vacuumdb: vacuuming database "bifrost"
+   vacuumdb: vacuuming database "oc_id"
+   vacuumdb: vacuuming database "opscode-pgsql"
+   vacuumdb: vacuuming database "opscode_chef"
+   vacuumdb: vacuuming database "postgres"
+   vacuumdb: vacuuming database "template1"
    ```
 
 1. Back up your Chef Infra Server data before starting the upgrade process using [chef-server-ctl-backup]({{< relref "server_backup_restore#backup" >}}). **Make a note of where the backup was placed** (normally under `/var/opt/chef-backup`). Please note that Chef Infra Server will go offline to perform the backup:
@@ -180,8 +203,21 @@ If you are running a Chef Infra Server release before 12.3.0, please contact Che
 1. Reindex the database:
 
    ```bash
-   /usr/bin/reindexdb --all
+   sudo su - opscode-pgsql
+   /opt/opscode/embedded/bin/reindexdb --all
    ```
+
+You should see output like
+
+   ```bash
+   reindexdb: reindexing database "bifrost"
+   reindexdb: reindexing database "oc_id"
+   reindexdb: reindexing database "opscode-pgsql"
+   reindexdb: reindexing database "opscode_chef"
+   reindexdb: reindexing database "postgres"
+   reindexdb: reindexing database "template1"
+   ```
+
 
    You are now finished with the upgrade.
 
@@ -313,7 +349,7 @@ Check the [post upgrade steps](#post-upgrade-steps) if you are upgrading from a 
 
    If the upgrade was successful, start the Chef Infra Server services and cleanup.
 
-   ```
+   ```bash
    sudo chef-server-ctl start
    sudo chef-server-ctl cleanup
    ```
@@ -326,7 +362,7 @@ Check the [post upgrade steps](#post-upgrade-steps) if you are upgrading from a 
 
 1. Update packages and install your selected PostgreSQL version.
    Example (Ubuntu/PostgreSQL 13.3):
-   ```
+   ```bash
    sudo apt-get update
    sudo apt-get install postgresql-13
    ```
@@ -334,7 +370,7 @@ Check the [post upgrade steps](#post-upgrade-steps) if you are upgrading from a 
 1. Check if there are any differences in the config files. Make sure to update the new config files if required.
    Example (PostgreSQL 13.3):
 
-   ```
+   ```bash
    diff /etc/postgresql/OLD_POSTGRESQL_VERSION/main/postgresql.conf /etc/postgresql/13/main/postgresql.conf
    diff /etc/postgresql/OLD_POSTGRESQL_VERSION/main/pg_hba.conf     /etc/postgresql/13/main/pg_hba.conf
    ```
@@ -350,11 +386,19 @@ Check the [post upgrade steps](#post-upgrade-steps) if you are upgrading from a 
    ```bash
    su postgres
    ```
+1. Ensure that you are in a directory where you can successfully run the `pg_upgrade` command.
+
+   Example:
+   
+   ```bash
+   cd /tmp
+   ```
+
 
 1. Check clusters (notice the `--check` argument, this will not change any data).
    Example (PostgreSQL 13.3):
 
-   ```
+   ```bash
    /usr/lib/postgresql/13/bin/pg_upgrade \
    --old-datadir=/var/lib/postgresql/9.6/main \
    --new-datadir=/var/lib/postgresql/13/main \
@@ -368,7 +412,7 @@ Check the [post upgrade steps](#post-upgrade-steps) if you are upgrading from a 
 1. Migrate the data (without the `--check` argument).
    Example (PostgreSQL 13.3):
 
-   ```
+   ```bash
    /usr/lib/postgresql/13/bin/pg_upgrade \
    --old-datadir=/var/lib/postgresql/9.6/main \
    --new-datadir=/var/lib/postgresql/13/main \
@@ -387,7 +431,7 @@ Check the [post upgrade steps](#post-upgrade-steps) if you are upgrading from a 
 1. Swap the ports for the old and new PostgreSQL versions.
    Example (PostgreSQL 13.3):
 
-   ```
+   ```bash
    $ sudo vim /etc/postgresql/13/main/postgresql.conf
    # change "port = 5433" to "port = 5432"
 
@@ -404,8 +448,8 @@ Check the [post upgrade steps](#post-upgrade-steps) if you are upgrading from a 
 1. Log in as the `postgres` user and confirm that the new PostgreSQL version is correct.
    Example (PostgreSQL 13.3):
 
-   ```
-   $ sudo su postgres
+   ```bash
+   $ sudo su - postgres
    $ psql -c "SELECT version();"
                                                                       version
    ---------------------------------------------------------------------------------------------------------------------------------------------
@@ -416,7 +460,7 @@ Check the [post upgrade steps](#post-upgrade-steps) if you are upgrading from a 
 
 1. Run `reindexdb`. Example:
 
-   ```
+   ```bash
    $ /usr/bin/reindexdb --all
    reindexdb: reindexing database "bifrost"
    reindexdb: reindexing database "oc_id"
@@ -429,7 +473,7 @@ Check the [post upgrade steps](#post-upgrade-steps) if you are upgrading from a 
 
 1. Check the status of Chef Infra Server. PostgreSQL should be connected.
 
-   ```
+   ```bash
    $ sudo chef-server-ctl status
    -------------------
     Internal Services
