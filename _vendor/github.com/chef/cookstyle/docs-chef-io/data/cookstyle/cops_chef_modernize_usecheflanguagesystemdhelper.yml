@@ -1,0 +1,26 @@
+---
+short_name: UseChefLanguageSystemdHelper
+full_name: Chef/Modernize/UseChefLanguageSystemdHelper
+department: Chef/Modernize
+description: Chef Infra Client 15.5 and later include a `systemd?` helper for checking
+  if a Linux system uses systemd.
+autocorrection: true
+target_chef_version: 15.5+
+examples: |2-
+
+  #### incorrect
+
+  ```ruby
+  node['init_package'] == 'systemd'
+  ```
+
+  #### correct
+
+  ```ruby
+  systemd?
+  ```
+version_added: 7.24.0
+enabled: true
+excluded_file_paths:
+- "**/metadata.rb"
+- "**/Berksfile"
