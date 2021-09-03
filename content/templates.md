@@ -16,12 +16,6 @@ aliases = ["/templates.html", "essentials_cookbook_templates.html"]
 
 {{% template %}}
 
-{{< note >}}
-
-{{% notes_cookbook_template_erubis %}}
-
-{{< /note >}}
-
 ## Requirements
 
 {{< readFile_shortcode file="template_requirements.md" >}}
