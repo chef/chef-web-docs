@@ -9,8 +9,6 @@ template_requirements: true
 resource: template
 resource_description_list:
 - shortcode: template.md
-- note:
-    shortcode: notes_cookbook_template_erubis.md
 - markdown: 'Use the **template** resource to manage the contents of a file using
     an
 
