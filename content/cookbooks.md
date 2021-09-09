@@ -17,23 +17,17 @@ product = ["client", "server", "workstation"]
 
 {{% cookbooks_summary %}}
 
-Chef Infra Client uses Ruby as its reference language for creating
-cookbooks and defining recipes, with an extended DSL for specific
-resources. Chef Infra Client provides a reasonable set of resources,
-enough to support many of the most common infrastructure automation
-scenarios; however, this DSL can also be extended when additional
-resources and capabilities are required.
+{{% infra_lang_ruby %}}
 
-Chef Infra Client will run a recipe only when asked. When Chef Infra
-Client runs the same recipe more than once, the results will be the same
-system state each time. When a recipe is run against a system, but
-nothing has changed on either the system or in the recipe, Chef Infra
-Client won't change anything.
+{{% infra_lang_summary %}}
+
+Chef Infra Client runs a recipe only when instructed. When Chef Infra Client runs the same recipe more than once, the results will be the same system state each time. When a recipe is run against a system, but nothing has changed on either the system or in the recipe, Chef Infra Client won't change anything.
 
 ## Components
 
-A cookbook is comprised of recipes and other optional components as
-files or directories.
+A cookbook is comprised of recipes and other optional components as files or directories.
+
+<!-- markdownlint-disable MD033 -->
 
 <table>
 <colgroup>
@@ -92,10 +86,12 @@ files or directories.
 </tbody>
 </table>
 
+<!-- markdownlint-enable MD033 -->
 ## Community Cookbooks
 
-Chef maintains a large collection of cookbooks. In addition, there are
-thousands of cookbooks created and maintained by the community:
+Chef maintains a large collection of cookbooks. In addition, there are thousands of cookbooks created and maintained by the community:
+
+<!-- markdownlint-disable MD033 -->
 
 <table>
 <colgroup>
@@ -114,8 +110,20 @@ thousands of cookbooks created and maintained by the community:
 <td>Chef maintains a collection of cookbooks that are widely used by the community.</td>
 </tr>
 <tr>
+<td><a href="https://github.com/sous-chefs">Cookbooks Maintained by Sous Chefs</a></td>
+<td>Sous Chefs is a community organization that collaborates to maintain many of the most used Chef cookbooks.</td>
+</tr>
+<tr>
 <td><a href="https://supermarket.chef.io/cookbooks">Cookbooks Maintained by the Community</a></td>
-<td>The community has authored thousands of cookbooks, ranging from niche cookbooks that are used by only a few organizations to cookbooks that are some of the most popular and are used by nearly everyone.</td>
+<td>The community has authored thousands of cookbooks, ranging from niche cookbooks that are used by only a few organizations to popular cookbooks used by nearly everyone.</td>
 </tr>
 </tbody>
 </table>
+
+<!-- markdownlint-enable MD033 -->
+
+## Generate a Cookbook
+
+Use the [chef generate cookbook subcommand](/workstation/ctl_chef/#chef-generate-cookbook) to generate a cookbook.
+
+{{% cookbooks_content %}}

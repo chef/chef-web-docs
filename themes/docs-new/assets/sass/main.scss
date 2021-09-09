@@ -4,7 +4,7 @@
 
 @import "variables";
 @import "foundation-sites/scss/foundation";
-@include foundation-everything;
+@include foundation-everything($prototype: true);
 
 @import "mixins";
 @import "typography";
@@ -28,3 +28,4 @@ body {
 @import "partials/tab-container";
 @import "partials/utility-bar";
 @import "partials/swiftype_search";
+@import "partials/image_modal"

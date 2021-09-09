@@ -21,8 +21,8 @@ end
 
 where:
 
--   `log` is the resource.
--   `name` is the name given to the resource block.
--   `action` identifies which steps Chef Infra Client will take to bring
+- `log` is the resource.
+- `name` is the name given to the resource block.
+- `action` identifies which steps Chef Infra Client will take to bring
     the node into the desired state.
--   `level` and `message` are the properties available to this resource.
+- `level` and `message` are the properties available to this resource.

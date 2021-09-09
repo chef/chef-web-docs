@@ -30,6 +30,14 @@ nav#utility-bar {
       &:hover {
         color:$blue-darker;
       }
+      &.chefconflink {
+        border: 2px solid rgb(255, 163, 0);
+        border-radius: 3px;
+        margin-right: 3px;
+        &:hover {
+          color: rgb(255, 163, 0);
+        }
+      }
     }
   }
 

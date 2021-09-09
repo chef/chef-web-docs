@@ -20,12 +20,12 @@ end
 
 where:
 
--   `:index` is of name of the index on the Chef Infra Server against
+- `:index` is of name of the index on the Chef Infra Server against
     which the search query will run: `:client`, `:data_bag_name`,
     `:environment`, `:node`, and `:role`
--   `'query'` is a valid search query against an object on the Chef
+- `'query'` is a valid search query against an object on the Chef
     server
--   `:filter_result` defines a Hash of values to be returned
+- `:filter_result` defines a Hash of values to be returned
 
 For example:
 

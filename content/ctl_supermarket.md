@@ -366,11 +366,11 @@ run: service_name: (pid 12345) 12345s; run: log: (pid 1234) 67890s
 
 where
 
--   `run:` is the state of the service (`run:` or `down:`)
--   `service_name:` is the name of the service for which status is
+- `run:` is the state of the service (`run:` or `down:`)
+- `service_name:` is the name of the service for which status is
     returned
--   `(pid 12345)` is the process identifier
--   `12345s` is the uptime of the service, in seconds
+- `(pid 12345)` is the process identifier
+- `12345s` is the uptime of the service, in seconds
 
 For example:
 
@@ -403,13 +403,13 @@ run: name_of_service: (pid 1486) 7819s; run: log: (pid 1485) 7819s
 
 where:
 
--   `run` describes the state in which the supervisor attempts to keep
+- `run` describes the state in which the supervisor attempts to keep
     processes. This state is either `run` or `down`. If a service is in
     a `down` state, it should be stopped
--   `name_of_service` is the service name
--   `(pid 1486) 7819s;` is the process identifier followed by the amount
+- `name_of_service` is the service name
+- `(pid 1486) 7819s;` is the process identifier followed by the amount
     of time (in seconds) the service has been running
--   `run: log: (pid 1485) 7819s` is the log process. It is typical for a
+- `run: log: (pid 1485) 7819s` is the log process. It is typical for a
     log process to have a longer run time than a service; this is
     because the supervisor does not need to restart the log process in
     order to connect the supervised process
@@ -423,8 +423,8 @@ down: actions: 3s, normally up; run: log: (pid 1485) 8526s
 
 where
 
--   `down` indicates that the service is in a down state
--   `3s, normally up;` indicates that the service is normally in a run
+- `down` indicates that the service is in a down state
+- `3s, normally up;` indicates that the service is normally in a run
     state and that the supervisor would attempt to restart this service
     after a reboot
 

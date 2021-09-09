@@ -95,12 +95,12 @@ rights :write, 'Sally', applies_to_children: :containers_only, applies_to_self: 
 
 Some other important things to know when using the `rights` attribute:
 
--   Only inherited rights remain. All existing explicit rights on the
+- Only inherited rights remain. All existing explicit rights on the
     object are removed and replaced.
--   If rights are not specified, nothing will be changed. Chef Infra
+- If rights are not specified, nothing will be changed. Chef Infra
     Client does not clear out the rights on a file or directory if
     rights are not specified.
--   Changing inherited rights can be expensive. Microsoft Windows will
+- Changing inherited rights can be expensive. Microsoft Windows will
     propagate rights to all children recursively due to inheritance.
     This is a normal aspect of Microsoft Windows, so consider the
     frequency with which this type of action is necessary and take steps

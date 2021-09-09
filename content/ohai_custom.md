@@ -14,21 +14,24 @@ aliases = ["/ohai_custom.html"]
     weight = 10
 +++
 
-Custom Ohai plugins describe additional configuration attributes to be
-collected by Ohai and provided to Chef Infra Client during runs.
+You can write custom Ohai plugins to collect additional configuration attributes with Ohai to provide to Chef Infra Client during runs.
 
-Ohai plugins are written in Ruby with a plugin DSL documented below.
-Being written in Ruby provides access to all of Ruby's built-in
-functionality, as well as 3rd party gem functionality. Plugins can parse
-the output of any local command on the node, or they can fetch data from
-external APIs. Examples of plugins that users have written: - A plugin
-to gather node information including datacenter, rack, and rack position
-from an inventory server - A plugin to gather additional RAID array
-information from a controller utility - A plugin to gather hardware
+Ohai plugins are written in Ruby with a plugin DSL documented below. Being written in Ruby provides access to all Ruby's built-in functionality, as well as 3rd party gem functionality. Plugins can parse the output of any local command on the node, or they can fetch data from external APIs. Examples of plugins that users have written: - A plugin to gather node information including datacenter, rack, and rack position from an inventory server - A plugin to gather additional RAID array information from a controller utility - A plugin to gather hardware
 warranty information from a vendor API
 
-See [About Ohai](/ohai/) for information on Ohai configuration and
-usage.
+See [About Ohai](/ohai/) for information on Ohai configuration and usage.
+
+## Install Ohai Plugins
+
+Install custom Ohai plugins by creating an `ohai` directory in your cookbook and saving your plugin code to this location.
+
+To migrate custom Ohai plugins from the deprecated ohai cookbook:
+
+1. Create an `ohai` directory in your cookbook
+1. Move your plugin into the `ohai` directory
+1. Remove the outdated custom Ohai plugin installation code from your code
+
+Chef Infra Client will move the file into the correct location, load it, and return the data in the next configuration run. Chef Infra Client will provide other cookbooks that depend on the custom Ohai plugin with the correct data.
 
 ## Syntax
 
@@ -58,42 +61,16 @@ end
 
 where
 
--   Required. `(:Name)` is used to identify the plugin; when two plugins
-    have the same `(:Name)`, those plugins are joined together and run
-    as if they were a single plugin. This value must be a valid Ruby
-    class name, starting with a capital letter and containing only
-    alphanumeric characters
--   Required. `provides` is a comma-separated list of one (or more)
-    attributes that are defined by this plugin. This attribute will
-    become an automatic attribute (i.e. `node['attribute']`) after it is
-    collected by Ohai at the start of a Chef Infra Client run. An
-    attribute can also be defined using an `attribute/subattribute`
-    pattern
--   `depends` is a comma-separated list of one (or more) attributes that
-    are collected by another plugin; as long as the value is collected
-    by another Ohai plugin, it can be used by any plugin
--   `shared_method` defines code that can be shared among one (or more)
-    `collect_data` blocks; for example, instead of defining a mash for
-    each `collect_data` block, the code can be defined as a shared
-    method, and then called from any `collect_data` block
--   `collect_data` is a block of Ruby code that is called by Ohai when
-    it runs; one (or more) `collect_data` blocks can be defined in a
-    plugin, but only a single `collect_data` block is ever run.
--   `collect_data(:default)` is the code block that runs when a node's
-    platform is not defined by a platform-specific `collect_data` block
--   `collect_data(:platform)` is a platform-specific code block that is
-    run when a match exists between the node's platform and this
-    `collect_data` block; only one `collect_data` block may exist for
-    each platform; possible values: `:aix`, `:darwin`, `:freebsd`,
-    `:linux`, `:openbsd`, `:netbsd`, `:solaris2`, `:windows`, or any
-    other value from `RbConfig::CONFIG['host_os']`
--   `my_data` is string (`a string value`) or an empty mash
-    (`{ :setting_a => 'value_a', :setting_b => 'value_b' }`). This is
-    used to define the data that should be collected by the plugin
+- Required. `(:Name)` is used to identify the plugin; when two plugins have the same `(:Name)`, those plugins are joined together and run as if they were a single plugin. This value must be a valid Ruby class name, starting with a capital letter and containing only alphanumeric characters
+- Required. `provides` is a comma-separated list of one (or more) attributes that are defined by this plugin. This attribute will become an automatic attribute (`node['attribute']`) after it is collected by Ohai at the start of a Chef Infra Client run. An attribute can also be defined using an `attribute/subattribute` pattern
+- `depends` is a comma-separated list of one (or more) attributes that are collected by another plugin; as long as the value is collected by another Ohai plugin, it can be used by any plugin
+- `shared_method` defines code that can be shared among one (or more) `collect_data` blocks; for example, instead of defining a mash for each `collect_data` block, the code can be defined as a shared method, and then called from any `collect_data` block
+- `collect_data` is a block of Ruby code that is called by Ohai when it runs; one (or more) `collect_data` blocks can be defined in a plugin, but only a single `collect_data` block is ever run.
+- `collect_data(:default)` is the code block that runs when a node's platform is not defined by a platform-specific `collect_data` block
+- `collect_data(:platform)` is a platform-specific code block that is run when a match exists between the node's platform and this `collect_data` block; only one `collect_data` block may exist for each platform; possible values: `:aix`, `:darwin`, `:freebsd`, `:linux`, `:openbsd`, `:netbsd`, `:solaris2`, `:windows`, or any other value from `RbConfig::CONFIG['host_os']`
+- `my_data` is string (`a string value`) or an empty mash (`{ :setting_a => 'value_a', :setting_b => 'value_b' }`). This is used to define the data that should be collected by the plugin
 
-For example, the following plugin looks up data on virtual machines
-hosted in Amazon EC2, Google Compute Engine, Rackspace, Eucalyptus,
-Linode, OpenStack, and Microsoft Azure:
+For example, the following plugin looks up data on virtual machines hosted in Amazon EC2, Google Compute Engine, Rackspace, Eucalyptus, Linode, OpenStack, and Microsoft Azure:
 
 ```ruby
 Ohai.plugin(:Cloud) do
@@ -149,43 +126,23 @@ Ohai.plugin(:Cloud) do
 
 where
 
--   `provides` defines the `cloud` attribute, which is then turned into
-    an object using the `create_objects` shared method, which then
-    generates a hash based on public or private IP addresses
--   if the cloud provider is Google Compute Engine, then based on the IP
-    address for the node, the `cloud` attribute data is populated into a
-    hash
+- `provides` defines the `cloud` attribute, which is then turned into an object using the `create_objects` shared method, which then generates a hash based on public or private IP addresses
+- For Google Compute Engine the `cloud` attribute data is populated into a hash based on the IP address for the node
 
-To see the rest of the code in this plugin, go to:
-<https://github.com/chef/ohai/blob/master/lib/ohai/plugins/cloud.rb>.
+To see the rest of the code in this plugin, go to: <https://github.com/chef/ohai/blob/master/lib/ohai/plugins/cloud.rb>.
 
-## Ohai DSL Methods
+## Ohai Methods
 
-The Ohai DSL is a Ruby DSL that is used to define an Ohai plugin and to
-ensure that Ohai collects the right data at the start of every Chef
-Infra Client run. The Ohai DSL is a small DSL with a single method that
-is specific to Ohai plugins. Because the Ohai DSL is a Ruby DSL,
-anything that can be done using Ruby can also be done when defining an
-Ohai plugin.
+The Ohai DSL is a Ruby DSL that is used to define an Ohai plugin and to ensure that Ohai collects the right data at the start of every Chef Infra Client run. The Ohai DSL is a small DSL with a single method that is specific to Ohai plugins. Because the Ohai DSL is a Ruby DSL, anything that can be done using Ruby can also be done when defining an Ohai plugin.
 
 ### collect_data
 
-The `collect_data` method is a block of Ruby code that is called by Ohai
-when it runs. One (or more) `collect_data` blocks can be defined in a
-plugin, but only a single `collect_data` block is ever run. The
-`collect_data` block that is run is determined by the platform on which
-the node is running, which is then matched up against the available
-`collect_data` blocks in the plugin.
+The `collect_data` method is a block of Ruby code that is called by Ohai when it runs. One (or more) `collect_data` blocks can be defined in a plugin, but only a single `collect_data` block is ever run. The `collect_data` block that is run is determined by the platform on which the node is running, which is then matched up against the available `collect_data` blocks in the plugin.
 
--   A `collect_data(:default)` block is used when Ohai is not able to
-    match the platform of the node with a `collect_data(:platform)`
-    block in the plugin
--   A `collect_data(:platform)` block is required for each platform that
-    requires non-default behavior
+- A `collect_data(:default)` block is used when Ohai is not able to match the platform of the node with a `collect_data(:platform)` block in the plugin
+- A `collect_data(:platform)` block is required for each platform that requires non-default behavior
 
-When Ohai runs, if there isn't a matching `collect_data` block for a
-platform, the `collect_data(:default)` block is used. The syntax for the
-`collect_data` method is:
+When Ohai runs, if there isn't a matching `collect_data` block for a platform, the `collect_data(:default)` block is used. The syntax for the `collect_data` method is:
 
 ```ruby
 collect_data(:default) do
@@ -203,14 +160,12 @@ end
 
 where:
 
--   `:default` is the name of the default `collect_data` block
--   `:platform` is the name of a platform, such as `:aix` for AIX or
-    `:windows` for Microsoft Windows
+- `:default` is the name of the default `collect_data` block
+- `:platform` is the name of a platform, such as `:aix` for AIX or `:windows` for Microsoft Windows
 
 #### Use a Mash
 
-Use a mash to store data. This is done by creating a new mash, and then
-setting an attribute to it. For example:
+Use a mash to store data. This is done by creating a new mash, and then setting an attribute to it. For example:
 
 ```ruby
 provides 'name_of_mash'
@@ -274,12 +229,7 @@ end
 
 ### require
 
-The `require` method is a standard Ruby method that can be used to list
-files that may be required by a platform, such as an external class
-library. As a best practice, even though the `require` method is often
-used at the top of a Ruby file, it is recommended that the use of the
-`require` method be used as part of the platform-specific `collect_data`
-block. For example, the Ruby WMI is required with Microsoft Windows:
+The `require` method is a standard Ruby method that can be used to list files that may be required by a platform, such as an external class library. As a best practice, even though the `require` method is often used at the top of a Ruby file, it is recommended that the use of the `require` method be used as part of the platform-specific `collect_data` block. For example, the Ruby WMI is required with Microsoft Windows:
 
 ```ruby
 collect_data(:windows) do
@@ -299,8 +249,7 @@ collect_data(:windows) do
 end
 ```
 
-Ohai will attempt to fully qualify the name of any class by prepending
-`Ohai::` to the loaded class. For example both:
+Ohai will attempt to fully qualify the name of any class by prepending `Ohai::` to the loaded class. For example both:
 
 ```ruby
 require Ohai::Mixin::ShellOut
@@ -312,11 +261,9 @@ and:
 require Mixin::ShellOut
 ```
 
-are both understood by the Ohai in the same way:
-`Ohai::Mixin::ShellOut`.
+are both understood by the Ohai in the same way: `Ohai::Mixin::ShellOut`.
 
-When a class is an external class (and therefore should not have
-`Ohai::` prepended), use `::` to let the Ohai know. For example:
+When a class is an external class (and therefore should not have `Ohai::` prepended), use `::` to let the Ohai know. For example:
 
 ```ruby
 ::External::Class::Library
@@ -324,9 +271,7 @@ When a class is an external class (and therefore should not have
 
 #### /common Directory
 
-The `/common` directory stores code that is used across all Ohai
-plugins. For example, a file in the `/common` directory named
-`virtualization.rb` that includes code like the following:
+The `/common` directory stores code that is used across all Ohai plugins. For example, a file in the `/common` directory named `virtualization.rb` that includes code like the following:
 
 ```ruby
 module Ohai
@@ -370,9 +315,7 @@ module Ohai
 end
 ```
 
-can then be leveraged in a plugin by using the `require` method to
-require the `virtualization.rb` file and then later calling each of the
-methods in the required module:
+can then be leveraged in a plugin by using the `require` method to require the `virtualization.rb` file and then later calling each of the methods in the required module:
 
 ```ruby
 require 'ohai/common/virtualization'
@@ -407,9 +350,7 @@ Ohai.plugin(:Virtualization) do
 
 ### Shared Methods
 
-A shared method defines behavior that may be used by more than one
-`collect_data` block, such as a data structure, a hash, or a mash. The
-syntax for a shared method is:
+Use shared methods to define objects for use in `collect_data` blocks, such as a data structure, a hash, or a mash. The syntax for a shared method is:
 
 ```ruby
 def a_shared_method
@@ -417,9 +358,9 @@ def a_shared_method
 end
 ```
 
-For example, the following shared method is used to collect data about
-various cloud providers, depending on the cloud provider and the type of
-IP address:
+The following example declares a shared `cloud` method to collect data about cloud providers based on the type of IP address and then uses the `cloud` object to collect data from different cloud providers.
+
+Create `cloud` objects based on the type of IP address:
 
 ```ruby
 def create_objects
@@ -429,7 +370,7 @@ def create_objects
 end
 ```
 
-and then later on in the same plugin, the `cloud` object can be reused:
+Use `cloud` object to collect Linode data:
 
 ```ruby
 def get_linode_values
@@ -443,7 +384,7 @@ def get_linode_values
 end
 ```
 
-and
+Use the `cloud` object to collect Azure data:
 
 ```ruby
 def get_azure_values
@@ -456,12 +397,9 @@ def get_azure_values
 end
 ```
 
-and so on, for each of the various cloud providers.
-
 ## Logging
 
-Use the `Ohai::Log` class in an Ohai plugin to define log entries that
-are created by Ohai. The syntax for a log message is as follows:
+Use the `Ohai::Log` class in an Ohai plugin to define log entries that are created by Ohai. The syntax for a log message is as follows:
 
 ```ruby
 Ohai::Log.log_type('message')
@@ -469,8 +407,8 @@ Ohai::Log.log_type('message')
 
 where
 
--   `log_type` can be `.debug`, `.info`, `.warn`, `.error`, or `.fatal`
--   `'message'` is the message that is logged.
+- `log_type` can be `.debug`, `.info`, `.warn`, `.error`, or `.fatal`
+- `'message'` is the message that is logged.
 
 For example:
 
@@ -503,8 +441,7 @@ end
 
 ### rescue
 
-Use the `rescue` clause to make sure that a log message is always
-provided. For example:
+Use the `rescue` clause to make sure that a log message is always provided. For example:
 
 ```ruby
 rescue LoadError => e
@@ -514,19 +451,11 @@ end
 
 ## Examples
 
-{{< note >}}
-
-See <https://github.com/rackerlabs/ohai-plugins/tree/master/plugins> for
-some great examples of custom Ohai plugins.
-
-{{< /note >}}
-
 The following examples show different ways of building Ohai plugins.
 
 ### collect_data Blocks
 
-The following Ohai plugin uses multiple `collect_data` blocks and shared
-methods to define platforms:
+The following Ohai plugin uses multiple `collect_data` blocks and shared methods to define platforms:
 
 ```ruby
 Ohai.plugin(:Hostname) do
@@ -614,8 +543,7 @@ end
 
 ### Use a mixin Library
 
-The following Ohai example shows a plugin can use a `mixin` library and
-also depend on another plugin:
+The following Ohai example shows a plugin can use a `mixin` library and also depend on another plugin:
 
 ```ruby
 require 'ohai/mixin/os'
@@ -633,8 +561,7 @@ end
 
 ### Get Kernel Values
 
-The following Ohai example shows part of a file that gets initial kernel
-attribute values:
+The following Ohai example shows part of a file that gets initial kernel attribute values:
 
 ```ruby
 Ohai.plugin(:Kernel) do

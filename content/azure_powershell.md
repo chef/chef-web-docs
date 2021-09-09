@@ -6,12 +6,11 @@ gh_repo = "chef-web-docs"
 
 aliases = ["/azure_powershell.html"]
 
-
 [menu]
   [menu.infra]
     title = "Microsoft Azure PowerShell"
-    identifier = "chef_infra/getting_started/chef_on_azure_guide/azure_powershell.md Microsoft Azure PowerShell"
-    parent = "chef_infra/getting_started/chef_on_azure_guide"
+    identifier = "chef_infra/integrations/azure/azure_powershell.md Microsoft Azure PowerShell"
+    parent = "chef_infra/integrations/azure"
     weight = 30
 +++
 

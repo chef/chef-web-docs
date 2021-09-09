@@ -72,6 +72,7 @@ properties_list:
 - property: response_file_variables
   ruby_type: Hash
   required: false
+  default_value: "{}"
   description_list:
   - markdown: A Hash of response file variables in the form of {'VARIABLE' => 'VALUE'}.
 - property: source

@@ -8,7 +8,11 @@
 
   <ul class="menu top-nav show-for-medium cell shrink">
     {{ range .Site.Menus.main }}
-      <li><a href="{{ .URL }}">{{ .Title }}</a></li>
+      {{ if eq .Identifier "chefconf" }}
+        <li><a href="{{ .URL }}" class='chefconflink'>{{ .Title }}</a></li>
+      {{ else }}
+        <li><a href="{{ .URL }}">{{ .Title }}</a></li>
+      {{ end }}
     {{ end }}
   </ul>
 

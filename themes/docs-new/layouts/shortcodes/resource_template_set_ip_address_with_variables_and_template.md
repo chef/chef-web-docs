@@ -9,10 +9,10 @@ default['nginx']['dir'] = '/etc/nginx'
 
 The recipe then does the following to:
 
--   Declare two variables at the beginning of the recipe, one for the
+- Declare two variables at the beginning of the recipe, one for the
     remote IP address and the other for the authorized IP address
--   Use the **service** resource to restart and reload the Nginx service
--   Load a template named `authorized_ip.erb` from the `/templates`
+- Use the **service** resource to restart and reload the Nginx service
+- Load a template named `authorized_ip.erb` from the `/templates`
     directory that is used to set the IP address values based on the
     variables specified in the recipe
 

@@ -18,15 +18,13 @@ Chef uses MD5 hashes to uniquely identify files that are stored on the
 Chef Infra Server. MD5 is used only to generate a unique hash identifier
 and is not used for any cryptographic purpose.
 
-
-
 </div>
 
 </div>
 
 Notes about FIPS:
 
--   May be enabled for nodes running on Microsoft Windows and Enterprise
+- May be enabled for nodes running on Microsoft Windows and Enterprise
     Linux platforms
--   Should only be enabled for environments that require FIPS 140-2
+- Should only be enabled for environments that require FIPS 140-2
     compliance

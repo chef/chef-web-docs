@@ -170,7 +170,6 @@ or,
       \    mv #{extract_path}/*/* #{extract_path}/\n    EOH\n  not_if { ::File.exist?(extract_path)\
       \ }\nend\n```"
 
-
 **syntax_properties_list**
 
 The properties of the code block in `syntax_code_block` in list format.
@@ -277,7 +276,6 @@ properties_list:
 
 Each example should start with a bolded heading followed by
 blocks of text that describe and demonstrate how the resource works.
-
 
     examples: |
       **Update the Apt repository at a specified interval**:
@@ -405,11 +403,6 @@ section to the Common Resource Functionality section of the resource page.
 
 Used in the remote directory resource page. Adds the **Windows File Security**
 section to the Common Resource Functionality section of the resource page.
-
-**handler_custom**
-
-Used in the chef handler resource page. Adds the **Custom Handlers**
-section to the resource page.
 
 **cookbook_file_specificity**
 

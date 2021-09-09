@@ -4,12 +4,12 @@ evaluation, a guard property is then used to tell Chef Infra Client if
 it should continue executing a resource. A guard property accepts either
 a string value or a Ruby block value:
 
--   A string is executed as a shell command. If the command returns `0`,
+- A string is executed as a shell command. If the command returns `0`,
     the guard is applied. If the command returns any other value, then
     the guard property is not applied. String guards in a
     **powershell_script** run Windows PowerShell commands and may
     return `true` in addition to `0`.
--   A block is executed as Ruby code that must return either `true` or
+- A block is executed as Ruby code that must return either `true` or
     `false`. If the block returns `true`, the guard property is applied.
     If the block returns `false`, the guard property is not applied.
 

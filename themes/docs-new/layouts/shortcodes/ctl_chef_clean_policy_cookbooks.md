@@ -12,8 +12,6 @@ Server.
 Cookbooks that are referenced by orphaned policy revisions are not
 removed. Use `chef clean-policy-revisions` to remove orphaned policies.
 
-
-
 </div>
 
 </div>

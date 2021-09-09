@@ -49,12 +49,12 @@ following syntax:
 
 where, in a typical installation:
 
-:   -   `/opt/supermarket/embedded/bin/pg_dump` is the path to the
+:   - `/opt/supermarket/embedded/bin/pg_dump` is the path to the
         database export utility included in the Supermarket installation
-    -   `localhost` may alternatively be 127.0.0.1
-    -   `15432` is the PostgreSQL port number, which may need to be
+    - `localhost` may alternatively be 127.0.0.1
+    - `15432` is the PostgreSQL port number, which may need to be
         modified
-    -   `--format c` sets the output to PostgreSQL's "custom" binary
+    - `--format c` sets the output to PostgreSQL's "custom" binary
         file format
 
 Be sure to update the various local values in the `pg_dump` command as

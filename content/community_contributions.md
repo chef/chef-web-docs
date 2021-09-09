@@ -87,13 +87,13 @@ of issues and bug reports:
 
 For additional support about Chef products, including documentation,
 learning, and opening tickets with the support team, see [Chef
-Support](https://www.chef.io/support/) .
+Support](https://www.chef.io/support) .
 
 {{< warning >}}
 
 If you require a response from Chef per the terms of a support level
 agreement (SLA), please contact [Chef
-Support](https://www.chef.io/support/) directly.
+Support](https://www.chef.io/support) directly.
 
 {{< /warning >}}
 
@@ -125,38 +125,38 @@ Chef uses the Apache License Version 2 because it provides the same
 level of freedom for our users that we desire for ourselves. Based upon
 the Apache Licensing FAQ, it allows you to:
 
--   freely download and use Chef software, in whole or in part, for
+- freely download and use Chef software, in whole or in part, for
     personal, company internal, or commercial purposes;
--   use Chef software in packages or distributions that you create.
+- use Chef software in packages or distributions that you create.
 
 It forbids you to:
 
--   redistribute any piece of Chef-originated software without proper
+- redistribute any piece of Chef-originated software without proper
     attribution;
--   use any marks owned by Chef in any way that might state or imply
+- use any marks owned by Chef in any way that might state or imply
     that Chef endorses your distribution;
--   use any marks owned by Chef in any way that might state or imply
+- use any marks owned by Chef in any way that might state or imply
     that you created the Chef software in question.
 
 It requires you to:
 
--   include a copy of the license in any redistribution you may make
+- include a copy of the license in any redistribution you may make
     that includes Chef software;
--   provide clear attribution to Chef for any distributions that include
+- provide clear attribution to Chef for any distributions that include
     Chef software; attribution can be done in the NOTICE file for an
     application, by adding yourself as an author/copyright holder to the
     HEADER for an individual file, and by placing text in a header file
     saying that new work is based on previous work
--   reuse work as long as the licensing terms of the reused work remains
+- reuse work as long as the licensing terms of the reused work remains
     unchanged (i.e. The Apache License Version 2 also applies to the
     reused work)
 
 It does not require you to:
 
--   include the source of the Chef software itself, or of any
+- include the source of the Chef software itself, or of any
     modifications you may have made to it, in any redistribution you may
     assemble that includes it;
--   submit changes that you make to the software back to Chef (though
+- submit changes that you make to the software back to Chef (though
     such feedback is encouraged).
 
 It is our goal to run a successful, truly open source business. To that
@@ -208,10 +208,10 @@ Chef does not merge any pull requests made against a Chef-managed open
 source repository until each commit has been signed for the DCO, with
 three exceptions:
 
--   "Obvious Fixes" (as described below)
--   Pull requests made against the docs.chef.io documentation repository
+- "Obvious Fixes" (as described below)
+- Pull requests made against the docs.chef.io documentation repository
     (<https://github.com/chef/chef-web-docs>)
--   Pull requests that contain only documentation updates made against
+- Pull requests that contain only documentation updates made against
     projects where the documentation is embedded in the project's
     repository (i.e. the `docs` directory in the `chef/inspec`
     repository)
@@ -266,33 +266,33 @@ As a rule of thumb, changes are obvious fixes if they do not introduce
 any new functionality or creative thinking. As long as the change does
 not affect functionality, some likely examples include the following:
 
--   Spelling/grammar fixes;
--   Correcting typos;
--   Cleaning up comments in the code;
--   Changes to white space or formatting;
--   Bug fixes that change default return values or error codes stored in
+- Spelling/grammar fixes;
+- Correcting typos;
+- Cleaning up comments in the code;
+- Changes to white space or formatting;
+- Bug fixes that change default return values or error codes stored in
     constants, literals, or simple variable types;
--   Adding logging messages or debugging output;
--   Changes to 'metadata' files like Gemfile, rebar.config, Makefile,
+- Adding logging messages or debugging output;
+- Changes to 'metadata' files like Gemfile, rebar.config, Makefile,
     app.config, sys.config, .gitignore, example configuration files,
     build scripts, etc.;
--   Changes that reflect outside facts, like renaming a build directory
+- Changes that reflect outside facts, like renaming a build directory
     or changing a constant;
--   Changes in build or installation scripts;
--   Re-ordering of objects or subroutines within a source file (such as
+- Changes in build or installation scripts;
+- Re-ordering of objects or subroutines within a source file (such as
     alphabetizing routines);
--   Moving source files from one directory or package to another, with
+- Moving source files from one directory or package to another, with
     no changes in code;
--   Breaking a source file into multiple source files, or consolidating
+- Breaking a source file into multiple source files, or consolidating
     multiple source files into one source file, with no change in code
     behavior;
--   Changes to words or phrases isolated from their context;
--   Changes to typeface.
+- Changes to words or phrases isolated from their context;
+- Changes to typeface.
 
 Things that would still require a DCO sign-off before submitting would
 likely include stuff like the following:
 
--   Any of the above actions that result in a change in functionality;
--   A new feature;
--   A translation;
--   Extensive or creative comments.
+- Any of the above actions that result in a change in functionality;
+- A new feature;
+- A translation;
+- Extensive or creative comments.

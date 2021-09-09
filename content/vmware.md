@@ -8,8 +8,8 @@ product = ["workstation"]
 [menu]
   [menu.infra]
     title = "VMware"
-    identifier = "chef_infra/setup/integrations/vmware.md VMware"
-    parent = "chef_infra/setup/integrations"
+    identifier = "chef_infra/integrations/vmware.md VMware"
+    parent = "chef_infra/integrations"
     weight = 30
 +++
 
@@ -32,9 +32,9 @@ Chef:
 
 [\[GitHub\]](https://github.com/chef-partners/knife-vsphere)
 
--   Supports vCenter \> 5.0
--   Most VMware compute use cases are covered
--   The main starting point for Chef and VMware
+- Supports vCenter \> 5.0
+- Most VMware compute use cases are covered
+- The main starting point for Chef and VMware
 
 These are the necessary settings for your `config.rb` file:
 
@@ -101,10 +101,10 @@ the Chef Infra Server.
 
 [\[GitHub\]](https://github.com/chef/knife-vcenter)
 
--   Supports vCenter \>= 6.5 REST API
--   Supports the main use cases of knife: `bootstrap`, `create`,
+- Supports vCenter \>= 6.5 REST API
+- Supports the main use cases of knife: `bootstrap`, `create`,
     `destroy`, and `list`
--   If you have the
+- If you have the
     [VCSA](https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.vcsa.doc/GUID-223C2821-BD98-4C7A-936B-7DBE96291BA4.html)
     or are planning on upgrading to vCenter 6.5+, this is the plugin to
     use
@@ -156,17 +156,17 @@ WARNING: Deleted client example-01
 
 [\[GitHub\]](https://github.com/chef-partners/knife-vrealize)
 
--   Supports both vRealize Automation and vRealize Orchestrator
--   Supports vRealize Automation 7.0+
--   If you have vRealize Automation \< 7.0, you will need to downgrade
+- Supports both vRealize Automation and vRealize Orchestrator
+- Supports vRealize Automation 7.0+
+- If you have vRealize Automation \< 7.0, you will need to downgrade
     the
     [vmware-vra-gem](https://github.com/chef-partners/vmware-vra-gem) to
     version `1.7.0`
--   Supports the main use cases of knife: `bootstrap`, `create`,
+- Supports the main use cases of knife: `bootstrap`, `create`,
     `destroy`, and `list`
--   Directly integrates with vRA to call out predetermined blueprints or
+- Directly integrates with vRA to call out predetermined blueprints or
     catalogs
--   Can integrate directly with vRO to call out predetermined workflows
+- Can integrate directly with vRO to call out predetermined workflows
 
 The main settings for your `config.rb`:
 
@@ -199,22 +199,22 @@ available.
 
 Common parameters to specify are:
 
--   `--cpus`: number of CPUs
--   `--memory`: amount of RAM in MB
--   `--requested-for`: vRA login that should be listed as the owner
--   `--lease-days`: number of days for the resource lease
--   `--notes`: any optional notes you'd like to be logged with your
+- `--cpus`: number of CPUs
+- `--memory`: amount of RAM in MB
+- `--requested-for`: vRA login that should be listed as the owner
+- `--lease-days`: number of days for the resource lease
+- `--notes`: any optional notes you'd like to be logged with your
     request
--   `--subtenant-id`: all resources must be tied back to a Business
+- `--subtenant-id`: all resources must be tied back to a Business
     Group, or "subtenant." If your catalog item is tied to a specific
     Business Group, you do not need to specify this. However, if your
     catalog item is a global catalog item, then the subtenant ID is not
     available to knife; you will need to provide it. It usually looks
     like a UUID. See your vRA administrator for assistance in
     determining your subtenant ID.
--   `--connection-password`: for Linux hosts, the password to use during
+- `--connection-password`: for Linux hosts, the password to use during
     bootstrap
--   `--winrm-password`: for Windows hosts, the password to use during
+- `--winrm-password`: for Windows hosts, the password to use during
     bootstrap
 
 <!-- -->
@@ -283,11 +283,11 @@ Chef:
 
 [\[GitHub\]](https://github.com/chef-partners/chef-provisioning-vsphere)
 
--   Built into the chef-provisioning-vsphere driver
--   A community driven project, with Chef Partners maintaining the
+- Built into the chef-provisioning-vsphere driver
+- A community driven project, with Chef Partners maintaining the
     releases
--   Leverages the typical test-kitchen workflow for vCenter \> 5.0+
--   There is a
+- Leverages the typical test-kitchen workflow for vCenter \> 5.0+
+- There is a
     [kitchen-vsphere](https://rubygems.org/gems/kitchen-vsphere) gem,
     but it is not supported at this time
 
@@ -351,9 +351,9 @@ suites:
 
 [\[GitHub\]](https://github.com/chef/kitchen-vcenter)
 
--   Supports vCenter \>= 6.5 REST API
--   Leverages the typical test-kitchen workflow for vCenter \>= 6.5+
--   If you have the
+- Supports vCenter \>= 6.5 REST API
+- Leverages the typical test-kitchen workflow for vCenter \>= 6.5+
+- If you have the
     [VCSA](https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.vcsa.doc/GUID-223C2821-BD98-4C7A-936B-7DBE96291BA4.html)
     or are planning on upgrading to vCenter 6.5+, use this plugin
 
@@ -385,8 +385,8 @@ platforms:
 
 [\[GitHub\]](https://github.com/chef-partners/kitchen-vra)
 
--   An integration point with vRA and test-kitchen
--   For companies required to use vRA this is a natural progression for
+- An integration point with vRA and test-kitchen
+- For companies required to use vRA this is a natural progression for
     Chef Development
 
 #### Usage Examples
@@ -415,8 +415,8 @@ platforms:
 
 [\[GitHub\]](https://github.com/chef-partners/kitchen-vro)
 
--   An integration point with vRO and test-kitchen
--   Leverages specific Workflows in vRO if it's required by VMware
+- An integration point with vRO and test-kitchen
+- Leverages specific Workflows in vRO if it's required by VMware
     admins
 
 #### Usage Examples
@@ -456,8 +456,8 @@ VMware stack.
 
 [\[GitHub\]](https://github.com/chef/inspec-vmware)
 
--   Supports vCenter \> 5.0
--   11 resources available at the time of writing, with more planned
+- Supports vCenter \> 5.0
+- 11 resources available at the time of writing, with more planned
 
 #### Usage Examples
 
@@ -477,15 +477,15 @@ end
 
 ### vRA Example Blueprints
 
--   [Linux](https://code.vmware.com/samples?id=1371)
--   [Windows](https://code.vmware.com/samples?id=1390)
+- [Linux](https://code.vmware.com/samples?id=1371)
+- [Windows](https://code.vmware.com/samples?id=1390)
 
 ### vRO plugin
 
--   The [Chef plugin for vRealize
+- The [Chef plugin for vRealize
     Orchestrator](https://solutionexchange.vmware.com/store/products/chef-plugin-for-vrealize-orchestrator)
     (vRO) is a VMware-supplied plugin
--   If you use vRO this provides the majority of the necessary features
+- If you use vRO this provides the majority of the necessary features
 
 For more information, see the plugin demo on
 [YouTube](https://www.youtube.com/watch?v=HlvoZ4Zdwc4).

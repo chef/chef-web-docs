@@ -25,12 +25,12 @@ default['python']['checksum'] = '80e387...85fd61'
 and then the methods in the recipe may refer to these values. A recipe
 that is used to install Python will need to do the following:
 
--   Identify each package to be installed (implied in this example, not
+- Identify each package to be installed (implied in this example, not
     shown)
--   Define variables for the package `version` and the `install_path`
--   Get the package from a remote location, but only if the package does
+- Define variables for the package `version` and the `install_path`
+- Get the package from a remote location, but only if the package does
     not already exist on the target system
--   Use the **bash** resource to install the package on the node, but
+- Use the **bash** resource to install the package on the node, but
     only when the package is not already installed
 
 <!-- -->

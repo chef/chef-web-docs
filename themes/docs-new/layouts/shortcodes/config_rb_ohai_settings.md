@@ -72,8 +72,6 @@
 The Ohai executable ignores settings in the client.rb file when Ohai is
 run independently of Chef Infra Client.
 
-
-
 </div>
 
 </div>

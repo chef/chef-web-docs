@@ -1,9 +1,9 @@
 When the chef-repo is cloned from GitHub, the following occurs:
 
--   A directory named `data_bags` is created.
--   For each data bag, a sub-directory is created that has the same name
+- A directory named `data_bags` is created.
+- For each data bag, a sub-directory is created that has the same name
     as the data bag.
--   For each data bag item, a JSON file is created and placed in the
+- For each data bag item, a JSON file is created and placed in the
     appropriate sub-directory.
 
 The `data_bags` directory can be placed under version source control.

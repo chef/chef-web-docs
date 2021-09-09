@@ -352,12 +352,12 @@ Sometimes it may be necessary to stop processing a recipe and/or stop
 processing the entire Chef Infra Client run. There are a few ways to do
 this:
 
--   Use the `return` keyword to stop processing a recipe based on a
+- Use the `return` keyword to stop processing a recipe based on a
     condition, but continue processing a Chef Infra Client run
--   Use the `raise` keyword to stop a Chef Infra Client run by
+- Use the `raise` keyword to stop a Chef Infra Client run by
     triggering an unhandled exception
--   Use a `rescue` block in Ruby code
--   Use an [exception handler](/handlers/)
+- Use a `rescue` block in Ruby code
+- Use an [exception handler](/handlers/)
 
 The following sections show various approaches to ending a Chef Infra
 Client run.
@@ -507,14 +507,14 @@ end
 
 where:
 
--   The **ruby_block** resource declares a `block` of Ruby code that is
+- The **ruby_block** resource declares a `block` of Ruby code that is
     run during the execution phase of a Chef Infra Client run
--   The `if` statement randomly chooses PHP or Perl, saving the choice
+- The `if` statement randomly chooses PHP or Perl, saving the choice
     to `node.run_state['scripting_language']`
--   When the **package** resource has to install the package for the
+- When the **package** resource has to install the package for the
     scripting language, it looks up the scripting language and uses the
     one defined in `node.run_state['scripting_language']`
--   `lazy {}` ensures that the **package** resource evaluates this
+- `lazy {}` ensures that the **package** resource evaluates this
     during the execution phase of a Chef Infra Client run (as opposed to
     during the compile phase)
 

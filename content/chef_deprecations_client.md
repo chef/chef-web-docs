@@ -244,8 +244,14 @@ of Chef comes out.
 </tr>
 <tr>
 <td><a href="/deprecations_map_collision/">CHEF-25</a></td>
-<td>Resource(s) in a cookbook collide with the same resource(s) now included in Chef.</td>
+<td>Resource(s) in a cookbook collide with the same resource(s) now included in Chef Infra Client.</td>
 <td>XX.X</td>
+<td>15.0</td>
+</tr>
+<tr>
+<td><a href="/deprecations_shell_out/">CHEF-26</a></td>
+<td>Deprecation of legacy shell_out APIs.</td>
+<td>14.3</td>
 <td>15.0</td>
 </tr>
 <tr>

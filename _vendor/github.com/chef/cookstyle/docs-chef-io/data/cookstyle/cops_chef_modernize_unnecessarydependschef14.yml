@@ -2,7 +2,7 @@
 short_name: UnnecessaryDependsChef14
 full_name: Chef/Modernize/UnnecessaryDependsChef14
 department: Chef/Modernize
-description: Don't depend on cookbooks made obsolete by Chef Infra Client 14+. These
+description: Don't depend on cookbooks made obsolete by Chef Infra Client 14.0+ These
   community cookbooks contain resources that are now included in Chef Infra Client
   itself.
 autocorrection: true

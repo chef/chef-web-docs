@@ -2,10 +2,10 @@
   "name": "docs-new",
   "version": "0.1.0",
   "dependencies": {
-    "@fortawesome/fontawesome-free": "^5.15.3",
-    "foundation-sites": "^6.6.3",
+    "@fortawesome/fontawesome-free": "^5.15.4",
+    "foundation-sites": "^6.7.2",
     "jquery": "^3.6.0",
-    "redoc": "^2.0.0-rc.54",
+    "redoc": "^2.0.0-rc.56",
     "showdown": "^1.9.1",
     "what-input": "^5.2.10"
   }

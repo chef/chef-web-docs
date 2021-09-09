@@ -16,12 +16,9 @@ aliases = ["/ohai.html"]
 
 {{% ohai_summary %}}
 
-Ohai collects data for many platforms, including AIX, Darwin, Linux,
-FreeBSD, OpenBSD, NetBSD, Solaris, and any Microsoft Windows operating
-systems.
+Ohai collects data for many platforms, including AIX, macOS, Linux, FreeBSD, Solaris, and any Microsoft Windows operating systems.
 
-See the [Chef Infra Client release notes](/release_notes_client/) for the latest
-information on Ohai.
+See the [Chef Infra Client release notes](/release_notes_client/) for the latest information on Ohai.
 
 ## Automatic Attributes
 
@@ -47,9 +44,7 @@ information on Ohai.
 
 ## Default Plugins
 
-The following list shows the type of plugins that are included with
-Ohai. See the `ohai/lib/ohai/plugins` directory in the version of Ohai
-installed on your system for the full list:
+The following list shows the type of plugins that are included with Ohai. See the `ohai/lib/ohai/plugins` directory in the version of Ohai installed on your system for the full list:
 
 ### General Purpose Plugins
 
@@ -196,21 +191,20 @@ windows
 
 ## Optional Plugins
 
-Ohai ships several plugins that are considered optional and can be
-enabled in the [client.rb configuration file](/config_rb_client/).
+Ohai ships several optional plugins that you can enable in the [client.rb configuration file](/config_rb_client/).
 
+- `:Grub2` - Information from the Linux Grub2 bootloader
 - `:IPC` - SysV IPC shmem information (New in Chef Infra Client 16)
 - `:Interupts` - Data from /proc/interrupts and /proc/irq (New in Chef Infra Client 16)
 - `:Lspci` - PCI device information on Linux hosts.
 - `:Lsscsi` - SCSI device information on Linux hosts.
-- `:Passwd` - User and Group information on non-Windows hosts. This plugin can result in very large node sizes if a system connects to Active Directory or LDAP.
+- `:Passwd` - User and Group information on non-Windows hosts. This plugin can result in large node sizes if a system connects to Active Directory or LDAP.
 - `:Sessions` - Sessions data from loginctl on Linux hosts.
 - `:Sysctl` - All sysctl values on Linux hosts.
 
 ### Enabling Optional Plugins
 
-Optional plugins can be enabled in the [client.rb configuration
-file](/config_rb_client/):
+Optional plugins can be enabled in the [client.rb configuration file](/config_rb_client/):
 
 ```ruby
 ohai.optional_plugins = [
@@ -221,8 +215,7 @@ ohai.optional_plugins = [
 
 {{< note >}}
 
-The Ohai optional_plugins config array must contain an array of plugin
-names as Symbols not Strings.
+The Ohai optional_plugins config array must contain an array of plugin names as Symbols not Strings.
 
 {{< /note >}}
 
@@ -234,21 +227,13 @@ names as Symbols not Strings.
 
 ## Custom Plugins
 
-Custom Ohai plugins can be written to collect additional information
-from systems as necessary. See the [Ohai Custom
-Plugins](/ohai_custom/) docs for more information.
+Custom Ohai plugins can be written to collect additional information from systems as necessary. See the [Ohai Custom Plugins](/ohai_custom/) docs for more information.
 
 ## Hints
 
-Ohai hints are used to tell Ohai something about the system that it is
-running on that it would not be able to discover itself. An Ohai hint
-exists if a JSON file exists in the hint directory with the same name as
-the hint. For example, calling `hint?('antarctica')` in an Ohai plugin
-would return an empty hash if the file `antarctica.json` existed in the
-hints directory, and return nil if the file does not exist.
+Ohai hints are used to tell Ohai something about the system that it is running on that it would not be able to discover itself. An Ohai hint exists if a JSON file exists in the hint directory with the same name as the hint. For example, calling `hint?('antarctica')` in an Ohai plugin would return an empty hash if the file `antarctica.json` existed in the hints directory, and return nil if the file does not exist.
 
-If the hint file contains JSON content, it will be returned as a hash
-from the call to `hint?`.
+If the hint file contains JSON content, it will be returned as a hash from the call to `hint?`.
 
 ```javascript
 {
@@ -266,14 +251,11 @@ else
 end
 ```
 
-Hint files are located in the `/etc/chef/ohai/hints/` directory by
-default. Use the `Ohai.config[:hints_path]` setting in the [client.rb
-configuration file](/config_rb_client/) to customize this location.
+Hint files are located in the `/etc/chef/ohai/hints/` directory by default. Use the `Ohai.config[:hints_path]` setting in the [client.rb configuration file](/config_rb_client/) to customize this location.
 
-## ohai Cookbook Resource
+## `ohai` Resource
 
-Chef Infra Client includes an `ohai` resource that allows you to reload the Ohai data on a node. This allows recipes or resources that change system attributes (like a recipe that
-adds a user) to refer to those attributes later on during a Chef Infra Client run. See the [ohai resource](/resources/ohai) for complete usage information.
+Chef Infra Client includes an `ohai` resource that allows you to reload the Ohai data on a node. This allows recipes or resources that change system attributes (like a recipe that adds a user) to refer to those attributes later on during a Chef Infra Client run. See the [ohai resource](/resources/ohai) for complete usage information.
 
 ## ohai Command Line Tool
 

@@ -77,7 +77,7 @@ This command has the following options:
 
 :   Run the executable as a daemon. Use `SECONDS` to specify the number
     of seconds to wait before the first daemonized Chef Infra Client
-    run. `SECONDS` is set to `0` by default.
+    run. `SECONDS` is set to `0` by default. Left unset, the daemon uses the default `--interval` and `--splay` values.
 
     This option is only available on machines that run in UNIX or Linux
     environments. For machines that are running Microsoft Windows that
@@ -322,12 +322,12 @@ This command has the following options:
     help identify, and then resolve performance bottlenecks in a Chef
     Infra Client run. This option:
 
-    -   Generates a large amount of data about a Chef Infra Client run.
-    -   Has a dependency on the `ruby-prof` gem, which is packaged as
+    - Generates a large amount of data about a Chef Infra Client run.
+    - Has a dependency on the `ruby-prof` gem, which is packaged as
         part of Chef and Chef Workstation.
-    -   Increases the amount of time required to complete a Chef Infra
+    - Increases the amount of time required to complete a Chef Infra
         Client run.
-    -   Should not be used in a production environment.
+    - Should not be used in a production environment.
 
 `-r RUN_LIST_ITEM`, `--runlist RUN_LIST_ITEM`
 
@@ -404,10 +404,10 @@ Infra Client run. A new Chef Infra Client run looks for the presence of
 a lock file and, if present, will wait for that lock file to be deleted.
 The location of the lock file can vary by platform.
 
--   Use the `lockfile` setting in the client.rb file to specify
+- Use the `lockfile` setting in the client.rb file to specify
     non-default locations for the lock file. (The default location is
     typically platform-dependent and is recommended.)
--   Use the `run_lock_timeout` setting in the client.rb file to specify
+- Use the `run_lock_timeout` setting in the client.rb file to specify
     the amount of time (in seconds) to wait for the lock file associated
     with an in-progress Chef Infra Client run to be deleted.
 
@@ -465,17 +465,17 @@ providers to test more thoroughly.
 When Chef Infra Client is run in why-run mode, certain assumptions are
 made:
 
--   If the **service** resource cannot find the appropriate command to
+- If the **service** resource cannot find the appropriate command to
     verify the status of a service, why-run mode will assume that the
     command would have been installed by a previous resource and that
     the service would not be running.
--   For `not_if` and `only_if` properties, why-run mode will assume
+- For `not_if` and `only_if` properties, why-run mode will assume
     these are commands or blocks that are safe to run. These conditions
     are not designed to be used to change the state of the system, but
     rather to help facilitate idempotency for the resource itself. That
     said, it may be possible that these attributes are being used in a
     way that modifies the system state
--   The closer the current state of the system is to the desired state,
+- The closer the current state of the system is to the desired state,
     the more useful why-run mode will be. For example, if a full
     run-list is run against a fresh system, that run-list may not be
     completely correct on the first try, but also that run-list will
@@ -590,9 +590,9 @@ chef-client
 This can be resolved by running the command as root. There are a few
 ways this can be done:
 
--   Log in as root and then run the Chef Infra Client
+- Log in as root and then run the Chef Infra Client
 
--   Use `su` to become the root user, and then run the Chef Infra
+- Use `su` to become the root user, and then run the Chef Infra
     Client. For example:
 
     ```bash
@@ -605,13 +605,13 @@ ways this can be done:
     chef-client
     ```
 
--   Use the sudo utility
+- Use the sudo utility
 
     ```bash
     sudo chef-client
     ```
 
--   Give a user access to read `/etc/chef` and also the files accessed
+- Give a user access to read `/etc/chef` and also the files accessed
     by the Chef Infra Client. This requires super user privileges and,
     as such, is not a recommended approach
 
@@ -706,10 +706,10 @@ The Chef Infra Client has the [same system
 requirements](/chef_system_requirements/#chef-infra-client) on the
 AIX platform as any other platform, with the following notes:
 
--   Expand the file system on the AIX platform using `chfs` or by
+- Expand the file system on the AIX platform using `chfs` or by
     passing the `-X` flag to `installp` to automatically expand the
     logical partition (LPAR)
--   The EN_US (UTF-8) character set should be installed on the logical
+- The EN_US (UTF-8) character set should be installed on the logical
     partition prior to installing the Chef Infra Client
 
 **Install the Chef Infra Client on the AIX platform**

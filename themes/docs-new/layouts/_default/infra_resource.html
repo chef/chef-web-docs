@@ -18,7 +18,7 @@
             <div id="resource_note" class="note-container note-hide">
               <p>
                 This page is generated from the <a href="https://github.com/chef/chef">Chef Infra Client source code</a>.</br>
-                To suggest a change, edit the <a href="https://github.com/chef/chef/blob/master/lib/chef/resource/{{ index .Params.data_path 2 }}.rb">{{ index .Params.data_path 2 }}.rb</a> file and submit a pull request to the <a href="https://github.com/chef/chef">Chef Infra Client repository</a>.</br>
+                To suggest a change, edit the <a href="https://github.com/chef/chef/blob/main/lib/chef/resource/{{ index .Params.data_path 2 }}.rb">{{ index .Params.data_path 2 }}.rb</a> file and submit a pull request to the <a href="https://github.com/chef/chef">Chef Infra Client repository</a>.</br>
               </p>
             </div>
           </p>
@@ -728,35 +728,6 @@
             {{ readFile "themes/docs-new/layouts/shortcodes/resources_common_windows_security_inherits.md" | markdownify }}
 
           {{ end }}
-        {{ end }}
-
-        <!-------------- Custom Handlers ------------------->
-
-        {{ if index $yaml_file "handler_custom" }}
-          <h2 id="handler-custom">Custom Handlers</h2>
-          {{ readFile "themes/docs-new/layouts/shortcodes/handler_custom.md" | markdownify }}
-
-          <h3 id="handler-custom-syntax">Syntax</h3>
-          {{ readFile "themes/docs-new/layouts/shortcodes/handler_custom_syntax.md" | markdownify }}
-
-          <h3 id="handler-custom-interface-report">report Interface</h3>
-          {{ readFile "themes/docs-new/layouts/shortcodes/handler_custom_interface_report.md" | markdownify }}
-
-          <h3 id="handler-custom-optional-interfaces">Optional Interfaces</h3>
-          {{ readFile "themes/docs-new/layouts/shortcodes/handler_custom_optional_interfaces.md" | markdownify }}
-
-          <h4 id="handler-custom-interface-data">data</h4>
-          {{ readFile "themes/docs-new/layouts/shortcodes/handler_custom_interface_data.md" | markdownify }}
-
-          <h4 id="handler-custom-interface-run-report-safely">run_report_safely</h4>
-          {{ readFile "themes/docs-new/layouts/shortcodes/handler_custom_interface_run_report_safely.md" | markdownify }}
-
-          <h4 id="handler-custom-interface-run-report-unsafe">run_report_unsafe</h4>
-          {{ readFile "themes/docs-new/layouts/shortcodes/handler_custom_interface_run_report_unsafe.md" | markdownify }}
-
-          <h3 id="handler-custom-object-run-status">run_status Object</h3>
-          {{ readFile "themes/docs-new/layouts/shortcodes/handler_custom_object_run_status.md" | markdownify }}
-
         {{ end }}
 
         <!-------------- File Specificity ------------------->

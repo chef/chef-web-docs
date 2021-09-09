@@ -27,8 +27,7 @@ syntax_full_properties_list:
 - "`action` identifies which steps Chef Infra Client will take to bring the node into
   the desired state."
 - "`domain_name`, `domain_password`, `domain_user`, `new_hostname`, `ou_path`, `reboot`,
-  `reboot_delay`, `sensitive`, and `workgroup_name` are the properties available to
-  this resource."
+  `reboot_delay`, and `workgroup_name` are the properties available to this resource."
 actions_list:
   :nothing:
     shortcode: resources_common_actions_nothing.md

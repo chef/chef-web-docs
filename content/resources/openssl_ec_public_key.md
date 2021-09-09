@@ -15,5 +15,5 @@ toc_layout = "infra_resource_toc"
 +++
 
 <!-- The contents of this page are automatically generated from the openssl_ec_public_key.yaml file in the data directory. -->
-<!-- To suggest a change, edit the https://github.com/chef/chef/blob/master/lib/chef/resource/openssl_ec_public_key.rb file
+<!-- To suggest a change, edit the https://github.com/chef/chef/blob/main/lib/chef/resource/openssl_ec_public_key.rb file
       and submit a pull request to the https://github.com/chef/chef repository. -->

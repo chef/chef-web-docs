@@ -9,8 +9,8 @@ aliases = ["/azure_chef_cli.html"]
 [menu]
   [menu.infra]
     title = "Microsoft Azure Chef Extension"
-    identifier = "chef_infra/getting_started/chef_on_azure_guide/azure_chef_cli.md Microsoft Azure Chef Extension"
-    parent = "chef_infra/getting_started/chef_on_azure_guide"
+    identifier = "chef_infra/integrations/azure/azure_chef_cli.md Microsoft Azure Chef Extension"
+    parent = "chef_infra/integrations/azure"
     weight = 40
 +++
 

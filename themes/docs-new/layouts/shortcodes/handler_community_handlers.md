@@ -66,10 +66,6 @@ community:
 <td>A handler that collects exception and report handler data and then uses pony to send email reports that are based on Erubis templates.</td>
 </tr>
 <tr>
-<td><a href="https://github.com/sendgrid-ops/chef-sendgrid_mail_handler">SendGrid Mail Handler</a></td>
-<td>A chef handler that collects exception and report handler data and then uses SendGrid Ruby gem to send email reports that are based on Erubis templates.</td>
-</tr>
-<tr>
 <td><a href="http://onddo.github.io/chef-handler-sns/">SNS</a></td>
 <td>A handler that notifies exception and report handler data and sends it to a SNS topic.</td>
 </tr>

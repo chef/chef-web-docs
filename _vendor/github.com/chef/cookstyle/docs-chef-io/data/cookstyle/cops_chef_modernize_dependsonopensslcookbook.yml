@@ -1,0 +1,20 @@
+---
+short_name: DependsOnOpensslCookbook
+full_name: Chef/Modernize/DependsOnOpensslCookbook
+department: Chef/Modernize
+description: Don't depend on the `openssl` cookbook which was made obsolete by Chef
+  Infra Client 14.4. All `openssl_*` resources are now included directly in Chef Infra
+  Client.
+autocorrection: true
+target_chef_version: 14.4+
+examples: |2-
+
+  #### incorrect
+
+  ```ruby
+  depends 'openssl'
+  ```
+version_added: 7.20.0
+enabled: true
+included_file_paths:
+- "**/metadata.rb"

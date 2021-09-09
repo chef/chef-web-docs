@@ -5,10 +5,10 @@ mode](/ctl_chef_client.html#run-in-local-mode), and **does not support**
 the following functionality present in Chef Infra Client / server
 configurations:
 
--   Centralized distribution of cookbooks
--   A centralized API that interacts with and integrates infrastructure
+- Centralized distribution of cookbooks
+- A centralized API that interacts with and integrates infrastructure
     components
--   Authentication or authorization
+- Authentication or authorization
 
 <div class="admonition-note">
 
@@ -17,8 +17,6 @@ configurations:
 <div class="admonition-note-text">
 
 chef-solo can be run as a daemon.
-
-
 
 </div>
 

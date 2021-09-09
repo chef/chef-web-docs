@@ -4,7 +4,7 @@ draft = false
 
 gh_repo = "chef-web-docs"
 robots = "noindex"
-
+sitemapExclude = true
 +++
 
 The system_profile plugin will be removed from Chef/Ohai 15 in April

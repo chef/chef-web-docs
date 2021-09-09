@@ -55,8 +55,8 @@ hugo mod clean
 
 # See:
 # - https://github.com/habitat-sh/habitat/pull/7993
-# - github.com/chef/chef-web-docs/blob/master/_vendor/github.com/habitat-sh/habitat/components/docs-chef-io/content/habitat/habitat_cli.md
-# - github.com/chef/chef-web-docs/blob/master/_vendor/github.com/habitat-sh/habitat/components/docs-chef-io/content/habitat/service_templates.md
+# - https://github.com/chef/chef-web-docs/blob/main/content/habitat/habitat_cli.md
+# - https://github.com/chef/chef-web-docs/blob/main/content/habitat/service_templates.md
 
 if [[ "${EXPEDITOR_PROJECT}" == *"habitat"* ]]; then
   curl --silent --output generated-documentation.tar.gz https://packages.chef.io/files/${EXPEDITOR_TARGET_CHANNEL}/habitat/latest/generated-documentation.tar.gz
@@ -77,7 +77,7 @@ dco_safe_git_commit "Bump Hugo module $product_key to latest $EXPEDITOR_TARGET_C
 
 open_pull_request
 
-# Get back to master and cleanup the leftovers - any changed files left over at
-# the end of this script will get committed to master.
+# Get back to main and cleanup the leftovers - any changed files left over at
+# the end of this script will get committed to main.
 git checkout -
 git branch -D "$branch"
