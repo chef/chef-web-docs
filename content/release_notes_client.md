@@ -6879,6 +6879,30 @@ OpenSSL has been updated from 1.0.2j to 1.0.2n to resolve the following CVEs:
 - [CVE-2017-3738](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-3738)
 - [CVE-2017-3737](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-3737)
 
+#### libxml 2.9.5
+
+The libxml2 library has been updated from 2.9.4 to 2.9.5 to resolve the following CVEs:
+
+- [CVE-2017-9050](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-9050/)
+- [CVE-2017-9049](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-9049/)
+- [CVE-2017-9048](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-9048/)
+- [CVE-2017-9047](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-9047/)
+- [CVE-2017-8872](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-8872/)
+- [CVE-2017-5969](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-5969/)
+- [CVE-2016-9318](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-9318/)
+- [CVE-2016-5131](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-5131/)
+
+#### libxslt 1.1.30
+
+The libxslt library has been updated from 1.1.29 to 1.1.30 to resolve the following CVEs:
+
+- [CVE-2017-5029](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-5029/)
+- [CVE-2015-9019](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-9019/)
+
+#### libyaml 0.1.7
+
+The libyaml library has been updated from 0.1.6 to 0.1.7 to resolve [CVE-2014-9130](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-9130)
+
 #### Red Hat Enterprise Linux on AArch64
 
 We now produce packages for Red Hat Enterprise Linux on AArch64.
