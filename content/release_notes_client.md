@@ -4719,7 +4719,7 @@ Ohai now properly handles relative paths to config files when running on the com
 
 #### Rubyzip
 
-The rubyzip gem has been updated to 1.2.2 to resolve [CVE-2018-1000544](https://www.cvedetails.com/cve/CVE-2018-1000544/)
+The rubyzip gem has been updated to 1.2.2 to resolve [CVE-2018-1000544](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-1000544/)
 
 ## What's New in 14.4
 
@@ -6818,23 +6818,21 @@ Chef Client will only exit with exit codes defined in RFC 062. This allows other
 
 When Chef Client is running as a forked process on unix systems, the standardized exit codes are used by the child process. To actually have Chef Client return the standard exit code, `client_fork false` will need to be set in Chef Client's configuration file.
 
+## What's New in 12.22.5
+
+### Bug Fixes
+
+- Prevented failures in cookbooks that need to support both Chef Infra Client 12.x and 13.x by removing the legacy `state` property that is now removed in 13.x.
+
+### Resource Updates
+
+#### ifconfig
+
+The `ifconfig` resource has been updated to support Ubuntu 18.04.
+
 ## What's New in 12.22.3
 
-This release fixes an issue in our Windows security support code that
-would occasionally cause heap corruption on Windows. This would manifest
-as Chef Client runs that terminated without any logging or errors. Since
-the issue was located within the common `get_account_right` method, this
-could affect a number of different recipes, but was most often seen when
-using the windows_service resource.
-
-This issue is also fixed in the recent Chef 14.0.190 release, and will
-be included in the next Chef 13 release expected by the end of the
-month.
-
-This is the final planned Chef 12 release, which is currently deprecated
-and will become End of Life on April 30th. For additional information on
-that process, please see our [Chef 12 and ChefDK 1 EOL
-information](https://www.chef.io/eol-chef12-and-chefdk1).
+This release fixes an issue in our Windows security support code that would occasionally cause heap corruption on Windows. This would manifest as Chef Infra Client runs that terminated without any logging or errors. Since the issue was located within the common `get_account_right` method, this could affect a number of different recipes, but was most often seen when using the `windows_service` resource.
 
 ## What's New in 12.22.1
 
@@ -6842,11 +6840,11 @@ information](https://www.chef.io/eol-chef12-and-chefdk1).
 
 #### Ruby
 
-Ruby has been updated to 2.3.6 to resolve [CVE-2017-17405](https://nvd.nist.gov/vuln/detail/CVE-2017-17405)
+Ruby has been updated from 2.3.5 to 2.3.6 to resolve [CVE-2017-17405](https://cve.mitre.org/cgi-bin/cvename.cgi?name=cve-2017-17405).
 
 #### libxml2
 
-The libxml2 library has been updated to 2.9.7 to resolve [CVE-2017-15412](https://access.redhat.com/security/cve/cve-2017-15412)
+The libxml2 library has been updated from 2.9.5 to 2.9.7 to resolve [CVE-2017-15412](https://cve.mitre.org/cgi-bin/cvename.cgi?name=cve-2017-15412)
 
 ### Ohai 8.26.1
 
@@ -6864,9 +6862,26 @@ The virtualization plugin has been updated to properly detect when running on Do
 
 ## What's New in 12.21.31
 
-- **Support for AArch64 platform on Red Hat Enterprise Linux**
-- **mdadm support for arrays with more than 10 disks**
-- **OpenSSL updated to version 1.0.2**
+### Bugfixes
+
+- The Ohai `Mdadm` plugin now supports arrays with more than 10 disks
+
+### Platform Support
+
+### Security
+
+#### OpenSSL 1.0.2n
+
+OpenSSL has been updated from 1.0.2j to 1.0.2n to resolve the following CVEs:
+
+- [CVE-2017-3736](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-3736)
+- [CVE-2017-3735](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-3735)
+- [CVE-2017-3738](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-3738)
+- [CVE-2017-3737](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-3737)
+
+#### Red Hat Enterprise Linux on AArch64
+
+We now produce packages for Red Hat Enterprise Linux on AArch64.
 
 ## What's New in 12.21.26
 
