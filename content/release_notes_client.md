@@ -6204,11 +6204,11 @@ It is now possible to pass additional options to the zypper in the zypper_packag
 
 #### Example:
 
-    ```ruby
-    zypper_package 'foo' do
-      options '--user-provided'
-    end
-    ```
+```ruby
+zypper_package 'foo' do
+  options '--user-provided'
+end
+```
 
 ### windows_task Improvements
 
@@ -6375,7 +6375,23 @@ Ohai now properly detects the [Clear](https://clearlinux.org/) and [ClearOS](htt
 
 In Chef/Ohai 14 (April 2018) we will remove the IpScopes plugin. The data returned by this plugin is nearly identical to information already returned by individual network plugins and this plugin required the installation of an additional gem into the Chef installation. We believe that few users were installing the gem and users would be better served by the data returned from the network plugins.
 
-## What's New in 13.0/13.1
+## What's New in 13.1
+
+### Socketless local mode by default
+
+For security reasons we are switching Local Mode to use socketless connections by default. This prevents potential attacks where an unprivileged user or process connects to the internal Zero server for the converge and changes data.
+
+If you use Chef Provisioning with Local Mode, you may need to pass `--listen` to `chef-client`.
+
+### New Deprecations
+
+#### Removal of support for Ohai version 6 plugins (OHAI-10)
+
+<https://docs.chef.io/deprecations_ohai_v6_plugins>
+
+In Chef/Ohai 14 (April 2018) we will remove support for loading Ohai v6 plugins, which we deprecated in Ohai 7/Chef 11.12.
+
+## What's New in 13.0
 
 - **Blacklist attributes**
 - **RubyGems sources**
