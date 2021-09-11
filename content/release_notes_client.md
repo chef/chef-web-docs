@@ -6909,38 +6909,21 @@ We now produce packages for Red Hat Enterprise Linux on AArch64.
 
 ## What's New in 12.21.26
 
-- **Security release of libxml2** libxml2 has been upgraded to 2.9.5
-    to resolve the following CVEs:
-    - [CVE-2017-9050](https://www.cvedetails.com/cve/CVE-2017-9050/)
-    - [CVE-2017-9049](https://www.cvedetails.com/cve/CVE-2017-9049/)
-    - [CVE-2017-9048](https://www.cvedetails.com/cve/CVE-2017-9048/)
-    - [CVE-2017-9047](https://www.cvedetails.com/cve/CVE-2017-9047/)
-    - [CVE-2017-8872](https://www.cvedetails.com/cve/CVE-2017-8872/)
-    - [CVE-2017-5969](https://www.cvedetails.com/cve/CVE-2017-5969/)
-    - [CVE-2016-9318](https://www.cvedetails.com/cve/CVE-2016-9318/)
-    - [CVE-2016-5131](https://www.cvedetails.com/cve/CVE-2016-5131/)
-- **Security release of libxlst** libxlst has been upgraded to 1.1.30
-    to resolve the following CVEs:
-    - [CVE-2017-5029](http://www.cvedetails.com/cve/CVE-2017-5029/)
-    - [CVE-2015-9019](http://www.cvedetails.com/cve/CVE-2015-9019/)
-- **Security release of zlib** zlib has been upgraded to 1.2.11 to
-    resolve the following CVEs:
-    - [CVE-2016-9840](https://www.cvedetails.com/cve/CVE-2016-9840/)
-    - [CVE-2016-9841](https://www.cvedetails.com/cve/CVE-2016-9841/)
-    - [CVE-2016-9842](https://www.cvedetails.com/cve/CVE-2016-9842/)
-    - [CVE-2016-9843](https://www.cvedetails.com/cve/CVE-2016-9843/)
-- **Security release of openssl** openssl has been upgraded to 1.0.2j
-    to resolve the following CVEs:
-    - [CVE-2017-3731](http://www.cvedetails.com/cve/CVE-2017-3731)
-    - [CVE-2017-3732](http://www.cvedetails.com/cve/CVE-2017-3732)
-    - [CVE-2016-7055](http://www.cvedetails.com/cve/CVE-2016-7055)
-- **Security release of rubygems** rubygems has been upgraded to
-    2.6.14 to resolve the following CVEs:
-    - [CVE-2017-0903](http://www.cvedetails.com/cve/CVE-2017-0903)
-- **Ruby 2.2 compatibility** a regression in the 12.21.20 release has
-    been corrected to restore full compatibility with Ruby 2.2 and later
-- **Ohai Critical Plugins** Ohai has been upgraded to 8.25 with
-    support for Ohai critical plugins.
+### Bugfixes
+
+- Restore compatibility with Ruby 2.2.
+- Resolve failures to detect the ip address on some Solaris systems.
+
+### Security 
+
+#### Rubygems
+
+Rubygems has been updated from 2.6.13 to 2.6.14, fixing 4 CVEs:
+
+- [CVE-2017-0899](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-0899)
+- [CVE-2017-0900](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-0900)
+- [CVE-2017-0901](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-0901)
+- [CVE-2017-0902](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-0902)
 
 ### Ohai Critical Plugins Functionality
 
@@ -6955,86 +6938,87 @@ ohai.critical_plugins << :Filesystem
 
 ## What's New in 12.21.20
 
-- **Improved dsc_script logging** Converge logging in `dsc_script`
-    has been improved
-- **DNF Improvements** Accuracy in determining when to use the
-    `dnf_package` resource has been improved. DNF will no longer be used
-    on RHEL 7 systems that have it installed, and the determination
-    logic performance has been greatly improved.
+### Resource Updates
+
+#### dnf_package / package
+
+The `dnf_package` resource and the DNF Provider for the `package` resource have been improved to better run only when DNF is present on the system.
+
+#### dsc_script
+
+The `dsc_script` resource logging has been improved.
 
 ## What's New in 12.21.14
 
-- **apt_repository APT key fingerprint fixes** `apt_repository` now
-    correctly checks APT key fingerprints on newer systems
+### Bugfixes
+
+- Fix the `apt_repository` now now correctly checks APT key fingerprints on newer systems
 
 ## What's New in 12.21.12
 
-- **DSC Windows Management Framework 5** DSC has been updated to work
-    properly with Windows Management Framework 5
-- **Security release of Ruby** RubyGems has been upgraded to 2.3.5 to
-    address the following CVEs:
-    - [CVE-2017-0898](https://nvd.nist.gov/vuln/detail/CVE-2017-0898)
-    - [CVE-2017-10784](https://nvd.nist.gov/vuln/detail/CVE-2017-10784)
-    - [CVE-2017-14033](https://nvd.nist.gov/vuln/detail/CVE-2017-14033)
-    - [CVE-2017-14064](https://nvd.nist.gov/vuln/detail/CVE-2017-14064)
+### Resource Updates
+
+#### dsc_script
+
+The `dsc_script` resource now supports Windows Management Framework 5.
+
+### Security
+
+#### Ruby 2.3.5
+
+Ruby has been updated from 2.3.4 to 2.3.5 to resolve the following CVEs:
+
+- [CVE-2017-0898](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-0898)
+- [CVE-2017-10784](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-10784)
+- [CVE-2017-14033](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-14033)
+- [CVE-2017-14064](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-14064)
 
 ## What's New in 12.21.10
 
-- **Security release of RubyGems** RubyGems has been upgraded to
-    2.6.13 to address the following:
-    - [CVE-2017-0899](https://nvd.nist.gov/vuln/detail/CVE-2017-0899)
-    - [CVE-2017-0900](https://nvd.nist.gov/vuln/detail/CVE-2017-0900)
-    - [CVE-2017-0901](https://nvd.nist.gov/vuln/detail/CVE-2017-0901)
-    - [CVE-2017-0902](https://nvd.nist.gov/vuln/detail/CVE-2017-0902)
-- **Attribute Performance** Attribute performance has been improved
-    when utilizing large numbers of merged attributes
+### Bugfixes
+
+- Ensure the `dnf_package` resource is only used on systems RHEL 8 and later.
+- Attribute performance has been improved when utilizing large numbers of merged attributes.
+
+### Security
+
+#### Rubygems 2.6.13
+
+Rubygems has been updated from 2.6.12 to 2.6.13 to resolve the following CVEs:
+
+- [CVE-2017-0899](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-0899)
+- [CVE-2017-0900](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-0900)
+- [CVE-2017-0901](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-0901)
+- [CVE-2017-0902](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-0902)
 
 ## What's New in 12.21.4
 
-- **Improved Resource Reporting** Resource reporting for Chef Automate
-    has been improved
-- **Ruby Upgrade** Ruby has been updated to 2.3.4
-- **RubyGems Upgrade** RubyGems has been updated to 2.6.12 to prevent
-    a segfault on Windows
-- **Policyfile fix** Chef client now properly sends expanded run list
-    events for policy file nodes
+### Bugfixes
+
+- Improve the resource reporters ability to determine identity and state properties in resources to prevent failures.
+- Update Ruby from 2.3.1 to 2.3.4 to resolve a large number of bugs.
+- Fix segfaults installing gems on Windows systems.
+- Chef Infra Client now properly sends expanded run list events on nodes using PolicyFiles.
 
 ## What's New in 12.21.1
 
-### zlib Security Update
-
-zlib has been updated to resolve the following CVEs:
-
-- [CVE-2016-98406](https://nvd.nist.gov/vuln/detail/CVE-2016-98406)
-- [CVE-2016-98414](https://nvd.nist.gov/vuln/detail/CVE-2016-98414)
-- [CVE-2016-98423](https://nvd.nist.gov/vuln/detail/CVE-2016-98423)
-- [CVE-2016-98434](https://nvd.nist.gov/vuln/detail/CVE-2016-98434)
-
 ### On Debian prefer Systemd to Upstart
 
-On Debian systems, packages that support systemd will often ship both an
-old style init script and a systemd unit file. When this happened, Chef
-would incorrectly choose Upstart rather than systemd as the service
-provider. Chef will now prefer systemd where available.
+On Debian systems, packages that support systemd will often ship both an old style init script and a systemd unit file. When this happened, Chef Infra Client would incorrectly choose Upstart rather than systemd as the service provider. Chef Infra Client will now prefer systemd where available.
 
 ### Handle the 'supports' property better
 
-Chef 13 removed the `supports` property from core resources. Chef 12 was
-incorrectly giving a deprecation notice for another property called
-`support`, which prevented users from properly testing their cookbooks
-for upgrades.
+Chef Infra Client 13 removed the `supports` property from core resources. Chef Infra Client 12 was incorrectly giving a deprecation notice for another property called `support`, which prevented users from properly testing their cookbooks for upgrades.
 
-### Don't crash if downgrading from Chef 13 to 12
+### Don't crash if downgrading from Chef Infra Client 13 to 12
 
-On systems where Chef 13 had been run, Chef 12 would crash as the
-on-disk cookbook format has changed. Chef 12 now correctly ignores the
-unexpected files.
+On systems where Chef Infra Client 13 had been run, Chef Infra Client 12 would crash as the on-disk cookbook format has changed. Chef Infra Client 12 now correctly ignores the unexpected files.
 
 ### Provide better information during failures
 
-When Chef client fails, the output now includes details about the
-platform and version of Chef that was running, so that a bug report has
-more detail.
+When Chef Infra Client fails, the output now includes details about the platform and version of Chef Infra Client that was running, so that a bug report has more detail.
+
+<!--- This is the end of validation release notes -->
 
 ## What's New in 12.20
 
