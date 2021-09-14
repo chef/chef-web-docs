@@ -6843,7 +6843,7 @@ Ruby has been updated from 2.3.5 to 2.3.6 to resolve [CVE-2017-17405](https://cv
 
 The libxml2 library has been updated from 2.9.5 to 2.9.7 to resolve [CVE-2017-15412](https://cve.mitre.org/cgi-bin/cvename.cgi?name=cve-2017-15412)
 
-### Ohai 8.26.1
+### System Configuration Detection
 
 #### EC2 detection on C5/M5
 
@@ -6851,7 +6851,7 @@ Ohai now provides EC2 metadata configuration information on the new C5/M5 instan
 
 #### LsPci Plugin
 
-The new LsPci plugin provides a node[:pci] hash with information about the PCI bus based on lspci. Only runs on Linux.
+The new Ohai `LsPci` plugin provides a `node[:pci]` hash with information about the PCI bus based on lspci. Only runs on Linux.
 
 #### Docker Detection
 
@@ -6864,6 +6864,10 @@ The virtualization plugin has been updated to properly detect when running on Do
 - The Ohai `Mdadm` plugin now supports arrays with more than 10 disks
 
 ### Platform Support
+
+#### Red Hat Enterprise Linux on AArch64
+
+We now produce packages for Red Hat Enterprise Linux on AArch64.
 
 ### Security
 
@@ -6899,10 +6903,6 @@ The libxslt library has been updated from 1.1.29 to 1.1.30 to resolve the follow
 #### libyaml 0.1.7
 
 The libyaml library has been updated from 0.1.6 to 0.1.7 to resolve [CVE-2014-9130](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-9130)
-
-#### Red Hat Enterprise Linux on AArch64
-
-We now produce packages for Red Hat Enterprise Linux on AArch64.
 
 ## What's New in 12.21.26
 
