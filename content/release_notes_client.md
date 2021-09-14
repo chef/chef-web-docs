@@ -5038,7 +5038,7 @@ You can enable this by adding `ssh_agent_signing true` to your `knife.rb` or `ss
 
 To encrypt your existing user key, you can use OpenSSL:
 
-```
+```bash
 ( openssl rsa -in user.pem -pubout && openssl rsa -in user.pem -aes256 ) > user_enc.pem
 chmod 600 user_enc.pem
 ```
@@ -5080,7 +5080,7 @@ This release resolves a number of regressions in 14.1.1:
 
 ### Platform Additions
 
-Enable Ubuntu-18.04 and Debian-9 tested chef-client packages.
+Chef Infra Client packages are now produced for Ubuntu 18.04 and Debian 9 platforms.
 
 ## What's New in 14.1
 
@@ -5289,7 +5289,7 @@ deprecated_property_alias 'thing2', 'the_second_thing', 'The thing2 property was
 
 #### Platform Deprecations
 
-chef-client no longer is built or tested on OS X 10.10 in accordance with Chef's EOL policy.
+Chef Infra Client packages are no longer produced for OS X 10.10 in accordance with Chef's EOL policy.
 
 #### validation_message
 
@@ -5681,7 +5681,7 @@ Ruby has been updated to from 2.4.4 to 2.4.5 to resolve multiple CVEs as well as
 
 ### Platform Updates
 
-As Debian 7 is now end of life we will no longer produce Debian 7 chef-client packages.
+As Debian 7 is now end of life we will no longer produce Debian 7 Chef Infra Client packages.
 
 ### Ifconfig on Ubuntu 18.04
 
@@ -5725,7 +5725,7 @@ The Filesystem2 functionality has been backported to BSD systems to provide a co
 
 ## Platform Additions
 
-Enable Ubuntu-18.04 and Debian-9 tested chef-client packages.
+Chef Infra Client packages are now produced for Ubuntu 18.04 and Debian 9 platforms.
 
 ## What's New in 13.9.0
 
@@ -6544,12 +6544,9 @@ The new `gateway_identity_file` option allows the operator to specify the key to
 
 ### Windows Task resource added
 
-The `windows_task` resource has been ported from the windows cookbook.
-Use the **windows_task** resource to create, delete or run a Windows
-scheduled task. Requires Windows Server 2008 due to API usage.
+The `windows_task` resource has been ported from the windows cookbook. Use the **windows_task** resource to create, delete or run a Windows scheduled task. Requires Windows Server 2008 due to API usage.
 
-**Note**: `:change` action has been removed from `windows_task`
-resource. `:create` action can be used to update an existing task.
+**Note**: `:change` action has been removed from `windows_task` resource. `:create` action can be used to update an existing task.
 
 ### Solaris SMF services can now be started recursively
 
@@ -6623,7 +6620,7 @@ This change is most likely to only affect internals of tooling like chefspec if 
 
 #### PolicyFiles failback
 
-PolicyFile failback to create non-policyfile nodes on Chef Server < 12.3 has been removed PolicyFile users on Chef-13 should be using Chef Server 12.3 or higher.
+PolicyFile failback to create non-policyfile nodes on Chef Server < 12.3 has been removed. PolicyFile users on Chef Infra Client 13 should be using Chef Server 12.3 or higher.
 
 #### Cookbooks with self dependencies are no longer allowed
 
@@ -7018,39 +7015,27 @@ On systems where Chef Infra Client 13 had been run, Chef Infra Client 12 would c
 
 When Chef Infra Client fails, the output now includes details about the platform and version of Chef Infra Client that was running, so that a bug report has more detail.
 
-<!--- This is the end of validation release notes -->
-
 ## What's New in 12.20
-
-The following items are new for chef-client 12.20, or introduce changes
-from previous versions:
 
 ### Server Enforced Recipe
 
-This release adds support for Server Enforced Recipe, as described in
-[RFC
-896](https://github.com/chef/chef-rfc/blob/master/rfc089-server-enforced-recipe.md)
-and implemented in Chef server 12.15. Full release documentation of this
-feature will be coming soon.
+This release adds support for Server Enforced Recipe, as described in [RFC 896](https://github.com/chef/chef-rfc/blob/master/rfc089-server-enforced-recipe.md) and implemented in Chef Infra Server 12.15. Complete release documentation of this feature will be coming soon.
 
 ### Bugfixes
 
-Fixes issue where the [apt_repository](/resources/apt_repository/)
-resource couldn't identify key fingerprints when gnupg 2.1.x was used.
+- Fixes issue where the [apt_repository](/resources/apt_repository/) resource couldn't identify key fingerprints when gnupg 2.1.x was used.
 
 ## What's New in 12.19
 
-### Highlighted enhancements for this release:
+### knife ssh / knife bootstrap ed25519 support
 
-- Systemd unit files are now verified before being installed.
-- Added support for windows alternate user identity in execute resources.
-- Added ed25519 key support for for ssh connections.
+The `knife bootstrap` and `knife ssh` commands now support ed25519 SSH keys.
 
 ### Windows alternate user identity execute support
 
 The `execute` resource and similar resources such as `script`, `batch`, and `powershell_script` now support the specification of credentials on Windows so that the resulting process is created with the security identity that corresponds to those credentials.
 
-**Note**: When Chef is running as a service, this feature requires that the user that Chef runs as has 'SeAssignPrimaryTokenPrivilege' (aka 'SE_ASSIGNPRIMARYTOKEN_NAME') user right. By default only LocalSystem and NetworkService have this right when running as a service. This is necessary even if the user is an Administrator.
+**Note**: When Chef Infra Client is running as a service, this feature requires that the user that Chef Infra Client runs as has 'SeAssignPrimaryTokenPrivilege' (aka 'SE_ASSIGNPRIMARYTOKEN_NAME') user right. By default only LocalSystem and NetworkService have this right when running as a service. This is necessary even if the user is an Administrator.
 
 This right can be added and checked in a recipe using this example:
 
@@ -7062,11 +7047,9 @@ Chef::ReservedNames::Win32::Security.add_account_right('<user>', 'SeAssignPrimar
 Chef::ReservedNames::Win32::Security.get_account_right('<user>').include?('SeAssignPrimaryTokenPrivilege')
 ```
 
-### Properties
+#### Properties
 
-The following properties are new or updated for the `execute`, `script`,
-`batch`, and `powershell_script` resources and any resources derived
-from them:
+The following properties are new or updated for the `execute`, `script`, `batch`, and `powershell_script` resources and any resources derived from them:
 
 `user`
 
@@ -7097,10 +7080,9 @@ from them:
     An alternative way to specify the domain is to leave this property
     unspecified and specify the domain as part of the `user` property.
 
-### Usage
+#### Usage
 
-The following examples explain how alternate user identity properties
-can be used in the execute resources:
+The following examples explain how alternate user identity properties can be used in the execute resources:
 
 ```ruby
 powershell_script 'create powershell-test file' do
@@ -7136,24 +7118,95 @@ batch 'create test_dir' do
 end
 ```
 
-### Highlighted bug fixes for this release:
+### Bug Fixes
 
-- **Ensure that the Windows Administrator group can access the
-    chef-solo nodes directory**
-- **When loading a cookbook in Chef Solo, use \`\`metadata.json\`\` in
-    preference to \`\`metadata.rb\`\`.**
+- Systemd unit files are now verified before being installed.
+- Ensure that the Windows Administrator group can access the chef-solo nodes directory
+- When loading a cookbook in Chef Solo, use `metadata.json` in preference to `metadata.rb`
+
+### Packaging Updates
+
+#### Cisco NX-OS and IOS XR
+
+As of version 12.19, Chef Infra Client packages for Cisco NX-OS and IOS XR platforms will no longer be produced.
+
+### System Configuration Detection
+
+#### Cumulus Linux Platform
+
+Cumulus Linux will now be detected as platform `cumulus` instead of `debian` and the `platform_version` will be properly set to the Cumulus Linux release.
+
+#### Virtualization Detection
+
+Windows / Linux / BSD guests running on the Veertu hypervisors will now be detected
+
+Windows guests running on Xen and Hyper-V hypervisors will now be detected
+
+#### New Sysconf Plugin
+
+A new plugin parses the output of the sysconf command to provide information on the underlying system.
+
+#### AWS Account ID
+
+The EC2 plugin now fetches the AWS Account ID in addition to previous instance metadata
+
+#### GCC Detection
+
+GCC detection has been improved to collect additional information, and to not prompt for the installation of Xcode on macOS systems
+
+### New deprecations
+
+### Ohai::Config removed
+
+- **Deprecation ID**: OHAI-1
+- **Remediation Docs**: <https://docs.chef.io/deprecations_ohai_legacy_config>
+- **Expected Removal**: Ohai 13 (April 2017)
+
+### sigar gem based plugins removed
+
+- **Deprecation ID**: OHAI-2
+- **Remediation Docs**: <https://docs.chef.io/deprecations_ohai_sigar_plugins>
+- **Expected Removal**: Ohai 13 (April 2017)
+
+### run_command and popen4 helper methods removed
+
+- **Deprecation ID**: OHAI-3
+- **Remediation Docs**: <https://docs.chef.io/deprecations_ohai_run_command_helpers>
+- **Expected Removal**: Ohai 13 (April 2017)
+
+### libvirt plugin attributes moved
+
+- **Deprecation ID**: OHAI-4
+- **Remediation Docs**: <https://docs.chef.io/deprecations_ohai_libvirt_plugin>
+- **Expected Removal**: Ohai 13 (April 2017)
+
+### Windows CPU plugin attribute changes
+
+- **Deprecation ID**: OHAI-5
+- **Remediation Docs**: <https://docs.chef.io/deprecations_ohai_windows_cpu>
+- **Expected Removal**: Ohai 13 (April 2017)
+
+### DigitalOcean plugin attribute changes
+
+- **Deprecation ID**: OHAI-6
+- **Remediation Docs**: <https://docs.chef.io/deprecations_ohai_digitalocean/>
+- **Expected Removal**: Ohai 13 (April 2017)
 
 ## What's New in 12.18
 
-The following items are new for chef-client 12.18 and/or are changes
-from previous versions. The short version:
+### Windows Scheduled Task Execution
 
-- **Can now specify the acceptable return codes from the
-    chocolatey_package resource using the returns property**
-- **Can now enable chef-client to run as a scheduled task directly
-    from the client MSI on Windows hosts**
-- **Package provider now supports DNF packages for Fedora and upcoming
-    RHEL releases**
+You can now specify Chef Infra Client to run as a scheduled task directly in the install MSI.
+
+### Resource Updates
+
+#### chocolatey_package
+
+The `chocolatey_package` resource has been updated to allow specifying the acceptable return codes with a new `returns` property.
+
+#### package
+
+The `package` resource has been updated to support installation via DNF on Fedora hosts as well as upcoming RHEL releases that ship with DNF by default.
 
 ### New deprecations
 
@@ -7168,7 +7221,7 @@ from previous versions. The short version:
 The following items are new for chef-client 12.17 and/or are changes
 from previous versions. The short version:
 
-- **Added msu_package resource and provider**
+- **Added msu_package resource**
 - **Added alias unmount to umount action for mount resource**
 - **Can now delete multiple nodes/clients in knife**
 - **Haskell language plugin added to Ohai**
