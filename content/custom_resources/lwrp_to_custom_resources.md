@@ -96,7 +96,7 @@ end
 
 ## Remove Attributes
 
-It is best practise to use properties to change the behaviour of resources.
+It is best practice to use properties to change the behavior of resources.
 
 In the previous example example we used an attribute to change the `installer_url`.
 
