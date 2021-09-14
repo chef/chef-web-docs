@@ -40,9 +40,9 @@ properties_list:
   required: false
   default_value: 'false'
   description_list:
-  - markdown: The number of backups to be kept in /var/chef/backup (for UNIX- and
-      Linux-based platforms) or C:/chef/backup (for the Microsoft Windows platform).
-      Set to false to prevent backups from being kept.
+  - markdown: The number of backups to be kept in `/var/chef/backup` (for UNIX- and
+      Linux-based platforms) or `C:/chef/backup` (for the Microsoft Windows platform).
+      Set to `false` to prevent backups from being kept.
 - property: control
   ruby_type: String
   required: false
@@ -71,8 +71,8 @@ properties_list:
   ruby_type: true, false
   required: false
   description_list:
-  - markdown: If present and true, the control will run and be reported, but failures
-      in it won’t make the overall run fail. If absent or false, the control will
+  - markdown: If present and `true`, the control will run and be reported, but failures
+      in it won’t make the overall run fail. If absent or `false`, the control will
       not be run.
 examples: |
   **Add an InSpec waiver entry to a given waiver file**:

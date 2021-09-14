@@ -11,22 +11,24 @@ resource_description_list:
 resource_new_in: '16.0'
 syntax_full_code_block: |-
   chef_client_scheduled_task 'name' do
-    accept_chef_license      true, false # default value: false
-    chef_binary_path         String # default value: "C:/opscode/chef/bin/chef-client"
-    config_directory         String # default value: "/etc/chef"
-    daemon_options           Array # default value: []
-    frequency                String # default value: "minute"
-    frequency_modifier       Integer, String # default value: "30 if frequency is 'minute', 1 otherwise"
-    log_directory            String # default value: "CONFIG_DIRECTORY/log"
-    log_file_name            String # default value: "client.log"
-    password                 String
-    run_on_battery           true, false # default value: true
-    splay                    Integer, String # default value: 300
-    start_date               String
-    start_time               String
-    task_name                String # default value: "chef-client"
-    user                     String # default value: "System"
-    action                   Symbol # defaults to :add if not specified
+    accept_chef_license       true, false # default value: false
+    chef_binary_path          String # default value: "C:/opscode/chef/bin/chef-client"
+    config_directory          String # default value: "/etc/chef"
+    daemon_options            Array # default value: []
+    frequency                 String # default value: "minute"
+    frequency_modifier        Integer, String # default value: "30 if frequency is 'minute', 1 otherwise"
+    log_directory             String # default value: "CONFIG_DIRECTORY/log"
+    log_file_name             String # default value: "client.log"
+    password                  String
+    priority                  Integer # default value: 7
+    run_on_battery            true, false # default value: true
+    splay                     Integer, String # default value: 300
+    start_date                String
+    start_time                String
+    task_name                 String # default value: "chef-client"
+    use_consistent_splay      true, false # default value: false
+    user                      String # default value: "System"
+    action                    Symbol # defaults to :add if not specified
   end
 syntax_properties_list:
 syntax_full_properties_list:
@@ -36,8 +38,8 @@ syntax_full_properties_list:
   the desired state."
 - "`accept_chef_license`, `chef_binary_path`, `config_directory`, `daemon_options`,
   `frequency`, `frequency_modifier`, `log_directory`, `log_file_name`, `password`,
-  `run_on_battery`, `splay`, `start_date`, `start_time`, `task_name`, and `user` are
-  the properties available to this resource."
+  `priority`, `run_on_battery`, `splay`, `start_date`, `start_time`, `task_name`,
+  `use_consistent_splay`, and `user` are the properties available to this resource."
 actions_list:
   :nothing:
     shortcode: resources_common_actions_nothing.md
@@ -101,6 +103,13 @@ properties_list:
   required: false
   description_list:
   - markdown: The password for the user that Chef Infra Client runs as.
+- property: priority
+  ruby_type: Integer
+  required: false
+  default_value: '7'
+  new_in: '17.5'
+  description_list:
+  - markdown: Use to set Priority Levels range from 0 to 10.
 - property: run_on_battery
   ruby_type: true, false
   required: false
@@ -132,6 +141,14 @@ properties_list:
   default_value: chef-client
   description_list:
   - markdown: The name of the scheduled task to create.
+- property: use_consistent_splay
+  ruby_type: true, false
+  required: false
+  default_value: 'false'
+  new_in: '17.5'
+  description_list:
+  - markdown: Always use the same random splay amount for each node to ensure consistent
+      frequencies between chef-client execution.
 - property: user
   ruby_type: String
   required: false
@@ -168,5 +185,13 @@ examples: |
     frequency 'daily'
     start_time '01:00'
     daemon_options ['-n audit_only']
+  end
+  ```
+
+  **Run Chef Infra Client with a persistent delay on every run calculated once, similar to how chef_client_cron resource works**:
+
+  ```ruby
+  chef_client_scheduled_task 'Run chef-client with persistent splay' do
+    use_consistent_splay true
   end
   ```
