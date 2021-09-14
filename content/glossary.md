@@ -13,57 +13,53 @@ product = ["automate", "client", "server", "habitat", "inspec", "workstation"]
  weight = 70
 +++
 
-Agent
-
-: Agents are programs that you configure to perform actions continuously and autonomously.
-
-Automate
-
-: A full suite of enterprise capabilities for maintaining continuous visibility into application, infrastructure, and security automation.
-
 Berkshelf
 
-:   The legacy tool for managing cookbook dependencies. Policyfiles should be used instead.
+: The legacy tool for managing cookbook dependencies. Policyfiles should be used instead.
 
 chef
 
 : `chef` is the Chef Workstation command line tool for managing your Chef development environment including repositories, cookbooks, recipes, attributes, templates, custom resources, and Ruby dependencies.
 
-chef-client
-
-: The `chef-client` is an agent that runs on nodes and a command line tool that runs on your local computer. The `chef-client` allows you to ensure the configuration of your systems through policy code. You install the chef-client on to nodes with the bootstrap process from your computer and configure it to run on an interval to ensure configuration compliance. You use the chef-client command line tool from your workstation to send instructions to the agent.
-
-chef-apply
-
-: A command-line tool that allows a single recipe to be run from the command line.
-
 ChefDK
 
 : The legacy package of tools for developing Chef Infra cookbooks. This product has been superseded by Chef Workstation which should be used instead.
-
-Chef Infra Client
-
-: A command-line tool that that runs Chef. Also, the name of Chef as it is installed on a node.
-
-Chef Workstation
-
-: A collection of tools to aide in development of Chef Infra cookbooks. It uses the full stack installer to give you everything you need to get going in one package. You can download it at [Chef Workstation](https://downloads.chef.io/chef-workstation/).
-
-chef-repo
-
-: The repository structure in which cookbooks are authored, tested, and maintained. View [an example of the](https://github.com/chef/chef-repo) chef-repo.
-
-Chef Infra Server
-
-: The Chef Infra Server acts as a hub for configuration data. The Chef Infra Server stores cookbooks, the policies that are applied to nodes, and metadata that describes each registered node that is being managed by Chef Infra Client. Nodes use Chef Infra Client to ask the Chef Infra Server for configuration details, such as recipes, templates, and file distributions.
 
 ChefSpec
 
 : ChefSpec is a unit-testing framework for testing Chef Infra cookbooks.
 
+Chef Automate
+
+: A full suite of enterprise capabilities for maintaining continuous visibility into application, infrastructure, and security automation.
+
+Chef Infra Client
+
+: A command-line tool that that runs Chef. Also, the name of Chef as it is installed on a node.
+
+Chef Infra Server
+
+: The Chef Infra Server acts as a hub for configuration data. The Chef Infra Server stores cookbooks, the policies that are applied to nodes, and metadata that describes each registered node that is being managed by Chef Infra Client. Nodes use Chef Infra Client to ask the Chef Infra Server for configuration details, such as recipes, templates, and file distributions.
+
+Chef Workstation
+
+: A collection of tools to aide in development of Chef Infra cookbooks. It uses the full stack installer to give you everything you need to get going in one package. You can download it at [Chef Workstation](https://downloads.chef.io/chef-workstation/).
+
+chef-client
+
+: The `chef-client` is the name for both the command line tool that runs on your local computer and the program that runs on nodes. The `chef-client` allows you to ensure the configuration compliance of your systems through policy code. You use the chef-client command line tool from your local computer to send instructions to the program on the node. You install the chef-client on nodes with the bootstrap process from your computer and then you configure it to run on an interval to ensure continuous configuration compliance.
+
+chef-apply
+
+: A command-line tool that allows a single recipe to be run from the command line.
+
+chef-repo
+
+: The repository structure in which cookbooks are authored, tested, and maintained. View [an example of the](https://github.com/chef/chef-repo) chef-repo.
+
 chef-zero
 
-: A very lightweight Chef Infra Server that runs in-memory on the local machine during a Chef Infra Client run. Also known as local mode.
+: A lightweight Chef Infra Server that runs in-memory on the local machine during a Chef Infra Client run. Also known as local mode.
 
 cookbook
 
