@@ -48,14 +48,14 @@ The response is similar to:
 ```javascript
 {
   "name": "apt",
-  "maintainer": "opscode",
-  "description": "Configures apt and apt services and LWRPs for managing apt repositories and preferences",
-  "category": "Package Management",
+  "maintainer": "sous-chefs",
+  "description": "Configures apt and apt caching.",
+  "category": "Other",
   "latest_version": "http://supermarket.chef.io/api/v1/cookbooks/apt/versions/2_4_0",
-  "external_url": "https://github.com/chef-cookbooks/apt",
+  "external_url": "https://github.com/sous-chefs/apt",
   "average_rating": null,
   "created_at": "2009-10-25T23:48:48.000Z",
-  "updated_at": "2014-05-15T17:45:14.000Z"
+  "updated_at": "2021-01-20T23:43:43.989Z"
 }
 ```
 
@@ -156,9 +156,9 @@ began:
          "cookbook": "http://supermarket.chef.io/api/v1/cookbooks/apache",
          "cookbook_maintainer": "john"
         },
-        {"cookbook_name": "fail2ban",
-         "cookbook_description": "installs fail2ban.",
-         "cookbook": "http://supermarket.chef.io/api/v1/cookbooks/fail2ban",
+        {"cookbook_name": "nginx",
+         "cookbook_description": "installs nginx.",
+         "cookbook": "http://supermarket.chef.io/api/v1/cookbooks/nginx",
          "cookbook_maintainer": "jill"
         },
         {"cookbook_name": "mysql",
@@ -166,9 +166,9 @@ began:
          "cookbook": "http://supermarket.chef.io/api/v1/cookbooks/mysql",
          "cookbook_maintainer": "barry"
         },
-        {"cookbook_name": "capistrano",
+        {"cookbook_name": "postgresql",
          "cookbook_description": null,
-         "cookbook": "http://supermarket.chef.io/api/v1/cookbooks/capistrano",
+         "cookbook": "http://supermarket.chef.io/api/v1/cookbooks/postgresql",
          "cookbook_maintainer": "pt"
         },
         {"cookbook_name": "ptapache",
@@ -223,14 +223,14 @@ The response is similar to:
 ```javascript
 {
   "name": "apt",
-  "maintainer": "opscode",
-  "description": "Configures apt and apt services and LWRPs for managing apt repositories and preferences",
-  "category": "Package Management",
-  "latest_version": "http://supermarket.chef.io/api/v1/cookbooks/apt/versions/2_4_0",
+  "maintainer": "sous-chefs",
+  "description": "Configures apt and apt caching.",
+  "category": "Other",
+  "latest_version": "http://supermarket.chef.io/api/v1/cookbooks/apt/versions/7_4_0",
   "external_url": "https://github.com/chef-cookbooks/apt",
   "average_rating": null,
   "created_at": "2009-10-25T23:48:48.000Z",
-  "updated_at": "2014-05-15T17:45:14.000Z"
+  "updated_at": "2021-01-20T23:43:43.989Z"
 }
 ```
 
@@ -290,28 +290,29 @@ cookbooks namely number of downloads and followers:
 ```javascript
 {
   "name": "yum",
-  "maintainer": "opscode",
+  "maintainer": "sous-chefs",
   "description": "Configures various yum components on Red Hat-like systems",
-  "category": "Package Management",
-  "latest_version": "http://supermarket.chef.io/api/v1/cookbooks/yum/versions/3_2_2",
-  "external_url": "https://github.com/chef-cookbooks/yum",
+  "category": "Other",
+  "latest_version": "http://supermarket.chef.io/api/v1/cookbooks/yum/versions/7_1_0",
+  "external_url": "https://github.com/sous-chefs/yum",
   "average_rating": null,
   "created_at": "2011-04-20T22:16:12.000Z",
-  "updated_at": "2014-06-11T19:06:37.000Z",
+  "updated_at": "2021-08-29T18:45:03.956Z",
   "deprecated": false,
   "versions": [
-    "http://supermarket.chef.io/api/v1/cookbooks/yum/versions/3_2_2",
-    "http://supermarket.chef.io/api/v1/cookbooks/yum/versions/3_2_0"
+    "http://supermarket.chef.io/api/v1/cookbooks/yum/versions/7_1_0",
+    "http://supermarket.chef.io/api/v1/cookbooks/yum/versions/7_0_0"
   ],
   "metrics": {
     "downloads": {
-      "total": 8500
+      "total": 178894510
       "versions": {
-        "3.2.0": 399,
-        "3.2.2": 1
+        "7_0_0": 13032,
+        "7_1_0": 12188
       }
    },
-   "followers": 55
+   "followers": 189,
+   "collaborators": 3
   }
 }
 ```
