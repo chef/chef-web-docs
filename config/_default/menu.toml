@@ -2,11 +2,11 @@
 ####
 ## Main Menu ##
 ####
-[[main]]
-title = "ChefConf '21"
-identifier = "chefconf"
-url = "https://www.chef.io/chefconf"
-weight = 5
+# [[main]]
+# title = "ChefConf '22"
+# identifier = "chefconf"
+# url = "https://www.chef.io/chefconf"
+# weight = 5
 
 [[main]]
 title = "Chef.io"
@@ -130,8 +130,20 @@ identifier = "automate"
   parent = "automate"
 
   [[automate]]
-  name = "Settings"
+  name = "Integrations"
   weight = 70
+  identifier = "automate/integrations"
+  parent = "automate"
+
+    [[automate]]
+    name = "ServiceNow"
+    weight = 20
+    identifier = "automate/integrations/servicenow"
+    parent = "automate/integrations"
+
+  [[automate]]
+  name = "Settings"
+  weight = 80
   identifier = "automate/settings"
   parent = "automate"
 
