@@ -63,4 +63,4 @@ properties_list:
   required: false
   description_list:
   - markdown: The URL of the tap.
-examples: 
+examples:
