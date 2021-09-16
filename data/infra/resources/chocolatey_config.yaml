@@ -42,7 +42,7 @@ properties_list:
   description_list:
   - markdown: The value to set.
 examples: |
-  **Set the Chocolatey cacheLocation config**
+  **Set the Chocolatey cacheLocation config**:
 
   ```ruby
   chocolatey_config 'Set cacheLocation config' do
@@ -51,7 +51,7 @@ examples: |
   end
   ```
 
-  **Unset a Chocolatey config**
+  **Unset a Chocolatey config**:
 
   ```ruby
   chocolatey_config 'BogusConfig' do
