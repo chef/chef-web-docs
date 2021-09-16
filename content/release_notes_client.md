@@ -11278,7 +11278,7 @@ enable the use of policy files:
 
 ### Bug Fixes
 
-- The Windows installer was much bigger than 12.4.1 (it’s back down under 80MB).
+- The Windows installer was much bigger than 12.4.1 (it's back down under 80MB).
 - Chef Infra Client raised an error when run as a Windows service.
 
 ## What's New in 12.4.2
@@ -11286,7 +11286,7 @@ enable the use of policy files:
 ### Bug Fixes
 
 - Support for installation via RPM 5 on Enterprise Linux.
-- Mac OS X and Windows rubygems and bundler have both been upgraded, and will now correctly pull in the latest ‘universal’ version of a platform-specific gem on Windows and Mac OS X instead of searching for earlier Windows- or Mac OS X-specific versions.
+- Mac OS X and Windows rubygems and bundler have both been upgraded, and will now correctly pull in the latest 'universal' version of a platform-specific gem on Windows and Mac OS X instead of searching for earlier Windows- or Mac OS X-specific versions.
 
 ## What's New in 12.4.1
 
@@ -14161,7 +14161,7 @@ properties.
 - Create constant for LWRP before calling `provides`
 - `path` attribute of `execute` resource is restored to provide backwards compatibility with Chef 11. This functionality is now deprecated and will be removed in Chef 13.
 - Fix `Chef::Knife::Core::BootstrapContext` constructor for knife-windows compat.
-- Make sure Client doesn’t raise error when interval is set on Windows.
+- Make sure Client doesn't raise error when interval is set on Windows.
 - Fix `uninitialized constant Windows::Constants` in `windows_eventlog`.
 - Make sure the Chef Infra Client rpm packages are signed with GPG keys correctly.
 
