@@ -512,12 +512,6 @@ identifier = "chef_infra"
       weight = 30
 
     [[infra]]
-    title = "Knife Plugins"
-    identifier = "chef_infra/extension_apis/knife_plugins"
-    parent = "chef_infra/extension_apis"
-    weight = 30
-
-    [[infra]]
     title = "Ohai Plugins"
     identifier = "chef_infra/extension_apis/ohai_plugins"
     parent = "chef_infra/extension_apis"
@@ -780,6 +774,18 @@ identifier = "chef_workstation"
     identifier = "chef_workstation/chef_workstation_tools/knife"
     parent = "chef_workstation/chef_workstation_tools"
     weight = 130
+
+    [[workstation]]
+    title = "Extension APIs"
+    identifier = "chef_workstation/extension_apis"
+    parent = "workstation"
+    weight = 140
+
+      [[workstation]]
+      title = "Knife Plugins"
+      identifier = "chef_workstation/extension_apis/knife_plugins"
+      parent = "chef_workstation/extension_apis"
+      weight = 10
 
 ####
 # End Chef Workstation Menu
