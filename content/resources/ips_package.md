@@ -10,8 +10,8 @@ toc_layout = "infra_resource_toc"
 [menu]
   [menu.infra]
     title = "ips_package"
-    identifier = "chef_infra/cookbook_reference/resources/ips_package"
-    parent = "chef_infra/cookbook_reference/resources"
+    identifier = "chef_infra/resources/ips_package"
+    parent = "chef_infra/resources"
 +++
 
 <!-- The contents of this page are automatically generated from the ips_package.yaml file in the data directory. -->

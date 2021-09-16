@@ -10,8 +10,8 @@ toc_layout = "infra_resource_toc"
 [menu]
   [menu.infra]
     title = "link"
-    identifier = "chef_infra/cookbook_reference/resources/link"
-    parent = "chef_infra/cookbook_reference/resources"
+    identifier = "chef_infra/resources/link"
+    parent = "chef_infra/resources"
 +++
 
 <!-- The contents of this page are automatically generated from the link.yaml file in the data directory. -->

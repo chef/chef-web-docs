@@ -10,8 +10,8 @@ toc_layout = "infra_resource_toc"
 [menu]
   [menu.infra]
     title = "dsc_resource"
-    identifier = "chef_infra/cookbook_reference/resources/dsc_resource"
-    parent = "chef_infra/cookbook_reference/resources"
+    identifier = "chef_infra/resources/dsc_resource"
+    parent = "chef_infra/resources"
 +++
 
 <!-- The contents of this page are automatically generated from the dsc_resource.yaml file in the data directory. -->

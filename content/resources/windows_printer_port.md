@@ -10,8 +10,8 @@ toc_layout = "infra_resource_toc"
 [menu]
   [menu.infra]
     title = "windows_printer_port"
-    identifier = "chef_infra/cookbook_reference/resources/windows_printer_port"
-    parent = "chef_infra/cookbook_reference/resources"
+    identifier = "chef_infra/resources/windows_printer_port"
+    parent = "chef_infra/resources"
 +++
 
 <!-- The contents of this page are automatically generated from the windows_printer_port.yaml file in the data directory. -->

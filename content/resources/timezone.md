@@ -10,8 +10,8 @@ toc_layout = "infra_resource_toc"
 [menu]
   [menu.infra]
     title = "timezone"
-    identifier = "chef_infra/cookbook_reference/resources/timezone"
-    parent = "chef_infra/cookbook_reference/resources"
+    identifier = "chef_infra/resources/timezone"
+    parent = "chef_infra/resources"
 +++
 
 <!-- The contents of this page are automatically generated from the timezone.yaml file in the data directory. -->

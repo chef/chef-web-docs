@@ -10,8 +10,8 @@ toc_layout = "infra_resource_toc"
 [menu]
   [menu.infra]
     title = "openssl_x509_certificate"
-    identifier = "chef_infra/cookbook_reference/resources/openssl_x509_certificate"
-    parent = "chef_infra/cookbook_reference/resources"
+    identifier = "chef_infra/resources/openssl_x509_certificate"
+    parent = "chef_infra/resources"
 +++
 
 <!-- The contents of this page are automatically generated from the openssl_x509_certificate.yaml file in the data directory. -->

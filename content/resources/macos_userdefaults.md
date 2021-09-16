@@ -10,8 +10,8 @@ toc_layout = "infra_resource_toc"
 [menu]
   [menu.infra]
     title = "macos_userdefaults"
-    identifier = "chef_infra/cookbook_reference/resources/macos_userdefaults"
-    parent = "chef_infra/cookbook_reference/resources"
+    identifier = "chef_infra/resources/macos_userdefaults"
+    parent = "chef_infra/resources"
 +++
 
 <!-- The contents of this page are automatically generated from the macos_userdefaults.yaml file in the data directory. -->

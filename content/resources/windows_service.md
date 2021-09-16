@@ -10,8 +10,8 @@ toc_layout = "infra_resource_toc"
 [menu]
   [menu.infra]
     title = "windows_service"
-    identifier = "chef_infra/cookbook_reference/resources/windows_service"
-    parent = "chef_infra/cookbook_reference/resources"
+    identifier = "chef_infra/resources/windows_service"
+    parent = "chef_infra/resources"
 +++
 
 <!-- The contents of this page are automatically generated from the windows_service.yaml file in the data directory. -->

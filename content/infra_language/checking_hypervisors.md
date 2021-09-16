@@ -7,9 +7,8 @@ gh_repo = "chef-web-docs"
 [menu]
   [menu.infra]
     title = "Checking Hypervisors"
-    identifier = "chef_infra/cookbook_reference/infra_language/checking_hypervisors.md Checking Hypervisors"
-    parent = "chef_infra/cookbook_reference/infra_language"
-    weight = 38
+    identifier = "chef_infra/infra_language/checking_hypervisors.md Checking Hypervisors"
+    parent = "chef_infra/infra_language"
 +++
 
 Chef Infra Client 15.8 and later include a number of helper methods for checking if a hypervisor host or guest.

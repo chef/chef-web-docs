@@ -7,9 +7,8 @@ gh_repo = "chef-web-docs"
 [menu]
   [menu.infra]
     title = "Reading Registry Keys"
-    identifier = "chef_infra/cookbook_reference/infra_language/registry_key.md Reading Registry Keys"
-    parent = "chef_infra/cookbook_reference/infra_language"
-    weight = 90
+    identifier = "chef_infra/infra_language/registry_key.md Reading Registry Keys"
+    parent = "chef_infra/infra_language"
 +++
 
 {{% infra_lang_method_windows_methods %}}
