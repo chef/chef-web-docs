@@ -136,7 +136,7 @@ The `yum_repository` has been refactored to better flush cache on RHEL and Fedor
 
 Chef Infra Client Docker containers are now published for the `arm64` architecture on DockerHub at https://hub.docker.com/r/chef/chef. These containers can be used for testing Chef Infra Client on `arm64` architecture Linux distributions with Test Kitchen.
 
-## What's New in 17.3
+## What's New in 17.3.48
 
 ### Compliance Phase Improvements
 
@@ -450,7 +450,7 @@ Ruby has been updated to 3.0.2 to resolve a large number of bugs as well as the 
 
 We've updated the addressable gem from 2.7 to 2.8 to resolve [CVE-2021-32740](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-32740).
 
-## What's New in 17.2
+## What's New in 17.2.29
 
 ### Compliance Phase Improvements
 
@@ -562,7 +562,7 @@ The `windows_security_policy` resource now limits the value of `ResetLockoutCoun
 
 The `zypper_repository` resource now accepts an array of GPG key locations in the `gpgkey` property. Thanks for reporting this [@bkabrda](https://github.com/bkabrda).
 
-## What's New in 17.1
+## What's New in 17.1.35
 
 ### Compliance Phase Improvements
 
@@ -631,7 +631,7 @@ Chef Infra Client 17.1 is once again smaller than previous releases thanks to re
 
 We improved our RHEL 8 packages with additional RHEL 8 optimizations and EL8 in the filename.
 
-## What's New in 17.0
+## What's New in 17.0.242
 
 Chef Infra Client 17.0 is our yearly release for 2021. These yearly releases include new functionality, an update to the underlying Ruby release, as well as potentially breaking changes. These notes outline what's new and what you should be aware of as part of your upgrade process.
 
@@ -914,7 +914,7 @@ On AIX, Solaris, macOS, and Linux platforms the Chef Infra Client packages will 
 
 In Chef Infra Client 16 we introduced Unified Mode allowing you to collapse the sometimes confusing compile and converge phases into a single unified phase. Unified mode makes it easier to write and troubleshoot failures in custom resources and for Chef Infra Client 18 we plan to make this the default execution phase for custom resources. We've backported the unified mode feature to the Chef Infra Client 14 and 15 systems and for Chef Infra Client 17 we will now begin warning if resources don't explicitly set this new mode. Enabling unified mode now lets you validate that resources will continue to function as expected in Chef Infra Client 18. To enable unified  mode in your resource add `unified_mode true` to the file.
 
-## What's New in 16.14
+## What's New in 16.14.1
 
 ## Bug Fixes
 
@@ -996,7 +996,7 @@ Ruby has been updated to 2.7.4 to resolve a large number of bugs as well as the 
 
 We've updated the addressable gem from 2.7 to 2.8 to resolve [CVE-2021-32740](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-32740).
 
-## What's New in 16.13
+## What's New in 16.13.16
 
 ### Chef InSpec 4.31
 
@@ -1066,7 +1066,7 @@ Ruby has been updated to 2.7.3, which provides a large number of bug fixes and a
 - [CVE-2021-28966](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-28966)
 - [CVE-2021-28966](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-28966)
 
-## What's New in 16.12
+## What's New in 16.12.3
 
 ### Chef InSpec 4.29
 
@@ -1166,7 +1166,7 @@ Upgraded OpenSSL to 1.0.2y, which resolves the following CVEs:
 
 With the release of macOS 11 we will no longer produce packages for macOS 10.13 systems. See our [Platform End-of-Life Policy](https://docs.chef.io/platforms/#platform-end-of-life-policy) for details on the platform lifecycle.
 
-## What's New in 16.10
+## What's New in 16.10.8
 
 ### Improvements
 
@@ -1269,7 +1269,7 @@ Chef InSpec has been updated from 4.24.8 to 4.25.1:
 - Added a missing dependency in the chef-zero binary that could cause failures when running chef-zero.
 - Resolved failures when running the audit cookbook from our yet-to-be-fully-released Chef Infra Compliance Phase. As it turns out, this dark launch was not as dark as we had hoped.
 
-## What's New in 16.9
+## What's New in 16.9.17
 
 ### Knife Improvements
 
@@ -1358,7 +1358,7 @@ The `windows_certificate` has been updated with a new `exportable` property that
 
 We are once again building packages for Solaris on Sparc and x86 platforms.
 
-## What's New in 16.7
+## What's New in 16.7.61
 
 ### Performance Enhancements
 
@@ -1435,7 +1435,7 @@ The `zypper_package` resource has been refactored to improve idempotency when sp
 - Performance of system configuration gathering on AIX systems has been improved
 - The `Virtualization` plugin on AIX systems now gathers a state `state` per WPAR and properly gathers LPAR names that include spaces
 
-## What's New in 16.6
+## What's New in 16.6.14
 
 ### pwsh Support
 
@@ -1572,7 +1572,7 @@ Ruby has been updated to 2.7.2, which includes a fix for [CVE-2020-25613](https:
 - Additional performance improvements to reduce the startup time of the `chef-client` and `knife` commands.
 - `knife vault` commands now output proper JSON or YAML when using the `-f json` or `-f yaml` flags.
 
-## What's New in 16.5
+## What's New in 16.5.77
 
 ### Performance Improvements
 
@@ -1699,7 +1699,7 @@ All Windows securable resources now support using SID in addition to user or gro
 
 OpenSSL has been updated to 1.0.2w which includes a fix for [CVE-2020-1968](https://cve.mitre.org/cgi-bin/cvename.cgi?name=2020-1968).
 
-## What's New in 16.4
+## What's New in 16.4.41
 
 ### Resource Updates
 
@@ -1853,7 +1853,7 @@ The `windows_security_policy` resource has been refactored to improve idempotenc
 
 Habitat packages for Windows, Linux and Linux2 are now built and tested against each pull request to Chef Infra Client. Additionally we've improved how these packages are built to reduce the size of the package, which reduces network utilization when using the Effortless deployment pattern.
 
-## What's New in 16.2.72
+## What's New in 16.2.73
 
 - Habitat packages for Chef Infra Client 16 are now published with full support for the `powershell_exec` helper now added.
 - Added a new `clear` action to the `windows_user_privilege` resource.
@@ -2009,7 +2009,7 @@ This release resolves high-priority bugs in the 16.1 release of Chef Infra Clien
 
 openSSL has been updated from 1.0.2u to 1.0.2v which does not address any particular CVEs, but includes multiple security hardening updates.
 
-## What's New in 16.1
+## What's New in 16.1.0
 
 ### Ohai 16.1
 
@@ -2055,7 +2055,7 @@ The Chef Infra Client 16.0.275 release includes important regression fixes for t
 - The `knife yaml convert` command now correctly converts symbol values.
 - The `sysctl`, `apt_preference`, and `cron_d` remove actions no longer fail with missing property warnings.
 
-## What's New in 16.0
+## What's New in 16.0.257
 
 ### Breaking Changes
 
@@ -2576,7 +2576,7 @@ Several legacy Windows helpers have been deprecated as they will always return t
 - Chef::Platform.supports_powershell_execution_bypass?
 - Chef::Platform.windows_nano_server?
 
-## What's new in 15.17
+## What's new in 15.17.4
 
 ### Chef InSpec 4.32
 
@@ -2603,7 +2603,19 @@ We updated Ruby from 2.6.6 to 2.6.7 to resolve a large number of bugs as well as
 - [CVE-2021-28965](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-28965)
 - [CVE-2020-25613](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-25613)
 
-## What's new in 15.16
+## What's new in 15.16.7
+
+### Bug Fixes
+
+- Resolved failures in producing and promoting Habitat builds of Chef Infra Client.
+
+## What's new in 15.16.4
+
+### Bug Fixes
+
+- Minor internal build fixes.
+
+## What's new in 15.16.2
 
 ### Fixes and Improvements
 
@@ -2657,7 +2669,7 @@ Upgraded OpenSSL to 1.0.2y, which resolves the following CVEs:
 
 With the release of macOS 11, we will no longer produce packages for macOS 10.13 systems. See our [Platform End-of-Life Policy](https://docs.chef.io/platforms/#platform-end-of-life-policy) for details on the platform lifecycle.
 
-## What's new in 15.15
+## What's new in 15.15.0
 
 ### Chef InSpec 4.24.8
 
@@ -2701,7 +2713,7 @@ Parsing of plist files has been improved in the `plist`, `macosx_service`, `osx_
 - The bundled Nokogiri Ruby gem has been updated to 1.11 resolve [CVE-2020-26247](https://nvd.nist.gov/vuln/detail/CVE-2020-26247).
 - openSSL has been updated to 1.0.2x to resolve [CVE-2020-1971](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-1971).
 
-## What's New In 15.14
+## What's New In 15.14.0
 
 ### Chef InSpec 4.22.22
 
@@ -2744,7 +2756,7 @@ OpenSSL has been updated to 1.0.2w which includes a fix for [CVE-2020-1968](http
 
 The included `cacerts` bundle in Chef Infra Client has been updated to the 7-22-2020 release. This new release removes 4 legacy root certificates and adds 4 additional root certificates.
 
-## What's New In 15.13
+## What's New In 15.13.8
 
 ### Chef InSpec 4.22.1
 
@@ -2767,7 +2779,7 @@ Chef InSpec has been updated from 4.20.6 to 4.22.1. This new release includes th
 
 Chef Infra Client 16.2 and later require `provides` when assigning a name to a custom resource. In order to prepare for Chef Infra Client 16, make sure to include both `resource_name` and `provides` in resources when specifying a custom name.
 
-## What's New In 15.12
+## What's New In 15.12.22
 
 ### Chef InSpec 4.20.6
 
@@ -2828,7 +2840,13 @@ Chef Infra Client now correctly detects macOS Big Sur (11.0) beta as being platf
 - Debian 8 packages are no longer being produced as Debian 8 is now end-of-life.
 - We now produce Windows 8 packages
 
-## What's New In 15.11
+## What's New In 15.11.8
+
+### Bug Fixes
+
+- Minor internal knife updates for future compatibility.
+
+## What's New In 15.11.3
 
 ### Bootstrapping Bugfixes
 
@@ -2868,7 +2886,7 @@ Chef Infra Client is now tested on Debian 10, SLES 15, and Ubuntu 20.04 on the a
 
 openSSL has been updated from 1.0.2u to 1.0.2v which does not address any particular CVEs, but includes multiple security hardening updates.
 
-## What's New in 15.10
+## What's New in 15.10.12
 
 ### Improvements
 
@@ -2898,7 +2916,7 @@ openSSL has been updated from 1.0.2u to 1.0.2v which does not address any partic
 
 Chef Infra Client is now tested on Amazon Linux 2 running on x86_64 and aarch64 with packages available on the [Chef Downloads Page](https://downloads.chef.io/chef).
 
-## What's New in 15.9
+## What's New in 15.9.17
 
 ### Chef InSpec 4.18.100
 
@@ -2952,17 +2970,17 @@ Our Windows 10 Chef Infra Client packages now receive an additional layer of tes
 
 Ruby has been updated from 2.6.5 to 2.6.6 to resolve the following CVEs:
 
-  - [CVE-2020-16255](https://www.ruby-lang.org/en/news/2020/03/19/json-dos-cve-2020-10663/): Unsafe Object Creation Vulnerability in JSON (Additional fix)
-  - [CVE-2020-10933](https://www.ruby-lang.org/en/news/2020/03/31/heap-exposure-in-socket-cve-2020-10933/): Heap exposure vulnerability in the socket library
+- [CVE-2020-16255](https://www.ruby-lang.org/en/news/2020/03/19/json-dos-cve-2020-10663/): Unsafe Object Creation Vulnerability in JSON (Additional fix)
+- [CVE-2020-10933](https://www.ruby-lang.org/en/news/2020/03/31/heap-exposure-in-socket-cve-2020-10933/): Heap exposure vulnerability in the socket library
 
 #### libarchive
 
 libarchive has been updated from 3.4.0 to 3.4.2 to resolve multiple security vulnerabilities including the following CVEs:
 
-  - [CVE-2019-19221](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-19221): archive_wstring_append_from_mbs in archive_string.c has an out-of-bounds read because of an incorrect mbrtowc or mbtowc call
-  - [CVE-2020-9308](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-9308): archive_read_support_format_rar5.c in libarchive before 3.4.2 attempts to unpack a RAR5 file with an invalid or corrupted header
+- [CVE-2019-19221](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-19221): archive_wstring_append_from_mbs in archive_string.c has an out-of-bounds read because of an incorrect mbrtowc or mbtowc call
+- [CVE-2020-9308](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-9308): archive_read_support_format_rar5.c in libarchive before 3.4.2 attempts to unpack a RAR5 file with an invalid or corrupted header
 
-## What's New in 15.8
+## What's New in 15.8.23
 
 ### New notify_group functionality
 
@@ -3125,7 +3143,20 @@ vm.swappiness = 10
 
 Each binary in the macOS Chef Infra Client installation is now signed to improve the integrity of the installation and ensure compatibility with macOS Catalina security requirements.
 
-## What's New in 15.7
+## What's New in 15.7.32
+
+### Bug Fixes
+
+- Update cookbook validation code to resolve `berks upload --skip-syntax-check` not honoring the `--skip-syntax-check` flag.
+- Fix `Chef::Cookbook::CookbookVersionLoader` loader deprecations that were too aggressive and causing failures.
+
+## What's New in 15.7.31
+
+### Bug Fixes
+
+- Avoid load method deprecation warnings in knife.
+
+## What's New in 15.7.30
 
 ### Updated Resources
 
@@ -3199,7 +3230,7 @@ Returns `true` if the system is a Windows Server Core edition.
 
 OpenSSL has been updated to 1.0.2u to resolve [CVE-2019-1551](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-1551)
 
-## What's New in 15.6
+## What's New in 15.6.10
 
 ### Updated Resources
 
@@ -3309,7 +3340,7 @@ The `windows_firewall` resource has been updated to support passing in an array 
 
 libxslt has been updated to 1.1.34 to resolve [CVE-2019-13118](https://nvd.nist.gov/vuln/detail/CVE-2019-13118).
 
-## What's New in 15.4
+## What's New in 15.4.45
 
 ### converge_if_changed Improvements
 
@@ -3394,7 +3425,7 @@ Ruby has been updated from 2.6.4 to 2.6.5 in order to resolve the following CVEs
 - [CVE-2019-15845](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-15845): A NUL injection vulnerability of File.fnmatch and File.fnmatch?
 - [CVE-2019-16201](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-16201): Regular Expression Denial of Service vulnerability of WEBrick's Digest access authentication
 
-## What's New in 15.3
+## What's New in 15.3.14
 
 ### Custom Resource Unified Mode
 
@@ -3495,7 +3526,7 @@ openssl has been updated from 1.0.2s to 1.0.2t in order to resolve [CVE-2019-156
 
 nokogiri has been updated from 1.10.2 to 1.10.4 in order to resolve [CVE-2019-5477](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-5477)
 
-## What's New in 15.2
+## What's New in 15.2.20
 
 ### Updated Resources
 
@@ -3558,7 +3589,7 @@ Chef InSpec has been updated from 4.6.4 to 4.10.4 with the following changes:
 
 bzip2 has been updated from 1.0.6 to 1.0.8 to resolve [CVE-2016-3189](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-3189) and [CVE-2019-12900](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-12900).
 
-## What's New in 15.1
+## What's New in 15.1.36
 
 ### New Resources
 
@@ -3766,6 +3797,7 @@ The `directory` resource now property supports passing `deny_rights :write` on W
 The `windows_service` resource has been improved to prevent accidentally reverting a service back to default settings in a subsequent definition.
 
 This example will no longer result in the MyApp service reverting to default RunAsUser:
+
 ```ruby
 windows_service 'MyApp' do
   run_as_user 'MyAppsUser'
@@ -4032,7 +4064,7 @@ The `refresh_plugins` method in the `Ohai::System` class has been removed as it 
 
 The `Virtualization` plugin will no longer detect systems running on the circa ~2005 VirtualPC or VirtualServer hypervisors. These hypervisors were long ago deprecated by Microsoft and support can no longer be tested.
 
-## What's New in 14.15
+## What's New in 14.15.6
 
 ### Updated Resources
 
@@ -4203,7 +4235,7 @@ openssl has been updated from 1.0.2s to 1.0.2t in order to resolve [CVE-2019-156
 
 nokogiri has been updated from 1.10.2 to 1.10.4 in order to resolve [CVE-2019-5477](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-5477).
 
-## What's New in 14.13
+## What's New in 14.13.11
 
 ### Updated Resources
 
@@ -4275,7 +4307,7 @@ The windows_certificate resource now imports nested certificates while importing
 - InSpec 3.7.1 -> 3.9.0
 - The unused windows-api gem is no longer bundled with Chef on Windows hosts
 
-## What's New in 14.11
+## What's New in 14.11.21
 
 ### Updated Resources
 
