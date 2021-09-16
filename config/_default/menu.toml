@@ -392,12 +392,6 @@ identifier = "chef_infra"
   weight = 50
 
   [[infra]]
-  title = "Install"
-  identifier = "chef_infra/configure"
-  parent = "chef_infra"
-  weight = 50
-
-  [[infra]]
   title = "Features"
   identifier = "chef_infra/features"
   parent = "chef_infra"
