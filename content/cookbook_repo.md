@@ -8,7 +8,7 @@ product = ["client", "server", "workstation"]
 [menu]
   [menu.infra]
     title = "Cookbook Directory"
-    identifier = "chef_infra/cookbook_reference/cookbook_repo.md Get Started"
+    identifier = "chef_infra/cookbook_reference/cookbook_repo.md Cookbook Repo"
     parent = "chef_infra/cookbook_reference"
     weight = 20
 +++
@@ -17,7 +17,7 @@ The `cookbooks/` directory of your Chef Infra repository is used to
 store the cookbooks that Chef Infra Client uses in configuring the
 various systems in the organization.
 
-## Chef Repository
+## Chef Repository 
 
 The the `\cookbook` directory is automatically generated as part of your Chef Infra repository.
 

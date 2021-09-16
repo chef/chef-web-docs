@@ -429,13 +429,13 @@ identifier = "chef_infra"
   title = "Policy"
   identifier = "chef_infra/policyfiles"
   parent = "chef_infra"
-  weight = 100
+  weight = 90
 
   [[infra]]
   title = "Security"
   identifier = "chef_infra/security"
   parent = "chef_infra"
-  weight = 80
+  weight = 100
 
     [[infra]]
     title = "FIPS-mode"
@@ -537,7 +537,6 @@ identifier = "chef_infra"
   [[infra]]
   title = "Chef Infra Resources"
   identifier = "chef_infra/resources"
-  parent = "chef_infra"
   weight = 140
 
   [[infra]]
@@ -592,6 +591,20 @@ identifier = "chef_infra"
       url = "/plugin_community/#ohai"
       weight = 20
 
+  [[infra]]
+  title = "Integrations"
+  identifier = "chef_infra/integrations"
+  parent = "chef_infra"
+  weight = 100
+
+    [[infra]]
+    title = "Microsoft Azure"
+    identifier = "chef_infra/integrations/azure"
+    parent = "chef_infra/integrations"
+
+    [[infra]]
+    title = "Microsoft Windows"
+    identifier = "chef_infra/integrations/windows"
 
 ####
 # End Chef Infra Menu
