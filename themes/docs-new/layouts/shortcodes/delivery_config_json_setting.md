@@ -5,5 +5,5 @@ build nodes to use for specific phases, whether to skip certain phases,
 and so on. The basic settings are defined below; however, additional
 settings, such as which linting rules to follow, can also be added. See
 the [delivery-truck
-readme](https://github.com/chef-cookbooks/delivery-truck/blob/master/README.md)
+readme](https://github.com/chef-cookbooks/delivery-truck/blob/main/README.md)
 for examples on how to add custom settings.

@@ -14,11 +14,11 @@ community:
 </thead>
 <tbody>
 <tr>
-<td><a href="https://github.com/timops/ohai-plugins/blob/master/win32_svc.rb">Airbrake</a></td>
+<td><a href="https://github.com/timops/ohai-plugins/blob/main/win32_svc.rb">Airbrake</a></td>
 <td>A handler that sends exceptions (only) to Airbrake, an application that collects data and aggregates it for review.</td>
 </tr>
 <tr>
-<td><a href="https://github.com/rottenbytes/chef/tree/master/async_handler">Asynchronous Resources</a></td>
+<td><a href="https://github.com/rottenbytes/chef/tree/main/async_handler">Asynchronous Resources</a></td>
 <td>A handler that asynchronously pushes exception and report handler data to a STOMP queue, from which data can be processed into data storage.</td>
 </tr>
 <tr>
@@ -46,7 +46,7 @@ community:
 <td>A handler that collects exception and report handler data and then sends it as a Growl notification.</td>
 </tr>
 <tr>
-<td><a href="https://github.com/mojotech/hipchat/blob/master/lib/hipchat/chef.rb">HipChat</a></td>
+<td><a href="https://github.com/mojotech/hipchat/blob/main/lib/hipchat/chef.rb">HipChat</a></td>
 <td>A handler that collects exception handler data and sends it to HipChat, a hosted private chat service for companies and teams.</td>
 </tr>
 <tr>

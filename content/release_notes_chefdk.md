@@ -10,7 +10,7 @@ product = []
 
 This page documents the ChefDK major changes for each release. For
 a detailed list of changes, see the [ChefDK Changelog on
-GitHub](https://github.com/chef/chef-dk/blob/master/CHANGELOG.md)
+GitHub](https://github.com/chef/chef-dk/blob/main/CHANGELOG.md)
 
 ## What's New In ChefDK 4.13
 
@@ -648,7 +648,7 @@ existing `chef-sugar` code to use the newer built-in helpers.
 
 For more information on all of the new helpers available, see the
 [chef-utils
-readme](https://github.com/chef/chef/blob/master/chef-utils/README.md).
+readme](https://github.com/chef/chef/blob/main/chef-utils/README.md).
 
 **Chefignore Improvements**
 
@@ -691,7 +691,7 @@ includes 28 new Chef cops for detecting deprecated and outdated cookbook
 code. This release also updates the underlying RuboCop engine used by
 Cookstyle which includes a large number of bug fixes that better detect
 violations and prevent false positives. See the [Cookstyle Release
-Notes](https://github.com/chef/cookstyle/blob/master/RELEASE_NOTES.md#cookstyle-513)
+Notes](https://github.com/chef/cookstyle/blob/main/RELEASE_NOTES.md#cookstyle-513)
 for a complete list of changes between 5.9 and 5.13.
 
 This new release also allows you to use `cookstyle` specific comments in
@@ -845,7 +845,7 @@ changes:
 Cookstyle has been updated from 5.6.2 to 5.9.3, which includes 13 new
 Chef cops, improved detection in existing cops, and improved
 autocorrection. See the [Cookstyle 5.7, 5.8, and 5.9 release
-notes](https://github.com/chef/cookstyle/blob/master/RELEASE_NOTES.md)
+notes](https://github.com/chef/cookstyle/blob/main/RELEASE_NOTES.md)
 for additional information on the new cops.
 
 #### knife-google
@@ -946,7 +946,7 @@ ChefStyle:
 ```
 
 See the [Cookstyle cops
-documentation](https://github.com/chef/cookstyle/blob/master/docs/cops.md)
+documentation](https://github.com/chef/cookstyle/blob/main/docs/cops.md)
 for a complete list of cops included in Cookstyle 5.6.
 
 Going forward, Cookstyle will be our sole Ruby and Chef Infra cookbook
@@ -1087,7 +1087,7 @@ modern configuration system, auto-correction, and a faster and more
 reliable engine thanks to RuboCop. We will continue to port useful rules
 from Foodcritic to Cookstyle, as well as add rules that were not
 possible in the legacy Foodcritic engine. See the [Cookstyle 5.1 Release
-Notes](https://github.com/chef/cookstyle/blob/master/RELEASE_NOTES.md#cookstyle-51)
+Notes](https://github.com/chef/cookstyle/blob/main/RELEASE_NOTES.md#cookstyle-51)
 for a complete list of new rules.
 
 #### kitchen-azurerm
@@ -1194,7 +1194,7 @@ Chef Infra Client has been updated to 15.1 with new and improved
 resources, improvements to target mode, bootstrap bug fixes, new Ohai
 detection on VirtualBox hosts, and more. See the [Chef Infra Client 15.1
 Release
-Notes](https://github.com/chef/chef/blob/master/RELEASE_NOTES.md#chef-infra-client-151)
+Notes](https://github.com/chef/chef/blob/main/RELEASE_NOTES.md#chef-infra-client-151)
 for a complete list of new and improved functionality.
 
 #### Chef InSpec 4.6.9
@@ -1206,7 +1206,7 @@ changes:
     confusion with Chef Infra attributes.
 - A new InSpec plugin type of `Input` has been added for defining new
     input types. See the [InSpec Plugins
-    documentation](https://github.com/inspec/inspec/blob/master/docs/dev/plugins.md#implementing-input-plugins)
+    documentation](https://github.com/inspec/inspec/blob/main/docs/dev/plugins.md#implementing-input-plugins)
     for more information on writing these plugins.
 - InSpec no longer prints errors to the stdout when passing
     `--format json`.
@@ -1264,7 +1264,7 @@ user namespace mode when running privileged containers with a new
 on each run to check for newer images. This option now defaults to
 `true` so that testing on latest and current always actually mean latest
 and current. See the [kitchen-dokken
-readme](https://github.com/someara/kitchen-dokken/blob/master/README.md)for
+readme](https://github.com/someara/kitchen-dokken/blob/main/README.md)for
 `kitchen.yml` config examples.
 
 #### kitchen-digitalocean 0.10.4
@@ -1279,7 +1279,7 @@ slug support for `fedora-29`, `fedora-30`, and `ubuntu-19`. Finally, if
 you'd like to monitor your test instances, the new `monitoring`
 configuration option in the `kitchen.yml` driver section allows enabling
 DigitalOcean's instance monitoring. See the [kitchen-digitalocean
-readme](https://github.com/test-kitchen/kitchen-digitalocean/blob/master/README.md)
+readme](https://github.com/test-kitchen/kitchen-digitalocean/blob/main/README.md)
 for `kitchen.yml` config examples.
 
 #### knife-vsphere 3.0.0
@@ -1475,7 +1475,7 @@ Fauxhai has been updated from 6.11 to 7.3. This removes all platforms
 that were previously marked as deprecated. So if you've noticed
 deprecation warnings during your ChefSpec tests, you will need to update
 those specs for the latest [supported Fauxhai
-platforms](https://github.com/chefspec/fauxhai/blob/master/PLATFORMS.md).
+platforms](https://github.com/chefspec/fauxhai/blob/main/PLATFORMS.md).
 This release also adds the following new platform releases for testing
 in ChefSpec:
 
@@ -1493,7 +1493,7 @@ testing, as well as support for newer `ed25519` format SSH keys on
 guests. The newer release does remove support for the legacy Librarian
 depsolver and testing of Chef Infra Client 10/11 releases in some
 scenarios. See the [Test Kitchen Release
-Notes](https://github.com/test-kitchen/test-kitchen/blob/master/RELEASE_NOTES.md#test-kitchen-22-release-notes)
+Notes](https://github.com/test-kitchen/test-kitchen/blob/main/RELEASE_NOTES.md#test-kitchen-22-release-notes)
 for additional details on this release.
 
 #### Kitchen-ec2 3.0
@@ -1502,7 +1502,7 @@ Kitchen-ec2 has been updated to 3.0, which uses the newer `aws-sdk-v3`
 and includes a large number of improvements to the driver including
 improved hostname detection, backoff retries, additional security group
 configuration options, and more. See the [kitchen-ec2
-Changelog](https://github.com/test-kitchen/kitchen-ec2/blob/master/CHANGELOG.md#v300-2019-05-01)
+Changelog](https://github.com/test-kitchen/kitchen-ec2/blob/main/CHANGELOG.md#v300-2019-05-01)
 for additional details.
 
 #### kitchen-dokken 2.6.9
@@ -1718,7 +1718,7 @@ release also adds slug support for `fedora-29`, `fedora-30`, and
 new `monitoring` configuration option in the `kitchen.yml` driver
 section allows enabling DigitalOcean's instance monitoring. See the
 [kitchen-digitalocean
-readme](https://github.com/test-kitchen/kitchen-digitalocean/blob/master/README.md)
+readme](https://github.com/test-kitchen/kitchen-digitalocean/blob/main/README.md)
 for `kitchen.yml` config examples.
 
 #### kitchen-vagrant
@@ -2132,7 +2132,7 @@ what's new.
     Mint 18.2, Gentoo 4.9.6, All versions of ios_xr, All versions of
     omnios, All versions of nexus, macOS 10.10, and Solaris 5.10.
 - See [Fauxhai Supported
-    Platforms](https://github.com/chefspec/fauxhai/tree/master/lib/fauxhai/platforms)
+    Platforms](https://github.com/chefspec/fauxhai/tree/main/lib/fauxhai/platforms)
     for a complete list of supported platform data for use with
     ChefSpec.
 
@@ -2276,7 +2276,7 @@ cookbook(s) given on the command line.
     **Test Kitchen**
 
     Test Kitchen 1.23 now includes support for [lifecycle
-    hooks](https://github.com/test-kitchen/test-kitchen/blob/master/RELEASE_NOTES.md#life-cycle-hooks).
+    hooks](https://github.com/test-kitchen/test-kitchen/blob/main/RELEASE_NOTES.md#life-cycle-hooks).
 
 - **Updated Components**
 
@@ -2409,7 +2409,7 @@ cookbook(s) given on the command line.
         your cookbook directories. It also introduces new config options
         for SSH proxy servers and allows you to specify multiple paths
         for data bags. See the
-        [CHANGELOG](https://github.com/chef/chef-dk/blob/master/CHANGELOG.md)
+        [CHANGELOG](https://github.com/chef/chef-dk/blob/main/CHANGELOG.md)
         for a complete list of changes.
 
     - **InSpec**
@@ -2430,7 +2430,7 @@ cookbook(s) given on the command line.
         also adds 9 new platforms and updates existing data for Chef 14.
         To see a complete list of platforms that can be mocked in
         ChefSpec see
-        <https://github.com/chefspec/fauxhai/blob/master/PLATFORMS.md>.
+        <https://github.com/chefspec/fauxhai/blob/main/PLATFORMS.md>.
 
     - **Foodcritic**
 
@@ -2448,7 +2448,7 @@ cookbook(s) given on the command line.
         RuboCop engine to 0.55 with a long list of bug fixes and
         improvements. This release of Cookstyle also enables 19 new
         rules available in RuboCop. See the
-        [CHANGELOG](https://github.com/chef/chef-dk/blob/master/CHANGELOG.md)
+        [CHANGELOG](https://github.com/chef/chef-dk/blob/main/CHANGELOG.md)
         for a complete list of newly enabled rules.
 
     - **Berkshelf**
@@ -2580,7 +2580,7 @@ cookbook(s) given on the command line.
 - **Added include_policy directive**
 
     Policyfile can use the `include_policy` directive as described in
-    [RFC097](https://github.com/chef/chef-rfc/blob/master/rfc097-policyfile-includes.md).
+    [RFC097](https://github.com/chef/chef-rfc/blob/main/rfc097-policyfile-includes.md).
     This directive's purpose is to allow the inclusion policyfile locks
     to the current policyfile. In this iteration, we support sourcing
     lock files from a local path or a Chef server. Below is a simple
@@ -2648,7 +2648,7 @@ cookbook(s) given on the command line.
     policyfile lock merged in.
 
     More information can be found in
-    [RFC097](https://github.com/chef/chef-rfc/blob/master/rfc097-policyfile-includes.md)
+    [RFC097](https://github.com/chef/chef-rfc/blob/main/rfc097-policyfile-includes.md)
     and the [Policyfile documentation](/policyfile/).
 
 - **New tools bundled**
@@ -2661,7 +2661,7 @@ cookbook(s) given on the command line.
     - [knife-google](https://github.com/chef/knife-google)
 
 See the detailed [change
-log](https://github.com/chef/chef-dk/blob/master/CHANGELOG.md#v2417-2017-11-29)
+log](https://github.com/chef/chef-dk/blob/main/CHANGELOG.md#v2417-2017-11-29)
 for additional information.
 
 ## What's New in 2.3.4
@@ -2674,7 +2674,7 @@ ChefDK 2.3.
 ## What's New in 2.3.3
 
 This release restores macOS support in ChefDK 2.3. See the [change
-log](https://github.com/chef/chef-dk/blob/master/CHANGELOG.md#v233-2017-09-21)
+log](https://github.com/chef/chef-dk/blob/main/CHANGELOG.md#v233-2017-09-21)
 for more information.
 
 ## What's New in 2.3.1
@@ -2700,7 +2700,7 @@ Additionally, the cookbook generator now adds a `LICENSE` file when
 creating a new cookbook.
 
 See the detailed [change
-log](https://github.com/chef/chef-dk/blob/master/CHANGELOG.md#v231-2017-09-14)
+log](https://github.com/chef/chef-dk/blob/main/CHANGELOG.md#v231-2017-09-14)
 for a complete list of changes.
 
 {{< note >}}
@@ -2751,7 +2751,7 @@ address
 - test-kitchen 1.16 -\> 1.17
 
 See the detailed [change
-log](https://github.com/chef/chef-dk/blob/master/CHANGELOG.md#v2111-2017-08-11)
+log](https://github.com/chef/chef-dk/blob/main/CHANGELOG.md#v2111-2017-08-11)
 for a full list of changes.
 
 ## What's New in 2.0.28
@@ -2946,7 +2946,7 @@ This new release also includes three new matchers: `dnf_package`,
 `msu_package`, and `cab_package` and utilizes the new Fauxhai 4.0
 release. This release adds several new platforms and removes many older
 end-of-life platforms. See
-[PLATFORMS.md](https://github.com/customink/fauxhai/blob/master/PLATFORMS.md)
+[PLATFORMS.md](https://github.com/customink/fauxhai/blob/main/PLATFORMS.md)
 for a list of all supported platforms for use in ChefSpec.
 
 ### InSpec
@@ -3227,4 +3227,4 @@ binaries. Run `mixlib-install help` for command usage.
 
 ## Changelog
 
-<https://github.com/chef/chef-dk/blob/master/CHANGELOG.md>
+<https://github.com/chef/chef-dk/blob/main/CHANGELOG.md>

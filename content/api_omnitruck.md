@@ -53,7 +53,7 @@ https://omnitruck.chef.io/<CHANNEL>/<PRODUCT>/metadata?p=$PLATFORM&pv=$PLATFORM_
 where:
 
 - `<CHANNEL>` is the release channel to install from. See [Chef Software Inc Packages](/packages/) for full details on the available channels.
-- `<PRODUCT>` is the Chef Software Inc product to install. A list of valid product keys can be found at <https://github.com/chef/mixlib-install/blob/master/PRODUCT_MATRIX.md>
+- `<PRODUCT>` is the Chef Software Inc product to install. A list of valid product keys can be found at <https://github.com/chef/mixlib-install/blob/main/PRODUCT_MATRIX.md>
 - `p` is the platform. Possible values: `debian`, `el` (for RHEL derivatives), `freebsd`, `mac_os_x`, `solaris2`, `sles`, `suse`, `ubuntu` or `windows`.
 - `pv` is the platform version. Possible values depend on the platform. For example, Ubuntu: `18.04`, or `20.04` or for macOS: `10.15` or `11`.
 - `m` is the machine architecture for the machine on which the product will be installed. Possible values depend on the platform. For example, for Ubuntu or Debian: `i386` or `x86_64` or for macOS: `x86_64`.

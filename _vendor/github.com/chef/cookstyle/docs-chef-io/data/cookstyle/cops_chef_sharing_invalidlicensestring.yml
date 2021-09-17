@@ -9,7 +9,7 @@ description: |-
   ```ruby
   require 'json'
   require 'net/http'
-  json_data = JSON.parse(Net::HTTP.get(URI('https://raw.githubusercontent.com/spdx/license-list-data/master/json/licenses.json')))
+  json_data = JSON.parse(Net::HTTP.get(URI('https://raw.githubusercontent.com/spdx/license-list-data/main/json/licenses.json')))
   licenses = json_data['licenses'].map {|l| l['licenseId'] }.sort
   ```
 autocorrection: true

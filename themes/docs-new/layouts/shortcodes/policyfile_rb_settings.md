@@ -144,7 +144,7 @@ A `Policyfile.rb` file may contain the following settings:
     cookbooks appear as-is from the included policyfile lock. If
     conflicting attributes or cookbooks are provided, an error will be
     presented. See
-    [RFC097](https://github.com/chef/chef-rfc/blob/master/rfc097-policyfile-includes.md)
+    [RFC097](https://github.com/chef/chef-rfc/blob/main/rfc097-policyfile-includes.md)
     for the full specifications of this feature.
 
     Pull the policyfile lock from `./NAME.lock.json`:

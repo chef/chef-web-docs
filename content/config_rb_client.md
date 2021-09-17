@@ -184,7 +184,7 @@ This configuration file has the following settings:
 : The path to the environment file. Default value: `/var/chef/environments`.
 
 `exit_status`
-: When set to `:enabled`, Chef Infra Client will use [standardized exit codes](https://github.com/chef/chef/blob/master/docs/dev/design_documents/client_exit_codes.md#exit-codes-in-use) for the Chef Infra Client run status, and any non-standard exit codes will be converted to `1` or `GENERIC_FAILURE`. This setting can also be set to `:disabled` to use the pre-Chef Infra Client 13 exit code behavior. Default value: `nil`.
+: When set to `:enabled`, Chef Infra Client will use [standardized exit codes](https://github.com/chef/chef/blob/main/docs/dev/design_documents/client_exit_codes.md#exit-codes-in-use) for the Chef Infra Client run status, and any non-standard exit codes will be converted to `1` or `GENERIC_FAILURE`. This setting can also be set to `:disabled` to use the pre-Chef Infra Client 13 exit code behavior. Default value: `nil`.
 
 `file_atomic_update`
 : Apply atomic file updates to all resources. Set to `true` for global atomic file updates. Set to `false` for global non-atomic file updates. (Use the `atomic_update` setting on a per-resource basis to override this setting.) Default value: `true`.
