@@ -92,18 +92,6 @@ Omnitruck accepts the following platforms:
 <td><code>201X, 2</code></td>
 </tr>
 <tr>
-<td>Cisco IOS XR</td>
-<td><code>ios_xr</code></td>
-<td><code>x86_64</code></td>
-<td><code>6</code></td>
-</tr>
-<tr>
-<td>Cisco NX-OS</td>
-<td><code>nexus</code></td>
-<td><code>x86_64</code></td>
-<td><code>7</code></td>
-</tr>
-<tr>
 <td>Debian</td>
 <td><code>debian</code></td>
 <td><code>i386</code>, <code>x86_64</code>, <code>aarch64</code></td>
