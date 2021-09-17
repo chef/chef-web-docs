@@ -179,22 +179,12 @@ The following platforms are supported only via the community:
 <td>current non-EOL releases</td>
 </tr>
 <tr>
-<td>Gentoo</td>
-<td><code>x86_64</code></td>
-<td>current version</td>
-</tr>
-<tr>
 <td>Kali Linux</td>
 <td><code>x86_64</code></td>
 <td>current non-EOL releases</td>
 </tr>
 <tr>
 <td>Linux Mint</td>
-<td><code>x86_64</code></td>
-<td>current non-EOL releases</td>
-</tr>
-<tr>
-<td>OmniOS Community Edition</td>
 <td><code>x86_64</code></td>
 <td>current non-EOL releases</td>
 </tr>
