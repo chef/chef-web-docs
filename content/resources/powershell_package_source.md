@@ -10,8 +10,8 @@ toc_layout = "infra_resource_toc"
 [menu]
   [menu.infra]
     title = "powershell_package_source"
-    identifier = "chef_infra/cookbook_reference/resources/powershell_package_source"
-    parent = "chef_infra/cookbook_reference/resources"
+    identifier = "chef_infra/resources/powershell_package_source"
+    parent = "chef_infra/resources"
 +++
 
 <!-- The contents of this page are automatically generated from the powershell_package_source.yaml file in the data directory. -->

@@ -7,9 +7,8 @@ gh_repo = "chef-web-docs"
 [menu]
   [menu.infra]
     title = "Checking Architectures"
-    identifier = "chef_infra/cookbook_reference/infra_language/checking_architectures.md Checking Architectures"
-    parent = "chef_infra/cookbook_reference/infra_language"
-    weight = 35
+    identifier = "chef_infra/infra_language/checking_architectures.md Checking Architectures"
+    parent = "chef_infra/infra_language"
 +++
 
 Chef Infra Client 15.5 and later include a number of helper methods for checking the processor architecture of systems. These methods can be used in attribute files, recipes, and resources.

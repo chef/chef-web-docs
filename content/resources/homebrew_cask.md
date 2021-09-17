@@ -10,8 +10,8 @@ toc_layout = "infra_resource_toc"
 [menu]
   [menu.infra]
     title = "homebrew_cask"
-    identifier = "chef_infra/cookbook_reference/resources/homebrew_cask"
-    parent = "chef_infra/cookbook_reference/resources"
+    identifier = "chef_infra/resources/homebrew_cask"
+    parent = "chef_infra/resources"
 +++
 
 <!-- The contents of this page are automatically generated from the homebrew_cask.yaml file in the data directory. -->

@@ -10,8 +10,8 @@ toc_layout = "infra_resource_toc"
 [menu]
   [menu.infra]
     title = "windows_dns_zone"
-    identifier = "chef_infra/cookbook_reference/resources/windows_dns_zone"
-    parent = "chef_infra/cookbook_reference/resources"
+    identifier = "chef_infra/resources/windows_dns_zone"
+    parent = "chef_infra/resources"
 +++
 
 <!-- The contents of this page are automatically generated from the windows_dns_zone.yaml file in the data directory. -->

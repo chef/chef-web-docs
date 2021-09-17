@@ -7,9 +7,8 @@ gh_repo = "chef-web-docs"
 [menu]
   [menu.infra]
     title = "Search"
-    identifier = "chef_infra/cookbook_reference/infra_language/search.md Search"
-    parent = "chef_infra/cookbook_reference/infra_language"
-    weight = 50
+    identifier = "chef_infra/infra_language/search.md Search"
+    parent = "chef_infra/infra_language"
 +++
 
 ## search

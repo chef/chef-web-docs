@@ -7,9 +7,8 @@ gh_repo = "chef-web-docs"
 [menu]
   [menu.infra]
     title = "Editing Resources"
-    identifier = "chef_infra/cookbook_reference/infra_language/editing_resources.md Editing Resources"
-    parent = "chef_infra/cookbook_reference/infra_language"
-    weight = 80
+    identifier = "chef_infra/infra_language/editing_resources.md Editing Resources"
+    parent = "chef_infra/infra_language"
 +++
 
 ## declare_resource

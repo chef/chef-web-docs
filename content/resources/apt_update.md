@@ -10,8 +10,8 @@ toc_layout = "infra_resource_toc"
 [menu]
   [menu.infra]
     title = "apt_update"
-    identifier = "chef_infra/cookbook_reference/resources/apt_update"
-    parent = "chef_infra/cookbook_reference/resources"
+    identifier = "chef_infra/resources/apt_update"
+    parent = "chef_infra/resources"
 +++
 
 <!-- The contents of this page are automatically generated from the apt_update.yaml file in the data directory. -->

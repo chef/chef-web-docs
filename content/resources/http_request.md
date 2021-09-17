@@ -10,8 +10,8 @@ toc_layout = "infra_resource_toc"
 [menu]
   [menu.infra]
     title = "http_request"
-    identifier = "chef_infra/cookbook_reference/resources/http_request"
-    parent = "chef_infra/cookbook_reference/resources"
+    identifier = "chef_infra/resources/http_request"
+    parent = "chef_infra/resources"
 +++
 
 <!-- The contents of this page are automatically generated from the http_request.yaml file in the data directory. -->

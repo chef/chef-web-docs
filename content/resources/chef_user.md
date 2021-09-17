@@ -10,8 +10,8 @@ toc_layout = "infra_resource_toc"
 [menu]
   [menu.infra]
     title = "chef_user"
-    identifier = "chef_infra/cookbook_reference/resources/chef_user"
-    parent = "chef_infra/cookbook_reference/resources"
+    identifier = "chef_infra/resources/chef_user"
+    parent = "chef_infra/resources"
 +++
 
 <!-- The contents of this page are automatically generated from the chef_user.yaml file in the data directory. -->

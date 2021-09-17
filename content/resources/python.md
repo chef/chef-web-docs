@@ -10,8 +10,8 @@ toc_layout = "infra_resource_toc"
 [menu]
   [menu.infra]
     title = "python"
-    identifier = "chef_infra/cookbook_reference/resources/python"
-    parent = "chef_infra/cookbook_reference/resources"
+    identifier = "chef_infra/resources/python"
+    parent = "chef_infra/resources"
 +++
 
 <!-- The contents of this page are automatically generated from the python.yaml file in the data directory. -->

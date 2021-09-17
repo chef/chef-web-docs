@@ -10,8 +10,8 @@ toc_layout = "infra_resource_toc"
 [menu]
   [menu.infra]
     title = "systemd_unit"
-    identifier = "chef_infra/cookbook_reference/resources/systemd_unit"
-    parent = "chef_infra/cookbook_reference/resources"
+    identifier = "chef_infra/resources/systemd_unit"
+    parent = "chef_infra/resources"
 +++
 
 <!-- The contents of this page are automatically generated from the systemd_unit.yaml file in the data directory. -->

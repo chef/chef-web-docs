@@ -78,7 +78,7 @@ See the example at the bottom of this section.
 - parent
 
 	The location of the resource page in the left navigation menu. For resource pages
-	this is always `chef_infra/cookbook_reference/resources`.
+	this is always `chef_infra/resources`.
 
 Example menu section:
 
@@ -86,9 +86,9 @@ Example menu section:
 menu:
   infra:
     title: resource_name
-    identifier: chef_infra/cookbook_reference/resources/resource_name
+    identifier: chef_infra/resources/resource_name
       resource_name
-    parent: chef_infra/cookbook_reference/resources
+    parent: chef_infra/resources
 ```
 
 **robots**

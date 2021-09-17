@@ -458,31 +458,31 @@ identifier = "chef_infra"
     title = "Attributes"
     identifier = "chef_infra/cookbook_reference/attributes"
     parent = "chef_infra/cookbook_reference"
-    weight = 40
+    weight = 30
 
     [[infra]]
     title = "Recipes"
     identifier = "chef_infra/cookbook_reference/recipes"
     parent = "chef_infra/cookbook_reference"
-    weight = 50
+    weight = 70
 
-    [[infra]]
-    title = "Chef Infra Language"
-    identifier = "chef_infra/cookbook_reference/infra_language"
-    parent = "chef_infra/cookbook_reference"
-    weight = 60
+  [[infra]]
+  title = "Chef Infra Language"
+  identifier = "chef_infra/infra_language"
+  parent = "chef_infra"
+  weight = 70
 
-    [[infra]]
-    title = "Resources"
-    identifier = "chef_infra/cookbook_reference/resources"
-    parent = "chef_infra/cookbook_reference"
-    weight = 80
+  [[infra]]
+  title = "Chef Infra Resources"
+  identifier = "chef_infra/resources"
+  parent = "chef_infra"
+  weight = 80
 
   [[infra]]
   title = "Extension APIs"
   identifier = "chef_infra/extension_apis"
   parent = "chef_infra"
-  weight = 80
+  weight = 90
 
     [[infra]]
     title = "Compliance DSL"
@@ -534,7 +534,7 @@ identifier = "chef_infra"
   title = "Integrations"
   identifier = "chef_infra/integrations"
   parent = "chef_infra"
-  weight = 90
+  weight = 100
 
     [[infra]]
     title = "Microsoft Azure"

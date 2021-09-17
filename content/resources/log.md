@@ -10,8 +10,8 @@ toc_layout = "infra_resource_toc"
 [menu]
   [menu.infra]
     title = "log"
-    identifier = "chef_infra/cookbook_reference/resources/log"
-    parent = "chef_infra/cookbook_reference/resources"
+    identifier = "chef_infra/resources/log"
+    parent = "chef_infra/resources"
 +++
 
 <!-- The contents of this page are automatically generated from the log.yaml file in the data directory. -->

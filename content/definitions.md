@@ -8,10 +8,10 @@ aliases = ["/definitions.html"]
 
 [menu]
   [menu.infra]
-    title = "Migrating from Definitions"
-    identifier = "chef_infra/cookbook_reference/resources/definitions.md Migrating from Definitions"
-    parent = "chef_infra/cookbook_reference/resources"
-    weight = 30
+    title = "Converting Definitions to Custom Resources"
+    identifier = "chef_infra/resources/definitions.md Migrating from Definitions"
+    parent = "chef_infra/resources"
+    weight = 20
 +++
 
 This topic covers migrating existing definitions to custom resources. Custom resources are integral to the modern Chef Infra workflow. While definitions are not yet deprecated, we *strongly* advise migrating to custom resources immediately. You'll benefit from the many features of Chef Infra such as notifications, reporting, why-run mode, and ChefSpec unit testing.

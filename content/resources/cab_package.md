@@ -10,8 +10,8 @@ toc_layout = "infra_resource_toc"
 [menu]
   [menu.infra]
     title = "cab_package"
-    identifier = "chef_infra/cookbook_reference/resources/cab_package"
-    parent = "chef_infra/cookbook_reference/resources"
+    identifier = "chef_infra/resources/cab_package"
+    parent = "chef_infra/resources"
 +++
 
 <!-- The contents of this page are automatically generated from the cab_package.yaml file in the data directory. -->

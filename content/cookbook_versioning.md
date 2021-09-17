@@ -7,10 +7,10 @@ product = ["client", "server", "workstation"]
 
 [menu]
   [menu.infra]
-    title = "Cookbook Versioning"
-    identifier = "chef_infra/cookbook_reference/cookbook_versioning.md Cookbook Versioning"
+    title = "Versioning Cookbooks"
+    identifier = "chef_infra/cookbook_reference/cookbook_versioning.md Versioning Cookbooks"
     parent = "chef_infra/cookbook_reference"
-    weight = 120
+    weight = 150
 +++
 
 {{% cookbooks_version %}}

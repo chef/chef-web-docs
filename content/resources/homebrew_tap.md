@@ -10,8 +10,8 @@ toc_layout = "infra_resource_toc"
 [menu]
   [menu.infra]
     title = "homebrew_tap"
-    identifier = "chef_infra/cookbook_reference/resources/homebrew_tap"
-    parent = "chef_infra/cookbook_reference/resources"
+    identifier = "chef_infra/resources/homebrew_tap"
+    parent = "chef_infra/resources"
 +++
 
 <!-- The contents of this page are automatically generated from the homebrew_tap.yaml file in the data directory. -->
