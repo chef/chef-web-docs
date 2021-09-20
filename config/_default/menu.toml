@@ -454,60 +454,70 @@ identifier = "chef_infra"
     title = "chef-solo (executable)"
     identifier = "chef_infra/reference/ctl_chef_solo.md chef-solo (executable)"
     parent = "chef_infra/reference"
+    url = "/ctl_chef_solo/"
     weight = 20
 
     [[infra]]
     title = "Custom Resources DSL"
-    identifier = "chef_infra/resources/dsl_custom_resource.md Custom Resources Commands"
+    identifier = "chef_infra/reference/dsl_custom_resource.md Custom Resources Commands"
     parent = "chef_infra/reference"
+    url = "/dsl_custom_resource/"
     weight = 30
 
     [[infra]]
     title = "Handler DSL"
-    identifier = "chef_infra/reference/extension_apis/handlers/dsl_handler.md Handler Commands"
+    identifier = "chef_infra/reference/dsl_handler.md Handler Commands"
     parent = "chef_infra/reference"
+    url = "/dsl_handler/"
     weight = 40
 
     [[infra]]
     title = "ohai (executable)"
-    identifier = "chef_infra/features/ohai/ctl_ohai.md ohai (executable)"
+    identifier = "chef_infra/reference/ctl_ohai.md ohai (executable)"
     parent = "chef_infra/reference"
+    url = "/ctl_ohai/"
     weight = 50
 
     [[infra]]
     title = "supermarket-ctl"
     identifier = "supermarket/reference/ctl_supermarket.md supermarket-ctl"
     parent = "chef_infra/reference"
+    url = "/ctl_supermarket/"
     weight = 60
 
     [[infra]]
     title = "client.rb"
     identifier = "chef_infra/reference/config_rb_client.md client.rb"
     parent = "chef_infra/reference"
+    url = "/config_rb_client/"
     weight = 70
 
     [[infra]]
     title = "metadata.rb"
-    identifier = "chef_infra/cookbook_reference/config_rb_metadata.md metadata.rb"
+    identifier = "chef_infra/reference/config_rb_metadata.md metadata.rb"
     parent = "chef_infra/reference"
+    url = "/config_rb_metadata/"
     weight = 80
 
     [[infra]]
     title = "Policyfile.rb"
-    identifier = "chef_infra/policyfiles/config_rb_policyfile.md Policyfile.rb"
+    identifier = "chef_infra/reference/config_rb_policyfile.md Policyfile.rb"
     parent = "chef_infra/reference"
+    url = "/config_rb_policyfile/"
     weight = 90
 
     [[infra]]
     title = "solo.rb"
-    identifier = "chef_infra/features/chef_solo/config_rb_solo.md solo.rb"
+    identifier = "chef_infra/reference/config_rb_solo.md solo.rb"
     parent = "chef_infra/reference"
+    url = "/config_rb_solo/"
     weight = 100
 
     [[infra]]
     title = "Troubleshooting"
     identifier = "chef_infra/reference/errors.md Troubleshooting"
     parent = "chef_infra/reference"
+    url = "/errors/"
     weight = 100
 
   [[infra]]
@@ -537,6 +547,7 @@ identifier = "chef_infra"
   [[infra]]
   title = "Chef Infra Resources"
   identifier = "chef_infra/resources"
+  parent = "chef_infra"
   weight = 140
 
   [[infra]]
@@ -605,6 +616,7 @@ identifier = "chef_infra"
     [[infra]]
     title = "Microsoft Windows"
     identifier = "chef_infra/integrations/windows"
+    parent = "chef_infra/integrations"
 
 ####
 # End Chef Infra Menu
