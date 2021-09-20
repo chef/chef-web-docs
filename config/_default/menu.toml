@@ -386,10 +386,41 @@ identifier = "chef_infra"
   weight = 10
 
   [[infra]]
+  title = "Planning"
+  identifier = "chef_infra/planning"
+  parent = "chef_infra"
+  weight = 20
+
+  [[infra]]
   title = "Install"
   identifier = "chef_infra/install"
   parent = "chef_infra"
-  weight = 50
+  weight = 30
+
+  [[infra]]
+  title = "Configure"
+  identifier = "chef_infra/configure"
+  parent = "chef_infra"
+  weight = 40
+
+  [[infra]]
+  title = "Policy"
+  identifier = "chef_infra/policyfiles"
+  parent = "chef_infra"
+  weight = 100
+
+  [[infra]]
+  title = "Security"
+  identifier = "chef_infra/security"
+  parent = "chef_infra"
+  weight = 80
+
+    [[infra]]
+    title = "FIPS-mode"
+    identifier = "chef_infra/security/ctl_chef_client.md#run-in-fips-mode FIPS-mode"
+    parent = "chef_infra/security"
+    url = "/ctl_chef_client/#run-in-fips-mode"
+    weight = 30
 
   [[infra]]
   title = "Features"
@@ -459,23 +490,20 @@ identifier = "chef_infra"
 
     [[infra]]
     title = "Custom Resources DSL"
-    identifier = "chef_infra/reference/dsl_custom_resource.md Custom Resources Commands"
+    identifier = "chef_infra/resources/dsl_custom_resource.md Custom Resources Commands"
     parent = "chef_infra/reference"
-    url = "/dsl_custom_resource/"
     weight = 30
 
     [[infra]]
     title = "Handler DSL"
-    identifier = "chef_infra/reference/dsl_handler.md Handler Commands"
+    identifier = "chef_infra/reference/extension_apis/handlers/dsl_handler.md Handler Commands"
     parent = "chef_infra/reference"
-    url = "/dsl_handler/"
     weight = 40
 
     [[infra]]
     title = "ohai (executable)"
-    identifier = "chef_infra/reference/ctl_ohai.md ohai (executable)"
+    identifier = "chef_infra/features/ohai/ctl_ohai.md ohai (executable)"
     parent = "chef_infra/reference"
-    url = "/ctl_ohai/"
     weight = 50
 
     [[infra]]
@@ -511,13 +539,6 @@ identifier = "chef_infra"
     identifier = "chef_infra/reference/config_rb_solo.md solo.rb"
     parent = "chef_infra/reference"
     url = "/config_rb_solo/"
-    weight = 100
-
-    [[infra]]
-    title = "Troubleshooting"
-    identifier = "chef_infra/reference/errors.md Troubleshooting"
-    parent = "chef_infra/reference"
-    url = "/errors/"
     weight = 100
 
   [[infra]]

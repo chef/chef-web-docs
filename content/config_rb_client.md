@@ -9,8 +9,8 @@ aliases = ["/config_rb_client.html"]
 [menu]
   [menu.infra]
     title = "client.rb"
-    identifier = "chef_infra/install/config_rb_client.md client.rb Configuration"
-    parent = "chef_infra/install"
+    identifier = "chef_infra/configure/config_rb_client.md client.rb Configuration"
+    parent = "chef_infra/configure"
     weight = 40
 +++
 

@@ -8,8 +8,8 @@ product = ["client", "server", "workstation"]
 [menu]
   [menu.infra]
     title = "System Requirements"
-    identifier = "chef_infra/install/chef_system_requirements.md System Requirements"
-    parent = "chef_infra/install"
+    identifier = "chef_infra/planning/chef_system_requirements.md System Requirements"
+    parent = "chef_infra/planning"
     weight = 5
 +++
 
