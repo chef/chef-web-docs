@@ -490,19 +490,19 @@ identifier = "chef_infra"
 
     [[infra]]
     title = "Custom Resources DSL"
-    identifier = "chef_infra/resources/dsl_custom_resource.md Custom Resources Commands"
+    identifier = "chef_infra/reference/dsl_custom_resource.md Custom Resources Commands"
     parent = "chef_infra/reference"
     weight = 30
 
     [[infra]]
     title = "Handler DSL"
-    identifier = "chef_infra/reference/extension_apis/handlers/dsl_handler.md Handler Commands"
+    identifier = "chef_infra/reference/dsl_handler.md Handler Commands"
     parent = "chef_infra/reference"
     weight = 40
 
     [[infra]]
     title = "ohai (executable)"
-    identifier = "chef_infra/features/ohai/ctl_ohai.md ohai (executable)"
+    identifier = "chef_infra/reference/ctl_ohai.md ohai (executable)"
     parent = "chef_infra/reference"
     weight = 50
 
