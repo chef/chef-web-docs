@@ -513,13 +513,6 @@ identifier = "chef_infra"
     url = "/config_rb_solo/"
     weight = 100
 
-    [[infra]]
-    title = "Troubleshooting"
-    identifier = "chef_infra/reference/errors.md Troubleshooting"
-    parent = "chef_infra/reference"
-    url = "/errors/"
-    weight = 100
-
   [[infra]]
   title = "Cookbook Reference"
   identifier = "chef_infra/cookbook_reference"
