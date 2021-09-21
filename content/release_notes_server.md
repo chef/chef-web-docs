@@ -1,7 +1,6 @@
 +++
 title = "Chef Infra Server Release Notes"
 draft = false
-gh_repo = "chef-web-docs"
 aliases = ["/release_notes_server.html"]
 product = ["server"]
 release_notes = "chef-server"
