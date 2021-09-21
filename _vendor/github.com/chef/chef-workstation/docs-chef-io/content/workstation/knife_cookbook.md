@@ -407,12 +407,15 @@ Other formats available include `text`, `yaml`, and `pp`.
 ## test
 
 Use the `test` argument to test a cookbook for syntax errors. This
-argument uses Ruby syntax checking to verify every file in a cookbook that ends in `.rb` and `.erb` (Embedded Ruby). This argument will respect chefignore files when determining which cookbooks to test for syntax
+argument uses Ruby syntax checking to verify every file in a cookbook
+that ends in .rb and Embedded Ruby (ERB). This argument will respect
+chefignore files when determining which cookbooks to test for syntax
 errors.
 
 {{< warning >}}
 
-This feature is deprecated in favor of [Cookstyle](/workstation/cookstyle/) and [ChefSpec](/workstation/chefspec/)
+This feature is deprecated in favor of [Cookstyle](/workstation/cookstyle/) and
+[ChefSpec](/workstation/chefspec/)
 
 {{< /warning >}}
 
@@ -461,13 +464,19 @@ Infra Server will be uploaded.
 
 {{< note >}}
 
-Use a chefignore file to prevent the upload of specific files and file types, such as temporary files or files placed in folders by version control systems. The chefignore file must be located in the root of the cookbook repository and must use rules similar to filename globbing (as defined by the Ruby `File.fnmatch` syntax).
+Use a chefignore file to prevent the upload of specific files and file
+types, such as temporary files or files placed in folders by version
+control systems. The chefignore file must be located in the root of the
+cookbook repository and must use rules similar to filename globbing (as
+defined by the Ruby `File.fnmatch` syntax).
 
 {{< /note >}}
 
 {{< note >}}
 
-Empty directories are not uploaded to the Chef Infra Server. To upload an empty directory, create a "dot" file---e.g. `.keep`---in that directory to ensure that the directory itself is not empty.
+Empty directories are not uploaded to the Chef Infra Server. To upload
+an empty directory, create a "dot" file---e.g. `.keep`---in that
+directory to ensure that the directory itself is not empty.
 
 {{< /note >}}
 
@@ -529,7 +538,8 @@ knife cookbook upload cookbook_name
 
 **Freeze a cookbook**
 
-To upload a cookbook, and then prevent other users from being able to make changes to it, enter:
+To upload a cookbook, and then prevent other users from being able to
+make changes to it, enter:
 
 ``` bash
 knife cookbook upload redis --freeze
@@ -542,7 +552,8 @@ Uploading redis...
 Upload completed
 ```
 
-If a cookbook is frozen and the `--force` option is not specified, knife will return an error message similar to the following:
+If a cookbook is frozen and the `--force` option is not specified, knife
+will return an error message similar to the following:
 
 ``` none
 Uploading redis...
