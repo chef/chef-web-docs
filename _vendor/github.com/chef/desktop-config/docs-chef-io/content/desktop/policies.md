@@ -24,7 +24,7 @@ Now your Chef Infra Server has the cookbook and settings it needs to apply to th
 
 ## Configure and upload the Policyfile to Chef Server
 
-Check the Policyfile and apply it to our test nodes. Policies are a convenient strategy for managing nodes. Read [more about policies](https://blog.jerryaldrichiii.com/chef_infra/2019/05/28/using-policyfile-cookbooks.html).
+Check the Policyfile and apply it to our test nodes. Policies are a convenient strategy for managing nodes. Read [more about policies](https://docs.chef.io/policy/).
 
 ### Check the Policyfile
 
