@@ -5,7 +5,7 @@ draft = false
 [menu]
   [menu.desktop]
     title = "Cookbook Setup"
-    identifier = "desktop/install/coobook_repository.md Cookbook Setup for Windows 10 and macOS Platforms"
+    identifier = "desktop/install/cookbook_repository.md Cookbook Setup for Windows 10 and macOS Platforms"
     parent = "desktop/install"
     weight = 40
 +++
@@ -118,7 +118,7 @@ Test Kitchen uses a driver plugin architecture to enable Test Kitchen to test in
 
 1. **Run the Virtual Devices**
 
-    When working with desktop cookbook that you recieved from Chef, you downloaded the two virtual devices, also called testing images. Now issue the following command to get them started:
+    When working with desktop cookbook that you received from Chef, you downloaded the two virtual devices, also called testing images. Now issue the following command to get them started:
 
     ```powershell
     kitchen create
