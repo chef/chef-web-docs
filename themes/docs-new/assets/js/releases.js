@@ -38,7 +38,7 @@ function loadReleaseNotesContents(releases, version, product) {
 
   var pageTOCButton = "<button type=\"button\" class=\"TOC-button hide-for-large\" data-toggle=\"offCanvasRightTOC\" data-close=\"left-nav-off-canvas\"><i class=\"fas fa-bars\"></i> Table of Contents</button>"
 
-  var converter = new showdown.Converter();
+  var converter = new showdown.Converter({literalMidWordUnderscores: true});
 
   if (product === 'automate'){
     $.get(releases[index]["_links"]["release_notes"], function(rawReleaseNotes) {
