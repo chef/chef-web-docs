@@ -514,7 +514,7 @@ examples: |
   end
   ```
 
-  **Specify advanced http connection options including Net::HTTP (nethttp) options**
+  **Specify advanced HTTP connection options including Net::HTTP (nethttp) options:**
 
   ```ruby
     remote_file '/tmp/remote.txt' do
