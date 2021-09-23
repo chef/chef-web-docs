@@ -138,7 +138,7 @@ properties_list:
       A Hash of custom headers. For example:
 
       ```ruby
-      headers({ "Cookie" => "user=some_user; pass=p@ssw0rd!" })
+      headers({ "Cookie" => "user=user_name; pass=p@ssw0rd!" })
       ```
 
       or:
