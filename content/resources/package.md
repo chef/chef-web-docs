@@ -3,6 +3,7 @@ title = "package Resource"
 draft = false
 robots = ""
 gh_repo = "chef-web-docs"
+aliases = ["/resource_package.html"]
 data_path = ["infra","resources","package"]
 layout = "infra_resource"
 toc_layout = "infra_resource_toc"

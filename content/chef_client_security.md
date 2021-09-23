@@ -4,7 +4,7 @@ draft = false
 
 gh_repo = "chef-web-docs"
 
-aliases = ["/chef_client_security.html"]
+aliases = ["/chef_client_security.html", "/auth.html"]
 
 [menu]
   [menu.infra]

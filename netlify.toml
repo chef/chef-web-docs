@@ -30,3 +30,13 @@
   from = "/resource_*"
   to = "/resources/:splat"
   status = 301
+
+[[redirects]]
+  from = "/inspec_reference.html"
+  to = "/inspec/cli"
+  status = 301
+
+[[redirects]]
+  from = "/plugin_knife_windows.html"
+  to = "/workstation/knife_windows/"
+  status = 301
