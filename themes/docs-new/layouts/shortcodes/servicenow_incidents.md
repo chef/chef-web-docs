@@ -8,7 +8,7 @@ To set up automatic incident reporting for failed Chef Infra Client runs:
 1. Enter or select:
    * **Name**: A unique name for this notification.
    * **Webhook Type**: The product or proccess receiving the notification. Options: **Slack**, **Webhook**, and **ServiceNow**.
-   * **Failure Type**: The Chef process for the notification. Options: **Infra Client Run failures** and ** Inspec compliance scan failures**
+   * **Failure Type**: The Chef process for the notification. Options: **Infra Client Run failures** and **Inspec compliance scan failures**
    * **Webhook URL**: The API address that the notification uses.
    * **ServiceNow Username**: The name you use to sign in to ServiceNow.
    * **ServiceNow Password**: The password you use to sign in to ServiceNow.
