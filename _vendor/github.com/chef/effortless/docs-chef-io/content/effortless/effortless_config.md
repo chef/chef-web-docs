@@ -31,7 +31,7 @@ This pattern uses the [chef-repo]({{< relref "/chef_repo" >}}) to store and orga
 - Data bags
 - Policyfiles
 
-The Chef Effortless GitHub repository has an [example chef-repo](https://github.com/chef/effortless/tree/main/examples/effortless_config/chef_repo_pattern) for you to explore.
+The Chef Effortless GitHub repository has an [example chef-repo](https://github.com/chef/effortless/tree/master/examples/effortless_config/chef_repo_pattern) for you to explore.
 
 1. To use this pattern, navigate to the chef-repo directory that you want to use:
 
@@ -150,7 +150,7 @@ The Chef Effortless GitHub repository has an [example chef-repo](https://github.
    export CHEF_LICENSE="accept-no-persist"
 
    if [ ! -e "/bin/hab" ]; then
-   curl https://raw.githubusercontent.com/habitat-sh/habitat/main/components/hab/install.sh | sudo bash
+   curl https://raw.githubusercontent.com/habitat-sh/habitat/master/components/hab/install.sh | sudo bash
    fi
 
    if grep "^hab:" /etc/passwd > /dev/null; then
@@ -217,7 +217,7 @@ The Chef Effortless GitHub repository has an [example chef-repo](https://github.
 
 ### Policyfile Cookbook Pattern
 
-This pattern builds a Chef Habitat artifact for the Policyfile cookbook. You can find an [example Policyfile cookbook](https://github.com/chef/effortless/tree/main/examples/effortless_config/policyfile_cookbook_pattern) in the Chef Effortless GitHub repository.
+This pattern builds a Chef Habitat artifact for the Policyfile cookbook. You can find an [example Policyfile cookbook](https://github.com/chef/effortless/tree/master/examples/effortless_config/policyfile_cookbook_pattern) in the Chef Effortless GitHub repository.
 
 1. To use this pattern, navigate to the cookbook you want to use:
 
@@ -318,7 +318,7 @@ This pattern builds a Chef Habitat artifact for the Policyfile cookbook. You can
    export CHEF_LICENSE="accept-no-persist"
 
    if [ ! -e "/bin/hab" ]; then
-   curl https://raw.githubusercontent.com/habitat-sh/habitat/main/components/hab/install.sh | sudo bash
+   curl https://raw.githubusercontent.com/habitat-sh/habitat/master/components/hab/install.sh | sudo bash
    fi
 
    if grep "^hab:" /etc/passwd > /dev/null; then
