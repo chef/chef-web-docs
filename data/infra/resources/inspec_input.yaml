@@ -1,0 +1,91 @@
+---
+resource_reference: true
+resources_common_guards: true
+resources_common_notification: true
+resources_common_properties: true
+resource: inspec_input
+resource_description_list:
+- markdown: Use the **inspec_input** resource to add an input to the Compliance Phase.
+resource_new_in: '17.5'
+syntax_full_code_block: |-
+  inspec_input 'name' do
+    input       Hash, String # default value: 'name' unless specified
+    source      Hash, String # default value: 'name' unless specified
+    action      Symbol # defaults to :add if not specified
+  end
+syntax_properties_list:
+syntax_full_properties_list:
+- "`inspec_input` is the resource."
+- "`name` is the name given to the resource block."
+- "`action` identifies which steps Chef Infra Client will take to bring the node into
+  the desired state."
+- "`input` and `source` are the properties available to this resource."
+actions_list:
+  :nothing:
+    shortcode: resources_common_actions_nothing.md
+  :add:
+    markdown: Add an input to the compliance phase (default)
+properties_list:
+- property: input
+  ruby_type: Hash, String
+  required: false
+  default_value: The resource block's name
+  description_list:
+  - markdown:
+- property: source
+  ruby_type: Hash, String
+  required: false
+  default_value: The resource block's name
+  description_list:
+  - markdown:
+examples: |2
+
+  **Activate the default input in the openssh cookbook's compliance segment**:
+
+  ```ruby
+    inspec_input 'openssh' do
+      action :add
+    end
+  ```
+
+  **Activate all inputs in the openssh cookbook's compliance segment**:
+
+  ```ruby
+    inspec_input 'openssh::.*' do
+      action :add
+    end
+  ```
+
+  **Add an InSpec input to the Compliance Phase from a hash**:
+
+  ```ruby
+    inspec_input { ssh_custom_path: '/whatever2' }
+  ```
+
+  **Add an InSpec input to the Compliance Phase using the 'name' property to identify the input**:
+
+  ```ruby
+    inspec_input "setting my input" do
+      source( { ssh_custom_path: '/whatever2' })
+    end
+  ```
+
+  **Add an InSpec input to the Compliance Phase using a TOML, JSON, or YAML file**:
+
+  ```ruby
+    inspec_input "/path/to/my/input.yml"
+  ```
+
+  **Add an InSpec input to the Compliance Phase using a TOML, JSON, or YAML file, using the 'name' property**:
+
+  ```ruby
+    inspec_input "setting my input" do
+      source "/path/to/my/input.yml"
+    end
+  ```
+
+  Note that the **inspec_input** resource does not update and will not fire notifications (similar to the log resource). This is done to preserve the ability to use
+  the resource while not causing the updated resource count to be larger than zero. Since the resource does not update the state of the managed node, this behavior
+  is still consistent with the configuration management model. Instead, you should use events to observe configuration changes for the compliance phase. It is
+  possible to use the `notify_group` resource to chain notifications of the two resources, but notifications are the wrong model to use, and you should use pure ruby
+  conditionals instead. Compliance configuration should be independent of other resources and should only be conditional based on state/attributes, not other resources.

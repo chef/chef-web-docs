@@ -2,6 +2,7 @@
 title = "Attribute Arrays"
 description = "Define multiple attributes in an array or hash and deep merge"
 draft = false
+aliases = ["/essentials_node_object_deep_merge"]
 gh_repo = "chef-web-docs"
 
 [menu]
