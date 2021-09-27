@@ -4,7 +4,7 @@ draft = false
 
 gh_repo = "chef-web-docs"
 
-aliases = ["/handlers.html"]
+aliases = ["/handlers.html", "essentials_handlers.html"]
 
 [menu]
   [menu.infra]

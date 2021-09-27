@@ -4,7 +4,7 @@ draft = false
 
 gh_repo = "chef-web-docs"
 
-aliases = ["/azure_portal"]
+aliases = ["/azure_portal", "azure_portal.html"]
 
 product = ["client", "workstation", "automate"]
 
