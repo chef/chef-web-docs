@@ -74,8 +74,8 @@ The following table lists the commercially-supported platforms and versions for 
 </tr>
 <tr>
 <td>Debian</td>
-<td><code>x86_64</code><code>aarch64</code> (10.x only)</td>
-<td><code>9</code>, <code>10</code></td>
+<td><code>x86_64</code><code>aarch64</code> (10.x/11.x only)</td>
+<td><code>9</code>, <code>10</code>, <code>11</code></td>
 </tr>
 <tr>
 <td>FreeBSD</td>
@@ -115,7 +115,7 @@ The following table lists the commercially-supported platforms and versions for 
 <tr>
 <td>Microsoft Windows</td>
 <td><code>x86</code>, <code>x64</code></td>
-<td><code>8.1</code>, <code>2012</code>, <code>2012 R2</code>, <code>2016</code>, <code>10 (all channels except "insider" builds)</code>, <code>2019 (Long-term servicing channel (LTSC), both Desktop Experience and Server Core)</code></td>
+<td><code>8.1</code>, <code>2012</code>, <code>2012 R2</code>, <code>2016</code>, <code>10 (all channels except "insider" builds)</code>, <code>2019 (Long-term servicing channel (LTSC), both Desktop Experience and Server Core)</code><code>11</code>, <code>2022</code></td>
 </tr>
 </tbody>
 </table>
