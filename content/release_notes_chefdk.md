@@ -10,7 +10,7 @@ product = []
 
 This page documents the ChefDK major changes for each release. For
 a detailed list of changes, see the [ChefDK Changelog on
-GitHub](https://github.com/chef/chef-dk/blob/main/CHANGELOG.md)
+GitHub](https://github.com/chef/chef-dk/blob/master/CHANGELOG.md)
 
 ## What's New In ChefDK 4.13
 
@@ -648,7 +648,7 @@ existing `chef-sugar` code to use the newer built-in helpers.
 
 For more information on all of the new helpers available, see the
 [chef-utils
-readme](https://github.com/chef/chef/blob/main/chef-utils/README.md).
+readme](https://github.com/chef/chef/blob/master/chef-utils/README.md).
 
 **Chefignore Improvements**
 
@@ -2580,7 +2580,7 @@ cookbook(s) given on the command line.
 - **Added include_policy directive**
 
     Policyfile can use the `include_policy` directive as described in
-    [RFC097](https://github.com/chef/chef-rfc/blob/main/rfc097-policyfile-includes.md).
+    [RFC097](https://github.com/chef/chef-rfc/blob/master/rfc097-policyfile-includes.md).
     This directive's purpose is to allow the inclusion policyfile locks
     to the current policyfile. In this iteration, we support sourcing
     lock files from a local path or a Chef server. Below is a simple
