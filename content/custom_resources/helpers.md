@@ -6,8 +6,8 @@ gh_repo = "chef-web-docs"
 [menu]
   [menu.infra]
     title = "Custom Resource Helpers"
-    identifier = "chef_infra/cookbook_reference/custom_resources/helpers Library Helpers"
-    parent = "chef_infra/cookbook_reference/custom_resources"
+    identifier = "chef_infra/resources/custom_resources/helpers Library Helpers"
+    parent = "chef_infra/resources/custom_resources"
     weight = 20
 +++
 

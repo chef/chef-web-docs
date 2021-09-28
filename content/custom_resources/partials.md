@@ -5,8 +5,8 @@ gh_repo = "chef-web-docs"
 [menu]
   [menu.infra]
     title = "Partials"
-    identifier = "chef_infra/cookbook_reference/custom_resources/partials"
-    parent = "chef_infra/cookbook_reference/custom_resources"
+    identifier = "chef_infra/resources/custom_resources/partials"
+    parent = "chef_infra/resources/custom_resources"
     weight = 20
 +++
 

@@ -5,8 +5,8 @@ gh_repo = "chef-web-docs"
 [menu]
   [menu.infra]
     title = "Accumulators"
-    identifier = "chef_infra/cookbook_reference/custom_resources/accumulators"
-    parent = "chef_infra/cookbook_reference/custom_resources"
+    identifier = "chef_infra/resources/custom_resources/accumulators"
+    parent = "chef_infra/resources/custom_resources"
     weight = 15
 +++
 

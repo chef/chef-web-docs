@@ -5,8 +5,8 @@ gh_repo = "chef-web-docs"
 [menu]
   [menu.infra]
     title = "Migrating from LWRPs"
-    identifier = "chef_infra/cookbook_reference/custom_resources/lwrp"
-    parent = "chef_infra/cookbook_reference/custom_resources"
+    identifier = "chef_infra/resources/custom_resources/lwrp"
+    parent = "chef_infra/resources/custom_resources"
     weight = 50
 +++
 

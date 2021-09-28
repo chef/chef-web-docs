@@ -5,8 +5,8 @@ gh_repo = "chef-web-docs"
 [menu]
   [menu.infra]
     title = "Converting Definitions to Custom Resources"
-    identifier = "chef_infra/resources/definitions.md Migrating from Definitions"
-    parent = "chef_infra/resources"
+    identifier = "chef_infra/resources/custom_resources/definitions.md Migrating from Definitions"
+    parent = "chef_infra/resources/custom_resources"
     weight = 20
 +++
 
