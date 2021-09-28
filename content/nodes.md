@@ -8,9 +8,9 @@ product = ["client", "server"]
 [menu]
   [menu.infra]
     title = "Nodes"
-    identifier = "chef_infra/concepts/nodes.md Nodes"
-    parent = "chef_infra/concepts"
-    weight = 60
+    identifier = "chef_infra/overview/nodes.md Nodes"
+    parent = "chef_infra/overview"
+    weight = 30
 +++
 
 {{% node %}}

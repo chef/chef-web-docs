@@ -2,14 +2,14 @@
 title = "About Data Bags"
 draft = false
 gh_repo = "chef-web-docs"
-aliases = ["/data_bags.html", "/secrets.html", "/secrets/"]
+aliases = ["/data_bags.html", "/secrets.html", "/secrets/", "/essentials_data_bags.html"]
 product = ["client", "server"]
 
 [menu]
   [menu.infra]
     title = "Data Bags"
-    identifier = "chef_infra/concepts/policy/data_bags.md Data Bags"
-    parent = "chef_infra/concepts/policy"
+    identifier = "chef_infra/policyfiles/data_bags.md Data Bags"
+    parent = "chef_infra/policyfiles"
     weight = 40
 +++
 

@@ -9,7 +9,7 @@ aliases = ["/ctl_ohai.html"]
 [menu]
   [menu.infra]
     title = "ohai (executable)"
-    identifier = "chef_infra/features/ohai/ctl_ohai.md ohai (executable)"
+    identifier = "chef_infra/features/ohai/ctl_ohai.md ohai Commands"
     parent = "chef_infra/features/ohai"
     weight = 20
 +++

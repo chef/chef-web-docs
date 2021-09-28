@@ -4,7 +4,7 @@ draft = false
 
 gh_repo = "chef-web-docs"
 
-aliases = ["/cookbooks.html"]
+aliases = ["/cookbooks.html", "/essentials_cookbooks.html"]
 product = ["client", "server", "workstation"]
 
 [menu]
