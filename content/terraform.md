@@ -8,8 +8,8 @@ product = ["client", "server"]
 [menu]
   [menu.infra]
     title = "Chef and Terraform"
-    identifier = "chef_infra/getting_started/terraform.md Chef and Terraform"
-    parent = "chef_infra/getting_started"
+    identifier = "chef_infra/integrations/terraform.md Chef and Terraform"
+    parent = "chef_infra/integrations"
     weight = 60
 +++
 

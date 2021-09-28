@@ -10,8 +10,8 @@ product = ["workstation", "server"]
 [menu]
   [menu.infra]
     title = "Uninstall"
-    identifier = "chef_infra/getting_started/uninstall.md Uninstall"
-    parent = "chef_infra/getting_started"
+    identifier = "chef_infra/install/uninstall.md Uninstall"
+    parent = "chef_infra/install"
     weight = 80
 +++
 

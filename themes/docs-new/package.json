@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.4",
-    "foundation-sites": "^6.7.2",
+    "foundation-sites": "^6.7.3",
     "jquery": "^3.6.0",
     "redoc": "^2.0.0-rc.56",
     "showdown": "^1.9.1",

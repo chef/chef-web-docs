@@ -8,8 +8,8 @@ product = ["client", "workstation"]
 [menu]
   [menu.infra]
     title = "Install via Bootstrap"
-    identifier = "chef_infra/setup/nodes/install_bootstrap.md Install via Bootstrap"
-    parent = "chef_infra/setup/nodes"
+    identifier = "chef_infra/install/install_bootstrap.md Install via Bootstrap"
+    parent = "chef_infra/install"
     weight = 10
 +++
 

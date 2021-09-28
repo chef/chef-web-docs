@@ -8,7 +8,7 @@ aliases = ["/config_rb_manage.html"]
 [menu]
   [menu.legacy]
     title = "manage.rb"
-    identifier = "legacy/manage/config_rb_manage.md manage.rb"
+    identifier = "legacy/manage/config_rb_manage.md manage.rb Configuration"
     parent = "legacy/manage"
     weight = 100
 +++

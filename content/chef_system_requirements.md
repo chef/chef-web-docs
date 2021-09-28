@@ -8,9 +8,9 @@ product = ["client", "server", "workstation"]
 [menu]
   [menu.infra]
     title = "System Requirements"
-    identifier = "chef_infra/getting_started/chef_system_requirements.md System Requirements"
-    parent = "chef_infra/getting_started"
-    weight = 30
+    identifier = "chef_infra/install/chef_system_requirements.md System Requirements"
+    parent = "chef_infra/install"
+    weight = 5
 +++
 
 Before installing Chef Infra:
