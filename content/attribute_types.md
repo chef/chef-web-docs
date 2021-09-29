@@ -1,7 +1,7 @@
 +++
 title = "Attribute Types"
 draft = false
-
+aliases = ["/essentials_cookbook_attribute_files_attribute_automatic"]
 gh_repo = "chef-web-docs"
 
 [menu]

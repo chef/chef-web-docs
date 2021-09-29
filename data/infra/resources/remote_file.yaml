@@ -46,9 +46,10 @@ syntax_full_properties_list:
 - "`action` identifies which steps Chef Infra Client will take to bring the node into
   the desired state."
 - "`atomic_update`, `authentication`, `backup`, `checksum`, `content`, `force_unlink`,
-  `ftp_active_mode`, `group`, `headers`, `manage_symlink_source`, `mode`, `owner`,
-  `path`, `remote_domain`, `remote_password`, `remote_user`, `show_progress`, `ssl_verify_mode`,
-  `use_etag`, and `use_last_modified` are the properties available to this resource."
+  `ftp_active_mode`, `group`, `headers`, `http_options`, `manage_symlink_source`,
+  `mode`, `owner`, `path`, `remote_domain`, `remote_password`, `remote_user`, `show_progress`,
+  `ssl_verify_mode`, `use_etag`, and `use_last_modified` are the properties available
+  to this resource."
 actions_list:
   :nothing:
     shortcode: resources_common_actions_nothing.md
@@ -131,42 +132,26 @@ properties_list:
 - property: headers
   ruby_type: Hash
   required: false
+  default_value: "{}"
   description_list:
-  - markdown: 'A Hash of custom headers. For example:
-
+  - markdown: |-
+      A Hash of custom headers. For example:
 
       ```ruby
-
       headers({ "Cookie" => "user=grantmc; pass=p@ssw0rd!" })
-
       ```
-
 
       or:
 
-
       ```ruby
-
       headers({ "Referer" => "#{header}" })
-
       ```
-
 
       or:
 
-
       ```ruby
-
-      headers( "Authorization"=>"Basic #{ Base64.encode64("#{username}:#{password}").gsub("\n",
-      "") }" )
-
-      ```'
-- property: ignore_failure
-  ruby_type: true, false
-  required: false
-  default_value: 'false'
-  description_list:
-  - markdown: Continue running a recipe if a resource fails for any reason.
+      headers( "Authorization"=>"Basic #{ Base64.encode64("#{username}:#{password}").gsub("\n", "") }" )
+      ```
 - property: inherits
   ruby_type: true, false
   required: false
@@ -175,6 +160,14 @@ properties_list:
   - markdown: 'Microsoft Windows only. Whether a file inherits rights from its
 
       parent directory.'
+- property: http_options
+  ruby_type: Hash
+  required: false
+  default_value: "{}"
+  new_in: '17.5'
+  description_list:
+  - markdown: 'A Hash of custom HTTP options. For example: `http_options({ http_retry_count:
+      0, http_retry_delay: 2 })`'
 - property: manage_symlink_source
   ruby_type: true, false
   required: false
@@ -320,18 +313,6 @@ properties_list:
       Principal Name (UPN) format. The domain may also be set using the `remote_domain`
       property. Note that this property is ignored if source is not a UNC path. If
       this property is specified, the `remote_password` property is required."
-- property: retries
-  ruby_type: Integer
-  required: false
-  default_value: '0'
-  description_list:
-  - markdown: The number of attempts to catch exceptions and retry the resource.
-- property: retry_delay
-  ruby_type: Integer
-  required: false
-  default_value: '2'
-  description_list:
-  - markdown: The retry delay (in seconds).
 - property: rights
   ruby_type: Integer, String
   required: false
@@ -497,14 +478,6 @@ properties_list:
   description_list:
   - markdown: Enable `If-Modified-Since` headers. Set to `false` to disable `If-Modified-Since`
       headers. To use this setting, `use_conditional_get` must also be set to `true`.
-- property: sensitive
-  ruby_type: true, false
-  required: false
-  default_value: 'false'
-  description_list:
-  - markdown: 'Ensure that sensitive resource data is not logged by Chef Infra
-
-      Client.'
 - property: verify
   ruby_type: String, Block
   required: false
@@ -522,76 +495,41 @@ properties_list:
       Whereas, this should return `false`:\n\n```ruby\nremote_file '/tmp/turtle'\
       \ do\n  verify '/usr/bin/false'\nend\n```\n\nIf a string or a block return `false`,\
       \ the Chef Infra Client run\nwill stop and an error is returned."
-examples: "
-  Transfer a file from a URL\n\n  ```ruby\n  remote_file '/tmp/testfile'\
-  \ do\n    source 'http://www.example.com/tempfiles/testfile'\n    mode '0755'\n\
-  \    checksum '3a7dac00b1' # A SHA256 (or portion thereof) of the file.\n  end\n\
-  \  ```\n\n  Transfer a file only when the source has changed\n\n  ```ruby\n  remote_file\
-  \ '/tmp/couch.png' do\n    source 'http://couchdb.apache.org/img/sketch.png'\n \
-  \   action :nothing\n  end\n\n  http_request 'HEAD http://couchdb.apache.org/img/sketch.png'\
-  \ do\n    message ''\n    url 'http://couchdb.apache.org/img/sketch.png'\n    action\
-  \ :head\n    if ::File.exist?('/tmp/couch.png')\n      headers 'If-Modified-Since'\
-  \ => File.mtime('/tmp/couch.png').httpdate\n    end\n    notifies :create, 'remote_file[/tmp/couch.png]',\
-  \ :immediately\n  end\n  ```\n\n  Install a file from a remote location using bash\n\
-  \n  The following is an example of how to install the `foo123` module for\n  Nginx.\
-  \ This module adds shell-style functionality to an Nginx\n  configuration file and\
-  \ does the following:\n\n  -   Declares three variables\n  -   Gets the Nginx file\
-  \ from a remote location\n  -   Installs the file using Bash to the path specified\
-  \ by the\n      `src_filepath` variable\n\n  <!-- -->\n\n  ```ruby\n  # the following\
-  \ code sample is similar to the ``upload_progress_module``\n  # recipe in the ``nginx``\
-  \ cookbook:\n  # https://github.com/chef-cookbooks/nginx\n\n  src_filename = \"\
-  foo123-nginx-module-v#{\n    node['nginx']['foo123']['version']\n  }.tar.gz\"\n\
-  \  src_filepath = \"#{Chef::Config['file_cache_path']}/#{src_filename}\"\n  extract_path\
-  \ = \"#{\n    Chef::Config['file_cache_path']\n    }/nginx_foo123_module/#{\n  \
-  \  node['nginx']['foo123']['checksum']\n  }\"\n\n  remote_file 'src_filepath' do\n\
-  \    source node['nginx']['foo123']['url']\n    checksum node['nginx']['foo123']['checksum']\n\
-  \    owner 'root'\n    group 'root'\n    mode '0755'\n  end\n\n  bash 'extract_module'\
-  \ do\n    cwd ::File.dirname(src_filepath)\n    code <<-EOH\n      mkdir -p #{extract_path}\n\
-  \      tar xzf #{src_filename} -C #{extract_path}\n      mv #{extract_path}/*/*\
-  \ #{extract_path}/\n      EOH\n    not_if { ::File.exist?(extract_path) }\n  end\n\
-  \  ```\n\n  Store certain settings\n\n  The following recipe shows how an attributes\
-  \ file can be used to store\n  certain settings. An attributes file is located in\
-  \ the `attributes/`\n  directory in the same cookbook as the recipe which calls\
-  \ the attributes\n  file. In this example, the attributes file specifies certain\
-  \ settings\n  for Python that are then used across all nodes against which this\
-  \ recipe\n  will run.\n\n  Python packages have versions, installation directories,\
-  \ URLs, and\n  checksum files. An attributes file that exists to support this type\
-  \ of\n  recipe would include settings like the following:\n\n  ```ruby\n  default['python']['version']\
-  \ = '2.7.1'\n\n  if python['install_method'] == 'package'\n    default['python']['prefix_dir']\
-  \ = '/usr'\n  else\n    default['python']['prefix_dir'] = '/usr/local'\n  end\n\n\
-  \  default['python']['url'] = 'http://www.python.org/ftp/python'\n  default['python']['checksum']\
-  \ = '80e387...85fd61'\n  ```\n\n  and then the methods in the recipe may refer to\
-  \ these values. A recipe\n  that is used to install Python will need to do the following:\n\
-  \n  -   Identify each package to be installed (implied in this example, not\n  \
-  \    shown)\n  -   Define variables for the package `version` and the `install_path`\n\
-  \  -   Get the package from a remote location, but only if the package does\n  \
-  \    not already exist on the target system\n  -   Use the **bash** resource to\
-  \ install the package on the node, but\n      only when the package is not already\
-  \ installed\n\n  <!-- -->\n\n  ```ruby\n  #  the following code sample comes from\
-  \ the ``oc-nginx`` cookbook on |github|: https://github.com/cookbooks/oc-nginx\n\
-  \n  version = node['python']['version']\n  install_path = \"#{node['python']['prefix_dir']}/lib/python#{version.split(/(^\\\
-  d+\\.\\d+)/)[1]}\"\n\n  remote_file \"#{Chef::Config[:file_cache_path]}/Python-#{version}.tar.bz2\"\
-  \ do\n    source \"#{node['python']['url']}/#{version}/Python-#{version}.tar.bz2\"\
-  \n    checksum node['python']['checksum']\n    mode '0755'\n    not_if { ::File.exist?(install_path)\
-  \ }\n  end\n\n  bash 'build-and-install-python' do\n    cwd Chef::Config[:file_cache_path]\n\
-  \    code <<-EOF\n      tar -jxvf Python-#{version}.tar.bz2\n      (cd Python-#{version}\
-  \ && ./configure #{configure_options})\n      (cd Python-#{version} && make && make\
-  \ install)\n    EOF\n    not_if { ::File.exist?(install_path) }\n  end\n  ```\n\n\
-  \  **Use the platform_family? method**\n\n  The following is an example of using\
-  \ the `platform_family?` method in\n  the Chef Infra Language to create a variable that can\
-  \ be used with other\n  resources in the same recipe. In this example, `platform_family?`\
-  \ is\n  being used to ensure that a specific binary is used for a specific\n  platform\
-  \ before using the **remote_file** resource to download a file\n  from a remote\
-  \ location, and then using the **execute** resource to\n  install that file by running\
-  \ a command.\n\n  ```ruby\n  if platform_family?('rhel')\n    pip_binary = '/usr/bin/pip'\n\
-  \  else\n    pip_binary = '/usr/local/bin/pip'\n  end\n\n  remote_file \"#{Chef::Config[:file_cache_path]}/distribute_setup.py\"\
-  \ do\n    source 'http://python-distribute.org/distribute_setup.py'\n    mode '0755'\n\
-  \    not_if { File.exist?(pip_binary) }\n  end\n\n  execute 'install-pip' do\n \
-  \   cwd Chef::Config[:file_cache_path]\n    command <<-EOF\n      # command for\
-  \ installing Python goes here\n      EOF\n    not_if { File.exist?(pip_binary) }\n\
-  \  end\n  ```\n\n  where a command for installing Python might look something like:\n\
-  \n  ```ruby\n  #{node['python']['binary']} distribute_setup.py\n  #{::File.dirname(pip_binary)}/easy_install\
-  \ pip\n  ```\n\n  Specify local Windows file path as a valid URI\n\n  When specifying\
-  \ a local Microsoft Windows file path as a valid file URI,\n  an additional forward\
-  \ slash (`/`) is required. For example:\n\n  ```ruby\n  remote_file 'file:///c:/path/to/file'\
-  \ do\n    ...       # other attributes\n  end\n  ```\n"
+examples: |
+  **Download a file without checking the checksum**:
+
+  ```ruby
+  remote_file '/tmp/remote.txt' do
+    source 'https://example.org/remote.txt'
+  end
+  ```
+
+  **Download a file with a checksum to validate**:
+
+  ```ruby
+  remote_file '/tmp/testfile' do
+    source 'http://www.example.com/tempfiles/testfile'
+    mode '0755'
+    checksum '3a7dac00b1' # A SHA256 (or portion thereof) of the file.
+  end
+  ```
+
+  **Specify advanced HTTP connection options including Net::HTTP (nethttp) options:**
+
+  ```ruby
+    remote_file '/tmp/remote.txt' do
+      source 'https://example.org/remote.txt'
+      http_options({
+        http_retry_delay: 0,
+        http_retry_count: 0,
+        keepalives: false,
+        nethttp: {
+          continue_timeout: 5,
+          max_retries: 5,
+          read_timeout: 5,
+          write_timeout: 5,
+          ssl_timeout: 5,
+        },
+      })
+    end
+  ```

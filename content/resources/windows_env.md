@@ -3,6 +3,7 @@ title = "windows_env Resource"
 draft = false
 robots = ""
 gh_repo = "chef-web-docs"
+aliases = ["/env.html"]
 data_path = ["infra","resources","windows_env"]
 layout = "infra_resource"
 toc_layout = "infra_resource_toc"

@@ -1,5 +1,5 @@
 +++
-title = "Upgrading Chef Infra Client"
+title = "Upgrade Chef Infra Client"
 draft = false
 
 gh_repo = "chef-web-docs"
@@ -8,9 +8,9 @@ aliases = ["/upgrade_client.html"]
 
 [menu]
   [menu.infra]
-    title = "Upgrades"
-    identifier = "chef_infra/setup/nodes/upgrade_client.md Upgrades"
-    parent = "chef_infra/setup/nodes"
+    title = "Upgrade"
+    identifier = "chef_infra/install/upgrade_client.md"
+    parent = "chef_infra/install"
     weight = 50
 +++
 

@@ -1,7 +1,6 @@
 cloud.google.com/go v0.26.0/go.mod h1:aQUYkXzVsufM+DwF1aE+0xfcU+56JwCaLick0ClmMTw=
 github.com/BurntSushi/toml v0.3.1/go.mod h1:xHWCNGjB5oqiDr8zfno3MHue2Ht5sIBksp03qcyfWMU=
 github.com/census-instrumentation/opencensus-proto v0.2.1/go.mod h1:f6KPmirojxKA12rnyqOA5BBL4O983OfeGPqjHWSTneU=
-github.com/chef/automate/components/docs-chef-io v0.0.0-20210824110255-6794c678d26a/go.mod h1:juvLC7Rt33YOCgJ5nnfl4rWZRAbSwqjTbWmcAoA0LtU=
 github.com/chef/automate/components/docs-chef-io v0.0.0-20210913155220-840f24c24fc9 h1:GFOZCtVFAwW+CrLh0EPuGtF0/+MFUeE2nG2sJ4wLNNc=
 github.com/chef/automate/components/docs-chef-io v0.0.0-20210913155220-840f24c24fc9/go.mod h1:juvLC7Rt33YOCgJ5nnfl4rWZRAbSwqjTbWmcAoA0LtU=
 github.com/chef/chef-server/docs-chef-io v0.0.0-20210902193224-0e9a8a9c0a6f h1:zbuOioLEyUG2yROmoyU+2quIuStJRXNhDYqCFTgBi/Y=
@@ -12,8 +11,8 @@ github.com/chef/cookstyle v7.24.1+incompatible h1:XDmae+zCtdmCp5G7+56eQAQK9gG/Tt
 github.com/chef/cookstyle v7.24.1+incompatible/go.mod h1:KUadmsdBr7Hpo5dtGVQMiwb8KlC91W3j1lfc0yuVwtw=
 github.com/chef/cookstyle/docs-chef-io v0.0.0-20210902201304-38be79571efc h1:w18Yh1PKsxLQBYLwxIrpdmn99h5EiL89QMWP1Zj3AGw=
 github.com/chef/cookstyle/docs-chef-io v0.0.0-20210902201304-38be79571efc/go.mod h1:1JOEECsW9ozt1/RmprJjAQEvCrOHobpWepSQJRQOhnY=
-github.com/chef/desktop-config/docs-chef-io v0.0.0-20210827182444-13e10f325ca7 h1:r2d6lb8zZJggq+s1BFNg/PjcD4PX04Zad1FTp0+E5GI=
-github.com/chef/desktop-config/docs-chef-io v0.0.0-20210827182444-13e10f325ca7/go.mod h1:90xAx6sIfgSL50M2KzeBmx7V7s7dlhQU3xpUkJO0qW0=
+github.com/chef/desktop-config/docs-chef-io v0.0.0-20210921155934-ca692be51f1d h1:2NWFIlJeA3Sbj962wtRW69fB7aXEJsN+nCax1nyVtZE=
+github.com/chef/desktop-config/docs-chef-io v0.0.0-20210921155934-ca692be51f1d/go.mod h1:90xAx6sIfgSL50M2KzeBmx7V7s7dlhQU3xpUkJO0qW0=
 github.com/chef/effortless/docs-chef-io v0.0.0-20210212122821-321ee6f6699a h1:QWwhipxerx1oq6nABZARDak/qOwRQGBK5vSIhCXra50=
 github.com/chef/effortless/docs-chef-io v0.0.0-20210212122821-321ee6f6699a/go.mod h1:Lfq+HjwAQwUJ41EPTO/8qbI1oJb2i415fR28d2Ig9kc=
 github.com/client9/misspell v0.3.4/go.mod h1:qj6jICC3Q7zFZvVWo7KLAzC3yx5G7kyvSDkc90ppPyw=

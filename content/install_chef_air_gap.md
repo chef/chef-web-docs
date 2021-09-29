@@ -8,8 +8,8 @@ product = ["client", "server", "workstation"]
 [menu]
   [menu.infra]
     title = "Air-gapped Installation"
-    identifier = "chef_infra/setup/install_chef_air_gap.md Air-gapped Installation"
-    parent = "chef_infra/setup"
+    identifier = "chef_infra/install/install_chef_air_gap.md Air-gapped Installation"
+    parent = "chef_infra/install"
     weight = 40
 +++
 
