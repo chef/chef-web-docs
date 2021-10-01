@@ -56,7 +56,12 @@ function loadReleaseNotesContents(releases, version, product) {
   }
   else {
 
-    releaseNoteURL = 'https://packages.chef.io/release-notes/' + product + '/' + releases[index] + '.md'
+    if (product.startsWith("inspec-")){
+      releaseNoteURL = '/release-notes/' + product + '/' + releases[index] + '.md'
+    } else {
+      releaseNoteURL = 'https://packages.chef.io/release-notes/' + product + '/' + releases[index] + '.md'
+    }
+
 
     $.get(releaseNoteURL, function(rawReleaseNotes) {
       var html = converter.makeHtml(rawReleaseNotes);
@@ -139,6 +144,8 @@ function loadReleaseNotesPage(product) {
 
   if (product === "automate"){
     var versionsURL = "https://packages.chef.io/releases/current/automate.json"
+  } else if (product.startsWith("inspec-")){
+    var versionsURL = "/release-notes/" + product + "/release-dates.json"
   } else {
     var versionsURL = "https://omnitruck.chef.io/stable/" + product + "/versions/all"
   }
