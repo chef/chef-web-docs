@@ -843,7 +843,7 @@ identifier = "chef_workstation"
     [[workstation]]
     title = "Extension APIs"
     identifier = "chef_workstation/extension_apis"
-    parent = "workstation"
+    parent = "chef_workstation"
     weight = 140
 
       [[workstation]]
