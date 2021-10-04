@@ -1,15 +1,15 @@
 +++
 title = "Knife Cloud Plugins"
 draft = false
-gh_repo = "chef-web-docs"
+gh_repo = "chef-workstation"
 aliases = ["/plugin_knife.html"]
-product = ["client", "server", "workstation"]
+product = ["workstation"]
 
 [menu]
-  [menu.infra]
+  [menu.workstation]
     title = "Cloud Plugins"
-    identifier = "chef_infra/extension_apis/knife_plugins/plugin_knife.md Cloud Plugins"
-    parent = "chef_infra/extension_apis/knife_plugins"
+    identifier = "chef_workstation/extension_apis/knife_plugins/plugin_knife.md Cloud Plugins"
+    parent = "chef_workstation/extension_apis/knife_plugins"
     weight = 10
 +++
 
