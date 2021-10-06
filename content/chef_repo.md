@@ -1,15 +1,15 @@
 +++
-title = "About the chef-repo"
+title = "About chef-repo"
 draft = false
 gh_repo = "chef-web-docs"
 aliases = ["/chef_repo.html"]
 
 [menu]
   [menu.infra]
-    title = "chef-repo"
-    identifier = "chef_infra/concepts/chef_repo.md chef-repo"
-    parent = "chef_infra/concepts"
-    weight = 30
+    title = "About chef-repo"
+    identifier = "chef_infra/cookbooks_reference/chef_repo.md"
+    parent = "chef_infra/cookbook_reference"
+    weight = 15
 +++
 
 {{% chef_repo_description %}}

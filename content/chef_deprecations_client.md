@@ -9,8 +9,8 @@ aliases = ["/chef_deprecations_client.html"]
 [menu]
   [menu.infra]
     title = "Deprecations"
-    identifier = "chef_infra/chef_deprecations_client.md Deprecations"
-    parent = "chef_infra"
+    identifier = "chef_infra/reference/chef_deprecations_client.md Deprecations"
+    parent = "chef_infra/reference"
     weight = 90
 +++
 

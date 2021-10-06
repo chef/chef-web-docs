@@ -8,7 +8,7 @@ product = ["client", "server", "workstation"]
 [menu]
   [menu.supermarket]
     title = "supermarket-ctl"
-    identifier = "supermarket/reference/ctl_supermarket.md supermarket-ctl"
+    identifier = "supermarket/reference/ctl_supermarket.md supermarket-ctl supermarket Commands"
     parent = "supermarket/reference"
     weight = 90
 +++

@@ -9,8 +9,8 @@ aliases = ["/proxies.html"]
 [menu]
   [menu.infra]
     title = "Working with Proxies"
-    identifier = "chef_infra/setup/proxies.md Working with Proxies"
-    parent = "chef_infra/setup"
+    identifier = "chef_infra/install/proxies.md Working with Proxies"
+    parent = "chef_infra/install"
     weight = 30
 +++
 

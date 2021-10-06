@@ -82,6 +82,7 @@ To set up an Apt package repository for Debian and Ubuntu platforms:
 
     - For Debian 9: `stretch`
     - For Debian 10: `buster`
+    - For Debian 11: `bullseye`
     - For Ubuntu 18.04: `bionic`
     - For Ubuntu 20.04: `focal`
 

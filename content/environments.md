@@ -8,8 +8,8 @@ product = ["client", "server"]
 [menu]
   [menu.infra]
     title = "Environments"
-    identifier = "chef_infra/concepts/policy/environments.md Environments"
-    parent = "chef_infra/concepts/policy"
+    identifier = "chef_infra/policyfiles/environments.md Environments"
+    parent = "chef_infra/policyfiles"
     weight = 60
 +++
 

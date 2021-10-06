@@ -8,8 +8,8 @@ product = ["client", "server"]
 [menu]
   [menu.infra]
     title = "Policyfile.rb"
-    identifier = "chef_infra/concepts/policy/config_rb_policyfile.md Policyfile.rb"
-    parent = "chef_infra/concepts/policy"
+    identifier = "chef_infra/policyfiles/config_rb_policyfile.md Policyfile.rb Configuration"
+    parent = "chef_infra/policyfiles"
     weight = 30
 +++
 

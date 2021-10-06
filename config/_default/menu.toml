@@ -380,42 +380,22 @@ title = "Chef Infra"
 identifier = "chef_infra"
 
   [[infra]]
-  title = "Getting Started"
-  identifier = "chef_infra/getting_started"
+  title = "Overview"
+  identifier = "chef_infra/overview"
   parent = "chef_infra"
   weight = 10
 
   [[infra]]
-  title = "Concepts"
-  identifier = "chef_infra/concepts"
+  title = "Install"
+  identifier = "chef_infra/install"
   parent = "chef_infra"
-  weight = 20
-
-    [[infra]]
-    title = "Cookbooks"
-    identifier = "chef_infra/concepts/cookbooks.md Cookbooks"
-    parent = "chef_infra/concepts"
-    url = "/cookbooks/"
-    weight = 40
-
-    [[infra]]
-    title = "Custom Resources"
-    identifier = "chef_infra/concepts/custom_resources.md Custom Resources"
-    parent = "chef_infra/concepts"
-    url = "/custom_resources/"
-    weight = 50
-
-    [[infra]]
-    title = "Policy"
-    identifier = "chef_infra/concepts/policy"
-    parent = "chef_infra/concepts"
-    weight = 70
+  weight = 50
 
   [[infra]]
   title = "Features"
   identifier = "chef_infra/features"
   parent = "chef_infra"
-  weight = 30
+  weight = 70
 
     [[infra]]
     title = "Chef Solo"
@@ -430,29 +410,114 @@ identifier = "chef_infra"
     weight = 20
 
   [[infra]]
-  title = "Setup"
-  identifier = "chef_infra/setup"
+  title = "Integrations"
+  identifier = "chef_infra/integrations"
   parent = "chef_infra"
-  weight = 50
+  weight = 80
 
     [[infra]]
-    title = "Nodes"
-    identifier = "chef_infra/setup/nodes"
-    parent = "chef_infra/setup"
-    weight = 10
+    title = "Microsoft Azure"
+    identifier = "chef_infra/integrations/azure"
+    parent = "chef_infra/integrations"
+
+    [[infra]]
+    title = "Microsoft Windows"
+    identifier = "chef_infra/integrations/windows"
+    parent = "chef_infra/integrations"
+
+  [[infra]]
+  title = "Policy"
+  identifier = "chef_infra/policyfiles"
+  parent = "chef_infra"
+  weight = 90
+
+  [[infra]]
+  title = "Security"
+  identifier = "chef_infra/security"
+  parent = "chef_infra"
+  weight = 100
 
     [[infra]]
     title = "FIPS-mode"
-    identifier = "chef_infra/setup/ctl_chef_client.md#run-in-fips-mode FIPS-mode"
-    parent = "chef_infra/setup"
+    identifier = "chef_infra/security/ctl_chef_client.md#run-in-fips-mode FIPS-mode"
+    parent = "chef_infra/security"
     url = "/ctl_chef_client/#run-in-fips-mode"
+    weight = 30
+
+  [[infra]]
+  title = "Reference"
+  identifier = "chef_infra/reference"
+  parent = "chef_infra"
+  weight = 110
+
+    [[infra]]
+    title = "chef-solo (executable)"
+    identifier = "chef_infra/reference/ctl_chef_solo.md chef-solo (executable)"
+    parent = "chef_infra/reference"
+    url = "/ctl_chef_solo/"
+    weight = 20
+
+    [[infra]]
+    title = "Custom Resources DSL"
+    identifier = "chef_infra/reference/dsl_custom_resource.md Custom Resources Commands"
+    parent = "chef_infra/reference"
+    url = "/dsl_custom_resource/"
+    weight = 30
+
+    [[infra]]
+    title = "Handler DSL"
+    identifier = "chef_infra/reference/dsl_handler.md Handler Commands"
+    parent = "chef_infra/reference"
+    url = "/dsl_handler/"
+    weight = 40
+
+    [[infra]]
+    title = "ohai (executable)"
+    identifier = "chef_infra/reference/ctl_ohai.md ohai (executable)"
+    parent = "chef_infra/reference"
+    url = "/ctl_ohai/"
     weight = 50
+
+    [[infra]]
+    title = "supermarket-ctl"
+    identifier = "supermarket/reference/ctl_supermarket.md supermarket-ctl"
+    parent = "chef_infra/reference"
+    url = "/ctl_supermarket/"
+    weight = 60
+
+    [[infra]]
+    title = "client.rb"
+    identifier = "chef_infra/reference/config_rb_client.md client.rb"
+    parent = "chef_infra/reference"
+    url = "/config_rb_client/"
+    weight = 70
+
+    [[infra]]
+    title = "metadata.rb"
+    identifier = "chef_infra/reference/config_rb_metadata.md metadata.rb"
+    parent = "chef_infra/reference"
+    url = "/config_rb_metadata/"
+    weight = 80
+
+    [[infra]]
+    title = "Policyfile.rb"
+    identifier = "chef_infra/reference/config_rb_policyfile.md Policyfile.rb"
+    parent = "chef_infra/reference"
+    url = "/config_rb_policyfile/"
+    weight = 90
+
+    [[infra]]
+    title = "solo.rb"
+    identifier = "chef_infra/reference/config_rb_solo.md solo.rb"
+    parent = "chef_infra/reference"
+    url = "/config_rb_solo/"
+    weight = 100
 
   [[infra]]
   title = "Cookbook Reference"
   identifier = "chef_infra/cookbook_reference"
   parent = "chef_infra"
-  weight = 60
+  weight = 120
 
     [[infra]]
     title = "Attributes"
@@ -470,19 +535,19 @@ identifier = "chef_infra"
   title = "Chef Infra Language"
   identifier = "chef_infra/infra_language"
   parent = "chef_infra"
-  weight = 70
+  weight = 130
 
   [[infra]]
   title = "Chef Infra Resources"
   identifier = "chef_infra/resources"
   parent = "chef_infra"
-  weight = 80
+  weight = 140
 
   [[infra]]
   title = "Extension APIs"
   identifier = "chef_infra/extension_apis"
   parent = "chef_infra"
-  weight = 90
+  weight = 150
 
     [[infra]]
     title = "Compliance DSL"
@@ -510,12 +575,6 @@ identifier = "chef_infra"
       parent = "chef_infra/extension_apis/handlers"
       url = "/plugin_community/#handlers"
       weight = 30
-
-    [[infra]]
-    title = "Knife Plugins"
-    identifier = "chef_infra/extension_apis/knife_plugins"
-    parent = "chef_infra/extension_apis"
-    weight = 30
 
     [[infra]]
     title = "Ohai Plugins"
@@ -780,6 +839,18 @@ identifier = "chef_workstation"
     identifier = "chef_workstation/chef_workstation_tools/knife"
     parent = "chef_workstation/chef_workstation_tools"
     weight = 130
+
+    [[workstation]]
+    title = "Extension APIs"
+    identifier = "chef_workstation/extension_apis"
+    parent = "chef_workstation"
+    weight = 140
+
+      [[workstation]]
+      title = "Knife Plugins"
+      identifier = "chef_workstation/extension_apis/knife_plugins"
+      parent = "chef_workstation/extension_apis"
+      weight = 10
 
 ####
 # End Chef Workstation Menu

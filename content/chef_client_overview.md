@@ -4,14 +4,14 @@ draft = false
 
 gh_repo = "chef-web-docs"
 
-aliases = ["/chef_client_overview.html", "/chef_client.html"]
+aliases = ["/chef_client_overview.html", "/chef_client.html", "/essentials_nodes_chef_run.html"]
 
 [menu]
   [menu.infra]
     title = "Chef Infra Client Overview"
-    identifier = "chef_infra/concepts/chef_client_overview.md Chef Infra Client Overview"
-    parent = "chef_infra/concepts"
-    weight = 10
+    identifier = "chef_infra/overview/chef_client_overview.md Chef Infra Client Overview"
+    parent = "chef_infra/overview"
+    weight = 20
 +++
 
 {{< note >}}

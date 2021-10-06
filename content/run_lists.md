@@ -8,8 +8,8 @@ product = ["client", "server"]
 [menu]
   [menu.infra]
     title = "Run-lists"
-    identifier = "chef_infra/concepts/policy/run_lists.md Run-lists"
-    parent = "chef_infra/concepts/policy"
+    identifier = "chef_infra/policyfiles/run_lists.md Run-lists"
+    parent = "chef_infra/policyfiles"
     weight = 50
 +++
 

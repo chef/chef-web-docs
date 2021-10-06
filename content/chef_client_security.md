@@ -4,14 +4,14 @@ draft = false
 
 gh_repo = "chef-web-docs"
 
-aliases = ["/chef_client_security.html"]
+aliases = ["/chef_client_security.html", "/auth.html"]
 
 [menu]
   [menu.infra]
-    title = "Security"
-    identifier = "chef_infra/setup/nodes/chef_client_security.md Security"
-    parent = "chef_infra/setup/nodes"
-    weight = 60
+    title = "Chef Infra Client Security"
+    identifier = "chef_infra/security/chef_client_security.md Security"
+    parent = "chef_infra/security"
+    weight = 10
 +++
 
 {{% chef_auth %}}

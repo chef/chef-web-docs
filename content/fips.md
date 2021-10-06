@@ -8,8 +8,8 @@ product = ["client", "server", "workstation"]
 [menu]
   [menu.infra]
     title = "FIPS"
-    identifier = "chef_infra/features/fips.md FIPS"
-    parent = "chef_infra/features"
+    identifier = "chef_infra/security/fips.md FIPS"
+    parent = "chef_infra/security"
     weight = 30
 +++
 
