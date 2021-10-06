@@ -2,7 +2,6 @@
 .content {
   ul, ol {
     background-color: lightcoral;
-    margin-bottom: 0px;
 
     li {
       @extend .p;
