@@ -1,7 +1,6 @@
 #main-content,
 .content {
   ul, ol {
-    background-color: lightcoral;
 
     li {
       @extend .p;
@@ -12,7 +11,6 @@
 
   ol {
     padding-left: rem-calc(16);
-    background-color: lightblue;
 
     li {
       p {
@@ -24,7 +22,6 @@
       list-style-type: lower-alpha;
     }
     > li > ul {
-      background-color: pink;
       margin-top: rem-calc(8);
       margin-bottom: rem-calc(8);
     }
