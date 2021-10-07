@@ -1,6 +1,6 @@
 +++
 title = "Chef InSpec Azure Cloud Resource Release Notes"
-draft = false
+draft = true
 
 release_notes = "inspec-azure"
 product = ["inspec"]

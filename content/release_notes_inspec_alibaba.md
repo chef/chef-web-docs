@@ -1,6 +1,6 @@
 +++
 title = "Chef InSpec Alibaba Cloud Resource Release Notes"
-draft = false
+draft = true
 
 release_notes = "inspec-alibaba"
 product = ["inspec"]
