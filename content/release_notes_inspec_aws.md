@@ -10,5 +10,5 @@ product = ["inspec"]
     title = "Chef InSpec AWS"
     identifier = "release_notes/InSpec AWS"
     parent = "release_notes"
-    weight = 45
+    weight = 50
 +++
