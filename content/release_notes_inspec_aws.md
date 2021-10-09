@@ -8,7 +8,7 @@ product = ["inspec"]
 [menu]
   [menu.release_notes]
     title = "Chef InSpec AWS"
-    identifier = "release_notes/InSpec AWS"
-    parent = "release_notes"
+    identifier = "release_notes/compliance/InSpec AWS"
+    parent = "release_notes/compliance"
     weight = 50
 +++

@@ -8,8 +8,8 @@ product = ["inspec"]
 [menu]
   [menu.release_notes]
     title = "Chef InSpec Alibaba Cloud"
-    identifier = "release_notes/InSpec Ali Cloud"
-    parent = "release_notes"
+    identifier = "release_notes/compliance/InSpec Ali Cloud"
+    parent = "release_notes/compliance"
     weight = 45
 +++
 

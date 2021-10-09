@@ -901,6 +901,11 @@ title = "Release Notes"
 identifier = "release_notes"
 weight = 10
 
+  [[release_notes]]
+  title = "Chef Cloud Resource Packs"
+  identifier = "release_notes/compliance"
+  parent = "release_notes"
+
 ####
 # End Release Notes Menu
 ####

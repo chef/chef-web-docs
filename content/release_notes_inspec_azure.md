@@ -8,7 +8,7 @@ product = ["inspec"]
 [menu]
   [menu.release_notes]
     title = "Chef InSpec Azure"
-    identifier = "release_notes/InSpec Azure"
-    parent = "release_notes"
+    identifier = "release_notes/compliance/InSpec Azure"
+    parent = "release_notes/compliance"
     weight = 55
 +++
