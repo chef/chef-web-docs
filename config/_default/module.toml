@@ -126,6 +126,15 @@
   source = "static"
   target = "static"
 
+[[imports]]
+  disable = false
+  ignoreConfig = false
+  path = "github.com/inspec/inspec-azure/docs-chef-io"
+
+[[imports.mounts]]
+  source = "static"
+  target = "static"
+
 ## Module mounts for packages added with NPM
 
 [[mounts]]
