@@ -8,6 +8,6 @@ product = ["inspec"]
 [menu]
   [menu.release_notes]
     title = "AWS Cloud Resources"
-    identifier = "release_notes/compliance/InSpec AWS"
-    parent = "release_notes/compliance"
+    identifier = "release_notes/inspec/InSpec AWS"
+    parent = "release_notes/inspec"
 +++

@@ -903,7 +903,7 @@ weight = 10
 
   [[release_notes]]
   title = "Chef Cloud Resource Packs"
-  identifier = "release_notes/compliance"
+  identifier = "release_notes/inspec"
   parent = "release_notes"
 
 ####

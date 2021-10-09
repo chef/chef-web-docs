@@ -8,6 +8,6 @@ product = ["inspec"]
 [menu]
   [menu.release_notes]
     title = "Azure Cloud Resources"
-    identifier = "release_notes/compliance/ InSpec Azure"
-    parent = "release_notes/compliance"
+    identifier = "release_notes/inspec/InSpec Azure"
+    parent = "release_notes/inspec"
 +++

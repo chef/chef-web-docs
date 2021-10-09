@@ -8,7 +8,7 @@ product = ["inspec"]
 [menu]
   [menu.release_notes]
     title = "Ali Cloud Resources"
-    identifier = "release_notes/compliance/InSpec Ali Cloud"
-    parent = "release_notes/compliance"
+    identifier = "release_notes/inspec/InSpec Ali Cloud"
+    parent = "release_notes/inspec"
 +++
 
