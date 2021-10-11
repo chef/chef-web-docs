@@ -20,7 +20,7 @@ Chef Infra Client 17.5 and later includes a beta Secrets Management Integration 
 
 {{< note >}}
 
-This helper is a beta release, meaning it under active development and may change over time. If you have feedback on any functionality you'd like to see in this helper please reach out at secrets_management_beta@progress.com.
+This helper is a beta release. It is under active development and may change. We welcome your feedback at secrets_management_beta@progress.com.
 
 {{</ note >}}
 
