@@ -31,6 +31,7 @@ jobs:
       root: '../../content/'
       incremental_files_only: true
   markdownlint:
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - uses: DavidAnson/markdownlint-cli2-action@v4
