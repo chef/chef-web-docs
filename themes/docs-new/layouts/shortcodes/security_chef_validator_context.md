@@ -12,7 +12,4 @@ private key for all future authentication requests to the Chef Infra
 Server.
 
 After the initial Chef Infra Client run has completed successfully, the
-chef-validator is no longer required and may be deleted from the node.
-Use the `delete_validation` recipe found in the `chef-client` cookbook
-(<https://github.com/chef-cookbooks/chef-client>) to remove the
-chef-validator.
+chef-validator is no longer required and should be deleted from the node.
