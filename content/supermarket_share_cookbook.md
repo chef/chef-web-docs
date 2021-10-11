@@ -64,8 +64,6 @@ the second step.
 
     ```ruby
     current_dir = __dir__
-    log_level                :info
-    log_location             STDOUT
     node_name                'brewn'
     client_key               "#{current_dir}/brewn.pem"
     chef_server_url          'https://api.chef.io/organizations/chfex'
@@ -89,7 +87,7 @@ the second step.
     knife supermarket share example_cookbook
     ```
 
-    Alternatively, if you chose not to modify the location of your
+    Alternatively, if you choose not to modify the location of your
     cookbook repository within your `config.rb`, you can specify the
     cookbook path in your `knife` command:
 
