@@ -26,20 +26,6 @@ aliases = ["/chef_client_security.html", "/auth.html"]
 
 {{% security_chef_validator_context %}}
 
-### authentication_protocol_version
-
-The `authentication_protocol_version` option in the `client.rb` file is
-used to determine the authentication protocol that communicates with
-Chef Infra Server. For example, specify protocol version 1.3 to enable
-support for SHA-256 algorithms:
-
-```ruby
-knife[:authentication_protocol_version] = '1.3'
-```
-
-Note that authentication protocol 1.3 is only supported on Chef Server
-versions 12.4.0 and above.
-
 ## SSL Certificates
 
 {{< warning >}}
@@ -58,10 +44,10 @@ used to access the Chef Infra Server:
 
 -   On each workstation, this directory is the location into which SSL
     certificates are placed after they are downloaded from the Chef
-    Infra Server using the `knife ssl fetch` subcommand
+    Infra Server using the `knife ssl fetch` subcommand.
 -   On every node, this directory is the location into which SSL
     certificates are placed when a node has been bootstrapped with Chef
-    Infra Client from a workstation
+    Infra Client from a workstation.
 
 ### SSL_CERT_FILE
 
