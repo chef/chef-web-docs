@@ -38,6 +38,6 @@ jobs:
             *.md
         rules: '../../.markdownlint.yaml'
       strict: true
-      root: '../../content/"
+      root: '../../content/'
       incremental_files_only: true
 
