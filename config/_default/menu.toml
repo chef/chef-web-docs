@@ -170,6 +170,72 @@ identifier = "automate"
   parent = "automate"
 
   [[automate]]
+  name = "User Management"
+  weight = 90
+  identifier = "automate/users"
+  parent = "automate"
+
+    [[automate]]
+    name = "API Tokens"
+    weight = 10
+    identifier = "automate/users/api_tokens.md"
+    parent = "automate/users"
+
+    [[automate]]
+    name = "LDAP"
+    weight = 20
+    identifier = "automate/users/ldap.md"
+    parent = "automate/users"
+
+    [[automate]]
+    name = "SAML"
+    weight = 30
+    identifier = "automate/users/saml.md"
+    parent = "automate/users"
+
+    [[automate]]
+    name = "IAM Overview"
+    weight = 40
+    identifier = "automate/users/iam_v2_overview.md"
+    parent = "automate/users"
+
+    [[automate]]
+    name = "IAM Guide"
+    weight = 50
+    identifier = "automate/users/iam_v2_guide.md"
+    parent = "automate/users"
+
+    [[automate]]
+    name = "IAM Actions"
+    weight = 60
+    identifier = "automate/users/iam_actions.md"
+    parent = "automate/users"
+
+    [[automate]]
+    name = "Users"
+    weight = 70
+    identifier = "automate/users/users.md"
+    parent = "automate/users"
+
+    [[automate]]
+    name = "Roles"
+    weight = 80
+    identifier = "automate/users/roles.md"
+    parent = "automate/users"
+
+    [[automate]]
+    name = "Teams"
+    weight = 90
+    identifier = "automate/users/teams.md"
+    parent = "automate/users"
+
+    [[automate]]
+    name = "Policies"
+    weight = 100
+    identifier = "automate/users/policies.md"
+    parent = "automate/users"
+
+  [[automate]]
   name = "Reference"
   weight = 200
   identifier = "automate/reference"
