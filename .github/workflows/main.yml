@@ -34,6 +34,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: DavidAnson/markdownlint-cli2-action@v4
         with: 
+          repo-token: "${{ secrets.GITHUB_TOKEN }}"
           globs: |
             *.md
         rules: '../../.markdownlint.yaml'
