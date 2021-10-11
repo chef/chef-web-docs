@@ -437,13 +437,6 @@ identifier = "chef_infra"
   parent = "chef_infra"
   weight = 100
 
-    [[infra]]
-    title = "FIPS-mode"
-    identifier = "chef_infra/security/ctl_chef_client.md#run-in-fips-mode FIPS-mode"
-    parent = "chef_infra/security"
-    url = "/ctl_chef_client/#run-in-fips-mode"
-    weight = 30
-
   [[infra]]
   title = "Reference"
   identifier = "chef_infra/reference"
