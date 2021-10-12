@@ -290,7 +290,7 @@ handlers: `error_report` and `json_file`. Their use of the `report`
 interface is shown below.
 
 The
-[error_report](https://github.com/chef/chef/blob/master/lib/chef/handler/error_report.rb)
+[error_report](https://github.com/chef/chef/blob/main/lib/chef/handler/error_report.rb)
 handler:
 
 ```ruby
@@ -310,7 +310,7 @@ end
 ```
 
 The
-[json_file](https://github.com/chef/chef/blob/master/lib/chef/handler/json_file.rb)
+[json_file](https://github.com/chef/chef/blob/main/lib/chef/handler/json_file.rb)
 handler:
 
 ```ruby
@@ -605,7 +605,7 @@ end
 ### json_file Handler
 
 The
-[json_file](https://github.com/chef/chef/blob/master/lib/chef/handler/json_file.rb)
+[json_file](https://github.com/chef/chef/blob/main/lib/chef/handler/json_file.rb)
 handler is available from the **chef_handler** cookbook and can be used
 with exceptions and reports. It serializes run status data to a JSON
 file. This handler may be enabled in one of the following ways.
@@ -644,7 +644,7 @@ irb(main):006:0> r['elapsed_time'] => 0.00246
 ### error_report Handler
 
 The
-[error_report](https://github.com/chef/chef/blob/master/lib/chef/handler/error_report.rb)
+[error_report](https://github.com/chef/chef/blob/main/lib/chef/handler/error_report.rb)
 handler is built into Chef Infra Client and can be used for both
 exceptions and reports. It serializes error report data to a JSON file.
 This handler may be enabled in one of the following ways.

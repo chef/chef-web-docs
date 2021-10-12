@@ -1,5 +1,5 @@
 +++
-title = "Chef InSpec AWS Cloud Resource Release Notes"
+title = "AWS Cloud Resource Release Notes"
 draft = false
 
 release_notes = "inspec-aws"
@@ -7,8 +7,7 @@ product = ["inspec"]
 
 [menu]
   [menu.release_notes]
-    title = "Chef InSpec AWS"
-    identifier = "release_notes/InSpec AWS"
-    parent = "release_notes"
-    weight = 45
+    title = "AWS Cloud Resources"
+    identifier = "release_notes/inspec/InSpec AWS"
+    parent = "release_notes/inspec"
 +++

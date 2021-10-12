@@ -34,11 +34,11 @@ We try to keep our documentation source as close to the code as possible, which 
 <!-- markdownlint-disable -->
 | Product | GitHub Docs Directory |
 |---------|-----------------------|
-|Chef Automate |https://github.com/chef/automate/tree/master/components/docs-chef-io|
-|Chef Habitat |https://github.com/habitat-sh/habitat/tree/master/components/docs-chef-io|
+|Chef Automate |https://github.com/chef/automate/tree/main/components/docs-chef-io|
+|Chef Habitat |https://github.com/habitat-sh/habitat/tree/main/components/docs-chef-io|
 |Chef Infra Client |https://github.com/chef/chef-web-docs|
-|Chef Infra Server |https://github.com/chef/chef-server/tree/master/docs-chef-io|
-|Chef Inspec| https://github.com/inspec/inspec/tree/master/docs-chef-io|
+|Chef Infra Server |https://github.com/chef/chef-server/tree/main/docs-chef-io|
+|Chef Inspec| https://github.com/inspec/inspec/tree/main/docs-chef-io|
 <!-- markdownlint-enable -->
 ## How to Make a Change
 
@@ -64,7 +64,7 @@ Chef Software requires all contributors to include a [Developer Certificate of O
 
 See this [blog post](https://blog.chef.io/2016/09/19/introducing-developer-certificate-of-origin/) to understand why Chef started using the DCO signoff.
 
-For more information, review our [full DCO signoff policy](https://github.com/chef/chef/blob/master/CONTRIBUTING.md#developer-certification-of-origin-dco).
+For more information, review our [full DCO signoff policy](https://github.com/chef/chef/blob/main/CONTRIBUTING.md#developer-certification-of-origin-dco).
 
 A proper DCO sign-off looks like:
 
@@ -97,7 +97,7 @@ Changes that fall under our Obvious Fix policy include:
 
 To invoke the Obvious Fix rule, simply add `Obvious Fix.` to your commit message.
 
-For more information, see our [Obvious Fix policy](https://github.com/chef/chef/blob/master/CONTRIBUTING.md#chef-obvious-fix-policy).
+For more information, see our [Obvious Fix policy](https://github.com/chef/chef/blob/main/CONTRIBUTING.md#chef-obvious-fix-policy).
 
 ## Preview the Build
 
