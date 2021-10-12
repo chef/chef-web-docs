@@ -39,6 +39,8 @@
     // Ignore "'d" at the end of a word. If "dup" is an accepted word, so is "dup'd".
     "/'d\\b/",
     // Ignore code blocks
-    "/^\\s*```[\\s\\S]*?^\\s*```/gm"
+    "/^\\s*```[\\s\\S]*?^\\s*```/gm",
+    // Ignore shortcode content
+    "{{(.+)(?=}})"
   ]
 }
