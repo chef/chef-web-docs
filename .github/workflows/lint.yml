@@ -28,8 +28,7 @@ jobs:
         with:
           config: '../../cspell.json'
           paths: '**/*.md'
-          exclude: '_vendor/**/*'
-          exclude: 'archetypes/'
+          exclude: '_vendor/**/*', 'archetypes/'
   markdownlint:
     runs-on: ubuntu-latest
     steps:
