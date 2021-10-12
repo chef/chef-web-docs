@@ -27,7 +27,7 @@ jobs:
       - uses: zwaldowski/cspell-action@v1
         with:
           config: cspell.json
-          paths: "**/*"
+          paths: '**/*'
   markdownlint:
     runs-on: ubuntu-latest
     steps:
