@@ -1,8 +1,5 @@
-// cSpell Settings
 {
-  // Version of the setting file.  Always 0.1
   "version": "0.1",
-  // language - current active spelling language
   "language": "en",
   "dictionaryDefinitions": [
     {
@@ -12,14 +9,10 @@
     }
   ],
   "dictionaries": ["chef"],
-  // words - list of words to be always considered correct
   "words": [
     "!blacklist",
     "!whitelist"
   ],
-  // flagWords - list of words to be always considered incorrect
-  // This is useful for offensive words and common spelling errors.
-  // For example "hte" should be "the"
   "flagWords": [
     "hte"
   ],
@@ -30,13 +23,9 @@
     "archetypes/*.md"
   ],
   "ignoreRegExpList": [
-    // Ignore "'s" at the end of a word. If "Chef" is an accepted word, so is "Chef's".
     "/'s\\b/",
-    // Ignore "'d" at the end of a word. If "dup" is an accepted word, so is "dup'd".
     "/'d\\b/",
-    // Ignore code blocks
     "/^\\s*```[\\s\\S]*?^\\s*```/gm",
-    // Ignore shortcode content
     "{{(.+)(?=}})"
   ]
 }
