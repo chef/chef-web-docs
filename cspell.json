@@ -7,7 +7,7 @@
   "dictionaryDefinitions": [
     {
       "name": "chef",
-      "path": ".github/workflows/chef_dictionary.txt",
+      "path": "./chef_dictionary.txt",
       "description": "Custom Chef Dictionary",
       "addWords": true
     }
@@ -31,7 +31,6 @@
     ".expeditor/**/*",
     "**/*.yml",
     "**/*.toml",
-    "**/*.svg",
     "_vendor/**/*"
   ],
   "ignoreRegExpList": [
