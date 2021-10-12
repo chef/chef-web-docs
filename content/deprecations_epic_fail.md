@@ -15,7 +15,7 @@ and out of the 3500 cookbooks on the Supermarket only one uses
 entirely.
 
 The [Cookstyle](/workstation/cookstyle/) cop
-[ChefDeprecations/EpicFail](https://github.com/chef/cookstyle/blob/master/docs/cops_chefdeprecations.md#chefdeprecationsepicfail)
+[ChefDeprecations/EpicFail](https://github.com/chef/cookstyle/blob/main/docs/cops_chefdeprecations.md#chefdeprecationsepicfail)
 has been introduced to detect and autocorrect this deprecation.
 
 ## Remediation

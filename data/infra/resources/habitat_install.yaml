@@ -52,9 +52,9 @@ properties_list:
 - property: install_url
   ruby_type: String
   required: false
-  default_value: https://raw.githubusercontent.com/habitat-sh/habitat/master/components/hab/install.sh
+  default_value: https://raw.githubusercontent.com/habitat-sh/habitat/main/components/hab/install.sh
   description_list:
-  - markdown: URL to the install script, default is from the [habitat repo](https://raw.githubusercontent.com/habitat-sh/habitat/master/components/hab/install.sh)
+  - markdown: URL to the install script, default is from the [habitat repo](https://raw.githubusercontent.com/habitat-sh/habitat/main/components/hab/install.sh)
       .
 - property: license
   ruby_type: String

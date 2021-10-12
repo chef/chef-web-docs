@@ -17,7 +17,7 @@ Chef docs uses [shortcodes](https://gohugo.io/content-management/shortcodes/) to
 
 ## Writing a Shortcode
 
-Shortcode files are written in **Markdown** or **HTML** and are stored in the [`layouts/shortcodes`](https://github.com/chef/chef-web-docs/tree/master/themes/docs-new/layouts/shortcodes) directory in the `chef-web-docs` repo. Most shortcodes are written in Markdown but some are in HTML.
+Shortcode files are written in **Markdown** or **HTML** and are stored in the [`layouts/shortcodes`](https://github.com/chef/chef-web-docs/tree/main/themes/docs-new/layouts/shortcodes) directory in the `chef-web-docs` repo. Most shortcodes are written in Markdown but some are in HTML.
 
 ## Adding a Shortcode to a Page
 
@@ -29,7 +29,7 @@ If you add a **Markdown** shortcode to a page using **HTML** shortcode delimiter
 
 ### Markdown Shortcodes
 
-To include a Markdown shortcode in a page, wrap the name of the shortcode file, without the file type suffix, in between double curly braces and percent characters, `{{%/* SHORTCODE */%}}`. For example, if you wanted to add the [`chef.md`](https://github.com/chef/chef-web-docs/blob/master/themes/docs-new/layouts/shortcodes/chef.md) shortcode to a page, add the following text to the Markdown page:
+To include a Markdown shortcode in a page, wrap the name of the shortcode file, without the file type suffix, in between double curly braces and percent characters, `{{%/* SHORTCODE */%}}`. For example, if you wanted to add the [`chef.md`](https://github.com/chef/chef-web-docs/blob/main/themes/docs-new/layouts/shortcodes/chef.md) shortcode to a page, add the following text to the Markdown page:
 
 ```go
 {{%/* chef */%}}
@@ -37,7 +37,7 @@ To include a Markdown shortcode in a page, wrap the name of the shortcode file, 
 
 ### HTML Shortcodes
 
-To include an HTML shortcode in a page, wrap the name of the shortcode file, without the file type suffix, in between double curly braces and angle brackets, `{{</* SHORTCODE */>}}`. For example, add the following text to a page if you wanted to add the [`chef_automate_mark.html`](https://github.com/chef/chef-web-docs/blob/master/themes/docs-new/layouts/shortcodes/chef_automate_mark.html) shortcode:
+To include an HTML shortcode in a page, wrap the name of the shortcode file, without the file type suffix, in between double curly braces and angle brackets, `{{</* SHORTCODE */>}}`. For example, add the following text to a page if you wanted to add the [`chef_automate_mark.html`](https://github.com/chef/chef-web-docs/blob/main/themes/docs-new/layouts/shortcodes/chef_automate_mark.html) shortcode:
 
 ```go
 {{</* chef_automate_mark */>}}
