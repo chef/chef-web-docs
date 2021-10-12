@@ -6,7 +6,7 @@ aliases = "/plugin_community.html"
 +++
 
 This page lists plugins for Ohai plugins and Chef Infra Client handlers
-that are developed and mastertained by the Chef community.
+that are developed and maintained by the Chef community.
 
 ## Ohai
 
