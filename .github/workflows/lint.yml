@@ -37,4 +37,3 @@ jobs:
           repo-token: "${{ secrets.GITHUB_TOKEN }}"
           globs: |
             *.md
-        rules: '../../.markdownlint.yaml'
