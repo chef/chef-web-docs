@@ -6,14 +6,20 @@
   "language": "en",
   "dictionaryDefinitions": [
     {
-        "name": "chef",
-        "file": "./chef_dictionary.txt",
-        "description": "Custom Chef Dictionary"
+      "name": "chef",
+      "path": "./chef_dictionary.txt",
+      "description": "Custom Chef Dictionary",
+      "addWords": true
     }
   ],
-  "dictionaries": ["chef"],
+  "dictionaries": [
+    "chef"
+  ],
+  "locale": ["en-US"],
   // words - list of words to be always considered correct
   "words": [
+    "!blacklist",
+    "!whitelist"
   ],
   // flagWords - list of words to be always considered incorrect
   // This is useful for offensive words and common spelling errors.
@@ -31,6 +37,8 @@
     // Ignore "'s" at the end of a word. If "Chef" is an accepted word, so is "Chef's".
     "/'s\\b/",
     // Ignore "'d" at the end of a word. If "dup" is an accepted word, so is "dup'd".
-    "/'d\\b/"
+    "/'d\\b/",
+    // Ignore code blocks
+    "/^\\s*```[\\s\\S]*?^\\s*```/gm"
   ]
 }
