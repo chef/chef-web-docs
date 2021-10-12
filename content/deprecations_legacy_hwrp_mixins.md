@@ -14,7 +14,7 @@ traditionally used in some HWRPs, but are rarely found in code available
 on the Supermarket.
 
 The [Cookstyle](/workstation/cookstyle/) cop
-[ChefDeprecations/UsesDeprecatedMixins](https://github.com/chef/cookstyle/blob/master/docs/cops_chefdeprecations.md#chefdeprecationsusesdeprecatedmixins)
+[ChefDeprecations/UsesDeprecatedMixins](https://github.com/chef/cookstyle/blob/main/docs/cops_chefdeprecations.md#chefdeprecationsusesdeprecatedmixins)
 has been introduced to detect these mixins:
 
 - `Chef::Mixin::LanguageIncludeAttribute`

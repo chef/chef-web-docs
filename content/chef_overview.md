@@ -1,5 +1,5 @@
 +++
-title = "An Overview of Chef Infra"
+title = "Chef Infra Overview"
 draft = false
 gh_repo = "chef-web-docs"
 aliases = ["/chef_overview.html"]
@@ -8,8 +8,8 @@ product = ["client", "server", "workstation"]
 [menu]
   [menu.infra]
     title = "Chef Infra Overview"
-    identifier = "chef_infra/getting_started/chef_overview.md Chef Infra Overview"
-    parent = "chef_infra/getting_started"
+    identifier = "chef_infra/overview/chef_overview.md Chef Infra Overview"
+    parent = "chef_infra/overview"
     weight = 10
 +++
 

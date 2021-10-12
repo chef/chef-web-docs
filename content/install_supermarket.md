@@ -169,7 +169,7 @@ All of the keys under `node['supermarket_omnibus']` are written out as
 `/etc/supermarket/supermarket.json`. Add other keys as needed to
 override the default attributes specified in the Chef Supermarket
 [omnibus
-package](https://github.com/chef/supermarket/blob/master/omnibus/cookbooks/omnibus-supermarket/attributes/default.rb).
+package](https://github.com/chef/supermarket/blob/main/omnibus/cookbooks/omnibus-supermarket/attributes/default.rb).
 For example:
 
 ```ruby

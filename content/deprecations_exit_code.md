@@ -19,7 +19,7 @@ This deprecation was added in Chef Client 12.11. In Chef Client 13, only
 the extended set of exit codes will be supported. For further
 information on the list of defined error codes, please see [RFC 62,
 which defines
-them](https://github.com/chef/chef-rfc/blob/master/rfc062-exit-status.md).
+them](https://github.com/chef/chef-rfc/blob/main/rfc062-exit-status.md).
 
 ## Remediation
 

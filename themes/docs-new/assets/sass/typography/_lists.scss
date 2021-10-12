@@ -1,19 +1,29 @@
 #main-content,
 .content {
   ul, ol {
-    margin-bottom: 28px;
 
     li {
       @extend .p;
       margin-bottom: 0px;
     }
+
   }
 
   ol {
     padding-left: rem-calc(16);
 
+    li {
+      p {
+        margin-bottom: .2rem;
+      }
+    }
+
     > li > ol {
       list-style-type: lower-alpha;
+    }
+    > li > ul {
+      margin-top: rem-calc(8);
+      margin-bottom: rem-calc(8);
     }
   }
 
@@ -29,7 +39,6 @@
         width: 1em;
         margin-left: -1em;
         font-weight: 900;
-        font-size: 1.2em;
       }
       p {
         margin-top: -1.7em;

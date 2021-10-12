@@ -15,7 +15,7 @@ The `Chef::REST` class will be removed.
 in Chef Client 13.
 
 The [Cookstyle](/workstation/cookstyle.html) cop
-[ChefDeprecations/UsesChefRESTHelpers](https://github.com/chef/cookstyle/blob/master/docs/cops_chefdeprecations.md#chefdeprecationsuseschefresthelpers)
+[ChefDeprecations/UsesChefRESTHelpers](https://github.com/chef/cookstyle/blob/main/docs/cops_chefdeprecations.md#chefdeprecationsuseschefresthelpers)
 has been introduced to detect this deprecation.
 
 ## Remediation
