@@ -7,15 +7,11 @@
   "dictionaryDefinitions": [
     {
       "name": "chef",
-      "path": "./chef.txt",
-      "description": "Custom Chef Dictionary",
-      "addWords": true
+      "path": "./chef_dictionary.txt",
+      "description": "Custom Chef Dictionary"
     }
   ],
-  "dictionaries": [
-    "chef"
-  ],
-  "locale": ["en-US"],
+  "dictionaries": ["chef"],
   // words - list of words to be always considered correct
   "words": [
     "!blacklist",
