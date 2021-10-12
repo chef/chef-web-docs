@@ -7,7 +7,7 @@
   "dictionaryDefinitions": [
     {
       "name": "chef",
-      "path": "./chef_dictionary.txt",
+      "path": "./chef.txt",
       "description": "Custom Chef Dictionary",
       "addWords": true
     }
