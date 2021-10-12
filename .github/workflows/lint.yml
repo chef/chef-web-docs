@@ -5,8 +5,10 @@ name: lint
 # Controls when the workflow will run
 on:
   # Triggers the workflow on push or pull request events
-  push:
   pull_request:
+  push:
+    branches:
+      - main
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -20,16 +22,12 @@ jobs:
       - uses: carlosperate/download-file-action@v1.0.3
         id: download-custom-dictionary
         with:
-          repo-token: "${{ secrets.GITHUB_TOKEN }}"
           file-url: 'https://raw.githubusercontent.com/chef/chef_dictionary/main/chef.txt'
           file-name: 'chef_dictionary.txt'
       - uses: zwaldowski/cspell-action@v1
         with:
           config: cspell.json
           paths: "**/*"
-      strict: true
-      root: '../../content/'
-      incremental_files_only: true
   markdownlint:
     runs-on: ubuntu-latest
     steps:
@@ -40,7 +38,3 @@ jobs:
           globs: |
             *.md
         rules: '../../.markdownlint.yaml'
-      strict: true
-      root: '../../content/'
-      incremental_files_only: true
-
