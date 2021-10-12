@@ -13,6 +13,8 @@ product = ["automate", "client", "server", "habitat", "inspec", "workstation"]
     weight = 50
 +++
 
+Atomate
+
 Chef's Omnitruck API powers the Chef Software Install script as well as
 downloads.chef.io site. It can be used to query available versions of
 Chef Software Inc. products and to provide direct download URLs.
