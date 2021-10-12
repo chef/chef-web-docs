@@ -31,7 +31,7 @@
     ".expeditor/**/*",
     "**/*.yml",
     "**/*.toml",
-    "_vendor/**/*"
+    "./_vendor/**/*"
   ],
   "ignoreRegExpList": [
     // Ignore "'s" at the end of a word. If "Chef" is an accepted word, so is "Chef's".
