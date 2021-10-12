@@ -16,7 +16,7 @@ core Chef, we made `:uninstall` an alias for `:remove`. In Chef Client
 14, `:uninstall` will no longer be a valid action.
 
 The [Cookstyle](/workstation/cookstyle/) cop
-[ChefDeprecations/ChocolateyPackageUninstallAction](https://github.com/chef/cookstyle/blob/master/docs/cops_chefdeprecations.md#chefdeprecationschocolateypackageuninstallaction)
+[ChefDeprecations/ChocolateyPackageUninstallAction](https://github.com/chef/cookstyle/blob/main/docs/cops_chefdeprecations.md#chefdeprecationschocolateypackageuninstallaction)
 has been introduced to detect and autocorrect this deprecation.
 
 ## Remediation

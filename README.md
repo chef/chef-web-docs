@@ -14,25 +14,25 @@ please submit pull requests to those repositories and not to the vendored copy i
 We will update those changes after they're merged or after a new version of a product is released.
 
 The [Chef Automate documentation](https://docs.chef.io/automate/) is stored in the `chef/automate` repository
-in the [`components/docs-chef-io`](https://github.com/chef/automate/tree/master/components/docs-chef-io) directory.
+in the [`components/docs-chef-io`](https://github.com/chef/automate/tree/main/components/docs-chef-io) directory.
 
 The [Chef Desktop documentation](https://docs.chef.io/desktop/) is stored in the `chef/desktop-config` repository
-in the [`docs-chef-io`](https://github.com/chef/desktop-config/tree/master/docs-chef-io) directory. This is a private repository.
+in the [`docs-chef-io`](https://github.com/chef/desktop-config/tree/main/docs-chef-io) directory. This is a private repository.
 
 The [Chef Effortless documentation](https://docs.chef.io/effortless/) is stored in the `chef/effortless` repository
-in the [`docs-chef-io`](https://github.com/chef/effortless/tree/master/docs-chef-io) directory.
+in the [`docs-chef-io`](https://github.com/chef/effortless/tree/main/docs-chef-io) directory.
 
 The [Chef Habitat documentation](https://docs.chef.io/habitat/) is stored in the `habitat-sh/habitat` repository
-in the [`components/docs-chef-io`](https://github.com/habitat-sh/habitat/tree/master/components/docs-chef-io) directory.
+in the [`components/docs-chef-io`](https://github.com/habitat-sh/habitat/tree/main/components/docs-chef-io) directory.
 
 The [Chef Infra Server documentation](https://docs.chef.io/server/) is stored in the `chef/chef-server` repository
-in the [`docs-chef-io`](https://github.com/chef/chef-server/tree/master/docs-chef-io) directory.
+in the [`docs-chef-io`](https://github.com/chef/chef-server/tree/main/docs-chef-io) directory.
 
 The [Chef InSpec documentation](https://docs.chef.io/inspec/) is stored in the `inspec/inspec` repository
-in the [`docs-chef-io`](https://github.com/inspec/inspec/tree/master/docs-chef-io) directory.
+in the [`docs-chef-io`](https://github.com/inspec/inspec/tree/main/docs-chef-io) directory.
 
 The [Chef Workstation documentation](https://docs.chef.io/workstation/) is stored in the `chef/chef-workstation` repository
-in the [`docs-chef-io`](https://github.com/chef/chef-workstation/tree/master/docs-chef-io/) directory.
+in the [`docs-chef-io`](https://github.com/chef/chef-workstation/tree/main/docs-chef-io/) directory.
 
 ## Previewing Documentation
 

@@ -129,7 +129,7 @@ where
 - `provides` defines the `cloud` attribute, which is then turned into an object using the `create_objects` shared method, which then generates a hash based on public or private IP addresses
 - For Google Compute Engine the `cloud` attribute data is populated into a hash based on the IP address for the node
 
-To see the rest of the code in this plugin, go to: <https://github.com/chef/ohai/blob/master/lib/ohai/plugins/cloud.rb>.
+To see the rest of the code in this plugin, go to: <https://github.com/chef/ohai/blob/main/lib/ohai/plugins/cloud.rb>.
 
 ## Ohai Methods
 
