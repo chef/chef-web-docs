@@ -7,7 +7,7 @@
   "dictionaryDefinitions": [
     {
       "name": "chef",
-      "path": "./chef_dictionary.txt",
+      "path": ".github/workflows/chef_dictionary.txt",
       "description": "Custom Chef Dictionary",
       "addWords": true
     }
