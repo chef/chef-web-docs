@@ -44,3 +44,5 @@ jobs:
         with: 
           globs: |
             **/*.md
+            !_vendor/
+            !themes/
