@@ -19,6 +19,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+        with:
+          repo-token: "${{ secrets.GITHUB_TOKEN }}"
       - uses: carlosperate/download-file-action@v1.0.3
         id: download-custom-dictionary
         with:
@@ -33,6 +35,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+        with:
+          repo-token: "${{ secrets.GITHUB_TOKEN }}"
       - uses: DavidAnson/markdownlint-cli2-action@v4
         with: 
           globs: |
