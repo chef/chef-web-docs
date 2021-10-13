@@ -28,6 +28,7 @@ jobs:
           file-name: 'chef_dictionary.txt'
       - run: pwd
       - run: echo "The file was downloaded to ${{ steps.download-custom-dictionary.outputs.file-path }}"
+      - run: ls -la
       - uses: zwaldowski/cspell-action@v1
         with:
           config: '../../cspell.json'
