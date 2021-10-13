@@ -43,6 +43,6 @@ jobs:
       - uses: DavidAnson/markdownlint-cli2-action@v4
         with: 
           globs: |
-            **/*.md
-            !_vendor/
-            !themes/
+            *.md
+            content/**/*.md
+ 
