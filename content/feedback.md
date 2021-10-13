@@ -33,7 +33,7 @@ send feedback, choose any of the following four options:
     <https://github.com/chef/chef-web-docs>. We require a DCO sign-off
     to submit pull requests to this repo except for obvious fixes. See
     our [Contributing
-    page](https://github.com/chef/chef/blob/master/CONTRIBUTING.md#developer-certification-of-origin-dco)
+    page](https://github.com/chef/chef/blob/main/CONTRIBUTING.md#developer-certification-of-origin-dco)
     for more information about our DCO policy. If you have questions
     about the chef-docs repo, send an email to <docs@chef.io> and we're
     happy to assist.
