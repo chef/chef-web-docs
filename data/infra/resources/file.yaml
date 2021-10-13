@@ -29,7 +29,7 @@ syntax_full_code_block: "file 'name' do\n  atomic_update              true, fals
   \ false\n  manage_symlink_source      true, false\n  mode                      \
   \ String, Integer\n  owner                      String, Integer\n  path        \
   \               String # defaults to 'name' if not specified\n  rights         \
-  \            Hash\n  verify                     String, Block\n  action        \
+  \            Hash\n  verify                     String, Block, Symbol\n  action        \
   \             Symbol # defaults to :create if not specified\nend"
 syntax_full_properties_list:
 - '`file` is the resource.'
@@ -260,46 +260,92 @@ properties_list:
 
       advanced rights options.'
 - property: verify
-  ruby_type: String, Block
+  ruby_type: String, Block, Symbol
   required: false
   description_list:
   - markdown: 'Allows verification of a file''s contents before it is created.
-
       Creates a temporary file and then allows execution of commands or
-
       Ruby code. If this code evaluates to true, the file is created. If
-
       the code evaluates to false, an error is raised.
 
 
-      The types for this property are a block or a string. When specified
-
+      The types for this property are a block, string, or a symbol. When specified
       as a block, it returns `true` or `false`. When specified as a
-
-      string, it is executed as a system command. It evaluates to `true`
-
+      string, it is executed as a system command. It returns `true`
       if the command returns 0 as its exit status code and `false` if the
-
-      command returns a non-zero exit status code.'
+      command returns a non-zero exit status code. When using a built-in verifier
+      symbol it returns `true` if the verifier succeeds else it returns `false`.
+      Currently suppported verifiers are `:yaml`, `:json` and `:systemd_unit`.'
   - note:
       markdown: 'A block is arbitrary Ruby defined within the resource block by using
 
         the `verify` property. When a block returns `true`, Chef Infra
 
         Client will continue to update the file as appropriate.'
-  - markdown: "For example, this should return `true`:\n\n```ruby\nfile '/tmp/baz'\
-      \ do\n  verify { 1 == 1 }\nend\n```\n\nThis should also return `true`:\n\n```\
-      \ ruby\nfile '/etc/nginx.conf' do\n  verify 'nginx -t -c %{path}'\nend\n```\n\
-      \nIn this example, the `%{path}` portion of this command is expanded\nto the\
-      \ temporary location where a copy of the file to be created\nexists. This will\
-      \ use Nginx's syntax checking feature to ensure the\nfile is a valid Nginx configuration\
-      \ file before writing the file. An\nerror will be raised if the executed command\
-      \ returns a non-zero exit\nstatus code.\n\nThis should return `true`:\n\n```\
-      \ ruby\nfile '/tmp/foo' do\n  content \"hello\"\n  verify do |path|\n    open(path).read.include?\
-      \ \"hello\"\n  end\nend\n```\n\nWhereas, this should return `false`:\n\n```\
-      \ ruby\nfile '/tmp/foo' do\n  content \"goodbye\"\n  verify do |path|\n    open(path).read.include?\
-      \ \"hello\"\n  end\nend\n```\n\nIf a string or a block return `false`, the Chef\
-      \ Infra Client run\nwill stop and an error is raised."
+  - markdown: |
+      For example, this should return `true`:
+
+      ```ruby
+      file '/tmp/baz'  do
+        verify { 1 == 1 }
+      end
+      ```
+
+      This should also return `true`:
+
+      ```ruby
+      file '/etc/nginx.conf' do
+        verify 'nginx -t -c %{path}'
+      end
+      ```
+
+      In this example, the `%{path}` portion of this command is expanded
+      to the temporary location where a copy of the file to be created
+      exists. This will use Nginx's syntax checking feature to ensure the
+      file is a valid Nginx configuration file before writing the file. An
+      error will be raised if the executed command returns a non-zero exit
+      status code.
+
+      This should return `true`:
+
+      ```ruby
+      file '/tmp/foo' do
+        content "hello"
+        verify do |path|
+          open(path).read.include?       "hello"
+        end
+      end
+      ```
+
+      Whereas, this should return `false`:
+
+      ```ruby
+      file '/tmp/foo' do
+        content "goodbye"
+        verify do |path|
+          open(path).read.include?       "hello"
+        end
+      end
+      ```
+
+      When using one of the built-in symbols(`:json`, `:yaml`, `:systemd_unit`)
+      This should return `true`:
+        ```ruby
+        file 'foo.json' do
+          content '{"foo": "bar"}'
+          verify :json
+        end
+        ```
+
+      Whereas, this should return `false`:
+        ```ruby
+        file 'foo.yaml' do
+            content "--- foo: 'foo-"
+            verify :yaml
+        end
+        ```
+        If a string, block or symbol returns `false`, the Chef Infra Client run
+        will stop and an error is raised.
 properties_multiple_packages: false
 resource_directory_recursive_directories: false
 resources_common_atomic_update: true
@@ -347,4 +393,3 @@ examples: "
   \ a node:\n\n  ```ruby\n  file '/root/1.txt' do\n    content IO.read('/tmp/1.txt')\n\
   \    action :create\n  end\n  ```\n\n  where the `content` attribute uses the Ruby\
   \ `IO.read` method to get the\n  contents of the `/tmp/1.txt` file.\n"
-
