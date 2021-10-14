@@ -31,13 +31,12 @@ jobs:
       - run: ls -la
       - uses: streetsidesoftware/cspell-action@v1.3.4
         with:
-          config: '../../'
           files: '*.md'
           root: './content'
           github_token: "${{ secrets.GITHUB_TOKEN }}"
           incremental_files_only: false
           inline: warning
-          strict: true
+          strict: false
       - run: |
           pwd
           ls -la
