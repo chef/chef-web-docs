@@ -45,5 +45,5 @@ jobs:
           globs: |
             *.md
             content/**/*.md
-            !conent/_vendor/
+            !_vendor/
  
