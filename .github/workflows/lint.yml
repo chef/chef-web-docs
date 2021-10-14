@@ -31,7 +31,7 @@ jobs:
       - run: ls -la
       - uses: streetsidesoftware/cspell-action@v1.3.4
         with:
-          config: '.'
+          config: '/home/runner/work/chef-web-docs/chef-web-docs'
           files: '*.md'
           root: './content'
           github_token: "${{ secrets.GITHUB_TOKEN }}"
