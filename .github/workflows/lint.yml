@@ -31,9 +31,13 @@ jobs:
       - run: ls -la
       - uses: streetsidesoftware/cspell-action@v1.3.4
         with:
-          config: '../../cspell.json'
+          config: 'cspell.json'
           paths: '**/*.md'
-          exclude: '_vendor/'
+          exclude: '_vendor'
+          github_token: "${{ secrets.GITHUB_TOKEN }}"
+          incremental_files_only: false
+          inline: warning
+          strict: true
   markdownlint:
     runs-on: ubuntu-latest
     steps:
