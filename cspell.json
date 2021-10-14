@@ -1,5 +1,5 @@
 {
-  "version": "0.2",
+  "version": "0.1",
   "language": "en",
   "dictionaries": ["chef"],
   "dictionaryDefinitions": [
@@ -25,7 +25,8 @@
   // words - list of words to be always considered correct
   "words": [
     "inspec",
-    "cookstyle"
+    "cookstyle",
+    "FQDN"
   ],
   // flagWords - list of words to be always considered incorrect
   // This is useful for offensive words and common spelling errors.
