@@ -31,11 +31,9 @@ jobs:
       - run: ls -la
       - uses: streetsidesoftware/cspell-action@v1.3.4
         with:
-          config: 'cspell.json'
-          files: |
-            **/*.md
-            !_vendor/
-            !archetypes/
+          config: '.'
+          files: '*.md'
+          root: './content'
           github_token: "${{ secrets.GITHUB_TOKEN }}"
           incremental_files_only: false
           inline: warning
