@@ -15,7 +15,7 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  spellcheck:
+  cspell-action:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -29,11 +29,17 @@ jobs:
       - run: pwd
       - run: echo "The file was downloaded to ${{ steps.download-custom-dictionary.outputs.file-path }}"
       - run: ls -la
-      - uses: zwaldowski/cspell-action@v1
+      - uses: streetsidesoftware/cspell-action@v1.3.4
         with:
-          config: '../../cspell.json'
-          paths: '**/*.md'
-          exclude: '_vendor/'
+          files: '*.md'
+          root: './content'
+          github_token: "${{ secrets.GITHUB_TOKEN }}"
+          incremental_files_only: false
+          inline: warning
+          strict: false
+      - run: |
+          pwd
+          ls -la
   markdownlint:
     runs-on: ubuntu-latest
     steps:
