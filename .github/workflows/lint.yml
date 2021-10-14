@@ -22,10 +22,15 @@ jobs:
         with:
           token: "${{ secrets.GITHUB_TOKEN }}"
       - uses: carlosperate/download-file-action@v1.0.3
-        id: download-custom-dictionary
+        id: download-chef-dictionary
         with:
           file-url: 'https://raw.githubusercontent.com/chef/chef_dictionary/main/chef.txt'
           file-name: 'chef_dictionary.txt'
+      - uses: carlosperate/download-file-action@v1.0.3
+        id: download-docs-dictionary
+        with:
+          file-url: 'https://raw.githubusercontent.com/chef/chef_dictionary/main/docs.txt'
+          file-name: 'docs_dictionary.txt'
       - run: pwd
       - run: echo "The file was downloaded to ${{ steps.download-custom-dictionary.outputs.file-path }}"
       - run: ls -la
