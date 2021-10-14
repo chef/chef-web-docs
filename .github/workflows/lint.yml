@@ -30,6 +30,8 @@ jobs:
           pwd
           echo "The file was downloaded to ${{ steps.download-custom-dictionary.outputs.file-path }}"
           ls -la
+          head -10 chef_dictionary.txt
+          head -10 cspell.json
       - uses: zwaldowski/cspell-action@v1
         with:
           config: '../../cspell.json'
