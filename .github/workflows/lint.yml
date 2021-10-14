@@ -33,7 +33,9 @@ jobs:
         with:
           config: 'cspell.json'
           paths: '**/*.md'
-          exclude: '_vendor'
+          files: |
+            !_vendor/
+            !archetypes/
           github_token: "${{ secrets.GITHUB_TOKEN }}"
           incremental_files_only: false
           inline: warning
