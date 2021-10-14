@@ -94,7 +94,7 @@ Chef Infra Server versions earlier than 14.5 that are configured with `nginx['en
 
 :   The URL to visit for more information about how to update the number
     of nodes licensed for an organization. Default value:
-    `'http://www.chef.io/contact/on-premises-simple'`.
+    `https://www.chef.io/pricing'`.
 
 `notification_email`
 
@@ -2216,7 +2216,7 @@ regardless of the node's run list. This feature is targeted at expert
 level practitioners who are delivering isolated configuration changes to
 the target systems, such as self-contained agent software. Further
 explanation of the feature can be found in
-[Chef Infra Client Development Docs](https://github.com/chef/chef/blob/master/docs/dev/design_documents/server_enforced_recipes.md).
+[Chef Infra Client Development Docs](https://github.com/chef/chef/blob/main/docs/dev/design_documents/server_enforced_recipes.md).
 
 This configuration file has the following settings for
 `required_recipe`:
