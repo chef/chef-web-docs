@@ -1,7 +1,7 @@
 {
   "version": "0.2",
   "language": "en",
-  "dictionaries": ["chef"]
+  "dictionaries": ["chef"],
   "dictionaryDefinitions": [
     {
       "name": "chef",
