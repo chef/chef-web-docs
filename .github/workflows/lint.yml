@@ -31,13 +31,16 @@ jobs:
       - run: ls -la
       - uses: streetsidesoftware/cspell-action@v1.3.4
         with:
-          config: '/home/runner/work/chef-web-docs/chef-web-docs'
+          config: '../../'
           files: '*.md'
           root: './content'
           github_token: "${{ secrets.GITHUB_TOKEN }}"
           incremental_files_only: false
           inline: warning
           strict: true
+      - run: |
+          pwd
+          ls -la
   markdownlint:
     runs-on: ubuntu-latest
     steps:
