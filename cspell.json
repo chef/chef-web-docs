@@ -1,19 +1,8 @@
 {
-  "version": "0.1",
-  "language": "en",
-  "dictionaries": ["chef"],
-  "dictionaryDefinitions": [
-    {
-      "name": "chef",
-      "path": "./chef_dictionary.txt"
-    }
-  ],
-// cSpell Settings
-{
   // Version of the setting file.  Always 0.1
-  "version": "0.1",
+  "version": "0.2",
   // language - current active spelling language
-  "language": "en",
+  "language": "en_US",
   "dictionaryDefinitions": [
     {
         "name": "chef",
