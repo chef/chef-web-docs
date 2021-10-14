@@ -32,8 +32,8 @@ jobs:
       - uses: streetsidesoftware/cspell-action@v1.3.4
         with:
           config: 'cspell.json'
-          paths: '**/*.md'
           files: |
+            **/*.md
             !_vendor/
             !archetypes/
           github_token: "${{ secrets.GITHUB_TOKEN }}"
