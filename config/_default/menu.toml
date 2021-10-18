@@ -437,13 +437,6 @@ identifier = "chef_infra"
   parent = "chef_infra"
   weight = 100
 
-    [[infra]]
-    title = "FIPS-mode"
-    identifier = "chef_infra/security/ctl_chef_client.md#run-in-fips-mode FIPS-mode"
-    parent = "chef_infra/security"
-    url = "/ctl_chef_client/#run-in-fips-mode"
-    weight = 30
-
   [[infra]]
   title = "Reference"
   identifier = "chef_infra/reference"
@@ -900,6 +893,11 @@ identifier = "supermarket"
 title = "Release Notes"
 identifier = "release_notes"
 weight = 10
+
+  [[release_notes]]
+  title = "Chef Cloud Resource Packs"
+  identifier = "release_notes/inspec"
+  parent = "release_notes"
 
 ####
 # End Release Notes Menu

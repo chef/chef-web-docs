@@ -51,8 +51,8 @@ versions 12.4.0 and above.
 
 {{< warning >}}
 
-The following information does not apply to hosted Chef Server 12, only
-to on-premises Chef Server 12.
+The following information does not apply to Hosted Chef, only
+to on-premises Chef Infra Server.
 
 {{< /warning >}}
 
