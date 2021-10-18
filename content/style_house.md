@@ -68,6 +68,8 @@ When writing about security, follow the accepted convention and use "Alice" and 
 
 Here is a list of some example names for you to use (the last names are translations of "Chef"):
 
+<!-- cSpell:disable -->
+
 - Ares Koch
 - Tamira Bucatar
 - Dan Gotvach
@@ -76,6 +78,8 @@ Here is a list of some example names for you to use (the last names are translat
 - Booker Yolisa
 - Kala Baavarchee
 - Samuel Tagaluto
+
+<!-- cSpell:enable -->
 
 ### Example Email Addresses
 

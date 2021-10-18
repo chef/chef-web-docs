@@ -261,7 +261,7 @@ find if deploying Chef Backend to various cloud providers.
 {{< note >}}
 
 Even though the defaults assume a high-latency environment, cloud
-deployments should be restricted to the same datacenter, or in AWS, in
+deployments should be restricted to the same data center, or in AWS, in
 the same region. This means that geographically-dispersed cluster
 deployments are not supported. Multiple Availability Zones *are*
 supported as long as they are in the same region.

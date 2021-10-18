@@ -78,7 +78,7 @@ hab sup run \
 * [hab sup run]({{< relref "/habitat/habitat_cli#hab-sup-run" >}}) is the hab cli commant to start the Habitat supervisor.
 * `MY_APP` is the name of your application. Chef Automate groups services by application name in the Applications Dashboard
 * `MY_ENV` is the application environment for this supervisor. Chef Automate groups services by environment in the Applications Dashboard
-* `MY_SITE` describes the physical (for example, datacenter) or cloud-specific (for example, the AWS region) location where your services are deployed. The site field is a value filtering for services in the Applications Dashboard.
+* `MY_SITE` describes the physical (for example, data center) or cloud-specific (for example, the AWS region) location where your services are deployed. The site field is a value filtering for services in the Applications Dashboard.
 * `AUTOMATE_HOSTNAME:4222` is the Chef Automate URL with port 4222 specified.
 * `API_TOKEN` is the token you created in Chef Automate.
 
