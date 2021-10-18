@@ -63,7 +63,7 @@ community:
 </tr>
 <tr>
 <td><a href="https://rubygems.org/gems/chef-handler-mail">Simple Email</a></td>
-<td>A handler that collects exception and report handler data and then uses pony to send email reports that are based on Erubis templates.</td>
+<td>A handler that collects exception and report handler data and then uses pony to send email reports that are based on `.erb` (Embedded Ruby ) templates.</td>
 </tr>
 <tr>
 <td><a href="http://onddo.github.io/chef-handler-sns/">SNS</a></td>

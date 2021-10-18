@@ -10,8 +10,8 @@ toc_layout = "infra_resource_toc"
 [menu]
   [menu.infra]
     title = "registry_key"
-    identifier = "chef_infra/cookbook_reference/resources/registry_key"
-    parent = "chef_infra/cookbook_reference/resources"
+    identifier = "chef_infra/resources/registry_key"
+    parent = "chef_infra/resources"
 +++
 
 <!-- The contents of this page are automatically generated from the registry_key.yaml file in the data directory. -->

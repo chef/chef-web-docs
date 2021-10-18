@@ -1,15 +1,15 @@
 +++
 title = "Writing Custom Knife Plugins"
 draft = false
-gh_repo = "chef-web-docs"
+gh_repo = "chef-workstation"
 aliases = ["/plugin_knife_custom.html"]
-product = ["client", "server", "workstation"]
+product = ["workstation"]
 
 [menu]
-  [menu.infra]
+  [menu.workstation]
     title = "Writing Custom Plugins"
-    identifier = "chef_infra/extension_apis/knife_plugins/plugin_knife_custom.md Writing Custom Plugins"
-    parent = "chef_infra/extension_apis/knife_plugins"
+    identifier = "chef_workstation/extension_apis/knife_plugins/plugin_knife_custom.md Writing Custom Plugins"
+    parent = "chef_workstation/extension_apis/knife_plugins"
     weight = 20
 +++
 
@@ -152,7 +152,7 @@ end
 ```
 
 Take a look at all of the code for this plugin on GitHub:
-<https://github.com/chef/knife-windows/blob/master/lib/chef/knife/winrm.rb>.
+<https://github.com/chef/knife-windows/blob/main/lib/chef/knife/winrm.rb>.
 
 ### Namespace
 

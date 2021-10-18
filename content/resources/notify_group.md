@@ -10,8 +10,8 @@ toc_layout = "infra_resource_toc"
 [menu]
   [menu.infra]
     title = "notify_group"
-    identifier = "chef_infra/cookbook_reference/resources/notify_group"
-    parent = "chef_infra/cookbook_reference/resources"
+    identifier = "chef_infra/resources/notify_group"
+    parent = "chef_infra/resources"
 +++
 
 <!-- The contents of this page are automatically generated from the notify_group.yaml file in the data directory. -->

@@ -7,9 +7,8 @@ gh_repo = "chef-web-docs"
 [menu]
   [menu.infra]
     title = "Reading Data Bags"
-    identifier = "chef_infra/cookbook_reference/infra_language/readig_data_bags.md Reading Data Bags"
-    parent = "chef_infra/cookbook_reference/infra_language"
-    weight = 40
+    identifier = "chef_infra/infra_language/reading_data_bags.md Reading Data Bags"
+    parent = "chef_infra/infra_language"
 +++
 
 ## data_bag

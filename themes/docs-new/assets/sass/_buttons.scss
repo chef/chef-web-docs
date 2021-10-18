@@ -2,8 +2,7 @@ $thick: 3px;
 $pad: 0.7em;
 $extra: calc(#{$pad} * 1.2);
 
-
-.button-animated {
+.animated {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -135,3 +134,6 @@ $extra: calc(#{$pad} * 1.2);
     padding:0.01rem 1rem;
   }
 }
+
+
+

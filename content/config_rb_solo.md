@@ -9,7 +9,7 @@ aliases = ["/config_rb_solo.html"]
 [menu]
   [menu.infra]
     title = "solo.rb"
-    identifier = "chef_infra/features/chef_solo/config_rb_solo.md solo.rb"
+    identifier = "chef_infra/features/chef_solo/config_rb_solo.md solo.rb Configuration"
     parent = "chef_infra/features/chef_solo"
     weight = 30
 +++

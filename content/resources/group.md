@@ -10,8 +10,8 @@ toc_layout = "infra_resource_toc"
 [menu]
   [menu.infra]
     title = "group"
-    identifier = "chef_infra/cookbook_reference/resources/group"
-    parent = "chef_infra/cookbook_reference/resources"
+    identifier = "chef_infra/resources/group"
+    parent = "chef_infra/resources"
 +++
 
 <!-- The contents of this page are automatically generated from the group.yaml file in the data directory. -->

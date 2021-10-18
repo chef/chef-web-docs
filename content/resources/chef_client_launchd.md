@@ -10,8 +10,8 @@ toc_layout = "infra_resource_toc"
 [menu]
   [menu.infra]
     title = "chef_client_launchd"
-    identifier = "chef_infra/cookbook_reference/resources/chef_client_launchd"
-    parent = "chef_infra/cookbook_reference/resources"
+    identifier = "chef_infra/resources/chef_client_launchd"
+    parent = "chef_infra/resources"
 +++
 
 <!-- The contents of this page are automatically generated from the chef_client_launchd.yaml file in the data directory. -->

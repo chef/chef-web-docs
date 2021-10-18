@@ -9,9 +9,9 @@ aliases = ["/resource_common.html"]
 [menu]
   [menu.infra]
     title = "Common Resource Functionality"
-    identifier = "chef_infra/cookbook_reference/resources/resource_common.md Common Resource Functionality"
-    parent = "chef_infra/cookbook_reference/resources"
-    weight = 20
+    identifier = "chef_infra/resources/resource_common.md Common Resource Functionality"
+    parent = "chef_infra/resources"
+    weight = 30
 +++
 
 All resources (including custom resources) share a set of common

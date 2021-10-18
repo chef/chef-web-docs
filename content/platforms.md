@@ -74,8 +74,8 @@ The following table lists the commercially-supported platforms and versions for 
 </tr>
 <tr>
 <td>Debian</td>
-<td><code>x86_64</code><code>aarch64</code> (10.x only)</td>
-<td><code>9</code>, <code>10</code></td>
+<td><code>x86_64</code><code>aarch64</code> (10.x/11.x only)</td>
+<td><code>9</code>, <code>10</code>, <code>11</code></td>
 </tr>
 <tr>
 <td>FreeBSD</td>
@@ -85,7 +85,7 @@ The following table lists the commercially-supported platforms and versions for 
 <tr>
 <td>macOS</td>
 <td><code>x86_64</code>, <code>aarch64 (M1 processors)</code></td>
-<td><code>10.14</code>, <code>10.15</code>, <code>11.x</code>, <code>11.x (M1 only)</code></td>
+<td><code>10.14</code>, <code>10.15</code>, <code>11.x</code>, <code>12.x</code></td>
 </tr>
 <tr>
 <td>Oracle Enterprise Linux</td>
@@ -115,7 +115,7 @@ The following table lists the commercially-supported platforms and versions for 
 <tr>
 <td>Microsoft Windows</td>
 <td><code>x86</code>, <code>x64</code></td>
-<td><code>8.1</code>, <code>2012</code>, <code>2012 R2</code>, <code>2016</code>, <code>10 (all channels except "insider" builds)</code>, <code>2019 (Long-term servicing channel (LTSC), both Desktop Experience and Server Core)</code></td>
+<td><code>8.1</code>, <code>2012</code>, <code>2012 R2</code>, <code>2016</code>, <code>10 (all channels except "insider" builds)</code>, <code>2019 (Long-term servicing channel (LTSC), both Desktop Experience and Server Core)</code><code>11</code>, <code>2022</code></td>
 </tr>
 </tbody>
 </table>
@@ -179,22 +179,12 @@ The following platforms are supported only via the community:
 <td>current non-EOL releases</td>
 </tr>
 <tr>
-<td>Gentoo</td>
-<td><code>x86_64</code></td>
-<td>current version</td>
-</tr>
-<tr>
 <td>Kali Linux</td>
 <td><code>x86_64</code></td>
 <td>current non-EOL releases</td>
 </tr>
 <tr>
 <td>Linux Mint</td>
-<td><code>x86_64</code></td>
-<td>current non-EOL releases</td>
-</tr>
-<tr>
-<td>OmniOS Community Edition</td>
 <td><code>x86_64</code></td>
 <td>current non-EOL releases</td>
 </tr>

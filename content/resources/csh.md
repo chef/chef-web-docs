@@ -10,8 +10,8 @@ toc_layout = "infra_resource_toc"
 [menu]
   [menu.infra]
     title = "csh"
-    identifier = "chef_infra/cookbook_reference/resources/csh"
-    parent = "chef_infra/cookbook_reference/resources"
+    identifier = "chef_infra/resources/csh"
+    parent = "chef_infra/resources"
 +++
 
 <!-- The contents of this page are automatically generated from the csh.yaml file in the data directory. -->

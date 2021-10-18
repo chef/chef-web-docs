@@ -21,4 +21,7 @@
     {{- $toc := .TableOfContents -}}
     {{- safeHTML $toc -}}
   </div>
+   <div>
+    {{- partialCached "feedback" . -}}
+  </div>
 </aside>

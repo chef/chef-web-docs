@@ -4,14 +4,13 @@ draft = false
 
 gh_repo = "chef-web-docs"
 
-aliases = ["/ruby.html"]
+aliases = ["/ruby.html", "/just_enough_ruby_for_chef.html"]
 
 [menu]
   [menu.infra]
     title = "Ruby Guide"
-    identifier = "chef_infra/cookbook_reference/ruby.md Ruby Guide"
-    parent = "chef_infra/cookbook_reference"
-    weight = 130
+    identifier = "chef_infra/infra_language/ruby.md Ruby Guide"
+    parent = "chef_infra/infra_language"
 +++
 
 {{% ruby_summary %}}

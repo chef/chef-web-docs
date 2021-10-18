@@ -10,8 +10,8 @@ toc_layout = "infra_resource_toc"
 [menu]
   [menu.infra]
     title = "chocolatey_feature"
-    identifier = "chef_infra/cookbook_reference/resources/chocolatey_feature"
-    parent = "chef_infra/cookbook_reference/resources"
+    identifier = "chef_infra/resources/chocolatey_feature"
+    parent = "chef_infra/resources"
 +++
 
 <!-- The contents of this page are automatically generated from the chocolatey_feature.yaml file in the data directory. -->

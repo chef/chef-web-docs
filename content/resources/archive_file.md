@@ -10,8 +10,8 @@ toc_layout = "infra_resource_toc"
 [menu]
   [menu.infra]
     title = "archive_file"
-    identifier = "chef_infra/cookbook_reference/resources/archive_file"
-    parent = "chef_infra/cookbook_reference/resources"
+    identifier = "chef_infra/resources/archive_file"
+    parent = "chef_infra/resources"
 +++
 
 <!-- The contents of this page are automatically generated from the archive_file.yaml file in the data directory. -->

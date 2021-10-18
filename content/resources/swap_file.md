@@ -10,8 +10,8 @@ toc_layout = "infra_resource_toc"
 [menu]
   [menu.infra]
     title = "swap_file"
-    identifier = "chef_infra/cookbook_reference/resources/swap_file"
-    parent = "chef_infra/cookbook_reference/resources"
+    identifier = "chef_infra/resources/swap_file"
+    parent = "chef_infra/resources"
 +++
 
 <!-- The contents of this page are automatically generated from the swap_file.yaml file in the data directory. -->

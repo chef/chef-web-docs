@@ -7,9 +7,8 @@ gh_repo = "chef-web-docs"
 [menu]
   [menu.infra]
     title = "Node Tags"
-    identifier = "chef_infra/cookbook_reference/infra_language/node_tags.md Node Tags"
-    parent = "chef_infra/cookbook_reference/infra_language"
-    weight = 20
+    identifier = "chef_infra/infra_language/node_tags.md Node Tags"
+    parent = "chef_infra/infra_language"
 +++
 
 {{% chef_tags %}}

@@ -38,7 +38,7 @@ function loadReleaseNotesContents(releases, version, product) {
 
   var pageTOCButton = "<button type=\"button\" class=\"TOC-button hide-for-large\" data-toggle=\"offCanvasRightTOC\" data-close=\"left-nav-off-canvas\"><i class=\"fas fa-bars\"></i> Table of Contents</button>"
 
-  var converter = new showdown.Converter();
+  var converter = new showdown.Converter({literalMidWordUnderscores: true});
 
   if (product === 'automate'){
     $.get(releases[index]["_links"]["release_notes"], function(rawReleaseNotes) {
@@ -56,7 +56,12 @@ function loadReleaseNotesContents(releases, version, product) {
   }
   else {
 
-    releaseNoteURL = 'https://packages.chef.io/release-notes/' + product + '/' + releases[index] + '.md'
+    if (product.startsWith("inspec-")){
+      releaseNoteURL = '/release-notes/' + product + '/' + releases[index] + '.md'
+    } else {
+      releaseNoteURL = 'https://packages.chef.io/release-notes/' + product + '/' + releases[index] + '.md'
+    }
+
 
     $.get(releaseNoteURL, function(rawReleaseNotes) {
       var html = converter.makeHtml(rawReleaseNotes);
@@ -139,6 +144,8 @@ function loadReleaseNotesPage(product) {
 
   if (product === "automate"){
     var versionsURL = "https://packages.chef.io/releases/current/automate.json"
+  } else if (product.startsWith("inspec-")){
+    var versionsURL = "/release-notes/" + product + "/release-dates.json"
   } else {
     var versionsURL = "https://omnitruck.chef.io/stable/" + product + "/versions/all"
   }

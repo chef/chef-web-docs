@@ -1,4 +1,8 @@
 @import 'foundation-sites/scss/util/mixins';
+@import "vendor/fontawesome/fontawesome.scss";
+@import "vendor/fontawesome/solid.scss";
+@import "vendor/fontawesome/icons.scss";
+@import "vendor/fontawesome/icons.scss";
 
 // Font smoothing mixin
 @mixin font-smoothing() {
@@ -89,3 +93,4 @@
 @mixin box-shadow(){
 	box-shadow: 0 8px 24px 0 rgba(0,0,0,0.08);
 }
+

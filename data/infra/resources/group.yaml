@@ -81,10 +81,8 @@ properties_list:
   default_value: "[]"
   description_list:
   - markdown: 'Which users should be set or appended to a group. When more than one
-
-      group member is identified, the list of members should be an array:
-
-      `members [''user1'', ''user2'']`.'
+      group member is identified, the list of members should be an array: `members
+      [''user1'', ''user2'']`.'
 - property: non_unique
   ruby_type: true, false
   required: false

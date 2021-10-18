@@ -10,8 +10,8 @@ toc_layout = "infra_resource_toc"
 [menu]
   [menu.infra]
     title = "yum_package"
-    identifier = "chef_infra/cookbook_reference/resources/yum_package"
-    parent = "chef_infra/cookbook_reference/resources"
+    identifier = "chef_infra/resources/yum_package"
+    parent = "chef_infra/resources"
 +++
 
 <!-- The contents of this page are automatically generated from the yum_package.yaml file in the data directory. -->

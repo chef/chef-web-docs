@@ -8,9 +8,9 @@ product = ["client", "server"]
 [menu]
   [menu.infra]
     title = "Quick Start"
-    identifier = "chef_infra/getting_started/quick_start.md Quick Start"
-    parent = "chef_infra/getting_started"
-    weight = 20
+    identifier = "chef_infra/overview/quick_start.md Quick Start"
+    parent = "chef_infra/overview"
+    weight = 40
 +++
 
 The quickest way to get started using Chef Infra is to install Chef Workstation and create your first Chef Infra Cookbook:
@@ -40,7 +40,7 @@ The quickest way to get started using Chef Infra is to install Chef Workstation 
 5.  Run Chef Infra Client using the `default.rb` recipe:
 
     ```bash
-    chef-client --local-mode --override-runlist first_cookbook
+    chef-client --local-mode --override-runlist example
     ```
 
 This creates a file named `test.txt` at the home path on your computer. Open that file and it will say `This file was created by Chef Infra!`.

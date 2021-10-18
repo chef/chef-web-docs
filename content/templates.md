@@ -11,16 +11,10 @@ aliases = ["/templates.html", "essentials_cookbook_templates.html"]
     title = "Templates"
     identifier = "chef_infra/cookbook_reference/templates.md Templates"
     parent = "chef_infra/cookbook_reference"
-    weight = 90
+    weight = 100
 +++
 
 {{% template %}}
-
-{{< note >}}
-
-{{% notes_cookbook_template_erubis %}}
-
-{{< /note >}}
 
 ## Requirements
 

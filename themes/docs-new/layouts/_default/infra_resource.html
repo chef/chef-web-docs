@@ -2,7 +2,6 @@
 {{ $product := index .Params.data_path 0 }}
 
   <main id="main-content-col" tabindex="-1">
-  
     <div id="col-content" data-swiftype-index='true'>
 
       <h1 id="{{ anchorize ( .Title )}}">{{ .Title }}</h1>
@@ -750,6 +749,5 @@
         {{ end }}
       </div>
     </div>
-    {{ partialCached "feedback" . }}
   </main>
 {{ end }}

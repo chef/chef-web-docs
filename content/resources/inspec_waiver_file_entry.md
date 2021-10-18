@@ -10,8 +10,8 @@ toc_layout = "infra_resource_toc"
 [menu]
   [menu.infra]
     title = "inspec_waiver_file_entry"
-    identifier = "chef_infra/cookbook_reference/resources/inspec_waiver_file_entry"
-    parent = "chef_infra/cookbook_reference/resources"
+    identifier = "chef_infra/resources/inspec_waiver_file_entry"
+    parent = "chef_infra/resources"
 +++
 
 <!-- The contents of this page are automatically generated from the inspec_waiver_file_entry.yaml file in the data directory. -->

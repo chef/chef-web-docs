@@ -8,9 +8,8 @@ product = ["client", "server", "workstation"]
 [menu]
   [menu.infra]
     title = "Troubleshooting"
-    identifier = "chef_infra/errors.md Troubleshooting"
-    parent = "chef_infra"
-    weight = 40
+    identifier = "chef_infra/reference/errors.md Troubleshooting"
+    parent = "chef_infra/reference"
 +++
 
 The following sections describe how to troubleshoot the Chef Infra

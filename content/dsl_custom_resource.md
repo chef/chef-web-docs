@@ -7,9 +7,9 @@ aliases = ["/dsl_custom_resource.html"]
 [menu]
   [menu.infra]
     title = "Custom Resources DSL"
-    identifier = "chef_infra/cookbook_reference/dsl_custom_resource.md Custom Resources DSL"
-    parent = "chef_infra/cookbook_reference"
-    weight = 70
+    identifier = "chef_infra/resources/dsl_custom_resource.md Custom Resources DSL"
+    parent = "chef_infra/resources"
+    weight = 25
 +++
 
 Use the Custom Resource DSL to define behaviors within custom resources, such as:
