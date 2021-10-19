@@ -35,7 +35,7 @@ If your system is configured to use the `audit cookbook`, make these changes to 
 
 ### Enable the Compliance Phase
 
-The Compliance Phase is enabled by setting the `node['audit']['compliance_phase']` attribute to `true` through cookbook attributes or Policyfiles. To enable Compliance Phase using cookbook atttributes add the following line to the `attributes/default.rb` file in your cookbook.
+The Compliance Phase is enabled by setting the `node['audit']['compliance_phase']` attribute to `true` through cookbook attributes or Policyfiles. To enable Compliance Phase using cookbook attributes add the following line to the `attributes/default.rb` file in your cookbook.
 
 ```ruby
 default['audit']['compliance_phase'] = true

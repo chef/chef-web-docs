@@ -7,6 +7,7 @@ gh_repo = "chef-web-docs"
 aliases = ["/release_notes_chefdk.html"]
 product = []
 +++
+<!-- cSpell:disable  -->
 
 This page documents the ChefDK major changes for each release. For
 a detailed list of changes, see the [ChefDK Changelog on
@@ -3228,3 +3229,5 @@ binaries. Run `mixlib-install help` for command usage.
 ## Changelog
 
 <https://github.com/chef/chef-dk/blob/main/CHANGELOG.md>
+
+<!-- cSpell:enable -->
