@@ -24,7 +24,7 @@
     X-Frame-Options = "DENY"
     X-XSS-Protection = "1; mode=block"
     X-Content-Type-Options = "nosniff"
-    Content-Security-Policy = "connect-src api.amplitude.com; font-src cdnjs.cloudflare.com fonts.gstatic.com; img-src 'self' docs.chef.io; script-src-elem 'unsafe-inline' cdn.amplitude.com cdnjs.cloudflare.com tobiasmcvey.com 'self'; style-src-attr 'unsafe-inline'; style-src-elem 'self' 'unsafe-inline' cdnjs.cloudflare.com fonts.googleapis.com docs.chef.io"
+    Content-Security-Policy = "default-src 'self' coudfront.net *.cloudfront.net apis.google.com api.swiftype.com; frame-ancestors 'self' progress.com *.progress.com chef.io *.chef.io; frame-src 'self' chef.io; img-src 'self' docs.chef.io ; "
     Referrer-Policy = "strict-origin-when-cross-origin"
     Strict-Transport-Security = "max-age=2592000"
     Permissions-Policy = "vibrate=(), geolocation=(), midi=(), notifications=(), push=(), sync-xhr=(), microphone=(), camera=(), magnetometer=(), gyroscope=(), speaker=(), vibrate=(), fullscreen=(), payment=()"
