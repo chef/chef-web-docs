@@ -11,7 +11,7 @@ aliases = ["/chef_repo.html"]
     parent = "chef_infra/cookbook_reference"
     weight = 15
 +++
-
+<!-- markdownlint-disable-file MD033 -->
 {{% chef_repo_description %}}
 
 ## Directory Structure

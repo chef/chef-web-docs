@@ -13,7 +13,7 @@ aliases = ["/windows.html"]
     parent = "chef_infra/integrations/windows"
     weight = 10
 +++
-
+<!-- markdownlint-disable-file MD033 -->
 ## Overview
 
 The Chef Infra Client has specific components that are designed to

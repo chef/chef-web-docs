@@ -1,3 +1,4 @@
+<!-- markdownlint-disable-file MD033 -->
 # chef-web-docs
 
 This repo is the source of the Chef reference documentation located at

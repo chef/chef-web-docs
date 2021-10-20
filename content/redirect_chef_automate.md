@@ -7,4 +7,5 @@ robots = "noindex"
 
 aliases = "/chef_automate.html"
 +++
+<!-- markdownlint-disable-file MD033 -->
 <meta http-equiv="refresh" content="0; url=/automate/" />

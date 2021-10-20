@@ -8,5 +8,5 @@ aliases = ["/resource_reference.html", "/resources.html", "resource_examples.htm
 
 robots = "noindex"
 +++
-
+<!-- markdownlint-disable-file MD033 -->
 <meta http-equiv="refresh" content="0; url=/resources/" />

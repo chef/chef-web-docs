@@ -11,7 +11,7 @@ product = ["client", "server", "workstation"]
     identifier = "supermarket/reference/supermarket_api.md Supermarket API"
     parent = "supermarket/reference"
 +++
-
+<!-- markdownlint-disable-file MD033 -->
 {{% supermarket_api_summary %}} .. note:: In general, using
 knife (and the `knife supermarket` subcommand) to manage cookbooks that
 are located on the Cookbooks site is more efficient than using the

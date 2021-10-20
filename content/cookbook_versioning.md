@@ -12,7 +12,7 @@ product = ["client", "server", "workstation"]
     parent = "chef_infra/cookbook_reference"
     weight = 150
 +++
-
+<!-- markdownlint-disable-file MD033 -->
 {{% cookbooks_version %}}
 
 ## Syntax

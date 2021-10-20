@@ -12,7 +12,7 @@ product = []
     parent = "overview/community"
     weight = 10
 +++
-
+<!-- markdownlint-disable-file MD033 -->
 We're glad you want to contribute to a Chef project! This guide will
 help answer common questions you may have during your first
 contribution.

@@ -13,7 +13,7 @@ aliases = ["/chef_client_security.html", "/auth.html"]
     parent = "chef_infra/security"
     weight = 10
 +++
-
+<!-- markdownlint-disable-file MD033 -->
 {{% chef_auth %}}
 
 ## Authentication

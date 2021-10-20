@@ -12,7 +12,7 @@ product = ["client", "server", "workstation"]
     parent = "chef_infra/features"
     weight = 70
 +++
-
+<!-- markdownlint-disable-file MD033 -->
 {{% search %}}
 
 Many of the examples in this section use knife, but the search indexes

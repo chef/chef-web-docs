@@ -12,6 +12,7 @@ product = ["client", "server", "workstation"]
     parent = "chef_infra/overview"
     weight = 10
 +++
+<!-- markdownlint-disable-file MD033 -->
 
 {{% chef %}}
 

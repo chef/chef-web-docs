@@ -13,7 +13,7 @@ aliases = ["/handlers.html", "essentials_handlers.html"]
     parent = "chef_infra/features"
     weight = 40
 +++
-
+<!-- markdownlint-disable-file MD033 -->
 {{% handler %}}
 
 {{% handler_types %}}
