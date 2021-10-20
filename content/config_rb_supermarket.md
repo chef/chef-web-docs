@@ -352,10 +352,8 @@ This configuration file has the following settings for nginx:
 
 `default['supermarket']['gzip_buffers']`
 
-:   Set the <span class="title-ref">gzip buffer
-    \<https://nginx.org/en/docs/http/ngx_http_gzip_module.html\#gzip_buffers\></span>
-    size. The nginx default is equal to one memory page. Default value:
-    `nil`.
+:   Set the [gzip buffer](https://nginx.org/en/docs/http/ngx_http_gzip_module.html)
+    size. The nginx default is equal to one memory page, depending on the platform, it is either 4K or 8K. Default value: `nil`.
 
 `default['supermarket']['nginx']['gzip_comp_level']`
 
