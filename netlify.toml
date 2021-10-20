@@ -22,9 +22,7 @@
   for = "/*"
   [headers.values]
     X-Frame-Options = "DENY"
-    X-XSS-Protection = "1; mode=block"
     X-Content-Type-Options = "nosniff"
-    Content-Security-Policy = "default-src 'self' coudfront.net *.cloudfront.net docs.chef.io apis.google.com googleapis.com swiftype.com *.swiftype.com netlify.app *.netlify.app ; font-src 'self' fontawesome.com fonts.googleapis.com fonts.gstatic.com; img-src 'self' data: fontawesome.com; script-src 'self' netlify-cdp-loader.netlify.app data: filesystem:; style-src 'self' docs.chef.io fonts.googleapis.com netlify.app *.netlify.app"
     Referrer-Policy = "no-referrer-when-downgrade"
     Strict-Transport-Security = "max-age=2592000"
     Permissions-Policy = "vibrate=(), geolocation=(), midi=(), notifications=(), push=(), sync-xhr=(), microphone=(), camera=(), magnetometer=(), gyroscope=(), speaker=(), vibrate=(), fullscreen=(), payment=()"
