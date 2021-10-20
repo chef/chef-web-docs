@@ -161,13 +161,13 @@ where:
 
 ### Examples
 
-**Installing the cron package on Debian systems**
+#### Installing the cron package on Debian systems
 
 ```ruby
 package 'cron' if platform?('debian')
 ```
 
-**Deleting a file on Red Hat and Debian systems**
+#### Deleting a file on Red Hat and Debian systems
 
 ```ruby
 if platform?('redhat', 'debian')
@@ -177,7 +177,7 @@ if platform?('redhat', 'debian')
 end
 ```
 
-**Installing the correct Firefox package**
+#### Installing the correct Firefox package
 
 {{% resource_if_statement_use_with_platform %}}
 
@@ -291,7 +291,7 @@ or:
 platform_family?('slackware', 'suse', 'arch')
 ```
 
-**Use a specific binary for a specific platform**
+#### Use a specific binary for a specific platform
 
 {{< readFile_shortcode file="resource_remote_file_use_platform_family.md" >}}
 

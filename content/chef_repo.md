@@ -119,7 +119,7 @@ ignore_pattern?
 
 The following examples show how to add entries to the `chefignore` file.
 
-**Ignore editor swap files**
+#### Ignore editor swap files
 
 Many text editors leave files behind. To prevent these files from being
 uploaded to the Chef Infra Server, add an entry to the chefignore file.
@@ -135,7 +135,7 @@ and for vim, do something like:
 *.sw[a-z]
 ```
 
-**Ignore top-level Subversion data**
+#### Ignore top-level Subversion data
 
 If using Subversion as the version source control application, it is
 important not to upload certain files that Subversion uses to maintain
@@ -157,7 +157,7 @@ the Chef Infra Server, use knife and run a command similar to:
 knife cookbook show name_of_cookbook cookbook_version | grep .svn
 ```
 
-**Ignore all files in a directory**
+#### Ignore all files in a directory
 
 The chefignore file can be used to ignore all of the files in a
 directory. For example:

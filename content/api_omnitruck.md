@@ -144,7 +144,7 @@ Omnitruck accepts the following platforms:
 
 ### Examples
 
-**Get the Latest Build**
+#### Get the Latest Build
 
 To get the latest supported build for Ubuntu 20.04, enter the following:
 
@@ -161,7 +161,7 @@ url	https://packages.chef.io/files/stable/chef/16.10.17/ubuntu/20.04/chef_16.10.
 version	16.10.17
 ```
 
-**Download Directly**
+#### Download Directly
 
 To use cURL to download a package directly, enter the following:
 

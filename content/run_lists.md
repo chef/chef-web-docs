@@ -60,27 +60,27 @@ Infra Server.
 
 The following examples show how to use this knife subcommand:
 
-**Add a role**
+##### Add a role
 
 {{% knife_node_run_list_add_role %}}
 
-**Add roles and recipes**
+##### Add roles and recipes
 
 {{% knife_node_run_list_add_roles_and_recipes %}}
 
-**Add a recipe with a FQDN**
+##### Add a recipe with a FQDN
 
 {{% knife_node_run_list_add_recipe_with_fqdn %}}
 
-**Add a recipe with a cookbook**
+##### Add a recipe with a cookbook
 
 {{% knife_node_run_list_add_recipe_with_cookbook %}}
 
-**Add the default recipe**
+##### Add the default recipe
 
 {{% knife_node_run_list_add_default_recipe %}}
 
-### run_list remove
+##### run_list remove
 
 {{% knife_node_run_list_remove %}}
 
@@ -102,11 +102,11 @@ This command does not have any specific options.
 
 The following examples show how to use this knife subcommand:
 
-**Remove a role**
+##### Remove a role
 
 {{% knife_node_run_list_remove_role %}}
 
-**Remove a run-list**
+##### Remove a run-list
 
 {{% knife_node_run_list_remove_run_list %}}
 
@@ -131,11 +131,11 @@ None.
 The following examples show how to use the `knife status` subcommand to
 verify the status of run-lists.
 
-**View status, include run-lists**
+##### View status, include run-lists
 
 {{% knife_status_include_run_lists %}}
 
-**View status using a query**
+##### View status using a query
 
 {{% knife_status_returned_by_query %}}
 

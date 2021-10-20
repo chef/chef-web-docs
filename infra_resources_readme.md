@@ -1,4 +1,5 @@
 # Infra Resource page YAML files
+<!-- markdownlint-disable-file MD036 -->
 
 The resource pages and [resource reference page](https://docs.chef.io/resources/) are generated using YAML data located in `chef-web-docs/data`. The YAML data is generated directly from the Chef Infra code.
 

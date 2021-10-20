@@ -666,11 +666,11 @@ Infra Server, that Chef Infra Client is added to the `clients` group:
 
 {{% ctl_chef_server_org_create %}}
 
-**Syntax**
+#### Syntax
 
 {{% ctl_chef_server_org_create_syntax %}}
 
-**Options**
+#### Options
 
 {{% ctl_chef_server_org_create_options %}}
 
@@ -678,7 +678,7 @@ Infra Server, that Chef Infra Client is added to the `clients` group:
 
 {{% ctl_chef_server_org_delete %}}
 
-**Syntax**
+#### Syntax
 
 {{% ctl_chef_server_org_delete_syntax %}}
 
@@ -686,11 +686,11 @@ Infra Server, that Chef Infra Client is added to the `clients` group:
 
 {{% ctl_chef_server_org_list %}}
 
-**Syntax**
+#### Syntax
 
 {{% ctl_chef_server_org_list_syntax %}}
 
-**Options**
+#### Options
 
 {{% ctl_chef_server_org_list_options %}}
 
@@ -698,7 +698,7 @@ Infra Server, that Chef Infra Client is added to the `clients` group:
 
 {{% ctl_chef_server_org_show %}}
 
-**Syntax**
+#### Syntax
 
 {{% ctl_chef_server_org_show_syntax %}}
 
@@ -706,11 +706,11 @@ Infra Server, that Chef Infra Client is added to the `clients` group:
 
 {{% ctl_chef_server_org_user_add %}}
 
-**Syntax**
+#### Syntax
 
 {{% ctl_chef_server_org_user_add_syntax %}}
 
-**Options**
+#### Options
 
 {{% ctl_chef_server_org_user_add_options %}}
 
@@ -718,6 +718,6 @@ Infra Server, that Chef Infra Client is added to the `clients` group:
 
 {{% ctl_chef_server_org_user_remove %}}
 
-**Syntax**
+#### Syntax
 
 {{% ctl_chef_server_org_user_remove_syntax %}}

@@ -7,7 +7,7 @@ gh_repo = "chef-web-docs"
 aliases = ["/release_notes_chefdk.html"]
 product = []
 +++
-<!-- markdownlint-disable-file MD033 -->
+<!-- markdownlint-disable-file -->
 <!-- cSpell:disable  -->
 
 This page documents the ChefDK major changes for each release. For
