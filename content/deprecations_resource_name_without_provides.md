@@ -39,7 +39,7 @@ all resources to declare a `provides` lines, and to make the `resource_name`
 setting only affect the display output. As a result, any cookbook which
 declares a resource with only a `resource_name` needs to add a `provides`
 line for Chef Infra Client 16. While this is more disruptive to users it
-is simple, it can be autocorrected via static analysis, and it results in
+is simple, it can be auto-corrected via static analysis, and it results in
 a much simpler end state where the `resource_name` is just a display name
 and the `provides` statement is solely responsible for how the resource
 is addressed in recipe mode.
