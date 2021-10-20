@@ -39,5 +39,10 @@ The following table lists the commercially-supported platforms and versions for 
 <td><code>x86_64</code></td>
 <td><code>16.04</code>, <code>18.04</code>, <code>20.04</code></td>
 </tr>
+<tr>
+<td>Amazon Linux 2</td>
+<td><code>x86_64</code></td>
+<td><code>2.x</code></td>
+</tr>
 </tbody>
 </table>
