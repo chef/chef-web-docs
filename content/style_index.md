@@ -14,7 +14,6 @@ product = []
 +++
 <!-- markdownlint-disable-file MD013 -->
 
-
 The Chef Documentation is online at [docs.chef.io](https://docs.chef.io).
 Our documentation is open source and we follow a [docs as code](https://www.docslikecode.com/) methodology.
 Our workflow is based in GitHub, we write in Markdown, and we use Hugo as our static site generator.
