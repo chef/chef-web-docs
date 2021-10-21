@@ -12,7 +12,7 @@ product = []
     parent = "overview/style"
     weight = 130
 +++
-<!-- markdownlint-disable-file MD013 MD031 MD046 -->
+<!-- markdownlint-disable-file MD013 MD031 -->
 
 Chef docs uses [shortcodes](https://gohugo.io/content-management/shortcodes/) to maintain text that appears in more than one location and must be consistent in every location.
 
@@ -237,6 +237,8 @@ Below is an example of a container that shows three code blocks in three languag
 You can copy and paste the code below into a page to get started. Note that the `tabs-id`
 and `panel-id`/`panel-link` values must be unique on the page.
 
+<!-- markdownlint-disable MD046 -->
+
 {{< foundation_tabs tabs-id="ruby-python-go-panel" >}}
   {{< foundation_tab active="true" panel-link="ruby-panel" tab-text="Ruby">}}
   {{< foundation_tab panel-link="python-panel" tab-text="Python" >}}
@@ -298,6 +300,8 @@ and `panel-id`/`panel-link` values must be unique on the page.
       ```
       {{</* /foundation_tabs_panel */>}}
     {{</* /foundation_tabs_panels */>}}
+
+<!-- markdownlint-enable MD046 -->
 
 ## Fontawesome Shortcode
 
