@@ -58,6 +58,6 @@ jobs:
             content/**/*.md
             !_vendor/
             !content/resources/_index.md
-            !content/habitat/service_templates.md
+            !content/habitat/
             !infra_resources_readme.md
  
