@@ -115,7 +115,7 @@ resource_new_in: 14.0
 A short introductory description in Markdown that explains the syntax of the resource and includes an example code block.
 
 For example:
-<!-- markdownlint-disable MD046 -->
+<!-- markdownlint-disable MD046 MD038 -->
 
 syntax_description: "The build_essential resource has the following syntax:\n\n```\
       \ ruby\nbuild_essential 'name' do\n  compile_time      true, false # default value:\
@@ -129,7 +129,7 @@ or,
       \    mkdir -p #{extract_path}\n    tar xzf #{src_filename} -C #{extract_path}\n\
       \    mv #{extract_path}/*/* #{extract_path}/\n    EOH\n  not_if { ::File.exist?(extract_path)\
       \ }\nend\n```"
-<!-- markdownlint-enable MD046 -->
+<!-- markdownlint-enable MD046 MD038 -->
 
 #### syntax_properties_list
 
