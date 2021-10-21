@@ -58,5 +58,5 @@ jobs:
             content/**/*.md
             !_vendor/
             !content/resources/_index.md
-            !content/habitat/service_templates.me
+            !content/habitat/service_templates.md
  
