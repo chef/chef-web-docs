@@ -60,7 +60,11 @@ MD012:
   maximum: 1
 
 # MD013/line-length - Line length
-MD013: false
+MD013:
+  line_length: 300
+  code_blocks: false
+  tables: false
+  headings: true
 
 # MD014/commands-show-output - Dollar signs used before commands without showing output
 MD014: true
