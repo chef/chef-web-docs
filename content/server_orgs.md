@@ -11,7 +11,7 @@ product = ["client", "server"]
     identifier = "legacy/manage/server_orgs.md Organizations & Groups"
     parent = "legacy/manage"
 +++
-<!-- markdownlint-disable-file MD033 -->
+<!-- markdownlint-disable-file MD033 MD024-->
 {{% server_rbac %}}
 
 The Chef Infra Server uses organizations, groups, and users to define

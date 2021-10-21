@@ -11,7 +11,7 @@ gh_repo = "chef-web-docs"
     parent = "overview/style"
     weight = 120
 +++
-
+<!-- markdownlint-disable-file MD002 MD013  -->
 ## Section Headings
 
 The following sections describe the section heading pattern that Chef is using for topic titles, H1s, H2s, H3s and H4s.

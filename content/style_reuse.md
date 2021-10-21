@@ -12,6 +12,7 @@ product = []
     parent = "overview/style"
     weight = 130
 +++
+<!-- markdownlint-disable-file MD031 -->
 
 Chef docs uses [shortcodes](https://gohugo.io/content-management/shortcodes/) to maintain text that appears in more than one location and must be consistent in every location.
 

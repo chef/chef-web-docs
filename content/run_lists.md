@@ -12,7 +12,7 @@ product = ["client", "server"]
     parent = "chef_infra/policyfiles"
     weight = 50
 +++
-
+<!-- markdownlint-disable-file MD024 -->
 {{% node_run_list %}}
 
 ## Run-list Format
@@ -80,7 +80,7 @@ The following examples show how to use this knife subcommand:
 
 {{% knife_node_run_list_add_default_recipe %}}
 
-##### run_list remove
+### run_list remove
 
 {{% knife_node_run_list_remove %}}
 
@@ -131,11 +131,11 @@ None.
 The following examples show how to use the `knife status` subcommand to
 verify the status of run-lists.
 
-##### View status, include run-lists
+#### View status, include run-lists
 
 {{% knife_status_include_run_lists %}}
 
-##### View status using a query
+#### View status using a query
 
 {{% knife_status_returned_by_query %}}
 

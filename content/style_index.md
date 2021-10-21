@@ -12,6 +12,7 @@ product = []
     parent = "overview/style"
     weight = 80
 +++
+<!-- markdownlint-disable-file MD013  -->
 
 The Chef Documentation is online at [docs.chef.io](https://docs.chef.io).
 Our documentation is open source and we follow a [docs as code](https://www.docslikecode.com/) methodology.

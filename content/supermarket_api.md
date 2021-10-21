@@ -19,8 +19,6 @@ In general, using knife (and the `knife supermarket` subcommand) to manage cookb
 
 {{% supermarket_api_summary %}}
 
-
-
 ## Endpoints
 
 The Supermarket API has the following endpoints.
