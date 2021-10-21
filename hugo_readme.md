@@ -1,3 +1,4 @@
+<!-- markdownlint-disable-file MD002 -->
 # Configuring Hugo
 
 ## Edit on GitHub Links

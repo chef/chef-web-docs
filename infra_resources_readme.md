@@ -1,5 +1,5 @@
 # Infra Resource page YAML files
-<!-- markdownlint-disable-file MD002 MD0013 MD036 -->
+<!-- markdownlint-disable-file MD002 MD013 MD036 -->
 
 The resource pages and [resource reference page](https://docs.chef.io/resources/) are generated using YAML data located in `chef-web-docs/data`. The YAML data is generated directly from the Chef Infra code.
 
@@ -217,7 +217,7 @@ This is a list of each property in a resource.
 
 For example:
 
-```YAML
+```
 properties_list:
 - property: property name
   ruby_type: String
@@ -232,27 +232,29 @@ properties_list:
       markdown: Markdown text warning the user about the property.
 ```
 
-#### examples
+#### Examples
 
 Each example should start with a bolded heading followed by
 blocks of text that describe and demonstrate how the resource works.
 
-examples: |
+<!-- markdownlint-disable MD046 -->
+    examples: |
 
-#### Update the Apt repository at a specified interval
+    #### Update the Apt repository at a specified interval
 
-```ruby
-apt_update 'all platforms' do
-  frequency 86400
-  action :periodic
-end
-```
+    ```ruby
+    apt_update 'all platforms' do
+      frequency 86400
+      action :periodic
+    end
+    ```
 
-      **Update the Apt repository at the start of a Chef Infra Client run**:
+    #### Update the Apt repository at the start of a Chef Infra Client run:
 
-      ```ruby
-      apt_update 'update'
-      ```
+    ```ruby
+    apt_update 'update'
+    ```
+<!-- markdownlint-enable MD046 -->
 
 ### Shortcodes
 

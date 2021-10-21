@@ -195,6 +195,7 @@ All `foundation_tab_panel` shortcodes must contained within opening and closing
 
 For example:
 
+<!-- markdownlint-disable MD046 -->
     {{</* foundation_tabs_panels tabs-id="ruby-python-panel" */>}}
       {{</* foundation_tabs_panel active="true" panel-id="ruby-panel" */>}}
       ```ruby
@@ -208,6 +209,7 @@ For example:
       ```
       {{</* /foundation_tabs_panel */>}}
     {{</* /foundation_tabs_panels */>}}
+<!-- markdownlint-enable MD046 -->
 
 #### Panel Parameters
 

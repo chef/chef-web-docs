@@ -12,7 +12,7 @@ product = []
     parent = "overview/style"
     weight = 100
 +++
-<!-- markdownlint-disable-file MD013  -->
+<!-- markdownlint-disable-file MD013 -->
 
 This document covers the tools used by the @chef-docs team for developing documentation.
 

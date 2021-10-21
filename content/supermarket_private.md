@@ -18,4 +18,3 @@ product = ["client", "server", "workstation"]
 ## Private Supermarket
 
 {{% supermarket_private %}}
-
