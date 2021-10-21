@@ -35,34 +35,34 @@ interface.
 
 To add a data bag:
 
-1.  Open the Chef management console.
+1. Open the Chef management console.
 
-2.  Click **Policy**.
+2. Click **Policy**.
 
-3.  Click **Data Bags**.
+3. Click **Data Bags**.
 
-4.  Click **Create**.
+4. Click **Create**.
 
-5.  In the **Create a Data Bag** dialog box, enter the name of the data
+5. In the **Create a Data Bag** dialog box, enter the name of the data
     bag.
 
     ![image](/images/step_manage_webui_policy_data_bag_add.png)
 
-6.  Click **Create Data Bag**.
+6. Click **Create Data Bag**.
 
 ### Delete Data Bag
 
 To delete a data bag:
 
-1.  Open the Chef management console.
+1. Open the Chef management console.
 
-2.  Click **Policy**.
+2. Click **Policy**.
 
-3.  Click **Data Bags**.
+3. Click **Data Bags**.
 
-4.  Select a data bag.
+4. Select a data bag.
 
-5.  Click **Delete**.
+5. Click **Delete**.
 
     ![image](/images/step_manage_webui_policy_data_bag_delete.png)
 
@@ -74,40 +74,40 @@ To delete a data bag:
 
 To add a data bag item:
 
-1.  Open the Chef management console.
+1. Open the Chef management console.
 
-2.  Click **Policy**.
+2. Click **Policy**.
 
-3.  Click **Data Bags**.
+3. Click **Data Bags**.
 
-4.  Select a data bag.
+4. Select a data bag.
 
-5.  Click **Create Item**.
+5. Click **Create Item**.
 
-6.  In the **Create a Data Bag Item** dialog box, enter the data bag
+6. In the **Create a Data Bag Item** dialog box, enter the data bag
     identifier, and then JSON data that defines the data bag item.
 
     ![image](/images/step_manage_webui_policy_data_bag_add_item.png)
 
-7.  Click **Create Data Bag Item**.
+7. Click **Create Data Bag Item**.
 
 ### Delete Item
 
 To delete a data bag item:
 
-1.  Open the Chef management console.
+1. Open the Chef management console.
 
-2.  Click **Policy**.
+2. Click **Policy**.
 
-3.  Click **Data Bags**.
+3. Click **Data Bags**.
 
-4.  Select a data bag.
+4. Select a data bag.
 
-5.  Select the **Items** tab.
+5. Select the **Items** tab.
 
-6.  Select an item.
+6. Select an item.
 
-7.  Click **Delete**.
+7. Click **Delete**.
 
     ![image](/images/step_manage_webui_policy_data_bag_delete_item.png)
 
@@ -119,11 +119,11 @@ To delete a data bag item:
 
 To view data bag items for a data bag:
 
-1.  Open the Chef management console.
-2.  Click **Policy**.
-3.  Click **Data Bags**.
-4.  Select a data bag.
-5.  Select the **Items** tab.
+1. Open the Chef management console.
+2. Click **Policy**.
+3. Click **Data Bags**.
+4. Select a data bag.
+5. Select the **Items** tab.
 
 ## Manage Permissions
 
@@ -135,36 +135,36 @@ To view data bag items for a data bag:
 
 To set permissions list for a data bag object:
 
-1.  Open the Chef management console.
-2.  Click **Policy**.
-3.  Click **Data Bags**.
-4.  Select a data bag.
-5.  Click the **Permissions** tab.
-6.  For each group listed under **Name**, select or de-select the
+1. Open the Chef management console.
+2. Click **Policy**.
+3. Click **Data Bags**.
+4. Select a data bag.
+5. Click the **Permissions** tab.
+6. For each group listed under **Name**, select or de-select the
     **Read**, **Update**, **Delete**, and **Grant** permissions.
 
 ### Update
 
 To update the permissions list for a data bag object:
 
-1.  Open the Chef management console.
-2.  Click **Policy**.
-3.  Click **Data Bags**.
-4.  Select a data bag.
-5.  Click the **Permissions** tab.
-6.  Click the **+ Add** button and enter the name of the user or group
+1. Open the Chef management console.
+2. Click **Policy**.
+3. Click **Data Bags**.
+4. Select a data bag.
+5. Click the **Permissions** tab.
+6. Click the **+ Add** button and enter the name of the user or group
     to be added.
-7.  Select or de-select **Read**, **Update**, **Delete**, and **Grant**
+7. Select or de-select **Read**, **Update**, **Delete**, and **Grant**
     to update the permissions list for the user or group.
 
 ### View
 
 To view permissions for a data bag object:
 
-1.  Open the Chef management console.
-2.  Click **Policy**.
-3.  Click **Data Bags**.
-4.  Select a data bag.
-5.  Click the **Permissions** tab.
-6.  Set the appropriate permissions: **Read**, **Update**, **Delete**,
+1. Open the Chef management console.
+2. Click **Policy**.
+3. Click **Data Bags**.
+4. Select a data bag.
+5. Click the **Permissions** tab.
+6. Set the appropriate permissions: **Read**, **Update**, **Delete**,
     and **Grant**.

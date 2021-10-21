@@ -34,15 +34,15 @@ interface.
 
 To delete a node:
 
-1.  Open the Chef management console.
+1. Open the Chef management console.
 
-2.  Click **Nodes**.
+2. Click **Nodes**.
 
-3.  Select a node.
+3. Select a node.
 
-4.  Click **Delete**.
+4. Click **Delete**.
 
-5.  Confirm:
+5. Confirm:
 
     {{< figure src="/images/step_manage_webui_node_delete.png" alt="Dialog box asking user if they want to delete a node." class="no-shadow">}}
 
@@ -50,20 +50,20 @@ To delete a node:
 
 To reset the validation key for a node:
 
-1.  Open the Chef management console.
+1. Open the Chef management console.
 
-2.  Click **Nodes**.
+2. Click **Nodes**.
 
-3.  Select a node.
+3. Select a node.
 
-4.  Click **Edit Run List**.
+4. Click **Edit Run List**.
 
-5.  In the **Reset Key** dialog box, confirm that the key should be
+5. In the **Reset Key** dialog box, confirm that the key should be
     regenerated and click the **Regenerate Key** button:
 
     {{< figure src="/images/step_manage_webui_admin_organization_reset_key.png" alt="Dialog box asking user to confirm that they want to delete a key." class="no-shadow">}}
 
-6.  In the **Reset Key** dialog box, copy the key directly from the
+6. In the **Reset Key** dialog box, copy the key directly from the
     dialog box or click the **Download** button to download the key to
     your local machine:
 
@@ -73,16 +73,16 @@ To reset the validation key for a node:
 
 To search nodes:
 
-1.  Open the Chef management console.
+1. Open the Chef management console.
 
-2.  Click **Nodes**.
+2. Click **Nodes**.
 
-3.  In the search box in the upper right, enter the search query and
+3. In the search box in the upper right, enter the search query and
     click the search icon.
 
     ![image](/images/step_manage_webui_nodes_search.png)
 
-4.  The results will appear in the list below.
+4. The results will appear in the list below.
 
 ## Node Attributes
 
@@ -111,31 +111,31 @@ After the node object is rebuilt, all of the attributes are compared, and then t
 
 To edit node attributes:
 
-1.  Open the Chef management console.
+1. Open the Chef management console.
 
-2.  Click **Nodes**.
+2. Click **Nodes**.
 
-3.  Select a node.
+3. Select a node.
 
-4.  Click the **Attributes** tab.
+4. Click the **Attributes** tab.
 
-5.  Click **Edit**.
+5. Click **Edit**.
 
-6.  In the **Edit Node Attributes** dialog box, make your changes:
+6. In the **Edit Node Attributes** dialog box, make your changes:
 
     ![image](/images/step_manage_webui_node_attributes_edit.png)
 
-7.  Click **Save Attributes**.
+7. Click **Save Attributes**.
 
 ### View Attributes
 
 To view the attributes for a node:
 
-1.  Open the Chef management console.
-2.  Click **Nodes**.
-3.  Select a node.
-4.  Click the **Attributes** tab.
-5.  Click **Edit**.
+1. Open the Chef management console.
+2. Click **Nodes**.
+3. Select a node.
+4. Click the **Attributes** tab.
+5. Click **Edit**.
 
 ## Run-lists
 
@@ -175,35 +175,35 @@ To view the attributes for a node:
 
 To set permissions list for a node object:
 
-1.  Open the Chef management console.
-2.  Click **Nodes**.
-3.  Select a node.
-4.  Click the **Permissions** tab.
-5.  For each group listed under **Name**, select or de-select the
+1. Open the Chef management console.
+2. Click **Nodes**.
+3. Select a node.
+4. Click the **Permissions** tab.
+5. For each group listed under **Name**, select or de-select the
     **Read**, **Update**, **Delete**, and **Grant** permissions.
 
 ### Update
 
 To update the permissions list for a node object:
 
-1.  Open the Chef management console.
-2.  Click **Nodes**.
-3.  Select a node.
-4.  Click the **Permissions** tab.
-5.  Click the **+ Add** button and enter the name of the user or group
+1. Open the Chef management console.
+2. Click **Nodes**.
+3. Select a node.
+4. Click the **Permissions** tab.
+5. Click the **+ Add** button and enter the name of the user or group
     to be added.
-6.  Select or de-select **Read**, **Update**, **Delete**, and **Grant**
+6. Select or de-select **Read**, **Update**, **Delete**, and **Grant**
     to update the permissions list for the user or group.
 
 ### View
 
 To view permissions for a node:
 
-1.  Open the Chef management console.
-2.  Click **Nodes**.
-3.  Select a node.
-4.  Click the **Permissions** tab.
-5.  Set the appropriate permissions: **Delete**, **Grant**, **Read**,
+1. Open the Chef management console.
+2. Click **Nodes**.
+3. Select a node.
+4. Click the **Permissions** tab.
+5. Set the appropriate permissions: **Delete**, **Grant**, **Read**,
     and/or **Update**.
 
 ## Manage Tags
@@ -214,52 +214,52 @@ To view permissions for a node:
 
 To add tags to a node (or a group of nodes):
 
-1.  Open the Chef management console.
+1. Open the Chef management console.
 
-2.  Click **Nodes**.
+2. Click **Nodes**.
 
-3.  Select a node (or a group of nodes).
+3. Select a node (or a group of nodes).
 
-4.  Click **Manage Tags**.
+4. Click **Manage Tags**.
 
-5.  In the **Manage Node Tags** dialog box, enter the name of the tag
+5. In the **Manage Node Tags** dialog box, enter the name of the tag
     and then select **Add Tags** from the drop-down.
 
     ![image](/images/step_manage_webui_node_tags_add.png)
 
-6.  Click **Update Tags**.
+6. Click **Update Tags**.
 
 ### Delete
 
 To delete tags for a node (or a group of nodes):
 
-1.  Open the Chef management console.
+1. Open the Chef management console.
 
-2.  Click **Nodes**.
+2. Click **Nodes**.
 
-3.  Select a node (or a group of nodes).
+3. Select a node (or a group of nodes).
 
-4.  Click **Manage Tags**.
+4. Click **Manage Tags**.
 
-5.  In the **Manage Node Tags** dialog box, enter the name of the tag
+5. In the **Manage Node Tags** dialog box, enter the name of the tag
     and then select **Delete Tags** from the drop-down.
 
     ![image](/images/step_manage_webui_node_tags_delete.png)
 
-6.  Click **Update Tags**.
+6. Click **Update Tags**.
 
 ### View
 
 To view all of the nodes:
 
-1.  Open the Chef management console.
+1. Open the Chef management console.
 
-2.  Click **Nodes**.
+2. Click **Nodes**.
 
-3.  Select a node.
+3. Select a node.
 
-4.  Select the **Details** tab.
+4. Select the **Details** tab.
 
-5.  The tags for the node appear under the **Tags** header:
+5. The tags for the node appear under the **Tags** header:
 
     ![image](/images/step_manage_webui_nodes_view_tags.png)

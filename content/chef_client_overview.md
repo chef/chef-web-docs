@@ -21,6 +21,7 @@ For the `chef-client` command line tool, see
 
 {{< /note >}}
 
+<!-- markdownlint-disable-next-line -->
 **New in Chef Infra Client 17**
 
 Chef Infra Client's Compliance Phase lets you automatically execute compliance audits and view the results as part of any Chef Infra Client Run. The Compliance Phase replaces the legacy audit cookbook and works with your existing audit cookbook attributes. You can also set up the Compliance Phase for new cookbooks. See [Compliance Phase]({{< relref "chef_compliance_phase" >}}) documentation to upgrade.

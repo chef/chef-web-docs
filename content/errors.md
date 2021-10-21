@@ -376,52 +376,72 @@ Cannot connect to PostgreSQL on the remote server because rules in
 
 #### Resolution
 
-- Entries in the `pg_hba.conf` file should allow all user names that originate from any Chef Infra Server instance using `md5` authentication. For example, a `pg_hba.conf` entry for a valid username and password from the 192.0.2.0 subnet:
+Entries in the `pg_hba.conf` file should allow:
 
-    ```bash
-    host     postgres     all     192.0.2.0/24     md5
-    ```
+* All user names that originate from any Chef Infra Server instance using `md5` authentication.
+* Apecific application names: `$db_superuser` (the configured superuser name in the chef-server.rb file), `oc_id`, `oc_id_ro`, `opscode_chef`, `opscode_chef_ro`, `bifrost`, and `bifrost_ro`
 
-    or, specific named users with a valid password originating from the 192.0.2.0 subnet. A file named `$PGDATA/chef_users` with the following content must be created:
 
-    ```bash
-    opscode_chef
-    opscode_chef_ro
-    bifrost
-    bifrost_ro
-    oc_id
-    oc_id_ro
-    ```
 
-    where `CHEF-SUPERUSER-NAME` is replaced with the same user name specified by `postgresql['db_superuser']`. The corresponding `pg_hba.conf` entry is similar to:
+##### pg_hba.conf User Names
 
-    ```bash
-    host     postgres     @chef_users     192.168.93.0/24     md5
-    ```
-    or, using the same `$PGDATA/chef_users` file (from the previousexample), the following example shows a way to limit connections tospecific nodes that are running components of the Chef Infra Server.This approach requires more maintenance because the `pg_hba.conf`file must be updated when machines are added to or removed from theChef Infra Server configuration. For example, a high availabilityconfiguration with four nodes: `backend-1` (192.0.2.100),`backend-2` (192.0.2.101), `frontend-1` (192.0.2.110), and`frontend-2` (192.0.2.111).
+For example, a `pg_hba.conf` entry for a valid username and password from the 192.0.2.0 subnet:
 
-    The corresponding `pg_hba.conf` entry is similar to:
+```bash
+host     postgres     all     192.0.2.0/24     md5
+```
 
-    ```bash
-    host     postgres     @chef_users     192.0.2.100     md5
-    host     postgres     @chef_users     192.0.2.101     md5
-    host     postgres     @chef_users     192.0.2.110     md5
-    host     postgres     @chef_users     192.0.2.111     md5
-    ```
+or, specific named users with a valid password originating from the 192.0.2.0 subnet. A file named `$PGDATA/chef_users` with the following content must be created:
 
-    These changes also require a configuration reload for PostgreSQL:
+```bash
+opscode_chef
+opscode_chef_ro
+bifrost
+bifrost_ro
+oc_id
+oc_id_ro
+```
 
-    ```bash
-    pg_ctl reload
-    ```
+where `CHEF-SUPERUSER-NAME` is replaced with the same user name specified by `postgresql['db_superuser']`. The corresponding `pg_hba.conf` entry is similar to:
 
-    or:
+```bash
+host     postgres     @chef_users     192.168.93.0/24     md5
+```
 
-    ```bash
-    SELECT pg_reload_conf();
-    ```
+or, using the same `$PGDATA/chef_users` file (from the previousexample), the following example shows a way to limit connections tospecific nodes that are running components of the Chef Infra Server.This approach requires more maintenance because the `pg_hba.conf`file must be updated when machines are added to or removed from theChef Infra Server configuration. For example, a high availabilityconfiguration with four nodes: `backend-1` (192.0.2.100),`backend-2` (192.0.2.101), `frontend-1` (192.0.2.110), and`frontend-2` (192.0.2.111).
 
-- Rules in the `pg_hba.conf` file should allow only specific application names: `$db_superuser` (the configured superuser name in the chef-server.rb file), `oc_id`, `oc_id_ro`, `opscode_chef`, `opscode_chef_ro`, `bifrost`, and `bifrost_ro`
+The corresponding `pg_hba.conf` entry is similar to:
+
+```bash
+host     postgres     @chef_users     192.0.2.100     md5
+host     postgres     @chef_users     192.0.2.101     md5
+host     postgres     @chef_users     192.0.2.110     md5
+host     postgres     @chef_users     192.0.2.111     md5
+```
+
+These changes also require a configuration reload for PostgreSQL:
+
+```bash
+pg_ctl reload
+```
+
+or:
+
+```bash
+SELECT pg_reload_conf();
+```
+
+##### pg_hba.conf Application names
+
+Rules in the `pg_hba.conf` file should allow only specific application names:
+
+* `$db_superuser` (the configured superuser name in the chef-server.rb file)
+* `oc_id`
+* `oc_id_ro`
+* `opscode_chef`
+* `opscode_chef_ro`
+* `bifrost`
+* `bifrost_ro`
 
 ### CSPG013 (incorrect permissions)
 
