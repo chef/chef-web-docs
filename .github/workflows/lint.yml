@@ -59,4 +59,5 @@ jobs:
             !_vendor/
             !content/resources/_index.md
             !content/habitat/service_templates.md
+            !infra_resources_readme.md
  
