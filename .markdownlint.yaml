@@ -61,7 +61,7 @@ MD012:
 
 # MD013/line-length - Line length
 MD013:
-  line_length: 300
+  line_length: 999
   code_blocks: false
   tables: false
   headings: true
