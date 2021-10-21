@@ -168,6 +168,7 @@ To enable or disable rules for entire files, use:
 - Enable one or more rules by name: <!-- markdownlint-enable-file MD001 -->
 
 For more information about customizing Markdownlint, see the Markdownlint GitHub Repository [README](https://github.com/DavidAnson/markdownlint/blob/main/README.md#configuration).
+
 ### Vale
 
 [Vale](https://docs.errata.ai/vale/about)

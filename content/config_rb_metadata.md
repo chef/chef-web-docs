@@ -14,8 +14,9 @@ aliases = ["/config_rb_metadata.html"]
     weight = 60
 +++
 
-{{% cookbooks_metadata %}}
+<!-- markdownlint-disable-file MD046 -->
 
+{{% cookbooks_metadata %}}
 
 * Located at the top level of a cookbook's directory structure.
 * Compiled whenever a cookbook is uploaded to the Chef Infra Server or when the `knife cookbook metadata` subcommand is run, and then stored as JSON data.

@@ -1,5 +1,6 @@
-# Infra Resource page YAML files
 <!-- markdownlint-disable-file MD002 MD013 MD036 -->
+
+# Infra Resource page YAML files
 
 The resource pages and [resource reference page](https://docs.chef.io/resources/) are generated using YAML data located in `chef-web-docs/data`. The YAML data is generated directly from the Chef Infra code.
 
@@ -114,7 +115,7 @@ resource_new_in: 14.0
 A short introductory description in Markdown that explains the syntax of the resource and includes an example code block.
 
 For example:
-<!-- markdownlint-disable -->
+<!-- markdownlint-disable MD046 -->
 
 syntax_description: "The build_essential resource has the following syntax:\n\n```\
       \ ruby\nbuild_essential 'name' do\n  compile_time      true, false # default value:\
@@ -128,7 +129,7 @@ or,
       \    mkdir -p #{extract_path}\n    tar xzf #{src_filename} -C #{extract_path}\n\
       \    mv #{extract_path}/*/* #{extract_path}/\n    EOH\n  not_if { ::File.exist?(extract_path)\
       \ }\nend\n```"
-<!-- markdownlint-enable -->
+<!-- markdownlint-enable MD046 -->
 
 #### syntax_properties_list
 
@@ -217,7 +218,7 @@ This is a list of each property in a resource.
 
 For example:
 
-```
+```YAML
 properties_list:
 - property: property name
   ruby_type: String
