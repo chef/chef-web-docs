@@ -263,7 +263,8 @@ properties_list:
   ruby_type: String, Block, Symbol
   required: false
   description_list:
-  - markdown: 'Allows verification of a file''s contents before it is created.
+  - markdown: |
+      Allows verification of a file''s contents before it is created.
       Creates a temporary file and then allows execution of commands or
       Ruby code. If this code evaluates to true, the file is created. If
       the code evaluates to false, an error is raised.
@@ -275,12 +276,11 @@ properties_list:
       if the command returns 0 as its exit status code and `false` if the
       command returns a non-zero exit status code. When using a built-in verifier
       symbol it returns `true` if the verifier succeeds else it returns `false`.
-      Currently suppported verifiers are `:yaml`, `:json` and `:systemd_unit`.'
+      Currently suppported verifiers are `:yaml`, `:json` and `:systemd_unit`.
   - note:
-      markdown: 'A block is arbitrary Ruby defined within the resource block by using
-
+      markdown: |
+        A block is arbitrary Ruby defined within the resource block by using
         the `verify` property. When a block returns `true`, Chef Infra
-
         Client will continue to update the file as appropriate.'
   - markdown: |
       For example, this should return `true`:
