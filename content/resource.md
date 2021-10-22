@@ -13,7 +13,7 @@ aliases = ["/resource.html"]
     parent = "chef_infra/resources"
     weight = 10
 +++
-
+<!-- markdownlint-disable-file MD033 -->
 {{% resources_common %}}
 
 ## Resource Syntax

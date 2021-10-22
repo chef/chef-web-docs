@@ -12,7 +12,7 @@ product = ["client", "server"]
     parent = "chef_infra/policyfiles"
     weight = 60
 +++
-
+<!-- markdownlint-disable-file MD033 -->
 {{% environment %}}
 
 ## The _default Environment
@@ -70,13 +70,13 @@ control the rollout of new cookbook releases through successive testing
 environments before releasing new cookbook versions into production
 environments. See the environment format examples below for the cookbook
 pinning syntax.
+
 ## Environment Formats
 
 Environments may be stored on disk (any in source control) in two
 formats:
 
-- As Ruby (i.e. a file that ends with `.rb`); this format is not
-    available when running Chef Infra Client in local mode
+- As Ruby (i.e. a file that ends with `.rb`); this format is not available when running Chef Infra Client in local mode
 - As JSON (i.e. a file that ends with `.json`)
 
 ### Chef Language

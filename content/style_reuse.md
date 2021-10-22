@@ -12,6 +12,7 @@ product = []
     parent = "overview/style"
     weight = 130
 +++
+<!-- markdownlint-disable-file MD013 MD031 -->
 
 Chef docs uses [shortcodes](https://gohugo.io/content-management/shortcodes/) to maintain text that appears in more than one location and must be consistent in every location.
 
@@ -194,6 +195,7 @@ All `foundation_tab_panel` shortcodes must contained within opening and closing
 
 For example:
 
+<!-- markdownlint-disable MD046 -->
     {{</* foundation_tabs_panels tabs-id="ruby-python-panel" */>}}
       {{</* foundation_tabs_panel active="true" panel-id="ruby-panel" */>}}
       ```ruby
@@ -207,6 +209,7 @@ For example:
       ```
       {{</* /foundation_tabs_panel */>}}
     {{</* /foundation_tabs_panels */>}}
+<!-- markdownlint-enable MD046 -->
 
 #### Panel Parameters
 
@@ -233,6 +236,8 @@ The **`foundation_tabs_panel`** shortcode has two parameters:
 Below is an example of a container that shows three code blocks in three languages.
 You can copy and paste the code below into a page to get started. Note that the `tabs-id`
 and `panel-id`/`panel-link` values must be unique on the page.
+
+<!-- markdownlint-disable MD046 -->
 
 {{< foundation_tabs tabs-id="ruby-python-go-panel" >}}
   {{< foundation_tab active="true" panel-link="ruby-panel" tab-text="Ruby">}}
@@ -295,6 +300,8 @@ and `panel-id`/`panel-link` values must be unique on the page.
       ```
       {{</* /foundation_tabs_panel */>}}
     {{</* /foundation_tabs_panels */>}}
+
+<!-- markdownlint-enable MD046 -->
 
 ## Fontawesome Shortcode
 

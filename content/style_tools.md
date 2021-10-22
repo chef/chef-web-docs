@@ -12,6 +12,7 @@ product = []
     parent = "overview/style"
     weight = 100
 +++
+<!-- markdownlint-disable-file MD013 -->
 
 This document covers the tools used by the @chef-docs team for developing documentation.
 
@@ -161,12 +162,13 @@ To enable or disable rules for specific lines, add the appropriate marker:
 
 To enable or disable rules for entire files, use:
 
-- Disable all rules: <!-- markdownlint-disable-file -->
-- Enable all rules: <!-- markdownlint-enable-file -->
-- Disable one or more rules by name: <!-- markdownlint-disable-file MD001 -->
-- Enable one or more rules by name: <!-- markdownlint-enable-file MD001 -->
+- Disable all rules: `<!-- markdownlint-disable-file -->`
+- Enable all rules: `<!-- markdownlint-enable-file -->`
+- Disable one or more rules by name: `<!-- markdownlint-disable-file MD001 -->`
+- Enable one or more rules by name: `<!-- markdownlint-enable-file MD001 -->`
 
 For more information about customizing Markdownlint, see the Markdownlint GitHub Repository [README](https://github.com/DavidAnson/markdownlint/blob/main/README.md#configuration).
+
 ### Vale
 
 [Vale](https://docs.errata.ai/vale/about)

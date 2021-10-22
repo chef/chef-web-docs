@@ -241,11 +241,13 @@ A recipe must be assigned to a run-list using the appropriate name, as
 defined by the cookbook directory and namespace. For example, a cookbook
 directory has the following structure:
 
-    cookbooks/
-      apache2/
-        recipes/
-          default.rb
-          mod_ssl.rb
+```text
+cookbooks/
+  apache2/
+    recipes/
+      default.rb
+      mod_ssl.rb
+```
 
 There are two recipes: a default recipe (that has the same name as the
 cookbook) and a recipe named `mod_ssl`. The syntax that applies a recipe

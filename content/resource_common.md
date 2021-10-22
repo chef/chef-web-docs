@@ -13,6 +13,7 @@ aliases = ["/resource_common.html"]
     parent = "chef_infra/resources"
     weight = 30
 +++
+<!-- markdownlint-disable-file MD036 -->
 
 All resources (including custom resources) share a set of common
 actions, properties, conditional executions, notifications, and relative

@@ -11,6 +11,7 @@ gh_repo = "chef-web-docs"
     parent = "overview/style"
     weight = 90
 +++
+<!-- markdownlint-disable-file MD013 -->
 
 We recommend that you use the conventions described in this guide when contributing to the Chef reference documentation.
 

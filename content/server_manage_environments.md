@@ -41,22 +41,22 @@ interface.
 
 To add an environment:
 
-1.  Open the Chef management console.
+1. Open the Chef management console.
 
-2.  Click **Policy**.
+2. Click **Policy**.
 
-3.  Click **Environments**.
+3. Click **Environments**.
 
-4.  Click **Create**.
+4. Click **Create**.
 
-5.  In the **Create an Environment** dialog box, enter the name of the
+5. In the **Create an Environment** dialog box, enter the name of the
     environment and a description.
 
     ![image](/images/step_manage_webui_policy_environment_add.png)
 
     Click **Next**.
 
-6.  Optional. Set a constraint by choosing a name, an operator, and a
+6. Optional. Set a constraint by choosing a name, an operator, and a
     version:
 
     ![image](/images/step_manage_webui_policy_environment_add_constraint.png)
@@ -64,31 +64,31 @@ To add an environment:
     Click **Add**. Continue this process until all constraints are
     added. When finished, click **Next**.
 
-7.  Optional. Add default attributes as JSON data:
+7. Optional. Add default attributes as JSON data:
 
     ![image](/images/step_manage_webui_policy_environment_add_default_attribute.png)
 
     Click **Next**.
 
-8.  Optional. Add override attributes as JSON data:
+8. Optional. Add override attributes as JSON data:
 
     ![image](/images/step_manage_webui_policy_environment_add_override_attribute.png)
 
-9.  Click **Create Environment**.
+9. Click **Create Environment**.
 
 ### Delete Environment
 
 To delete an environment:
 
-1.  Open the Chef management console.
+1. Open the Chef management console.
 
-2.  Click **Policy**.
+2. Click **Policy**.
 
-3.  Click **Environments**.
+3. Click **Environments**.
 
-4.  Select an environment.
+4. Select an environment.
 
-5.  Click **Delete**.
+5. Click **Delete**.
 
     ![image](/images/step_manage_webui_policy_environment_delete.png)
 
@@ -96,41 +96,41 @@ To delete an environment:
 
 To edit the details of an environment:
 
-1.  Open the Chef management console.
-2.  Click **Policy**.
-3.  Click **Environments**.
-4.  Select an environment.
-5.  Click the **Details** tab.
-6.  Click **Edit**.
+1. Open the Chef management console.
+2. Click **Policy**.
+3. Click **Environments**.
+4. Select an environment.
+5. Click the **Details** tab.
+6. Click **Edit**.
 
 ### Set
 
 To set the environment for a node:
 
-1.  Open the Chef management console.
+1. Open the Chef management console.
 
-2.  Click **Nodes**.
+2. Click **Nodes**.
 
-3.  Select a node.
+3. Select a node.
 
-4.  Click the **Details** tab.
+4. Click the **Details** tab.
 
-5.  In the top right, from the **Environment** drop-down, select the
+5. In the top right, from the **Environment** drop-down, select the
     environment:
 
     ![image](/images/step_manage_webui_node_details_set_environment.png)
 
-6.  Click **Save**.
+6. Click **Save**.
 
 ### View Details
 
 To view environment details:
 
-1.  Open the Chef management console.
-2.  Click **Policy**.
-3.  Click **Environments**.
-4.  Select an environment.
-5.  Click the **Details** tab.
+1. Open the Chef management console.
+2. Click **Policy**.
+3. Click **Environments**.
+4. Select an environment.
+5. Click the **Details** tab.
 
 ## Default Attributes
 
@@ -140,34 +140,34 @@ To view environment details:
 
 To edit default attributes for an environment:
 
-1.  Open the Chef management console.
+1. Open the Chef management console.
 
-2.  Click **Policy**.
+2. Click **Policy**.
 
-3.  Click **Environments**.
+3. Click **Environments**.
 
-4.  Select an environment.
+4. Select an environment.
 
-5.  Click the **Attributes** tab.
+5. Click the **Attributes** tab.
 
-6.  Under **Default Attributes**, click **Edit**.
+6. Under **Default Attributes**, click **Edit**.
 
-7.  In the **Edit Environment Attributes** dialog box, enter the JSON
+7. In the **Edit Environment Attributes** dialog box, enter the JSON
     data that defines the attribute (or attributes).
 
     ![image](/images/step_manage_webui_policy_environment_edit_attribute.png)
 
-8.  Click **Save**.
+8. Click **Save**.
 
 ### View
 
 To view default attributes for an environment:
 
-1.  Open the Chef management console.
-2.  Click **Policy**.
-3.  Click **Environments**.
-4.  Select an environment.
-5.  Click the **Attributes** tab.
+1. Open the Chef management console.
+2. Click **Policy**.
+3. Click **Environments**.
+4. Select an environment.
+5. Click the **Attributes** tab.
 
 ## Override Attributes
 
@@ -177,34 +177,34 @@ To view default attributes for an environment:
 
 To edit override attributes for an environment:
 
-1.  Open the Chef management console.
+1. Open the Chef management console.
 
-2.  Click **Policy**.
+2. Click **Policy**.
 
-3.  Click **Environments**.
+3. Click **Environments**.
 
-4.  Select an environment.
+4. Select an environment.
 
-5.  Click the **Attributes** tab.
+5. Click the **Attributes** tab.
 
-6.  Under **Override Attributes**, click **Edit**.
+6. Under **Override Attributes**, click **Edit**.
 
-7.  In the **Edit Environment Attributes** dialog box, enter the JSON
+7. In the **Edit Environment Attributes** dialog box, enter the JSON
     data that defines the attribute (or attributes).
 
     ![image](/images/step_manage_webui_policy_environment_edit_attribute.png)
 
-8.  Click **Save Attributes**.
+8. Click **Save Attributes**.
 
 ### View
 
 To view override attributes for an environment:
 
-1.  Open the Chef management console.
-2.  Click **Policy**.
-3.  Click **Environments**.
-4.  Select an environment.
-5.  Click the **Attributes** tab.
+1. Open the Chef management console.
+2. Click **Policy**.
+3. Click **Environments**.
+4. Select an environment.
+5. Click the **Attributes** tab.
 
 ## Permissions
 
@@ -216,36 +216,36 @@ To view override attributes for an environment:
 
 To set permissions list for an environment object:
 
-1.  Open the Chef management console.
-2.  Click **Policy**.
-3.  Click **Environments**.
-4.  Select an environment.
-5.  Click the **Permissions** tab.
-6.  For each group listed under **Name**, select or de-select the
+1. Open the Chef management console.
+2. Click **Policy**.
+3. Click **Environments**.
+4. Select an environment.
+5. Click the **Permissions** tab.
+6. For each group listed under **Name**, select or de-select the
     **Read**, **Update**, **Delete**, and **Grant** permissions.
 
 ### Update
 
 To update the permissions list for an environment object:
 
-1.  Open the Chef management console.
-2.  Click **Policy**.
-3.  Click **Environments**.
-4.  Select an environment.
-5.  Click the **Permissions** tab.
-6.  Click the **+ Add** button and enter the name of the user or group
+1. Open the Chef management console.
+2. Click **Policy**.
+3. Click **Environments**.
+4. Select an environment.
+5. Click the **Permissions** tab.
+6. Click the **+ Add** button and enter the name of the user or group
     to be added.
-7.  Select or de-select **Read**, **Update**, **Delete**, and **Grant**
+7. Select or de-select **Read**, **Update**, **Delete**, and **Grant**
     to update the permissions list for the user or group.
 
 ### View
 
 To view permissions for an environment object:
 
-1.  Open the Chef management console.
-2.  Click **Policy**.
-3.  Click **Environments**.
-4.  Select an environment.
-5.  Click the **Permissions** tab.
-6.  Set the appropriate permissions: **Read**, **Update**, **Delete**,
+1. Open the Chef management console.
+2. Click **Policy**.
+3. Click **Environments**.
+4. Select an environment.
+5. Click the **Permissions** tab.
+6. Set the appropriate permissions: **Read**, **Update**, **Delete**,
     and **Grant**.
