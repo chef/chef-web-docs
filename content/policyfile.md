@@ -1,5 +1,5 @@
 +++
-title = "About Policyfile"
+title = "About Policyfiles"
 draft = false
 gh_repo = "chef-web-docs"
 aliases = ["/policyfile.html"]
