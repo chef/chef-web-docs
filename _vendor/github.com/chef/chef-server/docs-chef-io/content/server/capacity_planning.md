@@ -37,7 +37,7 @@ Infra Server, rather than trying to run every node in an infrastructure
 from a single central, monolithic Chef Infra Server instance/cluster.
 
 For instance, if there are West coast and East coast data centers, it is
-best to have one Chef Infra Server instance in each data center. Deploys
+best to have one Chef Infra Server instance in each datacenter. Deploys
 to each Chef Infra Server can be synchronized upstream by CI software.
 The primary limiting bottleneck for Chef Infra Server installations is
 almost always input/output operations per second (IOPS) performance for
