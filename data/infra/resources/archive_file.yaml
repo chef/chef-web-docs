@@ -11,14 +11,15 @@ resource_description_list:
 resource_new_in: '15.0'
 syntax_full_code_block: |-
   archive_file 'name' do
-    destination      String
-    group            String
-    mode             String, Integer # default value: "'755'"
-    options          Array, Symbol
-    overwrite        true, false, auto # default value: false
-    owner            String
-    path             String # default value: 'name' unless specified
-    action           Symbol # defaults to :extract if not specified
+    destination           String
+    group                 String
+    mode                  String, Integer # default value: "'755'"
+    options               Array, Symbol
+    overwrite             true, false, auto # default value: false
+    owner                 String
+    path                  String # default value: 'name' unless specified
+    strip_components      Integer # default value: 0
+    action                Symbol # defaults to :extract if not specified
   end
 syntax_properties_list:
 syntax_full_properties_list:
@@ -26,8 +27,8 @@ syntax_full_properties_list:
 - "`name` is the name given to the resource block."
 - "`action` identifies which steps Chef Infra Client will take to bring the node into
   the desired state."
-- "`destination`, `group`, `mode`, `options`, `overwrite`, `owner`, and `path` are
-  the properties available to this resource."
+- "`destination`, `group`, `mode`, `options`, `overwrite`, `owner`, `path`, and `strip_components`
+  are the properties available to this resource."
 actions_list:
   :nothing:
     shortcode: resources_common_actions_nothing.md
@@ -83,6 +84,15 @@ properties_list:
   description_list:
   - markdown: An optional property to set the file path to the archive to extract
       if it differs from the resource block's name.
+- property: strip_components
+  ruby_type: Integer
+  required: false
+  default_value: '0'
+  new_in: '17.5'
+  description_list:
+  - markdown: Remove the specified number of leading path elements. Pathnames with
+      fewer elements will be silently skipped. This behaves similarly to tar's --strip-components
+      command line argument.
 examples: |
   **Extract a zip file to a specified directory**:
 

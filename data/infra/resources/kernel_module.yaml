@@ -6,7 +6,8 @@ resources_common_properties: true
 resource: kernel_module
 resource_description_list:
 - markdown: Use the **kernel_module** resource to manage kernel modules on Linux systems.
-    This resource can load, unload, blacklist, disable, install, and uninstall modules.
+    This resource can load, unload, blacklist, disable, enable, install, and uninstall
+    modules.
 resource_new_in: '14.3'
 syntax_full_code_block: |-
   kernel_module 'name' do
@@ -36,6 +37,8 @@ actions_list:
     markdown: Blacklist a kernel module.
   :disable:
     markdown: Disable a kernel module. **New in Chef Infra Client 15.2.**
+  :enable:
+    markdown: Enable a kernel module.  Reverse :disable actions
   :load:
     markdown: Load a kernel module.
   :unload:
@@ -117,10 +120,18 @@ examples: |
   end
   ```
 
-  Disable a kernel module.
+  Disable a kernel module so that it is not installable.
 
   ```ruby
   kernel_module 'loop' do
     action :disable
+  end
+  ```
+
+  Enable a kernel module so that it is can be installed.  Does not load or install.
+
+  ```ruby
+  kernel_module 'loop' do
+    action :enable
   end
   ```
