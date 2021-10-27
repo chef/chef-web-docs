@@ -1,15 +1,11 @@
-However, during the first Chef Infra Client run, this private key does
-not exist. Instead, Chef Infra Client attempts to use the private key
-assigned to the chef-validator, located in `/etc/chef/validation.pem`.
-(If, for any reason, the chef-validator is unable to make an
-authenticated request to the Chef Infra Server, the initial Chef Infra
-Client run will fail.)
+The private key does not yet exist the first time that Chef Infra Client runs from a new node.
 
-During the initial Chef Infra Client run, Chef Infra Client registers
-itself with the Chef Infra Server using the private key assigned to the
-chef-validator, after which Chef Infra Client will obtain a `client.pem`
-private key for all future authentication requests to the Chef Infra
-Server.
+During the first Chef Infra Client run:
 
-After the initial Chef Infra Client run has completed successfully, the
-chef-validator is no longer required and should be deleted from the node.
+1. Chef Infra Client uses the chef-validator private key, located in `/etc/chef/validation.pem` to register with Chef Infra Server
+2. Chef Infra Server assigns Chef Infra Client a private key for all future authentication requests to the Chef Infra Server
+3. Chef Infra Client saves the private key on the node as `/etc/chef/client.pem`
+
+If the request to communicate with Chef Infra Server with the chef-validator key fails, then the entire first Chef Infra Client run fails.
+
+After the first completed Chef Infra Client run, delete the chef-validator private key at `/etc/chef/validation.pem`

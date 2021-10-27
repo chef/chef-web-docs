@@ -31,7 +31,7 @@ aliases = ["/chef_client_security.html", "/auth.html"]
 
 {{< warning >}}
 
-The following information does not apply to Hosted Chef, only to on-premises Chef Infra Server.
+The following information applies to on-premises Chef Infra Server and does not apply to Hosted Chef.
 
 {{< /warning >}}
 
@@ -39,22 +39,21 @@ The following information does not apply to Hosted Chef, only to on-premises Che
 
 ### `/.chef/trusted_certs`
 
-The `/.chef/trusted_certs` directory stores trusted SSL certificates
-used to access the Chef Infra Server:
+The `/.chef/trusted_certs` directory stores trusted SSL certificates for the Chef Infra Server:
 
-* On each workstation, this directory is the location into which SScertificates are placed after they are downloaded from the CheInfra Server using the `knife ssl fetch` subcommand
-* On every node, this directory is the location into which SSLcertificates are placed when a node has been bootstrapped with ChefInfra Client from a workstation
+* On each workstation: The `knife ssl fetch` subcommand downloads SSL certificates from the Chef Infra Server into the `/.chef/trusted_certs` directory
+* On every node: During a node bootstrap, the Chef Infra Client creates the `.chef` directory on the node and copies the SSL certificates for the Chef Infra Server into `/.etc/chef`.
 
 ### SSL_CERT_FILE
 
-Use the `SSL_CERT_FILE` environment variable to specify the location for the SSL certificate authority (CA) bundle that is used by Chef Infra Client.
+Use the `SSL_CERT_FILE` environment variable to specify the location for the SSL certificate authority (CA) bundle for Chef Infra Client.
 
 A value for `SSL_CERT_FILE` is not set by default. Unless updated, the locations in which Chef Infra will look for SSL certificates are:
 
 * Chef Infra Client: `/opt/chef/embedded/ssl/certs/cacert.pem`
 * Chef Workstation: `/opt/chef-workstation/embedded/ssl/certs/cacert.pem`
 
-Keeping the default behavior is recommended. To use a custom CA bundle, update the environment variable to specify the path to the custom CA bundle. If (for some reason) SSL certificate verification stops working, ensure the correct value is specified for `SSL_CERT_FILE`.
+To use a custom CA bundle, update the environment variable to specify the path to the custom CA bundle. The first step to troubleshoot a failing SSL certificate is to verify the location of the `SSL_CERT_FILE`.
 
 ### client.rb Settings
 
@@ -78,32 +77,32 @@ Use following client.rb settings to manage SSL certificate preferences:
 </tr>
 <tr>
 <td><code>ssl_ca_file</code></td>
-<td>The file in which the OpenSSL key is saved. Chef Infra Client generates this setting automatically and most users do not need to modify it.</td>
+<td>The file for the OpenSSL key. Chef Infra Client generates this setting automatically.</td>
 </tr>
 <tr>
 <td><code>ssl_ca_path</code></td>
-<td>The path to where the OpenSSL key is located. Chef Infra Client generates this setting automatically and most users do not need to modify it.</td>
+<td>The location of the OpenSSL key file. Chef Infra Client generates this setting automatically.</td>
 </tr>
 <tr>
 <td><code>ssl_client_cert</code></td>
-<td>The OpenSSL X.509 certificate used for mutual certificate validation. This setting is only necessary when mutual certificate validation is configured on the Chef Infra Server. Default value: <code>nil</code>.</td>
+<td>The OpenSSL X.509 certificate for mutual certificate validation. Required for mutual certificate validation on the Chef Infra Server. Default value: <code>nil</code>.</td>
 </tr>
 <tr>
 <td><code>ssl_client_key</code></td>
-<td>The OpenSSL X.509 key used for mutual certificate validation. This setting is only necessary when mutual certificate validation is configured on the Chef Infra Server. Default value: <code>nil</code>.</td>
+<td>The OpenSSL X.509 key used for mutual certificate validation. Required for mutual certificate validation on the Chef Infra Server. Default value: <code>nil</code>.</td>
 </tr>
 <tr>
 <td><p><code>ssl_verify_mode</code></p></td>
-<td><p>Set the verify mode for HTTPS requests.</p>
+<td><p>Set the verification mode for HTTPS requests. The recommended setting is<code>:verify_peer</code>. Depending on your OpenSSL configuration, you may need to set the <code>ssl_ca_path</code>. Default value: <code>:verify_peer</code>.</p>
 <ul>
-<li>Use <code>:verify_none</code> to do no validation of SSL certificates.</li>
-<li>Use <code>:verify_peer</code> to do validation of all SSL certificates, including the Chef Infra Server connections, S3 connections, and any HTTPS <strong>remote_file</strong> resource URLs used in a Chef Infra Client run. This is the recommended setting.</li>
+<li>Use <code>:verify_none</code> to run without validating any SSL certificates.</li>
+<li>Use <code>:verify_peer</code> to validate all SSL certificates, including the Chef Infra Server connections, S3 connections, and any HTTPS <strong>remote_file</strong> resource URLs used in a Chef Infra Client run.</li>
 </ul>
-<p>Depending on how OpenSSL is configured, the <code>ssl_ca_path</code> may need to be specified. Default value: <code>:verify_peer</code>.</p></td>
+</td>
 </tr>
 <tr>
 <td><code>verify_api_cert</code></td>
-<td>Verify the SSL certificate on the Chef Infra Server. When <code>true</code>, Chef Infra Client always verifies the SSL certificate. When <code>false</code>, Chef Infra Client uses the value of <code>ssl_verify_mode</code> to determine if the SSL certificate requires verification. Default value: <code>false</code>.</td>
+<td>Verify the SSL certificate on the Chef Infra Server. Set to <code>true</code>, Chef Infra Client always verifies the SSL certificate. Set to <code>false</code>, Chef Infra Client uses <code>ssl_verify_mode</code> to determine if the SSL certificate requires verification. Default value: <code>false</code>.</td>
 </tr>
 </tbody>
 </table>
