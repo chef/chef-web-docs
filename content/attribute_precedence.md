@@ -9,7 +9,7 @@ gh_repo = "chef-web-docs"
     identifier = "chef_infra/cookbook_reference/attributes/attribute_precedence"
     parent = "chef_infra/cookbook_reference/attributes"
 +++
-
+<!-- markdownlint-disable-file MD036 -->
 {{% node_attribute_precedence %}}
 
 ## Examples

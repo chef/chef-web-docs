@@ -8,6 +8,7 @@ draft = false
     identifier = "chef_infra/cookbook_reference/attributes/attribute_sources Attributes"
     parent = "chef_infra/cookbook_reference/attributes"
 +++
+<!-- markdownlint-disable-file MD036 -->
 
 Chef Infra Client evaluates attributes in the order that they are defined in the
 run-list, including any attributes that are in the run-list as

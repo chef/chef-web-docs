@@ -30,7 +30,7 @@ See the [Chef Infra Client release notes](/release_notes_client/) for the latest
 
 {{% ohai_automatic_attribute %}}
 
-**Get a list of automatic attributes for a node**
+### Get a list of automatic attributes for a node
 
 {{% ohai_attribute_list %}}
 

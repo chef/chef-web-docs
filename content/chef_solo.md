@@ -31,12 +31,14 @@ tar zcvf chef-solo.tar.gz ./cookbooks
 If multiple cookbook directories are being used, chef-solo expects the
 tar.gz archive to have a directory structure similar to the following:
 
-    cookbooks/
-      |---- cbname1/
-        |--attributes/ ... etc
-      ...
-      |---- cbname2/
-        |--attributes/
+```text
+cookbooks/
+  |---- cbname1/
+    |--attributes/ ... etc
+  ...
+  |---- cbname2/
+    |--attributes/
+```
 
 The `cookbook_path` variable in the solo.rb file must include both
 directories. For example:

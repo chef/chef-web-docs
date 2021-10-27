@@ -202,7 +202,7 @@ end
 
 {{% ruby_style_patterns_string_quoting_vs_whitespace_array %}}
 
-**Example**
+##### Example
 
 WiX includes several tools -- such as `candle` (preprocesses and
 compiles source files into object files), `light` (links and binds
@@ -303,7 +303,7 @@ if node['platform'] == 'ubuntu'
 end
 ```
 
-**if modifier**
+##### if modifier
 
 `if` can be used as a modifier that executes the left side of an expression
 if the right side of the expression is true. The `if` modifier expression must

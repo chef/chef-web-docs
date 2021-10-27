@@ -24,7 +24,7 @@ aliases = ["/ctl_ohai.html"]
 
 The following examples show how to use the Ohai command-line tool:
 
-**Run a plugin independently of a Chef Infra Client run**
+### Run a plugin independently of a Chef Infra Client run
 
 An Ohai plugin can be run independently of a Chef Infra Client run.
 First, ensure that the plugin is located in the `/plugins` directory and

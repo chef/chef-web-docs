@@ -11,6 +11,7 @@ gh_repo = "chef-web-docs"
     parent = "overview/style"
     weight = 110
 +++
+<!-- markdownlint-disable-file MD013 -->
 
 ## Building
 

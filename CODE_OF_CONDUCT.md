@@ -1,1 +1,2 @@
-Please refer to the Chef Community Code of Conduct at https://www.chef.io/code-of-conduct/
+<!-- markdownlint-disable-file -->
+Please refer to the Chef [Community Code of Conduct](https://www.chef.io/code-of-conduct/)

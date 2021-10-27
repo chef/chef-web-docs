@@ -11,6 +11,7 @@ gh_repo = "chef-web-docs"
     parent = "overview/style"
     weight = 90
 +++
+<!-- markdownlint-disable-file MD013 -->
 
 We recommend that you use the conventions described in this guide when contributing to the Chef reference documentation.
 
@@ -68,6 +69,8 @@ When writing about security, follow the accepted convention and use "Alice" and 
 
 Here is a list of some example names for you to use (the last names are translations of "Chef"):
 
+<!-- cSpell:disable -->
+
 - Ares Koch
 - Tamira Bucatar
 - Dan Gotvach
@@ -76,6 +79,8 @@ Here is a list of some example names for you to use (the last names are translat
 - Booker Yolisa
 - Kala Baavarchee
 - Samuel Tagaluto
+
+<!-- cSpell:enable -->
 
 ### Example Email Addresses
 

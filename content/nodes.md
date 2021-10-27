@@ -12,7 +12,7 @@ product = ["client", "server"]
     parent = "chef_infra/overview"
     weight = 30
 +++
-
+<!-- markdownlint-disable-file MD033 -->
 {{% node %}}
 
 {{% node_types %}}
@@ -50,7 +50,9 @@ the Chef Infra Server. The name of each node must be unique within an
 organization, but otherwise can be any string that matches the following
 regular expression:
 
-    /^[\-[:alnum:]_:.]+$/
+```re
+ /^[\-[:alnum:]_:.]+$/
+```
 
 The name of a node can be obtained from the `node_name` attribute in the
 client.rb file or by allowing Ohai to collect this data during a Chef

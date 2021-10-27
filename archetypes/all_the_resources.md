@@ -23,6 +23,8 @@ toc_layout = "infra_resources_all_toc"
 <!-- NOTE: The Markdown in this page comes from the archetype file archetypes/all_the_resources.md. If you update the Markdown in this page,
 you must also update the Markdown in the archetype page as well, otherwise your changes in this page may be overwritten. -->
 
+<!-- markdownlint-disable-file -->
+
 This reference describes each of the resources available to Chef Infra Client, including a list of actions, properties, and usage examples.
 
 ## Common Functionality

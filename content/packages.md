@@ -58,19 +58,19 @@ Chef Software Inc. GPG public key can be downloaded
 
 To set up an Apt package repository for Debian and Ubuntu platforms:
 
-1.  Enable Apt to fetch packages over HTTPS:
+1. Enable Apt to fetch packages over HTTPS:
 
     ```bash
     sudo apt-get install apt-transport-https
     ```
 
-2.  Install the public key for Chef Software Inc:
+2. Install the public key for Chef Software Inc:
 
     ```bash
     wget -qO - https://packages.chef.io/chef.asc | sudo apt-key add -
     ```
 
-3.  Create the Apt repository source file:
+3. Create the Apt repository source file:
 
     ```bash
     echo "deb https://packages.chef.io/repos/apt/<CHANNEL> <DISTRIBUTION> main" > chef-<CHANNEL>.list
@@ -86,13 +86,13 @@ To set up an Apt package repository for Debian and Ubuntu platforms:
     - For Ubuntu 18.04: `bionic`
     - For Ubuntu 20.04: `focal`
 
-4.  Update the package repository list:
+4. Update the package repository list:
 
     ```bash
     sudo mv chef-stable.list /etc/apt/sources.list.d/
     ```
 
-5.  Update the cache for the package repository:
+5. Update the cache for the package repository:
 
     ```bash
     sudo apt-get update
@@ -102,13 +102,13 @@ To set up an Apt package repository for Debian and Ubuntu platforms:
 
 To set up a Yum package repository for Enterprise Linux platforms:
 
-1.  Install the public key for Chef Software Inc:
+1. Install the public key for Chef Software Inc:
 
     ```bash
     sudo rpm --import https://packages.chef.io/chef.asc
     ```
 
-2.  Create the Yum repository source file:
+2. Create the Yum repository source file:
 
     ```bash
     cat >chef-<CHANNEL>.repo <<EOL
@@ -125,7 +125,7 @@ To set up a Yum package repository for Enterprise Linux platforms:
     Replace `<VERSION>` with your Enterprise Linux version; the
     allowable versions are `6`, `7`, or `8`.
 
-3.  Update the package repository list:
+3. Update the package repository list:
 
     ```bash
     sudo yum-config-manager --add-repo chef-stable.repo
