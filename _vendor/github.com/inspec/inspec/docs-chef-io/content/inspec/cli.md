@@ -60,7 +60,7 @@ inspec automate SUBCOMMAND
 
 ## check
 
-Verify metadata in inspec.yml. Verify control data has fields (title, description, impact) defined and that all controls have visible tests.
+Verify the metadata in the inspec.yml file, verify that control blocks have the correct fields (title, description, impact) defined, that all controls have visible tests, and that controls are not using deprecated InSpec DSL code.
 
 ### Syntax
 
@@ -297,6 +297,8 @@ This subcommand has the following additional options:
     Password for enable mode on Cisco IOS devices.
 * ``--filter-empty-profiles``, ``--no-filter-empty-profiles``
     Filter empty profiles (profiles without controls) from the report.
+* ``--filter-waived-controls``
+    Do not execute waived controls in InSpec at all. Must use with --waiver-file. Ignores `run` setting of waiver file.
 * ``--host=HOST``
     Specify a remote host which is tested.
 * ``--input=name1=value1 name2=value2``
