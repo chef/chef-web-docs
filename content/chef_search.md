@@ -12,7 +12,7 @@ product = ["client", "server", "workstation"]
     parent = "chef_infra/features"
     weight = 70
 +++
-
+<!-- markdownlint-disable-file MD033 -->
 {{% search %}}
 
 Many of the examples in this section use knife, but the search indexes
@@ -64,43 +64,43 @@ following search indexes are built:
 
 {{% knife_search_summary %}}
 
-**Search by platform ID**
+#### Search by platform ID
 
 {{% knife_search_by_platform_ids %}}
 
-**Search by instance type**
+#### Search by instance type
 
 {{% knife_search_by_platform_instance_type %}}
 
-**Search by recipe**
+#### Search by recipe
 
 {{% knife_search_by_recipe %}}
 
-**Search by cookbook, then recipe**
+#### Search by cookbook, then recipe
 
 {{% knife_search_by_cookbook %}}
 
-**Search by node**
+#### Search by node
 
 {{% knife_search_by_node %}}
 
-**Search by node and environment**
+#### Search by node and environment
 
 {{% knife_search_by_node_and_environment %}}
 
-**Search for nested attributes**
+#### Search for nested attributes
 
 {{% knife_search_by_nested_attribute %}}
 
-**Search for multiple attributes**
+#### Search for multiple attributes
 
 {{% knife_search_by_query_for_many_attributes %}}
 
-**Search for nested attributes using a search query**
+#### Search for nested attributes using a search query
 
 {{% knife_search_by_query_for_nested_attribute %}}
 
-**Use a test query**
+#### Use a test query
 
 {{% knife_search_test_query_for_ssh %}}
 

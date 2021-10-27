@@ -18,7 +18,7 @@ Client 15.0. Support for property `lc_all` will be removed for Chef
 Infra Client 16.0.
 
 The [Cookstyle](/workstation/cookstyle/) cop
-[ChefDeprecations/LocaleDeprecatedLcAllProperty](https://github.com/chef/cookstyle/blob/master/docs/cops_chefdeprecations.md#chefdeprecationslocaledeprecatedlcallproperty)
+[ChefDeprecations/LocaleDeprecatedLcAllProperty](https://github.com/chef/cookstyle/blob/main/docs/cops_chefdeprecations.md#chefdeprecationslocaledeprecatedlcallproperty)
 has been introduced to detect and autocorrect this deprecation.
 
 ## Remediation
@@ -46,9 +46,9 @@ end
 
 Where `path_to_file` could be any one of:
 
-1.  /etc/default/locale
-2.  /etc/sysconfig/i18n
-3.  /etc/environment
+* `/etc/default/locale`
+* `/etc/sysconfig/i18n`
+* `/etc/environment`
 
 Setting **LC_** variables varies by platform, but these are the common
 locations to configure **LC_** variables.

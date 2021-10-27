@@ -155,6 +155,8 @@ the person(s) assigned to each role:
     updates to the guidelines when warranted, and helping enforce
     community guidelines.
 
+<!-- markdownlint-disable MD033 -->
+
 <table>
 <colgroup>
 <col style="width: 33%" />
@@ -186,6 +188,7 @@ the person(s) assigned to each role:
 </tr>
 </tbody>
 </table>
+<!-- markdownlint-enable MD033 -->
 
 ## Consequences of Unacceptable Behavior
 

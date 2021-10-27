@@ -14,6 +14,8 @@ aliases = ["/chef_deprecations_client.html"]
     weight = 90
 +++
 
+<!-- markdownlint-disable-file MD033 -->
+
 When we wish to remove a feature or an API in Chef, we try to first mark
 it with a deprecation warning that contains a link to a description of
 the change and how to fix it. For example:

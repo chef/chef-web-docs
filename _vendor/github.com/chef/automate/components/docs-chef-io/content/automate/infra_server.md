@@ -16,7 +16,7 @@ gh_repo = "automate"
 
 {{% warning %}}
 
-Chef Automate will not deploy the Chef Infra Server add-ons Chef Manage and Push Jobs Server.
+Chef Automate will not deploy the Chef Manage add-on for Chef Infra Server.
 
 {{% /warning %}}
 
@@ -63,7 +63,7 @@ Install Chef Automate and Chef Infra Server on the same host with this command:
 sudo chef-automate deploy --product automate --product infra-server
 ```
 
-Then, [set up `knife`]({{< relref "workstation/knife_setup.md" >}}) for use with Chef Infra Server.
+Then, [set up knife]({{< relref "workstation/knife_setup.md" >}}) for use with Chef Infra Server.
 
 ### Configuration File Install of Chef Automate and Infra Server
 
@@ -91,7 +91,7 @@ Installations require elevated privileges, so run the commands as the superuser 
       sudo chef-automate deploy config.toml
     ```
 
-1. [Set up `knife`]({{< relref "workstation/knife_setup.md" >}}) for use with Chef Infra Server.
+1. [Set up knife]({{< relref "workstation/knife_setup.md" >}}) for use with Chef Infra Server.
 
 ## Install A Standalone Chef Infra Server
 
@@ -124,7 +124,7 @@ Installations require elevated privileges, so run the commands as the superuser 
        sudo chef-automate deploy --product infra-server <configuration_file>
     ```
 
-1. [Set up `knife`]({{< relref "workstation/knife_setup.md" >}}) for use with Chef Infra Server.
+1. [Set up knife]({{< relref "workstation/knife_setup.md" >}}) for use with Chef Infra Server.
 
 1. To send data from the Chef Infra Server to an external Chef Automate installation, first create a `patch.toml` file that contains the configuration stanza:
 
@@ -144,7 +144,7 @@ Installations require elevated privileges, so run the commands as the superuser 
     [erchef.v1.sys.data_collector]
     enabled = true
     ```
-  
+
    Then run `chef-automate config patch patch.toml` to patch your Chef Infra Server configuration.
 
 ### Install a Standalone Chef Infra Server with a Configuration File
@@ -177,7 +177,7 @@ Installations require elevated privileges, so run the commands as the superuser 
       sudo chef-automate deploy config.toml
     ```
 
-1. [Set up `knife`]({{< relref "workstation/knife_setup.md" >}}) for use with Chef Infra Server.
+1. [Set up knife]({{< relref "workstation/knife_setup.md" >}}) for use with Chef Infra Server.
 
 1. To send data from the Chef Infra Server to an external Chef Automate installation, first create a `patch.toml` file that contains the configuration stanza:
 
@@ -292,15 +292,11 @@ On the workstation:
 
     ```shell
       current_dir = File.dirname(__FILE__)
-      log_level                :info
-      log_location             STDOUT
       node_name                'USER_NAME'
       client_key               "#{current_dir}/USER_NAME.pem"
       validation_client_name   'ORGANIZATION-validator'
       validation_key           "#{current_dir}/ORGANIZATION.pem"
       chef_server_url          'https://{{< example_fqdn "automate" >}}/organizations/ORGANIZATION'
-      cache_type               'BasicFile'
-      cache_options( :path => "#{ENV['HOME']}/.chef/checksums" )
       cookbook_path            ["#{current_dir}/../cookbooks"]
     ```
 

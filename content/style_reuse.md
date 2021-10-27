@@ -12,12 +12,13 @@ product = []
     parent = "overview/style"
     weight = 130
 +++
+<!-- markdownlint-disable-file MD013 MD031 -->
 
 Chef docs uses [shortcodes](https://gohugo.io/content-management/shortcodes/) to maintain text that appears in more than one location and must be consistent in every location.
 
 ## Writing a Shortcode
 
-Shortcode files are written in **Markdown** or **HTML** and are stored in the [`layouts/shortcodes`](https://github.com/chef/chef-web-docs/tree/master/themes/docs-new/layouts/shortcodes) directory in the `chef-web-docs` repo. Most shortcodes are written in Markdown but some are in HTML.
+Shortcode files are written in **Markdown** or **HTML** and are stored in the [`layouts/shortcodes`](https://github.com/chef/chef-web-docs/tree/main/themes/docs-new/layouts/shortcodes) directory in the `chef-web-docs` repo. Most shortcodes are written in Markdown but some are in HTML.
 
 ## Adding a Shortcode to a Page
 
@@ -29,7 +30,7 @@ If you add a **Markdown** shortcode to a page using **HTML** shortcode delimiter
 
 ### Markdown Shortcodes
 
-To include a Markdown shortcode in a page, wrap the name of the shortcode file, without the file type suffix, in between double curly braces and percent characters, `{{%/* SHORTCODE */%}}`. For example, if you wanted to add the [`chef.md`](https://github.com/chef/chef-web-docs/blob/master/themes/docs-new/layouts/shortcodes/chef.md) shortcode to a page, add the following text to the Markdown page:
+To include a Markdown shortcode in a page, wrap the name of the shortcode file, without the file type suffix, in between double curly braces and percent characters, `{{%/* SHORTCODE */%}}`. For example, if you wanted to add the [`chef.md`](https://github.com/chef/chef-web-docs/blob/main/themes/docs-new/layouts/shortcodes/chef.md) shortcode to a page, add the following text to the Markdown page:
 
 ```go
 {{%/* chef */%}}
@@ -37,7 +38,7 @@ To include a Markdown shortcode in a page, wrap the name of the shortcode file, 
 
 ### HTML Shortcodes
 
-To include an HTML shortcode in a page, wrap the name of the shortcode file, without the file type suffix, in between double curly braces and angle brackets, `{{</* SHORTCODE */>}}`. For example, add the following text to a page if you wanted to add the [`chef_automate_mark.html`](https://github.com/chef/chef-web-docs/blob/master/themes/docs-new/layouts/shortcodes/chef_automate_mark.html) shortcode:
+To include an HTML shortcode in a page, wrap the name of the shortcode file, without the file type suffix, in between double curly braces and angle brackets, `{{</* SHORTCODE */>}}`. For example, add the following text to a page if you wanted to add the [`chef_automate_mark.html`](https://github.com/chef/chef-web-docs/blob/main/themes/docs-new/layouts/shortcodes/chef_automate_mark.html) shortcode:
 
 ```go
 {{</* chef_automate_mark */>}}
@@ -194,6 +195,7 @@ All `foundation_tab_panel` shortcodes must contained within opening and closing
 
 For example:
 
+<!-- markdownlint-disable MD046 -->
     {{</* foundation_tabs_panels tabs-id="ruby-python-panel" */>}}
       {{</* foundation_tabs_panel active="true" panel-id="ruby-panel" */>}}
       ```ruby
@@ -207,6 +209,7 @@ For example:
       ```
       {{</* /foundation_tabs_panel */>}}
     {{</* /foundation_tabs_panels */>}}
+<!-- markdownlint-enable MD046 -->
 
 #### Panel Parameters
 
@@ -233,6 +236,8 @@ The **`foundation_tabs_panel`** shortcode has two parameters:
 Below is an example of a container that shows three code blocks in three languages.
 You can copy and paste the code below into a page to get started. Note that the `tabs-id`
 and `panel-id`/`panel-link` values must be unique on the page.
+
+<!-- markdownlint-disable MD046 -->
 
 {{< foundation_tabs tabs-id="ruby-python-go-panel" >}}
   {{< foundation_tab active="true" panel-link="ruby-panel" tab-text="Ruby">}}
@@ -295,6 +300,8 @@ and `panel-id`/`panel-link` values must be unique on the page.
       ```
       {{</* /foundation_tabs_panel */>}}
     {{</* /foundation_tabs_panels */>}}
+
+<!-- markdownlint-enable MD046 -->
 
 ## Fontawesome Shortcode
 

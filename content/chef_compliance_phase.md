@@ -11,7 +11,7 @@ draft = false
 
 +++
 
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/chef_compliance_phase.md)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/main/content/chef_compliance_phase.md)
 
 Chef Infra Client's Compliance Phase lets you automatically execute compliance audits and view the results as part of any Chef Infra Client run. The Compliance Phase of the Chef Infra Client run replaces the legacy [audit cookbook](https://supermarket.chef.io/cookbooks/audit) and works with your existing audit cookbook attributes, and you can also set it up for new cookbooks. This additional phase gives you the latest compliance capabilities without having to manage cookbook dependencies or juggle versions during Chef Infra Client updates.
 
@@ -35,7 +35,7 @@ If your system is configured to use the `audit cookbook`, make these changes to 
 
 ### Enable the Compliance Phase
 
-The Compliance Phase is enabled by setting the `node['audit']['compliance_phase']` attribute to `true` through cookbook attributes or Policyfiles. To enable Compliance Phase using cookbook atttributes add the following line to the `attributes/default.rb` file in your cookbook.
+The Compliance Phase is enabled by setting the `node['audit']['compliance_phase']` attribute to `true` through cookbook attributes or Policyfiles. To enable Compliance Phase using cookbook attributes add the following line to the `attributes/default.rb` file in your cookbook.
 
 ```ruby
 default['audit']['compliance_phase'] = true

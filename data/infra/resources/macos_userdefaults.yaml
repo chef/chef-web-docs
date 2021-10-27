@@ -15,9 +15,7 @@ syntax_full_code_block: |-
     domain      String # default value: NSGlobalDomain: the global domain.
     host        String, Symbol
     key         String
-    sudo        true, false # default value: false
-    type        String
-    user        String
+    user        String, Symbol
     value       Integer, Float, String, true, false, Hash, Array
     action      Symbol # defaults to :write if not specified
   end
@@ -27,8 +25,8 @@ syntax_full_properties_list:
 - "`name` is the name given to the resource block."
 - "`action` identifies which steps Chef Infra Client will take to bring the node into
   the desired state."
-- "`domain`, `host`, `key`, `sudo`, `type`, `user`, and `value` are the properties
-  available to this resource."
+- "`domain`, `host`, `key`, `user`, and `value` are the properties available to this
+  resource."
 actions_list:
   :nothing:
     shortcode: resources_common_actions_nothing.md
@@ -48,32 +46,19 @@ properties_list:
   required: false
   new_in: '16.3'
   description_list:
-  - markdown: Set either :current or a hostname to set the user default at the host
-      level.
+  - markdown: Set either :current, :all or a hostname to set the user default at the
+      host level.
 - property: key
   ruby_type: String
   required: true
   description_list:
   - markdown: The preference key.
-- property: sudo
-  ruby_type: true, false
-  required: false
-  default_value: 'false'
-  description_list:
-  - markdown: Set to true if the setting you wish to modify requires privileged access.
-      This requires passwordless sudo for the `/usr/bin/defaults` command to be setup
-      for the user running Chef Infra Client.
-- property: type
-  ruby_type: String
-  required: false
-  allowed_values: '"array", "bool", "dict", "float", "int", "string"'
-  description_list:
-  - markdown: The value type of the preference key.
 - property: user
-  ruby_type: String
+  ruby_type: String, Symbol
   required: false
   description_list:
-  - markdown: The system user that the default will be applied to.
+  - markdown: The system user that the default will be applied to. Set :current for
+      current user, :all for all users or pass a valid username
 - property: value
   ruby_type: Integer, Float, String, true, false, Hash, Array
   required: true

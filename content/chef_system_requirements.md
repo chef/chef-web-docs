@@ -31,15 +31,9 @@ Workstation to install Chef Infra Client on each node.
 The following sections describe the various requirements for the Chef
 Infra Server.
 
-### Hosted Chef Infra Server
+### Hosted Chef Infra Server Requirements
 
-The hosted Chef Infra Server has the following requirements:
-
-- **Browser** --- Firefox, Google Chrome, Safari, or Internet Explorer
-    (versions 9 or better)
-- Every node that will be configured by Chef Infra Client and every
-    workstation that will upload data to the Chef Infra Server must be
-    able to communicate with the hosted Chef server
+Every node that will be configured by Chef Infra Client and every workstation that will upload data to the Chef Infra Server must be able to communicate with the hosted Chef server.
 
 ### Chef Infra Server, On-premises or in Cloud Environment
 

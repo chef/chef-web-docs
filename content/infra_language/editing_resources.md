@@ -10,7 +10,7 @@ gh_repo = "chef-web-docs"
     identifier = "chef_infra/infra_language/editing_resources.md Editing Resources"
     parent = "chef_infra/infra_language"
 +++
-
+<!-- markdownlint-disable-file MD026 -->
 ## declare_resource
 
 Use the `declare_resource` method to instantiate a resource and then add it to the resource collection.

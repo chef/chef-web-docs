@@ -16,7 +16,7 @@ aliases = ["/ohai_custom.html"]
 
 You can write custom Ohai plugins to collect additional configuration attributes with Ohai to provide to Chef Infra Client during runs.
 
-Ohai plugins are written in Ruby with a plugin DSL documented below. Being written in Ruby provides access to all Ruby's built-in functionality, as well as 3rd party gem functionality. Plugins can parse the output of any local command on the node, or they can fetch data from external APIs. Examples of plugins that users have written: - A plugin to gather node information including datacenter, rack, and rack position from an inventory server - A plugin to gather additional RAID array information from a controller utility - A plugin to gather hardware
+Ohai plugins are written in Ruby with a plugin DSL documented below. Being written in Ruby provides access to all Ruby's built-in functionality, as well as 3rd party gem functionality. Plugins can parse the output of any local command on the node, or they can fetch data from external APIs. Examples of plugins that users have written: - A plugin to gather node information including data center, rack, and rack position from an inventory server - A plugin to gather additional RAID array information from a controller utility - A plugin to gather hardware
 warranty information from a vendor API
 
 See [About Ohai](/ohai/) for information on Ohai configuration and usage.
@@ -129,7 +129,7 @@ where
 - `provides` defines the `cloud` attribute, which is then turned into an object using the `create_objects` shared method, which then generates a hash based on public or private IP addresses
 - For Google Compute Engine the `cloud` attribute data is populated into a hash based on the IP address for the node
 
-To see the rest of the code in this plugin, go to: <https://github.com/chef/ohai/blob/master/lib/ohai/plugins/cloud.rb>.
+To see the rest of the code in this plugin, go to: <https://github.com/chef/ohai/blob/main/lib/ohai/plugins/cloud.rb>.
 
 ## Ohai Methods
 

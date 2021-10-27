@@ -1,6 +1,6 @@
 The Chef Infra Server acts as a hub for configuration data. The Chef
 Infra Server stores cookbooks, the policies that are applied to nodes,
-and metadata that describes each registered node that is being managed
+and the metadata that describes each registered node that is under management
 by Chef Infra Client. Nodes use Chef Infra Client to ask the Chef Infra
 Server for configuration details, such as recipes, templates, and file
 distributions. Chef Infra Client then does as much of the configuration

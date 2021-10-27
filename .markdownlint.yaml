@@ -9,7 +9,7 @@ extends: null
 # MD001/heading-increment/header-increment - Heading levels should only increment by one level at a time
 MD001: true
 
-# MD002/first-heading-h1/first-header-h1 - First heading should be a top-level heading
+# MD002/first-heading-h2/first-header-h2 - First written heading should be a second level heading
 MD002:
   # Heading level
   level: 2
@@ -60,7 +60,11 @@ MD012:
   maximum: 1
 
 # MD013/line-length - Line length
-MD013: false
+MD013:
+  line_length: 999
+  code_blocks: false
+  tables: false
+  headings: true
 
 # MD014/commands-show-output - Dollar signs used before commands without showing output
 MD014: true

@@ -7,15 +7,24 @@ resource: chocolatey_source
 resource_description_list:
 - markdown: Use the **chocolatey_source** resource to add, remove, enable, or disable
     Chocolatey sources.
+- note:
+    markdown: The Chocolatey package manager is not installed on Windows by default.
+      You will need to install it prior to using this resource by adding the [Chocolatey
+      cookbook](https://supermarket.chef.io/cookbooks/chocolatey/) to your node's
+      run list.
 resource_new_in: '14.3'
 syntax_full_code_block: |-
   chocolatey_source 'name' do
     admin_only              true, false # default value: false
     allow_self_service      true, false # default value: false
     bypass_proxy            true, false # default value: false
+    cert                    String
+    cert_password           String
+    password                String
     priority                Integer # default value: 0
     source                  String
     source_name             String # default value: 'name' unless specified
+    username                String
     action                  Symbol # defaults to :add if not specified
   end
 syntax_properties_list:
@@ -24,8 +33,9 @@ syntax_full_properties_list:
 - "`name` is the name given to the resource block."
 - "`action` identifies which steps Chef Infra Client will take to bring the node into
   the desired state."
-- "`admin_only`, `allow_self_service`, `bypass_proxy`, `priority`, `source`, and `source_name`
-  are the properties available to this resource."
+- "`admin_only`, `allow_self_service`, `bypass_proxy`, `cert`, `cert_password`, `password`,
+  `priority`, `source`, `source_name`, and `username` are the properties available
+  to this resource."
 actions_list:
   :nothing:
     shortcode: resources_common_actions_nothing.md
@@ -58,6 +68,25 @@ properties_list:
   default_value: 'false'
   description_list:
   - markdown: Whether or not to bypass the system's proxy settings to access the source.
+- property: cert
+  ruby_type: String
+  required: false
+  new_in: '17.7'
+  description_list:
+  - markdown: The certificate to use when authenticating against the source
+- property: cert_password
+  ruby_type: String
+  required: false
+  new_in: '17.7'
+  description_list:
+  - markdown: The password for the certificate to use when authenticating against
+      the source
+- property: password
+  ruby_type: String
+  required: false
+  new_in: '17.7'
+  description_list:
+  - markdown: The password to use when authenticating against the source
 - property: priority
   ruby_type: Integer
   required: false
@@ -76,6 +105,12 @@ properties_list:
   description_list:
   - markdown: An optional property to set the source name if it differs from the resource
       block's name.
+- property: username
+  ruby_type: String
+  required: false
+  new_in: '17.7'
+  description_list:
+  - markdown: The username to use when authenticating against the source
 examples: |
   **Add a Chocolatey source**
 
