@@ -39,21 +39,21 @@ The following information applies to on-premises Chef Infra Server and does not 
 
 ### trusted_certs Directory
 
-Chef Infra Client and Chef Workstation store additional trusted SSL
-certificates used to access the Chef Infra Server in a `trusted_certs`
-directory. This directory can be used to trust self-signed SSL certificates
-on Chef Infra Servers or to trust any certificate that these applications may 
-encounter during their execution.
+Your organization may use self-signed SSL certificates in internal networks or during software development and testing.
 
-In Chef Workstation the `trusted_certs` directory is located at `~/.chef/trusted_certs`
-by default. Running `knife ssl fetch` fetches the current Chef Infra Server certificate, 
-and saves the certificate to the `~/.chef/trusted_certs` directory automatically.
+The `trusted_certs` directory on Chef Infra Client and Chef Workstation that works as a trusted certificate store for any SSL certificates needed to access Chef Infra Server. Chef Infra Server trusts all certificates stored in this directory--including certificates that are not issued by a trusted Certificate Authority. Place self-signed certificates in the `trusted_certs` directory to use them on Chef Infra Servers and use this directory for other certificates needed by the applications and services in your Chef-managed system.
 
-In Chef Infra Client the trusted certificates directory is found at `C:\chef\trusted_certs`
-on Windows and `/etc/chef/trusted_certs` on all other platforms. Certificates can be placed
-in these directories as part of bootstrap process and they can be managed continuously
-using the [chef_client_trusted_certificate]({{< relref "/resources/chef_client_trusted_certificate" >}})
-Chef Infra Client resource.
+The `trusted_certs` directory is located on Chef Workstation at:
+
+* Windows: ``C:\chef\trusted_certs`
+* Linux/macOS: `/.chef/trusted_certs`
+
+The `trusted_certs` directory is located on Chef Infra Client at:
+
+* Windows: `C:\chef\trusted_certs`
+* Linux/macOS: `/etc/chef/trusted_certs`
+
+During a node bootstrap, the Chef Infra Client creates the `.chef` directory on the node and copies the SSL certificates for the Chef Infra Server into `/.etc/chef`. Use the the [chef_client_trusted_certificate]({{< relref "/resources/chef_client_trusted_certificate" >}}) Chef Infra Client resource to manage these certificates continuously.
 
 ### SSL_CERT_FILE
 
