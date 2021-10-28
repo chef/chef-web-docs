@@ -1,7 +1,7 @@
 +++
 title = "Service Template Data"
 
-date = 2021-10-27T20:31:24.666Z
+date = 2021-10-28T20:57:03.019Z
 draft = false
 
 [menu]
