@@ -9,7 +9,7 @@ draft= false
     parent = "habitat/reference"
     weight = 10
 +++
-<!-- markdownlint-disable-file -->
+
 <!-- This is a generated file, do not edit it directly. See https://github.com/habitat-sh/habitat/blob/master/.expeditor/scripts/finish_release/generate-cli-docs.js -->
 
 
@@ -17,7 +17,7 @@ The commands for the Chef Habitat CLI (`hab`) are listed below.
 
 | Applies to Version | Last Updated |
 | ------- | ------------ |
-| hab 1.6.400/20211011210704 (linux) | 11 Oct 2021 |
+| hab 1.6.415/20211027195016 (linux) | 27 Oct 2021 |
 
 ## hab
 
