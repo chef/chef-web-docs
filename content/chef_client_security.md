@@ -39,10 +39,11 @@ The following information applies to on-premises Chef Infra Server and does not 
 
 ### `/.chef/trusted_certs`
 
-The `/.chef/trusted_certs` directory stores trusted SSL certificates for the Chef Infra Server:
+The `/.chef/trusted_certs` directory stores trusted SSL certificates
+used to access the Chef Infra Server:
 
-* On each workstation: The `knife ssl fetch` subcommand downloads SSL certificates from the Chef Infra Server into the `/.chef/trusted_certs` directory
-* On every node: During a node bootstrap, the Chef Infra Client creates the `.chef` directory on the node and copies the SSL certificates for the Chef Infra Server into `/.etc/chef`.
+* On each workstation, this directory is the location into which SScertificates are placed after they are downloaded from the CheInfra Server using the `knife ssl fetch` subcommand
+* On every node, this directory is the location into which SSLcertificates are placed when a node has been bootstrapped with ChefInfra Client from a workstation
 
 ### SSL_CERT_FILE
 
