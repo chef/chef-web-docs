@@ -160,7 +160,7 @@ properties_list:
   required: false
   description_list:
   - warning:
-    - markdown: This property **MUST** be used with the `code` attribute.
+      markdown: This property **MUST** be used with the `code` attribute.
   - markdown: 'Use to import DSC resources from a module.
 
 
