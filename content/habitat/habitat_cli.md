@@ -10,14 +10,15 @@ draft= false
     weight = 10
 +++
 
-<!-- This is a generated file, do not edit it directly. See https://github.com/habitat-sh/habitat/blob/master/.expeditor/scripts/finish_release/generate-cli-docs.js -->
+<!-- markdownlint-disable-file -->
+<!-- This is a generated file, do not edit it directly. See https://github.com/habitat-sh/habitat/blob/main/.expeditor/scripts/release_habitat/generate-cli-docs.js -->
 
 
 The commands for the Chef Habitat CLI (`hab`) are listed below.
 
 | Applies to Version | Last Updated |
 | ------- | ------------ |
-| hab 1.6.416/20211028200830 (linux) | 28 Oct 2021 |
+| hab 1.6.420/20211101172443 (linux) | 1 Nov 2021 |
 
 ## hab
 
