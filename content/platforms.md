@@ -84,7 +84,7 @@ The following table lists the commercially-supported platforms and versions for 
 </tr>
 <tr>
 <td>macOS</td>
-<td><code>x86_64</code>, <code>aarch64 (M1 processors)</code></td>
+<td><code>x86_64</code>, <code>aarch64</code> (M1 processors)</td>
 <td><code>10.14</code>, <code>10.15</code>, <code>11.x</code>, <code>12.x</code></td>
 </tr>
 <tr>
@@ -110,7 +110,7 @@ The following table lists the commercially-supported platforms and versions for 
 <tr>
 <td>Ubuntu (LTS releases)</td>
 <td><code>x86_64</code>,<code>aarch64</code></td>
-<td><code>16.04</code>, code>18.04</code>, <code>20.04</code></td>
+<td><code>16.04</code>, <code>18.04</code>, <code>20.04</code></td>
 </tr>
 <tr>
 <td>Microsoft Windows</td>
@@ -331,7 +331,7 @@ The following table lists the commercially-supported platforms and versions for 
 </tr>
 <tr>
 <td>macOS</td>
-<td><code>x86_64</code>, <code>aarch64 (M1 processors)</code></td>
+<td><code>x86_64</code>, <code>aarch64</code> (M1 processors)</td>
 <td><code>10.14</code>, <code>10.15</code>, <code>11.x</code>, <code>12.x</code></td>
 </tr>
 <tr>
