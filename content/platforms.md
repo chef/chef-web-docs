@@ -110,7 +110,7 @@ The following table lists the commercially-supported platforms and versions for 
 <tr>
 <td>Ubuntu (LTS releases)</td>
 <td><code>x86_64</code>,<code>aarch64</code></td>
-<td><code>18.04</code>, <code>20.04</code></td>
+<td><code>16.04</code>, code>18.04</code>, <code>20.04</code></td>
 </tr>
 <tr>
 <td>Microsoft Windows</td>
@@ -274,12 +274,12 @@ versions for the Chef Workstation:
 <tr>
 <td>macOS</td>
 <td><code>x86_64</code></td>
-<td><code>10.14</code>, <code>10.15</code>, <code>11.x</code></td>
+<td><code>10.14</code>, <code>10.15</code>, <code>11.x</code>, <code>12.x</code></td>
 </tr>
 <tr>
 <td>Debian</td>
 <td><code>x86_64</code></td>
-<td><code>9.x</code>, <code>10.x</code></td>
+<td><code>9</code>, <code>10</code>, <code>11</code></td>
 </tr>
 <tr>
 <td>Red Hat Enterprise Linux</td>
@@ -288,13 +288,13 @@ versions for the Chef Workstation:
 </tr>
 <tr>
 <td>Ubuntu</td>
-<td><code>x86_64</code>,<code>aarch64</code></td>
-<td><code>18.04</code>, <code>20.04</code></td>
+<td><code>x86_64</code></td>
+<td><code>16.04</code>, <code>18.04</code>, <code>20.04</code></td>
 </tr>
 <tr>
 <td>Microsoft Windows</td>
 <td><code>x64</code></td>
-<td><code>8.1</code>, <code>2012</code>, <code>2012 R2</code>, <code>2016</code>, <code>10 (all channels except "insider" builds)</code>, <code>2019 (Long-term servicing channel (LTSC), Desktop Experience only)</code></td>
+<td><code>8.1</code>, <code>2012</code>, <code>2012 R2</code>, <code>2016</code>, <code>10 (all channels except "insider" builds)</code>, <code>2019 (Long-term servicing channel (LTSC), Desktop Experience only)</code>, <code>11</code>, <code>2022</code></td>
 </tr>
 </tbody>
 </table>
@@ -327,7 +327,7 @@ The following table lists the commercially-supported platforms and versions for 
 <tr>
 <td>Debian</td>
 <td><code>x86_64</code><code>aarch64</code> (10.x only)</td>
-<td><code>9.x</code>, <code>10.x</code></td>
+<td><code>9</code>, <code>10</code>, <code>11</code></td>
 </tr>
 <tr>
 <td>macOS</td>
@@ -352,12 +352,12 @@ The following table lists the commercially-supported platforms and versions for 
 <tr>
 <td>Ubuntu</td>
 <td><code>x86_64</code></td>
-<td><code>18.04</code>, <code>20.04</code></td>
+<td><code>16.04</code>, <code>18.04</code>, <code>20.04</code></td>
 </tr>
 <tr>
 <td>Microsoft Windows</td>
 <td><code>x86_64</code></td>
-<td><code>8.1</code>, <code>2012</code>, <code>2012 R2</code>, <code>2016</code>, <code>10 (all channels except "insider" builds)</code>, <code>2019</code></td>
+<td><code>8.1</code>, <code>2012</code>, <code>2012 R2</code>, <code>2016</code>, <code>10 (all channels except "insider" builds)</code>, <code>2019</code>, <code>11</code>, <code>2022</code></td>
 </tr>
 </tbody>
 </table>

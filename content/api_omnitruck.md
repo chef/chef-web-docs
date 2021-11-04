@@ -13,7 +13,7 @@ product = ["automate", "client", "server", "habitat", "inspec", "workstation"]
     weight = 50
 +++
 
-Chef's Omnitruck API powers the Chef Software Install script as well as
+Chef's Omnitruck API powers the Chef Software install script as well as
 downloads.chef.io site. It can be used to query available versions of
 Chef Software Inc. products and to provide direct download URLs.
 
@@ -124,14 +124,14 @@ Omnitruck accepts the following platforms:
 <tr>
 <td>Red Hat Enterprise Linux / CentOS / Oracle Linux</td>
 <td><code>el</code></td>
-<td><code>i386</code>, <code>x86_64</code>, <code>ppc64</code>, <code>ppc64le</code>, <code>aarch64</code></td>
+<td><code>i386</code>, <code>x86_64</code>, <code>ppc64</code>, <code>ppc64le</code>, <code>aarch64</code>, <code>s390x</code>,</td>
 <td><code>5</code>, <code>6</code>, <code>7</code>, <code>8</code></td>
 </tr>
 <tr>
 <td>Ubuntu</td>
 <td><code>ubuntu</code></td>
 <td><code>i386</code>, <code>x86_64</code>, <code>aarch64</code>, <code>ppc64le</code></td>
-<td><code>10.04</code>, <code>10.10</code>, <code>11.04</code>, <code>11.10</code>, <code>12.04</code>, <code>12.10</code>, <code>13.04</code>, <code>13.10</code>, <code>14.04</code>, <code>14.10</code>, <code>16.04</code>, <code>16.10</code>, <code>17.04</code>, <code>17.10</code>, <code>18.04</code>, <code>18.10</code>, <code>19.04</code>, <code>20.04</code>, <code>20.10</code>, <code>21.04</code></td>
+<td><code>10.04</code>, <code>10.10</code>, <code>11.04</code>, <code>11.10</code>, <code>12.04</code>, <code>12.10</code>, <code>13.04</code>, <code>13.10</code>, <code>14.04</code>, <code>14.10</code>, <code>16.04</code>, <code>16.10</code>, <code>17.04</code>, <code>17.10</code>, <code>18.04</code>, <code>18.10</code>, <code>19.04</code>, <code>20.04</code>, <code>20.10</code>, <code>21.04</code>, <code>21.10</code></td>
 </tr>
 <tr>
 <td>Microsoft Windows</td>
@@ -155,10 +155,10 @@ https://omnitruck.chef.io/stable/chef/metadata?p=ubuntu&pv=20.04&m=x86_64
 to return something like:
 
 ```none
-sha1	32516ce8fe7ba09ea96d1e32e7f64087338a3b48
-sha256	156057bb0a39b73a9abc2ea940b38210dcf02da4a1b5a461bff3e714a290cc02
-url	https://packages.chef.io/files/stable/chef/16.10.17/ubuntu/20.04/chef_16.10.17-1_amd64.deb
-version	16.10.17
+sha1 3fe8e8a2f443675f9b82e876cdac8200104451f2 
+sha256 9f1c1a2c0b1f4e8494664386437bf32f0cb5cbfbd4cb9d23e327767fc65581dc 
+url https://packages.chef.io/files/stable/chef/17.7.29/ubuntu/20.04/chef_17.7.29-1_amd64.deb 
+version 17.7.29
 ```
 
 #### Download Directly
