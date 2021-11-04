@@ -104,7 +104,7 @@ The following table lists the commercially-supported platforms and versions for 
 </tr>
 <tr>
 <td>SUSE Enterprise Linux Server</td>
-<td><code>x86_64</code>, <code>aarch64</code> (15.x only),<code>s390x</code></td>
+<td><code>x86_64</code>, <code>aarch64</code> (15.x only), <code>s390x</code></td>
 <td><code>12</code>, <code>15</code></td>
 </tr>
 <tr>
