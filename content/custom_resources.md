@@ -204,7 +204,7 @@ end
 
 where `:create` is a value that may be assigned to the `action` property for when this resource is used in a recipe.
 
-For example, the `action` appears as a property when this customr esource is used in a recipe:
+For example, the `action` appears as a property when this custom resource is used in a recipe:
 
 ```ruby
 custom_resource 'name' do

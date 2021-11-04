@@ -73,7 +73,7 @@ Two methods are generally used to accept the Chef Habitat license:
 1. Alternatively, users can set `HAB_LICENSE="<value>"` as an environment variable.
   `<value>` can be specified as one of the following:
     1. `accept` - Accepts the license and persists a marker file locally. Future invocations do not require accepting the license again.
-    1. `accept-no-persist` - accepts the license without persisting an marker file. Future invocation will require accepting the licensen again.
+    1. `accept-no-persist` - accepts the license without persisting an marker file. Future invocation will require accepting the license again.
 
 If the license isn't accepted through either of these methods, Habitat will request acceptance through an interactive prompt.
 
