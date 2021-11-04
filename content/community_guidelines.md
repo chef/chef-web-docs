@@ -179,12 +179,7 @@ the person(s) assigned to each role:
 <tr>
 <td>Community Advocate</td>
 <td>Benny Vasquez</td>
-<td><a href="mailto:bvasquez@chef.io">bvasquez@chef.io</a></td>
-</tr>
-<tr>
-<td>Community Advocate</td>
-<td>Robb Kidd</td>
-<td><a href="mailto:rkidd@chef.io">rkidd@chef.io</a></td>
+<td><a href="benny.vasquez@progress.com">benny.vasquez@progress.com</a></td>
 </tr>
 </tbody>
 </table>
