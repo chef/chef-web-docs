@@ -59,7 +59,7 @@ The following properties are common to every resource:
 `retry_delay`
 : **Ruby Type:** Integer | **Default Value:** `2`
 
-  The retry delay (in seconds).
+  The delay in seconds between retry attempts.
 
 `sensitive`
 : **Ruby Type:** true, false | **Default Value:** `false`
@@ -74,9 +74,9 @@ The following examples show how to use common properties in a recipe.
 
 {{% resource_package_use_ignore_failure_attribute %}}
 
-**Use the retries common property**
+**Use the retries and retry_delay common properties**
 
-{{% resource_service_use_supports_attribute %}}
+{{% resource_service_use_retries_properties %}}
 
 ### Guards
 

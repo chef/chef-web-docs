@@ -92,18 +92,6 @@ properties_list:
   required: false
   description_list:
   - markdown: '...'
-- property: retries
-  ruby_type: Integer
-  required: false
-  default_value: '0'
-  description_list:
-  - markdown: The number of attempts to catch exceptions and retry the resource.
-- property: retry_delay
-  ruby_type: Integer
-  required: false
-  default_value: '2'
-  description_list:
-  - markdown: The retry delay (in seconds).
 - property: subscribes
   ruby_type: Symbol, Chef::Resource\[String\]
   required: false

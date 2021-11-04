@@ -101,18 +101,6 @@ properties_list:
       \ \"name\":\"backend\",\n  \"description\":\"\",\n  \"cookbook_versions\":{},\n\
       \  \"json_class\":\"Chef::Environment\",\n  \"chef_type\":\"environment\",\n\
       \  \"default_attributes\":{},\n  \"override_attributes\":{}\n}\n```"
-- property: retries
-  ruby_type: Integer
-  required: false
-  default_value: '0'
-  description_list:
-  - markdown: The number of attempts to catch exceptions and retry the resource.
-- property: retry_delay
-  ruby_type: Integer
-  required: false
-  default_value: '2'
-  description_list:
-  - markdown: The retry delay (in seconds).
 - property: subscribes
   ruby_type: Symbol, Chef::Resource\[String\]
   required: false
