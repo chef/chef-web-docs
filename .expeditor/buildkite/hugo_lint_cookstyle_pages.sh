@@ -11,12 +11,12 @@ set -euo pipefail
 dataDir=_vendor/github.com/chef/cookstyle/docs-chef-io/data/cookstyle
 markdownDir=./content/workstation/cookstyle
 LINT_STATUS=0
-for f in $(ls ${dataDir})
-    do mdFile="${f/.yml/.md}"
+for file in _vendor/github.com/chef/cookstyle/docs-chef-io/data/cookstyle/*
+    do mdFile="${file/.yml/.md}"
     mdFile="${mdFile/cops_/}"
-    mdFilePath="${markdownDir}/${mdFile}"
-    if test ! -f "${mdFilePath}"; then
-        echo "${mdFilePath} is missing."
+    mdFile="${mdFile/_vendor\/github.com\/chef\/cookstyle\/docs-chef-io\/data\/cookstyle/content/workstation/cookstyle}"
+    if test ! -f "${mdFile}"; then
+        echo "${mdFile} is missing."
         LINT_STATUS=1
     fi
 done
