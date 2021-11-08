@@ -37,10 +37,10 @@ github.com/google/go-cmp v0.4.0/go.mod h1:v8dTdLbMG2kIc/vJvl+f65V22dbkXbowE6jgT/
 github.com/google/go-cmp v0.5.0/go.mod h1:v8dTdLbMG2kIc/vJvl+f65V22dbkXbowE6jgT/gNBxE=
 github.com/habitat-sh/habitat/components/docs-chef-io v0.0.0-20211101172130-6c067fabcc72 h1:d27TDFiqrYgpjfknSOJP7zD4Uc1chlZ9uDDLUnZm8aU=
 github.com/habitat-sh/habitat/components/docs-chef-io v0.0.0-20211101172130-6c067fabcc72/go.mod h1:luAy42opPrAM/T6hsqDyW3CNBaAMgy+a6l0+oi8sw8U=
-github.com/inspec/inspec-aws/docs-chef-io v0.0.0-20211108191255-f5c9dd3b1fd4 h1:vWNEWSQw1N9VoOItss5wkB11QrbbweaqpS54x+tgCKI=
-github.com/inspec/inspec-aws/docs-chef-io v0.0.0-20211108191255-f5c9dd3b1fd4/go.mod h1:5rfIsi1/SqSiAXqU94UOcfMnebnuaEmFriU8k8t1Kes=
-github.com/inspec/inspec-azure/docs-chef-io v0.0.0-20211009035951-4c4d68d7dc9c h1:jOapnOc6TsUNSzYsScKALBpyDtvAjUNU3H8udKVMWTs=
-github.com/inspec/inspec-azure/docs-chef-io v0.0.0-20211009035951-4c4d68d7dc9c/go.mod h1:93+uw8FTBAWybBZIn45FzO5vnZDBh51lgMwMP1vvIqo=
+github.com/inspec/inspec-aws/docs-chef-io v0.0.0-20211108210106-efa5e4d074df h1:MYSSxRPrMqhw9tG46A30w2DSKryhCLfA3l6waS2CkFA=
+github.com/inspec/inspec-aws/docs-chef-io v0.0.0-20211108210106-efa5e4d074df/go.mod h1:5rfIsi1/SqSiAXqU94UOcfMnebnuaEmFriU8k8t1Kes=
+github.com/inspec/inspec-azure/docs-chef-io v0.0.0-20211108210100-c4107bea329e h1:3tPybXZb87WUbgJG28Gn7vP5muAKMX+89FBYj49WrIw=
+github.com/inspec/inspec-azure/docs-chef-io v0.0.0-20211108210100-c4107bea329e/go.mod h1:93+uw8FTBAWybBZIn45FzO5vnZDBh51lgMwMP1vvIqo=
 github.com/inspec/inspec/docs-chef-io v0.0.0-20211025233352-9ec33a2ce056 h1:32Ss4+vXs72FBSIIAH4noHhu04yQVThNjNyFwvbf3uo=
 github.com/inspec/inspec/docs-chef-io v0.0.0-20211025233352-9ec33a2ce056/go.mod h1:oudFvipU0DTMkp8+MiwdUGerVEoWcJG0MQciDEOd6G8=
 github.com/prometheus/client_model v0.0.0-20190812154241-14fe0d1b01d4/go.mod h1:xMI15A0UPsDsEKsMN9yxemIoYk6Tm2C1GtYGdfGttqA=
