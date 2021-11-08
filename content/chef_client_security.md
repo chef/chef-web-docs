@@ -49,15 +49,24 @@ Use the the [chef_client_trusted_certificate]({{< relref "/resources/chef_client
 
 #### trusted_certs Locations
 
+##### Chef Workstation
+
 When you install Chef Workstation, it creates a `trusted_certs` directory.
 The Chef Workstation `trusted_certs` directory is located:
 
 - Windows: `C:\.chef\trusted_certs`
 - All other systems: `~/.chef/trusted_certs`
 
-When you bootstrap a node, the Chef Infra Client copies the SSL certificates for the Chef Infra Server to `/etc/chef`. A node `trusted_certs` directory is located at:
+##### Chef Infra Server
 
-- `/etc/chef` (The Chef Infra Server runs on Unix/Linux platforms)
+- /etc/chef/
+
+##### Nodes
+
+When you bootstrap a node, the Chef Infra Client copies the SSL certificates for the Chef Infra Server onto the node. The `trusted_certs` directory on the node is located at:
+
+- Windows: `C:\???\???\???`
+- All other systems: `~/etc/chef`
 
 ### SSL_CERT_FILE
 
