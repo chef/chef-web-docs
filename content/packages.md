@@ -1,5 +1,5 @@
 +++
-title = "Chef Software Inc Packages"
+title = "Chef Software Packages"
 draft = false
 gh_repo = "chef-web-docs"
 aliases = ["/packages.html"]
@@ -13,7 +13,7 @@ product = ["automate", "client", "server", "habitat", "inspec", "workstation"]
     weight = 10
 +++
 
-Packages for Chef Software Inc. products may be installed using
+Packages for Chef Software products may be installed using
 platform-native package repositories or the Chef Software Install script. Both
 installation methods support the following release channels:
 
@@ -51,7 +51,7 @@ package repositories:
 - Apt (Debian and Ubuntu platforms)
 - Yum (Enterprise Linux platforms)
 
-Chef Software Inc. GPG public key can be downloaded
+Chef Software's GPG public key can be downloaded
 [here](https://packages.chef.io/chef.asc).
 
 ### Debian / Ubuntu
@@ -64,7 +64,7 @@ To set up an Apt package repository for Debian and Ubuntu platforms:
     sudo apt-get install apt-transport-https
     ```
 
-2. Install the public key for Chef Software Inc:
+2. Install the public key for Chef Software:
 
     ```bash
     wget -qO - https://packages.chef.io/chef.asc | sudo apt-key add -
@@ -102,7 +102,7 @@ To set up an Apt package repository for Debian and Ubuntu platforms:
 
 To set up a Yum package repository for Enterprise Linux platforms:
 
-1. Install the public key for Chef Software Inc:
+1. Install the public key for Chef Software:
 
     ```bash
     sudo rpm --import https://packages.chef.io/chef.asc
