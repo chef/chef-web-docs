@@ -30,12 +30,11 @@ syntax_full_properties_list:
 - '`action` identifies which steps Chef Infra Client will take to bring the node into
   the desired state.'
 - '`code`, `command`, `creates`, `cwd`, `default_env`, `domain`, `elevated`, `environment`,
-  `flags`, `group`, `interpreter`, `live_stream`, `password`, `returns`, `sensitive`,
-  `timeout`, `umask`, and `user` are the properties available to this resource.'
+  `flags`, `group`, `interpreter`, `live_stream`, `password`, `returns`,
+  `timeout`, and `user` are the properties available to this resource.'
 actions_list:
   :nothing:
-    markdown: Prevent a command from running. This action is used to specify that
-      a command is run only when another resource notifies it.
+    shortcode: resources_common_actions_nothing.md
   :run:
     markdown: Default. Run a script.
 properties_list:
@@ -48,9 +47,7 @@ properties_list:
   ruby_type: String
   required: false
   description_list:
-  - markdown: 'Prevent a command from creating a file when that file already
-
-      exists.'
+  - markdown: Prevent a command from creating a file when that file already exists.
 - property: cwd
   ruby_type: String
   required: false
@@ -60,25 +57,20 @@ properties_list:
   ruby_type: Hash
   required: false
   description_list:
-  - markdown: 'A Hash of environment variables in the form of
-
-      `({"ENV_VARIABLE" => "VALUE"})`. (These variables must exist for a
-
-      command to be run successfully.)'
+  - markdown: 'A Hash of environment variables in the form of `({''ENV_VARIABLE''
+      => ''VALUE''})`. **Note**: These variables must exist for a command to be run
+      successfully.'
 - property: flags
   ruby_type: String
   required: false
   description_list:
-  - markdown: 'One or more command line flags that are passed to the interpreter
-
-      when a command is invoked.'
+  - markdown: One or more command line flags that are passed to the interpreter when
+      a command is invoked.
 - property: group
   ruby_type: String, Integer
   required: false
   description_list:
-  - markdown: 'The group name or group ID that must be changed before running a
-
-      command.'
+  - markdown: The group name or group ID that must be changed before running a command.
 - property: ignore_failure
   ruby_type: true, false
   required: false
@@ -94,28 +86,12 @@ properties_list:
   - shortcode: resources_common_notification_timers.md
   - markdown: ''
   - shortcode: resources_common_notification_notifies_syntax.md
-- property: retries
-  ruby_type: Integer
-  required: false
-  default_value: '0'
-  description_list:
-  - markdown: The number of attempts to catch exceptions and retry the resource.
-- property: retry_delay
-  ruby_type: Integer
-  required: false
-  default_value: '2'
-  description_list:
-  - markdown: The retry delay (in seconds).
 - property: returns
   ruby_type: Integer, Array
   required: false
   default_value: '0'
   description_list:
-  - markdown: 'The return value for a command. This may be an array of accepted
-
-      values. An exception is raised when the return value(s) do not
-
-      match.'
+  - markdown: 'The return value for a command. This may be an array of accepted values. An exception is raised when the return value(s) do not match.'
 - property: subscribes
   ruby_type: Symbol, Chef::Resource\[String\]
   required: false
@@ -126,22 +102,24 @@ properties_list:
   - markdown: ''
   - shortcode: resources_common_notification_subscribes_syntax.md
 - property: timeout
-  ruby_type: Integer, Float
+  ruby_type: Integer, String, Float
   required: false
   default_value: '3600'
   description_list:
-  - markdown: 'The amount of time (in seconds) a command is to wait before timing
-
-      out.'
-- property: user
-  ruby_type: String, Integer
-  required: false
-  description_list:
-  - markdown: 'The user name or user ID that should be changed before running a
-
-      command.'
+  - markdown: The amount of time (in seconds) a command is to wait before timing out.
 - property: umask
   ruby_type: String, Integer
   required: false
   description_list:
   - markdown: The file mode creation mask, or umask.
+- property: user
+  ruby_type: String, Integer
+  required: false
+  description_list:
+  - markdown: The user name of the user identity with which to launch the new process.
+      The user name may optionally be specified with a domain, i.e. `domain\user`
+      or `user@my.dns.domain.com` via Universal Principal Name (UPN)format. It can
+      also be specified without a domain simply as user if the domain is instead specified
+      using the domain property. On Windows only, if this property is specified, the
+      password property must be specified.
+examples:

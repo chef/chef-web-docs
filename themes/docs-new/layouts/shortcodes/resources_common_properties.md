@@ -22,10 +22,10 @@ The following properties are common to every resource:
 
 :   **Ruby Type:** Integer \| **Default Value:** `2`
 
-    The retry delay (in seconds).
+    The delay in seconds between retry attempts.
 
 `sensitive`
 
 :   **Ruby Type:** true, false \| **Default Value:** `false`
 
-    Ensure that sensitive resource data is not logged by Chef InfraClient.
+    Ensure that sensitive resource data is not logged by Chef Infra Client.

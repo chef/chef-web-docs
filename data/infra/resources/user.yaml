@@ -87,7 +87,7 @@ properties_list:
 
       action.'
   - warning:
-    - markdown: 'Using this property may leave the system in an inconsistent state.
+      markdown: 'Using this property may leave the system in an inconsistent state.
 
         For example, a user account will be removed even if the user is
 

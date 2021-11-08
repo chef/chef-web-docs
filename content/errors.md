@@ -331,7 +331,7 @@ Upgrading is not supported at this time.
 
 #### Resolution
 
-* Back up the data using `knife ec backup`, create a new backend 0nstance, and then restore the data
+* Back up the data using `knife ec backup`, create a new backend instance, and then restore the data
 * Re-point front end machines at the new backend instance **or** assign the new backend instance the name/VIP of the old backend instance (including certificates, keys, and so on)
 
 ### CSPG010 (cannot connect)
@@ -376,7 +376,7 @@ Cannot connect to PostgreSQL on the remote server because rules in
 Entries in the `pg_hba.conf` file should allow:
 
 * All user names that originate from any Chef Infra Server instance using `md5` authentication.
-* Apecific application names: `$db_superuser` (the configured superuser name in the chef-server.rb file), `oc_id`, `oc_id_ro`, `opscode_chef`, `opscode_chef_ro`, `bifrost`, and `bifrost_ro`
+* A specific application names: `$db_superuser` (the configured superuser name in the chef-server.rb file), `oc_id`, `oc_id_ro`, `opscode_chef`, `opscode_chef_ro`, `bifrost`, and `bifrost_ro`
 
 ##### pg_hba.conf User Names
 
@@ -403,7 +403,7 @@ where `CHEF-SUPERUSER-NAME` is replaced with the same user name specified by `po
 host     postgres     @chef_users     192.168.93.0/24     md5
 ```
 
-or, using the same `$PGDATA/chef_users` file (from the previousexample), the following example shows a way to limit connections tospecific nodes that are running components of the Chef Infra Server.This approach requires more maintenance because the `pg_hba.conf`file must be updated when machines are added to or removed from theChef Infra Server configuration. For example, a high availabilityconfiguration with four nodes: `backend-1` (192.0.2.100),`backend-2` (192.0.2.101), `frontend-1` (192.0.2.110), and`frontend-2` (192.0.2.111).
+or, using the same `$PGDATA/chef_users` file (from the previous example), the following example shows a way to limit connections to specific nodes that are running components of the Chef Infra Server.This approach requires more maintenance because the `pg_hba.conf`file must be updated when machines are added to or removed from theChef Infra Server configuration. For example, a high availability configuration with four nodes: `backend-1` (192.0.2.100),`backend-2` (192.0.2.101), `frontend-1` (192.0.2.110), and`frontend-2` (192.0.2.111).
 
 The corresponding `pg_hba.conf` entry is similar to:
 

@@ -58,7 +58,7 @@ syntax_full_properties_list:
   the desired state'
 - '`atomic_update`, `backup`, `cookbook`, `force_unlink`, `group`, `helper`, `helpers`,
   `inherits`, `local`, `manage_symlink_source`, `mode`, `owner`, `path`, `rights`,
-  `sensitive`, `source`, `variables`, and `verify` are properties of this resource,
+  `source`, `variables`, and `verify` are properties of this resource,
   with the Ruby type shown. See "Properties" section below for more information about
   all of the properties that may be used with this resource.'
 actions_list:
