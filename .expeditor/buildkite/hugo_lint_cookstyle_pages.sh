@@ -26,6 +26,10 @@ if test ! -f "content/workstation/cookstyle/cops.md"; then
     LINT_STATUS=1
 fi
 
+for file in content/workstation/cookstyle/*
+    do echo ${file}
+done
+
 if [ "$LINT_STATUS" == 1 ]; then
     echo "At least one Cookstyle Markdown file is missing from content/workstation/cookstyle."
     echo "Regenerate all Cookstyle Markdown files by running 'make cookstyle_cops_pages', or make individual Cookstyle Markdown pages"
