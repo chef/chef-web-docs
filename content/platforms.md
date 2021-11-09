@@ -63,6 +63,11 @@ The following table lists the commercially-supported platforms and versions for 
 <td><code>7.1</code> (TL5 SP2 or higher, recommended), <code>7.2</code></td>
 </tr>
 <tr>
+<td>AlmaLinux</td>
+<td><code>x86_64</code>, code>aarch64</code></td>
+<td><code>8.x</code></td>
+</tr>
+<tr>
 <td>Amazon Linux</td>
 <td><code>x86_64</code>, <code>aarch64</code></td>
 <td>2.x</td>
@@ -96,6 +101,11 @@ The following table lists the commercially-supported platforms and versions for 
 <td>Red Hat Enterprise Linux</td>
 <td><code>x86_64</code>, <code>ppc64le</code> (7.x only), <code>ppc64</code> (7.x only), <code>aarch64</code> (7.x / 8.x only), <code>s390x</code></td>
 <td><code>6.x</code>, <code>7.x</code>, <code>8.x</code></td>
+</tr>
+<tr>
+<td>Rocky Linux</td>
+<td><code>x86_64</code>, code>aarch64</code></td>
+<td><code>8.x</code></td>
 </tr>
 <tr>
 <td>Solaris</td>
@@ -138,11 +148,6 @@ The following platforms are supported only via the community:
 </tr>
 </thead>
 <tbody>
-<tr>
-<td>AlmaLinux</td>
-<td><code>x86_64</code>, <code>aarch64</code></td>
-<td><code>8.x</code></td>
-</tr>
 <tr>
 <td>Alibaba Cloud Linux</td>
 <td><code>x86_64</code></td>
@@ -207,11 +212,6 @@ The following platforms are supported only via the community:
 <td>Raspberry Pi OS</td>
 <td><code>aarch64</code></td>
 <td>current non-EOL releases</td>
-</tr>
-<tr>
-<td>Rocky Linux</td>
-<td><code>x86_64</code>, <code>aarch64</code></td>
-<td>8.x</td>
 </tr>
 <tr>
 <td>SmartOS</td>
