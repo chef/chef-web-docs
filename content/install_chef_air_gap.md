@@ -45,7 +45,7 @@ For Chef Supermarket:
 
 ### Required Gems
 
-The following Ruby gems are required to install private Supermarket viathe supermarket-omnibus-cookbook:
+The following Ruby gems are required to install private Supermarket via the supermarket-omnibus-cookbook:
 
 * mixlib-install
 * mixlib-shellout
