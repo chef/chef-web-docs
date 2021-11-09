@@ -28,3 +28,10 @@ static/fonts/fontawesome
 node_modules
 vendor
 
+# temp file created by hugo
+.hugo_build.lock
+
+# cspell dictionary files
+docs_dictionary.txt
+chef_dictionary.txt
+

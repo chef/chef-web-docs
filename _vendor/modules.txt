@@ -6,8 +6,8 @@
 # github.com/habitat-sh/habitat/components/docs-chef-io v0.0.0-20211101172130-6c067fabcc72
 # github.com/chef/chef-server/docs-chef-io v0.0.0-20211021174328-3607eb7c9298
 # github.com/chef/cookstyle/docs-chef-io v0.0.0-20211027161754-628bf49c9ccd
-# github.com/inspec/inspec-aws/docs-chef-io v0.0.0-20211014045032-2da814b13fc0
-# github.com/inspec/inspec-azure/docs-chef-io v0.0.0-20211009035951-4c4d68d7dc9c
+# github.com/inspec/inspec-aws/docs-chef-io v0.0.0-20211108210106-efa5e4d074df
+# github.com/inspec/inspec-azure/docs-chef-io v0.0.0-20211108210100-c4107bea329e
 # github.com/cowboy/jquery-hashchange v0.0.0-20100902193700-0310f3847f90
 # github.com/swiftype/swiftype-autocomplete-jquery v0.0.0-20190222215504-a90008d64b30
 # github.com/swiftype/swiftype-search-jquery v1.1.0
