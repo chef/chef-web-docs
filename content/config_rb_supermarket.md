@@ -655,15 +655,15 @@ This configuration file has the following settings for SSL:
 
 `default['supermarket']['ssl']['ciphers']`
 
-: The list of supported cipher suites that are used to establish a secure connection. To favor AES256 with ECDHE forward security, drop the `RC4-SHA:RC4-MD5:RC4:RSA` prefix. See <https://www.openssl.org/docs/man1.0.2/man1/ciphers.html> for more information. For example:
+: The list of supported cipher suites that are used to establish a secure connection. See <https://www.openssl.org/docs/man1.0.2/man1/ciphers.html> for more information.
 
-  ```ruby
-  nginx['ssl_ciphers'] = HIGH:MEDIUM:!LOW:!kEDH:!aNULL:!ADH:!eNULL:!EXP:!SSLv2:!SEED:!CAMELLIA:!PSK
-  ```
+`default['supermarket']['ssl']['fips_ciphers']`
+
+: The list of supported cipher suites that are used when FIPS mode is enabled. Default value `'FIPS@STRENGTH:!aNULL:!eNULL'`.
 
 `default['supermarket']['ssl']['protocols']`
 
-: The SSL protocol versions that are enabled. Default value: `'TLSv1 TLSv1.1 TLSv1.2'`.
+: The SSL protocol versions that are enabled. Default value: `'TLSv1.2'`.
 
 `default['supermarket']['ssl']['state_name']`
 
@@ -719,4 +719,4 @@ Use these settings to replace `chef.io` URLs with your own internal mirrors or a
 
 `default['supermarket']['learn_chef_url']`
 
-: The Learn Chef Rally URL. Default value: `"https://learn.#{node['supermarket']['chef_domain']}"`.
+: The Learn Chef URL. Default value: `"https://learn.#{node['supermarket']['chef_domain']}"`.
