@@ -681,6 +681,14 @@ This configuration file has the following settings for reporting to a StatsD ser
 
 : The URL to which reporting metrics are sent. Default value: `nil`.
 
+### Announcements Banner
+
+Starting with Supermarket 4.2 and later, users can define announcement banner text to display on the Supermarket homepage.
+
+`default['supermarket']['announcement_text']`
+
+: The text string to display.
+
 ### URLs
 
 Use these settings to replace `chef.io` URLs with your own internal mirrors or alternatives.
