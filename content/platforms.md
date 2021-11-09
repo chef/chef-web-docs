@@ -23,7 +23,7 @@ We offer two levels of support for platforms (operating systems), [Commercial Su
 
 ### Commercial Support
 
-Commercial support for platforms is part of paid maintenance contracts with Chef Software Inc. Support contracts allow you to open tickets and receive service level agreement (SLA) assistance from our support desk. Commercially supported platforms are extensively tested as part of Chef's development and release process. Commercial support generally follows the lifecycle of the underlying operating system vendor.
+Commercial support for platforms is part of paid maintenance contracts with Chef Software. Support contracts allow you to open tickets and receive service level agreement (SLA) assistance from our support desk. Commercially supported platforms are extensively tested as part of Chef's development and release process. Commercial support generally follows the lifecycle of the underlying operating system vendor.
 
 Commercial support is limited to the platforms listed in the "Commercial Support" tables--platforms not listed in these tables are unsupported.
 
@@ -35,7 +35,7 @@ Many of these platforms are forks, clones, or otherwise derivative of platforms 
 
 ## Platforms
 
-The sections below list the platforms that Chef Software Inc. supports.
+The sections below list the platforms that Chef Software supports.
 
 ### Chef Infra Client
 

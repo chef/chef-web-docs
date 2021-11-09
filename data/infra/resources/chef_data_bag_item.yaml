@@ -90,18 +90,6 @@ properties_list:
   description_list:
   - markdown: "The data bag item as JSON data. For example:\n\n```javascript\n{\n\
       \  \"id\": \"adam\",\n  \"real_name\": \"Adam Brent Jacob\"\n}\n```"
-- property: retries
-  ruby_type: Integer
-  required: false
-  default_value: '0'
-  description_list:
-  - markdown: The number of attempts to catch exceptions and retry the resource.
-- property: retry_delay
-  ruby_type: Integer
-  required: false
-  default_value: '2'
-  description_list:
-  - markdown: The retry delay (in seconds).
 - property: subscribes
   ruby_type: Symbol, Chef::Resource\[String\]
   required: false
