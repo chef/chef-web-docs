@@ -100,7 +100,7 @@ The following table lists the commercially-supported platforms and versions for 
 <tr>
 <td>Solaris</td>
 <td><code>sparc</code>, <code>i86pc</code></td>
-<td><code>11.4</code></td>
+<td><code>11.3</code>, <code>11.4</code></td>
 </tr>
 <tr>
 <td>SUSE Enterprise Linux Server</td>
@@ -646,7 +646,7 @@ that platform and version.
 <tr>
 <td>Oracle Solaris 11.3</td>
 <td>January 30, 2021</td>
-<td>January 30, 2021</td>
+<td>No current planned EOL date</td>
 </tr>
 <tr>
 <td>SUSE Linux Enterprise Server 11</td>
