@@ -124,7 +124,7 @@ properties_list:
   required: false
   new_in: '12.21'
   description_list:
-  - markdown: 'Windows only: The domain of the user user specified by the user property.
+  - markdown: 'Windows only: The domain of the user specified by the user property.
       If not specified, the username and password specified by the `user` and `password`
       properties will be used to resolve that user against the domain in which the
       system running Chef Infra Client is joined, or if that system is not joined
@@ -206,9 +206,9 @@ properties_list:
   required: false
   description_list:
   - markdown: The user name of the user identity with which to launch the new process.
-      The user name may optionally be specified with a domain, i.e. `domainuser` or
-      `user@my.dns.domain.com` via Universal Principal Name (UPN)format. It can also
-      be specified without a domain simply as user if the domain is instead specified
+      The user name may optionally be specified with a domain, i.e. `domain\user`
+      or `user@my.dns.domain.com` via Universal Principal Name (UPN)format. It can
+      also be specified without a domain simply as user if the domain is instead specified
       using the domain property. On Windows only, if this property is specified, the
       password property must be specified.
 examples: |
@@ -528,7 +528,7 @@ examples: |
 
   By default, notifications are `:delayed`, that is they are queued up as they are
   triggered, and then executed at the very end of a Chef Infra Client run. To run
-  kan action immediately, use `:immediately`:
+  an action immediately, use `:immediately`:
 
   ```ruby
   template '/etc/nagios3/configures-nagios.conf' do
