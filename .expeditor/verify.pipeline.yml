@@ -10,3 +10,14 @@ steps:
     expeditor:
       executor:
         docker:
+
+  - label: Verify Cookstyle MD pages
+    command:
+      - .expeditor/buildkite/hugo_lint_cookstyle_pages.sh
+    timeout_in_minutes: 10
+    retry:
+      automatic:
+        limit: 1
+    expeditor:
+      executor:
+        docker:
