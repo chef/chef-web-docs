@@ -1,16 +1,16 @@
 +++
 title = "supermarket-ctl (executable)"
 draft = false
-gh_repo = "chef-web-docs"
-aliases = ["/ctl_supermarket.html"]
+gh_repo = "supermarket"
+aliases = ["/ctl_supermarket.html", "/ctl_supermarket/"]
 product = ["client", "server", "workstation"]
 
 [menu]
   [menu.supermarket]
     title = "supermarket-ctl"
-    identifier = "supermarket/reference/ctl_supermarket.md supermarket-ctl supermarket Commands"
+    identifier = "supermarket/reference/supermarket-ctl"
     parent = "supermarket/reference"
-    weight = 90
+    weight = 10
 +++
 
 {{% ctl_supermarket_summary %}}

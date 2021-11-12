@@ -1,16 +1,16 @@
 +++
 title = "Supermarket Logs"
 draft = false
-gh_repo = "chef-web-docs"
-aliases = ["/supermarket_logs.html"]
+gh_repo = "supermarket"
+aliases = ["/supermarket_logs.html", "/supermarket_logs/"]
 product = ["client", "server", "workstation"]
 
 [menu]
   [menu.supermarket]
     title = "Log Files"
-    identifier = "supermarket/server/supermarket_logs.md"
+    identifier = "supermarket/server/Log Files"
     parent = "supermarket/server"
-    weight = 50
+    weight = 60
 +++
 
 The Chef Supermarket omnibus package does not log Ruby on Rails messages

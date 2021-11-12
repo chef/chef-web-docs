@@ -1,14 +1,14 @@
 +++
 title = "Chef Supermarket"
 draft = false
-gh_repo = "chef-web-docs"
+gh_repo = "supermarket"
 aliases = ["/supermarket.html"]
 product = ["client", "server", "workstation"]
 
 [menu]
   [menu.supermarket]
     title = "About Supermarket"
-    identifier = "supermarket/server/install/supermarket.md Supermarket"
+    identifier = "supermarket/About Supermarket"
     parent = "supermarket"
     weight = 10
 +++
