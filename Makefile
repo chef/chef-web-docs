@@ -47,3 +47,19 @@ cookstyle_cops_pages:
 		fi ; \
 	done
 	hugo new -k cookstyle_cops_all content/workstation/cookstyle/cops.md ;
+
+# Verifies that all Cookstyle MD pages exist
+verify_cookstyle_pages:
+	dataDir=_vendor/github.com/chef/cookstyle/docs-chef-io/data/cookstyle; \
+	markdownDir=content/workstation/cookstyle; \
+	for f in $$(ls $${dataDir}); \
+		do mdFile="$${f/.yml/.md}"; \
+		mdFilePath="$${markdownDir}/$${mdFile/cops_/}"; \
+		if test ! -f "$${mdFilePath}"; then \
+			echo "$${mdFilePath} does not exist."; \
+		fi; \
+	done; \
+	if test ! -f "content/workstation/cookstyle/cops.md"; then \
+			echo "content/workstation/cookstyle/cops.md does not exist."; \
+	fi; \
+
