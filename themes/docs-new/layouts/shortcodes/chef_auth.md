@@ -1,8 +1,1 @@
-All communication with the Chef Infra Server must be authenticated using
-the Chef Infra Server API, which is a REST API that allows requests to
-be made to the Chef Infra Server. Only authenticated requests will be
-authorized. Most of the time, and especially when using knife, Chef
-Infra Client, or the Chef Infra Server web interface, the use of the
-Chef Infra Server API is transparent. In some cases, the use of the Chef
-Infra Server API requires more detail, such as when making the request
-in Ruby code, with a knife plugin, or when using cURL.
+The Chef Infra Server API handles all communication between Chef Infra Client or Chef Workstation. The Chef Infra Server API is an authenticated REST API, which means all requests require authentication and authorization. The Chef Infra tools such as `knife` and `chef-server` commands use the Chef Infra Server API for you.
