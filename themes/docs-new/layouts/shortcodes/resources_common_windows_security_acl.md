@@ -16,7 +16,7 @@ where
     possible values are: `:read`, `:write`, `read_execute`, `:modify`,
     `:full_control`, or an integer.
     
-:    Integers used for permissions must match from the following list
+:    Integers used for permissions must match the following list
     [FileSystemRights Enum](https://docs.microsoft.com/en-us/dotnet/api/system.security.accesscontrol.filesystemrights?view=windowsdesktop-5.0#fields) fields.
 
     These permissions are cumulative. If `:write` is specified, then it
