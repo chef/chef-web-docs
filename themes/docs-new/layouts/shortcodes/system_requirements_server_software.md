@@ -22,8 +22,7 @@ the following installed and configured properly:
     group accounts, ensure that the correct users and groups exist
     before reconfiguring
 - **Firewalls and ports** --- If host-based firewalls (iptables, ufw,
-    etc.) are being used, ensure that ports 80 and 443 are open. These
-    ports are used by the **nginx** service
+    etc.) are being used, ensure that ports 80 and 443 are open.
 
 In addition:
 
