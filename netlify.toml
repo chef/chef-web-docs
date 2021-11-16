@@ -5,7 +5,7 @@
   HUGO_VERSION = "0.89.3"
   HUGO_ENABLEGITINFO = "true"
   GO_VERSION = "1.17"
-  NODE_ENV = "development"
+  NODE_VERSION = "17"
 
 [build.processing]
   skip_processing = true
