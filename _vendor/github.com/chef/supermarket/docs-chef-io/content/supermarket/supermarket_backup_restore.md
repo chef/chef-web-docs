@@ -1,16 +1,16 @@
 +++
 title = "Supermarket Backup and Restore"
 draft = false
-gh_repo = "chef-web-docs"
-aliases = ["/supermarket_backup_restore.html"]
+gh_repo = "supermarket"
+aliases = ["/supermarket_backup_restore.html", "/supermarket_backup_restore/"]
 product = ["client", "server", "workstation"]
 
 [menu]
   [menu.supermarket]
     title = "Backup and Restore"
-    identifier = "supermarket/server/supermarket_backup_restore.md"
+    identifier = "supermarket/server/Backup and Restore"
     parent = "supermarket/server"
-    weight = 30
+    weight = 40
 +++
 
 Periodic backups of Supermarket data are an essential part of managing

@@ -1,15 +1,16 @@
 +++
 title = "Supermarket API"
 draft = false
-gh_repo = "chef-web-docs"
-aliases = ["/supermarket_api.html"]
+gh_repo = "supermarket"
+aliases = ["/supermarket_api.html", "/supermarket_api/"]
 product = ["client", "server", "workstation"]
 
 [menu]
   [menu.supermarket]
     title = "Supermarket API"
-    identifier = "supermarket/reference/supermarket_api.md Supermarket API"
+    identifier = "supermarket/reference/Supermarket API"
     parent = "supermarket/reference"
+    weight = 20
 +++
 <!-- markdownlint-disable-file MD033 MD036-->
 

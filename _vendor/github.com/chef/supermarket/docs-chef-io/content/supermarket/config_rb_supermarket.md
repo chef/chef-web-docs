@@ -1,16 +1,16 @@
 +++
 title = "supermarket.rb Settings"
 draft = false
-gh_repo = "chef-web-docs"
-aliases = ["/config_rb_supermarket.html"]
+gh_repo = "supermarket"
+aliases = ["/config_rb_supermarket.html", "/config_rb_supermarket/"]
 product = ["client", "server", "workstation"]
 
 [menu]
   [menu.supermarket]
     title = "Configure"
-    identifier = "supermarket/server/config_rb_supermarket.md supermarket.rb Configuration"
+    identifier = "supermarket/server/Configure"
     parent = "supermarket/server"
-    weight = 20
+    weight = 30
 +++
 
 {{% config_rb_supermarket_summary %}}
