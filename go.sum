@@ -4,10 +4,11 @@ github.com/census-instrumentation/opencensus-proto v0.2.1/go.mod h1:f6KPmirojxKA
 github.com/chef/automate/components/docs-chef-io v0.0.0-20211102164606-529baef6f106/go.mod h1:juvLC7Rt33YOCgJ5nnfl4rWZRAbSwqjTbWmcAoA0LtU=
 github.com/chef/chef-server/docs-chef-io v0.0.0-20211021174328-3607eb7c9298/go.mod h1:gMSa25GUHmLimA0gjvRd3hs1buOBqkKPrdHzHvaJauY=
 github.com/chef/chef-workstation/docs-chef-io v0.0.0-20211103051405-907cde8fe2d1/go.mod h1:gvoh6ov1YU98CVzBEWzEZeCLTRunfQ6r1VO7M3LFE9U=
-github.com/chef/cookstyle v7.25.9+incompatible/go.mod h1:KUadmsdBr7Hpo5dtGVQMiwb8KlC91W3j1lfc0yuVwtw=
-github.com/chef/cookstyle/docs-chef-io v0.0.0-20211027161754-628bf49c9ccd/go.mod h1:1JOEECsW9ozt1/RmprJjAQEvCrOHobpWepSQJRQOhnY=
+github.com/chef/cookstyle v7.25.10+incompatible/go.mod h1:KUadmsdBr7Hpo5dtGVQMiwb8KlC91W3j1lfc0yuVwtw=
+github.com/chef/cookstyle/docs-chef-io v0.0.0-20211115204201-a2ad5bed3490/go.mod h1:1JOEECsW9ozt1/RmprJjAQEvCrOHobpWepSQJRQOhnY=
 github.com/chef/desktop-config/docs-chef-io v0.0.0-20211006114000-6bf6119bfc8a/go.mod h1:90xAx6sIfgSL50M2KzeBmx7V7s7dlhQU3xpUkJO0qW0=
 github.com/chef/effortless/docs-chef-io v0.0.0-20210824165956-409e7184577c/go.mod h1:Lfq+HjwAQwUJ41EPTO/8qbI1oJb2i415fR28d2Ig9kc=
+github.com/chef/supermarket/docs-chef-io v0.0.0-20211112205954-a35850e2fef1/go.mod h1:L0DhIJHTKsPYhAr9TrhAIg3KXtrS9BJF0XNHfGDDGGg=
 github.com/client9/misspell v0.3.4/go.mod h1:qj6jICC3Q7zFZvVWo7KLAzC3yx5G7kyvSDkc90ppPyw=
 github.com/cowboy/jquery-hashchange v0.0.0-20100902193700-0310f3847f90/go.mod h1:N/6F0+wmdvL6k0AjqyKIncMRClKAN92atjZdTLtYMaw=
 github.com/envoyproxy/go-control-plane v0.9.1-0.20191026205805-5f8ba28d4473/go.mod h1:YTl/9mNaCwkRvm6d1a2C3ymFceY/DCBVvsKhRF0iEA4=

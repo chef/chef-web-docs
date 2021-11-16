@@ -1,16 +1,16 @@
 +++
 title = "Install Private Supermarket"
 draft = false
-gh_repo = "chef-web-docs"
-aliases = ["/install_supermarket.html"]
+gh_repo = "supermarket"
+aliases = ["/install_supermarket.html", "/install_supermarket/"]
 product = ["client", "server", "workstation"]
 
 [menu]
   [menu.supermarket]
     title = "Install Private Supermarket"
-    identifier = "supermarket/server/install_supermarket.md Install Private Supermarket"
+    identifier = "supermarket/server/Install Private Supermarket"
     parent = "supermarket/server"
-    weight = 10
+    weight = 20
 +++
 
 {{% supermarket_private_source_code %}}
@@ -177,7 +177,7 @@ default['supermarket_omnibus']['chef_server_url'] = 'https://chefserver.mycompan
 default['supermarket_omnibus']['chef_oauth2_app_id'] = '14dfcf186221781cff51eedd5ac1616'
 default['supermarket_omnibus']['chef_oauth2_secret'] = 'a49402219627cfa6318d58b13e90aca'
 default['supermarket_omnibus']['chef_oauth2_verify_ssl'] = false
-default['supermarket_omnibus']['config']['fqdn'] = 'supermarket.mycompany.com'
+default['supermarket_omnibus']['fqdn'] = 'supermarket.mycompany.com'
 ```
 
 On your workstation, generate a new cookbook using the `chef` command

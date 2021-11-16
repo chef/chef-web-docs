@@ -1,17 +1,16 @@
 +++
 title = "Share Cookbooks on the Chef Supermarket"
 draft = false
-gh_repo = "chef-web-docs"
-aliases = ["/supermarket_share_cookbook.html"]
+gh_repo = "supermarket"
+aliases = ["/supermarket_share_cookbook.html", "/supermarket_share_cookbook/"]
 product = ["client", "server", "workstation"]
 
 [menu]
   [menu.supermarket]
     title = "Share Cookbooks"
-    identifier = "supermarket/supermarket_share_cookbook.md Share Cookbooks"
+    identifier = "supermarket/Share Cookbooks"
     parent = "supermarket"
-    weight = 25
-
+    weight = 20
 +++
 
 This guide will show you how to share a cookbook on the public [Chef
