@@ -4,7 +4,7 @@
 [build.environment]
   HUGO_VERSION = "0.83.1"
   HUGO_ENABLEGITINFO = "true"
-  GO_VERSION = "1.12"
+  GO_VERSION = "1.17.2"
   NODE_ENV = "development"
   NODE_VERSION = "17.0.1"
 
