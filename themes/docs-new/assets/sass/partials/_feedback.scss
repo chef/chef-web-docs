@@ -25,3 +25,47 @@
 
   }
 }
+
+#thumps-feedback{
+  margin-top: 2rem;
+  padding: 2rem 1rem;
+  border-top: 1px solid $blue-darker;
+  border-radius: 1rem;
+
+  p{
+    color: $blue-darker;
+    font-weight: 500;
+  }
+
+  .rounded-buttons {
+    text-align: center;
+    display: center;
+    position: relative;
+
+    .button {
+      cursor: pointer;
+      width: $button-size;
+      height: $button-size;
+      border: $button-border-width solid;
+      padding: .5rem;
+      text-decoration: none;
+      text-align: center;
+      background-color: $white;
+      color: $blue-darker;
+      font-size: $button-font-size;
+      font-weight: normal;
+      line-height: $button-line-height;
+      border-radius: 50%;
+      transition: $button-transition;
+      margin-right: $button-margin;
+      margin-bottom: $button-margin;
+
+      &:hover,
+      &:focus {
+        border: $button-border-width transparent;
+        background-color: $blue-darker;
+        color: $white;
+      }
+    }
+  }
+}

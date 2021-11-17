@@ -18,4 +18,7 @@
     {{- $toc := .TableOfContents -}}
     {{- safeHTML $toc -}}
   </div>
+  <div>
+    {{- partialCached "thumps-feedback" . -}}
+  </div>
 </aside>
