@@ -93,3 +93,7 @@
 @mixin box-shadow(){
 	box-shadow: 0 8px 24px 0 rgba(0,0,0,0.08);
 }
+
+@mixin button-size(){
+	font-family: "Font Awesome 5 Solid";
+}
