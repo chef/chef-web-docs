@@ -100,38 +100,50 @@ identifier = "automate"
   parent = "automate"
 
   [[automate]]
-  name = "Applications"
+  title = "Install"
+  identifier = "automate/install"
+  parent = "automate"
   weight = 20
+
+  [[automate]]
+  title = "Configure"
+  identifier = "automate/configure"
+  parent = "automate"
+  weight = 30
+
+  [[automate]]
+  name = "Manage"
+  weight = 40
+  identifier = "automate/configuring_automate"
+  parent = "automate"
+
+  [[automate]]
+  name = "Applications"
+  weight = 50
   identifier = "automate/applications"
   parent = "automate"
 
   [[automate]]
   name = "Authorization"
-  weight = 30
+  weight = 60
   identifier = "automate/authorization"
   parent = "automate"
 
   [[automate]]
   name = "Compliance"
-  weight = 49
+  weight = 70
   identifier = "automate/compliance"
   parent = "automate"
 
   [[automate]]
-  name = "Configure"
-  weight = 50
-  identifier = "automate/configuring_automate"
-  parent = "automate"
-
-  [[automate]]
   name = "Infrastructure"
-  weight = 60
+  weight = 80
   identifier = "automate/infrastructure"
   parent = "automate"
 
   [[automate]]
   name = "Integrations"
-  weight = 70
+  weight = 90
   identifier = "automate/integrations"
   parent = "automate"
 
@@ -143,7 +155,7 @@ identifier = "automate"
 
   [[automate]]
   name = "Settings"
-  weight = 80
+  weight = 100
   identifier = "automate/settings"
   parent = "automate"
 
