@@ -44,8 +44,8 @@
 
     .button {
       cursor: pointer;
-      width: 5px;
-      height: 5px;
+      width: $button-size;
+      height: $button-size;
       border: $button-border-width solid;
       padding: .5rem;
       text-decoration: none;
