@@ -2,7 +2,7 @@
 
 set -eoux pipefail
 
-branch="expeditor/update_docs_${EXPEDITOR_PRODUCT_KEY}_${EXPEDITOR_NUMBER}"
+branch="expeditor/update_docs_${EXPEDITOR_REPO}_${EXPEDITOR_NUMBER}"
 git checkout -b "$branch"
 
 
@@ -31,7 +31,7 @@ git add .
 # audit of our codebase that no DCO sign-off is needed for this sort of PR since
 #it contains no intellectual property
 
-dco_safe_git_commit "Bump Hugo module ${EXPEDITOR_PRODUCT_KEY} for ${EXPEDITOR_AGENT_CONFIG_GITHUB_REPO}#${EXPEDITOR_NUMBER}."
+dco_safe_git_commit "Bump Hugo module ${EXPEDITOR_REPO} for ${EXPEDITOR_AGENT_CONFIG_GITHUB_REPO}#${EXPEDITOR_NUMBER}."
 
 open_pull_request
 
