@@ -27,7 +27,7 @@ Learn more about [Chef InSpec profiles]({{< relref "/inspec/profiles" >}}).
 
 ### Wrapper Profile Pattern
 
-In Chef InSpec, a common pattern is to write a wrapper profile that depends on another profile. This pattern pulls profiles from a main profile source like the [Chef Automate Profile Store]({{< relref "/automate/profiles" >}}). See an [example of this pattern](https://github.com/chef/effortless/tree/master/examples/effortless_audit).
+In Chef InSpec, a common pattern is to write a wrapper profile that depends on another profile. This pattern pulls profiles from a main profile source like the [Chef Automate Profile Store]({{< relref "/automate/profiles" >}}). See an [example of this pattern](https://github.com/chef/effortless/tree/main/examples/effortless_audit).
 
 1. To use this pattern, navigate to your profile:
 
@@ -116,7 +116,7 @@ In Chef InSpec, a common pattern is to write a wrapper profile that depends on a
    export CHEF_LICENSE="accept-no-persist"
 
    if [ ! -e "/bin/hab" ]; then
-   curl https://raw.githubusercontent.com/habitat-sh/habitat/master/components/hab/install.sh | sudo bash
+   curl https://raw.githubusercontent.com/habitat-sh/habitat/main/components/hab/install.sh | sudo bash
    fi
 
    if grep "^hab:" /etc/passwd > /dev/null; then
