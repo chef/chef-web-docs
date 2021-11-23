@@ -15,7 +15,6 @@ the following installed and configured properly:
 - **cron** --- Periodic maintenance tasks are performed using cron
 - **git** --- git must be installed so that various internal services
     can confirm revisions
-- **libfreetype and libpng** --- These libraries are required
 - **Apache Qpid** --- This daemon must be disabled on CentOS and Red
     Hat systems
 - **Required users** --- If the environment in which the Chef Infra
@@ -23,8 +22,7 @@ the following installed and configured properly:
     group accounts, ensure that the correct users and groups exist
     before reconfiguring
 - **Firewalls and ports** --- If host-based firewalls (iptables, ufw,
-    etc.) are being used, ensure that ports 80 and 443 are open. These
-    ports are used by the **nginx** service
+    etc.) are being used, ensure that ports 80 and 443 are open.
 
 In addition:
 
