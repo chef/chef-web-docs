@@ -2,12 +2,14 @@
 title = "Partials"
 gh_repo = "chef-web-docs"
 
+product = ["client", "workstation"]
+
 [menu]
   [menu.infra]
     title = "Partials"
     identifier = "chef_infra/resources/custom_resources/partials"
     parent = "chef_infra/resources/custom_resources"
-    weight = 20
+    weight = 70
 +++
 
 [InfoQ article](https://www.infoq.com/news/2020/05/chef-infra-16/)

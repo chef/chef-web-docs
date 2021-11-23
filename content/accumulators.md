@@ -7,7 +7,7 @@ gh_repo = "chef-web-docs"
     title = "Accumulators"
     identifier = "chef_infra/resources/custom_resources/accumulators"
     parent = "chef_infra/resources/custom_resources"
-    weight = 15
+    weight = 65
 +++
 
 This is an advanced topic. You should have already written a Custom Resource and be familiar with:

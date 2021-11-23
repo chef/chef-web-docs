@@ -6,19 +6,21 @@ gh_repo = "chef-web-docs"
 
 aliases = ["/custom_resources_notes.html", "resources/custom_resources_notes"]
 
+product = ["client", "workstation"]
+
 [menu]
   [menu.infra]
-    title = "Custom Resource Guide"
+    title = "Custom Resource FAQ"
     identifier = "chef_infra/resources/custom_resources/custom_resources_notes.md Custom Resource Guide"
     parent = "chef_infra/resources/custom_resources"
-    weight = 50
+    weight = 30
 +++
 
 {{< warning >}}
 
 This page mentions multiple ways of building custom resources. Chef
 Software recommends you try the approach outlined in the [Custom
-Resource documentation](.) first, before trying the
+Resource documentation](custom_resources) first, before trying the
 resource/provider pair (older approach) or library type (pure Ruby)
 approaches. If you run into issues while designing 12.5-style custom
 resources, please ask for help in the [Chef Mailing
@@ -246,7 +248,7 @@ A `converge_by` block that is not wrapped in an idempotency check will
 always cause the resource to be updated, and will always cause
 notifications to fire. To prevent this, a properly written resource
 should wrap all `converge_by` checks with an idempotency check. The
-[`converge_if_changed`](.#converge_if_changed)
+[`converge_if_changed`](custom_resources#converge_if_changed)
 block may be used instead which will wrap a `converge_by` block with an
 idempotency check for you.
 

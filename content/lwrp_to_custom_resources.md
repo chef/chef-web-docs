@@ -2,6 +2,8 @@
 title = "Migrating from LWRPs to Custom Resources"
 gh_repo = "chef-web-docs"
 
+product = ["client", "workstation"]
+
 [menu]
   [menu.infra]
     title = "Migrating from LWRPs"

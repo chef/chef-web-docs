@@ -3,6 +3,8 @@ title = "Custom Resources Glossary"
 gh_repo = "chef-web-docs"
 aliases = ["/custom_resource_glossary.html"]
 
+product = ["client", "workstation"]
+
 [menu]
   [menu.infra]
     title = "Glossary"
