@@ -16,6 +16,8 @@ aliases = ["/templates.html", "essentials_cookbook_templates.html"]
 
 {{% template %}}
 
+{{% chef_generate_template %}}
+
 ## Requirements
 
 {{< readFile_shortcode file="template_requirements.md" >}}

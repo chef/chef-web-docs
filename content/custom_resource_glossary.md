@@ -3,12 +3,14 @@ title = "Custom Resources Glossary"
 gh_repo = "chef-web-docs"
 aliases = ["/custom_resource_glossary.html"]
 
+product = ["client", "workstation"]
+
 [menu]
   [menu.infra]
     title = "Glossary"
     identifier = "chef_infra/resources/custom_resources/glossary"
     parent = "chef_infra/resources/custom_resources"
-    weight = 100
+    weight = 200
 +++
 
 ## Chef Infra Client Custom Resources Glossary

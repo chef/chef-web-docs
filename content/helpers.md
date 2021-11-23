@@ -3,19 +3,21 @@ title = "Helpers"
 draft = false
 gh_repo = "chef-web-docs"
 
+product = ["client", "workstation"]
+
 [menu]
   [menu.infra]
-    title = "Custom Resource Helpers"
+    title = "Helpers"
     identifier = "chef_infra/resources/custom_resources/helpers Library Helpers"
     parent = "chef_infra/resources/custom_resources"
-    weight = 20
+    weight = 30
 +++
 
 Helper classes enable users to share code between Custom Resources. Rspec method test are possible when code is abstracted into plain Ruby files.
 
-### Example
+## Example
 
-To include the following helper from libraries/helpers.rb
+To include the following helper from `libraries/helpers.rb`
 
 ```ruby
 #libraries/helpers.rb

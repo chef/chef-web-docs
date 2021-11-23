@@ -1,8 +1,7 @@
 The chef-repo is a directory on your workstation that stores everything
 you need to define your infrastructure with Chef Infra:
 
-- Cookbooks (including recipes, attributes, custom resources,
-    libraries, and templates)
+- Cookbooks (including recipes, attributes, custom resources, libraries, and templates)
 - Data bags
 - Policyfiles
 

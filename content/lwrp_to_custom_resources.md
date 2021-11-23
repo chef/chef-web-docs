@@ -2,12 +2,14 @@
 title = "Migrating from LWRPs to Custom Resources"
 gh_repo = "chef-web-docs"
 
+product = ["client", "workstation"]
+
 [menu]
   [menu.infra]
     title = "Migrating from LWRPs"
     identifier = "chef_infra/resources/custom_resources/lwrp"
     parent = "chef_infra/resources/custom_resources"
-    weight = 50
+    weight = 70
 +++
 
 ## Overview
