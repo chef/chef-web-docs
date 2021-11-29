@@ -17,22 +17,22 @@ The `custom_web` cookbook directory with a template has the structure:
 ```text
 ├ cookbooks
  ├ custom_web
- | ├ .delivery
- | | └ project.toml
- | ├ recipes
- | | └ default.rb
- | ├ templates
- | | └ http.erb
- | ├ test
- | | └ integration
- | | | └ default
- | | | | └ default_test.rb
- | ├ .gitignore
- | ├ CHANGELOG.md
- | ├ chefignore
- | ├ kitchen.yml
- | ├ LICENSE
- | ├ metadata.rb
- | ├ Policyfile.rb
- | └ README.md
+   ├ .delivery
+   | └ project.toml
+   ├ recipes
+   | └ default.rb
+   ├ templates
+   | └ http.erb
+   ├ test
+   | └ integration
+   | | └ default
+   | | | └ default_test.rb
+   ├ .gitignore
+   ├ CHANGELOG.md
+   ├ chefignore
+   ├ kitchen.yml
+   ├ LICENSE
+   ├ metadata.rb
+   ├ Policyfile.rb
+   └ README.md
 ```

@@ -22,23 +22,13 @@ A custom resource:
 
 For example, Chef Infra Client includes built-in resources to manage files, packages, templates, and services, but it does not include a resource that manages websites.
 
-## Generate a Custom Resource
-
-{{% chef_generate_resource %}}
-
-{{% cookbooks_content %}}
-
-You'll write a custom resource as a Ruby file and is located in a cookbook's `/resources` directory. This file:
-
-- Declares the properties of the custom resource
-- Loads current state of properties, if the resource already exists
-- Defines each action the custom resource may take
-
 ## Syntax
 
 The layout for a custom resource is:
 
 ```ruby
+provides :resource_name
+
 property :property_name, RubyType, default: 'value'
 
 action :action_a do
@@ -52,9 +42,22 @@ end
 
 The first action listed is the default action.
 
+## Write a Custom Resource
+
+You'll write the code for a custom resource in a Ruby file and located in a cookbook's `/resources` directory (you need to generate the resource first). This code:
+
+- Declares the properties of the custom resource
+- Loads current state of properties for existing resources
+- Defines each action the custom resource may take
+
+### Generate a Custom Resource
+
+{{% chef_generate_resource %}}
+
+
 ### Example Resource
 
-This example `site` utilizes Chef Infra's built-in `file`, `service` and `package` resources, and includes `:create` and `:delete` actions. Since it uses built-in Chef Infra Client resources, besides defining the property and actions, the code is similar to that of a recipe.
+This example `site` uses Chef Infra's built-in `file`, `service` and `package` resources, and includes `:create` and `:delete` actions. It also assumes the existence of a [custom httpd template]({{< relref "templates.md" >}}). The code in this custom resource is similar to a typical recipe because it uses built-in Chef Infra Client resources, with the addition of the property and actions definitions for this custom resource.
 
 ```ruby
 provides :site
@@ -86,11 +89,12 @@ end
 
 where
 
-- the `homepage` sets the default HTML for the `index.html` file with a default value of `'<h1>Hello world!</h1>'`
+- `site` is the name of the custom resource. The `provides` statement makes the custom resource available for use recipies.
+- `homepage` sets the default HTML for the `index.html` file with a default value of `'<h1>Hello world!</h1>'`
 - the `action` block uses the built-in collection of resources to tell Chef Infra Client how to install Apache, start the service, and then create the contents of the file located at `/var/www/html/index.html`
-- the `action :create` is the default resource (because it is listed first); `action :delete` must be called specifically (because it is not the default action)
+- `action :create` is the default resource (because it is listed first); `action :delete` must be called specifically (because it is not the default action)
 
-Once written, the custom resource may be used in a recipe just like any of the resources that are built into Chef Infra Client.
+Once written, you can use a custom resource may be used in a recipe with the same syntax as Chef Infra Client built-in resources.
 
 ### Syntax
 
