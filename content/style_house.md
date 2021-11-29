@@ -127,3 +127,29 @@ For IPv6 addresses, use one of the addresses provided in [RFC 3849](https://tool
 IPv6 address range:
 
 - `2001:DB8::/32`
+
+### Some Existing Example Patterns
+
+The Chef docs have some useful example patterns of unknown origin.
+
+- Cookbook documentation uses `custom_web` as the example cookbook
+- Custom resource documentation uses `site` as the example custom resource
+- Templates documentation uses `httpd` as the template example
+- The documentation uses `webserver` as an example role in Chef Infra Client and Chef Infra Server documentation,`name: webserver`, `role[webserver]`, and `role:webserver`.
+
+These examples often draw on each other. For example, the finished cookbooks directory in the custom resource documentation has the structure:
+
+```output
+├ cookbooks
+| ├ custom_web
+  | ├ attribtes
+  | | └ default.rb
+  | ├ recipes
+  | | └ default.rb
+  | ├ resources
+  | | └ site.rb
+  | ├ templates
+  | | └ httpd.erb
+  └ README.md
+  └ metadata.rb
+```

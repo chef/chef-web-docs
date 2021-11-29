@@ -1,4 +1,5 @@
 ```output
+. chef-repo
 ├ cookbooks
 | └ README.md
 | ├ example

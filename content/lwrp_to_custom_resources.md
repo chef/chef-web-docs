@@ -9,7 +9,7 @@ product = ["client", "workstation"]
     title = "Migrating from LWRPs"
     identifier = "chef_infra/resources/custom_resources/lwrp"
     parent = "chef_infra/resources/custom_resources"
-    weight = 50
+    weight = 120
 +++
 
 ## Overview

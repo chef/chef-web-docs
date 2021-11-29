@@ -1,0 +1,13 @@
+The default structure of the cookbooks directory is:
+
+```
+. chef-repo
+  ├ cookbooks
+    ├ example
+    | └ project.toml
+    | ├ attributes
+    | | └ default.rb
+    ├ recipes
+    | └ default.rb
+    └ README.rb
+```

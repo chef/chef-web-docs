@@ -17,7 +17,7 @@ The `cookbooks/` directory of your Chef Infra repository is used to
 store the cookbooks that Chef Infra Client uses in configuring the
 various systems in the organization.
 
-## Chef Repository 
+## Chef Repository
 
 The the `\cookbook` directory is automatically generated as part of your Chef Infra repository.
 
@@ -25,26 +25,22 @@ The the `\cookbook` directory is automatically generated as part of your Chef In
 chef generate repo REPO_NAME
 ```
 
+#### Cookbook Directory Structure
+
+{{% cookbooks_default %}}
+
 ## Cookbook Commands
 
 Use the following commands to create a cookbook, install a cookbook from Supermarket, and/or download cookbooks.
 
 ### Create
 
-To create a cookbook (including all default components), run the
-following command:
+{{% chef_generate_cookbook %}}
 
-```bash
-chef generate cookbook COOKBOOK_NAME
-```
-
-where `COOKBOOK_NAME` is the name of the cookbook that will be created.
 Any unneeded directory components can be left unused or deleted, if
 preferred.
 
-#### Cookbook Directory Structure
 
-{{% cookbooks_content %}}
 
 ### Install
 

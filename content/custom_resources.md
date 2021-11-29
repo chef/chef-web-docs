@@ -1,5 +1,5 @@
 +++
-title = "About Custom Resources"
+title = "Custom Resource Guide"
 gh_repo = "chef-web-docs"
 aliases = ["/custom_resources.html"]
 
@@ -7,7 +7,7 @@ product = ["client", "workstation"]
 
 [menu]
   [menu.infra]
-    title = "Custom Resources"
+    title = "Custom Resource Guide"
     identifier = "chef_infra/resources/custom_resources/custom_resources.md Custom Resources"
     parent = "chef_infra/resources/custom_resources"
     weight = 10
@@ -22,13 +22,19 @@ A custom resource:
 
 For example, Chef Infra Client includes built-in resources to manage files, packages, templates, and services, but it does not include a resource that manages websites.
 
-## Syntax
+## Generate a Custom Resource
 
-A custom resource is defined as a Ruby file and is located in a cookbook's `/resources` directory. This file:
+{{% chef_generate_resource %}}
+
+{{% cookbooks_content %}}
+
+You'll write a custom resource as a Ruby file and is located in a cookbook's `/resources` directory. This file:
 
 - Declares the properties of the custom resource
 - Loads current state of properties, if the resource already exists
 - Defines each action the custom resource may take
+
+## Syntax
 
 The layout for a custom resource is:
 
@@ -51,6 +57,8 @@ The first action listed is the default action.
 This example `site` utilizes Chef Infra's built-in `file`, `service` and `package` resources, and includes `:create` and `:delete` actions. Since it uses built-in Chef Infra Client resources, besides defining the property and actions, the code is similar to that of a recipe.
 
 ```ruby
+provides :site
+
 property :homepage, String, default: '<h1>Hello world!</h1>'
 
 action :create do
@@ -86,29 +94,9 @@ Once written, the custom resource may be used in a recipe just like any of the r
 
 ### Syntax
 
-The name of a custom resource is derived from the cookbook name and the custom resource filename.
+Call a resource in a recipe by its `resource_name`. For example:
 
-```rb
-<cookbook name>_<filename>
-```
-
-For example, a cookbook named `exampleco` with a custom resource named `site.rb` is used in a recipe like this:
-
-```ruby
-exampleco_site 'httpd' do
-  homepage '<h1>Welcome to the Example Co. website!</h1>'
-end
-```
-
-This example uses the `delete` action from the custom resource `site.rb` in the `exampleco`:
-
-```ruby
-exampleco_site 'httpd' do
-  action :delete
-end
-```
-
-## Additional resources
+## Learn More
 
 Learn Chef interactive tutorial: [Extending Chef Infra: Custom Resources](https://learn.chef.io/courses/course-v1:chef+Infra201+Perpetual/about)
 

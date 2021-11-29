@@ -6,10 +6,10 @@ product = ["client", "workstation"]
 
 [menu]
   [menu.infra]
-    title = "Converting Definitions to Custom Resources"
+    title = "Migrating from Definitions"
     identifier = "chef_infra/resources/custom_resources/definitions.md Migrating from Definitions"
     parent = "chef_infra/resources/custom_resources"
-    weight = 40
+    weight = 110
 +++
 
 ## Migrating from Definitions to Custom Resources

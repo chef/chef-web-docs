@@ -167,11 +167,11 @@ MD039: true
 MD040: true
 
 # MD041/first-line-heading/first-line-h1 - First line in a file should be a top-level heading
-MD041:
+MD041: false
   # Heading level
-  level: 1
+  # level: 1
   # RegExp for matching title in front matter
-  front_matter_title: "^\\s*title\\s*[:=]"
+  # front_matter_title: "^\\s*title\\s*[:=]"
 
 # MD042/no-empty-links - No empty links
 MD042: true
