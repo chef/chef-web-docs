@@ -1,0 +1,2 @@
+[params.inspec-azure]
+gh_path = "https://github.com/inspec/inspec-azure/tree/main/docs-chef-io/content/"
