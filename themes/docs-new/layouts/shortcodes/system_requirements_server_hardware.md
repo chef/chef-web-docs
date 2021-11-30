@@ -19,8 +19,6 @@ preferred.
 - 5 GB of free disk space in `/opt`
 - 10 GB of free disk space in `/var`
 
-The RAM requirement can be lowered down to a minimum of 4 GB of RAM if the number of Chef Infra Client runs (CCRs) per minute are low (less than 33 CCRs/min). See [Capacity Planning](/server_overview.html#capacity-planning) for more information on how this metric affects scalability.
-
 For a high availability deployment:
 
 **General Requirements**
