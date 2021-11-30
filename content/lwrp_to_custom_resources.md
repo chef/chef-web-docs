@@ -1,28 +1,29 @@
 +++
-title = "Migrating from LWRPs to Custom Resources"
+title = "Migrating from HWRPs to Custom Resources"
 gh_repo = "chef-web-docs"
 
 product = ["client", "workstation"]
 
 [menu]
   [menu.infra]
-    title = "Migrating from LWRPs"
-    identifier = "chef_infra/resources/custom_resources/lwrp"
+    title = "Migrating from HWRPs"
+    identifier = "chef_infra/resources/custom_resources/hwrp"
     parent = "chef_infra/resources/custom_resources"
     weight = 120
 +++
 
+TODO: Is heavy weight because doing it directly uses all of the class
 ## Overview
 
-It is no longer recommended to write resources in the __Light Weight Resource Provider (LWRP)__ format.
+It is no longer recommended to write resources in the __Heavy Weight Resource Provider (HWRP)__ format.
 
-This guide describes how to migrate from an existing LWRP to a Custom Resource.
+This guide describes how to migrate from an existing HWRP to a Custom Resource.
 
 If you are creating a Custom Resource from scratch please see the [Custom Resource Getting Started Guide](getting-started.md) instead.
 
 ## Convert files to Custom Resources Layout
 
-LWRPs consist of two library files: a resource and a provider for that resource.
+HWRPs consist of two library files: a resource and a provider for that resource.
 
 ```text
 |- libraries
@@ -37,9 +38,9 @@ These files are merged into one, and moved into the resources directory.
     |- rvm_ruby.rb
 ```
 
-## Drop LWRP classes
+## Drop HWRP classes
 
-LWRPs used classes to separate Provider and Resource behaviors, but Custom Resources do not need this distinction. This means that we remove the class definitions in their entirety, as shown in the following example:
+HWRPs used classes to separate Provider and Resource behaviors, but Custom Resources do not need this distinction. This means that we remove the class definitions in their entirety, as shown in the following example:
 
 ```ruby
 #rvm/libraries/resource_rvm_ruby.rb
@@ -50,7 +51,7 @@ class Chef
     class RvmRuby < Chef::Resource::LWRPBase
       provides :rvm_ruby
 
-      self.resource_name = :rvm_ruby
+      resource_name :rvm_ruby
       default_action :install
     end
   end

@@ -16,47 +16,58 @@ product = ["client", "workstation"]
     weight = 30
 +++
 
+- TODO: Call this "Modernization"
+- TODO: Document both HWRP and LWRPs as sections
+- TODO: update converge_by must always be wrapped (correctness)
+- TODO: def whyrun_supported? is no longer required -> Delete def bloc
+- TODO: use_inline_resources
+- TODO: updated_by_last_action
+- TODO: Document
+
+    ```text
+    # NEVER use `def action_run` here -- you defeat use_inline_resources and will break notifications if you do
+    # If you don't understand how use_inline_resources is built and why you have to use the `action` method, and what the implications are and how resource notifications
+    # break if use_inline_resources is not used and/or is broken, then you should really not be using library providers+resources.  You might feel "closer to the metal",
+    # but you're now using a chainsaw without any guard...` not in the code block
+    ```
+
+- TODO: Don't document helpers here
+- TODO: `def action run` block superficially works but needs to be converted to `action :run do`
+- TODO: Don't use Definitions
 {{< warning >}}
 
-This page mentions multiple ways of building custom resources. Chef
-Software recommends you try the approach outlined in the [Custom
-Resource documentation](custom_resources) first, before trying the
-resource/provider pair (older approach) or library type (pure Ruby)
-approaches. If you run into issues while designing 12.5-style custom
-resources, please ask for help in the [Chef Mailing
-List](https://discourse.chef.io) or [file a
-bug](https://github.com/chef/chef/issues/new) for Chef Infra Client.
+Chef Software recommends writing custom resources in the manner described in the [Custom
+Resource]({{< relref "custom_resources" >}}). This document describes two alternative approaches:
+
+- the resource/provider pair (older approach)
+- library type (pure Ruby)
+
+If you run into issues, please ask for help in the [Chef Discourse](https://discourse.chef.io) or [file a bug](https://github.com/chef/chef/issues/new) for Chef Infra Client.
 
 {{< /warning >}}
 
 ## Custom Resources
 
-This is the recommended way of writing resources for all users. There
-are two gotchas which we're working through:
+This is the recommended way of writing resources for all users. There are several changes from past approaches to writing custom resources:
 
-1.  For helper functions that you used to write in your provider code or
-    used to mixin to your provider code, you have to use an
-    `action_class.class_eval do ... end` block.
-
-You cannot subclass, and must use mixins for code-sharing (which is
-really a best practice anyway -- e.g. see languages like rust which do
-not support subclassing).
+1. Use `action_class.class_eval do ... end` block with helper functions, instead of writing helpers directly into your provider code or used to mixin to your provider code in earlier versions of Chef Infra.
+1. Do not use subclasses
+1. Use mixins for code-sharing
 
 in `resources/whatever.rb`:
 
 ```ruby
-resource_name :my_resource
 provides :my_resource
 
-property :foo, String, name_property: true
+property :property_name, RubyType, default: 'value'
+
 extend MyResourceHelperFunctions # probably only used for common properties which is why you extend with class methods
 
 action :run do
-  # helpers must be defined inside the action_class block
+  # Define helpers inside the action_class block
   a_helper()
-  # you will save yourself some pain by referring to properties with `new_resource.foo` and not `foo`
-  # since the latter works most of the time, but will troll you with odd scoping problems, while the
-  # former just works.
+  # Refer to properties with `new_resource.foo` instead of `foo`
+  # to avoid scoping problems
   puts new_resource.foo
 end
 
@@ -108,9 +119,8 @@ end
 
 ## Library Resources/Providers
 
-Library resources are discouraged since you can more easily shoot
-yourself in the foot. They used to be encouraged back before Chef Client
-12.0 `provides` was introduced since it allowed for renaming the
+Library resources were a pattern for custom resources in versions of Chef Infra Client
+before 12.0. Chef Infra Client 12.0 introduced `provides` was introduced since it allowed for renaming the
 resource so that it didn't have to be prefixed by the cookbook name.
 
 There are many ways to go wrong writing library providers. One of the
@@ -118,7 +128,9 @@ biggest issues is that internal Chef Infra Client code superficially
 looks like a library provider, but it is not. Chef internal resources do
 not inherit from `LWRPBase` and we've had to manually create resources
 directly through `Chef::Resource::File.new()`, we also have not been
-able to `use_inline_resources` and not had access to other niceties that
+able to
+
+TODO: `use_inline_resources` is the default and not had access to other niceties that
 cookbook authors have had access to for years now. We've got some
 modernization of internal Chef cookbook code now and resources like
 `apt_update` and `apt_repository` in core have started to be written
@@ -197,6 +209,8 @@ please stop writing actions this way.
 
 THIS IS CORRECT:
 
+TODO: def whyrun_supported? is no longer required
+
 ```ruby
 def whyrun_supported?
   true
@@ -228,9 +242,9 @@ If you do need to write code which mutates the system through pure-Ruby
 then you should do so like this:
 
 ```ruby
-def whyrun_supported?
-  true
-end
+# def whyrun_supported?
+#   true
+# end
 
 action :run do
   unless ::File.exist?('/tmp/foo')
@@ -241,15 +255,17 @@ action :run do
 end
 ```
 
-When the `converge_by` block is run in why-run mode, it will only log
-`touch "/tmp/foo"` and will not run the code inside the block.
+
+
+When the `converge_by` block is run in `why-run` mode, it will only log `touch "/tmp/foo"` and will not run the code inside the block.
 
 A `converge_by` block that is not wrapped in an idempotency check will
 always cause the resource to be updated, and will always cause
 notifications to fire. To prevent this, a properly written resource
-should wrap all `converge_by` checks with an idempotency check. The
-[`converge_if_changed`](custom_resources#converge_if_changed)
-block may be used instead which will wrap a `converge_by` block with an
+should wrap all `converge_by` checks with an idempotency check.
+
+Use [`converge_if_changed`](custom_resources#converge_if_changed)
+block may be instead, which wraps a `converge_by` block with an
 idempotency check for you.
 
 ```ruby
