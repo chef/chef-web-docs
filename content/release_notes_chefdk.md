@@ -10,6 +10,8 @@ product = []
 <!-- markdownlint-disable-file -->
 <!-- cSpell:disable  -->
 
+{{% EOL_chefdk %}}
+
 This page documents the ChefDK major changes for each release. For
 a detailed list of changes, see the [ChefDK Changelog on
 GitHub](https://github.com/chef/chef-dk/blob/master/CHANGELOG.md)
