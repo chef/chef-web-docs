@@ -415,6 +415,29 @@ Setting the attribute `default['audit']['insecure']` to `true` will skip SSL cer
 default['audit']['insecure'] = true
 ```
 
+### interval
+
+**New in Chef Infra Client 17.8.29**
+
+The `node['audit']['interval']` attribute allows you to control the frequency of Compliance Phase scans independently of Chef Infra Client runs. This helps control the impact of compliance scans impact on system performance in business environments that require compliance scans less frequently than Chef Infra Client Runs.
+
+`node['audit']['interval']['enabled']`
+: Set to true to enable interval runs.
+
+  ```ruby
+  # Enable independent Compliance Phase scans
+  node['audit']['interval']['enabled'] = true
+  ```
+
+`node['audit']['interval']['time']`
+: The time in minutes between Compliance Phase execution. Default: 1440 (once a day).
+
+  ```ruby
+  # Define the timing of independent Compliance Phase scans
+  # Sets scan to twice daily
+  node['audit']['interval']['time'] = 1220
+  ```
+
 ### json_file
 
 The location on disk that Chef InSpec's json reports are saved to when using the 'json-file' reporter. Defaults to: `<chef_cache_path>/compliance_reports/compliance-<timestamp>.json`
