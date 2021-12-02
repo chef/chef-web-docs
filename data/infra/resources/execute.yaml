@@ -72,7 +72,6 @@ syntax_full_code_block: |-
     password         String
     returns          Integer, Array # default value: 0
     timeout          Integer, String, Float # default value: 3600
-    umask            String, Integer
     user             String, Integer
     action           Symbol # defaults to :run if not specified
   end
@@ -83,8 +82,8 @@ syntax_full_properties_list:
 - "`action` identifies which steps Chef Infra Client will take to bring the node into
   the desired state."
 - "`command`, `creates`, `cwd`, `default_env`, `domain`, `elevated`, `environment`,
-  `group`, `input`, `live_stream`, `login`, `password`, `returns`, `timeout`, `umask`,
-  and `user` are the properties available to this resource."
+  `group`, `input`, `live_stream`, `login`, `password`, `returns`, `timeout`, and
+  `user` are the properties available to this resource."
 actions_list:
   :nothing:
     shortcode: resources_common_actions_nothing.md
@@ -196,11 +195,6 @@ properties_list:
   default_value: '3600'
   description_list:
   - markdown: The amount of time (in seconds) a command is to wait before timing out.
-- property: umask
-  ruby_type: String, Integer
-  required: false
-  description_list:
-  - markdown: The file mode creation mask, or umask.
 - property: user
   ruby_type: String, Integer
   required: false

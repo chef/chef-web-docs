@@ -6,17 +6,23 @@ resources_common_properties: true
 resource: powershell_package_source
 resource_description_list:
 - markdown: Use the **powershell_package_source** resource to register a PowerShell
-    package repository.
+    package source and a Powershell package provider. There are 2 distinct objects
+    we care about here. The first is a Package Source like a PowerShell Repository
+    or a Nuget Source. The second object is a provider that PowerShell uses to get
+    to that source with, like PowerShellGet, Nuget, Chocolatey, etc.
 resource_new_in: '14.3'
 syntax_full_code_block: |-
   powershell_package_source 'name' do
+    new_name                     String
+    password                     String
     provider_name                String # default value: "NuGet"
     publish_location             String
     script_publish_location      String
     script_source_location       String
+    source_location              String
     source_name                  String # default value: 'name' unless specified
     trusted                      true, false # default value: false
-    url                          String
+    user                         String
     action                       Symbol # defaults to :register if not specified
   end
 syntax_properties_list:
@@ -25,30 +31,48 @@ syntax_full_properties_list:
 - "`name` is the name given to the resource block."
 - "`action` identifies which steps Chef Infra Client will take to bring the node into
   the desired state."
-- "`provider_name`, `publish_location`, `script_publish_location`, `script_source_location`,
-  `source_name`, `trusted`, and `url` are the properties available to this resource."
+- "`new_name`, `password`, `provider_name`, `publish_location`, `script_publish_location`,
+  `script_source_location`, `source_location`, `source_name`, `trusted`, and `user`
+  are the properties available to this resource."
 actions_list:
   :nothing:
     shortcode: resources_common_actions_nothing.md
   :register:
-    markdown: Registers and updates the PowerShell package source. (default)
+    markdown: Registers a PowerShell package source. (default)
+  :set:
+    markdown: Updates an existing PSRepository or Package Source
   :unregister:
     markdown: Unregisters the PowerShell package source.
 properties_list:
+- property: new_name
+  ruby_type: String
+  required: false
+  new_in: '17.6'
+  description_list:
+  - markdown: Used to change the name of a standard package source.
+- property: password
+  ruby_type: String
+  required: false
+  new_in: '17.6'
+  description_list:
+  - markdown: A password that, as part of a credential object, is used to register
+      a repository or other package source with.
 - property: provider_name
   ruby_type: String
   required: false
   default_value: NuGet
   allowed_values: '"NuGet", "PowerShellGet", "Programs", "chocolatey", "msi", "msu",
-    "psl"'
+    "psl", "winget"'
   description_list:
-  - markdown: The package management provider for the source.
+  - markdown: The package management provider for the package source. The default
+      is PowerShellGet and this option need only be set otherwise in specific use
+      cases.
 - property: publish_location
   ruby_type: String
   required: false
   description_list:
-  - markdown: The URL where modules will be published to for this source. Only valid
-      if the provider is `PowerShellGet`.
+  - markdown: The URL where modules will be published to. Only valid if the provider
+      is `PowerShellGet`.
 - property: script_publish_location
   ruby_type: String
   required: false
@@ -61,21 +85,113 @@ properties_list:
   description_list:
   - markdown: The URL where scripts are located for this source. Only valid if the
       provider is `PowerShellGet`.
+- property: source_location
+  ruby_type: String
+  required: false
+  new_in: '17.6'
+  description_list:
+  - markdown: The URL to the location to retrieve modules from.
 - property: source_name
   ruby_type: String
   required: false
   default_value: The resource block's name
   description_list:
-  - markdown: The name of the package source.
+  - markdown: A label that names your package source.
 - property: trusted
   ruby_type: true, false
   required: false
   default_value: 'false'
   description_list:
-  - markdown: Whether or not to trust packages from this source.
-- property: url
+  - markdown: Whether or not to trust packages from this source. Used when creating
+      a NON-PSRepository Package Source
+- property: user
   ruby_type: String
-  required: true
+  required: false
+  new_in: '17.6'
   description_list:
-  - markdown: The URL to the package source.
-examples:
+  - markdown: A username that, as part of a credential object, is used to register
+      a repository or other package source with.
+examples: |
+  **Add a new PSRepository that is not trusted and which requires credentials to connect to**:
+
+  ```ruby
+  powershell_package_source 'PowerShellModules' do
+    source_name                  "PowerShellModules"
+    source_location              "https://pkgs.dev.azure.com/some-org/some-project/_packaging/some_feed/nuget/v2"
+    publish_location             "https://pkgs.dev.azure.com/some-org/some-project/_packaging/some_feed/nuget/v2"
+    trusted                      false
+    user                         "someuser@somelocation.io"
+    password                     "my_password"
+    provider_name                "PSRepository"
+    action                       :register
+  end
+  ```
+
+  **Add a new Package Source that uses Chocolatey as the Package Provider**:
+
+  ```ruby
+  powershell_package_source 'PowerShellModules' do
+    source_name                  "PowerShellModules"
+    source_location              "https://pkgs.dev.azure.com/some-org/some-project/_packaging/some_feed/nuget/v2"
+    publish_location             "https://pkgs.dev.azure.com/some-org/some-project/_packaging/some_feed/nuget/v2"
+    trusted                      true
+    provider_name                "chocolatey"
+    action                       :register
+  end
+  ```
+
+  **Add a new PowerShell Script source that is trusted**:
+
+  ```ruby
+  powershell_package_source 'MyDodgyScript' do
+    source_name                  "MyDodgyScript"
+    script_source_location       "https://pkgs.dev.azure.com/some-org/some-project/_packaging/some_feed/nuget/v2"
+    script_publish_location      "https://pkgs.dev.azure.com/some-org/some-project/_packaging/some_feed/nuget/v2"
+    trusted                      true
+    action                       :register
+  end
+  ```
+
+  **Update my existing PSRepository to make it Trusted after all**:
+
+  ```ruby
+  powershell_package_source 'MyPSModule' do
+    source_name                  "MyPSModule"
+    trusted                      true
+    action                       :set
+  end
+  ```
+
+  **Update a Nuget package source with a new name and make it trusted**:
+
+  ```ruby
+  powershell_package_source 'PowerShellModules -> GoldFishBowl' do
+    source_name                  "PowerShellModules"
+    new_name                     "GoldFishBowl"
+    provider_name                "Nuget"
+    trusted                      true
+    action                       :set
+  end
+  ```
+
+  **Update a Nuget package source with a new name when the source is secured with a username and password**:
+
+  ```ruby
+  powershell_package_source 'PowerShellModules -> GoldFishBowl' do
+    source_name                  "PowerShellModules"
+    new_name                     "GoldFishBowl"
+    trusted                      true
+    user                         "user@domain.io"
+    password                     "some_secret_password"
+    action                       :set
+  end
+  ```
+
+  **Unregister a package source**:
+
+  ```ruby
+  powershell_package_source 'PowerShellModules' do
+    source_name                  "PowerShellModules"
+    action                       :unregister
+  end
+  ```
