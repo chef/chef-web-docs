@@ -5,17 +5,11 @@ resources_common_notification: true
 resources_common_properties: true
 resource: csh
 resource_description_list:
-- markdown: 'Use the **csh** resource to execute scripts using the csh interpreter.
-
-    This resource may also use any of the actions and properties that are
-
-    available to the **execute** resource. Commands that are executed with
-
-    this resource are (by their nature) not idempotent, as they are
-
-    typically unique to the environment in which they are run. Use `not_if`
-
-    and `only_if` to guard this resource for idempotence.'
+- markdown: Use the **csh** resource to execute scripts using the csh interpreter.
+    This resource may also use any of the actions and properties that are available
+    to the **execute** resource. Commands that are executed with this resource are
+    (by their nature) not idempotent, as they are typically unique to the environment
+    in which they are run. Use `not_if` and `only_if` to guard this resource for idempotence.
 syntax_description: "A **csh** resource block executes scripts using csh:\n\n```ruby\n\
   csh 'hello world' do\n  code <<-EOH\n    echo \"Hello world!\"\n    echo \"Current\
   \ directory: \" $cwd\n  EOH\nend\n```"
@@ -63,11 +57,9 @@ properties_list:
   ruby_type: Hash
   required: false
   description_list:
-  - markdown: 'A Hash of environment variables in the form of
-
-      `({"ENV_VARIABLE" => "VALUE"})`. (These variables must exist for a
-
-      command to be run successfully.)'
+  - markdown: 'A Hash of environment variables in the form of `({''ENV_VARIABLE''
+      => ''VALUE''})`. **Note**: These variables must exist for a command to be run
+      successfully.'
 - property: flags
   ruby_type: String
   required: false
@@ -78,27 +70,20 @@ properties_list:
   ruby_type: String, Integer
   required: false
   description_list:
-  - markdown: 'The group name or group ID that must be changed before running a
-
-      command.'
+  - markdown: The group name or group ID that must be changed before running a command.
 - property: returns
   ruby_type: Integer, Array
   required: false
   default_value: '0'
   description_list:
-  - markdown: 'The return value for a command. This may be an array of accepted
-
-      values. An exception is raised when the return value(s) do not
-
-      match.'
+  - markdown: The return value for a command. This may be an array of accepted values.
+      An exception is raised when the return value(s) do not match.
 - property: timeout
   ruby_type: Integer, Float
   required: false
   default_value: '3600'
   description_list:
-  - markdown: 'The amount of time (in seconds) a command is to wait before timing
-
-      out.'
+  - markdown: The amount of time (in seconds) a command is to wait before timing out.
 - property: user
   ruby_type: String, Integer
   required: false
