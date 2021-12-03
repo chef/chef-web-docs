@@ -117,8 +117,8 @@ properties_list:
   description_list:
   - markdown: Sets the operating system minor release to use for subscriptions for
       the system. Products and updates are limited to the specified minor release
-      version. This is used only used with the auto_attach option.  For example, `release
-      '6.4'` will append `--release=6.4` to the register command.
+      version. This is used only used with the `auto_attach` option.  For example,
+      `release '6.4'` will append `--release=6.4` to the register command.
 - property: satellite_host
   ruby_type: String
   required: false
@@ -130,17 +130,16 @@ properties_list:
   required: false
   new_in: '17.8'
   description_list:
-  - markdown: The hostname of the subscription service to use. The default is for
-      Customer Portal Subscription Management, subscription.rhn.redhat.com. If this
-      option is not used, the system is registered with Customer Portal Subscription
-      Management.
+  - markdown: The hostname of the subscription service to use. The default is Customer
+      Portal Subscription Management, subscription.rhn.redhat.com. If you do not use
+      this option, the system registers with Customer Portal Subscription Management.
 - property: service_level
   ruby_type: String
   required: false
   new_in: '17.8'
   description_list:
   - markdown: Sets the service level to use for subscriptions on the registering machine.
-      This is only used with the auto_attach option.
+      This is only used with the `auto_attach` option.
 - property: system_name
   ruby_type: String
   required: false

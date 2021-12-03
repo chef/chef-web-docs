@@ -213,7 +213,7 @@ properties_list:
   description_list:
   - markdown: The amount of time (in seconds) a command is to wait before timing out.
 - property: user
-  ruby_type: String
+  ruby_type: String, Integer
   required: false
   description_list:
   - markdown: The user name of the user identity with which to launch the new process.

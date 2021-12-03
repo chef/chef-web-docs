@@ -94,23 +94,21 @@ properties_list:
   required: false
   new_in: '17.8'
   description_list:
-  - markdown: The data collector url (typically automate) to send node, converge and
-      compliance data.
+  - markdown: The data collector URL (typically automate) to send node, converge,
+      and compliance data.
   - note:
-      markdown: Data collection reporting to Automate should be performed directly
-        by Chef Infra Server if possible, as this removes the need to distribute tokens
-        to individual nodes.
+      markdown: If possible, use Chef Infra Server to do all data collection reporting,
+        as this removes the need to distribute tokens to individual nodes.
 - property: data_collector_token
   ruby_type: String
   required: false
   new_in: '17.8'
   description_list:
   - markdown: The data collector token to interact with the data collector server
-      url (Automate).
+      URL (Automate).
   - note:
-      markdown: Data collection reporting to Automate should be performed directly
-        by Chef Infra Server if possible, as this removes the need to distribute tokens
-        to individual nodes.
+      markdown: If possible, use Chef Infra Server to do all data collection reporting,
+        as this removes the need to distribute tokens to individual nodes.
 - property: event_loggers
   ruby_type: Array
   required: false
@@ -303,7 +301,7 @@ properties_list:
       markdown: The configuration directory will not be created if it already exists,
         which allows you to further control the setup of that directory outside of
         this resource.
-examples: |+
+examples: |
   **Bare minimum Chef Infra Client client.rb**:
 
   The absolute minimum configuration necessary for a node to communicate with the Chef Infra Server is the URL of the Chef Infra Server. All other configuration options either have values at the server side (Policyfiles, Roles, Environments, etc) or have default values determined at client startup.
@@ -374,5 +372,3 @@ examples: |+
     data_collector_token 'TEST_TOKEN_TEST'
   end
   ```
-
-...

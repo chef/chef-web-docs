@@ -6,10 +6,10 @@ resources_common_properties: true
 resource: powershell_package_source
 resource_description_list:
 - markdown: Use the **powershell_package_source** resource to register a PowerShell
-    package source and a Powershell package provider. There are 2 distinct objects
-    we care about here. The first is a Package Source like a PowerShell Repository
-    or a Nuget Source. The second object is a provider that PowerShell uses to get
-    to that source with, like PowerShellGet, Nuget, Chocolatey, etc.
+    package source and a Powershell package provider. There are two distinct objects
+    we care about here. The first is a package source like a PowerShell repository
+    or a NuGet Source. The second object is a provider that PowerShell uses to get
+    to that source with, like PowerShellGet, NuGet, Chocolatey, etc.
 resource_new_in: '14.3'
 syntax_full_code_block: |-
   powershell_package_source 'name' do
@@ -40,7 +40,7 @@ actions_list:
   :register:
     markdown: Registers a PowerShell package source. (default)
   :set:
-    markdown: Updates an existing PSRepository or Package Source
+    markdown: Updates an existing PowerShell repository or package source.
   :unregister:
     markdown: Unregisters the PowerShell package source.
 properties_list:
@@ -65,8 +65,7 @@ properties_list:
     "psl", "winget"'
   description_list:
   - markdown: The package management provider for the package source. The default
-      is PowerShellGet and this option need only be set otherwise in specific use
-      cases.
+      is `PowerShellGet`. Only change this option in specific use cases.
 - property: publish_location
   ruby_type: String
   required: false
@@ -103,7 +102,7 @@ properties_list:
   default_value: 'false'
   description_list:
   - markdown: Whether or not to trust packages from this source. Used when creating
-      a NON-PSRepository Package Source
+      a non-PowerShell repository package source.
 - property: user
   ruby_type: String
   required: false
@@ -112,7 +111,7 @@ properties_list:
   - markdown: A username that, as part of a credential object, is used to register
       a repository or other package source with.
 examples: |
-  **Add a new PSRepository that is not trusted and which requires credentials to connect to**:
+  **Add a new PowerShell repository that is not trusted and which requires credentials to connect to**:
 
   ```ruby
   powershell_package_source 'PowerShellModules' do
@@ -127,7 +126,7 @@ examples: |
   end
   ```
 
-  **Add a new Package Source that uses Chocolatey as the Package Provider**:
+  **Add a new package source that uses Chocolatey as the package provider**:
 
   ```ruby
   powershell_package_source 'PowerShellModules' do
@@ -140,7 +139,7 @@ examples: |
   end
   ```
 
-  **Add a new PowerShell Script source that is trusted**:
+  **Add a new PowerShell script source that is trusted**:
 
   ```ruby
   powershell_package_source 'MyDodgyScript' do
@@ -152,7 +151,7 @@ examples: |
   end
   ```
 
-  **Update my existing PSRepository to make it Trusted after all**:
+  **Update an existing PowerShell repository to make it trusted**:
 
   ```ruby
   powershell_package_source 'MyPSModule' do
