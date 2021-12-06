@@ -34,7 +34,7 @@ Samba Linux tool systems for supporting sharing resources in a network with Wind
 
 The accumulator pattern lets you split out each configuration section into its own resource.
 
-<!-- markdownlint-disable MD033 MDO31 -->
+<!-- markdownlint-disable MD033 MD031 -->
 <!----Tabs Section--->
 {{< foundation_tabs tabs-id="tabs-panel-container" >}}
 {{< foundation_tab active="true" panel-link="id-1" tab-text="Share Resource 1">}}

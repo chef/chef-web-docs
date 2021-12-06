@@ -86,7 +86,6 @@ The following example shows how to add entries to the `chefignore` file.
 
 Many text editors leave files behind. To prevent these files from being uploaded to the Chef Infra Server, add an entry to the `chefignore` file.
 
-
 For Emacs:
 
 ```none

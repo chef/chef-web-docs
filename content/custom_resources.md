@@ -26,7 +26,6 @@ For example, Chef Infra Client includes built-in resources to manage files, pack
 
 The layout for a custom resource is:
 
-
 ```ruby
 provides :resource_name
 
@@ -54,7 +53,6 @@ You'll write the code for a custom resource in a Ruby file and located in a cook
 ### Generate a Custom Resource
 
 {{% chef_generate_resource %}}
-
 
 ### Example Resource
 
@@ -90,7 +88,7 @@ end
 
 where
 
-- `site` is the name of the custom resource. The `provides` statement makes the custom resource available for use recipies.
+- `site` is the name of the custom resource. The `provides` statement makes the custom resource available for use recipes.
 - `homepage` sets the default HTML for the `index.html` file with a default value of `'<h1>Hello world!</h1>'`
 - the `action` block uses the built-in collection of resources to tell Chef Infra Client how to install Apache, start the service, and then create the contents of the file located at `/var/www/html/index.html`
 - `action :create` is the default resource (because it is listed first); `action :delete` must be called specifically (because it is not the default action)

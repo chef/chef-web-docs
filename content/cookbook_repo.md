@@ -25,7 +25,7 @@ The the `\cookbook` directory is automatically generated as part of your Chef In
 chef generate repo REPO_NAME
 ```
 
-#### Cookbook Directory Structure
+### Cookbook Directory Structure
 
 {{% cookbooks_default %}}
 
@@ -39,8 +39,6 @@ Use the following commands to create a cookbook, install a cookbook from Superma
 
 Any unneeded directory components can be left unused or deleted, if
 preferred.
-
-
 
 ### Install
 
@@ -80,5 +78,5 @@ knife supermarket download COOKBOOK_NAME
 where `COOKBOOK_NAME` is the name of a cookbook on [Chef
 Supermarket](https://supermarket.chef.io/). This will download the
 tar.gz file associated with the cookbook and will create a file named
-`COOKBOOK_NAME.tar.gz` in the current directory (e.g., `~/chef-repo`).
+`COOKBOOK_NAME.tar.gz` in the current directory (`~/chef-repo`).
 Once downloaded, using a version source control system is recommended.
