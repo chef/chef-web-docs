@@ -12,7 +12,7 @@ product = ["client", "server"]
     parent = "chef_infra/policyfiles"
     weight = 70
 +++
-
+<!-- markdownlint-disable-file MD033 -->
 {{% role %}}
 
 ## Role Attributes
@@ -272,6 +272,7 @@ version source control can be challenging.
 If roles are created and managed using knife and then arbitrarily updated
 uploaded through JSON data, that action will overwrite the previous work with knife.
 It is strongly recommended to keep to one process and not switch back and forth.
+
 ### Set Per-environment Run-lists
 
 A per-environment run-list is a run-list that is associated with a role

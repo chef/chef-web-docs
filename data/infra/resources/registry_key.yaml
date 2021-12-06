@@ -159,7 +159,7 @@ properties_list:
 
       REG_DWORD_BIG_ENDIAN, or `:qword` for REG_QWORD.'
   - warning:
-    - markdown: '`:multi_string` must be an array, even if there is only a single
+      markdown: '`:multi_string` must be an array, even if there is only a single
 
         string.'
 resources_common_properties: false

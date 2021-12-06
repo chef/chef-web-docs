@@ -58,7 +58,6 @@ syntax_full_code_block: |-
     throttle_interval               Integer
     time_out                        Integer
     type                            String # default value: "daemon"
-    umask                           Integer
     username                        String
     wait_for_debugger               true, false
     watch_paths                     Array
@@ -79,9 +78,9 @@ syntax_full_properties_list:
   `plist_hash`, `process_type`, `program`, `program_arguments`, `queue_directories`,
   `root_directory`, `run_at_load`, `session_type`, `sockets`, `soft_resource_limits`,
   `source`, `standard_error_path`, `standard_in_path`, `standard_out_path`, `start_calendar_interval`,
-  `start_interval`, `start_on_mount`, `throttle_interval`, `time_out`, `type`, `umask`,
-  `username`, `wait_for_debugger`, `watch_paths`, and `working_directory` are the
-  properties available to this resource."
+  `start_interval`, `start_on_mount`, `throttle_interval`, `time_out`, `type`, `username`,
+  `wait_for_debugger`, `watch_paths`, and `working_directory` are the properties available
+  to this resource."
 actions_list:
   :nothing:
     shortcode: resources_common_actions_nothing.md
@@ -397,11 +396,6 @@ properties_list:
   description_list:
   - markdown: The amount of time (in seconds) a job may be idle before it times out.
       If no value is specified, the default timeout value for launchd will be used.
-- property: umask
-  ruby_type: Integer
-  required: false
-  description_list:
-  - markdown: A decimal value to pass to `umask` before running a job.
 - property: username
   ruby_type: String
   required: false

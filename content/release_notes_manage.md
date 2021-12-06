@@ -23,7 +23,7 @@ Chef Manage is [deprecated](/versions/#deprecated) and users should plan to migr
 
 Download the latest version of the chef-manage package for your platform from [downloads.chef.io](https://downloads.chef.io/manage) to your Chef Infra Server, then run:
 
-```
+```bash
 # rpm -Uvh /path/to/chef-manage-*.rpm
 or
 # dpkg -i /path/to/chef-manage-*.deb
@@ -37,10 +37,10 @@ then
 
 ### Bug Fixes
 
-- Fixed issues adding cookbook constraints to an environment.
-- Fixed errors when changing a node's environment.
-- Fixed incorrect cookbook versions being displayed in environments.
-- Fixed a blank page being shown when refreshing the databag item page.
+* Fixed issues adding cookbook constraints to an environment.
+* Fixed errors when changing a node's environment.
+* Fixed incorrect cookbook versions being displayed in environments.
+* Fixed a blank page being shown when refreshing the databag item page.
 
 ### Ubuntu 20.04 Support
 
@@ -57,14 +57,14 @@ We added Ubuntu 20.04 packages and continue to support Ubuntu 16.04 and 18.04 pa
 
 We updated Chef Manage's Ruby installation from 2.5.5 to 2.6.6. This upgrade improves the performance of the application and resolves the following CVEs:
 
-- [CVE-2012-6708](https://nvd.nist.gov/vuln/detail/CVE-2012-6708)
-- [CVE-2015-9251](https://nvd.nist.gov/vuln/detail/CVE-2015-9251)
-- [CVE-2019-16255](https://nvd.nist.gov/vuln/detail/CVE-2019-16255)
-- [CVE-2019-16254](https://nvd.nist.gov/vuln/detail/CVE-2019-16254)
-- [CVE-2019-15845](https://nvd.nist.gov/vuln/detail/CVE-2019-15845)
-- [CVE-2019-16201](https://nvd.nist.gov/vuln/detail/CVE-2019-16201)
-- [CVE-2020-10663](https://nvd.nist.gov/vuln/detail/CVE-2020-10663)
-- [CVE-2020-10933](https://nvd.nist.gov/vuln/detail/CVE-2020-10933)
+* [CVE-2012-6708](https://nvd.nist.gov/vuln/detail/CVE-2012-6708)
+* [CVE-2015-9251](https://nvd.nist.gov/vuln/detail/CVE-2015-9251)
+* [CVE-2019-16255](https://nvd.nist.gov/vuln/detail/CVE-2019-16255)
+* [CVE-2019-16254](https://nvd.nist.gov/vuln/detail/CVE-2019-16254)
+* [CVE-2019-15845](https://nvd.nist.gov/vuln/detail/CVE-2019-15845)
+* [CVE-2019-16201](https://nvd.nist.gov/vuln/detail/CVE-2019-16201)
+* [CVE-2020-10663](https://nvd.nist.gov/vuln/detail/CVE-2020-10663)
+* [CVE-2020-10933](https://nvd.nist.gov/vuln/detail/CVE-2020-10933)
 
 #### OpenSSL
 
@@ -77,7 +77,6 @@ We updated the Rack gem used in Chef Manage from 2.0.9 to 2.2.3 to resolve [CVE-
 #### Rails
 
 We updated the  Rails engine used in Chef Manage from 5.2.4.2 to 5.2.4.4 to resolve [CVE-2020-15169](https://nvd.nist.gov/vuln/detail/CVE-2020-15169).
-
 
 ## What's New in 3.0.11
 

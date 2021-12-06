@@ -100,38 +100,50 @@ identifier = "automate"
   parent = "automate"
 
   [[automate]]
-  name = "Applications"
+  title = "Install"
+  identifier = "automate/install"
+  parent = "automate"
   weight = 20
+
+  [[automate]]
+  title = "Configure"
+  identifier = "automate/configure"
+  parent = "automate"
+  weight = 30
+
+  [[automate]]
+  name = "Manage"
+  weight = 40
+  identifier = "automate/configuring_automate"
+  parent = "automate"
+
+  [[automate]]
+  name = "Applications"
+  weight = 50
   identifier = "automate/applications"
   parent = "automate"
 
   [[automate]]
   name = "Authorization"
-  weight = 30
+  weight = 60
   identifier = "automate/authorization"
   parent = "automate"
 
   [[automate]]
   name = "Compliance"
-  weight = 49
+  weight = 70
   identifier = "automate/compliance"
   parent = "automate"
 
   [[automate]]
-  name = "Configure"
-  weight = 50
-  identifier = "automate/configuring_automate"
-  parent = "automate"
-
-  [[automate]]
   name = "Infrastructure"
-  weight = 60
+  weight = 80
   identifier = "automate/infrastructure"
   parent = "automate"
 
   [[automate]]
   name = "Integrations"
-  weight = 70
+  weight = 90
   identifier = "automate/integrations"
   parent = "automate"
 
@@ -143,7 +155,7 @@ identifier = "automate"
 
   [[automate]]
   name = "Settings"
-  weight = 80
+  weight = 100
   identifier = "automate/settings"
   parent = "automate"
 
@@ -437,13 +449,6 @@ identifier = "chef_infra"
   parent = "chef_infra"
   weight = 100
 
-    [[infra]]
-    title = "FIPS-mode"
-    identifier = "chef_infra/security/ctl_chef_client.md#run-in-fips-mode FIPS-mode"
-    parent = "chef_infra/security"
-    url = "/ctl_chef_client/#run-in-fips-mode"
-    weight = 30
-
   [[infra]]
   title = "Reference"
   identifier = "chef_infra/reference"
@@ -574,12 +579,6 @@ identifier = "chef_infra"
       parent = "chef_infra/extension_apis/handlers"
       url = "/plugin_community/#handlers"
       weight = 30
-
-    [[infra]]
-    title = "Knife Plugins"
-    identifier = "chef_infra/extension_apis/knife_plugins"
-    parent = "chef_infra/extension_apis"
-    weight = 30
 
     [[infra]]
     title = "Ohai Plugins"
@@ -845,6 +844,18 @@ identifier = "chef_workstation"
     parent = "chef_workstation/chef_workstation_tools"
     weight = 130
 
+    [[workstation]]
+    title = "Extension APIs"
+    identifier = "chef_workstation/extension_apis"
+    parent = "chef_workstation"
+    weight = 140
+
+      [[workstation]]
+      title = "Knife Plugins"
+      identifier = "chef_workstation/extension_apis/knife_plugins"
+      parent = "chef_workstation/extension_apis"
+      weight = 10
+
 ####
 # End Chef Workstation Menu
 ####
@@ -893,6 +904,11 @@ identifier = "supermarket"
 title = "Release Notes"
 identifier = "release_notes"
 weight = 10
+
+  [[release_notes]]
+  title = "Chef Cloud Resource Packs"
+  identifier = "release_notes/inspec"
+  parent = "release_notes"
 
 ####
 # End Release Notes Menu

@@ -230,18 +230,6 @@ properties_list:
   - markdown: '**apt_package** and **dpkg_package** resources only. A Hash of
 
       response file variables in the form of `{"VARIABLE" => "VALUE"}`.'
-- property: retries
-  ruby_type: Integer
-  required: false
-  default_value: '0'
-  description_list:
-  - markdown: The number of attempts to catch exceptions and retry the resource.
-- property: retry_delay
-  ruby_type: Integer
-  required: false
-  default_value: '2'
-  description_list:
-  - markdown: The retry delay (in seconds).
 - property: source
   ruby_type: String
   required: false

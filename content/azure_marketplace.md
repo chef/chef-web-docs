@@ -15,7 +15,7 @@ product = ["client", "workstation", "automate"]
     parent = "chef_infra/integrations/azure"
     weight = 10
 +++
-
+<!-- markdownlint-disable-file MD033 -->
 {{% azure_marketplace %}}
 
 {{% workstation %}}

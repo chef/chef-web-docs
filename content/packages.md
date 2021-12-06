@@ -1,5 +1,5 @@
 +++
-title = "Chef Software Inc Packages"
+title = "Chef Software Packages"
 draft = false
 gh_repo = "chef-web-docs"
 aliases = ["/packages.html"]
@@ -13,7 +13,7 @@ product = ["automate", "client", "server", "habitat", "inspec", "workstation"]
     weight = 10
 +++
 
-Packages for Chef Software Inc. products may be installed using
+Packages for Chef Software products may be installed using
 platform-native package repositories or the Chef Software Install script. Both
 installation methods support the following release channels:
 
@@ -51,26 +51,26 @@ package repositories:
 - Apt (Debian and Ubuntu platforms)
 - Yum (Enterprise Linux platforms)
 
-Chef Software Inc. GPG public key can be downloaded
+Chef Software's GPG public key can be downloaded
 [here](https://packages.chef.io/chef.asc).
 
 ### Debian / Ubuntu
 
 To set up an Apt package repository for Debian and Ubuntu platforms:
 
-1.  Enable Apt to fetch packages over HTTPS:
+1. Enable Apt to fetch packages over HTTPS:
 
     ```bash
     sudo apt-get install apt-transport-https
     ```
 
-2.  Install the public key for Chef Software Inc:
+2. Install the public key for Chef Software:
 
     ```bash
     wget -qO - https://packages.chef.io/chef.asc | sudo apt-key add -
     ```
 
-3.  Create the Apt repository source file:
+3. Create the Apt repository source file:
 
     ```bash
     echo "deb https://packages.chef.io/repos/apt/<CHANNEL> <DISTRIBUTION> main" > chef-<CHANNEL>.list
@@ -86,13 +86,13 @@ To set up an Apt package repository for Debian and Ubuntu platforms:
     - For Ubuntu 18.04: `bionic`
     - For Ubuntu 20.04: `focal`
 
-4.  Update the package repository list:
+4. Update the package repository list:
 
     ```bash
     sudo mv chef-stable.list /etc/apt/sources.list.d/
     ```
 
-5.  Update the cache for the package repository:
+5. Update the cache for the package repository:
 
     ```bash
     sudo apt-get update
@@ -102,13 +102,13 @@ To set up an Apt package repository for Debian and Ubuntu platforms:
 
 To set up a Yum package repository for Enterprise Linux platforms:
 
-1.  Install the public key for Chef Software Inc:
+1. Install the public key for Chef Software:
 
     ```bash
     sudo rpm --import https://packages.chef.io/chef.asc
     ```
 
-2.  Create the Yum repository source file:
+2. Create the Yum repository source file:
 
     ```bash
     cat >chef-<CHANNEL>.repo <<EOL
@@ -125,7 +125,7 @@ To set up a Yum package repository for Enterprise Linux platforms:
     Replace `<VERSION>` with your Enterprise Linux version; the
     allowable versions are `6`, `7`, or `8`.
 
-3.  Update the package repository list:
+3. Update the package repository list:
 
     ```bash
     sudo yum-config-manager --add-repo chef-stable.repo

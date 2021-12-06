@@ -11,7 +11,7 @@ aliases = ["/chef_repo.html"]
     parent = "chef_infra/cookbook_reference"
     weight = 15
 +++
-
+<!-- markdownlint-disable-file MD033 -->
 {{% chef_repo_description %}}
 
 ## Generate the chef-repo
@@ -85,6 +85,7 @@ The following example shows how to add entries to the `chefignore` file.
 #### Ignore editor swap files
 
 Many text editors leave files behind. To prevent these files from being uploaded to the Chef Infra Server, add an entry to the `chefignore` file.
+
 
 For Emacs:
 

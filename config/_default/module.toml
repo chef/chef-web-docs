@@ -117,6 +117,35 @@
   source = "data"
   target = "data"
 
+[[imports]]
+  disable = false
+  ignoreConfig = false
+  path = "github.com/inspec/inspec-aws/docs-chef-io"
+
+[[imports.mounts]]
+  source = "static"
+  target = "static"
+
+[[imports]]
+  disable = false
+  ignoreConfig = false
+  path = "github.com/inspec/inspec-azure/docs-chef-io"
+
+[[imports.mounts]]
+  source = "static"
+  target = "static"
+
+## Supermarket Docs
+
+[[imports]]
+  disable = false
+  ignoreConfig = false
+  path = "github.com/chef/supermarket/docs-chef-io"
+
+[[imports.mounts]]
+  source = "content"
+  target = "content"
+
 ## Module mounts for packages added with NPM
 
 [[mounts]]

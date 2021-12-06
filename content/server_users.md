@@ -17,12 +17,12 @@ product = ["server"]
 The following tasks are available for user management in Chef Infra
 Server:
 
-- Creating users
-- Editing a user's profile
-- Changing a password
-- Recovering a password
-- Regenerating a private key
-- Viewing a user's profile
+* Creating users
+* Editing a user's profile
+* Changing a password
+* Recovering a password
+* Regenerating a private key
+* Viewing a user's profile
 
 ## chef-server-ctl
 
@@ -34,11 +34,11 @@ Server:
 
 {{% ctl_chef_server_org_create %}}
 
-**Syntax**
+#### Syntax
 
 {{% ctl_chef_server_org_create_syntax %}}
 
-**Options**
+#### Options
 
 {{% ctl_chef_server_org_create_options %}}
 
@@ -46,7 +46,7 @@ Server:
 
 {{% ctl_chef_server_org_delete %}}
 
-**Syntax**
+#### Syntax
 
 {{% ctl_chef_server_org_delete_syntax %}}
 
@@ -54,11 +54,11 @@ Server:
 
 {{% ctl_chef_server_org_list %}}
 
-**Syntax**
+#### Syntax
 
 {{% ctl_chef_server_org_list_syntax %}}
 
-**Options**
+#### Options
 
 {{% ctl_chef_server_org_list_options %}}
 
@@ -66,7 +66,7 @@ Server:
 
 {{% ctl_chef_server_org_show %}}
 
-**Syntax**
+#### Syntax
 
 {{% ctl_chef_server_org_show_syntax %}}
 
@@ -83,11 +83,11 @@ for the upcoming final release of Chef Server 12.
 
 {{% ctl_chef_server_org_user_add %}}
 
-**Syntax**
+#### Syntax
 
 {{% ctl_chef_server_org_user_add_syntax %}}
 
-**Options**
+#### Options
 
 {{% ctl_chef_server_org_user_add_options %}}
 
@@ -95,7 +95,7 @@ for the upcoming final release of Chef Server 12.
 
 {{% ctl_chef_server_org_user_remove %}}
 
-**Syntax**
+#### Syntax
 
 {{% ctl_chef_server_org_user_remove_syntax %}}
 
@@ -103,11 +103,11 @@ for the upcoming final release of Chef Server 12.
 
 {{% ctl_chef_server_user_create %}}
 
-**Syntax**
+#### Syntax
 
 {{% ctl_chef_server_user_create_syntax %}}
 
-**Options**
+#### Options
 
 {{% ctl_chef_server_user_create_options %}}
 
@@ -115,7 +115,7 @@ for the upcoming final release of Chef Server 12.
 
 {{% ctl_chef_server_user_delete %}}
 
-**Syntax**
+#### Syntax
 
 {{% ctl_chef_server_user_delete_syntax %}}
 
@@ -123,7 +123,7 @@ for the upcoming final release of Chef Server 12.
 
 {{% ctl_chef_server_user_edit %}}
 
-**Syntax**
+#### Syntax
 
 {{% ctl_chef_server_user_edit_syntax %}}
 
@@ -131,11 +131,11 @@ for the upcoming final release of Chef Server 12.
 
 {{% ctl_chef_server_user_list %}}
 
-**Syntax**
+#### Syntax
 
 {{% ctl_chef_server_user_list_syntax %}}
 
-**Options**
+#### Options
 
 {{% ctl_chef_server_user_list_options %}}
 
@@ -143,10 +143,10 @@ for the upcoming final release of Chef Server 12.
 
 {{% ctl_chef_server_user_show %}}
 
-**Syntax**
+#### Syntax
 
 {{% ctl_chef_server_user_show_syntax %}}
 
-**Options**
+#### Options
 
 {{% ctl_chef_server_user_show_options %}}

@@ -26,6 +26,7 @@ For example, Chef Infra Client includes built-in resources to manage files, pack
 
 The layout for a custom resource is:
 
+
 ```ruby
 provides :resource_name
 

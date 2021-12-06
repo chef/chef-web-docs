@@ -26,13 +26,13 @@ other components.
 
 To uninstall the Chef management console, do the following:
 
-1.  Run the following command:
+1. Run the following command:
 
     ```bash
     chef-manage-ctl cleanse
     ```
 
-2.  Use the package manager for the platform on which the Chef
+2. Use the package manager for the platform on which the Chef
     management console is installed, and then uninstall the package
     named `chef-manage`.
 

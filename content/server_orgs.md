@@ -11,7 +11,7 @@ product = ["client", "server"]
     identifier = "legacy/manage/server_orgs.md Organizations & Groups"
     parent = "legacy/manage"
 +++
-
+<!-- markdownlint-disable-file MD033 MD024-->
 {{% server_rbac %}}
 
 The Chef Infra Server uses organizations, groups, and users to define
@@ -53,10 +53,10 @@ When a user makes a request to the Chef Infra Server using the Chef
 Infra Server API, permission to perform that action is determined by the
 following process:
 
-1.  Check if the user has permission to the object type
-2.  If no, recursively check if the user is a member of a security group
+1. Check if the user has permission to the object type
+2. If no, recursively check if the user is a member of a security group
     that has permission to that object
-3.  If yes, allow the user to perform the action
+3. If yes, allow the user to perform the action
 
 Permissions are managed using the Chef management console add-on in the
 Chef Infra Server web user interface.
@@ -666,11 +666,11 @@ Infra Server, that Chef Infra Client is added to the `clients` group:
 
 {{% ctl_chef_server_org_create %}}
 
-**Syntax**
+#### Syntax
 
 {{% ctl_chef_server_org_create_syntax %}}
 
-**Options**
+#### Options
 
 {{% ctl_chef_server_org_create_options %}}
 
@@ -678,7 +678,7 @@ Infra Server, that Chef Infra Client is added to the `clients` group:
 
 {{% ctl_chef_server_org_delete %}}
 
-**Syntax**
+#### Syntax
 
 {{% ctl_chef_server_org_delete_syntax %}}
 
@@ -686,11 +686,11 @@ Infra Server, that Chef Infra Client is added to the `clients` group:
 
 {{% ctl_chef_server_org_list %}}
 
-**Syntax**
+#### Syntax
 
 {{% ctl_chef_server_org_list_syntax %}}
 
-**Options**
+#### Options
 
 {{% ctl_chef_server_org_list_options %}}
 
@@ -698,7 +698,7 @@ Infra Server, that Chef Infra Client is added to the `clients` group:
 
 {{% ctl_chef_server_org_show %}}
 
-**Syntax**
+#### Syntax
 
 {{% ctl_chef_server_org_show_syntax %}}
 
@@ -706,11 +706,11 @@ Infra Server, that Chef Infra Client is added to the `clients` group:
 
 {{% ctl_chef_server_org_user_add %}}
 
-**Syntax**
+#### Syntax
 
 {{% ctl_chef_server_org_user_add_syntax %}}
 
-**Options**
+#### Options
 
 {{% ctl_chef_server_org_user_add_options %}}
 
@@ -718,6 +718,6 @@ Infra Server, that Chef Infra Client is added to the `clients` group:
 
 {{% ctl_chef_server_org_user_remove %}}
 
-**Syntax**
+#### Syntax
 
 {{% ctl_chef_server_org_user_remove_syntax %}}

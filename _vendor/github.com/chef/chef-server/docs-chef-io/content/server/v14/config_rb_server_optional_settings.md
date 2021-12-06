@@ -90,7 +90,7 @@ Chef Infra Server versions earlier than 14.5 configured with `nginx['enable_non_
 
 :   The URL to visit for more information about how to update the number
     of nodes licensed for an organization. Default value:
-    `'http://www.chef.io/contact/on-premises-simple'`.
+    `'https://www.chef.io/pricing'`.
 
 `notification_email`
 
@@ -827,6 +827,16 @@ Chef Infra Server versions earlier than 14.5 configured with `nginx['enable_non_
 :   Time duration in seconds till which the browser caches the `HSTS` information.
     Possible values: greater than or equal to `31536000` and less than or equal to `63072000`.
     Default value: `31536000` (1 year).
+
+`nginx['nginx_no_root']`
+
+:   Boolean, default `false`.  Specifies that `nginx` processes, including the `master` process, should not
+    run as the `root` user on a system and will instead run as `user['username']` (defaults to `opscode`).
+    **REQUIRES** that `nginx['ssl_port']` and `nginx['non_ssl_port']` options are configured to non-privileged
+    ports greater than `1024` or that the local system is otherwise allowed to bind to privileged ports
+    with the user `user['username']`.
+
+    **New in Chef Infra Server 14.6**
 
 ### oc_bifrost
 
@@ -1907,7 +1917,7 @@ regardless of the node's run list. This feature is targeted at expert
 level practitioners who are delivering isolated configuration changes to
 the target systems, such as self-contained agent software. Further
 explanation of the feature can be found in
-[Chef Infra Client Development Docs](https://github.com/chef/chef/blob/master/docs/dev/design_documents/server_enforced_recipes.md).
+[Chef Infra Client Development Docs](https://github.com/chef/chef/blob/main/docs/dev/design_documents/server_enforced_recipes.md).
 
 This configuration file has the following settings for
 `required_recipe`:

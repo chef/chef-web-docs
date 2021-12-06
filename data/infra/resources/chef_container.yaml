@@ -58,18 +58,6 @@ properties_list:
   - shortcode: resources_common_notification_timers.md
   - markdown: ''
   - shortcode: resources_common_notification_notifies_syntax.md
-- property: retries
-  ruby_type: Integer
-  required: false
-  default_value: '0'
-  description_list:
-  - markdown: The number of attempts to catch exceptions and retry the resource.
-- property: retry_delay
-  ruby_type: Integer
-  required: false
-  default_value: '2'
-  description_list:
-  - markdown: The retry delay (in seconds).
 - property: subscribes
   ruby_type: Symbol, Chef::Resource\[String\]
   required: false

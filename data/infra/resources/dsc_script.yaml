@@ -137,11 +137,8 @@ properties_list:
   ruby_type: Hash
   required: false
   description_list:
-  - markdown: 'A Hash of environment variables in the form of
-
-      `({''ENV_VARIABLE'' => ''VALUE''})`. (These variables must exist for a
-
-      command to be run successfully.)'
+  - markdown: A Hash of environment variables in the form of ({'ENV_VARIABLE' => 'VALUE'}).
+      (These variables must exist for a command to be run successfully).
 - property: flags
   ruby_type: Hash
   required: false
@@ -160,7 +157,7 @@ properties_list:
   required: false
   description_list:
   - warning:
-    - markdown: This property **MUST** be used with the `code` attribute.
+      markdown: This property **MUST** be used with the `code` attribute.
   - markdown: 'Use to import DSC resources from a module.
 
 

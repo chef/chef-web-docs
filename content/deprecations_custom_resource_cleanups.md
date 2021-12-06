@@ -144,8 +144,7 @@ end
 
 ## Don't use the dsl_name method
 
-The `dsl_name` method is deprecated and will be removed from Chef Client
-1.  It has been replaced by `resource_name`.
+The `dsl_name` method is deprecated and will be removed from Chef Client. It has been replaced by `resource_name`.
 
 ### Example
 

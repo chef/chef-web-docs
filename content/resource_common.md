@@ -13,6 +13,7 @@ aliases = ["/resource_common.html"]
     parent = "chef_infra/resources"
     weight = 30
 +++
+<!-- markdownlint-disable-file MD036 -->
 
 All resources (including custom resources) share a set of common
 actions, properties, conditional executions, notifications, and relative
@@ -42,9 +43,9 @@ The following examples show how to use common properties in a recipe.
 
 {{% resource_package_use_ignore_failure_attribute %}}
 
-**Use the retries common property**
+**Use the retries and retry_delay common properties**
 
-{{% resource_service_use_supports_attribute %}}
+{{% resource_service_use_retries_properties %}}
 
 ## Guards
 

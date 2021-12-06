@@ -138,7 +138,7 @@ properties_list:
       A Hash of custom headers. For example:
 
       ```ruby
-      headers({ "Cookie" => "user=grantmc; pass=p@ssw0rd!" })
+      headers({ "Cookie" => "user=user_name; pass=p@ssw0rd!" })
       ```
 
       or:
@@ -469,8 +469,8 @@ properties_list:
   required: false
   default_value: 'true'
   description_list:
-  - markdown: Enable ETag headers. Set to false to disable ETag headers. To use this
-      setting, `use_conditional_get` must also be set to true.
+  - markdown: Enable ETag headers. Set to `false` to disable ETag headers. To use
+      this setting, `use_conditional_get` must also be set to true.
 - property: use_last_modified
   ruby_type: true, false
   required: false
@@ -499,19 +499,51 @@ examples: |
   **Download a file without checking the checksum**:
 
   ```ruby
-  remote_file '/tmp/remote.txt' do
-    source 'https://example.org/remote.txt'
-  end
+    remote_file '/tmp/remote.txt' do
+      source 'https://example.org/remote.txt'
+    end
   ```
 
   **Download a file with a checksum to validate**:
 
   ```ruby
-  remote_file '/tmp/testfile' do
-    source 'http://www.example.com/tempfiles/testfile'
-    mode '0755'
-    checksum '3a7dac00b1' # A SHA256 (or portion thereof) of the file.
-  end
+    remote_file '/tmp/test_file' do
+      source 'http://www.example.com/tempfiles/test_file'
+      mode '0755'
+      checksum '3a7dac00b1' # A SHA256 (or portion thereof) of the file.
+    end
+  ```
+
+  **Download a file only if it's not already present**:
+
+  ```ruby
+    remote_file '/tmp/remote.txt' do
+      source 'https://example.org/remote.txt'
+      checksum '3a7dac00b1' # A SHA256 (or portion thereof) of the file.
+      action :create_if_missing
+    end
+  ```
+
+  **Using HTTP Basic Authentication in Headers**:
+
+  ```ruby
+    remote_file '/tmp/remote.txt' do
+      source 'https://example.org/remote.txt'
+      headers('Authorization' => "Basic #{Base64.encode64("USERNAME_VALUE:PASSWORD_VALUE").delete("\n")}")
+      checksum '3a7dac00b1' # A SHA256 (or portion thereof) of the file.
+      action :create_if_missing
+    end
+  ```
+
+  **Downloading a file to the Chef file cache dir for execution**:
+
+  ```ruby
+    remote_file '#{Chef::Config['file_cache_path']}/install.sh' do
+      source 'https://example.org/install.sh'
+      action :create_if_missing
+    end
+
+    execute '#{Chef::Config['file_cache_path']}/install.sh'
   ```
 
   **Specify advanced HTTP connection options including Net::HTTP (nethttp) options:**

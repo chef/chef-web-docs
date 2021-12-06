@@ -155,6 +155,8 @@ the person(s) assigned to each role:
     updates to the guidelines when warranted, and helping enforce
     community guidelines.
 
+<!-- markdownlint-disable MD033 -->
+
 <table>
 <colgroup>
 <col style="width: 33%" />
@@ -170,22 +172,13 @@ the person(s) assigned to each role:
 </thead>
 <tbody>
 <tr>
-<td>Decider</td>
-<td>Jenny Armstrong-Owen</td>
-<td><a href="mailto:jowen@chef.io">jowen@chef.io</a></td>
-</tr>
-<tr>
 <td>Community Advocate</td>
-<td>Benny Vasquez</td>
-<td><a href="mailto:bvasquez@chef.io">bvasquez@chef.io</a></td>
-</tr>
-<tr>
-<td>Community Advocate</td>
-<td>Robb Kidd</td>
-<td><a href="mailto:rkidd@chef.io">rkidd@chef.io</a></td>
+<td>benny Vasquez</td>
+<td><a href="benny.vasquez@progress.com">benny.vasquez@progress.com</a></td>
 </tr>
 </tbody>
 </table>
+<!-- markdownlint-enable MD033 -->
 
 ## Consequences of Unacceptable Behavior
 
