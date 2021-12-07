@@ -463,13 +463,6 @@ identifier = "chef_infra"
     weight = 20
 
     [[infra]]
-    title = "Custom Resources DSL"
-    identifier = "chef_infra/reference/dsl_custom_resource.md Custom Resources Commands"
-    parent = "chef_infra/reference"
-    url = "/dsl_custom_resource/"
-    weight = 30
-
-    [[infra]]
     title = "Handler DSL"
     identifier = "chef_infra/reference/dsl_handler.md Handler Commands"
     parent = "chef_infra/reference"
@@ -547,6 +540,12 @@ identifier = "chef_infra"
   identifier = "chef_infra/resources"
   parent = "chef_infra"
   weight = 140
+
+    [[infra]]
+    title = "Custom Resources"
+    identifier = "chef_infra/resources/custom_resources"
+    parent = "chef_infra/resources"
+    weight = 40
 
   [[infra]]
   title = "Extension APIs"

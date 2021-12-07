@@ -1,5 +1,4 @@
-A validation parameter is used to add zero (or more) validation
-parameters to a property.
+A validation parameter is used to add zero (or more) validation parameters to a property.
 
 <table>
 <colgroup>

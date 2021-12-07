@@ -37,7 +37,7 @@ docs.
 A tautology, when used as a description for a component, setting,
 method, etc. should be avoided. If a string is a tautology, some effort
 should be made to make it not so. An example of a tautology is something
-like "Create a new user" (by its very nature, a user created **is** a
+like "Create a new user" (a user created **is** a
 new user) or (for a setting named `cidr_block`) "The CIDR block for the
 VPC."
 
@@ -97,7 +97,7 @@ Use `docs@chef.io` for the Chef Technical Documentation team.
 
 #### Example Phone Numbers
 
-Never use a real phone number in an example. For a US phone number, use one from the range reserved for examples in fiction, which is (800) 555-0100 through (800) 555-0199.
+Never use a real phone number in an example. For a US phone number, use one from the range reserved for examples in fiction, which is (800) 555--0100 through (800) 555--0199.
 
 ### Example Addresses
 
@@ -132,3 +132,13 @@ For IPv6 addresses, use one of the addresses provided in [RFC 3849](https://tool
 IPv6 address range:
 
 - `2001:DB8::/32`
+
+### Some Existing Example Patterns
+
+The Chef docs have some useful example patterns of unknown origin.
+
+- Cookbook documentation uses `custom_web` as the example cookbook
+- Custom resource documentation uses `site` as the example custom resource
+- Templates documentation uses `httpd` as the template example
+- The documentation uses `webserver` as an example role in Chef Infra Client and Chef Infra Server documentation,`name: webserver`, `role[webserver]`, and `role:webserver`.
+- These examples often draw on each other.
