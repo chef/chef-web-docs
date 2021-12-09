@@ -13,14 +13,11 @@ product = ["client", "workstation"]
     weight = 10
 +++
 
-A custom resource:
+Chef Infra Client ships with over 150 built-in resources for managing system configuration such as `directory`, `remote_file`, and `windows_firewall`. With Custom Resources you can extend the built-in capabilities of Chef Infra Client to create reusable resources for use anywhere in your infrastructure.
 
-- Extends Chef Infra Client with your own resources
-- Runs as part of a cookbook
-- Leverages Chef Infra Client resources and and additional custom Ruby code (if needed)
-- Is reusable in the same way as resources that are built into Chef Infra Client
-
-For example, Chef Infra Client includes built-in resources to manage files, packages, templates, and services, but it does not include a resource that manages websites.
+- Ship directly in cookbooks
+- Leverage Chef Infra Client built-in resources and any additional custom Ruby code (if needed)
+- Behave the same as existing built-in resources in your recipes
 
 ## Syntax
 
