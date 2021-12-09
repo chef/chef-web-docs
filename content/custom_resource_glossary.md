@@ -248,7 +248,7 @@ action :run do
 end
 ```
 
-The following properties are identical to the properties in the execute resource, which we are embededing in the custom resource.
+The following properties are identical to the properties in the execute resource, which we are embedding in the custom resource.
 
 - `property :cwd`
 - `property :environment`
@@ -473,7 +473,7 @@ same resource to the user, but for different operating systems or
 operation system versions. With this you can eliminate the need for
 platform or platform version logic within your resources.
 
-### Presidence
+### Precedent
 
 Use the `provides` method to associate a custom resource with the Recipe
 DSL on different operating systems. When multiple custom resources use
@@ -537,7 +537,7 @@ resource_name :my_resource_name
 
 The `resource_name` is only used as a fallback name for display purposes.
 
-The `provides` statement is the prefered method of specificying the resources name.
+The `provides` statement is the preferred method of specifying the resources name.
 
 In Chef Infra Client 16 and later, the first `provides` in a resource declaration also sets the fallback `resource_name`, so we do not recommend that users set the `resource_name` at all.
 
