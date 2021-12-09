@@ -23,7 +23,7 @@ weight = 20
 [[main]]
 title = "Blog"
 identifier = "blog"
-url = "https://blog.chef.io/"
+url = "https://www.chef.io/blog"
 weight = 30
 
 [[main]]
@@ -41,7 +41,7 @@ weight = 50
 [[main]]
 title = "Downloads"
 identifier = "downloads"
-url = "https://downloads.chef.io/"
+url = "https://www.chef.io/downloads"
 weight = 60
 
 ####
