@@ -17,7 +17,7 @@ Chef Infra Client ships with over 150 built-in resources for managing system con
 
 - Ship directly in cookbooks
 - Leverage Chef Infra Client built-in resources and any additional custom Ruby code (if needed)
-- Behave the same as existing built-in resoures in your recipes
+- Behave the same as existing built-in resources in your recipes
 
 ## Syntax
 
