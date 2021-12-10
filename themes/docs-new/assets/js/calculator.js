@@ -67,7 +67,7 @@ function getDaily(item){
 }
 
 function storageTotal(item) {
-  item.totalData.value = item.result.value * 2;
+  item.totalData.value = (item.daily.value * item.retention.value).toFixed(2);
 }
 
 // An elasticsearch node has 203
