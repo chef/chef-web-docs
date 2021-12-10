@@ -1,6 +1,6 @@
 +++
 title = "Storage Calculator Prototype"
-draft = false
+draft = true
 layout="calculator_layout"
 gh_repo = "automate"
 
