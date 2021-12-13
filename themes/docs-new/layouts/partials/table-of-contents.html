@@ -1,4 +1,7 @@
 <aside class="sticky sidebar hide-for-print" data-sticky data-top-anchor="utility-bar:bottom" data-btm-anchor="footer:top">
+  <div>
+    {{- partialCached "thumbs-feedback" . -}}
+  </div>
   <div class="TableOfContents">
     <span>
       <strong>
@@ -17,8 +20,5 @@
     {{ end }}
     {{- $toc := .TableOfContents -}}
     {{- safeHTML $toc -}}
-  </div>
-  <div>
-    {{- partialCached "thumbs-feedback" . -}}
   </div>
 </aside>

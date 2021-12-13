@@ -1,9 +1,11 @@
 <aside class="sticky sidebar" data-sticky data-top-anchor="utility-bar:bottom" data-btm-anchor="footer:top">
   <span>
+    <div>
+      {{- partialCached "thumbs-feedback" . -}}
+    </div>
     <strong>
       <h4 class="mini-toc-header">Table Of Contents</h4>
     </strong>
-
     <button class="close-button hide-for-large" aria-label="Close menu" type="button" data-close>
       <span aria-hidden="true">&times;</span>
     </button>
@@ -280,8 +282,5 @@
     </ul>
     {{ end }}
     <li><a href="#examples">Examples</a></li>
-    <div>
-      {{- partialCached "thumbs-feedback" . -}}
-    </div>
   </ul>
 </aside>

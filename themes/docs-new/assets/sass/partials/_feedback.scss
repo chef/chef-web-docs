@@ -1,25 +1,12 @@
-$button-size: 3rem;
+$button-size: 2rem;
 $button-border-width: 1px;
-$button-font-size: 1.5rem;
-$button-line-height: 2em;
 $button-margin: 0.25rem;
 
 #feedback{
-  margin-top: 2rem;
-  padding: 2rem 0 2rem 1rem;
-  border-top: 1px solid $border;
-
-  p{
-    font-weight: 500;
-  }
+  margin-left: 0;
 
   button{
-    display: inline-block;
-    border: 1px solid $blue;
-    padding: 1rem;
-    border-radius: $border-radius-base;
-    text-transform: uppercase;
-    font-size: .8rem;
+    font-size: 50%;
     &:not([disabled]):hover{
       border: 2px solid $blue;
       margin: -1px;
@@ -28,28 +15,20 @@ $button-margin: 0.25rem;
       color: $white;
       background-color: $blue;
     }
-
   }
 }
 
 #thumbs-feedback{
-  margin-top: 2rem;
-  padding: 2rem 1rem;
-  border-top: 1px solid $blue-darker;
-  border-radius: 1rem;
-
   p{
     color: $blue-darker;
     font-weight: 500;
   }
 
   .rounded-buttons {
-    text-align: center;
-    display: center;
-    position: relative;
+    position: inline-block;
 
     .button {
-      cursor: pointer;
+      margin: 0;
       width: $button-size;
       height: $button-size;
       border: $button-border-width solid;
@@ -58,13 +37,8 @@ $button-margin: 0.25rem;
       text-align: center;
       background-color: $white;
       color: $blue-darker;
-      font-size: $button-font-size;
-      font-weight: normal;
-      line-height: $button-line-height;
       border-radius: 50%;
       transition: $button-transition;
-      margin-right: $button-margin;
-      margin-bottom: $button-margin;
 
       &:hover,
       &:focus {
@@ -73,5 +47,9 @@ $button-margin: 0.25rem;
         color: $white;
       }
     }
+  }
+  .feedback-yes, .feedback-no {
+    display: inline-block;
+    vertical-align: top;
   }
 }
