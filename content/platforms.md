@@ -601,7 +601,7 @@ that platform and version.
 <tr>
 <td>Enterprise Linux 6 (covers Red Hat Enterprise Linux, CentOS)</td>
 <td>November 30, 2020</td>
-<td>November 30, 2020</td>
+<td>No current planned EOL date</td>
 </tr>
 <tr>
 <td>Enterprise Linux 7 (covers Red Hat Enterprise Linux, CentOS)</td>
