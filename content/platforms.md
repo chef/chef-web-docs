@@ -589,6 +589,11 @@ that platform and version.
 <td>June 6th, 2020</td>
 </tr>
 <tr>
+<td>Debian 9 (Stretch)</td>
+<td>June 30th, 2022</td>
+<td>June 30th, 2022</td>
+</tr>
+<tr>
 <td>Enterprise Linux 5 (covers Red Hat Enterprise Linux, CentOS)</td>
 <td>April 30, 2017</td>
 <td>December 31, 2017</td>
