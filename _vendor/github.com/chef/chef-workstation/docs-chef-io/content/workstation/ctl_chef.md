@@ -348,11 +348,11 @@ will return something similar to:
 
 ``` bash
 Recipe: code_generator::attribute
-  * directory[/Users/username/chef-repo/cookbooks/chef-repo/attributes] action create
-    - create new directory /Users/username/chef-repo/cookbooks/chef-repo/attributes
+  * directory[/Users/grantmc/chef-repo/cookbooks/chef-repo/attributes] action create
+    - create new directory /Users/grantmc/chef-repo/cookbooks/chef-repo/attributes
 
-  * template[/Users/username/chef-repo/cookbooks/chef-repo/attributes/FOO.rb] action create
-    - create new file /Users/username/chef-repo/cookbooks/chef-repo/attributes/FOO.rb
+  * template[/Users/grantmc/chef-repo/cookbooks/chef-repo/attributes/FOO.rb] action create
+    - create new file /Users/grantmc/chef-repo/cookbooks/chef-repo/attributes/FOO.rb
 ```
 
 ## chef generate cookbook
@@ -424,47 +424,47 @@ This subcommand has the following options:
 To generate a cookbook, run a command similar to:
 
 ``` bash
-chef generate cookbook custom_web
+chef generate cookbook chefdocs
 ```
 
 will return something similar to:
 
 ``` bash
 Recipe: code_generator::cookbook
-  * directory[/Users/username/custom_web] action create
-    - create new directory /Users/username/custom_web
+  * directory[/Users/grantmc/chefdocs] action create
+    - create new directory /Users/grantmc/chefdocs
 
-  * template[/Users/username/custom_web/metadata.rb] action create
-    - create new file /Users/username/custom_web/metadata.rb
+  * template[/Users/grantmc/chefdocs/metadata.rb] action create
+    - create new file /Users/grantmc/chefdocs/metadata.rb
 
-  * template[/Users/username/custom_web/README.md] action create
-    - create new file /Users/username/custom_web/README.md
+  * template[/Users/grantmc/chefdocs/README.md] action create
+    - create new file /Users/grantmc/chefdocs/README.md
 
-  * cookbook_file[/Users/username/custom_web/chefignore] action create
-    - create new file /Users/username/custom_web/chefignore
+  * cookbook_file[/Users/grantmc/chefdocs/chefignore] action create
+    - create new file /Users/grantmc/chefdocs/chefignore
 
-  * cookbook_file[/Users/username/custom_web/Berksfile] action create
-    - create new file /Users/username/custom_web/Berksfile
+  * cookbook_file[/Users/grantmc/chefdocs/Berksfile] action create
+    - create new file /Users/grantmc/chefdocs/Berksfile
 
-  * template[/Users/username/custom_web/kitchen.yml] action create
-    - create new file /Users/username/custom_web/kitchen.yml
+  * template[/Users/grantmc/chefdocs/kitchen.yml] action create
+    - create new file /Users/grantmc/chefdocs/kitchen.yml
 
-  * directory[/Users/username/custom_web/recipes] action create
-    - create new directory /Users/username/custom_web/recipes
+  * directory[/Users/grantmc/chefdocs/recipes] action create
+    - create new directory /Users/grantmc/chefdocs/recipes
 
-  * template[/Users/username/custom_web/recipes/default.rb] action create
-    - create new file /Users/username/custom_web/recipes/default.rb
+  * template[/Users/grantmc/chefdocs/recipes/default.rb] action create
+    - create new file /Users/grantmc/chefdocs/recipes/default.rb
 
   * execute[initialize-git] action run
     - execute git init .
 
-  * cookbook_file[/Users/username/custom_web/.gitignore] action create
-    - create new file /Users/username/custom_web/.gitignore
+  * cookbook_file[/Users/grantmc/chefdocs/.gitignore] action create
+    - create new file /Users/grantmc/chefdocs/.gitignore
 ```
 
 and which creates a directory structure similar to:
 
-    /custom_web
+    /chefdocs
       /.git
       .gitignore
       kitchen.yml
@@ -499,29 +499,29 @@ will return something similar to:
 ``` bash
 Compiling Cookbooks...
 Recipe: code_generator::cookbook
-  * directory[/Users/username/Desktop/chef-repo/test-cookbook] action create
-    - create new directory /Users/username/Desktop/chef-repo/test-cookbook
+  * directory[/Users/grantmc/Desktop/chef-repo/test-cookbook] action create
+    - create new directory /Users/grantmc/Desktop/chef-repo/test-cookbook
 
-  * template[/Users/username/Desktop/chef-repo/test-cookbook/metadata.rb] action create
-    - create new file /Users/username/Desktop/chef-repo/test-cookbook/metadata.rb
+  * template[/Users/grantmc/Desktop/chef-repo/test-cookbook/metadata.rb] action create
+    - create new file /Users/grantmc/Desktop/chef-repo/test-cookbook/metadata.rb
 
-  * template[/Users/username/Desktop/chef-repo/test-cookbook/README.md] action create
-    - create new file /Users/username/Desktop/chef-repo/test-cookbook/README.md
+  * template[/Users/grantmc/Desktop/chef-repo/test-cookbook/README.md] action create
+    - create new file /Users/grantmc/Desktop/chef-repo/test-cookbook/README.md
 
-  * cookbook_file[/Users/username/Desktop/chef-repo/test-cookbook/chefignore] action create
-    - create new file /Users/username/Desktop/chef-repo/test-cookbook/chefignore
+  * cookbook_file[/Users/grantmc/Desktop/chef-repo/test-cookbook/chefignore] action create
+    - create new file /Users/grantmc/Desktop/chef-repo/test-cookbook/chefignore
 
-  * cookbook_file[/Users/username/Desktop/chef-repo/test-cookbook/Berksfile] action create
-    - create new file /Users/username/Desktop/chef-repo/test-cookbook/Berksfile
+  * cookbook_file[/Users/grantmc/Desktop/chef-repo/test-cookbook/Berksfile] action create
+    - create new file /Users/grantmc/Desktop/chef-repo/test-cookbook/Berksfile
 
-  * template[/Users/username/Desktop/chef-repo/test-cookbook/kitchen.yml] action create
-    - create new file /Users/username/Desktop/chef-repo/test-cookbook/kitchen.yml
+  * template[/Users/grantmc/Desktop/chef-repo/test-cookbook/kitchen.yml] action create
+    - create new file /Users/grantmc/Desktop/chef-repo/test-cookbook/kitchen.yml
 
-  * directory[/Users/username/Desktop/chef-repo/test-cookbook/recipes] action create
-    - create new directory /Users/username/Desktop/chef-repo/test-cookbook/recipes
+  * directory[/Users/grantmc/Desktop/chef-repo/test-cookbook/recipes] action create
+    - create new directory /Users/grantmc/Desktop/chef-repo/test-cookbook/recipes
 
-  * template[/Users/username/Desktop/chef-repo/test-cookbook/recipes/default.rb] action create
-    - create new file /Users/username/Desktop/chef-repo/test-cookbook/recipes/default.rb
+  * template[/Users/grantmc/Desktop/chef-repo/test-cookbook/recipes/default.rb] action create
+    - create new file /Users/grantmc/Desktop/chef-repo/test-cookbook/recipes/default.rb
 ```
 
 ## chef generate build-cookbook
