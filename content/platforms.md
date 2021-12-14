@@ -85,7 +85,7 @@ The following table lists the commercially-supported platforms and versions for 
 <tr>
 <td>macOS</td>
 <td><code>x86_64</code>, <code>aarch64</code> (M1 processors)</td>
-<td><code>10.14</code>, <code>10.15</code>, <code>11.x</code>, <code>12.x</code></td>
+<td><code>10.15</code>, <code>11.x</code>, <code>12.x</code></td>
 </tr>
 <tr>
 <td>Oracle Enterprise Linux</td>
@@ -274,7 +274,7 @@ versions for the Chef Workstation:
 <tr>
 <td>macOS</td>
 <td><code>x86_64</code></td>
-<td><code>10.14</code>, <code>10.15</code>, <code>11.x</code>, <code>12.x</code></td>
+<td><code>10.15</code>, <code>11.x</code>, <code>12.x</code></td>
 </tr>
 <tr>
 <td>Debian</td>
@@ -332,7 +332,7 @@ The following table lists the commercially-supported platforms and versions for 
 <tr>
 <td>macOS</td>
 <td><code>x86_64</code>, <code>aarch64</code> (M1 processors)</td>
-<td><code>10.14</code>, <code>10.15</code>, <code>11.x</code>, <code>12.x</code></td>
+<td><code>10.15</code>, <code>11.x</code>, <code>12.x</code></td>
 </tr>
 <tr>
 <td>Oracle Enterprise Linux</td>
@@ -502,7 +502,7 @@ according to those vendors' terms:
 </tr>
 <tr>
 <td>Apple macOS</td>
-<td>Apple generally supports the last three macOS releases, for example: 10.14, 10.15, and 11.x. Apple does not officially publish EOL dates.</td>
+<td>Apple generally supports the last three macOS releases, for example: 10.15, 11.x, and 12.x. Apple does not officially publish EOL dates.</td>
 </tr>
 <tr>
 <td>Debian</td>
@@ -572,6 +572,11 @@ that platform and version.
 <td>Apple macOS 10.13</td>
 <td>Nov 13th, 2020</td>
 <td>Nov 13th, 2020</td>
+</tr>
+<tr>
+<td>Apple macOS 10.14</td>
+<td>Nov 12th, 2021</td>
+<td>Nov 12th, 2021</td>
 </tr>
 <tr>
 <td>Debian 7 (Wheezy)</td>
