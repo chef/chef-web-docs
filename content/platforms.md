@@ -604,6 +604,11 @@ that platform and version.
 <td>November 30, 2020</td>
 </tr>
 <tr>
+<td>Enterprise Linux 7 (covers Red Hat Enterprise Linux, CentOS)</td>
+<td>June 30, 2024</td>
+<td>June 30, 2024</td>
+</tr>
+<tr>
 <td>FreeBSD 10-STABLE</td>
 <td>October 31, 2018</td>
 <td>October 31, 2018</td>
