@@ -63,9 +63,14 @@ The following table lists the commercially-supported platforms and versions for 
 <td><code>7.1</code> (TL5 SP2 or higher, recommended), <code>7.2</code></td>
 </tr>
 <tr>
+<td>AlmaLinux</td>
+<td><code>x86_64</code>, <code>aarch64</code></td>
+<td><code>8.x</code></td>
+</tr>
+<tr>
 <td>Amazon Linux</td>
 <td><code>x86_64</code>, <code>aarch64</code></td>
-<td>2.x</td>
+<td><code>2.x</code></td>
 </tr>
 <tr>
 <td>CentOS</td>
@@ -91,6 +96,11 @@ The following table lists the commercially-supported platforms and versions for 
 <td>Oracle Enterprise Linux</td>
 <td><code>x86_64</code><code>aarch64</code> (7.x / 8.x only)</td>
 <td><code>6.x</code>, <code>7.x</code>, <code>8.x</code></td>
+</tr>
+<tr>
+<td>Rocky Linux</td>
+<td><code>x86_64</code>, <code>aarch64</code></td>
+<td><code>8.x</code></td>
 </tr>
 <tr>
 <td>Red Hat Enterprise Linux</td>
@@ -138,11 +148,6 @@ The following platforms are supported only via the community:
 </tr>
 </thead>
 <tbody>
-<tr>
-<td>AlmaLinux</td>
-<td><code>x86_64</code>, <code>aarch64</code></td>
-<td><code>8.x</code></td>
-</tr>
 <tr>
 <td>Alibaba Cloud Linux</td>
 <td><code>x86_64</code></td>
@@ -209,11 +214,6 @@ The following platforms are supported only via the community:
 <td>current non-EOL releases</td>
 </tr>
 <tr>
-<td>Rocky Linux</td>
-<td><code>x86_64</code>, <code>aarch64</code></td>
-<td>8.x</td>
-</tr>
-<tr>
 <td>SmartOS</td>
 <td><code>x86_64</code></td>
 <td>current non-EOL releases</td>
@@ -228,6 +228,7 @@ The following platforms are supported only via the community:
 <td><code>x86_64</code>, <code>aarch64</code></td>
 <td>Current non-LTS releases</td>
 </tr>
+<tr>
 <td>Virtuozzo</td>
 <td><code>x86_64</code></td>
 <td>Current non-LTS releases</td>
@@ -267,6 +268,11 @@ versions for the Chef Workstation:
 </thead>
 <tbody>
 <tr>
+<td>AlmaLinux</td>
+<td><code>x86_64</code></td>
+<td><code>8.x</code></td>
+</tr>
+<tr>
 <td>Amazon Linux</td>
 <td><code>x86_64</code></td>
 <td><code>2.x</code></td>
@@ -285,6 +291,11 @@ versions for the Chef Workstation:
 <td>Red Hat Enterprise Linux</td>
 <td><code>x86_64</code></td>
 <td><code>7.x</code>, <code>8.x</code></td>
+</tr>
+<tr>
+<td>Rocky Linux</td>
+<td><code>x86_64</code></td>
+<td><code>8.x</code></td>
 </tr>
 <tr>
 <td>Ubuntu</td>
@@ -320,6 +331,11 @@ The following table lists the commercially-supported platforms and versions for 
 </thead>
 <tbody>
 <tr>
+<td>AlmaLinux</td>
+<td><code>x86_64</code>, <code>aarch64</code></td>
+<td><code>8.x</code></td>
+</tr>
+<tr>
 <td>Amazon Linux</td>
 <td><code>x86_64</code>, <code>aarch64</code></td>
 <td><code>2.x</code></td>
@@ -343,6 +359,11 @@ The following table lists the commercially-supported platforms and versions for 
 <td>Red Hat Enterprise Linux</td>
 <td><code>x86_64</code>, <code>aarch64</code> (7.x and 8.x only)</td>
 <td><code>6.x</code>, <code>7.x</code>, <code>8.x</code></td>
+</tr>
+<tr>
+<td>Rocky Linux</td>
+<td><code>x86_64</code>, <code>aarch64</code></td>
+<td><code>8.x</code></td>
 </tr>
 <tr>
 <td>SUSE Enterprise Linux Server</td>
@@ -406,6 +427,11 @@ The following table lists the commercially-supported platforms for Chef Backend,
 </thead>
 <tbody>
 <tr>
+<td>AlmaLinux</td>
+<td><code>x86_64</code></td>
+<td><code>8.x</code></td>
+</tr>
+<tr>
 <td>CentOS</td>
 <td><code>x86_64</code></td>
 <td><code>6.x</code>, <code>7.x</code>, <code>8.x</code></td>
@@ -414,6 +440,11 @@ The following table lists the commercially-supported platforms for Chef Backend,
 <td>Oracle Enterprise Linux</td>
 <td><code>x86_64</code></td>
 <td><code>6.x</code>, <code>7.x</code>, <code>8.x</code></td>
+</tr>
+<tr>
+<td>Rocky Linux</td>
+<td><code>x86_64</code></td>
+<td><code>8.x</code></td>
 </tr>
 <tr>
 <td>Red Hat Enterprise Linux</td>
@@ -454,6 +485,11 @@ The following table lists the commercially-supported platforms for Chef Manage:
 </thead>
 <tbody>
 <tr>
+<td>AlmaLinux</td>
+<td><code>x86_64</code></td>
+<td><code>8.x</code></td>
+</tr>
+<tr>
 <td>CentOS</td>
 <td><code>x86_64</code></td>
 <td><code>7.x</code>, <code>8.x</code></td>
@@ -462,6 +498,11 @@ The following table lists the commercially-supported platforms for Chef Manage:
 <td>Oracle Enterprise Linux</td>
 <td><code>x86_64</code></td>
 <td><code>7.x</code>, <code>8.x</code></td>
+</tr>
+<tr>
+<td>Rocky Linux</td>
+<td><code>x86_64</code></td>
+<td><code>8.x</code></td>
 </tr>
 <tr>
 <td>Red Hat Enterprise Linux</td>
