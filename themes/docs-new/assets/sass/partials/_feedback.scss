@@ -5,49 +5,34 @@ $button-margin: 0.25rem;
 #feedback{
   margin-left: 0;
 
-  button{
-    font-size: 50%;
-    &:not([disabled]):hover{
-      border: 2px solid $blue;
-      margin: -1px;
-    }
-    &:not([disabled]):active{
-      color: $white;
-      background-color: $blue;
-    }
-  }
-  
   p{
     color: $blue-darker;
     font-weight: 500;
   }
 
-  .rounded-buttons {
-    position: inline-block;
-
-    .button {
-      margin: 0;
-      width: $button-size;
-      height: $button-size;
-      border: $button-border-width solid;
-      padding: .5rem;
-      text-decoration: none;
-      text-align: center;
-      background-color: $white;
-      color: $blue-darker;
-      border-radius: 50%;
-      transition: $button-transition;
-
-      &:hover,
-      &:focus {
-        border: $button-border-width transparent;
-        background-color: $blue-darker;
-        color: $white;
-      }
+  button{
+    margin: 0;
+    width: $button-size;
+    height: $button-size;
+    border: $button-border-width solid;
+    padding: .5rem;
+    text-decoration: none;
+    text-align: center;
+    background-color: $white;
+    color: $blue-darker;
+    border-radius: 50%;
+    &:hover,
+    &:focus {
+      border: $button-border-width transparent;
+      background-color: $blue-darker;
+      color: $white;
     }
+
+    &.feedback-yes, .feedback-no {
+      display: inline-block;
+      vertical-align: top;
+    }
+
   }
-  .feedback-yes, .feedback-no {
-    display: inline-block;
-    vertical-align: top;
-  }
+
 }

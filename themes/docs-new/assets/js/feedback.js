@@ -1,17 +1,17 @@
 const yesButton = document.querySelector('.feedback-yes');
 const noButton = document.querySelector('.feedback-no');
+const para = document.querySelector('#feedbackText')
 
 const disableButtons = () => {
   yesButton.disabled = true;
   noButton.disabled = true;
 };
 
-function thanksFeedback(button){
-  button.blur();
-  buttonText = button.innerText
-  button.innerText = 'Thanks for the feedback!'
+function thanksFeedback(para){
+  paraText = para.innerText
+  para.innerText = 'Thanks for the feedback!'
   setTimeout(function () {
-    button.innerText = buttonText;
+    para.innerText = paraText;
   }, 2000);
 }
 
