@@ -113,7 +113,7 @@ secret(name: 'secret/example',
       })
 ```
 
-Fetching secret data using a token along with an AppRole name which will create a Secret ID associated to the AppRole:
+Fetching secret data using a token and an AppRole name creates a Secret ID associated with that AppRole:
 
 ```ruby
 secret(name: 'secret/example',
