@@ -17,7 +17,7 @@ product = ["client", "workstation"]
 
 The following __Domain Specific Language (DSL)__ methods are available when writing Custom Resources.
 
-For further information about how to write custom resources please see [about custom resources](/custom_resources/about)
+For further information about how to write custom resources please see [about custom resources]({{< relref "custom_resources.md" >}})
 
 ## action_class
 
@@ -521,7 +521,7 @@ If you are modifying the properties type, you will also need to accept that Ruby
 
 {{< note >}}
 
-The `resource_name` setting is necessary for backwards compatibility with Chef Infra Client 12 through 15. It's use is no longer recommended, please use the [`provides`](#provides) method instead.
+The `resource_name` setting is necessary for backwards compatibility with Chef Infra Client 12 through 15. It's use is no longer recommended, please use the [`provides`]({{< relref "#provides" >}}) method instead.
 
 {{< /note >}}
 
