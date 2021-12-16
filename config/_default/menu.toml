@@ -541,11 +541,11 @@ identifier = "chef_infra"
   parent = "chef_infra"
   weight = 140
 
-    [[infra]]
-    title = "Custom Resources"
-    identifier = "chef_infra/resources/custom_resources"
-    parent = "chef_infra/resources"
-    weight = 40
+  [[infra]]
+  title = "Custom Resources"
+  identifier = "chef_infra/resources/custom_resources"
+  parent = "chef_infra/resources"
+  weight = 145
 
   [[infra]]
   title = "Extension APIs"
