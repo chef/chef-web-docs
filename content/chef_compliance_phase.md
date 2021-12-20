@@ -226,11 +226,6 @@ The following examples:
   default['audit']['reporter'] = 'chef-server-automate'
   ```
 
-  {{< warning >}}
-
-  This requires Chef Infra Server version 12.11.1 and Chef Automate 0.6.6 or newer, as well as ['integration between the Chef Infra Server and Chef Automate'](https://docs.chef.io/automate/data_collection/#configure-your-chef-infra-server-to-send-data-to-chef-automate).
-
-  {{</ warning >}}
   {{< /foundation_tabs_panel >}}
     {{< foundation_tabs_panel panel-id="local-reporter" >}}
   ```ruby
