@@ -150,7 +150,7 @@ supports:
     release: 20.*
 ```
 
-To target the Red Hat and derivitive platforms such as CentOS and Oracle Linux, use:
+To target the Red Hat and derivative platforms such as CentOS and Oracle Linux, use:
 
 ```YAML
 name: ssh
@@ -158,7 +158,7 @@ supports:
   - platform-family: redhat
 ```
 
-To target the entire Windows 2019 platform family including Datacenter and Core Servers, use:
+To target the entire Windows 2019 platform family, including Datacenter and Core Servers, use:
 
 ```YAML
 name: ssh
@@ -440,7 +440,7 @@ With `services.yml` containing:
 
 The tests in `example.rb` can now access this file:
 
-```Ruby
+```ruby
 my_services = yaml(content: inspec.profile.file('services.yml')).params
 
 my_services.each do |s|
@@ -485,7 +485,7 @@ end
 
 The output of both of the above examples looks like this:
 
-```text
+```bash
 File /tmp/test.txt
    ✔  should be a file
 ```
@@ -504,7 +504,7 @@ end
 
 ... which will render the following output:
 
-```text
+```bash
 test file
   ✔  should be a file
 ```
