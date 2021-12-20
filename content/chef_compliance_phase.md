@@ -261,7 +261,7 @@ The following examples:
 
 ## Customize Profiles
 
-You can upload profiles to Chef Automate using the ['Chef Automate API'](https://docs.chef.io/automate/api/#operation/Create) or the `inspec compliance` command.
+You can upload profiles to Chef Automate using the [Chef Automate API](https://docs.chef.io/automate/api/#operation/Create) or the `inspec compliance` command.
 
 ### Waivers
 
