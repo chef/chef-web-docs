@@ -75,7 +75,7 @@ organization and user. Note that in order to configure Supermarket later
 in this guide, you will need a user that is a member of the `admins`
 group.
 
-1. Download the package from <https://downloads.chef.io/chef-server/>.
+1. Download the package from <https://www.chef.io/downloads/tools/infra-server>.
 
 2. Upload the package to the machine that will run the Chef Infra Server, and then record its location on the file system. The rest of these steps assume this location is in the `/tmp` directory.
 
@@ -100,7 +100,7 @@ group.
 ### Install Chef Workstation
 
 1. First, install the Chef Workstation [installer
-    package](https://downloads.chef.io/chef-workstation). Use the
+    package](https://www.chef.io/downloads/tools/workstation). Use the
     appropriate tool to run the installer:
 
     ```bash
