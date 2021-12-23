@@ -162,10 +162,6 @@
   target = "assets/js/vendor/jquery"
 
 [[mounts]]
-  source = "themes/docs-new/node_modules/showdown/dist"
-  target = "assets/js/vendor/showdown"
-
-[[mounts]]
   source = "themes/docs-new/node_modules/what-input/dist"
   target = "assets/js/vendor/what-input"
 
