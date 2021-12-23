@@ -55,6 +55,8 @@
             {{ $fullName = "Chef Infra Client" }}
           {{ else if (eq $product "chef-server") }}
             {{ $fullName = "Chef Infra Server" }}
+          {{ else if (eq $product "manage") }}
+            {{ $fullName = "Chef Manage" }}
           {{ else if (eq $product "supermarket") }}
             {{ $fullName = "Chef Supermarket" }}
           {{ else if (eq $product "chef-workstation") }}
