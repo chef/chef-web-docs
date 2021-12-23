@@ -8,25 +8,31 @@
       </button>
     </span>
 
-    {{ with $productParam := $.Param "release_notes" }}
+    {{ with $product := $.Param "release_notes" }}
 
-      {{ $versions_url := "" }}
-      {{ if eq . "automate" }}
-        {{ $versions_url = "https://packages.chef.io/releases/current/automate.json"}}
+      {{ $versionsUrl := ""}}
+      {{ if eq $product "automate" }}
+        {{ $versionsUrl = "https://packages.chef.io/releases/current/automate.json"}}
+      {{ else if (eq $product "habitat") }}
+        {{ $versionsUrl = "https://api.github.com/repos/habitat-sh/habitat/releases" }}
       {{ else }}
-        {{ $versions_url = (print "https://omnitruck.chef.io/stable/" ( . ) "/versions/all") }}
+        {{ $versionsUrl = (print "https://omnitruck.chef.io/stable/" $product "/versions/all") }}
       {{ end }}
 
-      {{ $versions := getJSON $versions_url }}
+      {{ $versions := getJSON $versionsUrl }}
 
-      {{ $len := len $versions }}
       {{- $versionsReversed := slice -}}
-      {{- range seq $len -}}
-          {{- $versionsReversed = $versionsReversed | append (index $versions (sub $len .)) }}
+      {{ if eq $product "habitat" }}
+        {{ $versionsReversed = $versions }}
+      {{ else }}
+        {{ $len := len $versions }}
+        {{- range seq $len -}}
+            {{- $versionsReversed = $versionsReversed | append (index $versions (sub $len .)) }}
+        {{ end }}
       {{ end }}
 
       {{ $lastDate := ""}}
-      {{ if eq $productParam "automate" }}
+      {{ if eq $product "automate" }}
         <ul>
           {{ range $versionsReversed }}
             {{ $releaseYearMonth := index . "release_date" | time.Format "2006-01" }}
@@ -37,10 +43,16 @@
             {{ $lastDate = $releaseYearMonth }}
           {{ end }}
         </ul>
+      {{ else if eq $product "habitat" }}
+        <ul>
+          {{ range $version := $versionsReversed }}
+            <li><a href="#{{ $version.tag_name }}">{{ $version.tag_name }}</a></li>
+          {{ end }}
+        </ul>
+
       {{ else }}
         <ul>
           {{ range $version := $versionsReversed }}
-            {{ $date := ""}}
             <li><a href="#{{ $version }}">{{ $version }}</a></li>
           {{ end }}
         </ul>
