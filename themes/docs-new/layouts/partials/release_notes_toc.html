@@ -1,0 +1,50 @@
+<aside class="sticky sidebar" data-sticky data-top-anchor="utility-bar:bottom" data-btm-anchor="footer:top">
+  <div class="TableOfContents">
+    <strong class="release_notes_toc">Release Versions</strong>
+
+    <span>
+      <button class="close-button hide-for-large" aria-label="Close menu" type="button" data-close>
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </span>
+
+    {{ with $productParam := $.Param "release_notes" }}
+
+      {{ $versions_url := "" }}
+      {{ if eq . "automate" }}
+        {{ $versions_url = "https://packages.chef.io/releases/current/automate.json"}}
+      {{ else }}
+        {{ $versions_url = (print "https://omnitruck.chef.io/stable/" ( . ) "/versions/all") }}
+      {{ end }}
+
+      {{ $versions := getJSON $versions_url }}
+
+      {{ $len := len $versions }}
+      {{- $versionsReversed := slice -}}
+      {{- range seq $len -}}
+          {{- $versionsReversed = $versionsReversed | append (index $versions (sub $len .)) }}
+      {{ end }}
+
+      {{ $lastDate := ""}}
+      {{ if eq $productParam "automate" }}
+        <ul>
+          {{ range $versionsReversed }}
+            {{ $releaseYearMonth := index . "release_date" | time.Format "2006-01" }}
+            {{ if ne $releaseYearMonth $lastDate }}
+              <li>{{ $releaseYearMonth }}</li>
+            {{ end }}
+            <p><a href="#{{ .version }}">{{ .version }}</a></p>
+            {{ $lastDate = $releaseYearMonth }}
+          {{ end }}
+        </ul>
+      {{ else }}
+        <ul>
+          {{ range $version := $versionsReversed }}
+            {{ $date := ""}}
+            <li><a href="#{{ $version }}">{{ $version }}</a></li>
+          {{ end }}
+        </ul>
+      {{ end }}
+    {{ end }}
+  </div>
+</aside>
