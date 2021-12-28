@@ -7,55 +7,57 @@
         <span aria-hidden="true">&times;</span>
       </button>
     </span>
+    {{ if hugo.Environment | eq "production" }}
 
-    {{ with $product := $.Param "release_notes" }}
+      {{ with $product := $.Param "release_notes" }}
 
-      {{ $versionsUrl := ""}}
-      {{ if eq $product "automate" }}
-        {{ $versionsUrl = "https://packages.chef.io/releases/current/automate.json"}}
-      {{ else if (eq $product "habitat") }}
-        {{ $versionsUrl = "https://api.github.com/repos/habitat-sh/habitat/releases" }}
-      {{ else }}
-        {{ $versionsUrl = (print "https://omnitruck.chef.io/stable/" $product "/versions/all") }}
-      {{ end }}
-
-      {{ $versions := getJSON $versionsUrl }}
-
-      {{- $versionsReversed := slice -}}
-      {{ if eq $product "habitat" }}
-        {{ $versionsReversed = $versions }}
-      {{ else }}
-        {{ $len := len $versions }}
-        {{- range seq $len -}}
-            {{- $versionsReversed = $versionsReversed | append (index $versions (sub $len .)) }}
+        {{ $versionsUrl := ""}}
+        {{ if eq $product "automate" }}
+          {{ $versionsUrl = "https://packages.chef.io/releases/current/automate.json"}}
+        {{ else if (eq $product "habitat") }}
+          {{ $versionsUrl = "https://api.github.com/repos/habitat-sh/habitat/releases" }}
+        {{ else }}
+          {{ $versionsUrl = (print "https://omnitruck.chef.io/stable/" $product "/versions/all") }}
         {{ end }}
-      {{ end }}
 
-      {{ $lastDate := ""}}
-      {{ if eq $product "automate" }}
-        <ul>
-          {{ range $versionsReversed }}
-            {{ $releaseYearMonth := index . "release_date" | time.Format "2006-01" }}
-            {{ if ne $releaseYearMonth $lastDate }}
-              <li>{{ $releaseYearMonth }}</li>
+        {{ $versions := getJSON $versionsUrl }}
+
+        {{- $versionsCorrectOrder := slice -}}
+        {{ if eq $product "habitat" }}
+          {{ $versionsCorrectOrder = $versions }}
+        {{ else }}
+          {{ $len := len $versions }}
+          {{- range seq $len -}}
+              {{- $versionsCorrectOrder = $versionsCorrectOrder | append (index $versions (sub $len .)) }}
+          {{ end }}
+        {{ end }}
+
+        {{ $lastDate := ""}}
+        {{ if eq $product "automate" }}
+          <ul>
+            {{ range $versionsCorrectOrder }}
+              {{ $releaseYearMonth := index . "release_date" | time.Format "2006-01" }}
+              {{ if ne $releaseYearMonth $lastDate }}
+                <li>{{ $releaseYearMonth }}</li>
+              {{ end }}
+              <p><a href="#{{ .version }}">{{ .version }}</a></p>
+              {{ $lastDate = $releaseYearMonth }}
             {{ end }}
-            <p><a href="#{{ .version }}">{{ .version }}</a></p>
-            {{ $lastDate = $releaseYearMonth }}
-          {{ end }}
-        </ul>
-      {{ else if eq $product "habitat" }}
-        <ul>
-          {{ range $version := $versionsReversed }}
-            <li><a href="#{{ $version.tag_name }}">{{ $version.tag_name }}</a></li>
-          {{ end }}
-        </ul>
+          </ul>
+        {{ else if eq $product "habitat" }}
+          <ul>
+            {{ range $version := $versionsCorrectOrder }}
+              <li><a href="#{{ $version.tag_name }}">{{ $version.tag_name }}</a></li>
+            {{ end }}
+          </ul>
 
-      {{ else }}
-        <ul>
-          {{ range $version := $versionsReversed }}
-            <li><a href="#{{ $version }}">{{ $version }}</a></li>
-          {{ end }}
-        </ul>
+        {{ else }}
+          <ul>
+            {{ range $version := $versionsCorrectOrder }}
+              <li><a href="#{{ $version }}">{{ $version }}</a></li>
+            {{ end }}
+          </ul>
+        {{ end }}
       {{ end }}
     {{ end }}
   </div>

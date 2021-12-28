@@ -8,90 +8,94 @@
 
     <div class="prose">
       {{ .Content }}
-      {{ with $product := $.Param "release_notes" }}
+      {{ if hugo.Environment | eq "production" }}
+        {{ with $product := $.Param "release_notes" }}
 
 
-        {{ $versionsUrl := ""}}
-        {{ if eq $product "automate" }}
-          {{ $versionsUrl = "https://packages.chef.io/releases/current/automate.json"}}
-        {{ else if (eq $product "habitat") }}
-          {{ $versionsUrl = "https://api.github.com/repos/habitat-sh/habitat/releases" }}
-        {{ else }}
-          {{ $versionsUrl = (print "https://omnitruck.chef.io/stable/" $product "/versions/all") }}
-        {{ end }}
-
-        {{ $versions := getJSON $versionsUrl }}
-
-        {{- $versionsReversed := slice -}}
-        {{ if ne $product "habitat" }}
-          {{ $len := len $versions }}
-          {{- range seq $len -}}
-              {{- $versionsReversed = $versionsReversed | append (index $versions (sub $len .)) }}
-          {{ end }}
-        {{ else }}
-          {{ $versionsReversed = $versions }}
-        {{ end }}
-
-        {{ range $versionsReversed}}
-
-          {{ $version := "" }}
-
+          {{ $versionsUrl := ""}}
           {{ if eq $product "automate" }}
-            {{ $version = index . "version" }}
-          {{ else if eq $product "habitat" }}
-            {{ $version = index . "tag_name" }}
-          {{ else }}
-            {{ $version = . }}
-          {{ end }}
-
-          {{ $mdUrl := print "https://packages.chef.io/release-notes/" $product "/" $version ".md" }}
-
-          {{ $fullName := "" }}
-          {{ if (eq $product "automate") }}
-            {{ $fullName = "Chef Automate" }}
-          {{ else if (eq $product "inspec-alicloud") }}
-            {{ $fullName = "Alibaba Cloud Resource" }}
-          {{ else if (eq $product "inspec-aws") }}
-            {{ $fullName = "AWS Cloud Resource" }}
-          {{ else if (eq $product "inspec-azure") }}
-            {{ $fullName = "Azure Cloud Resource" }}
-          {{ else if (eq $product "inspec-gcp") }}
-            {{ $fullName = "GCP Cloud Resource" }}
+            {{ $versionsUrl = "https://packages.chef.io/releases/current/automate.json"}}
           {{ else if (eq $product "habitat") }}
-            {{ $fullName = "Chef Habitat" }}
-          {{ else if (eq $product "inspec") }}
-            {{ $fullName = "Chef InSpec" }}
-          {{ else if (eq $product "chef")}}
-            {{ $fullName = "Chef Infra Client" }}
-          {{ else if (eq $product "chef-server") }}
-            {{ $fullName = "Chef Infra Server" }}
-          {{ else if (eq $product "manage") }}
-            {{ $fullName = "Chef Manage" }}
-          {{ else if (eq $product "supermarket") }}
-            {{ $fullName = "Chef Supermarket" }}
-          {{ else if (eq $product "chef-workstation") }}
-            {{ $fullName = "Chef Workstation" }}
-          {{ end }}
-
-          <h2 id="{{ $version }}">{{ $fullName }} {{ $version }}</h2>
-
-          {{ if eq $product "automate"}}
-            <p><i>Released on {{ time.Format "January 2, 2006" .release_date }}</i></p>
-          {{ end }}
-          {{ $remoteResponse := resources.GetRemote $mdUrl }}
-
-          {{ if eq $remoteResponse nil }}
-            <p>This release does not have any release notes.</p>
+            {{ $versionsUrl = "https://api.github.com/repos/habitat-sh/habitat/releases" }}
           {{ else }}
-            <a href="{{ $mdUrl }}" style="display:none;">{{ $mdUrl }}</a>
-            {{ $content := $remoteResponse.Content }}
-            {{ $content = replaceRE `\n#### ` "##### " $content }}
-            {{ $content = replaceRE `\n### ` "#### " $content }}
-            {{ $content = replaceRE `\n## ` "### " $content }}
-            {{ $content = replaceRE `^## ` "### " $content }}
-            {{ $content | markdownify }}
+            {{ $versionsUrl = (print "https://omnitruck.chef.io/stable/" $product "/versions/all") }}
           {{ end }}
 
+          {{ $versions := getJSON $versionsUrl }}
+
+          {{- $versionsCorrectOrder := slice -}}
+          {{ if ne $product "habitat" }}
+            {{ $len := len $versions }}
+            {{- range seq $len -}}
+                {{- $versionsCorrectOrder = $versionsCorrectOrder | append (index $versions (sub $len .)) }}
+            {{ end }}
+          {{ else }}
+            {{ $versionsCorrectOrder = $versions }}
+          {{ end }}
+
+          {{ range $versionsCorrectOrder}}
+
+            {{ $version := "" }}
+
+            {{ if eq $product "automate" }}
+              {{ $version = index . "version" }}
+            {{ else if eq $product "habitat" }}
+              {{ $version = index . "tag_name" }}
+            {{ else }}
+              {{ $version = . }}
+            {{ end }}
+
+            {{ $mdUrl := print "https://packages.chef.io/release-notes/" $product "/" $version ".md" }}
+
+            {{ $fullName := "" }}
+            {{ if (eq $product "automate") }}
+              {{ $fullName = "Chef Automate" }}
+            {{ else if (eq $product "inspec-alicloud") }}
+              {{ $fullName = "Alibaba Cloud Resource" }}
+            {{ else if (eq $product "inspec-aws") }}
+              {{ $fullName = "AWS Cloud Resource" }}
+            {{ else if (eq $product "inspec-azure") }}
+              {{ $fullName = "Azure Cloud Resource" }}
+            {{ else if (eq $product "inspec-gcp") }}
+              {{ $fullName = "GCP Cloud Resource" }}
+            {{ else if (eq $product "habitat") }}
+              {{ $fullName = "Chef Habitat" }}
+            {{ else if (eq $product "inspec") }}
+              {{ $fullName = "Chef InSpec" }}
+            {{ else if (eq $product "chef")}}
+              {{ $fullName = "Chef Infra Client" }}
+            {{ else if (eq $product "chef-server") }}
+              {{ $fullName = "Chef Infra Server" }}
+            {{ else if (eq $product "manage") }}
+              {{ $fullName = "Chef Manage" }}
+            {{ else if (eq $product "supermarket") }}
+              {{ $fullName = "Chef Supermarket" }}
+            {{ else if (eq $product "chef-workstation") }}
+              {{ $fullName = "Chef Workstation" }}
+            {{ end }}
+
+            <h2 id="{{ $version }}">{{ $fullName }} {{ $version }}</h2>
+
+            {{ if eq $product "automate"}}
+              <p><i>Released on {{ time.Format "January 2, 2006" .release_date }}</i></p>
+            {{ else if (eq $product "habitat")}}
+              <p><i>Released on {{ time.Format "January 2, 2006" .published_at }}</i></p>
+            {{ end }}
+            {{ $remoteResponse := resources.GetRemote $mdUrl }}
+
+            {{ if eq $remoteResponse nil }}
+              <p>This release does not have any release notes.</p>
+            {{ else }}
+              <a href="{{ $mdUrl }}" style="display:none;">{{ $mdUrl }}</a>
+              {{ $content := $remoteResponse.Content }}
+              {{ $content = replaceRE `\n#### ` "##### " $content }}
+              {{ $content = replaceRE `\n### ` "#### " $content }}
+              {{ $content = replaceRE `\n## ` "### " $content }}
+              {{ $content = replaceRE `^## ` "### " $content }}
+              {{ $content | markdownify }}
+            {{ end }}
+
+          {{ end }}
         {{ end }}
       {{ end }}
     </div>
