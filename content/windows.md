@@ -116,7 +116,7 @@ Se the [knife windows](/workstation/knife_windows/) for more information.
 
 A Microsoft Installer Package (MSI) is available for installing Chef
 Infra Client on a Microsoft Windows machine from [Chef
-Downloads](https://downloads.chef.io/).
+Downloads](https://www.chef.io/downloads/tools/infra-client?os=windows).
 
 #### Msiexec.exe
 

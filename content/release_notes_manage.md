@@ -21,7 +21,7 @@ Chef Manage is [deprecated](/versions/#deprecated) and users should plan to migr
 
 ## Upgrading
 
-Download the latest version of the chef-manage package for your platform from [downloads.chef.io](https://downloads.chef.io/manage) to your Chef Infra Server, then run:
+Download the latest version of the chef-manage package for your platform from [Chef Downloads](https://www.chef.io/downloads/tools/manage) to your Chef Infra Server, then run:
 
 ```bash
 # rpm -Uvh /path/to/chef-manage-*.rpm

@@ -945,7 +945,7 @@ weight = 10
 [[extra]]
 title = "Downloads"
 identifier = "get chef"
-url = "https://downloads.chef.io/"
+url = "https://www.chef.io/downloads"
 weight = 100
 
 [[extra]]
