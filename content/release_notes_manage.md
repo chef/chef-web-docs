@@ -39,7 +39,7 @@ then
 
 #### Ruby 2.7.5
 
-Ruby has been updated from 2.7.4 to 2.7.5 to resolve the following CVEs:
+Updated Ruby from 2.7.4 to 2.7.5 to resolve the following CVEs:
 
 - CVE-2021-41817
 - CVE-2021-41816
@@ -56,7 +56,7 @@ Ruby has been updated from 2.7.4 to 2.7.5 to resolve the following CVEs:
 
 #### Sidekiq 6.3.1
 
-The Sidekiq job queuing engine used in Chef Manage has been upgraded from 5.2.9 to 6.3.1 to resolve CVE-2021-30151.
+Upgraded the Sidekiq job queuing engine used in Chef Manage from 5.2.9 to 6.3.1 to resolve CVE-2021-30151.
 
 #### Improved HTTP Headers
 
@@ -109,7 +109,7 @@ User email verification is enforced for all user email address changes.
 
 #### Ruby 2.7.4
 
-Ruby has been updated from 2.6.6 to 2.7.4 to resolve a large number of bugs as well as the following CVEs:
+Updated Ruby from 2.6.6 to 2.7.4 to resolve a large number of bugs as well as the following CVEs:
 
 - CVE-2021-28966
 - CVE-2021-28965
@@ -120,7 +120,7 @@ Ruby has been updated from 2.6.6 to 2.7.4 to resolve a large number of bugs as w
 
 #### Rails 6.1.4.1
 
-The Rails framework used by Chef Manage has been updated from 5.2.4.4 to 6.1.4.1. This new release includes performance improvements, new capabilities, and resolves the following CVEs:
+Updated the Rails framework used by Chef Manage from 5.2.4.4 to 6.1.4.1. This new release includes performance improvements, new capabilities, and resolves the following CVEs:
 
 - CVE-2021-22902
 - CVE-2021-22903
@@ -129,11 +129,11 @@ The Rails framework used by Chef Manage has been updated from 5.2.4.4 to 6.1.4.1
 
 #### OpenSSL 1.0.2zb
 
-OpenSSL has been updated from 1.0.2w to 1.0.2zb to resolve issues with Let's Encrypt certificates and to resolve CVE-2021-3712.
+Updated OpenSSL from 1.0.2w to 1.0.2zb to resolve issues with Let's Encrypt certificates and to resolve CVE-2021-3712.
 
 #### cacerts
 
-The cacerts bundle has been updated to the 2021-09-30 release, which removes older expired root certificates and adds the following new root certificates:
+Updated the cacerts bundle to the 2021-09-30 release, which removes older expired root certificates and adds the following new root certificates:
 
 - AC RAIZ FNMT-RCM SERVIDORES SEGUROS
 - GlobalSign Root R46
@@ -145,11 +145,11 @@ The cacerts bundle has been updated to the 2021-09-30 release, which removes old
 
 #### nokogiri 1.12.5
 
-The nokogiri gem has been updated to 1.12.5 to resolve CVE-2021-41098.
+Update the nokogiri gem to 1.12.5 to resolve CVE-2021-41098.
 
 #### libarchive 3.5.2
 
-The libarchive library has been updated from 3.4.3 to 3.5.2 to resolve security vulnerabilities in libarchive's handling of symbolic links.
+Update the libarchive library from 3.4.3 to 3.5.2 to resolve security vulnerabilities in libarchive's handling of symbolic links.
 
 ## What's New in 3.0.16
 
@@ -227,7 +227,7 @@ most likely setting for reusing certificates installed by Chef Infra Client.
 
 ### Bug Fixes
 
-- Generating a Knife Config now produces a `config.rb` instead of `knife.rb` file. These files have the same format and contents but `config.rb` has been preferred file name since Chef Infra Client 12.0.
+- Generating a Knife Config now produces a `config.rb` instead of `knife.rb` file. These files have the same format and contents, but `config.rb` has been the preferred file name since Chef Infra Client 12.0.
 - Minor UI bug fixes
 
 ### Supported Infra Server Versions
