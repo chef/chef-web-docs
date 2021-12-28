@@ -78,7 +78,7 @@ secret(name: 'vault-name/test1', version: 'v1', service: :azure_key_vault)
 #### Fetching Secrets From HashiCorp Vault Using AWS IAM
 
 ```ruby
-secret(name: 'secret/example', 
+secret(name: 'secret/example',
       service: :hashi_vault,
       config: {
         vault_addr: 'vault.example.com',
@@ -93,6 +93,35 @@ secret(name: 'secret/example',
       service: :hashi_vault,
       config: {
         vault_addr: 'vault.example.com',
+        auth_method: :token,
+        token: '123456'
+      })
+```
+
+#### Fetching Secrets From HashiCorp Vault Using AppRole Authentication
+
+Fetching secret data using an AppRole ID and an associated AppRole Secret ID:
+
+```ruby
+secret(name: 'secret/example',
+      service: :hashi_vault,
+      config: {
+        vault_addr: 'vault.example.com',
+        auth_method: :approle,
+        approle_id: "11111111-abcd-1111-abcd-111111111111",
+        approle_secret_id: "22222222-abcd-2222-abcd-222222222222"
+      })
+```
+
+Fetching secret data using a token and an AppRole name creates a Secret ID associated with that AppRole:
+
+```ruby
+secret(name: 'secret/example',
+      service: :hashi_vault,
+      config: {
+        vault_addr: 'vault.example.com',
+        auth_method: :approle,
+        approle_name: "my-approle",
         token: '123456'
       })
 ```

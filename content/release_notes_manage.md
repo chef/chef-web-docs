@@ -1,5 +1,5 @@
 +++
-title = "Release Notes: Chef Manage 3.0"
+title = "Chef Manage Release Notes"
 draft = false
 
 gh_repo = "chef-web-docs"
@@ -33,14 +33,132 @@ then
 # chef-server-ctl reconfigure
 ```
 
+## What's New in 3.2.20
+
+### Security
+
+#### Ruby 2.7.5
+
+Updated Ruby from 2.7.4 to 2.7.5 to resolve the following CVEs:
+
+- CVE-2021-41817
+- CVE-2021-41816
+- CVE-2021-41819
+
+## What's New in 3.2.13
+
+### Bug Fixes and Improvements
+
+- Fixed rendering of the changelog from the Manage UI.
+- Refreshed many icons throughout the UI.
+
+### Security Updates
+
+#### Sidekiq 6.3.1
+
+Upgraded the Sidekiq job queuing engine used in Chef Manage from 5.2.9 to 6.3.1 to resolve CVE-2021-30151.
+
+#### Improved HTTP Headers
+
+Chef Manage now includes `Referrer-Policy` and `Permissions-Policy` HTTP headers for improved security.
+
+## What's New in 3.1.83
+
+### Bug fixes
+
+- Fixed 500 error while loading change log url introduced in 3.1.80
+
+## What's New in 3.1.80
+
+### Updates
+
+The Chef Manage UI has received minor updates to branding, emails, and external URLs:
+
+- Links lead to the latest pages
+- Brand logos match Chef Infra Client / Chef Infra Server
+- Community Slack replaces the link to the defunct IRC channel
+- Chef Questions replaces the legacy mailing list
+
+### Package Improvements
+
+#### Smaller Package Size
+
+The Chef Manage packaging is optimized, reducing both the package and the on-disk install size by half.
+
+#### RHEL 6 Package Removal
+
+Chef Manage packages are no longer produced for EOL RHEL 6.
+
+#### RPM Package Digests
+
+The file digest in Chef Infra RPM packages is updated from M5 to SHA256 to prevent installation failures on some FIPS-enabled systems.
+
+### Security Enhancements
+
+#### User Signup Enhancements
+
+Users can no longer change their email during the signup process to avoid validation.
+
+#### MTLS Support
+
+Support MTLS in Chef Infra Server
+
+#### E-mail Verification
+
+User email verification is enforced for all user email address changes.
+
+#### Ruby 2.7.4
+
+Updated Ruby from 2.6.6 to 2.7.4 to resolve a large number of bugs as well as the following CVEs:
+
+- CVE-2021-28966
+- CVE-2021-28965
+- CVE-2020-25613
+- CVE-2021-31810
+- CVE-2021-32066
+- CVE-2021-31799
+
+#### Rails 6.1.4.1
+
+Updated the Rails framework used by Chef Manage from 5.2.4.4 to 6.1.4.1. This new release includes performance improvements, new capabilities, and resolves the following CVEs:
+
+- CVE-2021-22902
+- CVE-2021-22903
+- CVE-2021-22885
+- CVE-2021-22904
+
+#### OpenSSL 1.0.2zb
+
+Updated OpenSSL from 1.0.2w to 1.0.2zb to resolve issues with Let's Encrypt certificates and to resolve CVE-2021-3712.
+
+#### cacerts
+
+Updated the cacerts bundle to the 2021-09-30 release, which removes older expired root certificates and adds the following new root certificates:
+
+- AC RAIZ FNMT-RCM SERVIDORES SEGUROS
+- GlobalSign Root R46
+- GlobalSign Root E46
+- GLOBALTRUST 2020
+- ANF Secure Server Root CA
+- Certum EC-384 CA
+- Certum Trusted Root CA
+
+#### nokogiri 1.12.5
+
+Update the nokogiri gem to 1.12.5 to resolve CVE-2021-41098.
+
+#### libarchive 3.5.2
+
+Update the libarchive library from 3.4.3 to 3.5.2 to resolve security vulnerabilities in libarchive's handling of symbolic links.
+
 ## What's New in 3.0.16
 
 ### Bug Fixes
 
-* Fixed issues adding cookbook constraints to an environment.
-* Fixed errors when changing a node's environment.
-* Fixed incorrect cookbook versions being displayed in environments.
-* Fixed a blank page being shown when refreshing the databag item page.
+- Fixed issues adding cookbook constraints to an environment.
+- Fixed errors when changing a node's environment.
+- Fixed incorrect cookbook versions being displayed in environments.
+- Fixed a blank page being shown when refreshing the databag item page.
 
 ### Ubuntu 20.04 Support
 
@@ -48,8 +166,8 @@ We added Ubuntu 20.04 packages and continue to support Ubuntu 16.04 and 18.04 pa
 
 ### Dependency Updates
 
-* Embedded Chef Infra Client is upgraded from 14 to 15
-* Sidekiq is upgraded from 4.2.10 to 5.2.9
+- Embedded Chef Infra Client is upgraded from 14 to 15
+- Sidekiq is upgraded from 4.2.10 to 5.2.9
 
 ### Security Updates
 
@@ -57,14 +175,14 @@ We added Ubuntu 20.04 packages and continue to support Ubuntu 16.04 and 18.04 pa
 
 We updated Chef Manage's Ruby installation from 2.5.5 to 2.6.6. This upgrade improves the performance of the application and resolves the following CVEs:
 
-* [CVE-2012-6708](https://nvd.nist.gov/vuln/detail/CVE-2012-6708)
-* [CVE-2015-9251](https://nvd.nist.gov/vuln/detail/CVE-2015-9251)
-* [CVE-2019-16255](https://nvd.nist.gov/vuln/detail/CVE-2019-16255)
-* [CVE-2019-16254](https://nvd.nist.gov/vuln/detail/CVE-2019-16254)
-* [CVE-2019-15845](https://nvd.nist.gov/vuln/detail/CVE-2019-15845)
-* [CVE-2019-16201](https://nvd.nist.gov/vuln/detail/CVE-2019-16201)
-* [CVE-2020-10663](https://nvd.nist.gov/vuln/detail/CVE-2020-10663)
-* [CVE-2020-10933](https://nvd.nist.gov/vuln/detail/CVE-2020-10933)
+- [CVE-2012-6708](https://nvd.nist.gov/vuln/detail/CVE-2012-6708)
+- [CVE-2015-9251](https://nvd.nist.gov/vuln/detail/CVE-2015-9251)
+- [CVE-2019-16255](https://nvd.nist.gov/vuln/detail/CVE-2019-16255)
+- [CVE-2019-16254](https://nvd.nist.gov/vuln/detail/CVE-2019-16254)
+- [CVE-2019-15845](https://nvd.nist.gov/vuln/detail/CVE-2019-15845)
+- [CVE-2019-16201](https://nvd.nist.gov/vuln/detail/CVE-2019-16201)
+- [CVE-2020-10663](https://nvd.nist.gov/vuln/detail/CVE-2020-10663)
+- [CVE-2020-10933](https://nvd.nist.gov/vuln/detail/CVE-2020-10933)
 
 #### OpenSSL
 
@@ -84,9 +202,9 @@ This release includes important dependency updates and support for SSL connectio
 
 ### Dependency Updates
 
-* Rails is upgraded to 5.2.4
-* Chef Infra Client is upgraded from 11 to 14
-* Sidekiq is upgraded from 2.5 to 4 to improve the background processing
+- Rails is upgraded to 5.2.4
+- Chef Infra Client is upgraded from 11 to 14
+- Sidekiq is upgraded from 2.5 to 4 to improve the background processing
 
 ### SSL Support
 
@@ -109,8 +227,8 @@ most likely setting for reusing certificates installed by Chef Infra Client.
 
 ### Bug Fixes
 
-* Generating a Knife Config now produces a `config.rb` instead of `knife.rb` file. These files have the same format and contents but `config.rb` has been preferred file name since Chef Infra Client 12.0.
-* Minor UI bug fixes
+- Generating a Knife Config now produces a `config.rb` instead of `knife.rb` file. These files have the same format and contents, but `config.rb` has been the preferred file name since Chef Infra Client 12.0.
+- Minor UI bug fixes
 
 ### Supported Infra Server Versions
 
@@ -118,32 +236,32 @@ Chef Manage 3.0 is compatible with Chef Infra Server 12 and later. Users are alw
 
 #### Added Platform Support
 
-* RHEL 7
-* RHEL 8
-* Ubuntu 16.04
-* Ubuntu 18.04
+- RHEL 7
+- RHEL 8
+- Ubuntu 16.04
+- Ubuntu 18.04
 
 #### Removed Platform Support
 
-* Ubuntu 10.04
-* Ubuntu 12.04
-* Ubuntu 14.04
+- Ubuntu 10.04
+- Ubuntu 12.04
+- Ubuntu 14.04
 
 ## What's New in 2.5.16
 
 ### Dependency Updates
 
-* Embedded Chef Infra Client upgraded from 12.19.36 to 12.22.5
+- Embedded Chef Infra Client upgraded from 12.19.36 to 12.22.5
 
 ## What's New in 2.5.15
 
 ### Bug Fixes
 
-* Replaced links to the legacy IRC channel with links to Chef Community Slack.
-* Allow uppercase letters to be used in data bag names.
-* Hide the reporting tab when Chef Reporting is not installed on the system.
+- Replaced links to the legacy IRC channel with links to Chef Community Slack.
+- Allow uppercase letters to be used in data bag names.
+- Hide the reporting tab when Chef Reporting is not installed on the system.
 
 ### Security Updates
 
-* Added Strict-Transport-Security headers to all pages.
-* Sanitized HTML errors in JSON error output to prevent possible reflected XSS in the case of script tags being passed in as part of the URL of a JSON request.
+- Added Strict-Transport-Security headers to all pages.
+- Sanitized HTML errors in JSON error output to prevent possible reflected XSS in the case of script tags being passed in as part of the URL of a JSON request.
