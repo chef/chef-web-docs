@@ -38,7 +38,7 @@
             {{ range $versionsCorrectOrder }}
               {{ $releaseYearMonth := index . "release_date" | time.Format "2006-01" }}
               {{ if ne $releaseYearMonth $lastDate }}
-                <li>{{ $releaseYearMonth }}</li>
+                <li><strong>{{ $releaseYearMonth }}</strong></li>
               {{ end }}
               <p><a href="#{{ .version }}">{{ .version }}</a></p>
               {{ $lastDate = $releaseYearMonth }}
