@@ -88,9 +88,9 @@
             {{ else }}
               <a href="{{ $mdUrl }}" style="display:none;">{{ $mdUrl }}</a>
               {{ $content := $remoteResponse.Content }}
-              {{ $content = replaceRE `\n#### ` "##### " $content }}
-              {{ $content = replaceRE `\n### ` "#### " $content }}
-              {{ $content = replaceRE `\n## ` "### " $content }}
+              {{ $content = replaceRE `\n#### ` "\n##### " $content }}
+              {{ $content = replaceRE `\n### ` "\n#### " $content }}
+              {{ $content = replaceRE `\n## ` "\n### " $content }}
               {{ $content = replaceRE `^## ` "### " $content }}
               {{ $content | markdownify }}
             {{ end }}
