@@ -8,6 +8,7 @@ assets:
 clean_all:
 	pushd themes/docs-new && make clean_all && popd
 	rm -rf resources/
+	rm -rf public/
 	hugo mod clean
 
 serve: assets
