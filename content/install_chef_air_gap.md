@@ -130,7 +130,7 @@ group.
 
 By default, `knife bootstrap` uses the `chef-full` template to bootstrap
 a node. This template contains a number of useful features, but it also
-attempts to pull an installation script from `downloads.chef.io`. In
+attempts to pull an installation script from `packages.chef.io`. In
 this section, you'll copy the contents of the `chef-full` template to a
 custom template, and then modify the package and Ruby gem sources.
 
