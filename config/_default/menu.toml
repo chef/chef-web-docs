@@ -166,11 +166,11 @@ identifier = "automate"
   identifier = "automate/settings"
   parent = "automate"
 
-  [[automate]]
-  name = "Upgrade"
-  weight = 110
-  identifier = "automate/upgrade"
-  parent = "automate"
+  # [[automate]]
+  # name = "Upgrade"
+  # weight = 110
+  # identifier = "automate/upgrade"
+  # parent = "automate"
 
   [[automate]]
   name = "Reference"
