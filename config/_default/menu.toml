@@ -117,6 +117,13 @@ identifier = "automate"
   identifier = "automate/configuring_automate"
   parent = "automate"
 
+    # Hold for Automate updates
+    # [[automate]]
+    # title = "Upgrade Services"
+    # identifier = "automate/configuring_automate/upgrade_services"
+    # parent = "automate/configuring_automate"
+    # weight = 100
+
   [[automate]]
   name = "Applications"
   weight = 50
@@ -157,6 +164,12 @@ identifier = "automate"
   name = "Settings"
   weight = 100
   identifier = "automate/settings"
+  parent = "automate"
+
+  [[automate]]
+  name = "Upgrade"
+  weight = 110
+  identifier = "automate/upgrade"
   parent = "automate"
 
   [[automate]]
@@ -327,13 +340,13 @@ identifier = "server"
     weight = 70
 
   [[server]]
-  title = "Planning"
+  title = "Plan"
   identifier = "server/planning"
   parent = "server"
   weight = 20
 
   [[server]]
-  title = "Installation"
+  title = "Install"
   identifier = "server/installation"
   parent = "server"
   weight = 30
@@ -371,11 +384,24 @@ identifier = "server"
   parent = "server"
   weight = 50
 
+  # Turn these on when the server docs are ready
+  #   [[server]]
+  #   title = "Upgrade Services"
+  #   identifier = "server/manage/upgrade_services"
+  #   parent = "server/manage"
+  #   weight = 100
+
+  # [[server]]
+  # title = "Upgrade"
+  # identifier = "server/upgrade"
+  # parent = "server"
+  # weight = 60
+
   [[server]]
   title = "Reference"
   identifier = "server/reference"
   parent = "server"
-  weight = 60
+  weight = 70
 
 ####
 # End Chef Infra Server Menu
