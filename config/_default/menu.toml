@@ -383,17 +383,18 @@ identifier = "server"
   parent = "server"
   weight = 50
 
-    [[server]]
-    title = "Upgrade Services"
-    identifier = "server/manage/upgrade_services"
-    parent = "server/manage"
-    weight = 100
+  # Turn these on when the server docs are ready
+  #   [[server]]
+  #   title = "Upgrade Services"
+  #   identifier = "server/manage/upgrade_services"
+  #   parent = "server/manage"
+  #   weight = 100
 
-  [[server]]
-  title = "Upgrade"
-  identifier = "server/upgrade"
-  parent = "server"
-  weight = 60
+  # [[server]]
+  # title = "Upgrade"
+  # identifier = "server/upgrade"
+  # parent = "server"
+  # weight = 60
 
   [[server]]
   title = "Reference"
