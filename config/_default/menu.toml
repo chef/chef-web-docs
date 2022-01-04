@@ -117,11 +117,12 @@ identifier = "automate"
   identifier = "automate/configuring_automate"
   parent = "automate"
 
-    [[automate]]
-    title = "Upgrade Services"
-    identifier = "automate/configuring_automate/upgrade_services"
-    parent = "automate/configuring_automate"
-    weight = 100
+    # Hold for Automate updates
+    # [[automate]]
+    # title = "Upgrade Services"
+    # identifier = "automate/configuring_automate/upgrade_services"
+    # parent = "automate/configuring_automate"
+    # weight = 100
 
   [[automate]]
   name = "Applications"
