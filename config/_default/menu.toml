@@ -170,12 +170,6 @@ identifier = "automate"
   parent = "automate"
 
   [[automate]]
-  name = "Upgrade"
-  weight = 110
-  identifier = "automate/upgrade"
-  parent = "automate"
-
-  [[automate]]
   name = "Reference"
   weight = 200
   identifier = "automate/reference"
