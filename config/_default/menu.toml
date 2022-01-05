@@ -124,7 +124,7 @@ identifier = "automate"
   parent = "automate"
 
     [[automate]]
-    title = "Postgresql"
+    title = "PostgreSQL"
     identifier = "automate/configuring_automate/postgresql"
     parent = "automate/configuring_automate"
 
