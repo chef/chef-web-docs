@@ -117,12 +117,6 @@ identifier = "automate"
   identifier = "automate/configuring_automate"
   parent = "automate"
 
-  [[automate]]
-  name = "Manage"
-  weight = 40
-  identifier = "automate/configuring_automate"
-  parent = "automate"
-
     [[automate]]
     title = "PostgreSQL"
     identifier = "automate/configuring_automate/postgresql"
