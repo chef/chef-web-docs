@@ -3,11 +3,10 @@ title = "Install Private Supermarket"
 draft = false
 gh_repo = "supermarket"
 aliases = ["/install_supermarket.html", "/install_supermarket/"]
-product = ["client", "server", "workstation"]
 
 [menu]
   [menu.supermarket]
-    title = "Install Private Supermarket"
+    title = "Install"
     identifier = "supermarket/server/Install Private Supermarket"
     parent = "supermarket/server"
     weight = 20
@@ -23,7 +22,7 @@ A private Chef Supermarket has the following requirements:
     higher) to act as the OAuth 2.0 provider
 - A user account on the Chef Infra Server with `admins` privileges
 - A key for the user account on the Chef server
-- An x86_64 compatible Linux host with at least 1 GB memory
+- An x86_64 compatible Linux host with at least 2 GB memory
 - System clocks synchronized on the Chef Infra Server and Supermarket
     hosts
 - Sufficient disk space on host to meet project cookbook storage
@@ -390,8 +389,8 @@ process detailed in the [Chef
 Identity](/install_supermarket/#chef-identity) section of this
 guide.
 
-1. [Download](https://downloads.chef.io/supermarket/) the correct
-    package for your operating system from `downloads.chef.io`.
+1. [Download](https://www.chef.io/downloads/tools/supermarket) the correct
+    package for your operating system from `chef.io/downloads`.
 
 2. Install Supermarket using the appropriate package manager for your
     distribution:
@@ -549,7 +548,7 @@ Encrypted S3 buckets are currently not supported.
 1. Shut down the server running Private Supermarket.
 1. Backup the `/var/opt/supermarket` directory.
 
-1. Download the [Chef Supermarket](https://downloads.chef.io/) package.
+1. Download the [Chef Supermarket](https://www.chef.io/downloads/tools/supermarket) package.
 1. Upgrade your system with the new package using the appropriate package manager for your distribution:
 
     - For Ubuntu:

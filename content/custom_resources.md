@@ -100,4 +100,4 @@ Call a resource in a recipe by its `resource_name`. For example:
 
 Learn Chef interactive tutorial: [Extending Chef Infra: Custom Resources](https://learn.chef.io/courses/course-v1:chef+Infra201+Perpetual/about)
 
-See the [Custom Resources Glossary](/glossary_resources) for a description of available methods.
+See the [Custom Resources Glossary]({{< relref "custom_resource_glossary" >}}) for a description of available methods.
