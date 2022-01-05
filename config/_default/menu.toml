@@ -117,12 +117,21 @@ identifier = "automate"
   identifier = "automate/configuring_automate"
   parent = "automate"
 
-    # Hold for Automate updates
-    # [[automate]]
-    # title = "Upgrade Services"
-    # identifier = "automate/configuring_automate/upgrade_services"
-    # parent = "automate/configuring_automate"
-    # weight = 100
+  [[automate]]
+  name = "Manage"
+  weight = 40
+  identifier = "automate/configuring_automate"
+  parent = "automate"
+
+    [[automate]]
+    title = "Postgresql"
+    identifier = "automate/configuring_automate/postgresql"
+    parent = "automate/configuring_automate"
+
+    [[automate]]
+    title = "Elasticsearch"
+    identifier = "automate/configuring_automate/elasticsearch"
+    parent = "automate/configuring_automate"
 
   [[automate]]
   name = "Applications"
@@ -166,11 +175,11 @@ identifier = "automate"
   identifier = "automate/settings"
   parent = "automate"
 
-  # [[automate]]
-  # name = "Upgrade"
-  # weight = 110
-  # identifier = "automate/upgrade"
-  # parent = "automate"
+  [[automate]]
+  name = "Upgrade"
+  weight = 110
+  identifier = "automate/upgrade"
+  parent = "automate"
 
   [[automate]]
   name = "Reference"
