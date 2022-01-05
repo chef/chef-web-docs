@@ -7,7 +7,7 @@ This subcommand has the following options:
 
 `--pg-options`
 
-:   Use to specify additional options to pass to PostgreSQL during backups. See the [PostgreSQL documentation](https://www.postgresql.org/docs/13/runtime-config.html) for more information.
+:   Use to specify and pass additional options PostgreSQL during backups. See the [PostgreSQL documentation](https://www.postgresql.org/docs/13/runtime-config.html) for more information.
 
 `-c`, `--config-only`
 
