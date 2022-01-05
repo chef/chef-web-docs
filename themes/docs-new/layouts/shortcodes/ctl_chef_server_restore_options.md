@@ -13,7 +13,8 @@ This subcommand has the following options:
 
 `--pg-options`
 
-:   Use to specify additional options to pass to PostgreSQL during restore. See the [PostgreSQL documentation](https://www.postgresql.org/docs/13/runtime-config.html) for more information.
+```suggestion
+:   Use to specify and pass additional options PostgreSQL during backups. See the [PostgreSQL documentation](https://www.postgresql.org/docs/13/runtime-config.html) for more information.
 
 `-t`, `--timeout`
 
