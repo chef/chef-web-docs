@@ -18,7 +18,7 @@ This subcommand has the following options:
 
 `-t`, `--timeout`
 
-:   Set the maximum amount of time in seconds to wait for shell commands (default 600). This option should be set to greater than 600 for restores taking longer than 10 minutes.
+:   Set the maximum amount of time in seconds to wait for shell commands. Set to greater than 600 for backups that take longer than 10 minutes. Default: 600.
 
 `-h`, `--help`
 
