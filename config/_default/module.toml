@@ -126,6 +126,10 @@
   source = "static"
   target = "static"
 
+[[imports.mounts]]
+  source = "assets"
+  target = "assets"
+
 [[imports]]
   disable = false
   ignoreConfig = false
@@ -134,6 +138,11 @@
 [[imports.mounts]]
   source = "static"
   target = "static"
+
+
+[[imports.mounts]]
+  source = "assets"
+  target = "assets"
 
 ## Supermarket Docs
 
