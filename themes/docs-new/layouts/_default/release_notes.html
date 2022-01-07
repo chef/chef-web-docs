@@ -81,7 +81,7 @@
             {{ else if (eq $product "habitat")}}
               <p><i>Released on {{ time.Format "January 2, 2006" .published_at }}</i></p>
             {{ end }}
-            {{ $remoteResponse := resources.GetRemote $mdUrl }}
+            {{ $remoteResponse := resources.GetRemote $mdUrl (dict "headers" (dict "Cache-Control" "no-cache" "Connection" "keep-alive"))}}
 
             {{ if eq $remoteResponse nil }}
               <p>This release does not have any release notes.</p>
