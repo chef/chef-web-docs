@@ -14,7 +14,7 @@ product = ["automate", "client", "server", "habitat", "inspec", "workstation"]
 +++
 
 Chef's Omnitruck API powers the Chef Software install script as well as
-[Chef's download](https://downloads.chef.io) site. It can be used to query available versions of
+[Chef's download](https://www.chef.io/downloads) site. It can be used to query available versions of
 Chef Software products and to provide direct download URLs.
 
 ## Syntax

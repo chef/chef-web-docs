@@ -12,13 +12,17 @@ syntax_full_code_block: |-
   rhsm_register 'name' do
     activation_key             String, Array
     auto_attach                true, false # default value: false
+    base_url                   String
     environment                String
     force                      true, false # default value: false
     https_for_ca_consumer      true, false # default value: false
     install_katello_agent      true, false # default value: true
     organization               String
     password                   String
+    release                    Float, String
     satellite_host             String
+    server_url                 String
+    service_level              String
     system_name                String
     username                   String
     action                     Symbol # defaults to :register if not specified
@@ -29,9 +33,10 @@ syntax_full_properties_list:
 - "`name` is the name given to the resource block."
 - "`action` identifies which steps Chef Infra Client will take to bring the node into
   the desired state."
-- "`activation_key`, `auto_attach`, `environment`, `force`, `https_for_ca_consumer`,
-  `install_katello_agent`, `organization`, `password`, `satellite_host`, `system_name`,
-  and `username` are the properties available to this resource."
+- "`activation_key`, `auto_attach`, `base_url`, `environment`, `force`, `https_for_ca_consumer`,
+  `install_katello_agent`, `organization`, `password`, `release`, `satellite_host`,
+  `server_url`, `service_level`, `system_name`, and `username` are the properties
+  available to this resource."
 actions_list:
   :nothing:
     shortcode: resources_common_actions_nothing.md
@@ -54,6 +59,16 @@ properties_list:
   - markdown: If true, RHSM will attempt to automatically attach the host to applicable
       subscriptions. It is generally better to use an activation key with the subscriptions
       pre-defined.
+- property: base_url
+  ruby_type: String
+  required: false
+  new_in: '17.8'
+  description_list:
+  - markdown: The hostname of the content delivery server to use to receive updates.
+      Both Customer Portal Subscription Management and Subscription Asset Manager
+      use Red Hat's hosted content delivery services, with the URL https://cdn.redhat.com.
+      Since Satellite 6 hosts its own content, the URL must be used for systems registered
+      with Satellite 6.
 - property: environment
   ruby_type: String
   required: false
@@ -95,12 +110,36 @@ properties_list:
   - markdown: The password to use when registering. This property is not applicable
       if using an activation key. If specified, username and environment are also
       required.
+- property: release
+  ruby_type: Float, String
+  required: false
+  new_in: '17.8'
+  description_list:
+  - markdown: Sets the operating system minor release to use for subscriptions for
+      the system. Products and updates are limited to the specified minor release
+      version. This is used only used with the `auto_attach` option.  For example,
+      `release '6.4'` will append `--release=6.4` to the register command.
 - property: satellite_host
   ruby_type: String
   required: false
   description_list:
   - markdown: The FQDN of the Satellite host to register with. If this property is
       not specified, the host will register with Red Hat's public RHSM service.
+- property: server_url
+  ruby_type: String
+  required: false
+  new_in: '17.8'
+  description_list:
+  - markdown: The hostname of the subscription service to use. The default is Customer
+      Portal Subscription Management, subscription.rhn.redhat.com. If you do not use
+      this option, the system registers with Customer Portal Subscription Management.
+- property: service_level
+  ruby_type: String
+  required: false
+  new_in: '17.8'
+  description_list:
+  - markdown: Sets the service level to use for subscriptions on the registering machine.
+      This is only used with the `auto_attach` option.
 - property: system_name
   ruby_type: String
   required: false

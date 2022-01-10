@@ -15,6 +15,8 @@ syntax_full_code_block: |-
     chef_license                   String
     chef_server_url                String
     config_directory               String
+    data_collector_server_url      String
+    data_collector_token           String
     event_loggers                  Array # default value: []
     exception_handlers             Array # default value: []
     file_backup_path               String
@@ -49,13 +51,13 @@ syntax_full_properties_list:
 - "`name` is the name given to the resource block."
 - "`action` identifies which steps Chef Infra Client will take to bring the node into
   the desired state."
-- "`additional_config`, `chef_license`, `chef_server_url`, `config_directory`, `event_loggers`,
-  `exception_handlers`, `file_backup_path`, `file_cache_path`, `file_staging_uses_destdir`,
-  `formatters`, `ftp_proxy`, `group`, `http_proxy`, `https_proxy`, `log_level`, `log_location`,
-  `minimal_ohai`, `named_run_list`, `no_proxy`, `node_name`, `ohai_disabled_plugins`,
-  `ohai_optional_plugins`, `pid_file`, `policy_group`, `policy_name`, `policy_persist_run_list`,
-  `report_handlers`, `ssl_verify_mode`, `start_handlers`, and `user` are the properties
-  available to this resource."
+- "`additional_config`, `chef_license`, `chef_server_url`, `config_directory`, `data_collector_server_url`,
+  `data_collector_token`, `event_loggers`, `exception_handlers`, `file_backup_path`,
+  `file_cache_path`, `file_staging_uses_destdir`, `formatters`, `ftp_proxy`, `group`,
+  `http_proxy`, `https_proxy`, `log_level`, `log_location`, `minimal_ohai`, `named_run_list`,
+  `no_proxy`, `node_name`, `ohai_disabled_plugins`, `ohai_optional_plugins`, `pid_file`,
+  `policy_group`, `policy_name`, `policy_persist_run_list`, `report_handlers`, `ssl_verify_mode`,
+  `start_handlers`, and `user` are the properties available to this resource."
 actions_list:
   :nothing:
     shortcode: resources_common_actions_nothing.md
@@ -87,6 +89,26 @@ properties_list:
   default_value: "`/etc/chef/` on *nix-like systems and `C:\\chef\\` on Windows"
   description_list:
   - markdown: The directory to store the client.rb in.
+- property: data_collector_server_url
+  ruby_type: String
+  required: false
+  new_in: '17.8'
+  description_list:
+  - markdown: The data collector URL (typically automate) to send node, converge,
+      and compliance data.
+  - note:
+      markdown: If possible, use Chef Infra Server to do all data collection reporting,
+        as this removes the need to distribute tokens to individual nodes.
+- property: data_collector_token
+  ruby_type: String
+  required: false
+  new_in: '17.8'
+  description_list:
+  - markdown: The data collector token to interact with the data collector server
+      URL (Automate).
+  - note:
+      markdown: If possible, use Chef Infra Server to do all data collection reporting,
+        as this removes the need to distribute tokens to individual nodes.
 - property: event_loggers
   ruby_type: Array
   required: false
@@ -338,5 +360,15 @@ examples: |
        'arguments' => ["'FirstArgument'", "'SecondArgument'"],
       },
     ]
+  end
+  ```
+
+  **Report directly to the [Chef Automate data collector endpoint](/automate/data_collection/#configure-chef-infra-client-to-use-the-data-collector-endpoint-in-chef-automate).**
+
+  ```ruby
+  chef_client_config 'Create client.rb' do
+    chef_server_url 'https://chef.example.dmz'
+    data_collector_server_url 'https://automate.example.dmz'
+    data_collector_token 'TEST_TOKEN_TEST'
   end
   ```
