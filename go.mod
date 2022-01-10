@@ -10,7 +10,7 @@ require (
 	github.com/chef/cookstyle/docs-chef-io v0.0.0-20220105183324-660ac8b1c285 // indirect
 	github.com/chef/desktop-config/docs-chef-io v0.0.0-20211006114000-6bf6119bfc8a // indirect
 	github.com/chef/effortless/docs-chef-io v0.0.0-20211119164252-4ff3d53886be // indirect
-	github.com/chef/supermarket/docs-chef-io v0.0.0-20211230181343-279174cc274b // indirect
+	github.com/chef/supermarket/docs-chef-io v0.0.0-20220110215610-e08586e96b52 // indirect
 	github.com/cowboy/jquery-hashchange v0.0.0-20100902193700-0310f3847f90 // indirect
 	github.com/habitat-sh/habitat/components/docs-chef-io v0.0.0-20211101172130-6c067fabcc72 // indirect
 	github.com/inspec/inspec-aws/docs-chef-io v0.0.0-20220107215007-d379e6b35b20 // indirect
