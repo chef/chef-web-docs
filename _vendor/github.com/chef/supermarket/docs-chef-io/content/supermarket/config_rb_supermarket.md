@@ -20,8 +20,7 @@ The following settings are available in the `/etc/supermarket/supermarket.rb` fi
 
 {{< note >}}
 
-You must run `supermarket-ctl reconfigure` to apply any changes made in
-the `supermarket.rb` file.
+You must run `supermarket-ctl reconfigure` to apply any changes made in the `supermarket.rb` file.
 
 {{< /note >}}
 
@@ -47,8 +46,7 @@ This configuration file has the following general settings:
 
 `default['supermarket']['features']`
 
-: Use to enable additional features, such as announcements and GitHub
-integration. Default value: `'tools'`.
+: Use to enable additional features, such as announcements and GitHub integration. Default value: `'tools'`.
 
   Features currently available: `tools`, `fieri`, `announcement`, `github`, and `no_crawl`.
 
@@ -203,7 +201,6 @@ As a Supermarket feature, GitHub must be enabled via the`default['supermarket'][
 
 Use these settings to integrate Supermarket with GitHub Enterprise.
 
-
 `default['supermarket']['github_access_token']`
 
 : The access token created from your GitHub Enterprise account. Default value:`nil`.
@@ -239,22 +236,6 @@ Use this setting to set up [Google Analytics](https://analytics.google.com) trac
 `default['supermarket']['google_analytics_id']`
 
 : The Google Analytics [tracking ID](https://support.google.com/analytics/answer/7372977?hl=en) for Supermarket. Default value: `nil`.
-
-### New Relic
-
-Use these settings to integrate Supermarket with [New Relic](https://newrelic.com/), a software analytics platform:
-
-`default['supermarket']['newrelic_agent_enabled']`
-
-: Determines whether or not the New Relic agent is enabled. Default value: `'false'`.
-
-`default['supermarket']['newrelic_app_name']`
-
-: The name used by New Relic to identify the Supermarket installation. Default value: `nil`.
-
-`default['supermarket']['newrelic_license_key']`
-
-: The New Relic license key. Default value: `nil`.
 
 ### Nginx
 
