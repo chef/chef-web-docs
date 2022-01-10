@@ -16,6 +16,8 @@
           {{ $versionsUrl = "https://packages.chef.io/releases/current/automate.json"}}
         {{ else if (eq $product "habitat") }}
           {{ $versionsUrl = "https://api.github.com/repos/habitat-sh/habitat/releases" }}
+        {{ else if (hasPrefix $product "inspec-") }}
+          {{ $versionsUrl = print "_vendor/github.com/inspec/"  $product "/docs-chef-io/assets/release-notes/" $product "/release-dates.json" }}
         {{ else }}
           {{ $versionsUrl = (print "https://omnitruck.chef.io/stable/" $product "/versions/all") }}
         {{ end }}
