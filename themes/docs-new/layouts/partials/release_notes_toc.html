@@ -1,8 +1,7 @@
-<aside class="sticky sidebar" data-sticky data-top-anchor="utility-bar:bottom" data-btm-anchor="footer:top">
+<aside class="sticky sidebar hide-for-print" data-sticky data-top-anchor="utility-bar:bottom" data-btm-anchor="footer:top">
   <div class="TableOfContents">
-    <strong class="release_notes_toc">Release Versions</strong>
-
     <span>
+      <strong class="mini-toc-header">Release Versions</strong>
       <button class="close-button hide-for-large" aria-label="Close menu" type="button" data-close>
         <span aria-hidden="true">&times;</span>
       </button>
@@ -36,13 +35,18 @@
 
         {{ $lastDate := ""}}
         {{ if eq $product "automate" }}
-          <ul>
+          <ul class="release-versions">
             {{ range $versionsCorrectOrder }}
               {{ $releaseYearMonth := index . "release_date" | time.Format "2006-01" }}
-              {{ if ne $releaseYearMonth $lastDate }}
-                <li><strong>{{ $releaseYearMonth }}</strong></li>
+              {{ if eq $lastDate ""}}
+                <li class="release-date"><strong>{{ $releaseYearMonth }}</strong>
+                  <ul>
+              {{ else if ne $releaseYearMonth $lastDate }}
+                </li></ul>
+                <li class="release-date"><strong>{{ $releaseYearMonth }}</strong>
+                  <ul>
               {{ end }}
-              <p><a href="#{{ .version }}">{{ .version }}</a></p>
+                <li><p class="release-version"><a href="#{{ .version }}">{{ .version }}</a></p></li>
               {{ $lastDate = $releaseYearMonth }}
             {{ end }}
           </ul>

@@ -1,4 +1,4 @@
-.toc {
+.TableOfContents {
   padding-left: 10px;
   overflow-y: scroll;
   overflow-wrap: break-word;
@@ -6,13 +6,24 @@
   font-size: rem-calc(13);
   z-index: 30;
 
-  ul.release_version{
-    li{
-      padding-top: 1rem;
-      padding-bottom: 1rem;
-      color: red;
-      &.active{
-        background-color: $lightgray;
+  .mini-toc-header{
+    padding-top: .5rem;
+    font-weight: 800;
+    font-size: rem-calc(16);
+    margin-top: 1rem;
+    display: block;
+  }
+
+  ul.release-versions {
+    > li.release-date {
+      list-style-type: none;
+      >ul li {
+        > p {
+          margin-bottom: 0;
+        }
+        &:last-child p {
+          margin-bottom: 1rem;
+        }
       }
     }
   }
@@ -20,8 +31,4 @@
 
 .position-right.is-transition-push {
   box-shadow: none;
-}
-
-.runbook_ul{
-  margin-top: -16px;
 }
