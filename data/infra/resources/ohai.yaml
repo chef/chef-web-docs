@@ -24,7 +24,7 @@ actions_list:
   :nothing:
     shortcode: resources_common_actions_nothing.md
   :reload:
-    markdown: Reloads the Ohai data.
+    markdown: Reloads the Ohai data. (default)
 properties_list:
 - property: plugin
   ruby_type: String
