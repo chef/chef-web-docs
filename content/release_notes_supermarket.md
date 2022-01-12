@@ -11,5 +11,5 @@ toc_layout = "release_notes_toc"
     title = "Chef Supermarket"
     identifier = "release_notes/Chef Supermarket"
     parent = "release_notes"
-    weight = 55
+    weight = 80
 +++

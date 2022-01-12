@@ -12,5 +12,5 @@ toc_layout = "release_notes_toc"
     title = "Chef Habitat"
     identifier = "release_notes/Chef Habitat"
     parent = "release_notes"
-    weight = 15
+    weight = 30
 +++
