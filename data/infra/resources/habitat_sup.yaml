@@ -61,6 +61,8 @@ actions_list:
       resource, ensures that the appropriate versions of the `core/hab-sup` and `core/hab-launcher`
       packages are installed using `habitat_package`, and then drops off the appropriate
       init system definitions and manages the service. (default)
+  :stop:
+    markdown:
 properties_list:
 - property: auth_token
   ruby_type: String
