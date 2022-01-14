@@ -1,0 +1,22 @@
+---
+short_name: SshPrivateKey
+full_name: Chef/Security/SshPrivateKey
+department: Chef/Security
+description: Do not include plain text SSH private keys in your cookbook code. This
+  sensitive data should be fetched from secrets management systems so that secrets
+  are not uploaded in plain text to the Chef Infra Server or committed to source control
+  systems.
+autocorrection: false
+target_chef_version: All Versions
+examples: |2-
+
+  #### incorrect
+
+  ```ruby
+  file '/Users/bob_bobberson/.ssh/id_rsa' do
+    content '-----BEGIN RSA PRIVATE KEY-----\n...\n-----END RSA PRIVATE KEY-----'
+    mode '600'
+  end
+  ```
+version_added: 
+enabled: true
