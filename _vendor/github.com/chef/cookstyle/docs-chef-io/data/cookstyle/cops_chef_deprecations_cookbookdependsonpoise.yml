@@ -13,6 +13,7 @@ examples: |2-
   ```ruby
   depends 'poise'
   depends 'poise-service'
+  depends 'poise-hoist'
   ```
 version_added: 5.1.0
 enabled: true
