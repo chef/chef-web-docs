@@ -2,7 +2,7 @@
 short_name: UseCreateIfMissing
 full_name: Chef/RedundantCode/UseCreateIfMissing
 department: Chef/RedundantCode
-description: Use the :create_if_missing action instead of not_if with a ::File.exist(FOO)
+description: Use the `:create_if_missing` action instead of `not_if` with a `::File.exist(FOO)`
   check.
 autocorrection: true
 target_chef_version: All Versions
@@ -18,6 +18,15 @@ examples: |2-
     mode '0644'
     not_if { ::File.exists?('/logs/foo/error.log') }
   end
+
+  remote_file 'Download file' do
+    path '/foo/bar'
+    source 'https://foo.com/bar'
+    owner 'root'
+    group 'root'
+    mode '0644'
+    not_if { ::File.exist?('/foo/bar') }
+  end
   ```
 
   #### correct
@@ -25,6 +34,15 @@ examples: |2-
   ```ruby
   cookbook_file '/logs/foo/error.log' do
     source 'error.log'
+    owner 'root'
+    group 'root'
+    mode '0644'
+    action :create_if_missing
+  end
+
+  remote_file 'Download file' do
+    path '/foo/bar'
+    source 'https://foo.com/bar'
     owner 'root'
     group 'root'
     mode '0644'
