@@ -3,7 +3,7 @@ module github.com/chef/chef-web-docs
 go 1.16
 
 require (
-	github.com/chef/automate/components/docs-chef-io v0.0.0-20220105101510-221d6dad9625 // indirect
+	github.com/chef/automate/components/docs-chef-io v0.0.0-20220113150104-ec467b6c79e0 // indirect
 	github.com/chef/chef-server/docs-chef-io v0.0.0-20211227114026-c63a2181433f // indirect
 	github.com/chef/chef-workstation/docs-chef-io v0.0.0-20220106214841-0c54bad6582c // indirect
 	github.com/chef/cookstyle v7.29.0+incompatible // indirect
