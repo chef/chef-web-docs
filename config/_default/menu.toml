@@ -838,6 +838,12 @@ identifier = "chef_workstation"
       url = "/workstation/cookstyle/cops/#chefredundantcode"
 
       [[workstation]]
+      title = "Security Cops"
+      identifier = "chef_workstation/chef_workstation_tools/cookstyle/Cops Chef/Security"
+      parent = "chef_workstation/chef_workstation_tools/cookstyle"
+      url = "/workstation/cookstyle/cops/#chefsecurity"
+
+      [[workstation]]
       title = "Sharing Cops"
       identifier = "chef_workstation/chef_workstation_tools/cookstyle/Cops Chef/Sharing"
       parent = "chef_workstation/chef_workstation_tools/cookstyle"
