@@ -4,6 +4,8 @@ draft = false
 
 release_notes = "inspec-aws"
 product = ["inspec"]
+layout = "release_notes"
+toc_layout = "release_notes_toc"
 
 [menu]
   [menu.release_notes]
