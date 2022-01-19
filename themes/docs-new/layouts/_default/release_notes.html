@@ -52,6 +52,8 @@
             {{ $fullName := "" }}
             {{ if (eq $product "automate") }}
               {{ $fullName = "Chef Automate" }}
+            {{ else if (eq $product "chef-backend")}}
+              {{ $fullName = "Chef Backend" }}
             {{ else if (eq $product "inspec-alicloud") }}
               {{ $fullName = "Alibaba Cloud Resource" }}
             {{ else if (eq $product "inspec-aws") }}
@@ -77,6 +79,7 @@
             {{ end }}
 
             <h2 id="{{ $version }}">{{ $fullName }} {{ $version }}</h2>
+            <a href="{{ $mdUrl }}" class="display-none">{{ $mdUrl }}</a>
 
             {{ if eq $product "automate"}}
               <p><i>Released on {{ time.Format "January 2, 2006" .release_date }}</i></p>
@@ -89,7 +92,6 @@
             {{ if eq $remoteResponse nil }}
               <p>This release does not have any release notes.</p>
             {{ else }}
-              <a href="{{ $mdUrl }}" style="display:none;">{{ $mdUrl }}</a>
               {{ $content := $remoteResponse.Content }}
               {{ $content = replaceRE `\n#### ` "\n##### " $content }}
               {{ $content = replaceRE `\n### ` "\n#### " $content }}
