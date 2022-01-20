@@ -50,7 +50,13 @@ Windows hosts:
 
 ### Upgrading Multiple Hosts with Knife
 
-Using the `knife ssh` subcommand is one way to do this.
+The `knife ssh` and `knife winrm` commands in Chef Workstation can be used to execute the install script on multiple hosts at once.
+
+Linux, macOS, and unix-like hosts:
+
+```bash
+knife ssh 'name:*' 'curl -L https://chef.io/chef/install.sh | sudo bash'
+```
 
 ## Upgrade via Cookbook
 
