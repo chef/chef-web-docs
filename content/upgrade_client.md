@@ -18,12 +18,37 @@ The following sections describe the upgrade process for Chef Infra Client.
 
 ## Upgrade via Command Line
 
-To upgrade Chef Infra Client on a node via the command line, run the
-following command on each node to be upgraded:
+To upgrade Chef Infra Client on a node via the command line, run the install script to install the latest Chef Infra Client release:
+
+Linux, macOS, and unix-like hosts:
 
 ```bash
 curl -L https://chef.io/chef/install.sh | sudo bash
 ```
+
+Windows hosts:
+
+```powershell
+. { iwr -useb https://omnitruck.chef.io/install.ps1 } | iex; install
+```
+
+### Specifying the Version to Install
+
+The install script accepts arguments to allow installing specific versions of Chef Infra Client on systems.
+
+Linux, macOS, and unix-like hosts:
+
+```bash
+curl -L https://chef.io/chef/install.sh | sudo bash -s -- -v 17.9.26
+```
+
+Windows hosts:
+
+```powershell
+. { iwr -useb https://omnitruck.chef.io/install.ps1 } | iex; install -version 17.9.26
+```
+
+### Upgrading Multiple Hosts with Knife
 
 Using the `knife ssh` subcommand is one way to do this.
 
