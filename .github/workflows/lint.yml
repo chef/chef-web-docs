@@ -36,9 +36,9 @@ jobs:
           files: '*.md'
           root: './content'
           github_token: "${{ secrets.GITHUB_TOKEN }}"
-          incremental_files_only: false
+          incremental_files_only: true
           inline: warning
-          strict: false
+          strict: true
   markdownlint:
     runs-on: ubuntu-latest
     steps:
@@ -46,7 +46,7 @@ jobs:
         with:
           token: "${{ secrets.GITHUB_TOKEN }}"
       - uses: DavidAnson/markdownlint-cli2-action@v4
-        with: 
+        with:
           globs: |
             *.md
             content/**/*.md
@@ -54,4 +54,4 @@ jobs:
             !content/resources/_index.md
             !content/habitat/
             !infra_resources_readme.md
- 
+
