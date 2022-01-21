@@ -5,26 +5,34 @@
   "language": "en_US",
   "dictionaries": [
     "chef",
-    "docs"
+    "docs",
+    "chef-local",
+    "docs-local"
   ],
   "dictionaryDefinitions": [
     {
       "name": "chef",
-      "file": "./chef_dictionary.txt",
+      "path": "./chef.txt",
       "description": "Custom Chef Dictionary"
     },
     {
       "name": "docs",
-      "file": "./docs_dictionary.txt",
+      "path": "./docs.txt",
       "description": "Custom Docs Dictionary"
+    },
+    {
+      "name": "chef-local",
+      "path": "../chef_dictionary/chef.txt",
+      "description": "Words used in this project",
+      "addWords": true
+    },
+    {
+      "name": "docs-local",
+      "path": "../chef_dictionary/docs.txt",
+      "description": "Words used in this project",
+      "addWords": true
     }
   ],
-  // words - list of words to be always considered correct
-  // "words": [
-  // ],
-  // flagWords - list of words to be always considered incorrect
-  // This is useful for offensive words and common spelling errors.
-  // For example "hte" should be "the"
   "flagWords": [
     "hte"
   ],

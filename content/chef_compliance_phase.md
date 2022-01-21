@@ -15,7 +15,7 @@ draft = false
 
 Chef Infra Client's Compliance Phase lets you automatically execute compliance audits and view the results as part of any Chef Infra Client run. The Compliance Phase of the Chef Infra Client run replaces the legacy [audit cookbook](https://supermarket.chef.io/cookbooks/audit) and works with your existing audit cookbook attributes, and you can also set it up for new cookbooks. This additional phase gives you the latest compliance capabilities without having to manage cookbook dependencies or juggle versions during Chef Infra Client updates.
 
-Existing audit cookbook users can migrate to the new Compliance Phase by removing the audit cookbook from their run_list and setting the `node['audit']['compliance_phase']` attribute to `true`.
+Existing audit cookbook users can migrate to the new Compliance Phase by removing the audit cookbook from their run_list and setting the `default['audit']['compliance_phase']` attribute to `true`.
 
 The Compliance Phase replaces the `audit cookbook` by integrating Chef InSpec compliance checks into the [Chef Infra Client run]({{< relref "chef_client_overview.md" >}})
 The Compliance Phase is designed to run on any node in your system that is set up--or ["bootstrapped"]({{< relref "install_bootstrap" >}})--for a `chef-client` run.
