@@ -100,7 +100,7 @@ The following table lists the commercially-supported platforms and versions for 
 <tr>
 <td>Solaris</td>
 <td><code>sparc</code>, <code>i86pc</code></td>
-<td><code>11.3</code>, <code>11.4</code></td>
+<td><code>11.3 (16.17.4 and later only)</code>, <code>11.4</code></td>
 </tr>
 <tr>
 <td>SUSE Enterprise Linux Server</td>

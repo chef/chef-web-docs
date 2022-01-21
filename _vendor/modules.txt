@@ -8,7 +8,7 @@
 # github.com/chef/cookstyle/docs-chef-io v0.0.0-20220118174356-f5acdd8bcda6
 # github.com/inspec/inspec-aws/docs-chef-io v0.0.0-20220107215007-d379e6b35b20
 # github.com/inspec/inspec-azure/docs-chef-io v0.0.0-20220107214957-9a289bb02261
-# github.com/chef/supermarket/docs-chef-io v0.0.0-20211230181343-279174cc274b
+# github.com/chef/supermarket/docs-chef-io v0.0.0-20220117164111-ab75fec53a42
 # github.com/cowboy/jquery-hashchange v0.0.0-20100902193700-0310f3847f90
 # github.com/swiftype/swiftype-autocomplete-jquery v0.0.0-20190222215504-a90008d64b30
 # github.com/swiftype/swiftype-search-jquery v1.1.0
