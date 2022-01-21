@@ -1,0 +1,37 @@
+---
+short_name: InvalidNotificationResource
+full_name: Chef/Correctness/InvalidNotificationResource
+department: Chef/Correctness
+description: The resource to notify when calling `notifies` or `subscribes` must be
+  a string.
+autocorrection: false
+target_chef_version: All Versions
+examples: |2-
+
+  #### incorrect
+
+  ```ruby
+
+  template '/etc/www/configures-apache.conf' do
+    notifies :restart, service['apache'], :immediately
+  end
+
+  template '/etc/www/configures-apache.conf' do
+    notifies :restart, service[apache], :immediately
+  end
+  ```
+
+  #### correct
+
+  ```ruby
+
+  template '/etc/www/configures-apache.conf' do
+    notifies :restart, 'service[apache]', :immediately
+  end
+  ```
+version_added: '7.28'
+enabled: true
+excluded_file_paths:
+- "**/attributes/*.rb"
+- "**/metadata.rb"
+- "**/Berksfile"

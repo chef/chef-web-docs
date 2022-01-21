@@ -126,6 +126,10 @@
   source = "static"
   target = "static"
 
+[[imports.mounts]]
+  source = "assets"
+  target = "assets"
+
 [[imports]]
   disable = false
   ignoreConfig = false
@@ -134,6 +138,11 @@
 [[imports.mounts]]
   source = "static"
   target = "static"
+
+
+[[imports.mounts]]
+  source = "assets"
+  target = "assets"
 
 ## Supermarket Docs
 
@@ -151,10 +160,6 @@
 [[mounts]]
   source = "themes/docs-new/node_modules/jquery/dist"
   target = "assets/js/vendor/jquery"
-
-[[mounts]]
-  source = "themes/docs-new/node_modules/showdown/dist"
-  target = "assets/js/vendor/showdown"
 
 [[mounts]]
   source = "themes/docs-new/node_modules/what-input/dist"

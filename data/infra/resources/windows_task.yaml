@@ -50,20 +50,21 @@ syntax_full_properties_list:
   `stop_if_going_on_batteries`, `task_name`, and `user` are the properties available
   to this resource."
 actions_list:
-  :create:
-    markdown: Creates a task, or updates an existing task if any property has changed.
-  :delete:
-    markdown: Deletes a task.
-  :disable:
-    markdown: Disables a task.
-  :enable:
-    markdown: Enables a task.
-  :end:
-    markdown: Ends a task.
   :nothing:
     shortcode: resources_common_actions_nothing.md
+  :create:
+    markdown: Creates a scheduled task, or updates an existing task if any property
+      has changed. (default)
+  :delete:
+    markdown: Deletes a scheduled task.
   :run:
-    markdown: Runs a task.
+    markdown: Runs a scheduled task.
+  :end:
+    markdown: Ends a scheduled task.
+  :enable:
+    markdown: Enables a scheduled task.
+  :disable:
+    markdown: Disables a scheduled task.
 properties_list:
 - property: backup
   ruby_type: Integer, false
@@ -87,13 +88,13 @@ properties_list:
   ruby_type: String, Integer
   required: false
   description_list:
-  - markdown: "The day(s) on which the task runs.\n\n-   Use with frequency `:monthly`\
-      \ and `:weekly` tasks,\n-   Valid values with frequency `:weekly` are `MON-SUN`\
-      \ or `\\*`.\n-   Valid values with frequency `:monthly` are `1-31` or `MON`\
-      \ to\n    `SUN` and `LASTDAY`.\n    -   Use `MON-SUN` or `LASTDAY` if you are\
-      \ setting\n        `frequency_modifier` as `\"FIRST, SECOND, THIRD etc.\"` else\n\
-      \        use `1-31`.\n    -   Multiple days should be comma separated. e.g `\"\
-      1, 2, 3\"` or\n        `\"MON, WEN, FRI\"`."
+  - markdown: |-
+      The day(s) on which the task runs.
+        * Use this property when setting `frequency` to `:monthly` or `:weekly`.
+        * Valid values with frequency `:weekly` are `MON`-`SUN` or `*`.
+        * Valid values with frequency `:monthly` are `1-31`, `MON`-`SUN`, and `LASTDAY`.
+        * Use `MON`-`SUN` or `LASTDAY` if you are setting `frequency_modifier` as "FIRST, SECOND, THIRD etc." else use 1-31.
+        * Multiple days should be comma separated. e.g `1, 2, 3` or `MON, WED, FRI`.
 - property: description
   ruby_type: String
   required: false
@@ -126,24 +127,24 @@ properties_list:
   allowed_values: ":daily, :hourly, :minute, :monthly, :none, :on_idle, :on_logon,
     :once, :onstart, :weekly"
   description_list:
-  - markdown: "-   Frequency with which to run the task.\n-   This is a mandatory\
-      \ property in Chef 14.1\n-   Valid values: `:minute`, `:hourly`, `:daily`, `:weekly`,\n\
-      \    `:monthly`, `:none`, `:once`, `:on_logon`, `:onstart`,\n    `:on_idle`.\n\
-      -   The `:once` value requires the `start_time` property."
+  - markdown: The frequency with which to run the task.
+  - note:
+      markdown: This property is required in Chef Infra Client 14.1 or later.
+  - note:
+      markdown: The `:once` value requires the `start_time` property to be set.
 - property: frequency_modifier
   ruby_type: Integer, String
   required: false
   default_value: '1'
   description_list:
-  - markdown: "-   For frequency `:minute` valid values are 1 to 1439\n-   For frequency\
-      \ `:hourly` valid values are 1 to 23\n-   For frequency `:daily` valid values\
-      \ are 1 to 365\n-   For frequency `:weekly` valid values are 1 to 52\n-   \n\
-      \n    For frequency `:monthly` valid values are `('FIRST', 'SECOND', 'THIRD',\
-      \ 'FOURTH', 'LAST')` OR `1-12`.\n\n    :   -   e.g. If user want to run the\
-      \ task on\n            `second week of the month` use `frequency_modifier`\n\
-      \            value as `SECOND`. Multiple values for weeks of the\n         \
-      \   month should be comma separated e.g.\n            `\"FIRST, THIRD, LAST\"\
-      `.\n        -   To run task every (n) months user values '1-12'."
+  - markdown: |-
+      * For frequency `:minute` valid values are 1 to 1439
+      * For frequency `:hourly` valid values are 1 to 23
+      * For frequency `:daily` valid values are 1 to 365
+      * For frequency `:weekly` valid values are 1 to 52
+      * For frequency `:monthly` valid values are `('FIRST', 'SECOND', 'THIRD', 'FOURTH', 'LAST')` OR `1-12`.
+        * e.g. If user want to run the task on `second week of the month` use `frequency_modifier` value as `SECOND`. Multiple values for weeks of the month should be comma separated e.g. `"FIRST, THIRD, LAST"`.
+        * To run task every (n) months use values 1 to 12.
 - property: idle_time
   ruby_type: Integer
   required: false

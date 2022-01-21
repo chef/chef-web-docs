@@ -1,0 +1,36 @@
+Chef Workstation generates the `cookbooks` directory as part of your Chef Infra repository, the `chef-repo`.
+
+Generate a `chef-repo/cookbooks` directory with the command:
+
+```bash
+chef generate template PATH_TO_COOKBOOKS COOKBOOK_NAME
+```
+
+For example, this command generates a `custom_web` cookbook:
+
+```bash
+chef generate cookbook cookbooks/custom_web
+```
+
+The `custom_web` cookbook directory has the structure:
+
+```text
+├ cookbooks
+ ├ custom_web
+ | ├ .delivery
+ | | └ project.toml
+ | ├ recipes
+ | | └ default.rb
+ | ├ test
+ | | └ integration
+ | | | └ default
+ | | | | └ default_test.rb
+ | ├ .gitignore
+ | ├ CHANGELOG.md
+ | ├ chefignore
+ | ├ kitchen.yml
+ | ├ LICENSE
+ | ├ metadata.rb
+ | ├ Policyfile.rb
+ | └ README.md
+```

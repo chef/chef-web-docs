@@ -3,18 +3,21 @@
   "version": "0.2",
   // language - current active spelling language
   "language": "en_US",
-  "dictionaries": ["chef", "docs"],
+  "dictionaries": [
+    "chef",
+    "docs"
+  ],
   "dictionaryDefinitions": [
     {
-        "name": "chef",
-        "file": "./chef_dictionary.txt",
-        "description": "Custom Chef Dictionary"
+      "name": "chef",
+      "file": "./chef_dictionary.txt",
+      "description": "Custom Chef Dictionary"
     },
     {
       "name": "docs",
       "file": "./docs_dictionary.txt",
       "description": "Custom Docs Dictionary"
-  }
+    }
   ],
   // words - list of words to be always considered correct
   // "words": [
@@ -36,5 +39,11 @@
     "/'d\\b/",
     "/^\\s*```[\\s\\S]*?^\\s*```/gm",
     "{{(.+)(?=}})"
+  ],
+  "words": [
+    "ctl",
+    "gz",
+    "markdownlint",
+    "Policyfiles"
   ]
 }

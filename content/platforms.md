@@ -85,7 +85,7 @@ The following table lists the commercially-supported platforms and versions for 
 <tr>
 <td>macOS</td>
 <td><code>x86_64</code>, <code>aarch64</code> (M1 processors)</td>
-<td><code>10.14</code>, <code>10.15</code>, <code>11.x</code>, <code>12.x</code></td>
+<td><code>10.15</code>, <code>11.x</code>, <code>12.x</code></td>
 </tr>
 <tr>
 <td>Oracle Enterprise Linux</td>
@@ -100,7 +100,7 @@ The following table lists the commercially-supported platforms and versions for 
 <tr>
 <td>Solaris</td>
 <td><code>sparc</code>, <code>i86pc</code></td>
-<td><code>11.3</code>, <code>11.4</code></td>
+<td><code>11.3 (16.17.4 and later only)</code>, <code>11.4</code></td>
 </tr>
 <tr>
 <td>SUSE Enterprise Linux Server</td>
@@ -274,7 +274,7 @@ versions for the Chef Workstation:
 <tr>
 <td>macOS</td>
 <td><code>x86_64</code></td>
-<td><code>10.14</code>, <code>10.15</code>, <code>11.x</code>, <code>12.x</code></td>
+<td><code>10.15</code>, <code>11.x</code>, <code>12.x</code></td>
 </tr>
 <tr>
 <td>Debian</td>
@@ -332,7 +332,7 @@ The following table lists the commercially-supported platforms and versions for 
 <tr>
 <td>macOS</td>
 <td><code>x86_64</code>, <code>aarch64</code> (M1 processors)</td>
-<td><code>10.14</code>, <code>10.15</code>, <code>11.x</code>, <code>12.x</code></td>
+<td><code>10.15</code>, <code>11.x</code>, <code>12.x</code></td>
 </tr>
 <tr>
 <td>Oracle Enterprise Linux</td>
@@ -502,7 +502,7 @@ according to those vendors' terms:
 </tr>
 <tr>
 <td>Apple macOS</td>
-<td>Apple generally supports the last three macOS releases, for example: 10.14, 10.15, and 11.x. Apple does not officially publish EOL dates.</td>
+<td>Apple generally supports the last three macOS releases, for example: 10.15, 11.x, and 12.x. Apple does not officially publish EOL dates.</td>
 </tr>
 <tr>
 <td>Debian</td>
@@ -574,6 +574,11 @@ that platform and version.
 <td>Nov 13th, 2020</td>
 </tr>
 <tr>
+<td>Apple macOS 10.14</td>
+<td>Nov 12th, 2021</td>
+<td>Nov 12th, 2021</td>
+</tr>
+<tr>
 <td>Debian 7 (Wheezy)</td>
 <td>May 31st, 2018</td>
 <td>May 31st, 2018</td>
@@ -584,6 +589,11 @@ that platform and version.
 <td>June 6th, 2020</td>
 </tr>
 <tr>
+<td>Debian 9 (Stretch)</td>
+<td>June 30th, 2022</td>
+<td>June 30th, 2022</td>
+</tr>
+<tr>
 <td>Enterprise Linux 5 (covers Red Hat Enterprise Linux, CentOS)</td>
 <td>April 30, 2017</td>
 <td>December 31, 2017</td>
@@ -591,7 +601,12 @@ that platform and version.
 <tr>
 <td>Enterprise Linux 6 (covers Red Hat Enterprise Linux, CentOS)</td>
 <td>November 30, 2020</td>
-<td>November 30, 2020</td>
+<td>No current planned EOL date</td>
+</tr>
+<tr>
+<td>Enterprise Linux 7 (covers Red Hat Enterprise Linux, CentOS)</td>
+<td>June 30, 2024</td>
+<td>June 30, 2024</td>
 </tr>
 <tr>
 <td>FreeBSD 10-STABLE</td>

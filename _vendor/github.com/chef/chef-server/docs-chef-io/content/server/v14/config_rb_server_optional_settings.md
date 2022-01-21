@@ -836,7 +836,7 @@ Chef Infra Server versions earlier than 14.5 configured with `nginx['enable_non_
     ports greater than `1024` or that the local system is otherwise allowed to bind to privileged ports
     with the user `user['username']`.
 
-    **New in Chef Infra Server 14.6**
+    **New in Chef Infra Server 14.10*
 
 ### oc_bifrost
 
@@ -971,6 +971,11 @@ This configuration file has the following settings for `oc_chef_authz`:
 
 :   The amount of time (in milliseconds) to wait for a connection to be
     established. Default value: `'[{connect_timeout, 5000}]'`.
+
+`oc_chef_authz['max_connection_request_limit']`
+
+:   The maximum number of requests allowed per connection.
+    Default value: `100`.
 
 ### oc-chef-pedant
 
@@ -1307,6 +1312,11 @@ This configuration file has the following settings for `opscode-erchef`:
 
 :   Default value: `256`.
 
+`opscode_erchef['enable_ibrowse_traces']`
+
+:   Use to configure ibrowse logging for the `opscode_erchef` service.
+    Default value: `false`.
+
 `opscode_erchef["include_version_in_status"]`
 
 :   Set to `true` to include `server_version` as part of the `/_status` endpoint.
@@ -1445,6 +1455,27 @@ This configuration file has the following settings for `opscode-erchef`:
 `opscode_erchef['vip']`
 
 :   The virtual IP address. Default value: `127.0.0.1`.
+
+`opscode_erchef['cbv_cache_enabled']`
+
+:   Enable cookbook version response caching by setting this to `true`. If you frequently see
+    very long response times from `cookbook_versions` when under load, this is worth enabling.
+    Enabling this makes it possible for a client to receive stale results. When a cookbook is updated
+    in place (without incrementing the version), and the old response has not expired from the cache,
+    the Infra Server will give the old response to the client. Subsequent client runs will receive the
+    updated response. Default value: `false`.
+
+`opscode_erchef['cbv_cache_item_ttl']`
+
+:   The minimum time in milliseconds that Chef Infra Server will keep any given cookbook version response in the cache when
+    when `cbv_cache_enabled` is enabled.
+    Default value: `30000`.
+{{< note >}}
+
+Be careful if increasing this number - requests for a given set of cookbook versions will be stale if the resolved cookbook versions are updated before the cache entry times out. This will
+not occur if you increment the version of a cookbook with every cookbook update, which is the recommended approach to updating cookbooks.
+
+{{< /note >}}
 
 ### Elasticsearch
 

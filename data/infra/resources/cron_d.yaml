@@ -5,18 +5,12 @@ resources_common_notification: true
 resources_common_properties: true
 resource: cron_d
 resource_description_list:
-- markdown: 'Use the **cron_d** resource to manage cron job files in the `/etc/cron.d`
-
-    directory.'
+- markdown: Use the **cron_d** resource to manage cron job files in the `/etc/cron.d`
+    directory.
 - warning:
-    markdown: 'Chef Infra Client also ships with the **cron** resource for managing
-      the
-
-      monolithic `/etc/crontab` file on platforms that lack cron.d support.
-
-      See the [cron resource](/resources/cron/) for information on using
-
-      that resource.'
+    markdown: Chef Infra Client also ships with the **cron** resource for managing
+      the monolithic `/etc/crontab` file on platforms that lack cron.d support. See
+      the [cron resource](/resources/cron/) for information on using that resource.
 resource_new_in: '14.4'
 syntax_description: "A **cron_d** resource block manages cron.d files. For example,\
   \ to get a\nweekly cookbook report from the Chef Supermarket:\n\n```ruby\ncron_d\

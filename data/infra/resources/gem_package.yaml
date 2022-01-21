@@ -39,20 +39,20 @@ syntax_full_properties_list:
 - "`clear_sources`, `gem_binary`, `include_default_source`, `options`, `package_name`,
   `source`, `timeout`, and `version` are the properties available to this resource."
 actions_list:
-  :install:
-    markdown: Default. Install a package. If a version is specified, install the specified
-      version of the package.
   :nothing:
     shortcode: resources_common_actions_nothing.md
+  :install:
+    markdown: Install a package. If a version is specified, install the specified
+      version of the package. (default)
+  :upgrade:
+    markdown: Install a package and/or ensure that a package is the latest version.
+  :remove:
+    markdown: Remove a package.
   :purge:
     markdown: Purge a package. This action typically removes the configuration files
       as well as the package.
   :reconfig:
     markdown: Reconfigure a package. This action requires a response file.
-  :remove:
-    markdown: Remove a package.
-  :upgrade:
-    markdown: Install a package and/or ensure that a package is the latest version.
 properties_list:
 - property: clear_sources
   ruby_type: true, false

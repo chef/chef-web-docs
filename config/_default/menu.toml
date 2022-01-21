@@ -23,7 +23,7 @@ weight = 20
 [[main]]
 title = "Blog"
 identifier = "blog"
-url = "https://blog.chef.io/"
+url = "https://www.chef.io/blog"
 weight = 30
 
 [[main]]
@@ -41,7 +41,7 @@ weight = 50
 [[main]]
 title = "Downloads"
 identifier = "downloads"
-url = "https://downloads.chef.io/"
+url = "https://www.chef.io/downloads"
 weight = 60
 
 ####
@@ -116,6 +116,16 @@ identifier = "automate"
   weight = 40
   identifier = "automate/configuring_automate"
   parent = "automate"
+
+    [[automate]]
+    title = "PostgreSQL"
+    identifier = "automate/configuring_automate/postgresql"
+    parent = "automate/configuring_automate"
+
+    [[automate]]
+    title = "Elasticsearch"
+    identifier = "automate/configuring_automate/elasticsearch"
+    parent = "automate/configuring_automate"
 
   [[automate]]
   name = "Applications"
@@ -327,13 +337,13 @@ identifier = "server"
     weight = 70
 
   [[server]]
-  title = "Planning"
+  title = "Plan"
   identifier = "server/planning"
   parent = "server"
   weight = 20
 
   [[server]]
-  title = "Installation"
+  title = "Install"
   identifier = "server/installation"
   parent = "server"
   weight = 30
@@ -371,11 +381,24 @@ identifier = "server"
   parent = "server"
   weight = 50
 
+  # Turn these on when the server docs are ready
+  #   [[server]]
+  #   title = "Upgrade Services"
+  #   identifier = "server/manage/upgrade_services"
+  #   parent = "server/manage"
+  #   weight = 100
+
+  # [[server]]
+  # title = "Upgrade"
+  # identifier = "server/upgrade"
+  # parent = "server"
+  # weight = 60
+
   [[server]]
   title = "Reference"
   identifier = "server/reference"
   parent = "server"
-  weight = 60
+  weight = 70
 
 ####
 # End Chef Infra Server Menu
@@ -463,13 +486,6 @@ identifier = "chef_infra"
     weight = 20
 
     [[infra]]
-    title = "Custom Resources DSL"
-    identifier = "chef_infra/reference/dsl_custom_resource.md Custom Resources Commands"
-    parent = "chef_infra/reference"
-    url = "/dsl_custom_resource/"
-    weight = 30
-
-    [[infra]]
     title = "Handler DSL"
     identifier = "chef_infra/reference/dsl_handler.md Handler Commands"
     parent = "chef_infra/reference"
@@ -547,6 +563,12 @@ identifier = "chef_infra"
   identifier = "chef_infra/resources"
   parent = "chef_infra"
   weight = 140
+
+  [[infra]]
+  title = "Custom Resources"
+  identifier = "chef_infra/resources/custom_resources"
+  parent = "chef_infra/resources"
+  weight = 145
 
   [[infra]]
   title = "Extension APIs"
@@ -816,6 +838,12 @@ identifier = "chef_workstation"
       url = "/workstation/cookstyle/cops/#chefredundantcode"
 
       [[workstation]]
+      title = "Security Cops"
+      identifier = "chef_workstation/chef_workstation_tools/cookstyle/Cops Chef/Security"
+      parent = "chef_workstation/chef_workstation_tools/cookstyle"
+      url = "/workstation/cookstyle/cops/#chefsecurity"
+
+      [[workstation]]
       title = "Sharing Cops"
       identifier = "chef_workstation/chef_workstation_tools/cookstyle/Cops Chef/Sharing"
       parent = "chef_workstation/chef_workstation_tools/cookstyle"
@@ -946,7 +974,7 @@ weight = 10
 [[extra]]
 title = "Downloads"
 identifier = "get chef"
-url = "https://downloads.chef.io/"
+url = "https://www.chef.io/downloads"
 weight = 100
 
 [[extra]]
