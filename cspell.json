@@ -10,15 +10,21 @@
   "dictionaryDefinitions": [
     {
       "name": "chef",
-      "path": "./chef.txt",
+      "file": "./chef_dictionary.txt",
       "description": "Custom Chef Dictionary"
     },
     {
       "name": "docs",
-      "path": "./docs.txt",
+      "file": "./docs_dictionary.txt",
       "description": "Custom Docs Dictionary"
     }
   ],
+  // words - list of words to be always considered correct
+  // "words": [
+  // ],
+  // flagWords - list of words to be always considered incorrect
+  // This is useful for offensive words and common spelling errors.
+  // For example "hte" should be "the"
   "flagWords": [
     "hte"
   ],
@@ -35,5 +41,9 @@
     "{{(.+)(?=}})"
   ],
   "words": [
+    "ctl",
+    "gz",
+    "markdownlint",
+    "Policyfiles"
   ]
 }
