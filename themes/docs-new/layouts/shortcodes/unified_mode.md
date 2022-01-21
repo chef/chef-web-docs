@@ -1,6 +1,4 @@
-Unified mode combines the compile and converge stages of the Chef Infra Client run into one phase. In unified mode, Chef Infra Client compiles and converges a custom resource in one pass and in the order that the code is compiled, from the beginning to the end.
-
-Unified mode is only available on custom resources. Chef Infra Client processes all other resources with separate compile and converge phases.
+Unified mode combines the compile and converge stages of the Chef Infra Client run into one phase. When a resource has unified mode enabled, the Chef Infra Client compiles and converges that resource's action block in one pass and in the order that the code inside that block is compiled, from the beginning to the end.
 
 In Chef Infra Client 17 (April 2021) and some earlier versions, the default behavior is `unified_mode false`. Enable unified mode on a custom resource with `unified_mode true`. Chef Infra Client displays a deprecation message with `unified_mode false`.
 
