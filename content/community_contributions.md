@@ -78,7 +78,7 @@ For additional support about Chef products, including documentation, learning, a
 
 {{< warning >}}
 
-If you require a response from Chef per the terms of a support level agreement (SLAT), please contact [Chef Support](https://www.chef.io/support) directly.
+If you require a response from Chef per the terms of a support level agreement (SLA), please contact [Chef Support](https://www.chef.io/support) directly.
 
 {{< /warning >}}
 
