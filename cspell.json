@@ -41,9 +41,5 @@
     "{{(.+)(?=}})"
   ],
   "words": [
-    "ctl",
-    "gz",
-    "markdownlint",
-    "Policyfiles"
   ]
 }
