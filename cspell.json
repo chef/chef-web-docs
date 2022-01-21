@@ -5,9 +5,7 @@
   "language": "en_US",
   "dictionaries": [
     "chef",
-    "docs",
-    "chef-local",
-    "docs-local"
+    "docs"
   ],
   "dictionaryDefinitions": [
     {
@@ -19,18 +17,6 @@
       "name": "docs",
       "path": "./docs.txt",
       "description": "Custom Docs Dictionary"
-    },
-    {
-      "name": "chef-local",
-      "path": "../chef_dictionary/chef.txt",
-      "description": "Words used in this project",
-      "addWords": true
-    },
-    {
-      "name": "docs-local",
-      "path": "../chef_dictionary/docs.txt",
-      "description": "Words used in this project",
-      "addWords": true
     }
   ],
   "flagWords": [
