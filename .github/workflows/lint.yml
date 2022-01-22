@@ -36,9 +36,9 @@ jobs:
           files: '*.md'
           root: './content'
           github_token: "${{ secrets.GITHUB_TOKEN }}"
-          incremental_files_only: false
-          inline: warning
-          strict: false
+          incremental_files_only: true
+          inline: error
+          strict: true
   markdownlint:
     runs-on: ubuntu-latest
     steps:
