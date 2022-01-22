@@ -36,7 +36,7 @@ jobs:
           files: '*.md'
           root: './content'
           github_token: "${{ secrets.GITHUB_TOKEN }}"
-          incremental_files_only: true
+          incremental_files_only: false
           inline: error
           strict: true
   markdownlint:
