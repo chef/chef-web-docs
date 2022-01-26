@@ -435,6 +435,30 @@ identifier = "server"
   parent = "server"
   weight = 50
 
+  [[server]]
+  title = "Users"
+  identifier = "server/users"
+  parent = "server"
+  weight = 50
+
+    [[server]]
+    title = "Authentication"
+    identifier = "server/users/auth.md"
+    parent = "server/users"
+    weight = 10
+
+    [[server]]
+    title = "Organizations & Groups"
+    identifier = "server/users/server_orgs.md"
+    parent = "server/users"
+    weight = 20
+
+    [[server]]
+    title = "Users"
+    identifier = "server/users/server_users.md"
+    parent = "server/users"
+    weight = 30
+
   # Turn these on when the server docs are ready
   #   [[server]]
   #   title = "Upgrade Services"
