@@ -5,7 +5,7 @@
     "@fortawesome/fontawesome-free": "^5.15.4",
     "foundation-sites": "^6.7.4",
     "jquery": "^3.6.0",
-    "redoc": "^2.0.0-rc.59",
+    "redoc": "^2.0.0-rc.62",
     "what-input": "^5.2.10"
   }
 }
