@@ -128,50 +128,14 @@ identifier = "automate"
     parent = "automate/configuring_automate"
 
   [[automate]]
-  name = "Applications"
-  weight = 50
-  identifier = "automate/applications"
-  parent = "automate"
-
-  [[automate]]
-  name = "Authorization"
-  weight = 60
-  identifier = "automate/authorization"
-  parent = "automate"
-
-  [[automate]]
-  name = "Compliance"
-  weight = 70
-  identifier = "automate/compliance"
-  parent = "automate"
-
-  [[automate]]
-  name = "Infrastructure"
-  weight = 80
-  identifier = "automate/infrastructure"
-  parent = "automate"
-
-  [[automate]]
-  name = "Integrations"
-  weight = 90
-  identifier = "automate/integrations"
-  parent = "automate"
-
-    [[automate]]
-    name = "ServiceNow"
-    weight = 20
-    identifier = "automate/integrations/servicenow"
-    parent = "automate/integrations"
-
-  [[automate]]
   name = "Settings"
-  weight = 100
+  weight = 50
   identifier = "automate/settings"
   parent = "automate"
 
   [[automate]]
-  name = "User Management"
-  weight = 90
+  name = "Users"
+  weight = 60
   identifier = "automate/users"
   parent = "automate"
 
@@ -180,6 +144,12 @@ identifier = "automate"
     weight = 10
     identifier = "automate/users/api_tokens.md"
     parent = "automate/users"
+
+    [[automate]]
+    name = "Authorization"
+    weight = 60
+    identifier = "automate/users/authorization"
+    parent = "automate"
 
     [[automate]]
     name = "LDAP"
@@ -191,24 +161,6 @@ identifier = "automate"
     name = "SAML"
     weight = 30
     identifier = "automate/users/saml.md"
-    parent = "automate/users"
-
-    [[automate]]
-    name = "IAM Overview"
-    weight = 40
-    identifier = "automate/users/iam_v2_overview.md"
-    parent = "automate/users"
-
-    [[automate]]
-    name = "IAM Guide"
-    weight = 50
-    identifier = "automate/users/iam_v2_guide.md"
-    parent = "automate/users"
-
-    [[automate]]
-    name = "IAM Actions"
-    weight = 60
-    identifier = "automate/users/iam_actions.md"
     parent = "automate/users"
 
     [[automate]]
@@ -234,6 +186,42 @@ identifier = "automate"
     weight = 100
     identifier = "automate/users/policies.md"
     parent = "automate/users"
+
+  [[automate]]
+  name = "Applications"
+  weight = 100
+  identifier = "automate/applications"
+  parent = "automate"
+
+  [[automate]]
+  name = "Compliance"
+  weight = 110
+  identifier = "automate/compliance"
+  parent = "automate"
+
+  [[automate]]
+  name = "Desktop"
+  weight = 120
+  identifier = "automate/desktop.md Desktop Dashboard"
+  parent = "automate"
+
+  [[automate]]
+  name = "Infrastructure"
+  weight = 130
+  identifier = "automate/infrastructure"
+  parent = "automate"
+
+  [[automate]]
+  name = "Integrations"
+  weight = 140
+  identifier = "automate/integrations"
+  parent = "automate"
+
+    [[automate]]
+    name = "ServiceNow"
+    weight = 20
+    identifier = "automate/integrations/servicenow"
+    parent = "automate/integrations"
 
   [[automate]]
   name = "Reference"
