@@ -142,6 +142,23 @@ Omnitruck accepts the following platforms:
 </tbody>
 </table>
 
+## Chef Product Names for Omnibus
+
+| Product | Product Key  |
+| ------- | ------------ |
+| Chef Automate | automate |
+| Chef Infra Client | chef |
+| Chef Backend | chef-backend |
+| Chef Infra Server | chef-server |
+| Chef Infra Server HA Provisioning for AWS | chef-server-ha-provisioning |
+| Chef Workstation | chef-workstation |
+| Chef Compliance | compliance |
+| Chef Infra Server High Availability addon | ha |
+| Chef InSpec | inspec |
+| Management Console | manage |
+| Chef Cloud Marketplace addon | marketplace |
+| Supermarket | supermarket |
+
 ### Examples
 
 #### Get the Latest Build
@@ -155,9 +172,9 @@ https://omnitruck.chef.io/stable/chef/metadata?p=ubuntu&pv=20.04&m=x86_64
 to return something like:
 
 ```none
-sha1 3fe8e8a2f443675f9b82e876cdac8200104451f2 
-sha256 9f1c1a2c0b1f4e8494664386437bf32f0cb5cbfbd4cb9d23e327767fc65581dc 
-url https://packages.chef.io/files/stable/chef/17.7.29/ubuntu/20.04/chef_17.7.29-1_amd64.deb 
+sha1 3fe8e8a2f443675f9b82e876cdac8200104451f2
+sha256 9f1c1a2c0b1f4e8494664386437bf32f0cb5cbfbd4cb9d23e327767fc65581dc
+url https://packages.chef.io/files/stable/chef/17.7.29/ubuntu/20.04/chef_17.7.29-1_amd64.deb
 version 17.7.29
 ```
 
