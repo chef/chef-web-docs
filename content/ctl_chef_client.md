@@ -239,9 +239,7 @@ This command has the following options:
 
 `--[no-]skip-cookbook-sync`
 
-: Use cached cookbooks without overwriting local differences from the
-    server. Use with caution. Useful for patching a set of cookbooks on
-    a machine when iterating during development.
+: Not recommended. Use cached cookbooks without overwriting local differences from the server. Useful for patching a set of cookbooks on a machine when iterating during development. This option can cause unanticipated behavior.
 
 `--[no-]listen`
 

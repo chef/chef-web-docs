@@ -128,32 +128,50 @@ identifier = "automate"
     parent = "automate/configuring_automate"
 
   [[automate]]
-  name = "Applications"
+  name = "Settings"
   weight = 50
+  identifier = "automate/settings"
+  parent = "automate"
+
+  [[automate]]
+  name = "Users"
+  weight = 60
+  identifier = "automate/users"
+  parent = "automate"
+
+    [[automate]]
+    name = "Authentication"
+    weight = 10
+    identifier = "automate/users/authentication"
+    parent = "automate/users"
+
+    [[automate]]
+    name = "Authorization"
+    weight = 20
+    identifier = "automate/users/authorization"
+    parent = "automate/users"
+
+  [[automate]]
+  name = "Applications"
+  weight = 100
   identifier = "automate/applications"
   parent = "automate"
 
   [[automate]]
-  name = "Authorization"
-  weight = 60
-  identifier = "automate/authorization"
-  parent = "automate"
-
-  [[automate]]
   name = "Compliance"
-  weight = 70
+  weight = 110
   identifier = "automate/compliance"
   parent = "automate"
 
   [[automate]]
   name = "Infrastructure"
-  weight = 80
+  weight = 130
   identifier = "automate/infrastructure"
   parent = "automate"
 
   [[automate]]
   name = "Integrations"
-  weight = 90
+  weight = 140
   identifier = "automate/integrations"
   parent = "automate"
 
@@ -162,12 +180,6 @@ identifier = "automate"
     weight = 20
     identifier = "automate/integrations/servicenow"
     parent = "automate/integrations"
-
-  [[automate]]
-  name = "Settings"
-  weight = 100
-  identifier = "automate/settings"
-  parent = "automate"
 
   [[automate]]
   name = "Reference"
@@ -380,6 +392,12 @@ identifier = "server"
   identifier = "server/manage"
   parent = "server"
   weight = 50
+
+  [[server]]
+  title = "Users"
+  identifier = "server/users"
+  parent = "server"
+  weight = 60
 
   # Turn these on when the server docs are ready
   #   [[server]]
