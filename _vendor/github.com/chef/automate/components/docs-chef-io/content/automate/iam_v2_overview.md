@@ -6,7 +6,7 @@ draft = false
 gh_repo = "automate"
 [menu]
   [menu.automate]
-    parent = "automate/authorization"
+    parent = "automate/users/authorization"
     weight = 10
 +++
 
