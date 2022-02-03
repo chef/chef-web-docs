@@ -300,6 +300,12 @@ identifier = "habitat"
   weight = 70
 
   [[habitat]]
+  title = "Guides"
+  identifier = "habitat/guides"
+  parent = "habitat"
+  weight = 85
+
+  [[habitat]]
   title = "Reference"
   identifier = "habitat/reference"
   parent = "habitat"
