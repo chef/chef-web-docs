@@ -144,19 +144,19 @@ Omnitruck accepts the following platforms:
 
 ## Chef Product Names for Omnibus
 
+See the [Supported Versions]({{< relref "versions" >}}) documentation for information about the support status of individual products.
+
+This is a list of currently supported products that you can install with the Omnibus API.
+
 | Product | Product Key  |
 | ------- | ------------ |
 | Chef Automate | automate |
 | Chef Infra Client | chef |
 | Chef Backend | chef-backend |
 | Chef Infra Server | chef-server |
-| Chef Infra Server HA Provisioning for AWS | chef-server-ha-provisioning |
 | Chef Workstation | chef-workstation |
-| Chef Compliance | compliance |
-| Chef Infra Server High Availability addon | ha |
 | Chef InSpec | inspec |
 | Management Console | manage |
-| Chef Cloud Marketplace addon | marketplace |
 | Supermarket | supermarket |
 
 ### Examples
