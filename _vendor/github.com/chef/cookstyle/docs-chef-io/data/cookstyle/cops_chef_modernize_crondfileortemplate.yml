@@ -34,6 +34,10 @@ examples: |2-
   file '/etc/cron.d/blogs' do
     action :delete
   end
+
+  file "/etc/cron.d/#{job_name}" do
+    action :delete
+  end
   ```
 
   #### correct
