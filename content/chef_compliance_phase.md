@@ -423,7 +423,7 @@ default['audit']['insecure'] = true
 
 **New in Chef Infra Client 17.8**
 
-You can control the frequency of Compliance Phase scans with the `default['audit']['interval']`, which means that you can set Compliance Phase scans to happen at different times than Chef Infra Client runs. This helps you control the impact of compliance scans on system performance in business environments that require compliance scans less frequently than Chef Infra Client Runs.
+You can control the frequency of Compliance Phase scans with the `default['audit']['interval']`, which means that control the frequency that the Compliance Phase runs with a Chef Infra Client run. This helps you control the impact of compliance scans on system performance in business environments that require compliance scans less frequently than Chef Infra Client Runs.
 
 `default['audit']['interval']['enabled']`
 : Set to true to turn on interval runs.
