@@ -8,7 +8,7 @@ This tool has the following options:
 
 `ATTRIBUTE_NAME ATTRIBUTE NAME ...`
 
-:   Use to have Ohai show only output for named attributes.
+:   Use to have Ohai show only output for named attributes. To address attributes deeper in the tree, use a `/` delimiter between each level, for example `memory/free`.
 
 `-c CONFIG`, `--config CONFIG`
 
