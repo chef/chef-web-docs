@@ -24,6 +24,30 @@ aliases = ["/ctl_ohai.html"]
 
 The following examples show how to use the Ohai command-line tool:
 
+### Query for a specific attribute
+
+To query for an attribute with the ohai command-line tool, pass the attribute
+as an argument
+
+```bash
+ohai os
+```
+
+Which would return something like
+
+```javascript
+[
+  "linux"
+]
+```
+
+To query for an attribute deeper in the tree, use a forward slash (`/`) as a
+delimiter. For example to query for free memory, run
+
+```bash
+ohai memory/free
+```
+
 ### Run a plugin independently of a Chef Infra Client run
 
 An Ohai plugin can be run independently of a Chef Infra Client run.
