@@ -33,7 +33,7 @@ as an argument
 ohai os
 ```
 
-Which would fetch the value found within Chef in `node[:os]` and return 
+Which would fetch the value found within Chef Infra's node data at `node['os']` and return 
 something like
 
 ```javascript
