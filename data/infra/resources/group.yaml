@@ -96,10 +96,25 @@ properties_list:
   default_value: 'false'
   description_list:
   - markdown: Set to `true` if the group belongs to a system group.
-examples:
-  Append users to groups\n\n  ```ruby\n  group 'www-data' do\n   \
-  \ action :modify\n    members 'maintenance'\n    append true\n  end\n  ```\n\n \
-  \ Add a user to group on the Windows platform\n\n  ```ruby\n  group 'Administrators'\
-  \ do\n    members ['domain\\foo']\n    append true\n    action :modify\n  end\n\
-  \  ```\n"
+examples: |
+  The following examples demonstrate various approaches for using the **group** resource in recipes:
 
+  Append users to groups:
+
+  ```ruby
+  group 'www-data' do
+    action :modify
+    members 'maintenance'
+    append true
+  end
+  ```
+
+  Add a user to group on the Windows platform:
+
+  ```ruby
+  group 'Administrators' do
+    members ['domain\foo']
+    append true
+    action :modify
+  end
+  ```
