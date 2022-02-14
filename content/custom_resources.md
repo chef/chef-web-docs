@@ -96,6 +96,10 @@ Once written, you can use a custom resource may be used in a recipe with the sam
 
 Call a resource in a recipe by its `resource_name`. For example:
 
+```ruby
+site 'foo'
+```
+
 ## Learn More
 
 Learn Chef interactive tutorial: [Extending Chef Infra: Custom Resources](https://learn.chef.io/courses/course-v1:chef+Infra201+Perpetual/about)
