@@ -97,8 +97,6 @@ properties_list:
   description_list:
   - markdown: Set to `true` if the group belongs to a system group.
 examples: |
-  The following examples demonstrate various approaches for using the **group** resource in recipes:
-
   Append users to groups:
 
   ```ruby
