@@ -576,4 +576,4 @@ deprecated_property_alias 'badly_named', 'really_well_named', 'The badly_named p
 
 ## unified_mode
 
-<!-- TODO: partial for unified_mode -->
+See [deprecations_unified_mode]({{<ref "deprecations_unified_mode" >}} "Unified Mode") for more information about unified_mode.
