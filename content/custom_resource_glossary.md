@@ -574,6 +574,6 @@ Rename a property with a deprecation warning for users of the old property name:
 deprecated_property_alias 'badly_named', 'really_well_named', 'The badly_named property was renamed really_well_named in the 2.0 release of this cookbook. Please update your cookbooks to use the new property name.'
 ```
 
-## unified_mode
+## Unified Mode
 
-<!-- TODO: partial for unified_mode -->
+See the [unified mode documentation]({{< relref "unified_mode" >}}) for information about unified mode.
