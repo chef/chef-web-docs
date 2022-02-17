@@ -38,6 +38,25 @@ examples: |2-
   file "/etc/cron.d/#{job_name}" do
     action :delete
   end
+
+  file File.join('/etc/cron.d', job) do
+    action :delete
+  end
+
+  file 'delete old cron job' do
+    path '/etc/cron.d/backup'
+    action :delete
+  end
+
+  file 'delete old cron job' do
+    path "/etc/cron.d/#{job}"
+    action :delete
+  end
+
+  file 'delete old cron job' do
+    path ::File.join('/etc/cron.d', job)
+    action :delete
+  end
   ```
 
   #### correct

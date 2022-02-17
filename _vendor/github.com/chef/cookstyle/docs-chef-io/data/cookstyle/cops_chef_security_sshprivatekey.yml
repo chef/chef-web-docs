@@ -18,5 +18,12 @@ examples: |2-
     mode '600'
   end
   ```
-version_added: 
+version_added: '7.28'
 enabled: true
+included_file_paths:
+- "**/libraries/*.rb"
+- "**/resources/*.rb"
+- "**/providers/*.rb"
+- "**/recipes/*.rb"
+- "**/attributes/*.rb"
+- "**/definitions/*.rb"
