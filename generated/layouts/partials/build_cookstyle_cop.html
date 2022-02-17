@@ -1,0 +1,50 @@
+
+
+{{ $departments := slice }}
+{{ $pageLinks := dict }}
+
+{{ range resources.Match "cookstyle/cops_*" }}
+    {{ $data := .Content | unmarshal }}
+    {{ $departments = $departments | append (slice $data.department ) | uniq }}
+    {{ $link := dict $data.department (slice $data.full_name) }}
+    {{ if index $pageLinks $data.department }}
+        {{ $list := index $pageLinks $data.department }}
+        {{ $list = $list | append $data.full_name }}
+        {{ $dict := dict $data.department $list }}
+        {{ $pageLinks = merge $pageLinks $dict }}
+    {{ else }}
+        {{ $pageLinks = merge $pageLinks $link }}
+    {{ end }}
+{{ end }}
+
+{{ $frontmatterText := "+++\n"}}
+{{ $frontmatterText = print $frontmatterText "title = \"Cookstyle Cops List\"\n\n" }}
+{{ $frontmatterText = print $frontmatterText "[menu]\n  [menu.workstation]\n"}}
+{{ $frontmatterText = print $frontmatterText "    title = \"All Cookstyle Cops\"\n"}}
+{{ $frontmatterText = print $frontmatterText "    identifier = \"chef_workstation/chef_workstation_tools/cookstyle/All Cookstyle Cops\"\n"}}
+{{ $frontmatterText = print $frontmatterText "    parent = \"chef_workstation/chef_workstation_tools/cookstyle\"\n"}}
+{{ $frontmatterText = print $frontmatterText "    weight = 20\n+++\n\n"}}
+
+
+{{/* $text := print $frontmatterText "\n## " (delimit $departments "\n\n## ") */}}
+
+{{ $pageText := "" }}
+
+{{ range $deparment, $cops := $pageLinks }}
+    {{ $pageText = print $pageText "\n## " $deparment "\n\n" }}
+    {{ range $cop := $cops }}
+        {{ $copFile := (replaceRE `\/` "_" $cop) | lower }}
+        {{ $copPath := print "/workstation/cookstyle/" $copFile }}
+        {{ $copName := replaceRE `\w+\/` "" $cop }}
+        {{ $pageText = print $pageText "- [" $copName "](" $copPath ")\n" }}
+    {{ end }}
+{{ end }}
+
+{{ $fileText := print $frontmatterText $pageText }}
+
+{{ $filepath := print "workstation/cookstyle/cops.md" }}
+{{ $file := $fileText | resources.FromString $filepath }}
+{{ $output := $file.RelPermalink }}
+
+{{ return true }}
+
