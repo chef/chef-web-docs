@@ -7,10 +7,6 @@ github.com/chef/chef-server/docs-chef-io v0.0.0-20220216003439-08f906bab2b4 h1:h
 github.com/chef/chef-server/docs-chef-io v0.0.0-20220216003439-08f906bab2b4/go.mod h1:gMSa25GUHmLimA0gjvRd3hs1buOBqkKPrdHzHvaJauY=
 github.com/chef/chef-workstation/docs-chef-io v0.0.0-20220128075634-24d60f216f52 h1:lCrQunRXhx6N6MRN0M0/AKzYZlZ/542KfagW0fHxKuQ=
 github.com/chef/chef-workstation/docs-chef-io v0.0.0-20220128075634-24d60f216f52/go.mod h1:gvoh6ov1YU98CVzBEWzEZeCLTRunfQ6r1VO7M3LFE9U=
-github.com/chef/cookstyle v7.31.7+incompatible h1:5YquWBOqRzoBPL979doS13vS+Px48+nT71qO6rqRoJQ=
-github.com/chef/cookstyle v7.31.7+incompatible/go.mod h1:KUadmsdBr7Hpo5dtGVQMiwb8KlC91W3j1lfc0yuVwtw=
-github.com/chef/cookstyle/docs-chef-io v0.0.0-20220217174022-021ca38988a1 h1:iZr26GuiDoT5GFj9HlxGdDpghqk0xi6vRQbUJoUXXXc=
-github.com/chef/cookstyle/docs-chef-io v0.0.0-20220217174022-021ca38988a1/go.mod h1:1JOEECsW9ozt1/RmprJjAQEvCrOHobpWepSQJRQOhnY=
 github.com/chef/desktop-config/docs-chef-io v0.0.0-20211006114000-6bf6119bfc8a h1:YJMehQcDZDeu4z1x+fV5iGq1Sf24gP53+hqHIRLDmfQ=
 github.com/chef/desktop-config/docs-chef-io v0.0.0-20211006114000-6bf6119bfc8a/go.mod h1:90xAx6sIfgSL50M2KzeBmx7V7s7dlhQU3xpUkJO0qW0=
 github.com/chef/effortless/docs-chef-io v0.0.0-20211119164252-4ff3d53886be h1:QeeHFnUaNVQmTlxX3MT06Dgz8omORr5ZATVH7yLc96A=
