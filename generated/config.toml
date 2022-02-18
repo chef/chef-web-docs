@@ -1,0 +1,12 @@
+## Config file for generated dir.
+
+disableKinds = [ "sitemap", "taxonomy", "term", "RSS", "sitemap"]
+publishDir = "generated_content"
+
+[module]
+[[module.imports]]
+  path = "github.com/chef/cookstyle/docs-chef-io"
+
+[[module.imports.mounts]]
+  source = "assets"
+  target = "assets"

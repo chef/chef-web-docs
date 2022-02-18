@@ -6,8 +6,6 @@ require (
 	github.com/chef/automate/components/docs-chef-io v0.0.0-20220209043720-e6aca4d8bbe9 // indirect
 	github.com/chef/chef-server/docs-chef-io v0.0.0-20220131142922-3b3ac955ea4f // indirect
 	github.com/chef/chef-workstation/docs-chef-io v0.0.0-20220128075634-24d60f216f52 // indirect
-	github.com/chef/cookstyle v7.31.7+incompatible // indirect
-	github.com/chef/cookstyle/docs-chef-io v0.0.0-20220217174022-021ca38988a1 // indirect
 	github.com/chef/desktop-config/docs-chef-io v0.0.0-20211006114000-6bf6119bfc8a // indirect
 	github.com/chef/effortless/docs-chef-io v0.0.0-20211119164252-4ff3d53886be // indirect
 	github.com/chef/supermarket/docs-chef-io v0.0.0-20220117164111-ab75fec53a42 // indirect
