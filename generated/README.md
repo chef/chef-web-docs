@@ -21,7 +21,7 @@ When you run `hugo` from `chef-web-docs/generated`, Hugo will execute the `gener
 
 ## chef-web-docs
 
-Hugo is configured in chef-web-docs to mount generated_content in `generated/generated_content/workstation` to `content/workstation`. See the `config/_default/module.toml` configuration file.
+Hugo is configured in chef-web-docs to mount content in `generated/generated_content/workstation` to `content/workstation`. See the `config/_default/module.toml` configuration file.
 
 ## More Info
 
