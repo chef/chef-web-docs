@@ -48,7 +48,7 @@ verify_cookstyle_pages:
 			echo "$${mdFilePath} does not exist."; \
 		fi; \
 	done; \
-	if test ! -f "content/workstation/cookstyle/cops.md"; then \
-			echo "content/workstation/cookstyle/cops.md does not exist."; \
+	if test ! -f "generated/generated_content/workstation/cookstyle/cops.md"; then \
+			echo "generated/generated_content/workstation/cookstyle/cops.md does not exist."; \
 	fi; \
 
