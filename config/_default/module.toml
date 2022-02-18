@@ -111,13 +111,6 @@
   target = "static"
 
 [[imports]]
-  path = "github.com/chef/cookstyle/docs-chef-io"
-
-[[imports.mounts]]
-  source = "data"
-  target = "data"
-
-[[imports]]
   disable = false
   ignoreConfig = false
   path = "github.com/inspec/inspec-aws/docs-chef-io"
@@ -192,6 +185,16 @@
 [[mounts]]
   source = "static"
   target = "static"
+
+## Mount genereted content to content
+
+[[mounts]]
+  source = "content"
+  target = "content"
+
+[[mounts]]
+  source = "generated/generated_content"
+  target = "content"
 
 ## Import and mount non-docs repositories
 
