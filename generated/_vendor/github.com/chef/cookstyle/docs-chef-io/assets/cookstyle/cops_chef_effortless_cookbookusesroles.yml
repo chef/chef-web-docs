@@ -1,0 +1,21 @@
+---
+short_name: CookbookUsesRoles
+full_name: Chef/Effortless/CookbookUsesRoles
+department: Chef/Effortless
+description: Neither Policyfiles or Effortless Infra which is based on Policyfiles
+  supports Chef Infra Roles
+autocorrection: false
+target_chef_version: All Versions
+examples: |2-
+
+  #### incorrect
+
+  ```ruby
+  node.role?('web_server')
+  node.roles.include?('web_server')
+  ```
+version_added: 5.10.0
+enabled: false
+excluded_file_paths:
+- "**/metadata.rb"
+- "**/Berksfile"

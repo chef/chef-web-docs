@@ -1,0 +1,39 @@
+---
+short_name: DeprecatedPlatformMethods
+full_name: Chef/Deprecations/DeprecatedPlatformMethods
+department: Chef/Deprecations
+description: Use `provider_for_action` or provides instead of the deprecated `Chef::Platform`
+  methods in resources, which were removed in Chef Infra Client 13.
+autocorrection: false
+target_chef_version: All Versions
+examples: |2-
+
+  #### incorrect
+
+  ```ruby
+  resource = Chef::Resource::File.new("/tmp/foo.xyz", run_context)
+  provider = Chef::Platform.provider_for_resource(resource, :create)
+
+  resource = Chef::Resource::File.new("/tmp/foo.xyz", run_context)
+  provider = Chef::Platform.find_provider("ubuntu", "16.04", resource)
+
+  resource = Chef::Resource::File.new("/tmp/foo.xyz", run_context)
+  provider = Chef::Platform.find_provider_for_node(node, resource)
+
+  Chef::Platform.set :platform => :mac_os_x, :resource => :package, :provider => Chef::Provider::Package::Homebrew
+  ```
+
+  #### correct
+
+  ```ruby
+  resource = Chef::Resource::File.new("/tmp/foo.xyz", run_context)
+  provider = resource.provider_for_action(:create)
+
+  # provides :package, platform_family: 'mac_os_x'
+  ```
+version_added: 5.16.0
+enabled: true
+included_file_paths:
+- "**/libraries/*.rb"
+- "**/resources/*.rb"
+- "**/providers/*.rb"

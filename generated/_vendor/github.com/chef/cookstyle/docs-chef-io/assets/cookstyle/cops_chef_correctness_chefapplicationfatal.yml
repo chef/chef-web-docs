@@ -1,0 +1,26 @@
+---
+short_name: ChefApplicationFatal
+full_name: Chef/Correctness/ChefApplicationFatal
+department: Chef/Correctness
+description: Use `raise` to force Chef Infra Client to fail instead of using `Chef::Application.fatal`,
+  which masks the full stack trace of the failure and makes debugging difficult.
+autocorrection: true
+target_chef_version: All Versions
+examples: |2-
+
+  #### incorrect
+
+  ```ruby
+  Chef::Application.fatal!('Something horrible happened!')
+  ```
+
+  #### correct
+
+  ```ruby
+  raise "Something horrible happened!"
+  ```
+version_added: 6.0.0
+enabled: true
+excluded_file_paths:
+- "**/metadata.rb"
+- "**/Berksfile"

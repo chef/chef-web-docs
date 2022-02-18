@@ -1,0 +1,34 @@
+---
+short_name: LazyInResourceGuard
+full_name: Chef/Correctness/LazyInResourceGuard
+department: Chef/Correctness
+description: Using `lazy {}` within a resource guard (not_if/only_if) will cause failures
+  and is unnecessary as resource guards are always lazily evaluated.
+autocorrection: true
+target_chef_version: All Versions
+examples: |2-
+
+  #### incorrect
+
+  ```ruby
+  template '/etc/foo' do
+    mode '0644'
+    source 'foo.erb'
+    only_if { lazy { ::File.exist?('/etc/foo')} }
+  end
+  ```
+
+  #### correct
+
+  ```ruby
+  template '/etc/foo' do
+    mode '0644'
+    source 'foo.erb'
+    only_if { ::File.exist?('/etc/foo') }
+  end
+  ```
+version_added: 6.18.0
+enabled: true
+excluded_file_paths:
+- "**/metadata.rb"
+- "**/Berksfile"

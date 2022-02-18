@@ -1,0 +1,32 @@
+---
+short_name: InvalidPlatformValueForPlatformHelper
+full_name: Chef/Correctness/InvalidPlatformValueForPlatformHelper
+department: Chef/Correctness
+description: 'Pass valid platforms to the value_for_platform helper. See [Infra Language:
+  Platform](https://docs.chef.io/infra_language/checking_platforms/#platform-values)
+  for a list of many common platform values.'
+autocorrection: false
+target_chef_version: All Versions
+examples: |2-
+
+  #### incorrect
+
+  ```ruby
+  value_for_platform(
+    %w(rhel mac_os_x_server) => { 'default' => 'foo' },
+    %w(sles) => { 'default' => 'bar' }
+  )```
+
+  #### correct
+
+  ```ruby
+  value_for_platform(
+    %w(redhat mac_os_x) => { 'default' => 'foo' },
+    %w(opensuseleap) => { 'default' => 'bar' }
+  )
+  ```
+version_added: 5.15.0
+enabled: true
+excluded_file_paths:
+- "**/metadata.rb"
+- "**/Berksfile"

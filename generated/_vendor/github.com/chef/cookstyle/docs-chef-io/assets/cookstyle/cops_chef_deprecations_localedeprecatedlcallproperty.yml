@@ -1,0 +1,22 @@
+---
+short_name: LocaleDeprecatedLcAllProperty
+full_name: Chef/Deprecations/LocaleDeprecatedLcAllProperty
+department: Chef/Deprecations
+description: The local resource's lc_all property has been deprecated and will be
+  removed in Chef Infra Client 17
+autocorrection: false
+target_chef_version: All Versions
+examples: |2-
+
+  #### incorrect
+
+  ```ruby
+  locale 'set locale' do
+    lang 'en_gb.utf-8'
+    lc_all 'en_gb.utf-8'
+  end
+  ```
+version_added: 5.5.0
+enabled: true
+excluded_file_paths:
+- "**/metadata.rb"

@@ -1,0 +1,27 @@
+---
+short_name: UseBuildEssentialResource
+full_name: Chef/Modernize/UseBuildEssentialResource
+department: Chef/Modernize
+description: Use the build_essential resource from the build-essential cookbook 5.0+
+  or Chef Infra Client 14+ instead of using the build-essential::default recipe.
+autocorrection: true
+target_chef_version: All Versions
+examples: |2-
+
+  #### incorrect
+
+  ```ruby
+  depends 'build-essential'
+  include_recipe 'build-essential::default'
+  include_recipe 'build-essential'
+  ```
+
+  #### correct
+
+  ```ruby
+  build_essential 'install compilation tools'
+  ```
+version_added: 5.1.0
+enabled: true
+excluded_file_paths:
+- "**/metadata.rb"

@@ -1,0 +1,31 @@
+---
+short_name: ExecutePathProperty
+full_name: Chef/Deprecations/ExecutePathProperty
+department: Chef/Deprecations
+description: In Chef Infra Client 13 and later you must set path env vars in execute
+  resources using the `environment` property not the legacy `path` property.
+autocorrection: false
+target_chef_version: All Versions
+examples: |2-
+
+  #### incorrect
+
+  ```ruby
+  execute 'some_cmd' do
+    path '/foo/bar'
+  end
+  ```
+
+  #### correct
+
+  ```ruby
+  execute 'some_cmd' do
+    environment {path: '/foo/bar'}
+  end
+  ```
+version_added: 6.17.0
+enabled: true
+excluded_file_paths:
+- "**/metadata.rb"
+- "**/attributes/*.rb"
+- "**/Berksfile"

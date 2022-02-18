@@ -1,0 +1,26 @@
+---
+short_name: RequireRecipe
+full_name: Chef/Deprecations/RequireRecipe
+department: Chef/Deprecations
+description: Make sure to use include_recipe instead of require_recipe
+autocorrection: true
+target_chef_version: All Versions
+examples: |2-
+
+  #### incorrect
+
+  ```ruby
+  require_recipe 'foo'
+  ```
+
+  #### correct
+
+  ```ruby
+  include_recipe 'foo'
+  ```
+version_added: 5.2.0
+enabled: true
+excluded_file_paths:
+- "**/attributes/*.rb"
+- "**/metadata.rb"
+- "**/Berksfile"

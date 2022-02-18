@@ -1,0 +1,19 @@
+---
+short_name: CookbookDependsOnPartialSearch
+full_name: Chef/Deprecations/CookbookDependsOnPartialSearch
+department: Chef/Deprecations
+description: Don't depend on the `partial_search` cookbook made obsolete by Chef Infra
+  Client 13.
+autocorrection: false
+target_chef_version: 13.0+
+examples: |2-
+
+  #### incorrect
+
+  ```ruby
+  depends 'partial_search'
+  ```
+version_added: 5.1.0
+enabled: true
+included_file_paths:
+- "**/metadata.rb"

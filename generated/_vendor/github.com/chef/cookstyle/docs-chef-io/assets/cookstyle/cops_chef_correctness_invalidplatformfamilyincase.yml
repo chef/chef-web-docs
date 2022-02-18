@@ -1,0 +1,24 @@
+---
+short_name: InvalidPlatformFamilyInCase
+full_name: Chef/Correctness/InvalidPlatformFamilyInCase
+department: Chef/Correctness
+description: 'Use valid platform family values in case statements. See [Infra Language:
+  Platform Family](https://docs.chef.io/infra_language/checking_platforms/#platform_family-values)
+  for a complete list of platform families.'
+autocorrection: true
+target_chef_version: All Versions
+examples: |2-
+
+  #### incorrect
+
+  ```ruby
+  case node['platform_family']
+  when 'redhat'
+    puts "I'm on a RHEL-like system"
+  end
+  ```
+version_added: 6.6.0
+enabled: true
+excluded_file_paths:
+- "**/metadata.rb"
+- "**/Berksfile"

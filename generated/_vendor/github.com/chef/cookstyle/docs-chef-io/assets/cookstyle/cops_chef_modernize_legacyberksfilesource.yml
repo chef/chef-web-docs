@@ -1,0 +1,29 @@
+---
+short_name: LegacyBerksfileSource
+full_name: Chef/Modernize/LegacyBerksfileSource
+department: Chef/Modernize
+description: There have been many different valid community site / Supermarket URLs
+  to use in a cookbook's Berksfile. These old URLs continue to function via redirects,
+  but should be updated to point to the latest Supermarket URL.
+autocorrection: true
+target_chef_version: All Versions
+examples: |2-
+
+  #### incorrect
+
+  ```ruby
+  source 'http://community.opscode.com/api/v3'
+  source 'https://supermarket.getchef.com'
+  source 'https://api.berkshelf.com'
+  site :opscode
+  ```
+
+  #### correct
+
+  ```ruby
+  source 'https://supermarket.chef.io'
+  ```
+version_added: 5.1.0
+enabled: true
+included_file_paths:
+- "**/Berksfile"

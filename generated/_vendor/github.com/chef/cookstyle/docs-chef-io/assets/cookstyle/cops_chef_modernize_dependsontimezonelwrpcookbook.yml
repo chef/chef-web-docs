@@ -1,0 +1,19 @@
+---
+short_name: DependsOnTimezoneLwrpCookbook
+full_name: Chef/Modernize/DependsOnTimezoneLwrpCookbook
+department: Chef/Modernize
+description: Don't depend on the timezone_lwrp cookbook made obsolete by Chef Infra
+  Client 14.6. The timezone resource is now included in Chef Infra Client itself.
+autocorrection: true
+target_chef_version: 14.6+
+examples: |2-
+
+  #### incorrect
+
+  ```ruby
+  depends 'timezone_lwrp'
+  ```
+version_added: 7.19.0
+enabled: true
+included_file_paths:
+- "**/metadata.rb"
