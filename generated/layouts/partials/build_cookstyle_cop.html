@@ -26,9 +26,7 @@
 {{ $frontmatterText = print $frontmatterText "    weight = 20\n+++\n\n"}}
 
 
-{{/* $text := print $frontmatterText "\n## " (delimit $departments "\n\n## ") */}}
-
-{{ $pageText := "" }}
+{{ $pageText := "<!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->\n\n" }}
 
 {{ range $deparment, $cops := $pageLinks }}
     {{ $pageText = print $pageText "\n## " $deparment "\n\n" }}

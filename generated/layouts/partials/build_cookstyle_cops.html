@@ -8,7 +8,8 @@
     {{ $frontmatter := print "+++\ntitle = \"" $data.short_name "\"\n\n+++\n\n"}}
 
     {{/* Generate page content */}}
-    {{ $content := print "The department is: `" $data.short_name "`\n\n" }}
+    {{ $content := "<!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->\n\n" }}
+    {{ $content = print $content "The department is: `" $data.short_name "`\n\n" }}
     {{ $content = print $content "The full name of the cop is: `" $data.full_name "`\n\n" }}
 
     {{ $contentTable := "| Enabled by default | Supports autocorrection | Target Chef Version |\n" }}
