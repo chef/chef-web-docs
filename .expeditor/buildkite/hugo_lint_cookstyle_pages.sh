@@ -1,39 +1,35 @@
 #!/bin/bash
 
-# Verify that each Cookstyle YAML file in _vendor/github.com/chef/cookstyle/docs-chef-io/data/cookstyle
-# has a matching Markdown file in content/workstation/cookstyle.
+# Verify that each Cookstyle YAML file in generated/_vendor/github.com/chef/cookstyle/docs-chef-io/assets/cookstyle
+# has a matching Markdown file in generated/generated_content/workstation/cookstyle.
 
-# You can regenerate all the Cookstyle Markdown files by running `make cookstyle_cops_pages`.
-# Individual Cookstyle Markdown pages can be created by running `hugo new -k cookstyle_cop content/workstation/cookstyle/NAME_OF_COOKSTYLE_YAML_FILE_WITHOUT_YAML_SUFFIX_AND_COPS_PREFIX.md`.
-# For example, to create a Markdown page for the cops_chef_correctness_blockguardwithonlystring.yml file, run `hugo new -k cookstyle_cop content/workstation/cookstyle/chef_correctness_blockguardwithonlystring.md`.
+# You can regenerate all the Cookstyle Markdown files by running `cd generated && make build && cd ../`.
 
 
 set -euo pipefail
 
-dataDir=_vendor/github.com/chef/cookstyle/docs-chef-io/data/cookstyle
-markdownDir=./content/workstation/cookstyle
+dataDir=generated/_vendor/github.com/chef/cookstyle/docs-chef-io/assets/cookstyle/*
+markdownDir=./generated/generated_content/workstation/cookstyle
 LINT_STATUS=0
-for file in _vendor/github.com/chef/cookstyle/docs-chef-io/data/cookstyle/*
+
+for file in $dataDir
     do mdFile="${file/.yml/.md}"
     mdFile="${mdFile/cops_/}"
-    mdFile="${mdFile/_vendor\/github.com\/chef\/cookstyle\/docs-chef-io\/data\/cookstyle/content/workstation/cookstyle}"
+    mdFile="${mdFile/generated\/_vendor\/github.com\/chef\/cookstyle\/docs-chef-io\/assets\/cookstyle/generated/generated_content/workstation/cookstyle}"
     if test ! -f "${mdFile}"; then
         echo "${mdFile} is missing."
         LINT_STATUS=1
     fi
 done
 
-if test ! -f "content/workstation/cookstyle/cops.md"; then
+if test ! -f "generated/generated_content/workstation/cookstyle/cops.md"; then
     echo "content/workstation/cookstyle/cops.md is missing."
     LINT_STATUS=1
 fi
 
 if [ "$LINT_STATUS" == 1 ]; then
-    echo "At least one Cookstyle Markdown file is missing from content/workstation/cookstyle."
-    echo "Regenerate all Cookstyle Markdown files by running 'make cookstyle_cops_pages', or make individual Cookstyle Markdown pages"
-    echo "by running 'hugo new -k cookstyle_cop content/workstation/cookstyle/NAME_OF_COOKSTYLE_YAML_FILE_WITHOUT_YAML_SUFFIX_AND_COPS_PREFIX.md'."
-    echo "For example, to create a Markdown page for the cops_chef_correctness_blockguardwithonlystring.yml file,"
-    echo "run 'hugo new -k cookstyle_cop content/workstation/cookstyle/chef_correctness_blockguardwithonlystring.md'."
+    echo -e "\nAt least one Cookstyle Markdown file is missing from generated/generated_content/workstation/cookstyle."
+    echo "Regenerate all Cookstyle Markdown files by running 'cd generated && make build && cd ../'."
     exit 1
 else
     echo "Success! All Cookstyle Markdown files exist."
