@@ -1,0 +1,1 @@
+Use the `chef generate input` subcommand to generate an [input](https://docs.chef.io/inspec/inputs/) file for the Chef Infra Client's Compliance Phase execution.
