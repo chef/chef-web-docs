@@ -370,7 +370,7 @@ logs of the Chef Infra Client run.
 
 ## validators
 
-{{ dsl/property_validation_parameter }}
+{{% validation_parameter %}}
 
 ## desired_state
 
@@ -580,6 +580,39 @@ When setting a node attribute as the default value for a custom resource propert
 
 ```ruby
 property :thing, String, default: lazy { node['thingy'] }
+```
+
+## Partials
+
+To DRY (Do not Repeat Yourself) up code, custom resources can include partials from common files.
+
+For example, if all of your resources need the version property you can add this to a `partial/_common.rb` file and include that Ruby code in your resource using the `use` directive.
+
+```ruby
+# resources/partial/_common.rb
+property :version, String,
+          name_property: true,
+          description: 'Java version to install'
+
+# resources/install_type_a.rb
+provides :adoptopenjdk_install
+unified_mode true
+use 'partial/_common'
+
+property :variant,
+          String,
+          description: 'Install flavour', default: 'openj9'
+
+# resources/openjdk_install.rb
+provides :openjdk_install
+unified_mode true
+use 'partial/_common'
+
+property :install_type,
+          String,
+          default: lazy { default_openjdk_install_method(version) },
+          equal_to: %w( package source ),
+          description: 'Installation type'
 ```
 
 ## Unified Mode
