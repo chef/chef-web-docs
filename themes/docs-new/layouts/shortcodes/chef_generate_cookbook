@@ -17,8 +17,6 @@ The `custom_web` cookbook directory has the structure:
 ```text
 ├ cookbooks
  ├ custom_web
- | ├ .delivery
- | | └ project.toml
  | ├ recipes
  | | └ default.rb
  | ├ test
