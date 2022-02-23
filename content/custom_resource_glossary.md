@@ -574,6 +574,14 @@ Rename a property with a deprecation warning for users of the old property name:
 deprecated_property_alias 'badly_named', 'really_well_named', 'The badly_named property was renamed really_well_named in the 2.0 release of this cookbook. Please update your cookbooks to use the new property name.'
 ```
 
+## Lazy
+
+When setting a node attribute as the default value for a custom resource property, wrap the node attribute in `lazy {}` so that its value is available when the resource executes.
+
+```ruby
+property :thing, String, default: lazy { node['thingy'] }
+```
+
 ## Partials
 
 To DRY (Do not Repeat Yourself) up code, custom resources can include partials from common files.
