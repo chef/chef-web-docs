@@ -370,7 +370,7 @@ logs of the Chef Infra Client run.
 
 ## validators
 
-{{ dsl/property_validation_parameter }}
+{{% validation_parameter %}}
 
 ## desired_state
 
