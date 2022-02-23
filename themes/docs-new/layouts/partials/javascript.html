@@ -2,14 +2,13 @@
 {{- $jquery := resources.Get "js/vendor/jquery/jquery.min.js" -}}
 {{- $foundation := resources.Get "js/vendor/foundation-sites/foundation.min.js" -}}
 {{- $whatInput := resources.Get "js/vendor/what-input/what-input.min.js" -}}
-{{- $showdown := resources.Get "js/vendor/showdown/showdown.min.js" -}}
 {{- $browser := resources.Get "js/browser.js" -}}
 {{- $hogan := resources.Get "js/vendor/twitter/hogan-3.0.2.min.js"}}
 {{- $hashchange := resources.Get "js/vendor/cowboy/jquery.ba-hashchange.min.js" -}}
 {{- $swiftypeAutocomplete := resources.Get "js/vendor/swiftype/jquery.swiftype.autocomplete.js" -}}
 {{- $swiftype := resources.Get "js/vendor/swiftype/jquery.swiftype.search.js" -}}
 {{- $swiftypeConfig := resources.Get "js/swiftype-config.js" -}}
-{{- $coreJs := slice $fontawesome $jquery $foundation $whatInput $showdown $browser $hogan $hashchange $swiftypeAutocomplete $swiftype $swiftypeConfig -}}
+{{- $coreJs := slice $fontawesome $jquery $foundation $whatInput $browser $hogan $hashchange $swiftypeAutocomplete $swiftype $swiftypeConfig -}}
 
 {{ if hugo.Environment | eq "development" }}
   {{- $coreJs = $coreJs | resources.Concat "js/core-bundle.js" -}}
@@ -24,8 +23,9 @@
 {{- $resourceNote := resources.Get "js/resource-note.js" -}}
 {{- $versionDocs := resources.Get "js/version-docs.js" -}}
 {{- $feedback := resources.Get "js/feedback.js" -}}
+{{- $calculator := resources.Get "js/calculator.js" -}}
 {{- $imageModal := resources.Get "js/image-modal.js" -}}
-{{- $customJs := slice $copycodebutton $chefHugo $resourceNote $versionDocs $feedback $imageModal -}}
+{{- $customJs := slice $copycodebutton $chefHugo $resourceNote $versionDocs $feedback $calculator $imageModal -}}
 
 {{ if hugo.Environment | eq "development" }}
   {{- $customJs = $customJs | resources.Concat "js/custom-bundle.js" -}}

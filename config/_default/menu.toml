@@ -117,33 +117,61 @@ identifier = "automate"
   identifier = "automate/configuring_automate"
   parent = "automate"
 
+    [[automate]]
+    title = "PostgreSQL"
+    identifier = "automate/configuring_automate/postgresql"
+    parent = "automate/configuring_automate"
+
+    [[automate]]
+    title = "Elasticsearch"
+    identifier = "automate/configuring_automate/elasticsearch"
+    parent = "automate/configuring_automate"
+
+  [[automate]]
+  name = "Settings"
+  weight = 50
+  identifier = "automate/settings"
+  parent = "automate"
+
+  [[automate]]
+  name = "Users"
+  weight = 60
+  identifier = "automate/users"
+  parent = "automate"
+
+    [[automate]]
+    name = "Authentication"
+    weight = 10
+    identifier = "automate/users/authentication"
+    parent = "automate/users"
+
+    [[automate]]
+    name = "Authorization"
+    weight = 20
+    identifier = "automate/users/authorization"
+    parent = "automate/users"
+
   [[automate]]
   name = "Applications"
-  weight = 50
+  weight = 100
   identifier = "automate/applications"
   parent = "automate"
 
   [[automate]]
-  name = "Authorization"
-  weight = 60
-  identifier = "automate/authorization"
-  parent = "automate"
-
-  [[automate]]
   name = "Compliance"
-  weight = 70
+  weight = 110
   identifier = "automate/compliance"
   parent = "automate"
 
   [[automate]]
   name = "Infrastructure"
-  weight = 80
+  weight = 130
   identifier = "automate/infrastructure"
   parent = "automate"
 
   [[automate]]
   name = "Integrations"
-  weight = 90
+  weight = 140
   identifier = "automate/integrations"
   parent = "automate"
 
@@ -152,12 +180,6 @@ identifier = "automate"
     weight = 20
     identifier = "automate/integrations/servicenow"
     parent = "automate/integrations"
-
-  [[automate]]
-  name = "Settings"
-  weight = 100
-  identifier = "automate/settings"
-  parent = "automate"
 
   [[automate]]
   name = "Reference"
@@ -327,13 +349,13 @@ identifier = "server"
     weight = 70
 
   [[server]]
-  title = "Planning"
+  title = "Plan"
   identifier = "server/planning"
   parent = "server"
   weight = 20
 
   [[server]]
-  title = "Installation"
+  title = "Install"
   identifier = "server/installation"
   parent = "server"
   weight = 30
@@ -372,10 +394,29 @@ identifier = "server"
   weight = 50
 
   [[server]]
+  title = "Users"
+  identifier = "server/users"
+  parent = "server"
+  weight = 60
+
+  # Turn these on when the server docs are ready
+  #   [[server]]
+  #   title = "Upgrade Services"
+  #   identifier = "server/manage/upgrade_services"
+  #   parent = "server/manage"
+  #   weight = 100
+
+  # [[server]]
+  # title = "Upgrade"
+  # identifier = "server/upgrade"
+  # parent = "server"
+  # weight = 60
+
+  [[server]]
   title = "Reference"
   identifier = "server/reference"
   parent = "server"
-  weight = 60
+  weight = 70
 
 ####
 # End Chef Infra Server Menu
@@ -541,11 +582,11 @@ identifier = "chef_infra"
   parent = "chef_infra"
   weight = 140
 
-    [[infra]]
-    title = "Custom Resources"
-    identifier = "chef_infra/resources/custom_resources"
-    parent = "chef_infra/resources"
-    weight = 40
+  [[infra]]
+  title = "Custom Resources"
+  identifier = "chef_infra/resources/custom_resources"
+  parent = "chef_infra/resources"
+  weight = 145
 
   [[infra]]
   title = "Extension APIs"
@@ -815,6 +856,12 @@ identifier = "chef_workstation"
       url = "/workstation/cookstyle/cops/#chefredundantcode"
 
       [[workstation]]
+      title = "Security Cops"
+      identifier = "chef_workstation/chef_workstation_tools/cookstyle/Cops Chef/Security"
+      parent = "chef_workstation/chef_workstation_tools/cookstyle"
+      url = "/workstation/cookstyle/cops/#chefsecurity"
+
+      [[workstation]]
       title = "Sharing Cops"
       identifier = "chef_workstation/chef_workstation_tools/cookstyle/Cops Chef/Sharing"
       parent = "chef_workstation/chef_workstation_tools/cookstyle"
@@ -945,7 +992,7 @@ weight = 10
 [[extra]]
 title = "Downloads"
 identifier = "get chef"
-url = "https://downloads.chef.io/"
+url = "https://www.chef.io/downloads"
 weight = 100
 
 [[extra]]

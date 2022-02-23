@@ -70,7 +70,7 @@ properties_list:
   required: false
   description_list:
   - markdown: 'One (or more) additional options that are passed to the command. For
-      example, common apt-get directives, such as `--no-install-recommends`. See the [apt-get man page](http://manpages.ubuntu.com/manpages/zesty/man8/apt-get.8.html)
+      example, common apt-get directives, such as `--no-install-recommends`. See the [apt-get man page](http://manpages.ubuntu.com/manpages/jammy/en/man8/apt-get.8.html)
       for the full list.'
 - property: overwrite_config_files
   ruby_type: true, false

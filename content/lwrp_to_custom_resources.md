@@ -18,7 +18,7 @@ It is no longer recommended to write resources in the __Light Weight Resource Pr
 
 This guide describes how to migrate from an existing LWRP to a Custom Resource.
 
-If you are creating a Custom Resource from scratch please see the [Custom Resource Getting Started Guide](getting-started.md) instead.
+If you are creating a Custom Resource from scratch please see the [Custom Resource Getting Started Guide]({{< relref "custom_resources.md" >}}) instead.
 
 ## Convert files to Custom Resources Layout
 

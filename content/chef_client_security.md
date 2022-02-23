@@ -37,13 +37,31 @@ The following information applies to on-premises Chef Infra Server and does not 
 
 {{% server_security_ssl_cert_client %}}
 
-### `/.chef/trusted_certs`
+### trusted_certs Directory
 
-The `/.chef/trusted_certs` directory stores trusted SSL certificates
-used to access the Chef Infra Server:
+Your organization may use a private Certificate Authority (CA) to generate SSL Certificates or they may create self-signed SSL certificates to use on internal networks or during software development and testing.
 
-* On each workstation, this directory is the location into which SScertificates are placed after they are downloaded from the CheInfra Server using the `knife ssl fetch` subcommand
-* On every node, this directory is the location into which SSLcertificates are placed when a node has been bootstrapped with ChefInfra Client from a workstation
+The `trusted_certs` directory on Chef Workstation and in Chef Infra Client works as a trusted certificate store for all communication in the Chef Infra system. Chef Infra trusts all SSL certificates stored in this directory--including certificates that are not issued by a trusted Certificate Authority (CA).
+
+Place private and self-signed certificates in the `trusted_certs` directory to use them within Chef Infra Client and Workstation tools.
+
+Use the the [chef_client_trusted_certificate]({{< relref "/resources/chef_client_trusted_certificate" >}}) Chef Infra Client resource to manage these certificates continuously.
+
+#### trusted_certs Locations
+
+##### Chef Workstation
+
+When you install Chef Workstation, it creates a `trusted_certs` directory located at:.
+
+- Windows: `C:\.chef\trusted_certs`
+- All other systems: `~/.chef/trusted_certs`
+
+##### Chef Infra Client Nodes
+
+When you bootstrap a node, the Chef Infra Client copies the SSL certificates for the Chef Infra Server onto the node. The `trusted_certs` directory on the node is located at:
+
+- Windows: `C:\chef\trusted_certs`
+- All other systems: `/etc/chef/trusted_certs`
 
 ### SSL_CERT_FILE
 
@@ -51,8 +69,8 @@ Use the `SSL_CERT_FILE` environment variable to specify the location for the SSL
 
 A value for `SSL_CERT_FILE` is not set by default. Unless updated, the locations in which Chef Infra will look for SSL certificates are:
 
-* Chef Infra Client: `/opt/chef/embedded/ssl/certs/cacert.pem`
-* Chef Workstation: `/opt/chef-workstation/embedded/ssl/certs/cacert.pem`
+- Chef Infra Client: `/opt/chef/embedded/ssl/certs/cacert.pem`
+- Chef Workstation: `/opt/chef-workstation/embedded/ssl/certs/cacert.pem`
 
 To use a custom CA bundle, update the environment variable to specify the path to the custom CA bundle. The first step to troubleshoot a failing SSL certificate is to verify the location of the `SSL_CERT_FILE`.
 
@@ -112,8 +130,8 @@ Use following client.rb settings to manage SSL certificate preferences:
 
 The Chef Infra Client includes two knife commands for managing SSL certificates:
 
-* Use [knife ssl check](/workstation/knife_ssl_check/) to troubleshoot SS certificate issues
-* Use [knife ssl fetch](/workstation/knife_ssl_fetch/) to pull down a certificate from the Chef Infra Server to the `/.chef/trusted_certs` directory on the workstation.
+- Use [knife ssl check](/workstation/knife_ssl_check/) to troubleshoot SSL certificate issues
+- Use [knife ssl fetch](/workstation/knife_ssl_fetch/) to pull down a certificate from the Chef Infra Server to the `/.chef/trusted_certs` directory on the workstation.
 
 After the workstation has the correct SSL certificate, bootstrap operations from that workstation will use the certificate in the `/.chef/trusted_certs` directory during the bootstrap operation.
 

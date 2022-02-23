@@ -10,7 +10,6 @@ resource_description_list:
 resource_new_in: '14.0'
 syntax_full_code_block: |-
   homebrew_tap 'name' do
-    full               true, false # default value: false
     homebrew_path      String # default value: "/usr/local/bin/brew"
     owner              String # default value: "Calculated default username"
     tap_name           String # default value: 'name' unless specified
@@ -23,8 +22,8 @@ syntax_full_properties_list:
 - "`name` is the name given to the resource block."
 - "`action` identifies which steps Chef Infra Client will take to bring the node into
   the desired state."
-- "`full`, `homebrew_path`, `owner`, `tap_name`, and `url` are the properties available
-  to this resource."
+- "`homebrew_path`, `owner`, `tap_name`, and `url` are the properties available to
+  this resource."
 actions_list:
   :nothing:
     shortcode: resources_common_actions_nothing.md
@@ -33,12 +32,6 @@ actions_list:
   :untap:
     markdown: Remove a Homebrew tap.
 properties_list:
-- property: full
-  ruby_type: true, false
-  required: false
-  default_value: 'false'
-  description_list:
-  - markdown: Perform a full clone on the tap, as opposed to a shallow clone.
 - property: homebrew_path
   ruby_type: String
   required: false

@@ -367,23 +367,41 @@ This parameter also works on Danger and Warning shortcodes.
 
 ## Release Notes
 
-Release notes are added to release notes pages using JavaScript and content from [https://omnitruck.chef](https://omnitruck.chef.io) and [https://packages.chef.io](https://packages.chef.io).
+Release notes are added to release notes pages using Hugo's [`resource.getRemote` function](https://gohugo.io/hugo-pipes/introduction/#get-resource-with-resourcesget-and-resourcesgetremote) and content from [https://omnitruck.chef](omnitruck.chef.io) and [https://packages.chef.io](packages.chef.io).
 
-Chef Automate release versions, release dates, and links to release note Markdown files comes from [https://packages.chef.io/releases/current/automate.json](https://packages.chef.io/releases/current/automate.json).
+Chef Automate release versions, release dates, and links to release note Markdown files come from [https://packages.chef.io/releases/current/automate.json](https://packages.chef.io/releases/current/automate.json).
+
+Release versions for Chef habitat come from `https://api.github.com/repos/habitat-sh/habitat/releases`.
+
+Release versions for InSpec Cloud resources comes from `_vendor/github.com/inspec/inspec-<PLATFORM>/docs-chef-io/assets/release-notes/inspec-<PLATFORM>/release-dates.json`.
 
 Release versions for all other Chef products come from `https://omnitruck.chef.io/stable/<PRODUCT>/versions/all`.
 
-Each release note page comes from a Markdown file from `https://packages.chef.io/release-notes/<PRODUCT>/<VERSION>.md`
+Each release note page comes from a Markdown file from `https://packages.chef.io/release-notes/<PRODUCT>/<VERSION>.md`.
 
-If a release note Markdown file is not returned from packages.chef.io, the release note page will show the text "This release does not have any release notes."
+If a release note Markdown file is not returned from packages.chef.io, the release note for that version will show the text, "This release does not have any release notes."
 
-### Adding Release Notes
+### Previewing Release Notes Locally
 
-To add release notes to a page, add `release_notes = "<PRODUCT>"` to the page front matter. For example, `release_notes = "inspec"`.
+Release note pages are only generated in the production environment. Running `make serve` will not build any of the content in the release note pages.
 
-This will overwrite all content on that page.
+Run `make production` to build and preview the release notes.
 
-The `<PRODUCT>` value comes from the Product Key in the [Product Matrix](https://github.com/chef/mixlib-install/blob/main/PRODUCT_MATRIX.md).
+Run `make clean_all` to purge locally cached release note files.
+
+### Adding Release Note Pages
+
+To add a release notes page to chef-web-docs, add the following to a Markdown page:
+
+```toml
+release_notes = "<CHEF_PRODUCT>".
+layout = "release_notes"
+toc_layout = "release_notes_toc"
+```
+
+The `<CHEF_PRODUCT>` value comes from the Product Key in the [Product Matrix](https://github.com/chef/mixlib-install/blob/main/PRODUCT_MATRIX.md).
+
+Any content included in the release notes Markdown file will be included at the top of the page and the release notes will be appended below.
 
 ## Sending feedback
 

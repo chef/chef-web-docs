@@ -7,6 +7,9 @@ set -eoux pipefail
 branch="expeditor/update_docs_cookstyle"
 git checkout -b "$branch"
 
+## Cookstyle data files are stored in the generated dir.
+cd generated
+
 # Update the go.mod and go.sum for chef/cookstyle
 
 hugo mod get "github.com/chef/cookstyle"
@@ -18,18 +21,15 @@ hugo mod tidy
 
 hugo mod vendor
 
-# There may be new cops added or old cops deleted. If that's the case, we need to regenerate the markdown files that are
-# used to display the cookstyle cops pages. See the Makefile for more information.
-
-if git ls-files --deleted --others _vendor/github.com/chef/cookstyle/docs-chef-io/data/cookstyle | grep -Eq '\.yml'; then
-  make cookstyle_cops_pages
-fi
-
-
 # Clean the go.sum file
 
 rm go.sum
 hugo mod clean
+
+## Generate new Cookstyle cop MD pages.
+make build
+
+cd ../
 
 # Submit pull request to chef/chef-web-docs.
 

@@ -14,7 +14,7 @@ product = ["automate", "client", "server", "habitat", "inspec", "workstation"]
 +++
 
 Chef's Omnitruck API powers the Chef Software install script as well as
-[Chef's download](https://downloads.chef.io) site. It can be used to query available versions of
+[Chef's download](https://www.chef.io/downloads) site. It can be used to query available versions of
 Chef Software products and to provide direct download URLs.
 
 ## Syntax
@@ -142,6 +142,23 @@ Omnitruck accepts the following platforms:
 </tbody>
 </table>
 
+## Chef Product Names for Omnibus
+
+See the [Supported Versions]({{< relref "versions" >}}) documentation for information about the support status of individual products.
+
+This is a list of currently supported products that you can install with the Omnibus API.
+
+| Product | Product Key  |
+| ------- | ------------ |
+| Chef Automate | automate |
+| Chef Infra Client | chef |
+| Chef Backend | chef-backend |
+| Chef Infra Server | chef-server |
+| Chef Workstation | chef-workstation |
+| Chef InSpec | inspec |
+| Management Console | manage |
+| Supermarket | supermarket |
+
 ### Examples
 
 #### Get the Latest Build
@@ -155,9 +172,9 @@ https://omnitruck.chef.io/stable/chef/metadata?p=ubuntu&pv=20.04&m=x86_64
 to return something like:
 
 ```none
-sha1 3fe8e8a2f443675f9b82e876cdac8200104451f2 
-sha256 9f1c1a2c0b1f4e8494664386437bf32f0cb5cbfbd4cb9d23e327767fc65581dc 
-url https://packages.chef.io/files/stable/chef/17.7.29/ubuntu/20.04/chef_17.7.29-1_amd64.deb 
+sha1 3fe8e8a2f443675f9b82e876cdac8200104451f2
+sha256 9f1c1a2c0b1f4e8494664386437bf32f0cb5cbfbd4cb9d23e327767fc65581dc
+url https://packages.chef.io/files/stable/chef/17.7.29/ubuntu/20.04/chef_17.7.29-1_amd64.deb
 version 17.7.29
 ```
 

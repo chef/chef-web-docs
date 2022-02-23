@@ -1,0 +1,280 @@
+<div id="es-calculator" class="grid-container padding-0">
+  <div class="grid-x align-justify large-up-4 small-up-1">
+    <div class="cell" id="client">
+      <div class="card shadow bordered radius margin-1">
+        <div class="card-divider">
+        Chef Infra Client Run Data
+        </div>
+        <form action="" id="client" name="calculator" class="card-section">
+          <label for="nodes">Number of Nodes</label>
+          <input id="nodes" type="number" placeholder="10000" required />
+          <label for="data">Node Data Size (MB)</label>
+          <input id="data" type="number" value=".25" readonly />
+          <fieldset id="client-radio">
+            <legend>Run Interval</legend>
+            <input type="radio" name="runs" value=".03" id="runs" checked required><label for="runs">2 min</label>
+            <input type="radio" name="runs" value=".25" id="runs" required><label for="runs">15 min</label>
+            <input type="radio" name="runs" value=".5" id="runs" required><label for="runs">30 min</label>
+          </fieldset>
+          <label for="daily">Daily Storage</label>
+          <input id="daily" type="number" readonly/>
+          <fieldset id="client-retention">
+            <legend>Data Retention (Days)</legend>
+            <input type="radio" name="retention" value="14" id="retention" checked required><label for="retention">14 days</label>
+            <input type="radio" name="retention" value="30" id="retention" required><label for="retention">30 days</label>
+            <input type="radio" name="retention" value="60" id="retention" required><label for="retention">60 days</label>
+            <input type="radio" name="retention" value="90" id="retention" required><label for="retention">90 days</label>
+          </fieldset>
+          <label for="totalData">Total Storage (TB)</label>
+          <input id="totalData" type="number" placeholder="0" readonly />
+          <div class="card-section">
+            <label># of ES Nodes </label>
+            <output id="result" type="number" for="nodes data"></output>
+          </div>
+        </form>
+        <div class="card-divider margin-0">
+          <label for="exampleSwitch" class="padding-right-1">HA</label>
+          <div class="switch small rounded">
+            <input class="switch-input" id="exampleSwitch" type="checkbox" id="exampleSwitch">
+            <label class="switch-paddle" for="exampleSwitch">
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cell">
+      <div class="card shadow bordered radius margin-1">
+        <div class="card-divider">
+          Compliance Run Data
+        </div>
+        <form action="" id="compliance" name="calculator" class="card-section">
+          <label for="nodes">Number of Nodes</label>
+          <input id="nodes" type="number" placeholder="10000" readonly required />
+          <label for="data">Node Data Size (MB)</label>
+          <input id="data" type="number" value="4" readonly />
+          <fieldset id="compliance-radio">
+            <legend>Run Interval</legend>
+            <input type="radio" name="runs" value="1" id="runs" checked required><label for="runs">1 hr</label>
+            <input type="radio" name="runs" value="4" id="runs" required><label for="runs">4 hr</label>
+            <input type="radio" name="runs" value="12" id="runs" required><label for="runs">12 hr</label>
+          </fieldset>
+          <label for="daily">Daily Storage</label>
+          <input id="daily" type="number" readonly/>
+          <fieldset id="compliance-retention">
+            <legend>Data Retention (Days)</legend>
+            <input type="radio" name="retention" value="14" id="retention" checked required><label for="retention">14 days</label>
+            <input type="radio" name="retention" value="30" id="retention" required><label for="retention">30 days</label>
+            <input type="radio" name="retention" value="60" id="retention" required><label for="retention">60 days</label>
+            <input type="radio" name="retention" value="90" id="retention" required><label for="retention">90 days</label>
+          </fieldset>
+          <label for="totalData">Total Storage (TB)</label>
+          <input id="totalData" type="number" placeholder="0" readonly/>
+          <div class="card-section">
+            <label># of ES Nodes</label>
+            <output id="result" type="number" for="nodes data"></output>
+          </div>
+        </form>
+        <div class="card-divider margin-0">
+          <label class="padding-right-1">HA</label>
+          <div class="switch small rounded" id="exampleSwitch">
+            <input class="switch-input" type="checkbox" id="exampleSwitch" />
+            <label class="switch-paddle" for="exampleSwitch" />
+            </div>
+          </div>
+      </div>
+    </div>
+
+    <div class="cell">
+      <div class="card shadow bordered radius margin-1">
+        <div class="card-divider">
+          Event Feed Data
+        </div>
+        <form action="" id="eventFeed" name="calculator" class="card-section">
+          <label for="nodes">Number of Nodes</label>
+          <input id="nodes" type="number" placeholder="10000" readonly required />
+          <label for="data">Node Data Size (MB)</label>
+          <input id="data" type="number" value=".002" readonly />
+          <fieldset id="event-radio">
+            <legend>Run Interval</legend>
+            <input type="radio" name="runs" value=".5" id="runs" checked readonly><label for="runs">30 min</label>
+          </fieldset>
+          <label for="daily">Daily Storage</label>
+          <input id="daily" type="number" readonly/>
+          <fieldset id="compliance-retention">
+            <legend>Data Retention (Days)</legend>
+            <input type="radio" name="retention" value="30" id="retention" checked required><label for="retention">30 days</label>
+          </fieldset>
+          <label for="totalData">Total Storage (TB)</label>
+          <input id="totalData" type="number" placeholder="0" readonly />
+          <div class="card-section">
+            <label># of ES Nodes </label>
+            <output id="result" type="number" for="nodes data"></output>
+          </div>
+        </form>
+        <div class="card-divider margin-0">
+          <label class="padding-right-1">HA</label>
+          <div class="switch small rounded" id="exampleSwitch">
+            <input class="switch-input" type="checkbox" id="exampleSwitch" />
+            <label class="switch-paddle" for="exampleSwitch" />
+            </div>
+          </div>
+      </div>
+    </div>
+
+    <div class="cell">
+      <div class="card shadow bordered radius margin-1">
+        <div class="card-divider">
+          Service Groups Data
+        </div>
+        <form action="" id="serviceGroups" name="calculator" class="card-section">
+          <label for="nodes">Number of Nodes</label>
+          <input id="nodes" type="number" placeholder="1000" required readonly/>
+          <label for="data">Node Data Size (MB)</label>
+          <input id="data" type="number" value=".001" readonly />
+          <fieldset id="service-radio">
+            <legend>Run Interval</legend>
+            <input type="radio" name="runs" value=".008" id="runs" checked readonly><label for="runs">30 seconds</label>
+          </fieldset>
+          <label for="daily">Daily Storage</label>
+          <input id="daily" type="number" readonly/>
+          <fieldset id="compliance-retention">
+            <legend>Data Retention (Days)</legend>
+            <input type="radio" name="retention" value="7" id="retention" checked required><label for="retention">7 days</label>
+          </fieldset>
+          <label for="totalData">Total Storage (TB)</label>
+          <input id="totalData" type="number" placeholder="0" readonly/>
+          <div class="card-section">
+            <label># of ES Nodes</label>
+            <output id="result" type="number" for="nodes data"></output>
+          </div>
+        </form>
+        <div class="card-divider margin-0">
+          <label class="padding-right-1">HA</label>
+          <div class="switch small rounded" id="exampleSwitch">
+            <input class="switch-input" type="checkbox" id="exampleSwitch" />
+            <label class="switch-paddle" for="exampleSwitch" />
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="grid-container">
+  <div class="grid-x align-right">
+    <button type="button" class="button large radius bordered shadow primary" data-open="exampleModal1">Summary</button>
+  </div>
+</div>
+
+<div class="reveal padding-3" id="exampleModal1" data-reveal>
+  <div class="warning callout small">Copy before closing results</div>
+  <div class="source" contenteditable="true">
+    <div class="grid-x align-right">
+      <button class="button copy-button width-100 grid-x align-right medium radius bordered shadow primary margin-bottom-0">Copy
+      </button>
+    </div>
+    <h4>Chef Infra Client Run Data</h4>
+      <label>Number of Nodes:
+        <output id="result">60</output>
+      </label>
+      <label>Node Data Size (MB):
+        <output id="result">60</output>
+      </label>
+      <label>Run Interval (HR):
+        <output id="result">60</output>
+      </label>
+      <label>Data Retention (Days):
+        <output id="result">60</output>
+      </label>
+      <label>Total Number of Nodes:
+        <output id="result">60</output>
+      </label>
+      <label>Total Storage (TB):
+        <output id="result">60</output>
+      </label>
+      <label>Storage/Day (TB):
+        <output id="result">60</output>
+      </label>
+    <h4>Compliance Run Data</h4>
+      <label>Number of Nodes:
+        <output id="result">60</output>
+      </label>
+      <label>Node Data Size (MB):
+        <output id="result">60</output>
+      </label>
+      <label>Run Interval (HR):
+        <output id="result">60</output>
+      </label>
+      <label>Data Retention (Days):
+        <output id="result">60</output>
+      </label>
+      <label>Total Number of Nodes:
+        <output id="result">60</output>
+      </label>
+      <label>Total Storage (TB):
+        <output id="result">60</output>
+      </label>
+      <label>Storage/Day (TB):
+        <output id="result">60</output>
+      </label>
+    <h4>Event Feed Data</h4>
+      <label>Number of Nodes:
+        <output id="result">60</output>
+      </label>
+      <label>Node Data Size (MB):
+        <output id="result">60</output>
+      </label>
+      <label>Run Interval (HR):
+        <output id="result">60</output>
+      </label>
+      <label>Data Retention (Days):
+        <output id="result">60</output>
+      </label>
+      <label>Total Number of Nodes:
+        <output id="result">60</output>
+      </label>
+      <label>Total Storage (TB):
+        <output id="result">60</output>
+      </label>
+      <label>Storage/Day (TB):
+        <output id="result">60</output>
+      </label>
+    <h4>Service Group Data</h4>
+      <label>Number of Nodes:
+        <output id="result">60</output>
+      </label>
+      <label>Node Data Size (MB):
+        <output id="result">60</output>
+      </label>
+      <label>Run Interval (HR):
+        <output id="result">60</output>
+      </label>
+      <label>Data Retention (Days):
+        <output id="result">60</output>
+      </label>
+      <label>Total Number of Nodes:
+        <output id="result">60</output>
+      </label>
+      <label>Total Storage (TB):
+        <output id="result">60</output>
+      </label>
+      <label>Storage/Day (TB):
+        <output id="result">60</output>
+      </label>
+    <label>HA Total Storage (TB):
+      <output id="result">60</output>
+    </label>
+  <h4>High Availability</h4>
+    <label>HA # ES Nodes:
+      <output id="result">60</output>
+    </label>
+    <label>HA Per ES Node Storage (TB):
+      <output id="result">60</output>
+    </label>
+  </div>
+  <button class="close-button" data-close aria-label="Close modal" type="button">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+

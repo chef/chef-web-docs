@@ -17,7 +17,7 @@ product = ["client", "workstation"]
 
 The following __Domain Specific Language (DSL)__ methods are available when writing Custom Resources.
 
-For further information about how to write custom resources please see [about custom resources](/custom_resources/about)
+For further information about how to write custom resources please see [about custom resources]({{< relref "custom_resources.md" >}})
 
 ## action_class
 
@@ -521,7 +521,7 @@ If you are modifying the properties type, you will also need to accept that Ruby
 
 {{< note >}}
 
-The `resource_name` setting is necessary for backwards compatibility with Chef Infra Client 12 through 15. It's use is no longer recommended, please use the [`provides`](#provides) method instead.
+The `resource_name` setting is necessary for backwards compatibility with Chef Infra Client 12 through 15. It's use is no longer recommended, please use the [`provides`]({{< relref "#provides" >}}) method instead.
 
 {{< /note >}}
 
@@ -574,6 +574,6 @@ Rename a property with a deprecation warning for users of the old property name:
 deprecated_property_alias 'badly_named', 'really_well_named', 'The badly_named property was renamed really_well_named in the 2.0 release of this cookbook. Please update your cookbooks to use the new property name.'
 ```
 
-## unified_mode
+## Unified Mode
 
-<!-- TODO: partial for unified_mode -->
+See the [unified mode documentation]({{< relref "unified_mode" >}}) for information about unified mode.
