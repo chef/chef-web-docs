@@ -26,7 +26,7 @@ This page mentions multiple ways of building custom resources. Chef Software rec
 
 This is the recommended way of writing resources for all users. There are two gotchas which we're working through:
 
-1. For helper functions that you used to write in your provider code or used to mixin to your provider code, you have to use an `action_class.class_eval do ... end` block.
+1. For helper functions that you used to write in your provider code or used to mixin to your provider code, you have to use an `action_class do ... end` block.
 1. You cannot subclass, and must use mixins for code-sharing (which is really a best practice anyway -- e.g. see languages like rust which do not support sub-classing).
 
 in `resources/whatever.rb`:
@@ -47,7 +47,7 @@ action :run do
   puts new_resource.foo
 end
 
-action_class.class_eval do
+action_class do
   include MyProviderHelperFunctions
 
   def a_helper
