@@ -26,15 +26,13 @@ The following examples show how to use the Ohai command-line tool:
 
 ### Query for a specific attribute
 
-To query for an attribute with the ohai command-line tool, pass the attribute
-as an argument
+Pass an attribute as an argument to `ohai` to get the value of that attribute. For example:
 
 ```bash
 ohai os
 ```
 
-Which would fetch the value found within Chef Infra's node data at `node['os']` and return 
-something like
+This fetches the value of Chef Infra's node data at `node['os']` and returns something like:
 
 ```javascript
 [
@@ -43,7 +41,7 @@ something like
 ```
 
 To query for an attribute deeper in the tree, use a forward slash (`/`) as a
-delimiter. For example to query for free memory, run
+delimiter. For example, to query for free memory, run:
 
 ```bash
 ohai memory/free
