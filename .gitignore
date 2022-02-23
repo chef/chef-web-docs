@@ -12,8 +12,6 @@ public/
 *.css.map
 *.css_t.map
 
-/.delivery/cli.toml
-
 /.vscode
 
 /.venv
