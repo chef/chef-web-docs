@@ -30,6 +30,8 @@ To uninstall the Chef management console, do the following:
 
     ```bash
     chef-manage-ctl cleanse
+    rm -fr /var/opt/opscode/nginx/etc/addon.d/*manage*
+    chef-server-ctl restart nginx
     ```
 
 2. Use the package manager for the platform on which the Chef

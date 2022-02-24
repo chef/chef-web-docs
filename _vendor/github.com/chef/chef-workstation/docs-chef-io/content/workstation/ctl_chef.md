@@ -13,6 +13,7 @@ aliases = ["/ctl_chef.html", "/ctl_chef/"]
     parent = "chef_workstation/chef_workstation_tools/chef_(executable)"
     weight = 10
 +++
+<!-- markdownlint-disable-file MD024 MD036-->
 
 The chef executable is a command-line tool that does the following:
 
@@ -460,16 +461,17 @@ Recipe: code_generator::cookbook
 
 and which creates a directory structure similar to:
 
+```txt
     /chefdocs
       /.git
       .gitignore
       kitchen.yml
-      Berksfile
       chefignore
       metadata.rb
       README.md
       /recipes
         default.rb
+```
 
 **Create a cookbook using a custom skeleton cookbook**
 
@@ -519,55 +521,6 @@ Recipe: code_generator::cookbook
   * template[/Users/grantmc/Desktop/chef-repo/test-cookbook/recipes/default.rb] action create
     - create new file /Users/grantmc/Desktop/chef-repo/test-cookbook/recipes/default.rb
 ```
-
-## chef generate build-cookbook
-
-Use the `chef generate build-cookbook` subcommand to generate a delivery
-configuration file and build cookbook.
-
-### Syntax
-
-This subcommand has the following syntax:
-
-``` bash
-chef generate build-cookbook COOKBOOK_PATH/COOKBOOK_NAME (options)
-```
-
-### Options
-
-This subcommand has the following options:
-
-`-g GENERATOR_COOKBOOK_PATH`, `--generator-cookbook GENERATOR_COOKBOOK_PATH`
-
-: The path at which a cookbook named `code_generator` is located. This cookbook is used by the `chef generate` subcommands to generate cookbooks, cookbook files, templates, attribute files, and so on. Default value: `lib/chef-dk/skeletons`, under which is the default `code_generator` cookbook that is included as part of Chef Workstation.
-
-`-C COPYRIGHT`, `--copyright COPYRIGHT`
-
-: Specify the copyright holder for copyright notices in generated files. Default value: `The Authors`
-
-`-m EMAIL`, `--email EMAIL`
-
-: Specify the email address of the author. Default value: `you@example.com`.
-
-`-a KEY=VALUE`, `--generator-arg KEY=VALUE`
-
-: Sets a property named `KEY` to the given `VALUE` on the generator context object in the generator cookbook. This allows custom generator cookbooks to accept optional user input on the command line.
-
-`-I LICENSE`, `--license LICENSE`
-
-: Sets the license. Valid values are `all_rights`, `apache2`, `mit`, `gplv2`, or `gplv3`. Default value: `all_rights`.
-
-`-h`, `--help`
-
-: Show help for the command.
-
-`-v`, `--version`
-
-: The Chef Infra Client version.
-
-### Examples
-
-None.
 
 ## chef generate file
 
@@ -800,7 +753,6 @@ This subcommand has the following options:
 
 : Maximum number of parallel workers at once (default 50).
 
-
 ### Examples
 
 **Generate a report**
@@ -893,7 +845,6 @@ This subcommand has the following options:
 
 : Chef Infra Server URL.
 
-
 ### Examples
 
 **Generate a report**
@@ -922,10 +873,10 @@ Analyzing nodes...
 Nodes report saved to .chef-workstation/reports/nodes-20200722130502.txt
 
 ```
+
 More details of this summary report can be viewed in the text file, the location for which is given at the end of the summary.
 
 [Upgrade Lab](/workstation/upgrade_lab) provides further details on how this command can be used in Chef Infra Client upgrade process.
-
 
 ## chef shell-init
 

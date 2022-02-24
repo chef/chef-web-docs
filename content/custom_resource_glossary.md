@@ -370,7 +370,7 @@ logs of the Chef Infra Client run.
 
 ## validators
 
-{{ dsl/property_validation_parameter }}
+{{% validation_parameter %}}
 
 ## desired_state
 
@@ -574,6 +574,47 @@ Rename a property with a deprecation warning for users of the old property name:
 deprecated_property_alias 'badly_named', 'really_well_named', 'The badly_named property was renamed really_well_named in the 2.0 release of this cookbook. Please update your cookbooks to use the new property name.'
 ```
 
-## unified_mode
+## Lazy
 
-<!-- TODO: partial for unified_mode -->
+When setting a node attribute as the default value for a custom resource property, wrap the node attribute in `lazy {}` so that its value is available when the resource executes.
+
+```ruby
+property :thing, String, default: lazy { node['thingy'] }
+```
+
+## Partials
+
+To DRY (Do not Repeat Yourself) up code, custom resources can include partials from common files.
+
+For example, if all of your resources need the version property you can add this to a `partial/_common.rb` file and include that Ruby code in your resource using the `use` directive.
+
+```ruby
+# resources/partial/_common.rb
+property :version, String,
+          name_property: true,
+          description: 'Java version to install'
+
+# resources/install_type_a.rb
+provides :adoptopenjdk_install
+unified_mode true
+use 'partial/_common'
+
+property :variant,
+          String,
+          description: 'Install flavour', default: 'openj9'
+
+# resources/openjdk_install.rb
+provides :openjdk_install
+unified_mode true
+use 'partial/_common'
+
+property :install_type,
+          String,
+          default: lazy { default_openjdk_install_method(version) },
+          equal_to: %w( package source ),
+          description: 'Installation type'
+```
+
+## Unified Mode
+
+See the [unified mode documentation]({{< relref "unified_mode" >}}) for information about unified mode.

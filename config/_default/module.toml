@@ -1,67 +1,8 @@
+## See Hugo's docs on module mounts: https://gohugo.io/hugo-modules/configuration/
 
-[[imports]]
-  disable = false
-  ignoreConfig = false
-  path = "github.com/chef/desktop-config/docs-chef-io"
-
-[[imports.mounts]]
-  source = "content"
-  target = "content"
-
-[[imports.mounts]]
-  source = "static"
-  target = "static"
-
-[[imports.mounts]]
-  source = "data"
-  target = "data"
-
-[[imports.mounts]]
-  source = "layouts"
-  target = "layouts"
-
-[[imports]]
-  disable = false
-  ignoreConfig = false
-  path = "github.com/chef/chef-workstation/docs-chef-io"
-
-[[imports.mounts]]
-  source = "content"
-  target = "content"
-
-[[imports.mounts]]
-  source = "static"
-  target = "static"
-
-[[imports.mounts]]
-  source = "layouts"
-  target = "layouts"
-
-[[imports.mounts]]
-  source = "data"
-  target = "data"
-
-[[imports]]
-  disable = false
-  ignoreConfig = false
-  path = "github.com/chef/effortless/docs-chef-io"
-
-[[imports.mounts]]
-  source = "content/effortless"
-  target = "content/effortless"
-
-[[imports]]
-  disable = false
-  ignoreConfig = false
-  path = "github.com/inspec/inspec/docs-chef-io"
-
-[[imports.mounts]]
-  source = "content/inspec"
-  target = "content/inspec"
-
-[[imports.mounts]]
-  source = "static/images/inspec"
-  target = "static/images/inspec"
+###
+# Chef Automate
+###
 
 [[imports]]
   disable = false
@@ -84,6 +25,35 @@
   source = "layouts"
   target = "layouts"
 
+###
+# Chef Desktop
+###
+
+[[imports]]
+  disable = false
+  ignoreConfig = false
+  path = "github.com/chef/desktop-config/docs-chef-io"
+
+[[imports.mounts]]
+  source = "content"
+  target = "content"
+
+[[imports.mounts]]
+  source = "static"
+  target = "static"
+
+[[imports.mounts]]
+  source = "data"
+  target = "data"
+
+[[imports.mounts]]
+  source = "layouts"
+  target = "layouts"
+
+###
+# Chef Habitat
+###
+
 [[imports]]
   disable = false
   ignoreConfig = false
@@ -96,6 +66,14 @@
 [[imports.mounts]]
   source = "static"
   target = "static"
+
+[[imports.mounts]]
+  source = "layouts"
+  target = "layouts"
+
+###
+# Chef Infra Server
+###
 
 [[imports]]
   disable = false
@@ -110,12 +88,34 @@
   source = "static"
   target = "static"
 
+[[imports.mounts]]
+  source = "layouts"
+  target = "layouts"
+
+###
+# Chef InSpec
+###
+
 [[imports]]
-  path = "github.com/chef/cookstyle/docs-chef-io"
+  disable = false
+  ignoreConfig = false
+  path = "github.com/inspec/inspec/docs-chef-io"
 
 [[imports.mounts]]
-  source = "data"
-  target = "data"
+  source = "content/inspec"
+  target = "content/inspec"
+
+[[imports.mounts]]
+  source = "static/images/inspec"
+  target = "static/images/inspec"
+
+[[imports.mounts]]
+  source = "layouts"
+  target = "layouts"
+
+###
+# Chef InSpec AWS Cloud Resources
+###
 
 [[imports]]
   disable = false
@@ -130,6 +130,10 @@
   source = "assets"
   target = "assets"
 
+###
+# Chef InSpec Azure Cloud Resources
+###
+
 [[imports]]
   disable = false
   ignoreConfig = false
@@ -139,12 +143,38 @@
   source = "static"
   target = "static"
 
-
 [[imports.mounts]]
   source = "assets"
   target = "assets"
 
-## Supermarket Docs
+###
+# Chef Workstation
+###
+
+[[imports]]
+  disable = false
+  ignoreConfig = false
+  path = "github.com/chef/chef-workstation/docs-chef-io"
+
+[[imports.mounts]]
+  source = "content"
+  target = "content"
+
+[[imports.mounts]]
+  source = "static"
+  target = "static"
+
+[[imports.mounts]]
+  source = "layouts"
+  target = "layouts"
+
+[[imports.mounts]]
+  source = "data"
+  target = "data"
+
+###
+# Chef Supermarket
+###
 
 [[imports]]
   disable = false
@@ -155,7 +185,38 @@
   source = "content"
   target = "content"
 
+###
+# Effortless Pattern
+###
+
+[[imports]]
+  disable = false
+  ignoreConfig = false
+  path = "github.com/chef/effortless/docs-chef-io"
+
+[[imports.mounts]]
+  source = "content/effortless"
+  target = "content/effortless"
+
+###
+## Mount generated/genereted_content to content
+###
+
+[[mounts]]
+  source = "content"
+  target = "content"
+
+[[mounts]]
+  source = "generated/generated_content"
+  target = "content"
+
+###
+# Non Docs Content Mounts Below
+###
+
+###
 ## Module mounts for packages added with NPM
+###
 
 [[mounts]]
   source = "themes/docs-new/node_modules/jquery/dist"
@@ -177,7 +238,9 @@
   source = "themes/docs-new/node_modules/redoc/bundles"
   target = "assets/js/vendor/redoc"
 
+###
 ## Fontawesome font and SCSS modules
+###
 
 [[mounts]]
   source = "themes/docs-new/node_modules/@fortawesome/fontawesome-free/webfonts"
@@ -193,7 +256,9 @@
   source = "static"
   target = "static"
 
+###
 ## Import and mount non-docs repositories
+###
 
 [[imports]]
   path = "github.com/cowboy/jquery-hashchange"
