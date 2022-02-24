@@ -32,7 +32,8 @@ The full name of the cop is: `Chef/Deprecations/Delivery`
 </tr>
 <tr><td style="text-align:center">Include</td>
 <td style="text-align:center"><ul>
-<li><code>**/metadata.rb</code></li>
+<li><code>**/.delivery/project.toml</code></li>
+<li><code>**/.delivery/config.json</code></li>
 </ul>
 </td>
 <td style="text-align:center">Array</td>

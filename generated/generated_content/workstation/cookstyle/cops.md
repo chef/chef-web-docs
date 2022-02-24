@@ -89,6 +89,7 @@ title = "Cookstyle Cops List"
 - [ErlCallResource](/workstation/cookstyle/chef_deprecations_erlcallresource)
 - [ExecutePathProperty](/workstation/cookstyle/chef_deprecations_executepathproperty)
 - [ExecuteRelativeCreatesWithoutCwd](/workstation/cookstyle/chef_deprecations_executerelativecreateswithoutcwd)
+- [FoodcriticFile](/workstation/cookstyle/chef_deprecations_foodcriticfile)
 - [FoodcriticTesting](/workstation/cookstyle/chef_deprecations_foodcritictesting)
 - [HWRPWithoutProvides](/workstation/cookstyle/chef_deprecations_hwrpwithoutprovides)
 - [HWRPWithoutUnifiedTrue](/workstation/cookstyle/chef_deprecations_hwrpwithoutunifiedtrue)
