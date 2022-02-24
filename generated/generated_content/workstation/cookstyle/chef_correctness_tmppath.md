@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Correctness/TmpPath`
 | --- | --- | --- |
 | Enabled | No | All Versions |
 
+Use file_cache_path rather than hard-coding system temp paths
+
 ## Examples
 
 

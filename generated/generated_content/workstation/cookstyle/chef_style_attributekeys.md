@@ -13,6 +13,10 @@ The full name of the cop is: `Chef/Style/AttributeKeys`
 | --- | --- | --- |
 | Enabled | Yes | All Versions |
 
+Check which style of keys are used to access node attributes.
+
+There are two supported styles: "symbols" and "strings".
+
 ## Examples
 
 

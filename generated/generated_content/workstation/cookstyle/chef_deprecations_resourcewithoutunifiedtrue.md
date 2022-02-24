@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Deprecations/ResourceWithoutUnifiedTrue`
 | --- | --- | --- |
 | Enabled | Yes | 15.3+ |
 
+Chef Infra Client 15.3 and later include a new Unified Mode that simplifies the execution of resources by replace the traditional compile and converge phases with a single phase. Unified mode simplifies writing advanced resources and avoids confusing errors that often occur when mixing ruby and Chef Infra resources. Chef Infra Client 17.0 and later will begin warning that `unified_mode true` should be set in all resources to validate that they will continue to function in Chef Infra Client 18.0 (April 2022) when Unified Mode becomes the default.
+
 ## Examples
 
 

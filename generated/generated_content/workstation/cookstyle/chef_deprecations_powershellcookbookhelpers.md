@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Deprecations/PowershellCookbookHelpers`
 | --- | --- | --- |
 | Enabled | Yes | All Versions |
 
+Use `node['powershell']['version']` or the new `powershell_version` helper available in Chef Infra Client 15.8+ instead of the deprecated PowerShell cookbook helpers
+
 ## Examples
 
 

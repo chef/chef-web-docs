@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Modernize/NodeInitPackage`
 | --- | --- | --- |
 | Enabled | Yes | All Versions |
 
+Use node['init_package'] to check for systemd instead of reading the contents of '/proc/1/comm'
+
 ## Examples
 
 

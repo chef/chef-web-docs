@@ -2,7 +2,7 @@
 short_name: AttributeHelper
 full_name: InSpec/Deprecations/AttributeHelper
 department: InSpec/Deprecations
-description: InSpec attributes have been renamed to inputs. Use the `input` method
+description: Chef InSpec attributes have been renamed to inputs. Use the `input` method
   not the deprecation `attribute` method to access these values.
 autocorrection: true
 target_chef_version: All Versions

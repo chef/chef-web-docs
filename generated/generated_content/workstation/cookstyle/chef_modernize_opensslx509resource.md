@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Modernize/OpensslX509Resource`
 | --- | --- | --- |
 | Enabled | Yes | 14.4+ |
 
+The openssl_x509 resource was renamed to openssl_x509_certificate in Chef Infra Client 14.4. The new resource name should be used.
+
 ## Examples
 
 

@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Deprecations/RubyBlockCreateAction`
 | --- | --- | --- |
 | Enabled | Yes | All Versions |
 
+Use the :run action in the ruby_block resource instead of the deprecated :create action
+
 ## Examples
 
 

@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Effortless/CookbookUsesPolicygroups`
 | --- | --- | --- |
 | Not Enabled | No | All Versions |
 
+Effortless Infra does not support Policyfile's Policygroup feature
+
 ## Examples
 
 

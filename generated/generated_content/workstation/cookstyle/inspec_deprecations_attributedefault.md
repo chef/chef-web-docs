@@ -13,6 +13,8 @@ The full name of the cop is: `InSpec/Deprecations/AttributeDefault`
 | --- | --- | --- |
 | Enabled | Yes | All Versions |
 
+The Chef InSpec inputs `default` option has been replaced with the `value` option.
+
 ## Examples
 
 

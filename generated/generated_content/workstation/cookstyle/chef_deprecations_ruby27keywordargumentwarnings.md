@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Deprecations/Ruby27KeywordArgumentWarnings`
 | --- | --- | --- |
 | Enabled | Yes | All Versions |
 
+Pass options to shell_out helpers without the brackets to avoid Ruby 2.7 deprecation warnings.
+
 ## Examples
 
 

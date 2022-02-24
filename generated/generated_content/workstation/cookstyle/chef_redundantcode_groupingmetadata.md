@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/RedundantCode/GroupingMetadata`
 | --- | --- | --- |
 | Enabled | Yes | All Versions |
 
+The grouping metadata.rb method is not used and is unnecessary in cookbooks.
+
 ## Examples
 
 

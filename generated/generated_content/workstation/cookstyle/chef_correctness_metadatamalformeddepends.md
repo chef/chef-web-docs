@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Correctness/MetadataMalformedDepends`
 | --- | --- | --- |
 | Enabled | Yes | All Versions |
 
+metadata.rb cookbook dependencies and version constraints should be comma separated.
+
 ## Examples
 
 

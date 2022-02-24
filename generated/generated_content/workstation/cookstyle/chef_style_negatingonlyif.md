@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Style/NegatingOnlyIf`
 | --- | --- | --- |
 | Enabled | Yes | All Versions |
 
+Instead of using only_if conditionals with ! to negate the returned value, use not_if which is easier to read
+
 ## Examples
 
 

@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Sharing/EmptyMetadataField`
 | --- | --- | --- |
 | Enabled | No | All Versions |
 
+metadata.rb should not include fields with an empty string. Either don't include the field or add a value.
+
 ## Examples
 
 

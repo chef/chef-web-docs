@@ -2,7 +2,7 @@
 short_name: AttributeDefault
 full_name: InSpec/Deprecations/AttributeDefault
 department: InSpec/Deprecations
-description: The InSpec inputs `default` option has been replaced with the `value`
+description: The Chef InSpec inputs `default` option has been replaced with the `value`
   option.
 autocorrection: true
 target_chef_version: All Versions

@@ -13,6 +13,10 @@ The full name of the cop is: `Chef/Deprecations/NodeSet`
 | --- | --- | --- |
 | Enabled | Yes | All Versions |
 
+The `node.set` method has been removed in Chef Infra Client 13 and usage must be replaced with `node.normal`.
+
+This cop will autocorrect code to use node.normal, which is functionally identical to node.set, but we also discourage the use of that method as normal level attributes persist on the node even if the code setting the attribute is later removed.
+
 ## Examples
 
 

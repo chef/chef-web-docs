@@ -13,6 +13,11 @@ The full name of the cop is: `Chef/Modernize/ResourceNameFromInitialize`
 | --- | --- | --- |
 | Enabled | Yes | All Versions |
 
+The resource name can now be specified using the `resource_name` helper instead of using the @resource_name variable in the resource provider initialize method. In general we recommend against writing HWRPs, but if HWRPs are necessary you should utilize as much of the resource DSL as possible.
+
+ #### correct
+ resource_name :create
+
 ## Examples
 
 

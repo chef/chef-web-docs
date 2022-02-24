@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Sharing/InsecureCookbookURL`
 | --- | --- | --- |
 | Enabled | Yes | All Versions |
 
+Use secure Github and Gitlab URLs for source_url and issues_url
+
 ## Examples
 
 

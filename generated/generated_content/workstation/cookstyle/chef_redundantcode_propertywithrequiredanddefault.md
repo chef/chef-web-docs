@@ -13,6 +13,11 @@ The full name of the cop is: `Chef/RedundantCode/PropertyWithRequiredAndDefault`
 | --- | --- | --- |
 | Enabled | Yes | All Versions |
 
+When using properties in a custom resource you shouldn't set a property to
+required and then provide a default value. If a property is required the
+user will always pass in a value and the default will never be used. In Chef
+Infra Client 13+ this became an error.
+
 ## Examples
 
 

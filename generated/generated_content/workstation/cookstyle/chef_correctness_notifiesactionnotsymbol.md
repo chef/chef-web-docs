@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Correctness/NotifiesActionNotSymbol`
 | --- | --- | --- |
 | Enabled | Yes | All Versions |
 
+When notifying or subscribing actions within a resource the action should always be a symbol. In Chef Infra Client releases before 14.0, this may result in double notification.
+
 ## Examples
 
 

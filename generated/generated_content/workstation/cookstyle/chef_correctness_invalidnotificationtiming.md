@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Correctness/InvalidNotificationTiming`
 | --- | --- | --- |
 | Enabled | No | All Versions |
 
+Valid notification timings are `:immediately`, `:immediate` (alias for :immediately), `:delayed`, and `:before`.
+
 ## Examples
 
 

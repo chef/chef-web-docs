@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Correctness/InvalidCookbookName`
 | --- | --- | --- |
 | Enabled | No | All Versions |
 
+Cookbook names should not contain invalid characters such as periods.
+
 ## Examples
 
 

@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Deprecations/LibrarianChefSpec`
 | --- | --- | --- |
 | Enabled | No | All Versions |
 
+The Librarian-Chef depsolving project is no longer maintained and a Cheffile should not be used for cookbook depsolving. Consider using Policyfiles instead.
+
 ## Examples
 
 

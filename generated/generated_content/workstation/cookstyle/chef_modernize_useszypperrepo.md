@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Modernize/UsesZypperRepo`
 | --- | --- | --- |
 | Enabled | Yes | 13.3+ |
 
+The zypper_repo resource was renamed zypper_repository when it was added to Chef Infra Client 13.3.
+
 ## Examples
 
 

@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Modernize/PowershellScriptExpandArchive`
 | --- | --- | --- |
 | Enabled | No | 15.0+ |
 
+Use the archive_file resource built into Chef Infra Client 15+ instead of using the powershell_script resource to run Expand-Archive
+
 ## Examples
 
 

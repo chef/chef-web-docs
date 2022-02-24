@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Modernize/OsxConfigProfileResource`
 | --- | --- | --- |
 | Enabled | Yes | All Versions |
 
+The osx_config_profile resource was renamed to osx_profile. The new resource name should be used.
+
 ## Examples
 
 

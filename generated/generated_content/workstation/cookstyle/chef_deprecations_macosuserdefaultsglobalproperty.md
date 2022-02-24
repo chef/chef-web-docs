@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Deprecations/MacosUserdefaultsGlobalProperty`
 | --- | --- | --- |
 | Enabled | Yes | 16.3+ |
 
+The `global` property in the macos_userdefaults resource was deprecated in Chef Infra Client 16.3. This property was never properly implemented and caused failures under many conditions. Omitting the `domain` property will now set global defaults.
+
 ## Examples
 
 

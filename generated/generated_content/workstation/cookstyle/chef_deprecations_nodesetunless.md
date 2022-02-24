@@ -13,6 +13,10 @@ The full name of the cop is: `Chef/Deprecations/NodeSetUnless`
 | --- | --- | --- |
 | Enabled | Yes | All Versions |
 
+The node.set_unless method has been removed in Chef Infra Client 13 and usage must be replaced with node.normal_unless.
+
+This cop will autocorrect code to use node.normal_unless, which is functionally identical to node.set_unless, but we also discourage the use of that method as normal level attributes persist on the node even if the code setting the attribute is later removed.
+
 ## Examples
 
 

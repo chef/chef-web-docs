@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Modernize/CronDFileOrTemplate`
 | --- | --- | --- |
 | Enabled | No | 14.4+ |
 
+Use the cron_d resource that ships with Chef Infra Client 14.4+ instead of manually creating the file with template, file, or cookbook_file resources.
+
 ## Examples
 
 

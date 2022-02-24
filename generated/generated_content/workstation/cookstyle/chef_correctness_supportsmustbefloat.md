@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Correctness/SupportsMustBeFloat`
 | --- | --- | --- |
 | Enabled | Yes | All Versions |
 
+Versions used in metadata.rb supports calls should be floats not integers.
+
 ## Examples
 
 

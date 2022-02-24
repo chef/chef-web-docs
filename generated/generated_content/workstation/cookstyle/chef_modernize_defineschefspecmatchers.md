@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Modernize/DefinesChefSpecMatchers`
 | --- | --- | --- |
 | Enabled | Yes | All Versions |
 
+ChefSpec 7.1 and later auto generate ChefSpec matchers. Matchers in cookbooks can now be removed.
+
 ## Examples
 
 

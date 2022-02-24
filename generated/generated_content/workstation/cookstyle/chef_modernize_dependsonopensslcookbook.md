@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Modernize/DependsOnOpensslCookbook`
 | --- | --- | --- |
 | Enabled | Yes | 14.4+ |
 
+Don't depend on the `openssl` cookbook which was made obsolete by Chef Infra Client 14.4. All `openssl_*` resources are now included directly in Chef Infra Client.
+
 ## Examples
 
 

@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/RedundantCode/ReplacesMetadata`
 | --- | --- | --- |
 | Enabled | Yes | All Versions |
 
+The replaces metadata.rb method is not used and is unnecessary in cookbooks. Replacements for existing cookbooks should be documented in the cookbook's README.md file instead.
+
 ## Examples
 
 

@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/RedundantCode/RecipeMetadata`
 | --- | --- | --- |
 | Enabled | Yes | All Versions |
 
+The recipe metadata.rb method is not used and is unnecessary in cookbooks. Recipes should be documented in the cookbook's README.md file instead.
+
 ## Examples
 
 

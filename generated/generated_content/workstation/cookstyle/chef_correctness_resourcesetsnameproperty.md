@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Correctness/ResourceSetsNameProperty`
 | --- | --- | --- |
 | Enabled | No | All Versions |
 
+Use name properties instead of setting the name property in a resource. Setting the name property directly causes notification and reporting issues.
+
 ## Examples
 
 

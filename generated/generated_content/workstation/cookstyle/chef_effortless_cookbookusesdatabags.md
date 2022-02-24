@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Effortless/CookbookUsesDatabags`
 | --- | --- | --- |
 | Not Enabled | No | All Versions |
 
+Data bags cannot be used with the Effortless Infra pattern
+
 ## Examples
 
 

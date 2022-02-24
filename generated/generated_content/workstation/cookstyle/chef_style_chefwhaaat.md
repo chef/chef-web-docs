@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Style/ChefWhaaat`
 | --- | --- | --- |
 | Not Enabled | No | All Versions |
 
+Checks for comments that mention "Chef" without context. Do you mean Chef Infra or Chef Software?
+
 ## Examples
 
 

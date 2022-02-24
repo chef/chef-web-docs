@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Modernize/LegacyBerksfileSource`
 | --- | --- | --- |
 | Enabled | Yes | All Versions |
 
+There have been many different valid community site / Supermarket URLs to use in a cookbook's Berksfile. These old URLs continue to function via redirects, but should be updated to point to the latest Supermarket URL.
+
 ## Examples
 
 

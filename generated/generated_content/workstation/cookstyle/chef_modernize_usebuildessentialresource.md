@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Modernize/UseBuildEssentialResource`
 | --- | --- | --- |
 | Enabled | Yes | All Versions |
 
+Use the build_essential resource from the build-essential cookbook 5.0+ or Chef Infra Client 14+ instead of using the build-essential::default recipe.
+
 ## Examples
 
 

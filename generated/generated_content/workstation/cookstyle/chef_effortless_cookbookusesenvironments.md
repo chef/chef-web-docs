@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Effortless/CookbookUsesEnvironments`
 | --- | --- | --- |
 | Not Enabled | No | All Versions |
 
+Neither Policyfiles or Effortless Infra which is based on Policyfiles supports Chef Environments
+
 ## Examples
 
 

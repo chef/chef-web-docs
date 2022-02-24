@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Modernize/AllowedActionsFromInitialize`
 | --- | --- | --- |
 | Enabled | Yes | All Versions |
 
+The allowed actions can now be specified using the `allowed_actions` helper instead of using the @actions or @allowed_actions variables in the resource's initialize method. In general we recommend against writing HWRPs, but if HWRPs are necessary you should utilize as much of the resource DSL as possible.
+
 ## Examples
 
 

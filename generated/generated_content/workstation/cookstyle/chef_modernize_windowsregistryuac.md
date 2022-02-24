@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Modernize/WindowsRegistryUAC`
 | --- | --- | --- |
 | Enabled | No | 15.0+ |
 
+Chef Infra Client 15.0 and later includes a windows_uac resource that should be used to set Windows UAC values instead of setting registry keys directly.
+
 ## Examples
 
 

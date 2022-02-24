@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Deprecations/VerifyPropertyUsesFileExpansion`
 | --- | --- | --- |
 | Enabled | Yes | 12.5+ |
 
+In Chef Infra Client 13 the "file" variable for use within the verify property was replaced with the "path" variable.
+
 ## Examples
 
 

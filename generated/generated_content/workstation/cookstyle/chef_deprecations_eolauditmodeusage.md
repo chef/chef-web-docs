@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Deprecations/EOLAuditModeUsage`
 | --- | --- | --- |
 | Enabled | No | All Versions |
 
+The beta Audit Mode for Chef Infra Client was removed in Chef Infra Client 15.0. Users should instead use InSpec and the audit cookbook or the Compliance Phase introduced in Chef Infra Client 17. See https://www.inspec.io/ for more information.
+
 ## Examples
 
 

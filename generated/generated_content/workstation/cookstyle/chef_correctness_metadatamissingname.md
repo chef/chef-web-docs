@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Correctness/MetadataMissingName`
 | --- | --- | --- |
 | Enabled | Yes | All Versions |
 
+metadata.rb needs to include the name method or it will fail on Chef Infra Client 12 and later.
+
 ## Examples
 
 ```

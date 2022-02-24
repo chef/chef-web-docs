@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Deprecations/ChefWindowsPlatformHelper`
 | --- | --- | --- |
 | Enabled | Yes | All Versions |
 
+Use `platform?('windows')` instead of the legacy `Chef::Platform.windows?` helper
+
 ## Examples
 
 
