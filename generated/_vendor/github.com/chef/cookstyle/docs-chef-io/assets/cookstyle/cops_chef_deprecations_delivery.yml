@@ -13,4 +13,5 @@ examples:
 version_added: 7.31.0
 enabled: true
 included_file_paths:
-- "**/metadata.rb"
+- "**/.delivery/project.toml"
+- "**/.delivery/config.json"

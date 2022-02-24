@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Deprecations/CookbookDependsOnCompatResource`
 | --- | --- | --- |
 | Enabled | Yes | 12.19+ |
 
+Don't depend on the deprecated `compat_resource` cookbook made obsolete by Chef Infra Client 12.19+.
+
 ## Examples
 
 

@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Correctness/MetadataMissingVersion`
 | --- | --- | --- |
 | Enabled | Yes | All Versions |
 
+metadata.rb should define a version for the cookbook.
+
 ## Examples
 
 ```

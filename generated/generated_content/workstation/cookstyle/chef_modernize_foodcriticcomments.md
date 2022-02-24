@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Modernize/FoodcriticComments`
 | --- | --- | --- |
 | Enabled | Yes | All Versions |
 
+Remove legacy code comments that disable Foodcritic rules. These comments are no longer necessary if you've migrated from Foodcritic to Cookstyle for cookbook linting.
+
 ## Examples
 
 

@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/RedundantCode/DoubleCompileTime`
 | --- | --- | --- |
 | Enabled | Yes | All Versions |
 
+If a resource includes the `compile_time` property there's no need to also use `.run_action(:some_action)` on the resource block
+
 ## Examples
 
 

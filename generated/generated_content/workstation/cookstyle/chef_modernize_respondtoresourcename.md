@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Modernize/RespondToResourceName`
 | --- | --- | --- |
 | Enabled | Yes | All Versions |
 
+Chef Infra Client 12.5 introduced the resource_name method for resources. Many cookbooks used respond_to?(:resource_name) to provide backwards compatibility with older chef-client releases. This backwards compatibility is no longer necessary.
+
 ## Examples
 
 

@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Style/DefaultCopyrightComments`
 | --- | --- | --- |
 | Enabled | No | All Versions |
 
+Checks for default copyright comments from the chef generator cookbook command
+
 ## Examples
 
 

@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Effortless/CookbookUsesSearch`
 | --- | --- | --- |
 | Not Enabled | No | All Versions |
 
+Search is not compatible with the Effortless Infra pattern
+
 ## Examples
 
 

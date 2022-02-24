@@ -13,6 +13,11 @@ The full name of the cop is: `Chef/Deprecations/Delivery`
 | --- | --- | --- |
 | Enabled | No | All Versions |
 
+The Delivery CLI from Chef Delivery/Workflow is no longer bundled with Chef Workstation as Chef Delivery is end of life as of Dec 31st 2021.
+
+Users of Delivery / Workflow would include a `.delivery` directory in their cookbooks. This directory would include Delivery local-mode configs
+or Delivery cookbooks. The contents of this directory are now obsolete and should be removed.
+
 ## Examples
 
 <nil>
@@ -32,7 +37,8 @@ The full name of the cop is: `Chef/Deprecations/Delivery`
 </tr>
 <tr><td style="text-align:center">Include</td>
 <td style="text-align:center"><ul>
-<li><code>**/metadata.rb</code></li>
+<li><code>**/.delivery/project.toml</code></li>
+<li><code>**/.delivery/config.json</code></li>
 </ul>
 </td>
 <td style="text-align:center">Array</td>

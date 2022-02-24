@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Correctness/ScopedFileExist`
 | --- | --- | --- |
 | Enabled | Yes | All Versions |
 
+Scope file exist to access the correct `File` class by using `::File.exist?` not `File.exist?`.
+
 ## Examples
 
 

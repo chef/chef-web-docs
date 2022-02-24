@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/RedundantCode/UnnecessaryNameProperty`
 | --- | --- | --- |
 | Enabled | Yes | All Versions |
 
+There is no need to define a property or attribute named :name in a resource as Chef Infra defines this on all resources by default.
+
 ## Examples
 
 

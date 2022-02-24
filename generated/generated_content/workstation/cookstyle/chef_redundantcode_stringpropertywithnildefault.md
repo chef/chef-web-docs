@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/RedundantCode/StringPropertyWithNilDefault`
 | --- | --- | --- |
 | Enabled | Yes | All Versions |
 
+Properties have a nil value by default so there is no need to set the default value to nil.
+
 ## Examples
 
 

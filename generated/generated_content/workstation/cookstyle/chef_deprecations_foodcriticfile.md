@@ -1,37 +1,23 @@
 +++
-title = "AttributeKeys"
+title = "FoodcriticFile"
 
 +++
 
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
-The department is: `AttributeKeys`
+The department is: `FoodcriticFile`
 
-The full name of the cop is: `Chef/Style/AttributeKeys`
+The full name of the cop is: `Chef/Deprecations/FoodcriticFile`
 
 | Enabled by default | Supports autocorrection | Target Chef Version |
 | --- | --- | --- |
-| Enabled | Yes | All Versions |
+| Enabled | No | All Versions |
 
-Check which style of keys are used to access node attributes.
-
-There are two supported styles: "symbols" and "strings".
+The Foodcritic cookbook linter has been deprecated and should no longer be used for validating cookbooks. Do not include the `.foodcritic` config file used by Foodcritic in your cookbooks.
 
 ## Examples
 
-
-#### incorrect
-
-```ruby
-node['foo']
-node["foo"]
-```
-
-#### correct
-
-```ruby
-node[:foo]
-```
+<nil>
 
 ## Configurable attributes
 
@@ -43,11 +29,12 @@ node[:foo]
 </tr>
 <tr>
 <td style="text-align:center">Version Added</td>
-<td style="text-align:center">5.0.0</td>
+<td style="text-align:center">7.32.0</td>
 <td style="text-align:center">String</td>
 </tr>
 <tr><td style="text-align:center">Include</td>
 <td style="text-align:center"><ul>
+<li><code>**/.foodcritic</code></li>
 </ul>
 </td>
 <td style="text-align:center">Array</td>

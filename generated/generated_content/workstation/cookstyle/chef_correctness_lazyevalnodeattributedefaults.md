@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Correctness/LazyEvalNodeAttributeDefaults`
 | --- | --- | --- |
 | Enabled | Yes | All Versions |
 
+When setting a node attribute as the default value for a custom resource property, wrap the node attribute in `lazy {}` so that its value is available when the resource executes.
+
 ## Examples
 
 

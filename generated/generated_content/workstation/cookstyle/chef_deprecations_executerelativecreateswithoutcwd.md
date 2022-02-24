@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Deprecations/ExecuteRelativeCreatesWithoutCwd
 | --- | --- | --- |
 | Enabled | No | All Versions |
 
+In Chef Infra Client 13 and later you must either specific an absolute path when using the `execute` resource's `creates` property or also use the `cwd` property.
+
 ## Examples
 
 

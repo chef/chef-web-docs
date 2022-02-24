@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Style/ImmediateNotificationTiming`
 | --- | --- | --- |
 | Enabled | Yes | All Versions |
 
+Use :immediately instead of :immediate for resource notification timing.
+
 ## Examples
 
 

@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/RedundantCode/AttributeMetadata`
 | --- | --- | --- |
 | Enabled | Yes | All Versions |
 
+The attribute metadata.rb method is not used and is unnecessary in cookbooks.
+
 ## Examples
 
 

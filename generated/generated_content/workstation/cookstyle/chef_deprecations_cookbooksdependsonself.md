@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Deprecations/CookbooksDependsOnSelf`
 | --- | --- | --- |
 | Enabled | Yes | All Versions |
 
+Make sure a cookbook doesn't depend on itself. This will fail on Chef Infra Client 13+
+
 ## Examples
 
 

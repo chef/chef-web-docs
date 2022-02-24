@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Modernize/UseMultipackageInstalls`
 | --- | --- | --- |
 | Enabled | Yes | All Versions |
 
+Pass an array of packages to package resources instead of iterating over an array of packages when using multi-package capable package subsystem such as apt, yum, chocolatey, dnf, or zypper. Multi-package installs are faster and simplify logs.
+
 ## Examples
 
 

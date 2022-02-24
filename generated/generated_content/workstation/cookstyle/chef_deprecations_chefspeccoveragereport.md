@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Deprecations/ChefSpecCoverageReport`
 | --- | --- | --- |
 | Enabled | Yes | All Versions |
 
+Don't use the deprecated ChefSpec Coverage report functionality in your specs. This feature has been removed as coverage reports encourage cookbook authors to write ineffective specs. Focus on testing your logic instead of achieving 100% code coverage.
+
 ## Examples
 
 

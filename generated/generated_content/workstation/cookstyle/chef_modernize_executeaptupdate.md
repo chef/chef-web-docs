@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Modernize/ExecuteAptUpdate`
 | --- | --- | --- |
 | Enabled | Yes | All Versions |
 
+Instead of using the execute resource to run the `apt-get update` use Chef Infra Client's built-n apt_update resource which is available in Chef Infra Client 12.7 and later.
+
 ## Examples
 
 

@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Effortless/ChefVaultUsed`
 | --- | --- | --- |
 | Not Enabled | No | All Versions |
 
+Chef Vault is not supported in the Effortless pattern, so usage of Chef Vault must be shifted to another secrets management solution before leveraging the Effortless pattern.
+
 ## Examples
 
 

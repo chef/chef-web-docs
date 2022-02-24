@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Correctness/OctalModeAsString`
 | --- | --- | --- |
 | Enabled | No | All Versions |
 
+Don't represent file modes as Strings containing octal values.
+
 ## Examples
 
 

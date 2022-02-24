@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/RedundantCode/ProvidesMetadata`
 | --- | --- | --- |
 | Enabled | Yes | All Versions |
 
+The provides metadata.rb method is not used and is unnecessary in cookbooks.
+
 ## Examples
 
 

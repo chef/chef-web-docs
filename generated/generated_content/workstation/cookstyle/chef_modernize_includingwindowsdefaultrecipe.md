@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Modernize/IncludingWindowsDefaultRecipe`
 | --- | --- | --- |
 | Enabled | Yes | All Versions |
 
+Don't include the windows default recipe that is either full of gem install that are part of the Chef Infra Client, or empty (depends on version).
+
 ## Examples
 
 

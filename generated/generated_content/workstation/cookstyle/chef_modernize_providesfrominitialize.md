@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Modernize/ProvidesFromInitialize`
 | --- | --- | --- |
 | Enabled | Yes | All Versions |
 
+Provides should be set using the `provides` resource DSL method instead of instead of setting @provides in the initialize method.
+
 ## Examples
 
 

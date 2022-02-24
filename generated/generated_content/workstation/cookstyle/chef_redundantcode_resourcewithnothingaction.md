@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/RedundantCode/ResourceWithNothingAction`
 | --- | --- | --- |
 | Enabled | Yes | All Versions |
 
+Chef Infra Client provides the :nothing action by default for every resource. There is no need to define a :nothing action in your resource code.
+
 ## Examples
 
 

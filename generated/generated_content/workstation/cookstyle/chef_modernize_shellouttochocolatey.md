@@ -13,6 +13,13 @@ The full name of the cop is: `Chef/Modernize/ShellOutToChocolatey`
 | --- | --- | --- |
 | Enabled | No | All Versions |
 
+Use the Chocolatey resources built into Chef Infra Client instead of shelling out to the choco command
+
+ powershell_script 'add artifactory choco source' do
+   code "choco source add -n=artifactory -s='https://mycorp.jfrog.io/mycorp/api/nuget/chocolatey-remote' -u foo -p bar"x
+   not_if 'choco source list | findstr artifactory'
+ end
+
 ## Examples
 
 

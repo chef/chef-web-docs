@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Modernize/ResourceForcingCompileTime`
 | --- | --- | --- |
 | Enabled | No | All Versions |
 
+The hostname, build_essential, chef_gem, and ohai_hint resources include 'compile_time' properties, which should be used to force the resources to run at compile time by setting `compile_time true`.
+
 ## Examples
 
 

@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/RedundantCode/UnnecessaryDesiredState`
 | --- | --- | --- |
 | Enabled | Yes | All Versions |
 
+There is no need to set a property/attribute to desired_state: true as all properties/attributes have a desired_state of true by default.
+
 ## Examples
 
 

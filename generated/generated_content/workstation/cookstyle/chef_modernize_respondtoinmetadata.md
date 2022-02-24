@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Modernize/RespondToInMetadata`
 | --- | --- | --- |
 | Enabled | Yes | 12.15+ |
 
+It is not longer necessary respond_to?(:foo) or defined?(foo) in metadata. This was used to support new metadata methods in Chef 11 and early versions of Chef 12.
+
 ## Examples
 
 

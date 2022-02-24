@@ -13,6 +13,13 @@ The full name of the cop is: `Chef/Correctness/PowershellScriptDeleteFile`
 | --- | --- | --- |
 | Enabled | No | All Versions |
 
+Use the `file` or `directory` resources built into Chef Infra Client with the :delete action to remove files/directories instead of using Remove-Item in a powershell_script resource
+
+ #### correct
+ file 'C:\Windows\foo\bar.txt' do
+   action :delete
+ end
+
 ## Examples
 
 

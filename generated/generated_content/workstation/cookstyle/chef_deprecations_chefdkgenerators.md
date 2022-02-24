@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Deprecations/ChefDKGenerators`
 | --- | --- | --- |
 | Enabled | Yes | All Versions |
 
+Chef Workstation 0.8 and later renamed the `ChefDK` module used when writing custom cookbook generators from `ChefDK` to `ChefCLI`. For compatibility with the latest Chef Workstation releases you'll need to reference the new class names.
+
 ## Examples
 
 
@@ -22,7 +24,7 @@ The full name of the cop is: `Chef/Deprecations/ChefDKGenerators`
 ChefDK::CLI
 ChefDK::Generator::TemplateHelper
 module ChefDK
-  ...
+  # some additional code
 end
 ```
 
@@ -32,7 +34,7 @@ end
 ChefCLI::CLI
 ChefCLI::Generator::TemplateHelper
 module ChefCLI
-  ...
+  # some additional code
 end
 ```
 
