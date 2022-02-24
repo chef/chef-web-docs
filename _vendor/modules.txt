@@ -5,7 +5,7 @@
 # github.com/inspec/inspec/docs-chef-io v0.0.0-20211220023149-b3d7bfa0cc76
 # github.com/inspec/inspec-aws/docs-chef-io v0.0.0-20220107215007-d379e6b35b20
 # github.com/inspec/inspec-azure/docs-chef-io v0.0.0-20220107214957-9a289bb02261
-# github.com/chef/chef-workstation/docs-chef-io v0.0.0-20220222054841-15d77fcd7c29
+# github.com/chef/chef-workstation/docs-chef-io v0.0.0-20220224061011-84c0b824afd4
 # github.com/chef/supermarket/docs-chef-io v0.0.0-20220117164111-ab75fec53a42
 # github.com/chef/effortless/docs-chef-io v0.0.0-20211119164252-4ff3d53886be
 # github.com/cowboy/jquery-hashchange v0.0.0-20100902193700-0310f3847f90
