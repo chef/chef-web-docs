@@ -13,6 +13,9 @@ The full name of the cop is: `Chef/Deprecations/UseInlineResourcesDefined`
 | --- | --- | --- |
 | Enabled | Yes | All Versions |
 
+use_inline_resources became the default in Chef Infra Client 13+ and no longer needs
+to be called in resources
+
 ## Examples
 
 

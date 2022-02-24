@@ -13,6 +13,11 @@ The full name of the cop is: `Chef/RedundantCode/SensitivePropertyInResource`
 | --- | --- | --- |
 | Enabled | Yes | All Versions |
 
+Every Chef Infra resource already includes a sensitive property with a default value of false.
+
+#### incorrect
+property :sensitive, [true, false], default: false
+
 ## Examples
 
 <nil>

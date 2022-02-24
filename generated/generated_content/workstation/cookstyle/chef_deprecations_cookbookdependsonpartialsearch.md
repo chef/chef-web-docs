@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Deprecations/CookbookDependsOnPartialSearch`
 | --- | --- | --- |
 | Enabled | No | 13.0+ |
 
+Don't depend on the `partial_search` cookbook made obsolete by Chef Infra Client 13.
+
 ## Examples
 
 

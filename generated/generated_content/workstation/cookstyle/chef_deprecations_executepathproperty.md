@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Deprecations/ExecutePathProperty`
 | --- | --- | --- |
 | Enabled | No | All Versions |
 
+In Chef Infra Client 13 and later you must set path env vars in execute resources using the `environment` property not the legacy `path` property.
+
 ## Examples
 
 

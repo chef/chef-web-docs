@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Modernize/DependsOnKernelModuleCookbook`
 | --- | --- | --- |
 | Enabled | Yes | 14.3+ |
 
+Don't depend on the kernel_module cookbook made obsolete by Chef Infra Client 14.3. The kernel_module resource is now included in Chef Infra Client itself.
+
 ## Examples
 
 

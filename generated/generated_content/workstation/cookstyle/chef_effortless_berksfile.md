@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Effortless/Berksfile`
 | --- | --- | --- |
 | Not Enabled | No | All Versions |
 
+Policyfiles should be used for cookbook dependency solving instead of a Berkshelf Berksfile.
+
 ## Examples
 
 <nil>

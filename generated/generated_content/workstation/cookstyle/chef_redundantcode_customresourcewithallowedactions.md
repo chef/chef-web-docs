@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/RedundantCode/CustomResourceWithAllowedAction
 | --- | --- | --- |
 | Enabled | Yes | All Versions |
 
+It is not necessary to set `actions` or `allowed_actions` in custom resources as Chef Infra Client determines these automatically from the set of all actions defined in the resource.
+
 ## Examples
 
 

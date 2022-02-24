@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Deprecations/UseAutomaticResourceName`
 | --- | --- | --- |
 | Enabled | Yes | All Versions |
 
+The use_automatic_resource_name method was removed in Chef Infra Client 16. The resource name/provides should be set explicitly instead.
+
 ## Examples
 
 
@@ -23,7 +25,8 @@ module MyCookbook
   class MyCookbookService < Chef::Resource
     use_automatic_resource_name
     provides :mycookbook_service
-    ...
+
+    # some additional code
   end
 end
 ```

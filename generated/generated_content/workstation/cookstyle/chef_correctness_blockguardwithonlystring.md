@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Correctness/BlockGuardWithOnlyString`
 | --- | --- | --- |
 | Enabled | Yes | All Versions |
 
+A resource guard (not_if/only_if) that is a string should not be wrapped in `{}`. Wrapping a guard string in {} causes it to be executed as Ruby code which will always return true instead of a shell command that will actually run.
+
 ## Examples
 
 

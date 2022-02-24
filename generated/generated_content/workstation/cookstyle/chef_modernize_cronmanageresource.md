@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Modernize/CronManageResource`
 | --- | --- | --- |
 | Enabled | Yes | 14.4+ |
 
+The cron_manage resource was renamed to cron_access in the 6.1 release of the cron cookbook, and later shipped in Chef Infra Client 14.4. The new resource name should be used.
+
 ## Examples
 
 

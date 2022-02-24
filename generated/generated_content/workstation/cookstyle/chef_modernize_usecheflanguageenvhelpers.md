@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Modernize/UseChefLanguageEnvHelpers`
 | --- | --- | --- |
 | Enabled | Yes | 15.5+ |
 
+Chef Infra Client 15.5 and later include a large number of new helpers in the Chef Infra Language to simplify checking the system configuration in recipes and resources. These should be used when possible over more complex attributes or ENV var comparisons.
+
 ## Examples
 
 

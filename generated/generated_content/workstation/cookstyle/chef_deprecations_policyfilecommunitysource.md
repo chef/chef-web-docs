@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Deprecations/PolicyfileCommunitySource`
 | --- | --- | --- |
 | Enabled | Yes | All Versions |
 
+The Policyfile source of `:community` has been replaced with `:supermarket`
+
 ## Examples
 
 

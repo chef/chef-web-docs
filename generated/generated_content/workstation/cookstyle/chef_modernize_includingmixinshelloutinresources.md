@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Modernize/IncludingMixinShelloutInResources`
 | --- | --- | --- |
 | Enabled | Yes | All Versions |
 
+There is no need to include Chef::Mixin::ShellOut or Chef::Mixin::PowershellOut in resources or providers as this is already done by Chef Infra Client 12.4+.
+
 ## Examples
 
 

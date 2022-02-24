@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Modernize/IfProvidesDefaultAction`
 | --- | --- | --- |
 | Enabled | Yes | All Versions |
 
+if defined?(default_action) is no longer necessary in Chef Resources as default_action shipped in Chef 10.8.
+
 ## Examples
 
 

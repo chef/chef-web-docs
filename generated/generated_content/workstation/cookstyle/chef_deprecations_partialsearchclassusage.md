@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Deprecations/PartialSearchClassUsage`
 | --- | --- | --- |
 | Enabled | No | All Versions |
 
+Legacy Chef::PartialSearch class usage should be updated to use the `search` helper instead with the `filter_result` key.
+
 ## Examples
 
 

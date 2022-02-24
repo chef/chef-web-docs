@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Modernize/ActionMethodInResource`
 | --- | --- | --- |
 | Enabled | Yes | All Versions |
 
+Use the custom resource language's `action :my_action` blocks instead of creating actions with methods.
+
 ## Examples
 
 

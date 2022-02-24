@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Deprecations/DeprecatedYumRepositoryPropertie
 | --- | --- | --- |
 | Enabled | Yes | 12.14+ |
 
+With the release of Chef Infra Client 12.14 and the yum cookbook 3.0 several properties in the `yum_repository` resource were renamed. `url` -> `baseurl`, `keyurl` -> `gpgkey`, and `mirrorexpire` -> `mirror_expire`.
+
 ## Examples
 
 

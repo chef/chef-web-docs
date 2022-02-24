@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Style/UnnecessaryPlatformCaseStatement`
 | --- | --- | --- |
 | Enabled | Yes | All Versions |
 
+Use the platform?() and platform_family?() helpers instead of a case statement that only includes a single when statement.
+
 ## Examples
 
 

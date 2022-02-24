@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Modernize/ChefGemNokogiri`
 | --- | --- | --- |
 | Enabled | Yes | All Versions |
 
+The nokogiri gem ships in Chef Infra Client 12+ and does not need to be installed before being used
+
 ## Examples
 
 

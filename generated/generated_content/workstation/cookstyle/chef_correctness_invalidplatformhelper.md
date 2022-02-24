@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Correctness/InvalidPlatformHelper`
 | --- | --- | --- |
 | Enabled | No | All Versions |
 
+Pass valid platforms to the `platform?` helper. See [Infra Language: Platform](https://docs.chef.io/infra_language/checking_platforms/#platform-values) for a list of many common platform values.
+
 ## Examples
 
 
@@ -20,7 +22,7 @@ The full name of the cop is: `Chef/Correctness/InvalidPlatformHelper`
 
 ```ruby
 platform?('darwin')
-platform?('rhel)
+platform?('rhel')
 platform?('sles')
 ```
 
@@ -28,7 +30,7 @@ platform?('sles')
 
 ```ruby
 platform?('mac_os_x')
-platform?('redhat)
+platform?('redhat')
 platform?('suse')
 ```
 

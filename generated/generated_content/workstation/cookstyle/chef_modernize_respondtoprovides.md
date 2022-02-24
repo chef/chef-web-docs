@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Modernize/RespondToProvides`
 | --- | --- | --- |
 | Enabled | Yes | All Versions |
 
+In Chef Infra Client 12+ is is no longer necessary to gate the use of the provides methods in resources with `if respond_to?(:provides)` or `if defined? provides`.
+
 ## Examples
 
 

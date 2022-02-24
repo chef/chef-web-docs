@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Deprecations/DependsOnChefNginxCookbook`
 | --- | --- | --- |
 | Enabled | Yes | All Versions |
 
+Don't depend on the deprecated `chef_nginx` cookbook that was replaced by the `nginx` cookbook. The legacy chef_nginx cookbook may not be compatible with newer Chef Infra Client releases.
+
 ## Examples
 
 

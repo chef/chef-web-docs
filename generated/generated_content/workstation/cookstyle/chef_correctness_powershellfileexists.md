@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Correctness/PowershellFileExists`
 | --- | --- | --- |
 | Enabled | No | All Versions |
 
+Use Ruby's built-in `File.exist?('C:\somefile')` method instead of executing PowerShell's `Test-Path` cmdlet, which takes longer to load.
+
 ## Examples
 
 

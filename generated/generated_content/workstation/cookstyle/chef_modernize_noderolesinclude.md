@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Modernize/NodeRolesInclude`
 | --- | --- | --- |
 | Enabled | Yes | All Versions |
 
+Use `node.role?('foo')` to check if a node includes a role instead of `node['roles'].include?('foo')`.
+
 ## Examples
 
 

@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Correctness/DnfPackageAllowDowngrades`
 | --- | --- | --- |
 | Enabled | Yes | All Versions |
 
+The `dnf_package` resource does not support the `allow_downgrades` property.
+
 ## Examples
 
 

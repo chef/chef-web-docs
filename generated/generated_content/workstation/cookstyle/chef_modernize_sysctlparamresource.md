@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Modernize/SysctlParamResource`
 | --- | --- | --- |
 | Enabled | Yes | 14.0+ |
 
+The sysctl_param resource was renamed to sysctl when it was added to Chef Infra Client 14.0. The new resource name should be used.
+
 ## Examples
 
 

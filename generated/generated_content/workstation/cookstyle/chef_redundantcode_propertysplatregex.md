@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/RedundantCode/PropertySplatRegex`
 | --- | --- | --- |
 | Enabled | Yes | All Versions |
 
+When a property has a type of String it can accept any string. There is no need to also validate string inputs against a regex that accept all values.
+
 ## Examples
 
 

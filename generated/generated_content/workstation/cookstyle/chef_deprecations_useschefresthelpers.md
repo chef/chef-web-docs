@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Deprecations/UsesChefRESTHelpers`
 | --- | --- | --- |
 | Enabled | No | All Versions |
 
+The `Chef::REST` class was removed in Chef Infra Client 13.
+
 ## Examples
 
 

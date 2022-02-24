@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Correctness/MalformedPlatformValueForPlatform
 | --- | --- | --- |
 | Enabled | No | All Versions |
 
+When using the value_for_platform helper you must include a hash of possible platforms where each platform contains a hash of versions and potential values. If you don't wish to match on a particular version you can instead use the key 'default'.
+
 ## Examples
 
 

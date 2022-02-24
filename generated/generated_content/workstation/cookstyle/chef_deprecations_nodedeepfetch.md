@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Deprecations/NodeDeepFetch`
 | --- | --- | --- |
 | Enabled | Yes | All Versions |
 
+The node.deep_fetch method has been removed from Chef-Sugar, and must be replaced by the node.read API.
+
 ## Examples
 
 

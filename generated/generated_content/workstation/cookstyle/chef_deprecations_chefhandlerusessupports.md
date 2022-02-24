@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Deprecations/ChefHandlerUsesSupports`
 | --- | --- | --- |
 | Enabled | Yes | All Versions |
 
+Use the type `property` instead of the deprecated `supports` property in the `chef_handler` resource. The `supports` property was removed in `chef_handler` cookbook version 3.0 (June 2017) and Chef Infra Client 14.0.
+
 ## Examples
 
 

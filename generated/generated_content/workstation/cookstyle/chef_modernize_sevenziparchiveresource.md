@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Modernize/SevenZipArchiveResource`
 | --- | --- | --- |
 | Enabled | No | 15.0+ |
 
+Use the archive_file resource built into Chef Infra Client 15+ instead of the seven_zip_archive
+
 ## Examples
 
 

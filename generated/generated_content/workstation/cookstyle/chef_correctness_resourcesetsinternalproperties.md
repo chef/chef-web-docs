@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Correctness/ResourceSetsInternalProperties`
 | --- | --- | --- |
 | Enabled | No | All Versions |
 
+Chef Infra Client uses properties in several resources to track state. These should not be set in recipes as they break the internal workings of the Chef Infra Client
+
 ## Examples
 
 

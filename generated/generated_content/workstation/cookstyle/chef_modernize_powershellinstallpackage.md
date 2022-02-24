@@ -13,6 +13,11 @@ The full name of the cop is: `Chef/Modernize/PowershellInstallPackage`
 | --- | --- | --- |
 | Enabled | No | 12.16+ |
 
+Use the powershell_package resource built into Chef Infra Client instead of the powershell_script resource to run Install-Package
+
+ #### correct
+ powershell_package 'docker'
+
 ## Examples
 
 

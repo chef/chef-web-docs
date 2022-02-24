@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Correctness/InvalidPlatformMetadata`
 | --- | --- | --- |
 | Enabled | Yes | All Versions |
 
+metadata.rb `supports` methods should contain valid platforms. See [Infra Language: Platform](https://docs.chef.io/infra_language/checking_platforms/#platform-values) for a list of many common platform values.
+
 ## Examples
 
 

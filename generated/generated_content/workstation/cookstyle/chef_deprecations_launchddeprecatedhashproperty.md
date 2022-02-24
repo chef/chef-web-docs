@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Deprecations/LaunchdDeprecatedHashProperty`
 | --- | --- | --- |
 | Enabled | Yes | 12.19+ |
 
+The launchd resource's hash property was renamed to plist_hash in Chef Infra Client 13+ to avoid conflicts with Ruby's hash class.
+
 ## Examples
 
 

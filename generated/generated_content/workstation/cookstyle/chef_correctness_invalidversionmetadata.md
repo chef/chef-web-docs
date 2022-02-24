@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Correctness/InvalidVersionMetadata`
 | --- | --- | --- |
 | Enabled | No | All Versions |
 
+Cookbook metadata.rb version field should follow X.Y.Z version format.
+
 ## Examples
 
 

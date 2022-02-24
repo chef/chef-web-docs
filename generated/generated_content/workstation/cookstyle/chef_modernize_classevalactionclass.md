@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Modernize/ClassEvalActionClass`
 | --- | --- | --- |
 | Enabled | Yes | 12.9+ |
 
+In Chef Infra Client 12.9 and later it is no longer necessary to call the class_eval method on the action class block.
+
 ## Examples
 
 

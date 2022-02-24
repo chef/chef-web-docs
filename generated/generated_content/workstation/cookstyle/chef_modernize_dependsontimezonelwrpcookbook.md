@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Modernize/DependsOnTimezoneLwrpCookbook`
 | --- | --- | --- |
 | Enabled | Yes | 14.6+ |
 
+Don't depend on the timezone_lwrp cookbook made obsolete by Chef Infra Client 14.6. The timezone resource is now included in Chef Infra Client itself.
+
 ## Examples
 
 

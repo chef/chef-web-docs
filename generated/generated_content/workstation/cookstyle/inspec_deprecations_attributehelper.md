@@ -13,6 +13,8 @@ The full name of the cop is: `InSpec/Deprecations/AttributeHelper`
 | --- | --- | --- |
 | Enabled | Yes | All Versions |
 
+Chef InSpec attributes have been renamed to inputs. Use the `input` method not the deprecation `attribute` method to access these values.
+
 ## Examples
 
 

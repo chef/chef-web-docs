@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Deprecations/ResourceUsesProviderBaseMethod`
 | --- | --- | --- |
 | Enabled | No | All Versions |
 
+The Resource.provider_base allows the developer to specify within a resource a module to load the resource's provider from. Instead, the provider should call provides to register itself, or the resource should call provider to specify the provider to use.
+
 ## Examples
 
 

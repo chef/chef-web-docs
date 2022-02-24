@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Modernize/UseRequireRelative`
 | --- | --- | --- |
 | Enabled | Yes | All Versions |
 
+Instead of using require with a File.expand_path and __FILE__ use the simpler require_relative method.
+
 ## Examples
 
 

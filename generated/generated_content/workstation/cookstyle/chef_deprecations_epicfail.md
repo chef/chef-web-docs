@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Deprecations/EpicFail`
 | --- | --- | --- |
 | Enabled | Yes | All Versions |
 
+Use `ignore_failure` in resources to continue when failures occur instead of the deprecated `epic_fail` property.
+
 ## Examples
 
 

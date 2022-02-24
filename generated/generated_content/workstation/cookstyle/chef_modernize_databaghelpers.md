@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Modernize/DatabagHelpers`
 | --- | --- | --- |
 | Enabled | Yes | All Versions |
 
+Use the `data_bag_item` helper instead of `Chef::DataBagItem.load` or `Chef::EncryptedDataBagItem.load`.
+
 ## Examples
 
 
