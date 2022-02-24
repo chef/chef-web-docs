@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Modernize/UseChefLanguageSystemdHelper`
 | --- | --- | --- |
 | Enabled | Yes | 15.5+ |
 
+Chef Infra Client 15.5 and later include a `systemd?` helper for checking if a Linux system uses systemd.
+
 ## Examples
 
 

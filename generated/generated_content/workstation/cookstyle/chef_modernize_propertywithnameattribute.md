@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Modernize/PropertyWithNameAttribute`
 | --- | --- | --- |
 | Enabled | Yes | All Versions |
 
+When using properties in a custom resource you should use name_property not the legacy name_attribute from the days of attributes
+
 ## Examples
 
 

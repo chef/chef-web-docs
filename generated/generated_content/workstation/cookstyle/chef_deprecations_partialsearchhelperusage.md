@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Deprecations/PartialSearchHelperUsage`
 | --- | --- | --- |
 | Enabled | No | All Versions |
 
+Legacy partial_search usage should be updated to use :filter_result in the search helper instead
+
 ## Examples
 
 

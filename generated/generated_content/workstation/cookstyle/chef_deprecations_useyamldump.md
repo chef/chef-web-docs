@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Deprecations/UseYamlDump`
 | --- | --- | --- |
 | Enabled | Yes | All Versions |
 
+Chef Infra Client 16.5 introduced performance enhancements to Ruby library loading. Due to the underlying implementation of Ruby's `.to_yaml` method, it does not automatically load the `yaml` library and `YAML.dump()` should be used instead to properly load the `yaml` library.
+
 ## Examples
 
 

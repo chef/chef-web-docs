@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Modernize/ExecuteSysctl`
 | --- | --- | --- |
 | Enabled | No | 14.0+ |
 
+Chef Infra Client 14.0 and later includes a sysctl resource that should be used to idempotently load sysctl values instead of templating files and using execute to load them.
+
 ## Examples
 
 

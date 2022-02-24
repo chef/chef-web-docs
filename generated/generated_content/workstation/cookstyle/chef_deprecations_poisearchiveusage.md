@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Deprecations/PoiseArchiveUsage`
 | --- | --- | --- |
 | Enabled | No | 15.0+ |
 
+The poise_archive resource in the deprecated poise-archive should be replaced with the archive_file resource found in Chef Infra Client 15+.
+
 ## Examples
 
 

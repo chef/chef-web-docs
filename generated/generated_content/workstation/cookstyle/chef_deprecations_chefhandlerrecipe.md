@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Deprecations/ChefHandlerRecipe`
 | --- | --- | --- |
 | Enabled | Yes | All Versions |
 
+There is no need to include the empty and deprecated chef_handler::default recipe to use the chef_handler resource
+
 ## Examples
 
 

@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Modernize/MacOsXUserdefaults`
 | --- | --- | --- |
 | Enabled | Yes | 14.0+ |
 
+The mac_os_x_userdefaults resource was renamed to macos_userdefaults when it was added to Chef Infra Client 14.0. The new resource name should be used.
+
 ## Examples
 
 

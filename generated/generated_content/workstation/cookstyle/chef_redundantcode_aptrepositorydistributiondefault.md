@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/RedundantCode/AptRepositoryDistributionDefaul
 | --- | --- | --- |
 | Enabled | Yes | All Versions |
 
+There is no need to pass `distribution node['lsb']['codename']` to an apt_repository resource as this is done automatically by the apt_repository resource.
+
 ## Examples
 
 

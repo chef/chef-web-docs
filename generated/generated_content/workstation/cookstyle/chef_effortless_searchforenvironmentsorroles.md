@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Effortless/SearchForEnvironmentsOrRoles`
 | --- | --- | --- |
 | Not Enabled | No | All Versions |
 
+Policyfiles (and Effortless) do not use environments or roles so searching for those will need to be refactored before migrating to Policyfiles and the Effortless pattern.
+
 ## Examples
 
 

@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Deprecations/LegacyNotifySyntax`
 | --- | --- | --- |
 | Enabled | Yes | All Versions |
 
+Use the new-style notification syntax which allows you to notify resources defined later in a recipe or resource.
+
 ## Examples
 
 

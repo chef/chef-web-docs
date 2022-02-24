@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Correctness/InvalidDefaultAction`
 | --- | --- | --- |
 | Enabled | No | All Versions |
 
+Default actions in resources should be symbols or an array of symbols.
+
 ## Examples
 
 

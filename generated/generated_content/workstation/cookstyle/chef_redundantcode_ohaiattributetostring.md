@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/RedundantCode/OhaiAttributeToString`
 | --- | --- | --- |
 | Enabled | Yes | All Versions |
 
+Many Ohai node attributes are already strings and don't need to be cast to strings again
+
 ## Examples
 
 

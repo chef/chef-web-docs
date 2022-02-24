@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Correctness/InvalidPlatformInCase`
 | --- | --- | --- |
 | Enabled | Yes | All Versions |
 
+Use valid platform values in case statements. See [Infra Language: Platform](https://docs.chef.io/infra_language/checking_platforms/#platform-values) for a list of many common platform values.
+
 ## Examples
 
 

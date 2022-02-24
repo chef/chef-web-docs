@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Correctness/ChefApplicationFatal`
 | --- | --- | --- |
 | Enabled | Yes | All Versions |
 
+Use `raise` to force Chef Infra Client to fail instead of using `Chef::Application.fatal`, which masks the full stack trace of the failure and makes debugging difficult.
+
 ## Examples
 
 

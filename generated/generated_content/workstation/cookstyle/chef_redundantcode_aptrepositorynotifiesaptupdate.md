@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/RedundantCode/AptRepositoryNotifiesAptUpdate`
 | --- | --- | --- |
 | Enabled | Yes | All Versions |
 
+There is no need to notify an apt-get update when an apt_repository is created as this is done automatically by the apt_repository resource.
+
 ## Examples
 
 

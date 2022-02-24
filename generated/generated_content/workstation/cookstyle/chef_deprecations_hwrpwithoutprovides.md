@@ -13,6 +13,40 @@ The full name of the cop is: `Chef/Deprecations/HWRPWithoutProvides`
 | --- | --- | --- |
 | Enabled | Yes | All Versions |
 
+Chef Infra Client 16 and later a legacy HWRP resource must use `provides` to define how the resource is called in recipes or other resources. To maintain compatibility with Chef Infra Client < 16 use both `resource_name` and `provides`.
+
+ #### correct when Chef Infra Client < 15 (but compatible with 16+ as well)
+  class Chef
+    class Resource
+      class UlimitRule < Chef::Resource
+        resource_name :ulimit_rule
+        provides :ulimit_rule
+
+        property :type, [Symbol, String], required: true
+        property :item, [Symbol, String], required: true
+
+        # additional resource code
+      end
+    end
+  end
+
+ #### correct when Chef Infra Client 16+
+  class Chef
+    class Resource
+      class UlimitRule < Chef::Resource
+        provides :ulimit_rule
+
+        property :type, [Symbol, String], required: true
+        property :item, [Symbol, String], required: true
+
+        # additional resource code
+      end
+    end
+  end
+
+ # better
+ Convert your legacy HWRPs to custom resources
+
 ## Examples
 
 

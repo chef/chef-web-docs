@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Deprecations/NodeSetWithoutLevel`
 | --- | --- | --- |
 | Enabled | No | All Versions |
 
+When setting a node attribute in Chef Infra Client 11 and later you must specify the precedence level.
+
 ## Examples
 
 

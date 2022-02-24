@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Modernize/IncludingOhaiDefaultRecipe`
 | --- | --- | --- |
 | Enabled | No | All Versions |
 
+The Ohai default recipe previously allowed a user to ship custom Ohai plugins to a system by including them in a directory in the Ohai cookbook. This functionality was replaced with the ohai_plugin resource, which should be used instead as it doesn't require forking the ohai cookbook.
+
 ## Examples
 
 

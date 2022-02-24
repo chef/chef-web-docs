@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Deprecations/ChefShellout`
 | --- | --- | --- |
 | Enabled | Yes | All Versions |
 
+Don't use the deprecated `Chef::ShellOut` class which was removed in Chef Infra Client 13. Use the `Mixlib::ShellOut` class instead, which behaves identically or convert to the simpler `shell_out` helper.
+
 ## Examples
 
 

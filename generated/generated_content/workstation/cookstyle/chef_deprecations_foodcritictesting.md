@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Deprecations/FoodcriticTesting`
 | --- | --- | --- |
 | Enabled | No | All Versions |
 
+The Foodcritic cookbook linter has been deprecated and should no longer be used for validating cookbooks.
+
 ## Examples
 
 

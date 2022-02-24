@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Style/TrueClassFalseClassResourceProperties`
 | --- | --- | --- |
 | Enabled | Yes | All Versions |
 
+When setting the allowed types for a resource to accept either true or false values it's much simpler to use true and false instead of TrueClass and FalseClass.
+
 ## Examples
 
 

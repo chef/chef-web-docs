@@ -13,6 +13,9 @@ The full name of the cop is: `Chef/Style/CommentSentenceSpacing`
 | --- | --- | --- |
 | Not Enabled | Yes | All Versions |
 
+Replaces double spaces between sentences with a single space.
+Note: This is DISABLED by default.
+
 ## Examples
 
 <nil>

@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Deprecations/LocaleDeprecatedLcAllProperty`
 | --- | --- | --- |
 | Enabled | No | All Versions |
 
+The local resource's lc_all property has been deprecated and will be removed in Chef Infra Client 17
+
 ## Examples
 
 

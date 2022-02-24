@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Correctness/InvalidNotificationResource`
 | --- | --- | --- |
 | Enabled | No | All Versions |
 
+The resource to notify when calling `notifies` or `subscribes` must be a string.
+
 ## Examples
 
 

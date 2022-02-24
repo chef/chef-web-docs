@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Modernize/ExecuteTzUtil`
 | --- | --- | --- |
 | Enabled | No | 14.6+ |
 
+Instead of using the execute or powershell_script resources to run the `tzutil` command, use Chef Infra Client's built-in timezone resource which is available in Chef Infra Client 14.6 and later.
+
 ## Examples
 
 

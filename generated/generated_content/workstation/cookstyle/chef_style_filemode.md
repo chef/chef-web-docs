@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Style/FileMode`
 | --- | --- | --- |
 | Enabled | Yes | All Versions |
 
+Use strings to represent file modes to avoid confusion between octal and base 10 integer formats.
+
 ## Examples
 
 

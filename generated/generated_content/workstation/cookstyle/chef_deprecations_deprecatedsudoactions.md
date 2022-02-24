@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Deprecations/DeprecatedSudoActions`
 | --- | --- | --- |
 | Enabled | Yes | 14.0+ |
 
+The `sudo` resource in the sudo cookbook 5.0 (2018) or Chef Infra Client 14 and later have replaced the existing `:install` and `:remove` actions with `:create` and `:delete` actions to better match other resources in Chef Infra.
+
 ## Examples
 
 

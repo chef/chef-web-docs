@@ -16,7 +16,7 @@ examples: |2-
   ChefDK::CLI
   ChefDK::Generator::TemplateHelper
   module ChefDK
-    ...
+    # some additional code
   end
   ```
 
@@ -26,7 +26,7 @@ examples: |2-
   ChefCLI::CLI
   ChefCLI::Generator::TemplateHelper
   module ChefCLI
-    ...
+    # some additional code
   end
   ```
 version_added: 6.12.0

@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Modernize/DependsOnChefVaultCookbook`
 | --- | --- | --- |
 | Enabled | Yes | 16.0+ |
 
+Don't depend on the chef-vault cookbook made obsolete by Chef Infra Client 16.0. The chef-vault gem and helpers are now included in Chef Infra Client itself.
+
 ## Examples
 
 

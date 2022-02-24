@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Deprecations/ChocolateyPackageUninstallAction
 | --- | --- | --- |
 | Enabled | Yes | All Versions |
 
+Use the `:remove` action in the `chocolatey_package` resource instead of `:uninstall` which was removed in Chef Infra Client 14+.
+
 ## Examples
 
 

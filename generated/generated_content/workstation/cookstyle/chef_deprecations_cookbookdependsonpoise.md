@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Deprecations/CookbookDependsOnPoise`
 | --- | --- | --- |
 | Enabled | No | All Versions |
 
+Cookbooks should not depend on the deprecated Poise framework cookbooks. They should instead be refactored to use standard Chef Infra custom resources.
+
 ## Examples
 
 

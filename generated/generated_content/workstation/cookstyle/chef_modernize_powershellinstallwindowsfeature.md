@@ -13,6 +13,14 @@ The full name of the cop is: `Chef/Modernize/PowershellInstallWindowsFeature`
 | --- | --- | --- |
 | Enabled | No | 14.0+ |
 
+Use the windows_feature resource built into Chef Infra Client 14+ instead of the powershell_script resource to run Install-WindowsFeature or Add-WindowsFeature
+
+ #### correct
+ windows_feature 'Net-framework-Core' do
+   action :install
+   install_method :windows_feature_powershell
+ end
+
 ## Examples
 
 

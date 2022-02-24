@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Deprecations/WindowsVersionHelpers`
 | --- | --- | --- |
 | Enabled | Yes | 14.0+ |
 
+Use node['platform_version'] and node['kernel'] data instead of the deprecated Windows::VersionHelper helpers from the Windows cookbook.
+
 ## Examples
 
 

@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Security/SshPrivateKey`
 | --- | --- | --- |
 | Enabled | No | All Versions |
 
+Do not include plain text SSH private keys in your cookbook code. This sensitive data should be fetched from secrets management systems so that secrets are not uploaded in plain text to the Chef Infra Server or committed to source control systems.
+
 ## Examples
 
 

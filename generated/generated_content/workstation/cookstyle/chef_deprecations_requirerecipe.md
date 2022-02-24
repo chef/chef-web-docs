@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Deprecations/RequireRecipe`
 | --- | --- | --- |
 | Enabled | Yes | All Versions |
 
+Make sure to use include_recipe instead of require_recipe
+
 ## Examples
 
 

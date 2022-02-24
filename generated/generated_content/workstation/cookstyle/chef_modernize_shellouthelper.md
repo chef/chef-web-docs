@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Modernize/ShellOutHelper`
 | --- | --- | --- |
 | Enabled | Yes | 12.11+ |
 
+Use the built-in `shell_out` helper available in Chef Infra Client 12.11+ instead of calling `Mixlib::ShellOut.new('foo').run_command`.
+
 ## Examples
 
 

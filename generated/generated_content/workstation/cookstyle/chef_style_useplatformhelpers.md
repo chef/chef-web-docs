@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Style/UsePlatformHelpers`
 | --- | --- | --- |
 | Enabled | Yes | All Versions |
 
+Use the platform?() and platform_family?() helpers instead of node['platform] == 'foo' and node['platform_family'] == 'bar'. These helpers are easier to read and can accept multiple platform arguments, which greatly simplifies complex platform logic.
+
 ## Examples
 
 

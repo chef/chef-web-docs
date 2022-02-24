@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Correctness/PropertyWithoutType`
 | --- | --- | --- |
 | Enabled | No | All Versions |
 
+Resource properties or attributes should always define a type to help users understand the correct allowed values.
+
 ## Examples
 
 
