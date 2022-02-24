@@ -4,7 +4,7 @@
 default: true
 
 # Path to configuration file to extend
-extends: null
+# extends: null
 
 # MD001/heading-increment/header-increment - Heading levels should only increment by one level at a time
 MD001: true
@@ -62,9 +62,8 @@ MD012:
 # MD013/line-length - Line length
 MD013:
   line_length: 999
-  code_blocks: false
+  ignore_code_blocks: true
   tables: false
-  headings: true
 
 # MD014/commands-show-output - Dollar signs used before commands without showing output
 MD014: true
@@ -108,7 +107,7 @@ MD025:
 # MD026/no-trailing-punctuation - Trailing punctuation in heading
 MD026:
   # Punctuation characters
-  punctuation: ".,;:!。，；：！"
+  punctuation: ".,;:!"
 
 # MD027/no-multiple-space-blockquote - Multiple spaces after blockquote symbol
 MD027: true
@@ -156,7 +155,7 @@ MD035:
 # MD036/no-emphasis-as-heading/no-emphasis-as-header - Emphasis used instead of a heading
 MD036:
   # Punctuation characters
-  punctuation: ".,;:!?。，；：！？"
+  punctuation: ".,;:!?"
 
 # MD037/no-space-in-emphasis - Spaces inside emphasis markers
 MD037: true
@@ -204,8 +203,3 @@ MD046:
 
 # MD047/single-trailing-newline - Files should end with a single newline character
 MD047: true
-
-# MD048/code-fence-style - Code fence style
-MD048:
-  # Code fence syle
-  style: "backtick"
