@@ -380,6 +380,12 @@ identifier = "server"
   parent = "server"
   weight = 40
 
+    [[server]]
+    title = "High Availability"
+    identifier = "server/upgrade/HA"
+    parent = "server/upgrade"
+    weight = 100
+
   [[server]]
   title = "Configure"
   identifier = "server/configure"
