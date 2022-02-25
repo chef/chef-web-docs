@@ -797,6 +797,24 @@ identifier = "chef_workstation"
       url = "/workstation/ctl_chef/#chef-generate-template"
 
       [[workstation]]
+      title = "chef generate profile"
+      identifier = "chef_workstation/chef_workstation_tools/chef_(executable)/ctl_chef.md#chef-generate-profile chef generate profile"
+      parent = "chef_workstation/chef_workstation_tools/chef_(executable)"
+      url = "/workstation/ctl_chef/#chef-generate-profile"
+
+      [[workstation]]
+      title = "chef generate input"
+      identifier = "chef_workstation/chef_workstation_tools/chef_(executable)/ctl_chef.md#chef-generate-input chef generate input"
+      parent = "chef_workstation/chef_workstation_tools/chef_(executable)"
+      url = "/workstation/ctl_chef/#chef-generate-input"
+
+      [[workstation]]
+      title = "chef generate waiver"
+      identifier = "chef_workstation/chef_workstation_tools/chef_(executable)/ctl_chef.md#chef-generate-waiver chef generate waiver"
+      parent = "chef_workstation/chef_workstation_tools/chef_(executable)"
+      url = "/workstation/ctl_chef/#chef-generate-waiver"
+
+      [[workstation]]
       title = "chef report cookbooks"
       identifier = "chef_workstation/chef_workstation_tools/chef_(executable)/ctl_chef.md#chef-report-cookbooks chef report cookbooks"
       parent = "chef_workstation/chef_workstation_tools/chef_(executable)"
