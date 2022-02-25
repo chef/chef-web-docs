@@ -375,10 +375,16 @@ identifier = "server"
     weight = 40
 
   [[server]]
+  title = "Upgrade"
+  identifier = "server/upgrade"
+  parent = "server"
+  weight = 40
+
+  [[server]]
   title = "Configure"
   identifier = "server/configure"
   parent = "server"
-  weight = 40
+  weight = 50
 
     [[server]]
     title = "Server Firewalls and Ports"
@@ -391,13 +397,13 @@ identifier = "server"
   title = "Manage"
   identifier = "server/manage"
   parent = "server"
-  weight = 50
+  weight = 60
 
   [[server]]
   title = "Users"
   identifier = "server/users"
   parent = "server"
-  weight = 60
+  weight = 70
 
   # Turn these on when the server docs are ready
   #   [[server]]
@@ -405,12 +411,6 @@ identifier = "server"
   #   identifier = "server/manage/upgrade_services"
   #   parent = "server/manage"
   #   weight = 100
-
-  # [[server]]
-  # title = "Upgrade"
-  # identifier = "server/upgrade"
-  # parent = "server"
-  # weight = 60
 
   [[server]]
   title = "Reference"
