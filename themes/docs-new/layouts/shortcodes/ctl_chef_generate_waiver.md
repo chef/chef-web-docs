@@ -1,0 +1,1 @@
+Use the `chef generate waiver` subcommand to generate a [waiver](/inspec/waivers/) file for the Chef Infra Client's Compliance Phase execution.
