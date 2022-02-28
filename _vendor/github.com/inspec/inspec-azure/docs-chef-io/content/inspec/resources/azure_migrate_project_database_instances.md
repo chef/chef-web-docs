@@ -1,28 +1,24 @@
----
-title: About the azure_migrate_project_database_instances Resource
-platform: azure
----
++++
+title = "azure_migrate_project_database_instances Resource"
+platform = "azure"
+draft = false
+gh_repo = "inspec-azure"
 
-# azure_migrate_project_database_instances
+[menu.inspec]
+title = "azure_migrate_project_database_instances"
+identifier = "inspec/resources/azure/azure_migrate_project_database_instances Resource"
+parent = "inspec/resources/azure"
++++
 
 Use the `azure_migrate_project_database_instances` InSpec audit resource to test properties of all Azure Migrate project database instances in a migrate project.
 
-## Azure REST API version, endpoint and http client parameters
+## Azure REST API Version, Endpoint, and HTTP Client Parameters
 
-This resource interacts with api versions supported by the resource provider.
-The `api_version` can be defined as a resource parameter.
-If not provided, the latest version will be used.
-For more information, refer to [`azure_generic_resource`](azure_generic_resource.md).
+{{% inspec_azure_common_parameters %}}
 
-Unless defined, `azure_cloud` global endpoint, and default values for the http client will be used.
-For more information, refer to the resource pack [README](../../README.md).
+## Installation
 
-## Availability
-
-### Installation
-
-This resource is available in the [InSpec Azure resource pack](https://github.com/inspec/inspec-azure).
-For an example `inspec.yml` file and how to set up your Azure credentials, refer to resource pack [README](../../README.md#Service-Principal).
+{{% inspec_azure_install %}}
 
 ## Syntax
 
@@ -38,39 +34,104 @@ end
 
 `resource_group` _(required)_
 
-Name of the Azure Resource Group that migrate project is part of.
+: Name of the Azure Resource Group that migrate project is part of.
 
 `project_name` _(required)_
 
-Name of the Azure Migrate project.
+: Name of the Azure Migrate project.
 
 ## Properties
 
-|Property                        | Description                                                            | Filter Criteria<superscript>*</superscript> |
-|--------------------------------|------------------------------------------------------------------------|------------------|
-| ids                            | Path reference to the project database instances.                      | `id`             |
-| names                          | Unique names for all project database instances.                       | `name`           |
-| types                          | Type of the objects.                                                   | `type`           |
-| properties                     | A list of properties for all the project database instances.           | `properties`     |
-| discoveryDatas                 | The assessment details of the database published by various sources.   | `assessmentData` |
-| summaries                      | The database instances summaries per solution.                         | `summary`        |
-| lastUpdatedTimes               | The time of the last modification of the database instance details.    | `lastUpdatedTime`|
-| enqueueTimes                   | The times the message were enqueued.                                   | `enqueueTimes`   |
-| extendedInfos                  | The extended properties of the database servers.                       | `extendedInfos`  |
-| hostNames                      | The host names of the database servers.                                | `hostNames`      |
-| instanceIds                    | The database instance IDs.                                             | `instanceIds`    |
-| instanceNames                  | The database instance names.                                           | `instanceNames`  |
-| instanceTypes                  | The database instance types.                                           | `instanceTypes`  |
-| instanceVersions               | The database instance versions.                                        | `instanceVersions`|
-| ipAddresses                    | The IP addresses of the database server. IP addresses could be IPV4 or IPV6.| `ipAddresses` |
-| portNumbers                    | The port numbers of the database server.                               | `portNumbers`    |
-| solutionNames                  | The names of the solution that sent the data.                          | `solutionNames`  |
+`ids`
+: Path reference to the project database instances.
 
-<superscript>*</superscript> For information on how to use filter criteria on plural resources refer to [FilterTable usage](https://github.com/inspec/inspec/blob/master/dev-docs/filtertable-usage.md).
+: **Field**: `id`
+
+`names`
+: Unique names for all project database instances.
+
+: **Field**: `name`
+
+`types`
+: Type of the objects.
+
+: **Field**: `type`
+
+`properties`
+: A list of properties for all the project database instances.
+
+: **Field**: `properties`
+
+`discoveryDatas`
+: The assessment details of the database published by various sources.
+
+: **Field**: `assessmentData`
+
+`summaries`
+: The database instances summaries per solution.
+
+: **Field**: `summary`
+
+`lastUpdatedTimes`
+: The time of the last modification of the database instance details.
+
+: **Field**: `lastUpdatedTime`
+
+`enqueueTimes`
+: The times the message were enqueued.
+
+: **Field**: `enqueueTimes`
+
+`extendedInfos`
+: The extended properties of the database servers.
+
+: **Field**: `extendedInfos`
+
+`hostNames`
+: The host names of the database servers.
+
+: **Field**: `hostNames`
+
+`instanceIds`
+: The database instance IDs.
+
+: **Field**: `instanceIds`
+
+`instanceNames`
+: The database instance names.
+
+: **Field**: `instanceNames`
+
+`instanceTypes`
+: The database instance types.
+
+: **Field**: `instanceTypes`
+
+`instanceVersions`
+: The database instance versions.
+
+: **Field**: `instanceVersions`
+
+`ipAddresses`
+: The IP addresses of the database server. IP addresses could be IPV4 or IPV6.
+
+: **Field**: `ipAddresses`
+
+`portNumbers`
+: The port numbers of the database server.
+
+: **Field**: `portNumbers`
+
+`solutionNames`
+: The names of the solution that sent the data.
+
+: **Field**: `solutionNames`
+
+{{% inspec_filter_table %}}
 
 ## Examples
 
-### Loop through Migrate project database instances by their names.
+**Loop through Migrate project database instances by their names.**
 
 ```ruby
 azure_migrate_project_database_instances(resource_group: 'RESOURCE_GROUP', project_name: 'PROJECT_NAME').names.each do |name|
@@ -80,7 +141,7 @@ azure_migrate_project_database_instances(resource_group: 'RESOURCE_GROUP', proje
 end
 ```
 
-### Test that there are Migrate project database instances that are of SQL instance types.
+**Test that there are Migrate project database instances that are of SQL instance types.**
 
 ```ruby
 describe azure_migrate_project_database_instances(resource_group: 'RESOURCE_GROUP', project_name: 'PROJECT_NAME').where{ instanceTypes.include?('SQL') } do
@@ -96,14 +157,17 @@ This InSpec audit resource has the following special matchers. For a full list o
 
 ```ruby
 # Should not exist if no Migrate project database instances are present in the project and in the resource group
+
 describe azure_migrate_project_database_instances(resource_group: 'RESOURCE_GROUP', project_name: 'PROJECT_NAME') do
   it { should_not exist }
 end
 # Should exist if the filter returns at least one Migrate project database instances in the project and in the resource group
+
 describe azure_migrate_project_database_instances(resource_group: 'RESOURCE_GROUP', project_name: 'PROJECT_NAME') do
   it { should exist }
 end
 ```
+
 ## Azure Permissions
 
-Your [Service Principal](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-create-service-principal-portal) must be setup with a `contributor` role on the subscription you wish to test.
+{{% azure_permissions_service_principal role="contributor" %}}
