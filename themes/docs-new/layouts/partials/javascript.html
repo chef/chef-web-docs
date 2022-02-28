@@ -8,7 +8,8 @@
 {{- $swiftypeAutocomplete := resources.Get "js/vendor/swiftype/jquery.swiftype.autocomplete.js" -}}
 {{- $swiftype := resources.Get "js/vendor/swiftype/jquery.swiftype.search.js" -}}
 {{- $swiftypeConfig := resources.Get "js/swiftype-config.js" -}}
-{{- $coreJs := slice $fontawesome $jquery $foundation $whatInput $browser $hogan $hashchange $swiftypeAutocomplete $swiftype $swiftypeConfig -}}
+{{- $inspecFilter := resources.Get "js/inspec-filter.js" -}}
+{{- $coreJs := slice $fontawesome $jquery $foundation $whatInput $browser $hogan $hashchange $swiftypeAutocomplete $swiftype $swiftypeConfig $inspecFilter -}}
 
 {{ if hugo.Environment | eq "development" }}
   {{- $coreJs = $coreJs | resources.Concat "js/core-bundle.js" -}}
