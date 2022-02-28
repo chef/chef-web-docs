@@ -1,27 +1,110 @@
 <!-- markdownlint-disable-file MD002 MD033 MD041-->
-This GitHub Repository is the source of the Chef documentation located published at [docs.chef.io](https://docs.chef.io/)
+This GitHub Repository is the source for the Chef documentation located published on [docs.chef.io](https://docs.chef.io/).
 
-## Documentation for Other Repositories
+The [<https://github.com/chef/chef-web-docs>](https://github.com/chef/chef-web-docs) repository contains:
 
-We use [Hugo modules](https://gohugo.io/hugo-modules/) to grab documentation from other Chef repositories. The content from those repositories is [vendored](#hugo-vendoring) in chef-web-docs.
+- Source code for the documentation theme
+- Markdown files for much of the Chef Infra Client content
+- Configuration files
+- Vendored files for documentation from other repositories that are presented on docs.chef.io.
 
-If you want to make changes to the content from those repositories, please submit pull requests to those repositories and not to the vendored copy in chef-web-docs. We will update those changes after they're merged or after a new version of a product is released.
+This README.md covers information on building and previewing documentation. The House Style Guide and more detailed information about Hugo and our documentation tools are published in the documentation:
 
-The [Chef Automate documentation](https://docs.chef.io/automate/) is stored in the `chef/automate` repository in the [`components/docs-chef-io`](https://github.com/chef/automate/tree/main/components/docs-chef-io) directory.
+- [Basics](https://docs.chef.io/style_index/). (Similar to content on this page)
+- [Chef House Style](https://docs.chef.io/style_house/)
+- [Tools](https://docs.chef.io/style_tools/)
+- [Hugo](https://docs.chef.io/style_hugo/)
+- [Markdown](https://docs.chef.io/style_markdown/)
+- [Content Reuse and Shortcodes](https://docs.chef.io/style_reuse/)
 
-The [Chef Desktop documentation](https://docs.chef.io/desktop/) is stored in the `chef/desktop-config` repository in the [`docs-chef-io`](https://github.com/chef/desktop-config/tree/main/docs-chef-io) directory. This is a private repository.
+## Distributed documentation
 
-The [Chef Effortless documentation](https://docs.chef.io/effortless/) is stored in the `chef/effortless` repository in the [`docs-chef-io`](https://github.com/chef/effortless/tree/main/docs-chef-io) directory.
+The Chef documentation source is highly distributed and depends on [Hugo modules](https://gohugo.io/hugo-modules/) to pull in documentation from other Chef repositories. The content from those repositories is [vendored](#hugo-vendoring) in chef-web-docs.
 
-The [Chef Habitat documentation](https://docs.chef.io/habitat/) is stored in the `habitat-sh/habitat` repository in the [`components/docs-chef-io`](https://github.com/habitat-sh/habitat/tree/main/components/docs-chef-io) directory.
+To make changes to the content in those repositories, submit pull requests to the appropriate repository. Do not submit pull requests to the vendored files in chef-web-docs. We will update those changes after they're merged or after a new version of a product is released.
 
-The [Chef Infra Server documentation](https://docs.chef.io/server/) is stored in the `chef/chef-server` repository in the [`docs-chef-io`](https://github.com/chef/chef-server/tree/main/docs-chef-io) directory.
+## GitHub repositories with documentation
 
-The [Chef InSpec documentation](https://docs.chef.io/inspec/) is stored in the `inspec/inspec` repository in the [`docs-chef-io`](https://github.com/inspec/inspec/tree/main/docs-chef-io) directory.
+- Chef Automate: [<https://github.com/chef/automate/tree/main/components/docs-chef-io>](https://github.com/chef/automate/tree/main/components/docs-chef-io
+)
+- Chef Infra Server: [<https://github.com/chef/chef-server/tree/main/docs-chef-io>](https://github.com/chef/chef-server/tree/main/docs-chef-io)
+- Chef Workstation [<https://github.com/chef/chef-workstation/tree/main/docs-chef-io>](https://github.com/chef/chef-workstation/tree/main/docs-chef-io)
+- Chef Desktop [<https://github.com/chef/desktop-config/tree/main/docs-chef-io>](https://github.com/chef/desktop-config/tree/main/docs-chef-io
+)
+- Chef Supermarket [<https://github.com/chef/supermarket/tree/main/docs-chef-io>](https://github.com/chef/supermarket/tree/main/docs-chef-io)
+- Chef Habitat [<https://github.com/habitat-sh/habitat/tree/main/components/docs-chef-io>](https://github.com/habitat-sh/habitat/tree/main/components/docs-chef-io
+)
+- Chef InSpec [<https://github.com/inspec/inspec/tree/main/docs-chef-io>](https://github.com/inspec/inspec/tree/main/docs-chef-io
+)
 
-The [Chef Workstation documentation](https://docs.chef.io/workstation/) is stored in the `chef/chef-workstation` repository in the [`docs-chef-io`](https://github.com/chef/chef-workstation/tree/main/docs-chef-io/) directory.
+## The fastest way to contribute
 
-## Previewing Documentation
+The fastest way to change the documentation is to edit a page on the
+GitHub website using the GitHub UI.
+
+To perform edits using the GitHub UI, click on the `[edit on GitHub]` link at
+the top of the page that you want to edit. The link takes you to that topic's GitHub
+page. In GitHub, click on the pencil icon and make your changes. You can preview
+how they'll look right on the page ("Preview Changes" tab).
+
+We also require contributors to include their [DCO signoff](https://github.com/chef/chef/blob/main/CONTRIBUTING.md#developer-certification-of-origin-dco)
+in the comment section of every pull request, except for obvious fixes. You can
+add your DCO signoff to the comments by including `Signed-off-by:`, followed by
+your name and email address, like this:
+
+`Signed-off-by: Haris Shefu <hshefu@example.com>`
+
+See our [blog post](https://blog.chef.io/introducing-developer-certificate-of-origin/)
+for more information about the DCO and why we require it.
+
+After you've added your DCO signoff, add a comment about your proposed change,
+then click on the "Propose file change" button at the bottom of the page and
+confirm your pull request. The CI system will do some checks and add a comment
+to your PR with the results.
+
+The Chef Documentation Team can normally merge pull requests within seven days. We'll
+fix build errors before we merge, so you don't have to
+worry about passing all of the CI checks, but it might add an extra
+few days. The important part is submitting your change.
+
+## Local Development Environment
+
+The Chef Documentation website is built using:
+
+- [Hugo](https://gohugo.io/) 0.61 or higher
+- [Node](https://www.nodejs.com) 10.0.0 or higher
+- [NPM](https://www.npmjs.com/) 5.6.0 or higher
+- [Go](https://golang.org/dl/) 1.12 or higher
+
+To install Hugo, NPM, and Go on Windows and macOS:
+
+- On macOS run: `brew install hugo node go`
+- On Windows run: `choco install hugo nodejs golang`
+
+To install Hugo on Ubuntu, run:
+
+- `apt install -y build-essential`
+- `snap install node --classic --channel=12`
+- `snap install hugo --channel=extended`
+
+### Markdown
+
+Hugo uses [Goldmark](https://github.com/yuin/goldmark) which is a
+superset of Markdown that includes GitHub styled tables, task lists, and
+definition lists.
+
+### Troubleshooting your Dev Environment
+
+To clean your local development environment:
+
+- Run `make clean` to delete the sass files, javascript, and fonts. These will
+  be rebuilt the next time you run `make serve`.
+
+- Run `make clean_all` to delete the node modules used to build this site
+  in addition to the functions of `make clean` described above. Those node
+  modules will be reinstalled the next time you run `make serve`.
+
+## Build and Preview the Docs
 
 There are two ways to preview documentation:
 
@@ -34,62 +117,41 @@ We've configured Netlify to generate deploy previews of pull requests to the che
 
 Netlify will automatically build deploy previews for PRs from contributors who are members of the Chef GitHub organization. The Documentation Team can manually tell Netlify to build previews from contributors who are not members of the Chef GitHub organization.
 
-### Preview Documentation Changes to chef-web-docs
-
-To build the docs and preview locally:
+### Build and Preview the Docs Locally
 
 - Run `make serve`
 - go to [http://localhost:1313](http://localhost:1313)
 
-See the [Development Environment](#local-development-environment) instructions for setting up a local environment for Hugo.
+Note that this repository consumes content from other repositories using Hugo modules.
+That content is stored in the `_vendor` directory. `make serve` uses the
+content in your local `_vendor` directory instead of from its source GitHub repository
+OR from a local copy of a repository.
 
-### Preview Documentation Changes to Content from other Repositories
+#### Build and Preview the Docs from the Source Repositories
 
-You can also preview documentation changes made in other repositories by running `make serve` from a local copy of that repository, or submitting a PR to that repository to see the Netlify preview deploy.
+- Run `make serve_ignore_vendor`
 
-#### Preview Local Changes to Documentation from Other Repos from chef-web-docs
+Some Chef documentation is stored in private repositories so this option is only
+available to Progress Chef employees.
 
-You can preview local changes to content from other repositories as they would appear on docs.chef.io. Note that this option is only available to members of the Chef GitHub organization.
+## Hugo Vendoring
 
-Follow these steps to preview local changes to documentation from other repositories while running Hugo from chef-web-docs.
+[Vendoring](https://gohugo.io/commands/hugo_mod_vendor/) stores all of the module content
+from other repositories in the `_vendor` directory at the commit specified by
+the `go.mod` file. When Hugo builds the documentation, it will grab content from
+the `_vendor` directory instead of the original repository OR a local copy of a
+that repository. To see which commits the vendored files reference, see the
+`_vendor/modules.txt` file.
 
-1. Clone `chef/chef-web-docs` and `chef/other-repo-with-docs` into the same directory.
-1. Modify the go.mod file in `chef-web-docs`.
+To vendor the modules in chef-web-docs, run `hugo mod vendor`.
 
-   Add a [replace directive](https://gohugo.io/hugo-modules/use-modules/#make-and-test-changes-in-a-module)
-   to the `go.mod` file that points that repo to your local copy of the repo.
+To update the vendored modules, first update the [Hugo module(s)](#update-hugo-modules),
+then run `hugo mod vendor`.
 
-   For example, if you want to preview local changes to chef-workstation,
-   add `replace github.com/chef/chef-workstation/docs-chef-io => ../chef-workstation/docs-chef-io` below the
-   `require` statement. The whole `go.mod` file should look something like this:
-
-   ```go
-   module github.com/chef/chef-web-docs
-
-   go 1.14
-
-   require (
-     github.com/chef/automate/components/docs-chef-io v0.0.0-<commit timestamp>-<commit SHA> // indirect
-     github.com/chef/chef-workstation/docs-chef-io v0.0.0-<commit timestamp>-<commit SHA> // indirect
-     github.com/chef/desktop-config/docs-chef-io v0.0.0-<commit timestamp>-<commit SHA> // indirect
-     github.com/chef/effortless/docs-chef-io v0.0.0-<commit timestamp>-<commit SHA> // indirect
-     github.com/inspec/inspec/docs-chef-io v0.0.0-<commit timestamp>-<commit SHA> // indirect
-   )
-
-   replace github.com/chef/chef-workstation/docs-chef-io => ../chef-workstation/docs-chef-io
-   ```
-
-1. Start the Hugo server from `chef-web-docs`:
-
-   ```make
-   make serve_ignore_vendor
-   ```
-
-You can now preview any local changes made to the documentation in the other repository as they would appear on [docs.chef.io](https://docs.chef.io).
-
-##### Before you submit a PR
-
-- Delete or comment out the `replace` directive in the `chef-web-docs/go.mod` file.
+To ignore the vendored files in a Hugo build, run `make serve_ignore_vendor`. This
+is the same as `make serve` except it adds the `--ignoreVendor` flag. This will
+build the documentation from the GitHub repositories or from a local copy of a repository
+if the `go.mod` file specifies pulling content from a local repository. (see above)
 
 ### Update Hugo Modules
 
@@ -166,7 +228,7 @@ The `hugo mod tidy` command should remove those lines, but sometimes it doesn't.
 The commit SHA and timestamp in the go.sum file should match the SHA and timestamp
 in the go.mod file.
 
-#### What If Hugo Doesn't Want to Update a Module
+### What if Hugo Doesn't Want to Update a Module
 
 Sometimes Hugo and Git can be a bit difficult and won't update a module cleanly or will leave
 references to older commits of a module in the go.sum file.
@@ -189,106 +251,6 @@ If you are still having trouble, try rebuilding the go.mod and go.sum files:
    and go.sum files, but it can't hurt either.
 1. Vendor the modules in chef-web-docs, `hugo mod vendor`.
 
-## Hugo Vendoring
-
-[Vendoring](https://gohugo.io/commands/hugo_mod_vendor/) stores all of the module content
-from other repositories in the `_vendor` directory at the commit specified by
-the `go.mod` file. When Hugo builds the documentation, it will grab content from
-the `_vendor` directory instead of the original repository OR a local copy of a
-that repository. To see which commits the vendored files reference, see the
-`_vendor/modules.txt` file.
-
-To vendor the modules in chef-web-docs, run `hugo mod vendor`.
-
-To update the vendored modules, first update the [Hugo module(s)](#update-hugo-modules),
-then run `hugo mod vendor`.
-
-To ignore the vendored files in a Hugo build, run `make serve_ignore_vendor`. This
-is the same as `make serve` except it adds the `--ignoreVendor` flag. This will
-build the documentation from the GitHub repositories or from a local copy of a repository
-if the `go.mod` file specifies pulling content from a local repository. (see above)
-
-## The fastest way to contribute
-
-The fastest way to change the documentation is to edit a page on the
-GitHub website using the GitHub UI.
-
-To perform edits using the GitHub UI, click on the `[edit on GitHub]` link at
-the top of the page that you want to edit. The link takes you to that topic's GitHub
-page. In GitHub, click on the pencil icon and make your changes. You can preview
-how they'll look right on the page ("Preview Changes" tab).
-
-We also require contributors to include their [DCO signoff](https://github.com/chef/chef/blob/main/CONTRIBUTING.md#developer-certification-of-origin-dco)
-in the comment section of every pull request, except for obvious fixes. You can
-add your DCO signoff to the comments by including `Signed-off-by:`, followed by
-your name and email address, like this:
-
-`Signed-off-by: Haris Shefu <hshefu@example.com>`
-
-See our [blog post](https://blog.chef.io/introducing-developer-certificate-of-origin/)
-for more information about the DCO and why we require it.
-
-After you've added your DCO signoff, add a comment about your proposed change,
-then click on the "Propose file change" button at the bottom of the page and
-confirm your pull request. The CI system will do some checks and add a comment
-to your PR with the results.
-
-The Chef Documentation Team can normally merge pull requests within seven days. We'll
-fix build errors before we merge, so you don't have to
-worry about passing all of the CI checks, but it might add an extra
-few days. The important part is submitting your change.
-
-## Local Development Environment
-
-The Chef Documentation website is built using:
-
-- [Hugo](https://gohugo.io/) 0.61 or higher
-- [Node](https://www.nodejs.com) 10.0.0 or higher
-- [NPM](https://www.npmjs.com/) 5.6.0 or higher
-- [Go](https://golang.org/dl/) 1.12 or higher
-
-To install Hugo, NPM, and Go on Windows and macOS:
-
-- On macOS run: `brew install hugo node go`
-- On Windows run: `choco install hugo nodejs golang`
-
-To install Hugo on Ubuntu, run:
-
-- `apt install -y build-essential`
-- `snap install node --classic --channel=12`
-- `snap install hugo --channel=extended`
-
-To build the docs and preview locally:
-
-- Run `make serve`
-- go to [http://localhost:1313](http://localhost:1313)
-
-Note that this repository grabs content from other repositories using Hugo modules.
-That content is stored in the `_vendor` directory. `make serve` will use the
-content in the `_vendor` directory instead of from its source GitHub repository
-OR from a local copy of a repository.
-
-To build the docs from the source repositories:
-
-- Run `make serve_ignore_vendor`
-
-Some of our documentation is stored in a private repository so this option is only
-available to people with access to that repository. See the documentation above
-concerning Hugo modules and vendoring.
-
-To clean your local development environment:
-
-- Running `make clean` will delete the sass files, javascript, and fonts. These will
-  be rebuilt the next time you run `make serve`.
-
-- Running `make clean_all` will delete the node modules used to build this site
-  in addition to the functions of `make clean` described above. Those node
-  modules will be reinstalled the next time you run `make serve`.
-
-Hugo uses [Goldmark](https://github.com/yuin/goldmark) which is a
-superset of Markdown that includes GitHub styled tables, task lists, and
-definition lists.
-
 ## Shortcodes
 
 Shortcodes are simple snippets of code that can be used to modify a Markdown
@@ -302,7 +264,7 @@ We primarily use shortcodes in two ways:
 - highlighting blocks of text in notes or warnings to warn users or
 provide additional important information
 
-### Adding reusable text
+### Reusable Text
 
 There are often cases where we want to maintain blocks of text that are identical
 from one page to the next. In those cases, we add that text, formatted in Markdown,
@@ -315,7 +277,7 @@ if you want to add the text in `shortcode_file_name.md` to a page, add
 `{{% shortcode_file_name %}}` to the text of that page and it will appear when
 Hugo rebuilds the documentation.
 
-#### Shortcodes in lists
+#### Shortcodes in Lists
 
 Hugo doesn't handle shortcodes that are indented in a list item properly. It interprets the text of the shortcode as a code block. More complicated shortcodes with code blocks, notes, additional list items, or other formatting look pretty bad. We've created a simple shortcode for handling shortcodes in lists or definition lists called `readFile_shortcode`.
 
@@ -329,7 +291,7 @@ For example, if you wanted to add `shortcode_file_name.md` to a list:
     {{< readFile_shortcode file="shortcode_file_name.md" >}}
 ```
 
-### Highlighting blocks of text
+### Highlighting Blocks of Text
 
 We also use shortcodes to highlight text in notes, warnings or danger notices. These should be used sparingly especially danger notices or warnings. Wrap text that you want in a note using opening and closing shortcode notation. For example,
 
@@ -343,9 +305,9 @@ Note text that gives the user additional important information.
 
 To add a warning or danger, replace the word `note` with `warning` or `danger` in the example above.
 
-#### Notes in lists
+#### Notes in Lists
 
-Hugo doesn't handle shortcodes that are indented in lists very well, that includes the Note, Warning, and Danger shortcodes. It interprets the indented text that's inside the Note as a code block when it should be interpreted as Markdown.
+Hugo doesn't handle shortcodes that are indented in lists well, which includes the `note`, `warning`, and `danger` shortcodes. It interprets the indented text that's inside the admonition as a code block when it should be interpreted as Markdown.
 
 To resolve this problem, there's a `spaces` parameter that can be added to the Note, Warning, and Danger shortcodes. The value of spaces should be set to the number of spaces that the note is indented.
 
@@ -373,7 +335,7 @@ Chef Automate release versions, release dates, and links to release note Markdow
 
 Release versions for Chef habitat come from `https://api.github.com/repos/habitat-sh/habitat/releases`.
 
-Release versions for InSpec Cloud resources comes from `_vendor/github.com/inspec/inspec-<PLATFORM>/docs-chef-io/assets/release-notes/inspec-<PLATFORM>/release-dates.json`.
+Release versions for Chef InSpec Cloud resources comes from `_vendor/github.com/inspec/inspec-<PLATFORM>/docs-chef-io/assets/release-notes/inspec-<PLATFORM>/release-dates.json`.
 
 Release versions for all other Chef products come from `https://omnitruck.chef.io/stable/<PRODUCT>/versions/all`.
 
@@ -403,7 +365,7 @@ The `<CHEF_PRODUCT>` value comes from the Product Key in the [Product Matrix](ht
 
 Any content included in the release notes Markdown file will be included at the top of the page and the release notes will be appended below.
 
-## Sending feedback
+## Sending Feedback
 
 We love getting feedback. You can use:
 
@@ -422,7 +384,7 @@ We love getting feedback. You can use:
   especially for docs feature requests and minor docs bugs.
 - [Chef Discourse](https://discourse.chef.io/) --- This is a great place to interact with Chef and others.
 
-## Documentation snapshots
+## Documentation Snapshots
 
 The previous scoped doc sets that were found on [docs.chef.io](https://docs.chef.io/release/) are no longer available in this repo. Instead, those doc sets are located at [Chef Docs Archive](https://docs-archive.chef.io/). The index page on the docs archive site provides links to them. The doc sets retain their unique left nav and can be used to view content at a particular point in time for a given release. In the future, snapshots will be added for major releases of products/projects or for products/projects/components that are no longer supported.
 
