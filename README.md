@@ -87,12 +87,6 @@ To install Hugo on Ubuntu, run:
 - `snap install node --classic --channel=12`
 - `snap install hugo --channel=extended`
 
-### Markdown
-
-Hugo uses [Goldmark](https://github.com/yuin/goldmark) which is a
-superset of Markdown that includes GitHub styled tables, task lists, and
-definition lists.
-
 ### Troubleshooting your Dev Environment
 
 To clean your local development environment:
@@ -250,83 +244,6 @@ If you are still having trouble, try rebuilding the go.mod and go.sum files:
 1. Run `hugo mod tidy`. This probably won't do anything on newly initialized go.mod
    and go.sum files, but it can't hurt either.
 1. Vendor the modules in chef-web-docs, `hugo mod vendor`.
-
-## Shortcodes
-
-Shortcodes are simple snippets of code that can be used to modify a Markdown
-page by adding content or changing the appearance of content in a page. See
-Hugo's [shortcode documentation](https://gohugo.io/content-management/shortcodes/)
-for general information about shortcodes.
-
-We primarily use shortcodes in two ways:
-
-- adding reusable text
-- highlighting blocks of text in notes or warnings to warn users or
-provide additional important information
-
-### Reusable Text
-
-There are often cases where we want to maintain blocks of text that are identical
-from one page to the next. In those cases, we add that text, formatted in Markdown,
-to a shortcode file located in `chef-web-docs/themes/docs-new/layouts/shortcodes`.
-
-To add that shortcode to a page in `chef-web-docs/content`, add the file name,
-minus the .md suffix, wrapped in double curly braces and percent symbols to
-the location in the Markdown page where you want that text included. For example,
-if you want to add the text in `shortcode_file_name.md` to a page, add
-`{{% shortcode_file_name %}}` to the text of that page and it will appear when
-Hugo rebuilds the documentation.
-
-#### Shortcodes in Lists
-
-Hugo doesn't handle shortcodes that are indented in a list item properly. It interprets the text of the shortcode as a code block. More complicated shortcodes with code blocks, notes, additional list items, or other formatting look pretty bad. We've created a simple shortcode for handling shortcodes in lists or definition lists called `readFile_shortcode`.
-
-To include a shortcode in a list or definition list, just add its file name to the `file` parameter of `readFile_shortcode`.
-
-For example, if you wanted to add `shortcode_file_name.md` to a list:
-
-```md
-1.  Here is some text introducing the shortcode, but it's not necessary.
-
-    {{< readFile_shortcode file="shortcode_file_name.md" >}}
-```
-
-### Highlighting Blocks of Text
-
-We also use shortcodes to highlight text in notes, warnings or danger notices. These should be used sparingly especially danger notices or warnings. Wrap text that you want in a note using opening and closing shortcode notation. For example,
-
-```text
-{{< note >}}
-
-Note text that gives the user additional important information.
-
-{{< /note >}}
-```
-
-To add a warning or danger, replace the word `note` with `warning` or `danger` in the example above.
-
-#### Notes in Lists
-
-Hugo doesn't handle shortcodes that are indented in lists well, which includes the `note`, `warning`, and `danger` shortcodes. It interprets the indented text that's inside the admonition as a code block when it should be interpreted as Markdown.
-
-To resolve this problem, there's a `spaces` parameter that can be added to the Note, Warning, and Danger shortcodes. The value of spaces should be set to the number of spaces that the note is indented.
-
-For example:
-
-```text
-This is a list:
-
-- List item.
-
-    {{< note spaces=4 >}}
-
-    Text that gives the user additional important information about that list item.
-
-    {{< /note >}}
-```
-
-This parameter also works on Danger and Warning shortcodes.
-
 ## Release Notes
 
 Release notes are added to release notes pages using Hugo's [`resource.getRemote` function](https://gohugo.io/hugo-pipes/introduction/#get-resource-with-resourcesget-and-resourcesgetremote) and content from [https://omnitruck.chef](omnitruck.chef.io) and [https://packages.chef.io](packages.chef.io).
@@ -365,6 +282,14 @@ The `<CHEF_PRODUCT>` value comes from the Product Key in the [Product Matrix](ht
 
 Any content included in the release notes Markdown file will be included at the top of the page and the release notes will be appended below.
 
+## Documentation Snapshots
+
+The previous scoped doc sets that were found on [docs.chef.io](https://docs.chef.io/release/) are no longer available in this repo. Instead, those doc sets are located at [Chef Docs Archive](https://docs-archive.chef.io/). The index page on the docs archive site provides links to them. The doc sets retain their unique left nav and can be used to view content at a particular point in time for a given release. In the future, snapshots will be added for major releases of products/projects or for products/projects/components that are no longer supported.
+
+## Archive of pre-2016 commit history
+
+The commit history of this repo before February 12, 2016 has been archived to the [chef-web-docs-2016 repo](https://github.com/chef-boneyard/chef-web-docs-2016) to save space. No changes to the archive repo will be merged; it's just for historical purposes.
+
 ## Sending Feedback
 
 We love getting feedback. You can use:
@@ -383,19 +308,3 @@ We love getting feedback. You can use:
   [chef-web-docs issues](https://github.com/chef/chef-web-docs/issues),
   especially for docs feature requests and minor docs bugs.
 - [Chef Discourse](https://discourse.chef.io/) --- This is a great place to interact with Chef and others.
-
-## Documentation Snapshots
-
-The previous scoped doc sets that were found on [docs.chef.io](https://docs.chef.io/release/) are no longer available in this repo. Instead, those doc sets are located at [Chef Docs Archive](https://docs-archive.chef.io/). The index page on the docs archive site provides links to them. The doc sets retain their unique left nav and can be used to view content at a particular point in time for a given release. In the future, snapshots will be added for major releases of products/projects or for products/projects/components that are no longer supported.
-
-## Archive of pre-2016 commit history
-
-The commit history of this repo before February 12, 2016 has been archived to the [chef-web-docs-2016 repo](https://github.com/chef-boneyard/chef-web-docs-2016) to save space. No changes to the archive repo will be merged; it's just for historical purposes.
-
-## Questions
-
-If you need tips for making contributions to our docs, check out the [instructions](https://docs.chef.io/style_guide/).
-
-If you see an error, open an [issue](https://github.com/chef/chef-web-docs/issues) or submit a pull request.
-
-If you have a question, send an email to docs@chef.io.
