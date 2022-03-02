@@ -1,10 +1,12 @@
 # github.com/chef/automate/components/docs-chef-io v0.0.0-20220223115056-7df3a21067e5
 # github.com/chef/desktop-config/docs-chef-io v0.0.0-20211006114000-6bf6119bfc8a
 # github.com/habitat-sh/habitat/components/docs-chef-io v0.0.0-20220223204905-ee157196b538
-# github.com/chef/chef-server/docs-chef-io v0.0.0-20220224150747-bc78c3e2d108
-# github.com/inspec/inspec/docs-chef-io v0.0.0-20211220023149-b3d7bfa0cc76
-# github.com/inspec/inspec-aws/docs-chef-io v0.0.0-20220107215007-d379e6b35b20
-# github.com/inspec/inspec-azure/docs-chef-io v0.0.0-20220107214957-9a289bb02261
+# github.com/chef/chef-server/docs-chef-io v0.0.0-20220228221122-3916927be3f5
+# github.com/inspec/inspec/docs-chef-io v0.0.0-20220228020638-0383e819eb35
+# github.com/inspec/inspec-alicloud/docs-chef-io v0.0.0-20220218210517-5887448b615c
+# github.com/inspec/inspec-aws/docs-chef-io v0.0.0-20220228151600-69aa036b1527
+# github.com/inspec/inspec-azure/docs-chef-io v0.0.0-20220228040450-e1b23e65979a
+# github.com/inspec/inspec-habitat/docs-chef-io v0.0.0-20220218210405-bfd542da49fd
 # github.com/chef/chef-workstation/docs-chef-io v0.0.0-20220224061011-84c0b824afd4
 # github.com/chef/supermarket/docs-chef-io v0.0.0-20220117164111-ab75fec53a42
 # github.com/chef/effortless/docs-chef-io v0.0.0-20211119164252-4ff3d53886be
