@@ -1,36 +1,27 @@
 set -eou pipefail
 
-branch="expeditor/update_docs_lints_${EXPEDITOR_REPO}_${EXPEDITOR_NUMBER}"
-repo=${EXPEDITOR_REPO##*/}
-git checkout -b "$branch"
+# test on one repo
+repos=["chef/workstation"]
+# repos=["chef/automate", "chef/chef-server", "chef/desktop-config", "chef/supermarket", "chef/workstation", "inspec/inspec", "inspec/CLOUD_RESOURCES", "habitat-sh/habitat"]
 
-# Wait for the bump to VERSION to happen
-sleep 60
+for i in $repos
 
-# Grab the version file and store the value
-get_github_file ${EXPEDITOR_REPO} main VERSION > ${repo}_VERSION
-...
-# submit pull requests to:
-# chef/automate
-# chef/chef-server
-# chef/desktop-config
-# chef/supermarket
-# chef/workstation
-# inspec/inspec
-# inspec/CLOUD_RESOURCES
-# habitat-sh/habitat
+do
+  repo=$repos[i]
+  branch="expeditor/update_docs_lints_${EXPEDITOR_REPO}"
+  git checkout -b "$branch"
+  git add .
 
-git add .
+  # give a friendly message for the commit and make sure it's noted for any future
+  # audit of our codebase that no DCO sign-off is needed for this sort of PR since
+  # it contains no intellectual property
 
-# give a friendly message for the commit and make sure it's noted for any future
-# audit of our codebase that no DCO sign-off is needed for this sort of PR since
-#it contains no intellectual property
+  dco_safe_git_commit "Update ${repo} docs lints."
 
-dco_safe_git_commit "Update ${repo} docs lints."
+  open_pull_request
 
-open_pull_request
-
-# Get back to main and cleanup the leftovers - any changed files left over at
-# the end of this script will get committed to main.
-git checkout -
-git branch -D "$branch"
+  # Get back to main and cleanup the leftovers - any changed files left over at
+  # the end of this script will get committed to main.
+  git checkout -
+  git branch -D "$branch"
+done
