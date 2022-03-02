@@ -113,7 +113,7 @@ The following table lists the commercially-supported platforms and versions for 
 <td><code>11.3 (16.17.4 and later only)</code>, <code>11.4</code></td>
 </tr>
 <tr>
-<td>SUSE Enterprise Linux Server</td>
+<td>SUSE Linux Enterprise Server</td>
 <td><code>x86_64</code>, <code>aarch64</code> (15.x only), <code>s390x</code></td>
 <td><code>12</code>, <code>15</code></td>
 </tr>
@@ -366,7 +366,7 @@ The following table lists the commercially-supported platforms and versions for 
 <td><code>8.x</code></td>
 </tr>
 <tr>
-<td>SUSE Enterprise Linux Server</td>
+<td>SUSE Linux Enterprise Server</td>
 <td><code>x86_64</code>, <code>aarch64</code> (15.x only)</td>
 <td><code>12.x</code>, <code>15.x</code></td>
 </tr>
