@@ -1,13 +1,13 @@
 set -eou pipefail
 
 # test on one repo
-repos=["chef/workstation"]
+repos=[chef/workstation]
 # repos=["chef/automate", "chef/chef-server", "chef/desktop-config", "chef/supermarket", "chef/workstation", "inspec/inspec", "inspec/CLOUD_RESOURCES", "habitat-sh/habitat"]
 
-for i in $repos
+for i in ${repos[@]}
 
 do
-  repo=$repos[i]
+  repo=$i
   branch="expeditor/update_docs_lints_${EXPEDITOR_REPO}"
   git checkout -b "$branch"
   git add .
