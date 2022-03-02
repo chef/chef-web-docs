@@ -114,6 +114,31 @@
   target = "layouts"
 
 ###
+# Chef InSpec AliCloud Cloud Resources
+###
+
+[[imports]]
+  disable = false
+  ignoreConfig = false
+  path = "github.com/inspec/inspec-alicloud/docs-chef-io"
+
+[[imports.mounts]]
+  source = "static"
+  target = "static"
+
+[[imports.mounts]]
+  source = "assets"
+  target = "assets"
+
+[[imports.mounts]]
+  source = "content/inspec"
+  target = "content/inspec"
+
+[[imports.mounts]]
+  source = "layouts"
+  target = "layouts"
+
+###
 # Chef InSpec AWS Cloud Resources
 ###
 
@@ -129,6 +154,14 @@
 [[imports.mounts]]
   source = "assets"
   target = "assets"
+
+[[imports.mounts]]
+  source = "content/inspec"
+  target = "content/inspec"
+
+[[imports.mounts]]
+  source = "layouts"
+  target = "layouts"
 
 ###
 # Chef InSpec Azure Cloud Resources
@@ -146,6 +179,39 @@
 [[imports.mounts]]
   source = "assets"
   target = "assets"
+
+[[imports.mounts]]
+  source = "content/inspec"
+  target = "content/inspec"
+
+[[imports.mounts]]
+  source = "layouts"
+  target = "layouts"
+
+###
+# Chef InSpec Habitat Cloud Resources
+###
+
+[[imports]]
+  disable = false
+  ignoreConfig = false
+  path = "github.com/inspec/inspec-habitat/docs-chef-io"
+
+[[imports.mounts]]
+  source = "static"
+  target = "static"
+
+[[imports.mounts]]
+  source = "assets"
+  target = "assets"
+
+[[imports.mounts]]
+  source = "content"
+  target = "content"
+
+[[imports.mounts]]
+  source = "layouts"
+  target = "layouts"
 
 ###
 # Chef Workstation
@@ -165,8 +231,8 @@
   target = "static"
 
 [[imports.mounts]]
-  source = "layouts"
-  target = "layouts"
+  source = "static"
+  target = "static"
 
 [[imports.mounts]]
   source = "data"
