@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Modernize/UnnecessaryMixlibShelloutRequire`
 | --- | --- | --- |
 | Enabled | Yes | All Versions |
 
+Chef Infra Client 12.4+ includes mixlib/shellout automatically in resources and providers.
+
 ## Examples
 
 

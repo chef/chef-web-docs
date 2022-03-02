@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/RedundantCode/UseCreateIfMissing`
 | --- | --- | --- |
 | Enabled | Yes | All Versions |
 
+Use the `:create_if_missing` action instead of `not_if` with a `::File.exist(FOO)` check.
+
 ## Examples
 
 

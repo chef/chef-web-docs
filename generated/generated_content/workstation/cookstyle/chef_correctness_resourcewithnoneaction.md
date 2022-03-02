@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Correctness/ResourceWithNoneAction`
 | --- | --- | --- |
 | Enabled | Yes | All Versions |
 
+The :nothing action is often typo'd as :none
+
 ## Examples
 
 

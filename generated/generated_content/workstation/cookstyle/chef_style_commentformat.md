@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Style/CommentFormat`
 | --- | --- | --- |
 | Enabled | Yes | All Versions |
 
+Checks for incorrectly formatted headers
+
 ## Examples
 
 

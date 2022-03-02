@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Modernize/ExecuteSleep`
 | --- | --- | --- |
 | Enabled | No | 15.5+ |
 
+Chef Infra Client 15.5 and later include a chef_sleep resource that should be used to sleep between executing resources if necessary instead of using the bash or execute resources to run the sleep command.
+
 ## Examples
 
 

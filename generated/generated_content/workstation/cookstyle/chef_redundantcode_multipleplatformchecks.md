@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/RedundantCode/MultiplePlatformChecks`
 | --- | --- | --- |
 | Enabled | Yes | All Versions |
 
+You can pass multiple values to the platform? and platform_family? helpers instead of calling the helpers multiple times.
+
 ## Examples
 
 

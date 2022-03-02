@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Deprecations/LogResourceNotifications`
 | --- | --- | --- |
 | Enabled | No | 15.8+ |
 
+In Chef Infra Client 16 the log resource no longer notifies when logging so notifications should not be triggered from log resources. Use the notify_group resource introduced in Chef Infra Client 15.8 instead to aggregate notifications.
+
 ## Examples
 
 

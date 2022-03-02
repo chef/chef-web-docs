@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Deprecations/WindowsFeatureServermanagercmd`
 | --- | --- | --- |
 | Enabled | No | All Versions |
 
+The `windows_feature` resource no longer supports setting the `install_method` to `:servermanagercmd`. `:windows_feature_dism` or `:windows_feature_powershell` should be used instead.
+
 ## Examples
 
 

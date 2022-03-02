@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Modernize/MinitestHandlerUsage`
 | --- | --- | --- |
 | Enabled | Yes | All Versions |
 
+Use Chef InSpec for testing instead of the Minitest Handler cookbook pattern.
+
 ## Examples
 
 

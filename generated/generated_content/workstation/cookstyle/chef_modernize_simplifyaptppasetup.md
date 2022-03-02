@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Modernize/SimplifyAptPpaSetup`
 | --- | --- | --- |
 | Enabled | Yes | All Versions |
 
+The apt_repository resource allows setting up PPAs without using the full URL to ppa.launchpad.net, which should be used to simplify the resource code in your cookbooks.
+
 ## Examples
 
 

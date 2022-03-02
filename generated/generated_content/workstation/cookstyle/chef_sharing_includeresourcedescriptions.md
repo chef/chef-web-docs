@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Sharing/IncludeResourceDescriptions`
 | --- | --- | --- |
 | Not Enabled | No | 13.9+ |
 
+Resources should include description fields to allow automated documentation. Requires Chef Infra Client 13.9 or later.
+
 ## Examples
 
 ```

@@ -13,7 +13,7 @@ examples: |2-
 
   ```ruby
   platform?('darwin')
-  platform?('rhel)
+  platform?('rhel')
   platform?('sles')
   ```
 
@@ -21,7 +21,7 @@ examples: |2-
 
   ```ruby
   platform?('mac_os_x')
-  platform?('redhat)
+  platform?('redhat')
   platform?('suse')
   ```
 version_added: 5.15.0

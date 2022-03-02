@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Sharing/DefaultMetadataMaintainer`
 | --- | --- | --- |
 | Enabled | No | All Versions |
 
+Metadata contains default maintainer information from the `chef generate cookbook` command. This should be updated to reflect that actual maintainer of the cookbook.
+
 ## Examples
 
 

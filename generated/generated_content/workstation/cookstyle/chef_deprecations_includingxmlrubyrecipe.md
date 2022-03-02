@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Deprecations/IncludingXMLRubyRecipe`
 | --- | --- | --- |
 | Enabled | Yes | All Versions |
 
+Do not include the deprecated xml::ruby recipe to install the nokogiri gem. Chef Infra Client 12 and later ships with nokogiri included.
+
 ## Examples
 
 

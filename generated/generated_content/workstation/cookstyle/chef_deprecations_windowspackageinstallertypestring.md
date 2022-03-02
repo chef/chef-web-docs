@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Deprecations/WindowsPackageInstallerTypeStrin
 | --- | --- | --- |
 | Enabled | Yes | All Versions |
 
+In Chef Infra Client 13 and later the `windows_package` resource's `installer_type` property must be a symbol.
+
 ## Examples
 
 

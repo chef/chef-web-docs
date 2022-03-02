@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Deprecations/DeprecatedShelloutMethods`
 | --- | --- | --- |
 | Enabled | No | 14.3+ |
 
+The large number of `shell_out` helper methods in Chef Infra Client has been reduced to just `shell_out` and `shell_out!` methods. The legacy methods were removed in Chef Infra Client and cookbooks using these legacy helpers will need to be updated.
+
 ## Examples
 
 

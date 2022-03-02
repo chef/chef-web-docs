@@ -3,8 +3,6 @@ A cookbook generated with`chef generate cookbook custom_web` creates a cookbook 
 ```text
 ├ cookbooks
  ├ custom_web
- | ├ .delivery
- | | └ project.toml
  | ├ recipes
  | | └ default.rb
  | ├ test

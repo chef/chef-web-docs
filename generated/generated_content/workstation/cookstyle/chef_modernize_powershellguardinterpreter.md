@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Modernize/PowerShellGuardInterpreter`
 | --- | --- | --- |
 | Enabled | Yes | 13.0+ |
 
+PowerShell is already set as the default guard interpreter for `powershell_script` and `batch` resources in Chef Infra Client 13 and later and does not need to be specified.
+
 ## Examples
 
 

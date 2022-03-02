@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Sharing/IncludePropertyDescriptions`
 | --- | --- | --- |
 | Not Enabled | No | 13.9+ |
 
+Resource properties should include description fields to allow automated documentation. Requires Chef Infra Client 13.9 or later.
+
 ## Examples
 
 

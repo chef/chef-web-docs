@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Deprecations/ChefRewind`
 | --- | --- | --- |
 | Enabled | Yes | 12.10+ |
 
+Use `delete_resource` or `edit_resource` helpers introduced in Chef Infra Client 12.10 instead of functionality in the deprecated `chef-rewind` gem
+
 ## Examples
 
 

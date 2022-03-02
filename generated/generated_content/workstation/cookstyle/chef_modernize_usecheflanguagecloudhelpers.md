@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Modernize/UseChefLanguageCloudHelpers`
 | --- | --- | --- |
 | Enabled | Yes | 15.5+ |
 
+Chef Infra Client 15.5 and later include cloud helpers to make detecting instances that run on public and private clouds easier.
+
 ## Examples
 
 

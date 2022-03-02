@@ -19,9 +19,13 @@ This will:
 
 When you run `hugo` from `chef-web-docs/generated`, Hugo will execute the `generated/layouts/index.html` layout. That layout calls two partials in `generated/layouts/partials` which read YAML files in `generated/_vendor` and will output Markdown files in the `generated/generated_content` directory.
 
-## chef-web-docs
+## chef/chef-web-docs
 
 Hugo is configured in chef-web-docs to mount content in `generated/generated_content/workstation` to `content/workstation`. See the `config/_default/module.toml` configuration file.
+
+## chef/cookstyle
+
+The YAML files are generated from a [rake task](https://github.com/chef/cookstyle/blob/main/tasks/cops_documentation.rake) in the chef/cookstyle repo. chef-web-docs gets a pull request that updates this content when Cookstyle is promoted.
 
 ## More Info
 

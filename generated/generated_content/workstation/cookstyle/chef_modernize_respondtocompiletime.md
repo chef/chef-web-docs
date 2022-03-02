@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Modernize/RespondToCompileTime`
 | --- | --- | --- |
 | Enabled | Yes | 12.1+ |
 
+There is no need to check if the chef_gem resource supports compile_time as Chef Infra Client 12.1 and later support the compile_time property.
+
 ## Examples
 
 

@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Modernize/DeclareActionClass`
 | --- | --- | --- |
 | Enabled | Yes | 12.9+ |
 
+In Chef Infra Client 12.9 and later `action_class` can be used instead of `declare_action_class`.
+
 ## Examples
 
 

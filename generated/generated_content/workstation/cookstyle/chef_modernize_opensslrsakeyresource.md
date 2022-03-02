@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Modernize/OpensslRsaKeyResource`
 | --- | --- | --- |
 | Enabled | Yes | 14.0+ |
 
+The openssl_rsa_key resource was renamed to openssl_rsa_private_key in Chef Infra Client 14.0. The new resource name should be used.
+
 ## Examples
 
 

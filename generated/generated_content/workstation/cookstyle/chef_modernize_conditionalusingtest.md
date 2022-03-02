@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Modernize/ConditionalUsingTest`
 | --- | --- | --- |
 | Enabled | Yes | All Versions |
 
+Use ::File.exist?('/foo/bar') instead of the slower 'test -f /foo/bar' which requires shelling out
+
 ## Examples
 
 

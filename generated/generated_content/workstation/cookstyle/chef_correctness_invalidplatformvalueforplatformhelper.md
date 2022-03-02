@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Correctness/InvalidPlatformValueForPlatformHe
 | --- | --- | --- |
 | Enabled | No | All Versions |
 
+Pass valid platforms to the value_for_platform helper. See [Infra Language: Platform](https://docs.chef.io/infra_language/checking_platforms/#platform-values) for a list of many common platform values.
+
 ## Examples
 
 

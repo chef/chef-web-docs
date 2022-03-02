@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Correctness/IncorrectLibraryInjection`
 | --- | --- | --- |
 | Enabled | Yes | All Versions |
 
+Libraries should be injected into the `Chef::DSL::Recipe` class and not `Chef::Recipe` or `Chef::Provider` classes directly.
+
 ## Examples
 
 

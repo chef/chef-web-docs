@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Deprecations/NodeMethodsInsteadofAttributes`
 | --- | --- | --- |
 | Enabled | Yes | All Versions |
 
+Use node attributes to access data provided by Ohai instead of using node methods to access that data.
+
 ## Examples
 
 

@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Modernize/IncludingAptDefaultRecipe`
 | --- | --- | --- |
 | Enabled | No | 12.7+ |
 
+For many users the apt::default cookbook is used only to update apt's package cache. Chef Infra Client 12.7 and later include an apt_update resource which should be used to perform this instead. Keep in mind that some users will want to stick with the apt::default recipe as it also installs packages necessary for using https repositories on Debian systems and manages some configuration files.
+
 ## Examples
 
 

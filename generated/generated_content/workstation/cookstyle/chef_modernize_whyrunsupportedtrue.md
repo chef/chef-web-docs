@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Modernize/WhyRunSupportedTrue`
 | --- | --- | --- |
 | Enabled | Yes | 13.0+ |
 
+whyrun_supported? no longer needs to be set to true as that is the default in Chef Infra Client 13+
+
 ## Examples
 
 

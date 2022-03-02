@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Deprecations/ChefSpecLegacyRunner`
 | --- | --- | --- |
 | Enabled | Yes | All Versions |
 
+Use `ChefSpec::SoloRunner` or `ChefSpec::ServerRunner` instead of the deprecated `ChefSpec::Runner`. These new runners were introduced in ChefSpec 4.1 (Oct 2014).
+
 ## Examples
 
 

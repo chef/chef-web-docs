@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Deprecations/UserDeprecatedSupportsProperty`
 | --- | --- | --- |
 | Enabled | Yes | All Versions |
 
+The supports property was removed in Chef Infra Client 13 in favor of individual 'manage_home' and 'non_unique' properties.
+
 ## Examples
 
 

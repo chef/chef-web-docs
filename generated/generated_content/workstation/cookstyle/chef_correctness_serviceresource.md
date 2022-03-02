@@ -13,6 +13,8 @@ The full name of the cop is: `Chef/Correctness/ServiceResource`
 | --- | --- | --- |
 | Enabled | No | All Versions |
 
+Use a service resource to start and stop services
+
 ## Examples
 
 
