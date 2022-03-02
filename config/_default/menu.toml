@@ -105,6 +105,12 @@ identifier = "automate"
   parent = "automate"
   weight = 20
 
+    [[automate]]
+    title = "Install HA"
+    identifier = "automate/install/install_ha"
+    parent = "automate/install"
+    weight = 10
+
   [[automate]]
   title = "Configure"
   identifier = "automate/configure"
