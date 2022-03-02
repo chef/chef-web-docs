@@ -57,6 +57,12 @@ Unless otherwise stated, versions older than those listed below are EOL.
 
 ## Supported Commercial Distributions
 
+{{< note >}}
+
+Development releases of any product are not supported for any usage other than testing. A stable build may be produced from the results of testing with a development build, but support can be offered for stable versions only.
+
+{{< /note >}}
+
 Use of these and later versions of these distributions must be in
 accordance with the [Chef End User License
 Agreement](https://www.chef.io/end-user-license-agreement) or a
