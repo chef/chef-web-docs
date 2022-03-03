@@ -40,3 +40,18 @@ subscriptions:
   - workload: chef/cookstyle:main_completed:project_promoted:chef/cookstyle:main:*
     actions:
     - bash:.expeditor/update_hugo_modules_cookstyle.sh
+  - workload: pull_request_merged:inspec/inspec-aws:main:*
+    actions:
+    - bash:.expeditor/update_hugo_modules_pull_request_merged.sh:
+        only_if_modified:
+          - docs-chef-io/static/release-notes/inspec-aws/*
+  - workload: pull_request_merged:inspec/inspec-azure:main:*
+    actions:
+    - bash:.expeditor/update_hugo_modules_pull_request_merged.sh:
+        only_if_modified:
+          - docs-chef-io/static/release-notes/inspec-azure/*
+  - workload: pull_request_merged:chef/chef-web-docs:main:*
+    actions:
+    - bash:.expeditor/update_docs_lints.sh:
+        only_if_modified:
+          - .markdownlint.yaml
