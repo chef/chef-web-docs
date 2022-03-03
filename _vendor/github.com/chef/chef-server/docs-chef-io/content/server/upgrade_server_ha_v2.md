@@ -168,13 +168,13 @@ Upgrading from Chef Backend 1.x to Chef Backend 2.x requires full cluster downti
 ## Chef Backend Upgrade 2.x to 3.x
 
 The Chef Backend 3.0 upgrade requires Chef Backend 2.1 or later.
-Upgrade earlier versions to Chef Backend 2.1 or later. Chef Backend 2.3.19 is the latest of the version 2 releases.
+Upgrade earlier versions to Chef Backend 2.1 or later. Chef Backend 2.3.16 is the latest of the version 2 stable releases.
 
 | Chef Backend Version | Upgrade Target |
 |:---------|:---------|
-| 2.1.0--2.3.19 | 3.0.0 or later|
-| 2.0.0--2.0.45 | 2.3.19 |
-| 0.1.0--1.4.40| 2.3.19 |
+| 2.1.0--2.3.16 | 3.0.0 or later|
+| 2.0.0--2.0.45 | 2.3.16 |
+| 0.1.0--1.4.40| 2.3.16 |
 
 ### Planning
 
@@ -237,9 +237,9 @@ Elasticsearch Version | Index Treatment |
 
 The Chef Backend upgrade for installations with indexes created by Elasticsearch 2.3.1--5.4.1 requires downtime to delete and reindex the Chef Infra Servers.
 
-#### Stop the Front-end Chef Infra Servers
+#### Stop ALL the Front-end Chef Infra Servers
 
-1. Stop each the front-end Chef Infra Servers. This prevents communication between the front-end and the back-end while upgrade deletes and reindexes the server indexes.
+1. Stop all the front-end Chef Infra Servers. This prevents communication between the front-end and the back-end while upgrade deletes and reindexes the server indexes.
 
     1. On Chef Infra Server 14.6.32 or later, put the server nodes into maintenance mode, to temporarily disable the API:
 
@@ -289,19 +289,19 @@ The Chef Backend upgrade for installations with indexes created by Elasticsearch
     chef-backend-ctl set-cluster-failover off
     ```
 
-1. Stop the Elasticsearch services:
+1. Stop the Elasticsearch services on ALL backends. ALL backends must be down simultaneously to prevent elastic search trying to recover indices.
 
   ```bash
   sudo chef-backend-ctl stop elasticsearch
   ```
 
-1. Delete the current Elasticsearch indexes. This step ensures that Elasticsearch creates new indexes with the upgraded Elasticsearch version. Use the command:
+1. Delete the current Elasticsearch indices from ALL backends. This step ensures that Elasticsearch creates new indexes with the upgraded Elasticsearch version. Use the command:
 
   ```bash
   sudo rm -fr /var/opt/chef-backend/elasticsearch/data/*
   ```
 
-1. Restart the Elasticsearch services:
+1. Restart the Elasticsearch services on ALL backends:
 
   ```bash
   sudo chef-backend-ctl start elasticsearch
@@ -346,7 +346,7 @@ We estimate the reindexing operation will take 2 minutes for each 1000 nodes, bu
    sudo chef-server-ctl reindex ORGNAME
    ```
 
-   And then retrieving that organization's information:
+   And then run a standard search with knife to check if the updated indices are working correctly:
 
   ```bash
   sudo /opt/opscode/bin/knife search node *:* -c /etc/opscode/pivotal.rb --server-url https://127.0.0.1:443/organizations/ORGNAME
