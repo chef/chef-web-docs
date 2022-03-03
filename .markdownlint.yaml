@@ -1,5 +1,4 @@
 default: true
-MD001: true
 MD002:
   level: 2
 MD003:
