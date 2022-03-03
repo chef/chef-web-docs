@@ -8,7 +8,7 @@ for i in ${repos}
 
 do
   repo=$i
-  branch="expeditor/update_docs_lints_${EXPEDITOR_REPO}_${EXPEDITOR_DATE}"
+  branch="expeditor/update_docs_lints_${EXPEDITOR_REPO}"
   git checkout -b "$branch"
   git add .
 
