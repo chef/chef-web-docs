@@ -1,5 +1,5 @@
 <!-- markdownlint-disable-file MD002 MD033 MD041-->
-This GitHub Repository is the source for the Chef documentation located published on [docs.chef.io](https://docs.chef.io/).
+This GitHub Repository is the source for the Chef documentation published on [docs.chef.io](https://docs.chef.io/).
 
 The [<https://github.com/chef/chef-web-docs>](https://github.com/chef/chef-web-docs) repository contains:
 
@@ -35,6 +35,14 @@ To make changes to the content in those repositories, submit pull requests to th
 - Chef Habitat [<https://github.com/habitat-sh/habitat/tree/main/components/docs-chef-io>](https://github.com/habitat-sh/habitat/tree/main/components/docs-chef-io
 )
 - Chef InSpec [<https://github.com/inspec/inspec/tree/main/docs-chef-io>](https://github.com/inspec/inspec/tree/main/docs-chef-io
+)
+- Chef InSpec AWS [<https://github.com/inspec/inspec-aws/tree/main/docs-chef-io>](https://github.com/inspec/inspec-aws/tree/main/docs-chef-io
+)
+- Chef InSpec Azure [<https://github.com/inspec/inspec-azure/tree/main/docs-chef-io>](https://github.com/inspec/inspec-azure/tree/main/docs-chef-io
+)
+- Chef InSpec AliCloud [<https://github.com/inspec/inspec-alicloud/tree/main/docs-chef-io>](https://github.com/inspec/inspec-alicloud/tree/main/docs-chef-io
+)
+- Chef InSpec Habitat [<https://github.com/inspec/inspec-habitat/tree/main/docs-chef-io>](https://github.com/inspec/inspec-habitat/tree/main/docs-chef-io
 )
 
 ## The fastest way to contribute
@@ -155,22 +163,22 @@ specifies a git commit timestamp and SHA.
 
 To update a particular repo, run:
 
-```go
+```bash
 hugo mod get github.com/chef/repo_to_update/subdirectory
 hugo mod tidy
 ```
 
 Then [vendor](#hugo-vendoring) the documentation:
 
-```go
+```bash
 hugo mod vendor
 ```
 
 For example, to update the chef-workstation repository:
 
-```go
+```bash
 hugo mod get github.com/chef/chef-workstation/docs-chef-io
-hugo mod tidy
+hugo mod clean
 hugo mod vendor
 ```
 
@@ -180,7 +188,15 @@ You can also update a module to a commit version number. For example:
 
 ```go
 hugo mod get github.com/chef/chef-workstation/docs-chef-io@20.6.62
-hugo mod tidy
+hugo mod clean
+hugo mod vendor
+```
+
+And you can update a module to a Git commit. For example:
+
+```go
+hugo mod get github.com/chef/chef-workstation/docs-chef-io@0ad84dd5fa8
+hugo mod clean
 hugo mod vendor
 ```
 
@@ -188,39 +204,15 @@ To update all Hugo modules at the same time, run:
 
 ```go
 hugo mod get -u
-hugo mod tidy
+hugo mod clean
 hugo mod vendor
 ```
 
-The `hugo mod tidy` command removes references to commits in the
+The `hugo mod clean` command removes references to commits in the
 `go.mod` and `go.sum` files that are no longer relevant.
-
-Sometimes the `go.sum` file gets a little out of control and `hugo mod tidy` won't
-clean it up. Each repository listed in the `go.mod` file should have two lines
-in the `go.sum` file. If it has more than that and `hugo mod tidy` doesn't remove them,
-delete the `go.sum` file and rebuild it with `hugo mod get -u`.
 
 See Hugo's [documentation](https://gohugo.io/hugo-modules/use-modules/#update-modules)
 for additional information about updating Hugo Modules.
-
-#### go.sum File
-
-The go.sum file should reference only one commit for each repository that is added
-as a module to chef-web-docs. Each module and commit in the go.sum file will take
-two or three lines. For example, the `chef/chef-workstation` repository documentation will
-look like this:
-
-```go
-github.com/chef/chef-workstation/docs-chef-io v0.0.0-20200625161326-f43898a8e6c0 h1:MTVSgikrlIqceXki6uVwbf+iCVPwkpxsh1ERseRG31g=
-github.com/chef/chef-workstation/docs-chef-io v0.0.0-20200625161326-f43898a8e6c0/go.mod h1:rktT78z3KaWu7A+wf1g6KmYszrwn6Y3o3IFlTg8OpQg=
-```
-
-If there are references to older commits, delete those lines.
-
-The `hugo mod tidy` command should remove those lines, but sometimes it doesn't.
-
-The commit SHA and timestamp in the go.sum file should match the SHA and timestamp
-in the go.mod file.
 
 ### What if Hugo Doesn't Want to Update a Module
 
@@ -244,6 +236,7 @@ If you are still having trouble, try rebuilding the go.mod and go.sum files:
 1. Run `hugo mod tidy`. This probably won't do anything on newly initialized go.mod
    and go.sum files, but it can't hurt either.
 1. Vendor the modules in chef-web-docs, `hugo mod vendor`.
+
 ## Release Notes
 
 Release notes are added to release notes pages using Hugo's [`resource.getRemote` function](https://gohugo.io/hugo-pipes/introduction/#get-resource-with-resourcesget-and-resourcesgetremote) and content from [https://omnitruck.chef](omnitruck.chef.io) and [https://packages.chef.io](packages.chef.io).
@@ -273,7 +266,8 @@ Run `make clean_all` to purge locally cached release note files.
 To add a release notes page to chef-web-docs, add the following to a Markdown page:
 
 ```toml
-release_notes = "<CHEF_PRODUCT>".
+release_notes = "<CHEF_PRODUCT>"
+product = "<CHEF_PRODUCT>"
 layout = "release_notes"
 toc_layout = "release_notes_toc"
 ```
@@ -300,11 +294,19 @@ We love getting feedback. You can use:
   support.
 - Pull request --- Submit a PR to this repo using either of the two
   methods described above.
-- GitHub issues --- Use the [GitHub Issues](https://github.com/chef/chef/issues)
-  page for issues specific to Chef Infra itself. This is a good place for
-  "important" documentation bugs that may need visibility among a
+- Use [chef-web-docs issues](https://github.com/chef/chef-web-docs/issues) for docs feature requests and minor docs bugs.
+- Submit issues to product repositories for "important" documentation bugs that may need visibility among a
   larger group, especially in situations where a doc bug may also
-  surface a product bug. You can also use
-  [chef-web-docs issues](https://github.com/chef/chef-web-docs/issues),
-  especially for docs feature requests and minor docs bugs.
+  surface a product bug.
+  - [chef/chef GitHub Issues](https://github.com/chef/chef/issues) --- For issues specific to Chef Infra Client.
+  - [chef/automate GitHub Issues](https://github.com/chef/automate/issues) --- For issues specific to Chef Automate.
+  - [chef/chef-server GitHub Issues](https://github.com/chef/chef-server/issues) --- For issues specific to Chef Infra Server.
+  - [chef/chef-workstation GitHub Issues](https://github.com/chef-workstation/chef/issues) --- For issues specific to Chef Workstation.
+  - [chef/supermarket GitHub Issues](https://github.com/chef/supermarket/issues) --- For issues specific to Chef Supermarket.
+  - [habitat-sh/habitat GitHub Issues](https://github.com/habitat-sh/habitat/issues) --- For issues specific to Chef Habitat.
+  - [inspec/inspec GitHub Issues](https://github.com/inspec/inspec/issues) --- For issues specific to Chef InSpec.
+  - [inspec/inspec-aws GitHub Issues](https://github.com/inspec/inspec-aws/issues) --- For issues specific to Chef InSpec AWS cloud resources.
+  - [inspec/inspec-azure GitHub Issues](https://github.com/inspec/inspec-azure/issues) --- For issues specific to Chef InSpec Azure cloud resources.
+  - [inspec/inspec-habitat GitHub Issues](https://github.com/inspec/inspec-habitat/issues) --- For issues specific to Chef InSpec Habitat cloud resources.
+  - [inspec/inspec-alicloud GitHub Issues](https://github.com/inspec/inspec-alicloud/issues) --- For issues specific to Chef InSpec Alibaba cloud resources.
 - [Chef Discourse](https://discourse.chef.io/) --- This is a great place to interact with Chef and others.
