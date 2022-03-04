@@ -53,7 +53,7 @@ jobs:
       - uses: carlosperate/download-file-action@v1.0.3
         id: download-mdl-config
         with:
-          file-url: 'https://raw.githubusercontent.com/chef/chef-web-docs/main/markdownlint.yaml'
+          file-url: 'https://raw.githubusercontent.com/chef/chef-web-docs/main/.markdownlint.yaml'
           file-name: 'markdownlint.yaml'
       - uses: DavidAnson/markdownlint-cli2-action@v4
         with: 
