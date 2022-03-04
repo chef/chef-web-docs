@@ -31,12 +31,17 @@ jobs:
         with:
           file-url: 'https://raw.githubusercontent.com/chef/chef_dictionary/main/docs.txt'
           file-name: 'docs_dictionary.txt'
+      - uses: carlosperate/download-file-action@v1.0.3
+        id: download-cspell-config
+        with:
+          file-url: 'https://raw.githubusercontent.com/chef/chef-web-docs/main/cspell.json'
+          file-name: 'cspell.json'
       - uses: streetsidesoftware/cspell-action@v1.3.4
         with:
           files: '*.md'
           root: './content'
           github_token: "${{ secrets.GITHUB_TOKEN }}"
-          incremental_files_only: false
+          incremental_files_only: true
           inline: error
           strict: true
   markdownlint:
@@ -45,6 +50,11 @@ jobs:
       - uses: actions/checkout@v2
         with:
           token: "${{ secrets.GITHUB_TOKEN }}"
+      - uses: carlosperate/download-file-action@v1.0.3
+        id: download-mdl-config
+        with:
+          file-url: 'https://raw.githubusercontent.com/chef/chef-web-docs/main/markdownlint.yaml'
+          file-name: 'markdownlint.yaml'
       - uses: DavidAnson/markdownlint-cli2-action@v4
         with: 
           globs: |
@@ -54,4 +64,3 @@ jobs:
             !content/resources/_index.md
             !content/habitat/
             !infra_resources_readme.md
- 
