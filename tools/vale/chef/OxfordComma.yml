@@ -1,7 +1,8 @@
 extends: existence
-message: 'Use the Oxford comma in a list of three or more items.'
-link: 'https://contribute.jquery.org/style-guide/prose/#grammar'
+message: "Use the Oxford comma in '%s'."
+link: https://docs.microsoft.com/en-us/style-guide/punctuation/commas
 scope: sentence
-level: warning
+level: suggestion
+nonword: true
 tokens:
-  - '(?:[^,]+,){1,}\s\w+\sand'
+  - '(?:[^\s,]+,){1,} \w+ (?:and|or) \w+[.?!]'
