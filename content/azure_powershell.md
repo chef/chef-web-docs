@@ -52,7 +52,7 @@ machine running on Microsoft Azure.
 
 This cmdlet has the following syntax.
 
-For Microsoft Windows:
+For Windows:
 
 ```bash
 Set-AzureVMChefExtension -ValidationPem <String> -VM <IPersistentVM> -Windows [-ChefServerUrl <String> ] [-ClientRb <String> ] [-OrganizationName <String> ] [-RunList <String> ] [-ValidationClientName <String> ] [-Version <String> ] [ <CommonParameters>]
@@ -122,7 +122,7 @@ This cmdlet has the following options:
 
 `-Windows`
 
-: Sets the Azure Chef Extension to run Microsoft Windows.
+: Sets the Azure Chef Extension to run Windows.
 
 #### Examples
 

@@ -32,7 +32,7 @@ This command has the following options:
 
 `-d`, `--daemonize`
 
-: Run the executable as a daemon. This option may not be used in the same command with the `--[no-]fork` option. This option is only available on machines that run in UNIX or Linux environments. For machines that are running Microsoft Windows that require similar functionality, use the `chef-client::service` recipe in the `chef-client` cookbook: <https://supermarket.chef.io/cookbooks/chef-client>. This will install a Chef Infra Client service under Microsoft Windows using the Windows Service Wrapper.
+: Run the executable as a daemon. This option may not be used in the same command with the `--[no-]fork` option. This option is only available on machines that run in UNIX or Linux environments. For machines that are running Windows that require similar functionality, use the `chef-client::service` recipe in the `chef-client` cookbook: <https://supermarket.chef.io/cookbooks/chef-client>. This will install a Chef Infra Client service under Windows using the Windows Service Wrapper.
 
 `-E ENVIRONMENT_NAME`, `--environment ENVIRONMENT_NAME`
 

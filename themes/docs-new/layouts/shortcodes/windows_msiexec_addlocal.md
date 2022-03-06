@@ -19,7 +19,7 @@ Client. These options can be passed along with an Msiexec.exe command:
 </tr>
 <tr>
 <td><code>ChefSchTaskFeature</code></td>
-<td>Use to configure Chef Infra Client as a scheduled task in Microsoft Windows.</td>
+<td>Use to configure Chef Infra Client as a scheduled task in Windows.</td>
 </tr>
 <tr>
 <td><code>ChefPSModuleFeature</code></td>
