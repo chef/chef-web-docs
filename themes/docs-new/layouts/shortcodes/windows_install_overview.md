@@ -1,4 +1,4 @@
-Chef Infra Client can be installed on machines running Microsoft Windows
+Chef Infra Client can be installed on machines running Windows
 in the following ways:
 
 - By bootstraping Chef Infra Client using [knife

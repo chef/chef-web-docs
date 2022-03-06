@@ -16,7 +16,7 @@ aliases = ["/ohai.html"]
 
 {{% ohai_summary %}}
 
-Ohai collects data for many platforms, including AIX, macOS, Linux, FreeBSD, Solaris, and any Microsoft Windows operating systems.
+Ohai collects data for many platforms, including AIX, macOS, Linux, FreeBSD, Solaris, and any Windows operating systems.
 
 See the [Chef Infra Client release notes](/release_notes_client/) for the latest information on Ohai.
 

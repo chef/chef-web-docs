@@ -6,7 +6,7 @@ To install Chef Client 15.8.23:
 curl -L https://omnitruck.chef.io/install.sh | sudo bash -s -- -v 15.8.23
 ```
 
-To install the latest version of Chef Workstation on Microsoft Windows
+To install the latest version of Chef Workstation on Windows
 from the `current` channel:
 
 ```none

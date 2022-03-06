@@ -1,4 +1,4 @@
-A Microsoft Windows registry key can be used as a string in Ruby code,
+A Windows registry key can be used as a string in Ruby code,
 such as when a registry key is used as the name of a recipe. In Ruby,
 when a registry key is enclosed in a double-quoted string (`" "`), the
 same backslash character (`\`) that is used to define the registry key

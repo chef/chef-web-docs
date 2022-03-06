@@ -161,7 +161,7 @@ end
 where:
 
 - `:default` is the name of the default `collect_data` block
-- `:platform` is the name of a platform, such as `:aix` for AIX or `:windows` for Microsoft Windows
+- `:platform` is the name of a platform, such as `:aix` for AIX or `:windows` for Windows
 
 #### Use a Mash
 
@@ -229,7 +229,7 @@ end
 
 ### require
 
-The `require` method is a standard Ruby method that can be used to list files that may be required by a platform, such as an external class library. As a best practice, even though the `require` method is often used at the top of a Ruby file, it is recommended that the use of the `require` method be used as part of the platform-specific `collect_data` block. For example, the Ruby WMI is required with Microsoft Windows:
+The `require` method is a standard Ruby method that can be used to list files that may be required by a platform, such as an external class library. As a best practice, even though the `require` method is often used at the top of a Ruby file, it is recommended that the use of the `require` method be used as part of the platform-specific `collect_data` block. For example, the Ruby WMI is required with Windows:
 
 ```ruby
 collect_data(:windows) do

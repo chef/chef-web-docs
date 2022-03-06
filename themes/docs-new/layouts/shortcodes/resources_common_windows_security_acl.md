@@ -15,7 +15,7 @@ where
 :   Use to specify which rights are granted to the `principal`. The
     possible values are: `:read`, `:write`, `read_execute`, `:modify`,
     `:full_control`, or an integer.
-    
+
 :    Integers used for permissions must match the following list
     [FileSystemRights Enum](https://docs.microsoft.com/en-us/dotnet/api/system.security.accesscontrol.filesystemrights?view=windowsdesktop-5.0#fields) fields.
 
@@ -23,7 +23,7 @@ where
     includes `:read`. If `:full_control` is specified, then it includes
     both `:write` and `:read`.
 
-    (For those who know the Microsoft Windows API: `:read` corresponds
+    (For those who know the Windows API: `:read` corresponds
     to `GENERIC_READ`; `:write` corresponds to `GENERIC_WRITE`;
     `:read_execute` corresponds to `GENERIC_READ` and `GENERIC_EXECUTE`;
     `:modify` corresponds to `GENERIC_WRITE`, `GENERIC_READ`,
@@ -35,7 +35,7 @@ where
 
 :   Use to specify a group or user. The principal can be specified by
     either name or SID. When using name, this is identical to what is
-    entered in the login box for Microsoft Windows, such as `user_name`,
+    entered in the login box for Windows, such as `user_name`,
     `domain\user_name`, or `user_name@fully_qualified_domain_name`. When
     using a SID, you may use either the standard string representation of
     a SID (S-R-I-S-S) or one of the [SDDL string constants](https://docs.microsoft.com/en-us/windows/win32/secauthz/sid-strings). Chef
@@ -103,9 +103,9 @@ Some other important things to know when using the `rights` attribute:
 - If rights are not specified, nothing will be changed. Chef Infra
     Client does not clear out the rights on a file or directory if
     rights are not specified.
-- Changing inherited rights can be expensive. Microsoft Windows will
+- Changing inherited rights can be expensive. Windows will
     propagate rights to all children recursively due to inheritance.
-    This is a normal aspect of Microsoft Windows, so consider the
+    This is a normal aspect of Windows, so consider the
     frequency with which this type of action is necessary and take steps
     to control this type of action if performance is the primary
     consideration.

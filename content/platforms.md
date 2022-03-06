@@ -123,7 +123,7 @@ The following table lists the commercially-supported platforms and versions for 
 <td><code>16.04</code>, <code>18.04</code>, <code>20.04</code></td>
 </tr>
 <tr>
-<td>Microsoft Windows</td>
+<td>Windows</td>
 <td><code>x86</code>, <code>x64</code></td>
 <td><code>8.1</code>, <code>2012</code>, <code>2012 R2</code>, <code>2016</code>, <code>10 (all channels except "insider" builds)</code>, <code>2019 (Long-term servicing channel (LTSC), both Desktop Experience and Server Core)</code><code>11</code>, <code>2022</code></td>
 </tr>
@@ -303,7 +303,7 @@ versions for the Chef Workstation:
 <td><code>16.04</code>, <code>18.04</code>, <code>20.04</code></td>
 </tr>
 <tr>
-<td>Microsoft Windows</td>
+<td>Windows</td>
 <td><code>x64</code></td>
 <td><code>8.1</code>, <code>2012</code>, <code>2012 R2</code>, <code>2016</code>, <code>10 (all channels except "insider" builds)</code>, <code>2019 (Long-term servicing channel (LTSC), Desktop Experience only)</code>, <code>11</code>, <code>2022</code></td>
 </tr>
@@ -376,7 +376,7 @@ The following table lists the commercially-supported platforms and versions for 
 <td><code>16.04</code>, <code>18.04</code>, <code>20.04</code></td>
 </tr>
 <tr>
-<td>Microsoft Windows</td>
+<td>Windows</td>
 <td><code>x86_64</code></td>
 <td><code>8.1</code>, <code>2012</code>, <code>2012 R2</code>, <code>2016</code>, <code>10 (all channels except "insider" builds)</code>, <code>2019</code>, <code>11</code>, <code>2022</code></td>
 </tr>
@@ -562,7 +562,7 @@ according to those vendors' terms:
 <td>IBM End of Support Date</td>
 </tr>
 <tr>
-<td>Microsoft Windows</td>
+<td>Windows</td>
 <td>End of Extended Support</td>
 </tr>
 <tr>
@@ -665,22 +665,22 @@ that platform and version.
 <td>December 31, 2017</td>
 </tr>
 <tr>
-<td>Microsoft Windows Server 2008 (SP2)/R2 (SP1)</td>
+<td>Windows Server 2008 (SP2)/R2 (SP1)</td>
 <td>January 13, 2015</td>
 <td>January 14, 2020</td>
 </tr>
 <tr>
-<td>Microsoft Windows Server 2012/2012 R2</td>
+<td>Windows Server 2012/2012 R2</td>
 <td>October 10, 2023</td>
 <td>October 10, 2023</td>
 </tr>
 <tr>
-<td>Microsoft Windows Server 2016</td>
+<td>Windows Server 2016</td>
 <td>November 11, 2027</td>
 <td>November 11, 2027</td>
 </tr>
 <tr>
-<td>Microsoft Windows Server 2019</td>
+<td>Windows Server 2019</td>
 <td>October 10, 2028</td>
 <td>October 10, 2028</td>
 </tr>

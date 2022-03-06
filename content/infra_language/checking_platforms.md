@@ -150,7 +150,7 @@ where:
 </tr>
 <tr>
 <td><code>windows</code></td>
-<td>Microsoft Windows</td>
+<td>Windows</td>
 </tr>
 <tr>
 <td><code>xenserver</code></td>

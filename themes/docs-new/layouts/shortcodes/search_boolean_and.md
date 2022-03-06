@@ -20,7 +20,7 @@ to return something like:
 }
 ```
 
-Or, to find all of the computers running on the Microsoft Windows
+Or, to find all of the computers running on the Windows
 platform that are associated with a role named `jenkins`, enter:
 
 ```bash
