@@ -77,7 +77,7 @@ jobs:
             https://github.com/chef/vale-chef/releases/latest/download/vale-chef.zip
           config: https://raw.githubusercontent.com/chef/chef-web-docs/main/.vale.ini
           files: content/*.md
-          env: 
-            GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+        env: 
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
             
     
