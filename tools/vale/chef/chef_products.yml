@@ -1,0 +1,21 @@
+extends: substitution
+message: "Use '%s' instead of '%s'"
+level: error
+ignorecase: false
+swap:
+  '(?:[^\s]*) ?Automate': Chef Automate
+  '(?:[^\s]*(Windows|macOS)) ?Desktop': Chef Desktop
+  'chefdesktop': Chef Desktop
+  'chef client': Chef Infra Client
+  'chef-client': Chef Infra Client
+  'Chef Server': Chef Infra Server
+  '(?:[^\s]* ){0,1}Backend': Chef Backend
+  '(?:[^\s]* ){0,1}Manage': Chef Manage
+  '(?:[^\s]*) ?InSpec': Chef InSpec
+  '(?:[^\s]* ){0,1}Habitat': Chef Habitat
+  '(?:[^\s]* ){0,2}hart': Chef Habitat Artifact
+  '(?:[^\s]* ){0,2}artifact': Chef Habitat Artifact
+  '(?:[^\s]* ){0,2}Builder': Chef Habitat Builder
+  'Depot': Chef Habitat Artifact storage
+  '(?:[^\s]* ){0,2}Studio': Chef Habitat Studio
+  '(?:[^\s]* ){0,2}Supervisor': Chef Habitat Supervisor

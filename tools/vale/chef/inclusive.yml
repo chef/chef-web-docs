@@ -1,0 +1,10 @@
+---
+extends: existence
+ignorecase: true
+level: error
+message: "'%s' is insensitive"
+tokens:
+  - '(?:black|white)\s?hat'
+  - '(?:black|white)list(?:ed)'
+  - slave
+  - master
