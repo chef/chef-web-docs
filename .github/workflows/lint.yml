@@ -76,7 +76,7 @@ jobs:
             https://github.com/errata-ai/write-good/releases/latest/download/write-good.zip
             https://github.com/chef/vale-chef/releases/latest/download/vale-chef.zip
           config: https://raw.githubusercontent.com/chef/chef-web-docs/main/.vale.ini
-          files: ./content/*.md
+          files: content/
         env: 
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
             
