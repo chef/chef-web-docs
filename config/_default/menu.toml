@@ -105,6 +105,11 @@ identifier = "automate"
   parent = "automate"
   weight = 20
 
+    [[automate]]
+    title = "High Availability"
+    identifier = "automate/install/high_availability"
+    parent = "automate/install"  
+
   [[automate]]
   title = "Configure"
   identifier = "automate/configure"
@@ -189,10 +194,6 @@ identifier = "automate"
 
 ####
 # End Chef Automate Menu
-####
-
-####
-# End Compliance Menu
 ####
 
 ####
