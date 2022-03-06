@@ -5,5 +5,12 @@ ignorecase: true
 level: warning
 nonword: true
 tokens:
-  - \bwe\b
-
+  - (?:^|\s)I\s
+  - (?:^|\s)I,\s
+  - \bI'd\b
+  - \bI'll\b
+  - \bI'm\b
+  - \bI've\b
+  - \bme\b
+  - \bmy\b
+  - \bmine\b

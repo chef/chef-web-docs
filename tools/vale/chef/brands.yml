@@ -4,8 +4,9 @@ level: error
 ignorecase: false
 swap:
   'Microsoft Windows': Windows
-  'windows': Windows
+  ' windows ': Windows
   'linux': Linux
-  'postgreSQL' : PostgreSQL
-  'postgresql' : PostgreSQL
+exceptions:
+  '`windows`'
+  'knife-windows'
 
