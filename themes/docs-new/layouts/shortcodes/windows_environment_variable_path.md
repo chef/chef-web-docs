@@ -1,4 +1,4 @@
-On Microsoft Windows, Chef Infra Client must have two entries added to
+On Windows, Chef Infra Client must have two entries added to
 the `PATH` environment variable:
 
 - `C:\opscode\chef\bin`

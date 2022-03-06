@@ -474,7 +474,7 @@ identifier = "chef_infra"
     parent = "chef_infra/integrations"
 
     [[infra]]
-    title = "Microsoft Windows"
+    title = "Windows"
     identifier = "chef_infra/integrations/windows"
     parent = "chef_infra/integrations"
 
@@ -646,7 +646,7 @@ identifier = "chef_infra"
     parent = "chef_infra/integrations"
 
     [[infra]]
-    title = "Microsoft Windows"
+    title = "Windows"
     identifier = "chef_infra/integrations/windows"
     parent = "chef_infra/integrations"
 

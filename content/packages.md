@@ -153,7 +153,7 @@ To set up a Yum package repository for Enterprise Linux platforms:
 
 {{% packages_install_script_run_unix_linux %}}
 
-#### Microsoft Windows
+#### Windows
 
 {{% packages_install_script_run_windows %}}
 

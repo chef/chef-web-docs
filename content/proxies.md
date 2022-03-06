@@ -20,7 +20,7 @@ Chef to work in an environment that requires proxies, set the
 `http_proxy`, `https_proxy`, `ftp_proxy`, and/or `no_proxy` environment
 variables to specify the proxy settings using a lowercase value.
 
-## Microsoft Windows
+## Windows
 
 {{% proxy_windows %}}
 

@@ -1,5 +1,5 @@
 +++
-title = "Chef for Microsoft Windows"
+title = "Chef for Windows"
 draft = false
 
 gh_repo = "chef-web-docs"
@@ -8,8 +8,8 @@ aliases = ["/windows.html"]
 
 [menu]
   [menu.infra]
-    title = "Chef for Microsoft Windows"
-    identifier = "chef_infra/integrations/windows/windows.md Chef for Microsoft Windows"
+    title = "Chef for Windows"
+    identifier = "chef_infra/integrations/windows/windows.md Chef for Windows"
     parent = "chef_infra/integrations/windows"
     weight = 10
 +++
@@ -17,7 +17,7 @@ aliases = ["/windows.html"]
 ## Overview
 
 The Chef Infra Client has specific components that are designed to
-support unique aspects of the Microsoft Windows platform, including
+support unique aspects of the Windows platform, including
 PowerShell, PowerShell DSC, and Internet Information Services (IIS).
 
 {{% windows_install_overview %}}
@@ -25,7 +25,7 @@ PowerShell, PowerShell DSC, and Internet Information Services (IIS).
 ## Setting up Windows Workstations
 
 To set up your Windows workstation follow the steps on [Chef for
-Microsoft Windows](/workstation/install_workstation/)
+Windows](/workstation/install_workstation/)
 
 ## Install Chef Infra Client on Windows Nodes
 
@@ -37,12 +37,12 @@ This command has the following syntax:
 chef-client OPTION VALUE OPTION VALUE ...
 ```
 
-This command has the following option specific to Microsoft Windows:
+This command has the following option specific to Windows:
 
 `-A`, `--fatal-windows-admin-check`
 
 :   Cause a Chef Infra Client run to fail when Chef Infra Client does
-    not have administrator privileges in Microsoft Windows.
+    not have administrator privileges in Windows.
 
 ### System Requirements
 
@@ -115,7 +115,7 @@ Se the [knife windows](/workstation/knife_windows/) for more information.
 ### Install Chef Infra Client using the MSI Installer
 
 A Microsoft Installer Package (MSI) is available for installing Chef
-Infra Client on a Microsoft Windows machine from [Chef
+Infra Client on a Windows machine from [Chef
 Downloads](https://www.chef.io/downloads/tools/infra-client?os=windows).
 
 #### Msiexec.exe
@@ -137,7 +137,7 @@ Downloads](https://www.chef.io/downloads/tools/infra-client?os=windows).
 ## Windows Cookbooks
 
 Some of the most popular Chef-maintained cookbooks that contain custom
-resources useful when configuring machines running Microsoft Windows are
+resources useful when configuring machines running Windows are
 listed below:
 
 <table>
@@ -242,7 +242,7 @@ Chef Infra provides a growing number of Windows-specific resources.
 ### Windows Compatible Resources
 
 The most popular core resources in Chef Infra Client work the same way
-in Microsoft Windows as they do on any UNIX or Linux-based platform.
+in Windows as they do on any UNIX or Linux-based platform.
 
 - [cookbook_file](/resources/cookbook_file/)
 - [directory](/resources/directory/)
@@ -261,7 +261,7 @@ in Microsoft Windows as they do on any UNIX or Linux-based platform.
 - [user](/resources/user/)
 
 The file-based resources have attributes that support unique
-requirements within the Microsoft Windows platform, including `inherits`
+requirements within the Windows platform, including `inherits`
 (for file inheritance), `mode` (for octal modes), and `rights` (for
 access control lists, or ACLs).
 

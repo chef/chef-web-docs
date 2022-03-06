@@ -42,7 +42,7 @@ This command has the following options:
 
 `-A`, `--fatal-windows-admin-check`
 
-: Cause a Chef Infra Client run to fail when the Chef Infra Client  does not have administrator privileges in Microsoft Windows.
+: Cause a Chef Infra Client run to fail when the Chef Infra Client  does not have administrator privileges in Windows.
 
 `-c CONFIG`, `--config CONFIG`
 
@@ -68,7 +68,7 @@ This command has the following options:
 
 : Run the executable as a daemon. Use `SECONDS` to specify the number of seconds to wait before the first daemonized Chef Infra Client run. `SECONDS` is set to `0` by default. Left unset, the daemon uses the default `--interval` an `--splay` values.
 
-  This option is only available on machines that run in UNIX or Linux environments. For machines that are running Microsoft Windows that require similar functionality, use the `chef-client::service` recipe in the `chef-client` cookbook: <https://supermarket.chef.io/cookbooks/chef-client>. This will install a Chef Infra Client service under Microsoft Windows using the Windows Service Wrapper.
+  This option is only available on machines that run in UNIX or Linux environments. For machines that are running Windows that require similar functionality, use the `chef-client::service` recipe in the `chef-client` cookbook: <https://supermarket.chef.io/cookbooks/chef-client>. This will install a Chef Infra Client service under Windows using the Windows Service Wrapper.
 
 `--delete-entire-chef-repo`
 
@@ -526,7 +526,7 @@ be used:
 : Use to wake up sleeping Chef Infra Client and trigger node
     convergence.
 
-On Microsoft Windows, both the `HUP` and `QUIT` signals are not
+On Windows, both the `HUP` and `QUIT` signals are not
 supported.
 
 ## Run with Elevated Privileges

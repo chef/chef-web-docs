@@ -1,4 +1,4 @@
-To determine the current proxy server on the Microsoft Windows platform:
+To determine the current proxy server on the Windows platform:
 
 1.  Open **Internet Properties**.
 2.  Open **Connections**.
@@ -6,7 +6,7 @@ To determine the current proxy server on the Microsoft Windows platform:
 4.  View the **Proxy server** setting. If this setting is blank, then a
     proxy server may not be available.
 
-To configure proxy settings in Microsoft Windows:
+To configure proxy settings in Windows:
 
 1.  Open **System Properties**.
 2.  Open **Environment Variables**.
