@@ -11,10 +11,10 @@ aliases = "/deprecations_local_listen.html"
 When using <span class="title-ref">chef-client</span> Local Mode, there
 are two ways to launch the internal Chef Zero server. Originally we
 launched it as a normal network service on localhost and then connected
-to it as per normal. Unfortunately this meant that any user or process
+to it normally. This meant that any user or process
 on the machine could also connect to the Zero server during the converge
 and because Chef Zero has no authentication or authorization systems,
-they could potentially alter data mid-converge. We later added a
+they could alter data mid-converge. We later added a
 "socketless" mode, which runs the Zero server completely internally and
 never exposes it on a real socket.
 

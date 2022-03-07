@@ -22,6 +22,6 @@ SEVERE: java.lang.OutOfMemoryError: Java heap space
 The default value for `opscode_solr4['heap_size']` should work for many
 organizations, especially those with fewer than 25 nodes. For
 organizations with more than 25 nodes, set this value to 25% of system
-memory or `1024`, whichever is smaller. For very large configurations,
+memory or `1024`, whichever is smaller. For large configurations,
 increase this value to 25% of system memory or `4096`, whichever is
 smaller. This value should not exceed `8192`.

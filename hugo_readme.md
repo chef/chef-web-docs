@@ -124,7 +124,7 @@ All other page configuration metadata (menu configuration, aliases, page title, 
 should be included in the frontmatter as it normally exists in other pages. The
 rest of the page should be blank.
 
-**Note**: Pages within a product directory don't have to be versioned. For example,
+**Note**: Pages within a product directory do not have to be versioned. For example,
 a product introduction would contain content that's relevant to all versions of a product.
 Hugo will render the content in a page without the `version_docs_product` parameter
 like any other un-versioned page.
@@ -154,7 +154,7 @@ matching pages with the exact same file name in each of the version subdirectori
 
 These versioned pages contain the text that will be added to the parent page.
 
-The pages don't require any frontmatter, although adding `title` and `version` parameters
+The pages do not require any frontmatter, although adding `title` and `version` parameters
 can be helpful if you are editing multiple pages at the same time.
 
 #### Reusable Text

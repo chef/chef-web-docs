@@ -97,14 +97,14 @@ Data bags can be accessed in the following ways:
 
 {{% data_bag_recipes_load_using_recipe_dsl %}}
 
-#### Create and edit
+#### Create and Edit
 
 {{% data_bag_recipes_edit_within_recipe %}}
 
-#### Create users
+#### Create Users
 
 {{% data_bag_recipes_create_users %}}
 
-### chef-solo
+### `chef-solo`
 
 {{% data_bag_chef_solo %}}

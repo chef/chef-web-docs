@@ -88,7 +88,7 @@ to download the file during compile time:
   array = JSON.parse(IO.read("#{Chef::Config[:file_cache_path]}/users.json")
 
   # the `array.last["phone"]` expression here will also be evaluated at compile
-  # time and must be lazied via wrapping the expresssion in `lazy {}`
+  # time and must be lazied using wrapping the expresssion in `lazy {}`
   file "/tmp/phone_number.txt" do
     content array.last["phone"]
   end

@@ -13,7 +13,7 @@ The full name of the cop is: `Chef/Modernize/DependsOnLocaleCookbook`
 | --- | --- | --- |
 | Enabled | Yes | 14.5+ |
 
-Don't depend on the locale cookbook made obsolete by Chef Infra Client 14.5. The locale resource is now included in Chef Infra Client itself.
+do not depend on the locale cookbook made obsolete by Chef Infra Client 14.5. The locale resource is now included in Chef Infra Client itself.
 
 ## Examples
 

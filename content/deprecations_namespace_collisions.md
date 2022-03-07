@@ -8,17 +8,17 @@ sitemapExclude = true
 aliases = "/deprecations_namespace_collisions.html"
 +++
 
-In Chef Client 12.5.1, the custom resources API allowed specifying
+In Chef Infra Client 12.5.1, the custom resources API allowed specifying
 property names as the short form of `property_name` inside of actions,
 instead of the long form of `new_resource.property_name` (as was
 previously required in provider code in LWRPs/HWRPs/etc). That change
-caused unsolvable namespace clashes and will be removed in Chef Client
+caused unsolvable namespace clashes and will be removed in Chef Infra Client
 14.0, and it will become mandatory to refer to properties as
 `new_resource.property_name` in actions.
 
 ## Example
 
-This code worked in Chef Client 12.5.1 and later revisions up to Chef
+This code worked in Chef Infra Client 12.5.1 and later revisions up to Chef
 Client 13.0:
 
 ```ruby
@@ -87,7 +87,7 @@ removed.
 
 ## Rationale
 
-The change in Chef Client 12.5.1 caused several insolvable problems. One
+The change in Chef Infra Client 12.5.1 caused several insolvable problems. One
 of the worst was that properties would override DSL commands so that
 (for example) if a user had a `template` property they could no longer
 use the <span class="title-ref">template</span> resource:
@@ -137,7 +137,7 @@ In fact, the subprocess wins (because it has to) and this code will
 result in the content always being nil and the file being empty. The
 output of the `puts` debugging will be correct, however, since `content`
 is being accessed outside of the file resource scope so it acquires it
-from the `new_resource` implicitly (in Chef Client 12.5.1 and Chef
+from the `new_resource` implicitly (in Chef Infra Client 12.5.1 and Chef
 Client 13.x)
 
 The way to remediate that is by specifying the `new_resource`:

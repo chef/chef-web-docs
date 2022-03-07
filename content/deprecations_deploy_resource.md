@@ -9,7 +9,7 @@ aliases = "/deprecations_deploy_resource.html"
 +++
 
 The `deploy` and `deploy_revision` resources have been deprecated as of
-Chef Client 13.6, and will be removed in Chef Client 14.
+Chef Infra Client 13.6, and will be removed in Chef Infra Client 14.
 
 ## Remediation
 

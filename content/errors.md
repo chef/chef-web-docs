@@ -71,7 +71,7 @@ Response:  Failed to authenticate as USERNAME. Ensure that your node_name and cl
 
 ### Organization not found
 
-If you see this error when trying to recreate the ORGANIZATION-validator.pem, it's possible that Chef Infra Client itself was deleted. In this situation, the ORGANIZATION-validator.pem will need to be recreated. In these directions, `ORGANIZATION` should be replaced with the name of your organization.
+If you see this error when trying to recreate the ORGANIZATION-validator.pem, it is possible that Chef Infra Client itself was deleted. In this situation, the ORGANIZATION-validator.pem will need to be recreated. In these directions, `ORGANIZATION` should be replaced with the name of your organization.
 
 {{% manage_webui_policy_validation_reset_key %}}
 
@@ -168,7 +168,7 @@ DEBUG: Sending HTTP Request to https://api.opscode.com/organizations/ORGNAME/nod
 ERROR: Running exception handlers
 ```
 
-The URL will help identify the type of permission issue. If the URL is an index action (i.e. operating on a collection of resources, like `/nodes`) then this is a global permission. If the URL is operating on an instance of a collection (i.e. `/nodes/NODENAME`) then this is an object permission issue.
+The URL will help identify the type of permission issue. If the URL is an index action (that is, operating on a collection of resources, like `/nodes`) then this is a global permission. If the URL is operating on an instance of a collection (`/nodes/NODENAME`) then this is an object permission issue.
 
 To fix the global permissions:
 
@@ -249,7 +249,7 @@ It means that Chef Infra Client could not find your validation.pem.
 
 ### Commit or stash your changes
 
-This isn't really an error, but can be confusing to new users. When you try to install a cookbook with changes that have not been committed to git you will get this error:
+This is not really an error, but can be confusing to new users. When you try to install a cookbook with changes that have not been committed to git you will get this error:
 
 ```bash
 Installing getting-started to /home/jes/chef-repo/.chef/../cookbooks

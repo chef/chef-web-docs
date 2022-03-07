@@ -17,7 +17,7 @@ cookbook dependencies.
 Attributes are provided to Chef Infra Client from the following
 locations:
 
-- JSON files passed via the `chef-client -j`
+- JSON files passed using the `chef-client -j`
 - Nodes (collected by Ohai at the start of each Chef Infra Client run)
 - Attribute files (in cookbooks)
 - Recipes (in cookbooks)
@@ -36,7 +36,7 @@ Notes:
 - Chef Infra Client will pull down the node object from the Chef Infra
     Server and then reset all the attributes except `normal`. The node
     object will contain the attribute data from the previous Chef Infra
-    Client run including attributes set with JSON files via `-j`.
+    Client run including attributes set with JSON files using `-j`.
 - Chef Infra Client will update the cookbooks on the node (if
     required), which updates the attributes contained in attribute files
     and recipes

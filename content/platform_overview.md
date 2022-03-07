@@ -13,14 +13,14 @@ product = ["automate", "client", "server", "habitat", "inspec", "workstation"]
     weight = 10
 +++
 
-Chef is an automation company. Ever since it was founded in 2008, we've
+Chef is an automation company. Ever since it was founded in 2008, we have
 been bringing together developers and system administrators with our
 namesake product, Chef Infra. Over the years, what we mean by automation
 has expanded. Today, Chef has a complete automation solution for both
 infrastructure and applications that takes you all the way from
 development to production. Here's the complete Chef solution.
 
-{{< figure src="/images/automate_architecture.svg" width=500 alt="Diagram of Automate architecture.">}}
+{{< figure src="/images/automate_architecture.svg" width=500 alt="Diagram of Chef Automatee architecture.">}}
 
 ## Chef Infra
 
@@ -30,7 +30,7 @@ development to production. Here's the complete Chef solution.
 
 Chef Workstation allows you to author cookbooks and administer your
 infrastructure. Chef Workstation runs on the computer you use everyday,
-whether it's Linux, macOS, or Windows.
+whether it is Linux, macOS, or Windows.
 
 Chef Workstation ships with Cookstyle, ChefSpec, Chef InSpec, and Test
 Kitchen testing tools. With them, you can make sure your Chef Infra code
@@ -71,7 +71,7 @@ upload your cookbooks.
 Chef Infra is constructed so that most of the computational effort
 occurs on the nodes rather than on the Chef Infra Server. A node
 represents any system you manage and is typically a virtual machine,
-container instance, or physical server. Basically, it's any compute
+container instance, or physical server. Basically, it is any compute
 resource in your infrastructure that's managed by Chef Infra. All nodes
 have Chef Infra Client installed on them, and Chef Infra Client is
 available for multiple platforms including Linux, macOS, Windows, AIX,
@@ -79,7 +79,7 @@ and Solaris.
 
 Periodically, Chef Infra Client contacts the Chef Infra Server to
 retrieve the latest cookbooks. If (and only if) the current state of the
-node doesn't conform to what the cookbook says it should be, Chef Infra
+node does not conform to what the cookbook says it should be, Chef Infra
 Client executes the cookbook instructions. This iterative process
 ensures that the network as a whole converges to the state envisioned by
 business policy.
@@ -158,7 +158,7 @@ Here is an example of the Chef Automate dashboard.
 
 Chef Automate creates customizable reports that identify compliance
 issues, security risks, and outdated software. You can write your own
-compliance rules in Chef InSpec, or you can get started quickly by using
+compliance rules in Chef InSpec, or you can get started by using
 built-in profiles, which are predefined rule sets for a variety of
 security frameworks, such as Center for Internet Security (CIS)
 benchmarks, included as part of Chef Automate.

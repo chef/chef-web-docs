@@ -13,7 +13,7 @@ product = []
     weight = 20
 +++
 
-**Note**: If you are in a physical space (e.g. ChefConf, Meetup, etc),
+**Note**: If you are in a physical space (for example, ChefConf, Meetup, etc),
 please see the [Physical Spaces Code of
 Conduct](https://www.chef.io/code-of-conduct/physical-spaces/).
 
@@ -39,7 +39,7 @@ Community members may fulfill many roles including mentoring, teaching,
 and connecting with other members of the community.
 
 Be careful in the words that you choose. Be kind to others. Practice
-empathy. Don't insult or put down others. Remember that sexist, racist,
+empathy. do not insult or put down others. Remember that sexist, racist,
 ableist, ageist, and other exclusionary jokes can be offensive to those
 around you. If you think your conversation is making another community
 member uncomfortable *or* if they tell you so, stop immediately, make
@@ -50,7 +50,7 @@ mind that the following guidelines apply equally to founders, mentors,
 those who submit new features/pull requests, and anyone who is seeking
 help and guidance.
 
-The following list isn't exhaustive, but these few examples can help all
+The following list is not exhaustive, but these few examples can help all
 of us communicate well, so that the community can work better together:
 
 - Use welcoming and inclusive language
@@ -107,7 +107,7 @@ includes:
 - Sustained disruption of talks or other events.
 - Inappropriate physical contact or unwelcome sexual attention.
 
-**NOTE**: If you are in a physical space -- e.g. Chef Conf, Meetup, etc.
+**NOTE**: If you are in a physical space -- for example, Chef Conf, Meetup, etc.
 -- please see the [Physical Spaces Code of
 Conduct](https://www.chef.io/code-of-conduct/physical-spaces/).
 
@@ -150,7 +150,7 @@ the person(s) assigned to each role:
     for both escalating to a **Community Advocate** in case of
     witnessing an incident, and helping to foster the community.
 - A **Community Member** is anyone who participates with the community
-    whether in-person or via online channels. Community members are
+    whether in-person or using online channels. Community members are
     responsible for following the community guidelines, suggesting
     updates to the guidelines when warranted, and helping enforce
     community guidelines.
@@ -216,7 +216,7 @@ Community Advocates listed in the [Roles](#roles) section.
 
 ### Handling Incidents
 
-**NOTE**: If you are in a physical space -- e.g. Chef Conf, Meetup, etc.
+**NOTE**: If you are in a physical space -- for example, Chef Conf, Meetup, etc.
 -- please see the [Physical Spaces Code of
 Conduct](https://www.chef.io/code-of-conduct/physical-spaces/).
 
@@ -293,7 +293,7 @@ Our community will convene in both physical and virtual spaces. This
 Code of Conduct applies within project spaces and in public spaces when
 an individual is representing the project or its community. Examples of
 representing a project or community include using an official project
-e-mail address, posting via an official social media account, or acting
+e-mail address, posting using an official social media account, or acting
 as an appointed representative at an online or offline event.
 Representation of a project may be further defined and clarified by
 project maintainers and community organizers.

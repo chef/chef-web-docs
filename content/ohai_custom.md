@@ -142,7 +142,7 @@ The `collect_data` method is a block of Ruby code that is called by Ohai when it
 - A `collect_data(:default)` block is used when Ohai is not able to match the platform of the node with a `collect_data(:platform)` block in the plugin
 - A `collect_data(:platform)` block is required for each platform that requires non-default behavior
 
-When Ohai runs, if there isn't a matching `collect_data` block for a platform, the `collect_data(:default)` block is used. The syntax for the `collect_data` method is:
+When Ohai runs, if there is not a matching `collect_data` block for a platform, the `collect_data(:default)` block is used. The syntax for the `collect_data` method is:
 
 ```ruby
 collect_data(:default) do

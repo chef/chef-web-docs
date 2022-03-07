@@ -13,7 +13,7 @@ The full name of the cop is: `Chef/Modernize/DependsOnWindowsFirewallCookbook`
 | --- | --- | --- |
 | Enabled | Yes | 14.7+ |
 
-Don't depend on the windows_firewall cookbook made obsolete by Chef Infra Client 14.7. The windows_firewall resource is now included in Chef Infra Client itself.
+do not depend on the windows_firewall cookbook made obsolete by Chef Infra Client 14.7. The windows_firewall resource is now included in Chef Infra Client itself.
 
 ## Examples
 

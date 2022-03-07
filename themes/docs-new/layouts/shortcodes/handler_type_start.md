@@ -1,7 +1,7 @@
 A start handler is not loaded into a Chef Infra Client run from a
 recipe, but is instead listed in the client.rb file using the
 `start_handlers` attribute. The start handler must be installed on the
-node and be available to Chef Infra Client prior to the start of a Chef
+node and be available to Chef Infra Client before the start of a Chef
 Infra Client run. Use the **chef-client** cookbook to install the start
 handler.
 

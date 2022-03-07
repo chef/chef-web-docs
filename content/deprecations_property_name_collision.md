@@ -22,7 +22,7 @@ For example, every Ruby object has a `hash` method which is expected to
 return a number. If a resource creates a property named `hash` and
 stores a string instead, it could cause errors in your Chef run.
 
-A deprecation warning is logged when this occurs. In Chef Client 13,
+A deprecation warning is logged when this occurs. In Chef Infra Client 13,
 this will raise an exception and your Chef run will fail.
 
 ## Remediation

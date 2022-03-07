@@ -1,6 +1,6 @@
 Values that are stored in a data bag are global to the organization and
 are available to any environment. There are two main strategies that can
-be used to store per-environment data within a data bag: by using a
+be used to store shared environment data within a data bag: by using a
 top-level key that corresponds to the environment or by using separate
 items for each environment.
 
@@ -29,7 +29,7 @@ data_bag_item[node.chef_environment]['some_other_key']
 The other approach is to use separate items for each environment.
 Depending on the amount of data, it may all fit nicely within a single
 item. If this is the case, then creating different items for each
-environment may be a simple approach to providing per-environment values
+environment may be a simple approach to providing shared environment values
 within a data bag. However, this approach is more time-consuming and may
-not scale to very large environments or when the data must be stored in
+not scale to large environments or when the data must be stored in
 many data bag items.

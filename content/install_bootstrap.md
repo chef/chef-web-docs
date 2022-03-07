@@ -7,8 +7,8 @@ product = ["client", "workstation"]
 
 [menu]
   [menu.infra]
-    title = "Install via Bootstrap"
-    identifier = "chef_infra/install/install_bootstrap.md Install via Bootstrap"
+    title = "Install using Bootstrap"
+    identifier = "chef_infra/install/install_bootstrap.md Install using Bootstrap"
     parent = "chef_infra/install"
     weight = 10
 +++
@@ -25,7 +25,7 @@ product = ["client", "workstation"]
 
 The `knife bootstrap` subcommand is used to run a bootstrap operation that installs Chef Infra Client on the target node. The following steps describe how to bootstrap a node using knife.
 
-1. Identify the FQDN or IP address of the target node. The `knife bootstrap` command requires the FQDN or the IP address for the node in order to complete the bootstrap operation.
+1. Identify the FQDN or IP address of the target node. The `knife bootstrap` command requires the FQDN or the IP address for the node to complete the bootstrap operation.
 
 2. Once the workstation machine is configured, it can be used to install Chef Infra Client on one (or more) nodes across the organization using a knife bootstrap operation. The `knife bootstrap` command is used to SSH into the target machine, and then do what is needed to allow Chef Infra Client to run on the node. It will install the Chef Infra Client executable (if necessary), generate keys, and register the node with the Chef Infra Server. The bootstrap operation requires the IP address or FQDN of the target system, the SSH credentials (username, password or identity file) for an account that has root access to the node, and (if the operating system is not Ubuntu, which is the default distribution used by `knife bootstrap`) the operating system running on the target system.
 
@@ -44,7 +44,7 @@ The `knife bootstrap` subcommand is used to run a bootstrap operation that insta
 
     Connecting to 172.16.1.233
     Performing legacy client registration with the validation key at /Users/USERNAME/.chef/validator.pem...
-    Delete your validation key in order to use your user credentials for client registration instead.
+    Delete your validation key to use your user credentials for client registration instead.
     Bootstrapping 172.16.1.233
     [172.16.1.233] -----> Installing Chef Omnibus (stable/16)
     downloading https://omnitruck.chef.io/chef/install.sh
@@ -218,8 +218,8 @@ Creating new client for ubuntu-20.04
 Creating new node for ubuntu-20.04
 Connecting to localhost
 localhost -----> Existing Chef installation detected
-localhost Starting first Chef Client run...
-localhost Starting Chef Client, version 12.2.1
+localhost Starting first Chef Infra Client run...
+localhost Starting Chef Infra Client, version 12.2.1
 localhost resolving cookbooks for run list: ["delay-test-reporting"]
 localhost Synchronizing Cookbooks:
 localhost   - delay-test-reporting
@@ -231,7 +231,7 @@ localhost     - execute sleep 30
 localhost
 localhost Running handlers:
 localhost Running handlers complete
-localhost Chef Client finished, 1/1 resources updated in 34.307257232 seconds
+localhost Chef Infra Client finished, 1/1 resources updated in 34.307257232 seconds
 ```
 
 The client `ubuntu-20.04` was added to the `chef-vault` during the bootstrap.
@@ -259,8 +259,8 @@ Creating new client for ubuntu-20.04
 Creating new node for ubuntu-20.04
 Connecting to localhost
 localhost -----> Existing Chef installation detected
-localhost Starting first Chef Client run...
-localhost Starting Chef Client, version 12.2.1
+localhost Starting first Chef Infra Client run...
+localhost Starting Chef Infra Client, version 12.2.1
 localhost resolving cookbooks for run list: ["delay-test-reporting"]
 localhost Synchronizing Cookbooks:
 localhost   - delay-test-reporting
@@ -272,7 +272,7 @@ localhost     - execute sleep 30
 localhost
 localhost Running handlers:
 localhost Running handlers complete
-localhost Chef Client finished, 1/1 resources updated in 34.322229474
+localhost Chef Infra Client finished, 1/1 resources updated in 34.322229474
 seconds
 ```
 
@@ -316,8 +316,8 @@ Creating new client for ubuntu-.04
 Creating new node for ubuntu-20.04
 Connecting to localhost
 localhost -----> Existing Chef installation detected
-localhost Starting first Chef Client run...
-localhost Starting Chef Client, version 12.2.1
+localhost Starting first Chef Infra Client run...
+localhost Starting Chef Infra Client, version 12.2.1
 localhost resolving cookbooks for run list: ["delay-test-reporting"]
 localhost Synchronizing Cookbooks:
 localhost   - delay-test-reporting
@@ -330,7 +330,7 @@ localhost     - execute sleep 30
 localhost
 localhost Running handlers:
 localhost Running handlers complete
-localhost Chef Client finished, 1/1 resources updated in 33.732784033 seconds
+localhost Chef Infra Client finished, 1/1 resources updated in 33.732784033 seconds
 ```
 
 ```bash
@@ -372,12 +372,12 @@ $hosts = "1.2.3.4 hello.example.com"
 $file = "C:\Windows\System32\drivers\etc\hosts"
 $hosts | Add-Content $file
 
-## Download the Chef Client
+## Download the Chef Infra Client
 $clientURL = "https://packages.chef.io/files/stable/chef/12.19.36/windows/2012/chef-client-<version-here>.msi"
 $clientDestination = "C:\chef-client.msi"
 Invoke-WebRequest $clientURL -OutFile $clientDestination
 
-## Install the Chef Client
+## Install the Chef Infra Client
 Start-Process msiexec.exe -ArgumentList @('/qn', '/lv C:\Windows\Temp\chef-log.txt', '/i C:\chef-client.msi', 'ADDLOCAL="ChefClientFeature,ChefSchTaskFeature,ChefPSModuleFeature"') -Wait
 
 ## Create first-boot.json

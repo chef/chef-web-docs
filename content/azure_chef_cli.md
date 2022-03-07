@@ -58,7 +58,7 @@ This command has the following options:
 
 `-a`, `--auto-update-client`
 
-: Auto-update Chef Infra Client. Set to `true` to auto update the version of the Azure Chef Extension when the virtual machine is restarted. For example, if this option is enabled, a virtual machine that has version `1205.12.2.0` will be updated automatically to `1205.12.2.1` when it is published. Default value: `false`.
+: Automatically update Chef Infra Client. Set to `true` to automatically update the version of the Azure Chef Extension when the virtual machine is restarted. For example, if this option is enabled, a virtual machine that has version `1205.12.2.0` will be updated automatically to `1205.12.2.1` when it is published. Default value: `false`.
 
 `-b`, `--disable`
 

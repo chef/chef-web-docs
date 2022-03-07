@@ -48,7 +48,7 @@ This command has the following option specific to Windows:
 
 The recommended minimum amount of RAM available to Chef Infra Client
 during a Chef Infra Client run is 512MB. Each node and workstation must
-have access to Chef Infra Server via HTTPS. The Chef Infra Client can be
+have access to Chef Infra Server using HTTPS. The Chef Infra Client can be
 used to manage machines that run on the following versions of Microsoft
 Windows:
 

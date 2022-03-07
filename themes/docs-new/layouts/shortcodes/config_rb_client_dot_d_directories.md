@@ -20,7 +20,7 @@ be loaded:
 - `~/.chef/config.d/ec2_configuration.rb`
 - `~/.chef/config.d/old_settings.rb.bak`
 
-The `old_settings.rb.bak` file is ignored because it's not a
+The `old_settings.rb.bak` file is ignored because it is not a
 configuration file. The `config.rb`, `company_settings.rb`, and
 `ec2_configuration` files are merged together as if they are a single
 configuration file.

@@ -1,9 +1,9 @@
 The `backup` subcommand is used to back up all Chef Infra Server data.
 This subcommand:
 
-- Requires rsync to be installed on the Chef Infra Server prior to
+- Requires rsync to be installed on the Chef Infra Server before
     running the command
-- Requires a `chef-server-ctl reconfigure` prior to running the
+- Requires a `chef-server-ctl reconfigure` before running the
     command
 - Should not be run in a Chef Infra Server configuration with an
     external PostgreSQL database; [use knife ec
