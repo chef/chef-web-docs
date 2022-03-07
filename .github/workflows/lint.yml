@@ -77,7 +77,6 @@ jobs:
       - uses: errata-ai/vale-action@v1
         with:
           config: https://raw.githubusercontent.com/chef/chef-web-docs/main/.vale.ini
-          files: content/*.md
         env: 
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
             
