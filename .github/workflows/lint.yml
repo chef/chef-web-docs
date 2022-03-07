@@ -67,14 +67,13 @@ jobs:
   stylelint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - name: "Download vale-chef"
+        uses: Legion2/download-release-action@v2.1.0
         with:
+          repository: chef/vale-chef
+          tag: '0.2.2'
+          path: tools/vale
           token: "${{ secrets.GITHUB_TOKEN }}"
-      - uses: carlosperate/download-file-action@v1.0.3
-        id: download-chef-style
-        with:
-          file-url: 'https://github.com/chef/vale-chef/Chef/'
-          file-name: './tools/vale/Chef/'
       - uses: errata-ai/vale-action@v1
         with:
           config: https://raw.githubusercontent.com/chef/chef-web-docs/main/.vale.ini
