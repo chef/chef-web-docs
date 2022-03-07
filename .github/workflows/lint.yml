@@ -72,7 +72,7 @@ jobs:
         with:
           repository: chef/vale-chef
           tag: 'v0.2.3'
-          path: tools/vale/Chef
+          path: tools/vale/chef
           token: "${{ secrets.GITHUB_TOKEN }}"
       - uses: errata-ai/vale-action@v1
         with:
