@@ -214,7 +214,7 @@ The `hugo mod clean` command removes references to commits in the
 See Hugo's [documentation](https://gohugo.io/hugo-modules/use-modules/#update-modules)
 for additional information about updating Hugo Modules.
 
-### What if Hugo Doesn't Want to Update a Module
+### What if Hugo Does not Want to Update a Module
 
 Sometimes Hugo and Git can be a bit difficult and will not update a module cleanly or will leave
 references to older commits of a module in the go.sum file.

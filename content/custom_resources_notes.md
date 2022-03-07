@@ -92,7 +92,7 @@ end
 
 ## Library Resources/Providers
 
-Library resources are discouraged since you can shoot yourself in the foot. They used to be encouraged back before Chef Infra Client 12.0 `provides` was introduced since it allowed for renaming the resource so that it didn't have to be prefixed by the cookbook name.
+Library resources are discouraged since you can shoot yourself in the foot. They used to be encouraged back before Chef Infra Client 12.0 `provides` was introduced since it allowed for renaming the resource so that it did not have to be prefixed by the cookbook name.
 
 There are many ways to go wrong writing library providers. One of the biggest issues is that internal Chef Infra Client code superficially looks like a library provider, but it is not. Chef internal resources do not inherit from `LWRPBase` and we have had to manually create resources directly through `Chef::Resource::File.new()`, we also have not been able to `use_inline_resources` and not had access to other niceties that cookbook authors have had access to for years now. We have got some modernization of internal Chef cookbook code now and resources like `apt_update` and `apt_repository` in core have started to be written more like cookbook code should be written, but core resources are actually behind the curve and are bad code examples.
 
@@ -130,7 +130,7 @@ class MyBaseClass
 
       # NEVER use `def action_run` here -- you defeat use_inline_resources and will break notifications if you do
       # If you do not understand how use_inline_resources is built and why you have to use the `action` method, and what the implications are and how resource notifications
-      # break if use_inline_resources is not used and/or is broken, then you should really not be using library providers+resources.  You might feel "closer to the metal",
+      # break if use_inline_resources is not used and/or is broken, then you should really not be using library providers+resources. You might feel "closer to the metal",
       # but you're now using a chainsaw without any guard...
       action :run do
         a_helper()

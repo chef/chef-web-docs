@@ -2027,7 +2027,7 @@ what's new.
 #### Berkshelf 7.0.7
 
 - Added <span class="title-ref">berks outdated --all</span> command to
-    get a list of outdated dependencies, including those that wouldn't
+    get a list of outdated dependencies, including those that would not
     satisfy the version constraints set in Berksfile. Thanks
     [jeroenj](https://github.com/jeroenj)
 
@@ -2243,7 +2243,7 @@ cookbook(s) given on the command line.
 
 ### Deprecations
 
-- `chef generate app` - Application repos were a pattern that didn't
+- `chef generate app` - Application repos were a pattern that did not
     take off.
 - `chef generate lwrp` - Use <span class="title-ref">chef generate
     resource</span>. Every supported release of Chef supports custom

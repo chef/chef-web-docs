@@ -75,7 +75,7 @@ There are two methods for accepting the Chef Habitat license:
     1. `accept` - Accepts the license and persists a marker file locally. Future invocations do not require accepting the license again.
     1. `accept-no-persist` - accepts the license without persisting an marker file. Future invocation will require accepting the license again.
 
-If the license isn't accepted through either of these methods, Chef Habitat will request acceptance through an interactive prompt.
+If the license is not accepted through either of these methods, Chef Habitat will request acceptance through an interactive prompt.
 
 Additionally, to accepting the license in CI or other automation, user may choose to create an empty file on the filesystem at `/hab/accepted-licenses/habitat` (if your hab commands run as root) or at `$HOME/.hab/accepted-licenses/habitat` (if your hab commands run as a user other than root). For situations where hab commands run as multiple users, it is advisable to create both files.
 

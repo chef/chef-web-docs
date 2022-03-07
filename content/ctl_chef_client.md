@@ -439,7 +439,7 @@ made:
     produce more output than a smaller run-list
 
 For example, the **service** resource can be used to start a service. If
-the action is `:start`, then the service will start if it isn't running
+the action is `:start`, then the service will start if it is not running
 and do nothing if it is running. If a service is installed from a
 package, then Chef Infra Client cannot check to see if the service is
 running until after the package is installed. In that case, why-run mode

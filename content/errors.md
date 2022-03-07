@@ -249,7 +249,7 @@ It means that Chef Infra Client could not find your validation.pem.
 
 ### Commit or stash your changes
 
-This isn't really an error, but can be confusing to new users. When you try to install a cookbook with changes that have not been committed to git you will get this error:
+This is not really an error, but can be confusing to new users. When you try to install a cookbook with changes that have not been committed to git you will get this error:
 
 ```bash
 Installing getting-started to /home/jes/chef-repo/.chef/../cookbooks

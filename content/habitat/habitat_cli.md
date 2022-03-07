@@ -3380,7 +3380,7 @@ hab svc <SUBCOMMAND>
 | Command | Description |
 | ------- | ----------- |
 | [hab svc key](#hab-svc-key) | Commands relating to Habitat service keys |
-| [hab svc load](#hab-svc-load) | Load a service to be started and supervised by Habitat from a package identifier. If an installed package doesn't satisfy the given package identifier, a suitable package will be installed from Builder |
+| [hab svc load](#hab-svc-load) | Load a service to be started and supervised by Habitat from a package identifier. If an installed package does not satisfy the given package identifier, a suitable package will be installed from Builder |
 | [hab svc start](#hab-svc-start) | Start a loaded, but stopped, Habitat service |
 | [hab svc status](#hab-svc-status) | Query the status of Habitat services |
 | [hab svc stop](#hab-svc-stop) | Stop a running Habitat service |
@@ -3451,7 +3451,7 @@ hab svc key generate [OPTIONS] <SERVICE_GROUP> [ORG]
 
 ### hab svc load
 
-Load a service to be started and supervised by Habitat from a package identifier. If an installed package doesn't
+Load a service to be started and supervised by Habitat from a package identifier. If an installed package does not
 
 **USAGE**
 

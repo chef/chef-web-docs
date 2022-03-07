@@ -216,7 +216,7 @@ Cookbooks are comprised of the following components:
 <tr>
 <td><p><img src="/images/icon_cookbook_resources.svg" class="align-center" width="130" alt="image" /></p></td>
 <td><p>{{< readFile_shortcode file="resources_common.md" >}}</p>
-<p>Chef has <a href="/resources/">many built-in resources</a> that cover all of the most common actions across all of the most common platforms. You can <a href="/custom_resources/">build your own resources</a> to handle any situation that isn't covered by a built-in resource.</p></td>
+<p>Chef has <a href="/resources/">many built-in resources</a> that cover all of the most common actions across all of the most common platforms. You can <a href="/custom_resources/">build your own resources</a> to handle any situation that is not covered by a built-in resource.</p></td>
 </tr>
 <tr>
 <td><p><img src="/images/icon_cookbook_templates.svg" class="align-center" width="130" alt="image" /></p></td>

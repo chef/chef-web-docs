@@ -79,7 +79,7 @@ and Solaris.
 
 Periodically, Chef Infra Client contacts the Chef Infra Server to
 retrieve the latest cookbooks. If (and only if) the current state of the
-node doesn't conform to what the cookbook says it should be, Chef Infra
+node does not conform to what the cookbook says it should be, Chef Infra
 Client executes the cookbook instructions. This iterative process
 ensures that the network as a whole converges to the state envisioned by
 business policy.

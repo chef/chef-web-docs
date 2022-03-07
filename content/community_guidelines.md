@@ -50,7 +50,7 @@ mind that the following guidelines apply equally to founders, mentors,
 those who submit new features/pull requests, and anyone who is seeking
 help and guidance.
 
-The following list isn't exhaustive, but these few examples can help all
+The following list is not exhaustive, but these few examples can help all
 of us communicate well, so that the community can work better together:
 
 - Use welcoming and inclusive language

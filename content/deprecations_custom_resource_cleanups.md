@@ -22,7 +22,7 @@ In current versions of Chef, `nil` was often used to mean that a
 property had no good default, and needed to be set by the user. However,
 it is often to useful to set a property to `nil`, meaning that it is not
 set and should be ignored. In Chef Infra Client 13, it is an error to set
-`default: nil` on a property if that property doesn't allow `nil` as a
+`default: nil` on a property if that property does not allow `nil` as a
 valid value.
 
 ### Remediation
@@ -40,7 +40,7 @@ Otherwise, remove the `default: nil` statement from the property.
 
 Current versions of Chef emit a warning when a property's default value
 is not valid. This is often because the type of the default value
-doesn't match the specification of the property. For example:
+does not match the specification of the property. For example:
 
 ```ruby
 property :my_property, [ String ], default: []

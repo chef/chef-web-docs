@@ -14,7 +14,7 @@ product = []
 +++
 
 chef-docs hopes that the documentation is always just what you are
-looking for, but when that isn't the case chef-docs does appreciate
+looking for, but when that is not the case chef-docs does appreciate
 feedback. There are several ways to get feedback to chef-docs. For
 members of the Chef community, customers, or people who just want to
 send feedback, choose any of the following four options:

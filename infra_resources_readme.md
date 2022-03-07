@@ -429,4 +429,4 @@ tables of contents templates.
 
 Failure to update the resource page table of contents templates
 may lead to links that do not link to the proper content, links that do not work properly,
-or content that isn't linked to in the table of contents.
+or content that is not linked to in the table of contents.

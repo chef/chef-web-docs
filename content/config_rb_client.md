@@ -361,7 +361,7 @@ This configuration file has the following settings:
 : A random number between zero and `splay` that is added to `interval`. Use splay to help balance the load on the Chef Infra Server by ensuring that many Chef Infra Client runs are not occurring at the same interval. Default value: `nil`.
 
 `stream_execute_output`
-: Always stream the output of `execute` resources even if the `live_stream` property isn't set to true. Default value: `false`
+: Always stream the output of `execute` resources even if the `live_stream` property is not set to true. Default value: `false`
 
 `show_download_progress`
 : Using show_download_progress will display the overall progress of a `remote_file` download. Default value: `false`

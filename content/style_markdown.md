@@ -167,7 +167,7 @@ External links requires an HTTP address.
 
 ### relref Links
 
-We recommend using Hugo's built-in [relref shortcode](https://gohugo.io/content-management/shortcodes/#ref-and-relref) for making relative links to other pages in the documentation. The site build will fail if a link is made to a page that does not exist. This ensures that we catch bad links if a page is deleted but a link to that page isn't removed.
+We recommend using Hugo's built-in [relref shortcode](https://gohugo.io/content-management/shortcodes/#ref-and-relref) for making relative links to other pages in the documentation. The site build will fail if a link is made to a page that does not exist. This ensures that we catch bad links if a page is deleted but a link to that page is not removed.
 
 #### Examples
 
@@ -220,7 +220,7 @@ Use this approach to show code blocks that use any type of JavaScript, including
 
 ### Literal
 
-Literals should be used sparingly, but sometimes there is a need for a block of text that doesn't work in a fenced code block, such as showing a directory structure, basic syntax, or pseudocode. To make a literal code block, indent the text by **four** spaces:
+Literals should be used sparingly, but sometimes there is a need for a block of text that does not work in a fenced code block, such as showing a directory structure, basic syntax, or pseudocode. To make a literal code block, indent the text by **four** spaces:
 
 ```md
 

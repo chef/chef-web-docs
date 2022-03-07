@@ -339,7 +339,7 @@ typically a node (that runs Chef Infra Client) or a workstation (that
 runs knife), but can also be any other machine configured to use the
 Chef Infra Server API.
 
-Sometimes when a role isn't fully defined (or implemented), it may be
+Sometimes when a role is not fully defined (or implemented), it may be
 necessary for a machine to connect to a database, search engine, or some
 other service within an environment by using the settings located on
 another machine, such as a host name, IP address, or private IP address.

@@ -23,7 +23,7 @@ This section covers the basics of Ruby.
 
 ### Verify Syntax
 
-Many people who are new to Ruby often find that it doesn't take very
+Many people who are new to Ruby often find that it does not take very
 long to get up to speed with the basics. For example, it is useful to
 know how to check the syntax of a Ruby file, such as the contents of a
 cookbook named `my_cookbook.rb`:
@@ -537,7 +537,7 @@ end
 
 ### String Quoting
 
-Use single-quoted strings in all situations where the string doesn't
+Use single-quoted strings in all situations where the string does not
 need interpolation.
 
 #### Whitespace Arrays

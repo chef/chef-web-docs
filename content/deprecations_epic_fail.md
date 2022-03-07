@@ -9,7 +9,7 @@ aliases = "/deprecations_epic_fail.html"
 +++
 
 The original name for the `ignore_failure` property in resources was
-`epic_fail`. Our documentation hasn't referred to `epic_fail` for years
+`epic_fail`. Our documentation has not referred to `epic_fail` for years
 and out of the 3500 cookbooks on the Supermarket only one uses
 `epic_fail`. In Chef Infra Client 14 we will remove the `epic_fail` property
 entirely.
