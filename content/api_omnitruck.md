@@ -134,7 +134,7 @@ Omnitruck accepts the following platforms:
 <td><code>10.04</code>, <code>10.10</code>, <code>11.04</code>, <code>11.10</code>, <code>12.04</code>, <code>12.10</code>, <code>13.04</code>, <code>13.10</code>, <code>14.04</code>, <code>14.10</code>, <code>16.04</code>, <code>16.10</code>, <code>17.04</code>, <code>17.10</code>, <code>18.04</code>, <code>18.10</code>, <code>19.04</code>, <code>20.04</code>, <code>20.10</code>, <code>21.04</code>, <code>21.10</code></td>
 </tr>
 <tr>
-<td>Microsoft Windows</td>
+<td>Windows</td>
 <td><code>windows</code></td>
 <td><code>x86_64</code>, <code>i386</code></td>
 <td><code>7</code>, <code>8</code>, <code>10</code>, <span class="title-ref">2008r2</span>, <code>2012</code>, <code>2012r2</code>, <code>2016</code>, <code>2019</code>, <code>11</code>, <code>2022</code></td>

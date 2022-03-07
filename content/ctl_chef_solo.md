@@ -32,7 +32,7 @@ This command has the following options:
 
 `-d`, `--daemonize`
 
-: Run the executable as a daemon. This option may not be used in the same command with the `--[no-]fork` option. This option is only available on machines that run in UNIX or Linux environments. For machines that are running Microsoft Windows that require similar functionality, use the `chef-client::service` recipe in the `chef-client` cookbook: <https://supermarket.chef.io/cookbooks/chef-client>. This will install a Chef Infra Client service under Microsoft Windows using the Windows Service Wrapper.
+: Run the executable as a daemon. This option may not be used in the same command with the `--[no-]fork` option. This option is only available on machines that run in UNIX or Linux environments. For machines that are running Windows that require similar functionality, use the `chef-client::service` recipe in the `chef-client` cookbook: <https://supermarket.chef.io/cookbooks/chef-client>. This will install a Chef Infra Client service under Windows using the Windows Service Wrapper.
 
 `-E ENVIRONMENT_NAME`, `--environment ENVIRONMENT_NAME`
 
@@ -88,7 +88,7 @@ This command has the following options:
 
 `--legacy-mode`
 
-: Cause Chef Infra Client to use the original chef-solo mode instead of chef local mode. This is not recommended. **Removed in Chef Client 14.**
+: Cause Chef Infra Client to use the original chef-solo mode instead of chef local mode. This is not recommended. **Removed in Chef Infra Client 14.**
 
 `--minimal-ohai`
 
@@ -110,7 +110,7 @@ This command has the following options:
 
 : The URL of the remote cookbook `tar.gz` file that you want to download.
 
-    In Chef Client 14, the short `-r` form will be removed, as it conflicts with the ability to specify a run list.
+    In Chef Infra Client 14, the short `-r` form will be removed, as it conflicts with the ability to specify a run list.
 
 `--run-lock-timeout SECONDS`
 

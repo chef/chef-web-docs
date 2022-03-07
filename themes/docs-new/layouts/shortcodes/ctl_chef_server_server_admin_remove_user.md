@@ -1,5 +1,5 @@
 The `remove-server-admin-permissions` subcommand is used to remove a
-user from the `server-admins` group. Run the command once per user
+user from the `server-admins` group. Run the command once for each user
 removed.
 
 This subcommand has the following syntax:

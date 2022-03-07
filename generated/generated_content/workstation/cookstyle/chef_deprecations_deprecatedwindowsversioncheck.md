@@ -13,7 +13,7 @@ The full name of the cop is: `Chef/Deprecations/DeprecatedWindowsVersionCheck`
 | --- | --- | --- |
 | Enabled | No | All Versions |
 
-Don't use the deprecated `older_than_win_2012_or_8?` helper. Windows versions before 2012 and 8 are now end of life and this helper will always return false.
+do not use the deprecated `older_than_win_2012_or_8?` helper. Windows versions before 2012 and 8 are now end of life and this helper will always return false.
 
 ## Examples
 

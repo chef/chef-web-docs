@@ -27,7 +27,7 @@ Chef:
 </tr>
 <tr>
 <td><code>communicator</code></td>
-<td>Use to override the <code>config.vm.communicator</code> setting in Vagrant. For example, when a base box is a Microsoft Windows operating system that does not have SSH installed and enabled, Vagrant will not be able to boot without a custom Vagrant file. Default value: <code>nil</code> (assumes SSH is available).</td>
+<td>Use to override the <code>config.vm.communicator</code> setting in Vagrant. For example, when a base box is a Windows operating system that does not have SSH installed and enabled, Vagrant will not be able to boot without a custom Vagrant file. Default value: <code>nil</code> (assumes SSH is available).</td>
 </tr>
 <tr>
 <td><code>customize</code></td>
@@ -47,7 +47,7 @@ Chef:
 </tr>
 <tr>
 <td><code>pre_create_command</code></td>
-<td>Use to run a command immediately prior to <code>vagrant up --no-provisioner</code>.</td>
+<td>Use to run a command immediately before <code>vagrant up --no-provisioner</code>.</td>
 </tr>
 <tr>
 <td><code>provider</code></td>

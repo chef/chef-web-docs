@@ -142,7 +142,7 @@ The `collect_data` method is a block of Ruby code that is called by Ohai when it
 - A `collect_data(:default)` block is used when Ohai is not able to match the platform of the node with a `collect_data(:platform)` block in the plugin
 - A `collect_data(:platform)` block is required for each platform that requires non-default behavior
 
-When Ohai runs, if there isn't a matching `collect_data` block for a platform, the `collect_data(:default)` block is used. The syntax for the `collect_data` method is:
+When Ohai runs, if there is not a matching `collect_data` block for a platform, the `collect_data(:default)` block is used. The syntax for the `collect_data` method is:
 
 ```ruby
 collect_data(:default) do
@@ -161,7 +161,7 @@ end
 where:
 
 - `:default` is the name of the default `collect_data` block
-- `:platform` is the name of a platform, such as `:aix` for AIX or `:windows` for Microsoft Windows
+- `:platform` is the name of a platform, such as `:aix` for AIX or `:windows` for Windows
 
 #### Use a Mash
 
@@ -229,7 +229,7 @@ end
 
 ### require
 
-The `require` method is a standard Ruby method that can be used to list files that may be required by a platform, such as an external class library. As a best practice, even though the `require` method is often used at the top of a Ruby file, it is recommended that the use of the `require` method be used as part of the platform-specific `collect_data` block. For example, the Ruby WMI is required with Microsoft Windows:
+The `require` method is a standard Ruby method that can be used to list files that may be required by a platform, such as an external class library. As a best practice, even though the `require` method is often used at the top of a Ruby file, it is recommended that the use of the `require` method be used as part of the platform-specific `collect_data` block. For example, the Ruby WMI is required with Windows:
 
 ```ruby
 collect_data(:windows) do

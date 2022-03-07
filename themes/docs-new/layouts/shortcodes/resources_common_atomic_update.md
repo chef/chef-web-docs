@@ -3,8 +3,8 @@ that file updates can be made when updating a binary or if disk space
 runs out.
 
 Atomic updates are enabled by default. They can be managed globally
-using the `file_atomic_update` setting in the client.rb file. They can
-be managed on a per-resource basis using the `atomic_update` property
+using the `file_atomic_update` setting in the `client.rb `file. They can
+be managed for each resource using the `atomic_update` property
 that is available with the **cookbook_file**, **file**,
 **remote_file**, and **template** resources.
 

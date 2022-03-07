@@ -17,7 +17,7 @@ gh_repo = "chef-web-docs"
 
 The following sections describe the section heading pattern that Chef is using for topic titles, H1s, H2s, H3s and H4s.
 
-As a general rule, limit the number of heading levels to no more than two within a topic. There can be exceptions, especially if the document is very large, but remember that HTML TOC structures usually have width limitations (on the display side) and the more structure within a TOC, the harder it can be for users to figure out what's in it.
+As a general rule, limit the number of heading levels to no more than two within a topic. There can be exceptions, especially if the document is large, but remember that HTML TOC structures usually have width limitations (on the display side) and the more structure within a TOC, the harder it can be for users to figure out what's in it.
 
 Unless the topics are about installing things or about API endpoints, the headings should never wrap. Keep them to a single line.
 
@@ -167,7 +167,7 @@ External links requires an HTTP address.
 
 ### relref Links
 
-We recommend using Hugo's built-in [relref shortcode](https://gohugo.io/content-management/shortcodes/#ref-and-relref) for making relative links to other pages in the documentation. The site build will fail if a link is made to a page that does not exist. This ensures that we catch bad links if a page is deleted but a link to that page isn't removed.
+We recommend using Hugo's built-in [relref shortcode](https://gohugo.io/content-management/shortcodes/#ref-and-relref) for making relative links to other pages in the documentation. The site build will fail if a link is made to a page that does not exist. This ensures that we catch bad links if a page is deleted but a link to that page is not removed.
 
 #### Examples
 
@@ -220,7 +220,7 @@ Use this approach to show code blocks that use any type of JavaScript, including
 
 ### Literal
 
-Literals should be used sparingly, but sometimes there is a need for a block of text that doesn't work in a fenced code block, such as showing a directory structure, basic syntax, or pseudocode. To make a literal code block, indent the text by **four** spaces:
+Literals should be used sparingly, but sometimes there is a need for a block of text that does not work in a fenced code block, such as showing a directory structure, basic syntax, or pseudocode. To make a literal code block, indent the text by **four** spaces:
 
 ```md
 
@@ -261,4 +261,4 @@ Which looks like this:
 
 {{< figure src="/images/chef-logo.svg" title="Chef Logo" height="100" width="150">}}
 
-Raster images should be 96 dpi and no larger than 600 pixels wide. This helps ensure that the image can be printed and/or built into other output formats more easily; in some cases, separate 300 dpi files should be maintained for images that require inclusion in formats designed for printing and/or presentations.
+Raster images should be 96 dpi and no larger than 600 pixels wide. This helps ensure that the image can be printed and/or built into other output formats; in some cases, separate 300 dpi files should be maintained for images that require inclusion in formats designed for printing and/or presentations.

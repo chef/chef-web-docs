@@ -35,7 +35,7 @@ The following table lists the commercially-supported platforms and versions for 
 <td><code>7.x</code>, <code>8.x</code></td>
 </tr>
 <tr>
-<td>SUSE Enterprise Linux Server</td>
+<td>SUSE Linux Enterprise Server</td>
 <td><code>x86_64</code></td>
 <td><code>12.x</code>, <code>15.x</code></td>
 </tr>

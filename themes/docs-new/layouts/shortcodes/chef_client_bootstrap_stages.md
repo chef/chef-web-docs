@@ -37,7 +37,7 @@ During a `knife bootstrap` bootstrap operation, the following happens:
 <tr>
 <td><p><strong>Start a Chef Infra Client run</strong></p></td>
 <td><p>On UNIX and Linux-based machines: The second shell script executes the <code>chef-client</code> binary with a set of initial settings stored within <code>first-boot.json</code> on the node. <code>first-boot.json</code> is generated from the workstation as part of the initial <code>knife bootstrap</code> subcommand.</p>
-<p>On Microsoft Windows machines: The batch file that is derived from the windows-chef-client-msi.erb bootstrap template executes the <code>chef-client</code> binary with a set of initial settings stored within <code>first-boot.json</code> on the node. <code>first-boot.json</code> is generated from the workstation as part of the initial <code>knife bootstrap</code> subcommand.</p></td>
+<p>On Windows machines: The batch file that is derived from the windows-chef-client-msi.erb bootstrap template executes the <code>chef-client</code> binary with a set of initial settings stored within <code>first-boot.json</code> on the node. <code>first-boot.json</code> is generated from the workstation as part of the initial <code>knife bootstrap</code> subcommand.</p></td>
 </tr>
 <tr>
 <td><p><strong>Complete a Chef Infra Client run</strong></p></td>

@@ -1,4 +1,4 @@
-A template helper module can be defined inline on a per-resource basis.
+A template helper module can be defined inline on a resource basis.
 This approach can be useful when a template requires more complex
 information. For example:
 

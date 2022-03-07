@@ -57,7 +57,7 @@ Every node that will be configured by Chef Infra Client and every workstation th
     data and should be generously sized. 5GB is a safe number as a
     starting point, but tune the size of `/var/chef/cache` as necessary.
     This location is tunable in a node's
-    [client.rb](/config_rb_client/) file via the
+    [client.rb](/config_rb_client/) file using the
     `file_cache_path` setting.
 
 ## Chef Workstation

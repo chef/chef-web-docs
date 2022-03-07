@@ -19,7 +19,7 @@ the launchd property list. However, `hash` is an already-existing Ruby
 method.
 
 A deprecation warning is logged when the `hash` property is used. In
-Chef Client 13, this will raise an exception and your Chef run will
+Chef Infra Client 13, this will raise an exception and your Chef run will
 fail.
 
 The [Cookstyle](/workstation/cookstyle/) cop

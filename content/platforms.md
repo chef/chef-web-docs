@@ -23,7 +23,7 @@ We offer two levels of support for platforms (operating systems), [Commercial Su
 
 ### Commercial Support
 
-Commercial support for platforms is part of paid maintenance contracts with Chef Software. Support contracts allow you to open tickets and receive service level agreement (SLA) assistance from our support desk. Commercially supported platforms are extensively tested as part of Chef's development and release process. Commercial support generally follows the lifecycle of the underlying operating system vendor.
+Commercial support for platforms is part of paid maintenance contracts with Chef Software. Support contracts allow you to open tickets and receive service level agreement (SLA) assistance from our support desk. Commercially supported platforms are extensively tested as part of Chef's development and release process. Commercial support follows the lifecycle of the underlying operating system vendor.
 
 Commercial support is limited to the platforms listed in the "Commercial Support" tables--platforms not listed in these tables are unsupported.
 
@@ -63,9 +63,14 @@ The following table lists the commercially-supported platforms and versions for 
 <td><code>7.1</code> (TL5 SP2 or higher, recommended), <code>7.2</code></td>
 </tr>
 <tr>
+<td>AlmaLinux</td>
+<td><code>x86_64</code>, <code>aarch64</code></td>
+<td><code>8.x</code></td>
+</tr>
+<tr>
 <td>Amazon Linux</td>
 <td><code>x86_64</code>, <code>aarch64</code></td>
-<td>2.x</td>
+<td><code>2.x</code></td>
 </tr>
 <tr>
 <td>CentOS</td>
@@ -93,6 +98,11 @@ The following table lists the commercially-supported platforms and versions for 
 <td><code>6.x</code>, <code>7.x</code>, <code>8.x</code></td>
 </tr>
 <tr>
+<td>Rocky Linux</td>
+<td><code>x86_64</code>, <code>aarch64</code></td>
+<td><code>8.x</code></td>
+</tr>
+<tr>
 <td>Red Hat Enterprise Linux</td>
 <td><code>x86_64</code>, <code>ppc64le</code> (7.x only), <code>ppc64</code> (7.x only), <code>aarch64</code> (7.x / 8.x only), <code>s390x</code></td>
 <td><code>6.x</code>, <code>7.x</code>, <code>8.x</code></td>
@@ -103,7 +113,7 @@ The following table lists the commercially-supported platforms and versions for 
 <td><code>11.3 (16.17.4 and later only)</code>, <code>11.4</code></td>
 </tr>
 <tr>
-<td>SUSE Enterprise Linux Server</td>
+<td>SUSE Linux Enterprise Server</td>
 <td><code>x86_64</code>, <code>aarch64</code> (15.x only), <code>s390x</code></td>
 <td><code>12</code>, <code>15</code></td>
 </tr>
@@ -113,7 +123,7 @@ The following table lists the commercially-supported platforms and versions for 
 <td><code>16.04</code>, <code>18.04</code>, <code>20.04</code></td>
 </tr>
 <tr>
-<td>Microsoft Windows</td>
+<td>Windows</td>
 <td><code>x86</code>, <code>x64</code></td>
 <td><code>8.1</code>, <code>2012</code>, <code>2012 R2</code>, <code>2016</code>, <code>10 (all channels except "insider" builds)</code>, <code>2019 (Long-term servicing channel (LTSC), both Desktop Experience and Server Core)</code><code>11</code>, <code>2022</code></td>
 </tr>
@@ -122,7 +132,7 @@ The following table lists the commercially-supported platforms and versions for 
 
 #### Community Support
 
-The following platforms are supported only via the community:
+The following platforms are supported only using the community:
 
 <table>
 <colgroup>
@@ -138,11 +148,6 @@ The following platforms are supported only via the community:
 </tr>
 </thead>
 <tbody>
-<tr>
-<td>AlmaLinux</td>
-<td><code>x86_64</code>, <code>aarch64</code></td>
-<td><code>8.x</code></td>
-</tr>
 <tr>
 <td>Alibaba Cloud Linux</td>
 <td><code>x86_64</code></td>
@@ -209,11 +214,6 @@ The following platforms are supported only via the community:
 <td>current non-EOL releases</td>
 </tr>
 <tr>
-<td>Rocky Linux</td>
-<td><code>x86_64</code>, <code>aarch64</code></td>
-<td>8.x</td>
-</tr>
-<tr>
 <td>SmartOS</td>
 <td><code>x86_64</code></td>
 <td>current non-EOL releases</td>
@@ -228,6 +228,7 @@ The following platforms are supported only via the community:
 <td><code>x86_64</code>, <code>aarch64</code></td>
 <td>Current non-LTS releases</td>
 </tr>
+<tr>
 <td>Virtuozzo</td>
 <td><code>x86_64</code></td>
 <td>Current non-LTS releases</td>
@@ -267,6 +268,11 @@ versions for the Chef Workstation:
 </thead>
 <tbody>
 <tr>
+<td>AlmaLinux</td>
+<td><code>x86_64</code></td>
+<td><code>8.x</code></td>
+</tr>
+<tr>
 <td>Amazon Linux</td>
 <td><code>x86_64</code></td>
 <td><code>2.x</code></td>
@@ -287,12 +293,17 @@ versions for the Chef Workstation:
 <td><code>7.x</code>, <code>8.x</code></td>
 </tr>
 <tr>
+<td>Rocky Linux</td>
+<td><code>x86_64</code></td>
+<td><code>8.x</code></td>
+</tr>
+<tr>
 <td>Ubuntu</td>
 <td><code>x86_64</code></td>
 <td><code>16.04</code>, <code>18.04</code>, <code>20.04</code></td>
 </tr>
 <tr>
-<td>Microsoft Windows</td>
+<td>Windows</td>
 <td><code>x64</code></td>
 <td><code>8.1</code>, <code>2012</code>, <code>2012 R2</code>, <code>2016</code>, <code>10 (all channels except "insider" builds)</code>, <code>2019 (Long-term servicing channel (LTSC), Desktop Experience only)</code>, <code>11</code>, <code>2022</code></td>
 </tr>
@@ -320,6 +331,11 @@ The following table lists the commercially-supported platforms and versions for 
 </thead>
 <tbody>
 <tr>
+<td>AlmaLinux</td>
+<td><code>x86_64</code>, <code>aarch64</code></td>
+<td><code>8.x</code></td>
+</tr>
+<tr>
 <td>Amazon Linux</td>
 <td><code>x86_64</code>, <code>aarch64</code></td>
 <td><code>2.x</code></td>
@@ -345,7 +361,12 @@ The following table lists the commercially-supported platforms and versions for 
 <td><code>6.x</code>, <code>7.x</code>, <code>8.x</code></td>
 </tr>
 <tr>
-<td>SUSE Enterprise Linux Server</td>
+<td>Rocky Linux</td>
+<td><code>x86_64</code>, <code>aarch64</code></td>
+<td><code>8.x</code></td>
+</tr>
+<tr>
+<td>SUSE Linux Enterprise Server</td>
 <td><code>x86_64</code>, <code>aarch64</code> (15.x only)</td>
 <td><code>12.x</code>, <code>15.x</code></td>
 </tr>
@@ -355,7 +376,7 @@ The following table lists the commercially-supported platforms and versions for 
 <td><code>16.04</code>, <code>18.04</code>, <code>20.04</code></td>
 </tr>
 <tr>
-<td>Microsoft Windows</td>
+<td>Windows</td>
 <td><code>x86_64</code></td>
 <td><code>8.1</code>, <code>2012</code>, <code>2012 R2</code>, <code>2016</code>, <code>10 (all channels except "insider" builds)</code>, <code>2019</code>, <code>11</code>, <code>2022</code></td>
 </tr>
@@ -406,6 +427,11 @@ The following table lists the commercially-supported platforms for Chef Backend,
 </thead>
 <tbody>
 <tr>
+<td>AlmaLinux</td>
+<td><code>x86_64</code></td>
+<td><code>8.x</code></td>
+</tr>
+<tr>
 <td>CentOS</td>
 <td><code>x86_64</code></td>
 <td><code>6.x</code>, <code>7.x</code>, <code>8.x</code></td>
@@ -414,6 +440,11 @@ The following table lists the commercially-supported platforms for Chef Backend,
 <td>Oracle Enterprise Linux</td>
 <td><code>x86_64</code></td>
 <td><code>6.x</code>, <code>7.x</code>, <code>8.x</code></td>
+</tr>
+<tr>
+<td>Rocky Linux</td>
+<td><code>x86_64</code></td>
+<td><code>8.x</code></td>
 </tr>
 <tr>
 <td>Red Hat Enterprise Linux</td>
@@ -454,6 +485,11 @@ The following table lists the commercially-supported platforms for Chef Manage:
 </thead>
 <tbody>
 <tr>
+<td>AlmaLinux</td>
+<td><code>x86_64</code></td>
+<td><code>8.x</code></td>
+</tr>
+<tr>
 <td>CentOS</td>
 <td><code>x86_64</code></td>
 <td><code>7.x</code>, <code>8.x</code></td>
@@ -462,6 +498,11 @@ The following table lists the commercially-supported platforms for Chef Manage:
 <td>Oracle Enterprise Linux</td>
 <td><code>x86_64</code></td>
 <td><code>7.x</code>, <code>8.x</code></td>
+</tr>
+<tr>
+<td>Rocky Linux</td>
+<td><code>x86_64</code></td>
+<td><code>8.x</code></td>
 </tr>
 <tr>
 <td>Red Hat Enterprise Linux</td>
@@ -478,7 +519,7 @@ The following table lists the commercially-supported platforms for Chef Manage:
 
 ## Platform End-of-Life Policy
 
-Chef's products on particular platforms and versions generally reach
+Chef's products on particular platforms and versions reach
 end-of-life on the same date as the vendor EOL milestone for that
 operating systems. Because different vendors use different terminology,
 the following table clarifies when Chef products are end-of-life
@@ -502,7 +543,7 @@ according to those vendors' terms:
 </tr>
 <tr>
 <td>Apple macOS</td>
-<td>Apple generally supports the last three macOS releases, for example: 10.15, 11.x, and 12.x. Apple does not officially publish EOL dates.</td>
+<td>Apple supports the last three macOS releases, for example: 10.15, 11.x, and 12.x. Apple does not officially publish EOL dates.</td>
 </tr>
 <tr>
 <td>Debian</td>
@@ -521,7 +562,7 @@ according to those vendors' terms:
 <td>IBM End of Support Date</td>
 </tr>
 <tr>
-<td>Microsoft Windows</td>
+<td>Windows</td>
 <td>End of Extended Support</td>
 </tr>
 <tr>
@@ -624,22 +665,22 @@ that platform and version.
 <td>December 31, 2017</td>
 </tr>
 <tr>
-<td>Microsoft Windows Server 2008 (SP2)/R2 (SP1)</td>
+<td>Windows Server 2008 (SP2)/R2 (SP1)</td>
 <td>January 13, 2015</td>
 <td>January 14, 2020</td>
 </tr>
 <tr>
-<td>Microsoft Windows Server 2012/2012 R2</td>
+<td>Windows Server 2012/2012 R2</td>
 <td>October 10, 2023</td>
 <td>October 10, 2023</td>
 </tr>
 <tr>
-<td>Microsoft Windows Server 2016</td>
+<td>Windows Server 2016</td>
 <td>November 11, 2027</td>
 <td>November 11, 2027</td>
 </tr>
 <tr>
-<td>Microsoft Windows Server 2019</td>
+<td>Windows Server 2019</td>
 <td>October 10, 2028</td>
 <td>October 10, 2028</td>
 </tr>

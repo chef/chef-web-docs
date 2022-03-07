@@ -138,7 +138,7 @@ where:
 </tr>
 <tr>
 <td><code>suse</code></td>
-<td>SUSE Enterprise Linux Server.</td>
+<td>SUSE Linux Enterprise Server.</td>
 </tr>
 <tr>
 <td><code>ubuntu</code></td>
@@ -150,7 +150,7 @@ where:
 </tr>
 <tr>
 <td><code>windows</code></td>
-<td>Microsoft Windows</td>
+<td>Windows</td>
 </tr>
 <tr>
 <td><code>xenserver</code></td>

@@ -1,5 +1,5 @@
 To generate an encrypted data bag item in a JSON file for use when Chef
-Infra Client is run in local mode (via the `--local-mode` option),
+Infra Client is run in local mode (using the `--local-mode` option),
 enter:
 
 ```bash

@@ -21,7 +21,7 @@ product = ["client", "server", "workstation"]
 
 {{% infra_lang_summary %}}
 
-Chef Infra Client runs a recipe only when instructed. When Chef Infra Client runs the same recipe more than once, the results will be the same system state each time. When a recipe is run against a system, but nothing has changed on either the system or in the recipe, Chef Infra Client won't change anything.
+Chef Infra Client runs a recipe only when instructed. When Chef Infra Client runs the same recipe more than once, the results will be the same system state each time. When a recipe is run against a system, but nothing has changed on either the system or in the recipe, Chef Infra Client will not change anything.
 
 ## Components
 
@@ -115,7 +115,7 @@ Chef maintains a large collection of cookbooks. In addition, there are thousands
 </tr>
 <tr>
 <td><a href="https://supermarket.chef.io/cookbooks">Cookbooks Maintained by the Community</a></td>
-<td>The community has authored thousands of cookbooks, ranging from niche cookbooks that are used by only a few organizations to popular cookbooks used by nearly everyone.</td>
+<td>The community has authored thousands of cookbooks, ranging from niche cookbooks that are used by only a few organizations to popular cookbooks used by almost everyone.</td>
 </tr>
 </tbody>
 </table>

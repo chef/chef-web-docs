@@ -17,14 +17,14 @@ product = ["client", "server", "workstation"]
 
 {{% fips_intro %}}
 
-### Who should enable FIPS?
+### Who Ahould Enable FIPS?
 
 You may be legally required to enable FIPS if you are a United States
 non-military government agency, or are contracting with one. If you are
 not sure if you need to enable FIPS, please check with your compliance
 department.
 
-### Who shouldn't enable FIPS?
+### Who Should Not Enable FIPS?
 
 You will only need to enable FIPS if you are a US non-military
 government agency, or contracting with one, and you are contractually
@@ -48,9 +48,9 @@ enabling FIPS if it is contractually necessary.
 
 FIPS mode is not supported for Chef Infra Server add-ons. This includes Chef Manage.
 
-## How to enable FIPS mode in the Operating System
+## How to Enable FIPS Mode in the Operating System
 
-### FIPS kernel settings
+### FIPS Kernel Settings
 
 Windows and Red Hat Enterprise Linux can both be configured for FIPS
 mode using a kernel-level setting. After FIPS mode is enabled at the
@@ -73,7 +73,7 @@ To enable FIPS on your platform follow these instructions:
 - [Windows](https://technet.microsoft.com/en-us/library/cc750357.aspx)
 - [Ubuntu](https://security-certs.docs.ubuntu.com/en/fips)
 
-## How to enable FIPS mode for the Chef Infra Server
+## How to Enable FIPS Mode for the Chef Infra Server
 
 ### Prerequisites
 
@@ -90,7 +90,7 @@ To enable FIPS manually for the Chef Infra Server, can add `fips true`
 to the `/etc/opscode/chef-server.rb` and reconfigure. For more
 configuration information see [chef-server.rb Optional Settings](/server/config_rb_server_optional_settings/).
 
-## How to enable FIPS mode for the Chef Infra Client
+## How to Enable FIPS Mode for the Chef Infra Client
 
 ### Prerequisites
 
@@ -101,6 +101,6 @@ configuration information see [chef-server.rb Optional Settings](/server/config_
 
 If you have FIPS compliance enabled at the kernel level, Chef Infra Client will default to running in FIPS mode. Otherwise, add `fips true` to the `/etc/chef/client.rb` or `C:\\chef\\client.rb`.
 
-#### Bootstrap a node using FIPS
+#### Bootstrap a Node Using FIPS
 
 {{% knife_bootstrap_node_fips %}}

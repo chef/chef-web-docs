@@ -14,5 +14,5 @@ notification is run. The following timers are available:
 
 `:immediate`, `:immediately`
 
-:   Specifies that a notification should be run immediately, per
+:   Specifies that a notification should be run immediately, for each
     resource notified.

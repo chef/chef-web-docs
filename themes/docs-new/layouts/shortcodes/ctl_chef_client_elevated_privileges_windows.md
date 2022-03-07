@@ -1,4 +1,4 @@
-On Microsoft Windows, running without elevated privileges (when they are
+On Windows, running without elevated privileges (when they are
 necessary) is an issue that fails silently. It will appear that Chef
 Infra Client completed its run successfully, but the changes will not
 have been made. When this occurs, do one of the following to run Chef

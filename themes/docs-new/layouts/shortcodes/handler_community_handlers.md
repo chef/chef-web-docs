@@ -31,7 +31,7 @@ community:
 </tr>
 <tr>
 <td><a href="https://github.com/mmarschall/chef-handler-flowdock">Flowdock</a></td>
-<td>A handler that collects exception and report handler data and sends it to users via the Flowdock API..</td>
+<td>A handler that collects exception and report handler data and sends it to users using the Flowdock API..</td>
 </tr>
 <tr>
 <td><a href="https://github.com/imeyer/chef-handler-graphite/wiki">Graphite</a></td>
@@ -51,7 +51,7 @@ community:
 </tr>
 <tr>
 <td><a href="https://rubygems.org/gems/chef-irc-snitch">IRC Snitch</a></td>
-<td>A handler that notifies administrators (via Internet Relay Chat (IRC)) when a Chef Infra Client run fails.</td>
+<td>A handler that notifies administrators (using Internet Relay Chat (IRC)) when a Chef Infra Client run fails.</td>
 </tr>
 <tr>
 <td><a href="https://github.com/marktheunissen/chef-handler-journald">Journald</a></td>
@@ -59,7 +59,7 @@ community:
 </tr>
 <tr>
 <td><a href="https://github.com/b1-systems/chef-handler-httpapi/">net/http</a></td>
-<td>A handler that reports the status of a Chef run to any API via net/HTTP.</td>
+<td>A handler that reports the status of a Chef run to any API using net/HTTP.</td>
 </tr>
 <tr>
 <td><a href="https://rubygems.org/gems/chef-handler-mail">Simple Email</a></td>

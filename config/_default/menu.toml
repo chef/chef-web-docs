@@ -105,6 +105,11 @@ identifier = "automate"
   parent = "automate"
   weight = 20
 
+    [[automate]]
+    title = "High Availability"
+    identifier = "automate/install/high_availability"
+    parent = "automate/install"  
+
   [[automate]]
   title = "Configure"
   identifier = "automate/configure"
@@ -189,10 +194,6 @@ identifier = "automate"
 
 ####
 # End Chef Automate Menu
-####
-
-####
-# End Compliance Menu
 ####
 
 ####
@@ -480,7 +481,7 @@ identifier = "chef_infra"
     parent = "chef_infra/integrations"
 
     [[infra]]
-    title = "Microsoft Windows"
+    title = "Windows"
     identifier = "chef_infra/integrations/windows"
     parent = "chef_infra/integrations"
 
@@ -652,7 +653,7 @@ identifier = "chef_infra"
     parent = "chef_infra/integrations"
 
     [[infra]]
-    title = "Microsoft Windows"
+    title = "Windows"
     identifier = "chef_infra/integrations/windows"
     parent = "chef_infra/integrations"
 
@@ -685,6 +686,12 @@ identifier = "inspec"
     identifier = "inspec/resources/os"
     parent = "inspec/resources"
     weight = 20
+
+    [[inspec]]
+    title = "Alibaba Resources"
+    identifier = "inspec/resources/alicloud"
+    parent = "inspec/resources"
+    weight = 25
 
     [[inspec]]
     title = "AWS Resources"

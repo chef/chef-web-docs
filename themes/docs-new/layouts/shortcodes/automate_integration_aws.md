@@ -37,7 +37,7 @@ The service makes these API calls:
 Chef Automate's Node Manager discovers EC2 instances using polling and scan jobs.
 
 Polling
-: Chef Automate's Node Manager calls out to the AWS `DescribeInstanceStatus` API every two hours and discovers the state of all the instances in the account. If the node manager finds any instances that aren't in its database, it adds them. This sometimes results in "bare bones info" and stopped instances in the database. The node manager updates node information in the database after an instance returns to a running state and a scan job has run on the node.
+: Chef Automate's Node Manager calls out to the AWS `DescribeInstanceStatus` API every two hours and discovers the state of all the instances in the account. If the node manager finds any instances that are not in its database, it adds them. This sometimes results in "bare bones info" and stopped instances in the database. The node manager updates node information in the database after an instance returns to a running state and a scan job has run on the node.
 
 Scan Jobs
 : Whenever a scan job is triggered, the node manager queries the AWS API for all nodes. Any scan reports created for nodes that are not already in the database results in creating a new node in the database.
@@ -97,11 +97,11 @@ Please follow the instructions on [AWS](https://docs.aws.amazon.com/systems-mana
 
 ### Enable AWS EC2 Systems Manager on Instances
 
-In order to use the SSM scan job functionality, your instances must have access to `AmazonEC2RoleforSSM`, or `arn:aws:iam::aws:policy/service-role/AmazonEC2RoleforSSM`.
+To use the SSM scan job functionality, your instances must have access to `AmazonEC2RoleforSSM`, or `arn:aws:iam::aws:policy/service-role/AmazonEC2RoleforSSM`.
 
 ### Adding an AWS EC2 Node Manager Using IAM Credentials
 
-When running in EC2, AWS has the ability to use the IAM role associated with your instance to create and use temporary credentials for accessing the AWS API. If you enable this feature, then you won't need to provide credentials for your AWS account. You will only be required to provide a name for your node manager. Chef Automate creates a node reference for each EC2 instance in your account, collecting all tags associated with each instance. Chef Automate calls the Amazon System Manager (SSM) to describe instance information and to get ping status for the SSM agent on all instances. A detect job is *not* run on the instances; all instances with an SSM ping status of "Online" will be marked as reachable.
+When running in EC2, AWS has the ability to use the IAM role associated with your instance to create and use temporary credentials for accessing the AWS API. If you enable this feature, then you will not need to provide credentials for your AWS account. You will only be required to provide a name for your node manager. Chef Automate creates a node reference for each EC2 instance in your account, collecting all tags associated with each instance. Chef Automate calls the Amazon System Manager (SSM) to describe instance information and to get ping status for the SSM agent on all instances. A detect job is *not* run on the instances; all instances with an SSM ping status of "Online" will be marked as reachable.
 
 ### Create a Scan Job Targeting Your AWS EC2 Instances using AWS SSM
 

@@ -13,7 +13,7 @@ The full name of the cop is: `Chef/Deprecations/ResourceUsesDslNameMethod`
 | --- | --- | --- |
 | Enabled | No | All Versions |
 
-Don't use the dsl_name method in a resource to find the name of the resource. Use the resource_name method instead. dsl_name was removed in Chef Infra Client 13 and will now result in an error.
+do not use the dsl_name method in a resource to find the name of the resource. Use the resource_name method instead. dsl_name was removed in Chef Infra Client 13 and will now result in an error.
 
 ## Examples
 

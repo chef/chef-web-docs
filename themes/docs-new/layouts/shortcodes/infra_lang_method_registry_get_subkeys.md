@@ -1,5 +1,5 @@
 Use the `registry_get_subkeys` method to get a list of registry key
-values that are present for a Microsoft Windows registry key.
+values that are present for a Windows registry key.
 
 <div class="admonition-note">
 
@@ -30,7 +30,7 @@ where:
     `HKEY_USERS`, `HKU`, `HKEY_CURRENT_USER`, and `HKCU`.
 - `ARCHITECTURE` is one of the following values: `:x86_64`, `:i386`,
     or `:machine`. Set to `:i386` to read or write 32-bit registry keys
-    on 64-bit machines running Microsoft Windows. Set to`:x86_64` to
+    on 64-bit machines running Windows. Set to`:x86_64` to
     force write to a 64-bit registry location, however Chef Infra Client
     returns an exception if `:x86_64` is used on a 32-bit machine. Set
     to `:machine` to allow Chef Infra Client to allow Chef Infra Client

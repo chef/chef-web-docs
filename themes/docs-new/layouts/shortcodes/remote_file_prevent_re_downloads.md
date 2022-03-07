@@ -17,6 +17,6 @@ present on a node, use one of the following attributes in a recipe:
 The desired approach just depends on the desired workflow. For example,
 if a node requires a new file every day, using the checksum approach
 would require that the local checksum be updated and/or verified every
-day as well, in order to ensure that the local checksum was the correct
+day as well, to ensure that the local checksum was the correct
 one. Using a conditional `GET` in this scenario will greatly simplify
 the management required to ensure files are being updated accurately.

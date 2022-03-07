@@ -44,7 +44,7 @@ This configuration file has the following settings:
 
 `backbone_paginator_timeout`
 
-: The amount of time (in milliseconds) after which search requests made via the web client will timeout and cause an error. Default value: `120000`.
+: The amount of time (in milliseconds) after which search requests made using the web client will timeout and cause an error. Default value: `120000`.
 
 `chef_documentation_url`
 
