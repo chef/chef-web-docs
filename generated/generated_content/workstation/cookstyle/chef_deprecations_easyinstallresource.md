@@ -13,7 +13,7 @@ The full name of the cop is: `Chef/Deprecations/EasyInstallResource`
 | --- | --- | --- |
 | Enabled | No | All Versions |
 
-Don't use the deprecated easy_install resource removed in Chef Infra Client 13.
+do not use the deprecated easy_install resource removed in Chef Infra Client 13.
 
 ## Examples
 

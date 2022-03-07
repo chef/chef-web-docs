@@ -1,5 +1,5 @@
 All attributes except for normal attributes are reset at the beginning
-of a Chef Infra Client run. Attributes set via `chef-client -j` with a
+of a Chef Infra Client run. Attributes set using `chef-client -j` with a
 JSON file have normal precedence and are persisted between Chef Infra
 Client runs. Chef Infra Client rebuilds these attributes using automatic
 attributes collected by Ohai at the beginning of each Chef Infra Client

@@ -1,5 +1,5 @@
 By default, notifications are `:delayed`, that is they are queued up as
-they are triggered, and then executed at the very end of a Chef Infra
+they are triggered, and then executed at the end of a Chef Infra
 Client run. To run an action immediately, use `:immediately`:
 
 ```ruby

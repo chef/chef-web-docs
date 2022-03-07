@@ -20,8 +20,8 @@ releases.
 
 In current versions of Chef, `nil` was often used to mean that a
 property had no good default, and needed to be set by the user. However,
-it is often to useful to set a property to `nil`, meaning that it's not
-set and should be ignored. In Chef Client 13, it is an error to set
+it is often to useful to set a property to `nil`, meaning that it is not
+set and should be ignored. In Chef Infra Client 13, it is an error to set
 `default: nil` on a property if that property doesn't allow `nil` as a
 valid value.
 
@@ -47,7 +47,7 @@ property :my_property, [ String ], default: []
 ```
 
 sets the type of the property to be a String, but then sets the default
-to be an Array. In Chef Client 13, this will be an error.
+to be an Array. In Chef Infra Client 13, this will be an error.
 
 ### Remediation
 
@@ -55,7 +55,7 @@ Ensure that the default value of a property is correct.
 
 ## Property Getters
 
-When writing a resource in Chef Client 12, calling `some_property nil`
+When writing a resource in Chef Infra Client 12, calling `some_property nil`
 behaves as a getter, returning the value of `some_property`. In Chef
 Client 13, this will change to set `some_property` to `nil`.
 
@@ -67,7 +67,7 @@ Simply write `some_property` when retrieving the value of
 ## Specifying both "default" and "name_property" on a resource
 
 Current versions of Chef emit a warning if the property declaration has
-both `default` and `name_property` set. In Chef Client 13, that will
+both `default` and `name_property` set. In Chef Infra Client 13, that will
 become an error. For example:
 
 ```ruby
@@ -83,7 +83,7 @@ otherwise specified), but not both.
 ## Overriding provides?
 
 Some providers override the `provides?` method, used to check whether
-they are a valid provider on the current platform. In Chef Client 13,
+they are a valid provider on the current platform. In Chef Infra Client 13,
 this will cause an error if the provider does not also register
 themselves with the `provides` call.
 
@@ -105,10 +105,10 @@ def provides?
 end
 ```
 
-## Don't use the updated method
+## do not use the updated method
 
 The `updated=(true_or_false)` method is deprecated and will be removed
-from Chef Client 13. This method never performed its intended job, as
+from Chef Infra Client 13. This method never performed its intended job, as
 notifications from the resource would not fire, and in general its use
 has always been buggy. The Chef Infra Client notification code checks
 `updated_by_last_action?` instead, so setting that is recommended as a
@@ -121,8 +121,8 @@ documentation for more information.
 Setting `updated_by_last_action` is almost always unnecessary, and
 correct use of `use_inline_resources` (which is the default in Chef
 Client 13 and above) makes the `updated_by_last_action` setting
-redundant. Simply deleting this code is very likely to be the correct
-course of action in nearly all cases.
+redundant. Simply deleting this code is likely to be the correct
+course of action in most cases.
 
 {{< /note >}}
 
@@ -142,9 +142,9 @@ action :foo do
 end
 ```
 
-## Don't use the dsl_name method
+## do not use the dsl_name method
 
-The `dsl_name` method is deprecated and will be removed from Chef Client. It has been replaced by `resource_name`.
+The `dsl_name` method is deprecated and will be removed from Chef Infra Client. It has been replaced by `resource_name`.
 
 ### Example
 
@@ -158,10 +158,10 @@ my_resource = MyResource.dsl_name
 my_resource = MyResource.resource_name
 ```
 
-## Don't use the provider_base method
+## do not use the provider_base method
 
 The `Resource.provider_base` allows the developer to specify an
 alternative module to load providers from, rather than `Chef::Provider`.
-It is deprecated and will be removed in Chef Client 13. Instead, the
+It is deprecated and will be removed in Chef Infra Client 13. Instead, the
 provider should call `provides` to register itself, or the resource
 should call `provider` to specify the provider to use.

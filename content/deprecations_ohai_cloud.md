@@ -17,7 +17,7 @@ bugs in the existing Cloud plugin.
 ## Remediation
 
 If you have a cookbook that relies on data from `node['cloud']` you will
-need to update the code to the new format in Chef Client 13. On a Chef
+need to update the code to the new format in Chef Infra Client 13. On a Chef
 Client 12 or earlier node you can compare the data formats by running
 `ohai cloud` and `ohai cloud_v2`.
 

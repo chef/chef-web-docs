@@ -1,5 +1,5 @@
 For front-end servers, ensure that ports marked as external (marked as
-`yes` in the **External** column) are open and accessible via any
+`yes` in the **External** column) are open and accessible using any
 firewalls that are in use:
 
 <table>

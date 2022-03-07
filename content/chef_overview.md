@@ -81,7 +81,7 @@ Chef Infra has the following major components:
 <tr>
 <td><p><img src="/images/icon_chef_server.svg" class="align-center" width="130" alt="image" /></p></td>
 <td><p>The Chef Infra Server acts as a hub of information. Cookbooks and policy settings are uploaded to the Chef Infra Server by users from workstations.</p>
-<p>The Chef Infra Client accesses the Chef Infra Server from the node on which it's installed to get configuration data, performs searches of historical Chef Infra Client run data, and then pulls down the necessary configuration data. After a Chef Infra Client run is finished, the Chef Infra Client uploads updated run data to the Chef Infra Server.</p></td>
+<p>The Chef Infra Client accesses the Chef Infra Server from the node on which it is installed to get configuration data, performs searches of historical Chef Infra Client run data, and then pulls down the necessary configuration data. After a Chef Infra Client run is finished, the Chef Infra Client uploads updated run data to the Chef Infra Server.</p></td>
 </tr>
 <tr>
 <td><p><img src="/images/icon_chef_supermarket.svg" class="align-center" width="130" alt="image" /></p></td>
@@ -210,7 +210,7 @@ Cookbooks are comprised of the following components:
 <tr>
 <td><p><img src="/images/icon_cookbook_recipes.svg" class="align-center" width="130" alt="image" /></p></td>
 <td><p>{{< readFile_shortcode file="cookbooks_recipe.md" >}}</p>
-<p>The Chef Infra Client will run a recipe only when asked. When the Chef Infra Client runs the same recipe more than once, the results will be the same system state each time. When a recipe is run against a system, but nothing has changed on either the system or in the recipe, the Chef Infra Client won't change anything.</p>
+<p>The Chef Infra Client will run a recipe only when asked. When the Chef Infra Client runs the same recipe more than once, the results will be the same system state each time. When a recipe is run against a system, but nothing has changed on either the system or in the recipe, the Chef Infra Client will not change anything.</p>
 <p>{{< readFile_shortcode file="infra_lang_summary.md" >}}</p></td>
 </tr>
 <tr>

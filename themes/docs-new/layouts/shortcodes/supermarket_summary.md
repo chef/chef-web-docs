@@ -1,5 +1,4 @@
-Chef Supermarket is the site for community cookbooks. It provides an
-easily searchable cookbook repository and a friendly web UI. Cookbooks
+Chef Supermarket is the site for community cookbooks. It provides a searchable cookbook repository and a friendly web UI. Cookbooks
 that are part of the Chef Supermarket are accessible by any Chef user.
 
 There are two ways to use Chef Supermarket:
@@ -12,4 +11,4 @@ There are two ways to use Chef Supermarket:
     Supermarket because of closer proximity and fewer cookbooks to
     resolve. A private Chef Supermarket can also help formalize internal
     cookbook release management processes (e.g. "a cookbook is not
-    released until it's published on the private Chef Supermarket").
+    released until it is published on the private Chef Supermarket").

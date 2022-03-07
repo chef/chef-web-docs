@@ -13,7 +13,7 @@ The full name of the cop is: `Chef/Modernize/DependsOnChocolateyCookbooks`
 | --- | --- | --- |
 | Enabled | Yes | 14.3+ |
 
-Don't depend on the chocolatey_source or chocolatey_config cookbooks made obsolete by Chef Infra Client 14.3. The chocolatey_source and chocolatey_config resources are now included in Chef Infra Client itself.
+do not depend on the chocolatey_source or chocolatey_config cookbooks made obsolete by Chef Infra Client 14.3. The chocolatey_source and chocolatey_config resources are now included in Chef Infra Client itself.
 
 ## Examples
 

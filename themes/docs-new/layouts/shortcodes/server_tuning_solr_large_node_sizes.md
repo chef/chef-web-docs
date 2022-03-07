@@ -50,7 +50,7 @@ which returns `154516`. Update the `opscode_solr4['max_field_length']`
 setting to have a value greater than the returned value. For example:
 `180000`.
 
-If you don't have a node object file available then you can get an
+If you do not have a node object file available then you can get an
 approximate size of the node data by running the following command on a
 node.
 

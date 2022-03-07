@@ -6,7 +6,7 @@ It is possible to bootstrap a node using the USER.pem file instead of
 the ORGANIZATION-validator.pem file. This is known as a "validatorless
 bootstrap".
 
-To create a node via the USER.pem file, simply delete the
+To create a node using the USER.pem file, simply delete the
 ORGANIZATION-validator.pem file on the workstation. For example:
 
 ```bash
@@ -37,6 +37,6 @@ Client foo01.acme.org exists, overwrite it? (Y/N)
 Creating new client for foo01.acme.org
 Creating new node for foo01.acme.org
 Connecting to 10.1.1.1
-10.1.1.1 Starting first Chef Client run...
+10.1.1.1 Starting first Chef Infra Client run...
 [....etc...]
 ```

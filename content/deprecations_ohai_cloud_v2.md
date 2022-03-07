@@ -8,10 +8,10 @@ sitemapExclude = true
 aliases = "/deprecations_ohai_cloud_v2.html"
 +++
 
-In Ohai/Chef Client 13 we replaced the existing Cloud plugin with the
+In Ohai/Chef Infra Client 13 we replaced the existing Cloud plugin with the
 Cloud V2 plugin. That was done by having Ohai populate both
 `node['cloud']` and `node['cloud_v2']` with the data previously found at
-`node['cloud_v2']`. In Chef Client 14 we will no longer populate
+`node['cloud_v2']`. In Chef Infra Client 14 we will no longer populate
 `node['cloud_v2']`.
 
 ## Remediation

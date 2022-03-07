@@ -29,7 +29,7 @@ Policyfiles make it easier to test and promote code safely with a simpler interf
 
 ### Focused System Workflows
 
-The knife command line tool maps very closely to the Chef Infra Server API and the objects defined by it: roles, environments, run-lists, cookbooks, data bags, nodes, and so on. Chef Infra Client assembles these pieces at run-time and configures a host to do useful work.
+The knife command line tool maps closely to the Chef Infra Server API and the objects defined by it: roles, environments, run-lists, cookbooks, data bags, nodes, and so on. Chef Infra Client assembles these pieces at run-time and configures a host to do useful work.
 
 Policyfile focuses that workflow onto the entire system, rather than the individual components. For example, Policyfile describes whole systems, whereas each individual revision of the `Policyfile.lock.json` file uploaded to the Chef Infra Server describes a part of that system, inclusive of roles, environments, cookbooks, and the other Chef Infra Server objects necessary to configure that part of the system.
 
@@ -67,7 +67,7 @@ Policyfile effectively replaces roles and environments. Policyfile files are ver
 
 When running Chef without Policyfile, existing versions of cookbooks are mutable. This is convenient for many use cases, especially if users upload in-development cookbook revisions to the Chef Infra Server. But this sometimes creates issues that are similar to role mutability by allowing those cookbook changes to be applied immediately to nodes that use that cookbook. Users account for this by rigorous testing processes to ensure that only fully integrated cookbooks are ever published. This process does enforce good development habits, but at the same time it shouldn't be a required part of a workflow that ends with publishing an in-development cookbook to the Chef Infra Server for testing against real nodes Policyfile solves this issue by using a cookbook publishing API for the Chef Infra Server that does not provide cookbook mutability. Name collisions are prevented by storing cookbooks by name and an opaque identifier that is computed from the content of the cookbook itself.
 
-For example, name/version collisions can occur when users temporarily fork an upstream cookbook. Even if the user contributes their change and the maintainer is responsive, there may be a period of time where the user needs their fork in order to make progress. This situation presents a versioning dilemma: if the user doesn't update their own version, they must overwrite the existing copy of that cookbook on the Chef Infra Server, wheres if they do update the version number it might conflict with the version number of the future release of that upstream cookbook.
+For example, name/version collisions can occur when users temporarily fork an upstream cookbook. Even if the user contributes their change and the maintainer is responsive, there may be a period of time where the user needs their fork to make progress. This situation presents a versioning dilemma: if the user doesn't update their own version, they must overwrite the existing copy of that cookbook on the Chef Infra Server, wheres if they do update the version number it might conflict with the version number of the future release of that upstream cookbook.
 
 #### Opaque IDs
 
@@ -157,7 +157,7 @@ provisioner:
   name: chef_zero
 ```
 
-A named run-list may be used on a per-suite basis:
+A named run-list may be used for each suite:
 
 ```yaml
 suites:
@@ -177,7 +177,7 @@ provisioner:
   named_run_list: integration_test_run_list
 ```
 
-or testing with policies per-suite, once the Policyfile files are available in your repo:
+or testing with policies for each suite, once the Policyfile files are available in your repo:
 
 ```yaml
 suites:

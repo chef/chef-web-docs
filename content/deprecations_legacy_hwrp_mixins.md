@@ -8,7 +8,7 @@ sitemapExclude = true
 aliases = "/deprecations_legacy_hwrp_mixins.html"
 +++
 
-In Chef Client 14 several legacy mixins will be removed. Usage of these
+In Chef Infra Client 14 several legacy mixins will be removed. Usage of these
 mixins has resulted in deprecation warnings for several years. They were
 traditionally used in some HWRPs, but are rarely found in code available
 on the Supermarket.

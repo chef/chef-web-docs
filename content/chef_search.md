@@ -320,7 +320,7 @@ on the node.
 </tbody>
 </table>
 
-If you just want to use each result of the search and don't care about
+If you just want to use each result of the search and do not care about
 the aggregate result you can provide a code block to the search method.
 Each result is then passed to the block:
 

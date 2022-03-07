@@ -2,7 +2,7 @@ At the end of every Chef Infra Client run, the node object is saved to
 the Chef Infra Server. From the Chef Infra Server, each node object is
 then added to the `SOLR` search index. This process is asynchronous. By
 default, node objects are committed to the search index every 60 seconds
-or per 1000 node objects, whichever occurs first.
+or for each 1000 node objects, whichever occurs first.
 
 When data is committed to the Apache Solr index, all incoming updates
 are blocked. If the duration between updates is too short, it is

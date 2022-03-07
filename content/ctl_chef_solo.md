@@ -88,7 +88,7 @@ This command has the following options:
 
 `--legacy-mode`
 
-: Cause Chef Infra Client to use the original chef-solo mode instead of chef local mode. This is not recommended. **Removed in Chef Client 14.**
+: Cause Chef Infra Client to use the original chef-solo mode instead of chef local mode. This is not recommended. **Removed in Chef Infra Client 14.**
 
 `--minimal-ohai`
 
@@ -110,7 +110,7 @@ This command has the following options:
 
 : The URL of the remote cookbook `tar.gz` file that you want to download.
 
-    In Chef Client 14, the short `-r` form will be removed, as it conflicts with the ability to specify a run list.
+    In Chef Infra Client 14, the short `-r` form will be removed, as it conflicts with the ability to specify a run list.
 
 `--run-lock-timeout SECONDS`
 

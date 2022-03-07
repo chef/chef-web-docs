@@ -44,7 +44,7 @@ deprecation errors are issued.
 
 Deprecation warnings are great for ensuring cookbooks are kept
 up-to-date and to prepare for major version upgrades, sometimes you just
-can't fix a deprecation right away. Enabling
+cannot fix a deprecation right away. Enabling
 `treat_deprecation_warnings_as_errors` mode in Test Kitchen integration
 tests often compounds the problem because it does not distinguish
 between deprecations from community cookbooks and those in your own
@@ -126,7 +126,7 @@ of Chef comes out.
 </tr>
 <tr>
 <td><a href="/deprecations_exit_code/">CHEF-2</a></td>
-<td>Chef's exit codes are now defined so that it's easy to understand why Chef exited.</td>
+<td>Chef's exit codes are now defined so that it is easy to understand why Chef exited.</td>
 <td>12.11</td>
 <td>13.0</td>
 </tr>

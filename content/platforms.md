@@ -132,7 +132,7 @@ The following table lists the commercially-supported platforms and versions for 
 
 #### Community Support
 
-The following platforms are supported only via the community:
+The following platforms are supported only using the community:
 
 <table>
 <colgroup>

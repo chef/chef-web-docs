@@ -54,7 +54,7 @@ The following examples show ways to use the Handler DSL.
 
 ### `attribute_changed` event hook
 
-In a cookbook library file, you can add this in order to print out all
+In a cookbook library file, you can add this to print out all
 attribute changes in cookbooks:
 
 ```ruby

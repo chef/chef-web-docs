@@ -35,7 +35,7 @@ role-based access control:
 </tr>
 <tr>
 <td><p><img src="/images/icon_server_groups.svg" class="align-center" width="130" alt="image" /></p></td>
-<td><p>A group is used to define access to object types and objects in the Chef Infra Server and also to assign permissions that determine what types of tasks are available to members of that group who are authorized to perform them. Groups are configured per-organization.</p>
+<td><p>A group is used to define access to object types and objects in the Chef Infra Server and also to assign permissions that determine what types of tasks are available to members of that group who are authorized to perform them. Groups are configured by organization.</p>
 <p>Individual users who are members of a group will inherit the permissions assigned to the group. The Chef Infra Server includes the following default groups: <code>admins</code>, <code>clients</code>, and <code>users</code>. For users of the hosted Chef Infra Server, an additional default group is provided: <code>billing_admins</code>.</p></td>
 </tr>
 <tr>
@@ -74,10 +74,8 @@ organization on the Chef Infra Server.
 A user may belong to multiple organizations under the following
 conditions:
 
-- Role-based access control is configured per-organization
-- For a single user to interact with the Chef Infra Server using knife
-    from the same chef-repo, that user may need to edit their config.rb
-    file prior to that interaction
+- Role-based access control is configured for each organization
+- For a single user to interact with the Chef Infra Server using knife from the same chef-repo, that user may need to edit their `config.rb` file before that interaction
 
 Using multiple organizations within the Chef Infra Server ensures that
 the same toolset, coding patterns and practices, physical hardware, and
@@ -213,7 +211,7 @@ The Chef Infra Server includes the following default groups:
 </tr>
 <tr>
 <td><code>clients</code></td>
-<td>The <code>clients</code> group defines the list of nodes on which a Chef Infra Client is installed and under management by Chef. In general, think of this permission as "all of the non-human actors---Chef Infra Client, in nearly every case---that get data from, and/or upload data to, the Chef server". Newly-created Chef Infra Client instances are added to this group automatically.</td>
+<td>The <code>clients</code> group defines the list of nodes on which a Chef Infra Client is installed and under management by Chef. In general, think of this permission as "all of the non-human actors---Chef Infra Client, in almost every case---that get data from, and/or upload data to, the Chef server". Newly-created Chef Infra Client instances are added to this group automatically.</td>
 </tr>
 <tr>
 <td><code>public_key_read_access</code></td>

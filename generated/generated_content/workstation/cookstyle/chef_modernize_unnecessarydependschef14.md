@@ -13,7 +13,7 @@ The full name of the cop is: `Chef/Modernize/UnnecessaryDependsChef14`
 | --- | --- | --- |
 | Enabled | Yes | 14.0+ |
 
-Don't depend on cookbooks made obsolete by Chef Infra Client 14.0+ These community cookbooks contain resources that are now included in Chef Infra Client itself.
+do not depend on cookbooks made obsolete by Chef Infra Client 14.0+ These community cookbooks contain resources that are now included in Chef Infra Client itself.
 
 ## Examples
 

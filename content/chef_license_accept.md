@@ -65,9 +65,9 @@ Chef Workstation contains multiple Chef Software products. When invoking the `ch
 
 In addition to the above methods, users can specify `chef_license 'accept'` in their Chef Infra Client and Chef Infra Server config. On a workstation, this can be specified in `~/.chef/config.rb` or `~/.chef/knife.rb`, and on a node, it can be specified in `/etc/chef/client.rb`. This method of license acceptance is backwards-compatible to non-EULA versions of Chef Infra Client.
 
-#### Habitat
+#### Chef Habitat
 
-Two methods are generally used to accept the Chef Habitat license:
+There are two methods for accepting the Chef Habitat license:
 
 1. Users can execute `hab license accept` on the command line.
 1. Alternatively, users can set `HAB_LICENSE="<value>"` as an environment variable.
@@ -75,7 +75,7 @@ Two methods are generally used to accept the Chef Habitat license:
     1. `accept` - Accepts the license and persists a marker file locally. Future invocations do not require accepting the license again.
     1. `accept-no-persist` - accepts the license without persisting an marker file. Future invocation will require accepting the license again.
 
-If the license isn't accepted through either of these methods, Habitat will request acceptance through an interactive prompt.
+If the license isn't accepted through either of these methods, Chef Habitat will request acceptance through an interactive prompt.
 
 Additionally, to accepting the license in CI or other automation, user may choose to create an empty file on the filesystem at `/hab/accepted-licenses/habitat` (if your hab commands run as root) or at `$HOME/.hab/accepted-licenses/habitat` (if your hab commands run as a user other than root). For situations where hab commands run as multiple users, it is advisable to create both files.
 
@@ -83,13 +83,13 @@ Additionally, to accepting the license in CI or other automation, user may choos
 
 If the Chef Habitat License prompt cannot be displayed, then the product fails with an exit code 172. If Chef Habitat cannot persist the accepted license, it sends a message STDOUT, but the product invocation will continue successfully. In a future invocation, however, the user will need to accept the license again.
 
-#### Chef as Habitat packages
+#### Chef as `hab` packages
 
-Chef Software products are also distributed as Habitat packages, such as Chef Infra Client, Chef InSpec, etc. When Chef products are installed as Habitat, the products request license acceptance at product usage time. Whether installed as system packages or as Habitat packages, users accept the licenses in the same way detailed above.
+Chef Software products are also distributed as `hab` packages. When Chef products are installed using Chef Habitat, the products request license acceptance at product usage time. Accept the licenses in the same way detailed above.
 
 ### Server Products
 
-Some Chef products distributed as Habitat packages contain servers. In these cases, Habitat runs the server products as a supervisor. See the below sections for information on how to accept the license for these products when they are distributed as Habitat packages.
+Some Chef products distributed as `hab` packages contain servers. In these cases, Chef Habitat runs the server products as a supervisor. See the below sections for information on how to accept the license for these products when they are distributed as `hab` packages.
 
 <table>
 <colgroup>
@@ -118,7 +118,7 @@ Some Chef products distributed as Habitat packages contain servers. In these cas
 </tbody>
 </table>
 
-Server products are typically installed and managed by some kind of process supervisor. Chef Software server products do not allow interactive license acceptance because process supervisors do not easily allow interactivity. Instead, the license is accepted during the `reconfigure` command or `upgrade` command for the Omnibus ctl command. For example:
+Server products are typically installed and managed by some kind of process supervisor. Chef Software server products do not allow interactive license acceptance because process supervisors do not allow interactivity. Instead, the license is accepted during the `reconfigure` command or `upgrade` command for the Omnibus ctl command. For example:
 
 - `chef-server-ctl reconfigure --chef-license=accept`
 - `CHEF_LICENSE="accept-no-persist" supermarket-ctl reconfigure`
@@ -127,15 +127,15 @@ In addition, the Chef license can be accepted via the omnibus configuration file
 
 #### Chef Automate
 
-Automate has its own reconfigure tool, `automate-ctl`. This tool walks users through the install and setup of Automate. The Chef license is accepted after that in the browser. Please follow the in-product prompts.
+Chef Automate has its own reconfigure tool, `automate-ctl`. This tool walks users through the install and setup of Chef Automate. The Chef license is accepted after that in the browser. Please follow the in-product prompts.
 
 #### Chef Infra Server
 
 When installed as a system package, users accept the license with the ctl command. For example, `chef-server-ctl reconfigure --chef-license=accept`. Acceptance can also be set in the configuration file `chef-server.rb` as `chef_license "accept"`.
 
-Chef Infra Server is also distributed as a Habitat package and ran using the Habitat supervisor. In this mode, users accept the license by setting the correct Habitat configuration values. The key is `chef_license.acceptance`.
+Chef Infra Server is also distributed as a `hab` package and ran using the supervisor. In this mode, users accept the license by setting the correct configuration values. The key is `chef_license.acceptance`.
 
-For example: Against a supervisor running Chef Infra Server, run `echo "chef_license.acceptance = accept" | hab config apply server.default 100`. See the [Habitat config updates documentation](https://www.habitat.sh/docs/using-habitat/#config-updates) for more information about how to apply this configuration to a service group.
+For example: Against a supervisor running Chef Infra Server, run `echo "chef_license.acceptance = accept" | hab config apply server.default 100`. See the [Chef Habitat config updates documentation](https://www.habitat.sh/docs/using-habitat/#config-updates) for more information about how to apply this configuration to a service group.
 
 ### Remote Management Products
 
@@ -175,9 +175,9 @@ provisioner:
 
 In most usage cases via Chef Workstation, this license will already have been accepted and will transfer across transparently. But if a user installs Chef Workstation and the first command they ever run is `knife bootstrap`, it will perform the same license acceptance flow as the Chef Infra Client product.
 
-##### `knife bootstrap` in Chef Client 14
+##### `knife bootstrap` in Chef Infra Client 14
 
-The `knife bootstrap` command in Chef Client 14 cannot accept the Chef Infra Client 15 EULA on remote nodes unless you use a [custom template](/workstation/knife_bootstrap/#custom-templates) and add chef_license "accept" to the client.rb. This applies to workstations who have Chef Infra Client \<= 14.x, ChefDK \<= 3.x or Chef Workstation \<= 0.3 installed.
+The `knife bootstrap` command in Chef Infra Client 14 cannot accept the Chef Infra Client 15 EULA on remote nodes unless you use a [custom template](/workstation/knife_bootstrap/#custom-templates) and add chef_license "accept" to the client.rb. This applies to workstations who have Chef Infra Client \<= 14.x, ChefDK \<= 3.x or Chef Workstation \<= 0.3 installed.
 
 ##### `knife bootstrap`: Pin to Chef 14
 
@@ -254,20 +254,6 @@ provisioner "chef" {
 }
 ```
 
-#### Terraform Habitat Provisioner
-
-Default behavior of this provisioner is to install the latest version of Habitat. [Documentation for this provisioner](https://www.terraform.io/docs/provisioners/habitat.html) will be updated in the near future once the provisioner is updated with options to accept license. For the time being, the provisioner can be pinned to a prior Habitat version as below.
-
-##### Terraform: Pin to Chef Habitat 0.79
-
-In your [Terraform provisioner config](https://www.terraform.io/docs/provisioners/habitat.html#version-string-), include:
-
-```none
-provisioner "habitat" {
-  version = "0.79.1"
-}
-```
-
 #### Vagrant
 
 This license acceptance can be done via the arguments API:
@@ -282,7 +268,7 @@ See the [Vagrant documentation](https://www.vagrantup.com/docs/provisioning/chef
 
 ##### Vagrant: Pin to Chef 14
 
-This version pinning can be done via the [version API](https://www.vagrantup.com/docs/provisioning/chef_common.html#version). In your Chef provisioner config:
+This version pinning can be done using the [version API](https://www.vagrantup.com/docs/provisioning/chef_common.html#version). In your Chef provisioner config:
 
 ```ruby
 config.vm.provision 'chef_zero' do |chef|
@@ -292,7 +278,7 @@ end
 
 ### Pre-upgrade support
 
-Chef Software aims to make upgrading from a non-EULA version to a EULA version as simple as possible. For some products (Chef Client 14.12.9, Chef InSpec 3.9.3), we added backwards-compatible support for the `--chef-license` command that performs a no-op. This allows customers to start specifying that argument in whatever way they manage those products before upgrading.
+Chef Software aims to make upgrading from a non-EULA version to a EULA version as simple as possible. For some products (Chef Infra Client 14.12.9, Chef InSpec 3.9.3), we added backwards-compatible support for the `--chef-license` command that performs a no-op. This allows customers to start specifying that argument in whatever way they manage those products before upgrading.
 
 Alternatively, users can specify the `CHEF_LICENSE` environment variable when invoking any of the EULA products to accept the license. This environment variable is ignored by non-EULA products, and so is backwards-compatible to older versions.
 
@@ -300,4 +286,4 @@ Alternatively, users can specify the `CHEF_LICENSE` environment variable when in
 
 For users that manage their Chef Infra Client installation using the `chef-client` cookbook, we added a new attribute that can be specified. Specify the node attribute `node['chef_client']['chef_license'] = 'accept'` when running the cookbook to apply the license acceptance in a backwards-compatible way.
 
-This functionality allows users to set that attribute for a Chef Client 14 install, upgrade to Chef Infra Client 15, and have the product continue to work correctly.
+This functionality allows users to set that attribute for a Chef Infra Client 14 install, upgrade to Chef Infra Client 15, and have the product continue to work correctly.

@@ -1,4 +1,4 @@
-The Chef Client 12.4 release adds an optional feature to the Microsoft
+The Chef Infra Client 12.4 release adds an optional feature to the Microsoft
 Installer Package (MSI) for Chef. This feature enables the ability to
 pass quoted strings from the Windows PowerShell command line without the
 need for triple single quotes (`''' '''`). This feature installs a

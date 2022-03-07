@@ -24,7 +24,7 @@ This section covers the basics of Ruby.
 ### Verify Syntax
 
 Many people who are new to Ruby often find that it doesn't take very
-long to get up to speed with the basics. For example, it's useful to
+long to get up to speed with the basics. For example, it is useful to
 know how to check the syntax of a Ruby file, such as the contents of a
 cookbook named `my_cookbook.rb`:
 
@@ -93,7 +93,7 @@ Embed Ruby in a string:
 ```ruby
 x = 'Bob'
 "Hi, #{x}"      # => "Hi, Bob"
-'Hello, #{x}'   # => "Hello, \#{x}" Notice that single quotes don't work with #{}
+'Hello, #{x}'   # => "Hello, \#{x}" Notice that single quotes do not work with #{}
 ```
 
 #### Escape Character
@@ -104,7 +104,7 @@ quotes inside double quotes. For example:
 
 ```ruby
 'It\'s alive!'                        # => "It's alive!"
-"Won\'t you read Grant\'s book?"      # => "Won't you read Grant's book?"
+"Won\'t you read Grant\'s book?"      # => "will not you read Grant's book?"
 ```
 
 #### Interpolation
@@ -225,7 +225,7 @@ end
 
 ### Hash
 
-A Hash is a list with keys and values. Sometimes hashes don't have a set
+A Hash is a list with keys and values. Sometimes hashes do not have a set
 order:
 
 ```ruby
@@ -264,9 +264,9 @@ Use conditions! For example, an `if` statement
 
 ```ruby
 if false
-  # this won't happen
+  # this will not happen
 elsif nil
-  # this won't either
+  # this will not either
 else
   # code here will run though
 end
@@ -278,7 +278,7 @@ or a `case` statement:
 x = 'dog'
 case x
 when 'fish'
- # this won't happen
+ # this will not happen
 when 'dog', 'cat', 'monkey'
   # this will run
 else
@@ -514,7 +514,7 @@ mode 755
 
 A resource declaration does not require the action to be specified
 because Chef Infra Client will apply the default action for a resource
-automatically if it's not specified within the resource block. For
+automatically if it is not specified within the resource block. For
 example:
 
 ```ruby

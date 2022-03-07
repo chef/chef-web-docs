@@ -172,7 +172,7 @@ no_proxy 'test.example.com,test.example2.com,test.example3.com'
 
 Wildcard matching may be used in the `no_proxy` list---such as
 `no_proxy '*.*.example.*'`---however, many situations require hostnames
-to be specified explicitly (i.e. "without wildcards").
+to be specified explicitly (that is, "without wildcards").
 
 {{< /note >}}
 

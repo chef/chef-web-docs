@@ -10,7 +10,7 @@ swap:
   '\b(?:eg|e\.g\.)[\s,]': for example
   '\b(?:ie|i\.e\.)[\s,]': that is
   via: through, with
-  per: as
+  '\b(?:per)[\s,]': for each
   colour: colour
   neighbour: neighbor
   apologise: apologize

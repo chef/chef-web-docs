@@ -13,8 +13,8 @@ for the resource in two ways. The `supports` metaproperty, which is now
 deprecated, enabled the `manage_home` and `non_unique` properties to be
 set.
 
-The `supports` metaproperty was deprecated in Chef Client 12.14 and will
-be removed in Chef Client 13.
+The `supports` metaproperty was deprecated in Chef Infra Client 12.14 and will
+be removed in Chef Infra Client 13.
 
 ## Example
 
