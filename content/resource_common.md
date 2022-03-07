@@ -181,7 +181,7 @@ ruby_block 'remove ntp::undo from run list' do
 end
 ```
 
-**Re-register ASP.Net if it's already installed**
+**Re-register ASP.Net if it is already installed**
 
 The following example shows how to use `only_if` to ensure that Chef
 Infra Client will attempt to register ASP.NET only if the executable is
@@ -237,7 +237,7 @@ end
 
 {{% resources_common_notification_notifies_syntax %}}
 
-Changed in Chef Client 12.6 to use `:before` timer with the `notifies`
+Changed in Chef Infra Client 12.6 to use `:before` timer with the `notifies`
 and `subscribes` properties to specify that the action on a notified
 resource should be run before processing the resource block in which the
 notification is located.

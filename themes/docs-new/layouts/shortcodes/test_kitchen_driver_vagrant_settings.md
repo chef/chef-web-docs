@@ -47,7 +47,7 @@ Chef:
 </tr>
 <tr>
 <td><code>pre_create_command</code></td>
-<td>Use to run a command immediately prior to <code>vagrant up --no-provisioner</code>.</td>
+<td>Use to run a command immediately before <code>vagrant up --no-provisioner</code>.</td>
 </tr>
 <tr>
 <td><code>provider</code></td>

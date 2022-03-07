@@ -8,10 +8,10 @@ sitemapExclude = true
 aliases = "/deprecations_ohai_filesystem_v2.html"
 +++
 
-In Ohai/Chef Client 13 we replaced the existing Filesystem plugin with
+In Ohai/Chef Infra Client 13 we replaced the existing Filesystem plugin with
 the Filesystem V2 plugin. That was done by having Ohai populate both
 `node['filesystem']` and `node['filesystem_v2']` with the data
-previously found at `node['filesystem2']`. In Chef Client 14 we will no
+previously found at `node['filesystem2']`. In Chef Infra Client 14 we will no
 longer populate `node['filesystem2']`.
 
 ## Remediation
@@ -19,6 +19,6 @@ longer populate `node['filesystem2']`.
 If you have a cookbook that relies on data from `node['filesystem2']`
 you will need to update the code to instead use `node['filesystem']`.
 Keep in mind that if you're attempting to support releases earlier than
-Chef Client 13 the data structure of node\['filesystem'\] will be
+Chef Infra Client 13 the data structure of node\['filesystem'\] will be
 different. Foodcritic's FC094 rule will detect any usage of the
 `node['filesystem_v2']` attributes.

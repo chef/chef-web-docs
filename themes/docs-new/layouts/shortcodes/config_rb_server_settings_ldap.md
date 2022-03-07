@@ -84,7 +84,7 @@ This configuration file has the following settings for `ldap`:
     Re-enter ldap bind_password: (no terminal output)
     ```
 
-    Remove a set password via
+    Remove a set password using
 
     ```bash
     chef-server-ctl remove-secret ldap bind_password
@@ -176,7 +176,7 @@ This configuration file has the following settings for `ldap`:
 `ldap['tls_enabled']`
 
 :   Enable TLS. When enabled, communication with the LDAP server is done
-    via a secure SSL connection on a dedicated port. When `true`,
+    using a secure SSL connection on a dedicated port. When `true`,
     `ldap['port']` is also set to `636`. Default value: `false`. Must be
     `false` when `ldap['ssl_enabled']` is `true`.
 

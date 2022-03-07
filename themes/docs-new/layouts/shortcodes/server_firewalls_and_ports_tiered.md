@@ -1,6 +1,6 @@
 For back-end servers in a tiered Chef Infra Server installation, ensure
 that ports marked as external (marked as `yes` in the **External**
-column) are open and accessible via any firewalls that are in use:
+column) are open and accessible using any firewalls that are in use:
 
 <table>
 <colgroup>

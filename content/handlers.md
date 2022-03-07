@@ -53,7 +53,7 @@ A simple exception or report handler may be installed and configured at run-time
 </tbody>
 </table>
 
-When this approach is used, the client.rb file must also tell Chef Infra Client how to install and run the handler. There is no default install location for handlers. The simplest way to distribute and install them is via RubyGems, though other methods such as GitHub or HTTP will also work. Once the handler is installed on the system, enable it in the client.rb file by requiring it. After the handler is installed, it may require additional configuration. This will vary from handler to handler. If a handler is a very simple handler, it may only require the creation of a new instance. For example, if a handler named `MyOrg::EmailMe` is hardcoded for all of the values required to send email, a new instance is required. And then the custom handler must be associated with each of the handler types for which it will run.
+When this approach is used, the client.rb file must also tell Chef Infra Client how to install and run the handler. There is no default install location for handlers. The simplest way to distribute and install them is using RubyGems, though other methods such as GitHub or HTTP will also work. Once the handler is installed on the system, enable it in the client.rb file by requiring it. After the handler is installed, it may require additional configuration. This will vary from handler to handler. If a handler is a simple handler, it may only require the creation of a new instance. For example, if a handler named `MyOrg::EmailMe` is hardcoded for all of the values required to send email, a new instance is required. And then the custom handler must be associated with each of the handler types for which it will run.
 
 For example:
 
@@ -548,7 +548,7 @@ chef_handler 'Chef::Handler::JsonFile' do
 end
 ```
 
-After it has run, the run status data can be loaded and inspected via Interactive Ruby (IRb):
+After it has run, the run status data can be loaded and inspected using Interactive Ruby (IRb):
 
 ```ruby
 irb(main):002:0> require 'json' => true

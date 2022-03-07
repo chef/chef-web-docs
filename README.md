@@ -71,7 +71,7 @@ confirm your pull request. The CI system will do some checks and add a comment
 to your PR with the results.
 
 The Chef Documentation Team can normally merge pull requests within seven days. We'll
-fix build errors before we merge, so you don't have to
+fix build errors before we merge, so you do not have to
 worry about passing all of the CI checks, but it might add an extra
 few days. The important part is submitting your change.
 
@@ -115,7 +115,7 @@ There are two ways to preview documentation:
 
 ### Submit a PR and Look at the Netlify Preview
 
-We've configured Netlify to generate deploy previews of pull requests to the chef-web-docs repository. Netlify will add a comment to the PR with a link to the deploy preview after it finishes building the preview.
+We have configured Netlify to generate deploy previews of pull requests to the chef-web-docs repository. Netlify will add a comment to the PR with a link to the deploy preview after it finishes building the preview.
 
 Netlify will automatically build deploy previews for PRs from contributors who are members of the Chef GitHub organization. The Documentation Team can manually tell Netlify to build previews from contributors who are not members of the Chef GitHub organization.
 
@@ -214,12 +214,12 @@ The `hugo mod clean` command removes references to commits in the
 See Hugo's [documentation](https://gohugo.io/hugo-modules/use-modules/#update-modules)
 for additional information about updating Hugo Modules.
 
-### What if Hugo Doesn't Want to Update a Module
+### What if Hugo Does not Want to Update a Module
 
-Sometimes Hugo and Git can be a bit difficult and won't update a module cleanly or will leave
+Sometimes Hugo and Git can be a bit difficult and will not update a module cleanly or will leave
 references to older commits of a module in the go.sum file.
 
-If you get an error indicating that a Git can't find a repository that's already
+If you get an error indicating that a Git cannot find a repository that's already
 been added as a module, try restarting your computer.
 
 If you are still having trouble, try rebuilding the go.mod and go.sum files:
@@ -230,11 +230,11 @@ If you are still having trouble, try rebuilding the go.mod and go.sum files:
 1. Update the references to the other GitHub repositories, `hugo mod get -u`.
 1. The previous step will update all modules to the latest commit of their source
    repositories.
-   If you don't want that, look at the git history of those files and manually edit the
+   If you do not want that, look at the git history of those files and manually edit the
    go.mod and go.sum files to keep the older commits for the modules that
-   you don't want to update.
-1. Run `hugo mod tidy`. This probably won't do anything on newly initialized go.mod
-   and go.sum files, but it can't hurt either.
+   you do not want to update.
+1. Run `hugo mod tidy`. This probably will not do anything on newly initialized go.mod
+   and go.sum files, but it cannot hurt either.
 1. Vendor the modules in chef-web-docs, `hugo mod vendor`.
 
 ## Release Notes
@@ -282,7 +282,7 @@ The previous scoped doc sets that were found on [docs.chef.io](https://docs.chef
 
 ## Archive of pre-2016 commit history
 
-The commit history of this repo before February 12, 2016 has been archived to the [chef-web-docs-2016 repo](https://github.com/chef-boneyard/chef-web-docs-2016) to save space. No changes to the archive repo will be merged; it's just for historical purposes.
+The commit history of this repo before February 12, 2016 has been archived to the [chef-web-docs-2016 repo](https://github.com/chef-boneyard/chef-web-docs-2016) to save space. No changes to the archive repo will be merged; it is just for historical purposes.
 
 ## Sending Feedback
 

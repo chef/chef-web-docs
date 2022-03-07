@@ -15,10 +15,10 @@ unique names. This is problematic because having multiple resources with
 the same name makes it impossible to safely deliver notifications to the
 right resource.
 
-In Chef Client 13, resources with the same name will be treated as
+In Chef Infra Client 13, resources with the same name will be treated as
 entirely separate, without any cloning of properties.
 
-The behavior in Chef Client 12 and earlier, which is now deprecated, is
+The behavior in Chef Infra Client 12 and earlier, which is now deprecated, is
 that we will try to clone the existing resource, and then apply any
 properties from the new resource. For example:
 
@@ -41,8 +41,8 @@ file '/etc/my_file' do
 end
 ```
 
-Resource cloning was deprecated in Chef Client 10.18.0 and will be
-removed in Chef Client 13.
+Resource cloning was deprecated in Chef Infra Client 10.18.0 and will be
+removed in Chef Infra Client 13.
 
 {{< note >}}
 

@@ -12,8 +12,8 @@ Internally, the `Chef::REST` class attempts to guess which Chef class a
 JSON document relates too, and then automatically turns the JSON in to
 that class.
 
-This deprecation warning was added in Chef Client 12.7.2, and JSON auto
-inflation will be removed permanently in Chef Client 13.
+This deprecation warning was added in Chef Infra Client 12.7.2, and JSON auto
+inflation will be removed permanently in Chef Infra Client 13.
 
 ## Example
 

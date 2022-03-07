@@ -23,7 +23,7 @@ We offer two levels of support for platforms (operating systems), [Commercial Su
 
 ### Commercial Support
 
-Commercial support for platforms is part of paid maintenance contracts with Chef Software. Support contracts allow you to open tickets and receive service level agreement (SLA) assistance from our support desk. Commercially supported platforms are extensively tested as part of Chef's development and release process. Commercial support generally follows the lifecycle of the underlying operating system vendor.
+Commercial support for platforms is part of paid maintenance contracts with Chef Software. Support contracts allow you to open tickets and receive service level agreement (SLA) assistance from our support desk. Commercially supported platforms are extensively tested as part of Chef's development and release process. Commercial support follows the lifecycle of the underlying operating system vendor.
 
 Commercial support is limited to the platforms listed in the "Commercial Support" tables--platforms not listed in these tables are unsupported.
 
@@ -132,7 +132,7 @@ The following table lists the commercially-supported platforms and versions for 
 
 #### Community Support
 
-The following platforms are supported only via the community:
+The following platforms are supported only using the community:
 
 <table>
 <colgroup>
@@ -519,7 +519,7 @@ The following table lists the commercially-supported platforms for Chef Manage:
 
 ## Platform End-of-Life Policy
 
-Chef's products on particular platforms and versions generally reach
+Chef's products on particular platforms and versions reach
 end-of-life on the same date as the vendor EOL milestone for that
 operating systems. Because different vendors use different terminology,
 the following table clarifies when Chef products are end-of-life
@@ -543,7 +543,7 @@ according to those vendors' terms:
 </tr>
 <tr>
 <td>Apple macOS</td>
-<td>Apple generally supports the last three macOS releases, for example: 10.15, 11.x, and 12.x. Apple does not officially publish EOL dates.</td>
+<td>Apple supports the last three macOS releases, for example: 10.15, 11.x, and 12.x. Apple does not officially publish EOL dates.</td>
 </tr>
 <tr>
 <td>Debian</td>

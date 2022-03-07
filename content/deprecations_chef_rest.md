@@ -11,8 +11,8 @@ aliases = "/deprecations_chef_rest.html"
 
 The `Chef::REST` class will be removed.
 
-`Chef::REST` was deprecated in Chef Client 12.7.2, and will be removed
-in Chef Client 13.
+`Chef::REST` was deprecated in Chef Infra Client 12.7.2, and will be removed
+in Chef Infra Client 13.
 
 The [Cookstyle](/workstation/cookstyle.html) cop
 [ChefDeprecations/UsesChefRESTHelpers](https://github.com/chef/cookstyle/blob/main/docs/cops_chefdeprecations.md#chefdeprecationsuseschefresthelpers)

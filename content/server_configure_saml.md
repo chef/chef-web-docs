@@ -17,7 +17,7 @@ product = []
 
 {{% EOL_manage %}}
 
-Chef Manage can support logging in users via SAML authentication. In
+Chef Manage can support logging in users using SAML authentication. In
 order to do so, there must be a Chef Automate Server that is configured
 to act as a SAML Identity Provider (IdP). When the Chef Automate Server
 is configured to do so, it will provide an OpenID Connect (OIDC)

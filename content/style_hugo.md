@@ -40,7 +40,7 @@ Navigate to your new page in the `chef-web-docs/content` directory and edit the 
 
 Adding, removing, and changing the placement of a page in the left nav involves three steps:
 
-1. Defining the page weight in the document's  front matter or the `config.toml` file
+1. Defining the page weight in the document's front matter or the `config.toml` file
 1. Verifying that the page appears as you intend in the left nav
 1. Adjusting the weighting in affected pages accordingly
 
@@ -72,7 +72,7 @@ title
 : The title of the page. This will appear at the top of the page.
 
 draft
-: Set draft to `true` if you don't want Hugo to build the page.
+: Set draft to `true` if you do not want Hugo to build the page.
 
 aliases
 : Add an alias if you want Hugo to automatically redirect the user from another page to the page you are writing.
@@ -100,12 +100,12 @@ menu title
 
 menu identifier
 : The identifier of the page that you are writing. Each identifier must be unique.
-The convention we've adopted is to use the identifier of the page's parent, a forward slash, then the page file, a space, and then the page title.
+The convention we have adopted is to use the identifier of the page's parent, a forward slash, then the page file, a space, and then the page title.
 For example, this page's parent identifier is `overview/style`, the page file is `style_guide.md` and the page title is `Docs Style Guide`, so the full page identifier is `overview/style/style_guide.md Docs Style Guide`
 
 menu parent
 : The menu identifier of the page's parent.
-The convention we've adopted is to append the different menu levels together, separated by a forward slash, and starting with the highest level. For example, this page is nested under Overview and then style, so the page's parent identifier is `overview/style`.
+The convention we have adopted is to append the different menu levels together, separated by a forward slash, and starting with the highest level. For example, this page is nested under Overview and then style, so the page's parent identifier is `overview/style`.
 
 menu weight
 : The rank that the page will appear in the menu, incremented by 10. Higher numbers are lower in the menu.

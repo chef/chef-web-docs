@@ -3,7 +3,7 @@ host name, a list of loaded kernel modules, the version(s) of available
 programming languages that are available, and so on. An attribute may be
 unique to a specific node or it can be identical across every node in
 the organization. Attributes are most commonly set from a cookbook, by
-using knife, or are retrieved by Ohai from each node prior to every Chef
+using knife, or are retrieved by Ohai from each node before every Chef
 Infra Client run. All attributes are indexed for search on the Chef
 Infra Server. Good candidates for attributes include:
 

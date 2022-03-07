@@ -104,7 +104,7 @@ This configuration file has the following settings:
 
     {{< note spaces=4 >}}
 
-    Must be set to `false` up to Chef Client 13.11.3 to gather the standard return code offered by `exit_status true`. Later versions run as expected without changes to the configuration file.
+    Must be set to `false` up to Chef Infra Client 13.11.3 to gather the standard return code offered by `exit_status true`. Later versions run as expected without changes to the configuration file.
 
     {{< /note >}}
 
@@ -166,7 +166,7 @@ This configuration file has the following settings:
 : Cause a Chef Infra Client run to fail when run data cannot be sent to the Automate server (for any reason).
 
 `enable_selinux_file_permission_fixup`
-: SELinux environments only. Cause Chef Infra Client to attempt to apply the correct file permissions to an updated file via the `restorecon` command. Set to `false` to prevent Chef Infra Client from attempting this action.
+: SELinux environments only. Cause Chef Infra Client to attempt to apply the correct file permissions to an updated file using the `restorecon` command. Set to `false` to prevent Chef Infra Client from attempting this action.
 
 `encrypted_data_bag_secret`
 : The subdirectory in which encrypted data bag secrets are located.
@@ -187,7 +187,7 @@ This configuration file has the following settings:
 : When set to `:enabled`, Chef Infra Client will use [standardized exit codes](https://github.com/chef/chef/blob/main/docs/dev/design_documents/client_exit_codes.md#exit-codes-in-use) for the Chef Infra Client run status, and any non-standard exit codes will be converted to `1` or `GENERIC_FAILURE`. This setting can also be set to `:disabled` to use the pre-Chef Infra Client 13 exit code behavior. Default value: `nil`.
 
 `file_atomic_update`
-: Apply atomic file updates to all resources. Set to `true` for global atomic file updates. Set to `false` for global non-atomic file updates. (Use the `atomic_update` setting on a per-resource basis to override this setting.) Default value: `true`.
+: Apply atomic file updates to all resources. Set to `true` for global atomic file updates. Set to `false` for global non-atomic file updates. (Use the `atomic_update` setting for each resource to override this setting.) Default value: `true`.
 
     {{< warning spaces=4 >}}
 
@@ -202,7 +202,7 @@ This configuration file has the following settings:
 : The location in which cookbooks (and other transient data) files are stored when they are synchronized. This value can also be used in recipes to download files with the **remote_file** resource.
 
 `file_staging_uses_destdir`
-: How file staging (via temporary files) is done. When `true`, temporary files are created in the directory in which files will reside. When `false`, temporary files are created under `ENV['TMP']`. Default value: `true`.
+: How file staging (using temporary files) is done. When `true`, temporary files are created in the directory in which files will reside. When `false`, temporary files are created under `ENV['TMP']`. Default value: `true`.
 
 `fips`
 : Allows OpenSSL to enforce FIPS-validated security during a Chef Infra Client run. Set to `true` to enable FIPS-validated security.
@@ -352,7 +352,7 @@ This configuration file has the following settings:
 : The amount of time (in seconds) to wait for a Chef Infra Client lock file to be deleted. A Chef Infra Client run will not start when a lock file is present. If a lock file is not deleted before this time expires, the pending Chef Infra Client run will exit. Default value: not set (indefinite). Set to `0` to cause a second Chef Infra Client to exit immediately.
 
 `script_path`
-: An array of paths to search for knife exec scripts if they aren't in the current directory
+: An array of paths to search for knife exec scripts if they are not in the current directory
 
 `skip_gem_metadata_installation`
 : when `skip_gem_metadata_installation` is set to true, cookbook gem installation will be skipped. Default value: `false`
@@ -361,7 +361,7 @@ This configuration file has the following settings:
 : A random number between zero and `splay` that is added to `interval`. Use splay to help balance the load on the Chef Infra Server by ensuring that many Chef Infra Client runs are not occurring at the same interval. Default value: `nil`.
 
 `stream_execute_output`
-: Always stream the output of `execute` resources even if the `live_stream` property isn't set to true. Default value: `false`
+: Always stream the output of `execute` resources even if the `live_stream` property is not set to true. Default value: `false`
 
 `show_download_progress`
 : Using show_download_progress will display the overall progress of a `remote_file` download. Default value: `false`

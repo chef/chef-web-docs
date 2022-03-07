@@ -25,7 +25,7 @@ If you are familiar with Chef projects and know the component that is causing yo
 * [https://github.com/inspec](https://github.com/inspec)
 * [https://github.com/habitat-sh](https://github.com/habitat-sh).
 
-We ask you not to submit security concerns via GitHub. For details on submitting potential security issues please see our [Security Issue Guidelines](https://www.chef.io/security/).
+We ask you not to submit security concerns using GitHub. For details on submitting potential security issues please see our [Security Issue Guidelines](https://www.chef.io/security/).
 
 In addition to GitHub issues, we also utilize a feedback site that helps our product team track and rank feature requests. If you have a feature request, [this is an excellent place to start](https://feedback.chef.io).
 
@@ -78,7 +78,7 @@ For additional support about Chef products, including documentation, learning, a
 
 {{< warning >}}
 
-If you require a response from Chef per the terms of a support level agreement (SLA), please contact [Chef Support](https://www.chef.io/support) directly.
+If you require a response from Chef for each the terms of a support level agreement (SLA), please contact [Chef Support](https://www.chef.io/support) directly.
 
 {{< /warning >}}
 
@@ -115,7 +115,7 @@ It requires you to:
 
 * include a copy of the license in any redistribution you may make that includes Chef software;
 * provide clear attribution to Chef for any distributions that include Chef software; attribution can be done in the NOTICE file for an application, by adding yourself as an author/copyright holder to the HEADER for an individual file, and by placing text in a header file saying that new work is based on previous work
-* reuse work as long as the licensing terms of the reused work remains unchanged (i.e. The Apache License Version 2 also applies to the reused work)
+* reuse work as long as the licensing terms of the reused work remains unchanged (that is, the Apache License Version 2 also applies to the reused work)
 
 It does not require you to:
 
@@ -163,7 +163,7 @@ Chef does not merge any pull requests made against a Chef-managed open source re
 
 * "Obvious Fixes" (as described below)
 * Pull requests made against the docs.chef.io documentation repository (<https://github.com/chef/chef-web-docs>)
-* Pull requests that contain only documentation updates made against projects where the documentation is embedded in the project's repository (i.e. the `docs` directory in the `chef/inspec` repository)
+* Pull requests that contain only documentation updates made against projects where the documentation is embedded in the project's repository (that is, the `docs` directory in the `chef/inspec` repository)
 
 ## The "Obvious Fix" Rule
 
@@ -171,7 +171,7 @@ Chef's contribution policy is aimed at encouraging broad participation from our 
 
 As a general standard, Chef requires every contribution to by signed for the Developer Certificate of Origin (DCO).
 
-HOWEVER, very small contributions such as fixing spelling errors, where the content is small enough to not be considered intellectual property, can be submitted by a contributor as a patch, without a DCO sign-off. If you submit an obvious fix without a DCO sign-off, then you are agreeing that your submission is not independently copyrightable. The purpose of this exception is to lower the barrier for new contributors to make contributions while retaining the integrity of the project and our community.
+HOWEVER, small contributions such as fixing spelling errors, where the content is small enough to not be considered intellectual property, can be submitted by a contributor as a patch, without a DCO sign-off. If you submit an obvious fix without a DCO sign-off, then you are agreeing that your submission is not independently copyrightable. The purpose of this exception is to lower the barrier for new contributors to make contributions while retaining the integrity of the project and our community.
 
 ### How does the Obvious Fix Rule Work?
 
