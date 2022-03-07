@@ -415,7 +415,7 @@ why-run mode is not a replacement for running cookbooks in a test
 environment that mirrors the production environment. Chef uses why-run
 mode to learn more about what is going on, but also Kitchen on developer
 systems, along with an internal OpenStack cloud and external cloud
-providers to test more thoroughly.
+providers for more thorough testing.
 
 {{< /note >}}
 
@@ -455,8 +455,8 @@ the local machine. This allows the Chef Infra Client to be run against
 the chef-repo as if it were running against the Chef Infra Server.
 chef-zero was [originally a standalone
 tool](https://github.com/chef/chef-zero); it is enabled from within the
-Chef Infra Client by using the `--local-mode` option. chef-zero is very
-useful for quickly testing and validating the behavior of the Chef Infra
+Chef Infra Client by using the `--local-mode` option. chef-zero is
+useful for testing and validating the behavior of the Chef Infra
 Client, cookbooks, recipes, and run-lists before uploading that data to
 the actual Chef Infra Server.
 

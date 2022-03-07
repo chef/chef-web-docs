@@ -57,10 +57,10 @@ comments.
 The `silence_deprecation_warnings` configuration value can be set in
 your `client.rb` or `solo.rb` config file, either to `true` to silence
 all deprecation warnings or to an array of deprecations to silence. You
-can specify which to silence either by the deprecation key name (e.g.
-`"internal_api"`), the numeric deprecation ID (e.g. `25` or <span
+can specify which to silence either by the deprecation key name (for example,
+`"internal_api"`), the numeric deprecation ID (for example, `25` or <span
 class="title-ref">"CHEF-25"</span>), or by specifying the filename and
-line number where the deprecation is being raised from (e.g.
+line number where the deprecation is being raised from (for example,
 `"default.rb:67"`).
 
 An example of setting the `silence_deprecation_warnings` option in your

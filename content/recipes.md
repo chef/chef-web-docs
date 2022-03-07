@@ -424,8 +424,8 @@ unhandled exception during the execute phase. For example:
 ```ruby
 ruby_block "name" do
   block do
-    # Ruby code with a condition, e.g. if ::File.exist?(::File.join(path, "/tmp"))
-    raise "message"  # e.g. "Ordering issue with file path, expected foo"
+    # Ruby code with a condition, for example if ::File.exist?(::File.join(path, "/tmp"))
+    raise "message"  # for example "Ordering issue with file path, expected foo"
   end
 end
 ```

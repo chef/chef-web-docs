@@ -2832,7 +2832,7 @@ see what the community cooks up.
 Since the last release of ChefDK, InSpec has been independently released
 multiple times with a number of great enhancements, including some new
 resources (rabbitmq_config, docker, docker_image, docker_container,
-oracledb_session), some enhancements to the Habitat package creator for
+oracledb_session), some enhancements to the Chef Habitat package creator for
 InSpec profiles, and a whole slew of bug fixes and documentation
 updates.
 
@@ -3199,7 +3199,7 @@ details.
 
 ### Mixlib::Install
 
-New `mixlib-install` command allows you to quickly download Chef
+New `mixlib-install` command allows you to download Chef
 binaries. Run `mixlib-install help` for command usage.
 
 ### Delivery CLI

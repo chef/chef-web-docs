@@ -9,7 +9,7 @@ aliases = "/deprecations_exit_code.html"
 +++
 
 In older versions of Chef Infra Client, it was not possible to discern why a
-chef run exited simply by examining the error code. This makes it very
+chef run exited simply by examining the error code. This makes it
 tricky for tools such as Test Kitchen to reason about the status of a
 Chef Infra Client run. Starting in Chef Infra Client 12.11, there are now well
 defined exit codes that the Chef Infra Client can use to communicate the

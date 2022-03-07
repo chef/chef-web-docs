@@ -110,7 +110,7 @@ This is a warning.
 
 ### Danger
 
-Danger should be used rarely and only when there are serious consequences for the user:
+Danger should be used when there are serious consequences for the user:
 
 ```go
 {{</* danger */>}}

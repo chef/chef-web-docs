@@ -23,7 +23,7 @@ This section covers the basics of Ruby.
 
 ### Verify Syntax
 
-Many people who are new to Ruby often find that it does not take very
+Many people who are new to Ruby often find that it does not take
 long to get up to speed with the basics. For example, it is useful to
 know how to check the syntax of a Ruby file, such as the contents of a
 cookbook named `my_cookbook.rb`:
@@ -426,7 +426,7 @@ This section covers best practices for cookbook and recipe authoring.
 Although not strictly a Chef style thing, please always ensure your
 `user.name` and `user.email` are set properly in your `.gitconfig` file.
 
-- `user.name` should be your given name (e.g., "Julian Dunn")
+- `user.name` should be your given name (for example, "Julian Dunn")
 - `user.email` should be an actual, working e-mail address
 
 This will prevent commit log entries similar to
@@ -461,7 +461,7 @@ Name things uniformly for their system and component. For example:
 - directories: `foo/bar` (if specific to component), `foo` (if not).
     For example: `/var/log/foo/bar`.
 
-Name attributes after the recipe in which they are primarily used. e.g.
+Name attributes after the recipe in which they are primarily used. for example
 `node['postgresql']['server']`.
 
 ### Parameter Order

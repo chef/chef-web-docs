@@ -50,7 +50,7 @@ Details about the package currently running the service
 | deps | array | An array of runtime dependencies for your package based on the `pkg_deps` setting in a plan |
 | env | object | The runtime environment of your package, mirroring the contents of the `RUNTIME_ENVIRONMENT` metadata file. The `PATH` variable is set, containing all dependencies of your package, as well as any other runtime environment variables that have been set by the package. Individual variables can be accessed directly, like `{{pkg.env.PATH}}` (the keys are case sensitive). |
 | exposes | array | The array of ports to expose for an application or service. This value is pulled from the pkg_exposes setting in a plan. |
-| exports | object | A map of export key to internal configuration value key (that is, the contents of `pkg_exports` in your plan). The key is what external services consume. The value is a key in your `default.toml` file that corresponds to the data being exported. |
+| exports | object | A map of export key to internal configuration value key (i.e., the contents of `pkg_exports` in your plan). The key is what external services consume. The value is a key in your `default.toml` file that corresponds to the data being exported. |
 | path | string | The location where the package is installed locally, e.g., `/hab/pkgs/core/redis/3.2.4/20170514150022`. Note that this is _not_ a `PATH` environment variable; for that, please see the `env` key above. |
 | svc_path | string | The root location of the source files for the Habitat service, e.g., `/hab/svc/redis`. |
 | svc_config_path | string | The location of any templated configuration files for the Habitat service, e.g., `/hab/svc/redis/config`. |
@@ -123,7 +123,7 @@ Represents a member of a service group
 | alive | boolean | Whether this member is considered alive and connected to the ring, from a network perspective. |
 | suspect | boolean | Whether this member is considered "suspect", or possibly unreachable, from a network perspective. |
 | confirmed | boolean | Whether this member is confirmed dead / unreachable, from a network perspective. |
-| departed | boolean | Whether this member has been departed from the ring (that is, permanently gone, never to return). |
+| departed | boolean | Whether this member has been departed from the ring (i.e., permanently gone, never to return). |
 | election_is_running | boolean | Whether a leader election is currently running for this service |
 | election_is_no_quorum | boolean | Whether there is quorum for a leader election for this service |
 | election_is_finished | boolean | Whether a leader election for this service has finished |

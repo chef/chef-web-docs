@@ -13,7 +13,7 @@ product = []
     weight = 20
 +++
 
-**Note**: If you are in a physical space (e.g. ChefConf, Meetup, etc),
+**Note**: If you are in a physical space (for example, ChefConf, Meetup, etc),
 please see the [Physical Spaces Code of
 Conduct](https://www.chef.io/code-of-conduct/physical-spaces/).
 
@@ -107,7 +107,7 @@ includes:
 - Sustained disruption of talks or other events.
 - Inappropriate physical contact or unwelcome sexual attention.
 
-**NOTE**: If you are in a physical space -- e.g. Chef Conf, Meetup, etc.
+**NOTE**: If you are in a physical space -- for example, Chef Conf, Meetup, etc.
 -- please see the [Physical Spaces Code of
 Conduct](https://www.chef.io/code-of-conduct/physical-spaces/).
 
@@ -216,7 +216,7 @@ Community Advocates listed in the [Roles](#roles) section.
 
 ### Handling Incidents
 
-**NOTE**: If you are in a physical space -- e.g. Chef Conf, Meetup, etc.
+**NOTE**: If you are in a physical space -- for example, Chef Conf, Meetup, etc.
 -- please see the [Physical Spaces Code of
 Conduct](https://www.chef.io/code-of-conduct/physical-spaces/).
 

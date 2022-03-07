@@ -26,7 +26,7 @@ functionality of <span
 class="title-ref">shell_out_with_systems_locale</span> has been
 replaced by the <span class="title-ref">default_env: false</span> flag.
 
-The "banged" versions of those APIs (e.g. <span
+The "banged" versions of those APIs (for example <span
 class="title-ref">shell_out_compact!</span>) changes identically to
 use <span class="title-ref">shell_out!</span>.
 

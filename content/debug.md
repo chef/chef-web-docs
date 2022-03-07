@@ -23,7 +23,7 @@ Ideally, the best way to debug a recipe is to not have to debug it in the first 
 
 ## Basic
 
-Some simple ways to quickly identify common issues that can trigger recipe and/or Chef Infra Client run failures include:
+Some simple ways to identify common issues that can trigger recipe and/or Chef Infra Client run failures include:
 
 * Using an empty run-list
 * Using verbose logging with knife

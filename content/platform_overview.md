@@ -158,7 +158,7 @@ Here is an example of the Chef Automate dashboard.
 
 Chef Automate creates customizable reports that identify compliance
 issues, security risks, and outdated software. You can write your own
-compliance rules in Chef InSpec, or you can get started quickly by using
+compliance rules in Chef InSpec, or you can get started by using
 built-in profiles, which are predefined rule sets for a variety of
 security frameworks, such as Center for Internet Security (CIS)
 benchmarks, included as part of Chef Automate.

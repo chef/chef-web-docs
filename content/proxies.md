@@ -34,7 +34,7 @@ env | grep -i http_proxy
 ```
 
 If an environment variable is set, it **MUST** be lowercase. If it is
-not, add a lowercase version of that proxy variable to the shell (e.g.
+not, add a lowercase version of that proxy variable to the shell (for example
 `~/.bashrc`) using one (or more) the following commands.
 
 For HTTP:

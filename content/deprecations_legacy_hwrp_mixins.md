@@ -10,8 +10,7 @@ aliases = "/deprecations_legacy_hwrp_mixins.html"
 
 In Chef Infra Client 14 several legacy mixins will be removed. Usage of these
 mixins has resulted in deprecation warnings for several years. They were
-traditionally used in some HWRPs, but are rarely found in code available
-on the Supermarket.
+traditionally used in some HWRPs.
 
 The [Cookstyle](/workstation/cookstyle/) cop
 [ChefDeprecations/UsesDeprecatedMixins](https://github.com/chef/cookstyle/blob/main/docs/cops_chefdeprecations.md#chefdeprecationsusesdeprecatedmixins)

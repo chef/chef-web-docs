@@ -347,7 +347,7 @@ hab bldr job cancel [FLAGS] [OPTIONS] <GROUP_ID>
 **FLAGS**
 
 ```
--f, --force      do not prompt for confirmation
+-f, --force      Don't prompt for confirmation
 -h, --help       Prints help information
 -V, --version    Prints version information
 ```
@@ -1852,7 +1852,7 @@ hab pkg bulkupload [FLAGS] [OPTIONS] <UPLOAD_DIRECTORY>
 **FLAGS**
 
 ```
---auto-build             Enable automatic builds for all packages in this upload. Only applicable to SaaS Builder
+--auto-build             Enable auto-build for all packages in this upload. Only applicable to SaaS Builder
     --auto-create-origins    Skip the confirmation prompt and automatically create origins that do not exist in the target Builder
     --force                  Skip checking availability of package and force uploads, potentially overwriting a stored copy of a package
 -h, --help                   Prints help information
@@ -2477,9 +2477,9 @@ hab pkg uninstall [FLAGS] [OPTIONS] <PKG_IDENT>
 **FLAGS**
 
 ```
--d, --dryrun                   Just show what would be uninstalled, do not actually do it
+-d, --dryrun                   Just show what would be uninstalled, don't actually do it
     --ignore-uninstall-hook    Do not run any uninstall hooks
-    --no-deps                  do not uninstall dependencies
+    --no-deps                  Don't uninstall dependencies
 -h, --help                     Prints help information
 -V, --version                  Prints version information
 ```
@@ -2515,7 +2515,7 @@ hab pkg upload [FLAGS] [OPTIONS] <HART_FILE>...
 
 ```
 --force       Skips checking availability of package and force uploads, potentially overwriting a stored copy of a package. (default: false)
-    --no-build    Disable automatic builds for all packages in this upload
+    --no-build    Disable auto-build for all packages in this upload
 -h, --help        Prints help information
 -V, --version     Prints version information
 ```
@@ -2648,9 +2648,9 @@ hab plan render [FLAGS] [OPTIONS] <TEMPLATE_PATH>
 **FLAGS**
 
 ```
--n, --no-render    do not write anything to disk, ignores --render-dir
+-n, --no-render    Don't write anything to disk, ignores --render-dir
 -p, --print        Prints config to STDOUT
--q, --quiet        do not print any helper messages.  When used with --print will only print config file
+-q, --quiet        Don't print any helper messages.  When used with --print will only print config file
 -h, --help         Prints help information
 -V, --version      Prints version information
 ```
@@ -3380,7 +3380,7 @@ hab svc <SUBCOMMAND>
 | Command | Description |
 | ------- | ----------- |
 | [hab svc key](#hab-svc-key) | Commands relating to Habitat service keys |
-| [hab svc load](#hab-svc-load) | Load a service to be started and supervised by Habitat from a package identifier. If an installed package does not satisfy the given package identifier, a suitable package will be installed from Builder |
+| [hab svc load](#hab-svc-load) | Load a service to be started and supervised by Habitat from a package identifier. If an installed package doesn't satisfy the given package identifier, a suitable package will be installed from Builder |
 | [hab svc start](#hab-svc-start) | Start a loaded, but stopped, Habitat service |
 | [hab svc status](#hab-svc-status) | Query the status of Habitat services |
 | [hab svc stop](#hab-svc-stop) | Stop a running Habitat service |
@@ -3451,7 +3451,7 @@ hab svc key generate [OPTIONS] <SERVICE_GROUP> [ORG]
 
 ### hab svc load
 
-Load a service to be started and supervised by Habitat from a package identifier. If an installed package does not
+Load a service to be started and supervised by Habitat from a package identifier. If an installed package doesn't
 
 **USAGE**
 

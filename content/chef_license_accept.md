@@ -38,7 +38,7 @@ Products below are split below into two categories: workstation and server. Affe
 - Chef InSpec \>= 4.0
 - Chef Habitat \>= 0.80
 
-These products are typically installed on a user's workstation. Two methods are generally used to accept the license for these products:
+These products are typically installed on a user's workstation. Two common methods for accepting the license are:
 
 1. `--chef-license <value>` argument passed to the command line invocation.
 1. `CHEF_LICENSE="<value>"` as an environment variable.
