@@ -71,7 +71,7 @@ jobs:
         uses: Legion2/download-release-action@v2.1.0
         with:
           repository: chef/vale-chef
-          tag: 'v0.2.2'
+          tag: 'v0.2.3'
           path: tools/vale/Chef
           token: "${{ secrets.GITHUB_TOKEN }}"
       - uses: errata-ai/vale-action@v1
