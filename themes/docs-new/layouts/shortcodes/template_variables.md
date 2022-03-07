@@ -12,9 +12,9 @@ A statement is delimited by a modifier, such as `if`, `elsif`, and
 
 ```ruby
 if false
-# this won't happen
+# this will not happen
 elsif nil
-      # this won't either
+      # this will not either
     end
 ```
 
@@ -53,6 +53,6 @@ Would render something like:
 The node latte thinks the x-men are keen
 ```
 
-Even though this is a very simple example, the full capabilities of Ruby
+Even though this is a simple example, the full capabilities of Ruby
 can be used to tackle even the most complex and demanding template
 requirements.

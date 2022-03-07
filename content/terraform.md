@@ -21,7 +21,7 @@ Terraform deprecated the Chef Provisioner in the [0.13.4](https://www.terraform.
 
 ## Chef Infra Provisioner
 
-The [Terraform Chef Provisioner](https://www.terraform.io/docs/provisioners/chef.html) bootstraps Terraform, provisioned with Chef Infra via SSH or WinRM, and configures them to work with a [Chef Infra Server](/server/). Standard bootstrap options such as Chef Infra versions, secrets, proxies, and assigning run lists via Policyfiles or Roles and Environments are all supported. The referenced documentation provides a complete list of supported options and an example of usage. HashiCorp provides support for the [Terraform Chef Provisioner](https://www.terraform.io/docs/provisioners/chef.html) and it is not officially supported by Chef Software.
+The [Terraform Chef Provisioner](https://www.terraform.io/docs/provisioners/chef.html) bootstraps Terraform, provisioned with Chef Infra using SSH or WinRM, and configures them to work with a [Chef Infra Server](/server/). Standard bootstrap options such as Chef Infra versions, secrets, proxies, and assigning run lists using Policyfiles or Roles and Environments are all supported. The referenced documentation provides a complete list of supported options and an example of usage. HashiCorp provides support for the [Terraform Chef Provisioner](https://www.terraform.io/docs/provisioners/chef.html) and it is not officially supported by Chef Software.
 
 ### Terraform and Chef Solo
 

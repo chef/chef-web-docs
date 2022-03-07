@@ -1,4 +1,4 @@
-A template helper method is always defined inline on a per-resource
+A template helper method is always defined inline on a resource
 basis. A simple example:
 
 ```ruby

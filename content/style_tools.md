@@ -193,12 +193,12 @@ SkippedScopes = script, style, pre, figure
 # WordTemplate specifies what Vale will consider to be an individual word.
 WordTemplate = `\b(?:%s)\b`
 
-# BlockIgnores allow you to exclude certain block-level sections of text that don't have an associated HTML tag that could be used with SkippedScopes. See Non-Standard Markup for more information.
+# BlockIgnores allow you to exclude certain block-level sections of text that do not have an associated HTML tag that could be used with SkippedScopes. See Non-Standard Markup for more information.
 # BlockIgnores = (?s) *({< file [^>]* >}.*?{</ ?file >})
 # Ignore code fences
 BlockIgnores = (((\x60{3}){1,1})([\s\S]*?)((\x60{3}){1,1}))
 
-# TokenIgnores allow you to exclude certain inline-level sections of text that don't have an associated HTML tag that could be used with IgnoredScopes. See Non-Standard Markup for more information.
+# TokenIgnores allow you to exclude certain inline-level sections of text that do not have an associated HTML tag that could be used with IgnoredScopes. See Non-Standard Markup for more information.
 # TokenIgnores = (\$+[^\n$]+\$+)
 # Ignore SVG markup
 TokenIgnores = (\*\*\{\w*\}\*\*)

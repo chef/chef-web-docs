@@ -3,7 +3,7 @@ that use Apt, Chocolatey, DNF, Homebrew, Pacman, or Zypper package managers.
 Specifying multiple packages and/or versions allows a single transaction
 to:
 
-- Download the specified packages and versions via a single HTTP
+- Download the specified packages and versions using a single HTTP
     transaction
 - Update or install multiple packages with a single resource during a
     Chef Infra Client run
@@ -46,7 +46,7 @@ package %w(package1 package2) do
 end
 ```
 
-Notifications, via an implicit name:
+Notifications, using an implicit name:
 
 ```ruby
 package %w(package1 package2) do

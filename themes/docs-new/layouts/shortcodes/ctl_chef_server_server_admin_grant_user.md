@@ -1,5 +1,5 @@
 The `grant-server-admin-permissions` subcommand is used to add a user to
-the `server-admins` group. Run the command once per user added.
+the `server-admins` group. Run the command once for each user added.
 
 This subcommand has the following syntax:
 

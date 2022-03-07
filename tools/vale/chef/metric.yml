@@ -1,4 +1,4 @@
-extends: metric
+extends: readability
 message: "Try to keep the Flesch-Kincaid grade level (%s) below 8."
 link: https://en.wikipedia.org/wiki/Flesch%E2%80%93Kincaid_readability_tests
 

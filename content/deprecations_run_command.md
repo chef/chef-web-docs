@@ -11,8 +11,8 @@ aliases = "/deprecations_run_command.html"
 The old run_command API has been replaced by shell_out (a wrapper
 around Mixlib::ShellOut).
 
-This deprecation warning was added in Chef Client 12.18.31, and
-run_command will be removed permanently in Chef Client 13.
+This deprecation warning was added in Chef Infra Client 12.18.31, and
+run_command will be removed permanently in Chef Infra Client 13.
 
 ## Example
 

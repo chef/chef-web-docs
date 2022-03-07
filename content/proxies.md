@@ -34,7 +34,7 @@ env | grep -i http_proxy
 ```
 
 If an environment variable is set, it **MUST** be lowercase. If it is
-not, add a lowercase version of that proxy variable to the shell (e.g.
+not, add a lowercase version of that proxy variable to the shell (for example
 `~/.bashrc`) using one (or more) the following commands.
 
 For HTTP:
@@ -172,7 +172,7 @@ no_proxy 'test.example.com,test.example2.com,test.example3.com'
 
 Wildcard matching may be used in the `no_proxy` list---such as
 `no_proxy '*.*.example.*'`---however, many situations require hostnames
-to be specified explicitly (i.e. "without wildcards").
+to be specified explicitly (that is, "without wildcards").
 
 {{< /note >}}
 

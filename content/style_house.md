@@ -22,7 +22,7 @@ For Chef applications and components, use:
 - Chef Automate
 - Chef Habitat
 - Chef Infra (formerly Chef)
-- Chef Infra Client (Use Chef Client up to version 14.x)
+- Chef Infra Client (Use Chef Infra Client up to version 14.x)
 - Chef Infra Server (Formerly Chef Server)
 - Chef InSpec
 
@@ -61,9 +61,9 @@ Use the `4thcafe.com` domain for generic domains and email addresses in the docu
 
 ### Example Names
 
-Don't reveal personal information in examples, such as the names of real people, real email addresses, or phone numbers.
+do not reveal personal information in examples, such as the names of real people, real email addresses, or phone numbers.
 
-Don't use the names of bands, musicians, or characters from works that are under copyright.
+do not use the names of bands, musicians, or characters from works that are under copyright.
 
 When writing about security, follow the accepted convention and use "Alice" and "Bob". Following this convention helps readers see that they are reading a topic about security and integrate the Chef information with their existing knowledge.
 

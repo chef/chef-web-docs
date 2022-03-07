@@ -22,7 +22,7 @@ Infra Client run. The most commonly accessed automatic attributes are:
 </tr>
 <tr>
 <td><code>node['platform_family']</code></td>
-<td>The platform family is a Chef Infra specific grouping of similar platforms where cookbook code can often be shared. For example, `rhel` includes Red Hat Linux, Oracle Linux, CentOS, and several other platforms that are nearly identical to Red Hat Linux.</td>
+<td>The platform family is a Chef Infra specific grouping of similar platforms where cookbook code can often be shared. For example, `rhel` includes Red Hat Linux, Oracle Linux, CentOS, and several other platforms that are almost identical to Red Hat Linux.</td>
 </tr>
 <tr>
 <td><code>node['platform_version']</code></td>

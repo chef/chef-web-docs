@@ -24,7 +24,7 @@ chef_handler 'Chef::Handler::JsonFile' do
 end
 ```
 
-After it has run, the run status data can be loaded and inspected via
+After it has run, the run status data can be loaded and inspected using
 Interactive Ruby (IRb):
 
 ```ruby

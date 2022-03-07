@@ -173,7 +173,7 @@ node.default['foo'] = {
 And some role attributes:
 
 ```ruby
-# Please don't ever do this in real code :)
+# Please do not ever do this in real code :)
 node.role_default['foo']['bar']['thing'] = 'otherstuff'
 ```
 
@@ -214,7 +214,7 @@ node.default['foo'] = {
 And some role attributes:
 
 ```ruby
-# Please don't ever do this in real code :)
+# Please do not ever do this in real code :)
 node.role_default['foo']['bar']['thing'] = 'otherstuff'
 ```
 
@@ -387,7 +387,7 @@ Given the following code structure:
 
 ```ruby
 node.default['foo']['bar'] = {'a' => 'b'}
-# Please don't ever do this in real code :)
+# Please do not ever do this in real code :)
 node.role_default['foo']['bar'] = {'c' => 'd'}
 node.default!['foo']['bar'] = {'d' => 'e'}
 ```
@@ -405,7 +405,7 @@ Given the following code structure:
 
 ```ruby
 node.default['foo']['bar'] = {'a' => 'b'}
-# Please don't ever do this in real code :)
+# Please do not ever do this in real code :)
 node.role_default['foo']['bar'] = {'c' => 'd'}
 node.force_default!['foo']['bar'] = {'d' => 'e'}
 ```
@@ -435,7 +435,7 @@ node.default['foo'] = {
 And some attributes:
 
 ```ruby
-# Please don't ever do this in real code :)
+# Please do not ever do this in real code :)
 node.role_default['foo']['bar']['baz'] = 55
 node.force_default['foo']['bar']['baz'] = 66
 ```

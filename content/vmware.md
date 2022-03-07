@@ -416,7 +416,7 @@ platforms:
 [\[GitHub\]](https://github.com/chef-partners/kitchen-vro)
 
 - An integration point with vRO and test-kitchen
-- Leverages specific Workflows in vRO if it's required by VMware
+- Leverages specific Workflows in vRO if it is required by VMware
     admins
 
 #### Usage Examples

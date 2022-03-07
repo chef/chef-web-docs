@@ -16,7 +16,7 @@ file (no equal sign is necessary to set the value):
 
 :   Use to set the IP version: `"ipv4"` or `"ipv6"`. When set to
     `"ipv6"`, the API listens on IPv6 and front end and back end
-    services communicate via IPv6 when a high availability configuration
+    services communicate using IPv6 when a high availability configuration
     is used. When configuring for IPv6 in a high availability
     configuration, be sure to set the netmask on the IPv6 `backend_vip`
     attribute. Default value: `"ipv4"`.

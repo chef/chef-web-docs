@@ -8,7 +8,7 @@ sitemapExclude = true
 aliases = "/deprecations_ohai_filesystem.html"
 +++
 
-In Ohai/Chef Client 13 we replaced the existing Filesystem plugin with
+In Ohai/Chef Infra Client 13 we replaced the existing Filesystem plugin with
 the Filesystem2 plugin. This was done by having the Filesystem2 plugin
 populate both `node['filesystem2']` and `node['filesystem']`. The
 Filesystem2 plugin includes a different data format that resolves many
@@ -18,9 +18,9 @@ of the longstanding bugs in the Filesystem plugin.
 
 If you have a cookbook that relies on data from `node['filesystem']` you
 will need to update the code to use data in the new format when
-migrating to Chef Client 13 or later. On a Chef Client 12 or earlier
+migrating to Chef Infra Client 13 or later. On a Chef Infra Client 12 or earlier
 node you can view the new format by running <span class="title-ref">ohai
-filesystem2</span> or on a Chef Client 13+ node you can run
+filesystem2</span> or on a Chef Infra Client 13+ node you can run
 `ohai filesystem`.
 
 The output of the filesystem plugin is too large to show the difference
