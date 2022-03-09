@@ -110,6 +110,41 @@ identifier = "automate"
     identifier = "automate/install/high_availability"
     parent = "automate/install"  
 
+      [[automate]]
+      title = "Introduction"
+      identifier = "automate/install/high_availability/introduction"
+      parent = "automate/install/high_availability" 
+
+      [[automate]]
+      title = "AWS Deployment"
+      identifier = "automate/install/aws_deployment"
+      parent = "automate/install/high_availability" 
+
+      [[automate]]
+      title = "Certificates"
+      identifier = "automate/install/certificates"
+      parent = "automate/install/high_availability"
+
+      [[automate]]
+      title = "On-premise Deployment"
+      identifier = "automate/install/on_premise_deployment"
+      parent = "automate/install/high_availability" 
+
+      [[automate]]
+      title = "Backup and Restore"
+      identifier = "automate/install/backup_and_restore"
+      parent = "automate/install/high_availability" 
+
+      [[automate]]
+      title = "Common Features"
+      identifier = "automate/install/common_features"
+      parent = "automate/install/high_availability" 
+
+      [[automate]]
+      title = "FAQs"
+      identifier = "automate/install/faqs"
+      parent = "automate/install/high_availability" 
+
   [[automate]]
   title = "Configure"
   identifier = "automate/configure"
