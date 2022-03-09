@@ -129,8 +129,8 @@ identifier = "automate"
       weight = 80
 
       [[automate]]
-      title = "On-premise Deployment"
-      identifier = "automate/install/high_availability/on_premise_deployment"
+      title = "On-Premises Deployment"
+      identifier = "automate/install/high_availability/on_premises_deployment"
       parent = "automate/install/high_availability" 
       weight = 60
 
@@ -145,12 +145,6 @@ identifier = "automate"
       identifier = "automate/install/high_availability/common_features"
       parent = "automate/install/high_availability" 
       weight = 120
-
-      [[automate]]
-      title = "FAQs"
-      identifier = "automate/install/high_availability/faqs"
-      parent = "automate/install/high_availability" 
-      weight = 140
 
   [[automate]]
   title = "Configure"
