@@ -169,7 +169,7 @@ end
 
 This simplified example shows how to trap exceptions from resources using normal ruby syntax and to clean up the resource. Without `unified_mode` this syntax is impossible. Normally the `execute` resources when they are parsed only creates the objects in the `resource_collection` to later be evaluated so that no exception is thrown while ruby is parsing the `action` block at all. Every action is delayed to the later converge phase. In `unified_mode` the resource runs when ruby is done parsing its block, so exceptions happen in-line with ruby parsing, so the `rescue` now works as naively expected.
 
-The usefulness of this is that if the tar extraction throws an exception (for example, it could be out of disk space), then that Exception causes the tar file to be deleted and then redownloaded the next time `chef-client` is run. Without the cleanup the tar file would exist, but the resource would not have completed, the extraction would not happen and the resource would be left in a broken, indeterminate state.
+The usefulness of this is that if the tar extraction throws an exception (for example, it could be out of disk space), then that Exception causes the tar file to be deleted and then redownloaded the next time Chef Infra Client is run. Without the cleanup the tar file would exist, but the resource would not have completed, the extraction would not happen and the resource would be left in a broken, indeterminate state.
 
 [NOTE: UNIFIED MODE SHORTCODE STARTS HERE]
 
