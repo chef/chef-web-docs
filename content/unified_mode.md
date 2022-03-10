@@ -32,7 +32,7 @@ action :run do
 end
 ```
 
-## Unified Mode for Recipe Code
+## Unified Mode for Recipes
 
 This has not yet been written, so there is no setting for this yet. It is planned to be delivered in 2020.
 Currently, `unified_mode` can only be set for resources.
