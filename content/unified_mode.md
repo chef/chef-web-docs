@@ -78,7 +78,6 @@ Without `unified_mode` correctly writing this simple resource is complicated:
 provides :downloader
 
 action :doit do
-
   remote_file "/tmp/users.json" do
     source "https://jsonplaceholder.typicode.com/users"
   end
