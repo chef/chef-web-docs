@@ -50,7 +50,7 @@ in Unified Mode.
 
 ### Elimination of Lazy Blocks
 
-Several aspects of the Chef Infra Language still work, but are no longer useful in Unified Mode. The need for `lazy` blocks is entirely eliminated. The need to lazy ruby code via a `ruby_block` is also eliminated.
+Several aspects of the Chef Infra Language still work, but are no longer necessary in Unified Mode. The need for `lazy` blocks is entirely eliminated. The need to lazy ruby code via a `ruby_block` is also eliminated.
 
 ### Rescue Blocks And Other Ruby Constructs Work Correctly
 
