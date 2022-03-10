@@ -33,7 +33,7 @@ end
 
 ## Unified Mode for Recipes
 
-This has not yet been written, so there is no setting for this yet. It is planned to be delivered in 2020.
+We plan to deliver Unified Mode support in Chef Infra recipes in a Chef Infra Client 17 release in 2021.
 Currently, `unified_mode` can only be set for resources.
 
 ## Unified Mode Isolation
