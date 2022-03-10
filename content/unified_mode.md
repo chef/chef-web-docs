@@ -12,7 +12,6 @@ product = ["client"]
     weight = 20
 +++
 
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/unified_mode.md)
 
 Unified mode is a setting which eliminates the distinction between the compile and converge modes in the way that Chef Infra recipe and resources are parsed. The setting replaces Chef Infra's two pass parsing with single pass parsing, so that resources are executed as soon as they are declared.
 
