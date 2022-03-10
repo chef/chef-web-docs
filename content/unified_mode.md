@@ -121,7 +121,7 @@ action :doit do
 end
 ```
 
-The need for the `ruby_block`, the `lazy` and the variable declaration are all removed, and all that is left is how a beginning programmer would attempt to write this resource without the need for deep Chef Infra or Ruby knowledge.
+The need for the `ruby_block`, the `lazy`, and the variable declaration are all eliminated, greatly simplifying how the cookbook is authored.
 
 ### Recovery and Exception Handling
 
