@@ -121,6 +121,10 @@ where:
 <td>Raspberry Pi OS</td>
 </tr>
 <tr>
+<td><code>redhat</code></td>
+<td>Red Hat Enterprise Linux</td>
+</tr>
+<tr>
 <td><code>rocky</code></td>
 <td>Rocky Linux</td>
 </tr>
