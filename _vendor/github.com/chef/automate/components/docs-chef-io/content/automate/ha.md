@@ -1,15 +1,15 @@
 +++
-title = "High Availability (HA) Overview"
+title = "High Availability"
 
 draft = true
 
 gh_repo = "automate"
 [menu]
   [menu.automate]
-    title = "HA High Availability (HA) Overview"
+    title = "High Availability"
     parent = "automate/install"
-    identifier = "automate/install/ha.md High Availability (HA) Overview"
-    weight = 200
+    identifier = "automate/install/ha.md High Availability"
+    weight = 10
 +++
 
 **High availability (HA)** refers to a system or application (such as a network, a server array, or cluster) that offers a high level of operational performance and quality over a relevant time with maximum potential uptime and accessibility for the content stored on it.
