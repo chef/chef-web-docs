@@ -17,11 +17,13 @@
 
 [context.deploy-preview]
   command = "make assets; hugo --gc --minify --enableGitInfo --buildFuture"
+  [context.deploy-preview.environment]
+    HUGO_ENV = "development"
 
 [context.branch-deploy]
   command = "make assets; hugo --gc --minify --enableGitInfo"
   [context.branch-deploy.environment]
-    HUGO_ENV = "production"
+    HUGO_ENV = "development"
 
 [[headers]]
   for = "/*"
