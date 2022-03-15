@@ -11,17 +11,16 @@
   skip_processing = true
 
 [context.production]
-  command = "make assets; hugo --gc --minify --enableGitInfo"
+  command = "make bundle; hugo --gc --minify --enableGitInfo"
   [context.production.environment]
     HUGO_ENV = "production"
 
 [context.deploy-preview]
-  command = "make assets; hugo --gc --minify --enableGitInfo --buildFuture"
-  [context.deploy-preview.environment]
-    HUGO_ENV = "development"
+  command = "make bundle; hugo --gc --minify --enableGitInfo --buildFuture"
+
 
 [context.branch-deploy]
-  command = "make assets; hugo --gc --minify --enableGitInfo"
+  command = "make bundle; hugo --gc --minify --enableGitInfo"
   [context.branch-deploy.environment]
     HUGO_ENV = "development"
 
