@@ -14,11 +14,11 @@ clean_all:
 serve: assets
 	hugo server --buildDrafts --noHTTPCache --buildFuture
 
+nodrafts: assets
+	hugo server --noHTTPCache --buildFuture
+
 production: assets
 	hugo server --buildDrafts --noHTTPCache --buildFuture --environment production
-
-serve_ignore_vendor: assets
-	hugo server --buildDrafts --noHTTPCache --buildFuture --ignoreVendorPaths github.com/**
 
 lint: assets
 	hugo -D
