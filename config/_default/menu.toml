@@ -105,47 +105,6 @@ identifier = "automate"
   parent = "automate"
   weight = 20
 
-    [[automate]]
-    title = "High Availability"
-    identifier = "automate/install/high_availability"
-    parent = "automate/install"  
-
-      [[automate]]
-      title = "Introduction"
-      identifier = "automate/install/high_availability/introduction"
-      parent = "automate/install/high_availability" 
-      weight = 20
-
-      [[automate]]
-      title = "AWS Deployment"
-      identifier = "automate/install/high_availability/aws_deployment"
-      parent = "automate/install/high_availability" 
-      weight = 40
-
-      [[automate]]
-      title = "Certificates"
-      identifier = "automate/install/high_availability/certificates"
-      parent = "automate/install/high_availability"
-      weight = 80
-
-      [[automate]]
-      title = "On-Premises Deployment"
-      identifier = "automate/install/high_availability/on_premises_deployment"
-      parent = "automate/install/high_availability" 
-      weight = 60
-
-      [[automate]]
-      title = "Backup and Restore"
-      identifier = "automate/install/high_availability/backup_and_restore"
-      parent = "automate/install/high_availability" 
-      weight = 100
-
-      [[automate]]
-      title = "Common Features"
-      identifier = "automate/install/high_availability/common_features"
-      parent = "automate/install/high_availability" 
-      weight = 120
-
   [[automate]]
   title = "Configure"
   identifier = "automate/configure"

@@ -14,6 +14,9 @@ clean_all:
 serve: bundle
 	hugo server --buildDrafts --noHTTPCache --buildFuture
 
+nodrafts: bundle
+	hugo server --noHTTPCache --buildFuture
+
 production: bundle
 	hugo server --buildDrafts --noHTTPCache --buildFuture --environment production
 
