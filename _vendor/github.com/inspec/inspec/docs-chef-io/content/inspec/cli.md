@@ -105,14 +105,6 @@ This subcommand has the following additional options:
     Specifies the bastion port if applicable.
 * ``--bastion-user=BASTION_USER``
     Specifies the bastion user if applicable.
-* ``--ca-trust-file=PATH_TO_CA_TRUST_FILE``
-    Specify CA certificate required for SSL authentication (WinRM).
-* ``--client-cert=PATH_TO_CLIENT_CERTIFICATE``
-    Specify client certificate required for SSL authentication (WinRM).
-* ``--client-key=PATH_TO_CLIENT_KEY``
-    Specify client key required with client certificate for SSL authentication (WinRM).
-* ``--client-key-pass=CLIENT_CERT_PASSWORD``
-    Specify client certificate password, if required for SSL authentication (WinRM).
 * ``--config=CONFIG``
     Read configuration from JSON file (`-` reads from stdin).
 * ``--docker-url``
@@ -145,8 +137,6 @@ This subcommand has the following additional options:
     Additional shell options.
 * ``--ssl``, ``--no-ssl``
     Use SSL for transport layer encryption (WinRM).
-* ``--ssl-peer-fingerprint``
-    Specify ssl peer fingerprint in lieu of certificates, for SSL authentication (WinRM).
 * ``--sudo``, ``--no-sudo``
     Run scans with sudo. Only activates on Unix and non-root user.
 * ``--sudo-command=SUDO_COMMAND``
@@ -295,14 +285,6 @@ This subcommand has the following additional options:
     Specifies the bastion port if applicable.
 * ``--bastion-user=BASTION_USER``
     Specifies the bastion user if applicable.
-* ``--ca-trust-file=PATH_TO_CA_TRUST_FILE``
-    Specify CA certificate required for SSL authentication (WinRM).
-* ``--client-cert=PATH_TO_CLIENT_CERTIFICATE``
-    Specify client certificate required for SSL authentication (WinRM).
-* ``--client-key=PATH_TO_CLIENT_KEY``
-    Specify client key required with client certificate for SSL authentication (WinRM).
-* ``--client-key-pass=CLIENT_CERT_PASSWORD``
-    Specify client certificate password, if required for SSL authentication (WinRM).
 * ``--command-timeout=SECONDS``
     Maximum seconds to allow a command to run.
 * ``--config=CONFIG``
@@ -365,8 +347,6 @@ This subcommand has the following additional options:
     A list of paths to the SSH configuration file, for example: `~/.ssh/config` or `/etc/ssh/ssh_config`.
 * ``--ssl``, ``--no-ssl``
     Use SSL for transport layer encryption (WinRM).
-* ``--ssl-peer-fingerprint``
-    Specify ssl peer fingerprint in lieu of certificates, for SSL authentication (WinRM).
 * ``--sudo``, ``--no-sudo``
     Run scans with sudo. Only activates on Unix and non-root user.
 * ``--sudo-command=SUDO_COMMAND``
@@ -521,14 +501,6 @@ This subcommand has the following additional options:
     A single command string to run instead of launching the shell.
 * ``--command-timeout=SECONDS``
     Maximum seconds to allow a command to run.
-* ``--ca-trust-file=PATH_TO_CA_TRUST_FILE``
-    Specify CA certificate required for SSL authentication (WinRM).
-* ``--client-cert=PATH_TO_CLIENT_CERTIFICATE``
-    Specify client certificate required for SSL authentication (WinRM).
-* ``--client-key=PATH_TO_CLIENT_KEY``
-    Specify client key required with client certificate for SSL authentication (WinRM).
-* ``--client-key-pass=CLIENT_CERT_PASSWORD``
-    Specify client certificate password, if required for SSL authentication (WinRM).
 * ``--config=CONFIG``
     Read configuration from JSON file (`-` reads from stdin).
 * ``--depends=one two three``
@@ -569,8 +541,6 @@ This subcommand has the following additional options:
     A list of paths to the SSH configuration file, for example: `~/.ssh/config` or `/etc/ssh/ssh_config`.
 * ``--ssl``, ``--no-ssl``
     Use SSL for transport layer encryption (WinRM).
-* ``--ssl-peer-fingerprint=SSL_PEER_FINGERPRINT``
-    Specify ssl peer fingerprint in lieu of certificates, for SSL authentication (WinRM).
 * ``--sudo``, ``--no-sudo``
     Run scans with sudo. Only activates on Unix and non-root user.
 * ``--sudo-command=SUDO_COMMAND``

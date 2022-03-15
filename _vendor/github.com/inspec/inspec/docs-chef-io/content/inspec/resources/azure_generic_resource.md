@@ -1,6 +1,5 @@
 +++
 title = "azure_generic_resource resource"
-title_append = "(inspec-core)"
 draft = false
 gh_repo = "inspec"
 platform = "azure"
