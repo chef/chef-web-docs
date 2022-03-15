@@ -2,7 +2,7 @@
   publish = "public"
 
 [build.environment]
-  HUGO_VERSION = "0.94.2"
+  HUGO_VERSION = "0.91.2"
   HUGO_ENABLEGITINFO = "true"
   GO_VERSION = "1.17"
   NODE_VERSION = "17"
@@ -11,15 +11,15 @@
   skip_processing = true
 
 [context.production]
-  command = "make assets; hugo --gc --minify --enableGitInfo"
+  command = "make bundle; hugo --gc --minify --enableGitInfo"
   [context.production.environment]
     HUGO_ENV = "production"
 
 [context.deploy-preview]
-  command = "make assets; hugo --gc --minify --enableGitInfo --buildFuture"
+  command = "make bundle; hugo --gc --minify --enableGitInfo --buildFuture"
 
 [context.branch-deploy]
-  command = "make assets; hugo --gc --minify --enableGitInfo"
+  command = "make bundle; hugo --gc --minify --enableGitInfo"
   [context.branch-deploy.environment]
     HUGO_ENV = "production"
 

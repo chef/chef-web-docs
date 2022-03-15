@@ -2,8 +2,8 @@
 # so we have to override the default shell here
 SHELL=bash
 
-assets:
-	pushd themes/docs-new && make assets && popd
+bundle:
+	pushd themes/docs-new && make bundle && popd
 
 clean_all:
 	pushd themes/docs-new && make clean_all && popd
@@ -11,16 +11,16 @@ clean_all:
 	rm -rf public/
 	hugo mod clean
 
-serve: assets
+serve: bundle
 	hugo server --buildDrafts --noHTTPCache --buildFuture
 
-production: assets
+production: bundle
 	hugo server --buildDrafts --noHTTPCache --buildFuture --environment production
 
-serve_ignore_vendor: assets
+serve_ignore_vendor: bundle
 	hugo server --buildDrafts --noHTTPCache --buildFuture --ignoreVendorPaths github.com/**
 
-lint: assets
+lint: bundle
 	hugo -D
 
 
