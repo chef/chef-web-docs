@@ -20,7 +20,7 @@ Check back for upcoming enhancements and improvements.
 
 The Chef Desktop management pattern allows you to manage all your macOS devices using a MicroMDM server for a fully automated experience.
 
-If you have not done so, read [The Chef Desktop Development Pattern](/desktop/desktop_pattern/) to familiarize yourself with some of the basic steps for getting started. We will repeat a number of those steps here.
+If you have not done so, read [The Chef Desktop Development Pattern]({{< relref "infrastructure_overview.md" >}}) to familiarize yourself with some of the basic steps for getting started. We will repeat a number of those steps here.
 
 ## Overview
 

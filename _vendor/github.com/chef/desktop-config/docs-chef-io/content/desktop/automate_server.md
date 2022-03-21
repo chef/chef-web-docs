@@ -70,6 +70,8 @@ chef-server-ctl org-create SHORT_NAME 'FULL_ORGANIZATION_NAME' --association_use
 
 Transfer the generated user and validator keys to your workstation and put them in the `.chef` directory. If you already logged out of the server, you can read the next section on key management to find instructions on how to transfer them to your local workstation.
 
+Read more about [chef validator key](https://docs.chef.io/chef_client_security/#chef-validator).
+
 ## Key Management
 
 "Key management" is a software term that means "Safely and securely getting the right credentials from remote and local computers into the right directories--usually, but not always, on your local computer--in order to use software to run commands between computers".

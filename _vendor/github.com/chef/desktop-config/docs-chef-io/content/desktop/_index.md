@@ -15,7 +15,7 @@ gh_repo = "desktop-config"
     weight = 10
 +++
 
-Chef Desktop is a deployment pattern that automates desktop and laptop management with code. Use Chef curated Desktop content with YAML support to define profiles for your devices, audit the profiles with Chef curated Desktop CIS profiles before deploying them with Chef Infra, and gain continuous visibility into the configuration status of your fleet in Chef Automate.
+Chef Desktop is a deployment pattern that automates desktop and laptop management with code. Use Chef curated Desktop content with YAML support to define profiles for your devices, audit the profiles with Chef curated Desktop CIS profiles before deploying them with [Chef Infra](https://docs.chef.io/chef_overview/), and gain continuous visibility into the configuration status of your fleet in [Chef Automate](https://docs.chef.io/automate/).
 
 The desktop services target the following basic functions:
 
@@ -33,7 +33,7 @@ The target audience for Chef Desktop are administrators with limited command-lin
 
 ## Configuration Overview
 
-A work triangle is in play in Chef Desktop. The first leg is the Chef Automate with Chef Infra Server that holds and applies configurations to your nodes. The second leg is your administrator's development environment, which runs Chef Workstation, where you will create and define the policies and settings that the Chef Infra Server metes out. The third leg of the triangle is the list of devices, or "nodes", to which you apply the polices and settings.
+A work triangle is in play in Chef Desktop. The first leg is the Chef Automate with Chef Infra Server that holds and applies configurations to your nodes. The second leg is your administrator's development environment, which runs [Chef Workstation](https://docs.chef.io/workstation/), where you will create and define the policies and settings that the Chef Infra Server metes out. The third leg of the triangle is the list of devices, or "nodes", to which you apply the polices and settings.
 
 ## The Chef Software Stack
 

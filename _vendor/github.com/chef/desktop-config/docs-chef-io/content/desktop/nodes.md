@@ -38,23 +38,6 @@ chef_license           'accept'
 node_name              'S90T7HK2'
 ```
 
-### Identify a Test Node
-
-```powershell
-C:\> knife node create S90T7HK2
-Created node [S90T7HK2]
-```
-
-### Apply the Chef Desktop Policy
-
-Use `knife node policy set` to apply the policy to a node.
-
-Use the name of the policy specified in the Policyfile.rb that was uploaded to the Chef Infra Server.
-
-```powershell
-knife node policy set S90T7HK2 'Windows_Node_Policy_Group' 'desktop-config'
-```
-
 ### Install the Chef Infra Client
 
 Go to your test node and install the Chef Infra Client from an elevated PowerShell window, or use `sudo` if you are installing it from MacOS. For additional information, see the [Chef Install Script](https://docs.chef.io/chef_install_script/) documentation.
@@ -68,7 +51,7 @@ Go to your test node and install the Chef Infra Client from an elevated PowerShe
 #### On macOS
 
 ```bash
-curl -L https://omnitruck.chef.io/install.sh | sudo bash
+sudo bash -c "$(curl -sL https://chef.io/chef/install.sh)"
 ```
 
 ### Load the client.rb
