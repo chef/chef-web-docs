@@ -18,7 +18,7 @@ The commands for the Chef Habitat CLI (`hab`) are listed below.
 
 | Applies to Version | Last Updated |
 | ------- | ------------ |
-| hab 1.6.420/20211101172443 (linux) | 1 Nov 2021 |
+| hab 1.6.477/20220321163641 (linux) | 21 Mar 2022 |
 
 ## hab
 
@@ -241,12 +241,13 @@ Lists origin channels
 **USAGE**
 
 ```
-hab bldr channel list [OPTIONS] [ORIGIN]
+hab bldr channel list [FLAGS] [OPTIONS] [ORIGIN]
 ```
 
 **FLAGS**
 
 ```
+-s, --sandbox    Include sandbox channels for the origin
 -h, --help       Prints help information
 -V, --version    Prints version information
 ```
