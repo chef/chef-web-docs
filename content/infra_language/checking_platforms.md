@@ -293,7 +293,7 @@ platform_family?('slackware', 'suse', 'arch')
 
 #### Use a specific binary for a specific platform
 
-{{< readFile_shortcode file="resource_remote_file_use_platform_family.md" >}}
+{{% resource_remote_file_use_platform_family %}}
 
 ## value_for_platform
 

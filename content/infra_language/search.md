@@ -93,4 +93,4 @@ The following examples show how the `search` method can be used in a recipe.
 
 #### Use the search helper to find users
 
-{{< readFile_shortcode file="resource_execute_use_search_dsl_method.md" >}}
+{{% resource_execute_use_search_dsl_method %}}

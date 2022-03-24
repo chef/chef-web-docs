@@ -223,7 +223,7 @@ The Ohai optional_plugins config array must contain an array of plugin names as 
 
 {{% config_rb_ohai %}}
 
-{{< readFile_shortcode file="config_rb_ohai_settings.md" >}}
+{{% config_rb_ohai_settings %}}
 
 ## Custom Plugins
 

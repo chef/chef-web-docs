@@ -20,11 +20,11 @@ aliases = ["/templates.html", "essentials_cookbook_templates.html"]
 
 ## Requirements
 
-{{< readFile_shortcode file="template_requirements.md" >}}
+{{% template_requirements %}}
 
 ## Variables
 
-{{< readFile_shortcode file="template_variables.md" >}}
+{{% template_variables %}}
 
 ## File Specificity
 
@@ -48,8 +48,8 @@ aliases = ["/templates.html", "essentials_cookbook_templates.html"]
 
 ### variables Attribute
 
-{{< readFile_shortcode file="template_partials_variables_attribute.md" >}}
+{{% template_partials_variables_attribute %}}
 
 ### render Method
 
-{{< readFile_shortcode file = "template_partials_render_method.md" >}}
+{{% template_partials_render_method %}}

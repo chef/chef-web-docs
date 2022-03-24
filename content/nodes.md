@@ -33,12 +33,12 @@ The key components of nodes that are under management by Chef include:
 <tbody>
 <tr>
 <td><p><img src="/images/icon_chef_client.svg" class="align-center" width="130" alt="image" /></p></td>
-<td><p>{{< readFile_shortcode file="chef_client_summary.md" >}}</p>
-<p>{{< readFile_shortcode file="security_key_pairs_chef_client.md" >}}</p></td>
+<td><p>{{< readFile_shortcode file_path="layouts/shortcodes/chef_client_summary.md" >}}</p>
+<p>{{< readFile_shortcode file_path="layouts/shortcodes/security_key_pairs_chef_client.md" >}}</p></td>
 </tr>
 <tr>
 <td><p><img src="/images/icon_ohai.svg" class="align-center" width="130" alt="image" /></p></td>
-<td>{{< readFile_shortcode file="ohai_summary.md" >}}</td>
+<td>{{< readFile_shortcode file_path="layouts/shortcodes/ohai_summary.md" >}}</td>
 </tr>
 </tbody>
 </table>

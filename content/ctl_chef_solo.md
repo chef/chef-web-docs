@@ -70,11 +70,11 @@ This command has the following options:
 
 : The path to a file that contains JSON data.
 
-    {{< readFile_shortcode file="node_ctl_run_list.md" spaces=4 >}}
+    {{< readFile_shortcode file_path="layouts/shortcodes/node_ctl_run_list.md" spaces=4 >}}
 
     {{< warning spaces=4 >}}
 
-    {{< readFile_shortcode file="node_ctl_attribute.md">}}
+    {{< readFile_shortcode file_path="layouts/shortcodes/node_ctl_attribute.md">}}
 
     {{< /warning >}}
 

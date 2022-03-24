@@ -28,27 +28,27 @@ gh_repo = "chef-web-docs"
 <tbody>
 <tr>
 <td><code>default</code></td>
-<td>{{< readFile_shortcode file="node_attribute_type_default.md" >}}</td>
+<td>{{< readFile_shortcode file_path="layouts/shortcodes/node_attribute_type_default.md" >}}</td>
 </tr>
 <tr>
 <td><code>force_default</code></td>
-<td>{{< readFile_shortcode file="node_attribute_type_force_default.md" >}}</td>
+<td>{{< readFile_shortcode file_path="layouts/shortcodes/node_attribute_type_force_default.md" >}}</td>
 </tr>
 <tr>
 <td><code>normal</code></td>
-<td>{{< readFile_shortcode file="node_attribute_type_normal.md" >}}</td>
+<td>{{< readFile_shortcode file_path="layouts/shortcodes/node_attribute_type_normal.md" >}}</td>
 </tr>
 <tr>
 <td><code>override</code></td>
-<td>{{< readFile_shortcode file="node_attribute_type_override.md" >}}</td>
+<td>{{< readFile_shortcode file_path="layouts/shortcodes/node_attribute_type_override.md" >}}</td>
 </tr>
 <tr>
 <td><code>force_override</code></td>
-<td>{{< readFile_shortcode file="node_attribute_type_force_override.md" >}}</td>
+<td>{{< readFile_shortcode file_path="layouts/shortcodes/node_attribute_type_force_override.md" >}}</td>
 </tr>
 <tr>
 <td><code>automatic</code></td>
-<td>{{< readFile_shortcode file="node_attribute_type_automatic.md" >}}</td>
+<td>{{< readFile_shortcode file_path="layouts/shortcodes/node_attribute_type_automatic.md" >}}</td>
 </tr>
 </tbody>
 </table>

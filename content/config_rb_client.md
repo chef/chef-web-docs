@@ -426,7 +426,7 @@ A job entry may also be `'job-name' => {:lock => true}`, which will check the `l
 
 {{% config_rb_ohai %}}
 
-{{< readFile_shortcode file="config_rb_ohai_settings.md" >}}
+{{% config_rb_ohai_settings %}}
 
 ## Example
 
