@@ -2,7 +2,7 @@ The ohai resource has the following actions:
 
 `:nothing`
 
-:   {{ readFile "themes/docs-new/layouts/shortcodes/resources_common_actions_nothing.md" | markdownify }}
+:   {{ readFile "layouts/shortcodes/resources_common_actions_nothing.md" | markdownify }}
 
 `:reload`
 

@@ -1,6 +1,5 @@
-Use the `registry_value_exists?` method to find out if a registry key
-value exists. Use `registry_data_exists?` to test for the type and data
-of a registry key value.
+Use the `registry_get_values` method to get the registry key values
+(name, type, and data) for a Windows registry key.
 
 <div class="admonition-note">
 
@@ -8,20 +7,16 @@ of a registry key value.
 
 <div class="admonition-note-text">
 
-{{ readFile "themes/docs-new/layouts/shortcodes/notes_registry_key_not_if_only_if.md" | markdownify }}
+{{ readFile "layouts/shortcodes/notes_registry_key_not_if_only_if.md" | markdownify }}
 
 </div>
 
 </div>
 
-The syntax for the `registry_dvalue_exists?` method is as follows:
+The syntax for the `registry_get_values` method is as follows:
 
 ```ruby
-registry_value_exists?(
-  KEY_PATH,
-  { name: 'NAME' },
-  ARCHITECTURE
-)
+subkey_array = registry_get_values(KEY_PATH, ARCHITECTURE)
 ```
 
 where:
@@ -33,14 +28,6 @@ where:
     equivalent. The following hives are valid: `HKEY_LOCAL_MACHINE`,
     `HKLM`, `HKEY_CURRENT_CONFIG`, `HKCC`, `HKEY_CLASSES_ROOT`, `HKCR`,
     `HKEY_USERS`, `HKU`, `HKEY_CURRENT_USER`, and `HKCU`.
-- `{ name: 'NAME' }` is a hash that contains the name of the registry
-    key value; if either `type:` or `:value` are specified in the hash,
-    they are ignored
-- `type:` represents the values available for registry keys in
-    Windows. Use `:binary` for REG_BINARY, `:string` for
-    REG_SZ, `:multi_string` for REG_MULTI_SZ, `:expand_string` for
-    REG_EXPAND_SZ, `:dword` for REG_DWORD, `:dword_big_endian` for
-    REG_DWORD_BIG_ENDIAN, or `:qword` for REG_QWORD.
 - `ARCHITECTURE` is one of the following values: `:x86_64`, `:i386`,
     or `:machine`. Set to `:i386` to read or write 32-bit registry keys
     on 64-bit machines running Windows. Set to`:x86_64` to
@@ -50,4 +37,4 @@ where:
     to use the appropriate key location based on your node's
     architecture. Default value: `:machine`.
 
-This method will return `true` or `false`.
+This returns an array of registry key values.
