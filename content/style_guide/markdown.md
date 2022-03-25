@@ -1,7 +1,7 @@
 +++
 title = "Markdown Guide"
 draft = false
-
+aliases = ["/style_markdown"]
 gh_repo = "chef-web-docs"
 
 [menu]
@@ -69,7 +69,7 @@ content, as normally authored.
 
 ## Lists
 
-The following sections describe conventions for lists and tables in Chef docs.
+The following sections describe conventions for lists in Chef docs.
 
 ### Bulleted Lists
 
@@ -107,30 +107,61 @@ Start each ordered list item with the number 1 (1.). Hugo will generate the corr
 
 ### Definition Lists
 
-Definition lists are used to show the options available to a command
-line tool:
+Use a definition list to define a term, including CLI commands, command flags, parameters, and properties.
 
-```text
-`--name-only`
-: Show only the names of modified files.
+You can include more than definition for a term and more than one paragraph for a definition. Each definition should have a `:` at the beginning of the line of text, a space, and then the definition text. Additional paragraphs just need to be indented by two spaces. See the example below:
 
-`--name-status`
-: Show only the names of files with a status of `Added`, `Deleted`, `Modified`, or `Type Changed`.
+<!-- markdownlint-disable MD040 -->
 ```
+term
+: Term definition.
+
+another term
+: Another term definition.
+
+  You can include multiple paragraphs in a definition if you need to.
+
+: And you can include more than one definition for a term by starting another line with a colon.
+
+: In est sit exercitation pariatur commodo sunt tempor mollit cillum magna et. Irure tempor cillum cupidatat sint velit veniam reprehenderit non et reprehenderit duis. Dolor magna aute dolore in sint eu fugiat irure laborum ea quis ipsum esse duis.
+```
+<!-- markdownlint-enable MD040 -->
+
+The example above produces the following output:
+
+term
+: Term definition.
+
+another term
+: Another term definition.
+
+  You can include multiple paragraphs in a definition if you need to.
+
+: And you can include more than one definition for a term by starting another line with a colon.
+
+: In est sit exercitation pariatur commodo sunt tempor mollit cillum magna et. Irure tempor cillum cupidatat sint velit veniam reprehenderit non et reprehenderit duis. Dolor magna aute dolore in sint eu fugiat irure laborum ea quis ipsum esse duis.
 
 ## Tables
 
 Create tables in Markdown like this:
 
-```text
+<!-- markdownlint-disable MD040 -->
+```
 Chef Software | Description
 --------|------
-Infra Client | Awesome
-Infra Server | Fun
-Habitat | Super cool
+Chef Infra Client | Awesome
+Chef Infra Server | Fun
+Chef Habitat | Super cool
 ```
+<!-- markdownlint-enable MD040 -->
 
 Use three or more hyphens (---) to separate each column's header from the content of the table. Separate columns with a vertical bar or pipe (|).
+
+{{< note >}}
+
+Use tables for displaying data. Don't use tables for defining CLI commands, properties, parameters, or other terms. Use a [definition list](#definition-lists) to define terms.
+
+{{< /note >}}
 
 ## Inline Markup
 
@@ -262,3 +293,11 @@ Which looks like this:
 {{< figure src="/images/chef-logo.svg" title="Chef Logo" height="100" width="150">}}
 
 Raster images should be 96 dpi and no larger than 600 pixels wide. This helps ensure that the image can be printed and/or built into other output formats; in some cases, separate 300 dpi files should be maintained for images that require inclusion in formats designed for printing and/or presentations.
+
+## Markdownlint
+
+We use [Markdownlint](https://github.com/DavidAnson/markdownlint) in a [GitHub action](https://github.com/DavidAnson/markdownlint-cli2-action) to lint the
+Markdown in each pull request. See the [Markdownlint](https://github.com/DavidAnson/markdownlint) repository for information about the different Markdown
+rules that the linter will check for.
+
+If necessary, you can enable or disable Markdownlint for a line, section of a page, or an entire page. See the [Markdownlint documentation](https://github.com/DavidAnson/markdownlint#configuration) for additional information.

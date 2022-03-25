@@ -10,20 +10,20 @@ The [<https://github.com/chef/chef-web-docs>](https://github.com/chef/chef-web-d
 
 This README.md covers information on building and previewing documentation. The House Style Guide and more detailed information about Hugo and our documentation tools are published in the documentation:
 
-- [Basics](https://docs.chef.io/style_index/). (Similar to content on this page)
-- [Chef House Style](https://docs.chef.io/style_house/)
-- [Tools](https://docs.chef.io/style_tools/)
-- [Hugo](https://docs.chef.io/style_hugo/)
-- [Markdown](https://docs.chef.io/style_markdown/)
-- [Content Reuse and Shortcodes](https://docs.chef.io/style_reuse/)
+- [Basics](https://docs.chef.io/style_guide/). (Similar to content on this page)
+- [Chef House Style](https://docs.chef.io/style_guide/chef_house/)
+- [Hugo](https://docs.chef.io/style_guide/hugo/)
+- [Markdown](https://docs.chef.io/style_guide/markdown/)
+- [Content Reuse and Shortcodes](https://docs.chef.io/style_guide/reuse/)
+- [Tools](https://docs.chef.io/style_guide/tools/)
 
-## Distributed documentation
+## Distributed Documentation
 
 The Chef documentation source is highly distributed and depends on [Hugo modules](https://gohugo.io/hugo-modules/) to pull in documentation from other Chef repositories. The content from those repositories is [vendored](#hugo-vendoring) in chef-web-docs.
 
 To make changes to the content in those repositories, submit pull requests to the appropriate repository. Do not submit pull requests to the vendored files in chef-web-docs. We will update those changes after they're merged or after a new version of a product is released.
 
-## GitHub repositories with documentation
+## GitHub Repositories with Documentation
 
 - Chef Automate: [<https://github.com/chef/automate/tree/main/components/docs-chef-io>](https://github.com/chef/automate/tree/main/components/docs-chef-io
 )
@@ -45,7 +45,7 @@ To make changes to the content in those repositories, submit pull requests to th
 - Chef InSpec Habitat [<https://github.com/inspec/inspec-habitat/tree/main/docs-chef-io>](https://github.com/inspec/inspec-habitat/tree/main/docs-chef-io
 )
 
-## The fastest way to contribute
+## The Fastest Way to Contribute
 
 The fastest way to change the documentation is to edit a page on the
 GitHub website using the GitHub UI.
@@ -79,7 +79,7 @@ few days. The important part is submitting your change.
 
 The Chef Documentation website is built using:
 
-- [Hugo](https://gohugo.io/) 0.61 or higher
+- [Hugo](https://gohugo.io/) 0.91.2 or higher
 - [Node](https://www.nodejs.com) 10.0.0 or higher
 - [NPM](https://www.npmjs.com/) 5.6.0 or higher
 - [Go](https://golang.org/dl/) 1.12 or higher
@@ -95,7 +95,7 @@ To install Hugo on Ubuntu, run:
 - `snap install node --classic --channel=12`
 - `snap install hugo --channel=extended`
 
-### Troubleshooting your Dev Environment
+### Troubleshooting Your Development Environment
 
 To clean your local development environment:
 

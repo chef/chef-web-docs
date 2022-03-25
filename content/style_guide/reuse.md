@@ -1,7 +1,7 @@
 +++
 title = "Content Reuse and Hugo Shortcodes"
 draft = false
-
+aliases = ["/style_reuse"]
 gh_repo = "chef-web-docs"
 product = []
 
