@@ -1,16 +1,9 @@
 {{ $file := "" }}
 {{ with (.Get "file") }}
-  {{ $file = (delimit (slice "themes/docs-new/layouts/shortcodes/" ( . )) "") }}
+  {{ $file = (delimit (slice "layouts/shortcodes/" ( . )) "") }}
 {{ end }}
 {{ with (.Get "file_path") }}
   {{ $file = . }}
 {{ end }}
 
 {{ readFile $file | markdownify }}
-
-{{/* if fileExists $file */}}
-  {{/* readFile $file | markdownify */}}
-{{/* else */}}
-  {{/* $file := (delimit (slice "chef-web-docs/themes/docs-new/layouts/shortcodes/" (.Get "file")) "") */}}
-  {{/* readFile $file | markdownify */}}
-{{/* end */}}
