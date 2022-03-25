@@ -127,7 +127,7 @@ another term
 ```
 <!-- markdownlint-enable MD040 -->
 
-which produces this output:
+The example above produces the following output:
 
 term
 : Term definition.
@@ -141,11 +141,11 @@ another term
 
 : In est sit exercitation pariatur commodo sunt tempor mollit cillum magna et. Irure tempor cillum cupidatat sint velit veniam reprehenderit non et reprehenderit duis. Dolor magna aute dolore in sint eu fugiat irure laborum ea quis ipsum esse duis.
 
-
 ## Tables
 
 Create tables in Markdown like this:
 
+<!-- markdownlint-disable MD040 -->
 ```
 Chef Software | Description
 --------|------
@@ -153,12 +153,13 @@ Chef Infra Client | Awesome
 Chef Infra Server | Fun
 Chef Habitat | Super cool
 ```
+<!-- markdownlint-enable MD040 -->
 
 Use three or more hyphens (---) to separate each column's header from the content of the table. Separate columns with a vertical bar or pipe (|).
 
 {{< note >}}
 
-Use tables for displaying data. Don't use tables for defining CLI commands, properties, parameters, or other terms. Use a [definition list](#definition-lists) to define things.
+Use tables for displaying data. Don't use tables for defining CLI commands, properties, parameters, or other terms. Use a [definition list](#definition-lists) to define terms.
 
 {{< /note >}}
 
@@ -292,3 +293,11 @@ Which looks like this:
 {{< figure src="/images/chef-logo.svg" title="Chef Logo" height="100" width="150">}}
 
 Raster images should be 96 dpi and no larger than 600 pixels wide. This helps ensure that the image can be printed and/or built into other output formats; in some cases, separate 300 dpi files should be maintained for images that require inclusion in formats designed for printing and/or presentations.
+
+## Markdownlint
+
+We use [Markdownlint](https://github.com/DavidAnson/markdownlint) in a [GitHub action](https://github.com/DavidAnson/markdownlint-cli2-action) to lint the
+Markdown in each pull request. See the [Markdownlint](https://github.com/DavidAnson/markdownlint) repository for information about the different Markdown
+rules that the linter will check for.
+
+If necessary, you can enable or disable Markdownlint for a line, section of a page, or an entire page. See the [Markdownlint documentation](https://github.com/DavidAnson/markdownlint#configuration) for additional information.

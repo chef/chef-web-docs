@@ -79,7 +79,7 @@ few days. The important part is submitting your change.
 
 The Chef Documentation website is built using:
 
-- [Hugo](https://gohugo.io/) 0.61 or higher
+- [Hugo](https://gohugo.io/) 0.91.2 or higher
 - [Node](https://www.nodejs.com) 10.0.0 or higher
 - [NPM](https://www.npmjs.com/) 5.6.0 or higher
 - [Go](https://golang.org/dl/) 1.12 or higher
