@@ -87,7 +87,7 @@ The Chef Documentation website is built using:
 To install Hugo, NPM, and Go on Windows and macOS:
 
 - On macOS run: `brew install hugo node go`
-- On Windows run: `choco install hugo nodejs golang`
+- On Windows run: `choco install hugo-extended nodejs golang`
 
 To install Hugo on Ubuntu, run:
 
