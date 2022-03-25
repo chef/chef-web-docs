@@ -19,4 +19,4 @@ the tuning effort for the **opscode-erchef** service:
 
 `opscode_erchef['strict_search_result_acls']`
 
-:   {{ readFile "themes/docs-new/layouts/shortcodes/settings_strict_search_result_acls.md" | markdownify }}
+:   {{ readFile "layouts/shortcodes/settings_strict_search_result_acls.md" | markdownify }}

@@ -17,7 +17,7 @@ gh_repo = "chef-web-docs"
 
 The following sections describe the section heading pattern that Chef is using for topic titles, H1s, H2s, H3s and H4s.
 
-As a general rule, limit the number of heading levels to no more than two within a topic. There can be exceptions, especially if the document is large, but remember that HTML TOC structures usually have width limitations (on the display side) and the more structure within a TOC, the harder it can be for users to figure out what's in it.
+As a general rule, limit the number of heading levels to no more than two within a topic. There can be exceptions, especially if the document is large, but remember that HTML TOC structures usually have width limitations (on the display side) and the more structure within a TOC, the harder it can be for users to figure out what is in it.
 
 Unless the topics are about installing things or about API endpoints, the headings should never wrap. Keep them to a single line.
 
@@ -57,7 +57,7 @@ Use four hash characters (####) before the heading name to indicate H4 headings:
 This is the paragraph.
 ```
 
-### Other headings
+### Other Headings
 
 If you need more than four heading levels, use bold emphasis and then white space to make the heading text stand out and separate the heading from the content:
 
@@ -143,7 +143,7 @@ Use two asterisks (\*) to mark a text string as **bold**:
 
 ```text
 **text goes here**
-text
+```
 
 ### Code Strings
 
@@ -201,10 +201,10 @@ default['apache']['listen_ports'] = [ '80', '443' ]
 Use this approach to show code blocks that use any type of shell command, such as for Knife or the Chef Infra Client or for any other command-line example that may be required:
 
 ```bash
-$ knife data bag create admins
+knife data bag create admins
 ```
 
-### Javascript (and JSON)
+### JavaScript (and JSON)
 
 Use this approach to show code blocks that use any type of JavaScript, including any JSON code sample:
 
@@ -222,15 +222,15 @@ Use this approach to show code blocks that use any type of JavaScript, including
 
 Literals should be used sparingly, but sometimes there is a need for a block of text that does not work in a fenced code block, such as showing a directory structure, basic syntax, or pseudocode. To make a literal code block, indent the text by **four** spaces:
 
-```md
-
-a block of literal text indented three spaces
-with more
-text as required to
-complete the block of text.
-end.
+<!-- markdownlint-disable MD040 -->
+```
+    A block of literal text indented four spaces
+    with more
+    text as required to
+    complete the block of text.
 
 ```
+<!-- markdownlint-enable MD040 -->
 
 ## Images
 
@@ -239,7 +239,7 @@ You have two options for formatting images in Hugo:
 * Markdown syntax
 * the `figure` shortcode
 
-### Markdown syntax
+### Markdown Syntax
 
 To add an image in Markdown, use an exclamation point, square brackets around the alt text, parenthesis around the path to the image file starting in the `static` directory, and then optional hover text. For example:
 

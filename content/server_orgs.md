@@ -634,11 +634,11 @@ Infra Server, that Chef Infra Client is added to the `clients` group:
 
 ### Scenario
 
-{{< readFile_shortcode file="server_rbac_server_admins_scenario.md" >}}
+{{% server_rbac_server_admins_scenario %}}
 
 #### Superuser Accounts
 
-{{< readFile_shortcode file="server_rbac_server_admins_superusers.md" >}}
+{{% server_rbac_server_admins_superusers %}}
 
 ### Manage server-admins Group
 

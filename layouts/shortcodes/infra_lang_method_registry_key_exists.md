@@ -1,5 +1,5 @@
-Use the `registry_get_values` method to get the registry key values
-(name, type, and data) for a Windows registry key.
+Use the `registry_key_exists?` method to find out if a Windows
+registry key exists at the specified path.
 
 <div class="admonition-note">
 
@@ -7,16 +7,16 @@ Use the `registry_get_values` method to get the registry key values
 
 <div class="admonition-note-text">
 
-{{ readFile "themes/docs-new/layouts/shortcodes/notes_registry_key_not_if_only_if.md" | markdownify }}
+{{ readFile "layouts/shortcodes/notes_registry_key_not_if_only_if.md" | markdownify }}
 
 </div>
 
 </div>
 
-The syntax for the `registry_get_values` method is as follows:
+The syntax for the `registry_key_exists?` method is as follows:
 
 ```ruby
-subkey_array = registry_get_values(KEY_PATH, ARCHITECTURE)
+registry_key_exists?(KEY_PATH, ARCHITECTURE)
 ```
 
 where:
@@ -37,4 +37,5 @@ where:
     to use the appropriate key location based on your node's
     architecture. Default value: `:machine`.
 
-This returns an array of registry key values.
+This method will return `true` or `false`. (Any registry key values that
+are associated with this registry key are ignored.)

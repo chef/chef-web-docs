@@ -384,4 +384,4 @@ be used in templates as a variable, among other possible uses.
 
 {{% data_bag %}}
 
-{{< readFile_shortcode file="search_data_bag.md" >}}
+{{% search_data_bag %}}

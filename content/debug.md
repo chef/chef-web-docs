@@ -176,11 +176,11 @@ The following examples demonstrate various approaches for using resources in rec
 
 ### Debug Existing Recipe
 
-{{< readFile_shortcode file="chef_shell_debug_existing_recipe.md" >}}
+{{% chef_shell_debug_existing_recipe %}}
 
 ### Advanced Debugging
 
-{{< readFile_shortcode file="chef_shell_advanced_debug.md" >}}
+{{% chef_shell_advanced_debug %}}
 
 ### debug_value
 

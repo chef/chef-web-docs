@@ -34,7 +34,7 @@ The following examples show ways to use the Handler DSL.
 
 #### Define How Email is Sent
 
-{{< readFile_shortcode file="dsl_handler_slide_send_email_library.md" >}}
+{{% dsl_handler_slide_send_email_library %}}
 
 #### Add the Handler
 

@@ -7,7 +7,7 @@ values that are present for a Windows registry key.
 
 <div class="admonition-note-text">
 
-{{ readFile "themes/docs-new/layouts/shortcodes/notes_registry_key_not_if_only_if.md" | markdownify }}
+{{ readFile "layouts/shortcodes/notes_registry_key_not_if_only_if.md" | markdownify }}
 
 </div>
 
