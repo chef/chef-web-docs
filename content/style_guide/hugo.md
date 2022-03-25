@@ -1,6 +1,7 @@
 +++
 title = "Hugo Guide"
 draft = false
+aliases = ["/style_hugo"]
 
 gh_repo = "chef-web-docs"
 

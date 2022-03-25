@@ -1,14 +1,14 @@
 +++
-title = "Docs Style"
+title = "Docs Style Guide"
 draft = false
 gh_repo = "chef-web-docs"
-aliases = ["/style_guide.html"]
+aliases = ["/style_guide.html", "/style_index/"]
 product = []
 
 [menu]
   [menu.overview]
     title = "Docs Style"
-    identifier = "overview/style/style_index"
+    identifier = "overview/style/Docs Style"
     parent = "overview/style"
     weight = 80
 +++
@@ -36,22 +36,30 @@ We try to keep our documentation source as close to the code as possible, which 
 <!-- markdownlint-disable -->
 | Product | GitHub Docs Directory |
 |---------|-----------------------|
-|Chef Automate |https://github.com/chef/automate/tree/main/components/docs-chef-io|
-|Chef Habitat |https://github.com/habitat-sh/habitat/tree/main/components/docs-chef-io|
-|Chef Infra Client |https://github.com/chef/chef-web-docs|
-|Chef Infra Server |https://github.com/chef/chef-server/tree/main/docs-chef-io|
-|Chef Inspec| https://github.com/inspec/inspec/tree/main/docs-chef-io|
+| Chef Automate |https://github.com/chef/automate/tree/main/components/docs-chef-io|
+| Chef Desktop |https://github.com/chef/desktop-config/blob/main/docs-chef-io/|
+| Chef Habitat |https://github.com/habitat-sh/habitat/tree/main/components/docs-chef-io|
+| Chef Infra Client |https://github.com/chef/chef-web-docs|
+| Chef Infra Server |https://github.com/chef/chef-server/tree/main/docs-chef-io|
+| Chef Inspec| https://github.com/inspec/inspec/tree/main/docs-chef-io|
+| Chef Inspec AliCloud Resource Pack | https://github.com/inspec/inspec-alicloud/tree/main/docs-chef-io|
+| Chef InSpec AWS Resource Pack| https://github.com/inspec/inspec-aws/tree/main/docs-chef-io|
+| Chef Inspec Azure Resource Pack| https://github.com/inspec/inspec-azure/tree/main/docs-chef-io|
+| Chef InSpec Habitat Resource Pack | https://github.com/inspec/inspec-habitat/tree/main/docs-chef-io|
+| Chef Supermarket | https://github.com/chef/supermarket/tree/main/docs-chef-io |
+| Chef Workstation| https://github.com/chef/chef-workstation/tree/main/docs-chef-io|
+| Effortless Pattern |https://github.com/chef/effortless/tree/main/docs-chef-io|
 <!-- markdownlint-enable -->
+
 ## How to Make a Change
 
 ### Finding the Right Repository
 
 The easiest way to find the location of the source file is to select the `Edit on GitHub` link at the top of every documentation file in your browser.
 
-Selecting `Edit on GitHub`
-![Edit On GitHub](/images/edit_on_github.png)
+Selecting `Edit on GitHub` opens the related documentation file in the correct repository.
 
-Opens the related documentation file in the correct repository.
+![Edit On GitHub](/images/edit_on_github.png)
 
 ### Suggest a Change
 
@@ -80,7 +88,7 @@ Select `propose changes` and finish opening your PR.
 
 You can add a DCO signoff to your pull request by adding it to the text of your commit message, or by using the `-s` or `--signoff` option when you make a commit.
 
-#### Add a DCO to a PR
+#### Add a DCO to a Pull Request
 
 If you forget to add a DCO sign-off before submitting a pull request, you can amend your commit from the command line with the Git CLI by entering `git commit --amend --signoff`. After that you'll need to force push your commit to GitHub using the command `git push -f`.
 
@@ -102,6 +110,10 @@ To invoke the Obvious Fix rule, simply add `Obvious Fix.` to your commit message
 For more information, see our [Obvious Fix policy](https://github.com/chef/chef/blob/main/CONTRIBUTING.md#chef-obvious-fix-policy).
 
 ## Preview the Build
+
+We use [Hugo](https://gohugo.io/documentation/) to build and preview our documentation. See the `chef-web-docs` [README](https://github.com/chef/chef-web-docs#local-development-environment) for information on setting up Hugo and previewing documentation changes locally.
+
+We also use [Netlify](https://docs.netlify.com/) to deploy our documentation and preview pull requests. Netlify generates a preview of <docs.chef.io> when a pull request is made that changes documentation content. Netlify automatically adds a link to the preview build in a pull request comment.
 
 ## Deleting Pages or Making New Pages
 

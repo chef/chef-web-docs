@@ -1,7 +1,7 @@
 +++
 title = "Markdown Guide"
 draft = false
-
+aliases = ["/style_markdown"]
 gh_repo = "chef-web-docs"
 
 [menu]
@@ -69,7 +69,7 @@ content, as normally authored.
 
 ## Lists
 
-The following sections describe conventions for lists and tables in Chef docs.
+The following sections describe conventions for lists in Chef docs.
 
 ### Bulleted Lists
 
@@ -107,30 +107,60 @@ Start each ordered list item with the number 1 (1.). Hugo will generate the corr
 
 ### Definition Lists
 
-Definition lists are used to show the options available to a command
-line tool:
+Use a definition list to define a term, including CLI commands, command flags, parameters, and properties.
 
-```text
-`--name-only`
-: Show only the names of modified files.
+You can include more than definition for a term and more than one paragraph for a definition. Each definition should have a `:` at the beginning of the line of text, a space, and then the definition text. Additional paragraphs just need to be indented by two spaces. See the example below:
 
-`--name-status`
-: Show only the names of files with a status of `Added`, `Deleted`, `Modified`, or `Type Changed`.
+<!-- markdownlint-disable MD040 -->
 ```
+term
+: Term definition.
+
+another term
+: Another term definition.
+
+  You can include multiple paragraphs in a definition if you need to.
+
+: And you can include more than one definition for a term by starting another line with a colon.
+
+: In est sit exercitation pariatur commodo sunt tempor mollit cillum magna et. Irure tempor cillum cupidatat sint velit veniam reprehenderit non et reprehenderit duis. Dolor magna aute dolore in sint eu fugiat irure laborum ea quis ipsum esse duis.
+```
+<!-- markdownlint-enable MD040 -->
+
+which produces this output:
+
+term
+: Term definition.
+
+another term
+: Another term definition.
+
+  You can include multiple paragraphs in a definition if you need to.
+
+: And you can include more than one definition for a term by starting another line with a colon.
+
+: In est sit exercitation pariatur commodo sunt tempor mollit cillum magna et. Irure tempor cillum cupidatat sint velit veniam reprehenderit non et reprehenderit duis. Dolor magna aute dolore in sint eu fugiat irure laborum ea quis ipsum esse duis.
+
 
 ## Tables
 
 Create tables in Markdown like this:
 
-```text
+```
 Chef Software | Description
 --------|------
-Infra Client | Awesome
-Infra Server | Fun
-Habitat | Super cool
+Chef Infra Client | Awesome
+Chef Infra Server | Fun
+Chef Habitat | Super cool
 ```
 
 Use three or more hyphens (---) to separate each column's header from the content of the table. Separate columns with a vertical bar or pipe (|).
+
+{{< note >}}
+
+Use tables for displaying data. Don't use tables for defining CLI commands, properties, parameters, or other terms. Use a [definition list](#definition-lists) to define things.
+
+{{< /note >}}
 
 ## Inline Markup
 

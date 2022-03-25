@@ -1,7 +1,7 @@
 +++
 title = "Chef House Style"
 draft = false
-
+aliases = ["/style_house"]
 gh_repo = "chef-web-docs"
 
 [menu]
