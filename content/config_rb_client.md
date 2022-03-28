@@ -289,11 +289,7 @@ This configuration file has the following settings:
 : The location of the log file. Possible values: `/path/to/log_location`, `STDOUT`, `STDERR`, `:win_evt` (Windows Event Logger), or `:syslog` (writes to the syslog daemon facility with the originator set as `chef-client`). The application log will specify the source as `Chef`. Default value: `STDOUT`.
 
 `migrate_key_to_keystore`
-: Set this to true to tell Chef-Client to create a new key pair in a PFX certificate object and store that in the \LocalMachine\My certificate store. Chef will check for the presence of that key when the headers to connect to Chef Server are built and will use it if present. Windows Only for now, support for OS X coming.
-
-```ruby
-migrate_key_to_keystore true
-```
+: Set to `true` to tell the Chef Infra Client to create a new key pair in a PFX certificate object and store that in the local machine certificate store. Chef Infra Client will check for the presence of that key when the headers to connect to Chef Infra Server are built and will use it if present. **Windows only.**
 
 `minimal_ohai`
 : Run a minimal set of Ohai plugins providing data necessary for the execution of Chef Infra Client's built-in resources. Setting this to true will skip many large and time consuming plugins such as `cloud` or `packages`. Setting this to true may break cookbooks that assume all Ohai data will be present.
