@@ -4,7 +4,8 @@ var modalImg = document.getElementById("image_modal_content_image");
 var captionText = document.getElementById("image_modal_content_caption");
 
 // Run imageModal function on any image that is clicked
-var images = document.getElementsByTagName("IMG");
+var main = document.getElementById("main-content")
+var images = main.getElementsByTagName("IMG");
 for (var i = 0; i < images.length; i++) {
   images[i].addEventListener("click", imageModal);
 }
