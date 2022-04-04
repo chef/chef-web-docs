@@ -54,8 +54,8 @@ Use four hash characters (####) before the heading name to indicate H4 headings:
 ```text
 #### H4 Heading
 
-This is the paragraph.
 ```
+> This is the paragraph.
 
 ### Other Headings
 
