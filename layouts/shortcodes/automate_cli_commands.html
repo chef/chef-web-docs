@@ -1,6 +1,7 @@
 {{ $data_path := index $.Site.Data (split (.Get "data_path") "/") }}
 {{ range $data_path }}
 {{ $id := urlize .name }}
+{{ $command := strings.TrimPrefix "chef-automate " .name }}
   <h3 id="{{ $id }}">{{ .name }}</h2>
   <p>{{ .description }}</p>
 
@@ -23,12 +24,22 @@
   <div class="grid-x">
     {{ range .see_also }}
     {{ $sa_bits := split . " - " }}
-    {{ $sa_id := urlize (index $sa_bits 0) }}
-    {{ if not (hasPrefix $sa_id "chef-automate") }}
-      {{ $sa_id = delimit (slice "chef-automate" $sa_id) "-" }}
+    {{ $sa_id := index $sa_bits 0 }}
+    {{ $sa_string := index $sa_bits 1 }}
+
+    {{ $sa_command := "" }}
+    {{ $sa_command_id := "" }}
+
+    {{ if ( hasPrefix $id (urlize $sa_id ) )}}
+      {{ $sa_command_id = urlize $sa_id }}
+      {{ $sa_command = strings.TrimPrefix "chef-automate " $sa_id }}
+    {{ else }}
+      {{ $sa_command_id = urlize (print $id "-" $sa_id) }}
+      {{ $sa_command = print $command " " $sa_id }}
     {{ end }}
-    <div class="cell medium-3"><a href="#{{ $sa_id }}">{{ index $sa_bits 0 }}</a></div>
-    <div class="cell medium-9">{{ index $sa_bits 1 }}</div>
+
+    <div class="cell medium-3"><a href="#{{ $sa_command_id }}">{{ $sa_command }}</a></div>
+    <div class="cell medium-9">{{ $sa_string }}</div>
     {{ end }}
   </div>
 {{ end }}
