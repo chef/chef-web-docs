@@ -31,19 +31,22 @@ Check the Policyfile and apply it to our test nodes. Policies are a convenient s
 Your Chef Desktop `Policyfile.rb` should look similar to:
 
 ```ruby
-name 'desktop-config'
+name 'desktop-config-lite'
 
 # default_source :supermarket, 'https://supermarket.chef.io' do |s|
 #   s.preferred_for 'chef-client'
 # end
+cookbook 'desktop-config-lite', '~> 1.2.6'
 
 # run_list: chef-client will run these recipes in the order specified.
 # cookbook::recipe
-run_list 'desktop-config::default'
+run_list 'desktop-config-lite::default'
 
 # Specify a custom source for a single cookbook:
-cookbook 'desktop-config', path: '.'
+# cookbook 'custom-cookbook', '.'
 ```
+
+This will use the [desktop-config-lite](https://supermarket.chef.io/cookbooks/desktop-config-lite) cookbook from Chef Supermarket and run the default recipe.
 
 ### Upload the Policyfile
 

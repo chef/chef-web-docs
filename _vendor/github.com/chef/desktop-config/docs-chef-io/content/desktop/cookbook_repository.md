@@ -14,7 +14,7 @@ Estimated time: 1 hour (with your own virtual machines)
 
 This step introduces you to fundamentals of cookbook development and walks you through the process of creating, editing, and testing a simple cookbook. These are the same basic steps that you will expand on in developing your Chef Desktop cookbook.
 
-1. Learn about testing with Test Kitchen
+1. Learn about testing with [Test Kitchen](https://docs.chef.io/workstation/kitchen/)
 1. Set up your Chef development environment
 1. Make a demo cookbook
 1. Test your cookbook locally
