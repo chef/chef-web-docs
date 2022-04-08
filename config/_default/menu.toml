@@ -187,6 +187,12 @@ identifier = "automate"
   identifier = "automate/reference"
   parent = "automate"
 
+  [[automate]]
+  name = "Upgrade"
+  weight = 210
+  identifier = "automate/upgrade"
+  parent = "automate"
+
 ####
 # End Chef Automate Menu
 ####
