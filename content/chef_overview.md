@@ -107,7 +107,7 @@ The workstation is where users do most of their work, including:
 
 - Developing and testing cookbooks
 - Keeping the Chef Infra repository synchronized with version source control
-- Configuring organizational by including defining and applying Policyfiles or Policy Groups
+- Configuring organizational policy by including defining roles and applying Policyfiles or policy groups
 - Interacting with nodes, as (or when) required, such as performing a bootstrap operation
 
 ### Chef Workstation Components and Tools
