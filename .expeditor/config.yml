@@ -26,6 +26,9 @@ subscriptions:
   - workload: artifact_published:stable:chef-server:*
     actions:
     - bash:.expeditor/update_hugo_modules_artifact_published.sh
+  - workload: artifact_published:stable:chef-supermarket:*
+    actions:
+    - bash:.expeditor/update_hugo_modules_artifact_published.sh
   - workload: chef/automate:main_completed:project_promoted:chef/automate:main:acceptance:*
     actions:
     - bash:.expeditor/update_hugo_modules_project_promoted.sh

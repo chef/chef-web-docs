@@ -24,6 +24,11 @@ elif [ "${EXPEDITOR_PRODUCT_KEY}" == "chef-server" ]; then
   org="chef"
   tag_prefix=""
   tag_suffix="^{}"
+elif [ "${EXPEDITOR_PRODUCT_KEY}" == "supermarket" ]; then
+  subdirectory="docs-chef-io"
+  org="chef"
+  tag_prefix=""
+  tag_suffix=""
 fi
 
 # Return the commit SHA that matches the product tag.
