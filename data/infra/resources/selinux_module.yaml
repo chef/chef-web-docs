@@ -1,0 +1,76 @@
+---
+resource_reference: true
+resources_common_guards: true
+resources_common_notification: true
+resources_common_properties: true
+resource: selinux_module
+resource_description_list:
+- markdown: Use **selinux_module** module resource to create an SELinux policy module
+    from a cookbook file or content provided as a string.
+resource_new_in: '18.0'
+syntax_full_code_block: |-
+  selinux_module 'name' do
+    base_dir         String # default value: "/etc/selinux/local"
+    content          String
+    cookbook         String
+    module_name      String # default value: 'name' unless specified
+    source           String
+    action           Symbol # defaults to :create if not specified
+  end
+syntax_properties_list:
+syntax_full_properties_list:
+- "`selinux_module` is the resource."
+- "`name` is the name given to the resource block."
+- "`action` identifies which steps Chef Infra Client will take to bring the node into
+  the desired state."
+- "`base_dir`, `content`, `cookbook`, `module_name`, and `source` are the properties
+  available to this resource."
+actions_list:
+  :nothing:
+    shortcode: resources_common_actions_nothing.md
+  :create:
+    markdown: Compile a module and install it. (default)
+  :delete:
+    markdown: Remove module source files from `/etc/selinux/local`.
+  :install:
+    markdown: Install a compiled module into the system.
+  :remove:
+    markdown: Remove a module from the system.
+properties_list:
+- property: base_dir
+  ruby_type: String
+  required: false
+  default_value: "/etc/selinux/local"
+  description_list:
+  - markdown: Directory to create module source file in.
+- property: content
+  ruby_type: String
+  required: false
+  description_list:
+  - markdown: Module source as String.
+- property: cookbook
+  ruby_type: String
+  required: false
+  description_list:
+  - markdown: Cookbook to source from module source file from(if it is not located
+      in the current cookbook). The default value is the current cookbook.
+- property: module_name
+  ruby_type: String
+  required: false
+  default_value: The resource block's name
+  description_list:
+  - markdown: Override the module name.
+- property: source
+  ruby_type: String
+  required: false
+  description_list:
+  - markdown: Module source file name.
+examples: |
+  **Creating SElinux module from .te file located at `files` directory of your cookbook.**:
+
+  ```ruby
+  selinux_module 'my_policy_module' do
+    source 'my_policy_module.te'
+    action :create
+  end
+  ```
