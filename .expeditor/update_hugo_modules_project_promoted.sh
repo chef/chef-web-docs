@@ -10,7 +10,7 @@ if [[ "${EXPEDITOR_PROJECT}" == *"automate"* ]]; then
   org="chef"
   product_key="automate"
   subdirectory="components/docs-chef-io"
-  manifest="https://packages.chef.io/files/${EXPEDITOR_TARGET_CHANNEL}/automate/latest/manifest.json"
+  manifest="https://packages.chef.io/files/${EXPEDITOR_TARGET_CHANNEL}/automate/latest/manifest_semver.json"
   git_sha="$(curl -s $manifest | jq -r -c ".git_sha")"
 elif [[ "${EXPEDITOR_PROJECT}" == *"habitat"* ]]; then
   org="habitat-sh"
