@@ -190,7 +190,7 @@ identifier = "automate"
   [[automate]]
   name = "Upgrade"
   weight = 260
-  identifier = "automate/Upgrade"
+  identifier = "automate/upgrade"
   parent = "automate"
 
 ####
