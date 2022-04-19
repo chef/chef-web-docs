@@ -3,12 +3,12 @@ module github.com/chef/chef-web-docs
 go 1.16
 
 require (
-	github.com/chef/automate/components/docs-chef-io v0.0.0-20220329084952-298ef771035f // indirect
+	github.com/chef/automate/components/docs-chef-io v0.0.0-20220414101938-bb0758fb5ebb // indirect
 	github.com/chef/chef-server/docs-chef-io v0.0.0-20220405043356-6b576cca4f72 // indirect
 	github.com/chef/chef-workstation/docs-chef-io v0.0.0-20220405052802-a23c5d0ec791 // indirect
 	github.com/chef/desktop-config/docs-chef-io v0.0.0-20220405052948-5947f844edff // indirect
 	github.com/chef/effortless/docs-chef-io v0.0.0-20211119164252-4ff3d53886be // indirect
-	github.com/chef/supermarket/docs-chef-io v0.0.0-20220303181518-342cf6e77367 // indirect
+	github.com/chef/supermarket/docs-chef-io v0.0.0-20220414125530-d93a09e01d74 // indirect
 	github.com/cowboy/jquery-hashchange v0.0.0-20100902193700-0310f3847f90 // indirect
 	github.com/habitat-sh/habitat/components/docs-chef-io v0.0.0-20220321163225-e95f35d634b1 // indirect
 	github.com/inspec/inspec-alicloud/docs-chef-io v0.0.0-20220218210517-5887448b615c // indirect
