@@ -27,7 +27,20 @@ chef generate repo REPO_NAME
 
 ### Cookbook Directory Structure
 
-{{% cookbooks_default %}}
+The default structure of the cookbooks directory is:
+
+```
+. chef-repo
+  ├ cookbooks
+    ├ example
+    | ├ attributes
+    | | └ default.rb
+    | ├ recipes
+    | | └ default.rb
+    ├ metadata.rb
+    └ README.rb
+```
+
 
 ## Cookbook Commands
 
@@ -35,7 +48,41 @@ Use the following commands to create a cookbook, install a cookbook from Superma
 
 ### Create
 
-{{% chef_generate_cookbook %}}
+Chef Workstation generates the `cookbooks` directory as part of your Chef Infra repository, the `chef-repo`.
+
+Generate a `chef-repo/cookbooks` directory with the command:
+
+```bash
+chef generate template PATH_TO_COOKBOOKS COOKBOOK_NAME
+```
+
+For example, this command generates a `custom_web` cookbook:
+
+```bash
+chef generate cookbook cookbooks/custom_web
+```
+
+The `custom_web` cookbook directory has the structure:
+
+```text
+├ cookbooks
+ ├ custom_web
+ | ├ recipes
+ | | └ default.rb
+ | ├ test
+ | | └ integration
+ | | | └ default
+ | | | | └ default_test.rb
+ | ├ .gitignore
+ | ├ CHANGELOG.md
+ | ├ chefignore
+ | ├ kitchen.yml
+ | ├ LICENSE
+ | ├ metadata.rb
+ | ├ Policyfile.rb
+ | └ README.md
+```
+
 
 Any unneeded directory components can be left unused or deleted, if
 preferred.

@@ -10,7 +10,15 @@ product = []
 <!-- markdownlint-disable-file -->
 <!-- cSpell:disable  -->
 
-{{% EOL_chefdk %}}
+{{< note >}}
+
+ChefDK is [deprecated](/versions/#deprecated-products-and-versions) and no
+longer under active development.
+
+This document is no longer maintained.
+
+{{< /note >}}
+
 
 This page documents the ChefDK major changes for each release. For
 a detailed list of changes, see the [ChefDK Changelog on

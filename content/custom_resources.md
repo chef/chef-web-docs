@@ -49,7 +49,42 @@ You'll write the code for a custom resource in a Ruby file and located in a cook
 
 ### Generate a Custom Resource
 
-{{% chef_generate_resource %}}
+The `resources` directory does not exist by default in a cookbook.
+Generate the `resources` directory and a resource file from the `chef-repo/cookbooks` directory with the command:
+
+```bash
+chef generate resource PATH_TO_COOKBOOK RESOURCE_NAME
+```
+
+For example, this command generates a `site` resource in the `custom_web` cookbook:
+
+```bash
+chef generate resource cookbooks/custom_web site
+```
+
+The `custom_web` cookbook directory with a custom resource has the structure:
+
+```text
+├ cookbooks
+ ├ custom_web
+   ├ recipes
+   | └ default.rb
+   ├ resources
+   | └ site.rb
+   ├ test
+   | └ integration
+   | | └ default
+   | | | └ default_test.rb
+   ├ .gitignore
+   ├ CHANGELOG.md
+   ├ chefignore
+   ├ kitchen.yml
+   ├ LICENSE
+   ├ metadata.rb
+   ├ Policyfile.rb
+   └ README.md
+```
+
 
 ### Example Resource
 
