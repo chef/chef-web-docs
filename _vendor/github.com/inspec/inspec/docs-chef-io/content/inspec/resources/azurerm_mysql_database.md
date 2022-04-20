@@ -11,15 +11,13 @@ platform = "azure"
     parent = "inspec/resources/azure"
 +++
 
-{{< azurerm_deprecated resource="azure_mysql_database" >}}
-
 Use the `azurerm_mysql_database` InSpec audit resource to test properties and configuration of
 an Azure MySQL Database on a MySQL Server.
 
 ## Azure REST API version
 
 This resource interacts with version `2017-12-01` of the Azure Management API. For more
-information see the [Official Azure Documentation](https://docs.microsoft.com/en-us/rest/api/mysql/flexibleserver/databases).
+information see the [Official Azure Documentation](https://docs.microsoft.com/en-us/rest/api/mysql/databases/get).
 
 At the moment, there doesn't appear to be a way to select the version of the
 Azure API docs. If you notice a newer version being referenced in the official

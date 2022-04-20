@@ -11,8 +11,6 @@ platform = "azure"
     parent = "inspec/resources/azure"
 +++
 
-{{< azurerm_deprecated resource="azure_virtual_machine_disks" >}}
-
 Use the `azurerm_virtual_machine_disks` InSpec audit resource to test properties of
 some or all Azure Disks within a subscription.
 

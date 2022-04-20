@@ -13,8 +13,6 @@ gh_repo = "inspec"
 
 The following list of InSpec resources are available.
 
-{{< inspec_resources_filter >}}
-
 ## OS
 
 {{< inspec_resources platform="os" >}}
@@ -25,21 +23,11 @@ The following resources work on Linux operating systems.
 
 {{< inspec_resources platform="linux" >}}
 
-### BSD
-
-The following resources work on BSD operating systems.
-
-{{< inspec_resources platform="bsd" >}}
-
 ### Windows
 
 The following resources work on Windows operating systems.
 
 {{< inspec_resources platform="windows" >}}
-
-## Alibaba
-
-{{< inspec_resources platform="alicloud" >}}
 
 ## AWS
 

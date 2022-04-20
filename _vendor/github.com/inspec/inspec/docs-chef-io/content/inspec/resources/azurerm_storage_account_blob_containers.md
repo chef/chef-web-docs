@@ -11,14 +11,12 @@ platform = "azure"
     parent = "inspec/resources/azure"
 +++
 
-{{< azurerm_deprecated resource="azure_storage_account_blob_containers" >}}
-
 Use the `azurerm_storage_account_blob_containers` InSpec audit resource to test properties and configuration of Blob Containers within an Azure Storage Account.
 
 ## Azure REST API version
 
 This resource interacts with version `2018-07-01` of the Azure Management API. For more
-information see the [Official Azure Documentation](https://docs.microsoft.com/en-us/java/api/com.azure.resourcemanager.storage.models.blobcontainers.list?view=azure-java-stable).
+information see the [Official Azure Documentation](https://docs.microsoft.com/en-us/rest/api/storagerp/blobcontainers/blobcontainers_list).
 
 At the moment, there doesn't appear to be a way to select the version of the
 Azure API docs. If you notice a newer version being referenced in the official

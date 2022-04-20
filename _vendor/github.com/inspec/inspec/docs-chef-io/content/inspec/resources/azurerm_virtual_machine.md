@@ -11,8 +11,6 @@ platform = "azure"
     parent = "inspec/resources/azure"
 +++
 
-{{< azurerm_deprecated resource="azure_virtual_machine" >}}
-
 Use the `azurerm_virtual_machine` InSpec audit resource to test properties related to a
 virtual machine.
 

@@ -11,8 +11,6 @@ platform = "azure"
     parent = "inspec/resources/azure"
 +++
 
-{{< azurerm_deprecated resource="azure_virtual_networks" >}}
-
 Use the `azurerm_virtual_networks` InSpec audit resource to test properties related to
 virtual networks for a resource group.
 

@@ -11,8 +11,6 @@ platform = "azure"
     parent = "inspec/resources/azure"
 +++
 
-{{< azurerm_deprecated resource="azure_network_security_groups" >}}
-
 Use the `azurerm_network_security_groups` InSpec audit resource to enumerate Network
 Security Groups.
 

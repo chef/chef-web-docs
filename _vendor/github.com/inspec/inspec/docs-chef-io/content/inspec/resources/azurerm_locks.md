@@ -11,9 +11,8 @@ platform = "azure"
     parent = "inspec/resources/azure"
 +++
 
-{{< azurerm_deprecated resource="azure_locks" >}}
-
-Use the `azurerm_locks` InSpec audit resource to test properties of some or all Azure Resource Locks.
+Use the `azurerm_locks` InSpec audit resource to test properties of
+some or all Azure Resource Locks.
 
 ## Azure REST API version
 

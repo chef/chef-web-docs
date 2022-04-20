@@ -11,15 +11,13 @@ platform = "azure"
     parent = "inspec/resources/azure"
 +++
 
-{{< azurerm_deprecated resource="azure_cosmosdb_database_account" >}}
-
 Use the `azurerm_cosmosdb_database_account` InSpec audit resource to test properties and configuration of
 an Azure CosmosDb Database Account within a Resource Group.
 
 ## Azure REST API version
 
 This resource interacts with version `2015-04-08` of the Azure Management API. For more
-information see the [Official Azure Documentation](https://docs.microsoft.com/en-us/powershell/module/servicemanagement/azure.service/new-azureprofile?view=azuresmps-4.0.0).
+information see the [Official Azure Documentation](https://docs.microsoft.com/en-us/rest/api/cosmos-db-resource-provider/databaseaccounts/get).
 
 At the moment, there doesn't appear to be a way to select the version of the
 Azure API docs. If you notice a newer version being referenced in the official

@@ -11,8 +11,6 @@ platform = "azure"
     parent = "inspec/resources/azure"
 +++
 
-{{< azurerm_deprecated resource="azure_load_balancer" >}}
-
 Use the `azurerm_load_balancer` InSpec audit resource to test properties and configuration of
 an Azure Load Balancer.
 

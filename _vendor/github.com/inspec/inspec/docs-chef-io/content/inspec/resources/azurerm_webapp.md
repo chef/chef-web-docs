@@ -11,8 +11,6 @@ platform = "azure"
     parent = "inspec/resources/azure"
 +++
 
-{{< azurerm_deprecated resource="azure_webapp" >}}
-
 Use the `azurerm_webapp` InSpec audit resource to test properties of an Azure Webapp.
 
 ## Azure REST API version
