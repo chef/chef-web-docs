@@ -156,7 +156,7 @@ version 2.0.
 <tbody>
 <tr>
 <td>Supermarket</td>
-<td>3.x</td>
+<td>5.x</td>
 <td>GA</td>
 <td>TBD</td>
 </tr>
