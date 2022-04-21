@@ -62,7 +62,20 @@ Use the verbose logging that is built into Chef Infra Client:
 
 ### log Resource
 
-{{% resource_log_summary %}}
+Use the **log** resource to create log entries. The **log** resource
+behaves like any other resource: built into the resource collection
+during the compile phase, and then run during the execution phase. (To
+create a log entry that is not built into the resource collection, use
+`Chef::Log` instead of the **log** resource.)
+
+{{< note >}}
+
+By default, every log resource that executes will count as an updated
+resource in the updated resource count at the end of a Chef run. You can
+disable this behavior by adding `count_log_resource_updates false` to
+your Chef `client.rb` configuration file.
+
+{{< /note >}}
 
 New in 12.0, `-o RUN_LIST_ITEM`. Changed in 12.0 `-f` no longer allows unforked intervals, `-i SECONDS` is applied before a Chef Infra Client run.
 
@@ -72,7 +85,15 @@ New in 12.0, `-o RUN_LIST_ITEM`. Changed in 12.0 `-f` no longer allows unforked 
 
 #### Actions
 
-{{% resource_log_actions %}}
+The log resource has the following actions:
+
+`:nothing`
+
+:   {{% resources_common_actions_nothing %}}
+
+`:write`
+
+:   Default. Write to log.
 
 #### Properties
 
@@ -83,9 +104,11 @@ New in 12.0, `-o RUN_LIST_ITEM`. Changed in 12.0 `-f` no longer allows unforked 
 The following examples demonstrate various approaches for using
 resources in recipes:
 
-##### Specify a log entry
+##### Specify a Log Entry
 
-{{% resource_log_set_info %}}
+```ruby
+log 'a string to log'
+```
 
 ##### Set debug logging level
 
@@ -97,7 +120,12 @@ resources in recipes:
 
 ##### Add a message to a log file
 
-{{% resource_log_add_message %}}
+```ruby
+log 'message' do
+  message 'This is the message that will be added to the log.'
+  level :info
+end
+```
 
 ## Advanced
 
@@ -144,19 +172,44 @@ Read more [about exception, report, and start handlers](/handlers/).
 
 {{% chef_shell_breakpoints %}}
 
-{{% resource_breakpoint_summary %}}
+Use the **breakpoint** resource to add breakpoints to recipes. Run the
+chef-shell in Chef Infra Client mode, and then use those breakpoints to
+debug recipes. Breakpoints are ignored by Chef Infra Client during an
+actual Chef Infra Client run. That said, breakpoints are typically used
+to debug recipes only when running them in a non-production environment,
+after which they are removed from those recipes before the parent
+cookbook is uploaded to the Chef Infra Server.
 
 #### Syntax
 
-{{% resource_breakpoint_syntax %}}
+A **breakpoint** resource block creates a breakpoint in a recipe:
+
+```ruby
+breakpoint 'name' do
+  action :break
+end
+```
+
+where
+
+`:break` will tell Chef Infra Client to stop running a recipe; can
+only be used when Chef Infra Client is being run in chef-shell mode
 
 #### Actions
 
-{{% resource_breakpoint_actions %}}
+The breakpoint resource has the following actions:
+
+`:break`
+
+:   Use to add a breakpoint to a recipe.
+
+`:nothing`
+
+:   {{% resources_common_actions_nothing %}}
 
 #### Attributes
 
-{{% resource_breakpoint_properties %}}
+This resource does not have any properties.
 
 #### Examples
 
@@ -164,11 +217,59 @@ The following examples demonstrate various approaches for using resources in rec
 
 ##### A recipe without a breakpoint
 
-{{% resource_breakpoint_no %}}
+```ruby
+yum_key node['yum']['elrepo']['key'] do
+  url  node['yum']['elrepo']['key_url']
+  action :add
+end
+
+yum_repository 'elrepo' do
+  description 'ELRepo.org Community Enterprise Linux Extras Repository'
+  key node['yum']['elrepo']['key']
+  mirrorlist node['yum']['elrepo']['url']
+  includepkgs node['yum']['elrepo']['includepkgs']
+  exclude node['yum']['elrepo']['exclude']
+  action :create
+end
+```
 
 ##### The same recipe with breakpoints
 
-{{% resource_breakpoint_yes %}}
+```ruby
+breakpoint "before yum_key node['yum']['repo_name']['key']" do
+  action :break
+end
+
+yum_key node['yum']['repo_name']['key'] do
+  url  node['yum']['repo_name']['key_url']
+  action :add
+end
+
+breakpoint "after yum_key node['yum']['repo_name']['key']" do
+  action :break
+end
+
+breakpoint "before yum_repository 'repo_name'" do
+  action :break
+end
+
+yum_repository 'repo_name' do
+  description 'description'
+  key node['yum']['repo_name']['key']
+  mirrorlist node['yum']['repo_name']['url']
+  includepkgs node['yum']['repo_name']['includepkgs']
+  exclude node['yum']['repo_name']['exclude']
+  action :create
+end
+
+breakpoint "after yum_repository 'repo_name'" do
+  action :break
+end
+```
+
+where the name of each breakpoint is an arbitrary string. In the
+previous examples, the names are used to indicate if the breakpoint is
+before or after a resource, and then also to specify which resource.
 
 ### Step Through Run-list
 
@@ -238,24 +339,9 @@ where
 
 All resources share a set of common actions, attributes, and so on. Use the following attribute in a resource to help identify where an issue within a recipe may be located:
 
-<table>
-<colgroup>
-<col style="width: 12%" />
-<col style="width: 87%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Attribute</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>ignore_failure</code></td>
-<td>Continue running a recipe if a resource fails for any reason. Default value: <code>false</code>.</td>
-</tr>
-</tbody>
-</table>
+| Attribute      | Description                                                                           |
+|----------------|---------------------------------------------------------------------------------------|
+| ignore_failure | Continue running a recipe if a resource fails for any reason. Default value: `false`. |
 
 ### chef-solo
 

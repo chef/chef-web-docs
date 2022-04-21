@@ -96,19 +96,63 @@ The following examples show how to use `not_if` as a condition in a recipe:
 
 **Create a file, but not if an attribute has a specific value**
 
-{{% resource_template_add_file_not_if_attribute_has_value %}}
+The following example shows how to use the `not_if` condition to create
+a file based on a template and using the presence of an attribute value
+on the node to specify the condition:
+
+```ruby
+template '/tmp/somefile' do
+  mode '0755'
+  source 'somefile.erb'
+  not_if { node['some_value'] }
+end
+```
+
 
 **Create a file with a Ruby block, but not if "/etc/passwd" exists**
 
-{{% resource_template_add_file_not_if_ruby %}}
+The following example shows how to use the `not_if` condition to create
+a file based on a template and then Ruby code to specify the condition:
+
+```ruby
+template '/tmp/somefile' do
+  mode '0755'
+  source 'somefile.erb'
+  not_if do
+    ::File.exist?('/etc/passwd')
+  end
+end
+```
+
 
 **Create a file with Ruby block that has curly braces, but not if "/etc/passwd" exists**
 
-{{% resource_template_add_file_not_if_ruby_with_curly_braces %}}
+The following example shows how to use the `not_if` condition to create
+a file based on a template and using a Ruby block (with curly braces) to
+specify the condition:
+
+```ruby
+template '/tmp/somefile' do
+  mode '0755'
+  source 'somefile.erb'
+  not_if { ::File.exist?('/etc/passwd') }
+end
+```
+
 
 **Create a file using a string, but not if "/etc/passwd" exists**
 
-{{% resource_template_add_file_not_if_string %}}
+The following example shows how to use the `not_if` condition to create
+a file based on a template and using a string to specify the condition:
+
+```ruby
+template '/etc/some_config' do
+  mode '0640'
+  source 'some_config.erb'
+  not_if 'some_app --check-config'
+end
+```
+
 
 #### only_if Examples
 
@@ -116,15 +160,46 @@ The following examples show how to use `only_if` as a condition in a recipe:
 
 **Create a file, but only if an attribute has a specific value**
 
-{{% resource_template_add_file_only_if_attribute_has_value %}}
+The following example shows how to use the `only_if` condition to create
+a file based on a template and using the presence of an attribute on the
+node to specify the condition:
+
+```ruby
+template '/tmp/somefile' do
+  mode '0755'
+  source 'somefile.erb'
+  only_if { node['some_value'] }
+end
+```
+
 
 **Create a file with a Ruby block, but only if "/etc/passwd" does not exist**
 
-{{% resource_template_add_file_only_if_ruby %}}
+The following example shows how to use the `only_if` condition to create
+a file based on a template, and then use Ruby to specify a condition:
+
+```ruby
+template '/etc/some_app/some_config' do
+  mode '0640'
+  source 'some_config.erb'
+  only_if { ::File.exist?('/etc/some_app/') }
+end
+```
+
 
 **Create a file using a string, but only if "/etc/passwd" exists**
 
-{{% resource_template_add_file_only_if_string %}}
+The following example shows how to use the `only_if` condition to create
+a file based on a template and using a string to specify the condition:
+
+```ruby
+template '/tmp/somefile' do
+  mode '0755'
+  source 'somefile.erb'
+  only_if 'test -f /etc/passwd'
+end
+```
+
 
 ### Guard Interpreters
 
@@ -228,7 +303,34 @@ The following examples show how to use the `subscribes` notification in a recipe
 
 **Stash a file in a data bag**
 
-{{% resource_ruby_block_stash_file_in_data_bag %}}
+The following example shows how to use the **ruby_block** resource to
+stash a BitTorrent file in a data bag so that it can be distributed to
+nodes in the organization.
+
+```ruby
+# the following code sample comes from the ``seed`` recipe
+# in the following cookbook: https://github.com/mattray/bittorrent-cookbook
+
+ruby_block 'share the torrent file' do
+  block do
+    f = File.open(node['bittorrent']['torrent'], 'rb')
+    #read the .torrent file and base64 encode it
+    enc = Base64.encode64(f.read)
+    data = {
+      'id' => bittorrent_item_id(node['bittorrent']['file']),
+      'seed' => node['ipaddress'],
+      'torrent' => enc,
+    }
+    item = Chef::DataBagItem.new
+    item.data_bag('bittorrent')
+    item.raw_data = data
+    item.save
+  end
+  action :nothing
+  subscribes :create, "bittorrent_torrent[#{node['bittorrent']['torrent']}]", :immediately
+end
+```
+
 
 ### Relative Paths
 
