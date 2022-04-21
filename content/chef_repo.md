@@ -36,27 +36,26 @@ The default structure of a new chef-repo is:
 
 ```output
 . chef-repo
-├ cookbooks
-| └ README.md
-| ├ example
-  | ├ attribtes
-  | | └ default.rb
-  | ├ recipes
-  | | └ default.rb
-  | └ metadata.rb
-  | └ README.md
-├ data_bags
-  | ├ example
-  | | └ example_item.json
-  | └ README.md
-├ policyfiles
-  | └ README.md
-└ .chef-repo.txt
-└ chefignore
-└ License
-└ README.md
+  - cookbooks
+    - README.md
+    - example
+      - attribtes
+        - default.rb
+      - recipes
+        - default.rb
+      - metadata.rb
+      - README.md
+  - data_bags
+      - example
+        - example_item.json
+      - README.md
+  - policyfiles
+      - README.md
+  - .chef-repo.txt
+  - chefignore
+  - License
+  - README.md
 ```
-
 
 ### cookbooks/
 

@@ -147,4 +147,3 @@ where
     configuration
 - the **template** resource tells Chef Infra Client which template to
     use
-

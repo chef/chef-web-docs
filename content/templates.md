@@ -31,28 +31,26 @@ chef generate template cookbooks/custom_web httpd
 
 The `custom_web` cookbook directory with a template has the structure:
 
-
 ```text
-├ cookbooks
- ├ custom_web
-   ├ recipes
-   | └ default.rb
-   ├ templates
-   | └ http.erb
-   ├ test
-   | └ integration
-   | | └ default
-   | | | └ default_test.rb
-   ├ .gitignore
-   ├ CHANGELOG.md
-   ├ chefignore
-   ├ kitchen.yml
-   ├ LICENSE
-   ├ metadata.rb
-   ├ Policyfile.rb
-   └ README.md
+. cookbooks
+ - custom_web
+   - recipes
+     - default.rb
+   - templates
+     - http.erb
+   - test
+     - integration
+        -  default
+           -  default_test.rb
+   - .gitignore
+   - CHANGELOG.md
+   - chefignore
+   - kitchen.yml
+   - LICENSE
+   - metadata.rb
+   - Policyfile.rb
+   - README.md
 ```
-
 
 ## Requirements
 

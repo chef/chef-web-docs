@@ -195,7 +195,6 @@ else
 end
 ```
 
-
 ## platform_family?
 
 Use the `platform_family?` method to ensure that certain actions are run for specific platform families. The `platform_family?` method will return true if one of the listed parameters matches the `node['platform_family']` attribute that are detected by [Ohai](/ohai) during every Chef Infra Client run.

@@ -29,18 +29,17 @@ chef generate repo REPO_NAME
 
 The default structure of the cookbooks directory is:
 
-```
+```output
 . chef-repo
-  ├ cookbooks
-    ├ example
-    | ├ attributes
-    | | └ default.rb
-    | ├ recipes
-    | | └ default.rb
-    ├ metadata.rb
-    └ README.rb
+  - cookbooks
+    - example
+      - attributes
+        - default.rb
+      - recipes
+        - default.rb
+    - metadata.rb
+    - README.rb
 ```
-
 
 ## Cookbook Commands
 
@@ -65,24 +64,23 @@ chef generate cookbook cookbooks/custom_web
 The `custom_web` cookbook directory has the structure:
 
 ```text
-├ cookbooks
- ├ custom_web
- | ├ recipes
- | | └ default.rb
- | ├ test
- | | └ integration
- | | | └ default
- | | | | └ default_test.rb
- | ├ .gitignore
- | ├ CHANGELOG.md
- | ├ chefignore
- | ├ kitchen.yml
- | ├ LICENSE
- | ├ metadata.rb
- | ├ Policyfile.rb
- | └ README.md
+. cookbooks
+  - custom_web
+    - recipes
+      - default.rb
+    - test
+      - integration
+        - default
+          - default_test.rb
+    - .gitignore
+    - CHANGELOG.md
+    - chefignore
+    - kitchen.yml
+    - LICENSE
+    - metadata.rb
+    - Policyfile.rb
+    - README.md
 ```
-
 
 Any unneeded directory components can be left unused or deleted, if
 preferred.

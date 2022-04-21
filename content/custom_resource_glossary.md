@@ -372,6 +372,7 @@ logs of the Chef Infra Client run.
 
 A validation parameter is used to add zero (or more) validation parameters to a property.
 
+<!-- markdownlint-disable MD033 -->
 <table>
 <colgroup>
 <col style="width: 25%" />
@@ -425,6 +426,7 @@ A validation parameter is used to add zero (or more) validation parameters to a 
 </tr>
 </tbody>
 </table>
+<!-- markdownlint-enable MD033 -->
 
 Some examples of combining validation parameters:
 
@@ -435,7 +437,6 @@ property :spool_name, String, regex: /$\w+/
 ```ruby
 property :enabled, equal_to: [true, false, 'true', 'false'], default: true
 ```
-
 
 ## desired_state
 

@@ -93,7 +93,6 @@ approach can create situations where two otherwise identical nodes end
 up having slightly different configurations and can also be a challenge
 to debug.
 
-
 **File Methods**
 
 Use the following methods within the attributes file for a cookbook or within a recipe. These methods correspond to the attribute type of the same name:
@@ -102,7 +101,6 @@ Use the following methods within the attributes file for a cookbook or within a 
 - `default`
 - `normal`
 - `_unless`
-
 
 **attribute?**
 

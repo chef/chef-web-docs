@@ -23,7 +23,6 @@ attributes that were applied to the node are saved to the Chef Infra
 Server as part of the node object at the conclusion of each Chef Infra
 Client run.
 
-
 ## Limiting Attribute Persistence
 
 Some organizations find it helpful to control attribute data stored to the Chef Infra Server to limit the disk and CPU resources used when processing unused attributes. For example, your organization may find the data from the Ohai `Package` plugin useful when writing cookbooks, but you do not see the need in saving ~100k of package information for each Chef Infra Client run. By limiting the data that is saved to the Chef Infra Server, it will still be available on the node within cookbooks, but will not be saved to the Chef Infra Server where it is available in searches.

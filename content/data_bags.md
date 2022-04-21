@@ -69,7 +69,6 @@ required. For example:
 knife data bag from file BAG_NAME /path/to/file/ITEM_NAME.json
 ```
 
-
 ### Manually
 
 One or more data bags and data bag items can be created manually under
@@ -103,7 +102,6 @@ equivalent command for using knife is:
 knife data bag create admins charlie
 ```
 
-
 ## Store Data in a Data Bag
 
 When the chef-repo is cloned from GitHub, the following occurs:
@@ -129,7 +127,6 @@ When deploying from a private repository using a data bag, use the
 
 where `ssh_private_key` is the same SSH private key as used with a
 private git repository and the new lines converted to `\n`.
-
 
 ### Directory Structure
 
@@ -212,19 +209,16 @@ Chef Infra Client 11.6+
 Chef Infra Client 13.0+
 - Option to  disable version 0, 1, and 2
 
-
 ### Knife Options
 
 knife can encrypt and decrypt data bag items when the `knife data bag`
 subcommand is run with the `create`, `edit`, `from file`, or `show`
 arguments and the following options:
 
-| Option             | Description                                                                                                                                                                                                                         |
-|--------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Option             | Description                                                   |
+|--------------------|-------------------------------------------------------------|
 | `--secret SECRET`    | The encryption key that is used for values contained within a data bag item. If `secret` is not specified, Chef Infra Client looks for a secret at the path specified by the `encrypted_data_bag_secret` setting in the client.rb file. |
-| `--secret-file FILE` | The path to the file that contains the encryption key.                                                                                                                                                                              |
-
-
+| `--secret-file FILE` | The path to the file that contains the encryption key.           |
 
 ### Secret Keys
 
@@ -243,7 +237,6 @@ the data bag item, and "/tmp/my_data_bag_key" is the path to the
 location in which the file that contains the secret-key is located.
 knife will ask for user credentials before the encrypted data bag item
 is saved.
-
 
 ### Verify Encryption
 
@@ -272,7 +265,6 @@ iv:             uIqKHZ9skJlN2gpJoml6rQ==
 version:        1
 ```
 
-
 ### Decrypt
 
 An encrypted data bag item is decrypted with a knife command similar to:
@@ -290,7 +282,6 @@ that will return JSON output similar to:
   "user": "fred"
 }
 ```
-
 
 ## Edit a Data Bag Item
 
@@ -351,7 +342,6 @@ within a data bag. However, this approach is more time-consuming and may
 not scale to large environments or when the data must be stored in
 many data bag items.
 
-
 ### Recipes
 
 Data bags can be accessed by a recipe in the following ways:
@@ -410,7 +400,6 @@ using the key specified above, or (if none is specified) by the
 `Chef::Config[:encrypted_data_bag_secret]` method, which defaults to
 `/etc/chef/encrypted_data_bag_secret`.
 
-
 #### Create and Edit
 
 Creating and editing the contents of a data bag or a data bag item from
@@ -463,7 +452,6 @@ sam['Full Name'] = 'Samantha'
 sam.save
 ```
 
-
 #### Create Users
 
 Chef Infra Client can create users on systems based on the contents of a
@@ -502,7 +490,6 @@ group 'admins' do
   members 'admins'
 end
 ```
-
 
 ### `chef-solo`
 

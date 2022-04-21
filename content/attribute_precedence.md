@@ -22,7 +22,6 @@ order:
 | 5                                 | `force_override` | Cookbook attribute fileRecipe                                       |
 | 6                                 | `automatic`      | Identified by Ohai at the start of a Chef Infra Client Run          |
 
-
 {{< note >}}
 
 The attribute precedence order for the sources "roles" and "environments" are opposite in the `default` and `override`. The `default` order is **environment** then **role**. The `override` order is **role** then **environment**
@@ -43,7 +42,6 @@ precedence:
 Attribute precedence, when viewed as a table:
 
 ![image](/images/overview_chef_attributes_table.png)
-
 
 ## Examples
 

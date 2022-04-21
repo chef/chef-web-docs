@@ -110,7 +110,6 @@ resources in recipes:
 log 'a string to log'
 ```
 
-
 ##### Set debug logging level
 
 {{% resource_log_set_debug %}}
@@ -127,7 +126,6 @@ log 'message' do
   level :info
 end
 ```
-
 
 ## Advanced
 
@@ -197,7 +195,6 @@ where
 - `:break` will tell Chef Infra Client to stop running a recipe; can
     only be used when Chef Infra Client is being run in chef-shell mode
 
-
 #### Actions
 
 The breakpoint resource has the following actions:
@@ -236,7 +233,6 @@ yum_repository 'elrepo' do
 end
 ```
 
-
 ##### The same recipe with breakpoints
 
 ```ruby
@@ -274,7 +270,6 @@ end
 where the name of each breakpoint is an arbitrary string. In the
 previous examples, the names are used to indicate if the breakpoint is
 before or after a resource, and then also to specify which resource.
-
 
 ### Step Through Run-list
 
@@ -344,24 +339,9 @@ where
 
 All resources share a set of common actions, attributes, and so on. Use the following attribute in a resource to help identify where an issue within a recipe may be located:
 
-<table>
-<colgroup>
-<col style="width: 12%" />
-<col style="width: 87%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Attribute</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>ignore_failure</code></td>
-<td>Continue running a recipe if a resource fails for any reason. Default value: <code>false</code>.</td>
-</tr>
-</tbody>
-</table>
+| Attribute      | Description                                                                           |
+|----------------|---------------------------------------------------------------------------------------|
+| ignore_failure | Continue running a recipe if a resource fails for any reason. Default value: `false`. |
 
 ### chef-solo
 
