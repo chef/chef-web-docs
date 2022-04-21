@@ -148,7 +148,6 @@ ruby_block 'some_code' do
 end
 ```
 
-
 ### Use Ruby
 
 Anything that can be done with Ruby can be used within a recipe, such as

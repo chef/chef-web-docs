@@ -58,7 +58,6 @@ This tool has the following options:
 
 :   The version of Ohai.
 
-
 ## Examples
 
 The following examples show how to use the Ohai command-line tool:

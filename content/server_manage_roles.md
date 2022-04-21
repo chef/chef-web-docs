@@ -100,21 +100,21 @@ To view all roles uploaded to the Chef Infra Server organization:
 
 To edit the run-list for a role:
 
-1.  Open the Chef management console.
+1. Open the Chef management console.
 
-1.  Click **Policy**.
+1. Click **Policy**.
 
-1.  Click **Roles**.
+1. Click **Roles**.
 
-1.  Select a role.
+1. Select a role.
 
-1.  Click **Edit Run List**.
+1. Click **Edit Run List**.
 
     ![image](/images/step_manage_webui_policy_role_edit_run_list.png)
 
-1.  Make your changes.
+1. Make your changes.
 
-1.  Click **Save Run List**.
+1. Click **Save Run List**.
 
 ## Default Attributes
 

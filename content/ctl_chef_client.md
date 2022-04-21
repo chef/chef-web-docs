@@ -874,7 +874,6 @@ execute "enable #{node['chef_client']['svc_name']}" do
 end
 ```
 
-
 ## Configuring a Proxy Server
 
 See the [proxies](/proxies/) documentation for information on how to
