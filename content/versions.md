@@ -194,7 +194,7 @@ newer versions or products.
 <td>Chef Infra Client</td>
 <td>16.x</td>
 <td>Deprecated</td>
-<td>April 30, 2022</td>
+<td>November 30, 2022</td>
 </tr>
 <tr>
 <td>Chef Manage</td>
