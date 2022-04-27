@@ -20,8 +20,6 @@ and contribute, such as reading books, going to meetups, listening to
 podcasts, taking some training, and simply being a part of the
 community.
 
-![image](/images/ChefRally.jpg)
-
 ## Meet
 
 - [Chef events](https://www.chef.io/events)
