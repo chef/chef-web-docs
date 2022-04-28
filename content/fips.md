@@ -26,7 +26,7 @@ cryptographic modules under the FIPS 140-2 standard. The OpenSSL Object
 Module provides an API for invoking FIPS approved cryptographic
 functions from calling applications.
 
-### Who Ahould Enable FIPS?
+### Who Should Enable FIPS?
 
 You may be legally required to enable FIPS if you are a United States
 non-military government agency, or are contracting with one. If you are
