@@ -106,6 +106,90 @@ identifier = "automate"
   weight = 20
 
   [[automate]]
+  title = "High Availability"
+  identifier = "automate/deploy_high_availability"
+  parent = "automate"
+  weight = 25
+
+    [[automate]]
+    title = "Introduction"
+    identifier = "automate/deploy_high_availability/introduction"
+    parent = "automate/deploy_high_availability"
+    weight = 10
+
+    [[automate]]
+    title = "System Requirements"
+    identifier = "automate/deploy_high_availability/ha_system_requirements"
+    parent = "automate/deploy_high_availability"
+    weight = 40
+
+    [[automate]]
+    title = "AWS Deployment"
+    identifier = "automate/deploy_high_availability/aws_deployment"
+    parent = "automate/deploy_high_availability"
+    weight = 60
+
+    [[automate]]
+    title = "On-Premises Deployment"
+    identifier = "automate/deploy_high_availability/on_premises_deployment"
+    parent = "automate/deploy_high_availability"
+    weight = 80
+
+    [[automate]]
+    title = "Minimal Node HA Deployment"
+    identifier = "automate/deploy_high_availability/minimal_node_ha_deployment"
+    parent = "automate/deploy_high_availability"
+    weight = 120
+
+    [[automate]]
+    title = "Backup and Restore"
+    identifier = "automate/deploy_high_availability/backup_and_restore"
+    parent = "automate/deploy_high_availability"
+    weight = 140
+
+    [[automate]]
+    title = "Upgrade"
+    identifier = "automate/deploy_high_availability/ha_upgrade"
+    parent = "automate/deploy_high_availability"
+    weight = 160
+
+    [[automate]]
+    title = "Migration"
+    identifier = "automate/deploy_high_availability/migration"
+    parent = "automate/deploy_high_availability"
+    weight = 180
+
+    [[automate]]
+    title = "Certificates"
+    identifier = "automate/deploy_high_availability/certificates"
+    parent = "automate/deploy_high_availability"
+    weight = 220
+
+    [[automate]]
+    title = "Performance Benchmarking"
+    identifier = "automate/deploy_high_availability/performance_benchmarking"
+    parent = "automate/deploy_high_availability"
+    weight = 240
+
+    [[automate]]
+    title = "Troubleshooting"
+    identifier = "automate/deploy_high_availability/troubleshooting"
+    parent = "automate/deploy_high_availability"
+    weight = 260
+
+    [[automate]]
+    title = "FAQs"
+    identifier = "automate/deploy_high_availability/faqs"
+    parent = "automate/deploy_high_availability"
+    weight = 280
+
+    [[automate]]
+    title = "Reference"
+    identifier = "automate/deploy_high_availability/reference"
+    parent = "automate/deploy_high_availability"
+    weight = 300
+
+  [[automate]]
   title = "Configure"
   identifier = "automate/configure"
   parent = "automate"
