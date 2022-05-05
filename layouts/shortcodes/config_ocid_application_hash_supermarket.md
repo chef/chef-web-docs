@@ -7,3 +7,6 @@ oc_id['applications']['supermarket'] = {
   'redirect_uri' => 'https://supermarket.mycompany.com/auth/chef_oauth2/callback',
 }
 ```
+
+
+{{/* moved to chef-server repo */}}

@@ -6,3 +6,5 @@ These configuration settings are processed when the
 `chef-server-ctl reconfigure` command is run. The `chef-server.rb` file
 is a Ruby file, which means that conditional statements can be used
 within it.
+
+{{/* moved to chef-server repo */}}

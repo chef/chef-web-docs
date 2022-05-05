@@ -56,3 +56,5 @@ module MyCommands
   end
 end
 ```
+
+{{/* moved to chef-server repo */}}

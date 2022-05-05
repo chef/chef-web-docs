@@ -9,3 +9,5 @@ This subcommand has the following options:
 
 :   Write the ORGANIZATION-validator.pem to `FILE_NAME` instead of
     printing it to `STDOUT`.
+
+{{/* moved to chef-server repo */}}

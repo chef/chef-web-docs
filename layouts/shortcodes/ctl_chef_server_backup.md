@@ -10,3 +10,6 @@ This subcommand:
     backup](https://github.com/chef/knife-ec-backup) instead
 - Puts the initial backup in the `/var/opt/chef-backup` directory as a
     tar.gz file; move this backup to a new location for safe keeping
+
+
+{{/* moved to chef-server repo */}}

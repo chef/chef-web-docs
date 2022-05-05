@@ -4,3 +4,5 @@ tuning effort for the **bookshelf** service:
 `bookshelf['vip']`
 
 :   The virtual IP address. Default value: `node['fqdn']`.
+
+{{/* shortcode delete. Text moved to chef-server repo */}}

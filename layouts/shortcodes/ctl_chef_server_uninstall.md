@@ -20,3 +20,5 @@ To revert the `uninstall` subcommand, run the `reconfigure` subcommand
 </div>
 
 </div>
+
+{{/* moved to chef-server repo */}}

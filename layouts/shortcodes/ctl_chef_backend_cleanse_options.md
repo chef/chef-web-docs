@@ -4,3 +4,5 @@ This subcommand has the following options:
 
 :   Use to specify that data on an external PostgreSQL database should
     be removed.
+
+{{/* moved to chef-server repo */}}

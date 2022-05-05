@@ -4,3 +4,6 @@ and frontend group members of a High Availabilty installation):
 ```bash
 chef-server-ctl reconfigure
 ```
+
+
+{{/* moved to chef-server repo */}}

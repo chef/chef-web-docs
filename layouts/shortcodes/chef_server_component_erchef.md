@@ -18,3 +18,6 @@ Erlang is NOT a requirement for using Chef Infra.
 </div>
 
 </div>
+
+
+{{/* moved to chef-server repo */}}

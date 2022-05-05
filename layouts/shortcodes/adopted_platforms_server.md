@@ -46,3 +46,6 @@ The following table lists the commercially-supported platforms and versions for 
 </tr>
 </tbody>
 </table>
+
+
+{{/* moved to chef-server repo */}}

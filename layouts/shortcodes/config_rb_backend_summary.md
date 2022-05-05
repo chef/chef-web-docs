@@ -20,3 +20,6 @@ The following settings are the only settings you should modify without guidance:
 
 `publish_address`
 : Externally resolvable IP address of this back-end node.
+
+
+{{/* moved to chef-server repo */}}

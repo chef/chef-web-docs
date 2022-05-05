@@ -24,3 +24,6 @@ An RSA private key is generated automatically. This is the
 chef-validator key and should be saved to a safe location. The
 `--filename` option will save the RSA private key to the specified
 absolute path.
+
+
+{{/* moved to chef-server repo */}}

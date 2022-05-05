@@ -4,3 +4,6 @@ supervisor starts two processes for each service and provides the following
 subcommands for managing services: `hup`, `int`, `kill`, `once`,
 `restart`, `service-list`, `start`, `status`, `stop`, `tail`, and
 `term`.
+
+
+{{/* moved to chef-server repo */}}

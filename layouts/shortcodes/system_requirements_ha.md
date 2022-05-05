@@ -27,3 +27,5 @@ system.
 </div>
 
 </div>
+
+{{/* moved to chef-server repo */}}

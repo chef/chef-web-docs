@@ -50,3 +50,6 @@ run: oc-id
 run: opscode-chef: (pid 4327) 13671s; run: log: (pid 4326) 13671s
 run: opscode-erchef: (pid 5383) 5s; run: log: (pid 4382) 13669s
 ```
+
+
+{{/* moved to chef-server repo */}}

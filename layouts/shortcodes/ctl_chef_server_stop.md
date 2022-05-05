@@ -32,3 +32,6 @@ ok: down: opscode-solr4: 389s, normally up
 ok: down: postgresql: 388s, normally up
 ok: down: redis_lb: 387s, normally up
 ```
+
+
+{{/* moved to chef-server repo */}}

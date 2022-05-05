@@ -66,3 +66,6 @@ column) are open and accessible using any firewalls that are in use:
 </tr>
 </tbody>
 </table>
+
+
+{{/* moved to chef-server repo */}}

@@ -28,3 +28,6 @@ successfully restarted the output should be similar to:
 ```bash
 ok: run: service_name: (pid 12345) 1s
 ```
+
+
+{{/* moved to chef-server repo */}}

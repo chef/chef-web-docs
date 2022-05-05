@@ -48,3 +48,6 @@ firewalls that are in use:
 </tr>
 </tbody>
 </table>
+
+
+{{/* moved to chef-server repo */}}

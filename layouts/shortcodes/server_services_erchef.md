@@ -9,3 +9,5 @@ the Chef Infra Server:
 - Roles
 - Sandboxes
 - Search
+
+{{/* moved to chef-server repo */}}
