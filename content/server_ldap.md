@@ -53,7 +53,7 @@ the following:
     Availability installation as well as on Chef servers in a standalone
     installation.
 
-    {{< readFile_shortcode file_path="layouts/shortcodes/config_rb_server_settings_ldap.md" >}}
+    {{< readfile file="layouts/shortcodes/config_rb_server_settings_ldap.md" >}}
 
     {{< note spaces=4 >}}
 
@@ -62,7 +62,7 @@ the following:
 
     {{< /note >}}
 
-3. {{< readFile_shortcode file_path="layouts/shortcodes/install_chef_server_reconfigure.md" >}}
+3. {{< readfile file="layouts/shortcodes/install_chef_server_reconfigure.md" >}}
 
 At this point, all users should be able to use their Active Directory or
 LDAP usernames and passwords to log in to the Chef Infra Server.
