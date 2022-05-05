@@ -31,4 +31,6 @@ In addition:
 - **Chef Infra Client communication with the Chef Infra Server** The
     Chef Infra Server must be able to communicate with every node that
     will be configured by Chef Infra Client and every workstation that
-    will upload data to the Chef Infra
+    will upload data to the Chef Infra.
+
+{{/* moved to chef-server repo */}}

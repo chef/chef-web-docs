@@ -13,3 +13,6 @@ For example:
 ```bash
 sudo chef-server-ctl user-create janedoe Jane Doe janed@example.com 'abc123' --filename /path/to/janedoe.pem
 ```
+
+
+{{/* moved to chef-server repo */}}

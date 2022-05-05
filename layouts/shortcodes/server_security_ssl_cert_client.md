@@ -23,3 +23,5 @@ ERROR: OpenSSL::SSL::SSLError: SSL_connect returned=1 errno=0 state=SSLv3 ...
 
 This is by design and will occur until a verifiable certificate is added
 to the machine from which the request is sent.
+
+{{/* moved to chef-server repo */}}

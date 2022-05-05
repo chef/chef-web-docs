@@ -16,3 +16,6 @@ Response: Missing read permission
 
 Alice's action is unauthorized even with membership in the
 `server-admins` group.
+
+
+{{/* moved to chef-server repo */}}

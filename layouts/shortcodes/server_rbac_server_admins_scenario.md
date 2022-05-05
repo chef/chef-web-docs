@@ -83,3 +83,6 @@ knife user edit carol -c ~/.chef/alice.rb
 
 and the \$EDITOR opens in which Alice makes changes, and then saves
 them.
+
+
+{{/* moved to chef-server repo */}}

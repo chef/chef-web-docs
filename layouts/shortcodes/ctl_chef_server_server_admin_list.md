@@ -16,3 +16,6 @@ bob
 carol
 dan
 ```
+
+
+{{/* moved to chef-server repo */}}

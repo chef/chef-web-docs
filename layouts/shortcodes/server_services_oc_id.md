@@ -4,3 +4,5 @@ uses token-based authentication, where external applications use tokens
 that are issued by the **oc-id** provider. No special
 credentials---`webui_priv.pem` or privileged keys---are stored on the
 external application.
+
+{{/* moved to chef-server repo */}}

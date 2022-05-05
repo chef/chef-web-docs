@@ -7,3 +7,5 @@ distributions. Chef Infra Client then does as much of the configuration
 work as possible on the nodes themselves (and not on the Chef Infra
 Server). This scalable approach distributes the configuration effort
 throughout the organization.
+
+{{/* moved to chef-server repo */}}

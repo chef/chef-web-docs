@@ -5,3 +5,5 @@ Chef Backend is [deprecated](/versions/#deprecated-products-and-versions) and no
 This document is no longer maintained.
 
 </div></div>
+
+{{/* moved to chef-server repo */}}

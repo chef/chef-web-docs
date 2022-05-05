@@ -12,3 +12,6 @@ sudo chef-server-ctl install chef-manage --path /root/packages
 
 The `chef-server-ctl` command will install the first `chef-manage`
 package found in the `/root/packages` directory.
+
+
+{{/* moved to chef-server repo */}}

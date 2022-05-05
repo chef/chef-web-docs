@@ -27,3 +27,5 @@ For a high availability deployment:
 - 1 x GigE NIC interface (if on premises)
 
 {{ readFile "layouts/shortcodes/system_requirements_ha.md" | markdownify }}
+
+{{/* moved to chef-server repo */}}

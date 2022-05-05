@@ -15,3 +15,6 @@ Ideally, the restore server will have the same FQDN as the server that you backe
 5. Update the `/etc/chef/client.rb` file on each client to point to the new server FQDN.
 6. Run `chef-server-ctl reconfigure`.
 7. Run ``chef-server-ctl restore`.
+
+
+{{/* moved to chef-server repo */}}

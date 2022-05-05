@@ -6,3 +6,5 @@ on the Chef Infra Server is fine-grained, allowing access to be defined
 by object type, object, group, user, and organization. The Chef Infra
 Server uses permissions to define how a user may interact with an
 object, after they have been authorized to do so.
+
+{{/* moved to chef-server repo */}}

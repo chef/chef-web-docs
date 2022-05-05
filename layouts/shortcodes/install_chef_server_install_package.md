@@ -13,3 +13,5 @@ sudo dpkg -i /tmp/chef-server-core-<version>.deb
 ```
 
 After a few minutes, the Chef Infra Server will be installed.
+
+{{/* moved to chef-server repo */}}

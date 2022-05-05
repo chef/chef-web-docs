@@ -7,3 +7,6 @@ the connection:
 ```bash
 telnet HOST_NAME PORT
 ```
+
+
+{{/* moved to chef-server repo */}}

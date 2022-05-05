@@ -18,3 +18,6 @@ chef-server-ctl once SERVICE_NAME
 
 where `SERVICE_NAME` represents the name of any service that is listed
 after running the `service-list` subcommand.
+
+
+{{/* moved to chef-server repo */}}

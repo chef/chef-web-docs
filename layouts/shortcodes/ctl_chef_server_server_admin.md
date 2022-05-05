@@ -4,3 +4,5 @@ Membership of the `server-admins` group is managed with a set of
 - `chef-server-ctl grant-server-admin-permissions`
 - `chef-server-ctl list-server-admins`
 - `chef-server-ctl remove-server-admin-permissions`
+
+{{/* moved to chef-server repo */}}

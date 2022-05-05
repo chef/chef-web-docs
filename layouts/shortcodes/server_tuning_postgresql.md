@@ -32,3 +32,6 @@ The following setting is often modified from the default as part of the tuning e
     ```ruby
     550 = 350 + [(4 - 2) * (25 * 4)]
     ```
+
+
+{{/* shortcode delete. Text moved to chef-server repo */}}

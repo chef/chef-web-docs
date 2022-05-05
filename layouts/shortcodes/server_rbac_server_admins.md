@@ -5,3 +5,6 @@ users who are responsible for day-to-day administration of the Chef
 Infra Server, especially user management using the `knife user`
 subcommand. Before members can be added to the `server-admins` group,
 they must already have a user account on the Chef Infra Server.
+
+
+{{/* moved to chef-server repo */}}

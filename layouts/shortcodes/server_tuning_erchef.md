@@ -20,3 +20,5 @@ the tuning effort for the **opscode-erchef** service:
 `opscode_erchef['strict_search_result_acls']`
 
 :   {{ readFile "layouts/shortcodes/settings_strict_search_result_acls.md" | markdownify }}
+
+{{/* shortcode delete. Text moved to chef-server repo */}}

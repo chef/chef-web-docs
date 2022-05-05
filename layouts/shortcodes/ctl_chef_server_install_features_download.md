@@ -28,3 +28,5 @@ Finally, accept the [Chef License](https://docs.chef.io/chef_license/):
 ```bash
 sudo chef-manage-ctl reconfigure --accept-license
 ```
+
+{{/* moved to chef-server repo */}}

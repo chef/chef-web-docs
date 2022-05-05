@@ -12,3 +12,6 @@ where:
 - The full name must begin with a non-white space character and must
     be between 1 and 1023 characters. For example:
     `"Chef Software, Inc."`.
+
+
+{{/* moved to chef-server repo */}}

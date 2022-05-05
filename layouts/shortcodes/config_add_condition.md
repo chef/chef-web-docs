@@ -11,3 +11,6 @@ when 'frontend'
   # frontend-specific configuration here
 end
 ```
+
+
+{{/* shortcode delete. Text moved to chef-server repo */}}

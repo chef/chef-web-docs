@@ -24,3 +24,6 @@ file (no equal sign is necessary to set the value):
 `notification_email`
 
 :   Default value: `info@example.com`.
+
+
+{{/* shortcode delete. Text moved to chef-server repo */}}

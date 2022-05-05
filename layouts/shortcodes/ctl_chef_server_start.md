@@ -25,3 +25,6 @@ unless they are failing to respond to the signals at all. If a process
 is not responding, use a command like the `kill` subcommand to stop the
 process, investigate the cause (if required), and then use the `start`
 subcommand to re-enable it.
+
+
+{{/* moved to chef-server repo */}}

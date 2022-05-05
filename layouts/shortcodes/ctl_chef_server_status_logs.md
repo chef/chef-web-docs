@@ -31,3 +31,6 @@ where
 - `3s, normally up;` indicates that the service is normally in a run
     state and that the supervisor would attempt to restart this service
     after a reboot
+
+
+{{/* moved to chef-server repo */}}

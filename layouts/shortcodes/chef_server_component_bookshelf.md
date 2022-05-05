@@ -5,3 +5,5 @@ different cookbooks or different versions of the same cookbook include
 the same file or template, Bookshelf will store that file only once. The
 cookbook content managed by Bookshelf is stored in flat files and is
 separated from the Chef Infra Server and search index repositories.
+
+{{/* moved to chef-server repo */}}

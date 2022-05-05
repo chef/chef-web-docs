@@ -20,3 +20,6 @@ This subcommand has the following options:
 `-h`, `--help`
 
 :   Show help message.
+
+
+{{/* moved to chef-server repo */}}

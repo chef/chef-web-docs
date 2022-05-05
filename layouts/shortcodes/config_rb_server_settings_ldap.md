@@ -191,3 +191,6 @@ This configuration file has the following settings for `ldap`:
 
     </div>
     </div>
+
+
+{{/* moved to chef-server repo */}}
