@@ -1,0 +1,8 @@
+{{$file := .Get "file"}}
+  {{- if eq (.Get "html") "true" -}}
+    {{- $file  | readFile | safeHTML -}}
+  {{- else if  (.Get "highlight") -}}
+    {{-  highlight ($file  | readFile) (.Get "highlight") "" -}}
+  {{- else -}}
+    {{ $file  | readFile | markdownify }}
+{{- end -}}

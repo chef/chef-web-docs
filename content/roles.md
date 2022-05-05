@@ -43,11 +43,11 @@ There are two types of attributes that can be used with roles:
 <tbody>
 <tr>
 <td><code>default</code></td>
-<td>{{< readFile_shortcode file_path="layouts/shortcodes/node_attribute_type_default.md" >}}</td>
+<td>{{< readfile file="layouts/shortcodes/node_attribute_type_default.md" >}}</td>
 </tr>
 <tr>
 <td><code>override</code></td>
-<td>{{< readFile_shortcode file_path="layouts/shortcodes/node_attribute_type_override.md" >}}</td>
+<td>{{< readfile file="layouts/shortcodes/node_attribute_type_override.md" >}}</td>
 </tr>
 </tbody>
 </table>

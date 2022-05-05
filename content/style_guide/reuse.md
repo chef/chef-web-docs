@@ -336,3 +336,31 @@ The following shortcode examples will display these icons: {{< fontawesome class
 {{</* fontawesome class="fas fa-archive" color="#cc814b" margin="0 0 0 12px"*/>}}
 {{</* fontawesome class="far fa-address-book" background-color="DarkBlue" color="rgb(168, 218, 220)" */>}}
 ```
+
+## readfile Shortcode
+
+The readfile shortcode adds text from a file to a page. You can add a Markdown file, HTML file, or code file by specifying the path to the file from the project root directory.
+
+By default it accepts a Markdown file, for example:
+
+```markdown
+{{</* readfile file="layouts/shortcodes/example.md" */>}}
+```
+
+You can also add an HTML file:
+
+```markdown
+{{</* readfile file="layouts/shortcodes/example.html" html="true" */>}}
+```
+
+And you can pass in a sample code file:
+
+```markdown
+{{</* readfile file="path/to/file/example.rb" highlight="ruby" */>}}
+```
+
+or:
+
+```markdown
+{{</* readfile file="path/to/data/file.json" highlight="json" */>}}
+```
