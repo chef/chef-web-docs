@@ -9,6 +9,12 @@
 # weight = 5
 
 [[main]]
+title = "Join Us: Chef MEGA Launch"
+identifier = "chefconf"
+url = "https://www.chef.io/webinars/join-us!-chef-product-mega-launch"
+weight = 5
+
+[[main]]
 title = "Chef.io"
 identifier = "chef"
 url = "https://www.chef.io/"
