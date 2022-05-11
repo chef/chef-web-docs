@@ -133,6 +133,11 @@ identifier = "automate"
     identifier = "automate/configuring_automate/elasticsearch"
     parent = "automate/configuring_automate"
 
+    [[automate]]
+    title = "OpenSearch"
+    identifier = "automate/configuring_automate/opensearch"
+    parent = "automate/configuring_automate"
+
   [[automate]]
   name = "Settings"
   weight = 50
