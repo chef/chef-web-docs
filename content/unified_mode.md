@@ -12,14 +12,13 @@ product = ["client"]
     weight = 20
 +++
 
-
-Unified mode is a setting which eliminates the distinction between the compile and converge modes in the way that Chef Infra recipe and resources are parsed. The setting replaces Chef Infra's two pass parsing with single pass parsing, so that resources are executed as soon as they are declared.
+Unified mode is a setting that eliminates the distinction between the compile and converge modes in the way that Chef Infra recipes and resources are parsed. The unified mode setting replaces Chef Infra's two-pass parsing with single-pass parsing so that resources are executed as soon as they are declared.
 
 This results in considerably clearer code, with considerably less Ruby knowledge required to understand the order of operations.
 
 ## Unified Mode for Custom Resources
 
-Unified mode can be turned on for a resource, with the `unified_mode` method, which takes a Boolean argument:
+Unified mode can be turned on for a resource with the `unified_mode` method, which takes a Boolean argument:
 
 ```ruby
 unifed_mode true
@@ -33,28 +32,27 @@ end
 
 ## Unified Mode for Recipes
 
-We plan to deliver Unified Mode support in Chef Infra recipes in a Chef Infra Client 17 release in 2021.
+We plan to deliver unified mode support in Chef Infra recipes in a Chef Infra Client 17 release in 2021.
 
 ## Unified Mode Isolation
 
-If a `unified_mode` resource calls a non-`unified_mode` resource the called resource is not executed in `unified_mode`. Each resource maintains its own state as being in `unified_mode` or not. Custom Resources do not need to worry about if their calling state is in `unified_mode` or not since that calling context will not affect the resources execution. Resources using `unified_mode` may call resources not using `unified_mode` and vice versa.
+If a unified mode resource calls a non-unified mode resource, the called resource is not executed in Unified Mode. Each resource maintains its own state whether it is in unified mode or not. You do not need to modify a custom resource that calls a unified mode resource since the calling context will not affect the resource's execution. Resources using unified mode may call resources not using unified mode and vice versa.
 
 ## Benefits of Unified Mode
 
 ### Single Pass Execution
 
-In Unified Mode the Chef Infra Language executes from top to bottom, eliminating the compile and converge phases.
+In Unified Mode, the Chef Infra Language executes from top to bottom, eliminating the compile and converge phases.
 
-With the deferred execution of resources to converge time, the user has to understand many different details of the Ruby parser to understand what constructs relate to Chef Infra Resources and what constructs are parts of the core Ruby language to determine when those expression are executed. All that complexity is removed
-in Unified Mode.
+With the deferred execution of resources to converge time, the user has to understand many different details of the Ruby parser to understand what constructs relate to Chef Infra resources and what constructs are parts of the core Ruby language to determine when those expression are executed. All that complexity is removed in Unified Mode.
 
 ### Elimination of Lazy Blocks
 
-Several aspects of the Chef Infra Language still work, but are no longer necessary in Unified Mode. The need for `lazy` blocks is entirely eliminated. The need to lazy ruby code via a `ruby_block` is also eliminated.
+Several aspects of the Chef Infra Language still work but are no longer necessary in Unified Mode. Unified mode eliminates the need for lazy blocks and the need to lazy Ruby code through a ruby block.
 
 ### Rescue Blocks And Other Ruby Constructs Work Correctly
 
-In `unified_mode` it is now easy to write a rescue wrapper around a Chef Infra resource:
+In Unified Mode, it is now easy to write a rescue wrapper around a Chef Infra resource:
 
 ```ruby
 begin
@@ -70,9 +68,9 @@ end
 
 ### Simple Example
 
-A simple motivating example is to have a resource which downloads a JSON message using the `remote_file` resource, parses the JSON and then renders a value into a `file` or `template` resource.
+A simple motivating example is to have a resource that downloads a JSON message using the remote_file resource, parse the JSON, and then render a value into a file or template resource.
 
-Without `unified_mode` correctly writing this simple resource is complicated:
+Without Unified Mode, correctly writing this simple resource is complicated:
 
 ```ruby
 provides :downloader
@@ -96,9 +94,9 @@ action :doit do
 end
 ```
 
-Since the `remote_file` and `file` resources execute at converge time, the ruby code to parse the JSON needs to be wrapped in a `ruby_block` resource, the local variable then needs to be declared outside of that scope (requiring a fairly deep knowledge of ruby variable scoping rules) and then the content rendered into the `file` resource must be wrapped with `lazy` since the ruby parses all arguments of properties at compile time instead of converge time.
+Since the remote_file and file resources execute at converge time, the Ruby code to parse the JSON needs to be wrapped in a ruby_block resource, the local variable then needs to be declared outside of that scope (requiring a deep knowledge of Ruby variable scoping rules), and then the content rendered into the file resource must be wrapped with `lazy` since the Ruby parses all arguments of properties at compile time instead of converge time.
 
-Using `unified_mode` this resource is simplified:
+Unified mode simplifies this resource:
 
 ```ruby
 unified_mode true
@@ -118,7 +116,7 @@ action :doit do
 end
 ```
 
-The need for the `ruby_block`, the `lazy`, and the variable declaration are all eliminated, greatly simplifying how the cookbook is authored.
+Unified mode eliminates the need for the ruby_block resource, the `lazy` evaluation, and the variable declaration, simplifying how the cookbook is authored.
 
 ### Recovery and Exception Handling
 
@@ -164,15 +162,14 @@ action :install do
 end
 ```
 
-This simplified example shows how to trap exceptions from resources using normal ruby syntax and to clean up the resource. Without `unified_mode` this syntax is impossible. Normally the `execute` resources when they are parsed only creates the objects in the `resource_collection` to later be evaluated so that no exception is thrown while ruby is parsing the `action` block at all. Every action is delayed to the later converge phase. In `unified_mode` the resource runs when ruby is done parsing its block, so exceptions happen in-line with ruby parsing, so the `rescue` now works as naively expected.
+This simplified example shows how to trap exceptions from resources using normal Ruby syntax and to clean up the resource. Without unified mode this syntax is impossible. Normally when the execute resources are parsed, they only create the objects in the `resource_collection` to later be evaluated so that no exception is thrown while Ruby is parsing the `action` block. Every action is delayed to the later converge phase. In Unified Mode, the resource runs when Ruby is done parsing its block, so exceptions happen in-line with Ruby parsing and the rescue clause now works as expected.
 
-The usefulness of this is that if the tar extraction throws an exception (for example, it could be out of disk space), then that Exception causes the tar file to be deleted and then redownloaded the next time Chef Infra Client is run. Without the cleanup the tar file would exist, but the resource would not have completed, the extraction would not happen and the resource would be left in a broken, indeterminate state.
+This is useful because the TAR extraction throws an exception (for example, the node could be out of disk space), which deletes the TAR file. The next time Chef Infra Client runs, the TAR file will be redownloaded. If the resource didn't have file cleanup after an exception, the TAR file would remain on the client node even though the resource did not complete and the extraction did not happen, leaving the resource in a broken, indeterminate state.
 
-[NOTE: UNIFIED MODE SHORTCODE STARTS HERE]
+## Unified Mode Overview
 
 {{% unified_mode %}}
 
 ### Notifications and Accumulators
 
-The Accumulator pattern works unchanged. Notifications to the `:root` run context still behave identically. Since the compile and converge phases of Custom Resources both fire in the converge time (typically) of the enclosing `run_context` the effect of eliminating the separate compile and converge phases of the Custom Resource has no visible effect from the outer context.
-
+The accumulator pattern works unchanged. Notifications to the `:root` run context still behave identically. Since the compile and converge phases of custom resources both fire in the converge time (typically) of the enclosing `run_context` the effect of eliminating the separate compile and converge phases of the custom resource has no visible effect from the outer context.
