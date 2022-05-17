@@ -157,7 +157,8 @@ WARNING: Deleted client example-01
 [\[GitHub\]](https://github.com/chef-partners/knife-vrealize)
 
 - Supports both vRealize Automation and vRealize Orchestrator
-- Supports vRealize Automation 7.0+
+- Supports vRealize Automation 8.x. Version 7.0.0 and later will support vRA 8.x.
+- Supports vRealize Automation 7.0+. Version 6.0.3 and older will support vRA 7.x. The arguments are different in the previous versions and you can find the documentation [here](https://github.com/chef/knife-vrealize/blob/v6.0.3/README.md).
 - If you have vRealize Automation \< 7.0, you will need to downgrade
     the
     [vmware-vra-gem](https://github.com/chef-partners/vmware-vra-gem) to
@@ -198,34 +199,38 @@ attempt to provide any helpful error messages from vRA if they're
 available.
 
 Common parameters to specify are:
-
-- `--cpus`: number of CPUs
-- `--memory`: amount of RAM in MB
-- `--requested-for`: vRA login that should be listed as the owner
-- `--lease-days`: number of days for the resource lease
-- `--notes`: any optional notes you'd like to be logged with your
-    request
-- `--subtenant-id`: all resources must be tied back to a Business
-    Group, or "subtenant." If your catalog item is tied to a specific
-    Business Group, you do not need to specify this. However, if your
-    catalog item is a global catalog item, then the subtenant ID is not
-    available to knife; you will need to provide it. It usually looks
-    like a UUID. See your vRA administrator for assistance in
-    determining your subtenant ID.
-- `--connection-password`: for Linux hosts, the password to use during
-    bootstrap
-- `--winrm-password`: for Windows hosts, the password to use during
-    bootstrap
+- `--image-mapping`: The image mapping that needed for this deployment which specifies the OS image for the vm
+- `--flavor-mapping`: specifies the CPU count and RAM of a VM
+- `--project-id`: Project ID also needs to be passed.
+- `--name`: Can be used to specify the name of newly created deployment. This should be unique.
+- `--version`: Specify which version of the catalog should be used for this deployment. If left blank, the latest version will be used.
+- `--ssh-password`: if a linux host, the password to use during bootstrap
+- `--winrm-password`: if a windows host, the password to use during bootstrap
+- `--image-os-type`: windows/linux
+- `--bootstrap-protocol`: winrm/ssh
+- `--server-create-timeout`: increase this if your vRa environments takes more than 10 minutes to give you a server.
+- `--bootstrap-version`: use to tie to a specific chef version if your group is not current
 
 <!-- -->
 
 ```bash
-knife vra server create 5dcd1900-3b89-433d-8563-9606ae1249b8 --cpus 1 --memory 512 \
---requested-for devmgr@corp.local --connection-password my_password --lease-days 5
-Catalog request d282fde8-6fd2-406c-998e-328d1b659078 submitted.
+$ knife vra server create 24026193-5863-3f72-baac-7f4cd3e1d535 --name testing-centos --project-id pro-123 \
+  --image-mapping VRA-nc-lnx-ce8.0 --flavor-mapping Micro --image-os-type linux --connection-protocol ssh \
+  -P password --extra-param hardware-config=string:Micro
+Catalog request b1f13afe-d7c1-4647-8866-30681fc7f63d submitted.
 Waiting for request to complete.
-Current request status: PENDING_PRE_APPROVAL.
-Current request status: IN_PROGRESS..
+Current request status: CREATE_INPROGRESS...............
+Catalog request complete.
+
+Request Status: CREATE_SUCCESSFUL
+
+Deployment ID: b1f13afe-d7c1-4647-8866-30681fc7f63d
+Deployment Name: test_dep-2
+IP Address: 10.30.236.21
+Owner Names: admin
+Bootstrapping the server by using connection_protocol: ssh and image_os_type: linux
+
+Waiting for sshd to host (10.30.236.21)............
 ...
 ```
 
@@ -234,18 +239,17 @@ Current request status: IN_PROGRESS..
 **Delete a server from vRA:**
 
 ```bash
-knife vra server delete 2e1f6632-1613-41d1-a07c-6137c9639609 --purge
-Server ID: 2e1f6632-1613-41d1-a07c-6137c9639609
-Server Name: hol-dev-43
-IP Addresses: 192.168.110.203
-Status: ACTIVE
-Catalog Name: CentOS 6.6
+$ knife vra server delete 2e1f6632-1613-41d1-a07c-6137c9639609 --purge
+Deployment ID: 2e1f6632-1613-41d1-a07c-6137c9639609
+Deployment Name: test_dep-2
+IP Address: 10.30.236.21
+Status: SUCCESS
+Owner Names: ${userName}
 
-Do you really want to delete this server? (Y/N) Y
-Destroy request f2aa716b-ab24-4232-ac4a-07635a03b4d4 submitted.
+Do you really want to delete this server? (Y/N) y
+Destroy request 5e390a9d-1340-489d-94be-b4eb1df98c53 submitted.
 Waiting for request to complete.
-Current request status: PENDING_PRE_APPROVAL.
-Current request status: IN_PROGRESS...
+Current request status: CHECKING_APPROVAL...
 ...
 ```
 
