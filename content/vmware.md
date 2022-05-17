@@ -199,6 +199,7 @@ attempt to provide any helpful error messages from vRA if they're
 available.
 
 Common parameters to specify are:
+
 - `--image-mapping`: The image mapping that needed for this deployment which specifies the OS image for the vm
 - `--flavor-mapping`: specifies the CPU count and RAM of a VM
 - `--project-id`: Project ID also needs to be passed.
