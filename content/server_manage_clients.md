@@ -129,9 +129,9 @@ To view client key details:
 
 ### Permissions
 
-{{% server_rbac_permissions %}}
+{{% chef-server/server_rbac_permissions %}}
 
-{{% server_rbac_permissions_object %}}
+{{% chef-server/server_rbac_permissions_object %}}
 
 #### Set
 
@@ -232,9 +232,9 @@ To view details for a chef-validator key:
 
 ### Permissions
 
-{{% server_rbac_permissions %}}
+{{% chef-server/server_rbac_permissions %}}
 
-{{% server_rbac_permissions_object %}}
+{{% chef-server/server_rbac_permissions_object %}}
 
 #### Set
 

@@ -20,7 +20,7 @@ other components.
 
 ## Chef Infra Server
 
-{{% ctl_chef_server_uninstall %}}
+{{% chef-server/ctl_chef_server_uninstall %}}
 
 ## Chef Manage
 
