@@ -267,7 +267,7 @@ The key components of nodes that are under management by Chef include:
 
 ## The Chef Infra Server
 
-{{% chef_server %}}
+{{% chef-server/chef_server %}}
 
 <table>
 <colgroup>
