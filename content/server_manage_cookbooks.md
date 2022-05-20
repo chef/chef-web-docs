@@ -137,9 +137,9 @@ To view a cookbook file:
 
 ## Permissions
 
-{{% server_rbac_permissions %}}
+{{% chef-server/server_rbac_permissions %}}
 
-{{% server_rbac_permissions_object %}}
+{{% chef-server/server_rbac_permissions_object %}}
 
 ### Set
 

@@ -391,7 +391,7 @@ by Chef Software, Inc.
 
 #### Commercial Support
 
-{{% adopted_platforms_server %}}
+{{% chef-server/adopted_platforms_server %}}
 
 ### Chef Automate Server
 

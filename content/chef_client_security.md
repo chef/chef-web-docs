@@ -15,11 +15,11 @@ aliases = ["/chef_client_security.html", "/auth.html"]
 +++
 <!-- markdownlint-disable-file MD033 -->
 
-{{% chef_auth %}}
+{{% chef-server/chef_auth %}}
 
 ## Authentication
 
-{{% chef_auth_authentication %}}
+{{% chef-server/chef_auth_authentication %}}
 
 ### chef-validator
 
@@ -35,7 +35,7 @@ The following information applies to on-premises Chef Infra Server and does not 
 
 {{< /warning >}}
 
-{{% server_security_ssl_cert_client %}}
+{{% chef-server/server_security_ssl_cert_client %}}
 
 ### trusted_certs Directory
 

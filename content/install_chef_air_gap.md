@@ -79,7 +79,7 @@ group.
 
 2. Upload the package to the machine that will run the Chef Infra Server, and then record its location on the file system. The rest of these steps assume this location is in the `/tmp` directory.
 
-3. {{< readfile file="layouts/shortcodes/install_chef_server_install_package.md" >}}
+3. {{< readfile file="layouts/shortcodes/chef-server/install_chef_server_install_package.md" >}}
 
 4. Run the following to start all of the services:
 
@@ -91,9 +91,9 @@ group.
     that work together to create a functioning system, this step may
     take a few minutes to complete.
 
-5. {{< readfile file="layouts/shortcodes/ctl_chef_server_user_create_admin.md">}}
+5. {{< readfile file="layouts/shortcodes/chef-server/ctl_chef_server_user_create_admin.md">}}
 
-6. {{< readfile file="layouts/shortcodes/ctl_chef_server_org_create_summary.md">}}
+6. {{< readfile file="layouts/shortcodes/chef-server/ctl_chef_server_org_create_summary.md">}}
 
 ## Chef Workstation
 
@@ -268,7 +268,7 @@ Supermarket.
 
 2. Update the `/etc/opscode/chef-server.rb` configuration file.
 
-    {{< readfile file="layouts/shortcodes/config_ocid_application_hash_supermarket.md" >}}
+    {{< readfile file="layouts/shortcodes/chef-server/config_ocid_application_hash_supermarket.md" >}}
 
 3. Reconfigure the Chef Infra Server.
 
