@@ -20,7 +20,7 @@ VMware platform.
 
 For discussions on VMware and Chef, visit the
 [VMware{code}](https://code.vmware.com/web/code/join) Slack team,
-located in the **\#chef** channel.
+located in the **#chef** channel.
 
 ## knife
 
@@ -30,7 +30,7 @@ Chef:
 
 ### knife-vsphere
 
-[\[GitHub\]](https://github.com/chef-partners/knife-vsphere)
+[[GitHub]](https://github.com/chef-partners/knife-vsphere)
 
 - Supports vCenter \> 5.0
 - Most VMware compute use cases are covered
@@ -99,9 +99,9 @@ the Chef Infra Server.
 
 ### knife-vcenter
 
-[\[GitHub\]](https://github.com/chef/knife-vcenter)
+[[GitHub]](https://github.com/chef/knife-vcenter)
 
-- Supports vCenter \>= 6.5 REST API
+- Supports vCenter >= 6.5 REST API
 - Supports the main use cases of knife: `bootstrap`, `create`,
     `destroy`, and `list`
 - If you have the
@@ -112,8 +112,8 @@ the Chef Infra Server.
 The main settings for your `config.rb`:
 
 ```ruby
-knife[:vcenter_username] = 'user'
-knife[:vcenter_password] = 'password'
+knife[:vcenter_username] = 'USERNAME'
+knife[:vcenter_password] = 'PASSWORD'
 knife[:vcenter_host] = '172.16.20.2'
 knife[:vcenter_disable_ssl_verify] = true # if you want to disable SSL checking
 ```
@@ -140,6 +140,11 @@ Waiting for sshd to host (10.0.0.167)
 
 ```bash
 knife vcenter vm delete example-01 -N example-01 --purge
+```
+
+The output is similar to the following:
+
+```bash
 Creating new machine
 Waiting for network interfaces to become available...
 ID: vm-183
@@ -154,108 +159,156 @@ WARNING: Deleted client example-01
 
 ### knife-vrealize
 
-[\[GitHub\]](https://github.com/chef-partners/knife-vrealize)
+[[GitHub]](https://github.com/chef-partners/knife-vrealize)
 
-- Supports both vRealize Automation and vRealize Orchestrator
-- Supports vRealize Automation 7.0+
-- If you have vRealize Automation \< 7.0, you will need to downgrade
-    the
-    [vmware-vra-gem](https://github.com/chef-partners/vmware-vra-gem) to
-    version `1.7.0`
-- Supports the main use cases of knife: `bootstrap`, `create`,
-    `destroy`, and `list`
-- Directly integrates with vRA to call out predetermined blueprints or
-    catalogs
-- Can integrate directly with vRO to call out predetermined workflows
+The knife-vrealize plugin supports both vRealize Automation and vRealize Orchestrator.
 
-The main settings for your `config.rb`:
+{{< note >}}
+
+For knife-vrealize 6.0.4 and earlier, see the [documentation for knife-vrealize 6.0.4](https://github.com/chef/knife-vrealize/blob/v6.0.4/README.md)
+and downgrade the [VMware vRA Gem](https://github.com/chef-partners/vmware-vra-gem) to version 1.7.0.
+
+{{< /note >}}
+
+{{< note >}}
+
+knife-vrealize 7.0.0 and later supports vRealize Automation 8.x.
+
+knife-vrealize 6.0.3 and earlier supports vRealize Automation 7.x.
+
+{{< /note >}}
+
+The knife-vrealize gem supports the main use cases of knife: `bootstrap`, `create`, `destroy`, and `list`.
+It directly integrates with vRealize Automation to call out predetermined blueprints or catalogs, and
+can integrate directly with vRealize Orchestrator to call out predetermined workflows.
+
+#### config.rb Settings
+
+The main settings for your config.rb file are:
 
 ```ruby
-knife[:vra_username] = 'user'
-knife[:vra_password] = 'password'
-knife[:vra_base_url] = 'https://vra.corp.local'
+knife[:vra_username] = 'USERNAME'
+knife[:vra_password] = 'PASSWORD'
+knife[:vra_base_url] = 'https://vra.example.local'
 knife[:vra_tenant]   = 'tenant'
 knife[:vra_disable_ssl_verify] = true # if you want to disable SSL checking.
 ```
 
-Additional `config.rb` settings are required to integrate with vRO:
+Additional `config.rb` settings are required to integrate with vRealize Orchestrator:
 
 ```ruby
-knife[:vro_username] = 'user'
-knife[:vro_password] = 'password'
-knife[:vro_base_url] = 'https://vra.corp.local:8281'
+knife[:vro_username] = 'USERNAME'
+knife[:vro_password] = 'PASSWORD'
+knife[:vro_base_url] = 'https://vra.example.local:8281'
 ```
 
-A basic clone example for vRA is:
+#### knife-vrealize Common Parameters
 
-Creates a server from a catalog blueprint. Find the catalog ID with the
-`knife vra catalog list` command. After the resource is created, knife
-will attempt to bootstrap it.
+`--image-mapping`
+: The image mapping for the deployment which specifies the OS image for the virtual machine.
 
-Each blueprint may require different parameters to successfully complete
-provisioning. See your vRA administrator with questions. Knife will
-attempt to provide any helpful error messages from vRA if they're
-available.
+`--flavor-mapping`
+: The flavor mapping of the target deployment which specifies the CPU count and RAM of a VM.
 
-Common parameters to specify are:
+`--project-id`
+: The project ID of the target deployment.
 
-- `--cpus`: number of CPUs
-- `--memory`: amount of RAM in MB
-- `--requested-for`: vRA login that should be listed as the owner
-- `--lease-days`: number of days for the resource lease
-- `--notes`: any optional notes you'd like to be logged with your
-    request
-- `--subtenant-id`: all resources must be tied back to a Business
-    Group, or "subtenant." If your catalog item is tied to a specific
-    Business Group, you do not need to specify this. However, if your
-    catalog item is a global catalog item, then the subtenant ID is not
-    available to knife; you will need to provide it. It usually looks
-    like a UUID. See your vRA administrator for assistance in
-    determining your subtenant ID.
-- `--connection-password`: for Linux hosts, the password to use during
-    bootstrap
-- `--winrm-password`: for Windows hosts, the password to use during
-    bootstrap
+`--name`
+: The name of the newly created deployment. The name must be unique.
 
-<!-- -->
+`--version`
+: The version of the catalog for the deployment. If left blank, the latest version will be used.
 
-```bash
-knife vra server create 5dcd1900-3b89-433d-8563-9606ae1249b8 --cpus 1 --memory 512 \
---requested-for devmgr@corp.local --connection-password my_password --lease-days 5
-Catalog request d282fde8-6fd2-406c-998e-328d1b659078 submitted.
-Waiting for request to complete.
-Current request status: PENDING_PRE_APPROVAL.
-Current request status: IN_PROGRESS..
-...
-```
+`--ssh-password`
+: If a Linux host, the password to use during bootstrap.
+
+`--winrm-password`
+: If a Windows host, the password to use during bootstrap.
+
+`--image-os-type`
+: Windows or Linux.
+
+`--bootstrap-protocol`
+: WinRM or SSH
+
+`--server-create-timeout`
+: The number of seconds to wait for the server to complete. Increase this if your vRealize Automation environments takes more than 10 minutes to give you a server. Default value: 600 seconds.
+
+`--bootstrap-version`
+: Specify a specific Chef Infra Client version if your group is not current.
 
 #### Usage Examples
 
-**Delete a server from vRA:**
+**Create a server from vRealize Automation:**
+
+If you want to create a server from a catalog blueprint, find the catalog ID with the
+`knife vra catalog list` command. After the resource is created, knife will attempt to bootstrap it.
+
+Each blueprint may require different parameters to complete provisioning. See your vRealize Automation administrator with questions. knife will attempt to provide any helpful error messages from vRealize Automation if they are available.
 
 ```bash
-knife vra server delete 2e1f6632-1613-41d1-a07c-6137c9639609 --purge
-Server ID: 2e1f6632-1613-41d1-a07c-6137c9639609
-Server Name: hol-dev-43
-IP Addresses: 192.168.110.203
-Status: ACTIVE
-Catalog Name: CentOS 6.6
+knife vra server create CATALOG_ID --name NAME --project-id PROJECT_ID \
+  --image-mapping IMAGE_MAPPING --flavor-mapping FLAVOR_MAPPING --image-os-type OS_TYPE --connection-protocol PROTOCOL \
+  -P PASSWORD --extra-param KEY=TYPE:VALUE
+```
 
-Do you really want to delete this server? (Y/N) Y
-Destroy request f2aa716b-ab24-4232-ac4a-07635a03b4d4 submitted.
+The output is similar to the following:
+
+```bash
+Catalog request b1f13afe-d7c1-4647-8866-30681fc7f63d submitted.
 Waiting for request to complete.
-Current request status: PENDING_PRE_APPROVAL.
-Current request status: IN_PROGRESS...
+Current request status: CREATE_INPROGRESS...............
+Catalog request complete.
+
+Request Status: CREATE_SUCCESSFUL
+
+Deployment ID: b1f13afe-d7c1-4647-8866-30681fc7f63d
+Deployment Name: test_dep-2
+IP Address: 10.30.236.21
+Owner Names: USERNAME
+Bootstrapping the server by using connection_protocol: ssh and image_os_type: linux
+
+Waiting for sshd to host (10.30.236.21)............
+...
+```
+
+**Delete a server from vRealize Automation:**
+
+```bash
+knife vra server delete CATALOG_ID --purge
+```
+
+The output is similar to the following:
+
+```bash
+Deployment ID: 2e1f6632-1613-41d1-a07c-6137c9639609
+Deployment Name: test_dep-2
+IP Address: 10.30.236.21
+Status: SUCCESS
+Owner Names: USERNAME
+
+Do you really want to delete this server? (Y/N) y
+Destroy request 5e390a9d-1340-489d-94be-b4eb1df98c53 submitted.
+Waiting for request to complete.
+Current request status: CHECKING_APPROVAL...
 ...
 ```
 
 If you supply the `--purge` option, the server will also be removed from
-the Chef Infra Server
+the Chef Infra Server.
 
-**Execute a vRO workflow:**
+**Execute a vRealize Orchestrator workflow:**
+
+This requires the workflow name. If your workflow name is not unique in your vRealize Orchestrator workflow list, you
+can specify a workflow ID with `--vro-workflow-id ID`. You can find the workflow ID from the vRealize Orchestrator UI; however, the workflow name is still required.
 
 ```bash
-knife vro workflow execute "knife testing" key1=value1
+knife vro workflow execute WORKFLOW_NAME KEY1=VALUE1 KEY2=VALUE2
+```
+
+The output is similar to the following:
+
+```bash
 Starting workflow execution...
 Workflow execution 4028eece4effc046014f27da864d0187 started. Waiting for it to complete...
 Workflow execution complete.
@@ -268,25 +321,19 @@ Workflow Execution Log:
 2015-08-13 09:17:58 -0700 info: cloudadmin: Workflow 'Knife Testing' has completed
 ```
 
-This requires the workflow name. You may supply any input parameters, as
-well. If your workflow name is not unique in your vRO workflow list, you
-can specify a workflow to use with `--vro-workflow-id ID`. You can find
-the workflow ID from within the vRO UI. However, a workflow name is
-still required by the API.
+## Test Kitchen
 
-## test-kitchen
-
-The following test-kitchen drivers for VMware are directly supported by
+The following Test Kitchen drivers for VMware are directly supported by
 Chef:
 
 ### kitchen-vsphere (chef-provisioning-vsphere)
 
-[\[GitHub\]](https://github.com/chef-partners/chef-provisioning-vsphere)
+[[GitHub]](https://github.com/chef-partners/chef-provisioning-vsphere)
 
 - Built into the chef-provisioning-vsphere driver
 - A community driven project, with Chef Partners maintaining the
     releases
-- Leverages the typical test-kitchen workflow for vCenter \> 5.0+
+- Leverages the typical Test Kitchen workflow for vCenter \> 5.0+
 - There is a
     [kitchen-vsphere](https://rubygems.org/gems/kitchen-vsphere) gem,
     but it is not supported at this time
@@ -349,10 +396,10 @@ suites:
 
 ### kitchen-vcenter
 
-[\[GitHub\]](https://github.com/chef/kitchen-vcenter)
+[[GitHub]](https://github.com/chef/kitchen-vcenter)
 
 - Supports vCenter \>= 6.5 REST API
-- Leverages the typical test-kitchen workflow for vCenter \>= 6.5+
+- Leverages the typical Test Kitchen workflow for vCenter \>= 6.5+
 - If you have the
     [VCSA](https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.vcsa.doc/GUID-223C2821-BD98-4C7A-936B-7DBE96291BA4.html)
     or are planning on upgrading to vCenter 6.5+, use this plugin
@@ -383,10 +430,10 @@ platforms:
 
 ### kitchen-vra
 
-[\[GitHub\]](https://github.com/chef-partners/kitchen-vra)
+[[GitHub]](https://github.com/chef-partners/kitchen-vra)
 
-- An integration point with vRA and test-kitchen
-- For companies required to use vRA this is a natural progression for
+- An integration point with vRealize Automation and Test Kitchen
+- For companies required to use vRealize Automation this is a natural progression for
     Chef Development
 
 #### Usage Examples
@@ -413,10 +460,10 @@ platforms:
 
 ### kitchen-vro
 
-[\[GitHub\]](https://github.com/chef-partners/kitchen-vro)
+[[GitHub]](https://github.com/chef-partners/kitchen-vro)
 
-- An integration point with vRO and test-kitchen
-- Leverages specific Workflows in vRO if it is required by VMware
+- An integration point with vRealize Orchestrator and Test Kitchen
+- Leverages specific Workflows in vRealize Orchestrator if it is required by VMware
     admins
 
 #### Usage Examples
@@ -454,7 +501,7 @@ VMware stack.
 
 ### inspec-vmware
 
-[\[GitHub\]](https://github.com/chef/inspec-vmware)
+[[GitHub]](https://github.com/chef/inspec-vmware)
 
 - Supports vCenter \> 5.0
 - 11 resources available at the time of writing, with more planned
@@ -475,17 +522,17 @@ end
 
 ## Chef integrations inside of the VMware Suite
 
-### vRA Example Blueprints
+### vRealize Automation Example Blueprints
 
 - [Linux](https://code.vmware.com/samples?id=1371)
 - [Windows](https://code.vmware.com/samples?id=1390)
 
-### vRO plugin
+### vRealize Orchestrator plugin
 
 - The [Chef plugin for vRealize
     Orchestrator](https://solutionexchange.vmware.com/store/products/chef-plugin-for-vrealize-orchestrator)
     (vRO) is a VMware-supplied plugin
-- If you use vRO this provides the majority of the necessary features
+- If you use vRealize Orchestrator, this provides the majority of the necessary features
 
 For more information, see the plugin demo on
 [YouTube](https://www.youtube.com/watch?v=HlvoZ4Zdwc4).
