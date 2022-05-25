@@ -26,14 +26,11 @@
           {{ $versions := getJSON $versionsUrl }}
 
           {{- $versionsCorrectOrder := slice -}}
-          {{ if ne $product "habitat" }}
-            {{ $len := len $versions }}
-            {{- range seq $len -}}
-                {{- $versionsCorrectOrder = $versionsCorrectOrder | append (index $versions (sub $len .)) }}
-            {{ end }}
-          {{ else }}
-            {{ $versionsCorrectOrder = $versions }}
+          {{ $len := len $versions }}
+          {{- range seq $len -}}
+              {{- $versionsCorrectOrder = $versionsCorrectOrder | append (index $versions (sub $len .)) }}
           {{ end }}
+
 
           {{ range $versionsCorrectOrder}}
 
