@@ -24,13 +24,9 @@
         {{ $versions := getJSON $versionsUrl }}
 
         {{- $versionsCorrectOrder := slice -}}
-        {{ if eq $product "habitat" }}
-          {{ $versionsCorrectOrder = $versions }}
-        {{ else }}
-          {{ $len := len $versions }}
-          {{- range seq $len -}}
-              {{- $versionsCorrectOrder = $versionsCorrectOrder | append (index $versions (sub $len .)) }}
-          {{ end }}
+        {{ $len := len $versions }}
+        {{- range seq $len -}}
+            {{- $versionsCorrectOrder = $versionsCorrectOrder | append (index $versions (sub $len .)) }}
         {{ end }}
 
         {{ $lastDate := ""}}
