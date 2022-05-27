@@ -5,3 +5,5 @@ For example:
 ```bash
 knife search node 'recipes:cookbook_name\:\:recipe_name'
 ```
+
+{{/* Moved to chef-workstation */}}

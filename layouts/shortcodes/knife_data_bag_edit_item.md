@@ -25,3 +25,5 @@ to:
    "comment": "Crazy Charlie"
 }
 ```
+
+{{/* Moved to chef-workstation */}}

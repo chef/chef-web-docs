@@ -3,3 +3,5 @@ group from the Chef Infra Server. Any policy revision associated with
 that policy group is not deleted. (The state of the policy group is
 backed up locally and may be restored using the `chef undelete`
 subcommand.)
+
+{{/* Moved to chef-workstation */}}

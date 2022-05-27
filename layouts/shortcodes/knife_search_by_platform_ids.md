@@ -18,3 +18,5 @@ ip-0A58E134.ec2.internal
 
 ip-0A7CFFD5.ec2.internal
 ```
+
+{{/* Moved to chef-workstation */}}

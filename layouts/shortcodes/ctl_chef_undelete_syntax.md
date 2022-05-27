@@ -5,3 +5,5 @@ chef undelete (options)
 ```
 
 When run with no arguments, returns a list of available operations.
+
+{{/* Moved to chef-workstation */}}

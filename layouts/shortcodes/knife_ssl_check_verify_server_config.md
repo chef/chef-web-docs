@@ -10,3 +10,5 @@ is similar to:
 Connecting to host chef-server.example.com:443
 Successfully verified certificates from 'chef-server.example.com'
 ```
+
+{{/* Moved to chef-workstation */}}

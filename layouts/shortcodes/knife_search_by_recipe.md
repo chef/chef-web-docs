@@ -10,3 +10,5 @@ or:
 ```bash
 knife search node '*:*' -a recipes | grep 'recipe_name'
 ```
+
+{{/* Moved to chef-workstation */}}

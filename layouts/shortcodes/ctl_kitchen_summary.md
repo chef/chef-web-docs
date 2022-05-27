@@ -19,3 +19,5 @@ applied to all instances.
 </div>
 
 </div>
+
+{{/* Moved to chef-workstation */}}

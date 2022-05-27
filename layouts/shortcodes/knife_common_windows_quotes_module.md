@@ -51,3 +51,5 @@ PowerShell:
 ```bash
 Remove-Module chef
 ```
+
+{{/* Moved to chef-workstation */}}

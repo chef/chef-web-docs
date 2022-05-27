@@ -7,3 +7,5 @@ This subcommand has the following options:
 `-v`, `--version`
 
 :   The Chef Workstation version.
+
+{{/* Delete used once in chef-workstation */}}

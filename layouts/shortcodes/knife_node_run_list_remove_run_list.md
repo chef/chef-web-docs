@@ -4,3 +4,5 @@ enter:
 ```bash
 knife node run_list remove NODE_NAME 'recipe[COOKBOOK::RECIPE_NAME]'
 ```
+
+{{/* Moved to chef-workstation */}}

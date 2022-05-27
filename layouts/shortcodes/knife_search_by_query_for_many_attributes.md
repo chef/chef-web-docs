@@ -5,3 +5,5 @@ query will search for all nodes running a specific version of Ruby:
 ```bash
 knife search node "languages_ruby_version:2.7.0"
 ```
+
+{{/* Moved to chef-workstation */}}

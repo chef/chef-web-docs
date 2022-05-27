@@ -7,3 +7,5 @@ Server, such as if a user made a change that bypassed version source
 control. This subcommand is often used in conjunction with `knife diff`,
 which can be used to see exactly what changes will be downloaded, and
 then `knife upload`, which does the opposite of `knife download`.
+
+{{/* Moved to chef-workstation */}}

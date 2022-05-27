@@ -4,3 +4,5 @@ enter:
 ```bash
 knife search node 'chef_environment:production AND platform:centos'
 ```
+
+{{/* Moved to chef-workstation */}}

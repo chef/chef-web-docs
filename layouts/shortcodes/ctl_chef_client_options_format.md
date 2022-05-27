@@ -14,3 +14,5 @@ and a `U` is printed when the resource is updated.
 
 Other formatting options are available when those formatters are
 configured in the client.rb file using the `add_formatter` option.
+
+{{/* Moved to chef-workstation */}}

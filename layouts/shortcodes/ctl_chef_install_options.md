@@ -11,3 +11,5 @@ This subcommand has the following options:
 `-v`, `--version`
 
 :   The Chef Infra Client version.
+
+{{/* Moved to chef-workstation */}}

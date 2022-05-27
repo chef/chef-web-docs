@@ -26,3 +26,5 @@ the client.rb file.
 </div>
 
 </div>
+
+{{/* Moved to chef-workstation */}}

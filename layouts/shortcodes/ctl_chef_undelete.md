@@ -7,3 +7,5 @@ group. This command:
     cookbooks that are cleaned after running this command may not be
     fully restorable to their previous state
 - Does not store access control data
+
+{{/* Moved to chef-workstation */}}
