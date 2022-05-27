@@ -23,3 +23,5 @@ this directory.
 </div>
 
 </div>
+
+{{/* Moved to chef-workstation */}}

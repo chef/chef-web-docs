@@ -40,3 +40,5 @@ Copy that file to your trusted_certs_dir (currently:
 using SSH/SCP or some other secure method, then re-run this command to
 confirm that the certificate is now trusted.
 ```
+
+{{/* Moved to chef-workstation */}}

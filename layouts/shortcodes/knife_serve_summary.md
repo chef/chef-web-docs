@@ -6,3 +6,5 @@ Chef Infra Client executable with the `--local-mode` option. The
 bind to the first available port between `8889` and `9999`.
 `knife serve` will print the URL for the local Chef Infra Server, so
 that it may be added to the config.rb file.
+
+{{/* Moved to chef-workstation */}}

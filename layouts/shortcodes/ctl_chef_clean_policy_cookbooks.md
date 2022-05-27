@@ -15,3 +15,5 @@ removed. Use `chef clean-policy-revisions` to remove orphaned policies.
 </div>
 
 </div>
+
+{{/* Moved to chef-workstation */}}

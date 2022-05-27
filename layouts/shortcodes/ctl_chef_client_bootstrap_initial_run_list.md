@@ -35,3 +35,5 @@ using this option are treated as `normal` attributes.
 </div>
 
 </div>
+
+{{/* Moved to chef-workstation */}}

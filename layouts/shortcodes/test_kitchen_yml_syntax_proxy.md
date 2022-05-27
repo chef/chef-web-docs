@@ -41,3 +41,5 @@ than Chef. The Vagrant plugin,
 [vagrant-proxyconf](http://tmatilai.github.io/vagrant-proxyconf/), can
 be used to set the proxy environment variables for applications inside
 the VM.
+
+{{/* Moved to chef-workstation */}}

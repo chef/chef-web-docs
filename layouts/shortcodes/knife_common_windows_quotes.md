@@ -16,3 +16,5 @@ surrounded by triple single quotes (`''' '''`). For example:
 ```bash
 knife node run_list set test-node '''recipe[iptables]'''
 ```
+
+{{/* Moved to chef-workstation */}}

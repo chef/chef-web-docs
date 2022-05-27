@@ -7,3 +7,5 @@ EDITOR=vi knife edit /groups/admins.json
 ```
 
 make the required changes, and then save the file.
+
+{{/* Moved to chef-workstation */}}

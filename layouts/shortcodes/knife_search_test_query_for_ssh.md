@@ -6,3 +6,5 @@ knife search node "role:web NOT name:web03"
 
 where the query in the previous example will search all servers that
 have the `web` role, but not on the server named `web03`.
+
+{{/* Moved to chef-workstation */}}

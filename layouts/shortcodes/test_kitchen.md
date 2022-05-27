@@ -8,3 +8,5 @@ across any combination of platforms and test suites:
     virtualization technologies.
 - Uses a comprehensive set of operating system base images from Chef's
     [Bento](https://github.com/chef/bento) project.
+
+{{/* Delete used once in chef-workstatioon */}}

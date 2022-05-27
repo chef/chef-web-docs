@@ -40,3 +40,5 @@ Connecting to 10.1.1.1
 10.1.1.1 Starting first Chef Infra Client run...
 [....etc...]
 ```
+
+{{/* Delete Used once in chef-workstation */}}

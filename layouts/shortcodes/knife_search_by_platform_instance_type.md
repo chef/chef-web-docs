@@ -22,3 +22,5 @@ id:                 ip-0A58E134.ec2.internal
 ec2.instance_type:  m1.large
 id:                 ip-0A7CFFD5.ec2.internal
 ```
+
+{{/* Moved to chef-workstation */}}

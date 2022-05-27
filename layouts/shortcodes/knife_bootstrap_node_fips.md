@@ -9,3 +9,5 @@ OpenSSL FIPS 140 mode enabled
 ...
 192.0.2.0 Chef Infra Client finished, 12/12 resources updated in 78.942455583 seconds
 ```
+
+{{/* Moved to chef-workstation */}}

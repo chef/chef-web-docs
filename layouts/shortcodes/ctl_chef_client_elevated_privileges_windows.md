@@ -20,3 +20,5 @@ Infra Client as the administrator:
     application, and then selecting **Run as administrator**. After the
     command window opens, Chef Infra Client can be run as the
     administrator
+
+{{/* Moved to chef-workstation */}}

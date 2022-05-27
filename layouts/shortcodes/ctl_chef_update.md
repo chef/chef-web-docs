@@ -4,3 +4,5 @@ then apply any changes. This will resolve dependencies and will create a
 to the run-list and will pull in any cookbook updates that are
 compatible with any version constraints defined in the `Policyfile.rb`
 file.
+
+{{/* Moved to chef-workstation */}}

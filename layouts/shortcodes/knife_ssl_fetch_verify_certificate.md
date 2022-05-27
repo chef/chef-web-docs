@@ -28,3 +28,5 @@ done by comparing the SHA-256 checksums.
     ```
 
 3.  Verify that the checksum values are identical.
+
+{{/* Moved to chef-workstation */}}

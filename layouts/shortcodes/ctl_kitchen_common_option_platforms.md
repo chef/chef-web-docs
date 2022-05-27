@@ -13,3 +13,5 @@ then a regular expression like `(04|7)` would run Test Kitchen against
 `(ubuntu)` would run Test Kitchen against `ubuntu-1604` and
 `ubuntu-1804`. A regular expression like `(fedora)` would run Test
 Kitchen against only `fedora-latest`. Default: `all`.
+
+{{/* Moved to chef-workstation */}}

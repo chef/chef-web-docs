@@ -79,3 +79,5 @@ Chef:
 </tr>
 </tbody>
 </table>
+
+{{/* Moved to chef-workstation */}}

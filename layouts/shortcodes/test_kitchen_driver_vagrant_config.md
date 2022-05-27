@@ -22,3 +22,5 @@ platforms:
     box: bento/ubuntu-20.04
 # ...
 ```
+
+{{/* Moved to chef-workstation */}}

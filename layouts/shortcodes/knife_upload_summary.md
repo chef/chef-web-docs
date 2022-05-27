@@ -11,3 +11,5 @@ following types of data may be uploaded with this subcommand:
 subcommand is often used in conjunction with `knife diff`, which can be
 used to see exactly what changes will be uploaded, and then
 `knife download`, which does the opposite of `knife upload`.
+
+{{/* Moved to chef-workstation */}}

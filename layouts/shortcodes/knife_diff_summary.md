@@ -6,3 +6,5 @@ subcommands, or to ensure that certain files in multiple production
 environments are the same. This subcommand is similar to the `git diff`
 command that can be used to diff what is in the chef-repo with what is
 synced to a git repository.
+
+{{/* Moved to chef-workstation */}}
