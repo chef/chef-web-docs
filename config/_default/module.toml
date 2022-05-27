@@ -227,8 +227,8 @@
   target = "content"
 
 [[imports.mounts]]
-  source = "static"
-  target = "static"
+  source = "layouts"
+  target = "layouts"
 
 [[imports.mounts]]
   source = "static"
