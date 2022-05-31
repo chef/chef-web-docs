@@ -18,7 +18,9 @@ Chef docs uses [shortcodes](https://gohugo.io/content-management/shortcodes/) to
 
 ## Writing a Shortcode
 
-Shortcode files are written in **Markdown** or **HTML** and are stored in [`layouts/shortcodes`](https://github.com/chef/chef-web-docs/tree/main/layouts/shortcodes) or [`themes/docs-new/layouts/shortcodes`](https://github.com/chef/chef-web-docs/tree/main/themes/docs-new/layouts/shortcodes) in the `chef/chef-web-docs` repository, or the `docs-chef-io/layouts/shortcodes` directory of any repository that contains documentation deployed on the Chef Documentation site.
+Shortcode files are written in **Markdown** or **HTML** and are stored in [`layouts/shortcodes`](https://github.com/chef/chef-web-docs/tree/main/layouts/shortcodes) or [`themes/docs-new/layouts/shortcodes`](https://github.com/chef/chef-web-docs/tree/main/themes/docs-new/layouts/shortcodes) in the `chef/chef-web-docs` repository.
+
+In repositories other than chef-web-docs, store shortcodes in `layouts/shortcodes/REPOSITORY_NAME/`.
 
 ## Adding a Shortcode to a Page
 
@@ -32,8 +34,14 @@ If you add a **Markdown** shortcode to a page using **HTML** shortcode delimiter
 
 To include a Markdown shortcode in a page, wrap the name of the shortcode file, without the file type suffix, in between double curly braces and percent characters, `{{%/* SHORTCODE */%}}`. For example, if you wanted to add the [`chef.md`](https://github.com/chef/chef-web-docs/blob/main/layouts/shortcodes/chef.md) shortcode to a page, add the following text to the Markdown page:
 
-```go
+```markdown
 {{%/* chef */%}}
+```
+
+For shortcodes located in a repository other than chef-web-docs, use `{{%/* REPO_NAME/SHORTCODE */%}}`. For example:
+
+```markdown
+{{%/* chef-workstation/bento */%}}
 ```
 
 ### HTML Shortcodes
@@ -42,6 +50,12 @@ To include an HTML shortcode in a page, wrap the name of the shortcode file, wit
 
 ```go
 {{</* chef_automate_mark */>}}
+```
+
+For shortcodes located in a repository other than chef-web-docs, use `{{</* REPO_NAME/SHORTCODE */>}}`. For example:
+
+```markdown
+{{</* automate/automate_cli_commands */>}}
 ```
 
 ### Parameters
