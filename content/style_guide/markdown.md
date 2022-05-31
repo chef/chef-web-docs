@@ -76,14 +76,14 @@ The following sections describe conventions for lists in Chef docs.
 Bulleted lists break up text blocks and draw attention to a group of items:
 
 ```text
-* text goes here
-* text goes here
+- text goes here
+- text goes here
 
-    * subitem text
-    * subitem text
+    - subitem text
+    - subitem text
 
-* text goes here
-* text goes here
+- text goes here
+- text goes here
 ```
 
 Use the dash symbol (-) for bulleted lists, even though Hugo supports other symbols. Indent nested list items by **four** spaces.
@@ -204,14 +204,14 @@ We recommend using Hugo's built-in [relref shortcode](https://gohugo.io/content-
 
 Link to pages:
 
-* `[link text]({{</* relref "some_page" */>}})`
-* `[link text]({{</* relref "section/some_page" */>}})`
+- `[link text]({{</* relref "some_page" */>}})`
+- `[link text]({{</* relref "section/some_page" */>}})`
 
 Link to headings:
 
-* `[link text]({{</* relref "#heading_on_this_page" */>}})`.
-* `[link text]({{</* relref "some_page#heading_on_other_page" */>}})`.
-* `[link text]({{</* relref "section/some_page#heading_on_other_page" */>}})`.
+- `[link text]({{</* relref "#heading_on_this_page" */>}})`.
+- `[link text]({{</* relref "some_page#heading_on_other_page" */>}})`.
+- `[link text]({{</* relref "section/some_page#heading_on_other_page" */>}})`.
 
 ## Code Blocks
 
@@ -267,8 +267,8 @@ Literals should be used sparingly, but sometimes there is a need for a block of 
 
 You have two options for formatting images in Hugo:
 
-* Markdown syntax
-* the `figure` shortcode
+- Markdown syntax
+- the `figure` shortcode
 
 ### Markdown Syntax
 
