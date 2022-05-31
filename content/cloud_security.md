@@ -136,11 +136,11 @@ There are three categories of responsibilities in the Shared Responsibility Mode
 
 - Shared controls - Responsibilities that vary depending on the service model.
 
-  - Infrastructure-as-a-Service (IaaS)): A hybrid approach where organizations can manage some of their data and applications on-premise while relying on cloud providers to manage servers, hardware, networking, virtualization, and storage needs.
+  - Infrastructure as a Service (IaaS)): A hybrid approach where organizations can manage some of their data and applications on-premise while relying on cloud providers to manage servers, hardware, networking, virtualization, and storage needs.
 
-  - Platform-as-a-Service (PaaS): Provides organizations the ability to streamline their application development and delivery by providing a custom application framework that automatically manages operating systems, software updates, storage, and supporting infrastructure in the cloud.
+  - Platform as a Service (PaaS): Provides organizations the ability to streamline their application development and delivery by providing a custom application framework that automatically manages operating systems, software updates, storage, and supporting infrastructure in the cloud.
 
-  - Software-as-a-Service (SaaS): Cloud-based software hosted online and typically available on a subscription basis. Third-party providers manage all potential technical issues, such as data, middleware, servers, and storage, minimizing IT resource expenditures and streamlining maintenance and support functions.
+  - Software as a Service (SaaS): Cloud-based software hosted online and typically available on a subscription basis. Third-party providers manage all potential technical issues, such as data, middleware, servers, and storage, minimizing IT resource expenditures and streamlining maintenance and support functions.
 
 For inherited controls, you can rely on AWS to provide the security of the cloud itself. For customer-specific security tasks, the apps and configurations specific to your unique circumstances are running on the AWS platform. For example, planning on managing the security of your instances, including user access controls (IAM), managing patches in your operating systems, and which firewall ports are open or closed in your instances.
 
@@ -210,5 +210,3 @@ Chef Premium Content offers cloud target scanning to scan an extensive set of cl
 | CIS Google Cloud Platform Foundation Benchmark        | 1 and 2        | Yes            |            |
 | CIS Kubernetes Benchmark                              | 1 and 2        | Yes            | Yes        |
 | CIS Microsoft 365 Foundations Benchmark               | 1 and 2        | Yes            | Yes        |
-
-
