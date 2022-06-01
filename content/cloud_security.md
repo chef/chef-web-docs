@@ -11,7 +11,7 @@ gh_repo = "inspec"
     weight = 35
 +++
 
-Cloud security is a cyber security discipline involving the procedures, policies, controls, and technologies to secure cloud computing environments against unauthorized access, distributed denial of service (DDOS) attacks, hackers, malware, and other risks.  The cloud provider and customer share the responsibility for maintaining cloud security by keeping data private and safe across online-based infrastructure, applications, and platforms, and maintaining regulatory data compliance.
+Cloud security is a cyber security discipline involving the procedures, policies, controls, and technologies to secure cloud computing environments against unauthorized access, distributed denial of service (DDOS) attacks, hackers, malware, and other risks.  The cloud provider and customer share the responsibility for maintaining cloud security by keeping data private and safe across online-based infrastructure, applications, and platforms and maintaining regulatory data compliance.
 
 ## The importance of Cloud Security
 
@@ -23,15 +23,54 @@ Security threats have become more advanced as the digital landscape continues to
 
 ## Shared Cloud Responsibility Model
 
-A shared responsibility model is a cloud security framework that dictates the security obligations of a cloud computing provider and its users to ensure accountability. This shared model can help relieve the customer's operational burden as AWS operates, manages, and controls the components from the host operating system and virtualization layer down to the physical security of the facilities in which the service operates. **Security** and **Compliance** are a shared responsibility between AWS and the customer.
+A shared responsibility model is a cloud security framework that dictates the security obligations of a cloud computing provider and its users to ensure accountability. This shared model can help relieve the customer's operational burden as AWS operates, manages, and controls the components from the host operating system and virtualization layer down to the physical security of the facilities in which the service operates. **Security** and **Compliance** are a shared responsibilities between AWS and the customer.
 
 In other words, the shared responsibility model means the cloud provider is responsible for the security of the cloud, while the customer is responsible for security in the cloud.
 
+### Approaches to the AWS Shared Responsibility Model
+
+Amazon’s responsibilities fall into two categories in the AWS shared responsibility model. The first is the hardware, including all Regions, Availability Zones, and Edge Locations of the AWS global infrastructure. The second category is managing the software for the compute, storage, database, and networking aspects of cloud computing.
+
+The customer, meanwhile, controls the data and configurations within that cloud environment. In the AWS Shared Responsibility Model, customer responsibility falls into categories such as:
+
+- Customer data stored in the cloud
+- Platform, application, and identity & access management
+- Operating system, network, and firewall configuration
+- Data encryption, integrity, and authentication
+
+The **AWS Shared Responsibility Model** outlines how AWS commits to their cloud's security and where customers need to focus on security in the cloud.
+
+As a customer/company managing your own IT infrastructure (either bare metal or VMs) need to create a strategy and practice to manage all the elements depicted on the screen. AWS commits to the security of its platform and distributed infrastructure as a service to their customer. Their expertise and scale provide a massive benefit for customers, but you still need to have a plan to secure everything.
+
+{{< figure src="/images/inspec/cloud_security_aws_shared_model.png" title="Cloud Shared Responsibility Model" >}}
+
+#### Categories in Cloud Shared Responsibility Model
+
+There are three categories of responsibilities in the Shared Responsibility Model:
+
+- Inherited controls - Responsibilities that are always the providers.
+
+  The security responsibilities that are always the providers relate to safeguarding the infrastructure itself and access to patching, the configuration of the physical hosts and the physical network on which the compute instances run, and where the storage and other resources reside. The security tasks extend by protecting end-user data, applications, operating systems, endpoints, and network traffic.
+
+- Customer-specific infrastructure - Responsibilities that are always the customers.
+
+  The security responsibilities that are always the customer’s include managing users and their access privileges (identity and access management), safeguarding cloud accounts from unauthorized access, the encryption and protection of cloud-based data assets, security of the zone data, and managing its security posture compliance.
+
+- Shared controls - Responsibilities that vary depending on the service model.
+
+  - Infrastructure as a Service (IaaS)): A hybrid approach where organizations can manage some of their data and applications on-premise while relying on cloud providers to manage servers, hardware, networking, virtualization, and storage needs.
+
+  - Platform as a Service (PaaS): Provides organizations the ability to streamline their application development and delivery by providing a custom application framework that automatically manages operating systems, software updates, storage, and supporting infrastructure in the cloud.
+
+  - Software as a Service (SaaS): Cloud-based software hosted online and typically available on a subscription basis. Third-party providers manage all potential technical issues, such as data, middleware, servers, and storage, minimizing IT resource expenditures and streamlining maintenance and support functions.
+
+For inherited controls, you can rely on AWS to provide the security of the cloud itself. For customer-specific security tasks, the apps and configurations specific to your unique circumstances are running on the AWS platform. For example, planning on managing the security of your instances, including user access controls (IAM), managing patches in your operating systems, and which firewall ports are open or closed in your instances.
+
 ## Cloud Security Posture Management
 
-Cloud Security Posture Management (CSPM) automates the identification and remediation of risks across cloud infrastructures, including Infrastructure as a Service (IaaS), Software as a Service (Saas), and Platform as a Service (PaaS). CSPM is used for risk visualization and assessment, incident response, compliance monitoring, and DevOps integration and can uniformly apply best practices for cloud security to hybrid, multi-cloud, and container environments. CSPM involves threat intelligence, detection, and remediation that works across complex collections of cloud-based applications.
+Cloud Security Posture Management (CSPM) automates the identification and remediation of risks across cloud infrastructures, including Infrastructure as a Service (IaaS), Software as a Service (Saas), and Platform as a Service (PaaS). CSPM is used for risk visualization assessment, incident response, compliance monitoring, and DevOps integration and can uniformly apply best practices for cloud security to hybrid, multi-cloud, and container environments. CSPM involves threat intelligence, detection, and remediation that works across complex collections of cloud-based applications.
 
-CSPM tools play an essential role in securing a cloud environment by reducing the possibility of data breaches. According to Gartner report, misconfiguration of the cloud environment is one of the more common mistakes in the cloud that can lead to a data breach. Using a CSPM tool can reduce cloud-based security incidents due to misconfigurations by 80%.
+CSPM tools play an essential role in securing a cloud environment by reducing the possibility of data breaches. According to a Gartner report, misconfiguration of the cloud environment is one of the more common mistakes in the cloud that can lead to a data breach. Using a CSPM tool can reduce cloud-based security incidents due to misconfigurations by 80%.
 
 ## Introducing Chef's Cloud Security
 
@@ -55,7 +94,7 @@ Chef Cloud Security delivers the following benefits:
 
 - Detects common Identity and Access Management (IAM) risks and help prioritizes misconfigurations across the public cloud to meet IAM compliance mandates passwords, key rotation, and so on.
 
-- Facilitation of existing skillsets without time-consuming and costly training for managing compliance and security posture for cloud-native technologies, including containers, Kubernetes, and microservices.
+- Facilitating existing skillsets without time-consuming and costly training for managing compliance and security posture for cloud-native technologies, including containers, Kubernetes, and microservices.
 
 - Functions with IaaS, SaaS, and PaaS platforms in containerized, hybrid cloud, and multi-cloud environments.
 
@@ -76,7 +115,7 @@ The key features of the Cloud Security Posture Management (CSPM) tools include:
 - End-to-end visibility governance
   - Robust Detections: Easy to read, filterable scan reports (control summary) with detailed descriptions of all security controls and their results.
   - Multi-Cloud Reporting: Cloud Integration support - GCP, AWS, Azure.
-  - Data Aggregation: Data Export into 3rd Party tools (ServiceNow, Splunk).
+  - Data Aggregation: Data Export into third-party tools (ServiceNow, Splunk).
   - Azure: DevOps Governance and Policy Integration without Automate.
   - Third-party tools: Terraform, Postgres.
 
@@ -85,15 +124,15 @@ The key features of the Cloud Security Posture Management (CSPM) tools include:
 
 - K8 Pods
   - Security profiles for Kubernetes based on CIS benchmarks.
-  - Remediation content for Kubernetes environment for security configuration violations based on CIS standards.
+  - Remediation content for the Kubernetes environment for security configuration violations based on CIS standards.
 
 - Cloud
   - Pre-built service and resource templates for custom policies across 100+ AWS, GCP, and Azure resources.
-  - Policy Compliance for the latest OS Versions (CentOS, RHEL, Ubuntu) and Database versions (Oracle, PostgreSQL) as per CIS best practices.
+  - Policy compliance for the latest OS versions (CentOS, RHEL, Ubuntu) and Database versions (Oracle, PostgreSQL) as per CIS best practices.
 
 - Host
-  - Remediation Content: Accessing Remediate profiles from Chef UI.
-  - Fast, Scalable Remediation for security configuration violations based on CIS standards.
+  - Remediation Content: Accessing remediate profiles from Chef user interface.
+  - Fast, scalable remediation for security configuration violations based on CIS standards.
 
 ### Chef Products and AWS Shared Responsibility Model
 
@@ -103,46 +142,7 @@ Chef Automate also provides an up-to-date sense of your entire AWS assets' secur
 
 **Chef InSpec** reduces the burden of securing hybrid workloads by providing the ability to communicate directly with cloud-native APIs to audit your environment’s configuration. Since Chef InSpec already has facilities for scanning servers and virtual machines, it provides an effortless infrastructure to scan traditional and cloud-native environments all in one place. Using InSpec, you can gain visibility into the state of your apps, virtual machines, and configuration settings before you migrate your workloads into AWS. You can also configure new nodes and instances from a known state, define the steps required to configure an instance, and spin up new nodes against the desired state automatically, reducing the work needed and enforcing consistency of the newly launched instances.
 
-**Chef Infra** allows you to transform infrastructure into code. Whether you are operating in the cloud, on-premises, or in a hybrid environment, Chef Infra automates how infrastructure is configured, deployed, and managed across your network, regardless of the size. It enables you to remediate the issues identified by Chef InSpec. In addition, it allows you to manage both traditional infrastructure and Virtual Machines (VMs) and the integrated cookbooks configured infrastructure and cloud resources.
-
-#### Approaches to the AWS Shared Responsibility Model
-
-Amazon’s responsibilities fall into two categories in the AWS shared responsibility model. The first is the hardware, including all Regions, Availability Zones, and Edge Locations of the AWS global infrastructure. The second category is managing the software for the compute, storage, database, and networking aspects of cloud computing.
-
-The customer, meanwhile, controls the data and configurations within that cloud environment. In the AWS Shared Responsibility Model, customer responsibility falls into categories such as:
-
-- Customer data stored in the cloud
-- Platform, application, and identity & access management
-- Operating system, network, and firewall configuration
-- Data encryption, integrity, and authentication
-
-The **AWS Shared Responsibility Model** outlines how AWS commits to their cloud's security and where customers need to focus on security in the cloud.
-
-As a customer/company managing your own IT infrastructure (either bare metal or VMs) need to create a strategy and practice to manage all the elements depicted on the screen. AWS commits to the security of its platform and distributed infrastructure as a service to their customer. Their expertise and scale provide a massive benefit for customers, but you still need to have a plan to secure everything.
-
-{{< figure src="/images/inspec/cloud_security_aws_shared_model.png" title="Cloud Shared Responsibility Model" >}}
-
-#### Categories in Cloud Shared Responsibility Model
-
-There are three categories of responsibilities in the Shared Responsibility Model:
-
-- Inherited controls - Responsibilities that are always the providers.
-
-  The security responsibilities that are always the providers relate to safeguarding the infrastructure itself and access to, patching, and configuration of the physical hosts and the physical network on which the compute instances run, and where the storage and other resources reside. The security tasks extend by protecting end-user data, applications, operating systems, endpoints, and network traffic.
-
-- Customer-specific infrastructure - Responsibilities that are always the customer’s.
-
-  The security responsibilities that are always the customer’s include managing users and their access privileges (identity and access management), safeguarding cloud accounts from unauthorized access, the encryption and protection of cloud-based data assets, security of the zone data, and managing its security posture compliance.
-
-- Shared controls - Responsibilities that vary depending on the service model.
-
-  - Infrastructure as a Service (IaaS)): A hybrid approach where organizations can manage some of their data and applications on-premise while relying on cloud providers to manage servers, hardware, networking, virtualization, and storage needs.
-
-  - Platform as a Service (PaaS): Provides organizations the ability to streamline their application development and delivery by providing a custom application framework that automatically manages operating systems, software updates, storage, and supporting infrastructure in the cloud.
-
-  - Software as a Service (SaaS): Cloud-based software hosted online and typically available on a subscription basis. Third-party providers manage all potential technical issues, such as data, middleware, servers, and storage, minimizing IT resource expenditures and streamlining maintenance and support functions.
-
-For inherited controls, you can rely on AWS to provide the security of the cloud itself. For customer-specific security tasks, the apps and configurations specific to your unique circumstances are running on the AWS platform. For example, planning on managing the security of your instances, including user access controls (IAM), managing patches in your operating systems, and which firewall ports are open or closed in your instances.
+**Chef Infra** allows you to transform infrastructure into code. Whether you are operating in the cloud, on-premises, or in a hybrid environment, Chef Infra automates how infrastructure is configured, deployed, and managed across your network, regardless of the size. It enables you to remediate the issues identified by Chef InSpec. In addition, it allows you to manage traditional infrastructure, Virtual Machines (VMs), and integrated cookbooks configured infrastructure and cloud resources.
 
 ### Auditing Cloud Environments with Chef
 
@@ -152,7 +152,7 @@ You have access to the Chef InSpec resources library, including benchmarks and p
 
 The CIS/DISA-STIG certified profiles are available for Amazon Web Services, Microsoft Azure, GCP, Alibaba Cloud, and Google Cloud/Compute platforms. These profiles provide insights about services like identity management, security groups, and storage buckets that are implemented securely. With Chef InSpec's easy-to-code language and built-in profiles and resources, you can address your organization's concerns. And with Chef Infra, you can take corrective actions based on the insights derived.
 
-Policy as code with provisioning tools like Terraform merges infrastructure-as-code and compliance-as-code into a single workflow. Chef InSpec can be used with *Terraform* in two different ways to confirm compliance:
+Policy as code with provisioning tools like Terraform merges infrastructure as code and compliance-as-code into a single workflow. Chef InSpec can be used with *Terraform* in two different ways to confirm compliance:
 
 - Audit provisioned infrastructure: When developing Terraform code for repositories, Chef InSpec can verify that the resources are updated to match the tested and approved criteria.
 
@@ -164,10 +164,10 @@ Together, these capabilities ensure that with Chef, you have a single way to det
 
 The following Docker benchmark recommendations apply to both the host and the Docker components:
 
-- Host configuration secures the host on which the Docker engine runs and the container that it hosts.
+- Host configuration secures the host on which the Docker engine runs and the container it hosts.
 - Docker daemon configurations secure the Docker daemon behavior that manages all containers on the Docker host.
 - Container images and build files ensure that the images can be trusted and the packages are verified.
-- Container runtime ensures that no compromise is made on the compliant container startup (host) and runtime parameter configurations, such as avoiding privileged containers and SSH usage within containers.
+- Container runtime ensures no compromise on the compliant container startup (host) and runtime parameter configurations, such as avoiding privileged containers and SSH usage within containers.
 - Docker security operations limit the number of containers and respective images on the same host.
 - Docker swarm configuration secure Docker Swarm, the container orchestrator that manages container clusters and their lifecycle.
 
@@ -188,7 +188,7 @@ The CIS benchmark for Kubernetes includes configuration checks on the following 
   - Container Network Interface (CNI) and secrets
   - Network Policies
   - Pods
-  - Role based access control
+  - Role-based access control
 
 ### Docker and Kubernetes Validation
 
@@ -196,11 +196,11 @@ Chef provides curated, codified, and ready-to-run CIS benchmark templates for Do
 
 ### Mitigate Operating System Misconfigurations and Vulnerabilities
 
-Chef provides premium content that hardens your host operating systems (OS) in the cloud-native environments to mitigate host security misconfigurations and vulnerabilities. Using Chef's premium content, you can scan the host operating systems for compliance with benchmarks, such as CIS or DISA-STIG, by running the corresponding profiles. In addition, Chef provides CIS security benchmarks for operating systems such as RHEL, SUSE Linux, CentOS Linux, Debian, and Ubuntu for your container hosts.
+Chef provides premium content that hardens your host operating systems (OS) in the cloud-native environments to mitigate host security misconfigurations and vulnerabilities. Using Chef's premium content, you can scan the host OS for compliance with benchmarks, such as CIS or DISA-STIG, by running the corresponding profiles. In addition, Chef provides CIS security benchmarks for operating systems such as RHEL, SUSE Linux, CentOS Linux, Debian, and Ubuntu for your container hosts.
 
 ### Chef Premium Content for Cloud Environments
 
-Chef Premium Content offers cloud target scanning to scan an extensive set of cloud resources across all major public cloud providers, containers, and Kubernetes deployments.
+Chef Premium Content offers cloud target scanning to scan an extensive set of cloud resources across major public cloud providers, containers, and Kubernetes deployments.
 
 | Benchmarks                                            | Level          | Audit          | Remediate  |
 | :-----------------------------------------------------| :------------- | :--------------| :--------- |
