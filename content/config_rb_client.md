@@ -169,7 +169,7 @@ This configuration file has the following settings:
 : SELinux environments only. Cause Chef Infra Client to attempt to apply the correct file permissions to an updated file using the `restorecon` command. Set to `false` to prevent Chef Infra Client from attempting this action.
 
 `encrypted_data_bag_secret`
-: The subdirectory in which encrypted data bag secrets are located.
+: The path to a secrets file which can decrypt encrypted data bags.
 
 `enforce_default_paths`
 : Turn on path sanity in resources that shellout so that expected paths like /sbin or /bin are added to the PATH. Disabled by default.
