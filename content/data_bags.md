@@ -294,9 +294,9 @@ management console.
 
 ### Edit a Data Bag with Knife
 
-{{% knife_data_bag_edit %}}
+{{% chef-workstation/knife_data_bag_edit %}}
 
-{{% knife_data_bag_edit_item %}}
+{{% chef-workstation/knife_data_bag_edit_item %}}
 
 ## Use Data Bags
 

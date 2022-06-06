@@ -201,121 +201,121 @@ As `chef_zero` explicitly tests outside the context of a Chef Infra Server, the 
 
 ### chef clean-policy-cookbooks
 
-{{% ctl_chef_clean_policy_cookbooks %}}
+{{% chef-workstation/ctl_chef_clean_policy_cookbooks %}}
 
 #### Syntax
 
-{{% ctl_chef_clean_policy_cookbooks_syntax %}}
+{{% chef-workstation/ctl_chef_clean_policy_cookbooks_syntax %}}
 
 #### Options
 
-{{% ctl_chef_clean_policy_cookbooks_options %}}
+{{% chef-workstation/ctl_chef_clean_policy_cookbooks_options %}}
 
 ### chef clean-policy-revisions
 
-{{% ctl_chef_clean_policy_revisions %}}
+{{% chef-workstation/ctl_chef_clean_policy_revisions %}}
 
 #### Syntax
 
-{{% ctl_chef_clean_policy_revisions_syntax %}}
+{{% chef-workstation/ctl_chef_clean_policy_revisions_syntax %}}
 
 #### Options
 
-{{% ctl_chef_clean_policy_revisions_options %}}
+{{% chef-workstation/ctl_chef_clean_policy_revisions_options %}}
 
 ### chef delete-policy
 
-{{% ctl_chef_delete_policy %}}
+{{% chef-workstation/ctl_chef_delete_policy %}}
 
 #### Syntax
 
-{{% ctl_chef_delete_policy_syntax %}}
+{{% chef-workstation/ctl_chef_delete_policy_syntax %}}
 
 #### Options
 
-{{% ctl_chef_delete_policy_options %}}
+{{% chef-workstation/ctl_chef_delete_policy_options %}}
 
 ### chef delete-policy-group
 
-{{% ctl_chef_delete_policy_group %}}
+{{% chef-workstation/ctl_chef_delete_policy_group %}}
 
 #### Syntax
 
-{{% ctl_chef_delete_policy_group_syntax %}}
+{{% chef-workstation/ctl_chef_delete_policy_group_syntax %}}
 
 #### Options
 
-{{% ctl_chef_delete_policy_group_options %}}
+{{% chef-workstation/ctl_chef_delete_policy_group_options %}}
 
 ### chef diff
 
-{{% ctl_chef_diff %}}
+{{% chef-workstation/ctl_chef_diff %}}
 
 #### Syntax
 
-{{% ctl_chef_diff_syntax %}}
+{{% chef-workstation/ctl_chef_diff_syntax %}}
 
 #### Options
 
-{{% ctl_chef_diff_options %}}
+{{% chef-workstation/ctl_chef_diff_options %}}
 
 #### Examples
 
 ##### Compare current lock to latest commit on latest branch
 
-{{% ctl_chef_diff_current_lock_latest_branch %}}
+{{% chef-workstation/ctl_chef_diff_current_lock_latest_branch %}}
 
 ##### Compare current lock with latest commit on master branch
 
-{{% ctl_chef_diff_current_lock_master_branch %}}
+{{% chef-workstation/ctl_chef_diff_current_lock_master_branch %}}
 
 ##### Compare current lock to specified revision
 
-{{% ctl_chef_diff_current_lock_specified_revision %}}
+{{% chef-workstation/ctl_chef_diff_current_lock_specified_revision %}}
 
 ##### Compare lock on master branch to lock on revision
 
-{{% ctl_chef_diff_master_lock_revision_lock %}}
+{{% chef-workstation/ctl_chef_diff_master_lock_revision_lock %}}
 
 ##### Compare lock for version with latest commit on master branch
 
-{{% ctl_chef_diff_version_lock_master_branch %}}
+{{% chef-workstation/ctl_chef_diff_version_lock_master_branch %}}
 
 ##### Compare current lock with latest lock for policy group
 
-{{% ctl_chef_diff_current_lock_policy_group %}}
+{{% chef-workstation/ctl_chef_diff_current_lock_policy_group %}}
 
 ##### Compare locks for two policy group
 
-{{% ctl_chef_diff_two_policy_groups %}}
+{{% chef-workstation/ctl_chef_diff_two_policy_groups %}}
 
 ### chef export
 
-{{% ctl_chef_export %}}
+{{% chef-workstation/ctl_chef_export %}}
 
 #### Syntax
 
-{{% ctl_chef_export_syntax %}}
+{{% chef-workstation/ctl_chef_export_syntax %}}
 
 #### Options
 
-{{% ctl_chef_export_options %}}
+{{% chef-workstation/ctl_chef_export_options %}}
 
 ### chef generate policyfile
 
-{{% ctl_chef_generate_policyfile %}}
+{{% chef-workstation/ctl_chef_generate_policyfile %}}
 
 #### Syntax
 
-{{% ctl_chef_generate_policyfile_syntax %}}
+{{% chef-workstation/ctl_chef_generate_policyfile_syntax %}}
 
 #### Options
 
-{{% ctl_chef_generate_policyfile_options %}}
+{{% chef-workstation/ctl_chef_generate_policyfile_options %}}
 
 ### chef generate repo
 
-{{% ctl_chef_generate_repo %}}
+{{% chef-workstation/ctl_chef_generate_repo %}}
 
 {{< note >}}
 
@@ -325,23 +325,23 @@ This subcommand requires using one (or more) of the options (below) to support P
 
 #### Syntax
 
-{{% ctl_chef_generate_repo_syntax %}}
+{{% chef-workstation/ctl_chef_generate_repo_syntax %}}
 
 #### Options
 
-{{% ctl_chef_generate_repo_options %}}
+{{% chef-workstation/ctl_chef_generate_repo_options %}}
 
 ### chef install
 
-{{% ctl_chef_install %}}
+{{% chef-workstation/ctl_chef_install %}}
 
 #### Syntax
 
-{{% ctl_chef_install_syntax %}}
+{{% chef-workstation/ctl_chef_install_syntax %}}
 
 #### Options
 
-{{% ctl_chef_install_options %}}
+{{% chef-workstation/ctl_chef_install_options %}}
 
 #### Policyfile.lock.json
 
@@ -351,60 +351,60 @@ This subcommand requires using one (or more) of the options (below) to support P
 
 ### chef push
 
-{{% ctl_chef_push %}}
+{{% chef-workstation/ctl_chef_push %}}
 
 #### Syntax
 
-{{% ctl_chef_push_syntax %}}
+{{% chef-workstation/ctl_chef_push_syntax %}}
 
 #### Options
 
-{{% ctl_chef_push_options %}}
+{{% chef-workstation/ctl_chef_push_options %}}
 
 ### chef push-archive
 
-{{% ctl_chef_push_archive %}}
+{{% chef-workstation/ctl_chef_push_archive %}}
 
 #### Syntax
 
-{{% ctl_chef_push_archive_syntax %}}
+{{% chef-workstation/ctl_chef_push_archive_syntax %}}
 
 #### Options
 
-{{% ctl_chef_push_archive_options %}}
+{{% chef-workstation/ctl_chef_push_archive_options %}}
 
 ### chef show-policy
 
-{{% ctl_chef_show_policy %}}
+{{% chef-workstation/ctl_chef_show_policy %}}
 
 #### Syntax
 
-{{% ctl_chef_show_policy_syntax %}}
+{{% chef-workstation/ctl_chef_show_policy_syntax %}}
 
 #### Options
 
-{{% ctl_chef_show_policy_options %}}
+{{% chef-workstation/ctl_chef_show_policy_options %}}
 
 ### chef undelete
 
-{{% ctl_chef_undelete %}}
+{{% chef-workstation/ctl_chef_undelete %}}
 
 #### Syntax
 
-{{% ctl_chef_undelete_syntax %}}
+{{% chef-workstation/ctl_chef_undelete_syntax %}}
 
 #### Options
 
-{{% ctl_chef_undelete_options %}}
+{{% chef-workstation/ctl_chef_undelete_options %}}
 
 ### chef update
 
-{{% ctl_chef_update %}}
+{{% chef-workstation/ctl_chef_update %}}
 
 #### Syntax
 
-{{% ctl_chef_update_syntax %}}
+{{% chef-workstation/ctl_chef_update_syntax %}}
 
 #### Options
 
-{{% ctl_chef_update_options %}}
+{{% chef-workstation/ctl_chef_update_options %}}

@@ -141,11 +141,11 @@ Run the `knife ssl check` subcommand to verify the state of the SSL certificate,
 
 ##### Verified
 
-{{% knife_ssl_check_verify_server_config %}}
+{{% chef-workstation/knife_ssl_check_verify_server_config %}}
 
 ##### Unverified
 
-{{% knife_ssl_check_bad_ssl_certificate %}}
+{{% chef-workstation/knife_ssl_check_bad_ssl_certificate %}}
 
 #### knife ssl fetch
 
@@ -153,4 +153,4 @@ Run the `knife ssl fetch` to download the self-signed certificate from the Chef 
 
 ##### Verify Checksums
 
-{{% knife_ssl_fetch_verify_certificate %}}
+{{% chef-workstation/knife_ssl_fetch_verify_certificate %}}
