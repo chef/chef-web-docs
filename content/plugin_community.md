@@ -80,11 +80,11 @@ The following Ohai plugins are available from the open source community:
 </tr>
 <tr>
 <td><a href="https://github.com/timops/ohai-plugins/blob/master/win32_software.rb">win32_software.rb</a></td>
-<td>Adds the ability for Ohai to use Windows Management Instrumentation (WMI) to discover useful information about software that is installed on any node that is running Microsoft Windows.</td>
+<td>Adds the ability for Ohai to use Windows Management Instrumentation (WMI) to discover useful information about software that is installed on any node that is running Windows.</td>
 </tr>
 <tr>
 <td><a href="https://github.com/timops/ohai-plugins/blob/master/win32_svc.rb">win32_svc.rb</a></td>
-<td>Adds the ability for Ohai to query using Windows Management Instrumentation (WMI) to get information about all services that are registered on a node that is running Microsoft Windows.</td>
+<td>Adds the ability for Ohai to query using Windows Management Instrumentation (WMI) to get information about all services that are registered on a node that is running Windows.</td>
 </tr>
 </tbody>
 </table>

@@ -10,7 +10,15 @@ product = []
 <!-- markdownlint-disable-file -->
 <!-- cSpell:disable  -->
 
-{{% EOL_chefdk %}}
+{{< note >}}
+
+ChefDK is [deprecated](/versions/#deprecated-products-and-versions) and no
+longer under active development.
+
+This document is no longer maintained.
+
+{{< /note >}}
+
 
 This page documents the ChefDK major changes for each release. For
 a detailed list of changes, see the [ChefDK Changelog on
@@ -28,7 +36,7 @@ ChefDK packages are no longer produced for Debian 8 and RHEL/CentOS 6, as these 
 
 #### Test Kitchen
 
-Test Kitchen was updated from 2.7.2 to 2.8.0. This release improves how we execute commands on Windows hosts in order to avoid failures from executing commands that are too long for the windows command line. Thanks for this fix [@ramereth](https://github.com/ramereth)!
+Test Kitchen was updated from 2.7.2 to 2.8.0. This release improves how we execute commands on Windows hosts to avoid failures from executing commands that are too long for the windows command line. Thanks for this fix [@ramereth](https://github.com/ramereth)!
 
 #### Kitchen Google
 
@@ -51,7 +59,7 @@ Chef InSpec has been updated to 4.24.8, which includes the following improvement
 - The `WMI` resource now returns an array to support returning multiple WMI objects
 - The `package` resource on Windows properly escapes package names. Thanks for this improvement [@ramereth](https://github.com/ramereth)!
 - The `grub_conf` resource succeeds even if without a `menuentry` in the grub config
-- Loaded plugins won't try to re-load themselves
+- Loaded plugins will not try to re-load themselves
 - Waiver expiration is now always populated
 
 #### chef-vault
@@ -125,7 +133,7 @@ The `chef-vault` gem has been updated from 4.0.11 to 4.0.12. This release fixes 
 
 ### Knife Improvements
 
-We've reworked how the knife command loads dependencies to greatly improve performance. For some users this may result in a 2/3 reduction in the time knife commands take to load the first time. We also fixed the `knife ssh` command hanging when connecting to Windows nodes over SSH.
+We have reworked how the knife command loads dependencies to greatly improve performance. For some users this may result in a 2/3 reduction in the time knife commands take to load the first time. We also fixed the `knife ssh` command hanging when connecting to Windows nodes over SSH.
 
 ### Updates Components
 
@@ -444,7 +452,7 @@ AllCops:
 
 Cookstyle now includes two new Chef cop departments with a large number of existing cops moved into these more appropriate departments. Our goal is to have clearly defined cop departments that can be enabled or disabled to detect particular conditions in your cookbooks. Cops in the new ChefSharing department are focused around sharing cookbooks internally or on the public Supermarket. This includes things like ensuring proper license strings and complete metadata. Cops in the ChefRedundantCode category detect and correct unnecessary cookbook code. Anything detected by ChefRedundantCode cops can be removed regardless of the Chef Infra Client release you run in your infrastructure, so these are always safe to run.
 
-With the addition of these new departments, we've moved many cops out of the ChefCorrectness department. Going forward only cops that detect code that may fail a Chef Infra Client run or cause it to behave incorrectly will be included in this category. We hope that ChefCorrectness along with ChefDeprecations are used in most cookbook CI pipelines.
+With the addition of these new departments, we have moved many cops out of the ChefCorrectness department. Going forward only cops that detect code that may fail a Chef Infra Client run or cause it to behave incorrectly will be included in this category. We hope that ChefCorrectness along with ChefDeprecations are used in most cookbook CI pipelines.
 
 #### kitchen-azurerm
 
@@ -556,7 +564,7 @@ AllCops:
 
 Cookstyle now includes two new Chef cop departments with a large number of existing cops moved into these more appropriate departments. Our goal is to have clearly defined cop departments that can be enabled or disabled to detect particular conditions in your cookbooks. Cops in the new ChefSharing department are focused around sharing cookbooks internally or on the public Supermarket. This includes things like ensuring proper license strings and complete metadata. Cops in the ChefRedundantCode category detect and correct unnecessary cookbook code. Anything detected by ChefRedundantCode cops can be removed regardless of the Chef Infra Client release you run in your infrastructure, so these are always safe to run.
 
-With the addition of these new departments, we've moved many cops out of the ChefCorrectness department. Going forward only cops that detect code that may fail a Chef Infra Client run or cause it to behave incorrectly will be included in this category. We hope that ChefCorrectness along with ChefDeprecations are used in most cookbook CI pipelines.
+With the addition of these new departments, we have moved many cops out of the ChefCorrectness department. Going forward only cops that detect code that may fail a Chef Infra Client run or cause it to behave incorrectly will be included in this category. We hope that ChefCorrectness along with ChefDeprecations are used in most cookbook CI pipelines.
 
 #### kitchen-azurerm
 
@@ -656,7 +664,7 @@ readme](https://github.com/chef/chef/blob/master/chef-utils/README.md).
 
 **Chefignore Improvements**
 
-We've reworked how chefignore files are handled in `knife` which has
+We have reworked how chefignore files are handled in `knife` which has
 allowed us to close out a large number of long outstanding bugs. `knife`
 will now traverse all the way up the directory structure looking for a
 chefignore file. This means you can place a chefignore file in each
@@ -741,7 +749,7 @@ enhancements:
 - The nginx resource now includes parsing support for wildcard, dot
     prefix, and regex
 - The `iis_app_pool` resource now handles empty app pools
-- The `filesystem` resource now supports devices with very long names
+- The `filesystem` resource now supports devices with long names
 - The `apt` resource better handles URIs and supports repos with an
     arch
 - The `oracledb_session` resource has received multiple fixes to make
@@ -866,7 +874,7 @@ determining the state of instances.
 
 #### Ruby
 
-Ruby has been updated from 2.6.4 to 2.6.5 in order to resolve the
+Ruby has been updated from 2.6.4 to 2.6.5 to resolve the
 following CVEs:
 
 - [CVE-2019-16255](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-16255):
@@ -1035,19 +1043,19 @@ our users who do not have it installed another way and fixes two CVEs:
 
 #### Nokogiri
 
-Nokogiri has been updated from 1.10.2 to 1.10.4 in order to resolve
+Nokogiri has been updated from 1.10.2 to 1.10.4 to resolve
 [CVE-2019-5477](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-5477)
 
 #### OpenSSL
 
-OpenSSL has been updated from 1.0.2s to 1.0.2t in order to resolve
+OpenSSL has been updated from 1.0.2s to 1.0.2t to resolve
 [CVE-2019-1563](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-1563)
 and
 [CVE-2019-1547](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-1547).
 
 #### Ruby
 
-Ruby has been updated from 2.6.3 to 2.6.4 in order to resolve
+Ruby has been updated from 2.6.3 to 2.6.4 to resolve
 [CVE-2012-6708](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-6708)
 and
 [CVE-2015-9251](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-9251).
@@ -1084,10 +1092,10 @@ changes:
 #### Cookstyle
 
 Cookstyle has been updated from 5.0 to 5.1.19 with twenty-four new Chef
-specific cops to detect, and in many cases, to auto-correct errors in
+specific cops to detect, and in many cases, to autocorrect errors in
 your cookbook code. With the release of Cookstyle 5.1, we have started
 the process of replacing Foodcritic with Cookstyle. Cookstyle offers a
-modern configuration system, auto-correction, and a faster and more
+modern configuration system, autocorrection, and a faster and more
 reliable engine thanks to RuboCop. We will continue to port useful rules
 from Foodcritic to Cookstyle, as well as add rules that were not
 possible in the legacy Foodcritic engine. See the [Cookstyle 5.1 Release
@@ -1290,7 +1298,7 @@ for `kitchen.yml` config examples.
 
 knife-vsphere has been updated to 3.0. This new version adds support for
 specifying the `bootstrap_template` when creating new VMs. This release
-also improves how the plugin finds VM hosts, in order to support hosts
+also improves how the plugin finds VM hosts, to support hosts
 in nested directories.
 
 #### knife-ec2 1.0.7
@@ -1449,7 +1457,7 @@ repositories that match Chef's best practices.
     Infra Client releases as `require_chef_omnibus` will be removed in
     the next major Test Kitchen release.
 - `chef generate cookbook_file` no longer places the specified file
-    in a "default" folder as these aren't needed in Chef Infra Client
+    in a "default" folder as these are not needed in Chef Infra Client
     12 and later.
 - `chef generate repo` no longer outputs the full Chef Infra Client
     run information while generating the repository. Similar to the
@@ -1577,7 +1585,7 @@ non-SSD hosts and on Windows.
 ### Smaller Size
 
 We continue to optimize the size of the ChefDK package with this release
-taking up 11% less space on disk and containing nearly 5,000 fewer
+taking up 11% less space on disk and containing about 5,000 fewer
 files.
 
 ### Platform Support
@@ -1643,7 +1651,7 @@ libxslt has been updated to 1.1.34 to resolve
 
 #### Ruby
 
-Ruby has been updated from 2.5.6 to 2.5.7 in order to resolve the
+Ruby has been updated from 2.5.6 to 2.5.7 to resolve the
 following CVEs:
 
 - [CVE-2019-16255](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-16255):
@@ -1679,7 +1687,7 @@ shipped in ChefDK 4 have been backported to ChefDK 3.
     Client releases as `require_chef_omnibus` will be removed in the
     next major Test Kitchen release.
 - `chef generate cookbook_file` no longer places the specified file in
-    a `default` folder as these aren't needed in Chef Infra Client 12
+    a `default` folder as these are not needed in Chef Infra Client 12
     and later.
 - `chef generate cookbook` now generates cookbooks with updated
     `.gitignore` and `chefignore` files
@@ -1738,7 +1746,7 @@ from 12 characters to 15 characters. Thanks
 
 Knife-vsphere has been updated to 3.0.1. This new version adds support
 for specifying the `bootstrap_template` when creating new VMs. This
-release also improves how the plugin finds VM hosts, in order to support
+release also improves how the plugin finds VM hosts, to support
 hosts in nested directories.
 
 ### Platform Support Updates
@@ -1779,7 +1787,7 @@ for more information on when Chef ends support for an OS release.
 
 #### Ruby
 
-Ruby has been updated from 2.5.5 to 2.5.6 in order to resolve the
+Ruby has been updated from 2.5.5 to 2.5.6 to resolve the
 following CVEs:
 
 - [CVE-2019-16255](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-16255):
@@ -1803,7 +1811,7 @@ CVEs:
 
 #### Nokogiri
 
-Nokogiri has been updated from 1.10.3 to 1.10.4 in order to resolve
+Nokogiri has been updated from 1.10.3 to 1.10.4 to resolve
 [CVE-2019-5477](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-5477).
 
 ## What's New in 3.11
@@ -2027,7 +2035,7 @@ what's new.
 #### Berkshelf 7.0.7
 
 - Added <span class="title-ref">berks outdated --all</span> command to
-    get a list of outdated dependencies, including those that wouldn't
+    get a list of outdated dependencies, including those that would not
     satisfy the version constraints set in Berksfile. Thanks
     [jeroenj](https://github.com/jeroenj)
 
@@ -2166,7 +2174,7 @@ what's new.
 
 #### Kitchen EC2
 
-- Improved Windows system support. The auto-generated security group
+- Improved Windows system support. The automatically generated security group
     will now include support for RDP and the log directory will alway be
     created.
 
@@ -2243,7 +2251,7 @@ cookbook(s) given on the command line.
 
 ### Deprecations
 
-- `chef generate app` - Application repos were a pattern that didn't
+- `chef generate app` - Application repos were a pattern that did not
     take off.
 - `chef generate lwrp` - Use <span class="title-ref">chef generate
     resource</span>. Every supported release of Chef supports custom
@@ -2271,9 +2279,9 @@ cookbook(s) given on the command line.
 
     :   ChefDK now includes a driver for [Azure Resource
         Manager](https://github.com/test-kitchen/kitchen-azurerm). This
-        allows Microsoft Azure resources to be provisioned prior to
+        allows Microsoft Azure resources to be provisioned before
         testing. This driver uses the new Microsoft Azure Resource
-        Management REST API via the azure-sdk-for-ruby.
+        Management REST API using the azure-sdk-for-ruby.
 
 - **Updated Tooling**
 
@@ -2458,7 +2466,7 @@ cookbook(s) given on the command line.
     - **Berkshelf**
 
         Berkshelf has been updated to 7.0.2. Berkshelf 7 moves to using
-        the same libraries as the Chef Client, ensuring consistent
+        the same libraries as the Chef Infra Client, ensuring consistent
         behavior - for instance, ensuring that `chefignore` files work
         the same - and enabling a quicker turnaround on bug fixes. The
         "Actor crashed" failures of celluloid will no longer be produced
@@ -2571,7 +2579,7 @@ cookbook(s) given on the command line.
     upcoming `include_policy` feature, but could be useful in some
     situations.
 
-    Given a cookbook that has been uploaded to the Chef server via
+    Given a cookbook that has been uploaded to the Chef server using
     `chef push`, it can be used in another policy by adding code like
     the following to the ruby policyfile:
 
@@ -2766,18 +2774,18 @@ Chef 2.0.28 fixes an
 
 ## What's New in 2.0
 
-### Chef Client 13.2
+### Chef Infra Client 13.2
 
-Chef Client 13 is the most delightful version of Chef Client available.
-We've taken what we've learned from many bug reports, forum posts, and
-conversations with our users, and we've made it safer and easier than
-ever to write great cookbooks. We've also included a number of new
+Chef Infra Client 13 is the most delightful version of Chef Infra Client available.
+We have taken what we have learned from many bug reports, forum posts, and
+conversations with our users, and we have made it safer and easier than
+ever to write great cookbooks. We have also included a number of new
 resources that better support our most popular operating systems, and
-we've made it easier to write patterns that result in reusable,
+we have made it easier to write patterns that result in reusable,
 efficient code.
 
-Chef Client 13.2 solves a number of issues that were reported in our
-initial releases of Chef Client 13, and we regard it as suitable for
+Chef Infra Client 13.2 solves a number of issues that were reported in our
+initial releases of Chef Infra Client 13, and we regard it as suitable for
 general use.
 
 ### PolicyFiles
@@ -2802,9 +2810,9 @@ Berkshelf adds support for two new sources:
 ### Chef Vault 3.1
 
 Chef Vault 3.1 includes a number of optimizations for large numbers of
-nodes. In most situations, we've seen at least 50% faster creation,
+nodes. In most situations, we have seen at least 50% faster creation,
 update, and refresh operations, and much more efficient memory usage.
-We've also added a new `sparse` mode, which dramatically reduces the
+We have also added a new `sparse` mode, which dramatically reduces the
 amount of network traffic that occurs as nodes decrypt vaults. A lot of
 the scalability work has been built and tested by our friends at Criteo.
 
@@ -2824,7 +2832,7 @@ every version of Chef.
 The release of Foodcritic 11 also marks the creation of the Foodcritic
 org on [GitHub](https://github.com/foodcritic), which makes it easier to
 get involved in writing rules and contributing code. We are excited to
-start building more of a community around Foodcritic, and can't wait to
+start building more of a community around Foodcritic, and cannot wait to
 see what the community cooks up.
 
 ### InSpec 1.30
@@ -2832,7 +2840,7 @@ see what the community cooks up.
 Since the last release of ChefDK, InSpec has been independently released
 multiple times with a number of great enhancements, including some new
 resources (rabbitmq_config, docker, docker_image, docker_container,
-oracledb_session), some enhancements to the Habitat package creator for
+oracledb_session), some enhancements to the Chef Habitat package creator for
 InSpec profiles, and a whole slew of bug fixes and documentation
 updates.
 
@@ -2857,12 +2865,12 @@ security fixes:
     - [CVE-2017-10784](https://www.ruby-lang.org/en/news/2017/09/14/webrick-basic-auth-escape-sequence-injection-cve-2017-10784/)
     - [CVE-2017-14033](https://www.ruby-lang.org/en/news/2017/09/14/openssl-asn1-buffer-underrun-cve-2017-14033/)
     - [CVE-2017-14064](https://www.ruby-lang.org/en/news/2017/09/14/json-heap-exposure-cve-2017-14064/)
-- Chef Client has been upgraded to 12.21.26
+- Chef Infra Client has been upgraded to 12.21.26
 - Push Jobs Client has been upgraded to 2.4.5
 
 ## What's New in 1.5
 
-### Chef Client 12.21
+### Chef Infra Client 12.21
 
 Chef has been updated to the 12.21 release, fixing a number of bugs:
 
@@ -2875,7 +2883,7 @@ See the full [release
 notes](https://github.com/chef/chef/blob/chef-12/RELEASE_NOTES.md#chef-client-release-notes-1221)
 for more details.
 
-Chef Client 12.21 also contains a new version of zlib, fixing 4 CVEs:
+Chef Infra Client 12.21 also contains a new version of zlib, fixing 4 CVEs:
 
 - [CVE-2016-98402](https://www.cvedetails.com/cve/CVE-2016-9840/)
 - [CVE-2016-9841](https://www.cvedetails.com/cve/CVE-2016-9841/)
@@ -2904,7 +2912,7 @@ Chef Client 12.21 also contains a new version of zlib, fixing 4 CVEs:
 
 ## What's New in 1.3
 
-### Chef Client 12.19
+### Chef Infra Client 12.19
 
 ChefDK now ships with Chef 12.19. Check out [Release
 Notes](/release_notes/) for all the details of
@@ -2912,7 +2920,7 @@ this new release.
 
 ### Workflow Build Cookbooks
 
-Build cookbooks generated via `chef generate build-cookbook` will no
+Build cookbooks generated using `chef generate build-cookbook` will no
 longer depend on the delivery_build or delivery-base cookbook. Instead,
 the Test Kitchen instance will use ChefDK as the standard workflow
 runner setup.
@@ -3199,7 +3207,7 @@ details.
 
 ### Mixlib::Install
 
-New `mixlib-install` command allows you to quickly download Chef
+New `mixlib-install` command allows you to download Chef
 binaries. Run `mixlib-install help` for command usage.
 
 ### Delivery CLI
@@ -3217,7 +3225,7 @@ binaries. Run `mixlib-install help` for command usage.
 - Build cookbook is now generated using the more appropriate
     `chef generate build-cookbook` on project initialization.
 - Support providing your password non-interactively to
-    `delivery token` via the `AUTOMATE_PASSWORD` environment variable
+    `delivery token` using the `AUTOMATE_PASSWORD` environment variable
     (`AUTOMATE_PASSWORD=password delivery token`).
 
 ### Notable Upgraded Gems

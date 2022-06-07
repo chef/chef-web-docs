@@ -20,16 +20,15 @@ for installation instructions.
 
 ## Platforms
 
-{{% adopted_platforms_server %}}
+{{% chef-server/adopted_platforms_server %}}
 
 ### Untested Platforms
 
 The following platforms are not tested by Chef Software:
 
--   Any Linux or UNIX distribution that is not listed as a Foundational
-    platform.
--   Microsoft Windows
--   32-bit architectures
+- Any Linux or UNIX distribution that is not listed as a Foundational platform.
+- Microsoft Windows
+- 32-bit architectures
 
 ## Capacity Planning
 
@@ -39,11 +38,11 @@ how to choose the right topology for the Chef Infra Server.
 
 ## Hardware Requirements
 
-{{% system_requirements_server_hardware %}}
+{{% chef-server/system_requirements_server_hardware %}}
 
 ## Software Requirements
 
-{{% system_requirements_server_software %}}
+{{% chef-server/system_requirements_server_software %}}
 
 ### UIDs and GIDs
 
@@ -305,7 +304,10 @@ ensure that hostname is resolvable.
     recognize it as an IPv6 address. For example:
 
     ```ruby
-    bookshelf['url'] "https://[2001:db8:85a3:8d3:1319:8a2e:370:7348]"
+    bookshelf['vip'] = "hostname.example.com"
+
+    # If we're getting weird. Change to IPv6
+    bookshelf['vip'] = "[2001:db8:85a3:8d3:1319:8a2e:370]"
     ```
 
 The `api_fqdn` setting can be added to the private-chef.rb file (it is

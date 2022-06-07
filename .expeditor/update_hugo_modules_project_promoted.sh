@@ -10,7 +10,7 @@ if [[ "${EXPEDITOR_PROJECT}" == *"automate"* ]]; then
   org="chef"
   product_key="automate"
   subdirectory="components/docs-chef-io"
-  manifest="https://packages.chef.io/files/${EXPEDITOR_TARGET_CHANNEL}/automate/latest/manifest.json"
+  manifest="https://packages.chef.io/files/${EXPEDITOR_TARGET_CHANNEL}/automate/latest/manifest_semver.json"
   git_sha="$(curl -s $manifest | jq -r -c ".git_sha")"
 elif [[ "${EXPEDITOR_PROJECT}" == *"habitat"* ]]; then
   org="habitat-sh"
@@ -18,6 +18,7 @@ elif [[ "${EXPEDITOR_PROJECT}" == *"habitat"* ]]; then
   subdirectory="components/docs-chef-io"
   manifest="https://packages.chef.io/files/${EXPEDITOR_TARGET_CHANNEL}/habitat/latest/manifest.json"
   git_sha="$(curl -s $manifest | jq -r -c ".sha")"
+  version="$(curl -s $manifest | jq -r -c ".version")"
 fi
 
 branch="expeditor/update_docs_${product_key}_${git_sha}"
@@ -63,6 +64,17 @@ if [[ "${EXPEDITOR_PROJECT}" == *"habitat"* ]]; then
   tar xvzf generated-documentation.tar.gz --strip-components 1 -C content/habitat
   rm generated-documentation.tar.gz
 fi
+
+# We use product version numbers for release notes.
+# There's no list of Habitat versions on packages.chef.io, so we store one in assets/release-notes/habitat/release-versions.json
+# This file is updated every time there's a new release of Hab
+
+if [[ "${EXPEDITOR_PROJECT}" == *"habitat"* ]]; then
+  version_data="$(jq --arg version "$version" '. += [$version]' assets/release-notes/habitat/release-versions.json)" && \
+  echo -E "${version_data}" > assets/release-notes/habitat/release-versions.json
+fi
+
+version="1.7.0" && \
 
 
 # submit pull request to chef/chef-web-docs

@@ -23,7 +23,7 @@ Since a variety of different practices are used to create an air-gapped network,
 
 <!-- markdownlint-disable MD007 -->
 * You have a way to get packages to your air-gapped machines
-* Machines on your air-gapped network are able to resolve each other via DNS
+* Machines on your air-gapped network are able to resolve each other using DNS
 * A server's Fully Qualified Domain Name (FQDN) is the name that will be used by other servers to access it
 * You have a private Ruby gem mirror to supply gems as needed
 * You have an artifact store for file downloads. At a minimum, it should have the following packages available:
@@ -45,7 +45,7 @@ For Chef Supermarket:
 
 ### Required Gems
 
-The following Ruby gems are required to install private Supermarket via the supermarket-omnibus-cookbook:
+The following Ruby gems are required to install private Supermarket using the supermarket-omnibus-cookbook:
 
 * mixlib-install
 * mixlib-shellout
@@ -71,7 +71,7 @@ The install script should be accessible from your artifact store.
 ## Chef Infra Server
 
 In this section you'll install the Chef Infra Server, and create your
-organization and user. Note that in order to configure Supermarket later
+organization and user. Note that to configure Supermarket later
 in this guide, you will need a user that is a member of the `admins`
 group.
 
@@ -79,7 +79,7 @@ group.
 
 2. Upload the package to the machine that will run the Chef Infra Server, and then record its location on the file system. The rest of these steps assume this location is in the `/tmp` directory.
 
-3. {{< readFile_shortcode file="install_chef_server_install_package.md" >}}
+3. {{< readfile file="layouts/shortcodes/chef-server/install_chef_server_install_package.md" >}}
 
 4. Run the following to start all of the services:
 
@@ -91,9 +91,9 @@ group.
     that work together to create a functioning system, this step may
     take a few minutes to complete.
 
-5. {{< readFile_shortcode file="ctl_chef_server_user_create_admin.md">}}
+5. {{< readfile file="layouts/shortcodes/chef-server/ctl_chef_server_user_create_admin.md">}}
 
-6. {{< readFile_shortcode file="ctl_chef_server_org_create_summary.md">}}
+6. {{< readfile file="layouts/shortcodes/chef-server/ctl_chef_server_org_create_summary.md">}}
 
 ## Chef Workstation
 
@@ -236,7 +236,7 @@ the following cookbooks:
 * [chef-ingredient](https://supermarket.chef.io/cookbooks/chef-ingredient)
 * [hostsfile](https://supermarket.chef.io/cookbooks/hostsfile)
 
-The following Gems must be accessible via your Gem mirror:
+The following Gems must be accessible using your Gem mirror:
 
 * mixlib-install
 * mixlib-shellout
@@ -262,13 +262,13 @@ Identity is an OAuth 2.0 service packaged with the Chef Infra Server,
 that allows you to use the same credentials to access both server and
 Supermarket.
 
-1. Log on to the Chef Infra Server via SSH and elevate to an
+1. Log on to the Chef Infra Server using SSH and elevate to an
     admin-level user. If running a multi-node Chef Infra Server cluster,
     log on to the node acting as the primary node in the cluster.
 
 2. Update the `/etc/opscode/chef-server.rb` configuration file.
 
-    {{< readFile_shortcode file="config_ocid_application_hash_supermarket.md" >}}
+    {{< readfile file="layouts/shortcodes/chef-server/config_ocid_application_hash_supermarket.md" >}}
 
 3. Reconfigure the Chef Infra Server.
 
@@ -280,7 +280,7 @@ Supermarket.
 
     Depending on your Chef Infra Server version and configuration (see
     [chef-server.rb](/server/config_rb_server_optional_settings/#config-rb-server-insecure-addon-compat)),
-    this can be retrieved via [chef-server-ctl oc-id-show-app
+    this can be retrieved using [chef-server-ctl oc-id-show-app
     supermarket](/ctl_chef_server/#ctl-chef-server-oc-id-show-app)
     or is located in `/etc/opscode/oc-id-applications/supermarket.json`:
 
@@ -451,10 +451,10 @@ user's workstation.
 
 1. Visit the Chef Supermarket hostname in the browser. A private Chef
     Supermarket will generate and use a self-signed certificate, if a
-    certificate is not supplied as part of the installation process (via
+    certificate is not supplied as part of the installation process (using
     the wrapper cookbook).
 2. If an SSL notice is shown due to your self-signed certificate while
-    connecting to Chef Supermarket via a web browser, accept the SSL
+    connecting to Chef Supermarket using a web browser, accept the SSL
     certificate. A trusted SSL certificate should be used for private
     Chef Supermarket that is used in production.
 3. After opening Chef Supermarket in a web browser, click the **Create

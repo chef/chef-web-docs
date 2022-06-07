@@ -16,7 +16,11 @@ product = []
 
 {{% EOL_manage %}}
 
-{{% manage_A2_server_warning %}}
+{{< note >}}
+
+Chef Automate 2 does not deploy Chef Manage alongside Chef Infra Server.
+
+{{< /note >}}
 
 The Chef management console enables the management of nodes, data bags, roles, environments, and cookbooks by using a web user interface. In addition, access to nodes, data bags, roles, environments, and cookbooks is configurable using role-based access control (RBAC).
 
@@ -92,14 +96,14 @@ The Chef management console provides ways for users to manage [data bags](/serve
 
 Organizations, users, and groups can be managed from the Chef management console, including role-based access control for any user and group to any of the objects saved to the Chef Infra Server.
 
-{{% server_rbac %}}
+{{% chef-server/server_rbac %}}
 
 ![image](/images/step_manage_webui_admin.png)
 
 ## Install Chef Manage
 
-{{% ctl_chef_server_install_features_download %}}
+{{% chef-server/ctl_chef_server_install_features_download %}}
 
 ### Chef Manage Local Installation
 
-{{% ctl_chef_server_install_features_manual %}}
+{{% chef-server/ctl_chef_server_install_features_manual %}}

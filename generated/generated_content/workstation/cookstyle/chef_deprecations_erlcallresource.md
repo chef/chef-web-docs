@@ -13,7 +13,7 @@ The full name of the cop is: `Chef/Deprecations/ErlCallResource`
 | --- | --- | --- |
 | Enabled | No | All Versions |
 
-Don't use the deprecated `erl_call` resource removed in Chef Infra Client 13."
+do not use the deprecated `erl_call` resource removed in Chef Infra Client 13."
 
 ## Examples
 

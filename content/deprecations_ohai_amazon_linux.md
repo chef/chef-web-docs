@@ -8,8 +8,8 @@ sitemapExclude = true
 aliases = "/deprecations_ohai_amazon_linux.html"
 +++
 
-In Ohai/Chef releases prior to Chef Client 13, Amazon Linux was
-identified as `platform_family 'rhel'`. In Ohai/Chef Client 13 and
+In Ohai/Chef releases before Chef Infra Client 13, Amazon Linux was
+identified as `platform_family 'rhel'`. In Ohai/Chef Infra Client 13 and
 later, Amazon Linux will be identified as the
 `platform_family 'amazon'`. When Amazon Linux was created it closely
 mirrored the structure and package naming of RHEL 5, and with the
@@ -18,10 +18,10 @@ the release of RHEL 7 Red Hat switched to the systemd init system,
 however Amazon Linux has not yet decided to make that same switch. In
 addition to the init system differences, Amazon Linux has added many
 critical packages with their own unique naming conventions. This makes
-it very hard for users to write cookbooks for RHEL that will work on
-Amazon Linux systems out of the box. In order to simplify multi-platform
+it hard for users to write cookbooks for RHEL that will work on
+Amazon Linux systems out of the box. To simplify multi-platform
 cookbook code and to make it more clear when cookbooks actually support
-Amazon Linux, we've created the '`amazon` platform family and removed
+Amazon Linux, we have created the '`amazon` platform family and removed
 Amazon Linux from the `rhel` platform family.
 
 ## Remediation

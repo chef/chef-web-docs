@@ -15,7 +15,7 @@ Chef Workstation ships with Chef Infra Client, Chef InSpec, Chef CLI, Test Kitch
 
 ## Install Chef Workstation
 
-[Download Chef Workstation](https://downloads.chef.io/chef-workstation) and run the installer on the developer machine. Once downloaded, run the installer, accept the default options and wait for it to complete.
+[Download Chef Workstation](https://www.chef.io/downloads/tools/workstation) and run the installer on the developer machine. Once downloaded, run the installer, accept the default options and wait for it to complete.
 
 Once the installation is complete, you can verify the installation by opening the command line and run:
 
@@ -31,12 +31,18 @@ Create a `.chef` folder for storing your configuration and keys. Creating the `.
 
   For Powershell:
 
+  1. To start Powershell from the Start Menu, click on **Start** and type **Powershell**.
+  1. Right-click on **Windows Powershell** (not to be confused with **Windows Powershell ISE** which is a scripting environment) and click **Run as Administrator**.
+  1. Then run the following commands one at a time.
+
   ```powershell
   Set-Location -Path C:\Users\<user_name>
   New-Item -Path . -Name ".chef" -ItemType "directory"
   ```
 
   For macOS:
+
+  To start Terminal, open Launchpad and type **Terminal** in the search bar and then click on **Terminal**.
 
   ```bash
   cd ~

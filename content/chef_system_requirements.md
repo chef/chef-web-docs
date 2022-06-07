@@ -37,7 +37,7 @@ Every node that will be configured by Chef Infra Client and every workstation th
 
 ### Chef Infra Server, On-premises or in Cloud Environment
 
-{{% system_requirements_server_hardware %}} {{% system_requirements_server_software %}}
+{{% chef-server/system_requirements_server_hardware %}} {{% chef-server/system_requirements_server_software %}}
 
 ## Chef Infra Client
 
@@ -57,7 +57,7 @@ Every node that will be configured by Chef Infra Client and every workstation th
     data and should be generously sized. 5GB is a safe number as a
     starting point, but tune the size of `/var/chef/cache` as necessary.
     This location is tunable in a node's
-    [client.rb](/config_rb_client/) file via the
+    [client.rb](/config_rb_client/) file using the
     `file_cache_path` setting.
 
 ## Chef Workstation

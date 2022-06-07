@@ -34,7 +34,28 @@ The chef-repo contains several directories, each with a README file that describ
 
 The default structure of a new chef-repo is:
 
-{{% chef_repo_content %}}
+```output
+. chef-repo
+  - cookbooks
+    - README.md
+    - example
+      - attribtes
+        - default.rb
+      - recipes
+        - default.rb
+      - metadata.rb
+      - README.md
+  - data_bags
+      - example
+        - example_item.json
+      - README.md
+  - policyfiles
+      - README.md
+  - .chef-repo.txt
+  - chefignore
+  - License
+  - README.md
+```
 
 ### cookbooks/
 

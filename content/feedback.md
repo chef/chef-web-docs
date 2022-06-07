@@ -14,14 +14,13 @@ product = []
 +++
 
 chef-docs hopes that the documentation is always just what you are
-looking for, but when that isn't the case chef-docs does appreciate
+looking for, but when that is not the case chef-docs does appreciate
 feedback. There are several ways to get feedback to chef-docs. For
 members of the Chef community, customers, or people who just want to
 send feedback, choose any of the following four options:
 
 - Email --- Send an email to <docs@chef.io> for documentation bugs,
-    ideas, thoughts, and suggestions. Typos and little errors and quick
-    fixes will be fixed quickly and without fuss. This email address is
+    ideas, thoughts, and suggestions. This email address is
     not a support email address, however. If you need support for Chef,
     contact Chef support.
 - GitHub issues --- Use the

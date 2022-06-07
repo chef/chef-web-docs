@@ -320,7 +320,7 @@ on the node.
 </tbody>
 </table>
 
-If you just want to use each result of the search and don't care about
+If you just want to use each result of the search and do not care about
 the aggregate result you can provide a code block to the search method.
 Each result is then passed to the block:
 
@@ -339,7 +339,7 @@ typically a node (that runs Chef Infra Client) or a workstation (that
 runs knife), but can also be any other machine configured to use the
 Chef Infra Server API.
 
-Sometimes when a role isn't fully defined (or implemented), it may be
+Sometimes when a role is not fully defined (or implemented), it may be
 necessary for a machine to connect to a database, search engine, or some
 other service within an environment by using the settings located on
 another machine, such as a host name, IP address, or private IP address.
@@ -384,4 +384,4 @@ be used in templates as a variable, among other possible uses.
 
 {{% data_bag %}}
 
-{{< readFile_shortcode file="search_data_bag.md" >}}
+{{% search_data_bag %}}

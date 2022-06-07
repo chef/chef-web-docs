@@ -30,7 +30,7 @@ The steps for setting up an accumulator pattern are:
 
 ## Example Accumulator: Samba
 
-Samba Linux tool systems for supporting sharing resources in a network with Windows systems. Samba uses a single file for configuration. In order to share more than one directory using this configuration file, you need to write multiple `samba_share` resources.
+Samba Linux tool systems for supporting sharing resources in a network with Windows systems. Samba uses a single file for configuration. To share more than one directory using this configuration file, you need to write multiple `samba_share` resources.
 
 The accumulator pattern lets you split out each configuration section into its own resource.
 

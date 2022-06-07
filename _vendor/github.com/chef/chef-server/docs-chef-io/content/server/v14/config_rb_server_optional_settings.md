@@ -1031,7 +1031,7 @@ This configuration file has the following settings for `oc-id`:
 :   A Hash that contains OAuth 2 application information. Default value:
     `{ }`.
 
-    {{< readFile_shortcode file="config_ocid_application_hash_supermarket.md" >}}
+    {{< readfile file="layouts/shortcodes/chef-server/config_ocid_application_hash_supermarket.md" >}}
 
 `oc_id['db_pool_size']`
 
@@ -1110,105 +1110,6 @@ This configuration file has the following settings for `oc-id`:
 `oc_id['vip']`
 
 :   The virtual IP address. Default value: `'127.0.0.1'`.
-
-### opscode-chef-mover
-
-This configuration file has the following settings for
-`opscode-chef-mover`:
-
-`opscode_chef_mover['bulk_fetch_batch_size']`
-
-:   Default value: `'5'`.
-
-`opscode_chef_mover['cache_ttl']`
-
-:   Default value: `'3600'`.
-
-`opscode_chef_mover['db_pool_size']`
-
-:   The number of open connections to PostgreSQL that are maintained by
-    the service. Default value: `'5'`.
-
-`opscode_chef_mover['data_dir']`
-
-:   The directory in which on-disk data is stored. The default value is
-    the recommended value. Default value:
-
-    ```ruby
-    '/var/opt/opscode/opscode-chef-mover/data'
-    ```
-
-`opscode_chef_mover['dir']`
-
-:   The working directory. The default value is the recommended value.
-    Default value:
-
-    ```ruby
-    '/var/opt/opscode/opscode-chef-mover'
-    ```
-
-`opscode_chef_mover['enable']`
-
-:   Enable a service. Default value: `true`.
-
-`opscode_chef_mover['ibrowse_max_pipeline_size']`
-
-:   Default value: `1`.
-
-`opscode_chef_mover['ibrowse_max_sessions']`
-
-:   Default value: `256`.
-
-`opscode_chef_mover['log_directory']`
-
-:   The directory in which log data is stored. The default value is the
-    recommended value. Default value:
-
-    ```ruby
-    '/var/log/opscode/opscode-chef-mover'
-    ```
-
-`opscode_chef_mover['log_rotation']`
-
-:   The log rotation policy for this service. Log files are rotated when
-    they exceed `file_maxbytes`. The maximum number of log files in the
-    rotation is defined by `num_to_keep`. Default value:
-
-    ```ruby
-    { 'file_maxbytes' => 104857600, 'num_to_keep' => 10 }
-    ```
-
-`opscode_chef_mover['max_cache_size']`
-
-:   Default value: `'10000'`.
-
-`opscode_chef_mover['solr_http_cull_interval']`
-
-:   Default value: `'{1, min}'`.
-
-`opscode_chef_mover['solr_http_init_count']`
-
-:   Default value: `25`.
-
-`opscode_chef_mover['solr_http_max_age']`
-
-:   Default value: `'{70, sec}'`.
-
-`opscode_chef_mover['solr_http_max_connection_duration']`
-
-:   Default value: `'{70, sec}'`.
-
-`opscode_chef_mover['solr_http_max_count']`
-
-:   Default value: `100`.
-
-`opscode_chef_mover['solr_ibrowse_options']`
-
-:   Default value: `'[{connect_timeout, 10000}]'`.
-
-`opscode_chef_mover['solr_timeout']`
-
-:   Default value: `30000`.
 
 ### opscode-erchef
 
@@ -1463,13 +1364,45 @@ This configuration file has the following settings for `opscode-erchef`:
 
 `opscode_erchef['cbv_cache_item_ttl']`
 
-:   The minimum time in milliseconds that Chef Infra Server will keep any given cookbook version response in the cache when
+:   The maximum time in milliseconds that Chef Infra Server will keep any given cookbook version response in the cache when
     when `cbv_cache_enabled` is enabled.
     Default value: `30000`.
-    
+
 {{< note >}}
 Be careful if increasing this number - requests for a given set of cookbook versions will be stale if the resolved cookbook versions are updated before the cache entry times out. This will
 not occur if you increment the version of a cookbook with every cookbook update, which is the recommended approach to updating cookbooks.
+{{< /note >}}
+
+`opscode_erchef['search_queue_mode']`
+
+: The search index queue mode . Default value: `batch`.
+
+`opscode_erchef['search_provider']`
+
+: The search index provider. Default value: `elasticsearch`.
+
+`opscode_erchef['search_auth_username']`
+
+: The OpenSearch username. Default value: `opensearch_user`.
+
+`opscode_erchef['search_auth_password']`
+
+: The OpenSearch password. Default value: `nil`.
+
+### OpenSearch
+
+This configuration file has the following settings for `opensearch`:
+
+`opensearch['external']`
+
+: Enable external `opensearch` service by setting to `true`. Default value: `false`.
+
+`opensearch['external_url']`
+
+: The external OpenSearch URL. Example: `http://127.0.0.1:9200`. Default value: `nil`
+
+{{< note >}}
+Chef Infra Server supports OpenSearch only as an external indexing provider. You must provide values for `external` and `external_url` under this configuration.
 {{< /note >}}
 
 ### Elasticsearch
@@ -1486,7 +1419,7 @@ This configuration file has the following settings for `elasticsearch`:
 
 `elasticsearch['data_dir']`
 
-:The paths used to store data. Default value: `/var/opt/opscode/elasticsearch/data`
+: The paths used to store data. Default value: `/var/opt/opscode/elasticsearch/data`
 
 `elasticsearch['plugins_directory']`
 
@@ -1494,7 +1427,7 @@ This configuration file has the following settings for `elasticsearch`:
 
 `elasticsearch['scripts_directory']`
 
-:The default location of the scripts directory depends on which package you install. Default value: `/var/opt/opscode/elasticsearch/scripts`
+: The default location of the scripts directory depends on which package you install. Default value: `/var/opt/opscode/elasticsearch/scripts`
 
 `elasticsearch['temp_directory']`
 

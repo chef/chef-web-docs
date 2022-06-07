@@ -44,7 +44,7 @@ deprecation errors are issued.
 
 Deprecation warnings are great for ensuring cookbooks are kept
 up-to-date and to prepare for major version upgrades, sometimes you just
-can't fix a deprecation right away. Enabling
+cannot fix a deprecation right away. Enabling
 `treat_deprecation_warnings_as_errors` mode in Test Kitchen integration
 tests often compounds the problem because it does not distinguish
 between deprecations from community cookbooks and those in your own
@@ -57,10 +57,10 @@ comments.
 The `silence_deprecation_warnings` configuration value can be set in
 your `client.rb` or `solo.rb` config file, either to `true` to silence
 all deprecation warnings or to an array of deprecations to silence. You
-can specify which to silence either by the deprecation key name (e.g.
-`"internal_api"`), the numeric deprecation ID (e.g. `25` or <span
+can specify which to silence either by the deprecation key name (for example,
+`"internal_api"`), the numeric deprecation ID (for example, `25` or <span
 class="title-ref">"CHEF-25"</span>), or by specifying the filename and
-line number where the deprecation is being raised from (e.g.
+line number where the deprecation is being raised from (for example,
 `"default.rb:67"`).
 
 An example of setting the `silence_deprecation_warnings` option in your
@@ -126,7 +126,7 @@ of Chef comes out.
 </tr>
 <tr>
 <td><a href="/deprecations_exit_code/">CHEF-2</a></td>
-<td>Chef's exit codes are now defined so that it's easy to understand why Chef exited.</td>
+<td>Chef's exit codes are now defined so that it is easy to understand why Chef exited.</td>
 <td>12.11</td>
 <td>13.0</td>
 </tr>

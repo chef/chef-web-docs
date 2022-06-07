@@ -10,7 +10,38 @@ gh_repo = "chef-web-docs"
     parent = "chef_infra/cookbook_reference/attributes"
 +++
 <!-- markdownlint-disable-file MD036 -->
-{{% node_attribute_precedence %}}
+Chef Infra Client applies attributes in the following
+order:
+
+| Application Order (Last One Wins) | Attribute Type   | Source Order                                                        |
+|-----------------------------------|------------------|---------------------------------------------------------------------|
+| 1                                 | `default`        | Cookbook attribute fileRecipeEnvironmentRole                        |
+| 2                                 | `force_default`  | Cookbook attribute fileRecipe                                       |
+| 3                                 | `normal`         | JSON file passed with `chef-client -j`Cookbook attribute fileRecipe |
+| 4                                 | `override`       | Cookbook attribute fileRecipeRoleEnvironment                        |
+| 5                                 | `force_override` | Cookbook attribute fileRecipe                                       |
+| 6                                 | `automatic`      | Identified by Ohai at the start of a Chef Infra Client Run          |
+
+{{< note >}}
+
+The attribute precedence order for the sources "roles" and "environments" are opposite in the `default` and `override`. The `default` order is **environment** then **role**. The `override` order is **role** then **environment**
+
+Applying the role `override` first lets you use the same role in a set of environments.
+Applying the environment `override` on top of the role `override` lets you define a subset of these with environment-specific settings.
+
+This is useful if you have an environment that is different within a sub-set of a role. For example, the role for an application server may exist in all environments, but one environment may use a different database server.
+
+{{< /note >}}
+
+Attribute precedence, viewed from the same perspective as the overview
+diagram, where the numbers in the diagram match the order of attribute
+precedence:
+
+![image](/images/overview_chef_attributes_precedence.png)
+
+Attribute precedence, when viewed as a table:
+
+![image](/images/overview_chef_attributes_table.png)
 
 ## Examples
 
@@ -173,7 +204,7 @@ node.default['foo'] = {
 And some role attributes:
 
 ```ruby
-# Please don't ever do this in real code :)
+# Please do not ever do this in real code :)
 node.role_default['foo']['bar']['thing'] = 'otherstuff'
 ```
 
@@ -214,7 +245,7 @@ node.default['foo'] = {
 And some role attributes:
 
 ```ruby
-# Please don't ever do this in real code :)
+# Please do not ever do this in real code :)
 node.role_default['foo']['bar']['thing'] = 'otherstuff'
 ```
 
@@ -387,7 +418,7 @@ Given the following code structure:
 
 ```ruby
 node.default['foo']['bar'] = {'a' => 'b'}
-# Please don't ever do this in real code :)
+# Please do not ever do this in real code :)
 node.role_default['foo']['bar'] = {'c' => 'd'}
 node.default!['foo']['bar'] = {'d' => 'e'}
 ```
@@ -405,7 +436,7 @@ Given the following code structure:
 
 ```ruby
 node.default['foo']['bar'] = {'a' => 'b'}
-# Please don't ever do this in real code :)
+# Please do not ever do this in real code :)
 node.role_default['foo']['bar'] = {'c' => 'd'}
 node.force_default!['foo']['bar'] = {'d' => 'e'}
 ```
@@ -435,7 +466,7 @@ node.default['foo'] = {
 And some attributes:
 
 ```ruby
-# Please don't ever do this in real code :)
+# Please do not ever do this in real code :)
 node.role_default['foo']['bar']['baz'] = 55
 node.force_default['foo']['bar']['baz'] = 66
 ```

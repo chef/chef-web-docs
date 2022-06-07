@@ -127,6 +127,11 @@ identifier = "automate"
     identifier = "automate/configuring_automate/elasticsearch"
     parent = "automate/configuring_automate"
 
+    [[automate]]
+    title = "OpenSearch"
+    identifier = "automate/configuring_automate/opensearch"
+    parent = "automate/configuring_automate"
+
   [[automate]]
   name = "Settings"
   weight = 50
@@ -187,12 +192,14 @@ identifier = "automate"
   identifier = "automate/reference"
   parent = "automate"
 
-####
-# End Chef Automate Menu
-####
+  [[automate]]
+  name = "Upgrade"
+  weight = 260
+  identifier = "automate/upgrade"
+  parent = "automate"
 
 ####
-# End Compliance Menu
+# End Chef Automate Menu
 ####
 
 ####
@@ -474,7 +481,7 @@ identifier = "chef_infra"
     parent = "chef_infra/integrations"
 
     [[infra]]
-    title = "Microsoft Windows"
+    title = "Windows"
     identifier = "chef_infra/integrations/windows"
     parent = "chef_infra/integrations"
 
@@ -646,7 +653,7 @@ identifier = "chef_infra"
     parent = "chef_infra/integrations"
 
     [[infra]]
-    title = "Microsoft Windows"
+    title = "Windows"
     identifier = "chef_infra/integrations/windows"
     parent = "chef_infra/integrations"
 
@@ -679,6 +686,12 @@ identifier = "inspec"
     identifier = "inspec/resources/os"
     parent = "inspec/resources"
     weight = 20
+
+    [[inspec]]
+    title = "Alibaba Resources"
+    identifier = "inspec/resources/alicloud"
+    parent = "inspec/resources"
+    weight = 25
 
     [[inspec]]
     title = "AWS Resources"
@@ -771,6 +784,18 @@ identifier = "chef_workstation"
       url = "/workstation/ctl_chef/#chef-generate-file"
 
       [[workstation]]
+      title = "chef generate input"
+      identifier = "chef_workstation/chef_workstation_tools/chef_(executable)/ctl_chef.md#chef-generate-input chef generate input"
+      parent = "chef_workstation/chef_workstation_tools/chef_(executable)"
+      url = "/workstation/ctl_chef/#chef-generate-input"
+
+      [[workstation]]
+      title = "chef generate profile"
+      identifier = "chef_workstation/chef_workstation_tools/chef_(executable)/ctl_chef.md#chef-generate-profile chef generate profile"
+      parent = "chef_workstation/chef_workstation_tools/chef_(executable)"
+      url = "/workstation/ctl_chef/#chef-generate-profile"
+
+      [[workstation]]
       title = "chef generate recipe"
       identifier = "chef_workstation/chef_workstation_tools/chef_(executable)/ctl_chef.md#chef-generate-recipe chef generate recipe"
       parent = "chef_workstation/chef_workstation_tools/chef_(executable)"
@@ -793,6 +818,12 @@ identifier = "chef_workstation"
       identifier = "chef_workstation/chef_workstation_tools/chef_(executable)/ctl_chef.md#chef-generate-template chef generate template"
       parent = "chef_workstation/chef_workstation_tools/chef_(executable)"
       url = "/workstation/ctl_chef/#chef-generate-template"
+
+      [[workstation]]
+      title = "chef generate waiver"
+      identifier = "chef_workstation/chef_workstation_tools/chef_(executable)/ctl_chef.md#chef-generate-waiver chef generate waiver"
+      parent = "chef_workstation/chef_workstation_tools/chef_(executable)"
+      url = "/workstation/ctl_chef/#chef-generate-waiver"
 
       [[workstation]]
       title = "chef report cookbooks"

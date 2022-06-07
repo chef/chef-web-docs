@@ -34,7 +34,7 @@ The following examples show ways to use the Handler DSL.
 
 #### Define How Email is Sent
 
-{{< readFile_shortcode file="dsl_handler_slide_send_email_library.md" >}}
+{{% dsl_handler_slide_send_email_library %}}
 
 #### Add the Handler
 
@@ -54,7 +54,7 @@ The following examples show ways to use the Handler DSL.
 
 ### `attribute_changed` event hook
 
-In a cookbook library file, you can add this in order to print out all
+In a cookbook library file, you can add this to print out all
 attribute changes in cookbooks:
 
 ```ruby

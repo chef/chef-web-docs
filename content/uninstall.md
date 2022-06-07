@@ -20,7 +20,7 @@ other components.
 
 ## Chef Infra Server
 
-{{% ctl_chef_server_uninstall %}}
+{{% chef-server/ctl_chef_server_uninstall %}}
 
 ## Chef Manage
 
@@ -129,7 +129,7 @@ rpm -qa *chef-workstation*
 sudo yum remove -y <package>
 ```
 
-### Microsoft Windows
+### Windows
 
 Use **Add / Remove Programs** to remove Chef Workstation on the
-Microsoft Windows platform.
+Windows platform.

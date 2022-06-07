@@ -21,7 +21,7 @@ product = ["client", "server", "workstation"]
 
 {{% infra_lang_summary %}}
 
-Chef Infra Client runs a recipe only when instructed. When Chef Infra Client runs the same recipe more than once, the results will be the same system state each time. When a recipe is run against a system, but nothing has changed on either the system or in the recipe, Chef Infra Client won't change anything.
+Chef Infra Client runs a recipe only when instructed. When Chef Infra Client runs the same recipe more than once, the results will be the same system state each time. When a recipe is run against a system, but nothing has changed on either the system or in the recipe, Chef Infra Client will not change anything.
 
 ## Components
 
@@ -46,12 +46,12 @@ A cookbook is comprised of recipes and other optional components as files or dir
 <tr>
 <td><a href="/recipes/">Recipes</a></td>
 <td>recipes/</td>
-<td>{{< readFile_shortcode file="cookbooks_recipe.md" >}}</td>
+<td>{{< readfile file="layouts/shortcodes/cookbooks_recipe.md" >}}</td>
 </tr>
 <tr>
 <td><a href="/attributes/">Attributes</a></td>
 <td>attributes/</td>
-<td>{{< readFile_shortcode file="cookbooks_attribute.md" >}}</td>
+<td>{{< readfile file="layouts/shortcodes/cookbooks_attribute.md" >}}</td>
 </tr>
 <tr>
 <td><a href="/files/">Files</a></td>
@@ -115,7 +115,7 @@ Chef maintains a large collection of cookbooks. In addition, there are thousands
 </tr>
 <tr>
 <td><a href="https://supermarket.chef.io/cookbooks">Cookbooks Maintained by the Community</a></td>
-<td>The community has authored thousands of cookbooks, ranging from niche cookbooks that are used by only a few organizations to popular cookbooks used by nearly everyone.</td>
+<td>The community has authored thousands of cookbooks, ranging from niche cookbooks that are used by only a few organizations to popular cookbooks used by almost everyone.</td>
 </tr>
 </tbody>
 </table>
@@ -126,4 +126,23 @@ Chef maintains a large collection of cookbooks. In addition, there are thousands
 
 Use the [chef generate cookbook subcommand](/workstation/ctl_chef/#chef-generate-cookbook) to generate a cookbook.
 
-{{% cookbooks_content %}}
+A cookbook generated with`chef generate cookbook custom_web` creates a cookbook named `custom_web` with the directory structure:
+
+```text
+. cookbooks
+  - custom_web
+    - recipes
+      - default.rb
+    - test
+      - integration
+        - default
+          - default_test.rb
+    - .gitignore
+    - CHANGELOG.md
+    - chefignore
+    - kitchen.yml
+    - LICENSE
+    - metadata.rb
+    - Policyfile.rb
+    - README.md
+```

@@ -1,4 +1,4 @@
-<link rel="shortcut icon" type="image/png" href="{{ "images/favicon.ico" | relURL }}" />
+<link rel="shortcut icon" type="image/png" href="{{ "images/progress-emoticon.ico" | relURL }}" />
 {{- $options := (dict "includePaths" (slice "node_modules")) -}}
 {{ if hugo.Environment | eq "development" }}
   {{- $style := resources.Get "sass/main.scss" | toCSS $options }}

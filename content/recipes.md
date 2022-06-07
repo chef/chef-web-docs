@@ -135,7 +135,18 @@ depends 'apache2'
 
 ### Reload Attributes
 
-{{% cookbooks_attribute_file_reload_from_recipe %}}
+Attributes sometimes depend on actions taken from within recipes, so it
+may be necessary to reload a given attribute from within a recipe. For
+example:
+
+```ruby
+ruby_block 'some_code' do
+  block do
+    node.from_file(run_context.resolve_attribute('COOKBOOK_NAME', 'ATTR_FILE'))
+  end
+  action :nothing
+end
+```
 
 ### Use Ruby
 
@@ -322,7 +333,7 @@ sudo chef-solo -j /etc/chef/dna.json
 {{% search %}}
 
 The results of a search query can be loaded into a recipe. For example,
-a very simple search query (in a recipe) might look like this:
+a simple search query (in a recipe) might look like this:
 
 ```ruby
 search(:node, 'attribute:value')
@@ -384,7 +395,7 @@ end
 where `platform?('windows')` is the condition set on the `return`
 keyword. When the condition is met, stop processing the recipe. This
 approach is useful when there is no need to continue processing, such as
-when a package cannot be installed. In this situation, it's OK for a
+when a package cannot be installed. In this situation, it is OK for a
 recipe to stop processing.
 
 #### raise Keyword
@@ -424,8 +435,8 @@ unhandled exception during the execute phase. For example:
 ```ruby
 ruby_block "name" do
   block do
-    # Ruby code with a condition, e.g. if ::File.exist?(::File.join(path, "/tmp"))
-    raise "message"  # e.g. "Ordering issue with file path, expected foo"
+    # Ruby code with a condition, for example if ::File.exist?(::File.join(path, "/tmp"))
+    raise "message"  # for example "Ordering issue with file path, expected foo"
   end
 end
 ```

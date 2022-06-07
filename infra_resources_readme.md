@@ -1,28 +1,41 @@
-# Infra Resource page YAML files
+# Infra Resource Pages
 
-The resource pages and [resource reference page](https://docs.chef.io/resources/)
-are generated using YAML data located in `chef-web-docs/data`.
-The YAML data is generated directly from the Chef Infra code.
+The Chef Infra resource pages and the [resource reference page](https://docs.chef.io/resources/)
+are generated from YAML data located in `chef-web-docs/data`.
+The YAML data is generated using a [rake task](https://github.com/chef/chef/blob/main/tasks/docs.rb) in the `chef/chef` repository. Note that the data files are not 100% accurate and a member of the Chef Infra team must edit them to remove any inaccuracies.
 
-Each resource page has references a YAML data file stored in
-`chef-web-docs/data`. For example, the apt package resource data is stored in
+Each resource page references a YAML data file stored in
+`chef-web-docs/data/infra/resources`. For example, the apt package resource data is stored in
 `chef-web-docs/data/infra/resources/apt_package.yaml`.
 
-The templates that generate those resource pages are found in
-`chef-web-docs/themes/docs-new/layouts`. The templates that generate the tables of
-contents for the resource are stored in `chef-web-docs/themes/docs-new/layouts/partials`.
+## Resource Page Layouts
 
-There are two template types, `infra_resources.html` and `infra_resources_all.html`.
-The `infra_resources.html` template is used to generate each individual resource page,
-and the `infra_resources_all.html` template generates the
-[resources reference page](https://docs.chef.io/resources/).
+There are two templates that generate the resource pages. Both templates are in
+`chef-web-docs/themes/docs-new/layouts/_default`. The `infra_resource.html` layout generates each individual resource page. The `infra_resources_all.html` generates the [resources reference page](https://docs.chef.io/resources/).
 
-For general information about YAML see the official [YAML website](https://yaml.org/).
+## Resource Page Tables of Contents
+
+The tables of contents templates for the resource pages are located in
+`chef-web-docs/themes/docs-new/layouts/partials`.
+
+The tables of contents for the resource reference page and the individual resource
+pages are generated in the same way that the resource reference
+page and the individual resources pages are created. Hugo crawls through the resource
+YAML files and builds an unordered list listing each H1 through H3 heading. This
+means that if a section of content is added or removed from the resource page
+templates, then those headings also have to be added or removed to the respective
+tables of contents templates.
+
+Failure to update the resource page table of contents templates
+may lead to links that do not link to the proper content, links that do not work properly,
+or content that is not linked to in the table of contents.
 
 ## Markdown Pages
 
 Each resource YAML file must have a Markdown page that calls it. You can use the `resource.md`
-archetype file to generate an individual Markdown page (`hugo new -k resource content/resources/<RESOURCE NAME.md`), or use the `make resource_files` to automatically generate new resource files for every resource in the
+archetype file to generate an individual Markdown page (`hugo new -k resource content/resources/RESOURCE_NAME.md`).
+
+Use the `make resource_files` command to automatically generate a resource file for every resource in the
 `data/infra/resources` directory.
 
 Each page has the following parameters:
@@ -56,7 +69,7 @@ The page layout that Hugo will use to render the page.
 Use `layout = "infra_resource"` for individual resource pages. Use
 `layout = "infra_resources_all"` for the `_index.md` page.
 
-**menu/docs**
+**menu.infra**
 
 This section provides information that will add the page to the left navigation
 menu. Delete this entire section if you want to remove a page from the left
@@ -71,9 +84,7 @@ See the example at the bottom of this section.
 - identifier
 
 	The unique identifier for the page. No two pages in the left navigation menu
-	can have the same identifier. For this reason we've adopted the convention of
-	creating identifiers that start with the path of the page in the left navigation
-	menu followed by a space and then the name of the page itself.
+	can have the same identifier. The page identifier should be `chef_infra/resources/RESOURCE_NAME`
 
 - parent
 
@@ -83,12 +94,11 @@ See the example at the bottom of this section.
 Example menu section:
 
 ```
-menu:
-  infra:
-    title: resource_name
-    identifier: chef_infra/resources/resource_name
-      resource_name
-    parent: chef_infra/resources
+[menu]
+  [menu.infra]
+    title = "resource_name"
+    identifier = "chef_infra/resources/resource_name"
+    parent = "chef_infra/resource_name"
 ```
 
 **robots**
@@ -102,14 +112,16 @@ site for more information about meta robots tags.
 If this is deleted or left blank, Hugo will use the site robots parameter in the
 `config.toml` file.
 
-## YAML data
+## YAML Data
 
-The YAML data is contained in a YAML file in `chef-web-docs/data`
+See the [YAML website](https://yaml.org/) for general information about YAML.
+
+The YAML data is contained in a YAML file in `chef-web-docs/data/infra/resources`
 
 The data in those files can be split into two categories:
 resource data, and shortcodes.
 
-### Resource data
+### Resource Data
 
 **resource**
 
@@ -142,7 +154,7 @@ resource_description_list:
 **resource_new_in**
 
 This will add **New in Chef Infra Client X.Y** to the description of the
-resource page. The text won't appear if value is blank.
+resource page. The text will not appear if value is blank.
 
 Example:
 
@@ -413,20 +425,3 @@ section to the resource page.
 
 Used in the systemd_unit resource page. Adds the **Unit File Verification**
 section to the resource page.
-
-## Resource page tables of contents
-
-The tables of contents templates for the resource pages are located in
-`chef-web-docs/themes/docs-new/layouts/partials`.
-
-The tables of contents for the resource reference page and the individual resource
-pages are generated in the same way that the resource reference
-page and the individual resources pages are created. Hugo crawls through the resource
-YAML files and builds an unordered list listing each H1 through H3 heading. This
-means that if a section of content is added or removed from the resource page
-templates, then those headings also have to be added or removed to the respective
-tables of contents templates.
-
-Failure to update the resource page table of contents templates
-may lead to links that don't link to the proper content, links that don't work properly,
-or content that isn't linked to in the table of contents.

@@ -35,7 +35,7 @@ The Chef Automate AWS deployment uses [CloudFormation](https://aws.amazon.com/cl
 Every CloudFormation Stack deployment creates a new [Virtual Private Cloud](https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html) (VPC).
 
 {{< note >}}
-AWS provides 5 VPCs per region. If you require more VPCs, please contact [AWS Support](https://aws.amazon.com/contact-us/).
+AWS provides 5 VPCs for each region. If you require more VPCs, please contact [AWS Support](https://aws.amazon.com/contact-us/).
 {{< /note >}}
 
 ### Start Chef Automate with CloudFormation

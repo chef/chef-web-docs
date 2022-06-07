@@ -44,7 +44,7 @@ override_attributes(
 )
 ```
 
-But that is not very efficient, especially because most of them are identical. The deep merge capabilities of Chef Infra Client allows attributes to be layered across cookbooks, recipes, roles, and environments. This allows an attribute to be reused across nodes, making use of default attributes set at the cookbook level, but also providing a way for certain attributes (with a higher attribute precedence) to be applied only when they are supposed to be.
+But that is not efficient, especially because most of them are identical. The deep merge capabilities of Chef Infra Client allows attributes to be layered across cookbooks, recipes, roles, and environments. This allows an attribute to be reused across nodes, making use of default attributes set at the cookbook level, but also providing a way for certain attributes (with a higher attribute precedence) to be applied only when they are supposed to be.
 
 For example, a role named `baseline.rb`:
 

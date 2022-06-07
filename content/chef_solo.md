@@ -57,7 +57,7 @@ Unlike Chef Infra Client, where the node object is stored on the Chef
 Infra Server, chef-solo stores its node objects as JSON files on local
 disk. By default, chef-solo stores these files in a `nodes` folder in
 the same directory as your `cookbooks` directory. You can control the
-location of this directory via the `node_path` value in your
+location of this directory using the `node_path` value in your
 configuration file.
 
 ## Attributes

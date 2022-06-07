@@ -121,6 +121,10 @@ where:
 <td>Raspberry Pi OS</td>
 </tr>
 <tr>
+<td><code>redhat</code></td>
+<td>Red Hat Enterprise Linux</td>
+</tr>
+<tr>
 <td><code>rocky</code></td>
 <td>Rocky Linux</td>
 </tr>
@@ -138,7 +142,7 @@ where:
 </tr>
 <tr>
 <td><code>suse</code></td>
-<td>SUSE Enterprise Linux Server.</td>
+<td>SUSE Linux Enterprise Server.</td>
 </tr>
 <tr>
 <td><code>ubuntu</code></td>
@@ -150,7 +154,7 @@ where:
 </tr>
 <tr>
 <td><code>windows</code></td>
-<td>Microsoft Windows</td>
+<td>Windows</td>
 </tr>
 <tr>
 <td><code>xenserver</code></td>
@@ -179,7 +183,17 @@ end
 
 #### Installing the correct Firefox package
 
-{{% resource_if_statement_use_with_platform %}}
+The following example shows how an if statement can be used with the
+`platform?` method in the Chef Infra Language to run code specific to Microsoft
+Windows. The code is defined using the **ruby_block** resource:
+
+```ruby
+if platform?('windows')
+  chocolatey_package 'firefox'
+else
+  package 'firefox'
+end
+```
 
 ## platform_family?
 
@@ -291,9 +305,44 @@ or:
 platform_family?('slackware', 'suse', 'arch')
 ```
 
-#### Use a specific binary for a specific platform
+#### Use a Specific Binary For a Specific Platform
 
-{{< readFile_shortcode file="resource_remote_file_use_platform_family.md" >}}
+The following is an example of using the `platform_family?` method in
+the Chef Infra Language to create a variable that can be used with other
+resources in the same recipe. In this example, `platform_family?` is
+being used to ensure that a specific binary is used for a specific
+platform before using the **remote_file** resource to download a file
+from a remote location, and then using the **execute** resource to
+install that file by running a command.
+
+```ruby
+if platform_family?('rhel')
+  pip_binary = '/usr/bin/pip'
+else
+  pip_binary = '/usr/local/bin/pip'
+end
+
+remote_file "#{Chef::Config[:file_cache_path]}/distribute_setup.py" do
+  source 'http://python-distribute.org/distribute_setup.py'
+  mode '0755'
+  not_if { ::File.exist?(pip_binary) }
+end
+
+execute 'install-pip' do
+  cwd Chef::Config[:file_cache_path]
+  command <<-EOF
+    # command for installing Python goes here
+    EOF
+  not_if { ::File.exist?(pip_binary) }
+end
+```
+
+where a command for installing Python might look something like:
+
+```ruby
+#{node['python']['binary']} distribute_setup.py
+#{::File.dirname(pip_binary)}/easy_install pip
+```
 
 ## value_for_platform
 

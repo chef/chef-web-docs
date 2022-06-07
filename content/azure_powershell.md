@@ -52,7 +52,7 @@ machine running on Microsoft Azure.
 
 This cmdlet has the following syntax.
 
-For Microsoft Windows:
+For Windows:
 
 ```bash
 Set-AzureVMChefExtension -ValidationPem <String> -VM <IPersistentVM> -Windows [-ChefServerUrl <String> ] [-ClientRb <String> ] [-OrganizationName <String> ] [-RunList <String> ] [-ValidationClientName <String> ] [-Version <String> ] [ <CommonParameters>]
@@ -70,7 +70,7 @@ This cmdlet has the following options:
 
 `-AutoUpdateChefClient`
 
-: Auto-update . Set to `true` to auto update the version of the Azure Chef Extension when the virtual machine is restarted. For example, if this option is enabled, a virtual machine that has version `1205.12.2.0` will be updated automatically to `1205.12.2.1` when it is published.
+: Automatically update . Set to `true` to automatically update the version of the Azure Chef Extension when the virtual machine is restarted. For example, if this option is enabled, a virtual machine that has version `1205.12.2.0` will be updated automatically to `1205.12.2.1` when it is published.
 
 `-BootstrapOptions <string>`
 
@@ -122,7 +122,7 @@ This cmdlet has the following options:
 
 `-Windows`
 
-: Sets the Azure Chef Extension to run Microsoft Windows.
+: Sets the Azure Chef Extension to run Windows.
 
 #### Examples
 

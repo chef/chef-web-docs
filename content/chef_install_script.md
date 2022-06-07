@@ -8,7 +8,7 @@ product = ["automate", "client", "server", "habitat", "inspec", "workstation"]
 [menu]
   [menu.overview]
     title = "Chef Software Install Script"
-    identifier = "overview/packages_&_platforms/chef_install_script.md Install via Chef Software Install Script"
+    identifier = "overview/packages_&_platforms/chef_install_script.md Install using Chef Software Install Script"
     parent = "overview/packages_&_platforms"
     weight = 40
 +++
@@ -23,7 +23,7 @@ product = ["automate", "client", "server", "habitat", "inspec", "workstation"]
 
 {{% packages_install_script_run_unix_linux %}}
 
-### Microsoft Windows
+### Windows
 
 {{% packages_install_script_run_windows %}}
 

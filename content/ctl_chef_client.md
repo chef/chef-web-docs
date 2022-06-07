@@ -42,7 +42,7 @@ This command has the following options:
 
 `-A`, `--fatal-windows-admin-check`
 
-: Cause a Chef Infra Client run to fail when the Chef Infra Client  does not have administrator privileges in Microsoft Windows.
+: Cause a Chef Infra Client run to fail when the Chef Infra Client  does not have administrator privileges in Windows.
 
 `-c CONFIG`, `--config CONFIG`
 
@@ -68,7 +68,7 @@ This command has the following options:
 
 : Run the executable as a daemon. Use `SECONDS` to specify the number of seconds to wait before the first daemonized Chef Infra Client run. `SECONDS` is set to `0` by default. Left unset, the daemon uses the default `--interval` an `--splay` values.
 
-  This option is only available on machines that run in UNIX or Linux environments. For machines that are running Microsoft Windows that require similar functionality, use the `chef-client::service` recipe in the `chef-client` cookbook: <https://supermarket.chef.io/cookbooks/chef-client>. This will install a Chef Infra Client service under Microsoft Windows using the Windows Service Wrapper.
+  This option is only available on machines that run in UNIX or Linux environments. For machines that are running Windows that require similar functionality, use the `chef-client::service` recipe in the `chef-client` cookbook: <https://supermarket.chef.io/cookbooks/chef-client>. This will install a Chef Infra Client service under Windows using the Windows Service Wrapper.
 
 `--delete-entire-chef-repo`
 
@@ -116,7 +116,7 @@ This command has the following options:
 
     **Run-lists**
 
-    {{< readFile_shortcode file="node_ctl_run_list.md" >}}
+    {{< readfile file="layouts/shortcodes/node_ctl_run_list.md" >}}
 
     **Environments**
 
@@ -146,7 +146,7 @@ This command has the following options:
 
     **All attributes are normal attributes**
 
-    {{< readFile_shortcode file="node_ctl_attribute.md" >}}
+    {{< readfile file="layouts/shortcodes/node_ctl_attribute.md" >}}
 
     {{< note spaces=4 >}}
 
@@ -244,7 +244,7 @@ This command has the following options:
 `--[no-]listen`
 
 : Run chef-zero in socketless mode. **This is the default behavior on
-    Chef Client 13.1 and above.**
+    Chef Infra Client 13.1 and above.**
 
 `-n NAME`, `--named-run-list NAME`
 
@@ -322,7 +322,7 @@ This command has the following options:
     intervals, apply `--splay` and `--interval` values before a Chef
     Infra Client run.
 
-    Changed in Chef Client 12.0 to be applied before the Chef Client
+    Changed in Chef Infra Client 12.0 to be applied before the Chef Infra Client
     run.
 
 `-S CHEF_SERVER_URL`, `--server CHEF_SERVER_URL`
@@ -372,7 +372,7 @@ The location of the lock file can vary by platform.
 
 Local mode is a way to run the Chef Infra Client against the chef-repo
 on a local machine as if it were running against the Chef Infra Server.
-Local mode relies on chef-zero, which acts as a very lightweight
+Local mode relies on chef-zero, which acts as a lightweight
 instance of the Chef Infra Server. chef-zero reads and writes to the
 `chef_repo_path`, which allows all commands that normally work against
 the Chef Infra Server to be used against the local chef-repo.
@@ -394,7 +394,7 @@ access.
 why-run mode is a way to see what Chef Infra Client would have
 configured, had an actual Chef Infra Client run occurred. This approach
 is similar to the concept of "no-operation" (or "no-op"): decide what
-should be done, but then don't actually do anything until it's done
+should be done, but then do not actually do anything until it is done
 right. This approach to configuration management can help identify where
 complexity exists in the system, where inter-dependencies may be
 located, and to verify that everything will be configured in the desired
@@ -415,7 +415,7 @@ why-run mode is not a replacement for running cookbooks in a test
 environment that mirrors the production environment. Chef uses why-run
 mode to learn more about what is going on, but also Kitchen on developer
 systems, along with an internal OpenStack cloud and external cloud
-providers to test more thoroughly.
+providers for more thorough testing.
 
 {{< /note >}}
 
@@ -439,7 +439,7 @@ made:
     produce more output than a smaller run-list
 
 For example, the **service** resource can be used to start a service. If
-the action is `:start`, then the service will start if it isn't running
+the action is `:start`, then the service will start if it is not running
 and do nothing if it is running. If a service is installed from a
 package, then Chef Infra Client cannot check to see if the service is
 running until after the package is installed. In that case, why-run mode
@@ -450,13 +450,13 @@ important to know that these notifications are triggered correctly.
 
 ### About chef-zero
 
-chef-zero is a very lightweight Chef Infra Server that runs in-memory on
+chef-zero is a lightweight Chef Infra Server that runs in-memory on
 the local machine. This allows the Chef Infra Client to be run against
 the chef-repo as if it were running against the Chef Infra Server.
 chef-zero was [originally a standalone
 tool](https://github.com/chef/chef-zero); it is enabled from within the
-Chef Infra Client by using the `--local-mode` option. chef-zero is very
-useful for quickly testing and validating the behavior of the Chef Infra
+Chef Infra Client by using the `--local-mode` option. chef-zero is
+useful for testing and validating the behavior of the Chef Infra
 Client, cookbooks, recipes, and run-lists before uploading that data to
 the actual Chef Infra Server.
 
@@ -470,7 +470,7 @@ against using chef-zero as a persistent Chef Infra Server.
 
 {{< /note >}}
 
-Changed in Chef Client 12.8, now chef-zero supports all Chef Server API
+Changed in Chef Infra Client 12.8, now chef-zero supports all Chef Server API
 version 12 endpoints, except `/universe`.
 
 ### Use Encrypted Data Bags
@@ -526,7 +526,7 @@ be used:
 : Use to wake up sleeping Chef Infra Client and trigger node
     convergence.
 
-On Microsoft Windows, both the `HUP` and `QUIT` signals are not
+On Windows, both the `HUP` and `QUIT` signals are not
 supported.
 
 ## Run with Elevated Privileges
@@ -590,7 +590,7 @@ are necessary to deploy tooling for a specific application.
 The default configuration of the Chef Infra Client assumes that it is
 run as the root user. This affords the Chef Infra Client the greatest
 flexibility when managing the state of any object. However, the Chef
-Infra Client may be run as a non-root user---i.e. "run as a user with
+Infra Client may be run as a non-root user---that is, "run as a user with
 limited system privileges"---which can be useful when the objects on the
 system are available to other user accounts.
 
@@ -644,7 +644,7 @@ service 'apache2' do
 end
 ```
 
-This approach can work very well on a case-by-case basis. The challenge
+This approach can work well on a case-by-case basis. The challenge
 with this approach is often around managing the size of the
 `/etc/sudoers` file.
 
@@ -667,7 +667,7 @@ AIX platform as any other platform, with the following notes:
     passing the `-X` flag to `installp` to automatically expand the
     logical partition (LPAR)
 - The EN_US (UTF-8) character set should be installed on the logical
-    partition prior to installing the Chef Infra Client
+    partition before installing the Chef Infra Client
 
 **Install the Chef Infra Client on the AIX platform**
 
@@ -736,7 +736,7 @@ ThreadError: can't create Thread: Resource temporarily unavailable
 
 The Chef Infra Client uses the EN_US (UTF-8) character set. By default,
 the AIX base operating system does not include the EN_US (UTF-8)
-character set and it must be installed prior to installing the Chef
+character set and it must be installed before installing the Chef
 Infra Client. The EN_US (UTF-8) character set may be installed from the
 first disc in the AIX media or may be copied from
 `/installp/ppc/*EN_US*` to a location on the logical partition (LPAR).
@@ -834,7 +834,45 @@ platform:
 
 **Enable a service on AIX using the mkitab command**
 
-{{% resource_service_aix_mkitab %}}
+The **service** resource does not support using the `:enable` and
+`:disable` actions with resources that are managed using System Resource
+Controller (SRC). This is because System Resource Controller (SRC) does
+not have a standard mechanism for enabling and disabling services on
+system boot.
+
+One approach for enabling or disabling services that are managed by
+System Resource Controller (SRC) is to use the **execute** resource to
+invoke `mkitab`, and then use that command to enable or disable the
+service.
+
+The following example shows how to install a service:
+
+```ruby
+execute "install #{node['chef_client']['svc_name']} in SRC" do
+  command "mkssys -s #{node['chef_client']['svc_name']}
+                  -p #{node['chef_client']['bin']}
+                  -u root
+                  -S
+                  -n 15
+                  -f 9
+                  -o #{node['chef_client']['log_dir']}/client.log
+                  -e #{node['chef_client']['log_dir']}/client.log -a '
+                  -i #{node['chef_client']['interval']}
+                  -s #{node['chef_client']['splay']}'"
+  not_if "lssrc -s #{node['chef_client']['svc_name']}"
+  action :run
+end
+```
+
+and then enable it using the `mkitab` command:
+
+```ruby
+execute "enable #{node['chef_client']['svc_name']}" do
+  command "mkitab '#{node['chef_client']['svc_name']}:2:once:/usr/bin/startsrc
+                  -s #{node['chef_client']['svc_name']} > /dev/console 2>&1'"
+  not_if "lsitab #{node['chef_client']['svc_name']}"
+end
+```
 
 ## Configuring a Proxy Server
 

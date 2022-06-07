@@ -10,9 +10,9 @@ aliases = "/deprecations_ohai_run_command_helpers.html"
 
 Ohai ships a command mixin for use by plugin authors in shelling out to
 external commands. This mixin originally included `run_command` and
-`popen4` methods, which were deprecated in Ohai 8.11.1 (Chef Client
+`popen4` methods, which were deprecated in Ohai 8.11.1 (Chef Infra Client
 12.8.1) in favor of the more robust `mixlib-shellout` gem functionality.
-In Chef Client 13 these deprecated methods will be removed, breaking any
+In Chef Infra Client 13 these deprecated methods will be removed, breaking any
 Ohai plugins authored using the deprecated methods.
 
 ## Remediation

@@ -14,7 +14,7 @@
         {{ if eq $product "automate" }}
           {{ $versionsUrl = "https://packages.chef.io/releases/current/automate.json"}}
         {{ else if (eq $product "habitat") }}
-          {{ $versionsUrl = "https://api.github.com/repos/habitat-sh/habitat/releases" }}
+          {{ $versionsUrl = "assets/release-notes/habitat/release-versions.json" }}
         {{ else if (hasPrefix $product "inspec-") }}
           {{ $versionsUrl = print "_vendor/github.com/inspec/"  $product "/docs-chef-io/assets/release-notes/" $product "/release-dates.json" }}
         {{ else }}
@@ -24,13 +24,9 @@
         {{ $versions := getJSON $versionsUrl }}
 
         {{- $versionsCorrectOrder := slice -}}
-        {{ if eq $product "habitat" }}
-          {{ $versionsCorrectOrder = $versions }}
-        {{ else }}
-          {{ $len := len $versions }}
-          {{- range seq $len -}}
-              {{- $versionsCorrectOrder = $versionsCorrectOrder | append (index $versions (sub $len .)) }}
-          {{ end }}
+        {{ $len := len $versions }}
+        {{- range seq $len -}}
+            {{- $versionsCorrectOrder = $versionsCorrectOrder | append (index $versions (sub $len .)) }}
         {{ end }}
 
         {{ $lastDate := ""}}
@@ -48,12 +44,6 @@
               {{ end }}
                 <li><p class="release-version"><a href="#{{ .version }}">{{ .version }}</a></p></li>
               {{ $lastDate = $releaseYearMonth }}
-            {{ end }}
-          </ul>
-        {{ else if eq $product "habitat" }}
-          <ul>
-            {{ range $version := $versionsCorrectOrder }}
-              <li><a href="#{{ $version.tag_name }}">{{ $version.tag_name }}</a></li>
             {{ end }}
           </ul>
 

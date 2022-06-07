@@ -43,9 +43,9 @@ This guide helps you:
 
 This guide assumes you have completed the previous steps:
 
-1. [Install Chef Components](/desktop/desktop_setup_chef/)
-1. [Chef Desktop Cookbook Development Environment](/desktop/desktop_setup_cookbook/)
-1. [The Chef Desktop Development Pattern](/desktop/desktop_pattern/)
+1. [Install Chef Components]({{< relref "/desktop/install.md">}})
+2. [Chef Desktop Cookbook Development Environment]({{< relref "desktop-cookbook.md" >}})
+3. [The Chef Desktop Development Pattern]({{< relref "infrastructure_overview.md">}})
 
 ### Required Software
 

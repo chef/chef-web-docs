@@ -72,7 +72,7 @@ Chef Infra has the following major components:
 </tr>
 <tr>
 <td><p><img src="/images/icon_node.svg" class="align-center" width="130" alt="image" /></p></td>
-<td><p>{{< readFile_shortcode file="node.md" >}}</p></td>
+<td><p>{{< readfile file="layouts/shortcodes/node.md" >}}</p></td>
 </tr>
 <tr>
 <td><p><img src="/images/icon_chef_client.svg" class="align-center" width="130" alt="image" /></p></td>
@@ -81,7 +81,7 @@ Chef Infra has the following major components:
 <tr>
 <td><p><img src="/images/icon_chef_server.svg" class="align-center" width="130" alt="image" /></p></td>
 <td><p>The Chef Infra Server acts as a hub of information. Cookbooks and policy settings are uploaded to the Chef Infra Server by users from workstations.</p>
-<p>The Chef Infra Client accesses the Chef Infra Server from the node on which it's installed to get configuration data, performs searches of historical Chef Infra Client run data, and then pulls down the necessary configuration data. After a Chef Infra Client run is finished, the Chef Infra Client uploads updated run data to the Chef Infra Server.</p></td>
+<p>The Chef Infra Client accesses the Chef Infra Server from the node on which it is installed to get configuration data, performs searches of historical Chef Infra Client run data, and then pulls down the necessary configuration data. After a Chef Infra Client run is finished, the Chef Infra Client uploads updated run data to the Chef Infra Server.</p></td>
 </tr>
 <tr>
 <td><p><img src="/images/icon_chef_supermarket.svg" class="align-center" width="130" alt="image" /></p></td>
@@ -107,7 +107,7 @@ The workstation is where users do most of their work, including:
 
 - Developing and testing cookbooks
 - Keeping the Chef Infra repository synchronized with version source control
-- Configuring organizational by including defining and applying Policyfiles or Policy Groups
+- Configuring organizational policy by including defining roles and applying Policyfiles or policy groups
 - Interacting with nodes, as (or when) required, such as performing a bootstrap operation
 
 ### Chef Workstation Components and Tools
@@ -128,7 +128,7 @@ Some important tools and components of Chef Workstation include:
 <tbody>
 <tr>
 <td><p><img src="/images/icon_workstation.svg" class="align-center" width="130" alt="image" /></p></td>
-<td>{{< readFile_shortcode file="chef_workstation.md" >}}</td>
+<td>{{< readfile file="layouts/shortcodes/chef_workstation.md" >}}</td>
 </tr>
 <tr>
 <td><p><img src="/images/icon_ctl_chef.svg" class="align-center" width="130" alt="image" /></p>
@@ -155,11 +155,11 @@ Some important tools and components of Chef Workstation include:
 </tr>
 <tr>
 <td><p><img src="/images/icon_kitchen.svg" class="align-center" width="130" alt="image" /></p></td>
-<td>{{< readFile_shortcode file="test_kitchen.md" >}}</td>
+<td>{{< readfile file="layouts/shortcodes/test_kitchen.md" >}}</td>
 </tr>
 <tr>
 <td><p><img src="/images/icon_chefspec.svg" class="align-center" width="130" alt="image" /></p></td>
-<td>{{< readFile_shortcode file="chefspec_summary.md" >}}</td>
+<td>{{< readfile file="layouts/shortcodes/chefspec_summary.md" >}}</td>
 </tr>
 </tbody>
 </table>
@@ -193,34 +193,34 @@ Cookbooks are comprised of the following components:
 <tbody>
 <tr>
 <td><p><img src="/images/icon_cookbook_attributes.svg" class="align-center" width="130" alt="image" /></p></td>
-<td>{{< readFile_shortcode file="cookbooks_attribute.md" >}}</td>
+<td>{{< readfile file="layouts/shortcodes/cookbooks_attribute.md" >}}</td>
 </tr>
 <tr>
 <td><p><img src="/images/icon_cookbook_files.svg" class="align-center" width="130" alt="image" /></p></td>
-<td>{{< readFile_shortcode file="resource_cookbook_file_summary.md" >}}</td>
+<td>{{< readfile file="layouts/shortcodes/resource_cookbook_file_summary.md" >}}</td>
 </tr>
 <tr>
 <td><p><img src="/images/icon_cookbook_libraries.svg" class="align-center" width="130" alt="image" /></p></td>
-<td>{{< readFile_shortcode file="libraries_summary.md" >}}</td>
+<td>{{< readfile file="layouts/shortcodes/libraries_summary.md" >}}</td>
 </tr>
 <tr>
 <td><p><img src="/images/icon_cookbook_metadata.svg" class="align-center" width="130" alt="image" /></p></td>
-<td>{{< readFile_shortcode file="cookbooks_metadata.md" >}}</td>
+<td>{{< readfile file="layouts/shortcodes/cookbooks_metadata.md" >}}</td>
 </tr>
 <tr>
 <td><p><img src="/images/icon_cookbook_recipes.svg" class="align-center" width="130" alt="image" /></p></td>
-<td><p>{{< readFile_shortcode file="cookbooks_recipe.md" >}}</p>
-<p>The Chef Infra Client will run a recipe only when asked. When the Chef Infra Client runs the same recipe more than once, the results will be the same system state each time. When a recipe is run against a system, but nothing has changed on either the system or in the recipe, the Chef Infra Client won't change anything.</p>
-<p>{{< readFile_shortcode file="infra_lang_summary.md" >}}</p></td>
+<td><p>{{< readfile file="layouts/shortcodes/cookbooks_recipe.md" >}}</p>
+<p>The Chef Infra Client will run a recipe only when asked. When the Chef Infra Client runs the same recipe more than once, the results will be the same system state each time. When a recipe is run against a system, but nothing has changed on either the system or in the recipe, the Chef Infra Client will not change anything.</p>
+<p>{{< readfile file="layouts/shortcodes/infra_lang_summary.md" >}}</p></td>
 </tr>
 <tr>
 <td><p><img src="/images/icon_cookbook_resources.svg" class="align-center" width="130" alt="image" /></p></td>
-<td><p>{{< readFile_shortcode file="resources_common.md" >}}</p>
-<p>Chef has <a href="/resources/">many built-in resources</a> that cover all of the most common actions across all of the most common platforms. You can <a href="/custom_resources/">build your own resources</a> to handle any situation that isn't covered by a built-in resource.</p></td>
+<td><p>{{< readfile file="layouts/shortcodes/resources_common.md" >}}</p>
+<p>Chef has <a href="/resources/">many built-in resources</a> that cover all of the most common actions across all of the most common platforms. You can <a href="/custom_resources/">build your own resources</a> to handle any situation that is not covered by a built-in resource.</p></td>
 </tr>
 <tr>
 <td><p><img src="/images/icon_cookbook_templates.svg" class="align-center" width="130" alt="image" /></p></td>
-<td>{{< readFile_shortcode file="template.md" >}}</td>
+<td>{{< readfile file="layouts/shortcodes/template.md" >}}</td>
 </tr>
 <tr>
 <td><p><img src="/images/icon_cookbook_tests.svg" class="align-center" width="130" alt="image" /></p></td>
@@ -255,19 +255,19 @@ The key components of nodes that are under management by Chef include:
 <tbody>
 <tr>
 <td><p><img src="/images/icon_chef_client.svg" class="align-center" width="130" alt="image" /></p></td>
-<td><p>{{< readFile_shortcode file="chef_client_summary.md" >}}</p>
-<p>{{< readFile_shortcode file="security_key_pairs_chef_client.md" >}}</p></td>
+<td><p>{{< readfile file="layouts/shortcodes/chef_client_summary.md" >}}</p>
+<p>{{< readfile file="layouts/shortcodes/security_key_pairs_chef_client.md" >}}</p></td>
 </tr>
 <tr>
 <td><p><img src="/images/icon_ohai.svg" class="align-center" width="130" alt="image" /></p></td>
-<td>{{< readFile_shortcode file="ohai_summary.md" >}}</td>
+<td>{{< readfile file="layouts/shortcodes/ohai_summary.md" >}}</td>
 </tr>
 </tbody>
 </table>
 
 ## The Chef Infra Server
 
-{{% chef_server %}}
+{{% chef-server/chef_server %}}
 
 <table>
 <colgroup>
@@ -283,15 +283,15 @@ The key components of nodes that are under management by Chef include:
 <tbody>
 <tr>
 <td><p><img src="/images/icon_search.svg" class="align-center" width="130" alt="image" /></p></td>
-<td>{{< readFile_shortcode file="search.md" >}}</td>
+<td>{{< readfile file="layouts/shortcodes/search.md" >}}</td>
 </tr>
 <tr>
 <td><p><img src="/images/icon_manage.svg" class="align-center" width="130" alt="image" /></p></td>
-<td>{{< readFile_shortcode file="chef_manager.md" >}}</td>
+<td>{{< readfile file="layouts/shortcodes/chef_manager.md" >}}</td>
 </tr>
 <tr>
 <td><p><img src="/images/icon_data_bags.svg" class="align-center" width="130" alt="image" /></p></td>
-<td>{{< readFile_shortcode file="data_bag.md" >}}</td>
+<td>{{< readfile file="layouts/shortcodes/data_bag.md" >}}</td>
 </tr>
 <tr>
 <td><p><img src="/images/icon_policy.svg" class="align-center" width="130" alt="image" /></p></td>
@@ -320,19 +320,19 @@ Some important aspects of policy include:
 <tbody>
 <tr>
 <td><p><img src="/images/icon_roles.svg" class="align-center" width="130" alt="image" /></p></td>
-<td>{{< readFile_shortcode file="role.md" >}}</td>
+<td>{{< readfile file="layouts/shortcodes/role.md" >}}</td>
 </tr>
 <tr>
 <td><p><img src="/images/icon_environments.svg" class="align-center" width="130" alt="image" /></p></td>
-<td>{{< readFile_shortcode file="environment.md" >}}</td>
+<td>{{< readfile file="layouts/shortcodes/environment.md" >}}</td>
 </tr>
 <tr>
 <td><p><img src="/images/icon_cookbook_versions.svg" class="align-center" width="130" alt="image" /></p></td>
-<td>{{< readFile_shortcode file="cookbooks_version.md" >}}</td>
+<td>{{< readfile file="layouts/shortcodes/cookbooks_version.md" >}}</td>
 </tr>
 <tr>
 <td><p><img src="/images/icon_run_lists.svg" class="align-center" width="130" alt="image" /></p></td>
-<td>{{< readFile_shortcode file="node_run_list.md" >}}</td>
+<td>{{< readfile file="layouts/shortcodes/node_run_list.md" >}}</td>
 </tr>
 </tbody>
 </table>

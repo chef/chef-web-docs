@@ -1,6 +1,7 @@
 +++
 title = "About the Compliance Phase"
 draft = false
+gh_repo = "chef-web-docs"
 
 [menu]
   [menu.infra]
@@ -11,7 +12,6 @@ draft = false
 
 +++
 <!-- markdownlint-disable MD036 -->
-[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/main/content/chef_compliance_phase.md)
 
 Chef Infra Client's Compliance Phase lets you automatically execute compliance audits and view the results as part of any Chef Infra Client run. The Compliance Phase of the Chef Infra Client run replaces the legacy [audit cookbook](https://supermarket.chef.io/cookbooks/audit) and works with your existing audit cookbook attributes, and you can also set it up for new cookbooks. This additional phase gives you the latest compliance capabilities without having to manage cookbook dependencies or juggle versions during Chef Infra Client updates.
 
@@ -195,7 +195,7 @@ The following examples:
 
 {{< foundation_tabs tabs-id="compliance-phase-reporter-panel" >}}
   {{< foundation_tab active="true" panel-link="automate-reporter" tab-text="Automate">}}
-  {{< foundation_tab panel-link="server-reporter" tab-text="Automate via Infra Server" >}}
+  {{< foundation_tab panel-link="server-reporter" tab-text="Automate using Infra Server" >}}
   {{< foundation_tab panel-link="local-reporter" tab-text="File" >}}
 {{< /foundation_tabs >}}
 {{< foundation_tabs_panels tabs-id="compliance-phase-reporter-panel" >}}
@@ -303,7 +303,7 @@ There are two primary ways to pass Chef Infra node data to Chef InSpec run durin
 
 ##### Explicitly pass necessary data (recommended)
 
-Any data added to the `node['audit']['attributes']` hash will be passed as individual Chef InSpec attributes. This provides a clean interface between the Chef Infra client run and Chef InSpec profile, allowing for easy assignment of default values in the Chef InSpec profile. This method is especially recommended if the Chef InSpec profile is expected to be used outside of the context of Compliance Phase so it's made explicit to profile consumers what attributes are necessary. Set the attributes in your cookbook attributes file and then use them in your Chef InSpec profile.
+Any data added to the `node['audit']['attributes']` hash will be passed as individual Chef InSpec attributes. This provides a clean interface between the Chef Infra client run and Chef InSpec profile, allowing for easy assignment of default values in the Chef InSpec profile. This method is especially recommended if the Chef InSpec profile is expected to be used outside of the context of Compliance Phase so it is made explicit to profile consumers what attributes are necessary. Set the attributes in your cookbook attributes file and then use them in your Chef InSpec profile.
 
 Set the attributes in a cookbook attributes file:
 
@@ -394,7 +394,7 @@ default['audit']['compliance_phase] = true
 
 ### control_results_limit
 
-The list of results per control will be truncated to this amount to reduce the size of reports. A summary of removed results will be sent with each impacted control. Defaults to `50`.
+The list of results for each control will be truncated to this amount to reduce the size of reports. A summary of removed results will be sent with each impacted control. Defaults to `50`.
 
 ```ruby
 # allow 100 results
@@ -565,7 +565,7 @@ On the Chef Infra Server you can see this in the following logs:
 # chef-server-ctl tail
 
 ==> /var/log/opscode/nginx/access.log <==
-192.168.200.102 - - ['28/Aug/2016:14:57:36 +0000']  "GET /organizations/4thcafe/nodes/vagrant-c0971990 HTTP/1.1" 401 "0.004" 93 "-" "Chef Client/12.14.38 (ruby-2.3.1-p112; ohai-8.19.2; x86_64-linux; +https://chef.io)" "127.0.0.1:8000" "401" "0.003" "12.14.38" "algorithm=sha1;version=1.1;" "vagrant-c0971990" "2013-09-25T15:00:14Z" "2jmj7l5rSw0yVb/vlWAYkK/YBwk=" 1060
+192.168.200.102 - - ['28/Aug/2016:14:57:36 +0000']  "GET /organizations/4thcafe/nodes/vagrant-c0971990 HTTP/1.1" 401 "0.004" 93 "-" "Chef Infra Client/12.14.38 (ruby-2.3.1-p112; ohai-8.19.2; x86_64-linux; +https://chef.io)" "127.0.0.1:8000" "401" "0.003" "12.14.38" "algorithm=sha1;version=1.1;" "vagrant-c0971990" "2013-09-25T15:00:14Z" "2jmj7l5rSw0yVb/vlWAYkK/YBwk=" 1060
 
 ==> /var/log/opscode/opscode-erchef/crash.log <==
 2016-08-28 14:57:36 =ERROR REPORT====
@@ -642,7 +642,7 @@ The 413 "Request Entity Too Large" error appears in both the stacktrace and the 
   The Chef Infra Server Nginx log confirms the `413` error:
   ```text
   ==> /var/log/opscode/nginx/access.log <==
-  192.168.56.40 - - ['21/Dec/2017:11:35:30 +0000']  "POST /organizations/eu_org/data-collector HTTP/1.1" 413 "0.803" 64 "-" "Chef Client/13.6.4 (ruby-2.4.2-p198; ohai-13.6.0; x86_64-linux; +https://chef.io)" "-" "-" "-" "13.6.4" "algorithm=sha1;version=1.1;" "bootstrapped-node" "2017-12-21T11:35:31Z" "GR6RyPvKkZDaGyQDYCPfoQGS8G4=" 1793064
+  192.168.56.40 - - ['21/Dec/2017:11:35:30 +0000']  "POST /organizations/eu_org/data-collector HTTP/1.1" 413 "0.803" 64 "-" "Chef Infra Client/13.6.4 (ruby-2.4.2-p198; ohai-13.6.0; x86_64-linux; +https://chef.io)" "-" "-" "-" "13.6.4" "algorithm=sha1;version=1.1;" "bootstrapped-node" "2017-12-21T11:35:31Z" "GR6RyPvKkZDaGyQDYCPfoQGS8G4=" 1793064
   ```
   {{< /foundation_tabs_panel >}}
 

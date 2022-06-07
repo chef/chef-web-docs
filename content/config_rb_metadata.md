@@ -90,9 +90,9 @@ This configuration file has the following settings:
 
 `chef_version`
 
-: A range of Chef Client versions that are supported by this cookbook. All [version constraint operators](#version-constraints) are applicable to this field.
+: A range of Chef Infra Client versions that are supported by this cookbook. All [version constraint operators](#version-constraints) are applicable to this field.
 
-  For example, to match any 16.x version of the Chef Client, but not 15.x or 17.x:
+  For example, to match any 16.x version of the Chef Infra Client, but not 15.x or 17.x:
 
   ```ruby
   chef_version '~> 16.0'
@@ -106,7 +106,7 @@ This configuration file has the following settings:
 
 `depends`
 
-: This field requires that a cookbook with a matching name and version exists on the Chef Infra Server. When the match exists, the Chef Infra Server includes the dependency as part of the set of cookbooks that are sent to the node during a Chef Infra Client run. It is very important that the `depends` field contain accurate data. If a dependency statement is inaccurate, Chef Infra Client may not be able to complete the configuration of the system. All [version constraint operators](#version-constraints) are applicable to this field.
+: This field requires that a cookbook with a matching name and version exists on the Chef Infra Server. When the match exists, the Chef Infra Server includes the dependency as part of the set of cookbooks that are sent to the node during a Chef Infra Client run. It is important that the `depends` field contain accurate data. If a dependency statement is inaccurate, Chef Infra Client may not be able to complete the configuration of the system. All [version constraint operators](#version-constraints) are applicable to this field.
 
   For example, to set a dependency a cookbook named `cats`:
 

@@ -13,7 +13,7 @@ The full name of the cop is: `Chef/Deprecations/IncludingYumDNFCompatRecipe`
 | --- | --- | --- |
 | Enabled | Yes | All Versions |
 
-Don't include the deprecated yum DNF compatibility recipe, which is no longer necessary
+do not include the deprecated yum DNF compatibility recipe, which is no longer necessary
 as Chef Infra Client includes DNF package support
 
 ## Examples
