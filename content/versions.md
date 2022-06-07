@@ -61,8 +61,7 @@ Use of these and later versions of these distributions must be in
 accordance with the [Chef End User License
 Agreement](https://www.chef.io/end-user-license-agreement) or a
 commercial agreement with Chef. Additional information is available in
-[this
-announcement](https://blog.chef.io/2019/04/02/chef-software-announces-the-enterprise-automation-stack/).
+[this announcement](https://www.chef.io/blog/chef-software-announces-the-enterprise-automation-stack).
 
 <table>
 <colgroup>
@@ -230,7 +229,7 @@ newer versions or products.
 <td>December 31, 2018</td>
 </tr>
 <tr>
-<td>Automate</td>
+<td>Chef Automate</td>
 <td>1.x</td>
 <td>EOL</td>
 <td>December 31, 2019</td>
@@ -319,5 +318,5 @@ newer versions or products.
 <td>EOL</td>
 <td>December 31, 2018</td>
 </tr>
-
+</tbody>
 </table>
