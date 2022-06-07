@@ -128,7 +128,7 @@ Some important tools and components of Chef Workstation include:
 <tbody>
 <tr>
 <td><p><img src="/images/icon_workstation.svg" class="align-center" width="130" alt="image" /></p></td>
-<td>{{< readfile file="layouts/shortcodes/chef_workstation.md" >}}</td>
+<td>{{< readfile file="layouts/shortcodes/chef-workstation/chef_workstation.md" >}}</td>
 </tr>
 <tr>
 <td><p><img src="/images/icon_ctl_chef.svg" class="align-center" width="130" alt="image" /></p>
@@ -155,7 +155,7 @@ Some important tools and components of Chef Workstation include:
 </tr>
 <tr>
 <td><p><img src="/images/icon_kitchen.svg" class="align-center" width="130" alt="image" /></p></td>
-<td>{{< readfile file="layouts/shortcodes/test_kitchen.md" >}}</td>
+<td>{{< readfile file="layouts/shortcodes/chef-workstation/test_kitchen.md" >}}</td>
 </tr>
 <tr>
 <td><p><img src="/images/icon_chefspec.svg" class="align-center" width="130" alt="image" /></p></td>

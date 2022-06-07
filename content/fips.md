@@ -112,4 +112,4 @@ If you have FIPS compliance enabled at the kernel level, Chef Infra Client will 
 
 #### Bootstrap a Node Using FIPS
 
-{{% knife_bootstrap_node_fips %}}
+{{% chef-workstation/knife_bootstrap_node_fips %}}
