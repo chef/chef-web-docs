@@ -198,7 +198,7 @@ Ohai ships several optional plugins that you can enable in the [client.rb config
 - `:Interupts` - Data from /proc/interrupts and /proc/irq (New in Chef Infra Client 16)
 - `:Lspci` - PCI device information on Linux hosts.
 - `:Lsscsi` - SCSI device information on Linux hosts.
-- `:Passwd` - User and Group information on non-Windows hosts. This plugin can result in large node sizes if a system connects to Active Directory or LDAP.
+- `:Passwd` - User and Group information. This plugin can result in large node sizes if a system connects to Active Directory or LDAP.
 - `:Sessions` - Sessions data from loginctl on Linux hosts.
 - `:Sysctl` - All sysctl values on Linux hosts.
 
