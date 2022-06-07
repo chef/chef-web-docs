@@ -44,7 +44,7 @@ This command has the following options:
 
 `-F FORMAT`, `--format FORMAT`
 
-: {{% ctl_chef_client_options_format %}}
+: {{% chef-workstation/ctl_chef_client_options_format %}}
 
 `--force-formatter`
 

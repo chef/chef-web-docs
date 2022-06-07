@@ -82,9 +82,9 @@ main configuration file for Chef Infra Client is located at
 
 #### Run With Elevated Privileges
 
-{{% ctl_chef_client_elevated_privileges %}}
+{{% chef-workstation/ctl_chef_client_elevated_privileges %}}
 
-{{% ctl_chef_client_elevated_privileges_windows %}}
+{{% chef-workstation/ctl_chef_client_elevated_privileges_windows %}}
 
 #### Spaces and Directories
 
@@ -104,13 +104,13 @@ main configuration file for Chef Infra Client is located at
 
 ### Remotely administering nodes
 
-{{% knife_windows_summary %}}
+{{% chef-workstation/knife_windows_summary %}}
 
 Se the [knife windows](/workstation/knife_windows/) for more information.
 
 #### Ports
 
-{{% knife_windows_winrm_ports %}}
+{{% chef-workstation/knife_windows_winrm_ports %}}
 
 ### Install Chef Infra Client using the MSI Installer
 

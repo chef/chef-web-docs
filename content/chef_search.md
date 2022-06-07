@@ -62,47 +62,47 @@ following search indexes are built:
 
 ### Using Knife
 
-{{% knife_search_summary %}}
+{{% chef-workstation/knife_search_summary %}}
 
 #### Search by platform ID
 
-{{% knife_search_by_platform_ids %}}
+{{% chef-workstation/knife_search_by_platform_ids %}}
 
 #### Search by instance type
 
-{{% knife_search_by_platform_instance_type %}}
+{{% chef-workstation/knife_search_by_platform_instance_type %}}
 
 #### Search by recipe
 
-{{% knife_search_by_recipe %}}
+{{% chef-workstation/knife_search_by_recipe %}}
 
 #### Search by cookbook, then recipe
 
-{{% knife_search_by_cookbook %}}
+{{% chef-workstation/knife_search_by_cookbook %}}
 
 #### Search by node
 
-{{% knife_search_by_node %}}
+{{% chef-workstation/knife_search_by_node %}}
 
 #### Search by node and environment
 
-{{% knife_search_by_node_and_environment %}}
+{{% chef-workstation/knife_search_by_node_and_environment %}}
 
 #### Search for nested attributes
 
-{{% knife_search_by_nested_attribute %}}
+{{% chef-workstation/knife_search_by_nested_attribute %}}
 
 #### Search for multiple attributes
 
-{{% knife_search_by_query_for_many_attributes %}}
+{{% chef-workstation/knife_search_by_query_for_many_attributes %}}
 
 #### Search for nested attributes using a search query
 
-{{% knife_search_by_query_for_nested_attribute %}}
+{{% chef-workstation/knife_search_by_query_for_nested_attribute %}}
 
 #### Use a test query
 
-{{% knife_search_test_query_for_ssh %}}
+{{% chef-workstation/knife_search_test_query_for_ssh %}}
 
 ## Query Syntax
 
