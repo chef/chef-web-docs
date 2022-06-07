@@ -18,7 +18,7 @@ The commands for the Chef Habitat CLI (`hab`) are listed below.
 
 | Applies to Version | Last Updated |
 | ------- | ------------ |
-| hab 1.6.513/20220519213821 (linux) | 19 May 2022 |
+| hab 1.6.521/20220603154827 (linux) | 3 Jun 2022 |
 
 ## hab
 
@@ -3099,8 +3099,7 @@ hab sup run [FLAGS] [OPTIONS] [--] [PKG_IDENT_OR_ARTIFACT]
 
     --bind <BIND>... One or more service groups to bind to a configuration
 
-    --binding-mode <BINDING_MODE> Governs how the presence or absence of binds affects service startup [possible values: strict, relaxed]
-
+    --binding-mode <BINDING_MODE> Governs how the presence or absence of binds affects service startup [default: strict]  [possible values: strict, relaxed]
 -u, --url <BLDR_URL> Specify an alternate Builder endpoint. If not specified, the value will be taken from the HAB_BLDR_URL environment variable if defined. (default: https://bldr.habitat.sh)
     --cache-key-path <CACHE_KEY_PATH> Cache for creating and searching for encryption keys [env: HAB_CACHE_KEY_PATH=]  [default: /hab/cache/keys]
 
@@ -3133,9 +3132,9 @@ hab sup run [FLAGS] [OPTIONS] [--] [PKG_IDENT_OR_ARTIFACT]
 
     --event-stream-url <EVENT_STREAM_URL> The event stream connection url used to send events to Chef Automate
 
-    --group <GROUP> The service group with shared config and topology
+    --group <GROUP> The service group with shared config and topology [default: default]
 
--i, --health-check-interval <HEALTH_CHECK_INTERVAL> The interval in seconds on which to run health checks
+-i, --health-check-interval <HEALTH_CHECK_INTERVAL> The interval in seconds on which to run health checks [default: 30]
 
     --keep-latest-packages <KEEP_LATEST_PACKAGES> Automatically cleanup old packages [env: HAB_KEEP_LATEST_PACKAGES=]
 
@@ -3162,13 +3161,13 @@ hab sup run [FLAGS] [OPTIONS] [--] [PKG_IDENT_OR_ARTIFACT]
 
     --shutdown-timeout <SHUTDOWN_TIMEOUT> The delay in seconds after sending the shutdown signal to wait before killing the service process
 
--s, --strategy <STRATEGY> The update strategy [possible values: none, at-once, rolling]
+-s, --strategy <STRATEGY> The update strategy [default: none]  [possible values: none, at-once, rolling]
 
     --sys-ip-address <SYS_IP_ADDRESS> The IPv4 address to use as the sys.ip template variable
 
 -t, --topology <TOPOLOGY> Service topology [possible values: standalone, leader]
 
-    --update-condition <UPDATE_CONDITION> The condition dictating when this service should update [possible values: latest, track-channel]
+    --update-condition <UPDATE_CONDITION> The condition dictating when this service should update [default: latest]  [possible values: latest, track- channel]
 ```
 
 **ARGS**
