@@ -112,7 +112,7 @@ announcement](https://blog.chef.io/2019/04/02/chef-software-announces-the-enterp
 </tr>
 <tr>
 <td>Chef Workstation</td>
-<td>20.x (2020), 21.x (2021)</td>
+<td>21.x (2021), 22.x (2022)</td>
 <td>GA</td>
 <td>n/a</td>
 </tr>
@@ -295,14 +295,18 @@ newer versions or products.
 <td>EOL</td>
 <td>March 31, 2019</td>
 </tr>
-</tbody>
 <tr>
 <td>Chef Workflow (Delivery)</td>
 <td>All</td>
 <td>EOL</td>
 <td>December 31, 2020</td>
 </tr>
-</tbody>
+<tr>
+<td>Chef Workstation</td>
+<td>20.12.205 and under</td>
+<td>EOL</td>
+<td>December 31, 2021</td>
+</tr>
 <tr>
 <td>Enterprise Chef</td>
 <td>All</td>
