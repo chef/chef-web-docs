@@ -23,6 +23,12 @@ Unless the topics are about installing things or about API endpoints, the headin
 
 The width of heading adornment must be at least equal to the length of the text in the heading and the same width for headings is used everywhere. Consistent width is preferred.
 
+{{< note >}}
+
+Don't use headings to define CLI commands, properties, parameters, or other terms. Use a [definition list](#definition-lists) to define terms.
+
+{{< /note >}}
+
 ### H1
 
 The H1 heading is reserved for the page title which is created by the Hugo page template. The Markdown file text should not have any H1 headings.
@@ -107,39 +113,43 @@ Start each ordered list item with the number 1 (1.). Hugo will generate the corr
 
 ### Definition Lists
 
-Use a definition list to define a term, including CLI commands, command flags, parameters, and properties.
+Use a definition list to define terms, including CLI commands, command flags, parameters, and properties.
 
 You can include more than definition for a term and more than one paragraph for a definition. Each definition should have a `:` at the beginning of the line of text, a space, and then the definition text. Additional paragraphs just need to be indented by two spaces. See the example below:
 
-<!-- markdownlint-disable MD040 -->
-```
+{{< note >}}
+
+You can add a linkable ID to a definition list term by wrapping the term in brackets and adding `(@)` after the term. For example, `[term](@)`. In the example below, [another term](#another-term) has an ID.
+
+{{< /note >}}
+
+```md
 term
 : Term definition.
 
-another term
+[another term](@)
 : Another term definition.
 
   You can include multiple paragraphs in a definition if you need to.
 
-: And you can include more than one definition for a term by starting another line with a colon.
+: You can include more than one definition for a term by starting another line with a colon.
 
-: In est sit exercitation pariatur commodo sunt tempor mollit cillum magna et. Irure tempor cillum cupidatat sint velit veniam reprehenderit non et reprehenderit duis. Dolor magna aute dolore in sint eu fugiat irure laborum ea quis ipsum esse duis.
+: Adding square brackets and the `(@)` symbol around the term (`[another term](@)`) add a linkable ID to the term.
 ```
-<!-- markdownlint-enable MD040 -->
 
 The example above produces the following output:
 
 term
 : Term definition.
 
-another term
+[another term](@)
 : Another term definition.
 
   You can include multiple paragraphs in a definition if you need to.
 
-: And you can include more than one definition for a term by starting another line with a colon.
+: You can include more than one definition for a term by starting another line with a colon.
 
-: In est sit exercitation pariatur commodo sunt tempor mollit cillum magna et. Irure tempor cillum cupidatat sint velit veniam reprehenderit non et reprehenderit duis. Dolor magna aute dolore in sint eu fugiat irure laborum ea quis ipsum esse duis.
+: Adding square brackets and the `(@)` symbol around the term (`[another term](@)`) add a linkable ID to the term.
 
 ## Tables
 
