@@ -39,6 +39,16 @@ Supported Release
 
 ## Release-Specific Steps
 
+### Upgrading to 15.x
+
+Chef Infra Server 15.0 moved from Elasticsearch to OpenSearch as its search index.
+
+{{% chef-server/server_upgrade_duration %}}
+
+The Chef Infra Server 15 upgrade does not automatically reindex existing external Elasticsearch installations.
+
+The upgrade duration might take more time if you are upgrading from Chef Infra Server 12.x/13.x, as it automatically reindexes your database.
+
 ### Upgrading to 14.x
 
 Chef Infra Server 14.0 moved from Solr to Elasticsearch as its search index.
@@ -71,6 +81,15 @@ opensearch['external_url'] = "http://127.0.0.1:9200"
 opscode_erchef['search_auth_username'] = "OPEN_SEARCH_USER"
 opscode_erchef['search_auth_password'] = "OPEN_SEARCH_PWD"
 ```
+
+{{< note >}}
+
+The OpenSearch user should have full access to the cluster, including access to all cluster-wide operations and the ability to write to all indices. We recommend that the user has the admin backend role. 
+
+Please refer to OpenSearch's documentation on [predefined roles](https://opensearch.org/docs/latest/security-plugin/access-control/users-roles/#predefined-roles) and [role mapping configuration](https://opensearch.org/docs/latest/security-plugin/configuration/yaml#roles_mappingyml).
+
+This user must be created on the external OpenSearch cluster. The Chef Infra Server executable cannot be used to create this user on external OpenSearch setups.
+{{</note >}}
 
 #### Steps To Migrate from Elasticsearch to External OpenSearch
 
