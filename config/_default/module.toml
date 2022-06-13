@@ -251,6 +251,10 @@
   source = "content"
   target = "content"
 
+[[imports.mounts]]
+  source = "layouts"
+  target = "layouts"
+
 ###
 # Effortless Pattern
 ###
