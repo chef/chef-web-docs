@@ -1,9 +1,0 @@
-{{ $file := "" }}
-{{ with (.Get "file") }}
-  {{ $file = (delimit (slice "layouts/shortcodes/" ( . )) "") }}
-{{ end }}
-{{ with (.Get "file_path") }}
-  {{ $file = . }}
-{{ end }}
-
-{{ readFile $file | markdownify }}
