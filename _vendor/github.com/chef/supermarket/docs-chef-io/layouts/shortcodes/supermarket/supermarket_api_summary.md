@@ -5,5 +5,3 @@ RESTful API by accessing `supermarket.chef.io/api/v1/` using the supported
 endpoints. In most cases, knife is the best way to interact with the
 Supermarket; however in some cases, direct use of the Supermarket API is
 necessary.
-
-{{/* Delete moving to supermarket repo */}}
