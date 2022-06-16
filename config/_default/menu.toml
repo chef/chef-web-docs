@@ -112,28 +112,16 @@ identifier = "automate"
   weight = 25
 
     [[automate]]
-    title = "Introduction"
-    identifier = "automate/deploy_high_availability/introduction"
-    parent = "automate/deploy_high_availability"
-    weight = 10
-
-    [[automate]]
     title = "System Requirements"
     identifier = "automate/deploy_high_availability/ha_system_requirements"
     parent = "automate/deploy_high_availability"
     weight = 40
 
     [[automate]]
-    title = "AWS Deployment"
-    identifier = "automate/deploy_high_availability/aws_deployment"
+    title = "Deployment"
+    identifier = "automate/deploy_high_availability/deployment"
     parent = "automate/deploy_high_availability"
     weight = 60
-
-    [[automate]]
-    title = "On-Premises Deployment"
-    identifier = "automate/deploy_high_availability/on_premises_deployment"
-    parent = "automate/deploy_high_availability"
-    weight = 80
 
     [[automate]]
     title = "Minimal Node HA Deployment"
