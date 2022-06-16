@@ -115,67 +115,43 @@ identifier = "automate"
     title = "System Requirements"
     identifier = "automate/deploy_high_availability/ha_system_requirements"
     parent = "automate/deploy_high_availability"
-    weight = 40
+    weight = 20
 
     [[automate]]
     title = "Deployment"
     identifier = "automate/deploy_high_availability/deployment"
     parent = "automate/deploy_high_availability"
-    weight = 60
-
-    [[automate]]
-    title = "Minimal Node HA Deployment"
-    identifier = "automate/deploy_high_availability/minimal_node_ha_deployment"
-    parent = "automate/deploy_high_availability"
-    weight = 120
+    weight = 40
 
     [[automate]]
     title = "Backup and Restore"
     identifier = "automate/deploy_high_availability/backup_and_restore"
     parent = "automate/deploy_high_availability"
-    weight = 140
-
-    [[automate]]
-    title = "Upgrade"
-    identifier = "automate/deploy_high_availability/ha_upgrade"
-    parent = "automate/deploy_high_availability"
-    weight = 160
+    weight = 60
 
     [[automate]]
     title = "Migration"
     identifier = "automate/deploy_high_availability/migration"
     parent = "automate/deploy_high_availability"
-    weight = 180
+    weight = 80
 
     [[automate]]
     title = "Certificates"
     identifier = "automate/deploy_high_availability/certificates"
     parent = "automate/deploy_high_availability"
-    weight = 220
-
-    [[automate]]
-    title = "Performance Benchmarking"
-    identifier = "automate/deploy_high_availability/performance_benchmarking"
-    parent = "automate/deploy_high_availability"
-    weight = 240
+    weight = 100
 
     [[automate]]
     title = "Troubleshooting"
     identifier = "automate/deploy_high_availability/troubleshooting"
     parent = "automate/deploy_high_availability"
-    weight = 260
-
-    [[automate]]
-    title = "FAQs"
-    identifier = "automate/deploy_high_availability/faqs"
-    parent = "automate/deploy_high_availability"
-    weight = 280
+    weight = 120
 
     [[automate]]
     title = "Reference"
     identifier = "automate/deploy_high_availability/reference"
     parent = "automate/deploy_high_availability"
-    weight = 300
+    weight = 140
 
   [[automate]]
   title = "Configure"
