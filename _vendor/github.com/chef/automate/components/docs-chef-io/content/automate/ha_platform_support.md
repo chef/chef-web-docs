@@ -18,36 +18,42 @@ This section lists the recommended requirements for operating systems, virtual m
 | Operating Systems                        | Supported Version         |
 | :--------------------------------------  | :-----------------------  |
 | Red Hat Enterprise Linux (64 Bit OS)     | 7, 8. For 8 or above versions, the **SELinux** configuration must be permissive. The **SELinux** configuration is enforced in RHEL 8. Red Hat Enterprise Linux derivatives include Amazon Linux v1 (using RHEL 6 packages) and v2 (using RHEL 7packages). |
-| Ubuntu (64 Bit OS)                       | 16.04.x, 18.04.x, 20.04.x |
+| Ubuntu (64 Bit OS)                       | 16.04.x, 18.04.x          |
 | Centos (64 Bit OS)                       | 7                         |
+| Amazon Linux 2 (64 Bit OS)               | 2 (kernel 5.10)           |
 
-## Hardware Configuration
+## Hardware Requirments
 
-Based on the number of nodes, the virtual machine requirements for test instances are as follows:
+Based on our peformance benchmarking tests according to below assumptions we get these results.
+### Assumption
+| Assumption                            | Value | Unit     |
+|---------------------------------------|-------|----------|
+| Number of Nodes sending data          | 5000  |          |
+| Frequency of Compliance Scan          | 1     | Per Hour |
+| Frequency of Client runs (Infra runs) | 1     | Per Hour |
+| Frequency of Event Feed               | 1     | Per Hour |
+| Data Retention policy                 | 1     | Days     |
+| Compliance scan report size           | 400   | KB       |
+| Client Run (Infra run) size           | 300   | KB       |
+| Event Feed update size                | 2     | KB       |
+| No. of Shards in Opensearch Index     | 2     |
 
-| Instance          | Count | vCPU | RAM   | Volume Size (dedicated hard disk space assigned to '/') |
-| :---------------  | :---- | :--- |:------| :-----------------------------------------------------  |
-| PostgreSQL        | 3     | 2    | 8 GB  | 50 GB                                                   |
-| OpenSearch        | 3     | 4    | 16 GB | 50 GB                                                   |
-| Chef Automate     | 2     | 2    | 8 GB  | 50 GB                                                   |
-| Chef Infra Server | 2     | 2    | 8 GB  | 50 GB                                                   |
+Based on the above assumption machine requirment will be:
 
-The above hardware configuration can be used to test up to 5000 nodes.
+| Instance          | Count | vCPU | RAM | Storage Size | AWS Machine Type |
+|-------------------|-------|------|-----|--------------|------------------|
+| Chef Automate     | 2     | 2    | 8   | 80 GB        | m5.large         |
+| Chef Infra Server | 2     | 2    | 8   | 80 GB        | m5.large         |
+| Postgresql DB     | 3     | 2    | 8   | 150 GB       | m5.large         |
+| Opensearch DB     | 3     | 2    | 8   | 58.9 GB      | m5.large         |
+| Bastion Machine   | 1     | 2    | 8   | 150 GB       | m5.large         |
+
+The above hardware configuration is based on above assumption. Customer should calculate based on there actual estimate using the sample calculation provided: [Excel Calculator sheet](/calculator/automate_ha_hardware_calculator.xlsx).
 
 {{< note >}}
 
 - For **OpenSearch** and **PostgresSQL**, a minimum of three node clusters is required.
-- For production ES volume size also depends on the number of nodes and frequency of Chef Infra Client runs and compliance scans.
+- For production OpenSearch volume size also depends on the number of nodes and frequency of Chef Infra Client runs and compliance scans.
 
 {{< /note >}}
 
-The hardware calculation formule for the production set up is given below:
-
-### Calculation for Volume Size for OpenSearch
-
-- **Data from Compliance Scan** = Number of Scans per Day X Approx Size of Data X Retention Days X Number of Nodes X 2(OpenSearch Replica)
-- **Data from Client Run** = Number of Runs per Day X Approx Size of Data X Retention Days X Number of Nodes * 2(OpenSearch Replica)
-- **Total data** = Data from Compliance Scan + Data from Client Run
-OpenSearch volume for each instance = **Total Data / 3**
-
-### Calculation for vCPU and RAM vs CCR
