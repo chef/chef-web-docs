@@ -100,15 +100,15 @@
         <!-------------- Handler Types ------------------->
 
         {{ with index $yaml_file "handler_types" }}
-          <h2 id="handler_types">Handler Types</h2>
+          <h2 id="handler-types">Handler Types</h2>
           {{ readFile "layouts/shortcodes/handler_types.md" | markdownify }}
 
-          <h3 id="handler_type_exception_report">Exception / Report</h3>
+          <h3 id="handler-type-exception-report">Exception / Report</h3>
           {{ readFile "layouts/shortcodes/handler_type_exception_report.md" | markdownify }}
           {{ readFile "layouts/shortcodes/handler_type_exception_report_run_from_recipe.md" | markdownify }}
 
 
-          <h3 id="handler_type_start">Start</h3>
+          <h3 id="handler-type-start">Start</h3>
           {{ readFile "layouts/shortcodes/handler_type_start.md" | markdownify }}
           {{ readFile "layouts/shortcodes/handler_type_start_run_from_recipe.md" | markdownify }}
 
