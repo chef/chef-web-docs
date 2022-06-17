@@ -106,6 +106,54 @@ identifier = "automate"
   weight = 20
 
   [[automate]]
+  title = "High Availability"
+  identifier = "automate/deploy_high_availability"
+  parent = "automate"
+  weight = 25
+
+    [[automate]]
+    title = "System Requirements"
+    identifier = "automate/deploy_high_availability/ha_system_requirements"
+    parent = "automate/deploy_high_availability"
+    weight = 20
+
+    [[automate]]
+    title = "Deployment"
+    identifier = "automate/deploy_high_availability/deployment"
+    parent = "automate/deploy_high_availability"
+    weight = 40
+
+    [[automate]]
+    title = "Backup and Restore"
+    identifier = "automate/deploy_high_availability/backup_and_restore"
+    parent = "automate/deploy_high_availability"
+    weight = 60
+
+    [[automate]]
+    title = "Migration"
+    identifier = "automate/deploy_high_availability/migration"
+    parent = "automate/deploy_high_availability"
+    weight = 80
+
+    [[automate]]
+    title = "Certificates"
+    identifier = "automate/deploy_high_availability/certificates"
+    parent = "automate/deploy_high_availability"
+    weight = 100
+
+    [[automate]]
+    title = "Troubleshooting"
+    identifier = "automate/deploy_high_availability/troubleshooting"
+    parent = "automate/deploy_high_availability"
+    weight = 120
+
+    [[automate]]
+    title = "Reference"
+    identifier = "automate/deploy_high_availability/reference"
+    parent = "automate/deploy_high_availability"
+    weight = 140
+
+  [[automate]]
   title = "Configure"
   identifier = "automate/configure"
   parent = "automate"
