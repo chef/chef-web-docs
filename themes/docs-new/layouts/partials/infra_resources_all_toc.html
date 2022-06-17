@@ -269,24 +269,6 @@
               {{ end }}
             </li>
             {{ end }}
-            {{ if index $yaml_file "handler_custom" }}
-            <li>
-              <a href="#handler-custom">Custom Handlers</a>
-              <ul>
-                <li><a href="#handler-custom-syntax">Syntax</a></li>
-                <li><a href="#handler-custom-interface-report">report Interface</a></li>
-                <li>
-                  <a href="#handler-custom-optional-interfaces">Optional Interfaces</a>
-                  <ul>
-                    <li><a href="#handler-custom-interface-data">data</a></li>
-                    <li><a href="#handler-custom-interface-run-report-safely">run_report_safely</a></li>
-                    <li><a href="#handler-custom-interface_run-report-unsafe">run_report_unsafe</a></li>
-                  </ul>
-                </li>
-                <li><a href="#handler-custom-object-run-status">run_status Object</a></li>
-              </ul>
-            </li>
-            {{ end }}
             {{ if index $yaml_file "cookbook_file_specificity" }}
             <ul>
               <li><a href="#cookbook-file-specificity">File Specificity</a></li>
