@@ -8,7 +8,7 @@ require (
 	github.com/chef/chef-workstation/docs-chef-io v0.0.0-20220607063028-d3af499aa648 // indirect
 	github.com/chef/desktop-config/docs-chef-io v0.0.0-20220405052948-5947f844edff // indirect
 	github.com/chef/effortless/docs-chef-io v0.0.0-20211119164252-4ff3d53886be // indirect
-	github.com/chef/supermarket/docs-chef-io v0.0.0-20220614154651-c57fe8d93747 // indirect
+	github.com/chef/supermarket/docs-chef-io v0.0.0-20220624080212-e87c200c2d21 // indirect
 	github.com/cowboy/jquery-hashchange v0.0.0-20100902193700-0310f3847f90 // indirect
 	github.com/habitat-sh/habitat/components/docs-chef-io v0.0.0-20220603154540-daea9bb2c802 // indirect
 	github.com/inspec/inspec-alicloud/docs-chef-io v0.0.0-20220218210517-5887448b615c // indirect
