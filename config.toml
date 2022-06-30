@@ -27,23 +27,6 @@ isPlainText = true
 notAlternative = true
 
 [markup]
-  defaultMarkdownHandler = "goldmark"
-  [markup.blackFriday]
-    angledQuotes = false
-    footnoteAnchorPrefix = ""
-    footnoteReturnLinkContents = ""
-    fractions = true
-    hrefTargetBlank = false
-    latexDashes = true
-    nofollowLinks = false
-    noreferrerLinks = false
-    plainIDAnchors = true
-    skipHTML = false
-    smartDashes = true
-    smartypants = true
-    smartypantsQuotesNBSP = false
-    taskLists = true
-		extensions = ["hardLineBreak"]
   [markup.goldmark]
     [markup.goldmark.extensions]
       definitionList = true
@@ -54,9 +37,11 @@ notAlternative = true
       taskList = true
       typographer = true
     [markup.goldmark.parser]
-      attribute = true
       autoHeadingID = true
       autoHeadingIDType = "github"
+      [markup.goldmark.parser.attribute]
+        block = true
+        title = true
     [markup.goldmark.renderer]
       hardWraps = false
       unsafe = true
