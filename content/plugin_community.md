@@ -3,7 +3,15 @@ title = "Community Plugins"
 draft = false
 gh_repo = "chef-web-docs"
 aliases = "/plugin_community.html"
+
+[menu]
+  [menu.infra]
+      title = "Community Plugins"
+      identifier = "chef_infra/extension_apis/ohai_plugins/Community Plugins"
+      parent = "chef_infra/extension_apis/ohai_plugins"
+      weight = 20
 +++
+
 <!-- markdownlint-disable-file MD033 -->
 This page lists plugins for Ohai plugins and Chef Infra Client handlers
 that are developed and maintained by the Chef community.

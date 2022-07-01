@@ -682,13 +682,6 @@ identifier = "chef_infra"
     parent = "chef_infra/extension_apis"
     weight = 40
 
-      [[infra]]
-      title = "Community Plugins"
-      identifier = "chef_infra/extension_apis/ohai_plugins/plugin_community.md#ohai Community Plugins"
-      parent = "chef_infra/extension_apis/ohai_plugins"
-      url = "/plugin_community/#ohai"
-      weight = 20
-
   [[infra]]
   title = "Integrations"
   identifier = "chef_infra/integrations"

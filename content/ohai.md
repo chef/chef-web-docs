@@ -193,14 +193,30 @@ windows
 
 Ohai ships several optional plugins that you can enable in the [client.rb configuration file](/config_rb_client/).
 
-- `:Grub2` - Information from the Linux Grub2 bootloader
-- `:IPC` - SysV IPC shmem information (New in Chef Infra Client 16)
-- `:Interupts` - Data from /proc/interrupts and /proc/irq (New in Chef Infra Client 16)
-- `:Lspci` - PCI device information on Linux hosts.
-- `:Lsscsi` - SCSI device information on Linux hosts.
-- `:Passwd` - User and Group information. This plugin can result in large node sizes if a system connects to Active Directory or LDAP.
-- `:Sessions` - Sessions data from loginctl on Linux hosts.
-- `:Sysctl` - All sysctl values on Linux hosts.
+ `:Grub2`
+: Information from the Linux Grub2 bootloader
+
+ `:IPC`
+: SysV IPC shmem information (New in Chef Infra Client 16)
+
+ `:Interupts`
+: Data from /proc/interrupts and /proc/irq (New in Chef Infra Client 16)
+
+ `:Lspci`
+: PCI device information on Linux hosts.
+
+ `:Lsscsi`
+: SCSI device information on Linux hosts.
+
+ `:Passwd`
+: User and Group information. This plugin can result in large node sizes if a system connects to Active Directory or LDAP.
+
+ `:Sessions`
+: Sessions data from loginctl on Linux hosts.
+
+`:Sysctl`
+
+: All sysctl values on Linux hosts.
 
 ### Enabling Optional Plugins
 
