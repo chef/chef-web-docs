@@ -235,7 +235,7 @@ This configuration file has the following settings:
 
 `privacy`
 
-: Specify a cookbook as private.
+: Specify a cookbook as private. This prevents a cookbook from being uploaded to the public Supermarket or any Supermarket where ``ENFORCE_PRIVACY`` has been enabled.
 
     For example:
 
