@@ -90,7 +90,11 @@
             {{ end }}
 
             {{ if and ( ne (index $yaml_file "resource_new_in") "" ) ( index $yaml_file "resource_new_in" )}}
-              <p><strong>New in Chef Infra Client {{ index $yaml_file "resource_new_in" }}.</strong></p>
+              {{ if eq $product "infra" }}
+                <p><strong>New in Chef Infra Client {{ index $yaml_file "resource_new_in" }}.</strong></p>
+              {{ else if ( eq $product "desktop") }}
+                <p><strong>New in Chef Desktop {{ index $yaml_file "resource_new_in" }}.</strong></p>
+              {{ end }}
             {{ end }}
 
             <!-------------- Handler Types ------------------->
