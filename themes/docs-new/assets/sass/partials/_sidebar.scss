@@ -1,8 +1,37 @@
+#left-nav-on-canvas {
+  margin-top: .5rem;
+  padding: rem-calc(18 0);
+  z-index: 50;
+  width: 260px;
+  box-shadow: none;
+}
+
+
+
+// left-nav-off-canvas stays hidden until bars icon is clicked on in the utility bar
+#left-nav-off-canvas{
+  display: none;
+  border-bottom: 1px solid $border;
+
+  &.reveal{
+    display: block;
+    z-index: 10;
+    top: 0;
+    border-style: none;
+  }
+
+  .chef-conf-link {
+    .braces {
+      color:$orange-lighter;
+    }
+  }
+}
+
 .sidebar {
   height: 100vh;
   margin: 0;
   overflow-x: hidden;
-  width: 260px;
+  // width: 260px;
 }
 
 #sidebar-nav{
@@ -15,54 +44,49 @@
     width: inherit;
   }
 
-> .nav {
-  margin-bottom: 30px;
+  > .nav {
+    margin-bottom: 30px;
 
-  > .accordion-menu {
-    font-size: rem-calc(14px);
+    > .accordion-menu {
+      font-size: rem-calc(14px);
 
-    > li {
-      padding-right: 8px;
+      > li {
+        padding-right: 8px;
 
-      > a {
-        font-weight: 700;
-        color: $charcoal;
-      }
+        > a {
+          font-weight: 700;
+          color: $charcoal;
+        }
 
-      a {
-        text-overflow: ellipsis;
-        overflow: hidden;
-        &:focus {
-          outline: none;
+        a {
+          text-overflow: ellipsis;
+          overflow: hidden;
+          &:focus {
+            outline: none;
+          }
         }
       }
+
+      .nested.is-active li.active a {
+        font-weight: normal;
+        background: none;
+        color: $menu-item-color-active
+      }
+
+      .nested.is-accordion-submenu {
+        margin-left: rem-calc(8);
+
+      .is-accordion-submenu-item a{
+        line-height: 1.4rem;
+        padding: .5rem 1rem;
+      }
+      }
     }
 
-    .nested.is-active li.active a {
-      font-weight: normal;
-      background: none;
-      color: $menu-item-color-active
+    .menu {
+      a {
+        color: $body-font-color;
+      }
     }
-
-    .nested.is-accordion-submenu {
-      margin-left: rem-calc(8);
-
-    .is-accordion-submenu-item a{
-      line-height: 1.4rem;
-      padding: .5rem 1rem;
-    }
-    }
-  }
-
-  .menu {
-    a {
-      color: $body-font-color;
-    }
-  }
-}
-> .search {
-    text-align: center;
-    margin: 0 12xp 12px 12px;
-    object-fit: contain;
   }
 }
