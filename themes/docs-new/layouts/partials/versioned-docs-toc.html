@@ -16,7 +16,7 @@
 
   {{ with $.Site.GetPage $filePath }}
     {{ with (index (.Resources.Match $LogicalName) 0) }}
-      {{ $headers := findRE "<h[12].*?>(.|\n])+?</h[12]>" .Content }}
+      {{ $headers :=findRE `(?m)<h2.*?>(.|\n])+\>` .Content }}
       {{ if ge (len $headers) 1 }}
         {{ $headersExist = true }}
 
