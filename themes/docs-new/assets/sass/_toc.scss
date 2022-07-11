@@ -1,4 +1,4 @@
-.TableOfContents {
+.table-of-contents {
   padding-left: 10px;
   overflow-y: scroll;
   overflow-wrap: break-word;
@@ -6,10 +6,10 @@
   font-size: rem-calc(13);
   z-index: 30;
 
-  .mini-toc-header{
-    padding-top: .5rem;
+  span.mini-toc-nav{
+    // padding-top: .5rem;
     font-weight: 800;
-    font-size: rem-calc(16);
+    // font-size: rem-calc(16);
     margin-top: 1rem;
     display: block;
   }

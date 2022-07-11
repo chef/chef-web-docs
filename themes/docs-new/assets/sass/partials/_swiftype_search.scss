@@ -172,24 +172,50 @@
 // Search Input
 ///////
 
-form > input.swiftype-search-input {
-  padding: 7px 11px 7px 28px;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 16px;
-  border-radius: $border-radius-base;
-  color: #666;
-  border: 1px solid #ccc;
-  outline: none;
-  background: #fcfcfc url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAYAAAA71pVKAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAUFJREFUeNqU0j0oRWEcx/Hj3ifvlMHL7C1lY7mDwUBKkoksBjKJxWIQu7xlOybDLVGukhhMZDFbxGBS8nIjKR3E96nf0dPjuuVfn+6tc35P//P8/yYMw8CpbgygGQlcYw8H+Ai8MvotxQImgt81hk1M4cEPF2IV43jCGo7wjk5MYhhlGMKbG+7BKO4wiGPn8DO1vIN+jGA9fpjQaUksecG4zjGPL3VQ5IZb9OAw+LtO1FkjatxwUuEoTzjSbRu9/xO+0W97nnArqvXuoxve1/9p1OUIlmNGU7EX9+KGt3GKNuyiC5WoQAe2NJFP3PpzzmoR0khpxle6h3pnkeKJPCPjbtglerVFfWhSVxfqJtK4qrChTMY4XdjVm9O21aIA92LrFcv6HHtAsclxQVnxa0WfsqgDUib4X9muStCA2W8BBgDJ0EeGeFZ8WAAAAABJRU5ErkJggg==) no-repeat 5px 8px;
+#left-nav-off-canvas-top-bar {
+  @include top-bar-unstack;
+  .search {
+    display: inline-block;
+    margin-right: 1rem;
+  }
+  .close-button {
+    position: relative;
+    margin: 0 0 0 1rem;
+    display: inline-block;
+    right: 0;
+    top: 0;
+  }
+  form > input.swiftype-search-autocomplete {
+    width: 100%;
+  }
 }
 
-form > input.swiftype-search-autocomplete {
-  width: 190px;
-  margin: 0 0 16px 0;
-  display: inline-block;
-  box-sizing: content-box;
-  height: 16px;
+#left-nav-on-canvas {
+  form > input.swiftype-search-autocomplete {
+    width: 90%;
+  }
+}
+
+
+
+form > input.swiftype-search {
+
+  &-input {
+    padding: 7px 11px 7px 28px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 16px;
+    border-radius: $border-radius-base;
+    border: 1px solid #ccc;
+    outline: none;
+    background: #fcfcfc url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAYAAAA71pVKAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAUFJREFUeNqU0j0oRWEcx/Hj3ifvlMHL7C1lY7mDwUBKkoksBjKJxWIQu7xlOybDLVGukhhMZDFbxGBS8nIjKR3E96nf0dPjuuVfn+6tc35P//P8/yYMw8CpbgygGQlcYw8H+Ai8MvotxQImgt81hk1M4cEPF2IV43jCGo7wjk5MYhhlGMKbG+7BKO4wiGPn8DO1vIN+jGA9fpjQaUksecG4zjGPL3VQ5IZb9OAw+LtO1FkjatxwUuEoTzjSbRu9/xO+0W97nnArqvXuoxve1/9p1OUIlmNGU7EX9+KGt3GKNuyiC5WoQAe2NJFP3PpzzmoR0khpxle6h3pnkeKJPCPjbtglerVFfWhSVxfqJtK4qrChTMY4XdjVm9O21aIA92LrFcv6HHtAsclxQVnxa0WfsqgDUib4X9muStCA2W8BBgDJ0EeGeFZ8WAAAAABJRU5ErkJggg==) no-repeat 5px 8px;
+  }
+
+  &-autocomplete {
+    margin: 0 0 0 10px;
+    display: inline-block;
+    height: 2.5em;
+  }
 }
 
 #swiftype-modal-search-form {

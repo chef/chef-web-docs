@@ -3,6 +3,7 @@
 // node_modules imports relative to node_modules/
 
 @import "variables";
+@import "settings";
 @import "foundation-sites/scss/foundation";
 @include foundation-everything($prototype: true);
 

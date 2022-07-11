@@ -1,41 +1,35 @@
 nav#utility-bar {
   background-color: $topbar-background;
   border-bottom: 1px solid $border;
-  height: 112px;
+  height: 60px;
   padding: .2rem 1rem;
-  top: 0;
-  z-index: 10;
-
+  @include top-bar-unstack;
 
   a.utility-bar-brand {
     display: inline-block;
     padding-top: .3125rem;
     padding-bottom: .3125rem;
     margin-right: 1rem;
-    line-height: inherit;
-    white-space: nowrap;
+
     .chef {
-      height: 50px;
-      display: inline;
+      width: 200px;
+      height: auto;
     }
   }
 
   ul.top-nav {
     a {
       font-weight: 600;
-      font-size: 15px;
+      font-size: .9rem;
       line-height: 26px;
       color: $charcoal;
       padding: .5rem;
       &:hover {
         color:$blue-darker;
       }
-      &.chefconflink {
-        border: 2px solid rgb(255, 163, 0);
-        border-radius: 3px;
-        margin-right: 3px;
-        &:hover {
-          color: rgb(255, 163, 0);
+      &.chef-conf-link {
+        >.braces {
+          color:$orange-lighter;
         }
       }
     }
@@ -43,18 +37,8 @@ nav#utility-bar {
 
   button.utility-bar-nav-bars {
     color: $charcoal;
-    display: inline;
+    display: inline-block;
     font-size: 1.1rem;
     margin: .5rem;
-  }
-}
-
-
-#left-nav-off-canvas{
-  display: none;
-
-  &.reveal{
-    display: block;
-    z-index: 10;
   }
 }

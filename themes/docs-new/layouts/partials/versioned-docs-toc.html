@@ -16,7 +16,7 @@
 
   {{ with $.Site.GetPage $filePath }}
     {{ with (index (.Resources.Match $LogicalName) 0) }}
-      {{ $headers := findRE "<h[12].*?>(.|\n])+?</h[12]>" .Content }}
+      {{ $headers :=findRE `(?m)<h2.*?>(.|\n])+\>` .Content }}
       {{ if ge (len $headers) 1 }}
         {{ $headersExist = true }}
 
@@ -34,11 +34,9 @@
 {{ if $headersExist }}
 <div class="cell off-canvas position-right toc off-canvas-absolute reveal-for-large" id="onCanvasRightTOC" data-off-canvas >
   <aside class="sticky sidebar" data-sticky data-top-anchor="utility-bar:bottom" data-btm-anchor="footer:top">
-    <div class="TableOfContents">
+    <div class="table-of-contents">
       <span>
-        <strong>
-          <h4 class="mini-toc-header">Table Of Contents</h4>
-        </strong>
+        <span class="mini-toc-nav">Table Of Contents</span>
         <button class="close-button hide-for-large" aria-label="Close menu" type="button" data-close>
           <span aria-hidden="true">&times;</span>
         </button>
@@ -52,12 +50,8 @@
 
 <div class="off-canvas position-right toc hide-for-large" id="offCanvasRightTOC" data-off-canvas
 data-transition="overlap">
-  <strong>
-    <h4 class="mini-toc-header">Table Of Contents</h4>
-  </strong>
+    <span class="mini-toc-nav">Table Of Contents</span>
     {{ $pageTitle }}
     {{- safeHTML $tocContents -}}
 </div>
 {{ end }}
-
-

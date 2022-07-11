@@ -3,7 +3,7 @@
 ## Main Menu ##
 ####
 [[main]]
-title = "ChefConf '22"
+title = "CHEFCONF"
 identifier = "chefconf"
 url = "https://www.chef.io/chefconf"
 weight = 5

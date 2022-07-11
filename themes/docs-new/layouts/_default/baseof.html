@@ -6,24 +6,20 @@
 
   {{ partialCached "utility-bar" . }}
 
-  <div id="left-nav-off-canvas" class="hide-for-medium hide-for-print" data-toggler=".reveal">
-    {{ partial "sidebar-off-canvas" . }}
-  </div>
+  {{ partial "sidebar-off-canvas" . }}
 
   <div class="off-canvas-wrapper">
     <div class="grid-container fluid">
       <div class="grid-x">
 
-        <div id="left-nav-on-canvas" class="cell position-left off-canvas-absolute reveal-for-medium col-sidebar" data-off-canvas data-transition="overlap" >
-          {{ partial "sidebar-on-canvas" . }}
-        </div>
+        {{ partial "sidebar-on-canvas" . }}
 
         <div id="main-content" class="cell off-canvas-content auto" data-off-canvas-content>
           {{ block "main" . }}
           {{ end }}
         </div>
 
-        {{ $headers := findRE "<h[12].*?>(.|\n])+?</h[12]>" .Content }}
+        {{ $headers := findRE `(?m)<h2.*?>(.|\n])+\>` .Content }}
         {{ if or (and (ge (len $headers) 1) (ne .Params.toc false )) (isset .Params "release_notes") (.Params.version_docs_product) (.Params.toc_layout)}}
           {{ if .Params.toc_layout }}
             <div id="onCanvasRightTOC" class="cell off-canvas position-right toc off-canvas-absolute reveal-for-large" data-off-canvas >
@@ -57,9 +53,9 @@
     {{ partial "footer" . }}
   </nav>
 
-  {{ partial "image_modal" . }}
+  {{ partialCached "image_modal" . }}
   {{ partialCached "javascript" . }}
-  {{ partial "swiftype_search_modal" . }}
+  {{ partialCached "swiftype_search_modal" . }}
 
   </body>
 </html>
