@@ -28,7 +28,7 @@ jobs:
           inline: error
           strict: true
           # Path to `cspell.json`
-          config: '.'
+          config: 'cspell.json'
   markdownlint:
     runs-on: ubuntu-latest
     steps:
