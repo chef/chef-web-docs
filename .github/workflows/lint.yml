@@ -29,6 +29,8 @@ jobs:
           incremental_files_only: true
           inline: error
           strict: true
+          # Path to `cspell.json`
+          config: '.'
   markdownlint:
     runs-on: ubuntu-latest
     steps:
