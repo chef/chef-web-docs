@@ -129,3 +129,5 @@ end
 - [here](https://github.com/chef/chef/issues/5438#issuecomment-351153222)
 - [DNSimple](https://blog.dnsimple.com/2017/10/chef-accumulators/)
 - [HAProxy](https://github.com/sous-chefs/haproxy/blob/a9c24d336c01828fef52cedae8cc445d8dbc21dd/libraries/resource.rb#L22)
+
+testing cspell blerge, this should fail.
