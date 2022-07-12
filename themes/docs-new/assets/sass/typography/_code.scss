@@ -1,6 +1,6 @@
 code {
   background-color: $code-background;
-  border: 1px solid $ash;
+  border: 1px solid $border;
   border-radius: $border-radius-base;
   font-size: 0.9em;
   display: inline;
@@ -33,6 +33,12 @@ pre {
   .line-numbers {
     margin-right: rem-calc(16px);
     user-select: none;
+  }
+}
+
+table {
+  code {
+    border: 1px solid $code-border;
   }
 }
 
