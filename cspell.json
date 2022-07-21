@@ -32,7 +32,8 @@
     ".expeditor/**/*",
     "**/*.yml",
     "**/*.toml",
-    "archetypes/*.md"
+    "archetypes/*.md",
+    "_vendor/**/*"
   ],
   "ignoreRegExpList": [
     "/'s\\b/",
