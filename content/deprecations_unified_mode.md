@@ -8,4 +8,14 @@ sitemapExclude = true
 aliases = "/deprecations_unified_mode.html"
 +++
 
-{{% unified_mode %}}
+{{% unified_mode_overview %}}
+
+{{% unified_mode_schedule %}}
+
+## Enable Unified Mode
+
+{{% unified_mode_enable %}}
+
+{{% unified_mode_actions_later_resources %}}
+
+{{% unified_mode_troubleshooting %}}
