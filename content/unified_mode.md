@@ -14,9 +14,7 @@ product = ["client"]
 
 {{% unified_mode_overview %}}
 
-{{% unified_mode_schedule %}}
-
-## Enable Unified Mode
+{{% unified_mode_client_releases %}}
 
 {{% unified_mode_enable %}}
 
@@ -150,7 +148,7 @@ end
 
 This simplified example shows how to trap exceptions from resources using normal Ruby syntax and to clean up the resource. Without unified mode this syntax is impossible. Normally when the [execute]({{< relref "resources/execute" >}}) resources are parsed, they only create the objects in the `resource_collection` to later be evaluated so that no exception is thrown while Ruby is parsing the `action` block. Every action is delayed to the later converge phase. In unified mode, the resource runs when Ruby is done parsing its block, so exceptions happen in-line with Ruby parsing and the rescue clause now works as expected.
 
-This is useful because the TAR extraction throws an exception (for example, the node could be out of disk space), which deletes the TAR file. The next time Chef Infra Client runs, the TAR file will be redownloaded. If the resource didn't have file cleanup after an exception, the TAR file would remain on the client node even though the resource isn't complete and the extraction didn't happen, leaving the resource in a broken, indeterminate state.
+This is useful because the TAR extraction throws an exception (for example, the node could be out of disk space), which deletes the TAR file. The next time Chef Infra Client runs, the TAR file will be redownload. If the resource did not have file cleanup after an exception, the TAR file would remain on the client node even though the resource is not complete and the extraction did not happen, leaving the resource in a broken, indeterminate state.
 
 {{% unified_mode_actions_later_resources %}}
 
