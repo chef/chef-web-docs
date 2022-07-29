@@ -71,7 +71,7 @@ commercial agreement with Chef. Additional information is available in
 | Chef Habitat      | 0.81+                    | GA               | n/a            |
 | Chef InSpec       | 4.x                      | GA               | n/a            |
 | Chef Workstation  | 21.x (2021), 22.x (2022) | GA               | n/a            |
-| Chef Backend      | 3.x                      | Releasing 2021   | 2022           |
+| Chef Backend      | 3.x                      | Releasing 2021   | TBD            |
 
 {{< note >}}
 
@@ -97,9 +97,9 @@ newer versions or products.
 
 | Product           | Version | Lifecycle Status | EOL Date          |
 |-------------------|---------|------------------|-------------------|
-| Chef Backend      | 2.x     | Deprecated       | December 31, 2022 |
+| Chef Backend      | 2.x     | Deprecated       | TBD               |
 | Chef Infra Client | 16.x    | Deprecated       | November 30, 2022 |
-| Chef Manage       | 2.5.x+  | Deprecated       | December 31, 2022 |
+| Chef Manage       | 2.5.x+  | Deprecated       | TBD               |
 
 ## End of Life (EOL) Products
 
