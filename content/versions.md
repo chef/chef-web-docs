@@ -63,66 +63,15 @@ Agreement](https://www.chef.io/end-user-license-agreement) or a
 commercial agreement with Chef. Additional information is available in
 [this announcement](https://www.chef.io/blog/chef-software-announces-the-enterprise-automation-stack).
 
-<table>
-<colgroup>
-<col style="width: 18%" />
-<col style="width: 31%" />
-<col style="width: 25%" />
-<col style="width: 25%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Product</th>
-<th>Version</th>
-<th>Lifecycle Status</th>
-<th>EOL Date</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Chef Automate</td>
-<td>Latest</td>
-<td>GA</td>
-<td>n/a</td>
-</tr>
-<tr>
-<td>Chef Infra Client</td>
-<td>17.x</td>
-<td>GA</td>
-<td>April 30, 2023</td>
-</tr>
-<tr>
-<td>Chef Infra Server</td>
-<td>14.x</td>
-<td>GA</td>
-<td>n/a</td>
-</tr>
-<tr>
-<td>Chef Habitat</td>
-<td>0.81+</td>
-<td>GA</td>
-<td>n/a</td>
-</tr>
-<tr>
-<td>Chef InSpec</td>
-<td>4.x</td>
-<td>GA</td>
-<td>n/a</td>
-</tr>
-<tr>
-<td>Chef Workstation</td>
-<td>21.x (2021), 22.x (2022)</td>
-<td>GA</td>
-<td>n/a</td>
-</tr>
-<tr>
-<td>Chef Backend</td>
-<td>3.x</td>
-<td>Releasing 2021</td>
-<td>2022</td>
-</tr>
-</tbody>
-</table>
+| Product           | Version                  | Lifecycle Status | EOL Date       |
+|-------------------|--------------------------|------------------|----------------|
+| Chef Automate     | Latest                   | GA               | n/a            |
+| Chef Infra Client | 17.x                     | GA               | April 30, 2023 |
+| Chef Infra Server | 14.x                     | GA               | n/a            |
+| Chef Habitat      | 0.81+                    | GA               | n/a            |
+| Chef InSpec       | 4.x                      | GA               | n/a            |
+| Chef Workstation  | 21.x (2021), 22.x (2022) | GA               | n/a            |
+| Chef Backend      | 3.x                      | Releasing 2021   | 2022           |
 
 {{< note >}}
 
@@ -137,186 +86,38 @@ products.
 Use of the following distributions is governed by the Apache License,
 version 2.0.
 
-<table>
-<colgroup>
-<col style="width: 18%" />
-<col style="width: 31%" />
-<col style="width: 25%" />
-<col style="width: 25%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Product</th>
-<th>Version</th>
-<th>Lifecycle Status</th>
-<th>EOL Date</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Supermarket</td>
-<td>5.x</td>
-<td>GA</td>
-<td>TBD</td>
-</tr>
-</tbody>
-</table>
+| Product     | Version | Lifecycle Status | EOL Date |
+|-------------|---------|------------------|----------|
+| Supermarket | 5.x     | GA               | TBD      |
 
 ## Deprecated Products and Versions
 
 The following products are deprecated. Users are advised to move to
 newer versions or products.
 
-<table>
-<colgroup>
-<col style="width: 18%" />
-<col style="width: 31%" />
-<col style="width: 25%" />
-<col style="width: 25%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Product</th>
-<th>Version</th>
-<th>Lifecycle Status</th>
-<th>EOL Date</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Chef Backend</td>
-<td>2.x</td>
-<td>Deprecated</td>
-<td>December 31, 2022</td>
-</tr>
-<tr>
-<td>Chef Infra Client</td>
-<td>16.x</td>
-<td>Deprecated</td>
-<td>November 30, 2022</td>
-</tr>
-<tr>
-<td>Chef Manage</td>
-<td>2.5.x+</td>
-<td>Deprecated</td>
-<td>December 31, 2022</td>
-</tr>
-</tbody>
-</table>
+| Product           | Version | Lifecycle Status | EOL Date          |
+|-------------------|---------|------------------|-------------------|
+| Chef Backend      | 2.x     | Deprecated       | December 31, 2022 |
+| Chef Infra Client | 16.x    | Deprecated       | November 30, 2022 |
+| Chef Manage       | 2.5.x+  | Deprecated       | December 31, 2022 |
 
 ## End of Life (EOL) Products
 
-<table>
-<colgroup>
-<col style="width: 25%" />
-<col style="width: 25%" />
-<col style="width: 25%" />
-<col style="width: 25%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Product</th>
-<th>Version</th>
-<th>Lifecycle Status</th>
-<th>EOL Date</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Analytics</td>
-<td>All</td>
-<td>EOL</td>
-<td>December 31, 2018</td>
-</tr>
-<tr>
-<td>Chef Automate</td>
-<td>1.x</td>
-<td>EOL</td>
-<td>December 31, 2019</td>
-</tr>
-<tr>
-<td>Chef Infra Client</td>
-<td>15 and under</td>
-<td>EOL</td>
-<td>April 30, 2021</td>
-</tr>
-<tr>
-<td>Chef Compliance Server</td>
-<td>All</td>
-<td>EOL</td>
-<td>December 31, 2018</td>
-</tr>
-<tr>
-<td>ChefDK</td>
-<td>ALL</td>
-<td>EOL</td>
-<td>December 31, 2020</td>
-</tr>
-<tr>
-<td>Chef Infra Server</td>
-<td>13.x</td>
-<td>EOL</td>
-<td>June 30, 2021</td>
-</tr>
-<tr>
-<td>Chef InSpec</td>
-<td>2 and under</td>
-<td>EOL</td>
-<td>December 31, 2019</td>
-</tr>
-<tr>
-<td>Chef InSpec</td>
-<td>3.x</td>
-<td>EOL</td>
-<td>April 30, 2020</td>
-</tr>
-<tr>
-<td>Chef Provisioning</td>
-<td>All</td>
-<td>EOL</td>
-<td>August 31, 2019</td>
-</tr>
-<tr>
-<td>Chef Push Jobs</td>
-<td>All</td>
-<td>EOL</td>
-<td>December 31, 2020</td>
-</tr>
-<tr>
-<td>Chef Replication/Sync</td>
-<td>All</td>
-<td>EOL</td>
-<td>August 31, 2019</td>
-</tr>
-<tr>
-<td>Chef Server DRBD HA</td>
-<td>All</td>
-<td>EOL</td>
-<td>March 31, 2019</td>
-</tr>
-<tr>
-<td>Chef Workflow (Delivery)</td>
-<td>All</td>
-<td>EOL</td>
-<td>December 31, 2020</td>
-</tr>
-<tr>
-<td>Chef Workstation</td>
-<td>20.12.205 and under</td>
-<td>EOL</td>
-<td>December 31, 2021</td>
-</tr>
-<tr>
-<td>Enterprise Chef</td>
-<td>All</td>
-<td>EOL</td>
-<td>December 31, 2018</td>
-</tr>
-<tr>
-<td>Reporting</td>
-<td>All</td>
-<td>EOL</td>
-<td>December 31, 2018</td>
-</tr>
-</tbody>
-</table>
+| Product                  | Version             | Lifecycle Status | EOL Date          |
+|--------------------------|---------------------|------------------|-------------------|
+| Analytics                | All                 | EOL              | December 31, 2018 |
+| Chef Automate            | 1.x                 | EOL              | December 31, 2019 |
+| Chef Infra Client        | 15 and under        | EOL              | April 30, 2021    |
+| Chef Compliance Server   | All                 | EOL              | December 31, 2018 |
+| ChefDK                   | ALL                 | EOL              | December 31, 2020 |
+| Chef Infra Server        | 13.x                | EOL              | June 30, 2021     |
+| Chef InSpec              | 2 and under         | EOL              | December 31, 2019 |
+| Chef InSpec              | 3.x                 | EOL              | April 30, 2020    |
+| Chef Provisioning        | All                 | EOL              | August 31, 2019   |
+| Chef Push Jobs           | All                 | EOL              | December 31, 2020 |
+| Chef Replication/Sync    | All                 | EOL              | August 31, 2019   |
+| Chef Server DRBD HA      | All                 | EOL              | March 31, 2019    |
+| Chef Workflow (Delivery) | All                 | EOL              | December 31, 2020 |
+| Chef Workstation         | 20.12.205 and under | EOL              | December 31, 2021 |
+| Enterprise Chef          | All                 | EOL              | December 31, 2018 |
+| Reporting                | All                 | EOL              | December 31, 2018 |
