@@ -32,7 +32,7 @@ With the deferred execution of resources to converge time, the user has to under
 
 ### Elimination of Lazy Blocks
 
-Several aspects of the Chef Infra Language still work but are no longer necessary in unified mode. Unified mode eliminates the need for lazy blocks and the need to lazy Ruby code through a ruby block.
+Several aspects of the Chef Infra Language still work but are no longer necessary in unified mode. Unified mode eliminates the need for lazy blocks and the need to lazy Ruby code through a Ruby block.
 
 ### Rescue Blocks And Other Ruby Constructs Work Correctly
 
@@ -78,7 +78,7 @@ action :doit do
 end
 ```
 
-Since the **remote_file** and **file** resources execute at converge time, the Ruby code to parse the JSON needs to be wrapped in a **ruby_block** resource, the local variable then needs to be declared outside of that scope (requiring a deep knowledge of Ruby variable scoping rules), and then the content rendered into the **file** resource must be wrapped with `lazy` since the Ruby parses all arguments of properties at compile time instead of converge time.
+Since the remote_file and file resources execute at converge time, the Ruby code to parse the JSON needs to be wrapped in a ruby_block resource, the local variable then needs to be declared outside of that scope (requiring a deep knowledge of Ruby variable scoping rules), and then the content rendered into the file resource must be wrapped with `lazy` since the Ruby parses all arguments of properties at compile time instead of converge time.
 
 Unified mode simplifies this resource:
 
@@ -100,7 +100,7 @@ action :doit do
 end
 ```
 
-Unified mode eliminates the need for the **ruby_block** resource, the `lazy` evaluation, and the variable declaration, simplifying how the cookbook is authored.
+Unified mode eliminates the need for the ruby_block resource, the `lazy` evaluation, and the variable declaration, simplifying how the cookbook is authored.
 
 ### Recovery and Exception Handling
 
@@ -146,7 +146,7 @@ action :install do
 end
 ```
 
-This simplified example shows how to trap exceptions from resources using normal Ruby syntax and to clean up the resource. Without unified mode this syntax is impossible. Normally when the [execute]({{< relref "resources/execute" >}}) resources are parsed, they only create the objects in the `resource_collection` to later be evaluated so that no exception is thrown while Ruby is parsing the `action` block. Every action is delayed to the later converge phase. In unified mode, the resource runs when Ruby is done parsing its block, so exceptions happen in-line with Ruby parsing and the rescue clause now works as expected.
+This simplified example shows how to trap exceptions from resources using normal Ruby syntax and to clean up the resource. Without unified mode, this syntax is impossible. Normally when the [execute]({{< relref "resources/execute" >}}) resources are parsed, they only create the objects in the `resource_collection` to later be evaluated so that no exception is thrown while Ruby is parsing the `action` block. Every action is delayed to the later converge phase. In unified mode, the resource runs when Ruby is done parsing its block, so exceptions happen in-line with Ruby parsing and the rescue clause now works as expected.
 
 This is useful because the TAR extraction throws an exception (for example, the node could be out of disk space), which deletes the TAR file. The next time Chef Infra Client runs, the TAR file will be redownload. If the resource did not have file cleanup after an exception, the TAR file would remain on the client node even though the resource is not complete and the extraction did not happen, leaving the resource in a broken, indeterminate state.
 

@@ -62,7 +62,7 @@ end
 
 #### Run the Resource Explicitly
 
-Another solution is to continue saving the resource as a variable, declaring `action :nothing` within the codeblock and then explicitly running the action in another code block.
+Another solution is to continue saving the resource as a variable, declare `action :nothing` within the codeblock, and then explicitly run the action in another code block.
 
 The pattern of saving a resource as a variable and then forcing it to run at compile time with an explicit `run_action` works as it has in the past, but it is not a preferred pattern. Unified mode forces resource execution to compile time by default, which makes this pattern redundant.
 
