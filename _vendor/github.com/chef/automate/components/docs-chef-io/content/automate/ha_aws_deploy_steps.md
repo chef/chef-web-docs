@@ -79,6 +79,7 @@ vi config.toml
 ```
 
 -   Give `ssh_user` which has access to all the machines. Example: `ubuntu`
+-   Give `ssh_port` in case your AMI is running on custom ssh port, default will be 22.
 -   Give `ssh_key_file` path, this should have been download from AWS SSH Key Pair which we want to use to create all the VM's. Thus, we will be able to access all VM's using this.
 -   Set `backup_config` to `"efs"` or `"s3"`
 -   If `backup_config` is `s3` then set `s3_bucketName` to a Unique Value.
@@ -171,7 +172,29 @@ To destroy infra after successfull provisioning, run below command in your basti
     for i in 1;do i=$PWD;cd /hab/a2_deploy_workspace/terraform/destroy/aws/;terraform init;cd $i;done
     ```
 
-2. This commond will destroy all resources created while provisioning (excluding S3).
+2. This command will destroy all resources created while provisioning (excluding S3).
+
+    ```bash
+    for i in 1;do i=$PWD;cd /hab/a2_deploy_workspace/terraform/destroy/aws/;terraform destroy;cd $i;done
+    ```
+
+#### To destroy AWS infra created with EFS Bucket
+
+To destroy infra after successfull provisioning, run below command in your bastion host in same order.
+
+1. This command will initialise the terraform packages
+
+    ```bash
+    for i in 1;do i=$PWD;cd /hab/a2_deploy_workspace/terraform/destroy/aws/;terraform init;cd $i;done
+    ```
+
+2. Following command will remove EFS from terraform state file, so that `destroy` command will not destroy EFS.
+
+    ```bash
+    for i in 1;do i=$PWD;cd /hab/a2_deploy_workspace/terraform/destroy/aws/;terraform state rm "module.efs[0].aws_efs_file_system.backups";cd $i;done
+    ```
+
+3. This command will destroy all resources created while provisioning (excluding EFS).
 
     ```bash
     for i in 1;do i=$PWD;cd /hab/a2_deploy_workspace/terraform/destroy/aws/;terraform destroy;cd $i;done
