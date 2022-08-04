@@ -21,7 +21,7 @@ These helpers allow you to understand the state of the node that Chef Infra Clie
 
 Use the `node` method, often referred to as the node object, to access data collected on the system through [Ohai](/ohai) as well as node attributes set in cookbooks or Policyfiles.
 
-The syntax for the `cookbook_name` method is as follows:
+The syntax for the `node` method is as follows:
 
 ```ruby
 node['specific_attribute']
