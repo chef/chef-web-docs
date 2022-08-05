@@ -406,6 +406,13 @@ for platforms that use:
 - `useradd`
 - `curl` or `wget`
 
+### Chef Automate HA
+
+### Commercial Support
+
+Commercially supported platforms for Automate HA can be found at
+[Chef Automate HA supported platforms](/automate/ha_platform_support/#software-requirements)
+
 ### Chef Backend
 
 #### Commercial Support
