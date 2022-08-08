@@ -408,10 +408,10 @@ for platforms that use:
 
 ### Chef Automate HA
 
-### Commercial Support
+#### Commercial Support
 
-Commercially supported platforms for Automate HA can be found at
-[Chef Automate HA supported platforms](/automate/ha_platform_support/#software-requirements)
+See the [Chef Automate HA supported platforms](/automate/ha_platform_support/#software-requirements)
+documentation for a list of supported platforms for Chef Automate HA.
 
 ### Chef Backend
 
