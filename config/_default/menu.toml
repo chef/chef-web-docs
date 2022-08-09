@@ -1029,6 +1029,11 @@ weight = 10
   identifier = "release_notes/inspec"
   parent = "release_notes"
 
+  [[release_notes]]
+  title = "Chef Compliance"
+  identifier = "release_notes/compliance"
+  parent = "release_notes"
+
 ####
 # End Release Notes Menu
 ####
