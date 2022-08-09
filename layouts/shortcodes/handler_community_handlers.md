@@ -62,6 +62,10 @@ community:
 <td>A handler that reports the status of a Chef run to any API using net/HTTP.</td>
 </tr>
 <tr>
+<td><a href="https://newrelic.com/instant-observability/chef/ad40ccc2-f7ef-44bf-b961-07813088fce0">New Relic</a></td>
+<td>A handler that collects Chef Infra Client stats and sends them into a New Relic newsfeed.</td>
+</tr>
+<tr>
 <td><a href="https://rubygems.org/gems/chef-handler-mail">Simple Email</a></td>
 <td>A handler that collects exception and report handler data and then uses pony to send email reports that are based on `.erb` (Embedded Ruby ) templates.</td>
 </tr>
