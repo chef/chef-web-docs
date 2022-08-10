@@ -33,7 +33,8 @@
     "**/*.yml",
     "**/*.toml",
     "archetypes/*.md",
-    "_vendor/**/*"
+    "_vendor/**/*",
+    "cspell.json"
   ],
   "ignoreRegExpList": [
     "/'s\\b/",
