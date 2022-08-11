@@ -53,3 +53,13 @@ subscriptions:
     - bash:.expeditor/update_hugo_modules_pull_request_merged.sh:
         only_if_modified:
           - docs-chef-io/static/release-notes/inspec-azure/*
+  - workload: pull_request_merged:chef/compliance-remediation-2022:main:*
+    actions:
+    - bash:.expeditor/update_hugo_modules_pull_request_merged.sh:
+        only_if_modified:
+          - docs-chef-io/*
+  - workload: pull_request_merged:chef/compliance-profiles:main:*
+    actions:
+    - bash:.expeditor/update_hugo_modules_pull_request_merged.sh:
+        only_if_modified:
+          - docs-chef-io/*
