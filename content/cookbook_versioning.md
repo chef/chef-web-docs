@@ -197,6 +197,35 @@ similar to:
 Version 0.0.0 of cookbook redis is frozen. Use --force to override
 ```
 
+## Development Process Discussion: CI/CD Uploading All Changed Versions to a Chef Server
+
+{{< warning >}}
+
+To have the depsolver work properly and reliably the minimum number of cookbook versions needed to do the job should be made available to the Chef Server.
+
+You may consider a CI/CD job where you continually upload all changed versions of all cookbooks to your Chef Server.
+This is a fine idea, as long as you follow a simple rule: Place version constraints on all cookbooks and all dependencies of all cookbooks in any run list you use.
+
+Primarily, this means restricting the versions available to the depsolvers in a Chef Server. You can either do this by only uploading tested and blessed cookbook versions to your Chef Server where each scenario is considered and that small set of cookbook versions is made available. This policy can be implemented by constraining depsolver access to versions using an Environment file.
+
+When not used in concert with pinned versions for all cookbooks, uploading many cookboook versions to a Chef Server is not a good practice.
+As the cookbook version counts grow into the hundreds and thousands, the depsolver must look at more and more versions while trying to solve the constraints problem given to it from the run list of each Chef Client that starts up. Eventually, it runs out of time to produce a solution, times out, and Chef Client runs fail as a result.
+
+In this scenario, since there are no constraints on the possible problem, the dependency solving task becomes unbounded as the cookbook versions grow more and more numerous.
+
+The depsolver workers in a Chef Server have a default timeout of 5s. The solution is not to increase their timeout, but to control the problem so that the depsolver can solve it in a reasonable amount of time. The way to control the problem traditionally is by pinning the versions of cookbooks in an Environment file or by using a wrapper cookbook that calls out the dependencies AND their versions in its metadata.rb file, and the dependencies do the same in their own metadata.rb files. For more detail, see: [Cookbook Metadata Files](/config_rb_metadata/)
+
+Some problems when this advice is not adhered to
+
+- Cookbook version overload where the depsolver is unable to solve the problem in 5 seconds
+- Unexpected older cookbook versions chosen during the dependency solving
+- Depsolving takes too long
+- Thundering client herd also triggers depsolving issues as it will fill up all available depsolver workers
+
+The current best practice is to control cookbook versions through Policyfiles. In this way, the dependency resolution is shifted left, to the cookbook author designing the cookbook, its dependency structure, and the needed versions. For more detail see: [Policyfiles](/policyfile/)
+
+{{< /warning >}}
+
 ## Version Source Control
 
 There are two strategies to consider when using version control as part
