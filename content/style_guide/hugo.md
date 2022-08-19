@@ -87,6 +87,7 @@ gh_repo
 product
 : `product` is a list of Chef products that are relevant to a page. Relevant values:
 
+<!-- markdownlint-disable MD006 MD007 -->
    - `automate`
    - `desktop`
    - `client`
@@ -95,6 +96,7 @@ product
    - `inspec`
    - `supermarket`
    - `workstation`
+<!-- markdownlint-enable MD006 MD007 -->
 
 : This list is used to facet search results in our documentation search by product. Each product section of the documentation
 has a default product parameter configured using Hugo's [Front Matter Cascade](https://gohugo.io/content-management/front-matter#front-matter-cascade); however, you may want to add a product parameter to a page's front matter if that page references more than one Chef product. For example, if a page in the Chef InSpec documentation describes passing data to Chef Automate, you may want to add `product = ["inspec", "automate"]` to the page front matter.
