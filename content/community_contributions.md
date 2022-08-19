@@ -27,52 +27,11 @@ If you are familiar with Chef projects and know the component that is causing yo
 
 We ask you not to submit security concerns using GitHub. For details on submitting potential security issues please see our [Security Issue Guidelines](https://www.chef.io/security/).
 
-In addition to GitHub issues, we also utilize a feedback site that helps our product team track and rank feature requests. If you have a feature request, [this is an excellent place to start](https://feedback.chef.io).
+In addition to GitHub issues, we also use a feedback site that helps our product team track and rank feature requests. If you have a feature request, [this is an excellent place to start](https://chef-software.ideas.aha.io/).
 
 The following repositories are the preferred locations for the creation of issues and bug reports:
 
-<table>
-<colgroup>
-<col style="width: 20%" />
-<col style="width: 80%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Repo</th>
-<th>URL</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Chef Infra Client</td>
-<td><a href="https://github.com/chef/chef">https://github.com/chef/chef</a></td>
-</tr>
-<tr>
-<td>Ohai</td>
-<td><a href="https://github.com/chef/ohai">https://github.com/chef/ohai</a></td>
-</tr>
-<tr>
-<td>Chef Workstation</td>
-<td><a href="https://github.com/chef/chef-workstation">https://github.com/chef/chef-workstation</a></td>
-</tr>
-<tr>
-<td>Chef InSpec</td>
-<td><a href="https://github.com/inspec/inspec">https://github.com/inspec/inspec</a></td>
-</tr>
-<tr>
-<td>Chef Infra Server</td>
-<td><a href="https://github.com/chef/chef-server">https://github.com/chef/chef-server</a></td>
-</tr>
-<tr>
-<td>Chef Habitat</td>
-<td><a href="https://github.com/habitat-sh/habitat">https://github.com/habitat-sh/habitat</a></td>
-</tr>
-<tr>
-<td>Chef Automate</td>
-<td><a href="https://github.com/chef/automate">https://github.com/chef/automate</a></td>
-</tr>
-</tbody>
-</table>
+{{< repos >}}
 
 For additional support about Chef products, including documentation, learning, and opening tickets with the support team, see [Chef Support](https://www.chef.io/support) .
 

@@ -165,7 +165,7 @@ To update a particular repo, run:
 
 ```bash
 hugo mod get github.com/chef/repo_to_update/subdirectory
-hugo mod tidy
+hugo mod clean
 ```
 
 Then [vendor](#hugo-vendoring) the documentation:
