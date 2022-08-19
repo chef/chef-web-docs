@@ -59,6 +59,8 @@ draft = false
 gh_repo = "chef-web-docs"
 product = ["client", "server"]
 aliases = "/style_guide.html"
+robots = ""
+st_robots = ""
 
 [menu]
   [menu.infra]
@@ -82,6 +84,12 @@ gh_repo
 : The GitHub repository that the document originates from. This is used to generate "Edit on GitHub" links on each page. For example:
 `chef-server`, `chef-workstation`, `chef-web-docs`, `automate`.
 
+robots
+: Use robots to add a value to the `robots` meta tag in a page.
+
+st_robots
+: Add a `robots` meta tag specifically for the [Swiftype Site Search Crawler](https://swiftype.com/documentation/site-search/crawler-configuration/meta-tags).
+
 product
 : `product` is a list of Chef products that are relevant to a page. Relevant values:
 
@@ -91,10 +99,11 @@ product
 - `server`
 - `habitat`
 - `inspec`
+- `supermarket`
 - `workstation`
 
-This list is used to facet search results in our documentation search by the product. Each section of the documentation
-has a default product parameter configured using [Front Matter Cascade](https://gohugo.io/content-management/front-matter#front-matter-cascade), however you may want to add a product if a page references more than one Chef product. For example, if a page in the Chef InSpec documentation describes passing data to Chef Automate, you may want to add `product = ["inspec", "automate"]` to the page frontmatter.
+This list is used to facet search results in our documentation search by the product. Each product section of the documentation
+has a default product parameter configured using Hugo's [Front Matter Cascade](https://gohugo.io/content-management/front-matter#front-matter-cascade); however, you may want to add a product parameter to a page's frontmatter if that page references more than one Chef product. For example, if a page in the Chef InSpec documentation describes passing data to Chef Automate, you may want to add `product = ["inspec", "automate"]` to the page frontmatter.
 
 menu title
 : The title of the page as it would appear in the left navigation menu.
