@@ -106,7 +106,7 @@ end
 
 ## Matchers
 
-This InSpec audit resource has the following special matchers. For a full list of available matchers, please visit our [matchers page](https://www.inspec.io/docs/reference/matchers/).
+{{% inspec_matchers_link %}}
 
 ### exist
 
@@ -142,5 +142,5 @@ This will check whether the requested user has a login profile for console acces
 
 Your Principal will need the following permissions action with Effect set to Allow: `ram:Getuser`, `ram:GetLoginProfile`, `ram:ListAccessKeys`.
 
-See the [Alibaba Cloud Resource Access Management documentation](https://www.alibabacloud.com/help/doc-detail/57445.htm?spm=a2c63.p38356.b99.12.51ef1b28W18VZd) and
-[documentation on authentication to RAM APIs](https://partners-intl.aliyun.com/help/doc-detail/102666.htm).
+{{% alibaba_access_management_doc %}}
+{{% alibaba_authentication_ram_api_doc %}}
