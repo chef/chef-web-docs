@@ -35,7 +35,7 @@ From the root of the `chef-web-docs` directory, add a completely new page with t
 hugo new content/page_name.md
 ```
 
-Navigate to your new page in the `chef-web-docs/content` directory and edit the frontmatter accordingly.
+Navigate to your new page in the `chef-web-docs/content` directory and edit the front matter accordingly.
 
 ## Add or Remove pages from the Left Nav Bar
 
@@ -47,9 +47,9 @@ Adding, removing, and changing the placement of a page in the left nav involves 
 
 Contact the documentation team if you have any questions about adding or removing pages.
 
-## TOML Front Matter
+## Page Front Matter
 
-Each page starts with [TOML front matter](https://gohugo.io/content-management/front-matter/) which contains metadata about the page and places it properly in the left navigation menu. Below is the TOML front matter for this page which you can use as a reference. Contact the Docs Team if you have any questions about properly formatting TOML front matter.
+Each page starts with [TOML front matter](https://gohugo.io/content-management/front-matter/) which contains metadata about the page and places it properly in the left navigation menu. Below is the TOML front matter for this page which you can use as a reference. Contact the Docs Team if you have any questions about formatting TOML front matter.
 
 ```toml
 +++
@@ -84,26 +84,26 @@ gh_repo
 : The GitHub repository that the document originates from. This is used to generate "Edit on GitHub" links on each page. For example:
 `chef-server`, `chef-workstation`, `chef-web-docs`, `automate`.
 
+product
+: `product` is a list of Chef products that are relevant to a page. Relevant values:
+
+   - `automate`
+   - `desktop`
+   - `client`
+   - `server`
+   - `habitat`
+   - `inspec`
+   - `supermarket`
+   - `workstation`
+
+: This list is used to facet search results in our documentation search by product. Each product section of the documentation
+has a default product parameter configured using Hugo's [Front Matter Cascade](https://gohugo.io/content-management/front-matter#front-matter-cascade); however, you may want to add a product parameter to a page's front matter if that page references more than one Chef product. For example, if a page in the Chef InSpec documentation describes passing data to Chef Automate, you may want to add `product = ["inspec", "automate"]` to the page front matter.
+
 robots
 : Use robots to add a value to the `robots` meta tag in a page.
 
 st_robots
 : Add a `robots` meta tag specifically for the [Swiftype Site Search Crawler](https://swiftype.com/documentation/site-search/crawler-configuration/meta-tags).
-
-product
-: `product` is a list of Chef products that are relevant to a page. Relevant values:
-
-- `automate`
-- `desktop`
-- `client`
-- `server`
-- `habitat`
-- `inspec`
-- `supermarket`
-- `workstation`
-
-This list is used to facet search results in our documentation search by the product. Each product section of the documentation
-has a default product parameter configured using Hugo's [Front Matter Cascade](https://gohugo.io/content-management/front-matter#front-matter-cascade); however, you may want to add a product parameter to a page's frontmatter if that page references more than one Chef product. For example, if a page in the Chef InSpec documentation describes passing data to Chef Automate, you may want to add `product = ["inspec", "automate"]` to the page frontmatter.
 
 menu title
 : The title of the page as it would appear in the left navigation menu.
