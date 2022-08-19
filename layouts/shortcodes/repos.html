@@ -1,0 +1,70 @@
+{{/* Generate a table of all repositories that contain documentation deployed through chef-web-docs */}}
+{{/* Set 'docsPath=true' to include a column with the paths to the docs content in each repo. */}}
+{{ $docsPath := default false (.Get "docsPath") }}
+
+<table>
+<tr>
+    <th>Product</th>
+    <th>Repository</th>
+    {{ if eq $docsPath true }}<th>Docs Content</th>{{ end }}
+</tr>
+{{ range $k, $v := .Site.Params }}
+{{ if reflect.IsMap $v}}
+{{ range $key, $val := $v }}
+{{ if eq $key "gh_path" }}
+{{ $repo := index (findRE `https:\/\/github\.com\/[\w|\-]+\/[\w|\-]+\/` $val) 0}}
+{{ $productOrg := title (replaceRE `https:\/\/github\.com\/([\w|-]+)\/[\w|\-]+\/.+` "$1" $val) }}
+{{ $productName := (replaceRE `https:\/\/github\.com\/[\w|-]+\/([\w|\-]+)\/.+` "$1" $val) }}
+{{ $productName = humanize $productName | lower }}
+{{ if hasPrefix $productName "chef " }}
+    {{ $productName = replaceRE `chef ` "" $productName 1 }}
+{{ end }}
+{{ if in $productName "inspec"}}
+    {{ $productName = replaceRE "inspec" "InSpec" $productName }}
+    {{ if in $productName "aws"}}
+        {{ $productName = "InSpec AWS Resources"}}
+    {{ end }}
+    {{ if in $productName "azure"}}
+        {{ $productName = "InSpec Azure Resources"}}
+    {{ end }}
+    {{ if in $productName "habitat"}}
+        {{ $productName = "InSpec Habitat Resources"}}
+    {{ end }}
+    {{ if in $productName "gcp"}}
+        {{ $productName = "InSpec Google Cloud Platform Resources"}}
+    {{ end }}
+    {{ if in $productName "k8s"}}
+        {{ $productName = "InSpec Kubernetes Resources"}}
+    {{ end }}
+    {{ if in $productName "alicloud"}}
+        {{ $productName = "InSpec Alibaba Cloud Resources"}}
+    {{ end }}
+{{ end }}
+{{ if eq $productName "desktop config"}}
+    {{ $productName = "Desktop" }}
+{{end }}
+{{ if in $productName "web docs"}}
+    {{ $productName = "Documentation"}}
+{{ end }}
+{{ if eq $productName "server" }}
+    {{ $productName = print "Infra Server" }}
+{{ end }}
+{{ if eq $productName "chef" }}
+    {{ $productName = print "Infra Client" }}
+{{ end }}
+{{ $productName = title $productName }}
+{{ $docsDir := replaceRE `content/$` "" $val }}
+{{ if in $docsDir "chef-web-docs" }}
+    {{ $docsDir = $repo }}
+{{ end }}
+<tr>
+    <td>Chef {{ $productName }}</td>
+    <td><a href="{{ $repo }}">{{$repo}}</a></td>
+    {{ if eq $docsPath true }}<td><a href="{{ $docsDir }}">{{ $docsDir }}</a></td>{{end}}
+</tr>
+
+{{ end }}
+{{ end }}
+{{ end }}
+{{ end }}
+</table>
