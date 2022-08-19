@@ -139,6 +139,5 @@ end
 
 Your Principal will need the following permissions action with Effect set to Allow: `ram:Listusers`, `ram:GetLoginProfile`, `ram:ListAccessKeys`, `ram:GetUserMFAInfo`
 
-See the [Alibaba Cloud Resource Access Management documentation](https://www.alibabacloud.com/help/doc-detail/57445.htm?spm=a2c63.p38356.b99.12.51ef1b28W18VZd) and
-[documentation on authentication to RAM APIs](https://partners-intl.aliyun.com/help/doc-detail/102666.htm).
-
+{{% alibaba_access_management_doc %}}
+{{% alibaba_authentication_ram_api_doc %}}

@@ -25,7 +25,8 @@ describe alicloud_apsaradb_rds_instance('test-instance-id') do
 end
 ```
 
-    # Can also use hash syntax
+You can also use hash syntax:
+
 ```ruby
 describe alicloud_apsaradb_rds_instance(db_instance_id: 'test-instance-id') do
   it { should exist }
@@ -36,13 +37,13 @@ end
 
 `db_instance_id` _(required)_
 
-: This resource accepts a single parameter, the user-supplied instance identifier.   
+: This resource accepts a single parameter, the user-supplied instance identifier.
   This can be passed either as a string if it is the only parameter, or using hash syntax, `db_instance_id: 'value'`.
 
 `region` _(optional)_
 
-: The Alicloud Region ID - see the [Alicloud documentation on Regions and Zones](https://www.alibabacloud.com/help/doc-detail/40654.htm).  
-  If provided, it must be passed as `region: 'value'`.  
+: The Alicloud Region ID - see the [Alicloud documentation on Regions and Zones](https://www.alibabacloud.com/help/doc-detail/40654.htm).
+  If provided, it must be passed as `region: 'value'`.
   If not provided, the `ALICLOUD_REGION` environment variable will be used.
 
 See also the [Alicloud documentation on ApsaraDB RDS](https://www.alibabacloud.com/help/doc-detail/26092.htm).
@@ -142,7 +143,7 @@ end
 
 ## Matchers
 
-This InSpec audit resource has the following special matchers. For a full list of available matchers, please visit our [matchers page](https://www.inspec.io/docs/reference/matchers/).
+{{% inspec_matchers_link %}}
 
 ### exist
 
