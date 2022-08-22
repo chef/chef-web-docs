@@ -16,7 +16,7 @@ else
     module_suffix="/docs-chef-io"
 fi
 
-hugo mod get -u github.com/${EXPEDITOR_AGENT_CONFIG_GITHUB_REPO}${module_suffix}
+hugo mod get -u github.com/${EXPEDITOR_REPO}${module_suffix}
 hugo mod tidy
 
 # Update the vendored files in chef-web-docs
