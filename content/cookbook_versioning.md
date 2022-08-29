@@ -197,6 +197,40 @@ similar to:
 Version 0.0.0 of cookbook redis is frozen. Use --force to override
 ```
 
+## Managing Many Cookbook Versions
+
+{{< warning >}}
+
+If you continually upload all versions of many cookbooks to your Chef Infra Server, you may overload the Chef Infra Server's dependency solver, causing it to time out and leading to a failed Chef Infra Client run.
+
+There are three solutions to this problem:
+
+- use [Policyfiles](/policyfile/) (recommended)
+- place version constraints on all cookbooks and all dependencies of all cookbooks in any run list you use for a Chef Infra Client run
+- upload only the required cookbook versions to a Chef Infra Server
+
+{{< /warning >}}
+
+In a CI/CD workflow where new cookbook versions are continually uploaded to a Chef Infra Server, the Chef Infra Server dependency solver must look at more and more cookbook versions while trying to solve the constraints given to it from the run list of each Chef Infra Client that starts up. Eventually, it runs out of time to produce a solution, times out, and the Chef Infra Client run fails as a result. The Chef Infra Server may also pick older cookbook versions than the versions that you intended.
+
+The dependency solver workers in a Chef Infra Server have a default timeout of five seconds. The solution is not to increase their timeout, but to control the problem so that the dependency solvers can solve it in a reasonable amount of time.
+
+### Policyfiles
+
+The current best practice is to control cookbook versions through Policyfiles. In this way, the dependency resolution is shifted left to the cookbook author designing the cookbook, its dependency structure, and the needed versions of all involved cookbooks. See the [Policyfiles](/policyfile/) documentation for more information.
+
+### Version Constraints
+
+In a CI/CD environment where you have many versions of cookbooks, place version constraints on all cookbooks and all dependencies of all cookbooks in any run list you use for a Chef Infra Client run.
+
+The way to control the problem traditionally is by pinning the versions of cookbooks in an environment file or by using a wrapper cookbook that calls out the dependencies AND their versions in its `metadata.rb` file, and the dependencies do the same in their own `metadata.rb` files. See the [Cookbook Metadata Files](/config_rb_metadata/) for more information.
+
+### Minimum Number of Cookbook Versions
+
+The dependency solver will also work properly if you upload the minimum number of cookbook versions needed to the Chef Infra Server.
+
+You can make a start at this by only uploading tested and blessed cookbook versions to your Chef Infra Server. These cookbooks would be ones where each scenario or role for the nodes is considered and that small set of cookbook versions are made available for those sets of nodes. Before Policyfiles, this policy could be implemented by constraining dependency solver access to candidate versions using an [environment]({{< relref "environments" >}}) file.
+
 ## Version Source Control
 
 There are two strategies to consider when using version control as part
