@@ -96,7 +96,7 @@ end
 
 ## Matchers
 
-For a full list of available matchers, please visit our [Universal Matchers page](https://www.inspec.io/docs/reference/matchers/).
+{{% inspec_matchers_link %}}
 
 ### exist
 
@@ -118,7 +118,7 @@ end
 
 ### Alicloud Permissions
 
-Your Principal will need the `ecs:DescribeDisks` action with Effect set to Allow.
+{{% alicloud_principal_action action="ecs:DescribeDisks" %}}
 
-See the [Alibaba Cloud Resource Access Management documentation](https://www.alibabacloud.com/help/doc-detail/57445.htm?spm=a2c63.p38356.b99.12.51ef1b28W18VZd) and
-[documentation on authentication rules for ECS APIs](https://partners-intl.aliyun.com/help/doc-detail/25497.htm?spm=a2c63.p38356.b99.657.7b9f3481VdEA4g).
+{{% alibaba_access_management_doc %}}
+{{% alibaba_authentication_ecs_api_doc %}}

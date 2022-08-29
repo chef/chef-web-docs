@@ -1,10 +1,10 @@
 +++
-title = "Chef Compliance Profiles Release Notes"
+title = "Chef Compliance Audit Profiles Release Notes"
 draft = false
 
 [menu]
   [menu.release_notes]
-    title = "Chef Compliance Profiles"
+    title = "Chef Compliance Audit Profiles"
     identifier = "release_notes/compliance/Chef Compliance Profiles"
     parent = "release_notes/compliance"
     weight = 10

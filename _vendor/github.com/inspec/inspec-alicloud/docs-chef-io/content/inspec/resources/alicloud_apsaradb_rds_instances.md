@@ -126,7 +126,7 @@ end
 
 ## Matchers
 
-For a full list of available matchers, please visit our [Universal Matchers page](https://www.inspec.io/docs/reference/matchers/).
+{{% inspec_matchers_link %}}
 
 ### exist
 
@@ -148,6 +148,6 @@ end
 
 ### Alicloud Permissions
 
-Your Principal will need the `rds:DescribeDBInstances` action with Effect set to Allow.
+{{% alicloud_principal_action action="rds:DescribeDBInstances" %}}
 
 You can find documentation at [Use RAM to manage ApsaraDB for RDS permissions](https://www.alibabacloud.com/help/doc-detail/58932.htm#section-rhd-4ll-5gb).
