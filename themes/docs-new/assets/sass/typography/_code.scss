@@ -40,6 +40,12 @@ table {
   code {
     border: 1px solid $code-border;
   }
+  pre {
+    border: 1px solid $code-border;
+    code {
+      border: none;
+    }
+  }
 }
 
 .code {
