@@ -31,14 +31,20 @@ Note that H5 and H6 sections aren't included in the table of contents.
 
 This is in an H6 section.
 
+<!-- markdownlint-disable MD036 -->
+
 **Bold**
+
+<!-- markdownlint-enable MD036 -->
 
 This is in an bolded section.
 
-## Inline elements
+## Inline Elements
 
 Inline elements show up within the text of paragraph, list item, admonition, or
 other block-level element.
+
+<!-- /* cSpell:disable */ -->
 
 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
 incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
@@ -47,20 +53,26 @@ Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
 fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
 culpa qui officia deserunt mollit anim id est laborum.
 
-### Inline text styles
+<!-- /* cSpell:enable */ -->
+
+### Inline Text Styles
+
+<!-- markdownlint-disable MD033 -->
 
 - **bold**
 - _italic_
-- ***bold italic***
+- _**bold italic**_
 - ~~strikethrough~~
 - <u>underline</u>
 - _<u>underline italic</u>_
 - **<u>underline bold</u>**
-- ***<u>underline bold italic</u>***
+- _**<u>underline bold italic</u>**_
 - `monospace text`
 - **`monospace bold`**
 
-## Readfile
+<!-- markdownlint-enable MD033 -->
+
+## readfile Shortcode
 
 Use the `readfile` shortcode to add files to a page. This could be Markdown text or a code sample.
 
@@ -77,11 +89,10 @@ mind:
   between the lists, flush with the left-hand border. The first list won't end
   otherwise, no matter how many blank lines you put between it and the second.
 
-### Bullet lists
+### Bullet Lists
 
 - This is a list item
-* This is another list item in the same list
-- You can mix `-` and `*`
+- This is another list item in the same list
   - To make a sub-item, indent two spaces.
     - This is a sub-sub-item. Indent two more spaces.
   - Another sub-item.
@@ -102,40 +113,38 @@ mind:
 
   - And a sub-list after some block-level content
 
-- A bullet list item can contain a numbered list.
-    1.  Numbered sub-list item 1
-    2.  Numbered sub-list item 2
+### Numbered Lists
 
-### Numbered lists
-
-1.  This is a list item
-2.  This is another list item in the same list. The number you use in Markdown
-    does not necessarily correlate to the number in the final output. By
-    convention, we keep them in sync.
-3.  {{< note >}}
-    For single-digit numbered lists, using two spaces after the period makes
-    interior block-level content line up better along tab-stops.
-    {{< /note >}}
+1. This is a list item
+2. This is another list item in the same list. The number you use in Markdown
+   does not necessarily correlate to the number in the final output. By
+   convention, we keep them in sync.
+3. {{< note >}}
+   For single-digit numbered lists, using two spaces after the period makes
+   interior block-level content line up better along tab-stops.
+  {{< /note >}}
 
 <!-- separate lists -->
 
-1.  This is a new list. With Hugo, you need to use a HTML comment to separate
-    two consecutive lists. **The HTML comment needs to be at the left margin.**
-2.  Numbered lists can have paragraphs or block elements within them.
+1. This is a new list. With Hugo, you need to use a HTML comment to separate
+   two consecutive lists. **The HTML comment needs to be at the left margin.**
+2. Numbered lists can have paragraphs or block elements within them.
 
-    Indent the content to be the same as the first line of the bullet
-    point. **This paragraph and the code block line up with the `N` in
-    `Numbered` above.**
+   Indent the content to be the same as the first line of the bullet
+   point. **This paragraph and the code block line up with the `N` in
+   `Numbered` above.**
 
-    ```bash
-    ls -l
-    ```
+   ```bash
+   ls -l
+   ```
 
-    - And a sub-list after some block-level content. This is at the same
-      "level" as the paragraph and code block above, despite being indented
-      more.
+   - And a sub-list after some block-level content. This is at the same
+     "level" as the paragraph and code block above, despite being indented
+     more.
 
 ### Tab Panels
+
+<!-- markdownlint-disable MD031 -->
 
 {{< foundation_tabs tabs-id="ruby-python-go-panel" >}}
   {{< foundation_tab active="true" panel-link="ruby-panel" tab-text="Ruby">}}
@@ -168,6 +177,7 @@ mind:
   {{< /foundation_tabs_panel >}}
 {{< /foundation_tabs_panels >}}
 
+<!-- markdownlint-enable MD031 -->
 
 ### Checklists
 
@@ -176,7 +186,7 @@ Checklists are technically bullet lists, but the bullets are suppressed by CSS.
 - [ ] This is a checklist item
 - [x] This is a selected checklist item
 
-## Code blocks
+## Code Blocks
 
 You can create code blocks two different ways by surrounding the code block with
 three back-tick characters on lines before and after the code block. **Only use
@@ -184,40 +194,17 @@ back-ticks (code fences) for code blocks.** This allows you to specify the
 language of the enclosed code, which enables syntax highlighting. It is also more
 predictable than using indentation.
 
-```
-this is a code block created by back-ticks
-```
-
-The back-tick method has some advantages.
-
-- It works nearly every time
-- It is more compact when viewing the source code.
-- It allows you to specify what language the code block is in, for syntax
-  highlighting.
-- It has a definite ending. Sometimes, the indentation method breaks with
-  languages where spacing is significant, like Python or YAML.
-
-To specify the language for the code block, put it directly after the first
-grouping of back-ticks:
-
 ```bash
 ls -l
 ```
-
-Common languages used in Kubernetes documentation code blocks include:
-
-- `bash` / `shell` (both work the same)
-- `go`
-- `json`
-- `yaml`
-- `xml`
-- `none` (disables syntax highlighting for the block)
 
 ## Links
 
 To format a link, put the link text inside square brackets, followed by the
 link target in parentheses. [Link to chef.io](https://chef.io/) or
 [Relative link to docs.chef.io](/)
+
+<!-- markdownlint-disable MD033-->
 
 You can also use HTML, but it is not preferred.
 <a href="https://chef.io/">Link to chef.io</a>
@@ -229,7 +216,7 @@ character. The square brackets contain the image's alt text. Try to always use
 alt text so that people using screen readers can get some benefit from the
 image.
 
-![pencil icon](/images/pencil.png)
+![Classic Chef logo](/images/chef-icon.png)
 
 To specify extended attributes, such as width, title, caption, etc, use the
 <a href="https://gohugo.io/content-management/shortcodes/#figure">figure shortcode</a>,
@@ -237,18 +224,19 @@ which is preferred to using a HTML `<img>` tag. Also, if you need the image to
 also be a hyperlink, use the `link` attribute, rather than wrapping the whole
 figure in Markdown link syntax as shown below.
 
-{{< figure src="/images/pencil.png" title="Pencil icon" caption="Image used to illustrate the figure shortcode" width="200px" >}}
+{{< figure src="/images/chef-icon.png" title="Classic Chef icon" caption="Image used to illustrate the figure shortcode" width="200px" >}}
 
 Even if you choose not to use the figure shortcode, an image can also be a link. This
 time the pencil icon links to the Kubernetes website. Outer square brackets enclose
 the entire image tag, and the link target is in the parentheses at the end.
 
-[![pencil icon](/images/pencil.png)](https://kubernetes.io)
+[![pencil icon](/images/chef-icon.png)](https://chef.io)
 
 You can also use HTML for images, but it is not preferred.
 
-<img src="/images/pencil.png" alt="pencil icon" />
+<img src="/images/chef-icon.png" alt="Classic Chef logo" />
 
+<!-- markdownlint-enable MD033-->
 
 ## Tables
 
@@ -266,6 +254,8 @@ The header is optional. Any text separated by `|` will render as a table.
 Markdown tables have a hard time with block-level elements within cells, such as
 list items, code blocks, or multiple paragraphs. For complex or very wide
 tables, use HTML instead.
+
+<!-- markdownlint-disable MD033 -->
 
 <table>
 <thead>
@@ -305,6 +295,7 @@ tables, use HTML instead.
 </tbody>
 </table>
 
+<!-- markdownlint-enable MD033 -->
 
 ## Blockquotes and Admonitions
 
@@ -318,7 +309,7 @@ A blockquote offsets text visually, but without the visual prominence of
 
 > This is a blockquote.
 >
-> You can have paragraphs and block-level elements within a blockquote.
+> Use a blockquote to quote extended blocks of text.
 >
 > You can even have code blocks.
 >

@@ -7,6 +7,10 @@ code {
   max-width: 100%;
 }
 
+strong > code {
+  font-weight: 600;
+}
+
 
 a {
   code {
