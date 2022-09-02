@@ -60,7 +60,7 @@ The following table lists the commercially-supported platforms and versions for 
 <tr>
 <td>AIX</td>
 <td><code>powerpc</code></td>
-<td><code>7.1</code> (TL5 SP2 or higher, recommended), <code>7.2</code>,<code>7.3</code></td>
+<td><code>7.1</code> (TL5 SP2 or higher, recommended), <code>7.2</code></td>
 </tr>
 <tr>
 <td>AlmaLinux</td>
