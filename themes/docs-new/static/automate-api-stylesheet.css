@@ -1,0 +1,45 @@
+body {
+	margin: 0;
+	padding: 0;
+}
+
+a.return {
+	background: #EF9600;
+	display: block;
+	text-align: center;
+	width: 260px;
+	padding: 8px 0;
+	color: white;
+	text-decoration: none;
+	font-family: montserrat;
+	font-size: 14px;
+	position: fixed;
+	z-index: 1;
+}
+
+#top-container {
+	display: flex;
+	flex-wrap: wrap;
+	padding:20px;
+	font-family: Montserrat, sans-serif;
+	font-weight: 400;
+	font-size: .9em;
+	line-height: 1.6em;
+	color: rgb(51, 51, 51);
+	background-color: rgb(250, 250, 250);
+}
+#top-container-return {
+	padding-left: 10px;
+	flex: 0 0 200px;
+	margin-top: 1em;
+}
+
+#top-container-message {
+	padding: 0 15px;
+	flex: 1 1 250px;
+}
+
+redoc[spec-url] a img[src^="/images/chef-automate-logo.svg"] {
+	width: 220px;
+	margin: 20px;
+}
